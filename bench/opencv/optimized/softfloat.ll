@@ -185,12 +185,6 @@ _ZN2cvL11ui32_to_f32Ej.exit:                      ; preds = %2, %_ZN2cvL28softfl
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN2cv9softfloatC2Em(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %0, i64 noundef %1) unnamed_addr #0 align 2 {
   %3 = lshr i64 %1, 32
@@ -291,7 +285,7 @@ _ZN2cvL11ui64_to_f32Em.exit:                      ; preds = %50, %46, %17
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN2cv9softfloatC2Ei(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = alloca %"struct.cv::softfloat", align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = icmp slt i32 %1, 0
   %5 = and i32 %1, 2147483647
   %.not.i = icmp eq i32 %5, 0
@@ -311,7 +305,7 @@ define void @_ZN2cv9softfloatC2Ei(ptr noundef nonnull writeonly align 4 captures
 _ZN2cvL10i32_to_f32Ei.exit:                       ; preds = %8, %6
   %11 = phi i32 [ %.pre, %8 ], [ %7, %6 ]
   store i32 %11, ptr %0, align 4, !tbaa !12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -432,7 +426,7 @@ _ZN2cvL10i64_to_f32El.exit:                       ; preds = %_ZN2cvL24softfloat_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZNK2cv9softfloatcvNS_10softdoubleEEv(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::softdouble") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #2 align 2 {
+define void @_ZNK2cv9softfloatcvNS_10softdoubleEEv(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::softdouble") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #1 align 2 {
   %3 = load i32, ptr %1, align 4, !tbaa !12
   tail call void @llvm.experimental.noalias.scope.decl(metadata !24)
   %4 = zext i32 %3 to i64
@@ -516,7 +510,7 @@ _ZN2cvL10f32_to_f64ENS_9softfloatE.exit:          ; preds = %11, %15, %18, %38
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK2cv9softfloatplERKS0_(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::softfloat") align 4 captures(none) initializes((0, 4)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %2) local_unnamed_addr #3 align 2 {
+define void @_ZNK2cv9softfloatplERKS0_(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::softfloat") align 4 captures(none) initializes((0, 4)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %2) local_unnamed_addr #2 align 2 {
   %4 = load i32, ptr %1, align 4, !tbaa !12
   %5 = load i32, ptr %2, align 4, !tbaa !12
   %6 = zext i32 %4 to i64
@@ -538,7 +532,7 @@ _ZN2cvL7f32_addENS_9softfloatES0_.exit:           ; preds = %9, %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK2cv9softfloatmiERKS0_(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::softfloat") align 4 captures(none) initializes((0, 4)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %2) local_unnamed_addr #3 align 2 {
+define void @_ZNK2cv9softfloatmiERKS0_(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::softfloat") align 4 captures(none) initializes((0, 4)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %2) local_unnamed_addr #2 align 2 {
   %4 = load i32, ptr %1, align 4, !tbaa !12
   %5 = load i32, ptr %2, align 4, !tbaa !12
   %6 = zext i32 %4 to i64
@@ -560,7 +554,7 @@ _ZN2cvL7f32_subENS_9softfloatES0_.exit:           ; preds = %9, %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZNK2cv9softfloatmlERKS0_(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::softfloat") align 4 captures(none) initializes((0, 4)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %2) local_unnamed_addr #2 align 2 {
+define void @_ZNK2cv9softfloatmlERKS0_(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::softfloat") align 4 captures(none) initializes((0, 4)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %2) local_unnamed_addr #1 align 2 {
   %4 = load i32, ptr %1, align 4, !tbaa !12
   %5 = load i32, ptr %2, align 4, !tbaa !12
   tail call void @llvm.experimental.noalias.scope.decl(metadata !39)
@@ -801,7 +795,7 @@ _ZN2cvL7f32_mulENS_9softfloatES0_.exit:           ; preds = %_ZN2cvL24softfloat_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZNK2cv9softfloatdvERKS0_(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::softfloat") align 4 captures(none) initializes((0, 4)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %2) local_unnamed_addr #2 align 2 {
+define void @_ZNK2cv9softfloatdvERKS0_(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::softfloat") align 4 captures(none) initializes((0, 4)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %2) local_unnamed_addr #1 align 2 {
   %4 = load i32, ptr %1, align 4, !tbaa !12
   %5 = load i32, ptr %2, align 4, !tbaa !12
   tail call void @llvm.experimental.noalias.scope.decl(metadata !42)
@@ -1041,7 +1035,7 @@ _ZN2cvL7f32_divENS_9softfloatES0_.exit:           ; preds = %19, %23, %_ZN2cvL24
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZNK2cv9softfloatrmERKS0_(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::softfloat") align 4 captures(none) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %2) local_unnamed_addr #4 align 2 {
+define void @_ZNK2cv9softfloatrmERKS0_(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::softfloat") align 4 captures(none) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %2) local_unnamed_addr #3 align 2 {
   %4 = load i32, ptr %1, align 4, !tbaa !12
   %5 = load i32, ptr %2, align 4, !tbaa !12
   tail call void @llvm.experimental.noalias.scope.decl(metadata !45)
@@ -1296,7 +1290,7 @@ _ZN2cvL7f32_remENS_9softfloatES0_.exit:           ; preds = %21, %43, %70, %119,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK2cv9softfloateqERKS0_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #5 align 2 {
+define noundef zeroext i1 @_ZNK2cv9softfloateqERKS0_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #4 align 2 {
   %3 = load i32, ptr %0, align 4, !tbaa !12
   %4 = load i32, ptr %1, align 4, !tbaa !12
   %5 = zext i32 %3 to i64
@@ -1330,7 +1324,7 @@ _ZN2cvL6f32_eqENS_9softfloatES0_.exit:            ; preds = %2, %9, %14
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK2cv9softfloatneERKS0_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #5 align 2 {
+define noundef zeroext i1 @_ZNK2cv9softfloatneERKS0_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #4 align 2 {
   %3 = load i32, ptr %0, align 4, !tbaa !12
   %4 = load i32, ptr %1, align 4, !tbaa !12
   %5 = zext i32 %3 to i64
@@ -1364,7 +1358,7 @@ _ZN2cvL6f32_eqENS_9softfloatES0_.exit:            ; preds = %2, %9, %14
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK2cv9softfloatgtERKS0_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #5 align 2 {
+define noundef zeroext i1 @_ZNK2cv9softfloatgtERKS0_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #4 align 2 {
   %3 = load i32, ptr %1, align 4, !tbaa !12
   %4 = load i32, ptr %0, align 4, !tbaa !12
   %5 = zext i32 %3 to i64
@@ -1415,7 +1409,7 @@ _ZN2cvL6f32_ltENS_9softfloatES0_.exit:            ; preds = %2, %9, %15, %17, %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK2cv9softfloatgeERKS0_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #5 align 2 {
+define noundef zeroext i1 @_ZNK2cv9softfloatgeERKS0_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #4 align 2 {
   %3 = load i32, ptr %1, align 4, !tbaa !12
   %4 = load i32, ptr %0, align 4, !tbaa !12
   %5 = zext i32 %3 to i64
@@ -1466,7 +1460,7 @@ _ZN2cvL6f32_leENS_9softfloatES0_.exit:            ; preds = %2, %9, %15, %17, %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK2cv9softfloatltERKS0_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #5 align 2 {
+define noundef zeroext i1 @_ZNK2cv9softfloatltERKS0_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #4 align 2 {
   %3 = load i32, ptr %0, align 4, !tbaa !12
   %4 = load i32, ptr %1, align 4, !tbaa !12
   %5 = zext i32 %3 to i64
@@ -1517,7 +1511,7 @@ _ZN2cvL6f32_ltENS_9softfloatES0_.exit:            ; preds = %2, %9, %15, %17, %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK2cv9softfloatleERKS0_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #5 align 2 {
+define noundef zeroext i1 @_ZNK2cv9softfloatleERKS0_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #4 align 2 {
   %3 = load i32, ptr %0, align 4, !tbaa !12
   %4 = load i32, ptr %1, align 4, !tbaa !12
   %5 = zext i32 %3 to i64
@@ -1607,7 +1601,7 @@ _ZN2cvL11ui32_to_f64Ej.exit:                      ; preds = %3, %2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN2cv10softdoubleC2Em(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0, i64 noundef %1) unnamed_addr #0 align 2 {
   %3 = alloca %"struct.cv::softdouble", align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.not.i = icmp eq i64 %1, 0
   br i1 %.not.i, label %_ZN2cvL11ui64_to_f64Em.exit, label %4
 
@@ -1637,7 +1631,7 @@ define void @_ZN2cv10softdoubleC2Em(ptr noundef nonnull writeonly align 8 captur
 _ZN2cvL11ui64_to_f64Em.exit:                      ; preds = %2, %14, %5
   %15 = phi i64 [ %.pre, %14 ], [ %13, %5 ], [ 0, %2 ]
   store i64 %15, ptr %0, align 8, !tbaa !27
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -1686,7 +1680,7 @@ _ZN2cvL10i32_to_f64Ei.exit:                       ; preds = %3, %2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN2cv10softdoubleC2El(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0, i64 noundef %1) unnamed_addr #0 align 2 {
   %3 = alloca %"struct.cv::softdouble", align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = icmp slt i64 %1, 0
   %5 = and i64 %1, 9223372036854775807
   %.not.i = icmp eq i64 %5, 0
@@ -1705,12 +1699,12 @@ define void @_ZN2cv10softdoubleC2El(ptr noundef nonnull writeonly align 8 captur
 _ZN2cvL10i64_to_f64El.exit:                       ; preds = %8, %6
   %10 = phi i64 [ %.pre, %8 ], [ %7, %6 ]
   store i64 %10, ptr %0, align 8, !tbaa !27
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_Z7cvTruncRKN2cv9softfloatE(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #5 {
+define noundef i32 @_Z7cvTruncRKN2cv9softfloatE(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #4 {
   %2 = load i32, ptr %0, align 4, !tbaa !12
   %3 = zext i32 %2 to i64
   %4 = lshr i64 %3, 23
@@ -1752,7 +1746,7 @@ _ZN2cvL19f32_to_i32_r_minMagENS_9softfloatEb.exit: ; preds = %1, %11, %13, %18
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_Z7cvRoundRKN2cv9softfloatE(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #5 {
+define noundef i32 @_Z7cvRoundRKN2cv9softfloatE(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #4 {
   %2 = load i32, ptr %0, align 4, !tbaa !12
   %3 = zext i32 %2 to i64
   %4 = icmp slt i32 %2, 0
@@ -1825,7 +1819,7 @@ _ZN2cvL10f32_to_i32ENS_9softfloatEhb.exit:        ; preds = %26, %37
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_Z7cvFloorRKN2cv9softfloatE(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #5 {
+define noundef i32 @_Z7cvFloorRKN2cv9softfloatE(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #4 {
   %2 = load i32, ptr %0, align 4, !tbaa !12
   %3 = zext i32 %2 to i64
   %4 = icmp slt i32 %2, 0
@@ -1893,7 +1887,7 @@ _ZN2cvL10f32_to_i32ENS_9softfloatEhb.exit:        ; preds = %29, %35
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_Z6cvCeilRKN2cv9softfloatE(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #5 {
+define noundef i32 @_Z6cvCeilRKN2cv9softfloatE(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #4 {
   %2 = load i32, ptr %0, align 4, !tbaa !12
   %3 = zext i32 %2 to i64
   %4 = icmp slt i32 %2, 0
@@ -1961,7 +1955,7 @@ _ZN2cvL10f32_to_i32ENS_9softfloatEhb.exit:        ; preds = %29, %35
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_Z7cvTruncRKN2cv10softdoubleE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #5 {
+define noundef i32 @_Z7cvTruncRKN2cv10softdoubleE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #4 {
   %2 = load i64, ptr %0, align 8, !tbaa !27
   %3 = lshr i64 %2, 52
   %4 = and i64 %3, 2047
@@ -2004,7 +1998,7 @@ _ZN2cvL19f64_to_i32_r_minMagENS_10softdoubleEb.exit: ; preds = %1, %11, %14, %19
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_Z7cvRoundRKN2cv10softdoubleE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #5 {
+define noundef i32 @_Z7cvRoundRKN2cv10softdoubleE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #4 {
   %2 = load i64, ptr %0, align 8, !tbaa !27
   %3 = icmp slt i64 %2, 0
   %4 = lshr i64 %2, 52
@@ -2075,7 +2069,7 @@ _ZN2cvL10f64_to_i32ENS_10softdoubleEhb.exit:      ; preds = %23, %34
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_Z7cvFloorRKN2cv10softdoubleE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #5 {
+define noundef i32 @_Z7cvFloorRKN2cv10softdoubleE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #4 {
   %2 = load i64, ptr %0, align 8, !tbaa !27
   %3 = icmp slt i64 %2, 0
   %4 = lshr i64 %2, 52
@@ -2141,7 +2135,7 @@ _ZN2cvL10f64_to_i32ENS_10softdoubleEhb.exit:      ; preds = %26, %32
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_Z6cvCeilRKN2cv10softdoubleE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #5 {
+define noundef i32 @_Z6cvCeilRKN2cv10softdoubleE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #4 {
   %2 = load i64, ptr %0, align 8, !tbaa !27
   %3 = icmp slt i64 %2, 0
   %4 = lshr i64 %2, 52
@@ -2207,7 +2201,7 @@ _ZN2cvL10f64_to_i32ENS_10softdoubleEhb.exit:      ; preds = %26, %32
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_Z9cvRound64RKN2cv10softdoubleE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #5 {
+define noundef i64 @_Z9cvRound64RKN2cv10softdoubleE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #4 {
   %2 = load i64, ptr %0, align 8, !tbaa !27
   %.lobit.i = lshr i64 %2, 63
   %3 = trunc nuw nsw i64 %.lobit.i to i8
@@ -2285,7 +2279,7 @@ _ZN2cvL10f64_to_i64ENS_10softdoubleEhb.exit:      ; preds = %14, %20, %22, %_ZN2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK2cv10softdoublecvNS_9softfloatEEv(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::softfloat") align 4 captures(none) initializes((0, 4)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #3 align 2 {
+define void @_ZNK2cv10softdoublecvNS_9softfloatEEv(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::softfloat") align 4 captures(none) initializes((0, 4)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #2 align 2 {
   %3 = load i64, ptr %1, align 8, !tbaa !27
   %4 = icmp slt i64 %3, 0
   %5 = lshr i64 %3, 52
@@ -2398,7 +2392,7 @@ _ZN2cvL10f64_to_f32ENS_10softdoubleE.exit:        ; preds = %11, %16, %25, %53, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK2cv10softdoubleplERKS0_(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::softdouble") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2) local_unnamed_addr #3 align 2 {
+define void @_ZNK2cv10softdoubleplERKS0_(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::softdouble") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2) local_unnamed_addr #2 align 2 {
   %4 = load i64, ptr %1, align 8, !tbaa !27
   %5 = load i64, ptr %2, align 8, !tbaa !27
   %6 = icmp slt i64 %4, 0
@@ -2419,7 +2413,7 @@ _ZN2cvL7f64_addENS_10softdoubleES0_.exit:         ; preds = %8, %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK2cv10softdoublemiERKS0_(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::softdouble") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2) local_unnamed_addr #3 align 2 {
+define void @_ZNK2cv10softdoublemiERKS0_(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::softdouble") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2) local_unnamed_addr #2 align 2 {
   %4 = load i64, ptr %1, align 8, !tbaa !27
   %5 = load i64, ptr %2, align 8, !tbaa !27
   %6 = icmp slt i64 %4, 0
@@ -2440,7 +2434,7 @@ _ZN2cvL7f64_subENS_10softdoubleES0_.exit:         ; preds = %8, %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::softdouble") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2) local_unnamed_addr #2 align 2 {
+define void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::softdouble") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2) local_unnamed_addr #1 align 2 {
   %4 = load i64, ptr %1, align 8, !tbaa !27
   %5 = load i64, ptr %2, align 8, !tbaa !27
   tail call void @llvm.experimental.noalias.scope.decl(metadata !75)
@@ -2689,7 +2683,7 @@ _ZN2cvL7f64_mulENS_10softdoubleES0_.exit:         ; preds = %116, %_ZN2cvL25soft
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::softdouble") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2) local_unnamed_addr #2 align 2 {
+define void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::softdouble") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2) local_unnamed_addr #1 align 2 {
   %4 = load i64, ptr %1, align 8, !tbaa !27
   %5 = load i64, ptr %2, align 8, !tbaa !27
   tail call void @llvm.experimental.noalias.scope.decl(metadata !78)
@@ -2961,7 +2955,7 @@ _ZN2cvL7f64_divENS_10softdoubleES0_.exit:         ; preds = %16, %20, %130, %_ZN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZNK2cv10softdoublermERKS0_(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::softdouble") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2) local_unnamed_addr #6 align 2 {
+define void @_ZNK2cv10softdoublermERKS0_(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::softdouble") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2) local_unnamed_addr #5 align 2 {
   %4 = load i64, ptr %1, align 8, !tbaa !27
   %5 = load i64, ptr %2, align 8, !tbaa !27
   tail call fastcc void @_ZN2cvL7f64_remENS_10softdoubleES0_(ptr dead_on_unwind noalias writable align 8 %0, i64 %4, i64 %5)
@@ -2969,7 +2963,7 @@ define void @_ZNK2cv10softdoublermERKS0_(ptr dead_on_unwind noalias writable wri
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define internal fastcc void @_ZN2cvL7f64_remENS_10softdoubleES0_(ptr dead_on_unwind noalias writable writeonly align 8 captures(none) %0, i64 %.0.val, i64 %.0.val1) unnamed_addr #7 {
+define internal fastcc void @_ZN2cvL7f64_remENS_10softdoubleES0_(ptr dead_on_unwind noalias writable writeonly align 8 captures(none) %0, i64 %.0.val, i64 %.0.val1) unnamed_addr #6 {
   %2 = lshr i64 %.0.val, 52
   %3 = and i64 %2, 2047
   %4 = and i64 %.0.val, 4503599627370495
@@ -3246,7 +3240,7 @@ _ZN2cvL27softfloat_propagateNaNF64UIEmm.exit:     ; preds = %124, %130
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK2cv10softdoubleeqERKS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #5 align 2 {
+define noundef zeroext i1 @_ZNK2cv10softdoubleeqERKS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #4 align 2 {
   %3 = load i64, ptr %0, align 8, !tbaa !27
   %4 = load i64, ptr %1, align 8, !tbaa !27
   %5 = and i64 %3, 9218868437227405312
@@ -3278,7 +3272,7 @@ _ZN2cvL6f64_eqENS_10softdoubleES0_.exit:          ; preds = %2, %8, %12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK2cv10softdoubleneERKS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #5 align 2 {
+define noundef zeroext i1 @_ZNK2cv10softdoubleneERKS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #4 align 2 {
   %3 = load i64, ptr %0, align 8, !tbaa !27
   %4 = load i64, ptr %1, align 8, !tbaa !27
   %5 = and i64 %3, 9218868437227405312
@@ -3310,7 +3304,7 @@ _ZN2cvL6f64_eqENS_10softdoubleES0_.exit:          ; preds = %2, %8, %12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK2cv10softdoublegtERKS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #5 align 2 {
+define noundef zeroext i1 @_ZNK2cv10softdoublegtERKS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #4 align 2 {
   %3 = load i64, ptr %1, align 8, !tbaa !27
   %4 = load i64, ptr %0, align 8, !tbaa !27
   %5 = and i64 %3, 9218868437227405312
@@ -3359,7 +3353,7 @@ _ZN2cvL6f64_ltENS_10softdoubleES0_.exit:          ; preds = %2, %8, %13, %15, %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK2cv10softdoublegeERKS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #5 align 2 {
+define noundef zeroext i1 @_ZNK2cv10softdoublegeERKS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #4 align 2 {
   %3 = load i64, ptr %1, align 8, !tbaa !27
   %4 = load i64, ptr %0, align 8, !tbaa !27
   %5 = and i64 %3, 9218868437227405312
@@ -3408,7 +3402,7 @@ _ZN2cvL6f64_leENS_10softdoubleES0_.exit:          ; preds = %2, %8, %13, %15, %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK2cv10softdoubleltERKS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #5 align 2 {
+define noundef zeroext i1 @_ZNK2cv10softdoubleltERKS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #4 align 2 {
   %3 = load i64, ptr %0, align 8, !tbaa !27
   %4 = load i64, ptr %1, align 8, !tbaa !27
   %5 = and i64 %3, 9218868437227405312
@@ -3457,7 +3451,7 @@ _ZN2cvL6f64_ltENS_10softdoubleES0_.exit:          ; preds = %2, %8, %13, %15, %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK2cv10softdoubleleERKS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #5 align 2 {
+define noundef zeroext i1 @_ZNK2cv10softdoubleleERKS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #4 align 2 {
   %3 = load i64, ptr %0, align 8, !tbaa !27
   %4 = load i64, ptr %1, align 8, !tbaa !27
   %5 = and i64 %3, 9218868437227405312
@@ -3506,7 +3500,7 @@ _ZN2cvL6f64_leENS_10softdoubleES0_.exit:          ; preds = %2, %8, %13, %15, %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZN2cv6mulAddERKNS_9softfloatES2_S2_(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::softfloat") align 4 captures(none) initializes((0, 4)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %3) local_unnamed_addr #2 {
+define void @_ZN2cv6mulAddERKNS_9softfloatES2_S2_(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::softfloat") align 4 captures(none) initializes((0, 4)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %3) local_unnamed_addr #1 {
   %5 = load i32, ptr %1, align 4, !tbaa !12
   %6 = load i32, ptr %2, align 4, !tbaa !12
   %7 = load i32, ptr %3, align 4, !tbaa !12
@@ -4013,7 +4007,7 @@ _ZN2cvL10f32_mulAddENS_9softfloatES0_S0_.exit:    ; preds = %37, %248, %250, %27
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZN2cv6mulAddERKNS_10softdoubleES2_S2_(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::softdouble") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3) local_unnamed_addr #2 {
+define void @_ZN2cv6mulAddERKNS_10softdoubleES2_S2_(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::softdouble") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3) local_unnamed_addr #1 {
   %5 = load i64, ptr %1, align 8, !tbaa !27
   %6 = load i64, ptr %2, align 8, !tbaa !27
   %7 = load i64, ptr %3, align 8, !tbaa !27
@@ -4590,7 +4584,7 @@ _ZN2cvL10f64_mulAddENS_10softdoubleES0_S0_.exit:  ; preds = %34, %278, %_ZN2cvL2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZN2cv4sqrtERKNS_9softfloatE(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::softfloat") align 4 captures(none) initializes((0, 4)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #2 {
+define void @_ZN2cv4sqrtERKNS_9softfloatE(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::softfloat") align 4 captures(none) initializes((0, 4)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #1 {
   %3 = load i32, ptr %1, align 4, !tbaa !12
   tail call void @llvm.experimental.noalias.scope.decl(metadata !100)
   %4 = zext i32 %3 to i64
@@ -4790,7 +4784,7 @@ _ZN2cvL8f32_sqrtENS_9softfloatE.exit:             ; preds = %19, %21, %24, %_ZN2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZN2cv4sqrtERKNS_10softdoubleE(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::softdouble") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #2 {
+define void @_ZN2cv4sqrtERKNS_10softdoubleE(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::softdouble") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #1 {
   %3 = load i64, ptr %1, align 8, !tbaa !27
   tail call void @llvm.experimental.noalias.scope.decl(metadata !105)
   %.not.i = icmp sgt i64 %3, -1
@@ -4985,7 +4979,7 @@ _ZN2cvL8f64_sqrtENS_10softdoubleE.exit:           ; preds = %17, %19, %22, %_ZN2
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_ZN2cv3expERKNS_9softfloatE(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::softfloat") align 4 captures(none) initializes((0, 4)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #8 {
+define void @_ZN2cv3expERKNS_9softfloatE(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::softfloat") align 4 captures(none) initializes((0, 4)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #7 {
   %3 = alloca %"struct.cv::softfloat", align 4
   %4 = load i32, ptr %1, align 4, !tbaa !12
   store i32 %4, ptr %3, align 4, !tbaa !12
@@ -4994,7 +4988,7 @@ define void @_ZN2cv3expERKNS_9softfloatE(ptr dead_on_unwind noalias writable wri
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc void @_ZN2cvL7f32_expENS_9softfloatE(ptr dead_on_unwind noalias writable writeonly align 4 captures(none) initializes((0, 4)) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cvL7f32_expENS_9softfloatE(ptr dead_on_unwind noalias writable writeonly align 4 captures(none) initializes((0, 4)) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.cv::softdouble", align 8
   %4 = alloca %"struct.cv::softdouble", align 8
   %5 = alloca %"struct.cv::softdouble", align 8
@@ -5052,10 +5046,10 @@ _ZNK2cv9softfloateqERKS0_.exit.thread:            ; preds = %_ZNK2cv9softfloateq
   br i1 %.not, label %39, label %37
 
 37:                                               ; preds = %35
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 4607182418800017408, ptr %3, align 8, !tbaa !27, !alias.scope !119
   call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 @_ZZN2cvL7f32_expENS_9softfloatEE2A4, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) @_ZN2cvL14EXPPOLY_32F_A0E)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %38 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZZN2cvL7f32_expENS_9softfloatEE2A4)
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL7f32_expENS_9softfloatEE2A4) #14
   br label %39
@@ -5071,10 +5065,10 @@ _ZNK2cv9softfloateqERKS0_.exit.thread:            ; preds = %_ZNK2cv9softfloateq
   br i1 %.not8, label %46, label %44
 
 44:                                               ; preds = %42
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 4604418534313371515, ptr %4, align 8, !tbaa !27, !alias.scope !124
   call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 @_ZZN2cvL7f32_expENS_9softfloatEE2A3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) @_ZN2cvL14EXPPOLY_32F_A0E)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %45 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZZN2cvL7f32_expENS_9softfloatEE2A3)
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL7f32_expENS_9softfloatEE2A3) #14
   br label %46
@@ -5090,10 +5084,10 @@ _ZNK2cv9softfloateqERKS0_.exit.thread:            ; preds = %_ZNK2cv9softfloateq
   br i1 %.not9, label %53, label %51
 
 51:                                               ; preds = %49
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 4597823092492174823, ptr %5, align 8, !tbaa !27, !alias.scope !127
   call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 @_ZZN2cvL7f32_expENS_9softfloatEE2A2, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) @_ZN2cvL14EXPPOLY_32F_A0E)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %52 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZZN2cvL7f32_expENS_9softfloatEE2A2)
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL7f32_expENS_9softfloatEE2A2) #14
   br label %53
@@ -5109,16 +5103,16 @@ _ZNK2cv9softfloateqERKS0_.exit.thread:            ; preds = %_ZNK2cv9softfloateq
   br i1 %.not10, label %60, label %58
 
 58:                                               ; preds = %56
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 4588159703053038966, ptr %6, align 8, !tbaa !27, !alias.scope !130
   call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 @_ZZN2cvL7f32_expENS_9softfloatEE2A1, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) @_ZN2cvL14EXPPOLY_32F_A0E)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %59 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZZN2cvL7f32_expENS_9softfloatEE2A1)
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL7f32_expENS_9softfloatEE2A1) #14
   br label %60
 
 60:                                               ; preds = %58, %56, %53
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %61 = load i32, ptr %1, align 4, !tbaa !12
   %62 = and i32 %61, 2130706432
   %63 = icmp samesign ugt i32 %62, 1149239296
@@ -5130,8 +5124,8 @@ _ZNK2cv9softfloateqERKS0_.exit.thread:            ; preds = %_ZNK2cv9softfloateq
   br label %109
 
 65:                                               ; preds = %60
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !133)
   %66 = zext i32 %61 to i64
   %67 = lshr i64 %66, 23
@@ -5212,8 +5206,8 @@ _ZN2cvL10f32_to_f64ENS_9softfloatE.exit:          ; preds = %73, %77, %80, %100
   store i64 %.018.i, ptr %9, align 8, !tbaa !27, !alias.scope !136
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %8, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) @_ZN2cvL12exp_prescaleE)
   %108 = load i64, ptr %8, align 8, !tbaa !27
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %109
 
 109:                                              ; preds = %_ZN2cvL10f32_to_f64ENS_9softfloatE.exit, %64
@@ -5287,12 +5281,12 @@ _ZN2cvL10f64_to_i32ENS_10softdoubleEhb.exit:      ; preds = %131, %142
   %146 = tail call i32 @llvm.smax.i32(i32 %145, i32 -1023)
   %147 = tail call i32 @llvm.smin.i32(i32 %146, i32 1024)
   %148 = add nsw i32 %147, 1023
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %149 = zext nneg i32 %148 to i64
   %150 = shl nuw nsw i64 %149, 52
   store i64 %150, ptr %10, align 8, !tbaa !27
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %151 = icmp samesign ult i64 %113, 1023
   br i1 %151, label %152, label %159
 
@@ -5363,25 +5357,25 @@ _ZNK2cv10softdoublemiERKS0_.exit:                 ; preds = %183, %184
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) @_ZN2cvL13exp_postscaleE)
   %185 = load i64, ptr %11, align 8, !tbaa !27
   store i64 %185, ptr %7, align 8, !tbaa !27
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %15, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) @_ZN2cvL14EXPPOLY_32F_A0E)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %186 = and i64 %.0.i.i16, 63
   %187 = getelementptr inbounds nuw [64 x i64], ptr @_ZN2cvL6expTabE, i64 0, i64 %186
   %188 = load i64, ptr %187, align 8, !tbaa !144
   store i64 %188, ptr %16, align 8, !tbaa !27, !alias.scope !145
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %14, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %16)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !148)
   %189 = load i64, ptr @_ZZN2cvL7f32_expENS_9softfloatEE2A1, align 8, !tbaa !27, !noalias !148
   %190 = icmp slt i64 %185, 0
@@ -5454,19 +5448,19 @@ _ZNK2cv10softdoubleplERKS0_.exit26:               ; preds = %204, %205
 _ZNK2cv10softdoubleplERKS0_.exit28:               ; preds = %210, %211
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %13, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %17)
   call void @_ZNK2cv10softdoublecvNS_9softfloatEEv(ptr dead_on_unwind writable sret(%"struct.cv::softfloat") align 4 %0, ptr noundef nonnull align 8 dereferenceable(8) %13)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %212
 
 212:                                              ; preds = %31, %_ZNK2cv9softfloateqERKS0_.exit.thread, %_ZNK2cv10softdoubleplERKS0_.exit28, %27
@@ -5474,7 +5468,7 @@ _ZNK2cv10softdoubleplERKS0_.exit28:               ; preds = %210, %211
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_ZN2cv3expERKNS_10softdoubleE(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::softdouble") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #8 {
+define void @_ZN2cv3expERKNS_10softdoubleE(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::softdouble") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #7 {
   %3 = alloca %"struct.cv::softdouble", align 8
   %4 = load i64, ptr %1, align 8, !tbaa !27
   store i64 %4, ptr %3, align 8, !tbaa !27
@@ -5483,7 +5477,7 @@ define void @_ZN2cv3expERKNS_10softdoubleE(ptr dead_on_unwind noalias writable w
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc void @_ZN2cvL7f64_expENS_10softdoubleE(ptr dead_on_unwind noalias writable writeonly align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cvL7f64_expENS_10softdoubleE(ptr dead_on_unwind noalias writable writeonly align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.cv::softdouble", align 8
   %4 = alloca %"struct.cv::softdouble", align 8
   %5 = alloca %"struct.cv::softdouble", align 8
@@ -5543,10 +5537,10 @@ _ZNK2cv10softdoubleeqERKS0_.exit.thread:          ; preds = %_ZNK2cv10softdouble
   br i1 %.not, label %41, label %39
 
 39:                                               ; preds = %37
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 4607182418800017408, ptr %3, align 8, !tbaa !27, !alias.scope !182
   call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 @_ZZN2cvL7f64_expENS_10softdoubleEE2A5, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) @_ZN2cvL14EXPPOLY_32F_A0E)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %40 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZZN2cvL7f64_expENS_10softdoubleEE2A5)
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL7f64_expENS_10softdoubleEE2A5) #14
   br label %41
@@ -5562,10 +5556,10 @@ _ZNK2cv10softdoubleeqERKS0_.exit.thread:          ; preds = %_ZNK2cv10softdouble
   br i1 %.not8, label %48, label %46
 
 46:                                               ; preds = %44
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 4604418534313441777, ptr %4, align 8, !tbaa !27, !alias.scope !187
   call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 @_ZZN2cvL7f64_expENS_10softdoubleEE2A4, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) @_ZN2cvL14EXPPOLY_32F_A0E)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %47 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZZN2cvL7f64_expENS_10softdoubleEE2A4)
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL7f64_expENS_10softdoubleEE2A4) #14
   br label %48
@@ -5581,10 +5575,10 @@ _ZNK2cv10softdoubleeqERKS0_.exit.thread:          ; preds = %_ZNK2cv10softdouble
   br i1 %.not9, label %55, label %53
 
 53:                                               ; preds = %51
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 4597823092348331098, ptr %5, align 8, !tbaa !27, !alias.scope !190
   call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 @_ZZN2cvL7f64_expENS_10softdoubleEE2A3, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) @_ZN2cvL14EXPPOLY_32F_A0E)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %54 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZZN2cvL7f64_expENS_10softdoubleEE2A3)
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL7f64_expENS_10softdoubleEE2A3) #14
   br label %55
@@ -5600,10 +5594,10 @@ _ZNK2cv10softdoubleeqERKS0_.exit.thread:          ; preds = %_ZNK2cv10softdouble
   br i1 %.not10, label %62, label %60
 
 60:                                               ; preds = %58
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 4588159806113574005, ptr %6, align 8, !tbaa !27, !alias.scope !193
   call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 @_ZZN2cvL7f64_expENS_10softdoubleEE2A2, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) @_ZN2cvL14EXPPOLY_32F_A0E)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %61 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZZN2cvL7f64_expENS_10softdoubleEE2A2)
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL7f64_expENS_10softdoubleEE2A2) #14
   br label %62
@@ -5619,10 +5613,10 @@ _ZNK2cv10softdoubleeqERKS0_.exit.thread:          ; preds = %_ZNK2cv10softdouble
   br i1 %.not11, label %69, label %67
 
 67:                                               ; preds = %65
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 4576698077394451667, ptr %7, align 8, !tbaa !27, !alias.scope !196
   call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 @_ZZN2cvL7f64_expENS_10softdoubleEE2A1, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) @_ZN2cvL14EXPPOLY_32F_A0E)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %68 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZZN2cvL7f64_expENS_10softdoubleEE2A1)
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL7f64_expENS_10softdoubleEE2A1) #14
   br label %69
@@ -5638,16 +5632,16 @@ _ZNK2cv10softdoubleeqERKS0_.exit.thread:          ; preds = %_ZNK2cv10softdouble
   br i1 %.not12, label %76, label %74
 
 74:                                               ; preds = %72
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 4563808515099378340, ptr %8, align 8, !tbaa !27, !alias.scope !199
   call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 @_ZZN2cvL7f64_expENS_10softdoubleEE2A0, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) @_ZN2cvL14EXPPOLY_32F_A0E)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %75 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZZN2cvL7f64_expENS_10softdoubleEE2A0)
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL7f64_expENS_10softdoubleEE2A0) #14
   br label %76
 
 76:                                               ; preds = %74, %72, %69
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %77 = load i64, ptr %1, align 8, !tbaa !27
   %78 = and i64 %77, 9214364837600034816
   %79 = icmp samesign ugt i64 %78, 4652218415073722368
@@ -5659,10 +5653,10 @@ _ZNK2cv10softdoubleeqERKS0_.exit.thread:          ; preds = %_ZNK2cv10softdouble
   br label %84
 
 82:                                               ; preds = %76
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %10, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) @_ZN2cvL12exp_prescaleE)
   %83 = load i64, ptr %10, align 8, !tbaa !27
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %84
 
 84:                                               ; preds = %82, %80
@@ -5736,11 +5730,11 @@ _Z7cvRoundRKN2cv10softdoubleE.exit:               ; preds = %105, %116
   %120 = tail call i32 @llvm.smax.i32(i32 %119, i32 -1023)
   %121 = tail call i32 @llvm.smin.i32(i32 %120, i32 1024)
   %122 = add nsw i32 %121, 1023
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %123 = zext nneg i32 %122 to i64
   %124 = shl nuw nsw i64 %123, 52
   store i64 %124, ptr %11, align 8, !tbaa !27
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %125 = icmp samesign ult i64 %87, 1023
   br i1 %125, label %126, label %133
 
@@ -5809,26 +5803,26 @@ _ZN2cvL14f64_roundToIntENS_10softdoubleEhb.exit:  ; preds = %126, %128, %135, %_
 
 _ZNK2cv10softdoublemiERKS0_.exit:                 ; preds = %157, %158
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %9, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) @_ZN2cvL13exp_postscaleE)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %14, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) @_ZN2cvL14EXPPOLY_32F_A0E)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %159 = and i64 %.0.i.i.i, 63
   %160 = getelementptr inbounds nuw [64 x i64], ptr @_ZN2cvL6expTabE, i64 0, i64 %159
   %161 = load i64, ptr %160, align 8, !tbaa !144
   store i64 %161, ptr %15, align 8, !tbaa !27, !alias.scope !207
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %13, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %15)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %25, ptr noundef nonnull align 8 dereferenceable(8) @_ZZN2cvL7f64_expENS_10softdoubleEE2A0, ptr noundef nonnull align 8 dereferenceable(8) %9)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !210)
   %162 = load i64, ptr %25, align 8, !tbaa !27, !noalias !210
@@ -5920,21 +5914,21 @@ _ZNK2cv10softdoubleplERKS0_.exit24:               ; preds = %184, %185
 
 _ZNK2cv10softdoubleplERKS0_.exit26:               ; preds = %190, %191
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind writable sret(%"struct.cv::softdouble") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %16)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %192
 
 192:                                              ; preds = %33, %_ZNK2cv10softdoubleeqERKS0_.exit.thread, %_ZNK2cv10softdoubleplERKS0_.exit26, %29
@@ -5942,7 +5936,7 @@ _ZNK2cv10softdoubleplERKS0_.exit26:               ; preds = %190, %191
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv3logERKNS_9softfloatE(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::softfloat") align 4 captures(none) initializes((0, 4)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #9 {
+define void @_ZN2cv3logERKNS_9softfloatE(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::softfloat") align 4 captures(none) initializes((0, 4)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #8 {
   %3 = alloca %"struct.cv::softfloat", align 4
   %4 = load i32, ptr %1, align 4, !tbaa !12
   store i32 %4, ptr %3, align 4, !tbaa !12
@@ -5951,7 +5945,7 @@ define void @_ZN2cv3logERKNS_9softfloatE(ptr dead_on_unwind noalias writable wri
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cvL7f32_logENS_9softfloatE(ptr dead_on_unwind noalias writable writeonly align 4 captures(none) initializes((0, 4)) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #9 {
+define internal fastcc void @_ZN2cvL7f32_logENS_9softfloatE(ptr dead_on_unwind noalias writable writeonly align 4 captures(none) initializes((0, 4)) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #8 {
   %3 = alloca %"struct.cv::softdouble", align 8
   %4 = alloca %"struct.cv::softdouble", align 8
   %5 = alloca %"struct.cv::softdouble", align 8
@@ -6009,7 +6003,7 @@ _ZNK2cv9softfloateqERKS0_.exit.thread25:          ; preds = %33, %32
 _ZN2cv10softdoublemIERKS0_.exit:                  ; preds = %33, %26
   %34 = lshr i32 %23, 15
   %35 = and i32 %34, 255
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %36 = shl nuw nsw i64 %27, 29
   %37 = and i64 %36, 17591649173504
   %38 = or disjoint i64 %37, 4607182418800017408
@@ -6018,25 +6012,25 @@ _ZN2cv10softdoublemIERKS0_.exit:                  ; preds = %33, %26
   %40 = zext nneg i32 %39 to i64
   %41 = getelementptr inbounds nuw [512 x i64], ptr @_ZN2cvL9icvLogTabE, i64 0, i64 %40
   %42 = load i64, ptr %41, align 16, !tbaa !144
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %43 = or disjoint i32 %39, 1
   %44 = zext nneg i32 %43 to i64
   %45 = getelementptr inbounds nuw [512 x i64], ptr @_ZN2cvL9icvLogTabE, i64 0, i64 %44
   %46 = load i64, ptr %45, align 8, !tbaa !144
   store i64 %46, ptr %5, align 8, !tbaa !27, !alias.scope !248
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5)
   %47 = icmp eq i32 %35, 255
   br i1 %47, label %48, label %56
 
 48:                                               ; preds = %_ZN2cv10softdoublemIERKS0_.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 -4616189618054758400, ptr %8, align 8, !tbaa !27, !alias.scope !251
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN2cv10softdoubleC1Ei(ptr noundef nonnull align 8 dereferenceable(8) %9, i32 noundef 512)
   call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.experimental.noalias.scope.decl(metadata !254)
   %49 = load i64, ptr %6, align 8, !tbaa !27, !noalias !254
   %50 = load i64, ptr %7, align 8, !tbaa !27, !noalias !254
@@ -6056,21 +6050,21 @@ _ZN2cv10softdoublemIERKS0_.exit:                  ; preds = %33, %26
 _ZN2cv10softdoublepLERKS0_.exit:                  ; preds = %53, %54
   %55 = load i64, ptr %3, align 8, !tbaa !27
   store i64 %55, ptr %6, align 8, !tbaa !27
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.pre = load i32, ptr %1, align 4, !tbaa !12
   br label %56
 
 56:                                               ; preds = %_ZN2cv10softdoublepLERKS0_.exit, %_ZN2cv10softdoublemIERKS0_.exit
   %57 = phi i32 [ %.pre, %_ZN2cv10softdoublepLERKS0_.exit ], [ %23, %_ZN2cv10softdoublemIERKS0_.exit ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %58 = lshr i32 %57, 23
   %59 = and i32 %58, 255
   %60 = zext nneg i32 %59 to i64
@@ -6093,12 +6087,12 @@ _ZN2cv10softdoublepLERKS0_.exit:                  ; preds = %53, %54
   br label %_ZNK2cv10softdoubleplERKS0_.exit
 
 _ZNK2cv10softdoubleplERKS0_.exit:                 ; preds = %65, %66
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %18, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %6)
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %17, ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 8 dereferenceable(8) %6)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   call void @_ZN2cv10softdoubleC1Ei(ptr noundef nonnull align 8 dereferenceable(8) %19, i32 noundef 3)
   call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %16, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(8) %19)
   call void @llvm.experimental.noalias.scope.decl(metadata !266)
@@ -6118,10 +6112,10 @@ _ZNK2cv10softdoubleplERKS0_.exit:                 ; preds = %65, %66
   br label %_ZNK2cv10softdoubleplERKS0_.exit9
 
 _ZNK2cv10softdoubleplERKS0_.exit9:                ; preds = %71, %72
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %21, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %6)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   call void @_ZN2cv10softdoubleC1Ei(ptr noundef nonnull align 8 dereferenceable(8) %22, i32 noundef 2)
   call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %20, ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull align 8 dereferenceable(8) %22)
   call void @llvm.experimental.noalias.scope.decl(metadata !272)
@@ -6158,23 +6152,23 @@ _ZNK2cv10softdoublemiERKS0_.exit:                 ; preds = %77, %78
   br label %_ZNK2cv10softdoubleplERKS0_.exit12
 
 _ZNK2cv10softdoubleplERKS0_.exit12:               ; preds = %83, %84
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @_ZNK2cv10softdoublecvNS_9softfloatEEv(ptr dead_on_unwind writable sret(%"struct.cv::softfloat") align 4 %0, ptr noundef nonnull align 8 dereferenceable(8) %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %85
 
 85:                                               ; preds = %_ZNK2cv10softdoubleplERKS0_.exit12, %_ZNK2cv9softfloateqERKS0_.exit.thread25, %.critedge
@@ -6182,7 +6176,7 @@ _ZNK2cv10softdoubleplERKS0_.exit12:               ; preds = %83, %84
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv3logERKNS_10softdoubleE(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::softdouble") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #9 {
+define void @_ZN2cv3logERKNS_10softdoubleE(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::softdouble") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #8 {
   %3 = alloca %"struct.cv::softdouble", align 8
   %4 = load i64, ptr %1, align 8, !tbaa !27
   store i64 %4, ptr %3, align 8, !tbaa !27
@@ -6191,7 +6185,7 @@ define void @_ZN2cv3logERKNS_10softdoubleE(ptr dead_on_unwind noalias writable w
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cvL7f64_logENS_10softdoubleE(ptr dead_on_unwind noalias writable writeonly align 8 captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cvL7f64_logENS_10softdoubleE(ptr dead_on_unwind noalias writable writeonly align 8 captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.cv::softdouble", align 8
   %4 = alloca %"struct.cv::softdouble", align 8
   %5 = alloca %"struct.cv::softdouble", align 8
@@ -6295,16 +6289,16 @@ _ZNK2cv10softdoubleeqERKS0_.exit.thread:          ; preds = %52, %46
   br i1 %.not12, label %68, label %65
 
 65:                                               ; preds = %63
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 -4616189618054758400, ptr %4, align 8, !tbaa !27, !alias.scope !292
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   invoke void @_ZN2cv10softdoubleC1Ei(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef 2)
           to label %66 unwind label %141
 
 66:                                               ; preds = %65
   call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 @_ZZN2cvL7f64_logENS_10softdoubleEE2A6, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %67 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZZN2cvL7f64_logENS_10softdoubleEE2A6)
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A6) #14
   br label %68
@@ -6320,16 +6314,16 @@ _ZNK2cv10softdoubleeqERKS0_.exit.thread:          ; preds = %52, %46
   br i1 %.not14, label %76, label %73
 
 73:                                               ; preds = %71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 4607182418800017408, ptr %6, align 8, !tbaa !27, !alias.scope !295
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   invoke void @_ZN2cv10softdoubleC1Ei(ptr noundef nonnull align 8 dereferenceable(8) %7, i32 noundef 3)
           to label %74 unwind label %143
 
 74:                                               ; preds = %73
   call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 @_ZZN2cvL7f64_logENS_10softdoubleEE2A5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %75 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZZN2cvL7f64_logENS_10softdoubleEE2A5)
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A5) #14
   br label %76
@@ -6345,16 +6339,16 @@ _ZNK2cv10softdoubleeqERKS0_.exit.thread:          ; preds = %52, %46
   br i1 %.not17, label %84, label %81
 
 81:                                               ; preds = %79
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 -4616189618054758400, ptr %8, align 8, !tbaa !27, !alias.scope !300
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   invoke void @_ZN2cv10softdoubleC1Ei(ptr noundef nonnull align 8 dereferenceable(8) %9, i32 noundef 4)
           to label %82 unwind label %145
 
 82:                                               ; preds = %81
   call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 @_ZZN2cvL7f64_logENS_10softdoubleEE2A4, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %83 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZZN2cvL7f64_logENS_10softdoubleEE2A4)
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A4) #14
   br label %84
@@ -6370,16 +6364,16 @@ _ZNK2cv10softdoubleeqERKS0_.exit.thread:          ; preds = %52, %46
   br i1 %.not20, label %92, label %89
 
 89:                                               ; preds = %87
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i64 4607182418800017408, ptr %10, align 8, !tbaa !27, !alias.scope !303
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   invoke void @_ZN2cv10softdoubleC1Ei(ptr noundef nonnull align 8 dereferenceable(8) %11, i32 noundef 5)
           to label %90 unwind label %147
 
 90:                                               ; preds = %89
   call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 @_ZZN2cvL7f64_logENS_10softdoubleEE2A3, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %91 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZZN2cvL7f64_logENS_10softdoubleEE2A3)
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A3) #14
   br label %92
@@ -6395,16 +6389,16 @@ _ZNK2cv10softdoubleeqERKS0_.exit.thread:          ; preds = %52, %46
   br i1 %.not23, label %100, label %97
 
 97:                                               ; preds = %95
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i64 -4616189618054758400, ptr %12, align 8, !tbaa !27, !alias.scope !308
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   invoke void @_ZN2cv10softdoubleC1Ei(ptr noundef nonnull align 8 dereferenceable(8) %13, i32 noundef 6)
           to label %98 unwind label %149
 
 98:                                               ; preds = %97
   call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 @_ZZN2cvL7f64_logENS_10softdoubleEE2A2, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %13)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %99 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZZN2cvL7f64_logENS_10softdoubleEE2A2)
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A2) #14
   br label %100
@@ -6420,16 +6414,16 @@ _ZNK2cv10softdoubleeqERKS0_.exit.thread:          ; preds = %52, %46
   br i1 %.not26, label %108, label %105
 
 105:                                              ; preds = %103
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i64 4607182418800017408, ptr %14, align 8, !tbaa !27, !alias.scope !311
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   invoke void @_ZN2cv10softdoubleC1Ei(ptr noundef nonnull align 8 dereferenceable(8) %15, i32 noundef 7)
           to label %106 unwind label %151
 
 106:                                              ; preds = %105
   call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 @_ZZN2cvL7f64_logENS_10softdoubleEE2A1, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %15)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %107 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZZN2cvL7f64_logENS_10softdoubleEE2A1)
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A1) #14
   br label %108
@@ -6445,16 +6439,16 @@ _ZNK2cv10softdoubleeqERKS0_.exit.thread:          ; preds = %52, %46
   br i1 %.not29, label %_ZN2cv10softdoublemIERKS0_.exit, label %113
 
 113:                                              ; preds = %111
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i64 -4616189618054758400, ptr %16, align 8, !tbaa !27, !alias.scope !316
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   invoke void @_ZN2cv10softdoubleC1Ei(ptr noundef nonnull align 8 dereferenceable(8) %17, i32 noundef 8)
           to label %114 unwind label %153
 
 114:                                              ; preds = %113
   call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 @_ZZN2cvL7f64_logENS_10softdoubleEE2A0, ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 8 dereferenceable(8) %17)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %115 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZZN2cvL7f64_logENS_10softdoubleEE2A0)
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A0) #14
   br label %_ZN2cv10softdoublemIERKS0_.exit
@@ -6464,7 +6458,7 @@ _ZN2cv10softdoublemIERKS0_.exit:                  ; preds = %114, %111, %108
   %117 = lshr i64 %116, 44
   %118 = trunc nuw nsw i64 %117 to i32
   %119 = and i32 %118, 255
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %120 = and i64 %116, 17592186044415
   %121 = or disjoint i64 %120, 4607182418800017408
   call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %18, i64 noundef %121, i64 noundef 4607182418800017408, i1 noundef zeroext false)
@@ -6472,25 +6466,25 @@ _ZN2cv10softdoublemIERKS0_.exit:                  ; preds = %114, %111, %108
   %123 = zext nneg i32 %122 to i64
   %124 = getelementptr inbounds nuw [512 x i64], ptr @_ZN2cvL9icvLogTabE, i64 0, i64 %123
   %125 = load i64, ptr %124, align 16, !tbaa !144
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %126 = or disjoint i32 %122, 1
   %127 = zext nneg i32 %126 to i64
   %128 = getelementptr inbounds nuw [512 x i64], ptr @_ZN2cvL9icvLogTabE, i64 0, i64 %127
   %129 = load i64, ptr %128, align 8, !tbaa !144
   store i64 %129, ptr %19, align 8, !tbaa !27, !alias.scope !319
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %20, ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 8 dereferenceable(8) %19)
   %130 = icmp eq i32 %119, 255
   br i1 %130, label %131, label %155
 
 131:                                              ; preds = %_ZN2cv10softdoublemIERKS0_.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   store i64 -4616189618054758400, ptr %22, align 8, !tbaa !27, !alias.scope !322
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   call void @_ZN2cv10softdoubleC1Ei(ptr noundef nonnull align 8 dereferenceable(8) %23, i32 noundef 512)
   call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %21, ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull align 8 dereferenceable(8) %23)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.experimental.noalias.scope.decl(metadata !325)
   %132 = load i64, ptr %20, align 8, !tbaa !27, !noalias !325
   %133 = load i64, ptr %21, align 8, !tbaa !27, !noalias !325
@@ -6510,10 +6504,10 @@ _ZN2cv10softdoublemIERKS0_.exit:                  ; preds = %114, %111, %108
 _ZN2cv10softdoublepLERKS0_.exit:                  ; preds = %136, %137
   %138 = load i64, ptr %3, align 8, !tbaa !27
   store i64 %138, ptr %20, align 8, !tbaa !27
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %.pre = load i64, ptr %1, align 8, !tbaa !27
   br label %155
 
@@ -6526,67 +6520,67 @@ _ZN2cv10softdoublepLERKS0_.exit:                  ; preds = %136, %137
 141:                                              ; preds = %65
   %142 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A6) #14
   br label %214
 
 143:                                              ; preds = %73
   %144 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A5) #14
   br label %214
 
 145:                                              ; preds = %81
   %146 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A4) #14
   br label %214
 
 147:                                              ; preds = %89
   %148 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A3) #14
   br label %214
 
 149:                                              ; preds = %97
   %150 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A2) #14
   br label %214
 
 151:                                              ; preds = %105
   %152 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A1) #14
   br label %214
 
 153:                                              ; preds = %113
   %154 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A0) #14
   br label %214
 
 155:                                              ; preds = %_ZN2cv10softdoublepLERKS0_.exit, %_ZN2cv10softdoublemIERKS0_.exit
   %156 = phi i64 [ %.pre, %_ZN2cv10softdoublepLERKS0_.exit ], [ %116, %_ZN2cv10softdoublemIERKS0_.exit ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %24, ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 8 dereferenceable(8) %20)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   %157 = lshr i64 %156, 52
   %158 = and i64 %157, 2047
   %159 = add nsw i64 %158, -1023
@@ -6608,13 +6602,13 @@ _ZN2cv10softdoublepLERKS0_.exit:                  ; preds = %136, %137
   br label %_ZNK2cv10softdoubleplERKS0_.exit
 
 _ZNK2cv10softdoubleplERKS0_.exit:                 ; preds = %163, %164
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %29) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %30) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %31) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %32) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %33) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %34) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %35) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %35, ptr noundef nonnull align 8 dereferenceable(8) @_ZZN2cvL7f64_logENS_10softdoubleEE2A0, ptr noundef nonnull align 8 dereferenceable(8) %24)
   call void @llvm.experimental.noalias.scope.decl(metadata !337)
   %165 = load i64, ptr %35, align 8, !tbaa !27, !noalias !337
@@ -6687,13 +6681,13 @@ _ZNK2cv10softdoubleplERKS0_.exit42:               ; preds = %181, %182
   br label %_ZNK2cv10softdoubleplERKS0_.exit44
 
 _ZNK2cv10softdoubleplERKS0_.exit44:               ; preds = %187, %188
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %36) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %37) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %38) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %39) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %40) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %41) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %42) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
+  call void @llvm.lifetime.start.p0(ptr nonnull %38)
+  call void @llvm.lifetime.start.p0(ptr nonnull %39)
+  call void @llvm.lifetime.start.p0(ptr nonnull %40)
+  call void @llvm.lifetime.start.p0(ptr nonnull %41)
+  call void @llvm.lifetime.start.p0(ptr nonnull %42)
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %42, ptr noundef nonnull align 8 dereferenceable(8) @_ZZN2cvL7f64_logENS_10softdoubleEE2A1, ptr noundef nonnull align 8 dereferenceable(8) %24)
   call void @llvm.experimental.noalias.scope.decl(metadata !361)
   %189 = load i64, ptr %42, align 8, !tbaa !27, !noalias !361
@@ -6766,28 +6760,28 @@ _ZNK2cv10softdoubleplERKS0_.exit50:               ; preds = %205, %206
   br label %_ZNK2cv10softdoubleplERKS0_.exit52
 
 _ZNK2cv10softdoubleplERKS0_.exit52:               ; preds = %211, %212
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %42) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %41) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %40) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %39) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %38) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %37) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %36) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %35) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %34) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %33) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %31) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %213
 
 213:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit52, %_ZNK2cv10softdoubleeqERKS0_.exit.thread69, %.critedge
@@ -6799,7 +6793,7 @@ _ZNK2cv10softdoubleplERKS0_.exit52:               ; preds = %211, %212
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv3powERKNS_9softfloatES2_(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::softfloat") align 4 captures(address) initializes((0, 4)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %2) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv3powERKNS_9softfloatES2_(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::softfloat") align 4 captures(address) initializes((0, 4)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %2) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.cv::softfloat", align 4
   %5 = alloca %"struct.cv::softfloat", align 4
   %6 = alloca %"struct.cv::softfloat", align 4
@@ -6817,8 +6811,8 @@ define void @_ZN2cv3powERKNS_9softfloatES2_(ptr dead_on_unwind noalias writable 
   %17 = load i32, ptr %2, align 4, !tbaa !12
   store i32 %17, ptr %15, align 4, !tbaa !12
   tail call void @llvm.experimental.noalias.scope.decl(metadata !385)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %18 = load atomic i8, ptr @_ZGVZN2cvL7f32_powENS_9softfloatES0_E4zero acquire, align 8, !noalias !385
   %19 = icmp eq i8 %18, 0
   br i1 %19, label %20, label %24, !prof !118
@@ -7280,23 +7274,23 @@ _ZN2cv9softfloataSERKS0_.exit.i:                  ; preds = %_ZN2cvL10f32_to_i32
 
 _ZNK2cv9softfloateqERKS0_.exit.thread.i:          ; preds = %_ZN2cvL10f32_to_i32ENS_9softfloatEhb.exit
   %219 = trunc nsw i64 %.0.i.i12 to i32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #14, !noalias !408
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !408
   store i32 1065353216, ptr %6, align 4, !tbaa !12, !alias.scope !411, !noalias !408
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #14, !noalias !408
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !408
   store i32 %16, ptr %7, align 4, !tbaa !12, !noalias !408
   %220 = tail call i32 @llvm.abs.i32(i32 %219, i1 true)
   %221 = icmp slt i64 %.0.i.i12, 0
   br i1 %221, label %222, label %224
 
 222:                                              ; preds = %_ZNK2cv9softfloateqERKS0_.exit.thread.i
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #14, !noalias !408
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #14, !noalias !408
+  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !408
+  call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !408
   store i32 1065353216, ptr %9, align 4, !tbaa !12, !alias.scope !416, !noalias !408
   call void @_ZNK2cv9softfloatdvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softfloat") align 4 %8, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 4 dereferenceable(4) %7), !noalias !408
   %223 = load i32, ptr %8, align 4, !tbaa !12, !noalias !408
   store i32 %223, ptr %7, align 4, !tbaa !12, !noalias !408
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #14, !noalias !408
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #14, !noalias !408
+  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !408
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !408
   br label %224
 
 224:                                              ; preds = %222, %_ZNK2cv9softfloateqERKS0_.exit.thread.i
@@ -7310,30 +7304,30 @@ _ZNK2cv9softfloateqERKS0_.exit.thread.i:          ; preds = %_ZN2cvL10f32_to_i32
   br i1 %.not.i8, label %229, label %227
 
 227:                                              ; preds = %.lr.ph.i
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #14, !noalias !408
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !408
   call void @_ZNK2cv9softfloatmlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softfloat") align 4 %5, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(4) %7), !noalias !408
   %228 = load i32, ptr %5, align 4, !tbaa !12, !noalias !408
   store i32 %228, ptr %6, align 4, !tbaa !12, !noalias !408
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #14, !noalias !408
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !408
   br label %229
 
 229:                                              ; preds = %227, %.lr.ph.i
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #14, !noalias !408
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !408
   call void @_ZNK2cv9softfloatmlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softfloat") align 4 %4, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 4 dereferenceable(4) %7), !noalias !408
   %230 = load i32, ptr %4, align 4, !tbaa !12, !noalias !408
   store i32 %230, ptr %7, align 4, !tbaa !12, !noalias !408
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #14, !noalias !408
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !408
   %231 = lshr i32 %.02.i, 1
   %232 = icmp samesign ugt i32 %.02.i, 3
   br i1 %232, label %.lr.ph.i, label %_ZN2cv9softfloataSERKS0_.exit10.i, !llvm.loop !421
 
 _ZN2cv9softfloataSERKS0_.exit10.i:                ; preds = %229, %224
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #14, !noalias !408
+  call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !408
   call void @_ZNK2cv9softfloatmlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softfloat") align 4 %10, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(4) %7), !noalias !408
   %233 = load i32, ptr %10, align 4, !tbaa !12, !noalias !408
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #14, !noalias !408
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #14, !noalias !408
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #14, !noalias !408
+  call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !408
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !408
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !408
   br label %_ZN2cvL8f32_powiENS_9softfloatEi.exit
 
 _ZN2cvL8f32_powiENS_9softfloatEi.exit:            ; preds = %_ZN2cv9softfloataSERKS0_.exit.i, %_ZN2cv9softfloataSERKS0_.exit10.i
@@ -7409,22 +7403,22 @@ _ZNK2cv9softfloatltERKS0_.exit.thread:            ; preds = %_ZNK2cv9softfloateq
   br label %_ZN2cvL7f32_powENS_9softfloatES0_.exit
 
 _ZN2cv9softfloataSERKS0_.exit62.i:                ; preds = %_ZNK2cv9softfloatltERKS0_.exit.thread
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #14, !noalias !385
+  call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !385
   store i32 %16, ptr %13, align 4, !tbaa !12, !noalias !385
   call fastcc void @_ZN2cvL7f32_logENS_9softfloatE(ptr dead_on_unwind noalias nonnull writable align 4 %12, ptr noundef %13), !noalias !385
   call void @_ZNK2cv9softfloatmlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softfloat") align 4 %11, ptr noundef nonnull readonly align 4 dereferenceable(4) %15, ptr noundef nonnull align 4 dereferenceable(4) %12), !noalias !385
   call fastcc void @_ZN2cvL7f32_expENS_9softfloatE(ptr dead_on_unwind noalias nonnull writable align 4 %0, ptr noundef %11)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #14, !noalias !385
+  call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !385
   br label %_ZN2cvL7f32_powENS_9softfloatES0_.exit
 
 _ZN2cvL7f32_powENS_9softfloatES0_.exit:           ; preds = %90, %91, %_ZNK2cv9softfloateqERKS0_.exit.i, %104, %115, %116, %120, %121, %122, %_ZNK2cv9softfloatltERKS0_.exit31.thread, %137, %_ZN2cvL8f32_powiENS_9softfloatEi.exit, %247, %248, %255, %257, %_ZN2cv9softfloataSERKS0_.exit62.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv3powERKNS_10softdoubleES2_(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::softdouble") align 8 captures(address) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv3powERKNS_10softdoubleES2_(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::softdouble") align 8 captures(address) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.cv::softdouble", align 8
   %5 = alloca %"struct.cv::softdouble", align 8
   %6 = alloca %"struct.cv::softdouble", align 8
@@ -7442,8 +7436,8 @@ define void @_ZN2cv3powERKNS_10softdoubleES2_(ptr dead_on_unwind noalias writabl
   %17 = load i64, ptr %2, align 8, !tbaa !27
   store i64 %17, ptr %15, align 8, !tbaa !27
   tail call void @llvm.experimental.noalias.scope.decl(metadata !422)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %18 = load atomic i8, ptr @_ZGVZN2cvL7f64_powENS_10softdoubleES0_E4zero acquire, align 8, !noalias !422
   %19 = icmp eq i8 %18, 0
   br i1 %19, label %20, label %24, !prof !118
@@ -7891,23 +7885,23 @@ _ZN2cv10softdoubleaSERKS0_.exit.i:                ; preds = %_ZN2cvL10f64_to_i32
 
 _ZNK2cv10softdoubleeqERKS0_.exit.thread.i:        ; preds = %_ZN2cvL10f64_to_i32ENS_10softdoubleEhb.exit
   %214 = trunc nsw i64 %.0.i.i11 to i32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #14, !noalias !445
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !445
   store i64 4607182418800017408, ptr %6, align 8, !tbaa !27, !alias.scope !448, !noalias !445
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #14, !noalias !445
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !445
   store i64 %16, ptr %7, align 8, !tbaa !27, !noalias !445
   %215 = tail call i32 @llvm.abs.i32(i32 %214, i1 true)
   %216 = icmp slt i64 %.0.i.i11, 0
   br i1 %216, label %217, label %219
 
 217:                                              ; preds = %_ZNK2cv10softdoubleeqERKS0_.exit.thread.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #14, !noalias !445
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #14, !noalias !445
+  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !445
+  call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !445
   store i64 4607182418800017408, ptr %9, align 8, !tbaa !27, !alias.scope !453, !noalias !445
   call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %8, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %7), !noalias !445
   %218 = load i64, ptr %8, align 8, !tbaa !27, !noalias !445
   store i64 %218, ptr %7, align 8, !tbaa !27, !noalias !445
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #14, !noalias !445
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #14, !noalias !445
+  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !445
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !445
   br label %219
 
 219:                                              ; preds = %217, %_ZNK2cv10softdoubleeqERKS0_.exit.thread.i
@@ -7921,30 +7915,30 @@ _ZNK2cv10softdoubleeqERKS0_.exit.thread.i:        ; preds = %_ZN2cvL10f64_to_i32
   br i1 %.not.i7, label %224, label %222
 
 222:                                              ; preds = %.lr.ph.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14, !noalias !445
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !445
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7), !noalias !445
   %223 = load i64, ptr %5, align 8, !tbaa !27, !noalias !445
   store i64 %223, ptr %6, align 8, !tbaa !27, !noalias !445
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14, !noalias !445
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !445
   br label %224
 
 224:                                              ; preds = %222, %.lr.ph.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14, !noalias !445
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !445
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %7), !noalias !445
   %225 = load i64, ptr %4, align 8, !tbaa !27, !noalias !445
   store i64 %225, ptr %7, align 8, !tbaa !27, !noalias !445
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14, !noalias !445
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !445
   %226 = lshr i32 %.02.i, 1
   %227 = icmp samesign ugt i32 %.02.i, 3
   br i1 %227, label %.lr.ph.i, label %_ZN2cv10softdoubleaSERKS0_.exit10.i, !llvm.loop !458
 
 _ZN2cv10softdoubleaSERKS0_.exit10.i:              ; preds = %224, %219
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #14, !noalias !445
+  call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !445
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %10, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7), !noalias !445
   %228 = load i64, ptr %10, align 8, !tbaa !27, !noalias !445
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #14, !noalias !445
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #14, !noalias !445
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #14, !noalias !445
+  call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !445
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !445
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !445
   br label %_ZN2cvL8f64_powiENS_10softdoubleEi.exit
 
 _ZN2cvL8f64_powiENS_10softdoubleEi.exit:          ; preds = %_ZN2cv10softdoubleaSERKS0_.exit.i, %_ZN2cv10softdoubleaSERKS0_.exit10.i
@@ -8019,22 +8013,22 @@ _ZNK2cv10softdoubleltERKS0_.exit.thread:          ; preds = %_ZNK2cv10softdouble
   br label %_ZN2cvL7f64_powENS_10softdoubleES0_.exit
 
 _ZN2cv10softdoubleaSERKS0_.exit58.i:              ; preds = %_ZNK2cv10softdoubleltERKS0_.exit.thread
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #14, !noalias !422
+  call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !422
   store i64 %16, ptr %13, align 8, !tbaa !27, !noalias !422
   call fastcc void @_ZN2cvL7f64_logENS_10softdoubleE(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef %13), !noalias !422
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %11, ptr noundef nonnull readonly align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %12), !noalias !422
   call fastcc void @_ZN2cvL7f64_expENS_10softdoubleE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %11)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #14, !noalias !422
+  call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !422
   br label %_ZN2cvL7f64_powENS_10softdoubleES0_.exit
 
 _ZN2cvL7f64_powENS_10softdoubleES0_.exit:         ; preds = %88, %89, %_ZNK2cv10softdoubleeqERKS0_.exit.i, %102, %113, %114, %119, %120, %121, %_ZNK2cv10softdoubleltERKS0_.exit28.thread, %137, %_ZN2cvL8f64_powiENS_10softdoubleEi.exit, %242, %243, %250, %252, %_ZN2cv10softdoubleaSERKS0_.exit58.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZN2cv4cbrtERKNS_9softfloatE(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::softfloat") align 4 captures(none) initializes((0, 4)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #2 {
+define void @_ZN2cv4cbrtERKNS_9softfloatE(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::softfloat") align 4 captures(none) initializes((0, 4)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #1 {
   %3 = alloca %"struct.cv::softdouble", align 8
   %4 = alloca %"struct.cv::softdouble", align 8
   %5 = alloca %"struct.cv::softdouble", align 8
@@ -8083,7 +8077,7 @@ define void @_ZN2cv4cbrtERKNS_9softfloatE(ptr dead_on_unwind noalias writable wr
   %.inv.i = icmp slt i16 %34, 0
   %.neg.i = select i1 %.inv.i, i32 0, i32 -3
   %35 = add nsw i32 %.neg.i, %.sext.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #14, !noalias !459
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !459
   %36 = add nsw i32 %35, 1023
   %37 = zext nneg i32 %36 to i64
   %38 = shl nuw nsw i64 %37, 52
@@ -8092,19 +8086,19 @@ define void @_ZN2cv4cbrtERKNS_9softfloatE(ptr dead_on_unwind noalias writable wr
   %41 = shl nuw nsw i64 %40, 29
   %42 = or disjoint i64 %38, %41
   store i64 %42, ptr %3, align 8, !tbaa !27, !noalias !459
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14, !noalias !459
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !459
   store i64 4631565868979174000, ptr %4, align 8, !tbaa !27, !alias.scope !467, !noalias !459
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14, !noalias !459
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !459
   store i64 4624526254367759137, ptr %5, align 8, !tbaa !27, !alias.scope !470, !noalias !459
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #14, !noalias !459
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #14, !noalias !459
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #14, !noalias !459
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #14, !noalias !459
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #14, !noalias !459
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #14, !noalias !459
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #14, !noalias !459
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #14, !noalias !459
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #14, !noalias !459
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !459
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !459
+  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !459
+  call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !459
+  call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !459
+  call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !459
+  call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !459
+  call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !459
+  call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !459
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %14, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %3), !noalias !459
   tail call void @llvm.experimental.noalias.scope.decl(metadata !473)
   %43 = load i64, ptr %14, align 8, !tbaa !27, !noalias !476
@@ -8165,14 +8159,14 @@ _ZNK2cv10softdoubleplERKS0_.exit11.i:             ; preds = %54, %53
   br label %_ZNK2cv10softdoubleplERKS0_.exit13.i
 
 _ZNK2cv10softdoubleplERKS0_.exit13.i:             ; preds = %58, %57
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #14, !noalias !459
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #14, !noalias !459
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #14, !noalias !459
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #14, !noalias !459
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #14, !noalias !459
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #14, !noalias !459
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #14, !noalias !459
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22) #14, !noalias !459
+  call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !459
+  call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !459
+  call void @llvm.lifetime.start.p0(ptr nonnull %17), !noalias !459
+  call void @llvm.lifetime.start.p0(ptr nonnull %18), !noalias !459
+  call void @llvm.lifetime.start.p0(ptr nonnull %19), !noalias !459
+  call void @llvm.lifetime.start.p0(ptr nonnull %20), !noalias !459
+  call void @llvm.lifetime.start.p0(ptr nonnull %21), !noalias !459
+  call void @llvm.lifetime.start.p0(ptr nonnull %22), !noalias !459
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %22, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %3), !noalias !459
   tail call void @llvm.experimental.noalias.scope.decl(metadata !501)
   %59 = load i64, ptr %22, align 8, !tbaa !27, !noalias !504
@@ -8235,23 +8229,23 @@ _ZNK2cv10softdoubleplERKS0_.exit19.i:             ; preds = %70, %69
 _ZNK2cv10softdoubleplERKS0_.exit21.i:             ; preds = %74, %73
   call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %15), !noalias !459
   %75 = load i64, ptr %6, align 8, !tbaa !27, !noalias !459
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #14, !noalias !459
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #14, !noalias !459
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #14, !noalias !459
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #14, !noalias !459
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #14, !noalias !459
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #14, !noalias !459
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #14, !noalias !459
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #14, !noalias !459
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #14, !noalias !459
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #14, !noalias !459
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #14, !noalias !459
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #14, !noalias !459
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #14, !noalias !459
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #14, !noalias !459
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #14, !noalias !459
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #14, !noalias !459
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #14, !noalias !459
+  call void @llvm.lifetime.end.p0(ptr nonnull %22), !noalias !459
+  call void @llvm.lifetime.end.p0(ptr nonnull %21), !noalias !459
+  call void @llvm.lifetime.end.p0(ptr nonnull %20), !noalias !459
+  call void @llvm.lifetime.end.p0(ptr nonnull %19), !noalias !459
+  call void @llvm.lifetime.end.p0(ptr nonnull %18), !noalias !459
+  call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !459
+  call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !459
+  call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !459
+  call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !459
+  call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !459
+  call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !459
+  call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !459
+  call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !459
+  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !459
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !459
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !459
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !459
   %.not.i = icmp eq i32 %24, 0
   br i1 %.not.i, label %86, label %76
 
@@ -8273,9 +8267,9 @@ _ZNK2cv10softdoubleplERKS0_.exit21.i:             ; preds = %74, %73
 86:                                               ; preds = %76, %_ZNK2cv10softdoubleplERKS0_.exit21.i
   %87 = phi i32 [ %85, %76 ], [ 0, %_ZNK2cv10softdoubleplERKS0_.exit21.i ]
   store i32 %87, ptr %0, align 4, !tbaa !12, !alias.scope !459
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14, !noalias !459
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14, !noalias !459
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #14, !noalias !459
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !459
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !459
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !459
   br label %_ZN2cvL8f32_cbrtENS_9softfloatE.exit
 
 _ZN2cvL8f32_cbrtENS_9softfloatE.exit:             ; preds = %26, %29, %86
@@ -8283,7 +8277,7 @@ _ZN2cvL8f32_cbrtENS_9softfloatE.exit:             ; preds = %26, %29, %86
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv3sinERKNS_10softdoubleE(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::softdouble") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #9 {
+define void @_ZN2cv3sinERKNS_10softdoubleE(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::softdouble") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #8 {
   %3 = alloca %"struct.cv::softdouble", align 8
   %4 = alloca i32, align 4
   %5 = alloca %"struct.cv::softdouble", align 8
@@ -8296,10 +8290,10 @@ define void @_ZN2cv3sinERKNS_10softdoubleE(ptr dead_on_unwind noalias writable w
   %12 = load i64, ptr %1, align 8, !tbaa !27
   store i64 %12, ptr %11, align 8, !tbaa !27
   tail call void @llvm.experimental.noalias.scope.decl(metadata !529)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %13 = and i64 %12, 9218868437227405312
   %or.cond.i = icmp eq i64 %13, 9218868437227405312
   br i1 %or.cond.i, label %14, label %15
@@ -8309,9 +8303,9 @@ define void @_ZN2cv3sinERKNS_10softdoubleE(ptr dead_on_unwind noalias writable w
   br label %_ZN2cvL7f64_sinENS_10softdoubleE.exit
 
 15:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #14, !noalias !529
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !529
   store i64 0, ptr %3, align 8, !tbaa !27, !noalias !529
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #14, !noalias !529
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !529
   call fastcc void @_ZN2cvL17f64_sincos_reduceERKNS_10softdoubleERS0_Ri(ptr noundef nonnull readonly align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 4 dereferenceable(4) %4), !noalias !529
   %16 = load i32, ptr %4, align 4, !tbaa !537, !noalias !529
   switch i32 %16, label %25 [
@@ -8333,7 +8327,7 @@ define void @_ZN2cv3sinERKNS_10softdoubleE(ptr dead_on_unwind noalias writable w
   br label %29
 
 21:                                               ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #14, !noalias !529
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !529
   %22 = load i64, ptr %3, align 8, !tbaa !27, !noalias !529
   store i64 %22, ptr %8, align 8, !tbaa !27, !noalias !529
   call fastcc void @_ZN2cvL14f64_sin_kernelENS_10softdoubleE(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef %8), !noalias !529
@@ -8341,11 +8335,11 @@ define void @_ZN2cv3sinERKNS_10softdoubleE(ptr dead_on_unwind noalias writable w
   %23 = load i64, ptr %7, align 8, !tbaa !27, !noalias !541
   %24 = xor i64 %23, -9223372036854775808
   store i64 %24, ptr %0, align 8, !tbaa !27, !alias.scope !541
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #14, !noalias !529
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !529
   br label %29
 
 25:                                               ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #14, !noalias !529
+  call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !529
   %26 = load i64, ptr %3, align 8, !tbaa !27, !noalias !529
   store i64 %26, ptr %10, align 8, !tbaa !27, !noalias !529
   call fastcc void @_ZN2cvL14f64_cos_kernelENS_10softdoubleE(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef %10), !noalias !529
@@ -8353,24 +8347,24 @@ define void @_ZN2cv3sinERKNS_10softdoubleE(ptr dead_on_unwind noalias writable w
   %27 = load i64, ptr %9, align 8, !tbaa !27, !noalias !545
   %28 = xor i64 %27, -9223372036854775808
   store i64 %28, ptr %0, align 8, !tbaa !27, !alias.scope !545
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #14, !noalias !529
+  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !529
   br label %29
 
 29:                                               ; preds = %25, %21, %19, %17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #14, !noalias !529
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #14, !noalias !529
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !529
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !529
   br label %_ZN2cvL7f64_sinENS_10softdoubleE.exit
 
 _ZN2cvL7f64_sinENS_10softdoubleE.exit:            ; preds = %14, %29
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv3cosERKNS_10softdoubleE(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::softdouble") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #9 {
+define void @_ZN2cv3cosERKNS_10softdoubleE(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::softdouble") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #8 {
   %3 = alloca %"struct.cv::softdouble", align 8
   %4 = alloca i32, align 4
   %5 = alloca %"struct.cv::softdouble", align 8
@@ -8383,10 +8377,10 @@ define void @_ZN2cv3cosERKNS_10softdoubleE(ptr dead_on_unwind noalias writable w
   %12 = load i64, ptr %1, align 8, !tbaa !27
   store i64 %12, ptr %11, align 8, !tbaa !27
   tail call void @llvm.experimental.noalias.scope.decl(metadata !546)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %13 = and i64 %12, 9218868437227405312
   %or.cond.i = icmp eq i64 %13, 9218868437227405312
   br i1 %or.cond.i, label %14, label %15
@@ -8396,9 +8390,9 @@ define void @_ZN2cv3cosERKNS_10softdoubleE(ptr dead_on_unwind noalias writable w
   br label %_ZN2cvL7f64_cosENS_10softdoubleE.exit
 
 15:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #14, !noalias !546
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !546
   store i64 0, ptr %3, align 8, !tbaa !27, !noalias !546
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #14, !noalias !546
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !546
   call fastcc void @_ZN2cvL17f64_sincos_reduceERKNS_10softdoubleERS0_Ri(ptr noundef nonnull readonly align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 4 dereferenceable(4) %4), !noalias !546
   %16 = load i32, ptr %4, align 4, !tbaa !537, !noalias !546
   switch i32 %16, label %27 [
@@ -8414,7 +8408,7 @@ define void @_ZN2cv3cosERKNS_10softdoubleE(ptr dead_on_unwind noalias writable w
   br label %29
 
 19:                                               ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #14, !noalias !546
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !546
   %20 = load i64, ptr %3, align 8, !tbaa !27, !noalias !546
   store i64 %20, ptr %7, align 8, !tbaa !27, !noalias !546
   call fastcc void @_ZN2cvL14f64_sin_kernelENS_10softdoubleE(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef %7), !noalias !546
@@ -8422,11 +8416,11 @@ define void @_ZN2cv3cosERKNS_10softdoubleE(ptr dead_on_unwind noalias writable w
   %21 = load i64, ptr %6, align 8, !tbaa !27, !noalias !557
   %22 = xor i64 %21, -9223372036854775808
   store i64 %22, ptr %0, align 8, !tbaa !27, !alias.scope !557
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #14, !noalias !546
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !546
   br label %29
 
 23:                                               ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #14, !noalias !546
+  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !546
   %24 = load i64, ptr %3, align 8, !tbaa !27, !noalias !546
   store i64 %24, ptr %9, align 8, !tbaa !27, !noalias !546
   call fastcc void @_ZN2cvL14f64_cos_kernelENS_10softdoubleE(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef %9), !noalias !546
@@ -8434,7 +8428,7 @@ define void @_ZN2cv3cosERKNS_10softdoubleE(ptr dead_on_unwind noalias writable w
   %25 = load i64, ptr %8, align 8, !tbaa !27, !noalias !561
   %26 = xor i64 %25, -9223372036854775808
   store i64 %26, ptr %0, align 8, !tbaa !27, !alias.scope !561
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #14, !noalias !546
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !546
   br label %29
 
 27:                                               ; preds = %15
@@ -8444,20 +8438,20 @@ define void @_ZN2cv3cosERKNS_10softdoubleE(ptr dead_on_unwind noalias writable w
   br label %29
 
 29:                                               ; preds = %27, %23, %19, %17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #14, !noalias !546
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #14, !noalias !546
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !546
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !546
   br label %_ZN2cvL7f64_cosENS_10softdoubleE.exit
 
 _ZN2cvL7f64_cosENS_10softdoubleE.exit:            ; preds = %14, %29
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare ptr @llvm.invariant.start.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @llvm.invariant.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal fastcc void @_ZN2cvL20softfloat_subMagsF32Emm(ptr dead_on_unwind noalias writable writeonly align 4 captures(none) initializes((0, 4)) %0, i64 noundef range(i64 0, 4294967296) %1, i64 noundef range(i64 0, 4294967296) %2) unnamed_addr #0 {
@@ -9480,7 +9474,7 @@ declare void @__cxa_guard_release(ptr) local_unnamed_addr #10
 declare i32 @llvm.abs.i32(i32, i1 immarg) #11
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cvL17f64_sincos_reduceERKNS_10softdoubleERS0_Ri(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(8) %0, ptr noundef nonnull writeonly align 8 captures(address) dereferenceable(8) %1, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %2) unnamed_addr #9 {
+define internal fastcc void @_ZN2cvL17f64_sincos_reduceERKNS_10softdoubleERS0_Ri(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(8) %0, ptr noundef nonnull writeonly align 8 captures(address) dereferenceable(8) %1, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %2) unnamed_addr #8 {
   %4 = alloca %"struct.cv::softdouble", align 8
   %5 = alloca %"struct.cv::softdouble", align 8
   %6 = alloca %"struct.cv::softdouble", align 8
@@ -9509,9 +9503,9 @@ define internal fastcc void @_ZN2cvL17f64_sincos_reduceERKNS_10softdoubleERS0_Ri
   br label %_ZN2cv10softdoubleaSERKS0_.exit
 
 _ZNK2cv10softdoubleltERKS0_.exit.thread:          ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call fastcc void @_ZN2cvL7f64_remENS_10softdoubleES0_(ptr dead_on_unwind noalias nonnull writable align 8 %4, i64 %11, i64 4618760256179416344)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %19 = load i64, ptr %4, align 8
   %20 = icmp sgt i64 %19, -1
   %21 = bitcast i64 %19 to double
@@ -9545,8 +9539,8 @@ _ZNK2cv10softdoubleleERKS0_.exit.thread63:        ; preds = %29
   br label %_ZN2cv10softdoubleaSERKS0_.exit23
 
 _ZNK2cv10softdoubleleERKS0_.exit.thread:          ; preds = %29
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN2cv10softdoubleC1Ei(ptr noundef nonnull align 8 dereferenceable(8) %7, i32 noundef 3)
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) @_ZN2cvL5piby4E)
   %30 = load i64, ptr %6, align 8, !tbaa !27
@@ -9565,8 +9559,8 @@ _ZNK2cv10softdoubleleERKS0_.exit.thread:          ; preds = %29
   %.masked.i.i69 = or i64 %30, %24
   %36 = and i64 %.masked.i.i69, 9223372036854775807
   %.not22.i.i29 = icmp eq i64 %36, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %.not22.i.i29, label %40, label %50
 
 37:                                               ; preds = %34
@@ -9574,26 +9568,26 @@ _ZNK2cv10softdoubleleERKS0_.exit.thread:          ; preds = %29
   br i1 %38, label %_ZNK2cv10softdoubleleERKS0_.exit30.thread66, label %_ZNK2cv10softdoubleleERKS0_.exit30
 
 _ZNK2cv10softdoubleleERKS0_.exit30.thread66:      ; preds = %37
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %40
 
 _ZNK2cv10softdoubleleERKS0_.exit30.thread.critedge: ; preds = %_ZNK2cv10softdoublemiERKS0_.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN2cv10softdoubleC1Ei(ptr noundef nonnull align 8 dereferenceable(8) %7, i32 noundef 3)
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) @_ZN2cvL5piby4E)
   br label %_ZNK2cv10softdoubleleERKS0_.exit30.thread
 
 _ZNK2cv10softdoubleleERKS0_.exit30.thread:        ; preds = %_ZNK2cv10softdoubleleERKS0_.exit30.thread.critedge, %_ZNK2cv10softdoubleleERKS0_.exit.thread
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %50
 
 _ZNK2cv10softdoubleleERKS0_.exit30:               ; preds = %37
   %39 = icmp samesign ult i64 %25, %30
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %39, label %40, label %50
 
 40:                                               ; preds = %35, %_ZNK2cv10softdoubleleERKS0_.exit30.thread66, %_ZNK2cv10softdoubleleERKS0_.exit30
@@ -9602,12 +9596,12 @@ _ZNK2cv10softdoubleleERKS0_.exit30:               ; preds = %37
 
 42:                                               ; preds = %40
   store i32 1, ptr %2, align 4, !tbaa !537
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   br i1 %20, label %44, label %45
 
 43:                                               ; preds = %40
   store i32 3, ptr %2, align 4, !tbaa !537
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   br i1 %20, label %47, label %48
 
 44:                                               ; preds = %42
@@ -9621,7 +9615,7 @@ _ZNK2cv10softdoubleleERKS0_.exit30:               ; preds = %37
 _ZNK2cv10softdoublemiERKS0_.exit37:               ; preds = %45, %44
   %46 = load i64, ptr %8, align 8, !tbaa !27
   store i64 %46, ptr %1, align 8, !tbaa !27
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZN2cv10softdoubleaSERKS0_.exit23
 
 47:                                               ; preds = %43
@@ -9635,12 +9629,12 @@ _ZNK2cv10softdoublemiERKS0_.exit37:               ; preds = %45, %44
 _ZNK2cv10softdoubleplERKS0_.exit41:               ; preds = %48, %47
   %49 = load i64, ptr %9, align 8, !tbaa !27
   store i64 %49, ptr %1, align 8, !tbaa !27
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZN2cv10softdoubleaSERKS0_.exit23
 
 50:                                               ; preds = %35, %_ZNK2cv10softdoubleleERKS0_.exit30.thread, %_ZNK2cv10softdoubleleERKS0_.exit30
   store i32 2, ptr %2, align 4, !tbaa !537
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %51 = fcmp ogt double %21, 0.000000e+00
   br i1 %51, label %52, label %55
 
@@ -9669,12 +9663,12 @@ _ZNK2cv10softdoubleplERKS0_.exit41:               ; preds = %48, %47
 _ZNK2cv10softdoublemiERKS0_.exit45:               ; preds = %53, %54, %56, %57
   %58 = load i64, ptr %10, align 8, !tbaa !27
   store i64 %58, ptr %1, align 8, !tbaa !27
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %_ZN2cv10softdoubleaSERKS0_.exit23
 
 _ZN2cv10softdoubleaSERKS0_.exit23:                ; preds = %_ZNK2cv10softdoubleleERKS0_.exit.thread63, %_ZNK2cv10softdoublemiERKS0_.exit45, %_ZNK2cv10softdoubleplERKS0_.exit41, %_ZNK2cv10softdoublemiERKS0_.exit37
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN2cv10softdoubleaSERKS0_.exit
 
 _ZN2cv10softdoubleaSERKS0_.exit:                  ; preds = %18, %17, %_ZN2cv10softdoubleaSERKS0_.exit23
@@ -9682,7 +9676,7 @@ _ZN2cv10softdoubleaSERKS0_.exit:                  ; preds = %18, %17, %_ZN2cv10s
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal fastcc void @_ZN2cvL14f64_sin_kernelENS_10softdoubleE(ptr dead_on_unwind noalias writable writeonly align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #2 {
+define internal fastcc void @_ZN2cvL14f64_sin_kernelENS_10softdoubleE(ptr dead_on_unwind noalias writable writeonly align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #1 {
   %3 = alloca %"struct.cv::softdouble", align 8
   %4 = alloca %"struct.cv::softdouble", align 8
   %5 = alloca %"struct.cv::softdouble", align 8
@@ -9701,31 +9695,31 @@ _ZNK2cv10softdoubleneERKS0_.exit.thread:          ; preds = %2
   br label %15
 
 14:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %1)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN2cv6mulAddERKNS_10softdoubleES2_S2_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %9, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) @_ZN2cvL2S6E, ptr noundef nonnull align 8 dereferenceable(8) @_ZN2cvL2S5E)
   call void @_ZN2cv6mulAddERKNS_10softdoubleES2_S2_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %8, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) @_ZN2cvL2S4E)
   call void @_ZN2cv6mulAddERKNS_10softdoubleES2_S2_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) @_ZN2cvL2S3E)
   call void @_ZN2cv6mulAddERKNS_10softdoubleES2_S2_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) @_ZN2cvL2S2E)
   call void @_ZN2cv6mulAddERKNS_10softdoubleES2_S2_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) @_ZN2cvL2S1E)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i64 4607182418800017408, ptr %10, align 8, !tbaa !27, !alias.scope !593
   call void @_ZN2cv6mulAddERKNS_10softdoubleES2_S2_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %10)
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind writable sret(%"struct.cv::softdouble") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %15
 
 15:                                               ; preds = %14, %_ZNK2cv10softdoubleneERKS0_.exit.thread
@@ -9733,7 +9727,7 @@ _ZNK2cv10softdoubleneERKS0_.exit.thread:          ; preds = %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal fastcc void @_ZN2cvL14f64_cos_kernelENS_10softdoubleE(ptr dead_on_unwind noalias writable writeonly align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #2 {
+define internal fastcc void @_ZN2cvL14f64_cos_kernelENS_10softdoubleE(ptr dead_on_unwind noalias writable writeonly align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #1 {
   %3 = alloca %"struct.cv::softdouble", align 8
   %4 = alloca %"struct.cv::softdouble", align 8
   %5 = alloca %"struct.cv::softdouble", align 8
@@ -9753,39 +9747,45 @@ _ZNK2cv10softdoubleneERKS0_.exit.thread:          ; preds = %2
   br label %16
 
 15:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %1)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN2cv6mulAddERKNS_10softdoubleES2_S2_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %9, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) @_ZN2cvL2C6E, ptr noundef nonnull align 8 dereferenceable(8) @_ZN2cvL2C5E)
   call void @_ZN2cv6mulAddERKNS_10softdoubleES2_S2_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %8, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) @_ZN2cvL2C4E)
   call void @_ZN2cv6mulAddERKNS_10softdoubleES2_S2_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) @_ZN2cvL2C3E)
   call void @_ZN2cv6mulAddERKNS_10softdoubleES2_S2_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) @_ZN2cvL2C2E)
   call void @_ZN2cv6mulAddERKNS_10softdoubleES2_S2_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) @_ZN2cvL2C1E)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i64 -4620693217682128896, ptr %10, align 8, !tbaa !27, !alias.scope !603
   call void @_ZN2cv6mulAddERKNS_10softdoubleES2_S2_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %10)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i64 4607182418800017408, ptr %11, align 8, !tbaa !27, !alias.scope !606
   call void @_ZN2cv6mulAddERKNS_10softdoubleES2_S2_(ptr dead_on_unwind writable sret(%"struct.cv::softdouble") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %11)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %16
 
 16:                                               ; preds = %15, %_ZNK2cv10softdoubleneERKS0_.exit.thread
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.abs.i64(i64, i1 immarg) #12
@@ -9809,15 +9809,15 @@ declare i64 @llvm.usub.sat.i64(i64, i64) #12
 declare i64 @llvm.smax.i64(i64, i64) #12
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nofree nounwind }
 attributes #11 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }

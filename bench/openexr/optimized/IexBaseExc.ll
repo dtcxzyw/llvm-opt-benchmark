@@ -2076,7 +2076,7 @@ define void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceab
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %6, ptr %4, align 8, !tbaa !9
   %7 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #21
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %7, ptr %3, align 8, !tbaa !12
   %8 = icmp ugt i64 %7, 15
   br i1 %8, label %.noexc.i, label %._crit_edge.i.i
@@ -2114,7 +2114,7 @@ define void @_ZN7Iex_3_47BaseExcC2EPKc(ptr noundef nonnull align 8 dereferenceab
   %18 = load ptr, ptr %4, align 8, !tbaa !14
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 %16
   store i8 0, ptr %19, align 1, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %21 = load ptr, ptr @_ZN7Iex_3_412_GLOBAL__N_118currentStackTracerB5cxx11E, align 8, !tbaa !3
   %.not6 = icmp eq ptr %21, null
@@ -2165,16 +2165,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   resume { ptr, i32 } %.pn
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 declare i32 @__gxx_personality_v0(...)
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
-
 ; Function Attrs: nounwind
-declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #4
+declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7Iex_3_47BaseExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
@@ -2186,7 +2180,7 @@ define void @_ZN7Iex_3_47BaseExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsI
   %6 = load ptr, ptr %1, align 8, !tbaa !14
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i64, ptr %7, align 8, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %8, ptr %3, align 8, !tbaa !12
   %9 = icmp ugt i64 %8, 15
   br i1 %9, label %.noexc.i, label %._crit_edge.i.i
@@ -2224,7 +2218,7 @@ define void @_ZN7Iex_3_47BaseExcC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsI
   %19 = load ptr, ptr %4, align 8, !tbaa !14
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 %17
   store i8 0, ptr %20, align 1, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %22 = load ptr, ptr @_ZN7Iex_3_412_GLOBAL__N_118currentStackTracerB5cxx11E, align 8, !tbaa !3
   %.not = icmp eq ptr %22, null
@@ -2466,7 +2460,7 @@ define void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereference
   %8 = load ptr, ptr %6, align 8, !tbaa !14
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load i64, ptr %9, align 8, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %10, ptr %4, align 8, !tbaa !12
   %11 = icmp ugt i64 %10, 15
   br i1 %11, label %.noexc.i, label %._crit_edge.i.i
@@ -2504,7 +2498,7 @@ define void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereference
   %21 = load ptr, ptr %5, align 8, !tbaa !14
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 %19
   store i8 0, ptr %22, align 1, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -2512,7 +2506,7 @@ define void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereference
   %26 = load ptr, ptr %24, align 8, !tbaa !14
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %28 = load i64, ptr %27, align 8, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %28, ptr %3, align 8, !tbaa !12
   %29 = icmp ugt i64 %28, 15
   br i1 %29, label %.noexc.i7, label %._crit_edge.i.i6
@@ -2550,7 +2544,7 @@ define void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereference
   %39 = load ptr, ptr %23, align 8, !tbaa !14
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 %37
   store i8 0, ptr %40, align 1, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 41:                                               ; preds = %.noexc.i
@@ -2584,7 +2578,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_47BaseExcD2Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_47BaseExcD2Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7Iex_3_47BaseExcE, i64 16), ptr %0, align 8, !tbaa !7
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8, !tbaa !14
@@ -2631,14 +2625,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit3: ; preds = %_ZNK
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_47BaseExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_47BaseExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_47BaseExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #6
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_47BaseExcaSERKS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #2 align 2 {
@@ -2659,7 +2653,7 @@ define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_47BaseExcaSERK
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_47BaseExcaSEOS0_(ptr noundef nonnull returned align 8 captures(address, ret: address, provenance) dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_47BaseExcaSEOS0_(ptr noundef nonnull returned align 8 captures(address, ret: address, provenance) dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq ptr %0, %1
   br i1 %.not, label %82, label %3
 
@@ -2849,7 +2843,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit13: ; preds = %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZNK7Iex_3_47BaseExc4whatEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZNK7Iex_3_47BaseExc4whatEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !14
   ret ptr %3
@@ -2859,7 +2853,7 @@ define noundef ptr @_ZNK7Iex_3_47BaseExc4whatEv(ptr noundef nonnull readonly ali
 define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_47BaseExc6assignERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull returned align 8 captures(address, ret: address, provenance) dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(128) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !30)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !33)
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -3016,7 +3010,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i3:
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i3
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %0
 }
 
@@ -3024,7 +3018,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_47BaseExc6appendERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(128) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !38)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !41)
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -3118,7 +3112,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %0
 
 43:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit.i, %34
@@ -3141,12 +3135,12 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i4:
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i5, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i4
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %common.resume
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK7Iex_3_47BaseExc7messageB5cxx11Ev(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(72) %0) local_unnamed_addr #9 align 2 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK7Iex_3_47BaseExc7messageB5cxx11Ev(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(72) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   ret ptr %2
 }
@@ -3222,7 +3216,7 @@ _ZN7Iex_3_47BaseExc6appendEPKc.exit:              ; preds = %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK7Iex_3_47BaseExc10stackTraceB5cxx11Ev(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(72) %0) local_unnamed_addr #9 align 2 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK7Iex_3_47BaseExc10stackTraceB5cxx11Ev(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(72) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   ret ptr %2
 }
@@ -3342,7 +3336,7 @@ define void @_ZN7Iex_3_46ArgExcC2ERKS0_(ptr noundef nonnull align 8 dereferencea
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_46ArgExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_46ArgExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -3359,7 +3353,7 @@ define void @_ZN7Iex_3_46ArgExcC2EOS0_(ptr noundef nonnull align 8 dereferenceab
 }
 
 ; Function Attrs: noinline noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #10 comdat {
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #9 comdat {
   %2 = tail call ptr @__cxa_begin_catch(ptr %0) #21
   tail call void @_ZSt9terminatev() #24
   unreachable
@@ -3368,7 +3362,7 @@ define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_un
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #11
+declare void @_ZSt9terminatev() local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_46ArgExcaSERS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #2 align 2 {
@@ -3389,7 +3383,7 @@ _ZN7Iex_3_47BaseExcaSERKS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_46ArgExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_46ArgExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i = icmp eq ptr %0, %1
   br i1 %.not.i, label %_ZN7Iex_3_47BaseExcaSERKS0_.exit, label %3
 
@@ -3417,7 +3411,7 @@ _ZN7Iex_3_47BaseExcaSERKS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_46ArgExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_46ArgExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_46ArgExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -3538,7 +3532,7 @@ define void @_ZN7Iex_3_48LogicExcC2ERKS0_(ptr noundef nonnull align 8 dereferenc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_48LogicExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_48LogicExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -3573,7 +3567,7 @@ _ZN7Iex_3_47BaseExcaSERKS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_48LogicExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_48LogicExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i = icmp eq ptr %0, %1
   br i1 %.not.i, label %_ZN7Iex_3_47BaseExcaSERKS0_.exit, label %3
 
@@ -3601,7 +3595,7 @@ _ZN7Iex_3_47BaseExcaSERKS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_48LogicExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_48LogicExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_48LogicExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -3722,7 +3716,7 @@ define void @_ZN7Iex_3_48InputExcC2ERKS0_(ptr noundef nonnull align 8 dereferenc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_48InputExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_48InputExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -3757,7 +3751,7 @@ _ZN7Iex_3_47BaseExcaSERKS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_48InputExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_48InputExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i = icmp eq ptr %0, %1
   br i1 %.not.i, label %_ZN7Iex_3_47BaseExcaSERKS0_.exit, label %3
 
@@ -3785,7 +3779,7 @@ _ZN7Iex_3_47BaseExcaSERKS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_48InputExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_48InputExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_48InputExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -3906,7 +3900,7 @@ define void @_ZN7Iex_3_45IoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceab
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_45IoExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_45IoExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -3941,7 +3935,7 @@ _ZN7Iex_3_47BaseExcaSERKS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_45IoExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_45IoExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i = icmp eq ptr %0, %1
   br i1 %.not.i, label %_ZN7Iex_3_47BaseExcaSERKS0_.exit, label %3
 
@@ -3969,7 +3963,7 @@ _ZN7Iex_3_47BaseExcaSERKS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_45IoExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_45IoExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_45IoExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -4090,7 +4084,7 @@ define void @_ZN7Iex_3_47MathExcC2ERKS0_(ptr noundef nonnull align 8 dereference
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_47MathExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_47MathExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -4125,7 +4119,7 @@ _ZN7Iex_3_47BaseExcaSERKS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_47MathExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_47MathExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i = icmp eq ptr %0, %1
   br i1 %.not.i, label %_ZN7Iex_3_47BaseExcaSERKS0_.exit, label %3
 
@@ -4153,7 +4147,7 @@ _ZN7Iex_3_47BaseExcaSERKS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_47MathExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_47MathExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_47MathExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -4274,7 +4268,7 @@ define void @_ZN7Iex_3_48ErrnoExcC2ERKS0_(ptr noundef nonnull align 8 dereferenc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_48ErrnoExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_48ErrnoExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -4309,7 +4303,7 @@ _ZN7Iex_3_47BaseExcaSERKS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_48ErrnoExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_48ErrnoExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i = icmp eq ptr %0, %1
   br i1 %.not.i, label %_ZN7Iex_3_47BaseExcaSERKS0_.exit, label %3
 
@@ -4337,7 +4331,7 @@ _ZN7Iex_3_47BaseExcaSERKS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_48ErrnoExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_48ErrnoExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_48ErrnoExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -4458,7 +4452,7 @@ define void @_ZN7Iex_3_49NoImplExcC2ERKS0_(ptr noundef nonnull align 8 dereferen
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_49NoImplExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_49NoImplExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -4493,7 +4487,7 @@ _ZN7Iex_3_47BaseExcaSERKS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_49NoImplExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_49NoImplExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i = icmp eq ptr %0, %1
   br i1 %.not.i, label %_ZN7Iex_3_47BaseExcaSERKS0_.exit, label %3
 
@@ -4521,7 +4515,7 @@ _ZN7Iex_3_47BaseExcaSERKS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_49NoImplExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_49NoImplExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_49NoImplExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -4642,7 +4636,7 @@ define void @_ZN7Iex_3_47NullExcC2ERKS0_(ptr noundef nonnull align 8 dereference
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_47NullExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_47NullExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -4677,7 +4671,7 @@ _ZN7Iex_3_47BaseExcaSERKS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_47NullExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_47NullExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i = icmp eq ptr %0, %1
   br i1 %.not.i, label %_ZN7Iex_3_47BaseExcaSERKS0_.exit, label %3
 
@@ -4705,7 +4699,7 @@ _ZN7Iex_3_47BaseExcaSERKS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_47NullExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_47NullExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_47NullExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -4826,7 +4820,7 @@ define void @_ZN7Iex_3_47TypeExcC2ERKS0_(ptr noundef nonnull align 8 dereference
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_47TypeExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_47TypeExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -4861,7 +4855,7 @@ _ZN7Iex_3_47BaseExcaSERKS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_47TypeExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_47TypeExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i = icmp eq ptr %0, %1
   br i1 %.not.i, label %_ZN7Iex_3_47BaseExcaSERKS0_.exit, label %3
 
@@ -4889,7 +4883,7 @@ _ZN7Iex_3_47BaseExcaSERKS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_47TypeExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_47TypeExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_47TypeExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -5010,7 +5004,7 @@ define void @_ZN7Iex_3_48EpermExcC2ERKS0_(ptr noundef nonnull align 8 dereferenc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_48EpermExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_48EpermExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -5045,7 +5039,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_48EpermExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_48EpermExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -5073,7 +5067,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_48EpermExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_48EpermExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_48EpermExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -5194,7 +5188,7 @@ define void @_ZN7Iex_3_49EnoentExcC2ERKS0_(ptr noundef nonnull align 8 dereferen
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_49EnoentExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_49EnoentExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -5229,7 +5223,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_49EnoentExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_49EnoentExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -5257,7 +5251,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_49EnoentExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_49EnoentExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_49EnoentExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -5378,7 +5372,7 @@ define void @_ZN7Iex_3_48EsrchExcC2ERKS0_(ptr noundef nonnull align 8 dereferenc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_48EsrchExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_48EsrchExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -5413,7 +5407,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_48EsrchExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_48EsrchExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -5441,7 +5435,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_48EsrchExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_48EsrchExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_48EsrchExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -5562,7 +5556,7 @@ define void @_ZN7Iex_3_48EintrExcC2ERKS0_(ptr noundef nonnull align 8 dereferenc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_48EintrExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_48EintrExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -5597,7 +5591,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_48EintrExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_48EintrExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -5625,7 +5619,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_48EintrExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_48EintrExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_48EintrExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -5746,7 +5740,7 @@ define void @_ZN7Iex_3_46EioExcC2ERKS0_(ptr noundef nonnull align 8 dereferencea
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_46EioExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_46EioExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -5781,7 +5775,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_46EioExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_46EioExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -5809,7 +5803,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_46EioExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_46EioExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_46EioExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -5930,7 +5924,7 @@ define void @_ZN7Iex_3_48EnxioExcC2ERKS0_(ptr noundef nonnull align 8 dereferenc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_48EnxioExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_48EnxioExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -5965,7 +5959,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_48EnxioExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_48EnxioExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -5993,7 +5987,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_48EnxioExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_48EnxioExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_48EnxioExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -6114,7 +6108,7 @@ define void @_ZN7Iex_3_48E2bigExcC2ERKS0_(ptr noundef nonnull align 8 dereferenc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_48E2bigExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_48E2bigExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -6149,7 +6143,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_48E2bigExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_48E2bigExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -6177,7 +6171,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_48E2bigExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_48E2bigExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_48E2bigExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -6298,7 +6292,7 @@ define void @_ZN7Iex_3_410EnoexecExcC2ERKS0_(ptr noundef nonnull align 8 derefer
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_410EnoexecExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_410EnoexecExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -6333,7 +6327,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_410EnoexecExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_410EnoexecExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -6361,7 +6355,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_410EnoexecExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_410EnoexecExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_410EnoexecExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -6482,7 +6476,7 @@ define void @_ZN7Iex_3_48EbadfExcC2ERKS0_(ptr noundef nonnull align 8 dereferenc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_48EbadfExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_48EbadfExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -6517,7 +6511,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_48EbadfExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_48EbadfExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -6545,7 +6539,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_48EbadfExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_48EbadfExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_48EbadfExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -6666,7 +6660,7 @@ define void @_ZN7Iex_3_49EchildExcC2ERKS0_(ptr noundef nonnull align 8 dereferen
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_49EchildExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_49EchildExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -6701,7 +6695,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_49EchildExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_49EchildExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -6729,7 +6723,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_49EchildExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_49EchildExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_49EchildExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -6850,7 +6844,7 @@ define void @_ZN7Iex_3_49EagainExcC2ERKS0_(ptr noundef nonnull align 8 dereferen
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_49EagainExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_49EagainExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -6885,7 +6879,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_49EagainExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_49EagainExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -6913,7 +6907,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_49EagainExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_49EagainExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_49EagainExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -7034,7 +7028,7 @@ define void @_ZN7Iex_3_49EnomemExcC2ERKS0_(ptr noundef nonnull align 8 dereferen
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_49EnomemExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_49EnomemExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -7069,7 +7063,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_49EnomemExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_49EnomemExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -7097,7 +7091,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_49EnomemExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_49EnomemExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_49EnomemExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -7218,7 +7212,7 @@ define void @_ZN7Iex_3_49EaccesExcC2ERKS0_(ptr noundef nonnull align 8 dereferen
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_49EaccesExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_49EaccesExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -7253,7 +7247,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_49EaccesExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_49EaccesExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -7281,7 +7275,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_49EaccesExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_49EaccesExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_49EaccesExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -7402,7 +7396,7 @@ define void @_ZN7Iex_3_49EfaultExcC2ERKS0_(ptr noundef nonnull align 8 dereferen
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_49EfaultExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_49EfaultExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -7437,7 +7431,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_49EfaultExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_49EfaultExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -7465,7 +7459,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_49EfaultExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_49EfaultExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_49EfaultExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -7586,7 +7580,7 @@ define void @_ZN7Iex_3_410EnotblkExcC2ERKS0_(ptr noundef nonnull align 8 derefer
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_410EnotblkExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_410EnotblkExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -7621,7 +7615,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_410EnotblkExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_410EnotblkExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -7649,7 +7643,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_410EnotblkExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_410EnotblkExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_410EnotblkExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -7770,7 +7764,7 @@ define void @_ZN7Iex_3_48EbusyExcC2ERKS0_(ptr noundef nonnull align 8 dereferenc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_48EbusyExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_48EbusyExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -7805,7 +7799,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_48EbusyExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_48EbusyExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -7833,7 +7827,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_48EbusyExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_48EbusyExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_48EbusyExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -7954,7 +7948,7 @@ define void @_ZN7Iex_3_49EexistExcC2ERKS0_(ptr noundef nonnull align 8 dereferen
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_49EexistExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_49EexistExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -7989,7 +7983,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_49EexistExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_49EexistExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -8017,7 +8011,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_49EexistExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_49EexistExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_49EexistExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -8138,7 +8132,7 @@ define void @_ZN7Iex_3_48ExdevExcC2ERKS0_(ptr noundef nonnull align 8 dereferenc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_48ExdevExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_48ExdevExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -8173,7 +8167,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_48ExdevExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_48ExdevExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -8201,7 +8195,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_48ExdevExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_48ExdevExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_48ExdevExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -8322,7 +8316,7 @@ define void @_ZN7Iex_3_49EnodevExcC2ERKS0_(ptr noundef nonnull align 8 dereferen
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_49EnodevExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_49EnodevExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -8357,7 +8351,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_49EnodevExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_49EnodevExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -8385,7 +8379,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_49EnodevExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_49EnodevExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_49EnodevExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -8506,7 +8500,7 @@ define void @_ZN7Iex_3_410EnotdirExcC2ERKS0_(ptr noundef nonnull align 8 derefer
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_410EnotdirExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_410EnotdirExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -8541,7 +8535,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_410EnotdirExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_410EnotdirExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -8569,7 +8563,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_410EnotdirExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_410EnotdirExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_410EnotdirExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -8690,7 +8684,7 @@ define void @_ZN7Iex_3_49EisdirExcC2ERKS0_(ptr noundef nonnull align 8 dereferen
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_49EisdirExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_49EisdirExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -8725,7 +8719,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_49EisdirExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_49EisdirExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -8753,7 +8747,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_49EisdirExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_49EisdirExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_49EisdirExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -8874,7 +8868,7 @@ define void @_ZN7Iex_3_49EinvalExcC2ERKS0_(ptr noundef nonnull align 8 dereferen
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_49EinvalExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_49EinvalExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -8909,7 +8903,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_49EinvalExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_49EinvalExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -8937,7 +8931,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_49EinvalExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_49EinvalExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_49EinvalExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -9058,7 +9052,7 @@ define void @_ZN7Iex_3_49EnfileExcC2ERKS0_(ptr noundef nonnull align 8 dereferen
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_49EnfileExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_49EnfileExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -9093,7 +9087,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_49EnfileExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_49EnfileExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -9121,7 +9115,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_49EnfileExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_49EnfileExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_49EnfileExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -9242,7 +9236,7 @@ define void @_ZN7Iex_3_49EmfileExcC2ERKS0_(ptr noundef nonnull align 8 dereferen
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_49EmfileExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_49EmfileExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -9277,7 +9271,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_49EmfileExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_49EmfileExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -9305,7 +9299,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_49EmfileExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_49EmfileExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_49EmfileExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -9426,7 +9420,7 @@ define void @_ZN7Iex_3_49EnottyExcC2ERKS0_(ptr noundef nonnull align 8 dereferen
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_49EnottyExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_49EnottyExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -9461,7 +9455,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_49EnottyExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_49EnottyExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -9489,7 +9483,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_49EnottyExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_49EnottyExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_49EnottyExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -9610,7 +9604,7 @@ define void @_ZN7Iex_3_410EtxtbsyExcC2ERKS0_(ptr noundef nonnull align 8 derefer
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_410EtxtbsyExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_410EtxtbsyExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -9645,7 +9639,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_410EtxtbsyExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_410EtxtbsyExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -9673,7 +9667,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_410EtxtbsyExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_410EtxtbsyExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_410EtxtbsyExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -9794,7 +9788,7 @@ define void @_ZN7Iex_3_48EfbigExcC2ERKS0_(ptr noundef nonnull align 8 dereferenc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_48EfbigExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_48EfbigExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -9829,7 +9823,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_48EfbigExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_48EfbigExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -9857,7 +9851,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_48EfbigExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_48EfbigExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_48EfbigExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -9978,7 +9972,7 @@ define void @_ZN7Iex_3_49EnospcExcC2ERKS0_(ptr noundef nonnull align 8 dereferen
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_49EnospcExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_49EnospcExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -10013,7 +10007,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_49EnospcExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_49EnospcExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -10041,7 +10035,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_49EnospcExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_49EnospcExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_49EnospcExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -10162,7 +10156,7 @@ define void @_ZN7Iex_3_49EspipeExcC2ERKS0_(ptr noundef nonnull align 8 dereferen
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_49EspipeExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_49EspipeExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -10197,7 +10191,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_49EspipeExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_49EspipeExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -10225,7 +10219,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_49EspipeExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_49EspipeExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_49EspipeExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -10346,7 +10340,7 @@ define void @_ZN7Iex_3_48ErofsExcC2ERKS0_(ptr noundef nonnull align 8 dereferenc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_48ErofsExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_48ErofsExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -10381,7 +10375,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_48ErofsExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_48ErofsExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -10409,7 +10403,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_48ErofsExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_48ErofsExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_48ErofsExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -10530,7 +10524,7 @@ define void @_ZN7Iex_3_49EmlinkExcC2ERKS0_(ptr noundef nonnull align 8 dereferen
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_49EmlinkExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_49EmlinkExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -10565,7 +10559,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_49EmlinkExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_49EmlinkExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -10593,7 +10587,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_49EmlinkExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_49EmlinkExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_49EmlinkExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -10714,7 +10708,7 @@ define void @_ZN7Iex_3_48EpipeExcC2ERKS0_(ptr noundef nonnull align 8 dereferenc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_48EpipeExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_48EpipeExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -10749,7 +10743,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_48EpipeExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_48EpipeExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -10777,7 +10771,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_48EpipeExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_48EpipeExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_48EpipeExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -10898,7 +10892,7 @@ define void @_ZN7Iex_3_47EdomExcC2ERKS0_(ptr noundef nonnull align 8 dereference
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_47EdomExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_47EdomExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -10933,7 +10927,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_47EdomExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_47EdomExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -10961,7 +10955,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_47EdomExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_47EdomExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_47EdomExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -11082,7 +11076,7 @@ define void @_ZN7Iex_3_49ErangeExcC2ERKS0_(ptr noundef nonnull align 8 dereferen
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_49ErangeExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_49ErangeExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -11117,7 +11111,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_49ErangeExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_49ErangeExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -11145,7 +11139,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_49ErangeExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_49ErangeExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_49ErangeExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -11266,7 +11260,7 @@ define void @_ZN7Iex_3_49EnomsgExcC2ERKS0_(ptr noundef nonnull align 8 dereferen
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_49EnomsgExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_49EnomsgExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -11301,7 +11295,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_49EnomsgExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_49EnomsgExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -11329,7 +11323,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_49EnomsgExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_49EnomsgExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_49EnomsgExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -11450,7 +11444,7 @@ define void @_ZN7Iex_3_48EidrmExcC2ERKS0_(ptr noundef nonnull align 8 dereferenc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_48EidrmExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_48EidrmExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -11485,7 +11479,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_48EidrmExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_48EidrmExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -11513,7 +11507,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_48EidrmExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_48EidrmExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_48EidrmExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -11634,7 +11628,7 @@ define void @_ZN7Iex_3_49EchrngExcC2ERKS0_(ptr noundef nonnull align 8 dereferen
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_49EchrngExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_49EchrngExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -11669,7 +11663,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_49EchrngExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_49EchrngExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -11697,7 +11691,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_49EchrngExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_49EchrngExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_49EchrngExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -11818,7 +11812,7 @@ define void @_ZN7Iex_3_411El2nsyncExcC2ERKS0_(ptr noundef nonnull align 8 derefe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_411El2nsyncExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_411El2nsyncExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -11853,7 +11847,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_411El2nsyncExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_411El2nsyncExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -11881,7 +11875,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_411El2nsyncExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_411El2nsyncExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_411El2nsyncExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -12002,7 +11996,7 @@ define void @_ZN7Iex_3_49El3hltExcC2ERKS0_(ptr noundef nonnull align 8 dereferen
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_49El3hltExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_49El3hltExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -12037,7 +12031,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_49El3hltExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_49El3hltExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -12065,7 +12059,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_49El3hltExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_49El3hltExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_49El3hltExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -12186,7 +12180,7 @@ define void @_ZN7Iex_3_49El3rstExcC2ERKS0_(ptr noundef nonnull align 8 dereferen
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_49El3rstExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_49El3rstExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -12221,7 +12215,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_49El3rstExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_49El3rstExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -12249,7 +12243,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_49El3rstExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_49El3rstExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_49El3rstExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -12370,7 +12364,7 @@ define void @_ZN7Iex_3_49ElnrngExcC2ERKS0_(ptr noundef nonnull align 8 dereferen
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_49ElnrngExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_49ElnrngExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -12405,7 +12399,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_49ElnrngExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_49ElnrngExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -12433,7 +12427,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_49ElnrngExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_49ElnrngExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_49ElnrngExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -12554,7 +12548,7 @@ define void @_ZN7Iex_3_410EunatchExcC2ERKS0_(ptr noundef nonnull align 8 derefer
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_410EunatchExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_410EunatchExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -12589,7 +12583,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_410EunatchExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_410EunatchExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -12617,7 +12611,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_410EunatchExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_410EunatchExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_410EunatchExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -12738,7 +12732,7 @@ define void @_ZN7Iex_3_49EnocsiExcC2ERKS0_(ptr noundef nonnull align 8 dereferen
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_49EnocsiExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_49EnocsiExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -12773,7 +12767,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_49EnocsiExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_49EnocsiExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -12801,7 +12795,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_49EnocsiExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_49EnocsiExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_49EnocsiExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -12922,7 +12916,7 @@ define void @_ZN7Iex_3_49El2hltExcC2ERKS0_(ptr noundef nonnull align 8 dereferen
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_49El2hltExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_49El2hltExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -12957,7 +12951,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_49El2hltExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_49El2hltExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -12985,7 +12979,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_49El2hltExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_49El2hltExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_49El2hltExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -13106,7 +13100,7 @@ define void @_ZN7Iex_3_410EdeadlkExcC2ERKS0_(ptr noundef nonnull align 8 derefer
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_410EdeadlkExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_410EdeadlkExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -13141,7 +13135,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_410EdeadlkExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_410EdeadlkExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -13169,7 +13163,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_410EdeadlkExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_410EdeadlkExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_410EdeadlkExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -13290,7 +13284,7 @@ define void @_ZN7Iex_3_49EnolckExcC2ERKS0_(ptr noundef nonnull align 8 dereferen
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_49EnolckExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_49EnolckExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -13325,7 +13319,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_49EnolckExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_49EnolckExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -13353,7 +13347,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_49EnolckExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_49EnolckExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_49EnolckExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -13474,7 +13468,7 @@ define void @_ZN7Iex_3_48EbadeExcC2ERKS0_(ptr noundef nonnull align 8 dereferenc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_48EbadeExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_48EbadeExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -13509,7 +13503,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_48EbadeExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_48EbadeExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -13537,7 +13531,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_48EbadeExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_48EbadeExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_48EbadeExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -13658,7 +13652,7 @@ define void @_ZN7Iex_3_48EbadrExcC2ERKS0_(ptr noundef nonnull align 8 dereferenc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_48EbadrExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_48EbadrExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -13693,7 +13687,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_48EbadrExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_48EbadrExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -13721,7 +13715,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_48EbadrExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_48EbadrExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_48EbadrExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -13842,7 +13836,7 @@ define void @_ZN7Iex_3_49ExfullExcC2ERKS0_(ptr noundef nonnull align 8 dereferen
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_49ExfullExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_49ExfullExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -13877,7 +13871,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_49ExfullExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_49ExfullExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -13905,7 +13899,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_49ExfullExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_49ExfullExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_49ExfullExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -14026,7 +14020,7 @@ define void @_ZN7Iex_3_49EnoanoExcC2ERKS0_(ptr noundef nonnull align 8 dereferen
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_49EnoanoExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_49EnoanoExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -14061,7 +14055,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_49EnoanoExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_49EnoanoExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -14089,7 +14083,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_49EnoanoExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_49EnoanoExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_49EnoanoExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -14210,7 +14204,7 @@ define void @_ZN7Iex_3_410EbadrqcExcC2ERKS0_(ptr noundef nonnull align 8 derefer
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_410EbadrqcExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_410EbadrqcExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -14245,7 +14239,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_410EbadrqcExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_410EbadrqcExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -14273,7 +14267,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_410EbadrqcExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_410EbadrqcExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_410EbadrqcExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -14394,7 +14388,7 @@ define void @_ZN7Iex_3_410EbadsltExcC2ERKS0_(ptr noundef nonnull align 8 derefer
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_410EbadsltExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_410EbadsltExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -14429,7 +14423,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_410EbadsltExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_410EbadsltExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -14457,7 +14451,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_410EbadsltExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_410EbadsltExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_410EbadsltExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -14578,7 +14572,7 @@ define void @_ZN7Iex_3_412EdeadlockExcC2ERKS0_(ptr noundef nonnull align 8 deref
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_412EdeadlockExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_412EdeadlockExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -14613,7 +14607,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_412EdeadlockExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_412EdeadlockExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -14641,7 +14635,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_412EdeadlockExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_412EdeadlockExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_412EdeadlockExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -14762,7 +14756,7 @@ define void @_ZN7Iex_3_49EbfontExcC2ERKS0_(ptr noundef nonnull align 8 dereferen
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_49EbfontExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_49EbfontExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -14797,7 +14791,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_49EbfontExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_49EbfontExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -14825,7 +14819,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_49EbfontExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_49EbfontExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_49EbfontExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -14946,7 +14940,7 @@ define void @_ZN7Iex_3_49EnostrExcC2ERKS0_(ptr noundef nonnull align 8 dereferen
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_49EnostrExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_49EnostrExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -14981,7 +14975,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_49EnostrExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_49EnostrExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -15009,7 +15003,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_49EnostrExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_49EnostrExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_49EnostrExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -15130,7 +15124,7 @@ define void @_ZN7Iex_3_410EnodataExcC2ERKS0_(ptr noundef nonnull align 8 derefer
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_410EnodataExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_410EnodataExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -15165,7 +15159,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_410EnodataExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_410EnodataExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -15193,7 +15187,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_410EnodataExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_410EnodataExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_410EnodataExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -15314,7 +15308,7 @@ define void @_ZN7Iex_3_48EtimeExcC2ERKS0_(ptr noundef nonnull align 8 dereferenc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_48EtimeExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_48EtimeExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -15349,7 +15343,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_48EtimeExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_48EtimeExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -15377,7 +15371,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_48EtimeExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_48EtimeExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_48EtimeExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -15498,7 +15492,7 @@ define void @_ZN7Iex_3_48EnosrExcC2ERKS0_(ptr noundef nonnull align 8 dereferenc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_48EnosrExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_48EnosrExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -15533,7 +15527,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_48EnosrExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_48EnosrExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -15561,7 +15555,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_48EnosrExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_48EnosrExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_48EnosrExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -15682,7 +15676,7 @@ define void @_ZN7Iex_3_49EnonetExcC2ERKS0_(ptr noundef nonnull align 8 dereferen
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_49EnonetExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_49EnonetExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -15717,7 +15711,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_49EnonetExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_49EnonetExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -15745,7 +15739,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_49EnonetExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_49EnonetExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_49EnonetExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -15866,7 +15860,7 @@ define void @_ZN7Iex_3_49EnopkgExcC2ERKS0_(ptr noundef nonnull align 8 dereferen
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_49EnopkgExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_49EnopkgExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -15901,7 +15895,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_49EnopkgExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_49EnopkgExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -15929,7 +15923,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_49EnopkgExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_49EnopkgExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_49EnopkgExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -16050,7 +16044,7 @@ define void @_ZN7Iex_3_410EremoteExcC2ERKS0_(ptr noundef nonnull align 8 derefer
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_410EremoteExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_410EremoteExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -16085,7 +16079,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_410EremoteExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_410EremoteExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -16113,7 +16107,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_410EremoteExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_410EremoteExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_410EremoteExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -16234,7 +16228,7 @@ define void @_ZN7Iex_3_410EnolinkExcC2ERKS0_(ptr noundef nonnull align 8 derefer
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_410EnolinkExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_410EnolinkExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -16269,7 +16263,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_410EnolinkExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_410EnolinkExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -16297,7 +16291,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_410EnolinkExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_410EnolinkExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_410EnolinkExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -16418,7 +16412,7 @@ define void @_ZN7Iex_3_47EadvExcC2ERKS0_(ptr noundef nonnull align 8 dereference
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_47EadvExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_47EadvExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -16453,7 +16447,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_47EadvExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_47EadvExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -16481,7 +16475,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_47EadvExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_47EadvExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_47EadvExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -16602,7 +16596,7 @@ define void @_ZN7Iex_3_49EsrmntExcC2ERKS0_(ptr noundef nonnull align 8 dereferen
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_49EsrmntExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_49EsrmntExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -16637,7 +16631,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_49EsrmntExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_49EsrmntExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -16665,7 +16659,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_49EsrmntExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_49EsrmntExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_49EsrmntExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -16786,7 +16780,7 @@ define void @_ZN7Iex_3_48EcommExcC2ERKS0_(ptr noundef nonnull align 8 dereferenc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_48EcommExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_48EcommExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -16821,7 +16815,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_48EcommExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_48EcommExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -16849,7 +16843,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_48EcommExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_48EcommExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_48EcommExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -16970,7 +16964,7 @@ define void @_ZN7Iex_3_49EprotoExcC2ERKS0_(ptr noundef nonnull align 8 dereferen
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_49EprotoExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_49EprotoExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -17005,7 +16999,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_49EprotoExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_49EprotoExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -17033,7 +17027,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_49EprotoExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_49EprotoExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_49EprotoExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -17154,7 +17148,7 @@ define void @_ZN7Iex_3_412EmultihopExcC2ERKS0_(ptr noundef nonnull align 8 deref
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_412EmultihopExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_412EmultihopExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -17189,7 +17183,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_412EmultihopExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_412EmultihopExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -17217,7 +17211,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_412EmultihopExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_412EmultihopExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_412EmultihopExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -17338,7 +17332,7 @@ define void @_ZN7Iex_3_410EbadmsgExcC2ERKS0_(ptr noundef nonnull align 8 derefer
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_410EbadmsgExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_410EbadmsgExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -17373,7 +17367,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_410EbadmsgExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_410EbadmsgExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -17401,7 +17395,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_410EbadmsgExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_410EbadmsgExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_410EbadmsgExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -17522,7 +17516,7 @@ define void @_ZN7Iex_3_415EnametoolongExcC2ERKS0_(ptr noundef nonnull align 8 de
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_415EnametoolongExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_415EnametoolongExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -17557,7 +17551,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_415EnametoolongExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_415EnametoolongExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -17585,7 +17579,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_415EnametoolongExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_415EnametoolongExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_415EnametoolongExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -17706,7 +17700,7 @@ define void @_ZN7Iex_3_412EoverflowExcC2ERKS0_(ptr noundef nonnull align 8 deref
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_412EoverflowExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_412EoverflowExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -17741,7 +17735,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_412EoverflowExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_412EoverflowExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -17769,7 +17763,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_412EoverflowExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_412EoverflowExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_412EoverflowExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -17890,7 +17884,7 @@ define void @_ZN7Iex_3_411EnotuniqExcC2ERKS0_(ptr noundef nonnull align 8 derefe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_411EnotuniqExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_411EnotuniqExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -17925,7 +17919,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_411EnotuniqExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_411EnotuniqExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -17953,7 +17947,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_411EnotuniqExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_411EnotuniqExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_411EnotuniqExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -18074,7 +18068,7 @@ define void @_ZN7Iex_3_49EbadfdExcC2ERKS0_(ptr noundef nonnull align 8 dereferen
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_49EbadfdExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_49EbadfdExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -18109,7 +18103,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_49EbadfdExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_49EbadfdExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -18137,7 +18131,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_49EbadfdExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_49EbadfdExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_49EbadfdExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -18258,7 +18252,7 @@ define void @_ZN7Iex_3_410EremchgExcC2ERKS0_(ptr noundef nonnull align 8 derefer
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_410EremchgExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_410EremchgExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -18293,7 +18287,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_410EremchgExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_410EremchgExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -18321,7 +18315,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_410EremchgExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_410EremchgExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_410EremchgExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -18442,7 +18436,7 @@ define void @_ZN7Iex_3_410ElibaccExcC2ERKS0_(ptr noundef nonnull align 8 derefer
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_410ElibaccExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_410ElibaccExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -18477,7 +18471,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_410ElibaccExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_410ElibaccExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -18505,7 +18499,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_410ElibaccExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_410ElibaccExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_410ElibaccExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -18626,7 +18620,7 @@ define void @_ZN7Iex_3_410ElibbadExcC2ERKS0_(ptr noundef nonnull align 8 derefer
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_410ElibbadExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_410ElibbadExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -18661,7 +18655,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_410ElibbadExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_410ElibbadExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -18689,7 +18683,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_410ElibbadExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_410ElibbadExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_410ElibbadExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -18810,7 +18804,7 @@ define void @_ZN7Iex_3_410ElibscnExcC2ERKS0_(ptr noundef nonnull align 8 derefer
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_410ElibscnExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_410ElibscnExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -18845,7 +18839,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_410ElibscnExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_410ElibscnExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -18873,7 +18867,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_410ElibscnExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_410ElibscnExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_410ElibscnExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -18994,7 +18988,7 @@ define void @_ZN7Iex_3_410ElibmaxExcC2ERKS0_(ptr noundef nonnull align 8 derefer
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_410ElibmaxExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_410ElibmaxExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -19029,7 +19023,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_410ElibmaxExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_410ElibmaxExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -19057,7 +19051,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_410ElibmaxExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_410ElibmaxExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_410ElibmaxExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -19178,7 +19172,7 @@ define void @_ZN7Iex_3_411ElibexecExcC2ERKS0_(ptr noundef nonnull align 8 derefe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_411ElibexecExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_411ElibexecExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -19213,7 +19207,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_411ElibexecExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_411ElibexecExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -19241,7 +19235,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_411ElibexecExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_411ElibexecExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_411ElibexecExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -19362,7 +19356,7 @@ define void @_ZN7Iex_3_49EilseqExcC2ERKS0_(ptr noundef nonnull align 8 dereferen
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_49EilseqExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_49EilseqExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -19397,7 +19391,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_49EilseqExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_49EilseqExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -19425,7 +19419,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_49EilseqExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_49EilseqExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_49EilseqExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -19546,7 +19540,7 @@ define void @_ZN7Iex_3_49EnosysExcC2ERKS0_(ptr noundef nonnull align 8 dereferen
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_49EnosysExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_49EnosysExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -19581,7 +19575,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_49EnosysExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_49EnosysExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -19609,7 +19603,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_49EnosysExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_49EnosysExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_49EnosysExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -19730,7 +19724,7 @@ define void @_ZN7Iex_3_48EloopExcC2ERKS0_(ptr noundef nonnull align 8 dereferenc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_48EloopExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_48EloopExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -19765,7 +19759,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_48EloopExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_48EloopExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -19793,7 +19787,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_48EloopExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_48EloopExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_48EloopExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -19914,7 +19908,7 @@ define void @_ZN7Iex_3_411ErestartExcC2ERKS0_(ptr noundef nonnull align 8 derefe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_411ErestartExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_411ErestartExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -19949,7 +19943,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_411ErestartExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_411ErestartExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -19977,7 +19971,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_411ErestartExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_411ErestartExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_411ErestartExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -20098,7 +20092,7 @@ define void @_ZN7Iex_3_411EstrpipeExcC2ERKS0_(ptr noundef nonnull align 8 derefe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_411EstrpipeExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_411EstrpipeExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -20133,7 +20127,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_411EstrpipeExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_411EstrpipeExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -20161,7 +20155,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_411EstrpipeExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_411EstrpipeExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_411EstrpipeExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -20282,7 +20276,7 @@ define void @_ZN7Iex_3_412EnotemptyExcC2ERKS0_(ptr noundef nonnull align 8 deref
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_412EnotemptyExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_412EnotemptyExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -20317,7 +20311,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_412EnotemptyExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_412EnotemptyExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -20345,7 +20339,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_412EnotemptyExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_412EnotemptyExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_412EnotemptyExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -20466,7 +20460,7 @@ define void @_ZN7Iex_3_49EusersExcC2ERKS0_(ptr noundef nonnull align 8 dereferen
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_49EusersExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_49EusersExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -20501,7 +20495,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_49EusersExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_49EusersExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -20529,7 +20523,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_49EusersExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_49EusersExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_49EusersExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -20650,7 +20644,7 @@ define void @_ZN7Iex_3_411EnotsockExcC2ERKS0_(ptr noundef nonnull align 8 derefe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_411EnotsockExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_411EnotsockExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -20685,7 +20679,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_411EnotsockExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_411EnotsockExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -20713,7 +20707,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_411EnotsockExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_411EnotsockExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_411EnotsockExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -20834,7 +20828,7 @@ define void @_ZN7Iex_3_415EdestaddrreqExcC2ERKS0_(ptr noundef nonnull align 8 de
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_415EdestaddrreqExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_415EdestaddrreqExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -20869,7 +20863,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_415EdestaddrreqExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_415EdestaddrreqExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -20897,7 +20891,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_415EdestaddrreqExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_415EdestaddrreqExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_415EdestaddrreqExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -21018,7 +21012,7 @@ define void @_ZN7Iex_3_411EmsgsizeExcC2ERKS0_(ptr noundef nonnull align 8 derefe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_411EmsgsizeExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_411EmsgsizeExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -21053,7 +21047,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_411EmsgsizeExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_411EmsgsizeExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -21081,7 +21075,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_411EmsgsizeExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_411EmsgsizeExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_411EmsgsizeExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -21202,7 +21196,7 @@ define void @_ZN7Iex_3_413EprototypeExcC2ERKS0_(ptr noundef nonnull align 8 dere
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_413EprototypeExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_413EprototypeExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -21237,7 +21231,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_413EprototypeExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_413EprototypeExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -21265,7 +21259,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_413EprototypeExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_413EprototypeExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_413EprototypeExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -21386,7 +21380,7 @@ define void @_ZN7Iex_3_414EnoprotooptExcC2ERKS0_(ptr noundef nonnull align 8 der
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_414EnoprotooptExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_414EnoprotooptExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -21421,7 +21415,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_414EnoprotooptExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_414EnoprotooptExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -21449,7 +21443,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_414EnoprotooptExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_414EnoprotooptExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_414EnoprotooptExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -21570,7 +21564,7 @@ define void @_ZN7Iex_3_418EprotonosupportExcC2ERKS0_(ptr noundef nonnull align 8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_418EprotonosupportExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_418EprotonosupportExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -21605,7 +21599,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_418EprotonosupportExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_418EprotonosupportExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -21633,7 +21627,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_418EprotonosupportExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_418EprotonosupportExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_418EprotonosupportExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -21754,7 +21748,7 @@ define void @_ZN7Iex_3_418EsocktnosupportExcC2ERKS0_(ptr noundef nonnull align 8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_418EsocktnosupportExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_418EsocktnosupportExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -21789,7 +21783,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_418EsocktnosupportExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_418EsocktnosupportExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -21817,7 +21811,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_418EsocktnosupportExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_418EsocktnosupportExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_418EsocktnosupportExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -21938,7 +21932,7 @@ define void @_ZN7Iex_3_413EopnotsuppExcC2ERKS0_(ptr noundef nonnull align 8 dere
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_413EopnotsuppExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_413EopnotsuppExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -21973,7 +21967,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_413EopnotsuppExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_413EopnotsuppExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -22001,7 +21995,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_413EopnotsuppExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_413EopnotsuppExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_413EopnotsuppExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -22122,7 +22116,7 @@ define void @_ZN7Iex_3_415EpfnosupportExcC2ERKS0_(ptr noundef nonnull align 8 de
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_415EpfnosupportExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_415EpfnosupportExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -22157,7 +22151,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_415EpfnosupportExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_415EpfnosupportExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -22185,7 +22179,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_415EpfnosupportExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_415EpfnosupportExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_415EpfnosupportExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -22306,7 +22300,7 @@ define void @_ZN7Iex_3_415EafnosupportExcC2ERKS0_(ptr noundef nonnull align 8 de
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_415EafnosupportExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_415EafnosupportExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -22341,7 +22335,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_415EafnosupportExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_415EafnosupportExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -22369,7 +22363,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_415EafnosupportExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_415EafnosupportExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_415EafnosupportExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -22490,7 +22484,7 @@ define void @_ZN7Iex_3_413EaddrinuseExcC2ERKS0_(ptr noundef nonnull align 8 dere
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_413EaddrinuseExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_413EaddrinuseExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -22525,7 +22519,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_413EaddrinuseExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_413EaddrinuseExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -22553,7 +22547,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_413EaddrinuseExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_413EaddrinuseExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_413EaddrinuseExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -22674,7 +22668,7 @@ define void @_ZN7Iex_3_416EaddrnotavailExcC2ERKS0_(ptr noundef nonnull align 8 d
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_416EaddrnotavailExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_416EaddrnotavailExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -22709,7 +22703,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_416EaddrnotavailExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_416EaddrnotavailExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -22737,7 +22731,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_416EaddrnotavailExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_416EaddrnotavailExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_416EaddrnotavailExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -22858,7 +22852,7 @@ define void @_ZN7Iex_3_411EnetdownExcC2ERKS0_(ptr noundef nonnull align 8 derefe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_411EnetdownExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_411EnetdownExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -22893,7 +22887,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_411EnetdownExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_411EnetdownExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -22921,7 +22915,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_411EnetdownExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_411EnetdownExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_411EnetdownExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -23042,7 +23036,7 @@ define void @_ZN7Iex_3_414EnetunreachExcC2ERKS0_(ptr noundef nonnull align 8 der
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_414EnetunreachExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_414EnetunreachExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -23077,7 +23071,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_414EnetunreachExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_414EnetunreachExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -23105,7 +23099,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_414EnetunreachExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_414EnetunreachExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_414EnetunreachExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -23226,7 +23220,7 @@ define void @_ZN7Iex_3_412EnetresetExcC2ERKS0_(ptr noundef nonnull align 8 deref
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_412EnetresetExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_412EnetresetExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -23261,7 +23255,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_412EnetresetExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_412EnetresetExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -23289,7 +23283,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_412EnetresetExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_412EnetresetExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_412EnetresetExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -23410,7 +23404,7 @@ define void @_ZN7Iex_3_415EconnabortedExcC2ERKS0_(ptr noundef nonnull align 8 de
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_415EconnabortedExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_415EconnabortedExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -23445,7 +23439,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_415EconnabortedExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_415EconnabortedExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -23473,7 +23467,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_415EconnabortedExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_415EconnabortedExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_415EconnabortedExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -23594,7 +23588,7 @@ define void @_ZN7Iex_3_413EconnresetExcC2ERKS0_(ptr noundef nonnull align 8 dere
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_413EconnresetExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_413EconnresetExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -23629,7 +23623,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_413EconnresetExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_413EconnresetExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -23657,7 +23651,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_413EconnresetExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_413EconnresetExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_413EconnresetExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -23778,7 +23772,7 @@ define void @_ZN7Iex_3_410EnobufsExcC2ERKS0_(ptr noundef nonnull align 8 derefer
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_410EnobufsExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_410EnobufsExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -23813,7 +23807,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_410EnobufsExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_410EnobufsExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -23841,7 +23835,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_410EnobufsExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_410EnobufsExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_410EnobufsExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -23962,7 +23956,7 @@ define void @_ZN7Iex_3_410EisconnExcC2ERKS0_(ptr noundef nonnull align 8 derefer
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_410EisconnExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_410EisconnExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -23997,7 +23991,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_410EisconnExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_410EisconnExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -24025,7 +24019,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_410EisconnExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_410EisconnExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_410EisconnExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -24146,7 +24140,7 @@ define void @_ZN7Iex_3_411EnotconnExcC2ERKS0_(ptr noundef nonnull align 8 derefe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_411EnotconnExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_411EnotconnExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -24181,7 +24175,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_411EnotconnExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_411EnotconnExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -24209,7 +24203,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_411EnotconnExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_411EnotconnExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_411EnotconnExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -24330,7 +24324,7 @@ define void @_ZN7Iex_3_412EshutdownExcC2ERKS0_(ptr noundef nonnull align 8 deref
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_412EshutdownExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_412EshutdownExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -24365,7 +24359,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_412EshutdownExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_412EshutdownExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -24393,7 +24387,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_412EshutdownExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_412EshutdownExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_412EshutdownExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -24514,7 +24508,7 @@ define void @_ZN7Iex_3_415EtoomanyrefsExcC2ERKS0_(ptr noundef nonnull align 8 de
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_415EtoomanyrefsExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_415EtoomanyrefsExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -24549,7 +24543,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_415EtoomanyrefsExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_415EtoomanyrefsExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -24577,7 +24571,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_415EtoomanyrefsExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_415EtoomanyrefsExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_415EtoomanyrefsExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -24698,7 +24692,7 @@ define void @_ZN7Iex_3_412EtimedoutExcC2ERKS0_(ptr noundef nonnull align 8 deref
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_412EtimedoutExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_412EtimedoutExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -24733,7 +24727,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_412EtimedoutExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_412EtimedoutExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -24761,7 +24755,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_412EtimedoutExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_412EtimedoutExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_412EtimedoutExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -24882,7 +24876,7 @@ define void @_ZN7Iex_3_415EconnrefusedExcC2ERKS0_(ptr noundef nonnull align 8 de
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_415EconnrefusedExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_415EconnrefusedExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -24917,7 +24911,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_415EconnrefusedExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_415EconnrefusedExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -24945,7 +24939,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_415EconnrefusedExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_415EconnrefusedExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_415EconnrefusedExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -25066,7 +25060,7 @@ define void @_ZN7Iex_3_412EhostdownExcC2ERKS0_(ptr noundef nonnull align 8 deref
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_412EhostdownExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_412EhostdownExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -25101,7 +25095,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_412EhostdownExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_412EhostdownExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -25129,7 +25123,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_412EhostdownExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_412EhostdownExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_412EhostdownExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -25250,7 +25244,7 @@ define void @_ZN7Iex_3_415EhostunreachExcC2ERKS0_(ptr noundef nonnull align 8 de
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_415EhostunreachExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_415EhostunreachExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -25285,7 +25279,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_415EhostunreachExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_415EhostunreachExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -25313,7 +25307,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_415EhostunreachExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_415EhostunreachExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_415EhostunreachExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -25434,7 +25428,7 @@ define void @_ZN7Iex_3_411EalreadyExcC2ERKS0_(ptr noundef nonnull align 8 derefe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_411EalreadyExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_411EalreadyExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -25469,7 +25463,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_411EalreadyExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_411EalreadyExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -25497,7 +25491,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_411EalreadyExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_411EalreadyExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_411EalreadyExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -25618,7 +25612,7 @@ define void @_ZN7Iex_3_414EinprogressExcC2ERKS0_(ptr noundef nonnull align 8 der
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_414EinprogressExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_414EinprogressExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -25653,7 +25647,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_414EinprogressExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_414EinprogressExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -25681,7 +25675,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_414EinprogressExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_414EinprogressExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_414EinprogressExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -25802,7 +25796,7 @@ define void @_ZN7Iex_3_49EstaleExcC2ERKS0_(ptr noundef nonnull align 8 dereferen
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_49EstaleExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_49EstaleExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -25837,7 +25831,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_49EstaleExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_49EstaleExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -25865,7 +25859,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_49EstaleExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_49EstaleExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_49EstaleExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -25986,7 +25980,7 @@ define void @_ZN7Iex_3_411EioresidExcC2ERKS0_(ptr noundef nonnull align 8 derefe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_411EioresidExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_411EioresidExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -26021,7 +26015,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_411EioresidExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_411EioresidExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -26049,7 +26043,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_411EioresidExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_411EioresidExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_411EioresidExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -26170,7 +26164,7 @@ define void @_ZN7Iex_3_410EucleanExcC2ERKS0_(ptr noundef nonnull align 8 derefer
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_410EucleanExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_410EucleanExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -26205,7 +26199,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_410EucleanExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_410EucleanExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -26233,7 +26227,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_410EucleanExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_410EucleanExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_410EucleanExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -26354,7 +26348,7 @@ define void @_ZN7Iex_3_410EnotnamExcC2ERKS0_(ptr noundef nonnull align 8 derefer
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_410EnotnamExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_410EnotnamExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -26389,7 +26383,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_410EnotnamExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_410EnotnamExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -26417,7 +26411,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_410EnotnamExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_410EnotnamExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_410EnotnamExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -26538,7 +26532,7 @@ define void @_ZN7Iex_3_410EnavailExcC2ERKS0_(ptr noundef nonnull align 8 derefer
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_410EnavailExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_410EnavailExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -26573,7 +26567,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_410EnavailExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_410EnavailExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -26601,7 +26595,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_410EnavailExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_410EnavailExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_410EnavailExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -26722,7 +26716,7 @@ define void @_ZN7Iex_3_49EisnamExcC2ERKS0_(ptr noundef nonnull align 8 dereferen
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_49EisnamExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_49EisnamExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -26757,7 +26751,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_49EisnamExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_49EisnamExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -26785,7 +26779,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_49EisnamExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_49EisnamExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_49EisnamExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -26906,7 +26900,7 @@ define void @_ZN7Iex_3_412EremoteioExcC2ERKS0_(ptr noundef nonnull align 8 deref
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_412EremoteioExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_412EremoteioExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -26941,7 +26935,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_412EremoteioExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_412EremoteioExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -26969,7 +26963,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_412EremoteioExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_412EremoteioExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_412EremoteioExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -27090,7 +27084,7 @@ define void @_ZN7Iex_3_48EinitExcC2ERKS0_(ptr noundef nonnull align 8 dereferenc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_48EinitExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_48EinitExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -27125,7 +27119,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_48EinitExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_48EinitExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -27153,7 +27147,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_48EinitExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_48EinitExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_48EinitExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -27274,7 +27268,7 @@ define void @_ZN7Iex_3_410EremdevExcC2ERKS0_(ptr noundef nonnull align 8 derefer
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_410EremdevExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_410EremdevExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -27309,7 +27303,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_410EremdevExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_410EremdevExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -27337,7 +27331,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_410EremdevExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_410EremdevExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_410EremdevExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -27458,7 +27452,7 @@ define void @_ZN7Iex_3_412EcanceledExcC2ERKS0_(ptr noundef nonnull align 8 deref
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_412EcanceledExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_412EcanceledExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -27493,7 +27487,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_412EcanceledExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_412EcanceledExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -27521,7 +27515,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_412EcanceledExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_412EcanceledExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_412EcanceledExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -27642,7 +27636,7 @@ define void @_ZN7Iex_3_413EnolimfileExcC2ERKS0_(ptr noundef nonnull align 8 dere
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_413EnolimfileExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_413EnolimfileExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -27677,7 +27671,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_413EnolimfileExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_413EnolimfileExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -27705,7 +27699,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_413EnolimfileExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_413EnolimfileExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_413EnolimfileExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -27826,7 +27820,7 @@ define void @_ZN7Iex_3_411EproclimExcC2ERKS0_(ptr noundef nonnull align 8 derefe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_411EproclimExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_411EproclimExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -27861,7 +27855,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_411EproclimExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_411EproclimExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -27889,7 +27883,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_411EproclimExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_411EproclimExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_411EproclimExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -28010,7 +28004,7 @@ define void @_ZN7Iex_3_412EdisjointExcC2ERKS0_(ptr noundef nonnull align 8 deref
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_412EdisjointExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_412EdisjointExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -28045,7 +28039,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_412EdisjointExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_412EdisjointExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -28073,7 +28067,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_412EdisjointExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_412EdisjointExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_412EdisjointExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -28194,7 +28188,7 @@ define void @_ZN7Iex_3_411EnologinExcC2ERKS0_(ptr noundef nonnull align 8 derefe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_411EnologinExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_411EnologinExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -28229,7 +28223,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_411EnologinExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_411EnologinExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -28257,7 +28251,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_411EnologinExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_411EnologinExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_411EnologinExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -28378,7 +28372,7 @@ define void @_ZN7Iex_3_412EloginlimExcC2ERKS0_(ptr noundef nonnull align 8 deref
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_412EloginlimExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_412EloginlimExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -28413,7 +28407,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_412EloginlimExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_412EloginlimExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -28441,7 +28435,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_412EloginlimExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_412EloginlimExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_412EloginlimExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -28562,7 +28556,7 @@ define void @_ZN7Iex_3_413EgrouploopExcC2ERKS0_(ptr noundef nonnull align 8 dere
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_413EgrouploopExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_413EgrouploopExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -28597,7 +28591,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_413EgrouploopExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_413EgrouploopExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -28625,7 +28619,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_413EgrouploopExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_413EgrouploopExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_413EgrouploopExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -28746,7 +28740,7 @@ define void @_ZN7Iex_3_412EnoattachExcC2ERKS0_(ptr noundef nonnull align 8 deref
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_412EnoattachExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_412EnoattachExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -28781,7 +28775,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_412EnoattachExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_412EnoattachExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -28809,7 +28803,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_412EnoattachExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_412EnoattachExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_412EnoattachExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -28930,7 +28924,7 @@ define void @_ZN7Iex_3_410EnotsupExcC2ERKS0_(ptr noundef nonnull align 8 derefer
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_410EnotsupExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_410EnotsupExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -28965,7 +28959,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_410EnotsupExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_410EnotsupExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -28993,7 +28987,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_410EnotsupExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_410EnotsupExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_410EnotsupExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -29114,7 +29108,7 @@ define void @_ZN7Iex_3_410EnoattrExcC2ERKS0_(ptr noundef nonnull align 8 derefer
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_410EnoattrExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_410EnoattrExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -29149,7 +29143,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_410EnoattrExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_410EnoattrExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -29177,7 +29171,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_410EnoattrExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_410EnoattrExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_410EnoattrExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -29298,7 +29292,7 @@ define void @_ZN7Iex_3_416EdircorruptedExcC2ERKS0_(ptr noundef nonnull align 8 d
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_416EdircorruptedExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_416EdircorruptedExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -29333,7 +29327,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_416EdircorruptedExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_416EdircorruptedExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -29361,7 +29355,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_416EdircorruptedExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_416EdircorruptedExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_416EdircorruptedExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -29482,7 +29476,7 @@ define void @_ZN7Iex_3_49EdquotExcC2ERKS0_(ptr noundef nonnull align 8 dereferen
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_49EdquotExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_49EdquotExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -29517,7 +29511,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_49EdquotExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_49EdquotExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -29545,7 +29539,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_49EdquotExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_49EdquotExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_49EdquotExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -29666,7 +29660,7 @@ define void @_ZN7Iex_3_413EnfsremoteExcC2ERKS0_(ptr noundef nonnull align 8 dere
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_413EnfsremoteExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_413EnfsremoteExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -29701,7 +29695,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_413EnfsremoteExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_413EnfsremoteExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -29729,7 +29723,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_413EnfsremoteExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_413EnfsremoteExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_413EnfsremoteExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -29850,7 +29844,7 @@ define void @_ZN7Iex_3_414EcontrollerExcC2ERKS0_(ptr noundef nonnull align 8 der
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_414EcontrollerExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_414EcontrollerExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -29885,7 +29879,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_414EcontrollerExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_414EcontrollerExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -29913,7 +29907,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_414EcontrollerExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_414EcontrollerExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_414EcontrollerExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -30034,7 +30028,7 @@ define void @_ZN7Iex_3_417EnotcontrollerExcC2ERKS0_(ptr noundef nonnull align 8 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_417EnotcontrollerExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_417EnotcontrollerExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -30069,7 +30063,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_417EnotcontrollerExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_417EnotcontrollerExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -30097,7 +30091,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_417EnotcontrollerExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_417EnotcontrollerExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_417EnotcontrollerExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -30218,7 +30212,7 @@ define void @_ZN7Iex_3_412EenqueuedExcC2ERKS0_(ptr noundef nonnull align 8 deref
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_412EenqueuedExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_412EenqueuedExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -30253,7 +30247,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_412EenqueuedExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_412EenqueuedExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -30281,7 +30275,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_412EenqueuedExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_412EenqueuedExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_412EenqueuedExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -30402,7 +30396,7 @@ define void @_ZN7Iex_3_415EnotenqueuedExcC2ERKS0_(ptr noundef nonnull align 8 de
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_415EnotenqueuedExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_415EnotenqueuedExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -30437,7 +30431,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_415EnotenqueuedExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_415EnotenqueuedExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -30465,7 +30459,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_415EnotenqueuedExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_415EnotenqueuedExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_415EnotenqueuedExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -30586,7 +30580,7 @@ define void @_ZN7Iex_3_410EjoinedExcC2ERKS0_(ptr noundef nonnull align 8 derefer
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_410EjoinedExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_410EjoinedExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -30621,7 +30615,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_410EjoinedExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_410EjoinedExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -30649,7 +30643,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_410EjoinedExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_410EjoinedExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_410EjoinedExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -30770,7 +30764,7 @@ define void @_ZN7Iex_3_413EnotjoinedExcC2ERKS0_(ptr noundef nonnull align 8 dere
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_413EnotjoinedExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_413EnotjoinedExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -30805,7 +30799,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_413EnotjoinedExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_413EnotjoinedExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -30833,7 +30827,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_413EnotjoinedExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_413EnotjoinedExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_413EnotjoinedExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -30954,7 +30948,7 @@ define void @_ZN7Iex_3_410EnoprocExcC2ERKS0_(ptr noundef nonnull align 8 derefer
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_410EnoprocExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_410EnoprocExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -30989,7 +30983,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_410EnoprocExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_410EnoprocExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -31017,7 +31011,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_410EnoprocExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_410EnoprocExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_410EnoprocExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -31138,7 +31132,7 @@ define void @_ZN7Iex_3_411EmustrunExcC2ERKS0_(ptr noundef nonnull align 8 derefe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_411EmustrunExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_411EmustrunExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -31173,7 +31167,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_411EmustrunExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_411EmustrunExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -31201,7 +31195,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_411EmustrunExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_411EmustrunExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_411EmustrunExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -31322,7 +31316,7 @@ define void @_ZN7Iex_3_414EnotstoppedExcC2ERKS0_(ptr noundef nonnull align 8 der
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_414EnotstoppedExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_414EnotstoppedExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -31357,7 +31351,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_414EnotstoppedExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_414EnotstoppedExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -31385,7 +31379,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_414EnotstoppedExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_414EnotstoppedExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_414EnotstoppedExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -31506,7 +31500,7 @@ define void @_ZN7Iex_3_412EclockcpuExcC2ERKS0_(ptr noundef nonnull align 8 deref
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_412EclockcpuExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_412EclockcpuExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -31541,7 +31535,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_412EclockcpuExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_412EclockcpuExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -31569,7 +31563,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_412EclockcpuExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_412EclockcpuExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_412EclockcpuExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -31690,7 +31684,7 @@ define void @_ZN7Iex_3_414EinvalstateExcC2ERKS0_(ptr noundef nonnull align 8 der
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_414EinvalstateExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_414EinvalstateExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -31725,7 +31719,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_414EinvalstateExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_414EinvalstateExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -31753,7 +31747,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_414EinvalstateExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_414EinvalstateExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_414EinvalstateExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -31874,7 +31868,7 @@ define void @_ZN7Iex_3_411EnoexistExcC2ERKS0_(ptr noundef nonnull align 8 derefe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_411EnoexistExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_411EnoexistExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -31909,7 +31903,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_411EnoexistExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_411EnoexistExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -31937,7 +31931,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_411EnoexistExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_411EnoexistExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_411EnoexistExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -32058,7 +32052,7 @@ define void @_ZN7Iex_3_414EendofminorExcC2ERKS0_(ptr noundef nonnull align 8 der
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_414EendofminorExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_414EendofminorExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -32093,7 +32087,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_414EendofminorExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_414EendofminorExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -32121,7 +32115,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_414EendofminorExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_414EendofminorExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_414EendofminorExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -32242,7 +32236,7 @@ define void @_ZN7Iex_3_411EbufsizeExcC2ERKS0_(ptr noundef nonnull align 8 derefe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_411EbufsizeExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_411EbufsizeExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -32277,7 +32271,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_411EbufsizeExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_411EbufsizeExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -32305,7 +32299,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_411EbufsizeExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_411EbufsizeExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_411EbufsizeExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -32426,7 +32420,7 @@ define void @_ZN7Iex_3_49EemptyExcC2ERKS0_(ptr noundef nonnull align 8 dereferen
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_49EemptyExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_49EemptyExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -32461,7 +32455,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_49EemptyExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_49EemptyExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -32489,7 +32483,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_49EemptyExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_49EemptyExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_49EemptyExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -32610,7 +32604,7 @@ define void @_ZN7Iex_3_415EnointrgroupExcC2ERKS0_(ptr noundef nonnull align 8 de
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_415EnointrgroupExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_415EnointrgroupExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -32645,7 +32639,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_415EnointrgroupExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_415EnointrgroupExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -32673,7 +32667,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_415EnointrgroupExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_415EnointrgroupExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_415EnointrgroupExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -32794,7 +32788,7 @@ define void @_ZN7Iex_3_413EinvalmodeExcC2ERKS0_(ptr noundef nonnull align 8 dere
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_413EinvalmodeExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_413EinvalmodeExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -32829,7 +32823,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_413EinvalmodeExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_413EinvalmodeExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -32857,7 +32851,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_413EinvalmodeExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_413EinvalmodeExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_413EinvalmodeExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -32978,7 +32972,7 @@ define void @_ZN7Iex_3_414EcantextentExcC2ERKS0_(ptr noundef nonnull align 8 der
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_414EcantextentExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_414EcantextentExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -33013,7 +33007,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_414EcantextentExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_414EcantextentExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -33041,7 +33035,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_414EcantextentExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_414EcantextentExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_414EcantextentExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -33162,7 +33156,7 @@ define void @_ZN7Iex_3_413EinvaltimeExcC2ERKS0_(ptr noundef nonnull align 8 dere
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_413EinvaltimeExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_413EinvaltimeExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -33197,7 +33191,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_413EinvaltimeExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_413EinvaltimeExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -33225,7 +33219,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_413EinvaltimeExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_413EinvaltimeExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_413EinvaltimeExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -33346,7 +33340,7 @@ define void @_ZN7Iex_3_413EdestroyedExcC2ERKS0_(ptr noundef nonnull align 8 dere
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_413EdestroyedExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_413EdestroyedExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -33381,7 +33375,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_413EdestroyedExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_413EdestroyedExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_48ErrnoExcaSERS0_.exit, label %3
 
@@ -33409,7 +33403,7 @@ _ZN7Iex_3_48ErrnoExcaSERS0_.exit:                 ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_413EdestroyedExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_413EdestroyedExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_413EdestroyedExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -33530,7 +33524,7 @@ define void @_ZN7Iex_3_411OverflowExcC2ERKS0_(ptr noundef nonnull align 8 derefe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_411OverflowExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_411OverflowExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -33565,7 +33559,7 @@ _ZN7Iex_3_47MathExcaSERS0_.exit:                  ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_411OverflowExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_411OverflowExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_47MathExcaSERS0_.exit, label %3
 
@@ -33593,7 +33587,7 @@ _ZN7Iex_3_47MathExcaSERS0_.exit:                  ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_411OverflowExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_411OverflowExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_411OverflowExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -33714,7 +33708,7 @@ define void @_ZN7Iex_3_412UnderflowExcC2ERKS0_(ptr noundef nonnull align 8 deref
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_412UnderflowExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_412UnderflowExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -33749,7 +33743,7 @@ _ZN7Iex_3_47MathExcaSERS0_.exit:                  ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_412UnderflowExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_412UnderflowExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_47MathExcaSERS0_.exit, label %3
 
@@ -33777,7 +33771,7 @@ _ZN7Iex_3_47MathExcaSERS0_.exit:                  ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_412UnderflowExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_412UnderflowExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_412UnderflowExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -33898,7 +33892,7 @@ define void @_ZN7Iex_3_410DivzeroExcC2ERKS0_(ptr noundef nonnull align 8 derefer
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_410DivzeroExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_410DivzeroExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -33933,7 +33927,7 @@ _ZN7Iex_3_47MathExcaSERS0_.exit:                  ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_410DivzeroExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_410DivzeroExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_47MathExcaSERS0_.exit, label %3
 
@@ -33961,7 +33955,7 @@ _ZN7Iex_3_47MathExcaSERS0_.exit:                  ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_410DivzeroExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_410DivzeroExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_410DivzeroExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -34082,7 +34076,7 @@ define void @_ZN7Iex_3_410InexactExcC2ERKS0_(ptr noundef nonnull align 8 derefer
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_410InexactExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_410InexactExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -34117,7 +34111,7 @@ _ZN7Iex_3_47MathExcaSERS0_.exit:                  ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_410InexactExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_410InexactExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_47MathExcaSERS0_.exit, label %3
 
@@ -34145,7 +34139,7 @@ _ZN7Iex_3_47MathExcaSERS0_.exit:                  ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_410InexactExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_410InexactExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_410InexactExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
@@ -34266,7 +34260,7 @@ define void @_ZN7Iex_3_414InvalidFpOpExcC2ERKS0_(ptr noundef nonnull align 8 der
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_414InvalidFpOpExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Iex_3_414InvalidFpOpExcC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN7Iex_3_47BaseExcC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1)
           to label %3 unwind label %4
 
@@ -34301,7 +34295,7 @@ _ZN7Iex_3_47MathExcaSERS0_.exit:                  ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_414InvalidFpOpExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN7Iex_3_414InvalidFpOpExcaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZN7Iex_3_47MathExcaSERS0_.exit, label %3
 
@@ -34329,14 +34323,14 @@ _ZN7Iex_3_47MathExcaSERS0_.exit:                  ; preds = %2, %.noexc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Iex_3_414InvalidFpOpExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 {
+define void @_ZN7Iex_3_414InvalidFpOpExcD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7Iex_3_414InvalidFpOpExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #22
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind memory(read, inaccessiblemem: readwrite) uwtable
-define void @_Z13iex_debugTrapv() local_unnamed_addr #12 {
+define void @_Z13iex_debugTrapv() local_unnamed_addr #11 {
   %1 = tail call ptr @getenv(ptr noundef nonnull @.str.1) #21
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %3, label %2
@@ -34350,27 +34344,33 @@ define void @_Z13iex_debugTrapv() local_unnamed_addr #12 {
 }
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #13
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #14
+declare void @llvm.trap() #13
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #15
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #14
 
-declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #16
+declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #15
 
-declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef) local_unnamed_addr #16
+declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #17
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #18
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #17
 
-declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #16
+declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #15
 
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #16
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #15
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #18
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #19
@@ -34381,22 +34381,22 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #20
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { cold nofree noreturn }
-attributes #12 = { mustprogress nounwind memory(read, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nofree nounwind memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #16 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { cold nofree noreturn }
+attributes #11 = { mustprogress nounwind memory(read, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nofree nounwind memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #15 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #19 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #20 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #21 = { nounwind }

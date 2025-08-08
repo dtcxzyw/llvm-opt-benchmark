@@ -231,7 +231,7 @@ default.unreachable57:                            ; preds = %_ZN4core4hash6Hashe
   %51 = load i32, ptr %50, align 4, !range !39, !alias.scope !36, !noalias !40, !noundef !8
   %52 = zext nneg i32 %51 to i64
   tail call void @"_ZN9siphasher6sip12815Hasher$LT$S$GT$11short_write17hcefa131a390998a9E.llvm.2546880118954093015"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, i64 noundef %52, i64 noundef %52), !noalias !36
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !42
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !42
   call void @_ZN5typst9visualize5color5Color7to_vec417h99168599ebc2d1f4E(ptr noalias noundef nonnull sret([4 x float]) align 4 captures(none) dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 4 dereferenceable(20) %50)
   %53 = load i32, ptr %4, align 4, !noalias !42, !noundef !8
   %54 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -240,7 +240,7 @@ default.unreachable57:                            ; preds = %_ZN4core4hash6Hashe
   %57 = load i32, ptr %56, align 4, !noalias !42, !noundef !8
   %58 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %59 = load i32, ptr %58, align 4, !noalias !42, !noundef !8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !42
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !42
   %60 = zext i32 %53 to i64
   tail call void @"_ZN9siphasher6sip12815Hasher$LT$S$GT$11short_write17h76b1283531d3937eE.llvm.2546880118954093015"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, i32 noundef %53, i64 noundef %60)
   %61 = zext i32 %55 to i64
@@ -1748,10 +1748,10 @@ _ZN4core4hash6Hasher11write_isize17hd81698109c5c0968E.exit19.i.i: ; preds = %973
   tail call void @llvm.experimental.noalias.scope.decl(metadata !308)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !311)
   %1021 = load i128, ptr %1020, align 16, !alias.scope !308, !noalias !311, !noundef !8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !313
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !313
   store i128 %1021, ptr %3, align 16, !noalias !313
   call fastcc void @"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$5write17h78a1e76b796f8b37E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef 16), !noalias !308
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !313
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !313
   %1022 = getelementptr inbounds nuw i8, ptr %1019, i64 80
   %1023 = load i64, ptr %1022, align 16, !alias.scope !308, !noalias !311, !noundef !8
   %1024 = load i64, ptr %7, align 8, !alias.scope !316, !noalias !308, !noundef !8
@@ -3061,10 +3061,10 @@ _ZN4core4hash6Hasher19write_length_prefix17ha778925aa4df1c9fE.exit: ; preds = %5
 
 "_ZN60_$LT$typst..text..font..Font$u20$as$u20$core..hash..Hash$GT$4hash17h5ae635e63da70aeaE.exit.i": ; preds = %590, %581
   %.0.i.i.i4 = phi i128 [ %592, %590 ], [ %588, %581 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10), !noalias !545
+  call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !545
   store i128 %.0.i.i.i4, ptr %10, align 16, !noalias !545
   call void @"_ZN73_$LT$siphasher..sip128..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17hd1dd82268b822a3fE.llvm.2546880118954093015"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %10, i64 noundef 16), !noalias !541
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10), !noalias !545
+  call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !545
   %594 = getelementptr inbounds nuw i8, ptr %583, i64 5416
   %595 = load i32, ptr %594, align 8, !noalias !541, !noundef !8
   %596 = zext i32 %595 to i64
@@ -3949,7 +3949,7 @@ _ZN4core4hash6Hasher11write_isize17hd81698109c5c0968E.exit7.i: ; preds = %1124, 
 1176:                                             ; preds = %1168
   %1177 = getelementptr inbounds nuw i8, ptr %1170, i64 32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !698)
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %9), !noalias !698
+  call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !698
   %.sroa.412.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %9, i64 8
   %.sroa.513.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %9, i64 16
   %.sroa.614.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %9, i64 24
@@ -4004,10 +4004,10 @@ _ZN4core4hash6Hasher11write_isize17hd81698109c5c0968E.exit7.i: ; preds = %1124, 
 
 "_ZN74_$LT$typst..visualize..image..raster..Repr$u20$as$u20$core..hash..Hash$GT$4hash17hed50de1c26cb21b5E.exit.i.i.i.i": ; preds = %1198, %1191
   %.0.i.i.i.i.i.i = phi i128 [ %1200, %1198 ], [ %1196, %1191 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8), !noalias !726
+  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !726
   store i128 %.0.i.i.i.i.i.i, ptr %8, align 16, !noalias !726
   call void @"_ZN73_$LT$siphasher..sip128..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17hd1dd82268b822a3fE.llvm.2546880118954093015"(ptr noalias noundef nonnull align 8 dereferenceable(72) %9, ptr noalias noundef nonnull readonly align 1 %8, i64 noundef 16), !noalias !729
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8), !noalias !726
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !726
   %1202 = getelementptr inbounds nuw i8, ptr %.val1.i.i.i, i64 104
   %1203 = load i8, ptr %1202, align 8, !range !92, !alias.scope !720, !noalias !730, !noundef !8
   %1204 = zext nneg i8 %1203 to i64
@@ -4032,16 +4032,16 @@ _ZN4core4hash6Hasher11write_isize17hd81698109c5c0968E.exit7.i: ; preds = %1124, 
 
 "_ZN71_$LT$typst..visualize..image..svg..Repr$u20$as$u20$core..hash..Hash$GT$4hash17h209c6341d84a0699E.exit.i.i.i.i": ; preds = %1212, %1205
   %.0.i.i1.i.i.i.i = phi i128 [ %1214, %1212 ], [ %1210, %1205 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !734
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !734
   store i128 %.0.i.i1.i.i.i.i, ptr %7, align 16, !noalias !734
   call void @"_ZN73_$LT$siphasher..sip128..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17hd1dd82268b822a3fE.llvm.2546880118954093015"(ptr noalias noundef nonnull align 8 dereferenceable(72) %9, ptr noalias noundef nonnull readonly align 1 %7, i64 noundef 16), !noalias !706
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !734
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !734
   %1216 = getelementptr inbounds nuw i8, ptr %.val1.i.i.i, i64 32
   %1217 = load i128, ptr %1216, align 16, !noalias !737, !noundef !8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !738
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !738
   store i128 %1217, ptr %6, align 16, !noalias !738
   call void @"_ZN73_$LT$siphasher..sip128..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17hd1dd82268b822a3fE.llvm.2546880118954093015"(ptr noalias noundef nonnull align 8 dereferenceable(72) %9, ptr noalias noundef nonnull readonly align 1 %6, i64 noundef 16), !noalias !706
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !738
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !738
   br label %"_ZN71_$LT$typst..visualize..image..ImageKind$u20$as$u20$core..hash..Hash$GT$4hash17hd3a3b71ac3eeb524E.exit.i.i.i"
 
 "_ZN71_$LT$typst..visualize..image..ImageKind$u20$as$u20$core..hash..Hash$GT$4hash17hd3a3b71ac3eeb524E.exit.i.i.i": ; preds = %"_ZN71_$LT$typst..visualize..image..svg..Repr$u20$as$u20$core..hash..Hash$GT$4hash17h209c6341d84a0699E.exit.i.i.i.i", %"_ZN74_$LT$typst..visualize..image..raster..Repr$u20$as$u20$core..hash..Hash$GT$4hash17hed50de1c26cb21b5E.exit.i.i.i.i"
@@ -4176,7 +4176,7 @@ _ZN5typst4util4hash9hash_item17h783acfb1d80cb38fE.exit.i: ; preds = %_ZN4core4ha
   %1304 = zext i64 %1302 to i128
   %1305 = shl nuw i128 %1304, 64
   %1306 = or disjoint i128 %1305, %1303
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %9), !noalias !698
+  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !698
   %1307 = load atomic i64, ptr @_ZN15portable_atomic3imp6x86_6412atomic_store4FUNC17hb1b2959f852a667bE monotonic, align 8
   %1308 = inttoptr i64 %1307 to ptr
   call void %1308(ptr noundef nonnull align 16 %1171, i128 noundef %1306)
@@ -4184,10 +4184,10 @@ _ZN5typst4util4hash9hash_item17h783acfb1d80cb38fE.exit.i: ; preds = %_ZN4core4ha
 
 "_ZN5typst4util4hash17LazyHash$LT$T$GT$15get_or_set_hash17h3c812dde0e63667fE.exit": ; preds = %1168, %_ZN5typst4util4hash9hash_item17h783acfb1d80cb38fE.exit.i
   %.0.i = phi i128 [ %1306, %_ZN5typst4util4hash9hash_item17h783acfb1d80cb38fE.exit.i ], [ %1174, %1168 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !766
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !766
   store i128 %.0.i, ptr %5, align 16, !noalias !766
   call fastcc void @"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$5write17h78a1e76b796f8b37E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef 16)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !766
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !766
   %1309 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1310 = load i64, ptr %1309, align 8, !noundef !8
   %1311 = load i64, ptr %12, align 8, !alias.scope !769, !noundef !8
@@ -5117,7 +5117,7 @@ _ZN4core4hash6Hasher19write_length_prefix17ha778925aa4df1c9fE.exit.i.i.i: ; pred
   %1917 = getelementptr i8, ptr %1909, i64 %1916
   %1918 = getelementptr i8, ptr %1917, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !954)
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4), !noalias !957
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !957
   %.sroa.412.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.513.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.sroa.614.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -5140,7 +5140,7 @@ _ZN4core4hash6Hasher19write_length_prefix17ha778925aa4df1c9fE.exit.i.i.i: ; pred
   %1925 = zext i64 %1923 to i128
   %1926 = shl nuw i128 %1925, 64
   %1927 = or disjoint i128 %1926, %1924
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4), !noalias !957
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !957
   %1928 = load atomic i64, ptr @_ZN15portable_atomic3imp6x86_6412atomic_store4FUNC17hb1b2959f852a667bE monotonic, align 8, !noalias !952
   %1929 = inttoptr i64 %1928 to ptr
   call void %1929(ptr noundef nonnull align 16 %1909, i128 noundef %1927), !noalias !953
@@ -5148,10 +5148,10 @@ _ZN4core4hash6Hasher19write_length_prefix17ha778925aa4df1c9fE.exit.i.i.i: ; pred
 
 "_ZN80_$LT$typst..foundations..content..Inner$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h55df3b5655891ab0E.exit.i": ; preds = %1914, %"_ZN64_$LT$typst..util..bitset..BitSet$u20$as$u20$core..hash..Hash$GT$4hash17h247a00da1027f5bfE.exit.i.i"
   %.0.i.i.i33 = phi i128 [ %1927, %1914 ], [ %1912, %"_ZN64_$LT$typst..util..bitset..BitSet$u20$as$u20$core..hash..Hash$GT$4hash17h247a00da1027f5bfE.exit.i.i" ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !971
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !971
   store i128 %.0.i.i.i33, ptr %3, align 16, !noalias !971
   call fastcc void @"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$5write17h78a1e76b796f8b37E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef 16), !noalias !894
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !971
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !971
   %1930 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %1931 = load i64, ptr %1930, align 8, !alias.scope !795, !noalias !798, !noundef !8
   %1932 = load i64, ptr %12, align 8, !alias.scope !974, !noalias !795, !noundef !8
@@ -6023,10 +6023,10 @@ _ZN4core4hash4Hash10hash_slice17h06f94f89a0703356E.exit.i: ; preds = %_ZN4core4h
 define internal fastcc void @"_ZN77_$LT$typst..introspection..location..Location$u20$as$u20$core..hash..Hash$GT$4hash17h7de7b2cbf0a89a38E"(ptr noalias noundef nonnull readonly align 16 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
   %3 = alloca [16 x i8], align 16
   %4 = load i128, ptr %0, align 16, !noundef !8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !1100
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !1100
   store i128 %4, ptr %3, align 16, !noalias !1100
   call fastcc void @"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$5write17h78a1e76b796f8b37E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef 16)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !1100
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !1100
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 16, !noundef !8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -6354,12 +6354,6 @@ declare i64 @llvm.fshl.i64(i64, i64, i64) #5
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #6
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
-
 ; Function Attrs: inlinehint nonlazybind uwtable
 declare hidden noundef ptr @_ZN4core4sync6atomic11atomic_load17he3f5c25a490fe3e4E.llvm.2546880118954093015(ptr noundef, i8 noundef) unnamed_addr #1
 
@@ -6389,6 +6383,12 @@ declare hidden void @"_ZN9siphasher6sip12815Hasher$LT$S$GT$11short_write17hcefa1
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 declare hidden noundef i128 @_ZN5typst4util4hash9hash_item17h65860d47963d7043E.llvm.2546880118954093015(ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #8

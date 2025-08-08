@@ -1741,12 +1741,6 @@ define void @DES_encrypt1(ptr noundef captures(none) %0, ptr noundef readonly %1
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nounwind memory(argmem: readwrite) uwtable
 define void @DES_encrypt2(ptr noundef captures(none) %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = load i32, ptr %0, align 4, !tbaa !3
@@ -3578,9 +3572,9 @@ define void @DES_decrypt3(ptr noundef captures(none) %0, ptr noundef %1, ptr nou
 }
 
 ; Function Attrs: nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @DES_ncbc_encrypt(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2, ptr noundef %3, ptr noundef captures(none) %4, i32 noundef %5) local_unnamed_addr #2 {
+define void @DES_ncbc_encrypt(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2, ptr noundef %3, ptr noundef captures(none) %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = alloca [2 x i32], align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.not = icmp eq i32 %5, 0
   %8 = load i32, ptr %4, align 1
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -3897,14 +3891,14 @@ define void @DES_ncbc_encrypt(ptr noundef readonly captures(none) %0, ptr nounde
   %.1227.sink = phi i32 [ %75, %69 ], [ %.0230.lcssa, %._crit_edge ], [ %.0226.lcssa, %._crit_edge278 ], [ %137, %170 ], [ %137, %112 ]
   store i32 %.1229.sink, ptr %4, align 1
   store i32 %.1227.sink, ptr %9, align 1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
 ; Function Attrs: nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @DES_ede3_cbc_encrypt(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef captures(none) %6, i32 noundef %7) local_unnamed_addr #2 {
+define void @DES_ede3_cbc_encrypt(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef captures(none) %6, i32 noundef %7) local_unnamed_addr #1 {
   %9 = alloca [2 x i32], align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %.not = icmp eq i32 %7, 0
   %10 = load i32, ptr %6, align 1
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 4
@@ -4221,15 +4215,20 @@ define void @DES_ede3_cbc_encrypt(ptr noundef readonly captures(none) %0, ptr no
   %.1256.sink = phi i32 [ %76, %71 ], [ %.0259.lcssa, %._crit_edge ], [ %.0255.lcssa, %._crit_edge296 ], [ %139, %172 ], [ %139, %114 ]
   store i32 %.1258.sink, ptr %6, align 1
   store i32 %.1256.sink, ptr %11, align 1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
+
 attributes #0 = { nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nounwind memory(none) }
-attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

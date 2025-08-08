@@ -137,13 +137,13 @@ define internal noundef zeroext i1 @GLES2_CreateRenderer(ptr noundef %0, ptr nou
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #10
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #10
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4
   %9 = call zeroext i1 @SDL_GL_GetAttribute_REAL(i32 noundef 20, ptr noundef nonnull %6) #10
   br i1 %9, label %10, label %.thread
@@ -397,36 +397,33 @@ define internal noundef zeroext i1 @GLES2_CreateRenderer(ptr noundef %0, ptr nou
 
 .thread:                                          ; preds = %3, %10, %12, %135, %.thread94, %113
   %.0 = phi i1 [ true, %113 ], [ false, %.thread94 ], [ false, %135 ], [ false, %12 ], [ false, %10 ], [ false, %3 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare zeroext i1 @SDL_GL_GetAttribute_REAL(i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_GL_GetAttribute_REAL(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_SyncWindow_REAL(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_SyncWindow_REAL(ptr noundef) local_unnamed_addr #2
+declare i64 @SDL_GetWindowFlags_REAL(ptr noundef) local_unnamed_addr #1
 
-declare i64 @SDL_GetWindowFlags_REAL(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_GL_SetAttribute_REAL(i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_GL_SetAttribute_REAL(i32 noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_RecreateWindow(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_RecreateWindow(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @SDL_SetupRendererColorspace(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @SDL_SetupRendererColorspace(ptr noundef, i32 noundef) local_unnamed_addr #2
-
-declare zeroext i1 @SDL_SetError_REAL(ptr noundef, ...) local_unnamed_addr #2
+declare zeroext i1 @SDL_SetError_REAL(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @SDL_calloc_REAL(i64 noundef, i64 noundef) local_unnamed_addr #3
+declare noalias ptr @SDL_calloc_REAL(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @GLES2_InvalidateCachedState(ptr noundef readonly captures(none) %0) #4 {
+define internal void @GLES2_InvalidateCachedState(ptr noundef readonly captures(none) %0) #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 696
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 600
@@ -448,11 +445,11 @@ define internal void @GLES2_InvalidateCachedState(ptr noundef readonly captures(
   ret void
 }
 
-declare zeroext i1 @SDL_AddSupportedTextureFormat(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_AddSupportedTextureFormat(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @SDL_GL_CreateContext_REAL(ptr noundef) local_unnamed_addr #2
+declare ptr @SDL_GL_CreateContext_REAL(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_GL_MakeCurrent_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_GL_MakeCurrent_REAL(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @GLES2_LoadFunctions(ptr noundef nonnull writeonly initializes((16, 24)) %0) unnamed_addr #0 {
@@ -895,9 +892,9 @@ define internal fastcc noundef zeroext i1 @GLES2_CacheShaders(ptr noundef nonnul
   ret i1 %.lcssa
 }
 
-declare zeroext i1 @SDL_SetNumberProperty_REAL(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_SetNumberProperty_REAL(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @SDL_GetRendererProperties_REAL(ptr noundef) local_unnamed_addr #2
+declare i32 @SDL_GetRendererProperties_REAL(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @GLES2_WindowEvent(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
@@ -2662,7 +2659,7 @@ GL_CheckAllErrors.exit:                           ; preds = %110, %.preheader.i4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef zeroext i1 @GLES2_LockTexture(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3, ptr noundef writeonly captures(none) initializes((0, 4)) %4) #5 {
+define internal noundef zeroext i1 @GLES2_LockTexture(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3, ptr noundef writeonly captures(none) initializes((0, 4)) %4) #4 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
@@ -2714,7 +2711,7 @@ define internal void @GLES2_UnlockTexture(ptr noundef readonly captures(none) %0
   %3 = alloca %struct.SDL_Rect, align 4
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %5 = load ptr, ptr %4, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 0, ptr %6, align 4
@@ -2731,7 +2728,7 @@ define internal void @GLES2_UnlockTexture(ptr noundef readonly captures(none) %0
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %16 = load i32, ptr %15, align 8
   %17 = call zeroext i1 @GLES2_UpdateTexture(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3, ptr noundef %14, i32 noundef %16)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -2784,7 +2781,7 @@ define internal zeroext i1 @GLES2_SetRenderTarget(ptr noundef readonly captures(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @GLES2_QueueNoOp(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #6 {
+define internal noundef zeroext i1 @GLES2_QueueNoOp(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #5 {
   ret i1 true
 }
 
@@ -3372,8 +3369,8 @@ define internal noundef zeroext i1 @GLES2_RunCommandQueue(ptr noundef readonly c
   br i1 %.not167, label %35, label %50
 
 35:                                               ; preds = %.loopexit
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #10
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %37 = load ptr, ptr %36, align 8
   %38 = call zeroext i1 @SDL_GetWindowSizeInPixels_REAL(ptr noundef %37, ptr noundef nonnull %5, ptr noundef nonnull %6) #10
@@ -3401,8 +3398,8 @@ define internal noundef zeroext i1 @GLES2_RunCommandQueue(ptr noundef readonly c
   br label %49
 
 49:                                               ; preds = %45, %42
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %50
 
 50:                                               ; preds = %49, %.loopexit
@@ -4201,15 +4198,15 @@ define internal ptr @GLES2_RenderReadPixels(ptr noundef %0, ptr noundef readonly
   br label %28
 
 22:                                               ; preds = %18
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #10
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %23 = call zeroext i1 @SDL_GetRenderOutputSize_REAL(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef nonnull %4) #10
   %24 = load i32, ptr %4, align 4
   %25 = load i32, ptr %15, align 4
   %26 = add i32 %20, %25
   %27 = sub i32 %24, %26
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %28
 
 28:                                               ; preds = %._crit_edge, %22
@@ -4573,7 +4570,7 @@ GL_CheckAllErrors.exit:                           ; preds = %58, %41, %.preheade
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @GLES2_SetVSync(ptr readnone captures(none) %0, i32 noundef %1) #0 {
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4
   %4 = tail call zeroext i1 @SDL_GL_SetSwapInterval_REAL(i32 noundef %1) #10
   br i1 %4, label %5, label %11
@@ -4593,20 +4590,20 @@ define internal zeroext i1 @GLES2_SetVSync(ptr readnone captures(none) %0, i32 n
 
 11:                                               ; preds = %7, %5, %2, %9
   %.0 = phi i1 [ %10, %9 ], [ false, %2 ], [ false, %5 ], [ true, %7 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
 
-declare zeroext i1 @SDL_GL_ExtensionSupported_REAL(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_GL_ExtensionSupported_REAL(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @GLES2_CacheShader(ptr noundef captures(none) %0, i32 noundef range(i32 -2147483648, 16) %1, i32 noundef range(i32 35632, 35634) %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca [3 x ptr], align 16
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = tail call ptr @GLES2_GetShader(i32 noundef %1) #10
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %30, label %.lr.ph
@@ -4681,7 +4678,7 @@ define internal fastcc zeroext i1 @GLES2_CacheShader(ptr noundef captures(none) 
   br i1 %.not46.lcssa, label %41, label %58
 
 41:                                               ; preds = %._crit_edge
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %43 = load ptr, ptr %42, align 8
@@ -4714,7 +4711,7 @@ define internal fastcc zeroext i1 @GLES2_CacheShader(ptr noundef captures(none) 
   %56 = load ptr, ptr %55, align 8
   call void %56(i32 noundef %.042.lcssa) #10
   %57 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.100, i32 noundef %1) #10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %62
 
 58:                                               ; preds = %._crit_edge
@@ -4726,8 +4723,8 @@ define internal fastcc zeroext i1 @GLES2_CacheShader(ptr noundef captures(none) 
 
 62:                                               ; preds = %58, %54, %30
   %.039 = phi i1 [ true, %58 ], [ %57, %54 ], [ %31, %30 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.039
 }
 
@@ -4783,58 +4780,55 @@ switch.lookup:                                    ; preds = %15
   ret void
 }
 
-declare noalias ptr @SDL_strdup_REAL(ptr noundef) local_unnamed_addr #2
+declare noalias ptr @SDL_strdup_REAL(ptr noundef) local_unnamed_addr #1
 
-declare ptr @SDL_GetError_REAL() local_unnamed_addr #2
+declare ptr @SDL_GetError_REAL() local_unnamed_addr #1
 
-declare void @SDL_free_REAL(ptr noundef) local_unnamed_addr #2
+declare void @SDL_free_REAL(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @SDL_GL_GetProcAddress_REAL(ptr noundef) local_unnamed_addr #1
 
-declare ptr @SDL_GL_GetProcAddress_REAL(ptr noundef) local_unnamed_addr #2
+declare i32 @GLES2_GetTexCoordPrecisionEnumFromHint() local_unnamed_addr #1
 
-declare i32 @GLES2_GetTexCoordPrecisionEnumFromHint() local_unnamed_addr #2
+declare i32 @SDL_GetBlendModeSrcColorFactor(i32 noundef) local_unnamed_addr #1
 
-declare i32 @SDL_GetBlendModeSrcColorFactor(i32 noundef) local_unnamed_addr #2
+declare i32 @SDL_GetBlendModeSrcAlphaFactor(i32 noundef) local_unnamed_addr #1
 
-declare i32 @SDL_GetBlendModeSrcAlphaFactor(i32 noundef) local_unnamed_addr #2
+declare i32 @SDL_GetBlendModeColorOperation(i32 noundef) local_unnamed_addr #1
 
-declare i32 @SDL_GetBlendModeColorOperation(i32 noundef) local_unnamed_addr #2
+declare i32 @SDL_GetBlendModeDstColorFactor(i32 noundef) local_unnamed_addr #1
 
-declare i32 @SDL_GetBlendModeDstColorFactor(i32 noundef) local_unnamed_addr #2
+declare i32 @SDL_GetBlendModeDstAlphaFactor(i32 noundef) local_unnamed_addr #1
 
-declare i32 @SDL_GetBlendModeDstAlphaFactor(i32 noundef) local_unnamed_addr #2
+declare i32 @SDL_GetBlendModeAlphaOperation(i32 noundef) local_unnamed_addr #1
 
-declare i32 @SDL_GetBlendModeAlphaOperation(i32 noundef) local_unnamed_addr #2
+declare i64 @SDL_GetNumberProperty_REAL(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i64 @SDL_GetNumberProperty_REAL(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @SDL_GetTextureProperties_REAL(ptr noundef) local_unnamed_addr #1
 
-declare i32 @SDL_GetTextureProperties_REAL(ptr noundef) local_unnamed_addr #2
+declare ptr @SDL_GetYCbCRtoRGBConversionMatrix(i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @SDL_GetYCbCRtoRGBConversionMatrix(i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @SDL_GL_GetCurrentContext_REAL() local_unnamed_addr #1
 
-declare ptr @SDL_GL_GetCurrentContext_REAL() local_unnamed_addr #2
-
-declare noalias ptr @SDL_malloc_REAL(i64 noundef) local_unnamed_addr #2
+declare noalias ptr @SDL_malloc_REAL(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
-declare ptr @SDL_AllocateRenderVertices(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @SDL_AllocateRenderVertices(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
-declare float @SDL_atan2f_REAL(float noundef, float noundef) local_unnamed_addr #2
+declare float @SDL_atan2f_REAL(float noundef, float noundef) local_unnamed_addr #1
 
-declare float @SDL_cosf_REAL(float noundef) local_unnamed_addr #2
+declare float @SDL_cosf_REAL(float noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #8
+declare float @llvm.fmuladd.f32(float, float, float) #7
 
-declare float @SDL_sinf_REAL(float noundef) local_unnamed_addr #2
+declare float @SDL_sinf_REAL(float noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_GetWindowSizeInPixels_REAL(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_GetWindowSizeInPixels_REAL(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @SDL_memcmp_REAL(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @SDL_memcmp_REAL(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i1 @SetDrawState(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1, i32 noundef range(i32 1, 10) %2, ptr noundef %3) unnamed_addr #0 {
@@ -5330,7 +5324,7 @@ define internal fastcc noundef zeroext i1 @GLES2_SelectProgram(ptr noundef captu
   br i1 %65, label %247, label %66
 
 66:                                               ; preds = %62, %58, %54, %51
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 560
   %.092115.i = load ptr, ptr %68, align 8
@@ -5561,12 +5555,12 @@ define internal fastcc noundef zeroext i1 @GLES2_SelectProgram(ptr noundef captu
   br label %177
 
 GLES2_CacheProgram.exit:                          ; preds = %.critedge.i, %111
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %245
 
 177:                                              ; preds = %87, %78, %174, %156
   %.093.i.ph = phi ptr [ %90, %156 ], [ %90, %174 ], [ %.092117.i, %78 ], [ %.092117.i, %87 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %178 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %179 = load ptr, ptr %178, align 8
   %180 = load i32, ptr %.093.i.ph, align 8
@@ -5608,7 +5602,7 @@ GLES2_CacheProgram.exit:                          ; preds = %.critedge.i, %111
   br i1 %.not99, label %243, label %200
 
 200:                                              ; preds = %197
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %201 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %202 = load float, ptr %201, align 4
   store float %202, ptr %7, align 16
@@ -5647,7 +5641,7 @@ GLES2_CacheProgram.exit:                          ; preds = %.critedge.i, %111
   %227 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %228 = load ptr, ptr %227, align 8
   call void %228(i32 noundef %199, i32 noundef 1, i8 noundef zeroext 0, ptr noundef nonnull %7) #10
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %243
 
 229:                                              ; preds = %184
@@ -5690,44 +5684,50 @@ default.unreachable114:                           ; preds = %11
   ret i1 %.076
 }
 
-declare zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare ptr @SDL_CreateSurface_REAL(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @SDL_CreateSurface_REAL(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_GetRenderOutputSize_REAL(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_GetRenderOutputSize_REAL(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @SDL_DestroySurface_REAL(ptr noundef) local_unnamed_addr #2
+declare void @SDL_DestroySurface_REAL(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_FlipSurface_REAL(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_FlipSurface_REAL(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_GL_SwapWindow_REAL(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_GL_SwapWindow_REAL(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_GL_DestroyContext_REAL(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_GL_DestroyContext_REAL(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_GL_SetSwapInterval_REAL(i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_GL_SetSwapInterval_REAL(i32 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_GL_GetSwapInterval_REAL(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_GL_GetSwapInterval_REAL(ptr noundef) local_unnamed_addr #1
 
-declare ptr @GLES2_GetShader(i32 noundef) local_unnamed_addr #2
+declare ptr @GLES2_GetShader(i32 noundef) local_unnamed_addr #1
 
-declare ptr @GLES2_GetShaderPrologue(i32 noundef) local_unnamed_addr #2
+declare ptr @GLES2_GetShaderPrologue(i32 noundef) local_unnamed_addr #1
 
-declare ptr @GLES2_GetShaderInclude(i32 noundef) local_unnamed_addr #2
+declare ptr @GLES2_GetShaderInclude(i32 noundef) local_unnamed_addr #1
 
-declare void @SDL_LogError_REAL(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @SDL_LogError_REAL(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #10 = { nounwind }
 attributes #11 = { nounwind allocsize(0,1) }

@@ -601,8 +601,8 @@ define hidden void @_ZN11StringDedup9Processor3runEP10JavaThread(ptr noundef non
   call void @_ZNK11StringDedup9Processor17wait_for_requestsEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
   call void @_ZN11StringDedup4Stat15report_idle_endEv(ptr noundef nonnull align 8 dereferenceable(248) @_ZN11StringDedup9_cur_statE) #12
   call void @_ZN11StringDedup4Stat19report_active_startEv(ptr noundef nonnull align 8 dereferenceable(248) @_ZN11StringDedup9_cur_statE) #12
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 536, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN11StringDedup4Stat20report_process_startEv(ptr noundef nonnull align 8 dereferenceable(248) @_ZN11StringDedup9_cur_statE) #12
   %16 = load ptr, ptr @_ZN11StringDedup9Processor23_storage_for_processingE, align 8
   %17 = load ptr, ptr %16, align 8
@@ -618,8 +618,8 @@ define hidden void @_ZN11StringDedup9Processor3runEP10JavaThread(ptr noundef non
   %21 = load i64, ptr %11, align 8
   call void @_ZN10OopStorage7releaseEPKPKP7oopDescm(ptr noundef nonnull align 8 dereferenceable(126) %20, ptr noundef nonnull %12, i64 noundef %21) #12
   call void @_ZN10OopStorage13BasicParStateD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #12
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 536, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %22 = load i8, ptr @StringDeduplicationResizeALot, align 1
   %23 = trunc i8 %22 to i1
   %24 = call noundef zeroext i1 @_ZN11StringDedup5Table23cleanup_start_if_neededEbb(i1 noundef zeroext false, i1 noundef zeroext %23) #12
@@ -681,7 +681,7 @@ _ZNK11StringDedup9Processor5yieldEv.exit:         ; preds = %.preheader.i, %38, 
 
 _ZNK11StringDedup9Processor13cleanup_tableEbb.exit: ; preds = %15, %44
   call void @_ZN11StringDedup4Stat17report_active_endEv(ptr noundef nonnull align 8 dereferenceable(248) @_ZN11StringDedup9_cur_statE) #12
-  call void @llvm.lifetime.start.p0(i64 248, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN11StringDedup4Stat3addEPKS0_(ptr noundef nonnull align 8 dereferenceable(248) @_ZN11StringDedup11_total_statE, ptr noundef nonnull @_ZN11StringDedup9_cur_statE) #12
   call void @_ZN11StringDedup4Stat11log_summaryEPKS0_S2_(ptr noundef nonnull @_ZN11StringDedup9_cur_statE, ptr noundef nonnull @_ZN11StringDedup11_total_statE) #12
   %45 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE148ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
@@ -697,7 +697,7 @@ _ZNK11StringDedup9Processor13cleanup_tableEbb.exit: ; preds = %15, %44
 _ZN11StringDedup9Processor14log_statisticsEv.exit: ; preds = %_ZNK11StringDedup9Processor13cleanup_tableEbb.exit, %46
   call void @_ZN11StringDedup4StatC1Ev(ptr noundef nonnull align 8 dereferenceable(248) %3) #12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) @_ZN11StringDedup9_cur_statE, ptr noundef nonnull align 8 dereferenceable(248) %3, i64 248, i1 false)
-  call void @llvm.lifetime.end.p0(i64 248, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %47 = load i8, ptr @UsePerfData, align 1
   %48 = trunc i8 %47 to i1
   br i1 %48, label %49, label %.backedge
@@ -3084,10 +3084,10 @@ declare noundef zeroext i1 @_ZN10OopStorage13BasicParState18claim_next_segmentEP
 declare i64 @llvm.cttz.i64(i64, i1 immarg) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

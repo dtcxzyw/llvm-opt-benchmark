@@ -56,17 +56,11 @@ define dso_local noalias noundef ptr @quicklistCreate() local_unnamed_addr #1 {
   ret ptr %1
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: allocsize(0)
-declare noalias ptr @zmalloc(i64 noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare noalias ptr @zmalloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @quicklistSetCompressDepth(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #4 {
+define dso_local void @quicklistSetCompressDepth(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = icmp sgt i32 %1, 65535
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %1, i32 0)
   %4 = shl i32 %spec.store.select, 16
@@ -81,7 +75,7 @@ define dso_local void @quicklistSetCompressDepth(ptr noundef captures(none) %0, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @quicklistSetFill(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #4 {
+define dso_local void @quicklistSetFill(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = icmp sgt i32 %1, 32767
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %1, i32 -5)
   %4 = and i32 %spec.store.select, 65535
@@ -96,7 +90,7 @@ define dso_local void @quicklistSetFill(ptr noundef captures(none) %0, i32 nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @quicklistSetOptions(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 {
+define dso_local void @quicklistSetOptions(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 {
   %spec.store.select.i = tail call i32 @llvm.smax.i32(i32 %1, i32 -5)
   %narrow.i = tail call i32 @llvm.smin.i32(i32 %spec.store.select.i, i32 32767)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -152,7 +146,7 @@ define dso_local noalias noundef ptr @quicklistCreateNode() local_unnamed_addr #
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i64 @quicklistCount(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
+define dso_local i64 @quicklistCount(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8, !tbaa !5
   ret i64 %3
@@ -231,7 +225,7 @@ quicklistBookmarksClear.exit:                     ; preds = %26, %._crit_edge
   ret void
 }
 
-declare void @zfree(ptr noundef) local_unnamed_addr #6
+declare void @zfree(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @quicklistBookmarksClear(ptr noundef captures(none) %0) local_unnamed_addr #1 {
@@ -341,15 +335,15 @@ define dso_local range(i32 0, 2) i32 @__quicklistCompressNode(ptr noundef captur
   ret i32 %.0
 }
 
-declare void @_serverAssert(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #6
+declare void @_serverAssert(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: cold nofree noreturn nounwind
-declare void @abort() local_unnamed_addr #7
+declare void @abort() local_unnamed_addr #6
 
-declare i64 @lzf_compress(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #6
+declare i64 @lzf_compress(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: allocsize(1)
-declare ptr @zrealloc(ptr noundef, i64 noundef) local_unnamed_addr #8
+declare ptr @zrealloc(ptr noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 2) i32 @__quicklistDecompressNode(ptr noundef captures(none) %0) local_unnamed_addr #1 {
@@ -387,10 +381,10 @@ define dso_local range(i32 0, 2) i32 @__quicklistDecompressNode(ptr noundef capt
   ret i32 %.0
 }
 
-declare i64 @lzf_decompress(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #6
+declare i64 @lzf_decompress(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local i64 @quicklistGetLzf(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) local_unnamed_addr #9 {
+define dso_local i64 @quicklistGetLzf(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !9
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -738,7 +732,7 @@ define dso_local void @_quicklistInsertNodeAfter(ptr noundef captures(none) %0, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @quicklistNodeLimit(i32 noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) local_unnamed_addr #10 {
+define dso_local void @quicklistNodeLimit(i32 noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) local_unnamed_addr #9 {
   store i64 -1, ptr %1, align 8, !tbaa !5
   store i32 -1, ptr %2, align 4, !tbaa !28
   %4 = icmp sgt i32 %0, -1
@@ -763,7 +757,7 @@ define dso_local void @quicklistNodeLimit(i32 noundef %0, ptr noundef writeonly 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local range(i32 0, 2) i32 @quicklistNodeExceedsLimit(i32 noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #11 {
+define dso_local range(i32 0, 2) i32 @quicklistNodeExceedsLimit(i32 noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #10 {
   %4 = icmp sgt i32 %0, -1
   br i1 %4, label %9, label %quicklistNodeLimit.exit
 
@@ -790,7 +784,7 @@ quicklistNodeLimit.exit:                          ; preds = %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 2) i32 @_quicklistNodeAllowInsert(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #12 {
+define dso_local range(i32 0, 2) i32 @_quicklistNodeAllowInsert(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #11 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.critedge, label %4, !prof !24
 
@@ -884,7 +878,7 @@ quicklistNodeExceedsLimit.exit:                   ; preds = %quicklistNodeLimit.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local range(i32 0, 2) i32 @_quicklistNodeAllowMerge(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #5 {
+define dso_local range(i32 0, 2) i32 @_quicklistNodeAllowMerge(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #4 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
   %or.cond = and i1 %4, %5
@@ -1143,11 +1137,11 @@ define internal fastcc void @__quicklistInsertPlainNode(ptr noundef captures(non
   ret void
 }
 
-declare ptr @lpPrepend(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #6
+declare ptr @lpPrepend(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
-declare i64 @lpBytes(ptr noundef) local_unnamed_addr #6
+declare i64 @lpBytes(ptr noundef) local_unnamed_addr #5
 
-declare ptr @lpNew(i64 noundef) local_unnamed_addr #6
+declare ptr @lpNew(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 2) i32 @quicklistPushTail(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 {
@@ -1325,7 +1319,7 @@ _quicklistNodeAllowInsert.exit.thread:            ; preds = %quicklistNodeLimit.
   ret i32 %.0
 }
 
-declare ptr @lpAppend(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #6
+declare ptr @lpAppend(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @quicklistAppendListpack(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #1 {
@@ -1358,7 +1352,7 @@ define dso_local void @quicklistAppendListpack(ptr noundef captures(none) %0, pt
   ret void
 }
 
-declare i64 @lpLength(ptr noundef) local_unnamed_addr #6
+declare i64 @lpLength(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @quicklistAppendPlainNode(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 {
@@ -1498,7 +1492,7 @@ _quicklistBookmarkFindByNode.exit.thread:         ; preds = %8, %2, %_quicklistB
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local noundef ptr @_quicklistBookmarkFindByNode(ptr noundef readonly captures(ret: address, provenance) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #13 {
+define dso_local noundef ptr @_quicklistBookmarkFindByNode(ptr noundef readonly captures(ret: address, provenance) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #12 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8
@@ -1604,7 +1598,7 @@ define dso_local range(i32 0, 2) i32 @quicklistDelIndex(ptr noundef captures(non
   ret i32 %.015
 }
 
-declare ptr @lpDelete(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
+declare ptr @lpDelete(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @quicklistDelEntry(ptr noundef captures(none) initializes((16, 24)) %0, ptr noundef %1) local_unnamed_addr #1 {
@@ -1925,7 +1919,7 @@ isLargeElement.exit130:                           ; preds = %103, %107, %109
   br label %172
 
 127:                                              ; preds = %117
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %128 = getelementptr inbounds nuw i8, ptr %121, i64 16
   %129 = load ptr, ptr %128, align 8, !tbaa !9
   %130 = tail call ptr @lpSeek(ptr noundef %129, i64 noundef -1) #23
@@ -2005,7 +1999,7 @@ isLargeElement.exit130:                           ; preds = %103, %107, %109
   br label %171
 
 171:                                              ; preds = %170, %168, %165, %158
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %172
 
 172:                                              ; preds = %126, %171, %43, %46, %48, %85, %79, %82, %84
@@ -2014,10 +2008,10 @@ isLargeElement.exit130:                           ; preds = %103, %107, %109
   ret void
 }
 
-declare ptr @lpReplace(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #6
+declare ptr @lpReplace(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #14
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #13
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @quicklistInsertAfter(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #1 {
@@ -2122,7 +2116,7 @@ define internal fastcc noalias noundef ptr @__quicklistCreateNode(i32 noundef ra
   ret ptr %4
 }
 
-declare ptr @lpSeek(ptr noundef, i64 noundef) local_unnamed_addr #6
+declare ptr @lpSeek(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @_quicklistMergeNodes(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #1 {
@@ -2378,7 +2372,7 @@ _quicklistNodeAllowMerge.exit82.thread:           ; preds = %quicklistNodeLimit.
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 2) i32 @quicklistReplaceAtIndex(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #1 {
   %5 = alloca %struct.quicklistEntry, align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = call ptr @quicklistGetIteratorEntryAtIdx(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %5)
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %21, label %7, !prof !24
@@ -2417,7 +2411,7 @@ quicklistReleaseIterator.exit:                    ; preds = %7, %14, %17, %19
 
 21:                                               ; preds = %4, %quicklistReleaseIterator.exit
   %.0 = phi i32 [ 1, %quicklistReleaseIterator.exit ], [ 0, %4 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -2683,9 +2677,9 @@ __quicklistDecompressNode.exit43:                 ; preds = %44, %43, %__quickli
   ret ptr %.031
 }
 
-declare ptr @lpMerge(ptr noundef, ptr noundef) local_unnamed_addr #6
+declare ptr @lpMerge(ptr noundef, ptr noundef) local_unnamed_addr #5
 
-declare ptr @lpDeleteRange(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #6
+declare ptr @lpDeleteRange(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @_quicklistInsert(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
@@ -3536,7 +3530,7 @@ __quicklistDecompressNode.exit327:                ; preds = %331, %332
   ret void
 }
 
-declare ptr @lpInsertString(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #6
+declare ptr @lpInsertString(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @quicklistInsertBefore(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #1 {
@@ -3885,7 +3879,7 @@ define dso_local range(i32 0, 2) i32 @quicklistCompare(ptr noundef readonly capt
   br label %23
 
 14:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %15 = call i32 @string2ll(ptr noundef %1, i64 noundef %2, ptr noundef nonnull %4) #23
   %.not13.not = icmp eq i32 %15, 0
   br i1 %.not13.not, label %22, label %16
@@ -3900,7 +3894,7 @@ define dso_local range(i32 0, 2) i32 @quicklistCompare(ptr noundef readonly capt
 
 22:                                               ; preds = %14, %16
   %spec.select = phi i32 [ %21, %16 ], [ 0, %14 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %23
 
 23:                                               ; preds = %22, %7, %11
@@ -3908,7 +3902,7 @@ define dso_local range(i32 0, 2) i32 @quicklistCompare(ptr noundef readonly capt
   ret i32 %.010
 }
 
-declare i32 @string2ll(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #6
+declare i32 @string2ll(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define dso_local noalias noundef ptr @quicklistGetIterator(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
@@ -4092,14 +4086,14 @@ __quicklistDecompressNode.exit:                   ; preds = %37, %38
   br label %.loopexit
 
 74:                                               ; preds = %63
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !tbaa !28
   %75 = call ptr @lpGetValue(ptr noundef nonnull %65, ptr noundef nonnull %3, ptr noundef nonnull %6) #23
   store ptr %75, ptr %4, align 8, !tbaa !50
   %76 = load i32, ptr %3, align 4, !tbaa !28
   %77 = zext i32 %76 to i64
   store i64 %77, ptr %9, align 8, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.loopexit
 
 78:                                               ; preds = %._crit_edge, %.thread81, %.thread
@@ -4167,14 +4161,14 @@ tailrecurse:                                      ; preds = %tailrecurse.sink.sp
   ret i32 %.0
 }
 
-declare ptr @lpNext(ptr noundef, ptr noundef) local_unnamed_addr #6
+declare ptr @lpNext(ptr noundef, ptr noundef) local_unnamed_addr #5
 
-declare ptr @lpPrev(ptr noundef, ptr noundef) local_unnamed_addr #6
+declare ptr @lpPrev(ptr noundef, ptr noundef) local_unnamed_addr #5
 
-declare ptr @lpGetValue(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
+declare ptr @lpGetValue(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @quicklistSetDirection(ptr noundef writeonly captures(none) initializes((32, 36)) %0, i32 noundef %1) local_unnamed_addr #10 {
+define dso_local void @quicklistSetDirection(ptr noundef writeonly captures(none) initializes((32, 36)) %0, i32 noundef %1) local_unnamed_addr #9 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %1, ptr %3, align 8, !tbaa !40
   ret void
@@ -4323,14 +4317,14 @@ define dso_local void @quicklistRotate(ptr noundef captures(none) %0) local_unna
   br label %78
 
 22:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %23 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %24 = load ptr, ptr %23, align 8, !tbaa !9
   %25 = tail call ptr @lpSeek(ptr noundef %24, i64 noundef -1) #23
   store ptr %25, ptr %2, align 8, !tbaa !32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #23
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #23
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   %26 = call ptr @lpGetValue(ptr noundef %25, ptr noundef nonnull %4, ptr noundef nonnull %3) #23
   %.not = icmp eq ptr %26, null
@@ -4430,10 +4424,10 @@ quicklistDelIndex.exit:                           ; preds = %58, %73
   br label %77
 
 77:                                               ; preds = %76, %quicklistDelIndex.exit
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #23
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %78
 
 78:                                               ; preds = %1, %77, %16
@@ -4441,18 +4435,18 @@ quicklistDelIndex.exit:                           ; preds = %58, %73
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
-declare i32 @ll2string(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #6
+declare i32 @ll2string(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 2) i32 @quicklistPopCustom(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef readonly captures(none) %5) local_unnamed_addr #1 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #23
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #23
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = icmp ne i32 %1, 0
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load i64, ptr %11, align 8, !tbaa !5
@@ -4630,9 +4624,9 @@ define dso_local range(i32 0, 2) i32 @quicklistPopCustom(ptr noundef captures(no
 
 quicklistDelIndex.exit:                           ; preds = %21, %87, %73, %47, %25, %23, %6
   %.041 = phi i32 [ 0, %6 ], [ 1, %47 ], [ 0, %25 ], [ 0, %23 ], [ 1, %73 ], [ 1, %87 ], [ 0, %21 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #23
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.041
 }
 
@@ -4656,11 +4650,11 @@ define dso_local range(i32 0, 2) i32 @quicklistPop(ptr noundef captures(none) %0
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 0, ptr %7, align 8, !tbaa !5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 0, ptr %8, align 8, !tbaa !53
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8, !tbaa !5
@@ -4697,9 +4691,9 @@ define dso_local range(i32 0, 2) i32 @quicklistPop(ptr noundef captures(none) %0
 
 22:                                               ; preds = %19, %20, %5
   %.0 = phi i32 [ 0, %5 ], [ %13, %20 ], [ %13, %19 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
@@ -4913,9 +4907,9 @@ __quicklistDecompressNode.exit:                   ; preds = %76, %75, %.lr.ph.sp
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #16
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #15
 
-declare void @lpRepr(ptr noundef) local_unnamed_addr #6
+declare void @lpRepr(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 2) i32 @quicklistBookmarkCreate(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
@@ -4987,7 +4981,7 @@ _quicklistBookmarkFindByName.exit:                ; preds = %.lr.ph.i
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @_quicklistBookmarkFindByName(ptr noundef readonly captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #17 {
+define dso_local ptr @_quicklistBookmarkFindByName(ptr noundef readonly captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8
@@ -5019,10 +5013,10 @@ define dso_local ptr @_quicklistBookmarkFindByName(ptr noundef readonly captures
   ret ptr %.08
 }
 
-declare noalias ptr @zstrdup(ptr noundef) local_unnamed_addr #6
+declare noalias ptr @zstrdup(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree norecurse nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @quicklistBookmarkFind(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #17 {
+define dso_local ptr @quicklistBookmarkFind(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8
@@ -5107,10 +5101,16 @@ _quicklistBookmarkFindByName.exit.thread:         ; preds = %8, %2, %_quicklistB
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #18
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #14
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #13
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #18
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #19
@@ -5132,23 +5132,23 @@ declare i64 @llvm.umin.i64(i64, i64) #19
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #16 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { nofree norecurse nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #15 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { nofree norecurse nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #19 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #20 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #21 = { nofree nounwind }

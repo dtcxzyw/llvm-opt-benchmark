@@ -548,14 +548,8 @@ _ZN11BigUnsigned15zapLeadingZerosEv.exit:         ; preds = %19, %14, %8, %46
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK11BigUnsigned9bitLengthEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #2 align 2 {
+define noundef i32 @_ZNK11BigUnsigned9bitLengthEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4, !tbaa !14
   %4 = icmp eq i32 %3, 0
@@ -613,7 +607,7 @@ _ZNK11BigUnsigned8getBlockEj.exit:                ; preds = %3, %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef range(i32 -1, 2) i32 @_ZNK11BigUnsigned9compareToERKS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #2 align 2 {
+define noundef range(i32 -1, 2) i32 @_ZNK11BigUnsigned9compareToERKS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4, !tbaa !14
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -666,7 +660,7 @@ define void @_ZN11BigUnsigned3addERKS_S1_(ptr noundef nonnull align 8 captures(a
   br i1 %or.cond, label %7, label %44
 
 7:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   invoke void @_ZN11BigUnsigned3addERKS_S1_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %8 unwind label %38
@@ -741,7 +735,7 @@ _ZN11BigUnsignedaSERKS_.exit:                     ; preds = %30, %_ZN15Numberlik
   br label %_ZN15NumberlikeArrayImED2Ev.exit
 
 _ZN15NumberlikeArrayImED2Ev.exit:                 ; preds = %_ZN11BigUnsignedaSERKS_.exit, %37
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN11BigUnsignedaSERKS_.exit74
 
 38:                                               ; preds = %21, %7
@@ -757,7 +751,7 @@ _ZN15NumberlikeArrayImED2Ev.exit:                 ; preds = %_ZN11BigUnsignedaSE
   br label %_ZN15NumberlikeArrayImED2Ev.exit64
 
 _ZN15NumberlikeArrayImED2Ev.exit64:               ; preds = %38, %43
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %39
 
 44:                                               ; preds = %3
@@ -1034,7 +1028,7 @@ define void @_ZN11BigUnsigned8subtractERKS_S1_(ptr noundef nonnull align 8 captu
   br i1 %or.cond, label %7, label %44
 
 7:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   invoke void @_ZN11BigUnsigned8subtractERKS_S1_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %8 unwind label %38
@@ -1109,7 +1103,7 @@ _ZN11BigUnsignedaSERKS_.exit:                     ; preds = %30, %_ZN15Numberlik
   br label %_ZN15NumberlikeArrayImED2Ev.exit
 
 _ZN15NumberlikeArrayImED2Ev.exit:                 ; preds = %_ZN11BigUnsignedaSERKS_.exit, %37
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN11BigUnsignedaSERKS_.exit64
 
 38:                                               ; preds = %21, %7
@@ -1125,7 +1119,7 @@ _ZN15NumberlikeArrayImED2Ev.exit:                 ; preds = %_ZN11BigUnsignedaSE
   br label %_ZN15NumberlikeArrayImED2Ev.exit54
 
 _ZN15NumberlikeArrayImED2Ev.exit54:               ; preds = %38, %43
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %39
 
 44:                                               ; preds = %3
@@ -1366,7 +1360,7 @@ _ZN11BigUnsignedaSERKS_.exit64:                   ; preds = %149, %144, %68, %._
 declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 
 ; Function Attrs: cold noreturn
-declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #3
+declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN11BigUnsigned8multiplyERKS_S1_(ptr noundef nonnull align 8 captures(address) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %1, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
@@ -1377,7 +1371,7 @@ define void @_ZN11BigUnsigned8multiplyERKS_S1_(ptr noundef nonnull align 8 captu
   br i1 %or.cond, label %7, label %44
 
 7:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   invoke void @_ZN11BigUnsigned8multiplyERKS_S1_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %8 unwind label %38
@@ -1452,7 +1446,7 @@ _ZN11BigUnsignedaSERKS_.exit:                     ; preds = %30, %_ZN15Numberlik
   br label %_ZN15NumberlikeArrayImED2Ev.exit
 
 _ZN15NumberlikeArrayImED2Ev.exit:                 ; preds = %_ZN11BigUnsignedaSERKS_.exit, %37
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %144
 
 38:                                               ; preds = %21, %7
@@ -1468,7 +1462,7 @@ _ZN15NumberlikeArrayImED2Ev.exit:                 ; preds = %_ZN11BigUnsignedaSE
   br label %_ZN15NumberlikeArrayImED2Ev.exit57
 
 _ZN15NumberlikeArrayImED2Ev.exit57:               ; preds = %38, %43
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %39
 
 44:                                               ; preds = %3
@@ -1710,7 +1704,7 @@ define void @_ZN11BigUnsigned19divideWithRemainderERKS_RS_(ptr noundef nonnull a
   br i1 %or.cond, label %11, label %26
 
 11:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %14 = load i32, ptr %13, align 4, !tbaa !14
@@ -1745,14 +1739,14 @@ _ZN11BigUnsignedC2ERKS_.exit:                     ; preds = %21, %11
 
 _ZN15NumberlikeArrayImED2Ev.exit:                 ; preds = %_ZN11BigUnsignedC2ERKS_.exit
   call void @_ZdaPv(ptr noundef nonnull %17) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %153
 
 _ZN15NumberlikeArrayImED2Ev.exit87:               ; preds = %_ZN11BigUnsignedC2ERKS_.exit
   %25 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdaPv(ptr noundef nonnull %17) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %25
 
 26:                                               ; preds = %8
@@ -2049,10 +2043,10 @@ _ZN11BigUnsigned15zapLeadingZerosEv.exit:         ; preds = %147, %152, %144
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #4
+declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdaPv(ptr noundef) local_unnamed_addr #5
+declare void @_ZdaPv(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN11BigUnsigned6bitAndERKS_S1_(ptr noundef nonnull align 8 captures(address) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %1, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
@@ -2063,7 +2057,7 @@ define void @_ZN11BigUnsigned6bitAndERKS_S1_(ptr noundef nonnull align 8 capture
   br i1 %or.cond, label %7, label %44
 
 7:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   invoke void @_ZN11BigUnsigned6bitAndERKS_S1_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %8 unwind label %38
@@ -2138,7 +2132,7 @@ _ZN11BigUnsignedaSERKS_.exit:                     ; preds = %30, %_ZN15Numberlik
   br label %_ZN15NumberlikeArrayImED2Ev.exit
 
 _ZN15NumberlikeArrayImED2Ev.exit:                 ; preds = %_ZN11BigUnsignedaSERKS_.exit, %37
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN11BigUnsigned15zapLeadingZerosEv.exit
 
 38:                                               ; preds = %21, %7
@@ -2154,7 +2148,7 @@ _ZN15NumberlikeArrayImED2Ev.exit:                 ; preds = %_ZN11BigUnsignedaSE
   br label %_ZN15NumberlikeArrayImED2Ev.exit23
 
 _ZN15NumberlikeArrayImED2Ev.exit23:               ; preds = %38, %43
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %39
 
 44:                                               ; preds = %3
@@ -2251,7 +2245,7 @@ define void @_ZN11BigUnsigned5bitOrERKS_S1_(ptr noundef nonnull align 8 captures
   br i1 %or.cond, label %7, label %44
 
 7:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   invoke void @_ZN11BigUnsigned5bitOrERKS_S1_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %8 unwind label %38
@@ -2326,7 +2320,7 @@ _ZN11BigUnsignedaSERKS_.exit:                     ; preds = %30, %_ZN15Numberlik
   br label %_ZN15NumberlikeArrayImED2Ev.exit
 
 _ZN15NumberlikeArrayImED2Ev.exit:                 ; preds = %_ZN11BigUnsignedaSERKS_.exit, %37
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %89
 
 38:                                               ; preds = %21, %7
@@ -2342,7 +2336,7 @@ _ZN15NumberlikeArrayImED2Ev.exit:                 ; preds = %_ZN11BigUnsignedaSE
   br label %_ZN15NumberlikeArrayImED2Ev.exit36
 
 _ZN15NumberlikeArrayImED2Ev.exit36:               ; preds = %38, %43
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %39
 
 44:                                               ; preds = %3
@@ -2448,7 +2442,7 @@ define void @_ZN11BigUnsigned6bitXorERKS_S1_(ptr noundef nonnull align 8 capture
   br i1 %or.cond, label %7, label %44
 
 7:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   invoke void @_ZN11BigUnsigned6bitXorERKS_S1_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %8 unwind label %38
@@ -2523,7 +2517,7 @@ _ZN11BigUnsignedaSERKS_.exit:                     ; preds = %30, %_ZN15Numberlik
   br label %_ZN15NumberlikeArrayImED2Ev.exit
 
 _ZN15NumberlikeArrayImED2Ev.exit:                 ; preds = %_ZN11BigUnsignedaSERKS_.exit, %37
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN11BigUnsigned15zapLeadingZerosEv.exit
 
 38:                                               ; preds = %21, %7
@@ -2539,7 +2533,7 @@ _ZN15NumberlikeArrayImED2Ev.exit:                 ; preds = %_ZN11BigUnsignedaSE
   br label %_ZN15NumberlikeArrayImED2Ev.exit36
 
 _ZN15NumberlikeArrayImED2Ev.exit36:               ; preds = %38, %43
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %39
 
 44:                                               ; preds = %3
@@ -2671,7 +2665,7 @@ define void @_ZN11BigUnsigned12bitShiftLeftERKS_i(ptr noundef nonnull align 8 ca
   br i1 %5, label %6, label %43
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   invoke void @_ZN11BigUnsigned12bitShiftLeftERKS_i(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2)
           to label %7 unwind label %37
@@ -2746,7 +2740,7 @@ _ZN11BigUnsignedaSERKS_.exit:                     ; preds = %29, %_ZN15Numberlik
   br label %_ZN15NumberlikeArrayImED2Ev.exit
 
 _ZN15NumberlikeArrayImED2Ev.exit:                 ; preds = %_ZN11BigUnsignedaSERKS_.exit, %36
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %116
 
 37:                                               ; preds = %20, %6
@@ -2762,7 +2756,7 @@ _ZN15NumberlikeArrayImED2Ev.exit:                 ; preds = %_ZN11BigUnsignedaSE
   br label %_ZN15NumberlikeArrayImED2Ev.exit34
 
 _ZN15NumberlikeArrayImED2Ev.exit34:               ; preds = %37, %42
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %38
 
 43:                                               ; preds = %3
@@ -2924,7 +2918,7 @@ define void @_ZN11BigUnsigned13bitShiftRightERKS_i(ptr noundef nonnull align 8 c
   br i1 %5, label %6, label %43
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   invoke void @_ZN11BigUnsigned13bitShiftRightERKS_i(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2)
           to label %7 unwind label %37
@@ -2999,7 +2993,7 @@ _ZN11BigUnsignedaSERKS_.exit:                     ; preds = %29, %_ZN15Numberlik
   br label %_ZN15NumberlikeArrayImED2Ev.exit
 
 _ZN15NumberlikeArrayImED2Ev.exit:                 ; preds = %_ZN11BigUnsignedaSERKS_.exit, %36
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %120
 
 37:                                               ; preds = %20, %6
@@ -3015,7 +3009,7 @@ _ZN15NumberlikeArrayImED2Ev.exit:                 ; preds = %_ZN11BigUnsignedaSE
   br label %_ZN15NumberlikeArrayImED2Ev.exit34
 
 _ZN15NumberlikeArrayImED2Ev.exit34:               ; preds = %37, %42
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %38
 
 43:                                               ; preds = %3
@@ -3431,6 +3425,12 @@ _ZN11BigUnsignedmmEv.exit:                        ; preds = %17, %23
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
@@ -3444,11 +3444,11 @@ declare i32 @llvm.umax.i32(i32, i32) #7
 declare i32 @llvm.umin.i32(i32, i32) #7
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { cold noreturn }
-attributes #4 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { cold noreturn }
+attributes #3 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { builtin allocsize(0) }

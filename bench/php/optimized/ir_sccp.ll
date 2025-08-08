@@ -20,9 +20,9 @@ define hidden noundef i32 @ir_sccp(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct._ir_bitqueue, align 8
   %3 = alloca %struct._ir_bitqueue, align 8
   %4 = alloca %struct._ir_gvn_hash, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #13
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #13
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %6 = load i32, ptr %5, align 4, !tbaa !4
   %7 = or i32 %6, 16
@@ -50,11 +50,11 @@ define hidden noundef i32 @ir_sccp(ptr noundef %0) local_unnamed_addr #0 {
   store i32 %22, ptr %4, align 8, !tbaa !27
   %23 = add i32 %22, 1
   %24 = zext i32 %23 to i64
-  %25 = tail call noalias ptr @_ecalloc(i64 noundef %24, i64 noundef 4) #14
+  %25 = tail call noalias ptr @_ecalloc(i64 noundef %24, i64 noundef 4) #13
   store ptr %25, ptr %.0.sroa.gep, align 8, !tbaa !29
   %26 = load i32, ptr %10, align 4, !tbaa !26
   %27 = sext i32 %26 to i64
-  %28 = tail call noalias ptr @_ecalloc(i64 noundef %27, i64 noundef 4) #14
+  %28 = tail call noalias ptr @_ecalloc(i64 noundef %27, i64 noundef 4) #13
   store ptr %28, ptr %.0.sroa.gep19, align 8, !tbaa !30
   br label %29
 
@@ -71,7 +71,7 @@ define hidden noundef i32 @ir_sccp(ptr noundef %0) local_unnamed_addr #0 {
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %34, ptr %35, align 4, !tbaa !35
   %36 = zext nneg i32 %33 to i64
-  %37 = tail call noalias ptr @_ecalloc(i64 noundef %36, i64 noundef 8) #14
+  %37 = tail call noalias ptr @_ecalloc(i64 noundef %36, i64 noundef 8) #13
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %37, ptr %38, align 8, !tbaa !36
   %39 = load i32, ptr %30, align 8, !tbaa !31
@@ -82,25 +82,25 @@ define hidden noundef i32 @ir_sccp(ptr noundef %0) local_unnamed_addr #0 {
   %43 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %42, ptr %43, align 4, !tbaa !35
   %44 = zext nneg i32 %41 to i64
-  %45 = tail call noalias ptr @_ecalloc(i64 noundef %44, i64 noundef 8) #14
+  %45 = tail call noalias ptr @_ecalloc(i64 noundef %44, i64 noundef 8) #13
   %46 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %45, ptr %46, align 8, !tbaa !36
   %47 = load i32, ptr %30, align 8, !tbaa !31
   %48 = sext i32 %47 to i64
-  %49 = tail call noalias ptr @_ecalloc(i64 noundef %48, i64 noundef 16) #14
+  %49 = tail call noalias ptr @_ecalloc(i64 noundef %48, i64 noundef 16) #13
   call fastcc void @ir_sccp_analyze(ptr noundef nonnull %0, ptr noundef %49, ptr noundef %2, ptr noundef %.0, ptr noundef %3)
   call fastcc void @ir_sccp_transform(ptr noundef nonnull %0, ptr noundef %49, ptr noundef %2, ptr noundef %3)
-  call void @_efree(ptr noundef %49) #13
+  call void @_efree(ptr noundef %49) #14
   %50 = load ptr, ptr %46, align 8, !tbaa !36
-  call void @_efree(ptr noundef %50) #13
+  call void @_efree(ptr noundef %50) #14
   %.not17 = icmp eq ptr %.0, null
   br i1 %.not17, label %54, label %51
 
 51:                                               ; preds = %29
   %52 = load ptr, ptr %.0.sroa.phi, align 8, !tbaa !29
-  call void @_efree(ptr noundef %52) #13
+  call void @_efree(ptr noundef %52) #14
   %53 = load ptr, ptr %.0.sroa.phi18, align 8, !tbaa !30
-  call void @_efree(ptr noundef %53) #13
+  call void @_efree(ptr noundef %53) #14
   br label %54
 
 54:                                               ; preds = %51, %29
@@ -109,24 +109,21 @@ define hidden noundef i32 @ir_sccp(ptr noundef %0) local_unnamed_addr #0 {
   store i32 %56, ptr %5, align 4, !tbaa !4
   call fastcc void @ir_iter_opt(ptr noundef nonnull %0, ptr noundef %3)
   %57 = load ptr, ptr %38, align 8, !tbaa !36
-  call void @_efree(ptr noundef %57) #13
+  call void @_efree(ptr noundef %57) #14
   %58 = load i32, ptr %5, align 4, !tbaa !4
   %59 = and i32 %58, -17
   store i32 %59, ptr %5, align 4, !tbaa !4
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 1
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @_ecalloc(i64 noundef, i64 noundef) local_unnamed_addr #2
+declare noalias ptr @_ecalloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: noinline nounwind uwtable
-define internal fastcc void @ir_sccp_analyze(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef nonnull captures(none) %4) unnamed_addr #3 {
+define internal fastcc void @ir_sccp_analyze(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef nonnull captures(none) %4) unnamed_addr #2 {
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !36
@@ -1042,7 +1039,7 @@ ir_sccp_identity.exit90.i:                        ; preds = %ir_sccp_identity.ex
 
 468:                                              ; preds = %464, %459
   %469 = phi ptr [ %467, %464 ], [ %461, %459 ]
-  %470 = tail call i32 @ir_folding(ptr noundef nonnull %0, i32 noundef %.070.i, i32 noundef %.071.i, i32 noundef %.073.i, i32 noundef %.072.i, ptr noundef %445, ptr noundef %457, ptr noundef %469) #13
+  %470 = tail call i32 @ir_folding(ptr noundef nonnull %0, i32 noundef %.070.i, i32 noundef %.071.i, i32 noundef %.073.i, i32 noundef %.072.i, ptr noundef %445, ptr noundef %457, ptr noundef %469) #14
   switch i32 %470, label %ir_sccp_add_uses.exit.backedge [
     i32 0, label %471
     i32 1, label %476
@@ -2310,7 +2307,7 @@ ir_bitqueue_add.exit.i:                           ; preds = %1130, %1142, %.lr.p
 }
 
 ; Function Attrs: noinline nounwind uwtable
-define internal fastcc void @ir_sccp_transform(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull captures(none) %2, ptr noundef nonnull captures(none) %3) unnamed_addr #3 {
+define internal fastcc void @ir_sccp_transform(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull captures(none) %2, ptr noundef nonnull captures(none) %3) unnamed_addr #2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8, !tbaa !31
   %7 = icmp sgt i32 %6, 1
@@ -2351,7 +2348,7 @@ define internal fastcc void @ir_sccp_transform(ptr noundef %0, ptr noundef reado
   %24 = getelementptr inbounds nuw i8, ptr %.pn124, i64 17
   %25 = load i8, ptr %24, align 1, !tbaa !39
   %26 = load i64, ptr %23, align 8
-  %27 = tail call i32 @ir_const(ptr noundef nonnull %0, i64 %26, i8 noundef zeroext %25) #13
+  %27 = tail call i32 @ir_const(ptr noundef nonnull %0, i64 %26, i8 noundef zeroext %25) #14
   %28 = trunc nuw nsw i64 %indvars.iv to i32
   tail call fastcc void @ir_sccp_replace_insn(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %28, i32 noundef %27, ptr noundef %3)
   br label %ir_sccp_remove_insn.exit
@@ -2372,7 +2369,7 @@ define internal fastcc void @ir_sccp_transform(ptr noundef %0, ptr noundef reado
   %33 = load i8, ptr %32, align 1, !tbaa !39
   %34 = load i32, ptr %.083126, align 8, !tbaa !39
   %35 = load i64, ptr %31, align 8
-  %36 = tail call i32 @ir_const_ex(ptr noundef nonnull %0, i64 %35, i8 noundef zeroext %33, i32 noundef %34) #13
+  %36 = tail call i32 @ir_const_ex(ptr noundef nonnull %0, i64 %35, i8 noundef zeroext %33, i32 noundef %34) #14
   %37 = trunc nuw nsw i64 %indvars.iv to i32
   tail call fastcc void @ir_sccp_replace_insn(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %37, i32 noundef %36, ptr noundef %3)
   br label %ir_sccp_remove_insn.exit
@@ -2469,7 +2466,7 @@ ir_sccp_identity.exit:                            ; preds = %.preheader105, %38,
   br i1 %86, label %87, label %ir_bitqueue_add.exit.i
 
 87:                                               ; preds = %82
-  tail call void @ir_use_list_remove_all(ptr noundef nonnull %0, i32 noundef %80, i32 noundef %78) #13
+  tail call void @ir_use_list_remove_all(ptr noundef nonnull %0, i32 noundef %80, i32 noundef %78) #14
   %88 = load ptr, ptr %8, align 8, !tbaa !41
   %89 = getelementptr inbounds nuw %struct._ir_use_list, ptr %88, i64 %83, i32 1
   %90 = load i32, ptr %89, align 4, !tbaa !42
@@ -2591,7 +2588,7 @@ ir_bitqueue_add.exit.i:                           ; preds = %116, %ir_is_dead.ex
   %160 = getelementptr inbounds %struct._ir_insn, ptr %143, i64 %157, i32 0, i32 1
   store i32 %159, ptr %160, align 4, !tbaa !39
   %161 = trunc nuw nsw i64 %indvars.iv to i32
-  tail call void @ir_use_list_replace_one(ptr noundef nonnull %0, i32 noundef %159, i32 noundef %161, i32 noundef %156) #13
+  tail call void @ir_use_list_replace_one(ptr noundef nonnull %0, i32 noundef %159, i32 noundef %161, i32 noundef %156) #14
   %.val.i = load ptr, ptr %0, align 8, !tbaa !38
   %.val23.i = load ptr, ptr %8, align 8, !tbaa !41
   %162 = getelementptr inbounds nuw %struct._ir_use_list, ptr %.val23.i, i64 %indvars.iv, i32 1
@@ -2850,7 +2847,7 @@ ir_sccp_remove_unfeasible_merge_inputs.exit.backedge: ; preds = %331, %.preheade
   %.0152.lcssa.i = phi i32 [ %249, %.preheader198.i ], [ %290, %.lr.ph235.i ]
   %298 = getelementptr inbounds nuw i8, ptr %275, i64 4
   store i32 %.0152.lcssa.i, ptr %298, align 4, !tbaa !39
-  %299 = tail call zeroext i1 @ir_use_list_add(ptr noundef nonnull %0, i32 noundef %.0152.lcssa.i, i32 noundef %272) #13
+  %299 = tail call zeroext i1 @ir_use_list_add(ptr noundef nonnull %0, i32 noundef %.0152.lcssa.i, i32 noundef %272) #14
   %300 = load ptr, ptr %17, align 8, !tbaa !47
   %301 = load i32, ptr %251, align 4, !tbaa !48
   %302 = add nsw i32 %301, %.0159239.i
@@ -2889,7 +2886,7 @@ ir_sccp_remove_unfeasible_merge_inputs.exit.backedge: ; preds = %331, %.preheade
 314:                                              ; preds = %.loopexit.i
   %315 = getelementptr inbounds nuw i8, ptr %.0153.i, i64 4
   store i32 %249, ptr %315, align 4, !tbaa !39
-  tail call void @ir_use_list_replace_one(ptr noundef nonnull %0, i32 noundef %249, i32 noundef %237, i32 noundef %.0156.i) #13
+  tail call void @ir_use_list_replace_one(ptr noundef nonnull %0, i32 noundef %249, i32 noundef %237, i32 noundef %.0156.i) #14
   %.val.i98 = load ptr, ptr %0, align 8, !tbaa !38
   %.val185.i = load ptr, ptr %16, align 8, !tbaa !41
   %316 = getelementptr inbounds nuw %struct._ir_use_list, ptr %.val185.i, i64 %218, i32 1
@@ -2951,7 +2948,7 @@ ir_sccp_make_nop.exit191.i:                       ; preds = %.lr.ph230.preheader
   %334 = add nuw nsw i32 %225, 64
   %335 = lshr i32 %334, 6
   %336 = zext nneg i32 %335 to i64
-  %337 = tail call noalias ptr @_ecalloc(i64 noundef %336, i64 noundef 8) #14
+  %337 = tail call noalias ptr @_ecalloc(i64 noundef %336, i64 noundef 8) #13
   %.not209.i = icmp eq i16 %224, 0
   br i1 %.not209.i, label %.preheader205.i, label %.lr.ph.preheader.i
 
@@ -3105,7 +3102,7 @@ ir_sccp_make_nop.exit191.i:                       ; preds = %.lr.ph230.preheader
   br i1 %411, label %413, label %412
 
 412:                                              ; preds = %410
-  tail call void @ir_use_list_remove_one(ptr noundef nonnull %0, i32 noundef %392, i32 noundef %377) #13
+  tail call void @ir_use_list_remove_one(ptr noundef nonnull %0, i32 noundef %392, i32 noundef %377) #14
   br label %413
 
 413:                                              ; preds = %412, %410, %408
@@ -3130,17 +3127,17 @@ ir_sccp_make_nop.exit191.i:                       ; preds = %.lr.ph230.preheader
   br i1 %421, label %375, label %.loopexit204.i
 
 .loopexit204.i:                                   ; preds = %417, %._crit_edge.i
-  tail call void @_efree(ptr noundef %337) #13
+  tail call void @_efree(ptr noundef %337) #14
   br label %ir_sccp_remove_unfeasible_merge_inputs.exit.backedge
 
 .loopexit:                                        ; preds = %ir_bitqueue_pop.exit, %ir_bitqueue_pop.exit.thread
   ret void
 }
 
-declare void @_efree(ptr noundef) local_unnamed_addr #4
+declare void @_efree(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: noinline nounwind uwtable
-define internal fastcc void @ir_iter_opt(ptr noundef %0, ptr noundef nonnull captures(none) %1) unnamed_addr #3 {
+define internal fastcc void @ir_iter_opt(ptr noundef %0, ptr noundef nonnull captures(none) %1) unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -3527,7 +3524,7 @@ ir_bitqueue_add.exit:                             ; preds = %57, %45, %43
 
 ir_ext_const.exit121:                             ; preds = %200, %202, %207, %209, %214, %216
   %.sroa.0.0.i120 = phi i64 [ %201, %200 ], [ %203, %202 ], [ %215, %214 ], [ %217, %216 ], [ %208, %207 ], [ %210, %209 ]
-  %218 = tail call i32 @ir_const(ptr noundef nonnull %0, i64 %.sroa.0.0.i120, i8 noundef zeroext %100) #13
+  %218 = tail call i32 @ir_const(ptr noundef nonnull %0, i64 %.sroa.0.0.i120, i8 noundef zeroext %100) #14
   br label %.sink.split.i
 
 219:                                              ; preds = %190, %188
@@ -3611,7 +3608,7 @@ ir_ext_const.exit121:                             ; preds = %200, %202, %207, %2
 
 ir_ext_const.exit:                                ; preds = %239, %241, %246, %248, %253, %255
   %.sroa.0.0.i = phi i64 [ %240, %239 ], [ %242, %241 ], [ %254, %253 ], [ %256, %255 ], [ %247, %246 ], [ %249, %248 ]
-  %257 = tail call i32 @ir_const(ptr noundef nonnull %0, i64 %.sroa.0.0.i, i8 noundef zeroext %100) #13
+  %257 = tail call i32 @ir_const(ptr noundef nonnull %0, i64 %.sroa.0.0.i, i8 noundef zeroext %100) #14
   br label %.sink.split178.i
 
 258:                                              ; preds = %228, %226
@@ -3695,7 +3692,7 @@ ir_try_promote_ext.exit.thread:                   ; preds = %153, %157, %ir_try_
   %295 = getelementptr inbounds %struct._ir_insn, ptr %291, i64 %294
   %296 = sext i32 %.0101.i to i64
   %297 = getelementptr inbounds %struct._ir_insn, ptr %291, i64 %296
-  %298 = tail call i32 @ir_folding(ptr noundef nonnull %0, i32 noundef %.0.i107, i32 noundef %.099.i, i32 noundef %.0100.i, i32 noundef %.0101.i, ptr noundef %293, ptr noundef %295, ptr noundef %297) #13
+  %298 = tail call i32 @ir_folding(ptr noundef nonnull %0, i32 noundef %.0.i107, i32 noundef %.099.i, i32 noundef %.0100.i, i32 noundef %.0101.i, ptr noundef %293, ptr noundef %295, ptr noundef %297) #14
   switch i32 %298, label %ir_iter_fold.exit.backedge [
     i32 0, label %299
     i32 1, label %301
@@ -3758,7 +3755,7 @@ ir_try_promote_ext.exit.thread:                   ; preds = %153, %157, %ir_try_
   br i1 %328, label %329, label %330
 
 329:                                              ; preds = %327
-  tail call void @ir_use_list_remove_one(ptr noundef nonnull %0, i32 noundef %307, i32 noundef range(i32 0, -2147483648) %28) #13
+  tail call void @ir_use_list_remove_one(ptr noundef nonnull %0, i32 noundef %307, i32 noundef range(i32 0, -2147483648) %28) #14
   %.pr.i = load i32, ptr %9, align 4, !tbaa !39
   br label %330
 
@@ -3768,7 +3765,7 @@ ir_try_promote_ext.exit.thread:                   ; preds = %153, %157, %ir_try_
   br i1 %332, label %333, label %335
 
 333:                                              ; preds = %330
-  %334 = tail call zeroext i1 @ir_use_list_add(ptr noundef nonnull %0, i32 noundef %331, i32 noundef range(i32 0, -2147483648) %28) #13
+  %334 = tail call zeroext i1 @ir_use_list_add(ptr noundef nonnull %0, i32 noundef %331, i32 noundef range(i32 0, -2147483648) %28) #14
   br label %335
 
 335:                                              ; preds = %333, %330, %._crit_edge.i110
@@ -3783,7 +3780,7 @@ ir_try_promote_ext.exit.thread:                   ; preds = %153, %157, %ir_try_
   br i1 %340, label %341, label %342
 
 341:                                              ; preds = %339
-  tail call void @ir_use_list_remove_one(ptr noundef nonnull %0, i32 noundef %337, i32 noundef range(i32 0, -2147483648) %28) #13
+  tail call void @ir_use_list_remove_one(ptr noundef nonnull %0, i32 noundef %337, i32 noundef range(i32 0, -2147483648) %28) #14
   %.pr114.i = load i32, ptr %10, align 8, !tbaa !39
   br label %342
 
@@ -3793,7 +3790,7 @@ ir_try_promote_ext.exit.thread:                   ; preds = %153, %157, %ir_try_
   br i1 %344, label %345, label %347
 
 345:                                              ; preds = %342
-  %346 = tail call zeroext i1 @ir_use_list_add(ptr noundef nonnull %0, i32 noundef %343, i32 noundef range(i32 0, -2147483648) %28) #13
+  %346 = tail call zeroext i1 @ir_use_list_add(ptr noundef nonnull %0, i32 noundef %343, i32 noundef range(i32 0, -2147483648) %28) #14
   br label %347
 
 347:                                              ; preds = %345, %342, %335
@@ -3808,7 +3805,7 @@ ir_try_promote_ext.exit.thread:                   ; preds = %153, %157, %ir_try_
   br i1 %352, label %353, label %354
 
 353:                                              ; preds = %351
-  tail call void @ir_use_list_remove_one(ptr noundef nonnull %0, i32 noundef %349, i32 noundef range(i32 0, -2147483648) %28) #13
+  tail call void @ir_use_list_remove_one(ptr noundef nonnull %0, i32 noundef %349, i32 noundef range(i32 0, -2147483648) %28) #14
   %.pr115.i = load i32, ptr %11, align 4, !tbaa !39
   br label %354
 
@@ -3818,7 +3815,7 @@ ir_try_promote_ext.exit.thread:                   ; preds = %153, %157, %ir_try_
   br i1 %356, label %357, label %359
 
 357:                                              ; preds = %354
-  %358 = tail call zeroext i1 @ir_use_list_add(ptr noundef nonnull %0, i32 noundef %355, i32 noundef range(i32 0, -2147483648) %28) #13
+  %358 = tail call zeroext i1 @ir_use_list_add(ptr noundef nonnull %0, i32 noundef %355, i32 noundef range(i32 0, -2147483648) %28) #14
   br label %359
 
 359:                                              ; preds = %357, %354, %347
@@ -3879,7 +3876,7 @@ ir_bitqueue_add.exit.i:                           ; preds = %385, %373
 391:                                              ; preds = %290
   %392 = load i8, ptr %12, align 1, !tbaa !39
   %393 = load i64, ptr %10, align 8
-  %394 = tail call i32 @ir_const(ptr noundef nonnull %0, i64 %393, i8 noundef zeroext %392) #13
+  %394 = tail call i32 @ir_const(ptr noundef nonnull %0, i64 %393, i8 noundef zeroext %392) #14
   br label %.loopexit.sink.split.i
 
 .loopexit.sink.split.i:                           ; preds = %391, %389
@@ -3946,7 +3943,7 @@ ir_bitqueue_add.exit.i:                           ; preds = %385, %373
   %432 = sext i32 %424 to i64
   %433 = getelementptr inbounds %struct._ir_insn, ptr %431, i64 %432, i32 0, i32 1
   store i32 %418, ptr %433, align 4, !tbaa !39
-  tail call void @ir_use_list_replace_one(ptr noundef nonnull %0, i32 noundef %418, i32 noundef %406, i32 noundef %424) #13
+  tail call void @ir_use_list_replace_one(ptr noundef nonnull %0, i32 noundef %418, i32 noundef %406, i32 noundef %424) #14
   %434 = load ptr, ptr %0, align 8, !tbaa !38
   %435 = sext i32 %418 to i64
   %436 = getelementptr inbounds %struct._ir_insn, ptr %434, i64 %435
@@ -4124,14 +4121,14 @@ ir_remove_unused_vars.exit238.i.i:                ; preds = %528, %ir_remove_unu
   %533 = load i32, ptr %532, align 4, !tbaa !39
   %534 = getelementptr inbounds %struct._ir_insn, ptr %33, i64 %499, i32 0, i32 1
   store i32 %533, ptr %534, align 4, !tbaa !39
-  tail call void @ir_use_list_replace_one(ptr noundef nonnull %0, i32 noundef %533, i32 noundef %483, i32 noundef %498) #13
+  tail call void @ir_use_list_replace_one(ptr noundef nonnull %0, i32 noundef %533, i32 noundef %483, i32 noundef %498) #14
   %535 = getelementptr inbounds nuw i8, ptr %488, i64 8
   %536 = load i32, ptr %535, align 8, !tbaa !39
   %537 = icmp slt i32 %536, 0
   br i1 %537, label %ir_bitqueue_add.exit232.i.i, label %538
 
 538:                                              ; preds = %ir_remove_unused_vars.exit238.i.i
-  tail call void @ir_use_list_remove_all(ptr noundef nonnull %0, i32 noundef %536, i32 noundef %483) #13
+  tail call void @ir_use_list_remove_all(ptr noundef nonnull %0, i32 noundef %536, i32 noundef %483) #14
   %539 = load i32, ptr %535, align 8, !tbaa !39
   %540 = tail call fastcc zeroext i1 @ir_is_dead(ptr noundef nonnull %0, i32 noundef %539)
   br i1 %540, label %541, label %ir_bitqueue_add.exit232.i.i
@@ -4320,14 +4317,14 @@ ir_remove_unused_vars.exit244.i.i:                ; preds = %613, %599
   %638 = load i32, ptr %637, align 4, !tbaa !39
   %639 = getelementptr inbounds %struct._ir_insn, ptr %626, i64 %634, i32 0, i32 1
   store i32 %638, ptr %639, align 4, !tbaa !39
-  tail call void @ir_use_list_replace_one(ptr noundef nonnull %0, i32 noundef %638, i32 noundef %.0207.lcssa.i.i, i32 noundef %633) #13
+  tail call void @ir_use_list_replace_one(ptr noundef nonnull %0, i32 noundef %638, i32 noundef %.0207.lcssa.i.i, i32 noundef %633) #14
   %640 = getelementptr inbounds nuw i8, ptr %636, i64 8
   %641 = load i32, ptr %640, align 8, !tbaa !39
   %642 = icmp slt i32 %641, 0
   br i1 %642, label %ir_bitqueue_add.exit230.i.i, label %643
 
 643:                                              ; preds = %._crit_edge.i.i
-  tail call void @ir_use_list_remove_all(ptr noundef nonnull %0, i32 noundef %641, i32 noundef %.0207.lcssa.i.i) #13
+  tail call void @ir_use_list_remove_all(ptr noundef nonnull %0, i32 noundef %641, i32 noundef %.0207.lcssa.i.i) #14
   %644 = load i32, ptr %640, align 8, !tbaa !39
   %645 = load ptr, ptr %6, align 8, !tbaa !41
   %646 = sext i32 %644 to i64
@@ -4788,13 +4785,13 @@ ir_remove_unused_vars.exit383.i.i:                ; preds = %887, %ir_remove_unu
   %907 = load i32, ptr %906, align 4, !tbaa !39
   %908 = getelementptr inbounds %struct._ir_insn, ptr %773, i64 %858, i32 0, i32 1
   store i32 %907, ptr %908, align 4, !tbaa !39
-  tail call void @ir_use_list_replace_one(ptr noundef nonnull %0, i32 noundef %907, i32 noundef %793, i32 noundef %.0338.i.i) #13
+  tail call void @ir_use_list_replace_one(ptr noundef nonnull %0, i32 noundef %907, i32 noundef %793, i32 noundef %.0338.i.i) #14
   %909 = load i32, ptr %905, align 4, !tbaa !39
   %910 = icmp slt i32 %909, 0
   br i1 %910, label %912, label %911
 
 911:                                              ; preds = %904
-  tail call void @ir_use_list_remove_all(ptr noundef nonnull %0, i32 noundef %909, i32 noundef %805) #13
+  tail call void @ir_use_list_remove_all(ptr noundef nonnull %0, i32 noundef %909, i32 noundef %805) #14
   br label %912
 
 912:                                              ; preds = %911, %904
@@ -4803,7 +4800,7 @@ ir_remove_unused_vars.exit383.i.i:                ; preds = %887, %ir_remove_unu
   br i1 %914, label %916, label %915
 
 915:                                              ; preds = %912
-  tail call void @ir_use_list_remove_all(ptr noundef nonnull %0, i32 noundef %913, i32 noundef %805) #13
+  tail call void @ir_use_list_remove_all(ptr noundef nonnull %0, i32 noundef %913, i32 noundef %805) #14
   br label %916
 
 916:                                              ; preds = %915, %912
@@ -5119,15 +5116,15 @@ ir_remove_unused_vars.exit404.i.i:                ; preds = %1069, %ir_remove_un
   %1084 = load i32, ptr %1083, align 4, !tbaa !39
   %1085 = getelementptr inbounds %struct._ir_insn, ptr %773, i64 %1040, i32 0, i32 1
   store i32 %1084, ptr %1085, align 4, !tbaa !39
-  tail call void @ir_use_list_replace_one(ptr noundef nonnull %0, i32 noundef %1084, i32 noundef %793, i32 noundef %.0343.i.i) #13
+  tail call void @ir_use_list_replace_one(ptr noundef nonnull %0, i32 noundef %1084, i32 noundef %793, i32 noundef %.0343.i.i) #14
   %1086 = load i32, ptr %1082, align 4, !tbaa !39
-  tail call void @ir_use_list_remove_one(ptr noundef nonnull %0, i32 noundef %1086, i32 noundef %.418.i.i) #13
+  tail call void @ir_use_list_remove_one(ptr noundef nonnull %0, i32 noundef %1086, i32 noundef %.418.i.i) #14
   %1087 = load i32, ptr %1082, align 4, !tbaa !39
   %1088 = icmp slt i32 %1087, 0
   br i1 %1088, label %1090, label %1089
 
 1089:                                             ; preds = %ir_remove_unused_vars.exit404.i.i
-  tail call void @ir_use_list_remove_all(ptr noundef nonnull %0, i32 noundef %1087, i32 noundef %805) #13
+  tail call void @ir_use_list_remove_all(ptr noundef nonnull %0, i32 noundef %1087, i32 noundef %805) #14
   br label %1090
 
 1090:                                             ; preds = %1089, %ir_remove_unused_vars.exit404.i.i
@@ -5224,7 +5221,7 @@ ir_iter_fold.exit.backedge:                       ; preds = %585, %592, %619, %6
   %1146 = sext i32 %1143 to i64
   %1147 = getelementptr inbounds %struct._ir_insn, ptr %33, i64 %1146, i32 0, i32 1
   store i32 %1145, ptr %1147, align 4, !tbaa !39
-  tail call void @ir_use_list_replace_one(ptr noundef nonnull %0, i32 noundef %1145, i32 noundef %28, i32 noundef %1143) #13
+  tail call void @ir_use_list_replace_one(ptr noundef nonnull %0, i32 noundef %1145, i32 noundef %28, i32 noundef %1143) #14
   store i32 0, ptr %1144, align 4, !tbaa !39
   tail call fastcc void @ir_iter_remove_insn(ptr noundef nonnull %0, i32 noundef %28, ptr noundef %1)
   br label %ir_iter_fold.exit.backedge
@@ -5233,14 +5230,11 @@ ir_iter_fold.exit.backedge:                       ; preds = %585, %592, %619, %6
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.cttz.i64(i64, i1 immarg) #5
+declare i64 @llvm.cttz.i64(i64, i1 immarg) #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @ir_sccp_split_partition(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef nonnull captures(none) %2, i32 noundef range(i32 0, -2147483648) %3) unnamed_addr #6 {
+define internal fastcc void @ir_sccp_split_partition(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef nonnull captures(none) %2, i32 noundef range(i32 0, -2147483648) %3) unnamed_addr #5 {
   %5 = zext nneg i32 %3 to i64
   %6 = getelementptr inbounds nuw %struct._ir_insn, ptr %1, i64 %5
   store i32 108, ptr %6, align 8, !tbaa !39
@@ -5433,9 +5427,9 @@ ir_sccp_identity.exit:                            ; preds = %.preheader, %ir_scc
   ret void
 }
 
-declare i32 @ir_folding(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @ir_folding(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @ir_const(ptr noundef, i64, i8 noundef zeroext) local_unnamed_addr #4
+declare i32 @ir_const(ptr noundef, i64, i8 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @ir_sccp_replace_insn(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull captures(none) %4) unnamed_addr #0 {
@@ -5472,7 +5466,7 @@ define internal fastcc void @ir_sccp_replace_insn(ptr noundef %0, ptr noundef re
   br i1 %22, label %23, label %ir_bitqueue_add.exit82
 
 23:                                               ; preds = %18
-  tail call void @ir_use_list_remove_all(ptr noundef nonnull %0, i32 noundef %16, i32 noundef %2) #13
+  tail call void @ir_use_list_remove_all(ptr noundef nonnull %0, i32 noundef %16, i32 noundef %2) #14
   %24 = load ptr, ptr %12, align 8, !tbaa !41
   %25 = getelementptr inbounds nuw %struct._ir_use_list, ptr %24, i64 %19, i32 1
   %26 = load i32, ptr %25, align 4, !tbaa !42
@@ -5663,7 +5657,7 @@ ir_insn_find_op.exit86:                           ; preds = %ir_insn_find_op.exi
   %.0.i85 = phi i64 [ 0, %108 ], [ %118, %ir_insn_find_op.exit86.loopexit ]
   %119 = getelementptr inbounds nuw i32, ptr %110, i64 %.0.i85
   store i32 %3, ptr %119, align 4, !tbaa !40
-  %120 = tail call zeroext i1 @ir_use_list_add(ptr noundef nonnull %0, i32 noundef %3, i32 noundef %103) #13
+  %120 = tail call zeroext i1 @ir_use_list_add(ptr noundef nonnull %0, i32 noundef %3, i32 noundef %103) #14
   br i1 %120, label %121, label %131
 
 121:                                              ; preds = %ir_insn_find_op.exit86
@@ -5718,12 +5712,12 @@ ir_bitqueue_add.exit:                             ; preds = %143, %131, %102
   ret void
 }
 
-declare i32 @ir_const_ex(ptr noundef, i64, i8 noundef zeroext, i32 noundef) local_unnamed_addr #4
+declare i32 @ir_const_ex(ptr noundef, i64, i8 noundef zeroext, i32 noundef) local_unnamed_addr #3
 
-declare void @ir_use_list_remove_all(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare void @ir_use_list_remove_all(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc zeroext i1 @ir_is_dead(ptr noundef readonly captures(none) %0, i32 noundef %1) unnamed_addr #7 {
+define internal fastcc zeroext i1 @ir_is_dead(ptr noundef readonly captures(none) %0, i32 noundef %1) unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8, !tbaa !41
   %5 = sext i32 %1 to i64
@@ -5762,11 +5756,11 @@ ir_is_dead_load.exit:                             ; preds = %23, %13, %8
   ret i1 %.0
 }
 
-declare zeroext i1 @ir_use_list_add(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare zeroext i1 @ir_use_list_add(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @ir_use_list_replace_one(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare void @ir_use_list_replace_one(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @ir_use_list_remove_one(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare void @ir_use_list_remove_one(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @ir_iter_remove_insn(ptr noundef %0, i32 noundef range(i32 0, -2147483648) %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
@@ -5799,7 +5793,7 @@ define internal fastcc void @ir_iter_remove_insn(ptr noundef %0, i32 noundef ran
   br i1 %17, label %18, label %ir_bitqueue_add.exit31
 
 18:                                               ; preds = %15
-  tail call void @ir_use_list_remove_all(ptr noundef nonnull %0, i32 noundef %16, i32 noundef %1) #13
+  tail call void @ir_use_list_remove_all(ptr noundef nonnull %0, i32 noundef %16, i32 noundef %1) #14
   %19 = load ptr, ptr %4, align 8, !tbaa !41
   %20 = zext nneg i32 %16 to i64
   %21 = getelementptr inbounds nuw %struct._ir_use_list, ptr %19, i64 %20, i32 1
@@ -5883,7 +5877,7 @@ ir_bitqueue_add.exit31:                           ; preds = %ir_bitqueue_add.exi
 }
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc zeroext i1 @ir_may_promote_d2f(ptr noundef readonly captures(none) %0, i32 noundef %1) unnamed_addr #8 {
+define internal fastcc zeroext i1 @ir_may_promote_d2f(ptr noundef readonly captures(none) %0, i32 noundef %1) unnamed_addr #7 {
   %3 = load ptr, ptr %0, align 8, !tbaa !38
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %struct._ir_insn, ptr %3, i64 %4
@@ -5974,7 +5968,7 @@ define internal fastcc i32 @ir_promote_d2f(ptr noundef %0, i32 noundef %1, i32 n
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %10 = load double, ptr %9, align 8, !tbaa !39
   %11 = fptrunc double %10 to float
-  %12 = tail call i32 @ir_const_float(ptr noundef nonnull %0, float noundef %11) #13
+  %12 = tail call i32 @ir_const_float(ptr noundef nonnull %0, float noundef %11) #14
   br label %common.ret73
 
 13:                                               ; preds = %3
@@ -5996,7 +5990,7 @@ define internal fastcc i32 @ir_promote_d2f(ptr noundef %0, i32 noundef %1, i32 n
   %17 = load ptr, ptr %16, align 8, !tbaa !41
   %18 = getelementptr inbounds nuw %struct._ir_use_list, ptr %17, i64 %5, i32 1
   %19 = load i32, ptr %18, align 4, !tbaa !42
-  tail call void @ir_use_list_remove_all(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2) #13
+  tail call void @ir_use_list_remove_all(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2) #14
   %20 = load ptr, ptr %16, align 8, !tbaa !41
   %21 = getelementptr inbounds nuw %struct._ir_use_list, ptr %20, i64 %5, i32 1
   %22 = load i32, ptr %21, align 4, !tbaa !42
@@ -6006,14 +6000,14 @@ define internal fastcc i32 @ir_promote_d2f(ptr noundef %0, i32 noundef %1, i32 n
   br i1 %23, label %26, label %33
 
 26:                                               ; preds = %15
-  tail call void @ir_use_list_replace_one(ptr noundef nonnull %0, i32 noundef %25, i32 noundef %1, i32 noundef %2) #13
+  tail call void @ir_use_list_replace_one(ptr noundef nonnull %0, i32 noundef %25, i32 noundef %1, i32 noundef %2) #14
   %27 = icmp ugt i32 %19, 1
   br i1 %27, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %26, %.preheader
   %.065 = phi i32 [ %30, %.preheader ], [ %19, %26 ]
   %28 = load i32, ptr %24, align 4, !tbaa !39
-  %29 = tail call zeroext i1 @ir_use_list_add(ptr noundef nonnull %0, i32 noundef %28, i32 noundef %2) #13
+  %29 = tail call zeroext i1 @ir_use_list_add(ptr noundef nonnull %0, i32 noundef %28, i32 noundef %2) #14
   %30 = add i32 %.065, -1
   %31 = icmp ugt i32 %30, 1
   br i1 %31, label %.preheader, label %.loopexit
@@ -6024,7 +6018,7 @@ define internal fastcc i32 @ir_promote_d2f(ptr noundef %0, i32 noundef %1, i32 n
   br label %common.ret73
 
 33:                                               ; preds = %15
-  %34 = tail call zeroext i1 @ir_use_list_add(ptr noundef nonnull %0, i32 noundef %25, i32 noundef %2) #13
+  %34 = tail call zeroext i1 @ir_use_list_add(ptr noundef nonnull %0, i32 noundef %25, i32 noundef %2) #14
   %35 = load ptr, ptr %16, align 8, !tbaa !41
   %36 = getelementptr inbounds nuw %struct._ir_use_list, ptr %35, i64 %5, i32 1
   %37 = load i32, ptr %36, align 4, !tbaa !42
@@ -6035,7 +6029,7 @@ define internal fastcc i32 @ir_promote_d2f(ptr noundef %0, i32 noundef %1, i32 n
 .preheader71:                                     ; preds = %33, %.preheader71
   %.1 = phi i32 [ %42, %.preheader71 ], [ %38, %33 ]
   %40 = load i32, ptr %24, align 4, !tbaa !39
-  %41 = tail call zeroext i1 @ir_use_list_add(ptr noundef nonnull %0, i32 noundef %40, i32 noundef %2) #13
+  %41 = tail call zeroext i1 @ir_use_list_add(ptr noundef nonnull %0, i32 noundef %40, i32 noundef %2) #14
   %42 = add i32 %.1, -1
   %43 = icmp ugt i32 %42, 1
   br i1 %43, label %.preheader71, label %.loopexit72
@@ -6108,7 +6102,7 @@ define internal fastcc void @ir_iter_replace_insn(ptr noundef %0, i32 noundef ra
   br i1 %16, label %17, label %ir_bitqueue_add.exit79
 
 17:                                               ; preds = %14
-  tail call void @ir_use_list_remove_all(ptr noundef nonnull %0, i32 noundef %15, i32 noundef %1) #13
+  tail call void @ir_use_list_remove_all(ptr noundef nonnull %0, i32 noundef %15, i32 noundef %1) #14
   %18 = load ptr, ptr %11, align 8, !tbaa !41
   %19 = zext nneg i32 %15 to i64
   %20 = getelementptr inbounds nuw %struct._ir_use_list, ptr %18, i64 %19, i32 1
@@ -6316,7 +6310,7 @@ ir_insn_find_op.exit:                             ; preds = %ir_insn_find_op.exi
   %.0.i = phi i64 [ 0, %100 ], [ %112, %ir_insn_find_op.exit.loopexit ]
   %113 = getelementptr inbounds nuw i32, ptr %104, i64 %.0.i
   store i32 %2, ptr %113, align 4, !tbaa !40
-  %114 = tail call zeroext i1 @ir_use_list_add(ptr noundef nonnull %0, i32 noundef %2, i32 noundef %101) #13
+  %114 = tail call zeroext i1 @ir_use_list_add(ptr noundef nonnull %0, i32 noundef %2, i32 noundef %101) #14
   br i1 %114, label %115, label %125
 
 115:                                              ; preds = %ir_insn_find_op.exit
@@ -6370,7 +6364,7 @@ ir_bitqueue_add.exit:                             ; preds = %125, %137
 }
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc zeroext i1 @ir_may_promote_f2d(ptr noundef readonly captures(none) %0, i32 noundef %1) unnamed_addr #8 {
+define internal fastcc zeroext i1 @ir_may_promote_f2d(ptr noundef readonly captures(none) %0, i32 noundef %1) unnamed_addr #7 {
   %3 = load ptr, ptr %0, align 8, !tbaa !38
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %struct._ir_insn, ptr %3, i64 %4
@@ -6466,7 +6460,7 @@ define internal fastcc i32 @ir_promote_f2d(ptr noundef %0, i32 noundef %1, i32 n
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %10 = load float, ptr %9, align 8, !tbaa !39
   %11 = fpext float %10 to double
-  %12 = tail call i32 @ir_const_double(ptr noundef nonnull %0, double noundef %11) #13
+  %12 = tail call i32 @ir_const_double(ptr noundef nonnull %0, double noundef %11) #14
   br label %common.ret102
 
 13:                                               ; preds = %3
@@ -6488,7 +6482,7 @@ define internal fastcc i32 @ir_promote_f2d(ptr noundef %0, i32 noundef %1, i32 n
   %17 = load ptr, ptr %16, align 8, !tbaa !41
   %18 = getelementptr inbounds nuw %struct._ir_use_list, ptr %17, i64 %5, i32 1
   %19 = load i32, ptr %18, align 4, !tbaa !42
-  tail call void @ir_use_list_remove_all(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2) #13
+  tail call void @ir_use_list_remove_all(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2) #14
   %20 = load ptr, ptr %16, align 8, !tbaa !41
   %21 = getelementptr inbounds nuw %struct._ir_use_list, ptr %20, i64 %5, i32 1
   %22 = load i32, ptr %21, align 4, !tbaa !42
@@ -6498,14 +6492,14 @@ define internal fastcc i32 @ir_promote_f2d(ptr noundef %0, i32 noundef %1, i32 n
   br i1 %23, label %26, label %33
 
 26:                                               ; preds = %15
-  tail call void @ir_use_list_replace_one(ptr noundef nonnull %0, i32 noundef %25, i32 noundef %1, i32 noundef %2) #13
+  tail call void @ir_use_list_replace_one(ptr noundef nonnull %0, i32 noundef %25, i32 noundef %1, i32 noundef %2) #14
   %27 = icmp ugt i32 %19, 1
   br i1 %27, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %26, %.preheader
   %.085 = phi i32 [ %30, %.preheader ], [ %19, %26 ]
   %28 = load i32, ptr %24, align 4, !tbaa !39
-  %29 = tail call zeroext i1 @ir_use_list_add(ptr noundef nonnull %0, i32 noundef %28, i32 noundef %2) #13
+  %29 = tail call zeroext i1 @ir_use_list_add(ptr noundef nonnull %0, i32 noundef %28, i32 noundef %2) #14
   %30 = add i32 %.085, -1
   %31 = icmp ugt i32 %30, 1
   br i1 %31, label %.preheader, label %.loopexit
@@ -6516,7 +6510,7 @@ define internal fastcc i32 @ir_promote_f2d(ptr noundef %0, i32 noundef %1, i32 n
   br label %common.ret102
 
 33:                                               ; preds = %15
-  %34 = tail call zeroext i1 @ir_use_list_add(ptr noundef nonnull %0, i32 noundef %25, i32 noundef %2) #13
+  %34 = tail call zeroext i1 @ir_use_list_add(ptr noundef nonnull %0, i32 noundef %25, i32 noundef %2) #14
   %35 = load ptr, ptr %16, align 8, !tbaa !41
   %36 = getelementptr inbounds nuw %struct._ir_use_list, ptr %35, i64 %5, i32 1
   %37 = load i32, ptr %36, align 4, !tbaa !42
@@ -6527,7 +6521,7 @@ define internal fastcc i32 @ir_promote_f2d(ptr noundef %0, i32 noundef %1, i32 n
 .preheader94:                                     ; preds = %33, %.preheader94
   %.1 = phi i32 [ %42, %.preheader94 ], [ %38, %33 ]
   %40 = load i32, ptr %24, align 4, !tbaa !39
-  %41 = tail call zeroext i1 @ir_use_list_add(ptr noundef nonnull %0, i32 noundef %40, i32 noundef %2) #13
+  %41 = tail call zeroext i1 @ir_use_list_add(ptr noundef nonnull %0, i32 noundef %40, i32 noundef %2) #14
   %42 = add i32 %.1, -1
   %43 = icmp ugt i32 %42, 1
   br i1 %43, label %.preheader94, label %.loopexit95
@@ -6577,12 +6571,12 @@ ir_find1.exit:                                    ; preds = %60
   br i1 %.not, label %ir_find1.exit.thread, label %69
 
 69:                                               ; preds = %ir_find1.exit
-  tail call void @ir_use_list_remove_one(ptr noundef nonnull %0, i32 noundef %47, i32 noundef %1) #13
+  tail call void @ir_use_list_remove_one(ptr noundef nonnull %0, i32 noundef %47, i32 noundef %1) #14
   %70 = load ptr, ptr %48, align 8, !tbaa !41
   %71 = getelementptr inbounds nuw %struct._ir_use_list, ptr %70, i64 %5, i32 1
   store i32 0, ptr %71, align 4, !tbaa !42
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
-  %72 = tail call zeroext i1 @ir_use_list_add(ptr noundef nonnull %0, i32 noundef %61, i32 noundef %2) #13
+  %72 = tail call zeroext i1 @ir_use_list_add(ptr noundef nonnull %0, i32 noundef %61, i32 noundef %2) #14
   br label %common.ret102
 
 ir_find1.exit.thread:                             ; preds = %65, %45, %ir_find1.exit
@@ -6627,7 +6621,7 @@ common.ret102:                                    ; preds = %13, %89, %ir_find1.
 }
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc zeroext i1 @ir_may_promote_i2i(ptr noundef readonly captures(none) %0, i32 noundef range(i32 0, 256) %1, i32 noundef %2) unnamed_addr #8 {
+define internal fastcc zeroext i1 @ir_may_promote_i2i(ptr noundef readonly captures(none) %0, i32 noundef range(i32 0, 256) %1, i32 noundef %2) unnamed_addr #7 {
   %4 = load ptr, ptr %0, align 8, !tbaa !38
   %5 = sext i32 %2 to i64
   %6 = getelementptr inbounds %struct._ir_insn, ptr %4, i64 %5
@@ -6722,7 +6716,7 @@ define internal fastcc i32 @ir_promote_i2i(ptr noundef %0, i32 noundef range(i32
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %11 = trunc nuw i32 %1 to i8
   %12 = load i64, ptr %10, align 8
-  %13 = tail call i32 @ir_const(ptr noundef nonnull %0, i64 %12, i8 noundef zeroext %11) #13
+  %13 = tail call i32 @ir_const(ptr noundef nonnull %0, i64 %12, i8 noundef zeroext %11) #14
   br label %common.ret80
 
 14:                                               ; preds = %4
@@ -6748,7 +6742,7 @@ define internal fastcc i32 @ir_promote_i2i(ptr noundef %0, i32 noundef range(i32
   %18 = load ptr, ptr %17, align 8, !tbaa !41
   %19 = getelementptr inbounds nuw %struct._ir_use_list, ptr %18, i64 %6, i32 1
   %20 = load i32, ptr %19, align 4, !tbaa !42
-  tail call void @ir_use_list_remove_all(ptr noundef nonnull %0, i32 noundef %2, i32 noundef %3) #13
+  tail call void @ir_use_list_remove_all(ptr noundef nonnull %0, i32 noundef %2, i32 noundef %3) #14
   %21 = load ptr, ptr %17, align 8, !tbaa !41
   %22 = getelementptr inbounds nuw %struct._ir_use_list, ptr %21, i64 %6, i32 1
   %23 = load i32, ptr %22, align 4, !tbaa !42
@@ -6758,14 +6752,14 @@ define internal fastcc i32 @ir_promote_i2i(ptr noundef %0, i32 noundef range(i32
   br i1 %24, label %27, label %34
 
 27:                                               ; preds = %16
-  tail call void @ir_use_list_replace_one(ptr noundef nonnull %0, i32 noundef %26, i32 noundef %2, i32 noundef %3) #13
+  tail call void @ir_use_list_replace_one(ptr noundef nonnull %0, i32 noundef %26, i32 noundef %2, i32 noundef %3) #14
   %28 = icmp ugt i32 %20, 1
   br i1 %28, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %27, %.preheader
   %.072 = phi i32 [ %31, %.preheader ], [ %20, %27 ]
   %29 = load i32, ptr %25, align 4, !tbaa !39
-  %30 = tail call zeroext i1 @ir_use_list_add(ptr noundef nonnull %0, i32 noundef %29, i32 noundef %3) #13
+  %30 = tail call zeroext i1 @ir_use_list_add(ptr noundef nonnull %0, i32 noundef %29, i32 noundef %3) #14
   %31 = add i32 %.072, -1
   %32 = icmp ugt i32 %31, 1
   br i1 %32, label %.preheader, label %.loopexit
@@ -6776,7 +6770,7 @@ define internal fastcc i32 @ir_promote_i2i(ptr noundef %0, i32 noundef range(i32
   br label %common.ret80
 
 34:                                               ; preds = %16
-  %35 = tail call zeroext i1 @ir_use_list_add(ptr noundef nonnull %0, i32 noundef %26, i32 noundef %3) #13
+  %35 = tail call zeroext i1 @ir_use_list_add(ptr noundef nonnull %0, i32 noundef %26, i32 noundef %3) #14
   %36 = load ptr, ptr %17, align 8, !tbaa !41
   %37 = getelementptr inbounds nuw %struct._ir_use_list, ptr %36, i64 %6, i32 1
   %38 = load i32, ptr %37, align 4, !tbaa !42
@@ -6787,7 +6781,7 @@ define internal fastcc i32 @ir_promote_i2i(ptr noundef %0, i32 noundef range(i32
 .preheader78:                                     ; preds = %34, %.preheader78
   %.1 = phi i32 [ %43, %.preheader78 ], [ %39, %34 ]
   %41 = load i32, ptr %25, align 4, !tbaa !39
-  %42 = tail call zeroext i1 @ir_use_list_add(ptr noundef nonnull %0, i32 noundef %41, i32 noundef %3) #13
+  %42 = tail call zeroext i1 @ir_use_list_add(ptr noundef nonnull %0, i32 noundef %41, i32 noundef %3) #14
   %43 = add i32 %.1, -1
   %44 = icmp ugt i32 %43, 1
   br i1 %44, label %.preheader78, label %.loopexit79
@@ -6834,9 +6828,9 @@ common.ret80:                                     ; preds = %14, %62, %.loopexit
   br label %common.ret80
 }
 
-declare i32 @ir_const_float(ptr noundef, float noundef) local_unnamed_addr #4
+declare i32 @ir_const_float(ptr noundef, float noundef) local_unnamed_addr #3
 
-declare i32 @ir_const_double(ptr noundef, double noundef) local_unnamed_addr #4
+declare i32 @ir_const_double(ptr noundef, double noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @ir_ext_const(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef range(i32 0, 256) %2, i32 noundef range(i32 0, 256) %3) unnamed_addr #0 {
@@ -6894,7 +6888,7 @@ define internal fastcc i32 @ir_ext_const(ptr noundef %0, ptr noundef readonly ca
 31:                                               ; preds = %27, %29, %19, %21, %11, %13
   %.sroa.0.0 = phi i64 [ %12, %11 ], [ %14, %13 ], [ %28, %27 ], [ %30, %29 ], [ %20, %19 ], [ %22, %21 ]
   %32 = trunc nuw i32 %3 to i8
-  %33 = tail call i32 @ir_const(ptr noundef %0, i64 %.sroa.0.0, i8 noundef zeroext %32) #13
+  %33 = tail call i32 @ir_const(ptr noundef %0, i64 %.sroa.0.0, i8 noundef zeroext %32) #14
   ret i32 %33
 }
 
@@ -6946,8 +6940,8 @@ ir_find1.exit:                                    ; preds = %25
   br i1 %.not, label %ir_find1.exit.thread, label %34
 
 34:                                               ; preds = %ir_find1.exit
-  %35 = tail call zeroext i1 @ir_use_list_add(ptr noundef nonnull %0, i32 noundef %26, i32 noundef %1) #13
-  tail call void @ir_use_list_remove_one(ptr noundef nonnull %0, i32 noundef %2, i32 noundef %1) #13
+  %35 = tail call zeroext i1 @ir_use_list_add(ptr noundef nonnull %0, i32 noundef %26, i32 noundef %1) #14
+  tail call void @ir_use_list_remove_one(ptr noundef nonnull %0, i32 noundef %2, i32 noundef %1) #14
   %36 = lshr i32 %26, 6
   %37 = and i32 %26, 63
   %38 = zext nneg i32 %37 to i64
@@ -6969,7 +6963,7 @@ ir_find1.exit:                                    ; preds = %25
   br label %ir_bitqueue_add.exit42
 
 ir_find1.exit.thread:                             ; preds = %30, %11, %ir_find1.exit, %6
-  %50 = tail call i32 @ir_emit1(ptr noundef %0, i32 noundef %9, i32 noundef %2) #13
+  %50 = tail call i32 @ir_emit1(ptr noundef %0, i32 noundef %9, i32 noundef %2) #14
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %52 = load ptr, ptr %51, align 8, !tbaa !41
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6983,11 +6977,11 @@ ir_find1.exit.thread:                             ; preds = %30, %11, %ir_find1.
   store i32 0, ptr %59, align 4, !tbaa !42
   %60 = getelementptr inbounds %struct._ir_use_list, ptr %57, i64 %58
   store i32 0, ptr %60, align 4, !tbaa !48
-  %61 = tail call zeroext i1 @ir_use_list_add(ptr noundef %0, i32 noundef %50, i32 noundef %1) #13
+  %61 = tail call zeroext i1 @ir_use_list_add(ptr noundef %0, i32 noundef %50, i32 noundef %1) #14
   br i1 %10, label %63, label %62
 
 62:                                               ; preds = %ir_find1.exit.thread
-  tail call void @ir_use_list_replace_one(ptr noundef nonnull %0, i32 noundef %2, i32 noundef %1, i32 noundef %50) #13
+  tail call void @ir_use_list_replace_one(ptr noundef nonnull %0, i32 noundef %2, i32 noundef %1, i32 noundef %50) #14
   br label %63
 
 63:                                               ; preds = %62, %ir_find1.exit.thread
@@ -7040,13 +7034,13 @@ ir_bitqueue_add.exit42:                           ; preds = %93, %ir_bitqueue_gr
   ret i32 %.0
 }
 
-declare i32 @ir_emit1(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @ir_emit1(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: allocsize(1)
-declare ptr @_erealloc(ptr noundef, i64 noundef) local_unnamed_addr #9
+declare ptr @_erealloc(ptr noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i1 @ir_try_split_if(ptr noundef %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef nonnull captures(none) %3) unnamed_addr #0 {
@@ -7293,12 +7287,12 @@ ir_const_is_true.exit234.thread:                  ; preds = %79, %103, %97, %91,
 ir_const_is_true.exit:                            ; preds = %126, %132, %139, %142
   %.0.i = phi i1 [ %129, %126 ], [ %135, %132 ], [ %141, %139 ], [ %144, %142 ]
   %145 = xor i1 %.0.i233264, %.0.i
-  tail call void @ir_use_list_replace_one(ptr noundef nonnull %0, i32 noundef %.0203281, i32 noundef %18, i32 noundef %.0) #13
+  tail call void @ir_use_list_replace_one(ptr noundef nonnull %0, i32 noundef %.0203281, i32 noundef %18, i32 noundef %.0) #14
   %146 = getelementptr inbounds nuw i8, ptr %114, i64 4
   br i1 %145, label %147, label %180
 
 147:                                              ; preds = %ir_const_is_true.exit
-  tail call void @ir_use_list_replace_one(ptr noundef nonnull %0, i32 noundef %.0204278, i32 noundef %18, i32 noundef %.0260) #13
+  tail call void @ir_use_list_replace_one(ptr noundef nonnull %0, i32 noundef %.0204278, i32 noundef %18, i32 noundef %.0260) #14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, i8 0, i64 16, i1 false)
   %148 = load ptr, ptr %41, align 8, !tbaa !41
   %149 = getelementptr inbounds %struct._ir_use_list, ptr %148, i64 %39, i32 1
@@ -7355,7 +7349,7 @@ ir_bitqueue_add.exit230:                          ; preds = %147, %168
   br label %.critedge
 
 180:                                              ; preds = %ir_const_is_true.exit
-  tail call void @ir_use_list_replace_one(ptr noundef nonnull %0, i32 noundef %.0204278, i32 noundef %18, i32 noundef %.0) #13
+  tail call void @ir_use_list_replace_one(ptr noundef nonnull %0, i32 noundef %.0204278, i32 noundef %18, i32 noundef %.0) #14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, i8 0, i64 16, i1 false)
   %181 = load ptr, ptr %41, align 8, !tbaa !41
   %182 = getelementptr inbounds %struct._ir_use_list, ptr %181, i64 %39, i32 1
@@ -7400,19 +7394,19 @@ ir_bitqueue_add.exit230:                          ; preds = %147, %168
   br label %.critedge
 
 206:                                              ; preds = %118, %109
-  tail call void @ir_use_list_remove_all(ptr noundef nonnull %0, i32 noundef %18, i32 noundef %6) #13
-  tail call void @ir_use_list_remove_all(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %.0260) #13
+  tail call void @ir_use_list_remove_all(ptr noundef nonnull %0, i32 noundef %18, i32 noundef %6) #14
+  tail call void @ir_use_list_remove_all(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %.0260) #14
   %207 = load i32, ptr %115, align 4, !tbaa !39
   %208 = icmp slt i32 %207, 0
   br i1 %208, label %210, label %209
 
 209:                                              ; preds = %206
-  tail call void @ir_use_list_replace_one(ptr noundef nonnull %0, i32 noundef %207, i32 noundef %6, i32 noundef %.0204278) #13
+  tail call void @ir_use_list_replace_one(ptr noundef nonnull %0, i32 noundef %207, i32 noundef %6, i32 noundef %.0204278) #14
   br label %210
 
 210:                                              ; preds = %209, %206
-  tail call void @ir_use_list_replace_one(ptr noundef nonnull %0, i32 noundef %.0203281, i32 noundef %18, i32 noundef %.0) #13
-  %211 = tail call zeroext i1 @ir_use_list_add(ptr noundef nonnull %0, i32 noundef %.0204278, i32 noundef %.0260) #13
+  tail call void @ir_use_list_replace_one(ptr noundef nonnull %0, i32 noundef %.0203281, i32 noundef %18, i32 noundef %.0) #14
+  %211 = tail call zeroext i1 @ir_use_list_add(ptr noundef nonnull %0, i32 noundef %.0204278, i32 noundef %.0260) #14
   store i32 131174, ptr %.0205275, align 8, !tbaa !39
   %212 = load i32, ptr %115, align 4, !tbaa !39
   %213 = getelementptr inbounds nuw i8, ptr %.0205275, i64 8
@@ -7687,12 +7681,12 @@ define internal fastcc noundef zeroext i1 @ir_try_split_if_cmp(ptr noundef %0, i
 122:                                              ; preds = %118
   %123 = tail call fastcc zeroext i1 @ir_cmp_is_true(i32 noundef %108, ptr noundef nonnull %120, ptr noundef nonnull %110)
   %124 = xor i1 %111, %123
-  tail call void @ir_use_list_replace_one(ptr noundef nonnull %0, i32 noundef %.0249, i32 noundef %39, i32 noundef %.0) #13
+  tail call void @ir_use_list_replace_one(ptr noundef nonnull %0, i32 noundef %.0249, i32 noundef %39, i32 noundef %.0) #14
   %125 = getelementptr inbounds nuw i8, ptr %115, i64 4
   br i1 %124, label %126, label %161
 
 126:                                              ; preds = %122
-  tail call void @ir_use_list_replace_one(ptr noundef nonnull %0, i32 noundef %.0250, i32 noundef %39, i32 noundef %.0310) #13
+  tail call void @ir_use_list_replace_one(ptr noundef nonnull %0, i32 noundef %.0250, i32 noundef %39, i32 noundef %.0310) #14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %65, i8 0, i64 16, i1 false)
   %127 = load ptr, ptr %21, align 8, !tbaa !41
   %128 = getelementptr inbounds %struct._ir_use_list, ptr %127, i64 %64, i32 1
@@ -7753,7 +7747,7 @@ ir_bitqueue_add.exit284:                          ; preds = %126, %149
   br label %.critedge
 
 161:                                              ; preds = %122
-  tail call void @ir_use_list_replace_one(ptr noundef nonnull %0, i32 noundef %.0250, i32 noundef %39, i32 noundef %.0) #13
+  tail call void @ir_use_list_replace_one(ptr noundef nonnull %0, i32 noundef %.0250, i32 noundef %39, i32 noundef %.0) #14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %65, i8 0, i64 16, i1 false)
   %162 = load ptr, ptr %21, align 8, !tbaa !41
   %163 = getelementptr inbounds %struct._ir_use_list, ptr %162, i64 %64, i32 1
@@ -7802,21 +7796,21 @@ ir_bitqueue_add.exit284:                          ; preds = %126, %149
   br label %.critedge
 
 189:                                              ; preds = %118, %105
-  tail call void @ir_use_list_remove_all(ptr noundef nonnull %0, i32 noundef %39, i32 noundef %28) #13
-  tail call void @ir_use_list_remove_all(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %.0310) #13
+  tail call void @ir_use_list_remove_all(ptr noundef nonnull %0, i32 noundef %39, i32 noundef %28) #14
+  tail call void @ir_use_list_remove_all(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %.0310) #14
   %190 = load i32, ptr %116, align 4, !tbaa !39
   %191 = icmp slt i32 %190, 0
   br i1 %191, label %194, label %192
 
 192:                                              ; preds = %189
   %193 = load i32, ptr %5, align 8, !tbaa !39
-  tail call void @ir_use_list_replace_one(ptr noundef nonnull %0, i32 noundef %190, i32 noundef %28, i32 noundef %193) #13
+  tail call void @ir_use_list_replace_one(ptr noundef nonnull %0, i32 noundef %190, i32 noundef %28, i32 noundef %193) #14
   br label %194
 
 194:                                              ; preds = %192, %189
-  tail call void @ir_use_list_replace_one(ptr noundef nonnull %0, i32 noundef %.0249, i32 noundef %39, i32 noundef %.0) #13
-  tail call void @ir_use_list_replace_one(ptr noundef nonnull %0, i32 noundef %6, i32 noundef %1, i32 noundef %.0250) #13
-  %195 = tail call zeroext i1 @ir_use_list_add(ptr noundef nonnull %0, i32 noundef %.0250, i32 noundef %.0310) #13
+  tail call void @ir_use_list_replace_one(ptr noundef nonnull %0, i32 noundef %.0249, i32 noundef %39, i32 noundef %.0) #14
+  tail call void @ir_use_list_replace_one(ptr noundef nonnull %0, i32 noundef %6, i32 noundef %1, i32 noundef %.0250) #14
+  %195 = tail call zeroext i1 @ir_use_list_add(ptr noundef nonnull %0, i32 noundef %.0250, i32 noundef %.0310) #14
   store i32 131174, ptr %.0251, align 8, !tbaa !39
   %196 = load i32, ptr %5, align 8, !tbaa !39
   %197 = getelementptr inbounds nuw i8, ptr %.0251, i64 8
@@ -7896,7 +7890,7 @@ ir_bitqueue_add.exit281:                          ; preds = %194, %217
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc zeroext i1 @ir_cmp_is_true(i32 noundef range(i32 0, 256) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) unnamed_addr #11 {
+define internal fastcc zeroext i1 @ir_cmp_is_true(i32 noundef range(i32 0, 256) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) unnamed_addr #10 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %5 = load i8, ptr %4, align 1, !tbaa !39
   %6 = icmp ult i8 %5, 12
@@ -8227,24 +8221,30 @@ define internal fastcc zeroext i1 @ir_cmp_is_true(i32 noundef range(i32 0, 256) 
   ret i1 %.0
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #12
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { noinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { noinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #13 = { nounwind }
-attributes #14 = { nounwind allocsize(0,1) }
+attributes #13 = { nounwind allocsize(0,1) }
+attributes #14 = { nounwind }
 attributes #15 = { nounwind allocsize(1) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

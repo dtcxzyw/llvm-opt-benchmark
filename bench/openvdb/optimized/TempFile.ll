@@ -754,7 +754,7 @@ invoke.cont:                                      ; preds = %entry
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %call3 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %call to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i)
   call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %fnbuf) #27
   %cmp.i.i.i = icmp slt i64 %sub.ptr.sub.i.i.i.i.i, 0
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #27
@@ -768,7 +768,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont
   unreachable
 
 _ZNSt6vectorIcSaIcEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %invoke.cont
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i)
   %cmp.not.i.i.i = icmp eq ptr %call3, %call
   br i1 %cmp.not.i.i.i, label %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.thread.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i
 
@@ -1428,14 +1428,14 @@ if.end19:                                         ; preds = %if.end8, %_ZNSt11ch
   %add.ptr22 = getelementptr inbounds i8, ptr %5, i64 %4
   %add.ptr24 = getelementptr inbounds i8, ptr %add.ptr22, i64 %idx.neg23.pre-phi
   tail call void @_ZNSt15basic_streambufIcSt11char_traitsIcEE4setgEPcS3_S3_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %add.ptr24, ptr noundef %add.ptr22, ptr noundef %add.ptr22)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i)
   %call.i.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt17iostream_categoryv() #30
   store i32 1, ptr %ref.tmp.i.i.i, align 8, !noalias !4
   %ref.tmp.sroa.21.0.this1.sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i.i, i64 8
   store ptr %call.i.i.i.i.i, ptr %ref.tmp.sroa.21.0.this1.sroa_idx.i.i.i.i, align 8, !noalias !4
   call void @_ZNSt8ios_base7failureB5cxx11C1EPKcRKSt10error_code(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull @.str.1, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i)
   invoke void @_ZN5boost15throw_exceptionINSt8ios_base7failureB5cxx11EEEvRKT_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i) #28
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
@@ -1700,7 +1700,7 @@ entry:
   %alloc.i.i.i = alloca %"class.std::allocator", align 1
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5boost9iostreams6detail18indirect_streambufINS0_20file_descriptor_sinkESt11char_traitsIcESaIcENS0_15output_seekableEEE, i64 16), ptr %this, align 8
   %buffer_ = getelementptr inbounds nuw i8, ptr %this, i64 104
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %alloc.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i.i.i)
   %0 = load ptr, ptr %buffer_, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZN5boost9iostreams6detail13double_objectINS1_12basic_bufferIcSaIcEEENS_14is_convertibleINS0_15output_seekableENS1_12two_sequenceEEEED2Ev.exit, label %invoke.cont.i.i.i
@@ -1713,7 +1713,7 @@ invoke.cont.i.i.i:                                ; preds = %entry
   br label %_ZN5boost9iostreams6detail13double_objectINS1_12basic_bufferIcSaIcEEENS_14is_convertibleINS0_15output_seekableENS1_12two_sequenceEEEED2Ev.exit
 
 _ZN5boost9iostreams6detail13double_objectINS1_12basic_bufferIcSaIcEEENS_14is_convertibleINS0_15output_seekableENS1_12two_sequenceEEEED2Ev.exit: ; preds = %entry, %invoke.cont.i.i.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %alloc.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %alloc.i.i.i)
   %initialized_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   %2 = load i8, ptr %initialized_.i.i, align 8
   %tobool.i.i = trunc i8 %2 to i1
@@ -2904,8 +2904,8 @@ entry:
   %ref.tmp2.i = alloca %"class.std::error_code", align 8
   %ref.tmp = alloca %"class.boost::iostreams::file_descriptor_sink", align 8
   call void @_ZN5boost9iostreams20file_descriptor_sinkC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %t)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2.i)
   %flags_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 128
   %0 = load i32, ptr %flags_.i.i, align 8
   %and.i.i = and i32 %0, 1
@@ -2938,8 +2938,8 @@ if.end.i:                                         ; preds = %entry
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i)
   %pn.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   %2 = load ptr, ptr %pn.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %2, null
@@ -3485,7 +3485,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %alloc.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i.i)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %alloc.i.i) #27
   %cmp.i.i.i.i = icmp slt i64 %buffer_size, 0
   br i1 %cmp.i.i.i.i, label %if.end.i.i.i.i, label %_ZNSt15__new_allocatorIcE8allocateEmPKv.exit.i.i.i
@@ -3509,11 +3509,11 @@ lpad.i.i:                                         ; preds = %_ZNSt15__new_alloca
 
 _ZN5boost9iostreams6detail12basic_bufferIcSaIcEEC2El.exit: ; preds = %_ZNSt15__new_allocatorIcE8allocateEmPKv.exit.i.i.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %alloc.i.i) #27
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %alloc.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %alloc.i.i)
   store i64 %buffer_size, ptr %size_, align 8
   %2 = load ptr, ptr %this, align 8
   store ptr %call5.i.i1.i.i, ptr %this, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %alloc.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %alloc.i)
   %tobool.not.i = icmp eq ptr %2, null
   br i1 %tobool.not.i, label %_ZN5boost9iostreams6detail12basic_bufferIcSaIcEED2Ev.exit, label %invoke.cont.i
 
@@ -3524,7 +3524,7 @@ invoke.cont.i:                                    ; preds = %_ZN5boost9iostreams
   br label %_ZN5boost9iostreams6detail12basic_bufferIcSaIcEED2Ev.exit
 
 _ZN5boost9iostreams6detail12basic_bufferIcSaIcEED2Ev.exit: ; preds = %_ZN5boost9iostreams6detail12basic_bufferIcSaIcEEC2El.exit, %invoke.cont.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %alloc.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %alloc.i)
   br label %if.end
 
 if.end:                                           ; preds = %_ZN5boost9iostreams6detail12basic_bufferIcSaIcEED2Ev.exit, %entry
@@ -3887,10 +3887,10 @@ entry:
 declare i64 @llvm.umax.i64(i64, i64) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #24
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #24
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #23

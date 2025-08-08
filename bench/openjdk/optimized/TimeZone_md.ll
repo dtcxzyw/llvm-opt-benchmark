@@ -39,9 +39,9 @@ define hidden ptr @findJavaTZ_md(ptr noundef readnone captures(none) %0) local_u
   br i1 %9, label %10, label %.thread
 
 10:                                               ; preds = %7, %1
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 4097, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %11 = tail call noalias ptr @fopen64(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.5)
   %.not.i = icmp eq ptr %11, null
   br i1 %.not.i, label %.preheader55, label %12
@@ -79,9 +79,9 @@ define hidden ptr @findJavaTZ_md(ptr noundef readnone captures(none) %0) local_u
   br i1 %.not49.i, label %.preheader55, label %.thread28
 
 .thread28:                                        ; preds = %19
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 4097, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread
 
 22:                                               ; preds = %.preheader55, %25
@@ -258,16 +258,16 @@ removeDuplicateSlashes.exit.i:                    ; preds = %.critedge2.i.i, %59
   br label %99
 
 .thread25:                                        ; preds = %25, %70, %37, %.critedge4.i, %85, %96
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 4097, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %110
 
 99:                                               ; preds = %97, %64
   %.0.i = phi ptr [ %66, %64 ], [ %98, %97 ]
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 4097, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not = icmp eq ptr %.0.i, null
   br i1 %.not, label %110, label %.thread
 
@@ -657,10 +657,10 @@ declare noundef i32 @stat64(ptr noundef readonly captures(none), ptr noundef cap
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

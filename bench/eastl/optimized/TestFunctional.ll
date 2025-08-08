@@ -812,11 +812,11 @@ entry:
   store i64 0, ptr %mnElementCount.i, align 8
   %mnNextResize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i, align 8
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %temp.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %temp.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %temp.i.i.i, ptr noundef nonnull align 8 dereferenceable(12) %mRehashPolicy.i, i64 12, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %mRehashPolicy.i, ptr noundef nonnull align 8 dereferenceable(12) %mRehashPolicy2.i, i64 12, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %mRehashPolicy2.i, ptr noundef nonnull align 4 dereferenceable(12) %temp.i.i.i, i64 12, i1 false)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %temp.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %temp.i.i.i)
   %2 = load ptr, ptr %mpBucketArray.i.i, align 8
   %mpBucketArray3.i.i = getelementptr inbounds nuw i8, ptr %x, i64 8
   %3 = load ptr, ptr %mpBucketArray3.i.i, align 8
@@ -854,11 +854,11 @@ entry:
   store i64 0, ptr %mnElementCount.i, align 8
   %mnNextResize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i, align 8
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %temp.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %temp.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %temp.i.i.i, ptr noundef nonnull align 8 dereferenceable(12) %mRehashPolicy.i, i64 12, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %mRehashPolicy.i, ptr noundef nonnull align 8 dereferenceable(12) %mRehashPolicy2.i, i64 12, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %mRehashPolicy2.i, ptr noundef nonnull align 4 dereferenceable(12) %temp.i.i.i, i64 12, i1 false)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %temp.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %temp.i.i.i)
   %2 = load ptr, ptr %mpBucketArray.i.i, align 8
   %mpBucketArray3.i.i = getelementptr inbounds nuw i8, ptr %x, i64 8
   %3 = load ptr, ptr %mpBucketArray3.i.i, align 8
@@ -1142,7 +1142,7 @@ _ZN5eastl9hashtableINS_12basic_stringIc15MallocAllocatorEES3_NS_9allocatorENS_8u
   store i64 0, ptr %mnElementCount.i, align 8
   %add.ptr.i.idx = mul nsw i64 %ilist.coerce1, 40
   %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %tmp.i)
   %conv.i = trunc i64 %ilist.coerce1 to i32
   %mRehashPolicy.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %call4.i = tail call i64 @_ZNK5eastl19prime_rehash_policy17GetRehashRequiredEjjj(ptr noundef nonnull align 4 dereferenceable(12) %mRehashPolicy.i, i32 noundef %conv2.i, i32 noundef 0, i32 noundef %conv.i)
@@ -1193,7 +1193,7 @@ _ZN5eastl9hashtableINS_12basic_stringIc15MallocAllocatorEES3_NS_9allocatorENS_8u
   br i1 %cmp.not.i, label %_ZN5eastl9hashtableINS_12basic_stringIc15MallocAllocatorEES3_NS_9allocatorENS_8use_selfIS3_EENS_8equal_toIS3_EENS_11string_hashIS3_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE6insertIPKS3_EEvT_SI_.exit, label %for.body.i, !llvm.loop !22
 
 _ZN5eastl9hashtableINS_12basic_stringIc15MallocAllocatorEES3_NS_9allocatorENS_8use_selfIS3_EENS_8equal_toIS3_EENS_11string_hashIS3_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE6insertIPKS3_EEvT_SI_.exit: ; preds = %_ZN5eastl9hashtableINS_12basic_stringIc15MallocAllocatorEES3_NS_9allocatorENS_8use_selfIS3_EENS_8equal_toIS3_EENS_11string_hashIS3_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE13DoInsertValueINS_17integral_constantIbLb1EEEEENS_4pairINS_18hashtable_iteratorIS3_Lb1ELb0EEEbEET_RKS3_PNS_9enable_ifIXsrSM_5valueEvE4typeE.exit.i, %if.end.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %tmp.i)
   ret ptr %this
 }
 
@@ -1275,11 +1275,11 @@ _ZN5eastl9hashtableINS_12basic_stringIc15MallocAllocatorEES3_NS_9allocatorENS_8u
   store i64 0, ptr %mnElementCount.i, align 8
   %mRehashPolicy.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %mRehashPolicy2.i = getelementptr inbounds nuw i8, ptr %x, i64 32
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %temp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %temp.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %temp.i.i, ptr noundef nonnull align 8 dereferenceable(12) %mRehashPolicy.i, i64 12, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %mRehashPolicy.i, ptr noundef nonnull align 8 dereferenceable(12) %mRehashPolicy2.i, i64 12, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %mRehashPolicy2.i, ptr noundef nonnull align 4 dereferenceable(12) %temp.i.i, i64 12, i1 false)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %temp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %temp.i.i)
   %9 = load ptr, ptr %mpBucketArray.i, align 8
   %mpBucketArray3.i = getelementptr inbounds nuw i8, ptr %x, i64 8
   %10 = load ptr, ptr %mpBucketArray3.i, align 8
@@ -1554,11 +1554,11 @@ entry:
   store i64 0, ptr %mnElementCount.i, align 8
   %mnNextResize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i, align 8
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %temp.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %temp.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %temp.i.i.i, ptr noundef nonnull align 8 dereferenceable(12) %mRehashPolicy.i, i64 12, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %mRehashPolicy.i, ptr noundef nonnull align 8 dereferenceable(12) %mRehashPolicy2.i, i64 12, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %mRehashPolicy2.i, ptr noundef nonnull align 4 dereferenceable(12) %temp.i.i.i, i64 12, i1 false)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %temp.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %temp.i.i.i)
   %2 = load ptr, ptr %mpBucketArray.i.i, align 8
   %mpBucketArray3.i.i = getelementptr inbounds nuw i8, ptr %x, i64 8
   %3 = load ptr, ptr %mpBucketArray3.i.i, align 8
@@ -1596,11 +1596,11 @@ entry:
   store i64 0, ptr %mnElementCount.i, align 8
   %mnNextResize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store i32 0, ptr %mnNextResize.i.i, align 8
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %temp.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %temp.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %temp.i.i.i, ptr noundef nonnull align 8 dereferenceable(12) %mRehashPolicy.i, i64 12, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %mRehashPolicy.i, ptr noundef nonnull align 8 dereferenceable(12) %mRehashPolicy2.i, i64 12, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %mRehashPolicy2.i, ptr noundef nonnull align 4 dereferenceable(12) %temp.i.i.i, i64 12, i1 false)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %temp.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %temp.i.i.i)
   %2 = load ptr, ptr %mpBucketArray.i.i, align 8
   %mpBucketArray3.i.i = getelementptr inbounds nuw i8, ptr %x, i64 8
   %3 = load ptr, ptr %mpBucketArray3.i.i, align 8
@@ -1884,7 +1884,7 @@ _ZN5eastl9hashtableINS_12basic_stringIDs15MallocAllocatorEES3_NS_9allocatorENS_8
   store i64 0, ptr %mnElementCount.i, align 8
   %add.ptr.i.idx = mul nsw i64 %ilist.coerce1, 40
   %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %add.ptr.i.idx
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %tmp.i)
   %conv.i = trunc i64 %ilist.coerce1 to i32
   %mRehashPolicy.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %call4.i = tail call i64 @_ZNK5eastl19prime_rehash_policy17GetRehashRequiredEjjj(ptr noundef nonnull align 4 dereferenceable(12) %mRehashPolicy.i, i32 noundef %conv2.i, i32 noundef 0, i32 noundef %conv.i)
@@ -1935,7 +1935,7 @@ _ZN5eastl9hashtableINS_12basic_stringIDs15MallocAllocatorEES3_NS_9allocatorENS_8
   br i1 %cmp.not.i, label %_ZN5eastl9hashtableINS_12basic_stringIDs15MallocAllocatorEES3_NS_9allocatorENS_8use_selfIS3_EENS_8equal_toIS3_EENS_11string_hashIS3_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE6insertIPKS3_EEvT_SI_.exit, label %for.body.i, !llvm.loop !37
 
 _ZN5eastl9hashtableINS_12basic_stringIDs15MallocAllocatorEES3_NS_9allocatorENS_8use_selfIS3_EENS_8equal_toIS3_EENS_11string_hashIS3_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE6insertIPKS3_EEvT_SI_.exit: ; preds = %_ZN5eastl9hashtableINS_12basic_stringIDs15MallocAllocatorEES3_NS_9allocatorENS_8use_selfIS3_EENS_8equal_toIS3_EENS_11string_hashIS3_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE13DoInsertValueINS_17integral_constantIbLb1EEEEENS_4pairINS_18hashtable_iteratorIS3_Lb1ELb0EEEbEET_RKS3_PNS_9enable_ifIXsrSM_5valueEvE4typeE.exit.i, %if.end.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %tmp.i)
   ret ptr %this
 }
 
@@ -2014,11 +2014,11 @@ _ZN5eastl9hashtableINS_12basic_stringIDs15MallocAllocatorEES3_NS_9allocatorENS_8
   store i64 0, ptr %mnElementCount.i, align 8
   %mRehashPolicy.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %mRehashPolicy2.i = getelementptr inbounds nuw i8, ptr %x, i64 32
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %temp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %temp.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %temp.i.i, ptr noundef nonnull align 8 dereferenceable(12) %mRehashPolicy.i, i64 12, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %mRehashPolicy.i, ptr noundef nonnull align 8 dereferenceable(12) %mRehashPolicy2.i, i64 12, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %mRehashPolicy2.i, ptr noundef nonnull align 4 dereferenceable(12) %temp.i.i, i64 12, i1 false)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %temp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %temp.i.i)
   %9 = load ptr, ptr %mpBucketArray.i, align 8
   %mpBucketArray3.i = getelementptr inbounds nuw i8, ptr %x, i64 8
   %10 = load ptr, ptr %mpBucketArray3.i, align 8
@@ -3710,187 +3710,187 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i:   ; preds = %invoke.cont543, %_Z
   br i1 %cmp.not.i.i.i927, label %_ZNK5eastl11mem_fn_implIMZ14TestFunctionalvE16OverloadedStructKFRKivEEclIJRS1_EEENS_13invoke_resultIS5_JDpT_EE4typeEDpOSA_.exit, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i, !llvm.loop !73
 
 _ZNK5eastl11mem_fn_implIMZ14TestFunctionalvE16OverloadedStructKFRKivEEclIJRS1_EEENS_13invoke_resultIS5_JDpT_EE4typeEDpOSA_.exit: ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i, %invoke.cont543
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %nErrorCount.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %nErrorCount.i)
   store i32 0, ptr %nErrorCount.i, align 4
   %call1.i = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount.i, ptr noundef nonnull @.str.1, i32 noundef 136, ptr noundef nonnull @.str.174)
   %215 = load i32, ptr %nErrorCount.i, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %nErrorCount.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nErrorCount.i)
   %216 = load i32, ptr %nErrorCount, align 4
   %add = add nsw i32 %216, %215
   store i32 %add, ptr %nErrorCount, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %nErrorCount.i928)
+  call void @llvm.lifetime.start.p0(ptr nonnull %nErrorCount.i928)
   store i32 0, ptr %nErrorCount.i928, align 4
   %call2.i = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount.i928, ptr noundef nonnull @.str.1, i32 noundef 136, ptr noundef nonnull @.str.174)
   %217 = load i32, ptr %nErrorCount.i928, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %nErrorCount.i928)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nErrorCount.i928)
   %218 = load i32, ptr %nErrorCount, align 4
   %add548 = add nsw i32 %218, %217
   store i32 %add548, ptr %nErrorCount, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %nErrorCount.i929)
+  call void @llvm.lifetime.start.p0(ptr nonnull %nErrorCount.i929)
   store i32 0, ptr %nErrorCount.i929, align 4
   %call1.i930 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount.i929, ptr noundef nonnull @.str.1, i32 noundef 136, ptr noundef nonnull @.str.174)
   %219 = load i32, ptr %nErrorCount.i929, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %nErrorCount.i929)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nErrorCount.i929)
   %220 = load i32, ptr %nErrorCount, align 4
   %add550 = add nsw i32 %220, %219
   store i32 %add550, ptr %nErrorCount, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %nErrorCount.i931)
+  call void @llvm.lifetime.start.p0(ptr nonnull %nErrorCount.i931)
   store i32 0, ptr %nErrorCount.i931, align 4
   %call1.i932 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount.i931, ptr noundef nonnull @.str.1, i32 noundef 136, ptr noundef nonnull @.str.174)
   %221 = load i32, ptr %nErrorCount.i931, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %nErrorCount.i931)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nErrorCount.i931)
   %222 = load i32, ptr %nErrorCount, align 4
   %add552 = add nsw i32 %222, %221
   store i32 %add552, ptr %nErrorCount, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %nErrorCount.i933)
+  call void @llvm.lifetime.start.p0(ptr nonnull %nErrorCount.i933)
   store i32 0, ptr %nErrorCount.i933, align 4
   %call1.i934 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount.i933, ptr noundef nonnull @.str.1, i32 noundef 136, ptr noundef nonnull @.str.174)
   %223 = load i32, ptr %nErrorCount.i933, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %nErrorCount.i933)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nErrorCount.i933)
   %224 = load i32, ptr %nErrorCount, align 4
   %add554 = add nsw i32 %224, %223
   store i32 %add554, ptr %nErrorCount, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %nErrorCount.i935)
+  call void @llvm.lifetime.start.p0(ptr nonnull %nErrorCount.i935)
   store i32 0, ptr %nErrorCount.i935, align 4
   %call1.i936 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount.i935, ptr noundef nonnull @.str.1, i32 noundef 136, ptr noundef nonnull @.str.174)
   %225 = load i32, ptr %nErrorCount.i935, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %nErrorCount.i935)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nErrorCount.i935)
   %226 = load i32, ptr %nErrorCount, align 4
   %add556 = add nsw i32 %226, %225
   store i32 %add556, ptr %nErrorCount, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %nErrorCount.i937)
+  call void @llvm.lifetime.start.p0(ptr nonnull %nErrorCount.i937)
   store i32 0, ptr %nErrorCount.i937, align 4
   %call1.i938 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount.i937, ptr noundef nonnull @.str.1, i32 noundef 136, ptr noundef nonnull @.str.174)
   %227 = load i32, ptr %nErrorCount.i937, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %nErrorCount.i937)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nErrorCount.i937)
   %228 = load i32, ptr %nErrorCount, align 4
   %add558 = add nsw i32 %228, %227
   store i32 %add558, ptr %nErrorCount, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %nErrorCount.i939)
+  call void @llvm.lifetime.start.p0(ptr nonnull %nErrorCount.i939)
   store i32 0, ptr %nErrorCount.i939, align 4
   %call1.i940 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount.i939, ptr noundef nonnull @.str.1, i32 noundef 136, ptr noundef nonnull @.str.174)
   %229 = load i32, ptr %nErrorCount.i939, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %nErrorCount.i939)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nErrorCount.i939)
   %230 = load i32, ptr %nErrorCount, align 4
   %add560 = add nsw i32 %230, %229
   store i32 %add560, ptr %nErrorCount, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %nErrorCount.i941)
+  call void @llvm.lifetime.start.p0(ptr nonnull %nErrorCount.i941)
   store i32 0, ptr %nErrorCount.i941, align 4
   %call1.i942 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount.i941, ptr noundef nonnull @.str.1, i32 noundef 136, ptr noundef nonnull @.str.174)
   %231 = load i32, ptr %nErrorCount.i941, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %nErrorCount.i941)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nErrorCount.i941)
   %232 = load i32, ptr %nErrorCount, align 4
   %add562 = add nsw i32 %232, %231
   store i32 %add562, ptr %nErrorCount, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %nErrorCount.i943)
+  call void @llvm.lifetime.start.p0(ptr nonnull %nErrorCount.i943)
   store i32 0, ptr %nErrorCount.i943, align 4
   %call1.i944 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount.i943, ptr noundef nonnull @.str.1, i32 noundef 136, ptr noundef nonnull @.str.174)
   %233 = load i32, ptr %nErrorCount.i943, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %nErrorCount.i943)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nErrorCount.i943)
   %234 = load i32, ptr %nErrorCount, align 4
   %add564 = add nsw i32 %234, %233
   store i32 %add564, ptr %nErrorCount, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %nErrorCount.i945)
+  call void @llvm.lifetime.start.p0(ptr nonnull %nErrorCount.i945)
   store i32 0, ptr %nErrorCount.i945, align 4
   %call1.i946 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount.i945, ptr noundef nonnull @.str.1, i32 noundef 136, ptr noundef nonnull @.str.174)
   %235 = load i32, ptr %nErrorCount.i945, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %nErrorCount.i945)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nErrorCount.i945)
   %236 = load i32, ptr %nErrorCount, align 4
   %add566 = add nsw i32 %236, %235
   store i32 %add566, ptr %nErrorCount, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %nErrorCount.i947)
+  call void @llvm.lifetime.start.p0(ptr nonnull %nErrorCount.i947)
   store i32 0, ptr %nErrorCount.i947, align 4
   %call1.i948 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount.i947, ptr noundef nonnull @.str.1, i32 noundef 136, ptr noundef nonnull @.str.174)
   %237 = load i32, ptr %nErrorCount.i947, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %nErrorCount.i947)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nErrorCount.i947)
   %238 = load i32, ptr %nErrorCount, align 4
   %add568 = add nsw i32 %238, %237
   store i32 %add568, ptr %nErrorCount, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %nErrorCount.i949)
+  call void @llvm.lifetime.start.p0(ptr nonnull %nErrorCount.i949)
   store i32 0, ptr %nErrorCount.i949, align 4
   %call1.i950 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount.i949, ptr noundef nonnull @.str.1, i32 noundef 136, ptr noundef nonnull @.str.174)
   %239 = load i32, ptr %nErrorCount.i949, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %nErrorCount.i949)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nErrorCount.i949)
   %240 = load i32, ptr %nErrorCount, align 4
   %add570 = add nsw i32 %240, %239
   store i32 %add570, ptr %nErrorCount, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %nErrorCount.i951)
+  call void @llvm.lifetime.start.p0(ptr nonnull %nErrorCount.i951)
   store i32 0, ptr %nErrorCount.i951, align 4
   %call1.i952 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount.i951, ptr noundef nonnull @.str.1, i32 noundef 136, ptr noundef nonnull @.str.174)
   %241 = load i32, ptr %nErrorCount.i951, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %nErrorCount.i951)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nErrorCount.i951)
   %242 = load i32, ptr %nErrorCount, align 4
   %add572 = add nsw i32 %242, %241
   store i32 %add572, ptr %nErrorCount, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %nErrorCount.i953)
+  call void @llvm.lifetime.start.p0(ptr nonnull %nErrorCount.i953)
   store i32 0, ptr %nErrorCount.i953, align 4
   %call1.i954 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount.i953, ptr noundef nonnull @.str.1, i32 noundef 136, ptr noundef nonnull @.str.174)
   %243 = load i32, ptr %nErrorCount.i953, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %nErrorCount.i953)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nErrorCount.i953)
   %244 = load i32, ptr %nErrorCount, align 4
   %add574 = add nsw i32 %244, %243
   store i32 %add574, ptr %nErrorCount, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %nErrorCount.i955)
+  call void @llvm.lifetime.start.p0(ptr nonnull %nErrorCount.i955)
   store i32 0, ptr %nErrorCount.i955, align 4
   %call1.i956 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount.i955, ptr noundef nonnull @.str.1, i32 noundef 136, ptr noundef nonnull @.str.174)
   %245 = load i32, ptr %nErrorCount.i955, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %nErrorCount.i955)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nErrorCount.i955)
   %246 = load i32, ptr %nErrorCount, align 4
   %add576 = add nsw i32 %246, %245
   store i32 %add576, ptr %nErrorCount, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %nErrorCount.i957)
+  call void @llvm.lifetime.start.p0(ptr nonnull %nErrorCount.i957)
   store i32 0, ptr %nErrorCount.i957, align 4
   %call1.i958 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount.i957, ptr noundef nonnull @.str.1, i32 noundef 136, ptr noundef nonnull @.str.174)
   %247 = load i32, ptr %nErrorCount.i957, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %nErrorCount.i957)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nErrorCount.i957)
   %248 = load i32, ptr %nErrorCount, align 4
   %add578 = add nsw i32 %248, %247
   store i32 %add578, ptr %nErrorCount, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %nErrorCount.i959)
+  call void @llvm.lifetime.start.p0(ptr nonnull %nErrorCount.i959)
   store i32 0, ptr %nErrorCount.i959, align 4
   %call1.i960 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount.i959, ptr noundef nonnull @.str.1, i32 noundef 136, ptr noundef nonnull @.str.174)
   %249 = load i32, ptr %nErrorCount.i959, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %nErrorCount.i959)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nErrorCount.i959)
   %250 = load i32, ptr %nErrorCount, align 4
   %add580 = add nsw i32 %250, %249
   store i32 %add580, ptr %nErrorCount, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %nErrorCount.i961)
+  call void @llvm.lifetime.start.p0(ptr nonnull %nErrorCount.i961)
   store i32 0, ptr %nErrorCount.i961, align 4
   %call1.i962 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount.i961, ptr noundef nonnull @.str.1, i32 noundef 136, ptr noundef nonnull @.str.174)
   %251 = load i32, ptr %nErrorCount.i961, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %nErrorCount.i961)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nErrorCount.i961)
   %252 = load i32, ptr %nErrorCount, align 4
   %add582 = add nsw i32 %252, %251
   store i32 %add582, ptr %nErrorCount, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %nErrorCount.i963)
+  call void @llvm.lifetime.start.p0(ptr nonnull %nErrorCount.i963)
   store i32 0, ptr %nErrorCount.i963, align 4
   %call1.i964 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount.i963, ptr noundef nonnull @.str.1, i32 noundef 136, ptr noundef nonnull @.str.174)
   %253 = load i32, ptr %nErrorCount.i963, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %nErrorCount.i963)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nErrorCount.i963)
   %254 = load i32, ptr %nErrorCount, align 4
   %add584 = add nsw i32 %254, %253
   store i32 %add584, ptr %nErrorCount, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %nErrorCount.i965)
+  call void @llvm.lifetime.start.p0(ptr nonnull %nErrorCount.i965)
   store i32 0, ptr %nErrorCount.i965, align 4
   %call1.i966 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount.i965, ptr noundef nonnull @.str.1, i32 noundef 136, ptr noundef nonnull @.str.174)
   %255 = load i32, ptr %nErrorCount.i965, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %nErrorCount.i965)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nErrorCount.i965)
   %256 = load i32, ptr %nErrorCount, align 4
   %add586 = add nsw i32 %256, %255
   store i32 %add586, ptr %nErrorCount, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %nErrorCount.i967)
+  call void @llvm.lifetime.start.p0(ptr nonnull %nErrorCount.i967)
   store i32 0, ptr %nErrorCount.i967, align 4
   %call1.i968 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount.i967, ptr noundef nonnull @.str.1, i32 noundef 136, ptr noundef nonnull @.str.174)
   %257 = load i32, ptr %nErrorCount.i967, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %nErrorCount.i967)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nErrorCount.i967)
   %258 = load i32, ptr %nErrorCount, align 4
   %add588 = add nsw i32 %258, %257
   store i32 %add588, ptr %nErrorCount, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %nErrorCount.i969)
+  call void @llvm.lifetime.start.p0(ptr nonnull %nErrorCount.i969)
   store i32 0, ptr %nErrorCount.i969, align 4
   %call1.i970 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount.i969, ptr noundef nonnull @.str.1, i32 noundef 136, ptr noundef nonnull @.str.174)
   %259 = load i32, ptr %nErrorCount.i969, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %nErrorCount.i969)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nErrorCount.i969)
   %260 = load i32, ptr %nErrorCount, align 4
   %add590 = add nsw i32 %260, %259
   store i32 %add590, ptr %nErrorCount, align 4
@@ -4418,7 +4418,7 @@ land.rhs923:                                      ; preds = %invoke.cont914, %if
           to label %invoke.cont928 unwind label %lpad919
 
 invoke.cont928:                                   ; preds = %land.rhs923
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tempStorage.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %tempStorage.i.i.i)
   %312 = load ptr, ptr %mMgrFuncPtr.i.i1261, align 8
   %cmp.i.not.i.i.i1271 = icmp eq ptr %312, null
   br i1 %cmp.i.not.i.i.i1271, label %if.end4.i.i.i, label %if.then2.i.i.i
@@ -4465,7 +4465,7 @@ _ZN5eastl4swapIiJEEEvRNS_8functionIFT_DpT0_EEES7_.exit: ; preds = %if.end12.i.i.
   %320 = load ptr, ptr %mInvokeFuncPtr.i.i1260, align 8
   store ptr %320, ptr %mInvokeFuncPtr.i.i1257, align 8
   store ptr %319, ptr %mInvokeFuncPtr.i.i1260, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tempStorage.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %tempStorage.i.i.i)
   %call.i.i1275 = invoke noundef i32 %320(ptr noundef nonnull align 8 dereferenceable(32) %fn0)
           to label %invoke.cont931 unwind label %lpad919
 
@@ -5060,7 +5060,7 @@ invoke.cont1106:                                  ; preds = %_ZN5eastl8functionI
           to label %invoke.cont1110 unwind label %lpad1102
 
 invoke.cont1110:                                  ; preds = %invoke.cont1106
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tempStorage.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %tempStorage.i.i)
   %404 = load ptr, ptr %mMgrFuncPtr.i.i1489, align 8
   %cmp.i.not.i.i = icmp eq ptr %404, null
   br i1 %cmp.i.not.i.i, label %if.end4.i.i, label %if.then2.i.i
@@ -5107,7 +5107,7 @@ _ZN5eastl8functionIFivEE4swapERS2_.exit:          ; preds = %if.end12.i.i, %if.t
   %412 = load ptr, ptr %mInvokeFuncPtr.i.i1490, align 8
   store ptr %412, ptr %mInvokeFuncPtr.i.i1488, align 8
   store ptr %411, ptr %mInvokeFuncPtr.i.i1490, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tempStorage.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %tempStorage.i.i)
   %cmp.i.i.i1503.not = icmp eq ptr %409, null
   %call1115 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp.i.i.i1503.not, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.1, i32 noundef 1037, ptr noundef nonnull @.str.115)
           to label %invoke.cont1114 unwind label %lpad1102
@@ -5123,7 +5123,7 @@ invoke.cont1116:                                  ; preds = %invoke.cont1114
           to label %invoke.cont1119 unwind label %lpad1102
 
 invoke.cont1119:                                  ; preds = %invoke.cont1116
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tempStorage.i.i.i1507)
+  call void @llvm.lifetime.start.p0(ptr nonnull %tempStorage.i.i.i1507)
   %414 = load ptr, ptr %mMgrFuncPtr.i.i1489, align 8
   %cmp.i.not.i.i.i1511 = icmp eq ptr %414, null
   br i1 %cmp.i.not.i.i.i1511, label %if.end4.i.i.i1515, label %if.then2.i.i.i1512
@@ -5170,7 +5170,7 @@ _ZN5eastl4swapIiJEEEvRNS_8functionIFT_DpT0_EEES7_.exit1528: ; preds = %if.end12.
   %422 = load ptr, ptr %mInvokeFuncPtr.i.i1490, align 8
   store ptr %422, ptr %mInvokeFuncPtr.i.i1488, align 8
   store ptr %421, ptr %mInvokeFuncPtr.i.i1490, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tempStorage.i.i.i1507)
+  call void @llvm.lifetime.end.p0(ptr nonnull %tempStorage.i.i.i1507)
   %call.i.i1530 = invoke noundef i32 %422(ptr noundef nonnull align 8 dereferenceable(32) %fn1099)
           to label %invoke.cont1122 unwind label %lpad1102
 
@@ -5391,11 +5391,11 @@ _ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit: ; preds = %if.then.i.i.i1634
   store i8 0, ptr %result1266, align 8, !alias.scope !80
   %mRemainingSizeField.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %result1266, i64 23
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i.i.i.i, align 1, !alias.scope !80
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %temp.sroa.0.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %temp.sroa.0.i.i.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %temp.sroa.0.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %result1266, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %result1266, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp1268, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp1268, ptr noundef nonnull align 1 dereferenceable(24) %temp.sroa.0.i.i.i.i.i.i, i64 24, i1 false), !noalias !80
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %temp.sroa.0.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %temp.sroa.0.i.i.i.i.i.i)
   store i8 0, ptr %ref.tmp1268, align 8, !noalias !80
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i.i, align 1, !noalias !80
   %447 = load i8, ptr %mRemainingSizeField.i.i.i.i.i.i.i.i, align 1
@@ -8852,10 +8852,10 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 declare i64 @llvm.umax.i64(i64, i64) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #17

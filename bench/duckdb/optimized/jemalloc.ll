@@ -343,7 +343,7 @@ sz_size2index.exit:                               ; preds = %18, %16, %10
   br i1 %or.cond.i.not, label %41, label %iallocztm_explicit_slab.exit, !prof !11
 
 41:                                               ; preds = %38
-  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %5) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @duckdb_je_rtree_ctx_data_init(ptr noundef nonnull %5) #21
   %42 = ptrtoint ptr %40 to i64
   %43 = lshr i64 %42, 30
@@ -427,13 +427,13 @@ rtree_read.exit:                                  ; preds = %49, %59, %71, %85
   %89 = ashr exact i64 %88, 16
   %90 = and i64 %89, -128
   %91 = inttoptr i64 %90 to ptr
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %5) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.val = load i64, ptr %91, align 128, !tbaa !24
   %92 = and i64 %.val, 4095
   %93 = getelementptr inbounds nuw [0 x %struct.atomic_p_t], ptr @duckdb_je_arenas, i64 0, i64 %92
   %94 = load atomic i64, ptr %93 monotonic, align 8
   %.0.i7 = inttoptr i64 %94 to ptr
-  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %4) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @duckdb_je_rtree_ctx_data_init(ptr noundef nonnull %4) #21
   %95 = getelementptr inbounds nuw [16 x %struct.rtree_ctx_cache_elm_s], ptr %4, i64 0, i64 %44
   %96 = load i64, ptr %95, align 8, !tbaa !12
@@ -510,7 +510,7 @@ rtree_metadata_read.exit:                         ; preds = %98, %108, %120, %13
   %.0.i.i16 = phi ptr [ %103, %98 ], [ %115, %108 ], [ %135, %134 ], [ %133, %120 ]
   %136 = load atomic i64, ptr %.0.i.i16 monotonic, align 8, !noalias !27
   %137 = lshr i64 %136, 48
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %4) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %138 = getelementptr inbounds nuw [232 x i64], ptr @duckdb_je_sz_index2size_tab, i64 0, i64 %137
   %139 = load i64, ptr %138, align 8, !tbaa !30
   %140 = getelementptr inbounds nuw i8, ptr %.0.i7, i64 72
@@ -535,7 +535,7 @@ define internal fastcc void @a0idalloc(ptr noundef %0, i1 noundef zeroext %1) un
   br i1 %1, label %5, label %idalloctm.exit
 
 5:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %4) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @duckdb_je_rtree_ctx_data_init(ptr noundef nonnull %4) #21
   %6 = ptrtoint ptr %0 to i64
   %7 = lshr i64 %6, 30
@@ -619,13 +619,13 @@ rtree_read.exit:                                  ; preds = %13, %23, %35, %49
   %53 = ashr exact i64 %52, 16
   %54 = and i64 %53, -128
   %55 = inttoptr i64 %54 to ptr
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %4) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.val = load i64, ptr %55, align 128, !tbaa !24
   %56 = and i64 %.val, 4095
   %57 = getelementptr inbounds nuw [0 x %struct.atomic_p_t], ptr @duckdb_je_arenas, i64 0, i64 %56
   %58 = load atomic i64, ptr %57 monotonic, align 8
   %.0.i13.i = inttoptr i64 %58 to ptr
-  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %3) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @duckdb_je_rtree_ctx_data_init(ptr noundef nonnull %3) #21
   %59 = getelementptr inbounds nuw [16 x %struct.rtree_ctx_cache_elm_s], ptr %3, i64 0, i64 %8
   %60 = load i64, ptr %59, align 8, !tbaa !12
@@ -702,7 +702,7 @@ rtree_metadata_read.exit:                         ; preds = %62, %72, %84, %98
   %.0.i.i5 = phi ptr [ %67, %62 ], [ %79, %72 ], [ %99, %98 ], [ %97, %84 ]
   %100 = load atomic i64, ptr %.0.i.i5 monotonic, align 8, !noalias !37
   %101 = lshr i64 %100, 48
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %3) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %102 = getelementptr inbounds nuw [232 x i64], ptr @duckdb_je_sz_index2size_tab, i64 0, i64 %101
   %103 = load i64, ptr %102, align 8, !tbaa !30
   %104 = getelementptr inbounds nuw i8, ptr %.0.i13.i, i64 72
@@ -743,12 +743,6 @@ define ptr @duckdb_je_bootstrap_calloc(i64 noundef %0, i64 noundef %1) local_unn
   ret ptr %7
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
-
 ; Function Attrs: nounwind uwtable
 define void @duckdb_je_bootstrap_free(ptr noundef %0) local_unnamed_addr #2 {
   %2 = icmp eq ptr %0, null
@@ -763,7 +757,7 @@ define void @duckdb_je_bootstrap_free(ptr noundef %0) local_unnamed_addr #2 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define void @duckdb_je_arena_set(i32 noundef %0, ptr noundef %1) local_unnamed_addr #4 {
+define void @duckdb_je_arena_set(i32 noundef %0, ptr noundef %1) local_unnamed_addr #3 {
 atomic_store_p.exit:
   %2 = zext i32 %0 to i64
   %3 = getelementptr inbounds nuw [4095 x %struct.atomic_p_t], ptr @duckdb_je_arenas, i64 0, i64 %2
@@ -773,7 +767,7 @@ atomic_store_p.exit:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define i32 @duckdb_je_narenas_total_get() local_unnamed_addr #4 {
+define i32 @duckdb_je_narenas_total_get() local_unnamed_addr #3 {
 atomic_load_u.exit:
   %0 = load atomic i32, ptr @narenas_total acquire, align 4
   ret i32 %0
@@ -875,13 +869,13 @@ define void @duckdb_je_arena_migrate(ptr noundef initializes((144, 152)) %0, ptr
   ret void
 }
 
-declare void @duckdb_je_arena_nthreads_dec(ptr noundef, i1 noundef zeroext) local_unnamed_addr #5
+declare void @duckdb_je_arena_nthreads_dec(ptr noundef, i1 noundef zeroext) local_unnamed_addr #4
 
-declare void @duckdb_je_arena_nthreads_inc(ptr noundef, i1 noundef zeroext) local_unnamed_addr #5
+declare void @duckdb_je_arena_nthreads_inc(ptr noundef, i1 noundef zeroext) local_unnamed_addr #4
 
-declare i32 @duckdb_je_arena_nthreads_get(ptr noundef, i1 noundef zeroext) local_unnamed_addr #5
+declare i32 @duckdb_je_arena_nthreads_get(ptr noundef, i1 noundef zeroext) local_unnamed_addr #4
 
-declare void @duckdb_je_arena_decay(ptr noundef, ptr noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #5
+declare void @duckdb_je_arena_decay(ptr noundef, ptr noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define ptr @duckdb_je_arena_choose_hard(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #2 {
@@ -894,10 +888,10 @@ define ptr @duckdb_je_arena_choose_hard(ptr noundef %0, i1 noundef zeroext %1) l
   br i1 %4, label %5, label %106
 
 5:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0148)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.6)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %.sroa.5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0148)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5)
   store i32 0, ptr %.sroa.0148, align 8
   store i32 0, ptr %.sroa.6, align 4
   store i8 0, ptr %.sroa.0, align 2
@@ -1161,10 +1155,10 @@ arena_new_create_background_thread.exit:          ; preds = %103, %100, %96
 
 .loopexit:                                        ; preds = %arena_new_create_background_thread.exit, %.thread
   %spec.select75 = phi ptr [ null, %.thread ], [ %.167, %arena_new_create_background_thread.exit ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %.sroa.5)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.0148)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0148)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
   br label %128
 
 106:                                              ; preds = %2
@@ -1291,7 +1285,7 @@ arena_unbind.exit:                                ; preds = %4, %10
 }
 
 ; Function Attrs: noinline nounwind uwtable
-define ptr @duckdb_je_malloc_default(i64 noundef %0) local_unnamed_addr #6 {
+define ptr @duckdb_je_malloc_default(i64 noundef %0) local_unnamed_addr #5 {
   %2 = alloca %struct.te_ctx_s, align 8
   %3 = alloca %struct.te_ctx_s, align 8
   %4 = alloca i8, align 1
@@ -1389,7 +1383,7 @@ iallocztm_explicit_slab.exit.i37:                 ; preds = %sz_size2index.exit.
   br label %cache_bin_alloc_impl.exit.i55.thread
 
 cache_bin_alloc_impl.exit.i55:                    ; preds = %54
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %60 = tail call fastcc ptr @arena_choose(ptr noundef nonnull %.0.i75270, ptr noundef null)
   %61 = icmp eq ptr %60, null
   br i1 %61, label %.thread, label %62, !prof !7
@@ -1405,7 +1399,7 @@ cache_bin_alloc_impl.exit.i55:                    ; preds = %54
 
 .thread:                                          ; preds = %64, %cache_bin_alloc_impl.exit.i55
   %.0.i24.i60.ph = phi ptr [ null, %cache_bin_alloc_impl.exit.i55 ], [ %65, %64 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %imalloc_no_sample.exit68
 
 66:                                               ; preds = %62
@@ -1413,7 +1407,7 @@ cache_bin_alloc_impl.exit.i55:                    ; preds = %54
   %67 = call ptr @duckdb_je_tcache_alloc_small_hard(ptr noundef nonnull %.0.i75270, ptr noundef nonnull %60, ptr noundef nonnull %42, ptr noundef nonnull %45, i32 noundef %.0.i50.i, ptr noundef nonnull %4) #21
   %68 = load i8, ptr %4, align 1, !tbaa !50, !range !55, !noundef !56
   %.not268 = icmp eq i8 %68, 0
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.not268, label %aligned_usize_get.exit.i.thread, label %cache_bin_alloc_impl.exit.i55.thread
 
 cache_bin_alloc_impl.exit.i55.thread:             ; preds = %53, %57, %66
@@ -1517,7 +1511,7 @@ imalloc_no_sample.exit68:                         ; preds = %.critedge.i.i39, %.
   br i1 %117, label %aligned_usize_get.exit.i.thread, label %118, !prof !125
 
 118:                                              ; preds = %imalloc_no_sample.exit68
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i8 1, ptr %2, align 8, !tbaa !126
   %119 = getelementptr inbounds nuw i8, ptr %.0.i75270, i64 832
   %120 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -1544,7 +1538,7 @@ imalloc_no_sample.exit68:                         ; preds = %.critedge.i.i39, %.
   br label %133
 
 133:                                              ; preds = %132, %118
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %imalloc.exit
 
 aligned_usize_get.exit.i.thread:                  ; preds = %cache_bin_alloc_impl.exit31.i44, %66, %19, %sz_size2index.exit.i, %imalloc_no_sample.exit68
@@ -1682,7 +1676,7 @@ iallocztm_explicit_slab.exit.i.thread:            ; preds = %arena_get.exit124, 
   br label %cache_bin_alloc_impl.exit.i.thread
 
 cache_bin_alloc_impl.exit.i:                      ; preds = %201
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %207 = tail call fastcc ptr @arena_choose(ptr noundef nonnull %10, ptr noundef null)
   %208 = icmp eq ptr %207, null
   br i1 %208, label %.thread254, label %209, !prof !7
@@ -1698,7 +1692,7 @@ cache_bin_alloc_impl.exit.i:                      ; preds = %201
 
 .thread254:                                       ; preds = %211, %cache_bin_alloc_impl.exit.i
   %.0.i24.i.ph = phi ptr [ null, %cache_bin_alloc_impl.exit.i ], [ %212, %211 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %imalloc_no_sample.exit
 
 213:                                              ; preds = %209
@@ -1706,7 +1700,7 @@ cache_bin_alloc_impl.exit.i:                      ; preds = %201
   %214 = call ptr @duckdb_je_tcache_alloc_small_hard(ptr noundef nonnull %10, ptr noundef nonnull %207, ptr noundef nonnull %180, ptr noundef nonnull %192, i32 noundef %.0.i50.i19, ptr noundef nonnull %5) #21
   %215 = load i8, ptr %5, align 1, !tbaa !50, !range !55, !noundef !56
   %.not266 = icmp eq i8 %215, 0
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.not266, label %aligned_usize_get.exit.i12.thread, label %cache_bin_alloc_impl.exit.i.thread
 
 cache_bin_alloc_impl.exit.i.thread:               ; preds = %200, %204, %213
@@ -1828,7 +1822,7 @@ imalloc_no_sample.exit:                           ; preds = %.critedge.i.i, %.th
   br i1 %270, label %aligned_usize_get.exit.i12.thread, label %271, !prof !136
 
 271:                                              ; preds = %imalloc_no_sample.exit
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 1, ptr %3, align 8, !tbaa !126
   %272 = getelementptr inbounds nuw i8, ptr %10, i64 832
   %273 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1855,7 +1849,7 @@ imalloc_no_sample.exit:                           ; preds = %.critedge.i.i, %.th
   br label %286
 
 286:                                              ; preds = %285, %271
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not.i16 = xor i1 %143, true
   %287 = load i8, ptr @duckdb_je_opt_junk_alloc, align 1, !range !55
   %288 = trunc nuw i8 %287 to i1
@@ -1873,13 +1867,13 @@ aligned_usize_get.exit.i12.thread:                ; preds = %cache_bin_alloc_imp
 
 291:                                              ; preds = %286, %289, %aligned_usize_get.exit.i12.thread
   %.0215.ph = phi ptr [ %.0.i30, %286 ], [ %.0.i30, %289 ], [ null, %aligned_usize_get.exit.i12.thread ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 %0, ptr %6, align 16, !tbaa !30
   %scevgep = getelementptr inbounds nuw i8, ptr %6, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %scevgep, i8 0, i64 16, i1 false), !tbaa !30
   %292 = ptrtoint ptr %.0215.ph to i64
   call void @duckdb_je_hook_invoke_alloc(i32 noundef 0, ptr noundef %.0215.ph, i64 noundef %292, ptr noundef nonnull %6) #21
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %imalloc.exit
 
 imalloc.exit:                                     ; preds = %133, %aligned_usize_get.exit.i.thread, %imalloc_init_check.exit, %291
@@ -1887,10 +1881,10 @@ imalloc.exit:                                     ; preds = %133, %aligned_usize
   ret ptr %.0215265
 }
 
-declare void @duckdb_je_hook_invoke_alloc(i32 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #5
+declare void @duckdb_je_hook_invoke_alloc(i32 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind allocsize(0) uwtable
-define noalias ptr @duckdb_je_malloc(i64 noundef %0) local_unnamed_addr #7 {
+define noalias ptr @duckdb_je_malloc(i64 noundef %0) local_unnamed_addr #6 {
   %2 = tail call nonnull align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @duckdb_je_tsd_tls)
   %3 = icmp ugt i64 %0, 4096
   br i1 %3, label %4, label %6, !prof !7
@@ -2094,7 +2088,7 @@ imalloc_no_sample.exit72:                         ; preds = %aligned_usize_get.e
   br i1 %68, label %imalloc.exit, label %69, !prof !7
 
 69:                                               ; preds = %imalloc_no_sample.exit72
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 1, ptr %4, align 8, !tbaa !126
   %70 = getelementptr inbounds nuw i8, ptr %.0.i79250, i64 832
   %71 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -2121,7 +2115,7 @@ imalloc_no_sample.exit72:                         ; preds = %aligned_usize_get.e
   br label %84
 
 84:                                               ; preds = %83, %69
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store ptr %67, ptr %0, align 8, !tbaa !112
   br label %imalloc.exit
 
@@ -2281,7 +2275,7 @@ imalloc_no_sample.exit:                           ; preds = %150, %160, %arena_g
   br i1 %163, label %aligned_usize_get.exit.i16.thread, label %164, !prof !140
 
 164:                                              ; preds = %imalloc_no_sample.exit
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 1, ptr %5, align 8, !tbaa !126
   %165 = getelementptr inbounds nuw i8, ptr %10, i64 832
   %166 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -2308,7 +2302,7 @@ imalloc_no_sample.exit:                           ; preds = %150, %160, %arena_g
   br label %179
 
 179:                                              ; preds = %178, %164
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not.i20 = xor i1 %96, true
   %180 = load i8, ptr @duckdb_je_opt_junk_alloc, align 1, !range !55
   %181 = trunc nuw i8 %180 to i1
@@ -2325,7 +2319,7 @@ imalloc_no_sample.exit:                           ; preds = %150, %160, %arena_g
 
 aligned_usize_get.exit.i16.thread:                ; preds = %160, %128, %sz_s2u_compute.exit29.i, %124, %compute_size_with_overflow.exit, %imalloc_no_sample.exit, %aligned_usize_get.exit.i16, %183
   %.1.i.ph = phi i32 [ 22, %compute_size_with_overflow.exit ], [ 12, %imalloc_no_sample.exit ], [ 12, %aligned_usize_get.exit.i16 ], [ 0, %183 ], [ 12, %124 ], [ 12, %sz_s2u_compute.exit29.i ], [ 12, %128 ], [ 12, %160 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %184 = ptrtoint ptr %0 to i64
   store i64 %184, ptr %6, align 16, !tbaa !30
   %185 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -2335,7 +2329,7 @@ aligned_usize_get.exit.i16.thread:                ; preds = %160, %128, %sz_s2u_
   %187 = load ptr, ptr %0, align 8, !tbaa !112
   %188 = zext nneg i32 %.1.i.ph to i64
   call void @duckdb_je_hook_invoke_alloc(i32 noundef 1, ptr noundef %187, i64 noundef %188, ptr noundef nonnull %6) #21
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %imalloc.exit
 
 imalloc.exit:                                     ; preds = %47, %sz_s2u_compute.exit29.i94, %43, %compute_size_with_overflow.exit31, %imalloc_no_sample.exit72, %aligned_usize_get.exit.i, %84, %imalloc_init_check.exit, %aligned_usize_get.exit.i16.thread
@@ -2344,7 +2338,7 @@ imalloc.exit:                                     ; preds = %47, %sz_s2u_compute
 }
 
 ; Function Attrs: nounwind allocsize(1) uwtable
-define noalias ptr @duckdb_je_aligned_alloc(i64 noundef %0, i64 noundef %1) local_unnamed_addr #8 {
+define noalias ptr @duckdb_je_aligned_alloc(i64 noundef %0, i64 noundef %1) local_unnamed_addr #7 {
   %3 = alloca %struct.te_ctx_s, align 8
   %4 = alloca %struct.te_ctx_s, align 8
   %5 = alloca [3 x i64], align 16
@@ -2465,7 +2459,7 @@ imalloc_no_sample.exit70:                         ; preds = %aligned_usize_get.e
   br i1 %65, label %aligned_usize_get.exit.i.thread, label %66, !prof !7
 
 66:                                               ; preds = %imalloc_no_sample.exit70
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 1, ptr %3, align 8, !tbaa !126
   %67 = getelementptr inbounds nuw i8, ptr %.0.i77251, i64 832
   %68 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -2492,7 +2486,7 @@ imalloc_no_sample.exit70:                         ; preds = %aligned_usize_get.e
   br label %81
 
 81:                                               ; preds = %80, %66
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %imalloc.exit
 
 aligned_usize_get.exit.i.thread:                  ; preds = %44, %sz_s2u_compute.exit29.i92, %40, %aligned_usize_get.exit.i, %imalloc_no_sample.exit70
@@ -2658,7 +2652,7 @@ imalloc_no_sample.exit:                           ; preds = %148, %158, %arena_g
   br i1 %161, label %aligned_usize_get.exit.i14.thread, label %162, !prof !140
 
 162:                                              ; preds = %imalloc_no_sample.exit
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 1, ptr %4, align 8, !tbaa !126
   %163 = getelementptr inbounds nuw i8, ptr %9, i64 832
   %164 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -2685,7 +2679,7 @@ imalloc_no_sample.exit:                           ; preds = %148, %158, %arena_g
   br label %177
 
 177:                                              ; preds = %176, %162
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not.i18 = xor i1 %94, true
   %178 = load i8, ptr @duckdb_je_opt_junk_alloc, align 1, !range !55
   %179 = trunc nuw i8 %178 to i1
@@ -2708,7 +2702,7 @@ aligned_usize_get.exit.i14.thread:                ; preds = %158, %126, %sz_s2u_
 
 184:                                              ; preds = %177, %180, %aligned_usize_get.exit.i14.thread, %182
   %.0217.ph = phi ptr [ %160, %177 ], [ %160, %180 ], [ null, %182 ], [ null, %aligned_usize_get.exit.i14.thread ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %0, ptr %5, align 16, !tbaa !30
   %185 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %1, ptr %185, align 8, !tbaa !30
@@ -2716,7 +2710,7 @@ aligned_usize_get.exit.i14.thread:                ; preds = %158, %126, %sz_s2u_
   store i64 0, ptr %.ptr, align 16, !tbaa !30
   %186 = ptrtoint ptr %.0217.ph to i64
   call void @duckdb_je_hook_invoke_alloc(i32 noundef 2, ptr noundef %.0217.ph, i64 noundef %186, ptr noundef nonnull %5) #21
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %imalloc.exit
 
 imalloc.exit:                                     ; preds = %81, %aligned_usize_get.exit.i.thread, %83, %imalloc_init_check.exit, %184
@@ -2725,7 +2719,7 @@ imalloc.exit:                                     ; preds = %81, %aligned_usize_
 }
 
 ; Function Attrs: nounwind allocsize(0,1) uwtable
-define noalias ptr @duckdb_je_calloc(i64 noundef %0, i64 noundef %1) local_unnamed_addr #9 {
+define noalias ptr @duckdb_je_calloc(i64 noundef %0, i64 noundef %1) local_unnamed_addr #8 {
   %3 = alloca %struct.te_ctx_s, align 8
   %4 = alloca %struct.te_ctx_s, align 8
   %5 = alloca i8, align 1
@@ -2844,7 +2838,7 @@ iallocztm_explicit_slab.exit.i39:                 ; preds = %sz_size2index.exit.
   br label %cache_bin_alloc_impl.exit.i57.thread
 
 cache_bin_alloc_impl.exit.i57:                    ; preds = %60
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %66 = tail call fastcc ptr @arena_choose(ptr noundef nonnull %.0.i77280, ptr noundef null)
   %67 = icmp eq ptr %66, null
   br i1 %67, label %.thread226, label %68, !prof !7
@@ -2860,7 +2854,7 @@ cache_bin_alloc_impl.exit.i57:                    ; preds = %60
 
 .thread226:                                       ; preds = %70, %cache_bin_alloc_impl.exit.i57
   %.0.i24.i62.ph = phi ptr [ null, %cache_bin_alloc_impl.exit.i57 ], [ %71, %70 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %imalloc_no_sample.exit70
 
 72:                                               ; preds = %68
@@ -2868,7 +2862,7 @@ cache_bin_alloc_impl.exit.i57:                    ; preds = %60
   %73 = call ptr @duckdb_je_tcache_alloc_small_hard(ptr noundef nonnull %.0.i77280, ptr noundef nonnull %66, ptr noundef nonnull %48, ptr noundef nonnull %51, i32 noundef %.0.i50.i, ptr noundef nonnull %5) #21
   %74 = load i8, ptr %5, align 1, !tbaa !50, !range !55, !noundef !56
   %.not277 = icmp eq i8 %74, 0
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.not277, label %aligned_usize_get.exit.i.thread, label %.cache_bin_alloc_impl.exit.i57.thread_crit_edge
 
 .cache_bin_alloc_impl.exit.i57.thread_crit_edge:  ; preds = %72
@@ -2980,7 +2974,7 @@ imalloc_no_sample.exit70:                         ; preds = %.critedge.i.i41, %.
   br i1 %125, label %aligned_usize_get.exit.i.thread, label %126, !prof !125
 
 126:                                              ; preds = %imalloc_no_sample.exit70
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 1, ptr %3, align 8, !tbaa !126
   %127 = getelementptr inbounds nuw i8, ptr %.0.i77280, i64 832
   %128 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -3007,7 +3001,7 @@ imalloc_no_sample.exit70:                         ; preds = %.critedge.i.i41, %.
   br label %141
 
 141:                                              ; preds = %140, %126
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %imalloc.exit.thread
 
 aligned_usize_get.exit.i.thread:                  ; preds = %14, %cache_bin_alloc_impl.exit31.i46, %72, %25, %sz_size2index.exit.i, %compute_size_with_overflow.exit29, %imalloc_no_sample.exit70
@@ -3164,7 +3158,7 @@ iallocztm_explicit_slab.exit.i.thread:            ; preds = %arena_get.exit126, 
   br label %cache_bin_alloc_impl.exit.i.thread
 
 cache_bin_alloc_impl.exit.i:                      ; preds = %212
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %218 = tail call fastcc ptr @arena_choose(ptr noundef nonnull %11, ptr noundef null)
   %219 = icmp eq ptr %218, null
   br i1 %219, label %.thread260, label %220, !prof !7
@@ -3180,7 +3174,7 @@ cache_bin_alloc_impl.exit.i:                      ; preds = %212
 
 .thread260:                                       ; preds = %222, %cache_bin_alloc_impl.exit.i
   %.0.i24.i.ph = phi ptr [ null, %cache_bin_alloc_impl.exit.i ], [ %223, %222 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %imalloc_no_sample.exit
 
 224:                                              ; preds = %220
@@ -3188,7 +3182,7 @@ cache_bin_alloc_impl.exit.i:                      ; preds = %212
   %225 = call ptr @duckdb_je_tcache_alloc_small_hard(ptr noundef nonnull %11, ptr noundef nonnull %218, ptr noundef nonnull %191, ptr noundef nonnull %203, i32 noundef %.0.i50.i21, ptr noundef nonnull %6) #21
   %226 = load i8, ptr %6, align 1, !tbaa !50, !range !55, !noundef !56
   %.not272 = icmp eq i8 %226, 0
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %.not272, label %aligned_usize_get.exit.i14.thread, label %cache_bin_alloc_impl.exit.i.thread
 
 cache_bin_alloc_impl.exit.i.thread:               ; preds = %211, %215, %224
@@ -3299,7 +3293,7 @@ imalloc_no_sample.exit:                           ; preds = %.critedge.i.i, %.th
   br i1 %278, label %aligned_usize_get.exit.i14.thread, label %279, !prof !136
 
 279:                                              ; preds = %imalloc_no_sample.exit
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 1, ptr %4, align 8, !tbaa !126
   %280 = getelementptr inbounds nuw i8, ptr %11, i64 832
   %281 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -3326,7 +3320,7 @@ imalloc_no_sample.exit:                           ; preds = %.critedge.i.i, %.th
   br label %294
 
 294:                                              ; preds = %279, %293
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %imalloc.exit
 
 aligned_usize_get.exit.i14.thread:                ; preds = %151, %cache_bin_alloc_impl.exit31.i, %224, %198, %162, %sz_size2index.exit.i20, %compute_size_with_overflow.exit, %imalloc_no_sample.exit
@@ -3336,7 +3330,7 @@ aligned_usize_get.exit.i14.thread:                ; preds = %151, %cache_bin_all
 
 imalloc.exit:                                     ; preds = %294, %aligned_usize_get.exit.i14.thread
   %.0217 = phi ptr [ null, %aligned_usize_get.exit.i14.thread ], [ %.0.i32, %294 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %0, ptr %7, align 16, !tbaa !30
   %296 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %1, ptr %296, align 8, !tbaa !30
@@ -3344,7 +3338,7 @@ imalloc.exit:                                     ; preds = %294, %aligned_usize
   store i64 0, ptr %.ptr, align 16, !tbaa !30
   %297 = ptrtoint ptr %.0217 to i64
   call void @duckdb_je_hook_invoke_alloc(i32 noundef 3, ptr noundef %.0217, i64 noundef %297, ptr noundef nonnull %7) #21
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %imalloc.exit.thread
 
 imalloc.exit.thread:                              ; preds = %aligned_usize_get.exit.i.thread, %141, %imalloc_init_check.exit, %imalloc.exit
@@ -3353,7 +3347,7 @@ imalloc.exit.thread:                              ; preds = %aligned_usize_get.e
 }
 
 ; Function Attrs: noinline nounwind uwtable
-define void @duckdb_je_free_default(ptr noundef %0) local_unnamed_addr #6 {
+define void @duckdb_je_free_default(ptr noundef %0) local_unnamed_addr #5 {
   %2 = alloca %struct.te_ctx_s, align 8
   %3 = alloca %struct.te_ctx_s, align 8
   %4 = alloca %struct.rtree_contents_s, align 8
@@ -3559,15 +3553,15 @@ cache_bin_dalloc_easy.exit12.i:                   ; preds = %99
   br label %arena_dalloc.exit
 
 tsdn_rtree_ctx.exit:                              ; preds = %94, %90
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call fastcc void @rtree_read(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull %.0.i3894, ptr noundef nonnull %14, i64 noundef %15)
   %116 = load ptr, ptr %4, align 8, !tbaa !153
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   tail call void @duckdb_je_large_dalloc(ptr noundef nonnull %.0.i3894, ptr noundef %116) #21
   br label %arena_dalloc.exit
 
 arena_dalloc.exit:                                ; preds = %88, %78, %cache_bin_dalloc_easy.exit27.thread, %77, %cache_bin_dalloc_easy.exit12.i.thread, %114, %cache_bin_dalloc_easy.exit12.i, %tsdn_rtree_ctx.exit
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 0, ptr %3, align 8, !tbaa !126
   %117 = getelementptr inbounds nuw i8, ptr %.0.i3894, i64 848
   %118 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -3594,7 +3588,7 @@ arena_dalloc.exit:                                ; preds = %88, %78, %cache_bin
   br label %te_event_advance.exit
 
 te_event_advance.exit:                            ; preds = %arena_dalloc.exit, %130
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %217
 
 131:                                              ; preds = %tsd_fetch_impl.exit
@@ -3612,7 +3606,7 @@ te_event_advance.exit:                            ; preds = %arena_dalloc.exit, 
 
 tcache_get_from_ind.exit:                         ; preds = %135, %131
   %.0.i = phi ptr [ null, %131 ], [ %spec.select, %135 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %139 = ptrtoint ptr %0 to i64
   store i64 %139, ptr %6, align 16, !tbaa !30
   %scevgep = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -3741,15 +3735,15 @@ cache_bin_dalloc_easy.exit12.i33:                 ; preds = %185
   br label %arena_dalloc.exit22
 
 tsdn_rtree_ctx.exit42:                            ; preds = %180, %176
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call fastcc void @rtree_read(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull %11, ptr noundef nonnull %140, i64 noundef %139)
   %202 = load ptr, ptr %5, align 8, !tbaa !153
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @duckdb_je_large_dalloc(ptr noundef nonnull %11, ptr noundef %202) #21
   br label %arena_dalloc.exit22
 
 arena_dalloc.exit22:                              ; preds = %174, %164, %cache_bin_dalloc_easy.exit31.thread, %163, %cache_bin_dalloc_easy.exit12.i33.thread, %200, %cache_bin_dalloc_easy.exit12.i33, %tsdn_rtree_ctx.exit42, %149
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i8 0, ptr %2, align 8, !tbaa !126
   %203 = getelementptr inbounds nuw i8, ptr %11, i64 848
   %204 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -3776,15 +3770,15 @@ arena_dalloc.exit22:                              ; preds = %174, %164, %cache_b
   br label %te_event_advance.exit47
 
 te_event_advance.exit47:                          ; preds = %arena_dalloc.exit22, %216
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #21
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %217
 
 217:                                              ; preds = %te_event_advance.exit, %te_event_advance.exit47, %1
   ret void
 }
 
-declare void @duckdb_je_hook_invoke_dalloc(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare void @duckdb_je_hook_invoke_dalloc(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define void @duckdb_je_free(ptr noundef %0) local_unnamed_addr #2 {
@@ -4127,7 +4121,7 @@ imalloc_no_sample.exit68:                         ; preds = %aligned_usize_get.e
   br i1 %50, label %imalloc.exit, label %51, !prof !7
 
 51:                                               ; preds = %imalloc_no_sample.exit68
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i8 1, ptr %2, align 8, !tbaa !126
   %52 = getelementptr inbounds nuw i8, ptr %.0.i75245, i64 832
   %53 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -4154,7 +4148,7 @@ imalloc_no_sample.exit68:                         ; preds = %aligned_usize_get.e
   br label %66
 
 66:                                               ; preds = %65, %51
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %imalloc.exit
 
 67:                                               ; preds = %tsd_fetch_impl.exit
@@ -4288,7 +4282,7 @@ imalloc_no_sample.exit:                           ; preds = %117, %127, %arena_g
   br i1 %130, label %aligned_usize_get.exit.i12.thread, label %131, !prof !140
 
 131:                                              ; preds = %imalloc_no_sample.exit
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 1, ptr %3, align 8, !tbaa !126
   %132 = getelementptr inbounds nuw i8, ptr %8, i64 832
   %133 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -4315,7 +4309,7 @@ imalloc_no_sample.exit:                           ; preds = %117, %127, %arena_g
   br label %146
 
 146:                                              ; preds = %145, %131
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not.i16 = xor i1 %75, true
   %147 = load i8, ptr @duckdb_je_opt_junk_alloc, align 1, !range !55
   %148 = trunc nuw i8 %147 to i1
@@ -4328,13 +4322,13 @@ imalloc_no_sample.exit:                           ; preds = %117, %127, %arena_g
 
 aligned_usize_get.exit.i12.thread:                ; preds = %127, %sz_s2u_compute.exit29.i, %aligned_usize_get.exit.i12, %imalloc_no_sample.exit, %146, %149
   %.0215.ph = phi ptr [ null, %aligned_usize_get.exit.i12 ], [ null, %imalloc_no_sample.exit ], [ %129, %146 ], [ %129, %149 ], [ null, %sz_s2u_compute.exit29.i ], [ null, %127 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %0, ptr %4, align 16, !tbaa !30
   %scevgep = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %scevgep, i8 0, i64 16, i1 false), !tbaa !30
   %150 = ptrtoint ptr %.0215.ph to i64
   call void @duckdb_je_hook_invoke_alloc(i32 noundef 5, ptr noundef %.0215.ph, i64 noundef %150, ptr noundef nonnull %4) #21
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %imalloc.exit
 
 imalloc.exit:                                     ; preds = %sz_s2u_compute.exit29.i90, %aligned_usize_get.exit.i, %imalloc_no_sample.exit68, %66, %imalloc_init_check.exit, %aligned_usize_get.exit.i12.thread
@@ -4343,7 +4337,7 @@ imalloc.exit:                                     ; preds = %sz_s2u_compute.exit
 }
 
 ; Function Attrs: nounwind allocsize(0) uwtable
-define noalias ptr @duckdb_je_mallocx(i64 noundef %0, i32 noundef %1) local_unnamed_addr #7 {
+define noalias ptr @duckdb_je_mallocx(i64 noundef %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = alloca %struct.te_ctx_s, align 8
   %4 = alloca %struct.te_ctx_s, align 8
   %5 = alloca i8, align 1
@@ -4647,7 +4641,7 @@ iallocztm_explicit_slab.exit.i46:                 ; preds = %132
   br label %cache_bin_alloc_impl.exit.i64.thread
 
 cache_bin_alloc_impl.exit.i64:                    ; preds = %147
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %153 = tail call fastcc ptr @arena_choose(ptr noundef nonnull %.0.i84307, ptr noundef %.1.ph)
   %154 = icmp eq ptr %153, null
   br i1 %154, label %.thread246, label %155, !prof !7
@@ -4663,7 +4657,7 @@ cache_bin_alloc_impl.exit.i64:                    ; preds = %147
 
 .thread246:                                       ; preds = %157, %cache_bin_alloc_impl.exit.i64
   %.0.i24.i69.ph = phi ptr [ null, %cache_bin_alloc_impl.exit.i64 ], [ %158, %157 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %imalloc_no_sample.exit77
 
 159:                                              ; preds = %155
@@ -4671,7 +4665,7 @@ cache_bin_alloc_impl.exit.i64:                    ; preds = %147
   %160 = call ptr @duckdb_je_tcache_alloc_small_hard(ptr noundef nonnull %.0.i84307, ptr noundef nonnull %153, ptr noundef nonnull %.0.i.i41, ptr noundef nonnull %138, i32 noundef %.0221236, ptr noundef nonnull %5) #21
   %161 = load i8, ptr %5, align 1, !tbaa !50, !range !55, !noundef !56
   %.not305 = icmp eq i8 %161, 0
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.not305, label %imalloc.exit, label %cache_bin_alloc_impl.exit.i64.thread
 
 cache_bin_alloc_impl.exit.i64.thread:             ; preds = %146, %150, %159
@@ -4799,7 +4793,7 @@ imalloc_no_sample.exit77:                         ; preds = %.critedge.i.i48, %.
   br i1 %223, label %imalloc.exit, label %224, !prof !164
 
 224:                                              ; preds = %imalloc_no_sample.exit77
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 1, ptr %3, align 8, !tbaa !126
   %225 = getelementptr inbounds nuw i8, ptr %.0.i84307, i64 832
   %226 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -4826,7 +4820,7 @@ imalloc_no_sample.exit77:                         ; preds = %.critedge.i.i48, %.
   br label %239
 
 239:                                              ; preds = %238, %224
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %imalloc.exit
 
 240:                                              ; preds = %tsd_fetch_impl.exit
@@ -5101,7 +5095,7 @@ iallocztm_explicit_slab.exit.i:                   ; preds = %355
   br label %cache_bin_alloc_impl.exit.i.thread
 
 cache_bin_alloc_impl.exit.i:                      ; preds = %370
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %376 = tail call fastcc ptr @arena_choose(ptr noundef nonnull %27, ptr noundef %.1216.ph)
   %377 = icmp eq ptr %376, null
   br i1 %377, label %.thread290, label %378, !prof !7
@@ -5117,7 +5111,7 @@ cache_bin_alloc_impl.exit.i:                      ; preds = %370
 
 .thread290:                                       ; preds = %380, %cache_bin_alloc_impl.exit.i
   %.0.i24.i.ph = phi ptr [ null, %cache_bin_alloc_impl.exit.i ], [ %381, %380 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %imalloc_no_sample.exit
 
 382:                                              ; preds = %378
@@ -5125,7 +5119,7 @@ cache_bin_alloc_impl.exit.i:                      ; preds = %370
   %383 = call ptr @duckdb_je_tcache_alloc_small_hard(ptr noundef nonnull %27, ptr noundef nonnull %376, ptr noundef nonnull %.0.i.i37279.ph, ptr noundef nonnull %361, i32 noundef %.0218267, ptr noundef nonnull %6) #21
   %384 = load i8, ptr %6, align 1, !tbaa !50, !range !55, !noundef !56
   %.not303 = icmp eq i8 %384, 0
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %.not303, label %aligned_usize_get.exit.i21.thread, label %cache_bin_alloc_impl.exit.i.thread
 
 cache_bin_alloc_impl.exit.i.thread:               ; preds = %369, %373, %382
@@ -5253,7 +5247,7 @@ imalloc_no_sample.exit:                           ; preds = %.critedge.i.i, %.th
   br i1 %446, label %aligned_usize_get.exit.i21.thread, label %447, !prof !136
 
 447:                                              ; preds = %imalloc_no_sample.exit
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 1, ptr %4, align 8, !tbaa !126
   %448 = getelementptr inbounds nuw i8, ptr %27, i64 832
   %449 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -5280,7 +5274,7 @@ imalloc_no_sample.exit:                           ; preds = %.critedge.i.i, %.th
   br label %462
 
 462:                                              ; preds = %461, %447
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not.i25 = xor i1 %spec.select.i.i17, true
   %463 = load i8, ptr @duckdb_je_opt_junk_alloc, align 1, !range !55
   %464 = trunc nuw i8 %463 to i1
@@ -5293,7 +5287,7 @@ imalloc_no_sample.exit:                           ; preds = %.critedge.i.i, %.th
 
 aligned_usize_get.exit.i21.thread:                ; preds = %cache_bin_alloc_impl.exit31.i, %382, %353, %sz_s2u_compute.exit29.i, %304, %257, %sz_size2index.exit.i27, %aligned_usize_get.exit.i21, %imalloc_no_sample.exit, %462, %465
   %.0224.ph = phi ptr [ null, %aligned_usize_get.exit.i21 ], [ null, %imalloc_no_sample.exit ], [ %.0.i39, %462 ], [ %.0.i39, %465 ], [ null, %sz_size2index.exit.i27 ], [ null, %257 ], [ null, %304 ], [ null, %sz_s2u_compute.exit29.i ], [ null, %353 ], [ null, %382 ], [ null, %cache_bin_alloc_impl.exit31.i ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %0, ptr %7, align 16, !tbaa !30
   %466 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %467 = sext i32 %1 to i64
@@ -5302,7 +5296,7 @@ aligned_usize_get.exit.i21.thread:                ; preds = %cache_bin_alloc_imp
   store i64 0, ptr %.ptr, align 16, !tbaa !30
   %468 = ptrtoint ptr %.0224.ph to i64
   call void @duckdb_je_hook_invoke_alloc(i32 noundef 7, ptr noundef %.0224.ph, i64 noundef %468, ptr noundef nonnull %7) #21
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %imalloc.exit
 
 imalloc.exit:                                     ; preds = %cache_bin_alloc_impl.exit31.i53, %159, %130, %sz_s2u_compute.exit29.i99, %86, %39, %sz_size2index.exit.i, %aligned_usize_get.exit.i, %imalloc_no_sample.exit77, %239, %imalloc_init_check.exit, %aligned_usize_get.exit.i21.thread
@@ -5311,7 +5305,7 @@ imalloc.exit:                                     ; preds = %cache_bin_alloc_imp
 }
 
 ; Function Attrs: nounwind allocsize(1) uwtable
-define ptr @duckdb_je_rallocx(ptr noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #8 {
+define ptr @duckdb_je_rallocx(ptr noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #7 {
   %4 = tail call fastcc ptr @do_rallocx(ptr noundef %0, i64 noundef %1, i32 noundef %2, i1 noundef zeroext false)
   ret ptr %4
 }
@@ -5394,7 +5388,7 @@ mallocx_tcache_get.exit.thread:                   ; preds = %mallocx_arena_get.e
   %40 = trunc nuw i8 %39 to i1
   %41 = getelementptr inbounds nuw i8, ptr %.0.i52, i64 864
   %spec.select = select i1 %40, ptr %41, ptr null
-  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %9) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   br label %52
 
 42:                                               ; preds = %mallocx_tcache_get.exit
@@ -5420,7 +5414,7 @@ mallocx_tcache_get.exit.thread:                   ; preds = %mallocx_arena_get.e
 
 tcache_get_from_ind.exit:                         ; preds = %48, %42, %mallocx_arena_get.exit.thread, %mallocx_tcache_get.exit
   %.0.i = phi ptr [ null, %mallocx_tcache_get.exit ], [ null, %mallocx_arena_get.exit.thread ], [ %46, %42 ], [ %49, %48 ]
-  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %9) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %50 = icmp eq ptr %.0.i52, null
   br i1 %50, label %51, label %52, !prof !8
 
@@ -5516,7 +5510,7 @@ rtree_metadata_read.exit:                         ; preds = %62, %72, %84, %98
   %.0.i.i92 = phi ptr [ %67, %62 ], [ %79, %72 ], [ %99, %98 ], [ %97, %84 ]
   %100 = load atomic i64, ptr %.0.i.i92 monotonic, align 8, !noalias !165
   %101 = lshr i64 %100, 48
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %9) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %102 = getelementptr inbounds nuw [232 x i64], ptr @duckdb_je_sz_index2size_tab, i64 0, i64 %101
   %103 = load i64, ptr %102, align 8, !tbaa !30
   %104 = icmp eq i64 %15, 0
@@ -5900,8 +5894,8 @@ cache_bin_dalloc_easy.exit12.i.i:                 ; preds = %301
   br label %iralloct_explicit_slab.exit.thread
 
 318:                                              ; preds = %295, %sz_size2index.exit.i.thread
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %7) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br i1 %54, label %319, label %320, !prof !7
 
 319:                                              ; preds = %318
@@ -5916,8 +5910,8 @@ tsdn_rtree_ctx.exit:                              ; preds = %319, %320
   %.0.i79 = phi ptr [ %7, %319 ], [ %321, %320 ]
   call fastcc void @rtree_read(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef %.0.i52, ptr noundef nonnull %.0.i79, i64 noundef %55)
   %322 = load ptr, ptr %8, align 8, !tbaa !153
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %7) #21
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @duckdb_je_large_dalloc(ptr noundef %.0.i52, ptr noundef %322) #21
   br label %iralloct_explicit_slab.exit.thread
 
@@ -5928,7 +5922,7 @@ iralloct_explicit_slab.exit:                      ; preds = %tsdn_witness_tsdp_g
 
 iralloct_explicit_slab.exit.thread:               ; preds = %239, %280, %290, %cache_bin_dalloc_easy.exit18.i.thread, %279, %cache_bin_dalloc_easy.exit12.i.i.thread, %316, %cache_bin_dalloc_easy.exit12.i.i, %tsdn_rtree_ctx.exit, %iralloct_explicit_slab.exit
   %.0.i55117 = phi ptr [ %323, %iralloct_explicit_slab.exit ], [ %228, %tsdn_rtree_ctx.exit ], [ %228, %cache_bin_dalloc_easy.exit12.i.i ], [ %228, %316 ], [ %228, %cache_bin_dalloc_easy.exit12.i.i.thread ], [ %228, %279 ], [ %228, %cache_bin_dalloc_easy.exit18.i.thread ], [ %228, %290 ], [ %228, %280 ], [ %228, %239 ]
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 1, ptr %5, align 8, !tbaa !126
   %325 = getelementptr inbounds nuw i8, ptr %.0.i52, i64 832
   %326 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -5955,8 +5949,8 @@ iralloct_explicit_slab.exit.thread:               ; preds = %239, %280, %290, %c
   br label %te_event_advance.exit82
 
 te_event_advance.exit82:                          ; preds = %iralloct_explicit_slab.exit.thread, %338
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #21
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 0, ptr %6, align 8, !tbaa !126
   %339 = getelementptr inbounds nuw i8, ptr %.0.i52, i64 848
   %340 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -5983,7 +5977,7 @@ te_event_advance.exit82:                          ; preds = %iralloct_explicit_s
   br label %te_event_advance.exit
 
 te_event_advance.exit:                            ; preds = %te_event_advance.exit82, %352
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %353 = load i8, ptr @duckdb_je_opt_junk_alloc, align 1, !tbaa !50, !range !55, !noundef !56
   %354 = trunc nuw i8 %353 to i1
   br i1 %354, label %355, label %362, !prof !7
@@ -6013,7 +6007,7 @@ arena_get_from_ind.exit:                          ; preds = %sz_s2u_compute.exit
 }
 
 ; Function Attrs: nounwind allocsize(1) uwtable
-define ptr @duckdb_je_realloc(ptr noundef %0, i64 noundef %1) local_unnamed_addr #8 {
+define ptr @duckdb_je_realloc(ptr noundef %0, i64 noundef %1) local_unnamed_addr #7 {
   %3 = alloca %struct.te_ctx_s, align 8
   %4 = alloca %struct.te_ctx_s, align 8
   %5 = alloca i8, align 1
@@ -6130,7 +6124,7 @@ iallocztm_explicit_slab.exit.i50:                 ; preds = %sz_size2index.exit.
   br label %cache_bin_alloc_impl.exit.i68.thread
 
 cache_bin_alloc_impl.exit.i68:                    ; preds = %65
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %71 = tail call fastcc ptr @arena_choose(ptr noundef nonnull %.0.i88284, ptr noundef null)
   %72 = icmp eq ptr %71, null
   br i1 %72, label %.thread, label %73, !prof !7
@@ -6146,7 +6140,7 @@ cache_bin_alloc_impl.exit.i68:                    ; preds = %65
 
 .thread:                                          ; preds = %75, %cache_bin_alloc_impl.exit.i68
   %.0.i24.i73.ph = phi ptr [ null, %cache_bin_alloc_impl.exit.i68 ], [ %76, %75 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %imalloc_no_sample.exit81
 
 77:                                               ; preds = %73
@@ -6154,7 +6148,7 @@ cache_bin_alloc_impl.exit.i68:                    ; preds = %65
   %78 = call ptr @duckdb_je_tcache_alloc_small_hard(ptr noundef nonnull %.0.i88284, ptr noundef nonnull %71, ptr noundef nonnull %53, ptr noundef nonnull %56, i32 noundef %.0.i50.i, ptr noundef nonnull %5) #21
   %79 = load i8, ptr %5, align 1, !tbaa !50, !range !55, !noundef !56
   %.not282 = icmp eq i8 %79, 0
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.not282, label %aligned_usize_get.exit.i.thread, label %cache_bin_alloc_impl.exit.i68.thread
 
 cache_bin_alloc_impl.exit.i68.thread:             ; preds = %64, %68, %77
@@ -6258,7 +6252,7 @@ imalloc_no_sample.exit81:                         ; preds = %.critedge.i.i52, %.
   br i1 %128, label %aligned_usize_get.exit.i.thread, label %129, !prof !125
 
 129:                                              ; preds = %imalloc_no_sample.exit81
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 1, ptr %3, align 8, !tbaa !126
   %130 = getelementptr inbounds nuw i8, ptr %.0.i88284, i64 832
   %131 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -6285,7 +6279,7 @@ imalloc_no_sample.exit81:                         ; preds = %.critedge.i.i52, %.
   br label %144
 
 144:                                              ; preds = %143, %129
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %imalloc.exit
 
 aligned_usize_get.exit.i.thread:                  ; preds = %cache_bin_alloc_impl.exit31.i57, %77, %30, %sz_size2index.exit.i, %imalloc_no_sample.exit81
@@ -6423,7 +6417,7 @@ iallocztm_explicit_slab.exit.i.thread:            ; preds = %arena_get.exit137, 
   br label %cache_bin_alloc_impl.exit.i.thread
 
 cache_bin_alloc_impl.exit.i:                      ; preds = %212
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %218 = tail call fastcc ptr @arena_choose(ptr noundef nonnull %21, ptr noundef null)
   %219 = icmp eq ptr %218, null
   br i1 %219, label %.thread268, label %220, !prof !7
@@ -6439,7 +6433,7 @@ cache_bin_alloc_impl.exit.i:                      ; preds = %212
 
 .thread268:                                       ; preds = %222, %cache_bin_alloc_impl.exit.i
   %.0.i24.i.ph = phi ptr [ null, %cache_bin_alloc_impl.exit.i ], [ %223, %222 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %imalloc_no_sample.exit
 
 224:                                              ; preds = %220
@@ -6447,7 +6441,7 @@ cache_bin_alloc_impl.exit.i:                      ; preds = %212
   %225 = call ptr @duckdb_je_tcache_alloc_small_hard(ptr noundef nonnull %21, ptr noundef nonnull %218, ptr noundef nonnull %191, ptr noundef nonnull %203, i32 noundef %.0.i50.i32, ptr noundef nonnull %6) #21
   %226 = load i8, ptr %6, align 1, !tbaa !50, !range !55, !noundef !56
   %.not280 = icmp eq i8 %226, 0
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %.not280, label %aligned_usize_get.exit.i25.thread, label %cache_bin_alloc_impl.exit.i.thread
 
 cache_bin_alloc_impl.exit.i.thread:               ; preds = %211, %215, %224
@@ -6569,7 +6563,7 @@ imalloc_no_sample.exit:                           ; preds = %.critedge.i.i, %.th
   br i1 %281, label %aligned_usize_get.exit.i25.thread, label %282, !prof !172
 
 282:                                              ; preds = %imalloc_no_sample.exit
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 1, ptr %4, align 8, !tbaa !126
   %283 = getelementptr inbounds nuw i8, ptr %21, i64 832
   %284 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -6596,7 +6590,7 @@ imalloc_no_sample.exit:                           ; preds = %.critedge.i.i, %.th
   br label %297
 
 297:                                              ; preds = %296, %282
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not.i29 = xor i1 %154, true
   %298 = load i8, ptr @duckdb_je_opt_junk_alloc, align 1, !range !55
   %299 = trunc nuw i8 %298 to i1
@@ -6614,7 +6608,7 @@ aligned_usize_get.exit.i25.thread:                ; preds = %cache_bin_alloc_imp
 
 302:                                              ; preds = %297, %300, %aligned_usize_get.exit.i25.thread
   %.0229.ph = phi ptr [ %.0.i43, %297 ], [ %.0.i43, %300 ], [ null, %aligned_usize_get.exit.i25.thread ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %303 = ptrtoint ptr %0 to i64
   store i64 %303, ptr %7, align 16, !tbaa !30
   %304 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -6623,7 +6617,7 @@ aligned_usize_get.exit.i25.thread:                ; preds = %cache_bin_alloc_imp
   store i64 0, ptr %.ptr, align 16, !tbaa !30
   %305 = ptrtoint ptr %.0229.ph to i64
   call void @duckdb_je_hook_invoke_alloc(i32 noundef 8, ptr noundef %.0229.ph, i64 noundef %305, ptr noundef nonnull %7) #21
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %imalloc.exit
 
 imalloc.exit:                                     ; preds = %302, %imalloc_init_check.exit, %aligned_usize_get.exit.i.thread, %144, %15, %11
@@ -6674,7 +6668,7 @@ tsd_fetch_impl.exit:                              ; preds = %9, %13
 
 tcache_get_from_ind.exit:                         ; preds = %18, %tsd_fetch_impl.exit
   %.0.i = phi ptr [ null, %tsd_fetch_impl.exit ], [ %spec.select, %18 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %22 = ptrtoint ptr %0 to i64
   store i64 %22, ptr %4, align 16, !tbaa !30
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -6876,15 +6870,15 @@ cache_bin_dalloc_easy.exit12.i:                   ; preds = %113
   br label %arena_dalloc.exit
 
 tsdn_rtree_ctx.exit:                              ; preds = %108, %104
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call fastcc void @rtree_read(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull %.0.i18, ptr noundef nonnull %24, i64 noundef %22)
   %130 = load ptr, ptr %3, align 8, !tbaa !153
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @duckdb_je_large_dalloc(ptr noundef nonnull %.0.i18, ptr noundef %130) #21
   br label %arena_dalloc.exit
 
 arena_dalloc.exit:                                ; preds = %102, %92, %cache_bin_dalloc_easy.exit16.thread, %91, %cache_bin_dalloc_easy.exit12.i.thread, %128, %cache_bin_dalloc_easy.exit12.i, %tsdn_rtree_ctx.exit, %77
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i8 0, ptr %2, align 8, !tbaa !126
   %131 = getelementptr inbounds nuw i8, ptr %.0.i18, i64 848
   %132 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -6911,8 +6905,8 @@ arena_dalloc.exit:                                ; preds = %102, %92, %cache_bi
   br label %te_event_advance.exit
 
 te_event_advance.exit:                            ; preds = %arena_dalloc.exit, %144
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #21
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %146
 
 145:                                              ; preds = %1
@@ -6948,12 +6942,12 @@ define i64 @duckdb_je_xallocx(ptr noundef %0, i64 noundef %1, i64 noundef %2, i3
   br i1 %.not.i, label %tsd_fetch_impl.exit.thread, label %tsd_fetch_impl.exit, !prof !9
 
 tsd_fetch_impl.exit.thread:                       ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %9) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   br label %25
 
 tsd_fetch_impl.exit:                              ; preds = %4
   %22 = tail call ptr @duckdb_je_tsd_fetch_slow(ptr noundef nonnull %19, i1 noundef zeroext false) #21
-  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %9) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %23 = icmp eq ptr %22, null
   br i1 %23, label %24, label %25, !prof !8
 
@@ -7048,8 +7042,8 @@ tsdn_rtree_ctx.exit55:                            ; preds = %24, %25
 rtree_read.exit:                                  ; preds = %35, %45, %57, %71
   %.0.i.i = phi ptr [ %40, %35 ], [ %52, %45 ], [ %72, %71 ], [ %70, %57 ]
   %73 = load atomic i64, ptr %.0.i.i monotonic, align 8, !noalias !179
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %9) #21
-  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %8) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   br i1 %27, label %74, label %75, !prof !7
 
 74:                                               ; preds = %rtree_read.exit
@@ -7137,7 +7131,7 @@ rtree_metadata_read.exit:                         ; preds = %80, %90, %102, %116
   %.0.i.i63 = phi ptr [ %85, %80 ], [ %97, %90 ], [ %117, %116 ], [ %115, %102 ]
   %118 = load atomic i64, ptr %.0.i.i63 monotonic, align 8, !noalias !182
   %119 = lshr i64 %118, 48
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %8) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %120 = getelementptr inbounds nuw [232 x i64], ptr @duckdb_je_sz_index2size_tab, i64 0, i64 %119
   %121 = load i64, ptr %120, align 8, !tbaa !30
   %122 = icmp ugt i64 %1, 8070450532247928832
@@ -7153,7 +7147,7 @@ rtree_metadata_read.exit:                         ; preds = %80, %90, %102, %116
 
 tsdn_witness_tsdp_get.exit.i:                     ; preds = %126, %123
   %.1 = phi i64 [ %124, %126 ], [ %2, %123 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.not.i56 = icmp eq i64 %14, 0
   br i1 %.not.i56, label %ixalloc.exit, label %127
 
@@ -7170,16 +7164,16 @@ ixalloc.exit:                                     ; preds = %tsdn_witness_tsdp_g
   br i1 %cond.fr, label %.thread, label %132
 
 .thread:                                          ; preds = %127, %ixalloc.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %tsd_fast.exit
 
 132:                                              ; preds = %ixalloc.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %133 = icmp eq i64 %131, %121
   br i1 %133, label %tsd_fast.exit, label %134, !prof !185
 
 134:                                              ; preds = %132
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 1, ptr %5, align 8, !tbaa !126
   %135 = getelementptr inbounds nuw i8, ptr %.0.i5268, i64 832
   %136 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -7206,8 +7200,8 @@ ixalloc.exit:                                     ; preds = %tsdn_witness_tsdp_g
   br label %te_event_advance.exit58
 
 te_event_advance.exit58:                          ; preds = %134, %148
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #21
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 0, ptr %6, align 8, !tbaa !126
   %149 = getelementptr inbounds nuw i8, ptr %.0.i5268, i64 848
   %150 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -7234,7 +7228,7 @@ te_event_advance.exit58:                          ; preds = %134, %148
   br label %te_event_advance.exit
 
 te_event_advance.exit:                            ; preds = %te_event_advance.exit58, %162
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %163 = load i8, ptr @duckdb_je_opt_junk_alloc, align 1, !tbaa !50, !range !55, !noundef !56
   %164 = trunc nuw i8 %163 to i1
   br i1 %164, label %165, label %tsd_fast.exit, !prof !7
@@ -7259,7 +7253,7 @@ tsd_fast.exit:                                    ; preds = %.thread, %rtree_met
   br i1 %172, label %178, label %173, !prof !9
 
 173:                                              ; preds = %tsd_fast.exit
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i64 %28, ptr %10, align 16, !tbaa !30
   %174 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 %1, ptr %174, align 8, !tbaa !30
@@ -7269,24 +7263,24 @@ tsd_fast.exit:                                    ; preds = %.thread, %rtree_met
   %177 = sext i32 %3 to i64
   store i64 %177, ptr %176, align 8, !tbaa !30
   call void @duckdb_je_hook_invoke_expand(i32 noundef 2, ptr noundef %0, i64 noundef %121, i64 noundef %.045, i64 noundef %.045, ptr noundef nonnull %10) #21
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %178
 
 178:                                              ; preds = %173, %tsd_fast.exit
   ret i64 %.045
 }
 
-declare void @duckdb_je_hook_invoke_expand(i32 noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #5
+declare void @duckdb_je_hook_invoke_expand(i32 noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define i64 @duckdb_je_sallocx(ptr noundef %0, i32 noundef %1) local_unnamed_addr #10 {
+define i64 @duckdb_je_sallocx(ptr noundef %0, i32 noundef %1) local_unnamed_addr #9 {
   %3 = alloca %struct.rtree_ctx_s, align 8
   %4 = load i8, ptr @duckdb_je_tsd_booted, align 1, !tbaa !50, !range !55, !noundef !56
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %6, label %tsdn_fetch.exit.thread
 
 tsdn_fetch.exit.thread:                           ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %3) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %12
 
 6:                                                ; preds = %2
@@ -7297,12 +7291,12 @@ tsdn_fetch.exit.thread:                           ; preds = %2
   br i1 %.not.i, label %tsdn_fetch.exit.thread9, label %tsdn_fetch.exit, !prof !9
 
 tsdn_fetch.exit.thread9:                          ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %3) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %13
 
 tsdn_fetch.exit:                                  ; preds = %6
   %10 = tail call ptr @duckdb_je_tsd_fetch_slow(ptr noundef nonnull %7, i1 noundef zeroext false) #21
-  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %3) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %13, !prof !105
 
@@ -7397,7 +7391,7 @@ rtree_metadata_read.exit:                         ; preds = %22, %32, %44, %58
   %.0.i.i5 = phi ptr [ %27, %22 ], [ %39, %32 ], [ %59, %58 ], [ %57, %44 ]
   %60 = load atomic i64, ptr %.0.i.i5 monotonic, align 8, !noalias !186
   %61 = lshr i64 %60, 48
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %3) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %62 = getelementptr inbounds nuw [232 x i64], ptr @duckdb_je_sz_index2size_tab, i64 0, i64 %61
   %63 = load i64, ptr %62, align 8, !tbaa !30
   ret i64 %63
@@ -7678,15 +7672,15 @@ cache_bin_dalloc_easy.exit12.i37:                 ; preds = %122
   br label %arena_dalloc.exit26
 
 tsdn_rtree_ctx.exit46:                            ; preds = %117, %113
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call fastcc void @rtree_read(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull %.0.i42, ptr noundef nonnull %35, i64 noundef %36)
   %139 = load ptr, ptr %6, align 8, !tbaa !153
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   tail call void @duckdb_je_large_dalloc(ptr noundef nonnull %.0.i42, ptr noundef %139) #21
   br label %arena_dalloc.exit26
 
 arena_dalloc.exit26:                              ; preds = %111, %101, %cache_bin_dalloc_easy.exit35.thread, %100, %cache_bin_dalloc_easy.exit12.i37.thread, %137, %cache_bin_dalloc_easy.exit12.i37, %tsdn_rtree_ctx.exit46, %86
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 0, ptr %3, align 8, !tbaa !126
   %140 = getelementptr inbounds nuw i8, ptr %.0.i42, i64 848
   %141 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -7713,12 +7707,12 @@ arena_dalloc.exit26:                              ; preds = %111, %101, %cache_b
   br label %te_event_advance.exit51
 
 te_event_advance.exit51:                          ; preds = %arena_dalloc.exit26, %153
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %234
 
 tsdn_rtree_ctx.exit48:                            ; preds = %19, %23, %tcache_get_from_ind.exit
   %.0.i101 = phi ptr [ %.0.i, %tcache_get_from_ind.exit ], [ %spec.select, %23 ], [ null, %19 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %154 = ptrtoint ptr %0 to i64
   store i64 %154, ptr %7, align 16, !tbaa !30
   %155 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -7850,15 +7844,15 @@ cache_bin_dalloc_easy.exit12.i:                   ; preds = %202
   br label %arena_dalloc.exit
 
 tsdn_rtree_ctx.exit:                              ; preds = %197, %193
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call fastcc void @rtree_read(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull %.0.i42, ptr noundef nonnull %157, i64 noundef %154)
   %219 = load ptr, ptr %5, align 8, !tbaa !153
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @duckdb_je_large_dalloc(ptr noundef nonnull %.0.i42, ptr noundef %219) #21
   br label %arena_dalloc.exit
 
 arena_dalloc.exit:                                ; preds = %191, %181, %cache_bin_dalloc_easy.exit31.thread, %180, %cache_bin_dalloc_easy.exit12.i.thread, %217, %cache_bin_dalloc_easy.exit12.i, %tsdn_rtree_ctx.exit, %166
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 0, ptr %4, align 8, !tbaa !126
   %220 = getelementptr inbounds nuw i8, ptr %.0.i42, i64 848
   %221 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -7885,8 +7879,8 @@ arena_dalloc.exit:                                ; preds = %191, %181, %cache_b
   br label %te_event_advance.exit
 
 te_event_advance.exit:                            ; preds = %arena_dalloc.exit, %233
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #21
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %234
 
 234:                                              ; preds = %te_event_advance.exit, %te_event_advance.exit51
@@ -7894,7 +7888,7 @@ te_event_advance.exit:                            ; preds = %arena_dalloc.exit, 
 }
 
 ; Function Attrs: noinline nounwind uwtable
-define void @duckdb_je_sdallocx_default(ptr noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #6 {
+define void @duckdb_je_sdallocx_default(ptr noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #5 {
   %4 = alloca %struct.te_ctx_s, align 8
   %5 = alloca %struct.te_ctx_s, align 8
   %6 = alloca %struct.rtree_contents_s, align 8
@@ -8244,17 +8238,17 @@ cache_bin_dalloc_easy.exit12.i.i:                 ; preds = %170
   br label %arena_sdalloc.exit
 
 tsdn_rtree_ctx.exit52:                            ; preds = %164, %sz_size2index.exit.i.thread
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %187 = getelementptr inbounds nuw i8, ptr %.0.i30, i64 440
   %188 = ptrtoint ptr %0 to i64
   call fastcc void @rtree_read(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull %.0.i30, ptr noundef nonnull %187, i64 noundef %188)
   %189 = load ptr, ptr %7, align 8, !tbaa !153
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   tail call void @duckdb_je_large_dalloc(ptr noundef nonnull %.0.i30, ptr noundef %189) #21
   br label %arena_sdalloc.exit
 
 arena_sdalloc.exit:                               ; preds = %tsdn_rtree_ctx.exit52, %cache_bin_dalloc_easy.exit12.i.i, %185, %cache_bin_dalloc_easy.exit12.i.i.thread, %148, %cache_bin_dalloc_easy.exit18.i.thread, %159, %149, %112
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 0, ptr %4, align 8, !tbaa !126
   %190 = getelementptr inbounds nuw i8, ptr %.0.i30, i64 848
   %191 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -8281,12 +8275,12 @@ arena_sdalloc.exit:                               ; preds = %tsdn_rtree_ctx.exit
   br label %te_event_advance.exit53
 
 te_event_advance.exit53:                          ; preds = %arena_sdalloc.exit, %203
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %306
 
 sz_size2index.exit:                               ; preds = %93, %97, %tcache_get_from_ind.exit
   %.0.i96 = phi ptr [ %.0.i, %tcache_get_from_ind.exit ], [ %spec.select, %97 ], [ null, %93 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %204 = ptrtoint ptr %0 to i64
   store i64 %204, ptr %8, align 16, !tbaa !30
   %205 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -8446,16 +8440,16 @@ cache_bin_dalloc_easy.exit12.i.i39:               ; preds = %273
   br label %arena_sdalloc.exit49
 
 tsdn_rtree_ctx.exit:                              ; preds = %267, %sz_size2index.exit.i36.thread
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %290 = getelementptr inbounds nuw i8, ptr %.0.i30, i64 440
   call fastcc void @rtree_read(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull %.0.i30, ptr noundef nonnull %290, i64 noundef %204)
   %291 = load ptr, ptr %6, align 8, !tbaa !153
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @duckdb_je_large_dalloc(ptr noundef nonnull %.0.i30, ptr noundef %291) #21
   br label %arena_sdalloc.exit49
 
 arena_sdalloc.exit49:                             ; preds = %tsdn_rtree_ctx.exit, %cache_bin_dalloc_easy.exit12.i.i39, %288, %cache_bin_dalloc_easy.exit12.i.i39.thread, %251, %cache_bin_dalloc_easy.exit18.i44.thread, %262, %252, %213
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 0, ptr %5, align 8, !tbaa !126
   %292 = getelementptr inbounds nuw i8, ptr %.0.i30, i64 848
   %293 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -8482,8 +8476,8 @@ arena_sdalloc.exit49:                             ; preds = %tsdn_rtree_ctx.exit
   br label %te_event_advance.exit
 
 te_event_advance.exit:                            ; preds = %arena_sdalloc.exit49, %305
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #21
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %306
 
 306:                                              ; preds = %te_event_advance.exit, %te_event_advance.exit53
@@ -8491,7 +8485,7 @@ te_event_advance.exit:                            ; preds = %arena_sdalloc.exit4
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define range(i64 0, 8070450532247928833) i64 @duckdb_je_nallocx(i64 noundef %0, i32 noundef %1) local_unnamed_addr #10 {
+define range(i64 0, 8070450532247928833) i64 @duckdb_je_nallocx(i64 noundef %0, i32 noundef %1) local_unnamed_addr #9 {
   %3 = load i32, ptr @duckdb_je_malloc_init_state, align 4, !tbaa !3
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %malloc_init.exit, label %5, !prof !9
@@ -8674,7 +8668,7 @@ malloc_init.exit.thread:                          ; preds = %8, %tsd_fetch_impl.
   ret i32 %.0
 }
 
-declare i32 @duckdb_je_ctl_byname(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
+declare i32 @duckdb_je_ctl_byname(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define i32 @duckdb_je_mallctlnametomib(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
@@ -8707,7 +8701,7 @@ malloc_init.exit.thread:                          ; preds = %6, %tsd_fetch_impl.
   ret i32 %.0
 }
 
-declare i32 @duckdb_je_ctl_nametomib(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @duckdb_je_ctl_nametomib(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define i32 @duckdb_je_mallctlbymib(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5) local_unnamed_addr #2 {
@@ -8740,7 +8734,7 @@ malloc_init.exit.thread:                          ; preds = %9, %tsd_fetch_impl.
   ret i32 %.0
 }
 
-declare i32 @duckdb_je_ctl_bymib(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
+declare i32 @duckdb_je_ctl_bymib(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define void @duckdb_je_malloc_stats_print(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
@@ -8762,21 +8756,21 @@ define void @duckdb_je_malloc_stats_print(ptr noundef %0, ptr noundef %1, ptr no
 
 tsdn_fetch.exit:                                  ; preds = %11, %7, %3
   %.0.i = phi ptr [ null, %3 ], [ %12, %11 ], [ %8, %7 ]
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %13 = call zeroext i1 @duckdb_je_buf_writer_init(ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %0, ptr noundef %1, ptr noundef null, i64 noundef 65536) #21
   call void @duckdb_je_stats_print(ptr noundef nonnull @duckdb_je_buf_writer_cb, ptr noundef nonnull %4, ptr noundef %2) #21
   call void @duckdb_je_buf_writer_terminate(ptr noundef %.0.i, ptr noundef nonnull %4) #21
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
-declare zeroext i1 @duckdb_je_buf_writer_init(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
+declare zeroext i1 @duckdb_je_buf_writer_init(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
-declare void @duckdb_je_stats_print(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare void @duckdb_je_stats_print(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare void @duckdb_je_buf_writer_cb(ptr noundef, ptr noundef) #5
+declare void @duckdb_je_buf_writer_cb(ptr noundef, ptr noundef) #4
 
-declare void @duckdb_je_buf_writer_terminate(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare void @duckdb_je_buf_writer_terminate(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define i64 @duckdb_je_malloc_usable_size(ptr noundef %0) local_unnamed_addr #2 {
@@ -8806,11 +8800,11 @@ tsdn_fetch.exit.i.thread:                         ; preds = %1
   br i1 %12, label %je_malloc_usable_size_impl.exit, label %.thread, !prof !7
 
 .thread:                                          ; preds = %tsdn_fetch.exit.i.thread
-  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %2) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   br label %15
 
 13:                                               ; preds = %tsdn_fetch.exit.i
-  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %2) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %14 = icmp eq ptr %.0.i.i, null
   br i1 %14, label %15, label %16, !prof !105
 
@@ -8904,7 +8898,7 @@ rtree_metadata_read.exit:                         ; preds = %25, %35, %47, %61
   %.0.i.i3 = phi ptr [ %30, %25 ], [ %42, %35 ], [ %62, %61 ], [ %60, %47 ]
   %63 = load atomic i64, ptr %.0.i.i3 monotonic, align 8, !noalias !194
   %64 = lshr i64 %63, 48
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %2) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %65 = getelementptr inbounds nuw [232 x i64], ptr @duckdb_je_sz_index2size_tab, i64 0, i64 %64
   %66 = load i64, ptr %65, align 8, !tbaa !30
   br label %je_malloc_usable_size_impl.exit
@@ -9352,7 +9346,7 @@ cache_bin_low_water_adjust.exit:                  ; preds = %199, %220
   %.297 = phi ptr [ %.398, %.loopexit ], [ %.095, %194 ], [ %.095, %tcache_get_from_ind.exit ], [ %.095, %tcache_get_from_ind.exit.thread178 ], [ %.095, %mallocx_tcache_get.exit ], [ %.095, %mallocx_tcache_get.exit.thread ], [ %.095, %180 ]
   %.4 = phi i64 [ %229, %.loopexit ], [ %.2, %194 ], [ %.2, %tcache_get_from_ind.exit ], [ %.2, %tcache_get_from_ind.exit.thread178 ], [ %.2, %mallocx_tcache_get.exit ], [ %.2, %mallocx_tcache_get.exit.thread ], [ %.2, %180 ]
   %230 = mul i64 %.1102, %storemerge.i
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 1, ptr %5, align 8, !tbaa !126
   store ptr %134, ptr %135, align 8, !tbaa !129
   store ptr %136, ptr %137, align 8, !tbaa !130
@@ -9371,7 +9365,7 @@ cache_bin_low_water_adjust.exit:                  ; preds = %199, %220
   br label %te_event_advance.exit
 
 te_event_advance.exit:                            ; preds = %.critedge119, %236
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %237 = icmp ult i64 %.1102, %145
   br i1 %237, label %238, label %select.unfold
 
@@ -9399,7 +9393,7 @@ select.unfold:                                    ; preds = %240, %te_event_adva
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc ptr @arena_choose(ptr noundef %0, ptr noundef readnone captures(address_is_null, ret: address, provenance) %1) unnamed_addr #11 {
+define internal fastcc ptr @arena_choose(ptr noundef %0, ptr noundef readnone captures(address_is_null, ret: address, provenance) %1) unnamed_addr #10 {
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %3, label %arena_choose_impl.exit
 
@@ -9456,10 +9450,10 @@ arena_choose_impl.exit:                           ; preds = %2, %7, %10, %12, %1
   ret ptr %.0.i
 }
 
-declare i64 @duckdb_je_arena_fill_small_fresh(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #5
+declare i64 @duckdb_je_arena_fill_small_fresh(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: nounwind uwtable
 define internal void @jemalloc_constructor() #2 {
@@ -9497,10 +9491,10 @@ malloc_init.exit:                                 ; preds = %16, %8
   ret void
 }
 
-declare i32 @duckdb_malloc_ncpus(...) local_unnamed_addr #5
+declare i32 @duckdb_malloc_ncpus(...) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #13
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
 define void @duckdb_je_jemalloc_prefork() #2 {
@@ -9613,43 +9607,43 @@ default.unreachable:                              ; preds = %11
   ret void
 }
 
-declare void @duckdb_je_witness_prefork(ptr noundef) local_unnamed_addr #5
+declare void @duckdb_je_witness_prefork(ptr noundef) local_unnamed_addr #4
 
-declare void @duckdb_je_ctl_prefork(ptr noundef) local_unnamed_addr #5
+declare void @duckdb_je_ctl_prefork(ptr noundef) local_unnamed_addr #4
 
-declare void @duckdb_je_tcache_prefork(ptr noundef) local_unnamed_addr #5
+declare void @duckdb_je_tcache_prefork(ptr noundef) local_unnamed_addr #4
 
-declare void @duckdb_je_malloc_mutex_prefork(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare void @duckdb_je_malloc_mutex_prefork(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare void @duckdb_je_background_thread_prefork0(ptr noundef) local_unnamed_addr #5
+declare void @duckdb_je_background_thread_prefork0(ptr noundef) local_unnamed_addr #4
 
-declare void @duckdb_je_prof_prefork0(ptr noundef) local_unnamed_addr #5
+declare void @duckdb_je_prof_prefork0(ptr noundef) local_unnamed_addr #4
 
-declare void @duckdb_je_background_thread_prefork1(ptr noundef) local_unnamed_addr #5
+declare void @duckdb_je_background_thread_prefork1(ptr noundef) local_unnamed_addr #4
 
-declare void @duckdb_je_arena_prefork0(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare void @duckdb_je_arena_prefork0(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare void @duckdb_je_arena_prefork1(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare void @duckdb_je_arena_prefork1(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare void @duckdb_je_arena_prefork2(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare void @duckdb_je_arena_prefork2(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare void @duckdb_je_arena_prefork3(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare void @duckdb_je_arena_prefork3(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare void @duckdb_je_arena_prefork4(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare void @duckdb_je_arena_prefork4(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare void @duckdb_je_arena_prefork5(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare void @duckdb_je_arena_prefork5(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare void @duckdb_je_arena_prefork6(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare void @duckdb_je_arena_prefork6(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare void @duckdb_je_arena_prefork7(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare void @duckdb_je_arena_prefork7(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare void @duckdb_je_arena_prefork8(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare void @duckdb_je_arena_prefork8(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare void @duckdb_je_prof_prefork1(ptr noundef) local_unnamed_addr #5
+declare void @duckdb_je_prof_prefork1(ptr noundef) local_unnamed_addr #4
 
-declare void @duckdb_je_stats_prefork(ptr noundef) local_unnamed_addr #5
+declare void @duckdb_je_stats_prefork(ptr noundef) local_unnamed_addr #4
 
-declare void @duckdb_je_tsd_prefork(ptr noundef) local_unnamed_addr #5
+declare void @duckdb_je_tsd_prefork(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define void @duckdb_je_jemalloc_postfork_parent() #2 {
@@ -9703,23 +9697,23 @@ arena_get.exit.thread:                            ; preds = %.lr.ph, %10
   ret void
 }
 
-declare void @duckdb_je_tsd_postfork_parent(ptr noundef) local_unnamed_addr #5
+declare void @duckdb_je_tsd_postfork_parent(ptr noundef) local_unnamed_addr #4
 
-declare void @duckdb_je_witness_postfork_parent(ptr noundef) local_unnamed_addr #5
+declare void @duckdb_je_witness_postfork_parent(ptr noundef) local_unnamed_addr #4
 
-declare void @duckdb_je_stats_postfork_parent(ptr noundef) local_unnamed_addr #5
+declare void @duckdb_je_stats_postfork_parent(ptr noundef) local_unnamed_addr #4
 
-declare void @duckdb_je_arena_postfork_parent(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare void @duckdb_je_arena_postfork_parent(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare void @duckdb_je_prof_postfork_parent(ptr noundef) local_unnamed_addr #5
+declare void @duckdb_je_prof_postfork_parent(ptr noundef) local_unnamed_addr #4
 
-declare void @duckdb_je_background_thread_postfork_parent(ptr noundef) local_unnamed_addr #5
+declare void @duckdb_je_background_thread_postfork_parent(ptr noundef) local_unnamed_addr #4
 
-declare void @duckdb_je_malloc_mutex_postfork_parent(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare void @duckdb_je_malloc_mutex_postfork_parent(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare void @duckdb_je_tcache_postfork_parent(ptr noundef) local_unnamed_addr #5
+declare void @duckdb_je_tcache_postfork_parent(ptr noundef) local_unnamed_addr #4
 
-declare void @duckdb_je_ctl_postfork_parent(ptr noundef) local_unnamed_addr #5
+declare void @duckdb_je_ctl_postfork_parent(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define void @duckdb_je_jemalloc_postfork_child() #2 {
@@ -9773,23 +9767,23 @@ arena_get.exit.thread:                            ; preds = %.lr.ph, %10
   ret void
 }
 
-declare void @duckdb_je_tsd_postfork_child(ptr noundef) local_unnamed_addr #5
+declare void @duckdb_je_tsd_postfork_child(ptr noundef) local_unnamed_addr #4
 
-declare void @duckdb_je_witness_postfork_child(ptr noundef) local_unnamed_addr #5
+declare void @duckdb_je_witness_postfork_child(ptr noundef) local_unnamed_addr #4
 
-declare void @duckdb_je_stats_postfork_child(ptr noundef) local_unnamed_addr #5
+declare void @duckdb_je_stats_postfork_child(ptr noundef) local_unnamed_addr #4
 
-declare void @duckdb_je_arena_postfork_child(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare void @duckdb_je_arena_postfork_child(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare void @duckdb_je_prof_postfork_child(ptr noundef) local_unnamed_addr #5
+declare void @duckdb_je_prof_postfork_child(ptr noundef) local_unnamed_addr #4
 
-declare void @duckdb_je_background_thread_postfork_child(ptr noundef) local_unnamed_addr #5
+declare void @duckdb_je_background_thread_postfork_child(ptr noundef) local_unnamed_addr #4
 
-declare void @duckdb_je_malloc_mutex_postfork_child(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare void @duckdb_je_malloc_mutex_postfork_child(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare void @duckdb_je_tcache_postfork_child(ptr noundef) local_unnamed_addr #5
+declare void @duckdb_je_tcache_postfork_child(ptr noundef) local_unnamed_addr #4
 
-declare void @duckdb_je_ctl_postfork_child(ptr noundef) local_unnamed_addr #5
+declare void @duckdb_je_ctl_postfork_child(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i1 @malloc_init_hard_a0() unnamed_addr #2 {
@@ -9838,20 +9832,20 @@ define internal fastcc noundef zeroext i1 @malloc_init_hard_a0_locked() unnamed_
   %10 = alloca %struct.hpa_shard_opts_s, align 8
   %11 = tail call i64 @pthread_self() #23
   store i64 %11, ptr @malloc_initializer, align 8, !tbaa !30
-  call void @llvm.lifetime.start.p0(i64 6576, ptr nonnull %7) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6576) %7, i8 0, i64 6576, i1 false)
   call void @duckdb_je_sc_boot(ptr noundef nonnull %7) #21
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %8) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @duckdb_je_bin_shard_sizes_boot(ptr noundef nonnull %8) #21
-  call void @llvm.lifetime.start.p0(i64 4097, ptr nonnull %9) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 0, ptr %9, align 16, !tbaa !10
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %6, i8 0, i64 40, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #21
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #21
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #21
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #21
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br label %12
 
 12:                                               ; preds = %57, %0
@@ -9990,11 +9984,11 @@ obtain_malloc_conf.exit.i.i:                      ; preds = %26, %12
 
 malloc_conf_init_helper.specialized.1.exit.i:     ; preds = %57
   store atomic i8 1, ptr @duckdb_je_log_init_done release, align 1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   call fastcc void @malloc_conf_init_helper(ptr noundef nonnull %7, ptr noundef nonnull %8, i1 noundef zeroext false, ptr noundef %6, ptr noundef null)
   %58 = load i8, ptr @duckdb_je_opt_prof_leak_error, align 1, !tbaa !50, !range !55, !noundef !56
   %59 = trunc nuw i8 %58 to i1
@@ -10020,7 +10014,7 @@ malloc_conf_init_check_deps.exit.i:               ; preds = %malloc_conf_init_he
   unreachable
 
 malloc_conf_init.exit:                            ; preds = %malloc_conf_init_check_deps.exit.thread.i, %malloc_conf_init_check_deps.exit.i
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %65 = load i64, ptr @duckdb_je_opt_lg_san_uaf_align, align 8, !tbaa !30
   call void @duckdb_je_san_init(i64 noundef %65) #21
   %66 = load i8, ptr @duckdb_je_opt_cache_oblivious, align 1, !tbaa !50, !range !55, !noundef !56
@@ -10167,7 +10161,7 @@ arena_get.exit:                                   ; preds = %116, %119
   br i1 %133, label %134, label %.thread
 
 134:                                              ; preds = %132
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef nonnull align 8 dereferenceable(48) @duckdb_je_opt_hpa_opts, i64 48, i1 false), !tbaa.struct !203
   %135 = load atomic i8, ptr @duckdb_je_background_thread_enabled_state monotonic, align 1
   %136 = getelementptr inbounds nuw i8, ptr %10, i64 20
@@ -10176,7 +10170,7 @@ arena_get.exit:                                   ; preds = %116, %119
   %138 = load ptr, ptr @a0, align 8, !tbaa !47
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 10664
   %140 = call zeroext i1 @duckdb_je_pa_shard_enable_hpa(ptr noundef null, ptr noundef nonnull %139, ptr noundef nonnull %10, ptr noundef nonnull @duckdb_je_opt_hpa_sec_opts) #21
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br i1 %140, label %146, label %.thread
 
 .thread:                                          ; preds = %arena_get.exit, %132, %134, %131
@@ -10198,27 +10192,27 @@ arena_get.exit:                                   ; preds = %116, %119
 
 146:                                              ; preds = %.thread, %145, %142, %112, %110, %107, %102, %87, %85, %82, %80, %78, %76, %134
   %.0 = phi i1 [ true, %134 ], [ true, %76 ], [ true, %78 ], [ true, %80 ], [ true, %82 ], [ true, %85 ], [ true, %87 ], [ true, %102 ], [ true, %107 ], [ true, %110 ], [ true, %112 ], [ false, %142 ], [ false, %145 ], [ false, %.thread ]
-  call void @llvm.lifetime.end.p0(i64 4097, ptr nonnull %9) #21
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %8) #21
-  call void @llvm.lifetime.end.p0(i64 6576, ptr nonnull %7) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i1 %.0
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i64 @pthread_self() local_unnamed_addr #14
+declare i64 @pthread_self() local_unnamed_addr #13
 
-declare void @duckdb_je_sc_boot(ptr noundef) local_unnamed_addr #5
+declare void @duckdb_je_sc_boot(ptr noundef) local_unnamed_addr #4
 
-declare void @duckdb_je_bin_shard_sizes_boot(ptr noundef) local_unnamed_addr #5
+declare void @duckdb_je_bin_shard_sizes_boot(ptr noundef) local_unnamed_addr #4
 
-declare void @duckdb_je_san_init(i64 noundef) local_unnamed_addr #5
+declare void @duckdb_je_san_init(i64 noundef) local_unnamed_addr #4
 
-declare void @duckdb_je_sz_boot(ptr noundef, i1 noundef zeroext) local_unnamed_addr #5
+declare void @duckdb_je_sz_boot(ptr noundef, i1 noundef zeroext) local_unnamed_addr #4
 
-declare void @duckdb_je_bin_info_boot(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare void @duckdb_je_bin_info_boot(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare i32 @atexit(ptr noundef) local_unnamed_addr #13
+declare i32 @atexit(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
 define internal void @stats_print_atexit() #2 {
@@ -10334,49 +10328,49 @@ arena_get.exit.thread:                            ; preds = %.lr.ph33, %select.u
 
 duckdb_je_malloc_stats_print.exit:                ; preds = %._crit_edge, %38, %42
   %.0.i.i26 = phi ptr [ null, %._crit_edge ], [ %43, %42 ], [ %39, %38 ]
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %1) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %44 = call zeroext i1 @duckdb_je_buf_writer_init(ptr noundef %.0.i.i26, ptr noundef nonnull %1, ptr noundef null, ptr noundef null, ptr noundef null, i64 noundef 65536) #21
   call void @duckdb_je_stats_print(ptr noundef nonnull @duckdb_je_buf_writer_cb, ptr noundef nonnull %1, ptr noundef nonnull @duckdb_je_opt_stats_print_opts) #21
   call void @duckdb_je_buf_writer_terminate(ptr noundef %.0.i.i26, ptr noundef nonnull %1) #21
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %1) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }
 
-declare void @duckdb_je_malloc_write(ptr noundef) local_unnamed_addr #5
+declare void @duckdb_je_malloc_write(ptr noundef) local_unnamed_addr #4
 
-declare zeroext i1 @duckdb_je_stats_boot() local_unnamed_addr #5
+declare zeroext i1 @duckdb_je_stats_boot() local_unnamed_addr #4
 
-declare zeroext i1 @duckdb_je_pages_boot() local_unnamed_addr #5
+declare zeroext i1 @duckdb_je_pages_boot() local_unnamed_addr #4
 
-declare zeroext i1 @duckdb_je_base_boot(ptr noundef) local_unnamed_addr #5
+declare zeroext i1 @duckdb_je_base_boot(ptr noundef) local_unnamed_addr #4
 
-declare zeroext i1 @duckdb_je_emap_init(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #5
+declare zeroext i1 @duckdb_je_emap_init(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #4
 
-declare ptr @duckdb_je_b0get() local_unnamed_addr #5
+declare ptr @duckdb_je_b0get() local_unnamed_addr #4
 
-declare zeroext i1 @duckdb_je_extent_boot() local_unnamed_addr #5
+declare zeroext i1 @duckdb_je_extent_boot() local_unnamed_addr #4
 
-declare zeroext i1 @duckdb_je_ctl_boot() local_unnamed_addr #5
+declare zeroext i1 @duckdb_je_ctl_boot() local_unnamed_addr #4
 
-declare zeroext i1 @duckdb_je_hpa_supported() local_unnamed_addr #5
+declare zeroext i1 @duckdb_je_hpa_supported() local_unnamed_addr #4
 
-declare void @duckdb_je_malloc_printf(ptr noundef, ...) local_unnamed_addr #5
+declare void @duckdb_je_malloc_printf(ptr noundef, ...) local_unnamed_addr #4
 
-declare zeroext i1 @duckdb_je_arena_boot(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #5
+declare zeroext i1 @duckdb_je_arena_boot(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #4
 
-declare zeroext i1 @duckdb_je_tcache_boot(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare zeroext i1 @duckdb_je_tcache_boot(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare zeroext i1 @duckdb_je_malloc_mutex_init(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
+declare zeroext i1 @duckdb_je_malloc_mutex_init(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
-declare zeroext i1 @duckdb_je_hook_boot() local_unnamed_addr #5
+declare zeroext i1 @duckdb_je_hook_boot() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #15
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #14
 
-declare zeroext i1 @duckdb_je_pa_shard_enable_hpa(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare zeroext i1 @duckdb_je_pa_shard_enable_hpa(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #16
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @malloc_conf_init_helper(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef nonnull captures(none) %3, ptr noundef %4) unnamed_addr #2 {
@@ -10434,11 +10428,11 @@ define internal fastcc void @malloc_conf_init_helper(ptr noundef %0, ptr noundef
   %57 = alloca i64, align 8
   %58 = alloca ptr, align 8
   %59 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #21
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #21
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #21
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #21
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %.not937 = xor i1 %2, true
   br label %60
 
@@ -11008,7 +11002,7 @@ malloc_conf_error.exit897:                        ; preds = %263
   br label %malloc_conf_error.exit.thread
 
 304:                                              ; preds = %297, %294
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %305 = tail call ptr @__errno_location() #23
   store i32 0, ptr %305, align 4, !tbaa !3
   %306 = call i64 @duckdb_je_malloc_strtoumax(ptr noundef %.pre1327, ptr noundef nonnull %11, i32 noundef 0) #21
@@ -11074,7 +11068,7 @@ malloc_conf_error.exit898:                        ; preds = %321
   br label %malloc_conf_error.exit898.thread
 
 malloc_conf_error.exit898.thread:                 ; preds = %330, %323, %320, %313, %334, %malloc_conf_error.exit898
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %malloc_conf_error.exit.thread
 
 .thread977:                                       ; preds = %.thread976, %291, %289
@@ -11086,7 +11080,7 @@ malloc_conf_error.exit898.thread:                 ; preds = %330, %323, %320, %3
   br i1 %341, label %342, label %366
 
 342:                                              ; preds = %339
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %343 = load ptr, ptr %8, align 8, !tbaa !199
   %344 = call zeroext i1 @duckdb_je_fxp_parse(ptr noundef nonnull @duckdb_je_opt_narenas_ratio, ptr noundef %343, ptr noundef nonnull %12) #21
   %.pre1411 = load ptr, ptr %8, align 8, !tbaa !199
@@ -11129,7 +11123,7 @@ malloc_conf_error.exit900:                        ; preds = %345
   br label %malloc_conf_error.exit900.thread
 
 malloc_conf_error.exit900.thread:                 ; preds = %358, %351, %361, %malloc_conf_error.exit900
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %malloc_conf_error.exit.thread
 
 366:                                              ; preds = %339, %.thread977
@@ -11141,18 +11135,18 @@ malloc_conf_error.exit900.thread:                 ; preds = %358, %351, %361, %m
   br i1 %369, label %370, label %402
 
 370:                                              ; preds = %367
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %371 = load ptr, ptr %8, align 8, !tbaa !199
   store ptr %371, ptr %13, align 8, !tbaa !199
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %372 = load i64, ptr %10, align 8, !tbaa !30
   store i64 %372, ptr %14, align 8, !tbaa !30
   br label %373
 
 373:                                              ; preds = %malloc_conf_error.exit901, %370
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #21
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #21
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %374 = call zeroext i1 @duckdb_je_multi_setting_parse_next(ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %17) #21
   br i1 %374, label %380, label %375
 
@@ -11180,15 +11174,15 @@ malloc_conf_error.exit900.thread:                 ; preds = %358, %351, %361, %m
   br label %.thread990
 
 .thread990:                                       ; preds = %389, %380
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %401
 
 malloc_conf_error.exit901:                        ; preds = %375
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %390 = load i64, ptr %14, align 8
   %.not878 = icmp eq i64 %390, 0
   br i1 %.not878, label %391, label %373
@@ -11210,8 +11204,8 @@ malloc_conf_error.exit901:                        ; preds = %375
   br label %401
 
 401:                                              ; preds = %.thread990, %394, %391
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %malloc_conf_error.exit.thread
 
 402:                                              ; preds = %367, %366
@@ -11224,7 +11218,7 @@ malloc_conf_error.exit901:                        ; preds = %375
   br i1 %406, label %407, label %.thread997
 
 407:                                              ; preds = %404
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %408 = tail call ptr @__errno_location() #23
   store i32 0, ptr %408, align 4, !tbaa !3
   %409 = load ptr, ptr %8, align 8, !tbaa !199
@@ -11272,7 +11266,7 @@ malloc_conf_error.exit902:                        ; preds = %412
   br label %malloc_conf_error.exit902.thread
 
 malloc_conf_error.exit902.thread:                 ; preds = %424, %417, %427, %malloc_conf_error.exit902
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %malloc_conf_error.exit.thread
 
 432:                                              ; preds = %402
@@ -11285,7 +11279,7 @@ malloc_conf_error.exit902.thread:                 ; preds = %424, %417, %427, %m
   br i1 %436, label %437, label %.thread997
 
 437:                                              ; preds = %434
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %438 = tail call ptr @__errno_location() #23
   store i32 0, ptr %438, align 4, !tbaa !3
   %439 = load ptr, ptr %8, align 8, !tbaa !199
@@ -11334,7 +11328,7 @@ malloc_conf_error.exit903:                        ; preds = %442
   br label %malloc_conf_error.exit903.thread
 
 malloc_conf_error.exit903.thread:                 ; preds = %454, %447, %457, %malloc_conf_error.exit903
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %malloc_conf_error.exit.thread
 
 .thread997:                                       ; preds = %404, %434, %432
@@ -11347,7 +11341,7 @@ malloc_conf_error.exit903.thread:                 ; preds = %454, %447, %457, %m
   br i1 %465, label %466, label %491
 
 466:                                              ; preds = %463
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %467 = tail call ptr @__errno_location() #23
   store i32 0, ptr %467, align 4, !tbaa !3
   %468 = load ptr, ptr %8, align 8, !tbaa !199
@@ -11396,7 +11390,7 @@ malloc_conf_error.exit904:                        ; preds = %471
   br label %malloc_conf_error.exit904.thread
 
 malloc_conf_error.exit904.thread:                 ; preds = %483, %476, %486, %malloc_conf_error.exit904
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %malloc_conf_error.exit.thread
 
 491:                                              ; preds = %463, %.thread997
@@ -11457,7 +11451,7 @@ malloc_conf_error.exit905:                        ; preds = %496
   br i1 %522, label %523, label %558
 
 523:                                              ; preds = %520
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %524 = tail call ptr @__errno_location() #23
   store i32 0, ptr %524, align 4, !tbaa !3
   %525 = load ptr, ptr %8, align 8, !tbaa !199
@@ -11523,7 +11517,7 @@ malloc_conf_error.exit906:                        ; preds = %541
   br label %malloc_conf_error.exit906.thread
 
 malloc_conf_error.exit906.thread:                 ; preds = %550, %543, %540, %533, %553, %malloc_conf_error.exit906
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %malloc_conf_error.exit.thread
 
 558:                                              ; preds = %520
@@ -11532,7 +11526,7 @@ malloc_conf_error.exit906.thread:                 ; preds = %550, %543, %540, %5
   br i1 %560, label %561, label %596
 
 561:                                              ; preds = %558
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %562 = tail call ptr @__errno_location() #23
   store i32 0, ptr %562, align 4, !tbaa !3
   %563 = load ptr, ptr %8, align 8, !tbaa !199
@@ -11599,7 +11593,7 @@ malloc_conf_error.exit908:                        ; preds = %579
   br label %malloc_conf_error.exit908.thread
 
 malloc_conf_error.exit908.thread:                 ; preds = %588, %581, %578, %571, %591, %malloc_conf_error.exit908
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %malloc_conf_error.exit.thread
 
 596:                                              ; preds = %558
@@ -11608,7 +11602,7 @@ malloc_conf_error.exit908.thread:                 ; preds = %588, %581, %578, %5
   br i1 %598, label %599, label %676
 
 599:                                              ; preds = %596
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   %600 = tail call ptr @__errno_location() #23
   store i32 0, ptr %600, align 4, !tbaa !3
   %601 = load ptr, ptr %8, align 8, !tbaa !199
@@ -11675,7 +11669,7 @@ malloc_conf_error.exit910:                        ; preds = %617
   br label %malloc_conf_error.exit910.thread
 
 malloc_conf_error.exit910.thread:                 ; preds = %626, %619, %616, %609, %629, %malloc_conf_error.exit910
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %malloc_conf_error.exit.thread
 
 634:                                              ; preds = %519
@@ -11797,7 +11791,7 @@ init_opt_stats_opts.exit:                         ; preds = %670, %657
   br i1 %678, label %679, label %.thread1070
 
 679:                                              ; preds = %676
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   %680 = tail call ptr @__errno_location() #23
   store i32 0, ptr %680, align 4, !tbaa !3
   %681 = load ptr, ptr %8, align 8, !tbaa !199
@@ -11863,7 +11857,7 @@ malloc_conf_error.exit914:                        ; preds = %697
   br label %malloc_conf_error.exit914.thread
 
 malloc_conf_error.exit914.thread:                 ; preds = %706, %699, %696, %689, %709, %malloc_conf_error.exit914
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %malloc_conf_error.exit.thread
 
 714:                                              ; preds = %653
@@ -12167,7 +12161,7 @@ malloc_conf_error.exit928:                        ; preds = %812, %809
   br i1 %827, label %828, label %853
 
 828:                                              ; preds = %825
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   %829 = tail call ptr @__errno_location() #23
   store i32 0, ptr %829, align 4, !tbaa !3
   %830 = load ptr, ptr %8, align 8, !tbaa !199
@@ -12216,7 +12210,7 @@ malloc_conf_error.exit929:                        ; preds = %833
   br label %malloc_conf_error.exit929.thread
 
 malloc_conf_error.exit929.thread:                 ; preds = %845, %838, %848, %malloc_conf_error.exit929
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %malloc_conf_error.exit.thread
 
 853:                                              ; preds = %825, %.thread1070
@@ -12228,7 +12222,7 @@ malloc_conf_error.exit929.thread:                 ; preds = %845, %838, %848, %m
   br i1 %856, label %857, label %883
 
 857:                                              ; preds = %854
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   %858 = tail call ptr @__errno_location() #23
   store i32 0, ptr %858, align 4, !tbaa !3
   %859 = load ptr, ptr %8, align 8, !tbaa !199
@@ -12278,7 +12272,7 @@ malloc_conf_error.exit930:                        ; preds = %862
   br label %malloc_conf_error.exit930.thread
 
 malloc_conf_error.exit930.thread:                 ; preds = %874, %867, %878, %malloc_conf_error.exit930
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br label %malloc_conf_error.exit.thread
 
 883:                                              ; preds = %854, %853
@@ -12291,7 +12285,7 @@ malloc_conf_error.exit930.thread:                 ; preds = %874, %867, %878, %m
   br i1 %887, label %888, label %.thread1089
 
 888:                                              ; preds = %885
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   %889 = tail call ptr @__errno_location() #23
   store i32 0, ptr %889, align 4, !tbaa !3
   %890 = load ptr, ptr %8, align 8, !tbaa !199
@@ -12350,7 +12344,7 @@ malloc_conf_error.exit931:                        ; preds = %906
   br label %malloc_conf_error.exit931.thread
 
 malloc_conf_error.exit931.thread:                 ; preds = %905, %898, %908, %913, %malloc_conf_error.exit931
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %malloc_conf_error.exit.thread
 
 918:                                              ; preds = %883
@@ -12363,7 +12357,7 @@ malloc_conf_error.exit931.thread:                 ; preds = %905, %898, %908, %9
   br i1 %922, label %923, label %949
 
 923:                                              ; preds = %920
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   %924 = tail call ptr @__errno_location() #23
   store i32 0, ptr %924, align 4, !tbaa !3
   %925 = load ptr, ptr %8, align 8, !tbaa !199
@@ -12415,7 +12409,7 @@ malloc_conf_error.exit932:                        ; preds = %928
   br label %malloc_conf_error.exit932.thread
 
 malloc_conf_error.exit932.thread:                 ; preds = %940, %933, %944, %malloc_conf_error.exit932
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %malloc_conf_error.exit.thread
 
 949:                                              ; preds = %920
@@ -12424,7 +12418,7 @@ malloc_conf_error.exit932.thread:                 ; preds = %940, %933, %944, %m
   br i1 %951, label %952, label %.thread1089
 
 952:                                              ; preds = %949
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %29) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   %953 = tail call ptr @__errno_location() #23
   store i32 0, ptr %953, align 4, !tbaa !3
   %954 = load ptr, ptr %8, align 8, !tbaa !199
@@ -12476,7 +12470,7 @@ malloc_conf_error.exit933:                        ; preds = %957
   br label %malloc_conf_error.exit933.thread
 
 malloc_conf_error.exit933.thread:                 ; preds = %969, %962, %973, %malloc_conf_error.exit933
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   br label %malloc_conf_error.exit.thread
 
 .thread1089:                                      ; preds = %918, %885, %949
@@ -12488,7 +12482,7 @@ malloc_conf_error.exit933.thread:                 ; preds = %969, %962, %973, %m
   br i1 %980, label %981, label %1007
 
 981:                                              ; preds = %978
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %30) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   %982 = tail call ptr @__errno_location() #23
   store i32 0, ptr %982, align 4, !tbaa !3
   %983 = load ptr, ptr %8, align 8, !tbaa !199
@@ -12540,7 +12534,7 @@ malloc_conf_error.exit934:                        ; preds = %986
   br label %malloc_conf_error.exit934.thread
 
 malloc_conf_error.exit934.thread:                 ; preds = %998, %991, %1002, %malloc_conf_error.exit934
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
   br label %malloc_conf_error.exit.thread
 
 1007:                                             ; preds = %978, %.thread1089
@@ -12552,7 +12546,7 @@ malloc_conf_error.exit934.thread:                 ; preds = %998, %991, %1002, %
   br i1 %1010, label %1011, label %1032
 
 1011:                                             ; preds = %1008
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %31) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
   %1012 = tail call ptr @__errno_location() #23
   store i32 0, ptr %1012, align 4, !tbaa !3
   %1013 = load ptr, ptr %8, align 8, !tbaa !199
@@ -12593,7 +12587,7 @@ malloc_conf_error.exit934.thread:                 ; preds = %998, %991, %1002, %
   br label %1031
 
 1031:                                             ; preds = %.thread1096, %1026, %1023
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %31) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
   br label %malloc_conf_error.exit.thread
 
 1032:                                             ; preds = %1008, %1007
@@ -12605,7 +12599,7 @@ malloc_conf_error.exit934.thread:                 ; preds = %998, %991, %1002, %
   br i1 %1035, label %1036, label %1057
 
 1036:                                             ; preds = %1033
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %32) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
   %1037 = tail call ptr @__errno_location() #23
   store i32 0, ptr %1037, align 4, !tbaa !3
   %1038 = load ptr, ptr %8, align 8, !tbaa !199
@@ -12645,7 +12639,7 @@ malloc_conf_error.exit934.thread:                 ; preds = %998, %991, %1002, %
   br label %1056
 
 1056:                                             ; preds = %.thread1100, %1051, %1048
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
   br label %malloc_conf_error.exit.thread
 
 1057:                                             ; preds = %1033, %1032
@@ -12658,7 +12652,7 @@ malloc_conf_error.exit934.thread:                 ; preds = %998, %991, %1002, %
   br i1 %1061, label %1062, label %1084
 
 1062:                                             ; preds = %1059
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %33) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
   %1063 = tail call ptr @__errno_location() #23
   store i32 0, ptr %1063, align 4, !tbaa !3
   %1064 = load ptr, ptr %8, align 8, !tbaa !199
@@ -12702,7 +12696,7 @@ malloc_conf_error.exit934.thread:                 ; preds = %998, %991, %1002, %
   br label %1083
 
 1083:                                             ; preds = %.thread1104, %1078, %1074
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %33) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
   br label %malloc_conf_error.exit.thread
 
 1084:                                             ; preds = %1059
@@ -12711,7 +12705,7 @@ malloc_conf_error.exit934.thread:                 ; preds = %998, %991, %1002, %
   br i1 %1086, label %1087, label %.thread1136
 
 1087:                                             ; preds = %1084
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %34) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
   %1088 = tail call ptr @__errno_location() #23
   store i32 0, ptr %1088, align 4, !tbaa !3
   %1089 = load ptr, ptr %8, align 8, !tbaa !199
@@ -12755,7 +12749,7 @@ malloc_conf_error.exit934.thread:                 ; preds = %998, %991, %1002, %
   br label %1108
 
 1108:                                             ; preds = %.thread1109, %1103, %1099
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %34) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
   br label %malloc_conf_error.exit.thread
 
 1109:                                             ; preds = %1057
@@ -12770,7 +12764,7 @@ malloc_conf_error.exit934.thread:                 ; preds = %998, %991, %1002, %
   br i1 %1112, label %1113, label %.thread1136
 
 1113:                                             ; preds = %1110
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %35) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
   %1114 = tail call ptr @__errno_location() #23
   store i32 0, ptr %1114, align 4, !tbaa !3
   %1115 = load ptr, ptr %8, align 8, !tbaa !199
@@ -12811,7 +12805,7 @@ malloc_conf_error.exit934.thread:                 ; preds = %998, %991, %1002, %
   br label %1134
 
 1134:                                             ; preds = %.thread1114, %1129, %1125
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %35) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
   br label %malloc_conf_error.exit.thread
 
 1135:                                             ; preds = %1109
@@ -12820,7 +12814,7 @@ malloc_conf_error.exit934.thread:                 ; preds = %998, %991, %1002, %
   br i1 %1137, label %1138, label %1194
 
 1138:                                             ; preds = %1135
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %36) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
   %1139 = tail call ptr @__errno_location() #23
   store i32 0, ptr %1139, align 4, !tbaa !3
   %1140 = load ptr, ptr %8, align 8, !tbaa !199
@@ -12870,7 +12864,7 @@ malloc_conf_error.exit934.thread:                 ; preds = %998, %991, %1002, %
   br label %.thread1122
 
 .thread1122:                                      ; preds = %1153, %1148, %1159, %1156
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %36) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
   br label %malloc_conf_error.exit.thread
 
 1164:                                             ; preds = %1109
@@ -12882,7 +12876,7 @@ malloc_conf_error.exit934.thread:                 ; preds = %998, %991, %1002, %
   br i1 %1167, label %1168, label %.thread1136
 
 1168:                                             ; preds = %1165
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %37) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
   %1169 = tail call ptr @__errno_location() #23
   store i32 0, ptr %1169, align 4, !tbaa !3
   %1170 = load ptr, ptr %8, align 8, !tbaa !199
@@ -12932,7 +12926,7 @@ malloc_conf_error.exit934.thread:                 ; preds = %998, %991, %1002, %
   br label %.thread1131
 
 .thread1131:                                      ; preds = %1183, %1178, %1189, %1186
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %37) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
   br label %malloc_conf_error.exit.thread
 
 1194:                                             ; preds = %1135
@@ -12941,7 +12935,7 @@ malloc_conf_error.exit934.thread:                 ; preds = %998, %991, %1002, %
   br i1 %1196, label %1197, label %.thread1136
 
 1197:                                             ; preds = %1194
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %38) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %38)
   %1198 = tail call ptr @__errno_location() #23
   store i32 0, ptr %1198, align 4, !tbaa !3
   %1199 = load ptr, ptr %8, align 8, !tbaa !199
@@ -12991,7 +12985,7 @@ malloc_conf_error.exit934.thread:                 ; preds = %998, %991, %1002, %
   br label %.thread1143
 
 .thread1143:                                      ; preds = %1212, %1207, %1218, %1215
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %38) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
   br label %malloc_conf_error.exit.thread
 
 .thread1136:                                      ; preds = %1084, %1164, %1165, %1110, %1194
@@ -13084,7 +13078,7 @@ malloc_conf_error.exit934.thread:                 ; preds = %998, %991, %1002, %
   br i1 %1258, label %1259, label %.thread1164
 
 1259:                                             ; preds = %1256
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %39) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %39)
   %1260 = tail call ptr @__errno_location() #23
   store i32 0, ptr %1260, align 4, !tbaa !3
   %1261 = load ptr, ptr %8, align 8, !tbaa !199
@@ -13137,7 +13131,7 @@ malloc_conf_error.exit934.thread:                 ; preds = %998, %991, %1002, %
   br label %1284
 
 1284:                                             ; preds = %.thread1153, %1279, %1276
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %39) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
   br label %malloc_conf_error.exit.thread
 
 sub_0:                                            ; preds = %1255
@@ -13210,7 +13204,7 @@ sub_2:                                            ; preds = %sub_1
   br i1 %1313, label %1314, label %.thread1164
 
 1314:                                             ; preds = %1311
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %40) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %40)
   %1315 = tail call ptr @__errno_location() #23
   store i32 0, ptr %1315, align 4, !tbaa !3
   %1316 = load ptr, ptr %8, align 8, !tbaa !199
@@ -13252,7 +13246,7 @@ sub_2:                                            ; preds = %sub_1
   br label %1335
 
 1335:                                             ; preds = %.thread1165, %1330, %1326
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %40) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
   br label %malloc_conf_error.exit.thread
 
 .thread1164:                                      ; preds = %1256, %1239, %.tail, %1311, %.thread1158
@@ -13265,7 +13259,7 @@ sub_2:                                            ; preds = %sub_1
   br i1 %1339, label %1340, label %1362
 
 1340:                                             ; preds = %1337
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %41) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %41)
   %1341 = tail call ptr @__errno_location() #23
   store i32 0, ptr %1341, align 4, !tbaa !3
   %1342 = load ptr, ptr %8, align 8, !tbaa !199
@@ -13307,7 +13301,7 @@ sub_2:                                            ; preds = %sub_1
   br label %1361
 
 1361:                                             ; preds = %.thread1169, %1356, %1352
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %41) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
   br label %malloc_conf_error.exit.thread
 
 1362:                                             ; preds = %1337, %.thread1164
@@ -13320,8 +13314,8 @@ sub_2:                                            ; preds = %sub_1
   br i1 %1366, label %1367, label %1391
 
 1367:                                             ; preds = %1364
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %42) #21
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %43) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %42)
+  call void @llvm.lifetime.start.p0(ptr nonnull %43)
   %1368 = load ptr, ptr %8, align 8, !tbaa !199
   %1369 = call zeroext i1 @duckdb_je_fxp_parse(ptr noundef nonnull %42, ptr noundef %1368, ptr noundef nonnull %43) #21
   %.pre1384 = load ptr, ptr %8, align 8, !tbaa !199
@@ -13362,8 +13356,8 @@ sub_2:                                            ; preds = %sub_1
   br label %1390
 
 1390:                                             ; preds = %.thread1173, %1385, %1380
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %43) #21
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %42) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
   br label %malloc_conf_error.exit.thread
 
 1391:                                             ; preds = %1364, %1362
@@ -13375,7 +13369,7 @@ sub_2:                                            ; preds = %sub_1
   br i1 %1394, label %1395, label %1416
 
 1395:                                             ; preds = %1392
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %44) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %44)
   %1396 = tail call ptr @__errno_location() #23
   store i32 0, ptr %1396, align 4, !tbaa !3
   %1397 = load ptr, ptr %8, align 8, !tbaa !199
@@ -13415,7 +13409,7 @@ sub_2:                                            ; preds = %sub_1
   br label %1415
 
 1415:                                             ; preds = %.thread1177, %1410, %1407
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %44) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %44)
   br label %malloc_conf_error.exit.thread
 
 1416:                                             ; preds = %1392, %1391
@@ -13427,7 +13421,7 @@ sub_2:                                            ; preds = %sub_1
   br i1 %1419, label %1420, label %.thread1185
 
 1420:                                             ; preds = %1417
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %45) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %45)
   %1421 = tail call ptr @__errno_location() #23
   store i32 0, ptr %1421, align 4, !tbaa !3
   %1422 = load ptr, ptr %8, align 8, !tbaa !199
@@ -13467,7 +13461,7 @@ sub_2:                                            ; preds = %sub_1
   br label %1440
 
 1440:                                             ; preds = %.thread1181, %1435, %1432
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %45) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
   br label %malloc_conf_error.exit.thread
 
 1441:                                             ; preds = %1416
@@ -13558,8 +13552,8 @@ sub_11264:                                        ; preds = %sub_01263
   br label %malloc_conf_error.exit.thread
 
 1479:                                             ; preds = %.tail1262, %1462
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %46) #21
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %47) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %46)
+  call void @llvm.lifetime.start.p0(ptr nonnull %47)
   %1480 = call zeroext i1 @duckdb_je_fxp_parse(ptr noundef nonnull %46, ptr noundef %.pre1377, ptr noundef nonnull %47) #21
   %.pre1378 = load ptr, ptr %8, align 8, !tbaa !199
   %.pre1379 = load i64, ptr %10, align 8, !tbaa !30
@@ -13595,8 +13589,8 @@ sub_11264:                                        ; preds = %sub_01263
   br label %1497
 
 1497:                                             ; preds = %.thread1191, %1492, %1488
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %47) #21
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %46) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
+  call void @llvm.lifetime.end.p0(ptr nonnull %46)
   br label %malloc_conf_error.exit.thread
 
 1498:                                             ; preds = %1459, %.thread1185
@@ -13608,7 +13602,7 @@ sub_11264:                                        ; preds = %sub_01263
   br i1 %1501, label %1502, label %1523
 
 1502:                                             ; preds = %1499
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %48) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %48)
   %1503 = tail call ptr @__errno_location() #23
   store i32 0, ptr %1503, align 4, !tbaa !3
   %1504 = load ptr, ptr %8, align 8, !tbaa !199
@@ -13648,7 +13642,7 @@ sub_11264:                                        ; preds = %sub_01263
   br label %1522
 
 1522:                                             ; preds = %.thread1195, %1517, %1514
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %48) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %48)
   br label %malloc_conf_error.exit.thread
 
 1523:                                             ; preds = %1499, %1498
@@ -13660,7 +13654,7 @@ sub_11264:                                        ; preds = %sub_01263
   br i1 %1526, label %1527, label %1548
 
 1527:                                             ; preds = %1524
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %49) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %49)
   %1528 = tail call ptr @__errno_location() #23
   store i32 0, ptr %1528, align 4, !tbaa !3
   %1529 = load ptr, ptr %8, align 8, !tbaa !199
@@ -13701,7 +13695,7 @@ sub_11264:                                        ; preds = %sub_01263
   br label %1547
 
 1547:                                             ; preds = %.thread1199, %1542, %1539
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %49) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %49)
   br label %malloc_conf_error.exit.thread
 
 1548:                                             ; preds = %1524
@@ -13710,7 +13704,7 @@ sub_11264:                                        ; preds = %sub_01263
   br i1 %1550, label %1551, label %.thread1208
 
 1551:                                             ; preds = %1548
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %50) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %50)
   %1552 = tail call ptr @__errno_location() #23
   store i32 0, ptr %1552, align 4, !tbaa !3
   %1553 = load ptr, ptr %8, align 8, !tbaa !199
@@ -13751,7 +13745,7 @@ sub_11264:                                        ; preds = %sub_01263
   br label %1571
 
 1571:                                             ; preds = %.thread1204, %1566, %1563
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %50) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %50)
   br label %malloc_conf_error.exit.thread
 
 1572:                                             ; preds = %1523
@@ -13763,7 +13757,7 @@ sub_11264:                                        ; preds = %sub_01263
   br i1 %1575, label %1576, label %.thread1208
 
 1576:                                             ; preds = %1573
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %51) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %51)
   %1577 = tail call ptr @__errno_location() #23
   store i32 0, ptr %1577, align 4, !tbaa !3
   %1578 = load ptr, ptr %8, align 8, !tbaa !199
@@ -13804,7 +13798,7 @@ sub_11264:                                        ; preds = %sub_01263
   br label %1596
 
 1596:                                             ; preds = %.thread1209, %1591, %1588
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %51) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %51)
   br label %malloc_conf_error.exit.thread
 
 .thread1208:                                      ; preds = %1548, %1573, %1572
@@ -13816,7 +13810,7 @@ sub_11264:                                        ; preds = %sub_01263
   br i1 %1599, label %1600, label %1621
 
 1600:                                             ; preds = %1597
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %52) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %52)
   %1601 = tail call ptr @__errno_location() #23
   store i32 0, ptr %1601, align 4, !tbaa !3
   %1602 = load ptr, ptr %8, align 8, !tbaa !199
@@ -13857,7 +13851,7 @@ sub_11264:                                        ; preds = %sub_01263
   br label %1620
 
 1620:                                             ; preds = %.thread1213, %1615, %1612
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %52) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %52)
   br label %malloc_conf_error.exit.thread
 
 1621:                                             ; preds = %1597, %.thread1208
@@ -13896,16 +13890,16 @@ sub_11264:                                        ; preds = %sub_01263
   br label %malloc_conf_error.exit.thread
 
 1641:                                             ; preds = %1628, %1625
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %53) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %53)
   store ptr %.pre1368, ptr %53, align 8, !tbaa !199
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %54) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %54)
   store i64 %1626, ptr %54, align 8, !tbaa !30
   br label %1642
 
 1642:                                             ; preds = %1648, %1641
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %55) #21
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %56) #21
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %57) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %55)
+  call void @llvm.lifetime.start.p0(ptr nonnull %56)
+  call void @llvm.lifetime.start.p0(ptr nonnull %57)
   %1643 = call zeroext i1 @duckdb_je_multi_setting_parse_next(ptr noundef nonnull %53, ptr noundef nonnull %54, ptr noundef nonnull %55, ptr noundef nonnull %56, ptr noundef nonnull %57) #21
   br i1 %1643, label %.thread1221, label %1648
 
@@ -13915,9 +13909,9 @@ sub_11264:                                        ; preds = %sub_01263
   %1646 = load ptr, ptr %8, align 8, !tbaa !199
   %1647 = load i64, ptr %10, align 8, !tbaa !30
   call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.158, ptr noundef %1644, i64 noundef %1645, ptr noundef %1646, i64 noundef %1647)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %57) #21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %56) #21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %55) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %57)
+  call void @llvm.lifetime.end.p0(ptr nonnull %56)
+  call void @llvm.lifetime.end.p0(ptr nonnull %55)
   br label %1665
 
 1648:                                             ; preds = %1642
@@ -13926,9 +13920,9 @@ sub_11264:                                        ; preds = %sub_01263
   %1651 = load i64, ptr %57, align 8, !tbaa !30
   %1652 = trunc i64 %1651 to i32
   call void @duckdb_je_sc_data_update_slab_size(ptr noundef %0, i64 noundef %1649, i64 noundef %1650, i32 noundef %1652) #21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %57) #21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %56) #21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %55) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %57)
+  call void @llvm.lifetime.end.p0(ptr nonnull %56)
+  call void @llvm.lifetime.end.p0(ptr nonnull %55)
   %1653 = load i64, ptr %54, align 8
   %1654 = icmp eq i64 %1653, 0
   br i1 %1654, label %1655, label %1642
@@ -13950,8 +13944,8 @@ sub_11264:                                        ; preds = %sub_01263
   br label %1665
 
 1665:                                             ; preds = %.thread1221, %1658, %1655
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %54) #21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %53) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %54)
+  call void @llvm.lifetime.end.p0(ptr nonnull %53)
   br label %malloc_conf_error.exit.thread
 
 1666:                                             ; preds = %1622, %1621
@@ -14068,7 +14062,7 @@ sub_21269:                                        ; preds = %sub_11268
   br i1 %1713, label %1714, label %1735
 
 1714:                                             ; preds = %1711
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %58) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %58)
   %1715 = tail call ptr @__errno_location() #23
   store i32 0, ptr %1715, align 4, !tbaa !3
   %1716 = load ptr, ptr %8, align 8, !tbaa !199
@@ -14108,7 +14102,7 @@ sub_21269:                                        ; preds = %sub_11268
   br label %1734
 
 1734:                                             ; preds = %.thread1232, %1729, %1726
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %58) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %58)
   br label %malloc_conf_error.exit.thread
 
 1735:                                             ; preds = %1711
@@ -14117,7 +14111,7 @@ sub_21269:                                        ; preds = %sub_11268
   br i1 %1737, label %1738, label %1759
 
 1738:                                             ; preds = %1735
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %59) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %59)
   %1739 = tail call ptr @__errno_location() #23
   store i32 0, ptr %1739, align 4, !tbaa !3
   %1740 = load ptr, ptr %8, align 8, !tbaa !199
@@ -14157,7 +14151,7 @@ sub_21269:                                        ; preds = %sub_11268
   br label %1758
 
 1758:                                             ; preds = %.thread1237, %1753, %1750
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %59) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %59)
   br label %malloc_conf_error.exit.thread
 
 1759:                                             ; preds = %1710, %1735
@@ -14192,11 +14186,11 @@ malloc_conf_error.exit.thread:                    ; preds = %.thread938, %113, %
 
 atomic_store_b.exit:                              ; preds = %1767
   store atomic i8 1, ptr @duckdb_je_log_init_done release, align 1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -14379,7 +14373,7 @@ define internal fastcc noundef zeroext i1 @malloc_conf_next(ptr noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #16
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #15
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @malloc_conf_error(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) unnamed_addr #2 {
@@ -14398,21 +14392,21 @@ define internal fastcc void @malloc_conf_error(ptr noundef %0, ptr noundef %1, i
   ret void
 }
 
-declare zeroext i1 @duckdb_je_extent_dss_prec_set(i32 noundef) local_unnamed_addr #5
+declare zeroext i1 @duckdb_je_extent_dss_prec_set(i32 noundef) local_unnamed_addr #4
 
-declare i64 @duckdb_je_malloc_strtoumax(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
+declare i64 @duckdb_je_malloc_strtoumax(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare zeroext i1 @duckdb_je_fxp_parse(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare zeroext i1 @duckdb_je_fxp_parse(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare zeroext i1 @duckdb_je_multi_setting_parse_next(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare zeroext i1 @duckdb_je_multi_setting_parse_next(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare zeroext i1 @duckdb_je_bin_update_shard_size(ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #5
+declare zeroext i1 @duckdb_je_bin_update_shard_size(ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #4
 
-declare zeroext i1 @tcache_bin_info_default_init(ptr noundef, i64 noundef) local_unnamed_addr #5
+declare zeroext i1 @tcache_bin_info_default_init(ptr noundef, i64 noundef) local_unnamed_addr #4
 
-declare void @duckdb_je_sc_data_init(ptr noundef) local_unnamed_addr #5
+declare void @duckdb_je_sc_data_init(ptr noundef) local_unnamed_addr #4
 
-declare void @duckdb_je_sc_data_update_slab_size(ptr noundef, i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #5
+declare void @duckdb_je_sc_data_update_slab_size(ptr noundef, i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @validate_hpa_settings() unnamed_addr #2 {
@@ -14439,9 +14433,9 @@ define internal fastcc void @validate_hpa_settings() unnamed_addr #2 {
 
 16:                                               ; preds = %10
   store i1 true, ptr @had_conf_error, align 1
-  call void @llvm.lifetime.start.p0(i64 21, ptr nonnull %1) #21
-  call void @llvm.lifetime.start.p0(i64 21, ptr nonnull %2) #21
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %3) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %3, i8 0, i64 256, i1 false)
   call void @duckdb_je_fxp_print(i32 noundef %8, ptr noundef nonnull %1) #21
   %17 = load i64, ptr getelementptr inbounds nuw (i8, ptr @duckdb_je_opt_hpa_opts, i64 8), align 8, !tbaa !209
@@ -14454,7 +14448,7 @@ define internal fastcc void @validate_hpa_settings() unnamed_addr #2 {
   br i1 %22, label %30, label %23
 
 23:                                               ; preds = %16
-  call void @llvm.lifetime.start.p0(i64 21, ptr nonnull %4) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %24 = load i64, ptr getelementptr inbounds nuw (i8, ptr @duckdb_je_opt_hpa_opts, i64 8), align 8, !tbaa !209
   %reass.sub = sub i64 %24, %14
   %25 = add i64 %reass.sub, 2097152
@@ -14464,14 +14458,14 @@ define internal fastcc void @validate_hpa_settings() unnamed_addr #2 {
   %28 = and i32 %27, 8388480
   call void @duckdb_je_fxp_print(i32 noundef %28, ptr noundef nonnull %4) #21
   %29 = call i64 (ptr, i64, ptr, ...) @duckdb_je_malloc_snprintf(ptr noundef nonnull %3, i64 noundef 256, ptr noundef nonnull @.str.173, ptr noundef nonnull %4) #21
-  call void @llvm.lifetime.end.p0(i64 21, ptr nonnull %4) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %30
 
 30:                                               ; preds = %23, %16
   call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.174, ptr noundef nonnull %2, ptr noundef nonnull %1, ptr noundef nonnull %3) #21
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %3) #21
-  call void @llvm.lifetime.end.p0(i64 21, ptr nonnull %2) #21
-  call void @llvm.lifetime.end.p0(i64 21, ptr nonnull %1) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %31
 
 31:                                               ; preds = %30, %10, %0
@@ -14479,38 +14473,38 @@ define internal fastcc void @validate_hpa_settings() unnamed_addr #2 {
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #14
+declare ptr @__errno_location() local_unnamed_addr #13
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @readlink(ptr noundef readonly captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #13
+declare noundef i64 @readlink(ptr noundef readonly captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #17
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #16
+declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #15
 
-declare void @duckdb_je_fxp_print(i32 noundef, ptr noundef) local_unnamed_addr #5
+declare void @duckdb_je_fxp_print(i32 noundef, ptr noundef) local_unnamed_addr #4
 
-declare i64 @duckdb_je_malloc_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #5
+declare i64 @duckdb_je_malloc_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #4
 
-declare void @duckdb_je_tcache_stats_merge(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare void @duckdb_je_tcache_stats_merge(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare ptr @duckdb_je_arena_malloc_hard(ptr noundef, ptr noundef, i64 noundef, i32 noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #5
+declare ptr @duckdb_je_arena_malloc_hard(ptr noundef, ptr noundef, i64 noundef, i32 noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #4
 
-declare void @duckdb_je_tcache_bin_flush_stashed(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #5
+declare void @duckdb_je_tcache_bin_flush_stashed(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #4
 
-declare ptr @duckdb_je_tcache_alloc_small_hard(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
+declare ptr @duckdb_je_tcache_alloc_small_hard(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
-declare ptr @duckdb_je_large_malloc(ptr noundef, ptr noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #5
+declare ptr @duckdb_je_large_malloc(ptr noundef, ptr noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #18
+declare i64 @llvm.ctlz.i64(i64, i1 immarg) #17
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc void @arena_dalloc_no_tcache(ptr noundef %0, ptr noundef %1) unnamed_addr #11 {
+define internal fastcc void @arena_dalloc_no_tcache(ptr noundef %0, ptr noundef %1) unnamed_addr #10 {
   %3 = alloca %struct.rtree_ctx_s, align 8
-  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %3) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6, !prof !7
 
@@ -14603,7 +14597,7 @@ rtree_metadata_read.exit:                         ; preds = %15, %25, %37, %51
   %.0.i.i = phi ptr [ %20, %15 ], [ %32, %25 ], [ %52, %51 ], [ %50, %37 ]
   %53 = load atomic i64, ptr %.0.i.i monotonic, align 8, !noalias !219
   %54 = trunc i64 %53 to i1
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %3) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %54, label %55, label %56, !prof !9
 
 55:                                               ; preds = %rtree_metadata_read.exit
@@ -14618,12 +14612,12 @@ rtree_metadata_read.exit:                         ; preds = %15, %25, %37, %51
   ret void
 }
 
-declare void @duckdb_je_arena_dalloc_small(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare void @duckdb_je_arena_dalloc_small(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc void @arena_dalloc_large_no_tcache(ptr noundef %0, ptr noundef %1) unnamed_addr #11 {
+define internal fastcc void @arena_dalloc_large_no_tcache(ptr noundef %0, ptr noundef %1) unnamed_addr #10 {
   %3 = alloca %struct.rtree_ctx_s, align 8
-  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %3) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6, !prof !7
 
@@ -14719,42 +14713,42 @@ rtree_read.exit:                                  ; preds = %15, %25, %37, %51
   %55 = ashr exact i64 %54, 16
   %56 = and i64 %55, -128
   %57 = inttoptr i64 %56 to ptr
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %3) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @duckdb_je_large_dalloc(ptr noundef %0, ptr noundef %57) #21
   ret void
 }
 
-declare void @duckdb_je_large_dalloc(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare void @duckdb_je_large_dalloc(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare void @duckdb_je_tcache_bin_flush_small(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
+declare void @duckdb_je_tcache_bin_flush_small(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
-declare void @duckdb_je_tcache_bin_flush_large(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
+declare void @duckdb_je_tcache_bin_flush_large(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
-declare void @duckdb_je_malloc_mutex_lock_slow(ptr noundef) local_unnamed_addr #5
-
-; Function Attrs: nounwind
-declare i32 @pthread_mutex_trylock(ptr noundef) local_unnamed_addr #19
-
-declare ptr @duckdb_je_arena_new(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
+declare void @duckdb_je_malloc_mutex_lock_slow(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #19
+declare i32 @pthread_mutex_trylock(ptr noundef) local_unnamed_addr #18
 
-declare zeroext i1 @duckdb_je_background_thread_create(ptr noundef, i32 noundef) local_unnamed_addr #5
+declare ptr @duckdb_je_arena_new(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
-declare ptr @duckdb_je_arena_palloc(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef) local_unnamed_addr #5
+; Function Attrs: nounwind
+declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #18
+
+declare zeroext i1 @duckdb_je_background_thread_create(ptr noundef, i32 noundef) local_unnamed_addr #4
+
+declare ptr @duckdb_je_arena_palloc(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #18
+declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #17
 
-declare ptr @duckdb_je_tsd_fetch_slow(ptr noundef, i1 noundef zeroext) local_unnamed_addr #5
+declare ptr @duckdb_je_tsd_fetch_slow(ptr noundef, i1 noundef zeroext) local_unnamed_addr #4
 
-declare ptr @duckdb_je_tcache_create_explicit(ptr noundef) local_unnamed_addr #5
+declare ptr @duckdb_je_tcache_create_explicit(ptr noundef) local_unnamed_addr #4
 
-declare ptr @duckdb_je_arena_ralloc(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare ptr @duckdb_je_arena_ralloc(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc void @arena_sdalloc_no_tcache(ptr noundef %0, ptr noundef %1, i64 noundef %2) unnamed_addr #11 {
+define internal fastcc void @arena_sdalloc_no_tcache(ptr noundef %0, ptr noundef %1, i64 noundef %2) unnamed_addr #10 {
   %4 = icmp ult i64 %2, 4097
   br i1 %4, label %5, label %11, !prof !9
 
@@ -14805,10 +14799,10 @@ sz_size2index.exit.thread:                        ; preds = %11, %sz_size2index.
   ret void
 }
 
-declare void @duckdb_je_safety_check_fail(ptr noundef, ...) local_unnamed_addr #5
+declare void @duckdb_je_safety_check_fail(ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc void @rtree_read(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) unnamed_addr #11 {
+define internal fastcc void @rtree_read(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) unnamed_addr #10 {
   %5 = lshr i64 %3, 30
   %6 = and i64 %5, 15
   %7 = and i64 %3, -1073741824
@@ -14911,12 +14905,12 @@ rtree_leaf_elm_lookup.exit:                       ; preds = %33, %11, %21, %47
   ret void
 }
 
-declare void @duckdb_je_rtree_ctx_data_init(ptr noundef) local_unnamed_addr #5
+declare void @duckdb_je_rtree_ctx_data_init(ptr noundef) local_unnamed_addr #4
 
-declare ptr @duckdb_je_rtree_leaf_elm_lookup_hard(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #5
+declare ptr @duckdb_je_rtree_leaf_elm_lookup_hard(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc { i64, i32 } @rtree_metadata_read(ptr noundef %0, ptr noundef %1, i64 noundef %2) unnamed_addr #11 {
+define internal fastcc { i64, i32 } @rtree_metadata_read(ptr noundef %0, ptr noundef %1, i64 noundef %2) unnamed_addr #10 {
   %4 = lshr i64 %2, 30
   %5 = and i64 %4, 15
   %6 = and i64 %2, -1073741824
@@ -15011,9 +15005,9 @@ rtree_leaf_elm_lookup.exit:                       ; preds = %32, %10, %20, %46
   ret { i64, i32 } %.fca.1.insert
 }
 
-declare zeroext i1 @duckdb_je_arena_ralloc_no_move(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #5
+declare zeroext i1 @duckdb_je_arena_ralloc_no_move(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #4
 
-declare void @duckdb_je_te_event_trigger(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare void @duckdb_je_te_event_trigger(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i1 @malloc_init_hard() unnamed_addr #2 {
@@ -15064,7 +15058,7 @@ malloc_mutex_lock.exit:                           ; preds = %3, %7
   %.sroa.0.0.i = phi i32 [ %.sroa.0.1.i, %malloc_mutex_lock.exit.i ], [ 0, %17 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @init_lock, i64 64) monotonic, align 8
   %18 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @init_lock, i64 72)) #21
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %19 = icmp ult i32 %.sroa.0.0.i, 5
   br i1 %19, label %20, label %25
 
@@ -15095,7 +15089,7 @@ malloc_mutex_lock.exit:                           ; preds = %3, %7
 
 spin_adaptive.exit.i:                             ; preds = %25, %._crit_edge.i.i
   %.sroa.0.1.i = phi i32 [ %24, %._crit_edge.i.i ], [ %.sroa.0.0.i, %25 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %27 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @init_lock, i64 72)) #21
   %.not.i.i15 = icmp eq i32 %27, 0
   br i1 %.not.i.i15, label %28, label %atomic_store_b.exit.i.i
@@ -15450,34 +15444,40 @@ malloc_init_hard_cleanup.exit:                    ; preds = %67, %154, %149, %14
   ret i1 %.0
 }
 
-declare ptr @duckdb_je_malloc_tsd_boot0() local_unnamed_addr #5
+declare ptr @duckdb_je_malloc_tsd_boot0() local_unnamed_addr #4
 
-declare zeroext i1 @duckdb_je_background_thread_boot1(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare zeroext i1 @duckdb_je_background_thread_boot1(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare void @duckdb_je_malloc_tsd_boot1() local_unnamed_addr #5
+declare void @duckdb_je_malloc_tsd_boot1() local_unnamed_addr #4
 
-declare void @duckdb_je_background_thread_ctl_init(ptr noundef) local_unnamed_addr #5
-
-; Function Attrs: nounwind
-declare i32 @sched_yield() local_unnamed_addr #19
+declare void @duckdb_je_background_thread_ctl_init(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare i32 @pthread_atfork(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #19
-
-declare zeroext i1 @duckdb_je_background_thread_boot0() local_unnamed_addr #5
+declare i32 @sched_yield() local_unnamed_addr #18
 
 ; Function Attrs: nounwind
-declare i64 @sysconf(i32 noundef) local_unnamed_addr #19
+declare i32 @pthread_atfork(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #18
 
-declare void @duckdb_je_tsd_slow_update(ptr noundef) local_unnamed_addr #5
+declare zeroext i1 @duckdb_je_background_thread_boot0() local_unnamed_addr #4
 
-declare zeroext i1 @duckdb_je_arena_init_huge(ptr noundef) local_unnamed_addr #5
+; Function Attrs: nounwind
+declare i64 @sysconf(i32 noundef) local_unnamed_addr #18
 
-declare zeroext i1 @duckdb_je_malloc_mutex_boot() local_unnamed_addr #5
+declare void @duckdb_je_tsd_slow_update(ptr noundef) local_unnamed_addr #4
 
-declare void @duckdb_je_tcache_arena_reassociate(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare zeroext i1 @duckdb_je_arena_init_huge(ptr noundef) local_unnamed_addr #4
 
-declare void @duckdb_je_tcache_arena_associate(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare zeroext i1 @duckdb_je_malloc_mutex_boot() local_unnamed_addr #4
+
+declare void @duckdb_je_tcache_arena_reassociate(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+
+declare void @duckdb_je_tcache_arena_associate(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #19
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.cttz.i32(i32, i1 immarg) #20
@@ -15500,23 +15500,23 @@ declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #20
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { cold nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { noinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nounwind allocsize(0) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nounwind allocsize(1) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nounwind allocsize(0,1) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree nounwind willreturn memory(read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #13 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #16 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { nofree nounwind memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #19 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { noinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind allocsize(0) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind allocsize(1) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nounwind allocsize(0,1) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree nounwind willreturn memory(read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #12 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { nofree nounwind memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #18 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #20 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #21 = { nounwind }
 attributes #22 = { noreturn nounwind }

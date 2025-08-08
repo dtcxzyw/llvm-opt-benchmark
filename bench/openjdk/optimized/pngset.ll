@@ -196,7 +196,7 @@ define hidden void @png_set_cHRM(ptr noalias noundef %0, ptr noalias noundef %1,
   %18 = tail call i32 @png_fixed(ptr noundef %0, double noundef %8, ptr noundef nonnull @.str.6) #12
   %19 = tail call i32 @png_fixed(ptr noundef %0, double noundef %9, ptr noundef nonnull @.str.7) #12
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %20 = icmp eq ptr %0, null
   %21 = icmp eq ptr %1, null
   %or.cond.i = or i1 %20, %21
@@ -235,7 +235,7 @@ define hidden void @png_set_cHRM(ptr noalias noundef %0, ptr noalias noundef %1,
   br label %png_set_cHRM_fixed.exit
 
 png_set_cHRM_fixed.exit:                          ; preds = %10, %36
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret void
 }
 
@@ -254,7 +254,7 @@ define hidden void @png_set_cHRM_XYZ(ptr noalias noundef %0, ptr noalias noundef
   %20 = tail call i32 @png_fixed(ptr noundef %0, double noundef %9, ptr noundef nonnull @.str.7) #12
   %21 = tail call i32 @png_fixed(ptr noundef %0, double noundef %10, ptr noundef nonnull @.str.10) #12
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12)
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %22 = icmp eq ptr %0, null
   %23 = icmp eq ptr %1, null
   %or.cond.i = or i1 %22, %23
@@ -295,7 +295,7 @@ define hidden void @png_set_cHRM_XYZ(ptr noalias noundef %0, ptr noalias noundef
   br label %png_set_cHRM_XYZ_fixed.exit
 
 png_set_cHRM_XYZ_fixed.exit:                      ; preds = %11, %39
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret void
 }
 
@@ -2429,10 +2429,10 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 declare void @llvm.experimental.noalias.scope.decl(metadata) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #8

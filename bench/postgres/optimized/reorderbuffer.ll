@@ -97,7 +97,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @ReorderBufferAllocate() local_unnamed_addr #0 {
   %1 = alloca %struct.HASHCTL, align 8
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %1) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %2 = load ptr, ptr @CurrentMemoryContext, align 8
   %3 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %2, ptr noundef nonnull @.str, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #19
   %4 = tail call ptr @MemoryContextAlloc(ptr noundef %3, i64 noundef 376) #19
@@ -152,30 +152,27 @@ define dso_local ptr @ReorderBufferAllocate() local_unnamed_addr #0 {
   %31 = load ptr, ptr @MyReplicationSlot, align 8
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 24
   call fastcc void @ReorderBufferCleanupSerializedTXNs(ptr noundef nonnull %32)
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %1) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %4
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @AllocSetContextCreateInternal(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare ptr @AllocSetContextCreateInternal(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
-
-declare ptr @MemoryContextAlloc(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @MemoryContextAlloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
-declare ptr @SlabContextCreate(ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @SlabContextCreate(ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare ptr @GenerationContextCreate(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @GenerationContextCreate(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare ptr @hash_create(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @hash_create(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @pairingheap_allocate(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @pairingheap_allocate(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @ReorderBufferTXNSizeCompare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #4 {
+define internal range(i32 -1, 2) i32 @ReorderBufferTXNSizeCompare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -188,8 +185,8 @@ define internal range(i32 -1, 2) i32 @ReorderBufferTXNSizeCompare(ptr noundef re
 define internal fastcc void @ReorderBufferCleanupSerializedTXNs(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca %struct.stat, align 8
   %3 = alloca [2060 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2) #19
-  call void @llvm.lifetime.start.p0(i64 2060, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.8, ptr noundef %0) #19
   %5 = call i32 @lstat(ptr noundef nonnull %3, ptr noundef nonnull %2) #19
   %6 = icmp eq i32 %5, 0
@@ -251,13 +248,10 @@ sub_1:                                            ; preds = %sub_0
   br label %32
 
 32:                                               ; preds = %7, %._crit_edge
-  call void @llvm.lifetime.end.p0(i64 2060, ptr nonnull %3) #19
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ReorderBufferFree(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -270,7 +264,7 @@ define dso_local void @ReorderBufferFree(ptr noundef readonly captures(none) %0)
   ret void
 }
 
-declare void @MemoryContextDelete(ptr noundef) local_unnamed_addr #2
+declare void @MemoryContextDelete(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @ReorderBufferGetChange(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -524,7 +518,7 @@ define dso_local void @ReorderBufferReturnTupleBuf(ptr noundef %0) local_unnamed
   ret void
 }
 
-declare void @pfree(ptr noundef) local_unnamed_addr #2
+declare void @pfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ReorderBufferReturnRelids(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -1068,7 +1062,7 @@ define internal fastcc ptr @ReorderBufferTXNByXid(ptr noundef %0, i32 noundef %1
   %7 = alloca i32, align 4
   %8 = alloca i8, align 1
   store i32 %1, ptr %7, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load i32, ptr %9, align 8
   %.not = icmp ne i32 %10, 0
@@ -1185,7 +1179,7 @@ dlist_push_tail.exit:                             ; preds = %46, %52
 
 62:                                               ; preds = %.sink.split, %56, %16, %15
   %.0 = phi ptr [ %14, %15 ], [ null, %16 ], [ %.030, %56 ], [ %.0.ph, %.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret ptr %.0
 }
 
@@ -1220,7 +1214,7 @@ define dso_local void @ReorderBufferQueueMessage(ptr noundef %0, i32 noundef %1,
   br label %36
 
 24:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store volatile ptr %2, ptr %9, align 8
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %27, label %25
@@ -1235,7 +1229,7 @@ define dso_local void @ReorderBufferQueueMessage(ptr noundef %0, i32 noundef %1,
   call void @SetupHistoricSnapshot(ptr noundef %.0..0..0..0.4, ptr noundef null) #19
   %28 = load ptr, ptr @PG_exception_stack, align 8
   %29 = load ptr, ptr @error_context_stack, align 8
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %10) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %30 = call i32 @__sigsetjmp(ptr noundef nonnull %10, i32 noundef 0) #22
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %32, label %35
@@ -1248,8 +1242,8 @@ define dso_local void @ReorderBufferQueueMessage(ptr noundef %0, i32 noundef %1,
   call void @TeardownHistoricSnapshot(i1 noundef zeroext false) #19
   store ptr %28, ptr @PG_exception_stack, align 8
   store ptr %29, ptr @error_context_stack, align 8
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %10) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %36
 
 35:                                               ; preds = %27
@@ -1263,25 +1257,25 @@ define dso_local void @ReorderBufferQueueMessage(ptr noundef %0, i32 noundef %1,
   ret void
 }
 
-declare ptr @pstrdup(ptr noundef) local_unnamed_addr #2
+declare ptr @pstrdup(ptr noundef) local_unnamed_addr #1
 
-declare ptr @palloc(i64 noundef) local_unnamed_addr #2
+declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
-declare void @SetupHistoricSnapshot(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @SetupHistoricSnapshot(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind returns_twice
-declare i32 @__sigsetjmp(ptr noundef, i32 noundef) local_unnamed_addr #6
+declare i32 @__sigsetjmp(ptr noundef, i32 noundef) local_unnamed_addr #5
 
-declare void @TeardownHistoricSnapshot(i1 noundef zeroext) local_unnamed_addr #2
+declare void @TeardownHistoricSnapshot(i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare void @pg_re_throw() local_unnamed_addr #7
+declare void @pg_re_throw() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @ReorderBufferGetOldestTXN(ptr noundef readonly captures(address) %0) local_unnamed_addr #4 {
+define dso_local ptr @ReorderBufferGetOldestTXN(ptr noundef readonly captures(address) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -1294,7 +1288,7 @@ define dso_local ptr @ReorderBufferGetOldestTXN(ptr noundef readonly captures(ad
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @ReorderBufferGetOldestXmin(ptr noundef readonly captures(address) %0) local_unnamed_addr #8 {
+define dso_local i32 @ReorderBufferGetOldestXmin(ptr noundef readonly captures(address) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
@@ -1316,7 +1310,7 @@ define dso_local i32 @ReorderBufferGetOldestXmin(ptr noundef readonly captures(a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @ReorderBufferSetRestartPoint(ptr noundef writeonly captures(none) initializes((272, 280)) %0, i64 noundef %1) local_unnamed_addr #9 {
+define dso_local void @ReorderBufferSetRestartPoint(ptr noundef writeonly captures(none) initializes((272, 280)) %0, i64 noundef %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 272
   store i64 %1, ptr %3, align 8
   ret void
@@ -1327,11 +1321,11 @@ define dso_local void @ReorderBufferAssignChild(ptr noundef %0, i32 noundef %1, 
   %5 = alloca i32, align 4
   %6 = alloca i8, align 1
   %7 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = call fastcc ptr @ReorderBufferTXNByXid(ptr noundef %0, i32 noundef %1, i1 noundef zeroext true, ptr noundef nonnull %7, i64 noundef %3, i1 noundef zeroext true)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 %2, ptr %5, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load i32, ptr %9, align 8
   %.not.i = icmp ne i32 %10, 0
@@ -1399,14 +1393,14 @@ ReorderBufferTXNByXid.exit:                       ; preds = %15
   store i32 %34, ptr %9, align 8
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %36, ptr %42, align 8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %41, label %43, label %53
 
 .sink.split:                                      ; preds = %12, %ReorderBufferTXNByXid.exit.thread24
   %.0.ph.i21.ph = phi ptr [ %21, %ReorderBufferTXNByXid.exit.thread24 ], [ %14, %12 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %43
 
 43:                                               ; preds = %.sink.split, %ReorderBufferTXNByXid.exit
@@ -1533,7 +1527,7 @@ dlist_push_tail.exit:                             ; preds = %53, %63
   br label %ReorderBufferTransferSnapToParent.exit
 
 ReorderBufferTransferSnapToParent.exit:           ; preds = %104, %.thread.i, %dlist_push_tail.exit, %43
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
@@ -1541,9 +1535,9 @@ ReorderBufferTransferSnapToParent.exit:           ; preds = %104, %.thread.i, %d
 define dso_local void @ReorderBufferCommitChild(ptr noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 %2, ptr %6, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %9 = load i32, ptr %8, align 8
   %.not.i = icmp ne i32 %9, 0
@@ -1555,8 +1549,8 @@ define dso_local void @ReorderBufferCommitChild(ptr noundef %0, i32 noundef %1, 
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %13 = load ptr, ptr %12, align 8
   %.not34.i = icmp eq ptr %13, null
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %.not34.i, label %ReorderBufferTXNByXid.exit.thread, label %ReorderBufferTXNByXid.exit.thread11
 
 14:                                               ; preds = %5
@@ -1571,8 +1565,8 @@ ReorderBufferTXNByXid.exit.thread15:              ; preds = %14
   store i32 %19, ptr %8, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr null, ptr %20, align 8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %ReorderBufferTXNByXid.exit.thread
 
 ReorderBufferTXNByXid.exit:                       ; preds = %14
@@ -1582,8 +1576,8 @@ ReorderBufferTXNByXid.exit:                       ; preds = %14
   store i32 %23, ptr %8, align 8
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %22, ptr %24, align 8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not = icmp eq ptr %22, null
   br i1 %.not, label %ReorderBufferTXNByXid.exit.thread, label %ReorderBufferTXNByXid.exit.thread11
 
@@ -1604,9 +1598,9 @@ ReorderBufferTXNByXid.exit.thread:                ; preds = %11, %ReorderBufferT
 define dso_local void @ReorderBufferCommit(ptr noundef %0, i32 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i16 noundef zeroext %5, i64 noundef %6) local_unnamed_addr #0 {
   %8 = alloca i32, align 4
   %9 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 %1, ptr %8, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %11 = load i32, ptr %10, align 8
   %.not.i = icmp ne i32 %11, 0
@@ -1618,8 +1612,8 @@ define dso_local void @ReorderBufferCommit(ptr noundef %0, i32 noundef %1, i64 n
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %15 = load ptr, ptr %14, align 8
   %.not34.i = icmp eq ptr %15, null
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %.not34.i, label %ReorderBufferTXNByXid.exit.thread, label %ReorderBufferTXNByXid.exit.thread11
 
 16:                                               ; preds = %7
@@ -1634,8 +1628,8 @@ ReorderBufferTXNByXid.exit.thread14:              ; preds = %16
   store i32 %21, ptr %10, align 8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr null, ptr %22, align 8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %ReorderBufferTXNByXid.exit.thread
 
 ReorderBufferTXNByXid.exit:                       ; preds = %16
@@ -1645,8 +1639,8 @@ ReorderBufferTXNByXid.exit:                       ; preds = %16
   store i32 %25, ptr %10, align 8
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %24, ptr %26, align 8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %27 = icmp eq ptr %24, null
   br i1 %27, label %ReorderBufferTXNByXid.exit.thread, label %ReorderBufferTXNByXid.exit.thread11
 
@@ -1729,9 +1723,9 @@ ReorderBufferStreamCommit.exit:                   ; preds = %24, %19, %31, %33, 
 define dso_local noundef zeroext i1 @ReorderBufferRememberPrepareInfo(ptr noundef captures(none) %0, i32 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i16 noundef zeroext %5, i64 noundef %6) local_unnamed_addr #0 {
   %8 = alloca i32, align 4
   %9 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 %1, ptr %8, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %11 = load i32, ptr %10, align 8
   %.not.i = icmp ne i32 %11, 0
@@ -1743,8 +1737,8 @@ define dso_local noundef zeroext i1 @ReorderBufferRememberPrepareInfo(ptr nounde
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %15 = load ptr, ptr %14, align 8
   %.not34.i = icmp eq ptr %15, null
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %.not34.i, label %ReorderBufferTXNByXid.exit.thread17, label %ReorderBufferTXNByXid.exit.thread
 
 16:                                               ; preds = %7
@@ -1759,8 +1753,8 @@ ReorderBufferTXNByXid.exit.thread19:              ; preds = %16
   store i32 %21, ptr %10, align 8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr null, ptr %22, align 8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %ReorderBufferTXNByXid.exit.thread17
 
 ReorderBufferTXNByXid.exit:                       ; preds = %16
@@ -1770,8 +1764,8 @@ ReorderBufferTXNByXid.exit:                       ; preds = %16
   store i32 %25, ptr %10, align 8
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %24, ptr %26, align 8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.not = icmp eq ptr %24, null
   br i1 %.not, label %ReorderBufferTXNByXid.exit.thread17, label %ReorderBufferTXNByXid.exit.thread
 
@@ -1801,9 +1795,9 @@ ReorderBufferTXNByXid.exit.thread17:              ; preds = %13, %ReorderBufferT
 define dso_local void @ReorderBufferSkipPrepare(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %1, ptr %3, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load i32, ptr %5, align 8
   %.not.i = icmp ne i32 %6, 0
@@ -1815,8 +1809,8 @@ define dso_local void @ReorderBufferSkipPrepare(ptr noundef captures(none) %0, i
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %10 = load ptr, ptr %9, align 8
   %.not34.i = icmp eq ptr %10, null
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not34.i, label %ReorderBufferTXNByXid.exit.thread, label %ReorderBufferTXNByXid.exit.thread4
 
 11:                                               ; preds = %2
@@ -1831,8 +1825,8 @@ ReorderBufferTXNByXid.exit.thread7:               ; preds = %11
   store i32 %16, ptr %5, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr null, ptr %17, align 8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %ReorderBufferTXNByXid.exit.thread
 
 ReorderBufferTXNByXid.exit:                       ; preds = %11
@@ -1842,8 +1836,8 @@ ReorderBufferTXNByXid.exit:                       ; preds = %11
   store i32 %20, ptr %5, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %19, ptr %21, align 8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %22 = icmp eq ptr %19, null
   br i1 %22, label %ReorderBufferTXNByXid.exit.thread, label %ReorderBufferTXNByXid.exit.thread4
 
@@ -1862,9 +1856,9 @@ ReorderBufferTXNByXid.exit.thread:                ; preds = %8, %ReorderBufferTX
 define dso_local void @ReorderBufferPrepare(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 %1, ptr %4, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = load i32, ptr %6, align 8
   %.not.i = icmp ne i32 %7, 0
@@ -1876,8 +1870,8 @@ define dso_local void @ReorderBufferPrepare(ptr noundef %0, i32 noundef %1, ptr 
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %11 = load ptr, ptr %10, align 8
   %.not34.i = icmp eq ptr %11, null
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.not34.i, label %ReorderBufferTXNByXid.exit.thread, label %ReorderBufferTXNByXid.exit.thread19
 
 12:                                               ; preds = %3
@@ -1892,8 +1886,8 @@ ReorderBufferTXNByXid.exit.thread22:              ; preds = %12
   store i32 %17, ptr %6, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr null, ptr %18, align 8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %ReorderBufferTXNByXid.exit.thread
 
 ReorderBufferTXNByXid.exit:                       ; preds = %12
@@ -1903,8 +1897,8 @@ ReorderBufferTXNByXid.exit:                       ; preds = %12
   store i32 %21, ptr %6, align 8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %20, ptr %22, align 8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %23 = icmp eq ptr %20, null
   br i1 %23, label %ReorderBufferTXNByXid.exit.thread, label %ReorderBufferTXNByXid.exit.thread19
 
@@ -1947,9 +1941,9 @@ ReorderBufferTXNByXid.exit.thread:                ; preds = %9, %ReorderBufferTX
 define dso_local void @ReorderBufferFinishPrepared(ptr noundef %0, i32 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i16 noundef zeroext %6, i64 noundef %7, ptr noundef %8, i1 noundef zeroext %9) local_unnamed_addr #0 {
   %11 = alloca i32, align 4
   %12 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 %1, ptr %11, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %14 = load i32, ptr %13, align 8
   %.not.i = icmp ne i32 %14, 0
@@ -1961,8 +1955,8 @@ define dso_local void @ReorderBufferFinishPrepared(ptr noundef %0, i32 noundef %
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %18 = load ptr, ptr %17, align 8
   %.not34.i = icmp eq ptr %18, null
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12) #19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br i1 %.not34.i, label %ReorderBufferTXNByXid.exit.thread, label %ReorderBufferTXNByXid.exit.thread46
 
 19:                                               ; preds = %10
@@ -1977,8 +1971,8 @@ ReorderBufferTXNByXid.exit.thread49:              ; preds = %19
   store i32 %24, ptr %13, align 8
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr null, ptr %25, align 8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12) #19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %ReorderBufferTXNByXid.exit.thread
 
 ReorderBufferTXNByXid.exit:                       ; preds = %19
@@ -1988,8 +1982,8 @@ ReorderBufferTXNByXid.exit:                       ; preds = %19
   store i32 %28, ptr %13, align 8
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %27, ptr %29, align 8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12) #19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %30 = icmp eq ptr %27, null
   br i1 %30, label %ReorderBufferTXNByXid.exit.thread, label %ReorderBufferTXNByXid.exit.thread46
 
@@ -2068,7 +2062,7 @@ ReorderBufferTXNByXid.exit.thread:                ; preds = %16, %ReorderBufferT
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @ReorderBufferCleanupTXN(ptr noundef captures(none) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %6 = load ptr, ptr %5, align 8
@@ -2376,7 +2370,7 @@ ReorderBufferFreeSnap.exit:                       ; preds = %104, %103, %96
 ReorderBufferReturnTXN.exit:                      ; preds = %145, %148
   call fastcc void @ReorderBufferToastReset(ptr noundef nonnull %0, ptr noundef nonnull %1)
   call void @pfree(ptr noundef nonnull %1) #19
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -2384,9 +2378,9 @@ ReorderBufferReturnTXN.exit:                      ; preds = %145, %148
 define dso_local void @ReorderBufferAbort(ptr noundef %0, i32 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 %1, ptr %5, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %8 = load i32, ptr %7, align 8
   %.not.i = icmp ne i32 %8, 0
@@ -2398,8 +2392,8 @@ define dso_local void @ReorderBufferAbort(ptr noundef %0, i32 noundef %1, i64 no
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %12 = load ptr, ptr %11, align 8
   %.not34.i = icmp eq ptr %12, null
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.not34.i, label %ReorderBufferTXNByXid.exit.thread, label %ReorderBufferTXNByXid.exit.thread21
 
 13:                                               ; preds = %4
@@ -2414,8 +2408,8 @@ ReorderBufferTXNByXid.exit.thread24:              ; preds = %13
   store i32 %18, ptr %7, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr null, ptr %19, align 8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %ReorderBufferTXNByXid.exit.thread
 
 ReorderBufferTXNByXid.exit:                       ; preds = %13
@@ -2425,8 +2419,8 @@ ReorderBufferTXNByXid.exit:                       ; preds = %13
   store i32 %22, ptr %7, align 8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %21, ptr %23, align 8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %24 = icmp eq ptr %21, null
   br i1 %24, label %ReorderBufferTXNByXid.exit.thread, label %ReorderBufferTXNByXid.exit.thread21
 
@@ -2576,24 +2570,24 @@ define dso_local void @ReorderBufferAbortOld(ptr noundef %0, i32 noundef %1) loc
   ret void
 }
 
-declare zeroext i1 @TransactionIdPrecedes(i32 noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @TransactionIdPrecedes(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #10
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #9
 
-declare zeroext i1 @errstart(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @errstart(i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ReorderBufferForget(ptr noundef captures(none) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 %1, ptr %4, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = load i32, ptr %6, align 8
   %.not.i = icmp ne i32 %7, 0
@@ -2605,8 +2599,8 @@ define dso_local void @ReorderBufferForget(ptr noundef captures(none) %0, i32 no
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %11 = load ptr, ptr %10, align 8
   %.not34.i = icmp eq ptr %11, null
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.not34.i, label %ReorderBufferTXNByXid.exit.thread, label %ReorderBufferTXNByXid.exit.thread15
 
 12:                                               ; preds = %3
@@ -2621,8 +2615,8 @@ ReorderBufferTXNByXid.exit.thread18:              ; preds = %12
   store i32 %17, ptr %6, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr null, ptr %18, align 8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %ReorderBufferTXNByXid.exit.thread
 
 ReorderBufferTXNByXid.exit:                       ; preds = %12
@@ -2632,8 +2626,8 @@ ReorderBufferTXNByXid.exit:                       ; preds = %12
   store i32 %21, ptr %6, align 8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %20, ptr %22, align 8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %23 = icmp eq ptr %20, null
   br i1 %23, label %ReorderBufferTXNByXid.exit.thread, label %ReorderBufferTXNByXid.exit.thread15
 
@@ -2694,9 +2688,9 @@ ReorderBufferTXNByXid.exit.thread:                ; preds = %9, %ReorderBufferTX
 define dso_local void @ReorderBufferInvalidate(ptr noundef captures(none) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 %1, ptr %4, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = load i32, ptr %6, align 8
   %.not.i = icmp ne i32 %7, 0
@@ -2708,8 +2702,8 @@ define dso_local void @ReorderBufferInvalidate(ptr noundef captures(none) %0, i3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %11 = load ptr, ptr %10, align 8
   %.not34.i = icmp eq ptr %11, null
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.not34.i, label %ReorderBufferImmediateInvalidation.exit, label %ReorderBufferTXNByXid.exit.thread11
 
 12:                                               ; preds = %3
@@ -2724,8 +2718,8 @@ ReorderBufferTXNByXid.exit.thread14:              ; preds = %12
   store i32 %17, ptr %6, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr null, ptr %18, align 8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %ReorderBufferImmediateInvalidation.exit
 
 ReorderBufferTXNByXid.exit:                       ; preds = %12
@@ -2735,8 +2729,8 @@ ReorderBufferTXNByXid.exit:                       ; preds = %12
   store i32 %21, ptr %6, align 8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %20, ptr %22, align 8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %23 = icmp eq ptr %20, null
   br i1 %23, label %ReorderBufferImmediateInvalidation.exit, label %ReorderBufferTXNByXid.exit.thread11
 
@@ -2787,15 +2781,15 @@ ReorderBufferImmediateInvalidation.exit:          ; preds = %9, %37, %._crit_edg
   ret void
 }
 
-declare zeroext i1 @IsTransactionOrTransactionBlock() local_unnamed_addr #2
+declare zeroext i1 @IsTransactionOrTransactionBlock() local_unnamed_addr #1
 
-declare void @BeginInternalSubTransaction(ptr noundef) local_unnamed_addr #2
+declare void @BeginInternalSubTransaction(ptr noundef) local_unnamed_addr #1
 
-declare void @AbortCurrentTransaction() local_unnamed_addr #2
+declare void @AbortCurrentTransaction() local_unnamed_addr #1
 
-declare void @LocalExecuteInvalidationMessage(ptr noundef) local_unnamed_addr #2
+declare void @LocalExecuteInvalidationMessage(ptr noundef) local_unnamed_addr #1
 
-declare void @RollbackAndReleaseCurrentSubTransaction() local_unnamed_addr #2
+declare void @RollbackAndReleaseCurrentSubTransaction() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ReorderBufferProcessXid(ptr noundef %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
@@ -2829,7 +2823,7 @@ define dso_local void @ReorderBufferSetBaseSnapshot(ptr noundef %0, i32 noundef 
   %5 = alloca i32, align 4
   %6 = alloca i8, align 1
   %7 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = call fastcc ptr @ReorderBufferTXNByXid(ptr noundef %0, i32 noundef %1, i1 noundef zeroext true, ptr noundef nonnull %7, i64 noundef %2, i1 noundef zeroext true)
   %9 = load i32, ptr %8, align 8
   %10 = and i32 %9, 2
@@ -2839,9 +2833,9 @@ define dso_local void @ReorderBufferSetBaseSnapshot(ptr noundef %0, i32 noundef 
 11:                                               ; preds = %4
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %13 = load i32, ptr %12, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 %13, ptr %5, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %15 = load i32, ptr %14, align 8
   %.not.i = icmp ne i32 %15, 0
@@ -2876,8 +2870,8 @@ define dso_local void @ReorderBufferSetBaseSnapshot(ptr noundef %0, i32 noundef 
 
 ReorderBufferTXNByXid.exit:                       ; preds = %17, %28
   %.0.i = phi ptr [ %.030.i, %28 ], [ %19, %17 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %31
 
 31:                                               ; preds = %ReorderBufferTXNByXid.exit, %4
@@ -2906,7 +2900,7 @@ dlist_push_tail.exit:                             ; preds = %31, %38
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store ptr %39, ptr %42, align 8
   store ptr %39, ptr %34, align 8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
@@ -3040,7 +3034,7 @@ define dso_local void @ReorderBufferAddInvalidations(ptr noundef %0, i32 noundef
   ret void
 }
 
-declare ptr @repalloc(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @repalloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ReorderBufferXidSetCatalogChanges(ptr noundef %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
@@ -3170,17 +3164,17 @@ define dso_local ptr @ReorderBufferGetCatalogChangesXacts(ptr noundef readonly c
   ret ptr %.0
 }
 
-declare void @pg_qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare void @pg_qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @xidComparator(ptr noundef, ptr noundef) #2
+declare i32 @xidComparator(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @ReorderBufferXidHasCatalogChanges(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %1, ptr %3, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load i32, ptr %5, align 8
   %.not.i = icmp ne i32 %6, 0
@@ -3192,8 +3186,8 @@ define dso_local zeroext i1 @ReorderBufferXidHasCatalogChanges(ptr noundef captu
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %10 = load ptr, ptr %9, align 8
   %.not34.i = icmp eq ptr %10, null
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not34.i, label %ReorderBufferTXNByXid.exit.thread, label %ReorderBufferTXNByXid.exit.thread6
 
 11:                                               ; preds = %2
@@ -3208,8 +3202,8 @@ ReorderBufferTXNByXid.exit.thread9:               ; preds = %11
   store i32 %16, ptr %5, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr null, ptr %17, align 8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %ReorderBufferTXNByXid.exit.thread
 
 ReorderBufferTXNByXid.exit:                       ; preds = %11
@@ -3219,8 +3213,8 @@ ReorderBufferTXNByXid.exit:                       ; preds = %11
   store i32 %20, ptr %5, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %19, ptr %21, align 8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %22 = icmp eq ptr %19, null
   br i1 %22, label %ReorderBufferTXNByXid.exit.thread, label %ReorderBufferTXNByXid.exit.thread6
 
@@ -3242,9 +3236,9 @@ define dso_local zeroext i1 @ReorderBufferXidHasBaseSnapshot(ptr noundef capture
   %4 = alloca i8, align 1
   %5 = alloca i32, align 4
   %6 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 %1, ptr %5, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %8 = load i32, ptr %7, align 8
   %.not.i = icmp ne i32 %8, 0
@@ -3256,8 +3250,8 @@ define dso_local zeroext i1 @ReorderBufferXidHasBaseSnapshot(ptr noundef capture
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %12 = load ptr, ptr %11, align 8
   %.not34.i = icmp eq ptr %12, null
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.not34.i, label %ReorderBufferTXNByXid.exit.thread, label %ReorderBufferTXNByXid.exit.thread16
 
 13:                                               ; preds = %2
@@ -3272,8 +3266,8 @@ ReorderBufferTXNByXid.exit.thread19:              ; preds = %13
   store i32 %18, ptr %7, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr null, ptr %19, align 8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %ReorderBufferTXNByXid.exit.thread
 
 ReorderBufferTXNByXid.exit:                       ; preds = %13
@@ -3283,8 +3277,8 @@ ReorderBufferTXNByXid.exit:                       ; preds = %13
   store i32 %22, ptr %7, align 8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %21, ptr %23, align 8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %24 = icmp eq ptr %21, null
   br i1 %24, label %ReorderBufferTXNByXid.exit.thread, label %ReorderBufferTXNByXid.exit.thread16
 
@@ -3299,9 +3293,9 @@ ReorderBufferTXNByXid.exit.thread16:              ; preds = %10, %ReorderBufferT
 29:                                               ; preds = %ReorderBufferTXNByXid.exit.thread16
   %30 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %31 = load i32, ptr %30, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %31, ptr %3, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.not.i9 = icmp ne i32 %25, 0
   %32 = icmp eq i32 %25, %31
   %or.cond.i10 = and i1 %.not.i9, %32
@@ -3329,8 +3323,8 @@ ReorderBufferTXNByXid.exit.thread16:              ; preds = %10, %ReorderBufferT
 
 ReorderBufferTXNByXid.exit14:                     ; preds = %29, %41
   %.0.i12 = phi ptr [ %.030.i11, %41 ], [ %26, %29 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %44
 
 44:                                               ; preds = %ReorderBufferTXNByXid.exit14, %ReorderBufferTXNByXid.exit.thread16
@@ -3395,13 +3389,13 @@ sub_18:                                           ; preds = %.tail
   ret void
 }
 
-declare ptr @AllocateDir(ptr noundef) local_unnamed_addr #2
+declare ptr @AllocateDir(ptr noundef) local_unnamed_addr #1
 
-declare ptr @ReadDir(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @ReadDir(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @ReplicationSlotValidateName(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @ReplicationSlotValidateName(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @FreeDir(ptr noundef) local_unnamed_addr #2
+declare i32 @FreeDir(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef zeroext i1 @ResolveCminCmaxDuringDecoding(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #0 {
@@ -3419,9 +3413,9 @@ define dso_local noundef zeroext i1 @ResolveCminCmaxDuringDecoding(ptr noundef %
   %18 = alloca %struct.ReorderBufferTupleCidKey, align 4
   %19 = alloca i32, align 4
   %20 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %18) #19
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19) #19
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %21 = icmp eq ptr %0, null
   br i1 %21, label %168, label %22
 
@@ -3455,12 +3449,12 @@ define dso_local noundef zeroext i1 @ResolveCminCmaxDuringDecoding(ptr noundef %
 sub_0.i:                                          ; preds = %.lr.ph36, %86
   %39 = phi ptr [ %87, %86 ], [ %38, %.lr.ph36 ]
   %.048.i = phi ptr [ %.1.i, %86 ], [ null, %.lr.ph36 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #19
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #19
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #19
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #19
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #19
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 19
   %41 = load i8, ptr %40, align 1
   %.not52.i = icmp eq i8 %41, 46
@@ -3520,7 +3514,7 @@ sub_0.i:                                          ; preds = %.lr.ph36, %86
   %66 = load i32, ptr %14, align 4
   %67 = load ptr, ptr %27, align 8
   %68 = load i32, ptr %28, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 %66, ptr %11, align 4
   %.not24.i.i.i = icmp eq i32 %68, 0
   br i1 %.not24.i.i.i, label %TransactionIdInArray.exit.thread.i, label %.lr.ph.i.i.preheader.i
@@ -3555,11 +3549,11 @@ sub_0.i:                                          ; preds = %.lr.ph36, %86
   br i1 %80, label %.lr.ph.i.i.i, label %TransactionIdInArray.exit.thread.i, !llvm.loop !19
 
 TransactionIdInArray.exit.thread.i:               ; preds = %79, %65
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %86
 
 81:                                               ; preds = %76
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %82 = call ptr @palloc(i64 noundef 1032) #19
   store i64 %59, ptr %82, align 8
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
@@ -3569,12 +3563,12 @@ TransactionIdInArray.exit.thread.i:               ; preds = %79, %65
 
 86:                                               ; preds = %.tail.i, %81, %TransactionIdInArray.exit.thread.i, %62, %53, %.tail39.thread.i, %.tail39.i
   %.1.i = phi ptr [ %85, %81 ], [ %.048.i, %.tail39.i ], [ %.048.i, %.tail.i ], [ %.048.i, %.tail39.thread.i ], [ %.048.i, %53 ], [ %.048.i, %62 ], [ %.048.i, %TransactionIdInArray.exit.thread.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %87 = call ptr @ReadDir(ptr noundef %37, ptr noundef nonnull @.str.38) #19
   %.not.i = icmp eq ptr %87, null
   br i1 %.not.i, label %._crit_edge.i, label %sub_0.i
@@ -3611,16 +3605,16 @@ TransactionIdInArray.exit.thread.i:               ; preds = %79, %65
 
 102:                                              ; preds = %97, %.lr.ph
   %103 = getelementptr inbounds nuw i8, ptr %95, i64 8
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %7) #19
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %8) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %104 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.38, ptr noundef nonnull %103) #19
   %105 = call i32 @OpenTransientFile(ptr noundef nonnull %7, i32 noundef 0) #19
   %106 = icmp slt i32 %105, 0
   br i1 %106, label %112, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %102
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %9) #19
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %9, i8 0, i64 20, i1 false)
   %107 = load ptr, ptr @my_wait_event_info, align 8
   store volatile i32 167772201, ptr %107, align 4
@@ -3697,10 +3691,10 @@ TransactionIdInArray.exit.thread.i:               ; preds = %79, %65
   br label %144
 
 144:                                              ; preds = %134, %130, %128
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #19
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %9) #19
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %9) #19
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %9, i8 0, i64 20, i1 false)
   %145 = load ptr, ptr @my_wait_event_info, align 8
   store volatile i32 167772201, ptr %145, align 4
@@ -3712,8 +3706,8 @@ TransactionIdInArray.exit.thread.i:               ; preds = %79, %65
   br i1 %149, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 150:                                              ; preds = %.lr.ph.i.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #19
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %9) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %151 = call i32 @CloseTransientFile(i32 noundef %105) #19
   %.not20.i.i = icmp eq i32 %151, 0
   br i1 %.not20.i.i, label %ApplyLogicalMappingFile.exit.i, label %152
@@ -3727,8 +3721,8 @@ TransactionIdInArray.exit.thread.i:               ; preds = %79, %65
   unreachable
 
 ApplyLogicalMappingFile.exit.i:                   ; preds = %150
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %8) #19
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %7) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @pfree(ptr noundef %95) #19
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i35, 1
   %156 = load i32, ptr %89, align 4
@@ -3764,15 +3758,15 @@ ApplyLogicalMappingFile.exit.i:                   ; preds = %150
 
 168:                                              ; preds = %164, %165, %._crit_edge, %6
   %.017 = phi i1 [ false, %6 ], [ false, %._crit_edge ], [ true, %165 ], [ true, %164 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20) #19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #19
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %18) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   ret i1 %.017
 }
 
-declare void @BufferGetTag(i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @BufferGetTag(i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @hash_search(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @hash_search(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @ReorderBufferStreamTXN(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
@@ -4080,9 +4074,9 @@ ReorderBufferFreeSnap.exit:                       ; preds = %149, %150
   ret void
 }
 
-declare i32 @SnapBuildCurrentState(ptr noundef) local_unnamed_addr #2
+declare i32 @SnapBuildCurrentState(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SnapBuildXactNeedsSkip(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare zeroext i1 @SnapBuildXactNeedsSkip(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @ReorderBufferProcessTXN(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i32 noundef %4, i1 noundef zeroext %5) unnamed_addr #0 {
@@ -4102,17 +4096,17 @@ define internal fastcc void @ReorderBufferProcessTXN(ptr noundef %0, ptr noundef
   store volatile ptr %3, ptr %12, align 8
   store volatile i32 %4, ptr %13, align 4
   %20 = load ptr, ptr @CurrentMemoryContext, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store volatile ptr null, ptr %14, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store volatile i64 0, ptr %15, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store volatile ptr null, ptr %16, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store volatile i8 0, ptr %17, align 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store volatile ptr null, ptr %18, align 8
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %9) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %21 = load i32, ptr %1, align 8
   %22 = and i32 %21, 1
   %.not.i = icmp eq i32 %22, 0
@@ -4153,8 +4147,8 @@ define internal fastcc void @ReorderBufferProcessTXN(ptr noundef %0, ptr noundef
 
 41:                                               ; preds = %55, %.lr.ph.i
   %.sroa.0.025.i = phi ptr [ %39, %.lr.ph.i ], [ %59, %55 ]
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %10) #19
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %10, i8 0, i64 20, i1 false)
   %42 = getelementptr inbounds i8, ptr %.sroa.0.025.i, i64 -32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(12) %42, i64 12, i1 false)
@@ -4184,15 +4178,15 @@ define internal fastcc void @ReorderBufferProcessTXN(ptr noundef %0, ptr noundef
   %.sink.i = load i32, ptr %56, align 4
   %57 = getelementptr inbounds nuw i8, ptr %45, i64 %.sink28.i
   store i32 %.sink.i, ptr %57, align 4
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #19
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %10) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %58 = getelementptr inbounds nuw i8, ptr %.sroa.0.025.i, i64 8
   %59 = load ptr, ptr %58, align 8
   %.not23.i = icmp eq ptr %59, %24
   br i1 %.not23.i, label %ReorderBufferBuildTupleCidHash.exit, label %41, !llvm.loop !22
 
 ReorderBufferBuildTupleCidHash.exit:              ; preds = %55, %6, %23, %29
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %9) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %.0..0..0..0.127 = load volatile ptr, ptr %12, align 8
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %61 = load ptr, ptr %60, align 8
@@ -4200,7 +4194,7 @@ ReorderBufferBuildTupleCidHash.exit:              ; preds = %55, %6, %23, %29
   %62 = call zeroext i1 @IsTransactionOrTransactionBlock() #19
   %63 = load ptr, ptr @PG_exception_stack, align 8
   %64 = load ptr, ptr @error_context_stack, align 8
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %19) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %65 = call i32 @__sigsetjmp(ptr noundef nonnull %19, i32 noundef 0) #22
   %66 = icmp eq i32 %65, 0
   br i1 %66, label %67, label %988
@@ -4870,7 +4864,7 @@ ReorderBufferChangeSize.exit.i:                   ; preds = %374, %363, %358, %3
   %413 = getelementptr i8, ptr %381, i64 %412
   %414 = getelementptr i8, ptr %413, i64 24
   %415 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %414, i64 %indvars.iv.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %416 = getelementptr inbounds nuw i8, ptr %415, i64 74
   %417 = load i16, ptr %416, align 2
   %418 = icmp slt i16 %417, 0
@@ -4934,7 +4928,7 @@ ReorderBufferChangeSize.exit.i:                   ; preds = %374, %363, %358, %3
 452:                                              ; preds = %452, %.lr.ph.i275
   %.sroa.0.0114.i = phi ptr [ %450, %.lr.ph.i275 ], [ %469, %452 ]
   %.091113.i = phi i64 [ 0, %.lr.ph.i275 ], [ %467, %452 ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %453 = getelementptr inbounds i8, ptr %.sroa.0.0114.i, i64 -8
   %454 = load ptr, ptr %453, align 8
   %455 = call fastcc i64 @fastgetattr(ptr noundef %454, i32 noundef 3, ptr noundef %395, ptr noundef %8)
@@ -4951,7 +4945,7 @@ ReorderBufferChangeSize.exit.i:                   ; preds = %374, %363, %358, %3
   %465 = add nsw i32 %464, -4
   %466 = zext i32 %465 to i64
   %467 = add i64 %.091113.i, %466
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %468 = getelementptr inbounds nuw i8, ptr %.sroa.0.0114.i, i64 8
   %469 = load ptr, ptr %468, align 8
   %.not97.i276 = icmp eq ptr %469, %448
@@ -4982,7 +4976,7 @@ ReorderBufferChangeSize.exit.i:                   ; preds = %374, %363, %358, %3
   br label %480
 
 480:                                              ; preds = %._crit_edge.i277, %436, %430, %426, %423, %419, %.lr.ph117.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %481 = load i32, ptr %381, align 8
   %482 = sext i32 %481 to i64
@@ -6301,37 +6295,37 @@ ReorderBufferSaveTXNSnapshot.exit.i:              ; preds = %ReorderBufferCopySn
 ReorderBufferResetTXN.exit:                       ; preds = %ReorderBufferSaveTXNSnapshot.exit.i, %1055, %987, %ReorderBufferMaybeMarkTXNStreamed.exit
   store ptr %63, ptr @PG_exception_stack, align 8
   store ptr %64, ptr @error_context_stack, align 8
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %19) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %17)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   ret void
 }
 
-declare void @UpdateDecodingStats(ptr noundef) local_unnamed_addr #2
+declare void @UpdateDecodingStats(ptr noundef) local_unnamed_addr #1
 
-declare ptr @MemoryContextAllocZero(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @MemoryContextAllocZero(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @StartTransactionCommand() local_unnamed_addr #2
+declare void @StartTransactionCommand() local_unnamed_addr #1
 
-declare void @ProcessInterrupts() local_unnamed_addr #2
+declare void @ProcessInterrupts() local_unnamed_addr #1
 
-declare i32 @RelidByRelfilenumber(i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @RelidByRelfilenumber(i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @GetRelationPath(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @GetRelationPath(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @RelationIdGetRelation(i32 noundef) local_unnamed_addr #2
+declare ptr @RelationIdGetRelation(i32 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @IsCatalogRelation(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @IsCatalogRelation(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @IsToastRelation(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @IsToastRelation(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @ReorderBufferToastReset(ptr noundef captures(none) %0, ptr noundef captures(none) %1) unnamed_addr #0 {
   %3 = alloca %struct.HASH_SEQ_STATUS, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -6389,7 +6383,7 @@ define internal fastcc void @ReorderBufferToastReset(ptr noundef captures(none) 
   br label %23
 
 23:                                               ; preds = %2, %._crit_edge
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -6399,9 +6393,9 @@ define internal fastcc void @ReorderBufferToastAppendChunk(ptr noundef readonly 
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #19
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #19
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
@@ -6410,7 +6404,7 @@ define internal fastcc void @ReorderBufferToastAppendChunk(ptr noundef readonly 
 11:                                               ; preds = %3
   %12 = getelementptr i8, ptr %0, i64 240
   %.val = load ptr, ptr %12, align 8
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i64 4, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -6419,7 +6413,7 @@ define internal fastcc void @ReorderBufferToastAppendChunk(ptr noundef readonly 
   store ptr %.val, ptr %15, align 8
   %16 = call ptr @hash_create(ptr noundef nonnull @.str.32, i64 noundef 5, ptr noundef nonnull %4, i32 noundef 1064) #19
   store ptr %16, ptr %8, align 8
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %17
 
 17:                                               ; preds = %11, %3
@@ -6537,19 +6531,19 @@ dlist_push_tail.exit:                             ; preds = %65, %78
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
   store ptr %79, ptr %82, align 8
   store ptr %79, ptr %74, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #19
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #19
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
-declare void @RelationClose(ptr noundef) local_unnamed_addr #2
+declare void @RelationClose(ptr noundef) local_unnamed_addr #1
 
-declare ptr @palloc0(i64 noundef) local_unnamed_addr #2
+declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
 
-declare i32 @GetCurrentTransactionIdIfAny() local_unnamed_addr #2
+declare i32 @GetCurrentTransactionIdIfAny() local_unnamed_addr #1
 
-declare i32 @GetCurrentTransactionId() local_unnamed_addr #2
+declare i32 @GetCurrentTransactionId() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @ReorderBufferTruncateTXN(ptr noundef captures(none) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 {
@@ -6793,16 +6787,16 @@ ReorderBufferChangeMemoryUpdate.exit:             ; preds = %._crit_edge, %._cri
   ret void
 }
 
-declare ptr @CopyErrorData() local_unnamed_addr #2
+declare ptr @CopyErrorData() local_unnamed_addr #1
 
-declare void @FlushErrorState() local_unnamed_addr #2
+declare void @FlushErrorState() local_unnamed_addr #1
 
-declare void @FreeErrorData(ptr noundef) local_unnamed_addr #2
+declare void @FreeErrorData(ptr noundef) local_unnamed_addr #1
 
-declare ptr @binaryheap_allocate(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @binaryheap_allocate(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @ReorderBufferIterCompare(i64 noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2) #4 {
+define internal range(i32 -1, 2) i32 @ReorderBufferIterCompare(i64 noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2) #3 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %sext = shl i64 %0, 32
   %5 = ashr exact i64 %sext, 32
@@ -6881,7 +6875,7 @@ define internal fastcc void @ReorderBufferSerializeTXN(ptr noundef captures(none
   br i1 %31, label %.thread, label %32
 
 .thread:                                          ; preds = %29
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %40
 
 32:                                               ; preds = %29
@@ -6893,7 +6887,7 @@ define internal fastcc void @ReorderBufferSerializeTXN(ptr noundef captures(none
   br i1 %37, label %60, label %38
 
 38:                                               ; preds = %32
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %39 = call i32 @CloseTransientFile(i32 noundef %.076) #19
   br label %40
 
@@ -6923,7 +6917,7 @@ define internal fastcc void @ReorderBufferSerializeTXN(ptr noundef captures(none
   unreachable
 
 59:                                               ; preds = %40
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %60
 
 60:                                               ; preds = %59, %32
@@ -7456,7 +7450,7 @@ define internal fastcc i64 @ReorderBufferRestoreChanges(ptr noundef captures(non
   br i1 %40, label %41, label %73
 
 41:                                               ; preds = %38
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %7) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %42 = load i64, ptr %3, align 8
   %43 = icmp eq i64 %42, 0
   %.pre100 = load i32, ptr @wal_segment_size, align 4
@@ -7499,7 +7493,7 @@ define internal fastcc i64 @ReorderBufferRestoreChanges(ptr noundef captures(non
   %66 = load i64, ptr %3, align 8
   %67 = add i64 %66, 1
   store i64 %67, ptr %3, align 8
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %7) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %320
 
 68:                                               ; preds = %62
@@ -7511,7 +7505,7 @@ define internal fastcc i64 @ReorderBufferRestoreChanges(ptr noundef captures(non
   unreachable
 
 72:                                               ; preds = %48
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %7) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %73
 
 73:                                               ; preds = %72, %38
@@ -7545,11 +7539,11 @@ ReorderBufferSerializeReserve.exit:               ; preds = %79, %.sink.split.i
   %84 = phi ptr [ %.pre102, %79 ], [ %83, %.sink.split.i ]
   %85 = phi i32 [ %74, %79 ], [ %.pre101, %.sink.split.i ]
   %86 = load i64, ptr %23, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %84, ptr %6, align 8
   store i64 88, ptr %27, align 8
   %87 = call i64 @FileReadV(i32 noundef %85, ptr noundef nonnull %6, i32 noundef 1, i64 noundef %86, i32 noundef 167772199) #19
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %88 = trunc i64 %87 to i32
   %89 = icmp eq i32 %88, 0
   br i1 %89, label %90, label %94
@@ -7627,11 +7621,11 @@ ReorderBufferSerializeReserve.exit76:             ; preds = %116, %.sink.split.i
   %123 = load i32, ptr %2, align 8
   %124 = getelementptr inbounds nuw i8, ptr %122, i64 88
   %125 = add i64 %121, -88
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %124, ptr %5, align 8
   store i64 %125, ptr %28, align 8
   %126 = call i64 @FileReadV(i32 noundef %123, ptr noundef nonnull %5, i32 noundef 1, i64 noundef %120, i32 noundef 167772199) #19
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %127 = trunc i64 %126 to i32
   %128 = icmp slt i32 %127, 0
   br i1 %128, label %129, label %133
@@ -7972,47 +7966,47 @@ ReorderBufferRestoreChange.exit:                  ; preds = %ReorderBufferChange
   ret i64 %.061.lcssa
 }
 
-declare void @binaryheap_add_unordered(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @binaryheap_add_unordered(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @binaryheap_build(ptr noundef) local_unnamed_addr #2
+declare void @binaryheap_build(ptr noundef) local_unnamed_addr #1
 
-declare i32 @CloseTransientFile(i32 noundef) local_unnamed_addr #2
+declare i32 @CloseTransientFile(i32 noundef) local_unnamed_addr #1
 
-declare i32 @OpenTransientFile(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @OpenTransientFile(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @errcode_for_file_access() local_unnamed_addr #2
+declare i32 @errcode_for_file_access() local_unnamed_addr #1
 
-declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #1
 
-declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #11
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #12
+declare ptr @__errno_location() local_unnamed_addr #11
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #13
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #12
 
-declare i32 @PathNameOpenFile(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @PathNameOpenFile(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @FileClose(i32 noundef) local_unnamed_addr #2
+declare void @FileClose(i32 noundef) local_unnamed_addr #1
 
-declare i64 @FileReadV(i32 noundef, ptr noundef, i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
+declare i64 @FileReadV(i32 noundef, ptr noundef, i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
-declare i64 @binaryheap_first(ptr noundef) local_unnamed_addr #2
+declare i64 @binaryheap_first(ptr noundef) local_unnamed_addr #1
 
-declare void @binaryheap_replace_first(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @binaryheap_replace_first(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i64 @binaryheap_remove_first(ptr noundef) local_unnamed_addr #2
+declare i64 @binaryheap_remove_first(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @TransactionIdDidCommit(i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @TransactionIdDidCommit(i32 noundef) local_unnamed_addr #1
 
-declare void @heap_deform_tuple(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @heap_deform_tuple(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc i64 @fastgetattr(ptr noundef %0, i32 noundef range(i32 1, 4) %1, ptr noundef %2, ptr noundef nonnull writeonly captures(none) initializes((0, 1)) %3) unnamed_addr #14 {
+define internal fastcc i64 @fastgetattr(ptr noundef %0, i32 noundef range(i32 1, 4) %1, ptr noundef %2, ptr noundef nonnull writeonly captures(none) initializes((0, 1)) %3) unnamed_addr #13 {
   store i8 0, ptr %3, align 1
   %5 = getelementptr i8, ptr %0, i64 16
   %.val = load ptr, ptr %5, align 8
@@ -8110,17 +8104,17 @@ fetch_att.exit:                                   ; preds = %43, %37, %34, %31, 
   ret i64 %.1
 }
 
-declare ptr @heap_form_tuple(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @heap_form_tuple(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i64 @nocachegetattr(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i64 @nocachegetattr(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @hash_seq_init(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @hash_seq_init(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @hash_seq_search(ptr noundef) local_unnamed_addr #2
+declare ptr @hash_seq_search(ptr noundef) local_unnamed_addr #1
 
-declare void @hash_destroy(ptr noundef) local_unnamed_addr #2
+declare void @hash_destroy(ptr noundef) local_unnamed_addr #1
 
-declare void @binaryheap_free(ptr noundef) local_unnamed_addr #2
+declare void @binaryheap_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @ReorderBufferRestoreCleanup(ptr noundef readonly captures(none) %0) unnamed_addr #0 {
@@ -8142,7 +8136,7 @@ define internal fastcc void @ReorderBufferRestoreCleanup(ptr noundef readonly ca
 
 12:                                               ; preds = %.lr.ph, %31
   %.02 = phi i64 [ %7, %.lr.ph ], [ %32, %31 ]
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %2) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %13 = load i32, ptr %11, align 4
   %14 = load i32, ptr @wal_segment_size, align 4
   %15 = sext i32 %14 to i64
@@ -8172,7 +8166,7 @@ define internal fastcc void @ReorderBufferRestoreCleanup(ptr noundef readonly ca
   unreachable
 
 31:                                               ; preds = %24, %12
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %2) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %32 = add i64 %.02, 1
   %.not = icmp ugt i64 %32, %10
   br i1 %.not, label %._crit_edge, label %12, !llvm.loop !43
@@ -8182,42 +8176,42 @@ define internal fastcc void @ReorderBufferRestoreCleanup(ptr noundef readonly ca
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #15
+declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #14
 
-declare void @SnapBuildSnapDecRefcount(ptr noundef) local_unnamed_addr #2
+declare void @SnapBuildSnapDecRefcount(ptr noundef) local_unnamed_addr #1
 
-declare void @pairingheap_remove(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @pairingheap_remove(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @pairingheap_add(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @pairingheap_add(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @TransactionIdIsInProgress(i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @TransactionIdIsInProgress(i32 noundef) local_unnamed_addr #1
 
-declare ptr @pairingheap_first(ptr noundef) local_unnamed_addr #2
+declare ptr @pairingheap_first(ptr noundef) local_unnamed_addr #1
 
-declare i32 @pg_sprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare i32 @pg_sprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @lstat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #15
+declare noundef i32 @lstat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #14
 
-declare ptr @ReadDirExtended(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @ReadDirExtended(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #11
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #10
 
-declare zeroext i1 @IsSharedRelation(i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @IsSharedRelation(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #15
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #16
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #15
 
-declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @list_sort(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @list_sort(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 -1, 2) i32 @file_sort_by_lsn(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #8 {
+define internal range(i32 -1, 2) i32 @file_sort_by_lsn(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #7 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = load i64, ptr %3, align 8
@@ -8227,7 +8221,13 @@ define internal range(i32 -1, 2) i32 @file_sort_by_lsn(ptr noundef readonly capt
 }
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #13
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #12
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #16
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #17
@@ -8236,22 +8236,22 @@ declare void @llvm.assume(i1 noundef) #17
 declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64, i64) #18
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nounwind returns_twice "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { nounwind returns_twice "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #17 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #18 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #19 = { nounwind }

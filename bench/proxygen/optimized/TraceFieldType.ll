@@ -1843,7 +1843,7 @@ entry:
   %ref.tmp.i9 = alloca %"class.std::allocator", align 1
   %ref.tmp.i1 = alloca %"class.std::allocator", align 1
   %ref.tmp.i = alloca %"class.std::allocator", align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #14
   %call.i1.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL25kTraceFieldTypeErrorStageB5cxx11E)
           to label %call.i.noexc.i unwind label %lpad.i
@@ -1853,7 +1853,7 @@ call.i.noexc.i:                                   ; preds = %entry
           to label %.noexc.i unwind label %lpad.i
 
 .noexc.i:                                         ; preds = %call.i.noexc.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i)
   %call.i.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL25kTraceFieldTypeErrorStageB5cxx11E)
           to label %if.end.i unwind label %terminate.lpad.i.i
 
@@ -1894,11 +1894,11 @@ common.resume:                                    ; preds = %lpad.i2494, %lpad.i
   resume { ptr, i32 } %common.resume.op
 
 __cxx_global_var_init.exit:                       ; preds = %invoke.cont.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #14
   %4 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL25kTraceFieldTypeErrorStageB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1) #14
   %call.i1.i2 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL20kTraceFieldTypeErrorB5cxx11E)
           to label %call.i.noexc.i6 unwind label %lpad.i3
@@ -1925,8 +1925,8 @@ lpad.i3:                                          ; preds = %call.i.noexc.i6, %_
 __cxx_global_var_init.1.exit:                     ; preds = %.noexc.i7
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1) #14
   %7 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL20kTraceFieldTypeErrorB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i1)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i9)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i9) #14
   %call.i1.i10 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL28kTraceFieldTypeProxygenErrorB5cxx11E)
           to label %call.i.noexc.i14 unwind label %lpad.i11
@@ -1936,7 +1936,7 @@ call.i.noexc.i14:                                 ; preds = %__cxx_global_var_in
           to label %.noexc.i15 unwind label %lpad.i11
 
 .noexc.i15:                                       ; preds = %call.i.noexc.i14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i1539)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i1539)
   %call.i.i1540 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL28kTraceFieldTypeProxygenErrorB5cxx11E)
           to label %if.end.i1542 unwind label %terminate.lpad.i.i1541
 
@@ -1971,11 +1971,11 @@ lpad.i11:                                         ; preds = %call.i.noexc.i14, %
   br label %common.resume
 
 __cxx_global_var_init.3.exit:                     ; preds = %invoke.cont.i1545
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i1539)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i1539)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i9) #14
   %12 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL28kTraceFieldTypeProxygenErrorB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i9)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i17)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i17) #14
   %call.i1.i18 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL25kTraceFieldTypeHTTPStatusB5cxx11E)
           to label %call.i.noexc.i22 unwind label %lpad.i19
@@ -1985,7 +1985,7 @@ call.i.noexc.i22:                                 ; preds = %__cxx_global_var_in
           to label %.noexc.i23 unwind label %lpad.i19
 
 .noexc.i23:                                       ; preds = %call.i.noexc.i22
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i1549)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i1549)
   %call.i.i1550 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL25kTraceFieldTypeHTTPStatusB5cxx11E)
           to label %if.end.i1552 unwind label %terminate.lpad.i.i1551
 
@@ -2020,11 +2020,11 @@ lpad.i19:                                         ; preds = %call.i.noexc.i22, %
   br label %common.resume
 
 __cxx_global_var_init.5.exit:                     ; preds = %invoke.cont.i1555
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i1549)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i1549)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i17) #14
   %17 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL25kTraceFieldTypeHTTPStatusB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i17)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i25)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i25) #14
   %call.i1.i26 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL29kTraceFieldTypeDirectionErrorB5cxx11E)
           to label %call.i.noexc.i30 unwind label %lpad.i27
@@ -2034,7 +2034,7 @@ call.i.noexc.i30:                                 ; preds = %__cxx_global_var_in
           to label %.noexc.i31 unwind label %lpad.i27
 
 .noexc.i31:                                       ; preds = %call.i.noexc.i30
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i1559)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i1559)
   %call.i.i1560 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL29kTraceFieldTypeDirectionErrorB5cxx11E)
           to label %if.end.i1562 unwind label %terminate.lpad.i.i1561
 
@@ -2069,11 +2069,11 @@ lpad.i27:                                         ; preds = %call.i.noexc.i30, %
   br label %common.resume
 
 __cxx_global_var_init.7.exit:                     ; preds = %invoke.cont.i1565
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i1559)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i1559)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i25) #14
   %22 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL29kTraceFieldTypeDirectionErrorB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i25)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i33)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i33)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i33) #14
   %call.i1.i34 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL25kTraceFieldTypeCodecErrorB5cxx11E)
           to label %call.i.noexc.i38 unwind label %lpad.i35
@@ -2083,7 +2083,7 @@ call.i.noexc.i38:                                 ; preds = %__cxx_global_var_in
           to label %.noexc.i39 unwind label %lpad.i35
 
 .noexc.i39:                                       ; preds = %call.i.noexc.i38
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i1569)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i1569)
   %call.i.i1570 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL25kTraceFieldTypeCodecErrorB5cxx11E)
           to label %if.end.i1572 unwind label %terminate.lpad.i.i1571
 
@@ -2118,11 +2118,11 @@ lpad.i35:                                         ; preds = %call.i.noexc.i38, %
   br label %common.resume
 
 __cxx_global_var_init.9.exit:                     ; preds = %invoke.cont.i1575
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i1569)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i1569)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i33) #14
   %27 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL25kTraceFieldTypeCodecErrorB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i33)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i41)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i33)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i41)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i41) #14
   %call.i1.i42 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL23kTraceFieldTypeCallPathB5cxx11E)
           to label %call.i.noexc.i46 unwind label %lpad.i43
@@ -2132,7 +2132,7 @@ call.i.noexc.i46:                                 ; preds = %__cxx_global_var_in
           to label %.noexc.i47 unwind label %lpad.i43
 
 .noexc.i47:                                       ; preds = %call.i.noexc.i46
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i1579)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i1579)
   %call.i.i1580 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL23kTraceFieldTypeCallPathB5cxx11E)
           to label %if.end.i1582 unwind label %terminate.lpad.i.i1581
 
@@ -2167,11 +2167,11 @@ lpad.i43:                                         ; preds = %call.i.noexc.i46, %
   br label %common.resume
 
 __cxx_global_var_init.11.exit:                    ; preds = %invoke.cont.i1585
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i1579)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i1579)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i41) #14
   %32 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL23kTraceFieldTypeCallPathB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i41)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i49)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i41)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i49)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i49) #14
   %call.i1.i50 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL18kTraceFieldTypeUriB5cxx11E)
           to label %call.i.noexc.i54 unwind label %lpad.i51
@@ -2181,7 +2181,7 @@ call.i.noexc.i54:                                 ; preds = %__cxx_global_var_in
           to label %.noexc.i55 unwind label %lpad.i51
 
 .noexc.i55:                                       ; preds = %call.i.noexc.i54
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i1589)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i1589)
   %call.i.i1590 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL18kTraceFieldTypeUriB5cxx11E)
           to label %if.end.i1592 unwind label %terminate.lpad.i.i1591
 
@@ -2216,11 +2216,11 @@ lpad.i51:                                         ; preds = %call.i.noexc.i54, %
   br label %common.resume
 
 __cxx_global_var_init.13.exit:                    ; preds = %invoke.cont.i1595
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i1589)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i1589)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i49) #14
   %37 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL18kTraceFieldTypeUriB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i49)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i57)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i49)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i57)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i57) #14
   %call.i1.i58 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL23kTraceFieldTypeIsSecureB5cxx11E)
           to label %call.i.noexc.i62 unwind label %lpad.i59
@@ -2230,7 +2230,7 @@ call.i.noexc.i62:                                 ; preds = %__cxx_global_var_in
           to label %.noexc.i63 unwind label %lpad.i59
 
 .noexc.i63:                                       ; preds = %call.i.noexc.i62
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i1599)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i1599)
   %call.i.i1600 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL23kTraceFieldTypeIsSecureB5cxx11E)
           to label %if.end.i1602 unwind label %terminate.lpad.i.i1601
 
@@ -2265,11 +2265,11 @@ lpad.i59:                                         ; preds = %call.i.noexc.i62, %
   br label %common.resume
 
 __cxx_global_var_init.15.exit:                    ; preds = %invoke.cont.i1605
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i1599)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i1599)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i57) #14
   %42 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL23kTraceFieldTypeIsSecureB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i57)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i65)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i57)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i65)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i65) #14
   %call.i1.i66 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL25kTraceFieldTypeUsingProxyB5cxx11E)
           to label %call.i.noexc.i70 unwind label %lpad.i67
@@ -2279,7 +2279,7 @@ call.i.noexc.i70:                                 ; preds = %__cxx_global_var_in
           to label %.noexc.i71 unwind label %lpad.i67
 
 .noexc.i71:                                       ; preds = %call.i.noexc.i70
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i1609)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i1609)
   %call.i.i1610 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL25kTraceFieldTypeUsingProxyB5cxx11E)
           to label %if.end.i1612 unwind label %terminate.lpad.i.i1611
 
@@ -2314,11 +2314,11 @@ lpad.i67:                                         ; preds = %call.i.noexc.i70, %
   br label %common.resume
 
 __cxx_global_var_init.17.exit:                    ; preds = %invoke.cont.i1615
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i1609)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i1609)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i65) #14
   %47 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL25kTraceFieldTypeUsingProxyB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i65)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i73)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i65)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i73)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i73) #14
   %call.i1.i74 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL25kTraceFieldTypeStatusCodeB5cxx11E)
           to label %call.i.noexc.i78 unwind label %lpad.i75
@@ -2328,7 +2328,7 @@ call.i.noexc.i78:                                 ; preds = %__cxx_global_var_in
           to label %.noexc.i79 unwind label %lpad.i75
 
 .noexc.i79:                                       ; preds = %call.i.noexc.i78
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i1619)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i1619)
   %call.i.i1620 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL25kTraceFieldTypeStatusCodeB5cxx11E)
           to label %if.end.i1622 unwind label %terminate.lpad.i.i1621
 
@@ -2363,11 +2363,11 @@ lpad.i75:                                         ; preds = %call.i.noexc.i78, %
   br label %common.resume
 
 __cxx_global_var_init.19.exit:                    ; preds = %invoke.cont.i1625
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i1619)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i1619)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i73) #14
   %52 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL25kTraceFieldTypeStatusCodeB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i73)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i81)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i73)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i81)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i81) #14
   %call.i1.i82 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL23kTraceFieldTypeProtocolB5cxx11E)
           to label %call.i.noexc.i86 unwind label %lpad.i83
@@ -2377,7 +2377,7 @@ call.i.noexc.i86:                                 ; preds = %__cxx_global_var_in
           to label %.noexc.i87 unwind label %lpad.i83
 
 .noexc.i87:                                       ; preds = %call.i.noexc.i86
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i1629)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i1629)
   %call.i.i1630 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL23kTraceFieldTypeProtocolB5cxx11E)
           to label %if.end.i1632 unwind label %terminate.lpad.i.i1631
 
@@ -2412,11 +2412,11 @@ lpad.i83:                                         ; preds = %call.i.noexc.i86, %
   br label %common.resume
 
 __cxx_global_var_init.21.exit:                    ; preds = %invoke.cont.i1635
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i1629)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i1629)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i81) #14
   %57 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL23kTraceFieldTypeProtocolB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i81)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i89)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i81)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i89)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i89) #14
   %call.i1.i90 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL31kTraceFieldTypeSecurityProtocolB5cxx11E)
           to label %call.i.noexc.i94 unwind label %lpad.i91
@@ -2443,8 +2443,8 @@ lpad.i91:                                         ; preds = %call.i.noexc.i94, %
 __cxx_global_var_init.23.exit:                    ; preds = %.noexc.i95
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i89) #14
   %60 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL31kTraceFieldTypeSecurityProtocolB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i89)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i97)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i89)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i97)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i97) #14
   %call.i1.i98 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL25kTraceFieldTypeReplaySafeB5cxx11E)
           to label %call.i.noexc.i102 unwind label %lpad.i99
@@ -2454,7 +2454,7 @@ call.i.noexc.i102:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i103 unwind label %lpad.i99
 
 .noexc.i103:                                      ; preds = %call.i.noexc.i102
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i1639)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i1639)
   %call.i.i1640 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL25kTraceFieldTypeReplaySafeB5cxx11E)
           to label %if.end.i1642 unwind label %terminate.lpad.i.i1641
 
@@ -2489,11 +2489,11 @@ lpad.i99:                                         ; preds = %call.i.noexc.i102, 
   br label %common.resume
 
 __cxx_global_var_init.25.exit:                    ; preds = %invoke.cont.i1645
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i1639)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i1639)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i97) #14
   %65 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL25kTraceFieldTypeReplaySafeB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i97)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i105)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i97)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i105)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i105) #14
   %call.i1.i106 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL24kTraceFieldTypeLocalAddrB5cxx11E)
           to label %call.i.noexc.i110 unwind label %lpad.i107
@@ -2503,7 +2503,7 @@ call.i.noexc.i110:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i111 unwind label %lpad.i107
 
 .noexc.i111:                                      ; preds = %call.i.noexc.i110
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i1649)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i1649)
   %call.i.i1650 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL24kTraceFieldTypeLocalAddrB5cxx11E)
           to label %if.end.i1652 unwind label %terminate.lpad.i.i1651
 
@@ -2538,11 +2538,11 @@ lpad.i107:                                        ; preds = %call.i.noexc.i110, 
   br label %common.resume
 
 __cxx_global_var_init.27.exit:                    ; preds = %invoke.cont.i1655
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i1649)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i1649)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i105) #14
   %70 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL24kTraceFieldTypeLocalAddrB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i105)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i113)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i105)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i113)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i113) #14
   %call.i1.i114 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL24kTraceFieldTypeLocalPortB5cxx11E)
           to label %call.i.noexc.i118 unwind label %lpad.i115
@@ -2552,7 +2552,7 @@ call.i.noexc.i118:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i119 unwind label %lpad.i115
 
 .noexc.i119:                                      ; preds = %call.i.noexc.i118
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i1659)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i1659)
   %call.i.i1660 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL24kTraceFieldTypeLocalPortB5cxx11E)
           to label %if.end.i1662 unwind label %terminate.lpad.i.i1661
 
@@ -2587,11 +2587,11 @@ lpad.i115:                                        ; preds = %call.i.noexc.i118, 
   br label %common.resume
 
 __cxx_global_var_init.29.exit:                    ; preds = %invoke.cont.i1665
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i1659)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i1659)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i113) #14
   %75 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL24kTraceFieldTypeLocalPortB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i113)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i121)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i113)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i121)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i121) #14
   %call.i1.i122 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL26kTraceFieldTypeContentTypeB5cxx11E)
           to label %call.i.noexc.i126 unwind label %lpad.i123
@@ -2601,7 +2601,7 @@ call.i.noexc.i126:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i127 unwind label %lpad.i123
 
 .noexc.i127:                                      ; preds = %call.i.noexc.i126
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i1669)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i1669)
   %call.i.i1670 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL26kTraceFieldTypeContentTypeB5cxx11E)
           to label %if.end.i1672 unwind label %terminate.lpad.i.i1671
 
@@ -2636,11 +2636,11 @@ lpad.i123:                                        ; preds = %call.i.noexc.i126, 
   br label %common.resume
 
 __cxx_global_var_init.31.exit:                    ; preds = %invoke.cont.i1675
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i1669)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i1669)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i121) #14
   %80 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL26kTraceFieldTypeContentTypeB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i121)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i129)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i121)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i129)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i129) #14
   %call.i1.i130 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL28kTraceFieldTypeReqHeaderSizeB5cxx11E)
           to label %call.i.noexc.i134 unwind label %lpad.i131
@@ -2667,8 +2667,8 @@ lpad.i131:                                        ; preds = %call.i.noexc.i134, 
 __cxx_global_var_init.33.exit:                    ; preds = %.noexc.i135
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i129) #14
   %83 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL28kTraceFieldTypeReqHeaderSizeB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i129)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i137)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i129)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i137)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i137) #14
   %call.i1.i138 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL32kTraceFieldTypeReqHeaderCompSizeB5cxx11E)
           to label %call.i.noexc.i142 unwind label %lpad.i139
@@ -2695,8 +2695,8 @@ lpad.i139:                                        ; preds = %call.i.noexc.i142, 
 __cxx_global_var_init.35.exit:                    ; preds = %.noexc.i143
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i137) #14
   %86 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL32kTraceFieldTypeReqHeaderCompSizeB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i137)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i145)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i137)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i145)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i145) #14
   %call.i1.i146 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL26kTraceFieldTypeReqBodySizeB5cxx11E)
           to label %call.i.noexc.i150 unwind label %lpad.i147
@@ -2723,8 +2723,8 @@ lpad.i147:                                        ; preds = %call.i.noexc.i150, 
 __cxx_global_var_init.37.exit:                    ; preds = %.noexc.i151
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i145) #14
   %89 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL26kTraceFieldTypeReqBodySizeB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i145)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i153)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i145)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i153)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i153) #14
   %call.i1.i154 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL28kTraceFieldTypeRspHeaderSizeB5cxx11E)
           to label %call.i.noexc.i158 unwind label %lpad.i155
@@ -2751,8 +2751,8 @@ lpad.i155:                                        ; preds = %call.i.noexc.i158, 
 __cxx_global_var_init.39.exit:                    ; preds = %.noexc.i159
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i153) #14
   %92 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL28kTraceFieldTypeRspHeaderSizeB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i153)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i161)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i153)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i161)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i161) #14
   %call.i1.i162 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL32kTraceFieldTypeRspHeaderCompSizeB5cxx11E)
           to label %call.i.noexc.i166 unwind label %lpad.i163
@@ -2779,8 +2779,8 @@ lpad.i163:                                        ; preds = %call.i.noexc.i166, 
 __cxx_global_var_init.41.exit:                    ; preds = %.noexc.i167
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i161) #14
   %95 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL32kTraceFieldTypeRspHeaderCompSizeB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i161)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i169)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i161)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i169)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i169) #14
   %call.i1.i170 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL31kTraceFieldTypeRedirectLocationB5cxx11E)
           to label %call.i.noexc.i174 unwind label %lpad.i171
@@ -2807,8 +2807,8 @@ lpad.i171:                                        ; preds = %call.i.noexc.i174, 
 __cxx_global_var_init.43.exit:                    ; preds = %.noexc.i175
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i169) #14
   %98 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL31kTraceFieldTypeRedirectLocationB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i169)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i177)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i169)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i177)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i177) #14
   %call.i1.i178 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL27kTraceFieldTypeNumRedirectsB5cxx11E)
           to label %call.i.noexc.i182 unwind label %lpad.i179
@@ -2818,7 +2818,7 @@ call.i.noexc.i182:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i183 unwind label %lpad.i179
 
 .noexc.i183:                                      ; preds = %call.i.noexc.i182
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i1679)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i1679)
   %call.i.i1680 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL27kTraceFieldTypeNumRedirectsB5cxx11E)
           to label %if.end.i1682 unwind label %terminate.lpad.i.i1681
 
@@ -2853,11 +2853,11 @@ lpad.i179:                                        ; preds = %call.i.noexc.i182, 
   br label %common.resume
 
 __cxx_global_var_init.45.exit:                    ; preds = %invoke.cont.i1685
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i1679)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i1679)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i177) #14
   %103 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL27kTraceFieldTypeNumRedirectsB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i177)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i185)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i177)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i185)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i185) #14
   %call.i1.i186 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL35kTraceFieldTypeRedirectResponseCodeB5cxx11E)
           to label %call.i.noexc.i190 unwind label %lpad.i187
@@ -2884,8 +2884,8 @@ lpad.i187:                                        ; preds = %call.i.noexc.i190, 
 __cxx_global_var_init.47.exit:                    ; preds = %.noexc.i191
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i185) #14
   %106 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL35kTraceFieldTypeRedirectResponseCodeB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i185)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i193)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i185)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i193)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i193) #14
   %call.i1.i194 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL32kTraceFieldTypeNumZeroRttRetriesB5cxx11E)
           to label %call.i.noexc.i198 unwind label %lpad.i195
@@ -2895,7 +2895,7 @@ call.i.noexc.i198:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i199 unwind label %lpad.i195
 
 .noexc.i199:                                      ; preds = %call.i.noexc.i198
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i1689)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i1689)
   %call.i.i1690 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL32kTraceFieldTypeNumZeroRttRetriesB5cxx11E)
           to label %if.end.i1692 unwind label %terminate.lpad.i.i1691
 
@@ -2930,11 +2930,11 @@ lpad.i195:                                        ; preds = %call.i.noexc.i198, 
   br label %common.resume
 
 __cxx_global_var_init.49.exit:                    ; preds = %invoke.cont.i1695
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i1689)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i1689)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i193) #14
   %111 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL32kTraceFieldTypeNumZeroRttRetriesB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i193)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i201)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i193)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i201)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i201) #14
   %call.i1.i202 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL25kTraceFieldTypeUsingHTTP2B5cxx11E)
           to label %call.i.noexc.i206 unwind label %lpad.i203
@@ -2944,7 +2944,7 @@ call.i.noexc.i206:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i207 unwind label %lpad.i203
 
 .noexc.i207:                                      ; preds = %call.i.noexc.i206
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i1699)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i1699)
   %call.i.i1700 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL25kTraceFieldTypeUsingHTTP2B5cxx11E)
           to label %if.end.i1702 unwind label %terminate.lpad.i.i1701
 
@@ -2979,11 +2979,11 @@ lpad.i203:                                        ; preds = %call.i.noexc.i206, 
   br label %common.resume
 
 __cxx_global_var_init.51.exit:                    ; preds = %invoke.cont.i1705
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i1699)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i1699)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i201) #14
   %116 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL25kTraceFieldTypeUsingHTTP2B5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i201)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i209)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i201)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i209)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i209) #14
   %call.i1.i210 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL40kTraceFieldTypeFirstBodyByteFlushedRatioB5cxx11E)
           to label %call.i.noexc.i214 unwind label %lpad.i211
@@ -3010,8 +3010,8 @@ lpad.i211:                                        ; preds = %call.i.noexc.i214, 
 __cxx_global_var_init.53.exit:                    ; preds = %.noexc.i215
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i209) #14
   %119 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL40kTraceFieldTypeFirstBodyByteFlushedRatioB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i209)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i217)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i209)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i217)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i217) #14
   %call.i1.i218 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL39kTraceFieldTypeLastBodyByteFlushedRatioB5cxx11E)
           to label %call.i.noexc.i222 unwind label %lpad.i219
@@ -3038,8 +3038,8 @@ lpad.i219:                                        ; preds = %call.i.noexc.i222, 
 __cxx_global_var_init.55.exit:                    ; preds = %.noexc.i223
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i217) #14
   %122 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL39kTraceFieldTypeLastBodyByteFlushedRatioB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i217)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i225)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i217)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i225)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i225) #14
   %call.i1.i226 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL32kTraceFieldTypeFlowControlPausesB5cxx11E)
           to label %call.i.noexc.i230 unwind label %lpad.i227
@@ -3066,8 +3066,8 @@ lpad.i227:                                        ; preds = %call.i.noexc.i230, 
 __cxx_global_var_init.57.exit:                    ; preds = %.noexc.i231
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i225) #14
   %125 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL32kTraceFieldTypeFlowControlPausesB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i225)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i233)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i225)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i233)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i233) #14
   %call.i1.i234 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL25kTraceFieldTypeHTTPMethodB5cxx11E)
           to label %call.i.noexc.i238 unwind label %lpad.i235
@@ -3077,7 +3077,7 @@ call.i.noexc.i238:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i239 unwind label %lpad.i235
 
 .noexc.i239:                                      ; preds = %call.i.noexc.i238
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i1709)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i1709)
   %call.i.i1710 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL25kTraceFieldTypeHTTPMethodB5cxx11E)
           to label %if.end.i1712 unwind label %terminate.lpad.i.i1711
 
@@ -3112,11 +3112,11 @@ lpad.i235:                                        ; preds = %call.i.noexc.i238, 
   br label %common.resume
 
 __cxx_global_var_init.59.exit:                    ; preds = %invoke.cont.i1715
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i1709)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i1709)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i233) #14
   %130 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL25kTraceFieldTypeHTTPMethodB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i233)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i241)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i233)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i241)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i241) #14
   %call.i1.i242 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL27kTraceFieldTypeRangeRequestB5cxx11E)
           to label %call.i.noexc.i246 unwind label %lpad.i243
@@ -3126,7 +3126,7 @@ call.i.noexc.i246:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i247 unwind label %lpad.i243
 
 .noexc.i247:                                      ; preds = %call.i.noexc.i246
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i1719)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i1719)
   %call.i.i1720 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL27kTraceFieldTypeRangeRequestB5cxx11E)
           to label %if.end.i1722 unwind label %terminate.lpad.i.i1721
 
@@ -3161,11 +3161,11 @@ lpad.i243:                                        ; preds = %call.i.noexc.i246, 
   br label %common.resume
 
 __cxx_global_var_init.61.exit:                    ; preds = %invoke.cont.i1725
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i1719)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i1719)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i241) #14
   %135 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL27kTraceFieldTypeRangeRequestB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i241)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i249)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i241)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i249)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i249) #14
   %call.i1.i250 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL30kTraceFieldTypeRequestSendTimeB5cxx11E)
           to label %call.i.noexc.i254 unwind label %lpad.i251
@@ -3192,8 +3192,8 @@ lpad.i251:                                        ; preds = %call.i.noexc.i254, 
 __cxx_global_var_init.63.exit:                    ; preds = %.noexc.i255
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i249) #14
   %138 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL30kTraceFieldTypeRequestSendTimeB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i249)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i257)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i249)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i257)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i257) #14
   %call.i1.i258 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL26kTraceFieldTypeRspIntvlAvgB5cxx11E)
           to label %call.i.noexc.i262 unwind label %lpad.i259
@@ -3220,8 +3220,8 @@ lpad.i259:                                        ; preds = %call.i.noexc.i262, 
 __cxx_global_var_init.65.exit:                    ; preds = %.noexc.i263
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i257) #14
   %141 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL26kTraceFieldTypeRspIntvlAvgB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i257)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i265)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i257)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i265)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i265) #14
   %call.i1.i266 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL29kTraceFieldTypeRspIntvlStdDevB5cxx11E)
           to label %call.i.noexc.i270 unwind label %lpad.i267
@@ -3248,8 +3248,8 @@ lpad.i267:                                        ; preds = %call.i.noexc.i270, 
 __cxx_global_var_init.67.exit:                    ; preds = %.noexc.i271
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i265) #14
   %144 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL29kTraceFieldTypeRspIntvlStdDevB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i265)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i273)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i265)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i273)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i273) #14
   %call.i1.i274 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL27kTraceFieldTypeRspNumOnBodyB5cxx11E)
           to label %call.i.noexc.i278 unwind label %lpad.i275
@@ -3276,8 +3276,8 @@ lpad.i275:                                        ; preds = %call.i.noexc.i278, 
 __cxx_global_var_init.69.exit:                    ; preds = %.noexc.i279
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i273) #14
   %147 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL27kTraceFieldTypeRspNumOnBodyB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i273)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i281)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i273)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i281)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i281) #14
   %call.i1.i282 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL28kTraceFieldTypeServerQualityB5cxx11E)
           to label %call.i.noexc.i286 unwind label %lpad.i283
@@ -3304,8 +3304,8 @@ lpad.i283:                                        ; preds = %call.i.noexc.i286, 
 __cxx_global_var_init.71.exit:                    ; preds = %.noexc.i287
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i281) #14
   %150 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL28kTraceFieldTypeServerQualityB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i281)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i289)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i281)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i289)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i289) #14
   %call.i1.i290 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL24kTraceFieldTypeServerRttB5cxx11E)
           to label %call.i.noexc.i294 unwind label %lpad.i291
@@ -3315,7 +3315,7 @@ call.i.noexc.i294:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i295 unwind label %lpad.i291
 
 .noexc.i295:                                      ; preds = %call.i.noexc.i294
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i1729)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i1729)
   %call.i.i1730 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL24kTraceFieldTypeServerRttB5cxx11E)
           to label %if.end.i1732 unwind label %terminate.lpad.i.i1731
 
@@ -3350,11 +3350,11 @@ lpad.i291:                                        ; preds = %call.i.noexc.i294, 
   br label %common.resume
 
 __cxx_global_var_init.73.exit:                    ; preds = %invoke.cont.i1735
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i1729)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i1729)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i289) #14
   %155 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL24kTraceFieldTypeServerRttB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i289)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i297)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i289)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i297)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i297) #14
   %call.i1.i298 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL24kTraceFieldTypeRecvToAckB5cxx11E)
           to label %call.i.noexc.i302 unwind label %lpad.i299
@@ -3381,8 +3381,8 @@ lpad.i299:                                        ; preds = %call.i.noexc.i302, 
 __cxx_global_var_init.75.exit:                    ; preds = %.noexc.i303
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i297) #14
   %158 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL24kTraceFieldTypeRecvToAckB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i297)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i305)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i297)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i305)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i305) #14
   %call.i1.i306 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL24kTraceFieldTypeServerRtxB5cxx11E)
           to label %call.i.noexc.i310 unwind label %lpad.i307
@@ -3392,7 +3392,7 @@ call.i.noexc.i310:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i311 unwind label %lpad.i307
 
 .noexc.i311:                                      ; preds = %call.i.noexc.i310
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i1739)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i1739)
   %call.i.i1740 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL24kTraceFieldTypeServerRtxB5cxx11E)
           to label %if.end.i1742 unwind label %terminate.lpad.i.i1741
 
@@ -3427,11 +3427,11 @@ lpad.i307:                                        ; preds = %call.i.noexc.i310, 
   br label %common.resume
 
 __cxx_global_var_init.77.exit:                    ; preds = %invoke.cont.i1745
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i1739)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i1739)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i305) #14
   %163 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL24kTraceFieldTypeServerRtxB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i305)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i313)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i305)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i313)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i313) #14
   %call.i1.i314 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL25kTraceFieldTypeServerCwndB5cxx11E)
           to label %call.i.noexc.i318 unwind label %lpad.i315
@@ -3441,7 +3441,7 @@ call.i.noexc.i318:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i319 unwind label %lpad.i315
 
 .noexc.i319:                                      ; preds = %call.i.noexc.i318
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i1749)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i1749)
   %call.i.i1750 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL25kTraceFieldTypeServerCwndB5cxx11E)
           to label %if.end.i1752 unwind label %terminate.lpad.i.i1751
 
@@ -3476,11 +3476,11 @@ lpad.i315:                                        ; preds = %call.i.noexc.i318, 
   br label %common.resume
 
 __cxx_global_var_init.79.exit:                    ; preds = %invoke.cont.i1755
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i1749)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i1749)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i313) #14
   %168 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL25kTraceFieldTypeServerCwndB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i313)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i321)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i313)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i321)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i321) #14
   %call.i1.i322 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL24kTraceFieldTypeServerMssB5cxx11E)
           to label %call.i.noexc.i326 unwind label %lpad.i323
@@ -3490,7 +3490,7 @@ call.i.noexc.i326:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i327 unwind label %lpad.i323
 
 .noexc.i327:                                      ; preds = %call.i.noexc.i326
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i1759)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i1759)
   %call.i.i1760 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL24kTraceFieldTypeServerMssB5cxx11E)
           to label %if.end.i1762 unwind label %terminate.lpad.i.i1761
 
@@ -3525,11 +3525,11 @@ lpad.i323:                                        ; preds = %call.i.noexc.i326, 
   br label %common.resume
 
 __cxx_global_var_init.81.exit:                    ; preds = %invoke.cont.i1765
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i1759)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i1759)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i321) #14
   %173 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL24kTraceFieldTypeServerMssB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i321)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i329)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i321)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i329)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i329) #14
   %call.i1.i330 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL38kTraceFieldTypeServerTotalBytesWrittenB5cxx11E)
           to label %call.i.noexc.i334 unwind label %lpad.i331
@@ -3539,7 +3539,7 @@ call.i.noexc.i334:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i335 unwind label %lpad.i331
 
 .noexc.i335:                                      ; preds = %call.i.noexc.i334
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i1769)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i1769)
   %call.i.i1770 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL38kTraceFieldTypeServerTotalBytesWrittenB5cxx11E)
           to label %if.end.i1772 unwind label %terminate.lpad.i.i1771
 
@@ -3574,11 +3574,11 @@ lpad.i331:                                        ; preds = %call.i.noexc.i334, 
   br label %common.resume
 
 __cxx_global_var_init.83.exit:                    ; preds = %invoke.cont.i1775
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i1769)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i1769)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i329) #14
   %178 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL38kTraceFieldTypeServerTotalBytesWrittenB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i329)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i337)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i329)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i337)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i337) #14
   %call.i1.i338 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL28kTraceFieldTypeNewConnectionB5cxx11E)
           to label %call.i.noexc.i342 unwind label %lpad.i339
@@ -3588,7 +3588,7 @@ call.i.noexc.i342:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i343 unwind label %lpad.i339
 
 .noexc.i343:                                      ; preds = %call.i.noexc.i342
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i1779)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i1779)
   %call.i.i1780 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL28kTraceFieldTypeNewConnectionB5cxx11E)
           to label %if.end.i1782 unwind label %terminate.lpad.i.i1781
 
@@ -3623,11 +3623,11 @@ lpad.i339:                                        ; preds = %call.i.noexc.i342, 
   br label %common.resume
 
 __cxx_global_var_init.85.exit:                    ; preds = %invoke.cont.i1785
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i1779)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i1779)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i337) #14
   %183 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL28kTraceFieldTypeNewConnectionB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i337)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i345)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i337)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i345)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i345) #14
   %call.i1.i346 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL34kTraceFieldTypeIsWaitingForNewConnB5cxx11E)
           to label %call.i.noexc.i350 unwind label %lpad.i347
@@ -3654,8 +3654,8 @@ lpad.i347:                                        ; preds = %call.i.noexc.i350, 
 __cxx_global_var_init.87.exit:                    ; preds = %.noexc.i351
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i345) #14
   %186 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL34kTraceFieldTypeIsWaitingForNewConnB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i345)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i353)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i345)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i353)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i353) #14
   %call.i1.i354 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL29kTraceFieldTypeNewConnTimeoutB5cxx11E)
           to label %call.i.noexc.i358 unwind label %lpad.i355
@@ -3682,8 +3682,8 @@ lpad.i355:                                        ; preds = %call.i.noexc.i358, 
 __cxx_global_var_init.89.exit:                    ; preds = %.noexc.i359
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i353) #14
   %189 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL29kTraceFieldTypeNewConnTimeoutB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i353)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i361)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i353)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i361)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i361) #14
   %call.i1.i362 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL28kTraceFieldTypeInFlightConnsB5cxx11E)
           to label %call.i.noexc.i366 unwind label %lpad.i363
@@ -3693,7 +3693,7 @@ call.i.noexc.i366:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i367 unwind label %lpad.i363
 
 .noexc.i367:                                      ; preds = %call.i.noexc.i366
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i1789)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i1789)
   %call.i.i1790 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL28kTraceFieldTypeInFlightConnsB5cxx11E)
           to label %if.end.i1792 unwind label %terminate.lpad.i.i1791
 
@@ -3728,11 +3728,11 @@ lpad.i363:                                        ; preds = %call.i.noexc.i366, 
   br label %common.resume
 
 __cxx_global_var_init.91.exit:                    ; preds = %invoke.cont.i1795
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i1789)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i1789)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i361) #14
   %194 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL28kTraceFieldTypeInFlightConnsB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i361)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i369)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i361)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i369)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i369) #14
   %call.i1.i370 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL29kTraceFieldTypeCachedSessionsB5cxx11E)
           to label %call.i.noexc.i374 unwind label %lpad.i371
@@ -3742,7 +3742,7 @@ call.i.noexc.i374:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i375 unwind label %lpad.i371
 
 .noexc.i375:                                      ; preds = %call.i.noexc.i374
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i1799)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i1799)
   %call.i.i1800 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL29kTraceFieldTypeCachedSessionsB5cxx11E)
           to label %if.end.i1802 unwind label %terminate.lpad.i.i1801
 
@@ -3777,11 +3777,11 @@ lpad.i371:                                        ; preds = %call.i.noexc.i374, 
   br label %common.resume
 
 __cxx_global_var_init.93.exit:                    ; preds = %invoke.cont.i1805
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i1799)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i1799)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i369) #14
   %199 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL29kTraceFieldTypeCachedSessionsB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i369)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i377)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i369)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i377)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i377) #14
   %call.i1.i378 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL35kTraceFieldTypeCachedActiveSessionsB5cxx11E)
           to label %call.i.noexc.i382 unwind label %lpad.i379
@@ -3808,8 +3808,8 @@ lpad.i379:                                        ; preds = %call.i.noexc.i382, 
 __cxx_global_var_init.95.exit:                    ; preds = %.noexc.i383
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i377) #14
   %202 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL35kTraceFieldTypeCachedActiveSessionsB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i377)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i385)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i377)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i385)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i385) #14
   %call.i1.i386 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL27kTraceFieldTypeConnsStartedB5cxx11E)
           to label %call.i.noexc.i390 unwind label %lpad.i387
@@ -3819,7 +3819,7 @@ call.i.noexc.i390:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i391 unwind label %lpad.i387
 
 .noexc.i391:                                      ; preds = %call.i.noexc.i390
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i1809)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i1809)
   %call.i.i1810 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL27kTraceFieldTypeConnsStartedB5cxx11E)
           to label %if.end.i1812 unwind label %terminate.lpad.i.i1811
 
@@ -3854,11 +3854,11 @@ lpad.i387:                                        ; preds = %call.i.noexc.i390, 
   br label %common.resume
 
 __cxx_global_var_init.97.exit:                    ; preds = %invoke.cont.i1815
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i1809)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i1809)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i385) #14
   %207 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL27kTraceFieldTypeConnsStartedB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i385)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i393)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i385)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i393)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i393) #14
   %call.i1.i394 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL29kTraceFieldTypeRequestsWaitedB5cxx11E)
           to label %call.i.noexc.i398 unwind label %lpad.i395
@@ -3868,7 +3868,7 @@ call.i.noexc.i398:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i399 unwind label %lpad.i395
 
 .noexc.i399:                                      ; preds = %call.i.noexc.i398
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i1819)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i1819)
   %call.i.i1820 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL29kTraceFieldTypeRequestsWaitedB5cxx11E)
           to label %if.end.i1822 unwind label %terminate.lpad.i.i1821
 
@@ -3903,11 +3903,11 @@ lpad.i395:                                        ; preds = %call.i.noexc.i398, 
   br label %common.resume
 
 __cxx_global_var_init.99.exit:                    ; preds = %invoke.cont.i1825
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i1819)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i1819)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i393) #14
   %212 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL29kTraceFieldTypeRequestsWaitedB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i393)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i401)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i393)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i401)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i401) #14
   %call.i1.i402 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL34kTraceFieldTypeTotalRequestsWaitedB5cxx11E)
           to label %call.i.noexc.i406 unwind label %lpad.i403
@@ -3934,8 +3934,8 @@ lpad.i403:                                        ; preds = %call.i.noexc.i406, 
 __cxx_global_var_init.101.exit:                   ; preds = %.noexc.i407
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i401) #14
   %215 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL34kTraceFieldTypeTotalRequestsWaitedB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i401)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i409)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i401)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i409)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i409) #14
   %call.i1.i410 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL32kTraceFieldTypeTotalConnsStartedB5cxx11E)
           to label %call.i.noexc.i414 unwind label %lpad.i411
@@ -3962,8 +3962,8 @@ lpad.i411:                                        ; preds = %call.i.noexc.i414, 
 __cxx_global_var_init.103.exit:                   ; preds = %.noexc.i415
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i409) #14
   %218 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL32kTraceFieldTypeTotalConnsStartedB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i409)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i417)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i409)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i417)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i417) #14
   %call.i1.i418 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL38kTraceFieldTypeTotalBackupConnsStartedB5cxx11E)
           to label %call.i.noexc.i422 unwind label %lpad.i419
@@ -3990,8 +3990,8 @@ lpad.i419:                                        ; preds = %call.i.noexc.i422, 
 __cxx_global_var_init.105.exit:                   ; preds = %.noexc.i423
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i417) #14
   %221 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL38kTraceFieldTypeTotalBackupConnsStartedB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i417)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i425)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i417)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i425)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i425) #14
   %call.i1.i426 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL34kTraceFieldTypeSessionCacheHitTypeB5cxx11E)
           to label %call.i.noexc.i430 unwind label %lpad.i427
@@ -4018,8 +4018,8 @@ lpad.i427:                                        ; preds = %call.i.noexc.i430, 
 __cxx_global_var_init.107.exit:                   ; preds = %.noexc.i431
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i425) #14
   %224 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL34kTraceFieldTypeSessionCacheHitTypeB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i425)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i433)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i425)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i433)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i433) #14
   %call.i1.i434 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL29kTraceFieldTypePerDomainLimitB5cxx11E)
           to label %call.i.noexc.i438 unwind label %lpad.i435
@@ -4046,8 +4046,8 @@ lpad.i435:                                        ; preds = %call.i.noexc.i438, 
 __cxx_global_var_init.109.exit:                   ; preds = %.noexc.i439
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i433) #14
   %227 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL29kTraceFieldTypePerDomainLimitB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i433)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i441)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i433)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i441)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i441) #14
   %call.i1.i442 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL38kTraceFieldTypeDynamicDomainLimitRatioB5cxx11E)
           to label %call.i.noexc.i446 unwind label %lpad.i443
@@ -4074,8 +4074,8 @@ lpad.i443:                                        ; preds = %call.i.noexc.i446, 
 __cxx_global_var_init.111.exit:                   ; preds = %.noexc.i447
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i441) #14
   %230 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL38kTraceFieldTypeDynamicDomainLimitRatioB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i441)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i449)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i441)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i449)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i449) #14
   %call.i1.i450 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL28kTraceFieldTypeLoadBalancingB5cxx11E)
           to label %call.i.noexc.i454 unwind label %lpad.i451
@@ -4085,7 +4085,7 @@ call.i.noexc.i454:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i455 unwind label %lpad.i451
 
 .noexc.i455:                                      ; preds = %call.i.noexc.i454
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i1829)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i1829)
   %call.i.i1830 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL28kTraceFieldTypeLoadBalancingB5cxx11E)
           to label %if.end.i1832 unwind label %terminate.lpad.i.i1831
 
@@ -4120,11 +4120,11 @@ lpad.i451:                                        ; preds = %call.i.noexc.i454, 
   br label %common.resume
 
 __cxx_global_var_init.113.exit:                   ; preds = %invoke.cont.i1835
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i1829)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i1829)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i449) #14
   %235 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL28kTraceFieldTypeLoadBalancingB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i449)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i457)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i449)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i457)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i457) #14
   %call.i1.i458 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL38kTraceFieldTypeMaxConnectionRetryCountB5cxx11E)
           to label %call.i.noexc.i462 unwind label %lpad.i459
@@ -4151,8 +4151,8 @@ lpad.i459:                                        ; preds = %call.i.noexc.i462, 
 __cxx_global_var_init.115.exit:                   ; preds = %.noexc.i463
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i457) #14
   %238 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL38kTraceFieldTypeMaxConnectionRetryCountB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i457)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i465)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i457)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i465)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i465) #14
   %call.i1.i466 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL34kTraceFieldTypeMaxIdleHTTPSessionsB5cxx11E)
           to label %call.i.noexc.i470 unwind label %lpad.i467
@@ -4179,8 +4179,8 @@ lpad.i467:                                        ; preds = %call.i.noexc.i470, 
 __cxx_global_var_init.117.exit:                   ; preds = %.noexc.i471
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i465) #14
   %241 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL34kTraceFieldTypeMaxIdleHTTPSessionsB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i465)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i473)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i465)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i473)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i473) #14
   %call.i1.i474 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL35kTraceFieldTypeMaxIdleHTTP2SessionsB5cxx11E)
           to label %call.i.noexc.i478 unwind label %lpad.i475
@@ -4207,8 +4207,8 @@ lpad.i475:                                        ; preds = %call.i.noexc.i478, 
 __cxx_global_var_init.119.exit:                   ; preds = %.noexc.i479
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i473) #14
   %244 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL35kTraceFieldTypeMaxIdleHTTP2SessionsB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i473)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i481)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i473)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i481)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i481) #14
   %call.i1.i482 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL31kTraceFieldTypeConnRoutingStaleB5cxx11E)
           to label %call.i.noexc.i486 unwind label %lpad.i483
@@ -4235,8 +4235,8 @@ lpad.i483:                                        ; preds = %call.i.noexc.i486, 
 __cxx_global_var_init.121.exit:                   ; preds = %.noexc.i487
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i481) #14
   %247 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL31kTraceFieldTypeConnRoutingStaleB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i481)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i489)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i481)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i489)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i489) #14
   %call.i1.i490 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL25kTraceFieldTypeAltSvcHostB5cxx11E)
           to label %call.i.noexc.i494 unwind label %lpad.i491
@@ -4246,7 +4246,7 @@ call.i.noexc.i494:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i495 unwind label %lpad.i491
 
 .noexc.i495:                                      ; preds = %call.i.noexc.i494
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i1839)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i1839)
   %call.i.i1840 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL25kTraceFieldTypeAltSvcHostB5cxx11E)
           to label %if.end.i1842 unwind label %terminate.lpad.i.i1841
 
@@ -4281,11 +4281,11 @@ lpad.i491:                                        ; preds = %call.i.noexc.i494, 
   br label %common.resume
 
 __cxx_global_var_init.123.exit:                   ; preds = %invoke.cont.i1845
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i1839)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i1839)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i489) #14
   %252 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL25kTraceFieldTypeAltSvcHostB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i489)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i497)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i489)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i497)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i497) #14
   %call.i1.i498 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL29kTraceFieldTypeInjectedSocketB5cxx11E)
           to label %call.i.noexc.i502 unwind label %lpad.i499
@@ -4295,7 +4295,7 @@ call.i.noexc.i502:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i503 unwind label %lpad.i499
 
 .noexc.i503:                                      ; preds = %call.i.noexc.i502
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i1849)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i1849)
   %call.i.i1850 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL29kTraceFieldTypeInjectedSocketB5cxx11E)
           to label %if.end.i1852 unwind label %terminate.lpad.i.i1851
 
@@ -4330,11 +4330,11 @@ lpad.i499:                                        ; preds = %call.i.noexc.i502, 
   br label %common.resume
 
 __cxx_global_var_init.125.exit:                   ; preds = %invoke.cont.i1855
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i1849)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i1849)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i497) #14
   %257 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL29kTraceFieldTypeInjectedSocketB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i497)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i505)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i497)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i505)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i505) #14
   %call.i1.i506 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL25kTraceFieldTypeServerAddrB5cxx11E)
           to label %call.i.noexc.i510 unwind label %lpad.i507
@@ -4344,7 +4344,7 @@ call.i.noexc.i510:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i511 unwind label %lpad.i507
 
 .noexc.i511:                                      ; preds = %call.i.noexc.i510
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i1859)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i1859)
   %call.i.i1860 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL25kTraceFieldTypeServerAddrB5cxx11E)
           to label %if.end.i1862 unwind label %terminate.lpad.i.i1861
 
@@ -4379,11 +4379,11 @@ lpad.i507:                                        ; preds = %call.i.noexc.i510, 
   br label %common.resume
 
 __cxx_global_var_init.127.exit:                   ; preds = %invoke.cont.i1865
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i1859)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i1859)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i505) #14
   %262 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL25kTraceFieldTypeServerAddrB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i505)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i513)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i505)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i513)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i513) #14
   %call.i1.i514 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL25kTraceFieldTypeServerPortB5cxx11E)
           to label %call.i.noexc.i518 unwind label %lpad.i515
@@ -4393,7 +4393,7 @@ call.i.noexc.i518:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i519 unwind label %lpad.i515
 
 .noexc.i519:                                      ; preds = %call.i.noexc.i518
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i1869)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i1869)
   %call.i.i1870 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL25kTraceFieldTypeServerPortB5cxx11E)
           to label %if.end.i1872 unwind label %terminate.lpad.i.i1871
 
@@ -4428,11 +4428,11 @@ lpad.i515:                                        ; preds = %call.i.noexc.i518, 
   br label %common.resume
 
 __cxx_global_var_init.129.exit:                   ; preds = %invoke.cont.i1875
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i1869)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i1869)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i513) #14
   %267 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL25kTraceFieldTypeServerPortB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i513)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i521)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i513)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i521)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i521) #14
   %call.i1.i522 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL27kTraceFieldTypeCachedFamilyB5cxx11E)
           to label %call.i.noexc.i526 unwind label %lpad.i523
@@ -4442,7 +4442,7 @@ call.i.noexc.i526:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i527 unwind label %lpad.i523
 
 .noexc.i527:                                      ; preds = %call.i.noexc.i526
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i1879)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i1879)
   %call.i.i1880 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL27kTraceFieldTypeCachedFamilyB5cxx11E)
           to label %if.end.i1882 unwind label %terminate.lpad.i.i1881
 
@@ -4477,11 +4477,11 @@ lpad.i523:                                        ; preds = %call.i.noexc.i526, 
   br label %common.resume
 
 __cxx_global_var_init.131.exit:                   ; preds = %invoke.cont.i1885
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i1879)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i1879)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i521) #14
   %272 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL27kTraceFieldTypeCachedFamilyB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i521)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i529)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i521)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i529)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i529) #14
   %call.i1.i530 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL25kTraceFieldTypeNewSessionB5cxx11E)
           to label %call.i.noexc.i534 unwind label %lpad.i531
@@ -4491,7 +4491,7 @@ call.i.noexc.i534:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i535 unwind label %lpad.i531
 
 .noexc.i535:                                      ; preds = %call.i.noexc.i534
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i1889)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i1889)
   %call.i.i1890 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL25kTraceFieldTypeNewSessionB5cxx11E)
           to label %if.end.i1892 unwind label %terminate.lpad.i.i1891
 
@@ -4526,11 +4526,11 @@ lpad.i531:                                        ; preds = %call.i.noexc.i534, 
   br label %common.resume
 
 __cxx_global_var_init.133.exit:                   ; preds = %invoke.cont.i1895
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i1889)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i1889)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i529) #14
   %277 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL25kTraceFieldTypeNewSessionB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i529)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i537)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i529)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i537)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i537) #14
   %call.i1.i538 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL25kTraceFieldTypeNumWaitingB5cxx11E)
           to label %call.i.noexc.i542 unwind label %lpad.i539
@@ -4540,7 +4540,7 @@ call.i.noexc.i542:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i543 unwind label %lpad.i539
 
 .noexc.i543:                                      ; preds = %call.i.noexc.i542
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i1899)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i1899)
   %call.i.i1900 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL25kTraceFieldTypeNumWaitingB5cxx11E)
           to label %if.end.i1902 unwind label %terminate.lpad.i.i1901
 
@@ -4575,11 +4575,11 @@ lpad.i539:                                        ; preds = %call.i.noexc.i542, 
   br label %common.resume
 
 __cxx_global_var_init.135.exit:                   ; preds = %invoke.cont.i1905
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i1899)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i1899)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i537) #14
   %282 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL25kTraceFieldTypeNumWaitingB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i537)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i545)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i537)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i545)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i545) #14
   %call.i1.i546 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL23kTraceFieldTypeHostNameB5cxx11E)
           to label %call.i.noexc.i550 unwind label %lpad.i547
@@ -4589,7 +4589,7 @@ call.i.noexc.i550:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i551 unwind label %lpad.i547
 
 .noexc.i551:                                      ; preds = %call.i.noexc.i550
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i1909)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i1909)
   %call.i.i1910 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL23kTraceFieldTypeHostNameB5cxx11E)
           to label %if.end.i1912 unwind label %terminate.lpad.i.i1911
 
@@ -4624,11 +4624,11 @@ lpad.i547:                                        ; preds = %call.i.noexc.i550, 
   br label %common.resume
 
 __cxx_global_var_init.137.exit:                   ; preds = %invoke.cont.i1915
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i1909)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i1909)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i545) #14
   %287 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL23kTraceFieldTypeHostNameB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i545)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i553)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i545)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i553)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i553) #14
   %call.i1.i554 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL21kTraceFieldTypeIpAddrB5cxx11E)
           to label %call.i.noexc.i558 unwind label %lpad.i555
@@ -4638,7 +4638,7 @@ call.i.noexc.i558:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i559 unwind label %lpad.i555
 
 .noexc.i559:                                      ; preds = %call.i.noexc.i558
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i1919)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i1919)
   %call.i.i1920 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL21kTraceFieldTypeIpAddrB5cxx11E)
           to label %if.end.i1922 unwind label %terminate.lpad.i.i1921
 
@@ -4673,11 +4673,11 @@ lpad.i555:                                        ; preds = %call.i.noexc.i558, 
   br label %common.resume
 
 __cxx_global_var_init.139.exit:                   ; preds = %invoke.cont.i1925
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i1919)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i1919)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i553) #14
   %292 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL21kTraceFieldTypeIpAddrB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i553)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i561)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i553)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i561)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i561) #14
   %call.i1.i562 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL19kTraceFieldTypePortB5cxx11E)
           to label %call.i.noexc.i566 unwind label %lpad.i563
@@ -4687,7 +4687,7 @@ call.i.noexc.i566:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i567 unwind label %lpad.i563
 
 .noexc.i567:                                      ; preds = %call.i.noexc.i566
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i1929)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i1929)
   %call.i.i1930 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL19kTraceFieldTypePortB5cxx11E)
           to label %if.end.i1932 unwind label %terminate.lpad.i.i1931
 
@@ -4722,11 +4722,11 @@ lpad.i563:                                        ; preds = %call.i.noexc.i566, 
   br label %common.resume
 
 __cxx_global_var_init.141.exit:                   ; preds = %invoke.cont.i1935
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i1929)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i1929)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i561) #14
   %297 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL19kTraceFieldTypePortB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i561)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i569)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i561)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i569)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i569) #14
   %call.i1.i570 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL29kTraceFieldTypeCNameRedirectsB5cxx11E)
           to label %call.i.noexc.i574 unwind label %lpad.i571
@@ -4736,7 +4736,7 @@ call.i.noexc.i574:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i575 unwind label %lpad.i571
 
 .noexc.i575:                                      ; preds = %call.i.noexc.i574
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i1939)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i1939)
   %call.i.i1940 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL29kTraceFieldTypeCNameRedirectsB5cxx11E)
           to label %if.end.i1942 unwind label %terminate.lpad.i.i1941
 
@@ -4771,11 +4771,11 @@ lpad.i571:                                        ; preds = %call.i.noexc.i574, 
   br label %common.resume
 
 __cxx_global_var_init.143.exit:                   ; preds = %invoke.cont.i1945
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i1939)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i1939)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i569) #14
   %302 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL29kTraceFieldTypeCNameRedirectsB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i569)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i577)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i569)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i577)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i577) #14
   %call.i1.i578 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL28kTraceFieldTypeCanonicalNameB5cxx11E)
           to label %call.i.noexc.i582 unwind label %lpad.i579
@@ -4785,7 +4785,7 @@ call.i.noexc.i582:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i583 unwind label %lpad.i579
 
 .noexc.i583:                                      ; preds = %call.i.noexc.i582
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i1949)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i1949)
   %call.i.i1950 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL28kTraceFieldTypeCanonicalNameB5cxx11E)
           to label %if.end.i1952 unwind label %terminate.lpad.i.i1951
 
@@ -4820,11 +4820,11 @@ lpad.i579:                                        ; preds = %call.i.noexc.i582, 
   br label %common.resume
 
 __cxx_global_var_init.145.exit:                   ; preds = %invoke.cont.i1955
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i1949)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i1949)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i577) #14
   %307 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL28kTraceFieldTypeCanonicalNameB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i577)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i585)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i577)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i585)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i585) #14
   %call.i1.i586 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL30kTraceFieldTypeNumberResolversB5cxx11E)
           to label %call.i.noexc.i590 unwind label %lpad.i587
@@ -4851,8 +4851,8 @@ lpad.i587:                                        ; preds = %call.i.noexc.i590, 
 __cxx_global_var_init.147.exit:                   ; preds = %.noexc.i591
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i585) #14
   %310 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL30kTraceFieldTypeNumberResolversB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i585)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i593)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i585)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i593)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i593) #14
   %call.i1.i594 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL34kTraceFieldTypeResolversSerializedB5cxx11E)
           to label %call.i.noexc.i598 unwind label %lpad.i595
@@ -4879,8 +4879,8 @@ lpad.i595:                                        ; preds = %call.i.noexc.i598, 
 __cxx_global_var_init.149.exit:                   ; preds = %.noexc.i599
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i593) #14
   %313 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL34kTraceFieldTypeResolversSerializedB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i593)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i601)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i593)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i601)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i601) #14
   %call.i1.i602 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL28kTraceFieldTypeRequestFamilyB5cxx11E)
           to label %call.i.noexc.i606 unwind label %lpad.i603
@@ -4890,7 +4890,7 @@ call.i.noexc.i606:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i607 unwind label %lpad.i603
 
 .noexc.i607:                                      ; preds = %call.i.noexc.i606
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i1959)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i1959)
   %call.i.i1960 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL28kTraceFieldTypeRequestFamilyB5cxx11E)
           to label %if.end.i1962 unwind label %terminate.lpad.i.i1961
 
@@ -4925,11 +4925,11 @@ lpad.i603:                                        ; preds = %call.i.noexc.i606, 
   br label %common.resume
 
 __cxx_global_var_init.151.exit:                   ; preds = %invoke.cont.i1965
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i1959)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i1959)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i601) #14
   %318 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL28kTraceFieldTypeRequestFamilyB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i601)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i609)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i601)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i609)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i609) #14
   %call.i1.i610 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL28kTraceFieldTypeNumberAnswersB5cxx11E)
           to label %call.i.noexc.i614 unwind label %lpad.i611
@@ -4939,7 +4939,7 @@ call.i.noexc.i614:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i615 unwind label %lpad.i611
 
 .noexc.i615:                                      ; preds = %call.i.noexc.i614
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i1969)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i1969)
   %call.i.i1970 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL28kTraceFieldTypeNumberAnswersB5cxx11E)
           to label %if.end.i1972 unwind label %terminate.lpad.i.i1971
 
@@ -4974,11 +4974,11 @@ lpad.i611:                                        ; preds = %call.i.noexc.i614, 
   br label %common.resume
 
 __cxx_global_var_init.153.exit:                   ; preds = %invoke.cont.i1975
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i1969)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i1969)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i609) #14
   %323 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL28kTraceFieldTypeNumberAnswersB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i609)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i617)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i609)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i617)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i617) #14
   %call.i1.i618 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL31kTraceFieldTypeNumberDNSRetriesB5cxx11E)
           to label %call.i.noexc.i622 unwind label %lpad.i619
@@ -4988,7 +4988,7 @@ call.i.noexc.i622:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i623 unwind label %lpad.i619
 
 .noexc.i623:                                      ; preds = %call.i.noexc.i622
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i1979)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i1979)
   %call.i.i1980 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL31kTraceFieldTypeNumberDNSRetriesB5cxx11E)
           to label %if.end.i1982 unwind label %terminate.lpad.i.i1981
 
@@ -5023,11 +5023,11 @@ lpad.i619:                                        ; preds = %call.i.noexc.i622, 
   br label %common.resume
 
 __cxx_global_var_init.155.exit:                   ; preds = %invoke.cont.i1985
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i1979)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i1979)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i617) #14
   %328 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL31kTraceFieldTypeNumberDNSRetriesB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i617)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i625)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i617)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i625)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i625) #14
   %call.i1.i626 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL30kTraceFieldTypeResolvedSuccessB5cxx11E)
           to label %call.i.noexc.i630 unwind label %lpad.i627
@@ -5054,8 +5054,8 @@ lpad.i627:                                        ; preds = %call.i.noexc.i630, 
 __cxx_global_var_init.157.exit:                   ; preds = %.noexc.i631
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i625) #14
   %331 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL30kTraceFieldTypeResolvedSuccessB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i625)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i633)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i625)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i633)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i633) #14
   %call.i1.i634 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL26kTraceFieldTypeDNSCacheHitB5cxx11E)
           to label %call.i.noexc.i638 unwind label %lpad.i635
@@ -5065,7 +5065,7 @@ call.i.noexc.i638:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i639 unwind label %lpad.i635
 
 .noexc.i639:                                      ; preds = %call.i.noexc.i638
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i1989)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i1989)
   %call.i.i1990 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL26kTraceFieldTypeDNSCacheHitB5cxx11E)
           to label %if.end.i1992 unwind label %terminate.lpad.i.i1991
 
@@ -5100,11 +5100,11 @@ lpad.i635:                                        ; preds = %call.i.noexc.i638, 
   br label %common.resume
 
 __cxx_global_var_init.159.exit:                   ; preds = %invoke.cont.i1995
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i1989)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i1989)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i633) #14
   %336 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL26kTraceFieldTypeDNSCacheHitB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i633)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i641)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i633)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i641)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i641) #14
   %call.i1.i642 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL28kTraceFieldTypeDNSCacheStaleB5cxx11E)
           to label %call.i.noexc.i646 unwind label %lpad.i643
@@ -5114,7 +5114,7 @@ call.i.noexc.i646:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i647 unwind label %lpad.i643
 
 .noexc.i647:                                      ; preds = %call.i.noexc.i646
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i1999)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i1999)
   %call.i.i2000 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL28kTraceFieldTypeDNSCacheStaleB5cxx11E)
           to label %if.end.i2002 unwind label %terminate.lpad.i.i2001
 
@@ -5149,11 +5149,11 @@ lpad.i643:                                        ; preds = %call.i.noexc.i646, 
   br label %common.resume
 
 __cxx_global_var_init.161.exit:                   ; preds = %invoke.cont.i2005
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i1999)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i1999)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i641) #14
   %341 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL28kTraceFieldTypeDNSCacheStaleB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i641)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i649)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i641)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i649)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i649) #14
   %call.i1.i650 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL34kTraceFieldTypeDNSPreconnectDomainB5cxx11E)
           to label %call.i.noexc.i654 unwind label %lpad.i651
@@ -5180,8 +5180,8 @@ lpad.i651:                                        ; preds = %call.i.noexc.i654, 
 __cxx_global_var_init.163.exit:                   ; preds = %.noexc.i655
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i649) #14
   %344 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL34kTraceFieldTypeDNSPreconnectDomainB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i649)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i657)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i649)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i657)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i657) #14
   %call.i1.i658 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL24kTraceFieldTypeTLSReusedB5cxx11E)
           to label %call.i.noexc.i662 unwind label %lpad.i659
@@ -5191,7 +5191,7 @@ call.i.noexc.i662:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i663 unwind label %lpad.i659
 
 .noexc.i663:                                      ; preds = %call.i.noexc.i662
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i2009)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i2009)
   %call.i.i2010 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL24kTraceFieldTypeTLSReusedB5cxx11E)
           to label %if.end.i2012 unwind label %terminate.lpad.i.i2011
 
@@ -5226,11 +5226,11 @@ lpad.i659:                                        ; preds = %call.i.noexc.i662, 
   br label %common.resume
 
 __cxx_global_var_init.165.exit:                   ; preds = %invoke.cont.i2015
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i2009)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i2009)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i657) #14
   %349 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL24kTraceFieldTypeTLSReusedB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i657)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i665)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i657)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i665)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i665) #14
   %call.i1.i666 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL26kTraceFieldTypeTLSCacheHitB5cxx11E)
           to label %call.i.noexc.i670 unwind label %lpad.i667
@@ -5240,7 +5240,7 @@ call.i.noexc.i670:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i671 unwind label %lpad.i667
 
 .noexc.i671:                                      ; preds = %call.i.noexc.i670
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i2019)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i2019)
   %call.i.i2020 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL26kTraceFieldTypeTLSCacheHitB5cxx11E)
           to label %if.end.i2022 unwind label %terminate.lpad.i.i2021
 
@@ -5275,11 +5275,11 @@ lpad.i667:                                        ; preds = %call.i.noexc.i670, 
   br label %common.resume
 
 __cxx_global_var_init.167.exit:                   ; preds = %invoke.cont.i2025
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i2019)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i2019)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i665) #14
   %354 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL26kTraceFieldTypeTLSCacheHitB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i665)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i673)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i665)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i673)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i673) #14
   %call.i1.i674 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL25kTraceFieldTypeCipherNameB5cxx11E)
           to label %call.i.noexc.i678 unwind label %lpad.i675
@@ -5289,7 +5289,7 @@ call.i.noexc.i678:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i679 unwind label %lpad.i675
 
 .noexc.i679:                                      ; preds = %call.i.noexc.i678
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i2029)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i2029)
   %call.i.i2030 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL25kTraceFieldTypeCipherNameB5cxx11E)
           to label %if.end.i2032 unwind label %terminate.lpad.i.i2031
 
@@ -5324,11 +5324,11 @@ lpad.i675:                                        ; preds = %call.i.noexc.i678, 
   br label %common.resume
 
 __cxx_global_var_init.169.exit:                   ; preds = %invoke.cont.i2035
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i2029)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i2029)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i673) #14
   %359 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL25kTraceFieldTypeCipherNameB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i673)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i681)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i673)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i681)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i681) #14
   %call.i1.i682 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL25kTraceFieldTypeTLSVersionB5cxx11E)
           to label %call.i.noexc.i686 unwind label %lpad.i683
@@ -5338,7 +5338,7 @@ call.i.noexc.i686:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i687 unwind label %lpad.i683
 
 .noexc.i687:                                      ; preds = %call.i.noexc.i686
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i2039)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i2039)
   %call.i.i2040 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL25kTraceFieldTypeTLSVersionB5cxx11E)
           to label %if.end.i2042 unwind label %terminate.lpad.i.i2041
 
@@ -5373,11 +5373,11 @@ lpad.i683:                                        ; preds = %call.i.noexc.i686, 
   br label %common.resume
 
 __cxx_global_var_init.171.exit:                   ; preds = %invoke.cont.i2045
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i2039)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i2039)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i681) #14
   %364 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL25kTraceFieldTypeTLSVersionB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i681)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i689)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i681)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i689)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i689) #14
   %call.i1.i690 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL29kTraceFieldTypeOpenSSLVersionB5cxx11E)
           to label %call.i.noexc.i694 unwind label %lpad.i691
@@ -5387,7 +5387,7 @@ call.i.noexc.i694:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i695 unwind label %lpad.i691
 
 .noexc.i695:                                      ; preds = %call.i.noexc.i694
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i2049)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i2049)
   %call.i.i2050 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL29kTraceFieldTypeOpenSSLVersionB5cxx11E)
           to label %if.end.i2052 unwind label %terminate.lpad.i.i2051
 
@@ -5422,11 +5422,11 @@ lpad.i691:                                        ; preds = %call.i.noexc.i694, 
   br label %common.resume
 
 __cxx_global_var_init.173.exit:                   ; preds = %invoke.cont.i2055
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i2049)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i2049)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i689) #14
   %369 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL29kTraceFieldTypeOpenSSLVersionB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i689)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i697)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i689)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i697)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i697) #14
   %call.i1.i698 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL34kTraceFieldTypeTLSCachePersistenceB5cxx11E)
           to label %call.i.noexc.i702 unwind label %lpad.i699
@@ -5453,8 +5453,8 @@ lpad.i699:                                        ; preds = %call.i.noexc.i702, 
 __cxx_global_var_init.175.exit:                   ; preds = %.noexc.i703
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i697) #14
   %372 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL34kTraceFieldTypeTLSCachePersistenceB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i697)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i705)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i697)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i705)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i705) #14
   %call.i1.i706 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL31kTraceFieldTypeTLSCachedInfoHitB5cxx11E)
           to label %call.i.noexc.i710 unwind label %lpad.i707
@@ -5481,8 +5481,8 @@ lpad.i707:                                        ; preds = %call.i.noexc.i710, 
 __cxx_global_var_init.177.exit:                   ; preds = %.noexc.i711
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i705) #14
   %375 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL31kTraceFieldTypeTLSCachedInfoHitB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i705)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i713)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i705)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i713)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i713) #14
   %call.i1.i714 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL26kTraceFieldTypeRspBodySizeB5cxx11E)
           to label %call.i.noexc.i718 unwind label %lpad.i715
@@ -5509,8 +5509,8 @@ lpad.i715:                                        ; preds = %call.i.noexc.i718, 
 __cxx_global_var_init.179.exit:                   ; preds = %.noexc.i719
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i713) #14
   %378 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL26kTraceFieldTypeRspBodySizeB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i713)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i721)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i713)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i721)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i721) #14
   %call.i1.i722 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL30kTraceFieldTypeRspBodyCompSizeB5cxx11E)
           to label %call.i.noexc.i726 unwind label %lpad.i723
@@ -5537,8 +5537,8 @@ lpad.i723:                                        ; preds = %call.i.noexc.i726, 
 __cxx_global_var_init.181.exit:                   ; preds = %.noexc.i727
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i721) #14
   %381 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL30kTraceFieldTypeRspBodyCompSizeB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i721)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i729)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i721)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i729)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i729) #14
   %call.i1.i730 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL30kTraceFieldTypeCompressionTypeB5cxx11E)
           to label %call.i.noexc.i734 unwind label %lpad.i731
@@ -5565,8 +5565,8 @@ lpad.i731:                                        ; preds = %call.i.noexc.i734, 
 __cxx_global_var_init.183.exit:                   ; preds = %.noexc.i735
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i729) #14
   %384 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL30kTraceFieldTypeCompressionTypeB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i729)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i737)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i729)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i737)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i737) #14
   %call.i1.i738 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL37kTraceFieldTypeCompressionDictSuccessB5cxx11E)
           to label %call.i.noexc.i742 unwind label %lpad.i739
@@ -5593,8 +5593,8 @@ lpad.i739:                                        ; preds = %call.i.noexc.i742, 
 __cxx_global_var_init.185.exit:                   ; preds = %.noexc.i743
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i737) #14
   %387 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL37kTraceFieldTypeCompressionDictSuccessB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i737)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i745)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i737)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i745)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i745) #14
   %call.i1.i746 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL35kTraceFieldTypeCompressionDictErrorB5cxx11E)
           to label %call.i.noexc.i750 unwind label %lpad.i747
@@ -5621,8 +5621,8 @@ lpad.i747:                                        ; preds = %call.i.noexc.i750, 
 __cxx_global_var_init.187.exit:                   ; preds = %.noexc.i751
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i745) #14
   %390 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL35kTraceFieldTypeCompressionDictErrorB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i745)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i753)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i745)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i753)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i753) #14
   %call.i1.i754 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL32kTraceFieldTypeCompressionDictIDB5cxx11E)
           to label %call.i.noexc.i758 unwind label %lpad.i755
@@ -5649,8 +5649,8 @@ lpad.i755:                                        ; preds = %call.i.noexc.i758, 
 __cxx_global_var_init.189.exit:                   ; preds = %.noexc.i759
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i753) #14
   %393 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL32kTraceFieldTypeCompressionDictIDB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i753)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i761)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i753)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i761)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i761) #14
   %call.i1.i762 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL30kTraceFieldTypeVerifiedSuccessB5cxx11E)
           to label %call.i.noexc.i766 unwind label %lpad.i763
@@ -5677,8 +5677,8 @@ lpad.i763:                                        ; preds = %call.i.noexc.i766, 
 __cxx_global_var_init.191.exit:                   ; preds = %.noexc.i767
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i761) #14
   %396 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL30kTraceFieldTypeVerifiedSuccessB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i761)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i769)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i761)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i769)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i769) #14
   %call.i1.i770 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL28kTraceFieldTypeVerifiedChainB5cxx11E)
           to label %call.i.noexc.i774 unwind label %lpad.i771
@@ -5688,7 +5688,7 @@ call.i.noexc.i774:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i775 unwind label %lpad.i771
 
 .noexc.i775:                                      ; preds = %call.i.noexc.i774
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i2059)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i2059)
   %call.i.i2060 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL28kTraceFieldTypeVerifiedChainB5cxx11E)
           to label %if.end.i2062 unwind label %terminate.lpad.i.i2061
 
@@ -5723,11 +5723,11 @@ lpad.i771:                                        ; preds = %call.i.noexc.i774, 
   br label %common.resume
 
 __cxx_global_var_init.193.exit:                   ; preds = %invoke.cont.i2065
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i2059)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i2059)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i769) #14
   %401 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL28kTraceFieldTypeVerifiedChainB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i769)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i777)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i769)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i777)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i777) #14
   %call.i1.i778 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL27kTraceFieldTypeVerifiedTimeB5cxx11E)
           to label %call.i.noexc.i782 unwind label %lpad.i779
@@ -5737,7 +5737,7 @@ call.i.noexc.i782:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i783 unwind label %lpad.i779
 
 .noexc.i783:                                      ; preds = %call.i.noexc.i782
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i2069)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i2069)
   %call.i.i2070 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL27kTraceFieldTypeVerifiedTimeB5cxx11E)
           to label %if.end.i2072 unwind label %terminate.lpad.i.i2071
 
@@ -5772,11 +5772,11 @@ lpad.i779:                                        ; preds = %call.i.noexc.i782, 
   br label %common.resume
 
 __cxx_global_var_init.195.exit:                   ; preds = %invoke.cont.i2075
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i2069)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i2069)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i777) #14
   %406 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL27kTraceFieldTypeVerifiedTimeB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i777)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i785)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i777)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i785)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i785) #14
   %call.i1.i786 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL36kTraceFieldTypeVerifiedServerAddressB5cxx11E)
           to label %call.i.noexc.i790 unwind label %lpad.i787
@@ -5803,8 +5803,8 @@ lpad.i787:                                        ; preds = %call.i.noexc.i790, 
 __cxx_global_var_init.197.exit:                   ; preds = %.noexc.i791
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i785) #14
   %409 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL36kTraceFieldTypeVerifiedServerAddressB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i785)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i793)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i785)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i793)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i793) #14
   %call.i1.i794 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL35kTraceFieldTypeVerifiedProxyAddressB5cxx11E)
           to label %call.i.noexc.i798 unwind label %lpad.i795
@@ -5831,8 +5831,8 @@ lpad.i795:                                        ; preds = %call.i.noexc.i798, 
 __cxx_global_var_init.199.exit:                   ; preds = %.noexc.i799
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i793) #14
   %412 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL35kTraceFieldTypeVerifiedProxyAddressB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i793)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i801)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i793)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i801)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i801) #14
   %call.i1.i802 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL28kTraceFieldTypeVerifiedErrorB5cxx11E)
           to label %call.i.noexc.i806 unwind label %lpad.i803
@@ -5842,7 +5842,7 @@ call.i.noexc.i806:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i807 unwind label %lpad.i803
 
 .noexc.i807:                                      ; preds = %call.i.noexc.i806
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i2079)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i2079)
   %call.i.i2080 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL28kTraceFieldTypeVerifiedErrorB5cxx11E)
           to label %if.end.i2082 unwind label %terminate.lpad.i.i2081
 
@@ -5877,11 +5877,11 @@ lpad.i803:                                        ; preds = %call.i.noexc.i806, 
   br label %common.resume
 
 __cxx_global_var_init.201.exit:                   ; preds = %invoke.cont.i2085
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i2079)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i2079)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i801) #14
   %417 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL28kTraceFieldTypeVerifiedErrorB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i801)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i809)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i801)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i809)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i809) #14
   %call.i1.i810 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL29kTraceFieldTypeVerifiedReasonB5cxx11E)
           to label %call.i.noexc.i814 unwind label %lpad.i811
@@ -5891,7 +5891,7 @@ call.i.noexc.i814:                                ; preds = %__cxx_global_var_in
           to label %.noexc.i815 unwind label %lpad.i811
 
 .noexc.i815:                                      ; preds = %call.i.noexc.i814
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i2089)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i2089)
   %call.i.i2090 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL29kTraceFieldTypeVerifiedReasonB5cxx11E)
           to label %if.end.i2092 unwind label %terminate.lpad.i.i2091
 
@@ -5926,11 +5926,11 @@ lpad.i811:                                        ; preds = %call.i.noexc.i814, 
   br label %common.resume
 
 __cxx_global_var_init.203.exit:                   ; preds = %invoke.cont.i2095
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i2089)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i2089)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i809) #14
   %422 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL29kTraceFieldTypeVerifiedReasonB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i809)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i817)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i809)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i817)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i817) #14
   %call.i1.i818 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL31kTraceFieldTypeVerifiedHostnameB5cxx11E)
           to label %call.i.noexc.i822 unwind label %lpad.i819
@@ -5957,8 +5957,8 @@ lpad.i819:                                        ; preds = %call.i.noexc.i822, 
 __cxx_global_var_init.205.exit:                   ; preds = %.noexc.i823
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i817) #14
   %425 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL31kTraceFieldTypeVerifiedHostnameB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i817)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i825)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i817)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i825)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i825) #14
   %call.i1.i826 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL40kTraceFieldTypeVerifiedMatchedCommonNameB5cxx11E)
           to label %call.i.noexc.i830 unwind label %lpad.i827
@@ -5985,8 +5985,8 @@ lpad.i827:                                        ; preds = %call.i.noexc.i830, 
 __cxx_global_var_init.207.exit:                   ; preds = %.noexc.i831
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i825) #14
   %428 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL40kTraceFieldTypeVerifiedMatchedCommonNameB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i825)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i833)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i825)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i833)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i833) #14
   %call.i1.i834 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL44kTraceFieldTypeVerifiedMatchedSubjectAltNameB5cxx11E)
           to label %call.i.noexc.i838 unwind label %lpad.i835
@@ -6013,8 +6013,8 @@ lpad.i835:                                        ; preds = %call.i.noexc.i838, 
 __cxx_global_var_init.209.exit:                   ; preds = %.noexc.i839
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i833) #14
   %431 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL44kTraceFieldTypeVerifiedMatchedSubjectAltNameB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i833)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i841)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i833)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i841)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i841) #14
   %call.i1.i842 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL34kTraceFieldTypeVerifiedNameMatchedB5cxx11E)
           to label %call.i.noexc.i846 unwind label %lpad.i843
@@ -6041,8 +6041,8 @@ lpad.i843:                                        ; preds = %call.i.noexc.i846, 
 __cxx_global_var_init.211.exit:                   ; preds = %.noexc.i847
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i841) #14
   %434 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL34kTraceFieldTypeVerifiedNameMatchedB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i841)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i849)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i841)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i849)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i849) #14
   %call.i1.i850 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL42kTraceFieldTypeVerifiedHostnameFailMessageB5cxx11E)
           to label %call.i.noexc.i854 unwind label %lpad.i851
@@ -6069,8 +6069,8 @@ lpad.i851:                                        ; preds = %call.i.noexc.i854, 
 __cxx_global_var_init.213.exit:                   ; preds = %.noexc.i855
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i849) #14
   %437 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL42kTraceFieldTypeVerifiedHostnameFailMessageB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i849)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i857)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i849)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i857)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i857) #14
   %call.i1.i858 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL41kTraceFieldTypeSignatureAlgorithmCertSHA1B5cxx11E)
           to label %call.i.noexc.i862 unwind label %lpad.i859
@@ -6097,8 +6097,8 @@ lpad.i859:                                        ; preds = %call.i.noexc.i862, 
 __cxx_global_var_init.215.exit:                   ; preds = %.noexc.i863
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i857) #14
   %440 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL41kTraceFieldTypeSignatureAlgorithmCertSHA1B5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i857)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i865)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i857)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i865)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i865) #14
   %call.i1.i866 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL46kTraceFieldTypeFailureVerifiedCertDepthInChainB5cxx11E)
           to label %call.i.noexc.i870 unwind label %lpad.i867
@@ -6125,8 +6125,8 @@ lpad.i867:                                        ; preds = %call.i.noexc.i870, 
 __cxx_global_var_init.217.exit:                   ; preds = %.noexc.i871
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i865) #14
   %443 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL46kTraceFieldTypeFailureVerifiedCertDepthInChainB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i865)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i873)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i865)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i873)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i873) #14
   %call.i1.i874 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL46kTraceFieldTypeVerifiedChainFailuresOverriddenB5cxx11E)
           to label %call.i.noexc.i878 unwind label %lpad.i875
@@ -6153,8 +6153,8 @@ lpad.i875:                                        ; preds = %call.i.noexc.i878, 
 __cxx_global_var_init.219.exit:                   ; preds = %.noexc.i879
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i873) #14
   %446 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL46kTraceFieldTypeVerifiedChainFailuresOverriddenB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i873)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i881)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i873)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i881)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i881) #14
   %call.i1.i882 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL51kTraceFieldTypeVerifiedChainFailureVerificationTimeB5cxx11E)
           to label %call.i.noexc.i886 unwind label %lpad.i883
@@ -6181,8 +6181,8 @@ lpad.i883:                                        ; preds = %call.i.noexc.i886, 
 __cxx_global_var_init.221.exit:                   ; preds = %.noexc.i887
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i881) #14
   %449 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL51kTraceFieldTypeVerifiedChainFailureVerificationTimeB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i881)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i889)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i881)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i889)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i889) #14
   %call.i1.i890 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL28kTraceFieldTypePinningReasonB5cxx11E)
           to label %call.i.noexc.i894 unwind label %lpad.i891
@@ -6209,8 +6209,8 @@ lpad.i891:                                        ; preds = %call.i.noexc.i894, 
 __cxx_global_var_init.223.exit:                   ; preds = %.noexc.i895
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i889) #14
   %452 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL28kTraceFieldTypePinningReasonB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i889)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i897)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i889)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i897)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i897) #14
   %call.i1.i898 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL34kTraceFieldTypePinningRequiredHashB5cxx11E)
           to label %call.i.noexc.i902 unwind label %lpad.i899
@@ -6237,8 +6237,8 @@ lpad.i899:                                        ; preds = %call.i.noexc.i902, 
 __cxx_global_var_init.225.exit:                   ; preds = %.noexc.i903
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i897) #14
   %455 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL34kTraceFieldTypePinningRequiredHashB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i897)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i905)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i897)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i905)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i905) #14
   %call.i1.i906 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL30kTraceFieldTypePinningUserHashB5cxx11E)
           to label %call.i.noexc.i910 unwind label %lpad.i907
@@ -6265,8 +6265,8 @@ lpad.i907:                                        ; preds = %call.i.noexc.i910, 
 __cxx_global_var_init.227.exit:                   ; preds = %.noexc.i911
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i905) #14
   %458 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL30kTraceFieldTypePinningUserHashB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i905)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i913)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i905)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i913)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i913) #14
   %call.i1.i914 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL34kTraceFieldTypePinningExcludedHashB5cxx11E)
           to label %call.i.noexc.i918 unwind label %lpad.i915
@@ -6293,8 +6293,8 @@ lpad.i915:                                        ; preds = %call.i.noexc.i918, 
 __cxx_global_var_init.229.exit:                   ; preds = %.noexc.i919
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i913) #14
   %461 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL34kTraceFieldTypePinningExcludedHashB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i913)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i921)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i913)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i921)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i921) #14
   %call.i1.i922 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL35kTraceFieldTypePinningRequiredFoundB5cxx11E)
           to label %call.i.noexc.i926 unwind label %lpad.i923
@@ -6321,8 +6321,8 @@ lpad.i923:                                        ; preds = %call.i.noexc.i926, 
 __cxx_global_var_init.231.exit:                   ; preds = %.noexc.i927
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i921) #14
   %464 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL35kTraceFieldTypePinningRequiredFoundB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i921)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i929)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i921)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i929)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i929) #14
   %call.i1.i930 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL40kTraceFieldTypePinningUserInstalledFoundB5cxx11E)
           to label %call.i.noexc.i934 unwind label %lpad.i931
@@ -6349,8 +6349,8 @@ lpad.i931:                                        ; preds = %call.i.noexc.i934, 
 __cxx_global_var_init.233.exit:                   ; preds = %.noexc.i935
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i929) #14
   %467 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL40kTraceFieldTypePinningUserInstalledFoundB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i929)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i937)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i929)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i937)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i937) #14
   %call.i1.i938 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL40kTraceFieldTypePinningUserInstalledCountB5cxx11E)
           to label %call.i.noexc.i942 unwind label %lpad.i939
@@ -6377,8 +6377,8 @@ lpad.i939:                                        ; preds = %call.i.noexc.i942, 
 __cxx_global_var_init.235.exit:                   ; preds = %.noexc.i943
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i937) #14
   %470 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL40kTraceFieldTypePinningUserInstalledCountB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i937)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i945)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i937)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i945)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i945) #14
   %call.i1.i946 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL35kTraceFieldTypePinningExcludedFoundB5cxx11E)
           to label %call.i.noexc.i950 unwind label %lpad.i947
@@ -6405,8 +6405,8 @@ lpad.i947:                                        ; preds = %call.i.noexc.i950, 
 __cxx_global_var_init.237.exit:                   ; preds = %.noexc.i951
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i945) #14
   %473 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL35kTraceFieldTypePinningExcludedFoundB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i945)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i953)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i945)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i953)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i953) #14
   %call.i1.i954 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL29kTraceFieldTypePinningTimePinB5cxx11E)
           to label %call.i.noexc.i958 unwind label %lpad.i955
@@ -6433,8 +6433,8 @@ lpad.i955:                                        ; preds = %call.i.noexc.i958, 
 __cxx_global_var_init.239.exit:                   ; preds = %.noexc.i959
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i953) #14
   %476 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL29kTraceFieldTypePinningTimePinB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i953)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i961)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i953)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i961)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i961) #14
   %call.i1.i962 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL26kTraceFieldTypePinningHostB5cxx11E)
           to label %call.i.noexc.i966 unwind label %lpad.i963
@@ -6461,8 +6461,8 @@ lpad.i963:                                        ; preds = %call.i.noexc.i966, 
 __cxx_global_var_init.241.exit:                   ; preds = %.noexc.i967
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i961) #14
   %479 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL26kTraceFieldTypePinningHostB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i961)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i969)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i961)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i969)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i969) #14
   %call.i1.i970 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL29kTraceFieldTypePinningSuccessB5cxx11E)
           to label %call.i.noexc.i974 unwind label %lpad.i971
@@ -6489,8 +6489,8 @@ lpad.i971:                                        ; preds = %call.i.noexc.i974, 
 __cxx_global_var_init.243.exit:                   ; preds = %.noexc.i975
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i969) #14
   %482 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL29kTraceFieldTypePinningSuccessB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i969)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i977)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i969)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i977)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i977) #14
   %call.i1.i978 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL32kTraceFieldTypeVerifiedTimeMergeB5cxx11E)
           to label %call.i.noexc.i982 unwind label %lpad.i979
@@ -6517,8 +6517,8 @@ lpad.i979:                                        ; preds = %call.i.noexc.i982, 
 __cxx_global_var_init.245.exit:                   ; preds = %.noexc.i983
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i977) #14
   %485 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL32kTraceFieldTypeVerifiedTimeMergeB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i977)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i985)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i977)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i985)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i985) #14
   %call.i1.i986 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL27kTraceFieldTypeRevokeReasonB5cxx11E)
           to label %call.i.noexc.i990 unwind label %lpad.i987
@@ -6545,8 +6545,8 @@ lpad.i987:                                        ; preds = %call.i.noexc.i990, 
 __cxx_global_var_init.247.exit:                   ; preds = %.noexc.i991
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i985) #14
   %488 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL27kTraceFieldTypeRevokeReasonB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i985)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i993)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i985)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i993)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i993) #14
   %call.i1.i994 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL28kTraceFieldTypeRevokeSuccessB5cxx11E)
           to label %call.i.noexc.i998 unwind label %lpad.i995
@@ -6573,8 +6573,8 @@ lpad.i995:                                        ; preds = %call.i.noexc.i998, 
 __cxx_global_var_init.249.exit:                   ; preds = %.noexc.i999
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i993) #14
   %491 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL28kTraceFieldTypeRevokeSuccessB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i993)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i1001)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i993)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1001)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1001) #14
   %call.i1.i1002 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL24kTraceFieldTypeProxyHostB5cxx11E)
           to label %call.i.noexc.i1006 unwind label %lpad.i1003
@@ -6584,7 +6584,7 @@ call.i.noexc.i1006:                               ; preds = %__cxx_global_var_in
           to label %.noexc.i1007 unwind label %lpad.i1003
 
 .noexc.i1007:                                     ; preds = %call.i.noexc.i1006
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i2099)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i2099)
   %call.i.i2100 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL24kTraceFieldTypeProxyHostB5cxx11E)
           to label %if.end.i2102 unwind label %terminate.lpad.i.i2101
 
@@ -6619,11 +6619,11 @@ lpad.i1003:                                       ; preds = %call.i.noexc.i1006,
   br label %common.resume
 
 __cxx_global_var_init.251.exit:                   ; preds = %invoke.cont.i2105
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i2099)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i2099)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1001) #14
   %496 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL24kTraceFieldTypeProxyHostB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i1001)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i1009)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1001)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1009)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1009) #14
   %call.i1.i1010 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL24kTraceFieldTypeProxyPortB5cxx11E)
           to label %call.i.noexc.i1014 unwind label %lpad.i1011
@@ -6633,7 +6633,7 @@ call.i.noexc.i1014:                               ; preds = %__cxx_global_var_in
           to label %.noexc.i1015 unwind label %lpad.i1011
 
 .noexc.i1015:                                     ; preds = %call.i.noexc.i1014
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i2109)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i2109)
   %call.i.i2110 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL24kTraceFieldTypeProxyPortB5cxx11E)
           to label %if.end.i2112 unwind label %terminate.lpad.i.i2111
 
@@ -6668,11 +6668,11 @@ lpad.i1011:                                       ; preds = %call.i.noexc.i1014,
   br label %common.resume
 
 __cxx_global_var_init.253.exit:                   ; preds = %invoke.cont.i2115
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i2109)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i2109)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1009) #14
   %501 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL24kTraceFieldTypeProxyPortB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i1009)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i1017)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1009)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1017)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1017) #14
   %call.i1.i1018 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL30kTraceFieldTypeProxyRespStatusB5cxx11E)
           to label %call.i.noexc.i1022 unwind label %lpad.i1019
@@ -6699,8 +6699,8 @@ lpad.i1019:                                       ; preds = %call.i.noexc.i1022,
 __cxx_global_var_init.255.exit:                   ; preds = %.noexc.i1023
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1017) #14
   %504 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL30kTraceFieldTypeProxyRespStatusB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i1017)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i1025)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1017)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1025)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1025) #14
   %call.i1.i1026 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL28kTraceFieldTypeProxyRespBodyB5cxx11E)
           to label %call.i.noexc.i1030 unwind label %lpad.i1027
@@ -6727,8 +6727,8 @@ lpad.i1027:                                       ; preds = %call.i.noexc.i1030,
 __cxx_global_var_init.257.exit:                   ; preds = %.noexc.i1031
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1025) #14
   %507 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL28kTraceFieldTypeProxyRespBodyB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i1025)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i1033)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1025)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1033)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1033) #14
   %call.i1.i1034 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL32kTraceFieldTypeProxyUpstreamDestB5cxx11E)
           to label %call.i.noexc.i1038 unwind label %lpad.i1035
@@ -6755,8 +6755,8 @@ lpad.i1035:                                       ; preds = %call.i.noexc.i1038,
 __cxx_global_var_init.259.exit:                   ; preds = %.noexc.i1039
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1033) #14
   %510 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL32kTraceFieldTypeProxyUpstreamDestB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i1033)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i1041)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1033)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1041)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1041) #14
   %call.i1.i1042 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL28kTraceFieldTypeSchedulerTypeB5cxx11E)
           to label %call.i.noexc.i1046 unwind label %lpad.i1043
@@ -6766,7 +6766,7 @@ call.i.noexc.i1046:                               ; preds = %__cxx_global_var_in
           to label %.noexc.i1047 unwind label %lpad.i1043
 
 .noexc.i1047:                                     ; preds = %call.i.noexc.i1046
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i2119)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i2119)
   %call.i.i2120 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL28kTraceFieldTypeSchedulerTypeB5cxx11E)
           to label %if.end.i2122 unwind label %terminate.lpad.i.i2121
 
@@ -6801,11 +6801,11 @@ lpad.i1043:                                       ; preds = %call.i.noexc.i1046,
   br label %common.resume
 
 __cxx_global_var_init.261.exit:                   ; preds = %invoke.cont.i2125
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i2119)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i2119)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1041) #14
   %515 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL28kTraceFieldTypeSchedulerTypeB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i1041)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i1049)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1041)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1049)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1049) #14
   %call.i1.i1050 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL30kTraceFieldTypeInitialPriorityB5cxx11E)
           to label %call.i.noexc.i1054 unwind label %lpad.i1051
@@ -6832,8 +6832,8 @@ lpad.i1051:                                       ; preds = %call.i.noexc.i1054,
 __cxx_global_var_init.263.exit:                   ; preds = %.noexc.i1055
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1049) #14
   %518 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL30kTraceFieldTypeInitialPriorityB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i1049)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i1057)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1049)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1057)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1057) #14
   %call.i1.i1058 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL26kTraceFieldTypeSizeOfQueueB5cxx11E)
           to label %call.i.noexc.i1062 unwind label %lpad.i1059
@@ -6843,7 +6843,7 @@ call.i.noexc.i1062:                               ; preds = %__cxx_global_var_in
           to label %.noexc.i1063 unwind label %lpad.i1059
 
 .noexc.i1063:                                     ; preds = %call.i.noexc.i1062
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i2129)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i2129)
   %call.i.i2130 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL26kTraceFieldTypeSizeOfQueueB5cxx11E)
           to label %if.end.i2132 unwind label %terminate.lpad.i.i2131
 
@@ -6878,11 +6878,11 @@ lpad.i1059:                                       ; preds = %call.i.noexc.i1062,
   br label %common.resume
 
 __cxx_global_var_init.265.exit:                   ; preds = %invoke.cont.i2135
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i2129)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i2129)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1057) #14
   %523 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL26kTraceFieldTypeSizeOfQueueB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i1057)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i1065)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1057)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1065)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1065) #14
   %call.i1.i1066 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL28kTraceFieldTypePreviousStateB5cxx11E)
           to label %call.i.noexc.i1070 unwind label %lpad.i1067
@@ -6892,7 +6892,7 @@ call.i.noexc.i1070:                               ; preds = %__cxx_global_var_in
           to label %.noexc.i1071 unwind label %lpad.i1067
 
 .noexc.i1071:                                     ; preds = %call.i.noexc.i1070
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i2139)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i2139)
   %call.i.i2140 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL28kTraceFieldTypePreviousStateB5cxx11E)
           to label %if.end.i2142 unwind label %terminate.lpad.i.i2141
 
@@ -6927,11 +6927,11 @@ lpad.i1067:                                       ; preds = %call.i.noexc.i1070,
   br label %common.resume
 
 __cxx_global_var_init.267.exit:                   ; preds = %invoke.cont.i2145
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i2139)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i2139)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1065) #14
   %528 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL28kTraceFieldTypePreviousStateB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i1065)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i1073)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1065)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1073)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1073) #14
   %call.i1.i1074 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL27kTraceFieldTypeCurrentStateB5cxx11E)
           to label %call.i.noexc.i1078 unwind label %lpad.i1075
@@ -6941,7 +6941,7 @@ call.i.noexc.i1078:                               ; preds = %__cxx_global_var_in
           to label %.noexc.i1079 unwind label %lpad.i1075
 
 .noexc.i1079:                                     ; preds = %call.i.noexc.i1078
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i2149)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i2149)
   %call.i.i2150 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL27kTraceFieldTypeCurrentStateB5cxx11E)
           to label %if.end.i2152 unwind label %terminate.lpad.i.i2151
 
@@ -6976,11 +6976,11 @@ lpad.i1075:                                       ; preds = %call.i.noexc.i1078,
   br label %common.resume
 
 __cxx_global_var_init.269.exit:                   ; preds = %invoke.cont.i2155
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i2149)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i2149)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1073) #14
   %533 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL27kTraceFieldTypeCurrentStateB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i1073)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i1081)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1073)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1081)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1081) #14
   %call.i1.i1082 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL24kTraceFieldTypeNetworkIDB5cxx11E)
           to label %call.i.noexc.i1086 unwind label %lpad.i1083
@@ -6990,7 +6990,7 @@ call.i.noexc.i1086:                               ; preds = %__cxx_global_var_in
           to label %.noexc.i1087 unwind label %lpad.i1083
 
 .noexc.i1087:                                     ; preds = %call.i.noexc.i1086
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i2159)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i2159)
   %call.i.i2160 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL24kTraceFieldTypeNetworkIDB5cxx11E)
           to label %if.end.i2162 unwind label %terminate.lpad.i.i2161
 
@@ -7025,11 +7025,11 @@ lpad.i1083:                                       ; preds = %call.i.noexc.i1086,
   br label %common.resume
 
 __cxx_global_var_init.271.exit:                   ; preds = %invoke.cont.i2165
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i2159)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i2159)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1081) #14
   %538 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL24kTraceFieldTypeNetworkIDB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i1081)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i1089)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1081)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1089)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1089) #14
   %call.i1.i1090 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL30kTraceFieldTypeNumConnAttemptsB5cxx11E)
           to label %call.i.noexc.i1094 unwind label %lpad.i1091
@@ -7056,8 +7056,8 @@ lpad.i1091:                                       ; preds = %call.i.noexc.i1094,
 __cxx_global_var_init.273.exit:                   ; preds = %.noexc.i1095
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1089) #14
   %541 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL30kTraceFieldTypeNumConnAttemptsB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i1089)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i1097)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1089)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1097)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1097) #14
   %call.i1.i1098 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL27kTraceFieldTypeAttemptAddrsB5cxx11E)
           to label %call.i.noexc.i1102 unwind label %lpad.i1099
@@ -7084,8 +7084,8 @@ lpad.i1099:                                       ; preds = %call.i.noexc.i1102,
 __cxx_global_var_init.275.exit:                   ; preds = %.noexc.i1103
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1097) #14
   %544 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL27kTraceFieldTypeAttemptAddrsB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i1097)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i1105)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1097)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1105)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1105) #14
   %call.i1.i1106 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL32kTraceFieldTypeAttemptAddrFamilyB5cxx11E)
           to label %call.i.noexc.i1110 unwind label %lpad.i1107
@@ -7112,8 +7112,8 @@ lpad.i1107:                                       ; preds = %call.i.noexc.i1110,
 __cxx_global_var_init.277.exit:                   ; preds = %.noexc.i1111
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1105) #14
   %547 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL32kTraceFieldTypeAttemptAddrFamilyB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i1105)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i1113)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1105)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1113)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1113) #14
   %call.i1.i1114 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL32kTraceFieldTypeSucceededConnTimeB5cxx11E)
           to label %call.i.noexc.i1118 unwind label %lpad.i1115
@@ -7140,8 +7140,8 @@ lpad.i1115:                                       ; preds = %call.i.noexc.i1118,
 __cxx_global_var_init.279.exit:                   ; preds = %.noexc.i1119
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1113) #14
   %550 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL32kTraceFieldTypeSucceededConnTimeB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i1113)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i1121)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1113)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1121)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1121) #14
   %call.i1.i1122 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL24kTraceFieldTypeRequestIDB5cxx11E)
           to label %call.i.noexc.i1126 unwind label %lpad.i1123
@@ -7151,7 +7151,7 @@ call.i.noexc.i1126:                               ; preds = %__cxx_global_var_in
           to label %.noexc.i1127 unwind label %lpad.i1123
 
 .noexc.i1127:                                     ; preds = %call.i.noexc.i1126
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i2169)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i2169)
   %call.i.i2170 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL24kTraceFieldTypeRequestIDB5cxx11E)
           to label %if.end.i2172 unwind label %terminate.lpad.i.i2171
 
@@ -7186,11 +7186,11 @@ lpad.i1123:                                       ; preds = %call.i.noexc.i1126,
   br label %common.resume
 
 __cxx_global_var_init.281.exit:                   ; preds = %invoke.cont.i2175
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i2169)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i2169)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1121) #14
   %555 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL24kTraceFieldTypeRequestIDB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i1121)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i1129)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1121)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1129)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1129) #14
   %call.i1.i1130 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL32kTraceFieldTypeHumanReadableNameB5cxx11E)
           to label %call.i.noexc.i1134 unwind label %lpad.i1131
@@ -7217,8 +7217,8 @@ lpad.i1131:                                       ; preds = %call.i.noexc.i1134,
 __cxx_global_var_init.283.exit:                   ; preds = %.noexc.i1135
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1129) #14
   %558 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL32kTraceFieldTypeHumanReadableNameB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i1129)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i1137)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1129)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1137)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1137) #14
   %call.i1.i1138 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL34kTraceFieldTypeCurrentTransactionsB5cxx11E)
           to label %call.i.noexc.i1142 unwind label %lpad.i1139
@@ -7228,7 +7228,7 @@ call.i.noexc.i1142:                               ; preds = %__cxx_global_var_in
           to label %.noexc.i1143 unwind label %lpad.i1139
 
 .noexc.i1143:                                     ; preds = %call.i.noexc.i1142
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i2179)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i2179)
   %call.i.i2180 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL34kTraceFieldTypeCurrentTransactionsB5cxx11E)
           to label %if.end.i2182 unwind label %terminate.lpad.i.i2181
 
@@ -7263,11 +7263,11 @@ lpad.i1139:                                       ; preds = %call.i.noexc.i1142,
   br label %common.resume
 
 __cxx_global_var_init.285.exit:                   ; preds = %invoke.cont.i2185
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i2179)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i2179)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1137) #14
   %563 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL34kTraceFieldTypeCurrentTransactionsB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i1137)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i1145)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1137)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1145)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1145) #14
   %call.i1.i1146 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL44kTraceFieldTypeHistoricalMaximumTransactionsB5cxx11E)
           to label %call.i.noexc.i1150 unwind label %lpad.i1147
@@ -7294,8 +7294,8 @@ lpad.i1147:                                       ; preds = %call.i.noexc.i1150,
 __cxx_global_var_init.287.exit:                   ; preds = %.noexc.i1151
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1145) #14
   %566 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL44kTraceFieldTypeHistoricalMaximumTransactionsB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i1145)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i1153)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1145)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1153)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1153) #14
   %call.i1.i1154 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL39kTraceFieldTypeNumberTransactionsServedB5cxx11E)
           to label %call.i.noexc.i1158 unwind label %lpad.i1155
@@ -7322,8 +7322,8 @@ lpad.i1155:                                       ; preds = %call.i.noexc.i1158,
 __cxx_global_var_init.289.exit:                   ; preds = %.noexc.i1159
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1153) #14
   %569 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL39kTraceFieldTypeNumberTransactionsServedB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i1153)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i1161)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1153)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1161)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1161) #14
   %call.i1.i1162 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL19kTraceFieldTypeCwndB5cxx11E)
           to label %call.i.noexc.i1166 unwind label %lpad.i1163
@@ -7333,7 +7333,7 @@ call.i.noexc.i1166:                               ; preds = %__cxx_global_var_in
           to label %.noexc.i1167 unwind label %lpad.i1163
 
 .noexc.i1167:                                     ; preds = %call.i.noexc.i1166
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i2189)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i2189)
   %call.i.i2190 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL19kTraceFieldTypeCwndB5cxx11E)
           to label %if.end.i2192 unwind label %terminate.lpad.i.i2191
 
@@ -7368,11 +7368,11 @@ lpad.i1163:                                       ; preds = %call.i.noexc.i1166,
   br label %common.resume
 
 __cxx_global_var_init.291.exit:                   ; preds = %invoke.cont.i2195
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i2189)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i2189)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1161) #14
   %574 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL19kTraceFieldTypeCwndB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i1161)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i1169)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1161)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1169)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1169) #14
   %call.i1.i1170 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL24kTraceFieldTypeCwndBytesB5cxx11E)
           to label %call.i.noexc.i1174 unwind label %lpad.i1171
@@ -7382,7 +7382,7 @@ call.i.noexc.i1174:                               ; preds = %__cxx_global_var_in
           to label %.noexc.i1175 unwind label %lpad.i1171
 
 .noexc.i1175:                                     ; preds = %call.i.noexc.i1174
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i2199)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i2199)
   %call.i.i2200 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL24kTraceFieldTypeCwndBytesB5cxx11E)
           to label %if.end.i2202 unwind label %terminate.lpad.i.i2201
 
@@ -7417,11 +7417,11 @@ lpad.i1171:                                       ; preds = %call.i.noexc.i1174,
   br label %common.resume
 
 __cxx_global_var_init.293.exit:                   ; preds = %invoke.cont.i2205
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i2199)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i2199)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1169) #14
   %579 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL24kTraceFieldTypeCwndBytesB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i1169)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i1177)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1169)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1177)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1177) #14
   %call.i1.i1178 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL24kTraceFieldTypeTotalRetxB5cxx11E)
           to label %call.i.noexc.i1182 unwind label %lpad.i1179
@@ -7431,7 +7431,7 @@ call.i.noexc.i1182:                               ; preds = %__cxx_global_var_in
           to label %.noexc.i1183 unwind label %lpad.i1179
 
 .noexc.i1183:                                     ; preds = %call.i.noexc.i1182
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i2209)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i2209)
   %call.i.i2210 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL24kTraceFieldTypeTotalRetxB5cxx11E)
           to label %if.end.i2212 unwind label %terminate.lpad.i.i2211
 
@@ -7466,11 +7466,11 @@ lpad.i1179:                                       ; preds = %call.i.noexc.i1182,
   br label %common.resume
 
 __cxx_global_var_init.295.exit:                   ; preds = %invoke.cont.i2215
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i2209)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i2209)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1177) #14
   %584 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL24kTraceFieldTypeTotalRetxB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i1177)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i1185)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1177)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1185)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1185) #14
   %call.i1.i1186 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL33kTraceFieldTypeInflightPacketLossB5cxx11E)
           to label %call.i.noexc.i1190 unwind label %lpad.i1187
@@ -7497,8 +7497,8 @@ lpad.i1187:                                       ; preds = %call.i.noexc.i1190,
 __cxx_global_var_init.297.exit:                   ; preds = %.noexc.i1191
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1185) #14
   %587 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL33kTraceFieldTypeInflightPacketLossB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i1185)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i1193)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1185)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1193)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1193) #14
   %call.i1.i1194 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL18kTraceFieldTypeRTTB5cxx11E)
           to label %call.i.noexc.i1198 unwind label %lpad.i1195
@@ -7508,7 +7508,7 @@ call.i.noexc.i1198:                               ; preds = %__cxx_global_var_in
           to label %.noexc.i1199 unwind label %lpad.i1195
 
 .noexc.i1199:                                     ; preds = %call.i.noexc.i1198
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i2219)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i2219)
   %call.i.i2220 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL18kTraceFieldTypeRTTB5cxx11E)
           to label %if.end.i2222 unwind label %terminate.lpad.i.i2221
 
@@ -7543,11 +7543,11 @@ lpad.i1195:                                       ; preds = %call.i.noexc.i1198,
   br label %common.resume
 
 __cxx_global_var_init.299.exit:                   ; preds = %invoke.cont.i2225
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i2219)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i2219)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1193) #14
   %592 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL18kTraceFieldTypeRTTB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i1193)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i1201)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1193)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1201)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1201) #14
   %call.i1.i1202 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL21kTraceFieldTypeRTTVarB5cxx11E)
           to label %call.i.noexc.i1206 unwind label %lpad.i1203
@@ -7557,7 +7557,7 @@ call.i.noexc.i1206:                               ; preds = %__cxx_global_var_in
           to label %.noexc.i1207 unwind label %lpad.i1203
 
 .noexc.i1207:                                     ; preds = %call.i.noexc.i1206
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i2229)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i2229)
   %call.i.i2230 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL21kTraceFieldTypeRTTVarB5cxx11E)
           to label %if.end.i2232 unwind label %terminate.lpad.i.i2231
 
@@ -7592,11 +7592,11 @@ lpad.i1203:                                       ; preds = %call.i.noexc.i1206,
   br label %common.resume
 
 __cxx_global_var_init.301.exit:                   ; preds = %invoke.cont.i2235
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i2229)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i2229)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1201) #14
   %597 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL21kTraceFieldTypeRTTVarB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i1201)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i1209)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1201)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1209)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1209) #14
   %call.i1.i1210 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL18kTraceFieldTypeRTOB5cxx11E)
           to label %call.i.noexc.i1214 unwind label %lpad.i1211
@@ -7606,7 +7606,7 @@ call.i.noexc.i1214:                               ; preds = %__cxx_global_var_in
           to label %.noexc.i1215 unwind label %lpad.i1211
 
 .noexc.i1215:                                     ; preds = %call.i.noexc.i1214
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i2239)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i2239)
   %call.i.i2240 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL18kTraceFieldTypeRTOB5cxx11E)
           to label %if.end.i2242 unwind label %terminate.lpad.i.i2241
 
@@ -7641,11 +7641,11 @@ lpad.i1211:                                       ; preds = %call.i.noexc.i1214,
   br label %common.resume
 
 __cxx_global_var_init.303.exit:                   ; preds = %invoke.cont.i2245
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i2239)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i2239)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1209) #14
   %602 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL18kTraceFieldTypeRTOB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i1209)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i1217)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1209)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1217)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1217) #14
   %call.i1.i1218 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL18kTraceFieldTypeMSSB5cxx11E)
           to label %call.i.noexc.i1222 unwind label %lpad.i1219
@@ -7655,7 +7655,7 @@ call.i.noexc.i1222:                               ; preds = %__cxx_global_var_in
           to label %.noexc.i1223 unwind label %lpad.i1219
 
 .noexc.i1223:                                     ; preds = %call.i.noexc.i1222
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i2249)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i2249)
   %call.i.i2250 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL18kTraceFieldTypeMSSB5cxx11E)
           to label %if.end.i2252 unwind label %terminate.lpad.i.i2251
 
@@ -7690,11 +7690,11 @@ lpad.i1219:                                       ; preds = %call.i.noexc.i1222,
   br label %common.resume
 
 __cxx_global_var_init.305.exit:                   ; preds = %invoke.cont.i2255
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i2249)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i2249)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1217) #14
   %607 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL18kTraceFieldTypeMSSB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i1217)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i1225)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1217)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1225)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1225) #14
   %call.i1.i1226 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL18kTraceFieldTypeMTUB5cxx11E)
           to label %call.i.noexc.i1230 unwind label %lpad.i1227
@@ -7704,7 +7704,7 @@ call.i.noexc.i1230:                               ; preds = %__cxx_global_var_in
           to label %.noexc.i1231 unwind label %lpad.i1227
 
 .noexc.i1231:                                     ; preds = %call.i.noexc.i1230
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i2259)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i2259)
   %call.i.i2260 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL18kTraceFieldTypeMTUB5cxx11E)
           to label %if.end.i2262 unwind label %terminate.lpad.i.i2261
 
@@ -7739,11 +7739,11 @@ lpad.i1227:                                       ; preds = %call.i.noexc.i1230,
   br label %common.resume
 
 __cxx_global_var_init.307.exit:                   ; preds = %invoke.cont.i2265
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i2259)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i2259)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1225) #14
   %612 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL18kTraceFieldTypeMTUB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i1225)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i1233)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1225)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1233)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1233) #14
   %call.i1.i1234 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL21kTraceFieldTypeRcvWndB5cxx11E)
           to label %call.i.noexc.i1238 unwind label %lpad.i1235
@@ -7753,7 +7753,7 @@ call.i.noexc.i1238:                               ; preds = %__cxx_global_var_in
           to label %.noexc.i1239 unwind label %lpad.i1235
 
 .noexc.i1239:                                     ; preds = %call.i.noexc.i1238
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i2269)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i2269)
   %call.i.i2270 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL21kTraceFieldTypeRcvWndB5cxx11E)
           to label %if.end.i2272 unwind label %terminate.lpad.i.i2271
 
@@ -7788,11 +7788,11 @@ lpad.i1235:                                       ; preds = %call.i.noexc.i1238,
   br label %common.resume
 
 __cxx_global_var_init.309.exit:                   ; preds = %invoke.cont.i2275
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i2269)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i2269)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1233) #14
   %617 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL21kTraceFieldTypeRcvWndB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i1233)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i1241)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1233)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1241)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1241) #14
   %call.i1.i1242 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL31kTraceFieldTypeUpstreamCapacityB5cxx11E)
           to label %call.i.noexc.i1246 unwind label %lpad.i1243
@@ -7819,8 +7819,8 @@ lpad.i1243:                                       ; preds = %call.i.noexc.i1246,
 __cxx_global_var_init.311.exit:                   ; preds = %.noexc.i1247
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1241) #14
   %620 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL31kTraceFieldTypeUpstreamCapacityB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i1241)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i1249)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1241)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1249)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1249) #14
   %call.i1.i1250 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL26kTraceFieldTypeReqsSucceedB5cxx11E)
           to label %call.i.noexc.i1254 unwind label %lpad.i1251
@@ -7830,7 +7830,7 @@ call.i.noexc.i1254:                               ; preds = %__cxx_global_var_in
           to label %.noexc.i1255 unwind label %lpad.i1251
 
 .noexc.i1255:                                     ; preds = %call.i.noexc.i1254
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i2279)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i2279)
   %call.i.i2280 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL26kTraceFieldTypeReqsSucceedB5cxx11E)
           to label %if.end.i2282 unwind label %terminate.lpad.i.i2281
 
@@ -7865,11 +7865,11 @@ lpad.i1251:                                       ; preds = %call.i.noexc.i1254,
   br label %common.resume
 
 __cxx_global_var_init.313.exit:                   ; preds = %invoke.cont.i2285
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i2279)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i2279)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1249) #14
   %625 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL26kTraceFieldTypeReqsSucceedB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i1249)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i1257)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1249)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1257)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1257) #14
   %call.i1.i1258 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL25kTraceFieldTypeReqsFailedB5cxx11E)
           to label %call.i.noexc.i1262 unwind label %lpad.i1259
@@ -7879,7 +7879,7 @@ call.i.noexc.i1262:                               ; preds = %__cxx_global_var_in
           to label %.noexc.i1263 unwind label %lpad.i1259
 
 .noexc.i1263:                                     ; preds = %call.i.noexc.i1262
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i2289)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i2289)
   %call.i.i2290 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL25kTraceFieldTypeReqsFailedB5cxx11E)
           to label %if.end.i2292 unwind label %terminate.lpad.i.i2291
 
@@ -7914,11 +7914,11 @@ lpad.i1259:                                       ; preds = %call.i.noexc.i1262,
   br label %common.resume
 
 __cxx_global_var_init.315.exit:                   ; preds = %invoke.cont.i2295
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i2289)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i2289)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1257) #14
   %630 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL25kTraceFieldTypeReqsFailedB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i1257)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i1265)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1257)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1265)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1265) #14
   %call.i1.i1266 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL19kTraceFieldTypeTTFBB5cxx11E)
           to label %call.i.noexc.i1270 unwind label %lpad.i1267
@@ -7928,7 +7928,7 @@ call.i.noexc.i1270:                               ; preds = %__cxx_global_var_in
           to label %.noexc.i1271 unwind label %lpad.i1267
 
 .noexc.i1271:                                     ; preds = %call.i.noexc.i1270
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i2299)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i2299)
   %call.i.i2300 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL19kTraceFieldTypeTTFBB5cxx11E)
           to label %if.end.i2302 unwind label %terminate.lpad.i.i2301
 
@@ -7963,11 +7963,11 @@ lpad.i1267:                                       ; preds = %call.i.noexc.i1270,
   br label %common.resume
 
 __cxx_global_var_init.317.exit:                   ; preds = %invoke.cont.i2305
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i2299)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i2299)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1265) #14
   %635 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL19kTraceFieldTypeTTFBB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i1265)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i1273)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1265)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1273)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1273) #14
   %call.i1.i1274 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL19kTraceFieldTypeTTLBB5cxx11E)
           to label %call.i.noexc.i1278 unwind label %lpad.i1275
@@ -7977,7 +7977,7 @@ call.i.noexc.i1278:                               ; preds = %__cxx_global_var_in
           to label %.noexc.i1279 unwind label %lpad.i1275
 
 .noexc.i1279:                                     ; preds = %call.i.noexc.i1278
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i2309)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i2309)
   %call.i.i2310 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL19kTraceFieldTypeTTLBB5cxx11E)
           to label %if.end.i2312 unwind label %terminate.lpad.i.i2311
 
@@ -8012,11 +8012,11 @@ lpad.i1275:                                       ; preds = %call.i.noexc.i1278,
   br label %common.resume
 
 __cxx_global_var_init.319.exit:                   ; preds = %invoke.cont.i2315
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i2309)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i2309)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1273) #14
   %640 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL19kTraceFieldTypeTTLBB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i1273)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i1281)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1273)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1281)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1281) #14
   %call.i1.i1282 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL27kTraceFieldTypeConnLifeSpanB5cxx11E)
           to label %call.i.noexc.i1286 unwind label %lpad.i1283
@@ -8043,8 +8043,8 @@ lpad.i1283:                                       ; preds = %call.i.noexc.i1286,
 __cxx_global_var_init.321.exit:                   ; preds = %.noexc.i1287
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1281) #14
   %643 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL27kTraceFieldTypeConnLifeSpanB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i1281)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i1289)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1281)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1289)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1289) #14
   %call.i1.i1290 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL29kTraceFieldTypeEgressBufferedB5cxx11E)
           to label %call.i.noexc.i1294 unwind label %lpad.i1291
@@ -8054,7 +8054,7 @@ call.i.noexc.i1294:                               ; preds = %__cxx_global_var_in
           to label %.noexc.i1295 unwind label %lpad.i1291
 
 .noexc.i1295:                                     ; preds = %call.i.noexc.i1294
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i2319)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i2319)
   %call.i.i2320 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL29kTraceFieldTypeEgressBufferedB5cxx11E)
           to label %if.end.i2322 unwind label %terminate.lpad.i.i2321
 
@@ -8089,11 +8089,11 @@ lpad.i1291:                                       ; preds = %call.i.noexc.i1294,
   br label %common.resume
 
 __cxx_global_var_init.323.exit:                   ; preds = %invoke.cont.i2325
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i2319)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i2319)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1289) #14
   %648 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL29kTraceFieldTypeEgressBufferedB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i1289)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i1297)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1289)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1297)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1297) #14
   %call.i1.i1298 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL27kTraceFieldTypeSCFGCacheHitB5cxx11E)
           to label %call.i.noexc.i1302 unwind label %lpad.i1299
@@ -8120,8 +8120,8 @@ lpad.i1299:                                       ; preds = %call.i.noexc.i1302,
 __cxx_global_var_init.325.exit:                   ; preds = %.noexc.i1303
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1297) #14
   %651 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL27kTraceFieldTypeSCFGCacheHitB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i1297)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i1305)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1297)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1305)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1305) #14
   %call.i1.i1306 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL26kTraceFieldTypeSCFGExpiredB5cxx11E)
           to label %call.i.noexc.i1310 unwind label %lpad.i1307
@@ -8148,8 +8148,8 @@ lpad.i1307:                                       ; preds = %call.i.noexc.i1310,
 __cxx_global_var_init.327.exit:                   ; preds = %.noexc.i1311
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1305) #14
   %654 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL26kTraceFieldTypeSCFGExpiredB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i1305)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i1313)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1305)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1313)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1313) #14
   %call.i1.i1314 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL23kTraceFieldTypeZeroAEADB5cxx11E)
           to label %call.i.noexc.i1318 unwind label %lpad.i1315
@@ -8159,7 +8159,7 @@ call.i.noexc.i1318:                               ; preds = %__cxx_global_var_in
           to label %.noexc.i1319 unwind label %lpad.i1315
 
 .noexc.i1319:                                     ; preds = %call.i.noexc.i1318
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i2329)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i2329)
   %call.i.i2330 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL23kTraceFieldTypeZeroAEADB5cxx11E)
           to label %if.end.i2332 unwind label %terminate.lpad.i.i2331
 
@@ -8194,11 +8194,11 @@ lpad.i1315:                                       ; preds = %call.i.noexc.i1318,
   br label %common.resume
 
 __cxx_global_var_init.329.exit:                   ; preds = %invoke.cont.i2335
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i2329)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i2329)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1313) #14
   %659 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL23kTraceFieldTypeZeroAEADB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i1313)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i1321)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1313)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1321)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1321) #14
   %call.i1.i1322 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL22kTraceFieldTypeZeroKexB5cxx11E)
           to label %call.i.noexc.i1326 unwind label %lpad.i1323
@@ -8208,7 +8208,7 @@ call.i.noexc.i1326:                               ; preds = %__cxx_global_var_in
           to label %.noexc.i1327 unwind label %lpad.i1323
 
 .noexc.i1327:                                     ; preds = %call.i.noexc.i1326
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i2339)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i2339)
   %call.i.i2340 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL22kTraceFieldTypeZeroKexB5cxx11E)
           to label %if.end.i2342 unwind label %terminate.lpad.i.i2341
 
@@ -8243,11 +8243,11 @@ lpad.i1323:                                       ; preds = %call.i.noexc.i1326,
   br label %common.resume
 
 __cxx_global_var_init.331.exit:                   ; preds = %invoke.cont.i2345
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i2339)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i2339)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1321) #14
   %664 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL22kTraceFieldTypeZeroKexB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i1321)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i1329)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1321)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1329)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1329) #14
   %call.i1.i1330 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL26kTraceFieldTypeZeroVersionB5cxx11E)
           to label %call.i.noexc.i1334 unwind label %lpad.i1331
@@ -8257,7 +8257,7 @@ call.i.noexc.i1334:                               ; preds = %__cxx_global_var_in
           to label %.noexc.i1335 unwind label %lpad.i1331
 
 .noexc.i1335:                                     ; preds = %call.i.noexc.i1334
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i2349)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i2349)
   %call.i.i2350 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL26kTraceFieldTypeZeroVersionB5cxx11E)
           to label %if.end.i2352 unwind label %terminate.lpad.i.i2351
 
@@ -8292,11 +8292,11 @@ lpad.i1331:                                       ; preds = %call.i.noexc.i1334,
   br label %common.resume
 
 __cxx_global_var_init.333.exit:                   ; preds = %invoke.cont.i2355
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i2349)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i2349)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1329) #14
   %669 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL26kTraceFieldTypeZeroVersionB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i1329)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i1337)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1329)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1337)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1337) #14
   %call.i1.i1338 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL29kTraceFieldTypeZeroRttEnabledB5cxx11E)
           to label %call.i.noexc.i1342 unwind label %lpad.i1339
@@ -8323,8 +8323,8 @@ lpad.i1339:                                       ; preds = %call.i.noexc.i1342,
 __cxx_global_var_init.335.exit:                   ; preds = %.noexc.i1343
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1337) #14
   %672 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL29kTraceFieldTypeZeroRttEnabledB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i1337)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i1345)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1337)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1345)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1345) #14
   %call.i1.i1346 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL34kTraceFieldTypeZeroFallbackEnabledB5cxx11E)
           to label %call.i.noexc.i1350 unwind label %lpad.i1347
@@ -8351,8 +8351,8 @@ lpad.i1347:                                       ; preds = %call.i.noexc.i1350,
 __cxx_global_var_init.337.exit:                   ; preds = %.noexc.i1351
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1345) #14
   %675 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL34kTraceFieldTypeZeroFallbackEnabledB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i1345)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i1353)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1345)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1353)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1353) #14
   %call.i1.i1354 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL34kTraceFieldTypeZeroVerifiedSuccessB5cxx11E)
           to label %call.i.noexc.i1358 unwind label %lpad.i1355
@@ -8379,8 +8379,8 @@ lpad.i1355:                                       ; preds = %call.i.noexc.i1358,
 __cxx_global_var_init.339.exit:                   ; preds = %.noexc.i1359
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1353) #14
   %678 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL34kTraceFieldTypeZeroVerifiedSuccessB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i1353)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i1361)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1353)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1361)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1361) #14
   %call.i1.i1362 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL32kTraceFieldTypeZeroVerifiedErrorB5cxx11E)
           to label %call.i.noexc.i1366 unwind label %lpad.i1363
@@ -8407,8 +8407,8 @@ lpad.i1363:                                       ; preds = %call.i.noexc.i1366,
 __cxx_global_var_init.341.exit:                   ; preds = %.noexc.i1367
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1361) #14
   %681 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL32kTraceFieldTypeZeroVerifiedErrorB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i1361)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i1369)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1361)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1369)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1369) #14
   %call.i1.i1370 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL27kTraceFieldTypeTFOAttemptedB5cxx11E)
           to label %call.i.noexc.i1374 unwind label %lpad.i1371
@@ -8418,7 +8418,7 @@ call.i.noexc.i1374:                               ; preds = %__cxx_global_var_in
           to label %.noexc.i1375 unwind label %lpad.i1371
 
 .noexc.i1375:                                     ; preds = %call.i.noexc.i1374
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i2359)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i2359)
   %call.i.i2360 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL27kTraceFieldTypeTFOAttemptedB5cxx11E)
           to label %if.end.i2362 unwind label %terminate.lpad.i.i2361
 
@@ -8453,11 +8453,11 @@ lpad.i1371:                                       ; preds = %call.i.noexc.i1374,
   br label %common.resume
 
 __cxx_global_var_init.343.exit:                   ; preds = %invoke.cont.i2365
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i2359)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i2359)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1369) #14
   %686 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL27kTraceFieldTypeTFOAttemptedB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i1369)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i1377)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1369)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1377)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1377) #14
   %call.i1.i1378 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL26kTraceFieldTypeTFOFinishedB5cxx11E)
           to label %call.i.noexc.i1382 unwind label %lpad.i1379
@@ -8467,7 +8467,7 @@ call.i.noexc.i1382:                               ; preds = %__cxx_global_var_in
           to label %.noexc.i1383 unwind label %lpad.i1379
 
 .noexc.i1383:                                     ; preds = %call.i.noexc.i1382
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i2369)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i2369)
   %call.i.i2370 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL26kTraceFieldTypeTFOFinishedB5cxx11E)
           to label %if.end.i2372 unwind label %terminate.lpad.i.i2371
 
@@ -8502,11 +8502,11 @@ lpad.i1379:                                       ; preds = %call.i.noexc.i1382,
   br label %common.resume
 
 __cxx_global_var_init.345.exit:                   ; preds = %invoke.cont.i2375
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i2369)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i2369)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1377) #14
   %691 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL26kTraceFieldTypeTFOFinishedB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i1377)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i1385)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1377)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1385)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1385) #14
   %call.i1.i1386 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL31kTraceFieldTypeMQTTConnAttemptsB5cxx11E)
           to label %call.i.noexc.i1390 unwind label %lpad.i1387
@@ -8533,8 +8533,8 @@ lpad.i1387:                                       ; preds = %call.i.noexc.i1390,
 __cxx_global_var_init.347.exit:                   ; preds = %.noexc.i1391
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1385) #14
   %694 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL31kTraceFieldTypeMQTTConnAttemptsB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i1385)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i1393)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1385)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1393)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1393) #14
   %call.i1.i1394 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL27kTraceFieldTypeIsForegroundB5cxx11E)
           to label %call.i.noexc.i1398 unwind label %lpad.i1395
@@ -8544,7 +8544,7 @@ call.i.noexc.i1398:                               ; preds = %__cxx_global_var_in
           to label %.noexc.i1399 unwind label %lpad.i1395
 
 .noexc.i1399:                                     ; preds = %call.i.noexc.i1398
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i2379)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i2379)
   %call.i.i2380 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL27kTraceFieldTypeIsForegroundB5cxx11E)
           to label %if.end.i2382 unwind label %terminate.lpad.i.i2381
 
@@ -8579,11 +8579,11 @@ lpad.i1395:                                       ; preds = %call.i.noexc.i1398,
   br label %common.resume
 
 __cxx_global_var_init.349.exit:                   ; preds = %invoke.cont.i2385
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i2379)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i2379)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1393) #14
   %699 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL27kTraceFieldTypeIsForegroundB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i1393)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i1401)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1393)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1401)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1401) #14
   %call.i1.i1402 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL31kTraceFieldTypeMQTTBytesWrittenB5cxx11E)
           to label %call.i.noexc.i1406 unwind label %lpad.i1403
@@ -8610,8 +8610,8 @@ lpad.i1403:                                       ; preds = %call.i.noexc.i1406,
 __cxx_global_var_init.351.exit:                   ; preds = %.noexc.i1407
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1401) #14
   %702 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL31kTraceFieldTypeMQTTBytesWrittenB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i1401)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i1409)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1401)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1409)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1409) #14
   %call.i1.i1410 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL28kTraceFieldTypeMQTTBytesReadB5cxx11E)
           to label %call.i.noexc.i1414 unwind label %lpad.i1411
@@ -8621,7 +8621,7 @@ call.i.noexc.i1414:                               ; preds = %__cxx_global_var_in
           to label %.noexc.i1415 unwind label %lpad.i1411
 
 .noexc.i1415:                                     ; preds = %call.i.noexc.i1414
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i2389)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i2389)
   %call.i.i2390 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL28kTraceFieldTypeMQTTBytesReadB5cxx11E)
           to label %if.end.i2392 unwind label %terminate.lpad.i.i2391
 
@@ -8656,11 +8656,11 @@ lpad.i1411:                                       ; preds = %call.i.noexc.i1414,
   br label %common.resume
 
 __cxx_global_var_init.353.exit:                   ; preds = %invoke.cont.i2395
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i2389)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i2389)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1409) #14
   %707 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL28kTraceFieldTypeMQTTBytesReadB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i1409)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i1417)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1409)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1417)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1417) #14
   %call.i1.i1418 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL30kTraceFieldTypeRawBytesWrittenB5cxx11E)
           to label %call.i.noexc.i1422 unwind label %lpad.i1419
@@ -8687,8 +8687,8 @@ lpad.i1419:                                       ; preds = %call.i.noexc.i1422,
 __cxx_global_var_init.355.exit:                   ; preds = %.noexc.i1423
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1417) #14
   %710 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL30kTraceFieldTypeRawBytesWrittenB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i1417)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i1425)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1417)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1425)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1425) #14
   %call.i1.i1426 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL27kTraceFieldTypeRawBytesReadB5cxx11E)
           to label %call.i.noexc.i1430 unwind label %lpad.i1427
@@ -8698,7 +8698,7 @@ call.i.noexc.i1430:                               ; preds = %__cxx_global_var_in
           to label %.noexc.i1431 unwind label %lpad.i1427
 
 .noexc.i1431:                                     ; preds = %call.i.noexc.i1430
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i2399)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i2399)
   %call.i.i2400 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL27kTraceFieldTypeRawBytesReadB5cxx11E)
           to label %if.end.i2402 unwind label %terminate.lpad.i.i2401
 
@@ -8733,11 +8733,11 @@ lpad.i1427:                                       ; preds = %call.i.noexc.i1430,
   br label %common.resume
 
 __cxx_global_var_init.357.exit:                   ; preds = %invoke.cont.i2405
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i2399)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i2399)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1425) #14
   %715 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL27kTraceFieldTypeRawBytesReadB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i1425)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i1433)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1425)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1433)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1433) #14
   %call.i1.i1434 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL31kTraceFieldTypeEventLoopTimeAvgB5cxx11E)
           to label %call.i.noexc.i1438 unwind label %lpad.i1435
@@ -8764,8 +8764,8 @@ lpad.i1435:                                       ; preds = %call.i.noexc.i1438,
 __cxx_global_var_init.359.exit:                   ; preds = %.noexc.i1439
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1433) #14
   %718 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL31kTraceFieldTypeEventLoopTimeAvgB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i1433)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i1441)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1433)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1441)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1441) #14
   %call.i1.i1442 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL28kTraceFieldTypeTransportTypeB5cxx11E)
           to label %call.i.noexc.i1446 unwind label %lpad.i1443
@@ -8775,7 +8775,7 @@ call.i.noexc.i1446:                               ; preds = %__cxx_global_var_in
           to label %.noexc.i1447 unwind label %lpad.i1443
 
 .noexc.i1447:                                     ; preds = %call.i.noexc.i1446
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i2409)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i2409)
   %call.i.i2410 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL28kTraceFieldTypeTransportTypeB5cxx11E)
           to label %if.end.i2412 unwind label %terminate.lpad.i.i2411
 
@@ -8810,11 +8810,11 @@ lpad.i1443:                                       ; preds = %call.i.noexc.i1446,
   br label %common.resume
 
 __cxx_global_var_init.361.exit:                   ; preds = %invoke.cont.i2415
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i2409)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i2409)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1441) #14
   %723 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL28kTraceFieldTypeTransportTypeB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i1441)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i1449)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1441)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1449)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1449) #14
   %call.i1.i1450 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL37kTraceFieldTypeMQTTMsgRemainingLengthB5cxx11E)
           to label %call.i.noexc.i1454 unwind label %lpad.i1451
@@ -8841,8 +8841,8 @@ lpad.i1451:                                       ; preds = %call.i.noexc.i1454,
 __cxx_global_var_init.363.exit:                   ; preds = %.noexc.i1455
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1449) #14
   %726 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL37kTraceFieldTypeMQTTMsgRemainingLengthB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i1449)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i1457)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1449)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1457)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1457) #14
   %call.i1.i1458 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL22kTraceFieldTypeMsgTypeB5cxx11E)
           to label %call.i.noexc.i1462 unwind label %lpad.i1459
@@ -8852,7 +8852,7 @@ call.i.noexc.i1462:                               ; preds = %__cxx_global_var_in
           to label %.noexc.i1463 unwind label %lpad.i1459
 
 .noexc.i1463:                                     ; preds = %call.i.noexc.i1462
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i2419)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i2419)
   %call.i.i2420 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL22kTraceFieldTypeMsgTypeB5cxx11E)
           to label %if.end.i2422 unwind label %terminate.lpad.i.i2421
 
@@ -8887,11 +8887,11 @@ lpad.i1459:                                       ; preds = %call.i.noexc.i1462,
   br label %common.resume
 
 __cxx_global_var_init.365.exit:                   ; preds = %invoke.cont.i2425
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i2419)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i2419)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1457) #14
   %731 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL22kTraceFieldTypeMsgTypeB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i1457)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i1465)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1457)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1465)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1465) #14
   %call.i1.i1466 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL24kTraceFieldTypeIsMsgRecvB5cxx11E)
           to label %call.i.noexc.i1470 unwind label %lpad.i1467
@@ -8901,7 +8901,7 @@ call.i.noexc.i1470:                               ; preds = %__cxx_global_var_in
           to label %.noexc.i1471 unwind label %lpad.i1467
 
 .noexc.i1471:                                     ; preds = %call.i.noexc.i1470
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i2429)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i2429)
   %call.i.i2430 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL24kTraceFieldTypeIsMsgRecvB5cxx11E)
           to label %if.end.i2432 unwind label %terminate.lpad.i.i2431
 
@@ -8936,11 +8936,11 @@ lpad.i1467:                                       ; preds = %call.i.noexc.i1470,
   br label %common.resume
 
 __cxx_global_var_init.367.exit:                   ; preds = %invoke.cont.i2435
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i2429)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i2429)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1465) #14
   %736 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL24kTraceFieldTypeIsMsgRecvB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i1465)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i1473)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1465)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1473)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1473) #14
   %call.i1.i1474 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL32kTraceFieldTypeConnectReturnCodeB5cxx11E)
           to label %call.i.noexc.i1478 unwind label %lpad.i1475
@@ -8967,8 +8967,8 @@ lpad.i1475:                                       ; preds = %call.i.noexc.i1478,
 __cxx_global_var_init.369.exit:                   ; preds = %.noexc.i1479
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1473) #14
   %739 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL32kTraceFieldTypeConnectReturnCodeB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i1473)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i1481)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1473)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1481)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1481) #14
   %call.i1.i1482 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL27kTraceFieldTypeMQTTMsgBytesB5cxx11E)
           to label %call.i.noexc.i1486 unwind label %lpad.i1483
@@ -8978,7 +8978,7 @@ call.i.noexc.i1486:                               ; preds = %__cxx_global_var_in
           to label %.noexc.i1487 unwind label %lpad.i1483
 
 .noexc.i1487:                                     ; preds = %call.i.noexc.i1486
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i2439)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i2439)
   %call.i.i2440 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL27kTraceFieldTypeMQTTMsgBytesB5cxx11E)
           to label %if.end.i2442 unwind label %terminate.lpad.i.i2441
 
@@ -9013,11 +9013,11 @@ lpad.i1483:                                       ; preds = %call.i.noexc.i1486,
   br label %common.resume
 
 __cxx_global_var_init.371.exit:                   ; preds = %invoke.cont.i2445
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i2439)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i2439)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1481) #14
   %744 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL27kTraceFieldTypeMQTTMsgBytesB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i1481)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i1489)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1481)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1489)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1489) #14
   %call.i1.i1490 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL23kTraceFieldTypeMsgTopicB5cxx11E)
           to label %call.i.noexc.i1494 unwind label %lpad.i1491
@@ -9027,7 +9027,7 @@ call.i.noexc.i1494:                               ; preds = %__cxx_global_var_in
           to label %.noexc.i1495 unwind label %lpad.i1491
 
 .noexc.i1495:                                     ; preds = %call.i.noexc.i1494
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i2449)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i2449)
   %call.i.i2450 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL23kTraceFieldTypeMsgTopicB5cxx11E)
           to label %if.end.i2452 unwind label %terminate.lpad.i.i2451
 
@@ -9062,11 +9062,11 @@ lpad.i1491:                                       ; preds = %call.i.noexc.i1494,
   br label %common.resume
 
 __cxx_global_var_init.373.exit:                   ; preds = %invoke.cont.i2455
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i2449)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i2449)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1489) #14
   %749 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL23kTraceFieldTypeMsgTopicB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i1489)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i1497)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1489)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1497)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1497) #14
   %call.i1.i1498 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL18kTraceFieldTypeQoSB5cxx11E)
           to label %call.i.noexc.i1502 unwind label %lpad.i1499
@@ -9076,7 +9076,7 @@ call.i.noexc.i1502:                               ; preds = %__cxx_global_var_in
           to label %.noexc.i1503 unwind label %lpad.i1499
 
 .noexc.i1503:                                     ; preds = %call.i.noexc.i1502
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i2459)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i2459)
   %call.i.i2460 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL18kTraceFieldTypeQoSB5cxx11E)
           to label %if.end.i2462 unwind label %terminate.lpad.i.i2461
 
@@ -9111,11 +9111,11 @@ lpad.i1499:                                       ; preds = %call.i.noexc.i1502,
   br label %common.resume
 
 __cxx_global_var_init.375.exit:                   ; preds = %invoke.cont.i2465
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i2459)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i2459)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1497) #14
   %754 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL18kTraceFieldTypeQoSB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i1497)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i1505)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1497)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1505)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1505) #14
   %call.i1.i1506 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL28kTraceFieldTypeIsPushRequestB5cxx11E)
           to label %call.i.noexc.i1510 unwind label %lpad.i1507
@@ -9125,7 +9125,7 @@ call.i.noexc.i1510:                               ; preds = %__cxx_global_var_in
           to label %.noexc.i1511 unwind label %lpad.i1507
 
 .noexc.i1511:                                     ; preds = %call.i.noexc.i1510
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i2469)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i2469)
   %call.i.i2470 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL28kTraceFieldTypeIsPushRequestB5cxx11E)
           to label %if.end.i2472 unwind label %terminate.lpad.i.i2471
 
@@ -9160,11 +9160,11 @@ lpad.i1507:                                       ; preds = %call.i.noexc.i1510,
   br label %common.resume
 
 __cxx_global_var_init.377.exit:                   ; preds = %invoke.cont.i2475
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i2469)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i2469)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1505) #14
   %759 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL28kTraceFieldTypeIsPushRequestB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i1505)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i1513)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1505)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1513)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1513) #14
   %call.i1.i1514 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL36kTraceFieldTypePushConnectedInFlightB5cxx11E)
           to label %call.i.noexc.i1518 unwind label %lpad.i1515
@@ -9191,8 +9191,8 @@ lpad.i1515:                                       ; preds = %call.i.noexc.i1518,
 __cxx_global_var_init.379.exit:                   ; preds = %.noexc.i1519
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1513) #14
   %762 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL36kTraceFieldTypePushConnectedInFlightB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i1513)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i1521)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1513)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1521)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1521) #14
   %call.i1.i1522 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL27kTraceFieldTypePushOrphanedB5cxx11E)
           to label %call.i.noexc.i1526 unwind label %lpad.i1523
@@ -9202,7 +9202,7 @@ call.i.noexc.i1526:                               ; preds = %__cxx_global_var_in
           to label %.noexc.i1527 unwind label %lpad.i1523
 
 .noexc.i1527:                                     ; preds = %call.i.noexc.i1526
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i2479)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i2479)
   %call.i.i2480 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL27kTraceFieldTypePushOrphanedB5cxx11E)
           to label %if.end.i2482 unwind label %terminate.lpad.i.i2481
 
@@ -9237,11 +9237,11 @@ lpad.i1523:                                       ; preds = %call.i.noexc.i1526,
   br label %common.resume
 
 __cxx_global_var_init.381.exit:                   ; preds = %invoke.cont.i2485
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i2479)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i2479)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1521) #14
   %767 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL27kTraceFieldTypePushOrphanedB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i1521)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i1529)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1521)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1529)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1529) #14
   %call.i1.i1530 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL28kTraceFieldTypeAnalyticsTagsB5cxx11E)
           to label %call.i.noexc.i1534 unwind label %lpad.i1531
@@ -9251,7 +9251,7 @@ call.i.noexc.i1534:                               ; preds = %__cxx_global_var_in
           to label %.noexc.i1535 unwind label %lpad.i1531
 
 .noexc.i1535:                                     ; preds = %call.i.noexc.i1534
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i2489)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i2489)
   %call.i.i2490 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygenL28kTraceFieldTypeAnalyticsTagsB5cxx11E)
           to label %if.end.i2492 unwind label %terminate.lpad.i.i2491
 
@@ -9286,10 +9286,10 @@ lpad.i1531:                                       ; preds = %call.i.noexc.i1534,
   br label %common.resume
 
 __cxx_global_var_init.383.exit:                   ; preds = %invoke.cont.i2495
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i2489)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i2489)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1529) #14
   %772 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZN8proxygenL28kTraceFieldTypeAnalyticsTagsB5cxx11E, ptr nonnull @__dso_handle) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i1529)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1529)
   ret void
 }
 
@@ -9297,10 +9297,10 @@ __cxx_global_var_init.383.exit:                   ; preds = %invoke.cont.i2495
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 attributes #0 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

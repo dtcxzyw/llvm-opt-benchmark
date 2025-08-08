@@ -133,7 +133,7 @@ define hidden noundef zeroext i1 @_ZN19ruff_python_literal6escape9BytesRepr5writ
   %.val.i = load ptr, ptr %37, align 8, !alias.scope !21, !noalias !24, !nonnull !3, !align !12, !noundef !3
   %38 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %.val1.i = load i64, ptr %38, align 8, !alias.scope !21, !noalias !24, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !26
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !26
   call void @_ZN4core3str8converts9from_utf817hb1a3dd81f3d03b35E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 1 %.val.i, i64 noundef %.val1.i), !noalias !29
   tail call void @llvm.experimental.noalias.scope.decl(metadata !30)
   %39 = load i64, ptr %4, align 8, !range !9, !alias.scope !30, !noalias !26, !noundef !3
@@ -141,7 +141,7 @@ define hidden noundef zeroext i1 @_ZN19ruff_python_literal6escape9BytesRepr5writ
   br i1 %40, label %41, label %_ZN19ruff_python_literal6escape6Escape10write_body17h1fb45022ab8cd683E.exit.thread, !prof !33
 
 41:                                               ; preds = %36
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !34
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !34
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull readonly align 8 dereferenceable(16) %42, i64 16, i1 false), !noalias !26
   call void @_ZN4core6result13unwrap_failed17he8e27e02739cd3d2E(ptr noalias noundef nonnull readonly align 1 @anon.8701a4c3391be1ddbf37b8416aa8f714.23, i64 noundef 11, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.8701a4c3391be1ddbf37b8416aa8f714.13, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8701a4c3391be1ddbf37b8416aa8f714.25) #9, !noalias !35
@@ -152,7 +152,7 @@ _ZN19ruff_python_literal6escape6Escape10write_body17h1fb45022ab8cd683E.exit.thre
   %44 = load ptr, ptr %43, align 8, !alias.scope !30, !noalias !26, !nonnull !3, !align !12, !noundef !3
   %45 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %46 = load i64, ptr %45, align 8, !alias.scope !30, !noalias !26, !noundef !3
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !26
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 %46
   tail call void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17he435a9e90b5ea3ffE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull readonly align 1 %44, ptr noundef nonnull readonly %47, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8701a4c3391be1ddbf37b8416aa8f714.17)
   br label %49
@@ -207,11 +207,11 @@ define internal noundef zeroext i1 @"_ZN4core3fmt3num52_$LT$impl$u20$core..fmt..
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal noundef zeroext i1 @"_ZN64_$LT$core..str..error..Utf8Error$u20$as$u20$core..fmt..Debug$GT$3fmt17hee9ea66423c41303E"(ptr noalias noundef readonly align 8 dereferenceable(16) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #1 {
   %3 = alloca [8 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %4, ptr %3, align 8
   %5 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field2_finish17h562079a96f37f57fE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.8701a4c3391be1ddbf37b8416aa8f714.20, i64 noundef 9, ptr noalias noundef nonnull readonly align 1 @anon.8701a4c3391be1ddbf37b8416aa8f714.21, i64 noundef 11, ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.8701a4c3391be1ddbf37b8416aa8f714.18, ptr noalias noundef nonnull readonly align 1 @anon.8701a4c3391be1ddbf37b8416aa8f714.22, i64 noundef 9, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.8701a4c3391be1ddbf37b8416aa8f714.19)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %5
 }
 
@@ -319,13 +319,13 @@ define internal fastcc noundef zeroext i1 @"_ZN96_$LT$ruff_python_literal..escap
   br label %_ZN19ruff_python_literal6escape11AsciiEscape10write_char17hdef745c74c332c21E.exit.thread
 
 _ZN19ruff_python_literal6escape11AsciiEscape10write_char17hdef745c74c332c21E.exit: ; preds = %25
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6), !noalias !36
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !36
   store i8 %20, ptr %6, align 1, !noalias !36
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5), !noalias !36
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !36
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !36
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !36
   store ptr %6, ptr %4, align 8, !noalias !36
   store ptr @"_ZN4core3fmt3num52_$LT$impl$u20$core..fmt..LowerHex$u20$for$u20$u8$GT$3fmt17hde0b3b61375e5257E", ptr %.sroa.410.0..sroa_idx.i, align 8, !noalias !36
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3), !noalias !36
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !36
   store i16 2, ptr %3, align 8, !noalias !36
   store i16 0, ptr %.sroa.02.sroa.5.0..sroa_idx.i, align 8, !noalias !36
   store i16 2, ptr %.sroa.02.sroa.5.sroa.4.0..sroa.02.sroa.5.0..sroa_idx.sroa_idx.i, align 2, !noalias !36
@@ -338,10 +338,10 @@ _ZN19ruff_python_literal6escape11AsciiEscape10write_char17hdef745c74c332c21E.exi
   store ptr %4, ptr %15, align 8, !noalias !36
   store i64 1, ptr %16, align 8, !noalias !36
   %48 = call noundef zeroext i1 @_ZN4core3fmt5Write9write_fmt17h2164d37e08fc48e5E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5), !noalias !36
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3), !noalias !36
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !36
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6), !noalias !36
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !36
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !36
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !36
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !36
   br i1 %48, label %_ZN19ruff_python_literal6escape11AsciiEscape10write_char17hdef745c74c332c21E.exit._crit_edge, label %_ZN19ruff_python_literal6escape11AsciiEscape10write_char17hdef745c74c332c21E.exit.thread
 
 _ZN19ruff_python_literal6escape11AsciiEscape10write_char17hdef745c74c332c21E.exit.thread: ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h50d4485cea56774eE.exit.i.i.i", %29, %28, %27, %_ZN19ruff_python_literal6escape11AsciiEscape10write_char17hdef745c74c332c21E.exit
@@ -532,14 +532,14 @@ define internal fastcc noundef zeroext i1 @"_ZN98_$LT$ruff_python_literal..escap
   br i1 %100, label %104, label %137
 
 101:                                              ; preds = %94
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %19), !noalias !56
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18), !noalias !56
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %17), !noalias !56
+  call void @llvm.lifetime.start.p0(ptr nonnull %19), !noalias !56
+  call void @llvm.lifetime.start.p0(ptr nonnull %18), !noalias !56
+  call void @llvm.lifetime.start.p0(ptr nonnull %17), !noalias !56
   %102 = trunc nuw nsw i32 %.sroa.4.0.i.ph to i8
   store i8 %102, ptr %17, align 1, !noalias !56
   store ptr %17, ptr %18, align 8, !noalias !56
   store ptr @"_ZN4core3fmt3num52_$LT$impl$u20$core..fmt..LowerHex$u20$for$u20$u8$GT$3fmt17hde0b3b61375e5257E", ptr %.sroa.465.0..sroa_idx.i, align 8, !noalias !56
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %16), !noalias !56
+  call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !56
   store i16 2, ptr %16, align 8, !noalias !56
   store i16 0, ptr %.sroa.018.sroa.5.0..sroa_idx.i, align 8, !noalias !56
   store i16 2, ptr %.sroa.018.sroa.5.sroa.4.0..sroa.018.sroa.5.0..sroa_idx.sroa_idx.i, align 2, !noalias !56
@@ -552,10 +552,10 @@ define internal fastcc noundef zeroext i1 @"_ZN98_$LT$ruff_python_literal..escap
   store ptr %18, ptr %43, align 8, !noalias !56
   store i64 1, ptr %44, align 8, !noalias !56
   %103 = call noundef zeroext i1 @_ZN4core3fmt5Write9write_fmt17h2164d37e08fc48e5E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %19)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %16), !noalias !56
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %17), !noalias !56
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18), !noalias !56
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %19), !noalias !56
+  call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !56
+  call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !56
+  call void @llvm.lifetime.end.p0(ptr nonnull %18), !noalias !56
+  call void @llvm.lifetime.end.p0(ptr nonnull %19), !noalias !56
   br i1 %103, label %._crit_edge, label %.backedge
 
 .backedge:                                        ; preds = %"_ZN58_$LT$alloc..string..String$u20$as$u20$core..fmt..Write$GT$10write_char17h40299eb7ef58e32eE.exit99.i", %"_ZN58_$LT$alloc..string..String$u20$as$u20$core..fmt..Write$GT$10write_char17h40299eb7ef58e32eE.exit84.i", %93, %92, %91, %101, %139, %142, %.critedge.i, %"_ZN58_$LT$alloc..string..String$u20$as$u20$core..fmt..Write$GT$10write_char17h40299eb7ef58e32eE.exit.i"
@@ -563,7 +563,7 @@ define internal fastcc noundef zeroext i1 @"_ZN98_$LT$ruff_python_literal..escap
   br i1 %.not16, label %._crit_edge, label %47
 
 104:                                              ; preds = %99
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3), !noalias !59
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !59
   store i32 0, ptr %3, align 4, !noalias !59
   %105 = icmp samesign ult i32 %.sroa.4.0.i.ph, 2048
   br i1 %105, label %128, label %106
@@ -616,7 +616,7 @@ define internal fastcc noundef zeroext i1 @"_ZN98_$LT$ruff_python_literal..escap
   %134 = or disjoint i8 %133, -128
   store i8 %134, ptr %.sink.i.sroa.phi.i.i.i, align 1, !alias.scope !64, !noalias !59
   call void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17he435a9e90b5ea3ffE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull %3, ptr noundef nonnull %.sroa.0.1.i.sroa.phi.i.i.i, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8701a4c3391be1ddbf37b8416aa8f714.15)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3), !noalias !59
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !59
   br label %.backedge
 
 135:                                              ; preds = %137
@@ -628,13 +628,13 @@ define internal fastcc noundef zeroext i1 @"_ZN98_$LT$ruff_python_literal..escap
   br i1 %138, label %139, label %135
 
 139:                                              ; preds = %137
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %15), !noalias !56
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14), !noalias !56
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13), !noalias !56
+  call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !56
+  call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !56
+  call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !56
   store i32 %.sroa.4.0.i.ph, ptr %13, align 4, !noalias !56
   store ptr %13, ptr %14, align 8, !noalias !56
   store ptr @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..LowerHex$u20$for$u20$u32$GT$3fmt17hb705dd44df3376ccE", ptr %.sroa.453.0..sroa_idx.i, align 8, !noalias !56
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %12), !noalias !56
+  call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !56
   store i16 2, ptr %12, align 8, !noalias !56
   store i16 0, ptr %.sroa.023.sroa.5.0..sroa_idx.i, align 8, !noalias !56
   store i16 2, ptr %.sroa.023.sroa.5.sroa.4.0..sroa.023.sroa.5.0..sroa_idx.sroa_idx.i, align 2, !noalias !56
@@ -647,20 +647,20 @@ define internal fastcc noundef zeroext i1 @"_ZN98_$LT$ruff_python_literal..escap
   store ptr %14, ptr %38, align 8, !noalias !56
   store i64 1, ptr %39, align 8, !noalias !56
   %140 = call noundef zeroext i1 @_ZN4core3fmt5Write9write_fmt17h2164d37e08fc48e5E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %15)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %12), !noalias !56
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13), !noalias !56
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14), !noalias !56
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %15), !noalias !56
+  call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !56
+  call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !56
+  call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !56
+  call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !56
   br i1 %140, label %._crit_edge, label %.backedge
 
 .critedge.i:                                      ; preds = %135
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7), !noalias !56
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !56
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5), !noalias !56
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !56
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !56
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !56
   store i32 %.sroa.4.0.i.ph, ptr %5, align 4, !noalias !56
   store ptr %5, ptr %6, align 8, !noalias !56
   store ptr @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..LowerHex$u20$for$u20$u32$GT$3fmt17hb705dd44df3376ccE", ptr %.sroa.457.0..sroa_idx.i, align 8, !noalias !56
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !56
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !56
   store i16 2, ptr %4, align 8, !noalias !56
   store i16 0, ptr %.sroa.041.sroa.5.0..sroa_idx.i, align 8, !noalias !56
   store i16 8, ptr %.sroa.041.sroa.5.sroa.4.0..sroa.041.sroa.5.0..sroa_idx.sroa_idx.i, align 2, !noalias !56
@@ -673,20 +673,20 @@ define internal fastcc noundef zeroext i1 @"_ZN98_$LT$ruff_python_literal..escap
   store ptr %6, ptr %28, align 8, !noalias !56
   store i64 1, ptr %29, align 8, !noalias !56
   %141 = call noundef zeroext i1 @_ZN4core3fmt5Write9write_fmt17h2164d37e08fc48e5E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !56
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5), !noalias !56
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !56
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7), !noalias !56
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !56
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !56
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !56
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !56
   br i1 %141, label %._crit_edge, label %.backedge
 
 142:                                              ; preds = %135
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %11), !noalias !56
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10), !noalias !56
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9), !noalias !56
+  call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !56
+  call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !56
+  call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !56
   store i32 %.sroa.4.0.i.ph, ptr %9, align 4, !noalias !56
   store ptr %9, ptr %10, align 8, !noalias !56
   store ptr @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..LowerHex$u20$for$u20$u32$GT$3fmt17hb705dd44df3376ccE", ptr %.sroa.461.0..sroa_idx.i, align 8, !noalias !56
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8), !noalias !56
+  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !56
   store i16 2, ptr %8, align 8, !noalias !56
   store i16 0, ptr %.sroa.032.sroa.5.0..sroa_idx.i, align 8, !noalias !56
   store i16 4, ptr %.sroa.032.sroa.5.sroa.4.0..sroa.032.sroa.5.0..sroa_idx.sroa_idx.i, align 2, !noalias !56
@@ -699,10 +699,10 @@ define internal fastcc noundef zeroext i1 @"_ZN98_$LT$ruff_python_literal..escap
   store ptr %10, ptr %33, align 8, !noalias !56
   store i64 1, ptr %34, align 8, !noalias !56
   %143 = call noundef zeroext i1 @_ZN4core3fmt5Write9write_fmt17h2164d37e08fc48e5E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %11)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8), !noalias !56
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9), !noalias !56
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10), !noalias !56
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11), !noalias !56
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !56
+  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !56
+  call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !56
+  call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !56
   br i1 %143, label %._crit_edge, label %.backedge
 
 144:                                              ; preds = %96
@@ -847,10 +847,10 @@ declare noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field2_finish17
 declare void @_ZN4core3str8converts9from_utf817hb1a3dd81f3d03b35E(ptr dead_on_unwind noalias noundef writable sret([24 x i8]) align 8 captures(none) dereferenceable(24), ptr noalias noundef nonnull readonly align 1, i64 noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #8

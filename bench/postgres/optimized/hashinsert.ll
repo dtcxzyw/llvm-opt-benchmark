@@ -25,7 +25,7 @@ define dso_local void @_hash_doinsert(ptr noundef %0, ptr noundef %1, ptr nounde
   %6 = alloca %struct.xl_hash_vacuum_one_page, align 4
   %7 = alloca ptr, align 8
   %8 = alloca %struct.xl_hash_insert, align 2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
   %9 = tail call i32 @_hash_get_indextuple_hashkey(ptr noundef %1) #6
   %10 = getelementptr i8, ptr %1, i64 6
@@ -173,7 +173,7 @@ BufferGetPage.exit114:                            ; preds = %49, %55
   br i1 %100, label %101, label %221
 
 101:                                              ; preds = %99
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %102 = icmp slt i32 %.0139, 0
   br i1 %102, label %103, label %109
 
@@ -300,11 +300,11 @@ BufferGetPage.exit53.i:                           ; preds = %151, %147
   br i1 %170, label %.thread.i, label %217
 
 .thread.i:                                        ; preds = %168
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br label %188
 
 171:                                              ; preds = %162
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not58.i = icmp eq i32 %163, 1
   br i1 %.not58.i, label %188, label %172
 
@@ -395,7 +395,7 @@ BufferGetPage.exit57.i:                           ; preds = %213, %209
   store i32 %206, ptr %.0.i.i56.i, align 4
   %216 = getelementptr inbounds nuw i8, ptr %.0.i.i56.i, i64 4
   store i32 %207, ptr %216, align 4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %217
 
 217:                                              ; preds = %BufferGetPage.exit57.i, %168, %165, %BufferGetPage.exit53.i
@@ -406,7 +406,7 @@ BufferGetPage.exit57.i:                           ; preds = %213, %209
   br label %_hash_vacuum_one_page.exit
 
 _hash_vacuum_one_page.exit:                       ; preds = %BufferGetPage.exit.i, %._crit_edge.i, %217
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %220 = call i64 @PageGetFreeSpace(ptr noundef nonnull %.098138) #6
   %.not107 = icmp ult i64 %220, %13
   br i1 %.not107, label %221, label %.thread
@@ -531,7 +531,7 @@ _hash_vacuum_one_page.exit:                       ; preds = %BufferGetPage.exit.
   br i1 %295, label %296, label %330
 
 296:                                              ; preds = %292, %285
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i16 %267, ptr %8, align 2
   call void @XLogBeginInsert() #6
   call void @XLogRegisterData(ptr noundef nonnull %8, i32 noundef 2) #6
@@ -592,7 +592,7 @@ BufferGetPage.exit122:                            ; preds = %317, %323
   store i32 %314, ptr %.0.i.i121, align 4
   %329 = getelementptr inbounds nuw i8, ptr %.0.i.i121, i64 4
   store i32 %315, ptr %329, align 4
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %330
 
 330:                                              ; preds = %.thread, %288, %292, %BufferGetPage.exit122
@@ -617,50 +617,44 @@ BufferGetPage.exit122:                            ; preds = %317, %323
 
 336:                                              ; preds = %335, %334
   call void @_hash_dropbuf(ptr noundef nonnull %0, i32 noundef %15) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @_hash_get_indextuple_hashkey(ptr noundef) local_unnamed_addr #1
 
-declare i32 @_hash_get_indextuple_hashkey(ptr noundef) local_unnamed_addr #2
-
-declare i32 @_hash_getbuf(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @_hash_getbuf(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @errcode(i32 noundef) local_unnamed_addr #2
+declare i32 @errcode(i32 noundef) local_unnamed_addr #1
 
-declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #1
 
-declare i32 @errhint(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errhint(ptr noundef, ...) local_unnamed_addr #1
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @_hash_getbucketbuf_from_hashkey(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @_hash_getbucketbuf_from_hashkey(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @CheckForSerializableConflictIn(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @CheckForSerializableConflictIn(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @BufferGetBlockNumber(i32 noundef) local_unnamed_addr #2
+declare i32 @BufferGetBlockNumber(i32 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @IsBufferCleanupOK(i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @IsBufferCleanupOK(i32 noundef) local_unnamed_addr #1
 
-declare void @LockBuffer(i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @LockBuffer(i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @_hash_finish_split(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @_hash_finish_split(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @_hash_dropbuf(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @_hash_dropbuf(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i64 @PageGetFreeSpace(ptr noundef) local_unnamed_addr #2
+declare i64 @PageGetFreeSpace(ptr noundef) local_unnamed_addr #1
 
-declare void @_hash_relbuf(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @_hash_relbuf(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @_hash_addovflpage(ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @_hash_addovflpage(ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef zeroext i16 @_hash_pgaddtup(ptr noundef %0, i32 noundef %1, i64 noundef %2, ptr noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
@@ -725,27 +719,27 @@ BufferGetPage.exit:                               ; preds = %7, %13
   ret i16 %.0
 }
 
-declare void @MarkBufferDirty(i32 noundef) local_unnamed_addr #2
+declare void @MarkBufferDirty(i32 noundef) local_unnamed_addr #1
 
-declare void @XLogBeginInsert() local_unnamed_addr #2
+declare void @XLogBeginInsert() local_unnamed_addr #1
 
-declare void @XLogRegisterData(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @XLogRegisterData(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @XLogRegisterBuffer(i8 noundef zeroext, i32 noundef, i8 noundef zeroext) local_unnamed_addr #2
+declare void @XLogRegisterBuffer(i8 noundef zeroext, i32 noundef, i8 noundef zeroext) local_unnamed_addr #1
 
-declare void @XLogRegisterBufData(i8 noundef zeroext, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @XLogRegisterBufData(i8 noundef zeroext, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i64 @XLogInsert(i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #2
+declare i64 @XLogInsert(i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #1
 
-declare void @_hash_expandtable(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @_hash_expandtable(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @_hash_checkpage(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @_hash_checkpage(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare zeroext i16 @_hash_binsearch(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i16 @_hash_binsearch(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare zeroext i16 @PageAddItemExtended(ptr noundef, ptr noundef, i64 noundef, i16 noundef zeroext, i32 noundef) local_unnamed_addr #2
+declare zeroext i16 @PageAddItemExtended(ptr noundef, ptr noundef, i64 noundef, i16 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
-declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @_hash_pgaddmultitup(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
@@ -816,11 +810,17 @@ BufferGetPage.exit:                               ; preds = %7, %13
   ret void
 }
 
-declare i32 @index_compute_xid_horizon_for_tuples(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @index_compute_xid_horizon_for_tuples(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @PageIndexMultiDelete(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @PageIndexMultiDelete(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @IsCatalogRelation(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @IsCatalogRelation(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #4
@@ -829,9 +829,9 @@ declare void @llvm.assume(i1 noundef) #4
 declare i16 @llvm.umax.i16(i16, i16) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nounwind }

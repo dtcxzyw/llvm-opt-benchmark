@@ -248,7 +248,7 @@ define hidden void @_cmsAllocTagTypePluginChunk(ptr noundef captures(none) %0, p
   br i1 %.not, label %26, label %4
 
 4:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 0, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %6 = load ptr, ptr %5, align 8
@@ -303,7 +303,7 @@ define hidden void @_cmsAllocTagTypePluginChunk(ptr noundef captures(none) %0, p
   br label %DupTagTypeList.exit
 
 DupTagTypeList.exit:                              ; preds = %8, %21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %31
 
 26:                                               ; preds = %2
@@ -327,7 +327,7 @@ define hidden void @_cmsAllocMPETypePluginChunk(ptr noundef captures(none) %0, p
   br i1 %.not, label %26, label %4
 
 4:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 0, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %6 = load ptr, ptr %5, align 8
@@ -382,7 +382,7 @@ define hidden void @_cmsAllocMPETypePluginChunk(ptr noundef captures(none) %0, p
   br label %DupTagTypeList.exit
 
 DupTagTypeList.exit:                              ; preds = %8, %21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %31
 
 26:                                               ; preds = %2
@@ -505,7 +505,7 @@ define hidden void @_cmsAllocTagPluginChunk(ptr noundef captures(none) %0, ptr n
 4:                                                ; preds = %2
   %5 = getelementptr i8, ptr %1, i64 88
   %.val = load ptr, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.02.i = load ptr, ptr %.val, align 8
   %.not3.i = icmp eq ptr %.02.i, null
   br i1 %.not3.i, label %._crit_edge.i, label %.lr.ph.i
@@ -553,7 +553,7 @@ define hidden void @_cmsAllocTagPluginChunk(ptr noundef captures(none) %0, ptr n
   br label %DupTagList.exit
 
 DupTagList.exit:                                  ; preds = %7, %._crit_edge.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %28
 
 23:                                               ; preds = %2
@@ -6412,7 +6412,7 @@ ReadOffsetArray.exit:                             ; preds = %ReadOneElem.exit40.
 149:                                              ; preds = %146
   %.val = load ptr, ptr %132, align 8
   %.val62 = load ptr, ptr %133, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %150 = getelementptr inbounds nuw i32, ptr %.val, i64 %indvars.iv
   %151 = load i32, ptr %150, align 4
   %152 = icmp eq i32 %151, 0
@@ -6431,18 +6431,18 @@ ReadOffsetArray.exit:                             ; preds = %ReadOneElem.exit40.
   br i1 %.not.i65, label %ReadOneMLUC.exit.thread83, label %ReadOneMLUC.exit
 
 ReadOneMLUC.exit.thread83:                        ; preds = %157
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.thread99
 
 ReadOneMLUC.exit.thread:                          ; preds = %153, %149
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %162
 
 ReadOneMLUC.exit:                                 ; preds = %157
   %160 = load i32, ptr %154, align 4
   %161 = call ptr @Type_MLU_Read(ptr noundef readonly %0, ptr noundef nonnull %1, ptr noundef nonnull %6, i32 noundef %160)
   %.not103 = icmp eq ptr %161, null
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %.not103, label %.thread99, label %ReadOneMLUC.exit._crit_edge
 
 ReadOneMLUC.exit._crit_edge:                      ; preds = %ReadOneMLUC.exit
@@ -6458,7 +6458,7 @@ ReadOneMLUC.exit._crit_edge:                      ; preds = %ReadOneMLUC.exit
 164:                                              ; preds = %162
   %.val63 = load ptr, ptr %135, align 8
   %.val64 = load ptr, ptr %136, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %165 = getelementptr inbounds nuw i32, ptr %.val63, i64 %indvars.iv
   %166 = load i32, ptr %165, align 4
   %167 = icmp eq i32 %166, 0
@@ -6477,18 +6477,18 @@ ReadOneMLUC.exit._crit_edge:                      ; preds = %ReadOneMLUC.exit
   br i1 %.not.i66, label %ReadOneMLUC.exit68.thread92, label %ReadOneMLUC.exit68
 
 ReadOneMLUC.exit68.thread92:                      ; preds = %172
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread99
 
 ReadOneMLUC.exit68.thread:                        ; preds = %168, %164
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread
 
 ReadOneMLUC.exit68:                               ; preds = %172
   %175 = load i32, ptr %169, align 4
   %176 = call ptr @Type_MLU_Read(ptr noundef readonly %0, ptr noundef nonnull %1, ptr noundef nonnull %5, i32 noundef %175)
   %.not104 = icmp eq ptr %176, null
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.not104, label %.thread99, label %.thread
 
 .thread:                                          ; preds = %146, %ReadOneMLUC.exit68.thread, %ReadOneMLUC.exit68, %162
@@ -7602,7 +7602,7 @@ define internal range(i32 0, 2) i32 @Type_MHC2_Write(ptr readnone captures(none)
 
 32:                                               ; preds = %30
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store double 1.000000e+00, ptr %5, align 16
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 40
@@ -7644,11 +7644,11 @@ define internal range(i32 0, 2) i32 @Type_MHC2_Write(ptr readnone captures(none)
   br i1 %exitcond19.not.i, label %IsIdentity.exit, label %.preheader.i, !llvm.loop !8
 
 IsIdentity.exit:                                  ; preds = %50
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %WriteDoubles.exit
 
 51:                                               ; preds = %42
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %52 = load ptr, ptr %6, align 8
   %53 = tail call i32 %52(ptr noundef nonnull %1) #14
   %54 = sub i32 %53, %9
@@ -7823,8 +7823,8 @@ declare ptr @cmsMLUdup(ptr noundef) local_unnamed_addr #1
 define internal fastcc range(i32 0, 2) i32 @_cmsReadWCharArray(ptr noundef %0, i32 noundef %1, ptr noundef nonnull writeonly captures(none) %2) unnamed_addr #0 {
   %4 = alloca i16, align 2
   %5 = alloca i16, align 2
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = icmp sgt i32 %1, 0
   br i1 %6, label %.lr.ph.i, label %convert_utf16_to_utf32.exit
 
@@ -7882,8 +7882,8 @@ define internal fastcc range(i32 0, 2) i32 @_cmsReadWCharArray(ptr noundef %0, i
 
 convert_utf16_to_utf32.exit:                      ; preds = %.lr.ph.i, %14, %16, %21, %29, %3
   %.09.i = phi i32 [ 1, %3 ], [ 0, %.lr.ph.i ], [ 0, %14 ], [ 0, %21 ], [ 0, %16 ], [ 1, %29 ]
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.09.i
 }
 
@@ -8422,8 +8422,8 @@ define internal fastcc ptr @ReadSetOfCurves(ptr noundef readonly captures(none) 
 
 .lr.ph35:                                         ; preds = %.lr.ph35.preheader, %28
   %indvars.iv = phi i64 [ 0, %.lr.ph35.preheader ], [ %indvars.iv.next, %28 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %15 = tail call i32 @_cmsReadTypeBase(ptr noundef %1) #14
   switch i32 %15, label %ReadEmbeddedCurve.exit.thread [
     i32 1668641398, label %16
@@ -8443,8 +8443,8 @@ ReadEmbeddedCurve.exit.thread:                    ; preds = %.lr.ph35
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %21 = load ptr, ptr %20, align 8
   call void (ptr, i32, ptr, ...) @cmsSignalError(ptr noundef %21, i32 noundef 8, ptr noundef nonnull @.str.16, ptr noundef nonnull %6) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %22 = and i64 %indvars.iv, 4294967295
   %23 = getelementptr inbounds nuw [16 x ptr], ptr %7, i64 0, i64 %22
   store ptr null, ptr %23, align 8
@@ -8452,8 +8452,8 @@ ReadEmbeddedCurve.exit.thread:                    ; preds = %.lr.ph35
 
 ReadEmbeddedCurve.exit:                           ; preds = %16, %18
   %.0.i = phi ptr [ %17, %16 ], [ %19, %18 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %24 = getelementptr inbounds nuw [16 x ptr], ptr %7, i64 0, i64 %indvars.iv
   store ptr %.0.i, ptr %24, align 8
   %25 = icmp eq ptr %.0.i, null
@@ -9898,12 +9898,12 @@ define internal range(i32 0, 2) i32 @ReadMPECurve(ptr noundef readonly captures(
   %9 = alloca float, align 4
   %10 = alloca i32, align 4
   %11 = alloca [5 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %12 = call i32 @_cmsReadUInt32Number(ptr noundef %1, ptr noundef nonnull %6) #14
   %.not.i = icmp ne i32 %12, 0
   %13 = load i32, ptr %6, align 4
@@ -10204,12 +10204,12 @@ define internal range(i32 0, 2) i32 @ReadMPECurve(ptr noundef readonly captures(
 
 ReadSegmentedCurve.exit:                          ; preds = %131, %5, %14, %16, %18, %20, %23, %._crit_edge142.i, %._crit_edge149.i
   %.081.i = phi ptr [ null, %._crit_edge149.i ], [ null, %5 ], [ null, %14 ], [ null, %16 ], [ null, %18 ], [ null, %20 ], [ null, %23 ], [ %104, %._crit_edge142.i ], [ %104, %131 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %146 = zext i32 %3 to i64
   %147 = getelementptr inbounds nuw ptr, ptr %2, i64 %146
   store ptr %.081.i, ptr %147, align 8
@@ -10741,8 +10741,8 @@ define internal fastcc range(i32 0, 2) i32 @ReadOneWChar(ptr noundef %0, ptr nou
   br i1 %28, label %60, label %29
 
 29:                                               ; preds = %18
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not25 = icmp ult i32 %22, 2
   br i1 %.not25, label %.loopexit, label %.lr.ph.i.i
 
@@ -10799,8 +10799,8 @@ define internal fastcc range(i32 0, 2) i32 @ReadOneWChar(ptr noundef %0, ptr nou
   br i1 %53, label %.lr.ph.i.i, label %.loopexit.loopexit, !llvm.loop !59
 
 54:                                               ; preds = %.lr.ph.i.i, %37, %44, %39
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %55 = load ptr, ptr %1, align 8
   %56 = load ptr, ptr %3, align 8
   call void @_cmsFree(ptr noundef %55, ptr noundef %56) #14
@@ -10812,8 +10812,8 @@ define internal fastcc range(i32 0, 2) i32 @ReadOneWChar(ptr noundef %0, ptr nou
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %29
   %57 = phi ptr [ %.pre, %.loopexit.loopexit ], [ %27, %29 ]
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %58 = zext nneg i32 %23 to i64
   %59 = getelementptr inbounds nuw i32, ptr %57, i64 %58
   store i32 0, ptr %59, align 4
@@ -11205,10 +11205,10 @@ declare { i32, i1 } @llvm.umul.with.overflow.i32(i32, i32) #11
 declare i16 @llvm.umin.i16(i16, i16) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i64 @wcslen(ptr captures(none)) local_unnamed_addr #13

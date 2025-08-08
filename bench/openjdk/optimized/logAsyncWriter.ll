@@ -525,7 +525,7 @@ define hidden void @_ZN14AsyncLogWriter5writeER17ResourceHashtableIP19LogFileStr
   %35 = getelementptr inbounds nuw i8, ptr %.01116.i, i64 8
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds nuw i8, ptr %.01116.i, i64 16
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %38 = load i32, ptr %37, align 4
   %.not.i.i = icmp eq i32 %38, 0
   br i1 %.not.i.i, label %"_ZZN14AsyncLogWriter5writeER17ResourceHashtableIP19LogFileStreamOutputjLj17ELN6AnyObj15allocation_typeE1EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbS9_S9_EEEENK3$_0clES2_Rj.exit.i", label %39
@@ -543,7 +543,7 @@ define hidden void @_ZN14AsyncLogWriter5writeER17ResourceHashtableIP19LogFileStr
   br label %"_ZZN14AsyncLogWriter5writeER17ResourceHashtableIP19LogFileStreamOutputjLj17ELN6AnyObj15allocation_typeE1EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbS9_S9_EEEENK3$_0clES2_Rj.exit.i"
 
 "_ZZN14AsyncLogWriter5writeER17ResourceHashtableIP19LogFileStreamOutputjLj17ELN6AnyObj15allocation_typeE1EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbS9_S9_EEEENK3$_0clES2_Rj.exit.i": ; preds = %39, %.lr.ph.i
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %46 = getelementptr inbounds nuw i8, ptr %.01116.i, i64 24
   %47 = add nsw i32 %.115.i, -1
   %.011.i = load ptr, ptr %46, align 8
@@ -737,7 +737,7 @@ _ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStream
   %83 = load ptr, ptr @_ZN14AsyncLogWriter9_instanceE, align 8
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 928
   %85 = call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %84) #16
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %86 = load ptr, ptr %8, align 8
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
   %88 = load i64, ptr %87, align 8
@@ -799,7 +799,7 @@ _ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStream
   %112 = getelementptr inbounds nuw i8, ptr %.01116.i.i, i64 8
   %113 = load ptr, ptr %112, align 8
   %114 = getelementptr inbounds nuw i8, ptr %.01116.i.i, i64 16
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %115 = load i32, ptr %114, align 4
   %.not.i.i.i = icmp eq i32 %115, 0
   br i1 %.not.i.i.i, label %"_ZZN14AsyncLogWriter5writeER17ResourceHashtableIP19LogFileStreamOutputjLj17ELN6AnyObj15allocation_typeE1EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbS9_S9_EEEENK3$_0clES2_Rj.exit.i.i", label %116
@@ -817,7 +817,7 @@ _ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStream
   br label %"_ZZN14AsyncLogWriter5writeER17ResourceHashtableIP19LogFileStreamOutputjLj17ELN6AnyObj15allocation_typeE1EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbS9_S9_EEEENK3$_0clES2_Rj.exit.i.i"
 
 "_ZZN14AsyncLogWriter5writeER17ResourceHashtableIP19LogFileStreamOutputjLj17ELN6AnyObj15allocation_typeE1EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbS9_S9_EEEENK3$_0clES2_Rj.exit.i.i": ; preds = %116, %.lr.ph.i.i
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %123 = getelementptr inbounds nuw i8, ptr %.01116.i.i, i64 24
   %124 = add nsw i32 %.115.i.i, -1
   %.011.i.i = load ptr, ptr %123, align 8
@@ -841,7 +841,7 @@ _ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStream
   br label %_ZN14AsyncLogWriter5writeER17ResourceHashtableIP19LogFileStreamOutputjLj17ELN6AnyObj15allocation_typeE1EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbS9_S9_EEE.exit
 
 _ZN14AsyncLogWriter5writeER17ResourceHashtableIP19LogFileStreamOutputjLj17ELN6AnyObj15allocation_typeE1EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbS9_S9_EEE.exit: ; preds = %"_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStreamOutputjES2_jLN6AnyObj15allocation_typeE1EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE7iterateIZN14AsyncLogWriter5writeER17ResourceHashtableIS2_jLj17ELS5_1ELS6_17EXadL_ZS7_IS2_EjSA_EEXadL_ZSB_IS2_EbSA_SA_EEEE3$_0EEvS8_.exit.i", %128
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %129 = load ptr, ptr %19, align 8
   %.not.i.i.i.i6 = icmp eq ptr %129, null
   br i1 %.not.i.i.i.i6, label %131, label %130
@@ -1470,10 +1470,10 @@ define internal void @_GLOBAL__sub_I_logAsyncWriter.cpp() #7 section ".text.star
 declare i64 @llvm.umin.i64(i64, i64) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

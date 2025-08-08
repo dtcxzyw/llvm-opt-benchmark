@@ -6066,7 +6066,7 @@ if.then:                                          ; preds = %land.lhs.true
   br label %if.end
 
 if.else:                                          ; preds = %land.lhs.true, %entry
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %temp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %temp.i.i)
   call void @_ZN5eastl12fixed_vectorIiLm1ELb0ENS_15dummy_allocatorEEC1EOS2_(ptr noundef nonnull align 8 dereferenceable(28) %temp.i.i, ptr noundef nonnull align 8 dereferenceable(28) %this)
   %cmp.not.i.i.i = icmp eq ptr %this, %x
   br i1 %cmp.not.i.i.i, label %invoke.cont.i.i, label %if.then.i.i.i
@@ -6168,7 +6168,7 @@ _ZN5eastl22uninitialized_copy_ptrINS_13move_iteratorIPiEES3_S2_EET1_T_T0_S4_.exi
   br label %_ZN5eastl10fixed_swapINS_12fixed_vectorIiLm1ELb0ENS_15dummy_allocatorEEEEEvRT_S5_.exit
 
 _ZN5eastl10fixed_swapINS_12fixed_vectorIiLm1ELb0ENS_15dummy_allocatorEEEEEvRT_S5_.exit: ; preds = %invoke.cont.i.i, %_ZN5eastl6vectorIiNS_22fixed_vector_allocatorILm4ELm1ELm4ELm0ELb0ENS_15dummy_allocatorEEEE9DoReallocINS_13move_iteratorIPiEEEES7_mT_S9_NS4_23should_move_or_copy_tagILb1EEE.exit.i.i.i24.i.i, %if.else.i.i.i15.i.i, %_ZN5eastl22uninitialized_copy_ptrINS_13move_iteratorIPiEES3_S2_EET1_T_T0_S4_.exit.i.i.i23.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %temp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %temp.i.i)
   br label %if.end
 
 if.end:                                           ; preds = %_ZN5eastl10fixed_swapINS_12fixed_vectorIiLm1ELb0ENS_15dummy_allocatorEEEEEvRT_S5_.exit, %if.then
@@ -6961,7 +6961,7 @@ if.then:                                          ; preds = %land.lhs.true
   br label %if.end
 
 if.else:                                          ; preds = %land.lhs.true, %entry
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %temp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %temp.i.i)
   call void @_ZN5eastl12fixed_vectorI7Align64Lm1ELb0ENS_15dummy_allocatorEEC1EOS3_(ptr noundef nonnull align 64 dereferenceable(128) %temp.i.i, ptr noundef nonnull align 64 dereferenceable(128) %this)
   %cmp.not.i.i.i = icmp eq ptr %this, %x
   br i1 %cmp.not.i.i.i, label %invoke.cont.i.i, label %if.then.i.i.i
@@ -7061,7 +7061,7 @@ _ZN5eastl22uninitialized_copy_ptrINS_13move_iteratorIP7Align64EES4_S3_EET1_T_T0_
   br label %_ZN5eastl10fixed_swapINS_12fixed_vectorI7Align64Lm1ELb0ENS_15dummy_allocatorEEEEEvRT_S6_.exit
 
 _ZN5eastl10fixed_swapINS_12fixed_vectorI7Align64Lm1ELb0ENS_15dummy_allocatorEEEEEvRT_S6_.exit: ; preds = %invoke.cont.i.i, %_ZN5eastl6vectorI7Align64NS_22fixed_vector_allocatorILm64ELm1ELm64ELm0ELb0ENS_15dummy_allocatorEEEE9DoReallocINS_13move_iteratorIPS1_EEEES8_mT_SA_NS5_23should_move_or_copy_tagILb1EEE.exit.i.i.i24.i.i, %if.else.i.i.i15.i.i, %_ZN5eastl22uninitialized_copy_ptrINS_13move_iteratorIP7Align64EES4_S3_EET1_T_T0_S5_.exit.i.i.i23.i.i
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %temp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %temp.i.i)
   br label %if.end
 
 if.end:                                           ; preds = %_ZN5eastl10fixed_swapINS_12fixed_vectorI7Align64Lm1ELb0ENS_15dummy_allocatorEEEEEvRT_S6_.exit, %if.then
@@ -21088,10 +21088,10 @@ declare i64 @llvm.umax.i64(i64, i64) #12
 declare void @llvm.assume(i1 noundef) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

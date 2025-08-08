@@ -28,7 +28,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecGough8_Q(ptr noundef %0, ptr nou
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %23 = load i8, ptr %20, align 1
   store i8 %23, ptr %4, align 1
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 80
@@ -175,7 +175,7 @@ doReports.exit:                                   ; preds = %66, %39, %62, %35
   %106 = icmp slt i64 %.097.i, 0
   %107 = tail call i64 @llvm.smin.i64(i64 %105, i64 0)
   %.0.i = select i1 %106, i64 %107, i64 %105
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %108 = getelementptr inbounds i8, ptr %.091.i, i64 %.097.i
   %109 = sub nsw i64 %.0.i, %.097.i
   %110 = add i64 %.097.i, %7
@@ -267,25 +267,19 @@ doReports.exit:                                   ; preds = %66, %39, %62, %35
 
 .thread:                                          ; preds = %113, %122, %147
   %.5.i.ph = phi i8 [ %152, %147 ], [ 1, %122 ], [ 0, %113 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %nfaExecGough8_Q2i.exit
 
 156:                                              ; preds = %153, %130
   %157 = phi i32 [ %155, %153 ], [ %116, %130 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %99
 
 nfaExecGough8_Q2i.exit:                           ; preds = %.thread, %doReports.exit.thread, %94
   %.296.i = phi i8 [ 1, %94 ], [ 0, %doReports.exit.thread ], [ %.5.i.ph, %.thread ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i8 %.296.i
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define hidden signext range(i8 0, 2) i8 @nfaExecGough16_Q(ptr noundef %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
@@ -308,7 +302,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecGough16_Q(ptr noundef %0, ptr no
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %23 = load i16, ptr %20, align 2
   store i16 %23, ptr %4, align 2
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 80
@@ -455,7 +449,7 @@ doReports.exit:                                   ; preds = %66, %39, %62, %35
   %106 = icmp slt i64 %.097.i, 0
   %107 = tail call i64 @llvm.smin.i64(i64 %105, i64 0)
   %.0.i = select i1 %106, i64 %107, i64 %105
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %108 = getelementptr inbounds i8, ptr %.091.i, i64 %.097.i
   %109 = sub nsw i64 %.0.i, %.097.i
   %110 = add i64 %.097.i, %7
@@ -544,17 +538,17 @@ doReports.exit:                                   ; preds = %66, %39, %62, %35
 
 .thread:                                          ; preds = %113, %122, %144
   %.5.i.ph = phi i8 [ %149, %144 ], [ 1, %122 ], [ 0, %113 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %nfaExecGough16_Q2i.exit
 
 153:                                              ; preds = %150, %130
   %154 = phi i32 [ %152, %150 ], [ %116, %130 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %99
 
 nfaExecGough16_Q2i.exit:                          ; preds = %.thread, %doReports.exit.thread, %94
   %.296.i = phi i8 [ 1, %94 ], [ 0, %doReports.exit.thread ], [ %.5.i.ph, %.thread ]
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i8 %.296.i
 }
 
@@ -579,7 +573,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecGough8_Q2(ptr noundef %0, ptr no
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %23 = load i8, ptr %20, align 1
   store i8 %23, ptr %4, align 1
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 80
@@ -726,7 +720,7 @@ doReports.exit:                                   ; preds = %66, %39, %62, %35
   %106 = icmp slt i64 %.097.i, 0
   %107 = tail call i64 @llvm.smin.i64(i64 %105, i64 0)
   %.0.i = select i1 %106, i64 %107, i64 %105
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %108 = getelementptr inbounds i8, ptr %.091.i, i64 %.097.i
   %109 = sub nsw i64 %.0.i, %.097.i
   %110 = add i64 %.097.i, %7
@@ -843,17 +837,17 @@ doReports.exit:                                   ; preds = %66, %39, %62, %35
 
 .thread:                                          ; preds = %113, %119, %136, %161
   %.5.i.ph = phi i8 [ %166, %161 ], [ 1, %136 ], [ 2, %119 ], [ 0, %113 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %nfaExecGough8_Q2i.exit
 
 170:                                              ; preds = %167, %144
   %171 = phi i32 [ %169, %167 ], [ %118, %144 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %99
 
 nfaExecGough8_Q2i.exit:                           ; preds = %.thread, %doReports.exit.thread, %94
   %.296.i = phi i8 [ 1, %94 ], [ 0, %doReports.exit.thread ], [ %.5.i.ph, %.thread ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i8 %.296.i
 }
 
@@ -878,7 +872,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecGough16_Q2(ptr noundef %0, ptr n
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %23 = load i16, ptr %20, align 2
   store i16 %23, ptr %4, align 2
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 80
@@ -1025,7 +1019,7 @@ doReports.exit:                                   ; preds = %66, %39, %62, %35
   %106 = icmp slt i64 %.097.i, 0
   %107 = tail call i64 @llvm.smin.i64(i64 %105, i64 0)
   %.0.i = select i1 %106, i64 %107, i64 %105
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %108 = getelementptr inbounds i8, ptr %.091.i, i64 %.097.i
   %109 = sub nsw i64 %.0.i, %.097.i
   %110 = add i64 %.097.i, %7
@@ -1139,17 +1133,17 @@ doReports.exit:                                   ; preds = %66, %39, %62, %35
 
 .thread:                                          ; preds = %113, %119, %136, %158
   %.5.i.ph = phi i8 [ %163, %158 ], [ 1, %136 ], [ 2, %119 ], [ 0, %113 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %nfaExecGough16_Q2i.exit
 
 167:                                              ; preds = %164, %144
   %168 = phi i32 [ %166, %164 ], [ %118, %144 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %99
 
 nfaExecGough16_Q2i.exit:                          ; preds = %.thread, %doReports.exit.thread, %94
   %.296.i = phi i8 [ 1, %94 ], [ 0, %doReports.exit.thread ], [ %.5.i.ph, %.thread ]
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i8 %.296.i
 }
 
@@ -1174,7 +1168,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecGough8_QR(ptr noundef %0, ptr no
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %23 = load i8, ptr %20, align 1
   store i8 %23, ptr %4, align 1
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 80
@@ -1270,7 +1264,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecGough8_QR(ptr noundef %0, ptr no
 
 nfaExecGough8_Q2i.exit.thread:                    ; preds = %76, %62, %35
   store i8 0, ptr %24, align 8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %135
 
 doReports.exit:                                   ; preds = %66, %39, %62, %35
@@ -1306,7 +1300,7 @@ doReports.exit:                                   ; preds = %66, %39, %62, %35
   %99 = icmp slt i64 %.097.i, 0
   %100 = tail call i64 @llvm.smin.i64(i64 %98, i64 0)
   %.0.i = select i1 %99, i64 %100, i64 %98
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %101 = getelementptr inbounds i8, ptr %.091.i, i64 %.097.i
   %102 = sub nsw i64 %.0.i, %.097.i
   %103 = add i64 %.097.i, %7
@@ -1317,8 +1311,8 @@ doReports.exit:                                   ; preds = %66, %39, %62, %35
 nfaExecGough8_Q2i.exit.thread37:                  ; preds = %93
   %106 = load ptr, ptr %19, align 8
   store i8 0, ptr %106, align 1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %135
 
 107:                                              ; preds = %93
@@ -1366,7 +1360,7 @@ nfaExecGough8_Q2i.exit.thread37:                  ; preds = %93
 
 128:                                              ; preds = %125, %107
   %.pre = phi i32 [ %127, %125 ], [ %.pre.pre, %107 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %93
 
 nfaExecGough8_Q2i.exit:                           ; preds = %109
@@ -1377,8 +1371,8 @@ nfaExecGough8_Q2i.exit:                           ; preds = %109
   %132 = add i32 %131, 1
   store i32 %132, ptr %81, align 8
   %.not106.i.not = icmp eq i8 %129, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.not106.i.not, label %135, label %133
 
 133:                                              ; preds = %nfaExecGough8_Q2i.exit
@@ -1392,7 +1386,7 @@ nfaExecGough8_Q2i.exit:                           ; preds = %109
   ret i8 %.0
 }
 
-declare signext i8 @nfaExecMcClellan8_inAccept(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare signext i8 @nfaExecMcClellan8_inAccept(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden signext range(i8 0, 3) i8 @nfaExecGough16_QR(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -1415,7 +1409,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecGough16_QR(ptr noundef %0, ptr n
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %23 = load i16, ptr %20, align 2
   store i16 %23, ptr %4, align 2
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 80
@@ -1511,7 +1505,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecGough16_QR(ptr noundef %0, ptr n
 
 nfaExecGough16_Q2i.exit.thread:                   ; preds = %76, %62, %35
   store i8 0, ptr %24, align 8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %132
 
 doReports.exit:                                   ; preds = %66, %39, %62, %35
@@ -1547,7 +1541,7 @@ doReports.exit:                                   ; preds = %66, %39, %62, %35
   %99 = icmp slt i64 %.097.i, 0
   %100 = tail call i64 @llvm.smin.i64(i64 %98, i64 0)
   %.0.i = select i1 %99, i64 %100, i64 %98
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %101 = getelementptr inbounds i8, ptr %.091.i, i64 %.097.i
   %102 = sub nsw i64 %.0.i, %.097.i
   %103 = add i64 %.097.i, %7
@@ -1558,8 +1552,8 @@ doReports.exit:                                   ; preds = %66, %39, %62, %35
 nfaExecGough16_Q2i.exit.thread37:                 ; preds = %93
   %106 = load ptr, ptr %19, align 8
   store i16 0, ptr %106, align 2
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %132
 
 107:                                              ; preds = %93
@@ -1604,7 +1598,7 @@ nfaExecGough16_Q2i.exit.thread37:                 ; preds = %93
 
 125:                                              ; preds = %122, %107
   %.pre = phi i32 [ %124, %122 ], [ %.pre.pre, %107 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %93
 
 nfaExecGough16_Q2i.exit:                          ; preds = %109
@@ -1615,8 +1609,8 @@ nfaExecGough16_Q2i.exit:                          ; preds = %109
   %129 = add i32 %128, 1
   store i32 %129, ptr %81, align 8
   %.not106.i.not = icmp eq i16 %126, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.not106.i.not, label %132, label %130
 
 130:                                              ; preds = %nfaExecGough16_Q2i.exit
@@ -1630,10 +1624,10 @@ nfaExecGough16_Q2i.exit:                          ; preds = %109
   ret i8 %.0
 }
 
-declare signext i8 @nfaExecMcClellan16_inAccept(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare signext i8 @nfaExecMcClellan16_inAccept(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden signext range(i8 0, 2) i8 @nfaExecGough8_initCompressedState(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2, i8 noundef zeroext %3) local_unnamed_addr #3 {
+define hidden signext range(i8 0, 2) i8 @nfaExecGough8_initCompressedState(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2, i8 noundef zeroext %3) local_unnamed_addr #2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %6 = load i32, ptr %5, align 4
   %7 = zext i32 %6 to i64
@@ -1656,10 +1650,10 @@ define hidden signext range(i8 0, 2) i8 @nfaExecGough8_initCompressedState(ptr n
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden signext range(i8 0, 2) i8 @nfaExecGough16_initCompressedState(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2, i8 noundef zeroext %3) local_unnamed_addr #3 {
+define hidden signext range(i8 0, 2) i8 @nfaExecGough16_initCompressedState(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2, i8 noundef zeroext %3) local_unnamed_addr #2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %6 = load i32, ptr %5, align 4
   %7 = zext i32 %6 to i64
@@ -1905,7 +1899,7 @@ define hidden signext i8 @nfaExecGough8_inAnyAccept(ptr noundef %0, ptr noundef 
   ret i8 %3
 }
 
-declare signext i8 @nfaExecMcClellan8_inAnyAccept(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare signext i8 @nfaExecMcClellan8_inAnyAccept(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden signext i8 @nfaExecGough16_inAnyAccept(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -1913,7 +1907,7 @@ define hidden signext i8 @nfaExecGough16_inAnyAccept(ptr noundef %0, ptr noundef
   ret i8 %3
 }
 
-declare signext i8 @nfaExecMcClellan16_inAnyAccept(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare signext i8 @nfaExecMcClellan16_inAnyAccept(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden signext range(i8 0, 2) i8 @nfaExecGough8_testEOD(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readnone captures(none) %2, i64 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef %5) local_unnamed_addr #0 {
@@ -2034,7 +2028,7 @@ goughCheckEOD.exit:                               ; preds = %23, %33, %6, %16
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef signext i8 @nfaExecGough8_queueInitState(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #5 {
+define hidden noundef signext i8 @nfaExecGough8_queueInitState(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -2045,7 +2039,7 @@ define hidden noundef signext i8 @nfaExecGough8_queueInitState(ptr noundef reado
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef signext i8 @nfaExecGough16_queueInitState(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #5 {
+define hidden noundef signext i8 @nfaExecGough16_queueInitState(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -2056,7 +2050,7 @@ define hidden noundef signext i8 @nfaExecGough16_queueInitState(ptr noundef read
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef signext i8 @nfaExecGough8_queueCompressState(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #6 {
+define hidden noundef signext i8 @nfaExecGough8_queueCompressState(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #5 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -2152,7 +2146,7 @@ compSomSpace.exit:                                ; preds = %compressSomValue.ex
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden noundef signext i8 @nfaExecGough8_expandState(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 1)) %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i8 noundef zeroext %4) local_unnamed_addr #7 {
+define hidden noundef signext i8 @nfaExecGough8_expandState(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 1)) %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i8 noundef zeroext %4) local_unnamed_addr #6 {
   %6 = load i8, ptr %2, align 1
   store i8 %6, ptr %1, align 1
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -2240,7 +2234,7 @@ expandSomSpace.exit:                              ; preds = %.lr.ph.split.us12, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef signext i8 @nfaExecGough16_queueCompressState(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #6 {
+define hidden noundef signext i8 @nfaExecGough16_queueCompressState(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #5 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -2336,7 +2330,7 @@ compSomSpace.exit:                                ; preds = %compressSomValue.ex
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden noundef signext i8 @nfaExecGough16_expandState(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 2)) %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i8 noundef zeroext %4) local_unnamed_addr #7 {
+define hidden noundef signext i8 @nfaExecGough16_expandState(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 2)) %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i8 noundef zeroext %4) local_unnamed_addr #6 {
   %6 = load i16, ptr %2, align 1
   store i16 %6, ptr %1, align 2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -2424,7 +2418,7 @@ expandSomSpace.exit:                              ; preds = %.lr.ph.split.us12, 
 }
 
 ; Function Attrs: noinline nounwind uwtable
-define internal fastcc signext range(i8 0, 2) i8 @goughExec8_i_ni(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef nonnull captures(none) %2, ptr noundef %3, i64 noundef %4, i64 noundef %5, ptr noundef readonly captures(none) %6, ptr noundef %7, ptr noundef nonnull writeonly captures(none) %8, i32 noundef range(i32 0, 3) %9) unnamed_addr #8 {
+define internal fastcc signext range(i8 0, 2) i8 @goughExec8_i_ni(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef nonnull captures(none) %2, ptr noundef %3, i64 noundef %4, i64 noundef %5, ptr noundef readonly captures(none) %6, ptr noundef %7, ptr noundef nonnull writeonly captures(none) %8, i32 noundef range(i32 0, 3) %9) unnamed_addr #7 {
   %11 = load i8, ptr %2, align 1
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 %4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 308
@@ -3139,7 +3133,7 @@ goughExec8_i.exit:                                ; preds = %238, %213, %254, %3
 }
 
 ; Function Attrs: nofree noinline norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc zeroext i16 @goughEnableStarts(ptr noundef readonly captures(none) %0, i16 noundef zeroext %1, i64 noundef %2, ptr noundef captures(none) %3) unnamed_addr #9 {
+define internal fastcc zeroext i16 @goughEnableStarts(ptr noundef readonly captures(none) %0, i16 noundef zeroext %1, i64 noundef %2, ptr noundef captures(none) %3) unnamed_addr #8 {
   %5 = getelementptr inbounds i8, ptr %0, i64 -64
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %7 = load i32, ptr %6, align 4
@@ -3235,10 +3229,10 @@ run_prog_i.exit:                                  ; preds = %22, %.run_prog_i.ex
   ret i16 %.0
 }
 
-declare ptr @run_accel(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @run_accel(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree noinline norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @run_accel_prog(ptr noundef readonly captures(none) %0, i8 %.80.val, i32 %.84.val, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef captures(none) %5) unnamed_addr #9 {
+define internal fastcc void @run_accel_prog(ptr noundef readonly captures(none) %0, i8 %.80.val, i32 %.84.val, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef captures(none) %5) unnamed_addr #8 {
   %7 = zext i32 %.84.val to i64
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 %7
   %9 = zext i8 %.80.val to i64
@@ -3481,7 +3475,7 @@ run_prog_i.exit54:                                ; preds = %90
 }
 
 ; Function Attrs: noinline nounwind uwtable
-define internal fastcc signext range(i8 0, 2) i8 @goughExec16_i_ni(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef nonnull captures(none) %2, ptr noundef %3, i64 noundef %4, i64 noundef %5, ptr noundef readonly captures(none) %6, ptr noundef %7, ptr noundef nonnull writeonly captures(none) %8, i32 noundef range(i32 0, 3) %9) unnamed_addr #10 {
+define internal fastcc signext range(i8 0, 2) i8 @goughExec16_i_ni(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef nonnull captures(none) %2, ptr noundef %3, i64 noundef %4, i64 noundef %5, ptr noundef readonly captures(none) %6, ptr noundef %7, ptr noundef nonnull writeonly captures(none) %8, i32 noundef range(i32 0, 3) %9) unnamed_addr #9 {
   %11 = load i16, ptr %2, align 2
   %12 = getelementptr inbounds i8, ptr %0, i64 -64
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 %4
@@ -4146,10 +4140,16 @@ goughExec16_i.exit:                               ; preds = %171, %145, %185, %3
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #11
+declare void @llvm.assume(i1 noundef) #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #12
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #11
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #13
@@ -4158,18 +4158,18 @@ declare i64 @llvm.smin.i64(i64, i64) #13
 declare i64 @llvm.umin.i64(i64, i64) #13
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
-attributes #6 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
-attributes #7 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
-attributes #8 = { noinline nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
-attributes #9 = { nofree noinline norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
-attributes #10 = { noinline nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
-attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #12 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
+attributes #5 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
+attributes #6 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
+attributes #7 = { noinline nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
+attributes #8 = { nofree noinline norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
+attributes #9 = { noinline nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #14 = { nounwind }
 

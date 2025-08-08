@@ -951,8 +951,8 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local noundef zeroext i1 @describeAggregates(ptr noundef %0, i1 noundef zeroext %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca %struct.PQExpBufferData, align 8
   %5 = alloca %struct.printQueryOpt, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #8
-  call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %5, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds nuw (i8, ptr @pset, i64 48), i64 168, i1 false)
   call void @initPQExpBuffer(ptr noundef nonnull %4) #8
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %4, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4) #8
@@ -997,31 +997,28 @@ define dso_local noundef zeroext i1 @describeAggregates(ptr noundef %0, i1 nound
 
 21:                                               ; preds = %13, %16, %12
   %.0 = phi i1 [ true, %16 ], [ false, %12 ], [ false, %13 ]
-  call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
-declare void @initPQExpBuffer(ptr noundef) local_unnamed_addr #3
+declare void @initPQExpBuffer(ptr noundef) local_unnamed_addr #2
 
-declare void @printfPQExpBuffer(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
+declare void @printfPQExpBuffer(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare void @appendPQExpBuffer(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
+declare void @appendPQExpBuffer(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare void @appendPQExpBufferStr(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @appendPQExpBufferStr(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i1 @validateSQLNamePattern(ptr noundef nonnull %0, ptr noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef writeonly captures(address_is_null) %8, i32 noundef range(i32 1, 4) %9) unnamed_addr #0 {
   %11 = alloca %struct.PQExpBufferData, align 8
   %12 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @initPQExpBuffer(ptr noundef nonnull %11) #8
   %13 = load ptr, ptr @pset, align 8
   %14 = call zeroext i1 @processSQLNamePattern(ptr noundef %13, ptr noundef nonnull %0, ptr noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef nonnull %11, ptr noundef nonnull %12) #8
@@ -1074,21 +1071,18 @@ define internal fastcc noundef zeroext i1 @validateSQLNamePattern(ptr noundef no
 35:                                               ; preds = %19, %28, %34, %20, %29
   %.0 = phi i1 [ true, %29 ], [ true, %20 ], [ false, %34 ], [ false, %28 ], [ false, %19 ]
   call void @termPQExpBuffer(ptr noundef nonnull %11) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i1 %.0
 }
 
-declare void @termPQExpBuffer(ptr noundef) local_unnamed_addr #3
+declare void @termPQExpBuffer(ptr noundef) local_unnamed_addr #2
 
-declare ptr @PSQLexec(ptr noundef) local_unnamed_addr #3
+declare ptr @PSQLexec(ptr noundef) local_unnamed_addr #2
 
-declare void @printQuery(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #3
+declare void @printQuery(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #2
 
-declare void @PQclear(ptr noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @PQclear(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef zeroext i1 @describeAccessMethods(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
@@ -1097,18 +1091,18 @@ define dso_local noundef zeroext i1 @describeAccessMethods(ptr noundef %0, i1 no
   %5 = alloca %struct.PQExpBufferData, align 8
   %6 = alloca %struct.printQueryOpt, align 8
   %7 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %6, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds nuw (i8, ptr @pset, i64 48), i64 168, i1 false)
   %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 332), align 4
   %9 = icmp slt i32 %8, 90600
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %11 = call ptr @formatPGVersionNumber(i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7, i64 noundef 32) #8
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.14, ptr noundef %11) #8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %29
 
 12:                                               ; preds = %2
@@ -1122,8 +1116,8 @@ define dso_local noundef zeroext i1 @describeAccessMethods(ptr noundef %0, i1 no
 
 14:                                               ; preds = %13, %12
   call void @appendPQExpBufferStr(ptr noundef nonnull %5, ptr noundef nonnull @.str.21) #8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @initPQExpBuffer(ptr noundef nonnull %3) #8
   %15 = load ptr, ptr @pset, align 8
   %16 = call zeroext i1 @processSQLNamePattern(ptr noundef %15, ptr noundef nonnull %5, ptr noundef %0, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef null, ptr noundef nonnull @.str.22, ptr noundef null, ptr noundef null, ptr noundef nonnull %3, ptr noundef nonnull %4) #8
@@ -1134,15 +1128,15 @@ define dso_local noundef zeroext i1 @describeAccessMethods(ptr noundef %0, i1 no
 18:                                               ; preds = %14
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.912, ptr noundef %0) #8
   call void @termPQExpBuffer(ptr noundef nonnull %3) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @termPQExpBuffer(ptr noundef nonnull %5) #8
   br label %29
 
 19:                                               ; preds = %14
   call void @termPQExpBuffer(ptr noundef nonnull %3) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @appendPQExpBufferStr(ptr noundef nonnull %5, ptr noundef nonnull @.str.23) #8
   %20 = load ptr, ptr %5, align 8
   %21 = call ptr @PSQLexec(ptr noundef %20) #8
@@ -1167,14 +1161,14 @@ define dso_local noundef zeroext i1 @describeAccessMethods(ptr noundef %0, i1 no
 
 29:                                               ; preds = %19, %22, %18, %10
   %.0 = phi i1 [ true, %10 ], [ true, %22 ], [ false, %18 ], [ false, %19 ]
-  call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0
 }
 
-declare void @pg_log_generic(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
+declare void @pg_log_generic(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare ptr @formatPGVersionNumber(i32 noundef, i1 noundef zeroext, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare ptr @formatPGVersionNumber(i32 noundef, i1 noundef zeroext, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef zeroext i1 @describeTablespaces(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
@@ -1182,8 +1176,8 @@ define dso_local noundef zeroext i1 @describeTablespaces(ptr noundef %0, i1 noun
   %4 = alloca i32, align 4
   %5 = alloca %struct.PQExpBufferData, align 8
   %6 = alloca %struct.printQueryOpt, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %6, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds nuw (i8, ptr @pset, i64 48), i64 168, i1 false)
   call void @initPQExpBuffer(ptr noundef nonnull %5) #8
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27) #8
@@ -1197,8 +1191,8 @@ define dso_local noundef zeroext i1 @describeTablespaces(ptr noundef %0, i1 noun
 
 8:                                                ; preds = %7, %2
   call void @appendPQExpBufferStr(ptr noundef nonnull %5, ptr noundef nonnull @.str.33) #8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @initPQExpBuffer(ptr noundef nonnull %3) #8
   %9 = load ptr, ptr @pset, align 8
   %10 = call zeroext i1 @processSQLNamePattern(ptr noundef %9, ptr noundef nonnull %5, ptr noundef %0, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef null, ptr noundef nonnull @.str.34, ptr noundef null, ptr noundef null, ptr noundef nonnull %3, ptr noundef nonnull %4) #8
@@ -1209,15 +1203,15 @@ define dso_local noundef zeroext i1 @describeTablespaces(ptr noundef %0, i1 noun
 12:                                               ; preds = %8
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.912, ptr noundef %0) #8
   call void @termPQExpBuffer(ptr noundef nonnull %3) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @termPQExpBuffer(ptr noundef nonnull %5) #8
   br label %21
 
 13:                                               ; preds = %8
   call void @termPQExpBuffer(ptr noundef nonnull %3) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @appendPQExpBufferStr(ptr noundef nonnull %5, ptr noundef nonnull @.str.23) #8
   %14 = load ptr, ptr %5, align 8
   %15 = call ptr @PSQLexec(ptr noundef %14) #8
@@ -1238,8 +1232,8 @@ define dso_local noundef zeroext i1 @describeTablespaces(ptr noundef %0, i1 noun
 
 21:                                               ; preds = %13, %16, %12
   %.0 = phi i1 [ true, %16 ], [ false, %12 ], [ false, %13 ]
-  call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0
 }
 
@@ -1262,8 +1256,8 @@ define dso_local noundef zeroext i1 @describeFunctions(ptr noundef readonly %0, 
   %21 = icmp ne ptr %20, null
   %22 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 119) #9
   %23 = icmp ne ptr %22, null
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #8
-  call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %8) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %8, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds nuw (i8, ptr @pset, i64 48), i64 168, i1 false)
   %24 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #9
   %25 = tail call i64 @strspn(ptr noundef nonnull %0, ptr noundef nonnull @.str.36) #9
@@ -1281,10 +1275,10 @@ define dso_local noundef zeroext i1 @describeFunctions(ptr noundef readonly %0, 
   br i1 %or.cond, label %30, label %32
 
 30:                                               ; preds = %27
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %31 = call ptr @formatPGVersionNumber(i32 noundef %28, i1 noundef zeroext false, ptr noundef nonnull %9, i64 noundef 32) #8
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.38, i32 noundef 112, ptr noundef %31) #8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %131
 
 32:                                               ; preds = %27
@@ -1513,10 +1507,10 @@ sub_0:                                            ; preds = %sub_0.preheader, %1
   br i1 %95, label %114, label %.tail.thread
 
 .tail.thread:                                     ; preds = %sub_0, %.tail
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10) #8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11) #8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %12) #8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %13) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %96 = trunc nuw nsw i64 %indvars.iv to i32
   %97 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %10, i64 noundef 64, ptr noundef nonnull @.str.92, i32 noundef %96) #8
   %98 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %11, i64 noundef 64, ptr noundef nonnull @.str.93, i32 noundef %96) #8
@@ -1550,10 +1544,10 @@ sub_0:                                            ; preds = %sub_0.preheader, %1
 map_typename_pattern.exit:                        ; preds = %112, %.tail.thread, %107
   %.09.i = phi ptr [ null, %.tail.thread ], [ %111, %107 ], [ %101, %112 ]
   %113 = call fastcc zeroext i1 @validateSQLNamePattern(ptr noundef %7, ptr noundef %.09.i, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef null, i32 noundef 3)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13) #8
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12) #8
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11) #8
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br i1 %113, label %116, label %.loopexit
 
 114:                                              ; preds = %.tail
@@ -1608,31 +1602,31 @@ map_typename_pattern.exit:                        ; preds = %112, %.tail.thread,
 
 131:                                              ; preds = %119, %.loopexit, %122, %30, %26
   %.091 = phi i1 [ true, %26 ], [ true, %30 ], [ true, %122 ], [ false, %.loopexit ], [ false, %119 ]
-  call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %8) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i1 %.091
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
+declare i64 @strspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
-declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #3
+declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef zeroext i1 @describeTypes(ptr noundef %0, i1 noundef zeroext %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca %struct.PQExpBufferData, align 8
   %5 = alloca %struct.printQueryOpt, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #8
-  call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %5, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds nuw (i8, ptr @pset, i64 48), i64 168, i1 false)
   call void @initPQExpBuffer(ptr noundef nonnull %4) #8
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %4, ptr noundef nonnull @.str.98, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #8
@@ -1723,13 +1717,13 @@ map_typename_pattern.exit:                        ; preds = %23, %12, %13, %18
 
 34:                                               ; preds = %26, %29, %25
   %.0 = phi i1 [ true, %29 ], [ false, %25 ], [ false, %26 ]
-  call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #4
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef zeroext i1 @describeOperators(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
@@ -1739,8 +1733,8 @@ define dso_local noundef zeroext i1 @describeOperators(ptr noundef %0, ptr nound
   %9 = alloca [64 x i8], align 16
   %10 = alloca [64 x i8], align 16
   %11 = alloca [64 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #8
-  call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %7, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds nuw (i8, ptr @pset, i64 48), i64 168, i1 false)
   call void @initPQExpBuffer(ptr noundef nonnull %6) #8
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %6, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.114, ptr noundef nonnull @.str.115, ptr noundef nonnull @.str.116) #8
@@ -1818,10 +1812,10 @@ sub_0:                                            ; preds = %sub_0.preheader, %5
   br i1 %34, label %53, label %.tail.thread
 
 .tail.thread:                                     ; preds = %sub_0, %.tail
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10) #8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %35 = trunc nuw nsw i64 %indvars.iv to i32
   %36 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %8, i64 noundef 64, ptr noundef nonnull @.str.92, i32 noundef %35) #8
   %37 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %9, i64 noundef 64, ptr noundef nonnull @.str.93, i32 noundef %35) #8
@@ -1855,10 +1849,10 @@ sub_0:                                            ; preds = %sub_0.preheader, %5
 map_typename_pattern.exit:                        ; preds = %51, %.tail.thread, %46
   %.09.i = phi ptr [ null, %.tail.thread ], [ %50, %46 ], [ %40, %51 ]
   %52 = call fastcc zeroext i1 @validateSQLNamePattern(ptr noundef %6, ptr noundef %.09.i, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef null, i32 noundef 3)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11) #8
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #8
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #8
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %52, label %55, label %.loopexit
 
 53:                                               ; preds = %.tail
@@ -1900,8 +1894,8 @@ map_typename_pattern.exit:                        ; preds = %51, %.tail.thread, 
 
 65:                                               ; preds = %.thread, %.loopexit, %58
   %.029 = phi i1 [ true, %58 ], [ false, %.loopexit ], [ false, %.thread ]
-  call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.029
 }
 
@@ -1911,8 +1905,8 @@ define dso_local noundef zeroext i1 @listAllDbs(ptr noundef %0, i1 noundef zeroe
   %4 = alloca i32, align 4
   %5 = alloca %struct.PQExpBufferData, align 8
   %6 = alloca %struct.printQueryOpt, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %6, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds nuw (i8, ptr @pset, i64 48), i64 168, i1 false)
   call void @initPQExpBuffer(ptr noundef nonnull %5) #8
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.129, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.130) #8
@@ -1947,8 +1941,8 @@ define dso_local noundef zeroext i1 @listAllDbs(ptr noundef %0, i1 noundef zeroe
   br i1 %.not, label %20, label %15
 
 15:                                               ; preds = %.critedge
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @initPQExpBuffer(ptr noundef nonnull %3) #8
   %16 = load ptr, ptr @pset, align 8
   %17 = call zeroext i1 @processSQLNamePattern(ptr noundef %16, ptr noundef nonnull %5, ptr noundef nonnull %0, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef null, ptr noundef nonnull @.str.149, ptr noundef null, ptr noundef null, ptr noundef nonnull %3, ptr noundef nonnull %4) #8
@@ -1958,15 +1952,15 @@ define dso_local noundef zeroext i1 @listAllDbs(ptr noundef %0, i1 noundef zeroe
 
 validateSQLNamePattern.exit.thread:               ; preds = %15
   call void @termPQExpBuffer(ptr noundef nonnull %3) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %20
 
 19:                                               ; preds = %15
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.912, ptr noundef nonnull %0) #8
   call void @termPQExpBuffer(ptr noundef nonnull %3) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @termPQExpBuffer(ptr noundef nonnull %5) #8
   br label %28
 
@@ -1991,8 +1985,8 @@ validateSQLNamePattern.exit.thread:               ; preds = %15
 
 28:                                               ; preds = %20, %23, %19
   %.0 = phi i1 [ true, %23 ], [ false, %19 ], [ false, %20 ]
-  call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0
 }
 
@@ -2000,8 +1994,8 @@ validateSQLNamePattern.exit.thread:               ; preds = %15
 define dso_local noundef zeroext i1 @permissionsList(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = alloca %struct.PQExpBufferData, align 8
   %4 = alloca %struct.printQueryOpt, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #8
-  call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %4, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds nuw (i8, ptr @pset, i64 48), i64 168, i1 false)
   call void @initPQExpBuffer(ptr noundef nonnull %3) #8
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %3, ptr noundef nonnull @.str.151, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.152, ptr noundef nonnull @.str.153, ptr noundef nonnull @.str.154, ptr noundef nonnull @.str.155, ptr noundef nonnull @.str.156, ptr noundef nonnull @.str.157, ptr noundef nonnull @.str.18) #8
@@ -2071,8 +2065,8 @@ define dso_local noundef zeroext i1 @permissionsList(ptr noundef %0, i1 noundef 
 
 29:                                               ; preds = %28, %20
   %.0 = phi i1 [ true, %20 ], [ false, %28 ]
-  call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
 
@@ -2080,8 +2074,8 @@ define dso_local noundef zeroext i1 @permissionsList(ptr noundef %0, i1 noundef 
 define dso_local noundef zeroext i1 @listDefaultACLs(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.PQExpBufferData, align 8
   %3 = alloca %struct.printQueryOpt, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #8
-  call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %3, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds nuw (i8, ptr @pset, i64 48), i64 168, i1 false)
   call void @initPQExpBuffer(ptr noundef nonnull %2) #8
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %2, ptr noundef nonnull @.str.168, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.1, i32 noundef 114, ptr noundef nonnull @.str.152, i32 noundef 83, ptr noundef nonnull @.str.155, i32 noundef 102, ptr noundef nonnull @.str.169, i32 noundef 84, ptr noundef nonnull @.str.170, i32 noundef 110, ptr noundef nonnull @.str.171, ptr noundef nonnull @.str.18) #8
@@ -2121,8 +2115,8 @@ define dso_local noundef zeroext i1 @listDefaultACLs(ptr noundef %0) local_unnam
 
 17:                                               ; preds = %16, %8
   %.0 = phi i1 [ true, %8 ], [ false, %16 ]
-  call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %3) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %.0
 }
 
@@ -2130,8 +2124,8 @@ define dso_local noundef zeroext i1 @listDefaultACLs(ptr noundef %0) local_unnam
 define dso_local noundef zeroext i1 @objectDescription(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = alloca %struct.PQExpBufferData, align 8
   %4 = alloca %struct.printQueryOpt, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #8
-  call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %4, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds nuw (i8, ptr @pset, i64 48), i64 168, i1 false)
   call void @initPQExpBuffer(ptr noundef nonnull %3) #8
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %3, ptr noundef nonnull @.str.177, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.178, ptr noundef nonnull @.str.6) #8
@@ -2239,15 +2233,15 @@ define dso_local noundef zeroext i1 @objectDescription(ptr noundef %0, i1 nounde
 
 41:                                               ; preds = %30, %40, %33
   %.0 = phi i1 [ true, %33 ], [ false, %40 ], [ false, %30 ]
-  call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef zeroext i1 @describeTableDetails(ptr noundef %0, i1 noundef zeroext %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca %struct.PQExpBufferData, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @initPQExpBuffer(ptr noundef nonnull %4) #8
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %4, ptr noundef nonnull @.str.199) #8
   %5 = icmp ne ptr %0, null
@@ -2338,13 +2332,13 @@ define dso_local noundef zeroext i1 @describeTableDetails(ptr noundef %0, i1 nou
 
 .critedge:                                        ; preds = %37, %34, %11, %._crit_edge, %25, %10
   %.0 = phi i1 [ false, %25 ], [ true, %._crit_edge ], [ false, %10 ], [ false, %11 ], [ false, %34 ], [ false, %37 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
 }
 
-declare i32 @PQntuples(ptr noundef) local_unnamed_addr #3
+declare i32 @PQntuples(ptr noundef) local_unnamed_addr #2
 
-declare ptr @PQgetvalue(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @PQgetvalue(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i1 @describeOneTableDetails(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
@@ -2356,13 +2350,13 @@ define internal fastcc noundef zeroext i1 @describeOneTableDetails(ptr noundef %
   %10 = alloca %struct.PQExpBufferData, align 8
   %11 = alloca %struct.printQueryOpt, align 8
   %12 = alloca [2 x ptr], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %6, ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @pset, i64 48), i64 120, i1 false)
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %7) #8
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %8) #8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 27
   store i8 0, ptr %13, align 1
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 4
@@ -2579,9 +2573,9 @@ sub_1:                                            ; preds = %.tail1283
   br i1 %115, label %116, label %149
 
 116:                                              ; preds = %.thread
-  call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %11) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %11, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds nuw (i8, ptr @pset, i64 48), i64 168, i1 false)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %12, i8 0, i64 16, i1 false)
   %117 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 332), align 4
   %118 = icmp sgt i32 %117, 99999
@@ -2659,8 +2653,8 @@ sub_1:                                            ; preds = %.tail1283
 
 148:                                              ; preds = %126, %123, %138
   %.1 = phi i1 [ true, %138 ], [ false, %123 ], [ false, %126 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #8
-  call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %11) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %986
 
 149:                                              ; preds = %.thread
@@ -4974,12 +4968,12 @@ sub_01425:                                        ; preds = %sub_01425.sink.spli
   call void @termPQExpBuffer(ptr noundef nonnull %10) #8
   call void @free(ptr noundef %.09781268) #8
   call void @PQclear(ptr noundef %.09741270) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #8
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %8) #8
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.09731272
 }
 
@@ -4990,9 +4984,9 @@ define dso_local noundef zeroext i1 @describeRoles(ptr noundef %0, i1 noundef ze
   %6 = alloca %struct.PQExpBufferData, align 8
   %7 = alloca %struct.printTableContent, align 8
   %8 = alloca %struct.printTableOpt, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #8
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %7) #8
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %8) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %8, ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @pset, i64 48), i64 120, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 27
   store i8 0, ptr %9, align 1
@@ -5026,8 +5020,8 @@ define dso_local noundef zeroext i1 @describeRoles(ptr noundef %0, i1 noundef ze
   br label %18
 
 18:                                               ; preds = %17, %15
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @initPQExpBuffer(ptr noundef nonnull %4) #8
   %19 = load ptr, ptr @pset, align 8
   %20 = call zeroext i1 @processSQLNamePattern(ptr noundef %19, ptr noundef nonnull %6, ptr noundef %0, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef null, ptr noundef nonnull @.str.209, ptr noundef null, ptr noundef null, ptr noundef nonnull %4, ptr noundef nonnull %5) #8
@@ -5038,15 +5032,15 @@ define dso_local noundef zeroext i1 @describeRoles(ptr noundef %0, i1 noundef ze
 22:                                               ; preds = %18
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.912, ptr noundef %0) #8
   call void @termPQExpBuffer(ptr noundef nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @termPQExpBuffer(ptr noundef nonnull %6) #8
   br label %129
 
 23:                                               ; preds = %18
   call void @termPQExpBuffer(ptr noundef nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @appendPQExpBufferStr(ptr noundef nonnull %6, ptr noundef nonnull @.str.23) #8
   %24 = load ptr, ptr %6, align 8
   %25 = call ptr @PSQLexec(ptr noundef %24) #8
@@ -5366,32 +5360,32 @@ add_role_attribute.exit78:                        ; preds = %93, %95
 
 129:                                              ; preds = %23, %._crit_edge107, %22
   %.0 = phi i1 [ true, %._crit_edge107 ], [ false, %22 ], [ false, %23 ]
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %8) #8
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0
 }
 
-declare ptr @pg_malloc0(i64 noundef) local_unnamed_addr #3
+declare ptr @pg_malloc0(i64 noundef) local_unnamed_addr #2
 
-declare void @printTableInit(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare void @printTableInit(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @printTableAddHeader(ptr noundef, ptr noundef, i1 noundef zeroext, i8 noundef signext) local_unnamed_addr #3
+declare void @printTableAddHeader(ptr noundef, ptr noundef, i1 noundef zeroext, i8 noundef signext) local_unnamed_addr #2
 
-declare void @printTableAddCell(ptr noundef, ptr noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #3
+declare void @printTableAddCell(ptr noundef, ptr noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #2
 
-declare void @resetPQExpBuffer(ptr noundef) local_unnamed_addr #3
+declare void @resetPQExpBuffer(ptr noundef) local_unnamed_addr #2
 
-declare void @appendPQExpBufferChar(ptr noundef, i8 noundef signext) local_unnamed_addr #3
+declare void @appendPQExpBufferChar(ptr noundef, i8 noundef signext) local_unnamed_addr #2
 
-declare ptr @pg_strdup(ptr noundef) local_unnamed_addr #3
+declare ptr @pg_strdup(ptr noundef) local_unnamed_addr #2
 
-declare void @printTable(ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #3
+declare void @printTable(ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #2
 
-declare void @printTableCleanup(ptr noundef) local_unnamed_addr #3
+declare void @printTableCleanup(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef zeroext i1 @listDbRoleSettings(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -5401,13 +5395,13 @@ define dso_local noundef zeroext i1 @listDbRoleSettings(ptr noundef %0, ptr noun
   %6 = alloca i32, align 4
   %7 = alloca %struct.PQExpBufferData, align 8
   %8 = alloca %struct.printQueryOpt, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #8
-  call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %8) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %8, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds nuw (i8, ptr @pset, i64 48), i64 168, i1 false)
   call void @initPQExpBuffer(ptr noundef nonnull %7) #8
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %7, ptr noundef nonnull @.str.226, ptr noundef nonnull @.str.227, ptr noundef nonnull @.str.228, ptr noundef nonnull @.str.229) #8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @initPQExpBuffer(ptr noundef nonnull %5) #8
   %9 = load ptr, ptr @pset, align 8
   %10 = call zeroext i1 @processSQLNamePattern(ptr noundef %9, ptr noundef nonnull %7, ptr noundef %0, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef null, ptr noundef nonnull @.str.209, ptr noundef null, ptr noundef null, ptr noundef nonnull %5, ptr noundef nonnull %6) #8
@@ -5418,16 +5412,16 @@ define dso_local noundef zeroext i1 @listDbRoleSettings(ptr noundef %0, ptr noun
 validateSQLNamePattern.exit:                      ; preds = %2
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.912, ptr noundef %0) #8
   call void @termPQExpBuffer(ptr noundef nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %37
 
 12:                                               ; preds = %2
   call void @termPQExpBuffer(ptr noundef nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @initPQExpBuffer(ptr noundef nonnull %3) #8
   %13 = load ptr, ptr @pset, align 8
   %14 = call zeroext i1 @processSQLNamePattern(ptr noundef %13, ptr noundef nonnull %7, ptr noundef %1, i1 noundef zeroext %10, i1 noundef zeroext false, ptr noundef null, ptr noundef nonnull @.str.149, ptr noundef null, ptr noundef null, ptr noundef nonnull %3, ptr noundef nonnull %4) #8
@@ -5438,14 +5432,14 @@ validateSQLNamePattern.exit:                      ; preds = %2
 validateSQLNamePattern.exit21:                    ; preds = %12
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.912, ptr noundef %1) #8
   call void @termPQExpBuffer(ptr noundef nonnull %3) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %37
 
 16:                                               ; preds = %12
   call void @termPQExpBuffer(ptr noundef nonnull %3) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @appendPQExpBufferStr(ptr noundef nonnull %7, ptr noundef nonnull @.str.111) #8
   %17 = load ptr, ptr %7, align 8
   %18 = call ptr @PSQLexec(ptr noundef %17) #8
@@ -5502,8 +5496,8 @@ validateSQLNamePattern.exit21:                    ; preds = %12
 
 38:                                               ; preds = %16, %37, %36
   %.0 = phi i1 [ true, %36 ], [ false, %37 ], [ false, %16 ]
-  call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %8) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i1 %.0
 }
 
@@ -5513,8 +5507,8 @@ define dso_local noundef zeroext i1 @describeRoleGrants(ptr noundef %0, i1 nound
   %4 = alloca i32, align 4
   %5 = alloca %struct.PQExpBufferData, align 8
   %6 = alloca %struct.printQueryOpt, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %6, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds nuw (i8, ptr @pset, i64 48), i64 168, i1 false)
   call void @initPQExpBuffer(ptr noundef nonnull %5) #8
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.234, ptr noundef nonnull @.str.211, ptr noundef nonnull @.str.235) #8
@@ -5533,8 +5527,8 @@ define dso_local noundef zeroext i1 @describeRoleGrants(ptr noundef %0, i1 nound
   br label %11
 
 11:                                               ; preds = %10, %2
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @initPQExpBuffer(ptr noundef nonnull %3) #8
   %12 = load ptr, ptr @pset, align 8
   %13 = call zeroext i1 @processSQLNamePattern(ptr noundef %12, ptr noundef nonnull %5, ptr noundef %0, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef null, ptr noundef nonnull @.str.242, ptr noundef null, ptr noundef null, ptr noundef nonnull %3, ptr noundef nonnull %4) #8
@@ -5545,15 +5539,15 @@ define dso_local noundef zeroext i1 @describeRoleGrants(ptr noundef %0, i1 nound
 15:                                               ; preds = %11
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.912, ptr noundef %0) #8
   call void @termPQExpBuffer(ptr noundef nonnull %3) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @termPQExpBuffer(ptr noundef nonnull %5) #8
   br label %24
 
 16:                                               ; preds = %11
   call void @termPQExpBuffer(ptr noundef nonnull %3) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @appendPQExpBufferStr(ptr noundef nonnull %5, ptr noundef nonnull @.str.243) #8
   %17 = load ptr, ptr %5, align 8
   %18 = call ptr @PSQLexec(ptr noundef %17) #8
@@ -5574,8 +5568,8 @@ define dso_local noundef zeroext i1 @describeRoleGrants(ptr noundef %0, i1 nound
 
 24:                                               ; preds = %16, %19, %15
   %.0 = phi i1 [ true, %19 ], [ false, %15 ], [ false, %16 ]
-  call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0
 }
 
@@ -5596,10 +5590,10 @@ define dso_local noundef zeroext i1 @listTables(ptr noundef readonly %0, ptr nou
   %17 = icmp ne ptr %16, null
   %18 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 69) #9
   %19 = icmp ne ptr %18, null
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %6, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds nuw (i8, ptr @pset, i64 48), i64 168, i1 false)
-  call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %7, ptr noundef nonnull align 1 dereferenceable(9) @__const.listTables.translate_columns, i64 9, i1 false)
   %20 = zext i1 %9 to i32
   %21 = zext i1 %11 to i32
@@ -5921,9 +5915,9 @@ define dso_local noundef zeroext i1 @listTables(ptr noundef readonly %0, ptr nou
 
 123:                                              ; preds = %73, %122, %72
   %.090 = phi i1 [ true, %122 ], [ false, %72 ], [ false, %73 ]
-  call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.090
 }
 
@@ -5938,21 +5932,21 @@ define dso_local noundef zeroext i1 @listPartitionedTables(ptr noundef readonly 
   %10 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 105) #9
   %11 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 110) #9
   %12 = icmp ne ptr %11, null
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %6, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds nuw (i8, ptr @pset, i64 48), i64 168, i1 false)
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %7, i8 0, i64 10, i1 false)
   %13 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 332), align 4
   %14 = icmp slt i32 %13, 100000
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %16 = call ptr @formatPGVersionNumber(i32 noundef %13, i1 noundef zeroext false, ptr noundef nonnull %8, i64 noundef 32) #8
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.297, ptr noundef %16) #8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %61
 
 17:                                               ; preds = %3
@@ -6103,22 +6097,22 @@ define dso_local noundef zeroext i1 @listPartitionedTables(ptr noundef readonly 
 
 61:                                               ; preds = %48, %53, %47, %15
   %.043 = phi i1 [ true, %15 ], [ true, %53 ], [ false, %47 ], [ false, %48 ]
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.043
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef zeroext i1 @listLanguages(ptr noundef %0, i1 noundef zeroext %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca %struct.PQExpBufferData, align 8
   %5 = alloca %struct.printQueryOpt, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #8
-  call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %5, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds nuw (i8, ptr @pset, i64 48), i64 168, i1 false)
   call void @initPQExpBuffer(ptr noundef nonnull %4) #8
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %4, ptr noundef nonnull @.str.321, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.322) #8
@@ -6170,8 +6164,8 @@ define dso_local noundef zeroext i1 @listLanguages(ptr noundef %0, i1 noundef ze
 
 20:                                               ; preds = %.thread, %15, %10
   %.0 = phi i1 [ true, %15 ], [ false, %10 ], [ false, %.thread ]
-  call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
 }
 
@@ -6179,8 +6173,8 @@ define dso_local noundef zeroext i1 @listLanguages(ptr noundef %0, i1 noundef ze
 define dso_local noundef zeroext i1 @listDomains(ptr noundef %0, i1 noundef zeroext %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca %struct.PQExpBufferData, align 8
   %5 = alloca %struct.printQueryOpt, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #8
-  call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %5, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds nuw (i8, ptr @pset, i64 48), i64 168, i1 false)
   call void @initPQExpBuffer(ptr noundef nonnull %4) #8
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %4, ptr noundef nonnull @.str.333, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.334, ptr noundef nonnull @.str.335, ptr noundef nonnull @.str.336, ptr noundef nonnull @.str.337) #8
@@ -6234,8 +6228,8 @@ define dso_local noundef zeroext i1 @listDomains(ptr noundef %0, i1 noundef zero
 
 20:                                               ; preds = %12, %15, %11
   %.0 = phi i1 [ true, %15 ], [ false, %11 ], [ false, %12 ]
-  call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
 }
 
@@ -6243,8 +6237,8 @@ define dso_local noundef zeroext i1 @listDomains(ptr noundef %0, i1 noundef zero
 define dso_local noundef zeroext i1 @listConversions(ptr noundef %0, i1 noundef zeroext %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca %struct.PQExpBufferData, align 8
   %5 = alloca %struct.printQueryOpt, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #8
-  call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %5, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds nuw (i8, ptr @pset, i64 48), i64 168, i1 false)
   call void @initPQExpBuffer(ptr noundef nonnull %4) #8
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %4, ptr noundef nonnull @.str.343, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.344, ptr noundef nonnull @.str.345, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.346) #8
@@ -6300,8 +6294,8 @@ define dso_local noundef zeroext i1 @listConversions(ptr noundef %0, i1 noundef 
 
 22:                                               ; preds = %12, %15, %11
   %.0 = phi i1 [ true, %15 ], [ false, %11 ], [ false, %12 ]
-  call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
 }
 
@@ -6309,8 +6303,8 @@ define dso_local noundef zeroext i1 @listConversions(ptr noundef %0, i1 noundef 
 define dso_local noundef zeroext i1 @describeConfigurationParameters(ptr noundef %0, i1 noundef zeroext %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca %struct.PQExpBufferData, align 8
   %5 = alloca %struct.printQueryOpt, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #8
-  call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %5, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds nuw (i8, ptr @pset, i64 48), i64 168, i1 false)
   call void @initPQExpBuffer(ptr noundef nonnull %4) #8
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %4, ptr noundef nonnull @.str.355, ptr noundef nonnull @.str.356, ptr noundef nonnull @.str.357) #8
@@ -6375,12 +6369,12 @@ define dso_local noundef zeroext i1 @describeConfigurationParameters(ptr noundef
   br label %28
 
 28:                                               ; preds = %20, %23
-  call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.not11
 }
 
-declare zeroext i1 @processSQLNamePattern(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @processSQLNamePattern(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef zeroext i1 @listEventTriggers(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
@@ -6389,18 +6383,18 @@ define dso_local noundef zeroext i1 @listEventTriggers(ptr noundef %0, i1 nounde
   %5 = alloca %struct.PQExpBufferData, align 8
   %6 = alloca %struct.printQueryOpt, align 8
   %7 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %6, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds nuw (i8, ptr @pset, i64 48), i64 168, i1 false)
   %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 332), align 4
   %9 = icmp slt i32 %8, 90300
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %11 = call ptr @formatPGVersionNumber(i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7, i64 noundef 32) #8
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.368, ptr noundef %11) #8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %29
 
 12:                                               ; preds = %2
@@ -6414,8 +6408,8 @@ define dso_local noundef zeroext i1 @listEventTriggers(ptr noundef %0, i1 nounde
 
 14:                                               ; preds = %13, %12
   call void @appendPQExpBufferStr(ptr noundef nonnull %5, ptr noundef nonnull @.str.378) #8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @initPQExpBuffer(ptr noundef nonnull %3) #8
   %15 = load ptr, ptr @pset, align 8
   %16 = call zeroext i1 @processSQLNamePattern(ptr noundef %15, ptr noundef nonnull %5, ptr noundef %0, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef null, ptr noundef nonnull @.str.379, ptr noundef null, ptr noundef null, ptr noundef nonnull %3, ptr noundef nonnull %4) #8
@@ -6426,15 +6420,15 @@ define dso_local noundef zeroext i1 @listEventTriggers(ptr noundef %0, i1 nounde
 18:                                               ; preds = %14
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.912, ptr noundef %0) #8
   call void @termPQExpBuffer(ptr noundef nonnull %3) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @termPQExpBuffer(ptr noundef nonnull %5) #8
   br label %29
 
 19:                                               ; preds = %14
   call void @termPQExpBuffer(ptr noundef nonnull %3) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @appendPQExpBufferStr(ptr noundef nonnull %5, ptr noundef nonnull @.str.380) #8
   %20 = load ptr, ptr %5, align 8
   %21 = call ptr @PSQLexec(ptr noundef %20) #8
@@ -6459,8 +6453,8 @@ define dso_local noundef zeroext i1 @listEventTriggers(ptr noundef %0, i1 nounde
 
 29:                                               ; preds = %19, %22, %18, %10
   %.0 = phi i1 [ true, %10 ], [ true, %22 ], [ false, %18 ], [ false, %19 ]
-  call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0
 }
 
@@ -6469,18 +6463,18 @@ define dso_local noundef zeroext i1 @listExtendedStats(ptr noundef %0) local_unn
   %2 = alloca %struct.PQExpBufferData, align 8
   %3 = alloca %struct.printQueryOpt, align 8
   %4 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #8
-  call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %3, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds nuw (i8, ptr @pset, i64 48), i64 168, i1 false)
   %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 332), align 4
   %6 = icmp slt i32 %5, 100000
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %8 = call ptr @formatPGVersionNumber(i32 noundef %5, i1 noundef zeroext false, ptr noundef nonnull %4, i64 noundef 32) #8
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.382, ptr noundef %8) #8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %26
 
 9:                                                ; preds = %1
@@ -6529,8 +6523,8 @@ define dso_local noundef zeroext i1 @listExtendedStats(ptr noundef %0) local_unn
 
 26:                                               ; preds = %18, %21, %17, %7
   %.0 = phi i1 [ true, %7 ], [ true, %21 ], [ false, %17 ], [ false, %18 ]
-  call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %3) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %.0
 }
 
@@ -6538,8 +6532,8 @@ define dso_local noundef zeroext i1 @listExtendedStats(ptr noundef %0) local_unn
 define dso_local noundef zeroext i1 @listCasts(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = alloca %struct.PQExpBufferData, align 8
   %4 = alloca %struct.printQueryOpt, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #8
-  call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %4, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds nuw (i8, ptr @pset, i64 48), i64 168, i1 false)
   call void @initPQExpBuffer(ptr noundef nonnull %3) #8
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %3, ptr noundef nonnull @.str.397, ptr noundef nonnull @.str.398, ptr noundef nonnull @.str.399) #8
@@ -6593,8 +6587,8 @@ define dso_local noundef zeroext i1 @listCasts(ptr noundef %0, i1 noundef zeroex
 
 20:                                               ; preds = %9, %19, %12
   %.0 = phi i1 [ true, %12 ], [ false, %19 ], [ false, %9 ]
-  call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
 
@@ -6602,8 +6596,8 @@ define dso_local noundef zeroext i1 @listCasts(ptr noundef %0, i1 noundef zeroex
 define dso_local noundef zeroext i1 @listCollations(ptr noundef %0, i1 noundef zeroext %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca %struct.PQExpBufferData, align 8
   %5 = alloca %struct.printQueryOpt, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #8
-  call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %5, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds nuw (i8, ptr @pset, i64 48), i64 168, i1 false)
   call void @initPQExpBuffer(ptr noundef nonnull %4) #8
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %4, ptr noundef nonnull @.str.419, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #8
@@ -6685,8 +6679,8 @@ define dso_local noundef zeroext i1 @listCollations(ptr noundef %0, i1 noundef z
 
 35:                                               ; preds = %25, %28, %24
   %.0 = phi i1 [ true, %28 ], [ false, %24 ], [ false, %25 ]
-  call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
 }
 
@@ -6694,8 +6688,8 @@ define dso_local noundef zeroext i1 @listCollations(ptr noundef %0, i1 noundef z
 define dso_local noundef zeroext i1 @listSchemas(ptr noundef %0, i1 noundef zeroext %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca %struct.PQExpBufferData, align 8
   %5 = alloca %struct.printQueryOpt, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #8
-  call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %5, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds nuw (i8, ptr @pset, i64 48), i64 168, i1 false)
   call void @initPQExpBuffer(ptr noundef nonnull %4) #8
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %4, ptr noundef nonnull @.str.437, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.26) #8
@@ -6823,14 +6817,14 @@ define dso_local noundef zeroext i1 @listSchemas(ptr noundef %0, i1 noundef zero
 
 52:                                               ; preds = %44, %._crit_edge, %51
   %.039 = phi i1 [ false, %51 ], [ true, %._crit_edge ], [ true, %44 ]
-  call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.039
 }
 
-declare ptr @pg_malloc(i64 noundef) local_unnamed_addr #3
+declare ptr @pg_malloc(i64 noundef) local_unnamed_addr #2
 
-declare void @pg_free(ptr noundef) local_unnamed_addr #3
+declare void @pg_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef zeroext i1 @listTSParsers(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
@@ -6840,13 +6834,13 @@ define dso_local noundef zeroext i1 @listTSParsers(ptr noundef %0, i1 noundef ze
   %6 = alloca %struct.PQExpBufferData, align 8
   %7 = alloca %struct.PQExpBufferData, align 8
   %8 = alloca %struct.printQueryOpt, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #8
-  call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %8) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %8, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds nuw (i8, ptr @pset, i64 48), i64 168, i1 false)
   br i1 %1, label %9, label %65
 
 9:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @initPQExpBuffer(ptr noundef nonnull %6) #8
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %6, ptr noundef nonnull @.str.882) #8
   %10 = call fastcc zeroext i1 @validateSQLNamePattern(ptr noundef %6, ptr noundef %0, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.447, ptr noundef null, ptr noundef nonnull @.str.448, ptr noundef null, i32 noundef 3)
@@ -6924,9 +6918,9 @@ define dso_local noundef zeroext i1 @listTSParsers(ptr noundef %0, i1 noundef ze
 42:                                               ; preds = %40, %37
   %.024.i = phi ptr [ null, %37 ], [ %41, %40 ]
   %43 = call ptr @PQgetvalue(ptr noundef nonnull %14, i32 noundef %.02533.i, i32 noundef 2) #8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #8
-  call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %5, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds nuw (i8, ptr @pset, i64 48), i64 168, i1 false)
   call void @initPQExpBuffer(ptr noundef nonnull %3) #8
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %3, ptr noundef nonnull @.str.885, ptr noundef nonnull @.str.886, ptr noundef nonnull @.str.887, ptr noundef nonnull @.str.118, ptr noundef nonnull @.str.6, ptr noundef %38, ptr noundef nonnull @.str.888, ptr noundef %38, ptr noundef nonnull @.str.889, ptr noundef %38, ptr noundef nonnull @.str.890, ptr noundef %38, ptr noundef nonnull @.str.891, ptr noundef %38) #8
@@ -6985,9 +6979,9 @@ define dso_local noundef zeroext i1 @listTSParsers(ptr noundef %0, i1 noundef ze
   br label %59
 
 .loopexit.i:                                      ; preds = %42, %55
-  call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @PQclear(ptr noundef nonnull %14) #8
   br label %listTSParsersVerbose.exit
 
@@ -7004,9 +6998,9 @@ define dso_local noundef zeroext i1 @listTSParsers(ptr noundef %0, i1 noundef ze
   call void @printQuery(ptr noundef nonnull %54, ptr noundef nonnull %5, ptr noundef %61, i1 noundef zeroext false, ptr noundef %62) #8
   call void @termPQExpBuffer(ptr noundef nonnull %4) #8
   call void @PQclear(ptr noundef nonnull %54) #8
-  call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %63 = load volatile i32, ptr @cancel_pressed, align 4
   %.not30.i = icmp eq i32 %63, 0
   br i1 %.not30.i, label %33, label %64
@@ -7021,7 +7015,7 @@ define dso_local noundef zeroext i1 @listTSParsers(ptr noundef %0, i1 noundef ze
 
 listTSParsersVerbose.exit:                        ; preds = %11, %12, %32, %.loopexit.i, %64, %._crit_edge.i
   %.0.i = phi i1 [ false, %32 ], [ true, %._crit_edge.i ], [ false, %11 ], [ false, %12 ], [ false, %.loopexit.i ], [ false, %64 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %76
 
 65:                                               ; preds = %2
@@ -7055,8 +7049,8 @@ listTSParsersVerbose.exit:                        ; preds = %11, %12, %32, %.loo
 
 76:                                               ; preds = %68, %71, %67, %listTSParsersVerbose.exit
   %.0 = phi i1 [ %.0.i, %listTSParsersVerbose.exit ], [ true, %71 ], [ false, %67 ], [ false, %68 ]
-  call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %8) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i1 %.0
 }
 
@@ -7064,8 +7058,8 @@ listTSParsersVerbose.exit:                        ; preds = %11, %12, %32, %.loo
 define dso_local noundef zeroext i1 @listTSDictionaries(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = alloca %struct.PQExpBufferData, align 8
   %4 = alloca %struct.printQueryOpt, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #8
-  call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %4, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds nuw (i8, ptr @pset, i64 48), i64 168, i1 false)
   call void @initPQExpBuffer(ptr noundef nonnull %3) #8
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %3, ptr noundef nonnull @.str.450, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #8
@@ -7106,8 +7100,8 @@ define dso_local noundef zeroext i1 @listTSDictionaries(ptr noundef %0, i1 nound
 
 17:                                               ; preds = %9, %12, %8
   %.0 = phi i1 [ true, %12 ], [ false, %8 ], [ false, %9 ]
-  call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
 
@@ -7115,8 +7109,8 @@ define dso_local noundef zeroext i1 @listTSDictionaries(ptr noundef %0, i1 nound
 define dso_local noundef zeroext i1 @listTSTemplates(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = alloca %struct.PQExpBufferData, align 8
   %4 = alloca %struct.printQueryOpt, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #8
-  call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %4, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds nuw (i8, ptr @pset, i64 48), i64 168, i1 false)
   call void @initPQExpBuffer(ptr noundef nonnull %3) #8
   br i1 %1, label %5, label %6
@@ -7159,8 +7153,8 @@ define dso_local noundef zeroext i1 @listTSTemplates(ptr noundef %0, i1 noundef 
 
 18:                                               ; preds = %10, %13, %9
   %.0 = phi i1 [ true, %13 ], [ false, %9 ], [ false, %10 ]
-  call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
 
@@ -7172,13 +7166,13 @@ define dso_local noundef zeroext i1 @listTSConfigs(ptr noundef %0, i1 noundef ze
   %6 = alloca %struct.PQExpBufferData, align 8
   %7 = alloca %struct.PQExpBufferData, align 8
   %8 = alloca %struct.printQueryOpt, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #8
-  call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %8) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %8, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds nuw (i8, ptr @pset, i64 48), i64 168, i1 false)
   br i1 %1, label %9, label %62
 
 9:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @initPQExpBuffer(ptr noundef nonnull %6) #8
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %6, ptr noundef nonnull @.str.898) #8
   %10 = call fastcc zeroext i1 @validateSQLNamePattern(ptr noundef %6, ptr noundef %0, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.468, ptr noundef null, ptr noundef nonnull @.str.469, ptr noundef null, i32 noundef 3)
@@ -7265,9 +7259,9 @@ define dso_local noundef zeroext i1 @listTSConfigs(ptr noundef %0, i1 noundef ze
 
 46:                                               ; preds = %44, %41
   %.0.i = phi ptr [ null, %41 ], [ %45, %44 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #8
-  call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %5, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds nuw (i8, ptr @pset, i64 48), i64 168, i1 false)
   call void @initPQExpBuffer(ptr noundef nonnull %3) #8
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %3, ptr noundef nonnull @.str.902, ptr noundef nonnull @.str.903, ptr noundef nonnull @.str.904, ptr noundef %36) #8
@@ -7303,9 +7297,9 @@ define dso_local noundef zeroext i1 @listTSConfigs(ptr noundef %0, i1 noundef ze
   br label %56
 
 55:                                               ; preds = %46
-  call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @PQclear(ptr noundef nonnull %14) #8
   br label %listTSConfigsVerbose.exit
 
@@ -7320,9 +7314,9 @@ define dso_local noundef zeroext i1 @listTSConfigs(ptr noundef %0, i1 noundef ze
   call void @printQuery(ptr noundef nonnull %48, ptr noundef nonnull %5, ptr noundef %58, i1 noundef zeroext false, ptr noundef %59) #8
   call void @termPQExpBuffer(ptr noundef nonnull %4) #8
   call void @PQclear(ptr noundef nonnull %48) #8
-  call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %60 = load volatile i32, ptr @cancel_pressed, align 4
   %.not40.i = icmp eq i32 %60, 0
   br i1 %.not40.i, label %31, label %61
@@ -7337,7 +7331,7 @@ define dso_local noundef zeroext i1 @listTSConfigs(ptr noundef %0, i1 noundef ze
 
 listTSConfigsVerbose.exit:                        ; preds = %11, %12, %30, %55, %61, %._crit_edge.i
   %.032.i = phi i1 [ false, %30 ], [ true, %._crit_edge.i ], [ false, %11 ], [ false, %12 ], [ false, %55 ], [ false, %61 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %73
 
 62:                                               ; preds = %2
@@ -7371,8 +7365,8 @@ listTSConfigsVerbose.exit:                        ; preds = %11, %12, %30, %55, 
 
 73:                                               ; preds = %65, %68, %64, %listTSConfigsVerbose.exit
   %.0 = phi i1 [ %.032.i, %listTSConfigsVerbose.exit ], [ true, %68 ], [ false, %64 ], [ false, %65 ]
-  call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %8) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i1 %.0
 }
 
@@ -7382,8 +7376,8 @@ define dso_local noundef zeroext i1 @listForeignDataWrappers(ptr noundef %0, i1 
   %4 = alloca i32, align 4
   %5 = alloca %struct.PQExpBufferData, align 8
   %6 = alloca %struct.printQueryOpt, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %6, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds nuw (i8, ptr @pset, i64 48), i64 168, i1 false)
   call void @initPQExpBuffer(ptr noundef nonnull %5) #8
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.471, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.326) #8
@@ -7399,8 +7393,8 @@ define dso_local noundef zeroext i1 @listForeignDataWrappers(ptr noundef %0, i1 
 .critedge:                                        ; preds = %2, %7
   %.str.475.sink = phi ptr [ @.str.476, %7 ], [ @.str.475, %2 ]
   call void @appendPQExpBufferStr(ptr noundef nonnull %5, ptr noundef nonnull %.str.475.sink) #8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @initPQExpBuffer(ptr noundef nonnull %3) #8
   %8 = load ptr, ptr @pset, align 8
   %9 = call zeroext i1 @processSQLNamePattern(ptr noundef %8, ptr noundef nonnull %5, ptr noundef %0, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef null, ptr noundef nonnull @.str.477, ptr noundef null, ptr noundef null, ptr noundef nonnull %3, ptr noundef nonnull %4) #8
@@ -7411,15 +7405,15 @@ define dso_local noundef zeroext i1 @listForeignDataWrappers(ptr noundef %0, i1 
 11:                                               ; preds = %.critedge
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.912, ptr noundef %0) #8
   call void @termPQExpBuffer(ptr noundef nonnull %3) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @termPQExpBuffer(ptr noundef nonnull %5) #8
   br label %20
 
 12:                                               ; preds = %.critedge
   call void @termPQExpBuffer(ptr noundef nonnull %3) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @appendPQExpBufferStr(ptr noundef nonnull %5, ptr noundef nonnull @.str.23) #8
   %13 = load ptr, ptr %5, align 8
   %14 = call ptr @PSQLexec(ptr noundef %13) #8
@@ -7440,8 +7434,8 @@ define dso_local noundef zeroext i1 @listForeignDataWrappers(ptr noundef %0, i1 
 
 20:                                               ; preds = %12, %15, %11
   %.0 = phi i1 [ true, %15 ], [ false, %11 ], [ false, %12 ]
-  call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0
 }
 
@@ -7451,8 +7445,8 @@ define dso_local noundef zeroext i1 @listForeignServers(ptr noundef %0, i1 nound
   %4 = alloca i32, align 4
   %5 = alloca %struct.PQExpBufferData, align 8
   %6 = alloca %struct.printQueryOpt, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %6, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds nuw (i8, ptr @pset, i64 48), i64 168, i1 false)
   call void @initPQExpBuffer(ptr noundef nonnull %5) #8
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.479, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.480) #8
@@ -7468,8 +7462,8 @@ define dso_local noundef zeroext i1 @listForeignServers(ptr noundef %0, i1 nound
 .critedge:                                        ; preds = %2, %7
   %.str.484.sink = phi ptr [ @.str.485, %7 ], [ @.str.484, %2 ]
   call void @appendPQExpBufferStr(ptr noundef nonnull %5, ptr noundef nonnull %.str.484.sink) #8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @initPQExpBuffer(ptr noundef nonnull %3) #8
   %8 = load ptr, ptr @pset, align 8
   %9 = call zeroext i1 @processSQLNamePattern(ptr noundef %8, ptr noundef nonnull %5, ptr noundef %0, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef null, ptr noundef nonnull @.str.486, ptr noundef null, ptr noundef null, ptr noundef nonnull %3, ptr noundef nonnull %4) #8
@@ -7480,15 +7474,15 @@ define dso_local noundef zeroext i1 @listForeignServers(ptr noundef %0, i1 nound
 11:                                               ; preds = %.critedge
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.912, ptr noundef %0) #8
   call void @termPQExpBuffer(ptr noundef nonnull %3) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @termPQExpBuffer(ptr noundef nonnull %5) #8
   br label %20
 
 12:                                               ; preds = %.critedge
   call void @termPQExpBuffer(ptr noundef nonnull %3) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @appendPQExpBufferStr(ptr noundef nonnull %5, ptr noundef nonnull @.str.23) #8
   %13 = load ptr, ptr %5, align 8
   %14 = call ptr @PSQLexec(ptr noundef %13) #8
@@ -7509,8 +7503,8 @@ define dso_local noundef zeroext i1 @listForeignServers(ptr noundef %0, i1 nound
 
 20:                                               ; preds = %12, %15, %11
   %.0 = phi i1 [ true, %15 ], [ false, %11 ], [ false, %12 ]
-  call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0
 }
 
@@ -7520,8 +7514,8 @@ define dso_local noundef zeroext i1 @listUserMappings(ptr noundef %0, i1 noundef
   %4 = alloca i32, align 4
   %5 = alloca %struct.PQExpBufferData, align 8
   %6 = alloca %struct.printQueryOpt, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %6, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds nuw (i8, ptr @pset, i64 48), i64 168, i1 false)
   call void @initPQExpBuffer(ptr noundef nonnull %5) #8
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.488, ptr noundef nonnull @.str.489, ptr noundef nonnull @.str.490) #8
@@ -7533,8 +7527,8 @@ define dso_local noundef zeroext i1 @listUserMappings(ptr noundef %0, i1 noundef
 
 8:                                                ; preds = %7, %2
   call void @appendPQExpBufferStr(ptr noundef nonnull %5, ptr noundef nonnull @.str.492) #8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @initPQExpBuffer(ptr noundef nonnull %3) #8
   %9 = load ptr, ptr @pset, align 8
   %10 = call zeroext i1 @processSQLNamePattern(ptr noundef %9, ptr noundef nonnull %5, ptr noundef %0, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef null, ptr noundef nonnull @.str.493, ptr noundef nonnull @.str.494, ptr noundef null, ptr noundef nonnull %3, ptr noundef nonnull %4) #8
@@ -7545,15 +7539,15 @@ define dso_local noundef zeroext i1 @listUserMappings(ptr noundef %0, i1 noundef
 12:                                               ; preds = %8
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.912, ptr noundef %0) #8
   call void @termPQExpBuffer(ptr noundef nonnull %3) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @termPQExpBuffer(ptr noundef nonnull %5) #8
   br label %21
 
 13:                                               ; preds = %8
   call void @termPQExpBuffer(ptr noundef nonnull %3) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @appendPQExpBufferStr(ptr noundef nonnull %5, ptr noundef nonnull @.str.111) #8
   %14 = load ptr, ptr %5, align 8
   %15 = call ptr @PSQLexec(ptr noundef %14) #8
@@ -7574,8 +7568,8 @@ define dso_local noundef zeroext i1 @listUserMappings(ptr noundef %0, i1 noundef
 
 21:                                               ; preds = %13, %16, %12
   %.0 = phi i1 [ true, %16 ], [ false, %12 ], [ false, %13 ]
-  call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0
 }
 
@@ -7583,8 +7577,8 @@ define dso_local noundef zeroext i1 @listUserMappings(ptr noundef %0, i1 noundef
 define dso_local noundef zeroext i1 @listForeignTables(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = alloca %struct.PQExpBufferData, align 8
   %4 = alloca %struct.printQueryOpt, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #8
-  call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %4, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds nuw (i8, ptr @pset, i64 48), i64 168, i1 false)
   call void @initPQExpBuffer(ptr noundef nonnull %3) #8
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %3, ptr noundef nonnull @.str.496, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.489) #8
@@ -7626,8 +7620,8 @@ define dso_local noundef zeroext i1 @listForeignTables(ptr noundef %0, i1 nounde
 
 16:                                               ; preds = %8, %11, %7
   %.0 = phi i1 [ true, %11 ], [ false, %7 ], [ false, %8 ]
-  call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
 
@@ -7637,13 +7631,13 @@ define dso_local noundef zeroext i1 @listExtensions(ptr noundef %0) local_unname
   %3 = alloca i32, align 4
   %4 = alloca %struct.PQExpBufferData, align 8
   %5 = alloca %struct.printQueryOpt, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #8
-  call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %5, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds nuw (i8, ptr @pset, i64 48), i64 168, i1 false)
   call void @initPQExpBuffer(ptr noundef nonnull %4) #8
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %4, ptr noundef nonnull @.str.500, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.483, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.6) #8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @initPQExpBuffer(ptr noundef nonnull %2) #8
   %6 = load ptr, ptr @pset, align 8
   %7 = call zeroext i1 @processSQLNamePattern(ptr noundef %6, ptr noundef nonnull %4, ptr noundef %0, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef null, ptr noundef nonnull @.str.501, ptr noundef null, ptr noundef null, ptr noundef nonnull %2, ptr noundef nonnull %3) #8
@@ -7654,15 +7648,15 @@ define dso_local noundef zeroext i1 @listExtensions(ptr noundef %0) local_unname
 9:                                                ; preds = %1
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.912, ptr noundef %0) #8
   call void @termPQExpBuffer(ptr noundef nonnull %2) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @termPQExpBuffer(ptr noundef nonnull %4) #8
   br label %18
 
 10:                                               ; preds = %1
   call void @termPQExpBuffer(ptr noundef nonnull %2) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @appendPQExpBufferStr(ptr noundef nonnull %4, ptr noundef nonnull @.str.23) #8
   %11 = load ptr, ptr %4, align 8
   %12 = call ptr @PSQLexec(ptr noundef %11) #8
@@ -7683,8 +7677,8 @@ define dso_local noundef zeroext i1 @listExtensions(ptr noundef %0) local_unname
 
 18:                                               ; preds = %10, %13, %9
   %.0 = phi i1 [ true, %13 ], [ false, %9 ], [ false, %10 ]
-  call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
 }
 
@@ -7696,11 +7690,11 @@ define dso_local noundef zeroext i1 @listExtensionContents(ptr noundef %0) local
   %5 = alloca %struct.PQExpBufferData, align 8
   %6 = alloca i32, align 4
   %7 = alloca %struct.PQExpBufferData, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @initPQExpBuffer(ptr noundef nonnull %7) #8
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %7, ptr noundef nonnull @.str.503) #8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @initPQExpBuffer(ptr noundef nonnull %5) #8
   %8 = load ptr, ptr @pset, align 8
   %9 = call zeroext i1 @processSQLNamePattern(ptr noundef %8, ptr noundef nonnull %7, ptr noundef %0, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef null, ptr noundef nonnull @.str.501, ptr noundef null, ptr noundef null, ptr noundef nonnull %5, ptr noundef nonnull %6) #8
@@ -7711,15 +7705,15 @@ define dso_local noundef zeroext i1 @listExtensionContents(ptr noundef %0) local
 11:                                               ; preds = %1
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.912, ptr noundef %0) #8
   call void @termPQExpBuffer(ptr noundef nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @termPQExpBuffer(ptr noundef nonnull %7) #8
   br label %.critedge
 
 12:                                               ; preds = %1
   call void @termPQExpBuffer(ptr noundef nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @appendPQExpBufferStr(ptr noundef nonnull %7, ptr noundef nonnull @.str.23) #8
   %13 = load ptr, ptr %7, align 8
   %14 = call ptr @PSQLexec(ptr noundef %13) #8
@@ -7773,9 +7767,9 @@ define dso_local noundef zeroext i1 @listExtensionContents(ptr noundef %0) local
   %.01926 = phi i32 [ 0, %.lr.ph ], [ %30, %29 ]
   %34 = call ptr @PQgetvalue(ptr noundef nonnull %14, i32 noundef %.01926, i32 noundef 0) #8
   %35 = call ptr @PQgetvalue(ptr noundef nonnull %14, i32 noundef %.01926, i32 noundef 1) #8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #8
-  call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %4, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds nuw (i8, ptr @pset, i64 48), i64 168, i1 false)
   call void @initPQExpBuffer(ptr noundef nonnull %2) #8
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %2, ptr noundef nonnull @.str.909, ptr noundef nonnull @.str.910, ptr noundef %35) #8
@@ -7786,9 +7780,9 @@ define dso_local noundef zeroext i1 @listExtensionContents(ptr noundef %0) local
   br i1 %.not.i.not, label %38, label %39
 
 38:                                               ; preds = %33
-  call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @PQclear(ptr noundef nonnull %14) #8
   br label %.critedge
 
@@ -7803,9 +7797,9 @@ define dso_local noundef zeroext i1 @listExtensionContents(ptr noundef %0) local
   call void @printQuery(ptr noundef nonnull %37, ptr noundef nonnull %4, ptr noundef %41, i1 noundef zeroext false, ptr noundef %42) #8
   call void @termPQExpBuffer(ptr noundef nonnull %3) #8
   call void @PQclear(ptr noundef nonnull %37) #8
-  call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %43 = load volatile i32, ptr @cancel_pressed, align 4
   %.not23 = icmp eq i32 %43, 0
   br i1 %.not23, label %29, label %44
@@ -7820,7 +7814,7 @@ define dso_local noundef zeroext i1 @listExtensionContents(ptr noundef %0) local
 
 .critedge:                                        ; preds = %44, %38, %12, %._crit_edge, %28, %11
   %.0 = phi i1 [ false, %28 ], [ true, %._crit_edge ], [ false, %11 ], [ false, %12 ], [ false, %38 ], [ false, %44 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i1 %.0
 }
 
@@ -7831,18 +7825,18 @@ define dso_local noundef zeroext i1 @listPublications(ptr noundef %0) local_unna
   %4 = alloca %struct.PQExpBufferData, align 8
   %5 = alloca %struct.printQueryOpt, align 8
   %6 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #8
-  call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %5, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds nuw (i8, ptr @pset, i64 48), i64 168, i1 false)
   %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 332), align 4
   %8 = icmp slt i32 %7, 100000
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %10 = call ptr @formatPGVersionNumber(i32 noundef %7, i1 noundef zeroext false, ptr noundef nonnull %6, i64 noundef 32) #8
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.506, ptr noundef %10) #8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %35
 
 11:                                               ; preds = %1
@@ -7874,8 +7868,8 @@ define dso_local noundef zeroext i1 @listPublications(ptr noundef %0) local_unna
 
 .thread7:                                         ; preds = %11, %20, %17
   call void @appendPQExpBufferStr(ptr noundef nonnull %4, ptr noundef nonnull @.str.518) #8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @initPQExpBuffer(ptr noundef nonnull %2) #8
   %21 = load ptr, ptr @pset, align 8
   %22 = call zeroext i1 @processSQLNamePattern(ptr noundef %21, ptr noundef nonnull %4, ptr noundef %0, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef null, ptr noundef nonnull @.str.519, ptr noundef null, ptr noundef null, ptr noundef nonnull %2, ptr noundef nonnull %3) #8
@@ -7886,15 +7880,15 @@ define dso_local noundef zeroext i1 @listPublications(ptr noundef %0) local_unna
 24:                                               ; preds = %.thread7
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.912, ptr noundef %0) #8
   call void @termPQExpBuffer(ptr noundef nonnull %2) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @termPQExpBuffer(ptr noundef nonnull %4) #8
   br label %35
 
 25:                                               ; preds = %.thread7
   call void @termPQExpBuffer(ptr noundef nonnull %2) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @appendPQExpBufferStr(ptr noundef nonnull %4, ptr noundef nonnull @.str.23) #8
   %26 = load ptr, ptr %4, align 8
   %27 = call ptr @PSQLexec(ptr noundef %26) #8
@@ -7919,8 +7913,8 @@ define dso_local noundef zeroext i1 @listPublications(ptr noundef %0) local_unna
 
 35:                                               ; preds = %25, %28, %24, %9
   %.0 = phi i1 [ true, %9 ], [ true, %28 ], [ false, %24 ], [ false, %25 ]
-  call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
 }
 
@@ -7933,18 +7927,18 @@ define dso_local noundef zeroext i1 @describePublications(ptr noundef %0) local_
   %6 = alloca %struct.printTableContent, align 8
   %7 = alloca [32 x i8], align 16
   %8 = alloca %struct.printTableOpt, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 332), align 4
   %10 = icmp slt i32 %9, 100000
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %12 = call ptr @formatPGVersionNumber(i32 noundef %9, i1 noundef zeroext false, ptr noundef nonnull %7, i64 noundef 32) #8
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.506, ptr noundef %12) #8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %85
 
 13:                                               ; preds = %1
@@ -7979,8 +7973,8 @@ define dso_local noundef zeroext i1 @describePublications(ptr noundef %0) local_
   %.str.527.sink = phi ptr [ @.str.527, %19 ], [ @.str.526, %.thread62 ], [ @.str.526, %18 ]
   call void @appendPQExpBufferStr(ptr noundef nonnull %4, ptr noundef nonnull %.str.527.sink) #8
   call void @appendPQExpBufferStr(ptr noundef nonnull %4, ptr noundef nonnull @.str.518) #8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @initPQExpBuffer(ptr noundef nonnull %2) #8
   %21 = load ptr, ptr @pset, align 8
   %22 = call zeroext i1 @processSQLNamePattern(ptr noundef %21, ptr noundef nonnull %4, ptr noundef %0, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef null, ptr noundef nonnull @.str.519, ptr noundef null, ptr noundef null, ptr noundef nonnull %2, ptr noundef nonnull %3) #8
@@ -7991,15 +7985,15 @@ define dso_local noundef zeroext i1 @describePublications(ptr noundef %0) local_
 24:                                               ; preds = %20
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.912, ptr noundef %0) #8
   call void @termPQExpBuffer(ptr noundef nonnull %2) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @termPQExpBuffer(ptr noundef nonnull %4) #8
   br label %85
 
 25:                                               ; preds = %20
   call void @termPQExpBuffer(ptr noundef nonnull %2) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @appendPQExpBufferStr(ptr noundef nonnull %4, ptr noundef nonnull @.str.528) #8
   %26 = load ptr, ptr %4, align 8
   %27 = call ptr @PSQLexec(ptr noundef %26) #8
@@ -8067,7 +8061,7 @@ sub_1:                                            ; preds = %sub_0
 
 .tail:                                            ; preds = %sub_0, %sub_1
   %50 = phi i1 [ false, %sub_0 ], [ %49, %sub_1 ]
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %8) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %8, ptr noundef nonnull align 8 dereferenceable(120) getelementptr inbounds nuw (i8, ptr @pset, i64 48), i64 120, i1 false)
   call void @initPQExpBuffer(ptr noundef nonnull %5) #8
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.531, ptr noundef %44) #8
@@ -8171,7 +8165,7 @@ sub_1:                                            ; preds = %sub_0
   call void @printTable(ptr noundef nonnull %6, ptr noundef %79, i1 noundef zeroext false, ptr noundef %80) #8
   call void @printTableCleanup(ptr noundef nonnull %6) #8
   call void @termPQExpBuffer(ptr noundef nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %81 = add nuw nsw i32 %.05573, 1
   %82 = call i32 @PQntuples(ptr noundef nonnull %27) #8
   %83 = icmp slt i32 %81, %82
@@ -8183,7 +8177,7 @@ sub_1:                                            ; preds = %sub_0
   br label %85
 
 84:                                               ; preds = %71, %76
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @printTableCleanup(ptr noundef nonnull %6) #8
   call void @PQclear(ptr noundef nonnull %27) #8
   call void @termPQExpBuffer(ptr noundef nonnull %4) #8
@@ -8192,9 +8186,9 @@ sub_1:                                            ; preds = %sub_0
 
 85:                                               ; preds = %84, %._crit_edge, %42, %28, %24, %11
   %.0 = phi i1 [ true, %11 ], [ false, %42 ], [ false, %84 ], [ true, %._crit_edge ], [ false, %28 ], [ false, %24 ]
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
 }
 
@@ -8270,18 +8264,18 @@ define dso_local noundef zeroext i1 @describeSubscriptions(ptr noundef %0, i1 no
   %5 = alloca %struct.PQExpBufferData, align 8
   %6 = alloca %struct.printQueryOpt, align 8
   %7 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %6, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds nuw (i8, ptr @pset, i64 48), i64 168, i1 false)
   %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 332), align 4
   %9 = icmp slt i32 %8, 100000
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %11 = call ptr @formatPGVersionNumber(i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7, i64 noundef 32) #8
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.540, ptr noundef %11) #8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %42
 
 12:                                               ; preds = %2
@@ -8332,8 +8326,8 @@ define dso_local noundef zeroext i1 @describeSubscriptions(ptr noundef %0, i1 no
 
 27:                                               ; preds = %.thread10, %26, %12
   call void @appendPQExpBufferStr(ptr noundef nonnull %5, ptr noundef nonnull @.str.562) #8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @initPQExpBuffer(ptr noundef nonnull %3) #8
   %28 = load ptr, ptr @pset, align 8
   %29 = call zeroext i1 @processSQLNamePattern(ptr noundef %28, ptr noundef nonnull %5, ptr noundef %0, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef null, ptr noundef nonnull @.str.563, ptr noundef null, ptr noundef null, ptr noundef nonnull %3, ptr noundef nonnull %4) #8
@@ -8344,15 +8338,15 @@ define dso_local noundef zeroext i1 @describeSubscriptions(ptr noundef %0, i1 no
 31:                                               ; preds = %27
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.912, ptr noundef %0) #8
   call void @termPQExpBuffer(ptr noundef nonnull %3) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @termPQExpBuffer(ptr noundef nonnull %5) #8
   br label %42
 
 32:                                               ; preds = %27
   call void @termPQExpBuffer(ptr noundef nonnull %3) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @appendPQExpBufferStr(ptr noundef nonnull %5, ptr noundef nonnull @.str.23) #8
   %33 = load ptr, ptr %5, align 8
   %34 = call ptr @PSQLexec(ptr noundef %33) #8
@@ -8377,8 +8371,8 @@ define dso_local noundef zeroext i1 @describeSubscriptions(ptr noundef %0, i1 no
 
 42:                                               ; preds = %32, %35, %31, %10
   %.0 = phi i1 [ true, %10 ], [ true, %35 ], [ false, %31 ], [ false, %32 ]
-  call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0
 }
 
@@ -8388,8 +8382,8 @@ define dso_local noundef zeroext i1 @listOperatorClasses(ptr noundef %0, ptr nou
   %5 = alloca i32, align 4
   %6 = alloca %struct.PQExpBufferData, align 8
   %7 = alloca %struct.printQueryOpt, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #8
-  call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %7, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds nuw (i8, ptr @pset, i64 48), i64 168, i1 false)
   call void @initPQExpBuffer(ptr noundef nonnull %6) #8
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %6, ptr noundef nonnull @.str.565, ptr noundef nonnull @.str.566, ptr noundef nonnull @.str.567, ptr noundef nonnull @.str.568, ptr noundef nonnull @.str.569, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.346) #8
@@ -8407,8 +8401,8 @@ define dso_local noundef zeroext i1 @listOperatorClasses(ptr noundef %0, ptr nou
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %.critedge
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @initPQExpBuffer(ptr noundef nonnull %4) #8
   %10 = load ptr, ptr @pset, align 8
   %11 = call zeroext i1 @processSQLNamePattern(ptr noundef %10, ptr noundef nonnull %6, ptr noundef nonnull %0, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef null, ptr noundef nonnull @.str.574, ptr noundef null, ptr noundef null, ptr noundef nonnull %4, ptr noundef nonnull %5) #8
@@ -8418,15 +8412,15 @@ define dso_local noundef zeroext i1 @listOperatorClasses(ptr noundef %0, ptr nou
 
 validateSQLNamePattern.exit.thread:               ; preds = %9
   call void @termPQExpBuffer(ptr noundef nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %13
 
 validateSQLNamePattern.exit:                      ; preds = %9
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.912, ptr noundef nonnull %0) #8
   call void @termPQExpBuffer(ptr noundef nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %26
 
 13:                                               ; preds = %validateSQLNamePattern.exit.thread, %.critedge
@@ -8467,8 +8461,8 @@ validateSQLNamePattern.exit:                      ; preds = %9
 
 27:                                               ; preds = %16, %26, %19
   %.0 = phi i1 [ true, %19 ], [ false, %26 ], [ false, %16 ]
-  call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0
 }
 
@@ -8478,8 +8472,8 @@ define dso_local noundef zeroext i1 @listOperatorFamilies(ptr noundef %0, ptr no
   %5 = alloca i32, align 4
   %6 = alloca %struct.PQExpBufferData, align 8
   %7 = alloca %struct.printQueryOpt, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #8
-  call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %7, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds nuw (i8, ptr @pset, i64 48), i64 168, i1 false)
   call void @initPQExpBuffer(ptr noundef nonnull %6) #8
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %6, ptr noundef nonnull @.str.577, ptr noundef nonnull @.str.566, ptr noundef nonnull @.str.571, ptr noundef nonnull @.str.578) #8
@@ -8495,8 +8489,8 @@ define dso_local noundef zeroext i1 @listOperatorFamilies(ptr noundef %0, ptr no
   br i1 %.not, label %15, label %10
 
 10:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @initPQExpBuffer(ptr noundef nonnull %4) #8
   %11 = load ptr, ptr @pset, align 8
   %12 = call zeroext i1 @processSQLNamePattern(ptr noundef %11, ptr noundef nonnull %6, ptr noundef nonnull %0, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef null, ptr noundef nonnull @.str.574, ptr noundef null, ptr noundef null, ptr noundef nonnull %4, ptr noundef nonnull %5) #8
@@ -8506,16 +8500,16 @@ define dso_local noundef zeroext i1 @listOperatorFamilies(ptr noundef %0, ptr no
 
 validateSQLNamePattern.exit.thread:               ; preds = %10
   call void @termPQExpBuffer(ptr noundef nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %14 = select i1 %12, ptr @.str.582, ptr @.str.583
   br label %15
 
 validateSQLNamePattern.exit:                      ; preds = %10
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.912, ptr noundef nonnull %0) #8
   call void @termPQExpBuffer(ptr noundef nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %29
 
 15:                                               ; preds = %validateSQLNamePattern.exit.thread, %9
@@ -8561,8 +8555,8 @@ validateSQLNamePattern.exit:                      ; preds = %10
 
 30:                                               ; preds = %19, %29, %22
   %.0 = phi i1 [ true, %22 ], [ false, %29 ], [ false, %19 ]
-  call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0
 }
 
@@ -8572,8 +8566,8 @@ define dso_local noundef zeroext i1 @listOpFamilyOperators(ptr noundef %0, ptr n
   %5 = alloca i32, align 4
   %6 = alloca %struct.PQExpBufferData, align 8
   %7 = alloca %struct.printQueryOpt, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #8
-  call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %7, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds nuw (i8, ptr @pset, i64 48), i64 168, i1 false)
   call void @initPQExpBuffer(ptr noundef nonnull %6) #8
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %6, ptr noundef nonnull @.str.586, ptr noundef nonnull @.str.566, ptr noundef nonnull @.str.571, ptr noundef nonnull @.str.587, ptr noundef nonnull @.str.588, ptr noundef nonnull @.str.589, ptr noundef nonnull @.str.590, ptr noundef nonnull @.str.591) #8
@@ -8591,8 +8585,8 @@ define dso_local noundef zeroext i1 @listOpFamilyOperators(ptr noundef %0, ptr n
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %.critedge
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @initPQExpBuffer(ptr noundef nonnull %4) #8
   %10 = load ptr, ptr @pset, align 8
   %11 = call zeroext i1 @processSQLNamePattern(ptr noundef %10, ptr noundef nonnull %6, ptr noundef nonnull %0, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef null, ptr noundef nonnull @.str.574, ptr noundef null, ptr noundef null, ptr noundef nonnull %4, ptr noundef nonnull %5) #8
@@ -8602,15 +8596,15 @@ define dso_local noundef zeroext i1 @listOpFamilyOperators(ptr noundef %0, ptr n
 
 validateSQLNamePattern.exit.thread:               ; preds = %9
   call void @termPQExpBuffer(ptr noundef nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %13
 
 validateSQLNamePattern.exit:                      ; preds = %9
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.912, ptr noundef nonnull %0) #8
   call void @termPQExpBuffer(ptr noundef nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %26
 
 13:                                               ; preds = %validateSQLNamePattern.exit.thread, %.critedge
@@ -8651,8 +8645,8 @@ validateSQLNamePattern.exit:                      ; preds = %9
 
 27:                                               ; preds = %16, %26, %19
   %.0 = phi i1 [ true, %19 ], [ false, %26 ], [ false, %16 ]
-  call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0
 }
 
@@ -8662,8 +8656,8 @@ define dso_local noundef zeroext i1 @listOpFamilyFunctions(ptr noundef %0, ptr n
   %5 = alloca i32, align 4
   %6 = alloca %struct.PQExpBufferData, align 8
   %7 = alloca %struct.printQueryOpt, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #8
-  call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %7, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds nuw (i8, ptr @pset, i64 48), i64 168, i1 false)
   call void @initPQExpBuffer(ptr noundef nonnull %6) #8
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %6, ptr noundef nonnull @.str.600, ptr noundef nonnull @.str.566, ptr noundef nonnull @.str.571, ptr noundef nonnull @.str.601, ptr noundef nonnull @.str.602, ptr noundef nonnull @.str.603) #8
@@ -8674,8 +8668,8 @@ define dso_local noundef zeroext i1 @listOpFamilyFunctions(ptr noundef %0, ptr n
   br i1 %.not, label %12, label %8
 
 8:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @initPQExpBuffer(ptr noundef nonnull %4) #8
   %9 = load ptr, ptr @pset, align 8
   %10 = call zeroext i1 @processSQLNamePattern(ptr noundef %9, ptr noundef nonnull %6, ptr noundef nonnull %0, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef null, ptr noundef nonnull @.str.574, ptr noundef null, ptr noundef null, ptr noundef nonnull %4, ptr noundef nonnull %5) #8
@@ -8685,15 +8679,15 @@ define dso_local noundef zeroext i1 @listOpFamilyFunctions(ptr noundef %0, ptr n
 
 validateSQLNamePattern.exit.thread:               ; preds = %8
   call void @termPQExpBuffer(ptr noundef nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %12
 
 validateSQLNamePattern.exit:                      ; preds = %8
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.912, ptr noundef nonnull %0) #8
   call void @termPQExpBuffer(ptr noundef nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %25
 
 12:                                               ; preds = %validateSQLNamePattern.exit.thread, %3
@@ -8734,8 +8728,8 @@ validateSQLNamePattern.exit:                      ; preds = %8
 
 26:                                               ; preds = %15, %25, %18
   %.0 = phi i1 [ true, %18 ], [ false, %25 ], [ false, %15 ]
-  call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0
 }
 
@@ -8743,8 +8737,8 @@ validateSQLNamePattern.exit:                      ; preds = %8
 define dso_local noundef zeroext i1 @listLargeObjects(i1 noundef zeroext %0) local_unnamed_addr #0 {
   %2 = alloca %struct.PQExpBufferData, align 8
   %3 = alloca %struct.printQueryOpt, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #8
-  call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %3, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds nuw (i8, ptr @pset, i64 48), i64 168, i1 false)
   call void @initPQExpBuffer(ptr noundef nonnull %2) #8
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %2, ptr noundef nonnull @.str.609, ptr noundef nonnull @.str.610, ptr noundef nonnull @.str.26) #8
@@ -8775,23 +8769,23 @@ define dso_local noundef zeroext i1 @listLargeObjects(i1 noundef zeroext %0) loc
   br label %13
 
 13:                                               ; preds = %5, %8
-  call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %3) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %.not
 }
 
-declare i32 @pg_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @pg_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #7
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #6
 
-declare i32 @PQgetisnull(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @PQgetisnull(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @fmtId(ptr noundef) local_unnamed_addr #3
+declare ptr @fmtId(ptr noundef) local_unnamed_addr #2
 
-declare ptr @psprintf(ptr noundef, ...) local_unnamed_addr #3
+declare ptr @psprintf(ptr noundef, ...) local_unnamed_addr #2
 
-declare void @printTableAddFooter(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @printTableAddFooter(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @add_tablespace_footer(ptr noundef nonnull %0, i8 noundef signext %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
@@ -8810,7 +8804,7 @@ define internal fastcc void @add_tablespace_footer(ptr noundef nonnull %0, i8 no
   br i1 %or.cond16, label %13, label %31
 
 13:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @initPQExpBuffer(ptr noundef nonnull %5) #8
   call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %5, ptr noundef nonnull @.str.878, i32 noundef %2) #8
   %14 = load ptr, ptr %5, align 8
@@ -8850,32 +8844,38 @@ define internal fastcc void @add_tablespace_footer(ptr noundef nonnull %0, i8 no
 
 30:                                               ; preds = %13, %29
   call void @termPQExpBuffer(ptr noundef nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %31
 
 31:                                               ; preds = %30, %4
   ret void
 }
 
-declare i32 @PQfnumber(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @PQfnumber(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @pg_wcswidth(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @pg_wcswidth(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @printTableSetFooter(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @printTableSetFooter(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #7
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #6
 
-declare ptr @PQdb(ptr noundef) local_unnamed_addr #3
+declare ptr @PQdb(ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nounwind }
 attributes #9 = { nounwind willreturn memory(read) }
 

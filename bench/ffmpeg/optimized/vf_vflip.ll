@@ -92,7 +92,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 12:                                               ; preds = %2
   %13 = getelementptr i8, ptr %0, i64 36
   %.val32 = load i32, ptr %13, align 4, !tbaa !39
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %1, ptr %3, align 8, !tbaa !40
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %15 = load ptr, ptr %14, align 8, !tbaa !29
@@ -178,7 +178,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 
 flip_bayer.exit:                                  ; preds = %29, %33, %._crit_edge.i
   %.0.i = phi i32 [ -1094995529, %29 ], [ %67, %._crit_edge.i ], [ -12, %33 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %93
 
 68:                                               ; preds = %.preheader, %87
@@ -269,10 +269,10 @@ declare i32 @av_frame_copy_props(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

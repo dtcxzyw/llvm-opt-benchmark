@@ -60,16 +60,16 @@ define internal i32 @FNT_Face_Init(ptr noundef %0, ptr noundef initializes((248,
   %17 = alloca %struct.WinPE_RsrcDataEntryRec_, align 8
   %18 = alloca i32, align 4
   %19 = alloca %struct.FT_CharMapRec_, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %21 = load ptr, ptr %20, align 8, !tbaa !3
   %22 = icmp slt i32 %2, 0
   %23 = tail call i32 @llvm.abs.i32(i32 %2, i1 true)
   %24 = and i32 %23, 65535
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %26 = load ptr, ptr %25, align 8, !tbaa !25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 248
   store ptr null, ptr %27, align 8, !tbaa !26
   %28 = zext nneg i32 %24 to i64
@@ -94,7 +94,7 @@ define internal i32 @FNT_Face_Init(ptr noundef %0, ptr noundef initializes((248,
   br i1 %35, label %36, label %.thread186.i
 
 36:                                               ; preds = %33
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %8) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %37 = getelementptr inbounds nuw i8, ptr %7, i64 2
   %38 = load i16, ptr %37, align 2, !tbaa !32
   %39 = zext i16 %38 to i64
@@ -255,15 +255,15 @@ define internal i32 @FNT_Face_Init(ptr noundef %0, ptr noundef initializes((248,
   br label %284
 
 122:                                              ; preds = %43
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #11
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #11
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #11
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12) #11
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16) #11
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %123 = load i16, ptr %37, align 2, !tbaa !32
   %124 = zext i16 %123 to i64
   %125 = call i32 @FT_Stream_Seek(ptr noundef %26, i64 noundef %124) #11
@@ -574,15 +574,15 @@ define internal i32 @FNT_Face_Init(ptr noundef %0, ptr noundef initializes((248,
   br i1 %283, label %177, label %._crit_edge215.i, !llvm.loop !66
 
 ._crit_edge215.i:                                 ; preds = %._crit_edge211.i, %161
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #11
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #11
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %284
 
 284:                                              ; preds = %._crit_edge215.i, %105, %43
@@ -601,7 +601,7 @@ define internal i32 @FNT_Face_Init(ptr noundef %0, ptr noundef initializes((248,
   br label %.thread182.i
 
 .thread182.i:                                     ; preds = %.thread182.sink.split.i, %41, %36
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %8) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %fnt_face_get_dll_font.exit
 
 .thread174.thread.sink.split.i:                   ; preds = %95, %88, %.loopexit.i
@@ -610,7 +610,7 @@ define internal i32 @FNT_Face_Init(ptr noundef %0, ptr noundef initializes((248,
   br label %.thread174.thread.i
 
 .thread174.thread.i:                              ; preds = %.thread174.thread.sink.split.i, %96, %94, %53, %45
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %8) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %fnt_face_get_dll_font.exit
 
 .thread174.thread195.sink.split.i:                ; preds = %145, %185, %207, %229, %140, %128
@@ -618,36 +618,36 @@ define internal i32 @FNT_Face_Init(ptr noundef %0, ptr noundef initializes((248,
   br label %.thread174.thread195.i
 
 .thread174.thread195.i:                           ; preds = %149, %193, %188, %183, %177, %215, %210, %205, %199, %244, %239, %235, %227, %221, %.thread174.thread195.sink.split.i, %159, %155, %126, %122
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #11
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #11
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #11
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %8) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %fnt_face_get_dll_font.exit
 
 .thread174.i:                                     ; preds = %247
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #11
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #11
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.thread186.sink.split.i
 
 287:                                              ; preds = %286
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %8) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %.pr228.i, label %fnt_face_get_dll_font.exit, label %.thread186.i
 
 .thread186.sink.split.i:                          ; preds = %.thread174.i, %103, %99
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %8) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.thread186.i
 
 .thread186.i:                                     ; preds = %.thread186.sink.split.i, %287, %33
@@ -678,14 +678,14 @@ define internal i32 @FNT_Face_Init(ptr noundef %0, ptr noundef initializes((248,
 
 298:                                              ; preds = %61
   store i32 3, ptr %6, align 4, !tbaa !29
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %8) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @FT_Stream_ExitFrame(ptr noundef %26) #11
   br label %fnt_face_get_dll_font.exit
 
 fnt_face_get_dll_font.exit:                       ; preds = %32, %.thread182.i, %.thread174.thread.i, %.thread174.thread195.i, %287, %.thread186.i, %295, %298
   %299 = load i32, ptr %6, align 4, !tbaa !29
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #11
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store i32 %299, ptr %18, align 4, !tbaa !29
   %300 = icmp eq i32 %299, 0
   %or.cond = and i1 %22, %300
@@ -842,7 +842,7 @@ fnt_face_get_dll_font.exit:                       ; preds = %32, %.thread182.i, 
   %381 = add nsw i64 %379, 32
   %382 = and i64 %381, -64
   store i64 %382, ptr %380, align 8, !tbaa !89
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %19) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %383 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i64 0, ptr %383, align 8
   store ptr %1, ptr %19, align 8, !tbaa !90
@@ -861,7 +861,7 @@ fnt_face_get_dll_font.exit:                       ; preds = %32, %.thread182.i, 
   %390 = call i32 @FT_CMap_New(ptr noundef nonnull @fnt_cmap_class_rec, ptr noundef null, ptr noundef nonnull %19, ptr noundef null) #11
   store i32 %390, ptr %18, align 4, !tbaa !29
   %.not120 = icmp eq i32 %390, 0
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br i1 %.not120, label %391, label %.thread143
 
 391:                                              ; preds = %389
@@ -991,7 +991,7 @@ fnt_font_done.exit.i:                             ; preds = %443, %.thread143
 
 FNT_Face_Done.exit:                               ; preds = %432, %431, %434, %433, %304, %fnt_font_done.exit.i, %435, %313, %fnt_face_get_dll_font.exit
   %449 = phi i32 [ 0, %432 ], [ 0, %431 ], [ 0, %434 ], [ 0, %433 ], [ %306, %304 ], [ %.pre164, %fnt_font_done.exit.i ], [ %299, %435 ], [ 0, %313 ], [ 0, %fnt_face_get_dll_font.exit ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   ret i32 %449
 }
 
@@ -1046,7 +1046,7 @@ fnt_font_done.exit:                               ; preds = %2, %13
 define internal i32 @FNT_Load_Glyph(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) #0 {
   %5 = alloca i32, align 4
   %6 = load ptr, ptr %1, align 8, !tbaa !104
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4, !tbaa !29
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %.not = icmp eq ptr %6, null
@@ -1238,7 +1238,7 @@ define internal i32 @FNT_Load_Glyph(ptr noundef %0, ptr noundef readonly capture
 
 116:                                              ; preds = %89, %78, %54, %22, %8, %11, %4, %._crit_edge113, %96, %55
   %117 = phi i32 [ %.pre.pre, %._crit_edge113 ], [ %101, %96 ], [ 0, %55 ], [ 35, %4 ], [ 6, %11 ], [ 6, %8 ], [ 3, %22 ], [ 3, %54 ], [ 3, %78 ], [ 3, %89 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %117
 }
 
@@ -1359,14 +1359,8 @@ define internal noundef i32 @winfnt_get_header(ptr noundef readonly captures(non
   ret i32 0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare hidden ptr @ft_mem_alloc(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1440,7 +1434,7 @@ declare hidden i32 @FT_CMap_New(ptr noundef, ptr noundef, ptr noundef, ptr nound
 declare hidden ptr @ft_mem_qrealloc(ptr noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare hidden i32 @FT_Stream_Seek(ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -1461,7 +1455,7 @@ declare hidden void @ft_mem_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare hidden i32 @FT_Stream_ExtractFrame(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @fnt_cmap_init(ptr noundef captures(none) initializes((24, 32)) %0, ptr readnone captures(none) %1) #6 {
+define internal noundef i32 @fnt_cmap_init(ptr noundef captures(none) initializes((24, 32)) %0, ptr readnone captures(none) %1) #5 {
   %3 = load ptr, ptr %0, align 8, !tbaa !158
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 248
   %5 = load ptr, ptr %4, align 8, !tbaa !26
@@ -1481,7 +1475,7 @@ define internal noundef i32 @fnt_cmap_init(ptr noundef captures(none) initialize
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @fnt_cmap_char_index(ptr noundef readonly captures(none) %0, i32 noundef %1) #7 {
+define internal i32 @fnt_cmap_char_index(ptr noundef readonly captures(none) %0, i32 noundef %1) #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8, !tbaa !161
   %5 = sub i32 %1, %4
@@ -1494,7 +1488,7 @@ define internal i32 @fnt_cmap_char_index(ptr noundef readonly captures(none) %0,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal i32 @fnt_cmap_char_next(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #8 {
+define internal i32 @fnt_cmap_char_next(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #7 {
   %3 = load i32, ptr %1, align 4, !tbaa !29
   %4 = add i32 %3, 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1523,6 +1517,12 @@ declare hidden void @ft_synthesize_vertical_metrics(ptr noundef, i64 noundef) lo
 
 declare hidden void @FT_Select_Metrics(ptr noundef, i64 noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #9
 
@@ -1532,12 +1532,12 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #11 = { nounwind }

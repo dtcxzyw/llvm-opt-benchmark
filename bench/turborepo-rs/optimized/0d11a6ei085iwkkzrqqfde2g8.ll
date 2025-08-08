@@ -274,7 +274,7 @@ define hidden { ptr, i64 } @_RNvXsb_CsfbvjWzJraAt_4itoalNtNtB5_7private6Sealed5w
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoahEB4_(ptr noalias noundef align 8 dereferenceable(24) %0, i8 noundef %1) unnamed_addr #3 {
   %3 = alloca [40 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6)
   %4 = icmp ugt i8 %1, 99
   br i1 %4, label %.thread.i, label %12
@@ -337,14 +337,14 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15tu
   %33 = load i64, ptr %22, align 8, !alias.scope !9, !noundef !4
   %34 = add i64 %33, %gepdiff
   store i64 %34, ptr %22, align 8, !alias.scope !9
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_(ptr noalias noundef align 8 dereferenceable(24) %0, i32 noundef %1) unnamed_addr #3 {
   %3 = alloca [40 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12)
   %4 = icmp sgt i32 %1, -1
   %.sroa.0.0.i = tail call i32 @llvm.abs.i32(i32 %1, i1 false)
@@ -455,14 +455,14 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15tu
   %62 = load i64, ptr %51, align 8, !alias.scope !15, !noundef !4
   %63 = add i64 %62, %gepdiff
   store i64 %63, ptr %51, align 8, !alias.scope !15
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoatEB4_(ptr noalias noundef align 8 dereferenceable(24) %0, i16 noundef %1) unnamed_addr #3 {
   %3 = alloca [40 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18)
   %4 = icmp ugt i16 %1, 9999
   br i1 %4, label %.thread.i, label %._crit_edge.i
@@ -552,7 +552,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15tu
   %52 = load i64, ptr %41, align 8, !alias.scope !21, !noundef !4
   %53 = add i64 %52, %gepdiff
   store i64 %53, ptr %41, align 8, !alias.scope !21
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -571,10 +571,10 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare noundef zeroext i1 @_RNvXso_NtCs1LoaDTb72WA_4core3fmtStNtB5_5Debug3fmtCsbYUTfhIhMOk_7ratatui(ptr noalias noundef nonnull readonly align 2, i64 noundef, ptr noalias noundef align 8 dereferenceable(64)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #9

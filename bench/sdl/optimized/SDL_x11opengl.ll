@@ -357,26 +357,23 @@ X11_GL_GetProcAddress.exit83:                     ; preds = %83, %85
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare zeroext i1 @SDL_SetError_REAL(ptr noundef, ...) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_SetError_REAL(ptr noundef, ...) local_unnamed_addr #2
-
-declare ptr @SDL_GetHint_REAL(ptr noundef) local_unnamed_addr #2
+declare ptr @SDL_GetHint_REAL(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare ptr @dlopen(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @dlopen(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare ptr @dlerror() local_unnamed_addr #3
+declare ptr @dlerror() local_unnamed_addr #2
 
-declare i64 @SDL_strlcpy_REAL(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @SDL_strlcpy_REAL(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @SDL_calloc_REAL(i64 noundef, i64 noundef) local_unnamed_addr #4
+declare noalias ptr @SDL_calloc_REAL(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
-declare ptr @dlsym(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @dlsym(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @X11_GL_GetProcAddress(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -458,7 +455,7 @@ X11_GL_GetProcAddress.exit107:                    ; preds = %23, %25
   br i1 %or.cond, label %31, label %63
 
 31:                                               ; preds = %X11_GL_GetProcAddress.exit107
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %32 = tail call ptr %.0.i() #6
   %33 = tail call i64 %.0.i106() #6
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -498,7 +495,7 @@ X11_GL_GetProcAddress.exit107:                    ; preds = %23, %25
   br label %62
 
 62:                                               ; preds = %57, %31
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %63
 
 63:                                               ; preds = %62, %X11_GL_GetProcAddress.exit107
@@ -1201,7 +1198,7 @@ HasExtension.exit213.thread:                      ; preds = %349, %HasExtension.
   ret void
 }
 
-declare zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @X11_GL_UseEGL(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -1252,28 +1249,25 @@ define hidden void @X11_GL_UnloadLibrary(ptr noundef captures(none) %0) local_un
   ret void
 }
 
-declare zeroext i1 @X11_GLES_LoadLibrary(ptr noundef, ptr noundef) #2
+declare zeroext i1 @X11_GLES_LoadLibrary(ptr noundef, ptr noundef) #1
 
-declare ptr @SDL_EGL_GetProcAddressInternal(ptr noundef, ptr noundef) #2
+declare ptr @SDL_EGL_GetProcAddressInternal(ptr noundef, ptr noundef) #1
 
-declare void @SDL_EGL_UnloadLibrary(ptr noundef) #2
+declare void @SDL_EGL_UnloadLibrary(ptr noundef) #1
 
-declare ptr @X11_GLES_CreateContext(ptr noundef, ptr noundef) #2
+declare ptr @X11_GLES_CreateContext(ptr noundef, ptr noundef) #1
 
-declare zeroext i1 @X11_GLES_MakeCurrent(ptr noundef, ptr noundef, ptr noundef) #2
+declare zeroext i1 @X11_GLES_MakeCurrent(ptr noundef, ptr noundef, ptr noundef) #1
 
-declare zeroext i1 @SDL_EGL_SetSwapInterval(ptr noundef, i32 noundef) #2
+declare zeroext i1 @SDL_EGL_SetSwapInterval(ptr noundef, i32 noundef) #1
 
-declare zeroext i1 @SDL_EGL_GetSwapInterval(ptr noundef, ptr noundef) #2
+declare zeroext i1 @SDL_EGL_GetSwapInterval(ptr noundef, ptr noundef) #1
 
-declare zeroext i1 @X11_GLES_SwapWindow(ptr noundef, ptr noundef) #2
+declare zeroext i1 @X11_GLES_SwapWindow(ptr noundef, ptr noundef) #1
 
-declare zeroext i1 @SDL_EGL_DestroyContext(ptr noundef, ptr noundef) #2
+declare zeroext i1 @SDL_EGL_DestroyContext(ptr noundef, ptr noundef) #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare void @SDL_free_REAL(ptr noundef) local_unnamed_addr #2
+declare void @SDL_free_REAL(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @X11_GL_GetVisual(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
@@ -1282,8 +1276,8 @@ define hidden ptr @X11_GL_GetVisual(ptr noundef readonly captures(none) %0, ptr 
   %7 = alloca [64 x i32], align 16
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %7) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1664
   %11 = load ptr, ptr %10, align 8
@@ -1303,7 +1297,7 @@ define hidden ptr @X11_GL_GetVisual(ptr noundef readonly captures(none) %0, ptr 
   br i1 %.not124, label %.thread162, label %18
 
 18:                                               ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   call fastcc void @X11_GL_GetAttributes(ptr noundef nonnull %0, ptr noundef %7, i32 noundef 1, ptr noundef %8, i1 noundef zeroext %3)
   %19 = load ptr, ptr %10, align 8
@@ -1399,7 +1393,7 @@ define hidden ptr @X11_GL_GetVisual(ptr noundef readonly captures(none) %0, ptr 
 .thread165:                                       ; preds = %.loopexit
   %58 = load ptr, ptr @X11_XFree, align 8
   %59 = call i32 %58(ptr noundef null) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.thread162
 
 .loopexit.thread:                                 ; preds = %.thread, %.loopexit
@@ -1415,7 +1409,7 @@ define hidden ptr @X11_GL_GetVisual(ptr noundef readonly captures(none) %0, ptr 
   %.5 = phi ptr [ %64, %.loopexit.thread ], [ %39, %.thread156 ]
   %66 = load ptr, ptr @X11_XFree, align 8
   %67 = call i32 %66(ptr noundef %.1103160) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %.not130 = icmp eq ptr %.5, null
   br i1 %.not130, label %.thread162, label %80
 
@@ -1486,8 +1480,8 @@ define hidden ptr @X11_GL_GetVisual(ptr noundef readonly captures(none) %0, ptr 
   ]
 
 .thread193:                                       ; preds = %87, %82, %90, %91
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4
   %94 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 %2, ptr %94, align 8
@@ -1497,8 +1491,8 @@ define hidden ptr @X11_GL_GetVisual(ptr noundef readonly captures(none) %0, ptr 
   br i1 %.not.i, label %X11_GL_GetTransparentVisualInfo.exit.thread174, label %.preheader.i
 
 X11_GL_GetTransparentVisualInfo.exit.thread174:   ; preds = %.thread193
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread178
 
 .preheader.i:                                     ; preds = %.thread193
@@ -1556,8 +1550,8 @@ X11_GL_GetTransparentVisualInfo.exit.thread174:   ; preds = %.thread193
   br i1 %113, label %.lr.ph.i, label %X11_GL_GetTransparentVisualInfo.exit.thread, !llvm.loop !5
 
 X11_GL_GetTransparentVisualInfo.exit.thread:      ; preds = %.thread.i, %.preheader.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %121
 
 X11_GL_GetTransparentVisualInfo.exit:             ; preds = %104, %104, %104, %104, %108, %108, %108, %108
@@ -1570,8 +1564,8 @@ X11_GL_GetTransparentVisualInfo.exit:             ; preds = %104, %104, %104, %1
   %118 = call i32 %117(ptr noundef nonnull %96) #6
   %119 = load ptr, ptr @X11_XGetVisualInfo, align 8
   %120 = call ptr %119(ptr noundef %1, i64 noundef 3, ptr noundef nonnull %5, ptr noundef nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not136 = icmp eq ptr %120, null
   br i1 %.not136, label %124, label %121
 
@@ -1591,8 +1585,8 @@ X11_GL_GetTransparentVisualInfo.exit:             ; preds = %104, %104, %104, %1
 
 .thread178:                                       ; preds = %X11_GL_GetTransparentVisualInfo.exit.thread174, %121, %87, %87, %87, %87, %91, %91, %91, %91, %124, %125, %4
   %.0 = phi ptr [ null, %4 ], [ null, %125 ], [ %.6, %124 ], [ %.6, %X11_GL_GetTransparentVisualInfo.exit.thread174 ], [ %.034.i173, %121 ], [ %.6, %91 ], [ %.6, %91 ], [ %.6, %91 ], [ %.6, %87 ], [ %.6, %87 ], [ %.6, %87 ], [ %.6, %87 ], [ %.6, %91 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #6
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %.0
 }
 
@@ -1921,7 +1915,7 @@ define internal fastcc void @X11_GL_GetAttributes(ptr noundef readonly captures(
   ret void
 }
 
-declare i32 @X11_GetPixelFormatFromVisualInfo(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @X11_GetPixelFormatFromVisualInfo(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @X11_GL_CreateContext(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -1939,9 +1933,9 @@ define hidden ptr @X11_GL_CreateContext(ptr noundef readonly captures(none) %0, 
   %14 = load ptr, ptr %13, align 8
   %15 = tail call ptr @SDL_GetDisplayDriverDataForWindow(ptr noundef %1) #6
   %16 = load i32, ptr %15, align 8
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %3) #6
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %18 = load i64, ptr %17, align 8
   %19 = and i64 %18, 1073741824
@@ -2011,7 +2005,7 @@ define hidden ptr @X11_GL_CreateContext(ptr noundef readonly captures(none) %0, 
 
 ._crit_edge:                                      ; preds = %45, %52
   %61 = phi i32 [ 0, %52 ], [ %50, %45 ]
-  call void @llvm.lifetime.start.p0(i64 60, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 8337, ptr %6, align 16
   %62 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %47, ptr %62, align 4
@@ -2138,10 +2132,10 @@ define hidden ptr @X11_GL_CreateContext(ptr noundef readonly captures(none) %0, 
   br label %192
 
 130:                                              ; preds = %123
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %7) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call fastcc void @X11_GL_GetAttributes(ptr noundef nonnull %0, ptr noundef %7, i32 noundef 1, ptr noundef %9, i1 noundef zeroext %20)
   %131 = load ptr, ptr %28, align 8
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 72
@@ -2274,14 +2268,14 @@ define hidden ptr @X11_GL_CreateContext(ptr noundef readonly captures(none) %0, 
 
 191:                                              ; preds = %.sink.split, %183, %130
   %.3 = phi ptr [ null, %183 ], [ null, %130 ], [ %.3.ph, %.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #6
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %192
 
 192:                                              ; preds = %191, %128
   %.2 = phi ptr [ %.3, %191 ], [ null, %128 ]
-  call void @llvm.lifetime.end.p0(i64 60, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %193
 
 193:                                              ; preds = %192, %56
@@ -2368,20 +2362,20 @@ X11_GL_MakeCurrent.exit.thread198:                ; preds = %210, %X11_GL_MakeCu
 
 X11_GL_DestroyContext.exit:                       ; preds = %230, %233, %X11_GL_MakeCurrent.exit.thread198, %X11_GL_MakeCurrent.exit, %202, %205
   %.0120 = phi ptr [ null, %205 ], [ null, %202 ], [ %.0121, %X11_GL_MakeCurrent.exit ], [ null, %X11_GL_MakeCurrent.exit.thread198 ], [ null, %233 ], [ %.0121, %230 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #6
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0120
 }
 
-declare ptr @SDL_GetDisplayDriverDataForWindow(ptr noundef) local_unnamed_addr #2
+declare ptr @SDL_GetDisplayDriverDataForWindow(ptr noundef) local_unnamed_addr #1
 
-declare ptr @SDL_GL_GetCurrentContext_REAL() local_unnamed_addr #2
+declare ptr @SDL_GL_GetCurrentContext_REAL() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @X11_GL_ErrorHandler(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = alloca [256 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load i8, ptr %4, align 8
   %6 = zext i8 %5 to i32
@@ -2412,7 +2406,7 @@ define internal noundef i32 @X11_GL_ErrorHandler(ptr noundef %0, ptr noundef rea
   br label %21
 
 21:                                               ; preds = %.thread, %14
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 0
 }
 
@@ -2530,7 +2524,7 @@ define hidden zeroext i1 @X11_GL_SetSwapInterval(ptr noundef readonly captures(n
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load i64, ptr %23, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4
   %25 = call zeroext i1 @X11_GL_GetSwapInterval(ptr noundef nonnull %0, ptr noundef nonnull %3)
   %26 = load ptr, ptr %16, align 8
@@ -2543,7 +2537,7 @@ define hidden zeroext i1 @X11_GL_SetSwapInterval(ptr noundef readonly captures(n
   %32 = load ptr, ptr %31, align 8
   tail call void %32(ptr noundef %19, i64 noundef %24, i32 noundef %1) #6
   store i32 %1, ptr @swapinterval, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %53
 
 33:                                               ; preds = %._crit_edge
@@ -2593,7 +2587,7 @@ define hidden zeroext i1 @X11_GL_SetSwapInterval(ptr noundef readonly captures(n
   ret i1 %.0
 }
 
-declare ptr @SDL_GL_GetCurrentWindow_REAL() local_unnamed_addr #2
+declare ptr @SDL_GL_GetCurrentWindow_REAL() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @X11_GL_GetSwapInterval(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
@@ -2616,9 +2610,9 @@ define hidden zeroext i1 @X11_GL_GetSwapInterval(ptr noundef readonly captures(n
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load i64, ptr %17, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4
   %19 = load ptr, ptr %6, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 10
@@ -2661,7 +2655,7 @@ define hidden zeroext i1 @X11_GL_GetSwapInterval(ptr noundef readonly captures(n
 41:                                               ; preds = %36
   %42 = load ptr, ptr %11, align 8
   %43 = load ptr, ptr %42, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 22, ptr %3, align 4
   %44 = getelementptr inbounds nuw i8, ptr %32, i64 120
   %45 = load ptr, ptr %44, align 8
@@ -2703,7 +2697,7 @@ define hidden zeroext i1 @X11_GL_GetSwapInterval(ptr noundef readonly captures(n
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 120
   %62 = load ptr, ptr %61, align 8
   call void %62(ptr noundef %43, i64 noundef %18, i32 noundef %.0.i) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %CheckSwapIntervalTearBehavior.exit
 
 CheckSwapIntervalTearBehavior.exit:               ; preds = %26, %40, %59
@@ -2735,8 +2729,8 @@ CheckSwapIntervalTearBehavior.exit:               ; preds = %26, %40, %59
   br label %75
 
 75:                                               ; preds = %.sink.split, %68
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %87
 
 76:                                               ; preds = %2
@@ -2787,30 +2781,36 @@ define hidden noundef zeroext i1 @X11_GL_SwapWindow(ptr noundef readonly capture
   ret i1 true
 }
 
-declare void @X11_HandlePresent(ptr noundef) local_unnamed_addr #2
+declare void @X11_HandlePresent(ptr noundef) local_unnamed_addr #1
 
-declare void @SDL_GL_DeduceMaxSupportedESProfile(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @SDL_GL_DeduceMaxSupportedESProfile(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @X11_PumpEvents(ptr noundef) local_unnamed_addr #2
+declare void @X11_PumpEvents(ptr noundef) local_unnamed_addr #1
 
-declare ptr @SDL_strchr_REAL(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @SDL_strchr_REAL(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @SDL_strstr_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @SDL_strstr_REAL(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i64 @SDL_strlen_REAL(ptr noundef) local_unnamed_addr #2
+declare i64 @SDL_strlen_REAL(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @X11_UseDirectColorVisuals() local_unnamed_addr #2
+declare zeroext i1 @X11_UseDirectColorVisuals() local_unnamed_addr #1
 
-declare ptr @SDL_iconv_string_REAL(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @SDL_iconv_string_REAL(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #6 = { nounwind }
 attributes #7 = { nounwind allocsize(0,1) }

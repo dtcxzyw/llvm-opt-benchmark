@@ -40,8 +40,8 @@ target triple = "x86_64-pc-linux-gnu"
 define range(i32 0, 2) i32 @TS_RESP_verify_signature(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca [4096 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #7
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %8
 
@@ -178,35 +178,32 @@ define range(i32 0, 2) i32 @TS_RESP_verify_signature(ptr noundef %0, ptr noundef
   call void @OPENSSL_sk_free(ptr noundef %.038) #7
   call void @OSSL_STACK_OF_X509_free(ptr noundef %62) #7
   call void @OPENSSL_sk_free(ptr noundef %.039) #7
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %6) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.037
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare void @ERR_new() local_unnamed_addr #1
 
-declare void @ERR_new() local_unnamed_addr #2
+declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare i32 @OBJ_obj2nid(ptr noundef) local_unnamed_addr #1
 
-declare i32 @OBJ_obj2nid(ptr noundef) local_unnamed_addr #2
+declare ptr @PKCS7_get_signer_info(ptr noundef) local_unnamed_addr #1
 
-declare ptr @PKCS7_get_signer_info(ptr noundef) local_unnamed_addr #2
+declare i32 @OPENSSL_sk_num(ptr noundef) local_unnamed_addr #1
 
-declare i32 @OPENSSL_sk_num(ptr noundef) local_unnamed_addr #2
+declare ptr @OPENSSL_sk_value(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @OPENSSL_sk_value(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i64 @PKCS7_ctrl(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i64 @PKCS7_ctrl(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @PKCS7_get0_signers(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @PKCS7_get0_signers(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @OPENSSL_sk_new_reserve(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @OPENSSL_sk_new_reserve(ptr noundef, i32 noundef) local_unnamed_addr #2
-
-declare i32 @X509_add_certs(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @X509_add_certs(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @ts_verify_cert(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %3) unnamed_addr #0 {
@@ -256,7 +253,7 @@ define internal fastcc range(i32 0, 2) i32 @ts_verify_cert(ptr noundef %0, ptr n
 define internal fastcc range(i32 0, 2) i32 @ts_check_signing_certs(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call ptr @PKCS7_get_signed_attribute(ptr noundef %0, i32 noundef 223) #7
   %6 = icmp eq ptr %5, null
   br i1 %6, label %ossl_ess_get_signing_cert.exit, label %7
@@ -274,8 +271,8 @@ define internal fastcc range(i32 0, 2) i32 @ts_check_signing_certs(ptr noundef %
 
 ossl_ess_get_signing_cert.exit:                   ; preds = %2, %7
   %.0.i = phi ptr [ %14, %7 ], [ null, %2 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %15 = call ptr @PKCS7_get_signed_attribute(ptr noundef %0, i32 noundef 1086) #7
   %16 = icmp eq ptr %15, null
   br i1 %16, label %ossl_ess_get_signing_cert_v2.exit, label %17
@@ -293,7 +290,7 @@ ossl_ess_get_signing_cert.exit:                   ; preds = %2, %7
 
 ossl_ess_get_signing_cert_v2.exit:                ; preds = %ossl_ess_get_signing_cert.exit, %17
   %.0.i7 = phi ptr [ %24, %17 ], [ null, %ossl_ess_get_signing_cert.exit ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %25 = call i32 @OSSL_ESS_check_signing_certs(ptr noundef %.0.i, ptr noundef %.0.i7, ptr noundef %1, i32 noundef 1) #7
   %26 = icmp sgt i32 %25, 0
   %27 = zext i1 %26 to i32
@@ -302,22 +299,19 @@ ossl_ess_get_signing_cert_v2.exit:                ; preds = %ossl_ess_get_signin
   ret i32 %27
 }
 
-declare ptr @PKCS7_dataInit(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @PKCS7_dataInit(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @BIO_read(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @BIO_read(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @PKCS7_signatureVerify(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @PKCS7_signatureVerify(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @X509_up_ref(ptr noundef) local_unnamed_addr #2
+declare i32 @X509_up_ref(ptr noundef) local_unnamed_addr #1
 
-declare void @BIO_free_all(ptr noundef) local_unnamed_addr #2
+declare void @BIO_free_all(ptr noundef) local_unnamed_addr #1
 
-declare void @OPENSSL_sk_free(ptr noundef) local_unnamed_addr #2
+declare void @OPENSSL_sk_free(ptr noundef) local_unnamed_addr #1
 
-declare void @OSSL_STACK_OF_X509_free(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @OSSL_STACK_OF_X509_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @TS_RESP_verify_response(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
@@ -329,7 +323,7 @@ define range(i32 0, 2) i32 @TS_RESP_verify_response(ptr noundef readonly capture
   %.val = load ptr, ptr %1, align 8, !tbaa !37
   %8 = load ptr, ptr %.val, align 8, !tbaa !38
   %9 = tail call i64 @ASN1_INTEGER_get(ptr noundef %8) #7
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %3, i8 0, i64 256, i1 false)
   %or.cond.i = icmp ult i64 %9, 2
   br i1 %or.cond.i, label %40, label %10
@@ -415,11 +409,11 @@ define range(i32 0, 2) i32 @TS_RESP_verify_response(ptr noundef readonly capture
   br label %ts_check_status_info.exit.thread
 
 ts_check_status_info.exit.thread:                 ; preds = %38, %19
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %42
 
 40:                                               ; preds = %2
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %41 = tail call fastcc i32 @int_ts_RESP_verify_token(ptr noundef %0, ptr noundef %5, ptr noundef %7)
   br label %42
 
@@ -433,7 +427,7 @@ define internal fastcc range(i32 0, 2) i32 @int_ts_RESP_verify_token(ptr noundef
   %4 = alloca [4096 x i8], align 16
   %5 = alloca [50 x i8], align 16
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !26
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %8 = load ptr, ptr %7, align 8, !tbaa !47
@@ -521,8 +515,8 @@ ts_check_policy.exit:                             ; preds = %28, %26
   %48 = getelementptr i8, ptr %2, i64 16
   %.val56 = load ptr, ptr %48, align 8, !tbaa !65
   %.val56.val = load ptr, ptr %.val56, align 8, !tbaa !67
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %4) #7
-  call void @llvm.lifetime.start.p0(i64 50, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %49 = call ptr @X509_ALGOR_dup(ptr noundef %.val56.val) #7
   %50 = icmp eq ptr %49, null
   br i1 %50, label %ts_compute_imprint.exit.thread, label %51
@@ -601,14 +595,14 @@ ts_compute_imprint.exit.thread:                   ; preds = %79, %45, %60, %.thr
   call void @EVP_MD_free(ptr noundef %.032.i) #7
   call void @X509_ALGOR_free(ptr noundef %49) #7
   call void @CRYPTO_free(ptr noundef %.2, ptr noundef nonnull @.str, i32 noundef 480) #7
-  call void @llvm.lifetime.end.p0(i64 50, ptr nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %106
 
 84:                                               ; preds = %82
   call void @EVP_MD_CTX_free(ptr noundef nonnull %70) #7
-  call void @llvm.lifetime.end.p0(i64 50, ptr nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.val55 = load ptr, ptr %48, align 8, !tbaa !65
   %85 = call fastcc i32 @ts_check_imprints(ptr noundef nonnull %49, ptr noundef nonnull %67, i32 noundef %63, ptr %.val55)
   %.not47 = icmp eq i32 %85, 0
@@ -684,7 +678,7 @@ ts_check_nonces.exit:                             ; preds = %90, %86
   call void @X509_free(ptr noundef %107) #7
   call void @X509_ALGOR_free(ptr noundef %.070) #7
   call void @CRYPTO_free(ptr noundef %.069, ptr noundef nonnull @.str, i32 noundef 347) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.035
 }
 
@@ -704,39 +698,39 @@ define range(i32 0, 2) i32 @TS_RESP_verify_token(ptr noundef readonly captures(n
   ret i32 %.0
 }
 
-declare ptr @PKCS7_to_TS_TST_INFO(ptr noundef) local_unnamed_addr #2
+declare ptr @PKCS7_to_TS_TST_INFO(ptr noundef) local_unnamed_addr #1
 
-declare void @TS_TST_INFO_free(ptr noundef) local_unnamed_addr #2
+declare void @TS_TST_INFO_free(ptr noundef) local_unnamed_addr #1
 
-declare ptr @X509_STORE_CTX_new() local_unnamed_addr #2
+declare ptr @X509_STORE_CTX_new() local_unnamed_addr #1
 
-declare i32 @X509_STORE_CTX_init(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @X509_STORE_CTX_init(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @X509_STORE_CTX_set_purpose(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @X509_STORE_CTX_set_purpose(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @X509_verify_cert(ptr noundef) local_unnamed_addr #2
+declare i32 @X509_verify_cert(ptr noundef) local_unnamed_addr #1
 
-declare i32 @X509_STORE_CTX_get_error(ptr noundef) local_unnamed_addr #2
+declare i32 @X509_STORE_CTX_get_error(ptr noundef) local_unnamed_addr #1
 
-declare ptr @X509_verify_cert_error_string(i64 noundef) local_unnamed_addr #2
+declare ptr @X509_verify_cert_error_string(i64 noundef) local_unnamed_addr #1
 
-declare ptr @X509_STORE_CTX_get1_chain(ptr noundef) local_unnamed_addr #2
+declare ptr @X509_STORE_CTX_get1_chain(ptr noundef) local_unnamed_addr #1
 
-declare void @X509_STORE_CTX_free(ptr noundef) local_unnamed_addr #2
+declare void @X509_STORE_CTX_free(ptr noundef) local_unnamed_addr #1
 
-declare i32 @OSSL_ESS_check_signing_certs(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @OSSL_ESS_check_signing_certs(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @ESS_SIGNING_CERT_free(ptr noundef) local_unnamed_addr #2
+declare void @ESS_SIGNING_CERT_free(ptr noundef) local_unnamed_addr #1
 
-declare void @ESS_SIGNING_CERT_V2_free(ptr noundef) local_unnamed_addr #2
+declare void @ESS_SIGNING_CERT_V2_free(ptr noundef) local_unnamed_addr #1
 
-declare ptr @PKCS7_get_signed_attribute(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @PKCS7_get_signed_attribute(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @d2i_ESS_SIGNING_CERT(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @d2i_ESS_SIGNING_CERT(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare ptr @d2i_ESS_SIGNING_CERT_V2(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @d2i_ESS_SIGNING_CERT_V2(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i64 @TS_TST_INFO_get_version(ptr noundef) local_unnamed_addr #2
+declare i64 @TS_TST_INFO_get_version(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @ts_check_imprints(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr readonly captures(none) %.16.val) unnamed_addr #0 {
@@ -802,7 +796,7 @@ define internal fastcc range(i32 0, 2) i32 @ts_check_imprints(ptr noundef readon
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @ts_check_signer_name(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 -1, ptr %3, align 4, !tbaa !78
   %4 = load i32, ptr %0, align 8, !tbaa !79
   %5 = icmp eq i32 %4, 4
@@ -852,77 +846,83 @@ ts_find_name.exit:                                ; preds = %ts_find_name.exit.t
 
 21:                                               ; preds = %6, %ts_find_name.exit
   %.013 = phi i32 [ %.1, %ts_find_name.exit ], [ 1, %6 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.013
 }
 
-declare void @X509_free(ptr noundef) local_unnamed_addr #2
+declare void @X509_free(ptr noundef) local_unnamed_addr #1
 
-declare void @X509_ALGOR_free(ptr noundef) local_unnamed_addr #2
+declare void @X509_ALGOR_free(ptr noundef) local_unnamed_addr #1
 
-declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @OBJ_cmp(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @OBJ_cmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @ASN1_TYPE_get(ptr noundef) local_unnamed_addr #2
+declare i32 @ASN1_TYPE_get(ptr noundef) local_unnamed_addr #1
 
-declare i32 @ASN1_STRING_length(ptr noundef) local_unnamed_addr #2
+declare i32 @ASN1_STRING_length(ptr noundef) local_unnamed_addr #1
 
-declare ptr @ASN1_STRING_get0_data(ptr noundef) local_unnamed_addr #2
+declare ptr @ASN1_STRING_get0_data(ptr noundef) local_unnamed_addr #1
 
-declare ptr @X509_ALGOR_dup(ptr noundef) local_unnamed_addr #2
+declare ptr @X509_ALGOR_dup(ptr noundef) local_unnamed_addr #1
 
-declare i32 @OBJ_obj2txt(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @OBJ_obj2txt(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @ERR_set_mark() local_unnamed_addr #2
+declare i32 @ERR_set_mark() local_unnamed_addr #1
 
-declare ptr @EVP_MD_fetch(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @EVP_MD_fetch(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @EVP_get_digestbyname(ptr noundef) local_unnamed_addr #2
+declare ptr @EVP_get_digestbyname(ptr noundef) local_unnamed_addr #1
 
-declare i32 @ERR_clear_last_mark() local_unnamed_addr #2
+declare i32 @ERR_clear_last_mark() local_unnamed_addr #1
 
-declare i32 @ERR_pop_to_mark() local_unnamed_addr #2
+declare i32 @ERR_pop_to_mark() local_unnamed_addr #1
 
-declare i32 @EVP_MD_get_size(ptr noundef) local_unnamed_addr #2
+declare i32 @EVP_MD_get_size(ptr noundef) local_unnamed_addr #1
 
-declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @EVP_MD_CTX_new() local_unnamed_addr #2
+declare ptr @EVP_MD_CTX_new() local_unnamed_addr #1
 
-declare i32 @EVP_DigestInit(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @EVP_DigestInit(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @EVP_MD_free(ptr noundef) local_unnamed_addr #2
+declare void @EVP_MD_free(ptr noundef) local_unnamed_addr #1
 
-declare i32 @EVP_DigestUpdate(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @EVP_DigestUpdate(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @EVP_DigestFinal(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @EVP_DigestFinal(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @EVP_MD_CTX_free(ptr noundef) local_unnamed_addr #2
+declare void @EVP_MD_CTX_free(ptr noundef) local_unnamed_addr #1
 
-declare i32 @ASN1_INTEGER_cmp(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ASN1_INTEGER_cmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @X509_NAME_cmp(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @X509_NAME_cmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @X509_get_subject_name(ptr noundef) local_unnamed_addr #2
+declare ptr @X509_get_subject_name(ptr noundef) local_unnamed_addr #1
 
-declare ptr @X509_get_ext_d2i(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @X509_get_ext_d2i(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @GENERAL_NAMES_free(ptr noundef) local_unnamed_addr #2
+declare void @GENERAL_NAMES_free(ptr noundef) local_unnamed_addr #1
 
-declare i32 @GENERAL_NAME_cmp(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @GENERAL_NAME_cmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i64 @ASN1_INTEGER_get(ptr noundef) local_unnamed_addr #2
+declare i64 @ASN1_INTEGER_get(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
-declare i32 @ASN1_BIT_STRING_get_bit(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ASN1_BIT_STRING_get_bit(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcat(ptr noalias noundef returned, ptr noalias noundef readonly captures(none)) local_unnamed_addr #4
+declare ptr @strcat(ptr noalias noundef returned, ptr noalias noundef readonly captures(none)) local_unnamed_addr #3
 
-declare ptr @ossl_sk_ASN1_UTF8STRING2text(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @ossl_sk_ASN1_UTF8STRING2text(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
@@ -934,10 +934,10 @@ declare i64 @strlen(ptr captures(none)) local_unnamed_addr #6
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #7 = { nounwind }

@@ -111,7 +111,7 @@ define internal i32 @v4l2_encode_init(ptr noundef %0) #0 {
   %20 = alloca %struct.v4l2_ext_control, align 4
   %21 = alloca %struct.v4l2_event_subscription, align 4
   %22 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %24 = load ptr, ptr %23, align 8, !tbaa !4
   %25 = call i32 @ff_v4l2_m2m_create_context(ptr noundef %24, ptr noundef nonnull %22) #8
@@ -172,7 +172,7 @@ define internal i32 @v4l2_encode_init(ptr noundef %0) #0 {
   %55 = load ptr, ptr %22, align 8, !tbaa !27
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 4648
   %57 = load ptr, ptr %56, align 8, !tbaa !40
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %21) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %58 = getelementptr inbounds nuw i8, ptr %21, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %58, i8 0, i64 28, i1 false)
   store i32 2, ptr %21, align 4, !tbaa !48
@@ -188,7 +188,7 @@ define internal i32 @v4l2_encode_init(ptr noundef %0) #0 {
   br label %v4l2_subscribe_eos_event.exit.i
 
 v4l2_subscribe_eos_event.exit.i:                  ; preds = %63, %54
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %21) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %65 = load ptr, ptr %56, align 8, !tbaa !40
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 200
   %67 = load i32, ptr %66, align 8, !tbaa !51
@@ -200,10 +200,10 @@ v4l2_subscribe_eos_event.exit.i:                  ; preds = %63, %54
   br label %69
 
 69:                                               ; preds = %68, %v4l2_subscribe_eos_event.exit.i
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %19) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %70 = getelementptr inbounds nuw i8, ptr %19, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %70, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %20) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %71 = getelementptr inbounds nuw i8, ptr %20, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %71, i8 0, i64 16, i1 false)
   store i32 10027008, ptr %19, align 8, !tbaa !45
@@ -232,13 +232,13 @@ v4l2_subscribe_eos_event.exit.i:                  ; preds = %63, %54
   br label %v4l2_set_ext_ctrl.exit.i.i
 
 v4l2_set_ext_ctrl.exit.i.i:                       ; preds = %83, %78
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %20) #8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %19) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %84 = load ptr, ptr %56, align 8, !tbaa !40
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %85 = getelementptr inbounds nuw i8, ptr %17, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %85, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %18) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %86 = getelementptr inbounds nuw i8, ptr %18, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %86, i8 0, i64 16, i1 false)
   store i32 10027008, ptr %17, align 8, !tbaa !45
@@ -269,8 +269,8 @@ v4l2_set_ext_ctrl.exit.i.i:                       ; preds = %83, %78
   br label %v4l2_get_ext_ctrl.exit.i.i
 
 v4l2_get_ext_ctrl.exit.i.i:                       ; preds = %97, %92
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %18) #8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %101 = load ptr, ptr %56, align 8, !tbaa !40
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 200
   %103 = load i32, ptr %102, align 8, !tbaa !51
@@ -292,7 +292,7 @@ v4l2_check_b_frame_support.exit.i:                ; preds = %v4l2_get_ext_ctrl.e
   br i1 %or.cond112.i, label %123, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %105
-  call void @llvm.lifetime.start.p0(i64 204, ptr nonnull %16) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %110 = getelementptr inbounds nuw i8, ptr %16, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(200) %110, i8 0, i64 200, i1 false)
   %111 = getelementptr inbounds nuw i8, ptr %55, i64 4384
@@ -316,14 +316,14 @@ v4l2_check_b_frame_support.exit.i:                ; preds = %v4l2_get_ext_ctrl.e
   br label %v4l2_set_timeperframe.exit.i
 
 v4l2_set_timeperframe.exit.i:                     ; preds = %121, %._crit_edge.i
-  call void @llvm.lifetime.end.p0(i64 204, ptr nonnull %16) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %123
 
 123:                                              ; preds = %v4l2_set_timeperframe.exit.i, %105
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %124 = getelementptr inbounds nuw i8, ptr %14, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %124, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %15) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %125 = getelementptr inbounds nuw i8, ptr %15, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %125, i8 0, i64 16, i1 false)
   store i32 10027008, ptr %14, align 8, !tbaa !45
@@ -352,15 +352,15 @@ v4l2_set_timeperframe.exit.i:                     ; preds = %121, %._crit_edge.i
   br label %v4l2_set_ext_ctrl.exit.i
 
 v4l2_set_ext_ctrl.exit.i:                         ; preds = %137, %132
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %15) #8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %138 = getelementptr inbounds nuw i8, ptr %57, i64 56
   %139 = load i64, ptr %138, align 8, !tbaa !64
   %140 = trunc i64 %139 to i32
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %141 = getelementptr inbounds nuw i8, ptr %12, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %141, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %13) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %142 = getelementptr inbounds nuw i8, ptr %13, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %142, i8 0, i64 16, i1 false)
   store i32 10027008, ptr %12, align 8, !tbaa !45
@@ -389,12 +389,12 @@ v4l2_set_ext_ctrl.exit.i:                         ; preds = %137, %132
   br label %v4l2_set_ext_ctrl.exit81.i
 
 v4l2_set_ext_ctrl.exit81.i:                       ; preds = %154, %150
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %13) #8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %155 = getelementptr inbounds nuw i8, ptr %10, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %155, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %11) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %156 = getelementptr inbounds nuw i8, ptr %11, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %156, i8 0, i64 16, i1 false)
   store i32 10027008, ptr %10, align 8, !tbaa !45
@@ -425,14 +425,14 @@ v4l2_set_ext_ctrl.exit81.i:                       ; preds = %154, %150
   br label %v4l2_set_ext_ctrl.exit83.i
 
 v4l2_set_ext_ctrl.exit83.i:                       ; preds = %169, %164
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %11) #8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %170 = getelementptr inbounds nuw i8, ptr %57, i64 332
   %171 = load i32, ptr %170, align 4, !tbaa !65
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %172 = getelementptr inbounds nuw i8, ptr %8, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %172, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %173 = getelementptr inbounds nuw i8, ptr %9, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %173, i8 0, i64 16, i1 false)
   store i32 10027008, ptr %8, align 8, !tbaa !45
@@ -461,8 +461,8 @@ v4l2_set_ext_ctrl.exit83.i:                       ; preds = %169, %164
   br label %v4l2_set_ext_ctrl.exit84.i
 
 v4l2_set_ext_ctrl.exit84.i:                       ; preds = %185, %181
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %9) #8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %186 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %187 = load i32, ptr %186, align 8, !tbaa !39
   %188 = getelementptr inbounds nuw i8, ptr %57, i64 688
@@ -549,10 +549,10 @@ v4l2_mpeg4_profile_from_ff.exit.i:                ; preds = %.preheader101.i
   br i1 %.not79.i, label %238, label %221
 
 221:                                              ; preds = %217
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %222 = getelementptr inbounds nuw i8, ptr %6, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %222, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %223 = getelementptr inbounds nuw i8, ptr %7, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %223, i8 0, i64 16, i1 false)
   store i32 10027008, ptr %6, align 8, !tbaa !45
@@ -581,8 +581,8 @@ v4l2_mpeg4_profile_from_ff.exit.i:                ; preds = %.preheader101.i
   br label %v4l2_set_ext_ctrl.exit89.i
 
 v4l2_set_ext_ctrl.exit89.i:                       ; preds = %235, %231
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %238
 
 236:                                              ; preds = %v4l2_set_ext_ctrl.exit84.i
@@ -620,10 +620,10 @@ v4l2_set_ext_ctrl.exit89.i:                       ; preds = %235, %231
   %247 = phi i32 [ %.pre107.i, %242 ], [ %239, %243 ]
   %.164.i = phi i32 [ %.063.i, %242 ], [ %..063.i, %243 ]
   %.1.i = phi i32 [ %.062.i, %242 ], [ %245, %243 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %248 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %248, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %249 = getelementptr inbounds nuw i8, ptr %5, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %249, i8 0, i64 16, i1 false)
   store i32 10027008, ptr %4, align 8, !tbaa !45
@@ -656,13 +656,13 @@ v4l2_set_ext_ctrl.exit89.i:                       ; preds = %235, %231
   br label %v4l2_set_ext_ctrl.exit92.i
 
 v4l2_set_ext_ctrl.exit92.i:                       ; preds = %262, %._crit_edge.i.i
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %263 = load i32, ptr %198, align 8, !tbaa !68
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %264 = getelementptr inbounds nuw i8, ptr %2, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %264, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %265 = getelementptr inbounds nuw i8, ptr %3, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %265, i8 0, i64 16, i1 false)
   store i32 10027008, ptr %2, align 8, !tbaa !45
@@ -695,13 +695,13 @@ v4l2_set_ext_ctrl.exit92.i:                       ; preds = %262, %._crit_edge.i
   br label %v4l2_set_ext_ctrl.exit96.i
 
 v4l2_set_ext_ctrl.exit96.i:                       ; preds = %278, %._crit_edge.i94.i
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %v4l2_prepare_encoder.exit
 
 v4l2_prepare_encoder.exit:                        ; preds = %v4l2_set_ext_ctrl.exit96.i, %v4l2_set_ext_ctrl.exit84.i, %v4l2_check_b_frame_support.exit.i, %1, %51, %47
   %.0 = phi i32 [ %46, %47 ], [ -22, %51 ], [ %25, %1 ], [ 0, %v4l2_set_ext_ctrl.exit96.i ], [ -1163346256, %v4l2_check_b_frame_support.exit.i ], [ 0, %v4l2_set_ext_ctrl.exit84.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   ret i32 %.0
 }
 
@@ -750,10 +750,10 @@ define internal i32 @v4l2_receive_packet(ptr noundef %0, ptr noundef %1) #1 {
   br i1 %27, label %28, label %v4l2_send_frame.exit
 
 28:                                               ; preds = %._crit_edge
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %30, i8 0, i64 16, i1 false)
   store i32 10027008, ptr %3, align 8, !tbaa !45
@@ -782,8 +782,8 @@ define internal i32 @v4l2_receive_packet(ptr noundef %0, ptr noundef %1) #1 {
   br label %v4l2_set_ext_ctrl.exit.i
 
 v4l2_set_ext_ctrl.exit.i:                         ; preds = %43, %39
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %v4l2_send_frame.exit
 
 v4l2_send_frame.exit:                             ; preds = %22, %._crit_edge, %v4l2_set_ext_ctrl.exit.i
@@ -848,9 +848,6 @@ define internal i32 @v4l2_encode_close(ptr noundef readonly captures(none) %0) #
 
 declare ptr @av_default_item_name(ptr noundef) #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 declare i32 @ff_v4l2_m2m_create_context(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 declare i32 @ff_v4l2_m2m_codec_init(ptr noundef) local_unnamed_addr #2
@@ -861,17 +858,14 @@ declare i32 @ff_v4l2_format_v4l2_to_avfmt(i32 noundef, i32 noundef) local_unname
 
 declare ptr @av_pix_fmt_desc_get(i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
-
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc void @v4l2_set_ext_ctrl(ptr noundef readonly captures(none) %0, i32 noundef range(i32 10029514, 10029821) %1, i32 noundef %2, ptr noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #4 {
+define internal fastcc void @v4l2_set_ext_ctrl(ptr noundef readonly captures(none) %0, i32 noundef range(i32 10029514, 10029821) %1, i32 noundef %2, ptr noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #3 {
   %6 = alloca %struct.v4l2_ext_controls, align 8
   %7 = alloca %struct.v4l2_ext_control, align 4
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   store i32 10027008, ptr %6, align 8, !tbaa !45
@@ -913,24 +907,24 @@ define internal fastcc void @v4l2_set_ext_ctrl(ptr noundef readonly captures(non
   br label %28
 
 28:                                               ; preds = %27, %._crit_edge
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind
-declare i32 @ioctl(i32 noundef, i64 noundef, ...) local_unnamed_addr #6
+declare i32 @ioctl(i32 noundef, i64 noundef, ...) local_unnamed_addr #5
 
 declare void @avpriv_report_missing_feature(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #7
+declare ptr @__errno_location() local_unnamed_addr #6
 
 ; Function Attrs: nounwind
-declare ptr @strerror(i32 noundef) local_unnamed_addr #6
+declare ptr @strerror(i32 noundef) local_unnamed_addr #5
 
 declare i32 @ff_encode_get_frame(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -944,14 +938,20 @@ declare i32 @ff_v4l2_context_enqueue_frame(ptr noundef, ptr noundef) local_unnam
 
 declare i32 @ff_v4l2_m2m_codec_end(ptr noundef) local_unnamed_addr #2
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
+
 attributes #0 = { cold nounwind optsize uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nounwind }
 attributes #9 = { nounwind willreturn memory(none) }
 

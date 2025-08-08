@@ -655,7 +655,7 @@ define void @_ZN10open_spiel5chess16SplitAnnotationsERKNSt7__cxx1112basic_string
   unreachable
 
 _ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit: ; preds = %17
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.not.i = icmp eq ptr %18, null
   br i1 %.not.i, label %22, label %23
 
@@ -683,7 +683,7 @@ _ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_tra
   resume { ptr, i32 } %27
 
 28:                                               ; preds = %26, %22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(32) %4) #34
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(32) %5) #34
@@ -1756,7 +1756,7 @@ define void @_ZNK10open_spiel5chess5Piece8ToStringB5cxx11Ev(ptr dead_on_unwind n
   unreachable
 
 _ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit: ; preds = %13
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4), !noalias !9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !9
   %.not.i.i = icmp eq ptr %10, null
   br i1 %.not.i.i, label %15, label %16
 
@@ -1780,7 +1780,7 @@ _ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_tra
   br label %.body
 
 _ZNK4absl7debian211string_viewcvNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EEISaIcEEEv.exit.i: ; preds = %17, %15
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4), !noalias !9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !9
   invoke void @_ZN4absl7debian215AsciiStrToUpperEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 %0)
           to label %_ZN4absl7debian215AsciiStrToUpperB5cxx11ENS0_11string_viewE.exit unwind label %20
 
@@ -1798,7 +1798,7 @@ _ZNK4absl7debian211string_viewcvNSt7__cxx1112basic_stringIcSt11char_traitsIcET_E
   unreachable
 
 _ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit2: ; preds = %22
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3), !noalias !15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !15
   %.not.i.i3 = icmp eq ptr %10, null
   br i1 %.not.i.i3, label %24, label %25
 
@@ -1822,7 +1822,7 @@ _ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_tra
   br label %.body
 
 _ZNK4absl7debian211string_viewcvNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EEISaIcEEEv.exit.i6: ; preds = %26, %24
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3), !noalias !15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !15
   invoke void @_ZN4absl7debian215AsciiStrToLowerEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 %0)
           to label %_ZN4absl7debian215AsciiStrToUpperB5cxx11ENS0_11string_viewE.exit unwind label %29
 
@@ -2033,7 +2033,7 @@ _ZN4absl7debian28AlphaNumC2EPKc.exit12:           ; preds = %39
   unreachable
 
 _ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit13: ; preds = %45
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %35, ptr %3, align 8, !noalias !21
   %50 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %36, ptr %50, align 8, !noalias !21
@@ -2071,7 +2071,7 @@ _ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsI
           to label %65 unwind label %70
 
 65:                                               ; preds = %_ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit.i
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #34
@@ -2238,8 +2238,8 @@ define void @_ZNK10open_spiel5chess4Move5ToLANB5cxx11EbPKNS0_10ChessBoardE(ptr d
 31:                                               ; preds = %26
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 134
   %33 = load i8, ptr %32, align 2
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   switch i32 %25, label %43 [
     i32 0, label %34
     i32 1, label %39
@@ -2294,8 +2294,8 @@ common.resume:                                    ; preds = %29, %54, %74, %108,
 _ZNK10open_spiel5chess10ChessBoard23MaybeCastlingRookSquareENS0_5ColorENS0_17CastlingDirectionE.exit: ; preds = %34, %39
   %.sroa.0.0.in.i = phi ptr [ %38, %34 ], [ %42, %39 ]
   %.sroa.0.0.i = load i24, ptr %.sroa.0.0.in.i, align 1
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store i24 %.sroa.0.0.i, ptr %9, align 4
   %51 = trunc i24 %.sroa.0.0.i to i1
   br i1 %51, label %56, label %52
@@ -3053,7 +3053,7 @@ _ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsI
           to label %172 unwind label %41
 
 172:                                              ; preds = %171
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %173 = getelementptr inbounds nuw i8, ptr %23, i64 134
   %174 = load i8, ptr %173, align 2
   %175 = load i32, ptr %23, align 8
@@ -3111,7 +3111,7 @@ _ZNK10open_spiel5chess10ChessBoard4findERKNS0_5PieceE.exit.i: ; preds = %._crit_
           to label %202 unwind label %41
 
 202:                                              ; preds = %_ZNK10open_spiel5chess10ChessBoard4findERKNS0_5PieceE.exit.i
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %201, label %203, label %227
 
 203:                                              ; preds = %202
@@ -3980,9 +3980,9 @@ _ZN4absl7debian216strings_internal23ConvertibleToStringViewC2ERKNSt7__cxx1112bas
   store i64 %27, ptr %.sroa.2.0..sroa_idx.i1.i, align 8, !alias.scope !28
   %30 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i8 32, ptr %30, align 8, !alias.scope !28
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZNK4absl7debian216strings_internal8SplitterINS0_6ByCharENS0_10AllowEmptyENS0_11string_viewEE18ConvertToContainerISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EESE_Lb0EEclERKS6_(ptr dead_on_unwind nonnull writable sret(%"class.std::vector") align 8 %11, ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(18) %12)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %31 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %32 = load ptr, ptr %31, align 8
   %33 = load ptr, ptr %11, align 8
@@ -4122,12 +4122,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit111: ;
   store i64 %79, ptr %.sroa.2.0..sroa_idx.i1.i113, align 8, !alias.scope !31
   %83 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store i8 47, ptr %83, align 8, !alias.scope !31
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   invoke void @_ZNK4absl7debian216strings_internal8SplitterINS0_6ByCharENS0_10AllowEmptyENS0_11string_viewEE18ConvertToContainerISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EESE_Lb0EEclERKS6_(ptr dead_on_unwind nonnull writable sret(%"class.std::vector") align 8 %17, ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(18) %18)
           to label %84 unwind label %75
 
 84:                                               ; preds = %82
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %85 = trunc i32 %2 to i8
   %.080212 = add i8 %85, -1
   %86 = icmp sgt i8 %.080212, -1
@@ -4619,7 +4619,7 @@ _ZNR4absl7debian28optionalIN10open_spiel12chess_common6SquareEEdeEv.exit: ; pred
 
 258:                                              ; preds = %_ZNR4absl7debian28optionalIN10open_spiel12chess_common6SquareEEdeEv.exit, %._crit_edge221
   %259 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %13) #34
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %260 = tail call ptr @__errno_location() #39
   %261 = load i32, ptr %260, align 4
   store i32 0, ptr %260, align 4
@@ -4671,11 +4671,11 @@ _ZNR4absl7debian28optionalIN10open_spiel12chess_common6SquareEEdeEv.exit: ; pred
 
 281:                                              ; preds = %280, %278
   %282 = trunc nsw i64 %262 to i32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %283 = getelementptr inbounds nuw i8, ptr %10, i64 140
   store i32 %282, ptr %283, align 4
   %284 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %15) #34
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %285 = load i32, ptr %260, align 4
   store i32 0, ptr %260, align 4
   %286 = call noundef i64 @strtol(ptr noundef %284, ptr noundef nonnull %6, i32 noundef 10)
@@ -4726,7 +4726,7 @@ _ZNR4absl7debian28optionalIN10open_spiel12chess_common6SquareEEdeEv.exit: ; pred
 
 305:                                              ; preds = %304, %302
   %306 = trunc nsw i64 %286 to i32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %307 = getelementptr inbounds nuw i8, ptr %10, i64 144
   store i32 %306, ptr %307, align 8
   store i8 1, ptr %0, align 8
@@ -5199,8 +5199,8 @@ define void @_ZN10open_spiel5chess10ChessBoard16SetCastlingRightENS0_5ColorENS0_
   br label %14
 
 14:                                               ; preds = %12, %9, %4
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   switch i32 %2, label %24 [
     i32 0, label %15
     i32 1, label %20
@@ -5257,8 +5257,8 @@ _ZN10open_spiel5chess5ToIntENS0_17CastlingDirectionE.exit20: ; preds = %15, %20
   %.pre-phi = phi i64 [ %18, %15 ], [ %.pre, %20 ]
   %.sroa.0.0.in.i = phi ptr [ %19, %15 ], [ %23, %20 ]
   %.sroa.0.0.i = load i24, ptr %.sroa.0.0.in.i, align 1
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %32 = load ptr, ptr @_ZZN10open_spiel5chess10ChessBoard16SetCastlingRightENS0_5ColorENS0_17CastlingDirectionEN4absl7debian28optionalINS_12chess_common6SquareEEEE14kZobristValues, align 8
   %33 = getelementptr inbounds nuw %"class.open_spiel::chess_common::ZobristTable.81", ptr %32, i64 %.pre-phi
   %34 = zext nneg i32 %2 to i64
@@ -5904,7 +5904,7 @@ _ZNKSt8functionIFbRKN10open_spiel5chess4MoveEEEclES4_.exit: ; preds = %22
 125:                                              ; preds = %119
   %.sroa.0.0.insert.ext7.i = zext nneg i8 %107 to i16
   %.sroa.0.0.insert.insert9.i = or disjoint i16 %.sroa.2.0.insert.shift.i.i, %.sroa.0.0.insert.ext7.i
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %126 = load i16, ptr %13, align 2
   store i16 %126, ptr %11, align 4
   store i16 %.sroa.0.0.insert.insert9.i, ptr %65, align 2
@@ -5930,7 +5930,7 @@ _ZNKSt8functionIFbRKN10open_spiel5chess4MoveEEEclES4_.exit.i.i: ; preds = %125
   br label %"_ZZNK10open_spiel5chess10ChessBoard24GeneratePseudoLegalMovesERKSt8functionIFbRKNS0_4MoveEEENS0_5ColorENS0_23PseudoLegalMoveSettingsEENK3$_0clERKNS_12chess_common6SquareE.exit.i"
 
 "_ZZNK10open_spiel5chess10ChessBoard24GeneratePseudoLegalMovesERKSt8functionIFbRKNS0_4MoveEEENS0_5ColorENS0_23PseudoLegalMoveSettingsEENK3$_0clERKNS_12chess_common6SquareE.exit.i": ; preds = %132, %_ZNKSt8functionIFbRKN10open_spiel5chess4MoveEEEclES4_.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_ZNK10open_spiel5chess10ChessBoard11InBoardAreaERKNS_12chess_common6SquareE.exit.thread.i
 
 _ZNK10open_spiel5chess10ChessBoard11InBoardAreaERKNS_12chess_common6SquareE.exit.thread.i: ; preds = %"_ZZNK10open_spiel5chess10ChessBoard24GeneratePseudoLegalMovesERKSt8functionIFbRKNS0_4MoveEEENS0_5ColorENS0_23PseudoLegalMoveSettingsEENK3$_0clERKNS_12chess_common6SquareE.exit.i", %119, %112, %105
@@ -5940,7 +5940,7 @@ _ZNK10open_spiel5chess10ChessBoard11InBoardAreaERKNS_12chess_common6SquareE.exit
 
 "_ZNK10open_spiel5chess10ChessBoard25GenerateKingDestinations_IZNKS1_24GeneratePseudoLegalMovesERKSt8functionIFbRKNS0_4MoveEEENS0_5ColorENS0_23PseudoLegalMoveSettingsEE3$_0EEvNS_12chess_common6SquareESB_RKT_.exit": ; preds = %_ZNK10open_spiel5chess10ChessBoard11InBoardAreaERKNS_12chess_common6SquareE.exit.thread.i
   %.sroa.06.0.copyload = load i16, ptr %13, align 2
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i16 %.sroa.06.0.copyload, ptr %10, align 2
   %133 = load i32, ptr %0, align 8
   %.not.i53 = icmp eq i32 %133, 8
@@ -6016,7 +6016,7 @@ _ZNKR4absl7debian28optionalIN10open_spiel12chess_common6SquareEE5valueEv.exit.i1
   br i1 %144, label %162, label %169
 
 162:                                              ; preds = %161
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %163 = load i16, ptr %13, align 2
   store i16 %163, ptr %9, align 4
   %.sroa.040.0.insert.insert45.i = or disjoint i16 %.sroa.4.0.insert.shift.i, 2
@@ -6043,14 +6043,14 @@ _ZNKSt8functionIFbRKN10open_spiel5chess4MoveEEEclES4_.exit.i.i56: ; preds = %162
   br label %"_ZZNK10open_spiel5chess10ChessBoard24GeneratePseudoLegalMovesERKSt8functionIFbRKNS0_4MoveEEENS0_5ColorENS0_23PseudoLegalMoveSettingsEENK3$_1clERKNS_12chess_common6SquareE.exit.i"
 
 "_ZZNK10open_spiel5chess10ChessBoard24GeneratePseudoLegalMovesERKSt8functionIFbRKNS0_4MoveEEENS0_5ColorENS0_23PseudoLegalMoveSettingsEENK3$_1clERKNS_12chess_common6SquareE.exit.i": ; preds = %.sink.split.i.i, %_ZNKSt8functionIFbRKN10open_spiel5chess4MoveEEEclES4_.exit.i.i56
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %169
 
 169:                                              ; preds = %"_ZZNK10open_spiel5chess10ChessBoard24GeneratePseudoLegalMovesERKSt8functionIFbRKNS0_4MoveEEENS0_5ColorENS0_23PseudoLegalMoveSettingsEENK3$_1clERKNS_12chess_common6SquareE.exit.i", %161
   br i1 %156, label %170, label %"_ZNK10open_spiel5chess10ChessBoard29GenerateCastlingDestinations_IZNKS1_24GeneratePseudoLegalMovesERKSt8functionIFbRKNS0_4MoveEEENS0_5ColorENS0_23PseudoLegalMoveSettingsEE3$_1EEvNS_12chess_common6SquareESB_SC_RKT_.exit"
 
 170:                                              ; preds = %169
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %171 = load i16, ptr %13, align 2
   store i16 %171, ptr %8, align 4
   %.sroa.0.0.insert.insert.i = or disjoint i16 %.sroa.4.0.insert.shift.i, 6
@@ -6077,11 +6077,11 @@ _ZNKSt8functionIFbRKN10open_spiel5chess4MoveEEEclES4_.exit6.i25.i: ; preds = %17
   br label %"_ZZNK10open_spiel5chess10ChessBoard24GeneratePseudoLegalMovesERKSt8functionIFbRKNS0_4MoveEEENS0_5ColorENS0_23PseudoLegalMoveSettingsEENK3$_1clERKNS_12chess_common6SquareE.exit29.i"
 
 "_ZZNK10open_spiel5chess10ChessBoard24GeneratePseudoLegalMovesERKSt8functionIFbRKNS0_4MoveEEENS0_5ColorENS0_23PseudoLegalMoveSettingsEENK3$_1clERKNS_12chess_common6SquareE.exit29.i": ; preds = %.sink.split.i26.i, %_ZNKSt8functionIFbRKN10open_spiel5chess4MoveEEEclES4_.exit6.i25.i
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %"_ZNK10open_spiel5chess10ChessBoard29GenerateCastlingDestinations_IZNKS1_24GeneratePseudoLegalMovesERKSt8functionIFbRKNS0_4MoveEEENS0_5ColorENS0_23PseudoLegalMoveSettingsEE3$_1EEvNS_12chess_common6SquareESB_SC_RKT_.exit"
 
 "_ZNK10open_spiel5chess10ChessBoard29GenerateCastlingDestinations_IZNKS1_24GeneratePseudoLegalMovesERKSt8functionIFbRKNS0_4MoveEEENS0_5ColorENS0_23PseudoLegalMoveSettingsEE3$_1EEvNS_12chess_common6SquareESB_SC_RKT_.exit": ; preds = %157, %"_ZNK10open_spiel5chess10ChessBoard25GenerateKingDestinations_IZNKS1_24GeneratePseudoLegalMovesERKSt8functionIFbRKNS0_4MoveEEENS0_5ColorENS0_23PseudoLegalMoveSettingsEE3$_0EEvNS_12chess_common6SquareESB_RKT_.exit", %"_ZZNK10open_spiel5chess10ChessBoard29GenerateCastlingDestinations_IZNKS1_24GeneratePseudoLegalMovesERKSt8functionIFbRKNS0_4MoveEEENS0_5ColorENS0_23PseudoLegalMoveSettingsEE3$_1EEvNS_12chess_common6SquareESB_SC_RKT_ENKUlSF_NS0_17CastlingDirectionEE_clESF_SJ_.exit23.i", %169, %"_ZZNK10open_spiel5chess10ChessBoard24GeneratePseudoLegalMovesERKSt8functionIFbRKNS0_4MoveEEENS0_5ColorENS0_23PseudoLegalMoveSettingsEENK3$_1clERKNS_12chess_common6SquareE.exit29.i"
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %"_ZNK10open_spiel5chess10ChessBoard27GenerateKnightDestinations_IZNKS1_24GeneratePseudoLegalMovesERKSt8functionIFbRKNS0_4MoveEEENS0_5ColorENS0_23PseudoLegalMoveSettingsEE3$_5EEvNS_12chess_common6SquareESB_RKT_.exit"
 
 177:                                              ; preds = %103
@@ -6162,7 +6162,7 @@ _ZNKSt8functionIFbRKN10open_spiel5chess4MoveEEEclES4_.exit6.i25.i: ; preds = %17
 201:                                              ; preds = %195
   %.sroa.0.0.insert.ext7.i70 = zext nneg i8 %183 to i16
   %.sroa.0.0.insert.insert9.i71 = or disjoint i16 %.sroa.2.0.insert.shift.i.i63, %.sroa.0.0.insert.ext7.i70
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %202 = load i16, ptr %13, align 2
   store i16 %202, ptr %7, align 4
   store i16 %.sroa.0.0.insert.insert9.i71, ptr %50, align 2
@@ -6188,7 +6188,7 @@ _ZNKSt8functionIFbRKN10open_spiel5chess4MoveEEEclES4_.exit.i.i73: ; preds = %201
   br label %"_ZZNK10open_spiel5chess10ChessBoard24GeneratePseudoLegalMovesERKSt8functionIFbRKNS0_4MoveEEENS0_5ColorENS0_23PseudoLegalMoveSettingsEENK3$_5clERKNS_12chess_common6SquareE.exit.i"
 
 "_ZZNK10open_spiel5chess10ChessBoard24GeneratePseudoLegalMovesERKSt8functionIFbRKNS0_4MoveEEENS0_5ColorENS0_23PseudoLegalMoveSettingsEENK3$_5clERKNS_12chess_common6SquareE.exit.i": ; preds = %208, %_ZNKSt8functionIFbRKN10open_spiel5chess4MoveEEEclES4_.exit.i.i73
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZNK10open_spiel5chess10ChessBoard11InBoardAreaERKNS_12chess_common6SquareE.exit.thread.i64
 
 _ZNK10open_spiel5chess10ChessBoard11InBoardAreaERKNS_12chess_common6SquareE.exit.thread.i64: ; preds = %"_ZZNK10open_spiel5chess10ChessBoard24GeneratePseudoLegalMovesERKSt8functionIFbRKNS0_4MoveEEENS0_5ColorENS0_23PseudoLegalMoveSettingsEENK3$_5clERKNS_12chess_common6SquareE.exit.i", %195, %188, %181
@@ -6202,7 +6202,7 @@ _ZNK10open_spiel5chess10ChessBoard11InBoardAreaERKNS_12chess_common6SquareE.exit
   store ptr %97, ptr %35, align 8
   store ptr %12, ptr %36, align 8
   store ptr %0, ptr %37, align 8
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.sroa.3.0.extract.trunc.i = trunc nuw i16 %.sroa.2.0.extract.shift.i.i to i8
   %210 = add i8 %39, %.sroa.3.0.extract.trunc.i
   %.sroa.2.0.insert.ext.i.i74 = zext i8 %210 to i16
@@ -6286,14 +6286,14 @@ _ZNK10open_spiel5chess10ChessBoard18IsPawnStartingRankERKNS_12chess_common6Squar
   br label %"_ZNK10open_spiel5chess10ChessBoard25GeneratePawnDestinations_IZNKS1_24GeneratePseudoLegalMovesERKSt8functionIFbRKNS0_4MoveEEENS0_5ColorENS0_23PseudoLegalMoveSettingsEE3$_6EEvNS_12chess_common6SquareESB_SC_RKT_.exit"
 
 "_ZNK10open_spiel5chess10ChessBoard25GeneratePawnDestinations_IZNKS1_24GeneratePseudoLegalMovesERKSt8functionIFbRKNS0_4MoveEEENS0_5ColorENS0_23PseudoLegalMoveSettingsEE3$_6EEvNS_12chess_common6SquareESB_SC_RKT_.exit": ; preds = %234, %209, %213, %216, %227, %231, %245, %249
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.sroa.0.0.copyload = load i16, ptr %13, align 2
   store ptr %1, ptr %18, align 8
   store ptr %13, ptr %44, align 8
   store ptr %97, ptr %45, align 8
   store ptr %12, ptr %46, align 8
   store ptr %0, ptr %47, align 8
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %250 = add i16 %.sroa.0.0.copyload, 1
   %.sroa.3.0.extract.shift56.i = add i16 %.sroa.0.0.copyload, %48
   %.sroa.2.0.insert.ext.i.i79 = and i16 %.sroa.3.0.extract.shift56.i, -256
@@ -6411,7 +6411,7 @@ _ZNK10open_spiel5chess10ChessBoard18IsPawnStartingRankERKNS_12chess_common6Squar
   br label %"_ZNK10open_spiel5chess10ChessBoard32GeneratePawnCaptureDestinations_IZNKS1_24GeneratePseudoLegalMovesERKSt8functionIFbRKNS0_4MoveEEENS0_5ColorENS0_23PseudoLegalMoveSettingsEE3$_7EEvNS_12chess_common6SquareESB_SC_bRKT_.exit"
 
 "_ZNK10open_spiel5chess10ChessBoard32GeneratePawnCaptureDestinations_IZNKS1_24GeneratePseudoLegalMovesERKSt8functionIFbRKNS0_4MoveEEENS0_5ColorENS0_23PseudoLegalMoveSettingsEE3$_7EEvNS_12chess_common6SquareESB_SC_bRKT_.exit": ; preds = %.critedge.i, %284, %288, %306, %.critedge6.i
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %"_ZNK10open_spiel5chess10ChessBoard27GenerateKnightDestinations_IZNKS1_24GeneratePseudoLegalMovesERKSt8functionIFbRKNS0_4MoveEEENS0_5ColorENS0_23PseudoLegalMoveSettingsEE3$_5EEvNS_12chess_common6SquareESB_RKT_.exit"
 
 311:                                              ; preds = %103
@@ -6644,7 +6644,7 @@ define void @_ZNK10open_spiel5chess10ChessBoard31GeneratePseudoLegalPawnCaptures
   store ptr %36, ptr %14, align 8
   store ptr %6, ptr %15, align 8
   store ptr %0, ptr %16, align 8
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %44 = add i16 %.sroa.01.0.copyload, 1
   %.sroa.3.0.extract.shift56.i = add i16 %.sroa.01.0.copyload, %18
   %.sroa.2.0.insert.ext.i.i = and i16 %.sroa.3.0.extract.shift56.i, -256
@@ -6764,7 +6764,7 @@ define void @_ZNK10open_spiel5chess10ChessBoard31GeneratePseudoLegalPawnCaptures
 
 "_ZNK10open_spiel5chess10ChessBoard32GeneratePawnCaptureDestinations_IZNKS1_31GeneratePseudoLegalPawnCapturesERKSt8functionIFbRKNS0_4MoveEEENS0_5ColorENS0_23PseudoLegalMoveSettingsEE3$_0EEvNS_12chess_common6SquareESB_SC_bRKT_.exit": ; preds = %.critedge.i, %77, %80, %98, %.critedge6.i
   %.pre.pre2026 = phi i32 [ %.pre.pre20, %.critedge.i ], [ %.pre.pre20, %77 ], [ %.pre.pre20, %80 ], [ %.pre.pre20, %98 ], [ %.pre.pre, %.critedge6.i ]
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.pre19 = load i8, ptr %6, align 1
   br label %103
 
@@ -8811,7 +8811,7 @@ _ZNR4absl7debian28optionalIN10open_spiel5chess9PieceTypeEEdeEv.exit: ; preds = %
 
 _ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit49: ; preds = %197
   %202 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #34
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.not.i54 = icmp eq ptr %198, null
   br i1 %.not.i54, label %203, label %204
 
@@ -8839,7 +8839,7 @@ _ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_tra
   br label %.body55
 
 211:                                              ; preds = %208, %203
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %212 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #34
   %213 = add i64 %212, -2
   invoke void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %17, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 noundef 0, i64 noundef %213)
@@ -12295,8 +12295,8 @@ define noundef signext i8 @_ZNK10open_spiel5chess10ChessBoard25ShredderCastlingR
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator", align 1
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   switch i32 %2, label %17 [
     i32 0, label %8
     i32 1, label %13
@@ -12351,8 +12351,8 @@ common.resume:                                    ; preds = %.body, %38, %24
 _ZNK10open_spiel5chess10ChessBoard23MaybeCastlingRookSquareENS0_5ColorENS0_17CastlingDirectionE.exit: ; preds = %8, %13
   %.sroa.0.0.in.i = phi ptr [ %12, %8 ], [ %16, %13 ]
   %.sroa.0.0.i = load i24, ptr %.sroa.0.0.in.i, align 1
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.sroa.3.0.extract.shift = lshr i24 %.sroa.0.0.i, 8
   %.sroa.3.0.extract.trunc = zext nneg i24 %.sroa.3.0.extract.shift to i64
   %25 = trunc i24 %.sroa.0.0.i to i1
@@ -12483,7 +12483,7 @@ define void @_ZNK10open_spiel5chess10ChessBoard9ToDarkFENB5cxx11ERKSt5arrayIbLm6
   br i1 %51, label %52, label %115
 
 52:                                               ; preds = %50
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %53 = icmp samesign ult i32 %.049158, 10
   br i1 %53, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i, label %.lr.ph.i.i
 
@@ -12614,7 +12614,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit.i: ; p
 _ZNSt7__cxx119to_stringEi.exit:                   ; preds = %95, %105
   %storemerge.i.i = phi i8 [ %107, %105 ], [ %104, %95 ]
   store i8 %storemerge.i.i, ptr %73, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %111 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %112 unwind label %113
 
@@ -12667,7 +12667,7 @@ _ZNSt7__cxx119to_stringEi.exit:                   ; preds = %95, %105
   br i1 %127, label %128, label %191
 
 128:                                              ; preds = %126
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %129 = icmp samesign ult i32 %.049158, 10
   br i1 %129, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i69, label %.lr.ph.i.i66
 
@@ -12798,7 +12798,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit.i76: ;
 _ZNSt7__cxx119to_stringEi.exit84:                 ; preds = %171, %181
   %storemerge.i.i79 = phi i8 [ %183, %181 ], [ %180, %171 ]
   store i8 %storemerge.i.i79, ptr %149, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %187 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %188 unwind label %189
 
@@ -14603,9 +14603,9 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN10open_spiel5
 define linkonce_odr void @_ZNK4absl7debian216strings_internal8SplitterINS0_6ByCharENS0_10AllowEmptyENS0_11string_viewEE18ConvertToContainerISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EESE_Lb0EEclERKS6_(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(18) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.absl::debian2::strings_internal::Splitter<absl::debian2::ByChar, absl::debian2::AllowEmpty, absl::debian2::string_view>::ConvertToContainer.114", align 1
   %5 = alloca %"class.std::vector.108", align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZNK4absl7debian216strings_internal8SplitterINS0_6ByCharENS0_10AllowEmptyENS0_11string_viewEE18ConvertToContainerISt6vectorIS5_SaIS5_EES5_Lb0EEclERKS6_(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.108") align 8 %5, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 8 dereferenceable(18) %2)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = load ptr, ptr %7, align 8
@@ -15200,7 +15200,7 @@ define linkonce_odr noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_it
 .lr.ph:                                           ; preds = %3, %14
   %.015 = phi ptr [ %16, %14 ], [ %2, %3 ]
   %.sroa.09.014 = phi ptr [ %15, %14 ], [ %0, %3 ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load ptr, ptr %.sroa.09.014, align 8, !noalias !93
   %.not.i.i = icmp eq ptr %5, null
   br i1 %.not.i.i, label %6, label %7
@@ -15230,7 +15230,7 @@ define linkonce_odr noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_it
   br i1 %.not4.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_.exit, label %.lr.ph.i.i
 
 14:                                               ; preds = %10, %6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %15 = getelementptr inbounds nuw i8, ptr %.sroa.09.014, i64 16
   %16 = getelementptr inbounds nuw i8, ptr %.015, i64 32
   %.not = icmp eq ptr %15, %1
@@ -15282,8 +15282,8 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN10open_spiel5
   %3 = alloca %"class.open_spiel::chess::ChessBoard", align 8
   %4 = alloca %"struct.open_spiel::chess_common::Square", align 2
   %.val = load ptr, ptr %0, align 8
-  call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load ptr, ptr %.val, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %3, ptr noundef nonnull align 8 dereferenceable(168) %5, i64 168, i1 false)
   call void @_ZN10open_spiel5chess10ChessBoard9ApplyMoveERKNS0_4MoveE(ptr noundef nonnull align 8 dereferenceable(168) %3, ptr noundef nonnull align 4 dereferenceable(12) %1)
@@ -15335,8 +15335,8 @@ _ZNKSt8functionIFbRKN10open_spiel5chess4MoveEEEclES4_.exit.i.i.i: ; preds = %24
 
 "_ZSt10__invoke_rIbRZNK10open_spiel5chess10ChessBoard18GenerateLegalMovesERKSt8functionIFbRKNS1_4MoveEEENS1_5ColorEE3$_0JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.exit": ; preds = %2, %_ZNKSt8functionIFbRKN10open_spiel5chess4MoveEEEclES4_.exit.i.i.i
   %.0.i.i.i = phi i1 [ %32, %_ZNKSt8functionIFbRKN10open_spiel5chess4MoveEEEclES4_.exit.i.i.i ], [ true, %2 ]
-  call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0.i.i.i
 }
 
@@ -15438,7 +15438,7 @@ define internal fastcc void @"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDes
   br i1 %39, label %40, label %54
 
 40:                                               ; preds = %33
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %41 = load ptr, ptr %5, align 8
   %42 = load ptr, ptr %14, align 8
   %43 = load ptr, ptr %15, align 8
@@ -15470,7 +15470,7 @@ _ZNKSt8functionIFbRKN10open_spiel5chess4MoveEEEclES4_.exit.i: ; preds = %40
   br label %"_ZZNK10open_spiel5chess10ChessBoard24GeneratePseudoLegalMovesERKSt8functionIFbRKNS0_4MoveEEENS0_5ColorENS0_23PseudoLegalMoveSettingsEENK3$_2clERKNS_12chess_common6SquareE.exit"
 
 "_ZZNK10open_spiel5chess10ChessBoard24GeneratePseudoLegalMovesERKSt8functionIFbRKNS0_4MoveEEENS0_5ColorENS0_23PseudoLegalMoveSettingsEENK3$_2clERKNS_12chess_common6SquareE.exit": ; preds = %_ZNKSt8functionIFbRKN10open_spiel5chess4MoveEEEclES4_.exit.i, %52
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %71
 
 54:                                               ; preds = %33
@@ -15480,7 +15480,7 @@ _ZNKSt8functionIFbRKN10open_spiel5chess4MoveEEEclES4_.exit.i: ; preds = %40
   br i1 %.not, label %_ZNK10open_spiel5chess10ChessBoard11InBoardAreaERKNS_12chess_common6SquareE.exit.thread, label %57
 
 57:                                               ; preds = %54
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %58 = load ptr, ptr %5, align 8
   %59 = load ptr, ptr %14, align 8
   %60 = load ptr, ptr %15, align 8
@@ -15512,7 +15512,7 @@ _ZNKSt8functionIFbRKN10open_spiel5chess4MoveEEEclES4_.exit.i12: ; preds = %57
   br label %"_ZZNK10open_spiel5chess10ChessBoard24GeneratePseudoLegalMovesERKSt8functionIFbRKNS0_4MoveEEENS0_5ColorENS0_23PseudoLegalMoveSettingsEENK3$_2clERKNS_12chess_common6SquareE.exit13"
 
 "_ZZNK10open_spiel5chess10ChessBoard24GeneratePseudoLegalMovesERKSt8functionIFbRKNS0_4MoveEEENS0_5ColorENS0_23PseudoLegalMoveSettingsEENK3$_2clERKNS_12chess_common6SquareE.exit13": ; preds = %_ZNKSt8functionIFbRKN10open_spiel5chess4MoveEEEclES4_.exit.i12, %69
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %21, label %_ZNK10open_spiel5chess10ChessBoard11InBoardAreaERKNS_12chess_common6SquareE.exit.thread, label %71
 
 71:                                               ; preds = %"_ZZNK10open_spiel5chess10ChessBoard24GeneratePseudoLegalMovesERKSt8functionIFbRKNS0_4MoveEEENS0_5ColorENS0_23PseudoLegalMoveSettingsEENK3$_2clERKNS_12chess_common6SquareE.exit", %"_ZZNK10open_spiel5chess10ChessBoard24GeneratePseudoLegalMovesERKSt8functionIFbRKNS0_4MoveEEENS0_5ColorENS0_23PseudoLegalMoveSettingsEENK3$_2clERKNS_12chess_common6SquareE.exit13"
@@ -15585,7 +15585,7 @@ define internal fastcc void @"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDes
   br i1 %39, label %40, label %54
 
 40:                                               ; preds = %33
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %41 = load ptr, ptr %5, align 8
   %42 = load ptr, ptr %14, align 8
   %43 = load ptr, ptr %15, align 8
@@ -15617,7 +15617,7 @@ _ZNKSt8functionIFbRKN10open_spiel5chess4MoveEEEclES4_.exit.i: ; preds = %40
   br label %"_ZZNK10open_spiel5chess10ChessBoard24GeneratePseudoLegalMovesERKSt8functionIFbRKNS0_4MoveEEENS0_5ColorENS0_23PseudoLegalMoveSettingsEENK3$_3clERKNS_12chess_common6SquareE.exit"
 
 "_ZZNK10open_spiel5chess10ChessBoard24GeneratePseudoLegalMovesERKSt8functionIFbRKNS0_4MoveEEENS0_5ColorENS0_23PseudoLegalMoveSettingsEENK3$_3clERKNS_12chess_common6SquareE.exit": ; preds = %_ZNKSt8functionIFbRKN10open_spiel5chess4MoveEEEclES4_.exit.i, %52
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %71
 
 54:                                               ; preds = %33
@@ -15627,7 +15627,7 @@ _ZNKSt8functionIFbRKN10open_spiel5chess4MoveEEEclES4_.exit.i: ; preds = %40
   br i1 %.not, label %_ZNK10open_spiel5chess10ChessBoard11InBoardAreaERKNS_12chess_common6SquareE.exit.thread, label %57
 
 57:                                               ; preds = %54
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %58 = load ptr, ptr %5, align 8
   %59 = load ptr, ptr %14, align 8
   %60 = load ptr, ptr %15, align 8
@@ -15659,7 +15659,7 @@ _ZNKSt8functionIFbRKN10open_spiel5chess4MoveEEEclES4_.exit.i12: ; preds = %57
   br label %"_ZZNK10open_spiel5chess10ChessBoard24GeneratePseudoLegalMovesERKSt8functionIFbRKNS0_4MoveEEENS0_5ColorENS0_23PseudoLegalMoveSettingsEENK3$_3clERKNS_12chess_common6SquareE.exit13"
 
 "_ZZNK10open_spiel5chess10ChessBoard24GeneratePseudoLegalMovesERKSt8functionIFbRKNS0_4MoveEEENS0_5ColorENS0_23PseudoLegalMoveSettingsEENK3$_3clERKNS_12chess_common6SquareE.exit13": ; preds = %_ZNKSt8functionIFbRKN10open_spiel5chess4MoveEEEclES4_.exit.i12, %69
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %21, label %_ZNK10open_spiel5chess10ChessBoard11InBoardAreaERKNS_12chess_common6SquareE.exit.thread, label %71
 
 71:                                               ; preds = %"_ZZNK10open_spiel5chess10ChessBoard24GeneratePseudoLegalMovesERKSt8functionIFbRKNS0_4MoveEEENS0_5ColorENS0_23PseudoLegalMoveSettingsEENK3$_3clERKNS_12chess_common6SquareE.exit", %"_ZZNK10open_spiel5chess10ChessBoard24GeneratePseudoLegalMovesERKSt8functionIFbRKNS0_4MoveEEENS0_5ColorENS0_23PseudoLegalMoveSettingsEENK3$_3clERKNS_12chess_common6SquareE.exit13"
@@ -15732,7 +15732,7 @@ define internal fastcc void @"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDes
   br i1 %39, label %40, label %54
 
 40:                                               ; preds = %33
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %41 = load ptr, ptr %5, align 8
   %42 = load ptr, ptr %14, align 8
   %43 = load ptr, ptr %15, align 8
@@ -15764,7 +15764,7 @@ _ZNKSt8functionIFbRKN10open_spiel5chess4MoveEEEclES4_.exit.i: ; preds = %40
   br label %"_ZZNK10open_spiel5chess10ChessBoard24GeneratePseudoLegalMovesERKSt8functionIFbRKNS0_4MoveEEENS0_5ColorENS0_23PseudoLegalMoveSettingsEENK3$_4clERKNS_12chess_common6SquareE.exit"
 
 "_ZZNK10open_spiel5chess10ChessBoard24GeneratePseudoLegalMovesERKSt8functionIFbRKNS0_4MoveEEENS0_5ColorENS0_23PseudoLegalMoveSettingsEENK3$_4clERKNS_12chess_common6SquareE.exit": ; preds = %_ZNKSt8functionIFbRKN10open_spiel5chess4MoveEEEclES4_.exit.i, %52
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %71
 
 54:                                               ; preds = %33
@@ -15774,7 +15774,7 @@ _ZNKSt8functionIFbRKN10open_spiel5chess4MoveEEEclES4_.exit.i: ; preds = %40
   br i1 %.not, label %_ZNK10open_spiel5chess10ChessBoard11InBoardAreaERKNS_12chess_common6SquareE.exit.thread, label %57
 
 57:                                               ; preds = %54
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %58 = load ptr, ptr %5, align 8
   %59 = load ptr, ptr %14, align 8
   %60 = load ptr, ptr %15, align 8
@@ -15806,7 +15806,7 @@ _ZNKSt8functionIFbRKN10open_spiel5chess4MoveEEEclES4_.exit.i12: ; preds = %57
   br label %"_ZZNK10open_spiel5chess10ChessBoard24GeneratePseudoLegalMovesERKSt8functionIFbRKNS0_4MoveEEENS0_5ColorENS0_23PseudoLegalMoveSettingsEENK3$_4clERKNS_12chess_common6SquareE.exit13"
 
 "_ZZNK10open_spiel5chess10ChessBoard24GeneratePseudoLegalMovesERKSt8functionIFbRKNS0_4MoveEEENS0_5ColorENS0_23PseudoLegalMoveSettingsEENK3$_4clERKNS_12chess_common6SquareE.exit13": ; preds = %_ZNKSt8functionIFbRKN10open_spiel5chess4MoveEEEclES4_.exit.i12, %69
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %21, label %_ZNK10open_spiel5chess10ChessBoard11InBoardAreaERKNS_12chess_common6SquareE.exit.thread, label %71
 
 71:                                               ; preds = %"_ZZNK10open_spiel5chess10ChessBoard24GeneratePseudoLegalMovesERKSt8functionIFbRKNS0_4MoveEEENS0_5ColorENS0_23PseudoLegalMoveSettingsEENK3$_4clERKNS_12chess_common6SquareE.exit", %"_ZZNK10open_spiel5chess10ChessBoard24GeneratePseudoLegalMovesERKSt8functionIFbRKNS0_4MoveEEENS0_5ColorENS0_23PseudoLegalMoveSettingsEENK3$_4clERKNS_12chess_common6SquareE.exit13"
@@ -16222,8 +16222,8 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN10open_spiel5
   %3 = alloca %"class.open_spiel::chess::ChessBoard", align 8
   %4 = alloca %"struct.open_spiel::chess_common::Square", align 2
   %.val = load ptr, ptr %0, align 8
-  call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load ptr, ptr %.val, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %3, ptr noundef nonnull align 8 dereferenceable(168) %5, i64 168, i1 false)
   call void @_ZN10open_spiel5chess10ChessBoard9ApplyMoveERKNS0_4MoveE(ptr noundef nonnull align 8 dereferenceable(168) %3, ptr noundef nonnull align 4 dereferenceable(12) %1)
@@ -16275,8 +16275,8 @@ _ZNKSt8functionIFbRKN10open_spiel5chess4MoveEEEclES4_.exit.i.i.i: ; preds = %24
 
 "_ZSt10__invoke_rIbRZNK10open_spiel5chess10ChessBoard25GenerateLegalPawnCapturesERKSt8functionIFbRKNS1_4MoveEEENS1_5ColorEE3$_0JS6_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.exit": ; preds = %2, %_ZNKSt8functionIFbRKN10open_spiel5chess4MoveEEEclES4_.exit.i.i.i
   %.0.i.i.i = phi i1 [ %32, %_ZNKSt8functionIFbRKN10open_spiel5chess4MoveEEEclES4_.exit.i.i.i ], [ true, %2 ]
-  call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0.i.i.i
 }
 
@@ -17232,7 +17232,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN10open_spiel5
 define linkonce_odr void @_ZN10open_spiel8internal11SpielStrOutINSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEENS_5chess9PieceTypeEJRA22_KcRS9_EEEvRT_RKT0_DpOT1_(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(22) %2, ptr noundef nonnull align 1 dereferenceable(1) %3) local_unnamed_addr #4 comdat personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i8, ptr %1, align 1
   call void @_ZN10open_spiel5chess17PieceTypeToStringB5cxx11ENS0_9PieceTypeEb(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, i8 noundef signext %7, i1 noundef zeroext true)
   %8 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %6)
@@ -17251,9 +17251,9 @@ common.resume:                                    ; preds = %14, %9
 
 _ZN10open_spiel5chesslsERSoRKNS0_9PieceTypeE.exit: ; preds = %4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #34
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %11 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull align 1 dereferenceable(22) %2)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %12 = load i8, ptr %3, align 1
   call void @_ZN10open_spiel5chess17PieceTypeToStringB5cxx11ENS0_9PieceTypeEb(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, i8 noundef signext %12, i1 noundef zeroext true)
   %13 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(32) %5)
@@ -17266,7 +17266,7 @@ _ZN10open_spiel5chesslsERSoRKNS0_9PieceTypeE.exit: ; preds = %4
 
 _ZN10open_spiel8internal11SpielStrOutINSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEEA22_cJRNS_5chess9PieceTypeEEEEvRT_RKT0_DpOT1_.exit: ; preds = %_ZN10open_spiel5chesslsERSoRKNS0_9PieceTypeE.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #34
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -17274,7 +17274,7 @@ _ZN10open_spiel8internal11SpielStrOutINSt7__cxx1119basic_ostringstreamIcSt11char
 define linkonce_odr void @_ZN10open_spiel8internal11SpielStrOutINSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEENS_5chess5PieceEJRA51_KcRS9_EEEvRT_RKT0_DpOT1_(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull align 1 dereferenceable(2) %1, ptr noundef nonnull align 1 dereferenceable(51) %2, ptr noundef nonnull align 1 dereferenceable(2) %3) local_unnamed_addr #4 comdat personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZNK10open_spiel5chess5Piece8ToStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull align 1 dereferenceable(2) %1)
   %7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %_ZN10open_spiel5chesslsERSoRKNS0_5PieceE.exit unwind label %8
@@ -17292,9 +17292,9 @@ common.resume:                                    ; preds = %12, %8
 
 _ZN10open_spiel5chesslsERSoRKNS0_5PieceE.exit:    ; preds = %4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #34
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %10 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull align 1 dereferenceable(51) %2)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZNK10open_spiel5chess5Piece8ToStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull align 1 dereferenceable(2) %3)
   %11 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %_ZN10open_spiel8internal11SpielStrOutINSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEEA51_cJRNS_5chess5PieceEEEEvRT_RKT0_DpOT1_.exit unwind label %12
@@ -17306,7 +17306,7 @@ _ZN10open_spiel5chesslsERSoRKNS0_5PieceE.exit:    ; preds = %4
 
 _ZN10open_spiel8internal11SpielStrOutINSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEEA51_cJRNS_5chess5PieceEEEEvRT_RKT0_DpOT1_.exit: ; preds = %_ZN10open_spiel5chesslsERSoRKNS0_5PieceE.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #34
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -17314,7 +17314,7 @@ _ZN10open_spiel8internal11SpielStrOutINSt7__cxx1119basic_ostringstreamIcSt11char
 define linkonce_odr void @_ZN10open_spiel8internal11SpielStrOutINSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEENS_12chess_common6SquareEJRA20_KcRS9_EEEvRT_RKT0_DpOT1_(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull align 1 dereferenceable(2) %1, ptr noundef nonnull align 1 dereferenceable(20) %2, ptr noundef nonnull align 1 dereferenceable(2) %3) local_unnamed_addr #4 comdat personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN10open_spiel12chess_common14SquareToStringB5cxx11ERKNS0_6SquareE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull align 1 dereferenceable(2) %1)
   %7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %_ZN10open_spiel12chess_commonlsERSoRKNS0_6SquareE.exit unwind label %8
@@ -17332,9 +17332,9 @@ common.resume:                                    ; preds = %12, %8
 
 _ZN10open_spiel12chess_commonlsERSoRKNS0_6SquareE.exit: ; preds = %4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #34
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %10 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull align 1 dereferenceable(20) %2)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN10open_spiel12chess_common14SquareToStringB5cxx11ERKNS0_6SquareE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull align 1 dereferenceable(2) %3)
   %11 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %_ZN10open_spiel8internal11SpielStrOutINSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEEA20_cJRNS_12chess_common6SquareEEEEvRT_RKT0_DpOT1_.exit unwind label %12
@@ -17346,7 +17346,7 @@ _ZN10open_spiel12chess_commonlsERSoRKNS0_6SquareE.exit: ; preds = %4
 
 _ZN10open_spiel8internal11SpielStrOutINSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEEA20_cJRNS_12chess_common6SquareEEEEvRT_RKT0_DpOT1_.exit: ; preds = %_ZN10open_spiel12chess_commonlsERSoRKNS0_6SquareE.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #34
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -17363,8 +17363,8 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vecto
 
 9:                                                ; preds = %2
   %10 = load i64, ptr %1, align 8
-  call void @llvm.lifetime.start.p0(i64 2504, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   store i64 %10, ptr %3, align 8
   br label %11
@@ -17428,8 +17428,8 @@ _ZN4absl7debian224uniform_int_distributionImEclISt23mersenne_twister_engineImLm6
   resume { ptr, i32 } %lpad.phi.i.i.i
 
 _ZNSt16allocator_traitsISaIN10open_spiel12chess_common12ZobristTableImLm3EJLm7EEEEEE9constructIS3_JmEEEvRS4_PT_DpOT0_.exit: ; preds = %27
-  call void @llvm.lifetime.end.p0(i64 2504, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %30 = load ptr, ptr %5, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
   store ptr %31, ptr %5, align 8
@@ -17478,8 +17478,8 @@ _ZNKSt6vectorIN10open_spiel12chess_common12ZobristTableImLm3EJLm7EEEESaIS3_EE12_
   %22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #37
   %23 = getelementptr inbounds i8, ptr %22, i64 %20
   %24 = load i64, ptr %2, align 8
-  call void @llvm.lifetime.start.p0(i64 2504, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, i8 0, i64 24, i1 false)
   store i64 %24, ptr %4, align 8
   br label %25
@@ -17538,8 +17538,8 @@ _ZN4absl7debian224uniform_int_distributionImEclISt23mersenne_twister_engineImLm6
   br label %.thread46
 
 43:                                               ; preds = %41
-  call void @llvm.lifetime.end.p0(i64 2504, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not10.i.i.i = icmp eq ptr %8, %1
   br i1 %.not10.i.i.i, label %_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm3EJLm7EEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, label %.lr.ph.i.i.i
 
@@ -17652,7 +17652,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vecto
 
 8:                                                ; preds = %2
   %9 = load i64, ptr %1, align 8
-  call void @llvm.lifetime.start.p0(i64 2504, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   %10 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #37
   store ptr %10, ptr %5, align 8
@@ -17714,7 +17714,7 @@ _ZNSt6vectorImSaImEED2Ev.exit.i.i.i:              ; preds = %29, %26
   resume { ptr, i32 } %27
 
 _ZNSt16allocator_traitsISaIN10open_spiel12chess_common12ZobristTableImLm7EJEEEEE9constructIS3_JmEEEvRS4_PT_DpOT0_.exit: ; preds = %_ZN4absl7debian224uniform_int_distributionImEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEmRT_.exit.i.i.i
-  call void @llvm.lifetime.end.p0(i64 2504, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %34 = load ptr, ptr %4, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 24
   store ptr %35, ptr %4, align 8
@@ -17762,7 +17762,7 @@ _ZNKSt6vectorIN10open_spiel12chess_common12ZobristTableImLm7EJEEESaIS3_EE12_M_ch
   %21 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %20) #37
   %22 = getelementptr inbounds i8, ptr %21, i64 %19
   %23 = load i64, ptr %2, align 8
-  call void @llvm.lifetime.start.p0(i64 2504, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, i8 0, i64 24, i1 false)
   %24 = invoke noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #37
           to label %.noexc unwind label %74
@@ -17824,7 +17824,7 @@ _ZN4absl7debian224uniform_int_distributionImEclISt23mersenne_twister_engineImLm6
   br label %78
 
 48:                                               ; preds = %_ZN4absl7debian224uniform_int_distributionImEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEmRT_.exit.i.i.i
-  call void @llvm.lifetime.end.p0(i64 2504, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not10.i.i.i = icmp eq ptr %7, %1
   br i1 %.not10.i.i.i, label %_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm7EJEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, label %.lr.ph.i.i.i
 
@@ -18042,8 +18042,8 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vecto
 
 9:                                                ; preds = %2
   %10 = load i64, ptr %1, align 8
-  call void @llvm.lifetime.start.p0(i64 2504, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   store i64 %10, ptr %3, align 8
   br label %11
@@ -18105,8 +18105,8 @@ _ZN4absl7debian224uniform_int_distributionImEclISt23mersenne_twister_engineImLm6
   resume { ptr, i32 } %lpad.phi.i.i.i
 
 _ZNSt16allocator_traitsISaIN10open_spiel12chess_common12ZobristTableImLm2EJLm2EEEEEE9constructIS3_JmEEEvRS4_PT_DpOT0_.exit: ; preds = %28
-  call void @llvm.lifetime.end.p0(i64 2504, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %30 = load ptr, ptr %5, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
   store ptr %31, ptr %5, align 8
@@ -18155,8 +18155,8 @@ _ZNKSt6vectorIN10open_spiel12chess_common12ZobristTableImLm2EJLm2EEEESaIS3_EE12_
   %22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #37
   %23 = getelementptr inbounds i8, ptr %22, i64 %20
   %24 = load i64, ptr %2, align 8
-  call void @llvm.lifetime.start.p0(i64 2504, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, i8 0, i64 24, i1 false)
   store i64 %24, ptr %4, align 8
   br label %25
@@ -18213,8 +18213,8 @@ _ZN4absl7debian224uniform_int_distributionImEclISt23mersenne_twister_engineImLm6
   br label %.thread46
 
 43:                                               ; preds = %42
-  call void @llvm.lifetime.end.p0(i64 2504, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not10.i.i.i = icmp eq ptr %8, %1
   br i1 %.not10.i.i.i, label %_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm2EJLm2EEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, label %.lr.ph.i.i.i
 
@@ -18327,7 +18327,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vecto
 
 8:                                                ; preds = %2
   %9 = load i64, ptr %1, align 8
-  call void @llvm.lifetime.start.p0(i64 2504, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   %10 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #37
   store ptr %10, ptr %5, align 8
@@ -18389,7 +18389,7 @@ _ZNSt6vectorImSaImEED2Ev.exit.i.i.i:              ; preds = %29, %26
   resume { ptr, i32 } %27
 
 _ZNSt16allocator_traitsISaIN10open_spiel12chess_common12ZobristTableImLm2EJEEEEE9constructIS3_JmEEEvRS4_PT_DpOT0_.exit: ; preds = %_ZN4absl7debian224uniform_int_distributionImEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEmRT_.exit.i.i.i
-  call void @llvm.lifetime.end.p0(i64 2504, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %34 = load ptr, ptr %4, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 24
   store ptr %35, ptr %4, align 8
@@ -18437,7 +18437,7 @@ _ZNKSt6vectorIN10open_spiel12chess_common12ZobristTableImLm2EJEEESaIS3_EE12_M_ch
   %21 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %20) #37
   %22 = getelementptr inbounds i8, ptr %21, i64 %19
   %23 = load i64, ptr %2, align 8
-  call void @llvm.lifetime.start.p0(i64 2504, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, i8 0, i64 24, i1 false)
   %24 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #37
           to label %.noexc unwind label %74
@@ -18499,7 +18499,7 @@ _ZN4absl7debian224uniform_int_distributionImEclISt23mersenne_twister_engineImLm6
   br label %78
 
 48:                                               ; preds = %_ZN4absl7debian224uniform_int_distributionImEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEmRT_.exit.i.i.i
-  call void @llvm.lifetime.end.p0(i64 2504, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not10.i.i.i = icmp eq ptr %7, %1
   br i1 %.not10.i.i.i, label %_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm2EJEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, label %.lr.ph.i.i.i
 
@@ -18726,7 +18726,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vecto
 
 8:                                                ; preds = %2
   %9 = load i64, ptr %1, align 8
-  call void @llvm.lifetime.start.p0(i64 2504, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   %10 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #37
   store ptr %10, ptr %5, align 8
@@ -18788,7 +18788,7 @@ _ZNSt6vectorImSaImEED2Ev.exit.i.i.i:              ; preds = %29, %26
   resume { ptr, i32 } %27
 
 _ZNSt16allocator_traitsISaIN10open_spiel12chess_common12ZobristTableImLm8EJEEEEE9constructIS3_JmEEEvRS4_PT_DpOT0_.exit: ; preds = %_ZN4absl7debian224uniform_int_distributionImEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEmRT_.exit.i.i.i
-  call void @llvm.lifetime.end.p0(i64 2504, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %34 = load ptr, ptr %4, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 24
   store ptr %35, ptr %4, align 8
@@ -18836,7 +18836,7 @@ _ZNKSt6vectorIN10open_spiel12chess_common12ZobristTableImLm8EJEEESaIS3_EE12_M_ch
   %21 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %20) #37
   %22 = getelementptr inbounds i8, ptr %21, i64 %19
   %23 = load i64, ptr %2, align 8
-  call void @llvm.lifetime.start.p0(i64 2504, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, i8 0, i64 24, i1 false)
   %24 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #37
           to label %.noexc unwind label %74
@@ -18898,7 +18898,7 @@ _ZN4absl7debian224uniform_int_distributionImEclISt23mersenne_twister_engineImLm6
   br label %78
 
 48:                                               ; preds = %_ZN4absl7debian224uniform_int_distributionImEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEmRT_.exit.i.i.i
-  call void @llvm.lifetime.end.p0(i64 2504, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not10.i.i.i = icmp eq ptr %7, %1
   br i1 %.not10.i.i.i, label %_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm8EJEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, label %.lr.ph.i.i.i
 
@@ -19020,10 +19020,10 @@ declare i64 @llvm.umin.i64(i64, i64) #30
 declare void @llvm.experimental.noalias.scope.decl(metadata) #31
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #32
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #32
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #32
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #32
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #30

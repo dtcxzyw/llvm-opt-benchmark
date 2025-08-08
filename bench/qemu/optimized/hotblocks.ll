@@ -71,22 +71,16 @@ glib_auto_cleanup_GStrv.exit:                     ; preds = %12
   ret i32 %.3
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @g_strsplit(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @g_strsplit(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @g_strcmp0(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @g_strcmp0(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare zeroext i1 @qemu_plugin_bool_parse(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @qemu_plugin_bool_parse(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare void @qemu_plugin_register_vcpu_tb_trans_cb(i64 noundef, ptr noundef) local_unnamed_addr #2
+declare void @qemu_plugin_register_vcpu_tb_trans_cb(i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @vcpu_tb_trans(i64 %0, ptr noundef %1) #0 {
@@ -94,7 +88,7 @@ define internal void @vcpu_tb_trans(i64 %0, ptr noundef %1) #0 {
   %4 = tail call i64 @qemu_plugin_tb_vaddr(ptr noundef %1) #7
   %5 = tail call i64 @qemu_plugin_tb_n_insns(ptr noundef %1) #7
   tail call void @g_mutex_lock(ptr noundef nonnull @lock) #7
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false), !annotation !5
   store i64 %4, ptr %3, align 8
@@ -102,7 +96,7 @@ define internal void @vcpu_tb_trans(i64 %0, ptr noundef %1) #0 {
   store i64 %5, ptr %7, align 8
   %8 = load ptr, ptr @hotblocks, align 8
   %9 = call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %14, label %10
 
@@ -148,7 +142,7 @@ define internal void @vcpu_tb_trans(i64 %0, ptr noundef %1) #0 {
   ret void
 }
 
-declare void @qemu_plugin_register_atexit_cb(i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @qemu_plugin_register_atexit_cb(i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @plugin_exit(i64 %0, ptr readnone captures(none) %1) #0 {
@@ -206,12 +200,12 @@ glib_autoptr_cleanup_GString.exit:                ; preds = %.critedge, %2
   ret void
 }
 
-declare void @g_strfreev(ptr noundef) local_unnamed_addr #2
+declare void @g_strfreev(ptr noundef) local_unnamed_addr #1
 
-declare ptr @g_hash_table_new(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @g_hash_table_new(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal i32 @exec_count_hash(ptr noundef readonly captures(none) %0) #4 {
+define internal i32 @exec_count_hash(ptr noundef readonly captures(none) %0) #3 {
   %2 = load i64, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i64, ptr %3, align 8
@@ -221,7 +215,7 @@ define internal i32 @exec_count_hash(ptr noundef readonly captures(none) %0) #4 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @exec_count_equal(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #4 {
+define internal range(i32 0, 2) i32 @exec_count_equal(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #3 {
   %3 = load i64, ptr %0, align 8
   %4 = load i64, ptr %1, align 8
   %5 = icmp eq i64 %3, %4
@@ -241,29 +235,29 @@ define internal range(i32 0, 2) i32 @exec_count_equal(ptr noundef readonly captu
   ret i32 %14
 }
 
-declare i64 @qemu_plugin_tb_vaddr(ptr noundef) local_unnamed_addr #2
+declare i64 @qemu_plugin_tb_vaddr(ptr noundef) local_unnamed_addr #1
 
-declare i64 @qemu_plugin_tb_n_insns(ptr noundef) local_unnamed_addr #2
+declare i64 @qemu_plugin_tb_n_insns(ptr noundef) local_unnamed_addr #1
 
-declare void @g_mutex_lock(ptr noundef) local_unnamed_addr #2
+declare void @g_mutex_lock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
-declare ptr @g_hash_table_lookup(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @g_hash_table_lookup(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #6
+declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #5
 
-declare ptr @qemu_plugin_scoreboard_new(i64 noundef) local_unnamed_addr #2
+declare ptr @qemu_plugin_scoreboard_new(i64 noundef) local_unnamed_addr #1
 
-declare i32 @g_hash_table_insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @g_hash_table_insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @g_mutex_unlock(ptr noundef) local_unnamed_addr #2
+declare void @g_mutex_unlock(ptr noundef) local_unnamed_addr #1
 
-declare void @qemu_plugin_register_vcpu_tb_exec_inline_per_vcpu(ptr noundef, i32 noundef, ptr, i64, i64 noundef) local_unnamed_addr #2
+declare void @qemu_plugin_register_vcpu_tb_exec_inline_per_vcpu(ptr noundef, i32 noundef, ptr, i64, i64 noundef) local_unnamed_addr #1
 
-declare void @qemu_plugin_register_vcpu_tb_exec_cb(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @qemu_plugin_register_vcpu_tb_exec_cb(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @vcpu_tb_exec(i32 noundef %0, ptr noundef readonly captures(none) %1) #0 {
@@ -273,17 +267,17 @@ define internal void @vcpu_tb_exec(i32 noundef %0, ptr noundef readonly captures
   ret void
 }
 
-declare void @qemu_plugin_u64_add(ptr, i64, i32 noundef, i64 noundef) local_unnamed_addr #2
+declare void @qemu_plugin_u64_add(ptr, i64, i32 noundef, i64 noundef) local_unnamed_addr #1
 
-declare ptr @g_string_new(ptr noundef) local_unnamed_addr #2
+declare ptr @g_string_new(ptr noundef) local_unnamed_addr #1
 
-declare void @g_string_append_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @g_string_append_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare i32 @g_hash_table_size(ptr noundef) local_unnamed_addr #2
+declare i32 @g_hash_table_size(ptr noundef) local_unnamed_addr #1
 
-declare ptr @g_hash_table_get_values(ptr noundef) local_unnamed_addr #2
+declare ptr @g_hash_table_get_values(ptr noundef) local_unnamed_addr #1
 
-declare ptr @g_list_sort(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @g_list_sort(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i32 -1, 2) i32 @cmp_exec_count(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
@@ -298,13 +292,13 @@ define internal range(i32 -1, 2) i32 @cmp_exec_count(ptr noundef readonly captur
   ret i32 %10
 }
 
-declare i64 @qemu_plugin_u64_sum(ptr, i64) local_unnamed_addr #2
+declare i64 @qemu_plugin_u64_sum(ptr, i64) local_unnamed_addr #1
 
-declare void @g_list_free(ptr noundef) local_unnamed_addr #2
+declare void @g_list_free(ptr noundef) local_unnamed_addr #1
 
-declare void @qemu_plugin_outs(ptr noundef) local_unnamed_addr #2
+declare void @qemu_plugin_outs(ptr noundef) local_unnamed_addr #1
 
-declare void @g_hash_table_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @g_hash_table_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @exec_count_free(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #0 {
@@ -314,19 +308,25 @@ define internal void @exec_count_free(ptr readnone captures(none) %0, ptr nounde
   ret void
 }
 
-declare void @g_hash_table_destroy(ptr noundef) local_unnamed_addr #2
+declare void @g_hash_table_destroy(ptr noundef) local_unnamed_addr #1
 
-declare ptr @g_string_free(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @g_string_free(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @qemu_plugin_scoreboard_free(ptr noundef) local_unnamed_addr #2
+declare void @qemu_plugin_scoreboard_free(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 attributes #0 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
-attributes #3 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #2 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nounwind }
 attributes #8 = { cold nounwind }
 attributes #9 = { nounwind allocsize(0) }

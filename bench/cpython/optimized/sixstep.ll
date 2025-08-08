@@ -12,8 +12,8 @@ define hidden range(i32 0, 2) i32 @six_step_fnt(ptr noundef %0, i64 noundef %1, 
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not.i = icmp ult i64 %1, 4294967296
   %8 = lshr i64 %1, 32
   %spec.select.i = select i1 %.not.i, i64 %1, i64 %8
@@ -186,11 +186,11 @@ x64_mulmod.exit:                                  ; preds = %50, %62, %75
 
 99:                                               ; preds = %x64_mulmod.exit, %99
   %.084 = phi i64 [ 0, %x64_mulmod.exit ], [ %108, %99 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %100 = getelementptr i64, ptr %98, i64 %.084
   %101 = load i64, ptr %100, align 8, !tbaa !5
   store i64 %101, ptr %6, align 8, !tbaa !5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %102 = getelementptr i8, ptr %100, i64 8
   %103 = load i64, ptr %102, align 8, !tbaa !5
   store i64 %103, ptr %7, align 8, !tbaa !5
@@ -202,8 +202,8 @@ x64_mulmod.exit:                                  ; preds = %50, %62, %75
   store i64 %106, ptr %100, align 8, !tbaa !5
   %107 = load i64, ptr %7, align 8, !tbaa !5
   store i64 %107, ptr %102, align 8, !tbaa !5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %108 = add i64 %.084, 2
   %109 = icmp ult i64 %108, %24
   br i1 %109, label %99, label %110, !llvm.loop !9
@@ -244,24 +244,21 @@ x64_mulmod.exit:                                  ; preds = %50, %62, %75
 
 120:                                              ; preds = %.sink.split, %112, %28, %3
   %.066 = phi i32 [ 0, %3 ], [ 0, %28 ], [ 0, %112 ], [ %.066.ph, %.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.066
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare hidden i32 @transpose_pow2(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare hidden i32 @transpose_pow2(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
+declare hidden ptr @_mpd_init_fnt_params(i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare hidden ptr @_mpd_init_fnt_params(i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare hidden void @fnt_dif2(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
-declare hidden void @fnt_dif2(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
-
-declare hidden i64 @_mpd_getkernel(i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare hidden i64 @_mpd_getkernel(i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind memory(none) uwtable
-define internal fastcc i64 @x64_powmod(i64 noundef %0, i64 noundef %1, i64 noundef %2) unnamed_addr #3 {
+define internal fastcc i64 @x64_powmod(i64 noundef %0, i64 noundef %1, i64 noundef %2) unnamed_addr #2 {
   %.not35 = icmp eq i64 %1, 0
   br i1 %.not35, label %._crit_edge, label %.lr.ph
 
@@ -464,7 +461,7 @@ x64_mulmod.exit34:                                ; preds = %67, %79, %92
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @x64_mulmod2(ptr noundef nonnull captures(none) %0, i64 noundef %1, ptr noundef nonnull captures(none) %2, i64 noundef %3, i64 noundef %4) unnamed_addr #4 {
+define internal fastcc void @x64_mulmod2(ptr noundef nonnull captures(none) %0, i64 noundef %1, ptr noundef nonnull captures(none) %2, i64 noundef %3, i64 noundef %4) unnamed_addr #3 {
   %6 = load i64, ptr %0, align 8, !tbaa !5
   %7 = zext i64 %6 to i128
   %8 = zext i64 %1 to i128
@@ -645,7 +642,7 @@ x64_mulmod.exit28:                                ; preds = %69, %82, %95
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @x64_mulmod2c(ptr noundef nonnull captures(none) %0, ptr noundef nonnull captures(none) %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 {
+define internal fastcc void @x64_mulmod2c(ptr noundef nonnull captures(none) %0, ptr noundef nonnull captures(none) %1, i64 noundef %2, i64 noundef %3) unnamed_addr #3 {
   %5 = load i64, ptr %0, align 8, !tbaa !5
   %6 = zext i64 %5 to i128
   %7 = zext i64 %2 to i128
@@ -824,17 +821,14 @@ x64_mulmod.exit28:                                ; preds = %67, %80, %93
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @inv_six_step_fnt(ptr noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not.i = icmp ult i64 %1, 4294967296
   %8 = lshr i64 %1, 32
   %spec.select.i = select i1 %.not.i, i64 %1, i64 %8
@@ -997,11 +991,11 @@ x64_mulmod.exit:                                  ; preds = %46, %58, %71
 
 95:                                               ; preds = %x64_mulmod.exit, %95
   %.083 = phi i64 [ 0, %x64_mulmod.exit ], [ %104, %95 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %96 = getelementptr i64, ptr %94, i64 %.083
   %97 = load i64, ptr %96, align 8, !tbaa !5
   store i64 %97, ptr %6, align 8, !tbaa !5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %98 = getelementptr i8, ptr %96, i64 8
   %99 = load i64, ptr %98, align 8, !tbaa !5
   store i64 %99, ptr %7, align 8, !tbaa !5
@@ -1013,8 +1007,8 @@ x64_mulmod.exit:                                  ; preds = %46, %58, %71
   store i64 %102, ptr %96, align 8, !tbaa !5
   %103 = load i64, ptr %7, align 8, !tbaa !5
   store i64 %103, ptr %98, align 8, !tbaa !5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %104 = add i64 %.083, 2
   %105 = icmp ult i64 %104, %24
   br i1 %105, label %95, label %106, !llvm.loop !16
@@ -1066,19 +1060,25 @@ x64_mulmod.exit:                                  ; preds = %46, %58, %71
 
 121:                                              ; preds = %._crit_edge91, %112, %3, %109
   %.066 = phi i32 [ 0, %109 ], [ 0, %3 ], [ 0, %112 ], [ %., %._crit_edge91 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.066
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { inlinehint nofree norecurse nosync nounwind memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { inlinehint nofree norecurse nosync nounwind memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nounwind }
 

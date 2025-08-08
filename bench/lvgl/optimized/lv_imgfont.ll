@@ -40,10 +40,7 @@ define nonnull ptr @lv_imgfont_create(i16 noundef zeroext %0, ptr noundef %1, pt
   ret ptr %4
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare ptr @lv_malloc_zeroed(i64 noundef) local_unnamed_addr #2
+declare ptr @lv_malloc_zeroed(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @imgfont_get_glyph_dsc(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3) #0 {
@@ -71,7 +68,7 @@ define internal noundef zeroext i1 @imgfont_get_glyph_dsc(ptr noundef %0, ptr no
   br i1 %13, label %39, label %14
 
 14:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4, !tbaa !19
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 72
   %16 = load ptr, ptr %15, align 8, !tbaa !11
@@ -80,7 +77,7 @@ define internal noundef zeroext i1 @imgfont_get_glyph_dsc(ptr noundef %0, ptr no
   br i1 %18, label %38, label %19
 
 19:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %20 = call i32 @lv_image_decoder_get_info(ptr noundef nonnull %17, ptr noundef nonnull %6) #4
   %.not24 = icmp eq i32 %20, 1
   br i1 %.not24, label %21, label %37
@@ -111,12 +108,12 @@ define internal noundef zeroext i1 @imgfont_get_glyph_dsc(ptr noundef %0, ptr no
   br label %37
 
 37:                                               ; preds = %19, %21
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %38
 
 38:                                               ; preds = %14, %37
   %.1 = phi i1 [ %.not24, %37 ], [ false, %14 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %39
 
 39:                                               ; preds = %10, %38
@@ -125,14 +122,11 @@ define internal noundef zeroext i1 @imgfont_get_glyph_dsc(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal ptr @imgfont_get_glyph_bitmap(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #3 {
+define internal ptr @imgfont_get_glyph_bitmap(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !27
   ret ptr %4
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define void @lv_imgfont_destroy(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
@@ -149,14 +143,20 @@ define void @lv_imgfont_destroy(ptr noundef readonly captures(address_is_null) %
   ret void
 }
 
-declare void @lv_free(ptr noundef) local_unnamed_addr #2
+declare void @lv_free(ptr noundef) local_unnamed_addr #1
 
-declare i32 @lv_image_decoder_get_info(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @lv_image_decoder_get_info(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

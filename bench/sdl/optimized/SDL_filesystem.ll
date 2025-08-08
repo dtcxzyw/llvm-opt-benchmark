@@ -172,17 +172,11 @@ define hidden zeroext i1 @SDL_CreateDirectory_REAL(ptr noundef %0) local_unnamed
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare zeroext i1 @SDL_SYS_CreateDirectory(ptr noundef) local_unnamed_addr #1
 
 declare noalias ptr @SDL_strdup_REAL(ptr noundef) local_unnamed_addr #1
 
 declare i64 @SDL_strlen_REAL(ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 declare void @SDL_free_REAL(ptr noundef) local_unnamed_addr #1
 
@@ -217,7 +211,7 @@ declare zeroext i1 @SDL_SYS_EnumerateDirectory(ptr noundef, ptr noundef, ptr nou
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @SDL_GetPathInfo_REAL(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.SDL_PathInfo, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.not = icmp eq ptr %1, null
   %spec.store.select = select i1 %.not, ptr %3, ptr %1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %spec.store.select, i8 0, i64 40, i1 false)
@@ -234,12 +228,12 @@ define hidden zeroext i1 @SDL_GetPathInfo_REAL(ptr noundef %0, ptr noundef %1) l
 
 8:                                                ; preds = %6, %4
   %.0 = phi i1 [ %7, %6 ], [ %5, %4 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare zeroext i1 @SDL_SYS_GetPathInfo(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -319,7 +313,7 @@ define hidden ptr @SDL_InternalGlobDirectory(ptr noundef %0, ptr noundef %1, i32
 
 28:                                               ; preds = %25, %.critedge
   %.063 = phi ptr [ %26, %25 ], [ null, %.critedge ]
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %29 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 0, ptr %29, align 8
   %30 = tail call ptr @SDL_IOFromDynamicMem_REAL() #8
@@ -430,7 +424,7 @@ define hidden ptr @SDL_InternalGlobDirectory(ptr noundef %0, ptr noundef %1, i32
 
 84:                                               ; preds = %.cont, %32
   %.3 = phi ptr [ %.062, %.cont ], [ null, %32 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %85
 
 85:                                               ; preds = %18, %84, %27, %9
@@ -459,7 +453,7 @@ define internal fastcc ptr @CaseFoldUtf8String(ptr noundef %0) unnamed_addr #0 {
   %9 = phi i32 [ %12, %._crit_edge ], [ %8, %.preheader ]
   %.02642 = phi i64 [ %.1.lcssa, %._crit_edge ], [ %6, %.preheader ]
   %.02741 = phi ptr [ %.128.lcssa, %._crit_edge ], [ %7, %.preheader ]
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %10 = call i32 @SDL_CaseFoldUnicode(i32 noundef %9, ptr noundef nonnull %3) #8
   %11 = icmp sgt i32 %10, 0
   br i1 %11, label %.lr.ph.preheader, label %._crit_edge
@@ -471,7 +465,7 @@ define internal fastcc ptr @CaseFoldUtf8String(ptr noundef %0) unnamed_addr #0 {
 ._crit_edge:                                      ; preds = %EncodeCodepointToUtf8.exit, %.lr.ph43
   %.128.lcssa = phi ptr [ %.02741, %.lr.ph43 ], [ %70, %EncodeCodepointToUtf8.exit ]
   %.1.lcssa = phi i64 [ %.02642, %.lr.ph43 ], [ %69, %EncodeCodepointToUtf8.exit ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %12 = call i32 @SDL_StepUTF8_REAL(ptr noundef nonnull %2, ptr noundef null) #8
   %.not33 = icmp eq i32 %12, 0
   br i1 %.not33, label %._crit_edge44, label %.lr.ph43, !llvm.loop !7
@@ -601,13 +595,13 @@ EncodeCodepointToUtf8.exit:                       ; preds = %16, %17, %21, %23, 
 declare ptr @SDL_IOFromDynamicMem_REAL() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i1 @EverythingMatch(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 1)) %2) #4 {
+define internal noundef zeroext i1 @EverythingMatch(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 1)) %2) #3 {
   store i8 1, ptr %2, align 1
   ret i1 true
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal zeroext i1 @WildcardMatch(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) #5 {
+define internal zeroext i1 @WildcardMatch(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) #4 {
   %4 = load i8, ptr %1, align 1
   %.058 = load i8, ptr %0, align 1
   %.not59 = icmp eq i8 %4, 0
@@ -708,7 +702,7 @@ define internal range(i32 0, 3) i32 @GlobDirectoryCallback(ptr noundef %0, ptr n
   %4 = alloca ptr, align 8
   %5 = alloca i8, align 1
   %6 = alloca %struct.SDL_PathInfo, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8
   %7 = call i32 (ptr, ptr, ...) @SDL_asprintf_REAL(ptr noundef nonnull %4, ptr noundef nonnull @.str.6, ptr noundef %1, ptr noundef %2) #8
   %8 = icmp slt i32 %7, 0
@@ -729,7 +723,7 @@ define internal range(i32 0, 3) i32 @GlobDirectoryCallback(ptr noundef %0, ptr n
 
 16:                                               ; preds = %13, %9
   %.031 = phi ptr [ %15, %13 ], [ null, %9 ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 0, ptr %5, align 1
   %17 = load ptr, ptr %0, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -769,7 +763,7 @@ define internal range(i32 0, 3) i32 @GlobDirectoryCallback(ptr noundef %0, ptr n
   br i1 %40, label %41, label %57
 
 41:                                               ; preds = %38
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %43 = load ptr, ptr %42, align 8
   %44 = load ptr, ptr %4, align 8
@@ -792,19 +786,19 @@ define internal range(i32 0, 3) i32 @GlobDirectoryCallback(ptr noundef %0, ptr n
 
 56:                                               ; preds = %50, %41
   %.1 = phi i32 [ 0, %41 ], [ %spec.select, %50 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %57
 
 57:                                               ; preds = %38, %56, %26
   %.3 = phi i32 [ 2, %26 ], [ %.1, %56 ], [ 0, %38 ]
   %58 = load ptr, ptr %4, align 8
   call void @SDL_free_REAL(ptr noundef %58) #8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %59
 
 59:                                               ; preds = %57, %13, %3
   %.028 = phi i32 [ 2, %3 ], [ %.3, %57 ], [ 2, %13 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.028
 }
 
@@ -853,7 +847,7 @@ SDL_EnumerateDirectory_REAL.exit:                 ; preds = %5, %8, %10
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @GlobDirectoryGetPathInfo(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
   %4 = alloca %struct.SDL_PathInfo, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.not.i = icmp eq ptr %1, null
   %spec.store.select.i = select i1 %.not.i, ptr %4, ptr %1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %spec.store.select.i, i8 0, i64 40, i1 false)
@@ -870,7 +864,7 @@ define internal zeroext i1 @GlobDirectoryGetPathInfo(ptr noundef %0, ptr noundef
 
 SDL_GetPathInfo_REAL.exit:                        ; preds = %5, %7
   %.0.i = phi i1 [ %8, %7 ], [ %6, %5 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0.i
 }
 
@@ -937,7 +931,7 @@ define hidden ptr @SDL_GetCurrentDirectory_REAL() local_unnamed_addr #0 {
 declare ptr @SDL_SYS_GetCurrentDirectory() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @SDL_InitFilesystem() local_unnamed_addr #6 {
+define hidden void @SDL_InitFilesystem() local_unnamed_addr #5 {
   ret void
 }
 
@@ -981,20 +975,26 @@ declare i32 @SDL_StepUTF8_REAL(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @SDL_CaseFoldUnicode(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: allocsize(1)
-declare ptr @SDL_realloc_REAL(ptr noundef, i64 noundef) local_unnamed_addr #7
+declare ptr @SDL_realloc_REAL(ptr noundef, i64 noundef) local_unnamed_addr #6
 
 declare i32 @SDL_asprintf_REAL(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 declare i64 @SDL_WriteIO_REAL(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nounwind }
 attributes #9 = { nounwind allocsize(1) }
 

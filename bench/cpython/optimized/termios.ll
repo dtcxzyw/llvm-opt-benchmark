@@ -354,7 +354,7 @@ define internal ptr @termios_tcgetattr(ptr noundef %0, ptr noundef %1) #0 {
 
 7:                                                ; preds = %2
   %8 = tail call ptr @PyModule_GetState(ptr noundef %0) #5
-  call void @llvm.lifetime.start.p0(i64 60, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %3, i8 0, i64 60, i1 false)
   %9 = tail call ptr @PyEval_SaveThread() #5
   %10 = call i32 @tcgetattr(i32 noundef range(i32 0, -2147483648) %5, ptr noundef nonnull %3) #5
@@ -380,7 +380,7 @@ define internal ptr @termios_tcgetattr(ptr noundef %0, ptr noundef %1) #0 {
 
 21:                                               ; preds = %27, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %27 ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %22 = getelementptr [32 x i8], ptr %20, i64 0, i64 %indvars.iv.i
   %23 = load i8, ptr %22, align 1, !tbaa !10
   store i8 %23, ptr %4, align 1, !tbaa !10
@@ -389,12 +389,12 @@ define internal ptr @termios_tcgetattr(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %25, label %26, label %27
 
 26:                                               ; preds = %21
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %98
 
 27:                                               ; preds = %21
   %28 = call i32 @PyList_SetItem(ptr noundef nonnull %18, i64 noundef %indvars.iv.i, ptr noundef nonnull %24) #5
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
   br i1 %exitcond.not.i, label %29, label %21, !llvm.loop !11
@@ -519,7 +519,7 @@ define internal ptr @termios_tcgetattr(ptr noundef %0, ptr noundef %1) #0 {
 
 termios_tcgetattr_impl.exit:                      ; preds = %12, %15, %95, %98
   %.0.i = phi ptr [ %14, %12 ], [ null, %15 ], [ null, %98 ], [ %53, %95 ]
-  call void @llvm.lifetime.end.p0(i64 60, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %99
 
 99:                                               ; preds = %2, %termios_tcgetattr_impl.exit
@@ -810,7 +810,7 @@ define internal ptr @termios_tcgetwinsize(ptr noundef %0, ptr noundef %1) #0 {
 
 6:                                                ; preds = %2
   %7 = tail call ptr @PyModule_GetState(ptr noundef %0) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = tail call ptr @PyEval_SaveThread() #5
   %9 = call i32 (i32, i64, ...) @ioctl(i32 noundef range(i32 0, -2147483648) %4, i64 noundef 21523, ptr noundef nonnull %3) #5
   call void @PyEval_RestoreThread(ptr noundef %8) #5
@@ -847,7 +847,7 @@ define internal ptr @termios_tcgetwinsize(ptr noundef %0, ptr noundef %1) #0 {
 
 termios_tcgetwinsize_impl.exit:                   ; preds = %11, %14, %16, %27
   %.0.i = phi ptr [ %13, %11 ], [ null, %27 ], [ null, %14 ], [ %15, %16 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %28
 
 28:                                               ; preds = %2, %termios_tcgetwinsize_impl.exit
@@ -945,7 +945,7 @@ Py_XDECREF.exit29.i:                              ; preds = %29, %28
 
 Py_XDECREF.exit33.i:                              ; preds = %38, %37
   %39 = tail call ptr @PyModule_GetState(ptr noundef %0) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %40 = call i32 (i32, i64, ...) @ioctl(i32 noundef range(i32 0, -2147483648) %10, i64 noundef 21523, ptr noundef nonnull %4) #5
   %41 = icmp eq i32 %40, -1
   br i1 %41, label %42, label %45
@@ -988,7 +988,7 @@ Py_XDECREF.exit33.i:                              ; preds = %38, %37
 
 61:                                               ; preds = %59, %56, %50, %42
   %.2.i = phi ptr [ %44, %42 ], [ null, %50 ], [ %58, %56 ], [ %60, %59 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %termios_tcsetwinsize_impl.exit
 
 termios_tcsetwinsize_impl.exit:                   ; preds = %61, %36, %35, %27, %26, %18, %8, %5
@@ -996,33 +996,27 @@ termios_tcsetwinsize_impl.exit:                   ; preds = %61, %36, %35, %27, 
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare i32 @PyObject_AsFileDescriptor(ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 declare ptr @PyModule_GetState(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare ptr @PyEval_SaveThread() local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare i32 @tcgetattr(i32 noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @tcgetattr(i32 noundef, ptr noundef) local_unnamed_addr #3
 
 declare void @PyEval_RestoreThread(ptr noundef) local_unnamed_addr #1
 
 declare ptr @PyErr_SetFromErrno(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare i32 @cfgetispeed(ptr noundef) local_unnamed_addr #4
+declare i32 @cfgetispeed(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
-declare i32 @cfgetospeed(ptr noundef) local_unnamed_addr #4
+declare i32 @cfgetospeed(ptr noundef) local_unnamed_addr #3
 
 declare ptr @PyList_New(i64 noundef) local_unnamed_addr #1
 
@@ -1062,7 +1056,7 @@ define internal fastcc ptr @termios_tcsetattr_impl(ptr noundef %0, i32 noundef r
 
 13:                                               ; preds = %9
   %14 = tail call ptr @PyModule_GetState(ptr noundef %0) #5
-  call void @llvm.lifetime.start.p0(i64 60, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %15 = tail call ptr @PyEval_SaveThread() #5
   %16 = call i32 @tcgetattr(i32 noundef %1, ptr noundef nonnull %5) #5
   call void @PyEval_RestoreThread(ptr noundef %15) #5
@@ -1268,7 +1262,7 @@ define internal fastcc ptr @termios_tcsetattr_impl(ptr noundef %0, i32 noundef r
 
 .critedge98:                                      ; preds = %90, %25, %31, %38, %45, %93, %100, %106, %113, %116, %70, %52, %59, %18
   %.1 = phi ptr [ %20, %18 ], [ null, %25 ], [ null, %31 ], [ null, %38 ], [ null, %45 ], [ null, %70 ], [ null, %93 ], [ %102, %100 ], [ %108, %106 ], [ %115, %113 ], [ %117, %116 ], [ null, %52 ], [ null, %59 ], [ null, %90 ]
-  call void @llvm.lifetime.end.p0(i64 60, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %118
 
 118:                                              ; preds = %.critedge98, %11
@@ -1289,31 +1283,31 @@ declare i64 @PyBytes_Size(ptr noundef) local_unnamed_addr #1
 declare ptr @PyBytes_AsString(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare i32 @cfsetispeed(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @cfsetispeed(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
-declare i32 @cfsetospeed(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @cfsetospeed(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
-declare i32 @tcsetattr(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @tcsetattr(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 declare ptr @Py_GetConstantBorrowed(i32 noundef) local_unnamed_addr #1
 
 declare i64 @PyType_GetFlags(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare i32 @tcsendbreak(i32 noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @tcsendbreak(i32 noundef, i32 noundef) local_unnamed_addr #3
 
 declare i32 @tcdrain(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare i32 @tcflush(i32 noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @tcflush(i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
-declare i32 @tcflow(i32 noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @tcflow(i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
-declare i32 @ioctl(i32 noundef, i64 noundef, ...) local_unnamed_addr #4
+declare i32 @ioctl(i32 noundef, i64 noundef, ...) local_unnamed_addr #3
 
 declare ptr @PyTuple_New(i64 noundef) local_unnamed_addr #1
 
@@ -1390,11 +1384,17 @@ declare ptr @PyLong_FromUnsignedLong(i64 noundef) local_unnamed_addr #1
 
 declare i32 @PyModule_AddIntConstant(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

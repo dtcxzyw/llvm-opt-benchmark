@@ -231,8 +231,8 @@ define internal void @LINUX_JoystickDetect() #0 {
   br i1 %or.cond, label %19, label %61
 
 19:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %9) #18
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %10) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %20 = call i64 @read(i32 noundef %15, ptr noundef nonnull %9, i64 noundef 4096) #18
   %.not21.i = icmp slt i64 %20, 1
   br i1 %.not21.i, label %LINUX_InotifyJoystickDetect.exit, label %.lr.ph.i
@@ -342,8 +342,8 @@ select.unfold.i:                                  ; preds = %IsJoystickDeviceNod
   br label %24
 
 LINUX_InotifyJoystickDetect.exit:                 ; preds = %IsJoystickDeviceNode.exit.thread.i, %19
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %10) #18
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %9) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %LINUX_FallbackJoystickDetect.exit
 
 61:                                               ; preds = %14
@@ -356,7 +356,7 @@ LINUX_InotifyJoystickDetect.exit:                 ; preds = %IsJoystickDeviceNod
   br i1 %or.cond.i, label %LINUX_FallbackJoystickDetect.exit, label %65
 
 65:                                               ; preds = %61
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %8) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %66 = call i32 @stat(ptr noundef nonnull @.str.9, ptr noundef nonnull %8) #18
   %67 = icmp eq i32 %66, 0
   br i1 %67, label %68, label %153
@@ -369,11 +369,11 @@ LINUX_InotifyJoystickDetect.exit:                 ; preds = %IsJoystickDeviceNod
   br i1 %.not3.i, label %153, label %72
 
 72:                                               ; preds = %68
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %5) #18
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #18
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %73 = call i32 @scandir(ptr noundef nonnull @.str.9, ptr noundef nonnull %4, ptr noundef nonnull @filter_entries, ptr noundef null) #18
   %74 = icmp sgt i32 %73, 0
   br i1 %74, label %.lr.ph.i.i, label %.thread84.i.i
@@ -429,7 +429,7 @@ LINUX_InotifyJoystickDetect.exit:                 ; preds = %IsJoystickDeviceNod
   br i1 %or.cond11.i.i, label %101, label %123
 
 101:                                              ; preds = %94
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %102 = call i32 (i32, i64, ...) @ioctl(i32 noundef %92, i64 noundef 2155889926, ptr noundef nonnull %3) #18
   %103 = icmp sgt i32 %102, 0
   br i1 %103, label %104, label %GetSteamVirtualGamepadSlot.exit.thread.i.i
@@ -448,12 +448,12 @@ LINUX_InotifyJoystickDetect.exit:                 ; preds = %IsJoystickDeviceNod
   br i1 %.not9.i.i.i, label %GetSteamVirtualGamepadSlot.exit.thread.i.i, label %111
 
 GetSteamVirtualGamepadSlot.exit.thread.i.i:       ; preds = %106, %104, %101
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %123
 
 111:                                              ; preds = %106
   %112 = call i32 @SDL_atoi_REAL(ptr noundef nonnull %107) #18
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %113 = add nsw i32 %.04362.i.i, 1
   %114 = sext i32 %113 to i64
   %115 = shl nsw i64 %114, 4
@@ -526,13 +526,13 @@ GetSteamVirtualGamepadSlot.exit.thread.i.i:       ; preds = %106, %104, %101
 LINUX_ScanSteamVirtualGamepads.exit.i:            ; preds = %.lr.ph67.i.i, %132, %.thread84.i.i
   %.045.lcssa7782.i.i = phi ptr [ %.146.i.i, %132 ], [ null, %.thread84.i.i ], [ %.146.i.i, %.lr.ph67.i.i ]
   call void @SDL_free_REAL(ptr noundef %.045.lcssa7782.i.i) #18
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #18
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %5) #18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #18
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store ptr null, ptr %1, align 8
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %2) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %137 = call i32 @scandir(ptr noundef nonnull @.str.9, ptr noundef nonnull %1, ptr noundef nonnull @filter_entries, ptr noundef null) #18
   %138 = icmp sgt i32 %137, 1
   br i1 %138, label %.thread.i10.i, label %141
@@ -570,15 +570,15 @@ LINUX_ScanSteamVirtualGamepads.exit.i:            ; preds = %.lr.ph67.i.i, %132,
 LINUX_ScanInputDevices.exit.i:                    ; preds = %.lr.ph.i6.i, %141
   %151 = load ptr, ptr %1, align 8
   call void @free(ptr noundef %151) #18
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %2) #18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %152 = load i64, ptr %69, align 8
   store i64 %152, ptr @last_input_dir_mtime, align 8
   br label %153
 
 153:                                              ; preds = %LINUX_ScanInputDevices.exit.i, %68, %65
   store i64 %62, ptr @last_joy_detect_time, align 8
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %8) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %LINUX_FallbackJoystickDetect.exit
 
 LINUX_FallbackJoystickDetect.exit:                ; preds = %153, %61, %LINUX_InotifyJoystickDetect.exit, %13
@@ -893,7 +893,7 @@ GetJoystickByDevIndex.exit.thread:                ; preds = %2, %GetJoystickByDe
   br i1 %.not29, label %83, label %14
 
 14:                                               ; preds = %11
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   tail call void @SDL_AssertJoysticksLocked() #18
   %15 = load ptr, ptr @SDL_sensorlist, align 8
   %.not.i31 = icmp eq ptr %15, null
@@ -918,7 +918,7 @@ GetJoystickByDevIndex.exit.thread:                ; preds = %2, %GetJoystickByDe
 
 .lr.ph.i33:                                       ; preds = %21, %39
   %.01730.i = phi ptr [ %.017.i, %39 ], [ %.01728.i, %21 ]
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %25 = getelementptr inbounds nuw i8, ptr %.01730.i, i64 16
   %26 = load ptr, ptr %25, align 8
   %.not23.i = icmp eq ptr %26, null
@@ -943,11 +943,11 @@ GetJoystickByDevIndex.exit.thread:                ; preds = %2, %GetJoystickByDe
   br i1 %37, label %38, label %39
 
 38:                                               ; preds = %35
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %GetSensor.exit
 
 39:                                               ; preds = %35, %31, %27, %.lr.ph.i33
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %40 = getelementptr inbounds nuw i8, ptr %.01730.i, i64 24
   %.017.i = load ptr, ptr %40, align 8
   %.not22.i = icmp eq ptr %.017.i, null
@@ -955,7 +955,7 @@ GetJoystickByDevIndex.exit.thread:                ; preds = %2, %GetJoystickByDe
 
 GetSensor.exit:                                   ; preds = %39, %14, %16, %21, %38
   %.018.i = phi ptr [ %.01730.i, %38 ], [ null, %14 ], [ null, %16 ], [ null, %21 ], [ null, %39 ]
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %41 = call fastcc zeroext i1 @PrepareJoystickHwdata(ptr noundef %0, ptr noundef nonnull %.07.i, ptr noundef %.018.i)
   %42 = load ptr, ptr %13, align 8
   br i1 %41, label %44, label %43
@@ -1045,7 +1045,7 @@ GetSensor.exit:                                   ; preds = %39, %14, %16, %21, 
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @LINUX_JoystickRumble(ptr noundef readonly captures(none) %0, i16 noundef zeroext %1, i16 noundef zeroext %2) #0 {
   %4 = alloca %struct.input_event, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   tail call void @SDL_AssertJoysticksLocked() #18
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %6 = load ptr, ptr %5, align 8
@@ -1140,7 +1140,7 @@ define internal zeroext i1 @LINUX_JoystickRumble(ptr noundef readonly captures(n
 
 63:                                               ; preds = %48, %58, %43, %27
   %.0 = phi i1 [ %47, %43 ], [ %62, %58 ], [ %28, %27 ], [ true, %48 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
 }
 
@@ -1258,7 +1258,7 @@ define internal void @LINUX_JoystickUpdate(ptr noundef %0) #0 {
   br i1 %8, label %9, label %121
 
 9:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %3) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %10 = tail call i64 @SDL_GetTicksNS_REAL() #18
   tail call void @SDL_AssertJoysticksLocked() #18
   %11 = load ptr, ptr %4, align 8
@@ -1450,11 +1450,11 @@ HandleHat.exit.i:                                 ; preds = %114, %104, %101, %2
   br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !16
 
 HandleClassicEvents.exit:                         ; preds = %.loopexit.i, %9
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %398
 
 121:                                              ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 768, ptr nonnull %2) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   tail call void @SDL_AssertJoysticksLocked() #18
   %122 = load ptr, ptr %4, align 8
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 3637
@@ -1956,7 +1956,7 @@ HandleHat.exit.i26:                               ; preds = %295, %294, %293, %2
   br label %HandleInputEvents.exit
 
 HandleInputEvents.exit:                           ; preds = %.loopexit119.i, %395
-  call void @llvm.lifetime.end.p0(i64 768, ptr nonnull %2) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %398
 
 398:                                              ; preds = %HandleInputEvents.exit, %HandleClassicEvents.exit
@@ -2926,18 +2926,15 @@ GetJoystickByDevIndex.exit:                       ; preds = %.lr.ph.i, %2, %.pre
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+declare ptr @SDL_GetHint_REAL(ptr noundef) local_unnamed_addr #2
 
-declare ptr @SDL_GetHint_REAL(ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @SDL_UDEV_Init() local_unnamed_addr #2
 
-declare zeroext i1 @SDL_UDEV_Init() local_unnamed_addr #3
+declare zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
-declare zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare noalias ptr @SDL_strdup_REAL(ptr noundef) local_unnamed_addr #2
 
-declare noalias ptr @SDL_strdup_REAL(ptr noundef) local_unnamed_addr #3
-
-declare ptr @SDL_strchr_REAL(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @SDL_strchr_REAL(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @MaybeAddDevice(ptr noundef %0) unnamed_addr #0 {
@@ -2948,7 +2945,7 @@ define internal fastcc void @MaybeAddDevice(ptr noundef %0) unnamed_addr #0 {
   %6 = alloca [128 x i8], align 16
   %7 = alloca i32, align 4
   %8 = alloca %struct.stat, align 8
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %8) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %164, label %9
 
@@ -3014,9 +3011,9 @@ define internal fastcc void @MaybeAddDevice(ptr noundef %0) unnamed_addr #0 {
   br i1 %33, label %.loopexit, label %28
 
 ._crit_edge:                                      ; preds = %28, %.preheader
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #18
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #18
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4
   store i64 0, ptr %5, align 8
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 2
@@ -3110,7 +3107,7 @@ IsVirtualJoystick.exit.thread.i:                  ; preds = %IsVirtualJoystick.e
   br i1 %or.cond32.i, label %82, label %FixupDeviceInfoForMapping.exit.i
 
 82:                                               ; preds = %77
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(96) %4, i8 0, i64 96, i1 false)
   %83 = call i32 (i32, i64, ...) @ioctl(i32 noundef %10, i64 noundef 2153792801, ptr noundef nonnull %4) #18
   %84 = icmp sgt i32 %83, -1
@@ -3128,7 +3125,7 @@ IsVirtualJoystick.exit.thread.i:                  ; preds = %IsVirtualJoystick.e
   br label %90
 
 90:                                               ; preds = %89, %85, %82
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.pr.pre.i.i = load i16, ptr %34, align 2
   br label %thread-pre-split.i.i
 
@@ -3160,9 +3157,9 @@ FixupDeviceInfoForMapping.exit.i:                 ; preds = %94, %93, %thread-pr
   %102 = load i16, ptr %5, align 8
   %103 = load i16, ptr %36, align 2
   %104 = call { i64, i64 } @SDL_CreateJoystickGUID(i16 noundef zeroext %102, i16 noundef zeroext %100, i16 noundef zeroext %101, i16 noundef zeroext %103, ptr noundef null, ptr noundef nonnull %6, i8 noundef zeroext 0, i8 noundef zeroext 0) #18
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #18
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %105 = call noalias dereferenceable_or_null(88) ptr @SDL_calloc_REAL(i64 noundef 1, i64 noundef 88) #21
   %.not46 = icmp eq ptr %105, null
   br i1 %.not46, label %106, label %107
@@ -3244,11 +3241,11 @@ FixupDeviceInfoForMapping.exit.i:                 ; preds = %94, %93, %thread-pr
   br label %136
 
 136:                                              ; preds = %.sink.split, %38, %48, %51, %54, %57
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #18
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #18
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #18
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4
   store i64 0, ptr %2, align 8
   %137 = getelementptr inbounds nuw i8, ptr %2, i64 2
@@ -3279,8 +3276,8 @@ FixupDeviceInfoForMapping.exit.i:                 ; preds = %94, %93, %thread-pr
   br i1 %147, label %IsSensor.exit.thread, label %IsSensor.exit
 
 IsSensor.exit.thread:                             ; preds = %141, %143, %._crit_edge.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.loopexit
 
 IsSensor.exit:                                    ; preds = %._crit_edge.i
@@ -3289,8 +3286,8 @@ IsSensor.exit:                                    ; preds = %._crit_edge.i
   %150 = load i16, ptr %138, align 4
   %151 = icmp ne i16 %150, 774
   %or.cond.not.i = select i1 %149, i1 true, i1 %151
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %or.cond.not.i, label %152, label %.loopexit
 
 152:                                              ; preds = %IsSensor.exit
@@ -3326,20 +3323,17 @@ IsSensor.exit:                                    ; preds = %._crit_edge.i
   br label %164
 
 164:                                              ; preds = %9, %1, %.loopexit, %15
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %8) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
 
-declare void @SDL_free_REAL(ptr noundef) local_unnamed_addr #3
+declare void @SDL_free_REAL(ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare void @SDL_LogDebug_REAL(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare void @SDL_LogDebug_REAL(i32 noundef, ptr noundef, ...) local_unnamed_addr #3
+declare i32 @SDL_GetSandbox_REAL() local_unnamed_addr #2
 
-declare i32 @SDL_GetSandbox_REAL() local_unnamed_addr #3
-
-declare zeroext i1 @SDL_UDEV_AddCallback(ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @SDL_UDEV_AddCallback(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal void @joystick_udev_callback(i32 noundef %0, i32 noundef %1, ptr noundef %2) #0 {
@@ -3424,43 +3418,43 @@ IsJoystickJSNode.exit14:                          ; preds = %29, %.preheader.i.i
   ret void
 }
 
-declare void @SDL_UDEV_Quit() local_unnamed_addr #3
+declare void @SDL_UDEV_Quit() local_unnamed_addr #2
 
-declare zeroext i1 @SDL_SetError_REAL(ptr noundef, ...) local_unnamed_addr #3
+declare zeroext i1 @SDL_SetError_REAL(ptr noundef, ...) local_unnamed_addr #2
 
-declare zeroext i1 @SDL_UDEV_Scan() local_unnamed_addr #3
+declare zeroext i1 @SDL_UDEV_Scan() local_unnamed_addr #2
 
-declare void @SDL_LogWarn_REAL(i32 noundef, ptr noundef, ...) local_unnamed_addr #3
+declare void @SDL_LogWarn_REAL(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare ptr @strerror(i32 noundef) local_unnamed_addr #4
+declare ptr @strerror(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #5
+declare ptr @__errno_location() local_unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare i32 @inotify_add_watch(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @inotify_add_watch(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @close(i32 noundef) local_unnamed_addr #3
+declare i32 @close(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree
-declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #6
+declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fstat(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #7
+declare noundef i32 @fstat(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
-declare void @SDL_LockJoysticks_REAL() local_unnamed_addr #3
+declare void @SDL_LockJoysticks_REAL() local_unnamed_addr #2
 
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @SDL_calloc_REAL(i64 noundef, i64 noundef) local_unnamed_addr #8
+declare noalias ptr @SDL_calloc_REAL(i64 noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @GetSteamVirtualGamepadSlot(i32 noundef %0, ptr noundef nonnull writeonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 (i32, i64, ...) @ioctl(i32 noundef %0, i64 noundef 2155889926, ptr noundef nonnull %3) #18
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %6, label %14
@@ -3484,7 +3478,7 @@ define internal fastcc void @GetSteamVirtualGamepadSlot(i32 noundef %0, ptr noun
   br label %14
 
 14:                                               ; preds = %2, %6, %8, %.critedge
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -3503,27 +3497,27 @@ define internal fastcc void @FreeJoylistItem(ptr noundef nonnull %0) unnamed_add
   ret void
 }
 
-declare i32 @SDL_GetNextObjectID() local_unnamed_addr #3
+declare i32 @SDL_GetNextObjectID() local_unnamed_addr #2
 
-declare void @SDL_PrivateJoystickAdded(i32 noundef) local_unnamed_addr #3
+declare void @SDL_PrivateJoystickAdded(i32 noundef) local_unnamed_addr #2
 
-declare void @SDL_UnlockJoysticks_REAL() local_unnamed_addr #3
+declare void @SDL_UnlockJoysticks_REAL() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
-declare zeroext i1 @SDL_UDEV_GetProductInfo(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @SDL_UDEV_GetProductInfo(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare i32 @ioctl(i32 noundef, i64 noundef, ...) local_unnamed_addr #4
+declare i32 @ioctl(i32 noundef, i64 noundef, ...) local_unnamed_addr #3
 
-declare ptr @SDL_CreateJoystickName(i16 noundef zeroext, i16 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @SDL_CreateJoystickName(i16 noundef zeroext, i16 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare zeroext i1 @SDL_JoystickHandledByAnotherDriver(ptr noundef, i16 noundef zeroext, i16 noundef zeroext, i16 noundef zeroext, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @SDL_JoystickHandledByAnotherDriver(ptr noundef, i16 noundef zeroext, i16 noundef zeroext, i16 noundef zeroext, ptr noundef) local_unnamed_addr #2
 
-declare zeroext i1 @SDL_ShouldIgnoreJoystick(i16 noundef zeroext, i16 noundef zeroext, i16 noundef zeroext, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @SDL_ShouldIgnoreJoystick(i16 noundef zeroext, i16 noundef zeroext, i16 noundef zeroext, ptr noundef) local_unnamed_addr #2
 
-declare { i64, i64 } @SDL_CreateJoystickGUID(i16 noundef zeroext, i16 noundef zeroext, i16 noundef zeroext, i16 noundef zeroext, ptr noundef, ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #3
+declare { i64, i64 } @SDL_CreateJoystickGUID(i16 noundef zeroext, i16 noundef zeroext, i16 noundef zeroext, i16 noundef zeroext, ptr noundef, ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @GuessDeviceClass(i32 noundef %0) unnamed_addr #0 {
@@ -3532,15 +3526,15 @@ define internal fastcc i32 @GuessDeviceClass(i32 noundef %0) unnamed_addr #0 {
   %4 = alloca [12 x i64], align 16
   %5 = alloca [1 x i64], align 8
   %6 = alloca [1 x i64], align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 0, ptr %2, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 0, ptr %3, align 8
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(96) %4, i8 0, i64 96, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 0, ptr %6, align 8
   %7 = call i32 (i32, i64, ...) @ioctl(i32 noundef %0, i64 noundef 2148025632, ptr noundef nonnull %3) #18
   %8 = icmp slt i32 %7, 0
@@ -3568,25 +3562,25 @@ define internal fastcc i32 @GuessDeviceClass(i32 noundef %0) unnamed_addr #0 {
 
 21:                                               ; preds = %1, %9, %12, %15, %18
   %.0 = phi i32 [ %20, %18 ], [ 0, %15 ], [ 0, %12 ], [ 0, %9 ], [ 0, %1 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #18
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4) #18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
 
-declare i32 @SDL_EVDEV_GuessDeviceClass(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @SDL_EVDEV_GuessDeviceClass(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @SDL_strcmp_REAL(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @SDL_strcmp_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @SDL_strstr_REAL(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @SDL_strstr_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @SDL_isdigit_REAL(i32 noundef) local_unnamed_addr #3
+declare i32 @SDL_isdigit_REAL(i32 noundef) local_unnamed_addr #2
 
-declare i32 @SDL_atoi_REAL(ptr noundef) local_unnamed_addr #3
+declare i32 @SDL_atoi_REAL(ptr noundef) local_unnamed_addr #2
 
-declare void @SDL_Delay_REAL(i32 noundef) local_unnamed_addr #3
+declare void @SDL_Delay_REAL(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @MaybeRemoveDevice(ptr noundef nonnull %0) unnamed_addr #0 {
@@ -3686,9 +3680,9 @@ RemoveSensorlistItem.exit:                        ; preds = %24, %26
   ret void
 }
 
-declare ptr @SDL_strrchr_REAL(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @SDL_strrchr_REAL(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare zeroext i1 @SDL_startswith(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @SDL_startswith(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @RemoveJoylistItem(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
@@ -3746,29 +3740,29 @@ define internal fastcc void @RemoveJoylistItem(ptr noundef nonnull %0, ptr nound
   ret void
 }
 
-declare void @SDL_AssertJoysticksLocked() local_unnamed_addr #3
+declare void @SDL_AssertJoysticksLocked() local_unnamed_addr #2
 
-declare void @SDL_PrivateJoystickRemoved(i32 noundef) local_unnamed_addr #3
+declare void @SDL_PrivateJoystickRemoved(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare i32 @inotify_init1(i32 noundef) local_unnamed_addr #4
+declare i32 @inotify_init1(i32 noundef) local_unnamed_addr #3
 
-declare void @SDL_UDEV_Poll() local_unnamed_addr #3
+declare void @SDL_UDEV_Poll() local_unnamed_addr #2
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #6
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #5
 
-declare i32 @SDL_snprintf_REAL(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #3
+declare i32 @SDL_snprintf_REAL(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #9
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #8
 
-declare i64 @SDL_GetTicks_REAL() local_unnamed_addr #3
+declare i64 @SDL_GetTicks_REAL() local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #7
+declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
-declare i32 @scandir(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @scandir(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @filter_entries(ptr noundef %0) #0 {
@@ -3833,15 +3827,15 @@ IsJoystickDeviceNode.exit:                        ; preds = %.preheader.i.i5.i, 
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #11
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: allocsize(1)
-declare ptr @SDL_realloc_REAL(ptr noundef, i64 noundef) local_unnamed_addr #12
+declare ptr @SDL_realloc_REAL(ptr noundef, i64 noundef) local_unnamed_addr #11
 
-declare void @SDL_qsort_REAL(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
+declare void @SDL_qsort_REAL(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @sort_virtual_gamepads(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #13 {
+define internal i32 @sort_virtual_gamepads(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #12 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -3898,9 +3892,9 @@ define internal i32 @sort_entries(ptr noundef readonly captures(none) %0, ptr no
 define internal fastcc i32 @get_event_joystick_index(i32 noundef %0) unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca [4096 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %3) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf_REAL(ptr noundef nonnull %3, i64 noundef 4096, ptr noundef nonnull @.str.16, i32 noundef %0) #18
   %5 = call i32 @scandir(ptr noundef nonnull %3, ptr noundef nonnull %2, ptr noundef null, ptr noundef nonnull @alphasort) #18
   %6 = icmp sgt i32 %5, 0
@@ -3943,15 +3937,15 @@ define internal fastcc i32 @get_event_joystick_index(i32 noundef %0) unnamed_add
   %.0.lcssa = phi i32 [ -1, %1 ], [ %.1, %19 ]
   %23 = load ptr, ptr %2, align 8
   call void @free(ptr noundef %23) #18
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %3) #18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0.lcssa
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @alphasort(ptr noundef, ptr noundef) #14
+declare i32 @alphasort(ptr noundef, ptr noundef) #13
 
-declare i32 @SDL_strncmp_REAL(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @SDL_strncmp_REAL(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @PrepareJoystickHwdata(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
@@ -4050,16 +4044,16 @@ define internal fastcc zeroext i1 @PrepareJoystickHwdata(ptr noundef captures(no
   br label %63
 
 63:                                               ; preds = %61, %59
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(96) %4, i8 0, i64 96, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 0, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %7, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #18
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %64 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.20, i1 noundef zeroext false) #18
   %65 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.21, i1 noundef zeroext true) #18
   %66 = zext i1 %65 to i8
@@ -4169,8 +4163,8 @@ define internal fastcc zeroext i1 @PrepareJoystickHwdata(ptr noundef captures(no
 
 118:                                              ; preds = %GuessIfAxesAreDigitalHat.exit.i, %.preheader261.i
   %indvars.iv289.i = phi i64 [ 16, %.preheader261.i ], [ %indvars.iv.next290.i, %GuessIfAxesAreDigitalHat.exit.i ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #18
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %119 = load i64, ptr %5, align 8
   %120 = shl nuw nsw i64 1, %indvars.iv289.i
   %121 = and i64 %119, %120
@@ -4332,8 +4326,8 @@ define internal fastcc zeroext i1 @PrepareJoystickHwdata(ptr noundef captures(no
   br label %GuessIfAxesAreDigitalHat.exit.i
 
 GuessIfAxesAreDigitalHat.exit.i:                  ; preds = %188, %161, %159, %.thread26.i.i, %155, %153, %.thread.i.i, %.thread.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #18
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %indvars.iv.next290.i = add nuw nsw i64 %indvars.iv289.i, 2
   %193 = icmp samesign ult i64 %indvars.iv289.i, 22
   br i1 %193, label %118, label %.preheader.i, !llvm.loop !31
@@ -4363,7 +4357,7 @@ GuessIfAxesAreDigitalHat.exit.i:                  ; preds = %188, %161, %159, %.
   br i1 %.not204.i, label %265, label %209
 
 209:                                              ; preds = %205
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %210 = load ptr, ptr %15, align 8
   %211 = getelementptr inbounds nuw i8, ptr %210, i64 1808
   %212 = getelementptr inbounds nuw [63 x %struct.axis_correct], ptr %211, i64 0, i64 %indvars.iv292.i
@@ -4448,7 +4442,7 @@ GuessIfAxesAreDigitalHat.exit.i:                  ; preds = %188, %161, %159, %.
   br label %264
 
 264:                                              ; preds = %261, %209
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %265
 
 265:                                              ; preds = %264, %205, %196
@@ -4688,7 +4682,7 @@ GuessIfAxesAreDigitalHat.exit.i:                  ; preds = %188, %161, %159, %.
 
 401:                                              ; preds = %408, %397
   %indvars.iv296.i = phi i64 [ 0, %397 ], [ %indvars.iv.next297.i, %408 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %402 = or disjoint i64 %indvars.iv296.i, 2149074240
   %403 = call i32 (i32, i64, ...) @ioctl(i32 noundef %.0, i64 noundef %402, ptr noundef nonnull %13) #18
   %404 = icmp slt i32 %403, 0
@@ -4698,7 +4692,7 @@ GuessIfAxesAreDigitalHat.exit.i:                  ; preds = %188, %161, %159, %.
   %406 = load ptr, ptr %15, align 8
   %407 = getelementptr inbounds nuw i8, ptr %406, i64 1788
   store i8 0, ptr %407, align 4
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.loopexit260.i
 
 408:                                              ; preds = %401
@@ -4708,7 +4702,7 @@ GuessIfAxesAreDigitalHat.exit.i:                  ; preds = %188, %161, %159, %.
   %412 = getelementptr inbounds nuw i8, ptr %411, i64 3572
   %413 = getelementptr inbounds nuw [3 x float], ptr %412, i64 0, i64 %indvars.iv296.i
   store float %410, ptr %413, align 4
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %indvars.iv.next297.i = add nuw nsw i64 %indvars.iv296.i, 1
   %exitcond299.not.i = icmp eq i64 %indvars.iv.next297.i, 3
   br i1 %exitcond299.not.i, label %.loopexit260.i, label %401, !llvm.loop !35
@@ -4728,7 +4722,7 @@ GuessIfAxesAreDigitalHat.exit.i:                  ; preds = %188, %161, %159, %.
 
 420:                                              ; preds = %427, %416
   %indvars.iv300.i = phi i64 [ 0, %416 ], [ %indvars.iv.next301.i, %427 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %421 = add nuw nsw i64 %indvars.iv300.i, 2149074243
   %422 = call i32 (i32, i64, ...) @ioctl(i32 noundef %.0, i64 noundef %421, ptr noundef nonnull %14) #18
   %423 = icmp slt i32 %422, 0
@@ -4738,7 +4732,7 @@ GuessIfAxesAreDigitalHat.exit.i:                  ; preds = %188, %161, %159, %.
   %425 = load ptr, ptr %15, align 8
   %426 = getelementptr inbounds nuw i8, ptr %425, i64 1789
   store i8 0, ptr %426, align 1
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %.loopexit.i
 
 427:                                              ; preds = %420
@@ -4748,7 +4742,7 @@ GuessIfAxesAreDigitalHat.exit.i:                  ; preds = %188, %161, %159, %.
   %431 = getelementptr inbounds nuw i8, ptr %430, i64 3584
   %432 = getelementptr inbounds nuw [3 x float], ptr %431, i64 0, i64 %indvars.iv300.i
   store float %429, ptr %432, align 4
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %indvars.iv.next301.i = add nuw nsw i64 %indvars.iv300.i, 1
   %exitcond304.not.i = icmp eq i64 %indvars.iv.next301.i, 3
   br i1 %exitcond304.not.i, label %.loopexit.i, label %420, !llvm.loop !36
@@ -4853,12 +4847,12 @@ allocate_hatdata.exit.thread.i:                   ; preds = %.lr.ph.i.i, %alloca
   br label %ConfigJoystick.exit
 
 ConfigJoystick.exit:                              ; preds = %allocate_hatdata.exit.thread.i, %481, %483
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #18
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #18
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #18
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %486
 
 486:                                              ; preds = %55, %57, %ConfigJoystick.exit, %37
@@ -4866,35 +4860,35 @@ ConfigJoystick.exit:                              ; preds = %allocate_hatdata.ex
   ret i1 %.033
 }
 
-declare void @SDL_PrivateJoystickAddSensor(ptr noundef, i32 noundef, float noundef) local_unnamed_addr #3
+declare void @SDL_PrivateJoystickAddSensor(ptr noundef, i32 noundef, float noundef) local_unnamed_addr #2
 
-declare zeroext i1 @SDL_SetBooleanProperty_REAL(i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare zeroext i1 @SDL_SetBooleanProperty_REAL(i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
-declare i32 @SDL_GetJoystickProperties_REAL(ptr noundef) local_unnamed_addr #3
+declare i32 @SDL_GetJoystickProperties_REAL(ptr noundef) local_unnamed_addr #2
 
-declare i32 @fcntl(i32 noundef, i32 noundef, ...) local_unnamed_addr #3
+declare i32 @fcntl(i32 noundef, i32 noundef, ...) local_unnamed_addr #2
 
-declare noalias ptr @SDL_malloc_REAL(i64 noundef) local_unnamed_addr #3
+declare noalias ptr @SDL_malloc_REAL(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #6
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #5
 
-declare void @SDL_SendJoystickBall(i64 noundef, ptr noundef, i8 noundef zeroext, i16 noundef signext, i16 noundef signext) local_unnamed_addr #3
+declare void @SDL_SendJoystickBall(i64 noundef, ptr noundef, i8 noundef zeroext, i16 noundef signext, i16 noundef signext) local_unnamed_addr #2
 
-declare i64 @SDL_GetTicksNS_REAL() local_unnamed_addr #3
+declare i64 @SDL_GetTicksNS_REAL() local_unnamed_addr #2
 
-declare void @SDL_SendJoystickButton(i64 noundef, ptr noundef, i8 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #3
+declare void @SDL_SendJoystickButton(i64 noundef, ptr noundef, i8 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #2
 
-declare void @SDL_SendJoystickAxis(i64 noundef, ptr noundef, i8 noundef zeroext, i16 noundef signext) local_unnamed_addr #3
+declare void @SDL_SendJoystickAxis(i64 noundef, ptr noundef, i8 noundef zeroext, i16 noundef signext) local_unnamed_addr #2
 
-declare void @SDL_SendJoystickHat(i64 noundef, ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #3
+declare void @SDL_SendJoystickHat(i64 noundef, ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @PollAllValues(i64 noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.input_absinfo, align 4
   %4 = alloca [12 x i64], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #18
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   tail call void @SDL_AssertJoysticksLocked() #18
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 328
   br label %6
@@ -5144,8 +5138,8 @@ HandleHat.exit:                                   ; preds = %114, %111, %70, %.p
   br i1 %exitcond52.not, label %.loopexit, label %.preheader, !llvm.loop !40
 
 .loopexit:                                        ; preds = %145, %124
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4) #18
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -5154,7 +5148,7 @@ define internal fastcc void @PollAllSensors(i64 noundef %0, ptr noundef %1) unna
   %3 = alloca %struct.input_absinfo, align 4
   %4 = alloca [3 x float], align 4
   %5 = alloca [3 x float], align 4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   tail call void @SDL_AssertJoysticksLocked() #18
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %7 = load ptr, ptr %6, align 8
@@ -5164,7 +5158,7 @@ define internal fastcc void @PollAllSensors(i64 noundef %0, ptr noundef %1) unna
   br i1 %10, label %11, label %35
 
 11:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %4, i8 0, i64 12, i1 false)
   br label %12
 
@@ -5202,7 +5196,7 @@ define internal fastcc void @PollAllSensors(i64 noundef %0, ptr noundef %1) unna
   %33 = load i64, ptr %32, align 8
   %34 = mul i64 %33, 1000
   call void @SDL_SendJoystickSensor(i64 noundef %0, ptr noundef nonnull %1, i32 noundef 2, i64 noundef %34, ptr noundef nonnull %4, i32 noundef 3) #18
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.pre = load ptr, ptr %6, align 8
   br label %35
 
@@ -5214,7 +5208,7 @@ define internal fastcc void @PollAllSensors(i64 noundef %0, ptr noundef %1) unna
   br i1 %39, label %40, label %64
 
 40:                                               ; preds = %35
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %5, i8 0, i64 12, i1 false)
   br label %41
 
@@ -5252,28 +5246,34 @@ define internal fastcc void @PollAllSensors(i64 noundef %0, ptr noundef %1) unna
   %62 = load i64, ptr %61, align 8
   %63 = mul i64 %62, 1000
   call void @SDL_SendJoystickSensor(i64 noundef %0, ptr noundef nonnull %1, i32 noundef 1, i64 noundef %63, ptr noundef nonnull %5, i32 noundef 3) #18
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %64
 
 64:                                               ; preds = %59, %35
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-declare i64 @SDL_EVDEV_GetEventTimestamp(ptr noundef) local_unnamed_addr #3
+declare i64 @SDL_EVDEV_GetEventTimestamp(ptr noundef) local_unnamed_addr #2
 
-declare void @SDL_SendJoystickSensor(i64 noundef, ptr noundef, i32 noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @SDL_SendJoystickSensor(i64 noundef, ptr noundef, i32 noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare float @SDL_floorf_REAL(float noundef) local_unnamed_addr #3
+declare float @SDL_floorf_REAL(float noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #15
+declare float @llvm.fmuladd.f32(float, float, float) #14
 
-declare void @SDL_UDEV_DelCallback(ptr noundef) local_unnamed_addr #3
+declare void @SDL_UDEV_DelCallback(ptr noundef) local_unnamed_addr #2
 
-declare void @SDL_SetObjectValid(ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare void @SDL_SetObjectValid(ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
-declare zeroext i16 @SDL_GetJoystickVendor_REAL(ptr noundef) local_unnamed_addr #3
+declare zeroext i16 @SDL_GetJoystickVendor_REAL(ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #16
@@ -5283,20 +5283,20 @@ declare void @llvm.assume(i1 noundef) #17
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #11 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #10 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #17 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #18 = { nounwind }

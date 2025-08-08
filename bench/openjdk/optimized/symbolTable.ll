@@ -500,12 +500,12 @@ define hidden void @_ZN11SymbolTable10symbols_doEP13SymbolClosure(ptr noundef %0
   %18 = load ptr, ptr @_ZL13_shared_table, align 8
   %19 = zext i32 %17 to i64
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 %19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %20, ptr %5, align 8
   %21 = load ptr, ptr %0, align 8
   %22 = load ptr, ptr %21, align 8
   call void %22(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %5) #18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.pre.i = add nuw nsw i64 %indvars.iv.i, 1
   br label %.loopexit.i
 
@@ -526,12 +526,12 @@ define hidden void @_ZN11SymbolTable10symbols_doEP13SymbolClosure(ptr noundef %0
   %33 = load ptr, ptr @_ZL13_shared_table, align 8
   %34 = zext i32 %32 to i64
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 %34
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %35, ptr %4, align 8
   %36 = load ptr, ptr %0, align 8
   %37 = load ptr, ptr %36, align 8
   call void %37(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %4) #18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %38 = getelementptr inbounds nuw i8, ptr %.01516.i, i64 8
   %39 = icmp ult ptr %38, %29
   br i1 %39, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !12
@@ -566,12 +566,12 @@ _ZNK16CompactHashtableIPKcP6SymbolXadL_Z33read_value_from_compact_hashtableIS3_E
   %54 = load ptr, ptr @_ZL21_dynamic_shared_table, align 8
   %55 = zext i32 %53 to i64
   %56 = getelementptr inbounds nuw i8, ptr %54, i64 %55
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %56, ptr %3, align 8
   %57 = load ptr, ptr %0, align 8
   %58 = load ptr, ptr %57, align 8
   call void %58(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %3) #18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.pre.i10 = add nuw nsw i64 %indvars.iv.i4, 1
   br label %.loopexit.i6
 
@@ -592,12 +592,12 @@ _ZNK16CompactHashtableIPKcP6SymbolXadL_Z33read_value_from_compact_hashtableIS3_E
   %69 = load ptr, ptr @_ZL21_dynamic_shared_table, align 8
   %70 = zext i32 %68 to i64
   %71 = getelementptr inbounds nuw i8, ptr %69, i64 %70
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %71, ptr %2, align 8
   %72 = load ptr, ptr %0, align 8
   %73 = load ptr, ptr %72, align 8
   call void %73(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %2) #18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %74 = getelementptr inbounds nuw i8, ptr %.01516.i9, i64 8
   %75 = icmp ult ptr %74, %65
   br i1 %75, label %.lr.ph.i8, label %.loopexit.i6, !llvm.loop !12
@@ -657,13 +657,13 @@ define linkonce_odr hidden void @_ZN19ConcurrentHashTableI17SymbolTableConfigL8M
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !11
   call void asm sideeffect "prefetcht0 ($0,$1,1)", "r,r,~{dirflag},~{fpsr},~{flags}"(ptr %19, i64 0) #18, !srcloc !14
   %20 = getelementptr inbounds nuw i8, ptr %.09.i.i, i64 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %20, ptr %4, align 8
   %21 = load ptr, ptr %1, align 8
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %22, align 8
   call void %23(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull %4) #18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %24 = load volatile ptr, ptr %.09.i.i, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !11
   %.not.i.i = icmp eq ptr %24, null
@@ -716,13 +716,13 @@ _ZN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE17do_scan_for_rangeI9S
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !11
   call void asm sideeffect "prefetcht0 ($0,$1,1)", "r,r,~{dirflag},~{fpsr},~{flags}"(ptr %42, i64 0) #18, !srcloc !14
   %43 = getelementptr inbounds nuw i8, ptr %.09.i.i17, i64 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %43, ptr %3, align 8
   %44 = load ptr, ptr %1, align 8
   %45 = load ptr, ptr %44, align 8
   %46 = load ptr, ptr %45, align 8
   call void %46(ptr noundef nonnull align 8 dereferenceable(8) %44, ptr noundef nonnull %3) #18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %47 = load volatile ptr, ptr %.09.i.i17, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !11
   %.not.i.i18 = icmp eq ptr %47, null
@@ -765,12 +765,12 @@ define hidden void @_ZN11SymbolTable17shared_symbols_doEP13SymbolClosure(ptr nou
   %17 = load ptr, ptr @_ZL13_shared_table, align 8
   %18 = zext i32 %16 to i64
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 %18
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %19, ptr %5, align 8
   %20 = load ptr, ptr %0, align 8
   %21 = load ptr, ptr %20, align 8
   call void %21(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %5) #18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.pre.i = add nuw nsw i64 %indvars.iv.i, 1
   br label %.loopexit.i
 
@@ -791,12 +791,12 @@ define hidden void @_ZN11SymbolTable17shared_symbols_doEP13SymbolClosure(ptr nou
   %32 = load ptr, ptr @_ZL13_shared_table, align 8
   %33 = zext i32 %31 to i64
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 %33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %34, ptr %4, align 8
   %35 = load ptr, ptr %0, align 8
   %36 = load ptr, ptr %35, align 8
   call void %36(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %4) #18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %37 = getelementptr inbounds nuw i8, ptr %.01516.i, i64 8
   %38 = icmp ult ptr %37, %28
   br i1 %38, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !12
@@ -831,12 +831,12 @@ _ZNK16CompactHashtableIPKcP6SymbolXadL_Z33read_value_from_compact_hashtableIS3_E
   %53 = load ptr, ptr @_ZL21_dynamic_shared_table, align 8
   %54 = zext i32 %52 to i64
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 %54
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %55, ptr %3, align 8
   %56 = load ptr, ptr %0, align 8
   %57 = load ptr, ptr %56, align 8
   call void %57(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %3) #18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.pre.i9 = add nuw nsw i64 %indvars.iv.i3, 1
   br label %.loopexit.i5
 
@@ -857,12 +857,12 @@ _ZNK16CompactHashtableIPKcP6SymbolXadL_Z33read_value_from_compact_hashtableIS3_E
   %68 = load ptr, ptr @_ZL21_dynamic_shared_table, align 8
   %69 = zext i32 %67 to i64
   %70 = getelementptr inbounds nuw i8, ptr %68, i64 %69
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %70, ptr %2, align 8
   %71 = load ptr, ptr %0, align 8
   %72 = load ptr, ptr %71, align 8
   call void %72(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %2) #18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %73 = getelementptr inbounds nuw i8, ptr %.01516.i8, i64 8
   %74 = icmp ult ptr %73, %64
   br i1 %74, label %.lr.ph.i7, label %.loopexit.i5, !llvm.loop !12
@@ -1390,9 +1390,9 @@ define hidden noundef nonnull ptr @_ZN11SymbolTable16do_add_if_neededEPKcimb(ptr
 
 31:                                               ; preds = %_ZN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE3getI17SymbolTableLookup14SymbolTableGetEEbP6ThreadRT_RT0_Pb.exit22, %4
   %32 = load ptr, ptr @_ZL12_local_table, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %33 = call noundef zeroext i1 @_ZN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE19internal_insert_getI17SymbolTableLookupZNS2_6insertIS4_EEbP6ThreadRT_RK6SymbolPbSD_E3NOPEEbS7_S9_SC_RT0_SD_SD_(ptr noundef nonnull align 8 dereferenceable(88) %32, ptr noundef nonnull %12, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 4 dereferenceable(8) %25, ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull %8, ptr noundef nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %33, label %34, label %100
 
 34:                                               ; preds = %31
@@ -3288,7 +3288,7 @@ define hidden void @_ZN11SymbolTable18do_concurrent_workEP10JavaThread(ptr nound
   br i1 %4, label %5, label %27
 
 5:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %6 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE155ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %8, label %7
@@ -3337,7 +3337,7 @@ _ZN11SymbolTable11should_growEv.exit.thread.i:    ; preds = %_ZN11SymbolTable11s
 
 _ZN11SymbolTable18maybe_rehash_tableEv.exit.thread: ; preds = %22, %24, %19, %21
   store volatile i8 0, ptr @_ZN11SymbolTable16_needs_rehashingE, align 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %27
 
 25:                                               ; preds = %_ZN11SymbolTable11should_growEv.exit.thread.i
@@ -3345,7 +3345,7 @@ _ZN11SymbolTable18maybe_rehash_tableEv.exit.thread: ; preds = %22, %24, %19, %21
   store ptr null, ptr %26, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV20VM_RehashSymbolTable, i64 16), ptr %2, align 8
   call void @_ZN8VMThread7executeEP12VM_Operation(ptr noundef nonnull %2) #18
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !11
   br label %47
 
@@ -6012,10 +6012,10 @@ declare i32 @llvm.ctpop.i32(i32) #14
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.umax.i16(i16, i16) #14

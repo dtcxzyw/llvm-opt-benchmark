@@ -199,14 +199,14 @@ define hidden void @_ZN3ue27getUcpCEv(ptr dead_on_unwind noalias writable sret(%
   %12 = or disjoint i64 %indvars.iv, 1
   %13 = getelementptr inbounds nuw [1206 x i32], ptr @_ZN3ue2L9ucp_C_defE, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
   store i32 %14, ptr %8, align 4
   %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %16 unwind label %18
 
 16:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %17 = icmp samesign ult i64 %indvars.iv, 1204
   br i1 %17, label %9, label %20, !llvm.loop !5
@@ -221,16 +221,10 @@ define hidden void @_ZN3ue27getUcpCEv(ptr dead_on_unwind noalias writable sret(%
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 declare i32 @__gxx_personality_v0(...)
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   invoke void @_ZNSt8_Rb_treeIN5boost3icl15closed_intervalIjSt4lessEES4_St9_IdentityIS4_ENS1_19exclusive_less_thanIS4_EESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %3)
@@ -271,14 +265,14 @@ define hidden void @_ZN3ue28getUcpCcEv(ptr dead_on_unwind noalias writable sret(
   %13 = or disjoint i64 %indvars.iv, 1
   %14 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L10ucp_Cc_defE, i64 0, i64 %13
   %15 = load i32, ptr %14, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %12, ptr %2, align 4
   store i32 %15, ptr %8, align 4
   %16 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %17 unwind label %18
 
 17:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %10, label %9, label %20, !llvm.loop !7
 
 18:                                               ; preds = %9
@@ -314,14 +308,14 @@ define hidden void @_ZN3ue28getUcpCfEv(ptr dead_on_unwind noalias writable sret(
   %12 = or disjoint i64 %indvars.iv, 1
   %13 = getelementptr inbounds nuw [34 x i32], ptr @_ZN3ue2L10ucp_Cf_defE, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
   store i32 %14, ptr %8, align 4
   %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %16 unwind label %18
 
 16:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %17 = icmp samesign ult i64 %indvars.iv, 32
   br i1 %17, label %9, label %20, !llvm.loop !8
@@ -359,14 +353,14 @@ define hidden void @_ZN3ue28getUcpCnEv(ptr dead_on_unwind noalias writable sret(
   %12 = or disjoint i64 %indvars.iv, 1
   %13 = getelementptr inbounds nuw [1200 x i32], ptr @_ZN3ue2L10ucp_Cn_defE, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
   store i32 %14, ptr %8, align 4
   %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %16 unwind label %18
 
 16:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %17 = icmp samesign ult i64 %indvars.iv, 1198
   br i1 %17, label %9, label %20, !llvm.loop !9
@@ -404,14 +398,14 @@ define hidden void @_ZN3ue28getUcpCoEv(ptr dead_on_unwind noalias writable sret(
   %12 = or disjoint i64 %indvars.iv, 1
   %13 = getelementptr inbounds nuw [6 x i32], ptr @_ZN3ue2L10ucp_Co_defE, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
   store i32 %14, ptr %8, align 4
   %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %16 unwind label %18
 
 16:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %17 = icmp samesign ult i64 %indvars.iv, 4
   br i1 %17, label %9, label %20, !llvm.loop !10
@@ -439,7 +433,7 @@ define hidden void @_ZN3ue28getUcpCsEv(ptr dead_on_unwind noalias nonnull writab
   store ptr %3, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 55296, ptr %2, align 4
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 57343, ptr %8, align 4
@@ -447,7 +441,7 @@ define hidden void @_ZN3ue28getUcpCsEv(ptr dead_on_unwind noalias nonnull writab
           to label %_ZN3ue212CodePointSet8setRangeEjj.exit unwind label %10
 
 _ZN3ue212CodePointSet8setRangeEjj.exit:           ; preds = %1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 10:                                               ; preds = %1
@@ -480,14 +474,14 @@ define hidden void @_ZN3ue27getUcpLEv(ptr dead_on_unwind noalias writable sret(%
   %12 = or disjoint i64 %indvars.iv, 1
   %13 = getelementptr inbounds nuw [1074 x i32], ptr @_ZN3ue2L9ucp_L_defE, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
   store i32 %14, ptr %8, align 4
   %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %16 unwind label %18
 
 16:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %17 = icmp samesign ult i64 %indvars.iv, 1072
   br i1 %17, label %9, label %20, !llvm.loop !11
@@ -525,14 +519,14 @@ define hidden void @_ZN3ue211getUcpL_andEv(ptr dead_on_unwind noalias writable s
   %12 = or disjoint i64 %indvars.iv, 1
   %13 = getelementptr inbounds nuw [234 x i32], ptr @_ZN3ue2L13ucp_L_and_defE, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
   store i32 %14, ptr %8, align 4
   %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %16 unwind label %18
 
 16:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %17 = icmp samesign ult i64 %indvars.iv, 232
   br i1 %17, label %9, label %20, !llvm.loop !12
@@ -570,14 +564,14 @@ define hidden void @_ZN3ue28getUcpLlEv(ptr dead_on_unwind noalias writable sret(
   %12 = or disjoint i64 %indvars.iv, 1
   %13 = getelementptr inbounds nuw [1250 x i32], ptr @_ZN3ue2L10ucp_Ll_defE, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
   store i32 %14, ptr %8, align 4
   %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %16 unwind label %18
 
 16:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %17 = icmp samesign ult i64 %indvars.iv, 1248
   br i1 %17, label %9, label %20, !llvm.loop !13
@@ -615,14 +609,14 @@ define hidden void @_ZN3ue28getUcpLmEv(ptr dead_on_unwind noalias writable sret(
   %12 = or disjoint i64 %indvars.iv, 1
   %13 = getelementptr inbounds nuw [112 x i32], ptr @_ZN3ue2L10ucp_Lm_defE, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
   store i32 %14, ptr %8, align 4
   %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %16 unwind label %18
 
 16:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %17 = icmp samesign ult i64 %indvars.iv, 110
   br i1 %17, label %9, label %20, !llvm.loop !14
@@ -660,14 +654,14 @@ define hidden void @_ZN3ue28getUcpLoEv(ptr dead_on_unwind noalias writable sret(
   %12 = or disjoint i64 %indvars.iv, 1
   %13 = getelementptr inbounds nuw [834 x i32], ptr @_ZN3ue2L10ucp_Lo_defE, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
   store i32 %14, ptr %8, align 4
   %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %16 unwind label %18
 
 16:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %17 = icmp samesign ult i64 %indvars.iv, 832
   br i1 %17, label %9, label %20, !llvm.loop !15
@@ -705,14 +699,14 @@ define hidden void @_ZN3ue28getUcpLtEv(ptr dead_on_unwind noalias writable sret(
   %12 = or disjoint i64 %indvars.iv, 1
   %13 = getelementptr inbounds nuw [20 x i32], ptr @_ZN3ue2L10ucp_Lt_defE, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
   store i32 %14, ptr %8, align 4
   %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %16 unwind label %18
 
 16:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %17 = icmp samesign ult i64 %indvars.iv, 18
   br i1 %17, label %9, label %20, !llvm.loop !16
@@ -750,14 +744,14 @@ define hidden void @_ZN3ue28getUcpLuEv(ptr dead_on_unwind noalias writable sret(
   %12 = or disjoint i64 %indvars.iv, 1
   %13 = getelementptr inbounds nuw [1244 x i32], ptr @_ZN3ue2L10ucp_Lu_defE, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
   store i32 %14, ptr %8, align 4
   %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %16 unwind label %18
 
 16:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %17 = icmp samesign ult i64 %indvars.iv, 1242
   br i1 %17, label %9, label %20, !llvm.loop !17
@@ -795,14 +789,14 @@ define hidden void @_ZN3ue27getUcpMEv(ptr dead_on_unwind noalias writable sret(%
   %12 = or disjoint i64 %indvars.iv, 1
   %13 = getelementptr inbounds nuw [458 x i32], ptr @_ZN3ue2L9ucp_M_defE, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
   store i32 %14, ptr %8, align 4
   %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %16 unwind label %18
 
 16:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %17 = icmp samesign ult i64 %indvars.iv, 456
   br i1 %17, label %9, label %20, !llvm.loop !18
@@ -840,14 +834,14 @@ define hidden void @_ZN3ue28getUcpMcEv(ptr dead_on_unwind noalias writable sret(
   %12 = or disjoint i64 %indvars.iv, 1
   %13 = getelementptr inbounds nuw [294 x i32], ptr @_ZN3ue2L10ucp_Mc_defE, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
   store i32 %14, ptr %8, align 4
   %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %16 unwind label %18
 
 16:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %17 = icmp samesign ult i64 %indvars.iv, 292
   br i1 %17, label %9, label %20, !llvm.loop !19
@@ -885,14 +879,14 @@ define hidden void @_ZN3ue28getUcpMeEv(ptr dead_on_unwind noalias writable sret(
   %12 = or disjoint i64 %indvars.iv, 1
   %13 = getelementptr inbounds nuw [10 x i32], ptr @_ZN3ue2L10ucp_Me_defE, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
   store i32 %14, ptr %8, align 4
   %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %16 unwind label %18
 
 16:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %17 = icmp samesign ult i64 %indvars.iv, 8
   br i1 %17, label %9, label %20, !llvm.loop !20
@@ -930,14 +924,14 @@ define hidden void @_ZN3ue28getUcpMnEv(ptr dead_on_unwind noalias writable sret(
   %12 = or disjoint i64 %indvars.iv, 1
   %13 = getelementptr inbounds nuw [510 x i32], ptr @_ZN3ue2L10ucp_Mn_defE, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
   store i32 %14, ptr %8, align 4
   %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %16 unwind label %18
 
 16:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %17 = icmp samesign ult i64 %indvars.iv, 508
   br i1 %17, label %9, label %20, !llvm.loop !21
@@ -975,14 +969,14 @@ define hidden void @_ZN3ue27getUcpNEv(ptr dead_on_unwind noalias writable sret(%
   %12 = or disjoint i64 %indvars.iv, 1
   %13 = getelementptr inbounds nuw [210 x i32], ptr @_ZN3ue2L9ucp_N_defE, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
   store i32 %14, ptr %8, align 4
   %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %16 unwind label %18
 
 16:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %17 = icmp samesign ult i64 %indvars.iv, 208
   br i1 %17, label %9, label %20, !llvm.loop !22
@@ -1020,14 +1014,14 @@ define hidden void @_ZN3ue28getUcpNdEv(ptr dead_on_unwind noalias writable sret(
   %12 = or disjoint i64 %indvars.iv, 1
   %13 = getelementptr inbounds nuw [100 x i32], ptr @_ZN3ue2L10ucp_Nd_defE, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
   store i32 %14, ptr %8, align 4
   %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %16 unwind label %18
 
 16:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %17 = icmp samesign ult i64 %indvars.iv, 98
   br i1 %17, label %9, label %20, !llvm.loop !23
@@ -1065,14 +1059,14 @@ define hidden void @_ZN3ue28getUcpNlEv(ptr dead_on_unwind noalias writable sret(
   %12 = or disjoint i64 %indvars.iv, 1
   %13 = getelementptr inbounds nuw [24 x i32], ptr @_ZN3ue2L10ucp_Nl_defE, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
   store i32 %14, ptr %8, align 4
   %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %16 unwind label %18
 
 16:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %17 = icmp samesign ult i64 %indvars.iv, 22
   br i1 %17, label %9, label %20, !llvm.loop !24
@@ -1110,14 +1104,14 @@ define hidden void @_ZN3ue28getUcpNoEv(ptr dead_on_unwind noalias writable sret(
   %12 = or disjoint i64 %indvars.iv, 1
   %13 = getelementptr inbounds nuw [104 x i32], ptr @_ZN3ue2L10ucp_No_defE, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
   store i32 %14, ptr %8, align 4
   %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %16 unwind label %18
 
 16:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %17 = icmp samesign ult i64 %indvars.iv, 102
   br i1 %17, label %9, label %20, !llvm.loop !25
@@ -1155,14 +1149,14 @@ define hidden void @_ZN3ue27getUcpPEv(ptr dead_on_unwind noalias writable sret(%
   %12 = or disjoint i64 %indvars.iv, 1
   %13 = getelementptr inbounds nuw [310 x i32], ptr @_ZN3ue2L9ucp_P_defE, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
   store i32 %14, ptr %8, align 4
   %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %16 unwind label %18
 
 16:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %17 = icmp samesign ult i64 %indvars.iv, 308
   br i1 %17, label %9, label %20, !llvm.loop !26
@@ -1200,14 +1194,14 @@ define hidden void @_ZN3ue28getUcpPcEv(ptr dead_on_unwind noalias writable sret(
   %12 = or disjoint i64 %indvars.iv, 1
   %13 = getelementptr inbounds nuw [12 x i32], ptr @_ZN3ue2L10ucp_Pc_defE, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
   store i32 %14, ptr %8, align 4
   %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %16 unwind label %18
 
 16:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %17 = icmp samesign ult i64 %indvars.iv, 10
   br i1 %17, label %9, label %20, !llvm.loop !27
@@ -1245,14 +1239,14 @@ define hidden void @_ZN3ue28getUcpPdEv(ptr dead_on_unwind noalias writable sret(
   %12 = or disjoint i64 %indvars.iv, 1
   %13 = getelementptr inbounds nuw [34 x i32], ptr @_ZN3ue2L10ucp_Pd_defE, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
   store i32 %14, ptr %8, align 4
   %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %16 unwind label %18
 
 16:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %17 = icmp samesign ult i64 %indvars.iv, 32
   br i1 %17, label %9, label %20, !llvm.loop !28
@@ -1290,14 +1284,14 @@ define hidden void @_ZN3ue28getUcpPeEv(ptr dead_on_unwind noalias writable sret(
   %12 = or disjoint i64 %indvars.iv, 1
   %13 = getelementptr inbounds nuw [144 x i32], ptr @_ZN3ue2L10ucp_Pe_defE, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
   store i32 %14, ptr %8, align 4
   %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %16 unwind label %18
 
 16:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %17 = icmp samesign ult i64 %indvars.iv, 142
   br i1 %17, label %9, label %20, !llvm.loop !29
@@ -1335,14 +1329,14 @@ define hidden void @_ZN3ue28getUcpPfEv(ptr dead_on_unwind noalias writable sret(
   %12 = or disjoint i64 %indvars.iv, 1
   %13 = getelementptr inbounds nuw [20 x i32], ptr @_ZN3ue2L10ucp_Pf_defE, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
   store i32 %14, ptr %8, align 4
   %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %16 unwind label %18
 
 16:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %17 = icmp samesign ult i64 %indvars.iv, 18
   br i1 %17, label %9, label %20, !llvm.loop !30
@@ -1380,14 +1374,14 @@ define hidden void @_ZN3ue28getUcpPiEv(ptr dead_on_unwind noalias writable sret(
   %12 = or disjoint i64 %indvars.iv, 1
   %13 = getelementptr inbounds nuw [22 x i32], ptr @_ZN3ue2L10ucp_Pi_defE, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
   store i32 %14, ptr %8, align 4
   %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %16 unwind label %18
 
 16:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %17 = icmp samesign ult i64 %indvars.iv, 20
   br i1 %17, label %9, label %20, !llvm.loop !31
@@ -1425,14 +1419,14 @@ define hidden void @_ZN3ue28getUcpPoEv(ptr dead_on_unwind noalias writable sret(
   %12 = or disjoint i64 %indvars.iv, 1
   %13 = getelementptr inbounds nuw [302 x i32], ptr @_ZN3ue2L10ucp_Po_defE, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
   store i32 %14, ptr %8, align 4
   %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %16 unwind label %18
 
 16:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %17 = icmp samesign ult i64 %indvars.iv, 300
   br i1 %17, label %9, label %20, !llvm.loop !32
@@ -1470,14 +1464,14 @@ define hidden void @_ZN3ue28getUcpPsEv(ptr dead_on_unwind noalias writable sret(
   %12 = or disjoint i64 %indvars.iv, 1
   %13 = getelementptr inbounds nuw [150 x i32], ptr @_ZN3ue2L10ucp_Ps_defE, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
   store i32 %14, ptr %8, align 4
   %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %16 unwind label %18
 
 16:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %17 = icmp samesign ult i64 %indvars.iv, 148
   br i1 %17, label %9, label %20, !llvm.loop !33
@@ -1515,14 +1509,14 @@ define hidden void @_ZN3ue27getUcpSEv(ptr dead_on_unwind noalias writable sret(%
   %12 = or disjoint i64 %indvars.iv, 1
   %13 = getelementptr inbounds nuw [420 x i32], ptr @_ZN3ue2L9ucp_S_defE, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
   store i32 %14, ptr %8, align 4
   %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %16 unwind label %18
 
 16:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %17 = icmp samesign ult i64 %indvars.iv, 418
   br i1 %17, label %9, label %20, !llvm.loop !34
@@ -1560,14 +1554,14 @@ define hidden void @_ZN3ue28getUcpScEv(ptr dead_on_unwind noalias writable sret(
   %12 = or disjoint i64 %indvars.iv, 1
   %13 = getelementptr inbounds nuw [34 x i32], ptr @_ZN3ue2L10ucp_Sc_defE, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
   store i32 %14, ptr %8, align 4
   %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %16 unwind label %18
 
 16:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %17 = icmp samesign ult i64 %indvars.iv, 32
   br i1 %17, label %9, label %20, !llvm.loop !35
@@ -1605,14 +1599,14 @@ define hidden void @_ZN3ue28getUcpSkEv(ptr dead_on_unwind noalias writable sret(
   %12 = or disjoint i64 %indvars.iv, 1
   %13 = getelementptr inbounds nuw [56 x i32], ptr @_ZN3ue2L10ucp_Sk_defE, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
   store i32 %14, ptr %8, align 4
   %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %16 unwind label %18
 
 16:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %17 = icmp samesign ult i64 %indvars.iv, 54
   br i1 %17, label %9, label %20, !llvm.loop !36
@@ -1650,14 +1644,14 @@ define hidden void @_ZN3ue28getUcpSmEv(ptr dead_on_unwind noalias writable sret(
   %12 = or disjoint i64 %indvars.iv, 1
   %13 = getelementptr inbounds nuw [128 x i32], ptr @_ZN3ue2L10ucp_Sm_defE, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
   store i32 %14, ptr %8, align 4
   %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %16 unwind label %18
 
 16:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %17 = icmp samesign ult i64 %indvars.iv, 126
   br i1 %17, label %9, label %20, !llvm.loop !37
@@ -1695,14 +1689,14 @@ define hidden void @_ZN3ue28getUcpSoEv(ptr dead_on_unwind noalias writable sret(
   %12 = or disjoint i64 %indvars.iv, 1
   %13 = getelementptr inbounds nuw [330 x i32], ptr @_ZN3ue2L10ucp_So_defE, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
   store i32 %14, ptr %8, align 4
   %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %16 unwind label %18
 
 16:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %17 = icmp samesign ult i64 %indvars.iv, 328
   br i1 %17, label %9, label %20, !llvm.loop !38
@@ -1740,14 +1734,14 @@ define hidden void @_ZN3ue29getUcpXanEv(ptr dead_on_unwind noalias writable sret
   %12 = or disjoint i64 %indvars.iv, 1
   %13 = getelementptr inbounds nuw [1206 x i32], ptr @_ZN3ue2L11ucp_Xan_defE, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
   store i32 %14, ptr %8, align 4
   %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %16 unwind label %18
 
 16:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %17 = icmp samesign ult i64 %indvars.iv, 1204
   br i1 %17, label %9, label %20, !llvm.loop !39
@@ -1785,14 +1779,14 @@ define hidden void @_ZN3ue29getUcpXpsEv(ptr dead_on_unwind noalias writable sret
   %12 = or disjoint i64 %indvars.iv, 1
   %13 = getelementptr inbounds nuw [18 x i32], ptr @_ZN3ue2L11ucp_Xps_defE, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
   store i32 %14, ptr %8, align 4
   %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %16 unwind label %18
 
 16:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %17 = icmp samesign ult i64 %indvars.iv, 16
   br i1 %17, label %9, label %20, !llvm.loop !40
@@ -1830,14 +1824,14 @@ define hidden void @_ZN3ue29getUcpXspEv(ptr dead_on_unwind noalias writable sret
   %12 = or disjoint i64 %indvars.iv, 1
   %13 = getelementptr inbounds nuw [20 x i32], ptr @_ZN3ue2L11ucp_Xsp_defE, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
   store i32 %14, ptr %8, align 4
   %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %16 unwind label %18
 
 16:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %17 = icmp samesign ult i64 %indvars.iv, 18
   br i1 %17, label %9, label %20, !llvm.loop !41
@@ -1875,14 +1869,14 @@ define hidden void @_ZN3ue29getUcpXwdEv(ptr dead_on_unwind noalias writable sret
   %12 = or disjoint i64 %indvars.iv, 1
   %13 = getelementptr inbounds nuw [1208 x i32], ptr @_ZN3ue2L11ucp_Xwd_defE, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
   store i32 %14, ptr %8, align 4
   %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %16 unwind label %18
 
 16:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %17 = icmp samesign ult i64 %indvars.iv, 1206
   br i1 %17, label %9, label %20, !llvm.loop !42
@@ -1920,14 +1914,14 @@ define hidden void @_ZN3ue27getUcpZEv(ptr dead_on_unwind noalias writable sret(%
   %12 = or disjoint i64 %indvars.iv, 1
   %13 = getelementptr inbounds nuw [16 x i32], ptr @_ZN3ue2L9ucp_Z_defE, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
   store i32 %14, ptr %8, align 4
   %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %16 unwind label %18
 
 16:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %17 = icmp samesign ult i64 %indvars.iv, 14
   br i1 %17, label %9, label %20, !llvm.loop !43
@@ -1956,7 +1950,7 @@ define hidden void @_ZN3ue28getUcpZlEv(ptr dead_on_unwind noalias nonnull writab
   store ptr %2, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store i32 8232, ptr %1, align 4
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 8232, ptr %7, align 4
@@ -1964,7 +1958,7 @@ define hidden void @_ZN3ue28getUcpZlEv(ptr dead_on_unwind noalias nonnull writab
           to label %_ZN3ue212CodePointSet8setRangeEjj.exit unwind label %9
 
 _ZN3ue212CodePointSet8setRangeEjj.exit:           ; preds = %.critedge
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 
 9:                                                ; preds = %.critedge
@@ -1988,7 +1982,7 @@ define hidden void @_ZN3ue28getUcpZpEv(ptr dead_on_unwind noalias nonnull writab
   store ptr %2, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store i32 8233, ptr %1, align 4
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 8233, ptr %7, align 4
@@ -1996,7 +1990,7 @@ define hidden void @_ZN3ue28getUcpZpEv(ptr dead_on_unwind noalias nonnull writab
           to label %_ZN3ue212CodePointSet8setRangeEjj.exit unwind label %9
 
 _ZN3ue212CodePointSet8setRangeEjj.exit:           ; preds = %.critedge
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 
 9:                                                ; preds = %.critedge
@@ -2029,14 +2023,14 @@ define hidden void @_ZN3ue28getUcpZsEv(ptr dead_on_unwind noalias writable sret(
   %12 = or disjoint i64 %indvars.iv, 1
   %13 = getelementptr inbounds nuw [14 x i32], ptr @_ZN3ue2L10ucp_Zs_defE, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
   store i32 %14, ptr %8, align 4
   %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %16 unwind label %18
 
 16:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %17 = icmp samesign ult i64 %indvars.iv, 12
   br i1 %17, label %9, label %20, !llvm.loop !44
@@ -2074,14 +2068,14 @@ define hidden void @_ZN3ue212getUcpArabicEv(ptr dead_on_unwind noalias writable 
   %12 = or disjoint i64 %indvars.iv, 1
   %13 = getelementptr inbounds nuw [110 x i32], ptr @_ZN3ue2L14ucp_Arabic_defE, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
   store i32 %14, ptr %8, align 4
   %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %16 unwind label %18
 
 16:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %17 = icmp samesign ult i64 %indvars.iv, 108
   br i1 %17, label %9, label %20, !llvm.loop !45
@@ -2119,14 +2113,14 @@ define hidden void @_ZN3ue214getUcpArmenianEv(ptr dead_on_unwind noalias writabl
   %12 = or disjoint i64 %indvars.iv, 1
   %13 = getelementptr inbounds nuw [12 x i32], ptr @_ZN3ue2L16ucp_Armenian_defE, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
   store i32 %14, ptr %8, align 4
   %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %16 unwind label %18
 
 16:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %17 = icmp samesign ult i64 %indvars.iv, 10
   br i1 %17, label %9, label %20, !llvm.loop !46
@@ -2165,14 +2159,14 @@ define hidden void @_ZN3ue213getUcpAvestanEv(ptr dead_on_unwind noalias writable
   %13 = or disjoint i64 %indvars.iv, 1
   %14 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L15ucp_Avestan_defE, i64 0, i64 %13
   %15 = load i32, ptr %14, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %12, ptr %2, align 4
   store i32 %15, ptr %8, align 4
   %16 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %17 unwind label %18
 
 17:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %10, label %9, label %20, !llvm.loop !47
 
 18:                                               ; preds = %9
@@ -2209,14 +2203,14 @@ define hidden void @_ZN3ue214getUcpBalineseEv(ptr dead_on_unwind noalias writabl
   %13 = or disjoint i64 %indvars.iv, 1
   %14 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L16ucp_Balinese_defE, i64 0, i64 %13
   %15 = load i32, ptr %14, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %12, ptr %2, align 4
   store i32 %15, ptr %8, align 4
   %16 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %17 unwind label %18
 
 17:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %10, label %9, label %20, !llvm.loop !48
 
 18:                                               ; preds = %9
@@ -2253,14 +2247,14 @@ define hidden void @_ZN3ue211getUcpBamumEv(ptr dead_on_unwind noalias writable s
   %13 = or disjoint i64 %indvars.iv, 1
   %14 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L13ucp_Bamum_defE, i64 0, i64 %13
   %15 = load i32, ptr %14, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %12, ptr %2, align 4
   store i32 %15, ptr %8, align 4
   %16 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %17 unwind label %18
 
 17:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %10, label %9, label %20, !llvm.loop !49
 
 18:                                               ; preds = %9
@@ -2297,14 +2291,14 @@ define hidden void @_ZN3ue215getUcpBassa_VahEv(ptr dead_on_unwind noalias writab
   %13 = or disjoint i64 %indvars.iv, 1
   %14 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L17ucp_Bassa_Vah_defE, i64 0, i64 %13
   %15 = load i32, ptr %14, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %12, ptr %2, align 4
   store i32 %15, ptr %8, align 4
   %16 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %17 unwind label %18
 
 17:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %10, label %9, label %20, !llvm.loop !50
 
 18:                                               ; preds = %9
@@ -2341,14 +2335,14 @@ define hidden void @_ZN3ue211getUcpBatakEv(ptr dead_on_unwind noalias writable s
   %13 = or disjoint i64 %indvars.iv, 1
   %14 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L13ucp_Batak_defE, i64 0, i64 %13
   %15 = load i32, ptr %14, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %12, ptr %2, align 4
   store i32 %15, ptr %8, align 4
   %16 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %17 unwind label %18
 
 17:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %10, label %9, label %20, !llvm.loop !51
 
 18:                                               ; preds = %9
@@ -2384,14 +2378,14 @@ define hidden void @_ZN3ue213getUcpBengaliEv(ptr dead_on_unwind noalias writable
   %12 = or disjoint i64 %indvars.iv, 1
   %13 = getelementptr inbounds nuw [28 x i32], ptr @_ZN3ue2L15ucp_Bengali_defE, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
   store i32 %14, ptr %8, align 4
   %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %16 unwind label %18
 
 16:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %17 = icmp samesign ult i64 %indvars.iv, 26
   br i1 %17, label %9, label %20, !llvm.loop !52
@@ -2429,14 +2423,14 @@ define hidden void @_ZN3ue214getUcpBopomofoEv(ptr dead_on_unwind noalias writabl
   %12 = or disjoint i64 %indvars.iv, 1
   %13 = getelementptr inbounds nuw [6 x i32], ptr @_ZN3ue2L16ucp_Bopomofo_defE, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
   store i32 %14, ptr %8, align 4
   %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %16 unwind label %18
 
 16:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %17 = icmp samesign ult i64 %indvars.iv, 4
   br i1 %17, label %9, label %20, !llvm.loop !53
@@ -2474,14 +2468,14 @@ define hidden void @_ZN3ue212getUcpBrahmiEv(ptr dead_on_unwind noalias writable 
   %12 = or disjoint i64 %indvars.iv, 1
   %13 = getelementptr inbounds nuw [6 x i32], ptr @_ZN3ue2L14ucp_Brahmi_defE, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
   store i32 %14, ptr %8, align 4
   %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %16 unwind label %18
 
 16:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %17 = icmp samesign ult i64 %indvars.iv, 4
   br i1 %17, label %9, label %20, !llvm.loop !54
@@ -2509,7 +2503,7 @@ define hidden void @_ZN3ue213getUcpBrailleEv(ptr dead_on_unwind noalias nonnull 
   store ptr %3, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 10240, ptr %2, align 4
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 10495, ptr %8, align 4
@@ -2517,7 +2511,7 @@ define hidden void @_ZN3ue213getUcpBrailleEv(ptr dead_on_unwind noalias nonnull 
           to label %_ZN3ue212CodePointSet8setRangeEjj.exit unwind label %10
 
 _ZN3ue212CodePointSet8setRangeEjj.exit:           ; preds = %1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 10:                                               ; preds = %1
@@ -2551,14 +2545,14 @@ define hidden void @_ZN3ue214getUcpBugineseEv(ptr dead_on_unwind noalias writabl
   %13 = or disjoint i64 %indvars.iv, 1
   %14 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L16ucp_Buginese_defE, i64 0, i64 %13
   %15 = load i32, ptr %14, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %12, ptr %2, align 4
   store i32 %15, ptr %8, align 4
   %16 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %17 unwind label %18
 
 17:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %10, label %9, label %20, !llvm.loop !55
 
 18:                                               ; preds = %9
@@ -2584,7 +2578,7 @@ define hidden void @_ZN3ue211getUcpBuhidEv(ptr dead_on_unwind noalias nonnull wr
   store ptr %3, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 5952, ptr %2, align 4
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 5971, ptr %8, align 4
@@ -2592,7 +2586,7 @@ define hidden void @_ZN3ue211getUcpBuhidEv(ptr dead_on_unwind noalias nonnull wr
           to label %_ZN3ue212CodePointSet8setRangeEjj.exit unwind label %10
 
 _ZN3ue212CodePointSet8setRangeEjj.exit:           ; preds = %1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 10:                                               ; preds = %1
@@ -2626,14 +2620,14 @@ define hidden void @_ZN3ue225getUcpCanadian_AboriginalEv(ptr dead_on_unwind noal
   %13 = or disjoint i64 %indvars.iv, 1
   %14 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L27ucp_Canadian_Aboriginal_defE, i64 0, i64 %13
   %15 = load i32, ptr %14, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %12, ptr %2, align 4
   store i32 %15, ptr %8, align 4
   %16 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %17 unwind label %18
 
 17:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %10, label %9, label %20, !llvm.loop !56
 
 18:                                               ; preds = %9
@@ -2659,7 +2653,7 @@ define hidden void @_ZN3ue212getUcpCarianEv(ptr dead_on_unwind noalias nonnull w
   store ptr %3, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 66208, ptr %2, align 4
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 66256, ptr %8, align 4
@@ -2667,7 +2661,7 @@ define hidden void @_ZN3ue212getUcpCarianEv(ptr dead_on_unwind noalias nonnull w
           to label %_ZN3ue212CodePointSet8setRangeEjj.exit unwind label %10
 
 _ZN3ue212CodePointSet8setRangeEjj.exit:           ; preds = %1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 10:                                               ; preds = %1
@@ -2701,14 +2695,14 @@ define hidden void @_ZN3ue224getUcpCaucasian_AlbanianEv(ptr dead_on_unwind noali
   %13 = or disjoint i64 %indvars.iv, 1
   %14 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L26ucp_Caucasian_Albanian_defE, i64 0, i64 %13
   %15 = load i32, ptr %14, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %12, ptr %2, align 4
   store i32 %15, ptr %8, align 4
   %16 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %17 unwind label %18
 
 17:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %10, label %9, label %20, !llvm.loop !57
 
 18:                                               ; preds = %9
@@ -2745,14 +2739,14 @@ define hidden void @_ZN3ue212getUcpChakmaEv(ptr dead_on_unwind noalias writable 
   %13 = or disjoint i64 %indvars.iv, 1
   %14 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L14ucp_Chakma_defE, i64 0, i64 %13
   %15 = load i32, ptr %14, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %12, ptr %2, align 4
   store i32 %15, ptr %8, align 4
   %16 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %17 unwind label %18
 
 17:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %10, label %9, label %20, !llvm.loop !58
 
 18:                                               ; preds = %9
@@ -2788,14 +2782,14 @@ define hidden void @_ZN3ue210getUcpChamEv(ptr dead_on_unwind noalias writable sr
   %12 = or disjoint i64 %indvars.iv, 1
   %13 = getelementptr inbounds nuw [8 x i32], ptr @_ZN3ue2L12ucp_Cham_defE, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
   store i32 %14, ptr %8, align 4
   %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %16 unwind label %18
 
 16:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %17 = icmp samesign ult i64 %indvars.iv, 6
   br i1 %17, label %9, label %20, !llvm.loop !59
@@ -2823,7 +2817,7 @@ define hidden void @_ZN3ue214getUcpCherokeeEv(ptr dead_on_unwind noalias nonnull
   store ptr %3, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 5024, ptr %2, align 4
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 5108, ptr %8, align 4
@@ -2831,7 +2825,7 @@ define hidden void @_ZN3ue214getUcpCherokeeEv(ptr dead_on_unwind noalias nonnull
           to label %_ZN3ue212CodePointSet8setRangeEjj.exit unwind label %10
 
 _ZN3ue212CodePointSet8setRangeEjj.exit:           ; preds = %1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 10:                                               ; preds = %1
@@ -2864,14 +2858,14 @@ define hidden void @_ZN3ue212getUcpCommonEv(ptr dead_on_unwind noalias writable 
   %12 = or disjoint i64 %indvars.iv, 1
   %13 = getelementptr inbounds nuw [1140 x i32], ptr @_ZN3ue2L14ucp_Common_defE, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
   store i32 %14, ptr %8, align 4
   %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %16 unwind label %18
 
 16:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %17 = icmp samesign ult i64 %indvars.iv, 1138
   br i1 %17, label %9, label %20, !llvm.loop !60
@@ -2909,14 +2903,14 @@ define hidden void @_ZN3ue212getUcpCopticEv(ptr dead_on_unwind noalias writable 
   %12 = or disjoint i64 %indvars.iv, 1
   %13 = getelementptr inbounds nuw [6 x i32], ptr @_ZN3ue2L14ucp_Coptic_defE, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
   store i32 %14, ptr %8, align 4
   %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %16 unwind label %18
 
 16:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %17 = icmp samesign ult i64 %indvars.iv, 4
   br i1 %17, label %9, label %20, !llvm.loop !61
@@ -2954,14 +2948,14 @@ define hidden void @_ZN3ue215getUcpCuneiformEv(ptr dead_on_unwind noalias writab
   %12 = or disjoint i64 %indvars.iv, 1
   %13 = getelementptr inbounds nuw [6 x i32], ptr @_ZN3ue2L17ucp_Cuneiform_defE, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
   store i32 %14, ptr %8, align 4
   %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %16 unwind label %18
 
 16:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %17 = icmp samesign ult i64 %indvars.iv, 4
   br i1 %17, label %9, label %20, !llvm.loop !62
@@ -2999,14 +2993,14 @@ define hidden void @_ZN3ue213getUcpCypriotEv(ptr dead_on_unwind noalias writable
   %12 = or disjoint i64 %indvars.iv, 1
   %13 = getelementptr inbounds nuw [12 x i32], ptr @_ZN3ue2L15ucp_Cypriot_defE, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
   store i32 %14, ptr %8, align 4
   %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %16 unwind label %18
 
 16:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %17 = icmp samesign ult i64 %indvars.iv, 10
   br i1 %17, label %9, label %20, !llvm.loop !63
@@ -3044,14 +3038,14 @@ define hidden void @_ZN3ue214getUcpCyrillicEv(ptr dead_on_unwind noalias writabl
   %12 = or disjoint i64 %indvars.iv, 1
   %13 = getelementptr inbounds nuw [14 x i32], ptr @_ZN3ue2L16ucp_Cyrillic_defE, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
   store i32 %14, ptr %8, align 4
   %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %16 unwind label %18
 
 16:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %17 = icmp samesign ult i64 %indvars.iv, 12
   br i1 %17, label %9, label %20, !llvm.loop !64
@@ -3079,7 +3073,7 @@ define hidden void @_ZN3ue213getUcpDeseretEv(ptr dead_on_unwind noalias nonnull 
   store ptr %3, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 66560, ptr %2, align 4
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 66639, ptr %8, align 4
@@ -3087,7 +3081,7 @@ define hidden void @_ZN3ue213getUcpDeseretEv(ptr dead_on_unwind noalias nonnull 
           to label %_ZN3ue212CodePointSet8setRangeEjj.exit unwind label %10
 
 _ZN3ue212CodePointSet8setRangeEjj.exit:           ; preds = %1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 10:                                               ; preds = %1
@@ -3120,14 +3114,14 @@ define hidden void @_ZN3ue216getUcpDevanagariEv(ptr dead_on_unwind noalias writa
   %12 = or disjoint i64 %indvars.iv, 1
   %13 = getelementptr inbounds nuw [8 x i32], ptr @_ZN3ue2L18ucp_Devanagari_defE, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
   store i32 %14, ptr %8, align 4
   %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %16 unwind label %18
 
 16:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %17 = icmp samesign ult i64 %indvars.iv, 6
   br i1 %17, label %9, label %20, !llvm.loop !65
@@ -3165,14 +3159,14 @@ define hidden void @_ZN3ue214getUcpDuployanEv(ptr dead_on_unwind noalias writabl
   %12 = or disjoint i64 %indvars.iv, 1
   %13 = getelementptr inbounds nuw [10 x i32], ptr @_ZN3ue2L16ucp_Duployan_defE, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
   store i32 %14, ptr %8, align 4
   %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %16 unwind label %18
 
 16:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %17 = icmp samesign ult i64 %indvars.iv, 8
   br i1 %17, label %9, label %20, !llvm.loop !66
@@ -3200,7 +3194,7 @@ define hidden void @_ZN3ue226getUcpEgyptian_HieroglyphsEv(ptr dead_on_unwind noa
   store ptr %3, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 77824, ptr %2, align 4
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 78894, ptr %8, align 4
@@ -3208,7 +3202,7 @@ define hidden void @_ZN3ue226getUcpEgyptian_HieroglyphsEv(ptr dead_on_unwind noa
           to label %_ZN3ue212CodePointSet8setRangeEjj.exit unwind label %10
 
 _ZN3ue212CodePointSet8setRangeEjj.exit:           ; preds = %1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 10:                                               ; preds = %1
@@ -3231,7 +3225,7 @@ define hidden void @_ZN3ue213getUcpElbasanEv(ptr dead_on_unwind noalias nonnull 
   store ptr %3, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 66816, ptr %2, align 4
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 66855, ptr %8, align 4
@@ -3239,7 +3233,7 @@ define hidden void @_ZN3ue213getUcpElbasanEv(ptr dead_on_unwind noalias nonnull 
           to label %_ZN3ue212CodePointSet8setRangeEjj.exit unwind label %10
 
 _ZN3ue212CodePointSet8setRangeEjj.exit:           ; preds = %1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 10:                                               ; preds = %1
@@ -3272,14 +3266,14 @@ define hidden void @_ZN3ue214getUcpEthiopicEv(ptr dead_on_unwind noalias writabl
   %12 = or disjoint i64 %indvars.iv, 1
   %13 = getelementptr inbounds nuw [64 x i32], ptr @_ZN3ue2L16ucp_Ethiopic_defE, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
   store i32 %14, ptr %8, align 4
   %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %16 unwind label %18
 
 16:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %17 = icmp samesign ult i64 %indvars.iv, 62
   br i1 %17, label %9, label %20, !llvm.loop !67
@@ -3317,14 +3311,14 @@ define hidden void @_ZN3ue214getUcpGeorgianEv(ptr dead_on_unwind noalias writabl
   %12 = or disjoint i64 %indvars.iv, 1
   %13 = getelementptr inbounds nuw [16 x i32], ptr @_ZN3ue2L16ucp_Georgian_defE, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
   store i32 %14, ptr %8, align 4
   %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %16 unwind label %18
 
 16:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %17 = icmp samesign ult i64 %indvars.iv, 14
   br i1 %17, label %9, label %20, !llvm.loop !68
@@ -3363,14 +3357,14 @@ define hidden void @_ZN3ue216getUcpGlagoliticEv(ptr dead_on_unwind noalias writa
   %13 = or disjoint i64 %indvars.iv, 1
   %14 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L18ucp_Glagolitic_defE, i64 0, i64 %13
   %15 = load i32, ptr %14, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %12, ptr %2, align 4
   store i32 %15, ptr %8, align 4
   %16 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %17 unwind label %18
 
 17:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %10, label %9, label %20, !llvm.loop !69
 
 18:                                               ; preds = %9
@@ -3396,7 +3390,7 @@ define hidden void @_ZN3ue212getUcpGothicEv(ptr dead_on_unwind noalias nonnull w
   store ptr %3, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 66352, ptr %2, align 4
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 66378, ptr %8, align 4
@@ -3404,7 +3398,7 @@ define hidden void @_ZN3ue212getUcpGothicEv(ptr dead_on_unwind noalias nonnull w
           to label %_ZN3ue212CodePointSet8setRangeEjj.exit unwind label %10
 
 _ZN3ue212CodePointSet8setRangeEjj.exit:           ; preds = %1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 10:                                               ; preds = %1
@@ -3437,14 +3431,14 @@ define hidden void @_ZN3ue213getUcpGranthaEv(ptr dead_on_unwind noalias writable
   %12 = or disjoint i64 %indvars.iv, 1
   %13 = getelementptr inbounds nuw [28 x i32], ptr @_ZN3ue2L15ucp_Grantha_defE, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
   store i32 %14, ptr %8, align 4
   %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %16 unwind label %18
 
 16:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %17 = icmp samesign ult i64 %indvars.iv, 26
   br i1 %17, label %9, label %20, !llvm.loop !70
@@ -3482,14 +3476,14 @@ define hidden void @_ZN3ue211getUcpGreekEv(ptr dead_on_unwind noalias writable s
   %12 = or disjoint i64 %indvars.iv, 1
   %13 = getelementptr inbounds nuw [72 x i32], ptr @_ZN3ue2L13ucp_Greek_defE, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
   store i32 %14, ptr %8, align 4
   %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %16 unwind label %18
 
 16:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %17 = icmp samesign ult i64 %indvars.iv, 70
   br i1 %17, label %9, label %20, !llvm.loop !71
@@ -3527,14 +3521,14 @@ define hidden void @_ZN3ue214getUcpGujaratiEv(ptr dead_on_unwind noalias writabl
   %12 = or disjoint i64 %indvars.iv, 1
   %13 = getelementptr inbounds nuw [26 x i32], ptr @_ZN3ue2L16ucp_Gujarati_defE, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
   store i32 %14, ptr %8, align 4
   %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %16 unwind label %18
 
 16:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %17 = icmp samesign ult i64 %indvars.iv, 24
   br i1 %17, label %9, label %20, !llvm.loop !72
@@ -3572,14 +3566,14 @@ define hidden void @_ZN3ue214getUcpGurmukhiEv(ptr dead_on_unwind noalias writabl
   %12 = or disjoint i64 %indvars.iv, 1
   %13 = getelementptr inbounds nuw [32 x i32], ptr @_ZN3ue2L16ucp_Gurmukhi_defE, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
   store i32 %14, ptr %8, align 4
   %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %16 unwind label %18
 
 16:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %17 = icmp samesign ult i64 %indvars.iv, 30
   br i1 %17, label %9, label %20, !llvm.loop !73
@@ -3617,14 +3611,14 @@ define hidden void @_ZN3ue29getUcpHanEv(ptr dead_on_unwind noalias writable sret
   %12 = or disjoint i64 %indvars.iv, 1
   %13 = getelementptr inbounds nuw [30 x i32], ptr @_ZN3ue2L11ucp_Han_defE, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
   store i32 %14, ptr %8, align 4
   %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %16 unwind label %18
 
 16:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %17 = icmp samesign ult i64 %indvars.iv, 28
   br i1 %17, label %9, label %20, !llvm.loop !74
@@ -3662,14 +3656,14 @@ define hidden void @_ZN3ue212getUcpHangulEv(ptr dead_on_unwind noalias writable 
   %12 = or disjoint i64 %indvars.iv, 1
   %13 = getelementptr inbounds nuw [28 x i32], ptr @_ZN3ue2L14ucp_Hangul_defE, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
   store i32 %14, ptr %8, align 4
   %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %16 unwind label %18
 
 16:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %17 = icmp samesign ult i64 %indvars.iv, 26
   br i1 %17, label %9, label %20, !llvm.loop !75
@@ -3697,7 +3691,7 @@ define hidden void @_ZN3ue213getUcpHanunooEv(ptr dead_on_unwind noalias nonnull 
   store ptr %3, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 5920, ptr %2, align 4
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 5940, ptr %8, align 4
@@ -3705,7 +3699,7 @@ define hidden void @_ZN3ue213getUcpHanunooEv(ptr dead_on_unwind noalias nonnull 
           to label %_ZN3ue212CodePointSet8setRangeEjj.exit unwind label %10
 
 _ZN3ue212CodePointSet8setRangeEjj.exit:           ; preds = %1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 10:                                               ; preds = %1
@@ -3738,14 +3732,14 @@ define hidden void @_ZN3ue212getUcpHebrewEv(ptr dead_on_unwind noalias writable 
   %12 = or disjoint i64 %indvars.iv, 1
   %13 = getelementptr inbounds nuw [18 x i32], ptr @_ZN3ue2L14ucp_Hebrew_defE, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
   store i32 %14, ptr %8, align 4
   %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %16 unwind label %18
 
 16:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %17 = icmp samesign ult i64 %indvars.iv, 16
   br i1 %17, label %9, label %20, !llvm.loop !76
@@ -3783,14 +3777,14 @@ define hidden void @_ZN3ue214getUcpHiraganaEv(ptr dead_on_unwind noalias writabl
   %12 = or disjoint i64 %indvars.iv, 1
   %13 = getelementptr inbounds nuw [8 x i32], ptr @_ZN3ue2L16ucp_Hiragana_defE, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
   store i32 %14, ptr %8, align 4
   %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %16 unwind label %18
 
 16:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %17 = icmp samesign ult i64 %indvars.iv, 6
   br i1 %17, label %9, label %20, !llvm.loop !77
@@ -3829,14 +3823,14 @@ define hidden void @_ZN3ue222getUcpImperial_AramaicEv(ptr dead_on_unwind noalias
   %13 = or disjoint i64 %indvars.iv, 1
   %14 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L24ucp_Imperial_Aramaic_defE, i64 0, i64 %13
   %15 = load i32, ptr %14, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %12, ptr %2, align 4
   store i32 %15, ptr %8, align 4
   %16 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %17 unwind label %18
 
 17:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %10, label %9, label %20, !llvm.loop !78
 
 18:                                               ; preds = %9
@@ -3872,14 +3866,14 @@ define hidden void @_ZN3ue215getUcpInheritedEv(ptr dead_on_unwind noalias writab
   %12 = or disjoint i64 %indvars.iv, 1
   %13 = getelementptr inbounds nuw [54 x i32], ptr @_ZN3ue2L17ucp_Inherited_defE, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
   store i32 %14, ptr %8, align 4
   %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %16 unwind label %18
 
 16:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %17 = icmp samesign ult i64 %indvars.iv, 52
   br i1 %17, label %9, label %20, !llvm.loop !79
@@ -3918,14 +3912,14 @@ define hidden void @_ZN3ue227getUcpInscriptional_PahlaviEv(ptr dead_on_unwind no
   %13 = or disjoint i64 %indvars.iv, 1
   %14 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L29ucp_Inscriptional_Pahlavi_defE, i64 0, i64 %13
   %15 = load i32, ptr %14, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %12, ptr %2, align 4
   store i32 %15, ptr %8, align 4
   %16 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %17 unwind label %18
 
 17:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %10, label %9, label %20, !llvm.loop !80
 
 18:                                               ; preds = %9
@@ -3962,14 +3956,14 @@ define hidden void @_ZN3ue228getUcpInscriptional_ParthianEv(ptr dead_on_unwind n
   %13 = or disjoint i64 %indvars.iv, 1
   %14 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L30ucp_Inscriptional_Parthian_defE, i64 0, i64 %13
   %15 = load i32, ptr %14, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %12, ptr %2, align 4
   store i32 %15, ptr %8, align 4
   %16 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %17 unwind label %18
 
 17:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %10, label %9, label %20, !llvm.loop !81
 
 18:                                               ; preds = %9
@@ -4005,14 +3999,14 @@ define hidden void @_ZN3ue214getUcpJavaneseEv(ptr dead_on_unwind noalias writabl
   %12 = or disjoint i64 %indvars.iv, 1
   %13 = getelementptr inbounds nuw [6 x i32], ptr @_ZN3ue2L16ucp_Javanese_defE, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
   store i32 %14, ptr %8, align 4
   %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %16 unwind label %18
 
 16:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %17 = icmp samesign ult i64 %indvars.iv, 4
   br i1 %17, label %9, label %20, !llvm.loop !82
@@ -4040,7 +4034,7 @@ define hidden void @_ZN3ue212getUcpKaithiEv(ptr dead_on_unwind noalias nonnull w
   store ptr %3, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 69760, ptr %2, align 4
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 69825, ptr %8, align 4
@@ -4048,7 +4042,7 @@ define hidden void @_ZN3ue212getUcpKaithiEv(ptr dead_on_unwind noalias nonnull w
           to label %_ZN3ue212CodePointSet8setRangeEjj.exit unwind label %10
 
 _ZN3ue212CodePointSet8setRangeEjj.exit:           ; preds = %1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 10:                                               ; preds = %1
@@ -4081,14 +4075,14 @@ define hidden void @_ZN3ue213getUcpKannadaEv(ptr dead_on_unwind noalias writable
   %12 = or disjoint i64 %indvars.iv, 1
   %13 = getelementptr inbounds nuw [28 x i32], ptr @_ZN3ue2L15ucp_Kannada_defE, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
   store i32 %14, ptr %8, align 4
   %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %16 unwind label %18
 
 16:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %17 = icmp samesign ult i64 %indvars.iv, 26
   br i1 %17, label %9, label %20, !llvm.loop !83
@@ -4126,14 +4120,14 @@ define hidden void @_ZN3ue214getUcpKatakanaEv(ptr dead_on_unwind noalias writabl
   %12 = or disjoint i64 %indvars.iv, 1
   %13 = getelementptr inbounds nuw [16 x i32], ptr @_ZN3ue2L16ucp_Katakana_defE, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
   store i32 %14, ptr %8, align 4
   %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %16 unwind label %18
 
 16:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %17 = icmp samesign ult i64 %indvars.iv, 14
   br i1 %17, label %9, label %20, !llvm.loop !84
@@ -4172,14 +4166,14 @@ define hidden void @_ZN3ue214getUcpKayah_LiEv(ptr dead_on_unwind noalias writabl
   %13 = or disjoint i64 %indvars.iv, 1
   %14 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L16ucp_Kayah_Li_defE, i64 0, i64 %13
   %15 = load i32, ptr %14, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %12, ptr %2, align 4
   store i32 %15, ptr %8, align 4
   %16 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %17 unwind label %18
 
 17:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %10, label %9, label %20, !llvm.loop !85
 
 18:                                               ; preds = %9
@@ -4215,14 +4209,14 @@ define hidden void @_ZN3ue216getUcpKharoshthiEv(ptr dead_on_unwind noalias writa
   %12 = or disjoint i64 %indvars.iv, 1
   %13 = getelementptr inbounds nuw [16 x i32], ptr @_ZN3ue2L18ucp_Kharoshthi_defE, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
   store i32 %14, ptr %8, align 4
   %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %16 unwind label %18
 
 16:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %17 = icmp samesign ult i64 %indvars.iv, 14
   br i1 %17, label %9, label %20, !llvm.loop !86
@@ -4260,14 +4254,14 @@ define hidden void @_ZN3ue211getUcpKhmerEv(ptr dead_on_unwind noalias writable s
   %12 = or disjoint i64 %indvars.iv, 1
   %13 = getelementptr inbounds nuw [8 x i32], ptr @_ZN3ue2L13ucp_Khmer_defE, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
   store i32 %14, ptr %8, align 4
   %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %16 unwind label %18
 
 16:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %17 = icmp samesign ult i64 %indvars.iv, 6
   br i1 %17, label %9, label %20, !llvm.loop !87
@@ -4306,14 +4300,14 @@ define hidden void @_ZN3ue212getUcpKhojkiEv(ptr dead_on_unwind noalias writable 
   %13 = or disjoint i64 %indvars.iv, 1
   %14 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L14ucp_Khojki_defE, i64 0, i64 %13
   %15 = load i32, ptr %14, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %12, ptr %2, align 4
   store i32 %15, ptr %8, align 4
   %16 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %17 unwind label %18
 
 17:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %10, label %9, label %20, !llvm.loop !88
 
 18:                                               ; preds = %9
@@ -4350,14 +4344,14 @@ define hidden void @_ZN3ue215getUcpKhudawadiEv(ptr dead_on_unwind noalias writab
   %13 = or disjoint i64 %indvars.iv, 1
   %14 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L17ucp_Khudawadi_defE, i64 0, i64 %13
   %15 = load i32, ptr %14, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %12, ptr %2, align 4
   store i32 %15, ptr %8, align 4
   %16 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %17 unwind label %18
 
 17:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %10, label %9, label %20, !llvm.loop !89
 
 18:                                               ; preds = %9
@@ -4393,14 +4387,14 @@ define hidden void @_ZN3ue29getUcpLaoEv(ptr dead_on_unwind noalias writable sret
   %12 = or disjoint i64 %indvars.iv, 1
   %13 = getelementptr inbounds nuw [36 x i32], ptr @_ZN3ue2L11ucp_Lao_defE, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
   store i32 %14, ptr %8, align 4
   %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %16 unwind label %18
 
 16:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %17 = icmp samesign ult i64 %indvars.iv, 34
   br i1 %17, label %9, label %20, !llvm.loop !90
@@ -4438,14 +4432,14 @@ define hidden void @_ZN3ue211getUcpLatinEv(ptr dead_on_unwind noalias writable s
   %12 = or disjoint i64 %indvars.iv, 1
   %13 = getelementptr inbounds nuw [66 x i32], ptr @_ZN3ue2L13ucp_Latin_defE, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
   store i32 %14, ptr %8, align 4
   %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %16 unwind label %18
 
 16:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %17 = icmp samesign ult i64 %indvars.iv, 64
   br i1 %17, label %9, label %20, !llvm.loop !91
@@ -4483,14 +4477,14 @@ define hidden void @_ZN3ue212getUcpLepchaEv(ptr dead_on_unwind noalias writable 
   %12 = or disjoint i64 %indvars.iv, 1
   %13 = getelementptr inbounds nuw [6 x i32], ptr @_ZN3ue2L14ucp_Lepcha_defE, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
   store i32 %14, ptr %8, align 4
   %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %16 unwind label %18
 
 16:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %17 = icmp samesign ult i64 %indvars.iv, 4
   br i1 %17, label %9, label %20, !llvm.loop !92
@@ -4528,14 +4522,14 @@ define hidden void @_ZN3ue211getUcpLimbuEv(ptr dead_on_unwind noalias writable s
   %12 = or disjoint i64 %indvars.iv, 1
   %13 = getelementptr inbounds nuw [10 x i32], ptr @_ZN3ue2L13ucp_Limbu_defE, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
   store i32 %14, ptr %8, align 4
   %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %16 unwind label %18
 
 16:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %17 = icmp samesign ult i64 %indvars.iv, 8
   br i1 %17, label %9, label %20, !llvm.loop !93
@@ -4573,14 +4567,14 @@ define hidden void @_ZN3ue214getUcpLinear_AEv(ptr dead_on_unwind noalias writabl
   %12 = or disjoint i64 %indvars.iv, 1
   %13 = getelementptr inbounds nuw [6 x i32], ptr @_ZN3ue2L16ucp_Linear_A_defE, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
   store i32 %14, ptr %8, align 4
   %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %16 unwind label %18
 
 16:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %17 = icmp samesign ult i64 %indvars.iv, 4
   br i1 %17, label %9, label %20, !llvm.loop !94
@@ -4618,14 +4612,14 @@ define hidden void @_ZN3ue214getUcpLinear_BEv(ptr dead_on_unwind noalias writabl
   %12 = or disjoint i64 %indvars.iv, 1
   %13 = getelementptr inbounds nuw [14 x i32], ptr @_ZN3ue2L16ucp_Linear_B_defE, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
   store i32 %14, ptr %8, align 4
   %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %16 unwind label %18
 
 16:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %17 = icmp samesign ult i64 %indvars.iv, 12
   br i1 %17, label %9, label %20, !llvm.loop !95
@@ -4653,7 +4647,7 @@ define hidden void @_ZN3ue210getUcpLisuEv(ptr dead_on_unwind noalias nonnull wri
   store ptr %3, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 42192, ptr %2, align 4
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 42239, ptr %8, align 4
@@ -4661,7 +4655,7 @@ define hidden void @_ZN3ue210getUcpLisuEv(ptr dead_on_unwind noalias nonnull wri
           to label %_ZN3ue212CodePointSet8setRangeEjj.exit unwind label %10
 
 _ZN3ue212CodePointSet8setRangeEjj.exit:           ; preds = %1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 10:                                               ; preds = %1
@@ -4684,7 +4678,7 @@ define hidden void @_ZN3ue212getUcpLycianEv(ptr dead_on_unwind noalias nonnull w
   store ptr %3, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 66176, ptr %2, align 4
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 66204, ptr %8, align 4
@@ -4692,7 +4686,7 @@ define hidden void @_ZN3ue212getUcpLycianEv(ptr dead_on_unwind noalias nonnull w
           to label %_ZN3ue212CodePointSet8setRangeEjj.exit unwind label %10
 
 _ZN3ue212CodePointSet8setRangeEjj.exit:           ; preds = %1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 10:                                               ; preds = %1
@@ -4726,14 +4720,14 @@ define hidden void @_ZN3ue212getUcpLydianEv(ptr dead_on_unwind noalias writable 
   %13 = or disjoint i64 %indvars.iv, 1
   %14 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L14ucp_Lydian_defE, i64 0, i64 %13
   %15 = load i32, ptr %14, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %12, ptr %2, align 4
   store i32 %15, ptr %8, align 4
   %16 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %17 unwind label %18
 
 17:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %10, label %9, label %20, !llvm.loop !96
 
 18:                                               ; preds = %9
@@ -4759,7 +4753,7 @@ define hidden void @_ZN3ue214getUcpMahajaniEv(ptr dead_on_unwind noalias nonnull
   store ptr %3, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 69968, ptr %2, align 4
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 70006, ptr %8, align 4
@@ -4767,7 +4761,7 @@ define hidden void @_ZN3ue214getUcpMahajaniEv(ptr dead_on_unwind noalias nonnull
           to label %_ZN3ue212CodePointSet8setRangeEjj.exit unwind label %10
 
 _ZN3ue212CodePointSet8setRangeEjj.exit:           ; preds = %1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 10:                                               ; preds = %1
@@ -4800,14 +4794,14 @@ define hidden void @_ZN3ue215getUcpMalayalamEv(ptr dead_on_unwind noalias writab
   %12 = or disjoint i64 %indvars.iv, 1
   %13 = getelementptr inbounds nuw [22 x i32], ptr @_ZN3ue2L17ucp_Malayalam_defE, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
   store i32 %14, ptr %8, align 4
   %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %16 unwind label %18
 
 16:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %17 = icmp samesign ult i64 %indvars.iv, 20
   br i1 %17, label %9, label %20, !llvm.loop !97
@@ -4846,14 +4840,14 @@ define hidden void @_ZN3ue213getUcpMandaicEv(ptr dead_on_unwind noalias writable
   %13 = or disjoint i64 %indvars.iv, 1
   %14 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L15ucp_Mandaic_defE, i64 0, i64 %13
   %15 = load i32, ptr %14, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %12, ptr %2, align 4
   store i32 %15, ptr %8, align 4
   %16 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %17 unwind label %18
 
 17:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %10, label %9, label %20, !llvm.loop !98
 
 18:                                               ; preds = %9
@@ -4890,14 +4884,14 @@ define hidden void @_ZN3ue216getUcpManichaeanEv(ptr dead_on_unwind noalias writa
   %13 = or disjoint i64 %indvars.iv, 1
   %14 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L18ucp_Manichaean_defE, i64 0, i64 %13
   %15 = load i32, ptr %14, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %12, ptr %2, align 4
   store i32 %15, ptr %8, align 4
   %16 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %17 unwind label %18
 
 17:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %10, label %9, label %20, !llvm.loop !99
 
 18:                                               ; preds = %9
@@ -4933,14 +4927,14 @@ define hidden void @_ZN3ue218getUcpMeetei_MayekEv(ptr dead_on_unwind noalias wri
   %12 = or disjoint i64 %indvars.iv, 1
   %13 = getelementptr inbounds nuw [6 x i32], ptr @_ZN3ue2L20ucp_Meetei_Mayek_defE, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
   store i32 %14, ptr %8, align 4
   %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %16 unwind label %18
 
 16:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %17 = icmp samesign ult i64 %indvars.iv, 4
   br i1 %17, label %9, label %20, !llvm.loop !100
@@ -4979,14 +4973,14 @@ define hidden void @_ZN3ue219getUcpMende_KikakuiEv(ptr dead_on_unwind noalias wr
   %13 = or disjoint i64 %indvars.iv, 1
   %14 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L21ucp_Mende_Kikakui_defE, i64 0, i64 %13
   %15 = load i32, ptr %14, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %12, ptr %2, align 4
   store i32 %15, ptr %8, align 4
   %16 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %17 unwind label %18
 
 17:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %10, label %9, label %20, !llvm.loop !101
 
 18:                                               ; preds = %9
@@ -5023,14 +5017,14 @@ define hidden void @_ZN3ue222getUcpMeroitic_CursiveEv(ptr dead_on_unwind noalias
   %13 = or disjoint i64 %indvars.iv, 1
   %14 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L24ucp_Meroitic_Cursive_defE, i64 0, i64 %13
   %15 = load i32, ptr %14, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %12, ptr %2, align 4
   store i32 %15, ptr %8, align 4
   %16 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %17 unwind label %18
 
 17:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %10, label %9, label %20, !llvm.loop !102
 
 18:                                               ; preds = %9
@@ -5056,7 +5050,7 @@ define hidden void @_ZN3ue226getUcpMeroitic_HieroglyphsEv(ptr dead_on_unwind noa
   store ptr %3, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 67968, ptr %2, align 4
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 67999, ptr %8, align 4
@@ -5064,7 +5058,7 @@ define hidden void @_ZN3ue226getUcpMeroitic_HieroglyphsEv(ptr dead_on_unwind noa
           to label %_ZN3ue212CodePointSet8setRangeEjj.exit unwind label %10
 
 _ZN3ue212CodePointSet8setRangeEjj.exit:           ; preds = %1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 10:                                               ; preds = %1
@@ -5097,14 +5091,14 @@ define hidden void @_ZN3ue210getUcpMiaoEv(ptr dead_on_unwind noalias writable sr
   %12 = or disjoint i64 %indvars.iv, 1
   %13 = getelementptr inbounds nuw [6 x i32], ptr @_ZN3ue2L12ucp_Miao_defE, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
   store i32 %14, ptr %8, align 4
   %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %16 unwind label %18
 
 16:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %17 = icmp samesign ult i64 %indvars.iv, 4
   br i1 %17, label %9, label %20, !llvm.loop !103
@@ -5143,14 +5137,14 @@ define hidden void @_ZN3ue210getUcpModiEv(ptr dead_on_unwind noalias writable sr
   %13 = or disjoint i64 %indvars.iv, 1
   %14 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L12ucp_Modi_defE, i64 0, i64 %13
   %15 = load i32, ptr %14, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %12, ptr %2, align 4
   store i32 %15, ptr %8, align 4
   %16 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %17 unwind label %18
 
 17:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %10, label %9, label %20, !llvm.loop !104
 
 18:                                               ; preds = %9
@@ -5186,14 +5180,14 @@ define hidden void @_ZN3ue215getUcpMongolianEv(ptr dead_on_unwind noalias writab
   %12 = or disjoint i64 %indvars.iv, 1
   %13 = getelementptr inbounds nuw [12 x i32], ptr @_ZN3ue2L17ucp_Mongolian_defE, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
   store i32 %14, ptr %8, align 4
   %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %16 unwind label %18
 
 16:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %17 = icmp samesign ult i64 %indvars.iv, 10
   br i1 %17, label %9, label %20, !llvm.loop !105
@@ -5231,14 +5225,14 @@ define hidden void @_ZN3ue29getUcpMroEv(ptr dead_on_unwind noalias writable sret
   %12 = or disjoint i64 %indvars.iv, 1
   %13 = getelementptr inbounds nuw [6 x i32], ptr @_ZN3ue2L11ucp_Mro_defE, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
   store i32 %14, ptr %8, align 4
   %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %16 unwind label %18
 
 16:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %17 = icmp samesign ult i64 %indvars.iv, 4
   br i1 %17, label %9, label %20, !llvm.loop !106
@@ -5276,14 +5270,14 @@ define hidden void @_ZN3ue213getUcpMyanmarEv(ptr dead_on_unwind noalias writable
   %12 = or disjoint i64 %indvars.iv, 1
   %13 = getelementptr inbounds nuw [6 x i32], ptr @_ZN3ue2L15ucp_Myanmar_defE, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
   store i32 %14, ptr %8, align 4
   %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %16 unwind label %18
 
 16:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %17 = icmp samesign ult i64 %indvars.iv, 4
   br i1 %17, label %9, label %20, !llvm.loop !107
@@ -5322,14 +5316,14 @@ define hidden void @_ZN3ue215getUcpNabataeanEv(ptr dead_on_unwind noalias writab
   %13 = or disjoint i64 %indvars.iv, 1
   %14 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L17ucp_Nabataean_defE, i64 0, i64 %13
   %15 = load i32, ptr %14, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %12, ptr %2, align 4
   store i32 %15, ptr %8, align 4
   %16 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %17 unwind label %18
 
 17:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %10, label %9, label %20, !llvm.loop !108
 
 18:                                               ; preds = %9
@@ -5365,14 +5359,14 @@ define hidden void @_ZN3ue217getUcpNew_Tai_LueEv(ptr dead_on_unwind noalias writ
   %12 = or disjoint i64 %indvars.iv, 1
   %13 = getelementptr inbounds nuw [8 x i32], ptr @_ZN3ue2L19ucp_New_Tai_Lue_defE, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
   store i32 %14, ptr %8, align 4
   %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %16 unwind label %18
 
 16:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %17 = icmp samesign ult i64 %indvars.iv, 6
   br i1 %17, label %9, label %20, !llvm.loop !109
@@ -5400,7 +5394,7 @@ define hidden void @_ZN3ue29getUcpNkoEv(ptr dead_on_unwind noalias nonnull writa
   store ptr %3, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 1984, ptr %2, align 4
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 2042, ptr %8, align 4
@@ -5408,7 +5402,7 @@ define hidden void @_ZN3ue29getUcpNkoEv(ptr dead_on_unwind noalias nonnull writa
           to label %_ZN3ue212CodePointSet8setRangeEjj.exit unwind label %10
 
 _ZN3ue212CodePointSet8setRangeEjj.exit:           ; preds = %1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 10:                                               ; preds = %1
@@ -5431,7 +5425,7 @@ define hidden void @_ZN3ue211getUcpOghamEv(ptr dead_on_unwind noalias nonnull wr
   store ptr %3, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 5760, ptr %2, align 4
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 5788, ptr %8, align 4
@@ -5439,7 +5433,7 @@ define hidden void @_ZN3ue211getUcpOghamEv(ptr dead_on_unwind noalias nonnull wr
           to label %_ZN3ue212CodePointSet8setRangeEjj.exit unwind label %10
 
 _ZN3ue212CodePointSet8setRangeEjj.exit:           ; preds = %1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 10:                                               ; preds = %1
@@ -5462,7 +5456,7 @@ define hidden void @_ZN3ue214getUcpOl_ChikiEv(ptr dead_on_unwind noalias nonnull
   store ptr %3, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 7248, ptr %2, align 4
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 7295, ptr %8, align 4
@@ -5470,7 +5464,7 @@ define hidden void @_ZN3ue214getUcpOl_ChikiEv(ptr dead_on_unwind noalias nonnull
           to label %_ZN3ue212CodePointSet8setRangeEjj.exit unwind label %10
 
 _ZN3ue212CodePointSet8setRangeEjj.exit:           ; preds = %1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 10:                                               ; preds = %1
@@ -5493,7 +5487,7 @@ define hidden void @_ZN3ue216getUcpOld_ItalicEv(ptr dead_on_unwind noalias nonnu
   store ptr %3, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 66304, ptr %2, align 4
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 66339, ptr %8, align 4
@@ -5501,7 +5495,7 @@ define hidden void @_ZN3ue216getUcpOld_ItalicEv(ptr dead_on_unwind noalias nonnu
           to label %_ZN3ue212CodePointSet8setRangeEjj.exit unwind label %10
 
 _ZN3ue212CodePointSet8setRangeEjj.exit:           ; preds = %1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 10:                                               ; preds = %1
@@ -5524,7 +5518,7 @@ define hidden void @_ZN3ue223getUcpOld_North_ArabianEv(ptr dead_on_unwind noalia
   store ptr %3, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 68224, ptr %2, align 4
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 68255, ptr %8, align 4
@@ -5532,7 +5526,7 @@ define hidden void @_ZN3ue223getUcpOld_North_ArabianEv(ptr dead_on_unwind noalia
           to label %_ZN3ue212CodePointSet8setRangeEjj.exit unwind label %10
 
 _ZN3ue212CodePointSet8setRangeEjj.exit:           ; preds = %1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 10:                                               ; preds = %1
@@ -5555,7 +5549,7 @@ define hidden void @_ZN3ue216getUcpOld_PermicEv(ptr dead_on_unwind noalias nonnu
   store ptr %3, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 66384, ptr %2, align 4
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 66426, ptr %8, align 4
@@ -5563,7 +5557,7 @@ define hidden void @_ZN3ue216getUcpOld_PermicEv(ptr dead_on_unwind noalias nonnu
           to label %_ZN3ue212CodePointSet8setRangeEjj.exit unwind label %10
 
 _ZN3ue212CodePointSet8setRangeEjj.exit:           ; preds = %1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 10:                                               ; preds = %1
@@ -5597,14 +5591,14 @@ define hidden void @_ZN3ue217getUcpOld_PersianEv(ptr dead_on_unwind noalias writ
   %13 = or disjoint i64 %indvars.iv, 1
   %14 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L19ucp_Old_Persian_defE, i64 0, i64 %13
   %15 = load i32, ptr %14, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %12, ptr %2, align 4
   store i32 %15, ptr %8, align 4
   %16 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %17 unwind label %18
 
 17:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %10, label %9, label %20, !llvm.loop !110
 
 18:                                               ; preds = %9
@@ -5630,7 +5624,7 @@ define hidden void @_ZN3ue223getUcpOld_South_ArabianEv(ptr dead_on_unwind noalia
   store ptr %3, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 68192, ptr %2, align 4
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 68223, ptr %8, align 4
@@ -5638,7 +5632,7 @@ define hidden void @_ZN3ue223getUcpOld_South_ArabianEv(ptr dead_on_unwind noalia
           to label %_ZN3ue212CodePointSet8setRangeEjj.exit unwind label %10
 
 _ZN3ue212CodePointSet8setRangeEjj.exit:           ; preds = %1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 10:                                               ; preds = %1
@@ -5661,7 +5655,7 @@ define hidden void @_ZN3ue216getUcpOld_TurkicEv(ptr dead_on_unwind noalias nonnu
   store ptr %3, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 68608, ptr %2, align 4
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 68680, ptr %8, align 4
@@ -5669,7 +5663,7 @@ define hidden void @_ZN3ue216getUcpOld_TurkicEv(ptr dead_on_unwind noalias nonnu
           to label %_ZN3ue212CodePointSet8setRangeEjj.exit unwind label %10
 
 _ZN3ue212CodePointSet8setRangeEjj.exit:           ; preds = %1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 10:                                               ; preds = %1
@@ -5702,14 +5696,14 @@ define hidden void @_ZN3ue211getUcpOriyaEv(ptr dead_on_unwind noalias writable s
   %12 = or disjoint i64 %indvars.iv, 1
   %13 = getelementptr inbounds nuw [28 x i32], ptr @_ZN3ue2L13ucp_Oriya_defE, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
   store i32 %14, ptr %8, align 4
   %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %16 unwind label %18
 
 16:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %17 = icmp samesign ult i64 %indvars.iv, 26
   br i1 %17, label %9, label %20, !llvm.loop !111
@@ -5748,14 +5742,14 @@ define hidden void @_ZN3ue213getUcpOsmanyaEv(ptr dead_on_unwind noalias writable
   %13 = or disjoint i64 %indvars.iv, 1
   %14 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L15ucp_Osmanya_defE, i64 0, i64 %13
   %15 = load i32, ptr %14, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %12, ptr %2, align 4
   store i32 %15, ptr %8, align 4
   %16 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %17 unwind label %18
 
 17:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %10, label %9, label %20, !llvm.loop !112
 
 18:                                               ; preds = %9
@@ -5791,14 +5785,14 @@ define hidden void @_ZN3ue218getUcpPahawh_HmongEv(ptr dead_on_unwind noalias wri
   %12 = or disjoint i64 %indvars.iv, 1
   %13 = getelementptr inbounds nuw [10 x i32], ptr @_ZN3ue2L20ucp_Pahawh_Hmong_defE, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
   store i32 %14, ptr %8, align 4
   %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %16 unwind label %18
 
 16:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %17 = icmp samesign ult i64 %indvars.iv, 8
   br i1 %17, label %9, label %20, !llvm.loop !113
@@ -5826,7 +5820,7 @@ define hidden void @_ZN3ue215getUcpPalmyreneEv(ptr dead_on_unwind noalias nonnul
   store ptr %3, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 67680, ptr %2, align 4
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 67711, ptr %8, align 4
@@ -5834,7 +5828,7 @@ define hidden void @_ZN3ue215getUcpPalmyreneEv(ptr dead_on_unwind noalias nonnul
           to label %_ZN3ue212CodePointSet8setRangeEjj.exit unwind label %10
 
 _ZN3ue212CodePointSet8setRangeEjj.exit:           ; preds = %1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 10:                                               ; preds = %1
@@ -5857,7 +5851,7 @@ define hidden void @_ZN3ue217getUcpPau_Cin_HauEv(ptr dead_on_unwind noalias nonn
   store ptr %3, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 72384, ptr %2, align 4
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 72440, ptr %8, align 4
@@ -5865,7 +5859,7 @@ define hidden void @_ZN3ue217getUcpPau_Cin_HauEv(ptr dead_on_unwind noalias nonn
           to label %_ZN3ue212CodePointSet8setRangeEjj.exit unwind label %10
 
 _ZN3ue212CodePointSet8setRangeEjj.exit:           ; preds = %1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 10:                                               ; preds = %1
@@ -5888,7 +5882,7 @@ define hidden void @_ZN3ue214getUcpPhags_PaEv(ptr dead_on_unwind noalias nonnull
   store ptr %3, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 43072, ptr %2, align 4
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 43127, ptr %8, align 4
@@ -5896,7 +5890,7 @@ define hidden void @_ZN3ue214getUcpPhags_PaEv(ptr dead_on_unwind noalias nonnull
           to label %_ZN3ue212CodePointSet8setRangeEjj.exit unwind label %10
 
 _ZN3ue212CodePointSet8setRangeEjj.exit:           ; preds = %1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 10:                                               ; preds = %1
@@ -5930,14 +5924,14 @@ define hidden void @_ZN3ue216getUcpPhoenicianEv(ptr dead_on_unwind noalias writa
   %13 = or disjoint i64 %indvars.iv, 1
   %14 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L18ucp_Phoenician_defE, i64 0, i64 %13
   %15 = load i32, ptr %14, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %12, ptr %2, align 4
   store i32 %15, ptr %8, align 4
   %16 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %17 unwind label %18
 
 17:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %10, label %9, label %20, !llvm.loop !114
 
 18:                                               ; preds = %9
@@ -5973,14 +5967,14 @@ define hidden void @_ZN3ue221getUcpPsalter_PahlaviEv(ptr dead_on_unwind noalias 
   %12 = or disjoint i64 %indvars.iv, 1
   %13 = getelementptr inbounds nuw [6 x i32], ptr @_ZN3ue2L23ucp_Psalter_Pahlavi_defE, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
   store i32 %14, ptr %8, align 4
   %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %16 unwind label %18
 
 16:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %17 = icmp samesign ult i64 %indvars.iv, 4
   br i1 %17, label %9, label %20, !llvm.loop !115
@@ -6019,14 +6013,14 @@ define hidden void @_ZN3ue212getUcpRejangEv(ptr dead_on_unwind noalias writable 
   %13 = or disjoint i64 %indvars.iv, 1
   %14 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L14ucp_Rejang_defE, i64 0, i64 %13
   %15 = load i32, ptr %14, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %12, ptr %2, align 4
   store i32 %15, ptr %8, align 4
   %16 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %17 unwind label %18
 
 17:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %10, label %9, label %20, !llvm.loop !116
 
 18:                                               ; preds = %9
@@ -6063,14 +6057,14 @@ define hidden void @_ZN3ue211getUcpRunicEv(ptr dead_on_unwind noalias writable s
   %13 = or disjoint i64 %indvars.iv, 1
   %14 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L13ucp_Runic_defE, i64 0, i64 %13
   %15 = load i32, ptr %14, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %12, ptr %2, align 4
   store i32 %15, ptr %8, align 4
   %16 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %17 unwind label %18
 
 17:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %10, label %9, label %20, !llvm.loop !117
 
 18:                                               ; preds = %9
@@ -6107,14 +6101,14 @@ define hidden void @_ZN3ue215getUcpSamaritanEv(ptr dead_on_unwind noalias writab
   %13 = or disjoint i64 %indvars.iv, 1
   %14 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L17ucp_Samaritan_defE, i64 0, i64 %13
   %15 = load i32, ptr %14, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %12, ptr %2, align 4
   store i32 %15, ptr %8, align 4
   %16 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %17 unwind label %18
 
 17:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %10, label %9, label %20, !llvm.loop !118
 
 18:                                               ; preds = %9
@@ -6151,14 +6145,14 @@ define hidden void @_ZN3ue216getUcpSaurashtraEv(ptr dead_on_unwind noalias writa
   %13 = or disjoint i64 %indvars.iv, 1
   %14 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L18ucp_Saurashtra_defE, i64 0, i64 %13
   %15 = load i32, ptr %14, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %12, ptr %2, align 4
   store i32 %15, ptr %8, align 4
   %16 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %17 unwind label %18
 
 17:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %10, label %9, label %20, !llvm.loop !119
 
 18:                                               ; preds = %9
@@ -6194,14 +6188,14 @@ define hidden void @_ZN3ue213getUcpSharadaEv(ptr dead_on_unwind noalias writable
   %12 = or disjoint i64 %indvars.iv, 1
   %13 = getelementptr inbounds nuw [6 x i32], ptr @_ZN3ue2L15ucp_Sharada_defE, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
   store i32 %14, ptr %8, align 4
   %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %16 unwind label %18
 
 16:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %17 = icmp samesign ult i64 %indvars.iv, 4
   br i1 %17, label %9, label %20, !llvm.loop !120
@@ -6229,7 +6223,7 @@ define hidden void @_ZN3ue213getUcpShavianEv(ptr dead_on_unwind noalias nonnull 
   store ptr %3, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 66640, ptr %2, align 4
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 66687, ptr %8, align 4
@@ -6237,7 +6231,7 @@ define hidden void @_ZN3ue213getUcpShavianEv(ptr dead_on_unwind noalias nonnull 
           to label %_ZN3ue212CodePointSet8setRangeEjj.exit unwind label %10
 
 _ZN3ue212CodePointSet8setRangeEjj.exit:           ; preds = %1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 10:                                               ; preds = %1
@@ -6271,14 +6265,14 @@ define hidden void @_ZN3ue213getUcpSiddhamEv(ptr dead_on_unwind noalias writable
   %13 = or disjoint i64 %indvars.iv, 1
   %14 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L15ucp_Siddham_defE, i64 0, i64 %13
   %15 = load i32, ptr %14, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %12, ptr %2, align 4
   store i32 %15, ptr %8, align 4
   %16 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %17 unwind label %18
 
 17:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %10, label %9, label %20, !llvm.loop !121
 
 18:                                               ; preds = %9
@@ -6314,14 +6308,14 @@ define hidden void @_ZN3ue213getUcpSinhalaEv(ptr dead_on_unwind noalias writable
   %12 = or disjoint i64 %indvars.iv, 1
   %13 = getelementptr inbounds nuw [26 x i32], ptr @_ZN3ue2L15ucp_Sinhala_defE, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
   store i32 %14, ptr %8, align 4
   %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %16 unwind label %18
 
 16:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %17 = icmp samesign ult i64 %indvars.iv, 24
   br i1 %17, label %9, label %20, !llvm.loop !122
@@ -6360,14 +6354,14 @@ define hidden void @_ZN3ue218getUcpSora_SompengEv(ptr dead_on_unwind noalias wri
   %13 = or disjoint i64 %indvars.iv, 1
   %14 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L20ucp_Sora_Sompeng_defE, i64 0, i64 %13
   %15 = load i32, ptr %14, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %12, ptr %2, align 4
   store i32 %15, ptr %8, align 4
   %16 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %17 unwind label %18
 
 17:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %10, label %9, label %20, !llvm.loop !123
 
 18:                                               ; preds = %9
@@ -6404,14 +6398,14 @@ define hidden void @_ZN3ue215getUcpSundaneseEv(ptr dead_on_unwind noalias writab
   %13 = or disjoint i64 %indvars.iv, 1
   %14 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L17ucp_Sundanese_defE, i64 0, i64 %13
   %15 = load i32, ptr %14, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %12, ptr %2, align 4
   store i32 %15, ptr %8, align 4
   %16 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %17 unwind label %18
 
 17:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %10, label %9, label %20, !llvm.loop !124
 
 18:                                               ; preds = %9
@@ -6437,7 +6431,7 @@ define hidden void @_ZN3ue218getUcpSyloti_NagriEv(ptr dead_on_unwind noalias non
   store ptr %3, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 43008, ptr %2, align 4
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 43051, ptr %8, align 4
@@ -6445,7 +6439,7 @@ define hidden void @_ZN3ue218getUcpSyloti_NagriEv(ptr dead_on_unwind noalias non
           to label %_ZN3ue212CodePointSet8setRangeEjj.exit unwind label %10
 
 _ZN3ue212CodePointSet8setRangeEjj.exit:           ; preds = %1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 10:                                               ; preds = %1
@@ -6478,14 +6472,14 @@ define hidden void @_ZN3ue212getUcpSyriacEv(ptr dead_on_unwind noalias writable 
   %12 = or disjoint i64 %indvars.iv, 1
   %13 = getelementptr inbounds nuw [6 x i32], ptr @_ZN3ue2L14ucp_Syriac_defE, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
   store i32 %14, ptr %8, align 4
   %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %16 unwind label %18
 
 16:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %17 = icmp samesign ult i64 %indvars.iv, 4
   br i1 %17, label %9, label %20, !llvm.loop !125
@@ -6524,14 +6518,14 @@ define hidden void @_ZN3ue213getUcpTagalogEv(ptr dead_on_unwind noalias writable
   %13 = or disjoint i64 %indvars.iv, 1
   %14 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L15ucp_Tagalog_defE, i64 0, i64 %13
   %15 = load i32, ptr %14, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %12, ptr %2, align 4
   store i32 %15, ptr %8, align 4
   %16 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %17 unwind label %18
 
 17:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %10, label %9, label %20, !llvm.loop !126
 
 18:                                               ; preds = %9
@@ -6567,14 +6561,14 @@ define hidden void @_ZN3ue214getUcpTagbanwaEv(ptr dead_on_unwind noalias writabl
   %12 = or disjoint i64 %indvars.iv, 1
   %13 = getelementptr inbounds nuw [6 x i32], ptr @_ZN3ue2L16ucp_Tagbanwa_defE, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
   store i32 %14, ptr %8, align 4
   %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %16 unwind label %18
 
 16:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %17 = icmp samesign ult i64 %indvars.iv, 4
   br i1 %17, label %9, label %20, !llvm.loop !127
@@ -6613,14 +6607,14 @@ define hidden void @_ZN3ue212getUcpTai_LeEv(ptr dead_on_unwind noalias writable 
   %13 = or disjoint i64 %indvars.iv, 1
   %14 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L14ucp_Tai_Le_defE, i64 0, i64 %13
   %15 = load i32, ptr %14, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %12, ptr %2, align 4
   store i32 %15, ptr %8, align 4
   %16 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %17 unwind label %18
 
 17:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %10, label %9, label %20, !llvm.loop !128
 
 18:                                               ; preds = %9
@@ -6656,14 +6650,14 @@ define hidden void @_ZN3ue214getUcpTai_ThamEv(ptr dead_on_unwind noalias writabl
   %12 = or disjoint i64 %indvars.iv, 1
   %13 = getelementptr inbounds nuw [10 x i32], ptr @_ZN3ue2L16ucp_Tai_Tham_defE, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
   store i32 %14, ptr %8, align 4
   %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %16 unwind label %18
 
 16:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %17 = icmp samesign ult i64 %indvars.iv, 8
   br i1 %17, label %9, label %20, !llvm.loop !129
@@ -6702,14 +6696,14 @@ define hidden void @_ZN3ue214getUcpTai_VietEv(ptr dead_on_unwind noalias writabl
   %13 = or disjoint i64 %indvars.iv, 1
   %14 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L16ucp_Tai_Viet_defE, i64 0, i64 %13
   %15 = load i32, ptr %14, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %12, ptr %2, align 4
   store i32 %15, ptr %8, align 4
   %16 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %17 unwind label %18
 
 17:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %10, label %9, label %20, !llvm.loop !130
 
 18:                                               ; preds = %9
@@ -6746,14 +6740,14 @@ define hidden void @_ZN3ue211getUcpTakriEv(ptr dead_on_unwind noalias writable s
   %13 = or disjoint i64 %indvars.iv, 1
   %14 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L13ucp_Takri_defE, i64 0, i64 %13
   %15 = load i32, ptr %14, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %12, ptr %2, align 4
   store i32 %15, ptr %8, align 4
   %16 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %17 unwind label %18
 
 17:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %10, label %9, label %20, !llvm.loop !131
 
 18:                                               ; preds = %9
@@ -6789,14 +6783,14 @@ define hidden void @_ZN3ue211getUcpTamilEv(ptr dead_on_unwind noalias writable s
   %12 = or disjoint i64 %indvars.iv, 1
   %13 = getelementptr inbounds nuw [32 x i32], ptr @_ZN3ue2L13ucp_Tamil_defE, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
   store i32 %14, ptr %8, align 4
   %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %16 unwind label %18
 
 16:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %17 = icmp samesign ult i64 %indvars.iv, 30
   br i1 %17, label %9, label %20, !llvm.loop !132
@@ -6834,14 +6828,14 @@ define hidden void @_ZN3ue212getUcpTeluguEv(ptr dead_on_unwind noalias writable 
   %12 = or disjoint i64 %indvars.iv, 1
   %13 = getelementptr inbounds nuw [26 x i32], ptr @_ZN3ue2L14ucp_Telugu_defE, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
   store i32 %14, ptr %8, align 4
   %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %16 unwind label %18
 
 16:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %17 = icmp samesign ult i64 %indvars.iv, 24
   br i1 %17, label %9, label %20, !llvm.loop !133
@@ -6869,7 +6863,7 @@ define hidden void @_ZN3ue212getUcpThaanaEv(ptr dead_on_unwind noalias nonnull w
   store ptr %3, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 1920, ptr %2, align 4
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 1969, ptr %8, align 4
@@ -6877,7 +6871,7 @@ define hidden void @_ZN3ue212getUcpThaanaEv(ptr dead_on_unwind noalias nonnull w
           to label %_ZN3ue212CodePointSet8setRangeEjj.exit unwind label %10
 
 _ZN3ue212CodePointSet8setRangeEjj.exit:           ; preds = %1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 10:                                               ; preds = %1
@@ -6911,14 +6905,14 @@ define hidden void @_ZN3ue210getUcpThaiEv(ptr dead_on_unwind noalias writable sr
   %13 = or disjoint i64 %indvars.iv, 1
   %14 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L12ucp_Thai_defE, i64 0, i64 %13
   %15 = load i32, ptr %14, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %12, ptr %2, align 4
   store i32 %15, ptr %8, align 4
   %16 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %17 unwind label %18
 
 17:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %10, label %9, label %20, !llvm.loop !134
 
 18:                                               ; preds = %9
@@ -6954,14 +6948,14 @@ define hidden void @_ZN3ue213getUcpTibetanEv(ptr dead_on_unwind noalias writable
   %12 = or disjoint i64 %indvars.iv, 1
   %13 = getelementptr inbounds nuw [14 x i32], ptr @_ZN3ue2L15ucp_Tibetan_defE, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
   store i32 %14, ptr %8, align 4
   %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %16 unwind label %18
 
 16:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %17 = icmp samesign ult i64 %indvars.iv, 12
   br i1 %17, label %9, label %20, !llvm.loop !135
@@ -6999,14 +6993,14 @@ define hidden void @_ZN3ue214getUcpTifinaghEv(ptr dead_on_unwind noalias writabl
   %12 = or disjoint i64 %indvars.iv, 1
   %13 = getelementptr inbounds nuw [6 x i32], ptr @_ZN3ue2L16ucp_Tifinagh_defE, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %11, ptr %2, align 4
   store i32 %14, ptr %8, align 4
   %15 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %16 unwind label %18
 
 16:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %17 = icmp samesign ult i64 %indvars.iv, 4
   br i1 %17, label %9, label %20, !llvm.loop !136
@@ -7045,14 +7039,14 @@ define hidden void @_ZN3ue213getUcpTirhutaEv(ptr dead_on_unwind noalias writable
   %13 = or disjoint i64 %indvars.iv, 1
   %14 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L15ucp_Tirhuta_defE, i64 0, i64 %13
   %15 = load i32, ptr %14, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %12, ptr %2, align 4
   store i32 %15, ptr %8, align 4
   %16 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %17 unwind label %18
 
 17:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %10, label %9, label %20, !llvm.loop !137
 
 18:                                               ; preds = %9
@@ -7089,14 +7083,14 @@ define hidden void @_ZN3ue214getUcpUgariticEv(ptr dead_on_unwind noalias writabl
   %13 = or disjoint i64 %indvars.iv, 1
   %14 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L16ucp_Ugaritic_defE, i64 0, i64 %13
   %15 = load i32, ptr %14, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %12, ptr %2, align 4
   store i32 %15, ptr %8, align 4
   %16 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %17 unwind label %18
 
 17:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %10, label %9, label %20, !llvm.loop !138
 
 18:                                               ; preds = %9
@@ -7122,7 +7116,7 @@ define hidden void @_ZN3ue29getUcpVaiEv(ptr dead_on_unwind noalias nonnull writa
   store ptr %3, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 42240, ptr %2, align 4
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 42539, ptr %8, align 4
@@ -7130,7 +7124,7 @@ define hidden void @_ZN3ue29getUcpVaiEv(ptr dead_on_unwind noalias nonnull writa
           to label %_ZN3ue212CodePointSet8setRangeEjj.exit unwind label %10
 
 _ZN3ue212CodePointSet8setRangeEjj.exit:           ; preds = %1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 10:                                               ; preds = %1
@@ -7164,14 +7158,14 @@ define hidden void @_ZN3ue217getUcpWarang_CitiEv(ptr dead_on_unwind noalias writ
   %13 = or disjoint i64 %indvars.iv, 1
   %14 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L19ucp_Warang_Citi_defE, i64 0, i64 %13
   %15 = load i32, ptr %14, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %12, ptr %2, align 4
   store i32 %15, ptr %8, align 4
   %16 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %17 unwind label %18
 
 17:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %10, label %9, label %20, !llvm.loop !139
 
 18:                                               ; preds = %9
@@ -7208,14 +7202,14 @@ define hidden void @_ZN3ue28getUcpYiEv(ptr dead_on_unwind noalias writable sret(
   %13 = or disjoint i64 %indvars.iv, 1
   %14 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L10ucp_Yi_defE, i64 0, i64 %13
   %15 = load i32, ptr %14, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %12, ptr %2, align 4
   store i32 %15, ptr %8, align 4
   %16 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
           to label %17 unwind label %18
 
 17:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %10, label %9, label %20, !llvm.loop !140
 
 18:                                               ; preds = %9
@@ -7254,7 +7248,7 @@ define hidden void @_ZN3ue213make_caselessEPNS_12CodePointSetE(ptr noundef %0) l
   br i1 %18, label %106, label %.critedge
 
 .critedge:                                        ; preds = %11, %15
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 0, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -7271,7 +7265,7 @@ define hidden void @_ZN3ue213make_caselessEPNS_12CodePointSetE(ptr noundef %0) l
   br i1 %.not.i.i.i.i.i, label %.critedge5.thread, label %26
 
 26:                                               ; preds = %.critedge
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %6, ptr %5, align 8
   %27 = call noundef ptr @_ZNSt8_Rb_treeIN5boost3icl15closed_intervalIjSt4lessEES4_St9_IdentityIS4_ENS1_19exclusive_less_thanIS4_EESaIS4_EE7_M_copyILb0ENSA_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS4_ESF_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull %25, ptr noundef nonnull %19, ptr noundef nonnull align 8 dereferenceable(8) %5)
   br label %.noexc.i.i.i.i.i
@@ -7299,7 +7293,7 @@ _ZNSt8_Rb_treeIN5boost3icl15closed_intervalIjSt4lessEES4_St9_IdentityIS4_ENS1_19
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %35 = load i64, ptr %34, align 8
   store i64 %35, ptr %23, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store ptr %27, ptr %20, align 8
   %.not6978 = icmp eq ptr %.0.i.i.i.i.i.i.i.i.i, %19
   br i1 %.not6978, label %.critedge5.thread, label %.lr.ph81
@@ -7352,7 +7346,7 @@ _ZSt11lower_boundIPKN3ue27unicaseES1_ET_S4_S4_RKT0_.exit: ; preds = %_ZSt7advanc
   %57 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %6) #14
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %57
 
 .preheader:                                       ; preds = %_ZSt11lower_boundIPKN3ue27unicaseES1_ET_S4_S4_RKT0_.exit, %98
@@ -7364,7 +7358,7 @@ _ZSt11lower_boundIPKN3ue27unicaseES1_ET_S4_S4_RKT0_.exit: ; preds = %_ZSt7advanc
 60:                                               ; preds = %.preheader
   %61 = getelementptr inbounds nuw i8, ptr %.374, i64 4
   %62 = load i32, ptr %61, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.sroa.2.0.insert.ext.i.i.i.i.i.i = zext i32 %62 to i64
   %.sroa.0.0.insert.insert.i.i.i.i.i.i = mul nuw i64 %.sroa.2.0.insert.ext.i.i.i.i.i.i, 4294967297
   store i64 %.sroa.0.0.insert.insert.i.i.i.i.i.i, ptr %4, align 8
@@ -7433,13 +7427,13 @@ select.unfold.i.i.i:                              ; preds = %.thread.i, %71, %._
   %88 = load i64, ptr %36, align 8
   %89 = add i64 %88, 1
   store i64 %89, ptr %36, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %86, ptr %3, align 8
   %90 = invoke ptr @_ZN5boost3icl9segmental15join_neighboursINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS4_EESaEEEENT_8iteratorERS8_RS9_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %.noexc55 unwind label %56
 
 .noexc55:                                         ; preds = %.noexc
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %98
 
 91:                                               ; preds = %71
@@ -7464,7 +7458,7 @@ select.unfold.i.i.i:                              ; preds = %.thread.i, %71, %._
 _ZNSt3setIN5boost3icl15closed_intervalIjSt4lessEENS1_19exclusive_less_thanIS4_EESaIS4_EE11upper_boundERKS4_.exit.i: ; preds = %.lr.ph.i.i.i11.i, %91
   %.08.lcssa.i.i.i.i = phi ptr [ %9, %91 ], [ %.19.i.i.i.i, %.lr.ph.i.i.i11.i ]
   %95 = call noundef ptr @_ZSt18_Rb_tree_decrementPKSt18_Rb_tree_node_base(ptr noundef %.08.lcssa.i.i.i.i) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %96 = invoke ptr @_ZN5boost3icl9segmental10join_underINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS4_EESaEEEENT_8iteratorERS8_RKNS8_10value_typeES9_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %4, ptr %95)
           to label %.noexc56 unwind label %56
 
@@ -7474,11 +7468,11 @@ _ZNSt3setIN5boost3icl15closed_intervalIjSt4lessEENS1_19exclusive_less_thanIS4_EE
           to label %.noexc57 unwind label %56
 
 .noexc57:                                         ; preds = %.noexc56
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %98
 
 98:                                               ; preds = %60, %.noexc55, %.noexc57
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %99 = getelementptr inbounds nuw i8, ptr %.374, i64 8
   %.not = icmp eq ptr %99, getelementptr inbounds nuw (i8, ptr @_ZN3ue2L16ucp_caseless_defE, i64 18032)
   br i1 %.not, label %.critedge5, label %.preheader, !llvm.loop !146
@@ -7508,7 +7502,7 @@ _ZNSt3setIN5boost3icl15closed_intervalIjSt4lessEENS1_19exclusive_less_thanIS4_EE
   unreachable
 
 _ZN3ue212CodePointSetD2Ev.exit:                   ; preds = %.critedge5.thread
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %106
 
 106:                                              ; preds = %15, %1, %_ZN3ue212CodePointSetD2Ev.exit
@@ -7516,7 +7510,7 @@ _ZN3ue212CodePointSetD2Ev.exit:                   ; preds = %.critedge5.thread
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden noundef zeroext i1 @_ZN3ue29flip_caseEPj(ptr noundef captures(none) %0) local_unnamed_addr #3 {
+define hidden noundef zeroext i1 @_ZN3ue29flip_caseEPj(ptr noundef captures(none) %0) local_unnamed_addr #2 {
   %2 = load i32, ptr %0, align 4
   br label %_ZSt7advanceIPKN3ue27unicaseElEvRT_T0_.exit.i.i
 
@@ -7556,7 +7550,7 @@ _ZSt11lower_boundIPKN3ue27unicaseES1_ET_S4_S4_RKT0_.exit: ; preds = %_ZSt7advanc
 }
 
 ; Function Attrs: noinline noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #4 comdat {
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #3 comdat {
   %2 = tail call ptr @__cxa_begin_catch(ptr %0) #14
   tail call void @_ZSt9terminatev() #15
   unreachable
@@ -7565,10 +7559,10 @@ define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_un
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #5
+declare void @_ZSt9terminatev() local_unnamed_addr #4
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr hidden ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %1) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.std::_Rb_tree_const_iterator", align 8
   %4 = alloca %"struct.std::_Rb_tree_const_iterator", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -7644,10 +7638,10 @@ select.unfold.i.i:                                ; preds = %.thread, %20, %._cr
   %39 = load i64, ptr %38, align 8
   %40 = add i64 %39, 1
   store i64 %40, ptr %38, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %35, ptr %4, align 8
   %41 = call ptr @_ZN5boost3icl9segmental15join_neighboursINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS4_EESaEEEENT_8iteratorERS8_RS9_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %49
 
 42:                                               ; preds = %20
@@ -7672,11 +7666,11 @@ select.unfold.i.i:                                ; preds = %.thread, %20, %._cr
 _ZNSt3setIN5boost3icl15closed_intervalIjSt4lessEENS1_19exclusive_less_thanIS4_EESaIS4_EE11upper_boundERKS4_.exit: ; preds = %.lr.ph.i.i.i11, %42
   %.08.lcssa.i.i.i = phi ptr [ %13, %42 ], [ %.19.i.i.i, %.lr.ph.i.i.i11 ]
   %46 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPKSt18_Rb_tree_node_base(ptr noundef %.08.lcssa.i.i.i) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %47 = tail call ptr @_ZN5boost3icl9segmental10join_underINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS4_EESaEEEENT_8iteratorERS8_RKNS8_10value_typeES9_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr %46)
   store ptr %47, ptr %3, align 8
   %48 = call ptr @_ZN5boost3icl9segmental15join_neighboursINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS4_EESaEEEENT_8iteratorERS8_RS9_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %49
 
 49:                                               ; preds = %33, %_ZNSt3setIN5boost3icl15closed_intervalIjSt4lessEENS1_19exclusive_less_thanIS4_EESaIS4_EE11upper_boundERKS4_.exit, %9
@@ -7685,20 +7679,20 @@ _ZNSt3setIN5boost3icl15closed_intervalIjSt4lessEENS1_19exclusive_less_thanIS4_EE
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #7
+declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind
-declare void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #8
+declare void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #7
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #9
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #8
 
 declare void @__cxa_rethrow() local_unnamed_addr
 
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #10
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden ptr @_ZN5boost3icl9segmental15join_neighboursINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS4_EESaEEEENT_8iteratorERS8_RS9_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
@@ -7823,13 +7817,13 @@ _ZN5boost3icl9segmental10join_rightINS0_12interval_setIjSt4lessNS0_15closed_inte
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_decrementPKSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #7
+declare noundef ptr @_ZSt18_Rb_tree_decrementPKSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind
-declare noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #8
+declare noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #7
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr hidden ptr @_ZN5boost3icl9segmental10join_underINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS4_EESaEEEENT_8iteratorERS8_RKNS8_10value_typeES9_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr %2) local_unnamed_addr #6 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden ptr @_ZN5boost3icl9segmental10join_underINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS4_EESaEEEENT_8iteratorERS8_RKNS8_10value_typeES9_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr %2) local_unnamed_addr #5 comdat personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -8063,10 +8057,10 @@ _ZN5boost3icl4hullINS0_15closed_intervalIjSt4lessEEEENS_9enable_ifINS0_17has_sta
 }
 
 ; Function Attrs: nofree nounwind
-declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #11
+declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
-declare void @__cxa_guard_release(ptr) local_unnamed_addr #11
+declare void @__cxa_guard_release(ptr) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt8_Rb_treeIN5boost3icl15closed_intervalIjSt4lessEES4_St9_IdentityIS4_ENS1_19exclusive_less_thanIS4_EESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -8089,7 +8083,7 @@ define linkonce_odr hidden void @_ZNSt8_Rb_treeIN5boost3icl15closed_intervalIjSt
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #7
+declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZNSt8_Rb_treeIN5boost3icl15closed_intervalIjSt4lessEES4_St9_IdentityIS4_ENS1_19exclusive_less_thanIS4_EESaIS4_EE7_M_copyILb0ENSA_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS4_ESF_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %3) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -8207,6 +8201,12 @@ define linkonce_odr hidden noundef ptr @_ZNSt8_Rb_treeIN5boost3icl15closed_inter
   unreachable
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #12
 
@@ -8217,17 +8217,17 @@ declare i32 @llvm.umax.i32(i32, i32) #12
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { inlinehint mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { noinline noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { cold nofree noreturn }
-attributes #6 = { inlinehint mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nofree nounwind }
+attributes #1 = { inlinehint mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { noinline noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { cold nofree noreturn }
+attributes #5 = { inlinehint mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nofree nounwind }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #14 = { nounwind }

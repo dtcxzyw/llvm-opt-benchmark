@@ -98,29 +98,23 @@ define hidden void @_ZN4lean28lean_uv_udp_socket_finalizerEPv(ptr noundef %0) #0
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare void @_ZN4lean26notify_assertion_violationEPKciS1_(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @_ZN4lean26notify_assertion_violationEPKciS1_(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: nounwind
-declare void @_ZN4lean9throwableD2Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #3
+declare void @_ZN4lean9throwableD2Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #2
 
 ; Function Attrs: cold noreturn
-declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #4
+declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #3
 
-declare void @_ZN4lean15event_loop_lockEPNS_12event_loop_tE(ptr noundef) local_unnamed_addr #2
+declare void @_ZN4lean15event_loop_lockEPNS_12event_loop_tE(ptr noundef) local_unnamed_addr #1
 
-declare void @uv_close(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @uv_close(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare void @_ZN4lean17event_loop_unlockEPNS_12event_loop_tE(ptr noundef) local_unnamed_addr #2
+declare void @_ZN4lean17event_loop_unlockEPNS_12event_loop_tE(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN4lean27initialize_libuv_udp_socketEv() local_unnamed_addr #0 {
@@ -129,7 +123,7 @@ define hidden void @_ZN4lean27initialize_libuv_udp_socketEv() local_unnamed_addr
   ret void
 }
 
-declare ptr @lean_register_external_class(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @lean_register_external_class(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define noalias noundef nonnull ptr @lean_uv_udp_new(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
@@ -203,23 +197,23 @@ _ZL23lean_io_result_mk_errorP11lean_object.exit:  ; preds = %_ZN4leanL22lean_uv_
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 
-declare i32 @uv_udp_init(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @uv_udp_init(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
-declare ptr @lean_decode_uv_error(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @lean_decode_uv_error(i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @lean_mark_mt(ptr noundef) local_unnamed_addr #2
+declare void @lean_mark_mt(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define noalias noundef nonnull ptr @lean_uv_udp_bind(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca %struct.sockaddr_storage, align 8
   %5 = getelementptr i8, ptr %0, i64 16
   %.val = load ptr, ptr %5, align 8, !tbaa !40
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN4lean39lean_socket_address_to_sockaddr_storageEP11lean_objectP16sockaddr_storage(ptr noundef %1, ptr noundef nonnull %4)
   call void @_ZN4lean15event_loop_lockEPNS_12event_loop_tE(ptr noundef nonnull @_ZN4lean9global_evE)
   %6 = load ptr, ptr %.val, align 8, !tbaa !20
@@ -260,20 +254,20 @@ _ZL23lean_io_result_mk_errorP11lean_object.exit:  ; preds = %14, %9
   store ptr %.sink, ptr %19, align 8, !tbaa !30
   %20 = getelementptr inbounds nuw i8, ptr %.sink12, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %20, align 8, !tbaa !30
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.sink12
 }
 
-declare void @_ZN4lean39lean_socket_address_to_sockaddr_storageEP11lean_objectP16sockaddr_storage(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @_ZN4lean39lean_socket_address_to_sockaddr_storageEP11lean_objectP16sockaddr_storage(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @uv_udp_bind(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @uv_udp_bind(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define noalias noundef nonnull ptr @lean_uv_udp_connect(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca %struct.sockaddr_storage, align 8
   %5 = getelementptr i8, ptr %0, i64 16
   %.val = load ptr, ptr %5, align 8, !tbaa !40
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN4lean39lean_socket_address_to_sockaddr_storageEP11lean_objectP16sockaddr_storage(ptr noundef %1, ptr noundef nonnull %4)
   call void @_ZN4lean15event_loop_lockEPNS_12event_loop_tE(ptr noundef nonnull @_ZN4lean9global_evE)
   %6 = load ptr, ptr %.val, align 8, !tbaa !20
@@ -314,11 +308,11 @@ _ZL23lean_io_result_mk_errorP11lean_object.exit:  ; preds = %14, %9
   store ptr %.sink, ptr %19, align 8, !tbaa !30
   %20 = getelementptr inbounds nuw i8, ptr %.sink12, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %20, align 8, !tbaa !30
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.sink12
 }
 
-declare i32 @uv_udp_connect(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @uv_udp_connect(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define noalias noundef nonnull ptr @lean_uv_udp_send(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 {
@@ -328,7 +322,7 @@ define noalias noundef nonnull ptr @lean_uv_udp_send(ptr noundef %0, ptr noundef
   %7 = getelementptr i8, ptr %1, i64 8
   %.val46 = load i64, ptr %7, align 8, !tbaa !41
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %9 = trunc i64 %.val46 to i32
   %10 = tail call { ptr, i64 } @uv_buf_init(ptr noundef nonnull %8, i32 noundef %9)
   %11 = extractvalue { ptr, i64 } %10, 0
@@ -559,15 +553,15 @@ _ZL23lean_io_result_mk_errorP11lean_object.exit:  ; preds = %89, %_ZL8lean_decP1
   store ptr %.sink, ptr %94, align 8, !tbaa !30
   %95 = getelementptr inbounds nuw i8, ptr %.sink65, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %95, align 8, !tbaa !30
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.sink65
 }
 
-declare { ptr, i64 } @uv_buf_init(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare { ptr, i64 } @uv_buf_init(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare noundef ptr @_ZN4lean16lean_promise_newEv() local_unnamed_addr #2
+declare noundef ptr @_ZN4lean16lean_promise_newEv() local_unnamed_addr #1
 
-declare i32 @uv_udp_send(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @uv_udp_send(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define noalias noundef nonnull ptr @lean_uv_udp_recv(ptr noundef %0, i64 noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 {
@@ -785,7 +779,7 @@ _ZL23lean_io_result_mk_errorP11lean_object.exit:  ; preds = %77, %_ZL8lean_decP1
   ret ptr %.sink48
 }
 
-declare i32 @uv_udp_recv_start(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @uv_udp_recv_start(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define noalias noundef nonnull ptr @lean_uv_udp_wait_readable(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
@@ -1095,7 +1089,7 @@ _ZL20lean_io_result_mk_okP11lean_object.exit:     ; preds = %_ZL8lean_decP11lean
   ret ptr %.sink26
 }
 
-declare i32 @uv_udp_recv_stop(ptr noundef) local_unnamed_addr #2
+declare i32 @uv_udp_recv_stop(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define noalias noundef nonnull ptr @lean_uv_udp_getpeername(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
@@ -1103,8 +1097,8 @@ define noalias noundef nonnull ptr @lean_uv_udp_getpeername(ptr noundef readonly
   %4 = alloca i32, align 4
   %5 = getelementptr i8, ptr %0, i64 16
   %.val = load ptr, ptr %5, align 8, !tbaa !40
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #15
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 128, ptr %4, align 4, !tbaa !53
   tail call void @_ZN4lean15event_loop_lockEPNS_12event_loop_tE(ptr noundef nonnull @_ZN4lean9global_evE)
   %6 = load ptr, ptr %.val, align 8, !tbaa !20
@@ -1146,14 +1140,14 @@ _ZL23lean_io_result_mk_errorP11lean_object.exit:  ; preds = %14, %9
   store ptr %.sink, ptr %20, align 8, !tbaa !30
   %21 = getelementptr inbounds nuw i8, ptr %.sink12, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %21, align 8, !tbaa !30
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #15
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.sink12
 }
 
-declare i32 @uv_udp_getpeername(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @uv_udp_getpeername(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare noundef ptr @_ZN4lean30lean_sockaddr_to_socketaddressEPK8sockaddr(ptr noundef) local_unnamed_addr #2
+declare noundef ptr @_ZN4lean30lean_sockaddr_to_socketaddressEPK8sockaddr(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define noalias noundef nonnull ptr @lean_uv_udp_getsockname(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -1161,8 +1155,8 @@ define noalias noundef nonnull ptr @lean_uv_udp_getsockname(ptr noundef readonly
   %3 = alloca i32, align 4
   %4 = getelementptr i8, ptr %0, i64 16
   %.val = load ptr, ptr %4, align 8, !tbaa !40
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2) #15
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 128, ptr %3, align 4, !tbaa !53
   tail call void @_ZN4lean15event_loop_lockEPNS_12event_loop_tE(ptr noundef nonnull @_ZN4lean9global_evE)
   %5 = load ptr, ptr %.val, align 8, !tbaa !20
@@ -1204,12 +1198,12 @@ _ZL23lean_io_result_mk_errorP11lean_object.exit:  ; preds = %13, %8
   store ptr %.sink, ptr %19, align 8, !tbaa !30
   %20 = getelementptr inbounds nuw i8, ptr %.sink12, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %20, align 8, !tbaa !30
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #15
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.sink12
 }
 
-declare i32 @uv_udp_getsockname(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @uv_udp_getsockname(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define noalias noundef nonnull ptr @lean_uv_udp_set_broadcast(ptr noundef readonly captures(none) %0, i8 noundef zeroext %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 {
@@ -1258,7 +1252,7 @@ _ZL23lean_io_result_mk_errorP11lean_object.exit:  ; preds = %14, %9
   ret ptr %.sink12
 }
 
-declare i32 @uv_udp_set_broadcast(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @uv_udp_set_broadcast(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define noalias noundef nonnull ptr @lean_uv_udp_set_multicast_loop(ptr noundef readonly captures(none) %0, i8 noundef zeroext %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 {
@@ -1307,7 +1301,7 @@ _ZL23lean_io_result_mk_errorP11lean_object.exit:  ; preds = %14, %9
   ret ptr %.sink12
 }
 
-declare i32 @uv_udp_set_multicast_loop(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @uv_udp_set_multicast_loop(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define noalias noundef nonnull ptr @lean_uv_udp_set_multicast_ttl(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 {
@@ -1355,7 +1349,7 @@ _ZL23lean_io_result_mk_errorP11lean_object.exit:  ; preds = %13, %8
   ret ptr %.sink12
 }
 
-declare i32 @uv_udp_set_multicast_ttl(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @uv_udp_set_multicast_ttl(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define noalias noundef nonnull ptr @lean_uv_udp_set_membership(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext %3, ptr noundef readnone captures(none) %4) local_unnamed_addr #0 {
@@ -1363,12 +1357,12 @@ define noalias noundef nonnull ptr @lean_uv_udp_set_membership(ptr noundef reado
   %7 = alloca [16 x i8], align 16
   %8 = getelementptr i8, ptr %0, i64 16
   %.val = load ptr, ptr %8, align 8, !tbaa !40
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN4lean17lean_ip_addr_ntopEP11lean_objectPcm(ptr noundef %1, ptr noundef nonnull %6, i64 noundef 16)
   %9 = ptrtoint ptr %2 to i64
   %10 = and i64 %9, 1
   %.not = icmp eq i64 %10, 0
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br i1 %.not, label %11, label %13
 
 11:                                               ; preds = %5
@@ -1419,21 +1413,21 @@ _ZL23lean_io_result_mk_errorP11lean_object.exit:  ; preds = %24, %19
   store ptr %.sink, ptr %29, align 8, !tbaa !30
   %30 = getelementptr inbounds nuw i8, ptr %.sink19, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %30, align 8, !tbaa !30
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.sink19
 }
 
-declare void @_ZN4lean17lean_ip_addr_ntopEP11lean_objectPcm(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @_ZN4lean17lean_ip_addr_ntopEP11lean_objectPcm(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @uv_udp_set_membership(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @uv_udp_set_membership(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define noalias noundef nonnull ptr @lean_uv_udp_set_multicast_interface(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca [16 x i8], align 16
   %5 = getelementptr i8, ptr %0, i64 16
   %.val = load ptr, ptr %5, align 8, !tbaa !40
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN4lean17lean_ip_addr_ntopEP11lean_objectPcm(ptr noundef %1, ptr noundef nonnull %4, i64 noundef 16)
   call void @_ZN4lean15event_loop_lockEPNS_12event_loop_tE(ptr noundef nonnull @_ZN4lean9global_evE)
   %6 = load ptr, ptr %.val, align 8, !tbaa !20
@@ -1474,11 +1468,11 @@ _ZL23lean_io_result_mk_errorP11lean_object.exit:  ; preds = %14, %9
   store ptr %.sink, ptr %19, align 8, !tbaa !30
   %20 = getelementptr inbounds nuw i8, ptr %.sink12, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %20, align 8, !tbaa !30
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.sink12
 }
 
-declare i32 @uv_udp_set_multicast_interface(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @uv_udp_set_multicast_interface(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define noalias noundef nonnull ptr @lean_uv_udp_set_ttl(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 {
@@ -1526,25 +1520,25 @@ _ZL23lean_io_result_mk_errorP11lean_object.exit:  ; preds = %13, %8
   ret ptr %.sink12
 }
 
-declare i32 @uv_udp_set_ttl(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @uv_udp_set_ttl(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN4lean19unreachable_reachedD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #7 comdat align 2 {
+define linkonce_odr hidden void @_ZN4lean19unreachable_reachedD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #6 comdat align 2 {
   tail call void @_ZN4lean9throwableD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #15
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 40) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZNK4lean19unreachable_reached4whatEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #7 comdat align 2 {
+define linkonce_odr hidden noundef ptr @_ZNK4lean19unreachable_reached4whatEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #6 comdat align 2 {
   ret ptr @.str.3
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #8
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: inlinehint mustprogress nounwind willreturn uwtable
-define internal void @"_ZZN4lean28lean_uv_udp_socket_finalizerEPvEN3$_08__invokeEP11uv_handle_s"(ptr noundef readonly captures(none) %0) #9 align 2 {
+define internal void @"_ZZN4lean28lean_uv_udp_socket_finalizerEPvEN3$_08__invokeEP11uv_handle_s"(ptr noundef readonly captures(none) %0) #8 align 2 {
   %.val = load ptr, ptr %0, align 8, !tbaa !54
   %2 = load ptr, ptr %.val, align 8, !tbaa !20
   tail call void @free(ptr noundef %2) #15
@@ -1553,7 +1547,7 @@ define internal void @"_ZZN4lean28lean_uv_udp_socket_finalizerEPvEN3$_08__invoke
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal void @"_ZZN4lean27initialize_libuv_udp_socketEvEN3$_08__invokeEPvP11lean_object"(ptr noundef readonly captures(none) %0, ptr noundef %1) #10 align 2 {
+define internal void @"_ZZN4lean27initialize_libuv_udp_socketEvEN3$_08__invokeEPvP11lean_object"(ptr noundef readonly captures(none) %0, ptr noundef %1) #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   %.not.i = icmp eq ptr %4, null
@@ -1629,20 +1623,20 @@ _ZL8lean_incP11lean_object.exit.i:                ; preds = %27, %26, %24, %19
   ret void
 }
 
-declare ptr @lean_apply_1(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @lean_apply_1(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @lean_inc_heartbeat() local_unnamed_addr #2
+declare void @lean_inc_heartbeat() local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare noalias ptr @mi_malloc_small(i64 noundef) local_unnamed_addr #3
+declare noalias ptr @mi_malloc_small(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: noreturn
-declare void @lean_internal_panic_out_of_memory() local_unnamed_addr #11
+declare void @lean_internal_panic_out_of_memory() local_unnamed_addr #10
 
-declare void @lean_inc_ref_cold(ptr noundef) local_unnamed_addr #2
+declare void @lean_inc_ref_cold(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal void @"_ZZ16lean_uv_udp_sendEN3$_08__invokeEP13uv_udp_send_si"(ptr noundef captures(none) %0, i32 noundef %1) #10 align 2 {
+define internal void @"_ZZ16lean_uv_udp_sendEN3$_08__invokeEP13uv_udp_send_si"(ptr noundef captures(none) %0, i32 noundef %1) #9 align 2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !42
   %4 = load ptr, ptr %3, align 8, !tbaa !48
   tail call void @_ZN4lean30lean_promise_resolve_with_codeEiP11lean_object(i32 noundef %1, ptr noundef %4)
@@ -1729,14 +1723,14 @@ _ZL8lean_decP11lean_object.exit7.i:               ; preds = %25, %24, %22, %_ZL8
   ret void
 }
 
-declare void @_ZN4lean30lean_promise_resolve_with_codeEiP11lean_object(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @_ZN4lean30lean_promise_resolve_with_codeEiP11lean_object(i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @lean_dec_ref_cold(ptr noundef) local_unnamed_addr #2
+declare void @lean_dec_ref_cold(ptr noundef) local_unnamed_addr #1
 
-declare ptr @lean_alloc_object(i64 noundef) local_unnamed_addr #2
+declare ptr @lean_alloc_object(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @"_ZZ16lean_uv_udp_recvEN3$_08__invokeEP11uv_handle_smP8uv_buf_t"(ptr noundef readonly captures(none) %0, i64 %1, ptr noundef writeonly captures(none) initializes((0, 16)) %2) #12 align 2 {
+define internal void @"_ZZ16lean_uv_udp_recvEN3$_08__invokeEP11uv_handle_smP8uv_buf_t"(ptr noundef readonly captures(none) %0, i64 %1, ptr noundef writeonly captures(none) initializes((0, 16)) %2) #11 align 2 {
   %.val = load ptr, ptr %0, align 8, !tbaa !54
   %4 = getelementptr i8, ptr %.val, i64 16
   %.val.val = load ptr, ptr %4, align 8, !tbaa !40
@@ -1752,7 +1746,7 @@ define internal void @"_ZZ16lean_uv_udp_recvEN3$_08__invokeEP11uv_handle_smP8uv_
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal void @"_ZZ16lean_uv_udp_recvEN3$_18__invokeEP8uv_udp_slPK8uv_buf_tPK8sockaddrj"(ptr noundef %0, i64 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, i32 %4) #10 align 2 {
+define internal void @"_ZZ16lean_uv_udp_recvEN3$_18__invokeEP8uv_udp_slPK8uv_buf_tPK8sockaddrj"(ptr noundef %0, i64 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, i32 %4) #9 align 2 {
   %6 = tail call i32 @uv_udp_recv_stop(ptr noundef %0)
   %7 = load ptr, ptr %0, align 8, !tbaa !21
   %8 = getelementptr i8, ptr %7, i64 16
@@ -1916,16 +1910,16 @@ _ZL8lean_decP11lean_object.exit24.i:              ; preds = %58, %57, %55, %_ZN4
   ret void
 }
 
-declare void @_ZN4lean20lean_promise_resolveEP11lean_objectS1_(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @_ZN4lean20lean_promise_resolveEP11lean_objectS1_(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @"_ZZ25lean_uv_udp_wait_readableEN3$_08__invokeEP11uv_handle_smP8uv_buf_t"(ptr readnone captures(none) %0, i64 %1, ptr noundef writeonly captures(none) initializes((0, 16)) %2) #13 align 2 {
+define internal void @"_ZZ25lean_uv_udp_wait_readableEN3$_08__invokeEP11uv_handle_smP8uv_buf_t"(ptr readnone captures(none) %0, i64 %1, ptr noundef writeonly captures(none) initializes((0, 16)) %2) #12 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal void @"_ZZ25lean_uv_udp_wait_readableEN3$_18__invokeEP8uv_udp_slPK8uv_buf_tPK8sockaddrj"(ptr noundef %0, i64 noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, i32 %4) #10 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZZ25lean_uv_udp_wait_readableEN3$_18__invokeEP8uv_udp_slPK8uv_buf_tPK8sockaddrj"(ptr noundef %0, i64 noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, i32 %4) #9 align 2 personality ptr @__gxx_personality_v0 {
   %6 = tail call i32 @uv_udp_recv_stop(ptr noundef %0)
   %7 = load ptr, ptr %0, align 8, !tbaa !21
   %8 = getelementptr i8, ptr %7, i64 16
@@ -2037,23 +2031,29 @@ _ZL8lean_decP11lean_object.exit12.i:              ; preds = %39, %38, %36, %_ZN4
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { cold noreturn }
-attributes #5 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { inlinehint mustprogress nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { cold noreturn }
+attributes #4 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { inlinehint mustprogress nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #14 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #15 = { nounwind }
 attributes #16 = { noreturn }

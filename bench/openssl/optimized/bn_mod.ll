@@ -101,7 +101,7 @@ define range(i32 0, 2) i32 @bn_mod_add_fixed_top(ptr noundef %0, ptr noundef rea
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load i32, ptr %6, align 8, !tbaa !11
   %8 = sext i32 %7 to i64
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %9 = tail call ptr @bn_wexpand(ptr noundef %0, i32 noundef %7) #4
   %10 = icmp eq ptr %9, null
   br i1 %10, label %77, label %11
@@ -219,12 +219,9 @@ define range(i32 0, 2) i32 @bn_mod_add_fixed_top(ptr noundef %0, ptr noundef rea
 
 77:                                               ; preds = %._crit_edge86, %76, %13, %4
   %.0 = phi i32 [ 0, %4 ], [ 0, %13 ], [ 1, %76 ], [ 1, %._crit_edge86 ]
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 declare ptr @bn_wexpand(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -233,9 +230,6 @@ declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_
 declare i64 @bn_sub_words(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @BN_mod_add_quick(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
@@ -744,6 +738,12 @@ declare ptr @BN_copy(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @BN_num_bits(ptr noundef) local_unnamed_addr #1
 
 declare i32 @BN_lshift(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #3

@@ -19,7 +19,7 @@ define hidden void @"_ZN4core3ptr39drop_in_place$LT$tiny_http..Message$GT$17h997
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2), !noalias !15
+  call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !15
   %7 = load ptr, ptr %6, align 8, !alias.scope !15, !nonnull !5, !noundef !5
   call void @_ZN3std2io5error14repr_bitpacked11decode_repr17h45949193a474efe6E.llvm.15559585470061597875(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %2, ptr noundef nonnull %7), !noalias !15
   %8 = load i8, ptr %2, align 8, !range !16, !alias.scope !17, !noalias !15, !noundef !5
@@ -32,7 +32,7 @@ define hidden void @"_ZN4core3ptr39drop_in_place$LT$tiny_http..Message$GT$17h997
   br label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17he413bbf8d45410daE.exit"
 
 "_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17he413bbf8d45410daE.exit": ; preds = %5, %9
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2), !noalias !15
+  call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !15
   br label %12
 
 11:                                               ; preds = %1
@@ -60,7 +60,7 @@ define hidden void @"_ZN4core3ptr87drop_in_place$LT$tiny_http..util..messages_qu
   tail call void @llvm.experimental.noalias.scope.decl(metadata !24)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !27)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !30)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2), !noalias !33
+  call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !33
   %8 = load ptr, ptr %7, align 8, !alias.scope !33, !nonnull !5, !noundef !5
   call void @_ZN3std2io5error14repr_bitpacked11decode_repr17h45949193a474efe6E.llvm.15559585470061597875(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %2, ptr noundef nonnull %8), !noalias !33
   %9 = load i8, ptr %2, align 8, !range !16, !alias.scope !34, !noalias !33, !noundef !5
@@ -73,7 +73,7 @@ define hidden void @"_ZN4core3ptr87drop_in_place$LT$tiny_http..util..messages_qu
   br label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17he413bbf8d45410daE.exit.i"
 
 "_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17he413bbf8d45410daE.exit.i": ; preds = %10, %6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2), !noalias !33
+  call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !33
   br label %"_ZN4core3ptr39drop_in_place$LT$tiny_http..Message$GT$17h9979d690c0d86532E.llvm.16020180960906187394.exit"
 
 12:                                               ; preds = %4
@@ -15540,7 +15540,7 @@ _ZN5alloc7raw_vec11finish_grow17hc9e2b64fbcd50f5aE.exit.i: ; preds = %19, %15
 define hidden noundef ptr @_ZN9tiny_http7request7Request12respond_impl17h5d5cc240795d9190E(ptr noalias noundef align 8 dereferenceable(176) %0, ptr noalias noundef align 8 captures(none) dereferenceable(80) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { { i64, i64 }, { i64, i64 }, { { i64, ptr }, i64 }, { ptr, i64 }, i16, [3 x i16] }, align 8
   %4 = alloca { ptr, ptr }, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = invoke { ptr, ptr } @_ZN9tiny_http7request7Request19extract_writer_impl17hee62cc6c29603056E(ptr noalias noundef nonnull align 8 dereferenceable(176) %0)
           to label %8 unwind label %72
 
@@ -15561,7 +15561,7 @@ define hidden noundef ptr @_ZN9tiny_http7request7Request12respond_impl17h5d5cc24
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.val = load i64, ptr %9, align 8, !range !1328, !noundef !5
   %10 = icmp eq i64 %.val, -9223372036854775807
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef nonnull align 8 dereferenceable(80) %1, i64 80, i1 false)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %12 = load i8, ptr %11, align 8, !noundef !5
@@ -15575,7 +15575,7 @@ define hidden noundef ptr @_ZN9tiny_http7request7Request12respond_impl17h5d5cc24
           to label %20 unwind label %6
 
 20:                                               ; preds = %8
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %21 = invoke noundef ptr @_ZN9tiny_http7request7Request28ignore_client_closing_errors17h6b3bd837dcc3996dE(ptr noundef %19)
           to label %22 unwind label %6
 
@@ -15669,7 +15669,7 @@ define hidden noundef ptr @_ZN9tiny_http7request7Request12respond_impl17h5d5cc24
 
 "_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Write$u2b$core..marker..Send$GT$$GT$17hd55d2cc97625f03cE.exit": ; preds = %62, %69, %41, %48
   %.0 = phi ptr [ %21, %48 ], [ %21, %41 ], [ %50, %69 ], [ %50, %62 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 
 70:                                               ; preds = %6, %72
@@ -15737,12 +15737,6 @@ declare hidden noundef ptr @"_ZN9tiny_http8response17Response$LT$R$GT$9raw_print
 ; Function Attrs: nonlazybind uwtable
 declare noundef ptr @_ZN9tiny_http7request7Request28ignore_client_closing_errors17h6b3bd837dcc3996dE(ptr noundef) unnamed_addr #0
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #18
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #18
-
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17hf2c58c33b98eacdfE.llvm.15559585470061597875"(ptr noalias noundef align 8 dereferenceable(8)) unnamed_addr #0
 
@@ -15760,6 +15754,12 @@ declare hidden void @"_ZN4core3ptr74drop_in_place$LT$tiny_http..response..Respon
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN4core3ptr89drop_in_place$LT$tree_sitter_cli..generate..build_tables..build_lex_table..QueueEntry$GT$17h95446d92bd4eca1eE"(ptr noalias noundef align 8 dereferenceable(40)) unnamed_addr #0
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #18
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #19

@@ -1813,7 +1813,7 @@ define internal ptr @_curses_color_content(ptr noundef %0, ptr noundef %1) #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = call i64 @PyLong_AsLongAndOverflow(ptr noundef %1, ptr noundef nonnull %6) #9
   %8 = icmp eq i64 %7, -1
   br i1 %8, label %9, label %11
@@ -1839,13 +1839,13 @@ define internal ptr @_curses_color_content(ptr noundef %0, ptr noundef %1) #0 {
   br label %color_allow_default_converter.exit.thread.i
 
 color_allow_default_converter.exit.thread.i:      ; preds = %16, %9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %color_converter.exit.thread
 
 20:                                               ; preds = %11
   %21 = icmp ne i32 %12, 0
   %22 = trunc i64 %7 to i32
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %23 = and i64 %7, -9223372034707292160
   %24 = icmp ne i64 %23, 0
   %25 = or i1 %24, %21
@@ -1857,9 +1857,9 @@ color_allow_default_converter.exit.thread.i:      ; preds = %16, %9
   br label %color_converter.exit.thread
 
 color_converter.exit:                             ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.b.i = load i1, ptr @curses_initscr_called, align 4
   br i1 %.b.i, label %_PyCursesStatefulCheckFunction.exit.i, label %_PyCursesStatefulCheckFunction.exit.thread.i
 
@@ -1899,9 +1899,9 @@ _PyCursesStatefulCheckFunction.exit9.i:           ; preds = %_PyCursesStatefulCh
 
 _curses_color_content_impl.exit:                  ; preds = %_PyCursesStatefulCheckFunction.exit.thread.i, %_PyCursesStatefulCheckFunction.exit9.thread.i, %36, %40
   %.0.i3 = phi ptr [ null, %36 ], [ %44, %40 ], [ null, %_PyCursesStatefulCheckFunction.exit.thread.i ], [ null, %_PyCursesStatefulCheckFunction.exit9.thread.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %color_converter.exit.thread
 
 color_converter.exit.thread:                      ; preds = %color_allow_default_converter.exit.thread.i, %26, %_curses_color_content_impl.exit
@@ -2278,7 +2278,7 @@ _curses_endwin_impl.exit:                         ; preds = %_PyCursesStatefulCh
 ; Function Attrs: nounwind uwtable
 define internal ptr @_curses_erasechar(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.b.i = load i1, ptr @curses_initscr_called, align 4
   br i1 %.b.i, label %_PyCursesStatefulCheckFunction.exit.i, label %_PyCursesStatefulCheckFunction.exit.thread.i
 
@@ -2296,7 +2296,7 @@ _PyCursesStatefulCheckFunction.exit.i:            ; preds = %2
 
 _curses_erasechar_impl.exit:                      ; preds = %_PyCursesStatefulCheckFunction.exit.thread.i, %_PyCursesStatefulCheckFunction.exit.i
   %.0.i = phi ptr [ %8, %_PyCursesStatefulCheckFunction.exit.i ], [ null, %_PyCursesStatefulCheckFunction.exit.thread.i ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0.i
 }
 
@@ -2356,7 +2356,7 @@ _curses_flushinp_impl.exit:                       ; preds = %_PyCursesStatefulCh
 ; Function Attrs: nounwind uwtable
 define internal ptr @_curses_getmouse(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca %struct.MEVENT, align 4
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.b.i = load i1, ptr @curses_initscr_called, align 4
   br i1 %.b.i, label %_PyCursesStatefulCheckFunction.exit.i, label %_PyCursesStatefulCheckFunction.exit.thread.i
 
@@ -2394,7 +2394,7 @@ _PyCursesStatefulCheckFunction.exit.i:            ; preds = %2
 
 _curses_getmouse_impl.exit:                       ; preds = %_PyCursesStatefulCheckFunction.exit.thread.i, %9, %12
   %.0.i = phi ptr [ null, %9 ], [ %24, %12 ], [ null, %_PyCursesStatefulCheckFunction.exit.thread.i ]
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0.i
 }
 
@@ -2492,7 +2492,7 @@ define internal noundef ptr @_curses_ungetmouse(ptr noundef %0, ptr noundef read
 
 49:                                               ; preds = %42
   %50 = tail call i64 @PyLong_AsUnsignedLongMask(ptr noundef nonnull %44) #9
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.b.i = load i1, ptr @curses_initscr_called, align 4
   br i1 %.b.i, label %_PyCursesStatefulCheckFunction.exit.i, label %_PyCursesStatefulCheckFunction.exit.thread.i
 
@@ -2525,7 +2525,7 @@ _PyCursesStatefulCheckFunction.exit.i:            ; preds = %49
 
 _curses_ungetmouse_impl.exit:                     ; preds = %_PyCursesStatefulCheckFunction.exit.thread.i, %_PyCursesStatefulCheckFunction.exit.i, %60
   %.0.i = phi ptr [ null, %_PyCursesStatefulCheckFunction.exit.thread.i ], [ @_Py_NoneStruct, %_PyCursesStatefulCheckFunction.exit.i ], [ null, %60 ]
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread38
 
 .thread38:                                        ; preds = %11, %19, %15, %48, %_curses_ungetmouse_impl.exit, %5, %26, %33, %40
@@ -2892,7 +2892,7 @@ define internal noundef ptr @_curses_init_color(ptr noundef %0, ptr noundef read
 
 10:                                               ; preds = %3, %8
   %11 = load ptr, ptr %1, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %12 = call i64 @PyLong_AsLongAndOverflow(ptr noundef %11, ptr noundef nonnull %7) #9
   %13 = icmp eq i64 %12, -1
   br i1 %13, label %14, label %16
@@ -2918,13 +2918,13 @@ define internal noundef ptr @_curses_init_color(ptr noundef %0, ptr noundef read
   br label %color_allow_default_converter.exit.thread.i
 
 color_allow_default_converter.exit.thread.i:      ; preds = %21, %14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_curses_init_color_impl.exit
 
 25:                                               ; preds = %16
   %26 = icmp ne i32 %17, 0
   %27 = trunc i64 %12 to i32
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %28 = and i64 %12, -9223372034707292160
   %29 = icmp ne i64 %28, 0
   %30 = or i1 %29, %26
@@ -2938,7 +2938,7 @@ color_allow_default_converter.exit.thread.i:      ; preds = %21, %14
 color_converter.exit:                             ; preds = %25
   %33 = getelementptr i8, ptr %1, i64 8
   %34 = load ptr, ptr %33, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %35 = call i64 @PyLong_AsLongAndOverflow(ptr noundef %34, ptr noundef nonnull %6) #9
   %36 = icmp eq i64 %35, -1
   br i1 %36, label %37, label %39
@@ -2968,15 +2968,15 @@ component_converter.exit.thread.sink.split:       ; preds = %43, %39
   br label %component_converter.exit.thread
 
 component_converter.exit.thread:                  ; preds = %component_converter.exit.thread.sink.split, %37
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_curses_init_color_impl.exit
 
 47:                                               ; preds = %43
   %48 = trunc nuw nsw i64 %35 to i32
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %49 = getelementptr i8, ptr %1, i64 16
   %50 = load ptr, ptr %49, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %51 = call i64 @PyLong_AsLongAndOverflow(ptr noundef %50, ptr noundef nonnull %5) #9
   %52 = icmp eq i64 %51, -1
   br i1 %52, label %53, label %55
@@ -3006,15 +3006,15 @@ component_converter.exit18.thread.sink.split:     ; preds = %59, %55
   br label %component_converter.exit18.thread
 
 component_converter.exit18.thread:                ; preds = %component_converter.exit18.thread.sink.split, %53
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_curses_init_color_impl.exit
 
 63:                                               ; preds = %59
   %64 = trunc nuw nsw i64 %51 to i32
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %65 = getelementptr i8, ptr %1, i64 24
   %66 = load ptr, ptr %65, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %67 = call i64 @PyLong_AsLongAndOverflow(ptr noundef %66, ptr noundef nonnull %4) #9
   %68 = icmp eq i64 %67, -1
   br i1 %68, label %69, label %71
@@ -3044,12 +3044,12 @@ component_converter.exit23.thread.sink.split:     ; preds = %75, %71
   br label %component_converter.exit23.thread
 
 component_converter.exit23.thread:                ; preds = %component_converter.exit23.thread.sink.split, %69
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_curses_init_color_impl.exit
 
 79:                                               ; preds = %75
   %80 = trunc nuw nsw i64 %67 to i32
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.b.i = load i1, ptr @curses_initscr_called, align 4
   br i1 %.b.i, label %_PyCursesStatefulCheckFunction.exit.i, label %_PyCursesStatefulCheckFunction.exit.thread.i
 
@@ -3100,7 +3100,7 @@ define internal noundef ptr @_curses_init_pair(ptr noundef %0, ptr noundef reado
 
 9:                                                ; preds = %3, %7
   %10 = load ptr, ptr %1, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %11 = call i64 @PyLong_AsLongAndOverflow(ptr noundef %10, ptr noundef nonnull %6) #9
   %12 = icmp eq i64 %11, -1
   br i1 %12, label %13, label %15
@@ -3134,15 +3134,15 @@ define internal noundef ptr @_curses_init_pair(ptr noundef %0, ptr noundef reado
   br label %pair_converter.exit.thread
 
 pair_converter.exit.thread:                       ; preds = %19, %25, %13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_curses_init_pair_impl.exit
 
 27:                                               ; preds = %22
   %28 = trunc nuw nsw i64 %11 to i32
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %29 = getelementptr i8, ptr %1, i64 8
   %30 = load ptr, ptr %29, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %31 = call i64 @PyLong_AsLongAndOverflow(ptr noundef %30, ptr noundef nonnull %5) #9
   %32 = icmp eq i64 %31, -1
   br i1 %32, label %33, label %35
@@ -3168,7 +3168,7 @@ pair_converter.exit.thread:                       ; preds = %19, %25, %13
   br label %color_allow_default_converter.exit.thread
 
 color_allow_default_converter.exit.thread:        ; preds = %40, %33
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_curses_init_pair_impl.exit
 
 44:                                               ; preds = %35
@@ -3177,10 +3177,10 @@ color_allow_default_converter.exit.thread:        ; preds = %40, %33
   %or.cond.i12 = or i1 %46, %45
   %47 = trunc i64 %31 to i32
   %48 = select i1 %or.cond.i12, i32 -1, i32 %47
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %49 = getelementptr i8, ptr %1, i64 16
   %50 = load ptr, ptr %49, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %51 = call i64 @PyLong_AsLongAndOverflow(ptr noundef %50, ptr noundef nonnull %4) #9
   %52 = icmp eq i64 %51, -1
   br i1 %52, label %53, label %55
@@ -3206,7 +3206,7 @@ color_allow_default_converter.exit.thread:        ; preds = %40, %33
   br label %color_allow_default_converter.exit19.thread
 
 color_allow_default_converter.exit19.thread:      ; preds = %60, %53
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_curses_init_pair_impl.exit
 
 64:                                               ; preds = %55
@@ -3215,7 +3215,7 @@ color_allow_default_converter.exit19.thread:      ; preds = %60, %53
   %or.cond.i17 = or i1 %66, %65
   %67 = trunc i64 %51 to i32
   %68 = select i1 %or.cond.i17, i32 -1, i32 %67
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.b.i = load i1, ptr @curses_initscr_called, align 4
   br i1 %.b.i, label %_PyCursesStatefulCheckFunction.exit.i, label %_PyCursesStatefulCheckFunction.exit.thread.i
 
@@ -4710,11 +4710,11 @@ _curses_keyname_impl.exit:                        ; preds = %_PyCursesStatefulCh
 ; Function Attrs: nounwind uwtable
 define internal ptr @_curses_killchar(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = tail call signext i8 @killchar() #9
   store i8 %4, ptr %3, align 1, !tbaa !12
   %5 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %3, i64 noundef 1) #9
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %5
 }
 
@@ -4848,7 +4848,7 @@ define internal ptr @_curses_mousemask(ptr noundef %0, ptr noundef %1) #0 {
 
 8:                                                ; preds = %2
   %9 = tail call i64 @PyLong_AsUnsignedLongMask(ptr noundef nonnull %1) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.b.i = load i1, ptr @curses_initscr_called, align 4
   br i1 %.b.i, label %_PyCursesStatefulCheckFunction.exit.i, label %_PyCursesStatefulCheckFunction.exit.thread.i
 
@@ -4869,7 +4869,7 @@ _PyCursesStatefulCheckFunction.exit.i:            ; preds = %8
 
 _curses_mousemask_impl.exit:                      ; preds = %_PyCursesStatefulCheckFunction.exit.thread.i, %_PyCursesStatefulCheckFunction.exit.i
   %.0.i = phi ptr [ %18, %_PyCursesStatefulCheckFunction.exit.i ], [ null, %_PyCursesStatefulCheckFunction.exit.thread.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %19
 
 19:                                               ; preds = %_curses_mousemask_impl.exit, %7
@@ -5018,11 +5018,11 @@ define internal ptr @_curses_newwin(ptr noundef %0, ptr noundef %1) #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4, !tbaa !14
   %7 = getelementptr i8, ptr %1, i64 16
   %.val = load i64, ptr %7, align 8, !tbaa !46
@@ -5077,10 +5077,10 @@ _PyCursesStatefulCheckFunction.exit.i:            ; preds = %14
 
 _curses_newwin_impl.exit:                         ; preds = %27, %25, %_PyCursesStatefulCheckFunction.exit.thread.i, %10, %8, %12
   %.05 = phi ptr [ null, %12 ], [ null, %8 ], [ null, %10 ], [ null, %25 ], [ %28, %27 ], [ null, %_PyCursesStatefulCheckFunction.exit.thread.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.05
 }
 
@@ -5282,7 +5282,7 @@ define internal ptr @_curses_pair_content(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = call i64 @PyLong_AsLongAndOverflow(ptr noundef %1, ptr noundef nonnull %5) #9
   %7 = icmp eq i64 %6, -1
   br i1 %7, label %8, label %10
@@ -5316,14 +5316,14 @@ define internal ptr @_curses_pair_content(ptr noundef %0, ptr noundef %1) #0 {
   br label %pair_converter.exit.thread
 
 pair_converter.exit.thread:                       ; preds = %14, %20, %8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %46
 
 22:                                               ; preds = %17
   %23 = trunc nuw nsw i64 %6 to i32
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.b.i = load i1, ptr @curses_initscr_called, align 4
   br i1 %.b.i, label %_PyCursesStatefulCheckFunction.exit.i, label %_PyCursesStatefulCheckFunction.exit.thread.i
 
@@ -5373,8 +5373,8 @@ _PyCursesStatefulCheckFunction.exit12.i:          ; preds = %_PyCursesStatefulCh
 
 _curses_pair_content_impl.exit:                   ; preds = %_PyCursesStatefulCheckFunction.exit.thread.i, %_PyCursesStatefulCheckFunction.exit12.thread.i, %34, %38, %42
   %.0.i3 = phi ptr [ %45, %42 ], [ null, %38 ], [ null, %34 ], [ null, %_PyCursesStatefulCheckFunction.exit.thread.i ], [ null, %_PyCursesStatefulCheckFunction.exit12.thread.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %46
 
 46:                                               ; preds = %pair_converter.exit.thread, %_curses_pair_content_impl.exit
@@ -5452,7 +5452,7 @@ _curses_pair_number_impl.exit:                    ; preds = %_PyCursesStatefulCh
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @_curses_putp(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 (ptr, ptr, ...) @PyArg_Parse(ptr noundef %1, ptr noundef nonnull @.str.159, ptr noundef nonnull %3) #9
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %_curses_putp_impl.exit, label %5
@@ -5471,7 +5471,7 @@ define internal noundef ptr @_curses_putp(ptr noundef %0, ptr noundef %1) #0 {
 
 _curses_putp_impl.exit:                           ; preds = %8, %5, %2
   %.0 = phi ptr [ null, %2 ], [ @_Py_NoneStruct, %5 ], [ null, %8 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
@@ -6123,7 +6123,7 @@ define internal noundef ptr @_curses_setupterm(ptr noundef %0, ptr noundef %1, i
   %5 = alloca i32, align 4
   %6 = alloca [2 x ptr], align 16
   %7 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %10, label %.thread
 
@@ -6170,7 +6170,7 @@ define internal noundef ptr @_curses_setupterm(ptr noundef %0, ptr noundef %1, i
   br i1 %.not48, label %35, label %26
 
 26:                                               ; preds = %22
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %27 = call ptr @PyUnicode_AsUTF8AndSize(ptr noundef nonnull %19, ptr noundef nonnull %7) #9
   %28 = icmp eq ptr %27, null
   br i1 %28, label %.thread59, label %29
@@ -6187,11 +6187,11 @@ define internal noundef ptr @_curses_setupterm(ptr noundef %0, ptr noundef %1, i
   br label %.thread59
 
 .thread59:                                        ; preds = %32, %26
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %62
 
 34:                                               ; preds = %29
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %36
 
 35:                                               ; preds = %22
@@ -6217,12 +6217,12 @@ define internal noundef ptr @_curses_setupterm(ptr noundef %0, ptr noundef %1, i
   br i1 %.not51, label %45, label %62
 
 44:                                               ; preds = %37
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br label %53
 
 45:                                               ; preds = %42, %36, %.thread57
   %.034.ph = phi ptr [ null, %.thread57 ], [ %.2, %36 ], [ %.1, %42 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %46 = call ptr @PySys_GetObject(ptr noundef nonnull @.str.168) #9
   %47 = icmp eq ptr %46, null
   %48 = icmp eq ptr %46, @_Py_NoneStruct
@@ -6268,12 +6268,12 @@ define internal noundef ptr @_curses_setupterm(ptr noundef %0, ptr noundef %1, i
 
 _curses_setupterm_impl.exit:                      ; preds = %.critedge.i, %51, %57, %61
   %.1.i = phi ptr [ @_Py_NoneStruct, %61 ], [ null, %57 ], [ null, %51 ], [ null, %.critedge.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %62
 
 62:                                               ; preds = %.thread59, %35, %_curses_setupterm_impl.exit, %13, %42
   %.035 = phi ptr [ null, %42 ], [ %.1.i, %_curses_setupterm_impl.exit ], [ null, %35 ], [ null, %13 ], [ null, %.thread59 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.035
 }
 
@@ -6583,24 +6583,24 @@ define internal ptr @_curses_tparm(ptr noundef %0, ptr noundef %1, i64 noundef %
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 0, ptr %10, align 4, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 0, ptr %11, align 4, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 0, ptr %12, align 4, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 0, ptr %13, align 4, !tbaa !14
   %14 = call i32 (ptr, i64, ptr, ...) @_PyArg_ParseStack(ptr noundef %1, i64 noundef %2, ptr noundef nonnull @.str.177, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13) #9
   %.not = icmp eq i32 %14, 0
@@ -6643,16 +6643,16 @@ _PyCursesStatefulCheckFunction.exit.i:            ; preds = %15
 
 _curses_tparm_impl.exit:                          ; preds = %33, %30, %_PyCursesStatefulCheckFunction.exit.thread.i, %3
   %.0 = phi ptr [ null, %3 ], [ %34, %33 ], [ null, %30 ], [ null, %_PyCursesStatefulCheckFunction.exit.thread.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
 
@@ -6717,7 +6717,7 @@ _curses_typeahead_impl.exit:                      ; preds = %19, %_PyCursesState
 ; Function Attrs: nounwind uwtable
 define internal ptr @_curses_unctrl(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.b = load i1, ptr @curses_initscr_called, align 4
   br i1 %.b, label %_PyCursesStatefulCheckFunction.exit, label %_PyCursesStatefulCheckFunction.exit.thread
 
@@ -6740,14 +6740,14 @@ _PyCursesStatefulCheckFunction.exit:              ; preds = %2
 
 12:                                               ; preds = %_PyCursesStatefulCheckFunction.exit.thread, %_PyCursesStatefulCheckFunction.exit, %8
   %.0 = phi ptr [ %11, %8 ], [ null, %_PyCursesStatefulCheckFunction.exit ], [ null, %_PyCursesStatefulCheckFunction.exit.thread ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @_curses_ungetch(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.b = load i1, ptr @curses_initscr_called, align 4
   br i1 %.b, label %_PyCursesStatefulCheckFunction.exit, label %_PyCursesStatefulCheckFunction.exit.thread
 
@@ -6776,7 +6776,7 @@ _PyCursesStatefulCheckFunction.exit:              ; preds = %2
 
 PyCursesCheckERR.exit:                            ; preds = %11, %8, %_PyCursesStatefulCheckFunction.exit.thread, %_PyCursesStatefulCheckFunction.exit
   %.0 = phi ptr [ null, %_PyCursesStatefulCheckFunction.exit ], [ null, %_PyCursesStatefulCheckFunction.exit.thread ], [ @_Py_NoneStruct, %8 ], [ null, %11 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
@@ -6811,7 +6811,7 @@ _PyCursesStatefulCheckFunction.exit:              ; preds = %2
   br i1 %.not.i5, label %20, label %11
 
 11:                                               ; preds = %_PyCursesStatefulCheckFunction.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %12 = call i64 @PyUnicode_AsWideChar(ptr noundef nonnull %1, ptr noundef nonnull %3, i64 noundef 2) #9
   %.not14.i = icmp eq i64 %12, 1
   br i1 %.not14.i, label %17, label %13
@@ -6830,7 +6830,7 @@ _PyCursesStatefulCheckFunction.exit:              ; preds = %2
 19:                                               ; preds = %17, %13
   %.09 = phi i32 [ %18, %17 ], [ undef, %13 ]
   %.0.i6 = phi i32 [ 2, %17 ], [ 0, %13 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %PyCurses_ConvertToWchar_t.exit
 
 20:                                               ; preds = %_PyCursesStatefulCheckFunction.exit
@@ -6838,7 +6838,7 @@ _PyCursesStatefulCheckFunction.exit:              ; preds = %2
   br i1 %.not19.i, label %21, label %PyCurses_ConvertToWchar_t.exit.thread
 
 21:                                               ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %22 = call i64 @PyLong_AsLongAndOverflow(ptr noundef nonnull %1, ptr noundef nonnull %4) #9
   %23 = load i32, ptr %4, align 4, !tbaa !14
   %.not12.i = icmp eq i32 %23, 0
@@ -6863,7 +6863,7 @@ _PyCursesStatefulCheckFunction.exit:              ; preds = %2
 32:                                               ; preds = %29, %26, %24
   %.1 = phi i32 [ %27, %26 ], [ %27, %29 ], [ undef, %24 ]
   %.2.i = phi i32 [ 1, %26 ], [ 0, %29 ], [ 0, %24 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %PyCurses_ConvertToWchar_t.exit
 
 PyCurses_ConvertToWchar_t.exit.thread:            ; preds = %20
@@ -6952,13 +6952,7 @@ declare ptr @PyLong_FromLong(i64 noundef) local_unnamed_addr #1
 
 declare i32 @baudrate() local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare ptr @PyErr_Format(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 declare ptr @PyModule_GetState(ptr noundef) local_unnamed_addr #1
 
@@ -7025,22 +7019,22 @@ declare i64 @PyLong_AsUnsignedLongMask(ptr noundef) local_unnamed_addr #1
 declare i32 @ungetmouse(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @tmpfile64() local_unnamed_addr #3
+declare noalias noundef ptr @tmpfile64() local_unnamed_addr #2
 
 declare ptr @PyErr_SetFromErrno(ptr noundef) local_unnamed_addr #1
 
 declare i32 @_Py_set_inheritable(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fileno(ptr noundef captures(none)) local_unnamed_addr #3
+declare noundef i32 @fileno(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare ptr @PyObject_CallMethod(ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #3
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fseek(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #3
+declare noundef i32 @fseek(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #2
 
 declare ptr @getwin(ptr noundef) local_unnamed_addr #1
 
@@ -7112,12 +7106,12 @@ Py_DECREF.exit:                                   ; preds = %21, %23, %26
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #3
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare ptr @nl_langinfo(i32 noundef) local_unnamed_addr #4
+declare ptr @nl_langinfo(i32 noundef) local_unnamed_addr #3
 
 declare ptr @_PyObject_GC_New(ptr noundef) local_unnamed_addr #1
 
@@ -7350,7 +7344,7 @@ declare ptr @_PyArg_UnpackKeywords(ptr noundef, i64 noundef, ptr noundef, ptr no
 declare ptr @PyUnicode_AsUTF8AndSize(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare ptr @PySys_GetObject(ptr noundef) local_unnamed_addr #1
 
@@ -7549,11 +7543,11 @@ Py_DECREF.exit:                                   ; preds = %61, %63, %66
   br i1 %.not61, label %70, label %73
 
 70:                                               ; preds = %69
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %71 = call i64 @PyLong_AsLongAndOverflow(ptr noundef nonnull %1, ptr noundef nonnull %4) #9
   %72 = load i32, ptr %4, align 4, !tbaa !14
   %.not37 = icmp eq i32 %72, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.not37, label %.thread55, label %79
 
 73:                                               ; preds = %69
@@ -9510,11 +9504,11 @@ define internal fastcc ptr @make_ncurses_version(ptr noundef nonnull %0) unnamed
 
 7:                                                ; preds = %1
   %8 = tail call ptr @curses_version() #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 0, ptr %2, align 8, !tbaa !50
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 0, ptr %3, align 8, !tbaa !50
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8, !tbaa !50
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %12, label %9
@@ -9605,9 +9599,9 @@ define internal fastcc ptr @make_ncurses_version(ptr noundef nonnull %0) unnamed
 
 Py_DECREF.exit36.thread:                          ; preds = %40, %34, %36, %39, %25, %27, %30, %16, %18, %21
   %.2 = phi ptr [ null, %21 ], [ null, %18 ], [ null, %16 ], [ null, %30 ], [ null, %27 ], [ null, %25 ], [ null, %39 ], [ null, %36 ], [ null, %34 ], [ %5, %40 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %41
 
 41:                                               ; preds = %1, %Py_DECREF.exit36.thread
@@ -9616,10 +9610,10 @@ Py_DECREF.exit36.thread:                          ; preds = %40, %34, %36, %39, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #5
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 declare ptr @PyMem_Malloc(i64 noundef) local_unnamed_addr #1
 
@@ -9704,12 +9698,12 @@ define internal noundef ptr @_curses_window_addch(ptr noundef readonly captures(
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
   %10 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i64 0, ptr %10, align 8, !tbaa !50
   %11 = getelementptr i8, ptr %1, i64 16
   %.val = load i64, ptr %11, align 8, !tbaa !46
@@ -9751,9 +9745,9 @@ define internal noundef ptr @_curses_window_addch(ptr noundef readonly captures(
   %24 = load i32, ptr %8, align 4, !tbaa !14
   %25 = load ptr, ptr %9, align 8, !tbaa !11
   %26 = load i64, ptr %10, align 8, !tbaa !50
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %27 = getelementptr i8, ptr %25, i64 8
   %.val25.i.i = load ptr, ptr %27, align 8, !tbaa !23
   %28 = getelementptr i8, ptr %.val25.i.i, i64 168
@@ -9801,7 +9795,7 @@ define internal noundef ptr @_curses_window_addch(ptr noundef readonly captures(
   br i1 %.not3.i.i, label %47, label %52
 
 47:                                               ; preds = %46
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %48 = call i64 @PyLong_AsLongAndOverflow(ptr noundef nonnull %25, ptr noundef nonnull %4) #9
   %49 = load i32, ptr %4, align 4, !tbaa !14
   %.not20.i.i = icmp eq i32 %49, 0
@@ -9810,7 +9804,7 @@ define internal noundef ptr @_curses_window_addch(ptr noundef readonly captures(
 50:                                               ; preds = %47
   %51 = load ptr, ptr @PyExc_OverflowError, align 8, !tbaa !11
   call void @PyErr_SetString(ptr noundef %51, ptr noundef nonnull @.str.184) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %PyCurses_ConvertToCchar_t.exit.thread.i
 
 52:                                               ; preds = %46
@@ -9821,7 +9815,7 @@ define internal noundef ptr @_curses_window_addch(ptr noundef readonly captures(
   br label %PyCurses_ConvertToCchar_t.exit.thread.i
 
 57:                                               ; preds = %47
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %58 = trunc nuw i64 %48 to i32
   %.not22.i.i = icmp ult i64 %48, 4294967296
   br i1 %.not22.i.i, label %79, label %59
@@ -9832,13 +9826,13 @@ define internal noundef ptr @_curses_window_addch(ptr noundef readonly captures(
   br label %PyCurses_ConvertToCchar_t.exit.thread.i
 
 PyCurses_ConvertToCchar_t.exit.thread.i:          ; preds = %59, %52, %50, %40, %32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_curses_window_addch_impl.exit
 
 62:                                               ; preds = %30
   %63 = load i32, ptr %3, align 4, !tbaa !14
   store i32 %63, ptr %5, align 4, !tbaa !14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %64 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 0, ptr %64, align 4, !tbaa !14
   %65 = trunc i64 %26 to i32
@@ -9865,7 +9859,7 @@ PyCurses_ConvertToCchar_t.exit.thread.i:          ; preds = %59, %52, %50, %40, 
 
 79:                                               ; preds = %57, %.thread.i.i
   %.030.ph.i = phi i32 [ %45, %.thread.i.i ], [ %58, %57 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %81 = load ptr, ptr %80, align 8, !tbaa !54
   br i1 %.not27.i, label %90, label %82
@@ -9905,16 +9899,16 @@ PyCurses_ConvertToCchar_t.exit.thread.i:          ; preds = %59, %52, %50, %40, 
 
 _curses_window_addch_impl.exit:                   ; preds = %PyCurses_ConvertToCchar_t.exit.thread.i, %94, %.thread.i
   %.024.i = phi ptr [ null, %PyCurses_ConvertToCchar_t.exit.thread.i ], [ @_Py_NoneStruct, %94 ], [ null, %.thread.i ]
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %99
 
 99:                                               ; preds = %18, %16, %14, %12, %_curses_window_addch_impl.exit, %20
   %.09 = phi ptr [ null, %20 ], [ %.024.i, %_curses_window_addch_impl.exit ], [ null, %12 ], [ null, %14 ], [ null, %16 ], [ null, %18 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %.09
 }
 
@@ -9927,13 +9921,13 @@ define internal noundef ptr @_curses_window_addnstr(ptr noundef readonly capture
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 0, ptr %9, align 8, !tbaa !50
   %10 = getelementptr i8, ptr %1, i64 16
   %.val = load i64, ptr %10, align 8, !tbaa !46
@@ -9977,9 +9971,9 @@ define internal noundef ptr @_curses_window_addnstr(ptr noundef readonly capture
   %24 = load ptr, ptr %7, align 8, !tbaa !11
   %25 = load i32, ptr %8, align 4, !tbaa !14
   %26 = load i64, ptr %9, align 8, !tbaa !50
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !61
   %27 = call fastcc i32 @PyCurses_ConvertToString(ptr noundef %24, ptr noundef %3, ptr noundef %4)
   %28 = icmp eq i32 %27, 0
@@ -10099,17 +10093,17 @@ Py_DECREF.exit.i:                                 ; preds = %72, %69, %67, %54
 
 _curses_window_addnstr_impl.exit:                 ; preds = %21, %77, %78
   %.0.i = phi ptr [ null, %21 ], [ @_Py_NoneStruct, %77 ], [ null, %78 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %83
 
 83:                                               ; preds = %17, %15, %13, %11, %_curses_window_addnstr_impl.exit, %19
   %.09 = phi ptr [ null, %19 ], [ %.0.i, %_curses_window_addnstr_impl.exit ], [ null, %11 ], [ null, %13 ], [ null, %15 ], [ null, %17 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.09
 }
 
@@ -10121,12 +10115,12 @@ define internal noundef ptr @_curses_window_addstr(ptr noundef readonly captures
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 0, ptr %8, align 8, !tbaa !50
   %9 = getelementptr i8, ptr %1, i64 16
   %.val = load i64, ptr %9, align 8, !tbaa !46
@@ -10169,9 +10163,9 @@ define internal noundef ptr @_curses_window_addstr(ptr noundef readonly captures
   %22 = load i32, ptr %6, align 4, !tbaa !14
   %23 = load ptr, ptr %7, align 8, !tbaa !11
   %24 = load i64, ptr %8, align 8, !tbaa !50
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !61
   %25 = call fastcc i32 @PyCurses_ConvertToString(ptr noundef %23, ptr noundef %3, ptr noundef %4)
   %26 = icmp eq i32 %25, 0
@@ -10291,16 +10285,16 @@ Py_DECREF.exit.i:                                 ; preds = %70, %67, %65, %52
 
 _curses_window_addstr_impl.exit:                  ; preds = %20, %75, %76
   %.0.i = phi ptr [ null, %20 ], [ @_Py_NoneStruct, %75 ], [ null, %76 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %81
 
 81:                                               ; preds = %16, %14, %12, %10, %_curses_window_addstr_impl.exit, %18
   %.09 = phi ptr [ null, %18 ], [ %.0.i, %_curses_window_addstr_impl.exit ], [ null, %10 ], [ null, %12 ], [ null, %14 ], [ null, %16 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.09
 }
 
@@ -10452,7 +10446,7 @@ define internal noundef ptr @_curses_window_bkgd(ptr noundef readonly captures(a
 
 18:                                               ; preds = %11, %16, %8
   %.0 = phi i64 [ 0, %8 ], [ -1, %16 ], [ %14, %11 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %19 = call fastcc i32 @PyCurses_ConvertToChtype(ptr noundef readonly %0, ptr noundef %9, ptr noundef nonnull %4)
   %.not.i = icmp eq i32 %19, 0
   br i1 %.not.i, label %_curses_window_bkgd_impl.exit, label %20
@@ -10477,7 +10471,7 @@ define internal noundef ptr @_curses_window_bkgd(ptr noundef readonly captures(a
 
 _curses_window_bkgd_impl.exit:                    ; preds = %18, %20, %27
   %.0.i = phi ptr [ null, %18 ], [ @_Py_NoneStruct, %20 ], [ null, %27 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %32
 
 32:                                               ; preds = %16, %6, %_curses_window_bkgd_impl.exit
@@ -10491,11 +10485,11 @@ define internal noundef ptr @PyCursesWindow_ChgAt(ptr noundef readonly captures(
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 -1, ptr %5, align 4, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = tail call i64 @PyTuple_Size(ptr noundef %1) #9
   switch i64 %7, label %16 [
     i64 1, label %8
@@ -10596,10 +10590,10 @@ define internal noundef ptr @PyCursesWindow_ChgAt(ptr noundef readonly captures(
 
 PyCursesCheckERR_ForWin.exit:                     ; preds = %50, %47, %14, %12, %10, %8, %16
   %.025 = phi ptr [ null, %16 ], [ null, %8 ], [ null, %10 ], [ null, %12 ], [ null, %14 ], [ @_Py_NoneStruct, %47 ], [ null, %50 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.025
 }
 
@@ -10634,7 +10628,7 @@ define internal noundef ptr @_curses_window_bkgdset(ptr noundef readonly capture
 
 18:                                               ; preds = %11, %16, %8
   %.0 = phi i64 [ 0, %8 ], [ -1, %16 ], [ %14, %11 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %19 = call fastcc i32 @PyCurses_ConvertToChtype(ptr noundef readonly %0, ptr noundef %9, ptr noundef nonnull %4)
   %.not.i = icmp eq i32 %19, 0
   br i1 %.not.i, label %_curses_window_bkgdset_impl.exit, label %20
@@ -10650,7 +10644,7 @@ define internal noundef ptr @_curses_window_bkgdset(ptr noundef readonly capture
 
 _curses_window_bkgdset_impl.exit:                 ; preds = %18, %20
   %.0.i = phi ptr [ @_Py_NoneStruct, %20 ], [ null, %18 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %26
 
 26:                                               ; preds = %16, %6, %_curses_window_bkgdset_impl.exit
@@ -10674,7 +10668,7 @@ define internal noundef ptr @_curses_window_border(ptr noundef readonly captures
   br i1 %8, label %.thread114, label %9
 
 .thread114:                                       ; preds = %7
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, i8 0, i64 32, i1 false), !tbaa !14
   br label %70
 
@@ -10732,7 +10726,7 @@ define internal noundef ptr @_curses_window_border(ptr noundef readonly captures
   %.030 = phi ptr [ null, %9 ], [ null, %12 ], [ null, %16 ], [ null, %20 ], [ null, %24 ], [ %30, %28 ], [ %30, %32 ], [ %30, %36 ]
   %.029 = phi ptr [ null, %9 ], [ null, %12 ], [ null, %16 ], [ null, %20 ], [ null, %24 ], [ null, %28 ], [ %34, %32 ], [ %34, %36 ]
   %.0 = phi ptr [ null, %9 ], [ null, %12 ], [ null, %16 ], [ null, %20 ], [ null, %24 ], [ null, %28 ], [ null, %32 ], [ %38, %36 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, i8 0, i64 32, i1 false), !tbaa !14
   %.not.i = icmp eq ptr %10, null
   br i1 %.not.i, label %42, label %40
@@ -10835,7 +10829,7 @@ define internal noundef ptr @_curses_window_border(ptr noundef readonly captures
 
 _curses_window_border_impl.exit:                  ; preds = %40, %43, %47, %51, %55, %59, %63, %67, %70
   %.028.i = phi ptr [ @_Py_NoneStruct, %70 ], [ null, %40 ], [ null, %43 ], [ null, %47 ], [ null, %51 ], [ null, %55 ], [ null, %59 ], [ null, %63 ], [ null, %67 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %89
 
 89:                                               ; preds = %5, %_curses_window_border_impl.exit
@@ -10849,9 +10843,9 @@ define internal noundef ptr @_curses_window_box(ptr noundef readonly captures(ad
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 14072), ptr %5, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 14072), ptr %6, align 8, !tbaa !11
   %7 = getelementptr i8, ptr %1, i64 16
   %.val = load i64, ptr %7, align 8, !tbaa !46
@@ -10861,8 +10855,8 @@ define internal noundef ptr @_curses_window_box(ptr noundef readonly captures(ad
   ]
 
 .thread:                                          ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %18
 
 8:                                                ; preds = %2
@@ -10878,9 +10872,9 @@ define internal noundef ptr @_curses_window_box(ptr noundef readonly captures(ad
 12:                                               ; preds = %8
   %13 = load ptr, ptr %5, align 8, !tbaa !11
   %14 = load ptr, ptr %6, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !14
   %15 = call fastcc i32 @PyCurses_ConvertToChtype(ptr noundef readonly %0, ptr noundef %13, ptr noundef nonnull %3)
   %.not6.i = icmp eq i32 %15, 0
@@ -10906,14 +10900,14 @@ define internal noundef ptr @_curses_window_box(ptr noundef readonly captures(ad
 
 _curses_window_box_impl.exit:                     ; preds = %12, %16, %18
   %.0.i = phi ptr [ @_Py_NoneStruct, %18 ], [ null, %12 ], [ null, %16 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %24
 
 24:                                               ; preds = %8, %_curses_window_box_impl.exit, %10
   %.04 = phi ptr [ null, %10 ], [ %.0.i, %_curses_window_box_impl.exit ], [ null, %8 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.04
 }
 
@@ -10928,7 +10922,7 @@ define internal noundef nonnull ptr @PyCursesWindow_wclear(ptr noundef readonly 
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @PyCursesWindow_clearok(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %1, ptr noundef nonnull @.str.364, ptr noundef nonnull %3) #9
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %PyCursesCheckERR_ForWin.exit, label %5
@@ -10952,7 +10946,7 @@ define internal noundef ptr @PyCursesWindow_clearok(ptr noundef readonly capture
 
 PyCursesCheckERR_ForWin.exit:                     ; preds = %11, %5, %2
   %.0 = phi ptr [ null, %2 ], [ @_Py_NoneStruct, %5 ], [ null, %11 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
@@ -10984,9 +10978,9 @@ define internal noundef nonnull ptr @PyCursesWindow_wcursyncup(ptr noundef reado
 define internal noundef ptr @_curses_window_delch(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !14
   %5 = getelementptr i8, ptr %1, i64 16
   %.val = load i64, ptr %5, align 8, !tbaa !46
@@ -11038,8 +11032,8 @@ PyCursesCheckERR_ForWin.exit.sink.split.i:        ; preds = %21, %14, %10
 
 _curses_window_delch_impl.exit:                   ; preds = %PyCursesCheckERR_ForWin.exit.sink.split.i, %21, %10, %6, %8
   %.04 = phi ptr [ null, %8 ], [ null, %6 ], [ @_Py_NoneStruct, %10 ], [ @_Py_NoneStruct, %21 ], [ null, %PyCursesCheckERR_ForWin.exit.sink.split.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.04
 }
 
@@ -11070,12 +11064,12 @@ define internal ptr @_curses_window_derwin(ptr noundef readonly captures(none) %
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr i8, ptr %1, i64 16
   %.val = load i64, ptr %7, align 8, !tbaa !46
   switch i64 %.val, label %12 [
@@ -11128,10 +11122,10 @@ define internal ptr @_curses_window_derwin(ptr noundef readonly captures(none) %
 
 _curses_window_derwin_impl.exit:                  ; preds = %27, %25, %10, %8, %12
   %.05 = phi ptr [ null, %12 ], [ null, %8 ], [ null, %10 ], [ null, %25 ], [ %28, %27 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.05
 }
 
@@ -11166,7 +11160,7 @@ define internal noundef ptr @_curses_window_echochar(ptr noundef readonly captur
 
 18:                                               ; preds = %11, %16, %8
   %.0 = phi i64 [ 0, %8 ], [ -1, %16 ], [ %14, %11 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %19 = call fastcc i32 @PyCurses_ConvertToChtype(ptr noundef readonly %0, ptr noundef %9, ptr noundef nonnull %4)
   %.not.i = icmp eq i32 %19, 0
   br i1 %.not.i, label %_curses_window_echochar_impl.exit, label %20
@@ -11210,7 +11204,7 @@ PyCursesCheckERR_ForWin.exit.sink.split.i:        ; preds = %32, %27
 
 _curses_window_echochar_impl.exit:                ; preds = %18, %27, %32, %PyCursesCheckERR_ForWin.exit.sink.split.i
   %.0.i = phi ptr [ null, %18 ], [ @_Py_NoneStruct, %27 ], [ @_Py_NoneStruct, %32 ], [ null, %PyCursesCheckERR_ForWin.exit.sink.split.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %41
 
 41:                                               ; preds = %16, %6, %_curses_window_echochar_impl.exit
@@ -11332,9 +11326,9 @@ _curses_window_getbkgd_impl.exit:                 ; preds = %2, %4
 define internal ptr @_curses_window_getch(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !14
   %5 = getelementptr i8, ptr %1, i64 16
   %.val = load i64, ptr %5, align 8, !tbaa !46
@@ -11394,8 +11388,8 @@ _curses_window_getch_impl.exit:                   ; preds = %12, %.thread
 
 26:                                               ; preds = %21, %8, %23, %10
   %.0 = phi ptr [ null, %10 ], [ null, %21 ], [ %25, %23 ], [ null, %8 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
@@ -11403,9 +11397,9 @@ _curses_window_getch_impl.exit:                   ; preds = %12, %.thread
 define internal ptr @_curses_window_getkey(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !14
   %5 = getelementptr i8, ptr %1, i64 16
   %.val = load i64, ptr %5, align 8, !tbaa !46
@@ -11483,8 +11477,8 @@ define internal ptr @_curses_window_getkey(ptr noundef readonly captures(none) %
 
 _curses_window_getkey_impl.exit:                  ; preds = %33, %31, %25, %22, %8, %10
   %.04 = phi ptr [ null, %10 ], [ null, %8 ], [ %32, %31 ], [ %37, %33 ], [ null, %25 ], [ null, %22 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.04
 }
 
@@ -11493,9 +11487,9 @@ define internal ptr @_curses_window_get_wch(ptr noundef readonly captures(none) 
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4, !tbaa !14
   %6 = getelementptr i8, ptr %1, i64 16
   %.val = load i64, ptr %6, align 8, !tbaa !46
@@ -11505,7 +11499,7 @@ define internal ptr @_curses_window_get_wch(ptr noundef readonly captures(none) 
   ]
 
 .thread:                                          ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %7 = tail call ptr @PyEval_SaveThread() #9
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %19
@@ -11523,7 +11517,7 @@ define internal ptr @_curses_window_get_wch(ptr noundef readonly captures(none) 
 13:                                               ; preds = %9
   %.pre = load i32, ptr %4, align 4, !tbaa !14
   %.pre5 = load i32, ptr %5, align 4, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %14 = call ptr @PyEval_SaveThread() #9
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load ptr, ptr %15, align 8, !tbaa !54
@@ -11572,13 +11566,13 @@ define internal ptr @_curses_window_get_wch(ptr noundef readonly captures(none) 
 
 _curses_window_get_wch_impl.exit:                 ; preds = %22, %24, %28, %32
   %.0.i = phi ptr [ null, %24 ], [ %31, %28 ], [ %34, %32 ], [ null, %22 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %35
 
 35:                                               ; preds = %9, %_curses_window_get_wch_impl.exit, %11
   %.04 = phi ptr [ null, %11 ], [ %.0.i, %_curses_window_get_wch_impl.exit ], [ null, %9 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.04
 }
 
@@ -11634,10 +11628,10 @@ define internal ptr @PyCursesWindow_GetStr(ptr noundef readonly captures(none) %
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca [1024 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #9
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = tail call i64 @PyTuple_Size(ptr noundef %1) #9
   switch i64 %7, label %60 [
     i64 0, label %8
@@ -11751,10 +11745,10 @@ define internal ptr @PyCursesWindow_GetStr(ptr noundef readonly captures(none) %
 
 67:                                               ; preds = %40, %27, %13, %65, %60, %45, %18
   %.0 = phi ptr [ null, %60 ], [ %66, %65 ], [ null, %18 ], [ null, %45 ], [ null, %13 ], [ null, %27 ], [ null, %40 ]
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
@@ -11788,13 +11782,13 @@ define internal noundef ptr @_curses_window_hline(ptr noundef readonly captures(
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 0, ptr %8, align 8, !tbaa !50
   %9 = getelementptr i8, ptr %1, i64 16
   %.val = load i64, ptr %9, align 8, !tbaa !46
@@ -11837,7 +11831,7 @@ define internal noundef ptr @_curses_window_hline(ptr noundef readonly captures(
   %23 = load ptr, ptr %6, align 8, !tbaa !11
   %24 = load i32, ptr %7, align 4, !tbaa !14
   %25 = load i64, ptr %8, align 8, !tbaa !50
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %26 = call fastcc i32 @PyCurses_ConvertToChtype(ptr noundef readonly %0, ptr noundef %23, ptr noundef nonnull %3)
   %.not.i = icmp eq i32 %26, 0
   br i1 %.not.i, label %_curses_window_hline_impl.exit, label %27
@@ -11873,23 +11867,23 @@ PyCursesCheckERR_ForWin.exit.sink.split.i:        ; preds = %33, %28
 
 _curses_window_hline_impl.exit:                   ; preds = %20, %33, %PyCursesCheckERR_ForWin.exit.sink.split.i
   %.0.i = phi ptr [ null, %20 ], [ @_Py_NoneStruct, %33 ], [ null, %PyCursesCheckERR_ForWin.exit.sink.split.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %44
 
 44:                                               ; preds = %16, %14, %12, %10, %_curses_window_hline_impl.exit, %18
   %.09 = phi ptr [ null, %18 ], [ %.0.i, %_curses_window_hline_impl.exit ], [ null, %10 ], [ null, %12 ], [ null, %14 ], [ null, %16 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.09
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @PyCursesWindow_idcok(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %1, ptr noundef nonnull @.str.364, ptr noundef nonnull %3) #9
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %10, label %5
@@ -11904,14 +11898,14 @@ define internal noundef ptr @PyCursesWindow_idcok(ptr noundef readonly captures(
 
 10:                                               ; preds = %2, %5
   %.0 = phi ptr [ @_Py_NoneStruct, %5 ], [ null, %2 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @PyCursesWindow_idlok(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %1, ptr noundef nonnull @.str.364, ptr noundef nonnull %3) #9
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %PyCursesCheckERR_ForWin.exit, label %5
@@ -11935,14 +11929,14 @@ define internal noundef ptr @PyCursesWindow_idlok(ptr noundef readonly captures(
 
 PyCursesCheckERR_ForWin.exit:                     ; preds = %11, %5, %2
   %.0 = phi ptr [ null, %2 ], [ @_Py_NoneStruct, %5 ], [ null, %11 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @PyCursesWindow_immedok(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %1, ptr noundef nonnull @.str.364, ptr noundef nonnull %3) #9
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %10, label %5
@@ -11957,7 +11951,7 @@ define internal noundef ptr @PyCursesWindow_immedok(ptr noundef readonly capture
 
 10:                                               ; preds = %2, %5
   %.0 = phi ptr [ @_Py_NoneStruct, %5 ], [ null, %2 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
@@ -11965,9 +11959,9 @@ define internal noundef ptr @PyCursesWindow_immedok(ptr noundef readonly capture
 define internal ptr @_curses_window_inch(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !14
   %5 = getelementptr i8, ptr %1, i64 16
   %.val = load i64, ptr %5, align 8, !tbaa !46
@@ -12013,8 +12007,8 @@ _curses_window_inch_impl.exit:                    ; preds = %11, %.sink.split.i
 
 21:                                               ; preds = %7, %_curses_window_inch_impl.exit, %9
   %.0 = phi ptr [ null, %9 ], [ %20, %_curses_window_inch_impl.exit ], [ null, %7 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
@@ -12025,12 +12019,12 @@ define internal noundef ptr @_curses_window_insch(ptr noundef readonly captures(
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 0, ptr %7, align 8, !tbaa !50
   %8 = getelementptr i8, ptr %1, i64 16
   %.val = load i64, ptr %8, align 8, !tbaa !46
@@ -12072,7 +12066,7 @@ define internal noundef ptr @_curses_window_insch(ptr noundef readonly captures(
   %21 = load i32, ptr %5, align 4, !tbaa !14
   %22 = load ptr, ptr %6, align 8, !tbaa !11
   %23 = load i64, ptr %7, align 8, !tbaa !50
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !tbaa !14
   %24 = call fastcc i32 @PyCurses_ConvertToChtype(ptr noundef readonly %0, ptr noundef %22, ptr noundef nonnull %3)
   %.not.i = icmp eq i32 %24, 0
@@ -12111,22 +12105,22 @@ define internal noundef ptr @_curses_window_insch(ptr noundef readonly captures(
 
 _curses_window_insch_impl.exit:                   ; preds = %19, %33, %.thread.i
   %.012.i = phi ptr [ null, %19 ], [ @_Py_NoneStruct, %33 ], [ null, %.thread.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %42
 
 42:                                               ; preds = %15, %13, %11, %9, %_curses_window_insch_impl.exit, %17
   %.09 = phi ptr [ null, %17 ], [ %.012.i, %_curses_window_insch_impl.exit ], [ null, %9 ], [ null, %11 ], [ null, %13 ], [ null, %15 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.09
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @PyCursesWindow_winsdelln(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %1, ptr noundef nonnull @.str.400, ptr noundef nonnull %3) #9
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %PyCursesCheckERR_ForWin.exit, label %5
@@ -12149,7 +12143,7 @@ define internal noundef ptr @PyCursesWindow_winsdelln(ptr noundef readonly captu
 
 PyCursesCheckERR_ForWin.exit:                     ; preds = %10, %5, %2
   %.0 = phi ptr [ null, %2 ], [ @_Py_NoneStruct, %5 ], [ null, %10 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
@@ -12183,13 +12177,13 @@ define internal noundef ptr @_curses_window_insnstr(ptr noundef readonly capture
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 0, ptr %9, align 8, !tbaa !50
   %10 = getelementptr i8, ptr %1, i64 16
   %.val = load i64, ptr %10, align 8, !tbaa !46
@@ -12233,9 +12227,9 @@ define internal noundef ptr @_curses_window_insnstr(ptr noundef readonly capture
   %24 = load ptr, ptr %7, align 8, !tbaa !11
   %25 = load i32, ptr %8, align 4, !tbaa !14
   %26 = load i64, ptr %9, align 8, !tbaa !50
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !61
   %27 = call fastcc i32 @PyCurses_ConvertToString(ptr noundef %24, ptr noundef %3, ptr noundef %4)
   %28 = icmp eq i32 %27, 0
@@ -12355,17 +12349,17 @@ Py_DECREF.exit.i:                                 ; preds = %72, %69, %67, %54
 
 _curses_window_insnstr_impl.exit:                 ; preds = %21, %77, %78
   %.0.i = phi ptr [ null, %21 ], [ @_Py_NoneStruct, %77 ], [ null, %78 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %83
 
 83:                                               ; preds = %17, %15, %13, %11, %_curses_window_insnstr_impl.exit, %19
   %.09 = phi ptr [ null, %19 ], [ %.0.i, %_curses_window_insnstr_impl.exit ], [ null, %11 ], [ null, %13 ], [ null, %15 ], [ null, %17 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.09
 }
 
@@ -12377,12 +12371,12 @@ define internal noundef ptr @_curses_window_insstr(ptr noundef readonly captures
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 0, ptr %8, align 8, !tbaa !50
   %9 = getelementptr i8, ptr %1, i64 16
   %.val = load i64, ptr %9, align 8, !tbaa !46
@@ -12425,9 +12419,9 @@ define internal noundef ptr @_curses_window_insstr(ptr noundef readonly captures
   %22 = load i32, ptr %6, align 4, !tbaa !14
   %23 = load ptr, ptr %7, align 8, !tbaa !11
   %24 = load i64, ptr %8, align 8, !tbaa !50
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !61
   %25 = call fastcc i32 @PyCurses_ConvertToString(ptr noundef %23, ptr noundef %3, ptr noundef %4)
   %26 = icmp eq i32 %25, 0
@@ -12547,16 +12541,16 @@ Py_DECREF.exit.i:                                 ; preds = %70, %67, %65, %52
 
 _curses_window_insstr_impl.exit:                  ; preds = %20, %75, %76
   %.0.i = phi ptr [ null, %20 ], [ @_Py_NoneStruct, %75 ], [ null, %76 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %81
 
 81:                                               ; preds = %16, %14, %12, %10, %_curses_window_insstr_impl.exit, %18
   %.09 = phi ptr [ null, %18 ], [ %.0.i, %_curses_window_insstr_impl.exit ], [ null, %10 ], [ null, %12 ], [ null, %14 ], [ null, %16 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.09
 }
 
@@ -12566,10 +12560,10 @@ define internal ptr @PyCursesWindow_InStr(ptr noundef readonly captures(none) %0
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca [1024 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #9
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = tail call i64 @PyTuple_Size(ptr noundef %1) #9
   switch i64 %7, label %55 [
     i64 0, label %8
@@ -12676,10 +12670,10 @@ define internal ptr @PyCursesWindow_InStr(ptr noundef readonly captures(none) %0
 
 61:                                               ; preds = %36, %24, %12, %59, %55, %41, %17
   %.012 = phi ptr [ null, %55 ], [ %60, %59 ], [ null, %17 ], [ null, %41 ], [ null, %12 ], [ null, %24 ], [ null, %36 ]
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.012
 }
 
@@ -12744,7 +12738,7 @@ define internal ptr @PyCursesWindow_is_wintouched(ptr noundef readonly captures(
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @PyCursesWindow_keypad(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %1, ptr noundef nonnull @.str.364, ptr noundef nonnull %3) #9
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %PyCursesCheckERR_ForWin.exit, label %5
@@ -12768,14 +12762,14 @@ define internal noundef ptr @PyCursesWindow_keypad(ptr noundef readonly captures
 
 PyCursesCheckERR_ForWin.exit:                     ; preds = %11, %5, %2
   %.0 = phi ptr [ null, %2 ], [ @_Py_NoneStruct, %5 ], [ null, %11 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @PyCursesWindow_leaveok(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %1, ptr noundef nonnull @.str.364, ptr noundef nonnull %3) #9
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %PyCursesCheckERR_ForWin.exit, label %5
@@ -12799,7 +12793,7 @@ define internal noundef ptr @PyCursesWindow_leaveok(ptr noundef readonly capture
 
 PyCursesCheckERR_ForWin.exit:                     ; preds = %11, %5, %2
   %.0 = phi ptr [ null, %2 ], [ @_Py_NoneStruct, %5 ], [ null, %11 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
@@ -12807,8 +12801,8 @@ PyCursesCheckERR_ForWin.exit:                     ; preds = %11, %5, %2
 define internal noundef ptr @PyCursesWindow_wmove(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %1, ptr noundef nonnull @.str.384, ptr noundef nonnull %3, ptr noundef nonnull %4) #9
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %PyCursesCheckERR_ForWin.exit, label %6
@@ -12832,8 +12826,8 @@ define internal noundef ptr @PyCursesWindow_wmove(ptr noundef readonly captures(
 
 PyCursesCheckERR_ForWin.exit:                     ; preds = %12, %6, %2
   %.0 = phi ptr [ null, %2 ], [ @_Py_NoneStruct, %6 ], [ null, %12 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
@@ -12841,8 +12835,8 @@ PyCursesCheckERR_ForWin.exit:                     ; preds = %12, %6, %2
 define internal noundef ptr @PyCursesWindow_mvderwin(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %1, ptr noundef nonnull @.str.384, ptr noundef nonnull %3, ptr noundef nonnull %4) #9
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %PyCursesCheckERR_ForWin.exit, label %6
@@ -12866,8 +12860,8 @@ define internal noundef ptr @PyCursesWindow_mvderwin(ptr noundef readonly captur
 
 PyCursesCheckERR_ForWin.exit:                     ; preds = %12, %6, %2
   %.0 = phi ptr [ null, %2 ], [ @_Py_NoneStruct, %6 ], [ null, %12 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
@@ -12875,8 +12869,8 @@ PyCursesCheckERR_ForWin.exit:                     ; preds = %12, %6, %2
 define internal noundef ptr @PyCursesWindow_mvwin(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %1, ptr noundef nonnull @.str.384, ptr noundef nonnull %3, ptr noundef nonnull %4) #9
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %PyCursesCheckERR_ForWin.exit, label %6
@@ -12900,15 +12894,15 @@ define internal noundef ptr @PyCursesWindow_mvwin(ptr noundef readonly captures(
 
 PyCursesCheckERR_ForWin.exit:                     ; preds = %12, %6, %2
   %.0 = phi ptr [ null, %2 ], [ @_Py_NoneStruct, %6 ], [ null, %12 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @PyCursesWindow_nodelay(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %1, ptr noundef nonnull @.str.364, ptr noundef nonnull %3) #9
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %PyCursesCheckERR_ForWin.exit, label %5
@@ -12932,14 +12926,14 @@ define internal noundef ptr @PyCursesWindow_nodelay(ptr noundef readonly capture
 
 PyCursesCheckERR_ForWin.exit:                     ; preds = %11, %5, %2
   %.0 = phi ptr [ null, %2 ], [ @_Py_NoneStruct, %5 ], [ null, %11 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @PyCursesWindow_notimeout(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %1, ptr noundef nonnull @.str.364, ptr noundef nonnull %3) #9
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %PyCursesCheckERR_ForWin.exit, label %5
@@ -12963,7 +12957,7 @@ define internal noundef ptr @PyCursesWindow_notimeout(ptr noundef readonly captu
 
 PyCursesCheckERR_ForWin.exit:                     ; preds = %11, %5, %2
   %.0 = phi ptr [ null, %2 ], [ @_Py_NoneStruct, %5 ], [ null, %11 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
@@ -12975,17 +12969,17 @@ define internal noundef ptr @_curses_window_noutrefresh(ptr noundef readonly cap
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4, !tbaa !14
   %9 = getelementptr i8, ptr %1, i64 16
   %.val = load i64, ptr %9, align 8, !tbaa !46
@@ -13086,12 +13080,12 @@ define internal noundef ptr @_curses_window_noutrefresh(ptr noundef readonly cap
 
 _curses_window_noutrefresh_impl.exit:             ; preds = %48, %44, %42, %36, %32, %28, %10, %12
   %.04 = phi ptr [ null, %12 ], [ null, %10 ], [ null, %28 ], [ null, %42 ], [ @_Py_NoneStruct, %32 ], [ null, %36 ], [ @_Py_NoneStruct, %44 ], [ null, %48 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.04
 }
 
@@ -13104,18 +13098,18 @@ define internal noundef ptr @_curses_window_overlay(ptr noundef readonly capture
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4, !tbaa !14
   %10 = getelementptr i8, ptr %1, i64 16
   %.val10 = load i64, ptr %10, align 8, !tbaa !46
@@ -13186,13 +13180,13 @@ PyCursesCheckERR_ForWin.exit.sink.split.i:        ; preds = %38, %25
 
 _curses_window_overlay_impl.exit:                 ; preds = %PyCursesCheckERR_ForWin.exit.sink.split.i, %38, %25, %17, %11, %23
   %.07 = phi ptr [ null, %23 ], [ null, %11 ], [ null, %17 ], [ @_Py_NoneStruct, %25 ], [ @_Py_NoneStruct, %38 ], [ null, %PyCursesCheckERR_ForWin.exit.sink.split.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.07
 }
 
@@ -13205,18 +13199,18 @@ define internal noundef ptr @_curses_window_overwrite(ptr noundef readonly captu
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4, !tbaa !14
   %10 = getelementptr i8, ptr %1, i64 16
   %.val10 = load i64, ptr %10, align 8, !tbaa !46
@@ -13287,13 +13281,13 @@ PyCursesCheckERR_ForWin.exit.sink.split.i:        ; preds = %38, %25
 
 _curses_window_overwrite_impl.exit:               ; preds = %PyCursesCheckERR_ForWin.exit.sink.split.i, %38, %25, %17, %11, %23
   %.07 = phi ptr [ null, %23 ], [ null, %11 ], [ null, %17 ], [ @_Py_NoneStruct, %25 ], [ @_Py_NoneStruct, %38 ], [ null, %PyCursesCheckERR_ForWin.exit.sink.split.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.07
 }
 
@@ -13332,7 +13326,7 @@ PyCursesCheckERR_ForWin.exit.thread:              ; preds = %13
 
 PyCursesCheckERR_ForWin.exit:                     ; preds = %13
   %21 = tail call i32 @fseek(ptr noundef nonnull %4, i64 noundef 0, i32 noundef 0)
-  call void @llvm.lifetime.start.p0(i64 8192, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %22 = call i64 @fread(ptr noundef nonnull %3, i64 noundef 1, i64 noundef 8192, ptr noundef nonnull %4)
   %23 = icmp slt i64 %22, 1
   br i1 %23, label %.thread, label %.lr.ph
@@ -13361,12 +13355,12 @@ Py_DECREF.exit:                                   ; preds = %.lr.ph, %26, %29
 
 .thread:                                          ; preds = %Py_DECREF.exit, %32, %PyCursesCheckERR_ForWin.exit
   %.2.ph = phi ptr [ @_Py_NoneStruct, %PyCursesCheckERR_ForWin.exit ], [ %30, %32 ], [ null, %Py_DECREF.exit ]
-  call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %35
 
 32:                                               ; preds = %Py_DECREF.exit
-  call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %3) #9
-  call void @llvm.lifetime.start.p0(i64 8192, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %33 = call i64 @fread(ptr noundef nonnull %3, i64 noundef 1, i64 noundef 8192, ptr noundef nonnull %4)
   %34 = icmp slt i64 %33, 1
   br i1 %34, label %.thread, label %.lr.ph
@@ -13482,17 +13476,17 @@ define internal noundef ptr @_curses_window_refresh(ptr noundef readonly capture
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4, !tbaa !14
   %9 = getelementptr i8, ptr %1, i64 16
   %.val = load i64, ptr %9, align 8, !tbaa !46
@@ -13593,12 +13587,12 @@ define internal noundef ptr @_curses_window_refresh(ptr noundef readonly capture
 
 _curses_window_refresh_impl.exit:                 ; preds = %48, %44, %42, %36, %32, %28, %10, %12
   %.04 = phi ptr [ null, %12 ], [ null, %10 ], [ null, %28 ], [ null, %42 ], [ @_Py_NoneStruct, %32 ], [ null, %36 ], [ @_Py_NoneStruct, %44 ], [ null, %48 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.04
 }
 
@@ -13606,8 +13600,8 @@ _curses_window_refresh_impl.exit:                 ; preds = %48, %44, %42, %36, 
 define internal noundef ptr @PyCursesWindow_wresize(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %1, ptr noundef nonnull @.str.437, ptr noundef nonnull %3, ptr noundef nonnull %4) #9
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %PyCursesCheckERR_ForWin.exit, label %6
@@ -13631,15 +13625,15 @@ define internal noundef ptr @PyCursesWindow_wresize(ptr noundef readonly capture
 
 PyCursesCheckERR_ForWin.exit:                     ; preds = %12, %6, %2
   %.0 = phi ptr [ null, %2 ], [ @_Py_NoneStruct, %6 ], [ null, %12 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @_curses_window_scroll(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 1, ptr %3, align 4, !tbaa !14
   %4 = getelementptr i8, ptr %1, i64 16
   %.val = load i64, ptr %4, align 8, !tbaa !46
@@ -13683,14 +13677,14 @@ PyCursesCheckERR_ForWin.exit.sink.split.i:        ; preds = %13, %9
 
 _curses_window_scroll_impl.exit:                  ; preds = %PyCursesCheckERR_ForWin.exit.sink.split.i, %13, %9, %5, %7
   %.04 = phi ptr [ null, %7 ], [ null, %5 ], [ @_Py_NoneStruct, %9 ], [ @_Py_NoneStruct, %13 ], [ null, %PyCursesCheckERR_ForWin.exit.sink.split.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.04
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @PyCursesWindow_scrollok(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %1, ptr noundef nonnull @.str.364, ptr noundef nonnull %3) #9
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %PyCursesCheckERR_ForWin.exit, label %5
@@ -13714,7 +13708,7 @@ define internal noundef ptr @PyCursesWindow_scrollok(ptr noundef readonly captur
 
 PyCursesCheckERR_ForWin.exit:                     ; preds = %11, %5, %2
   %.0 = phi ptr [ null, %2 ], [ @_Py_NoneStruct, %5 ], [ null, %11 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
@@ -13800,12 +13794,12 @@ define internal ptr @_curses_window_subwin(ptr noundef readonly captures(none) %
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr i8, ptr %1, i64 16
   %.val = load i64, ptr %7, align 8, !tbaa !46
   switch i64 %.val, label %12 [
@@ -13879,10 +13873,10 @@ define internal ptr @_curses_window_subwin(ptr noundef readonly captures(none) %
 
 _curses_window_subwin_impl.exit:                  ; preds = %35, %33, %10, %8, %12
   %.05 = phi ptr [ null, %12 ], [ null, %8 ], [ null, %10 ], [ null, %33 ], [ %38, %35 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.05
 }
 
@@ -13897,7 +13891,7 @@ define internal noundef nonnull ptr @PyCursesWindow_wsyncdown(ptr noundef readon
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @PyCursesWindow_syncok(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %1, ptr noundef nonnull @.str.364, ptr noundef nonnull %3) #9
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %PyCursesCheckERR_ForWin.exit, label %5
@@ -13921,7 +13915,7 @@ define internal noundef ptr @PyCursesWindow_syncok(ptr noundef readonly captures
 
 PyCursesCheckERR_ForWin.exit:                     ; preds = %11, %5, %2
   %.0 = phi ptr [ null, %2 ], [ @_Py_NoneStruct, %5 ], [ null, %11 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
@@ -13936,7 +13930,7 @@ define internal noundef nonnull ptr @PyCursesWindow_wsyncup(ptr noundef readonly
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @PyCursesWindow_wtimeout(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %1, ptr noundef nonnull @.str.445, ptr noundef nonnull %3) #9
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %9, label %5
@@ -13950,7 +13944,7 @@ define internal noundef ptr @PyCursesWindow_wtimeout(ptr noundef readonly captur
 
 9:                                                ; preds = %2, %5
   %.0 = phi ptr [ @_Py_NoneStruct, %5 ], [ null, %2 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
@@ -13959,9 +13953,9 @@ define internal noundef ptr @_curses_window_touchline(ptr noundef readonly captu
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 1, ptr %5, align 4, !tbaa !14
   %6 = getelementptr i8, ptr %1, i64 16
   %.val = load i64, ptr %6, align 8, !tbaa !46
@@ -14014,9 +14008,9 @@ PyCursesCheckERR_ForWin.exit.sink.split.i:        ; preds = %19, %13
 
 _curses_window_touchline_impl.exit:               ; preds = %PyCursesCheckERR_ForWin.exit.sink.split.i, %19, %13, %9, %7, %11
   %.05 = phi ptr [ null, %11 ], [ null, %7 ], [ null, %9 ], [ @_Py_NoneStruct, %13 ], [ @_Py_NoneStruct, %19 ], [ null, %PyCursesCheckERR_ForWin.exit.sink.split.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.05
 }
 
@@ -14094,13 +14088,13 @@ define internal noundef ptr @_curses_window_vline(ptr noundef readonly captures(
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 0, ptr %8, align 8, !tbaa !50
   %9 = getelementptr i8, ptr %1, i64 16
   %.val = load i64, ptr %9, align 8, !tbaa !46
@@ -14143,7 +14137,7 @@ define internal noundef ptr @_curses_window_vline(ptr noundef readonly captures(
   %23 = load ptr, ptr %6, align 8, !tbaa !11
   %24 = load i32, ptr %7, align 4, !tbaa !14
   %25 = load i64, ptr %8, align 8, !tbaa !50
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %26 = call fastcc i32 @PyCurses_ConvertToChtype(ptr noundef readonly %0, ptr noundef %23, ptr noundef nonnull %3)
   %.not.i = icmp eq i32 %26, 0
   br i1 %.not.i, label %_curses_window_vline_impl.exit, label %27
@@ -14179,16 +14173,16 @@ PyCursesCheckERR_ForWin.exit.sink.split.i:        ; preds = %33, %28
 
 _curses_window_vline_impl.exit:                   ; preds = %20, %33, %PyCursesCheckERR_ForWin.exit.sink.split.i
   %.0.i = phi ptr [ null, %20 ], [ @_Py_NoneStruct, %33 ], [ null, %PyCursesCheckERR_ForWin.exit.sink.split.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %44
 
 44:                                               ; preds = %16, %14, %12, %10, %_curses_window_vline_impl.exit, %18
   %.09 = phi ptr [ null, %18 ], [ %.0.i, %_curses_window_vline_impl.exit ], [ null, %10 ], [ null, %12 ], [ null, %14 ], [ null, %16 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.09
 }
 
@@ -14203,7 +14197,7 @@ declare ptr @PyType_GetModuleState(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 3) i32 @PyCurses_ConvertToString(ptr noundef %0, ptr noundef nonnull writeonly captures(none) %1, ptr noundef nonnull writeonly captures(none) %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr i8, ptr %0, i64 8
   %.val12 = load ptr, ptr %5, align 8, !tbaa !23
   %6 = getelementptr i8, ptr %.val12, i64 168
@@ -14264,7 +14258,7 @@ _Py_NewRef.exit:                                  ; preds = %13, %16
 
 Py_DECREF.exit:                                   ; preds = %25, %22, %20, %_Py_NewRef.exit, %8, %26
   %.0 = phi i32 [ 0, %26 ], [ %., %8 ], [ 1, %_Py_NewRef.exit ], [ 0, %20 ], [ 0, %22 ], [ 0, %25 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -14381,7 +14375,7 @@ declare i32 @overwrite(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @putwin(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #3
+declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 declare i32 @wredrawln(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -14492,7 +14486,7 @@ declare i32 @delwin(ptr noundef) local_unnamed_addr #1
 declare ptr @PyMem_Calloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal range(i32 0, 2) i32 @curses_capi_setupterm_called() #6 {
+define internal range(i32 0, 2) i32 @curses_capi_setupterm_called() #5 {
   %.b = load i1, ptr @curses_setupterm_called, align 4
   br i1 %.b, label %_PyCursesCheckFunction.exit, label %1
 
@@ -14523,7 +14517,7 @@ _PyCursesCheckFunction.exit:                      ; preds = %0, %1, %3, %6, %9
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal range(i32 0, 2) i32 @curses_capi_initscr_called() #6 {
+define internal range(i32 0, 2) i32 @curses_capi_initscr_called() #5 {
   %.b = load i1, ptr @curses_initscr_called, align 4
   br i1 %.b, label %_PyCursesCheckFunction.exit, label %1
 
@@ -14554,7 +14548,7 @@ _PyCursesCheckFunction.exit:                      ; preds = %0, %1, %3, %6, %9
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal range(i32 0, 2) i32 @curses_capi_start_color_called() #6 {
+define internal range(i32 0, 2) i32 @curses_capi_start_color_called() #5 {
   %.b = load i1, ptr @curses_start_color_called, align 4
   br i1 %.b, label %_PyCursesCheckFunction.exit, label %1
 
@@ -14671,9 +14665,15 @@ declare ptr @PyStructSequence_New(ptr noundef) local_unnamed_addr #1
 declare ptr @curses_version() local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 declare void @PyStructSequence_SetItem(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #7
@@ -14686,11 +14686,11 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #9 = { nounwind }

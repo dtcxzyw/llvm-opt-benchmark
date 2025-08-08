@@ -267,9 +267,6 @@ Vec_IntPush.exit47.sink.split:                    ; preds = %87
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @Ivy_TruthDecompose_rec(i32 noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca [3 x i8], align 1
@@ -277,10 +274,10 @@ define internal fastcc i32 @Ivy_TruthDecompose_rec(i32 noundef %0, ptr noundef %
   %5 = alloca [5 x i32], align 16
   %6 = alloca [5 x i32], align 16
   %7 = alloca [5 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4) #11
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5) #11
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %6) #11
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %8
 
 8:                                                ; preds = %2, %57
@@ -407,7 +404,7 @@ define internal fastcc i32 @Ivy_TruthDecompose_rec(i32 noundef %0, ptr noundef %
   br i1 %or.cond5, label %67, label %258
 
 67:                                               ; preds = %63
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %68 = icmp sgt i32 %.191, 0
   br i1 %68, label %.lr.ph199.us.preheader, label %.loopexit187.thread
 
@@ -763,7 +760,7 @@ Vec_IntPush.exit120:                              ; preds = %.Vec_IntGrow.exit10
 
 Ivy_TruthRecognizeMuxMaj.exit:                    ; preds = %Vec_IntPush.exit133, %.loopexit187, %.loopexit187.thread, %Vec_IntPush.exit120
   %.057.i = phi i32 [ %257, %Vec_IntPush.exit120 ], [ %154, %Vec_IntPush.exit133 ], [ -1, %.loopexit187 ], [ -1, %.loopexit187.thread ]
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %398
 
 258:                                              ; preds = %63
@@ -1043,18 +1040,15 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 
 398:                                              ; preds = %323, %Vec_IntPush.exit, %Ivy_TruthRecognizeMuxMaj.exit, %61
   %.0 = phi i32 [ %62, %61 ], [ %.057.i, %Ivy_TruthRecognizeMuxMaj.exit ], [ %397, %Vec_IntPush.exit ], [ -1, %323 ]
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %7) #11
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @Ivy_TruthDsdCompute(ptr noundef readonly %0) local_unnamed_addr #2 {
+define i32 @Ivy_TruthDsdCompute(ptr noundef readonly %0) local_unnamed_addr #1 {
   %2 = getelementptr i8, ptr %0, i64 4
   %.val = load i32, ptr %2, align 4, !tbaa !3
   %3 = add nsw i32 %.val, -1
@@ -1063,10 +1057,10 @@ define i32 @Ivy_TruthDsdCompute(ptr noundef readonly %0) local_unnamed_addr #2 {
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #3
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @Ivy_TruthDsdCompute_rec(i32 noundef %0, ptr noundef %1) local_unnamed_addr #2 {
+define i32 @Ivy_TruthDsdCompute_rec(i32 noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr i8, ptr %1, i64 8
   %.val = load ptr, ptr %3, align 8, !tbaa !11
   br label %tailrecurse
@@ -1293,7 +1287,7 @@ Ivy_DecGetVar.exit71:                             ; preds = %66, %67, %68, %69, 
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Ivy_TruthDsdPrint_rec(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #4 {
+define void @Ivy_TruthDsdPrint_rec(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr i8, ptr %2, i64 8
   %.val = load ptr, ptr %4, align 8, !tbaa !11
   %5 = sext i32 %1 to i64
@@ -1522,10 +1516,10 @@ Ivy_DecGetVar.exit73:                             ; preds = %71, %72, %73, %74, 
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Ivy_TruthDsdPrint(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 {
+define void @Ivy_TruthDsdPrint(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 4, i64 1, ptr %0)
   %4 = getelementptr i8, ptr %1, i64 4
   %.val = load i32, ptr %4, align 4, !tbaa !3
@@ -1538,7 +1532,7 @@ define void @Ivy_TruthDsdPrint(ptr noundef %0, ptr noundef %1) local_unnamed_add
 ; Function Attrs: nounwind uwtable
 define ptr @Ivy_ManDsdConstruct_rec(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca [16 x ptr], align 16
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr i8, ptr %3, i64 8
   %.val44 = load ptr, ptr %6, align 8, !tbaa !11
   %7 = sext i32 %2 to i64
@@ -1717,15 +1711,15 @@ Ivy_DecGetVar.exit:                               ; preds = %58, %60, %61, %62, 
 
 116:                                              ; preds = %4, %112, %114, %._crit_edge, %34, %19, %11
   %.0 = phi ptr [ %18, %11 ], [ %33, %19 ], [ %43, %34 ], [ %82, %._crit_edge ], [ %113, %112 ], [ %115, %114 ], [ null, %4 ]
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }
 
-declare ptr @Ivy_Multi(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
+declare ptr @Ivy_Multi(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
-declare ptr @Ivy_Mux(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare ptr @Ivy_Mux(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare ptr @Ivy_Maj(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare ptr @Ivy_Maj(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define ptr @Ivy_ManDsdConstruct(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -1859,13 +1853,19 @@ define void @Ivy_TruthTestOne(i32 noundef %0) local_unnamed_addr #0 {
   ret void
 }
 
-declare void @Extra_PrintBinary(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
+declare void @Extra_PrintBinary(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #6
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #7
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #8
@@ -1880,13 +1880,13 @@ declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i6
 declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #8
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nofree nounwind }
 attributes #9 = { nounwind allocsize(1) }
 attributes #10 = { nounwind allocsize(0) }

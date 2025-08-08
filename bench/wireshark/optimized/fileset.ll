@@ -30,7 +30,7 @@ define hidden range(i32 0, 3) i32 @fileset_filename_match_pattern(ptr noundef %0
   br i1 %9, label %10, label %17
 
 10:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8
   %11 = call ptr @g_regex_new(ptr noundef nonnull @.str, i32 noundef 8208, i32 noundef 16, ptr noundef nonnull %5)
   store ptr %11, ptr @fileset_filename_match_pattern.regex, align 8
@@ -45,11 +45,11 @@ define hidden range(i32 0, 3) i32 @fileset_filename_match_pattern(ptr noundef %0
   %16 = load ptr, ptr %5, align 8
   call void @g_error_free(ptr noundef %16)
   store ptr null, ptr @fileset_filename_match_pattern.regex, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %77
 
 .critedge:                                        ; preds = %10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %17
 
 17:                                               ; preds = %.critedge, %4
@@ -58,7 +58,7 @@ define hidden range(i32 0, 3) i32 @fileset_filename_match_pattern(ptr noundef %0
   br i1 %19, label %20, label %27
 
 20:                                               ; preds = %17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8
   %21 = call ptr @g_regex_new(ptr noundef nonnull @.str.1, i32 noundef 8208, i32 noundef 16, ptr noundef nonnull %6)
   store ptr %21, ptr @fileset_filename_match_pattern.regex2, align 8
@@ -73,16 +73,16 @@ define hidden range(i32 0, 3) i32 @fileset_filename_match_pattern(ptr noundef %0
   %26 = load ptr, ptr %6, align 8
   call void @g_error_free(ptr noundef %26)
   store ptr null, ptr @fileset_filename_match_pattern.regex2, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %77
 
 .critedge72:                                      ; preds = %20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %27
 
 27:                                               ; preds = %.critedge72, %17
   %28 = call noalias ptr @g_path_get_basename(ptr noundef %0)
-  %29 = call ptr @strrchr(ptr noundef %28, i32 noundef 46) #10
+  %29 = call ptr @strrchr(ptr noundef %28, i32 noundef 46) #9
   %.not60 = icmp eq ptr %29, null
   br i1 %.not60, label %43, label %30
 
@@ -102,7 +102,7 @@ define hidden range(i32 0, 3) i32 @fileset_filename_match_pattern(ptr noundef %0
   br i1 %36, label %37, label %40
 
 37:                                               ; preds = %.lr.ph
-  %38 = call ptr @strrchr(ptr noundef %28, i32 noundef 46) #10
+  %38 = call ptr @strrchr(ptr noundef %28, i32 noundef 46) #9
   %.not62 = icmp eq ptr %38, null
   br i1 %.not62, label %.loopexit, label %39
 
@@ -123,13 +123,13 @@ define hidden range(i32 0, 3) i32 @fileset_filename_match_pattern(ptr noundef %0
   br label %46
 
 43:                                               ; preds = %27
-  %44 = call i64 @strlen(ptr noundef %28) #10
+  %44 = call i64 @strlen(ptr noundef %28) #9
   %45 = getelementptr i8, ptr %28, i64 %44
   br label %46
 
 46:                                               ; preds = %43, %.loopexit
   %.144 = phi ptr [ %.043, %.loopexit ], [ %45, %43 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %47 = load ptr, ptr @fileset_filename_match_pattern.regex, align 8
   %48 = call i32 @g_regex_match(ptr noundef %47, ptr noundef %28, i32 noundef 0, ptr noundef nonnull %7)
   %49 = load ptr, ptr %7, align 8
@@ -206,7 +206,7 @@ define hidden range(i32 0, 3) i32 @fileset_filename_match_pattern(ptr noundef %0
   %76 = load ptr, ptr %7, align 8
   call void @g_match_info_free(ptr noundef %76)
   call void @g_free(ptr noundef %28)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %77
 
 77:                                               ; preds = %23, %13, %.thread
@@ -214,70 +214,64 @@ define hidden range(i32 0, 3) i32 @fileset_filename_match_pattern(ptr noundef %0
   ret i32 %.2
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @g_regex_new(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @g_regex_new(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @ws_log_full(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @ws_log_full(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @g_error_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @g_error_free(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: null_pointer_is_valid
-declare noalias ptr @g_path_get_basename(ptr noundef) local_unnamed_addr #2
+declare noalias ptr @g_path_get_basename(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @wtap_get_all_compression_type_extensions_list() local_unnamed_addr #2
+declare ptr @wtap_get_all_compression_type_extensions_list() local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare noalias ptr @g_ascii_strdown(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare noalias ptr @g_ascii_strdown(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @g_strcmp0(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @g_strcmp0(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @g_free(ptr noundef) local_unnamed_addr #2
+declare void @g_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @g_slist_free(ptr noundef) local_unnamed_addr #2
+declare void @g_slist_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @g_regex_match(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @g_regex_match(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @g_match_info_matches(ptr noundef) local_unnamed_addr #2
+declare i32 @g_match_info_matches(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @g_match_info_fetch_named(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @g_match_info_fetch_named(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #2
+declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @g_match_info_free(ptr noundef) local_unnamed_addr #2
+declare void @g_match_info_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @fileset_update_file(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.stat, align 8
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = tail call i32 (ptr, i32, ...) @open(ptr noundef %0, i32 noundef 0, i32 noundef 0)
   %.not = icmp eq i32 %3, -1
   br i1 %.not, label %21, label %4
 
 4:                                                ; preds = %1
-  %5 = call i32 @fstat(i32 noundef %3, ptr noundef nonnull %2) #9
+  %5 = call i32 @fstat(i32 noundef %3, ptr noundef nonnull %2) #10
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %19
 
@@ -306,18 +300,18 @@ define hidden void @fileset_update_file(ptr noundef %0) local_unnamed_addr #0 {
   br label %21
 
 21:                                               ; preds = %19, %1
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
 ; Function Attrs: nofree null_pointer_is_valid
-declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #4
+declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare noundef i32 @fstat(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #5
+declare noundef i32 @fstat(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @g_list_find_custom(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @g_list_find_custom(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @fileset_find_by_path(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
@@ -327,7 +321,7 @@ define internal i32 @fileset_find_by_path(ptr noundef readonly captures(none) %0
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @close(i32 noundef) local_unnamed_addr #2
+declare i32 @close(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @fileset_update_dlg(ptr noundef %0) local_unnamed_addr #0 {
@@ -352,16 +346,16 @@ define hidden void @fileset_update_dlg(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @fileset_dlg_begin_add_file(ptr noundef) local_unnamed_addr #2
+declare void @fileset_dlg_begin_add_file(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @g_list_first(ptr noundef) local_unnamed_addr #2
+declare ptr @g_list_first(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @fileset_dlg_add_file(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @fileset_dlg_add_file(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @fileset_dlg_end_add_file(ptr noundef) local_unnamed_addr #2
+declare void @fileset_dlg_end_add_file(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @fileset_add_dir(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -418,19 +412,19 @@ g_string_append_c_inline.exit:                    ; preds = %18, %24
 .lr.ph:                                           ; preds = %.preheader, %48
   %31 = phi ptr [ %49, %48 ], [ %30, %.preheader ]
   %32 = call ptr @get_basename(ptr noundef %0)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %33 = call i32 @fileset_filename_match_pattern(ptr noundef nonnull %31, ptr noundef nonnull %3, ptr noundef nonnull %5, ptr noundef null)
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %fileset_is_file_in_set.exit.thread, label %35
 
 fileset_is_file_in_set.exit.thread:               ; preds = %.lr.ph
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %48
 
 35:                                               ; preds = %.lr.ph
@@ -459,16 +453,16 @@ fileset_is_file_in_set.exit:                      ; preds = %38
   call void @g_free(ptr noundef %.pre8.i)
   call void @g_free(ptr noundef %.pre10.i)
   call void @g_free(ptr noundef %.pre12.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %42, label %43, label %48
 
 43:                                               ; preds = %fileset_is_file_in_set.exit
   %44 = load ptr, ptr %9, align 8
   %45 = call ptr @get_basename(ptr noundef %0)
-  %46 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %31, ptr noundef %45) #10
+  %46 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %31, ptr noundef %45) #9
   %47 = icmp eq i32 %46, 0
   call fastcc void @fileset_add_file(ptr noundef %44, ptr noundef nonnull %31, i1 noundef zeroext %47)
   br label %48
@@ -480,10 +474,10 @@ fileset_is_file_in_set.exit:                      ; preds = %38
   call void @g_free(ptr noundef %.pre8.i)
   call void @g_free(ptr noundef %.ph24)
   call void @g_free(ptr noundef %.ph)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %48
 
 48:                                               ; preds = %.critedge, %fileset_is_file_in_set.exit.thread, %43, %fileset_is_file_in_set.exit
@@ -526,32 +520,32 @@ fileset_update_dlg.exit:                          ; preds = %.lr.ph.i, %52
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @g_string_new(ptr noundef) local_unnamed_addr #2
+declare ptr @g_string_new(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @get_dirname(ptr noundef) local_unnamed_addr #2
+declare ptr @get_dirname(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @g_dir_open(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @g_dir_open(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @g_dir_read_name(ptr noundef) local_unnamed_addr #2
+declare ptr @g_dir_read_name(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @get_basename(ptr noundef) local_unnamed_addr #2
+declare ptr @get_basename(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @fileset_add_file(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca %struct.stat, align 8
   %5 = zext i1 %2 to i8
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.7, ptr noundef %0, ptr noundef %1)
   %7 = tail call i32 (ptr, i32, ...) @open(ptr noundef %6, i32 noundef 0, i32 noundef 0)
   %.not = icmp eq i32 %7, -1
   br i1 %.not, label %28, label %8
 
 8:                                                ; preds = %3
-  %9 = call i32 @fstat(i32 noundef %7, ptr noundef nonnull %4) #9
+  %9 = call i32 @fstat(i32 noundef %7, ptr noundef nonnull %4) #10
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %26
 
@@ -585,34 +579,34 @@ define internal fastcc void @fileset_add_file(ptr noundef %0, ptr noundef %1, i1
 
 28:                                               ; preds = %26, %3
   tail call void @g_free(ptr noundef %6)
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare void @g_dir_close(ptr noundef) local_unnamed_addr #2
+declare void @g_dir_close(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @g_string_free(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @g_string_free(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @g_list_sort(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @g_list_sort(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @fileset_sort_compare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #6 {
+define internal i32 @fileset_sort_compare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call i32 @strcmp(ptr noundef %4, ptr noundef %6) #10
+  %7 = tail call i32 @strcmp(ptr noundef %4, ptr noundef %6) #9
   ret i32 %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden ptr @fileset_get_dirname() local_unnamed_addr #7 {
+define hidden ptr @fileset_get_dirname() local_unnamed_addr #6 {
   %1 = load ptr, ptr @set.1, align 8
   ret ptr %1
 }
@@ -714,7 +708,7 @@ define hidden void @fileset_delete() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @g_list_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @g_list_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @fileset_entry_delete(ptr noundef %0, ptr readnone captures(none) %1) #0 {
@@ -730,31 +724,37 @@ define internal void @fileset_entry_delete(ptr noundef %0, ptr readnone captures
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @g_list_free(ptr noundef) local_unnamed_addr #2
+declare void @g_list_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @g_string_insert_c(ptr noundef, i64 noundef, i8 noundef signext) local_unnamed_addr #2
+declare ptr @g_string_insert_c(ptr noundef, i64 noundef, i8 noundef signext) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid allocsize(0)
-declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #8
+declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @g_list_append(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @g_list_append(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nounwind }
-attributes #10 = { nounwind willreturn memory(read) }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { nounwind willreturn memory(read) }
+attributes #10 = { nounwind }
 attributes #11 = { allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}

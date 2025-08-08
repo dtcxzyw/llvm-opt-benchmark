@@ -615,12 +615,6 @@ if.end14:                                         ; preds = %delete.notnull.i, %
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
-
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3irr3gui14CGUISpriteBank5clearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(120) %this) unnamed_addr #0 align 2 {
 entry:
@@ -844,7 +838,7 @@ _ZNSt6vectorIN3irr4core4rectIiEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx1
 _ZN3irr4core5arrayINS_3gui15SGUISpriteFrameEE9push_backERKS3_.exit: ; preds = %_ZNSt6vectorIN3irr4core4rectIiEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i, %if.then.i.i.i
   %is_sorted.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   store i8 0, ptr %is_sorted.i, align 8, !tbaa !15
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %sprite) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %sprite)
   %is_sorted.i.i = getelementptr inbounds nuw i8, ptr %sprite, i64 24
   %frameTime.i = getelementptr inbounds nuw i8, ptr %sprite, i64 32
   store i32 0, ptr %frameTime.i, align 8, !tbaa !60
@@ -921,7 +915,7 @@ if.then.i.i.i.i.i32:                              ; preds = %_ZN3irr4core5arrayI
 
 _ZN3irr3gui10SGUISpriteD2Ev.exit:                 ; preds = %if.then.i.i.i.i.i32, %_ZN3irr4core5arrayINS_3gui10SGUISpriteEE9push_backERKS3_.exit
   %sub1056 = phi i32 [ %sub10, %_ZN3irr4core5arrayINS_3gui10SGUISpriteEE9push_backERKS3_.exit ], [ %sub1055, %if.then.i.i.i.i.i32 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %sprite) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %sprite)
   br label %return
 
 return:                                           ; preds = %_ZN3irr3gui10SGUISpriteD2Ev.exit, %entry
@@ -1013,7 +1007,7 @@ if.end8:                                          ; preds = %if.end
 if.end15:                                         ; preds = %if.end8
   %conv.i42 = zext i32 %9 to i64
   %add.ptr.i.i43 = getelementptr inbounds nuw %"class.irr::core::rect", ptr %11, i64 %conv.i42
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %p) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %p)
   %12 = load i64, ptr %pos, align 4, !tbaa.struct !66
   store i64 %12, ptr %p, align 8, !tbaa.struct !66
   br i1 %center, label %if.then19, label %if.end25
@@ -1048,7 +1042,7 @@ if.end25:                                         ; preds = %if.then19, %if.end1
   %vfn27 = getelementptr inbounds nuw i8, ptr %vtable26, i64 384
   %21 = load ptr, ptr %vfn27, align 8
   call void %21(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull %call5, ptr noundef nonnull align 4 dereferenceable(8) %p, ptr noundef nonnull align 4 dereferenceable(16) %add.ptr.i.i43, ptr noundef %clip, i32 %agg.tmp.sroa.0.0.copyload, i1 noundef zeroext true) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %p)
   br label %cleanup29
 
 cleanup29:                                        ; preds = %if.end25, %if.end8, %if.end, %if.end.i, %entry
@@ -1056,7 +1050,7 @@ cleanup29:                                        ; preds = %if.end25, %if.end8,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3irr3gui14CGUISpriteBank12draw2DSpriteEjRKNS_4core4rectIiEEPS5_PKNS_5video6SColorEjb(ptr noundef nonnull align 8 dereferenceable(120) %this, i32 noundef %index, ptr noundef nonnull align 4 dereferenceable(16) %destRect, ptr noundef %clip, ptr noundef %colors, i32 noundef %timeTicks, i1 noundef zeroext %loop) unnamed_addr #0 align 2 {
@@ -1182,7 +1176,7 @@ entry:
   br i1 %tobool.not, label %cleanup94, label %if.end
 
 if.end:                                           ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %drawBatches) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %drawBatches)
   %vtable7 = load ptr, ptr %this, align 8, !tbaa !3
   %vfn8 = getelementptr inbounds nuw i8, ptr %vtable7, i64 16
   %5 = load ptr, ptr %vfn8, align 8
@@ -1233,7 +1227,7 @@ for.body18.lr.ph:                                 ; preds = %for.cond15.preheade
 
 for.body:                                         ; preds = %_ZN3irr4core5arrayINS0_4rectIiEEE10reallocateEjb.exit, %for.body.lr.ph
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %_ZN3irr4core5arrayINS0_4rectIiEEE10reallocateEjb.exit ]
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %ref.tmp11) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %ref.tmp11, i8 0, i64 72, i1 false)
   store i8 1, ptr %is_sorted.i.i, align 8, !tbaa !94
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %sourceRects.i, i8 0, i64 24, i1 false)
@@ -1392,7 +1386,7 @@ if.then.i.i.i.i3.i:                               ; preds = %_ZN3irr4core5arrayI
   br label %_ZN3irr3gui14CGUISpriteBank10SDrawBatchD2Ev.exit
 
 _ZN3irr3gui14CGUISpriteBank10SDrawBatchD2Ev.exit: ; preds = %if.then.i.i.i.i3.i, %_ZN3irr4core5arrayINS0_4rectIiEEED2Ev.exit.i
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %ref.tmp11) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11)
   %36 = load ptr, ptr %drawBatches, align 8, !tbaa !110
   %add.ptr.i.i = getelementptr inbounds nuw %"struct.irr::gui::CGUISpriteBank::SDrawBatch", ptr %36, i64 %indvars.iv
   %_M_end_of_storage.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 16
@@ -2190,7 +2184,7 @@ if.then.i.i.i.i360:                               ; preds = %_ZSt8_DestroyIPN3ir
   br label %_ZN3irr4core5arrayINS_3gui14CGUISpriteBank10SDrawBatchEED2Ev.exit
 
 _ZN3irr4core5arrayINS_3gui14CGUISpriteBank10SDrawBatchEED2Ev.exit: ; preds = %if.then.i.i.i.i360, %_ZSt8_DestroyIPN3irr3gui14CGUISpriteBank10SDrawBatchES3_EvT_S5_RSaIT0_E.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %drawBatches) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %drawBatches)
   br label %cleanup94
 
 cleanup94:                                        ; preds = %_ZN3irr4core5arrayINS_3gui14CGUISpriteBank10SDrawBatchEED2Ev.exit, %entry
@@ -2198,52 +2192,52 @@ cleanup94:                                        ; preds = %_ZN3irr4core5arrayI
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 declare void @__cxa_pure_virtual() unnamed_addr
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3irr3gui14IGUISpriteBankD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #9 comdat align 2 {
+define linkonce_odr void @_ZN3irr3gui14IGUISpriteBankD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #8 comdat align 2 {
 entry:
   tail call void @llvm.trap() #19
   unreachable
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3irr3gui14IGUISpriteBankD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #9 comdat align 2 {
+define linkonce_odr void @_ZN3irr3gui14IGUISpriteBankD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #8 comdat align 2 {
 entry:
   tail call void @llvm.trap() #19
   unreachable
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3irr3gui14IGUISpriteBankD1Ev(ptr noundef %this) unnamed_addr #10 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3irr3gui14IGUISpriteBankD1Ev(ptr noundef %this) unnamed_addr #9 comdat align 2 {
 entry:
   tail call void @llvm.trap() #19
   unreachable
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3irr3gui14IGUISpriteBankD0Ev(ptr noundef %this) unnamed_addr #10 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3irr3gui14IGUISpriteBankD0Ev(ptr noundef %this) unnamed_addr #9 comdat align 2 {
 entry:
   tail call void @llvm.trap() #19
   unreachable
 }
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #11
+declare void @llvm.trap() #10
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #12
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: noreturn
-declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #12
+declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #11
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #13
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #7
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt6vectorIN3irr3gui10SGUISpriteESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(36) %__args) local_unnamed_addr #0 comdat align 2 {
@@ -2732,7 +2726,7 @@ if.end29:                                         ; preds = %_ZNSt12_Vector_base
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3irr3gui14CGUISpriteBank10SDrawBatchC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(68) %this, ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #9 comdat align 2 {
+define linkonce_odr void @_ZN3irr3gui14CGUISpriteBank10SDrawBatchC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(68) %this, ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #8 comdat align 2 {
 entry:
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !85
@@ -2997,7 +2991,7 @@ _ZNSt12_Vector_baseIN3irr3gui14CGUISpriteBank10SDrawBatchESaIS3_EE13_M_deallocat
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3irr3gui14CGUISpriteBank10SDrawBatchC2EOS2_(ptr noundef nonnull align 8 dereferenceable(68) %this, ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #9 comdat align 2 {
+define linkonce_odr void @_ZN3irr3gui14CGUISpriteBank10SDrawBatchC2EOS2_(ptr noundef nonnull align 8 dereferenceable(68) %this, ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #8 comdat align 2 {
 entry:
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !85
@@ -3399,19 +3393,25 @@ if.end6:                                          ; preds = %if.then.i24, %if.th
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #14
+declare void @llvm.assume(i1 noundef) #13
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #15
+declare i64 @llvm.umax.i64(i64, i64) #14
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #15
+declare i64 @llvm.umin.i64(i64, i64) #14
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #16
+declare void @llvm.experimental.noalias.scope.decl(metadata) #15
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #15
+declare i32 @llvm.umin.i32(i32, i32) #14
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #16
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #16
 
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -3419,17 +3419,17 @@ attributes #2 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #12 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #15 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #16 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #11 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #14 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #16 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #17 = { nounwind }
 attributes #18 = { builtin nounwind }
 attributes #19 = { noreturn nounwind }

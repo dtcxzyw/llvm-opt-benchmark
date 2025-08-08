@@ -915,7 +915,7 @@ _ZN7QWidget8setFocusEv.exit:                      ; preds = %165
   %219 = add i32 %218, %215
   %220 = add i32 %208, %217
   %221 = sub i32 %219, %220
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 %204, ptr %8, align 4
   %222 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 %221, ptr %222, align 4
@@ -923,7 +923,7 @@ _ZN7QWidget8setFocusEv.exit:                      ; preds = %165
           to label %223 unwind label %122
 
 223:                                              ; preds = %196
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.not32 = icmp eq ptr %4, null
   br i1 %.not32, label %265, label %224
 
@@ -965,7 +965,7 @@ _ZN7QWidget8setFocusEv.exit:                      ; preds = %165
   %256 = add i32 %.neg, %.sroa.066.0.extract.trunc
   %.neg33 = sdiv i32 %255, -2
   %257 = add i32 %.neg33, %.sroa.2.0.extract.trunc
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 %256, ptr %7, align 4
   %258 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 %257, ptr %258, align 4
@@ -981,7 +981,7 @@ _ZN7QWidget8setFocusEv.exit:                      ; preds = %165
           to label %_ZN7QWidget11setGeometryEiiii.exit unwind label %122
 
 _ZN7QWidget11setGeometryEiiii.exit:               ; preds = %224
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %265
 
 265:                                              ; preds = %_ZN7QWidget11setGeometryEiiii.exit, %223
@@ -1105,12 +1105,12 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i23:  ; preds = %_ZN9QtPrivate8RefCo
   br label %429
 
 _ZN7QStringD2Ev.exit28:                           ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i23, %_ZN9QtPrivate8RefCount5derefEv.exit.i24, %39, %_ZN7QStringD2Ev.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 400, ptr %3, align 4
   %46 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 539, ptr %46, align 4
   call void @_ZN7QWidget6resizeERK5QSize(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 4 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %47 = call i32 @_ZNK7QWidget10sizePolicyEv(ptr noundef nonnull align 8 dereferenceable(48) %1)
   %48 = and i32 %47, 536870912
   %49 = or disjoint i32 %48, 5570560
@@ -3184,7 +3184,7 @@ define void @_ZN16FilterDockDialog31on_previewCheckBox_stateChangedEi(ptr nounde
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 1024
   %24 = load ptr, ptr %23, align 8
   %25 = load ptr, ptr %20, align 8
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %26 = icmp ne ptr %24, null
   %27 = icmp ne ptr %25, null
   %or.cond.i = and i1 %26, %27
@@ -3212,7 +3212,7 @@ define void @_ZN16FilterDockDialog31on_previewCheckBox_stateChangedEi(ptr nounde
   br label %_ZN16FilterDockDialog19updateRenderingDataEP10MainWindowP9MeshModel.exit
 
 _ZN16FilterDockDialog19updateRenderingDataEP10MainWindowP9MeshModel.exit: ; preds = %18, %28, %31, %34
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %40 = load ptr, ptr %39, align 8
   %.not4 = icmp eq ptr %40, null
@@ -3241,7 +3241,7 @@ _ZN16FilterDockDialog19updateRenderingDataEP10MainWindowP9MeshModel.exit: ; pred
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 1024
   %52 = load ptr, ptr %51, align 8
   %53 = load ptr, ptr %48, align 8
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %54 = icmp ne ptr %52, null
   %55 = icmp ne ptr %53, null
   %or.cond.i5 = and i1 %54, %55
@@ -3269,7 +3269,7 @@ _ZN16FilterDockDialog19updateRenderingDataEP10MainWindowP9MeshModel.exit: ; pred
   br label %_ZN16FilterDockDialog19updateRenderingDataEP10MainWindowP9MeshModel.exit8
 
 _ZN16FilterDockDialog19updateRenderingDataEP10MainWindowP9MeshModel.exit8: ; preds = %46, %56, %59, %62
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %68 = load ptr, ptr %67, align 8
   %.not = icmp eq ptr %68, null
@@ -3420,7 +3420,7 @@ define void @_ZN16FilterDockDialog26on_applyPushButton_clickedEv(ptr noundef non
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 1024
   %25 = load ptr, ptr %24, align 8
   %26 = load ptr, ptr %19, align 8
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %27 = icmp ne ptr %25, null
   %28 = icmp ne ptr %26, null
   %or.cond.i = and i1 %27, %28
@@ -3448,7 +3448,7 @@ define void @_ZN16FilterDockDialog26on_applyPushButton_clickedEv(ptr noundef non
   br label %_ZN16FilterDockDialog19updateRenderingDataEP10MainWindowP9MeshModel.exit
 
 _ZN16FilterDockDialog19updateRenderingDataEP10MainWindowP9MeshModel.exit: ; preds = %21, %29, %32, %35
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.pre = load ptr, ptr %5, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 104
   %.pre12 = load ptr, ptr %.phi.trans.insert, align 8
@@ -3481,7 +3481,7 @@ _ZN16FilterDockDialog19updateRenderingDataEP10MainWindowP9MeshModel.exit: ; pred
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 1024
   %54 = load ptr, ptr %53, align 8
   %55 = load ptr, ptr %50, align 8
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %56 = icmp ne ptr %54, null
   %57 = icmp ne ptr %55, null
   %or.cond.i6 = and i1 %56, %57
@@ -3509,7 +3509,7 @@ _ZN16FilterDockDialog19updateRenderingDataEP10MainWindowP9MeshModel.exit: ; pred
   br label %_ZN16FilterDockDialog19updateRenderingDataEP10MainWindowP9MeshModel.exit9
 
 _ZN16FilterDockDialog19updateRenderingDataEP10MainWindowP9MeshModel.exit9: ; preds = %48, %58, %61, %64
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %74
 
 .thread:                                          ; preds = %1, %45, %41
@@ -4059,7 +4059,7 @@ define linkonce_odr void @_ZNK7QString11toStdStringB5cxx11Ev(ptr dead_on_unwind 
   %3 = alloca %"class.std::allocator.211", align 1
   %4 = alloca %class.QByteArray, align 8
   call void @_ZN7QString13toUtf8_helperERKS_(ptr dead_on_unwind nonnull writable sret(%class.QByteArray) align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %1)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = load ptr, ptr %4, align 8, !noalias !19
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load i64, ptr %6, align 8, !noalias !19
@@ -4080,7 +4080,7 @@ define linkonce_odr void @_ZNK7QString11toStdStringB5cxx11Ev(ptr dead_on_unwind 
 
 13:                                               ; preds = %2
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #19
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %14 = load ptr, ptr %4, align 8
   %15 = load atomic i32, ptr %14 monotonic, align 4
   switch i32 %15, label %_ZN9QtPrivate8RefCount5derefEv.exit.i [
@@ -4178,9 +4178,9 @@ define internal void @_GLOBAL__sub_I_filter_dock_dialog.cpp() #15 section ".text
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %5, ptr noundef nonnull align 4 dereferenceable(24) @constinit, i64 24, i1 false)
   store ptr %6, ptr getelementptr inbounds nuw (i8, ptr @_ZN3vcgL13ColorMapEnumsE, i64 8), align 8
   %7 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorIN3vcg8ColorMapESaIS1_EED2Ev, ptr nonnull @_ZN3vcgL13ColorMapEnumsE, ptr nonnull @__dso_handle) #19
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %1)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #22
   store i8 68, ptr %8, align 1
   %.sroa.2583.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 1
@@ -5700,9 +5700,9 @@ __cxx_global_var_init.5.exit:                     ; preds = %_ZNSt4pairIKN3vcg8C
   call void @_ZdlPv(ptr noundef nonnull %15) #18
   call void @_ZdlPv(ptr noundef nonnull %8) #18
   %82 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt3mapIN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS4_EESt4lessIS1_ESaISt4pairIKS1_S6_EEED2Ev, ptr nonnull @_ZN3vcgL9colorMapsE, ptr nonnull @__dso_handle) #19
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %1)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -5710,10 +5710,10 @@ __cxx_global_var_init.5.exit:                     ; preds = %_ZNSt4pairIKN3vcg8C
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #17
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

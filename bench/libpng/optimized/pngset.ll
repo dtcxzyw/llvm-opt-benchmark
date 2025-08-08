@@ -147,8 +147,8 @@ define void @png_set_cHRM_fixed(ptr noalias noundef readnone captures(address_is
 define void @png_set_cHRM_XYZ_fixed(ptr noalias noundef %0, ptr noalias noundef captures(address_is_null) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10) local_unnamed_addr #2 {
   %12 = alloca %struct.png_XYZ, align 4
   %13 = alloca %struct.png_xy, align 4
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %12) #12
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %14 = icmp eq ptr %0, null
   %15 = icmp eq ptr %1, null
   %or.cond = or i1 %14, %15
@@ -190,20 +190,14 @@ define void @png_set_cHRM_XYZ_fixed(ptr noalias noundef %0, ptr noalias noundef 
   br label %33
 
 33:                                               ; preds = %27, %32, %11
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #12
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %12) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
+declare i32 @png_xy_from_XYZ(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @png_xy_from_XYZ(ptr noundef, ptr noundef) local_unnamed_addr #4
-
-declare void @png_app_error(ptr noundef, ptr noundef) local_unnamed_addr #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
+declare void @png_app_error(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define void @png_set_cHRM(ptr noalias noundef %0, ptr noalias noundef captures(address_is_null) %1, double noundef %2, double noundef %3, double noundef %4, double noundef %5, double noundef %6, double noundef %7, double noundef %8, double noundef %9) local_unnamed_addr #2 {
@@ -247,7 +241,7 @@ png_set_cHRM_fixed.exit:                          ; preds = %10, %21
   ret void
 }
 
-declare i32 @png_fixed(ptr noundef, double noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @png_fixed(ptr noundef, double noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define void @png_set_cHRM_XYZ(ptr noalias noundef %0, ptr noalias noundef captures(address_is_null) %1, double noundef %2, double noundef %3, double noundef %4, double noundef %5, double noundef %6, double noundef %7, double noundef %8, double noundef %9, double noundef %10) local_unnamed_addr #2 {
@@ -263,8 +257,8 @@ define void @png_set_cHRM_XYZ(ptr noalias noundef %0, ptr noalias noundef captur
   %21 = tail call i32 @png_fixed(ptr noundef %0, double noundef %9, ptr noundef nonnull @.str.8) #12
   %22 = tail call i32 @png_fixed(ptr noundef %0, double noundef %10, ptr noundef nonnull @.str.11) #12
   tail call void @llvm.experimental.noalias.scope.decl(metadata !50)
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %12) #12, !noalias !53
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #12, !noalias !53
+  call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !53
+  call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !53
   %23 = icmp eq ptr %0, null
   %24 = icmp eq ptr %1, null
   %or.cond.i = or i1 %23, %24
@@ -306,8 +300,8 @@ define void @png_set_cHRM_XYZ(ptr noalias noundef %0, ptr noalias noundef captur
   br label %png_set_cHRM_XYZ_fixed.exit
 
 png_set_cHRM_XYZ_fixed.exit:                      ; preds = %11, %36, %41
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #12, !noalias !53
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %12) #12, !noalias !53
+  call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !53
+  call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !53
   ret void
 }
 
@@ -345,7 +339,7 @@ define void @png_set_cICP(ptr noalias noundef %0, ptr noalias noundef captures(a
   ret void
 }
 
-declare void @png_warning(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @png_warning(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define void @png_set_cLLI_fixed(ptr noalias noundef %0, ptr noalias noundef captures(address_is_null) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #2 {
@@ -378,7 +372,7 @@ define void @png_set_cLLI_fixed(ptr noalias noundef %0, ptr noalias noundef capt
   ret void
 }
 
-declare void @png_chunk_report(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare void @png_chunk_report(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define void @png_set_cLLI(ptr noalias noundef %0, ptr noalias noundef captures(address_is_null) %1, double noundef %2, double noundef %3) local_unnamed_addr #2 {
@@ -414,7 +408,7 @@ png_set_cLLI_fixed.exit:                          ; preds = %4, %11, %12
   ret void
 }
 
-declare i32 @png_fixed_ITU(ptr noundef, double noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @png_fixed_ITU(ptr noundef, double noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define void @png_set_mDCV_fixed(ptr noalias noundef %0, ptr noalias noundef captures(address_is_null) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #2 {
@@ -588,9 +582,9 @@ define void @png_set_eXIf_1(ptr noalias noundef %0, ptr noalias noundef %1, i32 
   ret void
 }
 
-declare noalias ptr @png_malloc_warn(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare noalias ptr @png_malloc_warn(ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare void @png_free_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare void @png_free_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @png_set_gAMA_fixed(ptr noalias noundef readnone captures(address_is_null) %0, ptr noalias noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -775,7 +769,7 @@ define void @png_set_IHDR(ptr noalias noundef %0, ptr noalias noundef writeonly 
   ret void
 }
 
-declare void @png_check_IHDR(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare void @png_check_IHDR(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @png_set_oFFs(ptr noalias noundef readnone captures(address_is_null) %0, ptr noalias noundef captures(address_is_null) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
@@ -965,12 +959,12 @@ define void @png_set_pCAL(ptr noalias noundef %0, ptr noalias noundef captures(a
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
-declare i32 @png_check_fp_string(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @png_check_fp_string(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
 define void @png_set_sCAL_s(ptr noalias noundef %0, ptr noalias noundef captures(address_is_null) %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #2 {
@@ -1081,9 +1075,9 @@ define void @png_set_sCAL_s(ptr noalias noundef %0, ptr noalias noundef captures
 }
 
 ; Function Attrs: noreturn
-declare void @png_error(ptr noundef, ptr noundef) local_unnamed_addr #7
+declare void @png_error(ptr noundef, ptr noundef) local_unnamed_addr #6
 
-declare void @png_free(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @png_free(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define void @png_set_sCAL(ptr noalias noundef %0, ptr noalias noundef captures(address_is_null) %1, i32 noundef %2, double noundef %3, double noundef %4) local_unnamed_addr #2 {
@@ -1105,20 +1099,20 @@ define void @png_set_sCAL(ptr noalias noundef %0, ptr noalias noundef captures(a
   br label %14
 
 13:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 18, ptr nonnull %6) #12
-  call void @llvm.lifetime.start.p0(i64 18, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @png_ascii_from_fp(ptr noundef %0, ptr noundef nonnull %6, i64 noundef 18, double noundef %3, i32 noundef 5) #12
   call void @png_ascii_from_fp(ptr noundef %0, ptr noundef nonnull %7, i64 noundef 18, double noundef %4, i32 noundef 5) #12
   call void @png_set_sCAL_s(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %7) #12
-  call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %14
 
 14:                                               ; preds = %12, %13, %9
   ret void
 }
 
-declare void @png_ascii_from_fp(ptr noundef, ptr noundef, i64 noundef, double noundef, i32 noundef) local_unnamed_addr #4
+declare void @png_ascii_from_fp(ptr noundef, ptr noundef, i64 noundef, double noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define void @png_set_sCAL_fixed(ptr noalias noundef %0, ptr noalias noundef captures(address_is_null) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #2 {
@@ -1140,20 +1134,20 @@ define void @png_set_sCAL_fixed(ptr noalias noundef %0, ptr noalias noundef capt
   br label %14
 
 13:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 18, ptr nonnull %6) #12
-  call void @llvm.lifetime.start.p0(i64 18, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @png_ascii_from_fixed(ptr noundef %0, ptr noundef nonnull %6, i64 noundef 18, i32 noundef %3) #12
   call void @png_ascii_from_fixed(ptr noundef %0, ptr noundef nonnull %7, i64 noundef 18, i32 noundef %4) #12
   call void @png_set_sCAL_s(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %7) #12
-  call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %14
 
 14:                                               ; preds = %12, %13, %9
   ret void
 }
 
-declare void @png_ascii_from_fixed(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #4
+declare void @png_ascii_from_fixed(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @png_set_pHYs(ptr noalias noundef readnone captures(address_is_null) %0, ptr noalias noundef captures(address_is_null) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
@@ -1271,7 +1265,7 @@ define void @png_set_PLTE(ptr noalias noundef %0, ptr noalias noundef %1, ptr no
   ret void
 }
 
-declare noalias ptr @png_calloc(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare noalias ptr @png_calloc(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @png_set_sBIT(ptr noalias noundef readnone captures(address_is_null) %0, ptr noalias noundef captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
@@ -1418,7 +1412,7 @@ define void @png_set_iCCP(ptr noalias noundef %0, ptr noalias noundef %1, ptr no
   ret void
 }
 
-declare void @png_benign_error(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @png_benign_error(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define void @png_set_text(ptr noalias noundef %0, ptr noalias noundef captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #2 {
@@ -1648,9 +1642,9 @@ define range(i32 0, 2) i32 @png_set_text_2(ptr noalias noundef %0, ptr noalias n
   ret i32 %.0
 }
 
-declare noalias ptr @png_realloc_array(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #4
+declare noalias ptr @png_realloc_array(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
 
-declare noalias ptr @png_malloc_base(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare noalias ptr @png_malloc_base(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define void @png_set_tIME(ptr noalias noundef %0, ptr noalias noundef captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #2 {
@@ -1846,7 +1840,7 @@ define void @png_set_tRNS(ptr noalias noundef %0, ptr noalias noundef %1, ptr no
   ret void
 }
 
-declare noalias ptr @png_malloc(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare noalias ptr @png_malloc(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define void @png_set_sPLT(ptr noalias noundef %0, ptr noalias noundef captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #2 {
@@ -1966,7 +1960,7 @@ define void @png_set_sPLT(ptr noalias noundef %0, ptr noalias noundef captures(a
   ret void
 }
 
-declare noalias ptr @png_malloc_array(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #4
+declare noalias ptr @png_malloc_array(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define void @png_set_unknown_chunks(ptr noalias noundef %0, ptr noalias noundef captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #2 {
@@ -2176,7 +2170,7 @@ check_location.exit:                              ; preds = %.preheader.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 0, 6) i32 @png_permit_mng_features(ptr noalias noundef writeonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #8 {
+define range(i32 0, 6) i32 @png_permit_mng_features(ptr noalias noundef writeonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %7, label %4
 
@@ -2423,7 +2417,7 @@ thread-pre-split:                                 ; preds = %33, %66, %._crit_ed
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @png_set_read_user_chunk_fn(ptr noalias noundef writeonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #8 {
+define void @png_set_read_user_chunk_fn(ptr noalias noundef writeonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #7 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %8, label %5
 
@@ -2536,7 +2530,7 @@ define void @png_set_compression_buffer_size(ptr noalias noundef %0, i64 noundef
   ret void
 }
 
-declare void @png_free_buffer_list(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @png_free_buffer_list(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @png_set_invalid(ptr noalias noundef readnone captures(address_is_null) %0, ptr noalias noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -2558,7 +2552,7 @@ define void @png_set_invalid(ptr noalias noundef readnone captures(address_is_nu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @png_set_user_limits(ptr noalias noundef writeonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #8 {
+define void @png_set_user_limits(ptr noalias noundef writeonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #7 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %8, label %5
 
@@ -2574,7 +2568,7 @@ define void @png_set_user_limits(ptr noalias noundef writeonly captures(address_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @png_set_chunk_cache_max(ptr noalias noundef writeonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #8 {
+define void @png_set_chunk_cache_max(ptr noalias noundef writeonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #7 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %3
 
@@ -2588,7 +2582,7 @@ define void @png_set_chunk_cache_max(ptr noalias noundef writeonly captures(addr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @png_set_chunk_malloc_max(ptr noalias noundef writeonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #8 {
+define void @png_set_chunk_malloc_max(ptr noalias noundef writeonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #7 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %.sink.split
 
@@ -2616,7 +2610,7 @@ define void @png_set_benign_errors(ptr noalias noundef captures(none) %0, i32 no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @png_set_check_for_invalid_index(ptr noalias noundef writeonly captures(none) initializes((612, 616)) %0, i32 noundef %1) local_unnamed_addr #8 {
+define void @png_set_check_for_invalid_index(ptr noalias noundef writeonly captures(none) initializes((612, 616)) %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = icmp slt i32 %1, 1
   %spec.select = sext i1 %3 to i32
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 612
@@ -2721,11 +2715,11 @@ define range(i32 -1, 80) i32 @png_check_keyword(ptr noalias noundef %0, ptr noun
   br i1 %.not52, label %38, label %37
 
 37:                                               ; preds = %36
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @png_warning_parameter(ptr noundef nonnull %4, i32 noundef 1, ptr noundef nonnull %1) #12
   call void @png_warning_parameter_signed(ptr noundef nonnull %4, i32 noundef 2, i32 noundef 4, i32 noundef %.2) #12
   call void @png_formatted_warning(ptr noundef %0, ptr noundef nonnull %4, ptr noundef nonnull @.str.71) #12
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %38
 
 38:                                               ; preds = %35, %37, %36, %._crit_edge, %7
@@ -2733,13 +2727,19 @@ define range(i32 -1, 80) i32 @png_check_keyword(ptr noalias noundef %0, ptr noun
   ret i32 %.0
 }
 
-declare void @png_warning_parameter(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare void @png_warning_parameter(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @png_warning_parameter_signed(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare void @png_warning_parameter_signed(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @png_formatted_warning(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @png_formatted_warning(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @png_app_warning(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @png_app_warning(ptr noundef, ptr noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #9
@@ -2756,12 +2756,12 @@ declare i32 @llvm.smax.i32(i32, i32) #9
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }

@@ -254,12 +254,6 @@ define range(i32 0, 2) i32 @isMatrix2Unitary(ptr noundef readonly byval(%struct.
   ret i32 %spec.select
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
-
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define range(i32 0, 2) i32 @isMatrix4Unitary(ptr noundef readonly byval(%struct.ComplexMatrix4) align 8 captures(none) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -325,7 +319,7 @@ define range(i32 0, 2) i32 @isMatrix4Unitary(ptr noundef readonly byval(%struct.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @isMatrixNUnitary(ptr noundef readonly byval(%struct.ComplexMatrixN) align 8 captures(none) %0) local_unnamed_addr #8 {
+define range(i32 0, 2) i32 @isMatrixNUnitary(ptr noundef readonly byval(%struct.ComplexMatrixN) align 8 captures(none) %0) local_unnamed_addr #7 {
 .split:
   %1 = load i32, ptr %0, align 8, !tbaa !11
   %.not5061 = icmp eq i32 %1, 31
@@ -559,7 +553,7 @@ define range(i32 0, 2) i32 @isCompletelyPositiveMap4(ptr noundef readonly captur
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @isCompletelyPositiveMapN(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #8 {
+define range(i32 0, 2) i32 @isCompletelyPositiveMapN(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = load i32, ptr %0, align 8, !tbaa !11
   %.not7397 = icmp eq i32 %3, 31
   br i1 %.not7397, label %.loopexit, label %.preheader75.lr.ph
@@ -1687,7 +1681,7 @@ QuESTAssert.exit:                                 ; preds = %validateMultiTarget
   ret void
 }
 
-declare i64 @getQubitBitMask(ptr noundef, i32 noundef) local_unnamed_addr #9
+declare i64 @getQubitBitMask(ptr noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
 define void @validateControlState(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #3 {
@@ -2078,7 +2072,7 @@ QuESTAssert.exit:                                 ; preds = %2, %5
   ret void
 }
 
-declare double @getVectorMagnitude(ptr noundef byval(%struct.Vector) align 8) local_unnamed_addr #9
+declare double @getVectorMagnitude(ptr noundef byval(%struct.Vector) align 8) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
 define void @validateStateVecQureg(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
@@ -3054,7 +3048,7 @@ define void @validateHamilFileCoeffParsed(i32 noundef %0, ptr noundef readonly b
   ret void
 }
 
-declare void @destroyPauliHamil(ptr noundef byval(%struct.PauliHamil) align 8) local_unnamed_addr #9
+declare void @destroyPauliHamil(ptr noundef byval(%struct.PauliHamil) align 8) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
 define void @validateHamilFilePauliParsed(i32 noundef %0, ptr noundef readonly byval(%struct.PauliHamil) align 8 captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #3 {
@@ -3454,7 +3448,7 @@ QuESTAssert.exit61:                               ; preds = %24, %29
   br i1 %30, label %.preheader70, label %QuESTAssert.exit63
 
 .preheader70:                                     ; preds = %QuESTAssert.exit61
-  call void @llvm.lifetime.start.p0(i64 262144, ptr nonnull %9) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %smax = tail call i64 @llvm.smax.i64(i64 %27, i64 1)
   %31 = shl nuw i64 %smax, 3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %9, i8 0, i64 %31, i1 false), !tbaa !48
@@ -3500,11 +3494,11 @@ QuESTAssert.exit61:                               ; preds = %24, %29
   br i1 %.not59, label %43, label %40
 
 ._crit_edge85:                                    ; preds = %40
-  call void @llvm.lifetime.end.p0(i64 262144, ptr nonnull %9) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %QuESTAssert.exit63
 
 43:                                               ; preds = %.lr.ph84
-  call void @llvm.lifetime.end.p0(i64 262144, ptr nonnull %9) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   tail call void @invalidQuESTInputError(ptr noundef nonnull @.str.82, ptr noundef %7)
   br label %QuESTAssert.exit63
 
@@ -4063,7 +4057,7 @@ define void @validateQuregAllocation(ptr noundef captures(none) %0, ptr noundef 
   ret void
 }
 
-declare void @destroyQureg(ptr noundef byval(%struct.Qureg) align 8, ptr noundef byval(%struct.QuESTEnv) align 8) local_unnamed_addr #9
+declare void @destroyQureg(ptr noundef byval(%struct.Qureg) align 8, ptr noundef byval(%struct.QuESTEnv) align 8) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
 define void @validateQuregGPUAllocation(ptr noundef captures(none) %0, ptr noundef readonly byval(%struct.QuESTEnv) align 8 captures(none) %1, ptr noundef %2) local_unnamed_addr #3 {
@@ -4124,7 +4118,7 @@ QuESTAssert.exit:                                 ; preds = %6, %.thread
   ret void
 }
 
-declare void @destroyDiagonalOp(ptr noundef byval(%struct.DiagonalOp) align 8, ptr noundef byval(%struct.QuESTEnv) align 8) local_unnamed_addr #9
+declare void @destroyDiagonalOp(ptr noundef byval(%struct.DiagonalOp) align 8, ptr noundef byval(%struct.QuESTEnv) align 8) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
 define void @validateDiagonalOpGPUAllocation(ptr noundef captures(none) %0, ptr noundef readonly byval(%struct.QuESTEnv) align 8 captures(none) %1, ptr noundef %2) local_unnamed_addr #3 {
@@ -4182,6 +4176,12 @@ QuESTAssert.exit:                                 ; preds = %2, %3
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
+
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #10
 
@@ -4204,9 +4204,9 @@ attributes #3 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-mat
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #9 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #7 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #8 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nofree nounwind }
 attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: write) }

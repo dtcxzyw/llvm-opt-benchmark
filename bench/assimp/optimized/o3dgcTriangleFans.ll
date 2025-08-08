@@ -162,9 +162,6 @@ _ZN5o3dgc12BinaryStream16WriteUInt32ASCIIEm.exit24: ; preds = %_ZN5o3dgc12Binary
   br i1 %exitcond.not, label %_ZN5o3dgc12BinaryStream16WriteUInt32ASCIIEm.exit24._crit_edge, label %_ZN5o3dgc12BinaryStream16WriteUInt32ASCIIEm.exit24, !llvm.loop !6
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN5o3dgc12BinaryStream14WriteUIntASCIIEm(ptr noundef nonnull align 8 dereferenceable(28) %0, i64 noundef %1) local_unnamed_addr #0 comdat align 2 {
   %3 = icmp ugt i64 %1, 126
@@ -316,9 +313,6 @@ _ZN5o3dgc6VectorIhE8PushBackERKh.exit21:          ; preds = %._crit_edge.i15, %5
 .loopexit:                                        ; preds = %_ZN5o3dgc6VectorIhE8PushBackERKh.exit14, %_ZN5o3dgc6VectorIhE8PushBackERKh.exit21
   ret void
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef i32 @_ZN5o3dgc11SaveIntDataERKNS_6VectorIlEERNS_12BinaryStreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(28) %1) local_unnamed_addr #0 {
@@ -732,7 +726,7 @@ define hidden noundef i32 @_ZN5o3dgc22CompressedTriangleFans10SaveUIntACERKNS_6V
   br label %30
 
 30:                                               ; preds = %28, %14
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN5o3dgc16Arithmetic_CodecC1Ev(ptr noundef nonnull align 8 dereferenceable(44) %5)
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %32 = load ptr, ptr %31, align 8
@@ -744,7 +738,7 @@ define hidden noundef i32 @_ZN5o3dgc22CompressedTriangleFans10SaveUIntACERKNS_6V
           to label %34 unwind label %39
 
 34:                                               ; preds = %33
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %35 = trunc i64 %2 to i32
   %36 = add i32 %35, 1
   invoke void @_ZN5o3dgc19Adaptive_Data_ModelC1Ej(ptr noundef nonnull align 8 dereferenceable(52) %6, i32 noundef %36)
@@ -795,9 +789,9 @@ define hidden noundef i32 @_ZN5o3dgc22CompressedTriangleFans10SaveUIntACERKNS_6V
 
 ._crit_edge:                                      ; preds = %72, %52
   call void @_ZN5o3dgc19Adaptive_Data_ModelD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %6) #10
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZN5o3dgc16Arithmetic_CodecD1Ev(ptr noundef nonnull align 8 dereferenceable(44) %5) #10
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %83
 
 55:                                               ; preds = %37
@@ -869,13 +863,13 @@ define hidden noundef i32 @_ZN5o3dgc22CompressedTriangleFans10SaveUIntACERKNS_6V
 
 81:                                               ; preds = %80, %41
   %.pn51.pn = phi { ptr, i32 } [ %.pn51, %80 ], [ %42, %41 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %82
 
 82:                                               ; preds = %81, %39
   %.pn51.pn.pn = phi { ptr, i32 } [ %.pn51.pn, %81 ], [ %40, %39 ]
   call void @_ZN5o3dgc16Arithmetic_CodecD1Ev(ptr noundef nonnull align 8 dereferenceable(44) %5) #10
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn51.pn.pn
 
 83:                                               ; preds = %._crit_edge, %4
@@ -1257,30 +1251,30 @@ _ZN5o3dgc6VectorIhE8PushBackERKh.exit57:          ; preds = %._crit_edge.i51, %1
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdaPv(ptr noundef) local_unnamed_addr #2
+declare void @_ZdaPv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #3
+declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #2
 
-declare void @_ZN5o3dgc16Arithmetic_CodecC1Ev(ptr noundef nonnull align 8 dereferenceable(44)) unnamed_addr #4
+declare void @_ZN5o3dgc16Arithmetic_CodecC1Ev(ptr noundef nonnull align 8 dereferenceable(44)) unnamed_addr #3
 
-declare void @_ZN5o3dgc16Arithmetic_Codec10set_bufferEjPh(ptr noundef nonnull align 8 dereferenceable(44), i32 noundef, ptr noundef) local_unnamed_addr #4
+declare void @_ZN5o3dgc16Arithmetic_Codec10set_bufferEjPh(ptr noundef nonnull align 8 dereferenceable(44), i32 noundef, ptr noundef) local_unnamed_addr #3
 
 declare i32 @__gxx_personality_v0(...)
 
-declare void @_ZN5o3dgc16Arithmetic_Codec13start_encoderEv(ptr noundef nonnull align 8 dereferenceable(44)) local_unnamed_addr #4
+declare void @_ZN5o3dgc16Arithmetic_Codec13start_encoderEv(ptr noundef nonnull align 8 dereferenceable(44)) local_unnamed_addr #3
 
-declare void @_ZN5o3dgc19Adaptive_Data_ModelC1Ej(ptr noundef nonnull align 8 dereferenceable(52), i32 noundef) unnamed_addr #4
+declare void @_ZN5o3dgc19Adaptive_Data_ModelC1Ej(ptr noundef nonnull align 8 dereferenceable(52), i32 noundef) unnamed_addr #3
 
-declare void @_ZN5o3dgc16Arithmetic_Codec6encodeEjRNS_19Adaptive_Data_ModelE(ptr noundef nonnull align 8 dereferenceable(44), i32 noundef, ptr noundef nonnull align 8 dereferenceable(52)) local_unnamed_addr #4
+declare void @_ZN5o3dgc16Arithmetic_Codec6encodeEjRNS_19Adaptive_Data_ModelE(ptr noundef nonnull align 8 dereferenceable(44), i32 noundef, ptr noundef nonnull align 8 dereferenceable(52)) local_unnamed_addr #3
 
-declare noundef i32 @_ZN5o3dgc16Arithmetic_Codec12stop_encoderEv(ptr noundef nonnull align 8 dereferenceable(44)) local_unnamed_addr #4
-
-; Function Attrs: nounwind
-declare void @_ZN5o3dgc19Adaptive_Data_ModelD1Ev(ptr noundef nonnull align 8 dereferenceable(52)) unnamed_addr #5
+declare noundef i32 @_ZN5o3dgc16Arithmetic_Codec12stop_encoderEv(ptr noundef nonnull align 8 dereferenceable(44)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
-declare void @_ZN5o3dgc16Arithmetic_CodecD1Ev(ptr noundef nonnull align 8 dereferenceable(44)) unnamed_addr #5
+declare void @_ZN5o3dgc19Adaptive_Data_ModelD1Ev(ptr noundef nonnull align 8 dereferenceable(52)) unnamed_addr #4
+
+; Function Attrs: nounwind
+declare void @_ZN5o3dgc16Arithmetic_CodecD1Ev(ptr noundef nonnull align 8 dereferenceable(44)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef i32 @_ZN5o3dgc22CompressedTriangleFans9SaveBinACERKNS_6VectorIlEERNS_12BinaryStreamE(ptr noundef nonnull align 8 captures(none) dereferenceable(164) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(28) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
@@ -1322,7 +1316,7 @@ define hidden noundef i32 @_ZN5o3dgc22CompressedTriangleFans9SaveBinACERKNS_6Vec
   br label %24
 
 24:                                               ; preds = %22, %12
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN5o3dgc16Arithmetic_CodecC1Ev(ptr noundef nonnull align 8 dereferenceable(44) %4)
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %26 = load ptr, ptr %25, align 8
@@ -1334,7 +1328,7 @@ define hidden noundef i32 @_ZN5o3dgc22CompressedTriangleFans9SaveBinACERKNS_6Vec
           to label %28 unwind label %31
 
 28:                                               ; preds = %27
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   invoke void @_ZN5o3dgc18Adaptive_Bit_ModelC1Ev(ptr noundef nonnull align 4 dereferenceable(20) %5)
           to label %.preheader unwind label %33
 
@@ -1381,9 +1375,9 @@ define hidden noundef i32 @_ZN5o3dgc22CompressedTriangleFans9SaveBinACERKNS_6Vec
   br label %48
 
 ._crit_edge:                                      ; preds = %63, %43
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN5o3dgc16Arithmetic_CodecD1Ev(ptr noundef nonnull align 8 dereferenceable(44) %4) #10
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %73
 
 46:                                               ; preds = %29
@@ -1450,13 +1444,13 @@ define hidden noundef i32 @_ZN5o3dgc22CompressedTriangleFans9SaveBinACERKNS_6Vec
 
 71:                                               ; preds = %46, %69, %41, %33
   %.pn35 = phi { ptr, i32 } [ %42, %41 ], [ %34, %33 ], [ %70, %69 ], [ %47, %46 ]
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %72
 
 72:                                               ; preds = %71, %31
   %.pn35.pn = phi { ptr, i32 } [ %.pn35, %71 ], [ %32, %31 ]
   call void @_ZN5o3dgc16Arithmetic_CodecD1Ev(ptr noundef nonnull align 8 dereferenceable(44) %4) #10
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn35.pn
 
 73:                                               ; preds = %._crit_edge, %3
@@ -1494,9 +1488,9 @@ define hidden noundef i32 @_ZN5o3dgc22CompressedTriangleFans9SaveBinACERKNS_6Vec
   ret i32 0
 }
 
-declare void @_ZN5o3dgc18Adaptive_Bit_ModelC1Ev(ptr noundef nonnull align 4 dereferenceable(20)) unnamed_addr #4
+declare void @_ZN5o3dgc18Adaptive_Bit_ModelC1Ev(ptr noundef nonnull align 4 dereferenceable(20)) unnamed_addr #3
 
-declare void @_ZN5o3dgc16Arithmetic_Codec6encodeEjRNS_18Adaptive_Bit_ModelE(ptr noundef nonnull align 8 dereferenceable(44), i32 noundef, ptr noundef nonnull align 4 dereferenceable(20)) local_unnamed_addr #4
+declare void @_ZN5o3dgc16Arithmetic_Codec6encodeEjRNS_18Adaptive_Bit_ModelE(ptr noundef nonnull align 8 dereferenceable(44), i32 noundef, ptr noundef nonnull align 4 dereferenceable(20)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef i32 @_ZN5o3dgc22CompressedTriangleFans12SaveIntACEGCERKNS_6VectorIlEEmRNS_12BinaryStreamE(ptr noundef nonnull align 8 captures(none) dereferenceable(164) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(28) %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
@@ -1556,7 +1550,7 @@ define hidden noundef i32 @_ZN5o3dgc22CompressedTriangleFans12SaveIntACEGCERKNS_
   br label %33
 
 33:                                               ; preds = %31, %16
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN5o3dgc16Arithmetic_CodecC1Ev(ptr noundef nonnull align 8 dereferenceable(44) %5)
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %35 = load ptr, ptr %34, align 8
@@ -1568,19 +1562,19 @@ define hidden noundef i32 @_ZN5o3dgc22CompressedTriangleFans12SaveIntACEGCERKNS_
           to label %37 unwind label %44
 
 37:                                               ; preds = %36
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %38 = trunc i64 %2 to i32
   %39 = add i32 %38, 2
   invoke void @_ZN5o3dgc19Adaptive_Data_ModelC1Ej(ptr noundef nonnull align 8 dereferenceable(52) %6, i32 noundef %39)
           to label %40 unwind label %46
 
 40:                                               ; preds = %37
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   invoke void @_ZN5o3dgc16Static_Bit_ModelC1Ev(ptr noundef nonnull align 4 dereferenceable(4) %7)
           to label %41 unwind label %48
 
 41:                                               ; preds = %40
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %8) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   invoke void @_ZN5o3dgc18Adaptive_Bit_ModelC1Ev(ptr noundef nonnull align 4 dereferenceable(20) %8)
           to label %.preheader unwind label %50
 
@@ -1698,12 +1692,12 @@ _ZN5o3dgc16Arithmetic_Codec15ExpGolombEncodeEjiRNS_16Static_Bit_ModelERNS_18Adap
   br label %76
 
 ._crit_edge:                                      ; preds = %91, %71
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %8) #10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_ZN5o3dgc19Adaptive_Data_ModelD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %6) #10
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZN5o3dgc16Arithmetic_CodecD1Ev(ptr noundef nonnull align 8 dereferenceable(44) %5) #10
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %102
 
 74:                                               ; preds = %42
@@ -1770,24 +1764,24 @@ _ZN5o3dgc16Arithmetic_Codec15ExpGolombEncodeEjiRNS_16Static_Bit_ModelERNS_18Adap
 
 .loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %97, %74, %50
   %.pn62.pn = phi { ptr, i32 } [ %51, %50 ], [ %98, %97 ], [ %75, %74 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit71, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp72, %.loopexit.split-lp.loopexit.split-lp ]
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %8) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %99
 
 99:                                               ; preds = %.loopexit.split-lp, %48
   %.pn62.pn.pn = phi { ptr, i32 } [ %.pn62.pn, %.loopexit.split-lp ], [ %49, %48 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_ZN5o3dgc19Adaptive_Data_ModelD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %6) #10
   br label %100
 
 100:                                              ; preds = %99, %46
   %.pn62.pn.pn.pn = phi { ptr, i32 } [ %.pn62.pn.pn, %99 ], [ %47, %46 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %101
 
 101:                                              ; preds = %100, %44
   %.pn62.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn62.pn.pn.pn, %100 ], [ %45, %44 ]
   call void @_ZN5o3dgc16Arithmetic_CodecD1Ev(ptr noundef nonnull align 8 dereferenceable(44) %5) #10
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn62.pn.pn.pn.pn
 
 102:                                              ; preds = %._crit_edge, %4
@@ -1825,7 +1819,7 @@ _ZN5o3dgc16Arithmetic_Codec15ExpGolombEncodeEjiRNS_16Static_Bit_ModelERNS_18Adap
   ret i32 0
 }
 
-declare void @_ZN5o3dgc16Static_Bit_ModelC1Ev(ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #4
+declare void @_ZN5o3dgc16Static_Bit_ModelC1Ev(ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef i32 @_ZN5o3dgc22CompressedTriangleFans4SaveERNS_12BinaryStreamEbNS_15O3DGCStreamTypeE(ptr noundef nonnull align 8 captures(none) dereferenceable(164) %0, ptr noundef nonnull align 8 dereferenceable(28) %1, i1 noundef zeroext %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
@@ -2578,7 +2572,7 @@ _ZNK5o3dgc12BinaryStream13ReadUInt32BinERm.exit32: ; preds = %128, %152
   br label %_ZN5o3dgc6VectorIlE8AllocateEm.exit
 
 _ZN5o3dgc6VectorIlE8AllocateEm.exit:              ; preds = %_ZNK5o3dgc12BinaryStream13ReadUInt32BinERm.exit32, %195
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN5o3dgc16Arithmetic_CodecC1Ev(ptr noundef nonnull align 8 dereferenceable(44) %5)
   %196 = trunc i64 %121 to i32
   invoke void @_ZN5o3dgc16Arithmetic_Codec10set_bufferEjPh(ptr noundef nonnull align 8 dereferenceable(44) %5, i32 noundef %196, ptr noundef %178)
@@ -2589,7 +2583,7 @@ _ZN5o3dgc6VectorIlE8AllocateEm.exit:              ; preds = %_ZNK5o3dgc12BinaryS
           to label %198 unwind label %203
 
 198:                                              ; preds = %197
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %199 = trunc i64 %1 to i32
   %200 = add i32 %199, 1
   invoke void @_ZN5o3dgc19Adaptive_Data_ModelC1Ej(ptr noundef nonnull align 8 dereferenceable(52) %6, i32 noundef %200)
@@ -2601,9 +2595,9 @@ _ZN5o3dgc6VectorIlE8AllocateEm.exit:              ; preds = %_ZNK5o3dgc12BinaryS
 
 202:                                              ; preds = %227
   call void @_ZN5o3dgc19Adaptive_Data_ModelD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %6) #10
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZN5o3dgc16Arithmetic_CodecD1Ev(ptr noundef nonnull align 8 dereferenceable(44) %5) #10
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %237
 
 203:                                              ; preds = %197, %_ZN5o3dgc6VectorIlE8AllocateEm.exit
@@ -2683,22 +2677,22 @@ _ZN5o3dgc6VectorIlE8AllocateEm.exit:              ; preds = %_ZNK5o3dgc12BinaryS
 
 235:                                              ; preds = %233, %205
   %.pn = phi { ptr, i32 } [ %234, %233 ], [ %206, %205 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %236
 
 236:                                              ; preds = %235, %203
   %.pn.pn = phi { ptr, i32 } [ %.pn, %235 ], [ %204, %203 ]
   call void @_ZN5o3dgc16Arithmetic_CodecD1Ev(ptr noundef nonnull align 8 dereferenceable(44) %5) #10
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn.pn
 
 237:                                              ; preds = %_ZNK5o3dgc12BinaryStream13ReadUInt32BinERm.exit30, %202
   ret i32 0
 }
 
-declare void @_ZN5o3dgc16Arithmetic_Codec13start_decoderEv(ptr noundef nonnull align 8 dereferenceable(44)) local_unnamed_addr #4
+declare void @_ZN5o3dgc16Arithmetic_Codec13start_decoderEv(ptr noundef nonnull align 8 dereferenceable(44)) local_unnamed_addr #3
 
-declare noundef i32 @_ZN5o3dgc16Arithmetic_Codec6decodeERNS_19Adaptive_Data_ModelE(ptr noundef nonnull align 8 dereferenceable(44), ptr noundef nonnull align 8 dereferenceable(52)) local_unnamed_addr #4
+declare noundef i32 @_ZN5o3dgc16Arithmetic_Codec6decodeERNS_19Adaptive_Data_ModelE(ptr noundef nonnull align 8 dereferenceable(44), ptr noundef nonnull align 8 dereferenceable(52)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef i32 @_ZN5o3dgc12LoadIntACEGCERNS_6VectorIlEEmRKNS_12BinaryStreamERm(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0, i64 noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(28) %2, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -2960,7 +2954,7 @@ _ZNK5o3dgc12BinaryStream13ReadUInt32BinERm.exit45: ; preds = %130, %154
   br label %_ZN5o3dgc6VectorIlE8AllocateEm.exit
 
 _ZN5o3dgc6VectorIlE8AllocateEm.exit:              ; preds = %_ZNK5o3dgc12BinaryStream13ReadUInt32BinERm.exit45, %198
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN5o3dgc16Arithmetic_CodecC1Ev(ptr noundef nonnull align 8 dereferenceable(44) %5)
   %199 = trunc i64 %123 to i32
   invoke void @_ZN5o3dgc16Arithmetic_Codec10set_bufferEjPh(ptr noundef nonnull align 8 dereferenceable(44) %5, i32 noundef %199, ptr noundef %181)
@@ -2971,19 +2965,19 @@ _ZN5o3dgc6VectorIlE8AllocateEm.exit:              ; preds = %_ZNK5o3dgc12BinaryS
           to label %201 unwind label %208
 
 201:                                              ; preds = %200
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %202 = trunc i64 %1 to i32
   %203 = add i32 %202, 2
   invoke void @_ZN5o3dgc19Adaptive_Data_ModelC1Ej(ptr noundef nonnull align 8 dereferenceable(52) %6, i32 noundef %203)
           to label %204 unwind label %210
 
 204:                                              ; preds = %201
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   invoke void @_ZN5o3dgc16Static_Bit_ModelC1Ev(ptr noundef nonnull align 4 dereferenceable(4) %7)
           to label %205 unwind label %212
 
 205:                                              ; preds = %204
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %8) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   invoke void @_ZN5o3dgc18Adaptive_Bit_ModelC1Ev(ptr noundef nonnull align 4 dereferenceable(20) %8)
           to label %.preheader54 unwind label %214
 
@@ -2992,12 +2986,12 @@ _ZN5o3dgc6VectorIlE8AllocateEm.exit:              ; preds = %_ZNK5o3dgc12BinaryS
   br label %216
 
 207:                                              ; preds = %251
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %8) #10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_ZN5o3dgc19Adaptive_Data_ModelD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %6) #10
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZN5o3dgc16Arithmetic_CodecD1Ev(ptr noundef nonnull align 8 dereferenceable(44) %5) #10
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %262
 
 208:                                              ; preds = %200, %_ZN5o3dgc6VectorIlE8AllocateEm.exit
@@ -3148,24 +3142,24 @@ _ZN5o3dgc6VectorIlE8AllocateEm.exit:              ; preds = %_ZNK5o3dgc12BinaryS
 
 .loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %257, %214
   %.pn.pn = phi { ptr, i32 } [ %215, %214 ], [ %258, %257 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit51, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp52, %.loopexit.split-lp.loopexit.split-lp ]
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %8) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %259
 
 259:                                              ; preds = %.loopexit.split-lp, %212
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %.loopexit.split-lp ], [ %213, %212 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_ZN5o3dgc19Adaptive_Data_ModelD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %6) #10
   br label %260
 
 260:                                              ; preds = %259, %210
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %259 ], [ %211, %210 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %261
 
 261:                                              ; preds = %260, %208
   %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %260 ], [ %209, %208 ]
   call void @_ZN5o3dgc16Arithmetic_CodecD1Ev(ptr noundef nonnull align 8 dereferenceable(44) %5) #10
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn.pn.pn.pn.pn
 
 262:                                              ; preds = %_ZNK5o3dgc12BinaryStream13ReadUInt32BinERm.exit43, %207
@@ -3359,7 +3353,7 @@ _ZNK5o3dgc12BinaryStream13ReadUInt32BinERm.exit26: ; preds = %69, %93
   br label %_ZN5o3dgc6VectorIlE8AllocateEm.exit
 
 _ZN5o3dgc6VectorIlE8AllocateEm.exit:              ; preds = %120, %139
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN5o3dgc16Arithmetic_CodecC1Ev(ptr noundef nonnull align 8 dereferenceable(44) %4)
   %140 = trunc i64 %121 to i32
   invoke void @_ZN5o3dgc16Arithmetic_Codec10set_bufferEjPh(ptr noundef nonnull align 8 dereferenceable(44) %4, i32 noundef %140, ptr noundef %122)
@@ -3370,7 +3364,7 @@ _ZN5o3dgc6VectorIlE8AllocateEm.exit:              ; preds = %120, %139
           to label %142 unwind label %145
 
 142:                                              ; preds = %141
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   invoke void @_ZN5o3dgc18Adaptive_Bit_ModelC1Ev(ptr noundef nonnull align 4 dereferenceable(20) %5)
           to label %.preheader unwind label %147
 
@@ -3379,9 +3373,9 @@ _ZN5o3dgc6VectorIlE8AllocateEm.exit:              ; preds = %120, %139
   br label %149
 
 144:                                              ; preds = %168
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN5o3dgc16Arithmetic_CodecD1Ev(ptr noundef nonnull align 8 dereferenceable(44) %4) #10
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %178
 
 145:                                              ; preds = %141, %_ZN5o3dgc6VectorIlE8AllocateEm.exit
@@ -3459,20 +3453,20 @@ _ZN5o3dgc6VectorIlE8AllocateEm.exit:              ; preds = %120, %139
 
 176:                                              ; preds = %174, %147
   %.pn = phi { ptr, i32 } [ %175, %174 ], [ %148, %147 ]
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %177
 
 177:                                              ; preds = %176, %145
   %.pn.pn = phi { ptr, i32 } [ %.pn, %176 ], [ %146, %145 ]
   call void @_ZN5o3dgc16Arithmetic_CodecD1Ev(ptr noundef nonnull align 8 dereferenceable(44) %4) #10
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn.pn
 
 178:                                              ; preds = %_ZNK5o3dgc12BinaryStream13ReadUInt32BinERm.exit26, %144
   ret i32 0
 }
 
-declare noundef i32 @_ZN5o3dgc16Arithmetic_Codec6decodeERNS_18Adaptive_Bit_ModelE(ptr noundef nonnull align 8 dereferenceable(44), ptr noundef nonnull align 4 dereferenceable(20)) local_unnamed_addr #4
+declare noundef i32 @_ZN5o3dgc16Arithmetic_Codec6decodeERNS_18Adaptive_Bit_ModelE(ptr noundef nonnull align 8 dereferenceable(44), ptr noundef nonnull align 4 dereferenceable(20)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef i32 @_ZN5o3dgc22CompressedTriangleFans4LoadERKNS_12BinaryStreamERmbNS_15O3DGCStreamTypeE(ptr noundef nonnull align 8 captures(none) dereferenceable(164) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(28) %1, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %2, i1 noundef zeroext %3, i32 noundef %4) local_unnamed_addr #0 align 2 {
@@ -3514,11 +3508,17 @@ define hidden noundef i32 @_ZN5o3dgc22CompressedTriangleFans4LoadERKNS_12BinaryS
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
-declare void @_ZN5o3dgc16Arithmetic_Codec6encodeEjRNS_16Static_Bit_ModelE(ptr noundef nonnull align 8 dereferenceable(44), i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #4
+declare void @_ZN5o3dgc16Arithmetic_Codec6encodeEjRNS_16Static_Bit_ModelE(ptr noundef nonnull align 8 dereferenceable(44), i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #3
 
-declare noundef i32 @_ZN5o3dgc16Arithmetic_Codec6decodeERNS_16Static_Bit_ModelE(ptr noundef nonnull align 8 dereferenceable(44), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #4
+declare noundef i32 @_ZN5o3dgc16Arithmetic_Codec6decodeERNS_16Static_Bit_ModelE(ptr noundef nonnull align 8 dereferenceable(44), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #7
@@ -3527,12 +3527,12 @@ declare i64 @llvm.umax.i64(i64, i64) #7
 declare i64 @llvm.smin.i64(i64, i64) #7
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #1 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { builtin allocsize(0) }
 attributes #9 = { builtin nounwind }

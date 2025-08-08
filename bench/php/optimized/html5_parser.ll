@@ -64,17 +64,14 @@ define hidden range(i32 0, 5) i32 @lexbor_libxml2_bridge_convert_document(ptr no
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
-declare ptr @php_dom_create_html_doc() local_unnamed_addr #4
+declare ptr @php_dom_create_html_doc() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 5) i32 @lexbor_libxml2_bridge_convert(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4, ptr noundef %5) unnamed_addr #2 {
   %7 = alloca %struct.lexbor_array_obj_t, align 8
   %8 = tail call ptr @php_dom_ns_mapper_from_private(ptr noundef %5) #11
   %9 = tail call ptr @php_dom_libxml_ns_mapper_ensure_html_ns(ptr noundef %8) #11
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %10 = call i32 @lexbor_array_obj_init(ptr noundef nonnull %7, i64 noundef 128, i64 noundef 32) #11
   %.not291 = icmp eq ptr %0, null
   br i1 %.not291, label %.preheader, label %.lr.ph
@@ -618,14 +615,11 @@ lxb_dom_document_type_name.exit:                  ; preds = %218, %227, %230, %2
 .thread281:                                       ; preds = %.backedge, %25, %74, %185, %lexbor_libxml2_bridge_new_text_node_fast.exit231, %193, %244, %lxb_dom_document_type_name.exit, %.preheader
   %.1 = phi i32 [ 0, %.preheader ], [ %.0.be, %.backedge ], [ 4, %25 ], [ 4, %74 ], [ 3, %185 ], [ 4, %lexbor_libxml2_bridge_new_text_node_fast.exit231 ], [ 4, %193 ], [ 4, %244 ], [ 4, %lxb_dom_document_type_name.exit ]
   %253 = call ptr @lexbor_array_obj_destroy(ptr noundef nonnull %7, i1 noundef zeroext false) #11
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.1
 }
 
-declare void @xmlFreeDoc(ptr noundef) local_unnamed_addr #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
+declare void @xmlFreeDoc(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 5) i32 @lexbor_libxml2_bridge_convert_fragment(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, i1 noundef zeroext %3, i1 noundef zeroext %4, ptr noundef %5) local_unnamed_addr #2 {
@@ -651,9 +645,9 @@ define hidden range(i32 0, 5) i32 @lexbor_libxml2_bridge_convert_fragment(ptr no
   ret i32 %.0
 }
 
-declare ptr @xmlNewDocFragment(ptr noundef) local_unnamed_addr #4
+declare ptr @xmlNewDocFragment(ptr noundef) local_unnamed_addr #3
 
-declare void @xmlFreeNode(ptr noundef) local_unnamed_addr #4
+declare void @xmlFreeNode(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define hidden void @lexbor_libxml2_bridge_report_errors(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i64 noundef %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5) local_unnamed_addr #2 {
@@ -764,7 +758,7 @@ lexbor_array_obj_get.exit39.thread:               ; preds = %lexbor_array_obj_ge
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @lexbor_libxml2_bridge_copy_observations(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 3), (4, 8)) %1) local_unnamed_addr #5 {
+define hidden void @lexbor_libxml2_bridge_copy_observations(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 3), (4, 8)) %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 83
   %4 = load i8, ptr %3, align 1, !tbaa !147, !range !148, !noundef !149
   store i8 %4, ptr %1, align 4, !tbaa !150
@@ -785,61 +779,67 @@ define hidden void @lexbor_libxml2_bridge_copy_observations(ptr noundef readonly
   ret void
 }
 
-declare ptr @php_dom_ns_mapper_from_private(ptr noundef) local_unnamed_addr #4
+declare ptr @php_dom_ns_mapper_from_private(ptr noundef) local_unnamed_addr #3
 
-declare ptr @php_dom_libxml_ns_mapper_ensure_html_ns(ptr noundef) local_unnamed_addr #4
+declare ptr @php_dom_libxml_ns_mapper_ensure_html_ns(ptr noundef) local_unnamed_addr #3
 
-declare i32 @lexbor_array_obj_init(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @lexbor_array_obj_init(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
-declare ptr @lexbor_array_obj_pop(ptr noundef) local_unnamed_addr #4
+declare ptr @lexbor_array_obj_pop(ptr noundef) local_unnamed_addr #3
 
-declare ptr @lxb_dom_element_local_name(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @lxb_dom_element_local_name(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @xmlNewDocNode(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @xmlNewDocNode(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @xmlAddChild(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @xmlAddChild(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @php_dom_libxml_ns_mapper_get_ns(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @php_dom_libxml_ns_mapper_get_ns(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @dom_add_element_ns_hook(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @dom_add_element_ns_hook(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @php_dom_add_templated_content(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @php_dom_add_templated_content(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @xmlDictLookup(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare ptr @xmlDictLookup(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @xmlFreeProp(ptr noundef) local_unnamed_addr #4
+declare void @xmlFreeProp(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
-declare ptr @php_dom_libxml_ns_mapper_get_ns_raw_strings_nullsafe(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @php_dom_libxml_ns_mapper_get_ns_raw_strings_nullsafe(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @php_dom_libxml_ns_mapper_ensure_prefixless_xmlns_ns(ptr noundef) local_unnamed_addr #4
+declare ptr @php_dom_libxml_ns_mapper_ensure_prefixless_xmlns_ns(ptr noundef) local_unnamed_addr #3
 
-declare ptr @xmlAddID(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @xmlAddID(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @xmlCreateIntSubset(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @xmlCreateIntSubset(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @xmlNewDocComment(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @xmlNewDocComment(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @lexbor_array_obj_destroy(ptr noundef, i1 noundef zeroext) local_unnamed_addr #4
+declare ptr @lexbor_array_obj_destroy(ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
 
-declare ptr @lexbor_array_obj_push_wo_cls(ptr noundef) local_unnamed_addr #4
+declare ptr @lexbor_array_obj_push_wo_cls(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #8
+declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #7
 
-declare void @_efree(ptr noundef) local_unnamed_addr #4
+declare void @_efree(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #9
+declare void @llvm.assume(i1 noundef) #8
 
-declare ptr @lxb_dom_attr_data_by_id(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare ptr @lxb_dom_attr_data_by_id(ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare ptr @xmlNewDocTextLen(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare ptr @xmlNewDocTextLen(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #10
@@ -847,13 +847,13 @@ declare i64 @llvm.umin.i64(i64, i64) #10
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #11 = { nounwind }
 attributes #12 = { nounwind allocsize(0) }

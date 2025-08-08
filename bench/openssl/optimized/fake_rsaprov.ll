@@ -97,17 +97,17 @@ define dso_local ptr @fake_rsa_key_params(i32 noundef %0) local_unnamed_addr #1 
   br i1 %.not, label %6, label %4
 
 4:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 360, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(360) %2, ptr noundef nonnull align 16 dereferenceable(360) @__const.fake_rsa_key_params.params, i64 360, i1 false)
   %5 = call ptr @OSSL_PARAM_dup(ptr noundef nonnull %2) #12
-  call void @llvm.lifetime.end.p0(i64 360, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %8
 
 6:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(120) %3, ptr noundef nonnull align 16 dereferenceable(120) @__const.fake_rsa_key_params.params.8, i64 120, i1 false)
   %7 = call ptr @OSSL_PARAM_dup(ptr noundef nonnull %3) #12
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %8
 
 8:                                                ; preds = %6, %4
@@ -115,16 +115,10 @@ define dso_local ptr @fake_rsa_key_params(i32 noundef %0) local_unnamed_addr #1 
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
-declare ptr @OSSL_PARAM_dup(ptr noundef) local_unnamed_addr #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare ptr @OSSL_PARAM_dup(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @fake_rsa_start(ptr noundef %0) local_unnamed_addr #1 {
@@ -147,9 +141,9 @@ define dso_local ptr @fake_rsa_start(ptr noundef %0) local_unnamed_addr #1 {
   ret ptr %.0
 }
 
-declare i32 @test_true(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @test_true(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @OSSL_PROVIDER_add_builtin(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @OSSL_PROVIDER_add_builtin(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @fake_rsa_provider_init(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3) #1 {
@@ -168,9 +162,9 @@ define internal range(i32 0, 2) i32 @fake_rsa_provider_init(ptr readnone capture
   ret i32 %.0
 }
 
-declare i32 @test_ptr(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @test_ptr(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @OSSL_PROVIDER_try_load(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare ptr @OSSL_PROVIDER_try_load(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @fake_rsa_finish(ptr noundef %0) local_unnamed_addr #1 {
@@ -178,14 +172,14 @@ define dso_local void @fake_rsa_finish(ptr noundef %0) local_unnamed_addr #1 {
   ret void
 }
 
-declare i32 @OSSL_PROVIDER_unload(ptr noundef) local_unnamed_addr #4
+declare i32 @OSSL_PROVIDER_unload(ptr noundef) local_unnamed_addr #3
 
-declare ptr @OSSL_LIB_CTX_new() local_unnamed_addr #4
+declare ptr @OSSL_LIB_CTX_new() local_unnamed_addr #3
 
-declare void @OSSL_LIB_CTX_free(ptr noundef) #4
+declare void @OSSL_LIB_CTX_free(ptr noundef) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef ptr @fake_rsa_query(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) #5 {
+define internal noundef ptr @fake_rsa_query(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) #4 {
   store i32 0, ptr %2, align 4, !tbaa !10
   switch i32 %1, label %6 [
     i32 12, label %7
@@ -557,18 +551,18 @@ fake_rsa_dgstvfy_final.exit:                      ; preds = %7, %5, %21, %19, %1
   ret i32 %.0
 }
 
-declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @test_int_gt(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @test_int_gt(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @test_int_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @test_int_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @test_int_ge(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @test_int_ge(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @fake_rsa_dgstsgnvfy_init(ptr noundef %0, i8 noundef zeroext range(i8 1, 3) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #1 {
@@ -595,7 +589,7 @@ define internal fastcc range(i32 0, 2) i32 @fake_rsa_dgstsgnvfy_init(ptr noundef
   br i1 %.not16, label %22, label %14
 
 14:                                               ; preds = %13
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %15 = tail call ptr @OSSL_PARAM_locate_const(ptr noundef nonnull %3, ptr noundef nonnull @.str.28) #12
   %.not17 = icmp eq ptr %15, null
   br i1 %.not17, label %21, label %16
@@ -612,7 +606,7 @@ define internal fastcc range(i32 0, 2) i32 @fake_rsa_dgstsgnvfy_init(ptr noundef
   br label %21
 
 21:                                               ; preds = %16, %18, %14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %22
 
 22:                                               ; preds = %13, %21, %7, %9, %4
@@ -620,9 +614,9 @@ define internal fastcc range(i32 0, 2) i32 @fake_rsa_dgstsgnvfy_init(ptr noundef
   ret i32 %.0
 }
 
-declare ptr @OSSL_PARAM_locate_const(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @OSSL_PARAM_locate_const(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @OSSL_PARAM_get_int(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @OSSL_PARAM_get_int(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @fake_rsa_keymgmt_new(ptr readnone captures(none) %0) #1 {
@@ -640,24 +634,24 @@ define internal void @fake_rsa_keymgmt_free(ptr noundef %0) #1 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @fake_rsa_keymgmt_has(ptr readnone captures(none) %0, i32 %1) #7 {
+define internal noundef i32 @fake_rsa_keymgmt_has(ptr readnone captures(none) %0, i32 %1) #6 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @fake_rsa_keymgmt_query(i32 %0) #7 {
+define internal noundef nonnull ptr @fake_rsa_keymgmt_query(i32 %0) #6 {
   ret ptr @.str.32
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @fake_rsa_keymgmt_import(ptr noundef writeonly captures(none) initializes((4, 8)) %0, i32 %1, ptr readnone captures(none) %2) #5 {
+define internal noundef i32 @fake_rsa_keymgmt_import(ptr noundef writeonly captures(none) initializes((4, 8)) %0, i32 %1, ptr readnone captures(none) %2) #4 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 1, ptr %4, align 4, !tbaa !12
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @fake_rsa_keymgmt_imptypes(i32 %0) #7 {
+define internal noundef nonnull ptr @fake_rsa_keymgmt_imptypes(i32 %0) #6 {
   ret ptr @fake_rsa_import_key_types
 }
 
@@ -669,10 +663,10 @@ define internal i32 @fake_rsa_keymgmt_export(ptr readnone captures(none) %0, i32
   br i1 %.not, label %7, label %12
 
 7:                                                ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(120) %5, ptr noundef nonnull align 16 dereferenceable(120) @__const.fake_rsa_key_params.params.8, i64 120, i1 false)
   %8 = call ptr @OSSL_PARAM_dup(ptr noundef nonnull %5) #12
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %9 = call i32 @test_ptr(ptr noundef nonnull @.str.9, i32 noundef 176, ptr noundef nonnull @.str.34, ptr noundef %8) #12
   %.not6 = icmp eq i32 %9, 0
   br i1 %.not6, label %12, label %10
@@ -688,12 +682,12 @@ define internal i32 @fake_rsa_keymgmt_export(ptr readnone captures(none) %0, i32
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @fake_rsa_keymgmt_exptypes(i32 %0) #7 {
+define internal noundef nonnull ptr @fake_rsa_keymgmt_exptypes(i32 %0) #6 {
   ret ptr @fake_rsa_export_key_types
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal ptr @fake_rsa_keymgmt_load(ptr noundef captures(none) %0, i64 noundef %1) #8 {
+define internal ptr @fake_rsa_keymgmt_load(ptr noundef captures(none) %0, i64 noundef %1) #7 {
   %.not = icmp eq i64 %1, 8
   br i1 %.not, label %3, label %8
 
@@ -765,11 +759,11 @@ define internal void @fake_rsa_gen_cleanup(ptr noundef %0) #1 {
   ret void
 }
 
-declare void @OSSL_PARAM_free(ptr noundef) local_unnamed_addr #4
+declare void @OSSL_PARAM_free(ptr noundef) local_unnamed_addr #3
 
-declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @test_mem_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @test_mem_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @fake_rsa_st_open(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #1 {
@@ -813,11 +807,11 @@ define internal noundef ptr @fake_rsa_st_open_ex(ptr readnone captures(none) %0,
   br i1 %12, label %13, label %21
 
 13:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %6, i8 0, i64 20, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 0, ptr %7, align 8, !tbaa !15
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %8) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %8, ptr noundef nonnull align 16 dereferenceable(80) @__const.fake_rsa_st_open_ex.pw_params, i64 80, i1 false)
   %14 = icmp eq ptr %3, null
   br i1 %14, label %.critedge, label %15
@@ -841,9 +835,9 @@ define internal noundef ptr @fake_rsa_st_open_ex(ptr readnone captures(none) %0,
   br label %.critedge
 
 20:                                               ; preds = %18
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #12
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %21
 
 21:                                               ; preds = %20, %10
@@ -857,9 +851,9 @@ define internal noundef ptr @fake_rsa_st_open_ex(ptr readnone captures(none) %0,
   br label %25
 
 .critedge:                                        ; preds = %13, %17, %19
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #12
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %25
 
 25:                                               ; preds = %21, %.critedge, %5, %24
@@ -868,12 +862,12 @@ define internal noundef ptr @fake_rsa_st_open_ex(ptr readnone captures(none) %0,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @fake_rsa_st_settable_ctx_params(ptr readnone captures(none) %0) #7 {
+define internal noundef nonnull ptr @fake_rsa_st_settable_ctx_params(ptr readnone captures(none) %0) #6 {
   ret ptr @fake_rsa_st_settable_ctx_params.known_settable_ctx_params
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @fake_rsa_st_set_ctx_params(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #7 {
+define internal noundef i32 @fake_rsa_st_set_ctx_params(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #6 {
   ret i32 1
 }
 
@@ -885,10 +879,10 @@ define internal noundef i32 @fake_rsa_st_load(ptr noundef captures(none) %0, ptr
   %9 = alloca %struct.ossl_param_st, align 8
   %10 = alloca %struct.ossl_param_st, align 8
   %11 = alloca %struct.ossl_param_st, align 8
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %6) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 2, ptr %7, align 4, !tbaa !10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8, !tbaa !17
   %12 = load i8, ptr %0, align 1, !tbaa !14
   switch i8 %12, label %28 [
@@ -924,20 +918,20 @@ define internal noundef i32 @fake_rsa_st_load(ptr noundef captures(none) %0, ptr
 22:                                               ; preds = %19
   call void @OSSL_PARAM_construct_int(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %6, ptr noundef nonnull @.str.51, ptr noundef nonnull %7) #12
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @OSSL_PARAM_construct_utf8_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %9, ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.32, i64 noundef 0) #12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %23, ptr noundef nonnull align 8 dereferenceable(40) %9, i64 40, i1 false), !tbaa.struct !19
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 80
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %10, ptr noundef nonnull @.str.53, ptr noundef nonnull %8, i64 noundef 8) #12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %24, ptr noundef nonnull align 8 dereferenceable(40) %10, i64 40, i1 false), !tbaa.struct !19
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 120
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %11) #12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %25, ptr noundef nonnull align 8 dereferenceable(40) %11, i64 40, i1 false), !tbaa.struct !19
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %26 = call i32 %1(ptr noundef nonnull %6, ptr noundef %2) #12
   store i8 1, ptr %0, align 1, !tbaa !14
   br label %29
@@ -965,14 +959,14 @@ define internal noundef i32 @fake_rsa_st_load(ptr noundef captures(none) %0, ptr
   br label %33
 
 33:                                               ; preds = %31, %29
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #12
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @fake_rsa_st_eof(ptr noundef readonly captures(none) %0) #9 {
+define internal range(i32 0, 2) i32 @fake_rsa_st_eof(ptr noundef readonly captures(none) %0) #8 {
   %2 = load i8, ptr %0, align 1, !tbaa !14
   %3 = icmp ne i8 %2, 0
   %4 = zext i1 %3 to i32
@@ -991,33 +985,39 @@ define internal noundef i32 @fake_rsa_st_delete(ptr readnone captures(none) %0, 
   ret i32 1
 }
 
-declare void @test_info(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #4
+declare void @test_info(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #10
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #9
 
-declare void @OSSL_PARAM_construct_int(ptr dead_on_unwind writable sret(%struct.ossl_param_st) align 8, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @OSSL_PARAM_construct_int(ptr dead_on_unwind writable sret(%struct.ossl_param_st) align 8, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @OSSL_PARAM_construct_utf8_string(ptr dead_on_unwind writable sret(%struct.ossl_param_st) align 8, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+declare void @OSSL_PARAM_construct_utf8_string(ptr dead_on_unwind writable sret(%struct.ossl_param_st) align 8, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind writable sret(%struct.ossl_param_st) align 8, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+declare void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind writable sret(%struct.ossl_param_st) align 8, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare void @OSSL_PARAM_construct_end(ptr dead_on_unwind writable sret(%struct.ossl_param_st) align 8) local_unnamed_addr #4
+declare void @OSSL_PARAM_construct_end(ptr dead_on_unwind writable sret(%struct.ossl_param_st) align 8) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #11
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #12 = { nounwind }
 attributes #13 = { nounwind willreturn memory(read) }

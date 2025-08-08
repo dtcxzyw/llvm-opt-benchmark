@@ -1346,7 +1346,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 ; Function Attrs: nounwind uwtable
 define range(i32 -10000, 1) i32 @mz_compress(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #7 {
   %5 = alloca %struct.mz_stream_s, align 8
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %6, i8 0, i64 88, i1 false)
   %7 = load i64, ptr %1, align 8
@@ -1466,7 +1466,7 @@ mz_deflateEnd.exit.i:                             ; preds = %53, %51
 
 mz_compress2.exit:                                ; preds = %10, %4, %mz_deflateEnd.exit.i, %58, %61
   %.0.i = phi i32 [ %57, %mz_deflateEnd.exit.i ], [ -10000, %4 ], [ 0, %58 ], [ 0, %61 ], [ -4, %10 ]
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0.i
 }
 
@@ -6933,10 +6933,10 @@ tdefl_init.exit:                                  ; preds = %12, %28
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %48, i8 0, i64 36, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %49, i8 0, i64 24, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(640) %50, i8 0, i64 640, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 %1, ptr %6, align 8
   %51 = call i32 @tdefl_compress(ptr noundef nonnull %11, ptr noundef %0, ptr noundef nonnull %6, ptr noundef null, ptr noundef null, i32 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %52 = icmp eq i32 %51, 1
   %53 = zext i1 %52 to i32
   call void @free(ptr noundef nonnull %11) #31
@@ -7227,29 +7227,29 @@ tdefl_init.exit:                                  ; preds = %tdefl_output_buffer
 
 95:                                               ; preds = %.lr.ph, %95
   %.051111 = phi i32 [ 0, %.lr.ph ], [ %104, %95 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i64 1, ptr %10, align 8
   %96 = call i32 @tdefl_compress(ptr noundef nonnull %14, ptr noundef nonnull %12, ptr noundef nonnull %10, ptr noundef null, ptr noundef null, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %97 = xor i32 %.051111, -1
   %98 = add nsw i32 %2, %97
   %99 = select i1 %.not61, i32 %.051111, i32 %98
   %100 = mul nsw i32 %99, %15
   %101 = sext i32 %100 to i64
   %102 = getelementptr inbounds i8, ptr %0, i64 %101
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 %94, ptr %9, align 8
   %103 = call i32 @tdefl_compress(ptr noundef nonnull %14, ptr noundef %102, ptr noundef nonnull %9, ptr noundef null, ptr noundef null, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %104 = add nuw nsw i32 %.051111, 1
   %exitcond.not = icmp eq i32 %104, %2
   br i1 %exitcond.not, label %._crit_edge, label %95
 
 ._crit_edge:                                      ; preds = %95, %tdefl_init.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 0, ptr %8, align 8
   %105 = call i32 @tdefl_compress(ptr noundef nonnull %14, ptr noundef null, ptr noundef nonnull %8, ptr noundef null, ptr noundef null, i32 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.not59 = icmp eq i32 %105, 1
   br i1 %.not59, label %108, label %106
 
@@ -8017,7 +8017,7 @@ define internal fastcc range(i32 0, 2) i32 @mz_zip_reader_read_central_dir(ptr n
   br label %377
 
 13:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %14 = tail call i64 @llvm.smax.i64(i64 %9, i64 4096)
   %spec.select.i = add nsw i64 %14, -4096
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -8081,13 +8081,13 @@ define internal fastcc range(i32 0, 2) i32 @mz_zip_reader_read_central_dir(ptr n
   br i1 %43, label %.loopexit382, label %21
 
 .loopexit382:                                     ; preds = %.critedge.i, %40, %21, %13
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 7, ptr %44, align 4
   br label %377
 
 45:                                               ; preds = %33
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %46 = load ptr, ptr %15, align 8
   %47 = load ptr, ptr %16, align 8
   %48 = call i64 %46(ptr noundef %47, i64 noundef %35, ptr noundef nonnull %4, i64 noundef 22) #31
@@ -10377,7 +10377,7 @@ define range(i32 0, 2) i32 @mz_zip_reader_extract_to_mem(ptr noundef captures(ad
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @mz_zip_reader_extract_file_to_mem(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #7 {
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = call i32 @mz_zip_reader_locate_file_v2(ptr noundef %0, ptr noundef readonly %1, ptr noundef null, i32 noundef %4, ptr noundef nonnull %6)
   %.not.i = icmp eq i32 %7, 0
   br i1 %.not.i, label %mz_zip_reader_extract_file_to_mem_no_alloc.exit, label %8
@@ -10389,7 +10389,7 @@ define range(i32 0, 2) i32 @mz_zip_reader_extract_file_to_mem(ptr noundef captur
 
 mz_zip_reader_extract_file_to_mem_no_alloc.exit:  ; preds = %5, %8
   %.0.i = phi i32 [ %10, %8 ], [ 0, %5 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0.i
 }
 
@@ -11099,12 +11099,12 @@ mz_zip_reader_file_stat.exit:                     ; preds = %10
 45:                                               ; preds = %44
   %46 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %47 = load i64, ptr %46, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %47, ptr %5, align 8
   %48 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %47, ptr %48, align 8
   %49 = call i32 @utime(ptr noundef readonly %2, ptr noundef nonnull %5) #31
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %mz_zip_reader_file_stat.exit.thread
 
 mz_zip_reader_file_stat.exit.thread:              ; preds = %41, %42, %13, %4, %44, %45, %35, %31, %mz_zip_reader_file_stat.exit
@@ -11205,7 +11205,7 @@ define range(i32 0, 2) i32 @mz_zip_reader_extract_file_to_cfile(ptr noundef capt
 
 8:                                                ; preds = %4
   %9 = load i32, ptr %6, align 4
-  call void @llvm.lifetime.start.p0(i64 1112, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %mz_zip_reader_extract_to_cfile.exit, label %10
 
@@ -11260,7 +11260,7 @@ mz_zip_reader_file_stat.exit.i:                   ; preds = %13
 
 mz_zip_reader_extract_to_cfile.exit:              ; preds = %8, %16, %mz_zip_reader_file_stat.exit.i, %34, %36
   %.0.i = phi i32 [ %37, %36 ], [ 0, %mz_zip_reader_file_stat.exit.i ], [ 0, %34 ], [ 0, %8 ], [ 0, %16 ]
-  call void @llvm.lifetime.end.p0(i64 1112, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %38
 
 38:                                               ; preds = %4, %mz_zip_reader_extract_to_cfile.exit
@@ -11734,7 +11734,7 @@ define internal fastcc range(i32 0, 2) i32 @mz_zip_file_stat_internal(ptr nounde
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 14
   %40 = load i16, ptr %39, align 2
   %41 = zext i16 %40 to i32
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %42 = getelementptr inbounds nuw i8, ptr %6, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %42, i8 0, i64 32, i1 false)
   %43 = getelementptr inbounds nuw i8, ptr %6, i64 32
@@ -11762,7 +11762,7 @@ define internal fastcc range(i32 0, 2) i32 @mz_zip_file_stat_internal(ptr nounde
   %59 = and i32 %58, 62
   store i32 %59, ptr %6, align 8
   %60 = call noundef i64 @mktime(ptr noundef nonnull %6) #31
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %61 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %60, ptr %61, align 8
   %62 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -14311,10 +14311,10 @@ tdefl_create_comp_flags_from_zip_params.exit:     ; preds = %282
   %306 = select i1 %305, i32 16384, i32 0
   %307 = or i32 %304, %306
   %308 = call i32 @tdefl_init(ptr noundef %.0396, ptr noundef nonnull @mz_zip_writer_add_put_buf_callback, ptr noundef nonnull %24, i32 noundef %307)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i64 %3, ptr %15, align 8
   %309 = call i32 @tdefl_compress(ptr noundef %.0396, ptr noundef %2, ptr noundef nonnull %15, ptr noundef null, ptr noundef null, i32 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %.not452 = icmp eq i32 %309, 1
   br i1 %.not452, label %316, label %310
 
@@ -15536,10 +15536,10 @@ tdefl_create_comp_flags_from_zip_params.exit:     ; preds = %247
   %.0377 = phi i32 [ 0, %271 ], [ %spec.select450, %275 ]
   %.not441 = icmp eq i64 %273, 0
   %279 = select i1 %.not441, i32 4, i32 %.0377
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i64 %269, ptr %13, align 8
   %280 = call i32 @tdefl_compress(ptr noundef nonnull %250, ptr noundef nonnull %224, ptr noundef nonnull %13, ptr noundef null, ptr noundef null, i32 noundef %279)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   switch i32 %280, label %281 [
     i32 1, label %288
     i32 0, label %268
@@ -15671,13 +15671,13 @@ declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i6
 define range(i32 0, 2) i32 @mz_zip_writer_add_file(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3, i16 noundef zeroext %4, i32 noundef %5) local_unnamed_addr #7 {
   %7 = alloca %struct.stat, align 8
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %9 = call i32 @stat(ptr noundef readonly %2, ptr noundef nonnull %7) #31
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %13, label %10
 
 10:                                               ; preds = %6
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not26 = icmp eq ptr %0, null
   br i1 %.not26, label %26, label %11
 
@@ -15690,7 +15690,7 @@ define range(i32 0, 2) i32 @mz_zip_writer_add_file(ptr noundef %0, ptr noundef %
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %15 = load i64, ptr %14, align 8
   store i64 %15, ptr %8, align 8
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %16 = tail call noalias ptr @fopen(ptr noundef %2, ptr noundef nonnull @.str.15)
   %.not27 = icmp eq ptr %16, null
   br i1 %.not27, label %17, label %20
@@ -18242,8 +18242,8 @@ define internal fastcc range(i32 0, 2) i32 @tdefl_compress_block(ptr noundef non
   store i64 578721382704613384, ptr %scevgep74.i, align 1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 36970
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(32) %11, i8 5, i64 32, i1 false)
-  call void @llvm.lifetime.start.p0(i64 132, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 132, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(132) %7, i8 0, i64 132, i1 false)
   br label %12
 
@@ -18323,10 +18323,10 @@ define internal fastcc range(i32 0, 2) i32 @tdefl_compress_block(ptr noundef non
   br i1 %exitcond153.not.i.i, label %tdefl_optimize_huffman_table.exit.i, label %28
 
 tdefl_optimize_huffman_table.exit.i:              ; preds = %48
-  call void @llvm.lifetime.end.p0(i64 132, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 132, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 132, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 132, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(132) %5, i8 0, i64 132, i1 false)
   br label %49
 
@@ -18406,8 +18406,8 @@ tdefl_optimize_huffman_table.exit.i:              ; preds = %48
   br i1 %exitcond153.not.i46.i, label %tdefl_optimize_huffman_table.exit47.i, label %65
 
 tdefl_optimize_huffman_table.exit47.i:            ; preds = %85
-  call void @llvm.lifetime.end.p0(i64 132, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 132, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %87 = load i32, ptr %86, align 4
   %88 = shl nuw i32 1, %87
@@ -18453,8 +18453,8 @@ tdefl_optimize_huffman_table.exit47.i:            ; preds = %85
   br i1 %110, label %96, label %tdefl_start_static_block.exit
 
 111:                                              ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 320, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 320, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 33738
   store i16 1, ptr %112, align 2
   tail call fastcc void @tdefl_optimize_huffman_table(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 288, i32 noundef 15, i32 noundef 0)
@@ -19278,8 +19278,8 @@ tdefl_optimize_huffman_table.exit47.i:            ; preds = %85
 tdefl_start_dynamic_block.exit:                   ; preds = %.loopexit.i, %.preheader.i
   %532 = phi i32 [ %448, %.preheader.i ], [ %530, %.loopexit.i ]
   %533 = phi i32 [ %447, %.preheader.i ], [ %529, %.loopexit.i ]
-  call void @llvm.lifetime.end.p0(i64 320, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 320, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %tdefl_start_static_block.exit
 
 tdefl_start_static_block.exit:                    ; preds = %105, %tdefl_optimize_huffman_table.exit47.i, %tdefl_start_dynamic_block.exit
@@ -19710,8 +19710,8 @@ define internal fastcc void @tdefl_optimize_huffman_table(ptr noundef nonnull ca
   br i1 %exitcond129.not, label %35, label %25
 
 35:                                               ; preds = %34
-  call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2048) %6, i8 0, i64 2048, i1 false)
   %.not.i = icmp eq i32 %.173, 0
   br i1 %.not.i, label %.critedge.preheader.split55.i.preheader, label %.lr.ph.preheader.i
@@ -19810,13 +19810,13 @@ define internal fastcc void @tdefl_optimize_huffman_table(ptr noundef nonnull ca
   br i1 %exitcond78.not.i, label %tdefl_radix_sort_syms.exit.thread, label %.critedge.preheader.split55.i.preheader
 
 tdefl_radix_sort_syms.exit.thread:                ; preds = %.critedge.preheader.split55.i.preheader
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %tdefl_huffman_enforce_max_code_size.exit
 
 tdefl_radix_sort_syms.exit:                       ; preds = %._crit_edge.us.i
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   switch i32 %.173, label %76 [
     i32 0, label %tdefl_huffman_enforce_max_code_size.exit
     i32 1, label %tdefl_calculate_minimum_redundancy.exit.thread161
@@ -20695,10 +20695,10 @@ declare i16 @llvm.umin.i16(i16, i16) #28
 declare i64 @llvm.ctpop.i64(i64) #28
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #30
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #30
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #30
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #30
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #28

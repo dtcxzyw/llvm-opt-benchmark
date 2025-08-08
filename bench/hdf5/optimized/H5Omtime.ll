@@ -37,7 +37,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define internal noalias ptr @H5O__mtime_decode(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2, ptr readnone captures(none) %3, i64 noundef %4, ptr noundef readonly captures(none) %5) #0 {
   %7 = alloca %struct.tm, align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i8, ptr @H5O_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %9 = trunc nuw i8 %8 to i1
   %10 = load i8, ptr @H5_libterm_g, align 1, !range !7
@@ -51,14 +51,14 @@ define internal noalias ptr @H5O__mtime_decode(ptr readnone captures(none) %0, p
   br i1 %or.cond, label %17, label %.preheader
 
 .preheader:                                       ; preds = %14
-  %15 = tail call ptr @__ctype_b_loc() #10
+  %15 = tail call ptr @__ctype_b_loc() #9
   %16 = load ptr, ptr %15, align 8, !tbaa !10
   br label %22
 
 17:                                               ; preds = %14
   %18 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !13
   %19 = load i64, ptr @H5E_OVERFLOW_g, align 8, !tbaa !13
-  %20 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O__mtime_decode, i32 noundef 185, i64 noundef %18, i64 noundef %19, ptr noundef nonnull @.str.4) #9
+  %20 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O__mtime_decode, i32 noundef 185, i64 noundef %18, i64 noundef %19, ptr noundef nonnull @.str.4) #10
   br label %118
 
 21:                                               ; preds = %22
@@ -80,7 +80,7 @@ define internal noalias ptr @H5O__mtime_decode(ptr readnone captures(none) %0, p
 29:                                               ; preds = %22
   %30 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !13
   %31 = load i64, ptr @H5E_CANTINIT_g, align 8, !tbaa !13
-  %32 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O__mtime_decode, i32 noundef 188, i64 noundef %30, i64 noundef %31, ptr noundef nonnull @.str.7) #9
+  %32 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O__mtime_decode, i32 noundef 188, i64 noundef %30, i64 noundef %31, ptr noundef nonnull @.str.7) #10
   br label %118
 
 33:                                               ; preds = %21
@@ -162,25 +162,25 @@ define internal noalias ptr @H5O__mtime_decode(ptr readnone captures(none) %0, p
   store i32 %102, ptr %7, align 8, !tbaa !28
   %103 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i32 -1, ptr %103, align 8, !tbaa !29
-  %104 = call i64 @H5_make_time(ptr noundef nonnull %7) #9
+  %104 = call i64 @H5_make_time(ptr noundef nonnull %7) #10
   %105 = icmp eq i64 %104, -1
   br i1 %105, label %106, label %110
 
 106:                                              ; preds = %33
   %107 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !13
   %108 = load i64, ptr @H5E_CANTINIT_g, align 8, !tbaa !13
-  %109 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O__mtime_decode, i32 noundef 200, i64 noundef %107, i64 noundef %108, ptr noundef nonnull @.str.8) #9
+  %109 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O__mtime_decode, i32 noundef 200, i64 noundef %107, i64 noundef %108, ptr noundef nonnull @.str.8) #10
   br label %118
 
 110:                                              ; preds = %33
-  %111 = call noalias ptr @H5FL_reg_malloc(ptr noundef nonnull @H5_time_t_reg_free_list) #9
+  %111 = call noalias ptr @H5FL_reg_malloc(ptr noundef nonnull @H5_time_t_reg_free_list) #10
   %112 = icmp eq ptr %111, null
   br i1 %112, label %113, label %117
 
 113:                                              ; preds = %110
   %114 = load i64, ptr @H5E_RESOURCE_g, align 8, !tbaa !13
   %115 = load i64, ptr @H5E_NOSPACE_g, align 8, !tbaa !13
-  %116 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O__mtime_decode, i32 noundef 204, i64 noundef %114, i64 noundef %115, ptr noundef nonnull @.str.6) #9
+  %116 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O__mtime_decode, i32 noundef 204, i64 noundef %114, i64 noundef %115, ptr noundef nonnull @.str.6) #10
   br label %118
 
 117:                                              ; preds = %110
@@ -189,7 +189,7 @@ define internal noalias ptr @H5O__mtime_decode(ptr readnone captures(none) %0, p
 
 118:                                              ; preds = %29, %6, %117, %113, %106, %17
   %.034 = phi ptr [ null, %17 ], [ null, %106 ], [ null, %113 ], [ %111, %117 ], [ null, %29 ], [ null, %6 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %.034
 }
 
@@ -204,7 +204,7 @@ define internal noundef i32 @H5O__mtime_encode(ptr readnone captures(none) %0, i
   br i1 %11, label %12, label %28, !prof !9
 
 12:                                               ; preds = %5
-  %13 = tail call ptr @gmtime(ptr noundef %4) #9
+  %13 = tail call ptr @gmtime(ptr noundef %4) #10
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 20
   %15 = load i32, ptr %14, align 4, !tbaa !20
   %16 = add nsw i32 %15, 1900
@@ -218,7 +218,7 @@ define internal noundef i32 @H5O__mtime_encode(ptr readnone captures(none) %0, i
   %24 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %25 = load i32, ptr %24, align 4, !tbaa !27
   %26 = load i32, ptr %13, align 8, !tbaa !28
-  %27 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %3, i64 noundef %2, ptr noundef nonnull @.str.9, i32 noundef %16, i32 noundef %19, i32 noundef %21, i32 noundef %23, i32 noundef %25, i32 noundef %26) #9
+  %27 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %3, i64 noundef %2, ptr noundef nonnull @.str.9, i32 noundef %16, i32 noundef %19, i32 noundef %21, i32 noundef %23, i32 noundef %25, i32 noundef %26) #10
   br label %28
 
 28:                                               ; preds = %12, %5
@@ -240,14 +240,14 @@ define internal noundef ptr @H5O__mtime_copy(ptr noundef readonly captures(none)
   br i1 %.not, label %10, label %17
 
 10:                                               ; preds = %9
-  %11 = tail call noalias ptr @H5FL_reg_malloc(ptr noundef nonnull @H5_time_t_reg_free_list) #9
+  %11 = tail call noalias ptr @H5FL_reg_malloc(ptr noundef nonnull @H5_time_t_reg_free_list) #10
   %12 = icmp eq ptr %11, null
   br i1 %12, label %13, label %17
 
 13:                                               ; preds = %10
   %14 = load i64, ptr @H5E_RESOURCE_g, align 8, !tbaa !13
   %15 = load i64, ptr @H5E_NOSPACE_g, align 8, !tbaa !13
-  %16 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O__mtime_copy, i32 noundef 305, i64 noundef %14, i64 noundef %15, ptr noundef nonnull @.str.6) #9
+  %16 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O__mtime_copy, i32 noundef 305, i64 noundef %14, i64 noundef %15, ptr noundef nonnull @.str.6) #10
   br label %19
 
 17:                                               ; preds = %10, %9
@@ -277,7 +277,7 @@ define internal noundef i32 @H5O__mtime_free(ptr noundef %0) #0 {
   br i1 %7, label %8, label %10, !prof !9
 
 8:                                                ; preds = %1
-  %9 = tail call ptr @H5FL_reg_free(ptr noundef nonnull @H5_time_t_reg_free_list, ptr noundef %0) #9
+  %9 = tail call ptr @H5FL_reg_free(ptr noundef nonnull @H5_time_t_reg_free_list, ptr noundef %0) #10
   br label %10
 
 10:                                               ; preds = %8, %1
@@ -287,7 +287,7 @@ define internal noundef i32 @H5O__mtime_free(ptr noundef %0) #0 {
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @H5O__mtime_debug(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2, i32 noundef %3, i32 noundef %4) #0 {
   %6 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i8, ptr @H5O_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %8 = trunc nuw i8 %7 to i1
   %9 = load i8, ptr @H5_libterm_g, align 1, !range !7
@@ -297,13 +297,13 @@ define internal noundef i32 @H5O__mtime_debug(ptr readnone captures(none) %0, pt
   br i1 %12, label %13, label %17, !prof !9
 
 13:                                               ; preds = %5
-  %14 = tail call ptr @localtime(ptr noundef %1) #9
-  %15 = call i64 @strftime(ptr noundef nonnull %6, i64 noundef 128, ptr noundef nonnull @.str.10, ptr noundef %14) #9
-  %16 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.11, i32 noundef %3, ptr noundef nonnull @.str.12, i32 noundef %4, ptr noundef nonnull @.str.13, ptr noundef nonnull %6) #9
+  %14 = tail call ptr @localtime(ptr noundef %1) #10
+  %15 = call i64 @strftime(ptr noundef nonnull %6, i64 noundef 128, ptr noundef nonnull @.str.10, ptr noundef %14) #10
+  %16 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.11, i32 noundef %3, ptr noundef nonnull @.str.12, i32 noundef %4, ptr noundef nonnull @.str.13, ptr noundef nonnull %6) #10
   br label %17
 
 17:                                               ; preds = %13, %5
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 0
 }
 
@@ -326,7 +326,7 @@ define internal noalias ptr @H5O__mtime_new_decode(ptr readnone captures(none) %
 17:                                               ; preds = %15
   %18 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !13
   %19 = load i64, ptr @H5E_OVERFLOW_g, align 8, !tbaa !13
-  %20 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O__mtime_new_decode, i32 noundef 125, i64 noundef %18, i64 noundef %19, ptr noundef nonnull @.str.4) #9
+  %20 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O__mtime_new_decode, i32 noundef 125, i64 noundef %18, i64 noundef %19, ptr noundef nonnull @.str.4) #10
   br label %54
 
 21:                                               ; preds = %15
@@ -337,7 +337,7 @@ define internal noalias ptr @H5O__mtime_new_decode(ptr readnone captures(none) %
 23:                                               ; preds = %21
   %24 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !13
   %25 = load i64, ptr @H5E_CANTLOAD_g, align 8, !tbaa !13
-  %26 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O__mtime_new_decode, i32 noundef 127, i64 noundef %24, i64 noundef %25, ptr noundef nonnull @.str.5) #9
+  %26 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O__mtime_new_decode, i32 noundef 127, i64 noundef %24, i64 noundef %25, ptr noundef nonnull @.str.5) #10
   br label %54
 
 27:                                               ; preds = %21
@@ -350,7 +350,7 @@ define internal noalias ptr @H5O__mtime_new_decode(ptr readnone captures(none) %
 31:                                               ; preds = %27
   %32 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !13
   %33 = load i64, ptr @H5E_OVERFLOW_g, align 8, !tbaa !13
-  %34 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O__mtime_new_decode, i32 noundef 131, i64 noundef %32, i64 noundef %33, ptr noundef nonnull @.str.4) #9
+  %34 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O__mtime_new_decode, i32 noundef 131, i64 noundef %32, i64 noundef %33, ptr noundef nonnull @.str.4) #10
   br label %54
 
 35:                                               ; preds = %27
@@ -364,19 +364,19 @@ define internal noalias ptr @H5O__mtime_new_decode(ptr readnone captures(none) %
 40:                                               ; preds = %35
   %41 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !13
   %42 = load i64, ptr @H5E_OVERFLOW_g, align 8, !tbaa !13
-  %43 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O__mtime_new_decode, i32 noundef 136, i64 noundef %41, i64 noundef %42, ptr noundef nonnull @.str.4) #9
+  %43 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O__mtime_new_decode, i32 noundef 136, i64 noundef %41, i64 noundef %42, ptr noundef nonnull @.str.4) #10
   br label %54
 
 44:                                               ; preds = %35
   %45 = load i32, ptr %36, align 1
-  %46 = tail call noalias ptr @H5FL_reg_malloc(ptr noundef nonnull @H5_time_t_reg_free_list) #9
+  %46 = tail call noalias ptr @H5FL_reg_malloc(ptr noundef nonnull @H5_time_t_reg_free_list) #10
   %47 = icmp eq ptr %46, null
   br i1 %47, label %48, label %52
 
 48:                                               ; preds = %44
   %49 = load i64, ptr @H5E_RESOURCE_g, align 8, !tbaa !13
   %50 = load i64, ptr @H5E_NOSPACE_g, align 8, !tbaa !13
-  %51 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O__mtime_new_decode, i32 noundef 141, i64 noundef %49, i64 noundef %50, ptr noundef nonnull @.str.6) #9
+  %51 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O__mtime_new_decode, i32 noundef 141, i64 noundef %49, i64 noundef %50, ptr noundef nonnull @.str.6) #10
   br label %54
 
 52:                                               ; preds = %44
@@ -437,52 +437,52 @@ define internal noundef i64 @H5O__mtime_new_size(ptr readnone captures(none) %0,
   ret i64 8
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
+declare i32 @H5E_printf_stack(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #3
 
-declare i32 @H5E_printf_stack(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #4
-
-declare noalias ptr @H5FL_reg_malloc(ptr noundef) local_unnamed_addr #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
+declare noalias ptr @H5FL_reg_malloc(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__ctype_b_loc() local_unnamed_addr #5
+declare ptr @__ctype_b_loc() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
-declare i64 @H5_make_time(ptr noundef) local_unnamed_addr #4
+declare i64 @H5_make_time(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
-declare ptr @gmtime(ptr noundef) local_unnamed_addr #7
+declare ptr @gmtime(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #8
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
-declare ptr @H5FL_reg_free(ptr noundef, ptr noundef) local_unnamed_addr #4
-
-; Function Attrs: nounwind
-declare ptr @localtime(ptr noundef) local_unnamed_addr #7
+declare ptr @H5FL_reg_free(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
-declare i64 @strftime(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
+declare ptr @localtime(ptr noundef) local_unnamed_addr #6
+
+; Function Attrs: nounwind
+declare i64 @strftime(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #8
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nounwind }
-attributes #10 = { nounwind willreturn memory(none) }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { nounwind willreturn memory(none) }
+attributes #10 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

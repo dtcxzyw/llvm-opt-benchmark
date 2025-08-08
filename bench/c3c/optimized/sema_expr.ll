@@ -8517,9 +8517,9 @@ sema_analyse_expr.exit.i:                         ; preds = %sema_analyse_expr_l
   br label %sema_expr_analyse_generic_ident.exit
 
 375:                                              ; preds = %tailrecurse
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %376 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %377 = load i32, ptr %376, align 4
   %378 = load ptr, ptr @expr_arena, align 8
@@ -8718,9 +8718,9 @@ sema_analyse_expr.exit151:                        ; preds = %sema_analyse_expr_l
 
 sema_expr_analyse_pointer_offset.exit:            ; preds = %395, %390, %sema_analyse_expr_lvalue.exit452, %sema_analyse_expr.exit151, %404, %422, %457, %478
   %.056.i = phi i1 [ true, %478 ], [ true, %457 ], [ false, %sema_analyse_expr.exit151 ], [ false, %404 ], [ false, %422 ], [ false, %sema_analyse_expr_lvalue.exit452 ], [ false, %390 ], [ false, %395 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %sema_expr_analyse_generic_ident.exit
 
 479:                                              ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse
@@ -8739,11 +8739,11 @@ sema_expr_analyse_pointer_offset.exit:            ; preds = %395, %390, %sema_an
   br label %sema_expr_analyse_generic_ident.exit
 
 485:                                              ; preds = %tailrecurse
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %486 = load i32, ptr %12, align 8
   %487 = load ptr, ptr @expr_arena, align 8
   %488 = zext i32 %486 to i64
@@ -9129,11 +9129,11 @@ sema_analyse_expr.exit153:                        ; preds = %sema_analyse_expr_l
 
 sema_expr_analyse_slice.exit:                     ; preds = %504, %499, %sema_analyse_expr_lvalue.exit454, %.thread161, %sema_analyse_expr.exit153, %551, %556, %567, %569, %572, %579, %581, %583, %591, %595, %598, %601, %613, %615, %642, %650, %679
   %.0129.i = phi i1 [ false, %591 ], [ false, %598 ], [ false, %642 ], [ true, %679 ], [ false, %650 ], [ false, %595 ], [ false, %579 ], [ false, %551 ], [ false, %sema_analyse_expr.exit153 ], [ false, %556 ], [ false, %567 ], [ false, %569 ], [ false, %572 ], [ false, %583 ], [ false, %581 ], [ false, %601 ], [ false, %613 ], [ false, %615 ], [ false, %.thread161 ], [ false, %sema_analyse_expr_lvalue.exit454 ], [ false, %499 ], [ false, %504 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %sema_expr_analyse_generic_ident.exit
 
 680:                                              ; preds = %tailrecurse
@@ -10629,7 +10629,7 @@ type_flatten.exit.thread:                         ; preds = %20, %45
   br i1 %.not195, label %.thread225, label %61
 
 61:                                               ; preds = %57
-  call void @llvm.lifetime.start.p0(i64 1600, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %62 = getelementptr inbounds nuw i8, ptr %7, i64 128
   %63 = load ptr, ptr %62, align 8
   %.not.i = icmp eq ptr %63, null
@@ -11026,17 +11026,17 @@ sema_may_reuse_lambda.exit.thread.i:              ; preds = %211, %259, %242, %1
   br i1 %exitcond251.not.i, label %sema_find_cached_lambda.exit.thread, label %190, !llvm.loop !46
 
 sema_find_cached_lambda.exit.thread:              ; preds = %.loopexit.i, %89, %.lr.ph200.i, %sema_evaluate_type_copy.exit175.i, %177, %sema_may_reuse_lambda.exit.thread.i, %64, %145, %sema_evaluate_type_copy.exit.i, %61, %155, %186, %._crit_edge.i
-  call void @llvm.lifetime.end.p0(i64 1600, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread225
 
 sema_find_cached_lambda.exit.thread221:           ; preds = %102, %105, %99, %.split.us.i, %226, %229
   %.0131.i.ph = phi ptr [ %192, %229 ], [ %192, %226 ], [ %81, %.split.us.i ], [ %91, %99 ], [ %91, %105 ], [ %91, %102 ]
-  call void @llvm.lifetime.end.p0(i64 1600, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %269
 
 sema_find_cached_lambda.exit:                     ; preds = %144, %sema_may_reuse_lambda.exit.i, %223, %268
   %.0131.i = phi ptr [ %192, %268 ], [ %192, %223 ], [ %192, %sema_may_reuse_lambda.exit.i ], [ %91, %144 ]
-  call void @llvm.lifetime.end.p0(i64 1600, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not196 = icmp eq ptr %.0131.i, null
   br i1 %.not196, label %.thread225, label %269
 
@@ -15495,9 +15495,9 @@ sema_constant_fold_ops.exit.i:                    ; preds = %sema_constant_fold_
   br label %sema_expr_analyse_or_error.exit
 
 391:                                              ; preds = %sema_binary_check_unclear_op_precedence.exit, %sema_binary_check_unclear_op_precedence.exit, %sema_binary_check_unclear_op_precedence.exit
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %392 = tail call fastcc zeroext i1 @sema_binary_analyse_subexpr(ptr noundef %0, ptr noundef nonnull %15, ptr noundef nonnull %128)
   br i1 %392, label %393, label %sema_expr_analyse_bit.exit
 
@@ -15690,9 +15690,9 @@ expr_both_const.exit.thread:                      ; preds = %430, %479, %476, %4
 
 sema_expr_analyse_bit.exit:                       ; preds = %391, %sema_binary_analyse_arithmetic_subexpr.exit, %428, %expr_both_const.exit.thread
   %.0.i76 = phi i1 [ true, %expr_both_const.exit.thread ], [ %429, %428 ], [ false, %sema_binary_analyse_arithmetic_subexpr.exit ], [ false, %391 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %sema_expr_analyse_or_error.exit
 
 483:                                              ; preds = %sema_binary_check_unclear_op_precedence.exit, %sema_binary_check_unclear_op_precedence.exit, %sema_binary_check_unclear_op_precedence.exit, %sema_binary_check_unclear_op_precedence.exit, %sema_binary_check_unclear_op_precedence.exit, %sema_binary_check_unclear_op_precedence.exit
@@ -16310,8 +16310,8 @@ sema_binary_is_unsigned_always_false_comparison.exit.thread: ; preds = %747, %74
   br label %sema_expr_analyse_or_error.exit
 
 777:                                              ; preds = %sema_binary_check_unclear_op_precedence.exit, %sema_binary_check_unclear_op_precedence.exit
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %778 = tail call fastcc zeroext i1 @sema_binary_analyse_subexpr(ptr noundef %0, ptr noundef nonnull %15, ptr noundef nonnull %128)
   br i1 %778, label %779, label %sema_expr_analyse_shift.exit
 
@@ -16491,8 +16491,8 @@ type_flatten.exit.i147:                           ; preds = %.preheader.i143
 
 sema_expr_analyse_shift.exit:                     ; preds = %777, %781, %791, %825, %830, %844, %845, %.critedge.i141
   %.064.i = phi i1 [ false, %825 ], [ false, %830 ], [ true, %.critedge.i141 ], [ %782, %781 ], [ false, %777 ], [ false, %791 ], [ true, %845 ], [ true, %844 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %sema_expr_analyse_or_error.exit
 
 863:                                              ; preds = %sema_binary_check_unclear_op_precedence.exit, %sema_binary_check_unclear_op_precedence.exit
@@ -17286,7 +17286,7 @@ sema_addr_check_may_take.exit:                    ; preds = %tailrecurse.i, %sem
   br label %sema_expr_analyse_deref.exit
 
 274:                                              ; preds = %9, %9
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %275 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %276 = load ptr, ptr %275, align 8
   %277 = icmp eq i8 %11, 4
@@ -17510,11 +17510,11 @@ sema_constant_fold_ops.exit:                      ; preds = %339, %339, %339, %3
 
 sema_expr_analyse_neg_plus.exit:                  ; preds = %292, %287, %sema_analyse_expr_lvalue.exit253, %sema_analyse_expr.exit46, %327, %328, %329, %333, %343, %347, %349
   %.053.i = phi i1 [ true, %333 ], [ true, %347 ], [ true, %349 ], [ true, %343 ], [ false, %327 ], [ false, %328 ], [ false, %sema_analyse_expr.exit46 ], [ false, %329 ], [ false, %sema_analyse_expr_lvalue.exit253 ], [ false, %287 ], [ false, %292 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %sema_expr_analyse_deref.exit
 
 357:                                              ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %358 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %359 = load ptr, ptr %358, align 8
   %360 = getelementptr inbounds nuw i8, ptr %359, i64 16
@@ -17763,7 +17763,7 @@ sema_constant_fold_ops.exit49:                    ; preds = %449, %449, %449, %4
 
 sema_expr_analyse_bit_not.exit:                   ; preds = %374, %369, %sema_analyse_expr_lvalue.exit255, %sema_analyse_expr.exit55, %.thread, %446, %453, %458, %462
   %.062.i = phi i1 [ true, %446 ], [ true, %458 ], [ true, %462 ], [ true, %453 ], [ false, %.thread ], [ false, %sema_analyse_expr.exit55 ], [ false, %sema_analyse_expr_lvalue.exit255 ], [ false, %369 ], [ false, %374 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %sema_expr_analyse_deref.exit
 
 464:                                              ; preds = %9
@@ -18110,8 +18110,8 @@ sema_analyse_expr_lvalue.exit259:                 ; preds = %595
   br i1 %625, label %626, label %.preheader88
 
 626:                                              ; preds = %622
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %627 = tail call fastcc zeroext i1 @sema_binary_analyse_ct_identifier_lvalue(ptr noundef %0, ptr noundef nonnull %597)
   br i1 %627, label %628, label %sema_expr_analyse_ct_incdec.exit
 
@@ -18174,8 +18174,8 @@ sema_analyse_expr_lvalue.exit259:                 ; preds = %595
 
 sema_expr_analyse_ct_incdec.exit:                 ; preds = %626, %636, %654, %655
   %.0.i77 = phi i1 [ false, %636 ], [ false, %626 ], [ true, %655 ], [ true, %654 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %sema_expr_analyse_deref.exit
 
 .preheader88:                                     ; preds = %622, %.preheader88.backedge
@@ -18560,7 +18560,7 @@ sema_cast_ct_ident_rvalue.exit:                   ; preds = %sema_analyse_expr.e
   br i1 %76, label %77, label %192
 
 77:                                               ; preds = %73
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %79 = load ptr, ptr %78, align 8
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 120
@@ -18815,7 +18815,7 @@ sema_cast_ct_ident_rvalue.exit:                   ; preds = %sema_analyse_expr.e
 
 sema_call_analyse_body_expansion.exit:            ; preds = %.lr.ph, %93, %99, %123, %168, %179, %191
   %.099.i = phi i1 [ false, %93 ], [ false, %99 ], [ false, %123 ], [ false, %168 ], [ true, %191 ], [ false, %179 ], [ false, %.lr.ph ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %sema_analyse_expr_lvalue_fold_const.exit
 
 192:                                              ; preds = %73
@@ -30426,10 +30426,10 @@ declare ptr @copy_type_info_single(ptr noundef) local_unnamed_addr #1
 declare void @llvm.assume(i1 noundef) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #10

@@ -414,17 +414,11 @@ _ZN20btAlignedObjectArrayI9btVector3E9push_backERKS0_.exit82: ; preds = %_ZN20bt
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_Z24InverseTransformPoint3x3R9btVector3RKS_RK11btTransform(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(16) initializes((0, 16)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %2) local_unnamed_addr #3 {
+define dso_local void @_Z24InverseTransformPoint3x3R9btVector3RKS_RK11btTransform(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(16) initializes((0, 16)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %6 = load float, ptr %2, align 4, !tbaa !14
@@ -467,10 +461,10 @@ define dso_local void @_Z24InverseTransformPoint3x3R9btVector3RKS_RK11btTransfor
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #4
+declare float @llvm.fmuladd.f32(float, float, float) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_Z19TestInternalObjectsRK11btTransformS1_RK9btVector3S4_RK18btConvexPolyhedronS7_f(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(172) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(172) %5, float noundef %6) local_unnamed_addr #5 {
+define dso_local noundef zeroext i1 @_Z19TestInternalObjectsRK11btTransformS1_RK9btVector3S4_RK18btConvexPolyhedronS7_f(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(172) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(172) %5, float noundef %6) local_unnamed_addr #4 {
   %8 = load float, ptr %2, align 4, !tbaa !14
   %9 = load float, ptr %3, align 4, !tbaa !14
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -739,7 +733,7 @@ define dso_local noundef zeroext i1 @_ZN27btPolyhedralContactClipping18findSepar
   %142 = load float, ptr %139, align 4, !tbaa !14
   %143 = load float, ptr %140, align 4, !tbaa !14
   %144 = load float, ptr %141, align 4, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %31) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
   %145 = load float, ptr %2, align 4, !tbaa !14
   %146 = load float, ptr %45, align 4, !tbaa !14
   %147 = fmul float %143, %146
@@ -868,14 +862,14 @@ define dso_local noundef zeroext i1 @_ZN27btPolyhedralContactClipping18findSepar
   %252 = load i32, ptr @gActualNbTests, align 4, !tbaa !30
   %253 = add nsw i32 %252, 1
   store i32 %253, ptr @gActualNbTests, align 4, !tbaa !30
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %23) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %24) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %25) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %26) #8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %27) #8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %28) #8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %29) #8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %30) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   call void @_ZNK18btConvexPolyhedron7projectERK11btTransformRK9btVector3RfS6_RS3_S7_(ptr noundef nonnull align 8 dereferenceable(172) %0, ptr noundef nonnull align 4 dereferenceable(64) %2, ptr noundef nonnull align 4 dereferenceable(16) %31, ptr noundef nonnull align 4 dereferenceable(4) %23, ptr noundef nonnull align 4 dereferenceable(4) %24, ptr noundef nonnull align 4 dereferenceable(16) %27, ptr noundef nonnull align 4 dereferenceable(16) %28)
   call void @_ZNK18btConvexPolyhedron7projectERK11btTransformRK9btVector3RfS6_RS3_S7_(ptr noundef nonnull align 8 dereferenceable(172) %1, ptr noundef nonnull align 4 dereferenceable(64) %3, ptr noundef nonnull align 4 dereferenceable(16) %31, ptr noundef nonnull align 4 dereferenceable(4) %25, ptr noundef nonnull align 4 dereferenceable(4) %26, ptr noundef nonnull align 4 dereferenceable(16) %29, ptr noundef nonnull align 4 dereferenceable(16) %30)
   %254 = load float, ptr %24, align 4, !tbaa !14
@@ -894,14 +888,14 @@ define dso_local noundef zeroext i1 @_ZN27btPolyhedralContactClipping18findSepar
   %263 = fsub float %258, %259
   %264 = fcmp olt float %262, %263
   %..i174 = select i1 %264, float %262, float %263
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %30) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %29) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %28) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %27) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %26) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   %265 = fcmp olt float %..i174, %.0104634
   br i1 %265, label %266, label %.thread
 
@@ -910,20 +904,20 @@ define dso_local noundef zeroext i1 @_ZN27btPolyhedralContactClipping18findSepar
   br label %.thread
 
 .thread396:                                       ; preds = %251, %257
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %30) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %29) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %28) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %27) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %26) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %31) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
   br label %710
 
 .thread:                                          ; preds = %261, %266, %179
   %.2106391 = phi float [ %.0104634, %179 ], [ %.0104634, %261 ], [ %..i174, %266 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %31) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %136, !llvm.loop !35
@@ -986,7 +980,7 @@ define dso_local noundef zeroext i1 @_ZN27btPolyhedralContactClipping18findSepar
   %303 = load float, ptr %300, align 4, !tbaa !14
   %304 = load float, ptr %301, align 4, !tbaa !14
   %305 = load float, ptr %302, align 4, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %32) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
   %306 = load float, ptr %3, align 4, !tbaa !14
   %307 = load float, ptr %86, align 4, !tbaa !14
   %308 = fmul float %304, %307
@@ -1115,14 +1109,14 @@ define dso_local noundef zeroext i1 @_ZN27btPolyhedralContactClipping18findSepar
   %413 = load i32, ptr @gActualNbTests, align 4, !tbaa !30
   %414 = add nsw i32 %413, 1
   store i32 %414, ptr @gActualNbTests, align 4, !tbaa !30
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18) #8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %19) #8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %20) #8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %21) #8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %22) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   call void @_ZNK18btConvexPolyhedron7projectERK11btTransformRK9btVector3RfS6_RS3_S7_(ptr noundef nonnull align 8 dereferenceable(172) %0, ptr noundef nonnull align 4 dereferenceable(64) %2, ptr noundef nonnull align 4 dereferenceable(16) %32, ptr noundef nonnull align 4 dereferenceable(4) %15, ptr noundef nonnull align 4 dereferenceable(4) %16, ptr noundef nonnull align 4 dereferenceable(16) %19, ptr noundef nonnull align 4 dereferenceable(16) %20)
   call void @_ZNK18btConvexPolyhedron7projectERK11btTransformRK9btVector3RfS6_RS3_S7_(ptr noundef nonnull align 8 dereferenceable(172) %1, ptr noundef nonnull align 4 dereferenceable(64) %3, ptr noundef nonnull align 4 dereferenceable(16) %32, ptr noundef nonnull align 4 dereferenceable(4) %17, ptr noundef nonnull align 4 dereferenceable(4) %18, ptr noundef nonnull align 4 dereferenceable(16) %21, ptr noundef nonnull align 4 dereferenceable(16) %22)
   %415 = load float, ptr %16, align 4, !tbaa !14
@@ -1141,14 +1135,14 @@ define dso_local noundef zeroext i1 @_ZN27btPolyhedralContactClipping18findSepar
   %424 = fsub float %419, %420
   %425 = fcmp olt float %423, %424
   %..i182 = select i1 %425, float %423, float %424
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %426 = fcmp olt float %..i182, %.5109637
   br i1 %426, label %427, label %.thread401
 
@@ -1157,20 +1151,20 @@ define dso_local noundef zeroext i1 @_ZN27btPolyhedralContactClipping18findSepar
   br label %.thread401
 
 .thread412:                                       ; preds = %412, %418
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %32) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
   br label %710
 
 .thread401:                                       ; preds = %422, %427, %340
   %.7111406 = phi float [ %.5109637, %340 ], [ %.5109637, %422 ], [ %..i182, %427 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %32) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
   %indvars.iv.next717 = add nuw nsw i64 %indvars.iv716, 1
   %exitcond720.not = icmp eq i64 %indvars.iv.next717, %wide.trip.count719
   br i1 %exitcond720.not, label %.preheader, label %297, !llvm.loop !36
@@ -1270,7 +1264,7 @@ define dso_local noundef zeroext i1 @_ZN27btPolyhedralContactClipping18findSepar
   %.sroa.0.0.vec.insert.i192 = insertelement <2 x float> poison, float %459, i64 0
   %.sroa.0.4.vec.insert.i193 = insertelement <2 x float> %.sroa.0.0.vec.insert.i192, float %465, i64 1
   %.sroa.3.12.vec.insert.i194 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %471, i64 0
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %33) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
   %472 = fneg float %465
   %473 = fmul float %449, %472
   %474 = call float @llvm.fmuladd.f32(float %443, float %471, float %473)
@@ -1416,14 +1410,14 @@ define dso_local noundef zeroext i1 @_ZN27btPolyhedralContactClipping18findSepar
   %589 = load i32, ptr @gActualNbTests, align 4, !tbaa !30
   %590 = add nsw i32 %589, 1
   store i32 %590, ptr @gActualNbTests, align 4, !tbaa !30
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @_ZNK18btConvexPolyhedron7projectERK11btTransformRK9btVector3RfS6_RS3_S7_(ptr noundef nonnull align 8 dereferenceable(172) %0, ptr noundef nonnull align 4 dereferenceable(64) %2, ptr noundef nonnull align 4 dereferenceable(16) %33, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 4 dereferenceable(16) %11, ptr noundef nonnull align 4 dereferenceable(16) %12)
   call void @_ZNK18btConvexPolyhedron7projectERK11btTransformRK9btVector3RfS6_RS3_S7_(ptr noundef nonnull align 8 dereferenceable(172) %1, ptr noundef nonnull align 4 dereferenceable(64) %3, ptr noundef nonnull align 4 dereferenceable(16) %33, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 4 dereferenceable(16) %13, ptr noundef nonnull align 4 dereferenceable(16) %14)
   %591 = load float, ptr %8, align 4, !tbaa !14
@@ -1458,14 +1452,14 @@ define dso_local noundef zeroext i1 @_ZN27btPolyhedralContactClipping18findSepar
   %.26.i207.sroa.sel363.v.sroa.sel.v.sroa.sel.v = select i1 %601, ptr %13, ptr %14
   %.26.i207.sroa.sel363.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.26.i207.sroa.sel363.v.sroa.sel.v.sroa.sel.v, i64 8
   %.sroa.0253.sroa.5.0.copyload = load float, ptr %.26.i207.sroa.sel363.v.sroa.sel.v.sroa.sel, align 4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %602 = fcmp olt float %..i205, %.11115655
   br i1 %602, label %603, label %605
 
@@ -1490,7 +1484,7 @@ define dso_local noundef zeroext i1 @_ZN27btPolyhedralContactClipping18findSepar
   %.5154.ph = phi i32 [ %604, %603 ], [ %.2151651, %598 ], [ %.2151651, %488 ], [ %.2151651, %516 ]
   %.5141.ph = phi i32 [ %451, %603 ], [ %.2138654, %598 ], [ %.2138654, %488 ], [ %.2138654, %516 ]
   %.14118.ph = phi float [ %..i205, %603 ], [ %.11115655, %598 ], [ %.11115655, %488 ], [ %.11115655, %516 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %33) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
   %indvars.iv.next722 = add nuw nsw i64 %indvars.iv721, 1
   %606 = load i32, ptr %283, align 4, !tbaa !4
   %607 = sext i32 %606 to i64
@@ -1523,15 +1517,15 @@ define dso_local noundef zeroext i1 @_ZN27btPolyhedralContactClipping18findSepar
   br i1 %.not162.not, label %.lr.ph689.split, label %.thread576, !llvm.loop !38
 
 612:                                              ; preds = %594, %588
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %33) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
   br label %710
 
 .thread576:                                       ; preds = %._crit_edge658
@@ -1541,7 +1535,7 @@ define dso_local noundef zeroext i1 @_ZN27btPolyhedralContactClipping18findSepar
   br i1 %615, label %616, label %.thread576.thread
 
 616:                                              ; preds = %.thread576
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %34) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
   %617 = fsub float %.sroa.0273.2.lcssa, %.sroa.0282.2.lcssa
   %618 = fsub float %.sroa.6275.2.lcssa, %.sroa.5283.2.lcssa
   %619 = fsub float %.sroa.9277.2.lcssa, %.sroa.7284.2.lcssa
@@ -1663,7 +1657,7 @@ _Z23btSegmentsClosestPointsR9btVector3S0_S0_RfS1_RKS_S3_fS3_f.exit: ; preds = %6
   br label %687
 
 687:                                              ; preds = %683, %674
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %35) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
   %688 = fadd float %.sroa.0273.2.lcssa, %660
   %689 = fadd float %.sroa.6275.2.lcssa, %661
   %690 = fadd float %.sroa.9277.2.lcssa, %662
@@ -1678,11 +1672,11 @@ _Z23btSegmentsClosestPointsR9btVector3S0_S0_RfS1_RKS_S3_fS3_f.exit: ; preds = %6
   %694 = getelementptr inbounds nuw i8, ptr %693, i64 32
   %695 = load ptr, ptr %694, align 8
   call void %695(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 4 dereferenceable(16) %34, ptr noundef nonnull align 4 dereferenceable(16) %35, float noundef %692)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %35) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
   br label %696
 
 696:                                              ; preds = %687, %_Z23btSegmentsClosestPointsR9btVector3S0_S0_RfS1_RKS_S3_fS3_f.exit
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %34) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
   br label %.thread576.thread
 
 .thread576.thread:                                ; preds = %.lr.ph689, %.preheader, %696, %.thread576
@@ -2053,7 +2047,7 @@ _ZN20btAlignedObjectArrayI9btVector3E7reserveEi.exit: ; preds = %_ZN20btAlignedO
   %252 = tail call float @llvm.fmuladd.f32(float %246, float %233, float %251)
   %253 = tail call noundef float @llvm.fmuladd.f32(float %250, float %235, float %252)
   %254 = fneg float %253
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store <2 x float> %.sroa.0.4.vec.insert.i98, ptr %9, align 8
   store <2 x float> %.sroa.3.12.vec.insert.i99, ptr %.sroa.6133.0..sroa_idx, align 8, !tbaa !16
   call void @_ZN27btPolyhedralContactClipping8clipFaceERK20btAlignedObjectArrayI9btVector3ERS2_RKS1_f(ptr noundef nonnull align 8 dereferenceable(25) %.0158164, ptr noundef nonnull align 8 dereferenceable(25) %.0159163, ptr noundef nonnull align 4 dereferenceable(16) %9, float noundef %254)
@@ -2090,7 +2084,7 @@ _ZN20btAlignedObjectArrayI9btVector3E10deallocateEv.exit.i.i109: ; preds = %267,
 
 _ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit115: ; preds = %258, %_ZN20btAlignedObjectArrayI9btVector3E10deallocateEv.exit.i.i109, %167
   store i32 0, ptr %255, align 4, !tbaa !4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %exitcond178.not = icmp eq i64 %indvars.iv.next175, %118
   br i1 %exitcond178.not, label %._crit_edge168, label %167, !llvm.loop !48
 
@@ -2114,13 +2108,13 @@ _ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit115: ; preds = %258, %_Z
   br i1 %276, label %281, label %277
 
 277:                                              ; preds = %268
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %10, ptr noundef nonnull align 4 dereferenceable(16) %271, i64 16, i1 false), !tbaa.struct !18
   %278 = load ptr, ptr %7, align 8, !tbaa !40
   %279 = getelementptr inbounds nuw i8, ptr %278, i64 32
   %280 = load ptr, ptr %279, align 8
   call void %280(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(16) %10, float noundef %.0)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %.pre183 = load i32, ptr %163, align 4, !tbaa !4
   br label %281
 
@@ -2138,7 +2132,7 @@ _ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit115: ; preds = %258, %_Z
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN27btPolyhedralContactClipping19clipHullAgainstHullERK9btVector3RK18btConvexPolyhedronS5_RK11btTransformS8_ffR20btAlignedObjectArrayIS0_ESB_RN36btDiscreteCollisionDetectorInterface6ResultE(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(172) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(172) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %3, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %4, float noundef %5, float noundef %6, ptr noundef nonnull align 8 captures(none) dereferenceable(25) %7, ptr noundef nonnull align 8 captures(none) dereferenceable(25) %8, ptr noundef nonnull align 8 dereferenceable(8) %9) local_unnamed_addr #0 align 2 {
   %11 = alloca %class.btVector3, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %.sroa.0.0.copyload3.i = load <2 x float>, ptr %0, align 4
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.8.0.copyload.i = load <2 x float>, ptr %.sroa.8.0..sroa_idx.i, align 4, !tbaa !16
@@ -2408,31 +2402,36 @@ _ZN20btAlignedObjectArrayI9btVector3E9push_backERKS0_.exit: ; preds = %101, %140
   br label %166
 
 166:                                              ; preds = %165, %._crit_edge62
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret void
 }
 
-declare void @_ZNK18btConvexPolyhedron7projectERK11btTransformRK9btVector3RfS6_RS3_S7_(ptr noundef nonnull align 8 dereferenceable(172), ptr noundef nonnull align 4 dereferenceable(64), ptr noundef nonnull align 4 dereferenceable(16), ptr noundef nonnull align 4 dereferenceable(4), ptr noundef nonnull align 4 dereferenceable(4), ptr noundef nonnull align 4 dereferenceable(16), ptr noundef nonnull align 4 dereferenceable(16)) local_unnamed_addr #6
+declare void @_ZNK18btConvexPolyhedron7projectERK11btTransformRK9btVector3RfS6_RS3_S7_(ptr noundef nonnull align 8 dereferenceable(172), ptr noundef nonnull align 4 dereferenceable(64), ptr noundef nonnull align 4 dereferenceable(16), ptr noundef nonnull align 4 dereferenceable(4), ptr noundef nonnull align 4 dereferenceable(4), ptr noundef nonnull align 4 dereferenceable(16), ptr noundef nonnull align 4 dereferenceable(16)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fabs.f32(float) #4
+declare float @llvm.fabs.f32(float) #3
 
-declare noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef, i32 noundef) local_unnamed_addr #6
+declare noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef, i32 noundef) local_unnamed_addr #5
 
-declare void @_Z21btAlignedFreeInternalPv(ptr noundef) local_unnamed_addr #6
+declare void @_Z21btAlignedFreeInternalPv(ptr noundef) local_unnamed_addr #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.sqrt.f32(float) #7
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

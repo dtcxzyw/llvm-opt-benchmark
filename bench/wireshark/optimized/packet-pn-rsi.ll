@@ -282,14 +282,14 @@ define hidden i32 @dissect_PNIO_RSI(ptr noundef %0, i32 noundef %1, ptr noundef 
   %13 = alloca i16, align 2
   %14 = alloca i16, align 2
   %15 = alloca i16, align 2
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %8) #3
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %9) #3
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #3
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11) #3
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12) #3
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %13) #3
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %14) #3
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %15) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   tail call void @col_set_str(ptr noundef %17, i32 noundef 35, ptr noundef nonnull @.str)
@@ -378,7 +378,7 @@ define hidden i32 @dissect_PNIO_RSI(ptr noundef %0, i32 noundef %1, ptr noundef 
 
 80:                                               ; preds = %5
   %81 = load i16, ptr %15, align 2
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %82 = load i32, ptr @hf_pn_rsi_f_opnum_offset, align 4
   %83 = call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %82, ptr noundef %0, i32 noundef %68, i32 noundef 4, i32 noundef 0)
   %84 = load i32, ptr @ett_pn_rsi_f_opnum_offset, align 4
@@ -466,12 +466,12 @@ define hidden i32 @dissect_PNIO_RSI(ptr noundef %0, i32 noundef %1, ptr noundef 
 
 dissect_FREQ_RTA_block.exit:                      ; preds = %97, %99, %102, %104, %106, %108, %110, %112, %114, %116, %118
   %.0.i = phi i32 [ %120, %118 ], [ %98, %97 ], [ %101, %99 ], [ %103, %102 ], [ %105, %104 ], [ %107, %106 ], [ %109, %108 ], [ %111, %110 ], [ %113, %112 ], [ %115, %114 ], [ %117, %116 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %157
 
 121:                                              ; preds = %5
   %122 = load i16, ptr %15, align 2
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %123 = load i32, ptr @hf_pn_rsi_f_opnum_offset, align 4
   %124 = call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %123, ptr noundef %0, i32 noundef %68, i32 noundef 4, i32 noundef 0)
   %125 = load i32, ptr @ett_pn_rsi_f_opnum_offset, align 4
@@ -528,7 +528,7 @@ switch.lookup:                                    ; preds = %121
 
 dissect_FRSP_RTA_block.exit:                      ; preds = %149, %151
   %.1.i.i = phi i32 [ %153, %151 ], [ %.0.i.i, %149 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %157
 
 154:                                              ; preds = %5
@@ -540,19 +540,16 @@ dissect_FRSP_RTA_block.exit:                      ; preds = %149, %151
   %.0 = phi i32 [ %156, %154 ], [ %68, %75 ], [ %68, %71 ], [ %79, %77 ], [ %.0.i, %dissect_FREQ_RTA_block.exit ], [ %.1.i.i, %dissect_FRSP_RTA_block.exit ]
   %158 = sub i32 %.0, %1
   call void @proto_item_set_len(ptr noundef %20, i32 noundef %158)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %15) #3
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %14) #3
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %13) #3
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12) #3
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #3
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #3
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %9) #3
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %8) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
@@ -587,9 +584,6 @@ declare i32 @dissect_pn_undecoded(ptr noundef, i32 noundef, ptr noundef, ptr nou
 ; Function Attrs: null_pointer_is_valid
 declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden noundef i32 @dissect_PDRsiInstances_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) local_unnamed_addr #0 {
   %9 = alloca i16, align 2
@@ -597,11 +591,11 @@ define hidden noundef i32 @dissect_PDRsiInstances_block(ptr noundef %0, i32 noun
   %11 = alloca i16, align 2
   %12 = alloca i16, align 2
   %13 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %9) #3
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %10) #3
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %11) #3
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %12) #3
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %13) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %14 = icmp ne i8 %6, 1
   %15 = icmp ne i8 %7, 0
   %or.cond = or i1 %14, %15
@@ -678,11 +672,11 @@ define hidden noundef i32 @dissect_PDRsiInstances_block(ptr noundef %0, i32 noun
 
 68:                                               ; preds = %._crit_edge, %16
   %.0 = phi i32 [ %1, %16 ], [ %67, %._crit_edge ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13) #3
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %12) #3
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %11) #3
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %10) #3
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %9) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0
 }
 
@@ -729,11 +723,11 @@ define internal fastcc i32 @dissect_RSI_CONN_block(ptr noundef %0, i32 noundef %
   %12 = alloca i16, align 2
   %13 = alloca i16, align 2
   %14 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #3
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %11) #3
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %12) #3
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %13) #3
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %14) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %15 = zext i16 %5 to i32
   %16 = add nuw nsw i32 %7, %15
   %17 = load i32, ptr @hf_pn_rsi_conn_block, align 4
@@ -777,18 +771,18 @@ define internal fastcc i32 @dissect_RSI_CONN_block(ptr noundef %0, i32 noundef %
 
 42:                                               ; preds = %39, %37
   %.1 = phi i32 [ %41, %39 ], [ %.0, %37 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %14) #3
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %13) #3
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %12) #3
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %11) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.1
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_RSI_SVCS_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i16 noundef zeroext %5, i8 noundef zeroext range(i8 0, 2) %6, i32 noundef range(i32 0, 16777216) %7, i32 noundef range(i32 2, 10) %8) unnamed_addr #0 {
   %10 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %11 = zext i16 %5 to i32
   %12 = add nuw nsw i32 %7, %11
   %13 = load i32, ptr @hf_pn_rsi_svcs_block, align 4
@@ -823,7 +817,7 @@ define internal fastcc i32 @dissect_RSI_SVCS_block(ptr noundef %0, i32 noundef %
 
 29:                                               ; preds = %26, %24
   %.1 = phi i32 [ %28, %26 ], [ %.0, %24 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.1
 }
 
@@ -833,7 +827,7 @@ declare i32 @dissect_dcerpc_uint32(ptr noundef, i32 noundef, ptr noundef, ptr no
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_pn_rta_remaining_user_data_bytes(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i8 noundef zeroext range(i8 0, 2) %6, i32 noundef range(i32 0, 32) %7, i32 noundef range(i32 5, 7) %8) unnamed_addr #0 {
   %10 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i8 1, ptr %10, align 1
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 284
   %12 = load i32, ptr %11, align 4
@@ -978,7 +972,7 @@ define internal fastcc i32 @dissect_pn_rta_remaining_user_data_bytes(ptr noundef
 
 proto_item_set_generated.exit:                    ; preds = %101, %98, %93, %75, %85, %59
   %.0 = phi i32 [ %60, %59 ], [ %92, %85 ], [ %1, %75 ], [ %1, %93 ], [ %1, %98 ], [ %1, %101 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.0
 }
 
@@ -1018,10 +1012,15 @@ declare ptr @proto_tree_get_parent(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
+
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

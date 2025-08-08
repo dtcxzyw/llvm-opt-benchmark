@@ -69,7 +69,7 @@ $_ZN4absl12log_internal17MakeCheckOpStringIPKvS3_EEPKcT_T0_S5_ = comdat any
 ; Function Attrs: mustprogress noinline uwtable
 define weak_odr dso_local noundef nonnull ptr @_ZN4absl12log_internal17MakeCheckOpStringIbbEEPKcT_T0_S3_(i1 noundef zeroext %0, i1 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.absl::log_internal::CheckOpMessageBuilder", align 8
-  call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(376) %4)
   %.not.i.i = icmp eq ptr %2, null
   br i1 %.not.i.i, label %5, label %13
@@ -155,30 +155,27 @@ _ZN4absl12log_internal21CheckOpMessageBuilderD2Ev.exit: ; preds = %_ZNKSt7__cxx1
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %39) #13
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 112
   call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %40) #13
-  call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %22
 
 41:                                               ; preds = %_ZN4absl12log_internal21CheckOpMessageBuilder7ForVar2Ev.exit, %_ZN4absl12log_internal22MakeCheckOpValueStringIbEEvRSoRKT_.exit, %_ZN4absl12log_internal21CheckOpMessageBuilderC2EPKc.exit, %_ZN4absl12log_internal22MakeCheckOpValueStringIbEEvRSoRKT_.exit2
   %42 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12log_internal21CheckOpMessageBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(376) %4) #13
-  call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %common.resume
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN4absl12log_internal21CheckOpMessageBuilder7ForVar2Ev(ptr noundef nonnull returned align 8 dereferenceable(376) %0) local_unnamed_addr #2 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN4absl12log_internal21CheckOpMessageBuilder7ForVar2Ev(ptr noundef nonnull returned align 8 dereferenceable(376) %0) local_unnamed_addr #1 align 2 {
   %2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.1, i64 noundef 5)
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN4absl12log_internal21CheckOpMessageBuilder9NewStringEv(ptr noundef nonnull align 8 dereferenceable(376) %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN4absl12log_internal21CheckOpMessageBuilder9NewStringEv(ptr noundef nonnull align 8 dereferenceable(376) %0) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.2, i64 noundef 1)
   %3 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #15
   tail call void @llvm.experimental.noalias.scope.decl(metadata !26)
@@ -243,7 +240,7 @@ _ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv.exit: ; pred
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN4absl12log_internal21CheckOpMessageBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(376) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN4absl12log_internal21CheckOpMessageBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(376) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, align 8
   store ptr %2, ptr %0, align 8, !tbaa !4
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
@@ -281,13 +278,10 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress noinline uwtable
 define weak_odr dso_local noundef nonnull ptr @_ZN4absl12log_internal17MakeCheckOpStringIllEEPKcT_T0_S3_(i64 noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.absl::log_internal::CheckOpMessageBuilder", align 8
-  call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(376) %4)
   %.not.i.i = icmp eq ptr %2, null
   br i1 %.not.i.i, label %5, label %13
@@ -373,21 +367,21 @@ _ZN4absl12log_internal21CheckOpMessageBuilderD2Ev.exit: ; preds = %_ZNKSt7__cxx1
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %39) #13
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 112
   call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %40) #13
-  call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %22
 
 41:                                               ; preds = %_ZN4absl12log_internal21CheckOpMessageBuilder7ForVar2Ev.exit, %_ZN4absl12log_internal22MakeCheckOpValueStringIlEEvRSoRKT_.exit, %_ZN4absl12log_internal21CheckOpMessageBuilderC2EPKc.exit, %_ZN4absl12log_internal22MakeCheckOpValueStringIlEEvRSoRKT_.exit2
   %42 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12log_internal21CheckOpMessageBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(376) %4) #13
-  call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %common.resume
 }
 
 ; Function Attrs: mustprogress noinline uwtable
 define weak_odr dso_local noundef nonnull ptr @_ZN4absl12log_internal17MakeCheckOpStringImmEEPKcT_T0_S3_(i64 noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.absl::log_internal::CheckOpMessageBuilder", align 8
-  call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(376) %4)
   %.not.i.i = icmp eq ptr %2, null
   br i1 %.not.i.i, label %5, label %13
@@ -473,21 +467,21 @@ _ZN4absl12log_internal21CheckOpMessageBuilderD2Ev.exit: ; preds = %_ZNKSt7__cxx1
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %39) #13
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 112
   call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %40) #13
-  call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %22
 
 41:                                               ; preds = %_ZN4absl12log_internal21CheckOpMessageBuilder7ForVar2Ev.exit, %_ZN4absl12log_internal22MakeCheckOpValueStringImEEvRSoRKT_.exit, %_ZN4absl12log_internal21CheckOpMessageBuilderC2EPKc.exit, %_ZN4absl12log_internal22MakeCheckOpValueStringImEEvRSoRKT_.exit2
   %42 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12log_internal21CheckOpMessageBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(376) %4) #13
-  call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %common.resume
 }
 
 ; Function Attrs: mustprogress noinline uwtable
 define weak_odr dso_local noundef nonnull ptr @_ZN4absl12log_internal17MakeCheckOpStringIffEEPKcT_T0_S3_(float noundef %0, float noundef %1, ptr noundef %2) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.absl::log_internal::CheckOpMessageBuilder", align 8
-  call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(376) %4)
   %.not.i.i = icmp eq ptr %2, null
   br i1 %.not.i.i, label %5, label %13
@@ -575,21 +569,21 @@ _ZN4absl12log_internal21CheckOpMessageBuilderD2Ev.exit: ; preds = %_ZNKSt7__cxx1
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %41) #13
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 112
   call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %42) #13
-  call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %24
 
 43:                                               ; preds = %_ZN4absl12log_internal21CheckOpMessageBuilder7ForVar2Ev.exit, %_ZN4absl12log_internal22MakeCheckOpValueStringIfEEvRSoRKT_.exit, %_ZN4absl12log_internal21CheckOpMessageBuilderC2EPKc.exit, %_ZN4absl12log_internal22MakeCheckOpValueStringIfEEvRSoRKT_.exit2
   %44 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12log_internal21CheckOpMessageBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(376) %4) #13
-  call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %common.resume
 }
 
 ; Function Attrs: mustprogress noinline uwtable
 define weak_odr dso_local noundef nonnull ptr @_ZN4absl12log_internal17MakeCheckOpStringIddEEPKcT_T0_S3_(double noundef %0, double noundef %1, ptr noundef %2) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.absl::log_internal::CheckOpMessageBuilder", align 8
-  call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(376) %4)
   %.not.i.i = icmp eq ptr %2, null
   br i1 %.not.i.i, label %5, label %13
@@ -675,21 +669,21 @@ _ZN4absl12log_internal21CheckOpMessageBuilderD2Ev.exit: ; preds = %_ZNKSt7__cxx1
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %39) #13
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 112
   call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %40) #13
-  call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %22
 
 41:                                               ; preds = %_ZN4absl12log_internal21CheckOpMessageBuilder7ForVar2Ev.exit, %_ZN4absl12log_internal22MakeCheckOpValueStringIdEEvRSoRKT_.exit, %_ZN4absl12log_internal21CheckOpMessageBuilderC2EPKc.exit, %_ZN4absl12log_internal22MakeCheckOpValueStringIdEEvRSoRKT_.exit2
   %42 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12log_internal21CheckOpMessageBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(376) %4) #13
-  call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %common.resume
 }
 
 ; Function Attrs: mustprogress noinline uwtable
 define weak_odr dso_local noundef nonnull ptr @_ZN4absl12log_internal17MakeCheckOpStringIccEEPKcT_T0_S3_(i8 noundef signext %0, i8 noundef signext %1, ptr noundef %2) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.absl::log_internal::CheckOpMessageBuilder", align 8
-  call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(376) %4)
   %.not.i.i = icmp eq ptr %2, null
   br i1 %.not.i.i, label %5, label %13
@@ -775,19 +769,19 @@ _ZN4absl12log_internal21CheckOpMessageBuilderD2Ev.exit: ; preds = %_ZNKSt7__cxx1
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %39) #13
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 112
   call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %40) #13
-  call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %22
 
 41:                                               ; preds = %19, %21, %_ZN4absl12log_internal21CheckOpMessageBuilder7ForVar2Ev.exit, %_ZN4absl12log_internal21CheckOpMessageBuilderC2EPKc.exit
   %42 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12log_internal21CheckOpMessageBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(376) %4) #13
-  call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %common.resume
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl12log_internal22MakeCheckOpValueStringERSoc(ptr noundef nonnull align 8 dereferenceable(8) %0, i8 noundef signext %1) local_unnamed_addr #2 {
+define dso_local void @_ZN4absl12log_internal22MakeCheckOpValueStringERSoc(ptr noundef nonnull align 8 dereferenceable(8) %0, i8 noundef signext %1) local_unnamed_addr #1 {
   %3 = alloca i8, align 1
   %4 = add i8 %1, -32
   %or.cond = icmp ult i8 %4, 95
@@ -795,7 +789,7 @@ define dso_local void @_ZN4absl12log_internal22MakeCheckOpValueStringERSoc(ptr n
 
 5:                                                ; preds = %2
   %6 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.3, i64 noundef 1)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 %1, ptr %3, align 1, !tbaa !25
   %7 = load ptr, ptr %0, align 8, !tbaa !4
   %8 = getelementptr i8, ptr %7, i64 -24
@@ -816,7 +810,7 @@ define dso_local void @_ZN4absl12log_internal22MakeCheckOpValueStringERSoc(ptr n
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit: ; preds = %13, %15
   %.0.i = phi ptr [ %14, %13 ], [ %0, %15 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %17 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %.0.i, ptr noundef nonnull @.str.3, i64 noundef 1)
   br label %22
 
@@ -833,7 +827,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit: ; preds = %13, %15
 ; Function Attrs: mustprogress noinline uwtable
 define weak_odr dso_local noundef nonnull ptr @_ZN4absl12log_internal17MakeCheckOpStringIhhEEPKcT_T0_S3_(i8 noundef zeroext %0, i8 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.absl::log_internal::CheckOpMessageBuilder", align 8
-  call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(376) %4)
   %.not.i.i = icmp eq ptr %2, null
   br i1 %.not.i.i, label %5, label %13
@@ -919,19 +913,19 @@ _ZN4absl12log_internal21CheckOpMessageBuilderD2Ev.exit: ; preds = %_ZNKSt7__cxx1
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %39) #13
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 112
   call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %40) #13
-  call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %22
 
 41:                                               ; preds = %19, %21, %_ZN4absl12log_internal21CheckOpMessageBuilder7ForVar2Ev.exit, %_ZN4absl12log_internal21CheckOpMessageBuilderC2EPKc.exit
   %42 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12log_internal21CheckOpMessageBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(376) %4) #13
-  call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %common.resume
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl12log_internal22MakeCheckOpValueStringERSoh(ptr noundef nonnull align 8 dereferenceable(8) %0, i8 noundef zeroext %1) local_unnamed_addr #2 {
+define dso_local void @_ZN4absl12log_internal22MakeCheckOpValueStringERSoh(ptr noundef nonnull align 8 dereferenceable(8) %0, i8 noundef zeroext %1) local_unnamed_addr #1 {
   %3 = alloca i8, align 1
   %4 = add i8 %1, -32
   %or.cond = icmp ult i8 %4, 95
@@ -939,7 +933,7 @@ define dso_local void @_ZN4absl12log_internal22MakeCheckOpValueStringERSoh(ptr n
 
 5:                                                ; preds = %2
   %6 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.3, i64 noundef 1)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 %1, ptr %3, align 1, !tbaa !25
   %7 = load ptr, ptr %0, align 8, !tbaa !4
   %8 = getelementptr i8, ptr %7, i64 -24
@@ -960,7 +954,7 @@ define dso_local void @_ZN4absl12log_internal22MakeCheckOpValueStringERSoh(ptr n
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_h.exit: ; preds = %13, %15
   %.0.i.i = phi ptr [ %14, %13 ], [ %0, %15 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %17 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %.0.i.i, ptr noundef nonnull @.str.3, i64 noundef 1)
   br label %22
 
@@ -977,7 +971,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_h.exit: ; preds = %13, %15
 ; Function Attrs: mustprogress noinline uwtable
 define weak_odr dso_local noundef nonnull ptr @_ZN4absl12log_internal17MakeCheckOpStringIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEPKcT_T0_SB_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %2) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.absl::log_internal::CheckOpMessageBuilder", align 8
-  call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(376) %4)
   %.not.i.i = icmp eq ptr %2, null
   br i1 %.not.i.i, label %5, label %13
@@ -1069,21 +1063,21 @@ _ZN4absl12log_internal21CheckOpMessageBuilderD2Ev.exit: ; preds = %_ZNKSt7__cxx1
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %45) #13
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 112
   call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %46) #13
-  call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %28
 
 47:                                               ; preds = %_ZN4absl12log_internal21CheckOpMessageBuilder7ForVar2Ev.exit, %_ZN4absl12log_internal22MakeCheckOpValueStringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRSoRKT_.exit, %_ZN4absl12log_internal21CheckOpMessageBuilderC2EPKc.exit, %_ZN4absl12log_internal22MakeCheckOpValueStringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRSoRKT_.exit4
   %48 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12log_internal21CheckOpMessageBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(376) %4) #13
-  call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %common.resume
 }
 
 ; Function Attrs: mustprogress noinline uwtable
 define weak_odr dso_local noundef nonnull ptr @_ZN4absl12log_internal17MakeCheckOpStringIRKSt17basic_string_viewIcSt11char_traitsIcEES7_EEPKcT_T0_S9_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %2) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.absl::log_internal::CheckOpMessageBuilder", align 8
-  call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(376) %4)
   %.not.i.i = icmp eq ptr %2, null
   br i1 %.not.i.i, label %5, label %13
@@ -1175,21 +1169,21 @@ _ZN4absl12log_internal21CheckOpMessageBuilderD2Ev.exit: ; preds = %_ZNKSt7__cxx1
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %39) #13
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 112
   call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %40) #13
-  call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %22
 
 41:                                               ; preds = %_ZN4absl12log_internal21CheckOpMessageBuilder7ForVar2Ev.exit, %_ZN4absl12log_internal22MakeCheckOpValueStringISt17basic_string_viewIcSt11char_traitsIcEEEEvRSoRKT_.exit, %_ZN4absl12log_internal21CheckOpMessageBuilderC2EPKc.exit, %_ZN4absl12log_internal22MakeCheckOpValueStringISt17basic_string_viewIcSt11char_traitsIcEEEEvRSoRKT_.exit7
   %42 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12log_internal21CheckOpMessageBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(376) %4) #13
-  call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %common.resume
 }
 
 ; Function Attrs: mustprogress noinline uwtable
 define weak_odr dso_local noundef nonnull ptr @_ZN4absl12log_internal17MakeCheckOpStringIPKcS3_EES3_T_T0_S3_(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.absl::log_internal::CheckOpMessageBuilder", align 8
-  call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(376) %4)
   %.not.i.i = icmp eq ptr %2, null
   br i1 %.not.i.i, label %5, label %13
@@ -1281,21 +1275,21 @@ _ZN4absl12log_internal21CheckOpMessageBuilderD2Ev.exit: ; preds = %_ZNKSt7__cxx1
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %41) #13
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 112
   call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %42) #13
-  call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %24
 
 43:                                               ; preds = %_ZN4absl12log_internal21CheckOpMessageBuilder7ForVar2Ev.exit, %_ZN4absl12log_internal22MakeCheckOpValueStringIPKcEEvRSoRKT_.exit, %_ZN4absl12log_internal21CheckOpMessageBuilderC2EPKc.exit, %_ZN4absl12log_internal22MakeCheckOpValueStringIPKcEEvRSoRKT_.exit5
   %44 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12log_internal21CheckOpMessageBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(376) %4) #13
-  call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %common.resume
 }
 
 ; Function Attrs: mustprogress noinline uwtable
 define weak_odr dso_local noundef nonnull ptr @_ZN4absl12log_internal17MakeCheckOpStringIPKaS3_EEPKcT_T0_S5_(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.absl::log_internal::CheckOpMessageBuilder", align 8
-  call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(376) %4)
   %.not.i.i = icmp eq ptr %2, null
   br i1 %.not.i.i, label %5, label %13
@@ -1387,21 +1381,21 @@ _ZN4absl12log_internal21CheckOpMessageBuilderD2Ev.exit: ; preds = %_ZNKSt7__cxx1
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %41) #13
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 112
   call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %42) #13
-  call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %24
 
 43:                                               ; preds = %_ZN4absl12log_internal21CheckOpMessageBuilder7ForVar2Ev.exit, %_ZN4absl12log_internal22MakeCheckOpValueStringIPKaEEvRSoRKT_.exit, %_ZN4absl12log_internal21CheckOpMessageBuilderC2EPKc.exit, %_ZN4absl12log_internal22MakeCheckOpValueStringIPKaEEvRSoRKT_.exit5
   %44 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12log_internal21CheckOpMessageBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(376) %4) #13
-  call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %common.resume
 }
 
 ; Function Attrs: mustprogress noinline uwtable
 define weak_odr dso_local noundef nonnull ptr @_ZN4absl12log_internal17MakeCheckOpStringIPKhS3_EEPKcT_T0_S5_(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.absl::log_internal::CheckOpMessageBuilder", align 8
-  call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(376) %4)
   %.not.i.i = icmp eq ptr %2, null
   br i1 %.not.i.i, label %5, label %13
@@ -1493,21 +1487,21 @@ _ZN4absl12log_internal21CheckOpMessageBuilderD2Ev.exit: ; preds = %_ZNKSt7__cxx1
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %41) #13
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 112
   call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %42) #13
-  call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %24
 
 43:                                               ; preds = %_ZN4absl12log_internal21CheckOpMessageBuilder7ForVar2Ev.exit, %_ZN4absl12log_internal22MakeCheckOpValueStringIPKhEEvRSoRKT_.exit, %_ZN4absl12log_internal21CheckOpMessageBuilderC2EPKc.exit, %_ZN4absl12log_internal22MakeCheckOpValueStringIPKhEEvRSoRKT_.exit5
   %44 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12log_internal21CheckOpMessageBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(376) %4) #13
-  call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %common.resume
 }
 
 ; Function Attrs: mustprogress noinline uwtable
 define weak_odr dso_local noundef nonnull ptr @_ZN4absl12log_internal17MakeCheckOpStringIPKvS3_EEPKcT_T0_S5_(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.absl::log_internal::CheckOpMessageBuilder", align 8
-  call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(376) %4)
   %.not.i.i = icmp eq ptr %2, null
   br i1 %.not.i.i, label %5, label %13
@@ -1609,19 +1603,19 @@ _ZN4absl12log_internal21CheckOpMessageBuilderD2Ev.exit: ; preds = %_ZNKSt7__cxx1
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %47) #13
   %48 = getelementptr inbounds nuw i8, ptr %4, i64 112
   call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %48) #13
-  call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %30
 
 49:                                               ; preds = %28, %26, %_ZN4absl12log_internal22MakeCheckOpValueStringERSoPKv.exit, %22, %20, %_ZN4absl12log_internal22MakeCheckOpValueStringERSoPKv.exit8
   %50 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12log_internal21CheckOpMessageBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(376) %4) #13
-  call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %common.resume
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl12log_internal22MakeCheckOpValueStringERSoPKv(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) local_unnamed_addr #2 {
+define dso_local void @_ZN4absl12log_internal22MakeCheckOpValueStringERSoPKv(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %4, label %6
 
@@ -1638,7 +1632,7 @@ define dso_local void @_ZN4absl12log_internal22MakeCheckOpValueStringERSoPKv(ptr
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl12log_internal21CheckOpMessageBuilderC2EPKc(ptr noundef nonnull align 8 dereferenceable(376) %0, ptr noundef %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4absl12log_internal21CheckOpMessageBuilderC2EPKc(ptr noundef nonnull align 8 dereferenceable(376) %0, ptr noundef %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %0)
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %3, label %11
@@ -1674,21 +1668,21 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit5: ; preds = %_ZStls
 }
 
 ; Function Attrs: mustprogress uwtable
-declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #2 align 2
+declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #1 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #3 align 2
+declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #2 align 2
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #4
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #5
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #4
 
-declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #6
+declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl12log_internal22MakeCheckOpValueStringERSoa(ptr noundef nonnull align 8 dereferenceable(8) %0, i8 noundef signext %1) local_unnamed_addr #2 {
+define dso_local void @_ZN4absl12log_internal22MakeCheckOpValueStringERSoa(ptr noundef nonnull align 8 dereferenceable(8) %0, i8 noundef signext %1) local_unnamed_addr #1 {
   %3 = alloca i8, align 1
   %4 = add i8 %1, -32
   %or.cond = icmp ult i8 %4, 95
@@ -1696,7 +1690,7 @@ define dso_local void @_ZN4absl12log_internal22MakeCheckOpValueStringERSoa(ptr n
 
 5:                                                ; preds = %2
   %6 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.3, i64 noundef 1)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 %1, ptr %3, align 1, !tbaa !25
   %7 = load ptr, ptr %0, align 8, !tbaa !4
   %8 = getelementptr i8, ptr %7, i64 -24
@@ -1717,7 +1711,7 @@ define dso_local void @_ZN4absl12log_internal22MakeCheckOpValueStringERSoa(ptr n
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_a.exit: ; preds = %13, %15
   %.0.i.i = phi ptr [ %14, %13 ], [ %0, %15 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %17 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %.0.i.i, ptr noundef nonnull @.str.3, i64 noundef 1)
   br label %22
 
@@ -1732,7 +1726,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_a.exit: ; preds = %13, %15
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN4absl12log_internal19CheckstrcmptrueImplEPKcS2_S2_(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN4absl12log_internal19CheckstrcmptrueImplEPKcS2_S2_(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %4 = alloca [6 x %"class.std::basic_string_view"], align 8
   %5 = icmp eq ptr %0, %1
   br i1 %5, label %.critedge, label %6
@@ -1777,7 +1771,7 @@ define dso_local noundef ptr @_ZN4absl12log_internal19CheckstrcmptrueImplEPKcS2_
 
 _ZN4absl8AlphaNumC2EPKc.exit38:                   ; preds = %18, %17
   %.sroa.0.0.i.i37 = phi i64 [ %19, %18 ], [ 0, %17 ]
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4) #13, !noalias !40
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !40
   store i64 %.sroa.0.0.i.i, ptr %4, align 8, !noalias !40
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %2, ptr %20, align 8, !noalias !40
@@ -1811,7 +1805,7 @@ _ZN4absl8AlphaNumC2EPKc.exit38:                   ; preds = %18, %17
   resume { ptr, i32 } %31
 
 _ZN4absl10IgnoreLeakINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_S8_.exit: ; preds = %_ZN4absl8AlphaNumC2EPKc.exit38
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4) #13, !noalias !40
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !40
   call void @_ZN4absl12DoIgnoreLeakEPKv(ptr noundef nonnull %11)
   %32 = load ptr, ptr %11, align 8, !tbaa !20
   br label %.critedge
@@ -1822,10 +1816,10 @@ _ZN4absl10IgnoreLeakINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_S8
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN4absl12log_internal20CheckstrcmpfalseImplEPKcS2_S2_(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN4absl12log_internal20CheckstrcmpfalseImplEPKcS2_S2_(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %4 = alloca [6 x %"class.std::basic_string_view"], align 8
   %5 = icmp eq ptr %0, %1
   br i1 %5, label %.critedge, label %6
@@ -1870,7 +1864,7 @@ define dso_local noundef ptr @_ZN4absl12log_internal20CheckstrcmpfalseImplEPKcS2
 
 _ZN4absl8AlphaNumC2EPKc.exit38:                   ; preds = %18, %17
   %.sroa.0.0.i.i37 = phi i64 [ %19, %18 ], [ 0, %17 ]
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4) #13, !noalias !43
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !43
   store i64 %.sroa.0.0.i.i, ptr %4, align 8, !noalias !43
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %2, ptr %20, align 8, !noalias !43
@@ -1904,7 +1898,7 @@ _ZN4absl8AlphaNumC2EPKc.exit38:                   ; preds = %18, %17
   resume { ptr, i32 } %31
 
 _ZN4absl10IgnoreLeakINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_S8_.exit: ; preds = %_ZN4absl8AlphaNumC2EPKc.exit38
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4) #13, !noalias !43
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !43
   call void @_ZN4absl12DoIgnoreLeakEPKv(ptr noundef nonnull %11)
   %32 = load ptr, ptr %11, align 8, !tbaa !20
   br label %.critedge30
@@ -1915,7 +1909,7 @@ _ZN4absl10IgnoreLeakINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_S8
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN4absl12log_internal23CheckstrcasecmptrueImplEPKcS2_S2_(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN4absl12log_internal23CheckstrcasecmptrueImplEPKcS2_S2_(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %4 = alloca [6 x %"class.std::basic_string_view"], align 8
   %5 = icmp eq ptr %0, %1
   br i1 %5, label %.critedge, label %6
@@ -1960,7 +1954,7 @@ define dso_local noundef ptr @_ZN4absl12log_internal23CheckstrcasecmptrueImplEPK
 
 _ZN4absl8AlphaNumC2EPKc.exit38:                   ; preds = %18, %17
   %.sroa.0.0.i.i37 = phi i64 [ %19, %18 ], [ 0, %17 ]
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4) #13, !noalias !46
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !46
   store i64 %.sroa.0.0.i.i, ptr %4, align 8, !noalias !46
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %2, ptr %20, align 8, !noalias !46
@@ -1994,7 +1988,7 @@ _ZN4absl8AlphaNumC2EPKc.exit38:                   ; preds = %18, %17
   resume { ptr, i32 } %31
 
 _ZN4absl10IgnoreLeakINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_S8_.exit: ; preds = %_ZN4absl8AlphaNumC2EPKc.exit38
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4) #13, !noalias !46
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !46
   call void @_ZN4absl12DoIgnoreLeakEPKv(ptr noundef nonnull %11)
   %32 = load ptr, ptr %11, align 8, !tbaa !20
   br label %.critedge
@@ -2005,10 +1999,10 @@ _ZN4absl10IgnoreLeakINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_S8
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
+declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN4absl12log_internal24CheckstrcasecmpfalseImplEPKcS2_S2_(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN4absl12log_internal24CheckstrcasecmpfalseImplEPKcS2_S2_(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %4 = alloca [6 x %"class.std::basic_string_view"], align 8
   %5 = icmp eq ptr %0, %1
   br i1 %5, label %.critedge, label %6
@@ -2053,7 +2047,7 @@ define dso_local noundef ptr @_ZN4absl12log_internal24CheckstrcasecmpfalseImplEP
 
 _ZN4absl8AlphaNumC2EPKc.exit38:                   ; preds = %18, %17
   %.sroa.0.0.i.i37 = phi i64 [ %19, %18 ], [ 0, %17 ]
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4) #13, !noalias !49
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !49
   store i64 %.sroa.0.0.i.i, ptr %4, align 8, !noalias !49
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %2, ptr %20, align 8, !noalias !49
@@ -2087,7 +2081,7 @@ _ZN4absl8AlphaNumC2EPKc.exit38:                   ; preds = %18, %17
   resume { ptr, i32 } %31
 
 _ZN4absl10IgnoreLeakINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_S8_.exit: ; preds = %_ZN4absl8AlphaNumC2EPKc.exit38
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4) #13, !noalias !49
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !49
   call void @_ZN4absl12DoIgnoreLeakEPKv(ptr noundef nonnull %11)
   %32 = load ptr, ptr %11, align 8, !tbaa !20
   br label %.critedge30
@@ -2098,20 +2092,20 @@ _ZN4absl10IgnoreLeakINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_S8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4absl12log_internal21detect_specialization13StringifySinkC2ERSo(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #9 align 2 {
+define dso_local void @_ZN4absl12log_internal21detect_specialization13StringifySinkC2ERSo(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #8 align 2 {
   store ptr %1, ptr %0, align 8, !tbaa !52
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl12log_internal21detect_specialization13StringifySink6AppendESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, i64 %1, ptr %2) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN4absl12log_internal21detect_specialization13StringifySink6AppendESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, i64 %1, ptr %2) local_unnamed_addr #1 align 2 {
   %4 = load ptr, ptr %0, align 8, !tbaa !54
   %5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %2, i64 noundef %1)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl12log_internal21detect_specialization13StringifySink6AppendEmc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, i64 noundef %1, i8 noundef signext %2) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN4absl12log_internal21detect_specialization13StringifySink6AppendEmc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, i64 noundef %1, i8 noundef signext %2) local_unnamed_addr #1 align 2 {
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -2127,45 +2121,51 @@ define dso_local void @_ZN4absl12log_internal21detect_specialization13StringifyS
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !56
 }
 
-declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8), i8 noundef signext) local_unnamed_addr #6
+declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8), i8 noundef signext) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl12log_internal21detect_specialization15AbslFormatFlushEPNS1_13StringifySinkESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef readonly captures(none) %0, i64 %1, ptr %2) local_unnamed_addr #2 {
+define dso_local void @_ZN4absl12log_internal21detect_specialization15AbslFormatFlushEPNS1_13StringifySinkESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef readonly captures(none) %0, i64 %1, ptr %2) local_unnamed_addr #1 {
   %4 = load ptr, ptr %0, align 8, !tbaa !54
   %5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %2, i64 noundef %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind
-declare void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(216)) unnamed_addr #10
+declare void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(216)) unnamed_addr #9
 
 ; Function Attrs: nounwind
-declare void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #10
+declare void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #9
 
-declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIbEERSoT_(ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #6
+declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIbEERSoT_(ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #5
 
-declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIlEERSoT_(ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #6
+declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIlEERSoT_(ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #5
 
-declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #6
+declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #5
 
-declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8), double noundef) local_unnamed_addr #6
+declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8), double noundef) local_unnamed_addr #5
 
-declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) local_unnamed_addr #6
+declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) local_unnamed_addr #5
 
-declare void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264), i32 noundef) local_unnamed_addr #6
+declare void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264), i32 noundef) local_unnamed_addr #5
 
-declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #6
+declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
 
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #6
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #5
 
-declare void @_ZN4absl12DoIgnoreLeakEPKv(ptr noundef) local_unnamed_addr #6
+declare void @_ZN4absl12DoIgnoreLeakEPKv(ptr noundef) local_unnamed_addr #5
 
-declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIPKvEERSoT_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #6
+declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIPKvEERSoT_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #5
 
-declare void @_ZN4absl16strings_internal9CatPiecesB5cxx11ESt16initializer_listISt17basic_string_viewIcSt11char_traitsIcEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr, i64) local_unnamed_addr #6
+declare void @_ZN4absl16strings_internal9CatPiecesB5cxx11ESt16initializer_listISt17basic_string_viewIcSt11char_traitsIcEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr, i64) local_unnamed_addr #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #11
@@ -2174,16 +2174,16 @@ declare void @llvm.assume(i1 noundef) #11
 declare void @llvm.experimental.noalias.scope.decl(metadata) #12
 
 attributes #0 = { mustprogress noinline uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #13 = { nounwind }

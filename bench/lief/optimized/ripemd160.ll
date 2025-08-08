@@ -68,7 +68,7 @@ define hidden noundef i32 @mbedtls_ripemd160_starts(ptr noundef writeonly captur
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @mbedtls_internal_ripemd160_process(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = alloca %struct.anon, align 4
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.0.copyload.i = load i32, ptr %1, align 1
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i32 %.0.copyload.i, ptr %4, align 4, !tbaa !7
@@ -1703,15 +1703,9 @@ define hidden noundef i32 @mbedtls_internal_ripemd160_process(ptr noundef captur
   store i32 %1589, ptr %50, align 4, !tbaa !7
   store i32 %1577, ptr %35, align 4, !tbaa !7
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %3, i64 noundef 104) #11
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 0
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @mbedtls_ripemd160_update(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #2 {
@@ -1792,7 +1786,7 @@ define hidden noundef i32 @mbedtls_ripemd160_update(ptr noundef captures(none) %
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @mbedtls_ripemd160_finish(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #2 {
   %3 = alloca [8 x i8], align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load i32, ptr %0, align 4, !tbaa !7
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4, !tbaa !7
@@ -1933,14 +1927,14 @@ mbedtls_ripemd160_free.exit:                      ; preds = %49, %._crit_edge.th
   %72 = load i32, ptr %71, align 4, !tbaa !7
   store i32 %72, ptr %70, align 1
   tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %0, i64 noundef 92) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @mbedtls_ripemd160(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #2 {
   %4 = alloca %struct.mbedtls_ripemd160_context, align 4
-  call void @llvm.lifetime.start.p0(i64 92, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(92) %4, i8 0, i64 92, i1 false)
   store i32 1732584193, ptr %5, align 4, !tbaa !7
@@ -1984,7 +1978,7 @@ define hidden noundef i32 @mbedtls_ripemd160(ptr noundef readonly captures(none)
 mbedtls_ripemd160_update.exit:                    ; preds = %3, %._crit_edge.i, %._crit_edge.thread.i
   %19 = call i32 @mbedtls_ripemd160_finish(ptr noundef nonnull %4, ptr noundef %2)
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %4, i64 noundef 92) #11
-  call void @llvm.lifetime.end.p0(i64 92, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 0
 }
 
@@ -1992,7 +1986,7 @@ mbedtls_ripemd160_update.exit:                    ; preds = %3, %._crit_edge.i, 
 define hidden range(i32 0, 2) i32 @mbedtls_ripemd160_self_test(i32 noundef %0) local_unnamed_addr #2 {
   %2 = alloca %struct.mbedtls_ripemd160_context, align 4
   %3 = alloca [20 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %3, i8 0, i64 20, i1 false)
   %.not16 = icmp eq i32 %0, 0
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -2007,7 +2001,7 @@ define hidden range(i32 0, 2) i32 @mbedtls_ripemd160_self_test(i32 noundef %0) l
   %indvars.iv30 = phi i64 [ %indvars.iv.next31, %23 ], [ 0, %1 ]
   %10 = getelementptr inbounds nuw [8 x i64], ptr @ripemd160_test_strlen, i64 0, i64 %indvars.iv30
   %11 = load i64, ptr %10, align 8, !tbaa !22
-  call void @llvm.lifetime.start.p0(i64 92, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(92) %2, i8 0, i64 92, i1 false)
   store i32 1732584193, ptr %4, align 4, !tbaa !7
   store i32 -271733879, ptr %5, align 4, !tbaa !7
@@ -2046,7 +2040,7 @@ define hidden range(i32 0, 2) i32 @mbedtls_ripemd160_self_test(i32 noundef %0) l
 mbedtls_ripemd160.exit.us:                        ; preds = %._crit_edge.thread.i.i.us, %._crit_edge.i.i.us, %.split.us
   %21 = call i32 @mbedtls_ripemd160_finish(ptr noundef nonnull %2, ptr noundef nonnull %3)
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %2, i64 noundef 92) #11
-  call void @llvm.lifetime.end.p0(i64 92, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %22 = getelementptr inbounds nuw [8 x [20 x i8]], ptr @ripemd160_test_md, i64 0, i64 %indvars.iv30
   %bcmp.us = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %3, ptr noundef nonnull dereferenceable(20) %22, i64 20)
   %.not17.us = icmp eq i32 %bcmp.us, 0
@@ -2064,7 +2058,7 @@ mbedtls_ripemd160.exit.us:                        ; preds = %._crit_edge.thread.
   %25 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %24)
   %26 = getelementptr inbounds nuw [8 x i64], ptr @ripemd160_test_strlen, i64 0, i64 %indvars.iv
   %27 = load i64, ptr %26, align 8, !tbaa !22
-  call void @llvm.lifetime.start.p0(i64 92, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(92) %2, i8 0, i64 92, i1 false)
   store i32 1732584193, ptr %4, align 4, !tbaa !7
   store i32 -271733879, ptr %5, align 4, !tbaa !7
@@ -2103,7 +2097,7 @@ mbedtls_ripemd160.exit.us:                        ; preds = %._crit_edge.thread.
 mbedtls_ripemd160.exit:                           ; preds = %.split, %._crit_edge.i.i, %._crit_edge.thread.i.i
   %37 = call i32 @mbedtls_ripemd160_finish(ptr noundef nonnull %2, ptr noundef nonnull %3)
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %2, i64 noundef 92) #11
-  call void @llvm.lifetime.end.p0(i64 92, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %38 = getelementptr inbounds nuw [8 x [20 x i8]], ptr @ripemd160_test_md, i64 0, i64 %indvars.iv
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %3, ptr noundef nonnull dereferenceable(20) %38, i64 20)
   %.not17 = icmp eq i32 %bcmp, 0
@@ -2127,12 +2121,18 @@ mbedtls_ripemd160.exit:                           ; preds = %.split, %._crit_edg
 
 .critedge:                                        ; preds = %mbedtls_ripemd160.exit.us, %.split22.us, %.split24.us, %40
   %.014 = phi i32 [ 0, %40 ], [ 0, %.split24.us ], [ 1, %.split22.us ], [ 1, %mbedtls_ripemd160.exit.us ]
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.014
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #7
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #8
@@ -2152,8 +2152,8 @@ attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-mat
 attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #9 = { nofree nounwind }
 attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: read) }

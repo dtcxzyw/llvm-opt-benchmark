@@ -5823,7 +5823,7 @@ define noundef ptr @_ZN4pkpy11from_void_pEPNS_2VMEPv(ptr noundef nonnull %0, ptr
 ; Function Attrs: mustprogress uwtable
 define internal noundef ptr @"_ZZN4pkpy5VoidP9_registerEPNS_2VMEPNS_8PyObjectES4_EN3$_08__invokeES2_NS_8ArgsViewE"(ptr noundef %0, ptr readonly captures(none) %1, ptr readnone captures(none) %2) #3 align 2 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load ptr, ptr %1, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %.sroa.01.0.copyload.i = load i16, ptr %6, align 8
@@ -5834,7 +5834,7 @@ define internal noundef ptr @"_ZZN4pkpy5VoidP9_registerEPNS_2VMEPNS_8PyObjectES4
   %11 = inttoptr i64 %9 to ptr
   store ptr %11, ptr %4, align 8
   %12 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_5VoidPEJPvEEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %10, i16 %.sroa.01.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %12
 }
 
@@ -6021,8 +6021,8 @@ define linkonce_odr void @_ZNK4pkpy7StrName6escapeEv(ptr dead_on_unwind noalias 
   %4 = alloca %"class.std::tuple.375", align 1
   %5 = alloca %"struct.pkpy::Str", align 8
   %6 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4pkpy7StrName11_r_internedB5cxx11Ev()
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -6065,8 +6065,8 @@ _ZNSt3mapItNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessItESaISt4p
 _ZNK4pkpy7StrName2svEv.exit:                      ; preds = %16, %.critedge.i.i
   %.sroa.05.0.i.i = phi ptr [ %20, %.critedge.i.i ], [ %.19.i.i.i.i.i, %16 ]
   %21 = getelementptr inbounds nuw i8, ptr %.sroa.05.0.i.i, i64 40
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %22 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %21) #26
   %23 = extractvalue { i64, ptr } %22, 0
   %24 = extractvalue { i64, ptr } %22, 1
@@ -6862,9 +6862,9 @@ define internal noundef i64 @"_ZZN4pkpy5VoidP9_registerEPNS_2VMEPNS_8PyObjectES4
 define internal void @"_ZZN4pkpy5VoidP9_registerEPNS_2VMEPNS_8PyObjectES4_EN3$_28__invokeES2_S4_"(ptr dead_on_unwind noalias writable sret(%"struct.pkpy::Str") align 8 %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2) #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.pkpy::SStream", align 8
   %5 = alloca %"struct.pkpy::Str", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !13
   store i32 0, ptr %4, align 8, !noalias !16
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 64, ptr %7, align 4, !noalias !16
@@ -6906,7 +6906,7 @@ common.resume.i:                                  ; preds = %20, %19, %16
   resume { ptr, i32 } %common.resume.op.i
 
 _ZNK4pkpy5VoidP3hexEv.exit.i:                     ; preds = %15, %13
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !13
   invoke void @_ZN4pkpy2_SIJRA11_KcNS_3StrERA2_S1_EEES4_DpOT_(ptr dead_on_unwind writable sret(%"struct.pkpy::Str") align 8 %0, ptr noundef nonnull align 1 dereferenceable(11) @.str.82, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 1 dereferenceable(2) @.str.83)
           to label %"_ZZN4pkpy5VoidP9_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_2clES2_S4_.exit" unwind label %20
 
@@ -6918,7 +6918,7 @@ _ZNK4pkpy5VoidP3hexEv.exit.i:                     ; preds = %15, %13
 
 "_ZZN4pkpy5VoidP9_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_2clES2_S4_.exit": ; preds = %_ZNK4pkpy5VoidP3hexEv.exit.i
   call void @_ZN4pkpy3StrD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #26
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -7099,7 +7099,7 @@ define internal noundef ptr @"_ZZN4pkpy5VoidP9_registerEPNS_2VMEPNS_8PyObjectES4
 ; Function Attrs: mustprogress uwtable
 define internal noundef ptr @"_ZZN4pkpy6Struct9_registerEPNS_2VMEPNS_8PyObjectES4_EN3$_08__invokeES2_NS_8ArgsViewE"(ptr noundef %0, ptr readonly captures(none) %1, ptr readnone captures(none) %2) #3 align 2 {
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load ptr, ptr %1, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %.sroa.01.0.copyload.i = load i16, ptr %6, align 8
@@ -7109,7 +7109,7 @@ define internal noundef ptr @"_ZZN4pkpy6Struct9_registerEPNS_2VMEPNS_8PyObjectES
   store i32 %9, ptr %4, align 4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_6StructEJRiEEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %10, i16 %.sroa.01.0.copyload.i, ptr noundef nonnull align 4 dereferenceable(4) %4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %11
 }
 
@@ -7498,8 +7498,8 @@ declare i16 @_ZN4pkpy7StrName3getESt17basic_string_viewIcSt11char_traitsIcEE(i64
 define internal noundef ptr @"_ZZN4pkpy6Struct9_registerEPNS_2VMEPNS_8PyObjectES4_EN3$_18__invokeES2_NS_8ArgsViewE"(ptr noundef nonnull %0, ptr readonly captures(none) %1, ptr readnone captures(none) %2) #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.pkpy::SStream", align 8
   %5 = alloca %"struct.pkpy::Str", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = load ptr, ptr %1, align 8
   %7 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_6StructEEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
   store i32 0, ptr %4, align 8
@@ -7583,8 +7583,8 @@ _ZN4pkpy7SStreamD2Ev.exit12.i:                    ; preds = %33, %31
   resume { ptr, i32 } %.pn.i
 
 "_ZZN4pkpy6Struct9_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_1clES2_NS_8ArgsViewE.exit": ; preds = %_ZN4pkpy6py_varINS_3StrEEEPNS_8PyObjectEPNS_2VMEOT_.exit.i, %28
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %26
 }
 
@@ -7818,12 +7818,12 @@ define internal noundef ptr @"_ZZN4pkpy6Struct9_registerEPNS_2VMEPNS_8PyObjectES
   %7 = alloca i8, align 1
   %8 = alloca %"struct.pkpy::Str", align 8
   %9 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = load ptr, ptr %1, align 8
   %11 = ptrtoint ptr %10 to i64
   %12 = and i64 %11, 3
@@ -8081,12 +8081,12 @@ _ZN4pkpy6StructD2Ev.exit79.i:                     ; preds = %107, %104, %26
   resume { ptr, i32 } %.pn.pn.i
 
 "_ZZN4pkpy6Struct9_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_2clES2_NS_8ArgsViewE.exit": ; preds = %_ZN4pkpy2VM15new_user_objectINS_6StructEJS2_EEEPNS_8PyObjectEDpOT0_.exit.i, %103
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret ptr %101
 }
 
@@ -8260,7 +8260,7 @@ _ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE9push_backERKS2_.exit: ; preds = %28, %_ZN
 ; Function Attrs: mustprogress uwtable
 define internal void @"_ZZN4pkpy6Struct9_registerEPNS_2VMEPNS_8PyObjectES4_EN3$_38__invokeES2_S4_"(ptr dead_on_unwind noalias writable sret(%"struct.pkpy::Str") align 8 %0, ptr noundef nonnull %1, ptr noundef readonly captures(none) %2) #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.pkpy::SStream", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_6StructEEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %1), !noalias !21
   store i32 0, ptr %4, align 8, !noalias !21
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -8311,7 +8311,7 @@ _ZN4pkpy7SStreamD2Ev.exit5.i:                     ; preds = %24, %21
   resume { ptr, i32 } %22
 
 "_ZZN4pkpy6Struct9_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_3clES2_S4_.exit": ; preds = %18, %20
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -8420,7 +8420,7 @@ define internal noundef ptr @"_ZZN4pkpy6Struct9_registerEPNS_2VMEPNS_8PyObjectES
   %5 = load ptr, ptr %1, align 8
   %6 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_6StructEEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %8 = load i32, ptr %7, align 4
   %9 = sext i32 %8 to i64
   store i64 %9, ptr %4, align 8
@@ -8440,7 +8440,7 @@ define internal noundef ptr @"_ZZN4pkpy6Struct9_registerEPNS_2VMEPNS_8PyObjectES
 
 "_ZZN4pkpy6Struct9_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_5clES2_NS_8ArgsViewE.exit": ; preds = %11, %15
   %.0.i.i = phi ptr [ %14, %11 ], [ %17, %15 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0.i.i
 }
 
@@ -8727,7 +8727,7 @@ define internal noundef ptr @"_ZZN4pkpy6Struct9_registerEPNS_2VMEPNS_8PyObjectES
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 %9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %13 = load i8, ptr %12, align 1
   %14 = sext i8 %13 to i64
   store i64 %14, ptr %4, align 8
@@ -8747,7 +8747,7 @@ define internal noundef ptr @"_ZZN4pkpy6Struct9_registerEPNS_2VMEPNS_8PyObjectES
 
 "_ZZN4pkpy6Struct9_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_8clES2_NS_8ArgsViewE.exit": ; preds = %16, %20
   %.0.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0.i.i
 }
 
@@ -9276,7 +9276,7 @@ define internal noundef ptr @"_ZZN4pkpy6Struct9_registerEPNS_2VMEPNS_8PyObjectES
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 %9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %13 = load i16, ptr %12, align 2
   %14 = sext i16 %13 to i64
   store i64 %14, ptr %4, align 8
@@ -9296,7 +9296,7 @@ define internal noundef ptr @"_ZZN4pkpy6Struct9_registerEPNS_2VMEPNS_8PyObjectES
 
 "_ZZN4pkpy6Struct9_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_12clES2_NS_8ArgsViewE.exit": ; preds = %16, %20
   %.0.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0.i.i
 }
 
@@ -9825,7 +9825,7 @@ define internal noundef ptr @"_ZZN4pkpy6Struct9_registerEPNS_2VMEPNS_8PyObjectES
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 %9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %13 = load i32, ptr %12, align 4
   %14 = sext i32 %13 to i64
   store i64 %14, ptr %4, align 8
@@ -9845,7 +9845,7 @@ define internal noundef ptr @"_ZZN4pkpy6Struct9_registerEPNS_2VMEPNS_8PyObjectES
 
 "_ZZN4pkpy6Struct9_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_16clES2_NS_8ArgsViewE.exit": ; preds = %16, %20
   %.0.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0.i.i
 }
 
@@ -10145,7 +10145,7 @@ define internal noundef ptr @"_ZZN4pkpy6Struct9_registerEPNS_2VMEPNS_8PyObjectES
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 %9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %13 = load i64, ptr %12, align 8
   store i64 %13, ptr %4, align 8
   %or.cond.i.i = icmp ult i64 %13, 1152921504606846976
@@ -10164,7 +10164,7 @@ define internal noundef ptr @"_ZZN4pkpy6Struct9_registerEPNS_2VMEPNS_8PyObjectES
 
 "_ZZN4pkpy6Struct9_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_20clES2_NS_8ArgsViewE.exit": ; preds = %14, %18
   %.0.i.i = phi ptr [ %17, %14 ], [ %20, %18 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0.i.i
 }
 
@@ -10198,7 +10198,7 @@ define internal noundef ptr @"_ZZN4pkpy6Struct9_registerEPNS_2VMEPNS_8PyObjectES
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 %9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %13 = load i64, ptr %12, align 8
   store i64 %13, ptr %4, align 8
   %or.cond.i.i = icmp ult i64 %13, 1152921504606846976
@@ -10217,7 +10217,7 @@ define internal noundef ptr @"_ZZN4pkpy6Struct9_registerEPNS_2VMEPNS_8PyObjectES
 
 "_ZZN4pkpy6Struct9_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_22clES2_NS_8ArgsViewE.exit": ; preds = %14, %18
   %.0.i.i = phi ptr [ %17, %14 ], [ %20, %18 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0.i.i
 }
 
@@ -10478,7 +10478,7 @@ define internal noundef ptr @"_ZZN4pkpy6Struct9_registerEPNS_2VMEPNS_8PyObjectES
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 %9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %13 = load i64, ptr %12, align 8
   store i64 %13, ptr %4, align 8
   %or.cond.i.i = icmp ult i64 %13, 1152921504606846976
@@ -10497,7 +10497,7 @@ define internal noundef ptr @"_ZZN4pkpy6Struct9_registerEPNS_2VMEPNS_8PyObjectES
 
 "_ZZN4pkpy6Struct9_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_24clES2_NS_8ArgsViewE.exit": ; preds = %14, %18
   %.0.i.i = phi ptr [ %17, %14 ], [ %20, %18 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0.i.i
 }
 
@@ -10758,7 +10758,7 @@ define internal noundef ptr @"_ZZN4pkpy6Struct9_registerEPNS_2VMEPNS_8PyObjectES
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 %9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %13 = load i64, ptr %12, align 8
   store i64 %13, ptr %4, align 8
   %or.cond.i.i = icmp ult i64 %13, 1152921504606846976
@@ -10777,7 +10777,7 @@ define internal noundef ptr @"_ZZN4pkpy6Struct9_registerEPNS_2VMEPNS_8PyObjectES
 
 "_ZZN4pkpy6Struct9_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_26clES2_NS_8ArgsViewE.exit": ; preds = %14, %18
   %.0.i.i = phi ptr [ %17, %14 ], [ %20, %18 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0.i.i
 }
 
@@ -11038,13 +11038,13 @@ define internal noundef ptr @"_ZZN4pkpy6Struct9_registerEPNS_2VMEPNS_8PyObjectES
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 %9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %13 = load float, ptr %12, align 4
   %14 = fpext float %13 to double
   store double %14, ptr %4, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewIdJRdEEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %15, i16 3, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %16
 }
 
@@ -11419,12 +11419,12 @@ define internal noundef ptr @"_ZZN4pkpy6Struct9_registerEPNS_2VMEPNS_8PyObjectES
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 %9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %13 = load double, ptr %12, align 8
   store double %13, ptr %4, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewIdJRdEEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %14, i16 3, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %15
 }
 
@@ -11950,12 +11950,12 @@ define internal noundef ptr @"_ZZN4pkpy6Struct9_registerEPNS_2VMEPNS_8PyObjectES
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 %9
   %13 = load ptr, ptr %12, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %13, ptr %4, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_5VoidPEEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
   %16 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_5VoidPEJRPvEEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %14, i16 %15, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %16
 }
 
@@ -12111,12 +12111,12 @@ define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN3$_08__invokeES1
   %5 = load ptr, ptr %1, align 8
   %6 = tail call noundef i64 @_ZN4pkpy18_py_cast__internalIlLb1EEET_PNS_2VMEPNS_8PyObjectE(ptr noundef %0, ptr noundef %5)
   %7 = tail call noalias ptr @malloc(i64 noundef %6) #31
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %7, ptr %4, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_5VoidPEEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
   %10 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_5VoidPEJRPvEEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %8, i16 %9, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %10
 }
 
@@ -12267,7 +12267,7 @@ _ZN4pkpy7py_castIRNS_5VoidPEEET_PNS_2VMEPNS_8PyObjectE.exit.i.i.i7.i: ; preds = 
 ; Function Attrs: mustprogress uwtable
 define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN3$_48__invokeES1_NS_8ArgsViewE"(ptr noundef nonnull %0, ptr readonly captures(none) %1, ptr readnone captures(none) %2) #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.pkpy::Str", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load ptr, ptr %1, align 8
   %6 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_5VoidPEEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
   %7 = tail call noundef zeroext i1 @_ZN4pkpy2VM10isinstanceEPNS_8PyObjectENS_4TypeE(ptr noundef nonnull align 8 dereferenceable(264913) %0, ptr noundef %5, i16 %6)
@@ -12336,7 +12336,7 @@ _ZN4pkpy2VM10ValueErrorERKNS_3StrE.exit.i:        ; preds = %.noexc.i
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %35 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_5VoidPEJRPvEEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %34, i16 %.sroa.03.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(8) %33)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %35
 }
 
@@ -12450,7 +12450,7 @@ _ZN4pkpy7py_castIRNS_5VoidPEEET_PNS_2VMEPNS_8PyObjectE.exit.i: ; preds = %8, %3
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %15 = load ptr, ptr %14, align 8
   %16 = ptrtoint ptr %15 to i64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %16, ptr %4, align 8
   %or.cond.i.i = icmp ult ptr %15, inttoptr (i64 1152921504606846976 to ptr)
   br i1 %or.cond.i.i, label %17, label %21
@@ -12468,14 +12468,14 @@ _ZN4pkpy7py_castIRNS_5VoidPEEET_PNS_2VMEPNS_8PyObjectE.exit.i: ; preds = %8, %3
 
 "_ZZN4pkpy12add_module_cEPNS_2VMEENK3$_5clES1_NS_8ArgsViewE.exit": ; preds = %17, %21
   %.0.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN3$_68__invokeES1_NS_8ArgsViewE"(ptr noundef nonnull %0, ptr readonly captures(none) %1, ptr readnone captures(none) %2) #3 align 2 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load ptr, ptr %1, align 8
   %6 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_5VoidPEEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
   %7 = tail call noundef zeroext i1 @_ZN4pkpy2VM10isinstanceEPNS_8PyObjectENS_4TypeE(ptr noundef nonnull align 8 dereferenceable(264913) %0, ptr noundef %5, i16 %6)
@@ -12501,7 +12501,7 @@ define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN3$_68__invokeES1
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 10
   %.sroa.0.0.copyload.i = load i16, ptr %19, align 2
   %20 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_5VoidPEJRPvEEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %17, i16 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %20
 }
 
@@ -12510,9 +12510,9 @@ define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN3$_78__invokeES1
   %4 = alloca i8, align 1
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load ptr, ptr %1, align 8
   %8 = tail call noundef signext i8 @_ZN4pkpy18_py_cast__internalIcLb1EEET_PNS_2VMEPNS_8PyObjectE(ptr noundef %0, ptr noundef %7)
   store i8 %8, ptr %4, align 1
@@ -12521,9 +12521,9 @@ define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN3$_78__invokeES1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_6StructEEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
   %11 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_6StructEJPcmEEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %9, i16 %10, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %11
 }
 
@@ -12644,7 +12644,7 @@ define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN3$_88__invokeES1
   %5 = load ptr, ptr %1, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = load ptr, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %8 = load i8, ptr %7, align 1
   %9 = sext i8 %8 to i64
   store i64 %9, ptr %4, align 8
@@ -12664,7 +12664,7 @@ define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN3$_88__invokeES1
 
 "_ZZN4pkpy12add_module_cEPNS_2VMEENK3$_8clES1_NS_8ArgsViewE.exit": ; preds = %11, %15
   %.0.i.i = phi ptr [ %14, %11 ], [ %17, %15 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0.i.i
 }
 
@@ -12689,7 +12689,7 @@ define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_108__invokeES
   %6 = tail call noundef i64 @_ZN4pkpy18_py_cast__internalIlLb1EEET_PNS_2VMEPNS_8PyObjectE(ptr noundef %0, ptr noundef %2)
   %7 = load ptr, ptr %5, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 %6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %9 = load i8, ptr %8, align 1
   %10 = sext i8 %9 to i64
   store i64 %10, ptr %4, align 8
@@ -12709,7 +12709,7 @@ define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_108__invokeES
 
 "_ZZN4pkpy12add_module_cEPNS_2VMEENK4$_10clES1_PNS_8PyObjectES4_.exit": ; preds = %12, %16
   %.0.i.i = phi ptr [ %15, %12 ], [ %18, %16 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0.i.i
 }
 
@@ -12727,7 +12727,7 @@ define internal void @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_118__invokeES1_PNS_8
 ; Function Attrs: mustprogress uwtable
 define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_128__invokeES1_PNS_8PyObjectES4_"(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #3 align 2 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = tail call noundef i64 @_ZN4pkpy18_py_cast__internalIlLb1EEET_PNS_2VMEPNS_8PyObjectE(ptr noundef %0, ptr noundef %2)
   %7 = load ptr, ptr %5, align 8
@@ -12737,7 +12737,7 @@ define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_128__invokeES
   %10 = getelementptr inbounds i8, ptr %7, i64 %6
   store ptr %10, ptr %4, align 8
   %11 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_5VoidPEJPcEEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %8, i16 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %11
 }
 
@@ -12830,7 +12830,7 @@ _ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE9push_backERKS2_.exit: ; preds = %16, %_ZN
 ; Function Attrs: mustprogress uwtable
 define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_138__invokeES1_PNS_8PyObjectES4_"(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #3 align 2 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = tail call noundef i64 @_ZN4pkpy18_py_cast__internalIlLb1EEET_PNS_2VMEPNS_8PyObjectE(ptr noundef %0, ptr noundef %2)
   %7 = load ptr, ptr %5, align 8
@@ -12841,7 +12841,7 @@ define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_138__invokeES
   %11 = getelementptr inbounds i8, ptr %7, i64 %10
   store ptr %11, ptr %4, align 8
   %12 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_5VoidPEJPcEEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %8, i16 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %12
 }
 
@@ -12849,10 +12849,10 @@ define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_138__invokeES
 define internal void @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_148__invokeES1_PNS_8PyObjectE"(ptr dead_on_unwind noalias writable sret(%"struct.pkpy::Str") align 8 %0, ptr noundef nonnull %1, ptr noundef readonly captures(none) %2) #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.pkpy::SStream", align 8
   %5 = alloca %"struct.pkpy::Str", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_5VoidPEEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %1), !noalias !24
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !24
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !24
   store i32 0, ptr %4, align 8, !noalias !27
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 64, ptr %8, align 4, !noalias !27
@@ -12894,7 +12894,7 @@ common.resume.i:                                  ; preds = %21, %20, %17
   resume { ptr, i32 } %common.resume.op.i
 
 _ZNK4pkpy5VoidP3hexEv.exit.i:                     ; preds = %16, %14
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !24
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !24
   invoke void @_ZN4pkpy2_SIJRA2_KcRA5_S1_RA6_S1_NS_3StrES3_EEES8_DpOT_(ptr dead_on_unwind writable sret(%"struct.pkpy::Str") align 8 %0, ptr noundef nonnull align 1 dereferenceable(2) @.str.93, ptr noundef nonnull align 1 dereferenceable(5) @.str.94, ptr noundef nonnull align 1 dereferenceable(6) @.str.95, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 1 dereferenceable(2) @.str.83)
           to label %"_ZZN4pkpy12add_module_cEPNS_2VMEENK4$_14clES1_PNS_8PyObjectE.exit" unwind label %21
 
@@ -12906,7 +12906,7 @@ _ZNK4pkpy5VoidP3hexEv.exit.i:                     ; preds = %16, %14
 
 "_ZZN4pkpy12add_module_cEPNS_2VMEENK4$_14clES1_PNS_8PyObjectE.exit": ; preds = %_ZNK4pkpy5VoidP3hexEv.exit.i
   call void @_ZN4pkpy3StrD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #26
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -12976,9 +12976,9 @@ define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_158__invokeES
   %4 = alloca i8, align 1
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load ptr, ptr %1, align 8
   %8 = tail call noundef zeroext i8 @_ZN4pkpy18_py_cast__internalIhLb1EEET_PNS_2VMEPNS_8PyObjectE(ptr noundef %0, ptr noundef %7)
   store i8 %8, ptr %4, align 1
@@ -12987,9 +12987,9 @@ define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_158__invokeES
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_6StructEEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
   %11 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_6StructEJPhmEEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %9, i16 %10, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %11
 }
 
@@ -13159,7 +13159,7 @@ define internal void @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_198__invokeES1_PNS_8
 ; Function Attrs: mustprogress uwtable
 define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_208__invokeES1_PNS_8PyObjectES4_"(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #3 align 2 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = tail call noundef i64 @_ZN4pkpy18_py_cast__internalIlLb1EEET_PNS_2VMEPNS_8PyObjectE(ptr noundef %0, ptr noundef %2)
   %7 = load ptr, ptr %5, align 8
@@ -13169,7 +13169,7 @@ define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_208__invokeES
   %10 = getelementptr inbounds i8, ptr %7, i64 %6
   store ptr %10, ptr %4, align 8
   %11 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_5VoidPEJPhEEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %8, i16 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %11
 }
 
@@ -13262,7 +13262,7 @@ _ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE9push_backERKS2_.exit: ; preds = %16, %_ZN
 ; Function Attrs: mustprogress uwtable
 define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_218__invokeES1_PNS_8PyObjectES4_"(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #3 align 2 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = tail call noundef i64 @_ZN4pkpy18_py_cast__internalIlLb1EEET_PNS_2VMEPNS_8PyObjectE(ptr noundef %0, ptr noundef %2)
   %7 = load ptr, ptr %5, align 8
@@ -13273,7 +13273,7 @@ define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_218__invokeES
   %11 = getelementptr inbounds i8, ptr %7, i64 %10
   store ptr %11, ptr %4, align 8
   %12 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_5VoidPEJPhEEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %8, i16 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %12
 }
 
@@ -13281,10 +13281,10 @@ define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_218__invokeES
 define internal void @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_228__invokeES1_PNS_8PyObjectE"(ptr dead_on_unwind noalias writable sret(%"struct.pkpy::Str") align 8 %0, ptr noundef nonnull %1, ptr noundef readonly captures(none) %2) #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.pkpy::SStream", align 8
   %5 = alloca %"struct.pkpy::Str", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_5VoidPEEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %1), !noalias !30
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !30
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !30
   store i32 0, ptr %4, align 8, !noalias !33
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 64, ptr %8, align 4, !noalias !33
@@ -13326,7 +13326,7 @@ common.resume.i:                                  ; preds = %21, %20, %17
   resume { ptr, i32 } %common.resume.op.i
 
 _ZNK4pkpy5VoidP3hexEv.exit.i:                     ; preds = %16, %14
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !30
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !30
   invoke void @_ZN4pkpy2_SIJRA2_KcRA6_S1_S5_NS_3StrES3_EEES6_DpOT_(ptr dead_on_unwind writable sret(%"struct.pkpy::Str") align 8 %0, ptr noundef nonnull align 1 dereferenceable(2) @.str.93, ptr noundef nonnull align 1 dereferenceable(6) @.str.96, ptr noundef nonnull align 1 dereferenceable(6) @.str.95, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 1 dereferenceable(2) @.str.83)
           to label %"_ZZN4pkpy12add_module_cEPNS_2VMEENK4$_22clES1_PNS_8PyObjectE.exit" unwind label %21
 
@@ -13338,7 +13338,7 @@ _ZNK4pkpy5VoidP3hexEv.exit.i:                     ; preds = %16, %14
 
 "_ZZN4pkpy12add_module_cEPNS_2VMEENK4$_22clES1_PNS_8PyObjectE.exit": ; preds = %_ZNK4pkpy5VoidP3hexEv.exit.i
   call void @_ZN4pkpy3StrD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #26
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -13408,9 +13408,9 @@ define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_238__invokeES
   %4 = alloca i16, align 2
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load ptr, ptr %1, align 8
   %8 = tail call noundef signext i16 @_ZN4pkpy18_py_cast__internalIsLb1EEET_PNS_2VMEPNS_8PyObjectE(ptr noundef %0, ptr noundef %7)
   store i16 %8, ptr %4, align 2
@@ -13419,9 +13419,9 @@ define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_238__invokeES
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_6StructEEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
   %11 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_6StructEJPsmEEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %9, i16 %10, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %11
 }
 
@@ -13542,7 +13542,7 @@ define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_248__invokeES
   %5 = load ptr, ptr %1, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = load ptr, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %8 = load i16, ptr %7, align 2
   %9 = sext i16 %8 to i64
   store i64 %9, ptr %4, align 8
@@ -13562,7 +13562,7 @@ define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_248__invokeES
 
 "_ZZN4pkpy12add_module_cEPNS_2VMEENK4$_24clES1_NS_8ArgsViewE.exit": ; preds = %11, %15
   %.0.i.i = phi ptr [ %14, %11 ], [ %17, %15 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0.i.i
 }
 
@@ -13587,7 +13587,7 @@ define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_268__invokeES
   %6 = tail call noundef i64 @_ZN4pkpy18_py_cast__internalIlLb1EEET_PNS_2VMEPNS_8PyObjectE(ptr noundef %0, ptr noundef %2)
   %7 = load ptr, ptr %5, align 8
   %8 = getelementptr inbounds i16, ptr %7, i64 %6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %9 = load i16, ptr %8, align 2
   %10 = sext i16 %9 to i64
   store i64 %10, ptr %4, align 8
@@ -13607,7 +13607,7 @@ define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_268__invokeES
 
 "_ZZN4pkpy12add_module_cEPNS_2VMEENK4$_26clES1_PNS_8PyObjectES4_.exit": ; preds = %12, %16
   %.0.i.i = phi ptr [ %15, %12 ], [ %18, %16 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0.i.i
 }
 
@@ -13625,7 +13625,7 @@ define internal void @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_278__invokeES1_PNS_8
 ; Function Attrs: mustprogress uwtable
 define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_288__invokeES1_PNS_8PyObjectES4_"(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #3 align 2 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = tail call noundef i64 @_ZN4pkpy18_py_cast__internalIlLb1EEET_PNS_2VMEPNS_8PyObjectE(ptr noundef %0, ptr noundef %2)
   %7 = load ptr, ptr %5, align 8
@@ -13635,7 +13635,7 @@ define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_288__invokeES
   %10 = getelementptr inbounds i16, ptr %7, i64 %6
   store ptr %10, ptr %4, align 8
   %11 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_5VoidPEJPsEEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %8, i16 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %11
 }
 
@@ -13728,7 +13728,7 @@ _ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE9push_backERKS2_.exit: ; preds = %16, %_ZN
 ; Function Attrs: mustprogress uwtable
 define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_298__invokeES1_PNS_8PyObjectES4_"(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #3 align 2 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = tail call noundef i64 @_ZN4pkpy18_py_cast__internalIlLb1EEET_PNS_2VMEPNS_8PyObjectE(ptr noundef %0, ptr noundef %2)
   %7 = load ptr, ptr %5, align 8
@@ -13739,7 +13739,7 @@ define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_298__invokeES
   %11 = getelementptr inbounds i16, ptr %7, i64 %10
   store ptr %11, ptr %4, align 8
   %12 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_5VoidPEJPsEEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %8, i16 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %12
 }
 
@@ -13747,10 +13747,10 @@ define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_298__invokeES
 define internal void @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_308__invokeES1_PNS_8PyObjectE"(ptr dead_on_unwind noalias writable sret(%"struct.pkpy::Str") align 8 %0, ptr noundef nonnull %1, ptr noundef readonly captures(none) %2) #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.pkpy::SStream", align 8
   %5 = alloca %"struct.pkpy::Str", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_5VoidPEEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %1), !noalias !36
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !36
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !36
   store i32 0, ptr %4, align 8, !noalias !39
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 64, ptr %8, align 4, !noalias !39
@@ -13792,7 +13792,7 @@ common.resume.i:                                  ; preds = %21, %20, %17
   resume { ptr, i32 } %common.resume.op.i
 
 _ZNK4pkpy5VoidP3hexEv.exit.i:                     ; preds = %16, %14
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !36
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !36
   invoke void @_ZN4pkpy2_SIJRA2_KcRA6_S1_S5_NS_3StrES3_EEES6_DpOT_(ptr dead_on_unwind writable sret(%"struct.pkpy::Str") align 8 %0, ptr noundef nonnull align 1 dereferenceable(2) @.str.93, ptr noundef nonnull align 1 dereferenceable(6) @.str.97, ptr noundef nonnull align 1 dereferenceable(6) @.str.95, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 1 dereferenceable(2) @.str.83)
           to label %"_ZZN4pkpy12add_module_cEPNS_2VMEENK4$_30clES1_PNS_8PyObjectE.exit" unwind label %21
 
@@ -13804,7 +13804,7 @@ _ZNK4pkpy5VoidP3hexEv.exit.i:                     ; preds = %16, %14
 
 "_ZZN4pkpy12add_module_cEPNS_2VMEENK4$_30clES1_PNS_8PyObjectE.exit": ; preds = %_ZNK4pkpy5VoidP3hexEv.exit.i
   call void @_ZN4pkpy3StrD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #26
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -13813,9 +13813,9 @@ define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_318__invokeES
   %4 = alloca i16, align 2
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load ptr, ptr %1, align 8
   %8 = tail call noundef zeroext i16 @_ZN4pkpy18_py_cast__internalItLb1EEET_PNS_2VMEPNS_8PyObjectE(ptr noundef %0, ptr noundef %7)
   store i16 %8, ptr %4, align 2
@@ -13824,9 +13824,9 @@ define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_318__invokeES
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_6StructEEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
   %11 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_6StructEJPtmEEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %9, i16 %10, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %11
 }
 
@@ -13996,7 +13996,7 @@ define internal void @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_358__invokeES1_PNS_8
 ; Function Attrs: mustprogress uwtable
 define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_368__invokeES1_PNS_8PyObjectES4_"(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #3 align 2 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = tail call noundef i64 @_ZN4pkpy18_py_cast__internalIlLb1EEET_PNS_2VMEPNS_8PyObjectE(ptr noundef %0, ptr noundef %2)
   %7 = load ptr, ptr %5, align 8
@@ -14006,7 +14006,7 @@ define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_368__invokeES
   %10 = getelementptr inbounds i16, ptr %7, i64 %6
   store ptr %10, ptr %4, align 8
   %11 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_5VoidPEJPtEEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %8, i16 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %11
 }
 
@@ -14099,7 +14099,7 @@ _ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE9push_backERKS2_.exit: ; preds = %16, %_ZN
 ; Function Attrs: mustprogress uwtable
 define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_378__invokeES1_PNS_8PyObjectES4_"(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #3 align 2 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = tail call noundef i64 @_ZN4pkpy18_py_cast__internalIlLb1EEET_PNS_2VMEPNS_8PyObjectE(ptr noundef %0, ptr noundef %2)
   %7 = load ptr, ptr %5, align 8
@@ -14110,7 +14110,7 @@ define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_378__invokeES
   %11 = getelementptr inbounds i16, ptr %7, i64 %10
   store ptr %11, ptr %4, align 8
   %12 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_5VoidPEJPtEEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %8, i16 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %12
 }
 
@@ -14118,10 +14118,10 @@ define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_378__invokeES
 define internal void @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_388__invokeES1_PNS_8PyObjectE"(ptr dead_on_unwind noalias writable sret(%"struct.pkpy::Str") align 8 %0, ptr noundef nonnull %1, ptr noundef readonly captures(none) %2) #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.pkpy::SStream", align 8
   %5 = alloca %"struct.pkpy::Str", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_5VoidPEEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %1), !noalias !42
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !42
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !42
   store i32 0, ptr %4, align 8, !noalias !45
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 64, ptr %8, align 4, !noalias !45
@@ -14163,7 +14163,7 @@ common.resume.i:                                  ; preds = %21, %20, %17
   resume { ptr, i32 } %common.resume.op.i
 
 _ZNK4pkpy5VoidP3hexEv.exit.i:                     ; preds = %16, %14
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !42
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !42
   invoke void @_ZN4pkpy2_SIJRA2_KcRA7_S1_RA6_S1_NS_3StrES3_EEES8_DpOT_(ptr dead_on_unwind writable sret(%"struct.pkpy::Str") align 8 %0, ptr noundef nonnull align 1 dereferenceable(2) @.str.93, ptr noundef nonnull align 1 dereferenceable(7) @.str.98, ptr noundef nonnull align 1 dereferenceable(6) @.str.95, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 1 dereferenceable(2) @.str.83)
           to label %"_ZZN4pkpy12add_module_cEPNS_2VMEENK4$_38clES1_PNS_8PyObjectE.exit" unwind label %21
 
@@ -14175,7 +14175,7 @@ _ZNK4pkpy5VoidP3hexEv.exit.i:                     ; preds = %16, %14
 
 "_ZZN4pkpy12add_module_cEPNS_2VMEENK4$_38clES1_PNS_8PyObjectE.exit": ; preds = %_ZNK4pkpy5VoidP3hexEv.exit.i
   call void @_ZN4pkpy3StrD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #26
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -14245,9 +14245,9 @@ define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_398__invokeES
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load ptr, ptr %1, align 8
   %8 = tail call noundef i32 @_ZN4pkpy18_py_cast__internalIiLb1EEET_PNS_2VMEPNS_8PyObjectE(ptr noundef %0, ptr noundef %7)
   store i32 %8, ptr %4, align 4
@@ -14256,9 +14256,9 @@ define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_398__invokeES
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_6StructEEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
   %11 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_6StructEJPimEEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %9, i16 %10, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %11
 }
 
@@ -14379,7 +14379,7 @@ define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_408__invokeES
   %5 = load ptr, ptr %1, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = load ptr, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %8 = load i32, ptr %7, align 4
   %9 = sext i32 %8 to i64
   store i64 %9, ptr %4, align 8
@@ -14399,7 +14399,7 @@ define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_408__invokeES
 
 "_ZZN4pkpy12add_module_cEPNS_2VMEENK4$_40clES1_NS_8ArgsViewE.exit": ; preds = %11, %15
   %.0.i.i = phi ptr [ %14, %11 ], [ %17, %15 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0.i.i
 }
 
@@ -14424,7 +14424,7 @@ define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_428__invokeES
   %6 = tail call noundef i64 @_ZN4pkpy18_py_cast__internalIlLb1EEET_PNS_2VMEPNS_8PyObjectE(ptr noundef %0, ptr noundef %2)
   %7 = load ptr, ptr %5, align 8
   %8 = getelementptr inbounds i32, ptr %7, i64 %6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %9 = load i32, ptr %8, align 4
   %10 = sext i32 %9 to i64
   store i64 %10, ptr %4, align 8
@@ -14444,7 +14444,7 @@ define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_428__invokeES
 
 "_ZZN4pkpy12add_module_cEPNS_2VMEENK4$_42clES1_PNS_8PyObjectES4_.exit": ; preds = %12, %16
   %.0.i.i = phi ptr [ %15, %12 ], [ %18, %16 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0.i.i
 }
 
@@ -14462,7 +14462,7 @@ define internal void @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_438__invokeES1_PNS_8
 ; Function Attrs: mustprogress uwtable
 define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_448__invokeES1_PNS_8PyObjectES4_"(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #3 align 2 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = tail call noundef i64 @_ZN4pkpy18_py_cast__internalIlLb1EEET_PNS_2VMEPNS_8PyObjectE(ptr noundef %0, ptr noundef %2)
   %7 = load ptr, ptr %5, align 8
@@ -14472,7 +14472,7 @@ define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_448__invokeES
   %10 = getelementptr inbounds i32, ptr %7, i64 %6
   store ptr %10, ptr %4, align 8
   %11 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_5VoidPEJPiEEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %8, i16 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %11
 }
 
@@ -14565,7 +14565,7 @@ _ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE9push_backERKS2_.exit: ; preds = %16, %_ZN
 ; Function Attrs: mustprogress uwtable
 define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_458__invokeES1_PNS_8PyObjectES4_"(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #3 align 2 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = tail call noundef i64 @_ZN4pkpy18_py_cast__internalIlLb1EEET_PNS_2VMEPNS_8PyObjectE(ptr noundef %0, ptr noundef %2)
   %7 = load ptr, ptr %5, align 8
@@ -14576,7 +14576,7 @@ define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_458__invokeES
   %11 = getelementptr inbounds i32, ptr %7, i64 %10
   store ptr %11, ptr %4, align 8
   %12 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_5VoidPEJPiEEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %8, i16 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %12
 }
 
@@ -14584,10 +14584,10 @@ define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_458__invokeES
 define internal void @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_468__invokeES1_PNS_8PyObjectE"(ptr dead_on_unwind noalias writable sret(%"struct.pkpy::Str") align 8 %0, ptr noundef nonnull %1, ptr noundef readonly captures(none) %2) #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.pkpy::SStream", align 8
   %5 = alloca %"struct.pkpy::Str", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_5VoidPEEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %1), !noalias !48
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !48
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !48
   store i32 0, ptr %4, align 8, !noalias !51
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 64, ptr %8, align 4, !noalias !51
@@ -14629,7 +14629,7 @@ common.resume.i:                                  ; preds = %21, %20, %17
   resume { ptr, i32 } %common.resume.op.i
 
 _ZNK4pkpy5VoidP3hexEv.exit.i:                     ; preds = %16, %14
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !48
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !48
   invoke void @_ZN4pkpy2_SIJRA2_KcRA4_S1_RA6_S1_NS_3StrES3_EEES8_DpOT_(ptr dead_on_unwind writable sret(%"struct.pkpy::Str") align 8 %0, ptr noundef nonnull align 1 dereferenceable(2) @.str.93, ptr noundef nonnull align 1 dereferenceable(4) @.str.99, ptr noundef nonnull align 1 dereferenceable(6) @.str.95, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 1 dereferenceable(2) @.str.83)
           to label %"_ZZN4pkpy12add_module_cEPNS_2VMEENK4$_46clES1_PNS_8PyObjectE.exit" unwind label %21
 
@@ -14641,7 +14641,7 @@ _ZNK4pkpy5VoidP3hexEv.exit.i:                     ; preds = %16, %14
 
 "_ZZN4pkpy12add_module_cEPNS_2VMEENK4$_46clES1_PNS_8PyObjectE.exit": ; preds = %_ZNK4pkpy5VoidP3hexEv.exit.i
   call void @_ZN4pkpy3StrD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #26
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -14711,9 +14711,9 @@ define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_478__invokeES
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load ptr, ptr %1, align 8
   %8 = tail call noundef i32 @_ZN4pkpy18_py_cast__internalIjLb1EEET_PNS_2VMEPNS_8PyObjectE(ptr noundef %0, ptr noundef %7)
   store i32 %8, ptr %4, align 4
@@ -14722,9 +14722,9 @@ define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_478__invokeES
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_6StructEEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
   %11 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_6StructEJPjmEEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %9, i16 %10, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %11
 }
 
@@ -14894,7 +14894,7 @@ define internal void @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_518__invokeES1_PNS_8
 ; Function Attrs: mustprogress uwtable
 define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_528__invokeES1_PNS_8PyObjectES4_"(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #3 align 2 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = tail call noundef i64 @_ZN4pkpy18_py_cast__internalIlLb1EEET_PNS_2VMEPNS_8PyObjectE(ptr noundef %0, ptr noundef %2)
   %7 = load ptr, ptr %5, align 8
@@ -14904,7 +14904,7 @@ define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_528__invokeES
   %10 = getelementptr inbounds i32, ptr %7, i64 %6
   store ptr %10, ptr %4, align 8
   %11 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_5VoidPEJPjEEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %8, i16 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %11
 }
 
@@ -14997,7 +14997,7 @@ _ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE9push_backERKS2_.exit: ; preds = %16, %_ZN
 ; Function Attrs: mustprogress uwtable
 define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_538__invokeES1_PNS_8PyObjectES4_"(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #3 align 2 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = tail call noundef i64 @_ZN4pkpy18_py_cast__internalIlLb1EEET_PNS_2VMEPNS_8PyObjectE(ptr noundef %0, ptr noundef %2)
   %7 = load ptr, ptr %5, align 8
@@ -15008,7 +15008,7 @@ define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_538__invokeES
   %11 = getelementptr inbounds i32, ptr %7, i64 %10
   store ptr %11, ptr %4, align 8
   %12 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_5VoidPEJPjEEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %8, i16 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %12
 }
 
@@ -15016,10 +15016,10 @@ define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_538__invokeES
 define internal void @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_548__invokeES1_PNS_8PyObjectE"(ptr dead_on_unwind noalias writable sret(%"struct.pkpy::Str") align 8 %0, ptr noundef nonnull %1, ptr noundef readonly captures(none) %2) #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.pkpy::SStream", align 8
   %5 = alloca %"struct.pkpy::Str", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_5VoidPEEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %1), !noalias !54
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !54
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !54
   store i32 0, ptr %4, align 8, !noalias !57
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 64, ptr %8, align 4, !noalias !57
@@ -15061,7 +15061,7 @@ common.resume.i:                                  ; preds = %21, %20, %17
   resume { ptr, i32 } %common.resume.op.i
 
 _ZNK4pkpy5VoidP3hexEv.exit.i:                     ; preds = %16, %14
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !54
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !54
   invoke void @_ZN4pkpy2_SIJRA2_KcRA5_S1_RA6_S1_NS_3StrES3_EEES8_DpOT_(ptr dead_on_unwind writable sret(%"struct.pkpy::Str") align 8 %0, ptr noundef nonnull align 1 dereferenceable(2) @.str.93, ptr noundef nonnull align 1 dereferenceable(5) @.str.100, ptr noundef nonnull align 1 dereferenceable(6) @.str.95, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 1 dereferenceable(2) @.str.83)
           to label %"_ZZN4pkpy12add_module_cEPNS_2VMEENK4$_54clES1_PNS_8PyObjectE.exit" unwind label %21
 
@@ -15073,7 +15073,7 @@ _ZNK4pkpy5VoidP3hexEv.exit.i:                     ; preds = %16, %14
 
 "_ZZN4pkpy12add_module_cEPNS_2VMEENK4$_54clES1_PNS_8PyObjectE.exit": ; preds = %_ZNK4pkpy5VoidP3hexEv.exit.i
   call void @_ZN4pkpy3StrD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #26
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -15082,9 +15082,9 @@ define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_558__invokeES
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load ptr, ptr %1, align 8
   %8 = tail call noundef i64 @_ZN4pkpy18_py_cast__internalIlLb1EEET_PNS_2VMEPNS_8PyObjectE(ptr noundef %0, ptr noundef %7)
   store i64 %8, ptr %4, align 8
@@ -15093,9 +15093,9 @@ define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_558__invokeES
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_6StructEEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
   %11 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_6StructEJPlmEEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %9, i16 %10, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %11
 }
 
@@ -15216,7 +15216,7 @@ define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_568__invokeES
   %5 = load ptr, ptr %1, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = load ptr, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %8 = load i64, ptr %7, align 8
   store i64 %8, ptr %4, align 8
   %or.cond.i.i = icmp ult i64 %8, 1152921504606846976
@@ -15235,7 +15235,7 @@ define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_568__invokeES
 
 "_ZZN4pkpy12add_module_cEPNS_2VMEENK4$_56clES1_NS_8ArgsViewE.exit": ; preds = %9, %13
   %.0.i.i = phi ptr [ %12, %9 ], [ %15, %13 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0.i.i
 }
 
@@ -15260,7 +15260,7 @@ define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_588__invokeES
   %6 = tail call noundef i64 @_ZN4pkpy18_py_cast__internalIlLb1EEET_PNS_2VMEPNS_8PyObjectE(ptr noundef %0, ptr noundef %2)
   %7 = load ptr, ptr %5, align 8
   %8 = getelementptr inbounds i64, ptr %7, i64 %6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %9 = load i64, ptr %8, align 8
   store i64 %9, ptr %4, align 8
   %or.cond.i.i = icmp ult i64 %9, 1152921504606846976
@@ -15279,7 +15279,7 @@ define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_588__invokeES
 
 "_ZZN4pkpy12add_module_cEPNS_2VMEENK4$_58clES1_PNS_8PyObjectES4_.exit": ; preds = %10, %14
   %.0.i.i = phi ptr [ %13, %10 ], [ %16, %14 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0.i.i
 }
 
@@ -15297,7 +15297,7 @@ define internal void @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_598__invokeES1_PNS_8
 ; Function Attrs: mustprogress uwtable
 define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_608__invokeES1_PNS_8PyObjectES4_"(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #3 align 2 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = tail call noundef i64 @_ZN4pkpy18_py_cast__internalIlLb1EEET_PNS_2VMEPNS_8PyObjectE(ptr noundef %0, ptr noundef %2)
   %7 = load ptr, ptr %5, align 8
@@ -15307,7 +15307,7 @@ define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_608__invokeES
   %10 = getelementptr inbounds i64, ptr %7, i64 %6
   store ptr %10, ptr %4, align 8
   %11 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_5VoidPEJPlEEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %8, i16 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %11
 }
 
@@ -15400,7 +15400,7 @@ _ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE9push_backERKS2_.exit: ; preds = %16, %_ZN
 ; Function Attrs: mustprogress uwtable
 define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_618__invokeES1_PNS_8PyObjectES4_"(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #3 align 2 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = tail call noundef i64 @_ZN4pkpy18_py_cast__internalIlLb1EEET_PNS_2VMEPNS_8PyObjectE(ptr noundef %0, ptr noundef %2)
   %7 = load ptr, ptr %5, align 8
@@ -15411,7 +15411,7 @@ define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_618__invokeES
   %11 = getelementptr inbounds i64, ptr %7, i64 %10
   store ptr %11, ptr %4, align 8
   %12 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_5VoidPEJPlEEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %8, i16 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %12
 }
 
@@ -15419,10 +15419,10 @@ define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_618__invokeES
 define internal void @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_628__invokeES1_PNS_8PyObjectE"(ptr dead_on_unwind noalias writable sret(%"struct.pkpy::Str") align 8 %0, ptr noundef nonnull %1, ptr noundef readonly captures(none) %2) #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.pkpy::SStream", align 8
   %5 = alloca %"struct.pkpy::Str", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_5VoidPEEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %1), !noalias !60
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !60
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !60
   store i32 0, ptr %4, align 8, !noalias !63
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 64, ptr %8, align 4, !noalias !63
@@ -15464,7 +15464,7 @@ common.resume.i:                                  ; preds = %21, %20, %17
   resume { ptr, i32 } %common.resume.op.i
 
 _ZNK4pkpy5VoidP3hexEv.exit.i:                     ; preds = %16, %14
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !60
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !60
   invoke void @_ZN4pkpy2_SIJRA2_KcRA5_S1_RA6_S1_NS_3StrES3_EEES8_DpOT_(ptr dead_on_unwind writable sret(%"struct.pkpy::Str") align 8 %0, ptr noundef nonnull align 1 dereferenceable(2) @.str.93, ptr noundef nonnull align 1 dereferenceable(5) @.str.101, ptr noundef nonnull align 1 dereferenceable(6) @.str.95, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 1 dereferenceable(2) @.str.83)
           to label %"_ZZN4pkpy12add_module_cEPNS_2VMEENK4$_62clES1_PNS_8PyObjectE.exit" unwind label %21
 
@@ -15476,7 +15476,7 @@ _ZNK4pkpy5VoidP3hexEv.exit.i:                     ; preds = %16, %14
 
 "_ZZN4pkpy12add_module_cEPNS_2VMEENK4$_62clES1_PNS_8PyObjectE.exit": ; preds = %_ZNK4pkpy5VoidP3hexEv.exit.i
   call void @_ZN4pkpy3StrD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #26
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -15485,9 +15485,9 @@ define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_638__invokeES
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load ptr, ptr %1, align 8
   %8 = tail call noundef i64 @_ZN4pkpy18_py_cast__internalImLb1EEET_PNS_2VMEPNS_8PyObjectE(ptr noundef %0, ptr noundef %7)
   store i64 %8, ptr %4, align 8
@@ -15496,9 +15496,9 @@ define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_638__invokeES
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_6StructEEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
   %11 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_6StructEJPmmEEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %9, i16 %10, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %11
 }
 
@@ -15619,7 +15619,7 @@ define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_648__invokeES
   %5 = load ptr, ptr %1, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = load ptr, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %8 = load i64, ptr %7, align 8
   store i64 %8, ptr %4, align 8
   %or.cond.i.i = icmp ult i64 %8, 1152921504606846976
@@ -15638,7 +15638,7 @@ define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_648__invokeES
 
 "_ZZN4pkpy12add_module_cEPNS_2VMEENK4$_64clES1_NS_8ArgsViewE.exit": ; preds = %9, %13
   %.0.i.i = phi ptr [ %12, %9 ], [ %15, %13 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0.i.i
 }
 
@@ -15663,7 +15663,7 @@ define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_668__invokeES
   %6 = tail call noundef i64 @_ZN4pkpy18_py_cast__internalIlLb1EEET_PNS_2VMEPNS_8PyObjectE(ptr noundef %0, ptr noundef %2)
   %7 = load ptr, ptr %5, align 8
   %8 = getelementptr inbounds i64, ptr %7, i64 %6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %9 = load i64, ptr %8, align 8
   store i64 %9, ptr %4, align 8
   %or.cond.i.i = icmp ult i64 %9, 1152921504606846976
@@ -15682,7 +15682,7 @@ define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_668__invokeES
 
 "_ZZN4pkpy12add_module_cEPNS_2VMEENK4$_66clES1_PNS_8PyObjectES4_.exit": ; preds = %10, %14
   %.0.i.i = phi ptr [ %13, %10 ], [ %16, %14 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0.i.i
 }
 
@@ -15700,7 +15700,7 @@ define internal void @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_678__invokeES1_PNS_8
 ; Function Attrs: mustprogress uwtable
 define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_688__invokeES1_PNS_8PyObjectES4_"(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #3 align 2 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = tail call noundef i64 @_ZN4pkpy18_py_cast__internalIlLb1EEET_PNS_2VMEPNS_8PyObjectE(ptr noundef %0, ptr noundef %2)
   %7 = load ptr, ptr %5, align 8
@@ -15710,7 +15710,7 @@ define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_688__invokeES
   %10 = getelementptr inbounds i64, ptr %7, i64 %6
   store ptr %10, ptr %4, align 8
   %11 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_5VoidPEJPmEEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %8, i16 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %11
 }
 
@@ -15803,7 +15803,7 @@ _ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE9push_backERKS2_.exit: ; preds = %16, %_ZN
 ; Function Attrs: mustprogress uwtable
 define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_698__invokeES1_PNS_8PyObjectES4_"(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #3 align 2 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = tail call noundef i64 @_ZN4pkpy18_py_cast__internalIlLb1EEET_PNS_2VMEPNS_8PyObjectE(ptr noundef %0, ptr noundef %2)
   %7 = load ptr, ptr %5, align 8
@@ -15814,7 +15814,7 @@ define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_698__invokeES
   %11 = getelementptr inbounds i64, ptr %7, i64 %10
   store ptr %11, ptr %4, align 8
   %12 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_5VoidPEJPmEEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %8, i16 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %12
 }
 
@@ -15822,10 +15822,10 @@ define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_698__invokeES
 define internal void @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_708__invokeES1_PNS_8PyObjectE"(ptr dead_on_unwind noalias writable sret(%"struct.pkpy::Str") align 8 %0, ptr noundef nonnull %1, ptr noundef readonly captures(none) %2) #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.pkpy::SStream", align 8
   %5 = alloca %"struct.pkpy::Str", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_5VoidPEEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %1), !noalias !66
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !66
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !66
   store i32 0, ptr %4, align 8, !noalias !69
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 64, ptr %8, align 4, !noalias !69
@@ -15867,7 +15867,7 @@ common.resume.i:                                  ; preds = %21, %20, %17
   resume { ptr, i32 } %common.resume.op.i
 
 _ZNK4pkpy5VoidP3hexEv.exit.i:                     ; preds = %16, %14
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !66
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !66
   invoke void @_ZN4pkpy2_SIJRA2_KcRA6_S1_S5_NS_3StrES3_EEES6_DpOT_(ptr dead_on_unwind writable sret(%"struct.pkpy::Str") align 8 %0, ptr noundef nonnull align 1 dereferenceable(2) @.str.93, ptr noundef nonnull align 1 dereferenceable(6) @.str.102, ptr noundef nonnull align 1 dereferenceable(6) @.str.95, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 1 dereferenceable(2) @.str.83)
           to label %"_ZZN4pkpy12add_module_cEPNS_2VMEENK4$_70clES1_PNS_8PyObjectE.exit" unwind label %21
 
@@ -15879,7 +15879,7 @@ _ZNK4pkpy5VoidP3hexEv.exit.i:                     ; preds = %16, %14
 
 "_ZZN4pkpy12add_module_cEPNS_2VMEENK4$_70clES1_PNS_8PyObjectE.exit": ; preds = %_ZNK4pkpy5VoidP3hexEv.exit.i
   call void @_ZN4pkpy3StrD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #26
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -15888,9 +15888,9 @@ define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_718__invokeES
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load ptr, ptr %1, align 8
   %8 = tail call noundef i64 @_ZN4pkpy18_py_cast__internalIxLb1EEET_PNS_2VMEPNS_8PyObjectE(ptr noundef %0, ptr noundef %7)
   store i64 %8, ptr %4, align 8
@@ -15899,9 +15899,9 @@ define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_718__invokeES
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_6StructEEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
   %11 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_6StructEJPxmEEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %9, i16 %10, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %11
 }
 
@@ -16022,7 +16022,7 @@ define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_728__invokeES
   %5 = load ptr, ptr %1, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = load ptr, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %8 = load i64, ptr %7, align 8
   store i64 %8, ptr %4, align 8
   %or.cond.i.i = icmp ult i64 %8, 1152921504606846976
@@ -16041,7 +16041,7 @@ define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_728__invokeES
 
 "_ZZN4pkpy12add_module_cEPNS_2VMEENK4$_72clES1_NS_8ArgsViewE.exit": ; preds = %9, %13
   %.0.i.i = phi ptr [ %12, %9 ], [ %15, %13 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0.i.i
 }
 
@@ -16066,7 +16066,7 @@ define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_748__invokeES
   %6 = tail call noundef i64 @_ZN4pkpy18_py_cast__internalIlLb1EEET_PNS_2VMEPNS_8PyObjectE(ptr noundef %0, ptr noundef %2)
   %7 = load ptr, ptr %5, align 8
   %8 = getelementptr inbounds i64, ptr %7, i64 %6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %9 = load i64, ptr %8, align 8
   store i64 %9, ptr %4, align 8
   %or.cond.i.i = icmp ult i64 %9, 1152921504606846976
@@ -16085,7 +16085,7 @@ define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_748__invokeES
 
 "_ZZN4pkpy12add_module_cEPNS_2VMEENK4$_74clES1_PNS_8PyObjectES4_.exit": ; preds = %10, %14
   %.0.i.i = phi ptr [ %13, %10 ], [ %16, %14 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0.i.i
 }
 
@@ -16103,7 +16103,7 @@ define internal void @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_758__invokeES1_PNS_8
 ; Function Attrs: mustprogress uwtable
 define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_768__invokeES1_PNS_8PyObjectES4_"(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #3 align 2 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = tail call noundef i64 @_ZN4pkpy18_py_cast__internalIlLb1EEET_PNS_2VMEPNS_8PyObjectE(ptr noundef %0, ptr noundef %2)
   %7 = load ptr, ptr %5, align 8
@@ -16113,7 +16113,7 @@ define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_768__invokeES
   %10 = getelementptr inbounds i64, ptr %7, i64 %6
   store ptr %10, ptr %4, align 8
   %11 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_5VoidPEJPxEEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %8, i16 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %11
 }
 
@@ -16206,7 +16206,7 @@ _ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE9push_backERKS2_.exit: ; preds = %16, %_ZN
 ; Function Attrs: mustprogress uwtable
 define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_778__invokeES1_PNS_8PyObjectES4_"(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #3 align 2 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = tail call noundef i64 @_ZN4pkpy18_py_cast__internalIlLb1EEET_PNS_2VMEPNS_8PyObjectE(ptr noundef %0, ptr noundef %2)
   %7 = load ptr, ptr %5, align 8
@@ -16217,7 +16217,7 @@ define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_778__invokeES
   %11 = getelementptr inbounds i64, ptr %7, i64 %10
   store ptr %11, ptr %4, align 8
   %12 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_5VoidPEJPxEEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %8, i16 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %12
 }
 
@@ -16225,10 +16225,10 @@ define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_778__invokeES
 define internal void @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_788__invokeES1_PNS_8PyObjectE"(ptr dead_on_unwind noalias writable sret(%"struct.pkpy::Str") align 8 %0, ptr noundef nonnull %1, ptr noundef readonly captures(none) %2) #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.pkpy::SStream", align 8
   %5 = alloca %"struct.pkpy::Str", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_5VoidPEEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %1), !noalias !72
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !72
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !72
   store i32 0, ptr %4, align 8, !noalias !75
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 64, ptr %8, align 4, !noalias !75
@@ -16270,7 +16270,7 @@ common.resume.i:                                  ; preds = %21, %20, %17
   resume { ptr, i32 } %common.resume.op.i
 
 _ZNK4pkpy5VoidP3hexEv.exit.i:                     ; preds = %16, %14
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !72
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !72
   invoke void @_ZN4pkpy2_SIJRA2_KcRA9_S1_RA6_S1_NS_3StrES3_EEES8_DpOT_(ptr dead_on_unwind writable sret(%"struct.pkpy::Str") align 8 %0, ptr noundef nonnull align 1 dereferenceable(2) @.str.93, ptr noundef nonnull align 1 dereferenceable(9) @.str.103, ptr noundef nonnull align 1 dereferenceable(6) @.str.95, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 1 dereferenceable(2) @.str.83)
           to label %"_ZZN4pkpy12add_module_cEPNS_2VMEENK4$_78clES1_PNS_8PyObjectE.exit" unwind label %21
 
@@ -16282,7 +16282,7 @@ _ZNK4pkpy5VoidP3hexEv.exit.i:                     ; preds = %16, %14
 
 "_ZZN4pkpy12add_module_cEPNS_2VMEENK4$_78clES1_PNS_8PyObjectE.exit": ; preds = %_ZNK4pkpy5VoidP3hexEv.exit.i
   call void @_ZN4pkpy3StrD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #26
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -16352,9 +16352,9 @@ define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_798__invokeES
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load ptr, ptr %1, align 8
   %8 = tail call noundef i64 @_ZN4pkpy18_py_cast__internalIyLb1EEET_PNS_2VMEPNS_8PyObjectE(ptr noundef %0, ptr noundef %7)
   store i64 %8, ptr %4, align 8
@@ -16363,9 +16363,9 @@ define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_798__invokeES
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_6StructEEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
   %11 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_6StructEJPymEEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %9, i16 %10, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %11
 }
 
@@ -16486,7 +16486,7 @@ define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_808__invokeES
   %5 = load ptr, ptr %1, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = load ptr, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %8 = load i64, ptr %7, align 8
   store i64 %8, ptr %4, align 8
   %or.cond.i.i = icmp ult i64 %8, 1152921504606846976
@@ -16505,7 +16505,7 @@ define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_808__invokeES
 
 "_ZZN4pkpy12add_module_cEPNS_2VMEENK4$_80clES1_NS_8ArgsViewE.exit": ; preds = %9, %13
   %.0.i.i = phi ptr [ %12, %9 ], [ %15, %13 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0.i.i
 }
 
@@ -16530,7 +16530,7 @@ define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_828__invokeES
   %6 = tail call noundef i64 @_ZN4pkpy18_py_cast__internalIlLb1EEET_PNS_2VMEPNS_8PyObjectE(ptr noundef %0, ptr noundef %2)
   %7 = load ptr, ptr %5, align 8
   %8 = getelementptr inbounds i64, ptr %7, i64 %6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %9 = load i64, ptr %8, align 8
   store i64 %9, ptr %4, align 8
   %or.cond.i.i = icmp ult i64 %9, 1152921504606846976
@@ -16549,7 +16549,7 @@ define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_828__invokeES
 
 "_ZZN4pkpy12add_module_cEPNS_2VMEENK4$_82clES1_PNS_8PyObjectES4_.exit": ; preds = %10, %14
   %.0.i.i = phi ptr [ %13, %10 ], [ %16, %14 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0.i.i
 }
 
@@ -16567,7 +16567,7 @@ define internal void @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_838__invokeES1_PNS_8
 ; Function Attrs: mustprogress uwtable
 define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_848__invokeES1_PNS_8PyObjectES4_"(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #3 align 2 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = tail call noundef i64 @_ZN4pkpy18_py_cast__internalIlLb1EEET_PNS_2VMEPNS_8PyObjectE(ptr noundef %0, ptr noundef %2)
   %7 = load ptr, ptr %5, align 8
@@ -16577,7 +16577,7 @@ define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_848__invokeES
   %10 = getelementptr inbounds i64, ptr %7, i64 %6
   store ptr %10, ptr %4, align 8
   %11 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_5VoidPEJPyEEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %8, i16 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %11
 }
 
@@ -16670,7 +16670,7 @@ _ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE9push_backERKS2_.exit: ; preds = %16, %_ZN
 ; Function Attrs: mustprogress uwtable
 define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_858__invokeES1_PNS_8PyObjectES4_"(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #3 align 2 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = tail call noundef i64 @_ZN4pkpy18_py_cast__internalIlLb1EEET_PNS_2VMEPNS_8PyObjectE(ptr noundef %0, ptr noundef %2)
   %7 = load ptr, ptr %5, align 8
@@ -16681,7 +16681,7 @@ define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_858__invokeES
   %11 = getelementptr inbounds i64, ptr %7, i64 %10
   store ptr %11, ptr %4, align 8
   %12 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_5VoidPEJPyEEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %8, i16 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %12
 }
 
@@ -16689,10 +16689,10 @@ define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_858__invokeES
 define internal void @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_868__invokeES1_PNS_8PyObjectE"(ptr dead_on_unwind noalias writable sret(%"struct.pkpy::Str") align 8 %0, ptr noundef nonnull %1, ptr noundef readonly captures(none) %2) #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.pkpy::SStream", align 8
   %5 = alloca %"struct.pkpy::Str", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_5VoidPEEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %1), !noalias !78
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !78
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !78
   store i32 0, ptr %4, align 8, !noalias !81
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 64, ptr %8, align 4, !noalias !81
@@ -16734,7 +16734,7 @@ common.resume.i:                                  ; preds = %21, %20, %17
   resume { ptr, i32 } %common.resume.op.i
 
 _ZNK4pkpy5VoidP3hexEv.exit.i:                     ; preds = %16, %14
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !78
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !78
   invoke void @_ZN4pkpy2_SIJRA2_KcRA10_S1_RA6_S1_NS_3StrES3_EEES8_DpOT_(ptr dead_on_unwind writable sret(%"struct.pkpy::Str") align 8 %0, ptr noundef nonnull align 1 dereferenceable(2) @.str.93, ptr noundef nonnull align 1 dereferenceable(10) @.str.104, ptr noundef nonnull align 1 dereferenceable(6) @.str.95, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 1 dereferenceable(2) @.str.83)
           to label %"_ZZN4pkpy12add_module_cEPNS_2VMEENK4$_86clES1_PNS_8PyObjectE.exit" unwind label %21
 
@@ -16746,7 +16746,7 @@ _ZNK4pkpy5VoidP3hexEv.exit.i:                     ; preds = %16, %14
 
 "_ZZN4pkpy12add_module_cEPNS_2VMEENK4$_86clES1_PNS_8PyObjectE.exit": ; preds = %_ZNK4pkpy5VoidP3hexEv.exit.i
   call void @_ZN4pkpy3StrD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #26
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -16816,9 +16816,9 @@ define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_878__invokeES
   %4 = alloca float, align 4
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load ptr, ptr %1, align 8
   %8 = tail call noundef float @_ZN4pkpy18_py_cast__internalIfLb1EEET_PNS_2VMEPNS_8PyObjectE(ptr noundef %0, ptr noundef %7)
   store float %8, ptr %4, align 4
@@ -16827,9 +16827,9 @@ define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_878__invokeES
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_6StructEEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
   %11 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_6StructEJPfmEEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %9, i16 %10, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %11
 }
 
@@ -16950,13 +16950,13 @@ define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_888__invokeES
   %5 = load ptr, ptr %1, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = load ptr, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %8 = load float, ptr %7, align 4
   %9 = fpext float %8 to double
   store double %9, ptr %4, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewIdJRdEEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %10, i16 3, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %11
 }
 
@@ -16981,13 +16981,13 @@ define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_908__invokeES
   %6 = tail call noundef i64 @_ZN4pkpy18_py_cast__internalIlLb1EEET_PNS_2VMEPNS_8PyObjectE(ptr noundef %0, ptr noundef %2)
   %7 = load ptr, ptr %5, align 8
   %8 = getelementptr inbounds float, ptr %7, i64 %6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %9 = load float, ptr %8, align 4
   %10 = fpext float %9 to double
   store double %10, ptr %4, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewIdJRdEEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %11, i16 3, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %12
 }
 
@@ -17005,7 +17005,7 @@ define internal void @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_918__invokeES1_PNS_8
 ; Function Attrs: mustprogress uwtable
 define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_928__invokeES1_PNS_8PyObjectES4_"(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #3 align 2 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = tail call noundef i64 @_ZN4pkpy18_py_cast__internalIlLb1EEET_PNS_2VMEPNS_8PyObjectE(ptr noundef %0, ptr noundef %2)
   %7 = load ptr, ptr %5, align 8
@@ -17015,7 +17015,7 @@ define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_928__invokeES
   %10 = getelementptr inbounds float, ptr %7, i64 %6
   store ptr %10, ptr %4, align 8
   %11 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_5VoidPEJPfEEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %8, i16 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %11
 }
 
@@ -17108,7 +17108,7 @@ _ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE9push_backERKS2_.exit: ; preds = %16, %_ZN
 ; Function Attrs: mustprogress uwtable
 define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_938__invokeES1_PNS_8PyObjectES4_"(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #3 align 2 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = tail call noundef i64 @_ZN4pkpy18_py_cast__internalIlLb1EEET_PNS_2VMEPNS_8PyObjectE(ptr noundef %0, ptr noundef %2)
   %7 = load ptr, ptr %5, align 8
@@ -17119,7 +17119,7 @@ define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_938__invokeES
   %11 = getelementptr inbounds float, ptr %7, i64 %10
   store ptr %11, ptr %4, align 8
   %12 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_5VoidPEJPfEEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %8, i16 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %12
 }
 
@@ -17127,10 +17127,10 @@ define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_938__invokeES
 define internal void @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_948__invokeES1_PNS_8PyObjectE"(ptr dead_on_unwind noalias writable sret(%"struct.pkpy::Str") align 8 %0, ptr noundef nonnull %1, ptr noundef readonly captures(none) %2) #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.pkpy::SStream", align 8
   %5 = alloca %"struct.pkpy::Str", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_5VoidPEEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %1), !noalias !84
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !84
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !84
   store i32 0, ptr %4, align 8, !noalias !87
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 64, ptr %8, align 4, !noalias !87
@@ -17172,7 +17172,7 @@ common.resume.i:                                  ; preds = %21, %20, %17
   resume { ptr, i32 } %common.resume.op.i
 
 _ZNK4pkpy5VoidP3hexEv.exit.i:                     ; preds = %16, %14
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !84
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !84
   invoke void @_ZN4pkpy2_SIJRA2_KcRA6_S1_S5_NS_3StrES3_EEES6_DpOT_(ptr dead_on_unwind writable sret(%"struct.pkpy::Str") align 8 %0, ptr noundef nonnull align 1 dereferenceable(2) @.str.93, ptr noundef nonnull align 1 dereferenceable(6) @.str.105, ptr noundef nonnull align 1 dereferenceable(6) @.str.95, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 1 dereferenceable(2) @.str.83)
           to label %"_ZZN4pkpy12add_module_cEPNS_2VMEENK4$_94clES1_PNS_8PyObjectE.exit" unwind label %21
 
@@ -17184,7 +17184,7 @@ _ZNK4pkpy5VoidP3hexEv.exit.i:                     ; preds = %16, %14
 
 "_ZZN4pkpy12add_module_cEPNS_2VMEENK4$_94clES1_PNS_8PyObjectE.exit": ; preds = %_ZNK4pkpy5VoidP3hexEv.exit.i
   call void @_ZN4pkpy3StrD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #26
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -17193,9 +17193,9 @@ define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_958__invokeES
   %4 = alloca double, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load ptr, ptr %1, align 8
   %8 = tail call noundef double @_ZN4pkpy18_py_cast__internalIdLb1EEET_PNS_2VMEPNS_8PyObjectE(ptr noundef %0, ptr noundef %7)
   store double %8, ptr %4, align 8
@@ -17204,9 +17204,9 @@ define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_958__invokeES
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_6StructEEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
   %11 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_6StructEJPdmEEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %9, i16 %10, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %11
 }
 
@@ -17327,12 +17327,12 @@ define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_968__invokeES
   %5 = load ptr, ptr %1, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = load ptr, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %8 = load double, ptr %7, align 8
   store double %8, ptr %4, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewIdJRdEEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %9, i16 3, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %10
 }
 
@@ -17357,12 +17357,12 @@ define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_988__invokeES
   %6 = tail call noundef i64 @_ZN4pkpy18_py_cast__internalIlLb1EEET_PNS_2VMEPNS_8PyObjectE(ptr noundef %0, ptr noundef %2)
   %7 = load ptr, ptr %5, align 8
   %8 = getelementptr inbounds double, ptr %7, i64 %6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %9 = load double, ptr %8, align 8
   store double %9, ptr %4, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewIdJRdEEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %10, i16 3, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %11
 }
 
@@ -17380,7 +17380,7 @@ define internal void @"_ZZN4pkpy12add_module_cEPNS_2VMEEN4$_998__invokeES1_PNS_8
 ; Function Attrs: mustprogress uwtable
 define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN5$_1008__invokeES1_PNS_8PyObjectES4_"(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #3 align 2 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = tail call noundef i64 @_ZN4pkpy18_py_cast__internalIlLb1EEET_PNS_2VMEPNS_8PyObjectE(ptr noundef %0, ptr noundef %2)
   %7 = load ptr, ptr %5, align 8
@@ -17390,7 +17390,7 @@ define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN5$_1008__invokeE
   %10 = getelementptr inbounds double, ptr %7, i64 %6
   store ptr %10, ptr %4, align 8
   %11 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_5VoidPEJPdEEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %8, i16 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %11
 }
 
@@ -17483,7 +17483,7 @@ _ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE9push_backERKS2_.exit: ; preds = %16, %_ZN
 ; Function Attrs: mustprogress uwtable
 define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN5$_1018__invokeES1_PNS_8PyObjectES4_"(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #3 align 2 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = tail call noundef i64 @_ZN4pkpy18_py_cast__internalIlLb1EEET_PNS_2VMEPNS_8PyObjectE(ptr noundef %0, ptr noundef %2)
   %7 = load ptr, ptr %5, align 8
@@ -17494,7 +17494,7 @@ define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN5$_1018__invokeE
   %11 = getelementptr inbounds double, ptr %7, i64 %10
   store ptr %11, ptr %4, align 8
   %12 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_5VoidPEJPdEEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %8, i16 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %12
 }
 
@@ -17502,10 +17502,10 @@ define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN5$_1018__invokeE
 define internal void @"_ZZN4pkpy12add_module_cEPNS_2VMEEN5$_1028__invokeES1_PNS_8PyObjectE"(ptr dead_on_unwind noalias writable sret(%"struct.pkpy::Str") align 8 %0, ptr noundef nonnull %1, ptr noundef readonly captures(none) %2) #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.pkpy::SStream", align 8
   %5 = alloca %"struct.pkpy::Str", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_5VoidPEEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %1), !noalias !90
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !90
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !90
   store i32 0, ptr %4, align 8, !noalias !93
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 64, ptr %8, align 4, !noalias !93
@@ -17547,7 +17547,7 @@ common.resume.i:                                  ; preds = %21, %20, %17
   resume { ptr, i32 } %common.resume.op.i
 
 _ZNK4pkpy5VoidP3hexEv.exit.i:                     ; preds = %16, %14
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !90
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !90
   invoke void @_ZN4pkpy2_SIJRA2_KcRA7_S1_RA6_S1_NS_3StrES3_EEES8_DpOT_(ptr dead_on_unwind writable sret(%"struct.pkpy::Str") align 8 %0, ptr noundef nonnull align 1 dereferenceable(2) @.str.93, ptr noundef nonnull align 1 dereferenceable(7) @.str.106, ptr noundef nonnull align 1 dereferenceable(6) @.str.95, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 1 dereferenceable(2) @.str.83)
           to label %"_ZZN4pkpy12add_module_cEPNS_2VMEENK5$_102clES1_PNS_8PyObjectE.exit" unwind label %21
 
@@ -17559,7 +17559,7 @@ _ZNK4pkpy5VoidP3hexEv.exit.i:                     ; preds = %16, %14
 
 "_ZZN4pkpy12add_module_cEPNS_2VMEENK5$_102clES1_PNS_8PyObjectE.exit": ; preds = %_ZNK4pkpy5VoidP3hexEv.exit.i
   call void @_ZN4pkpy3StrD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #26
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -17568,9 +17568,9 @@ define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN5$_1038__invokeE
   %4 = alloca i8, align 1
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load ptr, ptr %1, align 8
   %8 = tail call noundef zeroext i1 @_ZN4pkpy18_py_cast__internalIbLb1EEET_PNS_2VMEPNS_8PyObjectE(ptr noundef %0, ptr noundef %7)
   %9 = zext i1 %8 to i8
@@ -17580,9 +17580,9 @@ define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN5$_1038__invokeE
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_6StructEEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
   %12 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_6StructEJPbmEEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %10, i16 %11, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %12
 }
 
@@ -17754,7 +17754,7 @@ define internal void @"_ZZN4pkpy12add_module_cEPNS_2VMEEN5$_1078__invokeES1_PNS_
 ; Function Attrs: mustprogress uwtable
 define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN5$_1088__invokeES1_PNS_8PyObjectES4_"(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #3 align 2 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = tail call noundef i64 @_ZN4pkpy18_py_cast__internalIlLb1EEET_PNS_2VMEPNS_8PyObjectE(ptr noundef %0, ptr noundef %2)
   %7 = load ptr, ptr %5, align 8
@@ -17764,7 +17764,7 @@ define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN5$_1088__invokeE
   %10 = getelementptr inbounds i8, ptr %7, i64 %6
   store ptr %10, ptr %4, align 8
   %11 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_5VoidPEJPbEEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %8, i16 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %11
 }
 
@@ -17857,7 +17857,7 @@ _ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE9push_backERKS2_.exit: ; preds = %16, %_ZN
 ; Function Attrs: mustprogress uwtable
 define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN5$_1098__invokeES1_PNS_8PyObjectES4_"(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #3 align 2 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = tail call noundef i64 @_ZN4pkpy18_py_cast__internalIlLb1EEET_PNS_2VMEPNS_8PyObjectE(ptr noundef %0, ptr noundef %2)
   %7 = load ptr, ptr %5, align 8
@@ -17868,7 +17868,7 @@ define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN5$_1098__invokeE
   %11 = getelementptr inbounds i8, ptr %7, i64 %10
   store ptr %11, ptr %4, align 8
   %12 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_5VoidPEJPbEEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %8, i16 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %12
 }
 
@@ -17876,10 +17876,10 @@ define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN5$_1098__invokeE
 define internal void @"_ZZN4pkpy12add_module_cEPNS_2VMEEN5$_1108__invokeES1_PNS_8PyObjectE"(ptr dead_on_unwind noalias writable sret(%"struct.pkpy::Str") align 8 %0, ptr noundef nonnull %1, ptr noundef readonly captures(none) %2) #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.pkpy::SStream", align 8
   %5 = alloca %"struct.pkpy::Str", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_5VoidPEEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %1), !noalias !96
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !96
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !96
   store i32 0, ptr %4, align 8, !noalias !99
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 64, ptr %8, align 4, !noalias !99
@@ -17921,7 +17921,7 @@ common.resume.i:                                  ; preds = %21, %20, %17
   resume { ptr, i32 } %common.resume.op.i
 
 _ZNK4pkpy5VoidP3hexEv.exit.i:                     ; preds = %16, %14
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !96
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !96
   invoke void @_ZN4pkpy2_SIJRA2_KcRA5_S1_RA6_S1_NS_3StrES3_EEES8_DpOT_(ptr dead_on_unwind writable sret(%"struct.pkpy::Str") align 8 %0, ptr noundef nonnull align 1 dereferenceable(2) @.str.93, ptr noundef nonnull align 1 dereferenceable(5) @.str.107, ptr noundef nonnull align 1 dereferenceable(6) @.str.95, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 1 dereferenceable(2) @.str.83)
           to label %"_ZZN4pkpy12add_module_cEPNS_2VMEENK5$_110clES1_PNS_8PyObjectE.exit" unwind label %21
 
@@ -17933,7 +17933,7 @@ _ZNK4pkpy5VoidP3hexEv.exit.i:                     ; preds = %16, %14
 
 "_ZZN4pkpy12add_module_cEPNS_2VMEENK5$_110clES1_PNS_8PyObjectE.exit": ; preds = %_ZNK4pkpy5VoidP3hexEv.exit.i
   call void @_ZN4pkpy3StrD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #26
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -18165,7 +18165,7 @@ define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN5$_1118__invokeE
   %5 = load ptr, ptr %1, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = load ptr, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN4pkpy3StrC1EPKc(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %7)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = invoke noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_3StrEJS2_EEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %8, i16 5, ptr noundef nonnull align 8 dereferenceable(32) %4)
@@ -18179,7 +18179,7 @@ define internal noundef ptr @"_ZZN4pkpy12add_module_cEPNS_2VMEEN5$_1118__invokeE
 
 "_ZZN4pkpy12add_module_cEPNS_2VMEENK5$_111clES1_NS_8ArgsViewE.exit": ; preds = %3
   call void @_ZN4pkpy3StrD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #26
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %9
 }
 
@@ -19450,10 +19450,10 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 declare i32 @llvm.abs.i32(i32, i1 immarg) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #23
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #23
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #22

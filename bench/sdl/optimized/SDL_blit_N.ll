@@ -263,13 +263,10 @@ define hidden ptr @SDL_CalculateBlitN(ptr noundef readonly captures(none) %0) lo
   ret ptr %.079
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare zeroext i1 @SDL_HasMMX_REAL() local_unnamed_addr #2
+declare zeroext i1 @SDL_HasMMX_REAL() local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @BlitNtoN(ptr noundef readonly captures(none) %0) #3 {
+define internal void @BlitNtoN(ptr noundef readonly captures(none) %0) #2 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
@@ -335,11 +332,11 @@ define internal void @BlitNtoN(ptr noundef readonly captures(none) %0) #3 {
   br i1 %or.cond707, label %.thread704, label %52
 
 52:                                               ; preds = %49
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call fastcc void @get_permutation(ptr noundef nonnull %29, ptr noundef nonnull %33, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef nonnull %2)
   %.not689722 = icmp eq i32 %19, 0
   br i1 %.not689722, label %._crit_edge727, label %.lr.ph726
@@ -520,11 +517,11 @@ default.unreachable:                              ; preds = %263, %176, %394
   br i1 %.not689, label %._crit_edge727, label %.lr.ph726.split, !llvm.loop !6
 
 ._crit_edge727:                                   ; preds = %162, %52
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.loopexit
 
 165:                                              ; preds = %42
@@ -539,10 +536,10 @@ default.unreachable:                              ; preds = %263, %176, %394
   br i1 %or.cond708, label %.thread704, label %170
 
 170:                                              ; preds = %167
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call fastcc void @get_permutation(ptr noundef nonnull %29, ptr noundef nonnull %33, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef null)
   %.not688716 = icmp eq i32 %19, 0
   br i1 %.not688716, label %._crit_edge721, label %.lr.ph720
@@ -676,10 +673,10 @@ default.unreachable:                              ; preds = %263, %176, %394
   br i1 %.not688, label %._crit_edge721, label %176, !llvm.loop !8
 
 ._crit_edge721:                                   ; preds = %248, %170
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.loopexit
 
 251:                                              ; preds = %165
@@ -694,11 +691,11 @@ default.unreachable:                              ; preds = %263, %176, %394
   br i1 %or.cond709, label %.thread704, label %256
 
 256:                                              ; preds = %253
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call fastcc void @get_permutation(ptr noundef nonnull %29, ptr noundef nonnull %33, ptr noundef %12, ptr noundef %13, ptr noundef %14, ptr noundef %15, ptr noundef nonnull %11)
   %.not687713 = icmp eq i32 %19, 0
   br i1 %.not687713, label %._crit_edge, label %.lr.ph
@@ -873,11 +870,11 @@ default.unreachable:                              ; preds = %263, %176, %394
   br i1 %.not687, label %._crit_edge, label %263, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %367, %256
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.loopexit
 
 .thread704:                                       ; preds = %253, %167, %49, %46, %251
@@ -2115,10 +2112,10 @@ default.unreachable:                              ; preds = %263, %176, %394
   ret void
 }
 
-declare void @SDL_BlitCopy(ptr noundef) #2
+declare void @SDL_BlitCopy(ptr noundef) #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @BlitNtoNCopyAlpha(ptr noundef readonly captures(none) %0) #3 {
+define internal void @BlitNtoNCopyAlpha(ptr noundef readonly captures(none) %0) #2 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
@@ -2161,10 +2158,10 @@ define internal void @BlitNtoNCopyAlpha(ptr noundef readonly captures(none) %0) 
   br i1 %or.cond227, label %135, label %34
 
 34:                                               ; preds = %31
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call fastcc void @get_permutation(ptr noundef nonnull %19, ptr noundef nonnull %23, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef null)
   %.not219228 = icmp eq i32 %9, 0
   br i1 %.not219228, label %._crit_edge, label %.lr.ph
@@ -2325,10 +2322,10 @@ default.unreachable243:                           ; preds = %40
   br i1 %.not219, label %._crit_edge, label %40, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %132, %34
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.loopexit
 
 135:                                              ; preds = %31, %28, %1
@@ -2716,7 +2713,7 @@ default.unreachable243:                           ; preds = %40
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @Blit4to4MaskAlpha(ptr noundef readonly captures(none) %0) #3 {
+define internal void @Blit4to4MaskAlpha(ptr noundef readonly captures(none) %0) #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 52
@@ -3017,7 +3014,7 @@ default.unreachable:                              ; preds = %98
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @Blit2to2MaskAlpha(ptr noundef readonly captures(none) %0) #3 {
+define internal void @Blit2to2MaskAlpha(ptr noundef readonly captures(none) %0) #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 52
@@ -3318,11 +3315,8 @@ default.unreachable:                              ; preds = %100
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @Blit2to2Key(ptr noundef readonly captures(none) %0) #3 {
+define internal void @Blit2to2Key(ptr noundef readonly captures(none) %0) #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %3 = load i32, ptr %2, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 116
@@ -3540,7 +3534,7 @@ default.unreachable105:                           ; preds = %29
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @BlitNtoNKeyCopyAlpha(ptr noundef readonly captures(none) %0) #3 {
+define internal void @BlitNtoNKeyCopyAlpha(ptr noundef readonly captures(none) %0) #2 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
@@ -3785,10 +3779,10 @@ default.unreachable:                              ; preds = %117, %255
   br i1 %or.cond769, label %228, label %111
 
 111:                                              ; preds = %102
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call fastcc void @get_permutation(ptr noundef nonnull %21, ptr noundef nonnull %23, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef null)
   %.not723748 = icmp eq i32 %9, 0
   br i1 %.not723748, label %._crit_edge, label %.lr.ph
@@ -3982,10 +3976,10 @@ default.unreachable:                              ; preds = %117, %255
   br i1 %.not723, label %._crit_edge, label %117, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %225, %111
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.loopexit
 
 228:                                              ; preds = %102
@@ -5402,7 +5396,7 @@ default.unreachable:                              ; preds = %117, %255
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @BlitNtoNKey(ptr noundef readonly captures(none) %0) #3 {
+define internal void @BlitNtoNKey(ptr noundef readonly captures(none) %0) #2 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
@@ -5890,11 +5884,11 @@ default.unreachable:                              ; preds = %245, %626, %520, %7
   br i1 %or.cond1274, label %.critedge.thread, label %238
 
 238:                                              ; preds = %235
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call fastcc void @get_permutation(ptr noundef nonnull %31, ptr noundef nonnull %33, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef nonnull %2)
   %.not11331206 = icmp eq i32 %19, 0
   br i1 %.not11331206, label %._crit_edge, label %.lr.ph
@@ -6105,11 +6099,11 @@ default.unreachable:                              ; preds = %245, %626, %520, %7
   br i1 %.not1133, label %._crit_edge, label %245, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %365, %238
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.loopexit
 
 .critedge.thread:                                 ; preds = %235
@@ -6454,10 +6448,10 @@ default.unreachable:                              ; preds = %245, %626, %520, %7
   br i1 %or.cond1193, label %.thread, label %514
 
 514:                                              ; preds = %512
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call fastcc void @get_permutation(ptr noundef nonnull %31, ptr noundef nonnull %33, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef null)
   %.not11021215 = icmp eq i32 %19, 0
   br i1 %.not11021215, label %._crit_edge1220, label %.lr.ph1219
@@ -6627,10 +6621,10 @@ default.unreachable:                              ; preds = %245, %626, %520, %7
   br i1 %.not1102, label %._crit_edge1220, label %520, !llvm.loop !44
 
 ._crit_edge1220:                                  ; preds = %608, %514
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.loopexit
 
 611:                                              ; preds = %510
@@ -6642,11 +6636,11 @@ default.unreachable:                              ; preds = %245, %626, %520, %7
   br i1 %or.cond1275.not, label %614, label %.thread
 
 614:                                              ; preds = %611
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call fastcc void @get_permutation(ptr noundef nonnull %31, ptr noundef nonnull %33, ptr noundef %12, ptr noundef %13, ptr noundef %14, ptr noundef %15, ptr noundef nonnull %11)
   %.not10891209 = icmp eq i32 %19, 0
   br i1 %.not10891209, label %._crit_edge1214, label %.lr.ph1213
@@ -6898,11 +6892,11 @@ default.unreachable:                              ; preds = %245, %626, %520, %7
   br i1 %.not1089, label %._crit_edge1214, label %626, !llvm.loop !46
 
 ._crit_edge1214:                                  ; preds = %762, %614
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.loopexit
 
 .thread:                                          ; preds = %512, %611
@@ -7833,31 +7827,31 @@ default.unreachable:                              ; preds = %245, %626, %520, %7
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @Blit_RGB565_ARGB8888(ptr noundef readonly captures(none) %0) #3 {
+define internal void @Blit_RGB565_ARGB8888(ptr noundef readonly captures(none) %0) #2 {
   tail call fastcc void @Blit_RGB565_32(ptr noundef %0, ptr noundef nonnull @RGB565_ARGB8888_LUT)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @Blit_RGB565_ABGR8888(ptr noundef readonly captures(none) %0) #3 {
+define internal void @Blit_RGB565_ABGR8888(ptr noundef readonly captures(none) %0) #2 {
   tail call fastcc void @Blit_RGB565_32(ptr noundef %0, ptr noundef nonnull @RGB565_ABGR8888_LUT)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @Blit_RGB565_RGBA8888(ptr noundef readonly captures(none) %0) #3 {
+define internal void @Blit_RGB565_RGBA8888(ptr noundef readonly captures(none) %0) #2 {
   tail call fastcc void @Blit_RGB565_32(ptr noundef %0, ptr noundef nonnull @RGB565_RGBA8888_LUT)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @Blit_RGB565_BGRA8888(ptr noundef readonly captures(none) %0) #3 {
+define internal void @Blit_RGB565_BGRA8888(ptr noundef readonly captures(none) %0) #2 {
   tail call fastcc void @Blit_RGB565_32(ptr noundef %0, ptr noundef nonnull @RGB565_BGRA8888_LUT)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @Blit_RGB565_32(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 {
+define internal fastcc void @Blit_RGB565_32(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %4 = load i32, ptr %3, align 4
   %.not55 = icmp eq i32 %4, 0
@@ -7998,7 +7992,7 @@ default.unreachable58:                            ; preds = %21
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @Blit_3or4_to_3or4__same_rgb(ptr noundef readonly captures(none) %0) #3 {
+define internal void @Blit_3or4_to_3or4__same_rgb(ptr noundef readonly captures(none) %0) #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 52
@@ -8249,7 +8243,7 @@ default.unreachable:                              ; preds = %.lr.ph197.split
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @Blit_3or4_to_3or4__inversed_rgb(ptr noundef readonly captures(none) %0) #3 {
+define internal void @Blit_3or4_to_3or4__inversed_rgb(ptr noundef readonly captures(none) %0) #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 52
@@ -8671,7 +8665,7 @@ default.unreachable:                              ; preds = %148, %.lr.ph295.spl
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @Blit_XRGB8888_RGB565(ptr noundef readonly captures(none) %0) #3 {
+define internal void @Blit_XRGB8888_RGB565(ptr noundef readonly captures(none) %0) #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %3 = load i32, ptr %2, align 4
   %.not48 = icmp eq i32 %3, 0
@@ -8801,7 +8795,7 @@ default.unreachable51:                            ; preds = %21
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @Blit_XRGB8888_RGB555(ptr noundef readonly captures(none) %0) #3 {
+define internal void @Blit_XRGB8888_RGB555(ptr noundef readonly captures(none) %0) #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %3 = load i32, ptr %2, align 4
   %.not48 = icmp eq i32 %3, 0
@@ -8931,7 +8925,7 @@ default.unreachable51:                            ; preds = %21
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @get_permutation(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %2, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %3, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %4, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %5, ptr noundef writeonly captures(address_is_null) %6) unnamed_addr #4 {
+define internal fastcc void @get_permutation(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %2, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %3, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %4, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %5, ptr noundef writeonly captures(address_is_null) %6) unnamed_addr #3 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %9 = load i32, ptr %8, align 4
   %.not = icmp eq i32 %9, 0
@@ -9149,14 +9143,20 @@ define internal fastcc void @get_permutation(ptr noundef readonly captures(none)
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nounwind }
 

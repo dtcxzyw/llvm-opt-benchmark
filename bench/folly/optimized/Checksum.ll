@@ -109,9 +109,6 @@ define noundef i32 @_ZN5folly6detail9crc32c_swEPKhmj(ptr noundef %0, i64 noundef
   ret i32 %4
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
-
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef i32 @_ZN5folly6detail6crc_swILj517762881EEEjPKhmj(ptr noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #5 comdat personality ptr @__gxx_personality_v0 {
   %4 = tail call i32 @llvm.bitreverse.i32(i32 %2)
@@ -188,11 +185,8 @@ _ZN5boost11crc_optimalILm32ELj517762881ELj4294967295ELj0ELb1ELb1EE13process_byte
   ret i32 %.0.lcssa.i.i
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
-
 ; Function Attrs: nofree nounwind
-declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #7
+declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef nonnull align 4 dereferenceable(1024) ptr @_ZN5boost6detail11crc_table_tILi32ELi8ELm517762881ELb1EE9get_tableEv() local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -225,10 +219,10 @@ define linkonce_odr noundef nonnull align 4 dereferenceable(1024) ptr @_ZN5boost
 }
 
 ; Function Attrs: nofree nounwind
-declare void @__cxa_guard_abort(ptr) local_unnamed_addr #7
+declare void @__cxa_guard_abort(ptr) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare void @__cxa_guard_release(ptr) local_unnamed_addr #7
+declare void @__cxa_guard_release(ptr) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5boost6detail31make_partial_xor_products_tableILi8EjEENS_5arrayIT0_XlsLm1ET_EEEiS3_b(ptr dead_on_unwind noalias writable sret(%"class.boost::array") align 4 %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #5 comdat {
@@ -388,7 +382,7 @@ _ZN5boost6detail22crc_modulo_word_updateIjtEEviRT_T0_S2_ib.exit: ; preds = %.lr.
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare ptr @llvm.invariant.start.p0(i64 immarg, ptr captures(none)) #6
+declare ptr @llvm.invariant.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN5folly6detail8crc32_swEPKhmj(ptr noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #5 {
@@ -524,7 +518,7 @@ define noundef i32 @_ZN5folly10crc32_typeEPKhmj(ptr noundef %0, i64 noundef %1, 
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN5folly13crc32_combineEjjm(i32 noundef %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #5 {
   %4 = alloca [4 x i8], align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4
   %5 = and i64 %2, 3
   %.not = icmp eq i64 %5, 0
@@ -537,7 +531,7 @@ define noundef i32 @_ZN5folly13crc32_combineEjjm(i32 noundef %0, i32 noundef %1,
 8:                                                ; preds = %6, %3
   %.011 = phi i32 [ %7, %6 ], [ %0, %3 ]
   %9 = call noundef i32 @_ZN5folly6detail16crc32_combine_swEjjm(i32 noundef %.011, i32 noundef %1, i64 noundef %2)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %9
 }
 
@@ -546,7 +540,7 @@ declare noundef i32 @_ZN5folly6detail16crc32_combine_swEjjm(i32 noundef, i32 nou
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN5folly14crc32c_combineEjjm(i32 noundef %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #5 {
   %4 = alloca [4 x i8], align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4
   %5 = and i64 %2, 3
   %.not = icmp eq i64 %5, 0
@@ -560,11 +554,17 @@ define noundef i32 @_ZN5folly14crc32c_combineEjjm(i32 noundef %0, i32 noundef %1
   %.013 = phi i32 [ %7, %6 ], [ %0, %3 ]
   %9 = and i64 %2, -4
   %10 = call noundef i32 @_ZN5folly6detail17crc32c_combine_swEjjm(i32 noundef %.013, i32 noundef %1, i64 noundef %9)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %10
 }
 
 declare noundef i32 @_ZN5folly6detail17crc32c_combine_swEjjm(i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.bitreverse.i32(i32) #8
@@ -575,8 +575,8 @@ attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-siz
 attributes #3 = { cold noreturn }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nofree nounwind }
+attributes #6 = { nofree nounwind }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #9 = { nounwind }
 attributes #10 = { noreturn }

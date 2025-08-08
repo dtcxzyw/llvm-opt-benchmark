@@ -354,19 +354,13 @@ define i32 @ARKodeSetDefaults(ptr noundef %0) local_unnamed_addr #0 {
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare void @arkProcessError(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare void @arkProcessError(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare i32 @arkEwtSetSS(ptr noundef, ptr noundef, ptr noundef) #1
 
-declare i32 @arkEwtSetSS(ptr noundef, ptr noundef, ptr noundef) #2
+declare i32 @arkRwtSet(ptr noundef, ptr noundef, ptr noundef) #1
 
-declare i32 @arkRwtSet(ptr noundef, ptr noundef, ptr noundef) #2
-
-declare i32 @arkExpStab(ptr noundef, double noundef, ptr noundef, ptr noundef) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @arkExpStab(ptr noundef, double noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKodeSetOrder(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -486,11 +480,11 @@ define range(i32 -22, 1) i32 @ARKodeSetInterpolantType(ptr noundef %0, i32 nound
   ret i32 %.0
 }
 
-declare void @arkInterpFree(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @arkInterpFree(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @arkInterpCreate_Hermite(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @arkInterpCreate_Hermite(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @arkInterpCreate_Lagrange(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @arkInterpCreate_Lagrange(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKodeSetInterpolantDegree(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -538,7 +532,7 @@ define i32 @ARKodeSetInterpolantDegree(ptr noundef %0, i32 noundef %1) local_unn
   ret i32 %.0
 }
 
-declare i32 @arkInterpSetDegree(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @arkInterpSetDegree(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKodeSetNonlinearSolver(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -1196,8 +1190,8 @@ define i32 @ARKodeSetAdaptController(ptr noundef %0, ptr noundef %1) local_unnam
 define range(i32 -20, 1) i32 @arkReplaceAdaptController(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 776
   %7 = load ptr, ptr %6, align 8, !tbaa !36
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 112
@@ -1296,8 +1290,8 @@ define range(i32 -20, 1) i32 @arkReplaceAdaptController(ptr noundef %0, ptr noun
 
 60:                                               ; preds = %57, %41, %32
   %.0 = phi i32 [ -20, %32 ], [ -20, %41 ], [ 0, %57 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -1412,7 +1406,7 @@ define range(i32 -48, 1) i32 @ARKodeSetInitStep(ptr noundef %0, double noundef %
   ret i32 %.0
 }
 
-declare i32 @SUNAdaptController_Reset(ptr noundef) local_unnamed_addr #2
+declare i32 @SUNAdaptController_Reset(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -48, 1) i32 @ARKodeSetMinStep(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
@@ -1697,9 +1691,9 @@ ARKodeSetInitStep.exit:                           ; preds = %48, %40, %41, %31, 
   ret i32 %.0
 }
 
-declare i32 @ARKodeSVtolerances(ptr noundef, double noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeSVtolerances(ptr noundef, double noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @ARKodeSStolerances(ptr noundef, double noundef, double noundef) local_unnamed_addr #2
+declare i32 @ARKodeSStolerances(ptr noundef, double noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKodeSetStepDirection(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
@@ -2063,13 +2057,13 @@ define range(i32 -48, 1) i32 @ARKodeSetConstraints(ptr noundef %0, ptr noundef %
   ret i32 %.0
 }
 
-declare void @arkFreeVec(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @arkFreeVec(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare double @N_VMaxNorm(ptr noundef) local_unnamed_addr #2
+declare double @N_VMaxNorm(ptr noundef) local_unnamed_addr #1
 
-declare i32 @arkAllocVec(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @arkAllocVec(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @N_VScale(double noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @N_VScale(double noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -48, 1) i32 @ARKodeSetMaxNumConstrFails(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -2112,8 +2106,8 @@ define range(i32 -48, 1) i32 @ARKodeSetMaxNumConstrFails(ptr noundef %0, i32 nou
 define i32 @ARKodeSetCFLFraction(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call i32 @arkAccessHAdaptMem(ptr noundef %0, ptr noundef nonnull @__func__.ARKodeSetCFLFraction, ptr noundef nonnull %4, ptr noundef nonnull %3) #9
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %20
@@ -2153,19 +2147,19 @@ define i32 @ARKodeSetCFLFraction(ptr noundef %0, double noundef %1) local_unname
 
 20:                                               ; preds = %18, %19, %2, %13, %10
   %.0 = phi i32 [ -22, %13 ], [ -48, %10 ], [ %5, %2 ], [ 0, %19 ], [ 0, %18 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
-declare i32 @arkAccessHAdaptMem(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @arkAccessHAdaptMem(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKodeSetAdaptivityAdjustment(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call i32 @arkAccessHAdaptMem(ptr noundef %0, ptr noundef nonnull @__func__.ARKodeSetAdaptivityAdjustment, ptr noundef nonnull %4, ptr noundef nonnull %3) #9
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %14
@@ -2189,8 +2183,8 @@ define i32 @ARKodeSetAdaptivityAdjustment(ptr noundef %0, i32 noundef %1) local_
 
 14:                                               ; preds = %2, %11, %10
   %.0 = phi i32 [ 0, %11 ], [ -48, %10 ], [ %5, %2 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
@@ -2198,8 +2192,8 @@ define i32 @ARKodeSetAdaptivityAdjustment(ptr noundef %0, i32 noundef %1) local_
 define i32 @ARKodeSetSafetyFactor(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call i32 @arkAccessHAdaptMem(ptr noundef %0, ptr noundef nonnull @__func__.ARKodeSetSafetyFactor, ptr noundef nonnull %4, ptr noundef nonnull %3) #9
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %20
@@ -2239,8 +2233,8 @@ define i32 @ARKodeSetSafetyFactor(ptr noundef %0, double noundef %1) local_unnam
 
 20:                                               ; preds = %18, %19, %2, %13, %10
   %.0 = phi i32 [ -22, %13 ], [ -48, %10 ], [ %5, %2 ], [ 0, %19 ], [ 0, %18 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
@@ -2248,8 +2242,8 @@ define i32 @ARKodeSetSafetyFactor(ptr noundef %0, double noundef %1) local_unnam
 define i32 @ARKodeSetErrorBias(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call i32 @arkAccessHAdaptMem(ptr noundef %0, ptr noundef nonnull @__func__.ARKodeSetErrorBias, ptr noundef nonnull %4, ptr noundef nonnull %3) #9
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %26
@@ -2294,19 +2288,19 @@ define i32 @ARKodeSetErrorBias(ptr noundef %0, double noundef %1) local_unnamed_
 
 26:                                               ; preds = %18, %2, %24, %17, %10
   %.06 = phi i32 [ -21, %17 ], [ -47, %24 ], [ -48, %10 ], [ %5, %2 ], [ 0, %18 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.06
 }
 
-declare i32 @SUNAdaptController_SetErrorBias(ptr noundef, double noundef) local_unnamed_addr #2
+declare i32 @SUNAdaptController_SetErrorBias(ptr noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKodeSetMaxGrowth(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call i32 @arkAccessHAdaptMem(ptr noundef %0, ptr noundef nonnull @__func__.ARKodeSetMaxGrowth, ptr noundef nonnull %4, ptr noundef nonnull %3) #9
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %17
@@ -2338,8 +2332,8 @@ define i32 @ARKodeSetMaxGrowth(ptr noundef %0, double noundef %1) local_unnamed_
 
 17:                                               ; preds = %15, %16, %2, %10
   %.0 = phi i32 [ -48, %10 ], [ %5, %2 ], [ 0, %16 ], [ 0, %15 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
@@ -2347,8 +2341,8 @@ define i32 @ARKodeSetMaxGrowth(ptr noundef %0, double noundef %1) local_unnamed_
 define i32 @ARKodeSetMinReduction(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call i32 @arkAccessHAdaptMem(ptr noundef %0, ptr noundef nonnull @__func__.ARKodeSetMinReduction, ptr noundef nonnull %4, ptr noundef nonnull %3) #9
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %18
@@ -2382,8 +2376,8 @@ define i32 @ARKodeSetMinReduction(ptr noundef %0, double noundef %1) local_unnam
 
 18:                                               ; preds = %16, %17, %2, %10
   %.0 = phi i32 [ -48, %10 ], [ %5, %2 ], [ 0, %17 ], [ 0, %16 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
@@ -2391,8 +2385,8 @@ define i32 @ARKodeSetMinReduction(ptr noundef %0, double noundef %1) local_unnam
 define i32 @ARKodeSetFixedStepBounds(ptr noundef %0, double noundef %1, double noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = call i32 @arkAccessHAdaptMem(ptr noundef %0, ptr noundef nonnull @__func__.ARKodeSetFixedStepBounds, ptr noundef nonnull %5, ptr noundef nonnull %4) #9
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %20
@@ -2429,8 +2423,8 @@ define i32 @ARKodeSetFixedStepBounds(ptr noundef %0, double noundef %1, double n
 
 20:                                               ; preds = %18, %19, %3, %11
   %.0 = phi i32 [ -48, %11 ], [ %6, %3 ], [ 0, %19 ], [ 0, %18 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -2438,8 +2432,8 @@ define i32 @ARKodeSetFixedStepBounds(ptr noundef %0, double noundef %1, double n
 define i32 @ARKodeSetMaxFirstGrowth(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call i32 @arkAccessHAdaptMem(ptr noundef %0, ptr noundef nonnull @__func__.ARKodeSetMaxFirstGrowth, ptr noundef nonnull %4, ptr noundef nonnull %3) #9
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %17
@@ -2471,8 +2465,8 @@ define i32 @ARKodeSetMaxFirstGrowth(ptr noundef %0, double noundef %1) local_unn
 
 17:                                               ; preds = %15, %16, %2, %10
   %.0 = phi i32 [ -48, %10 ], [ %5, %2 ], [ 0, %16 ], [ 0, %15 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
@@ -2480,8 +2474,8 @@ define i32 @ARKodeSetMaxFirstGrowth(ptr noundef %0, double noundef %1) local_unn
 define i32 @ARKodeSetMaxEFailGrowth(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call i32 @arkAccessHAdaptMem(ptr noundef %0, ptr noundef nonnull @__func__.ARKodeSetMaxEFailGrowth, ptr noundef nonnull %4, ptr noundef nonnull %3) #9
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %18
@@ -2515,8 +2509,8 @@ define i32 @ARKodeSetMaxEFailGrowth(ptr noundef %0, double noundef %1) local_unn
 
 18:                                               ; preds = %16, %17, %2, %10
   %.0 = phi i32 [ -48, %10 ], [ %5, %2 ], [ 0, %17 ], [ 0, %16 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
@@ -2524,8 +2518,8 @@ define i32 @ARKodeSetMaxEFailGrowth(ptr noundef %0, double noundef %1) local_unn
 define i32 @ARKodeSetSmallNumEFails(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call i32 @arkAccessHAdaptMem(ptr noundef %0, ptr noundef nonnull @__func__.ARKodeSetSmallNumEFails, ptr noundef nonnull %4, ptr noundef nonnull %3) #9
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %17
@@ -2557,8 +2551,8 @@ define i32 @ARKodeSetSmallNumEFails(ptr noundef %0, i32 noundef %1) local_unname
 
 17:                                               ; preds = %15, %16, %2, %10
   %.0 = phi i32 [ -48, %10 ], [ %5, %2 ], [ 0, %16 ], [ 0, %15 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
@@ -2566,8 +2560,8 @@ define i32 @ARKodeSetSmallNumEFails(ptr noundef %0, i32 noundef %1) local_unname
 define i32 @ARKodeSetMaxCFailGrowth(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call i32 @arkAccessHAdaptMem(ptr noundef %0, ptr noundef nonnull @__func__.ARKodeSetMaxCFailGrowth, ptr noundef nonnull %4, ptr noundef nonnull %3) #9
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %18
@@ -2601,8 +2595,8 @@ define i32 @ARKodeSetMaxCFailGrowth(ptr noundef %0, double noundef %1) local_unn
 
 18:                                               ; preds = %16, %17, %2, %10
   %.0 = phi i32 [ -48, %10 ], [ %5, %2 ], [ 0, %17 ], [ 0, %16 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
@@ -2610,8 +2604,8 @@ define i32 @ARKodeSetMaxCFailGrowth(ptr noundef %0, double noundef %1) local_unn
 define i32 @ARKodeSetStabilityFn(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = call i32 @arkAccessHAdaptMem(ptr noundef %0, ptr noundef nonnull @__func__.ARKodeSetStabilityFn, ptr noundef nonnull %5, ptr noundef nonnull %4) #9
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %19
@@ -2646,8 +2640,8 @@ define i32 @ARKodeSetStabilityFn(ptr noundef %0, ptr noundef %1, ptr noundef %2)
 
 19:                                               ; preds = %17, %18, %3, %11
   %.0 = phi i32 [ -48, %11 ], [ %6, %3 ], [ 0, %18 ], [ 0, %17 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -3782,12 +3776,12 @@ define i32 @ARKodePrintAllStats(ptr noundef %0, ptr noundef %1, i32 noundef %2) 
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
-declare i32 @arkRelaxPrintAllStats(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @arkRelaxPrintAllStats(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, argmem: none) uwtable
-define noalias noundef ptr @ARKodeGetReturnFlagName(i64 noundef %0) local_unnamed_addr #4 {
+define noalias noundef ptr @ARKodeGetReturnFlagName(i64 noundef %0) local_unnamed_addr #3 {
   %2 = tail call noalias dereferenceable_or_null(27) ptr @malloc(i64 noundef 27) #10
   switch i64 %0, label %60 [
     i64 0, label %3
@@ -4086,7 +4080,7 @@ define noalias noundef ptr @ARKodeGetReturnFlagName(i64 noundef %0) local_unname
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define i32 @ARKodeWriteParameters(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -4280,13 +4274,13 @@ define i32 @ARKodeWriteParameters(ptr noundef %0, ptr noundef %1) local_unnamed_
   ret i32 %.0
 }
 
-declare i32 @SUNAdaptController_Write(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @SUNAdaptController_Write(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @SUNAdaptController_Space(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @SUNAdaptController_Space(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @SUNAdaptController_Destroy(ptr noundef) local_unnamed_addr #2
+declare i32 @SUNAdaptController_Destroy(ptr noundef) local_unnamed_addr #1
 
-declare ptr @SUNAdaptController_PID(ptr noundef) local_unnamed_addr #2
+declare ptr @SUNAdaptController_PID(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -21, 1) i32 @arkSetForcePass(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -4331,8 +4325,8 @@ define range(i32 -21, 1) i32 @arkGetLastKFlag(ptr noundef readonly captures(addr
 define range(i32 -47, 1) i32 @arkSetAdaptivityMethod(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = icmp eq ptr %0, null
   br i1 %8, label %9, label %10
 
@@ -4599,39 +4593,39 @@ define range(i32 -47, 1) i32 @arkSetAdaptivityMethod(ptr noundef %0, i32 noundef
 
 132:                                              ; preds = %128, %115, %113, %109, %103, %99, %93, %89, %83, %79, %73, %68, %62, %57, %41, %13, %9
   %.094 = phi i32 [ -21, %9 ], [ -22, %13 ], [ -20, %41 ], [ -22, %115 ], [ -20, %57 ], [ -47, %62 ], [ 0, %128 ], [ -20, %68 ], [ -47, %73 ], [ -20, %79 ], [ -47, %83 ], [ -20, %89 ], [ -47, %93 ], [ -20, %99 ], [ -47, %103 ], [ -20, %109 ], [ -47, %113 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.094
 }
 
-declare i32 @SUNAdaptController_SetParams_PID(ptr noundef, double noundef, double noundef, double noundef) local_unnamed_addr #2
+declare i32 @SUNAdaptController_SetParams_PID(ptr noundef, double noundef, double noundef, double noundef) local_unnamed_addr #1
 
-declare ptr @SUNAdaptController_PI(ptr noundef) local_unnamed_addr #2
+declare ptr @SUNAdaptController_PI(ptr noundef) local_unnamed_addr #1
 
-declare i32 @SUNAdaptController_SetParams_PI(ptr noundef, double noundef, double noundef) local_unnamed_addr #2
+declare i32 @SUNAdaptController_SetParams_PI(ptr noundef, double noundef, double noundef) local_unnamed_addr #1
 
-declare ptr @SUNAdaptController_I(ptr noundef) local_unnamed_addr #2
+declare ptr @SUNAdaptController_I(ptr noundef) local_unnamed_addr #1
 
-declare i32 @SUNAdaptController_SetParams_I(ptr noundef, double noundef) local_unnamed_addr #2
+declare i32 @SUNAdaptController_SetParams_I(ptr noundef, double noundef) local_unnamed_addr #1
 
-declare ptr @SUNAdaptController_ExpGus(ptr noundef) local_unnamed_addr #2
+declare ptr @SUNAdaptController_ExpGus(ptr noundef) local_unnamed_addr #1
 
-declare i32 @SUNAdaptController_SetParams_ExpGus(ptr noundef, double noundef, double noundef) local_unnamed_addr #2
+declare i32 @SUNAdaptController_SetParams_ExpGus(ptr noundef, double noundef, double noundef) local_unnamed_addr #1
 
-declare ptr @SUNAdaptController_ImpGus(ptr noundef) local_unnamed_addr #2
+declare ptr @SUNAdaptController_ImpGus(ptr noundef) local_unnamed_addr #1
 
-declare i32 @SUNAdaptController_SetParams_ImpGus(ptr noundef, double noundef, double noundef) local_unnamed_addr #2
+declare i32 @SUNAdaptController_SetParams_ImpGus(ptr noundef, double noundef, double noundef) local_unnamed_addr #1
 
-declare ptr @SUNAdaptController_ImExGus(ptr noundef) local_unnamed_addr #2
+declare ptr @SUNAdaptController_ImExGus(ptr noundef) local_unnamed_addr #1
 
-declare i32 @SUNAdaptController_SetParams_ImExGus(ptr noundef, double noundef, double noundef, double noundef, double noundef) local_unnamed_addr #2
+declare i32 @SUNAdaptController_SetParams_ImExGus(ptr noundef, double noundef, double noundef, double noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -21, 1) i32 @arkSetAdaptivityFn(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = icmp eq ptr %0, null
   br i1 %6, label %7, label %8
 
@@ -4741,12 +4735,18 @@ define range(i32 -21, 1) i32 @arkSetAdaptivityFn(ptr noundef %0, ptr noundef %1,
 
 65:                                               ; preds = %61, %48, %44, %35, %7
   %.030 = phi i32 [ -21, %7 ], [ -20, %35 ], [ -20, %44 ], [ 0, %61 ], [ -20, %48 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.030
 }
 
-declare ptr @ARKUserControl(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @ARKUserControl(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
@@ -4761,11 +4761,11 @@ declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unname
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nounwind willreturn memory(readwrite, argmem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nounwind willreturn memory(readwrite, argmem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nofree nounwind }
 attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }

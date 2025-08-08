@@ -362,9 +362,6 @@ jd_putc.exit20:                                   ; preds = %65, %59, %50, %jd_p
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @json_dumper_bad(ptr noundef captures(none) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca [11 x i8], align 1
@@ -390,8 +387,8 @@ define internal fastcc void @json_dumper_bad(ptr noundef captures(none) %0, ptr 
   br label %14
 
 14:                                               ; preds = %12, %10
-  call void @llvm.lifetime.start.p0(i64 11, ptr nonnull %3) #9
-  call void @llvm.lifetime.start.p0(i64 11, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %16 = load i32, ptr %15, align 4
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -444,7 +441,7 @@ json_dumper_get_prev_state.exit:                  ; preds = %30
 45:                                               ; preds = %30, %38, %42
   %46 = phi i32 [ %31, %38 ], [ %.pre24, %42 ], [ 0, %30 ]
   %.1 = phi ptr [ %41, %38 ], [ %4, %42 ], [ @.str.9, %30 ]
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.10, i32 noundef 7, ptr noundef nonnull @.str.11, i64 noundef 211, ptr noundef nonnull @__func__.json_dumper_bad, ptr noundef nonnull @.str.12, ptr noundef %1, i32 noundef %46, ptr noundef %.0, ptr noundef %.1) #10
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.10, i32 noundef 7, ptr noundef nonnull @.str.11, i64 noundef 211, ptr noundef nonnull @__func__.json_dumper_bad, ptr noundef nonnull @.str.12, ptr noundef %1, i32 noundef %46, ptr noundef %.0, ptr noundef %.1) #9
   unreachable
 }
 
@@ -878,9 +875,6 @@ jd_puts.exit:                                     ; preds = %53, %47, %38, %11, 
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define void @json_dumper_end_object(ptr noundef %0) local_unnamed_addr #0 {
   tail call fastcc void @json_dumper_end_nested_element(ptr noundef %0, i32 noundef 2)
@@ -1067,7 +1061,7 @@ json_dumper_stack_would_underflow.exit:           ; preds = %29
   br label %jd_putc.exit
 
 81:                                               ; preds = %36
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %84 = call i64 @g_base64_encode_close(i32 noundef 0, ptr noundef nonnull %3, ptr noundef nonnull %82, ptr noundef nonnull %83)
@@ -1128,7 +1122,7 @@ jd_puts_len.exit:                                 ; preds = %88, %91
   br label %jd_putc.exit39
 
 jd_putc.exit39:                                   ; preds = %96, %105, %111
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %jd_putc.exit
 
 jd_putc.exit:                                     ; preds = %79, %73, %63, %57, %51, %41, %jd_putc.exit39
@@ -1304,7 +1298,7 @@ json_dumper_setting_value_ok.exit:                ; preds = %json_dumper_get_pre
 
 27:                                               ; preds = %json_dumper_get_prev_state.exit.thread.i, %17, %json_dumper_get_prev_state.exit.i
   tail call fastcc void @prepare_token(ptr noundef %0)
-  call void @llvm.lifetime.start.p0(i64 39, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(39) %3, i8 0, i64 39, i1 false)
   %28 = tail call double @llvm.fabs.f64(double %1)
   %29 = fcmp ueq double %28, 0x7FF0000000000000
@@ -1362,7 +1356,7 @@ jd_puts.exit:                                     ; preds = %51, %48, %42, %39
   %55 = zext i32 %54 to i64
   %56 = getelementptr [1100 x i8], ptr %53, i64 0, i64 %55
   store i8 1, ptr %56, align 1
-  call void @llvm.lifetime.end.p0(i64 39, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %57
 
 57:                                               ; preds = %json_dumper_setting_value_ok.exit, %json_dumper_check_previous_error.exit, %jd_puts.exit
@@ -1370,10 +1364,10 @@ jd_puts.exit:                                     ; preds = %51, %48, %42, %39
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @g_ascii_dtostr(ptr noundef, i32 noundef, double noundef) local_unnamed_addr #3
+declare ptr @g_ascii_dtostr(ptr noundef, i32 noundef, double noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define void @json_dumper_value_va_list(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -1449,7 +1443,7 @@ json_dumper_setting_value_ok.exit:                ; preds = %json_dumper_get_pre
   br i1 %.not.i9, label %31, label %29
 
 29:                                               ; preds = %27
-  %30 = tail call i32 @__vfprintf_chk(ptr noundef nonnull %28, i32 noundef 2, ptr noundef %1, ptr noundef %2) #9
+  %30 = tail call i32 @__vfprintf_chk(ptr noundef nonnull %28, i32 noundef 2, ptr noundef %1, ptr noundef %2) #10
   br label %31
 
 31:                                               ; preds = %29, %27
@@ -1477,19 +1471,19 @@ jd_vprintf.exit:                                  ; preds = %31, %34
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define void @json_dumper_value_anyf(ptr noundef captures(none) %0, ptr noundef %1, ...) local_unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.va_start.p0(ptr nonnull %3)
   call void @json_dumper_value_va_list(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3)
   call void @llvm.va_end.p0(ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #4
+declare void @llvm.va_start.p0(ptr) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #4
+declare void @llvm.va_end.p0(ptr) #3
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define noundef zeroext i1 @json_dumper_finish(ptr noundef captures(none) %0) local_unnamed_addr #0 {
@@ -1602,7 +1596,7 @@ json_dumper_get_prev_state.exit.thread:           ; preds = %8, %json_dumper_get
   br label %36
 
 17:                                               ; preds = %json_dumper_get_prev_state.exit
-  call void @llvm.lifetime.start.p0(i64 1372, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.not1923 = icmp eq i64 %2, 0
   br i1 %.not1923, label %._crit_edge, label %.lr.ph
 
@@ -1649,7 +1643,7 @@ jd_puts_len.exit:                                 ; preds = %27, %29
   %34 = zext i32 %33 to i64
   %35 = getelementptr [1100 x i8], ptr %11, i64 0, i64 %34
   store i8 4, ptr %35, align 1
-  call void @llvm.lifetime.end.p0(i64 1372, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %36
 
 36:                                               ; preds = %json_dumper_check_previous_error.exit, %json_dumper_get_prev_state.exit.thread, %._crit_edge
@@ -1657,7 +1651,7 @@ jd_puts_len.exit:                                 ; preds = %27, %29
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i64 @g_base64_encode_step(ptr noundef, i64 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i64 @g_base64_encode_step(ptr noundef, i64 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define void @json_dumper_end_base64(ptr noundef %0) local_unnamed_addr #0 {
@@ -1666,13 +1660,13 @@ define void @json_dumper_end_base64(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #5
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree null_pointer_is_valid
-declare i32 @__snprintf_chk(ptr noundef, i64 noundef, i32 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #6
+declare i32 @__snprintf_chk(ptr noundef, i64 noundef, i32 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: noreturn null_pointer_is_valid
-declare void @ws_log_fatal_full(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #7
+declare void @ws_log_fatal_full(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #6
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @print_newline_indent(ptr noundef readonly captures(none) %0, i32 noundef %1) unnamed_addr #0 {
@@ -1754,31 +1748,37 @@ jd_puts.exit:                                     ; preds = %31, %33
 }
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #5
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @g_string_insert_c(ptr noundef, i64 noundef, i8 noundef signext) local_unnamed_addr #3
+declare ptr @g_string_insert_c(ptr noundef, i64 noundef, i8 noundef signext) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare i64 @g_base64_encode_close(i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i64 @g_base64_encode_close(i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare noundef i32 @fputs(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #5
+declare noundef i32 @fputs(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @g_string_append(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @g_string_append(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare void @g_string_append_vprintf(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @g_string_append_vprintf(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @__vfprintf_chk(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @__vfprintf_chk(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #5
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @g_string_append_len(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare ptr @g_string_append_len(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #8
@@ -1787,16 +1787,16 @@ declare double @llvm.fabs.f64(double) #8
 declare i64 @llvm.umin.i64(i64, i64) #8
 
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #3 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #5 = { nofree nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { noreturn null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #4 = { nofree nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { noreturn null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nounwind }
-attributes #10 = { noreturn }
+attributes #9 = { noreturn }
+attributes #10 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

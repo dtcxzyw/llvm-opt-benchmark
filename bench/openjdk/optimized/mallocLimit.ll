@@ -311,7 +311,7 @@ _ZN12ParserHelper15match_mode_flagEP15MallocLimitMode.exit: ; preds = %27, %30
 34:                                               ; preds = %.lr.ph, %82
   %35 = phi ptr [ %18, %.lr.ph ], [ %62, %82 ]
   %36 = phi ptr [ %17, %.lr.ph ], [ %83, %82 ]
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %37 = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %36, i32 noundef 58) #15
   %38 = icmp eq ptr %37, null
   %.07.i = select i1 %38, ptr %35, ptr %37
@@ -329,14 +329,14 @@ _ZN12ParserHelper15match_mode_flagEP15MallocLimitMode.exit: ; preds = %27, %30
 
 46:                                               ; preds = %34
   call void @_ZN12stringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(129) %4) #14
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store ptr @.str.11, ptr %2, align 8
   br label %.loopexit
 
 47:                                               ; preds = %34
   store ptr %.07.i, ptr %13, align 8
   call void @_ZN12stringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(129) %4) #14
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %48 = load ptr, ptr %13, align 8
   %49 = load ptr, ptr %10, align 8
   %.not.i17 = icmp ult ptr %48, %49
@@ -443,7 +443,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN12ParserHelper10match_sizeEPm(
   br i1 %.not, label %8, label %40
 
 8:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %9 = load i8, ptr %5, align 1
   %10 = sext i8 %9 to i32
   %isdigittmp.i = add nsw i32 %10, -48
@@ -532,14 +532,14 @@ _Z14multiply_by_1kImEbRT_.exit19.thread.i:        ; preds = %32
   br label %38
 
 _ZL13parse_integerImEbPKcPPcPT_.exit.thread:      ; preds = %8, %_Z18parse_integer_implImTnNSt9enable_ifIXcvbntsr3std9is_signedIT_EE5valueEiE4typeELi0ETnNS0_IXcvbeqstS1_Li8EEiE4typeELi0EEbPKcPPciPS1_.exit.i, %23, %28, %30, %32, %34, %18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %40
 
 38:                                               ; preds = %35, %26
   %39 = phi ptr [ %24, %26 ], [ %37, %35 ]
   %.3.i = phi i64 [ %20, %26 ], [ %36, %35 ]
   store i64 %.3.i, ptr %1, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr %39, ptr %4, align 8
   br label %40
 
@@ -648,10 +648,10 @@ __cxx_global_var_init.4.exit:                     ; preds = %1
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

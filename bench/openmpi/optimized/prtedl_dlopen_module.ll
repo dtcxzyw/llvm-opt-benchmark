@@ -41,14 +41,14 @@ define internal range(i32 -11, 1) i32 @dlopen_open(ptr noundef %0, i1 noundef ze
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %18
   %indvars.iv74 = phi i64 [ %indvars.iv.next75, %18 ], [ 0, %.lr.ph ]
   %.02469.us = phi ptr [ %.024.us, %18 ], [ %.02466, %.lr.ph ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %11 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str, ptr noundef nonnull %0, ptr noundef nonnull %.02469.us) #8
   %12 = load ptr, ptr %6, align 8, !tbaa !15
   %13 = icmp eq ptr %12, null
   br i1 %13, label %.thread, label %14
 
 14:                                               ; preds = %.lr.ph.split.us
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %15 = call i32 @stat(ptr noundef nonnull %12, ptr noundef nonnull %7) #8
   %16 = icmp slt i32 %15, 0
   %17 = load ptr, ptr %6, align 8, !tbaa !15
@@ -56,8 +56,8 @@ define internal range(i32 -11, 1) i32 @dlopen_open(ptr noundef %0, i1 noundef ze
 
 18:                                               ; preds = %14
   call void @free(ptr noundef %17) #8
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_mca_prtedl_dlopen_component, i64 240), align 8, !tbaa !8
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
   %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv.next75
@@ -68,18 +68,18 @@ define internal range(i32 -11, 1) i32 @dlopen_open(ptr noundef %0, i1 noundef ze
 .lr.ph.split:                                     ; preds = %.lr.ph, %36
   %indvars.iv = phi i64 [ %indvars.iv.next, %36 ], [ 0, %.lr.ph ]
   %.02469 = phi ptr [ %.024, %36 ], [ %.02466, %.lr.ph ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %21 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str, ptr noundef nonnull %0, ptr noundef nonnull %.02469) #8
   %22 = load ptr, ptr %6, align 8, !tbaa !15
   %23 = icmp eq ptr %22, null
   br i1 %23, label %.thread, label %24
 
 .thread:                                          ; preds = %.lr.ph.split, %.lr.ph.split.us
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %do_dlopen.exit39.thread
 
 24:                                               ; preds = %.lr.ph.split
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %25 = call i32 @stat(ptr noundef nonnull %22, ptr noundef nonnull %7) #8
   %26 = icmp slt i32 %25, 0
   %27 = load ptr, ptr %6, align 8, !tbaa !15
@@ -95,8 +95,8 @@ define internal range(i32 -11, 1) i32 @dlopen_open(ptr noundef %0, i1 noundef ze
   %31 = icmp slt i32 %30, 0
   %32 = load ptr, ptr %6, align 8, !tbaa !15
   call void @free(ptr noundef %32) #8
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %31, label %do_dlopen.exit39.thread, label %36
 
 .split.us:                                        ; preds = %14
@@ -124,8 +124,8 @@ define internal range(i32 -11, 1) i32 @dlopen_open(ptr noundef %0, i1 noundef ze
   %40 = phi ptr [ %33, %.split.us ], [ %28, %.sink.split.i ]
   %41 = load ptr, ptr %6, align 8, !tbaa !15
   call void @free(ptr noundef %41) #8
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %do_dlopen.exit39
 
 42:                                               ; preds = %5
@@ -197,7 +197,7 @@ define internal i32 @dlopen_foreachfile(ptr noundef %0, ptr noundef readonly cap
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca %struct.stat, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !23
   %7 = tail call ptr @PMIx_Argv_split(ptr noundef %0, i32 noundef 58) #8
   %.not = icmp eq ptr %7, null
@@ -224,7 +224,7 @@ define internal i32 @dlopen_foreachfile(ptr noundef %0, ptr noundef readonly cap
 
 .lr.ph111:                                        ; preds = %.preheader99, %.critedge2
   %15 = phi ptr [ %49, %.critedge2 ], [ %14, %.preheader99 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !15
   %16 = load ptr, ptr %11, align 8, !tbaa !15
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 19
@@ -234,7 +234,7 @@ define internal i32 @dlopen_foreachfile(ptr noundef %0, ptr noundef readonly cap
   br i1 %20, label %.thread93, label %21
 
 21:                                               ; preds = %.lr.ph111
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %22 = call i32 @stat(ptr noundef nonnull %19, ptr noundef nonnull %6) #8
   %23 = icmp slt i32 %22, 0
   br i1 %23, label %.thread77, label %25
@@ -242,7 +242,7 @@ define internal i32 @dlopen_foreachfile(ptr noundef %0, ptr noundef readonly cap
 .thread77:                                        ; preds = %21
   %24 = load ptr, ptr %5, align 8, !tbaa !15
   call void @free(ptr noundef %24) #8
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.thread93
 
 25:                                               ; preds = %21
@@ -305,8 +305,8 @@ define internal i32 @dlopen_foreachfile(ptr noundef %0, ptr noundef readonly cap
 .critedge2:                                       ; preds = %.lr.ph109, %.critedge75, %32, %35, %25
   %.sink = phi ptr [ %29, %25 ], [ %29, %35 ], [ %29, %32 ], [ %.pre133, %.critedge75 ], [ %.pre, %.lr.ph109 ]
   call void @free(ptr noundef %.sink) #8
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %49 = call ptr @readdir(ptr noundef nonnull %12) #8
   %.not66 = icmp eq ptr %49, null
   br i1 %.not66, label %._crit_edge, label %.lr.ph111
@@ -345,7 +345,7 @@ define internal i32 @dlopen_foreachfile(ptr noundef %0, ptr noundef readonly cap
   br i1 %.not72, label %54, label %.thread97
 
 .thread93:                                        ; preds = %.lr.ph111, %.thread77
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %60 = call i32 @closedir(ptr noundef nonnull %12)
   br label %.thread97
 
@@ -362,70 +362,70 @@ define internal i32 @dlopen_foreachfile(ptr noundef %0, ptr noundef readonly cap
 
 .thread140:                                       ; preds = %3, %.thread97, %61
   %.69296143 = phi i32 [ %.69295, %.thread97 ], [ %.69295, %61 ], [ 0, %3 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.69296143
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare i32 @pmix_asprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare i32 @pmix_asprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #3
+declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare i32 @asprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
+declare i32 @asprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #6
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare ptr @dlopen(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare ptr @dlopen(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
-declare ptr @dlerror() local_unnamed_addr #4
+declare ptr @dlerror() local_unnamed_addr #3
 
 ; Function Attrs: nounwind
-declare i32 @dlclose(ptr noundef) local_unnamed_addr #4
+declare i32 @dlclose(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
-declare ptr @dlsym(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @dlsym(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @PMIx_Argv_split(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @PMIx_Argv_split(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @opendir(ptr noundef readonly captures(none)) local_unnamed_addr #3
+declare noalias noundef ptr @opendir(ptr noundef readonly captures(none)) local_unnamed_addr #2
 
-declare ptr @readdir(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #7
+declare ptr @readdir(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
+declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #6
 
-declare i32 @PMIx_Argv_append_nosize(ptr noundef, ptr noundef) local_unnamed_addr #2
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
+
+declare i32 @PMIx_Argv_append_nosize(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @closedir(ptr noundef captures(none)) local_unnamed_addr #3
+declare noundef i32 @closedir(ptr noundef captures(none)) local_unnamed_addr #2
 
-declare void @PMIx_Argv_free(ptr noundef) local_unnamed_addr #2
+declare void @PMIx_Argv_free(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nounwind }
 attributes #9 = { nounwind allocsize(0,1) }
 attributes #10 = { nounwind willreturn memory(read) }

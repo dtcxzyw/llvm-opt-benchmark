@@ -31,7 +31,7 @@ define void @"_ZN10wasmi_fuzz6config122_$LT$impl$u20$core..convert..From$LT$wasm
   %3 = alloca [152 x i8], align 8
   %.sroa.5.0.extract.shift = lshr i32 %1, 24
   %.sroa.5.0.extract.trunc = trunc nuw i32 %.sroa.5.0.extract.shift to i8
-  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @"_ZN72_$LT$wasmi..engine..config..Config$u20$as$u20$core..default..Default$GT$7default17h248ffd4b54bf43bbE"(ptr noalias noundef nonnull sret([152 x i8]) align 8 captures(none) dereferenceable(152) %3)
   %4 = invoke noundef align 8 dereferenceable(152) ptr @_ZN5wasmi6engine6config6Config16compilation_mode17h3dce57e1c760f230E(ptr noalias noundef nonnull align 8 dereferenceable(152) %3, i8 noundef %.sroa.5.0.extract.trunc)
           to label %7 unwind label %5
@@ -57,7 +57,7 @@ define void @"_ZN10wasmi_fuzz6config122_$LT$impl$u20$core..convert..From$LT$wasm
 
 14:                                               ; preds = %12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(152) %3, i64 152, i1 false)
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 15:                                               ; preds = %5
@@ -186,14 +186,14 @@ default.unreachable17:                            ; preds = %3
   br label %32
 
 11:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @"_ZN9arbitrary7foreign4core3num54_$LT$impl$u20$arbitrary..Arbitrary$u20$for$u20$i64$GT$9arbitrary17h0d72100381c0ea61E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull align 8 dereferenceable(16) %2)
   %.val = load i8, ptr %6, align 8, !range !5, !noundef !4
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.val8 = load i64, ptr %12, align 8
   %13 = trunc nuw i8 %.val to i1
   %spec.select.i = select i1 %13, i64 0, i64 %.val8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %spec.select.i, ptr %14, align 8
   br label %32
@@ -210,27 +210,27 @@ default.unreachable17:                            ; preds = %3
   br label %32
 
 20:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @"_ZN9arbitrary7foreign4core3num54_$LT$impl$u20$arbitrary..Arbitrary$u20$for$u20$f64$GT$9arbitrary17h31161806001f966cE"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(16) %2)
   %.val9 = load i8, ptr %5, align 8, !range !5, !noundef !4
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.val10 = load double, ptr %21, align 8
   %22 = trunc nuw i8 %.val9 to i1
   %.sroa.0.0.i = select i1 %22, double 0.000000e+00, double %.val10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %.sroa.0.0.i, ptr %23, align 8
   br label %32
 
 24:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @"_ZN9arbitrary7foreign4core3num55_$LT$impl$u20$arbitrary..Arbitrary$u20$for$u20$u128$GT$9arbitrary17h2b6ddedc66504218E"(ptr noalias noundef nonnull sret([32 x i8]) align 16 captures(none) dereferenceable(32) %4, ptr noalias noundef nonnull align 8 dereferenceable(16) %2)
   %.val11 = load i8, ptr %4, align 16, !range !5, !noundef !4
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.val12 = load i128, ptr %25, align 16
   %26 = trunc nuw i8 %.val11 to i1
   %spec.select.i16 = select i1 %26, i128 0, i128 %.val12
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i128 %spec.select.i16, ptr %27, align 16
   br label %32
@@ -299,10 +299,10 @@ declare void @"_ZN9arbitrary7foreign4core3num54_$LT$impl$u20$arbitrary..Arbitrar
 declare void @"_ZN9arbitrary7foreign4core3num55_$LT$impl$u20$arbitrary..Arbitrary$u20$for$u20$u128$GT$9arbitrary17h2b6ddedc66504218E"(ptr dead_on_unwind noalias noundef writable sret([32 x i8]) align 16 captures(none) dereferenceable(32), ptr noalias noundef align 8 dereferenceable(16)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #7

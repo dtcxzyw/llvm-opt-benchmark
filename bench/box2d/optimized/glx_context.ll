@@ -493,17 +493,11 @@ extensionSupportedGLX.exit96.thread:              ; preds = %157, %extensionSupp
   ret i32 %.029
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @_glfwPlatformLoadModule(ptr noundef) local_unnamed_addr #1
 
-declare ptr @_glfwPlatformLoadModule(ptr noundef) local_unnamed_addr #2
+declare void @_glfwInputError(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare void @_glfwInputError(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
-
-declare ptr @_glfwPlatformGetModuleSymbol(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_glfwPlatformGetModuleSymbol(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @extensionSupportedGLX(ptr noundef %0) #0 {
@@ -571,14 +565,14 @@ define hidden void @_glfwTerminateGLX() local_unnamed_addr #0 {
   ret void
 }
 
-declare void @_glfwPlatformFreeModule(ptr noundef) local_unnamed_addr #2
+declare void @_glfwPlatformFreeModule(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @_glfwCreateContextGLX(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca [40 x i32], align 16
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %4) #4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !128
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %7 = load ptr, ptr %6, align 8, !tbaa !130
@@ -933,8 +927,8 @@ define hidden range(i32 0, 2) i32 @_glfwCreateContextGLX(ptr noundef captures(no
 
 178:                                              ; preds = %171, %170, %162, %39, %30, %24, %13
   %.093 = phi i32 [ 1, %171 ], [ 0, %170 ], [ 0, %162 ], [ 0, %39 ], [ 0, %30 ], [ 0, %24 ], [ 0, %13 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #4
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.093
 }
 
@@ -958,7 +952,7 @@ define internal fastcc range(i32 0, 2) i32 @chooseGLXFBConfig(ptr noundef %0, pt
   %18 = alloca i32, align 4
   %19 = alloca i32, align 4
   %20 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143400), align 8, !tbaa !96
   %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !109
   %23 = tail call ptr %21(ptr noundef %22, i32 noundef 1) #4
@@ -1011,35 +1005,35 @@ define internal fastcc range(i32 0, 2) i32 @chooseGLXFBConfig(ptr noundef %0, pt
   %48 = load ptr, ptr %47, align 8, !tbaa !128
   %49 = sext i32 %.06580 to i64
   %50 = getelementptr inbounds %struct._GLFWfbconfig, ptr %39, i64 %49
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %51 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143392), align 8, !tbaa !95
   %52 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !109
   %53 = call i32 %51(ptr noundef %52, ptr noundef %48, i32 noundef 32785, ptr noundef nonnull %19) #4
   %54 = load i32, ptr %19, align 4, !tbaa !170
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %55 = and i32 %54, 1
   %.not73 = icmp eq i32 %55, 0
   br i1 %.not73, label %165, label %56
 
 56:                                               ; preds = %46
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %57 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143392), align 8, !tbaa !95
   %58 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !109
   %59 = call i32 %57(ptr noundef %58, ptr noundef %48, i32 noundef 32784, ptr noundef nonnull %18) #4
   %60 = load i32, ptr %18, align 4, !tbaa !170
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %61 = and i32 %60, 1
   %62 = icmp eq i32 %61, 0
   %or.cond5 = and i1 %28, %62
   br i1 %or.cond5, label %165, label %63
 
 63:                                               ; preds = %56
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %64 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143392), align 8, !tbaa !95
   %65 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !109
   %66 = call i32 %64(ptr noundef %65, ptr noundef %48, i32 noundef 5, ptr noundef nonnull %17) #4
   %67 = load i32, ptr %17, align 4, !tbaa !170
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %68 = load i32, ptr %42, align 8, !tbaa !185
   %.not74 = icmp eq i32 %67, %68
   br i1 %.not74, label %69, label %165
@@ -1066,99 +1060,99 @@ define internal fastcc range(i32 0, 2) i32 @chooseGLXFBConfig(ptr noundef %0, pt
   br label %81
 
 81:                                               ; preds = %71, %75, %69
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %82 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143392), align 8, !tbaa !95
   %83 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !109
   %84 = call i32 %82(ptr noundef %83, ptr noundef %48, i32 noundef 8, ptr noundef nonnull %16) #4
   %85 = load i32, ptr %16, align 4, !tbaa !170
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   store i32 %85, ptr %50, align 8, !tbaa !190
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %86 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143392), align 8, !tbaa !95
   %87 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !109
   %88 = call i32 %86(ptr noundef %87, ptr noundef %48, i32 noundef 9, ptr noundef nonnull %15) #4
   %89 = load i32, ptr %15, align 4, !tbaa !170
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %90 = getelementptr inbounds nuw i8, ptr %50, i64 4
   store i32 %89, ptr %90, align 4, !tbaa !191
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %91 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143392), align 8, !tbaa !95
   %92 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !109
   %93 = call i32 %91(ptr noundef %92, ptr noundef %48, i32 noundef 10, ptr noundef nonnull %14) #4
   %94 = load i32, ptr %14, align 4, !tbaa !170
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %95 = getelementptr inbounds nuw i8, ptr %50, i64 8
   store i32 %94, ptr %95, align 8, !tbaa !192
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %96 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143392), align 8, !tbaa !95
   %97 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !109
   %98 = call i32 %96(ptr noundef %97, ptr noundef %48, i32 noundef 11, ptr noundef nonnull %13) #4
   %99 = load i32, ptr %13, align 4, !tbaa !170
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %100 = getelementptr inbounds nuw i8, ptr %50, i64 12
   store i32 %99, ptr %100, align 4, !tbaa !193
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %101 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143392), align 8, !tbaa !95
   %102 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !109
   %103 = call i32 %101(ptr noundef %102, ptr noundef %48, i32 noundef 12, ptr noundef nonnull %12) #4
   %104 = load i32, ptr %12, align 4, !tbaa !170
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %105 = getelementptr inbounds nuw i8, ptr %50, i64 16
   store i32 %104, ptr %105, align 8, !tbaa !194
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %106 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143392), align 8, !tbaa !95
   %107 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !109
   %108 = call i32 %106(ptr noundef %107, ptr noundef %48, i32 noundef 13, ptr noundef nonnull %11) #4
   %109 = load i32, ptr %11, align 4, !tbaa !170
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %110 = getelementptr inbounds nuw i8, ptr %50, i64 20
   store i32 %109, ptr %110, align 4, !tbaa !195
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %111 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143392), align 8, !tbaa !95
   %112 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !109
   %113 = call i32 %111(ptr noundef %112, ptr noundef %48, i32 noundef 14, ptr noundef nonnull %10) #4
   %114 = load i32, ptr %10, align 4, !tbaa !170
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %115 = getelementptr inbounds nuw i8, ptr %50, i64 24
   store i32 %114, ptr %115, align 8, !tbaa !196
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %116 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143392), align 8, !tbaa !95
   %117 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !109
   %118 = call i32 %116(ptr noundef %117, ptr noundef %48, i32 noundef 15, ptr noundef nonnull %9) #4
   %119 = load i32, ptr %9, align 4, !tbaa !170
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %120 = getelementptr inbounds nuw i8, ptr %50, i64 28
   store i32 %119, ptr %120, align 4, !tbaa !197
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %121 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143392), align 8, !tbaa !95
   %122 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !109
   %123 = call i32 %121(ptr noundef %122, ptr noundef %48, i32 noundef 16, ptr noundef nonnull %8) #4
   %124 = load i32, ptr %8, align 4, !tbaa !170
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %125 = getelementptr inbounds nuw i8, ptr %50, i64 32
   store i32 %124, ptr %125, align 8, !tbaa !198
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %126 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143392), align 8, !tbaa !95
   %127 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !109
   %128 = call i32 %126(ptr noundef %127, ptr noundef %48, i32 noundef 17, ptr noundef nonnull %7) #4
   %129 = load i32, ptr %7, align 4, !tbaa !170
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %130 = getelementptr inbounds nuw i8, ptr %50, i64 36
   store i32 %129, ptr %130, align 4, !tbaa !199
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %131 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143392), align 8, !tbaa !95
   %132 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !109
   %133 = call i32 %131(ptr noundef %132, ptr noundef %48, i32 noundef 7, ptr noundef nonnull %6) #4
   %134 = load i32, ptr %6, align 4, !tbaa !170
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %135 = getelementptr inbounds nuw i8, ptr %50, i64 40
   store i32 %134, ptr %135, align 8, !tbaa !200
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %136 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143392), align 8, !tbaa !95
   %137 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !109
   %138 = call i32 %136(ptr noundef %137, ptr noundef %48, i32 noundef 6, ptr noundef nonnull %5) #4
   %139 = load i32, ptr %5, align 4, !tbaa !170
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not77 = icmp eq i32 %139, 0
   br i1 %.not77, label %142, label %140
 
@@ -1173,12 +1167,12 @@ define internal fastcc range(i32 0, 2) i32 @chooseGLXFBConfig(ptr noundef %0, pt
   br i1 %.not78, label %150, label %144
 
 144:                                              ; preds = %142
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %145 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143392), align 8, !tbaa !95
   %146 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !109
   %147 = call i32 %145(ptr noundef %146, ptr noundef %48, i32 noundef 100001, ptr noundef nonnull %4) #4
   %148 = load i32, ptr %4, align 4, !tbaa !170
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %149 = getelementptr inbounds nuw i8, ptr %50, i64 48
   store i32 %148, ptr %149, align 8, !tbaa !202
   br label %150
@@ -1192,12 +1186,12 @@ define internal fastcc range(i32 0, 2) i32 @chooseGLXFBConfig(ptr noundef %0, pt
   br i1 %or.cond3, label %155, label %161
 
 155:                                              ; preds = %150
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %156 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143392), align 8, !tbaa !95
   %157 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !109
   %158 = call i32 %156(ptr noundef %157, ptr noundef %48, i32 noundef 8370, ptr noundef nonnull %3) #4
   %159 = load i32, ptr %3, align 4, !tbaa !170
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %160 = getelementptr inbounds nuw i8, ptr %50, i64 52
   store i32 %159, ptr %160, align 4, !tbaa !203
   br label %161
@@ -1233,15 +1227,15 @@ define internal fastcc range(i32 0, 2) i32 @chooseGLXFBConfig(ptr noundef %0, pt
 
 177:                                              ; preds = %173, %36
   %.0 = phi i32 [ %176, %173 ], [ 0, %36 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   ret i32 %.0
 }
 
-declare void @_glfwGrabErrorHandlerX11() local_unnamed_addr #2
+declare void @_glfwGrabErrorHandlerX11() local_unnamed_addr #1
 
-declare void @_glfwReleaseErrorHandlerX11() local_unnamed_addr #2
+declare void @_glfwReleaseErrorHandlerX11() local_unnamed_addr #1
 
-declare void @_glfwInputErrorX11(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @_glfwInputErrorX11(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @makeContextCurrentGLX(ptr noundef %0) #0 {
@@ -1365,7 +1359,7 @@ define internal void @destroyContextGLX(ptr noundef captures(none) %0) #0 {
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @_glfwChooseVisualGLX(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, ptr noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = call fastcc i32 @chooseGLXFBConfig(ptr noundef %2, ptr noundef %6)
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %8, label %9
@@ -1398,7 +1392,7 @@ define hidden range(i32 0, 2) i32 @_glfwChooseVisualGLX(ptr noundef readnone cap
 
 21:                                               ; preds = %15, %14, %8
   %.0 = phi i32 [ 1, %15 ], [ 0, %14 ], [ 0, %8 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
@@ -1480,27 +1474,33 @@ define i64 @glfwGetGLXWindow(ptr noundef readonly captures(none) %0) local_unnam
   ret i64 %.0
 }
 
-declare i32 @_glfwStringInExtensionString(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @_glfwStringInExtensionString(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
-declare ptr @_glfw_calloc(i64 noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @_glfw_calloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @_glfwIsVisualTransparentX11(ptr noundef) local_unnamed_addr #2
+declare i32 @_glfwIsVisualTransparentX11(ptr noundef) local_unnamed_addr #1
 
-declare ptr @_glfwChooseFBConfig(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @_glfwChooseFBConfig(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @_glfw_free(ptr noundef) local_unnamed_addr #2
+declare void @_glfw_free(ptr noundef) local_unnamed_addr #1
 
-declare void @_glfwPlatformSetTls(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @_glfwPlatformSetTls(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @_glfwPlatformGetTls(ptr noundef) local_unnamed_addr #2
+declare ptr @_glfwPlatformGetTls(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind }
 attributes #5 = { nounwind willreturn memory(read) }
 

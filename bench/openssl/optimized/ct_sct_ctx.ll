@@ -34,17 +34,11 @@ define ptr @SCT_CTX_new(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare noalias ptr @CRYPTO_strdup(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare noalias ptr @CRYPTO_strdup(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
-
-declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @SCT_CTX_free(ptr noundef %0) local_unnamed_addr #0 {
@@ -76,15 +70,15 @@ define void @SCT_CTX_free(ptr noundef %0) local_unnamed_addr #0 {
   ret void
 }
 
-declare void @EVP_PKEY_free(ptr noundef) local_unnamed_addr #2
+declare void @EVP_PKEY_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @SCT_CTX_set1_cert(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !18
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !18
   %6 = tail call i32 @X509_get_ext_by_NID(ptr noundef %1, i32 noundef 952, i32 noundef -1) #4
   %7 = icmp sgt i32 %6, -1
@@ -176,18 +170,18 @@ ct_x509_get_ext.exit42:                           ; preds = %.thread
 
 45:                                               ; preds = %42, %31
   %.0 = phi i32 [ 0, %42 ], [ 1, %31 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
-declare i32 @i2d_X509(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @i2d_X509(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @X509_dup(ptr noundef) local_unnamed_addr #2
+declare ptr @X509_dup(ptr noundef) local_unnamed_addr #1
 
-declare void @X509_EXTENSION_free(ptr noundef) local_unnamed_addr #2
+declare void @X509_EXTENSION_free(ptr noundef) local_unnamed_addr #1
 
-declare ptr @X509_delete_ext(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @X509_delete_ext(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @ct_x509_cert_fixup(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
@@ -266,9 +260,9 @@ ct_x509_get_ext.exit41:                           ; preds = %ct_x509_get_ext.exi
   ret i32 %.0
 }
 
-declare i32 @i2d_re_X509_tbs(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @i2d_re_X509_tbs(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @X509_free(ptr noundef) local_unnamed_addr #2
+declare void @X509_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @SCT_CTX_set1_issuer(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -295,15 +289,15 @@ define range(i32 0, 2) i32 @SCT_CTX_set1_issuer_pubkey(ptr noundef captures(none
   ret i32 %7
 }
 
-declare ptr @X509_get_X509_PUBKEY(ptr noundef) local_unnamed_addr #2
+declare ptr @X509_get_X509_PUBKEY(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @ct_public_key_hash(ptr %.80.val, ptr %.88.val, ptr noundef %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !18
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = tail call ptr @EVP_MD_fetch(ptr noundef %.80.val, ptr noundef nonnull @.str.1, ptr noundef %.88.val) #4
   %7 = icmp eq ptr %6, null
   br i1 %7, label %26, label %8
@@ -354,8 +348,8 @@ define internal fastcc range(i32 0, 2) i32 @ct_public_key_hash(ptr %.80.val, ptr
   call void @CRYPTO_free(ptr noundef %.020, ptr noundef nonnull @.str, i32 noundef 240) #4
   %27 = load ptr, ptr %4, align 8, !tbaa !18
   call void @CRYPTO_free(ptr noundef %27, ptr noundef nonnull @.str, i32 noundef 241) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -391,41 +385,47 @@ define range(i32 0, 2) i32 @SCT_CTX_set1_pubkey(ptr noundef captures(none) %0, p
   ret i32 %.0
 }
 
-declare ptr @X509_PUBKEY_get(ptr noundef) local_unnamed_addr #2
+declare ptr @X509_PUBKEY_get(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @SCT_CTX_set_time(ptr noundef writeonly captures(none) initializes((72, 80)) %0, i64 noundef %1) local_unnamed_addr #3 {
+define void @SCT_CTX_set_time(ptr noundef writeonly captures(none) initializes((72, 80)) %0, i64 noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i64 %1, ptr %3, align 8, !tbaa !22
   ret void
 }
 
-declare i32 @X509_get_ext_by_NID(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @X509_get_ext_by_NID(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @X509_set_issuer_name(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @X509_set_issuer_name(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @X509_get_issuer_name(ptr noundef) local_unnamed_addr #2
+declare ptr @X509_get_issuer_name(ptr noundef) local_unnamed_addr #1
 
-declare ptr @X509_get_ext(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @X509_get_ext(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @X509_EXTENSION_get_data(ptr noundef) local_unnamed_addr #2
+declare ptr @X509_EXTENSION_get_data(ptr noundef) local_unnamed_addr #1
 
-declare i32 @X509_EXTENSION_set_data(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @X509_EXTENSION_set_data(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @EVP_MD_fetch(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @EVP_MD_fetch(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @i2d_X509_PUBKEY(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @i2d_X509_PUBKEY(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @EVP_Digest(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @EVP_Digest(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @EVP_MD_free(ptr noundef) local_unnamed_addr #2
+declare void @EVP_MD_free(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

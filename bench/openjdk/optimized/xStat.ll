@@ -2227,7 +2227,7 @@ _ZNK12XStatSampler3getEv.exit.i:                  ; preds = %35, %15
   br label %_Z11XStatSampleRK12XStatSamplerm.exit
 
 _Z11XStatSampleRK12XStatSamplerm.exit:            ; preds = %56, %58
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   %60 = call noundef i32 @_ZN2os7loadavgEPdi(ptr noundef nonnull %5, i32 noundef 3) #22
   %61 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_74ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
@@ -2244,7 +2244,7 @@ _Z11XStatSampleRK12XStatSamplerm.exit:            ; preds = %56, %58
   br label %_ZN9XStatLoad5printEv.exit
 
 _ZN9XStatLoad5printEv.exit:                       ; preds = %_Z11XStatSampleRK12XStatSamplerm.exit, %62
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %68 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_88ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not.i6 = icmp eq ptr %68, null
   br i1 %.not.i6, label %_ZN8XStatMMU5printEv.exit, label %69
@@ -2296,7 +2296,7 @@ _ZN9XStatMark5printEv.exit:                       ; preds = %83, %85
   br label %_ZN13XStatNMethods5printEv.exit
 
 _ZN13XStatNMethods5printEv.exit:                  ; preds = %_ZN9XStatMark5printEv.exit, %89
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN14MetaspaceUtils23get_combined_statisticsEv(ptr dead_on_unwind nonnull writable sret(%class.MetaspaceCombinedStats) align 8 %4) #22
   %92 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_84ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not.i9 = icmp eq ptr %92, null
@@ -2315,7 +2315,7 @@ _ZN13XStatNMethods5printEv.exit:                  ; preds = %_ZN9XStatMark5print
   br label %_ZN14XStatMetaspace5printEv.exit
 
 _ZN14XStatMetaspace5printEv.exit:                 ; preds = %_ZN13XStatNMethods5printEv.exit, %93
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZN15XStatReferences5printEv()
   call void @_ZN15XStatRelocation5printEv()
   call void @_ZN9XStatHeap5printEv()
@@ -3282,7 +3282,7 @@ define hidden void @_ZNK15XStatPhasePause14register_startERK11TimeInstantI30Comp
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   tail call void @_ZN7GCTimer23register_gc_pause_startEPKcRK11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE(ptr noundef nonnull align 8 dereferenceable(112) @_ZN10XStatPhase6_timerE, ptr noundef %5, ptr noundef nonnull align 8 dereferenceable(16) %1) #22
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 2, ptr %3, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_142ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %6, align 8
@@ -3296,7 +3296,7 @@ define hidden void @_ZNK15XStatPhasePause14register_startERK11TimeInstantI30Comp
   br label %_ZNK10XStatPhase9log_startE15LogTargetHandleb.exit
 
 _ZNK10XStatPhase9log_startE15LogTargetHandleb.exit: ; preds = %2, %8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -3381,7 +3381,7 @@ _Z11XStatSampleRK12XStatSamplerm.exit:            ; preds = %41, %43
 
 48:                                               ; preds = %47, %_Z11XStatSampleRK12XStatSamplerm.exit
   tail call void @_ZN8XStatMMU14register_pauseERK11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceES5_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 3, ptr %4, align 8
   %49 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %49, align 8
@@ -3397,7 +3397,7 @@ _Z11XStatSampleRK12XStatSamplerm.exit:            ; preds = %41, %43
   br label %_ZNK10XStatPhase7log_endE15LogTargetHandleRK12TimeIntervalI30CompositeCounterRepresentation29CompositeElapsedCounterSourceEb.exit
 
 _ZNK10XStatPhase7log_endE15LogTargetHandleRK12TimeIntervalI30CompositeCounterRepresentation29CompositeElapsedCounterSourceEb.exit: ; preds = %48, %51
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -3435,7 +3435,7 @@ define hidden void @_ZNK20XStatPhaseConcurrent14register_startERK11TimeInstantI3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   tail call void @_ZN17ConcurrentGCTimer28register_gc_concurrent_startEPKcRK11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE(ptr noundef nonnull align 8 dereferenceable(112) @_ZN10XStatPhase6_timerE, ptr noundef %5, ptr noundef nonnull align 8 dereferenceable(16) %1) #22
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 2, ptr %3, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_142ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %6, align 8
@@ -3449,7 +3449,7 @@ define hidden void @_ZNK20XStatPhaseConcurrent14register_startERK11TimeInstantI3
   br label %_ZNK10XStatPhase9log_startE15LogTargetHandleb.exit
 
 _ZNK10XStatPhase9log_startE15LogTargetHandleb.exit: ; preds = %2, %8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -3524,7 +3524,7 @@ _ZNK12XStatSampler3getEv.exit.i:                  ; preds = %20, %7
   br label %_Z11XStatSampleRK12XStatSamplerm.exit
 
 _Z11XStatSampleRK12XStatSamplerm.exit:            ; preds = %41, %43
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 3, ptr %4, align 8
   %45 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %45, align 8
@@ -3540,7 +3540,7 @@ _Z11XStatSampleRK12XStatSamplerm.exit:            ; preds = %41, %43
   br label %_ZNK10XStatPhase7log_endE15LogTargetHandleRK12TimeIntervalI30CompositeCounterRepresentation29CompositeElapsedCounterSourceEb.exit
 
 _ZNK10XStatPhase7log_endE15LogTargetHandleRK12TimeIntervalI30CompositeCounterRepresentation29CompositeElapsedCounterSourceEb.exit: ; preds = %_Z11XStatSampleRK12XStatSamplerm.exit, %47
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %51
 
 51:                                               ; preds = %3, %_ZNK10XStatPhase7log_endE15LogTargetHandleRK12TimeIntervalI30CompositeCounterRepresentation29CompositeElapsedCounterSourceEb.exit
@@ -3595,7 +3595,7 @@ _ZN7XThread9is_workerEv.exit:                     ; preds = %2, %8
   br i1 %11, label %12, label %39
 
 12:                                               ; preds = %_ZN7XThread9is_workerEv.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 1, ptr %4, align 8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_142ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %13, align 8
@@ -3644,11 +3644,11 @@ _ZN7XThread9is_workerEv.exit:                     ; preds = %2, %8
   br label %_ZNK10XStatPhase9log_startE15LogTargetHandleb.exit
 
 _ZNK10XStatPhase9log_startE15LogTargetHandleb.exit: ; preds = %12, %36, %38
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %45
 
 39:                                               ; preds = %_ZN7XThread9is_workerEv.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 2, ptr %3, align 8
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_142ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %40, align 8
@@ -3663,7 +3663,7 @@ _ZNK10XStatPhase9log_startE15LogTargetHandleb.exit: ; preds = %12, %36, %38
   br label %_ZNK10XStatPhase9log_startE15LogTargetHandleb.exit2
 
 _ZNK10XStatPhase9log_startE15LogTargetHandleb.exit2: ; preds = %39, %42
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %45
 
 45:                                               ; preds = %_ZNK10XStatPhase9log_startE15LogTargetHandleb.exit2, %_ZNK10XStatPhase9log_startE15LogTargetHandleb.exit
@@ -3767,7 +3767,7 @@ _ZN7XThread9is_workerEv.exit:                     ; preds = %_Z11XStatSampleRK12
   br i1 %57, label %58, label %85
 
 58:                                               ; preds = %_ZN7XThread9is_workerEv.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 1, ptr %5, align 8
   %59 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %59, align 8
@@ -3816,11 +3816,11 @@ _ZN7XThread9is_workerEv.exit:                     ; preds = %_Z11XStatSampleRK12
   br label %_ZNK10XStatPhase7log_endE15LogTargetHandleRK12TimeIntervalI30CompositeCounterRepresentation29CompositeElapsedCounterSourceEb.exit
 
 _ZNK10XStatPhase7log_endE15LogTargetHandleRK12TimeIntervalI30CompositeCounterRepresentation29CompositeElapsedCounterSourceEb.exit: ; preds = %58, %82, %84
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %91
 
 85:                                               ; preds = %_ZN7XThread9is_workerEv.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 2, ptr %4, align 8
   %86 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %86, align 8
@@ -3835,7 +3835,7 @@ _ZNK10XStatPhase7log_endE15LogTargetHandleRK12TimeIntervalI30CompositeCounterRep
   br label %_ZNK10XStatPhase7log_endE15LogTargetHandleRK12TimeIntervalI30CompositeCounterRepresentation29CompositeElapsedCounterSourceEb.exit8
 
 _ZNK10XStatPhase7log_endE15LogTargetHandleRK12TimeIntervalI30CompositeCounterRepresentation29CompositeElapsedCounterSourceEb.exit8: ; preds = %85, %88
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %91
 
 91:                                               ; preds = %3, %_ZNK10XStatPhase7log_endE15LogTargetHandleRK12TimeIntervalI30CompositeCounterRepresentation29CompositeElapsedCounterSourceEb.exit8, %_ZNK10XStatPhase7log_endE15LogTargetHandleRK12TimeIntervalI30CompositeCounterRepresentation29CompositeElapsedCounterSourceEb.exit
@@ -4025,7 +4025,7 @@ _Z8XStatIncRK12XStatCounterm.exit:                ; preds = %_ZNK12XStatCounter3
   br i1 %75, label %76, label %103
 
 76:                                               ; preds = %_Z8XStatIncRK12XStatCounterm.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 3, ptr %5, align 8
   %77 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %77, align 8
@@ -4074,11 +4074,11 @@ _Z8XStatIncRK12XStatCounterm.exit:                ; preds = %_ZNK12XStatCounter3
   br label %_ZNK10XStatPhase7log_endE15LogTargetHandleRK12TimeIntervalI30CompositeCounterRepresentation29CompositeElapsedCounterSourceEb.exit
 
 _ZNK10XStatPhase7log_endE15LogTargetHandleRK12TimeIntervalI30CompositeCounterRepresentation29CompositeElapsedCounterSourceEb.exit: ; preds = %76, %100, %102
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %130
 
 103:                                              ; preds = %_Z8XStatIncRK12XStatCounterm.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 2, ptr %4, align 8
   %104 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %104, align 8
@@ -4127,7 +4127,7 @@ _ZNK10XStatPhase7log_endE15LogTargetHandleRK12TimeIntervalI30CompositeCounterRep
   br label %_ZNK10XStatPhase7log_endE15LogTargetHandleRK12TimeIntervalI30CompositeCounterRepresentation29CompositeElapsedCounterSourceEb.exit12
 
 _ZNK10XStatPhase7log_endE15LogTargetHandleRK12TimeIntervalI30CompositeCounterRepresentation29CompositeElapsedCounterSourceEb.exit12: ; preds = %103, %127, %129
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %130
 
 130:                                              ; preds = %_ZNK10XStatPhase7log_endE15LogTargetHandleRK12TimeIntervalI30CompositeCounterRepresentation29CompositeElapsedCounterSourceEb.exit12, %_ZNK10XStatPhase7log_endE15LogTargetHandleRK12TimeIntervalI30CompositeCounterRepresentation29CompositeElapsedCounterSourceEb.exit
@@ -4896,7 +4896,7 @@ _ZNK5XStat12should_printE15LogTargetHandle.exit:  ; preds = %48
   br i1 %.not, label %_ZNK5XStat12should_printE15LogTargetHandle.exit.thread, label %59
 
 59:                                               ; preds = %_ZNK5XStat12should_printE15LogTargetHandle.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 3, ptr %2, align 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_146ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %39, align 8
   call void (ptr, ptr, ...) @_ZN15LogTargetHandle5printEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull @.str.29)
@@ -4924,7 +4924,7 @@ _ZNK5XStat12should_printE15LogTargetHandle.exit:  ; preds = %48
 
 _ZNK5XStat5printE15LogTargetHandlePK19XStatSamplerHistory.exit: ; preds = %.lr.ph.i8, %59
   call void (ptr, ptr, ...) @_ZN15LogTargetHandle5printEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull @.str.32)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %_ZNK5XStat12should_printE15LogTargetHandle.exit.thread
 
 _ZNK5XStat12should_printE15LogTargetHandle.exit.thread: ; preds = %48, %_ZNK5XStat5printE15LogTargetHandlePK19XStatSamplerHistory.exit, %_ZNK5XStat12should_printE15LogTargetHandle.exit
@@ -6261,10 +6261,10 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #20
 declare i32 @llvm.smax.i32(i32, i32) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #21
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #21
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #19

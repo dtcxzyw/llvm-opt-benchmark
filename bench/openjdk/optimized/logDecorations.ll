@@ -147,25 +147,25 @@ define hidden void @_ZNK14LogDecorations16print_decorationEN13LogDecorators9Deco
   ]
 
 7:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 29, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %8 = load i64, ptr %0, align 8
   %9 = call noundef ptr @_ZN2os12iso8601_timeElPcmb(i64 noundef %8, ptr noundef nonnull %6, i64 noundef 29, i1 noundef zeroext false) #8
   %.not.i = icmp eq ptr %9, null
   %10 = select i1 %.not.i, ptr @.str.5, ptr %9
   %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #9
   call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull %10, i64 noundef %11) #8
-  call void @llvm.lifetime.end.p0(i64 29, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %61
 
 12:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 29, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %13 = load i64, ptr %0, align 8
   %14 = call noundef ptr @_ZN2os12iso8601_timeElPcmb(i64 noundef %13, ptr noundef nonnull %5, i64 noundef 29, i1 noundef zeroext true) #8
   %.not.i13 = icmp eq ptr %14, null
   %15 = select i1 %.not.i13, ptr @.str.5, ptr %14
   %16 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #9
   call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull %15, i64 noundef %16) #8
-  call void @llvm.lifetime.end.p0(i64 29, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %61
 
 17:                                               ; preds = %3
@@ -202,7 +202,7 @@ define hidden void @_ZNK14LogDecorations16print_decorationEN13LogDecorators9Deco
   br label %61
 
 35:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %36 = load volatile ptr, ptr @_ZN14LogDecorations10_host_nameE, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !6
   %37 = icmp eq ptr %36, null
@@ -222,7 +222,7 @@ define hidden void @_ZNK14LogDecorations16print_decorationEN13LogDecorators9Deco
 
 _ZNK14LogDecorations25print_hostname_decorationEP12outputStream.exit: ; preds = %35, %38, %42
   %.0.i.i = phi ptr [ %41, %42 ], [ %40, %38 ], [ %36, %35 ]
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %43 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i.i) #9
   call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull %.0.i.i, i64 noundef %43) #8
   br label %61
@@ -334,7 +334,7 @@ define hidden void @_ZNK14LogDecorations28print_uptimenanos_decorationEP12output
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK14LogDecorations25print_hostname_decorationEP12outputStream(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(48) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
   %3 = alloca [1024 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load volatile ptr, ptr @_ZN14LogDecorations10_host_nameE, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !6
   %5 = icmp eq ptr %4, null
@@ -354,7 +354,7 @@ define hidden void @_ZNK14LogDecorations25print_hostname_decorationEP12outputStr
 
 _ZN14LogDecorations9host_nameEv.exit:             ; preds = %2, %6, %10
   %.0.i = phi ptr [ %9, %10 ], [ %8, %6 ], [ %4, %2 ]
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i) #9
   call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull %.0.i, i64 noundef %11) #8
   ret void
@@ -431,10 +431,10 @@ define internal void @_GLOBAL__sub_I_logDecorations.cpp() #5 section ".text.star
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #7

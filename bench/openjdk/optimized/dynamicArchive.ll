@@ -466,7 +466,7 @@ _ZNK5Klass11java_mirrorEv.exit:                   ; preds = %12
   br label %_ZN12ResourceMarkD2Ev.exit
 
 _ZN12ResourceMarkD2Ev.exit:                       ; preds = %50, %48, %19
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %51 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr null, ptr %51, align 8
   %52 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -480,7 +480,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %50, %48, %19
   call void %56(ptr noundef nonnull align 8 dereferenceable(464) %1, ptr noundef nonnull %4) #11
   call void @_ZN16MetaspaceClosure6finishEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #11
   call void @_ZN16MetaspaceClosureD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #11
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %57 = load ptr, ptr %1, align 8
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 120
   %59 = load ptr, ptr %58, align 8
@@ -540,7 +540,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %50, %48, %19
   br label %82
 
 82:                                               ; preds = %78, %74
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %83 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr null, ptr %83, align 8
   %84 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -554,7 +554,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %50, %48, %19
   call void %88(ptr noundef nonnull align 8 dereferenceable(464) %1, ptr noundef nonnull %3) #11
   call void @_ZN16MetaspaceClosure6finishEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #11
   call void @_ZN16MetaspaceClosureD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #11
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZNK5Klass11java_mirrorEv.exit.thread
 
 _ZNK5Klass11java_mirrorEv.exit.thread:            ; preds = %12, %_ZNK5Klass11java_mirrorEv.exit, %2, %82
@@ -2233,7 +2233,7 @@ define linkonce_odr hidden void @_ZN21DynamicArchiveBuilder13iterate_rootsEP16Me
   %3 = alloca ptr, align 8
   tail call void @_ZN15SharedPathTable21metaspace_pointers_doEP16MetaspaceClosure(ptr noundef nonnull align 8 dereferenceable(8) @_ZN11FileMapInfo18_shared_path_tableE, ptr noundef %1) #11
   tail call void @_ZN22SystemDictionaryShared19dumptime_classes_doEP16MetaspaceClosure(ptr noundef %1) #11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %4
 
 4:                                                ; preds = %.critedge.thread.i, %2
@@ -2279,7 +2279,7 @@ define linkonce_odr hidden void @_ZN21DynamicArchiveBuilder13iterate_rootsEP16Me
   br i1 %exitcond.not.i, label %_ZN21DynamicArchiveBuilder31iterate_primitive_array_klassesEP16MetaspaceClosure.exit, label %4, !llvm.loop !21
 
 _ZN21DynamicArchiveBuilder31iterate_primitive_array_klassesEP16MetaspaceClosure.exit: ; preds = %.critedge.thread.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -2950,10 +2950,10 @@ declare i32 @llvm.ctpop.i32(i32) #8
 declare i32 @llvm.smax.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10

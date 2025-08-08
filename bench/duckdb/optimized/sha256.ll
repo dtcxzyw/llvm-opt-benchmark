@@ -86,7 +86,7 @@ define hidden noundef i32 @mbedtls_sha256_starts(ptr noundef writeonly captures(
 define hidden noundef i32 @mbedtls_internal_sha256_process(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
 .preheader154:
   %2 = alloca %struct.anon, align 4
-  call void @llvm.lifetime.start.p0(i64 296, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 264
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %4, ptr noundef nonnull align 4 dereferenceable(32) %3, i64 32, i1 false), !tbaa !7
@@ -893,15 +893,9 @@ define hidden noundef i32 @mbedtls_internal_sha256_process(ptr noundef captures(
 
 732:                                              ; preds = %726
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %2, i64 noundef 296)
-  call void @llvm.lifetime.end.p0(i64 296, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 0
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef i32 @mbedtls_sha256_update(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #2 {
@@ -1219,7 +1213,7 @@ define hidden noundef i32 @mbedtls_sha256_finish(ptr noundef captures(none) %0, 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef i32 @mbedtls_sha256(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2, i32 noundef %3) local_unnamed_addr #2 {
   %5 = alloca %struct.mbedtls_sha256_context, align 4
-  call void @llvm.lifetime.start.p0(i64 108, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = icmp eq i32 %3, 0
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(104) %5, i8 0, i64 104, i1 false)
   br i1 %6, label %mbedtls_sha256_starts.exit, label %7
@@ -1286,9 +1280,15 @@ mbedtls_sha256_starts.exit:                       ; preds = %4, %7
 mbedtls_sha256_update.exit:                       ; preds = %mbedtls_sha256_starts.exit, %._crit_edge.i, %._crit_edge.thread.i
   %26 = call i32 @mbedtls_sha256_finish(ptr noundef nonnull %5, ptr noundef %2)
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %5, i64 noundef 108)
-  call void @llvm.lifetime.end.p0(i64 108, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 0
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #7
@@ -1301,7 +1301,6 @@ attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

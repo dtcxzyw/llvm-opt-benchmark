@@ -55,16 +55,13 @@ define void @lv_demo_vector_graphic_buffered() local_unnamed_addr #0 {
   %4 = tail call ptr @lv_canvas_create(ptr noundef %3) #4
   tail call void @lv_canvas_set_draw_buf(ptr noundef %4, ptr noundef %2) #4
   %5 = tail call ptr @lv_obj_add_event_cb(ptr noundef %4, ptr noundef nonnull @delete_event_cb, i32 noundef 41, ptr noundef null) #4
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %1) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @lv_canvas_init_layer(ptr noundef %4, ptr noundef nonnull %1) #4
   call fastcc void @draw_vector(ptr noundef nonnull %1)
   call void @lv_canvas_finish_layer(ptr noundef %4, ptr noundef nonnull %1) #4
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %1) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 declare ptr @lv_draw_buf_create(i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -105,7 +102,7 @@ define internal fastcc void @draw_vector(ptr noundef %0) unnamed_addr #0 {
   %18 = alloca %struct._lv_fpoint_t, align 8
   %19 = alloca %struct.lv_area_t, align 4
   %20 = tail call ptr @lv_vector_dsc_create(ptr noundef %0) #4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %19) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %19, ptr noundef nonnull align 4 dereferenceable(16) @__const.draw_vector.rect, i64 16, i1 false)
   %21 = tail call i24 @lv_color_black() #4
   %22 = tail call i24 @lv_color_lighten(i24 %21, i8 noundef zeroext 50) #4
@@ -114,7 +111,7 @@ define internal fastcc void @draw_vector(ptr noundef %0) unnamed_addr #0 {
   %23 = call ptr @lv_vector_path_create(i32 noundef 0) #4
   call void @lv_vector_path_clear(ptr noundef %23) #4
   call void @lv_vector_dsc_identity(ptr noundef %20) #4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %15, ptr noundef nonnull align 16 dereferenceable(24) @__const.draw_shapes.pts, i64 24, i1 false)
   call void @lv_vector_path_move_to(ptr noundef %23, ptr noundef nonnull %15) #4
   %24 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -128,7 +125,7 @@ define internal fastcc void @draw_vector(ptr noundef %0) unnamed_addr #0 {
   call void @lv_vector_dsc_add_path(ptr noundef %20, ptr noundef %23) #4
   call void @lv_vector_path_clear(ptr noundef %23) #4
   call void @lv_vector_dsc_identity(ptr noundef %20) #4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %16, ptr noundef nonnull align 4 dereferenceable(16) @__const.draw_shapes.rect, i64 16, i1 false)
   call void @lv_vector_path_append_rect(ptr noundef %23, ptr noundef nonnull %16, float noundef 5.000000e+01, float noundef 6.000000e+01) #4
   %27 = call i24 @lv_color_make(i8 noundef zeroext 0, i8 noundef zeroext -128, i8 noundef zeroext -1) #4
@@ -137,25 +134,25 @@ define internal fastcc void @draw_vector(ptr noundef %0) unnamed_addr #0 {
   call void @lv_vector_dsc_add_path(ptr noundef %20, ptr noundef %23) #4
   call void @lv_vector_path_clear(ptr noundef %23) #4
   call void @lv_vector_dsc_identity(ptr noundef %20) #4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %17, ptr noundef nonnull align 4 dereferenceable(16) @__const.draw_shapes.rect2, i64 16, i1 false)
   call void @lv_vector_path_append_rect(ptr noundef %23, ptr noundef nonnull %17, float noundef 1.000000e+01, float noundef 1.000000e+01) #4
   %28 = call i24 @lv_color_make(i8 noundef zeroext -128, i8 noundef zeroext 0, i8 noundef zeroext -128) #4
   call void @lv_vector_dsc_set_fill_color(ptr noundef %20, i24 %28) #4
   %29 = call ptr @lv_vector_path_create(i32 noundef 0) #4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i64 4886968546762424320, ptr %18, align 8
   call void @lv_vector_path_append_circle(ptr noundef %29, ptr noundef nonnull %18, float noundef 5.000000e+01, float noundef 3.000000e+01) #4
   call void @lv_vector_path_append_path(ptr noundef %23, ptr noundef %29) #4
   call void @lv_vector_dsc_add_path(ptr noundef %20, ptr noundef %23) #4
   call void @lv_vector_path_delete(ptr noundef %29) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17) #4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #4
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @lv_vector_path_clear(ptr noundef %23) #4
   call void @lv_vector_dsc_identity(ptr noundef %20) #4
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %13, ptr noundef nonnull align 16 dereferenceable(32) @__const.draw_lines.pts, i64 32, i1 false)
   call void @lv_vector_path_move_to(ptr noundef %23, ptr noundef nonnull %13) #4
   %30 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -167,17 +164,17 @@ define internal fastcc void @draw_vector(ptr noundef %0) unnamed_addr #0 {
   call void @lv_vector_dsc_set_stroke_opa(ptr noundef %20, i8 noundef zeroext -1) #4
   call void @lv_vector_dsc_set_fill_opa(ptr noundef %20, i8 noundef zeroext 0) #4
   call void @lv_vector_dsc_set_stroke_width(ptr noundef %20, float noundef 8.000000e+00) #4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %14, ptr noundef nonnull align 16 dereferenceable(16) @__const.draw_lines.dashes, i64 16, i1 false)
   call void @lv_vector_dsc_set_stroke_dash(ptr noundef %20, ptr noundef nonnull %14, i16 noundef zeroext 4) #4
   call void @lv_vector_dsc_add_path(ptr noundef %20, ptr noundef %23) #4
   call void @lv_vector_dsc_set_stroke_opa(ptr noundef %20, i8 noundef zeroext 0) #4
   call void @lv_vector_dsc_set_fill_opa(ptr noundef %20, i8 noundef zeroext -1) #4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #4
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @lv_vector_path_clear(ptr noundef %23) #4
   call void @lv_vector_dsc_identity(ptr noundef %20) #4
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %11, ptr noundef nonnull align 16 dereferenceable(32) @__const.draw_pattern.pts, i64 32, i1 false)
   call void @lv_vector_path_move_to(ptr noundef %23, ptr noundef nonnull %11) #4
   %34 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -186,7 +183,7 @@ define internal fastcc void @draw_vector(ptr noundef %0) unnamed_addr #0 {
   %36 = getelementptr inbounds nuw i8, ptr %11, i64 24
   call void @lv_vector_path_quad_to(ptr noundef %23, ptr noundef nonnull %35, ptr noundef nonnull %36) #4
   call void @lv_vector_path_close(ptr noundef %23) #4
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %12) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @lv_draw_image_dsc_init(ptr noundef nonnull %12) #4
   %37 = getelementptr inbounds nuw i8, ptr %12, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %37, ptr noundef nonnull align 8 dereferenceable(12) @img_demo_vector_avatar, i64 12, i1 false), !tbaa.struct !3
@@ -197,11 +194,11 @@ define internal fastcc void @draw_vector(ptr noundef %0) unnamed_addr #0 {
   call void @lv_vector_dsc_rotate(ptr noundef %20, float noundef 2.500000e+01) #4
   call void @lv_vector_dsc_translate(ptr noundef %20, float noundef -2.500000e+02, float noundef -2.500000e+02) #4
   call void @lv_vector_dsc_add_path(ptr noundef %20, ptr noundef %23) #4
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %12) #4
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @lv_vector_path_clear(ptr noundef %23) #4
   call void @lv_vector_dsc_identity(ptr noundef %20) #4
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %9, ptr noundef nonnull align 16 dereferenceable(32) @__const.draw_radial_gradient.pts, i64 32, i1 false)
   call void @lv_vector_path_move_to(ptr noundef %23, ptr noundef nonnull %9) #4
   %39 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -211,7 +208,7 @@ define internal fastcc void @draw_vector(ptr noundef %0) unnamed_addr #0 {
   %41 = getelementptr inbounds nuw i8, ptr %9, i64 24
   call void @lv_vector_path_line_to(ptr noundef %23, ptr noundef nonnull %41) #4
   call void @lv_vector_path_close(ptr noundef %23) #4
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %10) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @lv_memset(ptr noundef nonnull %10, i8 noundef zeroext 0, i64 noundef 10) #4
   %42 = call i24 @lv_color_hex(i32 noundef 16711680) #4
   store i24 %42, ptr %10, align 4
@@ -230,18 +227,18 @@ define internal fastcc void @draw_vector(ptr noundef %0) unnamed_addr #0 {
   call void @lv_vector_dsc_set_fill_gradient_color_stops(ptr noundef %20, ptr noundef nonnull %10, i16 noundef zeroext 2) #4
   call void @lv_vector_dsc_set_fill_gradient_spread(ptr noundef %20, i32 noundef 2) #4
   call void @lv_vector_dsc_add_path(ptr noundef %20, ptr noundef %23) #4
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %10) #4
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @lv_vector_path_clear(ptr noundef %23) #4
   call void @lv_vector_dsc_identity(ptr noundef %20) #4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %6, ptr noundef nonnull align 16 dereferenceable(24) @__const.draw_gradient.pts, i64 24, i1 false)
   call void @lv_vector_path_move_to(ptr noundef %23, ptr noundef nonnull %6) #4
   %49 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @lv_vector_path_quad_to(ptr noundef %23, ptr noundef nonnull %49, ptr noundef nonnull %50) #4
   call void @lv_vector_path_close(ptr noundef %23) #4
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @lv_memset(ptr noundef nonnull %7, i8 noundef zeroext 0, i64 noundef 10) #4
   %51 = call i24 @lv_color_hex(i32 noundef 16711680) #4
   store i24 %51, ptr %7, align 4
@@ -256,7 +253,7 @@ define internal fastcc void @draw_vector(ptr noundef %0) unnamed_addr #0 {
   store i8 -1, ptr %56, align 4, !tbaa !21
   %57 = getelementptr inbounds nuw i8, ptr %7, i64 9
   store i8 -1, ptr %57, align 1, !tbaa !23
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %8) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @lv_matrix_identity(ptr noundef nonnull %8) #4
   call void @lv_matrix_rotate(ptr noundef nonnull %8, float noundef 3.000000e+01) #4
   call void @lv_vector_dsc_set_fill_transform(ptr noundef %20, ptr noundef nonnull %8) #4
@@ -264,12 +261,12 @@ define internal fastcc void @draw_vector(ptr noundef %0) unnamed_addr #0 {
   call void @lv_vector_dsc_set_fill_gradient_color_stops(ptr noundef %20, ptr noundef nonnull %7, i16 noundef zeroext 2) #4
   call void @lv_vector_dsc_set_fill_gradient_spread(ptr noundef %20, i32 noundef 0) #4
   call void @lv_vector_dsc_add_path(ptr noundef %20, ptr noundef %23) #4
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %8) #4
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %7) #4
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @lv_vector_path_clear(ptr noundef %23) #4
   call void @lv_vector_dsc_identity(ptr noundef %20) #4
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %5, ptr noundef nonnull align 16 dereferenceable(32) @__const.draw_blend.pts, i64 32, i1 false)
   call void @lv_vector_path_move_to(ptr noundef %23, ptr noundef nonnull %5) #4
   %58 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -281,16 +278,16 @@ define internal fastcc void @draw_vector(ptr noundef %0) unnamed_addr #0 {
   call void @lv_vector_dsc_set_fill_color(ptr noundef %20, i24 %61) #4
   call void @lv_vector_dsc_set_blend_mode(ptr noundef %20, i32 noundef 4) #4
   call void @lv_vector_dsc_add_path(ptr noundef %20, ptr noundef %23) #4
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @lv_vector_path_clear(ptr noundef %23) #4
   call void @lv_vector_dsc_identity(ptr noundef %20) #4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) @__const.draw_arc.rect, i64 16, i1 false)
   %62 = call i24 @lv_color_black() #4
   %63 = call i24 @lv_color_lighten(i24 %62, i8 noundef zeroext 50) #4
   call void @lv_vector_dsc_set_fill_color(ptr noundef %20, i24 %63) #4
   call void @lv_vector_clear_area(ptr noundef %20, ptr noundef nonnull %2) #4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 4776067405946814464, ptr %3, align 8
   %64 = call i24 @lv_color_make(i8 noundef zeroext 0, i8 noundef zeroext -1, i8 noundef zeroext -1) #4
   call void @lv_vector_dsc_set_stroke_color(ptr noundef %20, i24 %64) #4
@@ -300,7 +297,7 @@ define internal fastcc void @draw_vector(ptr noundef %0) unnamed_addr #0 {
   %65 = call i32 @lv_color32_make(i8 noundef zeroext -1, i8 noundef zeroext 0, i8 noundef zeroext 0, i8 noundef zeroext -128) #4
   call void @lv_vector_dsc_set_fill_color32(ptr noundef %20, i32 %65) #4
   call void @lv_vector_path_move_to(ptr noundef %23, ptr noundef nonnull %3) #4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %66 = load float, ptr %3, align 8, !tbaa !24
   %67 = fadd float %66, 5.000000e+01
   store float %67, ptr %4, align 4, !tbaa !24
@@ -316,20 +313,17 @@ define internal fastcc void @draw_vector(ptr noundef %0) unnamed_addr #0 {
   call void @lv_vector_path_clear(ptr noundef %23) #4
   call void @lv_vector_path_append_arc(ptr noundef %23, ptr noundef nonnull %3, float noundef 5.000000e+01, float noundef 4.500000e+01, float noundef 4.500000e+01, i1 noundef zeroext true) #4
   call void @lv_vector_dsc_add_path(ptr noundef %20, ptr noundef %23) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @lv_draw_vector(ptr noundef %20) #4
   call void @lv_vector_path_delete(ptr noundef %23) #4
   call void @lv_vector_dsc_delete(ptr noundef %20) #4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   ret void
 }
 
 declare void @lv_canvas_finish_layer(ptr noundef, ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 declare ptr @lv_event_get_layer(ptr noundef) local_unnamed_addr #1
 
@@ -342,7 +336,7 @@ declare void @lv_draw_buf_destroy(ptr noundef) local_unnamed_addr #1
 declare ptr @lv_vector_dsc_create(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare void @lv_vector_dsc_set_fill_color(ptr noundef, i24) local_unnamed_addr #1
 
@@ -432,10 +426,16 @@ declare i32 @lv_color32_make(i8 noundef zeroext, i8 noundef zeroext, i8 noundef 
 
 declare void @lv_vector_path_append_arc(ptr noundef, ptr noundef, float noundef, float noundef, float noundef, i1 noundef zeroext) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

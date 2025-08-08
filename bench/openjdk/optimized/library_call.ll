@@ -835,7 +835,7 @@ _ZNK8ciMethod25check_intrinsic_candidateEv.exit.thread: ; preds = %2, %_ZNK8ciMe
 53:                                               ; preds = %49, %37
   %54 = load i32, ptr %43, align 8
   %55 = add i32 %54, -1
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN12stringStreamC1Em(ptr noundef nonnull align 8 dereferenceable(129) %4, i64 noundef 0) #13
   call void @_ZN11CompileTask20print_inlining_innerEP12outputStreamP8ciMethodii14InliningResultPKc(ptr noundef nonnull %4, ptr noundef nonnull %14, i32 noundef %55, i32 noundef %20, i32 noundef 0, ptr noundef nonnull %42) #13
   %56 = getelementptr inbounds nuw i8, ptr %8, i64 2096
@@ -844,7 +844,7 @@ _ZNK8ciMethod25check_intrinsic_candidateEv.exit.thread: ; preds = %2, %_ZNK8ciMe
   %59 = load ptr, ptr %58, align 8
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %57, ptr noundef nonnull @.str.14, ptr noundef %59) #13
   call void @_ZN12stringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(129) %4) #13
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %60
 
 60:                                               ; preds = %53, %49
@@ -940,7 +940,7 @@ _ZN14LibraryCallKit11push_resultEv.exit:          ; preds = %78, %80, %83
 122:                                              ; preds = %118, %98
   %123 = load i32, ptr %112, align 8
   %124 = add i32 %123, -1
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN12stringStreamC1Em(ptr noundef nonnull align 8 dereferenceable(129) %3, i64 noundef 0) #13
   call void @_ZN11CompileTask20print_inlining_innerEP12outputStreamP8ciMethodii14InliningResultPKc(ptr noundef nonnull %3, ptr noundef nonnull %14, i32 noundef %124, i32 noundef %20, i32 noundef 1, ptr noundef nonnull %.039) #13
   %125 = getelementptr inbounds nuw i8, ptr %8, i64 2096
@@ -949,7 +949,7 @@ _ZN14LibraryCallKit11push_resultEv.exit:          ; preds = %78, %80, %83
   %128 = load ptr, ptr %127, align 8
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %126, ptr noundef nonnull @.str.14, ptr noundef %128) #13
   call void @_ZN12stringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(129) %3) #13
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN12ResourceMarkD2Ev.exit
 
 129:                                              ; preds = %95
@@ -2214,11 +2214,11 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit13try_to_inlineEi(ptr nound
   br label %597
 
 367:                                              ; preds = %12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %368 = call noundef ptr @_ZN14LibraryCallKit21current_thread_helperERP4Node8ByteSizeb(ptr noundef nonnull align 8 dereferenceable(108) %0, ptr noundef nonnull align 8 dereferenceable(8) %3, i32 noundef 896, i1 noundef zeroext false)
   %369 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %368, ptr %369, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %597
 
 370:                                              ; preds = %12
@@ -2758,7 +2758,7 @@ define hidden noundef ptr @_ZN16LibraryIntrinsic18generate_predicateEP8JVMStatei
 51:                                               ; preds = %47, %35
   %52 = load i32, ptr %41, align 8
   %53 = add i32 %52, -1
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN12stringStreamC1Em(ptr noundef nonnull align 8 dereferenceable(129) %5, i64 noundef 0) #13
   call void @_ZN11CompileTask20print_inlining_innerEP12outputStreamP8ciMethodii14InliningResultPKc(ptr noundef nonnull %5, ptr noundef %17, i32 noundef %53, i32 noundef %23, i32 noundef 0, ptr noundef nonnull %40) #13
   %54 = getelementptr inbounds nuw i8, ptr %9, i64 2096
@@ -2767,7 +2767,7 @@ define hidden noundef ptr @_ZN16LibraryIntrinsic18generate_predicateEP8JVMStatei
   %57 = load ptr, ptr %56, align 8
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %55, ptr noundef nonnull @.str.14, ptr noundef %57) #13
   call void @_ZN12stringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(129) %5) #13
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %58
 
 58:                                               ; preds = %51, %47
@@ -2825,7 +2825,7 @@ define hidden noundef ptr @_ZN16LibraryIntrinsic18generate_predicateEP8JVMStatei
   %96 = load ptr, ptr %95, align 8
   %97 = load i32, ptr %83, align 8
   %98 = add i32 %97, -1
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN12stringStreamC1Em(ptr noundef nonnull align 8 dereferenceable(129) %4, i64 noundef 0) #13
   call void @_ZN11CompileTask20print_inlining_innerEP12outputStreamP8ciMethodii14InliningResultPKc(ptr noundef nonnull %4, ptr noundef %96, i32 noundef %98, i32 noundef %23, i32 noundef 1, ptr noundef nonnull @.str.18) #13
   %99 = getelementptr inbounds nuw i8, ptr %9, i64 2096
@@ -2834,7 +2834,7 @@ define hidden noundef ptr @_ZN16LibraryIntrinsic18generate_predicateEP8JVMStatei
   %102 = load ptr, ptr %101, align 8
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %100, ptr noundef nonnull @.str.14, ptr noundef %102) #13
   call void @_ZN12stringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(129) %4) #13
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN12ResourceMarkD2Ev.exit
 
 103:                                              ; preds = %76
@@ -12263,7 +12263,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit34inline_native_currentCarr
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN14LibraryCallKit27inline_native_currentThreadEv(ptr noundef nonnull align 8 dereferenceable(108) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -12277,7 +12277,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit27inline_native_currentThre
   %13 = and i32 %12, 131072
   %.not.i = icmp eq i32 %13, 0
   %14 = call noundef ptr @_ZN14LibraryCallKit21current_thread_helperERP4Node8ByteSizeb(ptr noundef nonnull align 8 dereferenceable(108) %0, ptr noundef nonnull align 8 dereferenceable(8) %2, i32 noundef 904, i1 noundef zeroext %.not.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %14, ptr %15, align 8
   ret i1 true
@@ -13320,7 +13320,7 @@ _ZN4Node7del_outEPS_.exit.i.i.i:                  ; preds = %210, %198, %190
 
 _ZN8GraphKit11set_controlEP4Node.exit:            ; preds = %_ZN4Node7del_outEPS_.exit.i.i.i, %215, %226
   %232 = call noundef ptr @_ZN14LibraryCallKit21current_thread_helperERP4Node8ByteSizeb(ptr noundef nonnull align 8 dereferenceable(108) %0, ptr noundef nonnull align 8 dereferenceable(8) %3, i32 noundef 896, i1 noundef zeroext false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %233 = load ptr, ptr %49, align 8
   %234 = getelementptr inbounds nuw i8, ptr %233, i64 32
   %235 = load ptr, ptr %234, align 8
@@ -13333,7 +13333,7 @@ _ZN8GraphKit11set_controlEP4Node.exit:            ; preds = %_ZN4Node7del_outEPS
   %242 = and i32 %241, 131072
   %.not.i = icmp eq i32 %242, 0
   %243 = call noundef ptr @_ZN14LibraryCallKit21current_thread_helperERP4Node8ByteSizeb(ptr noundef nonnull align 8 dereferenceable(108) %0, ptr noundef nonnull align 8 dereferenceable(8) %2, i32 noundef 904, i1 noundef zeroext %.not.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %244 = load ptr, ptr %11, align 8
   %245 = load ptr, ptr %17, align 8
   %246 = getelementptr inbounds nuw i8, ptr %245, i64 1808
@@ -21943,7 +21943,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit22inline_unsafe_allocateEv(
 
 81:                                               ; preds = %18
   %82 = load i32, ptr @_ZN15java_lang_Class13_klass_offsetE, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %83 = sext i32 %82 to i64
   %84 = load ptr, ptr %33, align 8
   %85 = tail call noundef ptr @_ZN11PhaseValues7longconEl(ptr noundef nonnull align 8 dereferenceable(2400) %84, i64 noundef %83) #13
@@ -21962,7 +21962,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit22inline_unsafe_allocateEv(
   %98 = load ptr, ptr %97, align 8
   store ptr %98, ptr %2, align 8
   %99 = call noundef ptr @_ZN8GraphKit14null_check_oopEP4NodePS1_bbb(ptr noundef nonnull align 8 dereferenceable(108) %0, ptr noundef %95, ptr noundef nonnull %2, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %100 = load ptr, ptr %33, align 8
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 40
   %102 = load ptr, ptr %101, align 8
@@ -22973,7 +22973,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit19inline_array_copyOfEb(ptr
 105:                                              ; preds = %63
   %106 = call noundef ptr @_ZN8GraphKit17load_array_lengthEP4Node(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %103) #13
   %107 = load i32, ptr @_ZN15java_lang_Class13_klass_offsetE, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %108 = sext i32 %107 to i64
   %109 = load ptr, ptr %71, align 8
   %110 = call noundef ptr @_ZN11PhaseValues7longconEl(ptr noundef nonnull align 8 dereferenceable(2400) %109, i64 noundef %108) #13
@@ -22992,7 +22992,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit19inline_array_copyOfEb(ptr
   %123 = load ptr, ptr %122, align 8
   store ptr %123, ptr %3, align 8
   %124 = call noundef ptr @_ZN8GraphKit14null_check_oopEP4NodePS1_bbb(ptr noundef nonnull align 8 dereferenceable(108) %0, ptr noundef %120, ptr noundef nonnull %3, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %125 = load ptr, ptr %71, align 8
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 40
   %127 = load ptr, ptr %126, align 8
@@ -33300,13 +33300,13 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit39inline_native_Reflection_
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 128
   %28 = load ptr, ptr %27, align 8
   %29 = tail call noundef ptr %28(ptr noundef nonnull align 8 dereferenceable(144) %25) #13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %30 = tail call noundef ptr @_ZN8ciObject5klassEv(ptr noundef nonnull align 8 dereferenceable(40) %29) #13
   store ptr %30, ptr %2, align 8
   %31 = call noundef ptr @_ZN7TypePtr10interfacesERP7ciKlassbbbN4Type17InterfaceHandlingE(ptr noundef nonnull align 8 dereferenceable(8) %2, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef 1) #13
   %32 = load ptr, ptr %2, align 8
   %33 = call noundef ptr @_ZN11TypeInstPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS0_i(i32 noundef 2, ptr noundef %32, ptr noundef %31, i1 noundef zeroext true, ptr noundef nonnull %29, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 2147483647) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %35 = load ptr, ptr %34, align 8
   %36 = call noundef ptr @_ZN11PhaseValues7makeconEPK4Type(ptr noundef nonnull align 8 dereferenceable(2400) %35, ptr noundef %33) #13
@@ -50731,13 +50731,13 @@ define hidden noundef ptr @_ZN14LibraryCallKit22load_field_from_objectEP4NodePKc
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 128
   %35 = load ptr, ptr %34, align 8
   %36 = tail call noundef ptr %35(ptr noundef nonnull align 8 dereferenceable(144) %.034) #13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %37 = tail call noundef ptr @_ZN8ciObject5klassEv(ptr noundef nonnull align 8 dereferenceable(40) %36) #13
   store ptr %37, ptr %8, align 8
   %38 = call noundef ptr @_ZN7TypePtr10interfacesERP7ciKlassbbbN4Type17InterfaceHandlingE(ptr noundef nonnull align 8 dereferenceable(8) %8, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef 1) #13
   %39 = load ptr, ptr %8, align 8
   %40 = call noundef ptr @_ZN11TypeInstPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS0_i(i32 noundef 2, ptr noundef %39, ptr noundef %38, i1 noundef zeroext true, ptr noundef nonnull %36, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 2147483647) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %42 = load ptr, ptr %41, align 8
   %43 = call noundef ptr @_ZN11PhaseValues7makeconEPK4Type(ptr noundef nonnull align 8 dereferenceable(2400) %42, ptr noundef %40) #13
@@ -50855,13 +50855,13 @@ define hidden noundef ptr @_ZN14LibraryCallKit25field_address_from_objectEP4Node
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 128
   %33 = load ptr, ptr %32, align 8
   %34 = tail call noundef ptr %33(ptr noundef nonnull align 8 dereferenceable(144) %.015) #13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %35 = tail call noundef ptr @_ZN8ciObject5klassEv(ptr noundef nonnull align 8 dereferenceable(40) %34) #13
   store ptr %35, ptr %8, align 8
   %36 = call noundef ptr @_ZN7TypePtr10interfacesERP7ciKlassbbbN4Type17InterfaceHandlingE(ptr noundef nonnull align 8 dereferenceable(8) %8, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef 1) #13
   %37 = load ptr, ptr %8, align 8
   %38 = call noundef ptr @_ZN11TypeInstPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS0_i(i32 noundef 2, ptr noundef %37, ptr noundef %36, i1 noundef zeroext true, ptr noundef nonnull %34, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 2147483647) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %40 = load ptr, ptr %39, align 8
   %41 = call noundef ptr @_ZN11PhaseValues7makeconEPK4Type(ptr noundef nonnull align 8 dereferenceable(2400) %40, ptr noundef %38) #13
@@ -57727,10 +57727,10 @@ declare i32 @llvm.umax.i32(i32, i32) #10
 declare i32 @llvm.ctpop.i32(i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12

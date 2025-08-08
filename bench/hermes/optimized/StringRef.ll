@@ -2475,13 +2475,13 @@ define hidden noundef zeroext i1 @_ZNK4llvh9StringRef11getAsDoubleERdb(ptr nound
 entry:
   %agg.tmp.i = alloca %"class.llvh::detail::IEEEFloat", align 8
   %F = alloca %"class.llvh::APFloat", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i)
   %U.i = getelementptr inbounds nuw i8, ptr %F, i64 8
   call void @_ZN4llvh6detail9IEEEFloatC1Ed(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp.i, double noundef 0.000000e+00) #20
   %call.i = tail call noundef nonnull align 1 ptr @_ZN4llvh11APFloatBase10IEEEdoubleEv() #21
   call void @_ZN4llvh7APFloat7StorageC1ENS_6detail9IEEEFloatERKNS_12fltSemanticsE(ptr noundef nonnull align 8 dereferenceable(24) %U.i, ptr noundef nonnull %agg.tmp.i, ptr noundef nonnull align 1 %call.i) #20
   call void @_ZN4llvh6detail9IEEEFloatD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp.i) #20
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i)
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %this, align 8
   %agg.tmp.sroa.2.0.this1.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 8
   %agg.tmp.sroa.2.0.copyload = load i64, ptr %agg.tmp.sroa.2.0.this1.sroa_idx, align 8
@@ -3141,10 +3141,10 @@ declare i32 @llvm.umin.i32(i32, i32) #15
 declare i64 @llvm.umax.i64(i64, i64) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.fshr.i64(i64, i64, i64) #15

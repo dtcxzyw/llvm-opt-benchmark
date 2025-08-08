@@ -766,9 +766,9 @@ define internal fastcc void @"_ZN4core3ptr64drop_in_place$LT$ockam_core..error..
   br i1 %.not4.i.i.i, label %"_ZN61_$LT$tracing..span..Span$u20$as$u20$core..ops..drop..Drop$GT$4drop17h04d42e0f064cae5bE.exit.i.i", label %20
 
 20:                                               ; preds = %17
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9), !noalias !327
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8), !noalias !327
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !327
+  call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !327
+  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !327
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !327
   %21 = invoke { ptr, i64 } @_ZN12tracing_core8metadata8Metadata4name17h93c8560eff919107E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %19)
           to label %.noexc4.i.i unwind label %83
 
@@ -818,7 +818,7 @@ define internal fastcc void @"_ZN4core3ptr64drop_in_place$LT$ockam_core..error..
 .noexc12.i.i:                                     ; preds = %.critedge.i8.i.i
   %36 = extractvalue { ptr, ptr } %35, 0
   %37 = extractvalue { ptr, ptr } %35, 1
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !343
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !343
   store i64 5, ptr %6, align 8, !noalias !343
   %38 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @anon.afb64bddf704b69677167db9f0774928.17, ptr %38, align 8, !noalias !343
@@ -838,11 +838,11 @@ define internal fastcc void @"_ZN4core3ptr64drop_in_place$LT$ockam_core..error..
   br i1 %.not114.i.i.i, label %"_ZN50_$LT$log..Record$u20$as$u20$core..clone..Clone$GT$5clone17h0d4581fd7895b53bE.exit126.i.i.i", label %"_ZN50_$LT$log..Record$u20$as$u20$core..clone..Clone$GT$5clone17h0d4581fd7895b53bE.exit.i.i.i"
 
 45:                                               ; preds = %.noexc22.i.i, %.noexc18.i.i, %.noexc13.i.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !343
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !343
   br label %.noexc5.i.i
 
 "_ZN50_$LT$log..Record$u20$as$u20$core..clone..Clone$GT$5clone17h0d4581fd7895b53bE.exit.i.i.i": ; preds = %43
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5), !noalias !343
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !343
   %46 = invoke { ptr, i64 } @_ZN12tracing_core8metadata8Metadata11module_path17hc98388e8a8725894E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %27)
           to label %.noexc14.i.i unwind label %83
 
@@ -865,8 +865,8 @@ define internal fastcc void @"_ZN4core3ptr64drop_in_place$LT$ockam_core..error..
           to label %.noexc16.i.i unwind label %83
 
 .noexc16.i.i:                                     ; preds = %.noexc15.i.i
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !343
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !343
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !343
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !343
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %52 = invoke noundef i64 @_ZN12tracing_core4span2Id8into_u6417h2f8ef22c0a1d87b2E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %51)
           to label %.noexc17.i.i unwind label %83
@@ -926,13 +926,13 @@ define internal fastcc void @"_ZN4core3ptr64drop_in_place$LT$ockam_core..error..
           to label %.noexc18.i.i unwind label %83
 
 .noexc18.i.i:                                     ; preds = %.noexc17.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !343
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !343
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5), !noalias !343
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !343
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !343
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !343
   br label %45
 
 "_ZN50_$LT$log..Record$u20$as$u20$core..clone..Clone$GT$5clone17h0d4581fd7895b53bE.exit126.i.i.i": ; preds = %43
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2), !noalias !343
+  call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !343
   %67 = invoke { ptr, i64 } @_ZN12tracing_core8metadata8Metadata11module_path17hc98388e8a8725894E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %27)
           to label %.noexc19.i.i unwind label %83
 
@@ -1001,13 +1001,13 @@ define internal fastcc void @"_ZN4core3ptr64drop_in_place$LT$ockam_core..error..
           to label %.noexc22.i.i unwind label %83
 
 .noexc22.i.i:                                     ; preds = %.noexc21.i.i
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2), !noalias !343
+  call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !343
   br label %45
 
 .noexc5.i.i:                                      ; preds = %45, %.noexc11.i.i, %.noexc4.i.i
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9), !noalias !327
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !327
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8), !noalias !327
+  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !327
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !327
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !327
   br label %"_ZN61_$LT$tracing..span..Span$u20$as$u20$core..ops..drop..Drop$GT$4drop17h04d42e0f064cae5bE.exit.i.i"
 
 83:                                               ; preds = %.noexc21.i.i, %.noexc20.i.i, %.noexc19.i.i, %"_ZN50_$LT$log..Record$u20$as$u20$core..clone..Clone$GT$5clone17h0d4581fd7895b53bE.exit126.i.i.i", %.noexc17.i.i, %.noexc16.i.i, %.noexc15.i.i, %.noexc14.i.i, %"_ZN50_$LT$log..Record$u20$as$u20$core..clone..Clone$GT$5clone17h0d4581fd7895b53bE.exit.i.i.i", %.noexc12.i.i, %.critedge.i8.i.i, %28, %20, %11
@@ -1661,10 +1661,10 @@ declare noundef i64 @_ZN12tracing_core4span2Id8into_u6417h2f8ef22c0a1d87b2E(ptr 
 declare noundef zeroext i1 @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$u64$GT$3fmt17h64e583dc06aef3c4E"(ptr noalias noundef readonly align 8 dereferenceable(8), ptr noalias noundef align 8 dereferenceable(64)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #11

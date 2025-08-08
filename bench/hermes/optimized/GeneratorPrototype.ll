@@ -59,8 +59,8 @@ entry:
   %ref.tmp.i = alloca %"class.hermes::vm::TwineChar16", align 8
   %ref.tmp13.i = alloca %"class.hermes::vm::TwineChar16", align 8
   %1 = load ptr, ptr %args, align 8, !noalias !4
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp13.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp13.i)
   %retval.sroa.0.0.copyload.i.i.i = load i64, ptr %1, align 8
   %cmp.i.i.i.i = icmp ugt i64 %retval.sroa.0.0.copyload.i.i.i, -844424930131969
   %ref.tmp13.sink13.i.sroa.gep = getelementptr inbounds nuw i8, ptr %ref.tmp13.i, i64 8
@@ -123,13 +123,13 @@ _ZN6hermes2vmL17generatorValidateERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE
   %ref.tmp13.sink13.i = phi ptr [ %ref.tmp13.i, %if.then12.i ], [ %ref.tmp.i, %if.then.i ]
   store i32 3, ptr %ref.tmp13.sink13.i.sroa.phi, align 8
   %call14.i = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp13.sink13.i) #3
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp13.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp13.i)
   br label %return
 
 _ZN6hermes2vmL17generatorValidateERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit: ; preds = %if.end.i
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp13.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp13.i)
   %cmp.i.i.not = icmp eq ptr %retval.sroa.0.0.i.i, inttoptr (i64 -1 to ptr)
   br i1 %cmp.i.i.not, label %return, label %if.end
 
@@ -280,8 +280,8 @@ entry:
   %ref.tmp.i = alloca %"class.hermes::vm::TwineChar16", align 8
   %ref.tmp13.i = alloca %"class.hermes::vm::TwineChar16", align 8
   %0 = load ptr, ptr %args, align 8, !noalias !7
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp13.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp13.i)
   %retval.sroa.0.0.copyload.i.i.i = load i64, ptr %0, align 8
   %cmp.i.i.i.i = icmp ugt i64 %retval.sroa.0.0.copyload.i.i.i, -844424930131969
   %ref.tmp13.sink13.i.sroa.gep = getelementptr inbounds nuw i8, ptr %ref.tmp13.i, i64 8
@@ -344,13 +344,13 @@ _ZN6hermes2vmL17generatorValidateERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE
   %ref.tmp13.sink13.i = phi ptr [ %ref.tmp13.i, %if.then12.i ], [ %ref.tmp.i, %if.then.i ]
   store i32 3, ptr %ref.tmp13.sink13.i.sroa.phi, align 8
   %call14.i = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp13.sink13.i) #3
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp13.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp13.i)
   br label %return
 
 _ZN6hermes2vmL17generatorValidateERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit: ; preds = %if.end.i
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp13.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp13.i)
   %cmp.i.i.not = icmp eq ptr %retval.sroa.0.0.i.i, inttoptr (i64 -1 to ptr)
   br i1 %cmp.i.i.not, label %return, label %if.end
 
@@ -533,10 +533,10 @@ declare ptr @_ZN6hermes2vm22createIterResultObjectERNS0_7RuntimeENS0_6HandleINS0
 declare { i32, i64 } @_ZN6hermes2vm22GeneratorInnerFunction17callInnerFunctionENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEENS1_6ActionE(ptr, ptr noundef nonnull align 8 dereferenceable(9832), ptr, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

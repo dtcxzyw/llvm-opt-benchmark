@@ -24,7 +24,7 @@ define i32 @ENGINE_register_pkey_meths(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %11, label %5
 
 5:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %6 = call i32 %4(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull %2, i32 noundef 0) #5
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %8, label %.sink.split
@@ -36,16 +36,13 @@ define i32 @ENGINE_register_pkey_meths(ptr noundef %0) local_unnamed_addr #0 {
 
 .sink.split:                                      ; preds = %5, %8
   %.1.ph = phi i32 [ %10, %8 ], [ 1, %5 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %11
 
 11:                                               ; preds = %.sink.split, %1
   %.1 = phi i32 [ 1, %1 ], [ %.1.ph, %.sink.split ]
   ret i32 %.1
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 declare i32 @engine_table_register(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -54,9 +51,6 @@ define internal void @engine_unregister_all_pkey_meths() #0 {
   tail call void @engine_table_cleanup(ptr noundef nonnull @pkey_meth_table) #5
   ret void
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
 define void @ENGINE_register_all_pkey_meths() local_unnamed_addr #0 {
@@ -73,7 +67,7 @@ define void @ENGINE_register_all_pkey_meths() local_unnamed_addr #0 {
   br i1 %.not.i, label %ENGINE_register_pkey_meths.exit, label %5
 
 5:                                                ; preds = %.lr.ph
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %6 = call i32 %4(ptr noundef nonnull %.04, ptr noundef null, ptr noundef nonnull %1, i32 noundef 0) #5
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %8, label %.sink.split.i
@@ -84,7 +78,7 @@ define void @ENGINE_register_all_pkey_meths() local_unnamed_addr #0 {
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %8, %5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %ENGINE_register_pkey_meths.exit
 
 ENGINE_register_pkey_meths.exit:                  ; preds = %.lr.ph, %.sink.split.i
@@ -109,7 +103,7 @@ define i32 @ENGINE_set_default_pkey_meths(ptr noundef %0) local_unnamed_addr #0 
   br i1 %.not, label %11, label %5
 
 5:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %6 = call i32 %4(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull %2, i32 noundef 0) #5
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %8, label %.sink.split
@@ -121,7 +115,7 @@ define i32 @ENGINE_set_default_pkey_meths(ptr noundef %0) local_unnamed_addr #0 
 
 .sink.split:                                      ; preds = %5, %8
   %.1.ph = phi i32 [ %10, %8 ], [ 1, %5 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %11
 
 11:                                               ; preds = %.sink.split, %1
@@ -140,7 +134,7 @@ declare ptr @ossl_engine_table_select(ptr noundef, i32 noundef, ptr noundef, i32
 ; Function Attrs: nounwind uwtable
 define ptr @ENGINE_get_pkey_meth(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8, !tbaa !3
   %.not = icmp eq ptr %5, null
@@ -163,12 +157,12 @@ define ptr @ENGINE_get_pkey_meth(ptr noundef %0, i32 noundef %1) local_unnamed_a
 
 11:                                               ; preds = %9, %8
   %.0 = phi ptr [ %10, %9 ], [ null, %8 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @ENGINE_get_pkey_meths(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
+define ptr @ENGINE_get_pkey_meths(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8, !tbaa !3
   ret ptr %3
@@ -181,7 +175,7 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @ENGINE_set_pkey_meths(ptr noundef writeonly captures(none) initializes((72, 80)) %0, ptr noundef %1) local_unnamed_addr #4 {
+define noundef i32 @ENGINE_set_pkey_meths(ptr noundef writeonly captures(none) initializes((72, 80)) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %1, ptr %3, align 8, !tbaa !3
   ret i32 1
@@ -191,14 +185,14 @@ define noundef i32 @ENGINE_set_pkey_meths(ptr noundef writeonly captures(none) i
 define void @engine_pkey_meths_free(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8, !tbaa !3
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %17, label %6
 
 6:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %7 = call i32 %5(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull %3, i32 noundef 0) #5
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %.lr.ph.preheader, label %._crit_edge
@@ -228,11 +222,11 @@ define void @engine_pkey_meths_free(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %16, %6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %17
 
 17:                                               ; preds = %._crit_edge, %1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -240,11 +234,17 @@ declare void @EVP_PKEY_meth_free(ptr noundef) local_unnamed_addr #1
 
 declare void @engine_table_cleanup(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

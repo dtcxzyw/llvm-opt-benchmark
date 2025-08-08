@@ -55,7 +55,7 @@ define internal i32 @seqvideo_decode_frame(ptr noundef %0, ptr noundef %1, ptr n
 19:                                               ; preds = %4
   %20 = sext i32 %12 to i64
   %21 = getelementptr inbounds i8, ptr %10, i64 %20
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %8) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %22 = getelementptr inbounds nuw i8, ptr %10, i64 1
   %23 = load i8, ptr %10, align 1, !tbaa !36
   %24 = zext i8 %23 to i32
@@ -164,7 +164,7 @@ define internal i32 @seqvideo_decode_frame(ptr noundef %0, ptr noundef %1, ptr n
   ]
 
 79:                                               ; preds = %61
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %80 = ptrtoint ptr %.490.i to i64
   %81 = sub i64 %55, %80
   %82 = icmp slt i64 %81, 1
@@ -185,7 +185,7 @@ define internal i32 @seqvideo_decode_frame(ptr noundef %0, ptr noundef %1, ptr n
   ]
 
 89:                                               ; preds = %87
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %90 = ptrtoint ptr %84 to i64
   %91 = sub i64 %55, %90
   %.tr.i.i.i = trunc i64 %91 to i32
@@ -283,7 +283,7 @@ define internal i32 @seqvideo_decode_frame(ptr noundef %0, ptr noundef %1, ptr n
 
 seq_unpack_rle_block.exit.i.i:                    ; preds = %94, %139, %132, %124
   %.047.i.i.i = phi ptr [ null, %124 ], [ null, %132 ], [ %.149.i.i.i, %139 ], [ null, %94 ]
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %145
 
 145:                                              ; preds = %145, %seq_unpack_rle_block.exit.i.i
@@ -303,7 +303,7 @@ seq_unpack_rle_block.exit.i.i:                    ; preds = %94, %139, %132, %12
   br i1 %exitcond106.not.i.i, label %seq_decode_op2.exit.i, label %145, !llvm.loop !44
 
 154:                                              ; preds = %87
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %155 = ptrtoint ptr %84 to i64
   %156 = sub i64 %55, %155
   %.tr.i57.i.i = trunc i64 %156 to i32
@@ -401,7 +401,7 @@ seq_unpack_rle_block.exit.i.i:                    ; preds = %94, %139, %132, %12
 
 seq_unpack_rle_block.exit75.i.i:                  ; preds = %159, %204, %197, %189
   %.047.i73.i.i = phi ptr [ null, %189 ], [ null, %197 ], [ %.149.i70.i.i, %204 ], [ null, %159 ]
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.preheader78.i.i
 
 .preheader78.i.i:                                 ; preds = %222, %seq_unpack_rle_block.exit75.i.i
@@ -556,17 +556,17 @@ default.unreachable:                              ; preds = %61
   unreachable
 
 seq_decode_op2.exit.thread117.i:                  ; preds = %226, %224, %79
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %seqvideo_decode.exit.thread
 
 seq_decode_op2.exit.thread121.i:                  ; preds = %.loopexit.loopexit.i.i, %87
   %.0.i51.ph.i = phi ptr [ %268, %.loopexit.loopexit.i.i ], [ %84, %87 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %seq_decode_op2.exit.thread60.i
 
 seq_decode_op2.exit.i:                            ; preds = %222, %145
   %.0.i51.i = phi ptr [ %.047.i.i.i, %145 ], [ %.047.i73.i.i, %222 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not50.i = icmp eq ptr %.0.i51.i, null
   br i1 %.not50.i, label %seqvideo_decode.exit.thread, label %seq_decode_op2.exit.thread60.i
 
@@ -582,11 +582,11 @@ seq_decode_op2.exit.thread60.i:                   ; preds = %284, %.preheader.i5
   br i1 %304, label %.preheader69.i, label %.loopexit, !llvm.loop !52
 
 seqvideo_decode.exit.thread:                      ; preds = %seq_decode_op2.exit.i, %269, %.preheader.i, %26, %54, %seq_decode_op2.exit.thread117.i
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %8) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %309
 
 .loopexit:                                        ; preds = %302, %.loopexit.i
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %8) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %305 = load ptr, ptr %15, align 8, !tbaa !32
   %306 = tail call i32 @av_frame_ref(ptr noundef %1, ptr noundef %305) #7
   %307 = icmp slt i32 %306, 0
@@ -610,27 +610,27 @@ define internal noundef i32 @seqvideo_decode_end(ptr noundef readonly captures(n
   ret i32 0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+declare i32 @ff_set_dimensions(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @ff_set_dimensions(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @av_frame_alloc() local_unnamed_addr #2
 
-declare ptr @av_frame_alloc() local_unnamed_addr #3
+declare i32 @ff_reget_buffer(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
-declare i32 @ff_reget_buffer(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
-
-declare i32 @av_frame_ref(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @av_frame_ref(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
-declare void @av_frame_free(ptr noundef) local_unnamed_addr #3
+declare void @av_frame_free(ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #6
@@ -640,10 +640,10 @@ declare i32 @llvm.abs.i32(i32, i1 immarg) #6
 
 attributes #0 = { cold nounwind optsize uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #2 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { nounwind }
 

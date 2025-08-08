@@ -71,7 +71,7 @@ define hidden range(i32 0, 2) i32 @mlib_c_convMxNnw_u8(ptr noundef readonly capt
 42:                                               ; preds = %._crit_edge
   %.val1167 = load i32, ptr %19, align 8
   %.val1168 = load ptr, ptr %22, align 8
-  call void @llvm.lifetime.start.p0(i64 12800, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %.val.i = load i32, ptr %14, align 4
   %.val510.i = load i32, ptr %15, align 8
   %.val510.fr.i = freeze i32 %.val510.i
@@ -718,7 +718,7 @@ define hidden range(i32 0, 2) i32 @mlib_c_convMxNnw_u8(ptr noundef readonly capt
   br label %mlib_ImageConv1xN.exit
 
 mlib_ImageConv1xN.exit:                           ; preds = %._crit_edge.i, %384
-  call void @llvm.lifetime.end.p0(i64 12800, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %.not1154 = icmp eq ptr %.010221577, %13
   br i1 %.not1154, label %1014, label %.sink.split
 
@@ -3081,10 +3081,10 @@ declare i32 @llvm.smin.i32(i32, i32) #3
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #3

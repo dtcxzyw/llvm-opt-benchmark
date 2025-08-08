@@ -203,21 +203,15 @@ define hidden noundef i32 @dom_modern_document_implementation_read(ptr noundef %
   ret i32 0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare void @php_dom_create_implementation(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @php_dom_create_implementation(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_Dom_HTMLDocument_createEmpty(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr @.str, ptr %3, align 8, !tbaa !10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 5, ptr %4, align 8, !tbaa !13
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4, !tbaa !4
@@ -285,31 +279,31 @@ lxb_encoding_data_by_name.exit.thread:            ; preds = %15, %12, %lxb_encod
   br label %42
 
 42:                                               ; preds = %lxb_encoding_data_by_name.exit.thread, %39, %27, %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-declare i32 @zend_parse_parameters(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare i32 @zend_parse_parameters(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #3
+declare void @llvm.assume(i1 noundef) #2
 
-declare void @zend_argument_value_error(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @zend_argument_value_error(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare ptr @php_dom_create_html_doc() local_unnamed_addr #2
+declare ptr @php_dom_create_html_doc() local_unnamed_addr #1
 
-declare ptr @xmlStrdup(ptr noundef) local_unnamed_addr #2
+declare ptr @xmlStrdup(ptr noundef) local_unnamed_addr #1
 
-declare ptr @php_dom_instantiate_object_helper(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @php_dom_instantiate_object_helper(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @dom_set_xml_class(ptr noundef) local_unnamed_addr #2
+declare void @dom_set_xml_class(ptr noundef) local_unnamed_addr #1
 
-declare ptr @php_dom_libxml_private_data_header(ptr noundef) local_unnamed_addr #2
+declare ptr @php_dom_libxml_private_data_header(ptr noundef) local_unnamed_addr #1
 
-declare ptr @php_dom_private_data_create() local_unnamed_addr #2
+declare ptr @php_dom_private_data_create() local_unnamed_addr #1
 
-declare void @php_dom_throw_error(i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare void @php_dom_throw_error(i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_Dom_HTMLDocument_createFromString(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -327,12 +321,12 @@ define hidden void @zim_Dom_HTMLDocument_createFromString(ptr noundef readonly c
   %14 = alloca ptr, align 8
   %15 = alloca %struct.dom_decoding_encoding_ctx, align 8
   %16 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 0, ptr %9, align 8, !tbaa !13
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %18 = load i32, ptr %17, align 4, !tbaa !4
@@ -360,7 +354,7 @@ define hidden void @zim_Dom_HTMLDocument_createFromString(ptr noundef readonly c
   br label %191
 
 30:                                               ; preds = %24
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %10) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr @.str.4, ptr %10, align 8, !tbaa !68
   %31 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store i64 0, ptr %31, align 8, !tbaa !72
@@ -375,7 +369,7 @@ define hidden void @zim_Dom_HTMLDocument_createFromString(ptr noundef readonly c
   store i64 1, ptr %37, align 8, !tbaa !75
   %38 = getelementptr inbounds nuw i8, ptr %10, i64 56
   store i64 0, ptr %38, align 8, !tbaa !76
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @lexbor_libxml2_bridge_parse_context_init(ptr noundef nonnull %11) #10
   %39 = load i64, ptr %9, align 8, !tbaa !13
   %40 = and i64 %39, 32
@@ -401,15 +395,15 @@ dom_should_register_error_handlers.exit.thread:   ; preds = %41, %dom_should_reg
 dom_should_register_error_handlers.exit.thread57: ; preds = %30, %dom_should_register_error_handlers.exit.thread, %dom_should_register_error_handlers.exit
   %47 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store ptr %10, ptr %47, align 8, !tbaa !79
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i64 0, ptr %12, align 8, !tbaa !13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i64 0, ptr %13, align 8, !tbaa !13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %48 = load ptr, ptr %5, align 8, !tbaa !10
   store ptr %48, ptr %14, align 8, !tbaa !10
-  call void @llvm.lifetime.start.p0(i64 20640, ptr nonnull %15) #10
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %49 = getelementptr inbounds nuw i8, ptr %15, i64 144
   store ptr getelementptr inbounds nuw (i8, ptr @lxb_encoding_res_map, i64 1296), ptr %49, align 8, !tbaa !82
   %50 = getelementptr inbounds nuw i8, ptr %15, i64 152
@@ -441,7 +435,7 @@ dom_should_register_error_handlers.exit.thread57: ; preds = %30, %dom_should_reg
   store ptr %4, ptr %63, align 8, !tbaa !97
   %64 = getelementptr inbounds nuw i8, ptr %15, i64 104
   store i64 1, ptr %64, align 8, !tbaa !98
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %65 = load ptr, ptr %6, align 8, !tbaa !10
   %.not = icmp eq ptr %65, null
   br i1 %.not, label %82, label %66
@@ -582,7 +576,7 @@ lxb_encoding_decode_finish.exit.i:                ; preds = %lxb_encoding_decode
   br i1 %.not.i53, label %132, label %125
 
 125:                                              ; preds = %lxb_encoding_decode_finish.exit.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %59, ptr %3, align 8, !tbaa !124
   %126 = getelementptr inbounds nuw i32, ptr %59, i64 %.val.i
   %127 = load ptr, ptr %49, align 8, !tbaa !82
@@ -591,7 +585,7 @@ lxb_encoding_decode_finish.exit.i:                ; preds = %lxb_encoding_decode
   %130 = call i32 %129(ptr noundef nonnull %51, ptr noundef nonnull %3, ptr noundef nonnull %126) #10
   %131 = icmp eq i32 %130, 0
   call void @llvm.assume(i1 %131)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %132
 
 132:                                              ; preds = %125, %lxb_encoding_decode_finish.exit.i
@@ -708,26 +702,26 @@ dom_parse_decode_encode_finish.exit:              ; preds = %93, %139, %141, %86
   br label %190
 
 190:                                              ; preds = %.thread, %dom_lexbor_libxml2_bridge_status_code_to_string.exit, %167, %dom_parse_decode_encode_finish.exit
-  call void @llvm.lifetime.end.p0(i64 20640, ptr nonnull %15) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #10
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #10
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %10) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %191
 
 191:                                              ; preds = %190, %27, %21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
-declare void @lexbor_libxml2_bridge_parse_context_init(ptr noundef) local_unnamed_addr #2
+declare void @lexbor_libxml2_bridge_parse_context_init(ptr noundef) local_unnamed_addr #1
 
-declare void @lexbor_libxml2_bridge_parse_set_error_callbacks(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @lexbor_libxml2_bridge_parse_set_error_callbacks(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @dom_lexbor_libxml2_bridge_tokenizer_error_reporter(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
@@ -931,7 +925,7 @@ define internal fastcc void @dom_setup_parser_encoding_implicitly(ptr noundef no
   br i1 %30, label %dom_setup_parser_encoding_manually.exit, label %.thread22.i
 
 .thread22.i:                                      ; preds = %27, %23, %.thread.i, %20, %16, %12
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %31 = call i32 @lxb_html_encoding_init(ptr noundef nonnull %5) #10
   %.not.i = icmp eq i32 %31, 0
   br i1 %.not.i, label %32, label %51
@@ -974,7 +968,7 @@ define internal fastcc void @dom_setup_parser_encoding_implicitly(ptr noundef no
 
 51:                                               ; preds = %.sink.split.i, %.thread22.i
   %.sroa.0.1.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @lxb_encoding_res_map, i64 1296), %.thread22.i ], [ %.sroa.0.1.ph.i, %.sink.split.i ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.pre = load ptr, ptr %0, align 8, !tbaa !10
   %.pre9 = load i64, ptr %1, align 8, !tbaa !13
   br label %dom_setup_parser_encoding_manually.exit
@@ -1017,9 +1011,9 @@ dom_setup_parser_encoding_manually.exit:          ; preds = %16, %23, %27, %51
   ret void
 }
 
-declare ptr @lxb_html_document_create() local_unnamed_addr #2
+declare ptr @lxb_html_document_create() local_unnamed_addr #1
 
-declare i32 @lxb_html_document_parse_chunk_begin(ptr noundef) local_unnamed_addr #2
+declare i32 @lxb_html_document_parse_chunk_begin(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i1 @dom_parse_decode_encode_step(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull captures(none) %3, ptr noundef %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) unnamed_addr #0 {
@@ -1035,7 +1029,7 @@ define internal fastcc noundef zeroext i1 @dom_parse_decode_encode_step(ptr noun
 
 17:                                               ; preds = %8
   %18 = ptrtoint ptr %4 to i64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %19 = load ptr, ptr %3, align 8, !tbaa !10
   store ptr %19, ptr %11, align 8, !tbaa !10
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 124
@@ -1044,8 +1038,8 @@ define internal fastcc noundef zeroext i1 @dom_parse_decode_encode_step(ptr noun
   br i1 %22, label %23, label %._crit_edge92.i
 
 23:                                               ; preds = %17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr %12, ptr %13, align 8, !tbaa !10
   %24 = call i32 @lxb_encoding_decode_utf_8_single(ptr noundef nonnull %16, ptr noundef nonnull %11, ptr noundef %4) #10
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -1076,8 +1070,8 @@ define internal fastcc noundef zeroext i1 @dom_parse_decode_encode_step(ptr noun
   %39 = ptrtoint ptr %37 to i64
   %40 = sub i64 %38, %39
   %41 = call fastcc zeroext i1 @dom_process_parse_chunk(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, i64 noundef %35, ptr noundef nonnull %12, i64 noundef %40, ptr noundef nonnull %6, ptr noundef nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %.pre100.i = load ptr, ptr %11, align 8, !tbaa !10
   br i1 %41, label %._crit_edge92.i, label %.thread63.i
 
@@ -1215,11 +1209,11 @@ select.unfold.i:                                  ; preds = %75, %dom_seek_utf8_
 
 dom_decode_encode_fast_path.exit:                 ; preds = %.thread66.i, %._crit_edge97.i, %.thread63.i
   %.0.i = phi i1 [ true, %._crit_edge97.i ], [ false, %.thread63.i ], [ true, %.thread66.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %153
 
 87:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %88 = load ptr, ptr %3, align 8, !tbaa !10
   store ptr %88, ptr %9, align 8, !tbaa !10
   %89 = getelementptr inbounds nuw i8, ptr %5, i64 152
@@ -1238,7 +1232,7 @@ dom_decode_encode_fast_path.exit:                 ; preds = %.thread66.i, %._cri
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 16
   %101 = load ptr, ptr %100, align 8, !tbaa !147
   %102 = call i32 %101(ptr noundef nonnull %16, ptr noundef nonnull %9, ptr noundef %4) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %90, ptr %10, align 8, !tbaa !124
   %.val.i = load i64, ptr %91, align 8, !tbaa !123
   %103 = getelementptr inbounds nuw i32, ptr %90, i64 %.val.i
@@ -1350,18 +1344,18 @@ dom_find_line_and_column_using_cache.exit.i.i:    ; preds = %.lr.ph.i.i.i, %138,
 
 150:                                              ; preds = %144
   store i64 0, ptr %91, align 8, !tbaa !123
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %151 = icmp eq i32 %102, 15
   br i1 %151, label %98, label %dom_decode_encode_slow_path.exit
 
 152:                                              ; preds = %104
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %dom_decode_encode_slow_path.exit
 
 dom_decode_encode_slow_path.exit:                 ; preds = %150, %152
   %storemerge.i = load ptr, ptr %9, align 8, !tbaa !10
   store ptr %storemerge.i, ptr %3, align 8, !tbaa !10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %153
 
 153:                                              ; preds = %dom_decode_encode_slow_path.exit, %dom_decode_encode_fast_path.exit
@@ -1369,17 +1363,17 @@ dom_decode_encode_slow_path.exit:                 ; preds = %150, %152
   ret i1 %.0
 }
 
-declare i32 @lxb_html_document_parse_chunk_end(ptr noundef) local_unnamed_addr #2
+declare i32 @lxb_html_document_parse_chunk_end(ptr noundef) local_unnamed_addr #1
 
-declare i32 @lexbor_libxml2_bridge_convert_document(ptr noundef, ptr noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef) local_unnamed_addr #2
+declare i32 @lexbor_libxml2_bridge_convert_document(ptr noundef, ptr noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
-declare void @lexbor_libxml2_bridge_copy_observations(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @lexbor_libxml2_bridge_copy_observations(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @php_dom_private_data_destroy(ptr noundef) local_unnamed_addr #2
+declare void @php_dom_private_data_destroy(ptr noundef) local_unnamed_addr #1
 
-declare void @php_libxml_ctx_error(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @php_libxml_ctx_error(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare ptr @lxb_html_document_destroy(ptr noundef) local_unnamed_addr #2
+declare ptr @lxb_html_document_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @dom_post_process_html5_loading(ptr noundef %0, i64 noundef %1, ptr noundef nonnull readonly captures(none) %2) unnamed_addr #0 {
@@ -1588,12 +1582,12 @@ define hidden void @zim_Dom_HTMLDocument_createFromFile(ptr noundef readonly cap
   %17 = alloca i64, align 8
   %18 = alloca ptr, align 8
   %19 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 0, ptr %9, align 8, !tbaa !13
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %21 = load i32, ptr %20, align 4, !tbaa !4
@@ -1634,7 +1628,7 @@ define hidden void @zim_Dom_HTMLDocument_createFromFile(ptr noundef readonly cap
   br label %282
 
 39:                                               ; preds = %33
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %10) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %28, ptr %10, align 8, !tbaa !68
   %40 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store i64 0, ptr %40, align 8, !tbaa !72
@@ -1649,7 +1643,7 @@ define hidden void @zim_Dom_HTMLDocument_createFromFile(ptr noundef readonly cap
   store i64 1, ptr %46, align 8, !tbaa !75
   %47 = getelementptr inbounds nuw i8, ptr %10, i64 56
   store i64 0, ptr %47, align 8, !tbaa !76
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @lexbor_libxml2_bridge_parse_context_init(ptr noundef nonnull %11) #10
   %48 = load i64, ptr %9, align 8, !tbaa !13
   %49 = and i64 %48, 32
@@ -1675,9 +1669,9 @@ dom_should_register_error_handlers.exit.thread:   ; preds = %50, %dom_should_reg
 dom_should_register_error_handlers.exit.thread117: ; preds = %39, %dom_should_register_error_handlers.exit.thread, %dom_should_register_error_handlers.exit
   %56 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store ptr %10, ptr %56, align 8, !tbaa !79
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %12) #10
-  call void @llvm.lifetime.start.p0(i64 20640, ptr nonnull %13) #10
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %57 = getelementptr inbounds nuw i8, ptr %13, i64 144
   store ptr getelementptr inbounds nuw (i8, ptr @lxb_encoding_res_map, i64 1296), ptr %57, align 8, !tbaa !82
   %58 = getelementptr inbounds nuw i8, ptr %13, i64 152
@@ -1709,7 +1703,7 @@ dom_should_register_error_handlers.exit.thread117: ; preds = %39, %dom_should_re
   store ptr %4, ptr %71, align 8, !tbaa !97
   %72 = getelementptr inbounds nuw i8, ptr %13, i64 104
   store i64 1, ptr %72, align 8, !tbaa !98
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %73 = load ptr, ptr %6, align 8, !tbaa !10
   %.not79 = icmp eq ptr %73, null
   br i1 %.not79, label %90, label %74
@@ -1758,7 +1752,7 @@ lxb_encoding_data_by_name.exit:                   ; preds = %77
   br label %90
 
 90:                                               ; preds = %84, %dom_should_register_error_handlers.exit.thread117
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr null, ptr %14, align 8, !tbaa !161
   %91 = load ptr, ptr %5, align 8, !tbaa !10
   %92 = call ptr @php_libxml_get_stream_context() #10
@@ -1876,7 +1870,7 @@ zend_string_release_ex.exit:                      ; preds = %128, %123, %lxb_enc
   br i1 %138, label %139, label %146
 
 139:                                              ; preds = %136
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store ptr %12, ptr %18, align 8, !tbaa !10
   br i1 %.5, label %140, label %141
 
@@ -1891,7 +1885,7 @@ zend_string_release_ex.exit:                      ; preds = %128, %123, %lxb_enc
   %143 = phi ptr [ %.pre, %140 ], [ %12, %139 ]
   %144 = getelementptr inbounds i8, ptr %143, i64 %142
   %145 = call fastcc zeroext i1 @dom_parse_decode_encode_step(ptr noundef %11, ptr noundef %129, ptr noundef %135, ptr noundef %18, ptr noundef %144, ptr noundef %13, ptr noundef %15, ptr noundef %16)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br i1 %145, label %136, label %dom_parse_decode_encode_finish.exit
 
 146:                                              ; preds = %136
@@ -1937,7 +1931,7 @@ lxb_encoding_decode_finish.exit.i:                ; preds = %lxb_encoding_decode
   br i1 %.not.i113, label %174, label %167
 
 167:                                              ; preds = %lxb_encoding_decode_finish.exit.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %67, ptr %3, align 8, !tbaa !124
   %168 = getelementptr inbounds nuw i32, ptr %67, i64 %.val.i
   %169 = load ptr, ptr %57, align 8, !tbaa !82
@@ -1946,7 +1940,7 @@ lxb_encoding_decode_finish.exit.i:                ; preds = %lxb_encoding_decode
   %172 = call i32 %171(ptr noundef nonnull %59, ptr noundef nonnull %3, ptr noundef nonnull %168) #10
   %173 = icmp eq i32 %172, 0
   call void @llvm.assume(i1 %173)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %174
 
 174:                                              ; preds = %167, %lxb_encoding_decode_finish.exit.i
@@ -2180,54 +2174,54 @@ dom_parse_decode_encode_finish.exit:              ; preds = %141, %dom_parse_dec
   br label %zend_string_release_ex.exit100
 
 zend_string_release_ex.exit100:                   ; preds = %280, %275, %271, %zend_string_release_ex.exit98, %267, %100
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %281
 
 281:                                              ; preds = %.thread, %zend_string_release_ex.exit100
-  call void @llvm.lifetime.end.p0(i64 20640, ptr nonnull %13) #10
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %12) #10
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #10
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %10) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %282
 
 282:                                              ; preds = %281, %36, %30, %24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #4
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
-declare ptr @_php_stream_open_wrapper_ex(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_php_stream_open_wrapper_ex(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @php_libxml_get_stream_context() local_unnamed_addr #2
+declare ptr @php_libxml_get_stream_context() local_unnamed_addr #1
 
-declare ptr @zend_throw_exception_ex(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare ptr @zend_throw_exception_ex(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare ptr @php_libxml_sniff_charset_from_stream(ptr noundef) local_unnamed_addr #2
+declare ptr @php_libxml_sniff_charset_from_stream(ptr noundef) local_unnamed_addr #1
 
-declare i64 @_php_stream_read(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @_php_stream_read(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare ptr @xmlPathToURI(ptr noundef) local_unnamed_addr #2
+declare ptr @xmlPathToURI(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #3
 
-declare ptr @xmlStrcat(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @xmlStrcat(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @_php_stream_free(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @_php_stream_free(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_Dom_HTMLDocument_saveHtmlFile(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
   %5 = alloca %struct.dom_output_ctx, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %8 = load i32, ptr %7, align 4, !tbaa !4
@@ -2286,7 +2280,7 @@ define hidden void @zim_Dom_HTMLDocument_saveHtmlFile(ptr noundef readonly captu
 
 39:                                               ; preds = %26
   %40 = load ptr, ptr %29, align 8, !tbaa !189
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store ptr %23, ptr %41, align 8, !tbaa !191
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 56
@@ -2311,18 +2305,18 @@ define hidden void @zim_Dom_HTMLDocument_saveHtmlFile(ptr noundef readonly captu
   %.sink = phi i32 [ 4, %47 ], [ 2, %45 ]
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %.sink, ptr %51, align 8, !tbaa !4
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %52
 
 52:                                               ; preds = %24, %31, %50, %17, %11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-declare void @zend_argument_must_not_be_empty_error(i32 noundef) local_unnamed_addr #2
+declare void @zend_argument_must_not_be_empty_error(i32 noundef) local_unnamed_addr #1
 
-declare void @zend_throw_error(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @zend_throw_error(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @dom_write_output_stream(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
@@ -2351,19 +2345,19 @@ define internal fastcc range(i32 -1, 1) i32 @dom_common_save(ptr noundef nonnull
   br i1 %15, label %lxb_encoding_data_by_name.exit.thread, label %lxb_encoding_data_by_name.exit
 
 lxb_encoding_data_by_name.exit.thread:            ; preds = %3, %13
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #10
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #10
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %6) #10
-  call void @llvm.lifetime.start.p0(i64 16384, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %lxb_encoding_encode_init.exit
 
 lxb_encoding_data_by_name.exit:                   ; preds = %13
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !46
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #10
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #10
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %6) #10
-  call void @llvm.lifetime.start.p0(i64 16384, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %18 = icmp eq ptr %17, null
   br i1 %18, label %lxb_encoding_encode_init.exit, label %19
 
@@ -2410,7 +2404,7 @@ lxb_encoding_encode_init.exit:                    ; preds = %lxb_encoding_data_b
   store ptr %7, ptr %35, align 8, !tbaa !198
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %6, ptr %36, align 8, !tbaa !199
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %dom_saveHTML_write_string_len.sink = select i1 %27, ptr @dom_saveHTML_write_string_len_utf8_output, ptr @dom_saveHTML_write_string_len
   %storemerge = select i1 %27, ptr @dom_saveHTML_write_string_utf8_output, ptr @dom_saveHTML_write_string
   %37 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -2477,7 +2471,7 @@ lxb_encoding_decode_finish.exit:                  ; preds = %lxb_encoding_decode
   br i1 %.not24, label %80, label %69
 
 69:                                               ; preds = %lxb_encoding_decode_finish.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %7, ptr %10, align 8, !tbaa !124
   %70 = getelementptr inbounds nuw i8, ptr %.0.i2, i64 8
   %71 = load ptr, ptr %70, align 8, !tbaa !125
@@ -2491,7 +2485,7 @@ lxb_encoding_decode_finish.exit:                  ; preds = %lxb_encoding_decode
   %.val29 = load i64, ptr %78, align 8, !tbaa !126
   %79 = call i32 %75(ptr noundef %77, ptr noundef nonnull %6, i64 noundef %.val29) #10
   %.not25 = icmp eq i32 %79, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br i1 %.not25, label %80, label %94
 
 80:                                               ; preds = %69, %lxb_encoding_decode_finish.exit
@@ -2524,22 +2518,22 @@ lxb_encoding_encode_finish.exit:                  ; preds = %80, %84
 
 94:                                               ; preds = %87, %lxb_encoding_encode_init.exit, %69, %93
   %.023 = phi i32 [ 0, %93 ], [ -1, %69 ], [ -1, %lxb_encoding_encode_init.exit ], [ -1, %87 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #10
-  call void @llvm.lifetime.end.p0(i64 16384, ptr nonnull %7) #10
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %6) #10
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #10
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.023
 }
 
-declare i64 @_php_stream_tell(ptr noundef) local_unnamed_addr #2
+declare i64 @_php_stream_tell(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_Dom_HTMLDocument_saveHtml(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca %struct.smart_str, align 8
   %5 = alloca %struct.dom_output_ctx, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !206
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %7 = load i32, ptr %6, align 4, !tbaa !4
@@ -2615,9 +2609,9 @@ define hidden void @zim_Dom_HTMLDocument_saveHtml(ptr noundef readonly captures(
 
 51:                                               ; preds = %28, %44
   %.0 = phi ptr [ %45, %44 ], [ %29, %28 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %52 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store ptr %4, ptr %52, align 8, !tbaa !191
   %53 = getelementptr inbounds nuw i8, ptr %5, i64 56
@@ -2729,17 +2723,17 @@ smart_str_extract_ex.exit:                        ; preds = %smart_str_trim_to_s
   %107 = select i1 %.not23, i32 262, i32 6
   %108 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %107, ptr %108, align 8, !tbaa !4
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %109
 
 109:                                              ; preds = %smart_str_extract_ex.exit, %48, %36, %20, %11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @dom_write_output_smart_str(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
@@ -2826,9 +2820,9 @@ lxb_encoding_data_by_name.exit.thread:            ; preds = %11, %6, %lxb_encodi
   ret i32 %.0
 }
 
-declare ptr @dom_object_get_node(ptr noundef) local_unnamed_addr #2
+declare ptr @dom_object_get_node(ptr noundef) local_unnamed_addr #1
 
-declare void @zend_value_error(ptr noundef, ...) local_unnamed_addr #2
+declare void @zend_value_error(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -1, 1) i32 @dom_html_document_element_read_helper(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
@@ -2897,7 +2891,7 @@ dom_html_document_element_read_raw.exit:          ; preds = %25, %29, %7, %10, %
   ret i32 %.0
 }
 
-declare zeroext i1 @php_dom_create_nullable_object(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @php_dom_create_nullable_object(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -1, 1) i32 @dom_html_document_body_read(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -3125,17 +3119,17 @@ dom_html_document_element_read_raw.exit:          ; preds = %36, %dom_accept_bod
   ret i32 %.0
 }
 
-declare zeroext i1 @php_dom_adopt_node(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @php_dom_adopt_node(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @xmlReplaceNode(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @xmlReplaceNode(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @php_libxml_node_free_resource(ptr noundef) local_unnamed_addr #2
+declare void @php_libxml_node_free_resource(ptr noundef) local_unnamed_addr #1
 
-declare ptr @xmlDocGetRootElement(ptr noundef) local_unnamed_addr #2
+declare ptr @xmlDocGetRootElement(ptr noundef) local_unnamed_addr #1
 
-declare void @php_dom_throw_error_with_message(i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare void @php_dom_throw_error_with_message(i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare ptr @xmlAddChild(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @xmlAddChild(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -1, 1) i32 @dom_html_document_title_read(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
@@ -3284,14 +3278,14 @@ dom_get_svg_title_element.exit.thread:            ; preds = %31, %.preheader.i, 
   ret i32 %.0
 }
 
-declare zeroext i1 @php_dom_ns_is_fast(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @php_dom_ns_is_fast(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @xmlStrEqual(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @xmlStrEqual(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @dom_get_child_text_content(ptr noundef nonnull readonly captures(none) %0) unnamed_addr #0 {
   %2 = alloca %struct.smart_str, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.014 = load ptr, ptr %3, align 8, !tbaa !151
@@ -3441,11 +3435,11 @@ zend_string_alloc.exit:                           ; preds = %40, %44
 
 smart_str_extract_ex.exit:                        ; preds = %34, %smart_str_0.exit, %47, %zend_string_alloc.exit, %68, %._crit_edge.thread
   %.0.i = phi ptr [ %72, %._crit_edge.thread ], [ null, %smart_str_0.exit ], [ %33, %34 ], [ %50, %47 ], [ %58, %68 ], [ %58, %zend_string_alloc.exit ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0.i
 }
 
-declare ptr @dom_strip_and_collapse_ascii_whitespace(ptr noundef) local_unnamed_addr #2
+declare ptr @dom_strip_and_collapse_ascii_whitespace(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -1, 1) i32 @dom_html_document_title_write(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
@@ -3739,31 +3733,31 @@ dom_html_document_element_read_raw.exit:          ; preds = %118, %dom_get_title
   ret i32 %.0
 }
 
-declare ptr @php_dom_get_ns_mapper(ptr noundef) local_unnamed_addr #2
+declare ptr @php_dom_get_ns_mapper(ptr noundef) local_unnamed_addr #1
 
-declare ptr @php_dom_libxml_ns_mapper_get_ns(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @php_dom_libxml_ns_mapper_get_ns(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @xmlNewDocNode(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @xmlNewDocNode(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @php_dom_libxml_ns_mapper_ensure_html_ns(ptr noundef) local_unnamed_addr #2
+declare ptr @php_dom_libxml_ns_mapper_ensure_html_ns(ptr noundef) local_unnamed_addr #1
 
-declare ptr @lexbor_shs_entry_get_lower_static(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @lexbor_shs_entry_get_lower_static(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @php_libxml_uses_internal_errors() local_unnamed_addr #2
+declare zeroext i1 @php_libxml_uses_internal_errors() local_unnamed_addr #1
 
-declare void @php_libxml_pretend_ctx_error_ex(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @php_libxml_pretend_ctx_error_ex(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare i32 @lxb_html_encoding_init(ptr noundef) local_unnamed_addr #2
+declare i32 @lxb_html_encoding_init(ptr noundef) local_unnamed_addr #1
 
-declare i32 @lxb_html_encoding_determine(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @lxb_html_encoding_determine(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @lxb_encoding_data_by_pre_name(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @lxb_encoding_data_by_pre_name(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare ptr @lxb_html_encoding_destroy(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare ptr @lxb_html_encoding_destroy(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare i32 @lxb_encoding_decode_utf_8_single(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @lxb_encoding_decode_utf_8_single(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare signext i8 @lxb_encoding_encode_utf_8_single(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare signext i8 @lxb_encoding_encode_utf_8_single(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i1 @dom_process_parse_chunk(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef nonnull %6, ptr noundef nonnull %7) unnamed_addr #0 {
@@ -3867,28 +3861,28 @@ dom_find_line_and_column_using_cache.exit:        ; preds = %.lr.ph.i, %39, %.pr
   ret i1 %.not
 }
 
-declare i32 @lxb_html_document_parse_chunk(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @lxb_html_document_parse_chunk(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @lexbor_libxml2_bridge_report_errors(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @lexbor_libxml2_bridge_report_errors(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
-declare i32 @lxb_encoding_encode_iso_2022_jp_eof(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
-
-declare void @xmlUnlinkNode(ptr noundef) local_unnamed_addr #2
-
-declare void @xmlFreeNode(ptr noundef) local_unnamed_addr #2
-
-declare void @_efree(ptr noundef) local_unnamed_addr #2
-
-declare i64 @_php_stream_write(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @lxb_encoding_encode_iso_2022_jp_eof(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
+
+declare void @xmlUnlinkNode(ptr noundef) local_unnamed_addr #1
+
+declare void @xmlFreeNode(ptr noundef) local_unnamed_addr #1
+
+declare void @_efree(ptr noundef) local_unnamed_addr #1
+
+declare i64 @_php_stream_write(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @dom_saveHTML_write_string_len_utf8_output(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2) #0 {
@@ -3897,7 +3891,7 @@ define internal range(i32 -1, 1) i32 @dom_saveHTML_write_string_len_utf8_output(
   %6 = load ptr, ptr %5, align 8, !tbaa !197
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 60
   store i32 0, ptr %7, align 4, !tbaa !119
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %1, ptr %4, align 8, !tbaa !10
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 %2
   %.not43 = icmp samesign eq i64 %2, 0
@@ -3981,7 +3975,7 @@ define internal range(i32 -1, 1) i32 @dom_saveHTML_write_string_len_utf8_output(
 
 .thread:                                          ; preds = %30, %16, %25, %38, %._crit_edge.thread
   %.2 = phi i32 [ 0, %._crit_edge.thread ], [ -1, %38 ], [ 0, %25 ], [ -1, %16 ], [ -1, %30 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.2
 }
 
@@ -3993,7 +3987,7 @@ define internal range(i32 -1, 1) i32 @dom_saveHTML_write_string_utf8_output(ptr 
   %6 = load ptr, ptr %5, align 8, !tbaa !197
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 60
   store i32 0, ptr %7, align 4, !tbaa !119
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %1, ptr %3, align 8, !tbaa !10
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 %4
   %.not43.i = icmp samesign eq i64 %4, 0
@@ -4075,7 +4069,7 @@ define internal range(i32 -1, 1) i32 @dom_saveHTML_write_string_utf8_output(ptr 
 
 dom_saveHTML_write_string_len_utf8_output.exit:   ; preds = %16, %30, %25, %38, %._crit_edge.thread.i
   %.2.i = phi i32 [ 0, %._crit_edge.thread.i ], [ -1, %38 ], [ 0, %25 ], [ -1, %30 ], [ -1, %16 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.2.i
 }
 
@@ -4083,7 +4077,7 @@ dom_saveHTML_write_string_len_utf8_output.exit:   ; preds = %16, %30, %25, %38, 
 define internal range(i32 -1, 1) i32 @dom_saveHTML_write_string_len(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %1, ptr %4, align 8, !tbaa !10
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -4098,7 +4092,7 @@ define internal range(i32 -1, 1) i32 @dom_saveHTML_write_string_len(ptr noundef 
 13:                                               ; preds = %36, %3
   %14 = phi ptr [ %37, %36 ], [ %.pre, %3 ]
   %15 = call i32 @lxb_encoding_decode_utf_8(ptr noundef %14, ptr noundef nonnull %4, ptr noundef %6) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %16 = load ptr, ptr %8, align 8, !tbaa !198
   store ptr %16, ptr %5, align 8, !tbaa !124
   %17 = load ptr, ptr %7, align 8, !tbaa !197
@@ -4135,17 +4129,17 @@ define internal range(i32 -1, 1) i32 @dom_saveHTML_write_string_len(ptr noundef 
   %37 = load ptr, ptr %7, align 8, !tbaa !197
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 24
   store i64 0, ptr %38, align 8, !tbaa !123
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %39 = icmp eq i32 %15, 15
   br i1 %39, label %13, label %.loopexit
 
 .critedge:                                        ; preds = %20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %36, %.critedge
   %.2 = phi i32 [ -1, %.critedge ], [ 0, %36 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.2
 }
 
@@ -4154,7 +4148,7 @@ define internal range(i32 -1, 1) i32 @dom_saveHTML_write_string(ptr noundef read
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %1, ptr %3, align 8, !tbaa !10
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -4169,7 +4163,7 @@ define internal range(i32 -1, 1) i32 @dom_saveHTML_write_string(ptr noundef read
 13:                                               ; preds = %36, %2
   %14 = phi ptr [ %37, %36 ], [ %.pre.i, %2 ]
   %15 = call i32 @lxb_encoding_decode_utf_8(ptr noundef %14, ptr noundef nonnull %3, ptr noundef nonnull %6) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %16 = load ptr, ptr %8, align 8, !tbaa !198
   store ptr %16, ptr %4, align 8, !tbaa !124
   %17 = load ptr, ptr %7, align 8, !tbaa !197
@@ -4206,50 +4200,56 @@ define internal range(i32 -1, 1) i32 @dom_saveHTML_write_string(ptr noundef read
   %37 = load ptr, ptr %7, align 8, !tbaa !197
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 24
   store i64 0, ptr %38, align 8, !tbaa !123
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %39 = icmp eq i32 %15, 15
   br i1 %39, label %13, label %dom_saveHTML_write_string_len.exit
 
 .critedge.i:                                      ; preds = %20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %dom_saveHTML_write_string_len.exit
 
 dom_saveHTML_write_string_len.exit:               ; preds = %36, %.critedge.i
   %.2.i = phi i32 [ -1, %.critedge.i ], [ 0, %36 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.2.i
 }
 
-declare i32 @dom_html5_serialize_outer(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @dom_html5_serialize_outer(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @lxb_encoding_decode_utf_8(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @lxb_encoding_decode_utf_8(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @smart_str_erealloc(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @smart_str_erealloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: allocsize(1)
-declare ptr @_erealloc(ptr noundef, i64 noundef) local_unnamed_addr #7
+declare ptr @_erealloc(ptr noundef, i64 noundef) local_unnamed_addr #6
 
-declare noalias ptr @_emalloc_56() local_unnamed_addr #2
+declare noalias ptr @_emalloc_56() local_unnamed_addr #1
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #8
+declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #7
 
-declare void @dom_remove_all_children(ptr noundef) local_unnamed_addr #2
+declare void @dom_remove_all_children(ptr noundef) local_unnamed_addr #1
 
-declare ptr @xmlNewDocText(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @xmlNewDocText(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #9
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #10 = { nounwind }
 attributes #11 = { nounwind willreturn memory(read) }

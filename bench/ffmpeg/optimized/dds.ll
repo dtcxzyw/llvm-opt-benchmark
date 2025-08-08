@@ -184,9 +184,9 @@ bytestream2_get_le32.exit173:                     ; preds = %50
   br label %74
 
 74:                                               ; preds = %bytestream2_get_le32.exit173.thread, %73, %bytestream2_get_le32.exit173
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %75 = load ptr, ptr %8, align 8, !tbaa !4
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 120
   %77 = getelementptr inbounds nuw i8, ptr %75, i64 128
@@ -1063,9 +1063,9 @@ bytestream2_get_le32.exit.i:                      ; preds = %bytestream2_get_le3
   br label %.sink.split
 
 parse_pixel_format.exit:                          ; preds = %101, %328, %329, %337, %406
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %608
 
 .sink.split:                                      ; preds = %.thread425.thread.i, %413, %414, %415, %416, %417, %418, %419
@@ -1075,9 +1075,9 @@ parse_pixel_format.exit:                          ; preds = %101, %328, %329, %3
   br label %421
 
 421:                                              ; preds = %.sink.split, %.thread425.thread.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %422 = call i32 @ff_get_buffer(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 0) #8
   %423 = icmp slt i32 %422, 0
   br i1 %423, label %608, label %424
@@ -1963,10 +1963,10 @@ declare i64 @llvm.lrint.i64.f64(double) #5
 declare i64 @llvm.smin.i64(i64, i64) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #6

@@ -346,7 +346,7 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   %retval.0.i.i = add nsw i32 %add.i15.i, %curcp.257.i
   %agg.tmp.sroa.0.0.insert.ext.i.i = zext i32 %retval.0.i.i to i64
   %agg.tmp.sroa.0.0.insert.insert.i.i = or disjoint i64 %agg.tmp.sroa.0.0.insert.ext.i.i, 4294967296
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %r.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %r.i.i.i)
   store i64 %agg.tmp.sroa.0.0.insert.insert.i.i, ptr %r.i.i.i, align 8
   %15 = load ptr, ptr %canonicalized, align 8
   %16 = load i32, ptr %Size.i.i.i.i.i.i, align 8
@@ -627,7 +627,7 @@ _ZN4llvh15SmallVectorImplIN6hermes14CodePointRangeEE5eraseEPKS2_S5_.exit.i.i.i: 
   br label %_ZN6hermes12CodePointSet3addEj.exit.i
 
 _ZN6hermes12CodePointSet3addEj.exit.i:            ; preds = %_ZN4llvh15SmallVectorImplIN6hermes14CodePointRangeEE5eraseEPKS2_S5_.exit.i.i.i, %_ZSt13move_backwardIPN6hermes14CodePointRangeES2_ET0_T_S4_S3_.exit.i.i, %_ZN4llvh23SmallVectorTemplateBaseIN6hermes14CodePointRangeELb1EE9push_backERKS2_.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %r.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %r.i.i.i)
   %inc.i = add i32 %curcp.257.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, %invariant.umin.i
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !10
@@ -770,7 +770,7 @@ for.body21.i:                                     ; preds = %for.inc.i, %for.bod
 
 if.then29.i:                                      ; preds = %for.body21.i
   %agg.tmp.sroa.0.0.insert.insert.i.i60 = or disjoint i64 %indvars.iv.i, 4294967296
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %r.i.i.i39)
+  call void @llvm.lifetime.start.p0(ptr nonnull %r.i.i.i39)
   store i64 %agg.tmp.sroa.0.0.insert.insert.i.i60, ptr %r.i.i.i39, align 8
   %61 = load ptr, ptr %agg.result, align 8
   %62 = load i32, ptr %Size.i.i.i.i.i.i14, align 8
@@ -1053,7 +1053,7 @@ _ZN4llvh15SmallVectorImplIN6hermes14CodePointRangeEE5eraseEPKS2_S5_.exit.i.i.i12
   br label %_ZN6hermes12CodePointSet3addEj.exit.i133
 
 _ZN6hermes12CodePointSet3addEj.exit.i133:         ; preds = %_ZSt13move_backwardIPN6hermes14CodePointRangeES2_ET0_T_S4_S3_.exit.i, %_ZN4llvh23SmallVectorTemplateBaseIN6hermes14CodePointRangeELb1EE9push_backERKS2_.exit.i, %_ZN4llvh15SmallVectorImplIN6hermes14CodePointRangeEE5eraseEPKS2_S5_.exit.i.i.i126
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %r.i.i.i39)
+  call void @llvm.lifetime.end.p0(ptr nonnull %r.i.i.i39)
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %_ZN6hermes12CodePointSet3addEj.exit.i133, %for.body21.i
@@ -1173,10 +1173,10 @@ declare i32 @llvm.umin.i32(i32, i32) #6
 declare i32 @llvm.umax.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

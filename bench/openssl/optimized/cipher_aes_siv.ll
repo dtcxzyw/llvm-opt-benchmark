@@ -349,7 +349,7 @@ define internal noundef nonnull ptr @aes_siv_gettable_ctx_params(ptr readnone ca
 define internal range(i32 0, 2) i32 @aes_siv_set_ctx_params(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !tbaa !31
   %5 = icmp eq ptr %1, null
   br i1 %5, label %ossl_param_is_empty.exit.thread, label %ossl_param_is_empty.exit
@@ -427,7 +427,7 @@ ossl_param_is_empty.exit:                         ; preds = %2
   br i1 %.not30, label %46, label %40
 
 40:                                               ; preds = %38
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %41 = call i32 @OSSL_PARAM_get_size_t(ptr noundef nonnull %39, ptr noundef nonnull %4) #4
   %.not31 = icmp eq i32 %41, 0
   br i1 %.not31, label %.critedge, label %42
@@ -436,7 +436,7 @@ ossl_param_is_empty.exit:                         ; preds = %2
   call void @ERR_new() #4
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 231, ptr noundef nonnull @__func__.aes_siv_set_ctx_params) #4
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 103, ptr noundef null) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %ossl_param_is_empty.exit.thread
 
 42:                                               ; preds = %40
@@ -444,7 +444,7 @@ ossl_param_is_empty.exit:                         ; preds = %2
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %45 = load i64, ptr %44, align 8, !tbaa !18
   %.not32 = icmp eq i64 %43, %45
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.not32, label %46, label %ossl_param_is_empty.exit.thread
 
 46:                                               ; preds = %42, %38
@@ -452,7 +452,7 @@ ossl_param_is_empty.exit:                         ; preds = %2
 
 ossl_param_is_empty.exit.thread:                  ; preds = %2, %.critedge, %9, %ossl_param_is_empty.exit, %42, %46, %31, %26
   %.020 = phi i32 [ 0, %26 ], [ 1, %46 ], [ 0, %42 ], [ 0, %31 ], [ 1, %ossl_param_is_empty.exit ], [ 1, %9 ], [ 0, %.critedge ], [ 1, %2 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.020
 }
 
@@ -533,9 +533,6 @@ define internal i32 @aes_256_siv_get_params(ptr noundef %0) #0 {
   ret i32 %2
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 declare i32 @ossl_prov_is_running() local_unnamed_addr #1
 
 declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -543,9 +540,6 @@ declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_
 declare ptr @ossl_prov_cipher_hw_aes_siv(i64 noundef) local_unnamed_addr #1
 
 declare ptr @ossl_prov_ctx_get0_libctx(ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 declare void @CRYPTO_clear_free(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -572,6 +566,12 @@ declare ptr @OSSL_PARAM_locate_const(ptr noundef, ptr noundef) local_unnamed_add
 declare i32 @OSSL_PARAM_get_uint(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare i32 @OSSL_PARAM_get_size_t(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

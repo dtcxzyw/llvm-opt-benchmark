@@ -28,43 +28,37 @@ define hidden noundef zeroext i1 @Curl_is_ASCII_name(ptr noundef readonly captur
   ret i1 %.05
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 28) i32 @Curl_idn_decode(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #2 {
+define hidden range(i32 0, 28) i32 @Curl_idn_decode(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #1 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !8
-  %4 = tail call ptr @idn2_check_version(ptr noundef nonnull @.str) #6
+  %4 = tail call ptr @idn2_check_version(ptr noundef nonnull @.str) #5
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %idn_decode.exit.thread, label %5
 
 5:                                                ; preds = %2
-  %6 = call i32 @idn2_lookup_ul(ptr noundef %0, ptr noundef nonnull %3, i32 noundef 9) #5
+  %6 = call i32 @idn2_lookup_ul(ptr noundef %0, ptr noundef nonnull %3, i32 noundef 9) #6
   %.not9.i = icmp eq i32 %6, 0
   br i1 %.not9.i, label %10, label %7
 
 7:                                                ; preds = %5
-  %8 = call i32 @idn2_lookup_ul(ptr noundef %0, ptr noundef nonnull %3, i32 noundef 4) #5
+  %8 = call i32 @idn2_lookup_ul(ptr noundef %0, ptr noundef nonnull %3, i32 noundef 4) #6
   %.fr.i = freeze i32 %8
   %9 = icmp eq i32 %.fr.i, 0
   br i1 %9, label %10, label %idn_decode.exit.thread
 
 idn_decode.exit.thread:                           ; preds = %7, %2
   %.117.i.ph = phi i32 [ 4, %2 ], [ 3, %7 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.thread
 
 10:                                               ; preds = %7, %5
   %11 = load ptr, ptr %3, align 8, !tbaa !8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %12 = load ptr, ptr @Curl_cstrdup, align 8, !tbaa !11
-  %13 = call ptr %12(ptr noundef %11) #5
-  call void @idn2_free(ptr noundef %11) #5
+  %13 = call ptr %12(ptr noundef %11) #6
+  call void @idn2_free(ptr noundef %11) #6
   %.not9 = icmp eq ptr %13, null
   br i1 %.not9, label %.thread, label %14
 
@@ -77,30 +71,30 @@ idn_decode.exit.thread:                           ; preds = %7, %2
   ret i32 %.020
 }
 
-declare void @idn2_free(ptr noundef) local_unnamed_addr #3
+declare void @idn2_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 28) i32 @Curl_idn_encode(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #2 {
+define hidden range(i32 0, 28) i32 @Curl_idn_encode(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #1 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !8
-  %4 = call i32 @idn2_to_unicode_8z8z(ptr noundef %0, ptr noundef nonnull %3, i32 noundef 0) #5
+  %4 = call i32 @idn2_to_unicode_8z8z(ptr noundef %0, ptr noundef nonnull %3, i32 noundef 0) #6
   %.not.i = icmp eq i32 %4, 0
   br i1 %.not.i, label %idn_encode.exit.thread, label %idn_encode.exit
 
 idn_encode.exit.thread:                           ; preds = %2
   %5 = load ptr, ptr %3, align 8, !tbaa !8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %6 = load ptr, ptr @Curl_cstrdup, align 8, !tbaa !11
-  %7 = call ptr %6(ptr noundef %5) #5
-  call void @idn2_free(ptr noundef %5) #5
+  %7 = call ptr %6(ptr noundef %5) #6
+  call void @idn2_free(ptr noundef %5) #6
   %.not9 = icmp eq ptr %7, null
   br i1 %.not9, label %.thread, label %10
 
 idn_encode.exit:                                  ; preds = %2
   %8 = icmp eq i32 %4, -100
   %9 = select i1 %8, i32 27, i32 3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.thread
 
 10:                                               ; preds = %idn_encode.exit.thread
@@ -113,17 +107,17 @@ idn_encode.exit:                                  ; preds = %2
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @Curl_free_idnconverted_hostname(ptr noundef captures(none) %0) local_unnamed_addr #2 {
+define hidden void @Curl_free_idnconverted_hostname(ptr noundef captures(none) %0) local_unnamed_addr #1 {
   %2 = load ptr, ptr @Curl_cfree, align 8, !tbaa !11
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !12
-  tail call void %2(ptr noundef %4) #5
+  tail call void %2(ptr noundef %4) #6
   store ptr null, ptr %3, align 8, !tbaa !12
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 28) i32 @Curl_idnconvert_hostname(ptr noundef captures(none) initializes((24, 32)) %0) local_unnamed_addr #2 {
+define hidden range(i32 0, 28) i32 @Curl_idnconvert_hostname(ptr noundef captures(none) initializes((24, 32)) %0) local_unnamed_addr #1 {
   %2 = alloca ptr, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !14
@@ -144,34 +138,34 @@ define hidden range(i32 0, 28) i32 @Curl_idnconvert_hostname(ptr noundef capture
   br i1 %.not9.i, label %.preheader.i, label %Curl_is_ASCII_name.exit, !llvm.loop !6
 
 Curl_is_ASCII_name.exit:                          ; preds = %7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !8
-  %9 = tail call ptr @idn2_check_version(ptr noundef nonnull @.str) #6
+  %9 = tail call ptr @idn2_check_version(ptr noundef nonnull @.str) #5
   %.not.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i, label %idn_decode.exit.thread.i, label %10
 
 10:                                               ; preds = %Curl_is_ASCII_name.exit
-  %11 = call i32 @idn2_lookup_ul(ptr noundef nonnull %4, ptr noundef nonnull %2, i32 noundef 9) #5
+  %11 = call i32 @idn2_lookup_ul(ptr noundef nonnull %4, ptr noundef nonnull %2, i32 noundef 9) #6
   %.not9.i.i = icmp eq i32 %11, 0
   br i1 %.not9.i.i, label %15, label %12
 
 12:                                               ; preds = %10
-  %13 = call i32 @idn2_lookup_ul(ptr noundef nonnull %4, ptr noundef nonnull %2, i32 noundef 4) #5
+  %13 = call i32 @idn2_lookup_ul(ptr noundef nonnull %4, ptr noundef nonnull %2, i32 noundef 4) #6
   %.fr.i.i = freeze i32 %13
   %14 = icmp eq i32 %.fr.i.i, 0
   br i1 %14, label %15, label %idn_decode.exit.thread.i
 
 idn_decode.exit.thread.i:                         ; preds = %12, %Curl_is_ASCII_name.exit
   %.117.i.ph.i = phi i32 [ 4, %Curl_is_ASCII_name.exit ], [ 3, %12 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %Curl_is_ASCII_name.exit.thread
 
 15:                                               ; preds = %12, %10
   %16 = load ptr, ptr %2, align 8, !tbaa !8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %17 = load ptr, ptr @Curl_cstrdup, align 8, !tbaa !11
-  %18 = call ptr %17(ptr noundef %16) #5
-  call void @idn2_free(ptr noundef %16) #5
+  %18 = call ptr %17(ptr noundef %16) #6
+  call void @idn2_free(ptr noundef %16) #6
   %.not9.i10 = icmp eq ptr %18, null
   br i1 %.not9.i10, label %Curl_is_ASCII_name.exit.thread, label %.thread
 
@@ -187,19 +181,25 @@ Curl_is_ASCII_name.exit.thread:                   ; preds = %.preheader.i, %1, %
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare ptr @idn2_check_version(ptr noundef) local_unnamed_addr #4
+declare ptr @idn2_check_version(ptr noundef) local_unnamed_addr #3
 
-declare i32 @idn2_lookup_ul(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @idn2_lookup_ul(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @idn2_to_unicode_8z8z(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @idn2_to_unicode_8z8z(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind }
-attributes #6 = { nounwind willreturn memory(read) }
+attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { nounwind willreturn memory(read) }
+attributes #6 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

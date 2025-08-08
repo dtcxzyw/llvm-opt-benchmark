@@ -21,7 +21,7 @@ define hidden void @SDL_qsort_r_REAL(ptr noundef %0, i64 noundef %1, i64 noundef
   br i1 %.not, label %156, label %14
 
 14:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %15 = tail call noalias ptr @SDL_malloc_REAL(i64 noundef %2) #5
   %16 = mul i64 %2, 12
   %17 = add i64 %1, -1
@@ -378,7 +378,7 @@ define hidden void @SDL_qsort_r_REAL(ptr noundef %0, i64 noundef %1, i64 noundef
 
 qsort_r_nonaligned.exit:                          ; preds = %._crit_edge315.thread.i, %.loopexit.i
   tail call void @SDL_free_REAL(ptr noundef %15) #5
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %8) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %411
 
 156:                                              ; preds = %10
@@ -386,7 +386,7 @@ qsort_r_nonaligned.exit:                          ; preds = %._crit_edge315.thre
   br i1 %.not18, label %299, label %157
 
 157:                                              ; preds = %156
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %158 = tail call noalias ptr @SDL_malloc_REAL(i64 noundef range(i64 5, 4) %2) #5
   %159 = mul i64 %2, 12
   %160 = add i64 %1, -1
@@ -743,11 +743,11 @@ qsort_r_nonaligned.exit:                          ; preds = %._crit_edge315.thre
 
 qsort_r_aligned.exit:                             ; preds = %._crit_edge315.thread.i70, %.loopexit.i64
   tail call void @SDL_free_REAL(ptr noundef %158) #5
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %411
 
 299:                                              ; preds = %156
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %300 = tail call noalias ptr @SDL_malloc_REAL(i64 noundef 4) #5
   %301 = shl i64 %1, 2
   %302 = add i64 %301, -52
@@ -1026,7 +1026,7 @@ qsort_r_aligned.exit:                             ; preds = %._crit_edge315.thre
 
 qsort_r_words.exit:                               ; preds = %._crit_edge210.thread.i, %400
   tail call void @SDL_free_REAL(ptr noundef %300) #5
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %411
 
 411:                                              ; preds = %qsort_r_aligned.exit, %qsort_r_words.exit, %5, %qsort_r_nonaligned.exit
@@ -1049,7 +1049,7 @@ define hidden void @SDL_qsort_REAL(ptr noundef %0, i64 noundef %1, i64 noundef %
   br i1 %.not.i, label %214, label %13
 
 13:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %14 = tail call noalias ptr @SDL_malloc_REAL(i64 noundef %2) #5
   %15 = mul i64 %2, 12
   %16 = add i64 %1, -1
@@ -1504,7 +1504,7 @@ pivot_big.exit20:                                 ; preds = %.sink.split134.i18,
 
 qsort_r_nonaligned.exit.i:                        ; preds = %._crit_edge315.thread.i.i, %.loopexit.i.i
   tail call void @SDL_free_REAL(ptr noundef %14) #5
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %SDL_qsort_r_REAL.exit
 
 214:                                              ; preds = %9
@@ -1512,7 +1512,7 @@ qsort_r_nonaligned.exit.i:                        ; preds = %._crit_edge315.thre
   br i1 %.not18.i, label %416, label %215
 
 215:                                              ; preds = %214
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %216 = tail call noalias ptr @SDL_malloc_REAL(i64 noundef range(i64 5, 4) %2) #5
   %217 = mul i64 %2, 12
   %218 = add i64 %1, -1
@@ -1967,11 +1967,11 @@ pivot_big.exit11:                                 ; preds = %.sink.split134.i9, 
 
 qsort_r_aligned.exit.i:                           ; preds = %._crit_edge315.thread.i70.i, %.loopexit.i64.i
   tail call void @SDL_free_REAL(ptr noundef %216) #5
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %SDL_qsort_r_REAL.exit
 
 416:                                              ; preds = %214
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %417 = tail call noalias ptr @SDL_malloc_REAL(i64 noundef 4) #5
   %418 = shl i64 %1, 2
   %419 = add i64 %418, -52
@@ -2348,7 +2348,7 @@ pivot_big.exit:                                   ; preds = %.sink.split134.i, %
 
 qsort_r_words.exit.i:                             ; preds = %._crit_edge210.thread.i.i, %576
   tail call void @SDL_free_REAL(ptr noundef %417) #5
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %SDL_qsort_r_REAL.exit
 
 SDL_qsort_r_REAL.exit:                            ; preds = %4, %qsort_r_nonaligned.exit.i, %qsort_r_aligned.exit.i, %qsort_r_words.exit.i
@@ -2392,12 +2392,6 @@ define hidden noundef ptr @SDL_bsearch_r_REAL(ptr noundef %0, ptr noundef %1, i6
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nounwind uwtable
 define hidden noundef ptr @SDL_bsearch_REAL(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #0 {
   %.not21.i = icmp eq i64 %2, 0
@@ -2435,7 +2429,7 @@ SDL_bsearch_r_REAL.exit:                          ; preds = %16, %18, %5
   ret ptr %.0.i
 }
 
-declare noalias ptr @SDL_malloc_REAL(i64 noundef) local_unnamed_addr #2
+declare noalias ptr @SDL_malloc_REAL(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @pivot_big(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef %5) unnamed_addr #0 {
@@ -2550,20 +2544,26 @@ define internal fastcc ptr @pivot_big(ptr noundef %0, ptr noundef %1, ptr nounde
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #2
 
-declare void @SDL_free_REAL(ptr noundef) local_unnamed_addr #2
+declare void @SDL_free_REAL(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #4
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { nounwind }
 

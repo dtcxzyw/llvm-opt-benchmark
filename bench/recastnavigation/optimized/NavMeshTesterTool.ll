@@ -362,10 +362,10 @@ define dso_local void @_ZN17NavMeshTesterTool6recalcEv(ptr noundef nonnull align
 129:                                              ; preds = %.lr.ph139, %283
   %.0137 = phi i32 [ %101, %.lr.ph139 ], [ %.1, %283 ]
   %130 = load ptr, ptr %93, align 8
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4
   %131 = call noundef i32 @_ZNK14dtNavMeshQuery16findStraightPathEPKfS1_PKjiPfPhPjPiii(ptr noundef nonnull align 8 dereferenceable(104) %130, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %6, i32 noundef range(i32 1, 0) %.0137, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 3, i32 noundef 0)
   %132 = load i32, ptr %5, align 4
@@ -414,10 +414,10 @@ _Z7inRangePKfS0_ff.exit.i:                        ; preds = %142
   br i1 %exitcond47.not.i, label %_ZL14getSteerTargetP14dtNavMeshQueryPKfS2_fPKjiPfRhRjS5_Pi.exit.thread, label %137, !llvm.loop !5
 
 _ZL14getSteerTargetP14dtNavMeshQueryPKfS2_fPKjiPfRhRjS5_Pi.exit.thread: ; preds = %129, %157
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.critedge
 
 split:                                            ; preds = %_Z7inRangePKfS0_ff.exit.i, %142, %137
@@ -431,10 +431,10 @@ split:                                            ; preds = %_Z7inRangePKfS0_ff.
   %165 = load i8, ptr %164, align 1
   %166 = getelementptr inbounds nuw [3 x i32], ptr %4, i64 0, i64 %163
   %167 = load i32, ptr %166, align 4
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %168 = zext i8 %165 to i32
   %169 = and i32 %168, 2
   %.not81 = icmp eq i32 %169, 0
@@ -3410,8 +3410,8 @@ define dso_local void @_ZN17NavMeshTesterTool12handleRenderEv(ptr noundef nonnul
   call void %586(ptr noundef nonnull align 8 dereferenceable(8) %20, i1 noundef zeroext false)
   %587 = load ptr, ptr %74, align 8
   %588 = load i32, ptr %581, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr null, ptr %12, align 8
   store ptr null, ptr %13, align 8
   %589 = call noundef i32 @_ZNK9dtNavMesh19getTileAndPolyByRefEjPPK10dtMeshTilePPK6dtPoly(ptr noundef nonnull align 8 dereferenceable(100) %587, i32 noundef %588, ptr noundef nonnull %12, ptr noundef nonnull %13)
@@ -3474,12 +3474,12 @@ _ZL13getPolyCenterP9dtNavMeshjPf.exit:            ; preds = %583, %._crit_edge.i
   %.sroa.0411.0 = phi float [ 0.000000e+00, %583 ], [ %620, %._crit_edge.i ]
   %.sroa.5412.0 = phi float [ 0.000000e+00, %583 ], [ %621, %._crit_edge.i ]
   %.sroa.10413.0 = phi float [ 0.000000e+00, %583 ], [ %622, %._crit_edge.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %623 = load ptr, ptr %74, align 8
   %624 = load i32, ptr %575, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr null, ptr %10, align 8
   store ptr null, ptr %11, align 8
   %625 = call noundef i32 @_ZNK9dtNavMesh19getTileAndPolyByRefEjPPK10dtMeshTilePPK6dtPoly(ptr noundef nonnull align 8 dereferenceable(100) %623, i32 noundef %624, ptr noundef nonnull %10, ptr noundef nonnull %11)
@@ -3542,8 +3542,8 @@ _ZL13getPolyCenterP9dtNavMeshjPf.exit331:         ; preds = %_ZL13getPolyCenterP
   %.sroa.0408.0 = phi float [ 0.000000e+00, %_ZL13getPolyCenterP9dtNavMeshjPf.exit ], [ %656, %._crit_edge.i329 ]
   %.sroa.5409.0 = phi float [ 0.000000e+00, %_ZL13getPolyCenterP9dtNavMeshjPf.exit ], [ %657, %._crit_edge.i329 ]
   %.sroa.10410.0 = phi float [ 0.000000e+00, %_ZL13getPolyCenterP9dtNavMeshjPf.exit ], [ %658, %._crit_edge.i329 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @_Z14duDebugDrawArcP11duDebugDrawfffffffffjf(ptr noundef nonnull %20, float noundef %.sroa.0411.0, float noundef %.sroa.5412.0, float noundef %.sroa.10413.0, float noundef %.sroa.0408.0, float noundef %.sroa.5409.0, float noundef %.sroa.10410.0, float noundef 2.500000e-01, float noundef 0.000000e+00, float noundef 0x3FD99999A0000000, i32 noundef -2147483648, float noundef 2.000000e+00)
   %659 = load ptr, ptr %20, align 8
   %660 = getelementptr inbounds nuw i8, ptr %659, i64 16
@@ -3623,8 +3623,8 @@ _ZL13getPolyCenterP9dtNavMeshjPf.exit331:         ; preds = %_ZL13getPolyCenterP
   call void %709(ptr noundef nonnull align 8 dereferenceable(8) %20, i1 noundef zeroext false)
   %710 = load ptr, ptr %74, align 8
   %711 = load i32, ptr %704, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %8, align 8
   store ptr null, ptr %9, align 8
   %712 = call noundef i32 @_ZNK9dtNavMesh19getTileAndPolyByRefEjPPK10dtMeshTilePPK6dtPoly(ptr noundef nonnull align 8 dereferenceable(100) %710, i32 noundef %711, ptr noundef nonnull %8, ptr noundef nonnull %9)
@@ -3687,12 +3687,12 @@ _ZL13getPolyCenterP9dtNavMeshjPf.exit344:         ; preds = %706, %._crit_edge.i
   %.sroa.0405.0 = phi float [ 0.000000e+00, %706 ], [ %743, %._crit_edge.i342 ]
   %.sroa.5406.0 = phi float [ 0.000000e+00, %706 ], [ %744, %._crit_edge.i342 ]
   %.sroa.10407.0 = phi float [ 0.000000e+00, %706 ], [ %745, %._crit_edge.i342 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %746 = load ptr, ptr %74, align 8
   %747 = load i32, ptr %698, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %6, align 8
   store ptr null, ptr %7, align 8
   %748 = call noundef i32 @_ZNK9dtNavMesh19getTileAndPolyByRefEjPPK10dtMeshTilePPK6dtPoly(ptr noundef nonnull align 8 dereferenceable(100) %746, i32 noundef %747, ptr noundef nonnull %6, ptr noundef nonnull %7)
@@ -3755,8 +3755,8 @@ _ZL13getPolyCenterP9dtNavMeshjPf.exit357:         ; preds = %_ZL13getPolyCenterP
   %.sroa.0402.0 = phi float [ 0.000000e+00, %_ZL13getPolyCenterP9dtNavMeshjPf.exit344 ], [ %779, %._crit_edge.i355 ]
   %.sroa.5403.0 = phi float [ 0.000000e+00, %_ZL13getPolyCenterP9dtNavMeshjPf.exit344 ], [ %780, %._crit_edge.i355 ]
   %.sroa.10404.0 = phi float [ 0.000000e+00, %_ZL13getPolyCenterP9dtNavMeshjPf.exit344 ], [ %781, %._crit_edge.i355 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_Z14duDebugDrawArcP11duDebugDrawfffffffffjf(ptr noundef nonnull %20, float noundef %.sroa.0405.0, float noundef %.sroa.5406.0, float noundef %.sroa.10407.0, float noundef %.sroa.0402.0, float noundef %.sroa.5403.0, float noundef %.sroa.10404.0, float noundef 2.500000e-01, float noundef 0.000000e+00, float noundef 0x3FD99999A0000000, i32 noundef -2147483648, float noundef 2.000000e+00)
   %782 = load ptr, ptr %20, align 8
   %783 = getelementptr inbounds nuw i8, ptr %782, i64 16
@@ -3850,8 +3850,8 @@ _ZL13getPolyCenterP9dtNavMeshjPf.exit357:         ; preds = %_ZL13getPolyCenterP
   call void %836(ptr noundef nonnull align 8 dereferenceable(8) %20, i1 noundef zeroext false)
   %837 = load ptr, ptr %74, align 8
   %838 = load i32, ptr %831, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %4, align 8
   store ptr null, ptr %5, align 8
   %839 = call noundef i32 @_ZNK9dtNavMesh19getTileAndPolyByRefEjPPK10dtMeshTilePPK6dtPoly(ptr noundef nonnull align 8 dereferenceable(100) %837, i32 noundef %838, ptr noundef nonnull %4, ptr noundef nonnull %5)
@@ -3914,12 +3914,12 @@ _ZL13getPolyCenterP9dtNavMeshjPf.exit370:         ; preds = %833, %._crit_edge.i
   %.sroa.10401.0 = phi float [ 0.000000e+00, %833 ], [ %872, %._crit_edge.i368 ]
   %.sroa.5400.0 = phi float [ 0.000000e+00, %833 ], [ %871, %._crit_edge.i368 ]
   %.sroa.0399.0 = phi float [ 0.000000e+00, %833 ], [ %870, %._crit_edge.i368 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %873 = load ptr, ptr %74, align 8
   %874 = load i32, ptr %825, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %2, align 8
   store ptr null, ptr %3, align 8
   %875 = call noundef i32 @_ZNK9dtNavMesh19getTileAndPolyByRefEjPPK10dtMeshTilePPK6dtPoly(ptr noundef nonnull align 8 dereferenceable(100) %873, i32 noundef %874, ptr noundef nonnull %2, ptr noundef nonnull %3)
@@ -3982,8 +3982,8 @@ _ZL13getPolyCenterP9dtNavMeshjPf.exit383:         ; preds = %_ZL13getPolyCenterP
   %.sroa.10.0 = phi float [ 0.000000e+00, %_ZL13getPolyCenterP9dtNavMeshjPf.exit370 ], [ %908, %._crit_edge.i381 ]
   %.sroa.5398.0 = phi float [ 0.000000e+00, %_ZL13getPolyCenterP9dtNavMeshjPf.exit370 ], [ %907, %._crit_edge.i381 ]
   %.sroa.0397.0 = phi float [ 0.000000e+00, %_ZL13getPolyCenterP9dtNavMeshjPf.exit370 ], [ %906, %._crit_edge.i381 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_Z14duDebugDrawArcP11duDebugDrawfffffffffjf(ptr noundef nonnull %20, float noundef %.sroa.0399.0, float noundef %.sroa.5400.0, float noundef %.sroa.10401.0, float noundef %.sroa.0397.0, float noundef %.sroa.5398.0, float noundef %.sroa.10.0, float noundef 2.500000e-01, float noundef 0.000000e+00, float noundef 0x3FD99999A0000000, i32 noundef -2147483648, float noundef 2.000000e+00)
   %909 = load ptr, ptr %20, align 8
   %910 = getelementptr inbounds nuw i8, ptr %909, i64 16
@@ -4449,10 +4449,10 @@ declare i32 @llvm.smin.i32(i32, i32) #12
 declare float @llvm.sqrt.f32(float) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

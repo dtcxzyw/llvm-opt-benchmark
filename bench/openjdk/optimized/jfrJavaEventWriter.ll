@@ -181,13 +181,13 @@ define hidden noundef zeroext i1 @_ZN18JfrJavaEventWriter10initializeEv() local_
 10:                                               ; preds = %0
   %11 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %12 = load ptr, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 35, ptr nonnull %1)
-  call void @llvm.lifetime.start.p0(i64 14, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(35) %1, ptr noundef nonnull align 16 dereferenceable(35) @__const._ZL26setup_event_writer_offsetsP10JavaThread.class_name, i64 35, i1 false)
   %13 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #9
   %14 = trunc i64 %13 to i32
@@ -238,13 +238,13 @@ define hidden noundef zeroext i1 @_ZN18JfrJavaEventWriter10initializeEv() local_
   br label %_ZL26setup_event_writer_offsetsP10JavaThread.exit
 
 _ZL26setup_event_writer_offsetsP10JavaThread.exit: ; preds = %10, %19
-  call void @llvm.lifetime.end.p0(i64 35, ptr nonnull %1)
-  call void @llvm.lifetime.end.p0(i64 14, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %50 = zext i1 %.not.i to i8
   store i8 %50, ptr @_ZZN18JfrJavaEventWriter10initializeEvE11initialized, align 1
   br label %51
@@ -711,9 +711,9 @@ _ZNK14JfrThreadLocal11java_bufferEv.exit:         ; preds = %1
 
 _ZNK14JfrThreadLocal11java_bufferEv.exit.thread:  ; preds = %1, %_ZNK14JfrThreadLocal11java_bufferEv.exit
   %11 = phi ptr [ %8, %_ZNK14JfrThreadLocal11java_bufferEv.exit ], [ %7, %1 ]
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 304, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN10HandleMark10initializeEP6Thread(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull %0) #10
   store i8 12, ptr %3, align 8
   call void @_ZN16JfrJavaArgumentsC1EP9JavaValuePKcS3_S3_P10JavaThread(ptr noundef nonnull align 8 dereferenceable(300) %4, ptr noundef nonnull %3, ptr noundef nonnull @__const._ZL26setup_event_writer_offsetsP10JavaThread.class_name, ptr noundef nonnull @_ZZL23create_new_event_writerP9JfrBufferP14JfrThreadLocalP10JavaThreadE6method, ptr noundef nonnull @_ZZL23create_new_event_writerP9JfrBufferP14JfrThreadLocalP10JavaThreadE9signature, ptr noundef nonnull %0) #10
@@ -755,9 +755,9 @@ _ZNK14JfrThreadLocal11java_bufferEv.exit.thread:  ; preds = %1, %_ZNK14JfrThread
 _ZL23create_new_event_writerP9JfrBufferP14JfrThreadLocalP10JavaThread.exit: ; preds = %_ZNK14JfrThreadLocal11java_bufferEv.exit.thread, %14, %30
   %.0.i = phi ptr [ %32, %30 ], [ null, %_ZNK14JfrThreadLocal11java_bufferEv.exit.thread ], [ null, %14 ]
   call void @_ZN10HandleMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #10
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 304, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %33 = load ptr, ptr %12, align 8
   %.not = icmp eq ptr %33, null
   br i1 %.not, label %34, label %35
@@ -2278,10 +2278,10 @@ declare void @_ZN10HandleMark10initializeEP6Thread(ptr noundef nonnull align 8 d
 declare noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

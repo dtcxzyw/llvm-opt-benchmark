@@ -136,7 +136,7 @@ define internal zeroext i1 @GPU_CreateRenderer(ptr noundef %0, ptr noundef %1, i
   br i1 %50, label %51, label %103
 
 51:                                               ; preds = %47
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %52 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %52, align 4
   %53 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -150,12 +150,12 @@ define internal zeroext i1 @GPU_CreateRenderer(ptr noundef %0, ptr noundef %1, i
   br i1 %.not.i, label %InitVertexBuffer.exit.thread, label %InitVertexBuffer.exit
 
 InitVertexBuffer.exit.thread:                     ; preds = %51
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %103
 
 InitVertexBuffer.exit:                            ; preds = %51
   %57 = getelementptr inbounds nuw i8, ptr %13, i64 120
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %58 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 0, ptr %58, align 4
   %59 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -165,8 +165,8 @@ InitVertexBuffer.exit:                            ; preds = %51
   %61 = call ptr @SDL_CreateGPUTransferBuffer_REAL(ptr noundef %60, ptr noundef nonnull %5) #11
   store ptr %61, ptr %57, align 8
   %.not8.i.not = icmp eq ptr %61, null
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.not8.i.not, label %103, label %62
 
 62:                                               ; preds = %InitVertexBuffer.exit
@@ -211,8 +211,8 @@ InitVertexBuffer.exit:                            ; preds = %51
   %90 = call ptr @SDL_AcquireGPUCommandBuffer_REAL(ptr noundef %89) #11
   %91 = getelementptr inbounds nuw i8, ptr %13, i64 160
   store ptr %90, ptr %91, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #11
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %92 = call zeroext i1 @SDL_GetWindowSizeInPixels_REAL(ptr noundef %1, ptr noundef nonnull %6, ptr noundef nonnull %7) #11
   %93 = load i32, ptr %6, align 4
   %94 = load i32, ptr %7, align 4
@@ -228,8 +228,8 @@ InitVertexBuffer.exit:                            ; preds = %51
   br label %102
 
 102:                                              ; preds = %65, %98
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #11
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %103
 
 103:                                              ; preds = %InitVertexBuffer.exit.thread, %102, %14, %44, %47, %InitVertexBuffer.exit, %62, %12, %10
@@ -237,15 +237,12 @@ InitVertexBuffer.exit:                            ; preds = %51
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare void @SDL_SetupRendererColorspace(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @SDL_SetupRendererColorspace(ptr noundef, i32 noundef) local_unnamed_addr #2
-
-declare zeroext i1 @SDL_SetError_REAL(ptr noundef, ...) local_unnamed_addr #2
+declare zeroext i1 @SDL_SetError_REAL(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @SDL_calloc_REAL(i64 noundef, i64 noundef) local_unnamed_addr #3
+declare noalias ptr @SDL_calloc_REAL(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @GPU_SupportsBlendMode(ptr readnone captures(none) %0, i32 noundef %1) #0 {
@@ -401,7 +398,7 @@ PixFormatToTexFormat.exit:                        ; preds = %3
   %spec.select = select i1 %60, i32 3, i32 1
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 280
   store ptr %12, ptr %61, align 8
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %4, i8 0, i64 36, i1 false)
   %62 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %.0.i.ph, ptr %62, align 4
@@ -438,7 +435,7 @@ PixFormatToTexFormat.exit:                        ; preds = %3
   br label %79
 
 79:                                               ; preds = %.sink.split, %.critedge
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %80
 
 80:                                               ; preds = %58, %11, %79, %PixFormatToTexFormat.exit
@@ -503,7 +500,7 @@ define internal zeroext i1 @GPU_UpdateTexture(ptr noundef readonly captures(none
   br label %79
 
 38:                                               ; preds = %29
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %39 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 0, ptr %39, align 4
   %40 = trunc i64 %35 to i32
@@ -549,7 +546,7 @@ define internal zeroext i1 @GPU_UpdateTexture(ptr noundef readonly captures(none
   %59 = getelementptr inbounds nuw i8, ptr %10, i64 160
   %60 = load ptr, ptr %59, align 8
   %61 = call ptr @SDL_BeginGPUCopyPass_REAL(ptr noundef %60) #11
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %62 = getelementptr inbounds nuw i8, ptr %7, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %62, i8 0, i64 16, i1 false)
   store ptr %43, ptr %7, align 8
@@ -559,7 +556,7 @@ define internal zeroext i1 @GPU_UpdateTexture(ptr noundef readonly captures(none
   %65 = load i32, ptr %22, align 4
   %66 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 %65, ptr %66, align 4
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %67 = getelementptr inbounds nuw i8, ptr %8, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %67, i8 0, i64 24, i1 false)
   %68 = load ptr, ptr %12, align 8
@@ -581,12 +578,12 @@ define internal zeroext i1 @GPU_UpdateTexture(ptr noundef readonly captures(none
   call void @SDL_EndGPUCopyPass_REAL(ptr noundef %61) #11
   %77 = load ptr, ptr %10, align 8
   call void @SDL_ReleaseGPUTransferBuffer_REAL(ptr noundef %77, ptr noundef nonnull %43) #11
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %78
 
 78:                                               ; preds = %38, %.loopexit
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %79
 
 79:                                               ; preds = %78, %36
@@ -595,7 +592,7 @@ define internal zeroext i1 @GPU_UpdateTexture(ptr noundef readonly captures(none
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef zeroext i1 @GPU_LockTexture(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3, ptr noundef writeonly captures(none) initializes((0, 4)) %4) #4 {
+define internal noundef zeroext i1 @GPU_LockTexture(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3, ptr noundef writeonly captures(none) initializes((0, 4)) %4) #3 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 28
@@ -692,7 +689,7 @@ define internal void @GPU_UnlockTexture(ptr noundef readonly captures(none) %0, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef zeroext i1 @GPU_SetRenderTarget(ptr noundef readonly captures(none) %0, ptr noundef %1) #5 {
+define internal noundef zeroext i1 @GPU_SetRenderTarget(ptr noundef readonly captures(none) %0, ptr noundef %1) #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 696
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 152
@@ -701,7 +698,7 @@ define internal noundef zeroext i1 @GPU_SetRenderTarget(ptr noundef readonly cap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @GPU_QueueNoOp(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #6 {
+define internal noundef zeroext i1 @GPU_QueueNoOp(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #5 {
   ret i1 true
 }
 
@@ -781,7 +778,7 @@ define internal noundef zeroext i1 @GPU_QueueGeometry(ptr noundef %0, ptr nounde
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %60
   %indvars.iv76 = phi i64 [ %indvars.iv.next77, %60 ], [ 0, %.lr.ph ]
   %.05863.us = phi ptr [ %71, %60 ], [ %25, %.lr.ph ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %33 = trunc nuw nsw i64 %indvars.iv76 to i32
   switch i32 %28, label %45 [
     i32 4, label %42
@@ -846,7 +843,7 @@ define internal noundef zeroext i1 @GPU_QueueGeometry(ptr noundef %0, ptr nounde
   %70 = load float, ptr %32, align 4
   %71 = getelementptr inbounds nuw i8, ptr %.05863.us, i64 24
   store float %70, ptr %69, align 4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
   %exitcond80.not = icmp eq i64 %indvars.iv.next77, %wide.trip.count79
   br i1 %exitcond80.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !6
@@ -857,7 +854,7 @@ define internal noundef zeroext i1 @GPU_QueueGeometry(ptr noundef %0, ptr nounde
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %84
   %indvars.iv71 = phi i64 [ %indvars.iv.next72, %84 ], [ 0, %.lr.ph.split ]
   %.05863.us66 = phi ptr [ %116, %84 ], [ %25, %.lr.ph.split ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %72 = trunc nuw nsw i64 %indvars.iv71 to i32
   switch i32 %28, label %84 [
     i32 4, label %81
@@ -926,7 +923,7 @@ define internal noundef zeroext i1 @GPU_QueueGeometry(ptr noundef %0, ptr nounde
   %115 = load float, ptr %114, align 4
   %116 = getelementptr inbounds nuw i8, ptr %.05863.us66, i64 32
   store float %115, ptr %113, align 4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
   %exitcond75.not = icmp eq i64 %indvars.iv.next72, %wide.trip.count79
   br i1 %exitcond75.not, label %.loopexit, label %.lr.ph.split.split.us, !llvm.loop !8
@@ -934,7 +931,7 @@ define internal noundef zeroext i1 @GPU_QueueGeometry(ptr noundef %0, ptr nounde
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %129
   %indvars.iv = phi i64 [ %indvars.iv.next, %129 ], [ 0, %.lr.ph.split ]
   %.05863 = phi ptr [ %161, %129 ], [ %25, %.lr.ph.split ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %117 = trunc nuw nsw i64 %indvars.iv to i32
   switch i32 %28, label %129 [
     i32 4, label %118
@@ -1002,7 +999,7 @@ define internal noundef zeroext i1 @GPU_QueueGeometry(ptr noundef %0, ptr nounde
   %160 = load float, ptr %159, align 4
   %161 = getelementptr inbounds nuw i8, ptr %.05863, i64 32
   store float %160, ptr %158, align 4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count79
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split.split, !llvm.loop !9
@@ -1012,7 +1009,7 @@ define internal noundef zeroext i1 @GPU_QueueGeometry(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @GPU_InvalidateCachedState(ptr noundef readonly captures(none) %0) #5 {
+define internal void @GPU_InvalidateCachedState(ptr noundef readonly captures(none) %0) #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 696
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 288
@@ -1021,7 +1018,7 @@ define internal void @GPU_InvalidateCachedState(ptr noundef readonly captures(no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i1 @GPU_RunCommandQueue(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) #7 {
+define internal zeroext i1 @GPU_RunCommandQueue(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) #6 {
   %5 = alloca %struct.SDL_FColor, align 8
   %6 = alloca %struct.SDL_FColor, align 8
   %7 = alloca %struct.SDL_GPUBufferCreateInfo, align 4
@@ -1069,7 +1066,7 @@ define internal zeroext i1 @GPU_RunCommandQueue(ptr noundef %0, ptr noundef read
 ReleaseVertexBuffer.exit.i:                       ; preds = %27, %25
   store i32 0, ptr %16, align 8
   %29 = trunc i64 %3 to i32
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %30 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 0, ptr %30, align 4
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 4
@@ -1082,11 +1079,11 @@ ReleaseVertexBuffer.exit.i:                       ; preds = %27, %25
   br i1 %.not.i22.i, label %InitVertexBuffer.exit.thread.i, label %InitVertexBuffer.exit.i
 
 InitVertexBuffer.exit.thread.i:                   ; preds = %ReleaseVertexBuffer.exit.i
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %UploadVertices.exit.thread
 
 InitVertexBuffer.exit.i:                          ; preds = %ReleaseVertexBuffer.exit.i
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %8) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %34 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 0, ptr %34, align 4
   %35 = getelementptr inbounds nuw i8, ptr %8, i64 4
@@ -1096,8 +1093,8 @@ InitVertexBuffer.exit.i:                          ; preds = %ReleaseVertexBuffer
   %37 = call ptr @SDL_CreateGPUTransferBuffer_REAL(ptr noundef %36, ptr noundef nonnull %8) #11
   store ptr %37, ptr %15, align 8
   %.not8.i23.not.i = icmp eq ptr %37, null
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8) #11
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %.not8.i23.not.i, label %UploadVertices.exit.thread, label %38
 
 38:                                               ; preds = %InitVertexBuffer.exit.i, %._crit_edge.i
@@ -1115,12 +1112,12 @@ InitVertexBuffer.exit.i:                          ; preds = %ReleaseVertexBuffer
   br i1 %.not.not.i, label %UploadVertices.exit.thread, label %47
 
 47:                                               ; preds = %38
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %48 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 0, ptr %48, align 8
   %49 = load ptr, ptr %15, align 8
   store ptr %49, ptr %9, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %50 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 0, ptr %50, align 8
   %51 = getelementptr inbounds nuw i8, ptr %12, i64 128
@@ -1131,8 +1128,8 @@ InitVertexBuffer.exit.i:                          ; preds = %ReleaseVertexBuffer
   store i32 %53, ptr %54, align 4
   call void @SDL_UploadToGPUBuffer_REAL(ptr noundef nonnull %46, ptr noundef nonnull %9, ptr noundef nonnull %10, i1 noundef zeroext true) #11
   call void @SDL_EndGPUCopyPass_REAL(ptr noundef nonnull %46) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %UploadVertices.exit
 
 UploadVertices.exit:                              ; preds = %47, %4
@@ -1203,7 +1200,7 @@ UploadVertices.exit:                              ; preds = %47, %4
   ]
 
 85:                                               ; preds = %83
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %86 = getelementptr inbounds nuw i8, ptr %.0113215, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull readonly align 4 dereferenceable(16) %86, i64 16, i1 false)
   %87 = call zeroext i1 @SDL_RenderingLinearSpace(ptr noundef %0) #11
@@ -1227,7 +1224,7 @@ GetDrawCmdColor.exit:                             ; preds = %85, %88
   store float %96, ptr %80, align 8
   %.fca.0.load.i = load <2 x float>, ptr %6, align 8
   %.fca.1.load.i = load <2 x float>, ptr %80, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store <2 x float> %.fca.0.load.i, ptr %78, align 8
   store <2 x float> %.fca.1.load.i, ptr %.sroa.447.0..sroa_idx, align 8
   br label %199
@@ -1276,7 +1273,7 @@ GetDrawCmdColor.exit:                             ; preds = %85, %88
   br label %199
 
 127:                                              ; preds = %83
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %128 = getelementptr inbounds nuw i8, ptr %.0113215, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull readonly align 4 dereferenceable(16) %128, i64 16, i1 false)
   %129 = call zeroext i1 @SDL_RenderingLinearSpace(ptr noundef %0) #11
@@ -1300,7 +1297,7 @@ GetDrawCmdColor.exit157:                          ; preds = %127, %130
   store float %138, ptr %68, align 8
   %.fca.0.load.i153 = load <2 x float>, ptr %5, align 8
   %.fca.1.load.i155 = load <2 x float>, ptr %68, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store <2 x float> %.fca.0.load.i153, ptr %66, align 8
   store <2 x float> %.fca.1.load.i155, ptr %.sroa.4.0..sroa_idx, align 8
   store i32 1, ptr %57, align 8
@@ -1623,7 +1620,7 @@ TexFormatToPixFormat.exit.thread.thread:          ; preds = %16, %17, %18, %19, 
   br i1 %.not75, label %110, label %54
 
 54:                                               ; preds = %52
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %55 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 0, ptr %55, align 4
   %56 = trunc i64 %49 to i32
@@ -1639,7 +1636,7 @@ TexFormatToPixFormat.exit.thread.thread:          ; preds = %16, %17, %18, %19, 
   %61 = getelementptr inbounds nuw i8, ptr %8, i64 160
   %62 = load ptr, ptr %61, align 8
   %63 = call ptr @SDL_BeginGPUCopyPass_REAL(ptr noundef %62) #11
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %64 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %64, i8 0, i64 24, i1 false)
   store ptr %.06792, ptr %4, align 8
@@ -1658,7 +1655,7 @@ TexFormatToPixFormat.exit.thread.thread:          ; preds = %16, %17, %18, %19, 
   store i32 %72, ptr %73, align 8
   %74 = getelementptr inbounds nuw i8, ptr %4, i64 36
   store i32 1, ptr %74, align 4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %75 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %75, i8 0, i64 16, i1 false)
   store ptr %59, ptr %5, align 8
@@ -1668,7 +1665,7 @@ TexFormatToPixFormat.exit.thread.thread:          ; preds = %16, %17, %18, %19, 
   store i32 %70, ptr %77, align 4
   call void @SDL_DownloadFromGPUTexture_REAL(ptr noundef %63, ptr noundef nonnull %4, ptr noundef nonnull %5) #11
   call void @SDL_EndGPUCopyPass_REAL(ptr noundef %63) #11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %78 = load ptr, ptr %61, align 8
   %79 = call ptr @SDL_SubmitGPUCommandBufferAndAcquireFence_REAL(ptr noundef %78) #11
   store ptr %79, ptr %6, align 8
@@ -1723,14 +1720,14 @@ TexFormatToPixFormat.exit.thread.thread:          ; preds = %16, %17, %18, %19, 
   call void @SDL_UnmapGPUTransferBuffer_REAL(ptr noundef %107, ptr noundef nonnull %59) #11
   %108 = load ptr, ptr %8, align 8
   call void @SDL_ReleaseGPUTransferBuffer_REAL(ptr noundef %108, ptr noundef nonnull %59) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %109
 
 109:                                              ; preds = %54, %.loopexit
   %.3 = phi ptr [ %53, %.loopexit ], [ null, %54 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %110
 
 110:                                              ; preds = %50, %52, %109, %TexFormatToPixFormat.exit
@@ -1747,9 +1744,9 @@ define internal noundef zeroext i1 @GPU_RenderPresent(ptr noundef readonly captu
   %6 = alloca %struct.SDL_GPUBlitInfo, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 696
   %8 = load ptr, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #11
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 160
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 248
@@ -1768,7 +1765,7 @@ define internal noundef zeroext i1 @GPU_RenderPresent(ptr noundef readonly captu
   br i1 %.not, label %61, label %18
 
 18:                                               ; preds = %16
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %19, i8 0, i64 88, i1 false)
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 88
@@ -1818,7 +1815,7 @@ define internal noundef zeroext i1 @GPU_RenderPresent(ptr noundef readonly captu
   %48 = load ptr, ptr %8, align 8
   %49 = load ptr, ptr %11, align 8
   %50 = call i32 @SDL_GetGPUSwapchainTextureFormat_REAL(ptr noundef %48, ptr noundef %49) #11
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %2, i8 0, i64 36, i1 false)
   %51 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 %46, ptr %51, align 4
@@ -1839,11 +1836,11 @@ define internal noundef zeroext i1 @GPU_RenderPresent(ptr noundef readonly captu
   store i32 %47, ptr %25, align 8
   %59 = getelementptr inbounds nuw i8, ptr %8, i64 96
   store i32 %50, ptr %59, align 8
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %60
 
 60:                                               ; preds = %43, %40
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %64
 
 61:                                               ; preds = %16
@@ -1855,9 +1852,9 @@ define internal noundef zeroext i1 @GPU_RenderPresent(ptr noundef readonly captu
   %65 = load ptr, ptr %8, align 8
   %66 = call ptr @SDL_AcquireGPUCommandBuffer_REAL(ptr noundef %65) #11
   store ptr %66, ptr %9, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 true
 }
 
@@ -2055,23 +2052,23 @@ ChoosePresentMode.exit.thread:                    ; preds = %2, %8, %10, %Choose
   ret i1 %.0
 }
 
-declare zeroext i1 @SDL_GetBooleanProperty_REAL(i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare zeroext i1 @SDL_GetBooleanProperty_REAL(i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_SetBooleanProperty_REAL(i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare zeroext i1 @SDL_SetBooleanProperty_REAL(i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare void @GPU_FillSupportedShaderFormats(i32 noundef) local_unnamed_addr #2
+declare void @GPU_FillSupportedShaderFormats(i32 noundef) local_unnamed_addr #1
 
-declare ptr @SDL_CreateGPUDeviceWithProperties_REAL(i32 noundef) local_unnamed_addr #2
+declare ptr @SDL_CreateGPUDeviceWithProperties_REAL(i32 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @GPU_InitShaders(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @GPU_InitShaders(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @GPU_InitPipelineCache(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @GPU_InitPipelineCache(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_ClaimWindowForGPUDevice_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_ClaimWindowForGPUDevice_REAL(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i64 @SDL_GetNumberProperty_REAL(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @SDL_GetNumberProperty_REAL(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @ChoosePresentMode(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #0 {
@@ -2102,24 +2099,24 @@ define internal fastcc void @ChoosePresentMode(ptr noundef %0, ptr noundef %1, i
   ret void
 }
 
-declare zeroext i1 @SDL_SetGPUSwapchainParameters_REAL(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_SetGPUSwapchainParameters_REAL(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_SetGPUAllowedFramesInFlight_REAL(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_SetGPUAllowedFramesInFlight_REAL(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_AddSupportedTextureFormat(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_AddSupportedTextureFormat(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_SetNumberProperty_REAL(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_SetNumberProperty_REAL(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @SDL_GetRendererProperties_REAL(ptr noundef) local_unnamed_addr #2
+declare i32 @SDL_GetRendererProperties_REAL(ptr noundef) local_unnamed_addr #1
 
-declare ptr @SDL_AcquireGPUCommandBuffer_REAL(ptr noundef) local_unnamed_addr #2
+declare ptr @SDL_AcquireGPUCommandBuffer_REAL(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_GetWindowSizeInPixels_REAL(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_GetWindowSizeInPixels_REAL(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @CreateBackbuffer(ptr noundef captures(none) initializes((88, 108)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca %struct.SDL_GPUTextureCreateInfo, align 4
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %5, i8 0, i64 36, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 %1, ptr %6, align 4
@@ -2144,63 +2141,60 @@ define internal fastcc zeroext i1 @CreateBackbuffer(ptr noundef captures(none) i
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i32 %3, ptr %17, align 8
   %.not = icmp ne ptr %13, null
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.not
 }
 
-declare i32 @SDL_GetGPUSwapchainTextureFormat_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @SDL_GetGPUSwapchainTextureFormat_REAL(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_SetPointerProperty_REAL(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_SetPointerProperty_REAL(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @SDL_GetBlendModeSrcColorFactor(i32 noundef) local_unnamed_addr #1
 
-declare i32 @SDL_GetBlendModeSrcColorFactor(i32 noundef) local_unnamed_addr #2
+declare i32 @SDL_GetBlendModeSrcAlphaFactor(i32 noundef) local_unnamed_addr #1
 
-declare i32 @SDL_GetBlendModeSrcAlphaFactor(i32 noundef) local_unnamed_addr #2
+declare i32 @SDL_GetBlendModeColorOperation(i32 noundef) local_unnamed_addr #1
 
-declare i32 @SDL_GetBlendModeColorOperation(i32 noundef) local_unnamed_addr #2
+declare i32 @SDL_GetBlendModeDstColorFactor(i32 noundef) local_unnamed_addr #1
 
-declare i32 @SDL_GetBlendModeDstColorFactor(i32 noundef) local_unnamed_addr #2
+declare i32 @SDL_GetBlendModeDstAlphaFactor(i32 noundef) local_unnamed_addr #1
 
-declare i32 @SDL_GetBlendModeDstAlphaFactor(i32 noundef) local_unnamed_addr #2
+declare i32 @SDL_GetBlendModeAlphaOperation(i32 noundef) local_unnamed_addr #1
 
-declare i32 @SDL_GetBlendModeAlphaOperation(i32 noundef) local_unnamed_addr #2
+declare ptr @SDL_GetPixelFormatName_REAL(i32 noundef) local_unnamed_addr #1
 
-declare ptr @SDL_GetPixelFormatName_REAL(i32 noundef) local_unnamed_addr #2
-
-declare void @SDL_free_REAL(ptr noundef) local_unnamed_addr #2
+declare void @SDL_free_REAL(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
-declare ptr @SDL_CreateGPUTexture_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @SDL_CreateGPUTexture_REAL(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @SDL_CreateGPUTransferBuffer_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @SDL_CreateGPUTransferBuffer_REAL(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @SDL_MapGPUTransferBuffer_REAL(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare ptr @SDL_MapGPUTransferBuffer_REAL(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
-declare void @SDL_UnmapGPUTransferBuffer_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @SDL_UnmapGPUTransferBuffer_REAL(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @SDL_BeginGPUCopyPass_REAL(ptr noundef) local_unnamed_addr #2
+declare ptr @SDL_BeginGPUCopyPass_REAL(ptr noundef) local_unnamed_addr #1
 
-declare void @SDL_UploadToGPUTexture_REAL(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare void @SDL_UploadToGPUTexture_REAL(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare void @SDL_EndGPUCopyPass_REAL(ptr noundef) local_unnamed_addr #2
+declare void @SDL_EndGPUCopyPass_REAL(ptr noundef) local_unnamed_addr #1
 
-declare void @SDL_ReleaseGPUTransferBuffer_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @SDL_ReleaseGPUTransferBuffer_REAL(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #10
+declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #9
 
-declare ptr @SDL_AllocateRenderVertices(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @SDL_AllocateRenderVertices(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_RenderingLinearSpace(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_RenderingLinearSpace(ptr noundef) local_unnamed_addr #1
 
-declare void @SDL_ConvertToLinear(ptr noundef) local_unnamed_addr #2
+declare void @SDL_ConvertToLinear(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @Draw(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef range(i32 0, 5) %4) unnamed_addr #0 {
@@ -2295,7 +2289,7 @@ RestartRenderPass.exit:                           ; preds = %5, %19
 
 52:                                               ; preds = %50, %49
   %.2 = phi i32 [ 5, %50 ], [ %.175, %49 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %53 = getelementptr inbounds nuw i8, ptr %10, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %53, i8 0, i64 16, i1 false)
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 44
@@ -2346,7 +2340,7 @@ RestartRenderPass.exit:                           ; preds = %5, %19
 77:                                               ; preds = %74
   %78 = getelementptr inbounds nuw i8, ptr %76, i64 280
   %79 = load ptr, ptr %78, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %80 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %81 = load i32, ptr %80, align 8
   %82 = getelementptr inbounds nuw i8, ptr %1, i64 60
@@ -2368,7 +2362,7 @@ RestartRenderPass.exit:                           ; preds = %5, %19
   br i1 %.not.i95, label %97, label %GetSampler.exit
 
 97:                                               ; preds = %77
-  call void @llvm.lifetime.start.p0(i64 52, ptr nonnull %9) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %9, i8 0, i64 52, i1 false)
   switch i32 %81, label %101 [
     i32 0, label %103
@@ -2430,7 +2424,7 @@ RestartRenderPass.exit:                           ; preds = %5, %19
 
 .sink.split.i:                                    ; preds = %112, %110, %105, %101
   %.1.ph.i = phi ptr [ %116, %112 ], [ null, %110 ], [ null, %105 ], [ null, %101 ]
-  call void @llvm.lifetime.end.p0(i64 52, ptr nonnull %9) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %GetSampler.exit
 
 GetSampler.exit:                                  ; preds = %77, %.sink.split.i
@@ -2440,7 +2434,7 @@ GetSampler.exit:                                  ; preds = %77, %.sink.split.i
   %118 = load ptr, ptr %79, align 8
   store ptr %118, ptr %11, align 8
   call void @SDL_BindGPUFragmentSamplers_REAL(ptr noundef %27, i32 noundef 0, ptr noundef nonnull %11, i32 noundef 1) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %119
 
 119:                                              ; preds = %GetSampler.exit, %74
@@ -2523,7 +2517,7 @@ GetSampler.exit:                                  ; preds = %77, %.sink.split.i
   br i1 %164, label %165, label %PushFragmentUniforms.exit
 
 165:                                              ; preds = %161
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %166 = getelementptr inbounds nuw i8, ptr %160, i64 4
   %167 = load i32, ptr %166, align 4
   %168 = sitofp i32 %167 to float
@@ -2542,11 +2536,11 @@ GetSampler.exit:                                  ; preds = %77, %.sink.split.i
   %177 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %178 = load ptr, ptr %177, align 8
   call void @SDL_PushGPUFragmentUniformData_REAL(ptr noundef %178, i32 noundef 0, ptr noundef nonnull %8, i32 noundef 16) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %PushFragmentUniforms.exit
 
 PushFragmentUniforms.exit:                        ; preds = %147, %165, %161, %159, %141
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %179 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 0, ptr %179, align 8
   %180 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -2555,7 +2549,7 @@ PushFragmentUniforms.exit:                        ; preds = %147, %165, %161, %1
   %182 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i32 %3, ptr %182, align 8
   call void @SDL_BindGPUVertexBuffers_REAL(ptr noundef %27, i32 noundef 0, ptr noundef nonnull %12, i32 noundef 1) #11
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %183 = getelementptr inbounds nuw i8, ptr %7, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %183, i8 0, i64 56, i1 false)
   %184 = getelementptr inbounds nuw i8, ptr %0, i64 240
@@ -2581,7 +2575,7 @@ PushFragmentUniforms.exit:                        ; preds = %147, %165, %161, %1
   %197 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %198 = load ptr, ptr %197, align 8
   call void @SDL_PushGPUVertexUniformData_REAL(ptr noundef %198, i32 noundef 0, ptr noundef nonnull %7, i32 noundef 80) #11
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %199 = load ptr, ptr %13, align 8
   %200 = getelementptr inbounds nuw i8, ptr %0, i64 232
   call void @SDL_SetGPUViewport_REAL(ptr noundef %199, ptr noundef nonnull %200) #11
@@ -2605,7 +2599,7 @@ PushFragmentUniforms.exit:                        ; preds = %147, %165, %161, %1
   br i1 %211, label %212, label %SetViewportAndScissor.exit
 
 212:                                              ; preds = %208
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %213 = load float, ptr %200, align 8
   %214 = fptosi float %213 to i32
   store i32 %214, ptr %6, align 4
@@ -2625,98 +2619,104 @@ PushFragmentUniforms.exit:                        ; preds = %147, %165, %161, %1
   %225 = load ptr, ptr %13, align 8
   call void @SDL_SetGPUScissor_REAL(ptr noundef %225, ptr noundef nonnull %6) #11
   store i8 0, ptr %209, align 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %SetViewportAndScissor.exit
 
 SetViewportAndScissor.exit:                       ; preds = %204, %208, %212
   call void @SDL_DrawGPUPrimitives_REAL(ptr noundef %27, i32 noundef %2, i32 noundef 1, i32 noundef 0, i32 noundef 0) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %226
 
 226:                                              ; preds = %68, %SetViewportAndScissor.exit
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 }
 
-declare void @SDL_EndGPURenderPass_REAL(ptr noundef) local_unnamed_addr #2
+declare void @SDL_EndGPURenderPass_REAL(ptr noundef) local_unnamed_addr #1
 
-declare void @SDL_UploadToGPUBuffer_REAL(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare void @SDL_UploadToGPUBuffer_REAL(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare void @SDL_ReleaseGPUBuffer_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @SDL_ReleaseGPUBuffer_REAL(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @GPU_GetPipeline(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @GPU_GetPipeline(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @SDL_BindGPUGraphicsPipeline_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @SDL_BindGPUGraphicsPipeline_REAL(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @SDL_BindGPUFragmentSamplers_REAL(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @SDL_BindGPUFragmentSamplers_REAL(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @SDL_BindGPUFragmentStorageTextures_REAL(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @SDL_BindGPUFragmentStorageTextures_REAL(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @SDL_BindGPUFragmentStorageBuffers_REAL(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @SDL_BindGPUFragmentStorageBuffers_REAL(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @SDL_PushGPUFragmentUniformData_REAL(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @SDL_PushGPUFragmentUniformData_REAL(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @SDL_BindGPUVertexBuffers_REAL(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @SDL_BindGPUVertexBuffers_REAL(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @SDL_DrawGPUPrimitives_REAL(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @SDL_DrawGPUPrimitives_REAL(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @SDL_CreateGPUSampler_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @SDL_CreateGPUSampler_REAL(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @SDL_PushGPUVertexUniformData_REAL(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @SDL_PushGPUVertexUniformData_REAL(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @SDL_SetGPUViewport_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @SDL_SetGPUViewport_REAL(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @SDL_SetGPUScissor_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @SDL_SetGPUScissor_REAL(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @SDL_BeginGPURenderPass_REAL(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @SDL_BeginGPURenderPass_REAL(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @SDL_CreateSurface_REAL(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @SDL_CreateSurface_REAL(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @SDL_DownloadFromGPUTexture_REAL(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @SDL_DownloadFromGPUTexture_REAL(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @SDL_SubmitGPUCommandBufferAndAcquireFence_REAL(ptr noundef) local_unnamed_addr #2
+declare ptr @SDL_SubmitGPUCommandBufferAndAcquireFence_REAL(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_WaitForGPUFences_REAL(ptr noundef, i1 noundef zeroext, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_WaitForGPUFences_REAL(ptr noundef, i1 noundef zeroext, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @SDL_ReleaseGPUFence_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @SDL_ReleaseGPUFence_REAL(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_WaitAndAcquireGPUSwapchainTexture_REAL(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_WaitAndAcquireGPUSwapchainTexture_REAL(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @SDL_LogError_REAL(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @SDL_LogError_REAL(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare ptr @SDL_GetError_REAL() local_unnamed_addr #2
+declare ptr @SDL_GetError_REAL() local_unnamed_addr #1
 
-declare void @SDL_BlitGPUTexture_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @SDL_BlitGPUTexture_REAL(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_SubmitGPUCommandBuffer_REAL(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_SubmitGPUCommandBuffer_REAL(ptr noundef) local_unnamed_addr #1
 
-declare void @SDL_ReleaseGPUTexture_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @SDL_ReleaseGPUTexture_REAL(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @SDL_ReleaseGPUSampler_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @SDL_ReleaseGPUSampler_REAL(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @SDL_ReleaseWindowFromGPUDevice_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @SDL_ReleaseWindowFromGPUDevice_REAL(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @GPU_DestroyPipelineCache(ptr noundef) local_unnamed_addr #2
+declare void @GPU_DestroyPipelineCache(ptr noundef) local_unnamed_addr #1
 
-declare void @GPU_ReleaseShaders(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @GPU_ReleaseShaders(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @SDL_DestroyGPUDevice_REAL(ptr noundef) local_unnamed_addr #2
+declare void @SDL_DestroyGPUDevice_REAL(ptr noundef) local_unnamed_addr #1
 
-declare ptr @SDL_CreateGPUBuffer_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @SDL_CreateGPUBuffer_REAL(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_WindowSupportsGPUPresentMode_REAL(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_WindowSupportsGPUPresentMode_REAL(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nounwind uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { nounwind }
 attributes #12 = { nounwind allocsize(0,1) }
 

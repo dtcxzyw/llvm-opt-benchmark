@@ -49,9 +49,9 @@ define internal range(i32 -2147483648, 21) i32 @ra144_decode_frame(ptr noundef %
   %9 = load ptr, ptr %8, align 8, !tbaa !40
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %11 = load i32, ptr %10, align 8, !tbaa !42
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #5
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6) #5
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = load ptr, ptr %12, align 8, !tbaa !4
   %14 = icmp slt i32 %11, 20
@@ -247,39 +247,39 @@ define internal range(i32 -2147483648, 21) i32 @ra144_decode_frame(ptr noundef %
 
 147:                                              ; preds = %.sink.split, %16
   %.0 = phi i32 [ %18, %16 ], [ %.0.ph, %.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #5
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
+declare void @ff_audiodsp_init(ptr noundef) local_unnamed_addr #2
+
+declare void @av_channel_layout_uninit(ptr noundef) local_unnamed_addr #2
+
+declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+
+declare i32 @ff_get_buffer(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+
+declare void @ff_eval_coefs(ptr noundef, ptr noundef) local_unnamed_addr #2
+
+declare i32 @ff_rms(ptr noundef) local_unnamed_addr #2
+
+declare i32 @ff_interp(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+
+declare i32 @ff_t_sqrt(i32 noundef) local_unnamed_addr #2
+
+declare i32 @ff_rescale_rms(i32 noundef, i32 noundef) local_unnamed_addr #2
+
+declare void @ff_int_to_int16(ptr noundef, ptr noundef) local_unnamed_addr #2
+
+declare void @ff_subblock_synthesis(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
-declare void @ff_audiodsp_init(ptr noundef) local_unnamed_addr #3
-
-declare void @av_channel_layout_uninit(ptr noundef) local_unnamed_addr #3
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
-declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
-
-declare i32 @ff_get_buffer(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
-
-declare void @ff_eval_coefs(ptr noundef, ptr noundef) local_unnamed_addr #3
-
-declare i32 @ff_rms(ptr noundef) local_unnamed_addr #3
-
-declare i32 @ff_interp(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
-
-declare i32 @ff_t_sqrt(i32 noundef) local_unnamed_addr #3
-
-declare i32 @ff_rescale_rms(i32 noundef, i32 noundef) local_unnamed_addr #3
-
-declare void @ff_int_to_int16(ptr noundef, ptr noundef) local_unnamed_addr #3
-
-declare void @ff_subblock_synthesis(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #4
@@ -289,8 +289,8 @@ declare i32 @llvm.bswap.i32(i32) #4
 
 attributes #0 = { cold nounwind optsize uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { nounwind }
 

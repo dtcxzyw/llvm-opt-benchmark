@@ -1622,8 +1622,8 @@ define hidden void @_ZN21LoaderConstraintTable22print_table_statisticsEP12output
   %3 = alloca %class.NumberSeq, align 8
   %4 = alloca %class.TableStatistics, align 8
   %5 = load ptr, ptr @_ZL24_loader_constraint_table, align 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN9NumberSeqC1Ed(ptr noundef nonnull align 8 dereferenceable(72) %2, double noundef 3.000000e-01) #12, !noalias !20
   br label %.preheader.i
 
@@ -1700,8 +1700,8 @@ define hidden void @_ZN21LoaderConstraintTable22print_table_statisticsEP12output
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(16) %29, i64 16, i1 false), !noalias !20
   call void @_ZN15TableStatisticsC1E9NumberSeqmmm(ptr noundef nonnull align 8 dereferenceable(96) %4, ptr noundef nonnull %3, i64 noundef %.1.lcssa.i, i64 noundef 8, i64 noundef 32) #12
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZN15TableStatistics5printEP12outputStreamPKc(ptr noundef nonnull align 8 dereferenceable(96) %4, ptr noundef %0, ptr noundef nonnull @.str.17) #12
   call void @_ZN15TableStatisticsD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #12
   ret void
@@ -2624,10 +2624,10 @@ declare i32 @llvm.ctpop.i32(i32) #10
 declare i32 @llvm.fshl.i32(i32, i32, i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

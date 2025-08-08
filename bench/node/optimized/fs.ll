@@ -318,9 +318,9 @@ uv__fs_close.exit:                                ; preds = %sw.bb13, %if.then.i
   br label %do.cond
 
 sw.bb16:                                          ; preds = %do.body
-  call void @llvm.lifetime.start.p0(i64 440, ptr nonnull %fs_req.i)
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %src_statsbuf.i)
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %dst_statsbuf.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %fs_req.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %src_statsbuf.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %dst_statsbuf.i)
   %13 = load ptr, ptr %path.i350, align 8
   store i32 6, ptr %type.i414, align 8
   store i32 1, ptr %fs_type.i415, align 8
@@ -538,9 +538,9 @@ if.end132.i:                                      ; preds = %if.end128.i.thread4
 
 uv__fs_copyfile.exit:                             ; preds = %if.then113.i, %if.then.i73, %if.end128.i, %if.end132.i
   %retval.0.i = phi i64 [ %conv.i, %if.then.i73 ], [ -1, %if.end132.i ], [ 0, %if.end128.i ], [ 0, %if.then113.i ]
-  call void @llvm.lifetime.end.p0(i64 440, ptr nonnull %fs_req.i)
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %src_statsbuf.i)
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %dst_statsbuf.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %fs_req.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %src_statsbuf.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %dst_statsbuf.i)
   br label %do.cond
 
 sw.bb18:                                          ; preds = %do.body
@@ -574,8 +574,8 @@ sw.bb35:                                          ; preds = %do.body
 
 sw.bb37:                                          ; preds = %do.body
   %45 = load i32, ptr %file.i.i, align 8
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %pbuf.i)
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %statxbuf.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %pbuf.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %statxbuf.i.i)
   %46 = load atomic i32, ptr @uv__fs_statx.no_statx monotonic, align 4
   %tobool.not.i.i = icmp eq i32 %46, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.end.i76
@@ -605,11 +605,11 @@ sw.epilog.i.i:                                    ; preds = %if.end.i.i
   br label %uv__fs_statx.exit.i
 
 uv__fs_statx.exit.i:                              ; preds = %sw.epilog.i.i, %sw.bb8.i.i
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %statxbuf.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %statxbuf.i.i)
   br label %uv__fs_fstat.exit
 
 if.end.i76:                                       ; preds = %sw.default.i.i, %sw.bb37
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %statxbuf.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %statxbuf.i.i)
   %call.i6.i = call noundef i32 @fstat64(i32 noundef %45, ptr noundef nonnull %pbuf.i) #15
   %cmp2.i = icmp eq i32 %call.i6.i, 0
   br i1 %cmp2.i, label %if.then3.i, label %uv__fs_fstat.exit
@@ -657,7 +657,7 @@ if.then3.i:                                       ; preds = %if.end.i76
 
 uv__fs_fstat.exit:                                ; preds = %uv__fs_statx.exit.i, %if.end.i76, %if.then3.i
   %retval.0.i77 = phi i32 [ %call.i.i, %uv__fs_statx.exit.i ], [ 0, %if.then3.i ], [ %call.i6.i, %if.end.i76 ]
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %pbuf.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %pbuf.i)
   %conv40 = sext i32 %retval.0.i77 to i64
   br label %do.cond
 
@@ -675,7 +675,7 @@ sw.bb43:                                          ; preds = %do.body
   br label %do.cond
 
 sw.bb47:                                          ; preds = %do.body
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ts.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ts.i)
   %66 = load double, ptr %atime.i317, align 8
   %conv.i.i80 = fptosi double %66 to i64
   %conv2.i.i = sitofp i64 %conv.i.i80 to double
@@ -713,11 +713,11 @@ sw.bb47:                                          ; preds = %do.body
   %68 = load i32, ptr %file.i.i, align 8
   %call4.i = call i32 @futimens(i32 noundef %68, ptr noundef nonnull %ts.i) #15
   %conv.i81 = sext i32 %call4.i to i64
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ts.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ts.i)
   br label %do.cond
 
 sw.bb49:                                          ; preds = %do.body
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ts.i82)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ts.i82)
   %69 = load double, ptr %atime.i317, align 8
   %conv.i.i84 = fptosi double %69 to i64
   %conv2.i.i85 = sitofp i64 %conv.i.i84 to double
@@ -755,13 +755,13 @@ sw.bb49:                                          ; preds = %do.body
   %71 = load ptr, ptr %path.i350, align 8
   %call4.i117 = call i32 @utimensat(i32 noundef -100, ptr noundef %71, ptr noundef nonnull %ts.i82, i32 noundef 256) #15
   %conv.i118 = sext i32 %call4.i117 to i64
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ts.i82)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ts.i82)
   br label %do.cond
 
 sw.bb51:                                          ; preds = %do.body
   %72 = load ptr, ptr %path.i350, align 8
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %pbuf.i120)
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %statxbuf.i.i119)
+  call void @llvm.lifetime.start.p0(ptr nonnull %pbuf.i120)
+  call void @llvm.lifetime.start.p0(ptr nonnull %statxbuf.i.i119)
   %73 = load atomic i32, ptr @uv__fs_statx.no_statx monotonic, align 4
   %tobool.not.i.i121 = icmp eq i32 %73, 0
   br i1 %tobool.not.i.i121, label %if.end.i.i163, label %if.end.i122
@@ -791,11 +791,11 @@ sw.epilog.i.i169:                                 ; preds = %if.end.i.i163
   br label %uv__fs_statx.exit.i168
 
 uv__fs_statx.exit.i168:                           ; preds = %sw.epilog.i.i169, %sw.bb8.i.i165
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %statxbuf.i.i119)
+  call void @llvm.lifetime.end.p0(ptr nonnull %statxbuf.i.i119)
   br label %uv__fs_lstat.exit
 
 if.end.i122:                                      ; preds = %sw.default.i.i167, %sw.bb51
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %statxbuf.i.i119)
+  call void @llvm.lifetime.end.p0(ptr nonnull %statxbuf.i.i119)
   %call.i6.i123 = call noundef i32 @lstat64(ptr noundef readonly %72, ptr noundef nonnull %pbuf.i120) #15
   %cmp2.i124 = icmp eq i32 %call.i6.i123, 0
   br i1 %cmp2.i124, label %if.then3.i126, label %uv__fs_lstat.exit
@@ -843,7 +843,7 @@ if.then3.i126:                                    ; preds = %if.end.i122
 
 uv__fs_lstat.exit:                                ; preds = %uv__fs_statx.exit.i168, %if.end.i122, %if.then3.i126
   %retval.0.i125 = phi i32 [ %call.i.i164, %uv__fs_statx.exit.i168 ], [ 0, %if.then3.i126 ], [ %call.i6.i123, %if.end.i122 ]
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %pbuf.i120)
+  call void @llvm.lifetime.end.p0(ptr nonnull %pbuf.i120)
   %conv55 = sext i32 %retval.0.i125 to i64
   br label %do.cond
 
@@ -1038,7 +1038,7 @@ uv__fs_read.exit:                                 ; preds = %if.end36.i, %if.the
   br label %do.cond
 
 sw.bb74:                                          ; preds = %do.body
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %dents.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %dents.i)
   store ptr null, ptr %dents.i, align 8
   %116 = load ptr, ptr %path.i350, align 8
   %call.i194 = call i32 @scandir64(ptr noundef %116, ptr noundef nonnull %dents.i, ptr noundef nonnull @uv__fs_scandir_filter, ptr noundef nonnull @uv__fs_scandir_sort) #15
@@ -1065,7 +1065,7 @@ if.end3.i:                                        ; preds = %if.then.i196, %entr
 
 uv__fs_scandir.exit:                              ; preds = %sw.bb74, %if.end3.i
   %retval.0.i195 = phi i64 [ %conv4.i, %if.end3.i ], [ -1, %sw.bb74 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %dents.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %dents.i)
   br label %do.cond
 
 sw.bb76:                                          ; preds = %do.body
@@ -1267,7 +1267,7 @@ sw.bb94:                                          ; preds = %do.body
   br label %do.cond
 
 sw.bb98:                                          ; preds = %do.body
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %off.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %off.i)
   %144 = load i32, ptr %flags.i239, align 4
   %145 = load i32, ptr %file.i.i, align 8
   %146 = load i64, ptr %off1.i.i, align 8
@@ -1293,7 +1293,7 @@ if.end3.i.i:                                      ; preds = %if.end.i.i253
   ]
 
 sw.bb.i.i:                                        ; preds = %if.end3.i.i
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %s.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %s.i.i.i)
   %call.i.i.i = call i32 @fstatfs64(i32 noundef %144, ptr noundef nonnull %s.i.i.i) #15
   %cmp.i.i.i = icmp ne i32 %call.i.i.i, -1
   %150 = load i64, ptr %s.i.i.i, align 8
@@ -1302,13 +1302,13 @@ sw.bb.i.i:                                        ; preds = %if.end3.i.i
   br i1 %or.cond.i.i.i, label %uv__is_buggy_cephfs.exit.i.i, label %uv__is_buggy_cephfs.exit.thread.i.i
 
 uv__is_buggy_cephfs.exit.thread.i.i:              ; preds = %sw.bb.i.i
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %s.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %s.i.i.i)
   br label %land.rhsthread-pre-split.i
 
 uv__is_buggy_cephfs.exit.i.i:                     ; preds = %sw.bb.i.i
   %call4.i.i.i = call i32 @uv__kernel_version() #15
   %cmp5.i.i.i = icmp ugt i32 %call4.i.i.i, 267263
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %s.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %s.i.i.i)
   br i1 %cmp5.i.i.i, label %land.rhsthread-pre-split.i, label %if.end.sink.split.i
 
 sw.bb10.i.i:                                      ; preds = %if.end3.i.i
@@ -1316,7 +1316,7 @@ sw.bb10.i.i:                                      ; preds = %if.end3.i.i
   br label %land.rhsthread-pre-split.i
 
 sw.bb11.i.i:                                      ; preds = %if.end3.i.i
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %s.i4.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %s.i4.i.i)
   %call.i5.i.i = call i32 @fstatfs64(i32 noundef %145, ptr noundef nonnull %s.i4.i.i) #15
   %cmp.i6.i.i = icmp eq i32 %call.i5.i.i, -1
   br i1 %cmp.i6.i.i, label %uv__is_cifs_or_smb.exit.thread.i.i, label %if.end.i.i.i
@@ -1331,11 +1331,11 @@ if.end.i.i.i:                                     ; preds = %sw.bb11.i.i
   ]
 
 uv__is_cifs_or_smb.exit.thread.i.i:               ; preds = %if.end.i.i.i, %sw.bb11.i.i
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %s.i4.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %s.i4.i.i)
   br label %land.rhsthread-pre-split.i
 
 if.then14.i.i:                                    ; preds = %if.end.i.i.i, %if.end.i.i.i, %if.end.i.i.i
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %s.i4.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %s.i4.i.i)
   br label %if.end.sink.split.i
 
 land.rhsthread-pre-split.i:                       ; preds = %uv__is_cifs_or_smb.exit.thread.i.i, %sw.bb10.i.i, %uv__is_buggy_cephfs.exit.i.i, %uv__is_buggy_cephfs.exit.thread.i.i
@@ -1380,8 +1380,8 @@ if.end12.i250:                                    ; preds = %lor.lhs.false.i248
 
 if.then24.i251:                                   ; preds = %if.end12.i250, %if.end12.i250, %if.end12.i250, %if.end12.i250
   store i32 0, ptr %call, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pfd.i.i)
-  call void @llvm.lifetime.start.p0(i64 8192, ptr nonnull %buf.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %pfd.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i)
   %158 = load i64, ptr %len2.i, align 8
   %159 = load i32, ptr %flags.i239, align 4
   %160 = load i32, ptr %file.i.i, align 8
@@ -1527,19 +1527,19 @@ if.then78.i.i:                                    ; preds = %out.i.i, %if.end23.
 
 uv__fs_sendfile_emul.exit.i:                      ; preds = %land.lhs.true17.us.i.i, %land.rhs37.i.i, %if.then78.i.i, %out.i.i, %if.then70.i.i, %if.end23.i.i, %if.end23.i.i
   %nsent.137.i.i = phi i64 [ %nsent.054.i.i, %if.then78.i.i ], [ -1, %out.i.i ], [ -1, %if.then70.i.i ], [ -1, %if.end23.i.i ], [ -1, %if.end23.i.i ], [ -1, %land.rhs37.i.i ], [ -1, %land.lhs.true17.us.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pfd.i.i)
-  call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %buf.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %pfd.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i)
   br label %uv__fs_sendfile.exit
 
 uv__fs_sendfile.exit:                             ; preds = %if.then9.i245, %if.end12.i250, %uv__fs_sendfile_emul.exit.i
   %retval.0.i247 = phi i64 [ %sub.i246, %if.then9.i245 ], [ %nsent.137.i.i, %uv__fs_sendfile_emul.exit.i ], [ -1, %if.end12.i250 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %off.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %off.i)
   br label %do.cond
 
 sw.bb100:                                         ; preds = %do.body
   %169 = load ptr, ptr %path.i350, align 8
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %pbuf.i256)
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %statxbuf.i.i255)
+  call void @llvm.lifetime.start.p0(ptr nonnull %pbuf.i256)
+  call void @llvm.lifetime.start.p0(ptr nonnull %statxbuf.i.i255)
   %170 = load atomic i32, ptr @uv__fs_statx.no_statx monotonic, align 4
   %tobool.not.i.i257 = icmp eq i32 %170, 0
   br i1 %tobool.not.i.i257, label %if.end.i.i299, label %if.end.i258
@@ -1569,11 +1569,11 @@ sw.epilog.i.i305:                                 ; preds = %if.end.i.i299
   br label %uv__fs_statx.exit.i304
 
 uv__fs_statx.exit.i304:                           ; preds = %sw.epilog.i.i305, %sw.bb8.i.i301
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %statxbuf.i.i255)
+  call void @llvm.lifetime.end.p0(ptr nonnull %statxbuf.i.i255)
   br label %uv__fs_stat.exit
 
 if.end.i258:                                      ; preds = %sw.default.i.i303, %sw.bb100
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %statxbuf.i.i255)
+  call void @llvm.lifetime.end.p0(ptr nonnull %statxbuf.i.i255)
   %call.i6.i259 = call noundef i32 @stat64(ptr noundef readonly %169, ptr noundef nonnull %pbuf.i256) #15
   %cmp2.i260 = icmp eq i32 %call.i6.i259, 0
   br i1 %cmp2.i260, label %if.then3.i262, label %uv__fs_stat.exit
@@ -1621,12 +1621,12 @@ if.then3.i262:                                    ; preds = %if.end.i258
 
 uv__fs_stat.exit:                                 ; preds = %uv__fs_statx.exit.i304, %if.end.i258, %if.then3.i262
   %retval.0.i261 = phi i32 [ %call.i.i300, %uv__fs_statx.exit.i304 ], [ 0, %if.then3.i262 ], [ %call.i6.i259, %if.end.i258 ]
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %pbuf.i256)
+  call void @llvm.lifetime.end.p0(ptr nonnull %pbuf.i256)
   %conv104 = sext i32 %retval.0.i261 to i64
   br label %do.cond
 
 sw.bb105:                                         ; preds = %do.body
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %buf.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i)
   %188 = load ptr, ptr %path.i350, align 8
   %call.i307 = call i32 @statfs64(ptr noundef %188, ptr noundef nonnull %buf.i) #15
   %cmp.not.i308 = icmp eq i32 %call.i307, 0
@@ -1667,7 +1667,7 @@ if.end5.i:                                        ; preds = %if.end.i310
 
 uv__fs_statfs.exit:                               ; preds = %sw.bb105, %if.then3.i314, %if.end5.i
   %retval.0.i309 = phi i64 [ -1, %if.then3.i314 ], [ 0, %if.end5.i ], [ -1, %sw.bb105 ]
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %buf.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i)
   br label %do.cond
 
 sw.bb108:                                         ; preds = %do.body
@@ -1684,7 +1684,7 @@ sw.bb113:                                         ; preds = %do.body
   br label %do.cond
 
 sw.bb117:                                         ; preds = %do.body
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ts.i316)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ts.i316)
   %199 = load double, ptr %atime.i317, align 8
   %conv.i.i318 = fptosi double %199 to i64
   %conv2.i.i319 = sitofp i64 %conv.i.i318 to double
@@ -1722,7 +1722,7 @@ sw.bb117:                                         ; preds = %do.body
   %201 = load ptr, ptr %path.i350, align 8
   %call4.i351 = call i32 @utimensat(i32 noundef -100, ptr noundef %201, ptr noundef nonnull %ts.i316, i32 noundef 0) #15
   %conv.i352 = sext i32 %call4.i351 to i64
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ts.i316)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ts.i316)
   br label %do.cond
 
 sw.bb119:                                         ; preds = %do.body
@@ -4431,10 +4431,10 @@ declare i64 @llvm.umin.i64(i64, i64) #12
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #12

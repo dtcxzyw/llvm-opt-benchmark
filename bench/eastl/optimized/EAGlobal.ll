@@ -169,7 +169,7 @@ if.end32:                                         ; preds = %if.end27, %if.end
   br i1 %tobool33.not, label %if.then34, label %if.end35
 
 if.then34:                                        ; preds = %if.end32
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %uniqueName.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %uniqueName.i)
   %8 = atomicrmw add ptr @_ZN12_GLOBAL__N_113gOSGlobalRefsE, i32 -1 seq_cst, align 4
   %cmp.i = icmp eq i32 %8, 1
   br i1 %cmp.i, label %if.then.i6, label %_ZN12_GLOBAL__N_122ShutdownOSGlobalSystemEv.exit
@@ -209,7 +209,7 @@ if.end5.i:                                        ; preds = %if.end.i, %if.then.
   br label %_ZN12_GLOBAL__N_122ShutdownOSGlobalSystemEv.exit
 
 _ZN12_GLOBAL__N_122ShutdownOSGlobalSystemEv.exit: ; preds = %if.then34, %if.end5.i
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %uniqueName.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %uniqueName.i)
   br label %return
 
 if.end35:                                         ; preds = %if.end32
@@ -321,7 +321,7 @@ if.end:                                           ; preds = %_ZN12_GLOBAL__N_115
   br i1 %cmp, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %if.end
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %uniqueName.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %uniqueName.i)
   %7 = atomicrmw add ptr @_ZN12_GLOBAL__N_113gOSGlobalRefsE, i32 -1 seq_cst, align 4
   %cmp.i = icmp eq i32 %7, 1
   br i1 %cmp.i, label %if.then.i, label %_ZN12_GLOBAL__N_122ShutdownOSGlobalSystemEv.exit
@@ -361,7 +361,7 @@ if.end5.i:                                        ; preds = %if.end.i, %if.then.
   br label %_ZN12_GLOBAL__N_122ShutdownOSGlobalSystemEv.exit
 
 _ZN12_GLOBAL__N_122ShutdownOSGlobalSystemEv.exit: ; preds = %if.then5, %if.end5.i
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %uniqueName.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %uniqueName.i)
   br label %if.end6
 
 if.end6:                                          ; preds = %_ZN12_GLOBAL__N_122ShutdownOSGlobalSystemEv.exit, %if.end
@@ -372,7 +372,7 @@ if.end6:                                          ; preds = %_ZN12_GLOBAL__N_122
 define internal void @_ZN12_GLOBAL__N_123AutoinitOSGlobalManagerD2Ev(ptr nonnull readnone align 1 captures(none) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %uniqueName.i = alloca [96 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %uniqueName.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %uniqueName.i)
   %0 = atomicrmw add ptr @_ZN12_GLOBAL__N_113gOSGlobalRefsE, i32 -1 seq_cst, align 4
   %cmp.i = icmp eq i32 %0, 1
   br i1 %cmp.i, label %if.then.i, label %invoke.cont
@@ -415,7 +415,7 @@ call7.i.noexc:                                    ; preds = %if.end5.i
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %call7.i.noexc, %entry
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %uniqueName.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %uniqueName.i)
   ret void
 
 terminate.lpad:                                   ; preds = %if.end5.i
@@ -500,10 +500,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

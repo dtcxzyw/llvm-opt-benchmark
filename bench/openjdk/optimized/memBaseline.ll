@@ -771,8 +771,8 @@ define hidden void @_ZN11MemBaseline8baselineEb(ptr noundef nonnull align 8 dere
   %9 = load volatile i64, ptr @_ZN18ThreadStackTracker13_thread_countE, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 2584
   store i64 %9, ptr %10, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   tail call void @_ZN20MallocMemorySnapshot7copy_toEPS_(ptr noundef nonnull align 8 dereferenceable(1824) @_ZN19MallocMemorySummary9_snapshotE, ptr noundef nonnull align 8 dereferenceable(2676) %0) #15
   tail call void @_ZN20MallocMemorySnapshot15make_adjustmentEv(ptr noundef nonnull align 8 dereferenceable(2676) %0) #15
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 1824
@@ -783,8 +783,8 @@ define hidden void @_ZN11MemBaseline8baselineEb(ptr noundef nonnull align 8 dere
   call void @_ZN14MetaspaceUtils23get_combined_statisticsEv(ptr dead_on_unwind nonnull writable sret(%class.MetaspaceCombinedStats) align 8 %4) #15
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 2496
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %12, ptr noundef nonnull align 8 dereferenceable(72) %4, i64 72, i1 false)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 2672
   store i32 1, ptr %13, align 8
   %14 = load i32, ptr @_ZN10MemTracker15_tracking_levelE, align 4
@@ -978,7 +978,7 @@ define hidden ptr @_ZN11MemBaseline12malloc_sitesENS_12SortingOrderE(ptr noundef
   ]
 
 6:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 2664
   %8 = load i32, ptr %7, align 8
   %.not.i = icmp eq i32 %8, 1
@@ -1017,11 +1017,11 @@ _ZN16SortedLinkedListI10MallocSiteXadL_Z19compare_malloc_sizeRKS0_S2_EELN6AnyObj
   br label %_ZN11MemBaseline26malloc_sites_to_size_orderEv.exit
 
 _ZN11MemBaseline26malloc_sites_to_size_orderEv.exit: ; preds = %6, %_ZN16SortedLinkedListI10MallocSiteXadL_Z19compare_malloc_sizeRKS0_S2_EELN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EED2Ev.exit.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %54
 
 21:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 2664
   %23 = load i32, ptr %22, align 8
   %24 = and i32 %23, -2
@@ -1061,11 +1061,11 @@ _ZN16SortedLinkedListI10MallocSiteXadL_Z19compare_malloc_siteRKS0_S2_EELN6AnyObj
   br label %_ZN11MemBaseline37malloc_sites_to_allocation_site_orderEv.exit
 
 _ZN11MemBaseline37malloc_sites_to_allocation_site_orderEv.exit: ; preds = %21, %_ZN16SortedLinkedListI10MallocSiteXadL_Z19compare_malloc_siteRKS0_S2_EELN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EED2Ev.exit.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %54
 
 37:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 2664
   %39 = load i32, ptr %38, align 8
   %.not.i5 = icmp eq i32 %39, 3
@@ -1104,7 +1104,7 @@ _ZN16SortedLinkedListI10MallocSiteXadL_Z28compare_malloc_site_and_typeRKS0_S2_EE
   br label %_ZN11MemBaseline46malloc_sites_to_allocation_site_and_type_orderEv.exit
 
 _ZN11MemBaseline46malloc_sites_to_allocation_site_and_type_orderEv.exit: ; preds = %37, %_ZN16SortedLinkedListI10MallocSiteXadL_Z28compare_malloc_site_and_typeRKS0_S2_EELN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EED2Ev.exit.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %54
 
 52:                                               ; preds = %2
@@ -1265,7 +1265,7 @@ define hidden ptr @_ZN11MemBaseline20virtual_memory_sitesENS_12SortingOrderE(ptr
   ]
 
 5:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 2668
   %7 = load i32, ptr %6, align 4
   %.not.i = icmp eq i32 %7, 1
@@ -1304,11 +1304,11 @@ _ZN16SortedLinkedListI27VirtualMemoryAllocationSiteXadL_Z27compare_virtual_memor
   br label %_ZN11MemBaseline34virtual_memory_sites_to_size_orderEv.exit
 
 _ZN11MemBaseline34virtual_memory_sites_to_size_orderEv.exit: ; preds = %5, %_ZN16SortedLinkedListI27VirtualMemoryAllocationSiteXadL_Z27compare_virtual_memory_sizeRKS0_S2_EELN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EED2Ev.exit.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %37
 
 20:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 2668
   %22 = load i32, ptr %21, align 4
   %.not.i1 = icmp eq i32 %22, 1
@@ -1347,7 +1347,7 @@ _ZN16SortedLinkedListI27VirtualMemoryAllocationSiteXadL_Z27compare_virtual_memor
   br label %_ZN11MemBaseline46virtual_memory_sites_to_reservation_site_orderEv.exit
 
 _ZN11MemBaseline46virtual_memory_sites_to_reservation_site_orderEv.exit: ; preds = %20, %_ZN16SortedLinkedListI27VirtualMemoryAllocationSiteXadL_Z27compare_virtual_memory_siteRKS0_S2_EELN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EED2Ev.exit.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %37
 
 35:                                               ; preds = %2
@@ -4878,10 +4878,10 @@ declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64, i64) #11
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
 attributes #0 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

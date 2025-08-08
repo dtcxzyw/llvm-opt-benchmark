@@ -215,8 +215,8 @@ define dso_local void @_ZN9Stockfish4Tune5EntryIiE11init_optionEv(ptr noundef no
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr %9, align 4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %12 = load ptr, ptr %11, align 8
   %.not.i.i = icmp eq ptr %12, null
   br i1 %.not.i.i, label %_ZNK9Stockfish8SetRangeclEi.exit.thread.i, label %_ZNK9Stockfish8SetRangeclEi.exit.i
@@ -279,8 +279,8 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaIS
   br i1 %26, label %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt4pairIKS5_iEEE5countERS9_.exit.thread.i, label %27
 
 27:                                               ; preds = %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt4pairIKS5_iEEE5countERS9_.exit.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9StockfishL11TuneResultsB5cxx11E, i64 16), align 8
   %.not10.i.i.i.i.i = icmp eq ptr %28, null
   br i1 %.not10.i.i.i.i.i, label %.critedge.i.i, label %.lr.ph.i.i.i.i.i
@@ -317,8 +317,8 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt4pairIKS5_iEEEixERS9_.exit.i: ; preds = %.critedge.i.i, %33
   %.sroa.05.0.i.i = phi ptr [ %37, %.critedge.i.i ], [ %.19.i.i.i.i.i, %33 ]
   %38 = getelementptr inbounds nuw i8, ptr %.sroa.05.0.i.i, i64 64
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %39 = load i32, ptr %38, align 4
   br label %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt4pairIKS5_iEEE5countERS9_.exit.thread.i
 
@@ -473,8 +473,8 @@ _ZNK9Stockfish8SetRangeclEi.exit65.i:             ; preds = %82, %_ZNK9Stockfish
   br label %_ZN9StockfishL11make_optionEPNS_10OptionsMapERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiRKNS_8SetRangeE.exit
 
 _ZN9StockfishL11make_optionEPNS_10OptionsMapERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiRKNS_8SetRangeE.exit: ; preds = %_ZNK9Stockfish8SetRangeclEi.exit40.i, %_ZNK9Stockfish8SetRangeclEi.exit65.i
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -978,10 +978,10 @@ define internal void @_GLOBAL__sub_I_tune.cpp() #9 section ".text.startup" {
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

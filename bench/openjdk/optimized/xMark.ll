@@ -579,7 +579,7 @@ define hidden void @_ZN5XMark5startEv(ptr noundef nonnull align 64 dereferenceab
   br i1 %4, label %5, label %11
 
 5:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV29XVerifyMarkStacksEmptyClosure, i64 16), ptr %2, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -595,7 +595,7 @@ define hidden void @_ZN5XMark5startEv(ptr noundef nonnull align 64 dereferenceab
   unreachable
 
 _ZNK5XMark23verify_all_stacks_emptyEv.exit:       ; preds = %5
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %11
 
 11:                                               ; preds = %_ZNK5XMark23verify_all_stacks_emptyEv.exit, %1
@@ -1921,7 +1921,7 @@ define hidden noundef zeroext i1 @_ZN5XMark9try_flushEPVm(ptr noundef nonnull al
   br label %_ZN10XStatTimerC2ERK10XStatPhase.exit
 
 _ZN10XStatTimerC2ERK10XStatPhase.exit:            ; preds = %2, %16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @.str.22, ptr %19, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV30XMarkFlushAndFreeStacksClosure, i64 16), ptr %4, align 8
@@ -1942,8 +1942,8 @@ _ZN10XStatTimerC2ERK10XStatPhase.exit:            ; preds = %2, %16
 
 _ZN5XMark5flushEb.exit:                           ; preds = %_ZN10XStatTimerC2ERK10XStatPhase.exit, %24
   %28 = phi i1 [ true, %_ZN10XStatTimerC2ERK10XStatPhase.exit ], [ %27, %24 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %29 = load i8, ptr %5, align 8
   %30 = trunc i8 %29 to i1
   br i1 %30, label %31, label %_ZN10XStatTimerD2Ev.exit
@@ -1963,7 +1963,7 @@ _ZN5XMark5flushEb.exit:                           ; preds = %_ZN10XStatTimerC2ER
   br label %_ZN10XStatTimerD2Ev.exit
 
 _ZN10XStatTimerD2Ev.exit:                         ; preds = %_ZN5XMark5flushEb.exit, %31
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %28
 }
 
@@ -2092,7 +2092,7 @@ _ZN14XMarkTerminate15try_exit_stage0Ev.exit.loopexit: ; preds = %44
 
 _ZN14XMarkTerminate15try_exit_stage1Ev.exit:      ; preds = %_ZN14XMarkTerminate15try_exit_stage0Ev.exit.loopexit, %37, %45, %30, %26, %29
   %.0 = phi i1 [ false, %29 ], [ false, %26 ], [ true, %30 ], [ false, %45 ], [ true, %37 ], [ true, %_ZN14XMarkTerminate15try_exit_stage0Ev.exit.loopexit ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %49 = load i8, ptr %3, align 8
   %50 = trunc i8 %49 to i1
   br i1 %50, label %51, label %_ZN10XStatTimerD2Ev.exit
@@ -2112,7 +2112,7 @@ _ZN14XMarkTerminate15try_exit_stage1Ev.exit:      ; preds = %_ZN14XMarkTerminate
   br label %_ZN10XStatTimerD2Ev.exit
 
 _ZN10XStatTimerD2Ev.exit:                         ; preds = %_ZN14XMarkTerminate15try_exit_stage1Ev.exit, %51
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %.0
 }
 
@@ -2156,7 +2156,7 @@ _ZN10XStatTimerC2ERK10XStatPhase.exit:            ; preds = %2, %15
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %_ZN10XStatTimerC2ERK10XStatPhase.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %27 = load ptr, ptr %18, align 8
   %28 = load ptr, ptr %19, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
@@ -2202,14 +2202,14 @@ _ZN22XMarkThreadLocalStacks3popEP19XMarkStackAllocatorP14XMarkStripeSetP11XMarkS
   br i1 %45, label %_ZN5XMark5drainI14XMarkNoTimeoutEEbP12XMarkContextPT_.exit.thread, label %34, !llvm.loop !20
 
 _ZN5XMark5drainI14XMarkNoTimeoutEEbP12XMarkContextPT_.exit.thread: ; preds = %43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit
 
 _ZN5XMark5drainI14XMarkNoTimeoutEEbP12XMarkContextPT_.exit: ; preds = %_ZN22XMarkThreadLocalStacks3popEP19XMarkStackAllocatorP14XMarkStripeSetP11XMarkStripeR15XMarkStackEntry.exit.i
   %46 = load volatile i8, ptr @_ZN6XAbort13_should_abortE, align 1
   %47 = trunc i8 %46 to i1
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %47, label %.loopexit, label %48
 
 48:                                               ; preds = %_ZN5XMark5drainI14XMarkNoTimeoutEEbP12XMarkContextPT_.exit
@@ -2281,7 +2281,7 @@ _ZN5XMark19try_proactive_flushEv.exit.thread:     ; preds = %69, %72, %67, %_ZN5
   br i1 %75, label %.loopexit, label %.backedge.backedge
 
 .loopexit:                                        ; preds = %_ZN5XMark19try_proactive_flushEv.exit.thread, %_ZN5XMark5drainI14XMarkNoTimeoutEEbP12XMarkContextPT_.exit, %_ZN5XMark5drainI14XMarkNoTimeoutEEbP12XMarkContextPT_.exit.thread
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %76 = load i8, ptr %5, align 8
   %77 = trunc i8 %76 to i1
   br i1 %77, label %78, label %_ZN10XStatTimerD2Ev.exit
@@ -2301,7 +2301,7 @@ _ZN5XMark19try_proactive_flushEv.exit.thread:     ; preds = %69, %72, %67, %_ZN5
   br label %_ZN10XStatTimerD2Ev.exit
 
 _ZN10XStatTimerD2Ev.exit:                         ; preds = %.loopexit, %78
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -2428,7 +2428,7 @@ _ZN5XMark9try_stealEP12XMarkContext.exit._crit_edge: ; preds = %.backedge, %_ZN5
   br label %_ZN12XMarkTimeoutD2Ev.exit
 
 _ZN12XMarkTimeoutD2Ev.exit:                       ; preds = %_ZN5XMark9try_stealEP12XMarkContext.exit._crit_edge, %59
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %68 = load i8, ptr %5, align 8
   %69 = trunc i8 %68 to i1
   br i1 %69, label %70, label %_ZN10XStatTimerD2Ev.exit
@@ -2448,7 +2448,7 @@ _ZN12XMarkTimeoutD2Ev.exit:                       ; preds = %_ZN5XMark9try_steal
   br label %_ZN10XStatTimerD2Ev.exit
 
 _ZN10XStatTimerD2Ev.exit:                         ; preds = %_ZN12XMarkTimeoutD2Ev.exit, %70
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -2781,7 +2781,7 @@ define hidden noundef zeroext i1 @_ZN5XMark12try_completeEv(ptr noundef nonnull 
 define hidden noundef zeroext i1 @_ZN5XMark7try_endEv(ptr noundef nonnull align 64 dereferenceable(2492) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %class.XMarkTask, align 8
   %3 = alloca %class.XMarkFlushAndFreeStacksClosure, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @.str.22, ptr %4, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV30XMarkFlushAndFreeStacksClosure, i64 16), ptr %3, align 8
@@ -2795,17 +2795,17 @@ define hidden noundef zeroext i1 @_ZN5XMark7try_endEv(ptr noundef nonnull align 
   br i1 %8, label %_ZN5XMark5flushEb.exit.thread, label %_ZN5XMark5flushEb.exit
 
 _ZN5XMark5flushEb.exit.thread:                    ; preds = %1
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %11
 
 _ZN5XMark5flushEb.exit:                           ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %10 = call noundef zeroext i1 @_ZNK14XMarkStripeSet8is_emptyEv(ptr noundef nonnull align 64 dereferenceable(2112) %9) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %10, label %42, label %11
 
 11:                                               ; preds = %_ZN5XMark5flushEb.exit.thread, %_ZN5XMark5flushEb.exit
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 2472
   %13 = load i64, ptr %12, align 8
   %14 = add i64 %13, 1
@@ -2850,7 +2850,7 @@ _ZN5XMark5flushEb.exit:                           ; preds = %1
   %40 = load i64, ptr %39, align 32
   %41 = add i64 %40, %38
   store i64 %41, ptr %39, align 32
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %42
 
 42:                                               ; preds = %_ZN5XMark5flushEb.exit, %11
@@ -2877,7 +2877,7 @@ define hidden noundef zeroext i1 @_ZN5XMark3endEv(ptr noundef nonnull align 64 d
   br i1 %10, label %11, label %17
 
 11:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV29XVerifyMarkStacksEmptyClosure, i64 16), ptr %2, align 8
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -2893,7 +2893,7 @@ define hidden noundef zeroext i1 @_ZN5XMark3endEv(ptr noundef nonnull align 64 d
   unreachable
 
 _ZNK5XMark23verify_all_stacks_emptyEv.exit:       ; preds = %11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %17
 
 17:                                               ; preds = %_ZNK5XMark23verify_all_stacks_emptyEv.exit, %8
@@ -3919,9 +3919,9 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI22XMarkBarrierOopClo
   unreachable
 
 _ZN16InstanceRefKlass15oop_oop_iterateI9narrowOop22XMarkBarrierOopClosureILb0EEEEvP7oopDescPT0_.exit: ; preds = %21, %3
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_processingI9narrowOop22XMarkBarrierOopClosureILb0EE14AlwaysContainsEEvP7oopDescPT0_RT1_(ptr noundef nonnull align 8 dereferenceable(464) %2, ptr noundef %1, ptr noundef nonnull %0, ptr noundef nonnull align 1 dereferenceable(1) %4)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -5563,9 +5563,9 @@ _ZN13Devirtualizer6do_oopI22XMarkBarrierOopClosureILb0EEP7oopDescEEvPT_PT0_.exit
   br i1 %52, label %22, label %._crit_edge33, !llvm.loop !35
 
 ._crit_edge33:                                    ; preds = %._crit_edge, %3
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_processingIP7oopDesc22XMarkBarrierOopClosureILb0EE14AlwaysContainsEEvS2_PT0_RT1_(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull align 1 dereferenceable(1) %4)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -6588,8 +6588,8 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_s
   %27 = load i32, ptr %26, align 4
   %28 = sext i32 %27 to i64
   %.idx = shl nsw i64 %28, 3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   tail call void @_ZN23InstanceStackChunkKlass10do_methodsEP17stackChunkOopDescP17OopIterateClosure(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef nonnull %1, ptr noundef %2) #17
   %29 = icmp sgt i64 %.idx, %22
   br i1 %29, label %30, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapIP7oopDesc22XMarkBarrierOopClosureILb0EEEEvP17stackChunkOopDescPT0_PlS9_.exit
@@ -6630,15 +6630,15 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_s
   %58 = ptrtoint ptr %35 to i64
   %59 = sub i64 %58, %44
   %60 = ashr exact i64 %59, 3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %5, ptr %4, align 8
   %61 = call noundef zeroext i1 @_ZNK6BitMap7iterateIZNKS_7iterateI33StackChunkOopIterateBitmapClosureIP7oopDesc22XMarkBarrierOopClosureILb0EEEEEbPT_mmEUlmE_EEbS8_mm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr nonnull %4, i64 noundef %57, i64 noundef %60)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapIP7oopDesc22XMarkBarrierOopClosureILb0EEEEvP17stackChunkOopDescPT0_PlS9_.exit
 
 _ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapIP7oopDesc22XMarkBarrierOopClosureILb0EEEEvP17stackChunkOopDescPT0_PlS9_.exit: ; preds = %14, %30
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %118
 
 62:                                               ; preds = %3
@@ -7317,9 +7317,9 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI22XMarkBarrierOopClo
   unreachable
 
 _ZN16InstanceRefKlass15oop_oop_iterateI9narrowOop22XMarkBarrierOopClosureILb1EEEEvP7oopDescPT0_.exit: ; preds = %21, %3
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_processingI9narrowOop22XMarkBarrierOopClosureILb1EE14AlwaysContainsEEvP7oopDescPT0_RT1_(ptr noundef nonnull align 8 dereferenceable(464) %2, ptr noundef %1, ptr noundef nonnull %0, ptr noundef nonnull align 1 dereferenceable(1) %4)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -7493,9 +7493,9 @@ _ZN13Devirtualizer6do_oopI22XMarkBarrierOopClosureILb1EEP7oopDescEEvPT_PT0_.exit
   br i1 %51, label %22, label %._crit_edge33, !llvm.loop !57
 
 ._crit_edge33:                                    ; preds = %._crit_edge, %3
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_processingIP7oopDesc22XMarkBarrierOopClosureILb1EE14AlwaysContainsEEvS2_PT0_RT1_(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull align 1 dereferenceable(1) %4)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -8465,8 +8465,8 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_s
   %27 = load i32, ptr %26, align 4
   %28 = sext i32 %27 to i64
   %.idx = shl nsw i64 %28, 3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   tail call void @_ZN23InstanceStackChunkKlass10do_methodsEP17stackChunkOopDescP17OopIterateClosure(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef nonnull %1, ptr noundef %2) #17
   %29 = icmp sgt i64 %.idx, %22
   br i1 %29, label %30, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapIP7oopDesc22XMarkBarrierOopClosureILb1EEEEvP17stackChunkOopDescPT0_PlS9_.exit
@@ -8507,15 +8507,15 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_s
   %58 = ptrtoint ptr %35 to i64
   %59 = sub i64 %58, %44
   %60 = ashr exact i64 %59, 3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %5, ptr %4, align 8
   %61 = call noundef zeroext i1 @_ZNK6BitMap7iterateIZNKS_7iterateI33StackChunkOopIterateBitmapClosureIP7oopDesc22XMarkBarrierOopClosureILb1EEEEEbPT_mmEUlmE_EEbS8_mm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr nonnull %4, i64 noundef %57, i64 noundef %60)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapIP7oopDesc22XMarkBarrierOopClosureILb1EEEEvP17stackChunkOopDescPT0_PlS9_.exit
 
 _ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapIP7oopDesc22XMarkBarrierOopClosureILb1EEEEvP17stackChunkOopDescPT0_PlS9_.exit: ; preds = %14, %30
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %118
 
 62:                                               ; preds = %3
@@ -8988,10 +8988,10 @@ define internal void @_GLOBAL__sub_I_xMark.cpp() #8 section ".text.startup" {
 declare i32 @llvm.umin.i32(i32, i32) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #16

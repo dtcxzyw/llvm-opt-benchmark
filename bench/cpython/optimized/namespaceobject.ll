@@ -437,7 +437,7 @@ PyObject_TypeCheck.exit8.thread:                  ; preds = %PyObject_TypeCheck.
 ; Function Attrs: nounwind uwtable
 define internal i32 @namespace_init(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !4
   %5 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %5, align 8, !tbaa !10
@@ -521,7 +521,7 @@ Py_DECREF.exit:                                   ; preds = %26, %29, %32
 
 .critedge:                                        ; preds = %17, %35, %33, %3, %Py_DECREF.exit, %37
   %.0 = phi i32 [ %40, %37 ], [ -1, %Py_DECREF.exit ], [ -1, %3 ], [ 0, %33 ], [ -1, %35 ], [ -1, %17 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -618,13 +618,7 @@ Py_DECREF.exit:                                   ; preds = %Py_DECREF.exit.sink
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare i32 @PyDict_Update(ptr noundef, ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 declare void @PyObject_GC_UnTrack(ptr noundef) local_unnamed_addr #1
 
@@ -773,6 +767,12 @@ declare i32 @PyArg_ValidateKeywordArguments(ptr noundef) local_unnamed_addr #1
 declare ptr @PyDict_New() local_unnamed_addr #1
 
 declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

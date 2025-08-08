@@ -51,14 +51,14 @@ define internal range(i32 0, 2) i32 @test_rcidm(i32 noundef %0) #0 {
   %3 = alloca %struct.ossl_quic_frame_new_conn_id_st, align 8
   %4 = alloca %struct.quic_conn_id_st, align 1
   %5 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, i8 0, i64 48, i1 false)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %7, i8 0, i64 48, i1 false)
-  call void @llvm.lifetime.start.p0(i64 21, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 2, ptr %2, align 8, !tbaa !4
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i8 8, ptr %8, align 8, !tbaa !11
@@ -453,18 +453,15 @@ ossl_quic_conn_id_eq.exit:                        ; preds = %32, %34
 227:                                              ; preds = %224, %182, %187, %192, %197, %200, %203, %208, %211, %216, %219, %153, %158, %163, %168, %171, %174, %179, %.thread, %82, %85, %90, %95, %100, %103, %108, %111, %116, %121, %124, %129, %132, %135, %140, %145, %150, %52, %57, %62, %67, %72, %75, %42, %47, %17, %22, %27, %ossl_quic_conn_id_eq.exit, %39, %1
   %.0 = phi i32 [ 0, %219 ], [ 0, %216 ], [ 0, %211 ], [ 0, %208 ], [ 0, %203 ], [ 0, %200 ], [ 0, %197 ], [ 0, %192 ], [ 0, %187 ], [ 0, %182 ], [ 0, %179 ], [ 0, %174 ], [ 0, %171 ], [ 0, %168 ], [ 0, %163 ], [ 0, %158 ], [ 0, %153 ], [ 0, %150 ], [ 0, %145 ], [ 0, %140 ], [ 0, %135 ], [ 0, %132 ], [ 0, %129 ], [ 0, %124 ], [ 0, %121 ], [ 0, %116 ], [ 0, %111 ], [ 0, %108 ], [ 0, %103 ], [ 0, %100 ], [ 0, %95 ], [ 0, %90 ], [ 0, %85 ], [ 0, %82 ], [ 0, %.thread ], [ 0, %75 ], [ 0, %72 ], [ 0, %67 ], [ 0, %62 ], [ 0, %57 ], [ 0, %52 ], [ 0, %39 ], [ 0, %ossl_quic_conn_id_eq.exit ], [ 0, %27 ], [ 0, %22 ], [ 0, %17 ], [ 0, %47 ], [ 0, %42 ], [ 0, %1 ], [ %spec.select, %224 ]
   call void @ossl_quic_rcidm_free(ptr noundef %14) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 21, ptr nonnull %4) #6
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3) #6
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare i32 @test_ptr(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -479,7 +476,7 @@ declare i32 @test_false(ptr noundef, i32 noundef, ptr noundef, i32 noundef) loca
 declare i32 @ossl_quic_rcidm_get_preferred_tx_dcid(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @ossl_quic_conn_id_eq(ptr noundef nonnull readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #4 {
+define internal fastcc range(i32 0, 2) i32 @ossl_quic_conn_id_eq(ptr noundef nonnull readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 {
   %3 = load i8, ptr %0, align 1, !tbaa !13
   %4 = load i8, ptr %1, align 1, !tbaa !13
   %.not = icmp ne i8 %3, %4
@@ -526,16 +523,19 @@ declare void @ossl_quic_rcidm_request_roll(ptr noundef) local_unnamed_addr #1
 declare void @ossl_quic_rcidm_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { inlinehint mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { inlinehint mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #6 = { nounwind }
 

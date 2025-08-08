@@ -53,7 +53,7 @@ entry:
   br i1 %or.cond, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %attr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %attr.i)
   %mnLockCount.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store i32 0, ptr %mnLockCount.i, align 8
   %call.i = call i32 @pthread_mutexattr_init(ptr noundef nonnull %attr.i) #11
@@ -61,11 +61,11 @@ if.then:                                          ; preds = %entry
   %call6.i = call i32 @pthread_mutexattr_setpshared(ptr noundef nonnull %attr.i, i32 noundef 0) #11
   %call8.i = call i32 @pthread_mutex_init(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull %attr.i) #11
   %call9.i = call i32 @pthread_mutexattr_destroy(ptr noundef nonnull %attr.i) #11
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %attr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %attr.i)
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %attr.i2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %attr.i2)
   br i1 %tobool, label %_ZN2EA6Thread5Mutex4InitEPKNS0_15MutexParametersE.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.else
@@ -83,7 +83,7 @@ if.then.i:                                        ; preds = %if.else
   br label %_ZN2EA6Thread5Mutex4InitEPKNS0_15MutexParametersE.exit
 
 _ZN2EA6Thread5Mutex4InitEPKNS0_15MutexParametersE.exit: ; preds = %if.else, %if.then.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %attr.i2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %attr.i2)
   br label %if.end
 
 if.end:                                           ; preds = %_ZN2EA6Thread5Mutex4InitEPKNS0_15MutexParametersE.exit, %if.then
@@ -253,7 +253,7 @@ if.then:                                          ; preds = %entry
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 48, ptr noundef null, i32 noundef 0)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %call, i8 0, i64 40, i1 false)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %attr.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %attr.i.i)
   %mnLockCount.i.i = getelementptr inbounds nuw i8, ptr %call, i64 40
   store i32 0, ptr %mnLockCount.i.i, align 8
   %call.i.i = call i32 @pthread_mutexattr_init(ptr noundef nonnull %attr.i.i) #11
@@ -261,13 +261,13 @@ if.then:                                          ; preds = %entry
   %call6.i.i = call i32 @pthread_mutexattr_setpshared(ptr noundef nonnull %attr.i.i, i32 noundef 0) #11
   %call8.i.i = call i32 @pthread_mutex_init(ptr noundef nonnull align 8 dereferenceable(48) %call, ptr noundef nonnull %attr.i.i) #11
   %call9.i.i = call i32 @pthread_mutexattr_destroy(ptr noundef nonnull %attr.i.i) #11
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %attr.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %attr.i.i)
   br label %return
 
 if.else:                                          ; preds = %entry
   %call1 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %call1, i8 0, i64 40, i1 false)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %attr.i.i1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %attr.i.i1)
   %mnLockCount.i.i2 = getelementptr inbounds nuw i8, ptr %call1, i64 40
   store i32 0, ptr %mnLockCount.i.i2, align 8
   %call.i.i3 = call i32 @pthread_mutexattr_init(ptr noundef nonnull %attr.i.i1) #11
@@ -275,7 +275,7 @@ if.else:                                          ; preds = %entry
   %call6.i.i5 = call i32 @pthread_mutexattr_setpshared(ptr noundef nonnull %attr.i.i1, i32 noundef 0) #11
   %call8.i.i6 = call i32 @pthread_mutex_init(ptr noundef nonnull align 8 dereferenceable(48) %call1, ptr noundef nonnull %attr.i.i1) #11
   %call9.i.i7 = call i32 @pthread_mutexattr_destroy(ptr noundef nonnull %attr.i.i1) #11
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %attr.i.i1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %attr.i.i1)
   br label %return
 
 return:                                           ; preds = %if.else, %if.then
@@ -331,7 +331,7 @@ define dso_local noundef ptr @_ZN2EA6Thread12MutexFactory14ConstructMutexEPv(ptr
 entry:
   %attr.i.i = alloca %union.pthread_mutexattr_t, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %pMemory, i8 0, i64 40, i1 false)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %attr.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %attr.i.i)
   %mnLockCount.i.i = getelementptr inbounds nuw i8, ptr %pMemory, i64 40
   store i32 0, ptr %mnLockCount.i.i, align 8
   %call.i.i = call i32 @pthread_mutexattr_init(ptr noundef nonnull %attr.i.i) #11
@@ -339,7 +339,7 @@ entry:
   %call6.i.i = call i32 @pthread_mutexattr_setpshared(ptr noundef nonnull %attr.i.i, i32 noundef 0) #11
   %call8.i.i = call i32 @pthread_mutex_init(ptr noundef nonnull align 8 dereferenceable(48) %pMemory, ptr noundef nonnull %attr.i.i) #11
   %call9.i.i = call i32 @pthread_mutexattr_destroy(ptr noundef nonnull %attr.i.i) #11
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %attr.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %attr.i.i)
   ret ptr %pMemory
 }
 
@@ -351,10 +351,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

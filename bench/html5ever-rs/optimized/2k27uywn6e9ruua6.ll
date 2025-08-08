@@ -31,7 +31,7 @@ define internal fastcc void @"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..T
   br i1 %.not.i.i, label %10, label %23
 
 10:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !4
   %11 = zext i32 %.12.val to i64
   %12 = add nuw nsw i64 %11, 15
   %13 = lshr i64 %12, 4
@@ -41,7 +41,7 @@ define internal fastcc void @"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..T
   store ptr %8, ptr %15, align 8, !noalias !4
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 1, ptr %16, align 8, !noalias !4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !7
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h4c70336cea08fc79E.llvm.15586061709592140432"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4), !noalias !4
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %18 = load i64, ptr %17, align 8, !range !14, !noalias !7, !noundef !15
@@ -56,8 +56,8 @@ define internal fastcc void @"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..T
   br label %"_ZN7tendril5buf3214Buf32$LT$H$GT$7destroy17hdb0d62ca8f414148E.exit.i"
 
 "_ZN7tendril5buf3214Buf32$LT$H$GT$7destroy17hdb0d62ca8f414148E.exit.i": ; preds = %19, %10
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !4
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !4
   br label %"_ZN80_$LT$tendril..tendril..Tendril$LT$F$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7df8842257138d41E.exit"
 
 23:                                               ; preds = %6
@@ -70,7 +70,7 @@ define internal fastcc void @"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..T
   br i1 %27, label %28, label %"_ZN80_$LT$tendril..tendril..Tendril$LT$F$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7df8842257138d41E.exit"
 
 28:                                               ; preds = %23
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !4
+  call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !4
   %29 = zext i32 %.03.i12.i to i64
   %30 = add nuw nsw i64 %29, 15
   %31 = lshr i64 %30, 4
@@ -80,7 +80,7 @@ define internal fastcc void @"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..T
   store ptr %8, ptr %33, align 8, !noalias !4
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 1, ptr %34, align 8, !noalias !4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1), !noalias !19
+  call void @llvm.lifetime.start.p0(ptr nonnull %1), !noalias !19
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h4c70336cea08fc79E.llvm.15586061709592140432"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2), !noalias !4
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %36 = load i64, ptr %35, align 8, !range !14, !noalias !19, !noundef !15
@@ -95,8 +95,8 @@ define internal fastcc void @"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..T
   br label %"_ZN7tendril5buf3214Buf32$LT$H$GT$7destroy17hdb0d62ca8f414148E.exit5.i"
 
 "_ZN7tendril5buf3214Buf32$LT$H$GT$7destroy17hdb0d62ca8f414148E.exit5.i": ; preds = %37, %28
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %1), !noalias !19
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !4
+  call void @llvm.lifetime.end.p0(ptr nonnull %1), !noalias !19
+  call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !4
   br label %"_ZN80_$LT$tendril..tendril..Tendril$LT$F$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7df8842257138d41E.exit"
 
 "_ZN80_$LT$tendril..tendril..Tendril$LT$F$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7df8842257138d41E.exit": ; preds = %0, %"_ZN7tendril5buf3214Buf32$LT$H$GT$7destroy17hdb0d62ca8f414148E.exit.i", %23, %"_ZN7tendril5buf3214Buf32$LT$H$GT$7destroy17hdb0d62ca8f414148E.exit5.i"
@@ -366,13 +366,13 @@ common.resume:                                    ; preds = %142, %105
   %137 = zext i32 %65 to i64
   %138 = zext nneg i32 %112 to i64
   %139 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 %137
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.4.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4.i.i)
   %140 = icmp eq i32 %.0.i.i, %65
   %..i.i = select i1 %140, i64 15, i64 %138
   store i64 0, ptr %.sroa.4.i.i, align 8, !noalias !43
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.4.i.i, ptr nonnull readonly align 1 %139, i64 range(i64 0, 9) %138, i1 false), !noalias !47
   %.sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.0..sroa.4.0.copyload.i.i = load i64, ptr %.sroa.4.i.i, align 8, !noalias !43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.4.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4.i.i)
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %.val5.i = load i32, ptr %141, align 4, !alias.scope !40
   invoke fastcc void @"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hd46a4dd6e71d726cE"(i64 %2, i32 %.val5.i)
@@ -416,7 +416,7 @@ define void @_ZN11markup5ever4util12buffer_queue11BufferQueue10push_front17h033e
   br label %21
 
 "_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217he6d69f7754b9abccE.exit.thread5": ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load i64, ptr %12, align 8, !alias.scope !48, !noalias !51, !noundef !15
@@ -464,7 +464,7 @@ define void @_ZN11markup5ever4util12buffer_queue11BufferQueue10push_front17h033e
   %31 = load ptr, ptr %30, align 8, !alias.scope !48, !noalias !51, !nonnull !15, !noundef !15
   %32 = getelementptr inbounds { i64, { { [2 x i32] } }, {}, {} }, ptr %31, i64 %..i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %21
 
 .body:                                            ; preds = %17
@@ -493,7 +493,7 @@ define void @_ZN11markup5ever4util12buffer_queue11BufferQueue9push_back17hdb0fb6
   br label %21
 
 "_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217he6d69f7754b9abccE.exit.thread5": ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load i64, ptr %12, align 8, !alias.scope !56, !noalias !59, !noundef !15
@@ -541,7 +541,7 @@ define void @_ZN11markup5ever4util12buffer_queue11BufferQueue9push_back17hdb0fb6
   %32 = load i64, ptr %12, align 8, !alias.scope !56, !noalias !59, !noundef !15
   %33 = add i64 %32, 1
   store i64 %33, ptr %12, align 8, !alias.scope !56, !noalias !59
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %21
 
 .body:                                            ; preds = %17
@@ -782,7 +782,7 @@ define void @_ZN11markup5ever4util12buffer_queue11BufferQueue15pop_except_from17
   %.sroa.4.0.i = phi i64 [ %15, %32 ], [ %30, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217he6d69f7754b9abccE.exit.i" ], [ 0, %7 ]
   %.sroa.0.0.i = phi ptr [ %33, %32 ], [ %31, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217he6d69f7754b9abccE.exit.i" ], [ @anon.d211918ee87746d75600bd815b17425b.7, %7 ]
   %34 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 %.sroa.4.0.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !100
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !100
   store ptr %.sroa.0.0.i, ptr %4, align 8, !noalias !100
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %34, ptr %35, align 8, !noalias !100
@@ -791,7 +791,7 @@ define void @_ZN11markup5ever4util12buffer_queue11BufferQueue15pop_except_from17
   br i1 %.not8.i, label %_ZN11markup5ever4util12smallcharset12SmallCharSet20nonmember_prefix_len17h4b9fbe941cd242b7E.exit.thread, label %.lr.ph.i
 
 _ZN11markup5ever4util12smallcharset12SmallCharSet20nonmember_prefix_len17h4b9fbe941cd242b7E.exit.thread: ; preds = %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h65075c9713482be0E.exit"
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !100
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !100
   br label %48
 
 .lr.ph.i:                                         ; preds = %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h65075c9713482be0E.exit", %45
@@ -816,7 +816,7 @@ _ZN11markup5ever4util12smallcharset12SmallCharSet20nonmember_prefix_len17h4b9fbe
 
 _ZN11markup5ever4util12smallcharset12SmallCharSet20nonmember_prefix_len17h4b9fbe941cd242b7E.exit: ; preds = %40, %45
   %.0.lcssa.i = phi i32 [ %46, %45 ], [ %.09.i, %40 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !100
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !100
   %.not = icmp eq i32 %.0.lcssa.i, 0
   br i1 %.not, label %48, label %51
 
@@ -908,11 +908,11 @@ _ZN11markup5ever4util12smallcharset12SmallCharSet20nonmember_prefix_len17h4b9fbe
 "_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h65075c9713482be0E.exit.i": ; preds = %90, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217he6d69f7754b9abccE.exit.i.i", %76
   %.sroa.0.0.i.i = phi ptr [ %91, %90 ], [ %89, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217he6d69f7754b9abccE.exit.i.i" ], [ @anon.d211918ee87746d75600bd815b17425b.7, %76 ]
   %92 = zext nneg i32 %.0.lcssa.i to i64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.4.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4.i.i)
   store i64 0, ptr %.sroa.4.i.i, align 8, !noalias !115
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %.sroa.4.i.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %.sroa.0.0.i.i, i64 range(i64 0, 9) %92, i1 false), !noalias !119
   %.sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.0..sroa.4.0.copyload.i.i = load i64, ptr %.sroa.4.i.i, align 8, !noalias !115
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.4.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4.i.i)
   br label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$17unsafe_subtendril17h61aa787dcca1b780E.exit"
 
 93:                                               ; preds = %48
@@ -1025,13 +1025,13 @@ _ZN11markup5ever4util12smallcharset12SmallCharSet20nonmember_prefix_len17h4b9fbe
   %140 = zext i32 %.0.lcssa.i to i64
   %141 = zext nneg i32 %139 to i64
   %142 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i37, i64 %140
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.4.i.i29)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4.i.i29)
   %143 = icmp eq i32 %139, 0
   %..i.i = select i1 %143, i64 15, i64 %141
   store i64 0, ptr %.sroa.4.i.i29, align 8, !noalias !123
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.4.i.i29, ptr nonnull readonly align 1 %142, i64 range(i64 0, 9) %141, i1 false), !noalias !127
   %.sroa.4.i.i29.0..sroa.4.i.i29.0..sroa.4.i.i29.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.0..sroa.4.0.copyload.i.i38 = load i64, ptr %.sroa.4.i.i29, align 8, !noalias !123
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.4.i.i29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4.i.i29)
   %144 = getelementptr inbounds nuw i8, ptr %14, i64 12
   %.val5.i = load i32, ptr %144, align 4, !alias.scope !120
   invoke fastcc void @"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hd46a4dd6e71d726cE"(i64 %105, i32 %.val5.i)
@@ -1136,12 +1136,6 @@ declare noundef i32 @rust_eh_personality(i32 noundef, i32 noundef, i64 noundef, 
 ; Function Attrs: cold noreturn nounwind nonlazybind uwtable
 declare void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() unnamed_addr #6
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
-
 ; Function Attrs: inlinehint nonlazybind uwtable
 declare hidden noundef align 1 dereferenceable_or_null(1) ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5315faca9b8057f3E.llvm.5283878113924261044"(ptr noalias noundef align 8 dereferenceable(16)) unnamed_addr #1
 
@@ -1156,6 +1150,12 @@ declare hidden void @"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$L
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4grow17h6faefa333259130aE.llvm.5646377590840740190"(ptr noalias noundef align 8 dereferenceable(32)) unnamed_addr #0
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #8

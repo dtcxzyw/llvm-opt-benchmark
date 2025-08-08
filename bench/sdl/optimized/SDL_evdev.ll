@@ -134,7 +134,7 @@ define internal void @SDL_EVDEV_udev_callback(i32 noundef %0, i32 noundef %1, pt
   br i1 %or.cond, label %14, label %225
 
 14:                                               ; preds = %11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 0, ptr %9, align 8
   %15 = load ptr, ptr @_this, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -219,8 +219,8 @@ define internal void @SDL_EVDEV_udev_callback(i32 noundef %0, i32 noundef %1, pt
 55:                                               ; preds = %53
   %56 = getelementptr inbounds nuw i8, ptr %22, i64 17
   store i8 1, ptr %56, align 1
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #10
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %57 = call noalias dereferenceable_or_null(64) ptr @SDL_calloc_REAL(i64 noundef 1, i64 noundef 64) #9
   %58 = getelementptr inbounds nuw i8, ptr %22, i64 24
   store ptr %57, ptr %58, align 8
@@ -237,8 +237,8 @@ define internal void @SDL_EVDEV_udev_callback(i32 noundef %0, i32 noundef %1, pt
   %64 = load ptr, ptr %58, align 8
   call void @SDL_free_REAL(ptr noundef %64) #10
   %65 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.1) #10
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #10
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %65, label %169, label %165
 
 66:                                               ; preds = %59
@@ -263,8 +263,8 @@ define internal void @SDL_EVDEV_udev_callback(i32 noundef %0, i32 noundef %1, pt
   %78 = load ptr, ptr %58, align 8
   call void @SDL_free_REAL(ptr noundef %78) #10
   %79 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.2) #10
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #10
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %79, label %169, label %165
 
 80:                                               ; preds = %71
@@ -288,8 +288,8 @@ define internal void @SDL_EVDEV_udev_callback(i32 noundef %0, i32 noundef %1, pt
   %93 = load ptr, ptr %58, align 8
   call void @SDL_free_REAL(ptr noundef %93) #10
   %94 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.2) #10
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #10
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %94, label %169, label %165
 
 95:                                               ; preds = %80
@@ -319,8 +319,8 @@ define internal void @SDL_EVDEV_udev_callback(i32 noundef %0, i32 noundef %1, pt
   %112 = load ptr, ptr %58, align 8
   call void @SDL_free_REAL(ptr noundef %112) #10
   %113 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.2) #10
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #10
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %113, label %169, label %165
 
 114:                                              ; preds = %95
@@ -379,8 +379,8 @@ define internal void @SDL_EVDEV_udev_callback(i32 noundef %0, i32 noundef %1, pt
   br i1 %153, label %154, label %SDL_EVDEV_init_touchscreen.exit.thread56.i
 
 SDL_EVDEV_init_touchscreen.exit.thread56.i:       ; preds = %147
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #10
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %169
 
 154:                                              ; preds = %147
@@ -404,8 +404,8 @@ SDL_EVDEV_init_touchscreen.exit.thread.sink.split.i: ; preds = %SDL_EVDEV_init_t
   br label %SDL_EVDEV_init_touchscreen.exit.thread.i
 
 SDL_EVDEV_init_touchscreen.exit.thread.i:         ; preds = %SDL_EVDEV_init_touchscreen.exit.thread.sink.split.i, %55
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #10
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %165
 
 SDL_EVDEV_init_touchscreen.exit.i:                ; preds = %114
@@ -415,8 +415,8 @@ SDL_EVDEV_init_touchscreen.exit.i:                ; preds = %114
   %163 = load ptr, ptr %58, align 8
   call void @SDL_free_REAL(ptr noundef %163) #10
   %164 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.2) #10
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #10
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %164, label %169, label %165
 
 165:                                              ; preds = %SDL_EVDEV_init_touchscreen.exit.i, %SDL_EVDEV_init_touchscreen.exit.thread.i, %109, %90, %75, %63
@@ -433,8 +433,8 @@ SDL_EVDEV_init_touchscreen.exit.i:                ; preds = %114
   br i1 %.not50.i, label %197, label %171
 
 171:                                              ; preds = %169
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #10
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 0, ptr %5, align 16
   %172 = load i32, ptr %25, align 8
   %173 = call i32 (i32, i64, ...) @ioctl(i32 noundef %172, i64 noundef 2155889926, ptr noundef nonnull %5) #10
@@ -475,8 +475,8 @@ SDL_EVDEV_init_touchscreen.exit.i:                ; preds = %114
   br label %SDL_EVDEV_init_mouse.exit.i
 
 SDL_EVDEV_init_mouse.exit.i:                      ; preds = %190, %178, %171
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #10
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %197
 
 197:                                              ; preds = %SDL_EVDEV_init_mouse.exit.i, %169
@@ -485,13 +485,13 @@ SDL_EVDEV_init_mouse.exit.i:                      ; preds = %190, %178, %171
   br i1 %.not51.i, label %203, label %199
 
 199:                                              ; preds = %197
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 0, ptr %4, align 16
   %200 = load i32, ptr %25, align 8
   %201 = call i32 (i32, i64, ...) @ioctl(i32 noundef %200, i64 noundef 2155889926, ptr noundef nonnull %4) #10
   %202 = load i32, ptr %25, align 8
   call void @SDL_AddKeyboard(i32 noundef %202, ptr noundef nonnull %4, i1 noundef zeroext true) #10
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %203
 
 203:                                              ; preds = %199, %197
@@ -553,7 +553,7 @@ SDL_EVDEV_UpdateKeyboardMute.exit.i:              ; preds = %SDL_EVDEV_GetDevice
   br label %SDL_EVDEV_device_added.exit
 
 SDL_EVDEV_device_added.exit:                      ; preds = %.lr.ph.i, %._crit_edge.i, %27, %31, %165, %SDL_EVDEV_UpdateKeyboardMute.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %225
 
 224:                                              ; preds = %10
@@ -821,16 +821,10 @@ define hidden i32 @SDL_EVDEV_GetDeviceCount(i32 noundef %0) local_unnamed_addr #
   ret i32 %.0.lcssa
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
-
 ; Function Attrs: nounwind uwtable
 define hidden void @SDL_EVDEV_Poll() local_unnamed_addr #0 {
   %1 = alloca [32 x %struct.input_event], align 16
-  call void @llvm.lifetime.start.p0(i64 768, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %2 = load ptr, ptr @_this, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.loopexit, label %3
@@ -1775,7 +1769,7 @@ SDL_EVDEV_GetEventTimestamp.exit268:              ; preds = %519, %531
   br i1 %.not222, label %.loopexit, label %.preheader279, !llvm.loop !13
 
 .loopexit:                                        ; preds = %._crit_edge287, %3, %0
-  call void @llvm.lifetime.end.p0(i64 768, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }
 
@@ -1784,7 +1778,7 @@ declare void @SDL_UDEV_Poll() local_unnamed_addr #2
 declare void @SDL_EVDEV_kbd_update(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #6
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define hidden i64 @SDL_EVDEV_GetEventTimestamp(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -1838,7 +1832,7 @@ declare void @SDL_SendTouchMotion(i64 noundef, i64 noundef, i64 noundef, ptr nou
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @SDL_EVDEV_sync_device(ptr noundef readonly captures(none) %0) unnamed_addr #0 {
   %2 = alloca %struct.input_absinfo, align 4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 17
   %4 = load i8, ptr %3, align 1, !range !8, !noundef !9
   %5 = trunc nuw i8 %4 to i1
@@ -2124,7 +2118,7 @@ define internal fastcc void @SDL_EVDEV_sync_device(ptr noundef readonly captures
   br label %158
 
 158:                                              ; preds = %6, %1, %154, %153, %124, %91, %58, %27
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -2135,7 +2129,7 @@ declare void @SDL_EVDEV_kbd_set_muted(ptr noundef, i1 noundef zeroext) local_unn
 declare i32 @SDL_strcmp_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree
-declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #6
+declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #5
 
 declare zeroext i1 @SDL_SetError_REAL(ptr noundef, ...) local_unnamed_addr #2
 
@@ -2144,7 +2138,7 @@ declare noalias ptr @SDL_strdup_REAL(ptr noundef) local_unnamed_addr #2
 declare i32 @close(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare i32 @ioctl(i32 noundef, i64 noundef, ...) local_unnamed_addr #7
+declare i32 @ioctl(i32 noundef, i64 noundef, ...) local_unnamed_addr #6
 
 declare i32 @SDL_AddTouch(i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
@@ -2160,6 +2154,12 @@ declare void @SDL_RemoveMouse(i32 noundef, i1 noundef zeroext) local_unnamed_add
 
 declare void @SDL_RemoveKeyboard(i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #8
 
@@ -2168,9 +2168,9 @@ attributes #1 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buff
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #9 = { nounwind allocsize(0,1) }
 attributes #10 = { nounwind }

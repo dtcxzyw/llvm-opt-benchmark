@@ -300,17 +300,14 @@ SDL_DestroyKeymap.exit:                           ; preds = %3
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @SDL_calloc_REAL(i64 noundef, i64 noundef) local_unnamed_addr #2
+declare noalias ptr @SDL_calloc_REAL(i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare ptr @SDL_CreateHashTable(i32 noundef, i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @SDL_CreateHashTable(i32 noundef, i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @SDL_HashID(ptr noundef, ptr noundef) #3
+declare i32 @SDL_HashID(ptr noundef, ptr noundef) #2
 
-declare zeroext i1 @SDL_KeyMatchID(ptr noundef, ptr noundef, ptr noundef) #3
+declare zeroext i1 @SDL_KeyMatchID(ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define hidden void @SDL_DestroyKeymap(ptr noundef %0) local_unnamed_addr #0 {
@@ -329,9 +326,6 @@ define hidden void @SDL_DestroyKeymap(ptr noundef %0) local_unnamed_addr #0 {
 6:                                                ; preds = %1, %2
   ret void
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @SDL_SetKeymapEntry(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i16 noundef zeroext %2, i32 noundef %3) local_unnamed_addr #0 {
@@ -352,7 +346,7 @@ define hidden void @SDL_SetKeymapEntry(ptr noundef readonly captures(address_is_
   %12 = zext nneg i16 %.1.i to i32
   %13 = shl nuw nsw i32 %12, 16
   %14 = or i32 %13, %1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %15 = load ptr, ptr %0, align 8
   %16 = zext i32 %14 to i64
   %17 = inttoptr i64 %16 to ptr
@@ -386,21 +380,21 @@ define hidden void @SDL_SetKeymapEntry(ptr noundef readonly captures(address_is_
   br label %37
 
 37:                                               ; preds = %6, %22, %34
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %38
 
 38:                                               ; preds = %4, %37
   ret void
 }
 
-declare zeroext i1 @SDL_FindInHashTable(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @SDL_FindInHashTable(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare zeroext i1 @SDL_InsertIntoHashTable(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare zeroext i1 @SDL_InsertIntoHashTable(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @SDL_GetKeymapKeycode(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %22, label %5
 
@@ -507,14 +501,14 @@ switch.lookup:                                    ; preds = %57
 
 SDL_GetDefaultKeyFromScancode.exit:               ; preds = %57, %switch.lookup, %54, %51, %44, %40, %38, %30, %26, %24, %18
   %.0 = phi i32 [ %21, %18 ], [ 0, %24 ], [ 0, %26 ], [ %41, %40 ], [ %39, %38 ], [ 0, %30 ], [ %56, %54 ], [ %53, %51 ], [ 0, %44 ], [ %switch.load, %switch.lookup ], [ 0, %57 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @SDL_GetKeymapScancode(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %19, label %5
 
@@ -656,13 +650,13 @@ define hidden i32 @SDL_GetKeymapScancode(ptr noundef readonly captures(address_i
 
 SDL_GetDefaultScancodeFromKey.exit:               ; preds = %25, %61, %59, %.thread.i, %44, %38, %34, %29, %21, %11, %16
   %.0 = phi i32 [ %15, %16 ], [ %15, %11 ], [ %35, %34 ], [ %39, %38 ], [ %45, %44 ], [ %60, %59 ], [ 0, %21 ], [ %..i, %61 ], [ %50, %.thread.i ], [ %31, %29 ], [ 0, %25 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
-declare void @SDL_DestroyHashTable(ptr noundef) local_unnamed_addr #3
+declare void @SDL_DestroyHashTable(ptr noundef) local_unnamed_addr #2
 
-declare void @SDL_free_REAL(ptr noundef) local_unnamed_addr #3
+declare void @SDL_free_REAL(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @SDL_SetScancodeName_REAL(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -684,7 +678,7 @@ define hidden zeroext i1 @SDL_SetScancodeName_REAL(i32 noundef %0, ptr noundef %
   ret i1 %.0
 }
 
-declare zeroext i1 @SDL_SetError_REAL(ptr noundef, ...) local_unnamed_addr #3
+declare zeroext i1 @SDL_SetError_REAL(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden nonnull ptr @SDL_GetScancodeName_REAL(i32 noundef %0) local_unnamed_addr #0 {
@@ -752,13 +746,13 @@ define hidden range(i32 0, 512) i32 @SDL_GetScancodeFromName_REAL(ptr noundef %0
   ret i32 %.08
 }
 
-declare i32 @SDL_strcasecmp_REAL(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @SDL_strcasecmp_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @SDL_GetKeyName_REAL(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca [8 x i8], align 1
   %3 = alloca i16, align 2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %4 = and i32 %0, 1073741824
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %14, label %5
@@ -856,7 +850,7 @@ define hidden ptr @SDL_GetKeyName_REAL(i32 noundef %0) local_unnamed_addr #0 {
 
 41:                                               ; preds = %38
   %42 = tail call ptr @SDL_GetCurrentKeymap() #5
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %43 = call i32 @SDL_GetKeymapScancode(ptr noundef %42, i32 noundef %0, ptr noundef nonnull %3)
   %.not33 = icmp eq i32 %43, 0
   br i1 %.not33, label %51, label %44
@@ -878,7 +872,7 @@ define hidden ptr @SDL_GetKeyName_REAL(i32 noundef %0) local_unnamed_addr #0 {
 
 51:                                               ; preds = %47, %44, %41
   %.126 = phi i32 [ %0, %44 ], [ %.2, %47 ], [ %0, %41 ]
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %52
 
 52:                                               ; preds = %38, %51
@@ -890,15 +884,15 @@ define hidden ptr @SDL_GetKeyName_REAL(i32 noundef %0) local_unnamed_addr #0 {
 
 SDL_GetScancodeName_REAL.exit:                    ; preds = %10, %8, %19, %23, %52, %36, %34, %32, %30, %28, %26
   %.0 = phi ptr [ %54, %52 ], [ %spec.store.select.i40, %26 ], [ %spec.store.select.i43, %28 ], [ %spec.store.select.i46, %30 ], [ %spec.store.select.i49, %32 ], [ %spec.store.select.i52, %34 ], [ %spec.store.select.i55, %36 ], [ %22, %19 ], [ @.str.2, %23 ], [ @.str.2, %8 ], [ %spec.store.select.i, %10 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0
 }
 
-declare ptr @SDL_GetCurrentKeymap() local_unnamed_addr #3
+declare ptr @SDL_GetCurrentKeymap() local_unnamed_addr #2
 
-declare ptr @SDL_UCS4ToUTF8_REAL(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @SDL_UCS4ToUTF8_REAL(i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @SDL_GetPersistentString(ptr noundef) local_unnamed_addr #3
+declare ptr @SDL_GetPersistentString(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @SDL_GetKeyFromName_REAL(ptr noundef %0) local_unnamed_addr #0 {
@@ -998,7 +992,7 @@ select.unfold:                                    ; preds = %select.unfold.sink.
 
 59:                                               ; preds = %select.unfold
   %60 = tail call ptr @SDL_GetCurrentKeymap() #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %.not.i = icmp eq ptr %60, null
   br i1 %.not.i, label %73, label %61
 
@@ -1017,7 +1011,7 @@ SDL_GetKeymapScancode.exit:                       ; preds = %61
   %70 = and i32 %69, 65535
   %71 = lshr i64 %68, 16
   %72 = trunc i64 %71 to i16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.not57 = icmp eq i32 %70, 0
   br i1 %.not57, label %122, label %96
 
@@ -1080,11 +1074,11 @@ SDL_GetKeymapScancode.exit:                       ; preds = %61
 SDL_GetKeymapScancode.exit.thread:                ; preds = %75, %79, %90, %.thread.i.i, %94
   %.060.ph = phi i16 [ 3, %90 ], [ 0, %.thread.i.i ], [ 3, %79 ], [ 0, %75 ], [ 0, %94 ]
   %.0.i.ph = phi i32 [ %92, %90 ], [ %85, %.thread.i.i ], [ %80, %79 ], [ %76, %75 ], [ 76, %94 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %96
 
 SDL_GetKeymapScancode.exit.thread68:              ; preds = %94
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %122
 
 96:                                               ; preds = %SDL_GetKeymapScancode.exit.thread, %SDL_GetKeymapScancode.exit
@@ -1160,14 +1154,20 @@ SDL_GetScancodeFromName_REAL.exit:                ; preds = %110, %118, %.loopex
   ret i32 %.047
 }
 
-declare i64 @SDL_strlen_REAL(ptr noundef) local_unnamed_addr #3
+declare i64 @SDL_strlen_REAL(ptr noundef) local_unnamed_addr #2
 
-declare i32 @SDL_GetKeyFromScancode_REAL(i32 noundef, i16 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #3
+declare i32 @SDL_GetKeyFromScancode_REAL(i32 noundef, i16 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind allocsize(0,1) }
 attributes #5 = { nounwind }
 

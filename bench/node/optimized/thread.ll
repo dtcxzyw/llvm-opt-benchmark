@@ -85,7 +85,7 @@ cond.end:                                         ; preds = %entry
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry, %cond.end
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %lim.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %lim.i)
   %call.i = call i32 @getrlimit64(i32 noundef 3, ptr noundef nonnull %lim.i) #11
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %uv__thread_stack_size.exit
@@ -118,7 +118,7 @@ uv__min_stack_size.exit.i:                        ; preds = %if.then.i.i, %if.en
 
 uv__thread_stack_size.exit:                       ; preds = %if.then, %if.end.i, %uv__min_stack_size.exit.i
   %retval.0.i = phi i64 [ 2097152, %if.then ], [ 2097152, %if.end.i ], [ %spec.select.i, %uv__min_stack_size.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %lim.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %lim.i)
   br label %if.end10
 
 if.else:                                          ; preds = %cond.end
@@ -213,7 +213,7 @@ if.end4:                                          ; preds = %if.end
   br i1 %cmp5.not, label %do.body, label %if.then7
 
 if.then7:                                         ; preds = %if.end4
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %cpuset.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %cpuset.i)
   %call.i = tail call i32 @uv_cpumask_size() #11
   %cmp.i = icmp slt i32 %call.i, 0
   br i1 %cmp.i, label %uv_thread_getaffinity.exit.thread, label %if.end.i
@@ -259,16 +259,16 @@ cond.end.i:                                       ; preds = %cond.true.i, %for.b
 
 uv_thread_getaffinity.exit.thread:                ; preds = %if.then7, %if.end.i
   %retval.0.i.ph = phi i32 [ -22, %if.end.i ], [ %call.i, %if.then7 ]
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %cpuset.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %cpuset.i)
   br label %return
 
 uv_thread_getaffinity.exit.thread19:              ; preds = %cond.end.i, %for.cond.preheader.i
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %cpuset.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %cpuset.i)
   br label %do.body
 
 uv_thread_getaffinity.exit:                       ; preds = %do.body.i
   %sub.i = sub nsw i32 0, %call5.i
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %cpuset.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %cpuset.i)
   %cmp9 = icmp sgt i32 %call5.i, 0
   br i1 %cmp9, label %return, label %do.body
 
@@ -775,7 +775,7 @@ if.then3.i:                                       ; preds = %if.end.i
 
 if.end4.i:                                        ; preds = %if.end.i
   %cond.i = getelementptr inbounds nuw i8, ptr %call.i3, i64 40
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %attr.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %attr.i.i)
   %call.i9.i = call i32 @pthread_condattr_init(ptr noundef nonnull %attr.i.i) #11
   %tobool.not.i.i = icmp eq i32 %call.i9.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %uv_cond_init.exit.i
@@ -796,7 +796,7 @@ if.end8.i.i:                                      ; preds = %if.end4.i.i
   br i1 %tobool10.not.i.i, label %uv_cond_init.exit.thread.i, label %error.i.i
 
 uv_cond_init.exit.thread.i:                       ; preds = %if.end8.i.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %attr.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %attr.i.i)
   %value10.i = getelementptr inbounds nuw i8, ptr %call.i3, i64 88
   store i32 %value, ptr %value10.i, align 8
   store ptr %call.i3, ptr %sem, align 8
@@ -813,7 +813,7 @@ error2.i.i:                                       ; preds = %error.i.i, %if.end4
 
 uv_cond_init.exit.i:                              ; preds = %error2.i.i, %if.end4.i
   %call.i9.pn.i = phi i32 [ %err.0.i.i, %error2.i.i ], [ %call.i9.i, %if.end4.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %attr.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %attr.i.i)
   %call.i11.i = call i32 @pthread_mutex_destroy(ptr noundef nonnull %call.i3) #11
   %tobool.not.i12.i = icmp eq i32 %call.i11.i, 0
   br i1 %tobool.not.i12.i, label %uv_mutex_destroy.exit.i, label %if.then.i13.i
@@ -1363,10 +1363,10 @@ declare i32 @sem_wait(ptr noundef) local_unnamed_addr #4
 declare i32 @sem_trywait(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #10

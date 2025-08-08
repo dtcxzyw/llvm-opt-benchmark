@@ -1678,7 +1678,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__16HdRenderSettings5_SyncEPNS_1
 ; Function Attrs: mustprogress uwtable
 define noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__10hash_valueERKNS_16HdRenderSettings13RenderProductE(ptr noundef nonnull align 8 dereferenceable(120) %0) local_unnamed_addr #0 {
   %2 = alloca %"class.pxrInternal_v0_24__pxrReserved__::Tf_HashState", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 0, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i8 0, ptr %3, align 8
@@ -1686,7 +1686,7 @@ define noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__10hash_valueERKNS_16HdR
   %4 = load i64, ptr %2, align 8
   %5 = mul i64 %4, -7046029254386353067
   %6 = call noundef i64 @llvm.bswap.i64(i64 %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %6
 }
 
@@ -4038,7 +4038,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__11Tf_HashImplINS_12Tf_HashStateERKNS_16HdRenderSettings13RenderProductEEEDTcmcl10hash_valueclsr3stdE7forwardIT0_Efp0_EEcvv_EERT_OS6_z(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(120) %1, ...) local_unnamed_addr #0 comdat {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::Tf_HashState", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 0, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i8 0, ptr %4, align 8
@@ -4046,7 +4046,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__11Tf_HashImplINS_
   %5 = load i64, ptr %3, align 8
   %6 = mul i64 %5, -7046029254386353067
   %7 = call noundef i64 @llvm.bswap.i64(i64 %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i8, ptr %8, align 8
   %10 = trunc i8 %9 to i1
@@ -4075,10 +4075,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__12TfHashAppendINS_12Tf_HashStateEmEENSt9ena
 declare i64 @llvm.bswap.i64(i64) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #17

@@ -248,15 +248,15 @@ define hidden zeroext range(i8 0, 2) i8 @eventFilterRestricted_passesFilter(ptr 
   br i1 %.not100, label %patternStringMatch.exit.thread, label %patternStringMatch.exit122.thread
 
 94:                                               ; preds = %29
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %7, align 8
   store i32 0, ptr %8, align 4
   %.b.i = load i1, ptr @eventInstance.got_version, align 1
   br i1 %.b.i, label %120, label %95
 
 95:                                               ; preds = %94
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %96 = load ptr, ptr @gdata, align 8
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 528
   %98 = load i32, ptr %97, align 8
@@ -297,7 +297,7 @@ define hidden zeroext range(i8 0, 2) i8 @eventFilterRestricted_passesFilter(ptr 
 
 isVersionGte12x.exit.i:                           ; preds = %114, %109, %101
   %.0.i.i = phi i8 [ 1, %109 ], [ %119, %114 ], [ 0, %101 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store i8 %.0.i.i, ptr @eventInstance.is_version_gte_12x, align 1
   store i1 true, ptr @eventInstance.got_version, align 1
   br label %120
@@ -387,15 +387,15 @@ isVersionGte12x.exit.i:                           ; preds = %114, %109, %101
   br i1 %.not17.i, label %eventInstance.exit, label %eventInstance.exit.thread
 
 eventInstance.exit.thread:                        ; preds = %120, %128, %122, %156
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %patternStringMatch.exit122.thread
 
 eventInstance.exit:                               ; preds = %120, %120, %156
   %.0.i.in = phi ptr [ %7, %156 ], [ %25, %120 ], [ %25, %120 ]
   %.0.i = load ptr, ptr %.0.i.in, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.not94 = icmp eq ptr %.0.i, null
   br i1 %.not94, label %patternStringMatch.exit122.thread, label %157
 
@@ -2200,10 +2200,10 @@ define internal zeroext range(i8 0, 2) i8 @matchWatchpoint(ptr noundef %0, ptr n
 declare i32 @stepControl_endStep(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

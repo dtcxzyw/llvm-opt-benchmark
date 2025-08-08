@@ -75,7 +75,7 @@ define dso_local void @_ZN4llvm7remarks11StringTableC2ERKNS0_17ParsedStringTable
 
 27:                                               ; preds = %.lr.ph, %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZNK4llvm7remarks17ParsedStringTableixEm(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected") align 8 %4, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 noundef %indvars.iv) #10
   %28 = load i8, ptr %25, align 8
   %29 = trunc i8 %28 to i1
@@ -84,13 +84,13 @@ define dso_local void @_ZN4llvm7remarks11StringTableC2ERKNS0_17ParsedStringTable
   %.sroa.0.0.copyload = load ptr, ptr %4, align 8, !tbaa !35
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !36
   %31 = load i32, ptr %26, align 4, !tbaa !37, !noalias !38
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !38
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !38
   store ptr %.sroa.0.0.copyload, ptr %3, align 8, !noalias !38
   store i64 %.sroa.2.0.copyload, ptr %.sroa.07.sroa.2.0..sroa_idx.i, align 8, !noalias !38
   store i32 %31, ptr %.sroa.2.0..sroa_idx8.i, align 8, !noalias !38
   %32 = call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload) #10, !noalias !38
   %33 = call { ptr, i8 } @_ZN4llvm9StringMapIjNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE21try_emplace_with_hashIJjEEESt4pairINS_17StringMapIteratorIjEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload, i32 noundef %32, ptr noundef nonnull align 4 dereferenceable(4) %.sroa.2.0..sroa_idx8.i), !noalias !38
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !38
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !38
   %.fca.1.extract.i = extractvalue { ptr, i8 } %33, 1
   %34 = trunc i8 %.fca.1.extract.i to i1
   br i1 %34, label %35, label %_ZN4llvm7remarks11StringTable3addENS_9StringRefE.exit
@@ -123,23 +123,20 @@ _ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i: ; preds = %41
   br label %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit
 
 _ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit:       ; preds = %41, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i, %_ZN4llvm7remarks11StringTable3addENS_9StringRefE.exit
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %27, !llvm.loop !49
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare void @_ZNK4llvm7remarks17ParsedStringTableixEm(ptr dead_on_unwind writable sret(%"class.llvm::Expected") align 8, ptr noundef nonnull align 8 dereferenceable(40), i64 noundef) local_unnamed_addr #2
+declare void @_ZNK4llvm7remarks17ParsedStringTableixEm(ptr dead_on_unwind writable sret(%"class.llvm::Expected") align 8, ptr noundef nonnull align 8 dereferenceable(40), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm7remarks11StringTable3addENS_9StringRefE(ptr dead_on_unwind noalias writable writeonly sret(%"struct.std::pair") align 8 captures(none) initializes((0, 4), (8, 24)) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, ptr %2, i64 %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"struct.std::pair.10", align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %7 = load i32, ptr %6, align 4, !tbaa !37
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %2, ptr %5, align 8
   %.sroa.07.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %3, ptr %.sroa.07.sroa.2.0..sroa_idx, align 8
@@ -147,7 +144,7 @@ define dso_local void @_ZN4llvm7remarks11StringTable3addENS_9StringRefE(ptr dead
   store i32 %7, ptr %.sroa.2.0..sroa_idx8, align 8
   %8 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr %2, i64 %3) #10
   %9 = call { ptr, i8 } @_ZN4llvm9StringMapIjNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE21try_emplace_with_hashIJjEEESt4pairINS_17StringMapIteratorIjEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(120) %1, ptr %2, i64 %3, i32 noundef %8, ptr noundef nonnull align 4 dereferenceable(4) %.sroa.2.0..sroa_idx8)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.fca.0.extract = extractvalue { ptr, i8 } %9, 0
   %.fca.1.extract = extractvalue { ptr, i8 } %9, 1
   %10 = trunc i8 %.fca.1.extract to i1
@@ -176,10 +173,7 @@ define dso_local void @_ZN4llvm7remarks11StringTable3addENS_9StringRefE(ptr dead
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(440) %1) local_unnamed_addr #0 align 2 {
@@ -196,7 +190,7 @@ define dso_local void @_ZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkE(
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !36
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %12 = load i32, ptr %11, align 4, !tbaa !37, !noalias !55
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9), !noalias !55
+  call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !55
   store ptr %.sroa.0.0.copyload.i, ptr %9, align 8, !noalias !55
   %.sroa.07.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 %.sroa.2.0.copyload.i, ptr %.sroa.07.sroa.2.0..sroa_idx.i.i, align 8, !noalias !55
@@ -204,7 +198,7 @@ define dso_local void @_ZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkE(
   store i32 %12, ptr %.sroa.2.0..sroa_idx8.i.i, align 8, !noalias !55
   %13 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i) #10, !noalias !55
   %14 = call { ptr, i8 } @_ZN4llvm9StringMapIjNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE21try_emplace_with_hashIJjEEESt4pairINS_17StringMapIteratorIjEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i, i32 noundef %13, ptr noundef nonnull align 4 dereferenceable(4) %.sroa.2.0..sroa_idx8.i.i), !noalias !55
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9), !noalias !55
+  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !55
   %.fca.0.extract.i.i = extractvalue { ptr, i8 } %14, 0
   %.fca.1.extract.i.i = extractvalue { ptr, i8 } %14, 1
   %15 = trunc i8 %.fca.1.extract.i.i to i1
@@ -229,7 +223,7 @@ define dso_local void @_ZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkE(
   %.sroa.2.0..sroa_idx.i24 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.sroa.2.0.copyload.i25 = load i64, ptr %.sroa.2.0..sroa_idx.i24, align 8, !tbaa !36
   %23 = load i32, ptr %11, align 4, !tbaa !37, !noalias !58
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8), !noalias !58
+  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !58
   store ptr %.sroa.0.0.copyload.i23, ptr %8, align 8, !noalias !58
   %.sroa.07.sroa.2.0..sroa_idx.i.i26 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 %.sroa.2.0.copyload.i25, ptr %.sroa.07.sroa.2.0..sroa_idx.i.i26, align 8, !noalias !58
@@ -237,7 +231,7 @@ define dso_local void @_ZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkE(
   store i32 %23, ptr %.sroa.2.0..sroa_idx8.i.i27, align 8, !noalias !58
   %24 = call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr %.sroa.0.0.copyload.i23, i64 %.sroa.2.0.copyload.i25) #10, !noalias !58
   %25 = call { ptr, i8 } @_ZN4llvm9StringMapIjNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE21try_emplace_with_hashIJjEEESt4pairINS_17StringMapIteratorIjEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr %.sroa.0.0.copyload.i23, i64 %.sroa.2.0.copyload.i25, i32 noundef %24, ptr noundef nonnull align 4 dereferenceable(4) %.sroa.2.0..sroa_idx8.i.i27), !noalias !58
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !58
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !58
   %.fca.0.extract.i.i28 = extractvalue { ptr, i8 } %25, 0
   %.fca.1.extract.i.i29 = extractvalue { ptr, i8 } %25, 1
   %26 = trunc i8 %.fca.1.extract.i.i29 to i1
@@ -262,7 +256,7 @@ define dso_local void @_ZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkE(
   %.sroa.2.0..sroa_idx.i34 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %.sroa.2.0.copyload.i35 = load i64, ptr %.sroa.2.0..sroa_idx.i34, align 8, !tbaa !36
   %34 = load i32, ptr %11, align 4, !tbaa !37, !noalias !61
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !61
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !61
   store ptr %.sroa.0.0.copyload.i33, ptr %7, align 8, !noalias !61
   %.sroa.07.sroa.2.0..sroa_idx.i.i36 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %.sroa.2.0.copyload.i35, ptr %.sroa.07.sroa.2.0..sroa_idx.i.i36, align 8, !noalias !61
@@ -270,7 +264,7 @@ define dso_local void @_ZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkE(
   store i32 %34, ptr %.sroa.2.0..sroa_idx8.i.i37, align 8, !noalias !61
   %35 = call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr %.sroa.0.0.copyload.i33, i64 %.sroa.2.0.copyload.i35) #10, !noalias !61
   %36 = call { ptr, i8 } @_ZN4llvm9StringMapIjNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE21try_emplace_with_hashIJjEEESt4pairINS_17StringMapIteratorIjEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr %.sroa.0.0.copyload.i33, i64 %.sroa.2.0.copyload.i35, i32 noundef %35, ptr noundef nonnull align 4 dereferenceable(4) %.sroa.2.0..sroa_idx8.i.i37), !noalias !61
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !61
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !61
   %.fca.0.extract.i.i38 = extractvalue { ptr, i8 } %36, 0
   %.fca.1.extract.i.i39 = extractvalue { ptr, i8 } %36, 1
   %37 = trunc i8 %.fca.1.extract.i.i39 to i1
@@ -301,7 +295,7 @@ define dso_local void @_ZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkE(
   %.sroa.2.0..sroa_idx.i44 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %.sroa.2.0.copyload.i45 = load i64, ptr %.sroa.2.0..sroa_idx.i44, align 8, !tbaa !36
   %49 = load i32, ptr %11, align 4, !tbaa !37, !noalias !69
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !69
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !69
   store ptr %.sroa.0.0.copyload.i43, ptr %6, align 8, !noalias !69
   %.sroa.07.sroa.2.0..sroa_idx.i.i46 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %.sroa.2.0.copyload.i45, ptr %.sroa.07.sroa.2.0..sroa_idx.i.i46, align 8, !noalias !69
@@ -309,7 +303,7 @@ define dso_local void @_ZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkE(
   store i32 %49, ptr %.sroa.2.0..sroa_idx8.i.i47, align 8, !noalias !69
   %50 = call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr %.sroa.0.0.copyload.i43, i64 %.sroa.2.0.copyload.i45) #10, !noalias !69
   %51 = call { ptr, i8 } @_ZN4llvm9StringMapIjNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE21try_emplace_with_hashIJjEEESt4pairINS_17StringMapIteratorIjEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr %.sroa.0.0.copyload.i43, i64 %.sroa.2.0.copyload.i45, i32 noundef %50, ptr noundef nonnull align 4 dereferenceable(4) %.sroa.2.0..sroa_idx8.i.i47), !noalias !69
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !69
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !69
   %.fca.0.extract.i.i48 = extractvalue { ptr, i8 } %51, 0
   %.fca.1.extract.i.i49 = extractvalue { ptr, i8 } %51, 1
   %52 = trunc i8 %.fca.1.extract.i.i49 to i1
@@ -361,13 +355,13 @@ define dso_local void @_ZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkE(
   %.sroa.2.0..sroa_idx.i54 = getelementptr inbounds nuw i8, ptr %.084, i64 8
   %.sroa.2.0.copyload.i55 = load i64, ptr %.sroa.2.0..sroa_idx.i54, align 8, !tbaa !36
   %68 = load i32, ptr %11, align 4, !tbaa !37, !noalias !72
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !72
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !72
   store ptr %.sroa.0.0.copyload.i53, ptr %5, align 8, !noalias !72
   store i64 %.sroa.2.0.copyload.i55, ptr %.sroa.07.sroa.2.0..sroa_idx.i.i56, align 8, !noalias !72
   store i32 %68, ptr %.sroa.2.0..sroa_idx8.i.i57, align 8, !noalias !72
   %69 = call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr %.sroa.0.0.copyload.i53, i64 %.sroa.2.0.copyload.i55) #10, !noalias !72
   %70 = call { ptr, i8 } @_ZN4llvm9StringMapIjNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE21try_emplace_with_hashIJjEEESt4pairINS_17StringMapIteratorIjEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr %.sroa.0.0.copyload.i53, i64 %.sroa.2.0.copyload.i55, i32 noundef %69, ptr noundef nonnull align 4 dereferenceable(4) %.sroa.2.0..sroa_idx8.i.i57), !noalias !72
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !72
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !72
   %.fca.0.extract.i.i58 = extractvalue { ptr, i8 } %70, 0
   %.fca.1.extract.i.i59 = extractvalue { ptr, i8 } %70, 1
   %71 = trunc i8 %.fca.1.extract.i.i59 to i1
@@ -391,13 +385,13 @@ define dso_local void @_ZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkE(
   %.sroa.2.0..sroa_idx.i64 = getelementptr inbounds nuw i8, ptr %.084, i64 24
   %.sroa.2.0.copyload.i65 = load i64, ptr %.sroa.2.0..sroa_idx.i64, align 8, !tbaa !36
   %78 = load i32, ptr %11, align 4, !tbaa !37, !noalias !75
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !75
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !75
   store ptr %.sroa.0.0.copyload.i63, ptr %4, align 8, !noalias !75
   store i64 %.sroa.2.0.copyload.i65, ptr %.sroa.07.sroa.2.0..sroa_idx.i.i66, align 8, !noalias !75
   store i32 %78, ptr %.sroa.2.0..sroa_idx8.i.i67, align 8, !noalias !75
   %79 = call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr %.sroa.0.0.copyload.i63, i64 %.sroa.2.0.copyload.i65) #10, !noalias !75
   %80 = call { ptr, i8 } @_ZN4llvm9StringMapIjNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE21try_emplace_with_hashIJjEEESt4pairINS_17StringMapIteratorIjEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr %.sroa.0.0.copyload.i63, i64 %.sroa.2.0.copyload.i65, i32 noundef %79, ptr noundef nonnull align 4 dereferenceable(4) %.sroa.2.0..sroa_idx8.i.i67), !noalias !75
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !75
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !75
   %.fca.0.extract.i.i68 = extractvalue { ptr, i8 } %80, 0
   %.fca.1.extract.i.i69 = extractvalue { ptr, i8 } %80, 1
   %81 = trunc i8 %.fca.1.extract.i.i69 to i1
@@ -427,13 +421,13 @@ define dso_local void @_ZN4llvm7remarks11StringTable11internalizeERNS0_6RemarkE(
   %.sroa.2.0..sroa_idx.i74 = getelementptr inbounds nuw i8, ptr %.084, i64 40
   %.sroa.2.0.copyload.i75 = load i64, ptr %.sroa.2.0..sroa_idx.i74, align 8, !tbaa !36
   %92 = load i32, ptr %11, align 4, !tbaa !37, !noalias !78
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !78
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !78
   store ptr %.sroa.0.0.copyload.i73, ptr %3, align 8, !noalias !78
   store i64 %.sroa.2.0.copyload.i75, ptr %.sroa.07.sroa.2.0..sroa_idx.i.i76, align 8, !noalias !78
   store i32 %92, ptr %.sroa.2.0..sroa_idx8.i.i77, align 8, !noalias !78
   %93 = call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr %.sroa.0.0.copyload.i73, i64 %.sroa.2.0.copyload.i75) #10, !noalias !78
   %94 = call { ptr, i8 } @_ZN4llvm9StringMapIjNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE21try_emplace_with_hashIJjEEESt4pairINS_17StringMapIteratorIjEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr %.sroa.0.0.copyload.i73, i64 %.sroa.2.0.copyload.i75, i32 noundef %93, ptr noundef nonnull align 4 dereferenceable(4) %.sroa.2.0..sroa_idx8.i.i77), !noalias !78
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !78
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !78
   %.fca.0.extract.i.i78 = extractvalue { ptr, i8 } %94, 0
   %.fca.1.extract.i.i79 = extractvalue { ptr, i8 } %94, 1
   %95 = trunc i8 %.fca.1.extract.i.i79 to i1
@@ -693,9 +687,9 @@ _ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIjEEKNS_14StringMapEntryI
   br label %.critedge.i.i, !llvm.loop !86
 }
 
-declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(48), i8 noundef zeroext) local_unnamed_addr #2
+declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(48), i8 noundef zeroext) local_unnamed_addr #1
 
-declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef, i64 noundef) local_unnamed_addr #2
+declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden { ptr, i8 } @_ZN4llvm9StringMapIjNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE21try_emplace_with_hashIJjEEESt4pairINS_17StringMapIteratorIjEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr %1, i64 %2, i32 noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %4) local_unnamed_addr #0 comdat align 2 {
@@ -810,14 +804,14 @@ _ZN4llvm17StringMapIteratorIjEC2EPPNS_18StringMapEntryBaseEb.exit: ; preds = %.p
   ret { ptr, i8 } %.pn
 }
 
-declare noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr, i64) local_unnamed_addr #2
+declare noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr, i64) local_unnamed_addr #1
 
-declare noundef i32 @_ZN4llvm13StringMapImpl15LookupBucketForENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24), ptr, i64, i32 noundef) local_unnamed_addr #2
+declare noundef i32 @_ZN4llvm13StringMapImpl15LookupBucketForENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24), ptr, i64, i32 noundef) local_unnamed_addr #1
 
-declare noundef i32 @_ZN4llvm13StringMapImpl11RehashTableEj(ptr noundef nonnull align 8 dereferenceable(24), i32 noundef) local_unnamed_addr #2
+declare noundef i32 @_ZN4llvm13StringMapImpl11RehashTableEj(ptr noundef nonnull align 8 dereferenceable(24), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress noinline nounwind uwtable
-define linkonce_odr hidden noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %0, i64 noundef %1, i64 noundef %2, i8 %3) local_unnamed_addr #4 comdat align 2 {
+define linkonce_odr hidden noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %0, i64 noundef %1, i64 noundef %2, i8 %3) local_unnamed_addr #3 comdat align 2 {
   %5 = zext nneg i8 %3 to i64
   %6 = shl nuw i64 1, %5
   %7 = add i64 %6, -1
@@ -910,18 +904,24 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12Start
   ret ptr %.0
 }
 
-declare noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef, i64 noundef) local_unnamed_addr #2
+declare noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
+declare void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #5
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #6
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #8
@@ -930,13 +930,13 @@ declare void @llvm.assume(i1 noundef) #8
 declare i32 @llvm.umin.i32(i32, i32) #9
 
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress noinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress noinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #10 = { nounwind }

@@ -1314,7 +1314,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 define hidden range(i32 -10000, 1) i32 @mz_compress(ptr noundef %pDest, ptr noundef captures(none) %pDest_len, ptr noundef %pSource, i64 noundef %source_len) local_unnamed_addr #4 {
 entry:
   %stream.i = alloca %struct.mz_stream_s, align 8
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %stream.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %stream.i)
   %0 = getelementptr inbounds nuw i8, ptr %stream.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %0, i8 0, i64 88, i1 false)
   %1 = load i64, ptr %pDest_len, align 8
@@ -1434,7 +1434,7 @@ if.then2.i10.i:                                   ; preds = %if.end13.i
 
 mz_compress2.exit:                                ; preds = %if.end.i, %entry, %mz_deflateEnd.exit.i, %if.end13.i, %if.then2.i10.i
   %retval.0.i = phi i32 [ %cond.i, %mz_deflateEnd.exit.i ], [ -10000, %entry ], [ 0, %if.end13.i ], [ 0, %if.then2.i10.i ], [ -4, %if.end.i ]
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %stream.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %stream.i)
   ret i32 %retval.0.i
 }
 
@@ -7408,10 +7408,10 @@ tdefl_init.exit:                                  ; preds = %if.end5, %if.then.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %m_pIn_buf.i, i8 0, i64 36, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_pSrc.i, i8 0, i64 24, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(640) %m_huff_count.i, i8 0, i64 640, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %in_buf_size.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %in_buf_size.addr.i)
   store i64 %buf_len, ptr %in_buf_size.addr.i, align 8
   %call.i = call i32 @tdefl_compress(ptr noundef nonnull %call, ptr noundef %pBuf, ptr noundef nonnull %in_buf_size.addr.i, ptr noundef null, ptr noundef null, i32 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %in_buf_size.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %in_buf_size.addr.i)
   %cmp9 = icmp eq i32 %call.i, 1
   %land.ext = zext i1 %cmp9 to i32
   call void @free(ptr noundef nonnull %call) #31
@@ -7706,29 +7706,29 @@ for.body23.lr.ph:                                 ; preds = %for.end
 
 for.body23:                                       ; preds = %for.body23.lr.ph, %for.body23
   %y.0103 = phi i32 [ 0, %for.body23.lr.ph ], [ %inc, %for.body23 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %in_buf_size.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %in_buf_size.addr.i)
   store i64 1, ptr %in_buf_size.addr.i, align 8
   %call.i43 = call i32 @tdefl_compress(ptr noundef nonnull %call, ptr noundef nonnull %z, ptr noundef nonnull %in_buf_size.addr.i, ptr noundef null, ptr noundef null, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %in_buf_size.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %in_buf_size.addr.i)
   %15 = xor i32 %y.0103, -1
   %sub27 = add nsw i32 %h, %15
   %cond30 = select i1 %tobool25.not, i32 %y.0103, i32 %sub27
   %mul31 = mul nsw i32 %cond30, %mul
   %idx.ext = sext i32 %mul31 to i64
   %add.ptr = getelementptr inbounds i8, ptr %pImage, i64 %idx.ext
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %in_buf_size.addr.i44)
+  call void @llvm.lifetime.start.p0(ptr nonnull %in_buf_size.addr.i44)
   store i64 %conv32, ptr %in_buf_size.addr.i44, align 8
   %call.i45 = call i32 @tdefl_compress(ptr noundef nonnull %call, ptr noundef %add.ptr, ptr noundef nonnull %in_buf_size.addr.i44, ptr noundef null, ptr noundef null, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %in_buf_size.addr.i44)
+  call void @llvm.lifetime.end.p0(ptr nonnull %in_buf_size.addr.i44)
   %inc = add nuw nsw i32 %y.0103, 1
   %exitcond.not = icmp eq i32 %inc, %h
   br i1 %exitcond.not, label %for.end35, label %for.body23, !llvm.loop !91
 
 for.end35:                                        ; preds = %for.body23, %for.end
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %in_buf_size.addr.i46)
+  call void @llvm.lifetime.start.p0(ptr nonnull %in_buf_size.addr.i46)
   store i64 0, ptr %in_buf_size.addr.i46, align 8
   %call.i47 = call i32 @tdefl_compress(ptr noundef nonnull %call, ptr noundef null, ptr noundef nonnull %in_buf_size.addr.i46, ptr noundef null, ptr noundef null, i32 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %in_buf_size.addr.i46)
+  call void @llvm.lifetime.end.p0(ptr nonnull %in_buf_size.addr.i46)
   %cmp37.not = icmp eq i32 %call.i47, 1
   br i1 %cmp37.not, label %if.end41, label %if.then39
 
@@ -8160,7 +8160,7 @@ if.then.i625:                                     ; preds = %entry
   br label %return
 
 if.end.i:                                         ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %buf_u32.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf_u32.i)
   %1 = tail call i64 @llvm.smax.i64(i64 %0, i64 4096)
   %spec.select.i = add nsw i64 %1, -4096
   %m_pRead.i = getelementptr inbounds nuw i8, ptr %pZip, i64 72
@@ -8224,13 +8224,13 @@ lor.lhs.false.i:                                  ; preds = %if.end45.i
   br i1 %cmp50.i, label %if.then.i618, label %for.cond.i
 
 if.then.i618:                                     ; preds = %if.end45.i, %lor.lhs.false.i, %for.cond.i, %if.end.i
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %buf_u32.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf_u32.i)
   %m_last_error.i619 = getelementptr inbounds nuw i8, ptr %pZip, i64 28
   store i32 7, ptr %m_last_error.i619, align 4
   br label %return
 
 if.end8:                                          ; preds = %if.then30.i
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %buf_u32.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf_u32.i)
   %10 = load ptr, ptr %m_pRead.i, align 8
   %11 = load ptr, ptr %m_pIO_opaque.i, align 8
   %call9 = call i64 %10(ptr noundef %11, i64 noundef %add.i, ptr noundef nonnull %buf_u32, i64 noundef 22) #31
@@ -9503,7 +9503,7 @@ if.end:                                           ; preds = %mz_zip_reader_get_c
   %add.ptr6 = getelementptr inbounds nuw i8, ptr %arrayidx9.i, i64 14
   %14 = load i16, ptr %add.ptr6, align 2
   %conv7 = zext i16 %14 to i32
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %tm.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %tm.i)
   %15 = getelementptr inbounds nuw i8, ptr %tm.i, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, i8 0, i64 32, i1 false)
   %tm_isdst.i = getelementptr inbounds nuw i8, ptr %tm.i, i64 32
@@ -9531,7 +9531,7 @@ if.end:                                           ; preds = %mz_zip_reader_get_c
   %and9.i = and i32 %shl.i, 62
   store i32 %and9.i, ptr %tm.i, align 8
   %call.i = call noundef i64 @mktime(ptr noundef nonnull %tm.i) #31
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %tm.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %tm.i)
   %m_time = getelementptr inbounds nuw i8, ptr %pStat, i64 16
   store i64 %call.i, ptr %m_time, align 8
   %add.ptr9 = getelementptr inbounds nuw i8, ptr %arrayidx9.i, i64 16
@@ -11023,12 +11023,12 @@ if.end4:                                          ; preds = %if.end
 if.then10:                                        ; preds = %if.end4
   %m_time = getelementptr inbounds nuw i8, ptr %file_stat, i64 16
   %0 = load i64, ptr %m_time, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %t.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %t.i)
   store i64 %0, ptr %t.i, align 8
   %modtime.i = getelementptr inbounds nuw i8, ptr %t.i, i64 8
   store i64 %0, ptr %modtime.i, align 8
   %call.i = call i32 @utime(ptr noundef readonly %pDst_filename, ptr noundef nonnull %t.i) #31
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %t.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %t.i)
   br label %return
 
 return:                                           ; preds = %if.then10, %if.end4, %if.end, %entry
@@ -11053,7 +11053,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 584, ptr nonnull %file_stat.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %file_stat.i)
   %call.i = call i32 @mz_zip_reader_file_stat(ptr noundef readonly %pZip, i32 noundef %call, ptr noundef nonnull %file_stat.i)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %mz_zip_reader_extract_to_file.exit, label %if.end.i
@@ -11074,17 +11074,17 @@ if.end4.i:                                        ; preds = %if.end.i
 if.then10.i:                                      ; preds = %if.end4.i
   %m_time.i = getelementptr inbounds nuw i8, ptr %file_stat.i, i64 16
   %0 = load i64, ptr %m_time.i, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %t.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %t.i.i)
   store i64 %0, ptr %t.i.i, align 8
   %modtime.i.i = getelementptr inbounds nuw i8, ptr %t.i.i, i64 8
   store i64 %0, ptr %modtime.i.i, align 8
   %call.i.i = call i32 @utime(ptr noundef readonly %pDst_filename, ptr noundef nonnull %t.i.i) #31
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %t.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %t.i.i)
   br label %mz_zip_reader_extract_to_file.exit
 
 mz_zip_reader_extract_to_file.exit:               ; preds = %if.end, %if.end.i, %if.end4.i, %if.then10.i
   %retval.0.i = phi i32 [ 0, %if.end ], [ 0, %if.end.i ], [ 0, %if.end4.i ], [ 1, %if.then10.i ]
-  call void @llvm.lifetime.end.p0(i64 584, ptr nonnull %file_stat.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %file_stat.i)
   br label %return
 
 return:                                           ; preds = %entry, %mz_zip_reader_extract_to_file.exit
@@ -11984,10 +11984,10 @@ if.then146:                                       ; preds = %if.end128
   %cond7.i = select i1 %cmp6.i, i32 16384, i32 0
   %or.i = or i32 %32, %cond7.i
   %call148 = call i32 @tdefl_init(ptr noundef %pComp.0, ptr noundef nonnull @mz_zip_writer_add_put_buf_callback, ptr noundef nonnull %state, i32 noundef %or.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %in_buf_size.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %in_buf_size.addr.i)
   store i64 %buf_size, ptr %in_buf_size.addr.i, align 8
   %call.i = call i32 @tdefl_compress(ptr noundef %pComp.0, ptr noundef %pBuf, ptr noundef nonnull %in_buf_size.addr.i, ptr noundef null, ptr noundef null, i32 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %in_buf_size.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %in_buf_size.addr.i)
   %cmp153.not = icmp eq i32 %call.i, 1
   br i1 %cmp153.not, label %if.end158, label %if.then155
 
@@ -12570,19 +12570,19 @@ lor.lhs.false29:                                  ; preds = %if.end25
   br i1 %cmp37, label %return, label %if.end40
 
 if.end40:                                         ; preds = %lor.lhs.false29
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %file_stat.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %file_stat.i)
   %call.i = call i32 @stat(ptr noundef readonly %pSrc_filename, ptr noundef nonnull %file_stat.i) #31
   %cmp.not.i = icmp eq i32 %call.i, 0
   br i1 %cmp.not.i, label %if.end44, label %mz_zip_get_file_modified_time.exit.thread
 
 mz_zip_get_file_modified_time.exit.thread:        ; preds = %if.end40
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %file_stat.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %file_stat.i)
   br label %return
 
 if.end44:                                         ; preds = %if.end40
   %st_mtim.i = getelementptr inbounds nuw i8, ptr %file_stat.i, i64 88
   %8 = load i64, ptr %st_mtim.i, align 8
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %file_stat.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %file_stat.i)
   call fastcc void @mz_zip_time_t_to_dos_time(i64 noundef %8, ptr noundef %dos_time, ptr noundef %dos_date)
   %call45 = tail call noalias ptr @fopen(ptr noundef %pSrc_filename, ptr noundef nonnull @.str.15)
   %tobool46.not = icmp eq ptr %call45, null
@@ -12723,10 +12723,10 @@ if.end153:                                        ; preds = %for.cond
   %sub157 = sub i64 %uncomp_remaining.1, %cond146
   %tobool158.not = icmp eq i64 %sub157, 0
   %cond159 = select i1 %tobool158.not, i32 4, i32 0
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %in_buf_size.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %in_buf_size.addr.i)
   store i64 %cond146, ptr %in_buf_size.addr.i, align 8
   %call.i137 = call i32 @tdefl_compress(ptr noundef nonnull %call123, ptr noundef nonnull %call86, ptr noundef nonnull %in_buf_size.addr.i, ptr noundef null, ptr noundef null, i32 noundef %cond159)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %in_buf_size.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %in_buf_size.addr.i)
   switch i32 %call.i137, label %if.then173 [
     i32 1, label %if.end177
     i32 0, label %for.cond
@@ -13459,7 +13459,7 @@ if.then31:                                        ; preds = %if.end28
 
 if.end34:                                         ; preds = %if.then20, %if.end28
   %call35 = call i32 @mz_zip_writer_add_mem_ex(ptr noundef nonnull %zip_archive, ptr noundef nonnull %pArchive_name, ptr noundef %pBuf, i64 noundef %buf_size, ptr noundef %pComment, i16 noundef zeroext %comment_size, i32 noundef %spec.store.select, i64 noundef 0, i32 noundef 0)
-  call void @llvm.lifetime.start.p0(i64 22, ptr nonnull %hdr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %hdr.i)
   %m_pState.i = getelementptr inbounds nuw i8, ptr %zip_archive, i64 104
   %2 = load ptr, ptr %m_pState.i, align 8
   %tobool1.not.i = icmp eq ptr %2, null
@@ -13555,7 +13555,7 @@ mz_zip_writer_finalize_archive.exit:              ; preds = %if.end44.i, %land.l
 
 20:                                               ; preds = %land.lhs.true.i, %if.end22.i, %if.then12.i, %if.end.i, %lor.lhs.false5.i, %if.end34, %lor.lhs.false2.i, %mz_zip_writer_finalize_archive.exit
   %21 = phi i32 [ %call35, %mz_zip_writer_finalize_archive.exit ], [ 0, %lor.lhs.false2.i ], [ 0, %if.end34 ], [ 0, %lor.lhs.false5.i ], [ 0, %if.end.i ], [ 0, %if.then12.i ], [ 0, %if.end22.i ], [ 0, %land.lhs.true.i ]
-  call void @llvm.lifetime.end.p0(i64 22, ptr nonnull %hdr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %hdr.i)
   %22 = load ptr, ptr %m_pState.i, align 8
   %tobool1.not.i23 = icmp eq ptr %22, null
   %m_pAlloc.i = getelementptr inbounds nuw i8, ptr %zip_archive, i64 40
@@ -14512,10 +14512,10 @@ if.end2.if.end17_crit_edge:                       ; preds = %if.end2
 
 if.then5:                                         ; preds = %if.end2
   %comp = getelementptr inbounds nuw i8, ptr %zip, i64 240
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %in_buf_size.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %in_buf_size.addr.i)
   store i64 0, ptr %in_buf_size.addr.i, align 8
   %call.i = call i32 @tdefl_compress(ptr noundef nonnull %comp, ptr noundef nonnull @.str.1, ptr noundef nonnull %in_buf_size.addr.i, ptr noundef null, ptr noundef null, i32 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %in_buf_size.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %in_buf_size.addr.i)
   %or.cond = icmp ugt i32 %call.i, 1
   br i1 %or.cond, label %if.then71, label %if.end10
 
@@ -14551,7 +14551,7 @@ lor.lhs.false:                                    ; preds = %if.end17
 if.end29:                                         ; preds = %lor.lhs.false
   %m_time = getelementptr inbounds nuw i8, ptr %zip, i64 319600
   %7 = load i64, ptr %m_time, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %time.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %time.addr.i)
   store i64 %7, ptr %time.addr.i, align 8
   %call.i41 = call ptr @localtime(ptr noundef nonnull %time.addr.i) #31
   %tm_hour.i = getelementptr inbounds nuw i8, ptr %call.i41, i64 8
@@ -14577,7 +14577,7 @@ if.end29:                                         ; preds = %lor.lhs.false
   %add7.i = add i32 %shl6.i, %add5.i
   %add8.i = add i32 %add7.i, %13
   %conv9.i = trunc i32 %add8.i to i16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %time.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %time.addr.i)
   %header = getelementptr inbounds nuw i8, ptr %zip, i64 168
   %uncomp_size = getelementptr inbounds nuw i8, ptr %zip, i64 136
   %14 = load i64, ptr %uncomp_size, align 8
@@ -14876,10 +14876,10 @@ if.end16:                                         ; preds = %if.then10
 
 if.else:                                          ; preds = %mz_crc32.exit
   %comp = getelementptr inbounds nuw i8, ptr %zip, i64 240
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %in_buf_size.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %in_buf_size.addr.i)
   store i64 %bufsize, ptr %in_buf_size.addr.i, align 8
   %call.i = call i32 @tdefl_compress(ptr noundef nonnull %comp, ptr noundef nonnull %buf, ptr noundef nonnull %in_buf_size.addr.i, ptr noundef null, ptr noundef null, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %in_buf_size.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %in_buf_size.addr.i)
   %or.cond1 = icmp ugt i32 %call.i, 1
   br i1 %or.cond1, label %return, label %if.end32
 
@@ -15173,7 +15173,7 @@ mz_zip_reader_is_file_a_directory.exit:           ; preds = %if.end.i, %if.then2
   br i1 %tobool7.not, label %if.end9, label %return
 
 if.end9:                                          ; preds = %lor.lhs.false.i.i, %lor.lhs.false2.i.i, %mz_zip_reader_get_cdh.exit.i, %mz_zip_reader_is_file_a_directory.exit
-  call void @llvm.lifetime.start.p0(i64 584, ptr nonnull %file_stat.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %file_stat.i)
   %call.i = call i32 @mz_zip_reader_file_stat(ptr noundef nonnull readonly %zip, i32 noundef %1, ptr noundef nonnull %file_stat.i)
   %tobool.not.i11 = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i11, label %mz_zip_reader_extract_to_file.exit.thread, label %if.end.i12
@@ -15192,19 +15192,19 @@ if.end4.i:                                        ; preds = %if.end.i12
   br i1 %or.cond.i, label %mz_zip_reader_extract_to_file.exit.thread, label %if.end13
 
 mz_zip_reader_extract_to_file.exit.thread:        ; preds = %if.end9, %if.end.i12, %if.end4.i
-  call void @llvm.lifetime.end.p0(i64 584, ptr nonnull %file_stat.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %file_stat.i)
   br label %return
 
 if.end13:                                         ; preds = %if.end4.i
   %m_time.i = getelementptr inbounds nuw i8, ptr %file_stat.i, i64 16
   %11 = load i64, ptr %m_time.i, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %t.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %t.i.i)
   store i64 %11, ptr %t.i.i, align 8
   %modtime.i.i = getelementptr inbounds nuw i8, ptr %t.i.i, i64 8
   store i64 %11, ptr %modtime.i.i, align 8
   %call.i.i = call i32 @utime(ptr noundef readonly %filename, ptr noundef nonnull %t.i.i) #31
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %t.i.i)
-  call void @llvm.lifetime.end.p0(i64 584, ptr nonnull %file_stat.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %t.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %file_stat.i)
   %call14 = call i32 @mz_zip_reader_file_stat(ptr noundef nonnull %zip, i32 noundef %1, ptr noundef nonnull %info)
   %tobool15.not = icmp eq i32 %call14, 0
   br i1 %tobool15.not, label %return, label %if.end17
@@ -15306,7 +15306,7 @@ zip_entries_total.exit:                           ; preds = %if.end
 if.end10:                                         ; preds = %zip_entries_total.exit
   %m_zip_mode = getelementptr inbounds nuw i8, ptr %zip, i64 20
   store i32 1, ptr %m_zip_mode, align 4
-  call void @llvm.lifetime.start.p0(i64 584, ptr nonnull %file_stat.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %file_stat.i.i)
   br i1 %cmp1, label %zip_entry_mark.exit.thread.i, label %for.cond.preheader.i.i
 
 for.cond.preheader.i.i:                           ; preds = %if.end10
@@ -15466,17 +15466,17 @@ for.inc75.i.i:                                    ; preds = %land.lhs.true64.i.i
 
 zip_entry_mark.exit.thread.i:                     ; preds = %for.cond7.preheader.i.i, %for.body.i.i, %if.end23.us.i.i, %for.body.us.i.i, %if.end10
   %retval.0.i.ph.i = phi i32 [ -1, %if.end10 ], [ %call.us.i.i, %for.body.us.i.i ], [ -3, %if.end23.us.i.i ], [ %call.i.i, %for.body.i.i ], [ -3, %for.cond7.preheader.i.i ]
-  call void @llvm.lifetime.end.p0(i64 584, ptr nonnull %file_stat.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %file_stat.i.i)
   br label %return.sink.split
 
 if.end.i21:                                       ; preds = %for.inc75.i.i
-  call void @llvm.lifetime.end.p0(i64 584, ptr nonnull %file_stat.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %file_stat.i.i)
   %call.i6.i = call noalias ptr @calloc(i64 noundef %wide.trip.count63.i.i, i64 noundef 8) #35
   %tobool.not.i.i = icmp eq ptr %call.i6.i, null
   br i1 %tobool.not.i.i, label %return.sink.split, label %for.body.i10.i
 
 if.end.thread.i:                                  ; preds = %for.cond.preheader.i.i
-  call void @llvm.lifetime.end.p0(i64 584, ptr nonnull %file_stat.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %file_stat.i.i)
   %call.i632.i = tail call noalias ptr @calloc(i64 noundef %conv, i64 noundef 8) #35
   %tobool.not.i33.i = icmp eq ptr %call.i632.i, null
   br i1 %tobool.not.i33.i, label %return.sink.split, label %for.end.i.i
@@ -16063,7 +16063,7 @@ if.then47.i:                                      ; preds = %lor.lhs.false39.tai
 
 if.end29:                                         ; preds = %lor.lhs.false39.tail.i, %if.then47.i, %lor.lhs.false43.tail.i, %lor.lhs.false39.i
   %call34 = call ptr @strncpy(ptr noundef nonnull %arrayidx30, ptr noundef nonnull %m_filename, i64 noundef %sub33) #31
-  call void @llvm.lifetime.start.p0(i64 32768, ptr nonnull %npath.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %npath.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32768) %npath.i, i8 0, i64 32768, i1 false)
   %17 = load i8, ptr %path, align 16
   %tobool416.not.i = icmp eq i8 %17, 0
@@ -16114,11 +16114,11 @@ if.end37.i:                                       ; preds = %if.then30.i, %if.en
   br i1 %22, label %for.body.i21, label %if.end40, !llvm.loop !132
 
 zip_mkpath.exit:                                  ; preds = %if.then30.i
-  call void @llvm.lifetime.end.p0(i64 32768, ptr nonnull %npath.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %npath.i)
   br label %out
 
 if.end40:                                         ; preds = %if.end37.i, %if.end29
-  call void @llvm.lifetime.end.p0(i64 32768, ptr nonnull %npath.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %npath.i)
   %23 = load i16, ptr %m_version_made_by, align 8
   %24 = lshr i16 %23, 8
   %trunc = trunc nuw i16 %24 to i8
@@ -16200,7 +16200,7 @@ mz_zip_reader_is_file_a_directory.exit:           ; preds = %if.end.i, %if.then2
   br i1 %tobool70.not, label %if.then71, label %if.end77
 
 if.then71:                                        ; preds = %if.else, %lor.lhs.false2.i.i, %lor.lhs.false3.i.i, %mz_zip_reader_get_cdh.exit.i, %mz_zip_reader_is_file_a_directory.exit
-  call void @llvm.lifetime.start.p0(i64 584, ptr nonnull %file_stat.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %file_stat.i)
   %call.i27 = call i32 @mz_zip_reader_file_stat(ptr noundef nonnull readonly %zip_archive, i32 noundef %i.05465, ptr noundef nonnull %file_stat.i)
   %tobool.not.i28 = icmp eq i32 %call.i27, 0
   br i1 %tobool.not.i28, label %mz_zip_reader_extract_to_file.exit.thread, label %if.end.i29
@@ -16219,17 +16219,17 @@ if.end4.i:                                        ; preds = %if.end.i29
   br i1 %or.cond.i, label %mz_zip_reader_extract_to_file.exit.thread, label %mz_zip_reader_extract_to_file.exit
 
 mz_zip_reader_extract_to_file.exit.thread:        ; preds = %if.then71, %if.end.i29, %if.end4.i
-  call void @llvm.lifetime.end.p0(i64 584, ptr nonnull %file_stat.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %file_stat.i)
   br label %out
 
 mz_zip_reader_extract_to_file.exit:               ; preds = %if.end4.i
   %37 = load i64, ptr %m_time.i, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %t.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %t.i.i)
   store i64 %37, ptr %t.i.i, align 8
   store i64 %37, ptr %modtime.i.i, align 8
   %call.i.i = call i32 @utime(ptr noundef nonnull readonly %path, ptr noundef nonnull %t.i.i) #31
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %t.i.i)
-  call void @llvm.lifetime.end.p0(i64 584, ptr nonnull %file_stat.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %t.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %file_stat.i)
   br label %if.end77
 
 if.end77:                                         ; preds = %if.then2.i, %mz_zip_reader_extract_to_file.exit, %mz_zip_reader_is_file_a_directory.exit
@@ -16630,14 +16630,14 @@ zip_basename.exit:                                ; preds = %for.end.i, %lor.lhs
 
 for.end:                                          ; preds = %for.cond, %for.body, %if.end14, %zip_basename.exit, %if.end7
   %err.0 = phi i32 [ 0, %if.end7 ], [ -19, %zip_basename.exit ], [ -19, %if.end14 ], [ -2, %for.body ], [ 0, %for.cond ]
-  call void @llvm.lifetime.start.p0(i64 22, ptr nonnull %hdr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %hdr.i)
   %m_pState.i = getelementptr inbounds nuw i8, ptr %zip_archive, i64 104
   %7 = load ptr, ptr %m_pState.i, align 8
   %tobool1.not.i = icmp eq ptr %7, null
   br i1 %tobool1.not.i, label %mz_zip_writer_finalize_archive.exit.thread, label %lor.lhs.false2.i
 
 mz_zip_writer_finalize_archive.exit.thread:       ; preds = %for.end
-  call void @llvm.lifetime.end.p0(i64 22, ptr nonnull %hdr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %hdr.i)
   br label %return
 
 lor.lhs.false2.i:                                 ; preds = %for.end
@@ -16730,7 +16730,7 @@ if.end51.i:                                       ; preds = %land.lhs.true.i11, 
 
 mz_zip_writer_finalize_archive.exit:              ; preds = %lor.lhs.false2.i, %if.end.i, %lor.lhs.false5.i, %if.then12.i, %if.end22.i, %land.lhs.true.i11, %if.end51.i
   %.pr = load ptr, ptr %m_pState.i, align 8
-  call void @llvm.lifetime.end.p0(i64 22, ptr nonnull %hdr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %hdr.i)
   %tobool1.not.i13 = icmp eq ptr %.pr, null
   %m_pAlloc.i = getelementptr inbounds nuw i8, ptr %zip_archive, i64 40
   %25 = load ptr, ptr %m_pAlloc.i, align 8
@@ -16856,8 +16856,8 @@ if.then:                                          ; preds = %entry
   store i64 578721382704613384, ptr %scevgep91.i, align 1
   %arrayidx24.i = getelementptr inbounds nuw i8, ptr %d, i64 36970
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(32) %arrayidx24.i, i8 5, i64 32, i1 false)
-  call void @llvm.lifetime.start.p0(i64 132, ptr nonnull %num_codes.i.i)
-  call void @llvm.lifetime.start.p0(i64 132, ptr nonnull %next_code.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %num_codes.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %next_code.i.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(132) %num_codes.i.i, i8 0, i64 132, i1 false)
   br label %for.body.i.i
 
@@ -16937,10 +16937,10 @@ for.inc115.i.i:                                   ; preds = %for.end108.i.i, %fo
   br i1 %exitcond130.not.i.i, label %tdefl_optimize_huffman_table.exit.i, label %for.body87.i.i, !llvm.loop !139
 
 tdefl_optimize_huffman_table.exit.i:              ; preds = %for.inc115.i.i
-  call void @llvm.lifetime.end.p0(i64 132, ptr nonnull %num_codes.i.i)
-  call void @llvm.lifetime.end.p0(i64 132, ptr nonnull %next_code.i.i)
-  call void @llvm.lifetime.start.p0(i64 132, ptr nonnull %num_codes.i24.i)
-  call void @llvm.lifetime.start.p0(i64 132, ptr nonnull %next_code.i25.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %num_codes.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %next_code.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %num_codes.i24.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %next_code.i25.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(132) %num_codes.i24.i, i8 0, i64 132, i1 false)
   br label %for.body.i27.i
 
@@ -17020,8 +17020,8 @@ for.inc115.i71.i:                                 ; preds = %for.end108.i68.i, %
   br i1 %exitcond130.not.i73.i, label %tdefl_optimize_huffman_table.exit74.i, label %for.body87.i49.i, !llvm.loop !139
 
 tdefl_optimize_huffman_table.exit74.i:            ; preds = %for.inc115.i71.i
-  call void @llvm.lifetime.end.p0(i64 132, ptr nonnull %num_codes.i24.i)
-  call void @llvm.lifetime.end.p0(i64 132, ptr nonnull %next_code.i25.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %num_codes.i24.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %next_code.i25.i)
   %m_bits_in.i = getelementptr inbounds nuw i8, ptr %d, i64 92
   %12 = load i32, ptr %m_bits_in.i, align 4
   %shl.i = shl nuw i32 1, %12
@@ -17067,8 +17067,8 @@ if.end.i:                                         ; preds = %if.then.i, %while.b
   br i1 %cmp27.i, label %while.body.i, label %if.end, !llvm.loop !140
 
 if.else:                                          ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 320, ptr nonnull %code_sizes_to_pack.i)
-  call void @llvm.lifetime.start.p0(i64 320, ptr nonnull %packed_code_sizes.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %code_sizes_to_pack.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %packed_code_sizes.i)
   %arrayidx1.i = getelementptr inbounds nuw i8, ptr %d, i64 33738
   store i16 1, ptr %arrayidx1.i, align 2
   tail call fastcc void @tdefl_optimize_huffman_table(ptr noundef nonnull %d, i32 noundef 0, i32 noundef 288, i32 noundef 15, i32 noundef 0)
@@ -17892,8 +17892,8 @@ if.end704.i:                                      ; preds = %if.end697.i, %while
 tdefl_start_dynamic_block.exit:                   ; preds = %if.end704.i, %for.cond616.preheader.i
   %129 = phi i32 [ %99, %for.cond616.preheader.i ], [ %128, %if.end704.i ]
   %130 = phi i32 [ %98, %for.cond616.preheader.i ], [ %127, %if.end704.i ]
-  call void @llvm.lifetime.end.p0(i64 320, ptr nonnull %code_sizes_to_pack.i)
-  call void @llvm.lifetime.end.p0(i64 320, ptr nonnull %packed_code_sizes.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %code_sizes_to_pack.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %packed_code_sizes.i)
   br label %if.end
 
 if.end:                                           ; preds = %if.end.i, %tdefl_optimize_huffman_table.exit74.i, %tdefl_start_dynamic_block.exit
@@ -18325,8 +18325,8 @@ for.inc23:                                        ; preds = %for.body11, %if.the
   br i1 %exitcond105.not, label %for.end25, label %for.body11, !llvm.loop !168
 
 for.end25:                                        ; preds = %for.inc23
-  call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %hist.i)
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %offsets.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %hist.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %offsets.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2048) %hist.i, i8 0, i64 2048, i1 false)
   %cmp26.not.i = icmp eq i32 %num_used_syms.1, 0
   br i1 %cmp26.not.i, label %for.body23.i, label %for.body.preheader.i
@@ -18425,13 +18425,13 @@ for.body23.i:                                     ; preds = %for.end25, %for.bod
   br i1 %exitcond59.not.i, label %tdefl_radix_sort_syms.exit.thread, label %for.body23.i, !llvm.loop !171
 
 tdefl_radix_sort_syms.exit.thread:                ; preds = %for.body23.i
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %hist.i)
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %offsets.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %hist.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %offsets.i)
   br label %tdefl_huffman_enforce_max_code_size.exit
 
 tdefl_radix_sort_syms.exit:                       ; preds = %for.cond32.for.end51_crit_edge.us.i
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %hist.i)
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %offsets.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %hist.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %offsets.i)
   switch i32 %num_used_syms.1, label %if.end3.i [
     i32 0, label %tdefl_huffman_enforce_max_code_size.exit
     i32 1, label %tdefl_calculate_minimum_redundancy.exit.thread139
@@ -19535,10 +19535,10 @@ declare i64 @llvm.umin.i64(i64, i64) #28
 declare i64 @llvm.ctpop.i64(i64) #28
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #29
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #29
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #29
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #29
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #28

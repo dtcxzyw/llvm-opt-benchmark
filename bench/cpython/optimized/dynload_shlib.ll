@@ -21,28 +21,28 @@ define hidden ptr @_PyImport_FindSharedFuncptr(ptr noundef %0, ptr noundef %1, p
   %5 = alloca [258 x i8], align 16
   %6 = alloca [260 x i8], align 16
   %7 = alloca %struct.stat, align 8
-  call void @llvm.lifetime.start.p0(i64 258, ptr nonnull %5) #7
-  call void @llvm.lifetime.start.p0(i64 260, ptr nonnull %6) #7
-  %8 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %2, i32 noundef 47) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  %8 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %2, i32 noundef 47) #7
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %4
-  %11 = call i32 (ptr, i64, ptr, ...) @PyOS_snprintf(ptr noundef nonnull %6, i64 noundef 260, ptr noundef nonnull @.str.3, ptr noundef nonnull %2) #7
+  %11 = call i32 (ptr, i64, ptr, ...) @PyOS_snprintf(ptr noundef nonnull %6, i64 noundef 260, ptr noundef nonnull @.str.3, ptr noundef nonnull %2) #8
   br label %12
 
 12:                                               ; preds = %10, %4
   %.028 = phi ptr [ %6, %10 ], [ %2, %4 ]
-  %13 = call i32 (ptr, i64, ptr, ...) @PyOS_snprintf(ptr noundef nonnull %5, i64 noundef 258, ptr noundef nonnull @.str.4, ptr noundef %0, ptr noundef %1) #7
+  %13 = call i32 (ptr, i64, ptr, ...) @PyOS_snprintf(ptr noundef nonnull %5, i64 noundef 258, ptr noundef nonnull @.str.4, ptr noundef %0, ptr noundef %1) #8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %17, label %14
 
 14:                                               ; preds = %12
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %7) #7
-  %15 = call i32 @fileno(ptr noundef nonnull %3) #7
-  %16 = call i32 @_Py_fstat(i32 noundef %15, ptr noundef nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  %15 = call i32 @fileno(ptr noundef nonnull %3) #8
+  %16 = call i32 @_Py_fstat(i32 noundef %15, ptr noundef nonnull %7) #8
   %.not34 = icmp eq i32 %16, -1
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %.not34, label %Py_DECREF.exit, label %17
 
 17:                                               ; preds = %14, %12
@@ -50,21 +50,21 @@ define hidden ptr @_PyImport_FindSharedFuncptr(ptr noundef %0, ptr noundef %1, p
   %19 = load ptr, ptr %18, align 8, !tbaa !4
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load ptr, ptr %20, align 8, !tbaa !9
-  %22 = call i32 @_PyImport_GetDLOpenFlags(ptr noundef %21) #7
-  %23 = call ptr @dlopen(ptr noundef nonnull %.028, i32 noundef %22) #7
+  %22 = call i32 @_PyImport_GetDLOpenFlags(ptr noundef %21) #8
+  %23 = call ptr @dlopen(ptr noundef nonnull %.028, i32 noundef %22) #8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %25, label %70
 
 25:                                               ; preds = %17
-  %26 = call ptr @dlerror() #7
+  %26 = call ptr @dlerror() #8
   %27 = icmp eq ptr %26, null
   %spec.store.select = select i1 %27, ptr @.str.5, ptr %26
-  %28 = call ptr @PyUnicode_DecodeLocale(ptr noundef nonnull %spec.store.select, ptr noundef nonnull @.str.6) #7
+  %28 = call ptr @PyUnicode_DecodeLocale(ptr noundef nonnull %spec.store.select, ptr noundef nonnull @.str.6) #8
   %29 = icmp eq ptr %28, null
   br i1 %29, label %Py_DECREF.exit, label %30
 
 30:                                               ; preds = %25
-  %31 = call ptr @PyUnicode_FromString(ptr noundef %1) #7
+  %31 = call ptr @PyUnicode_FromString(ptr noundef %1) #8
   %32 = icmp eq ptr %31, null
   br i1 %32, label %33, label %39
 
@@ -80,11 +80,11 @@ define hidden ptr @_PyImport_FindSharedFuncptr(ptr noundef %0, ptr noundef %1, p
   br i1 %37, label %38, label %Py_DECREF.exit
 
 38:                                               ; preds = %35
-  call void @_Py_Dealloc(ptr noundef nonnull %28) #7
+  call void @_Py_Dealloc(ptr noundef nonnull %28) #8
   br label %Py_DECREF.exit
 
 39:                                               ; preds = %30
-  %40 = call ptr @PyUnicode_DecodeFSDefault(ptr noundef nonnull %.028) #7
+  %40 = call ptr @PyUnicode_DecodeFSDefault(ptr noundef nonnull %.028) #8
   %41 = icmp eq ptr %40, null
   br i1 %41, label %42, label %53
 
@@ -100,7 +100,7 @@ define hidden ptr @_PyImport_FindSharedFuncptr(ptr noundef %0, ptr noundef %1, p
   br i1 %46, label %47, label %Py_DECREF.exit36
 
 47:                                               ; preds = %44
-  call void @_Py_Dealloc(ptr noundef nonnull %28) #7
+  call void @_Py_Dealloc(ptr noundef nonnull %28) #8
   br label %Py_DECREF.exit36
 
 Py_DECREF.exit36:                                 ; preds = %42, %44, %47
@@ -115,11 +115,11 @@ Py_DECREF.exit36:                                 ; preds = %42, %44, %47
   br i1 %51, label %52, label %Py_DECREF.exit
 
 52:                                               ; preds = %49
-  call void @_Py_Dealloc(ptr noundef nonnull %31) #7
+  call void @_Py_Dealloc(ptr noundef nonnull %31) #8
   br label %Py_DECREF.exit
 
 53:                                               ; preds = %39
-  %54 = call ptr @PyErr_SetImportError(ptr noundef nonnull %28, ptr noundef nonnull %31, ptr noundef nonnull %40) #7
+  %54 = call ptr @PyErr_SetImportError(ptr noundef nonnull %28, ptr noundef nonnull %31, ptr noundef nonnull %40) #8
   %55 = load i32, ptr %28, align 8, !tbaa !21
   %.not.i39 = icmp sgt i32 %55, -1
   br i1 %.not.i39, label %56, label %Py_DECREF.exit40
@@ -131,7 +131,7 @@ Py_DECREF.exit36:                                 ; preds = %42, %44, %47
   br i1 %58, label %59, label %Py_DECREF.exit40
 
 59:                                               ; preds = %56
-  call void @_Py_Dealloc(ptr noundef nonnull %28) #7
+  call void @_Py_Dealloc(ptr noundef nonnull %28) #8
   br label %Py_DECREF.exit40
 
 Py_DECREF.exit40:                                 ; preds = %53, %56, %59
@@ -146,7 +146,7 @@ Py_DECREF.exit40:                                 ; preds = %53, %56, %59
   br i1 %63, label %64, label %Py_DECREF.exit42
 
 64:                                               ; preds = %61
-  call void @_Py_Dealloc(ptr noundef nonnull %31) #7
+  call void @_Py_Dealloc(ptr noundef nonnull %31) #8
   br label %Py_DECREF.exit42
 
 Py_DECREF.exit42:                                 ; preds = %Py_DECREF.exit40, %61, %64
@@ -161,69 +161,69 @@ Py_DECREF.exit42:                                 ; preds = %Py_DECREF.exit40, %
   br i1 %68, label %69, label %Py_DECREF.exit
 
 69:                                               ; preds = %66
-  call void @_Py_Dealloc(ptr noundef nonnull %40) #7
+  call void @_Py_Dealloc(ptr noundef nonnull %40) #8
   br label %Py_DECREF.exit
 
 70:                                               ; preds = %17
-  %71 = call ptr @dlsym(ptr noundef nonnull %23, ptr noundef nonnull %5) #7
+  %71 = call ptr @dlsym(ptr noundef nonnull %23, ptr noundef nonnull %5) #8
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %69, %66, %Py_DECREF.exit42, %52, %49, %Py_DECREF.exit36, %38, %35, %33, %25, %14, %70
   %.1 = phi ptr [ %71, %70 ], [ null, %14 ], [ null, %25 ], [ null, %33 ], [ null, %35 ], [ null, %38 ], [ null, %Py_DECREF.exit36 ], [ null, %49 ], [ null, %52 ], [ null, %Py_DECREF.exit42 ], [ null, %66 ], [ null, %69 ]
-  call void @llvm.lifetime.end.p0(i64 260, ptr nonnull %6) #7
-  call void @llvm.lifetime.end.p0(i64 258, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.1
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @PyOS_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #3
+declare i32 @PyOS_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare i32 @_Py_fstat(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @_Py_fstat(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fileno(ptr noundef captures(none)) local_unnamed_addr #4
+declare noundef i32 @fileno(ptr noundef captures(none)) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare i32 @_PyImport_GetDLOpenFlags(ptr noundef) local_unnamed_addr #3
+declare i32 @_PyImport_GetDLOpenFlags(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare ptr @dlopen(ptr noundef, i32 noundef) local_unnamed_addr #5
+declare ptr @dlopen(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare ptr @dlerror() local_unnamed_addr #5
+declare ptr @dlerror() local_unnamed_addr #4
 
-declare ptr @PyUnicode_DecodeLocale(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @PyUnicode_DecodeLocale(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @PyUnicode_FromString(ptr noundef) local_unnamed_addr #3
+declare ptr @PyUnicode_FromString(ptr noundef) local_unnamed_addr #2
 
-declare ptr @PyUnicode_DecodeFSDefault(ptr noundef) local_unnamed_addr #3
+declare ptr @PyUnicode_DecodeFSDefault(ptr noundef) local_unnamed_addr #2
 
-declare ptr @PyErr_SetImportError(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @PyErr_SetImportError(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare ptr @dlsym(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare ptr @dlsym(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #6
+declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #5
 
-declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #3
+declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nounwind }
-attributes #8 = { nounwind willreturn memory(read) }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { nounwind willreturn memory(read) }
+attributes #8 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

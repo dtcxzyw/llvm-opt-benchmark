@@ -88,8 +88,8 @@ define internal fastcc void @listTypeTryConversionRaw(ptr noundef captures(none)
   unreachable
 
 19:                                               ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load ptr, ptr %20, align 8, !tbaa !6
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
@@ -158,8 +158,8 @@ define internal fastcc void @listTypeTryConversionRaw(ptr noundef captures(none)
   br label %listTypeTryConvertQuicklist.exit
 
 listTypeTryConvertQuicklist.exit:                 ; preds = %19, %24, %35, %41, %49
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %listTypeTryConvertListpack.exit
 
 56:                                               ; preds = %7
@@ -349,7 +349,7 @@ define dso_local void @listTypePush(ptr noundef captures(none) %0, ptr noundef r
   br i1 %13, label %14, label %22
 
 14:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !6
   %17 = ptrtoint ptr %16 to i64
@@ -358,7 +358,7 @@ define dso_local void @listTypePush(ptr noundef captures(none) %0, ptr noundef r
   %20 = load ptr, ptr %19, align 8, !tbaa !6
   %21 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #11
   call void @quicklistPush(ptr noundef %20, ptr noundef nonnull %4, i64 noundef %21, i32 noundef %10) #9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %118
 
 22:                                               ; preds = %8
@@ -548,31 +548,25 @@ sdslen.exit28:                                    ; preds = %93, %94, %97, %101,
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @ll2string(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @ll2string(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
-
-declare void @quicklistPush(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
+declare void @quicklistPush(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @lpPrependInteger(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare ptr @lpPrependInteger(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @lpAppendInteger(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare ptr @lpAppendInteger(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @lpPrepend(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @lpPrepend(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @lpAppend(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @lpAppend(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
-
-declare void @_serverPanic(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @_serverPanic(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: cold nofree noreturn nounwind
-declare void @abort() local_unnamed_addr #4
+declare void @abort() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @listPopSaver(ptr noundef %0, i64 noundef %1) #0 {
@@ -580,7 +574,7 @@ define dso_local ptr @listPopSaver(ptr noundef %0, i64 noundef %1) #0 {
   ret ptr %3
 }
 
-declare ptr @createStringObject(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @createStringObject(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @listTypePop(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -588,7 +582,7 @@ define dso_local ptr @listTypePop(ptr noundef captures(none) %0, i32 noundef %1)
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca [21 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !48
   %7 = load i32, ptr %0, align 8
   %8 = lshr i32 %7, 4
@@ -599,7 +593,7 @@ define dso_local ptr @listTypePop(ptr noundef captures(none) %0, i32 noundef %1)
   ]
 
 10:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %11 = icmp ne i32 %1, 0
   %12 = sext i1 %11 to i32
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -618,12 +612,12 @@ define dso_local ptr @listTypePop(ptr noundef captures(none) %0, i32 noundef %1)
 
 22:                                               ; preds = %19, %10
   %23 = phi ptr [ %21, %19 ], [ %17, %10 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %44
 
 24:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
-  call void @llvm.lifetime.start.p0(i64 21, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %25 = icmp eq i32 %1, 0
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !6
@@ -654,8 +648,8 @@ define dso_local ptr @listTypePop(ptr noundef captures(none) %0, i32 noundef %1)
 
 41:                                               ; preds = %34, %32
   %42 = phi ptr [ %37, %34 ], [ null, %32 ]
-  call void @llvm.lifetime.end.p0(i64 21, ptr nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %44
 
 43:                                               ; preds = %2
@@ -665,21 +659,21 @@ define dso_local ptr @listTypePop(ptr noundef captures(none) %0, i32 noundef %1)
 
 44:                                               ; preds = %41, %22
   %45 = phi ptr [ %42, %41 ], [ %23, %22 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %45
 }
 
-declare i32 @quicklistPopCustom(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @quicklistPopCustom(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @createStringObjectFromLongLong(i64 noundef) local_unnamed_addr #2
+declare ptr @createStringObjectFromLongLong(i64 noundef) local_unnamed_addr #1
 
-declare ptr @lpFirst(ptr noundef) local_unnamed_addr #2
+declare ptr @lpFirst(ptr noundef) local_unnamed_addr #1
 
-declare ptr @lpLast(ptr noundef) local_unnamed_addr #2
+declare ptr @lpLast(ptr noundef) local_unnamed_addr #1
 
-declare ptr @lpGet(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @lpGet(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @lpDelete(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @lpDelete(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @listTypeLength(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -713,9 +707,9 @@ define dso_local i64 @listTypeLength(ptr noundef readonly captures(none) %0) loc
   ret i64 %.0
 }
 
-declare i64 @quicklistCount(ptr noundef) local_unnamed_addr #2
+declare i64 @quicklistCount(ptr noundef) local_unnamed_addr #1
 
-declare i64 @lpLength(ptr noundef) local_unnamed_addr #2
+declare i64 @lpLength(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local noalias noundef ptr @listTypeInitIterator(ptr noundef %0, i64 noundef %1, i8 noundef zeroext %2) local_unnamed_addr #0 {
@@ -762,11 +756,11 @@ define dso_local noalias noundef ptr @listTypeInitIterator(ptr noundef %0, i64 n
 }
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @zmalloc(i64 noundef) local_unnamed_addr #5
+declare noalias ptr @zmalloc(i64 noundef) local_unnamed_addr #4
 
-declare ptr @quicklistGetIteratorAtIdx(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @quicklistGetIteratorAtIdx(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
-declare ptr @lpSeek(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @lpSeek(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @listTypeSetIteratorDirection(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i8 noundef zeroext %2) local_unnamed_addr #0 {
@@ -824,11 +818,11 @@ define dso_local void @listTypeSetIteratorDirection(ptr noundef captures(none) %
   ret void
 }
 
-declare void @quicklistSetDirection(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @quicklistSetDirection(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @lpNext(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @lpNext(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @lpPrev(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @lpPrev(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @listTypeReleaseIterator(ptr noundef %0) local_unnamed_addr #0 {
@@ -848,9 +842,9 @@ define dso_local void @listTypeReleaseIterator(ptr noundef %0) local_unnamed_add
   ret void
 }
 
-declare void @quicklistReleaseIterator(ptr noundef) local_unnamed_addr #2
+declare void @quicklistReleaseIterator(ptr noundef) local_unnamed_addr #1
 
-declare void @zfree(ptr noundef) local_unnamed_addr #2
+declare void @zfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @listTypeNext(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -922,9 +916,9 @@ define dso_local i32 @listTypeNext(ptr noundef %0, ptr noundef %1) local_unnamed
   ret i32 %.0
 }
 
-declare void @_serverAssert(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @_serverAssert(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @quicklistNext(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @quicklistNext(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @listTypeGetValue(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -956,14 +950,14 @@ define dso_local ptr @listTypeGetValue(ptr noundef readonly captures(none) %0, p
   br label %24
 
 17:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !64
   %20 = call ptr @lpGetValue(ptr noundef %19, ptr noundef nonnull %4, ptr noundef %2) #9
   %21 = load i32, ptr %4, align 4, !tbaa !44
   %22 = zext i32 %21 to i64
   store i64 %22, ptr %1, align 8, !tbaa !12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %24
 
 23:                                               ; preds = %3
@@ -976,13 +970,13 @@ define dso_local ptr @listTypeGetValue(ptr noundef readonly captures(none) %0, p
   ret ptr %.0
 }
 
-declare ptr @lpGetValue(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @lpGetValue(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @listTypeGet(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load ptr, ptr %0, align 8, !tbaa !68
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i8, ptr %5, align 8, !tbaa !60
@@ -1014,13 +1008,13 @@ listTypeGetValue.exit.thread:                     ; preds = %7
   unreachable
 
 listTypeGetValue.exit:                            ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !64
   %17 = call ptr @lpGetValue(ptr noundef %16, ptr noundef nonnull %2, ptr noundef nonnull %3) #9
   %18 = load i32, ptr %2, align 4, !tbaa !44
   %19 = zext i32 %18 to i64
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.not = icmp eq ptr %17, null
   br i1 %.not, label %listTypeGetValue.exit._crit_edge, label %20
 
@@ -1041,7 +1035,7 @@ listTypeGetValue.exit._crit_edge:                 ; preds = %listTypeGetValue.ex
 
 25:                                               ; preds = %22, %20
   %.0 = phi ptr [ %21, %20 ], [ %24, %22 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
@@ -1144,15 +1138,15 @@ sdslen.exit:                                      ; preds = %3, %13, %16, %20, %
   ret void
 }
 
-declare ptr @getDecodedObject(ptr noundef) local_unnamed_addr #2
+declare ptr @getDecodedObject(ptr noundef) local_unnamed_addr #1
 
-declare void @quicklistInsertAfter(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @quicklistInsertAfter(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @quicklistInsertBefore(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @quicklistInsertBefore(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare ptr @lpInsertString(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @lpInsertString(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @decrRefCount(ptr noundef) local_unnamed_addr #2
+declare void @decrRefCount(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @listTypeReplace(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -1237,9 +1231,9 @@ sdslen.exit:                                      ; preds = %2, %12, %15, %19, %
   ret void
 }
 
-declare void @quicklistReplaceEntry(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @quicklistReplaceEntry(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare ptr @lpReplace(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @lpReplace(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @listTypeReplaceAtIndex(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -1305,7 +1299,7 @@ sdslen.exit:                                      ; preds = %3, %12, %15, %19, %
   br label %49
 
 38:                                               ; preds = %sdslen.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %40 = load ptr, ptr %39, align 8, !tbaa !6
   %41 = sext i32 %1 to i64
@@ -1323,7 +1317,7 @@ sdslen.exit:                                      ; preds = %3, %12, %15, %19, %
 
 47:                                               ; preds = %43, %38
   %.1 = phi i32 [ 1, %43 ], [ 0, %38 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %49
 
 48:                                               ; preds = %sdslen.exit
@@ -1337,7 +1331,7 @@ sdslen.exit:                                      ; preds = %3, %12, %15, %19, %
   ret i32 %.0
 }
 
-declare i32 @quicklistReplaceAtIndex(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @quicklistReplaceAtIndex(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @listTypeEqual(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
@@ -1389,11 +1383,11 @@ define dso_local i32 @listTypeEqual(ptr noundef %0, ptr noundef %1, i64 noundef 
   ret i32 %.0
 }
 
-declare void @_serverAssertWithInfo(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @_serverAssertWithInfo(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @quicklistCompare(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @quicklistCompare(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @lpCompare(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @lpCompare(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @listTypeDelete(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -1414,7 +1408,7 @@ define dso_local void @listTypeDelete(ptr noundef captures(none) %0, ptr noundef
   br label %34
 
 11:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !64
   store ptr %13, ptr %3, align 8, !tbaa !72
@@ -1452,7 +1446,7 @@ define dso_local void @listTypeDelete(ptr noundef captures(none) %0, ptr noundef
   br label %32
 
 32:                                               ; preds = %28, %30, %24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %34
 
 33:                                               ; preds = %2
@@ -1464,7 +1458,7 @@ define dso_local void @listTypeDelete(ptr noundef captures(none) %0, ptr noundef
   ret void
 }
 
-declare void @quicklistDelEntry(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @quicklistDelEntry(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @listTypeDup(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -1515,11 +1509,11 @@ define dso_local noundef ptr @listTypeDup(ptr noundef readonly captures(none) %0
   ret ptr %19
 }
 
-declare ptr @createObject(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @createObject(i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @lpDup(ptr noundef) local_unnamed_addr #2
+declare ptr @lpDup(ptr noundef) local_unnamed_addr #1
 
-declare ptr @quicklistDup(ptr noundef) local_unnamed_addr #2
+declare ptr @quicklistDup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @listTypeDelRange(ptr noundef captures(none) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
@@ -1553,9 +1547,9 @@ define dso_local void @listTypeDelRange(ptr noundef captures(none) %0, i64 nound
   ret void
 }
 
-declare i32 @quicklistDelRange(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @quicklistDelRange(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare ptr @lpDeleteRange(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @lpDeleteRange(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @pushGenericCommand(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -1679,25 +1673,25 @@ listTypeLength.exit:                              ; preds = %41, %45
   ret void
 }
 
-declare ptr @lookupKeyWrite(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @lookupKeyWrite(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @checkType(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @checkType(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @addReply(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @addReply(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @createListListpackObject() local_unnamed_addr #2
+declare ptr @createListListpackObject() local_unnamed_addr #1
 
-declare ptr @dbAdd(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @dbAdd(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @addReplyLongLong(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @addReplyLongLong(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @signalModifiedKey(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @signalModifiedKey(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @notifyKeyspaceEvent(i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @notifyKeyspaceEvent(i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @updateKeysizesHist(ptr noundef, i32 noundef, i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
+declare void @updateKeysizesHist(ptr noundef, i32 noundef, i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @getKeySlot(ptr noundef) local_unnamed_addr #2
+declare i32 @getKeySlot(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @lpushCommand(ptr noundef %0) local_unnamed_addr #0 {
@@ -1726,7 +1720,7 @@ define dso_local void @rpushxCommand(ptr noundef %0) local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define dso_local void @linsertCommand(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.listTypeEntry, align 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %4 = load ptr, ptr %3, align 8, !tbaa !83
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -1977,16 +1971,16 @@ listTypeLength.exit37:                            ; preds = %122, %126
   br label %136
 
 136:                                              ; preds = %135, %listTypeLength.exit37, %16, %22, %14
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
+declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
-declare void @addReplyErrorObject(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @addReplyErrorObject(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @lookupKeyWriteOrReply(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @lookupKeyWriteOrReply(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @llenCommand(ptr noundef %0) local_unnamed_addr #0 {
@@ -2039,7 +2033,7 @@ listTypeLength.exit:                              ; preds = %15, %19
   ret void
 }
 
-declare ptr @lookupKeyReadOrReply(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @lookupKeyReadOrReply(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @lindexCommand(ptr noundef %0) local_unnamed_addr #0 {
@@ -2066,7 +2060,7 @@ define dso_local void @lindexCommand(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %19, label %71
 
 19:                                               ; preds = %17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %20 = load ptr, ptr %6, align 8, !tbaa !83
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load ptr, ptr %21, align 8, !tbaa !48
@@ -2113,8 +2107,8 @@ define dso_local void @lindexCommand(ptr noundef %0) local_unnamed_addr #0 {
   unreachable
 
 listTypeInitIterator.exit:                        ; preds = %33, %37
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %43 = call i32 @listTypeNext(ptr noundef nonnull %26, ptr noundef nonnull %4)
   %.not18 = icmp eq i32 %43, 0
   br i1 %.not18, label %64, label %44
@@ -2151,13 +2145,13 @@ listTypeGetValue.exit.thread:                     ; preds = %48
   unreachable
 
 listTypeGetValue.exit:                            ; preds = %44
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %56 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %57 = load ptr, ptr %56, align 8, !tbaa !64
   %58 = call ptr @lpGetValue(ptr noundef %57, ptr noundef nonnull %2, ptr noundef nonnull %5) #9
   %59 = load i32, ptr %2, align 4, !tbaa !44
   %60 = zext i32 %59 to i64
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.not19 = icmp eq ptr %58, null
   br i1 %.not19, label %listTypeGetValue.exit._crit_edge, label %61
 
@@ -2192,25 +2186,25 @@ listTypeGetValue.exit._crit_edge:                 ; preds = %listTypeGetValue.ex
 
 listTypeReleaseIterator.exit:                     ; preds = %65, %68
   call void @zfree(ptr noundef nonnull %26) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %70
 
 70:                                               ; preds = %19, %listTypeReleaseIterator.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %71
 
 71:                                               ; preds = %1, %17, %70
   ret void
 }
 
-declare i32 @getLongFromObjectOrReply(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @getLongFromObjectOrReply(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @addReplyBulkCBuffer(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @addReplyBulkCBuffer(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @addReplyBulkLongLong(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @addReplyBulkLongLong(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @addReplyNull(ptr noundef) local_unnamed_addr #2
+declare void @addReplyNull(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @lsetCommand(ptr noundef %0) local_unnamed_addr #0 {
@@ -2230,7 +2224,7 @@ define dso_local void @lsetCommand(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %12, label %42
 
 12:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %13 = load ptr, ptr %3, align 8, !tbaa !83
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load ptr, ptr %14, align 8, !tbaa !48
@@ -2277,7 +2271,7 @@ define dso_local void @lsetCommand(ptr noundef %0) local_unnamed_addr #0 {
   br label %41
 
 41:                                               ; preds = %24, %39, %12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %42
 
 42:                                               ; preds = %1, %10, %41
@@ -2354,9 +2348,9 @@ listTypeDelRange.exit:                            ; preds = %30, %34
   ret void
 }
 
-declare void @addReplyArrayLen(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @addReplyArrayLen(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @addReplyBulk(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @addReplyBulk(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @addListRangeReply(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
@@ -2550,7 +2544,7 @@ define dso_local void @addListQuicklistRangeReply(ptr noundef %0, ptr noundef re
 16:                                               ; preds = %.lr.ph, %26
   %.in = phi i32 [ %3, %.lr.ph ], [ %17, %26 ]
   %17 = add nsw i32 %.in, -1
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %18 = call i32 @quicklistNext(ptr noundef %12, ptr noundef nonnull %6) #9
   %.not12 = icmp eq i32 %18, 0
   br i1 %.not12, label %19, label %20, !prof !98
@@ -2576,7 +2570,7 @@ define dso_local void @addListQuicklistRangeReply(ptr noundef %0, ptr noundef re
   br label %26
 
 26:                                               ; preds = %24, %22
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not11 = icmp eq i32 %17, 0
   br i1 %.not11, label %._crit_edge, label %16, !llvm.loop !102
 
@@ -2594,7 +2588,7 @@ define dso_local void @addListListpackRangeReply(ptr noundef %0, ptr noundef rea
   %10 = sext i32 %2 to i64
   %11 = tail call ptr @lpSeek(ptr noundef %9, i64 noundef %10) #9
   %12 = tail call i64 @lpBytes(ptr noundef %9) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %13 = sext i32 %3 to i64
   tail call void @addReplyArrayLen(ptr noundef %0, i64 noundef %13) #9
   %.not19 = icmp eq i32 %3, 0
@@ -2612,12 +2606,12 @@ define dso_local void @addListListpackRangeReply(ptr noundef %0, ptr noundef rea
   br i1 %.not17.us, label %.split.us, label %16, !prof !98
 
 16:                                               ; preds = %.lr.ph.split.us
-  call void @llvm.lifetime.start.p0(i64 21, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %17 = call ptr @lpGet(ptr noundef nonnull %.01620.us, ptr noundef nonnull %6, ptr noundef nonnull %7) #9
   %18 = load i64, ptr %6, align 8, !tbaa !12
   call void @addReplyBulkCBuffer(ptr noundef %0, ptr noundef %17, i64 noundef %18) #9
   %19 = call ptr @lpNextWithBytes(ptr noundef %9, ptr noundef nonnull %.01620.us, i64 noundef %12) #9
-  call void @llvm.lifetime.end.p0(i64 21, ptr nonnull %7) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %20 = add nsw i32 %15, -1
   %.not.us = icmp eq i32 %15, 0
   br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !103
@@ -2634,26 +2628,26 @@ define dso_local void @addListListpackRangeReply(ptr noundef %0, ptr noundef rea
   unreachable
 
 22:                                               ; preds = %.lr.ph.split
-  call void @llvm.lifetime.start.p0(i64 21, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %23 = call ptr @lpGet(ptr noundef nonnull %.01620, ptr noundef nonnull %6, ptr noundef nonnull %7) #9
   %24 = load i64, ptr %6, align 8, !tbaa !12
   call void @addReplyBulkCBuffer(ptr noundef %0, ptr noundef %23, i64 noundef %24) #9
   %25 = call ptr @lpPrev(ptr noundef %9, ptr noundef nonnull %.01620) #9
-  call void @llvm.lifetime.end.p0(i64 21, ptr nonnull %7) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %26 = add nsw i32 %21, -1
   %.not = icmp eq i32 %21, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !105
 
 ._crit_edge:                                      ; preds = %22, %16, %5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
-declare i64 @lpBytes(ptr noundef) local_unnamed_addr #2
+declare i64 @lpBytes(ptr noundef) local_unnamed_addr #1
 
-declare ptr @lpNextWithBytes(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @lpNextWithBytes(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @dbDelete(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @dbDelete(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @popGenericCommand(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -2661,7 +2655,7 @@ define dso_local void @popGenericCommand(ptr noundef %0, i32 noundef %1) local_u
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %5 = load i32, ptr %4, align 8, !tbaa !86
   %6 = icmp ne i32 %5, 3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 0, ptr %3, align 8, !tbaa !12
   %7 = icmp sgt i32 %5, 3
   br i1 %7, label %8, label %9
@@ -2806,13 +2800,13 @@ listTypeDelRange.exit:                            ; preds = %65, %69
   br label %77
 
 77:                                               ; preds = %31, %26, %16, %listTypeDelRange.exit, %37, %10, %8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-declare void @addReplyErrorArity(ptr noundef) local_unnamed_addr #2
+declare void @addReplyErrorArity(ptr noundef) local_unnamed_addr #1
 
-declare i32 @getPositiveLongFromObjectOrReply(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @getPositiveLongFromObjectOrReply(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @mpopGenericCommand(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
@@ -2894,9 +2888,9 @@ listTypeLength.exit:                              ; preds = %20, %24
   ret void
 }
 
-declare void @rewriteClientCommandVector(ptr noundef, i32 noundef, ...) local_unnamed_addr #2
+declare void @rewriteClientCommandVector(ptr noundef, i32 noundef, ...) local_unnamed_addr #1
 
-declare void @addReplyNullArray(ptr noundef) local_unnamed_addr #2
+declare void @addReplyNullArray(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @lpopCommand(ptr noundef %0) local_unnamed_addr #0 {
@@ -2914,8 +2908,8 @@ define dso_local void @rpopCommand(ptr noundef %0) local_unnamed_addr #0 {
 define dso_local void @lrangeCommand(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %5 = load ptr, ptr %4, align 8, !tbaa !83
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -2953,8 +2947,8 @@ define dso_local void @lrangeCommand(ptr noundef %0) local_unnamed_addr #0 {
   br label %26
 
 26:                                               ; preds = %14, %21, %1, %9, %23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -2962,8 +2956,8 @@ define dso_local void @lrangeCommand(ptr noundef %0) local_unnamed_addr #0 {
 define dso_local void @ltrimCommand(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %5 = load ptr, ptr %4, align 8, !tbaa !83
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -3189,8 +3183,8 @@ listTypeLength.exit60:                            ; preds = %89, %93
   br label %128
 
 128:                                              ; preds = %14, %21, %1, %9, %112
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -3204,11 +3198,11 @@ define dso_local void @lposCommand(ptr noundef %0) local_unnamed_addr #0 {
   %7 = load ptr, ptr %6, align 8, !tbaa !83
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !48
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 1, ptr %2, align 8, !tbaa !12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 -1, ptr %3, align 8, !tbaa !12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8, !tbaa !12
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %11 = load i32, ptr %10, align 8, !tbaa !86
@@ -3384,7 +3378,7 @@ define dso_local void @lposCommand(ptr noundef %0) local_unnamed_addr #0 {
   unreachable
 
 listTypeInitIterator.exit:                        ; preds = %87, %92
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %98 = load i32, ptr %60, align 8
   %99 = lshr i32 %98, 4
   %100 = and i32 %99, 15
@@ -3627,25 +3621,25 @@ listTypeReleaseIterator.exit:                     ; preds = %.critedge, %192
   br label %203
 
 203:                                              ; preds = %196, %197, %194
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.critedge107
 
 .critedge107:                                     ; preds = %41, %34, %23, %45, %30, %72, %64, %66, %203
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
-declare i32 @getRangeLongFromObjectOrReply(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @getRangeLongFromObjectOrReply(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @addReplyError(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @addReplyError(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @lookupKeyRead(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @lookupKeyRead(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @addReplyDeferredLen(ptr noundef) local_unnamed_addr #2
+declare ptr @addReplyDeferredLen(ptr noundef) local_unnamed_addr #1
 
-declare void @setDeferredArrayLen(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @setDeferredArrayLen(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @lremCommand(ptr noundef %0) local_unnamed_addr #0 {
@@ -3655,7 +3649,7 @@ define dso_local void @lremCommand(ptr noundef %0) local_unnamed_addr #0 {
   %5 = load ptr, ptr %4, align 8, !tbaa !83
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = load ptr, ptr %6, align 8, !tbaa !48
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !48
   %10 = call i32 @getRangeLongFromObjectOrReply(ptr noundef %0, ptr noundef %9, i64 noundef -9223372036854775807, i64 noundef 9223372036854775807, ptr noundef nonnull %2, ptr noundef null) #9
@@ -3759,7 +3753,7 @@ define dso_local void @lremCommand(ptr noundef %0) local_unnamed_addr #0 {
 
 listTypeInitIterator.exit:                        ; preds = %54, %50, %36, %32
   %.037 = phi ptr [ %25, %32 ], [ %25, %36 ], [ %43, %50 ], [ %43, %54 ]
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %60 = load ptr, ptr %4, align 8, !tbaa !83
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 24
   %62 = load ptr, ptr %61, align 8, !tbaa !48
@@ -3930,11 +3924,11 @@ listTypeLength.exit:                              ; preds = %107, %111
 
 150:                                              ; preds = %145, %listTypeReleaseIterator.exit
   call void @addReplyLongLong(ptr noundef nonnull %0, i64 noundef %.1) #9
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %151
 
 151:                                              ; preds = %11, %18, %1, %150
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -4031,7 +4025,7 @@ define dso_local range(i32 -1, 1) i32 @getListPositionFromObjectOrReply(ptr noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define dso_local ptr @getStringObjectFromListPosition(i32 noundef %0) local_unnamed_addr #7 {
+define dso_local ptr @getStringObjectFromListPosition(i32 noundef %0) local_unnamed_addr #6 {
   %2 = icmp eq i32 %0, 0
   %.val = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 504), align 8
   %.val1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 512), align 8
@@ -4167,7 +4161,7 @@ listTypeLength.exit:                              ; preds = %21, %25
 ; Function Attrs: nounwind uwtable
 define dso_local void @blmoveCommand(ptr noundef %0) #0 {
   %2 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %4 = load ptr, ptr %3, align 8, !tbaa !83
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -4222,14 +4216,14 @@ getListPositionFromObjectOrReply.exit11:          ; preds = %22
   br label %32
 
 32:                                               ; preds = %getListPositionFromObjectOrReply.exit11, %getListPositionFromObjectOrReply.exit, %26, %30
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @brpoplpushCommand(ptr noundef %0) #0 {
   %2 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %4 = load ptr, ptr %3, align 8, !tbaa !83
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -4244,7 +4238,7 @@ define dso_local void @brpoplpushCommand(ptr noundef %0) #0 {
   br label %10
 
 10:                                               ; preds = %1, %8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -4308,7 +4302,7 @@ define dso_local void @rpoplpushCommand(ptr noundef %0) local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define dso_local void @blockingPopGenericCommand(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i64 noundef %5) local_unnamed_addr #0 {
   %7 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = load ptr, ptr %8, align 8, !tbaa !83
   %10 = sext i32 %4 to i64
@@ -4433,13 +4427,13 @@ listTypeLength.exit:                              ; preds = %28, %32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %22, %39, %49, %6, %58, %57
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
-declare i32 @getTimeoutFromObjectOrReply(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @getTimeoutFromObjectOrReply(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @blockForKeys(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
+declare void @blockForKeys(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @blpopCommand(ptr noundef %0) local_unnamed_addr #0 {
@@ -4549,9 +4543,9 @@ listTypeLength.exit:                              ; preds = %27, %31
 define dso_local void @lmpopGenericCommand(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8, !tbaa !12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 -1, ptr %5, align 8, !tbaa !12
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %7 = load ptr, ptr %6, align 8, !tbaa !83
@@ -4666,8 +4660,8 @@ getListPositionFromObjectOrReply.exit:            ; preds = %29
   br label %.loopexit
 
 .loopexit:                                        ; preds = %51, %getListPositionFromObjectOrReply.exit, %19, %.critedge, %66, %65, %3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -4683,17 +4677,23 @@ define dso_local void @blmpopCommand(ptr noundef %0) local_unnamed_addr #0 {
   ret void
 }
 
-declare void @quicklistNodeLimit(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @quicklistNodeLimit(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @quicklistRelease(ptr noundef) local_unnamed_addr #2
+declare void @quicklistRelease(ptr noundef) local_unnamed_addr #1
 
-declare i32 @quicklistNodeExceedsLimit(i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @quicklistNodeExceedsLimit(i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @quicklistNew(i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @quicklistNew(i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @quicklistAppendListpack(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @quicklistAppendListpack(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @lpFree(ptr noundef) local_unnamed_addr #2
+declare void @lpFree(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #8
@@ -4702,13 +4702,13 @@ declare i64 @llvm.smin.i64(i64, i64) #8
 declare i64 @llvm.smax.i64(i64, i64) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #9 = { nounwind }
 attributes #10 = { noreturn nounwind }

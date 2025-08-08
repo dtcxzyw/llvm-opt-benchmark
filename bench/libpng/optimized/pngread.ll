@@ -119,15 +119,9 @@ define noalias ptr @png_create_read_struct_2(ptr noundef %0, ptr noundef %1, ptr
   ret ptr %8
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare noalias ptr @png_create_png_struct(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare noalias ptr @png_create_png_struct(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare void @png_set_read_fn(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @png_set_read_fn(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @png_read_info(ptr noalias noundef %0, ptr noalias noundef %1) local_unnamed_addr #0 {
@@ -258,20 +252,20 @@ define void @png_read_info(ptr noalias noundef %0, ptr noalias noundef %1) local
   ret void
 }
 
-declare void @png_read_sig(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @png_read_sig(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @png_read_chunk_header(ptr noundef) local_unnamed_addr #2
+declare i32 @png_read_chunk_header(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare void @png_chunk_error(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @png_chunk_error(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @png_chunk_benign_error(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @png_chunk_benign_error(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @png_handle_chunk(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @png_handle_chunk(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @png_chunk_unknown_handling(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @png_chunk_unknown_handling(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @png_handle_unknown(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @png_handle_unknown(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @png_read_update_info(ptr noalias noundef %0, ptr noalias noundef %1) local_unnamed_addr #0 {
@@ -298,11 +292,11 @@ define void @png_read_update_info(ptr noalias noundef %0, ptr noalias noundef %1
   ret void
 }
 
-declare void @png_read_start_row(ptr noundef) local_unnamed_addr #2
+declare void @png_read_start_row(ptr noundef) local_unnamed_addr #1
 
-declare void @png_read_transform_info(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @png_read_transform_info(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @png_app_error(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @png_app_error(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @png_start_read_image(ptr noalias noundef %0) local_unnamed_addr #0 {
@@ -331,7 +325,7 @@ define void @png_start_read_image(ptr noalias noundef %0) local_unnamed_addr #0 
 ; Function Attrs: nounwind uwtable
 define void @png_read_row(ptr noalias noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.png_row_info_struct, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = icmp eq ptr %0, null
   br i1 %5, label %236, label %6
 
@@ -828,27 +822,27 @@ png_do_read_intrapixel.exit:                      ; preds = %.lr.ph.i.lver.orig,
   br label %236
 
 236:                                              ; preds = %228, %231, %3, %99, %95, %86, %80, %71, %65, %56
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
-declare void @png_combine_row(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @png_combine_row(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @png_read_finish_row(ptr noundef) local_unnamed_addr #2
+declare void @png_read_finish_row(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare void @png_error(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @png_error(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @png_read_IDAT_data(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @png_read_IDAT_data(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @png_read_filter_row(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @png_read_filter_row(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
-declare void @png_do_read_transformations(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @png_do_read_transformations(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @png_do_read_interlace(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @png_do_read_interlace(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @png_read_rows(ptr noalias noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #0 {
@@ -998,9 +992,9 @@ png_start_read_image.exit:                        ; preds = %15, %14, %28
   ret void
 }
 
-declare i32 @png_set_interlace_handling(ptr noundef) local_unnamed_addr #2
+declare i32 @png_set_interlace_handling(ptr noundef) local_unnamed_addr #1
 
-declare void @png_warning(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @png_warning(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @png_read_end(ptr noalias noundef %0, ptr noalias noundef %1) local_unnamed_addr #0 {
@@ -1180,11 +1174,11 @@ define void @png_read_end(ptr noalias noundef %0, ptr noalias noundef %1) local_
   ret void
 }
 
-declare void @png_read_finish_IDAT(ptr noundef) local_unnamed_addr #2
+declare void @png_read_finish_IDAT(ptr noundef) local_unnamed_addr #1
 
-declare void @png_benign_error(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @png_benign_error(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @png_crc_finish(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @png_crc_finish(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @png_destroy_read_struct(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -1280,12 +1274,12 @@ png_read_destroy.exit:                            ; preds = %24, %28
   ret void
 }
 
-declare void @png_destroy_info_struct(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @png_destroy_info_struct(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @png_destroy_png_struct(ptr noundef) local_unnamed_addr #2
+declare void @png_destroy_png_struct(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @png_set_read_status_fn(ptr noalias noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #5 {
+define void @png_set_read_status_fn(ptr noalias noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %6, label %4
 
@@ -1529,37 +1523,37 @@ png_read_update_info.exit:                        ; preds = %65, %66
   ret void
 }
 
-declare void @png_set_scale_16(ptr noundef) local_unnamed_addr #2
+declare void @png_set_scale_16(ptr noundef) local_unnamed_addr #1
 
-declare void @png_set_strip_16(ptr noundef) local_unnamed_addr #2
+declare void @png_set_strip_16(ptr noundef) local_unnamed_addr #1
 
-declare void @png_set_strip_alpha(ptr noundef) local_unnamed_addr #2
+declare void @png_set_strip_alpha(ptr noundef) local_unnamed_addr #1
 
-declare void @png_set_packing(ptr noundef) local_unnamed_addr #2
+declare void @png_set_packing(ptr noundef) local_unnamed_addr #1
 
-declare void @png_set_packswap(ptr noundef) local_unnamed_addr #2
+declare void @png_set_packswap(ptr noundef) local_unnamed_addr #1
 
-declare void @png_set_expand(ptr noundef) local_unnamed_addr #2
+declare void @png_set_expand(ptr noundef) local_unnamed_addr #1
 
-declare void @png_set_invert_mono(ptr noundef) local_unnamed_addr #2
+declare void @png_set_invert_mono(ptr noundef) local_unnamed_addr #1
 
-declare void @png_set_shift(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @png_set_shift(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @png_set_bgr(ptr noundef) local_unnamed_addr #2
+declare void @png_set_bgr(ptr noundef) local_unnamed_addr #1
 
-declare void @png_set_swap_alpha(ptr noundef) local_unnamed_addr #2
+declare void @png_set_swap_alpha(ptr noundef) local_unnamed_addr #1
 
-declare void @png_set_swap(ptr noundef) local_unnamed_addr #2
+declare void @png_set_swap(ptr noundef) local_unnamed_addr #1
 
-declare void @png_set_invert_alpha(ptr noundef) local_unnamed_addr #2
+declare void @png_set_invert_alpha(ptr noundef) local_unnamed_addr #1
 
-declare void @png_set_gray_to_rgb(ptr noundef) local_unnamed_addr #2
+declare void @png_set_gray_to_rgb(ptr noundef) local_unnamed_addr #1
 
-declare void @png_set_expand_16(ptr noundef) local_unnamed_addr #2
+declare void @png_set_expand_16(ptr noundef) local_unnamed_addr #1
 
-declare void @png_free_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @png_free_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare noalias ptr @png_malloc(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare noalias ptr @png_malloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @png_image_begin_read_from_stdio(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -1611,7 +1605,7 @@ define internal fastcc i32 @png_image_read_init(ptr noundef nonnull %0) unnamed_
   br i1 %5, label %6, label %25
 
 6:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %7 = tail call noalias ptr @png_create_png_struct(ptr noundef nonnull @.str.26, ptr noundef nonnull %0, ptr noundef nonnull @png_safe_error, ptr noundef nonnull @png_safe_warning, ptr noundef null, ptr noundef null, ptr noundef null) #12
   %.not.i.i = icmp eq ptr %7, null
   br i1 %.not.i.i, label %png_create_read_struct.exit.thread, label %9
@@ -1636,7 +1630,7 @@ png_create_read_struct.exit.thread:               ; preds = %6
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %0, i8 0, i64 104, i1 false)
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 1, ptr %15, align 8, !tbaa !105
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %16 = tail call noalias ptr @png_create_info_struct(ptr noundef nonnull %7) #12
   store ptr %16, ptr %3, align 8, !tbaa !113
   %.not19 = icmp eq ptr %16, null
@@ -1653,7 +1647,7 @@ png_create_read_struct.exit.thread:               ; preds = %6
 
 .critedge:                                        ; preds = %.thread, %9
   call void @png_destroy_read_struct(ptr noundef nonnull %2, ptr noundef null, ptr noundef null)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %22
 
 19:                                               ; preds = %17
@@ -1663,7 +1657,7 @@ png_create_read_struct.exit.thread:               ; preds = %6
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %16, ptr %21, align 8, !tbaa !114
   store ptr %18, ptr %0, align 8, !tbaa !108
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %24
 
 22:                                               ; preds = %png_create_read_struct.exit.thread, %.critedge
@@ -1672,7 +1666,7 @@ png_create_read_struct.exit.thread:               ; preds = %6
 
 24:                                               ; preds = %19, %22
   %.3 = phi i32 [ %23, %22 ], [ 1, %19 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %27
 
 25:                                               ; preds = %1
@@ -1684,7 +1678,7 @@ png_create_read_struct.exit.thread:               ; preds = %6
   ret i32 %.4
 }
 
-declare i32 @png_safe_execute(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @png_safe_execute(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @png_image_read_header(ptr noundef captures(none) initializes((12, 24), (28, 32)) %0) #0 {
@@ -1888,7 +1882,7 @@ png_image_is_not_sRGB.exit.thread24:              ; preds = %63, %png_image_is_n
   ret i32 1
 }
 
-declare i32 @png_image_error(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @png_image_error(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @png_image_begin_read_from_file(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
@@ -1952,16 +1946,16 @@ define i32 @png_image_begin_read_from_file(ptr noundef %0, ptr noundef readonly 
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #6
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #6
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare ptr @strerror(i32 noundef) local_unnamed_addr #7
+declare ptr @strerror(i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #8
+declare ptr @__errno_location() local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
 define i32 @png_image_begin_read_from_memory(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
@@ -2126,7 +2120,7 @@ define i32 @png_image_finish_read(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %or.cond3, label %41, label %56
 
 41:                                               ; preds = %30, %.thread61
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %42 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %42, i8 0, i64 64, i1 false)
   store ptr %0, ptr %6, align 8, !tbaa !140
@@ -2158,7 +2152,7 @@ define i32 @png_image_finish_read(ptr noundef %0, ptr noundef %1, ptr noundef %2
 55:                                               ; preds = %47, %49, %53
   %.0 = phi i32 [ %54, %53 ], [ 0, %47 ], [ %52, %49 ]
   call void @png_image_free(ptr noundef nonnull %0) #12
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.critedge
 
 56:                                               ; preds = %.thread61
@@ -2187,7 +2181,7 @@ define i32 @png_image_finish_read(ptr noundef %0, ptr noundef %1, ptr noundef %2
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @png_image_read_colormap(ptr noundef captures(none) %0) #0 {
@@ -2392,7 +2386,7 @@ make_gray_colormap.exit:                          ; preds = %.preheader
   br i1 %or.cond457, label %97, label %120
 
 97:                                               ; preds = %94
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   br i1 %.not.not, label %114, label %98
 
 98:                                               ; preds = %97
@@ -2427,7 +2421,7 @@ make_gray_colormap.exit:                          ; preds = %.preheader
   %119 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i16 %115, ptr %119, align 2, !tbaa !159
   call void @png_set_background_fixed(ptr noundef nonnull %8, ptr noundef nonnull %2, i32 noundef 1, i32 noundef 0, i32 noundef 0) #12
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %make_ga_colormap.exit.thread.thread
 
 120:                                              ; preds = %94
@@ -2503,7 +2497,7 @@ make_gray_colormap.exit:                          ; preds = %.preheader
   br i1 %or.cond459, label %147, label %175
 
 147:                                              ; preds = %144, %141
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %148 = getelementptr inbounds nuw i8, ptr %6, i64 28
   %149 = load i32, ptr %148, align 4, !tbaa !135
   %150 = icmp ult i32 %149, 256
@@ -2555,7 +2549,7 @@ make_gray_colormap.exit468:                       ; preds = %.preheader583
   %174 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i16 %170, ptr %174, align 2, !tbaa !159
   call void @png_set_background_fixed(ptr noundef nonnull %8, ptr noundef nonnull %3, i32 noundef 1, i32 noundef 0, i32 noundef 0) #12
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %make_ga_colormap.exit.thread.thread
 
 175:                                              ; preds = %144
@@ -2821,7 +2815,7 @@ make_gray_file_colormap.exit:                     ; preds = %.preheader587, %png
   br i1 %.not442, label %make_ga_colormap.exit.thread, label %312
 
 312:                                              ; preds = %309, %make_gray_file_colormap.exit
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br i1 %306, label %313, label %325
 
 313:                                              ; preds = %312
@@ -2879,7 +2873,7 @@ make_gray_file_colormap.exit:                     ; preds = %.preheader587, %png
   %347 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i16 %343, ptr %347, align 2, !tbaa !159
   call void @png_set_background_fixed(ptr noundef nonnull %8, ptr noundef nonnull %4, i32 noundef 1, i32 noundef 0, i32 noundef 0) #12
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %make_ga_colormap.exit
 
 348:                                              ; preds = %259
@@ -3273,7 +3267,7 @@ decode_gamma.exit526.thread:                      ; preds = %.preheader590, %dec
   br i1 %585, label %.preheader591, label %make_ga_colormap.exit, !llvm.loop !177
 
 586:                                              ; preds = %448
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 0, ptr %5, align 2, !tbaa !155
   %587 = trunc nuw i32 %.0403 to i16
   %588 = getelementptr inbounds nuw i8, ptr %5, i64 2
@@ -3287,7 +3281,7 @@ decode_gamma.exit526.thread:                      ; preds = %.preheader590, %dec
   %593 = getelementptr inbounds nuw i8, ptr %5, i64 6
   store i16 %592, ptr %593, align 2, !tbaa !156
   call void @png_set_background_fixed(ptr noundef %8, ptr noundef nonnull %5, i32 noundef 1, i32 noundef 0, i32 noundef 0) #12
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %make_ga_colormap.exit.thread.thread
 
 594:                                              ; preds = %350
@@ -4005,7 +3999,7 @@ png_image_format.exit:                            ; preds = %16, %18
   br i1 %.0156, label %57, label %47
 
 47:                                               ; preds = %43
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %48 = tail call i32 @png_resolve_file_gamma(ptr noundef nonnull %6) #12
   %49 = call i32 @png_muldiv(ptr noundef nonnull %2, i32 noundef %.0178, i32 noundef %48, i32 noundef 100000) #12
   %.not197 = icmp eq i32 %49, 0
@@ -4026,7 +4020,7 @@ png_image_format.exit:                            ; preds = %16, %18
 56:                                               ; preds = %54, %50
   %.4183 = phi i32 [ %.2181, %50 ], [ %spec.select, %54 ]
   %.4 = phi i32 [ 0, %50 ], [ %spec.select222, %54 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %57
 
 57:                                               ; preds = %56, %43
@@ -4078,7 +4072,7 @@ png_image_format.exit:                            ; preds = %16, %18
   br i1 %.not203, label %89, label %73
 
 73:                                               ; preds = %70
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 0, ptr %3, align 2, !tbaa !155
   %74 = load i8, ptr %72, align 1, !tbaa !148
   %75 = zext i8 %74 to i16
@@ -4097,7 +4091,7 @@ png_image_format.exit:                            ; preds = %16, %18
   %85 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i16 %79, ptr %85, align 2, !tbaa !159
   call void @png_set_background_fixed(ptr noundef nonnull %6, ptr noundef nonnull %3, i32 noundef 1, i32 noundef 0, i32 noundef 0) #12
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %89
 
 86:                                               ; preds = %66
@@ -4385,26 +4379,26 @@ png_read_update_info.exit:                        ; preds = %124, %125
   ret i32 %.0152
 }
 
-declare void @png_image_free(ptr noundef) local_unnamed_addr #2
+declare void @png_image_free(ptr noundef) local_unnamed_addr #1
 
-declare void @png_destroy_gamma_table(ptr noundef) local_unnamed_addr #2
+declare void @png_destroy_gamma_table(ptr noundef) local_unnamed_addr #1
 
-declare void @png_free(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @png_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @png_zfree(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @png_zfree(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @inflateEnd(ptr noundef) local_unnamed_addr #2
+declare i32 @inflateEnd(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare void @png_safe_error(ptr noundef, ptr noundef) #3
+declare void @png_safe_error(ptr noundef, ptr noundef) #2
 
-declare void @png_safe_warning(ptr noundef, ptr noundef) #2
+declare void @png_safe_warning(ptr noundef, ptr noundef) #1
 
-declare noalias ptr @png_create_info_struct(ptr noundef) local_unnamed_addr #2
+declare noalias ptr @png_create_info_struct(ptr noundef) local_unnamed_addr #1
 
-declare noalias ptr @png_malloc_warn(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare noalias ptr @png_malloc_warn(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @png_set_benign_errors(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @png_set_benign_errors(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @png_create_colormap_entry(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef range(i32 0, 65536) %5, i32 noundef range(i32 1, 4) %6) unnamed_addr #0 {
@@ -4863,21 +4857,21 @@ default.unreachable184:                           ; preds = %274, %227
   ret void
 }
 
-declare void @png_set_background_fixed(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @png_set_background_fixed(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @png_set_rgb_to_gray_fixed(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @png_set_rgb_to_gray_fixed(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @png_resolve_file_gamma(ptr noundef) local_unnamed_addr #2
+declare i32 @png_resolve_file_gamma(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i16 @png_gamma_16bit_correct(i32 noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i16 @png_gamma_16bit_correct(i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @png_set_tRNS_to_alpha(ptr noundef) local_unnamed_addr #2
+declare void @png_set_tRNS_to_alpha(ptr noundef) local_unnamed_addr #1
 
-declare void @png_set_alpha_mode_fixed(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @png_set_alpha_mode_fixed(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @png_gamma_significant(i32 noundef) local_unnamed_addr #2
+declare i32 @png_gamma_significant(i32 noundef) local_unnamed_addr #1
 
-declare i32 @png_reciprocal(i32 noundef) local_unnamed_addr #2
+declare i32 @png_reciprocal(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 16842496) i32 @decode_gamma(ptr noundef captures(none) %0, i32 noundef range(i32 0, 65536) %1, i32 noundef range(i32 1, 4) %2) unnamed_addr #0 {
@@ -4976,7 +4970,7 @@ png_gamma_not_sRGB.exit.i:                        ; preds = %18
   ret i32 %.011
 }
 
-declare i64 @png_get_rowbytes(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i64 @png_get_rowbytes(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @png_image_read_and_map(ptr noundef readonly captures(none) %0) #0 {
@@ -5332,11 +5326,11 @@ define internal noundef i32 @png_image_read_and_map(ptr noundef readonly capture
   ret i32 1
 }
 
-declare void @png_set_keep_unknown_chunks(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @png_set_keep_unknown_chunks(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @png_muldiv(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @png_muldiv(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @png_set_add_alpha(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @png_set_add_alpha(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @png_image_read_composite(ptr noundef readonly captures(none) %0) #0 {
@@ -6082,7 +6076,13 @@ define internal noundef i32 @png_image_read_background(ptr noundef readonly capt
   ret i32 1
 }
 
-declare zeroext i8 @png_get_channels(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i8 @png_get_channels(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #10
@@ -6103,15 +6103,15 @@ declare i32 @llvm.abs.i32(i32, i1 immarg) #10
 declare { i32, i1 } @llvm.umul.with.overflow.i32(i32, i32) #10
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #12 = { nounwind }

@@ -57,7 +57,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %11 = load ptr, ptr %10, align 8, !tbaa !32
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 72
   %13 = load ptr, ptr %12, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %14 = tail call i32 @av_frame_is_writable(ptr noundef %1) #8
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %.thread, label %15
@@ -93,8 +93,8 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 27:                                               ; preds = %25, %18
   %28 = phi ptr [ %23, %25 ], [ %1, %18 ]
   %29 = phi i1 [ false, %25 ], [ true, %18 ]
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %3) #8
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %30 = getelementptr inbounds nuw i8, ptr %13, i64 393408
   %31 = load ptr, ptr %30, align 8, !tbaa !37
   call void %31(ptr noundef %13, ptr noundef %1, ptr noundef nonnull %3, ptr noundef nonnull %4) #8
@@ -318,8 +318,8 @@ normalize.exit:                                   ; preds = %.loopexit.i
   %172 = load i32, ptr %32, align 8, !tbaa !41
   %173 = add nsw i32 %172, 1
   store i32 %173, ptr %32, align 8, !tbaa !41
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %174 = getelementptr inbounds nuw i8, ptr %8, i64 128
   %175 = load i32, ptr %174, align 8, !tbaa !34
   %.not16 = icmp eq i32 %175, 0
@@ -344,7 +344,7 @@ normalize.exit:                                   ; preds = %.loopexit.i
 
 183:                                              ; preds = %181, %176, %24
   %.0 = phi i32 [ %178, %176 ], [ %182, %181 ], [ -12, %24 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
@@ -472,9 +472,6 @@ define internal range(i32 -12, 1) i32 @config_input(ptr noundef readonly capture
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 declare i32 @av_frame_is_writable(ptr noundef) local_unnamed_addr #1
 
 declare ptr @ff_get_video_buffer(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
@@ -485,11 +482,8 @@ declare i32 @av_frame_copy_props(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare i32 @ff_filter_frame(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
-
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #4
+declare float @llvm.fmuladd.f32(float, float, float) #3
 
 declare ptr @av_pix_fmt_desc_get(i32 noundef) local_unnamed_addr #1
 
@@ -500,7 +494,7 @@ declare i32 @av_get_padded_bits_per_pixel(ptr noundef) local_unnamed_addr #1
 declare noalias ptr @av_malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @find_min_max_planar(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) initializes((0, 2), (12, 14), (24, 26)) %2, ptr noundef captures(none) initializes((0, 2), (12, 14), (24, 26)) %3) #5 {
+define internal void @find_min_max_planar(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) initializes((0, 2), (12, 14), (24, 26)) %2, ptr noundef captures(none) initializes((0, 2), (12, 14), (24, 26)) %3) #4 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !76
   %7 = load i8, ptr %6, align 1, !tbaa !73
@@ -606,7 +600,7 @@ define internal void @find_min_max_planar(ptr readnone captures(none) %0, ptr no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @find_min_max(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3) #5 {
+define internal void @find_min_max(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3) #4 {
   %5 = load ptr, ptr %1, align 8, !tbaa !76
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 28
   br label %42
@@ -701,7 +695,7 @@ define internal void @find_min_max(ptr noundef readonly captures(none) %0, ptr n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @process_planar(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #6 {
+define internal void @process_planar(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #5 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 108
   %5 = load i32, ptr %4, align 4, !tbaa !77
   %6 = icmp sgt i32 %5, 0
@@ -838,7 +832,7 @@ define internal void @process_planar(ptr noundef readonly captures(none) %0, ptr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @process(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #6 {
+define internal void @process(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #5 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 108
   %5 = load i32, ptr %4, align 4, !tbaa !77
   %6 = icmp sgt i32 %5, 0
@@ -941,7 +935,7 @@ define internal void @process(ptr noundef readonly captures(none) %0, ptr nounde
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @find_min_max_planar_16(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) initializes((0, 2), (12, 14), (24, 26)) %2, ptr noundef captures(none) initializes((0, 2), (12, 14), (24, 26)) %3) #5 {
+define internal void @find_min_max_planar_16(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) initializes((0, 2), (12, 14), (24, 26)) %2, ptr noundef captures(none) initializes((0, 2), (12, 14), (24, 26)) %3) #4 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !76
   %7 = load i16, ptr %6, align 1, !tbaa !73
@@ -1038,7 +1032,7 @@ define internal void @find_min_max_planar_16(ptr readnone captures(none) %0, ptr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @find_min_max_16(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3) #5 {
+define internal void @find_min_max_16(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3) #4 {
   %5 = load ptr, ptr %1, align 8, !tbaa !76
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 28
   br label %38
@@ -1131,7 +1125,7 @@ define internal void @find_min_max_16(ptr noundef readonly captures(none) %0, pt
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @process_planar_16(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #6 {
+define internal void @process_planar_16(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #5 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 108
   %5 = load i32, ptr %4, align 4, !tbaa !77
   %6 = icmp sgt i32 %5, 0
@@ -1281,7 +1275,7 @@ define internal void @process_planar_16(ptr noundef readonly captures(none) %0, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @process_16(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #6 {
+define internal void @process_16(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #5 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 108
   %5 = load i32, ptr %4, align 4, !tbaa !77
   %6 = icmp sgt i32 %5, 0
@@ -1401,6 +1395,12 @@ declare ptr @av_default_item_name(ptr noundef) #1
 
 declare void @av_freep(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.umin.i16(i16, i16) #7
 
@@ -1410,10 +1410,10 @@ declare i16 @llvm.umax.i16(i16, i16) #7
 attributes #0 = { cold nounwind optsize uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { nounwind }
 

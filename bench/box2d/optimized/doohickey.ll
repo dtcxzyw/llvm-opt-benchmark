@@ -22,32 +22,26 @@ define dso_local void @_ZN9DoohickeyC2Ev(ptr noundef nonnull writeonly align 4 c
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN9Doohickey5SpawnE9b2WorldId6b2Vec2f(ptr noundef nonnull align 4 captures(none) dereferenceable(57) initializes((0, 32)) %0, i32 %1, <2 x float> %2, float noundef %3) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN9Doohickey5SpawnE9b2WorldId6b2Vec2f(ptr noundef nonnull align 4 captures(none) dereferenceable(57) initializes((0, 32)) %0, i32 %1, <2 x float> %2, float noundef %3) local_unnamed_addr #1 align 2 {
   %5 = alloca %struct.b2BodyDef, align 8
   %6 = alloca %struct.b2ShapeDef, align 8
   %7 = alloca %struct.b2Circle, align 4
   %8 = alloca %struct.b2Capsule, align 4
   %9 = alloca %struct.b2RevoluteJointDef, align 8
   %10 = alloca %struct.b2PrismaticJointDef, align 8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @b2DefaultBodyDef(ptr dead_on_unwind nonnull writable sret(%struct.b2BodyDef) align 8 %5)
   store i32 2, ptr %5, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @b2DefaultShapeDef(ptr dead_on_unwind nonnull writable sret(%struct.b2ShapeDef) align 8 %6)
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store float 0.000000e+00, ptr %7, align 4, !tbaa !16
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store float 0.000000e+00, ptr %11, align 4, !tbaa !17
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store float %3, ptr %12, align 4, !tbaa !18
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %13 = fmul float %3, -3.500000e+00
   store float %13, ptr %8, align 4, !tbaa !16
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 4
@@ -98,7 +92,7 @@ define dso_local void @_ZN9Doohickey5SpawnE9b2WorldId6b2Vec2f(ptr noundef nonnul
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %37, ptr %38, align 4
   %39 = call i64 @b2CreateCapsuleShape(i64 %37, ptr noundef nonnull %6, ptr noundef nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @b2DefaultRevoluteJointDef(ptr dead_on_unwind nonnull writable sret(%struct.b2RevoluteJointDef) align 8 %9)
   %40 = load i64, ptr %0, align 4
   store i64 %40, ptr %9, align 8
@@ -130,7 +124,7 @@ define dso_local void @_ZN9Doohickey5SpawnE9b2WorldId6b2Vec2f(ptr noundef nonnul
   store i8 1, ptr %45, align 4, !tbaa !23
   store float %46, ptr %47, align 8, !tbaa !27
   %51 = call i64 @b2CreateRevoluteJoint(i32 %1, ptr noundef nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @b2DefaultPrismaticJointDef(ptr dead_on_unwind nonnull writable sret(%struct.b2PrismaticJointDef) align 8 %10)
   %52 = load i64, ptr %34, align 4
   store i64 %52, ptr %10, align 8
@@ -167,35 +161,35 @@ define dso_local void @_ZN9Doohickey5SpawnE9b2WorldId6b2Vec2f(ptr noundef nonnul
   %66 = getelementptr inbounds nuw i8, ptr %10, i64 52
   store float 5.000000e-01, ptr %66, align 4, !tbaa !36
   %67 = call i64 @b2CreatePrismaticJoint(i32 %1, ptr noundef nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %10) #6
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %9) #6
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %8) #6
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
-declare void @b2DefaultBodyDef(ptr dead_on_unwind writable sret(%struct.b2BodyDef) align 8) local_unnamed_addr #3
+declare void @b2DefaultBodyDef(ptr dead_on_unwind writable sret(%struct.b2BodyDef) align 8) local_unnamed_addr #2
 
-declare void @b2DefaultShapeDef(ptr dead_on_unwind writable sret(%struct.b2ShapeDef) align 8) local_unnamed_addr #3
+declare void @b2DefaultShapeDef(ptr dead_on_unwind writable sret(%struct.b2ShapeDef) align 8) local_unnamed_addr #2
 
-declare i64 @b2CreateBody(i32, ptr noundef) local_unnamed_addr #3
+declare i64 @b2CreateBody(i32, ptr noundef) local_unnamed_addr #2
 
-declare i64 @b2CreateCircleShape(i64, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i64 @b2CreateCircleShape(i64, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i64 @b2CreateCapsuleShape(i64, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i64 @b2CreateCapsuleShape(i64, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @b2DefaultRevoluteJointDef(ptr dead_on_unwind writable sret(%struct.b2RevoluteJointDef) align 8) local_unnamed_addr #3
+declare void @b2DefaultRevoluteJointDef(ptr dead_on_unwind writable sret(%struct.b2RevoluteJointDef) align 8) local_unnamed_addr #2
 
-declare i64 @b2CreateRevoluteJoint(i32, ptr noundef) local_unnamed_addr #3
+declare i64 @b2CreateRevoluteJoint(i32, ptr noundef) local_unnamed_addr #2
 
-declare void @b2DefaultPrismaticJointDef(ptr dead_on_unwind writable sret(%struct.b2PrismaticJointDef) align 8) local_unnamed_addr #3
+declare void @b2DefaultPrismaticJointDef(ptr dead_on_unwind writable sret(%struct.b2PrismaticJointDef) align 8) local_unnamed_addr #2
 
-declare i64 @b2CreatePrismaticJoint(i32, ptr noundef) local_unnamed_addr #3
+declare i64 @b2CreatePrismaticJoint(i32, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN9Doohickey7DespawnEv(ptr noundef nonnull align 4 captures(none) dereferenceable(57) initializes((56, 57)) %0) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN9Doohickey7DespawnEv(ptr noundef nonnull align 4 captures(none) dereferenceable(57) initializes((56, 57)) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.sroa.06.0.copyload = load i64, ptr %2, align 4
   tail call void @b2DestroyJoint(i64 %.sroa.06.0.copyload)
@@ -221,20 +215,25 @@ define dso_local void @_ZN9Doohickey7DespawnEv(ptr noundef nonnull align 4 captu
   ret void
 }
 
-declare void @b2DestroyJoint(i64) local_unnamed_addr #3
+declare void @b2DestroyJoint(i64) local_unnamed_addr #2
 
-declare void @b2DestroyBody(i64) local_unnamed_addr #3
+declare void @b2DestroyBody(i64) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

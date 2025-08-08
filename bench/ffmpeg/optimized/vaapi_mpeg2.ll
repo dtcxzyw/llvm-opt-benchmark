@@ -24,8 +24,8 @@ mpeg2_get_is_frame_start.exit:
   %9 = load ptr, ptr %8, align 8, !tbaa !27
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 96
   %11 = load ptr, ptr %10, align 8, !tbaa !50
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #5
-  call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %12 = load ptr, ptr %9, align 8, !tbaa !53
   %13 = getelementptr i8, ptr %12, i64 24
   %.val = load ptr, ptr %13, align 8, !tbaa !54
@@ -231,8 +231,8 @@ mpeg2_get_is_frame_start.exit:
 
 156:                                              ; preds = %151, %154
   %.0 = phi i32 [ %.058, %154 ], [ 0, %151 ]
-  call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -245,7 +245,7 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_mpeg2_decode_slice(ptr noun
   %8 = load ptr, ptr %7, align 8, !tbaa !27
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 96
   %10 = load ptr, ptr %9, align 8, !tbaa !50
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %11 = shl i32 %2, 3
   %or.cond.i = icmp ult i32 %11, 2147483135
   %12 = icmp ne ptr %1, null
@@ -364,7 +364,7 @@ skip_1stop_8data_bits.exit:                       ; preds = %.preheader.i, %25
 
 skip_1stop_8data_bits.exit.thread:                ; preds = %63, %49, %skip_1stop_8data_bits.exit, %3, %78
   %.0 = phi i32 [ %76, %78 ], [ -1094995529, %3 ], [ 0, %skip_1stop_8data_bits.exit ], [ -1094995529, %49 ], [ -1094995529, %63 ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -398,16 +398,10 @@ declare i32 @ff_vaapi_decode_uninit(ptr noundef) #1
 
 declare i32 @ff_vaapi_common_frame_params(ptr noundef, ptr noundef) #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare i32 @ff_vaapi_decode_make_param_buffer(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 declare i32 @ff_vaapi_decode_cancel(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -417,6 +411,12 @@ declare i32 @ff_vaapi_decode_issue(ptr noundef, ptr noundef) local_unnamed_addr 
 
 declare void @ff_mpeg_draw_horiz_band(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #4
 
@@ -425,8 +425,8 @@ declare i32 @llvm.bswap.i32(i32) #4
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { nounwind }
 

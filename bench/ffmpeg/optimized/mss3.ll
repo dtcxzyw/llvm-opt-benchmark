@@ -113,7 +113,7 @@ define internal range(i32 27, 0) i32 @mss3_decode_frame(ptr noundef %0, ptr noun
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load ptr, ptr %10, align 8, !tbaa !4
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %13 = icmp slt i32 %9, 27
   br i1 %13, label %14, label %bytestream2_get_be32.exit
 
@@ -515,7 +515,7 @@ decode_fill_block.exit.us:                        ; preds = %224, %193, %180, %1
 
 253:                                              ; preds = %._crit_edge207, %91, %75, %.critedge, %252, %.split.us, %94, %72, %bytestream2_get_byte.exit.thread, %52, %21, %14
   %.0 = phi i32 [ -1094995529, %14 ], [ -1094995529, %21 ], [ -1094995529, %52 ], [ -1094995529, %bytestream2_get_byte.exit.thread ], [ -1094995529, %.split.us ], [ %9, %252 ], [ %9, %94 ], [ -1094995529, %72 ], [ %9, %.critedge ], [ %79, %75 ], [ %92, %91 ], [ %250, %._crit_edge207 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -540,20 +540,14 @@ define internal noundef i32 @mss3_decode_end(ptr noundef readonly captures(none)
   ret i32 0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
+declare noalias ptr @av_malloc(i64 noundef) local_unnamed_addr #2
 
-declare noalias ptr @av_malloc(i64 noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
-declare ptr @av_frame_alloc() local_unnamed_addr #3
+declare ptr @av_frame_alloc() local_unnamed_addr #2
 
 ; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(argmem: readwrite) uwtable
-define internal fastcc void @init_coders(ptr noundef captures(none) %0) unnamed_addr #4 {
+define internal fastcc void @init_coders(ptr noundef captures(none) %0) unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2292
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2744
@@ -641,7 +635,7 @@ define internal fastcc void @init_coders(ptr noundef captures(none) %0) unnamed_
 }
 
 ; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(argmem: readwrite) uwtable
-define internal fastcc void @model256_init(ptr noundef captures(none) initializes((2324, 2328), (2332, 2336)) %0) unnamed_addr #4 {
+define internal fastcc void @model256_init(ptr noundef captures(none) initializes((2324, 2328), (2332, 2336)) %0) unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2332
   store i32 2096, ptr %2, align 4, !tbaa !79
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2324
@@ -672,7 +666,7 @@ model256_reset.exit:                              ; preds = %4
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @model_reset(ptr noundef captures(none) initializes((132, 136)) %0) unnamed_addr #5 {
+define internal fastcc void @model_reset(ptr noundef captures(none) initializes((132, 136)) %0) unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 132
   store i32 0, ptr %2, align 4, !tbaa !85
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -792,7 +786,7 @@ model_update.exit:                                ; preds = %45, %28, %.loopexit
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @model256_update(ptr noundef captures(none) %0, i32 noundef %1) unnamed_addr #5 {
+define internal fastcc void @model256_update(ptr noundef captures(none) %0, i32 noundef %1) unnamed_addr #4 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds [256 x i32], ptr %0, i64 0, i64 %3
   %5 = load i32, ptr %4, align 4, !tbaa !56
@@ -916,9 +910,9 @@ define internal fastcc void @model256_update(ptr noundef captures(none) %0, i32 
   ret void
 }
 
-declare i32 @ff_reget_buffer(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @ff_reget_buffer(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @av_frame_ref(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @av_frame_ref(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @reset_coders(ptr noundef %0, i32 noundef range(i32 1, 101) %1) unnamed_addr #1 {
@@ -1349,11 +1343,11 @@ model256_reset.exit97:                            ; preds = %186
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @decode_image_block(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(none) %2, i64 noundef range(i64 -2147483648, 2147483648) %3, i32 noundef range(i32 8, 17) %4) unnamed_addr #6 {
+define internal fastcc void @decode_image_block(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(none) %2, i64 noundef range(i64 -2147483648, 2147483648) %3, i32 noundef range(i32 8, 17) %4) unnamed_addr #5 {
   %6 = alloca [4 x i32], align 16
   %7 = alloca [16 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 4680
   %9 = tail call fastcc i32 @rac_get_model_sym(ptr noundef %0, ptr noundef nonnull %8)
   %10 = icmp sgt i32 %9, -2
@@ -1853,8 +1847,8 @@ model256_update.exit:                             ; preds = %._crit_edge59.i, %r
   br i1 %exitcond76.not, label %244, label %.preheader, !llvm.loop !112
 
 244:                                              ; preds = %241
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -2479,7 +2473,7 @@ decode_dct.exit.thread33:                         ; preds = %model256_update.exi
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @decode_haar_block(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(none) %2, i64 noundef range(i64 -2147483648, 2147483648) %3, i32 noundef range(i32 8, 17) %4, ptr noundef captures(none) %5) unnamed_addr #6 {
+define internal fastcc void @decode_haar_block(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(none) %2, i64 noundef range(i64 -2147483648, 2147483648) %3, i32 noundef range(i32 8, 17) %4, ptr noundef captures(none) %5) unnamed_addr #5 {
   %7 = lshr i32 %4, 1
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 2348
@@ -3174,13 +3168,13 @@ model256_update.exit:                             ; preds = %286, %rac_get_model
   ret void
 }
 
-declare void @ff_mss34_gen_quant_mat(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare void @ff_mss34_gen_quant_mat(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -1073741824, 1073741824) i32 @rac_get_model_sym(ptr noundef captures(none) %0, ptr noundef captures(none) %1) unnamed_addr #6 {
+define internal fastcc range(i32 -1073741824, 1073741824) i32 @rac_get_model_sym(ptr noundef captures(none) %0, ptr noundef captures(none) %1) unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8, !tbaa !61
   %5 = lshr i32 %4, 15
@@ -3365,7 +3359,7 @@ model_update.exit:                                ; preds = %rac_normalise.exit,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @decode_coeff(ptr noundef captures(none) %0, ptr noundef captures(none) %1) unnamed_addr #6 {
+define internal fastcc i32 @decode_coeff(ptr noundef captures(none) %0, ptr noundef captures(none) %1) unnamed_addr #5 {
   %3 = tail call fastcc i32 @rac_get_model_sym(ptr noundef %0, ptr noundef %1)
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %79, label %4
@@ -3536,7 +3530,7 @@ rac_get_bits.exit:                                ; preds = %73, %43
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @rac_get_model256_sym(ptr noundef captures(none) %0, ptr noundef captures(none) %1) unnamed_addr #6 {
+define internal fastcc i32 @rac_get_model256_sym(ptr noundef captures(none) %0, ptr noundef captures(none) %1) unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8, !tbaa !61
   %5 = lshr i32 %4, 15
@@ -3665,11 +3659,17 @@ rac_normalise.exit:                               ; preds = %67, %40
   ret i32 %.0.lcssa
 }
 
-declare void @ff_mss34_dct_put(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
+declare void @ff_mss34_dct_put(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @av_frame_free(ptr noundef) local_unnamed_addr #3
+declare void @av_frame_free(ptr noundef) local_unnamed_addr #2
 
-declare void @av_freep(ptr noundef) local_unnamed_addr #3
+declare void @av_freep(ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #8
@@ -3691,12 +3691,12 @@ declare i64 @llvm.smin.i64(i64, i64) #8
 
 attributes #0 = { cold nounwind optsize uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { cold nofree norecurse nosync nounwind optsize memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #2 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { cold nofree norecurse nosync nounwind optsize memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #9 = { nounwind }
 attributes #10 = { cold }

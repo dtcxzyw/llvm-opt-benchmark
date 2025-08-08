@@ -108,7 +108,7 @@ define hidden range(i32 0, 2) i32 @Dot11DecryptDecryptKeyData(ptr noundef readon
   %10 = alloca [256 x i8], align 16
   %11 = alloca %struct._DOT11DECRYPT_SEC_ASSOCIATION_ID, align 1
   %12 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %11) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %11, ptr noundef align 1 dereferenceable(6) %2, i64 noundef 6, i1 noundef false) #15
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %13, ptr noundef align 1 dereferenceable(6) %3, i64 noundef 6, i1 noundef false) #15
@@ -214,7 +214,7 @@ Dot11DecryptGetKekLen.exit:                       ; preds = %switch.lookup, %28
   br i1 %32, label %53, label %74
 
 53:                                               ; preds = %50
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %54 = icmp ugt i16 %.055, 31
   %55 = select i1 %54, i8 1, i8 2
   store i8 %55, ptr %20, align 4
@@ -223,8 +223,8 @@ Dot11DecryptGetKekLen.exit:                       ; preds = %switch.lookup, %28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %12, ptr noundef align 1 dereferenceable(16) %57, i64 noundef 16, i1 noundef false) #15
   %58 = getelementptr inbounds nuw i8, ptr %12, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %58, ptr noundef align 1 dereferenceable(16) %26, i64 noundef 16, i1 noundef false) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #15
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %10) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %10, i8 0, i64 256, i1 false)
   %59 = call i32 @gcry_cipher_open(ptr noundef nonnull %9, i32 noundef 301, i32 noundef 4, i32 noundef 0)
   %.not.i = icmp eq i32 %59, 0
@@ -258,15 +258,15 @@ Dot11DecryptRc4KeyData.exit.thread58:             ; preds = %63, %65
   %72 = call i32 @gcry_cipher_decrypt(ptr noundef %71, ptr noundef nonnull %67, i64 noundef %66, ptr noundef null, i64 noundef 0)
   %73 = load ptr, ptr %9, align 8
   call void @gcry_cipher_close(ptr noundef %73)
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %10) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %4, ptr noundef nonnull align 1 %67, i64 noundef %66, i1 noundef false) #15
   call void @g_free(ptr noundef nonnull %67)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %89
 
 74:                                               ; preds = %50
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %75 = icmp eq ptr %26, null
   %76 = icmp eq ptr %52, null
   %or.cond4.i = or i1 %75, %76
@@ -294,18 +294,18 @@ Dot11DecryptRc4KeyData.exit.thread58:             ; preds = %63, %65
   br i1 %.not19.i, label %AES_unwrap.exit, label %AES_unwrap.exit.thread66
 
 AES_unwrap.exit.thread:                           ; preds = %74, %77
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %90
 
 AES_unwrap.exit.thread66:                         ; preds = %83, %79
   %.sink.i49.ph = phi ptr [ %82, %79 ], [ %88, %83 ]
   call void @gcry_cipher_close(ptr noundef %.sink.i49.ph)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %90
 
 AES_unwrap.exit:                                  ; preds = %83
   call void @gcry_cipher_close(ptr noundef %88)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.pre = and i32 %84, 65535
   br label %89
 
@@ -316,30 +316,24 @@ AES_unwrap.exit:                                  ; preds = %83
   br label %90
 
 .critedge:                                        ; preds = %53, %Dot11DecryptRc4KeyData.exit.thread58
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %10) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #15
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %90
 
 90:                                               ; preds = %36, %AES_unwrap.exit.thread66, %AES_unwrap.exit.thread, %89, %43, %40, %.critedge, %16, %7
   %.0 = phi i32 [ 1, %7 ], [ 1, %16 ], [ 0, %89 ], [ 1, %43 ], [ 1, %40 ], [ 1, %.critedge ], [ 1, %AES_unwrap.exit.thread ], [ 1, %AES_unwrap.exit.thread66 ], [ 1, %36 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %11) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: null_pointer_is_valid
-declare void @g_free(ptr noundef) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @g_free(ptr noundef) #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc range(i32 0, 2) i32 @AES_unwrap(ptr noundef %0, i16 noundef zeroext range(i16 0, 33) %1, ptr noundef %2, i16 noundef zeroext %3, ptr noundef %4, ptr noundef writeonly captures(none) %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = icmp eq ptr %0, null
   %9 = zext i16 %3 to i32
   %10 = icmp ult i16 %3, 16
@@ -387,12 +381,12 @@ define internal fastcc range(i32 0, 2) i32 @AES_unwrap(ptr noundef %0, i16 nound
 
 29:                                               ; preds = %.sink.split, %12, %6
   %.0 = phi i32 [ 1, %6 ], [ 1, %12 ], [ %.0.ph, %.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
 
 ; Function Attrs: nofree norecurse nounwind null_pointer_is_valid sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @Dot11DecryptCopyKey(ptr noundef nonnull readonly captures(none) %0, ptr noundef %1) unnamed_addr #3 {
+define internal fastcc void @Dot11DecryptCopyKey(ptr noundef nonnull readonly captures(none) %0, ptr noundef %1) unnamed_addr #2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %31, label %3
 
@@ -712,7 +706,7 @@ Dot11DecryptGetTkLen.exit:                        ; preds = %switch.lookup, %13,
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden range(i32 -1, 5) i32 @Dot11DecryptScanTdlsForKeys(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct._DOT11DECRYPT_SEC_ASSOCIATION_ID, align 1
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = icmp eq i32 %2, 0
   br i1 %5, label %.critedge, label %6
 
@@ -879,15 +873,15 @@ define hidden range(i32 -1, 5) i32 @Dot11DecryptScanTdlsForKeys(ptr noundef read
 
 .critedge:                                        ; preds = %31, %.thread, %59, %65, %70, %72, %._crit_edge, %10, %6, %3
   %.078 = phi i32 [ 4, %3 ], [ 4, %6 ], [ 4, %10 ], [ 4, %._crit_edge ], [ 3, %65 ], [ -1, %70 ], [ 4, %72 ], [ -1, %59 ], [ 4, %.thread ], [ 4, %31 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.078
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare void @ws_log_full(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @ws_log_full(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc range(i32 0, 2) i32 @Dot11DecryptTDLSDeriveKey(ptr noundef nonnull %0, ptr noundef %1, i32 noundef range(i32 1, -1) %2, i32 noundef range(i32 1, -1) %3, i32 noundef range(i32 1, -1) %4, i32 noundef range(i32 1, -1) %5, i8 noundef zeroext %6) unnamed_addr #0 {
@@ -899,17 +893,17 @@ define internal fastcc range(i32 0, 2) i32 @Dot11DecryptTDLSDeriveKey(ptr nounde
   %13 = alloca [16 x i8], align 16
   %14 = alloca ptr, align 8
   %15 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #15
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #15
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %16 = add i8 %6, 1
   store i8 %16, ptr %12, align 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %13, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i64 16, ptr %15, align 8
   %17 = add i32 %3, 20
   %18 = zext i32 %17 to i64
@@ -1180,14 +1174,14 @@ Dot11DecryptGetKckLen.exit:                       ; preds = %172
 
 187:                                              ; preds = %172, %99, %24, %7, %Dot11DecryptGetKckLen.exit, %170, %161, %113, %46
   %.0 = phi i32 [ 1, %46 ], [ 1, %113 ], [ 1, %161 ], [ 1, %170 ], [ 0, %Dot11DecryptGetKckLen.exit ], [ 1, %7 ], [ 1, %24 ], [ 1, %99 ], [ 1, %172 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #15
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #15
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
 
@@ -1200,12 +1194,12 @@ define internal fastcc nonnull ptr @Dot11DecryptAddSa(ptr noundef readonly captu
   br i1 %.not, label %7, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %4, ptr noundef nonnull align 8 dereferenceable(176) %5, i64 176, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %5, ptr noundef nonnull align 8 dereferenceable(176) %2, i64 176, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %2, ptr noundef nonnull align 8 dereferenceable(176) %4, i64 176, i1 false)
   store ptr %2, ptr %5, align 8
-  call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %11
 
 7:                                                ; preds = %3
@@ -1229,7 +1223,7 @@ define hidden range(i32 -1, 5) i32 @Dot11DecryptScanEapolForKeys(ptr noundef %0,
   %12 = alloca [88 x i8], align 16
   %13 = alloca i64, align 8
   %14 = alloca %struct._DOT11DECRYPT_SEC_ASSOCIATION_ID, align 1
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %14) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %15 = icmp ult i32 %3, 1025
   br i1 %15, label %17, label %16
 
@@ -1260,8 +1254,8 @@ define hidden range(i32 -1, 5) i32 @Dot11DecryptScanEapolForKeys(ptr noundef %0,
   ]
 
 23:                                               ; preds = %20, %20, %20, %20
-  call void @llvm.lifetime.start.p0(i64 432, ptr nonnull %10) #15
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %11) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %25 = load i16, ptr %24, align 4
   %26 = icmp ugt i16 %25, 1024
@@ -1348,8 +1342,8 @@ define hidden range(i32 -1, 5) i32 @Dot11DecryptScanEapolForKeys(ptr noundef %0,
   %66 = getelementptr inbounds nuw i8, ptr %60, i64 24
   %67 = load ptr, ptr %66, align 8
   %.not134.i = icmp ne ptr %67, null
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %12) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i64 0, ptr %13, align 8
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 27656
   %69 = load i64, ptr %68, align 8
@@ -1447,7 +1441,7 @@ Dot11DecryptIsPwdWildcardSsid.exit.i:             ; preds = %116
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(432) %10, ptr noundef nonnull align 1 dereferenceable(432) %.0124.i, i64 noundef 424, i1 noundef false) #15
   %119 = call ptr @__memcpy_chk(ptr noundef nonnull %77, ptr noundef nonnull %78, i64 noundef %117, i64 noundef 40) #15, !alias.scope !9
   store i64 %117, ptr %79, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %9, i8 0, i64 40, i1 false)
   %120 = call ptr @g_byte_array_new()
   %121 = load i64, ptr %81, align 8
@@ -1464,7 +1458,7 @@ Dot11DecryptIsPwdWildcardSsid.exit.i:             ; preds = %116
   call fastcc void @Dot11DecryptRsnaPwd2PskStep(ptr noundef %128, i32 noundef %129, ptr noundef nonnull %77, i64 noundef %130, i32 noundef 2, ptr noundef nonnull %82)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %80, ptr noundef nonnull align 16 dereferenceable(32) %9, i64 noundef 32, i1 noundef false) #15
   %131 = call ptr @g_byte_array_free(ptr noundef %120, i32 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %Dot11DecryptIsPwdWildcardSsid.exit.thread.i
 
 Dot11DecryptIsPwdWildcardSsid.exit.thread.i:      ; preds = %Dot11DecryptIsPwdWildcardSsid.exit.i, %116, %112, %110, %108, %108, %108
@@ -1579,7 +1573,7 @@ Dot11DecryptGetDeriveFuncFromAkm.exit.i.i:        ; preds = %Dot11DecryptGetHash
   %173 = lshr i32 %.065.i.i, 3
   %174 = zext nneg i32 %173 to i64
   store i64 %174, ptr %13, align 8
-  call void @llvm.lifetime.start.p0(i64 76, ptr nonnull %8) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %175 = call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(6) %93, ptr noundef nonnull readonly dereferenceable(6) %92, i64 noundef 6) #17
   %176 = icmp slt i32 %175, 0
   %..i147.i = select i1 %176, ptr %93, ptr %92
@@ -1603,7 +1597,7 @@ Dot11DecryptGetDeriveFuncFromAkm.exit.i.i:        ; preds = %Dot11DecryptGetHash
   br label %Dot11DecryptDerivePtk.exit.thread159.i
 
 Dot11DecryptDerivePtk.exit.thread159.i:           ; preds = %181, %179
-  call void @llvm.lifetime.end.p0(i64 76, ptr nonnull %8) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %190
 
 Dot11DecryptDerivePtk.exit.i:                     ; preds = %Dot11DecryptDerivePmkFromMsk.exit.i, %Dot11DecryptDerivePmkFromMsk.exit.i, %Dot11DecryptDerivePmkFromMsk.exit.i, %Dot11DecryptDerivePmkFromMsk.exit.i
@@ -1644,7 +1638,7 @@ switch.lookup27:                                  ; preds = %switch.hole_check
 
 Dot11DecryptGetKckLen.exit.i.i:                   ; preds = %switch.lookup27, %193
   %.0.i.i149.i = phi i64 [ 0, %193 ], [ %switch.load29, %switch.lookup27 ]
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   %195 = icmp eq ptr %.val139.i, null
   %196 = icmp ugt i16 %.val140.i, 24
@@ -1702,12 +1696,12 @@ Dot11DecryptGetIntegrityAlgoFromAkm.exit.i.i:     ; preds = %201
   br i1 %.not24.i.i, label %Dot11DecryptRsnaMicCheck.exit.i, label %Dot11DecryptRsnaMicCheck.exit.thread.i
 
 Dot11DecryptRsnaMicCheck.exit.thread.i:           ; preds = %204, %.thread.i.i, %Dot11DecryptGetIntegrityAlgoFromAkm.exit.i.i, %Dot11DecryptGetKckLen.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %Dot11DecryptIsWpaKeyType.exit142.i
 
 Dot11DecryptRsnaMicCheck.exit.i:                  ; preds = %204, %.thread.i.i
   %206 = call i32 @memcmp(ptr noundef nonnull readonly %.val139.i, ptr noundef nonnull %7, i64 noundef %198) #17
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %207 = icmp eq i32 %206, 0
   br i1 %207, label %.thread.i, label %Dot11DecryptIsWpaKeyType.exit142.i
 
@@ -1756,8 +1750,8 @@ Dot11DecryptIsWpaKeyType.exit142.i:               ; preds = %Dot11DecryptRsnaMic
 
 ._crit_edge.thread.i:                             ; preds = %212, %._crit_edge.i, %141, %65
   %.1126.i = phi i32 [ -1, %212 ], [ 4, %141 ], [ 4, %._crit_edge.i ], [ 4, %65 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #15
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %12) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %Dot11DecryptRsna4WHandshake.exit
 
 224:                                              ; preds = %35
@@ -1780,8 +1774,8 @@ Dot11DecryptIsWpaKeyType.exit142.i:               ; preds = %Dot11DecryptRsnaMic
 
 Dot11DecryptRsna4WHandshake.exit:                 ; preds = %23, %27, %31, %36, %48, %52, %59, %62, %._crit_edge.thread.i, %226, %233
   %.0125.i = phi i32 [ 4, %48 ], [ -1, %52 ], [ %.1126.i, %._crit_edge.thread.i ], [ %232, %226 ], [ 4, %23 ], [ 4, %27 ], [ 4, %31 ], [ 4, %36 ], [ 4, %59 ], [ 4, %62 ], [ %..i, %233 ]
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %11) #15
-  call void @llvm.lifetime.end.p0(i64 432, ptr nonnull %10) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %Dot11DecryptGroupHandshake.exit
 
 235:                                              ; preds = %20
@@ -1803,17 +1797,17 @@ Dot11DecryptRsna4WHandshake.exit:                 ; preds = %23, %27, %31, %36, 
 
 Dot11DecryptGroupHandshake.exit:                  ; preds = %237, %235, %20, %244, %17, %Dot11DecryptRsna4WHandshake.exit
   %.0 = phi i32 [ %.0125.i, %Dot11DecryptRsna4WHandshake.exit ], [ 4, %17 ], [ 4, %244 ], [ 4, %20 ], [ %243, %237 ], [ 4, %235 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %14) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   ret i32 %.0
 }
 
 ; Function Attrs: noreturn null_pointer_is_valid
-declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #5
+declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @Dot11DecryptDecryptPacket(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef captures(address_is_null) %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = alloca %struct._DOT11DECRYPT_SEC_ASSOCIATION_ID, align 1
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %8) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %9, label %10
 
@@ -2020,7 +2014,7 @@ Dot11DecryptGetNbrOfTkKeys.exit:                  ; preds = %84
 
 Dot11DecryptGetNbrOfTkKeys.exit.thread:           ; preds = %.thread, %69, %91, %Dot11DecryptGetNbrOfTkKeys.exit, %79, %Dot11DecryptGetSaAddress.exit, %21, %18, %15, %14
   %.041 = phi i32 [ 3, %14 ], [ 3, %15 ], [ 2, %18 ], [ 1, %21 ], [ 5, %Dot11DecryptGetSaAddress.exit ], [ %70, %69 ], [ %92, %91 ], [ %.062, %Dot11DecryptGetNbrOfTkKeys.exit ], [ 0, %79 ], [ %.062, %.thread ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.041
 }
 
@@ -2028,7 +2022,7 @@ Dot11DecryptGetNbrOfTkKeys.exit.thread:           ; preds = %.thread, %69, %91, 
 define internal fastcc range(i32 0, 2) i32 @Dot11DecryptWepMng(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %2, ptr noundef nonnull captures(none) %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca %struct._DOT11DECRYPT_SEC_ASSOCIATION, align 8
   %8 = alloca [35 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 35, ptr nonnull %8) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = load i32, ptr %3, align 4
   %10 = zext i32 %9 to i64
   %11 = tail call noalias ptr @g_malloc(i64 noundef %10) #18
@@ -2141,12 +2135,12 @@ define internal fastcc range(i32 0, 2) i32 @Dot11DecryptWepMng(ptr noundef nonnu
   br i1 %.not.i86, label %61, label %60
 
 60:                                               ; preds = %57
-  call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %7, ptr noundef nonnull align 8 dereferenceable(176) %59, i64 176, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %59, ptr noundef nonnull align 8 dereferenceable(176) %56, i64 176, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %56, ptr noundef nonnull align 8 dereferenceable(176) %7, i64 176, i1 false)
   store ptr %56, ptr %59, align 8
-  call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %Dot11DecryptAddSa.exit
 
 61:                                               ; preds = %57
@@ -2213,7 +2207,7 @@ Dot11DecryptAddSa.exit:                           ; preds = %61, %60, %54
 
 89:                                               ; preds = %._crit_edge.thread, %.thread104, %74, %._crit_edge, %78
   %.0 = phi i32 [ 0, %78 ], [ 1, %._crit_edge ], [ 1, %74 ], [ 1, %.thread104 ], [ 1, %._crit_edge.thread ]
-  call void @llvm.lifetime.end.p0(i64 35, ptr nonnull %8) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
 
@@ -2556,7 +2550,7 @@ define internal fastcc i32 @Dot11DecryptUsingUserTk(ptr noundef nonnull %0, ptr 
   br i1 %.not, label %28, label %72
 
 28:                                               ; preds = %24
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 152
   %30 = getelementptr inbounds nuw i8, ptr %26, i64 184
@@ -2716,12 +2710,12 @@ Dot11DecryptGetPtkLen.exit:                       ; preds = %Dot11DecryptGetTkLe
   br i1 %.not.i67, label %68, label %67
 
 67:                                               ; preds = %65
-  call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %7, ptr noundef nonnull align 8 dereferenceable(176) %66, i64 176, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %66, ptr noundef nonnull align 8 dereferenceable(176) %9, i64 176, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %9, ptr noundef nonnull align 8 dereferenceable(176) %7, i64 176, i1 false)
   store ptr %9, ptr %66, align 8
-  call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %75
 
 68:                                               ; preds = %65
@@ -2737,7 +2731,7 @@ Dot11DecryptAddSa.exit.loopexit:                  ; preds = %35
 Dot11DecryptAddSa.exit:                           ; preds = %Dot11DecryptAddSa.exit.loopexit, %28
   %.pre83 = phi i64 [ %.pre8384, %28 ], [ %.pre83.pre, %Dot11DecryptAddSa.exit.loopexit ]
   %.357 = phi i32 [ %.05478, %28 ], [ %63, %Dot11DecryptAddSa.exit.loopexit ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %72
 
 72:                                               ; preds = %Dot11DecryptAddSa.exit, %24
@@ -2749,7 +2743,7 @@ Dot11DecryptAddSa.exit:                           ; preds = %Dot11DecryptAddSa.e
   br i1 %.not65, label %24, label %.thread, !llvm.loop !42
 
 75:                                               ; preds = %67, %68
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %Dot11DecryptNewSa.exit.thread
 
 .thread:                                          ; preds = %72, %10
@@ -2886,7 +2880,7 @@ Dot11DecryptValidateKey.exit.thread34:            ; preds = %.thread
 47:                                               ; preds = %Dot11DecryptValidateKey.exit.thread34
   %48 = getelementptr inbounds nuw i8, ptr %20, i64 320
   %49 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   %50 = call ptr @g_byte_array_new()
   %51 = getelementptr inbounds nuw i8, ptr %20, i64 384
@@ -2906,7 +2900,7 @@ Dot11DecryptValidateKey.exit.thread34:            ; preds = %.thread
   call fastcc void @Dot11DecryptRsnaPwd2PskStep(ptr noundef %61, i32 noundef %62, ptr noundef nonnull %58, i64 noundef %63, i32 noundef 2, ptr noundef nonnull %18)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %49, ptr noundef nonnull align 16 dereferenceable(32) %4, i64 noundef 32, i1 noundef false) #15
   %64 = call ptr @g_byte_array_free(ptr noundef %50, i32 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %65 = getelementptr inbounds nuw i8, ptr %20, i64 144
   store i8 32, ptr %65, align 8
   br label %Dot11DecryptValidateKey.exit.thread34.thread
@@ -2973,7 +2967,7 @@ Dot11DecryptCleanSecAssoc.exit:                   ; preds = %4, %8
 }
 
 ; Function Attrs: nofree norecurse nounwind null_pointer_is_valid sspstrong memory(argmem: readwrite) uwtable
-define hidden range(i32 0, 2) i32 @Dot11DecryptSetLastSSID(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #6 {
+define hidden range(i32 0, 2) i32 @Dot11DecryptSetLastSSID(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #5 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %1, null
   %or.cond.not16 = or i1 %4, %5
@@ -2995,7 +2989,7 @@ define hidden range(i32 0, 2) i32 @Dot11DecryptSetLastSSID(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @g_hash_table_new_full(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @g_hash_table_new_full(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @Dot11DecryptSaHash(ptr noundef %0) #0 {
@@ -3006,7 +3000,7 @@ define internal i32 @Dot11DecryptSaHash(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @Dot11DecryptIsSaIdEqual(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #7 {
+define internal range(i32 0, 2) i32 @Dot11DecryptIsSaIdEqual(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #6 {
   %bcmp = tail call i32 @bcmp(ptr noundef dereferenceable(12) %0, ptr noundef dereferenceable(12) %1, i64 12)
   %3 = icmp eq i32 %bcmp, 0
   %4 = zext i1 %3 to i32
@@ -3069,7 +3063,7 @@ define hidden range(i32 -1, 5) i32 @Dot11DecryptScanFtAssocForKeys(ptr noundef %
   %13 = alloca i64, align 8
   %14 = alloca [56 x i8], align 16
   %15 = alloca i16, align 2
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %10) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %16 = icmp ne ptr %0, null
   %17 = icmp ne ptr %1, null
   %or.cond = and i1 %16, %17
@@ -3119,7 +3113,7 @@ switch.lookup:                                    ; preds = %28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %33, ptr noundef nonnull align 1 dereferenceable(6) %34, i64 noundef 6, i1 noundef false) #15
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 132
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %10, ptr noundef nonnull align 1 dereferenceable(6) %35, i64 noundef 6, i1 noundef false) #15
-  call void @llvm.lifetime.start.p0(i64 432, ptr nonnull %11) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %36 = tail call noalias dereferenceable_or_null(176) ptr @g_malloc0(i64 noundef 176) #18
   %.not.i = icmp eq ptr %36, null
   br i1 %.not.i, label %37, label %38
@@ -3137,8 +3131,8 @@ switch.lookup:                                    ; preds = %28
   %42 = getelementptr inbounds nuw i8, ptr %36, i64 24
   %43 = load ptr, ptr %42, align 8
   %.not101 = icmp ne ptr %43, null
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %12) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 27656
   %45 = load i64, ptr %44, align 8
   %46 = icmp ne i64 %45, 0
@@ -3222,7 +3216,7 @@ Dot11DecryptIsPwdWildcardSsid.exit:               ; preds = %82
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(432) %11, ptr noundef nonnull align 1 dereferenceable(432) %.089, i64 noundef 424, i1 noundef false) #15
   %85 = call ptr @__memcpy_chk(ptr noundef nonnull %51, ptr noundef nonnull %52, i64 noundef %83, i64 noundef 40) #15, !alias.scope !45
   store i64 %83, ptr %53, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %9, i8 0, i64 40, i1 false)
   %86 = call ptr @g_byte_array_new()
   %87 = load i64, ptr %55, align 8
@@ -3239,7 +3233,7 @@ Dot11DecryptIsPwdWildcardSsid.exit:               ; preds = %82
   call fastcc void @Dot11DecryptRsnaPwd2PskStep(ptr noundef %94, i32 noundef %95, ptr noundef nonnull %51, i64 noundef %96, i32 noundef 2, ptr noundef nonnull %56)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %54, ptr noundef nonnull align 16 dereferenceable(32) %9, i64 noundef 32, i1 noundef false) #15
   %97 = call ptr @g_byte_array_free(ptr noundef %86, i32 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %Dot11DecryptIsPwdWildcardSsid.exit.thread
 
 Dot11DecryptIsPwdWildcardSsid.exit.thread:        ; preds = %75, %75, %75, %78, %82, %77, %Dot11DecryptIsPwdWildcardSsid.exit
@@ -3311,10 +3305,10 @@ switch.lookup143:                                 ; preds = %switch.hole_check
 
 Dot11DecryptGetKckLen.exit:                       ; preds = %switch.lookup143, %128
   %.0.i113 = phi i64 [ 0, %128 ], [ %switch.load145, %switch.lookup143 ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #15
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %7, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %130 = load ptr, ptr %62, align 8
   %131 = getelementptr i8, ptr %130, i64 1
   %132 = load i8, ptr %131, align 1
@@ -3418,9 +3412,9 @@ switch.lookup146:                                 ; preds = %136
   br label %Dot11DecryptFtMicCheck.exit
 
 Dot11DecryptFtMicCheck.exit.thread:               ; preds = %136, %142, %146, %Dot11DecryptGetKckLen.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #15
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %Dot11DecryptIsWpaKeyType.exit109
 
 Dot11DecryptFtMicCheck.exit:                      ; preds = %191, %193
@@ -3430,9 +3424,9 @@ Dot11DecryptFtMicCheck.exit:                      ; preds = %191, %193
   %.not37.i.not = icmp eq i32 %202, 0
   %203 = load ptr, ptr %8, align 8
   call void @gcry_mac_close(ptr noundef %203)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #15
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %.not37.i.not, label %.thread, label %Dot11DecryptIsWpaKeyType.exit109
 
 .thread:                                          ; preds = %Dot11DecryptFtMicCheck.exit
@@ -3491,8 +3485,8 @@ Dot11DecryptIsWpaKeyType.exit109:                 ; preds = %75, %Dot11DecryptFt
   br i1 %231, label %232, label %250
 
 232:                                              ; preds = %228
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %14) #15
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %15) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   switch i8 %210, label %234 [
     i8 1, label %Dot11DecryptGetKckLen.exit118
     i8 2, label %Dot11DecryptGetKckLen.exit118
@@ -3557,13 +3551,13 @@ Dot11DecryptGetKekLen.exit:                       ; preds = %switch.lookup152, %
   %248 = call fastcc i32 @Dot11DecryptCopyBroadcastKey(ptr noundef nonnull %0, ptr noundef nonnull %14, i64 noundef %247, ptr noundef nonnull %10)
   store i64 %247, ptr %3, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %2, ptr noundef nonnull align 16 %14, i64 noundef %247, i1 noundef false) #15
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %15) #15
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %14) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %250
 
 249:                                              ; preds = %243, %Dot11DecryptGetKekLen.exit
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %15) #15
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %14) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %251
 
 250:                                              ; preds = %.critedge, %228, %207
@@ -3572,18 +3566,18 @@ Dot11DecryptGetKekLen.exit:                       ; preds = %switch.lookup152, %
 
 251:                                              ; preds = %249, %250, %._crit_edge.thread
   %.293 = phi i32 [ 4, %._crit_edge.thread ], [ -1, %250 ], [ 1, %249 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #15
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %12) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %252
 
 252:                                              ; preds = %251, %37
   %.192 = phi i32 [ 4, %37 ], [ %.293, %251 ]
-  call void @llvm.lifetime.end.p0(i64 432, ptr nonnull %11) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %Dot11DecryptIsFtAkm.exit
 
 Dot11DecryptIsFtAkm.exit:                         ; preds = %19, %25, %22, %252, %31, %18
   %.091 = phi i32 [ 1, %31 ], [ %.192, %252 ], [ 4, %18 ], [ 4, %22 ], [ 4, %25 ], [ 4, %19 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %10) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.091
 }
 
@@ -3609,16 +3603,16 @@ switch.lookup:                                    ; preds = %12
 
 Dot11DecryptGetHashAlgoFromAkm.exit:              ; preds = %switch.lookup, %12
   %.0.i = phi i32 [ -1, %12 ], [ %switch.load, %switch.lookup ]
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %13) #15
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %14) #15
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %15, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %16, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i64 0, ptr %18, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store i64 0, ptr %19, align 8
   %22 = icmp ne ptr %2, null
   %23 = icmp ne ptr %3, null
@@ -3714,13 +3708,13 @@ Dot11DecryptGetXXKeyFromMSK.exit.thread67:        ; preds = %42, %45, %50
 
 67:                                               ; preds = %Dot11DecryptGetXXKeyFromMSK.exit.thread, %62, %59, %Dot11DecryptGetXXKeyFromMSK.exit.thread67, %33, %29
   %.0 = phi i8 [ 4, %33 ], [ 4, %29 ], [ 1, %Dot11DecryptGetXXKeyFromMSK.exit.thread67 ], [ 1, %59 ], [ %., %62 ], [ 4, %Dot11DecryptGetXXKeyFromMSK.exit.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #15
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %14) #15
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %13) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret i8 %.0
 }
 
@@ -3728,7 +3722,7 @@ Dot11DecryptGetXXKeyFromMSK.exit.thread67:        ; preds = %42, %45, %50
 define internal fastcc range(i32 -1, 5) i32 @Dot11DecryptCopyBroadcastKey(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef range(i64 0, 65536) %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca %struct._DOT11DECRYPT_SEC_ASSOCIATION, align 8
   %6 = alloca %struct._DOT11DECRYPT_SEC_ASSOCIATION_ID, align 1
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = icmp eq ptr %1, null
   %8 = icmp eq i64 %2, 0
   %or.cond = or i1 %7, %8
@@ -3785,12 +3779,12 @@ define internal fastcc range(i32 -1, 5) i32 @Dot11DecryptCopyBroadcastKey(ptr no
   br i1 %.not.i29, label %37, label %36
 
 36:                                               ; preds = %17
-  call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %5, ptr noundef nonnull align 8 dereferenceable(176) %35, i64 176, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %35, ptr noundef nonnull align 8 dereferenceable(176) %15, i64 176, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %15, ptr noundef nonnull align 8 dereferenceable(176) %5, i64 176, i1 false)
   store ptr %15, ptr %35, align 8
-  call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %Dot11DecryptAddSa.exit
 
 37:                                               ; preds = %17
@@ -3801,7 +3795,7 @@ define internal fastcc range(i32 -1, 5) i32 @Dot11DecryptCopyBroadcastKey(ptr no
 
 Dot11DecryptAddSa.exit:                           ; preds = %37, %36, %10, %4, %16
   %.0 = phi i32 [ 4, %16 ], [ 4, %4 ], [ 4, %10 ], [ -1, %36 ], [ -1, %37 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
@@ -4191,43 +4185,43 @@ define noalias noundef ptr @parse_key_string(ptr noundef %0, i8 noundef zeroext 
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #2
+declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @g_byte_array_new() local_unnamed_addr #2
+declare ptr @g_byte_array_new() local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i1 @hex_str_to_bytes(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare zeroext i1 @hex_str_to_bytes(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @g_byte_array_free(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @g_byte_array_free(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid allocsize(0)
-declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #8
+declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
-declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @g_strsplit(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @g_strsplit(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @g_strv_length(ptr noundef) local_unnamed_addr #2
+declare i32 @g_strv_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @g_strfreev(ptr noundef) local_unnamed_addr #2
+declare void @g_strfreev(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i1 @uri_str_to_bytes(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @uri_str_to_bytes(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @g_string_new(ptr noundef) local_unnamed_addr #2
+declare ptr @g_string_new(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @g_string_append_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @g_string_append_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @g_string_free(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @g_string_free(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define void @free_key_string(ptr noundef %0) local_unnamed_addr #0 {
@@ -4255,40 +4249,40 @@ define void @free_key_string(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nocallback nofree nounwind null_pointer_is_valid memory(argmem: readwrite)
-declare ptr @__memcpy_chk(ptr noalias noundef writeonly, ptr noalias noundef readonly captures(none), i64 noundef, i64 noundef) local_unnamed_addr #9
+declare ptr @__memcpy_chk(ptr noalias noundef writeonly, ptr noalias noundef readonly captures(none), i64 noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @gcry_cipher_open(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @gcry_cipher_open(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @gcry_cipher_setkey(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @gcry_cipher_setkey(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @gcry_cipher_close(ptr noundef) local_unnamed_addr #2
+declare void @gcry_cipher_close(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid allocsize(1)
-declare ptr @g_memdup2(ptr noundef, i64 noundef) local_unnamed_addr #11
+declare ptr @g_memdup2(ptr noundef, i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @gcry_cipher_decrypt(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @gcry_cipher_decrypt(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind null_pointer_is_valid memory(argmem: readwrite)
-declare ptr @__memset_chk(ptr noundef writeonly, i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #9
+declare ptr @__memset_chk(ptr noundef writeonly, i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @g_hash_table_lookup(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @g_hash_table_lookup(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid allocsize(0)
-declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #8
+declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #12
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @g_hash_table_insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @g_hash_table_insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc range(i32 -1, 705) i32 @Dot11DecryptGetPtkLen(i32 noundef %0, i32 noundef %1) unnamed_addr #0 {
@@ -4391,75 +4385,75 @@ Dot11DecryptGetTkLen.exit.thread:                 ; preds = %Dot11DecryptGetKekL
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @g_hash_table_destroy(ptr noundef) local_unnamed_addr #2
+declare void @g_hash_table_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @g_bytes_new_static(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @g_bytes_new_static(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @g_bytes_hash(ptr noundef) local_unnamed_addr #2
+declare i32 @g_bytes_hash(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @g_bytes_unref(ptr noundef) local_unnamed_addr #2
+declare void @g_bytes_unref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @Dot11DecryptTkipDecrypt(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @Dot11DecryptTkipDecrypt(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @Dot11DecryptGcmpDecrypt(ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @Dot11DecryptGcmpDecrypt(ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @Dot11DecryptCcmpDecrypt(ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @Dot11DecryptCcmpDecrypt(ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @Dot11DecryptWepDecrypt(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @Dot11DecryptWepDecrypt(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i1 @dot11decrypt_prf(ptr noundef, i64 noundef, ptr noundef, ptr noundef, i64 noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare zeroext i1 @dot11decrypt_prf(ptr noundef, i64 noundef, ptr noundef, ptr noundef, i64 noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i1 @dot11decrypt_kdf(ptr noundef, i64 noundef, ptr noundef, ptr noundef, i64 noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare zeroext i1 @dot11decrypt_kdf(ptr noundef, i64 noundef, ptr noundef, ptr noundef, i64 noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @ws_hmac_buffer(i32 noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @ws_hmac_buffer(i32 noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @ws_cmac_buffer(i32 noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @ws_cmac_buffer(i32 noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @gcry_mac_open(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @gcry_mac_open(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @gcry_mac_setkey(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @gcry_mac_setkey(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @gcry_mac_close(ptr noundef) local_unnamed_addr #2
+declare void @gcry_mac_close(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @gcry_mac_write(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @gcry_mac_write(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @gcry_mac_verify(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @gcry_mac_verify(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i1 @dot11decrypt_derive_pmk_r0(ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @dot11decrypt_derive_pmk_r0(ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i1 @dot11decrypt_derive_pmk_r1(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @dot11decrypt_derive_pmk_r1(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i1 @dot11decrypt_derive_ft_ptk(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @dot11decrypt_derive_ft_ptk(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @g_byte_array_append(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @g_byte_array_append(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @Dot11DecryptRsnaPwd2PskStep(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef range(i32 1, 3) %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca [36 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(36) %7, i8 0, i64 36, i1 false)
   %8 = icmp ugt i64 %3, 32
   br i1 %8, label %.loopexit, label %9
@@ -4512,27 +4506,33 @@ define internal fastcc void @Dot11DecryptRsnaPwd2PskStep(ptr noundef %0, i32 nou
   br i1 %exitcond32.not, label %.loopexit, label %23, !llvm.loop !60
 
 .loopexit:                                        ; preds = %30, %23, %9, %6
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @gcry_md_open(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @gcry_md_open(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @gcry_md_write(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @gcry_md_write(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @gcry_md_read(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @gcry_md_read(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @gcry_md_close(ptr noundef) local_unnamed_addr #2
+declare void @gcry_md_close(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @gcry_md_setkey(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @gcry_md_setkey(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @gcry_mac_read(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @gcry_mac_read(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #13
@@ -4541,18 +4541,18 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #14
 
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree norecurse nounwind null_pointer_is_valid sspstrong memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { noreturn null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree norecurse nounwind null_pointer_is_valid sspstrong memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nocallback nofree nounwind null_pointer_is_valid memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #11 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree norecurse nounwind null_pointer_is_valid sspstrong memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { noreturn null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree norecurse nounwind null_pointer_is_valid sspstrong memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nocallback nofree nounwind null_pointer_is_valid memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #10 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #14 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #15 = { nounwind }

@@ -159,7 +159,7 @@ define internal range(i32 0, 2) i32 @test_gcm128(i32 noundef %0) #0 {
   %2 = alloca [512 x i8], align 16
   %3 = alloca %struct.gcm128_context, align 8
   %4 = alloca %struct.aes_key_st, align 4
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %5 = sext i32 %0 to i64
   %6 = getelementptr inbounds [20 x %struct.gcm128_data], ptr @gcm128_vectors, i64 0, i64 %5
   %.sroa.027.0.copyload = load i64, ptr %6, align 16, !tbaa !4
@@ -183,8 +183,8 @@ define internal range(i32 0, 2) i32 @test_gcm128(i32 noundef %0) #0 {
   %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 88
   %.sroa.3.0.copyload = load ptr, ptr %.sroa.3.0..sroa_idx, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 448, ptr nonnull %3) #6
-  call void @llvm.lifetime.start.p0(i64 244, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %11 = icmp eq i64 %.sroa.018.0.copyload, 1
   %12 = icmp eq i64 %.sroa.06.0.copyload, 1
   %13 = icmp eq i64 %.sroa.02.0.copyload, 1
@@ -268,9 +268,9 @@ define internal range(i32 0, 2) i32 @test_gcm128(i32 noundef %0) #0 {
 
 45:                                               ; preds = %36, %42, %22, %28, %19, %44
   %.0 = phi i32 [ 1, %44 ], [ 0, %19 ], [ 0, %28 ], [ 0, %22 ], [ 0, %42 ], [ 0, %36 ]
-  call void @llvm.lifetime.end.p0(i64 244, ptr nonnull %4) #6
-  call void @llvm.lifetime.end.p0(i64 448, ptr nonnull %3) #6
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
 
@@ -321,10 +321,10 @@ cts128_encrypt_key_schedule.exit:                 ; preds = %2, %12
   br label %cts128_decrypt_key_schedule.exit
 
 cts128_decrypt_key_schedule.exit:                 ; preds = %cts128_encrypt_key_schedule.exit, %14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #6
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %16 = load ptr, ptr %0, align 8, !tbaa !14
   tail call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.4, i32 noundef 198, ptr noundef nonnull @.str.5, ptr noundef %16, i64 noundef %11) #6
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -416,21 +416,15 @@ cts128_decrypt_key_schedule.exit:                 ; preds = %cts128_encrypt_key_
 
 63:                                               ; preds = %61, %54, %59, %45, %50, %52, %31, %41, %43, %cts128_decrypt_key_schedule.exit, %24, %26
   %.0 = phi i32 [ 0, %26 ], [ 0, %24 ], [ 0, %cts128_decrypt_key_schedule.exit ], [ 0, %43 ], [ 0, %41 ], [ 0, %31 ], [ 0, %52 ], [ 0, %50 ], [ 0, %45 ], [ 0, %59 ], [ 0, %54 ], [ %spec.select, %61 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare void @test_info(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
@@ -480,7 +474,7 @@ declare void @CRYPTO_gcm128_init(ptr noundef, ptr noundef, ptr noundef) local_un
 declare void @CRYPTO_gcm128_setiv(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare i32 @CRYPTO_gcm128_aad(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -494,12 +488,18 @@ declare i32 @CRYPTO_gcm128_finish(ptr noundef, ptr noundef, i64 noundef) local_u
 
 declare i32 @CRYPTO_gcm128_decrypt(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

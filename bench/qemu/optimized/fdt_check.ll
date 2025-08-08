@@ -9,10 +9,10 @@ define dso_local i32 @fdt_check_full(ptr noundef %0, i64 noundef %1) local_unnam
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = icmp ult i64 %1, 28
   br i1 %7, label %.loopexit, label %8
 
@@ -94,7 +94,7 @@ define dso_local i32 @fdt_check_full(ptr noundef %0, i64 noundef %1) local_unnam
   br i1 %48, label %49, label %64
 
 49:                                               ; preds = %47
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4, !annotation !4
   %50 = call ptr @fdt_get_name(ptr noundef nonnull %0, i32 noundef %40, ptr noundef nonnull %6) #3
   %51 = load i8, ptr %50, align 1
@@ -102,7 +102,7 @@ define dso_local i32 @fdt_check_full(ptr noundef %0, i64 noundef %1) local_unnam
   %53 = load i32, ptr %6, align 4
   %54 = icmp eq i32 %53, 0
   %or.cond3.not = select i1 %52, i1 %54, i1 false
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %or.cond3.not, label %64, label %.loopexit
 
 55:                                               ; preds = %42
@@ -135,33 +135,33 @@ define dso_local i32 @fdt_check_full(ptr noundef %0, i64 noundef %1) local_unnam
 
 .loopexit:                                        ; preds = %49, %64, %.lr.ph, %44, %55, %42, %.preheader, %43, %33, %13, %11, %8, %2, %62
   %.0 = phi i32 [ %63, %62 ], [ -8, %2 ], [ -8, %8 ], [ %12, %11 ], [ -8, %13 ], [ %34, %33 ], [ %., %43 ], [ %37, %.preheader ], [ -11, %49 ], [ %67, %64 ], [ -11, %.lr.ph ], [ -11, %44 ], [ -11, %55 ], [ -13, %42 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
+declare i64 @fdt_header_size(ptr noundef) local_unnamed_addr #1
+
+declare i32 @fdt_check_header(ptr noundef) local_unnamed_addr #1
+
+declare i32 @fdt_num_mem_rsv(ptr noundef) local_unnamed_addr #1
+
+declare i32 @fdt_next_tag(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+
+declare ptr @fdt_get_name(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+
+declare ptr @fdt_getprop_by_offset(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare i64 @fdt_header_size(ptr noundef) local_unnamed_addr #2
-
-declare i32 @fdt_check_header(ptr noundef) local_unnamed_addr #2
-
-declare i32 @fdt_num_mem_rsv(ptr noundef) local_unnamed_addr #2
-
-declare i32 @fdt_next_tag(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
-
-declare ptr @fdt_get_name(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare ptr @fdt_getprop_by_offset(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

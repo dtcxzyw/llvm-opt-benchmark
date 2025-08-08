@@ -134,15 +134,9 @@ define dso_local noundef ptr @AllocateSnapshotBuilder(ptr noundef %0, i32 nounde
   ret ptr %12
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @AllocSetContextCreateInternal(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare ptr @AllocSetContextCreateInternal(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
-
-declare ptr @palloc0(i64 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @FreeSnapshotBuilder(ptr noundef captures(none) %0) local_unnamed_addr #0 {
@@ -217,30 +211,30 @@ SnapBuildFreeSnapshot.exit:                       ; preds = %8
   ret void
 }
 
-declare void @MemoryContextDelete(ptr noundef) local_unnamed_addr #2
+declare void @MemoryContextDelete(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @SnapBuildCurrentState(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
+define dso_local i32 @SnapBuildCurrentState(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = load i32, ptr %0, align 8
   ret i32 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i64 @SnapBuildGetTwoPhaseAt(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
+define dso_local i64 @SnapBuildGetTwoPhaseAt(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @SnapBuildSetTwoPhaseAt(ptr noundef writeonly captures(none) initializes((32, 40)) %0, i64 noundef %1) local_unnamed_addr #4 {
+define dso_local void @SnapBuildSetTwoPhaseAt(ptr noundef writeonly captures(none) initializes((32, 40)) %0, i64 noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local zeroext i1 @SnapBuildXactNeedsSkip(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #3 {
+define dso_local zeroext i1 @SnapBuildXactNeedsSkip(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i64, ptr %3, align 8
   %5 = icmp ult i64 %1, %4
@@ -248,18 +242,18 @@ define dso_local zeroext i1 @SnapBuildXactNeedsSkip(ptr noundef readonly capture
 }
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #5
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #4
 
-declare zeroext i1 @errstart(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @errstart(i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @SnapBuildInitialSnapshot(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   tail call void @InvalidateCatalogSnapshot() #14
   %3 = tail call zeroext i1 @HaveRegisteredOrActiveSnapshot() #14
   br i1 %3, label %4, label %7
@@ -463,31 +457,31 @@ bsearch.exit:                                     ; preds = %bsearch.exit.loopex
   store i32 0, ptr %33, align 8
   store i32 %.0.lcssa, ptr %44, align 8
   store ptr %74, ptr %41, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %33
 }
 
-declare void @InvalidateCatalogSnapshot() local_unnamed_addr #2
+declare void @InvalidateCatalogSnapshot() local_unnamed_addr #1
 
-declare zeroext i1 @HaveRegisteredOrActiveSnapshot() local_unnamed_addr #2
+declare zeroext i1 @HaveRegisteredOrActiveSnapshot() local_unnamed_addr #1
 
-declare zeroext i1 @LWLockAcquire(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @LWLockAcquire(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @GetOldestSafeDecodingTransactionId(i1 noundef zeroext) local_unnamed_addr #2
+declare i32 @GetOldestSafeDecodingTransactionId(i1 noundef zeroext) local_unnamed_addr #1
 
-declare void @LWLockRelease(ptr noundef) local_unnamed_addr #2
+declare void @LWLockRelease(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @TransactionIdFollows(i32 noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @TransactionIdFollows(i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @palloc(i64 noundef) local_unnamed_addr #2
+declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 
-declare i32 @GetMaxSnapshotXidCount() local_unnamed_addr #2
+declare i32 @GetMaxSnapshotXidCount() local_unnamed_addr #1
 
-declare i32 @xidComparator(ptr noundef, ptr noundef) #2
+declare i32 @xidComparator(ptr noundef, ptr noundef) #1
 
-declare i32 @errcode(i32 noundef) local_unnamed_addr #2
+declare i32 @errcode(i32 noundef) local_unnamed_addr #1
 
-declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @SnapBuildExportSnapshot(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -537,13 +531,13 @@ define dso_local ptr @SnapBuildExportSnapshot(ptr noundef readonly captures(none
   ret ptr %14
 }
 
-declare zeroext i1 @IsTransactionOrTransactionBlock() local_unnamed_addr #2
+declare zeroext i1 @IsTransactionOrTransactionBlock() local_unnamed_addr #1
 
-declare void @StartTransactionCommand() local_unnamed_addr #2
+declare void @StartTransactionCommand() local_unnamed_addr #1
 
-declare ptr @ExportSnapshot(ptr noundef) local_unnamed_addr #2
+declare ptr @ExportSnapshot(ptr noundef) local_unnamed_addr #1
 
-declare i32 @errmsg_plural(ptr noundef, ptr noundef, i64 noundef, ...) local_unnamed_addr #2
+declare i32 @errmsg_plural(ptr noundef, ptr noundef, i64 noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @SnapBuildGetOrBuildSnapshot(ptr noundef captures(none) %0) local_unnamed_addr #0 {
@@ -631,12 +625,12 @@ define dso_local void @SnapBuildClearExportedSnapshot() local_unnamed_addr #0 {
   ret void
 }
 
-declare zeroext i1 @IsTransactionState() local_unnamed_addr #2
+declare zeroext i1 @IsTransactionState() local_unnamed_addr #1
 
-declare void @AbortCurrentTransaction() local_unnamed_addr #2
+declare void @AbortCurrentTransaction() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define dso_local void @SnapBuildResetExportedSnapshotState() local_unnamed_addr #6 {
+define dso_local void @SnapBuildResetExportedSnapshotState() local_unnamed_addr #5 {
   store ptr null, ptr @SavedResourceOwnerDuringExport, align 8
   store i1 false, ptr @ExportInProgress, align 1
   ret void
@@ -734,11 +728,11 @@ define dso_local noundef zeroext i1 @SnapBuildProcessChange(ptr noundef captures
   ret i1 %.0
 }
 
-declare zeroext i1 @TransactionIdPrecedes(i32 noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @TransactionIdPrecedes(i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @ReorderBufferXidHasBaseSnapshot(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @ReorderBufferXidHasBaseSnapshot(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @ReorderBufferSetBaseSnapshot(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare void @ReorderBufferSetBaseSnapshot(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @SnapBuildProcessNewCid(ptr noundef readonly captures(none) %0, i32 noundef %1, i64 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
@@ -791,14 +785,14 @@ define dso_local void @SnapBuildProcessNewCid(ptr noundef readonly captures(none
   ret void
 }
 
-declare void @ReorderBufferXidSetCatalogChanges(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
+declare void @ReorderBufferXidSetCatalogChanges(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @ReorderBufferAddNewTupleCids(ptr noundef, i32 noundef, i64 noundef, i64, i32, i48, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @ReorderBufferAddNewTupleCids(ptr noundef, i32 noundef, i64 noundef, i64, i32, i48, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
-declare void @ReorderBufferAddNewCommandId(ptr noundef, i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
+declare void @ReorderBufferAddNewCommandId(ptr noundef, i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @SnapBuildCommitTxn(ptr noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5) local_unnamed_addr #0 {
@@ -877,7 +871,7 @@ thread-pre-split:                                 ; preds = %10
   %.081134 = phi i1 [ false, %.lr.ph ], [ %.182, %109 ]
   %40 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
   %41 = load i32, ptr %40, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 %41, ptr %8, align 4
   %42 = load ptr, ptr %33, align 8
   %43 = call zeroext i1 @ReorderBufferXidHasCatalogChanges(ptr noundef %42, i32 noundef %41) #14
@@ -921,7 +915,7 @@ thread-pre-split:                                 ; preds = %10
   br i1 %59, label %.lr.ph.i.i, label %.loopexit133, !llvm.loop !6
 
 .loopexit132:                                     ; preds = %55, %39
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %60 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #14
   br i1 %60, label %61, label %63
 
@@ -976,7 +970,7 @@ SnapBuildAddCommittedTxn.exit:                    ; preds = %._crit_edge.i, %75
   br label %109
 
 .loopexit133:                                     ; preds = %58, %44, %45
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %.079, label %86, label %109
 
 86:                                               ; preds = %.loopexit133
@@ -1036,7 +1030,7 @@ SnapBuildAddCommittedTxn.exit97:                  ; preds = %._crit_edge.i93, %9
   %.081.lcssa = phi i1 [ false, %31 ], [ %.182, %109 ]
   %.077.lcssa = phi i1 [ false, %31 ], [ %.178, %109 ]
   %.076.lcssa = phi i32 [ %2, %31 ], [ %.1, %109 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 %2, ptr %7, align 4
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %111 = load ptr, ptr %110, align 8
@@ -1085,7 +1079,7 @@ SnapBuildAddCommittedTxn.exit97:                  ; preds = %._crit_edge.i93, %9
   br i1 %131, label %.lr.ph.i.i100, label %.loopexit131, !llvm.loop !6
 
 .loopexit:                                        ; preds = %127, %._crit_edge
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %132 = call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #14
   br i1 %132, label %133, label %135
 
@@ -1141,7 +1135,7 @@ SnapBuildAddCommittedTxn.exit112:                 ; preds = %._crit_edge.i108, %
   br label %.critedge
 
 .loopexit131:                                     ; preds = %130, %113, %115
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %.077.lcssa, label %159, label %187
 
 159:                                              ; preds = %.loopexit131
@@ -1443,7 +1437,7 @@ SnapBuildDistributeNewCatalogSnapshot.exit:       ; preds = %314, %216, %222, %2
   ret void
 }
 
-declare zeroext i1 @TransactionIdFollowsOrEquals(i32 noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @TransactionIdFollowsOrEquals(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @SnapBuildProcessRunningXacts(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
@@ -1857,9 +1851,9 @@ define internal fastcc void @SnapBuildSerialize(ptr noundef captures(none) %0, i
   %3 = alloca [1024 x i8], align 16
   %4 = alloca [1024 x i8], align 16
   %5 = alloca %struct.stat, align 8
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %3) #14
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %4) #14
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = load i32, ptr %0, align 8
   %7 = icmp slt i32 %6, 2
   br i1 %7, label %132, label %8
@@ -2106,19 +2100,19 @@ define internal fastcc void @SnapBuildSerialize(ptr noundef captures(none) %0, i
   br label %132
 
 132:                                              ; preds = %.thread101, %127, %131, %2
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5) #14
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %4) #14
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-declare i32 @ReorderBufferGetOldestXmin(ptr noundef) local_unnamed_addr #2
+declare i32 @ReorderBufferGetOldestXmin(ptr noundef) local_unnamed_addr #1
 
-declare void @LogicalIncreaseXminForSlot(i64 noundef, i32 noundef) local_unnamed_addr #2
+declare void @LogicalIncreaseXminForSlot(i64 noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @ReorderBufferGetOldestTXN(ptr noundef) local_unnamed_addr #2
+declare ptr @ReorderBufferGetOldestTXN(ptr noundef) local_unnamed_addr #1
 
-declare void @LogicalIncreaseRestartDecodingForSlot(i64 noundef, i64 noundef) local_unnamed_addr #2
+declare void @LogicalIncreaseRestartDecodingForSlot(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @SnapBuildSerializationPoint(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
@@ -2142,8 +2136,8 @@ define dso_local void @SnapBuildSerializationPoint(ptr noundef captures(none) %0
 define internal fastcc noundef zeroext i1 @SnapBuildRestore(ptr noundef captures(none) %0, i64 noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.SnapBuildOnDisk, align 8
   %4 = alloca [1024 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #14
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load i32, ptr %0, align 8
   %6 = icmp eq i32 %5, 2
   br i1 %6, label %108, label %7
@@ -2329,8 +2323,8 @@ SnapBuildSnapDecRefcount.exit:                    ; preds = %SnapBuildFreeSnapsh
 
 108:                                              ; preds = %104, %107, %SnapBuildSnapDecRefcount.exit, %97, %7, %2
   %.0 = phi i1 [ false, %2 ], [ false, %7 ], [ true, %97 ], [ true, %SnapBuildSnapDecRefcount.exit ], [ false, %107 ], [ false, %104 ]
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %4) #14
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
 
@@ -2464,14 +2458,14 @@ define dso_local noundef zeroext i1 @SnapBuildRestoreSnapshot(ptr noundef %0, pt
   ret i1 %6
 }
 
-declare i32 @OpenTransientFile(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @OpenTransientFile(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #8
+declare ptr @__errno_location() local_unnamed_addr #7
 
-declare i32 @errcode_for_file_access() local_unnamed_addr #2
+declare i32 @errcode_for_file_access() local_unnamed_addr #1
 
-declare void @fsync_fname(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare void @fsync_fname(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @SnapBuildRestoreContents(i32 noundef range(i32 0, -2147483648) %0, ptr noundef captures(none) %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 {
@@ -2514,16 +2508,16 @@ define internal fastcc void @SnapBuildRestoreContents(i32 noundef range(i32 0, -
   ret void
 }
 
-declare ptr @MemoryContextAllocZero(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @MemoryContextAllocZero(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @CloseTransientFile(i32 noundef) local_unnamed_addr #2
+declare i32 @CloseTransientFile(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @CheckPointSnapBuild() local_unnamed_addr #0 {
   %1 = alloca [1045 x i8], align 16
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 1045, ptr nonnull %1) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %4 = tail call i64 @GetRedoRecPtr() #14
   %5 = tail call i64 @ReplicationSlotsComputeLogicalRestartLSN() #14
   %6 = tail call ptr @AllocateDir(ptr noundef nonnull @.str.21) #14
@@ -2538,8 +2532,8 @@ sub_0.lr.ph:                                      ; preds = %0
 
 sub_0:                                            ; preds = %sub_0.lr.ph, %52
   %9 = phi ptr [ %7, %sub_0.lr.ph ], [ %53, %52 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 19
   %11 = load i8, ptr %10, align 1
   %.not26 = icmp eq i8 %11, 46
@@ -2630,44 +2624,44 @@ sub_123:                                          ; preds = %.tail
   br label %52
 
 52:                                               ; preds = %.sink.split, %33, %44, %47, %29, %23, %.tail, %.tail21
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %53 = call ptr @ReadDir(ptr noundef %6, ptr noundef nonnull @.str.21) #14
   %.not = icmp eq ptr %53, null
   br i1 %.not, label %._crit_edge, label %sub_0
 
 ._crit_edge:                                      ; preds = %52, %0
   %54 = call i32 @FreeDir(ptr noundef %6) #14
-  call void @llvm.lifetime.end.p0(i64 1045, ptr nonnull %1) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }
 
-declare i64 @GetRedoRecPtr() local_unnamed_addr #2
+declare i64 @GetRedoRecPtr() local_unnamed_addr #1
 
-declare i64 @ReplicationSlotsComputeLogicalRestartLSN() local_unnamed_addr #2
+declare i64 @ReplicationSlotsComputeLogicalRestartLSN() local_unnamed_addr #1
 
-declare ptr @AllocateDir(ptr noundef) local_unnamed_addr #2
+declare ptr @AllocateDir(ptr noundef) local_unnamed_addr #1
 
-declare ptr @ReadDir(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @ReadDir(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare i32 @get_dirent_type(ptr noundef, ptr noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #9
+declare i32 @get_dirent_type(ptr noundef, ptr noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #9
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
-declare i32 @FreeDir(ptr noundef) local_unnamed_addr #2
+; Function Attrs: nofree nounwind
+declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #8
+
+declare i32 @FreeDir(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef zeroext i1 @SnapBuildSnapshotExists(i64 noundef %0) local_unnamed_addr #0 {
   %2 = alloca [1024 x i8], align 16
   %3 = alloca %struct.stat, align 8
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %2) #14
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = lshr i64 %0, 32
   %5 = trunc nuw i64 %4 to i32
   %6 = trunc i64 %0 to i32
@@ -2691,32 +2685,32 @@ define dso_local noundef zeroext i1 @SnapBuildSnapshotExists(i64 noundef %0) loc
   unreachable
 
 16:                                               ; preds = %9, %1
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #14
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %.not
 }
 
-declare i32 @pg_sprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare i32 @pg_sprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #9
+declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
-declare void @pfree(ptr noundef) local_unnamed_addr #2
+declare void @pfree(ptr noundef) local_unnamed_addr #1
 
-declare void @pg_qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare void @pg_qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @repalloc(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @repalloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @ReorderBufferAddSnapshot(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare void @ReorderBufferAddSnapshot(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @ReorderBufferXidHasCatalogChanges(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @ReorderBufferXidHasCatalogChanges(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @MemoryContextAlloc(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @MemoryContextAlloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #7
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #6
 
-declare i32 @errdetail_internal(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errdetail_internal(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @SnapBuildWaitSnapshot(ptr noundef readonly captures(none) %0, i32 noundef %1) unnamed_addr #0 {
@@ -2769,32 +2763,38 @@ define internal fastcc void @SnapBuildWaitSnapshot(ptr noundef readonly captures
   ret void
 }
 
-declare i32 @errdetail(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errdetail(ptr noundef, ...) local_unnamed_addr #1
 
-declare zeroext i1 @TransactionIdPrecedesOrEquals(i32 noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @TransactionIdPrecedesOrEquals(i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @TransactionIdIsCurrentTransactionId(i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @TransactionIdIsCurrentTransactionId(i32 noundef) local_unnamed_addr #1
 
-declare void @XactLockTableWait(i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @XactLockTableWait(i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @RecoveryInProgress() local_unnamed_addr #2
+declare zeroext i1 @RecoveryInProgress() local_unnamed_addr #1
 
-declare i64 @LogStandbySnapshot() local_unnamed_addr #2
+declare i64 @LogStandbySnapshot() local_unnamed_addr #1
 
-declare ptr @ReorderBufferGetCatalogChangesXacts(ptr noundef) local_unnamed_addr #2
+declare ptr @ReorderBufferGetCatalogChangesXacts(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #10
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #9
 
-declare i32 @pg_fsync(i32 noundef) local_unnamed_addr #2
+declare i32 @pg_fsync(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @rename(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #9
+declare noundef i32 @rename(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #8
 
-declare void @ReorderBufferSetRestartPoint(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @ReorderBufferSetRestartPoint(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #10
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #11
@@ -2809,16 +2809,16 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare i64 @llvm.umin.i64(i64, i64) #12
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: write) }

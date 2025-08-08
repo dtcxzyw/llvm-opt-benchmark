@@ -70,10 +70,10 @@ define dso_local range(i32 0, 2) i32 @expr_yyparse(ptr noundef %0, ptr noundef %
   %3 = alloca %union.YYSTYPE, align 8
   %4 = alloca [200 x i8], align 16
   %5 = alloca [200 x %union.YYSTYPE], align 16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 0, ptr %3, align 8
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %4) #9
-  call void @llvm.lifetime.start.p0(i64 1600, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br label %8
 
 6:                                                ; preds = %539, %71
@@ -112,7 +112,7 @@ define dso_local range(i32 0, 2) i32 @expr_yyparse(ptr noundef %0, ptr noundef %
   %spec.store.select = call i64 @llvm.smin.i64(i64 %19, i64 10000)
   %20 = mul i64 %spec.store.select, 9
   %21 = add i64 %20, 7
-  %22 = call noalias ptr @malloc(i64 noundef %21) #10
+  %22 = call noalias ptr @malloc(i64 noundef %21) #9
   %.not314.not = icmp eq ptr %22, null
   br i1 %.not314.not, label %541, label %23
 
@@ -127,7 +127,7 @@ define dso_local range(i32 0, 2) i32 @expr_yyparse(ptr noundef %0, ptr noundef %
   br i1 %.not315, label %29, label %28
 
 28:                                               ; preds = %23
-  call void @free(ptr noundef %.0296) #9
+  call void @free(ptr noundef %.0296) #10
   br label %29
 
 29:                                               ; preds = %23, %28
@@ -159,7 +159,7 @@ define dso_local range(i32 0, 2) i32 @expr_yyparse(ptr noundef %0, ptr noundef %
   br i1 %41, label %42, label %44
 
 42:                                               ; preds = %40
-  %43 = call i32 @expr_yylex(ptr noundef nonnull %3, ptr noundef %1) #9
+  %43 = call i32 @expr_yylex(ptr noundef nonnull %3, ptr noundef %1) #10
   br label %44
 
 44:                                               ; preds = %42, %40
@@ -295,9 +295,9 @@ define dso_local range(i32 0, 2) i32 @expr_yyparse(ptr noundef %0, ptr noundef %
 
 89:                                               ; preds = %79
   %90 = load ptr, ptr %.2278, align 8
-  %91 = call ptr @pg_malloc(i64 noundef 16) #9
+  %91 = call ptr @pg_malloc(i64 noundef 16) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %91, i8 0, i64 16, i1 false)
-  %92 = call ptr @pg_malloc(i64 noundef 16) #9
+  %92 = call ptr @pg_malloc(i64 noundef 16) #10
   store ptr %90, ptr %92, align 8
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
   store ptr null, ptr %93, align 8
@@ -330,13 +330,13 @@ make_elist.exit:                                  ; preds = %96, %97
   br i1 %107, label %108, label %110
 
 108:                                              ; preds = %103
-  %109 = call ptr @pg_malloc(i64 noundef 16) #9
+  %109 = call ptr @pg_malloc(i64 noundef 16) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %109, i8 0, i64 16, i1 false)
   br label %110
 
 110:                                              ; preds = %108, %103
   %.0.i = phi ptr [ %109, %108 ], [ %106, %103 ]
-  %111 = call ptr @pg_malloc(i64 noundef 16) #9
+  %111 = call ptr @pg_malloc(i64 noundef 16) #10
   store ptr %104, ptr %111, align 8
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 8
   store ptr null, ptr %112, align 8
@@ -373,7 +373,7 @@ make_elist.exit323:                               ; preds = %115, %116
   br label %514
 
 129:                                              ; preds = %79
-  %130 = call ptr @pg_malloc(i64 noundef 24) #9
+  %130 = call ptr @pg_malloc(i64 noundef 24) #10
   store i32 0, ptr %130, align 8
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 8
   store i32 2, ptr %131, align 8
@@ -385,7 +385,7 @@ make_elist.exit323:                               ; preds = %115, %116
   br label %514
 
 136:                                              ; preds = %79
-  %137 = call ptr @pg_malloc(i64 noundef 24) #9
+  %137 = call ptr @pg_malloc(i64 noundef 24) #10
   store i32 0, ptr %137, align 8
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 8
   store i32 2, ptr %138, align 8
@@ -395,7 +395,7 @@ make_elist.exit323:                               ; preds = %115, %116
   br label %514
 
 141:                                              ; preds = %79
-  %142 = call ptr @pg_malloc(i64 noundef 24) #9
+  %142 = call ptr @pg_malloc(i64 noundef 24) #10
   store i32 0, ptr %142, align 8
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 8
   store i32 2, ptr %143, align 8
@@ -413,7 +413,7 @@ make_elist.exit323:                               ; preds = %115, %116
 150:                                              ; preds = %154, %148
   %indvars.iv.i.i = phi i64 [ 0, %148 ], [ %indvars.iv.next.i.i, %154 ]
   %151 = phi ptr [ @.str.3, %148 ], [ %156, %154 ]
-  %152 = call i32 @pg_strcasecmp(ptr noundef nonnull @.str.2, ptr noundef nonnull %151) #9
+  %152 = call i32 @pg_strcasecmp(ptr noundef nonnull @.str.2, ptr noundef nonnull %151) #10
   %153 = icmp eq i32 %152, 0
   br i1 %153, label %find_func.exit.i, label %154
 
@@ -429,9 +429,9 @@ make_elist.exit323:                               ; preds = %115, %116
   unreachable
 
 find_func.exit.i:                                 ; preds = %150
-  %158 = call ptr @pg_malloc(i64 noundef 16) #9
+  %158 = call ptr @pg_malloc(i64 noundef 16) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %158, i8 0, i64 16, i1 false)
-  %159 = call ptr @pg_malloc(i64 noundef 16) #9
+  %159 = call ptr @pg_malloc(i64 noundef 16) #10
   store ptr %149, ptr %159, align 8
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 8
   store ptr null, ptr %160, align 8
@@ -605,7 +605,7 @@ make_uop.exit:                                    ; preds = %163, %164
 280:                                              ; preds = %79
   %281 = getelementptr inbounds i8, ptr %.2278, i64 -8
   %282 = load ptr, ptr %281, align 8
-  %283 = call ptr @pg_malloc(i64 noundef 24) #9
+  %283 = call ptr @pg_malloc(i64 noundef 24) #10
   store i32 0, ptr %283, align 8
   %284 = getelementptr inbounds nuw i8, ptr %283, i64 8
   store i32 1, ptr %284, align 8
@@ -618,7 +618,7 @@ make_uop.exit:                                    ; preds = %163, %164
 288:                                              ; preds = %79
   %289 = getelementptr inbounds i8, ptr %.2278, i64 -8
   %290 = load ptr, ptr %289, align 8
-  %291 = call ptr @pg_malloc(i64 noundef 24) #9
+  %291 = call ptr @pg_malloc(i64 noundef 24) #10
   store i32 0, ptr %291, align 8
   %292 = getelementptr inbounds nuw i8, ptr %291, i64 8
   store i32 1, ptr %292, align 8
@@ -630,7 +630,7 @@ make_uop.exit:                                    ; preds = %163, %164
 295:                                              ; preds = %299, %288
   %indvars.iv.i.i324 = phi i64 [ 0, %288 ], [ %indvars.iv.next.i.i325, %299 ]
   %296 = phi ptr [ @.str.3, %288 ], [ %301, %299 ]
-  %297 = call i32 @pg_strcasecmp(ptr noundef nonnull @.str.2, ptr noundef nonnull %296) #9
+  %297 = call i32 @pg_strcasecmp(ptr noundef nonnull @.str.2, ptr noundef nonnull %296) #10
   %298 = icmp eq i32 %297, 0
   br i1 %298, label %find_func.exit.i327, label %299
 
@@ -646,9 +646,9 @@ make_uop.exit:                                    ; preds = %163, %164
   unreachable
 
 find_func.exit.i327:                              ; preds = %295
-  %303 = call ptr @pg_malloc(i64 noundef 16) #9
+  %303 = call ptr @pg_malloc(i64 noundef 16) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %303, i8 0, i64 16, i1 false)
-  %304 = call ptr @pg_malloc(i64 noundef 16) #9
+  %304 = call ptr @pg_malloc(i64 noundef 16) #10
   store ptr %294, ptr %304, align 8
   %305 = getelementptr inbounds nuw i8, ptr %304, i64 8
   store ptr null, ptr %305, align 8
@@ -678,7 +678,7 @@ make_uop.exit328:                                 ; preds = %308, %309
 317:                                              ; preds = %79
   %318 = getelementptr inbounds i8, ptr %.2278, i64 -16
   %319 = load ptr, ptr %318, align 8
-  %320 = call ptr @pg_malloc(i64 noundef 24) #9
+  %320 = call ptr @pg_malloc(i64 noundef 24) #10
   store i32 0, ptr %320, align 8
   %321 = getelementptr inbounds nuw i8, ptr %320, i64 8
   store i32 1, ptr %321, align 8
@@ -691,7 +691,7 @@ make_uop.exit328:                                 ; preds = %308, %309
 325:                                              ; preds = %79
   %326 = getelementptr inbounds i8, ptr %.2278, i64 -24
   %327 = load ptr, ptr %326, align 8
-  %328 = call ptr @pg_malloc(i64 noundef 24) #9
+  %328 = call ptr @pg_malloc(i64 noundef 24) #10
   store i32 0, ptr %328, align 8
   %329 = getelementptr inbounds nuw i8, ptr %328, i64 8
   store i32 1, ptr %329, align 8
@@ -703,7 +703,7 @@ make_uop.exit328:                                 ; preds = %308, %309
 332:                                              ; preds = %336, %325
   %indvars.iv.i.i329 = phi i64 [ 0, %325 ], [ %indvars.iv.next.i.i330, %336 ]
   %333 = phi ptr [ @.str.3, %325 ], [ %338, %336 ]
-  %334 = call i32 @pg_strcasecmp(ptr noundef nonnull @.str.2, ptr noundef nonnull %333) #9
+  %334 = call i32 @pg_strcasecmp(ptr noundef nonnull @.str.2, ptr noundef nonnull %333) #10
   %335 = icmp eq i32 %334, 0
   br i1 %335, label %find_func.exit.i332, label %336
 
@@ -719,9 +719,9 @@ make_uop.exit328:                                 ; preds = %308, %309
   unreachable
 
 find_func.exit.i332:                              ; preds = %332
-  %340 = call ptr @pg_malloc(i64 noundef 16) #9
+  %340 = call ptr @pg_malloc(i64 noundef 16) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %340, i8 0, i64 16, i1 false)
-  %341 = call ptr @pg_malloc(i64 noundef 16) #9
+  %341 = call ptr @pg_malloc(i64 noundef 16) #10
   store ptr %331, ptr %341, align 8
   %342 = getelementptr inbounds nuw i8, ptr %341, i64 8
   store ptr null, ptr %342, align 8
@@ -752,7 +752,7 @@ make_uop.exit333:                                 ; preds = %345, %346
   %355 = getelementptr inbounds i8, ptr %.2278, i64 -16
   %356 = load ptr, ptr %355, align 8
   %357 = load i8, ptr %.2278, align 8, !range !6, !noundef !7
-  %358 = call ptr @pg_malloc(i64 noundef 24) #9
+  %358 = call ptr @pg_malloc(i64 noundef 24) #10
   store i32 0, ptr %358, align 8
   %359 = getelementptr inbounds nuw i8, ptr %358, i64 8
   store i32 4, ptr %359, align 8
@@ -766,7 +766,7 @@ make_uop.exit333:                                 ; preds = %345, %346
   %364 = getelementptr inbounds i8, ptr %.2278, i64 -24
   %365 = load ptr, ptr %364, align 8
   %366 = load i8, ptr %.2278, align 8, !range !6, !noundef !7
-  %367 = call ptr @pg_malloc(i64 noundef 24) #9
+  %367 = call ptr @pg_malloc(i64 noundef 24) #10
   store i32 0, ptr %367, align 8
   %368 = getelementptr inbounds nuw i8, ptr %367, i64 8
   store i32 4, ptr %368, align 8
@@ -778,7 +778,7 @@ make_uop.exit333:                                 ; preds = %345, %346
 371:                                              ; preds = %375, %363
   %indvars.iv.i.i334 = phi i64 [ 0, %363 ], [ %indvars.iv.next.i.i335, %375 ]
   %372 = phi ptr [ @.str.3, %363 ], [ %377, %375 ]
-  %373 = call i32 @pg_strcasecmp(ptr noundef nonnull @.str.2, ptr noundef nonnull %372) #9
+  %373 = call i32 @pg_strcasecmp(ptr noundef nonnull @.str.2, ptr noundef nonnull %372) #10
   %374 = icmp eq i32 %373, 0
   br i1 %374, label %find_func.exit.i337, label %375
 
@@ -794,9 +794,9 @@ make_uop.exit333:                                 ; preds = %345, %346
   unreachable
 
 find_func.exit.i337:                              ; preds = %371
-  %379 = call ptr @pg_malloc(i64 noundef 16) #9
+  %379 = call ptr @pg_malloc(i64 noundef 16) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %379, i8 0, i64 16, i1 false)
-  %380 = call ptr @pg_malloc(i64 noundef 16) #9
+  %380 = call ptr @pg_malloc(i64 noundef 16) #10
   store ptr %370, ptr %380, align 8
   %381 = getelementptr inbounds nuw i8, ptr %380, i64 8
   store ptr null, ptr %381, align 8
@@ -824,7 +824,7 @@ make_uop.exit338:                                 ; preds = %384, %385
   br label %514
 
 393:                                              ; preds = %79
-  %394 = call ptr @pg_malloc(i64 noundef 24) #9
+  %394 = call ptr @pg_malloc(i64 noundef 24) #10
   store i32 0, ptr %394, align 8
   %395 = getelementptr inbounds nuw i8, ptr %394, i64 8
   store i32 1, ptr %395, align 8
@@ -835,7 +835,7 @@ make_uop.exit338:                                 ; preds = %384, %385
 
 398:                                              ; preds = %79
   %399 = load i8, ptr %.2278, align 8, !range !6, !noundef !7
-  %400 = call ptr @pg_malloc(i64 noundef 24) #9
+  %400 = call ptr @pg_malloc(i64 noundef 24) #10
   store i32 0, ptr %400, align 8
   %401 = getelementptr inbounds nuw i8, ptr %400, i64 8
   store i32 4, ptr %401, align 8
@@ -846,7 +846,7 @@ make_uop.exit338:                                 ; preds = %384, %385
 
 404:                                              ; preds = %79
   %405 = load i64, ptr %.2278, align 8
-  %406 = call ptr @pg_malloc(i64 noundef 24) #9
+  %406 = call ptr @pg_malloc(i64 noundef 24) #10
   store i32 0, ptr %406, align 8
   %407 = getelementptr inbounds nuw i8, ptr %406, i64 8
   store i32 2, ptr %407, align 8
@@ -857,7 +857,7 @@ make_uop.exit338:                                 ; preds = %384, %385
 
 410:                                              ; preds = %79
   %411 = load double, ptr %.2278, align 8
-  %412 = call ptr @pg_malloc(i64 noundef 24) #9
+  %412 = call ptr @pg_malloc(i64 noundef 24) #10
   store i32 0, ptr %412, align 8
   %413 = getelementptr inbounds nuw i8, ptr %412, i64 8
   store i32 3, ptr %413, align 8
@@ -868,7 +868,7 @@ make_uop.exit338:                                 ; preds = %384, %385
 
 416:                                              ; preds = %79
   %417 = load ptr, ptr %.2278, align 8
-  %418 = call noundef ptr @pg_malloc(i64 noundef 24) #9
+  %418 = call noundef ptr @pg_malloc(i64 noundef 24) #10
   store i32 1, ptr %418, align 8
   %419 = getelementptr inbounds nuw i8, ptr %418, i64 8
   store ptr %417, ptr %419, align 8
@@ -900,13 +900,13 @@ make_uop.exit338:                                 ; preds = %384, %385
   br i1 %438, label %439, label %441
 
 439:                                              ; preds = %432
-  %440 = call ptr @pg_malloc(i64 noundef 16) #9
+  %440 = call ptr @pg_malloc(i64 noundef 16) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %440, i8 0, i64 16, i1 false)
   br label %441
 
 441:                                              ; preds = %439, %432
   %.0.i339 = phi ptr [ %440, %439 ], [ %437, %432 ]
-  %442 = call ptr @pg_malloc(i64 noundef 16) #9
+  %442 = call ptr @pg_malloc(i64 noundef 16) #10
   store ptr %435, ptr %442, align 8
   %443 = getelementptr inbounds nuw i8, ptr %442, i64 8
   store ptr null, ptr %443, align 8
@@ -928,7 +928,7 @@ make_uop.exit338:                                 ; preds = %384, %385
 451:                                              ; preds = %447, %446
   %452 = getelementptr inbounds nuw i8, ptr %.0.i339, i64 8
   store ptr %442, ptr %452, align 8
-  %453 = call ptr @pg_malloc(i64 noundef 16) #9
+  %453 = call ptr @pg_malloc(i64 noundef 16) #10
   store ptr %433, ptr %453, align 8
   %454 = getelementptr inbounds nuw i8, ptr %453, i64 8
   store ptr null, ptr %454, align 8
@@ -955,9 +955,9 @@ make_elist.exit342:                               ; preds = %457, %458
   %463 = load ptr, ptr %.2278, align 8
   %464 = getelementptr inbounds i8, ptr %.2278, i64 -16
   %465 = load ptr, ptr %464, align 8
-  %466 = call ptr @pg_malloc(i64 noundef 16) #9
+  %466 = call ptr @pg_malloc(i64 noundef 16) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %466, i8 0, i64 16, i1 false)
-  %467 = call ptr @pg_malloc(i64 noundef 16) #9
+  %467 = call ptr @pg_malloc(i64 noundef 16) #10
   store ptr %465, ptr %467, align 8
   %468 = getelementptr inbounds nuw i8, ptr %467, i64 8
   store ptr null, ptr %468, align 8
@@ -979,7 +979,7 @@ make_elist.exit342:                               ; preds = %457, %458
 476:                                              ; preds = %472, %471
   %477 = getelementptr inbounds nuw i8, ptr %466, i64 8
   store ptr %467, ptr %477, align 8
-  %478 = call ptr @pg_malloc(i64 noundef 16) #9
+  %478 = call ptr @pg_malloc(i64 noundef 16) #10
   store ptr %463, ptr %478, align 8
   %479 = getelementptr inbounds nuw i8, ptr %478, i64 8
   store ptr null, ptr %479, align 8
@@ -1005,7 +1005,7 @@ make_elist.exit346:                               ; preds = %482, %483
 487:                                              ; preds = %79
   %488 = getelementptr inbounds i8, ptr %.2278, i64 -8
   %489 = load ptr, ptr %488, align 8
-  %490 = call ptr @pg_malloc(i64 noundef 24) #9
+  %490 = call ptr @pg_malloc(i64 noundef 24) #10
   store i32 0, ptr %490, align 8
   %491 = getelementptr inbounds nuw i8, ptr %490, i64 8
   store i32 1, ptr %491, align 8
@@ -1031,7 +1031,7 @@ make_elist.exit346:                               ; preds = %482, %483
 504:                                              ; preds = %508, %502
   %indvars.iv.i = phi i64 [ 0, %502 ], [ %indvars.iv.next.i, %508 ]
   %505 = phi ptr [ @.str.3, %502 ], [ %510, %508 ]
-  %506 = call i32 @pg_strcasecmp(ptr noundef %503, ptr noundef nonnull %505) #9
+  %506 = call i32 @pg_strcasecmp(ptr noundef %503, ptr noundef nonnull %505) #10
   %507 = icmp eq i32 %506, 0
   br i1 %507, label %find_func.exit, label %508
 
@@ -1050,7 +1050,7 @@ find_func.exit:                                   ; preds = %504
   %sext = shl i64 %indvars.iv.i, 32
   %512 = ashr exact i64 %sext, 32
   %513 = load ptr, ptr %.2278, align 8
-  call void @pg_free(ptr noundef %513) #9
+  call void @pg_free(ptr noundef %513) #10
   br label %514
 
 514:                                              ; preds = %79, %find_func.exit, %495, %487, %make_elist.exit346, %make_elist.exit342, %429, %421, %416, %410, %404, %398, %393, %make_uop.exit338, %354, %make_uop.exit333, %317, %make_uop.exit328, %280, %274, %268, %262, %256, %250, %244, %238, %232, %226, %220, %214, %208, %202, %196, %190, %184, %178, %172, %make_uop.exit, %141, %136, %129, %126, %122, %make_elist.exit323, %make_elist.exit, %88, %86
@@ -1110,33 +1110,27 @@ find_func.exit:                                   ; preds = %504
 .thread387.thread:                                ; preds = %29, %.thread387
   %.5301379479 = phi ptr [ %.1297, %.thread387 ], [ %22, %29 ]
   %.0274385477 = phi i32 [ %.0274385, %.thread387 ], [ 1, %29 ]
-  call void @free(ptr noundef %.5301379479) #9
+  call void @free(ptr noundef %.5301379479) #10
   br label %542
 
 542:                                              ; preds = %.thread387, %.thread387.thread
   %.0274385478 = phi i32 [ %.0274385, %.thread387 ], [ %.0274385477, %.thread387.thread ]
-  call void @llvm.lifetime.end.p0(i64 1600, ptr nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0274385478
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
-declare i32 @expr_yylex(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @expr_yylex(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @make_op(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
@@ -1145,7 +1139,7 @@ define internal fastcc ptr @make_op(ptr noundef %0, ptr noundef %1, ptr noundef 
 5:                                                ; preds = %9, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %9 ]
   %6 = phi ptr [ @.str.3, %4 ], [ %11, %9 ]
-  %7 = tail call i32 @pg_strcasecmp(ptr noundef %1, ptr noundef nonnull %6) #9
+  %7 = tail call i32 @pg_strcasecmp(ptr noundef %1, ptr noundef nonnull %6) #10
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %find_func.exit, label %9
 
@@ -1161,9 +1155,9 @@ define internal fastcc ptr @make_op(ptr noundef %0, ptr noundef %1, ptr noundef 
   unreachable
 
 find_func.exit:                                   ; preds = %5
-  %13 = tail call ptr @pg_malloc(i64 noundef 16) #9
+  %13 = tail call ptr @pg_malloc(i64 noundef 16) #10
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
-  %14 = tail call ptr @pg_malloc(i64 noundef 16) #9
+  %14 = tail call ptr @pg_malloc(i64 noundef 16) #10
   store ptr %2, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr null, ptr %15, align 8
@@ -1185,7 +1179,7 @@ find_func.exit:                                   ; preds = %5
 23:                                               ; preds = %19, %18
   %24 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %14, ptr %24, align 8
-  %25 = tail call ptr @pg_malloc(i64 noundef 16) #9
+  %25 = tail call ptr @pg_malloc(i64 noundef 16) #10
   store ptr %3, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store ptr null, ptr %26, align 8
@@ -1231,7 +1225,7 @@ define internal fastcc ptr @make_func(ptr noundef %0, i32 noundef %1, ptr nounde
 
 elist_length.exit:                                ; preds = %.lr.ph.i, %3, %4
   %.0.lcssa.i = phi i32 [ 0, %4 ], [ 0, %3 ], [ %6, %.lr.ph.i ]
-  %9 = tail call ptr @pg_malloc(i64 noundef 24) #9
+  %9 = tail call ptr @pg_malloc(i64 noundef 24) #10
   %10 = sext i32 %1 to i64
   %11 = getelementptr inbounds [40 x %struct.anon.2], ptr @PGBENCH_FUNCTIONS, i64 0, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -1278,20 +1272,20 @@ elist_length.exit:                                ; preds = %.lr.ph.i, %3, %4
   br i1 %27, label %28, label %71
 
 28:                                               ; preds = %26
-  %29 = tail call noundef ptr @pg_malloc(i64 noundef 24) #9
+  %29 = tail call noundef ptr @pg_malloc(i64 noundef 24) #10
   store i32 1, ptr %29, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store ptr @.str.51, ptr %30, align 8
   br i1 %.not.i, label %31, label %33
 
 31:                                               ; preds = %28
-  %32 = tail call ptr @pg_malloc(i64 noundef 16) #9
+  %32 = tail call ptr @pg_malloc(i64 noundef 16) #10
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, i8 0, i64 16, i1 false)
   br label %33
 
 33:                                               ; preds = %31, %28
   %.0.i = phi ptr [ %32, %31 ], [ %2, %28 ]
-  %34 = tail call ptr @pg_malloc(i64 noundef 16) #9
+  %34 = tail call ptr @pg_malloc(i64 noundef 16) #10
   store ptr %29, ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store ptr null, ptr %35, align 8
@@ -1325,20 +1319,20 @@ elist_length.exit:                                ; preds = %.lr.ph.i, %3, %4
   br i1 %48, label %49, label %71
 
 49:                                               ; preds = %47
-  %50 = tail call noundef ptr @pg_malloc(i64 noundef 24) #9
+  %50 = tail call noundef ptr @pg_malloc(i64 noundef 24) #10
   store i32 1, ptr %50, align 8
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   store ptr @.str.51, ptr %51, align 8
   br i1 %.not.i, label %52, label %54
 
 52:                                               ; preds = %49
-  %53 = tail call ptr @pg_malloc(i64 noundef 16) #9
+  %53 = tail call ptr @pg_malloc(i64 noundef 16) #10
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %53, i8 0, i64 16, i1 false)
   br label %54
 
 54:                                               ; preds = %52, %49
   %.0.i40 = phi ptr [ %53, %52 ], [ %2, %49 ]
-  %55 = tail call ptr @pg_malloc(i64 noundef 16) #9
+  %55 = tail call ptr @pg_malloc(i64 noundef 16) #10
   store ptr %50, ptr %55, align 8
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   store ptr null, ptr %56, align 8
@@ -1391,7 +1385,7 @@ elist_length.exit:                                ; preds = %.lr.ph.i, %3, %4
   %76 = load ptr, ptr %.044, align 8
   %77 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %76, ptr %77, align 8
-  tail call void @pg_free(ptr noundef nonnull %.044) #9
+  tail call void @pg_free(ptr noundef nonnull %.044) #10
   br label %79
 
 .critedge:                                        ; preds = %71
@@ -1410,7 +1404,7 @@ define internal fastcc ptr @make_case(ptr noundef %0, ptr noundef %1, ptr nounde
 4:                                                ; preds = %8, %3
   %indvars.iv.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i, %8 ]
   %5 = phi ptr [ @.str.3, %3 ], [ %10, %8 ]
-  %6 = tail call i32 @pg_strcasecmp(ptr noundef nonnull @.str.42, ptr noundef nonnull %5) #9
+  %6 = tail call i32 @pg_strcasecmp(ptr noundef nonnull @.str.42, ptr noundef nonnull %5) #10
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %find_func.exit, label %8
 
@@ -1430,13 +1424,13 @@ find_func.exit:                                   ; preds = %4
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %find_func.exit
-  %14 = tail call ptr @pg_malloc(i64 noundef 16) #9
+  %14 = tail call ptr @pg_malloc(i64 noundef 16) #10
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
   br label %15
 
 15:                                               ; preds = %13, %find_func.exit
   %.0.i = phi ptr [ %14, %13 ], [ %1, %find_func.exit ]
-  %16 = tail call ptr @pg_malloc(i64 noundef 16) #9
+  %16 = tail call ptr @pg_malloc(i64 noundef 16) #10
   store ptr %2, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr null, ptr %17, align 8
@@ -1463,17 +1457,23 @@ make_elist.exit:                                  ; preds = %20, %21
   ret ptr %27
 }
 
-declare void @pg_free(ptr noundef) local_unnamed_addr #5
+declare void @pg_free(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: noreturn
-declare void @expr_yyerror(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
+declare void @expr_yyerror(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
-declare ptr @pg_malloc(i64 noundef) local_unnamed_addr #5
+declare ptr @pg_malloc(i64 noundef) local_unnamed_addr #4
 
-declare i32 @pg_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @pg_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: noreturn
-declare void @expr_yyerror_more(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
+declare void @expr_yyerror_more(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #7
@@ -1482,16 +1482,16 @@ declare i64 @llvm.smin.i64(i64, i64) #7
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { nounwind }
-attributes #10 = { nounwind allocsize(0) }
+attributes #9 = { nounwind allocsize(0) }
+attributes #10 = { nounwind }
 attributes #11 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

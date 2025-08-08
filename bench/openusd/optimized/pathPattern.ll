@@ -815,7 +815,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__14SdfPathPatter
   %13 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #18
   call void @_ZNK32pxrInternal_v0_24__pxrReserved__14SdfPathPattern7GetTextB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %7, ptr noundef nonnull align 8 dereferenceable(57) %0)
   %14 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #18
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %17, label %15
 
@@ -829,7 +829,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__14SdfPathPatter
   br label %17
 
 17:                                               ; preds = %.noexc, %12
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__14SdfPathPattern18HasTrailingStretchEv.exit.thread.sink.split
 
 18:                                               ; preds = %15
@@ -873,7 +873,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__14SdfPathPattern18HasTrailingStretchEv.exi
 41:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__14SdfPathPattern18HasTrailingStretchEv.exit
   call void @_ZNK32pxrInternal_v0_24__pxrReserved__14SdfPathPattern7GetTextB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr noundef nonnull align 8 dereferenceable(57) %0)
   %42 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #18
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not.i10 = icmp eq ptr %3, null
   br i1 %.not.i10, label %45, label %43
 
@@ -887,7 +887,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__14SdfPathPattern18HasTrailingStretchEv.exi
   br label %45
 
 45:                                               ; preds = %.noexc11, %41
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__14SdfPathPattern18HasTrailingStretchEv.exit.thread.sink.split
 
 46:                                               ; preds = %43
@@ -1714,7 +1714,7 @@ define noundef nonnull align 8 dereferenceable(57) ptr @_ZN32pxrInternal_v0_24__
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %3, i8 0, i64 80, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #18
@@ -1744,13 +1744,13 @@ define noundef nonnull align 8 dereferenceable(57) ptr @_ZN32pxrInternal_v0_24__
   br label %34
 
 18:                                               ; preds = %11, %8
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
   br i1 %7, label %19, label %33
 
 19:                                               ; preds = %18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #18
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %2, i8 0, i64 80, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #18
@@ -1780,7 +1780,7 @@ define noundef nonnull align 8 dereferenceable(57) ptr @_ZN32pxrInternal_v0_24__
   br label %34
 
 32:                                               ; preds = %25, %22
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #18
   br label %33
 
@@ -1969,7 +1969,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__14SdfPathPatter
   %13 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #18
   call void @_ZNK32pxrInternal_v0_24__pxrReserved__14SdfPathPattern7GetTextB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %7, ptr noundef nonnull align 8 dereferenceable(57) %0)
   %14 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #18
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %17, label %15
 
@@ -1983,7 +1983,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__14SdfPathPatter
   br label %17
 
 17:                                               ; preds = %.noexc, %12
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.sink.split
 
 18:                                               ; preds = %15
@@ -2005,7 +2005,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__14SdfPathPatter
 26:                                               ; preds = %22
   call void @_ZNK32pxrInternal_v0_24__pxrReserved__14SdfPathPattern7GetTextB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr noundef nonnull align 8 dereferenceable(57) %0)
   %27 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #18
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not.i10 = icmp eq ptr %3, null
   br i1 %.not.i10, label %30, label %28
 
@@ -2019,7 +2019,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__14SdfPathPatter
   br label %30
 
 30:                                               ; preds = %.noexc11, %26
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.sink.split
 
 31:                                               ; preds = %28
@@ -2368,7 +2368,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__14SdfPathPattern18HasTrailingStretchEv.exi
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc25
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %156 = getelementptr inbounds nuw i8, ptr %4, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %4, i8 0, i64 80, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %156) #18
@@ -2400,7 +2400,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br label %.body
 
 168:                                              ; preds = %161, %158
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #18
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #18
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__14SdfPathPattern18HasTrailingStretchEv.exit.thread
@@ -3849,10 +3849,10 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare void @llvm.experimental.noalias.scope.decl(metadata) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #16

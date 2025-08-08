@@ -111,7 +111,7 @@ define noundef zeroext i1 @llamafile_sgemm(ptr noundef %0, i64 noundef %1, i64 n
   br i1 %.not89, label %24, label %288
 
 24:                                               ; preds = %23
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %14) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr %0, ptr %14, align 8, !tbaa !4
   %25 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %4, ptr %25, align 8, !tbaa !12
@@ -184,7 +184,7 @@ define noundef zeroext i1 @llamafile_sgemm(ptr noundef %0, i64 noundef %1, i64 n
 54:                                               ; preds = %41
   %55 = trunc i64 %48 to i32
   tail call void (i32, ptr, ...) @ggml_log_internal(i32 noundef 4, ptr noundef nonnull @.str.5, i32 noundef 4, i32 noundef %55)
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 356, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.6) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 356, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.6) #11
   unreachable
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE6mnpackILi4ELi1ELi4EEEvllll.exit.i.i.i.i.i.i: ; preds = %41
@@ -236,7 +236,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE6mnpackILi4ELi1ELi4EEEvllll.exit.i.
 72:                                               ; preds = %59
   %73 = trunc i64 %66 to i32
   tail call void (i32, ptr, ...) @ggml_log_internal(i32 noundef 4, ptr noundef nonnull @.str.5, i32 noundef 4, i32 noundef %73)
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 356, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.6) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 356, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.6) #11
   unreachable
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE6mnpackILi4ELi1ELi2EEEvllll.exit.i.i.i.i.i.i: ; preds = %59
@@ -288,7 +288,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE6mnpackILi4ELi1ELi2EEEvllll.exit.i.
 90:                                               ; preds = %77
   %91 = trunc i64 %84 to i32
   tail call void (i32, ptr, ...) @ggml_log_internal(i32 noundef 4, ptr noundef nonnull @.str.5, i32 noundef 4, i32 noundef %91)
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 356, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.6) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 356, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.6) #11
   unreachable
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE6mnpackILi4ELi1ELi1EEEvllll.exit.i.i.i.i.i.i: ; preds = %77
@@ -297,7 +297,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE6mnpackILi4ELi1ELi1EEEvllll.exit.i.
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE6matmulEll.exit: ; preds = %24, %49, %50, %51, %52, %53, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE6mnpackILi4ELi1ELi4EEEvllll.exit.i.i.i.i.i.i, %67, %68, %69, %70, %71, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE6mnpackILi4ELi1ELi2EEEvllll.exit.i.i.i.i.i.i, %74, %85, %86, %87, %88, %89, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE6mnpackILi4ELi1ELi1EEEvllll.exit.i.i.i.i.i.i
   %.0.i = phi i1 [ false, %24 ], [ false, %74 ], [ true, %49 ], [ true, %50 ], [ true, %51 ], [ true, %52 ], [ true, %53 ], [ true, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE6mnpackILi4ELi1ELi4EEEvllll.exit.i.i.i.i.i.i ], [ true, %67 ], [ true, %68 ], [ true, %69 ], [ true, %70 ], [ true, %71 ], [ true, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE6mnpackILi4ELi1ELi2EEEvllll.exit.i.i.i.i.i.i ], [ true, %85 ], [ true, %86 ], [ true, %87 ], [ true, %88 ], [ true, %89 ], [ true, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE6mnpackILi4ELi1ELi1EEEvllll.exit.i.i.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %14) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %288
 
 92:                                               ; preds = %22
@@ -305,7 +305,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE6matmulEll.exit: ; preds = %24, %49
   br i1 %93, label %94, label %288
 
 94:                                               ; preds = %92
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %15) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store ptr %0, ptr %15, align 8, !tbaa !23
   %95 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %4, ptr %95, align 8, !tbaa !25
@@ -378,7 +378,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE6matmulEll.exit: ; preds = %24, %49
 124:                                              ; preds = %111
   %125 = trunc i64 %118 to i32
   tail call void (i32, ptr, ...) @ggml_log_internal(i32 noundef 4, ptr noundef nonnull @.str.5, i32 noundef 4, i32 noundef %125)
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 356, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.6) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 356, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.6) #11
   unreachable
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE6mnpackILi4ELi1ELi4EEEvllll.exit.i.i.i.i.i.i: ; preds = %111
@@ -430,7 +430,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE6mnpackILi4ELi1ELi4EE
 142:                                              ; preds = %129
   %143 = trunc i64 %136 to i32
   tail call void (i32, ptr, ...) @ggml_log_internal(i32 noundef 4, ptr noundef nonnull @.str.5, i32 noundef 4, i32 noundef %143)
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 356, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.6) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 356, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.6) #11
   unreachable
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE6mnpackILi4ELi1ELi2EEEvllll.exit.i.i.i.i.i.i: ; preds = %129
@@ -482,7 +482,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE6mnpackILi4ELi1ELi2EE
 160:                                              ; preds = %147
   %161 = trunc i64 %154 to i32
   tail call void (i32, ptr, ...) @ggml_log_internal(i32 noundef 4, ptr noundef nonnull @.str.5, i32 noundef 4, i32 noundef %161)
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 356, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.6) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 356, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.6) #11
   unreachable
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE6mnpackILi4ELi1ELi1EEEvllll.exit.i.i.i.i.i.i: ; preds = %147
@@ -491,7 +491,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE6mnpackILi4ELi1ELi1EE
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE6matmulEll.exit: ; preds = %94, %119, %120, %121, %122, %123, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE6mnpackILi4ELi1ELi4EEEvllll.exit.i.i.i.i.i.i, %137, %138, %139, %140, %141, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE6mnpackILi4ELi1ELi2EEEvllll.exit.i.i.i.i.i.i, %144, %155, %156, %157, %158, %159, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE6mnpackILi4ELi1ELi1EEEvllll.exit.i.i.i.i.i.i
   %.0.i91 = phi i1 [ false, %94 ], [ false, %144 ], [ true, %119 ], [ true, %120 ], [ true, %121 ], [ true, %122 ], [ true, %123 ], [ true, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE6mnpackILi4ELi1ELi4EEEvllll.exit.i.i.i.i.i.i ], [ true, %137 ], [ true, %138 ], [ true, %139 ], [ true, %140 ], [ true, %141 ], [ true, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE6mnpackILi4ELi1ELi2EEEvllll.exit.i.i.i.i.i.i ], [ true, %155 ], [ true, %156 ], [ true, %157 ], [ true, %158 ], [ true, %159 ], [ true, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE6mnpackILi4ELi1ELi1EEEvllll.exit.i.i.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %15) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %288
 
 162:                                              ; preds = %22
@@ -499,7 +499,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE6matmulEll.exit: ; pr
   br i1 %163, label %164, label %288
 
 164:                                              ; preds = %162
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %16) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store ptr %0, ptr %16, align 8, !tbaa !32
   %165 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %4, ptr %165, align 8, !tbaa !35
@@ -572,7 +572,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE6matmulEll.exit: ; pr
 194:                                              ; preds = %181
   %195 = trunc i64 %188 to i32
   tail call void (i32, ptr, ...) @ggml_log_internal(i32 noundef 4, ptr noundef nonnull @.str.5, i32 noundef 4, i32 noundef %195)
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 356, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.6) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 356, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.6) #11
   unreachable
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE6mnpackILi4ELi1ELi4EEEvllll.exit.i.i.i.i.i.i: ; preds = %181
@@ -624,7 +624,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE6mnpackILi4ELi1ELi4EEEvllll.exit.i.
 212:                                              ; preds = %199
   %213 = trunc i64 %206 to i32
   tail call void (i32, ptr, ...) @ggml_log_internal(i32 noundef 4, ptr noundef nonnull @.str.5, i32 noundef 4, i32 noundef %213)
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 356, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.6) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 356, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.6) #11
   unreachable
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE6mnpackILi4ELi1ELi2EEEvllll.exit.i.i.i.i.i.i: ; preds = %199
@@ -676,7 +676,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE6mnpackILi4ELi1ELi2EEEvllll.exit.i.
 230:                                              ; preds = %217
   %231 = trunc i64 %224 to i32
   tail call void (i32, ptr, ...) @ggml_log_internal(i32 noundef 4, ptr noundef nonnull @.str.5, i32 noundef 4, i32 noundef %231)
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 356, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.6) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 356, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.6) #11
   unreachable
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE6mnpackILi4ELi1ELi1EEEvllll.exit.i.i.i.i.i.i: ; preds = %217
@@ -685,7 +685,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE6mnpackILi4ELi1ELi1EEEvllll.exit.i.
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE6matmulEll.exit: ; preds = %164, %189, %190, %191, %192, %193, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE6mnpackILi4ELi1ELi4EEEvllll.exit.i.i.i.i.i.i, %207, %208, %209, %210, %211, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE6mnpackILi4ELi1ELi2EEEvllll.exit.i.i.i.i.i.i, %214, %225, %226, %227, %228, %229, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE6mnpackILi4ELi1ELi1EEEvllll.exit.i.i.i.i.i.i
   %.0.i94 = phi i1 [ false, %164 ], [ false, %214 ], [ true, %189 ], [ true, %190 ], [ true, %191 ], [ true, %192 ], [ true, %193 ], [ true, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE6mnpackILi4ELi1ELi4EEEvllll.exit.i.i.i.i.i.i ], [ true, %207 ], [ true, %208 ], [ true, %209 ], [ true, %210 ], [ true, %211 ], [ true, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE6mnpackILi4ELi1ELi2EEEvllll.exit.i.i.i.i.i.i ], [ true, %225 ], [ true, %226 ], [ true, %227 ], [ true, %228 ], [ true, %229 ], [ true, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE6mnpackILi4ELi1ELi1EEEvllll.exit.i.i.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %16) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %288
 
 232:                                              ; preds = %22
@@ -693,7 +693,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE6matmulEll.exit: ; preds = %164, %1
   br i1 %.not88, label %233, label %288
 
 233:                                              ; preds = %232
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %17) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %234 = load i32, ptr %0, align 8, !tbaa !42
   %235 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %236 = load i32, ptr %235, align 4, !tbaa !19
@@ -717,7 +717,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE6matmulEll.exit: ; preds = %164, %1
   %245 = getelementptr inbounds nuw i8, ptr %17, i64 64
   store <2 x i64> <i64 -654466911485192063, i64 8167635493787864321>, ptr %245, align 16, !tbaa !53
   call fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_fE6mnpackEllll(ptr noundef nonnull readonly align 16 dereferenceable(80) %17, i64 noundef 0, i64 noundef %1, i64 noundef 0, i64 noundef range(i64 2, -9223372036854775808) %2)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %17) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %288
 
 246:                                              ; preds = %22
@@ -725,7 +725,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE6matmulEll.exit: ; preds = %164, %1
   br i1 %.not87, label %247, label %288
 
 247:                                              ; preds = %246
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %18) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %248 = load i32, ptr %0, align 8, !tbaa !42
   %249 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %250 = load i32, ptr %249, align 4, !tbaa !19
@@ -749,7 +749,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE6matmulEll.exit: ; preds = %164, %1
   %259 = getelementptr inbounds nuw i8, ptr %18, i64 64
   store <2 x i64> <i64 -654466911485192063, i64 8167635493787864321>, ptr %259, align 16, !tbaa !53
   call fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010block_q8_0fE6mnpackEllll(ptr noundef nonnull readonly align 16 dereferenceable(80) %18, i64 noundef 0, i64 noundef %1, i64 noundef 0, i64 noundef range(i64 2, -9223372036854775808) %2)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %18) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %288
 
 260:                                              ; preds = %22
@@ -757,7 +757,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE6matmulEll.exit: ; preds = %164, %1
   br i1 %.not86, label %261, label %288
 
 261:                                              ; preds = %260
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %19) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %262 = load i32, ptr %0, align 8, !tbaa !42
   %263 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %264 = load i32, ptr %263, align 4, !tbaa !19
@@ -781,7 +781,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE6matmulEll.exit: ; preds = %164, %1
   %273 = getelementptr inbounds nuw i8, ptr %19, i64 64
   store <2 x i64> <i64 -654466911485192063, i64 8167635493787864321>, ptr %273, align 16, !tbaa !53
   call fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010block_q8_0fE6mnpackEllll(ptr noundef nonnull readonly align 16 dereferenceable(80) %19, i64 noundef 0, i64 noundef %1, i64 noundef 0, i64 noundef range(i64 2, -9223372036854775808) %2)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %19) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %288
 
 274:                                              ; preds = %22
@@ -789,7 +789,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE6matmulEll.exit: ; preds = %164, %1
   br i1 %.not85, label %275, label %288
 
 275:                                              ; preds = %274
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %20) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %276 = load i32, ptr %0, align 8, !tbaa !42
   %277 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %278 = load i32, ptr %277, align 4, !tbaa !19
@@ -813,7 +813,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE6matmulEll.exit: ; preds = %164, %1
   %287 = getelementptr inbounds nuw i8, ptr %20, i64 64
   store <2 x i64> <i64 -654466911485192063, i64 8167635493787864321>, ptr %287, align 16, !tbaa !53
   call fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10block_q8_0fE6mnpackEllll(ptr noundef nonnull readonly align 16 dereferenceable(80) %20, i64 noundef 0, i64 noundef %1, i64 noundef 0, i64 noundef range(i64 2, -9223372036854775808) %2)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %20) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %288
 
 288:                                              ; preds = %22, %274, %260, %246, %232, %162, %92, %23, %13, %275, %261, %247, %233, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE6matmulEll.exit, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE6matmulEll.exit, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE6matmulEll.exit
@@ -821,14 +821,8 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE6matmulEll.exit: ; preds = %164, %1
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress noinline uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmILi4ELi6ELi4EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmILi4ELi6ELi4EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [5 x [4 x <16 x float>]], align 64
   %5 = alloca [4 x <16 x float>], align 64
   %6 = alloca [6 x [4 x <16 x float>]], align 64
@@ -838,7 +832,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmI
   br i1 %9, label %11, label %10
 
 10:                                               ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 11:                                               ; preds = %3
@@ -881,7 +875,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmI
   br i1 %39, label %41, label %40
 
 40:                                               ; preds = %34
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 41:                                               ; preds = %34
@@ -1027,7 +1021,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 
 122:                                              ; preds = %.lr.ph, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi6EEEvll.exit
   %.099 = phi i64 [ %90, %.lr.ph ], [ %155, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi6EEEvll.exit ]
-  call void @llvm.lifetime.start.p0(i64 1536, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(1536) %6, i8 0, i64 1536, i1 false)
   br i1 %102, label %.lr.ph.i, label %.preheader.i.preheader
 
@@ -1036,7 +1030,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 
 .lr.ph.i:                                         ; preds = %122, %128
   %.03344.i = phi i64 [ %129, %128 ], [ 0, %122 ]
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %invariant.gep.i = getelementptr float, ptr %109, i64 %.03344.i
   br label %123
 
@@ -1057,7 +1051,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   br i1 %exitcond.not.i, label %.preheader38.i, label %123, !llvm.loop !88
 
 128:                                              ; preds = %135
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %129 = add nuw nsw i64 %.03344.i, 16
   %130 = icmp slt i64 %129, %101
   br i1 %130, label %.lr.ph.i, label %.preheader.i.preheader, !llvm.loop !89
@@ -1113,14 +1107,14 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   br i1 %exitcond51.not.i, label %147, label %149, !llvm.loop !95
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi6EEEvll.exit: ; preds = %147
-  call void @llvm.lifetime.end.p0(i64 1536, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %155 = add nsw i64 %.099, 6
   %156 = icmp slt i64 %155, %99
   br i1 %156, label %122, label %.preheader, !llvm.loop !96
 
 157:                                              ; preds = %.lr.ph101, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi5EEEvll.exit
   %.1100 = phi i64 [ %.0.lcssa, %.lr.ph101 ], [ %190, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi5EEEvll.exit ]
-  call void @llvm.lifetime.start.p0(i64 1280, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(1280) %4, i8 0, i64 1280, i1 false)
   br i1 %102, label %.lr.ph.i83, label %.preheader.i77.preheader
 
@@ -1129,7 +1123,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi6EEEvll.exit: ; pr
 
 .lr.ph.i83:                                       ; preds = %157, %163
   %.03344.i84 = phi i64 [ %164, %163 ], [ 0, %157 ]
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %invariant.gep.i85 = getelementptr float, ptr %118, i64 %.03344.i84
   br label %158
 
@@ -1150,7 +1144,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi6EEEvll.exit: ; pr
   br i1 %exitcond.not.i89, label %.preheader38.i90, label %158, !llvm.loop !97
 
 163:                                              ; preds = %170
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %164 = add nuw nsw i64 %.03344.i84, 16
   %165 = icmp slt i64 %164, %101
   br i1 %165, label %.lr.ph.i83, label %.preheader.i77.preheader, !llvm.loop !98
@@ -1206,7 +1200,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi6EEEvll.exit: ; pr
   br i1 %exitcond51.not.i81, label %182, label %184, !llvm.loop !102
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi5EEEvll.exit: ; preds = %182
-  call void @llvm.lifetime.end.p0(i64 1280, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %190 = add nsw i64 %.1100, 5
   %191 = icmp slt i64 %190, %98
   br i1 %191, label %157, label %._crit_edge, !llvm.loop !103
@@ -1217,7 +1211,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi5EEEvll.exit: ; pr
   br i1 %192, label %105, label %193
 
 193:                                              ; preds = %._crit_edge
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 ._crit_edge107:                                   ; preds = %113, %45
@@ -1228,23 +1222,23 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi5EEEvll.exit: ; pr
 }
 
 ; Function Attrs: noreturn
-declare void @ggml_abort(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
+declare void @ggml_abort(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare void @ggml_barrier(ptr noundef) local_unnamed_addr #4
+declare void @ggml_barrier(ptr noundef) local_unnamed_addr #3
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <16 x float> @llvm.fma.v16f32(<16 x float>, <16 x float>, <16 x float>) #6
+declare <16 x float> @llvm.fma.v16f32(<16 x float>, <16 x float>, <16 x float>) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.vector.reduce.fadd.v16f32(float, <16 x float>) #6
+declare float @llvm.vector.reduce.fadd.v16f32(float, <16 x float>) #5
 
 ; Function Attrs: mustprogress noinline uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmILi4ELi5ELi4EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmILi4ELi5ELi4EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [4 x [4 x <16 x float>]], align 64
   %5 = alloca [4 x <16 x float>], align 64
   %6 = alloca [5 x [4 x <16 x float>]], align 64
@@ -1254,7 +1248,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmI
   br i1 %9, label %11, label %10
 
 10:                                               ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 11:                                               ; preds = %3
@@ -1297,7 +1291,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmI
   br i1 %39, label %41, label %40
 
 40:                                               ; preds = %34
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 41:                                               ; preds = %34
@@ -1443,7 +1437,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 
 122:                                              ; preds = %.lr.ph, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi5EEEvll.exit
   %.099 = phi i64 [ %90, %.lr.ph ], [ %155, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi5EEEvll.exit ]
-  call void @llvm.lifetime.start.p0(i64 1280, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(1280) %6, i8 0, i64 1280, i1 false)
   br i1 %102, label %.lr.ph.i, label %.preheader.i.preheader
 
@@ -1452,7 +1446,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 
 .lr.ph.i:                                         ; preds = %122, %128
   %.03344.i = phi i64 [ %129, %128 ], [ 0, %122 ]
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %invariant.gep.i = getelementptr float, ptr %109, i64 %.03344.i
   br label %123
 
@@ -1473,7 +1467,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   br i1 %exitcond.not.i, label %.preheader38.i, label %123, !llvm.loop !97
 
 128:                                              ; preds = %135
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %129 = add nuw nsw i64 %.03344.i, 16
   %130 = icmp slt i64 %129, %101
   br i1 %130, label %.lr.ph.i, label %.preheader.i.preheader, !llvm.loop !98
@@ -1529,14 +1523,14 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   br i1 %exitcond51.not.i, label %147, label %149, !llvm.loop !102
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi5EEEvll.exit: ; preds = %147
-  call void @llvm.lifetime.end.p0(i64 1280, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %155 = add nsw i64 %.099, 5
   %156 = icmp slt i64 %155, %99
   br i1 %156, label %122, label %.preheader, !llvm.loop !106
 
 157:                                              ; preds = %.lr.ph101, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi4EEEvll.exit
   %.1100 = phi i64 [ %.0.lcssa, %.lr.ph101 ], [ %190, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi4EEEvll.exit ]
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(1024) %4, i8 0, i64 1024, i1 false)
   br i1 %102, label %.lr.ph.i83, label %.preheader.i77.preheader
 
@@ -1545,7 +1539,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi5EEEvll.exit: ; pr
 
 .lr.ph.i83:                                       ; preds = %157, %163
   %.03344.i84 = phi i64 [ %164, %163 ], [ 0, %157 ]
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %invariant.gep.i85 = getelementptr float, ptr %118, i64 %.03344.i84
   br label %158
 
@@ -1566,7 +1560,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi5EEEvll.exit: ; pr
   br i1 %exitcond.not.i89, label %.preheader38.i90, label %158, !llvm.loop !107
 
 163:                                              ; preds = %170
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %164 = add nuw nsw i64 %.03344.i84, 16
   %165 = icmp slt i64 %164, %101
   br i1 %165, label %.lr.ph.i83, label %.preheader.i77.preheader, !llvm.loop !108
@@ -1622,7 +1616,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi5EEEvll.exit: ; pr
   br i1 %exitcond51.not.i81, label %182, label %184, !llvm.loop !112
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi4EEEvll.exit: ; preds = %182
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %190 = add nsw i64 %.1100, 4
   %191 = icmp slt i64 %190, %98
   br i1 %191, label %157, label %._crit_edge, !llvm.loop !113
@@ -1633,7 +1627,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi4EEEvll.exit: ; pr
   br i1 %192, label %105, label %193
 
 193:                                              ; preds = %._crit_edge
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 ._crit_edge107:                                   ; preds = %113, %45
@@ -1644,7 +1638,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi4EEEvll.exit: ; pr
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmILi4ELi4ELi4EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmILi4ELi4ELi4EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [3 x [4 x <16 x float>]], align 64
   %5 = alloca [3 x <16 x float>], align 64
   %6 = alloca [4 x [4 x <16 x float>]], align 64
@@ -1654,7 +1648,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmI
   br i1 %9, label %11, label %10
 
 10:                                               ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 11:                                               ; preds = %3
@@ -1697,7 +1691,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmI
   br i1 %40, label %42, label %41
 
 41:                                               ; preds = %35
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 42:                                               ; preds = %35
@@ -1843,7 +1837,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
 
 123:                                              ; preds = %.lr.ph, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi4EEEvll.exit
   %.087 = phi i64 [ %91, %.lr.ph ], [ %156, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi4EEEvll.exit ]
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(1024) %6, i8 0, i64 1024, i1 false)
   br i1 %103, label %.lr.ph.i, label %.preheader.i.preheader
 
@@ -1852,7 +1846,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
 
 .lr.ph.i:                                         ; preds = %123, %129
   %.03344.i = phi i64 [ %130, %129 ], [ 0, %123 ]
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %invariant.gep.i = getelementptr float, ptr %110, i64 %.03344.i
   br label %124
 
@@ -1873,7 +1867,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
   br i1 %exitcond.not.i, label %.preheader38.i, label %124, !llvm.loop !107
 
 129:                                              ; preds = %136
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %130 = add nuw nsw i64 %.03344.i, 16
   %131 = icmp slt i64 %130, %102
   br i1 %131, label %.lr.ph.i, label %.preheader.i.preheader, !llvm.loop !108
@@ -1929,14 +1923,14 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
   br i1 %exitcond51.not.i, label %148, label %150, !llvm.loop !112
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi4EEEvll.exit: ; preds = %148
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %156 = add nsw i64 %.087, 4
   %157 = icmp slt i64 %156, %100
   br i1 %157, label %123, label %.preheader, !llvm.loop !116
 
 158:                                              ; preds = %.lr.ph89, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi3EEEvll.exit
   %.188 = phi i64 [ %.0.lcssa, %.lr.ph89 ], [ %189, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi3EEEvll.exit ]
-  call void @llvm.lifetime.start.p0(i64 768, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(768) %4, i8 0, i64 768, i1 false)
   br i1 %103, label %.lr.ph.i76, label %.preheader.i75.preheader
 
@@ -1945,7 +1939,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi4EEEvll.exit: ; pr
 
 .lr.ph.i76:                                       ; preds = %158, %164
   %.03346.i = phi i64 [ %165, %164 ], [ 0, %158 ]
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %invariant.gep.i77 = getelementptr float, ptr %119, i64 %.03346.i
   br label %159
 
@@ -1966,7 +1960,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi4EEEvll.exit: ; pr
   br i1 %exitcond.not.i81, label %.preheader38.i82, label %159, !llvm.loop !117
 
 164:                                              ; preds = %170
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %165 = add nuw nsw i64 %.03346.i, 16
   %166 = icmp slt i64 %165, %102
   br i1 %166, label %.lr.ph.i76, label %.preheader.i75.preheader, !llvm.loop !118
@@ -2022,7 +2016,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi4EEEvll.exit: ; pr
   br i1 %exitcond53.not.i, label %181, label %183, !llvm.loop !122
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi3EEEvll.exit: ; preds = %181
-  call void @llvm.lifetime.end.p0(i64 768, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %189 = add nsw i64 %.188, 3
   %190 = icmp slt i64 %189, %99
   br i1 %190, label %158, label %._crit_edge, !llvm.loop !123
@@ -2033,7 +2027,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi3EEEvll.exit: ; pr
   br i1 %191, label %106, label %192
 
 192:                                              ; preds = %._crit_edge
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 ._crit_edge95:                                    ; preds = %114, %46
@@ -2044,7 +2038,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi3EEEvll.exit: ; pr
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmILi4ELi3ELi4EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmILi4ELi3ELi4EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [2 x [4 x <16 x float>]], align 64
   %5 = alloca [3 x [4 x <16 x float>]], align 64
   %6 = alloca [3 x <16 x float>], align 64
@@ -2054,7 +2048,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmI
   br i1 %8, label %10, label %9
 
 9:                                                ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 10:                                               ; preds = %3
@@ -2097,7 +2091,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmI
   br i1 %38, label %40, label %39
 
 39:                                               ; preds = %33
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 40:                                               ; preds = %33
@@ -2243,7 +2237,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %91, %93
 
 .lr.ph.i82.us:                                    ; preds = %.lr.ph103, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit.us
   %.1102.us = phi i64 [ %144, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit.us ], [ %.0.lcssa, %.lr.ph103 ]
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(512) %4, i8 0, i64 512, i1 false)
   %121 = mul nsw i64 %118, %.1102.us
   %122 = add nsw i64 %.1102.us, 1
@@ -2307,14 +2301,14 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %91, %93
   br i1 %134, label %.preheader.i77.us, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit.us, !llvm.loop !129
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit.us: ; preds = %143
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %144 = add nsw i64 %.1102.us, 2
   %145 = icmp slt i64 %144, %97
   br i1 %145, label %.lr.ph.i82.us, label %._crit_edge, !llvm.loop !130
 
 146:                                              ; preds = %.lr.ph, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi3EEEvll.exit
   %.0101 = phi i64 [ %89, %.lr.ph ], [ %177, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi3EEEvll.exit ]
-  call void @llvm.lifetime.start.p0(i64 768, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(768) %5, i8 0, i64 768, i1 false)
   br i1 %101, label %.lr.ph.i, label %.preheader.i.preheader
 
@@ -2323,7 +2317,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit.us: ;
 
 .lr.ph.i:                                         ; preds = %146, %152
   %.03346.i = phi i64 [ %153, %152 ], [ 0, %146 ]
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %invariant.gep.i = getelementptr float, ptr %108, i64 %.03346.i
   br label %147
 
@@ -2344,7 +2338,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit.us: ;
   br i1 %exitcond.not.i, label %.preheader38.i, label %147, !llvm.loop !117
 
 152:                                              ; preds = %158
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %153 = add nuw nsw i64 %.03346.i, 16
   %154 = icmp slt i64 %153, %100
   br i1 %154, label %.lr.ph.i, label %.preheader.i.preheader, !llvm.loop !118
@@ -2400,14 +2394,14 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit.us: ;
   br i1 %exitcond53.not.i, label %169, label %171, !llvm.loop !122
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi3EEEvll.exit: ; preds = %169
-  call void @llvm.lifetime.end.p0(i64 768, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %177 = add nsw i64 %.0101, 3
   %178 = icmp slt i64 %177, %98
   br i1 %178, label %146, label %.preheader, !llvm.loop !132
 
 .preheader37.i75:                                 ; preds = %.lr.ph103, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit
   %.1102 = phi i64 [ %189, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit ], [ %.0.lcssa, %.lr.ph103 ]
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(512) %4, i8 0, i64 512, i1 false)
   br label %.preheader.i77
 
@@ -2435,7 +2429,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi3EEEvll.exit: ; pr
   br i1 %exitcond51.not.i81, label %182, label %183, !llvm.loop !128
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit: ; preds = %182
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %189 = add nsw i64 %.1102, 2
   %190 = icmp slt i64 %189, %97
   br i1 %190, label %.preheader37.i75, label %._crit_edge, !llvm.loop !133
@@ -2446,7 +2440,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit: ; pr
   br i1 %191, label %104, label %192
 
 192:                                              ; preds = %._crit_edge
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 ._crit_edge109:                                   ; preds = %112, %44
@@ -2457,7 +2451,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit: ; pr
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmILi4ELi2ELi4EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmILi4ELi2ELi4EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [1 x [4 x <16 x float>]], align 64
   %5 = alloca [2 x [4 x <16 x float>]], align 64
   %6 = and i64 %1, 15
@@ -2466,7 +2460,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmI
   br i1 %7, label %9, label %8
 
 8:                                                ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 9:                                                ; preds = %3
@@ -2509,7 +2503,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmI
   br i1 %38, label %40, label %39
 
 39:                                               ; preds = %33
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 40:                                               ; preds = %33
@@ -2614,7 +2608,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit71:            ; preds = %75, %77
 
 .lr.ph.i.us:                                      ; preds = %.lr.ph, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit.us
   %.084.us = phi i64 [ %127, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit.us ], [ %85, %.lr.ph ]
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(512) %5, i8 0, i64 512, i1 false)
   %104 = mul nsw i64 %101, %.084.us
   %105 = add nsw i64 %.084.us, 1
@@ -2678,7 +2672,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit71:            ; preds = %75, %77
   br i1 %117, label %.preheader.i.us, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit.us, !llvm.loop !129
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit.us: ; preds = %126
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %127 = add nsw i64 %.084.us, 2
   %128 = icmp slt i64 %127, %90
   br i1 %128, label %.lr.ph.i.us, label %.preheader, !llvm.loop !135
@@ -2704,7 +2698,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit.us: ;
 
 .preheader37.i:                                   ; preds = %.lr.ph, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit
   %.084 = phi i64 [ %148, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit ], [ %85, %.lr.ph ]
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(512) %5, i8 0, i64 512, i1 false)
   br label %.preheader.i
 
@@ -2732,14 +2726,14 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit.us: ;
   br i1 %exitcond51.not.i, label %141, label %142, !llvm.loop !128
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit: ; preds = %141
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %148 = add nsw i64 %.084, 2
   %149 = icmp slt i64 %148, %90
   br i1 %149, label %.preheader37.i, label %.preheader, !llvm.loop !137
 
 150:                                              ; preds = %.lr.ph86, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit
   %.185 = phi i64 [ %.0.lcssa, %.lr.ph86 ], [ %170, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit ]
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(256) %4, i8 0, i64 256, i1 false)
   br i1 %93, label %.critedge.lr.ph.i, label %.preheader.i74
 
@@ -2791,7 +2785,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit: ; pr
   br i1 %exitcond44.not.i, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit, label %164, !llvm.loop !140
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit: ; preds = %164
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %170 = add nsw i64 %.185, 1
   %171 = icmp slt i64 %170, %89
   br i1 %171, label %150, label %._crit_edge, !llvm.loop !141
@@ -2802,7 +2796,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit: ; pr
   br i1 %172, label %96, label %173
 
 173:                                              ; preds = %._crit_edge
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 ._crit_edge92:                                    ; preds = %129, %44
@@ -2813,14 +2807,14 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit: ; pr
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmILi4ELi1ELi4EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmILi4ELi1ELi4EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [1 x [4 x <16 x float>]], align 64
   %5 = and i64 %1, 15
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 8:                                                ; preds = %3
@@ -2858,7 +2852,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmI
   br i1 %33, label %35, label %34
 
 34:                                               ; preds = %28
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 35:                                               ; preds = %28
@@ -2947,7 +2941,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit64:            ; preds = %69, %71
 
 .preheader.i.us:                                  ; preds = %.preheader.us, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us73
   %.067.us69 = phi i64 [ %94, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us73 ], [ %spec.select, %.preheader.us ]
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(256) %4, i8 0, i64 256, i1 false)
   %87 = mul nsw i64 %81, %.067.us69
   %gep.us70 = getelementptr float, ptr %invariant.gep.us, i64 %87
@@ -2965,7 +2959,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit64:            ; preds = %69, %71
   br i1 %exitcond44.not.i.us72, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us73, label %88, !llvm.loop !140
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us73: ; preds = %88
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %94 = add nsw i64 %.067.us69, 1
   %exitcond.not = icmp eq i64 %94, %76
   br i1 %exitcond.not, label %._crit_edge.us.loopexit, label %.preheader.i.us, !llvm.loop !142
@@ -2977,7 +2971,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us73:
 
 .critedge.lr.ph.i.us.us:                          ; preds = %.preheader.us, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us.us
   %.067.us.us = phi i64 [ %115, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us.us ], [ %spec.select, %.preheader.us ]
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(256) %4, i8 0, i64 256, i1 false)
   %97 = mul nsw i64 %84, %.067.us.us
   %98 = getelementptr inbounds float, ptr %83, i64 %97
@@ -3021,7 +3015,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us73:
   br i1 %exitcond44.not.i.us.us, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us.us, label %109, !llvm.loop !140
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us.us: ; preds = %109
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %115 = add nsw i64 %.067.us.us, 1
   %exitcond84.not = icmp eq i64 %115, %76
   br i1 %exitcond84.not, label %._crit_edge.us.loopexit, label %.critedge.lr.ph.i.us.us, !llvm.loop !144
@@ -3041,7 +3035,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split:      ; preds = %_ZN12_GLOBAL__N_18B
   br i1 %119, label %55, label %._crit_edge, !llvm.loop !145
 
 .split.us:                                        ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 ._crit_edge:                                      ; preds = %.split78.us, %39
@@ -3051,10 +3045,10 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split:      ; preds = %_ZN12_GLOBAL__N_18B
   ret void
 }
 
-declare void @ggml_log_internal(i32 noundef, ptr noundef, ...) local_unnamed_addr #4
+declare void @ggml_log_internal(i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress noinline uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmILi4ELi6ELi2EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmILi4ELi6ELi2EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [5 x [4 x <16 x float>]], align 64
   %5 = alloca [4 x <16 x float>], align 64
   %6 = alloca [6 x [4 x <16 x float>]], align 64
@@ -3064,7 +3058,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmI
   br i1 %9, label %11, label %10
 
 10:                                               ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 11:                                               ; preds = %3
@@ -3107,7 +3101,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmI
   br i1 %39, label %41, label %40
 
 40:                                               ; preds = %34
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 41:                                               ; preds = %34
@@ -3252,7 +3246,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 
 121:                                              ; preds = %.lr.ph, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi6EEEvll.exit
   %.099 = phi i64 [ %90, %.lr.ph ], [ %154, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi6EEEvll.exit ]
-  call void @llvm.lifetime.start.p0(i64 1536, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(1536) %6, i8 0, i64 1536, i1 false)
   br i1 %102, label %.lr.ph.i, label %.preheader.i.preheader
 
@@ -3261,7 +3255,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 
 .lr.ph.i:                                         ; preds = %121, %127
   %.03344.i = phi i64 [ %128, %127 ], [ 0, %121 ]
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %invariant.gep.i = getelementptr float, ptr %108, i64 %.03344.i
   br label %122
 
@@ -3282,7 +3276,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   br i1 %exitcond.not.i, label %.preheader38.i, label %122, !llvm.loop !88
 
 127:                                              ; preds = %134
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %128 = add nuw nsw i64 %.03344.i, 16
   %129 = icmp slt i64 %128, %101
   br i1 %129, label %.lr.ph.i, label %.preheader.i.preheader, !llvm.loop !89
@@ -3338,14 +3332,14 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   br i1 %exitcond51.not.i, label %146, label %148, !llvm.loop !95
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi6EEEvll.exit: ; preds = %146
-  call void @llvm.lifetime.end.p0(i64 1536, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %154 = add nsw i64 %.099, 6
   %155 = icmp slt i64 %154, %99
   br i1 %155, label %121, label %.preheader, !llvm.loop !148
 
 156:                                              ; preds = %.lr.ph101, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi5EEEvll.exit
   %.1100 = phi i64 [ %.0.lcssa, %.lr.ph101 ], [ %189, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi5EEEvll.exit ]
-  call void @llvm.lifetime.start.p0(i64 1280, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(1280) %4, i8 0, i64 1280, i1 false)
   br i1 %102, label %.lr.ph.i83, label %.preheader.i77.preheader
 
@@ -3354,7 +3348,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi6EEEvll.exit: ; pr
 
 .lr.ph.i83:                                       ; preds = %156, %162
   %.03344.i84 = phi i64 [ %163, %162 ], [ 0, %156 ]
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %invariant.gep.i85 = getelementptr float, ptr %117, i64 %.03344.i84
   br label %157
 
@@ -3375,7 +3369,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi6EEEvll.exit: ; pr
   br i1 %exitcond.not.i89, label %.preheader38.i90, label %157, !llvm.loop !97
 
 162:                                              ; preds = %169
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %163 = add nuw nsw i64 %.03344.i84, 16
   %164 = icmp slt i64 %163, %101
   br i1 %164, label %.lr.ph.i83, label %.preheader.i77.preheader, !llvm.loop !98
@@ -3431,7 +3425,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi6EEEvll.exit: ; pr
   br i1 %exitcond51.not.i81, label %181, label %183, !llvm.loop !102
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi5EEEvll.exit: ; preds = %181
-  call void @llvm.lifetime.end.p0(i64 1280, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %189 = add nsw i64 %.1100, 5
   %190 = icmp slt i64 %189, %98
   br i1 %190, label %156, label %._crit_edge, !llvm.loop !149
@@ -3442,7 +3436,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi5EEEvll.exit: ; pr
   br i1 %191, label %105, label %192
 
 192:                                              ; preds = %._crit_edge
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 ._crit_edge107:                                   ; preds = %112, %45
@@ -3453,7 +3447,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi5EEEvll.exit: ; pr
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmILi4ELi5ELi2EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmILi4ELi5ELi2EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [4 x [4 x <16 x float>]], align 64
   %5 = alloca [4 x <16 x float>], align 64
   %6 = alloca [5 x [4 x <16 x float>]], align 64
@@ -3463,7 +3457,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmI
   br i1 %9, label %11, label %10
 
 10:                                               ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 11:                                               ; preds = %3
@@ -3506,7 +3500,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmI
   br i1 %39, label %41, label %40
 
 40:                                               ; preds = %34
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 41:                                               ; preds = %34
@@ -3651,7 +3645,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 
 121:                                              ; preds = %.lr.ph, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi5EEEvll.exit
   %.099 = phi i64 [ %90, %.lr.ph ], [ %154, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi5EEEvll.exit ]
-  call void @llvm.lifetime.start.p0(i64 1280, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(1280) %6, i8 0, i64 1280, i1 false)
   br i1 %102, label %.lr.ph.i, label %.preheader.i.preheader
 
@@ -3660,7 +3654,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 
 .lr.ph.i:                                         ; preds = %121, %127
   %.03344.i = phi i64 [ %128, %127 ], [ 0, %121 ]
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %invariant.gep.i = getelementptr float, ptr %108, i64 %.03344.i
   br label %122
 
@@ -3681,7 +3675,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   br i1 %exitcond.not.i, label %.preheader38.i, label %122, !llvm.loop !97
 
 127:                                              ; preds = %134
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %128 = add nuw nsw i64 %.03344.i, 16
   %129 = icmp slt i64 %128, %101
   br i1 %129, label %.lr.ph.i, label %.preheader.i.preheader, !llvm.loop !98
@@ -3737,14 +3731,14 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   br i1 %exitcond51.not.i, label %146, label %148, !llvm.loop !102
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi5EEEvll.exit: ; preds = %146
-  call void @llvm.lifetime.end.p0(i64 1280, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %154 = add nsw i64 %.099, 5
   %155 = icmp slt i64 %154, %99
   br i1 %155, label %121, label %.preheader, !llvm.loop !152
 
 156:                                              ; preds = %.lr.ph101, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi4EEEvll.exit
   %.1100 = phi i64 [ %.0.lcssa, %.lr.ph101 ], [ %189, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi4EEEvll.exit ]
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(1024) %4, i8 0, i64 1024, i1 false)
   br i1 %102, label %.lr.ph.i83, label %.preheader.i77.preheader
 
@@ -3753,7 +3747,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi5EEEvll.exit: ; pr
 
 .lr.ph.i83:                                       ; preds = %156, %162
   %.03344.i84 = phi i64 [ %163, %162 ], [ 0, %156 ]
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %invariant.gep.i85 = getelementptr float, ptr %117, i64 %.03344.i84
   br label %157
 
@@ -3774,7 +3768,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi5EEEvll.exit: ; pr
   br i1 %exitcond.not.i89, label %.preheader38.i90, label %157, !llvm.loop !107
 
 162:                                              ; preds = %169
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %163 = add nuw nsw i64 %.03344.i84, 16
   %164 = icmp slt i64 %163, %101
   br i1 %164, label %.lr.ph.i83, label %.preheader.i77.preheader, !llvm.loop !108
@@ -3830,7 +3824,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi5EEEvll.exit: ; pr
   br i1 %exitcond51.not.i81, label %181, label %183, !llvm.loop !112
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi4EEEvll.exit: ; preds = %181
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %189 = add nsw i64 %.1100, 4
   %190 = icmp slt i64 %189, %98
   br i1 %190, label %156, label %._crit_edge, !llvm.loop !153
@@ -3841,7 +3835,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi4EEEvll.exit: ; pr
   br i1 %191, label %105, label %192
 
 192:                                              ; preds = %._crit_edge
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 ._crit_edge107:                                   ; preds = %112, %45
@@ -3852,7 +3846,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi4EEEvll.exit: ; pr
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmILi4ELi4ELi2EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmILi4ELi4ELi2EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [3 x [4 x <16 x float>]], align 64
   %5 = alloca [3 x <16 x float>], align 64
   %6 = alloca [4 x [4 x <16 x float>]], align 64
@@ -3862,7 +3856,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmI
   br i1 %9, label %11, label %10
 
 10:                                               ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 11:                                               ; preds = %3
@@ -3905,7 +3899,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmI
   br i1 %40, label %42, label %41
 
 41:                                               ; preds = %35
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 42:                                               ; preds = %35
@@ -4050,7 +4044,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
 
 122:                                              ; preds = %.lr.ph, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi4EEEvll.exit
   %.087 = phi i64 [ %91, %.lr.ph ], [ %155, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi4EEEvll.exit ]
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(1024) %6, i8 0, i64 1024, i1 false)
   br i1 %103, label %.lr.ph.i, label %.preheader.i.preheader
 
@@ -4059,7 +4053,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
 
 .lr.ph.i:                                         ; preds = %122, %128
   %.03344.i = phi i64 [ %129, %128 ], [ 0, %122 ]
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %invariant.gep.i = getelementptr float, ptr %109, i64 %.03344.i
   br label %123
 
@@ -4080,7 +4074,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
   br i1 %exitcond.not.i, label %.preheader38.i, label %123, !llvm.loop !107
 
 128:                                              ; preds = %135
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %129 = add nuw nsw i64 %.03344.i, 16
   %130 = icmp slt i64 %129, %102
   br i1 %130, label %.lr.ph.i, label %.preheader.i.preheader, !llvm.loop !108
@@ -4136,14 +4130,14 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
   br i1 %exitcond51.not.i, label %147, label %149, !llvm.loop !112
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi4EEEvll.exit: ; preds = %147
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %155 = add nsw i64 %.087, 4
   %156 = icmp slt i64 %155, %100
   br i1 %156, label %122, label %.preheader, !llvm.loop !156
 
 157:                                              ; preds = %.lr.ph89, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi3EEEvll.exit
   %.188 = phi i64 [ %.0.lcssa, %.lr.ph89 ], [ %188, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi3EEEvll.exit ]
-  call void @llvm.lifetime.start.p0(i64 768, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(768) %4, i8 0, i64 768, i1 false)
   br i1 %103, label %.lr.ph.i76, label %.preheader.i75.preheader
 
@@ -4152,7 +4146,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi4EEEvll.exit: ; pr
 
 .lr.ph.i76:                                       ; preds = %157, %163
   %.03346.i = phi i64 [ %164, %163 ], [ 0, %157 ]
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %invariant.gep.i77 = getelementptr float, ptr %118, i64 %.03346.i
   br label %158
 
@@ -4173,7 +4167,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi4EEEvll.exit: ; pr
   br i1 %exitcond.not.i81, label %.preheader38.i82, label %158, !llvm.loop !117
 
 163:                                              ; preds = %169
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %164 = add nuw nsw i64 %.03346.i, 16
   %165 = icmp slt i64 %164, %102
   br i1 %165, label %.lr.ph.i76, label %.preheader.i75.preheader, !llvm.loop !118
@@ -4229,7 +4223,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi4EEEvll.exit: ; pr
   br i1 %exitcond53.not.i, label %180, label %182, !llvm.loop !122
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi3EEEvll.exit: ; preds = %180
-  call void @llvm.lifetime.end.p0(i64 768, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %188 = add nsw i64 %.188, 3
   %189 = icmp slt i64 %188, %99
   br i1 %189, label %157, label %._crit_edge, !llvm.loop !157
@@ -4240,7 +4234,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi3EEEvll.exit: ; pr
   br i1 %190, label %106, label %191
 
 191:                                              ; preds = %._crit_edge
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 ._crit_edge95:                                    ; preds = %113, %46
@@ -4251,7 +4245,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi3EEEvll.exit: ; pr
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmILi4ELi3ELi2EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmILi4ELi3ELi2EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [2 x [4 x <16 x float>]], align 64
   %5 = alloca [3 x [4 x <16 x float>]], align 64
   %6 = alloca [3 x <16 x float>], align 64
@@ -4261,7 +4255,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmI
   br i1 %8, label %10, label %9
 
 9:                                                ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 10:                                               ; preds = %3
@@ -4304,7 +4298,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmI
   br i1 %38, label %40, label %39
 
 39:                                               ; preds = %33
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 40:                                               ; preds = %33
@@ -4449,7 +4443,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %91, %93
 
 .lr.ph.i82.us:                                    ; preds = %.lr.ph103, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit.us
   %.1102.us = phi i64 [ %143, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit.us ], [ %.0.lcssa, %.lr.ph103 ]
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(512) %4, i8 0, i64 512, i1 false)
   %120 = mul nsw i64 %117, %.1102.us
   %121 = add nsw i64 %.1102.us, 1
@@ -4513,14 +4507,14 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %91, %93
   br i1 %133, label %.preheader.i77.us, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit.us, !llvm.loop !129
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit.us: ; preds = %142
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %143 = add nsw i64 %.1102.us, 2
   %144 = icmp slt i64 %143, %97
   br i1 %144, label %.lr.ph.i82.us, label %._crit_edge, !llvm.loop !160
 
 145:                                              ; preds = %.lr.ph, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi3EEEvll.exit
   %.0101 = phi i64 [ %89, %.lr.ph ], [ %176, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi3EEEvll.exit ]
-  call void @llvm.lifetime.start.p0(i64 768, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(768) %5, i8 0, i64 768, i1 false)
   br i1 %101, label %.lr.ph.i, label %.preheader.i.preheader
 
@@ -4529,7 +4523,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit.us: ;
 
 .lr.ph.i:                                         ; preds = %145, %151
   %.03346.i = phi i64 [ %152, %151 ], [ 0, %145 ]
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %invariant.gep.i = getelementptr float, ptr %107, i64 %.03346.i
   br label %146
 
@@ -4550,7 +4544,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit.us: ;
   br i1 %exitcond.not.i, label %.preheader38.i, label %146, !llvm.loop !117
 
 151:                                              ; preds = %157
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %152 = add nuw nsw i64 %.03346.i, 16
   %153 = icmp slt i64 %152, %100
   br i1 %153, label %.lr.ph.i, label %.preheader.i.preheader, !llvm.loop !118
@@ -4606,14 +4600,14 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit.us: ;
   br i1 %exitcond53.not.i, label %168, label %170, !llvm.loop !122
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi3EEEvll.exit: ; preds = %168
-  call void @llvm.lifetime.end.p0(i64 768, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %176 = add nsw i64 %.0101, 3
   %177 = icmp slt i64 %176, %98
   br i1 %177, label %145, label %.preheader, !llvm.loop !161
 
 .preheader37.i75:                                 ; preds = %.lr.ph103, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit
   %.1102 = phi i64 [ %188, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit ], [ %.0.lcssa, %.lr.ph103 ]
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(512) %4, i8 0, i64 512, i1 false)
   br label %.preheader.i77
 
@@ -4641,7 +4635,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi3EEEvll.exit: ; pr
   br i1 %exitcond51.not.i81, label %181, label %182, !llvm.loop !128
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit: ; preds = %181
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %188 = add nsw i64 %.1102, 2
   %189 = icmp slt i64 %188, %97
   br i1 %189, label %.preheader37.i75, label %._crit_edge, !llvm.loop !162
@@ -4652,7 +4646,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit: ; pr
   br i1 %190, label %104, label %191
 
 191:                                              ; preds = %._crit_edge
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 ._crit_edge109:                                   ; preds = %111, %44
@@ -4663,7 +4657,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit: ; pr
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmILi4ELi2ELi2EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmILi4ELi2ELi2EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [1 x [4 x <16 x float>]], align 64
   %5 = alloca [2 x [4 x <16 x float>]], align 64
   %6 = and i64 %1, 7
@@ -4672,7 +4666,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmI
   br i1 %7, label %9, label %8
 
 8:                                                ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 9:                                                ; preds = %3
@@ -4715,7 +4709,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmI
   br i1 %38, label %40, label %39
 
 39:                                               ; preds = %33
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 40:                                               ; preds = %33
@@ -4819,7 +4813,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit71:            ; preds = %75, %77
 
 .lr.ph.i.us:                                      ; preds = %.lr.ph, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit.us
   %.084.us = phi i64 [ %126, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit.us ], [ %85, %.lr.ph ]
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(512) %5, i8 0, i64 512, i1 false)
   %103 = mul nsw i64 %100, %.084.us
   %104 = add nsw i64 %.084.us, 1
@@ -4883,7 +4877,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit71:            ; preds = %75, %77
   br i1 %116, label %.preheader.i.us, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit.us, !llvm.loop !129
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit.us: ; preds = %125
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %126 = add nsw i64 %.084.us, 2
   %127 = icmp slt i64 %126, %90
   br i1 %127, label %.lr.ph.i.us, label %.preheader, !llvm.loop !164
@@ -4909,7 +4903,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit.us: ;
 
 .preheader37.i:                                   ; preds = %.lr.ph, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit
   %.084 = phi i64 [ %147, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit ], [ %85, %.lr.ph ]
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(512) %5, i8 0, i64 512, i1 false)
   br label %.preheader.i
 
@@ -4937,14 +4931,14 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit.us: ;
   br i1 %exitcond51.not.i, label %140, label %141, !llvm.loop !128
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit: ; preds = %140
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %147 = add nsw i64 %.084, 2
   %148 = icmp slt i64 %147, %90
   br i1 %148, label %.preheader37.i, label %.preheader, !llvm.loop !166
 
 149:                                              ; preds = %.lr.ph86, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit
   %.185 = phi i64 [ %.0.lcssa, %.lr.ph86 ], [ %169, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit ]
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(256) %4, i8 0, i64 256, i1 false)
   br i1 %93, label %.critedge.lr.ph.i, label %.preheader.i74
 
@@ -4996,7 +4990,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit: ; pr
   br i1 %exitcond44.not.i, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit, label %163, !llvm.loop !140
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit: ; preds = %163
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %169 = add nsw i64 %.185, 1
   %170 = icmp slt i64 %169, %89
   br i1 %170, label %149, label %._crit_edge, !llvm.loop !167
@@ -5007,7 +5001,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit: ; pr
   br i1 %171, label %96, label %172
 
 172:                                              ; preds = %._crit_edge
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 ._crit_edge92:                                    ; preds = %128, %44
@@ -5018,14 +5012,14 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit: ; pr
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmILi4ELi1ELi2EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmILi4ELi1ELi2EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [1 x [4 x <16 x float>]], align 64
   %5 = and i64 %1, 7
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 8:                                                ; preds = %3
@@ -5063,7 +5057,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmI
   br i1 %33, label %35, label %34
 
 34:                                               ; preds = %28
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 35:                                               ; preds = %28
@@ -5153,7 +5147,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit64:            ; preds = %69, %71
 
 .preheader.i.us:                                  ; preds = %.preheader.us, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us73
   %.067.us69 = phi i64 [ %95, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us73 ], [ %spec.select, %.preheader.us ]
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(256) %4, i8 0, i64 256, i1 false)
   %88 = mul nsw i64 %81, %.067.us69
   %gep.us70 = getelementptr float, ptr %invariant.gep.us, i64 %88
@@ -5171,7 +5165,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit64:            ; preds = %69, %71
   br i1 %exitcond44.not.i.us72, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us73, label %89, !llvm.loop !140
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us73: ; preds = %89
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %95 = add nsw i64 %.067.us69, 1
   %exitcond.not = icmp eq i64 %95, %76
   br i1 %exitcond.not, label %._crit_edge.us.loopexit, label %.preheader.i.us, !llvm.loop !168
@@ -5181,7 +5175,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us73:
 
 .critedge.lr.ph.i.us.us:                          ; preds = %.preheader.us, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us.us
   %.067.us.us = phi i64 [ %114, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us.us ], [ %spec.select, %.preheader.us ]
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(256) %4, i8 0, i64 256, i1 false)
   %96 = mul nsw i64 %85, %.067.us.us
   %97 = getelementptr inbounds float, ptr %84, i64 %96
@@ -5225,7 +5219,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us73:
   br i1 %exitcond44.not.i.us.us, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us.us, label %108, !llvm.loop !140
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us.us: ; preds = %108
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %114 = add nsw i64 %.067.us.us, 1
   %exitcond84.not = icmp eq i64 %114, %76
   br i1 %exitcond84.not, label %._crit_edge.us.loopexit, label %.critedge.lr.ph.i.us.us, !llvm.loop !170
@@ -5245,7 +5239,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split:      ; preds = %_ZN12_GLOBAL__N_18B
   br i1 %118, label %55, label %._crit_edge, !llvm.loop !171
 
 .split.us:                                        ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 ._crit_edge:                                      ; preds = %.split78.us, %39
@@ -5256,7 +5250,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split:      ; preds = %_ZN12_GLOBAL__N_18B
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmILi4ELi6ELi1EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmILi4ELi6ELi1EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [5 x [4 x <16 x float>]], align 64
   %5 = alloca [4 x <16 x float>], align 64
   %6 = alloca [6 x [4 x <16 x float>]], align 64
@@ -5266,7 +5260,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmI
   br i1 %9, label %11, label %10
 
 10:                                               ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 11:                                               ; preds = %3
@@ -5309,7 +5303,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmI
   br i1 %39, label %41, label %40
 
 40:                                               ; preds = %34
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 41:                                               ; preds = %34
@@ -5439,7 +5433,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %95, %97
 
 113:                                              ; preds = %.lr.ph, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi6EEEvll.exit
   %.098 = phi i64 [ %93, %.lr.ph ], [ %146, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi6EEEvll.exit ]
-  call void @llvm.lifetime.start.p0(i64 1536, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(1536) %6, i8 0, i64 1536, i1 false)
   br i1 %57, label %.lr.ph.i, label %.preheader.i.preheader
 
@@ -5448,7 +5442,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %95, %97
 
 .lr.ph.i:                                         ; preds = %113, %119
   %.03344.i = phi i64 [ %120, %119 ], [ 0, %113 ]
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %invariant.gep.i = getelementptr float, ptr %104, i64 %.03344.i
   br label %114
 
@@ -5469,7 +5463,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %95, %97
   br i1 %exitcond.not.i, label %.preheader38.i, label %114, !llvm.loop !88
 
 119:                                              ; preds = %126
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %120 = add nuw nsw i64 %.03344.i, 16
   %121 = icmp slt i64 %120, %56
   br i1 %121, label %.lr.ph.i, label %.preheader.i.preheader, !llvm.loop !89
@@ -5525,14 +5519,14 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %95, %97
   br i1 %exitcond51.not.i, label %138, label %140, !llvm.loop !95
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi6EEEvll.exit: ; preds = %138
-  call void @llvm.lifetime.end.p0(i64 1536, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %146 = add nsw i64 %.098, 6
   %147 = icmp slt i64 %146, %102
   br i1 %147, label %113, label %.preheader, !llvm.loop !172
 
 148:                                              ; preds = %.lr.ph100, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi5EEEvll.exit
   %.199 = phi i64 [ %.0.lcssa, %.lr.ph100 ], [ %181, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi5EEEvll.exit ]
-  call void @llvm.lifetime.start.p0(i64 1280, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(1280) %4, i8 0, i64 1280, i1 false)
   br i1 %57, label %.lr.ph.i83, label %.preheader.i77.preheader
 
@@ -5541,7 +5535,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi6EEEvll.exit: ; pr
 
 .lr.ph.i83:                                       ; preds = %148, %154
   %.03344.i84 = phi i64 [ %155, %154 ], [ 0, %148 ]
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %invariant.gep.i85 = getelementptr float, ptr %109, i64 %.03344.i84
   br label %149
 
@@ -5562,7 +5556,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi6EEEvll.exit: ; pr
   br i1 %exitcond.not.i89, label %.preheader38.i90, label %149, !llvm.loop !97
 
 154:                                              ; preds = %161
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %155 = add nuw nsw i64 %.03344.i84, 16
   %156 = icmp slt i64 %155, %56
   br i1 %156, label %.lr.ph.i83, label %.preheader.i77.preheader, !llvm.loop !98
@@ -5618,7 +5612,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi6EEEvll.exit: ; pr
   br i1 %exitcond51.not.i81, label %173, label %175, !llvm.loop !102
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi5EEEvll.exit: ; preds = %173
-  call void @llvm.lifetime.end.p0(i64 1280, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %181 = add nsw i64 %.199, 5
   %182 = icmp slt i64 %181, %101
   br i1 %182, label %148, label %._crit_edge, !llvm.loop !173
@@ -5629,7 +5623,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi5EEEvll.exit: ; pr
   br i1 %183, label %185, label %184
 
 184:                                              ; preds = %._crit_edge
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 185:                                              ; preds = %._crit_edge
@@ -5645,7 +5639,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi5EEEvll.exit: ; pr
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmILi4ELi5ELi1EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmILi4ELi5ELi1EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [4 x [4 x <16 x float>]], align 64
   %5 = alloca [4 x <16 x float>], align 64
   %6 = alloca [5 x [4 x <16 x float>]], align 64
@@ -5655,7 +5649,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmI
   br i1 %9, label %11, label %10
 
 10:                                               ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 11:                                               ; preds = %3
@@ -5698,7 +5692,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmI
   br i1 %39, label %41, label %40
 
 40:                                               ; preds = %34
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 41:                                               ; preds = %34
@@ -5828,7 +5822,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %95, %97
 
 113:                                              ; preds = %.lr.ph, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi5EEEvll.exit
   %.098 = phi i64 [ %93, %.lr.ph ], [ %146, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi5EEEvll.exit ]
-  call void @llvm.lifetime.start.p0(i64 1280, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(1280) %6, i8 0, i64 1280, i1 false)
   br i1 %57, label %.lr.ph.i, label %.preheader.i.preheader
 
@@ -5837,7 +5831,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %95, %97
 
 .lr.ph.i:                                         ; preds = %113, %119
   %.03344.i = phi i64 [ %120, %119 ], [ 0, %113 ]
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %invariant.gep.i = getelementptr float, ptr %104, i64 %.03344.i
   br label %114
 
@@ -5858,7 +5852,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %95, %97
   br i1 %exitcond.not.i, label %.preheader38.i, label %114, !llvm.loop !97
 
 119:                                              ; preds = %126
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %120 = add nuw nsw i64 %.03344.i, 16
   %121 = icmp slt i64 %120, %56
   br i1 %121, label %.lr.ph.i, label %.preheader.i.preheader, !llvm.loop !98
@@ -5914,14 +5908,14 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %95, %97
   br i1 %exitcond51.not.i, label %138, label %140, !llvm.loop !102
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi5EEEvll.exit: ; preds = %138
-  call void @llvm.lifetime.end.p0(i64 1280, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %146 = add nsw i64 %.098, 5
   %147 = icmp slt i64 %146, %102
   br i1 %147, label %113, label %.preheader, !llvm.loop !175
 
 148:                                              ; preds = %.lr.ph100, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi4EEEvll.exit
   %.199 = phi i64 [ %.0.lcssa, %.lr.ph100 ], [ %181, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi4EEEvll.exit ]
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(1024) %4, i8 0, i64 1024, i1 false)
   br i1 %57, label %.lr.ph.i83, label %.preheader.i77.preheader
 
@@ -5930,7 +5924,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi5EEEvll.exit: ; pr
 
 .lr.ph.i83:                                       ; preds = %148, %154
   %.03344.i84 = phi i64 [ %155, %154 ], [ 0, %148 ]
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %invariant.gep.i85 = getelementptr float, ptr %109, i64 %.03344.i84
   br label %149
 
@@ -5951,7 +5945,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi5EEEvll.exit: ; pr
   br i1 %exitcond.not.i89, label %.preheader38.i90, label %149, !llvm.loop !107
 
 154:                                              ; preds = %161
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %155 = add nuw nsw i64 %.03344.i84, 16
   %156 = icmp slt i64 %155, %56
   br i1 %156, label %.lr.ph.i83, label %.preheader.i77.preheader, !llvm.loop !108
@@ -6007,7 +6001,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi5EEEvll.exit: ; pr
   br i1 %exitcond51.not.i81, label %173, label %175, !llvm.loop !112
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi4EEEvll.exit: ; preds = %173
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %181 = add nsw i64 %.199, 4
   %182 = icmp slt i64 %181, %101
   br i1 %182, label %148, label %._crit_edge, !llvm.loop !176
@@ -6018,7 +6012,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi4EEEvll.exit: ; pr
   br i1 %183, label %185, label %184
 
 184:                                              ; preds = %._crit_edge
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 185:                                              ; preds = %._crit_edge
@@ -6034,7 +6028,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi4EEEvll.exit: ; pr
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmILi4ELi4ELi1EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmILi4ELi4ELi1EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [3 x [4 x <16 x float>]], align 64
   %5 = alloca [3 x <16 x float>], align 64
   %6 = alloca [4 x [4 x <16 x float>]], align 64
@@ -6044,7 +6038,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmI
   br i1 %9, label %11, label %10
 
 10:                                               ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 11:                                               ; preds = %3
@@ -6087,7 +6081,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmI
   br i1 %40, label %42, label %41
 
 41:                                               ; preds = %35
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 42:                                               ; preds = %35
@@ -6217,7 +6211,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %96, %98
 
 114:                                              ; preds = %.lr.ph, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi4EEEvll.exit
   %.086 = phi i64 [ %94, %.lr.ph ], [ %147, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi4EEEvll.exit ]
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(1024) %6, i8 0, i64 1024, i1 false)
   br i1 %58, label %.lr.ph.i, label %.preheader.i.preheader
 
@@ -6226,7 +6220,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %96, %98
 
 .lr.ph.i:                                         ; preds = %114, %120
   %.03344.i = phi i64 [ %121, %120 ], [ 0, %114 ]
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %invariant.gep.i = getelementptr float, ptr %105, i64 %.03344.i
   br label %115
 
@@ -6247,7 +6241,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %96, %98
   br i1 %exitcond.not.i, label %.preheader38.i, label %115, !llvm.loop !107
 
 120:                                              ; preds = %127
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %121 = add nuw nsw i64 %.03344.i, 16
   %122 = icmp slt i64 %121, %57
   br i1 %122, label %.lr.ph.i, label %.preheader.i.preheader, !llvm.loop !108
@@ -6303,14 +6297,14 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %96, %98
   br i1 %exitcond51.not.i, label %139, label %141, !llvm.loop !112
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi4EEEvll.exit: ; preds = %139
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %147 = add nsw i64 %.086, 4
   %148 = icmp slt i64 %147, %103
   br i1 %148, label %114, label %.preheader, !llvm.loop !178
 
 149:                                              ; preds = %.lr.ph88, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi3EEEvll.exit
   %.187 = phi i64 [ %.0.lcssa, %.lr.ph88 ], [ %180, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi3EEEvll.exit ]
-  call void @llvm.lifetime.start.p0(i64 768, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(768) %4, i8 0, i64 768, i1 false)
   br i1 %58, label %.lr.ph.i76, label %.preheader.i75.preheader
 
@@ -6319,7 +6313,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi4EEEvll.exit: ; pr
 
 .lr.ph.i76:                                       ; preds = %149, %155
   %.03346.i = phi i64 [ %156, %155 ], [ 0, %149 ]
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %invariant.gep.i77 = getelementptr float, ptr %110, i64 %.03346.i
   br label %150
 
@@ -6340,7 +6334,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi4EEEvll.exit: ; pr
   br i1 %exitcond.not.i81, label %.preheader38.i82, label %150, !llvm.loop !117
 
 155:                                              ; preds = %161
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %156 = add nuw nsw i64 %.03346.i, 16
   %157 = icmp slt i64 %156, %57
   br i1 %157, label %.lr.ph.i76, label %.preheader.i75.preheader, !llvm.loop !118
@@ -6396,7 +6390,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi4EEEvll.exit: ; pr
   br i1 %exitcond53.not.i, label %172, label %174, !llvm.loop !122
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi3EEEvll.exit: ; preds = %172
-  call void @llvm.lifetime.end.p0(i64 768, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %180 = add nsw i64 %.187, 3
   %181 = icmp slt i64 %180, %102
   br i1 %181, label %149, label %._crit_edge, !llvm.loop !179
@@ -6407,7 +6401,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi3EEEvll.exit: ; pr
   br i1 %182, label %184, label %183
 
 183:                                              ; preds = %._crit_edge
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 184:                                              ; preds = %._crit_edge
@@ -6423,7 +6417,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi3EEEvll.exit: ; pr
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmILi4ELi3ELi1EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmILi4ELi3ELi1EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [2 x [4 x <16 x float>]], align 64
   %5 = alloca [3 x [4 x <16 x float>]], align 64
   %6 = alloca [3 x <16 x float>], align 64
@@ -6433,7 +6427,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmI
   br i1 %8, label %10, label %9
 
 9:                                                ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 10:                                               ; preds = %3
@@ -6476,7 +6470,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmI
   br i1 %38, label %40, label %39
 
 39:                                               ; preds = %33
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 40:                                               ; preds = %33
@@ -6606,7 +6600,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %94, %96
 
 .lr.ph.i82.us:                                    ; preds = %.lr.ph105, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit.us
   %.1104.us = phi i64 [ %135, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit.us ], [ %.0.lcssa, %.lr.ph105 ]
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(512) %4, i8 0, i64 512, i1 false)
   %112 = mul nsw i64 %109, %.1104.us
   %113 = add nsw i64 %.1104.us, 1
@@ -6670,14 +6664,14 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %94, %96
   br i1 %125, label %.preheader.i77.us, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit.us, !llvm.loop !129
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit.us: ; preds = %134
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %135 = add nsw i64 %.1104.us, 2
   %136 = icmp slt i64 %135, %100
   br i1 %136, label %.lr.ph.i82.us, label %._crit_edge, !llvm.loop !181
 
 137:                                              ; preds = %.lr.ph, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi3EEEvll.exit
   %.0103 = phi i64 [ %92, %.lr.ph ], [ %168, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi3EEEvll.exit ]
-  call void @llvm.lifetime.start.p0(i64 768, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(768) %5, i8 0, i64 768, i1 false)
   br i1 %56, label %.lr.ph.i, label %.preheader.i.preheader
 
@@ -6686,7 +6680,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit.us: ;
 
 .lr.ph.i:                                         ; preds = %137, %143
   %.03346.i = phi i64 [ %144, %143 ], [ 0, %137 ]
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %invariant.gep.i = getelementptr float, ptr %103, i64 %.03346.i
   br label %138
 
@@ -6707,7 +6701,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit.us: ;
   br i1 %exitcond.not.i, label %.preheader38.i, label %138, !llvm.loop !117
 
 143:                                              ; preds = %149
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %144 = add nuw nsw i64 %.03346.i, 16
   %145 = icmp slt i64 %144, %55
   br i1 %145, label %.lr.ph.i, label %.preheader.i.preheader, !llvm.loop !118
@@ -6763,14 +6757,14 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit.us: ;
   br i1 %exitcond53.not.i, label %160, label %162, !llvm.loop !122
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi3EEEvll.exit: ; preds = %160
-  call void @llvm.lifetime.end.p0(i64 768, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %168 = add nsw i64 %.0103, 3
   %169 = icmp slt i64 %168, %101
   br i1 %169, label %137, label %.preheader, !llvm.loop !182
 
 .preheader37.i75:                                 ; preds = %.lr.ph105, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit
   %.1104 = phi i64 [ %180, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit ], [ %.0.lcssa, %.lr.ph105 ]
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(512) %4, i8 0, i64 512, i1 false)
   br label %.preheader.i77
 
@@ -6798,7 +6792,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi3EEEvll.exit: ; pr
   br i1 %exitcond51.not.i81, label %173, label %174, !llvm.loop !128
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit: ; preds = %173
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %180 = add nsw i64 %.1104, 2
   %181 = icmp slt i64 %180, %100
   br i1 %181, label %.preheader37.i75, label %._crit_edge, !llvm.loop !183
@@ -6809,7 +6803,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit: ; pr
   br i1 %182, label %184, label %183
 
 183:                                              ; preds = %._crit_edge
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 184:                                              ; preds = %._crit_edge
@@ -6825,7 +6819,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit: ; pr
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmILi4ELi2ELi1EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmILi4ELi2ELi1EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [1 x [4 x <16 x float>]], align 64
   %5 = alloca [2 x [4 x <16 x float>]], align 64
   %6 = and i64 %1, 3
@@ -6834,7 +6828,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmI
   br i1 %7, label %9, label %8
 
 8:                                                ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 9:                                                ; preds = %3
@@ -6877,7 +6871,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmI
   br i1 %38, label %40, label %39
 
 39:                                               ; preds = %33
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 40:                                               ; preds = %33
@@ -6972,7 +6966,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit71:            ; preds = %78, %80
 
 .lr.ph.i.us:                                      ; preds = %.lr.ph, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit.us
   %.086.us = phi i64 [ %122, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit.us ], [ %88, %.lr.ph ]
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(512) %5, i8 0, i64 512, i1 false)
   %99 = mul nsw i64 %96, %.086.us
   %100 = add nsw i64 %.086.us, 1
@@ -7036,7 +7030,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit71:            ; preds = %78, %80
   br i1 %112, label %.preheader.i.us, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit.us, !llvm.loop !129
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit.us: ; preds = %121
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %122 = add nsw i64 %.086.us, 2
   %123 = icmp slt i64 %122, %93
   br i1 %123, label %.lr.ph.i.us, label %.preheader, !llvm.loop !185
@@ -7056,7 +7050,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit.us: ;
 
 .preheader37.i:                                   ; preds = %.lr.ph, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit
   %.086 = phi i64 [ %139, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit ], [ %88, %.lr.ph ]
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(512) %5, i8 0, i64 512, i1 false)
   br label %.preheader.i
 
@@ -7084,14 +7078,14 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit.us: ;
   br i1 %exitcond51.not.i, label %132, label %133, !llvm.loop !128
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit: ; preds = %132
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %139 = add nsw i64 %.086, 2
   %140 = icmp slt i64 %139, %93
   br i1 %140, label %.preheader37.i, label %.preheader, !llvm.loop !186
 
 141:                                              ; preds = %.lr.ph88, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit
   %.187 = phi i64 [ %.0.lcssa, %.lr.ph88 ], [ %161, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit ]
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(256) %4, i8 0, i64 256, i1 false)
   br i1 %56, label %.critedge.lr.ph.i, label %.preheader.i74
 
@@ -7143,7 +7137,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi2EEEvll.exit: ; pr
   br i1 %exitcond44.not.i, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit, label %155, !llvm.loop !140
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit: ; preds = %155
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %161 = add nsw i64 %.187, 1
   %162 = icmp slt i64 %161, %92
   br i1 %162, label %141, label %._crit_edge, !llvm.loop !187
@@ -7154,7 +7148,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit: ; pr
   br i1 %163, label %165, label %164
 
 164:                                              ; preds = %._crit_edge
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 165:                                              ; preds = %._crit_edge
@@ -7170,14 +7164,14 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit: ; pr
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmILi4ELi1ELi1EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmILi4ELi1ELi1EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [1 x [4 x <16 x float>]], align 64
   %5 = and i64 %1, 3
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 8:                                                ; preds = %3
@@ -7215,7 +7209,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE4gemmI
   br i1 %33, label %35, label %34
 
 34:                                               ; preds = %28
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 35:                                               ; preds = %28
@@ -7312,7 +7306,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit64.us:         ; preds = %76, %72
 
 .critedge.lr.ph.i.us.us:                          ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us.us, %.lr.ph.us
   %.067.us.us = phi i64 [ %spec.select.us, %.lr.ph.us ], [ %106, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us.us ]
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(256) %4, i8 0, i64 256, i1 false)
   %88 = mul nsw i64 %85, %.067.us.us
   %89 = getelementptr inbounds float, ptr %84, i64 %88
@@ -7356,7 +7350,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit64.us:         ; preds = %76, %72
   br i1 %exitcond44.not.i.us.us, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us.us, label %100, !llvm.loop !140
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit.us.us: ; preds = %100
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %106 = add nsw i64 %.067.us.us, 1
   %exitcond74.not = icmp eq i64 %106, %79
   br i1 %exitcond74.not, label %._crit_edge.split.us.us.thread, label %.critedge.lr.ph.i.us.us, !llvm.loop !190
@@ -7413,7 +7407,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit64:            ; preds = %120, %122
 
 .preheader.i:                                     ; preds = %.lr.ph, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit
   %.067 = phi i64 [ %spec.select, %.lr.ph ], [ %136, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit ]
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(256) %4, i8 0, i64 256, i1 false)
   %129 = mul nsw i64 %58, %.067
   %gep = getelementptr float, ptr %invariant.gep, i64 %129
@@ -7431,7 +7425,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit64:            ; preds = %120, %122
   br i1 %exitcond44.not.i, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit, label %130, !llvm.loop !140
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit: ; preds = %130
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %136 = add nsw i64 %.067, 1
   %exitcond.not = icmp eq i64 %136, %127
   br i1 %exitcond.not, label %._crit_edge.split.thread, label %.preheader.i, !llvm.loop !191
@@ -7441,7 +7435,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit: ; pr
   br i1 %137, label %._crit_edge.split.thread, label %.split.us
 
 .split.us:                                        ; preds = %._crit_edge.split, %._crit_edge.split.us.us
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 ._crit_edge.split.thread:                         ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit, %._crit_edge.split
@@ -7457,7 +7451,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_fffE9gemm_blocILi4ELi1EEEvll.exit: ; pr
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE4gemmILi4ELi6ELi4EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE4gemmILi4ELi6ELi4EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [5 x [4 x <16 x float>]], align 64
   %5 = alloca [4 x <16 x float>], align 64
   %6 = alloca [6 x [4 x <16 x float>]], align 64
@@ -7467,7 +7461,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf1
   br i1 %9, label %11, label %10
 
 10:                                               ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 11:                                               ; preds = %3
@@ -7510,7 +7504,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf1
   br i1 %39, label %41, label %40
 
 40:                                               ; preds = %34
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 41:                                               ; preds = %34
@@ -7656,7 +7650,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 
 122:                                              ; preds = %.lr.ph, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi6EEEvll.exit
   %.099 = phi i64 [ %90, %.lr.ph ], [ %160, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi6EEEvll.exit ]
-  call void @llvm.lifetime.start.p0(i64 1536, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(1536) %6, i8 0, i64 1536, i1 false)
   br i1 %102, label %.lr.ph.i, label %.preheader.i.preheader
 
@@ -7665,7 +7659,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 
 .lr.ph.i:                                         ; preds = %122, %130
   %.03346.i = phi i64 [ %131, %130 ], [ 0, %122 ]
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %invariant.gep.i = getelementptr %struct.ggml_bf16_t, ptr %109, i64 %.03346.i
   br label %123
 
@@ -7688,7 +7682,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   br i1 %exitcond.not.i, label %.preheader40.i, label %123, !llvm.loop !195
 
 130:                                              ; preds = %140
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %131 = add nuw nsw i64 %.03346.i, 16
   %132 = icmp slt i64 %131, %101
   br i1 %132, label %.lr.ph.i, label %.preheader.i.preheader, !llvm.loop !196
@@ -7747,14 +7741,14 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   br i1 %exitcond53.not.i, label %152, label %154, !llvm.loop !200
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi6EEEvll.exit: ; preds = %152
-  call void @llvm.lifetime.end.p0(i64 1536, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %160 = add nsw i64 %.099, 6
   %161 = icmp slt i64 %160, %99
   br i1 %161, label %122, label %.preheader, !llvm.loop !201
 
 162:                                              ; preds = %.lr.ph101, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEEvll.exit
   %.1100 = phi i64 [ %.0.lcssa, %.lr.ph101 ], [ %200, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEEvll.exit ]
-  call void @llvm.lifetime.start.p0(i64 1280, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(1280) %4, i8 0, i64 1280, i1 false)
   br i1 %102, label %.lr.ph.i83, label %.preheader.i77.preheader
 
@@ -7763,7 +7757,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi6EEE
 
 .lr.ph.i83:                                       ; preds = %162, %170
   %.03346.i84 = phi i64 [ %171, %170 ], [ 0, %162 ]
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %invariant.gep.i85 = getelementptr %struct.ggml_bf16_t, ptr %118, i64 %.03346.i84
   br label %163
 
@@ -7786,7 +7780,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi6EEE
   br i1 %exitcond.not.i89, label %.preheader40.i90, label %163, !llvm.loop !202
 
 170:                                              ; preds = %180
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %171 = add nuw nsw i64 %.03346.i84, 16
   %172 = icmp slt i64 %171, %101
   br i1 %172, label %.lr.ph.i83, label %.preheader.i77.preheader, !llvm.loop !203
@@ -7845,7 +7839,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi6EEE
   br i1 %exitcond53.not.i81, label %192, label %194, !llvm.loop !207
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEEvll.exit: ; preds = %192
-  call void @llvm.lifetime.end.p0(i64 1280, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %200 = add nsw i64 %.1100, 5
   %201 = icmp slt i64 %200, %98
   br i1 %201, label %162, label %._crit_edge, !llvm.loop !208
@@ -7856,7 +7850,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEE
   br i1 %202, label %105, label %203
 
 203:                                              ; preds = %._crit_edge
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 ._crit_edge107:                                   ; preds = %113, %45
@@ -7867,7 +7861,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEE
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE4gemmILi4ELi5ELi4EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE4gemmILi4ELi5ELi4EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [4 x [4 x <16 x float>]], align 64
   %5 = alloca [4 x <16 x float>], align 64
   %6 = alloca [5 x [4 x <16 x float>]], align 64
@@ -7877,7 +7871,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf1
   br i1 %9, label %11, label %10
 
 10:                                               ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 11:                                               ; preds = %3
@@ -7920,7 +7914,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf1
   br i1 %39, label %41, label %40
 
 40:                                               ; preds = %34
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 41:                                               ; preds = %34
@@ -8066,7 +8060,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 
 122:                                              ; preds = %.lr.ph, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEEvll.exit
   %.097 = phi i64 [ %90, %.lr.ph ], [ %160, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEEvll.exit ]
-  call void @llvm.lifetime.start.p0(i64 1280, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(1280) %6, i8 0, i64 1280, i1 false)
   br i1 %102, label %.lr.ph.i, label %.preheader.i.preheader
 
@@ -8075,7 +8069,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 
 .lr.ph.i:                                         ; preds = %122, %130
   %.03346.i = phi i64 [ %131, %130 ], [ 0, %122 ]
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %invariant.gep.i = getelementptr %struct.ggml_bf16_t, ptr %109, i64 %.03346.i
   br label %123
 
@@ -8098,7 +8092,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   br i1 %exitcond.not.i, label %.preheader40.i, label %123, !llvm.loop !202
 
 130:                                              ; preds = %140
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %131 = add nuw nsw i64 %.03346.i, 16
   %132 = icmp slt i64 %131, %101
   br i1 %132, label %.lr.ph.i, label %.preheader.i.preheader, !llvm.loop !203
@@ -8157,14 +8151,14 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   br i1 %exitcond53.not.i, label %152, label %154, !llvm.loop !207
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEEvll.exit: ; preds = %152
-  call void @llvm.lifetime.end.p0(i64 1280, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %160 = add nsw i64 %.097, 5
   %161 = icmp slt i64 %160, %99
   br i1 %161, label %122, label %.preheader, !llvm.loop !211
 
 162:                                              ; preds = %.lr.ph99, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEEvll.exit
   %.198 = phi i64 [ %.0.lcssa, %.lr.ph99 ], [ %200, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEEvll.exit ]
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(1024) %4, i8 0, i64 1024, i1 false)
   br i1 %102, label %.lr.ph.i83, label %.preheader.i77.preheader
 
@@ -8173,7 +8167,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEE
 
 .lr.ph.i83:                                       ; preds = %162, %170
   %.03346.i84 = phi i64 [ %171, %170 ], [ 0, %162 ]
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %invariant.gep.i85 = getelementptr %struct.ggml_bf16_t, ptr %118, i64 %.03346.i84
   br label %163
 
@@ -8196,7 +8190,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEE
   br i1 %exitcond.not.i88, label %.preheader40.i89, label %163, !llvm.loop !212
 
 170:                                              ; preds = %180
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %171 = add nuw nsw i64 %.03346.i84, 16
   %172 = icmp slt i64 %171, %101
   br i1 %172, label %.lr.ph.i83, label %.preheader.i77.preheader, !llvm.loop !213
@@ -8255,7 +8249,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEE
   br i1 %exitcond53.not.i81, label %192, label %194, !llvm.loop !217
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEEvll.exit: ; preds = %192
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %200 = add nsw i64 %.198, 4
   %201 = icmp slt i64 %200, %98
   br i1 %201, label %162, label %._crit_edge, !llvm.loop !218
@@ -8266,7 +8260,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEE
   br i1 %202, label %105, label %203
 
 203:                                              ; preds = %._crit_edge
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 ._crit_edge105:                                   ; preds = %113, %45
@@ -8277,7 +8271,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEE
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE4gemmILi4ELi4ELi4EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE4gemmILi4ELi4ELi4EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [3 x [4 x <16 x float>]], align 64
   %5 = alloca [3 x <16 x float>], align 64
   %6 = alloca [4 x [4 x <16 x float>]], align 64
@@ -8287,7 +8281,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf1
   br i1 %9, label %11, label %10
 
 10:                                               ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 11:                                               ; preds = %3
@@ -8330,7 +8324,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf1
   br i1 %40, label %42, label %41
 
 41:                                               ; preds = %35
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 42:                                               ; preds = %35
@@ -8476,7 +8470,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
 
 123:                                              ; preds = %.lr.ph, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEEvll.exit
   %.087 = phi i64 [ %91, %.lr.ph ], [ %161, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEEvll.exit ]
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(1024) %6, i8 0, i64 1024, i1 false)
   br i1 %103, label %.lr.ph.i, label %.preheader.i.preheader
 
@@ -8485,7 +8479,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
 
 .lr.ph.i:                                         ; preds = %123, %131
   %.03346.i = phi i64 [ %132, %131 ], [ 0, %123 ]
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %invariant.gep.i = getelementptr %struct.ggml_bf16_t, ptr %110, i64 %.03346.i
   br label %124
 
@@ -8508,7 +8502,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
   br i1 %exitcond.not.i, label %.preheader40.i, label %124, !llvm.loop !212
 
 131:                                              ; preds = %141
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %132 = add nuw nsw i64 %.03346.i, 16
   %133 = icmp slt i64 %132, %102
   br i1 %133, label %.lr.ph.i, label %.preheader.i.preheader, !llvm.loop !213
@@ -8567,14 +8561,14 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
   br i1 %exitcond53.not.i, label %153, label %155, !llvm.loop !217
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEEvll.exit: ; preds = %153
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %161 = add nsw i64 %.087, 4
   %162 = icmp slt i64 %161, %100
   br i1 %162, label %123, label %.preheader, !llvm.loop !221
 
 163:                                              ; preds = %.lr.ph89, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi3EEEvll.exit
   %.188 = phi i64 [ %.0.lcssa, %.lr.ph89 ], [ %199, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi3EEEvll.exit ]
-  call void @llvm.lifetime.start.p0(i64 768, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(768) %4, i8 0, i64 768, i1 false)
   br i1 %103, label %.lr.ph.i76, label %.preheader.i75.preheader
 
@@ -8583,7 +8577,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEE
 
 .lr.ph.i76:                                       ; preds = %163, %171
   %.03348.i = phi i64 [ %172, %171 ], [ 0, %163 ]
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %invariant.gep.i77 = getelementptr %struct.ggml_bf16_t, ptr %119, i64 %.03348.i
   br label %164
 
@@ -8606,7 +8600,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEE
   br i1 %exitcond.not.i81, label %.preheader40.i82, label %164, !llvm.loop !222
 
 171:                                              ; preds = %180
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %172 = add nuw nsw i64 %.03348.i, 16
   %173 = icmp slt i64 %172, %102
   br i1 %173, label %.lr.ph.i76, label %.preheader.i75.preheader, !llvm.loop !223
@@ -8665,7 +8659,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEE
   br i1 %exitcond55.not.i, label %191, label %193, !llvm.loop !227
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi3EEEvll.exit: ; preds = %191
-  call void @llvm.lifetime.end.p0(i64 768, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %199 = add nsw i64 %.188, 3
   %200 = icmp slt i64 %199, %99
   br i1 %200, label %163, label %._crit_edge, !llvm.loop !228
@@ -8676,7 +8670,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi3EEE
   br i1 %201, label %106, label %202
 
 202:                                              ; preds = %._crit_edge
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 ._crit_edge95:                                    ; preds = %114, %46
@@ -8687,7 +8681,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi3EEE
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE4gemmILi4ELi3ELi4EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE4gemmILi4ELi3ELi4EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [2 x [4 x <16 x float>]], align 64
   %5 = alloca [3 x [4 x <16 x float>]], align 64
   %6 = alloca [3 x <16 x float>], align 64
@@ -8697,7 +8691,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf1
   br i1 %8, label %10, label %9
 
 9:                                                ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 10:                                               ; preds = %3
@@ -8740,7 +8734,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf1
   br i1 %38, label %40, label %39
 
 39:                                               ; preds = %33
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 40:                                               ; preds = %33
@@ -8886,7 +8880,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %91, %93
 
 .lr.ph.i82.us:                                    ; preds = %.lr.ph103, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit.us
   %.1102.us = phi i64 [ %152, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit.us ], [ %.0.lcssa, %.lr.ph103 ]
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(512) %4, i8 0, i64 512, i1 false)
   %121 = mul nsw i64 %118, %.1102.us
   %122 = add nsw i64 %.1102.us, 1
@@ -8959,14 +8953,14 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %91, %93
   br i1 %142, label %.preheader.i77.us, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit.us, !llvm.loop !234
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit.us: ; preds = %151
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %152 = add nsw i64 %.1102.us, 2
   %153 = icmp slt i64 %152, %97
   br i1 %153, label %.lr.ph.i82.us, label %._crit_edge, !llvm.loop !235
 
 154:                                              ; preds = %.lr.ph, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi3EEEvll.exit
   %.0101 = phi i64 [ %89, %.lr.ph ], [ %190, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi3EEEvll.exit ]
-  call void @llvm.lifetime.start.p0(i64 768, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(768) %5, i8 0, i64 768, i1 false)
   br i1 %101, label %.lr.ph.i, label %.preheader.i.preheader
 
@@ -8975,7 +8969,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEE
 
 .lr.ph.i:                                         ; preds = %154, %162
   %.03348.i = phi i64 [ %163, %162 ], [ 0, %154 ]
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %invariant.gep.i = getelementptr %struct.ggml_bf16_t, ptr %108, i64 %.03348.i
   br label %155
 
@@ -8998,7 +8992,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEE
   br i1 %exitcond.not.i, label %.preheader40.i, label %155, !llvm.loop !222
 
 162:                                              ; preds = %171
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %163 = add nuw nsw i64 %.03348.i, 16
   %164 = icmp slt i64 %163, %100
   br i1 %164, label %.lr.ph.i, label %.preheader.i.preheader, !llvm.loop !223
@@ -9057,14 +9051,14 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEE
   br i1 %exitcond55.not.i, label %182, label %184, !llvm.loop !227
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi3EEEvll.exit: ; preds = %182
-  call void @llvm.lifetime.end.p0(i64 768, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %190 = add nsw i64 %.0101, 3
   %191 = icmp slt i64 %190, %98
   br i1 %191, label %154, label %.preheader, !llvm.loop !236
 
 .preheader39.i75:                                 ; preds = %.lr.ph103, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit
   %.1102 = phi i64 [ %202, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit ], [ %.0.lcssa, %.lr.ph103 ]
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(512) %4, i8 0, i64 512, i1 false)
   br label %.preheader.i77
 
@@ -9092,7 +9086,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi3EEE
   br i1 %exitcond53.not.i81, label %195, label %196, !llvm.loop !233
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit: ; preds = %195
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %202 = add nsw i64 %.1102, 2
   %203 = icmp slt i64 %202, %97
   br i1 %203, label %.preheader39.i75, label %._crit_edge, !llvm.loop !237
@@ -9103,7 +9097,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEE
   br i1 %204, label %104, label %205
 
 205:                                              ; preds = %._crit_edge
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 ._crit_edge109:                                   ; preds = %112, %44
@@ -9114,7 +9108,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEE
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE4gemmILi4ELi2ELi4EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE4gemmILi4ELi2ELi4EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [1 x [4 x <16 x float>]], align 64
   %5 = alloca [2 x [4 x <16 x float>]], align 64
   %6 = and i64 %1, 15
@@ -9123,7 +9117,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf1
   br i1 %7, label %9, label %8
 
 8:                                                ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 9:                                                ; preds = %3
@@ -9166,7 +9160,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf1
   br i1 %38, label %40, label %39
 
 39:                                               ; preds = %33
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 40:                                               ; preds = %33
@@ -9271,7 +9265,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit71:            ; preds = %75, %77
 
 .lr.ph.i.us:                                      ; preds = %.lr.ph, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit.us
   %.083.us = phi i64 [ %135, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit.us ], [ %85, %.lr.ph ]
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(512) %5, i8 0, i64 512, i1 false)
   %104 = mul nsw i64 %101, %.083.us
   %105 = add nsw i64 %.083.us, 1
@@ -9344,7 +9338,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit71:            ; preds = %75, %77
   br i1 %125, label %.preheader.i.us, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit.us, !llvm.loop !234
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit.us: ; preds = %134
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %135 = add nsw i64 %.083.us, 2
   %136 = icmp slt i64 %135, %90
   br i1 %136, label %.lr.ph.i.us, label %.preheader, !llvm.loop !239
@@ -9370,7 +9364,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEE
 
 .preheader39.i:                                   ; preds = %.lr.ph, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit
   %.083 = phi i64 [ %156, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit ], [ %85, %.lr.ph ]
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(512) %5, i8 0, i64 512, i1 false)
   br label %.preheader.i
 
@@ -9398,14 +9392,14 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEE
   br i1 %exitcond53.not.i, label %149, label %150, !llvm.loop !233
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit: ; preds = %149
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %156 = add nsw i64 %.083, 2
   %157 = icmp slt i64 %156, %90
   br i1 %157, label %.preheader39.i, label %.preheader, !llvm.loop !241
 
 158:                                              ; preds = %.lr.ph85, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit
   %.184 = phi i64 [ %.0.lcssa, %.lr.ph85 ], [ %184, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit ]
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(256) %4, i8 0, i64 256, i1 false)
   br i1 %93, label %.critedge.lr.ph.i, label %.preheader.i74
 
@@ -9463,7 +9457,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEE
   br i1 %exitcond46.not.i, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit, label %178, !llvm.loop !244
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit: ; preds = %178
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %184 = add nsw i64 %.184, 1
   %185 = icmp slt i64 %184, %89
   br i1 %185, label %158, label %._crit_edge, !llvm.loop !245
@@ -9474,7 +9468,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEE
   br i1 %186, label %96, label %187
 
 187:                                              ; preds = %._crit_edge
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 ._crit_edge91:                                    ; preds = %137, %44
@@ -9485,14 +9479,14 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEE
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE4gemmILi4ELi1ELi4EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE4gemmILi4ELi1ELi4EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [1 x [4 x <16 x float>]], align 64
   %5 = and i64 %1, 15
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 8:                                                ; preds = %3
@@ -9530,7 +9524,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf1
   br i1 %33, label %35, label %34
 
 34:                                               ; preds = %28
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 35:                                               ; preds = %28
@@ -9619,7 +9613,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit64:            ; preds = %69, %71
 
 .preheader.i.us:                                  ; preds = %.preheader.us, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit.us73
   %.067.us69 = phi i64 [ %94, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit.us73 ], [ %spec.select, %.preheader.us ]
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(256) %4, i8 0, i64 256, i1 false)
   %87 = mul nsw i64 %81, %.067.us69
   %gep.us70 = getelementptr float, ptr %invariant.gep.us, i64 %87
@@ -9637,7 +9631,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit64:            ; preds = %69, %71
   br i1 %exitcond46.not.i.us72, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit.us73, label %88, !llvm.loop !244
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit.us73: ; preds = %88
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %94 = add nsw i64 %.067.us69, 1
   %exitcond.not = icmp eq i64 %94, %76
   br i1 %exitcond.not, label %._crit_edge.us.loopexit, label %.preheader.i.us, !llvm.loop !246
@@ -9649,7 +9643,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEE
 
 .critedge.lr.ph.i.us.us:                          ; preds = %.preheader.us, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit.us.us
   %.067.us.us = phi i64 [ %121, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit.us.us ], [ %spec.select, %.preheader.us ]
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(256) %4, i8 0, i64 256, i1 false)
   %97 = mul nsw i64 %84, %.067.us.us
   %98 = getelementptr inbounds %struct.ggml_bf16_t, ptr %83, i64 %97
@@ -9699,7 +9693,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEE
   br i1 %exitcond46.not.i.us.us, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit.us.us, label %115, !llvm.loop !244
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit.us.us: ; preds = %115
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %121 = add nsw i64 %.067.us.us, 1
   %exitcond84.not = icmp eq i64 %121, %76
   br i1 %exitcond84.not, label %._crit_edge.us.loopexit, label %.critedge.lr.ph.i.us.us, !llvm.loop !248
@@ -9719,7 +9713,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split:      ; preds = %_ZN12_GLOBAL__N_18B
   br i1 %125, label %55, label %._crit_edge, !llvm.loop !249
 
 .split.us:                                        ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 ._crit_edge:                                      ; preds = %.split78.us, %39
@@ -9730,7 +9724,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split:      ; preds = %_ZN12_GLOBAL__N_18B
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE4gemmILi4ELi6ELi2EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE4gemmILi4ELi6ELi2EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [5 x [4 x <16 x float>]], align 64
   %5 = alloca [4 x <16 x float>], align 64
   %6 = alloca [6 x [4 x <16 x float>]], align 64
@@ -9740,7 +9734,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf1
   br i1 %9, label %11, label %10
 
 10:                                               ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 11:                                               ; preds = %3
@@ -9783,7 +9777,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf1
   br i1 %39, label %41, label %40
 
 40:                                               ; preds = %34
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 41:                                               ; preds = %34
@@ -9928,7 +9922,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 
 121:                                              ; preds = %.lr.ph, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi6EEEvll.exit
   %.099 = phi i64 [ %90, %.lr.ph ], [ %159, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi6EEEvll.exit ]
-  call void @llvm.lifetime.start.p0(i64 1536, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(1536) %6, i8 0, i64 1536, i1 false)
   br i1 %102, label %.lr.ph.i, label %.preheader.i.preheader
 
@@ -9937,7 +9931,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 
 .lr.ph.i:                                         ; preds = %121, %129
   %.03346.i = phi i64 [ %130, %129 ], [ 0, %121 ]
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %invariant.gep.i = getelementptr %struct.ggml_bf16_t, ptr %108, i64 %.03346.i
   br label %122
 
@@ -9960,7 +9954,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   br i1 %exitcond.not.i, label %.preheader40.i, label %122, !llvm.loop !195
 
 129:                                              ; preds = %139
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %130 = add nuw nsw i64 %.03346.i, 16
   %131 = icmp slt i64 %130, %101
   br i1 %131, label %.lr.ph.i, label %.preheader.i.preheader, !llvm.loop !196
@@ -10019,14 +10013,14 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   br i1 %exitcond53.not.i, label %151, label %153, !llvm.loop !200
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi6EEEvll.exit: ; preds = %151
-  call void @llvm.lifetime.end.p0(i64 1536, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %159 = add nsw i64 %.099, 6
   %160 = icmp slt i64 %159, %99
   br i1 %160, label %121, label %.preheader, !llvm.loop !252
 
 161:                                              ; preds = %.lr.ph101, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEEvll.exit
   %.1100 = phi i64 [ %.0.lcssa, %.lr.ph101 ], [ %199, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEEvll.exit ]
-  call void @llvm.lifetime.start.p0(i64 1280, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(1280) %4, i8 0, i64 1280, i1 false)
   br i1 %102, label %.lr.ph.i83, label %.preheader.i77.preheader
 
@@ -10035,7 +10029,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi6EEE
 
 .lr.ph.i83:                                       ; preds = %161, %169
   %.03346.i84 = phi i64 [ %170, %169 ], [ 0, %161 ]
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %invariant.gep.i85 = getelementptr %struct.ggml_bf16_t, ptr %117, i64 %.03346.i84
   br label %162
 
@@ -10058,7 +10052,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi6EEE
   br i1 %exitcond.not.i89, label %.preheader40.i90, label %162, !llvm.loop !202
 
 169:                                              ; preds = %179
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %170 = add nuw nsw i64 %.03346.i84, 16
   %171 = icmp slt i64 %170, %101
   br i1 %171, label %.lr.ph.i83, label %.preheader.i77.preheader, !llvm.loop !203
@@ -10117,7 +10111,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi6EEE
   br i1 %exitcond53.not.i81, label %191, label %193, !llvm.loop !207
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEEvll.exit: ; preds = %191
-  call void @llvm.lifetime.end.p0(i64 1280, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %199 = add nsw i64 %.1100, 5
   %200 = icmp slt i64 %199, %98
   br i1 %200, label %161, label %._crit_edge, !llvm.loop !253
@@ -10128,7 +10122,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEE
   br i1 %201, label %105, label %202
 
 202:                                              ; preds = %._crit_edge
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 ._crit_edge107:                                   ; preds = %112, %45
@@ -10139,7 +10133,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEE
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE4gemmILi4ELi5ELi2EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE4gemmILi4ELi5ELi2EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [4 x [4 x <16 x float>]], align 64
   %5 = alloca [4 x <16 x float>], align 64
   %6 = alloca [5 x [4 x <16 x float>]], align 64
@@ -10149,7 +10143,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf1
   br i1 %9, label %11, label %10
 
 10:                                               ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 11:                                               ; preds = %3
@@ -10192,7 +10186,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf1
   br i1 %39, label %41, label %40
 
 40:                                               ; preds = %34
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 41:                                               ; preds = %34
@@ -10337,7 +10331,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 
 121:                                              ; preds = %.lr.ph, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEEvll.exit
   %.097 = phi i64 [ %90, %.lr.ph ], [ %159, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEEvll.exit ]
-  call void @llvm.lifetime.start.p0(i64 1280, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(1280) %6, i8 0, i64 1280, i1 false)
   br i1 %102, label %.lr.ph.i, label %.preheader.i.preheader
 
@@ -10346,7 +10340,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 
 .lr.ph.i:                                         ; preds = %121, %129
   %.03346.i = phi i64 [ %130, %129 ], [ 0, %121 ]
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %invariant.gep.i = getelementptr %struct.ggml_bf16_t, ptr %108, i64 %.03346.i
   br label %122
 
@@ -10369,7 +10363,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   br i1 %exitcond.not.i, label %.preheader40.i, label %122, !llvm.loop !202
 
 129:                                              ; preds = %139
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %130 = add nuw nsw i64 %.03346.i, 16
   %131 = icmp slt i64 %130, %101
   br i1 %131, label %.lr.ph.i, label %.preheader.i.preheader, !llvm.loop !203
@@ -10428,14 +10422,14 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   br i1 %exitcond53.not.i, label %151, label %153, !llvm.loop !207
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEEvll.exit: ; preds = %151
-  call void @llvm.lifetime.end.p0(i64 1280, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %159 = add nsw i64 %.097, 5
   %160 = icmp slt i64 %159, %99
   br i1 %160, label %121, label %.preheader, !llvm.loop !256
 
 161:                                              ; preds = %.lr.ph99, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEEvll.exit
   %.198 = phi i64 [ %.0.lcssa, %.lr.ph99 ], [ %199, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEEvll.exit ]
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(1024) %4, i8 0, i64 1024, i1 false)
   br i1 %102, label %.lr.ph.i83, label %.preheader.i77.preheader
 
@@ -10444,7 +10438,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEE
 
 .lr.ph.i83:                                       ; preds = %161, %169
   %.03346.i84 = phi i64 [ %170, %169 ], [ 0, %161 ]
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %invariant.gep.i85 = getelementptr %struct.ggml_bf16_t, ptr %117, i64 %.03346.i84
   br label %162
 
@@ -10467,7 +10461,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEE
   br i1 %exitcond.not.i88, label %.preheader40.i89, label %162, !llvm.loop !212
 
 169:                                              ; preds = %179
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %170 = add nuw nsw i64 %.03346.i84, 16
   %171 = icmp slt i64 %170, %101
   br i1 %171, label %.lr.ph.i83, label %.preheader.i77.preheader, !llvm.loop !213
@@ -10526,7 +10520,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEE
   br i1 %exitcond53.not.i81, label %191, label %193, !llvm.loop !217
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEEvll.exit: ; preds = %191
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %199 = add nsw i64 %.198, 4
   %200 = icmp slt i64 %199, %98
   br i1 %200, label %161, label %._crit_edge, !llvm.loop !257
@@ -10537,7 +10531,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEE
   br i1 %201, label %105, label %202
 
 202:                                              ; preds = %._crit_edge
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 ._crit_edge105:                                   ; preds = %112, %45
@@ -10548,7 +10542,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEE
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE4gemmILi4ELi4ELi2EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE4gemmILi4ELi4ELi2EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [3 x [4 x <16 x float>]], align 64
   %5 = alloca [3 x <16 x float>], align 64
   %6 = alloca [4 x [4 x <16 x float>]], align 64
@@ -10558,7 +10552,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf1
   br i1 %9, label %11, label %10
 
 10:                                               ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 11:                                               ; preds = %3
@@ -10601,7 +10595,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf1
   br i1 %40, label %42, label %41
 
 41:                                               ; preds = %35
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 42:                                               ; preds = %35
@@ -10746,7 +10740,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
 
 122:                                              ; preds = %.lr.ph, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEEvll.exit
   %.087 = phi i64 [ %91, %.lr.ph ], [ %160, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEEvll.exit ]
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(1024) %6, i8 0, i64 1024, i1 false)
   br i1 %103, label %.lr.ph.i, label %.preheader.i.preheader
 
@@ -10755,7 +10749,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
 
 .lr.ph.i:                                         ; preds = %122, %130
   %.03346.i = phi i64 [ %131, %130 ], [ 0, %122 ]
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %invariant.gep.i = getelementptr %struct.ggml_bf16_t, ptr %109, i64 %.03346.i
   br label %123
 
@@ -10778,7 +10772,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
   br i1 %exitcond.not.i, label %.preheader40.i, label %123, !llvm.loop !212
 
 130:                                              ; preds = %140
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %131 = add nuw nsw i64 %.03346.i, 16
   %132 = icmp slt i64 %131, %102
   br i1 %132, label %.lr.ph.i, label %.preheader.i.preheader, !llvm.loop !213
@@ -10837,14 +10831,14 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
   br i1 %exitcond53.not.i, label %152, label %154, !llvm.loop !217
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEEvll.exit: ; preds = %152
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %160 = add nsw i64 %.087, 4
   %161 = icmp slt i64 %160, %100
   br i1 %161, label %122, label %.preheader, !llvm.loop !260
 
 162:                                              ; preds = %.lr.ph89, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi3EEEvll.exit
   %.188 = phi i64 [ %.0.lcssa, %.lr.ph89 ], [ %198, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi3EEEvll.exit ]
-  call void @llvm.lifetime.start.p0(i64 768, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(768) %4, i8 0, i64 768, i1 false)
   br i1 %103, label %.lr.ph.i76, label %.preheader.i75.preheader
 
@@ -10853,7 +10847,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEE
 
 .lr.ph.i76:                                       ; preds = %162, %170
   %.03348.i = phi i64 [ %171, %170 ], [ 0, %162 ]
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %invariant.gep.i77 = getelementptr %struct.ggml_bf16_t, ptr %118, i64 %.03348.i
   br label %163
 
@@ -10876,7 +10870,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEE
   br i1 %exitcond.not.i81, label %.preheader40.i82, label %163, !llvm.loop !222
 
 170:                                              ; preds = %179
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %171 = add nuw nsw i64 %.03348.i, 16
   %172 = icmp slt i64 %171, %102
   br i1 %172, label %.lr.ph.i76, label %.preheader.i75.preheader, !llvm.loop !223
@@ -10935,7 +10929,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEE
   br i1 %exitcond55.not.i, label %190, label %192, !llvm.loop !227
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi3EEEvll.exit: ; preds = %190
-  call void @llvm.lifetime.end.p0(i64 768, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %198 = add nsw i64 %.188, 3
   %199 = icmp slt i64 %198, %99
   br i1 %199, label %162, label %._crit_edge, !llvm.loop !261
@@ -10946,7 +10940,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi3EEE
   br i1 %200, label %106, label %201
 
 201:                                              ; preds = %._crit_edge
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 ._crit_edge95:                                    ; preds = %113, %46
@@ -10957,7 +10951,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi3EEE
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE4gemmILi4ELi3ELi2EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE4gemmILi4ELi3ELi2EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [2 x [4 x <16 x float>]], align 64
   %5 = alloca [3 x [4 x <16 x float>]], align 64
   %6 = alloca [3 x <16 x float>], align 64
@@ -10967,7 +10961,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf1
   br i1 %8, label %10, label %9
 
 9:                                                ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 10:                                               ; preds = %3
@@ -11010,7 +11004,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf1
   br i1 %38, label %40, label %39
 
 39:                                               ; preds = %33
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 40:                                               ; preds = %33
@@ -11155,7 +11149,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %91, %93
 
 .lr.ph.i82.us:                                    ; preds = %.lr.ph103, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit.us
   %.1102.us = phi i64 [ %151, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit.us ], [ %.0.lcssa, %.lr.ph103 ]
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(512) %4, i8 0, i64 512, i1 false)
   %120 = mul nsw i64 %117, %.1102.us
   %121 = add nsw i64 %.1102.us, 1
@@ -11228,14 +11222,14 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %91, %93
   br i1 %141, label %.preheader.i77.us, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit.us, !llvm.loop !234
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit.us: ; preds = %150
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %151 = add nsw i64 %.1102.us, 2
   %152 = icmp slt i64 %151, %97
   br i1 %152, label %.lr.ph.i82.us, label %._crit_edge, !llvm.loop !264
 
 153:                                              ; preds = %.lr.ph, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi3EEEvll.exit
   %.0101 = phi i64 [ %89, %.lr.ph ], [ %189, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi3EEEvll.exit ]
-  call void @llvm.lifetime.start.p0(i64 768, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(768) %5, i8 0, i64 768, i1 false)
   br i1 %101, label %.lr.ph.i, label %.preheader.i.preheader
 
@@ -11244,7 +11238,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEE
 
 .lr.ph.i:                                         ; preds = %153, %161
   %.03348.i = phi i64 [ %162, %161 ], [ 0, %153 ]
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %invariant.gep.i = getelementptr %struct.ggml_bf16_t, ptr %107, i64 %.03348.i
   br label %154
 
@@ -11267,7 +11261,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEE
   br i1 %exitcond.not.i, label %.preheader40.i, label %154, !llvm.loop !222
 
 161:                                              ; preds = %170
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %162 = add nuw nsw i64 %.03348.i, 16
   %163 = icmp slt i64 %162, %100
   br i1 %163, label %.lr.ph.i, label %.preheader.i.preheader, !llvm.loop !223
@@ -11326,14 +11320,14 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEE
   br i1 %exitcond55.not.i, label %181, label %183, !llvm.loop !227
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi3EEEvll.exit: ; preds = %181
-  call void @llvm.lifetime.end.p0(i64 768, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %189 = add nsw i64 %.0101, 3
   %190 = icmp slt i64 %189, %98
   br i1 %190, label %153, label %.preheader, !llvm.loop !265
 
 .preheader39.i75:                                 ; preds = %.lr.ph103, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit
   %.1102 = phi i64 [ %201, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit ], [ %.0.lcssa, %.lr.ph103 ]
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(512) %4, i8 0, i64 512, i1 false)
   br label %.preheader.i77
 
@@ -11361,7 +11355,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi3EEE
   br i1 %exitcond53.not.i81, label %194, label %195, !llvm.loop !233
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit: ; preds = %194
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %201 = add nsw i64 %.1102, 2
   %202 = icmp slt i64 %201, %97
   br i1 %202, label %.preheader39.i75, label %._crit_edge, !llvm.loop !266
@@ -11372,7 +11366,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEE
   br i1 %203, label %104, label %204
 
 204:                                              ; preds = %._crit_edge
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 ._crit_edge109:                                   ; preds = %111, %44
@@ -11383,7 +11377,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEE
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE4gemmILi4ELi2ELi2EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE4gemmILi4ELi2ELi2EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [1 x [4 x <16 x float>]], align 64
   %5 = alloca [2 x [4 x <16 x float>]], align 64
   %6 = and i64 %1, 7
@@ -11392,7 +11386,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf1
   br i1 %7, label %9, label %8
 
 8:                                                ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 9:                                                ; preds = %3
@@ -11435,7 +11429,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf1
   br i1 %38, label %40, label %39
 
 39:                                               ; preds = %33
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 40:                                               ; preds = %33
@@ -11539,7 +11533,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit71:            ; preds = %75, %77
 
 .lr.ph.i.us:                                      ; preds = %.lr.ph, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit.us
   %.083.us = phi i64 [ %134, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit.us ], [ %85, %.lr.ph ]
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(512) %5, i8 0, i64 512, i1 false)
   %103 = mul nsw i64 %100, %.083.us
   %104 = add nsw i64 %.083.us, 1
@@ -11612,7 +11606,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit71:            ; preds = %75, %77
   br i1 %124, label %.preheader.i.us, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit.us, !llvm.loop !234
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit.us: ; preds = %133
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %134 = add nsw i64 %.083.us, 2
   %135 = icmp slt i64 %134, %90
   br i1 %135, label %.lr.ph.i.us, label %.preheader, !llvm.loop !268
@@ -11638,7 +11632,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEE
 
 .preheader39.i:                                   ; preds = %.lr.ph, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit
   %.083 = phi i64 [ %155, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit ], [ %85, %.lr.ph ]
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(512) %5, i8 0, i64 512, i1 false)
   br label %.preheader.i
 
@@ -11666,14 +11660,14 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEE
   br i1 %exitcond53.not.i, label %148, label %149, !llvm.loop !233
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit: ; preds = %148
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %155 = add nsw i64 %.083, 2
   %156 = icmp slt i64 %155, %90
   br i1 %156, label %.preheader39.i, label %.preheader, !llvm.loop !270
 
 157:                                              ; preds = %.lr.ph85, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit
   %.184 = phi i64 [ %.0.lcssa, %.lr.ph85 ], [ %183, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit ]
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(256) %4, i8 0, i64 256, i1 false)
   br i1 %93, label %.critedge.lr.ph.i, label %.preheader.i74
 
@@ -11731,7 +11725,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEE
   br i1 %exitcond46.not.i, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit, label %177, !llvm.loop !244
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit: ; preds = %177
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %183 = add nsw i64 %.184, 1
   %184 = icmp slt i64 %183, %89
   br i1 %184, label %157, label %._crit_edge, !llvm.loop !271
@@ -11742,7 +11736,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEE
   br i1 %185, label %96, label %186
 
 186:                                              ; preds = %._crit_edge
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 ._crit_edge91:                                    ; preds = %136, %44
@@ -11753,14 +11747,14 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEE
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE4gemmILi4ELi1ELi2EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE4gemmILi4ELi1ELi2EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [1 x [4 x <16 x float>]], align 64
   %5 = and i64 %1, 7
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 8:                                                ; preds = %3
@@ -11798,7 +11792,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf1
   br i1 %33, label %35, label %34
 
 34:                                               ; preds = %28
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 35:                                               ; preds = %28
@@ -11888,7 +11882,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit64:            ; preds = %69, %71
 
 .preheader.i.us:                                  ; preds = %.preheader.us, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit.us73
   %.067.us69 = phi i64 [ %95, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit.us73 ], [ %spec.select, %.preheader.us ]
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(256) %4, i8 0, i64 256, i1 false)
   %88 = mul nsw i64 %81, %.067.us69
   %gep.us70 = getelementptr float, ptr %invariant.gep.us, i64 %88
@@ -11906,7 +11900,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit64:            ; preds = %69, %71
   br i1 %exitcond46.not.i.us72, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit.us73, label %89, !llvm.loop !244
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit.us73: ; preds = %89
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %95 = add nsw i64 %.067.us69, 1
   %exitcond.not = icmp eq i64 %95, %76
   br i1 %exitcond.not, label %._crit_edge.us.loopexit, label %.preheader.i.us, !llvm.loop !272
@@ -11916,7 +11910,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEE
 
 .critedge.lr.ph.i.us.us:                          ; preds = %.preheader.us, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit.us.us
   %.067.us.us = phi i64 [ %120, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit.us.us ], [ %spec.select, %.preheader.us ]
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(256) %4, i8 0, i64 256, i1 false)
   %96 = mul nsw i64 %85, %.067.us.us
   %97 = getelementptr inbounds %struct.ggml_bf16_t, ptr %84, i64 %96
@@ -11966,7 +11960,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEE
   br i1 %exitcond46.not.i.us.us, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit.us.us, label %114, !llvm.loop !244
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit.us.us: ; preds = %114
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %120 = add nsw i64 %.067.us.us, 1
   %exitcond84.not = icmp eq i64 %120, %76
   br i1 %exitcond84.not, label %._crit_edge.us.loopexit, label %.critedge.lr.ph.i.us.us, !llvm.loop !274
@@ -11986,7 +11980,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split:      ; preds = %_ZN12_GLOBAL__N_18B
   br i1 %124, label %55, label %._crit_edge, !llvm.loop !275
 
 .split.us:                                        ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 ._crit_edge:                                      ; preds = %.split78.us, %39
@@ -11997,7 +11991,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split:      ; preds = %_ZN12_GLOBAL__N_18B
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE4gemmILi4ELi6ELi1EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE4gemmILi4ELi6ELi1EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [5 x [4 x <16 x float>]], align 64
   %5 = alloca [4 x <16 x float>], align 64
   %6 = alloca [6 x [4 x <16 x float>]], align 64
@@ -12007,7 +12001,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf1
   br i1 %9, label %11, label %10
 
 10:                                               ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 11:                                               ; preds = %3
@@ -12050,7 +12044,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf1
   br i1 %39, label %41, label %40
 
 40:                                               ; preds = %34
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 41:                                               ; preds = %34
@@ -12180,7 +12174,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %95, %97
 
 113:                                              ; preds = %.lr.ph, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi6EEEvll.exit
   %.098 = phi i64 [ %93, %.lr.ph ], [ %151, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi6EEEvll.exit ]
-  call void @llvm.lifetime.start.p0(i64 1536, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(1536) %6, i8 0, i64 1536, i1 false)
   br i1 %57, label %.lr.ph.i, label %.preheader.i.preheader
 
@@ -12189,7 +12183,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %95, %97
 
 .lr.ph.i:                                         ; preds = %113, %121
   %.03346.i = phi i64 [ %122, %121 ], [ 0, %113 ]
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %invariant.gep.i = getelementptr %struct.ggml_bf16_t, ptr %104, i64 %.03346.i
   br label %114
 
@@ -12212,7 +12206,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %95, %97
   br i1 %exitcond.not.i, label %.preheader40.i, label %114, !llvm.loop !195
 
 121:                                              ; preds = %131
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %122 = add nuw nsw i64 %.03346.i, 16
   %123 = icmp slt i64 %122, %56
   br i1 %123, label %.lr.ph.i, label %.preheader.i.preheader, !llvm.loop !196
@@ -12271,14 +12265,14 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %95, %97
   br i1 %exitcond53.not.i, label %143, label %145, !llvm.loop !200
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi6EEEvll.exit: ; preds = %143
-  call void @llvm.lifetime.end.p0(i64 1536, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %151 = add nsw i64 %.098, 6
   %152 = icmp slt i64 %151, %102
   br i1 %152, label %113, label %.preheader, !llvm.loop !276
 
 153:                                              ; preds = %.lr.ph100, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEEvll.exit
   %.199 = phi i64 [ %.0.lcssa, %.lr.ph100 ], [ %191, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEEvll.exit ]
-  call void @llvm.lifetime.start.p0(i64 1280, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(1280) %4, i8 0, i64 1280, i1 false)
   br i1 %57, label %.lr.ph.i83, label %.preheader.i77.preheader
 
@@ -12287,7 +12281,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi6EEE
 
 .lr.ph.i83:                                       ; preds = %153, %161
   %.03346.i84 = phi i64 [ %162, %161 ], [ 0, %153 ]
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %invariant.gep.i85 = getelementptr %struct.ggml_bf16_t, ptr %109, i64 %.03346.i84
   br label %154
 
@@ -12310,7 +12304,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi6EEE
   br i1 %exitcond.not.i89, label %.preheader40.i90, label %154, !llvm.loop !202
 
 161:                                              ; preds = %171
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %162 = add nuw nsw i64 %.03346.i84, 16
   %163 = icmp slt i64 %162, %56
   br i1 %163, label %.lr.ph.i83, label %.preheader.i77.preheader, !llvm.loop !203
@@ -12369,7 +12363,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi6EEE
   br i1 %exitcond53.not.i81, label %183, label %185, !llvm.loop !207
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEEvll.exit: ; preds = %183
-  call void @llvm.lifetime.end.p0(i64 1280, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %191 = add nsw i64 %.199, 5
   %192 = icmp slt i64 %191, %101
   br i1 %192, label %153, label %._crit_edge, !llvm.loop !277
@@ -12380,7 +12374,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEE
   br i1 %193, label %195, label %194
 
 194:                                              ; preds = %._crit_edge
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 195:                                              ; preds = %._crit_edge
@@ -12396,7 +12390,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEE
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE4gemmILi4ELi5ELi1EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE4gemmILi4ELi5ELi1EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [4 x [4 x <16 x float>]], align 64
   %5 = alloca [4 x <16 x float>], align 64
   %6 = alloca [5 x [4 x <16 x float>]], align 64
@@ -12406,7 +12400,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf1
   br i1 %9, label %11, label %10
 
 10:                                               ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 11:                                               ; preds = %3
@@ -12449,7 +12443,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf1
   br i1 %39, label %41, label %40
 
 40:                                               ; preds = %34
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 41:                                               ; preds = %34
@@ -12579,7 +12573,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %95, %97
 
 113:                                              ; preds = %.lr.ph, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEEvll.exit
   %.096 = phi i64 [ %93, %.lr.ph ], [ %151, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEEvll.exit ]
-  call void @llvm.lifetime.start.p0(i64 1280, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(1280) %6, i8 0, i64 1280, i1 false)
   br i1 %57, label %.lr.ph.i, label %.preheader.i.preheader
 
@@ -12588,7 +12582,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %95, %97
 
 .lr.ph.i:                                         ; preds = %113, %121
   %.03346.i = phi i64 [ %122, %121 ], [ 0, %113 ]
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %invariant.gep.i = getelementptr %struct.ggml_bf16_t, ptr %104, i64 %.03346.i
   br label %114
 
@@ -12611,7 +12605,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %95, %97
   br i1 %exitcond.not.i, label %.preheader40.i, label %114, !llvm.loop !202
 
 121:                                              ; preds = %131
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %122 = add nuw nsw i64 %.03346.i, 16
   %123 = icmp slt i64 %122, %56
   br i1 %123, label %.lr.ph.i, label %.preheader.i.preheader, !llvm.loop !203
@@ -12670,14 +12664,14 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %95, %97
   br i1 %exitcond53.not.i, label %143, label %145, !llvm.loop !207
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEEvll.exit: ; preds = %143
-  call void @llvm.lifetime.end.p0(i64 1280, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %151 = add nsw i64 %.096, 5
   %152 = icmp slt i64 %151, %102
   br i1 %152, label %113, label %.preheader, !llvm.loop !279
 
 153:                                              ; preds = %.lr.ph98, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEEvll.exit
   %.197 = phi i64 [ %.0.lcssa, %.lr.ph98 ], [ %191, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEEvll.exit ]
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(1024) %4, i8 0, i64 1024, i1 false)
   br i1 %57, label %.lr.ph.i83, label %.preheader.i77.preheader
 
@@ -12686,7 +12680,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEE
 
 .lr.ph.i83:                                       ; preds = %153, %161
   %.03346.i84 = phi i64 [ %162, %161 ], [ 0, %153 ]
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %invariant.gep.i85 = getelementptr %struct.ggml_bf16_t, ptr %109, i64 %.03346.i84
   br label %154
 
@@ -12709,7 +12703,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEE
   br i1 %exitcond.not.i88, label %.preheader40.i89, label %154, !llvm.loop !212
 
 161:                                              ; preds = %171
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %162 = add nuw nsw i64 %.03346.i84, 16
   %163 = icmp slt i64 %162, %56
   br i1 %163, label %.lr.ph.i83, label %.preheader.i77.preheader, !llvm.loop !213
@@ -12768,7 +12762,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi5EEE
   br i1 %exitcond53.not.i81, label %183, label %185, !llvm.loop !217
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEEvll.exit: ; preds = %183
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %191 = add nsw i64 %.197, 4
   %192 = icmp slt i64 %191, %101
   br i1 %192, label %153, label %._crit_edge, !llvm.loop !280
@@ -12779,7 +12773,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEE
   br i1 %193, label %195, label %194
 
 194:                                              ; preds = %._crit_edge
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 195:                                              ; preds = %._crit_edge
@@ -12795,7 +12789,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEE
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE4gemmILi4ELi4ELi1EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE4gemmILi4ELi4ELi1EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [3 x [4 x <16 x float>]], align 64
   %5 = alloca [3 x <16 x float>], align 64
   %6 = alloca [4 x [4 x <16 x float>]], align 64
@@ -12805,7 +12799,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf1
   br i1 %9, label %11, label %10
 
 10:                                               ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 11:                                               ; preds = %3
@@ -12848,7 +12842,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf1
   br i1 %40, label %42, label %41
 
 41:                                               ; preds = %35
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 42:                                               ; preds = %35
@@ -12978,7 +12972,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %96, %98
 
 114:                                              ; preds = %.lr.ph, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEEvll.exit
   %.086 = phi i64 [ %94, %.lr.ph ], [ %152, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEEvll.exit ]
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(1024) %6, i8 0, i64 1024, i1 false)
   br i1 %58, label %.lr.ph.i, label %.preheader.i.preheader
 
@@ -12987,7 +12981,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %96, %98
 
 .lr.ph.i:                                         ; preds = %114, %122
   %.03346.i = phi i64 [ %123, %122 ], [ 0, %114 ]
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %invariant.gep.i = getelementptr %struct.ggml_bf16_t, ptr %105, i64 %.03346.i
   br label %115
 
@@ -13010,7 +13004,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %96, %98
   br i1 %exitcond.not.i, label %.preheader40.i, label %115, !llvm.loop !212
 
 122:                                              ; preds = %132
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %123 = add nuw nsw i64 %.03346.i, 16
   %124 = icmp slt i64 %123, %57
   br i1 %124, label %.lr.ph.i, label %.preheader.i.preheader, !llvm.loop !213
@@ -13069,14 +13063,14 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %96, %98
   br i1 %exitcond53.not.i, label %144, label %146, !llvm.loop !217
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEEvll.exit: ; preds = %144
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %152 = add nsw i64 %.086, 4
   %153 = icmp slt i64 %152, %103
   br i1 %153, label %114, label %.preheader, !llvm.loop !282
 
 154:                                              ; preds = %.lr.ph88, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi3EEEvll.exit
   %.187 = phi i64 [ %.0.lcssa, %.lr.ph88 ], [ %190, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi3EEEvll.exit ]
-  call void @llvm.lifetime.start.p0(i64 768, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(768) %4, i8 0, i64 768, i1 false)
   br i1 %58, label %.lr.ph.i76, label %.preheader.i75.preheader
 
@@ -13085,7 +13079,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEE
 
 .lr.ph.i76:                                       ; preds = %154, %162
   %.03348.i = phi i64 [ %163, %162 ], [ 0, %154 ]
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %invariant.gep.i77 = getelementptr %struct.ggml_bf16_t, ptr %110, i64 %.03348.i
   br label %155
 
@@ -13108,7 +13102,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEE
   br i1 %exitcond.not.i81, label %.preheader40.i82, label %155, !llvm.loop !222
 
 162:                                              ; preds = %171
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %163 = add nuw nsw i64 %.03348.i, 16
   %164 = icmp slt i64 %163, %57
   br i1 %164, label %.lr.ph.i76, label %.preheader.i75.preheader, !llvm.loop !223
@@ -13167,7 +13161,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi4EEE
   br i1 %exitcond55.not.i, label %182, label %184, !llvm.loop !227
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi3EEEvll.exit: ; preds = %182
-  call void @llvm.lifetime.end.p0(i64 768, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %190 = add nsw i64 %.187, 3
   %191 = icmp slt i64 %190, %102
   br i1 %191, label %154, label %._crit_edge, !llvm.loop !283
@@ -13178,7 +13172,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi3EEE
   br i1 %192, label %194, label %193
 
 193:                                              ; preds = %._crit_edge
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 194:                                              ; preds = %._crit_edge
@@ -13194,7 +13188,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi3EEE
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE4gemmILi4ELi3ELi1EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE4gemmILi4ELi3ELi1EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [2 x [4 x <16 x float>]], align 64
   %5 = alloca [3 x [4 x <16 x float>]], align 64
   %6 = alloca [3 x <16 x float>], align 64
@@ -13204,7 +13198,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf1
   br i1 %8, label %10, label %9
 
 9:                                                ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 10:                                               ; preds = %3
@@ -13247,7 +13241,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf1
   br i1 %38, label %40, label %39
 
 39:                                               ; preds = %33
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 40:                                               ; preds = %33
@@ -13377,7 +13371,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %94, %96
 
 .lr.ph.i82.us:                                    ; preds = %.lr.ph105, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit.us
   %.1104.us = phi i64 [ %143, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit.us ], [ %.0.lcssa, %.lr.ph105 ]
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(512) %4, i8 0, i64 512, i1 false)
   %112 = mul nsw i64 %109, %.1104.us
   %113 = add nsw i64 %.1104.us, 1
@@ -13450,14 +13444,14 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %94, %96
   br i1 %133, label %.preheader.i77.us, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit.us, !llvm.loop !234
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit.us: ; preds = %142
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %143 = add nsw i64 %.1104.us, 2
   %144 = icmp slt i64 %143, %100
   br i1 %144, label %.lr.ph.i82.us, label %._crit_edge, !llvm.loop !285
 
 145:                                              ; preds = %.lr.ph, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi3EEEvll.exit
   %.0103 = phi i64 [ %92, %.lr.ph ], [ %181, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi3EEEvll.exit ]
-  call void @llvm.lifetime.start.p0(i64 768, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(768) %5, i8 0, i64 768, i1 false)
   br i1 %56, label %.lr.ph.i, label %.preheader.i.preheader
 
@@ -13466,7 +13460,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEE
 
 .lr.ph.i:                                         ; preds = %145, %153
   %.03348.i = phi i64 [ %154, %153 ], [ 0, %145 ]
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %invariant.gep.i = getelementptr %struct.ggml_bf16_t, ptr %103, i64 %.03348.i
   br label %146
 
@@ -13489,7 +13483,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEE
   br i1 %exitcond.not.i, label %.preheader40.i, label %146, !llvm.loop !222
 
 153:                                              ; preds = %162
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %154 = add nuw nsw i64 %.03348.i, 16
   %155 = icmp slt i64 %154, %55
   br i1 %155, label %.lr.ph.i, label %.preheader.i.preheader, !llvm.loop !223
@@ -13548,14 +13542,14 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEE
   br i1 %exitcond55.not.i, label %173, label %175, !llvm.loop !227
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi3EEEvll.exit: ; preds = %173
-  call void @llvm.lifetime.end.p0(i64 768, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %181 = add nsw i64 %.0103, 3
   %182 = icmp slt i64 %181, %101
   br i1 %182, label %145, label %.preheader, !llvm.loop !286
 
 .preheader39.i75:                                 ; preds = %.lr.ph105, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit
   %.1104 = phi i64 [ %193, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit ], [ %.0.lcssa, %.lr.ph105 ]
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(512) %4, i8 0, i64 512, i1 false)
   br label %.preheader.i77
 
@@ -13583,7 +13577,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi3EEE
   br i1 %exitcond53.not.i81, label %186, label %187, !llvm.loop !233
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit: ; preds = %186
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %193 = add nsw i64 %.1104, 2
   %194 = icmp slt i64 %193, %100
   br i1 %194, label %.preheader39.i75, label %._crit_edge, !llvm.loop !287
@@ -13594,7 +13588,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEE
   br i1 %195, label %197, label %196
 
 196:                                              ; preds = %._crit_edge
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 197:                                              ; preds = %._crit_edge
@@ -13610,7 +13604,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEE
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE4gemmILi4ELi2ELi1EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE4gemmILi4ELi2ELi1EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [1 x [4 x <16 x float>]], align 64
   %5 = alloca [2 x [4 x <16 x float>]], align 64
   %6 = and i64 %1, 3
@@ -13619,7 +13613,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf1
   br i1 %7, label %9, label %8
 
 8:                                                ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 9:                                                ; preds = %3
@@ -13662,7 +13656,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf1
   br i1 %38, label %40, label %39
 
 39:                                               ; preds = %33
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 40:                                               ; preds = %33
@@ -13757,7 +13751,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit71:            ; preds = %78, %80
 
 .lr.ph.i.us:                                      ; preds = %.lr.ph, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit.us
   %.085.us = phi i64 [ %130, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit.us ], [ %88, %.lr.ph ]
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(512) %5, i8 0, i64 512, i1 false)
   %99 = mul nsw i64 %96, %.085.us
   %100 = add nsw i64 %.085.us, 1
@@ -13830,7 +13824,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit71:            ; preds = %78, %80
   br i1 %120, label %.preheader.i.us, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit.us, !llvm.loop !234
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit.us: ; preds = %129
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %130 = add nsw i64 %.085.us, 2
   %131 = icmp slt i64 %130, %93
   br i1 %131, label %.lr.ph.i.us, label %.preheader, !llvm.loop !289
@@ -13850,7 +13844,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEE
 
 .preheader39.i:                                   ; preds = %.lr.ph, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit
   %.085 = phi i64 [ %147, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit ], [ %88, %.lr.ph ]
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(512) %5, i8 0, i64 512, i1 false)
   br label %.preheader.i
 
@@ -13878,14 +13872,14 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEE
   br i1 %exitcond53.not.i, label %140, label %141, !llvm.loop !233
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEEvll.exit: ; preds = %140
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %147 = add nsw i64 %.085, 2
   %148 = icmp slt i64 %147, %93
   br i1 %148, label %.preheader39.i, label %.preheader, !llvm.loop !290
 
 149:                                              ; preds = %.lr.ph87, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit
   %.186 = phi i64 [ %.0.lcssa, %.lr.ph87 ], [ %175, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit ]
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(256) %4, i8 0, i64 256, i1 false)
   br i1 %56, label %.critedge.lr.ph.i, label %.preheader.i74
 
@@ -13943,7 +13937,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi2EEE
   br i1 %exitcond46.not.i, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit, label %169, !llvm.loop !244
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit: ; preds = %169
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %175 = add nsw i64 %.186, 1
   %176 = icmp slt i64 %175, %92
   br i1 %176, label %149, label %._crit_edge, !llvm.loop !291
@@ -13954,7 +13948,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEE
   br i1 %177, label %179, label %178
 
 178:                                              ; preds = %._crit_edge
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 179:                                              ; preds = %._crit_edge
@@ -13970,14 +13964,14 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEE
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE4gemmILi4ELi1ELi1EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE4gemmILi4ELi1ELi1EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [1 x [4 x <16 x float>]], align 64
   %5 = and i64 %1, 3
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 8:                                                ; preds = %3
@@ -14015,7 +14009,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf1
   br i1 %33, label %35, label %34
 
 34:                                               ; preds = %28
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 35:                                               ; preds = %28
@@ -14112,7 +14106,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit64.us:         ; preds = %76, %72
 
 .critedge.lr.ph.i.us.us:                          ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit.us.us, %.lr.ph.us
   %.067.us.us = phi i64 [ %spec.select.us, %.lr.ph.us ], [ %112, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit.us.us ]
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(256) %4, i8 0, i64 256, i1 false)
   %88 = mul nsw i64 %85, %.067.us.us
   %89 = getelementptr inbounds %struct.ggml_bf16_t, ptr %84, i64 %88
@@ -14162,7 +14156,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit64.us:         ; preds = %76, %72
   br i1 %exitcond46.not.i.us.us, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit.us.us, label %106, !llvm.loop !244
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit.us.us: ; preds = %106
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %112 = add nsw i64 %.067.us.us, 1
   %exitcond74.not = icmp eq i64 %112, %79
   br i1 %exitcond74.not, label %._crit_edge.split.us.us.thread, label %.critedge.lr.ph.i.us.us, !llvm.loop !294
@@ -14219,7 +14213,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit64:            ; preds = %126, %128
 
 .preheader.i:                                     ; preds = %.lr.ph, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit
   %.067 = phi i64 [ %spec.select, %.lr.ph ], [ %142, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit ]
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(256) %4, i8 0, i64 256, i1 false)
   %135 = mul nsw i64 %58, %.067
   %gep = getelementptr float, ptr %invariant.gep, i64 %135
@@ -14237,7 +14231,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit64:            ; preds = %126, %128
   br i1 %exitcond46.not.i, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit, label %136, !llvm.loop !244
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit: ; preds = %136
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %142 = add nsw i64 %.067, 1
   %exitcond.not = icmp eq i64 %142, %133
   br i1 %exitcond.not, label %._crit_edge.split.thread, label %.preheader.i, !llvm.loop !295
@@ -14247,7 +14241,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEE
   br i1 %143, label %._crit_edge.split.thread, label %.split.us
 
 .split.us:                                        ; preds = %._crit_edge.split, %._crit_edge.split.us.us
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 ._crit_edge.split.thread:                         ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEEvll.exit, %._crit_edge.split
@@ -14263,7 +14257,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_11ggml_bf16_tS2_fE9gemm_blocILi4ELi1EEE
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmILi4ELi6ELi4EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmILi4ELi6ELi4EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [5 x [4 x <16 x float>]], align 64
   %5 = alloca [4 x <16 x float>], align 64
   %6 = alloca [6 x [4 x <16 x float>]], align 64
@@ -14273,7 +14267,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmI
   br i1 %9, label %11, label %10
 
 10:                                               ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 11:                                               ; preds = %3
@@ -14316,7 +14310,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmI
   br i1 %39, label %41, label %40
 
 40:                                               ; preds = %34
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 41:                                               ; preds = %34
@@ -14462,7 +14456,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 
 122:                                              ; preds = %.lr.ph, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi6EEEvll.exit
   %.099 = phi i64 [ %90, %.lr.ph ], [ %157, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi6EEEvll.exit ]
-  call void @llvm.lifetime.start.p0(i64 1536, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(1536) %6, i8 0, i64 1536, i1 false)
   br i1 %102, label %.lr.ph.i, label %.preheader.i.preheader
 
@@ -14471,7 +14465,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 
 .lr.ph.i:                                         ; preds = %122, %129
   %.03346.i = phi i64 [ %130, %129 ], [ 0, %122 ]
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %invariant.gep.i = getelementptr i16, ptr %109, i64 %.03346.i
   br label %123
 
@@ -14493,7 +14487,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   br i1 %exitcond.not.i, label %.preheader40.i, label %123, !llvm.loop !299
 
 129:                                              ; preds = %137
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %130 = add nuw nsw i64 %.03346.i, 16
   %131 = icmp slt i64 %130, %101
   br i1 %131, label %.lr.ph.i, label %.preheader.i.preheader, !llvm.loop !300
@@ -14550,14 +14544,14 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   br i1 %exitcond53.not.i, label %149, label %151, !llvm.loop !304
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi6EEEvll.exit: ; preds = %149
-  call void @llvm.lifetime.end.p0(i64 1536, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %157 = add nsw i64 %.099, 6
   %158 = icmp slt i64 %157, %99
   br i1 %158, label %122, label %.preheader, !llvm.loop !305
 
 159:                                              ; preds = %.lr.ph101, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit
   %.1100 = phi i64 [ %.0.lcssa, %.lr.ph101 ], [ %194, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit ]
-  call void @llvm.lifetime.start.p0(i64 1280, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(1280) %4, i8 0, i64 1280, i1 false)
   br i1 %102, label %.lr.ph.i83, label %.preheader.i77.preheader
 
@@ -14566,7 +14560,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi6EEEvll.exit: ; pr
 
 .lr.ph.i83:                                       ; preds = %159, %166
   %.03346.i84 = phi i64 [ %167, %166 ], [ 0, %159 ]
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %invariant.gep.i85 = getelementptr i16, ptr %118, i64 %.03346.i84
   br label %160
 
@@ -14588,7 +14582,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi6EEEvll.exit: ; pr
   br i1 %exitcond.not.i89, label %.preheader40.i90, label %160, !llvm.loop !306
 
 166:                                              ; preds = %174
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %167 = add nuw nsw i64 %.03346.i84, 16
   %168 = icmp slt i64 %167, %101
   br i1 %168, label %.lr.ph.i83, label %.preheader.i77.preheader, !llvm.loop !307
@@ -14645,7 +14639,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi6EEEvll.exit: ; pr
   br i1 %exitcond53.not.i81, label %186, label %188, !llvm.loop !311
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit: ; preds = %186
-  call void @llvm.lifetime.end.p0(i64 1280, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %194 = add nsw i64 %.1100, 5
   %195 = icmp slt i64 %194, %98
   br i1 %195, label %159, label %._crit_edge, !llvm.loop !312
@@ -14656,7 +14650,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit: ; pr
   br i1 %196, label %105, label %197
 
 197:                                              ; preds = %._crit_edge
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 ._crit_edge107:                                   ; preds = %113, %45
@@ -14667,7 +14661,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit: ; pr
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmILi4ELi5ELi4EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmILi4ELi5ELi4EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [4 x [4 x <16 x float>]], align 64
   %5 = alloca [4 x <16 x float>], align 64
   %6 = alloca [5 x [4 x <16 x float>]], align 64
@@ -14677,7 +14671,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmI
   br i1 %9, label %11, label %10
 
 10:                                               ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 11:                                               ; preds = %3
@@ -14720,7 +14714,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmI
   br i1 %39, label %41, label %40
 
 40:                                               ; preds = %34
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 41:                                               ; preds = %34
@@ -14866,7 +14860,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 
 122:                                              ; preds = %.lr.ph, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit
   %.097 = phi i64 [ %90, %.lr.ph ], [ %157, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit ]
-  call void @llvm.lifetime.start.p0(i64 1280, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(1280) %6, i8 0, i64 1280, i1 false)
   br i1 %102, label %.lr.ph.i, label %.preheader.i.preheader
 
@@ -14875,7 +14869,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 
 .lr.ph.i:                                         ; preds = %122, %129
   %.03346.i = phi i64 [ %130, %129 ], [ 0, %122 ]
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %invariant.gep.i = getelementptr i16, ptr %109, i64 %.03346.i
   br label %123
 
@@ -14897,7 +14891,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   br i1 %exitcond.not.i, label %.preheader40.i, label %123, !llvm.loop !306
 
 129:                                              ; preds = %137
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %130 = add nuw nsw i64 %.03346.i, 16
   %131 = icmp slt i64 %130, %101
   br i1 %131, label %.lr.ph.i, label %.preheader.i.preheader, !llvm.loop !307
@@ -14954,14 +14948,14 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   br i1 %exitcond53.not.i, label %149, label %151, !llvm.loop !311
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit: ; preds = %149
-  call void @llvm.lifetime.end.p0(i64 1280, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %157 = add nsw i64 %.097, 5
   %158 = icmp slt i64 %157, %99
   br i1 %158, label %122, label %.preheader, !llvm.loop !315
 
 159:                                              ; preds = %.lr.ph99, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit
   %.198 = phi i64 [ %.0.lcssa, %.lr.ph99 ], [ %194, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit ]
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(1024) %4, i8 0, i64 1024, i1 false)
   br i1 %102, label %.lr.ph.i83, label %.preheader.i77.preheader
 
@@ -14970,7 +14964,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit: ; pr
 
 .lr.ph.i83:                                       ; preds = %159, %166
   %.03346.i84 = phi i64 [ %167, %166 ], [ 0, %159 ]
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %invariant.gep.i85 = getelementptr i16, ptr %118, i64 %.03346.i84
   br label %160
 
@@ -14992,7 +14986,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit: ; pr
   br i1 %exitcond.not.i88, label %.preheader40.i89, label %160, !llvm.loop !316
 
 166:                                              ; preds = %174
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %167 = add nuw nsw i64 %.03346.i84, 16
   %168 = icmp slt i64 %167, %101
   br i1 %168, label %.lr.ph.i83, label %.preheader.i77.preheader, !llvm.loop !317
@@ -15049,7 +15043,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit: ; pr
   br i1 %exitcond53.not.i81, label %186, label %188, !llvm.loop !321
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit: ; preds = %186
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %194 = add nsw i64 %.198, 4
   %195 = icmp slt i64 %194, %98
   br i1 %195, label %159, label %._crit_edge, !llvm.loop !322
@@ -15060,7 +15054,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit: ; pr
   br i1 %196, label %105, label %197
 
 197:                                              ; preds = %._crit_edge
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 ._crit_edge105:                                   ; preds = %113, %45
@@ -15071,7 +15065,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit: ; pr
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmILi4ELi4ELi4EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmILi4ELi4ELi4EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [3 x [4 x <16 x float>]], align 64
   %5 = alloca [3 x <16 x float>], align 64
   %6 = alloca [4 x [4 x <16 x float>]], align 64
@@ -15081,7 +15075,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmI
   br i1 %9, label %11, label %10
 
 10:                                               ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 11:                                               ; preds = %3
@@ -15124,7 +15118,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmI
   br i1 %40, label %42, label %41
 
 41:                                               ; preds = %35
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 42:                                               ; preds = %35
@@ -15270,7 +15264,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
 
 123:                                              ; preds = %.lr.ph, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit
   %.087 = phi i64 [ %91, %.lr.ph ], [ %158, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit ]
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(1024) %6, i8 0, i64 1024, i1 false)
   br i1 %103, label %.lr.ph.i, label %.preheader.i.preheader
 
@@ -15279,7 +15273,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
 
 .lr.ph.i:                                         ; preds = %123, %130
   %.03346.i = phi i64 [ %131, %130 ], [ 0, %123 ]
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %invariant.gep.i = getelementptr i16, ptr %110, i64 %.03346.i
   br label %124
 
@@ -15301,7 +15295,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
   br i1 %exitcond.not.i, label %.preheader40.i, label %124, !llvm.loop !316
 
 130:                                              ; preds = %138
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %131 = add nuw nsw i64 %.03346.i, 16
   %132 = icmp slt i64 %131, %102
   br i1 %132, label %.lr.ph.i, label %.preheader.i.preheader, !llvm.loop !317
@@ -15358,14 +15352,14 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
   br i1 %exitcond53.not.i, label %150, label %152, !llvm.loop !321
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit: ; preds = %150
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %158 = add nsw i64 %.087, 4
   %159 = icmp slt i64 %158, %100
   br i1 %159, label %123, label %.preheader, !llvm.loop !325
 
 160:                                              ; preds = %.lr.ph89, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi3EEEvll.exit
   %.188 = phi i64 [ %.0.lcssa, %.lr.ph89 ], [ %193, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi3EEEvll.exit ]
-  call void @llvm.lifetime.start.p0(i64 768, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(768) %4, i8 0, i64 768, i1 false)
   br i1 %103, label %.lr.ph.i76, label %.preheader.i75.preheader
 
@@ -15374,7 +15368,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit: ; pr
 
 .lr.ph.i76:                                       ; preds = %160, %167
   %.03348.i = phi i64 [ %168, %167 ], [ 0, %160 ]
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %invariant.gep.i77 = getelementptr i16, ptr %119, i64 %.03348.i
   br label %161
 
@@ -15396,7 +15390,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit: ; pr
   br i1 %exitcond.not.i81, label %.preheader40.i82, label %161, !llvm.loop !326
 
 167:                                              ; preds = %174
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %168 = add nuw nsw i64 %.03348.i, 16
   %169 = icmp slt i64 %168, %102
   br i1 %169, label %.lr.ph.i76, label %.preheader.i75.preheader, !llvm.loop !327
@@ -15453,7 +15447,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit: ; pr
   br i1 %exitcond55.not.i, label %185, label %187, !llvm.loop !331
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi3EEEvll.exit: ; preds = %185
-  call void @llvm.lifetime.end.p0(i64 768, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %193 = add nsw i64 %.188, 3
   %194 = icmp slt i64 %193, %99
   br i1 %194, label %160, label %._crit_edge, !llvm.loop !332
@@ -15464,7 +15458,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi3EEEvll.exit: ; pr
   br i1 %195, label %106, label %196
 
 196:                                              ; preds = %._crit_edge
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 ._crit_edge95:                                    ; preds = %114, %46
@@ -15475,7 +15469,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi3EEEvll.exit: ; pr
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmILi4ELi3ELi4EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmILi4ELi3ELi4EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [2 x [4 x <16 x float>]], align 64
   %5 = alloca [3 x [4 x <16 x float>]], align 64
   %6 = alloca [3 x <16 x float>], align 64
@@ -15485,7 +15479,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmI
   br i1 %8, label %10, label %9
 
 9:                                                ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 10:                                               ; preds = %3
@@ -15528,7 +15522,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmI
   br i1 %38, label %40, label %39
 
 39:                                               ; preds = %33
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 40:                                               ; preds = %33
@@ -15674,7 +15668,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %91, %93
 
 .lr.ph.i82.us:                                    ; preds = %.lr.ph103, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us
   %.1102.us = phi i64 [ %147, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us ], [ %.0.lcssa, %.lr.ph103 ]
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(512) %4, i8 0, i64 512, i1 false)
   %121 = mul nsw i64 %118, %.1102.us
   %122 = add nsw i64 %.1102.us, 1
@@ -15741,14 +15735,14 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %91, %93
   br i1 %137, label %.preheader.i77.us, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us, !llvm.loop !338
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us: ; preds = %146
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %147 = add nsw i64 %.1102.us, 2
   %148 = icmp slt i64 %147, %97
   br i1 %148, label %.lr.ph.i82.us, label %._crit_edge, !llvm.loop !339
 
 149:                                              ; preds = %.lr.ph, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi3EEEvll.exit
   %.0101 = phi i64 [ %89, %.lr.ph ], [ %182, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi3EEEvll.exit ]
-  call void @llvm.lifetime.start.p0(i64 768, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(768) %5, i8 0, i64 768, i1 false)
   br i1 %101, label %.lr.ph.i, label %.preheader.i.preheader
 
@@ -15757,7 +15751,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us: ;
 
 .lr.ph.i:                                         ; preds = %149, %156
   %.03348.i = phi i64 [ %157, %156 ], [ 0, %149 ]
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %invariant.gep.i = getelementptr i16, ptr %108, i64 %.03348.i
   br label %150
 
@@ -15779,7 +15773,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us: ;
   br i1 %exitcond.not.i, label %.preheader40.i, label %150, !llvm.loop !326
 
 156:                                              ; preds = %163
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %157 = add nuw nsw i64 %.03348.i, 16
   %158 = icmp slt i64 %157, %100
   br i1 %158, label %.lr.ph.i, label %.preheader.i.preheader, !llvm.loop !327
@@ -15836,14 +15830,14 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us: ;
   br i1 %exitcond55.not.i, label %174, label %176, !llvm.loop !331
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi3EEEvll.exit: ; preds = %174
-  call void @llvm.lifetime.end.p0(i64 768, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %182 = add nsw i64 %.0101, 3
   %183 = icmp slt i64 %182, %98
   br i1 %183, label %149, label %.preheader, !llvm.loop !340
 
 .preheader39.i75:                                 ; preds = %.lr.ph103, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit
   %.1102 = phi i64 [ %194, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit ], [ %.0.lcssa, %.lr.ph103 ]
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(512) %4, i8 0, i64 512, i1 false)
   br label %.preheader.i77
 
@@ -15871,7 +15865,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi3EEEvll.exit: ; pr
   br i1 %exitcond53.not.i81, label %187, label %188, !llvm.loop !337
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit: ; preds = %187
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %194 = add nsw i64 %.1102, 2
   %195 = icmp slt i64 %194, %97
   br i1 %195, label %.preheader39.i75, label %._crit_edge, !llvm.loop !341
@@ -15882,7 +15876,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit: ; pr
   br i1 %196, label %104, label %197
 
 197:                                              ; preds = %._crit_edge
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 ._crit_edge109:                                   ; preds = %112, %44
@@ -15893,7 +15887,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit: ; pr
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmILi4ELi2ELi4EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmILi4ELi2ELi4EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [1 x [4 x <16 x float>]], align 64
   %5 = alloca [2 x [4 x <16 x float>]], align 64
   %6 = and i64 %1, 15
@@ -15902,7 +15896,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmI
   br i1 %7, label %9, label %8
 
 8:                                                ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 9:                                                ; preds = %3
@@ -15945,7 +15939,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmI
   br i1 %38, label %40, label %39
 
 39:                                               ; preds = %33
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 40:                                               ; preds = %33
@@ -16050,7 +16044,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit71:            ; preds = %75, %77
 
 .lr.ph.i.us:                                      ; preds = %.lr.ph, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us
   %.083.us = phi i64 [ %130, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us ], [ %85, %.lr.ph ]
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(512) %5, i8 0, i64 512, i1 false)
   %104 = mul nsw i64 %101, %.083.us
   %105 = add nsw i64 %.083.us, 1
@@ -16117,7 +16111,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit71:            ; preds = %75, %77
   br i1 %120, label %.preheader.i.us, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us, !llvm.loop !338
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us: ; preds = %129
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %130 = add nsw i64 %.083.us, 2
   %131 = icmp slt i64 %130, %90
   br i1 %131, label %.lr.ph.i.us, label %.preheader, !llvm.loop !343
@@ -16143,7 +16137,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us: ;
 
 .preheader39.i:                                   ; preds = %.lr.ph, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit
   %.083 = phi i64 [ %151, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit ], [ %85, %.lr.ph ]
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(512) %5, i8 0, i64 512, i1 false)
   br label %.preheader.i
 
@@ -16171,14 +16165,14 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us: ;
   br i1 %exitcond53.not.i, label %144, label %145, !llvm.loop !337
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit: ; preds = %144
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %151 = add nsw i64 %.083, 2
   %152 = icmp slt i64 %151, %90
   br i1 %152, label %.preheader39.i, label %.preheader, !llvm.loop !345
 
 153:                                              ; preds = %.lr.ph85, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit
   %.184 = phi i64 [ %.0.lcssa, %.lr.ph85 ], [ %175, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit ]
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(256) %4, i8 0, i64 256, i1 false)
   br i1 %93, label %.critedge.lr.ph.i, label %.preheader.i74
 
@@ -16232,7 +16226,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit: ; pr
   br i1 %exitcond46.not.i, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit, label %169, !llvm.loop !348
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit: ; preds = %169
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %175 = add nsw i64 %.184, 1
   %176 = icmp slt i64 %175, %89
   br i1 %176, label %153, label %._crit_edge, !llvm.loop !349
@@ -16243,7 +16237,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit: ; pr
   br i1 %177, label %96, label %178
 
 178:                                              ; preds = %._crit_edge
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 ._crit_edge91:                                    ; preds = %132, %44
@@ -16254,14 +16248,14 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit: ; pr
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmILi4ELi1ELi4EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmILi4ELi1ELi4EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [1 x [4 x <16 x float>]], align 64
   %5 = and i64 %1, 15
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 8:                                                ; preds = %3
@@ -16299,7 +16293,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmI
   br i1 %33, label %35, label %34
 
 34:                                               ; preds = %28
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 35:                                               ; preds = %28
@@ -16388,7 +16382,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit64:            ; preds = %69, %71
 
 .preheader.i.us:                                  ; preds = %.preheader.us, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us73
   %.067.us69 = phi i64 [ %94, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us73 ], [ %spec.select, %.preheader.us ]
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(256) %4, i8 0, i64 256, i1 false)
   %87 = mul nsw i64 %81, %.067.us69
   %gep.us70 = getelementptr float, ptr %invariant.gep.us, i64 %87
@@ -16406,7 +16400,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit64:            ; preds = %69, %71
   br i1 %exitcond46.not.i.us72, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us73, label %88, !llvm.loop !348
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us73: ; preds = %88
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %94 = add nsw i64 %.067.us69, 1
   %exitcond.not = icmp eq i64 %94, %76
   br i1 %exitcond.not, label %._crit_edge.us.loopexit, label %.preheader.i.us, !llvm.loop !350
@@ -16418,7 +16412,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us73:
 
 .critedge.lr.ph.i.us.us:                          ; preds = %.preheader.us, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us.us
   %.067.us.us = phi i64 [ %117, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us.us ], [ %spec.select, %.preheader.us ]
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(256) %4, i8 0, i64 256, i1 false)
   %97 = mul nsw i64 %84, %.067.us.us
   %98 = getelementptr inbounds i16, ptr %83, i64 %97
@@ -16464,7 +16458,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us73:
   br i1 %exitcond46.not.i.us.us, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us.us, label %111, !llvm.loop !348
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us.us: ; preds = %111
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %117 = add nsw i64 %.067.us.us, 1
   %exitcond84.not = icmp eq i64 %117, %76
   br i1 %exitcond84.not, label %._crit_edge.us.loopexit, label %.critedge.lr.ph.i.us.us, !llvm.loop !352
@@ -16484,7 +16478,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split:      ; preds = %_ZN12_GLOBAL__N_18B
   br i1 %121, label %55, label %._crit_edge, !llvm.loop !353
 
 .split.us:                                        ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 ._crit_edge:                                      ; preds = %.split78.us, %39
@@ -16495,7 +16489,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split:      ; preds = %_ZN12_GLOBAL__N_18B
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmILi4ELi6ELi2EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmILi4ELi6ELi2EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [5 x [4 x <16 x float>]], align 64
   %5 = alloca [4 x <16 x float>], align 64
   %6 = alloca [6 x [4 x <16 x float>]], align 64
@@ -16505,7 +16499,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmI
   br i1 %9, label %11, label %10
 
 10:                                               ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 11:                                               ; preds = %3
@@ -16548,7 +16542,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmI
   br i1 %39, label %41, label %40
 
 40:                                               ; preds = %34
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 41:                                               ; preds = %34
@@ -16693,7 +16687,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 
 121:                                              ; preds = %.lr.ph, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi6EEEvll.exit
   %.099 = phi i64 [ %90, %.lr.ph ], [ %156, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi6EEEvll.exit ]
-  call void @llvm.lifetime.start.p0(i64 1536, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(1536) %6, i8 0, i64 1536, i1 false)
   br i1 %102, label %.lr.ph.i, label %.preheader.i.preheader
 
@@ -16702,7 +16696,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 
 .lr.ph.i:                                         ; preds = %121, %128
   %.03346.i = phi i64 [ %129, %128 ], [ 0, %121 ]
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %invariant.gep.i = getelementptr i16, ptr %108, i64 %.03346.i
   br label %122
 
@@ -16724,7 +16718,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   br i1 %exitcond.not.i, label %.preheader40.i, label %122, !llvm.loop !299
 
 128:                                              ; preds = %136
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %129 = add nuw nsw i64 %.03346.i, 16
   %130 = icmp slt i64 %129, %101
   br i1 %130, label %.lr.ph.i, label %.preheader.i.preheader, !llvm.loop !300
@@ -16781,14 +16775,14 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   br i1 %exitcond53.not.i, label %148, label %150, !llvm.loop !304
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi6EEEvll.exit: ; preds = %148
-  call void @llvm.lifetime.end.p0(i64 1536, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %156 = add nsw i64 %.099, 6
   %157 = icmp slt i64 %156, %99
   br i1 %157, label %121, label %.preheader, !llvm.loop !356
 
 158:                                              ; preds = %.lr.ph101, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit
   %.1100 = phi i64 [ %.0.lcssa, %.lr.ph101 ], [ %193, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit ]
-  call void @llvm.lifetime.start.p0(i64 1280, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(1280) %4, i8 0, i64 1280, i1 false)
   br i1 %102, label %.lr.ph.i83, label %.preheader.i77.preheader
 
@@ -16797,7 +16791,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi6EEEvll.exit: ; pr
 
 .lr.ph.i83:                                       ; preds = %158, %165
   %.03346.i84 = phi i64 [ %166, %165 ], [ 0, %158 ]
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %invariant.gep.i85 = getelementptr i16, ptr %117, i64 %.03346.i84
   br label %159
 
@@ -16819,7 +16813,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi6EEEvll.exit: ; pr
   br i1 %exitcond.not.i89, label %.preheader40.i90, label %159, !llvm.loop !306
 
 165:                                              ; preds = %173
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %166 = add nuw nsw i64 %.03346.i84, 16
   %167 = icmp slt i64 %166, %101
   br i1 %167, label %.lr.ph.i83, label %.preheader.i77.preheader, !llvm.loop !307
@@ -16876,7 +16870,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi6EEEvll.exit: ; pr
   br i1 %exitcond53.not.i81, label %185, label %187, !llvm.loop !311
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit: ; preds = %185
-  call void @llvm.lifetime.end.p0(i64 1280, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %193 = add nsw i64 %.1100, 5
   %194 = icmp slt i64 %193, %98
   br i1 %194, label %158, label %._crit_edge, !llvm.loop !357
@@ -16887,7 +16881,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit: ; pr
   br i1 %195, label %105, label %196
 
 196:                                              ; preds = %._crit_edge
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 ._crit_edge107:                                   ; preds = %112, %45
@@ -16898,7 +16892,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit: ; pr
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmILi4ELi5ELi2EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmILi4ELi5ELi2EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [4 x [4 x <16 x float>]], align 64
   %5 = alloca [4 x <16 x float>], align 64
   %6 = alloca [5 x [4 x <16 x float>]], align 64
@@ -16908,7 +16902,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmI
   br i1 %9, label %11, label %10
 
 10:                                               ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 11:                                               ; preds = %3
@@ -16951,7 +16945,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmI
   br i1 %39, label %41, label %40
 
 40:                                               ; preds = %34
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 41:                                               ; preds = %34
@@ -17096,7 +17090,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 
 121:                                              ; preds = %.lr.ph, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit
   %.097 = phi i64 [ %90, %.lr.ph ], [ %156, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit ]
-  call void @llvm.lifetime.start.p0(i64 1280, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(1280) %6, i8 0, i64 1280, i1 false)
   br i1 %102, label %.lr.ph.i, label %.preheader.i.preheader
 
@@ -17105,7 +17099,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
 
 .lr.ph.i:                                         ; preds = %121, %128
   %.03346.i = phi i64 [ %129, %128 ], [ 0, %121 ]
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %invariant.gep.i = getelementptr i16, ptr %108, i64 %.03346.i
   br label %122
 
@@ -17127,7 +17121,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   br i1 %exitcond.not.i, label %.preheader40.i, label %122, !llvm.loop !306
 
 128:                                              ; preds = %136
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %129 = add nuw nsw i64 %.03346.i, 16
   %130 = icmp slt i64 %129, %101
   br i1 %130, label %.lr.ph.i, label %.preheader.i.preheader, !llvm.loop !307
@@ -17184,14 +17178,14 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %92, %94
   br i1 %exitcond53.not.i, label %148, label %150, !llvm.loop !311
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit: ; preds = %148
-  call void @llvm.lifetime.end.p0(i64 1280, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %156 = add nsw i64 %.097, 5
   %157 = icmp slt i64 %156, %99
   br i1 %157, label %121, label %.preheader, !llvm.loop !360
 
 158:                                              ; preds = %.lr.ph99, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit
   %.198 = phi i64 [ %.0.lcssa, %.lr.ph99 ], [ %193, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit ]
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(1024) %4, i8 0, i64 1024, i1 false)
   br i1 %102, label %.lr.ph.i83, label %.preheader.i77.preheader
 
@@ -17200,7 +17194,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit: ; pr
 
 .lr.ph.i83:                                       ; preds = %158, %165
   %.03346.i84 = phi i64 [ %166, %165 ], [ 0, %158 ]
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %invariant.gep.i85 = getelementptr i16, ptr %117, i64 %.03346.i84
   br label %159
 
@@ -17222,7 +17216,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit: ; pr
   br i1 %exitcond.not.i88, label %.preheader40.i89, label %159, !llvm.loop !316
 
 165:                                              ; preds = %173
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %166 = add nuw nsw i64 %.03346.i84, 16
   %167 = icmp slt i64 %166, %101
   br i1 %167, label %.lr.ph.i83, label %.preheader.i77.preheader, !llvm.loop !317
@@ -17279,7 +17273,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit: ; pr
   br i1 %exitcond53.not.i81, label %185, label %187, !llvm.loop !321
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit: ; preds = %185
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %193 = add nsw i64 %.198, 4
   %194 = icmp slt i64 %193, %98
   br i1 %194, label %158, label %._crit_edge, !llvm.loop !361
@@ -17290,7 +17284,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit: ; pr
   br i1 %195, label %105, label %196
 
 196:                                              ; preds = %._crit_edge
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 ._crit_edge105:                                   ; preds = %112, %45
@@ -17301,7 +17295,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit: ; pr
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmILi4ELi4ELi2EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmILi4ELi4ELi2EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [3 x [4 x <16 x float>]], align 64
   %5 = alloca [3 x <16 x float>], align 64
   %6 = alloca [4 x [4 x <16 x float>]], align 64
@@ -17311,7 +17305,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmI
   br i1 %9, label %11, label %10
 
 10:                                               ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 11:                                               ; preds = %3
@@ -17354,7 +17348,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmI
   br i1 %40, label %42, label %41
 
 41:                                               ; preds = %35
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 42:                                               ; preds = %35
@@ -17499,7 +17493,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
 
 122:                                              ; preds = %.lr.ph, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit
   %.087 = phi i64 [ %91, %.lr.ph ], [ %157, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit ]
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(1024) %6, i8 0, i64 1024, i1 false)
   br i1 %103, label %.lr.ph.i, label %.preheader.i.preheader
 
@@ -17508,7 +17502,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
 
 .lr.ph.i:                                         ; preds = %122, %129
   %.03346.i = phi i64 [ %130, %129 ], [ 0, %122 ]
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %invariant.gep.i = getelementptr i16, ptr %109, i64 %.03346.i
   br label %123
 
@@ -17530,7 +17524,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
   br i1 %exitcond.not.i, label %.preheader40.i, label %123, !llvm.loop !316
 
 129:                                              ; preds = %137
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %130 = add nuw nsw i64 %.03346.i, 16
   %131 = icmp slt i64 %130, %102
   br i1 %131, label %.lr.ph.i, label %.preheader.i.preheader, !llvm.loop !317
@@ -17587,14 +17581,14 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %93, %95
   br i1 %exitcond53.not.i, label %149, label %151, !llvm.loop !321
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit: ; preds = %149
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %157 = add nsw i64 %.087, 4
   %158 = icmp slt i64 %157, %100
   br i1 %158, label %122, label %.preheader, !llvm.loop !364
 
 159:                                              ; preds = %.lr.ph89, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi3EEEvll.exit
   %.188 = phi i64 [ %.0.lcssa, %.lr.ph89 ], [ %192, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi3EEEvll.exit ]
-  call void @llvm.lifetime.start.p0(i64 768, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(768) %4, i8 0, i64 768, i1 false)
   br i1 %103, label %.lr.ph.i76, label %.preheader.i75.preheader
 
@@ -17603,7 +17597,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit: ; pr
 
 .lr.ph.i76:                                       ; preds = %159, %166
   %.03348.i = phi i64 [ %167, %166 ], [ 0, %159 ]
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %invariant.gep.i77 = getelementptr i16, ptr %118, i64 %.03348.i
   br label %160
 
@@ -17625,7 +17619,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit: ; pr
   br i1 %exitcond.not.i81, label %.preheader40.i82, label %160, !llvm.loop !326
 
 166:                                              ; preds = %173
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %167 = add nuw nsw i64 %.03348.i, 16
   %168 = icmp slt i64 %167, %102
   br i1 %168, label %.lr.ph.i76, label %.preheader.i75.preheader, !llvm.loop !327
@@ -17682,7 +17676,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit: ; pr
   br i1 %exitcond55.not.i, label %184, label %186, !llvm.loop !331
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi3EEEvll.exit: ; preds = %184
-  call void @llvm.lifetime.end.p0(i64 768, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %192 = add nsw i64 %.188, 3
   %193 = icmp slt i64 %192, %99
   br i1 %193, label %159, label %._crit_edge, !llvm.loop !365
@@ -17693,7 +17687,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi3EEEvll.exit: ; pr
   br i1 %194, label %106, label %195
 
 195:                                              ; preds = %._crit_edge
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 ._crit_edge95:                                    ; preds = %113, %46
@@ -17704,7 +17698,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi3EEEvll.exit: ; pr
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmILi4ELi3ELi2EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmILi4ELi3ELi2EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [2 x [4 x <16 x float>]], align 64
   %5 = alloca [3 x [4 x <16 x float>]], align 64
   %6 = alloca [3 x <16 x float>], align 64
@@ -17714,7 +17708,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmI
   br i1 %8, label %10, label %9
 
 9:                                                ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 10:                                               ; preds = %3
@@ -17757,7 +17751,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmI
   br i1 %38, label %40, label %39
 
 39:                                               ; preds = %33
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 40:                                               ; preds = %33
@@ -17902,7 +17896,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %91, %93
 
 .lr.ph.i82.us:                                    ; preds = %.lr.ph103, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us
   %.1102.us = phi i64 [ %146, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us ], [ %.0.lcssa, %.lr.ph103 ]
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(512) %4, i8 0, i64 512, i1 false)
   %120 = mul nsw i64 %117, %.1102.us
   %121 = add nsw i64 %.1102.us, 1
@@ -17969,14 +17963,14 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %91, %93
   br i1 %136, label %.preheader.i77.us, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us, !llvm.loop !338
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us: ; preds = %145
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %146 = add nsw i64 %.1102.us, 2
   %147 = icmp slt i64 %146, %97
   br i1 %147, label %.lr.ph.i82.us, label %._crit_edge, !llvm.loop !368
 
 148:                                              ; preds = %.lr.ph, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi3EEEvll.exit
   %.0101 = phi i64 [ %89, %.lr.ph ], [ %181, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi3EEEvll.exit ]
-  call void @llvm.lifetime.start.p0(i64 768, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(768) %5, i8 0, i64 768, i1 false)
   br i1 %101, label %.lr.ph.i, label %.preheader.i.preheader
 
@@ -17985,7 +17979,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us: ;
 
 .lr.ph.i:                                         ; preds = %148, %155
   %.03348.i = phi i64 [ %156, %155 ], [ 0, %148 ]
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %invariant.gep.i = getelementptr i16, ptr %107, i64 %.03348.i
   br label %149
 
@@ -18007,7 +18001,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us: ;
   br i1 %exitcond.not.i, label %.preheader40.i, label %149, !llvm.loop !326
 
 155:                                              ; preds = %162
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %156 = add nuw nsw i64 %.03348.i, 16
   %157 = icmp slt i64 %156, %100
   br i1 %157, label %.lr.ph.i, label %.preheader.i.preheader, !llvm.loop !327
@@ -18064,14 +18058,14 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us: ;
   br i1 %exitcond55.not.i, label %173, label %175, !llvm.loop !331
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi3EEEvll.exit: ; preds = %173
-  call void @llvm.lifetime.end.p0(i64 768, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %181 = add nsw i64 %.0101, 3
   %182 = icmp slt i64 %181, %98
   br i1 %182, label %148, label %.preheader, !llvm.loop !369
 
 .preheader39.i75:                                 ; preds = %.lr.ph103, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit
   %.1102 = phi i64 [ %193, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit ], [ %.0.lcssa, %.lr.ph103 ]
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(512) %4, i8 0, i64 512, i1 false)
   br label %.preheader.i77
 
@@ -18099,7 +18093,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi3EEEvll.exit: ; pr
   br i1 %exitcond53.not.i81, label %186, label %187, !llvm.loop !337
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit: ; preds = %186
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %193 = add nsw i64 %.1102, 2
   %194 = icmp slt i64 %193, %97
   br i1 %194, label %.preheader39.i75, label %._crit_edge, !llvm.loop !370
@@ -18110,7 +18104,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit: ; pr
   br i1 %195, label %104, label %196
 
 196:                                              ; preds = %._crit_edge
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 ._crit_edge109:                                   ; preds = %111, %44
@@ -18121,7 +18115,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit: ; pr
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmILi4ELi2ELi2EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmILi4ELi2ELi2EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [1 x [4 x <16 x float>]], align 64
   %5 = alloca [2 x [4 x <16 x float>]], align 64
   %6 = and i64 %1, 7
@@ -18130,7 +18124,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmI
   br i1 %7, label %9, label %8
 
 8:                                                ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 9:                                                ; preds = %3
@@ -18173,7 +18167,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmI
   br i1 %38, label %40, label %39
 
 39:                                               ; preds = %33
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 40:                                               ; preds = %33
@@ -18277,7 +18271,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit71:            ; preds = %75, %77
 
 .lr.ph.i.us:                                      ; preds = %.lr.ph, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us
   %.083.us = phi i64 [ %129, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us ], [ %85, %.lr.ph ]
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(512) %5, i8 0, i64 512, i1 false)
   %103 = mul nsw i64 %100, %.083.us
   %104 = add nsw i64 %.083.us, 1
@@ -18344,7 +18338,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit71:            ; preds = %75, %77
   br i1 %119, label %.preheader.i.us, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us, !llvm.loop !338
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us: ; preds = %128
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %129 = add nsw i64 %.083.us, 2
   %130 = icmp slt i64 %129, %90
   br i1 %130, label %.lr.ph.i.us, label %.preheader, !llvm.loop !372
@@ -18370,7 +18364,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us: ;
 
 .preheader39.i:                                   ; preds = %.lr.ph, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit
   %.083 = phi i64 [ %150, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit ], [ %85, %.lr.ph ]
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(512) %5, i8 0, i64 512, i1 false)
   br label %.preheader.i
 
@@ -18398,14 +18392,14 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us: ;
   br i1 %exitcond53.not.i, label %143, label %144, !llvm.loop !337
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit: ; preds = %143
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %150 = add nsw i64 %.083, 2
   %151 = icmp slt i64 %150, %90
   br i1 %151, label %.preheader39.i, label %.preheader, !llvm.loop !374
 
 152:                                              ; preds = %.lr.ph85, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit
   %.184 = phi i64 [ %.0.lcssa, %.lr.ph85 ], [ %174, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit ]
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(256) %4, i8 0, i64 256, i1 false)
   br i1 %93, label %.critedge.lr.ph.i, label %.preheader.i74
 
@@ -18459,7 +18453,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit: ; pr
   br i1 %exitcond46.not.i, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit, label %168, !llvm.loop !348
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit: ; preds = %168
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %174 = add nsw i64 %.184, 1
   %175 = icmp slt i64 %174, %89
   br i1 %175, label %152, label %._crit_edge, !llvm.loop !375
@@ -18470,7 +18464,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit: ; pr
   br i1 %176, label %96, label %177
 
 177:                                              ; preds = %._crit_edge
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 ._crit_edge91:                                    ; preds = %131, %44
@@ -18481,14 +18475,14 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit: ; pr
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmILi4ELi1ELi2EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmILi4ELi1ELi2EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [1 x [4 x <16 x float>]], align 64
   %5 = and i64 %1, 7
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 8:                                                ; preds = %3
@@ -18526,7 +18520,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmI
   br i1 %33, label %35, label %34
 
 34:                                               ; preds = %28
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 35:                                               ; preds = %28
@@ -18616,7 +18610,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit64:            ; preds = %69, %71
 
 .preheader.i.us:                                  ; preds = %.preheader.us, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us73
   %.067.us69 = phi i64 [ %95, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us73 ], [ %spec.select, %.preheader.us ]
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(256) %4, i8 0, i64 256, i1 false)
   %88 = mul nsw i64 %81, %.067.us69
   %gep.us70 = getelementptr float, ptr %invariant.gep.us, i64 %88
@@ -18634,7 +18628,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit64:            ; preds = %69, %71
   br i1 %exitcond46.not.i.us72, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us73, label %89, !llvm.loop !348
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us73: ; preds = %89
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %95 = add nsw i64 %.067.us69, 1
   %exitcond.not = icmp eq i64 %95, %76
   br i1 %exitcond.not, label %._crit_edge.us.loopexit, label %.preheader.i.us, !llvm.loop !376
@@ -18644,7 +18638,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us73:
 
 .critedge.lr.ph.i.us.us:                          ; preds = %.preheader.us, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us.us
   %.067.us.us = phi i64 [ %116, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us.us ], [ %spec.select, %.preheader.us ]
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(256) %4, i8 0, i64 256, i1 false)
   %96 = mul nsw i64 %85, %.067.us.us
   %97 = getelementptr inbounds i16, ptr %84, i64 %96
@@ -18690,7 +18684,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us73:
   br i1 %exitcond46.not.i.us.us, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us.us, label %110, !llvm.loop !348
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us.us: ; preds = %110
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %116 = add nsw i64 %.067.us.us, 1
   %exitcond84.not = icmp eq i64 %116, %76
   br i1 %exitcond84.not, label %._crit_edge.us.loopexit, label %.critedge.lr.ph.i.us.us, !llvm.loop !378
@@ -18710,7 +18704,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split:      ; preds = %_ZN12_GLOBAL__N_18B
   br i1 %120, label %55, label %._crit_edge, !llvm.loop !379
 
 .split.us:                                        ; preds = %_ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 ._crit_edge:                                      ; preds = %.split78.us, %39
@@ -18721,7 +18715,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit64.split:      ; preds = %_ZN12_GLOBAL__N_18B
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmILi4ELi6ELi1EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmILi4ELi6ELi1EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [5 x [4 x <16 x float>]], align 64
   %5 = alloca [4 x <16 x float>], align 64
   %6 = alloca [6 x [4 x <16 x float>]], align 64
@@ -18731,7 +18725,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmI
   br i1 %9, label %11, label %10
 
 10:                                               ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 11:                                               ; preds = %3
@@ -18774,7 +18768,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmI
   br i1 %39, label %41, label %40
 
 40:                                               ; preds = %34
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 41:                                               ; preds = %34
@@ -18904,7 +18898,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %95, %97
 
 113:                                              ; preds = %.lr.ph, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi6EEEvll.exit
   %.098 = phi i64 [ %93, %.lr.ph ], [ %148, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi6EEEvll.exit ]
-  call void @llvm.lifetime.start.p0(i64 1536, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(1536) %6, i8 0, i64 1536, i1 false)
   br i1 %57, label %.lr.ph.i, label %.preheader.i.preheader
 
@@ -18913,7 +18907,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %95, %97
 
 .lr.ph.i:                                         ; preds = %113, %120
   %.03346.i = phi i64 [ %121, %120 ], [ 0, %113 ]
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %invariant.gep.i = getelementptr i16, ptr %104, i64 %.03346.i
   br label %114
 
@@ -18935,7 +18929,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %95, %97
   br i1 %exitcond.not.i, label %.preheader40.i, label %114, !llvm.loop !299
 
 120:                                              ; preds = %128
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %121 = add nuw nsw i64 %.03346.i, 16
   %122 = icmp slt i64 %121, %56
   br i1 %122, label %.lr.ph.i, label %.preheader.i.preheader, !llvm.loop !300
@@ -18992,14 +18986,14 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %95, %97
   br i1 %exitcond53.not.i, label %140, label %142, !llvm.loop !304
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi6EEEvll.exit: ; preds = %140
-  call void @llvm.lifetime.end.p0(i64 1536, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %148 = add nsw i64 %.098, 6
   %149 = icmp slt i64 %148, %102
   br i1 %149, label %113, label %.preheader, !llvm.loop !380
 
 150:                                              ; preds = %.lr.ph100, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit
   %.199 = phi i64 [ %.0.lcssa, %.lr.ph100 ], [ %185, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit ]
-  call void @llvm.lifetime.start.p0(i64 1280, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(1280) %4, i8 0, i64 1280, i1 false)
   br i1 %57, label %.lr.ph.i83, label %.preheader.i77.preheader
 
@@ -19008,7 +19002,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi6EEEvll.exit: ; pr
 
 .lr.ph.i83:                                       ; preds = %150, %157
   %.03346.i84 = phi i64 [ %158, %157 ], [ 0, %150 ]
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %invariant.gep.i85 = getelementptr i16, ptr %109, i64 %.03346.i84
   br label %151
 
@@ -19030,7 +19024,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi6EEEvll.exit: ; pr
   br i1 %exitcond.not.i89, label %.preheader40.i90, label %151, !llvm.loop !306
 
 157:                                              ; preds = %165
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %158 = add nuw nsw i64 %.03346.i84, 16
   %159 = icmp slt i64 %158, %56
   br i1 %159, label %.lr.ph.i83, label %.preheader.i77.preheader, !llvm.loop !307
@@ -19087,7 +19081,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi6EEEvll.exit: ; pr
   br i1 %exitcond53.not.i81, label %177, label %179, !llvm.loop !311
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit: ; preds = %177
-  call void @llvm.lifetime.end.p0(i64 1280, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %185 = add nsw i64 %.199, 5
   %186 = icmp slt i64 %185, %101
   br i1 %186, label %150, label %._crit_edge, !llvm.loop !381
@@ -19098,7 +19092,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit: ; pr
   br i1 %187, label %189, label %188
 
 188:                                              ; preds = %._crit_edge
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 189:                                              ; preds = %._crit_edge
@@ -19114,7 +19108,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit: ; pr
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmILi4ELi5ELi1EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmILi4ELi5ELi1EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [4 x [4 x <16 x float>]], align 64
   %5 = alloca [4 x <16 x float>], align 64
   %6 = alloca [5 x [4 x <16 x float>]], align 64
@@ -19124,7 +19118,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmI
   br i1 %9, label %11, label %10
 
 10:                                               ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 11:                                               ; preds = %3
@@ -19167,7 +19161,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmI
   br i1 %39, label %41, label %40
 
 40:                                               ; preds = %34
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 41:                                               ; preds = %34
@@ -19297,7 +19291,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %95, %97
 
 113:                                              ; preds = %.lr.ph, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit
   %.096 = phi i64 [ %93, %.lr.ph ], [ %148, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit ]
-  call void @llvm.lifetime.start.p0(i64 1280, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(1280) %6, i8 0, i64 1280, i1 false)
   br i1 %57, label %.lr.ph.i, label %.preheader.i.preheader
 
@@ -19306,7 +19300,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %95, %97
 
 .lr.ph.i:                                         ; preds = %113, %120
   %.03346.i = phi i64 [ %121, %120 ], [ 0, %113 ]
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %invariant.gep.i = getelementptr i16, ptr %104, i64 %.03346.i
   br label %114
 
@@ -19328,7 +19322,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %95, %97
   br i1 %exitcond.not.i, label %.preheader40.i, label %114, !llvm.loop !306
 
 120:                                              ; preds = %128
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %121 = add nuw nsw i64 %.03346.i, 16
   %122 = icmp slt i64 %121, %56
   br i1 %122, label %.lr.ph.i, label %.preheader.i.preheader, !llvm.loop !307
@@ -19385,14 +19379,14 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %95, %97
   br i1 %exitcond53.not.i, label %140, label %142, !llvm.loop !311
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit: ; preds = %140
-  call void @llvm.lifetime.end.p0(i64 1280, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %148 = add nsw i64 %.096, 5
   %149 = icmp slt i64 %148, %102
   br i1 %149, label %113, label %.preheader, !llvm.loop !383
 
 150:                                              ; preds = %.lr.ph98, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit
   %.197 = phi i64 [ %.0.lcssa, %.lr.ph98 ], [ %185, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit ]
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(1024) %4, i8 0, i64 1024, i1 false)
   br i1 %57, label %.lr.ph.i83, label %.preheader.i77.preheader
 
@@ -19401,7 +19395,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit: ; pr
 
 .lr.ph.i83:                                       ; preds = %150, %157
   %.03346.i84 = phi i64 [ %158, %157 ], [ 0, %150 ]
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %invariant.gep.i85 = getelementptr i16, ptr %109, i64 %.03346.i84
   br label %151
 
@@ -19423,7 +19417,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit: ; pr
   br i1 %exitcond.not.i88, label %.preheader40.i89, label %151, !llvm.loop !316
 
 157:                                              ; preds = %165
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %158 = add nuw nsw i64 %.03346.i84, 16
   %159 = icmp slt i64 %158, %56
   br i1 %159, label %.lr.ph.i83, label %.preheader.i77.preheader, !llvm.loop !317
@@ -19480,7 +19474,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi5EEEvll.exit: ; pr
   br i1 %exitcond53.not.i81, label %177, label %179, !llvm.loop !321
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit: ; preds = %177
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %185 = add nsw i64 %.197, 4
   %186 = icmp slt i64 %185, %101
   br i1 %186, label %150, label %._crit_edge, !llvm.loop !384
@@ -19491,7 +19485,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit: ; pr
   br i1 %187, label %189, label %188
 
 188:                                              ; preds = %._crit_edge
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 189:                                              ; preds = %._crit_edge
@@ -19507,7 +19501,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit: ; pr
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmILi4ELi4ELi1EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmILi4ELi4ELi1EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [3 x [4 x <16 x float>]], align 64
   %5 = alloca [3 x <16 x float>], align 64
   %6 = alloca [4 x [4 x <16 x float>]], align 64
@@ -19517,7 +19511,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmI
   br i1 %9, label %11, label %10
 
 10:                                               ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 11:                                               ; preds = %3
@@ -19560,7 +19554,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmI
   br i1 %40, label %42, label %41
 
 41:                                               ; preds = %35
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 42:                                               ; preds = %35
@@ -19690,7 +19684,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %96, %98
 
 114:                                              ; preds = %.lr.ph, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit
   %.086 = phi i64 [ %94, %.lr.ph ], [ %149, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit ]
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(1024) %6, i8 0, i64 1024, i1 false)
   br i1 %58, label %.lr.ph.i, label %.preheader.i.preheader
 
@@ -19699,7 +19693,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %96, %98
 
 .lr.ph.i:                                         ; preds = %114, %121
   %.03346.i = phi i64 [ %122, %121 ], [ 0, %114 ]
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %invariant.gep.i = getelementptr i16, ptr %105, i64 %.03346.i
   br label %115
 
@@ -19721,7 +19715,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %96, %98
   br i1 %exitcond.not.i, label %.preheader40.i, label %115, !llvm.loop !316
 
 121:                                              ; preds = %129
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %122 = add nuw nsw i64 %.03346.i, 16
   %123 = icmp slt i64 %122, %57
   br i1 %123, label %.lr.ph.i, label %.preheader.i.preheader, !llvm.loop !317
@@ -19778,14 +19772,14 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit73:            ; preds = %96, %98
   br i1 %exitcond53.not.i, label %141, label %143, !llvm.loop !321
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit: ; preds = %141
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %149 = add nsw i64 %.086, 4
   %150 = icmp slt i64 %149, %103
   br i1 %150, label %114, label %.preheader, !llvm.loop !386
 
 151:                                              ; preds = %.lr.ph88, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi3EEEvll.exit
   %.187 = phi i64 [ %.0.lcssa, %.lr.ph88 ], [ %184, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi3EEEvll.exit ]
-  call void @llvm.lifetime.start.p0(i64 768, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(768) %4, i8 0, i64 768, i1 false)
   br i1 %58, label %.lr.ph.i76, label %.preheader.i75.preheader
 
@@ -19794,7 +19788,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit: ; pr
 
 .lr.ph.i76:                                       ; preds = %151, %158
   %.03348.i = phi i64 [ %159, %158 ], [ 0, %151 ]
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %invariant.gep.i77 = getelementptr i16, ptr %110, i64 %.03348.i
   br label %152
 
@@ -19816,7 +19810,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit: ; pr
   br i1 %exitcond.not.i81, label %.preheader40.i82, label %152, !llvm.loop !326
 
 158:                                              ; preds = %165
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %159 = add nuw nsw i64 %.03348.i, 16
   %160 = icmp slt i64 %159, %57
   br i1 %160, label %.lr.ph.i76, label %.preheader.i75.preheader, !llvm.loop !327
@@ -19873,7 +19867,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi4EEEvll.exit: ; pr
   br i1 %exitcond55.not.i, label %176, label %178, !llvm.loop !331
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi3EEEvll.exit: ; preds = %176
-  call void @llvm.lifetime.end.p0(i64 768, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %184 = add nsw i64 %.187, 3
   %185 = icmp slt i64 %184, %102
   br i1 %185, label %151, label %._crit_edge, !llvm.loop !387
@@ -19884,7 +19878,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi3EEEvll.exit: ; pr
   br i1 %186, label %188, label %187
 
 187:                                              ; preds = %._crit_edge
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 188:                                              ; preds = %._crit_edge
@@ -19900,7 +19894,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi3EEEvll.exit: ; pr
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmILi4ELi3ELi1EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmILi4ELi3ELi1EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [2 x [4 x <16 x float>]], align 64
   %5 = alloca [3 x [4 x <16 x float>]], align 64
   %6 = alloca [3 x <16 x float>], align 64
@@ -19910,7 +19904,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmI
   br i1 %8, label %10, label %9
 
 9:                                                ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 10:                                               ; preds = %3
@@ -19953,7 +19947,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmI
   br i1 %38, label %40, label %39
 
 39:                                               ; preds = %33
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 40:                                               ; preds = %33
@@ -20083,7 +20077,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %94, %96
 
 .lr.ph.i82.us:                                    ; preds = %.lr.ph105, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us
   %.1104.us = phi i64 [ %138, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us ], [ %.0.lcssa, %.lr.ph105 ]
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(512) %4, i8 0, i64 512, i1 false)
   %112 = mul nsw i64 %109, %.1104.us
   %113 = add nsw i64 %.1104.us, 1
@@ -20150,14 +20144,14 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit74:            ; preds = %94, %96
   br i1 %128, label %.preheader.i77.us, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us, !llvm.loop !338
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us: ; preds = %137
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %138 = add nsw i64 %.1104.us, 2
   %139 = icmp slt i64 %138, %100
   br i1 %139, label %.lr.ph.i82.us, label %._crit_edge, !llvm.loop !389
 
 140:                                              ; preds = %.lr.ph, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi3EEEvll.exit
   %.0103 = phi i64 [ %92, %.lr.ph ], [ %173, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi3EEEvll.exit ]
-  call void @llvm.lifetime.start.p0(i64 768, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(768) %5, i8 0, i64 768, i1 false)
   br i1 %56, label %.lr.ph.i, label %.preheader.i.preheader
 
@@ -20166,7 +20160,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us: ;
 
 .lr.ph.i:                                         ; preds = %140, %147
   %.03348.i = phi i64 [ %148, %147 ], [ 0, %140 ]
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %invariant.gep.i = getelementptr i16, ptr %103, i64 %.03348.i
   br label %141
 
@@ -20188,7 +20182,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us: ;
   br i1 %exitcond.not.i, label %.preheader40.i, label %141, !llvm.loop !326
 
 147:                                              ; preds = %154
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %148 = add nuw nsw i64 %.03348.i, 16
   %149 = icmp slt i64 %148, %55
   br i1 %149, label %.lr.ph.i, label %.preheader.i.preheader, !llvm.loop !327
@@ -20245,14 +20239,14 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us: ;
   br i1 %exitcond55.not.i, label %165, label %167, !llvm.loop !331
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi3EEEvll.exit: ; preds = %165
-  call void @llvm.lifetime.end.p0(i64 768, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %173 = add nsw i64 %.0103, 3
   %174 = icmp slt i64 %173, %101
   br i1 %174, label %140, label %.preheader, !llvm.loop !390
 
 .preheader39.i75:                                 ; preds = %.lr.ph105, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit
   %.1104 = phi i64 [ %185, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit ], [ %.0.lcssa, %.lr.ph105 ]
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(512) %4, i8 0, i64 512, i1 false)
   br label %.preheader.i77
 
@@ -20280,7 +20274,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi3EEEvll.exit: ; pr
   br i1 %exitcond53.not.i81, label %178, label %179, !llvm.loop !337
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit: ; preds = %178
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %185 = add nsw i64 %.1104, 2
   %186 = icmp slt i64 %185, %100
   br i1 %186, label %.preheader39.i75, label %._crit_edge, !llvm.loop !391
@@ -20291,7 +20285,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit: ; pr
   br i1 %187, label %189, label %188
 
 188:                                              ; preds = %._crit_edge
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 189:                                              ; preds = %._crit_edge
@@ -20307,7 +20301,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit: ; pr
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmILi4ELi2ELi1EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmILi4ELi2ELi1EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [1 x [4 x <16 x float>]], align 64
   %5 = alloca [2 x [4 x <16 x float>]], align 64
   %6 = and i64 %1, 3
@@ -20316,7 +20310,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmI
   br i1 %7, label %9, label %8
 
 8:                                                ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 9:                                                ; preds = %3
@@ -20359,7 +20353,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmI
   br i1 %38, label %40, label %39
 
 39:                                               ; preds = %33
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 40:                                               ; preds = %33
@@ -20454,7 +20448,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit71:            ; preds = %78, %80
 
 .lr.ph.i.us:                                      ; preds = %.lr.ph, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us
   %.085.us = phi i64 [ %125, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us ], [ %88, %.lr.ph ]
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(512) %5, i8 0, i64 512, i1 false)
   %99 = mul nsw i64 %96, %.085.us
   %100 = add nsw i64 %.085.us, 1
@@ -20521,7 +20515,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit71:            ; preds = %78, %80
   br i1 %115, label %.preheader.i.us, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us, !llvm.loop !338
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us: ; preds = %124
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %125 = add nsw i64 %.085.us, 2
   %126 = icmp slt i64 %125, %93
   br i1 %126, label %.lr.ph.i.us, label %.preheader, !llvm.loop !393
@@ -20541,7 +20535,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us: ;
 
 .preheader39.i:                                   ; preds = %.lr.ph, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit
   %.085 = phi i64 [ %142, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit ], [ %88, %.lr.ph ]
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(512) %5, i8 0, i64 512, i1 false)
   br label %.preheader.i
 
@@ -20569,14 +20563,14 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit.us: ;
   br i1 %exitcond53.not.i, label %135, label %136, !llvm.loop !337
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit: ; preds = %135
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %142 = add nsw i64 %.085, 2
   %143 = icmp slt i64 %142, %93
   br i1 %143, label %.preheader39.i, label %.preheader, !llvm.loop !394
 
 144:                                              ; preds = %.lr.ph87, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit
   %.186 = phi i64 [ %.0.lcssa, %.lr.ph87 ], [ %166, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit ]
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(256) %4, i8 0, i64 256, i1 false)
   br i1 %56, label %.critedge.lr.ph.i, label %.preheader.i74
 
@@ -20630,7 +20624,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi2EEEvll.exit: ; pr
   br i1 %exitcond46.not.i, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit, label %160, !llvm.loop !348
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit: ; preds = %160
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %166 = add nsw i64 %.186, 1
   %167 = icmp slt i64 %166, %92
   br i1 %167, label %144, label %._crit_edge, !llvm.loop !395
@@ -20641,7 +20635,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit: ; pr
   br i1 %168, label %170, label %169
 
 169:                                              ; preds = %._crit_edge
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 170:                                              ; preds = %._crit_edge
@@ -20657,14 +20651,14 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit: ; pr
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmILi4ELi1ELi1EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmILi4ELi1ELi1EEEvlll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1, i64 noundef range(i64 2, -9223372036854775808) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [1 x [4 x <16 x float>]], align 64
   %5 = and i64 %1, 3
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %3
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   unreachable
 
 8:                                                ; preds = %3
@@ -20702,7 +20696,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE4gemmI
   br i1 %33, label %35, label %34
 
 34:                                               ; preds = %28
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 410, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3) #11
   unreachable
 
 35:                                               ; preds = %28
@@ -20799,7 +20793,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit64.us:         ; preds = %76, %72
 
 .critedge.lr.ph.i.us.us:                          ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us.us, %.lr.ph.us
   %.067.us.us = phi i64 [ %spec.select.us, %.lr.ph.us ], [ %108, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us.us ]
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(256) %4, i8 0, i64 256, i1 false)
   %88 = mul nsw i64 %85, %.067.us.us
   %89 = getelementptr inbounds i16, ptr %84, i64 %88
@@ -20845,7 +20839,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit64.us:         ; preds = %76, %72
   br i1 %exitcond46.not.i.us.us, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us.us, label %102, !llvm.loop !348
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit.us.us: ; preds = %102
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %108 = add nsw i64 %.067.us.us, 1
   %exitcond74.not = icmp eq i64 %108, %79
   br i1 %exitcond74.not, label %._crit_edge.split.us.us.thread, label %.critedge.lr.ph.i.us.us, !llvm.loop !398
@@ -20902,7 +20896,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit64:            ; preds = %122, %124
 
 .preheader.i:                                     ; preds = %.lr.ph, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit
   %.067 = phi i64 [ %spec.select, %.lr.ph ], [ %138, %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit ]
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(256) %4, i8 0, i64 256, i1 false)
   %131 = mul nsw i64 %58, %.067
   %gep = getelementptr float, ptr %invariant.gep, i64 %131
@@ -20920,7 +20914,7 @@ _ZN12_GLOBAL__N_18BLOC_POSElll.exit64:            ; preds = %122, %124
   br i1 %exitcond46.not.i, label %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit, label %132, !llvm.loop !348
 
 _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit: ; preds = %132
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %138 = add nsw i64 %.067, 1
   %exitcond.not = icmp eq i64 %138, %129
   br i1 %exitcond.not, label %._crit_edge.split.thread, label %.preheader.i, !llvm.loop !399
@@ -20930,7 +20924,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit: ; pr
   br i1 %139, label %._crit_edge.split.thread, label %.split.us
 
 .split.us:                                        ; preds = %._crit_edge.split, %._crit_edge.split.us.us
-  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4) #11
   unreachable
 
 ._crit_edge.split.thread:                         ; preds = %_ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit, %._crit_edge.split
@@ -20946,7 +20940,7 @@ _ZN12_GLOBAL__N_18tinyBLASILi16EDv16_fS1_ttfE9gemm_blocILi4ELi1EEEvll.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_fE6mnpackEllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_fE6mnpackEllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #6 align 2 {
   %6 = sub nsw i64 %2, %1
   %7 = tail call i64 @llvm.smin.i64(i64 %6, i64 4)
   %8 = shl i64 %7, 4
@@ -21056,7 +21050,7 @@ tailrecurse:                                      ; preds = %28, %5
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_fE7gemm4xNILi4EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_fE7gemm4xNILi4EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [4 x [4 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sdiv i64 %7, 4
@@ -21107,7 +21101,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %41 = srem i64 %.0102126.us, %10
   %42 = shl nsw i64 %41, 2
   %43 = add nsw i64 %42, %3
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(512) %6, i8 0, i64 512, i1 false)
   %44 = add nsw i64 %40, 3
   %45 = mul nsw i64 %29, %44
@@ -21123,7 +21117,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   br label %71
 
 55:                                               ; preds = %57
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %56 = add nsw i64 %.0102126.us, 1
   %exitcond135.not = icmp eq i64 %56, %spec.select
   br i1 %exitcond135.not, label %._crit_edge, label %.lr.ph.us, !llvm.loop !401
@@ -21266,7 +21260,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %148 = srem i64 %.0102126, %10
   %149 = shl nsw i64 %148, 2
   %150 = add nsw i64 %149, %3
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(512) %6, i8 0, i64 512, i1 false)
   %.idx = shl i64 %147, 4
   %gep = getelementptr i8, ptr %invariant.gep, i64 %.idx
@@ -21281,7 +21275,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   br label %158
 
 154:                                              ; preds = %156
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %155 = add nsw i64 %.0102126, 1
   %exitcond130.not = icmp eq i64 %155, %spec.select
   br i1 %exitcond130.not, label %._crit_edge, label %.preheader119, !llvm.loop !409
@@ -21311,7 +21305,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_fE7gemm4xNILi3EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_fE7gemm4xNILi3EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [3 x [4 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sdiv i64 %7, 4
@@ -21362,7 +21356,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %41 = srem i64 %.0102126.us, %10
   %42 = mul nsw i64 %41, 3
   %43 = add nsw i64 %42, %3
-  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(384) %6, i8 0, i64 384, i1 false)
   %44 = add nsw i64 %40, 3
   %45 = mul nsw i64 %29, %44
@@ -21378,7 +21372,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   br label %71
 
 55:                                               ; preds = %57
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %56 = add nsw i64 %.0102126.us, 1
   %exitcond135.not = icmp eq i64 %56, %spec.select
   br i1 %exitcond135.not, label %._crit_edge, label %.lr.ph.us, !llvm.loop !410
@@ -21521,7 +21515,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %148 = srem i64 %.0102126, %10
   %149 = mul nsw i64 %148, 3
   %150 = add nsw i64 %149, %3
-  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(384) %6, i8 0, i64 384, i1 false)
   %.idx = shl i64 %147, 4
   %gep = getelementptr i8, ptr %invariant.gep, i64 %.idx
@@ -21536,7 +21530,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   br label %158
 
 154:                                              ; preds = %156
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %155 = add nsw i64 %.0102126, 1
   %exitcond130.not = icmp eq i64 %155, %spec.select
   br i1 %exitcond130.not, label %._crit_edge, label %.preheader119, !llvm.loop !415
@@ -21566,7 +21560,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_fE7gemmMx4ILi3EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_fE7gemmMx4ILi3EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [4 x [3 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sdiv i64 %7, 3
@@ -21620,7 +21614,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %44 = srem i64 %.0118150.us, %10
   %45 = shl nsw i64 %44, 2
   %46 = add nsw i64 %45, %3
-  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(384) %6, i8 0, i64 384, i1 false)
   %47 = add nsw i64 %46, 3
   %48 = mul nsw i64 %30, %47
@@ -21636,7 +21630,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   br label %74
 
 58:                                               ; preds = %60
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %59 = add nsw i64 %.0118150.us, 1
   %exitcond159.not = icmp eq i64 %59, %spec.select
   br i1 %exitcond159.not, label %._crit_edge, label %.lr.ph.us, !llvm.loop !416
@@ -21773,7 +21767,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %145 = srem i64 %.0118150, %10
   %146 = shl nsw i64 %145, 2
   %147 = add nsw i64 %146, %3
-  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(384) %6, i8 0, i64 384, i1 false)
   %.idx = mul i64 %144, 12
   %gep = getelementptr i8, ptr %invariant.gep, i64 %.idx
@@ -21788,7 +21782,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   br label %155
 
 151:                                              ; preds = %153
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %152 = add nsw i64 %.0118150, 1
   %exitcond154.not = icmp eq i64 %152, %spec.select
   br i1 %exitcond154.not, label %._crit_edge, label %.preheader143, !llvm.loop !421
@@ -21818,7 +21812,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_fE4gemmILi3ELi3EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_fE4gemmILi3ELi3EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [3 x [3 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sdiv i64 %7, 3
@@ -21869,12 +21863,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %41 = srem i64 %.06787.us, %10
   %42 = mul nsw i64 %41, 3
   %43 = add nsw i64 %42, %3
-  call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(288) %6, i8 0, i64 288, i1 false)
   br label %.preheader76.us
 
 44:                                               ; preds = %46
-  call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %45 = add nsw i64 %.06787.us, 1
   %exitcond96.not = icmp eq i64 %45, %spec.select
   br i1 %exitcond96.not, label %._crit_edge, label %.preheader76.lr.ph.us, !llvm.loop !422
@@ -21981,7 +21975,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %97 = srem i64 %.06787, %10
   %98 = mul nsw i64 %97, 3
   %99 = add nsw i64 %98, %3
-  call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(288) %6, i8 0, i64 288, i1 false)
   %.idx = mul i64 %96, 12
   %gep = getelementptr i8, ptr %invariant.gep, i64 %.idx
@@ -21996,7 +21990,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   br label %107
 
 103:                                              ; preds = %105
-  call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %104 = add nsw i64 %.06787, 1
   %exitcond90.not = icmp eq i64 %104, %spec.select
   br i1 %exitcond90.not, label %._crit_edge, label %.preheader77, !llvm.loop !428
@@ -22026,7 +22020,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_fE7gemm4xNILi2EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_fE7gemm4xNILi2EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [2 x [4 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sdiv i64 %7, 4
@@ -22080,7 +22074,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %41 = srem i64 %.0102126.us, %10
   %42 = shl nsw i64 %41, 1
   %43 = add nsw i64 %42, %3
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(256) %6, i8 0, i64 256, i1 false)
   %44 = add nsw i64 %40, 3
   %45 = mul nsw i64 %29, %44
@@ -22096,7 +22090,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   br label %70
 
 55:                                               ; preds = %57
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %56 = add nsw i64 %.0102126.us, 1
   %exitcond132.not = icmp eq i64 %56, %spec.select
   br i1 %exitcond132.not, label %._crit_edge, label %.lr.ph.us, !llvm.loop !429
@@ -22237,7 +22231,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %146 = srem i64 %.0102126, %10
   %147 = shl nsw i64 %146, 1
   %148 = add nsw i64 %147, %3
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(256) %6, i8 0, i64 256, i1 false)
   %.idx = shl i64 %145, 4
   %gep = getelementptr i8, ptr %invariant.gep, i64 %.idx
@@ -22253,7 +22247,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   br label %155
 
 152:                                              ; preds = %154
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %153 = add nsw i64 %.0102126, 1
   %exitcond129.not = icmp eq i64 %153, %spec.select
   br i1 %exitcond129.not, label %._crit_edge, label %.preheader119, !llvm.loop !434
@@ -22281,7 +22275,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_fE7gemmMx4ILi2EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_fE7gemmMx4ILi2EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [4 x [2 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sdiv i64 %7, 2
@@ -22336,7 +22330,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %44 = srem i64 %.0118150.us, %10
   %45 = shl nsw i64 %44, 2
   %46 = add nsw i64 %45, %3
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(256) %6, i8 0, i64 256, i1 false)
   %47 = add nsw i64 %46, 3
   %48 = mul nsw i64 %30, %47
@@ -22352,7 +22346,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   br label %74
 
 58:                                               ; preds = %60
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %59 = add nsw i64 %.0118150.us, 1
   %exitcond156.not = icmp eq i64 %59, %spec.select
   br i1 %exitcond156.not, label %._crit_edge, label %.lr.ph.us, !llvm.loop !435
@@ -22487,7 +22481,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %144 = srem i64 %.0118150, %10
   %145 = shl nsw i64 %144, 2
   %146 = add nsw i64 %145, %3
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(256) %6, i8 0, i64 256, i1 false)
   %.idx = shl i64 %143, 3
   %gep = getelementptr i8, ptr %invariant.gep, i64 %.idx
@@ -22502,7 +22496,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   br label %154
 
 150:                                              ; preds = %152
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %151 = add nsw i64 %.0118150, 1
   %exitcond153.not = icmp eq i64 %151, %spec.select
   br i1 %exitcond153.not, label %._crit_edge, label %.preheader143, !llvm.loop !440
@@ -22531,7 +22525,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_fE4gemmILi3ELi2EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_fE4gemmILi3ELi2EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [2 x [3 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sdiv i64 %7, 3
@@ -22585,12 +22579,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %41 = srem i64 %.06787.us, %10
   %42 = shl nsw i64 %41, 1
   %43 = add nsw i64 %42, %3
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(192) %6, i8 0, i64 192, i1 false)
   br label %.preheader76.us
 
 44:                                               ; preds = %46
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %45 = add nsw i64 %.06787.us, 1
   %exitcond93.not = icmp eq i64 %45, %spec.select
   br i1 %exitcond93.not, label %._crit_edge, label %.preheader76.lr.ph.us, !llvm.loop !441
@@ -22695,7 +22689,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %95 = srem i64 %.06787, %10
   %96 = shl nsw i64 %95, 1
   %97 = add nsw i64 %96, %3
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(192) %6, i8 0, i64 192, i1 false)
   %.idx = mul i64 %94, 12
   %gep = getelementptr i8, ptr %invariant.gep, i64 %.idx
@@ -22711,7 +22705,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   br label %104
 
 101:                                              ; preds = %103
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %102 = add nsw i64 %.06787, 1
   %exitcond89.not = icmp eq i64 %102, %spec.select
   br i1 %exitcond89.not, label %._crit_edge, label %.preheader77, !llvm.loop !447
@@ -22739,7 +22733,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_fE4gemmILi2ELi3EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_fE4gemmILi2ELi3EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [3 x [2 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sdiv i64 %7, 2
@@ -22790,12 +22784,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %41 = srem i64 %.06787.us, %10
   %42 = mul nsw i64 %41, 3
   %43 = add nsw i64 %42, %3
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(192) %6, i8 0, i64 192, i1 false)
   br label %.preheader76.us
 
 44:                                               ; preds = %46
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %45 = add nsw i64 %.06787.us, 1
   %exitcond93.not = icmp eq i64 %45, %spec.select
   br i1 %exitcond93.not, label %._crit_edge, label %.preheader76.lr.ph.us, !llvm.loop !448
@@ -22900,7 +22894,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %97 = srem i64 %.06787, %10
   %98 = mul nsw i64 %97, 3
   %99 = add nsw i64 %98, %3
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(192) %6, i8 0, i64 192, i1 false)
   %.idx = shl i64 %96, 3
   %gep = getelementptr i8, ptr %invariant.gep, i64 %.idx
@@ -22915,7 +22909,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   br label %107
 
 103:                                              ; preds = %105
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %104 = add nsw i64 %.06787, 1
   %exitcond89.not = icmp eq i64 %104, %spec.select
   br i1 %exitcond89.not, label %._crit_edge, label %.preheader77, !llvm.loop !454
@@ -22944,7 +22938,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_fE7gemm4xNILi1EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_fE7gemm4xNILi1EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [1 x [4 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sdiv i64 %7, 4
@@ -22992,7 +22986,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %42 = add nsw i64 %41, %1
   %43 = srem i64 %.0102129.us, %9
   %44 = add nsw i64 %43, %3
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %45 = add nsw i64 %42, 3
   %46 = mul nsw i64 %28, %45
   %47 = getelementptr %struct.block_q8_0, ptr %26, i64 %46
@@ -23009,7 +23003,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   br label %.critedge.us
 
 .critedge108.us:                                  ; preds = %59
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %58 = add nsw i64 %.0102129.us, 1
   %exitcond137.not = icmp eq i64 %58, %spec.select
   br i1 %exitcond137.not, label %._crit_edge, label %.critedge.lr.ph.us, !llvm.loop !455
@@ -23124,7 +23118,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %138 = sdiv i64 %.0102129, %9
   %139 = srem i64 %.0102129, %9
   %140 = add nsw i64 %139, %3
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %141 = mul nsw i64 %39, %140
   %142 = getelementptr float, ptr %37, i64 %141
   %.idx = shl i64 %138, 4
@@ -23134,7 +23128,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   br label %146
 
 .critedge108:                                     ; preds = %146
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %145 = add nsw i64 %.0102129, 1
   %exitcond134.not = icmp eq i64 %145, %spec.select
   br i1 %exitcond134.not, label %._crit_edge, label %.preheader, !llvm.loop !458
@@ -23159,7 +23153,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_fE4gemmILi2ELi2EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_fE4gemmILi2ELi2EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [2 x [2 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sdiv i64 %7, 2
@@ -23213,12 +23207,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %41 = srem i64 %.06787.us, %10
   %42 = shl nsw i64 %41, 1
   %43 = add nsw i64 %42, %3
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(128) %6, i8 0, i64 128, i1 false)
   br label %.preheader76.us
 
 44:                                               ; preds = %46
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %45 = add nsw i64 %.06787.us, 1
   %exitcond90.not = icmp eq i64 %45, %spec.select
   br i1 %exitcond90.not, label %._crit_edge, label %.preheader76.lr.ph.us, !llvm.loop !459
@@ -23321,7 +23315,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %95 = srem i64 %.06787, %10
   %96 = shl nsw i64 %95, 1
   %97 = add nsw i64 %96, %3
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(128) %6, i8 0, i64 128, i1 false)
   %.idx = shl i64 %94, 3
   %gep = getelementptr i8, ptr %invariant.gep, i64 %.idx
@@ -23337,7 +23331,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   br label %104
 
 101:                                              ; preds = %103
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %102 = add nsw i64 %.06787, 1
   %exitcond.not = icmp eq i64 %102, %spec.select
   br i1 %exitcond.not, label %._crit_edge, label %.preheader77, !llvm.loop !465
@@ -23364,7 +23358,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_fE7gemmMx4ILi1EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_fE7gemmMx4ILi1EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [4 x [1 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sub nsw i64 %4, %3
@@ -23416,7 +23410,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %42 = srem i64 %.0118153.us, %9
   %43 = shl nsw i64 %42, 2
   %44 = add nsw i64 %43, %3
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %45 = add nsw i64 %44, 3
   %46 = mul nsw i64 %29, %45
   %47 = getelementptr %struct.block_q8_0, ptr %27, i64 %46
@@ -23433,7 +23427,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   br label %.critedge.us
 
 58:                                               ; preds = %.critedge124.us
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %59 = add nsw i64 %.0118153.us, 1
   %exitcond161.not = icmp eq i64 %59, %spec.select
   br i1 %exitcond161.not, label %._crit_edge, label %.critedge.lr.ph.us, !llvm.loop !466
@@ -23543,13 +23537,13 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %131 = srem i64 %.0118153, %9
   %132 = shl nsw i64 %131, 2
   %133 = add nsw i64 %132, %3
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %gep167 = getelementptr float, ptr %invariant.gep166, i64 %130
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(128) %6, i8 0, i64 128, i1 false)
   br label %.critedge124
 
 134:                                              ; preds = %.critedge124
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %135 = add nsw i64 %.0118153, 1
   %exitcond158.not = icmp eq i64 %135, %spec.select
   br i1 %exitcond158.not, label %._crit_edge, label %.preheader, !llvm.loop !469
@@ -23576,7 +23570,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_fE4gemmILi3ELi1EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_fE4gemmILi3ELi1EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [1 x [3 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sdiv i64 %7, 3
@@ -23621,14 +23615,14 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %39 = add nsw i64 %38, %1
   %40 = srem i64 %.06781.us, %9
   %41 = add nsw i64 %40, %3
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(96) %6, i8 0, i64 96, i1 false)
   %42 = mul nsw i64 %32, %41
   %43 = getelementptr inbounds %struct.block_q8_0, ptr %30, i64 %42
   br label %.preheader.us
 
 .critedge71.us:                                   ; preds = %45
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %44 = add nsw i64 %.06781.us, 1
   %exitcond87.not = icmp eq i64 %44, %spec.select
   br i1 %exitcond87.not, label %._crit_edge, label %.preheader.lr.ph.us, !llvm.loop !470
@@ -23710,7 +23704,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %88 = sdiv i64 %.06781, %9
   %89 = srem i64 %.06781, %9
   %90 = add nsw i64 %89, %3
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(96) %6, i8 0, i64 96, i1 false)
   %91 = mul nsw i64 %36, %90
   %92 = getelementptr float, ptr %34, i64 %91
@@ -23720,7 +23714,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   br label %96
 
 .critedge71:                                      ; preds = %96
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %95 = add nsw i64 %.06781, 1
   %exitcond83.not = icmp eq i64 %95, %spec.select
   br i1 %exitcond83.not, label %._crit_edge, label %.preheader77, !llvm.loop !474
@@ -23745,7 +23739,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_fE4gemmILi1ELi3EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_fE4gemmILi1ELi3EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [3 x [1 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sub nsw i64 %4, %3
@@ -23794,14 +23788,14 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %39 = srem i64 %.06783.us, %9
   %40 = mul nsw i64 %39, 3
   %41 = add nsw i64 %40, %3
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(96) %6, i8 0, i64 96, i1 false)
   %42 = mul nsw i64 %28, %38
   %43 = getelementptr inbounds %struct.block_q8_0, ptr %26, i64 %42
   br label %.preheader.us
 
 44:                                               ; preds = %.critedge71.us
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %45 = add nsw i64 %.06783.us, 1
   %exitcond89.not = icmp eq i64 %45, %spec.select
   br i1 %exitcond89.not, label %._crit_edge, label %.preheader.lr.ph.us, !llvm.loop !475
@@ -23884,13 +23878,13 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %87 = srem i64 %.06783, %9
   %88 = mul nsw i64 %87, 3
   %89 = add nsw i64 %88, %3
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(96) %6, i8 0, i64 96, i1 false)
   %gep = getelementptr float, ptr %invariant.gep, i64 %86
   br label %.critedge71
 
 90:                                               ; preds = %.critedge71
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %91 = add nsw i64 %.06783, 1
   %exitcond85.not = icmp eq i64 %91, %spec.select
   br i1 %exitcond85.not, label %._crit_edge, label %.preheader77, !llvm.loop !479
@@ -23917,7 +23911,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_fE4gemmILi2ELi1EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_fE4gemmILi2ELi1EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %.sroa.0 = alloca <8 x float>, align 32
   %.sroa.9 = alloca <8 x float>, align 32
   %6 = sub nsw i64 %2, %1
@@ -23963,8 +23957,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %38 = add nsw i64 %37, %1
   %39 = srem i64 %.06781.us, %8
   %40 = add nsw i64 %39, %3
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.9)
   store <8 x float> zeroinitializer, ptr %.sroa.0, align 32
   store <8 x float> zeroinitializer, ptr %.sroa.9, align 32
   %41 = mul nsw i64 %31, %40
@@ -23972,8 +23966,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   br label %.preheader.us
 
 .critedge71.us:                                   ; preds = %44
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9)
   %43 = add nsw i64 %.06781.us, 1
   %exitcond84.not = icmp eq i64 %43, %spec.select
   br i1 %exitcond84.not, label %._crit_edge, label %.preheader.lr.ph.us, !llvm.loop !480
@@ -24053,8 +24047,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %85 = sdiv i64 %.06781, %8
   %86 = srem i64 %.06781, %8
   %87 = add nsw i64 %86, %3
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.9)
   store <8 x float> zeroinitializer, ptr %.sroa.0, align 32
   store <8 x float> zeroinitializer, ptr %.sroa.9, align 32
   %88 = mul nsw i64 %35, %87
@@ -24065,8 +24059,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   br label %93
 
 .critedge71:                                      ; preds = %93
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9)
   %92 = add nsw i64 %.06781, 1
   %exitcond.not = icmp eq i64 %92, %spec.select
   br i1 %exitcond.not, label %._crit_edge, label %.preheader77, !llvm.loop !484
@@ -24090,7 +24084,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_fE4gemmILi1ELi2EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_fE4gemmILi1ELi2EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %.sroa.0 = alloca <8 x float>, align 32
   %.sroa.9 = alloca <8 x float>, align 32
   %6 = sub nsw i64 %2, %1
@@ -24140,8 +24134,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %38 = srem i64 %.06783.us, %8
   %39 = shl nsw i64 %38, 1
   %40 = add nsw i64 %39, %3
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.9)
   store <8 x float> zeroinitializer, ptr %.sroa.0, align 32
   store <8 x float> zeroinitializer, ptr %.sroa.9, align 32
   %41 = mul nsw i64 %27, %37
@@ -24149,8 +24143,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   br label %.preheader.us
 
 43:                                               ; preds = %.critedge71.us
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9)
   %44 = add nsw i64 %.06783.us, 1
   %exitcond86.not = icmp eq i64 %44, %spec.select
   br i1 %exitcond86.not, label %._crit_edge, label %.preheader.lr.ph.us, !llvm.loop !485
@@ -24231,16 +24225,16 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
   %84 = srem i64 %.06783, %8
   %85 = shl nsw i64 %84, 1
   %86 = add nsw i64 %85, %3
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.9)
   store <8 x float> zeroinitializer, ptr %.sroa.0, align 32
   store <8 x float> zeroinitializer, ptr %.sroa.9, align 32
   %gep = getelementptr float, ptr %invariant.gep, i64 %83
   br label %.critedge71
 
 87:                                               ; preds = %.critedge71
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9)
   %88 = add nsw i64 %.06783, 1
   %exitcond.not = icmp eq i64 %88, %spec.select
   br i1 %exitcond.not, label %._crit_edge, label %.preheader77, !llvm.loop !489
@@ -24266,7 +24260,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_fE4gemmILi1ELi1EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_fE4gemmILi1ELi1EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = sub nsw i64 %2, %1
   %7 = sub nsw i64 %4, %3
   %8 = mul nsw i64 %7, %6
@@ -24381,16 +24375,16 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q8_0S1_f
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <8 x float> @llvm.fma.v8f32(<8 x float>, <8 x float>, <8 x float>) #6
+declare <8 x float> @llvm.fma.v8f32(<8 x float>, <8 x float>, <8 x float>) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <8 x i32> @llvm.x86.avx512.vpdpbusd.256(<8 x i32>, <8 x i32>, <8 x i32>) #9
+declare <8 x i32> @llvm.x86.avx512.vpdpbusd.256(<8 x i32>, <8 x i32>, <8 x i32>) #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8>, <32 x i8>) #9
+declare <32 x i8> @llvm.x86.avx2.psign.b(<32 x i8>, <32 x i8>) #8
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010block_q8_0fE6mnpackEllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010block_q8_0fE6mnpackEllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #6 align 2 {
   %6 = sub nsw i64 %2, %1
   %7 = tail call i64 @llvm.smin.i64(i64 %6, i64 4)
   %8 = shl i64 %7, 4
@@ -24500,7 +24494,7 @@ tailrecurse:                                      ; preds = %28, %5
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010block_q8_0fE7gemm4xNILi4EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010block_q8_0fE7gemm4xNILi4EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [4 x [4 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sdiv i64 %7, 4
@@ -24551,7 +24545,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %41 = srem i64 %.0102122.us, %10
   %42 = shl nsw i64 %41, 2
   %43 = add nsw i64 %42, %3
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(512) %6, i8 0, i64 512, i1 false)
   %44 = add nsw i64 %40, 3
   %45 = mul nsw i64 %29, %44
@@ -24567,7 +24561,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   br label %71
 
 55:                                               ; preds = %57
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %56 = add nsw i64 %.0102122.us, 1
   %exitcond131.not = icmp eq i64 %56, %spec.select
   br i1 %exitcond131.not, label %._crit_edge, label %.lr.ph.us, !llvm.loop !493
@@ -24742,7 +24736,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %180 = srem i64 %.0102122, %10
   %181 = shl nsw i64 %180, 2
   %182 = add nsw i64 %181, %3
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(512) %6, i8 0, i64 512, i1 false)
   %.idx = shl i64 %179, 4
   %gep = getelementptr i8, ptr %invariant.gep, i64 %.idx
@@ -24757,7 +24751,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   br label %190
 
 186:                                              ; preds = %188
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %187 = add nsw i64 %.0102122, 1
   %exitcond126.not = icmp eq i64 %187, %spec.select
   br i1 %exitcond126.not, label %._crit_edge, label %.preheader115, !llvm.loop !500
@@ -24787,7 +24781,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010block_q8_0fE7gemm4xNILi3EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010block_q8_0fE7gemm4xNILi3EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [3 x [4 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sdiv i64 %7, 4
@@ -24838,7 +24832,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %41 = srem i64 %.0102122.us, %10
   %42 = mul nsw i64 %41, 3
   %43 = add nsw i64 %42, %3
-  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(384) %6, i8 0, i64 384, i1 false)
   %44 = add nsw i64 %40, 3
   %45 = mul nsw i64 %29, %44
@@ -24854,7 +24848,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   br label %71
 
 55:                                               ; preds = %57
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %56 = add nsw i64 %.0102122.us, 1
   %exitcond131.not = icmp eq i64 %56, %spec.select
   br i1 %exitcond131.not, label %._crit_edge, label %.lr.ph.us, !llvm.loop !501
@@ -25029,7 +25023,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %180 = srem i64 %.0102122, %10
   %181 = mul nsw i64 %180, 3
   %182 = add nsw i64 %181, %3
-  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(384) %6, i8 0, i64 384, i1 false)
   %.idx = shl i64 %179, 4
   %gep = getelementptr i8, ptr %invariant.gep, i64 %.idx
@@ -25044,7 +25038,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   br label %190
 
 186:                                              ; preds = %188
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %187 = add nsw i64 %.0102122, 1
   %exitcond126.not = icmp eq i64 %187, %spec.select
   br i1 %exitcond126.not, label %._crit_edge, label %.preheader115, !llvm.loop !506
@@ -25074,7 +25068,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010block_q8_0fE7gemmMx4ILi3EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010block_q8_0fE7gemmMx4ILi3EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [4 x [3 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sdiv i64 %7, 3
@@ -25128,7 +25122,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %44 = srem i64 %.0118149.us, %10
   %45 = shl nsw i64 %44, 2
   %46 = add nsw i64 %45, %3
-  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(384) %6, i8 0, i64 384, i1 false)
   %47 = add nsw i64 %46, 3
   %48 = mul nsw i64 %30, %47
@@ -25144,7 +25138,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   br label %74
 
 58:                                               ; preds = %60
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %59 = add nsw i64 %.0118149.us, 1
   %exitcond158.not = icmp eq i64 %59, %spec.select
   br i1 %exitcond158.not, label %._crit_edge, label %.lr.ph.us, !llvm.loop !507
@@ -25289,7 +25283,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %153 = srem i64 %.0118149, %10
   %154 = shl nsw i64 %153, 2
   %155 = add nsw i64 %154, %3
-  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(384) %6, i8 0, i64 384, i1 false)
   %.idx = mul i64 %152, 12
   %gep = getelementptr i8, ptr %invariant.gep, i64 %.idx
@@ -25304,7 +25298,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   br label %163
 
 159:                                              ; preds = %161
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %160 = add nsw i64 %.0118149, 1
   %exitcond153.not = icmp eq i64 %160, %spec.select
   br i1 %exitcond153.not, label %._crit_edge, label %.preheader142, !llvm.loop !512
@@ -25334,7 +25328,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010block_q8_0fE4gemmILi3ELi3EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010block_q8_0fE4gemmILi3ELi3EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [3 x [3 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sdiv i64 %7, 3
@@ -25385,12 +25379,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %41 = srem i64 %.06786.us, %10
   %42 = mul nsw i64 %41, 3
   %43 = add nsw i64 %42, %3
-  call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(288) %6, i8 0, i64 288, i1 false)
   br label %.preheader75.us
 
 44:                                               ; preds = %46
-  call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %45 = add nsw i64 %.06786.us, 1
   %exitcond95.not = icmp eq i64 %45, %spec.select
   br i1 %exitcond95.not, label %._crit_edge, label %.preheader75.lr.ph.us, !llvm.loop !513
@@ -25505,7 +25499,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %105 = srem i64 %.06786, %10
   %106 = mul nsw i64 %105, 3
   %107 = add nsw i64 %106, %3
-  call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(288) %6, i8 0, i64 288, i1 false)
   %.idx = mul i64 %104, 12
   %gep = getelementptr i8, ptr %invariant.gep, i64 %.idx
@@ -25520,7 +25514,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   br label %115
 
 111:                                              ; preds = %113
-  call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %112 = add nsw i64 %.06786, 1
   %exitcond89.not = icmp eq i64 %112, %spec.select
   br i1 %exitcond89.not, label %._crit_edge, label %.preheader76, !llvm.loop !519
@@ -25550,7 +25544,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010block_q8_0fE7gemm4xNILi2EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010block_q8_0fE7gemm4xNILi2EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [2 x [4 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sdiv i64 %7, 4
@@ -25604,7 +25598,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %41 = srem i64 %.0102122.us, %10
   %42 = shl nsw i64 %41, 1
   %43 = add nsw i64 %42, %3
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(256) %6, i8 0, i64 256, i1 false)
   %44 = add nsw i64 %40, 3
   %45 = mul nsw i64 %29, %44
@@ -25620,7 +25614,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   br label %70
 
 55:                                               ; preds = %57
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %56 = add nsw i64 %.0102122.us, 1
   %exitcond128.not = icmp eq i64 %56, %spec.select
   br i1 %exitcond128.not, label %._crit_edge, label %.lr.ph.us, !llvm.loop !520
@@ -25793,7 +25787,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %178 = srem i64 %.0102122, %10
   %179 = shl nsw i64 %178, 1
   %180 = add nsw i64 %179, %3
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(256) %6, i8 0, i64 256, i1 false)
   %.idx = shl i64 %177, 4
   %gep = getelementptr i8, ptr %invariant.gep, i64 %.idx
@@ -25809,7 +25803,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   br label %187
 
 184:                                              ; preds = %186
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %185 = add nsw i64 %.0102122, 1
   %exitcond125.not = icmp eq i64 %185, %spec.select
   br i1 %exitcond125.not, label %._crit_edge, label %.preheader115, !llvm.loop !525
@@ -25837,7 +25831,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010block_q8_0fE7gemmMx4ILi2EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010block_q8_0fE7gemmMx4ILi2EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [4 x [2 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sdiv i64 %7, 2
@@ -25892,7 +25886,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %44 = srem i64 %.0118149.us, %10
   %45 = shl nsw i64 %44, 2
   %46 = add nsw i64 %45, %3
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(256) %6, i8 0, i64 256, i1 false)
   %47 = add nsw i64 %46, 3
   %48 = mul nsw i64 %30, %47
@@ -25908,7 +25902,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   br label %74
 
 58:                                               ; preds = %60
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %59 = add nsw i64 %.0118149.us, 1
   %exitcond155.not = icmp eq i64 %59, %spec.select
   br i1 %exitcond155.not, label %._crit_edge, label %.lr.ph.us, !llvm.loop !526
@@ -26051,7 +26045,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %152 = srem i64 %.0118149, %10
   %153 = shl nsw i64 %152, 2
   %154 = add nsw i64 %153, %3
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(256) %6, i8 0, i64 256, i1 false)
   %.idx = shl i64 %151, 3
   %gep = getelementptr i8, ptr %invariant.gep, i64 %.idx
@@ -26066,7 +26060,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   br label %162
 
 158:                                              ; preds = %160
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %159 = add nsw i64 %.0118149, 1
   %exitcond152.not = icmp eq i64 %159, %spec.select
   br i1 %exitcond152.not, label %._crit_edge, label %.preheader142, !llvm.loop !531
@@ -26095,7 +26089,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010block_q8_0fE4gemmILi3ELi2EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010block_q8_0fE4gemmILi3ELi2EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [2 x [3 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sdiv i64 %7, 3
@@ -26149,12 +26143,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %41 = srem i64 %.06786.us, %10
   %42 = shl nsw i64 %41, 1
   %43 = add nsw i64 %42, %3
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(192) %6, i8 0, i64 192, i1 false)
   br label %.preheader75.us
 
 44:                                               ; preds = %46
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %45 = add nsw i64 %.06786.us, 1
   %exitcond92.not = icmp eq i64 %45, %spec.select
   br i1 %exitcond92.not, label %._crit_edge, label %.preheader75.lr.ph.us, !llvm.loop !532
@@ -26267,7 +26261,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %103 = srem i64 %.06786, %10
   %104 = shl nsw i64 %103, 1
   %105 = add nsw i64 %104, %3
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(192) %6, i8 0, i64 192, i1 false)
   %.idx = mul i64 %102, 12
   %gep = getelementptr i8, ptr %invariant.gep, i64 %.idx
@@ -26283,7 +26277,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   br label %112
 
 109:                                              ; preds = %111
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %110 = add nsw i64 %.06786, 1
   %exitcond88.not = icmp eq i64 %110, %spec.select
   br i1 %exitcond88.not, label %._crit_edge, label %.preheader76, !llvm.loop !538
@@ -26311,7 +26305,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010block_q8_0fE4gemmILi2ELi3EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010block_q8_0fE4gemmILi2ELi3EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [3 x [2 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sdiv i64 %7, 2
@@ -26362,12 +26356,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %41 = srem i64 %.06786.us, %10
   %42 = mul nsw i64 %41, 3
   %43 = add nsw i64 %42, %3
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(192) %6, i8 0, i64 192, i1 false)
   br label %.preheader75.us
 
 44:                                               ; preds = %46
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %45 = add nsw i64 %.06786.us, 1
   %exitcond92.not = icmp eq i64 %45, %spec.select
   br i1 %exitcond92.not, label %._crit_edge, label %.preheader75.lr.ph.us, !llvm.loop !539
@@ -26480,7 +26474,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %105 = srem i64 %.06786, %10
   %106 = mul nsw i64 %105, 3
   %107 = add nsw i64 %106, %3
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(192) %6, i8 0, i64 192, i1 false)
   %.idx = shl i64 %104, 3
   %gep = getelementptr i8, ptr %invariant.gep, i64 %.idx
@@ -26495,7 +26489,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   br label %115
 
 111:                                              ; preds = %113
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %112 = add nsw i64 %.06786, 1
   %exitcond88.not = icmp eq i64 %112, %spec.select
   br i1 %exitcond88.not, label %._crit_edge, label %.preheader76, !llvm.loop !545
@@ -26524,7 +26518,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010block_q8_0fE7gemm4xNILi1EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010block_q8_0fE7gemm4xNILi1EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [1 x [4 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sdiv i64 %7, 4
@@ -26572,7 +26566,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %42 = add nsw i64 %41, %1
   %43 = srem i64 %.0102125.us, %9
   %44 = add nsw i64 %43, %3
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %45 = add nsw i64 %42, 3
   %46 = mul nsw i64 %28, %45
   %47 = getelementptr %struct.block_q4_0, ptr %26, i64 %46
@@ -26589,7 +26583,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   br label %.critedge.us
 
 .critedge108.us:                                  ; preds = %59
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %58 = add nsw i64 %.0102125.us, 1
   %exitcond133.not = icmp eq i64 %58, %spec.select
   br i1 %exitcond133.not, label %._crit_edge, label %.critedge.lr.ph.us, !llvm.loop !546
@@ -26736,7 +26730,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %170 = sdiv i64 %.0102125, %9
   %171 = srem i64 %.0102125, %9
   %172 = add nsw i64 %171, %3
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %173 = mul nsw i64 %39, %172
   %174 = getelementptr float, ptr %37, i64 %173
   %.idx = shl i64 %170, 4
@@ -26746,7 +26740,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   br label %178
 
 .critedge108:                                     ; preds = %178
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %177 = add nsw i64 %.0102125, 1
   %exitcond130.not = icmp eq i64 %177, %spec.select
   br i1 %exitcond130.not, label %._crit_edge, label %.preheader, !llvm.loop !549
@@ -26771,7 +26765,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010block_q8_0fE4gemmILi2ELi2EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010block_q8_0fE4gemmILi2ELi2EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [2 x [2 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sdiv i64 %7, 2
@@ -26825,12 +26819,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %41 = srem i64 %.06786.us, %10
   %42 = shl nsw i64 %41, 1
   %43 = add nsw i64 %42, %3
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(128) %6, i8 0, i64 128, i1 false)
   br label %.preheader75.us
 
 44:                                               ; preds = %46
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %45 = add nsw i64 %.06786.us, 1
   %exitcond89.not = icmp eq i64 %45, %spec.select
   br i1 %exitcond89.not, label %._crit_edge, label %.preheader75.lr.ph.us, !llvm.loop !550
@@ -26941,7 +26935,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %103 = srem i64 %.06786, %10
   %104 = shl nsw i64 %103, 1
   %105 = add nsw i64 %104, %3
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(128) %6, i8 0, i64 128, i1 false)
   %.idx = shl i64 %102, 3
   %gep = getelementptr i8, ptr %invariant.gep, i64 %.idx
@@ -26957,7 +26951,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   br label %112
 
 109:                                              ; preds = %111
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %110 = add nsw i64 %.06786, 1
   %exitcond.not = icmp eq i64 %110, %spec.select
   br i1 %exitcond.not, label %._crit_edge, label %.preheader76, !llvm.loop !556
@@ -26984,7 +26978,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010block_q8_0fE7gemmMx4ILi1EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010block_q8_0fE7gemmMx4ILi1EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [4 x [1 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sub nsw i64 %4, %3
@@ -27036,7 +27030,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %42 = srem i64 %.0118152.us, %9
   %43 = shl nsw i64 %42, 2
   %44 = add nsw i64 %43, %3
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %45 = add nsw i64 %44, 3
   %46 = mul nsw i64 %29, %45
   %47 = getelementptr %struct.block_q8_0, ptr %27, i64 %46
@@ -27053,7 +27047,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   br label %.critedge.us
 
 58:                                               ; preds = %.critedge124.us
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %59 = add nsw i64 %.0118152.us, 1
   %exitcond160.not = icmp eq i64 %59, %spec.select
   br i1 %exitcond160.not, label %._crit_edge, label %.critedge.lr.ph.us, !llvm.loop !557
@@ -27171,13 +27165,13 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %139 = srem i64 %.0118152, %9
   %140 = shl nsw i64 %139, 2
   %141 = add nsw i64 %140, %3
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %gep166 = getelementptr float, ptr %invariant.gep165, i64 %138
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(128) %6, i8 0, i64 128, i1 false)
   br label %.critedge124
 
 142:                                              ; preds = %.critedge124
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %143 = add nsw i64 %.0118152, 1
   %exitcond157.not = icmp eq i64 %143, %spec.select
   br i1 %exitcond157.not, label %._crit_edge, label %.preheader, !llvm.loop !560
@@ -27204,7 +27198,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010block_q8_0fE4gemmILi3ELi1EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010block_q8_0fE4gemmILi3ELi1EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [1 x [3 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sdiv i64 %7, 3
@@ -27249,14 +27243,14 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %39 = add nsw i64 %38, %1
   %40 = srem i64 %.06780.us, %9
   %41 = add nsw i64 %40, %3
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(96) %6, i8 0, i64 96, i1 false)
   %42 = mul nsw i64 %32, %41
   %43 = getelementptr inbounds %struct.block_q8_0, ptr %30, i64 %42
   br label %.preheader.us
 
 .critedge71.us:                                   ; preds = %45
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %44 = add nsw i64 %.06780.us, 1
   %exitcond86.not = icmp eq i64 %44, %spec.select
   br i1 %exitcond86.not, label %._crit_edge, label %.preheader.lr.ph.us, !llvm.loop !561
@@ -27346,7 +27340,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %96 = sdiv i64 %.06780, %9
   %97 = srem i64 %.06780, %9
   %98 = add nsw i64 %97, %3
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(96) %6, i8 0, i64 96, i1 false)
   %99 = mul nsw i64 %36, %98
   %100 = getelementptr float, ptr %34, i64 %99
@@ -27356,7 +27350,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   br label %104
 
 .critedge71:                                      ; preds = %104
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %103 = add nsw i64 %.06780, 1
   %exitcond82.not = icmp eq i64 %103, %spec.select
   br i1 %exitcond82.not, label %._crit_edge, label %.preheader76, !llvm.loop !565
@@ -27381,7 +27375,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010block_q8_0fE4gemmILi1ELi3EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010block_q8_0fE4gemmILi1ELi3EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [3 x [1 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sub nsw i64 %4, %3
@@ -27430,14 +27424,14 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %39 = srem i64 %.06782.us, %9
   %40 = mul nsw i64 %39, 3
   %41 = add nsw i64 %40, %3
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(96) %6, i8 0, i64 96, i1 false)
   %42 = mul nsw i64 %28, %38
   %43 = getelementptr inbounds %struct.block_q4_0, ptr %26, i64 %42
   br label %.preheader.us
 
 44:                                               ; preds = %.critedge71.us
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %45 = add nsw i64 %.06782.us, 1
   %exitcond88.not = icmp eq i64 %45, %spec.select
   br i1 %exitcond88.not, label %._crit_edge, label %.preheader.lr.ph.us, !llvm.loop !566
@@ -27528,13 +27522,13 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %95 = srem i64 %.06782, %9
   %96 = mul nsw i64 %95, 3
   %97 = add nsw i64 %96, %3
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(96) %6, i8 0, i64 96, i1 false)
   %gep = getelementptr float, ptr %invariant.gep, i64 %94
   br label %.critedge71
 
 98:                                               ; preds = %.critedge71
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %99 = add nsw i64 %.06782, 1
   %exitcond84.not = icmp eq i64 %99, %spec.select
   br i1 %exitcond84.not, label %._crit_edge, label %.preheader76, !llvm.loop !570
@@ -27561,7 +27555,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010block_q8_0fE4gemmILi2ELi1EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010block_q8_0fE4gemmILi2ELi1EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %.sroa.0 = alloca <8 x float>, align 32
   %.sroa.9 = alloca <8 x float>, align 32
   %6 = sub nsw i64 %2, %1
@@ -27607,8 +27601,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %38 = add nsw i64 %37, %1
   %39 = srem i64 %.06780.us, %8
   %40 = add nsw i64 %39, %3
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.9)
   store <8 x float> zeroinitializer, ptr %.sroa.0, align 32
   store <8 x float> zeroinitializer, ptr %.sroa.9, align 32
   %41 = mul nsw i64 %31, %40
@@ -27616,8 +27610,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   br label %.preheader.us
 
 .critedge71.us:                                   ; preds = %44
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9)
   %43 = add nsw i64 %.06780.us, 1
   %exitcond83.not = icmp eq i64 %43, %spec.select
   br i1 %exitcond83.not, label %._crit_edge, label %.preheader.lr.ph.us, !llvm.loop !571
@@ -27705,8 +27699,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %93 = sdiv i64 %.06780, %8
   %94 = srem i64 %.06780, %8
   %95 = add nsw i64 %94, %3
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.9)
   store <8 x float> zeroinitializer, ptr %.sroa.0, align 32
   store <8 x float> zeroinitializer, ptr %.sroa.9, align 32
   %96 = mul nsw i64 %35, %95
@@ -27717,8 +27711,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   br label %101
 
 .critedge71:                                      ; preds = %101
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9)
   %100 = add nsw i64 %.06780, 1
   %exitcond.not = icmp eq i64 %100, %spec.select
   br i1 %exitcond.not, label %._crit_edge, label %.preheader76, !llvm.loop !575
@@ -27742,7 +27736,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010block_q8_0fE4gemmILi1ELi2EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010block_q8_0fE4gemmILi1ELi2EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %.sroa.0 = alloca <8 x float>, align 32
   %.sroa.9 = alloca <8 x float>, align 32
   %6 = sub nsw i64 %2, %1
@@ -27792,8 +27786,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %38 = srem i64 %.06782.us, %8
   %39 = shl nsw i64 %38, 1
   %40 = add nsw i64 %39, %3
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.9)
   store <8 x float> zeroinitializer, ptr %.sroa.0, align 32
   store <8 x float> zeroinitializer, ptr %.sroa.9, align 32
   %41 = mul nsw i64 %27, %37
@@ -27801,8 +27795,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   br label %.preheader.us
 
 43:                                               ; preds = %.critedge71.us
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9)
   %44 = add nsw i64 %.06782.us, 1
   %exitcond85.not = icmp eq i64 %44, %spec.select
   br i1 %exitcond85.not, label %._crit_edge, label %.preheader.lr.ph.us, !llvm.loop !576
@@ -27891,16 +27885,16 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
   %92 = srem i64 %.06782, %8
   %93 = shl nsw i64 %92, 1
   %94 = add nsw i64 %93, %3
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.9)
   store <8 x float> zeroinitializer, ptr %.sroa.0, align 32
   store <8 x float> zeroinitializer, ptr %.sroa.9, align 32
   %gep = getelementptr float, ptr %invariant.gep, i64 %91
   br label %.critedge71
 
 95:                                               ; preds = %.critedge71
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9)
   %96 = add nsw i64 %.06782, 1
   %exitcond.not = icmp eq i64 %96, %spec.select
   br i1 %exitcond.not, label %._crit_edge, label %.preheader76, !llvm.loop !580
@@ -27926,7 +27920,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010block_q8_0fE4gemmILi1ELi1EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010block_q8_0fE4gemmILi1ELi1EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = sub nsw i64 %2, %1
   %7 = sub nsw i64 %4, %3
   %8 = mul nsw i64 %7, %6
@@ -28049,7 +28043,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q4_010bl
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010block_q8_0fE6mnpackEllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010block_q8_0fE6mnpackEllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #6 align 2 {
   %6 = sub nsw i64 %2, %1
   %7 = tail call i64 @llvm.smin.i64(i64 %6, i64 4)
   %8 = shl i64 %7, 4
@@ -28159,7 +28153,7 @@ tailrecurse:                                      ; preds = %28, %5
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010block_q8_0fE7gemm4xNILi4EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010block_q8_0fE7gemm4xNILi4EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [4 x [4 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sdiv i64 %7, 4
@@ -28210,7 +28204,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %41 = srem i64 %.0102126.us, %10
   %42 = shl nsw i64 %41, 2
   %43 = add nsw i64 %42, %3
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(512) %6, i8 0, i64 512, i1 false)
   %44 = add nsw i64 %40, 3
   %45 = mul nsw i64 %29, %44
@@ -28226,7 +28220,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   br label %71
 
 55:                                               ; preds = %57
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %56 = add nsw i64 %.0102126.us, 1
   %exitcond135.not = icmp eq i64 %56, %spec.select
   br i1 %exitcond135.not, label %._crit_edge, label %.lr.ph.us, !llvm.loop !584
@@ -28437,7 +28431,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %212 = srem i64 %.0102126, %10
   %213 = shl nsw i64 %212, 2
   %214 = add nsw i64 %213, %3
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(512) %6, i8 0, i64 512, i1 false)
   %.idx = shl i64 %211, 4
   %gep = getelementptr i8, ptr %invariant.gep, i64 %.idx
@@ -28452,7 +28446,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   br label %222
 
 218:                                              ; preds = %220
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %219 = add nsw i64 %.0102126, 1
   %exitcond130.not = icmp eq i64 %219, %spec.select
   br i1 %exitcond130.not, label %._crit_edge, label %.preheader119, !llvm.loop !591
@@ -28482,7 +28476,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010block_q8_0fE7gemm4xNILi3EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010block_q8_0fE7gemm4xNILi3EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [3 x [4 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sdiv i64 %7, 4
@@ -28533,7 +28527,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %41 = srem i64 %.0102126.us, %10
   %42 = mul nsw i64 %41, 3
   %43 = add nsw i64 %42, %3
-  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(384) %6, i8 0, i64 384, i1 false)
   %44 = add nsw i64 %40, 3
   %45 = mul nsw i64 %29, %44
@@ -28549,7 +28543,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   br label %71
 
 55:                                               ; preds = %57
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %56 = add nsw i64 %.0102126.us, 1
   %exitcond135.not = icmp eq i64 %56, %spec.select
   br i1 %exitcond135.not, label %._crit_edge, label %.lr.ph.us, !llvm.loop !592
@@ -28760,7 +28754,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %212 = srem i64 %.0102126, %10
   %213 = mul nsw i64 %212, 3
   %214 = add nsw i64 %213, %3
-  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(384) %6, i8 0, i64 384, i1 false)
   %.idx = shl i64 %211, 4
   %gep = getelementptr i8, ptr %invariant.gep, i64 %.idx
@@ -28775,7 +28769,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   br label %222
 
 218:                                              ; preds = %220
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %219 = add nsw i64 %.0102126, 1
   %exitcond130.not = icmp eq i64 %219, %spec.select
   br i1 %exitcond130.not, label %._crit_edge, label %.preheader119, !llvm.loop !597
@@ -28805,7 +28799,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010block_q8_0fE7gemmMx4ILi3EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010block_q8_0fE7gemmMx4ILi3EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [4 x [3 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sdiv i64 %7, 3
@@ -28859,7 +28853,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %44 = srem i64 %.0118161.us, %10
   %45 = shl nsw i64 %44, 2
   %46 = add nsw i64 %45, %3
-  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(384) %6, i8 0, i64 384, i1 false)
   %47 = add nsw i64 %46, 3
   %48 = mul nsw i64 %30, %47
@@ -28875,7 +28869,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   br label %74
 
 58:                                               ; preds = %60
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %59 = add nsw i64 %.0118161.us, 1
   %exitcond170.not = icmp eq i64 %59, %spec.select
   br i1 %exitcond170.not, label %._crit_edge, label %.lr.ph.us, !llvm.loop !598
@@ -29029,7 +29023,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %161 = srem i64 %.0118161, %10
   %162 = shl nsw i64 %161, 2
   %163 = add nsw i64 %162, %3
-  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(384) %6, i8 0, i64 384, i1 false)
   %.idx = mul i64 %160, 12
   %gep = getelementptr i8, ptr %invariant.gep, i64 %.idx
@@ -29044,7 +29038,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   br label %171
 
 167:                                              ; preds = %169
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %168 = add nsw i64 %.0118161, 1
   %exitcond165.not = icmp eq i64 %168, %spec.select
   br i1 %exitcond165.not, label %._crit_edge, label %.preheader154, !llvm.loop !603
@@ -29074,7 +29068,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010block_q8_0fE4gemmILi3ELi3EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010block_q8_0fE4gemmILi3ELi3EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [3 x [3 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sdiv i64 %7, 3
@@ -29125,12 +29119,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %41 = srem i64 %.06789.us, %10
   %42 = mul nsw i64 %41, 3
   %43 = add nsw i64 %42, %3
-  call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(288) %6, i8 0, i64 288, i1 false)
   br label %.preheader78.us
 
 44:                                               ; preds = %46
-  call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %45 = add nsw i64 %.06789.us, 1
   %exitcond98.not = icmp eq i64 %45, %spec.select
   br i1 %exitcond98.not, label %._crit_edge, label %.preheader78.lr.ph.us, !llvm.loop !604
@@ -29254,7 +29248,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %113 = srem i64 %.06789, %10
   %114 = mul nsw i64 %113, 3
   %115 = add nsw i64 %114, %3
-  call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(288) %6, i8 0, i64 288, i1 false)
   %.idx = mul i64 %112, 12
   %gep = getelementptr i8, ptr %invariant.gep, i64 %.idx
@@ -29269,7 +29263,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   br label %123
 
 119:                                              ; preds = %121
-  call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %120 = add nsw i64 %.06789, 1
   %exitcond92.not = icmp eq i64 %120, %spec.select
   br i1 %exitcond92.not, label %._crit_edge, label %.preheader79, !llvm.loop !610
@@ -29299,7 +29293,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010block_q8_0fE7gemm4xNILi2EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010block_q8_0fE7gemm4xNILi2EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [2 x [4 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sdiv i64 %7, 4
@@ -29353,7 +29347,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %41 = srem i64 %.0102126.us, %10
   %42 = shl nsw i64 %41, 1
   %43 = add nsw i64 %42, %3
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(256) %6, i8 0, i64 256, i1 false)
   %44 = add nsw i64 %40, 3
   %45 = mul nsw i64 %29, %44
@@ -29369,7 +29363,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   br label %70
 
 55:                                               ; preds = %57
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %56 = add nsw i64 %.0102126.us, 1
   %exitcond132.not = icmp eq i64 %56, %spec.select
   br i1 %exitcond132.not, label %._crit_edge, label %.lr.ph.us, !llvm.loop !611
@@ -29578,7 +29572,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %210 = srem i64 %.0102126, %10
   %211 = shl nsw i64 %210, 1
   %212 = add nsw i64 %211, %3
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(256) %6, i8 0, i64 256, i1 false)
   %.idx = shl i64 %209, 4
   %gep = getelementptr i8, ptr %invariant.gep, i64 %.idx
@@ -29594,7 +29588,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   br label %219
 
 216:                                              ; preds = %218
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %217 = add nsw i64 %.0102126, 1
   %exitcond129.not = icmp eq i64 %217, %spec.select
   br i1 %exitcond129.not, label %._crit_edge, label %.preheader119, !llvm.loop !616
@@ -29622,7 +29616,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010block_q8_0fE7gemmMx4ILi2EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010block_q8_0fE7gemmMx4ILi2EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [4 x [2 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sdiv i64 %7, 2
@@ -29677,7 +29671,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %44 = srem i64 %.0118161.us, %10
   %45 = shl nsw i64 %44, 2
   %46 = add nsw i64 %45, %3
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(256) %6, i8 0, i64 256, i1 false)
   %47 = add nsw i64 %46, 3
   %48 = mul nsw i64 %30, %47
@@ -29693,7 +29687,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   br label %74
 
 58:                                               ; preds = %60
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %59 = add nsw i64 %.0118161.us, 1
   %exitcond167.not = icmp eq i64 %59, %spec.select
   br i1 %exitcond167.not, label %._crit_edge, label %.lr.ph.us, !llvm.loop !617
@@ -29845,7 +29839,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %160 = srem i64 %.0118161, %10
   %161 = shl nsw i64 %160, 2
   %162 = add nsw i64 %161, %3
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(256) %6, i8 0, i64 256, i1 false)
   %.idx = shl i64 %159, 3
   %gep = getelementptr i8, ptr %invariant.gep, i64 %.idx
@@ -29860,7 +29854,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   br label %170
 
 166:                                              ; preds = %168
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %167 = add nsw i64 %.0118161, 1
   %exitcond164.not = icmp eq i64 %167, %spec.select
   br i1 %exitcond164.not, label %._crit_edge, label %.preheader154, !llvm.loop !622
@@ -29889,7 +29883,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010block_q8_0fE4gemmILi3ELi2EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010block_q8_0fE4gemmILi3ELi2EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [2 x [3 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sdiv i64 %7, 3
@@ -29943,12 +29937,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %41 = srem i64 %.06789.us, %10
   %42 = shl nsw i64 %41, 1
   %43 = add nsw i64 %42, %3
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(192) %6, i8 0, i64 192, i1 false)
   br label %.preheader78.us
 
 44:                                               ; preds = %46
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %45 = add nsw i64 %.06789.us, 1
   %exitcond95.not = icmp eq i64 %45, %spec.select
   br i1 %exitcond95.not, label %._crit_edge, label %.preheader78.lr.ph.us, !llvm.loop !623
@@ -30070,7 +30064,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %111 = srem i64 %.06789, %10
   %112 = shl nsw i64 %111, 1
   %113 = add nsw i64 %112, %3
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(192) %6, i8 0, i64 192, i1 false)
   %.idx = mul i64 %110, 12
   %gep = getelementptr i8, ptr %invariant.gep, i64 %.idx
@@ -30086,7 +30080,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   br label %120
 
 117:                                              ; preds = %119
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %118 = add nsw i64 %.06789, 1
   %exitcond91.not = icmp eq i64 %118, %spec.select
   br i1 %exitcond91.not, label %._crit_edge, label %.preheader79, !llvm.loop !629
@@ -30114,7 +30108,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010block_q8_0fE4gemmILi2ELi3EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010block_q8_0fE4gemmILi2ELi3EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [3 x [2 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sdiv i64 %7, 2
@@ -30165,12 +30159,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %41 = srem i64 %.06789.us, %10
   %42 = mul nsw i64 %41, 3
   %43 = add nsw i64 %42, %3
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(192) %6, i8 0, i64 192, i1 false)
   br label %.preheader78.us
 
 44:                                               ; preds = %46
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %45 = add nsw i64 %.06789.us, 1
   %exitcond95.not = icmp eq i64 %45, %spec.select
   br i1 %exitcond95.not, label %._crit_edge, label %.preheader78.lr.ph.us, !llvm.loop !630
@@ -30292,7 +30286,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %113 = srem i64 %.06789, %10
   %114 = mul nsw i64 %113, 3
   %115 = add nsw i64 %114, %3
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(192) %6, i8 0, i64 192, i1 false)
   %.idx = shl i64 %112, 3
   %gep = getelementptr i8, ptr %invariant.gep, i64 %.idx
@@ -30307,7 +30301,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   br label %123
 
 119:                                              ; preds = %121
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %120 = add nsw i64 %.06789, 1
   %exitcond91.not = icmp eq i64 %120, %spec.select
   br i1 %exitcond91.not, label %._crit_edge, label %.preheader79, !llvm.loop !636
@@ -30336,7 +30330,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010block_q8_0fE7gemm4xNILi1EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010block_q8_0fE7gemm4xNILi1EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [1 x [4 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sdiv i64 %7, 4
@@ -30384,7 +30378,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %42 = add nsw i64 %41, %1
   %43 = srem i64 %.0102129.us, %9
   %44 = add nsw i64 %43, %3
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %45 = add nsw i64 %42, 3
   %46 = mul nsw i64 %28, %45
   %47 = getelementptr %struct.block_q5_0, ptr %26, i64 %46
@@ -30401,7 +30395,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   br label %.critedge.us
 
 .critedge108.us:                                  ; preds = %59
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %58 = add nsw i64 %.0102129.us, 1
   %exitcond137.not = icmp eq i64 %58, %spec.select
   br i1 %exitcond137.not, label %._crit_edge, label %.critedge.lr.ph.us, !llvm.loop !637
@@ -30584,7 +30578,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %202 = sdiv i64 %.0102129, %9
   %203 = srem i64 %.0102129, %9
   %204 = add nsw i64 %203, %3
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %205 = mul nsw i64 %39, %204
   %206 = getelementptr float, ptr %37, i64 %205
   %.idx = shl i64 %202, 4
@@ -30594,7 +30588,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   br label %210
 
 .critedge108:                                     ; preds = %210
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %209 = add nsw i64 %.0102129, 1
   %exitcond134.not = icmp eq i64 %209, %spec.select
   br i1 %exitcond134.not, label %._crit_edge, label %.preheader, !llvm.loop !640
@@ -30619,7 +30613,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010block_q8_0fE4gemmILi2ELi2EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010block_q8_0fE4gemmILi2ELi2EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [2 x [2 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sdiv i64 %7, 2
@@ -30673,12 +30667,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %41 = srem i64 %.06789.us, %10
   %42 = shl nsw i64 %41, 1
   %43 = add nsw i64 %42, %3
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(128) %6, i8 0, i64 128, i1 false)
   br label %.preheader78.us
 
 44:                                               ; preds = %46
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %45 = add nsw i64 %.06789.us, 1
   %exitcond92.not = icmp eq i64 %45, %spec.select
   br i1 %exitcond92.not, label %._crit_edge, label %.preheader78.lr.ph.us, !llvm.loop !641
@@ -30798,7 +30792,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %111 = srem i64 %.06789, %10
   %112 = shl nsw i64 %111, 1
   %113 = add nsw i64 %112, %3
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(128) %6, i8 0, i64 128, i1 false)
   %.idx = shl i64 %110, 3
   %gep = getelementptr i8, ptr %invariant.gep, i64 %.idx
@@ -30814,7 +30808,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   br label %120
 
 117:                                              ; preds = %119
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %118 = add nsw i64 %.06789, 1
   %exitcond.not = icmp eq i64 %118, %spec.select
   br i1 %exitcond.not, label %._crit_edge, label %.preheader79, !llvm.loop !647
@@ -30841,7 +30835,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010block_q8_0fE7gemmMx4ILi1EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010block_q8_0fE7gemmMx4ILi1EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [4 x [1 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sub nsw i64 %4, %3
@@ -30893,7 +30887,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %42 = srem i64 %.0118164.us, %9
   %43 = shl nsw i64 %42, 2
   %44 = add nsw i64 %43, %3
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %45 = add nsw i64 %44, 3
   %46 = mul nsw i64 %29, %45
   %47 = getelementptr %struct.block_q8_0, ptr %27, i64 %46
@@ -30910,7 +30904,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   br label %.critedge.us
 
 58:                                               ; preds = %.critedge124.us
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %59 = add nsw i64 %.0118164.us, 1
   %exitcond172.not = icmp eq i64 %59, %spec.select
   br i1 %exitcond172.not, label %._crit_edge, label %.critedge.lr.ph.us, !llvm.loop !648
@@ -31037,13 +31031,13 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %147 = srem i64 %.0118164, %9
   %148 = shl nsw i64 %147, 2
   %149 = add nsw i64 %148, %3
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %gep178 = getelementptr float, ptr %invariant.gep177, i64 %146
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(128) %6, i8 0, i64 128, i1 false)
   br label %.critedge124
 
 150:                                              ; preds = %.critedge124
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %151 = add nsw i64 %.0118164, 1
   %exitcond169.not = icmp eq i64 %151, %spec.select
   br i1 %exitcond169.not, label %._crit_edge, label %.preheader, !llvm.loop !651
@@ -31070,7 +31064,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010block_q8_0fE4gemmILi3ELi1EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010block_q8_0fE4gemmILi3ELi1EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [1 x [3 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sdiv i64 %7, 3
@@ -31115,14 +31109,14 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %39 = add nsw i64 %38, %1
   %40 = srem i64 %.06783.us, %9
   %41 = add nsw i64 %40, %3
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(96) %6, i8 0, i64 96, i1 false)
   %42 = mul nsw i64 %32, %41
   %43 = getelementptr inbounds %struct.block_q8_0, ptr %30, i64 %42
   br label %.preheader.us
 
 .critedge71.us:                                   ; preds = %45
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %44 = add nsw i64 %.06783.us, 1
   %exitcond89.not = icmp eq i64 %44, %spec.select
   br i1 %exitcond89.not, label %._crit_edge, label %.preheader.lr.ph.us, !llvm.loop !652
@@ -31221,7 +31215,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %104 = sdiv i64 %.06783, %9
   %105 = srem i64 %.06783, %9
   %106 = add nsw i64 %105, %3
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(96) %6, i8 0, i64 96, i1 false)
   %107 = mul nsw i64 %36, %106
   %108 = getelementptr float, ptr %34, i64 %107
@@ -31231,7 +31225,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   br label %112
 
 .critedge71:                                      ; preds = %112
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %111 = add nsw i64 %.06783, 1
   %exitcond85.not = icmp eq i64 %111, %spec.select
   br i1 %exitcond85.not, label %._crit_edge, label %.preheader79, !llvm.loop !656
@@ -31256,7 +31250,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010block_q8_0fE4gemmILi1ELi3EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010block_q8_0fE4gemmILi1ELi3EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [3 x [1 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sub nsw i64 %4, %3
@@ -31305,14 +31299,14 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %39 = srem i64 %.06785.us, %9
   %40 = mul nsw i64 %39, 3
   %41 = add nsw i64 %40, %3
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(96) %6, i8 0, i64 96, i1 false)
   %42 = mul nsw i64 %28, %38
   %43 = getelementptr inbounds %struct.block_q5_0, ptr %26, i64 %42
   br label %.preheader.us
 
 44:                                               ; preds = %.critedge71.us
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %45 = add nsw i64 %.06785.us, 1
   %exitcond91.not = icmp eq i64 %45, %spec.select
   br i1 %exitcond91.not, label %._crit_edge, label %.preheader.lr.ph.us, !llvm.loop !657
@@ -31412,13 +31406,13 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %103 = srem i64 %.06785, %9
   %104 = mul nsw i64 %103, 3
   %105 = add nsw i64 %104, %3
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(96) %6, i8 0, i64 96, i1 false)
   %gep = getelementptr float, ptr %invariant.gep, i64 %102
   br label %.critedge71
 
 106:                                              ; preds = %.critedge71
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %107 = add nsw i64 %.06785, 1
   %exitcond87.not = icmp eq i64 %107, %spec.select
   br i1 %exitcond87.not, label %._crit_edge, label %.preheader79, !llvm.loop !661
@@ -31445,7 +31439,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010block_q8_0fE4gemmILi2ELi1EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010block_q8_0fE4gemmILi2ELi1EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %.sroa.0 = alloca <8 x float>, align 32
   %.sroa.9 = alloca <8 x float>, align 32
   %6 = sub nsw i64 %2, %1
@@ -31491,8 +31485,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %38 = add nsw i64 %37, %1
   %39 = srem i64 %.06783.us, %8
   %40 = add nsw i64 %39, %3
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.9)
   store <8 x float> zeroinitializer, ptr %.sroa.0, align 32
   store <8 x float> zeroinitializer, ptr %.sroa.9, align 32
   %41 = mul nsw i64 %31, %40
@@ -31500,8 +31494,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   br label %.preheader.us
 
 .critedge71.us:                                   ; preds = %44
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9)
   %43 = add nsw i64 %.06783.us, 1
   %exitcond86.not = icmp eq i64 %43, %spec.select
   br i1 %exitcond86.not, label %._crit_edge, label %.preheader.lr.ph.us, !llvm.loop !662
@@ -31598,8 +31592,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %101 = sdiv i64 %.06783, %8
   %102 = srem i64 %.06783, %8
   %103 = add nsw i64 %102, %3
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.9)
   store <8 x float> zeroinitializer, ptr %.sroa.0, align 32
   store <8 x float> zeroinitializer, ptr %.sroa.9, align 32
   %104 = mul nsw i64 %35, %103
@@ -31610,8 +31604,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   br label %109
 
 .critedge71:                                      ; preds = %109
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9)
   %108 = add nsw i64 %.06783, 1
   %exitcond.not = icmp eq i64 %108, %spec.select
   br i1 %exitcond.not, label %._crit_edge, label %.preheader79, !llvm.loop !666
@@ -31635,7 +31629,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010block_q8_0fE4gemmILi1ELi2EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010block_q8_0fE4gemmILi1ELi2EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %.sroa.0 = alloca <8 x float>, align 32
   %.sroa.9 = alloca <8 x float>, align 32
   %6 = sub nsw i64 %2, %1
@@ -31685,8 +31679,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %38 = srem i64 %.06785.us, %8
   %39 = shl nsw i64 %38, 1
   %40 = add nsw i64 %39, %3
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.9)
   store <8 x float> zeroinitializer, ptr %.sroa.0, align 32
   store <8 x float> zeroinitializer, ptr %.sroa.9, align 32
   %41 = mul nsw i64 %27, %37
@@ -31694,8 +31688,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   br label %.preheader.us
 
 43:                                               ; preds = %.critedge71.us
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9)
   %44 = add nsw i64 %.06785.us, 1
   %exitcond88.not = icmp eq i64 %44, %spec.select
   br i1 %exitcond88.not, label %._crit_edge, label %.preheader.lr.ph.us, !llvm.loop !667
@@ -31793,16 +31787,16 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
   %100 = srem i64 %.06785, %8
   %101 = shl nsw i64 %100, 1
   %102 = add nsw i64 %101, %3
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.9)
   store <8 x float> zeroinitializer, ptr %.sroa.0, align 32
   store <8 x float> zeroinitializer, ptr %.sroa.9, align 32
   %gep = getelementptr float, ptr %invariant.gep, i64 %99
   br label %.critedge71
 
 103:                                              ; preds = %.critedge71
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9)
   %104 = add nsw i64 %.06785, 1
   %exitcond.not = icmp eq i64 %104, %spec.select
   br i1 %exitcond.not, label %._crit_edge, label %.preheader79, !llvm.loop !671
@@ -31828,7 +31822,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010block_q8_0fE4gemmILi1ELi1EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010block_q8_0fE4gemmILi1ELi1EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = sub nsw i64 %2, %1
   %7 = sub nsw i64 %4, %3
   %8 = mul nsw i64 %7, %6
@@ -31960,7 +31954,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI10block_q5_010bl
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10block_q8_0fE6mnpackEllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10block_q8_0fE6mnpackEllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #6 align 2 {
   %6 = sub nsw i64 %2, %1
   %7 = tail call i64 @llvm.smin.i64(i64 %6, i64 4)
   %8 = shl i64 %7, 4
@@ -32070,7 +32064,7 @@ tailrecurse:                                      ; preds = %28, %5
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10block_q8_0fE7gemm4xNILi4EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10block_q8_0fE7gemm4xNILi4EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [4 x [4 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sdiv i64 %7, 4
@@ -32122,7 +32116,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %42 = srem i64 %.0102127.us, %10
   %43 = shl nsw i64 %42, 2
   %44 = add nsw i64 %43, %3
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(512) %6, i8 0, i64 512, i1 false)
   %45 = add nsw i64 %41, 3
   %46 = mul nsw i64 %29, %45
@@ -32139,7 +32133,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   br label %72
 
 56:                                               ; preds = %58
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %57 = add nsw i64 %.0102127.us, 1
   %exitcond136.not = icmp eq i64 %57, %spec.select
   br i1 %exitcond136.not, label %._crit_edge, label %.lr.ph.us, !llvm.loop !675
@@ -32318,7 +32312,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %185 = srem i64 %.0102127, %10
   %186 = shl nsw i64 %185, 2
   %187 = add nsw i64 %186, %3
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(512) %6, i8 0, i64 512, i1 false)
   %.idx = shl i64 %184, 4
   %gep = getelementptr i8, ptr %invariant.gep, i64 %.idx
@@ -32333,7 +32327,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   br label %195
 
 191:                                              ; preds = %193
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %192 = add nsw i64 %.0102127, 1
   %exitcond131.not = icmp eq i64 %192, %spec.select
   br i1 %exitcond131.not, label %._crit_edge, label %.preheader120, !llvm.loop !682
@@ -32363,7 +32357,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10block_q8_0fE7gemm4xNILi3EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10block_q8_0fE7gemm4xNILi3EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [3 x [4 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sdiv i64 %7, 4
@@ -32415,7 +32409,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %42 = srem i64 %.0102127.us, %10
   %43 = mul nsw i64 %42, 3
   %44 = add nsw i64 %43, %3
-  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(384) %6, i8 0, i64 384, i1 false)
   %45 = add nsw i64 %41, 3
   %46 = mul nsw i64 %29, %45
@@ -32432,7 +32426,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   br label %72
 
 56:                                               ; preds = %58
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %57 = add nsw i64 %.0102127.us, 1
   %exitcond136.not = icmp eq i64 %57, %spec.select
   br i1 %exitcond136.not, label %._crit_edge, label %.lr.ph.us, !llvm.loop !683
@@ -32611,7 +32605,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %185 = srem i64 %.0102127, %10
   %186 = mul nsw i64 %185, 3
   %187 = add nsw i64 %186, %3
-  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(384) %6, i8 0, i64 384, i1 false)
   %.idx = shl i64 %184, 4
   %gep = getelementptr i8, ptr %invariant.gep, i64 %.idx
@@ -32626,7 +32620,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   br label %195
 
 191:                                              ; preds = %193
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %192 = add nsw i64 %.0102127, 1
   %exitcond131.not = icmp eq i64 %192, %spec.select
   br i1 %exitcond131.not, label %._crit_edge, label %.preheader120, !llvm.loop !688
@@ -32656,7 +32650,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10block_q8_0fE7gemmMx4ILi3EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10block_q8_0fE7gemmMx4ILi3EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [4 x [3 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sdiv i64 %7, 3
@@ -32711,7 +32705,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %45 = srem i64 %.0118162.us, %10
   %46 = shl nsw i64 %45, 2
   %47 = add nsw i64 %46, %3
-  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(384) %6, i8 0, i64 384, i1 false)
   %48 = add nsw i64 %47, 3
   %49 = mul nsw i64 %30, %48
@@ -32728,7 +32722,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   br label %75
 
 59:                                               ; preds = %61
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %60 = add nsw i64 %.0118162.us, 1
   %exitcond171.not = icmp eq i64 %60, %spec.select
   br i1 %exitcond171.not, label %._crit_edge, label %.lr.ph.us, !llvm.loop !689
@@ -32874,7 +32868,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %155 = srem i64 %.0118162, %10
   %156 = shl nsw i64 %155, 2
   %157 = add nsw i64 %156, %3
-  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(384) %6, i8 0, i64 384, i1 false)
   %.idx = mul i64 %154, 12
   %gep = getelementptr i8, ptr %invariant.gep, i64 %.idx
@@ -32889,7 +32883,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   br label %165
 
 161:                                              ; preds = %163
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %162 = add nsw i64 %.0118162, 1
   %exitcond166.not = icmp eq i64 %162, %spec.select
   br i1 %exitcond166.not, label %._crit_edge, label %.preheader155, !llvm.loop !694
@@ -32919,7 +32913,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10block_q8_0fE4gemmILi3ELi3EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10block_q8_0fE4gemmILi3ELi3EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [3 x [3 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sdiv i64 %7, 3
@@ -32971,13 +32965,13 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %42 = srem i64 %.06790.us, %10
   %43 = mul nsw i64 %42, 3
   %44 = add nsw i64 %43, %3
-  call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(288) %6, i8 0, i64 288, i1 false)
   %.val76.us = load <16 x i8>, ptr %30, align 16, !tbaa !53
   br label %.preheader79.us
 
 45:                                               ; preds = %47
-  call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %46 = add nsw i64 %.06790.us, 1
   %exitcond99.not = icmp eq i64 %46, %spec.select
   br i1 %exitcond99.not, label %._crit_edge, label %.preheader79.lr.ph.us, !llvm.loop !695
@@ -33093,7 +33087,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %107 = srem i64 %.06790, %10
   %108 = mul nsw i64 %107, 3
   %109 = add nsw i64 %108, %3
-  call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(288) %6, i8 0, i64 288, i1 false)
   %.idx = mul i64 %106, 12
   %gep = getelementptr i8, ptr %invariant.gep, i64 %.idx
@@ -33108,7 +33102,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   br label %117
 
 113:                                              ; preds = %115
-  call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %114 = add nsw i64 %.06790, 1
   %exitcond93.not = icmp eq i64 %114, %spec.select
   br i1 %exitcond93.not, label %._crit_edge, label %.preheader80, !llvm.loop !701
@@ -33138,7 +33132,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10block_q8_0fE7gemm4xNILi2EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10block_q8_0fE7gemm4xNILi2EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [2 x [4 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sdiv i64 %7, 4
@@ -33193,7 +33187,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %42 = srem i64 %.0102127.us, %10
   %43 = shl nsw i64 %42, 1
   %44 = add nsw i64 %43, %3
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(256) %6, i8 0, i64 256, i1 false)
   %45 = add nsw i64 %41, 3
   %46 = mul nsw i64 %29, %45
@@ -33210,7 +33204,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   br label %71
 
 56:                                               ; preds = %58
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %57 = add nsw i64 %.0102127.us, 1
   %exitcond133.not = icmp eq i64 %57, %spec.select
   br i1 %exitcond133.not, label %._crit_edge, label %.lr.ph.us, !llvm.loop !702
@@ -33387,7 +33381,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %183 = srem i64 %.0102127, %10
   %184 = shl nsw i64 %183, 1
   %185 = add nsw i64 %184, %3
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(256) %6, i8 0, i64 256, i1 false)
   %.idx = shl i64 %182, 4
   %gep = getelementptr i8, ptr %invariant.gep, i64 %.idx
@@ -33403,7 +33397,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   br label %192
 
 189:                                              ; preds = %191
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %190 = add nsw i64 %.0102127, 1
   %exitcond130.not = icmp eq i64 %190, %spec.select
   br i1 %exitcond130.not, label %._crit_edge, label %.preheader120, !llvm.loop !707
@@ -33431,7 +33425,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10block_q8_0fE7gemmMx4ILi2EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10block_q8_0fE7gemmMx4ILi2EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [4 x [2 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sdiv i64 %7, 2
@@ -33487,7 +33481,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %45 = srem i64 %.0118162.us, %10
   %46 = shl nsw i64 %45, 2
   %47 = add nsw i64 %46, %3
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(256) %6, i8 0, i64 256, i1 false)
   %48 = add nsw i64 %47, 3
   %49 = mul nsw i64 %30, %48
@@ -33504,7 +33498,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   br label %75
 
 59:                                               ; preds = %61
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %60 = add nsw i64 %.0118162.us, 1
   %exitcond168.not = icmp eq i64 %60, %spec.select
   br i1 %exitcond168.not, label %._crit_edge, label %.lr.ph.us, !llvm.loop !708
@@ -33648,7 +33642,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %154 = srem i64 %.0118162, %10
   %155 = shl nsw i64 %154, 2
   %156 = add nsw i64 %155, %3
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(256) %6, i8 0, i64 256, i1 false)
   %.idx = shl i64 %153, 3
   %gep = getelementptr i8, ptr %invariant.gep, i64 %.idx
@@ -33663,7 +33657,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   br label %164
 
 160:                                              ; preds = %162
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %161 = add nsw i64 %.0118162, 1
   %exitcond165.not = icmp eq i64 %161, %spec.select
   br i1 %exitcond165.not, label %._crit_edge, label %.preheader155, !llvm.loop !713
@@ -33692,7 +33686,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10block_q8_0fE4gemmILi3ELi2EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10block_q8_0fE4gemmILi3ELi2EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [2 x [3 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sdiv i64 %7, 3
@@ -33747,13 +33741,13 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %42 = srem i64 %.06790.us, %10
   %43 = shl nsw i64 %42, 1
   %44 = add nsw i64 %43, %3
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(192) %6, i8 0, i64 192, i1 false)
   %.val76.us = load <16 x i8>, ptr %30, align 16, !tbaa !53
   br label %.preheader79.us
 
 45:                                               ; preds = %47
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %46 = add nsw i64 %.06790.us, 1
   %exitcond96.not = icmp eq i64 %46, %spec.select
   br i1 %exitcond96.not, label %._crit_edge, label %.preheader79.lr.ph.us, !llvm.loop !714
@@ -33867,7 +33861,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %105 = srem i64 %.06790, %10
   %106 = shl nsw i64 %105, 1
   %107 = add nsw i64 %106, %3
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(192) %6, i8 0, i64 192, i1 false)
   %.idx = mul i64 %104, 12
   %gep = getelementptr i8, ptr %invariant.gep, i64 %.idx
@@ -33883,7 +33877,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   br label %114
 
 111:                                              ; preds = %113
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %112 = add nsw i64 %.06790, 1
   %exitcond92.not = icmp eq i64 %112, %spec.select
   br i1 %exitcond92.not, label %._crit_edge, label %.preheader80, !llvm.loop !720
@@ -33911,7 +33905,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10block_q8_0fE4gemmILi2ELi3EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10block_q8_0fE4gemmILi2ELi3EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [3 x [2 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sdiv i64 %7, 2
@@ -33963,13 +33957,13 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %42 = srem i64 %.06790.us, %10
   %43 = mul nsw i64 %42, 3
   %44 = add nsw i64 %43, %3
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(192) %6, i8 0, i64 192, i1 false)
   %.val76.us = load <16 x i8>, ptr %30, align 16, !tbaa !53
   br label %.preheader79.us
 
 45:                                               ; preds = %47
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %46 = add nsw i64 %.06790.us, 1
   %exitcond96.not = icmp eq i64 %46, %spec.select
   br i1 %exitcond96.not, label %._crit_edge, label %.preheader79.lr.ph.us, !llvm.loop !721
@@ -34083,7 +34077,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %107 = srem i64 %.06790, %10
   %108 = mul nsw i64 %107, 3
   %109 = add nsw i64 %108, %3
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(192) %6, i8 0, i64 192, i1 false)
   %.idx = shl i64 %106, 3
   %gep = getelementptr i8, ptr %invariant.gep, i64 %.idx
@@ -34098,7 +34092,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   br label %117
 
 113:                                              ; preds = %115
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %114 = add nsw i64 %.06790, 1
   %exitcond92.not = icmp eq i64 %114, %spec.select
   br i1 %exitcond92.not, label %._crit_edge, label %.preheader80, !llvm.loop !727
@@ -34127,7 +34121,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10block_q8_0fE7gemm4xNILi1EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10block_q8_0fE7gemm4xNILi1EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [1 x [4 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sdiv i64 %7, 4
@@ -34176,7 +34170,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %43 = add nsw i64 %42, %1
   %44 = srem i64 %.0102130.us, %9
   %45 = add nsw i64 %44, %3
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %46 = add nsw i64 %43, 3
   %47 = mul nsw i64 %28, %46
   %48 = getelementptr %struct.block_iq4_nl, ptr %26, i64 %47
@@ -34194,7 +34188,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   br label %.critedge.us
 
 .critedge108.us:                                  ; preds = %60
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %59 = add nsw i64 %.0102130.us, 1
   %exitcond138.not = icmp eq i64 %59, %spec.select
   br i1 %exitcond138.not, label %._crit_edge, label %.critedge.lr.ph.us, !llvm.loop !728
@@ -34345,7 +34339,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %175 = sdiv i64 %.0102130, %9
   %176 = srem i64 %.0102130, %9
   %177 = add nsw i64 %176, %3
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %178 = mul nsw i64 %40, %177
   %179 = getelementptr float, ptr %38, i64 %178
   %.idx = shl i64 %175, 4
@@ -34355,7 +34349,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   br label %183
 
 .critedge108:                                     ; preds = %183
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %182 = add nsw i64 %.0102130, 1
   %exitcond135.not = icmp eq i64 %182, %spec.select
   br i1 %exitcond135.not, label %._crit_edge, label %.preheader, !llvm.loop !731
@@ -34380,7 +34374,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10block_q8_0fE4gemmILi2ELi2EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10block_q8_0fE4gemmILi2ELi2EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [2 x [2 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sdiv i64 %7, 2
@@ -34435,13 +34429,13 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %42 = srem i64 %.06790.us, %10
   %43 = shl nsw i64 %42, 1
   %44 = add nsw i64 %43, %3
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(128) %6, i8 0, i64 128, i1 false)
   %.val76.us = load <16 x i8>, ptr %30, align 16, !tbaa !53
   br label %.preheader79.us
 
 45:                                               ; preds = %47
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %46 = add nsw i64 %.06790.us, 1
   %exitcond93.not = icmp eq i64 %46, %spec.select
   br i1 %exitcond93.not, label %._crit_edge, label %.preheader79.lr.ph.us, !llvm.loop !732
@@ -34553,7 +34547,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %105 = srem i64 %.06790, %10
   %106 = shl nsw i64 %105, 1
   %107 = add nsw i64 %106, %3
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(128) %6, i8 0, i64 128, i1 false)
   %.idx = shl i64 %104, 3
   %gep = getelementptr i8, ptr %invariant.gep, i64 %.idx
@@ -34569,7 +34563,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   br label %114
 
 111:                                              ; preds = %113
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %112 = add nsw i64 %.06790, 1
   %exitcond.not = icmp eq i64 %112, %spec.select
   br i1 %exitcond.not, label %._crit_edge, label %.preheader80, !llvm.loop !738
@@ -34596,7 +34590,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10block_q8_0fE7gemmMx4ILi1EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10block_q8_0fE7gemmMx4ILi1EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [4 x [1 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sub nsw i64 %4, %3
@@ -34649,7 +34643,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %43 = srem i64 %.0118165.us, %9
   %44 = shl nsw i64 %43, 2
   %45 = add nsw i64 %44, %3
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %46 = add nsw i64 %45, 3
   %47 = mul nsw i64 %29, %46
   %48 = getelementptr %struct.block_q8_0, ptr %27, i64 %47
@@ -34667,7 +34661,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   br label %.critedge.us
 
 59:                                               ; preds = %.critedge124.us
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %60 = add nsw i64 %.0118165.us, 1
   %exitcond173.not = icmp eq i64 %60, %spec.select
   br i1 %exitcond173.not, label %._crit_edge, label %.critedge.lr.ph.us, !llvm.loop !739
@@ -34786,13 +34780,13 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %141 = srem i64 %.0118165, %9
   %142 = shl nsw i64 %141, 2
   %143 = add nsw i64 %142, %3
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %gep179 = getelementptr float, ptr %invariant.gep178, i64 %140
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(128) %6, i8 0, i64 128, i1 false)
   br label %.critedge124
 
 144:                                              ; preds = %.critedge124
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %145 = add nsw i64 %.0118165, 1
   %exitcond170.not = icmp eq i64 %145, %spec.select
   br i1 %exitcond170.not, label %._crit_edge, label %.preheader, !llvm.loop !742
@@ -34819,7 +34813,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10block_q8_0fE4gemmILi3ELi1EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10block_q8_0fE4gemmILi3ELi1EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [1 x [3 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sdiv i64 %7, 3
@@ -34865,7 +34859,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %40 = add nsw i64 %39, %1
   %41 = srem i64 %.06784.us, %9
   %42 = add nsw i64 %41, %3
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(96) %6, i8 0, i64 96, i1 false)
   %.val78.us = load <16 x i8>, ptr %29, align 16, !tbaa !53
   %43 = mul nsw i64 %33, %42
@@ -34873,7 +34867,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   br label %.preheader.us
 
 .critedge71.us:                                   ; preds = %46
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %45 = add nsw i64 %.06784.us, 1
   %exitcond90.not = icmp eq i64 %45, %spec.select
   br i1 %exitcond90.not, label %._crit_edge, label %.preheader.lr.ph.us, !llvm.loop !743
@@ -34964,7 +34958,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %98 = sdiv i64 %.06784, %9
   %99 = srem i64 %.06784, %9
   %100 = add nsw i64 %99, %3
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(96) %6, i8 0, i64 96, i1 false)
   %101 = mul nsw i64 %37, %100
   %102 = getelementptr float, ptr %35, i64 %101
@@ -34974,7 +34968,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   br label %106
 
 .critedge71:                                      ; preds = %106
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %105 = add nsw i64 %.06784, 1
   %exitcond86.not = icmp eq i64 %105, %spec.select
   br i1 %exitcond86.not, label %._crit_edge, label %.preheader80, !llvm.loop !747
@@ -34999,7 +34993,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10block_q8_0fE4gemmILi1ELi3EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10block_q8_0fE4gemmILi1ELi3EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = alloca [3 x [1 x <8 x float>]], align 32
   %7 = sub nsw i64 %2, %1
   %8 = sub nsw i64 %4, %3
@@ -35049,7 +35043,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %40 = srem i64 %.06786.us, %9
   %41 = mul nsw i64 %40, 3
   %42 = add nsw i64 %41, %3
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(96) %6, i8 0, i64 96, i1 false)
   %43 = mul nsw i64 %28, %39
   %44 = getelementptr inbounds %struct.block_iq4_nl, ptr %26, i64 %43
@@ -35057,7 +35051,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   br label %.preheader.us
 
 45:                                               ; preds = %.critedge71.us
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %46 = add nsw i64 %.06786.us, 1
   %exitcond92.not = icmp eq i64 %46, %spec.select
   br i1 %exitcond92.not, label %._crit_edge, label %.preheader.lr.ph.us, !llvm.loop !748
@@ -35149,13 +35143,13 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %97 = srem i64 %.06786, %9
   %98 = mul nsw i64 %97, 3
   %99 = add nsw i64 %98, %3
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(96) %6, i8 0, i64 96, i1 false)
   %gep = getelementptr float, ptr %invariant.gep, i64 %96
   br label %.critedge71
 
 100:                                              ; preds = %.critedge71
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %101 = add nsw i64 %.06786, 1
   %exitcond88.not = icmp eq i64 %101, %spec.select
   br i1 %exitcond88.not, label %._crit_edge, label %.preheader80, !llvm.loop !752
@@ -35182,7 +35176,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10block_q8_0fE4gemmILi2ELi1EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10block_q8_0fE4gemmILi2ELi1EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %.sroa.0 = alloca <8 x float>, align 32
   %.sroa.9 = alloca <8 x float>, align 32
   %6 = sub nsw i64 %2, %1
@@ -35229,8 +35223,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %39 = add nsw i64 %38, %1
   %40 = srem i64 %.06784.us, %8
   %41 = add nsw i64 %40, %3
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.9)
   store <8 x float> zeroinitializer, ptr %.sroa.0, align 32
   store <8 x float> zeroinitializer, ptr %.sroa.9, align 32
   %.val78.us = load <16 x i8>, ptr %28, align 16, !tbaa !53
@@ -35239,8 +35233,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   br label %.preheader.us
 
 .critedge71.us:                                   ; preds = %45
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9)
   %44 = add nsw i64 %.06784.us, 1
   %exitcond87.not = icmp eq i64 %44, %spec.select
   br i1 %exitcond87.not, label %._crit_edge, label %.preheader.lr.ph.us, !llvm.loop !753
@@ -35329,8 +35323,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %95 = sdiv i64 %.06784, %8
   %96 = srem i64 %.06784, %8
   %97 = add nsw i64 %96, %3
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.9)
   store <8 x float> zeroinitializer, ptr %.sroa.0, align 32
   store <8 x float> zeroinitializer, ptr %.sroa.9, align 32
   %98 = mul nsw i64 %36, %97
@@ -35341,8 +35335,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   br label %103
 
 .critedge71:                                      ; preds = %103
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9)
   %102 = add nsw i64 %.06784, 1
   %exitcond.not = icmp eq i64 %102, %spec.select
   br i1 %exitcond.not, label %._crit_edge, label %.preheader80, !llvm.loop !757
@@ -35366,7 +35360,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10block_q8_0fE4gemmILi1ELi2EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10block_q8_0fE4gemmILi1ELi2EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %.sroa.0 = alloca <8 x float>, align 32
   %.sroa.9 = alloca <8 x float>, align 32
   %6 = sub nsw i64 %2, %1
@@ -35417,8 +35411,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %39 = srem i64 %.06786.us, %8
   %40 = shl nsw i64 %39, 1
   %41 = add nsw i64 %40, %3
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.9)
   store <8 x float> zeroinitializer, ptr %.sroa.0, align 32
   store <8 x float> zeroinitializer, ptr %.sroa.9, align 32
   %42 = mul nsw i64 %27, %38
@@ -35427,8 +35421,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   br label %.preheader.us
 
 44:                                               ; preds = %.critedge71.us
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9)
   %45 = add nsw i64 %.06786.us, 1
   %exitcond89.not = icmp eq i64 %45, %spec.select
   br i1 %exitcond89.not, label %._crit_edge, label %.preheader.lr.ph.us, !llvm.loop !758
@@ -35518,16 +35512,16 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
   %94 = srem i64 %.06786, %8
   %95 = shl nsw i64 %94, 1
   %96 = add nsw i64 %95, %3
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.9)
   store <8 x float> zeroinitializer, ptr %.sroa.0, align 32
   store <8 x float> zeroinitializer, ptr %.sroa.9, align 32
   %gep = getelementptr float, ptr %invariant.gep, i64 %93
   br label %.critedge71
 
 97:                                               ; preds = %.critedge71
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9)
   %98 = add nsw i64 %.06786, 1
   %exitcond.not = icmp eq i64 %98, %spec.select
   br i1 %exitcond.not, label %._crit_edge, label %.preheader80, !llvm.loop !762
@@ -35553,7 +35547,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10block_q8_0fE4gemmILi1ELi1EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10block_q8_0fE4gemmILi1ELi1EEEvllll(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #7 align 2 {
   %6 = sub nsw i64 %2, %1
   %7 = sub nsw i64 %4, %3
   %8 = mul nsw i64 %7, %6
@@ -35679,24 +35673,29 @@ define internal fastcc void @_ZN12_GLOBAL__N_115tinyBLAS_Q0_AVXI12block_iq4_nl10
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8>, <16 x i8>) #9
+declare <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8>, <16 x i8>) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #10
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress noinline uwtable "min-legal-vector-width"="512" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
-attributes #3 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
-attributes #8 = { mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #1 = { mustprogress noinline uwtable "min-legal-vector-width"="512" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
+attributes #2 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
+attributes #7 = { mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nounwind }
-attributes #12 = { noreturn }
+attributes #11 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

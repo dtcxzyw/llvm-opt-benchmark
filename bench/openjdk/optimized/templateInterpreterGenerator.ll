@@ -1076,7 +1076,7 @@ _ZN9Bytecodes10is_definedEi.exit.i:               ; preds = %356
   br label %366
 
 _ZN9Bytecodes10is_definedEi.exit.thread.i:        ; preds = %_ZN9Bytecodes10is_definedEi.exit.i, %356
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %362 = load ptr, ptr %67, align 8
   call void @_ZN10EntryPointC1EPhS0_S0_S0_S0_S0_S0_S0_S0_S0_(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef %362, ptr noundef %362, ptr noundef %362, ptr noundef %362, ptr noundef %362, ptr noundef %362, ptr noundef %362, ptr noundef %362, ptr noundef %362, ptr noundef %362) #7
   %363 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -1084,7 +1084,7 @@ _ZN9Bytecodes10is_definedEi.exit.thread.i:        ; preds = %_ZN9Bytecodes10is_d
   %364 = load ptr, ptr %67, align 8
   %365 = getelementptr inbounds nuw [256 x ptr], ptr @_ZN19TemplateInterpreter13_wentry_pointE, i64 0, i64 %indvars.iv.i
   store ptr %364, ptr %365, align 8
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %366
 
 366:                                              ; preds = %_ZN9Bytecodes10is_definedEi.exit.thread.i, %360
@@ -1302,7 +1302,7 @@ _ZN9Bytecodes10is_definedEi.exit:                 ; preds = %4
   br label %14
 
 _ZN9Bytecodes10is_definedEi.exit.thread:          ; preds = %4, %_ZN9Bytecodes10is_definedEi.exit
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %10 = load ptr, ptr %3, align 8
   call void @_ZN10EntryPointC1EPhS0_S0_S0_S0_S0_S0_S0_S0_S0_(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef %10, ptr noundef %10, ptr noundef %10, ptr noundef %10, ptr noundef %10, ptr noundef %10, ptr noundef %10, ptr noundef %10, ptr noundef %10, ptr noundef %10) #7
   %11 = trunc nuw nsw i64 %indvars.iv to i32
@@ -1310,7 +1310,7 @@ _ZN9Bytecodes10is_definedEi.exit.thread:          ; preds = %4, %_ZN9Bytecodes10
   %12 = load ptr, ptr %3, align 8
   %13 = getelementptr inbounds nuw [256 x ptr], ptr @_ZN19TemplateInterpreter13_wentry_pointE, i64 0, i64 %indvars.iv
   store ptr %12, ptr %13, align 8
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %14
 
 14:                                               ; preds = %8, %_ZN9Bytecodes10is_definedEi.exit.thread
@@ -1997,10 +1997,10 @@ declare noundef ptr @_ZN28TemplateInterpreterGenerator33generate_exception_handl
 declare void @_ZN12Disassembler5_hookEPKciP14MacroAssembler(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

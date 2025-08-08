@@ -78,7 +78,7 @@ define hidden void @_ZN6hermes4inst17decodeInstructionEPKNS0_4InstE(ptr noalias 
 entry:
   %retval.i.sroa.6 = alloca [6 x i8], align 8
   %0 = load i8, ptr %inst, align 1
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %retval.i.sroa.6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %retval.i.sroa.6)
   %idx.ext.i = zext i8 %0 to i64
   %add.ptr.i = getelementptr inbounds nuw %struct.anon, ptr @_ZN6hermes4instL4metaE, i64 %idx.ext.i
   %retval.i.sroa.0.0.insert.ext = zext i8 %0 to i24
@@ -106,7 +106,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %entry
 _ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE.exit: ; preds = %entry, %if.then.i.i.i.i.i.i
   %retval.i.sroa.6.0.retval.i.sroa.6.3.retval.i.0.retval.0.retval.0.retval.coerce.sroa.0.0.copyload.i1021 = phi i40 [ undef, %entry ], [ %retval.i.sroa.6.0.retval.i.sroa.6.0.retval.i.sroa.6.3.retval.i.0.retval.0.retval.0.retval.coerce.sroa.0.0.copyload.i1021.pre, %if.then.i.i.i.i.i.i ]
   %retval.8.retval.8.retval.coerce.sroa.2.0.copyload.i = phi i8 [ undef, %entry ], [ %retval.i.sroa.6.5.retval.i.sroa.6.5.retval.i.sroa.6.8.retval.i.8.retval.8.retval.8.retval.coerce.sroa.2.0.copyload.pre.i, %if.then.i.i.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %retval.i.sroa.6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %retval.i.sroa.6)
   store i24 %retval.i.sroa.0.2.insert.insert, ptr %agg.result, align 8
   %agg.result.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 3
   store i40 %retval.i.sroa.6.0.retval.i.sroa.6.3.retval.i.0.retval.0.retval.0.retval.coerce.sroa.0.0.copyload.i1021, ptr %agg.result.sroa_idx, align 1
@@ -3631,10 +3631,10 @@ declare noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5w
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

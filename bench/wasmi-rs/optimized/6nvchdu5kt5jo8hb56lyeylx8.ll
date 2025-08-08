@@ -31,10 +31,10 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8buil
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.sroa.0.07 = phi ptr [ %7, %.lr.ph ], [ %1, %3 ]
   %7 = getelementptr inbounds nuw i8, ptr %.sroa.0.07, i64 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %.sroa.0.07, ptr %4, align 8
   %8 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList5entry17h70bbfb3afd8c1d1cE(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.d63ddda026dc6e4d983d1a1f81041794.0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %9 = icmp eq ptr %7, %2
   br i1 %9, label %._crit_edge, label %.lr.ph
 
@@ -248,7 +248,7 @@ define hidden { i64, i64 } @_ZN10wasmi_core4fuel4Fuel15consume_fuel_if17h1fa8c36
   br i1 %4, label %.sink.split, label %10
 
 .sink.split:                                      ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val = load i64, ptr %1, align 8, !noundef !3
   %6 = tail call noundef i64 @_ZN10wasmi_core4fuel17FuelCostsProvider23fuel_for_copying_values17hecc83c4a7eb47c7fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %5, i64 noundef %.val)
@@ -258,7 +258,7 @@ define hidden { i64, i64 } @_ZN10wasmi_core4fuel4Fuel15consume_fuel_if17h1fa8c36
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = load i64, ptr %8, align 8
   %.sroa.4.0.ph = select i1 %.not, i64 undef, i64 %9
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %10
 
 10:                                               ; preds = %.sink.split, %2
@@ -276,7 +276,7 @@ define hidden { i64, i64 } @_ZN10wasmi_core4fuel4Fuel15consume_fuel_if17h2408c6f
   br i1 %4, label %.sink.split, label %11
 
 .sink.split:                                      ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val = load i32, ptr %1, align 4, !noundef !3
   %6 = zext i32 %.val to i64
@@ -287,7 +287,7 @@ define hidden { i64, i64 } @_ZN10wasmi_core4fuel4Fuel15consume_fuel_if17h2408c6f
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %10 = load i64, ptr %9, align 8
   %.sroa.4.0.ph = select i1 %.not, i64 undef, i64 %10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %11
 
 11:                                               ; preds = %.sink.split, %2
@@ -305,7 +305,7 @@ define hidden { i64, i64 } @_ZN10wasmi_core4fuel4Fuel15consume_fuel_if17h5ba0bc7
   br i1 %4, label %.sink.split, label %10
 
 .sink.split:                                      ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val = load i64, ptr %1, align 8, !noundef !3
   %6 = tail call noundef i64 @_ZN10wasmi_core4fuel17FuelCostsProvider23fuel_for_copying_values17hecc83c4a7eb47c7fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %5, i64 noundef %.val)
@@ -315,7 +315,7 @@ define hidden { i64, i64 } @_ZN10wasmi_core4fuel4Fuel15consume_fuel_if17h5ba0bc7
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = load i64, ptr %8, align 8
   %.sroa.4.0.ph = select i1 %.not, i64 undef, i64 %9
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %10
 
 10:                                               ; preds = %.sink.split, %2
@@ -333,7 +333,7 @@ define hidden { i64, i64 } @_ZN10wasmi_core4fuel4Fuel15consume_fuel_if17h9ab94a5
   br i1 %4, label %.sink.split, label %10
 
 .sink.split:                                      ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val = load i64, ptr %1, align 8, !noundef !3
   %6 = tail call noundef i64 @_ZN10wasmi_core4fuel17FuelCostsProvider23fuel_for_copying_values17hecc83c4a7eb47c7fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %5, i64 noundef %.val)
@@ -343,7 +343,7 @@ define hidden { i64, i64 } @_ZN10wasmi_core4fuel4Fuel15consume_fuel_if17h9ab94a5
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = load i64, ptr %8, align 8
   %.sroa.4.0.ph = select i1 %.not, i64 undef, i64 %9
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %10
 
 10:                                               ; preds = %.sink.split, %2
@@ -361,7 +361,7 @@ define hidden { i64, i64 } @_ZN10wasmi_core4fuel4Fuel15consume_fuel_if17hb9fa328
   br i1 %4, label %.sink.split, label %10
 
 .sink.split:                                      ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val = load i64, ptr %1, align 8, !noundef !3
   %6 = tail call noundef i64 @_ZN10wasmi_core4fuel17FuelCostsProvider22fuel_for_copying_bytes17h32ea49e03beffe6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %5, i64 noundef %.val)
@@ -371,7 +371,7 @@ define hidden { i64, i64 } @_ZN10wasmi_core4fuel4Fuel15consume_fuel_if17hb9fa328
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = load i64, ptr %8, align 8
   %.sroa.4.0.ph = select i1 %.not, i64 undef, i64 %9
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %10
 
 10:                                               ; preds = %.sink.split, %2
@@ -385,7 +385,7 @@ define hidden { i64, i64 } @_ZN10wasmi_core4fuel4Fuel15consume_fuel_if17hb9fa328
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN10wasmi_core6memory6buffer10ByteBuffer3new17hbe69476042b4f0ffE(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, i64 noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 0, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %4, align 8
@@ -426,7 +426,7 @@ define hidden void @_ZN10wasmi_core6memory6buffer10ByteBuffer3new17hbe69476042b4
   br label %14
 
 14:                                               ; preds = %12, %9
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 15:                                               ; preds = %16
@@ -673,10 +673,10 @@ declare noundef i64 @_ZN10wasmi_core4fuel17FuelCostsProvider22fuel_for_copying_b
 declare noundef i64 @_ZN10wasmi_core4fuel17FuelCostsProvider23fuel_for_copying_values17hecc83c4a7eb47c7fE(ptr noalias noundef readonly align 8 dereferenceable(16), i64 noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #8

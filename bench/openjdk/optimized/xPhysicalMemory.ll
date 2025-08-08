@@ -196,7 +196,7 @@ _ZN15XPhysicalMemory14remove_segmentEi.exit:      ; preds = %41, %34
 
 62:                                               ; preds = %._crit_edge97, %53
   %63 = phi i64 [ %.pre99, %._crit_edge97 ], [ %.val56, %53 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %64 = and i8 %.val51, 1
   store i64 %8, ptr %4, align 8
   %65 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -204,7 +204,7 @@ _ZN15XPhysicalMemory14remove_segmentEi.exit:      ; preds = %41, %34
   %66 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i8 %64, ptr %66, align 8
   call void @_ZN26GrowableArrayWithAllocatorI22XPhysicalMemorySegment18GrowableArrayCHeapIS0_L8MEMFLAGS5EEE13insert_beforeEiRKS0_(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %11, ptr noundef nonnull align 8 dereferenceable(17) %4)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %81
 
 67:                                               ; preds = %10
@@ -232,7 +232,7 @@ _ZN15XPhysicalMemory14remove_segmentEi.exit:      ; preds = %41, %34
   br label %81
 
 ._crit_edge:                                      ; preds = %67, %71
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %78 = and i8 %.val61, 1
   store i64 %8, ptr %3, align 8
   %79 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -240,7 +240,7 @@ _ZN15XPhysicalMemory14remove_segmentEi.exit:      ; preds = %41, %34
   %80 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i8 %78, ptr %80, align 8
   call void @_ZN26GrowableArrayWithAllocatorI22XPhysicalMemorySegment18GrowableArrayCHeapIS0_L8MEMFLAGS5EEE13insert_beforeEiRKS0_(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(17) %3)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %81
 
 81:                                               ; preds = %._crit_edge, %76, %62, %60, %49, %_ZN15XPhysicalMemory14remove_segmentEi.exit
@@ -609,14 +609,14 @@ define hidden noundef zeroext i1 @_ZN15XPhysicalMemory14commit_segmentEim(ptr no
 15:                                               ; preds = %14
   %16 = add nsw i32 %1, 1
   %17 = add i64 %11, %2
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %17, ptr %4, align 8
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %10, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i8 0, ptr %19, align 8
   call void @_ZN26GrowableArrayWithAllocatorI22XPhysicalMemorySegment18GrowableArrayCHeapIS0_L8MEMFLAGS5EEE13insert_beforeEiRKS0_(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %16, ptr noundef nonnull align 8 dereferenceable(17) %4)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %20 = load ptr, ptr %5, align 8
   %21 = getelementptr inbounds %class.XPhysicalMemorySegment, ptr %20, i64 %7
   %22 = load i64, ptr %21, align 8
@@ -656,14 +656,14 @@ define hidden noundef zeroext i1 @_ZN15XPhysicalMemory16uncommit_segmentEim(ptr 
 15:                                               ; preds = %14
   %16 = add nsw i32 %1, 1
   %17 = add i64 %11, %2
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %17, ptr %4, align 8
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %10, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i8 1, ptr %19, align 8
   call void @_ZN26GrowableArrayWithAllocatorI22XPhysicalMemorySegment18GrowableArrayCHeapIS0_L8MEMFLAGS5EEE13insert_beforeEiRKS0_(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %16, ptr noundef nonnull align 8 dereferenceable(17) %4)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %20 = load ptr, ptr %5, align 8
   %21 = getelementptr inbounds %class.XPhysicalMemorySegment, ptr %20, i64 %7
   %22 = load i64, ptr %21, align 8
@@ -939,10 +939,10 @@ define hidden void @_ZN22XPhysicalMemoryManager19try_enable_uncommitEmm(ptr noun
   %.sroa.21.0..sroa_idx.i10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_58ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i10, align 8
   call void (ptr, ptr, ...) @_ZN19GCLogPreciousHandle5writeEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull @.str.4)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 0, ptr %7, align 1
   %21 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 1063, i32 noundef 0, ptr noundef nonnull %7, i32 noundef 5) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN15XPhysicalMemoryD2Ev.exit
 
 22:                                               ; preds = %18
@@ -1000,14 +1000,14 @@ _ZN15XPhysicalMemory14commit_segmentEim.exit.i:   ; preds = %48
   %49 = trunc nuw nsw i64 %indvars.iv.i to i32
   %50 = add nuw nsw i32 %49, 1
   %51 = add i64 %45, %40
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 %51, ptr %6, align 8
   %52 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %44, ptr %52, align 8
   %53 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i8 0, ptr %53, align 8
   call void @_ZN26GrowableArrayWithAllocatorI22XPhysicalMemorySegment18GrowableArrayCHeapIS0_L8MEMFLAGS5EEE13insert_beforeEiRKS0_(ptr noundef nonnull align 8 dereferenceable(16) %10, i32 noundef %50, ptr noundef nonnull align 8 dereferenceable(17) %6)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN22XPhysicalMemoryManager6commitER15XPhysicalMemory.exit.sink.split
 
 54:                                               ; preds = %_ZN15XPhysicalMemory14commit_segmentEim.exit.thread13.i, %28
@@ -1060,14 +1060,14 @@ _ZN15XPhysicalMemory16uncommit_segmentEim.exit.i: ; preds = %77
   %78 = trunc nuw nsw i64 %indvars.iv.i12 to i32
   %79 = add nuw nsw i32 %78, 1
   %80 = add i64 %74, %69
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %80, ptr %5, align 8
   %81 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %73, ptr %81, align 8
   %82 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i8 1, ptr %82, align 8
   call void @_ZN26GrowableArrayWithAllocatorI22XPhysicalMemorySegment18GrowableArrayCHeapIS0_L8MEMFLAGS5EEE13insert_beforeEiRKS0_(ptr noundef nonnull align 8 dereferenceable(16) %10, i32 noundef %79, ptr noundef nonnull align 8 dereferenceable(17) %5)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN22XPhysicalMemoryManager6commitER15XPhysicalMemory.exit.sink.split
 
 83:                                               ; preds = %_ZN15XPhysicalMemory16uncommit_segmentEim.exit.thread13.i, %.lr.ph.i11
@@ -1096,10 +1096,10 @@ _ZN22XPhysicalMemoryManager6commitER15XPhysicalMemory.exit: ; preds = %_ZN22XPhy
   %.sroa.21.0..sroa_idx.i20 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_58ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i20, align 8
   call void (ptr, ptr, ...) @_ZN19GCLogPreciousHandle5writeEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull @.str.5)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 0, ptr %4, align 1
   %90 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 1063, i32 noundef 0, ptr noundef nonnull %4, i32 noundef 5) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %92
 
 .thread:                                          ; preds = %83, %22, %56
@@ -1198,14 +1198,14 @@ _ZN15XPhysicalMemory14commit_segmentEim.exit:     ; preds = %27
   %28 = trunc nuw nsw i64 %indvars.iv to i32
   %29 = add nuw nsw i32 %28, 1
   %30 = add i64 %24, %19
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %30, ptr %3, align 8
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %23, ptr %31, align 8
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i8 0, ptr %32, align 8
   call void @_ZN26GrowableArrayWithAllocatorI22XPhysicalMemorySegment18GrowableArrayCHeapIS0_L8MEMFLAGS5EEE13insert_beforeEiRKS0_(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %29, ptr noundef nonnull align 8 dereferenceable(17) %3)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %33 = load ptr, ptr %6, align 8
   %34 = getelementptr inbounds nuw %class.XPhysicalMemorySegment, ptr %33, i64 %indvars.iv
   %35 = load i64, ptr %34, align 8
@@ -1278,14 +1278,14 @@ _ZN15XPhysicalMemory16uncommit_segmentEim.exit:   ; preds = %27
   %28 = trunc nuw nsw i64 %indvars.iv to i32
   %29 = add nuw nsw i32 %28, 1
   %30 = add i64 %24, %19
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %30, ptr %3, align 8
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %23, ptr %31, align 8
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i8 1, ptr %32, align 8
   call void @_ZN26GrowableArrayWithAllocatorI22XPhysicalMemorySegment18GrowableArrayCHeapIS0_L8MEMFLAGS5EEE13insert_beforeEiRKS0_(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %29, ptr noundef nonnull align 8 dereferenceable(17) %3)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %33 = load ptr, ptr %6, align 8
   %34 = getelementptr inbounds nuw %class.XPhysicalMemorySegment, ptr %33, i64 %indvars.iv
   %35 = load i64, ptr %34, align 8
@@ -1327,7 +1327,7 @@ define hidden void @_ZNK22XPhysicalMemoryManager10nmt_commitEmm(ptr noundef nonn
 
 13:                                               ; preds = %3, %12
   %14 = phi i32 [ %10, %3 ], [ %.pre, %12 ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %15 = icmp sgt i32 %14, 1
   %16 = icmp ne i64 %9, 0
   %or.cond.i = and i1 %16, %15
@@ -1341,7 +1341,7 @@ define hidden void @_ZNK22XPhysicalMemoryManager10nmt_commitEmm(ptr noundef nonn
   br label %_ZN10MemTracker28record_virtual_memory_commitEPvmRK15NativeCallStack.exit
 
 _ZN10MemTracker28record_virtual_memory_commitEPvmRK15NativeCallStack.exit: ; preds = %13, %17
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -1811,7 +1811,7 @@ _ZNK22XPhysicalMemoryManager8map_viewEmRK15XPhysicalMemory.exit.sink.split: ; pr
 
 _ZNK22XPhysicalMemoryManager8map_viewEmRK15XPhysicalMemory.exit: ; preds = %_ZNK22XPhysicalMemoryManager8map_viewEmRK15XPhysicalMemory.exit.sink.split, %._crit_edge.i30, %._crit_edge.i
   %.05.lcssa.i39 = phi i64 [ %.05.lcssa.i4143, %._crit_edge.i ], [ %.05.lcssa.i4046, %._crit_edge.i30 ], [ %.05.lcssa.i39.ph, %_ZNK22XPhysicalMemoryManager8map_viewEmRK15XPhysicalMemory.exit.sink.split ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %132 = load i64, ptr @XAddressOffsetMask, align 8
   %133 = and i64 %132, %1
   %134 = load i64, ptr @XAddressMetadataMarked0, align 8
@@ -1827,7 +1827,7 @@ _ZNK22XPhysicalMemoryManager8map_viewEmRK15XPhysicalMemory.exit: ; preds = %_ZNK
 
 139:                                              ; preds = %138, %_ZNK22XPhysicalMemoryManager8map_viewEmRK15XPhysicalMemory.exit
   %140 = phi i32 [ %136, %_ZNK22XPhysicalMemoryManager8map_viewEmRK15XPhysicalMemory.exit ], [ %.pre.i, %138 ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %141 = icmp sgt i32 %140, 1
   %142 = icmp ne i64 %135, 0
   %or.cond.i.i = and i1 %142, %141
@@ -1841,15 +1841,15 @@ _ZNK22XPhysicalMemoryManager8map_viewEmRK15XPhysicalMemory.exit: ; preds = %_ZNK
   br label %_ZNK22XPhysicalMemoryManager10nmt_commitEmm.exit
 
 _ZNK22XPhysicalMemoryManager10nmt_commitEmm.exit: ; preds = %139, %143
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK22XPhysicalMemoryManager5unmapEmm(ptr noundef nonnull align 8 dereferenceable(160) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #1 align 2 {
   %4 = alloca %class.ThreadCritical, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load i64, ptr @XAddressOffsetMask, align 8
   %6 = and i64 %5, %1
   %7 = load i64, ptr @XAddressMetadataMarked0, align 8
@@ -1868,7 +1868,7 @@ define hidden void @_ZNK22XPhysicalMemoryManager5unmapEmm(ptr noundef nonnull al
 
 _ZNK22XPhysicalMemoryManager12nmt_uncommitEmm.exit: ; preds = %3, %12
   call void @_ZN14ThreadCriticalD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %15 = load i8, ptr @ZVerifyViews, align 1
   %16 = trunc i8 %15 to i1
   %17 = load i64, ptr @XAddressOffsetMask, align 8
@@ -2013,10 +2013,10 @@ declare i32 @llvm.ctpop.i32(i32) #11
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

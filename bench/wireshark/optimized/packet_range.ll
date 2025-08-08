@@ -928,7 +928,7 @@ declare void @ws_log_fatal_full(ptr noundef, i32 noundef, ptr noundef, i64 nound
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @packet_range_convert_str(ptr noundef captures(none) initializes((52, 56), (88, 92), (112, 116), (124, 128), (148, 152)) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -978,12 +978,9 @@ define hidden void @packet_range_convert_str(ptr noundef captures(none) initiali
   br label %27
 
 27:                                               ; preds = %21, %13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: null_pointer_is_valid
 declare i32 @range_convert_str(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -991,13 +988,10 @@ declare i32 @range_convert_str(ptr noundef, ptr noundef, ptr noundef, i32 nounde
 ; Function Attrs: null_pointer_is_valid
 declare void @g_hash_table_remove_all(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
-
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @packet_range_convert_selection_str(ptr noundef captures(none) initializes((56, 60), (92, 96), (128, 132), (152, 156)) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -1047,7 +1041,7 @@ define hidden void @packet_range_convert_selection_str(ptr noundef captures(none
   br label %27
 
 27:                                               ; preds = %21, %13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -1299,8 +1293,8 @@ define internal fastcc void @depended_frames_add(ptr noundef %0, ptr noundef %1,
   br i1 %.not9, label %26, label %17
 
 17:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @g_hash_table_iter_init(ptr noundef nonnull %5, ptr noundef nonnull %16)
   %18 = call i32 @g_hash_table_iter_next(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef null)
   %.not1011 = icmp eq i32 %18, 0
@@ -1321,8 +1315,8 @@ define internal fastcc void @depended_frames_add(ptr noundef %0, ptr noundef %1,
   br i1 %.not10, label %._crit_edge, label %20, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %20, %17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %26
 
 26:                                               ; preds = %4, %._crit_edge, %14, %9
@@ -1343,6 +1337,12 @@ declare i32 @g_hash_table_iter_next(ptr noundef, ptr noundef, ptr noundef) local
 
 ; Function Attrs: null_pointer_is_valid
 declare i32 @g_hash_table_contains(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #7

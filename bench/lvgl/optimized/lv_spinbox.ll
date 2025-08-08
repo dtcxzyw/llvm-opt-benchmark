@@ -347,15 +347,9 @@ define noundef ptr @lv_spinbox_create(ptr noundef %0) local_unnamed_addr #0 {
   ret ptr %2
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @lv_obj_class_create_obj(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_obj_class_create_obj(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare void @lv_obj_class_init_obj(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @lv_obj_class_init_obj(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @lv_spinbox_set_value(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -382,7 +376,7 @@ define void @lv_spinbox_set_value(ptr noundef %0, i32 noundef %1) local_unnamed_
 define internal fastcc void @lv_spinbox_updatevalue(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca [18 x i8], align 16
   %3 = alloca [14 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 18, ptr nonnull %2) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(18) %2, i8 0, i64 18, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %5 = load i32, ptr %4, align 8, !tbaa !21
@@ -401,7 +395,7 @@ define internal fastcc void @lv_spinbox_updatevalue(ptr noundef %0) unnamed_addr
 ._crit_edge102:                                   ; preds = %1, %9
   %.059.neg = phi i32 [ 0, %9 ], [ -1, %1 ]
   %.057 = phi ptr [ %12, %9 ], [ %2, %1 ]
-  call void @llvm.lifetime.start.p0(i64 14, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %13 = tail call i32 @llvm.abs.i32(i32 %8, i1 true)
   %14 = call i32 (ptr, i64, ptr, ...) @lv_snprintf(ptr noundef nonnull %3, i64 noundef 14, ptr noundef nonnull @.str.1, i32 noundef %13) #7
   %15 = call i64 @lv_strlen(ptr noundef nonnull %3) #7
@@ -535,13 +529,13 @@ define internal fastcc void @lv_spinbox_updatevalue(ptr noundef %0) unnamed_addr
   %spec.select = add i32 %.0.lcssa, %.059.neg
   %61 = add i32 %spec.select, %60
   call void @lv_textarea_set_cursor_pos(ptr noundef nonnull %0, i32 noundef %61) #7
-  call void @llvm.lifetime.end.p0(i64 14, ptr nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @lv_spinbox_set_rollover(ptr noundef captures(address_is_null) %0, i1 noundef zeroext %1) local_unnamed_addr #3 {
+define void @lv_spinbox_set_rollover(ptr noundef captures(address_is_null) %0, i1 noundef zeroext %1) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %3
 
@@ -616,7 +610,7 @@ define void @lv_spinbox_set_digit_format(ptr noundef %0, i32 noundef %1, i32 nou
   ret void
 }
 
-declare i64 @lv_pow(i64 noundef, i8 noundef signext) local_unnamed_addr #2
+declare i64 @lv_pow(i64 noundef, i8 noundef signext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @lv_spinbox_set_step(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -722,7 +716,7 @@ define void @lv_spinbox_set_digit_step_direction(ptr noundef %0, i32 noundef %1)
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @lv_spinbox_get_value(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
+define i32 @lv_spinbox_get_value(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -736,7 +730,7 @@ define i32 @lv_spinbox_get_value(ptr noundef readonly captures(address_is_null) 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @lv_spinbox_get_step(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
+define i32 @lv_spinbox_get_step(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -799,7 +793,7 @@ define void @lv_spinbox_step_prev(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define zeroext i1 @lv_spinbox_get_rollover(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
+define zeroext i1 @lv_spinbox_get_rollover(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -919,42 +913,48 @@ define void @lv_spinbox_decrement(ptr noundef %0) local_unnamed_addr #0 {
   ret void
 }
 
-declare void @lv_textarea_set_one_line(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare void @lv_textarea_set_one_line(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare void @lv_textarea_set_cursor_click_pos(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare void @lv_textarea_set_cursor_click_pos(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare i32 @lv_obj_event_base(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @lv_obj_event_base(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @lv_event_get_code(ptr noundef) local_unnamed_addr #2
+declare i32 @lv_event_get_code(ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_event_get_current_target(ptr noundef) local_unnamed_addr #2
+declare ptr @lv_event_get_current_target(ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_indev_active() local_unnamed_addr #2
+declare ptr @lv_indev_active() local_unnamed_addr #1
 
-declare i32 @lv_indev_get_type(ptr noundef) local_unnamed_addr #2
+declare i32 @lv_indev_get_type(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @lv_group_get_editing(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @lv_group_get_editing(ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_obj_get_group(ptr noundef) local_unnamed_addr #2
+declare ptr @lv_obj_get_group(ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_textarea_get_text(ptr noundef) local_unnamed_addr #2
+declare ptr @lv_textarea_get_text(ptr noundef) local_unnamed_addr #1
 
-declare i64 @lv_strlen(ptr noundef) local_unnamed_addr #2
+declare i64 @lv_strlen(ptr noundef) local_unnamed_addr #1
 
-declare void @lv_textarea_cursor_left(ptr noundef) local_unnamed_addr #2
+declare void @lv_textarea_cursor_left(ptr noundef) local_unnamed_addr #1
 
-declare void @lv_textarea_set_cursor_pos(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_textarea_set_cursor_pos(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @lv_event_get_param(ptr noundef) local_unnamed_addr #2
+declare ptr @lv_event_get_param(ptr noundef) local_unnamed_addr #1
 
-declare void @lv_textarea_add_char(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_textarea_add_char(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
-declare i32 @lv_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare i32 @lv_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare void @lv_textarea_set_text(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @lv_textarea_set_text(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #6
@@ -969,11 +969,11 @@ declare i32 @llvm.smax.i32(i32, i32) #6
 declare i32 @llvm.smin.i32(i32, i32) #6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { nounwind }
 

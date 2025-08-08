@@ -278,7 +278,7 @@ define hidden noundef i32 @_ZNK4cvc58internal21TheoryLeafTermContext12computeVal
   %5 = load ptr, ptr %1, align 8, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = trunc i64 %9 to i32
@@ -297,7 +297,7 @@ define hidden noundef i32 @_ZNK4cvc58internal21TheoryLeafTermContext12computeVal
   br i1 %.not.i, label %.thread, label %22
 
 .thread:                                          ; preds = %.noexc
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %24
 
 22:                                               ; preds = %.noexc
@@ -305,7 +305,7 @@ define hidden noundef i32 @_ZNK4cvc58internal21TheoryLeafTermContext12computeVal
   %23 = call noundef i32 @_ZN4cvc58internal6theory6Theory8theoryOfENS0_12NodeTemplateILb0EEENS0_7options12TheoryOfModeENS1_8TheoryIdE(ptr noundef nonnull %4, i32 noundef 0, i32 noundef 2)
   %.fr = freeze i32 %7
   %.not = icmp eq i32 %23, %.fr
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.not, label %25, label %24
 
 24:                                               ; preds = %.thread, %22
@@ -570,10 +570,10 @@ define internal void @_GLOBAL__sub_I_term_context.cpp() #9 section ".text.startu
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16

@@ -563,10 +563,10 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev33DynamicPropertyGradingPrimaryImplELN
   br i1 %298, label %.noexc.i, label %329
 
 .noexc.i:                                         ; preds = %295
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %229) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %229)
   %299 = getelementptr inbounds nuw i8, ptr %229, i64 16
   store ptr %299, ptr %229, align 8, !tbaa !37
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %228) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %228)
   store i64 100, ptr %228, align 8, !tbaa !40
   %300 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %229, ptr noundef nonnull align 8 dereferenceable(8) %228, i64 noundef 0)
           to label %.noexc unwind label %319
@@ -580,7 +580,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev33DynamicPropertyGradingPrimaryImplELN
   store i64 %301, ptr %302, align 8, !tbaa !44
   %303 = getelementptr inbounds nuw i8, ptr %300, i64 %301
   store i8 0, ptr %303, align 1, !tbaa !28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %228) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %228)
   %304 = load i64, ptr %302, align 8, !tbaa !44
   %305 = add i64 %304, -4611686018427387889
   %306 = icmp ult i64 %305, 15
@@ -629,7 +629,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %229) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %229)
   br label %329
 
 319:                                              ; preds = %.noexc.i
@@ -658,7 +658,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i11
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit114: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i112, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i113, %319
   %.pn = phi { ptr, i32 } [ %320, %319 ], [ %322, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i113 ], [ %322, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i112 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %229) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %229)
   br label %5513
 
 329:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %295, %291
@@ -666,7 +666,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit114: ; preds = %_Z
   %331 = getelementptr inbounds nuw i8, ptr %330, i64 168
   %332 = load i32, ptr %331, align 8, !tbaa !45
   %333 = call noundef i32 @_ZNK19OpenColorIO_v2_5dev20GradingPrimaryOpData12getDirectionEv(ptr noundef nonnull align 8 dereferenceable(192) %330) #16
-  call void @llvm.lifetime.start.p0(i64 768, ptr nonnull %230) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %230)
   %334 = load ptr, ptr %0, align 8, !tbaa !11
   %335 = call noundef i32 @_ZNK19OpenColorIO_v2_5dev16GpuShaderCreator11getLanguageEv(ptr noundef nonnull align 8 dereferenceable(16) %334) #16
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderTextC1ENS_11GpuLanguageE(ptr noundef nonnull align 8 dereferenceable(764) %230, i32 noundef %335)
@@ -674,7 +674,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit114: ; preds = %_Z
           to label %336 unwind label %413
 
 336:                                              ; preds = %329
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %231) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %231)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %231, ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %337 unwind label %415
 
@@ -684,8 +684,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit114: ; preds = %_Z
 
 339:                                              ; preds = %337
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %231) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %231) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %232) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %231)
+  call void @llvm.lifetime.start.p0(ptr nonnull %232)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %232, ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %340 unwind label %420
 
@@ -719,8 +719,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit114: ; preds = %_Z
 
 354:                                              ; preds = %352
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %232) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %232) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %233) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %232)
+  call void @llvm.lifetime.start.p0(ptr nonnull %233)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %233, ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %355 unwind label %425
 
@@ -730,8 +730,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit114: ; preds = %_Z
 
 357:                                              ; preds = %355
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %233) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %233) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %234) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %233)
+  call void @llvm.lifetime.start.p0(ptr nonnull %234)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %234, ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %358 unwind label %430
 
@@ -741,12 +741,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit114: ; preds = %_Z
 
 360:                                              ; preds = %358
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %234) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %234) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %234)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText6indentEv(ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %361 unwind label %413
 
 361:                                              ; preds = %360
-  call void @llvm.lifetime.start.p0(i64 416, ptr nonnull %235) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %235)
   %362 = getelementptr inbounds nuw i8, ptr %235, i64 16
   store ptr %362, ptr %235, align 8, !tbaa !37
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %362, ptr noundef nonnull align 1 dereferenceable(10) @.str.10, i64 10, i1 false)
@@ -874,7 +874,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit114: ; preds = %_Z
 
 419:                                              ; preds = %417, %415
   %.pn61 = phi { ptr, i32 } [ %418, %417 ], [ %416, %415 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %231) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %231)
   br label %5512
 
 420:                                              ; preds = %339
@@ -890,7 +890,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit114: ; preds = %_Z
 
 424:                                              ; preds = %422, %420
   %.pn63 = phi { ptr, i32 } [ %423, %422 ], [ %421, %420 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %232) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %232)
   br label %5512
 
 425:                                              ; preds = %354
@@ -906,7 +906,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit114: ; preds = %_Z
 
 429:                                              ; preds = %427, %425
   %.pn65 = phi { ptr, i32 } [ %428, %427 ], [ %426, %425 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %233) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %233)
   br label %5512
 
 430:                                              ; preds = %357
@@ -922,7 +922,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit114: ; preds = %_Z
 
 434:                                              ; preds = %432, %430
   %.pn67 = phi { ptr, i32 } [ %433, %432 ], [ %431, %430 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %234) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %234)
   br label %5512
 
 435:                                              ; preds = %361
@@ -931,7 +931,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit114: ; preds = %_Z
   %.val.val = load ptr, ptr %436, align 8, !tbaa !14, !noalias !64
   %437 = getelementptr i8, ptr %.val, i64 184
   %.val.val95 = load ptr, ptr %437, align 8, !tbaa !20, !noalias !64
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %195) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %195)
   call void @llvm.experimental.noalias.scope.decl(metadata !67)
   store ptr %.val.val, ptr %195, align 8, !tbaa !14, !alias.scope !67
   %438 = getelementptr inbounds nuw i8, ptr %195, i64 8
@@ -959,8 +959,8 @@ _ZNK19OpenColorIO_v2_5dev20GradingPrimaryOpData26getDynamicPropertyInternalEv.ex
   br i1 %292, label %._crit_edge.i.i.i, label %1331
 
 ._crit_edge.i.i.i:                                ; preds = %_ZNK19OpenColorIO_v2_5dev20GradingPrimaryOpData26getDynamicPropertyInternalEv.exit.i
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %196) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %197) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %196)
+  call void @llvm.lifetime.start.p0(ptr nonnull %197)
   %447 = getelementptr inbounds nuw i8, ptr %197, i64 16
   store ptr %447, ptr %197, align 8, !tbaa !37
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %447, ptr noundef nonnull align 16 dereferenceable(15) @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18opPrefixE, i64 15, i1 false)
@@ -1090,10 +1090,10 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i18
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit186.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit186.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i184.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i185.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %197) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %196) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %198) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %199) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %197)
+  call void @llvm.lifetime.end.p0(ptr nonnull %196)
+  call void @llvm.lifetime.start.p0(ptr nonnull %198)
+  call void @llvm.lifetime.start.p0(ptr nonnull %199)
   %497 = getelementptr inbounds nuw i8, ptr %199, i64 16
   store ptr %497, ptr %199, align 8, !tbaa !37
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %497, ptr noundef nonnull align 16 dereferenceable(15) @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18opPrefixE, i64 15, i1 false)
@@ -1223,10 +1223,10 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i20
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit205.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit205.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i203.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i204.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %199) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %198) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %200) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %201) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %199)
+  call void @llvm.lifetime.end.p0(ptr nonnull %198)
+  call void @llvm.lifetime.start.p0(ptr nonnull %200)
+  call void @llvm.lifetime.start.p0(ptr nonnull %201)
   %547 = getelementptr inbounds nuw i8, ptr %201, i64 16
   store ptr %547, ptr %201, align 8, !tbaa !37
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %547, ptr noundef nonnull align 16 dereferenceable(15) @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18opPrefixE, i64 15, i1 false)
@@ -1356,10 +1356,10 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i22
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit224.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit224.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i222.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i223.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %201) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %200) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %202) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %203) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %201)
+  call void @llvm.lifetime.end.p0(ptr nonnull %200)
+  call void @llvm.lifetime.start.p0(ptr nonnull %202)
+  call void @llvm.lifetime.start.p0(ptr nonnull %203)
   %597 = getelementptr inbounds nuw i8, ptr %203, i64 16
   store ptr %597, ptr %203, align 8, !tbaa !37
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %597, ptr noundef nonnull align 16 dereferenceable(15) @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18opPrefixE, i64 15, i1 false)
@@ -1489,10 +1489,10 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i24
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit243.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit243.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i241.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i242.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %203) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %202) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %204) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %205) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %203)
+  call void @llvm.lifetime.end.p0(ptr nonnull %202)
+  call void @llvm.lifetime.start.p0(ptr nonnull %204)
+  call void @llvm.lifetime.start.p0(ptr nonnull %205)
   %647 = getelementptr inbounds nuw i8, ptr %205, i64 16
   store ptr %647, ptr %205, align 8, !tbaa !37
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %647, ptr noundef nonnull align 16 dereferenceable(15) @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18opPrefixE, i64 15, i1 false)
@@ -1622,10 +1622,10 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i26
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit262.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit262.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i260.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i261.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %205) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %204) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %206) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %207) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %205)
+  call void @llvm.lifetime.end.p0(ptr nonnull %204)
+  call void @llvm.lifetime.start.p0(ptr nonnull %206)
+  call void @llvm.lifetime.start.p0(ptr nonnull %207)
   %697 = getelementptr inbounds nuw i8, ptr %207, i64 16
   store ptr %697, ptr %207, align 8, !tbaa !37
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %697, ptr noundef nonnull align 16 dereferenceable(15) @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18opPrefixE, i64 15, i1 false)
@@ -1755,10 +1755,10 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i27
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit281.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit281.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i279.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i280.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %207) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %206) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %208) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %209) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %207)
+  call void @llvm.lifetime.end.p0(ptr nonnull %206)
+  call void @llvm.lifetime.start.p0(ptr nonnull %208)
+  call void @llvm.lifetime.start.p0(ptr nonnull %209)
   %747 = getelementptr inbounds nuw i8, ptr %209, i64 16
   store ptr %747, ptr %209, align 8, !tbaa !37
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %747, ptr noundef nonnull align 16 dereferenceable(15) @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18opPrefixE, i64 15, i1 false)
@@ -1888,10 +1888,10 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i29
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit300.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit300.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i298.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i299.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %209) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %208) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %210) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %211) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %209)
+  call void @llvm.lifetime.end.p0(ptr nonnull %208)
+  call void @llvm.lifetime.start.p0(ptr nonnull %210)
+  call void @llvm.lifetime.start.p0(ptr nonnull %211)
   %797 = getelementptr inbounds nuw i8, ptr %211, i64 16
   store ptr %797, ptr %211, align 8, !tbaa !37
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %797, ptr noundef nonnull align 16 dereferenceable(15) @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18opPrefixE, i64 15, i1 false)
@@ -2021,10 +2021,10 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i31
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit319.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit319.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i317.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i318.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %211) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %210) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %212) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %213) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %211)
+  call void @llvm.lifetime.end.p0(ptr nonnull %210)
+  call void @llvm.lifetime.start.p0(ptr nonnull %212)
+  call void @llvm.lifetime.start.p0(ptr nonnull %213)
   %847 = getelementptr inbounds nuw i8, ptr %213, i64 16
   store ptr %847, ptr %213, align 8, !tbaa !37
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %847, ptr noundef nonnull align 16 dereferenceable(15) @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18opPrefixE, i64 15, i1 false)
@@ -2154,10 +2154,10 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i33
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit338.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit338.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i336.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i337.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %213) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %212) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %214) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %215) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %213)
+  call void @llvm.lifetime.end.p0(ptr nonnull %212)
+  call void @llvm.lifetime.start.p0(ptr nonnull %214)
+  call void @llvm.lifetime.start.p0(ptr nonnull %215)
   %897 = getelementptr inbounds nuw i8, ptr %215, i64 16
   store ptr %897, ptr %215, align 8, !tbaa !37
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %897, ptr noundef nonnull align 16 dereferenceable(15) @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18opPrefixE, i64 15, i1 false)
@@ -2287,15 +2287,15 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i35
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit357.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit357.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i355.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i356.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %215) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %214) #16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %216) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %215)
+  call void @llvm.lifetime.end.p0(ptr nonnull %214)
+  call void @llvm.lifetime.start.p0(ptr nonnull %216)
   %947 = load ptr, ptr %195, align 8, !tbaa !14
   invoke void @_ZNK19OpenColorIO_v2_5dev33DynamicPropertyGradingPrimaryImpl18createEditableCopyEv(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr.8") align 8 %216, ptr noundef nonnull align 8 dereferenceable(392) %947)
           to label %948 unwind label %1223
 
 948:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit357.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %217) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %217)
   %949 = load ptr, ptr %216, align 8, !tbaa !14
   store ptr %949, ptr %217, align 8, !tbaa !70
   %950 = getelementptr inbounds nuw i8, ptr %217, i64 8
@@ -2335,7 +2335,7 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_5dev15DynamicPropertyEEC2INS0_33DynamicPrope
           to label %968 unwind label %1227
 
 968:                                              ; preds = %962
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %218) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %218)
   %969 = getelementptr inbounds nuw i8, ptr %218, i64 16
   %970 = getelementptr inbounds nuw i8, ptr %218, i64 8
   store i64 0, ptr %970, align 8
@@ -2372,8 +2372,8 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_5dev15DynamicPropertyEEC2INS0_33DynamicPrope
   unreachable
 
 981:                                              ; preds = %976, %974
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %218) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %219) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %218)
+  call void @llvm.lifetime.start.p0(ptr nonnull %219)
   %982 = getelementptr inbounds nuw i8, ptr %219, i64 16
   %983 = getelementptr inbounds nuw i8, ptr %219, i64 8
   store i64 0, ptr %983, align 8
@@ -2410,8 +2410,8 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_5dev15DynamicPropertyEEC2INS0_33DynamicPrope
   unreachable
 
 994:                                              ; preds = %989, %987
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %219) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %220) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %219)
+  call void @llvm.lifetime.start.p0(ptr nonnull %220)
   %995 = getelementptr inbounds nuw i8, ptr %220, i64 16
   %996 = getelementptr inbounds nuw i8, ptr %220, i64 8
   store i64 0, ptr %996, align 8
@@ -2448,8 +2448,8 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_5dev15DynamicPropertyEEC2INS0_33DynamicPrope
   unreachable
 
 1007:                                             ; preds = %1002, %1000
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %220) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %221) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %220)
+  call void @llvm.lifetime.start.p0(ptr nonnull %221)
   %1008 = getelementptr inbounds nuw i8, ptr %221, i64 16
   %1009 = getelementptr inbounds nuw i8, ptr %221, i64 8
   store i64 0, ptr %1009, align 8
@@ -2486,8 +2486,8 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_5dev15DynamicPropertyEEC2INS0_33DynamicPrope
   unreachable
 
 1020:                                             ; preds = %1015, %1013
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %221) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %222) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %221)
+  call void @llvm.lifetime.start.p0(ptr nonnull %222)
   %1021 = getelementptr inbounds nuw i8, ptr %222, i64 16
   %1022 = getelementptr inbounds nuw i8, ptr %222, i64 8
   store i64 0, ptr %1022, align 8
@@ -2522,8 +2522,8 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_5dev15DynamicPropertyEEC2INS0_33DynamicPrope
   unreachable
 
 1033:                                             ; preds = %1028, %1026
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %222) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %223) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %222)
+  call void @llvm.lifetime.start.p0(ptr nonnull %223)
   %1034 = getelementptr inbounds nuw i8, ptr %223, i64 16
   %1035 = getelementptr inbounds nuw i8, ptr %223, i64 8
   store i64 0, ptr %1035, align 8
@@ -2558,8 +2558,8 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_5dev15DynamicPropertyEEC2INS0_33DynamicPrope
   unreachable
 
 1046:                                             ; preds = %1041, %1039
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %223) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %224) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %223)
+  call void @llvm.lifetime.start.p0(ptr nonnull %224)
   %1047 = getelementptr inbounds nuw i8, ptr %224, i64 16
   %1048 = getelementptr inbounds nuw i8, ptr %224, i64 8
   store i64 0, ptr %1048, align 8
@@ -2594,8 +2594,8 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_5dev15DynamicPropertyEEC2INS0_33DynamicPrope
   unreachable
 
 1059:                                             ; preds = %1054, %1052
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %224) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %225) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %224)
+  call void @llvm.lifetime.start.p0(ptr nonnull %225)
   %1060 = getelementptr inbounds nuw i8, ptr %225, i64 16
   %1061 = getelementptr inbounds nuw i8, ptr %225, i64 8
   store i64 0, ptr %1061, align 8
@@ -2630,8 +2630,8 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_5dev15DynamicPropertyEEC2INS0_33DynamicPrope
   unreachable
 
 1072:                                             ; preds = %1067, %1065
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %225) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %226) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %225)
+  call void @llvm.lifetime.start.p0(ptr nonnull %226)
   %1073 = getelementptr inbounds nuw i8, ptr %226, i64 16
   %1074 = getelementptr inbounds nuw i8, ptr %226, i64 8
   store i64 0, ptr %1074, align 8
@@ -2666,9 +2666,9 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_5dev15DynamicPropertyEEC2INS0_33DynamicPrope
   unreachable
 
 1085:                                             ; preds = %1080, %1078
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %226) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %226)
   %1086 = load ptr, ptr %216, align 8, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %227) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %227)
   %1087 = getelementptr inbounds nuw i8, ptr %227, i64 16
   %1088 = getelementptr inbounds nuw i8, ptr %227, i64 8
   store i64 0, ptr %1088, align 8
@@ -2705,7 +2705,7 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_5dev15DynamicPropertyEEC2INS0_33DynamicPrope
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit409.i:              ; preds = %1094, %1092
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %227) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %227)
   %1099 = load ptr, ptr %950, align 8, !tbaa !20
   %.not.i.i.i118 = icmp eq ptr %1099, null
   br i1 %.not.i.i.i118, label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev15DynamicPropertyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i, label %1100
@@ -2755,7 +2755,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %1117, %1
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev15DynamicPropertyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev15DynamicPropertyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i: ; preds = %1120, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %1105, %_ZNSt14_Function_baseD2Ev.exit409.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %217) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %217)
   %1121 = load ptr, ptr %951, align 8, !tbaa !20
   %.not.i.i411.i = icmp eq ptr %1121, null
   br i1 %.not.i.i411.i, label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev33DynamicPropertyGradingPrimaryImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i, label %1122
@@ -2805,7 +2805,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i413.i: ; preds = %1139,
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev33DynamicPropertyGradingPrimaryImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev33DynamicPropertyGradingPrimaryImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i: ; preds = %1142, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i413.i, %1127, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev15DynamicPropertyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %216) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %216)
   br label %1371
 
 1143:                                             ; preds = %._crit_edge.i.i.i
@@ -2828,8 +2828,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i41
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit417.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit417.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i415.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i416.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %197) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %196) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %197)
+  call void @llvm.lifetime.end.p0(ptr nonnull %196)
   br label %1394
 
 1151:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit186.i
@@ -2852,8 +2852,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i41
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit420.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit420.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i418.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i419.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %199) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %198) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %199)
+  call void @llvm.lifetime.end.p0(ptr nonnull %198)
   br label %1394
 
 1159:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit205.i
@@ -2876,8 +2876,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i42
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit423.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit423.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i421.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i422.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %201) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %200) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %201)
+  call void @llvm.lifetime.end.p0(ptr nonnull %200)
   br label %1394
 
 1167:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit224.i
@@ -2900,8 +2900,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i42
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit426.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit426.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i424.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i425.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %203) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %202) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %203)
+  call void @llvm.lifetime.end.p0(ptr nonnull %202)
   br label %1394
 
 1175:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit243.i
@@ -2924,8 +2924,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i42
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit429.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit429.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i427.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i428.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %205) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %204) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %205)
+  call void @llvm.lifetime.end.p0(ptr nonnull %204)
   br label %1394
 
 1183:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit262.i
@@ -2948,8 +2948,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i43
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit432.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit432.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i430.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i431.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %207) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %206) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %207)
+  call void @llvm.lifetime.end.p0(ptr nonnull %206)
   br label %1394
 
 1191:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit281.i
@@ -2972,8 +2972,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i43
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit435.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit435.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i433.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i434.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %209) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %208) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %209)
+  call void @llvm.lifetime.end.p0(ptr nonnull %208)
   br label %1394
 
 1199:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit300.i
@@ -2996,8 +2996,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i43
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit438.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit438.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i436.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i437.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %211) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %210) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %211)
+  call void @llvm.lifetime.end.p0(ptr nonnull %210)
   br label %1394
 
 1207:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit319.i
@@ -3020,8 +3020,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i43
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit441.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit441.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i439.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i440.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %213) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %212) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %213)
+  call void @llvm.lifetime.end.p0(ptr nonnull %212)
   br label %1394
 
 1215:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit338.i
@@ -3044,8 +3044,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i44
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit444.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit444.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i442.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i443.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %215) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %214) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %215)
+  call void @llvm.lifetime.end.p0(ptr nonnull %214)
   br label %1394
 
 1223:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit357.i
@@ -3088,7 +3088,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit444.i: ; preds = %
 
 _ZNSt14_Function_baseD2Ev.exit446.i:              ; preds = %1234, %1231, %1229
   %.pn150.i = phi { ptr, i32 } [ %1230, %1229 ], [ %1232, %1231 ], [ %1232, %1234 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %218) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %218)
   br label %1329
 
 1239:                                             ; preds = %981
@@ -3116,7 +3116,7 @@ _ZNSt14_Function_baseD2Ev.exit446.i:              ; preds = %1234, %1231, %1229
 
 _ZNSt14_Function_baseD2Ev.exit448.i:              ; preds = %1244, %1241, %1239
   %.pn152.i = phi { ptr, i32 } [ %1240, %1239 ], [ %1242, %1241 ], [ %1242, %1244 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %219) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %219)
   br label %1329
 
 1249:                                             ; preds = %994
@@ -3144,7 +3144,7 @@ _ZNSt14_Function_baseD2Ev.exit448.i:              ; preds = %1244, %1241, %1239
 
 _ZNSt14_Function_baseD2Ev.exit450.i:              ; preds = %1254, %1251, %1249
   %.pn154.i = phi { ptr, i32 } [ %1250, %1249 ], [ %1252, %1251 ], [ %1252, %1254 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %220) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %220)
   br label %1329
 
 1259:                                             ; preds = %1007
@@ -3172,7 +3172,7 @@ _ZNSt14_Function_baseD2Ev.exit450.i:              ; preds = %1254, %1251, %1249
 
 _ZNSt14_Function_baseD2Ev.exit452.i:              ; preds = %1264, %1261, %1259
   %.pn156.i = phi { ptr, i32 } [ %1260, %1259 ], [ %1262, %1261 ], [ %1262, %1264 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %221) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %221)
   br label %1329
 
 1269:                                             ; preds = %1020
@@ -3200,7 +3200,7 @@ _ZNSt14_Function_baseD2Ev.exit452.i:              ; preds = %1264, %1261, %1259
 
 _ZNSt14_Function_baseD2Ev.exit454.i:              ; preds = %1274, %1271, %1269
   %.pn158.i = phi { ptr, i32 } [ %1270, %1269 ], [ %1272, %1271 ], [ %1272, %1274 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %222) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %222)
   br label %1329
 
 1279:                                             ; preds = %1033
@@ -3228,7 +3228,7 @@ _ZNSt14_Function_baseD2Ev.exit454.i:              ; preds = %1274, %1271, %1269
 
 _ZNSt14_Function_baseD2Ev.exit456.i:              ; preds = %1284, %1281, %1279
   %.pn160.i = phi { ptr, i32 } [ %1280, %1279 ], [ %1282, %1281 ], [ %1282, %1284 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %223) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %223)
   br label %1329
 
 1289:                                             ; preds = %1046
@@ -3256,7 +3256,7 @@ _ZNSt14_Function_baseD2Ev.exit456.i:              ; preds = %1284, %1281, %1279
 
 _ZNSt14_Function_baseD2Ev.exit458.i:              ; preds = %1294, %1291, %1289
   %.pn162.i = phi { ptr, i32 } [ %1290, %1289 ], [ %1292, %1291 ], [ %1292, %1294 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %224) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %224)
   br label %1329
 
 1299:                                             ; preds = %1059
@@ -3284,7 +3284,7 @@ _ZNSt14_Function_baseD2Ev.exit458.i:              ; preds = %1294, %1291, %1289
 
 _ZNSt14_Function_baseD2Ev.exit460.i:              ; preds = %1304, %1301, %1299
   %.pn164.i = phi { ptr, i32 } [ %1300, %1299 ], [ %1302, %1301 ], [ %1302, %1304 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %225) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %225)
   br label %1329
 
 1309:                                             ; preds = %1072
@@ -3312,7 +3312,7 @@ _ZNSt14_Function_baseD2Ev.exit460.i:              ; preds = %1304, %1301, %1299
 
 _ZNSt14_Function_baseD2Ev.exit462.i:              ; preds = %1314, %1311, %1309
   %.pn166.i = phi { ptr, i32 } [ %1310, %1309 ], [ %1312, %1311 ], [ %1312, %1314 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %226) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %226)
   br label %1329
 
 1319:                                             ; preds = %1085
@@ -3340,19 +3340,19 @@ _ZNSt14_Function_baseD2Ev.exit462.i:              ; preds = %1314, %1311, %1309
 
 _ZNSt14_Function_baseD2Ev.exit464.i:              ; preds = %1324, %1321, %1319
   %.pn168.i = phi { ptr, i32 } [ %1320, %1319 ], [ %1322, %1321 ], [ %1322, %1324 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %227) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %227)
   br label %1329
 
 1329:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit464.i, %_ZNSt14_Function_baseD2Ev.exit462.i, %_ZNSt14_Function_baseD2Ev.exit460.i, %_ZNSt14_Function_baseD2Ev.exit458.i, %_ZNSt14_Function_baseD2Ev.exit456.i, %_ZNSt14_Function_baseD2Ev.exit454.i, %_ZNSt14_Function_baseD2Ev.exit452.i, %_ZNSt14_Function_baseD2Ev.exit450.i, %_ZNSt14_Function_baseD2Ev.exit448.i, %_ZNSt14_Function_baseD2Ev.exit446.i, %1227, %1225
   %.pn168.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %1226, %1225 ], [ %1228, %1227 ], [ %.pn150.i, %_ZNSt14_Function_baseD2Ev.exit446.i ], [ %.pn152.i, %_ZNSt14_Function_baseD2Ev.exit448.i ], [ %.pn154.i, %_ZNSt14_Function_baseD2Ev.exit450.i ], [ %.pn156.i, %_ZNSt14_Function_baseD2Ev.exit452.i ], [ %.pn158.i, %_ZNSt14_Function_baseD2Ev.exit454.i ], [ %.pn160.i, %_ZNSt14_Function_baseD2Ev.exit456.i ], [ %.pn162.i, %_ZNSt14_Function_baseD2Ev.exit458.i ], [ %.pn164.i, %_ZNSt14_Function_baseD2Ev.exit460.i ], [ %.pn166.i, %_ZNSt14_Function_baseD2Ev.exit462.i ], [ %.pn168.i, %_ZNSt14_Function_baseD2Ev.exit464.i ]
   call void @_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev15DynamicPropertyELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %217) #16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %217) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %217)
   call void @_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev33DynamicPropertyGradingPrimaryImplELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %216) #16
   br label %1330
 
 1330:                                             ; preds = %1329, %1223
   %.pn168.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn168.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %1329 ], [ %1224, %1223 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %216) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %216)
   br label %1394
 
 1331:                                             ; preds = %_ZNK19OpenColorIO_v2_5dev20GradingPrimaryOpData26getDynamicPropertyInternalEv.exit.i
@@ -3482,15 +3482,15 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i467.i: ; preds = %1390,
 1394:                                             ; preds = %1369, %1367, %1330, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit444.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit441.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit438.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit435.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit432.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit429.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit426.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit423.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit420.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit417.i
   %.pn168.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn168.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %1330 ], [ %1216, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit444.i ], [ %1208, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit441.i ], [ %1200, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit438.i ], [ %1192, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit435.i ], [ %1184, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit432.i ], [ %1176, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit429.i ], [ %1168, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit426.i ], [ %1160, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit423.i ], [ %1152, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit420.i ], [ %1144, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit417.i ], [ %1370, %1369 ], [ %1368, %1367 ]
   call void @_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev33DynamicPropertyGradingPrimaryImplELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %195) #16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %195) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %195)
   br label %.body
 
 1395:                                             ; preds = %1393, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i467.i, %1378, %1371
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %195) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %195)
   br i1 %292, label %1396, label %1419
 
 1396:                                             ; preds = %1395
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %236) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %236)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %236, ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %1397 unwind label %1409
 
@@ -3508,8 +3508,8 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i467.i: ; preds = %1390,
 
 1403:                                             ; preds = %1401
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %236) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %236) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %237) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %236)
+  call void @llvm.lifetime.start.p0(ptr nonnull %237)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %237, ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %1404 unwind label %1414
 
@@ -3519,7 +3519,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i467.i: ; preds = %1390,
 
 1406:                                             ; preds = %1404
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %237) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %237) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %237)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText6indentEv(ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %1419 unwind label %1407
 
@@ -3541,7 +3541,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i467.i: ; preds = %1390,
 
 1413:                                             ; preds = %1411, %1409
   %.pn81 = phi { ptr, i32 } [ %1412, %1411 ], [ %1410, %1409 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %236) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %236)
   br label %.body
 
 1414:                                             ; preds = %1403
@@ -3557,7 +3557,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i467.i: ; preds = %1390,
 
 1418:                                             ; preds = %1416, %1414
   %.pn83 = phi { ptr, i32 } [ %1417, %1416 ], [ %1415, %1414 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %237) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %237)
   br label %.body
 
 1419:                                             ; preds = %1406, %1395
@@ -3568,7 +3568,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i467.i: ; preds = %1390,
 
 1420:                                             ; preds = %1419
   %.val96 = load ptr, ptr %0, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %173) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %173)
   %1421 = call noundef ptr @_ZNK19OpenColorIO_v2_5dev16GpuShaderCreator12getPixelNameEv(ptr noundef nonnull align 8 dereferenceable(16) %.val96) #16
   %1422 = getelementptr inbounds nuw i8, ptr %173, i64 16
   store ptr %1422, ptr %173, align 8, !tbaa !37
@@ -3577,7 +3577,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i467.i: ; preds = %1390,
 
 1424:                                             ; preds = %1420
   %1425 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1421) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %172) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %172)
   store i64 %1425, ptr %172, align 8, !tbaa !40
   %1426 = icmp ugt i64 %1425, 15
   br i1 %1426, label %.noexc.i.i, label %._crit_edge.i.i.i120
@@ -3615,8 +3615,8 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i467.i: ; preds = %1390,
   %1436 = load ptr, ptr %173, align 8, !tbaa !42
   %1437 = getelementptr inbounds nuw i8, ptr %1436, i64 %1434
   store i8 0, ptr %1437, align 1, !tbaa !28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %172) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %174) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %172)
+  call void @llvm.lifetime.start.p0(ptr nonnull %174)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %174, ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %1438 unwind label %1673
 
@@ -3638,8 +3638,8 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i467.i: ; preds = %1390,
 
 1446:                                             ; preds = %1444
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %174) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %174) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %175) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %174)
+  call void @llvm.lifetime.start.p0(ptr nonnull %175)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %175, ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %1447 unwind label %1678
 
@@ -3685,8 +3685,8 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i467.i: ; preds = %1390,
 
 1467:                                             ; preds = %1465
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %175) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %175) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %176) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %175)
+  call void @llvm.lifetime.start.p0(ptr nonnull %176)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %176, ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %1468 unwind label %1683
 
@@ -3695,8 +3695,8 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i467.i: ; preds = %1390,
           to label %._crit_edge.i.i97.i unwind label %1685
 
 ._crit_edge.i.i97.i:                              ; preds = %1468
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %177) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %178) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %177)
+  call void @llvm.lifetime.start.p0(ptr nonnull %178)
   %1470 = getelementptr inbounds nuw i8, ptr %178, i64 16
   store ptr %1470, ptr %178, align 8, !tbaa !37
   store i16 15649, ptr %1470, align 8
@@ -3704,7 +3704,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i467.i: ; preds = %1390,
   store i64 2, ptr %1471, align 8, !tbaa !44
   %1472 = getelementptr inbounds nuw i8, ptr %178, i64 18
   store i8 0, ptr %1472, align 2, !tbaa !28
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %179) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %179)
   invoke void @_ZNK19OpenColorIO_v2_5dev13GpuShaderText11float3ConstB5cxx11Ef(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %179, ptr noundef nonnull align 8 dereferenceable(764) %230, float noundef 1.000000e+00)
           to label %1473 unwind label %1687
 
@@ -3759,7 +3759,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i10
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit103.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit103.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i101.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i102.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %179) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %179)
   %1495 = load ptr, ptr %178, align 8, !tbaa !42
   %1496 = icmp eq ptr %1495, %1470
   br i1 %1496, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i105.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i104.i
@@ -3777,11 +3777,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i10
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit106.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit106.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i104.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i105.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %178) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %177) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %178)
+  call void @llvm.lifetime.end.p0(ptr nonnull %177)
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %176) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %176) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %180) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %176)
+  call void @llvm.lifetime.start.p0(ptr nonnull %180)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %180, ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %1501 unwind label %1717
 
@@ -3791,18 +3791,18 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit106.i: ; preds = %
 
 1503:                                             ; preds = %1501
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %180) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %180) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %180)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText6indentEv(ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %1504 unwind label %1722
 
 1504:                                             ; preds = %1503
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %181) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %181)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %181, ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %._crit_edge.i.i107.i unwind label %1724
 
 ._crit_edge.i.i107.i:                             ; preds = %1504
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %182) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %183) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %182)
+  call void @llvm.lifetime.start.p0(ptr nonnull %183)
   %1505 = getelementptr inbounds nuw i8, ptr %183, i64 16
   store ptr %1505, ptr %183, align 8, !tbaa !37
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %1505, ptr noundef nonnull align 1 dereferenceable(13) @.str.32, i64 13, i1 false)
@@ -3894,17 +3894,17 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i11
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit116.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit116.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i114.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i115.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %183) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %182) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %183)
+  call void @llvm.lifetime.end.p0(ptr nonnull %182)
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %181) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %181) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %184) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %181)
+  call void @llvm.lifetime.start.p0(ptr nonnull %184)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %184, ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %._crit_edge.i.i117.i unwind label %1745
 
 ._crit_edge.i.i117.i:                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit116.i
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %185) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %186) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %185)
+  call void @llvm.lifetime.start.p0(ptr nonnull %186)
   %1545 = getelementptr inbounds nuw i8, ptr %186, i64 16
   store ptr %1545, ptr %186, align 8, !tbaa !37
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %1545, ptr noundef nonnull align 1 dereferenceable(5) @.str.38, i64 5, i1 false)
@@ -3996,11 +3996,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i12
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit126.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit126.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i124.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i125.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %186) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %185) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %186)
+  call void @llvm.lifetime.end.p0(ptr nonnull %185)
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %184) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %184) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %187) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %184)
+  call void @llvm.lifetime.start.p0(ptr nonnull %187)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %187, ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %1585 unwind label %1766
 
@@ -4030,12 +4030,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit126.i: ; preds = %
 
 1597:                                             ; preds = %1595
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %187) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %187) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %187)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText6dedentEv(ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %1598 unwind label %1722
 
 1598:                                             ; preds = %1597
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %188) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %188)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %188, ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %1599 unwind label %1771
 
@@ -4045,8 +4045,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit126.i: ; preds = %
 
 ._crit_edge.i.i127.i:                             ; preds = %1599
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %188) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %188) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %189) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %188)
+  call void @llvm.lifetime.start.p0(ptr nonnull %189)
   %1601 = getelementptr inbounds nuw i8, ptr %189, i64 16
   store ptr %1601, ptr %189, align 8, !tbaa !37
   store i64 8319388036654527852, ptr %1601, align 8
@@ -4075,14 +4075,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i13
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit133.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit133.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i131.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i132.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %189) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %190) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %189)
+  call void @llvm.lifetime.start.p0(ptr nonnull %190)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %190, ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %._crit_edge.i.i134.i unwind label %1784
 
 ._crit_edge.i.i134.i:                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit133.i
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %191) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %192) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %191)
+  call void @llvm.lifetime.start.p0(ptr nonnull %192)
   %1611 = getelementptr inbounds nuw i8, ptr %192, i64 16
   store ptr %1611, ptr %192, align 8, !tbaa !37
   store i32 1634563436, ptr %1611, align 8
@@ -4146,11 +4146,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i14
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit143.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit143.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i141.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i142.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %192) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %191) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %192)
+  call void @llvm.lifetime.end.p0(ptr nonnull %191)
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %190) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %190) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %193) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %190)
+  call void @llvm.lifetime.start.p0(ptr nonnull %193)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %193, ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %1637 unwind label %1805
 
@@ -4180,8 +4180,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit143.i: ; preds = %
 
 1649:                                             ; preds = %1647
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %193) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %193) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %194) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %193)
+  call void @llvm.lifetime.start.p0(ptr nonnull %194)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %194, ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %1650 unwind label %1810
 
@@ -4219,7 +4219,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit143.i: ; preds = %
 
 1666:                                             ; preds = %1664
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %194) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %194) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %194)
   %1667 = load ptr, ptr %173, align 8, !tbaa !42
   %1668 = icmp eq ptr %1667, %1422
   br i1 %1668, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i145.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i144.i
@@ -4249,7 +4249,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i14
 
 1677:                                             ; preds = %1675, %1673
   %.pn.i = phi { ptr, i32 } [ %1676, %1675 ], [ %1674, %1673 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %174) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %174)
   br label %1815
 
 1678:                                             ; preds = %1446
@@ -4265,7 +4265,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i14
 
 1682:                                             ; preds = %1680, %1678
   %.pn62.i = phi { ptr, i32 } [ %1681, %1680 ], [ %1679, %1678 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %175) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %175)
   br label %1815
 
 1683:                                             ; preds = %1467
@@ -4331,7 +4331,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i15
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit152.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i150.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i151.i, %1687
   %.pn64.pn.i = phi { ptr, i32 } [ %1688, %1687 ], [ %.pn64.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i151.i ], [ %.pn64.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i150.i ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %179) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %179)
   %1709 = load ptr, ptr %178, align 8, !tbaa !42
   %1710 = icmp eq ptr %1709, %1470
   br i1 %1710, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i154.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i153.i
@@ -4349,8 +4349,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i15
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit155.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit155.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i153.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i154.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %178) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %177) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %178)
+  call void @llvm.lifetime.end.p0(ptr nonnull %177)
   br label %1715
 
 1715:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit155.i, %1685
@@ -4360,7 +4360,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit155.i: ; preds = %
 
 1716:                                             ; preds = %1715, %1683
   %.pn64.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn64.pn.pn.pn.i, %1715 ], [ %1684, %1683 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %176) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %176)
   br label %1815
 
 1717:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit106.i
@@ -4376,7 +4376,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit155.i: ; preds = %
 
 1721:                                             ; preds = %1719, %1717
   %.pn70.i = phi { ptr, i32 } [ %1720, %1719 ], [ %1718, %1717 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %180) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %180)
   br label %1815
 
 1722:                                             ; preds = %1597, %1503
@@ -4434,14 +4434,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i15
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit161.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit161.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i159.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i160.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %183) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %182) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %183)
+  call void @llvm.lifetime.end.p0(ptr nonnull %182)
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %181) #16
   br label %1744
 
 1744:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit161.i, %1724
   %.pn72.pn.pn.i = phi { ptr, i32 } [ %.pn72.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit161.i ], [ %1725, %1724 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %181) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %181)
   br label %1815
 
 1745:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit116.i
@@ -4494,14 +4494,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i16
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit167.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit167.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i165.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i166.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %186) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %185) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %186)
+  call void @llvm.lifetime.end.p0(ptr nonnull %185)
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %184) #16
   br label %1765
 
 1765:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit167.i, %1745
   %.pn76.pn.pn.i = phi { ptr, i32 } [ %.pn76.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit167.i ], [ %1746, %1745 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %184) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %184)
   br label %1815
 
 1766:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit126.i
@@ -4517,7 +4517,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit167.i: ; preds = %
 
 1770:                                             ; preds = %1768, %1766
   %.pn80.i = phi { ptr, i32 } [ %1769, %1768 ], [ %1767, %1766 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %187) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %187)
   br label %1815
 
 1771:                                             ; preds = %1598
@@ -4533,7 +4533,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit167.i: ; preds = %
 
 1775:                                             ; preds = %1773, %1771
   %.pn82.i = phi { ptr, i32 } [ %1774, %1773 ], [ %1772, %1771 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %188) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %188)
   br label %1815
 
 1776:                                             ; preds = %._crit_edge.i.i127.i
@@ -4556,7 +4556,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i16
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit170.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit170.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i168.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i169.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %189) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %189)
   br label %1815
 
 1784:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit133.i
@@ -4609,14 +4609,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i17
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit176.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit176.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i174.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i175.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %192) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %191) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %192)
+  call void @llvm.lifetime.end.p0(ptr nonnull %191)
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %190) #16
   br label %1804
 
 1804:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit176.i, %1784
   %.pn86.pn.pn.i = phi { ptr, i32 } [ %.pn86.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit176.i ], [ %1785, %1784 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %190) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %190)
   br label %1815
 
 1805:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit143.i
@@ -4632,7 +4632,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit176.i: ; preds = %
 
 1809:                                             ; preds = %1807, %1805
   %.pn90.i = phi { ptr, i32 } [ %1808, %1807 ], [ %1806, %1805 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %193) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %193)
   br label %1815
 
 1810:                                             ; preds = %1649
@@ -4648,7 +4648,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit176.i: ; preds = %
 
 1814:                                             ; preds = %1812, %1810
   %.pn92.i = phi { ptr, i32 } [ %1813, %1812 ], [ %1811, %1810 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %194) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %194)
   br label %1815
 
 1815:                                             ; preds = %1814, %1809, %1804, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit170.i, %1775, %1770, %1765, %1744, %1722, %1721, %1716, %1682, %1677
@@ -4670,16 +4670,16 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i17
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit179.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit179.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i177.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i178.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %173) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %173)
   br label %.body
 
 _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_121AddGPLogForwardShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextERKNS0_12GPPropertiesE.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i145.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i144.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %173) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %173)
   br label %2258
 
 1822:                                             ; preds = %1419
   %.val97 = load ptr, ptr %0, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %147) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %147)
   %1823 = call noundef ptr @_ZNK19OpenColorIO_v2_5dev16GpuShaderCreator12getPixelNameEv(ptr noundef nonnull align 8 dereferenceable(16) %.val97) #16
   %1824 = getelementptr inbounds nuw i8, ptr %147, i64 16
   store ptr %1824, ptr %147, align 8, !tbaa !37
@@ -4688,7 +4688,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_121AddGPLogForwardShaderERSt10shared_ptrINS
 
 1826:                                             ; preds = %1822
   %1827 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1823) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %146) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %146)
   store i64 %1827, ptr %146, align 8, !tbaa !40
   %1828 = icmp ugt i64 %1827, 15
   br i1 %1828, label %.noexc.i.i157, label %._crit_edge.i.i.i129
@@ -4726,8 +4726,8 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_121AddGPLogForwardShaderERSt10shared_ptrINS
   %1838 = load ptr, ptr %147, align 8, !tbaa !42
   %1839 = getelementptr inbounds nuw i8, ptr %1838, i64 %1836
   store i8 0, ptr %1839, align 1, !tbaa !28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %146) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %148) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %146)
+  call void @llvm.lifetime.start.p0(ptr nonnull %148)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %148, ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %1840 unwind label %2094
 
@@ -4765,8 +4765,8 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_121AddGPLogForwardShaderERSt10shared_ptrINS
 
 1856:                                             ; preds = %1854
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %148) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %148) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %149) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %148)
+  call void @llvm.lifetime.start.p0(ptr nonnull %149)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %149, ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %1857 unwind label %2099
 
@@ -4792,8 +4792,8 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_121AddGPLogForwardShaderERSt10shared_ptrINS
 
 1867:                                             ; preds = %1865
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %149) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %149) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %150) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %149)
+  call void @llvm.lifetime.start.p0(ptr nonnull %150)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %150, ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %1868 unwind label %2104
 
@@ -4803,12 +4803,12 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_121AddGPLogForwardShaderERSt10shared_ptrINS
 
 1870:                                             ; preds = %1868
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %150) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %150) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %150)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText6indentEv(ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %._crit_edge.i.i113.i unwind label %2109
 
 ._crit_edge.i.i113.i:                             ; preds = %1870
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %151) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %151)
   %1871 = getelementptr inbounds nuw i8, ptr %151, i64 16
   store ptr %1871, ptr %151, align 8, !tbaa !37
   store i64 8319388036654527852, ptr %1871, align 8
@@ -4837,14 +4837,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i133
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i133: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i132, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i156
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %151) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %152) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %151)
+  call void @llvm.lifetime.start.p0(ptr nonnull %152)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %152, ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %._crit_edge.i.i117.i134 unwind label %2119
 
 ._crit_edge.i.i117.i134:                          ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i133
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %153) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %154) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %153)
+  call void @llvm.lifetime.start.p0(ptr nonnull %154)
   %1881 = getelementptr inbounds nuw i8, ptr %154, i64 16
   store ptr %1881, ptr %154, align 8, !tbaa !37
   store i32 1634563436, ptr %1881, align 8
@@ -4908,11 +4908,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i12
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit126.i138
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit126.i138: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i124.i137, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i125.i154
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %154) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %153) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %154)
+  call void @llvm.lifetime.end.p0(ptr nonnull %153)
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %152) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %152) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %155) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %152)
+  call void @llvm.lifetime.start.p0(ptr nonnull %155)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %155, ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %1907 unwind label %2140
 
@@ -4942,12 +4942,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit126.i138: ; preds 
 
 1919:                                             ; preds = %1917
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %155) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %155) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %155)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText6dedentEv(ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %1920 unwind label %2109
 
 1920:                                             ; preds = %1919
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %156) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %156)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %156, ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %1921 unwind label %2145
 
@@ -4957,8 +4957,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit126.i138: ; preds 
 
 1923:                                             ; preds = %1921
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %156) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %156) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %157) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %156)
+  call void @llvm.lifetime.start.p0(ptr nonnull %157)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %157, ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %1924 unwind label %2150
 
@@ -4967,8 +4967,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit126.i138: ; preds 
           to label %._crit_edge.i.i127.i140 unwind label %2152
 
 ._crit_edge.i.i127.i140:                          ; preds = %1924
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %158) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %159) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %158)
+  call void @llvm.lifetime.start.p0(ptr nonnull %159)
   %1926 = getelementptr inbounds nuw i8, ptr %159, i64 16
   store ptr %1926, ptr %159, align 8, !tbaa !37
   store i16 15649, ptr %1926, align 8
@@ -4976,7 +4976,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit126.i138: ; preds 
   store i64 2, ptr %1927, align 8, !tbaa !44
   %1928 = getelementptr inbounds nuw i8, ptr %159, i64 18
   store i8 0, ptr %1928, align 2, !tbaa !28
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %160) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %160)
   invoke void @_ZNK19OpenColorIO_v2_5dev13GpuShaderText11float3ConstB5cxx11Ef(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %160, ptr noundef nonnull align 8 dereferenceable(764) %230, float noundef 1.000000e+00)
           to label %1929 unwind label %2154
 
@@ -5031,7 +5031,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i13
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit136.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit136.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i134.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i135.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %160) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %160)
   %1951 = load ptr, ptr %159, align 8, !tbaa !42
   %1952 = icmp eq ptr %1951, %1926
   br i1 %1952, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i138.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i137.i
@@ -5049,11 +5049,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i13
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit139.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit139.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i137.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i138.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %159) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %158) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %159)
+  call void @llvm.lifetime.end.p0(ptr nonnull %158)
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %157) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %157) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %161) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %157)
+  call void @llvm.lifetime.start.p0(ptr nonnull %161)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %161, ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %1957 unwind label %2184
 
@@ -5063,18 +5063,18 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit139.i: ; preds = %
 
 1959:                                             ; preds = %1957
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %161) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %161) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %161)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText6indentEv(ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %1960 unwind label %2109
 
 1960:                                             ; preds = %1959
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %162) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %162)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %162, ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %._crit_edge.i.i140.i unwind label %2189
 
 ._crit_edge.i.i140.i:                             ; preds = %1960
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %163) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %164) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %163)
+  call void @llvm.lifetime.start.p0(ptr nonnull %164)
   %1961 = getelementptr inbounds nuw i8, ptr %164, i64 16
   store ptr %1961, ptr %164, align 8, !tbaa !37
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %1961, ptr noundef nonnull align 1 dereferenceable(13) @.str.32, i64 13, i1 false)
@@ -5166,17 +5166,17 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i14
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit149.i150
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit149.i150: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i147.i149, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i148.i151
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %164) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %163) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %164)
+  call void @llvm.lifetime.end.p0(ptr nonnull %163)
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %162) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %162) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %165) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %162)
+  call void @llvm.lifetime.start.p0(ptr nonnull %165)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %165, ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %._crit_edge.i.i150.i unwind label %2210
 
 ._crit_edge.i.i150.i:                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit149.i150
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %166) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %167) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %166)
+  call void @llvm.lifetime.start.p0(ptr nonnull %167)
   %2001 = getelementptr inbounds nuw i8, ptr %167, i64 16
   store ptr %2001, ptr %167, align 8, !tbaa !37
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %2001, ptr noundef nonnull align 1 dereferenceable(5) @.str.38, i64 5, i1 false)
@@ -5268,11 +5268,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i15
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit159.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit159.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i157.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i158.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %167) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %166) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %167)
+  call void @llvm.lifetime.end.p0(ptr nonnull %166)
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %165) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %165) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %168) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %165)
+  call void @llvm.lifetime.start.p0(ptr nonnull %168)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %168, ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %2041 unwind label %2231
 
@@ -5302,12 +5302,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit159.i: ; preds = %
 
 2053:                                             ; preds = %2051
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %168) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %168) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %168)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText6dedentEv(ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %2054 unwind label %2109
 
 2054:                                             ; preds = %2053
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %169) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %169)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %169, ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %2055 unwind label %2236
 
@@ -5317,8 +5317,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit159.i: ; preds = %
 
 2057:                                             ; preds = %2055
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %169) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %169) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %170) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %169)
+  call void @llvm.lifetime.start.p0(ptr nonnull %170)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %170, ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %2058 unwind label %2241
 
@@ -5364,8 +5364,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit159.i: ; preds = %
 
 2078:                                             ; preds = %2076
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %170) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %170) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %171) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %170)
+  call void @llvm.lifetime.start.p0(ptr nonnull %171)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %171, ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %2079 unwind label %2246
 
@@ -5387,7 +5387,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit159.i: ; preds = %
 
 2087:                                             ; preds = %2085
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %171) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %171) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %171)
   %2088 = load ptr, ptr %147, align 8, !tbaa !42
   %2089 = icmp eq ptr %2088, %1824
   br i1 %2089, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i161.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i160.i
@@ -5417,7 +5417,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i16
 
 2098:                                             ; preds = %2096, %2094
   %.pn.i130 = phi { ptr, i32 } [ %2097, %2096 ], [ %2095, %2094 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %148) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %148)
   br label %2251
 
 2099:                                             ; preds = %1856
@@ -5433,7 +5433,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i16
 
 2103:                                             ; preds = %2101, %2099
   %.pn72.i131 = phi { ptr, i32 } [ %2102, %2101 ], [ %2100, %2099 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %149) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %149)
   br label %2251
 
 2104:                                             ; preds = %1867
@@ -5449,7 +5449,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i16
 
 2108:                                             ; preds = %2106, %2104
   %.pn74.i = phi { ptr, i32 } [ %2107, %2106 ], [ %2105, %2104 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %150) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %150)
   br label %2251
 
 2109:                                             ; preds = %2053, %1959, %1919, %1870
@@ -5477,7 +5477,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i16
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit165.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit165.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i163.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i164.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %151) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %151)
   br label %2251
 
 2119:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i133
@@ -5530,14 +5530,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i16
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit171.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit171.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i169.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i170.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %154) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %153) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %154)
+  call void @llvm.lifetime.end.p0(ptr nonnull %153)
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %152) #16
   br label %2139
 
 2139:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit171.i, %2119
   %.pn78.pn.pn.i = phi { ptr, i32 } [ %.pn78.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit171.i ], [ %2120, %2119 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %152) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %152)
   br label %2251
 
 2140:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit126.i138
@@ -5553,7 +5553,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit171.i: ; preds = %
 
 2144:                                             ; preds = %2142, %2140
   %.pn82.i139 = phi { ptr, i32 } [ %2143, %2142 ], [ %2141, %2140 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %155) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %155)
   br label %2251
 
 2145:                                             ; preds = %1920
@@ -5569,7 +5569,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit171.i: ; preds = %
 
 2149:                                             ; preds = %2147, %2145
   %.pn84.i = phi { ptr, i32 } [ %2148, %2147 ], [ %2146, %2145 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %156) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %156)
   br label %2251
 
 2150:                                             ; preds = %1923
@@ -5635,7 +5635,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i17
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit177.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i175.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i176.i, %2154
   %.pn86.pn.i = phi { ptr, i32 } [ %2155, %2154 ], [ %.pn86.i141, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i176.i ], [ %.pn86.i141, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i175.i ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %160) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %160)
   %2176 = load ptr, ptr %159, align 8, !tbaa !42
   %2177 = icmp eq ptr %2176, %1926
   br i1 %2177, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i179.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i178.i
@@ -5653,8 +5653,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i17
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit180.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit180.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i178.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i179.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %159) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %158) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %159)
+  call void @llvm.lifetime.end.p0(ptr nonnull %158)
   br label %2182
 
 2182:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit180.i, %2152
@@ -5664,7 +5664,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit180.i: ; preds = %
 
 2183:                                             ; preds = %2182, %2150
   %.pn86.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn86.pn.pn.pn.i, %2182 ], [ %2151, %2150 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %157) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %157)
   br label %2251
 
 2184:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit139.i
@@ -5680,7 +5680,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit180.i: ; preds = %
 
 2188:                                             ; preds = %2186, %2184
   %.pn92.i144 = phi { ptr, i32 } [ %2187, %2186 ], [ %2185, %2184 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %161) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %161)
   br label %2251
 
 2189:                                             ; preds = %1960
@@ -5733,14 +5733,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i18
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit186.i146
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit186.i146: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i184.i145, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i185.i147
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %164) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %163) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %164)
+  call void @llvm.lifetime.end.p0(ptr nonnull %163)
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %162) #16
   br label %2209
 
 2209:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit186.i146, %2189
   %.pn94.pn.pn.i = phi { ptr, i32 } [ %.pn94.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit186.i146 ], [ %2190, %2189 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %162) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %162)
   br label %2251
 
 2210:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit149.i150
@@ -5793,14 +5793,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i19
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit192.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit192.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i190.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i191.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %167) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %166) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %167)
+  call void @llvm.lifetime.end.p0(ptr nonnull %166)
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %165) #16
   br label %2230
 
 2230:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit192.i, %2210
   %.pn98.pn.pn.i = phi { ptr, i32 } [ %.pn98.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit192.i ], [ %2211, %2210 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %165) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %165)
   br label %2251
 
 2231:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit159.i
@@ -5816,7 +5816,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit192.i: ; preds = %
 
 2235:                                             ; preds = %2233, %2231
   %.pn102.i = phi { ptr, i32 } [ %2234, %2233 ], [ %2232, %2231 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %168) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %168)
   br label %2251
 
 2236:                                             ; preds = %2054
@@ -5832,7 +5832,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit192.i: ; preds = %
 
 2240:                                             ; preds = %2238, %2236
   %.pn104.i = phi { ptr, i32 } [ %2239, %2238 ], [ %2237, %2236 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %169) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %169)
   br label %2251
 
 2241:                                             ; preds = %2057
@@ -5848,7 +5848,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit192.i: ; preds = %
 
 2245:                                             ; preds = %2243, %2241
   %.pn106.i = phi { ptr, i32 } [ %2244, %2243 ], [ %2242, %2241 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %170) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %170)
   br label %2251
 
 2246:                                             ; preds = %2078
@@ -5864,7 +5864,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit192.i: ; preds = %
 
 2250:                                             ; preds = %2248, %2246
   %.pn108.i = phi { ptr, i32 } [ %2249, %2248 ], [ %2247, %2246 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %171) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %171)
   br label %2251
 
 2251:                                             ; preds = %2250, %2245, %2240, %2235, %2230, %2209, %2188, %2183, %2149, %2144, %2139, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit165.i, %2109, %2108, %2103, %2098
@@ -5886,11 +5886,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i19
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit195.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit195.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i193.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i194.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %147) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %147)
   br label %.body
 
 _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_121AddGPLogInverseShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextERKNS0_12GPPropertiesE.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i161.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i160.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %147) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %147)
   br label %2258
 
 2258:                                             ; preds = %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_121AddGPLogInverseShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextERKNS0_12GPPropertiesE.exit, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_121AddGPLogForwardShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextERKNS0_12GPPropertiesE.exit, %1419
@@ -5901,7 +5901,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_121AddGPLogInverseShaderERSt10shared_ptrINS
           to label %2260 unwind label %1407
 
 2260:                                             ; preds = %2259
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %238) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %238)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %238, ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %2261 unwind label %2264
 
@@ -5911,7 +5911,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_121AddGPLogInverseShaderERSt10shared_ptrINS
 
 2263:                                             ; preds = %2261
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %238) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %238) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %238)
   br label %5440
 
 2264:                                             ; preds = %2260
@@ -5927,7 +5927,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_121AddGPLogInverseShaderERSt10shared_ptrINS
 
 2268:                                             ; preds = %2266, %2264
   %.pn85 = phi { ptr, i32 } [ %2267, %2266 ], [ %2265, %2264 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %238) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %238)
   br label %.body
 
 2269:                                             ; preds = %361
@@ -5936,7 +5936,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_121AddGPLogInverseShaderERSt10shared_ptrINS
   %.val98.val = load ptr, ptr %2270, align 8, !tbaa !14, !noalias !97
   %2271 = getelementptr i8, ptr %.val98, i64 184
   %.val98.val99 = load ptr, ptr %2271, align 8, !tbaa !20, !noalias !97
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %119) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %119)
   call void @llvm.experimental.noalias.scope.decl(metadata !100)
   store ptr %.val98.val, ptr %119, align 8, !tbaa !14, !alias.scope !100
   %2272 = getelementptr inbounds nuw i8, ptr %119, i64 8
@@ -5964,8 +5964,8 @@ _ZNK19OpenColorIO_v2_5dev20GradingPrimaryOpData26getDynamicPropertyInternalEv.ex
   br i1 %292, label %._crit_edge.i.i.i166, label %3003
 
 ._crit_edge.i.i.i166:                             ; preds = %_ZNK19OpenColorIO_v2_5dev20GradingPrimaryOpData26getDynamicPropertyInternalEv.exit.i165
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %120) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %121) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %120)
+  call void @llvm.lifetime.start.p0(ptr nonnull %121)
   %2281 = getelementptr inbounds nuw i8, ptr %121, i64 16
   store ptr %2281, ptr %121, align 8, !tbaa !37
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %2281, ptr noundef nonnull align 16 dereferenceable(15) @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18opPrefixE, i64 15, i1 false)
@@ -6095,10 +6095,10 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i15
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit152.i174
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit152.i174: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i150.i173, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i151.i196
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %121) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %120) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %122) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %123) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %121)
+  call void @llvm.lifetime.end.p0(ptr nonnull %120)
+  call void @llvm.lifetime.start.p0(ptr nonnull %122)
+  call void @llvm.lifetime.start.p0(ptr nonnull %123)
   %2331 = getelementptr inbounds nuw i8, ptr %123, i64 16
   store ptr %2331, ptr %123, align 8, !tbaa !37
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %2331, ptr noundef nonnull align 16 dereferenceable(15) @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18opPrefixE, i64 15, i1 false)
@@ -6228,10 +6228,10 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i16
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit171.i178
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit171.i178: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i169.i177, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i170.i194
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %123) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %122) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %124) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %125) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %123)
+  call void @llvm.lifetime.end.p0(ptr nonnull %122)
+  call void @llvm.lifetime.start.p0(ptr nonnull %124)
+  call void @llvm.lifetime.start.p0(ptr nonnull %125)
   %2381 = getelementptr inbounds nuw i8, ptr %125, i64 16
   store ptr %2381, ptr %125, align 8, !tbaa !37
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %2381, ptr noundef nonnull align 16 dereferenceable(15) @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18opPrefixE, i64 15, i1 false)
@@ -6361,10 +6361,10 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i18
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit190.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit190.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i188.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i189.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %125) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %124) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %126) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %127) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %125)
+  call void @llvm.lifetime.end.p0(ptr nonnull %124)
+  call void @llvm.lifetime.start.p0(ptr nonnull %126)
+  call void @llvm.lifetime.start.p0(ptr nonnull %127)
   %2431 = getelementptr inbounds nuw i8, ptr %127, i64 16
   store ptr %2431, ptr %127, align 8, !tbaa !37
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %2431, ptr noundef nonnull align 16 dereferenceable(15) @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18opPrefixE, i64 15, i1 false)
@@ -6494,10 +6494,10 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i20
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit209.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit209.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i207.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i208.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %127) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %126) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %128) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %129) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %127)
+  call void @llvm.lifetime.end.p0(ptr nonnull %126)
+  call void @llvm.lifetime.start.p0(ptr nonnull %128)
+  call void @llvm.lifetime.start.p0(ptr nonnull %129)
   %2481 = getelementptr inbounds nuw i8, ptr %129, i64 16
   store ptr %2481, ptr %129, align 8, !tbaa !37
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %2481, ptr noundef nonnull align 16 dereferenceable(15) @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18opPrefixE, i64 15, i1 false)
@@ -6627,10 +6627,10 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i22
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit228.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit228.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i226.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i227.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %129) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %128) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %130) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %131) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %129)
+  call void @llvm.lifetime.end.p0(ptr nonnull %128)
+  call void @llvm.lifetime.start.p0(ptr nonnull %130)
+  call void @llvm.lifetime.start.p0(ptr nonnull %131)
   %2531 = getelementptr inbounds nuw i8, ptr %131, i64 16
   store ptr %2531, ptr %131, align 8, !tbaa !37
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %2531, ptr noundef nonnull align 16 dereferenceable(15) @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18opPrefixE, i64 15, i1 false)
@@ -6760,10 +6760,10 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i24
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit247.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit247.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i245.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i246.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %131) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %130) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %132) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %133) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %131)
+  call void @llvm.lifetime.end.p0(ptr nonnull %130)
+  call void @llvm.lifetime.start.p0(ptr nonnull %132)
+  call void @llvm.lifetime.start.p0(ptr nonnull %133)
   %2581 = getelementptr inbounds nuw i8, ptr %133, i64 16
   store ptr %2581, ptr %133, align 8, !tbaa !37
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %2581, ptr noundef nonnull align 16 dereferenceable(15) @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18opPrefixE, i64 15, i1 false)
@@ -6893,10 +6893,10 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i26
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit266.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit266.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i264.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i265.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %133) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %132) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %134) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %135) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %133)
+  call void @llvm.lifetime.end.p0(ptr nonnull %132)
+  call void @llvm.lifetime.start.p0(ptr nonnull %134)
+  call void @llvm.lifetime.start.p0(ptr nonnull %135)
   %2631 = getelementptr inbounds nuw i8, ptr %135, i64 16
   store ptr %2631, ptr %135, align 8, !tbaa !37
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %2631, ptr noundef nonnull align 16 dereferenceable(15) @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18opPrefixE, i64 15, i1 false)
@@ -7026,15 +7026,15 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i28
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit285.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit285.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i283.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i284.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %135) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %134) #16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %136) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %135)
+  call void @llvm.lifetime.end.p0(ptr nonnull %134)
+  call void @llvm.lifetime.start.p0(ptr nonnull %136)
   %2681 = load ptr, ptr %119, align 8, !tbaa !14
   invoke void @_ZNK19OpenColorIO_v2_5dev33DynamicPropertyGradingPrimaryImpl18createEditableCopyEv(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr.8") align 8 %136, ptr noundef nonnull align 8 dereferenceable(392) %2681)
           to label %2682 unwind label %2915
 
 2682:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit285.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %137) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %137)
   %2683 = load ptr, ptr %136, align 8, !tbaa !14
   store ptr %2683, ptr %137, align 8, !tbaa !70
   %2684 = getelementptr inbounds nuw i8, ptr %137, i64 8
@@ -7074,7 +7074,7 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_5dev15DynamicPropertyEEC2INS0_33DynamicPrope
           to label %2702 unwind label %2919
 
 2702:                                             ; preds = %2696
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %138) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %138)
   %2703 = getelementptr inbounds nuw i8, ptr %138, i64 16
   %2704 = getelementptr inbounds nuw i8, ptr %138, i64 8
   store i64 0, ptr %2704, align 8
@@ -7111,8 +7111,8 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_5dev15DynamicPropertyEEC2INS0_33DynamicPrope
   unreachable
 
 2715:                                             ; preds = %2710, %2708
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %138) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %139) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %138)
+  call void @llvm.lifetime.start.p0(ptr nonnull %139)
   %2716 = getelementptr inbounds nuw i8, ptr %139, i64 16
   %2717 = getelementptr inbounds nuw i8, ptr %139, i64 8
   store i64 0, ptr %2717, align 8
@@ -7149,8 +7149,8 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_5dev15DynamicPropertyEEC2INS0_33DynamicPrope
   unreachable
 
 2728:                                             ; preds = %2723, %2721
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %139) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %140) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %139)
+  call void @llvm.lifetime.start.p0(ptr nonnull %140)
   %2729 = getelementptr inbounds nuw i8, ptr %140, i64 16
   %2730 = getelementptr inbounds nuw i8, ptr %140, i64 8
   store i64 0, ptr %2730, align 8
@@ -7187,8 +7187,8 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_5dev15DynamicPropertyEEC2INS0_33DynamicPrope
   unreachable
 
 2741:                                             ; preds = %2736, %2734
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %140) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %141) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %140)
+  call void @llvm.lifetime.start.p0(ptr nonnull %141)
   %2742 = getelementptr inbounds nuw i8, ptr %141, i64 16
   %2743 = getelementptr inbounds nuw i8, ptr %141, i64 8
   store i64 0, ptr %2743, align 8
@@ -7225,8 +7225,8 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_5dev15DynamicPropertyEEC2INS0_33DynamicPrope
   unreachable
 
 2754:                                             ; preds = %2749, %2747
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %141) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %142) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %141)
+  call void @llvm.lifetime.start.p0(ptr nonnull %142)
   %2755 = getelementptr inbounds nuw i8, ptr %142, i64 16
   %2756 = getelementptr inbounds nuw i8, ptr %142, i64 8
   store i64 0, ptr %2756, align 8
@@ -7261,8 +7261,8 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_5dev15DynamicPropertyEEC2INS0_33DynamicPrope
   unreachable
 
 2767:                                             ; preds = %2762, %2760
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %142) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %143) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %142)
+  call void @llvm.lifetime.start.p0(ptr nonnull %143)
   %2768 = getelementptr inbounds nuw i8, ptr %143, i64 16
   %2769 = getelementptr inbounds nuw i8, ptr %143, i64 8
   store i64 0, ptr %2769, align 8
@@ -7297,8 +7297,8 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_5dev15DynamicPropertyEEC2INS0_33DynamicPrope
   unreachable
 
 2780:                                             ; preds = %2775, %2773
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %143) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %144) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %143)
+  call void @llvm.lifetime.start.p0(ptr nonnull %144)
   %2781 = getelementptr inbounds nuw i8, ptr %144, i64 16
   %2782 = getelementptr inbounds nuw i8, ptr %144, i64 8
   store i64 0, ptr %2782, align 8
@@ -7333,9 +7333,9 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_5dev15DynamicPropertyEEC2INS0_33DynamicPrope
   unreachable
 
 2793:                                             ; preds = %2788, %2786
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %144) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %144)
   %2794 = load ptr, ptr %136, align 8, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %145) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %145)
   %2795 = getelementptr inbounds nuw i8, ptr %145, i64 16
   %2796 = getelementptr inbounds nuw i8, ptr %145, i64 8
   store i64 0, ptr %2796, align 8
@@ -7372,7 +7372,7 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_5dev15DynamicPropertyEEC2INS0_33DynamicPrope
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit329.i:              ; preds = %2802, %2800
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %145) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %145)
   %2807 = load ptr, ptr %2684, align 8, !tbaa !20
   %.not.i.i.i189 = icmp eq ptr %2807, null
   br i1 %.not.i.i.i189, label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev15DynamicPropertyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i192, label %2808
@@ -7422,7 +7422,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i190: ; preds = %2825,
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev15DynamicPropertyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i192
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev15DynamicPropertyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i192: ; preds = %2828, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i190, %2813, %_ZNSt14_Function_baseD2Ev.exit329.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %137) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %137)
   %2829 = load ptr, ptr %2685, align 8, !tbaa !20
   %.not.i.i331.i = icmp eq ptr %2829, null
   br i1 %.not.i.i331.i, label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev33DynamicPropertyGradingPrimaryImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i193, label %2830
@@ -7472,7 +7472,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i333.i: ; preds = %2847,
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev33DynamicPropertyGradingPrimaryImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i193
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev33DynamicPropertyGradingPrimaryImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i193: ; preds = %2850, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i333.i, %2835, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev15DynamicPropertyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i192
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %136) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %136)
   br label %3035
 
 2851:                                             ; preds = %._crit_edge.i.i.i166
@@ -7495,8 +7495,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i33
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit337.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit337.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i335.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i336.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %121) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %120) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %121)
+  call void @llvm.lifetime.end.p0(ptr nonnull %120)
   br label %3058
 
 2859:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit152.i174
@@ -7519,8 +7519,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i33
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit340.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit340.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i338.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i339.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %123) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %122) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %123)
+  call void @llvm.lifetime.end.p0(ptr nonnull %122)
   br label %3058
 
 2867:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit171.i178
@@ -7543,8 +7543,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i34
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit343.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit343.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i341.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i342.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %125) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %124) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %125)
+  call void @llvm.lifetime.end.p0(ptr nonnull %124)
   br label %3058
 
 2875:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit190.i
@@ -7567,8 +7567,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i34
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit346.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit346.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i344.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i345.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %127) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %126) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %127)
+  call void @llvm.lifetime.end.p0(ptr nonnull %126)
   br label %3058
 
 2883:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit209.i
@@ -7591,8 +7591,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i34
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit349.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit349.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i347.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i348.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %129) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %128) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %129)
+  call void @llvm.lifetime.end.p0(ptr nonnull %128)
   br label %3058
 
 2891:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit228.i
@@ -7615,8 +7615,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i35
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit352.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit352.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i350.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i351.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %131) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %130) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %131)
+  call void @llvm.lifetime.end.p0(ptr nonnull %130)
   br label %3058
 
 2899:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit247.i
@@ -7639,8 +7639,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i35
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit355.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit355.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i353.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i354.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %133) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %132) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %133)
+  call void @llvm.lifetime.end.p0(ptr nonnull %132)
   br label %3058
 
 2907:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit266.i
@@ -7663,8 +7663,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i35
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit358.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit358.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i356.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i357.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %135) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %134) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %135)
+  call void @llvm.lifetime.end.p0(ptr nonnull %134)
   br label %3058
 
 2915:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit285.i
@@ -7707,7 +7707,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit358.i: ; preds = %
 
 _ZNSt14_Function_baseD2Ev.exit360.i:              ; preds = %2926, %2923, %2921
   %.pn122.i = phi { ptr, i32 } [ %2922, %2921 ], [ %2924, %2923 ], [ %2924, %2926 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %138) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %138)
   br label %3001
 
 2931:                                             ; preds = %2715
@@ -7735,7 +7735,7 @@ _ZNSt14_Function_baseD2Ev.exit360.i:              ; preds = %2926, %2923, %2921
 
 _ZNSt14_Function_baseD2Ev.exit362.i:              ; preds = %2936, %2933, %2931
   %.pn124.i = phi { ptr, i32 } [ %2932, %2931 ], [ %2934, %2933 ], [ %2934, %2936 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %139) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %139)
   br label %3001
 
 2941:                                             ; preds = %2728
@@ -7763,7 +7763,7 @@ _ZNSt14_Function_baseD2Ev.exit362.i:              ; preds = %2936, %2933, %2931
 
 _ZNSt14_Function_baseD2Ev.exit364.i:              ; preds = %2946, %2943, %2941
   %.pn126.i = phi { ptr, i32 } [ %2942, %2941 ], [ %2944, %2943 ], [ %2944, %2946 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %140) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %140)
   br label %3001
 
 2951:                                             ; preds = %2741
@@ -7791,7 +7791,7 @@ _ZNSt14_Function_baseD2Ev.exit364.i:              ; preds = %2946, %2943, %2941
 
 _ZNSt14_Function_baseD2Ev.exit366.i:              ; preds = %2956, %2953, %2951
   %.pn128.i = phi { ptr, i32 } [ %2952, %2951 ], [ %2954, %2953 ], [ %2954, %2956 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %141) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %141)
   br label %3001
 
 2961:                                             ; preds = %2754
@@ -7819,7 +7819,7 @@ _ZNSt14_Function_baseD2Ev.exit366.i:              ; preds = %2956, %2953, %2951
 
 _ZNSt14_Function_baseD2Ev.exit368.i:              ; preds = %2966, %2963, %2961
   %.pn130.i = phi { ptr, i32 } [ %2962, %2961 ], [ %2964, %2963 ], [ %2964, %2966 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %142) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %142)
   br label %3001
 
 2971:                                             ; preds = %2767
@@ -7847,7 +7847,7 @@ _ZNSt14_Function_baseD2Ev.exit368.i:              ; preds = %2966, %2963, %2961
 
 _ZNSt14_Function_baseD2Ev.exit370.i:              ; preds = %2976, %2973, %2971
   %.pn132.i = phi { ptr, i32 } [ %2972, %2971 ], [ %2974, %2973 ], [ %2974, %2976 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %143) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %143)
   br label %3001
 
 2981:                                             ; preds = %2780
@@ -7875,7 +7875,7 @@ _ZNSt14_Function_baseD2Ev.exit370.i:              ; preds = %2976, %2973, %2971
 
 _ZNSt14_Function_baseD2Ev.exit372.i:              ; preds = %2986, %2983, %2981
   %.pn134.i = phi { ptr, i32 } [ %2982, %2981 ], [ %2984, %2983 ], [ %2984, %2986 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %144) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %144)
   br label %3001
 
 2991:                                             ; preds = %2793
@@ -7903,19 +7903,19 @@ _ZNSt14_Function_baseD2Ev.exit372.i:              ; preds = %2986, %2983, %2981
 
 _ZNSt14_Function_baseD2Ev.exit374.i:              ; preds = %2996, %2993, %2991
   %.pn136.i = phi { ptr, i32 } [ %2992, %2991 ], [ %2994, %2993 ], [ %2994, %2996 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %145) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %145)
   br label %3001
 
 3001:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit374.i, %_ZNSt14_Function_baseD2Ev.exit372.i, %_ZNSt14_Function_baseD2Ev.exit370.i, %_ZNSt14_Function_baseD2Ev.exit368.i, %_ZNSt14_Function_baseD2Ev.exit366.i, %_ZNSt14_Function_baseD2Ev.exit364.i, %_ZNSt14_Function_baseD2Ev.exit362.i, %_ZNSt14_Function_baseD2Ev.exit360.i, %2919, %2917
   %.pn136.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %2918, %2917 ], [ %2920, %2919 ], [ %.pn122.i, %_ZNSt14_Function_baseD2Ev.exit360.i ], [ %.pn124.i, %_ZNSt14_Function_baseD2Ev.exit362.i ], [ %.pn126.i, %_ZNSt14_Function_baseD2Ev.exit364.i ], [ %.pn128.i, %_ZNSt14_Function_baseD2Ev.exit366.i ], [ %.pn130.i, %_ZNSt14_Function_baseD2Ev.exit368.i ], [ %.pn132.i, %_ZNSt14_Function_baseD2Ev.exit370.i ], [ %.pn134.i, %_ZNSt14_Function_baseD2Ev.exit372.i ], [ %.pn136.i, %_ZNSt14_Function_baseD2Ev.exit374.i ]
   call void @_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev15DynamicPropertyELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %137) #16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %137) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %137)
   call void @_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev33DynamicPropertyGradingPrimaryImplELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %136) #16
   br label %3002
 
 3002:                                             ; preds = %3001, %2915
   %.pn136.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn136.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %3001 ], [ %2916, %2915 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %136) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %136)
   br label %3058
 
 3003:                                             ; preds = %_ZNK19OpenColorIO_v2_5dev20GradingPrimaryOpData26getDynamicPropertyInternalEv.exit.i165
@@ -8031,15 +8031,15 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i377.i: ; preds = %3054,
 3058:                                             ; preds = %3033, %3031, %3002, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit358.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit355.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit352.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit349.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit346.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit343.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit340.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit337.i
   %.pn136.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn136.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %3002 ], [ %2908, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit358.i ], [ %2900, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit355.i ], [ %2892, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit352.i ], [ %2884, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit349.i ], [ %2876, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit346.i ], [ %2868, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit343.i ], [ %2860, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit340.i ], [ %2852, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit337.i ], [ %3034, %3033 ], [ %3032, %3031 ]
   call void @_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev33DynamicPropertyGradingPrimaryImplELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %119) #16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %119) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %119)
   br label %.body
 
 3059:                                             ; preds = %3057, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i377.i, %3042, %3035
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %119) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %119)
   br i1 %292, label %3060, label %3081
 
 3060:                                             ; preds = %3059
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %239) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %239)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %239, ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %3061 unwind label %3071
 
@@ -8057,8 +8057,8 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i377.i: ; preds = %3054,
 
 3067:                                             ; preds = %3065
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %239) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %239) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %240) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %239)
+  call void @llvm.lifetime.start.p0(ptr nonnull %240)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %240, ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %3068 unwind label %3076
 
@@ -8068,7 +8068,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i377.i: ; preds = %3054,
 
 3070:                                             ; preds = %3068
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %240) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %240) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %240)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText6indentEv(ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %3081 unwind label %1407
 
@@ -8085,7 +8085,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i377.i: ; preds = %3054,
 
 3075:                                             ; preds = %3073, %3071
   %.pn75 = phi { ptr, i32 } [ %3074, %3073 ], [ %3072, %3071 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %239) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %239)
   br label %.body
 
 3076:                                             ; preds = %3067
@@ -8101,7 +8101,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i377.i: ; preds = %3054,
 
 3080:                                             ; preds = %3078, %3076
   %.pn77 = phi { ptr, i32 } [ %3079, %3078 ], [ %3077, %3076 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %240) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %240)
   br label %.body
 
 3081:                                             ; preds = %3070, %3059
@@ -8112,7 +8112,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i377.i: ; preds = %3054,
 
 3082:                                             ; preds = %3081
   %.val100 = load ptr, ptr %0, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %103) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %103)
   %3083 = call noundef ptr @_ZNK19OpenColorIO_v2_5dev16GpuShaderCreator12getPixelNameEv(ptr noundef nonnull align 8 dereferenceable(16) %.val100) #16
   %3084 = getelementptr inbounds nuw i8, ptr %103, i64 16
   store ptr %3084, ptr %103, align 8, !tbaa !37
@@ -8121,7 +8121,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i377.i: ; preds = %3054,
 
 3086:                                             ; preds = %3082
   %3087 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %3083) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %102) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %102)
   store i64 %3087, ptr %102, align 8, !tbaa !40
   %3088 = icmp ugt i64 %3087, 15
   br i1 %3088, label %.noexc.i.i215, label %._crit_edge.i.i.i204
@@ -8159,8 +8159,8 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i377.i: ; preds = %3054,
   %3098 = load ptr, ptr %103, align 8, !tbaa !42
   %3099 = getelementptr inbounds nuw i8, ptr %3098, i64 %3096
   store i8 0, ptr %3099, align 1, !tbaa !28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %102) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %104) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %102)
+  call void @llvm.lifetime.start.p0(ptr nonnull %104)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %104, ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %3100 unwind label %3257
 
@@ -8182,8 +8182,8 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i377.i: ; preds = %3054,
 
 3108:                                             ; preds = %3106
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %104) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %104) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %105) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %104)
+  call void @llvm.lifetime.start.p0(ptr nonnull %105)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %105, ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %3109 unwind label %3262
 
@@ -8205,8 +8205,8 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i377.i: ; preds = %3054,
 
 3117:                                             ; preds = %3115
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %105) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %105) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %106) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %105)
+  call void @llvm.lifetime.start.p0(ptr nonnull %106)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %106, ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %3118 unwind label %3267
 
@@ -8215,8 +8215,8 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i377.i: ; preds = %3054,
           to label %._crit_edge.i.i72.i unwind label %3269
 
 ._crit_edge.i.i72.i:                              ; preds = %3118
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %107) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %108) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %107)
+  call void @llvm.lifetime.start.p0(ptr nonnull %108)
   %3120 = getelementptr inbounds nuw i8, ptr %108, i64 16
   store ptr %3120, ptr %108, align 8, !tbaa !37
   store i16 15649, ptr %3120, align 8
@@ -8224,7 +8224,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i377.i: ; preds = %3054,
   store i64 2, ptr %3121, align 8, !tbaa !44
   %3122 = getelementptr inbounds nuw i8, ptr %108, i64 18
   store i8 0, ptr %3122, align 2, !tbaa !28
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %109) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %109)
   invoke void @_ZNK19OpenColorIO_v2_5dev13GpuShaderText11float3ConstB5cxx11Ef(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %109, ptr noundef nonnull align 8 dereferenceable(764) %230, float noundef 1.000000e+00)
           to label %3123 unwind label %3271
 
@@ -8279,7 +8279,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i76
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit78.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit78.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i76.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i77.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %109) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %109)
   %3145 = load ptr, ptr %108, align 8, !tbaa !42
   %3146 = icmp eq ptr %3145, %3120
   br i1 %3146, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i80.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i79.i
@@ -8297,11 +8297,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i79
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit81.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit81.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i79.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i80.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %108) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %107) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %108)
+  call void @llvm.lifetime.end.p0(ptr nonnull %107)
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %106) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %106) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %110) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %106)
+  call void @llvm.lifetime.start.p0(ptr nonnull %110)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %110, ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %3151 unwind label %3301
 
@@ -8311,12 +8311,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit81.i: ; preds = %_
 
 3153:                                             ; preds = %3151
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %110) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %110) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %110)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText6indentEv(ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %3154 unwind label %3306
 
 3154:                                             ; preds = %3153
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %111) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %111)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %111, ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %3155 unwind label %3308
 
@@ -8374,12 +8374,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit81.i: ; preds = %_
 
 3181:                                             ; preds = %3179
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %111) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %111) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %111)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText6dedentEv(ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %3182 unwind label %3306
 
 3182:                                             ; preds = %3181
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %112) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %112)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %112, ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %3183 unwind label %3313
 
@@ -8389,8 +8389,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit81.i: ; preds = %_
 
 ._crit_edge.i.i82.i:                              ; preds = %3183
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %112) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %112) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %113) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %112)
+  call void @llvm.lifetime.start.p0(ptr nonnull %113)
   %3185 = getelementptr inbounds nuw i8, ptr %113, i64 16
   store ptr %3185, ptr %113, align 8, !tbaa !37
   store i64 8319388036654527852, ptr %3185, align 8
@@ -8419,14 +8419,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i86
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit88.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit88.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i86.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i87.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %113) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %114) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %113)
+  call void @llvm.lifetime.start.p0(ptr nonnull %114)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %114, ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %._crit_edge.i.i89.i unwind label %3326
 
 ._crit_edge.i.i89.i:                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit88.i
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %115) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %116) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %115)
+  call void @llvm.lifetime.start.p0(ptr nonnull %116)
   %3195 = getelementptr inbounds nuw i8, ptr %116, i64 16
   store ptr %3195, ptr %116, align 8, !tbaa !37
   store i32 1634563436, ptr %3195, align 8
@@ -8490,11 +8490,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i96
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit98.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit98.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i96.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i97.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %116) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %115) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %116)
+  call void @llvm.lifetime.end.p0(ptr nonnull %115)
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %114) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %114) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %117) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %114)
+  call void @llvm.lifetime.start.p0(ptr nonnull %117)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %117, ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %3221 unwind label %3347
 
@@ -8524,8 +8524,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit98.i: ; preds = %_
 
 3233:                                             ; preds = %3231
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %117) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %117) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %118) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %117)
+  call void @llvm.lifetime.start.p0(ptr nonnull %118)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %118, ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %3234 unwind label %3352
 
@@ -8563,7 +8563,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit98.i: ; preds = %_
 
 3250:                                             ; preds = %3248
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %118) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %118) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %118)
   %3251 = load ptr, ptr %103, align 8, !tbaa !42
   %3252 = icmp eq ptr %3251, %3084
   br i1 %3252, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i100.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i99.i
@@ -8593,7 +8593,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i99
 
 3261:                                             ; preds = %3259, %3257
   %.pn.i205 = phi { ptr, i32 } [ %3260, %3259 ], [ %3258, %3257 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %104) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %104)
   br label %3357
 
 3262:                                             ; preds = %3108
@@ -8609,7 +8609,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i99
 
 3266:                                             ; preds = %3264, %3262
   %.pn45.i = phi { ptr, i32 } [ %3265, %3264 ], [ %3263, %3262 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %105) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %105)
   br label %3357
 
 3267:                                             ; preds = %3117
@@ -8675,7 +8675,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i10
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit107.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i105.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i106.i, %3271
   %.pn47.pn.i = phi { ptr, i32 } [ %3272, %3271 ], [ %.pn47.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i106.i ], [ %.pn47.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i105.i ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %109) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %109)
   %3293 = load ptr, ptr %108, align 8, !tbaa !42
   %3294 = icmp eq ptr %3293, %3120
   br i1 %3294, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i109.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i108.i
@@ -8693,8 +8693,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i10
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit110.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit110.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i108.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i109.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %108) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %107) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %108)
+  call void @llvm.lifetime.end.p0(ptr nonnull %107)
   br label %3299
 
 3299:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit110.i, %3269
@@ -8704,7 +8704,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit110.i: ; preds = %
 
 3300:                                             ; preds = %3299, %3267
   %.pn47.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn47.pn.pn.pn.i, %3299 ], [ %3268, %3267 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %106) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %106)
   br label %3357
 
 3301:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit81.i
@@ -8720,7 +8720,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit110.i: ; preds = %
 
 3305:                                             ; preds = %3303, %3301
   %.pn53.i = phi { ptr, i32 } [ %3304, %3303 ], [ %3302, %3301 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %110) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %110)
   br label %3357
 
 3306:                                             ; preds = %3181, %3153
@@ -8741,7 +8741,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit110.i: ; preds = %
 
 3312:                                             ; preds = %3310, %3308
   %.pn55.i = phi { ptr, i32 } [ %3311, %3310 ], [ %3309, %3308 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %111) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %111)
   br label %3357
 
 3313:                                             ; preds = %3182
@@ -8757,7 +8757,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit110.i: ; preds = %
 
 3317:                                             ; preds = %3315, %3313
   %.pn57.i = phi { ptr, i32 } [ %3316, %3315 ], [ %3314, %3313 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %112) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %112)
   br label %3357
 
 3318:                                             ; preds = %._crit_edge.i.i82.i
@@ -8780,7 +8780,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i11
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit113.i209
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit113.i209: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i111.i208, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i112.i210
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %113) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %113)
   br label %3357
 
 3326:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit88.i
@@ -8833,14 +8833,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i11
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit119.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit119.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i117.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i118.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %116) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %115) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %116)
+  call void @llvm.lifetime.end.p0(ptr nonnull %115)
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %114) #16
   br label %3346
 
 3346:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit119.i, %3326
   %.pn61.pn.pn.i = phi { ptr, i32 } [ %.pn61.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit119.i ], [ %3327, %3326 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %114) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %114)
   br label %3357
 
 3347:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit98.i
@@ -8856,7 +8856,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit119.i: ; preds = %
 
 3351:                                             ; preds = %3349, %3347
   %.pn65.i = phi { ptr, i32 } [ %3350, %3349 ], [ %3348, %3347 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %117) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %117)
   br label %3357
 
 3352:                                             ; preds = %3233
@@ -8872,7 +8872,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit119.i: ; preds = %
 
 3356:                                             ; preds = %3354, %3352
   %.pn67.i = phi { ptr, i32 } [ %3355, %3354 ], [ %3353, %3352 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %118) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %118)
   br label %3357
 
 3357:                                             ; preds = %3356, %3351, %3346, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit113.i209, %3317, %3312, %3306, %3305, %3300, %3266, %3261
@@ -8894,16 +8894,16 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i12
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit122.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit122.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i120.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i121.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %103) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %103)
   br label %.body
 
 _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_121AddGPLinForwardShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextERKNS0_12GPPropertiesE.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i100.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i99.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %103) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %103)
   br label %3680
 
 3364:                                             ; preds = %3081
   %.val101 = load ptr, ptr %0, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %83) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %83)
   %3365 = call noundef ptr @_ZNK19OpenColorIO_v2_5dev16GpuShaderCreator12getPixelNameEv(ptr noundef nonnull align 8 dereferenceable(16) %.val101) #16
   %3366 = getelementptr inbounds nuw i8, ptr %83, i64 16
   store ptr %3366, ptr %83, align 8, !tbaa !37
@@ -8912,7 +8912,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_121AddGPLinForwardShaderERSt10shared_ptrINS
 
 3368:                                             ; preds = %3364
   %3369 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %3365) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %82) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %82)
   store i64 %3369, ptr %82, align 8, !tbaa !40
   %3370 = icmp ugt i64 %3369, 15
   br i1 %3370, label %.noexc.i.i243, label %._crit_edge.i.i.i221
@@ -8950,8 +8950,8 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_121AddGPLinForwardShaderERSt10shared_ptrINS
   %3380 = load ptr, ptr %83, align 8, !tbaa !42
   %3381 = getelementptr inbounds nuw i8, ptr %3380, i64 %3378
   store i8 0, ptr %3381, align 1, !tbaa !28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %82) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %84) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %82)
+  call void @llvm.lifetime.start.p0(ptr nonnull %84)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %84, ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %3382 unwind label %3558
 
@@ -8989,8 +8989,8 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_121AddGPLinForwardShaderERSt10shared_ptrINS
 
 3398:                                             ; preds = %3396
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %84) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %84) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %85) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %84)
+  call void @llvm.lifetime.start.p0(ptr nonnull %85)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %85, ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %3399 unwind label %3563
 
@@ -9016,8 +9016,8 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_121AddGPLinForwardShaderERSt10shared_ptrINS
 
 3409:                                             ; preds = %3407
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %85) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %85) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %86) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %85)
+  call void @llvm.lifetime.start.p0(ptr nonnull %86)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %86, ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %3410 unwind label %3568
 
@@ -9027,12 +9027,12 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_121AddGPLinForwardShaderERSt10shared_ptrINS
 
 3412:                                             ; preds = %3410
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %86) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %86) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %86)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText6indentEv(ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %._crit_edge.i.i88.i unwind label %3573
 
 ._crit_edge.i.i88.i:                              ; preds = %3412
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %87) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %87)
   %3413 = getelementptr inbounds nuw i8, ptr %87, i64 16
   store ptr %3413, ptr %87, align 8, !tbaa !37
   store i64 8319388036654527852, ptr %3413, align 8
@@ -9061,14 +9061,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i226
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i226: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i225, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i242
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %87) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %88) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %87)
+  call void @llvm.lifetime.start.p0(ptr nonnull %88)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %88, ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %._crit_edge.i.i92.i unwind label %3583
 
 ._crit_edge.i.i92.i:                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i226
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %89) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %90) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %89)
+  call void @llvm.lifetime.start.p0(ptr nonnull %90)
   %3423 = getelementptr inbounds nuw i8, ptr %90, i64 16
   store ptr %3423, ptr %90, align 8, !tbaa !37
   store i32 1634563436, ptr %3423, align 8
@@ -9132,11 +9132,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i99
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit101.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit101.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i99.i237, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i100.i240
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %90) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %89) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %90)
+  call void @llvm.lifetime.end.p0(ptr nonnull %89)
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %88) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %88) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %91) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %88)
+  call void @llvm.lifetime.start.p0(ptr nonnull %91)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %91, ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %3449 unwind label %3604
 
@@ -9166,12 +9166,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit101.i: ; preds = %
 
 3461:                                             ; preds = %3459
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %91) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %91) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %91)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText6dedentEv(ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %3462 unwind label %3573
 
 3462:                                             ; preds = %3461
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %92) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %92)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %92, ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %3463 unwind label %3609
 
@@ -9181,8 +9181,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit101.i: ; preds = %
 
 3465:                                             ; preds = %3463
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %92) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %92) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %93) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %92)
+  call void @llvm.lifetime.start.p0(ptr nonnull %93)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %93, ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %3466 unwind label %3614
 
@@ -9191,8 +9191,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit101.i: ; preds = %
           to label %._crit_edge.i.i102.i unwind label %3616
 
 ._crit_edge.i.i102.i:                             ; preds = %3466
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %94) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %95) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %94)
+  call void @llvm.lifetime.start.p0(ptr nonnull %95)
   %3468 = getelementptr inbounds nuw i8, ptr %95, i64 16
   store ptr %3468, ptr %95, align 8, !tbaa !37
   store i16 15649, ptr %3468, align 8
@@ -9200,7 +9200,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit101.i: ; preds = %
   store i64 2, ptr %3469, align 8, !tbaa !44
   %3470 = getelementptr inbounds nuw i8, ptr %95, i64 18
   store i8 0, ptr %3470, align 2, !tbaa !28
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %96) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %96)
   invoke void @_ZNK19OpenColorIO_v2_5dev13GpuShaderText11float3ConstB5cxx11Ef(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %96, ptr noundef nonnull align 8 dereferenceable(764) %230, float noundef 1.000000e+00)
           to label %3471 unwind label %3618
 
@@ -9255,7 +9255,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i10
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit111.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit111.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i109.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i110.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %96) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %96)
   %3493 = load ptr, ptr %95, align 8, !tbaa !42
   %3494 = icmp eq ptr %3493, %3468
   br i1 %3494, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i113.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i112.i
@@ -9273,11 +9273,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i11
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit114.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit114.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i112.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i113.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %95) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %94) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %95)
+  call void @llvm.lifetime.end.p0(ptr nonnull %94)
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %93) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %93) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %97) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %93)
+  call void @llvm.lifetime.start.p0(ptr nonnull %97)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %97, ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %3499 unwind label %3648
 
@@ -9287,12 +9287,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit114.i: ; preds = %
 
 3501:                                             ; preds = %3499
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %97) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %97) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %97)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText6indentEv(ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %3502 unwind label %3573
 
 3502:                                             ; preds = %3501
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %98) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %98)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %98, ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %3503 unwind label %3653
 
@@ -9350,12 +9350,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit114.i: ; preds = %
 
 3529:                                             ; preds = %3527
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %98) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %98) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %98)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText6dedentEv(ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %3530 unwind label %3573
 
 3530:                                             ; preds = %3529
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %99) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %99)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %99, ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %3531 unwind label %3658
 
@@ -9365,8 +9365,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit114.i: ; preds = %
 
 3533:                                             ; preds = %3531
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %99) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %99) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %100) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %99)
+  call void @llvm.lifetime.start.p0(ptr nonnull %100)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %100, ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %3534 unwind label %3663
 
@@ -9388,8 +9388,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit114.i: ; preds = %
 
 3542:                                             ; preds = %3540
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %100) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %100) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %101) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %100)
+  call void @llvm.lifetime.start.p0(ptr nonnull %101)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %101, ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %3543 unwind label %3668
 
@@ -9411,7 +9411,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit114.i: ; preds = %
 
 3551:                                             ; preds = %3549
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %101) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %101) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %101)
   %3552 = load ptr, ptr %83, align 8, !tbaa !42
   %3553 = icmp eq ptr %3552, %3366
   br i1 %3553, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i116.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i115.i
@@ -9441,7 +9441,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i11
 
 3562:                                             ; preds = %3560, %3558
   %.pn.i222 = phi { ptr, i32 } [ %3561, %3560 ], [ %3559, %3558 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %84) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %84)
   br label %3673
 
 3563:                                             ; preds = %3398
@@ -9457,7 +9457,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i11
 
 3567:                                             ; preds = %3565, %3563
   %.pn55.i223 = phi { ptr, i32 } [ %3566, %3565 ], [ %3564, %3563 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %85) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %85)
   br label %3673
 
 3568:                                             ; preds = %3409
@@ -9473,7 +9473,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i11
 
 3572:                                             ; preds = %3570, %3568
   %.pn57.i224 = phi { ptr, i32 } [ %3571, %3570 ], [ %3569, %3568 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %86) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %86)
   br label %3673
 
 3573:                                             ; preds = %3529, %3501, %3461, %3412
@@ -9501,7 +9501,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i11
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit120.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit120.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i118.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i119.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %87) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %87)
   br label %3673
 
 3583:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i226
@@ -9554,14 +9554,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i12
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit126.i231
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit126.i231: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i124.i230, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i125.i232
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %90) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %89) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %90)
+  call void @llvm.lifetime.end.p0(ptr nonnull %89)
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %88) #16
   br label %3603
 
 3603:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit126.i231, %3583
   %.pn61.pn.pn.i227 = phi { ptr, i32 } [ %.pn61.i229, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit126.i231 ], [ %3584, %3583 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %88) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %88)
   br label %3673
 
 3604:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit101.i
@@ -9577,7 +9577,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit126.i231: ; preds 
 
 3608:                                             ; preds = %3606, %3604
   %.pn65.i238 = phi { ptr, i32 } [ %3607, %3606 ], [ %3605, %3604 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %91) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %91)
   br label %3673
 
 3609:                                             ; preds = %3462
@@ -9593,7 +9593,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit126.i231: ; preds 
 
 3613:                                             ; preds = %3611, %3609
   %.pn67.i239 = phi { ptr, i32 } [ %3612, %3611 ], [ %3610, %3609 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %92) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %92)
   br label %3673
 
 3614:                                             ; preds = %3465
@@ -9659,7 +9659,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i13
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit132.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i130.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i131.i, %3618
   %.pn69.pn.i = phi { ptr, i32 } [ %3619, %3618 ], [ %.pn69.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i131.i ], [ %.pn69.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i130.i ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %96) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %96)
   %3640 = load ptr, ptr %95, align 8, !tbaa !42
   %3641 = icmp eq ptr %3640, %3468
   br i1 %3641, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i134.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i133.i
@@ -9677,8 +9677,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i13
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit135.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit135.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i133.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i134.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %95) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %94) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %95)
+  call void @llvm.lifetime.end.p0(ptr nonnull %94)
   br label %3646
 
 3646:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit135.i, %3616
@@ -9688,7 +9688,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit135.i: ; preds = %
 
 3647:                                             ; preds = %3646, %3614
   %.pn69.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn69.pn.pn.pn.i, %3646 ], [ %3615, %3614 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %93) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %93)
   br label %3673
 
 3648:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit114.i
@@ -9704,7 +9704,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit135.i: ; preds = %
 
 3652:                                             ; preds = %3650, %3648
   %.pn75.i = phi { ptr, i32 } [ %3651, %3650 ], [ %3649, %3648 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %97) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %97)
   br label %3673
 
 3653:                                             ; preds = %3502
@@ -9720,7 +9720,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit135.i: ; preds = %
 
 3657:                                             ; preds = %3655, %3653
   %.pn77.i = phi { ptr, i32 } [ %3656, %3655 ], [ %3654, %3653 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %98) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %98)
   br label %3673
 
 3658:                                             ; preds = %3530
@@ -9736,7 +9736,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit135.i: ; preds = %
 
 3662:                                             ; preds = %3660, %3658
   %.pn79.i = phi { ptr, i32 } [ %3661, %3660 ], [ %3659, %3658 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %99) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %99)
   br label %3673
 
 3663:                                             ; preds = %3533
@@ -9752,7 +9752,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit135.i: ; preds = %
 
 3667:                                             ; preds = %3665, %3663
   %.pn81.i = phi { ptr, i32 } [ %3666, %3665 ], [ %3664, %3663 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %100) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %100)
   br label %3673
 
 3668:                                             ; preds = %3542
@@ -9768,7 +9768,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit135.i: ; preds = %
 
 3672:                                             ; preds = %3670, %3668
   %.pn83.i = phi { ptr, i32 } [ %3671, %3670 ], [ %3669, %3668 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %101) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %101)
   br label %3673
 
 3673:                                             ; preds = %3672, %3667, %3662, %3657, %3652, %3647, %3613, %3608, %3603, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit120.i, %3573, %3572, %3567, %3562
@@ -9790,11 +9790,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i13
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit138.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit138.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i136.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i137.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %83) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %83)
   br label %.body
 
 _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_121AddGPLinInverseShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextERKNS0_12GPPropertiesE.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i116.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i115.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %83) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %83)
   br label %3680
 
 3680:                                             ; preds = %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_121AddGPLinInverseShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextERKNS0_12GPPropertiesE.exit, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_121AddGPLinForwardShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextERKNS0_12GPPropertiesE.exit, %3081
@@ -9805,7 +9805,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_121AddGPLinInverseShaderERSt10shared_ptrINS
           to label %3682 unwind label %1407
 
 3682:                                             ; preds = %3681
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %241) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %241)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %241, ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %3683 unwind label %3686
 
@@ -9815,7 +9815,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_121AddGPLinInverseShaderERSt10shared_ptrINS
 
 3685:                                             ; preds = %3683
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %241) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %241) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %241)
   br label %5440
 
 3686:                                             ; preds = %3682
@@ -9831,7 +9831,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_121AddGPLinInverseShaderERSt10shared_ptrINS
 
 3690:                                             ; preds = %3688, %3686
   %.pn79 = phi { ptr, i32 } [ %3689, %3688 ], [ %3687, %3686 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %241) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %241)
   br label %.body
 
 3691:                                             ; preds = %361
@@ -9840,7 +9840,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_121AddGPLinInverseShaderERSt10shared_ptrINS
   %.val102.val = load ptr, ptr %3692, align 8, !tbaa !14, !noalias !103
   %3693 = getelementptr i8, ptr %.val102, i64 184
   %.val102.val103 = load ptr, ptr %3693, align 8, !tbaa !20, !noalias !103
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %52) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %52)
   call void @llvm.experimental.noalias.scope.decl(metadata !106)
   store ptr %.val102.val, ptr %52, align 8, !tbaa !14, !alias.scope !106
   %3694 = getelementptr inbounds nuw i8, ptr %52, i64 8
@@ -9868,8 +9868,8 @@ _ZNK19OpenColorIO_v2_5dev20GradingPrimaryOpData26getDynamicPropertyInternalEv.ex
   br i1 %292, label %._crit_edge.i.i.i252, label %4506
 
 ._crit_edge.i.i.i252:                             ; preds = %_ZNK19OpenColorIO_v2_5dev20GradingPrimaryOpData26getDynamicPropertyInternalEv.exit.i251
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %53) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %54) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %53)
+  call void @llvm.lifetime.start.p0(ptr nonnull %54)
   %3703 = getelementptr inbounds nuw i8, ptr %54, i64 16
   store ptr %3703, ptr %54, align 8, !tbaa !37
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %3703, ptr noundef nonnull align 16 dereferenceable(15) @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18opPrefixE, i64 15, i1 false)
@@ -9999,10 +9999,10 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i16
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit168.i260
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit168.i260: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i166.i259, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i167.i302
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %54) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %53) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %55) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %56) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %54)
+  call void @llvm.lifetime.end.p0(ptr nonnull %53)
+  call void @llvm.lifetime.start.p0(ptr nonnull %55)
+  call void @llvm.lifetime.start.p0(ptr nonnull %56)
   %3753 = getelementptr inbounds nuw i8, ptr %56, i64 16
   store ptr %3753, ptr %56, align 8, !tbaa !37
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %3753, ptr noundef nonnull align 16 dereferenceable(15) @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18opPrefixE, i64 15, i1 false)
@@ -10132,10 +10132,10 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i18
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit187.i262
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit187.i262: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i185.i261, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i186.i301
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %56) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %55) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %57) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %58) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %56)
+  call void @llvm.lifetime.end.p0(ptr nonnull %55)
+  call void @llvm.lifetime.start.p0(ptr nonnull %57)
+  call void @llvm.lifetime.start.p0(ptr nonnull %58)
   %3803 = getelementptr inbounds nuw i8, ptr %58, i64 16
   store ptr %3803, ptr %58, align 8, !tbaa !37
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %3803, ptr noundef nonnull align 16 dereferenceable(15) @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18opPrefixE, i64 15, i1 false)
@@ -10265,10 +10265,10 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i20
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit206.i264
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit206.i264: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i204.i263, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i205.i300
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %58) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %57) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %59) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %60) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %58)
+  call void @llvm.lifetime.end.p0(ptr nonnull %57)
+  call void @llvm.lifetime.start.p0(ptr nonnull %59)
+  call void @llvm.lifetime.start.p0(ptr nonnull %60)
   %3853 = getelementptr inbounds nuw i8, ptr %60, i64 16
   store ptr %3853, ptr %60, align 8, !tbaa !37
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %3853, ptr noundef nonnull align 16 dereferenceable(15) @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18opPrefixE, i64 15, i1 false)
@@ -10398,10 +10398,10 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i22
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit225.i266
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit225.i266: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i223.i265, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i224.i299
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %60) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %59) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %61) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %62) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %60)
+  call void @llvm.lifetime.end.p0(ptr nonnull %59)
+  call void @llvm.lifetime.start.p0(ptr nonnull %61)
+  call void @llvm.lifetime.start.p0(ptr nonnull %62)
   %3903 = getelementptr inbounds nuw i8, ptr %62, i64 16
   store ptr %3903, ptr %62, align 8, !tbaa !37
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %3903, ptr noundef nonnull align 16 dereferenceable(15) @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18opPrefixE, i64 15, i1 false)
@@ -10531,10 +10531,10 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i24
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit244.i268
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit244.i268: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i242.i267, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i243.i298
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %62) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %61) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %63) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %64) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %62)
+  call void @llvm.lifetime.end.p0(ptr nonnull %61)
+  call void @llvm.lifetime.start.p0(ptr nonnull %63)
+  call void @llvm.lifetime.start.p0(ptr nonnull %64)
   %3953 = getelementptr inbounds nuw i8, ptr %64, i64 16
   store ptr %3953, ptr %64, align 8, !tbaa !37
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %3953, ptr noundef nonnull align 16 dereferenceable(15) @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18opPrefixE, i64 15, i1 false)
@@ -10664,10 +10664,10 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i26
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit263.i270
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit263.i270: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i261.i269, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i262.i297
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %64) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %63) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %65) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %66) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %64)
+  call void @llvm.lifetime.end.p0(ptr nonnull %63)
+  call void @llvm.lifetime.start.p0(ptr nonnull %65)
+  call void @llvm.lifetime.start.p0(ptr nonnull %66)
   %4003 = getelementptr inbounds nuw i8, ptr %66, i64 16
   store ptr %4003, ptr %66, align 8, !tbaa !37
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %4003, ptr noundef nonnull align 16 dereferenceable(15) @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18opPrefixE, i64 15, i1 false)
@@ -10797,10 +10797,10 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i28
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit282.i272
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit282.i272: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i280.i271, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i281.i296
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %66) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %65) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %67) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %68) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %66)
+  call void @llvm.lifetime.end.p0(ptr nonnull %65)
+  call void @llvm.lifetime.start.p0(ptr nonnull %67)
+  call void @llvm.lifetime.start.p0(ptr nonnull %68)
   %4053 = getelementptr inbounds nuw i8, ptr %68, i64 16
   store ptr %4053, ptr %68, align 8, !tbaa !37
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %4053, ptr noundef nonnull align 16 dereferenceable(15) @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18opPrefixE, i64 15, i1 false)
@@ -10930,10 +10930,10 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i29
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit301.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit301.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i299.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i300.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %68) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %67) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %69) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %70) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %68)
+  call void @llvm.lifetime.end.p0(ptr nonnull %67)
+  call void @llvm.lifetime.start.p0(ptr nonnull %69)
+  call void @llvm.lifetime.start.p0(ptr nonnull %70)
   %4103 = getelementptr inbounds nuw i8, ptr %70, i64 16
   store ptr %4103, ptr %70, align 8, !tbaa !37
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %4103, ptr noundef nonnull align 16 dereferenceable(15) @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18opPrefixE, i64 15, i1 false)
@@ -11063,15 +11063,15 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i31
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit320.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit320.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i318.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i319.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %70) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %69) #16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %71) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %70)
+  call void @llvm.lifetime.end.p0(ptr nonnull %69)
+  call void @llvm.lifetime.start.p0(ptr nonnull %71)
   %4153 = load ptr, ptr %52, align 8, !tbaa !14
   invoke void @_ZNK19OpenColorIO_v2_5dev33DynamicPropertyGradingPrimaryImpl18createEditableCopyEv(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr.8") align 8 %71, ptr noundef nonnull align 8 dereferenceable(392) %4153)
           to label %4154 unwind label %4408
 
 4154:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit320.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %72) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %72)
   %4155 = load ptr, ptr %71, align 8, !tbaa !14
   store ptr %4155, ptr %72, align 8, !tbaa !70
   %4156 = getelementptr inbounds nuw i8, ptr %72, i64 8
@@ -11111,7 +11111,7 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_5dev15DynamicPropertyEEC2INS0_33DynamicPrope
           to label %4174 unwind label %4412
 
 4174:                                             ; preds = %4168
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %73) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %73)
   %4175 = getelementptr inbounds nuw i8, ptr %73, i64 16
   %4176 = getelementptr inbounds nuw i8, ptr %73, i64 8
   store i64 0, ptr %4176, align 8
@@ -11148,8 +11148,8 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_5dev15DynamicPropertyEEC2INS0_33DynamicPrope
   unreachable
 
 4187:                                             ; preds = %4182, %4180
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %73) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %74) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %73)
+  call void @llvm.lifetime.start.p0(ptr nonnull %74)
   %4188 = getelementptr inbounds nuw i8, ptr %74, i64 16
   %4189 = getelementptr inbounds nuw i8, ptr %74, i64 8
   store i64 0, ptr %4189, align 8
@@ -11186,8 +11186,8 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_5dev15DynamicPropertyEEC2INS0_33DynamicPrope
   unreachable
 
 4200:                                             ; preds = %4195, %4193
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %74) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %75) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %74)
+  call void @llvm.lifetime.start.p0(ptr nonnull %75)
   %4201 = getelementptr inbounds nuw i8, ptr %75, i64 16
   %4202 = getelementptr inbounds nuw i8, ptr %75, i64 8
   store i64 0, ptr %4202, align 8
@@ -11224,8 +11224,8 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_5dev15DynamicPropertyEEC2INS0_33DynamicPrope
   unreachable
 
 4213:                                             ; preds = %4208, %4206
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %75) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %76) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %75)
+  call void @llvm.lifetime.start.p0(ptr nonnull %76)
   %4214 = getelementptr inbounds nuw i8, ptr %76, i64 16
   %4215 = getelementptr inbounds nuw i8, ptr %76, i64 8
   store i64 0, ptr %4215, align 8
@@ -11260,8 +11260,8 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_5dev15DynamicPropertyEEC2INS0_33DynamicPrope
   unreachable
 
 4226:                                             ; preds = %4221, %4219
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %76) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %77) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %76)
+  call void @llvm.lifetime.start.p0(ptr nonnull %77)
   %4227 = getelementptr inbounds nuw i8, ptr %77, i64 16
   %4228 = getelementptr inbounds nuw i8, ptr %77, i64 8
   store i64 0, ptr %4228, align 8
@@ -11296,8 +11296,8 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_5dev15DynamicPropertyEEC2INS0_33DynamicPrope
   unreachable
 
 4239:                                             ; preds = %4234, %4232
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %77) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %78) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %77)
+  call void @llvm.lifetime.start.p0(ptr nonnull %78)
   %4240 = getelementptr inbounds nuw i8, ptr %78, i64 16
   %4241 = getelementptr inbounds nuw i8, ptr %78, i64 8
   store i64 0, ptr %4241, align 8
@@ -11332,8 +11332,8 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_5dev15DynamicPropertyEEC2INS0_33DynamicPrope
   unreachable
 
 4252:                                             ; preds = %4247, %4245
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %78) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %79) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %78)
+  call void @llvm.lifetime.start.p0(ptr nonnull %79)
   %4253 = getelementptr inbounds nuw i8, ptr %79, i64 16
   %4254 = getelementptr inbounds nuw i8, ptr %79, i64 8
   store i64 0, ptr %4254, align 8
@@ -11368,8 +11368,8 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_5dev15DynamicPropertyEEC2INS0_33DynamicPrope
   unreachable
 
 4265:                                             ; preds = %4260, %4258
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %79) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %80) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %79)
+  call void @llvm.lifetime.start.p0(ptr nonnull %80)
   %4266 = getelementptr inbounds nuw i8, ptr %80, i64 16
   %4267 = getelementptr inbounds nuw i8, ptr %80, i64 8
   store i64 0, ptr %4267, align 8
@@ -11404,9 +11404,9 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_5dev15DynamicPropertyEEC2INS0_33DynamicPrope
   unreachable
 
 4278:                                             ; preds = %4273, %4271
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %80) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %80)
   %4279 = load ptr, ptr %71, align 8, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %81) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %81)
   %4280 = getelementptr inbounds nuw i8, ptr %81, i64 16
   %4281 = getelementptr inbounds nuw i8, ptr %81, i64 8
   store i64 0, ptr %4281, align 8
@@ -11443,7 +11443,7 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_5dev15DynamicPropertyEEC2INS0_33DynamicPrope
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit365.i:              ; preds = %4287, %4285
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %81) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %81)
   %4292 = load ptr, ptr %4156, align 8, !tbaa !20
   %.not.i.i.i291 = icmp eq ptr %4292, null
   br i1 %.not.i.i.i291, label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev15DynamicPropertyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i294, label %4293
@@ -11493,7 +11493,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i292: ; preds = %4310,
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev15DynamicPropertyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i294
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev15DynamicPropertyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i294: ; preds = %4313, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i292, %4298, %_ZNSt14_Function_baseD2Ev.exit365.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %72) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %72)
   %4314 = load ptr, ptr %4157, align 8, !tbaa !20
   %.not.i.i367.i = icmp eq ptr %4314, null
   br i1 %.not.i.i367.i, label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev33DynamicPropertyGradingPrimaryImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i295, label %4315
@@ -11543,7 +11543,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i369.i: ; preds = %4332,
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev33DynamicPropertyGradingPrimaryImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i295
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev33DynamicPropertyGradingPrimaryImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i295: ; preds = %4335, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i369.i, %4320, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev15DynamicPropertyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i294
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %71) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %71)
   br label %4542
 
 4336:                                             ; preds = %._crit_edge.i.i.i252
@@ -11566,8 +11566,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i37
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit373.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit373.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i371.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i372.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %54) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %53) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %54)
+  call void @llvm.lifetime.end.p0(ptr nonnull %53)
   br label %4565
 
 4344:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit168.i260
@@ -11590,8 +11590,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i37
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit376.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit376.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i374.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i375.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %56) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %55) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %56)
+  call void @llvm.lifetime.end.p0(ptr nonnull %55)
   br label %4565
 
 4352:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit187.i262
@@ -11614,8 +11614,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i37
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit379.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit379.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i377.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i378.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %58) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %57) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %58)
+  call void @llvm.lifetime.end.p0(ptr nonnull %57)
   br label %4565
 
 4360:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit206.i264
@@ -11638,8 +11638,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i38
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit382.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit382.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i380.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i381.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %60) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %59) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %60)
+  call void @llvm.lifetime.end.p0(ptr nonnull %59)
   br label %4565
 
 4368:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit225.i266
@@ -11662,8 +11662,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i38
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit385.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit385.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i383.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i384.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %62) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %61) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %62)
+  call void @llvm.lifetime.end.p0(ptr nonnull %61)
   br label %4565
 
 4376:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit244.i268
@@ -11686,8 +11686,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i38
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit388.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit388.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i386.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i387.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %64) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %63) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %64)
+  call void @llvm.lifetime.end.p0(ptr nonnull %63)
   br label %4565
 
 4384:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit263.i270
@@ -11710,8 +11710,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i38
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit391.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit391.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i389.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i390.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %66) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %65) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %66)
+  call void @llvm.lifetime.end.p0(ptr nonnull %65)
   br label %4565
 
 4392:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit282.i272
@@ -11734,8 +11734,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i39
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit394.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit394.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i392.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i393.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %68) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %67) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %68)
+  call void @llvm.lifetime.end.p0(ptr nonnull %67)
   br label %4565
 
 4400:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit301.i
@@ -11758,8 +11758,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i39
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit397.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit397.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i395.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i396.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %70) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %69) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %70)
+  call void @llvm.lifetime.end.p0(ptr nonnull %69)
   br label %4565
 
 4408:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit320.i
@@ -11802,7 +11802,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit397.i: ; preds = %
 
 _ZNSt14_Function_baseD2Ev.exit399.i:              ; preds = %4419, %4416, %4414
   %.pn135.i = phi { ptr, i32 } [ %4415, %4414 ], [ %4417, %4416 ], [ %4417, %4419 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %73) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %73)
   br label %4504
 
 4424:                                             ; preds = %4187
@@ -11830,7 +11830,7 @@ _ZNSt14_Function_baseD2Ev.exit399.i:              ; preds = %4419, %4416, %4414
 
 _ZNSt14_Function_baseD2Ev.exit401.i:              ; preds = %4429, %4426, %4424
   %.pn137.i = phi { ptr, i32 } [ %4425, %4424 ], [ %4427, %4426 ], [ %4427, %4429 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %74) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %74)
   br label %4504
 
 4434:                                             ; preds = %4200
@@ -11858,7 +11858,7 @@ _ZNSt14_Function_baseD2Ev.exit401.i:              ; preds = %4429, %4426, %4424
 
 _ZNSt14_Function_baseD2Ev.exit403.i:              ; preds = %4439, %4436, %4434
   %.pn139.i = phi { ptr, i32 } [ %4435, %4434 ], [ %4437, %4436 ], [ %4437, %4439 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %75) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %75)
   br label %4504
 
 4444:                                             ; preds = %4213
@@ -11886,7 +11886,7 @@ _ZNSt14_Function_baseD2Ev.exit403.i:              ; preds = %4439, %4436, %4434
 
 _ZNSt14_Function_baseD2Ev.exit405.i:              ; preds = %4449, %4446, %4444
   %.pn141.i = phi { ptr, i32 } [ %4445, %4444 ], [ %4447, %4446 ], [ %4447, %4449 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %76) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %76)
   br label %4504
 
 4454:                                             ; preds = %4226
@@ -11914,7 +11914,7 @@ _ZNSt14_Function_baseD2Ev.exit405.i:              ; preds = %4449, %4446, %4444
 
 _ZNSt14_Function_baseD2Ev.exit407.i:              ; preds = %4459, %4456, %4454
   %.pn143.i = phi { ptr, i32 } [ %4455, %4454 ], [ %4457, %4456 ], [ %4457, %4459 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %77) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %77)
   br label %4504
 
 4464:                                             ; preds = %4239
@@ -11942,7 +11942,7 @@ _ZNSt14_Function_baseD2Ev.exit407.i:              ; preds = %4459, %4456, %4454
 
 _ZNSt14_Function_baseD2Ev.exit409.i284:           ; preds = %4469, %4466, %4464
   %.pn145.i = phi { ptr, i32 } [ %4465, %4464 ], [ %4467, %4466 ], [ %4467, %4469 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %78) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %78)
   br label %4504
 
 4474:                                             ; preds = %4252
@@ -11970,7 +11970,7 @@ _ZNSt14_Function_baseD2Ev.exit409.i284:           ; preds = %4469, %4466, %4464
 
 _ZNSt14_Function_baseD2Ev.exit411.i:              ; preds = %4479, %4476, %4474
   %.pn147.i = phi { ptr, i32 } [ %4475, %4474 ], [ %4477, %4476 ], [ %4477, %4479 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %79) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %79)
   br label %4504
 
 4484:                                             ; preds = %4265
@@ -11998,7 +11998,7 @@ _ZNSt14_Function_baseD2Ev.exit411.i:              ; preds = %4479, %4476, %4474
 
 _ZNSt14_Function_baseD2Ev.exit413.i:              ; preds = %4489, %4486, %4484
   %.pn149.i = phi { ptr, i32 } [ %4485, %4484 ], [ %4487, %4486 ], [ %4487, %4489 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %80) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %80)
   br label %4504
 
 4494:                                             ; preds = %4278
@@ -12026,19 +12026,19 @@ _ZNSt14_Function_baseD2Ev.exit413.i:              ; preds = %4489, %4486, %4484
 
 _ZNSt14_Function_baseD2Ev.exit415.i:              ; preds = %4499, %4496, %4494
   %.pn151.i = phi { ptr, i32 } [ %4495, %4494 ], [ %4497, %4496 ], [ %4497, %4499 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %81) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %81)
   br label %4504
 
 4504:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit415.i, %_ZNSt14_Function_baseD2Ev.exit413.i, %_ZNSt14_Function_baseD2Ev.exit411.i, %_ZNSt14_Function_baseD2Ev.exit409.i284, %_ZNSt14_Function_baseD2Ev.exit407.i, %_ZNSt14_Function_baseD2Ev.exit405.i, %_ZNSt14_Function_baseD2Ev.exit403.i, %_ZNSt14_Function_baseD2Ev.exit401.i, %_ZNSt14_Function_baseD2Ev.exit399.i, %4412, %4410
   %.pn151.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %4411, %4410 ], [ %4413, %4412 ], [ %.pn135.i, %_ZNSt14_Function_baseD2Ev.exit399.i ], [ %.pn137.i, %_ZNSt14_Function_baseD2Ev.exit401.i ], [ %.pn139.i, %_ZNSt14_Function_baseD2Ev.exit403.i ], [ %.pn141.i, %_ZNSt14_Function_baseD2Ev.exit405.i ], [ %.pn143.i, %_ZNSt14_Function_baseD2Ev.exit407.i ], [ %.pn145.i, %_ZNSt14_Function_baseD2Ev.exit409.i284 ], [ %.pn147.i, %_ZNSt14_Function_baseD2Ev.exit411.i ], [ %.pn149.i, %_ZNSt14_Function_baseD2Ev.exit413.i ], [ %.pn151.i, %_ZNSt14_Function_baseD2Ev.exit415.i ]
   call void @_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev15DynamicPropertyELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %72) #16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %72) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %72)
   call void @_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev33DynamicPropertyGradingPrimaryImplELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %71) #16
   br label %4505
 
 4505:                                             ; preds = %4504, %4408
   %.pn151.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn151.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %4504 ], [ %4409, %4408 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %71) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %71)
   br label %4565
 
 4506:                                             ; preds = %_ZNK19OpenColorIO_v2_5dev20GradingPrimaryOpData26getDynamicPropertyInternalEv.exit.i251
@@ -12161,15 +12161,15 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i418.i: ; preds = %4561,
 4565:                                             ; preds = %4540, %4538, %4505, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit397.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit394.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit391.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit388.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit385.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit382.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit379.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit376.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit373.i
   %.pn151.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn151.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %4505 ], [ %4401, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit397.i ], [ %4393, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit394.i ], [ %4385, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit391.i ], [ %4377, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit388.i ], [ %4369, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit385.i ], [ %4361, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit382.i ], [ %4353, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit379.i ], [ %4345, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit376.i ], [ %4337, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit373.i ], [ %4541, %4540 ], [ %4539, %4538 ]
   call void @_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev33DynamicPropertyGradingPrimaryImplELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %52) #16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %52) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %52)
   br label %.body
 
 4566:                                             ; preds = %4564, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i418.i, %4549, %4542
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %52) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %52)
   br i1 %292, label %4567, label %4588
 
 4567:                                             ; preds = %4566
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %242) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %242)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %242, ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %4568 unwind label %4578
 
@@ -12187,8 +12187,8 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i418.i: ; preds = %4561,
 
 4574:                                             ; preds = %4572
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %242) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %242) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %243) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %242)
+  call void @llvm.lifetime.start.p0(ptr nonnull %243)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %243, ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %4575 unwind label %4583
 
@@ -12198,7 +12198,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i418.i: ; preds = %4561,
 
 4577:                                             ; preds = %4575
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %243) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %243) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %243)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText6indentEv(ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %4588 unwind label %1407
 
@@ -12215,7 +12215,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i418.i: ; preds = %4561,
 
 4582:                                             ; preds = %4580, %4578
   %.pn69 = phi { ptr, i32 } [ %4581, %4580 ], [ %4579, %4578 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %242) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %242)
   br label %.body
 
 4583:                                             ; preds = %4574
@@ -12231,7 +12231,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i418.i: ; preds = %4561,
 
 4587:                                             ; preds = %4585, %4583
   %.pn71 = phi { ptr, i32 } [ %4586, %4585 ], [ %4584, %4583 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %243) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %243)
   br label %.body
 
 4588:                                             ; preds = %4577, %4566
@@ -12242,7 +12242,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i418.i: ; preds = %4561,
 
 4589:                                             ; preds = %4588
   %.val104 = load ptr, ptr %0, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %30) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   %4590 = call noundef ptr @_ZNK19OpenColorIO_v2_5dev16GpuShaderCreator12getPixelNameEv(ptr noundef nonnull align 8 dereferenceable(16) %.val104) #16
   %4591 = getelementptr inbounds nuw i8, ptr %30, i64 16
   store ptr %4591, ptr %30, align 8, !tbaa !37
@@ -12251,7 +12251,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i418.i: ; preds = %4561,
 
 4593:                                             ; preds = %4589
   %4594 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4590) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %29) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   store i64 %4594, ptr %29, align 8, !tbaa !40
   %4595 = icmp ugt i64 %4594, 15
   br i1 %4595, label %.noexc.i.i400, label %._crit_edge.i.i.i310
@@ -12289,8 +12289,8 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i418.i: ; preds = %4561,
   %4605 = load ptr, ptr %30, align 8, !tbaa !42
   %4606 = getelementptr inbounds nuw i8, ptr %4605, i64 %4603
   store i8 0, ptr %4606, align 1, !tbaa !28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %31) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %31, ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %4607 unwind label %4844
 
@@ -12312,8 +12312,8 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i418.i: ; preds = %4561,
 
 4615:                                             ; preds = %4613
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %31) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %31) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %32) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %32, ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %4616 unwind label %4849
 
@@ -12359,8 +12359,8 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i418.i: ; preds = %4561,
 
 4636:                                             ; preds = %4634
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %32) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %33) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %33, ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %4637 unwind label %4854
 
@@ -12369,8 +12369,8 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i418.i: ; preds = %4561,
           to label %._crit_edge.i.i97.i319 unwind label %4856
 
 ._crit_edge.i.i97.i319:                           ; preds = %4637
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %34) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %35) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
   %4639 = getelementptr inbounds nuw i8, ptr %35, i64 16
   store ptr %4639, ptr %35, align 8, !tbaa !37
   store i16 15649, ptr %4639, align 8
@@ -12378,7 +12378,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i418.i: ; preds = %4561,
   store i64 2, ptr %4640, align 8, !tbaa !44
   %4641 = getelementptr inbounds nuw i8, ptr %35, i64 18
   store i8 0, ptr %4641, align 2, !tbaa !28
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %36) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
   invoke void @_ZNK19OpenColorIO_v2_5dev13GpuShaderText11float3ConstB5cxx11Ef(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %36, ptr noundef nonnull align 8 dereferenceable(764) %230, float noundef 1.000000e+00)
           to label %4642 unwind label %4858
 
@@ -12433,7 +12433,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i10
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit103.i334
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit103.i334: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i101.i333, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i102.i398
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %36) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
   %4664 = load ptr, ptr %35, align 8, !tbaa !42
   %4665 = icmp eq ptr %4664, %4639
   br i1 %4665, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i105.i397, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i104.i335
@@ -12451,11 +12451,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i10
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit106.i336
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit106.i336: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i104.i335, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i105.i397
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %35) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %34) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %33) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %33) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %37) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %37, ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %4670 unwind label %4888
 
@@ -12465,18 +12465,18 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit106.i336: ; preds 
 
 4672:                                             ; preds = %4670
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %37) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %37) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText6indentEv(ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %4673 unwind label %4893
 
 4673:                                             ; preds = %4672
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %38) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %38)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %38, ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %._crit_edge.i.i107.i339 unwind label %4895
 
 ._crit_edge.i.i107.i339:                          ; preds = %4673
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %39) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %40) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %39)
+  call void @llvm.lifetime.start.p0(ptr nonnull %40)
   %4674 = getelementptr inbounds nuw i8, ptr %40, i64 16
   store ptr %4674, ptr %40, align 8, !tbaa !37
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %4674, ptr noundef nonnull align 1 dereferenceable(13) @.str.32, i64 13, i1 false)
@@ -12568,17 +12568,17 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i11
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit116.i350
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit116.i350: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i114.i349, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i115.i395
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %40) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %39) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %38) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %38) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %41) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
+  call void @llvm.lifetime.start.p0(ptr nonnull %41)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %41, ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %._crit_edge.i.i117.i352 unwind label %4916
 
 ._crit_edge.i.i117.i352:                          ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit116.i350
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %42) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %43) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %42)
+  call void @llvm.lifetime.start.p0(ptr nonnull %43)
   %4714 = getelementptr inbounds nuw i8, ptr %43, i64 16
   store ptr %4714, ptr %43, align 8, !tbaa !37
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %4714, ptr noundef nonnull align 1 dereferenceable(5) @.str.38, i64 5, i1 false)
@@ -12670,11 +12670,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i12
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit126.i363
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit126.i363: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i124.i362, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i125.i393
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %43) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %42) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %41) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %41) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %44) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
+  call void @llvm.lifetime.start.p0(ptr nonnull %44)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %44, ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %4754 unwind label %4937
 
@@ -12708,12 +12708,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit126.i363: ; preds 
 
 4768:                                             ; preds = %4766
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %44) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %44) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %44)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText6dedentEv(ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %4769 unwind label %4893
 
 4769:                                             ; preds = %4768
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %45) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %45)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %45, ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %4770 unwind label %4942
 
@@ -12723,8 +12723,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit126.i363: ; preds 
 
 ._crit_edge.i.i127.i366:                          ; preds = %4770
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %45) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %45) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %46) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
+  call void @llvm.lifetime.start.p0(ptr nonnull %46)
   %4772 = getelementptr inbounds nuw i8, ptr %46, i64 16
   store ptr %4772, ptr %46, align 8, !tbaa !37
   store i64 8319388036654527852, ptr %4772, align 8
@@ -12753,14 +12753,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i13
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit133.i371
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit133.i371: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i131.i370, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i132.i392
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %46) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %47) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %46)
+  call void @llvm.lifetime.start.p0(ptr nonnull %47)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %47, ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %._crit_edge.i.i134.i373 unwind label %4955
 
 ._crit_edge.i.i134.i373:                          ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit133.i371
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %48) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %49) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %48)
+  call void @llvm.lifetime.start.p0(ptr nonnull %49)
   %4782 = getelementptr inbounds nuw i8, ptr %49, i64 16
   store ptr %4782, ptr %49, align 8, !tbaa !37
   store i32 1634563436, ptr %4782, align 8
@@ -12824,11 +12824,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i14
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit143.i384
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit143.i384: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i141.i383, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i142.i390
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %49) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %48) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %49)
+  call void @llvm.lifetime.end.p0(ptr nonnull %48)
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %47) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %47) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %50) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
+  call void @llvm.lifetime.start.p0(ptr nonnull %50)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %50, ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %4808 unwind label %4976
 
@@ -12858,8 +12858,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit143.i384: ; preds 
 
 4820:                                             ; preds = %4818
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %50) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %50) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %51) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %50)
+  call void @llvm.lifetime.start.p0(ptr nonnull %51)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %51, ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %4821 unwind label %4981
 
@@ -12897,7 +12897,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit143.i384: ; preds 
 
 4837:                                             ; preds = %4835
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %51) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %51) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %51)
   %4838 = load ptr, ptr %30, align 8, !tbaa !42
   %4839 = icmp eq ptr %4838, %4591
   br i1 %4839, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i145.i389, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i144.i387
@@ -12927,7 +12927,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i14
 
 4848:                                             ; preds = %4846, %4844
   %.pn.i311 = phi { ptr, i32 } [ %4847, %4846 ], [ %4845, %4844 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %31) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
   br label %4986
 
 4849:                                             ; preds = %4615
@@ -12943,7 +12943,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i14
 
 4853:                                             ; preds = %4851, %4849
   %.pn62.i316 = phi { ptr, i32 } [ %4852, %4851 ], [ %4850, %4849 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
   br label %4986
 
 4854:                                             ; preds = %4636
@@ -13009,7 +13009,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i15
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit152.i320: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i150.i327, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i151.i328, %4858
   %.pn64.pn.i321 = phi { ptr, i32 } [ %4859, %4858 ], [ %.pn64.i326, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i151.i328 ], [ %.pn64.i326, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i150.i327 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %36) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
   %4880 = load ptr, ptr %35, align 8, !tbaa !42
   %4881 = icmp eq ptr %4880, %4639
   br i1 %4881, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i154.i324, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i153.i322
@@ -13027,8 +13027,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i15
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit155.i323
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit155.i323: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i153.i322, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i154.i324
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %35) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %34) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
   br label %4886
 
 4886:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit155.i323, %4856
@@ -13038,7 +13038,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit155.i323: ; preds 
 
 4887:                                             ; preds = %4886, %4854
   %.pn64.pn.pn.pn.pn.i317 = phi { ptr, i32 } [ %.pn64.pn.pn.pn.i318, %4886 ], [ %4855, %4854 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %33) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
   br label %4986
 
 4888:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit106.i336
@@ -13054,7 +13054,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit155.i323: ; preds 
 
 4892:                                             ; preds = %4890, %4888
   %.pn70.i337 = phi { ptr, i32 } [ %4891, %4890 ], [ %4889, %4888 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %37) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
   br label %4986
 
 4893:                                             ; preds = %4768, %4672
@@ -13112,14 +13112,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i15
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit161.i343
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit161.i343: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i159.i342, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i160.i344
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %40) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %39) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %38) #16
   br label %4915
 
 4915:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit161.i343, %4895
   %.pn72.pn.pn.i338 = phi { ptr, i32 } [ %.pn72.i341, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit161.i343 ], [ %4896, %4895 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %38) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
   br label %4986
 
 4916:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit116.i350
@@ -13172,14 +13172,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i16
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit167.i356
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit167.i356: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i165.i355, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i166.i357
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %43) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %42) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %41) #16
   br label %4936
 
 4936:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit167.i356, %4916
   %.pn76.pn.pn.i351 = phi { ptr, i32 } [ %.pn76.i354, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit167.i356 ], [ %4917, %4916 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %41) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
   br label %4986
 
 4937:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit126.i363
@@ -13195,7 +13195,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit167.i356: ; preds 
 
 4941:                                             ; preds = %4939, %4937
   %.pn80.i364 = phi { ptr, i32 } [ %4940, %4939 ], [ %4938, %4937 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %44) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %44)
   br label %4986
 
 4942:                                             ; preds = %4769
@@ -13211,7 +13211,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit167.i356: ; preds 
 
 4946:                                             ; preds = %4944, %4942
   %.pn82.i365 = phi { ptr, i32 } [ %4945, %4944 ], [ %4943, %4942 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %45) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
   br label %4986
 
 4947:                                             ; preds = %._crit_edge.i.i127.i366
@@ -13234,7 +13234,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i16
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit170.i368
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit170.i368: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i168.i367, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i169.i369
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %46) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %46)
   br label %4986
 
 4955:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit133.i371
@@ -13287,14 +13287,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i17
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit176.i377
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit176.i377: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i174.i376, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i175.i378
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %49) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %48) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %49)
+  call void @llvm.lifetime.end.p0(ptr nonnull %48)
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %47) #16
   br label %4975
 
 4975:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit176.i377, %4955
   %.pn86.pn.pn.i372 = phi { ptr, i32 } [ %.pn86.i375, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit176.i377 ], [ %4956, %4955 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %47) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
   br label %4986
 
 4976:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit143.i384
@@ -13310,7 +13310,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit176.i377: ; preds 
 
 4980:                                             ; preds = %4978, %4976
   %.pn90.i385 = phi { ptr, i32 } [ %4979, %4978 ], [ %4977, %4976 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %50) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %50)
   br label %4986
 
 4981:                                             ; preds = %4820
@@ -13326,7 +13326,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit176.i377: ; preds 
 
 4985:                                             ; preds = %4983, %4981
   %.pn92.i386 = phi { ptr, i32 } [ %4984, %4983 ], [ %4982, %4981 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %51) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %51)
   br label %4986
 
 4986:                                             ; preds = %4985, %4980, %4975, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit170.i368, %4946, %4941, %4936, %4915, %4893, %4892, %4887, %4853, %4848
@@ -13348,16 +13348,16 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i17
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit179.i314
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit179.i314: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i177.i313, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i178.i315
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %30) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
   br label %.body
 
 _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_123AddGPVideoForwardShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextERKNS0_12GPPropertiesE.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i145.i389, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i144.i387
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %30) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
   br label %5429
 
 4993:                                             ; preds = %4588
   %.val105 = load ptr, ptr %0, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %4994 = call noundef ptr @_ZNK19OpenColorIO_v2_5dev16GpuShaderCreator12getPixelNameEv(ptr noundef nonnull align 8 dereferenceable(16) %.val105) #16
   %4995 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %4995, ptr %4, align 8, !tbaa !37
@@ -13373,7 +13373,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_123AddGPVideoForwardShaderERSt10shared_ptrI
 
 4997:                                             ; preds = %4993
   %4998 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4994) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %4998, ptr %3, align 8, !tbaa !40
   %4999 = icmp ugt i64 %4998, 15
   br i1 %4999, label %.noexc.i.i498, label %._crit_edge.i.i.i406
@@ -13411,8 +13411,8 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_123AddGPVideoForwardShaderERSt10shared_ptrI
   %5009 = load ptr, ptr %4, align 8, !tbaa !42
   %5010 = getelementptr inbounds nuw i8, ptr %5009, i64 %5007
   store i8 0, ptr %5010, align 1, !tbaa !28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %5, ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %5011 unwind label %5265
 
@@ -13450,8 +13450,8 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_123AddGPVideoForwardShaderERSt10shared_ptrI
 
 5027:                                             ; preds = %5025
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %6, ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %5028 unwind label %5270
 
@@ -13477,8 +13477,8 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_123AddGPVideoForwardShaderERSt10shared_ptrI
 
 5038:                                             ; preds = %5036
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %7, ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %5039 unwind label %5275
 
@@ -13488,12 +13488,12 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_123AddGPVideoForwardShaderERSt10shared_ptrI
 
 5041:                                             ; preds = %5039
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText6indentEv(ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %._crit_edge.i.i113.i414 unwind label %5280
 
 ._crit_edge.i.i113.i414:                          ; preds = %5041
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %5042 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %5042, ptr %8, align 8, !tbaa !37
   store i64 8319388036654527852, ptr %5042, align 8
@@ -13522,14 +13522,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i419
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i419: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i418, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i497
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %9, ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %._crit_edge.i.i117.i421 unwind label %5290
 
 ._crit_edge.i.i117.i421:                          ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i419
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %5052 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %5052, ptr %11, align 8, !tbaa !37
   store i32 1634563436, ptr %5052, align 8
@@ -13593,11 +13593,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i12
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit126.i432
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit126.i432: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i124.i431, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i125.i495
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %12, ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %5078 unwind label %5311
 
@@ -13627,12 +13627,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit126.i432: ; preds 
 
 5090:                                             ; preds = %5088
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText6dedentEv(ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %5091 unwind label %5280
 
 5091:                                             ; preds = %5090
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %13, ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %5092 unwind label %5316
 
@@ -13642,8 +13642,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit126.i432: ; preds 
 
 5094:                                             ; preds = %5092
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %14, ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %5095 unwind label %5321
 
@@ -13652,8 +13652,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit126.i432: ; preds 
           to label %._crit_edge.i.i127.i437 unwind label %5323
 
 ._crit_edge.i.i127.i437:                          ; preds = %5095
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %5097 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store ptr %5097, ptr %16, align 8, !tbaa !37
   store i16 15649, ptr %5097, align 8
@@ -13661,7 +13661,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit126.i432: ; preds 
   store i64 2, ptr %5098, align 8, !tbaa !44
   %5099 = getelementptr inbounds nuw i8, ptr %16, i64 18
   store i8 0, ptr %5099, align 2, !tbaa !28
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   invoke void @_ZNK19OpenColorIO_v2_5dev13GpuShaderText11float3ConstB5cxx11Ef(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %17, ptr noundef nonnull align 8 dereferenceable(764) %230, float noundef 1.000000e+00)
           to label %5100 unwind label %5325
 
@@ -13716,7 +13716,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i13
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit136.i452
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit136.i452: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i134.i451, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i135.i493
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %5122 = load ptr, ptr %16, align 8, !tbaa !42
   %5123 = icmp eq ptr %5122, %5097
   br i1 %5123, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i138.i492, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i137.i453
@@ -13734,11 +13734,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i13
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit139.i454
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit139.i454: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i137.i453, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i138.i492
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %18, ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %5128 unwind label %5355
 
@@ -13748,18 +13748,18 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit139.i454: ; preds 
 
 5130:                                             ; preds = %5128
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %18) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText6indentEv(ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %5131 unwind label %5280
 
 5131:                                             ; preds = %5130
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %19, ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %._crit_edge.i.i140.i457 unwind label %5360
 
 ._crit_edge.i.i140.i457:                          ; preds = %5131
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %20) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %21) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %5132 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %5132, ptr %21, align 8, !tbaa !37
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %5132, ptr noundef nonnull align 1 dereferenceable(13) @.str.32, i64 13, i1 false)
@@ -13851,17 +13851,17 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i14
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit149.i468
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit149.i468: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i147.i467, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i148.i490
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %21) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %20) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %22, ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %._crit_edge.i.i150.i470 unwind label %5381
 
 ._crit_edge.i.i150.i470:                          ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit149.i468
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %23) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %24) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   %5172 = getelementptr inbounds nuw i8, ptr %24, i64 16
   store ptr %5172, ptr %24, align 8, !tbaa !37
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %5172, ptr noundef nonnull align 1 dereferenceable(5) @.str.38, i64 5, i1 false)
@@ -13953,11 +13953,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i15
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit159.i481
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit159.i481: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i157.i480, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i158.i488
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %24) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %23) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %25, ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %5212 unwind label %5402
 
@@ -13987,12 +13987,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit159.i481: ; preds 
 
 5224:                                             ; preds = %5222
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %25) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText6dedentEv(ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %5225 unwind label %5280
 
 5225:                                             ; preds = %5224
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %26, ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %5226 unwind label %5407
 
@@ -14002,8 +14002,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit159.i481: ; preds 
 
 5228:                                             ; preds = %5226
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %26) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %27, ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %5229 unwind label %5412
 
@@ -14049,8 +14049,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit159.i481: ; preds 
 
 5249:                                             ; preds = %5247
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %27) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %28, ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %5250 unwind label %5417
 
@@ -14072,7 +14072,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit159.i481: ; preds 
 
 5258:                                             ; preds = %5256
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %28) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   %5259 = load ptr, ptr %4, align 8, !tbaa !42
   %5260 = icmp eq ptr %5259, %4995
   br i1 %5260, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i161.i487, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i160.i486
@@ -14102,7 +14102,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i16
 
 5269:                                             ; preds = %5267, %5265
   %.pn.i407 = phi { ptr, i32 } [ %5268, %5267 ], [ %5266, %5265 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %5422
 
 5270:                                             ; preds = %5027
@@ -14118,7 +14118,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i16
 
 5274:                                             ; preds = %5272, %5270
   %.pn72.i412 = phi { ptr, i32 } [ %5273, %5272 ], [ %5271, %5270 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %5422
 
 5275:                                             ; preds = %5038
@@ -14134,7 +14134,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i16
 
 5279:                                             ; preds = %5277, %5275
   %.pn74.i413 = phi { ptr, i32 } [ %5278, %5277 ], [ %5276, %5275 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %5422
 
 5280:                                             ; preds = %5224, %5130, %5090, %5041
@@ -14162,7 +14162,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i16
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit165.i416
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit165.i416: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i163.i415, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i164.i417
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %5422
 
 5290:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i419
@@ -14215,14 +14215,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i16
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit171.i425
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit171.i425: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i169.i424, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i170.i426
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #16
   br label %5310
 
 5310:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit171.i425, %5290
   %.pn78.pn.pn.i420 = phi { ptr, i32 } [ %.pn78.i423, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit171.i425 ], [ %5291, %5290 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %5422
 
 5311:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit126.i432
@@ -14238,7 +14238,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit171.i425: ; preds 
 
 5315:                                             ; preds = %5313, %5311
   %.pn82.i433 = phi { ptr, i32 } [ %5314, %5313 ], [ %5312, %5311 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %5422
 
 5316:                                             ; preds = %5091
@@ -14254,7 +14254,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit171.i425: ; preds 
 
 5320:                                             ; preds = %5318, %5316
   %.pn84.i434 = phi { ptr, i32 } [ %5319, %5318 ], [ %5317, %5316 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %5422
 
 5321:                                             ; preds = %5094
@@ -14320,7 +14320,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i17
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit177.i438: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i175.i445, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i176.i446, %5325
   %.pn86.pn.i439 = phi { ptr, i32 } [ %5326, %5325 ], [ %.pn86.i444, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i176.i446 ], [ %.pn86.i444, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i175.i445 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %5347 = load ptr, ptr %16, align 8, !tbaa !42
   %5348 = icmp eq ptr %5347, %5097
   br i1 %5348, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i179.i442, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i178.i440
@@ -14338,8 +14338,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i17
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit180.i441
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit180.i441: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i178.i440, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i179.i442
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %5353
 
 5353:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit180.i441, %5323
@@ -14349,7 +14349,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit180.i441: ; preds 
 
 5354:                                             ; preds = %5353, %5321
   %.pn86.pn.pn.pn.pn.i435 = phi { ptr, i32 } [ %.pn86.pn.pn.pn.i436, %5353 ], [ %5322, %5321 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %5422
 
 5355:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit139.i454
@@ -14365,7 +14365,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit180.i441: ; preds 
 
 5359:                                             ; preds = %5357, %5355
   %.pn92.i455 = phi { ptr, i32 } [ %5358, %5357 ], [ %5356, %5355 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %5422
 
 5360:                                             ; preds = %5131
@@ -14418,14 +14418,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i18
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit186.i461
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit186.i461: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i184.i460, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i185.i462
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %21) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %20) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #16
   br label %5380
 
 5380:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit186.i461, %5360
   %.pn94.pn.pn.i456 = phi { ptr, i32 } [ %.pn94.i459, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit186.i461 ], [ %5361, %5360 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %5422
 
 5381:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit149.i468
@@ -14478,14 +14478,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i19
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit192.i474
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit192.i474: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i190.i473, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i191.i475
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %24) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %23) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #16
   br label %5401
 
 5401:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit192.i474, %5381
   %.pn98.pn.pn.i469 = phi { ptr, i32 } [ %.pn98.i472, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit192.i474 ], [ %5382, %5381 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %5422
 
 5402:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit159.i481
@@ -14501,7 +14501,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit192.i474: ; preds 
 
 5406:                                             ; preds = %5404, %5402
   %.pn102.i482 = phi { ptr, i32 } [ %5405, %5404 ], [ %5403, %5402 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %5422
 
 5407:                                             ; preds = %5225
@@ -14517,7 +14517,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit192.i474: ; preds 
 
 5411:                                             ; preds = %5409, %5407
   %.pn104.i483 = phi { ptr, i32 } [ %5410, %5409 ], [ %5408, %5407 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br label %5422
 
 5412:                                             ; preds = %5228
@@ -14533,7 +14533,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit192.i474: ; preds 
 
 5416:                                             ; preds = %5414, %5412
   %.pn106.i484 = phi { ptr, i32 } [ %5415, %5414 ], [ %5413, %5412 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %5422
 
 5417:                                             ; preds = %5249
@@ -14549,7 +14549,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit192.i474: ; preds 
 
 5421:                                             ; preds = %5419, %5417
   %.pn108.i485 = phi { ptr, i32 } [ %5420, %5419 ], [ %5418, %5417 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %5422
 
 5422:                                             ; preds = %5421, %5416, %5411, %5406, %5401, %5380, %5359, %5354, %5320, %5315, %5310, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit165.i416, %5280, %5279, %5274, %5269
@@ -14571,11 +14571,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i19
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit195.i410
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit195.i410: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i193.i409, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i194.i411
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.body
 
 _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_123AddGPVideoInverseShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextERKNS0_12GPPropertiesE.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i161.i487, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i160.i486
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %5429
 
 5429:                                             ; preds = %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_123AddGPVideoInverseShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextERKNS0_12GPPropertiesE.exit, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_123AddGPVideoForwardShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextERKNS0_12GPPropertiesE.exit, %4588
@@ -14586,7 +14586,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_123AddGPVideoInverseShaderERSt10shared_ptrI
           to label %5431 unwind label %1407
 
 5431:                                             ; preds = %5430
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %244) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %244)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %244, ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %5432 unwind label %5435
 
@@ -14596,7 +14596,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_123AddGPVideoInverseShaderERSt10shared_ptrI
 
 5434:                                             ; preds = %5432
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %244) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %244) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %244)
   br label %5440
 
 5435:                                             ; preds = %5431
@@ -14612,7 +14612,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_123AddGPVideoInverseShaderERSt10shared_ptrI
 
 5439:                                             ; preds = %5437, %5435
   %.pn73 = phi { ptr, i32 } [ %5438, %5437 ], [ %5436, %5435 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %244) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %244)
   br label %.body
 
 5440:                                             ; preds = %5429, %5434, %3680, %3685, %2258, %2263, %361
@@ -14620,7 +14620,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_123AddGPVideoInverseShaderERSt10shared_ptrI
           to label %5441 unwind label %1407
 
 5441:                                             ; preds = %5440
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %245) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %245)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind nonnull writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8 %245, ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %5442 unwind label %5495
 
@@ -14630,13 +14630,13 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_123AddGPVideoInverseShaderERSt10shared_ptrI
 
 5444:                                             ; preds = %5442
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %245) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %245) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %245)
   invoke void @_ZN19OpenColorIO_v2_5dev13GpuShaderText6dedentEv(ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %5445 unwind label %1407
 
 5445:                                             ; preds = %5444
   %5446 = load ptr, ptr %0, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %246) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %246)
   invoke void @_ZNK19OpenColorIO_v2_5dev13GpuShaderText6stringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %246, ptr noundef nonnull align 8 dereferenceable(764) %230)
           to label %5447 unwind label %5500
 
@@ -14668,9 +14668,9 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i50
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit506
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit506: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i505, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i504
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %246) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %246)
   call fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_112GPPropertiesD2Ev(ptr noundef nonnull align 8 dereferenceable(416) %235) #16
-  call void @llvm.lifetime.end.p0(i64 416, ptr nonnull %235) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %235)
   %5461 = getelementptr inbounds nuw i8, ptr %230, i64 384
   %5462 = load ptr, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, align 8
   store ptr %5462, ptr %5461, align 8, !tbaa !34
@@ -14738,7 +14738,7 @@ _ZN19OpenColorIO_v2_5dev13GpuShaderTextD2Ev.exit: ; preds = %_ZNKSt7__cxx1112bas
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5492) #16
   %5493 = getelementptr inbounds nuw i8, ptr %230, i64 120
   call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %5493) #16
-  call void @llvm.lifetime.end.p0(i64 768, ptr nonnull %230) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %230)
   br label %5494
 
 5494:                                             ; preds = %290, %275, %.thread510, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev33DynamicPropertyGradingPrimaryImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %_ZN19OpenColorIO_v2_5dev13GpuShaderTextD2Ev.exit
@@ -14757,7 +14757,7 @@ _ZN19OpenColorIO_v2_5dev13GpuShaderTextD2Ev.exit: ; preds = %_ZNKSt7__cxx1112bas
 
 5499:                                             ; preds = %5497, %5495
   %.pn87 = phi { ptr, i32 } [ %5498, %5497 ], [ %5496, %5495 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %245) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %245)
   br label %.body
 
 5500:                                             ; preds = %5445
@@ -14788,19 +14788,19 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i50
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit509: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i507, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i508, %5500
   %.pn89 = phi { ptr, i32 } [ %5501, %5500 ], [ %5503, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i508 ], [ %5503, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i507 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %246) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %246)
   br label %.body
 
 .body:                                            ; preds = %1394, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit195.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit122.i, %4565, %1407, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit195.i410, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit179.i314, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit138.i, %3058, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit179.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit509, %5499, %5439, %4587, %4582, %3690, %3080, %3075, %2268, %1418, %1413
   %.pn89.pn = phi { ptr, i32 } [ %.pn89, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit509 ], [ %.pn87, %5499 ], [ %.pn85, %2268 ], [ %.pn83, %1418 ], [ %.pn81, %1413 ], [ %.pn79, %3690 ], [ %.pn77, %3080 ], [ %.pn75, %3075 ], [ %.pn73, %5439 ], [ %.pn71, %4587 ], [ %.pn69, %4582 ], [ %.pn168.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %1394 ], [ %.pn92.pn.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit179.i ], [ %.pn108.pn.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit195.i ], [ %.pn136.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %3058 ], [ %.pn67.pn.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit122.i ], [ %.pn83.pn.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit138.i ], [ %.pn151.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %4565 ], [ %.pn92.pn.i312, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit179.i314 ], [ %1408, %1407 ], [ %.pn108.pn.i408, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit195.i410 ]
   call fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_112GPPropertiesD2Ev(ptr noundef nonnull align 8 dereferenceable(416) %235) #16
-  call void @llvm.lifetime.end.p0(i64 416, ptr nonnull %235) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %235)
   br label %5512
 
 5512:                                             ; preds = %.body, %434, %429, %424, %419, %413
   %.pn89.pn.pn.pn = phi { ptr, i32 } [ %.pn89.pn, %.body ], [ %414, %413 ], [ %.pn67, %434 ], [ %.pn65, %429 ], [ %.pn63, %424 ], [ %.pn61, %419 ]
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderTextD2Ev(ptr noundef nonnull align 8 dereferenceable(764) %230) #16
-  call void @llvm.lifetime.end.p0(i64 768, ptr nonnull %230) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %230)
   br label %5513
 
 5513:                                             ; preds = %5512, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit114
@@ -14808,14 +14808,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit509: ; preds = %_Z
   resume { ptr, i32 } %.pn89.pn.pn.pn.pn
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+; Function Attrs: nounwind
+declare noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev20GradingPrimaryOpData9isDynamicEv(ptr noundef nonnull align 8 dereferenceable(192)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev20GradingPrimaryOpData9isDynamicEv(ptr noundef nonnull align 8 dereferenceable(192)) local_unnamed_addr #2
-
-; Function Attrs: nounwind
-declare noundef i32 @_ZNK19OpenColorIO_v2_5dev16GpuShaderCreator11getLanguageEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2
+declare noundef i32 @_ZNK19OpenColorIO_v2_5dev16GpuShaderCreator11getLanguageEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev33DynamicPropertyGradingPrimaryImpl14getLocalBypassEv(ptr noundef nonnull align 8 dereferenceable(392) %0) #0 comdat align 2 {
@@ -14828,7 +14825,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev33Dynami
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev33DynamicPropertyGradingPrimaryImplELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev33DynamicPropertyGradingPrimaryImplELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !20
   %.not.i = icmp eq ptr %3, null
@@ -14882,37 +14879,34 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %1, %9,
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare void @_ZN19OpenColorIO_v2_5dev10LogWarningERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #4
+declare void @_ZN19OpenColorIO_v2_5dev10LogWarningERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
-declare noundef i32 @_ZNK19OpenColorIO_v2_5dev20GradingPrimaryOpData12getDirectionEv(ptr noundef nonnull align 8 dereferenceable(192)) local_unnamed_addr #2
+declare noundef i32 @_ZNK19OpenColorIO_v2_5dev20GradingPrimaryOpData12getDirectionEv(ptr noundef nonnull align 8 dereferenceable(192)) local_unnamed_addr #1
 
-declare void @_ZN19OpenColorIO_v2_5dev13GpuShaderTextC1ENS_11GpuLanguageE(ptr noundef nonnull align 8 dereferenceable(764), i32 noundef) unnamed_addr #4
+declare void @_ZN19OpenColorIO_v2_5dev13GpuShaderTextC1ENS_11GpuLanguageE(ptr noundef nonnull align 8 dereferenceable(764), i32 noundef) unnamed_addr #3
 
-declare void @_ZN19OpenColorIO_v2_5dev13GpuShaderText6indentEv(ptr noundef nonnull align 8 dereferenceable(764)) local_unnamed_addr #4
+declare void @_ZN19OpenColorIO_v2_5dev13GpuShaderText6indentEv(ptr noundef nonnull align 8 dereferenceable(764)) local_unnamed_addr #3
 
-declare void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8, ptr noundef nonnull align 8 dereferenceable(764)) local_unnamed_addr #4
+declare void @_ZN19OpenColorIO_v2_5dev13GpuShaderText7newLineEv(ptr dead_on_unwind writable sret(%"class.OpenColorIO_v2_5dev::GpuShaderText::GpuShaderLine") align 8, ptr noundef nonnull align 8 dereferenceable(764)) local_unnamed_addr #3
 
-declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLinelsEPKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #4
+declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLinelsEPKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
-declare void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #2
+declare void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
-declare noundef ptr @_ZN19OpenColorIO_v2_5dev20GradingStyleToStringENS_12GradingStyleE(i32 noundef) local_unnamed_addr #4
+declare noundef ptr @_ZN19OpenColorIO_v2_5dev20GradingStyleToStringENS_12GradingStyleE(i32 noundef) local_unnamed_addr #3
 
-declare noundef ptr @_ZN19OpenColorIO_v2_5dev26TransformDirectionToStringENS_18TransformDirectionE(i32 noundef) local_unnamed_addr #4
+declare noundef ptr @_ZN19OpenColorIO_v2_5dev26TransformDirectionToStringENS_18TransformDirectionE(i32 noundef) local_unnamed_addr #3
 
-declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLinelsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #4
+declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLinelsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #3
 
-declare void @_ZN19OpenColorIO_v2_5dev13GpuShaderText6dedentEv(ptr noundef nonnull align 8 dereferenceable(764)) local_unnamed_addr #4
+declare void @_ZN19OpenColorIO_v2_5dev13GpuShaderText6dedentEv(ptr noundef nonnull align 8 dereferenceable(764)) local_unnamed_addr #3
 
-declare void @_ZNK19OpenColorIO_v2_5dev13GpuShaderText6stringB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(764)) local_unnamed_addr #4
+declare void @_ZNK19OpenColorIO_v2_5dev13GpuShaderText6stringB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(764)) local_unnamed_addr #3
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_112GPPropertiesD2Ev(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(416) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_112GPPropertiesD2Ev(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(416) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %3 = load ptr, ptr %2, align 8, !tbaa !42
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 400
@@ -15176,7 +15170,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit36: ; preds = %_ZN
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev13GpuShaderTextD2Ev(ptr noundef nonnull align 8 dereferenceable(764) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev13GpuShaderTextD2Ev(ptr noundef nonnull align 8 dereferenceable(764) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %3 = load ptr, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, align 8
   store ptr %3, ptr %2, align 8, !tbaa !34
@@ -15248,7 +15242,7 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit3: ; preds 
 }
 
 ; Function Attrs: noinline noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #6 comdat {
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #5 comdat {
   %2 = tail call ptr @__cxa_begin_catch(ptr %0) #16
   tail call void @_ZSt9terminatev() #20
   unreachable
@@ -15257,10 +15251,10 @@ define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_un
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #7
+declare void @_ZSt9terminatev() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress noinline nounwind uwtable
-define linkonce_odr hidden void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !34
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -15296,11 +15290,11 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv.ex
   ret void
 }
 
-declare void @_ZN19OpenColorIO_v2_5dev17BuildResourceNameERSt10shared_ptrINS_16GpuShaderCreatorEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #4
+declare void @_ZN19OpenColorIO_v2_5dev17BuildResourceNameERSt10shared_ptrINS_16GpuShaderCreatorEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #3
 
-declare void @_ZNK19OpenColorIO_v2_5dev33DynamicPropertyGradingPrimaryImpl18createEditableCopyEv(ptr dead_on_unwind writable sret(%"class.std::shared_ptr.8") align 8, ptr noundef nonnull align 8 dereferenceable(392)) local_unnamed_addr #4
+declare void @_ZNK19OpenColorIO_v2_5dev33DynamicPropertyGradingPrimaryImpl18createEditableCopyEv(ptr dead_on_unwind writable sret(%"class.std::shared_ptr.8") align 8, ptr noundef nonnull align 8 dereferenceable(392)) local_unnamed_addr #3
 
-declare void @_ZN19OpenColorIO_v2_5dev16GpuShaderCreator18addDynamicPropertyERSt10shared_ptrINS_15DynamicPropertyEE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #4
+declare void @_ZN19OpenColorIO_v2_5dev16GpuShaderCreator18addDynamicPropertyERSt10shared_ptrINS_15DynamicPropertyEE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef nonnull align 4 dereferenceable(12) ptr @_ZNK19OpenColorIO_v2_5dev33DynamicPropertyGradingPrimaryImpl13getBrightnessEv(ptr noundef nonnull align 8 dereferenceable(392) %0) #0 comdat align 2 {
@@ -15321,7 +15315,7 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_110AddUniformE
   br i1 %11, label %12, label %79
 
 12:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 768, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %13 = load ptr, ptr %0, align 8, !tbaa !11
   %14 = tail call noundef i32 @_ZNK19OpenColorIO_v2_5dev16GpuShaderCreator11getLanguageEv(ptr noundef nonnull align 8 dereferenceable(16) %13) #16
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderTextC1ENS_11GpuLanguageE(ptr noundef nonnull align 8 dereferenceable(764) %4, i32 noundef %14)
@@ -15330,7 +15324,7 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_110AddUniformE
 
 15:                                               ; preds = %12
   %16 = load ptr, ptr %0, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   invoke void @_ZNK19OpenColorIO_v2_5dev13GpuShaderText6stringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull align 8 dereferenceable(764) %4)
           to label %17 unwind label %66
 
@@ -15362,7 +15356,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 384
   %32 = load ptr, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, align 8
   store ptr %32, ptr %31, align 8, !tbaa !34
@@ -15430,7 +15424,7 @@ _ZN19OpenColorIO_v2_5dev13GpuShaderTextD2Ev.exit: ; preds = %_ZNKSt7__cxx1112bas
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %62) #16
   %63 = getelementptr inbounds nuw i8, ptr %4, i64 120
   call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %63) #16
-  call void @llvm.lifetime.end.p0(i64 768, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %79
 
 64:                                               ; preds = %12
@@ -15466,13 +15460,13 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i11
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i11, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i12, %66
   %.pn = phi { ptr, i32 } [ %67, %66 ], [ %69, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i12 ], [ %69, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i11 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %78
 
 78:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13, %64
   %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13 ], [ %65, %64 ]
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderTextD2Ev(ptr noundef nonnull align 8 dereferenceable(764) %4) #16
-  call void @llvm.lifetime.end.p0(i64 768, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn.pn
 
 79:                                               ; preds = %_ZN19OpenColorIO_v2_5dev13GpuShaderTextD2Ev.exit, %3
@@ -15511,7 +15505,7 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_110AddUniformE
   br i1 %11, label %12, label %79
 
 12:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 768, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %13 = load ptr, ptr %0, align 8, !tbaa !11
   %14 = tail call noundef i32 @_ZNK19OpenColorIO_v2_5dev16GpuShaderCreator11getLanguageEv(ptr noundef nonnull align 8 dereferenceable(16) %13) #16
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderTextC1ENS_11GpuLanguageE(ptr noundef nonnull align 8 dereferenceable(764) %4, i32 noundef %14)
@@ -15520,7 +15514,7 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_110AddUniformE
 
 15:                                               ; preds = %12
   %16 = load ptr, ptr %0, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   invoke void @_ZNK19OpenColorIO_v2_5dev13GpuShaderText6stringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull align 8 dereferenceable(764) %4)
           to label %17 unwind label %66
 
@@ -15552,7 +15546,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 384
   %32 = load ptr, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, align 8
   store ptr %32, ptr %31, align 8, !tbaa !34
@@ -15620,7 +15614,7 @@ _ZN19OpenColorIO_v2_5dev13GpuShaderTextD2Ev.exit: ; preds = %_ZNKSt7__cxx1112bas
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %62) #16
   %63 = getelementptr inbounds nuw i8, ptr %4, i64 120
   call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %63) #16
-  call void @llvm.lifetime.end.p0(i64 768, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %79
 
 64:                                               ; preds = %12
@@ -15656,13 +15650,13 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i11
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i11, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i12, %66
   %.pn = phi { ptr, i32 } [ %67, %66 ], [ %69, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i12 ], [ %69, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i11 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %78
 
 78:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13, %64
   %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13 ], [ %65, %64 ]
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderTextD2Ev(ptr noundef nonnull align 8 dereferenceable(764) %4) #16
-  call void @llvm.lifetime.end.p0(i64 768, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn.pn
 
 79:                                               ; preds = %_ZN19OpenColorIO_v2_5dev13GpuShaderTextD2Ev.exit, %3
@@ -15682,7 +15676,7 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_114AddBoolUnif
   br i1 %11, label %12, label %79
 
 12:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 768, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %13 = load ptr, ptr %0, align 8, !tbaa !11
   %14 = tail call noundef i32 @_ZNK19OpenColorIO_v2_5dev16GpuShaderCreator11getLanguageEv(ptr noundef nonnull align 8 dereferenceable(16) %13) #16
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderTextC1ENS_11GpuLanguageE(ptr noundef nonnull align 8 dereferenceable(764) %4, i32 noundef %14)
@@ -15691,7 +15685,7 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_114AddBoolUnif
 
 15:                                               ; preds = %12
   %16 = load ptr, ptr %0, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   invoke void @_ZNK19OpenColorIO_v2_5dev13GpuShaderText6stringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull align 8 dereferenceable(764) %4)
           to label %17 unwind label %66
 
@@ -15723,7 +15717,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 384
   %32 = load ptr, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, align 8
   store ptr %32, ptr %31, align 8, !tbaa !34
@@ -15791,7 +15785,7 @@ _ZN19OpenColorIO_v2_5dev13GpuShaderTextD2Ev.exit: ; preds = %_ZNKSt7__cxx1112bas
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %62) #16
   %63 = getelementptr inbounds nuw i8, ptr %4, i64 120
   call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %63) #16
-  call void @llvm.lifetime.end.p0(i64 768, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %79
 
 64:                                               ; preds = %12
@@ -15827,13 +15821,13 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i11
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i11, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i12, %66
   %.pn = phi { ptr, i32 } [ %67, %66 ], [ %69, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i12 ], [ %69, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i11 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %78
 
 78:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13, %64
   %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13 ], [ %65, %64 ]
   call void @_ZN19OpenColorIO_v2_5dev13GpuShaderTextD2Ev(ptr noundef nonnull align 8 dereferenceable(764) %4) #16
-  call void @llvm.lifetime.end.p0(i64 768, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn.pn
 
 79:                                               ; preds = %_ZN19OpenColorIO_v2_5dev13GpuShaderTextD2Ev.exit, %3
@@ -15841,7 +15835,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev15DynamicPropertyELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev15DynamicPropertyELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !20
   %.not.i = icmp eq ptr %3, null
@@ -15895,17 +15889,17 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %1, %9,
   ret void
 }
 
-declare void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13declareFloat3ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt5arrayIfLm3EE(ptr noundef nonnull align 8 dereferenceable(764), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 4 dereferenceable(12)) local_unnamed_addr #4
+declare void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13declareFloat3ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt5arrayIfLm3EE(ptr noundef nonnull align 8 dereferenceable(764), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 4 dereferenceable(12)) local_unnamed_addr #3
 
-declare void @_ZN19OpenColorIO_v2_5dev13GpuShaderText15declareVarConstERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEf(ptr noundef nonnull align 8 dereferenceable(764), ptr noundef nonnull align 8 dereferenceable(32), float noundef) local_unnamed_addr #4
+declare void @_ZN19OpenColorIO_v2_5dev13GpuShaderText15declareVarConstERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEf(ptr noundef nonnull align 8 dereferenceable(764), ptr noundef nonnull align 8 dereferenceable(32), float noundef) local_unnamed_addr #3
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #9
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
-declare void @_ZN19OpenColorIO_v2_5dev13GpuShaderText20declareUniformFloat3ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(764), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #4
+declare void @_ZN19OpenColorIO_v2_5dev13GpuShaderText20declareUniformFloat3ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(764), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef nonnull align 4 dereferenceable(12) ptr @_ZNSt17_Function_handlerIFRKSt5arrayIfLm3EEvESt5_BindIFMN19OpenColorIO_v2_5dev33DynamicPropertyGradingPrimaryImplEKFS3_vEPS7_EEE9_M_invokeERKSt9_Any_data(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
@@ -15976,9 +15970,9 @@ _ZNSt14_Function_base13_Base_managerISt5_BindIFMN19OpenColorIO_v2_5dev33DynamicP
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #11
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #10
 
-declare void @_ZN19OpenColorIO_v2_5dev13GpuShaderText19declareUniformFloatERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(764), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #4
+declare void @_ZN19OpenColorIO_v2_5dev13GpuShaderText19declareUniformFloatERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(764), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef double @_ZNSt17_Function_handlerIFdvESt5_BindIFMN19OpenColorIO_v2_5dev33DynamicPropertyGradingPrimaryImplEKFdvEPS3_EEE9_M_invokeERKSt9_Any_data(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
@@ -16097,7 +16091,7 @@ _ZNSt14_Function_base13_Base_managerISt5_BindIFMN19OpenColorIO_v2_5dev14GradingP
   ret i1 false
 }
 
-declare void @_ZN19OpenColorIO_v2_5dev13GpuShaderText18declareUniformBoolERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(764), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #4
+declare void @_ZN19OpenColorIO_v2_5dev13GpuShaderText18declareUniformBoolERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(764), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNSt17_Function_handlerIFbvESt5_BindIFMN19OpenColorIO_v2_5dev33DynamicPropertyGradingPrimaryImplEKFbvEPS3_EEE9_M_invokeERKSt9_Any_data(ptr noundef nonnull align 8 dereferenceable(16) %0) #0 comdat align 2 {
@@ -16168,17 +16162,17 @@ _ZNSt14_Function_base13_Base_managerISt5_BindIFMN19OpenColorIO_v2_5dev33DynamicP
 }
 
 ; Function Attrs: nounwind
-declare noundef ptr @_ZNK19OpenColorIO_v2_5dev16GpuShaderCreator12getPixelNameEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2
+declare noundef ptr @_ZNK19OpenColorIO_v2_5dev16GpuShaderCreator12getPixelNameEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
-declare void @_ZN19OpenColorIO_v2_5dev13GpuShaderText23vectorCompareExpressionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_S8_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(764), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #4
+declare void @_ZN19OpenColorIO_v2_5dev13GpuShaderText23vectorCompareExpressionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_S8_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(764), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #3
 
-declare void @_ZNK19OpenColorIO_v2_5dev13GpuShaderText11float3ConstB5cxx11Ef(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(764), float noundef) local_unnamed_addr #4
+declare void @_ZNK19OpenColorIO_v2_5dev13GpuShaderText11float3ConstB5cxx11Ef(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(764), float noundef) local_unnamed_addr #3
 
-declare void @_ZNK19OpenColorIO_v2_5dev13GpuShaderText10float3DeclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(764), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #4
+declare void @_ZNK19OpenColorIO_v2_5dev13GpuShaderText10float3DeclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(764), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #3
 
-declare void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13declareFloat3ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEfff(ptr noundef nonnull align 8 dereferenceable(764), ptr noundef nonnull align 8 dereferenceable(32), float noundef, float noundef, float noundef) local_unnamed_addr #4
+declare void @_ZN19OpenColorIO_v2_5dev13GpuShaderText13declareFloat3ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEfff(ptr noundef nonnull align 8 dereferenceable(764), ptr noundef nonnull align 8 dereferenceable(32), float noundef, float noundef, float noundef) local_unnamed_addr #3
 
-declare void @_ZNK19OpenColorIO_v2_5dev13GpuShaderText9floatDeclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(764), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #4
+declare void @_ZNK19OpenColorIO_v2_5dev13GpuShaderText9floatDeclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(764), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef nonnull align 4 dereferenceable(12) ptr @_ZNK19OpenColorIO_v2_5dev33DynamicPropertyGradingPrimaryImpl9getOffsetEv(ptr noundef nonnull align 8 dereferenceable(392) %0) #0 comdat align 2 {
@@ -16199,23 +16193,29 @@ define linkonce_odr hidden noundef nonnull align 4 dereferenceable(12) ptr @_ZNK
 }
 
 ; Function Attrs: nounwind
-declare void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(216)) unnamed_addr #2
+declare void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(216)) unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #2
+declare void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #12
+declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #13
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #12
 
-declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #4
+declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #3
 
-declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef) local_unnamed_addr #4
+declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #12
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #11
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #14
@@ -16224,19 +16224,19 @@ declare void @llvm.assume(i1 noundef) #14
 declare void @llvm.experimental.noalias.scope.decl(metadata) #15
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { cold nofree noreturn }
-attributes #8 = { mustprogress noinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { cold nofree noreturn }
+attributes #7 = { mustprogress noinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #14 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #15 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #16 = { nounwind }

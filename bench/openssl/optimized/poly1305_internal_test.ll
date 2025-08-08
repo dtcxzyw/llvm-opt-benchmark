@@ -33,8 +33,8 @@ define internal range(i32 0, 2) i32 @test_poly1305(i32 noundef %0) #0 {
   %2 = alloca %struct.poly1305_context, align 8
   %3 = alloca %struct.TESTDATA, align 8
   %4 = alloca [16 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 248, ptr nonnull %2) #4
-  call void @llvm.lifetime.start.p0(i64 3096, ptr nonnull %3) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = sext i32 %0 to i64
   %6 = getelementptr inbounds [35 x %struct.TESTDATA], ptr @tests, i64 0, i64 %5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3096) %3, ptr noundef nonnull align 8 dereferenceable(3096) %6, i64 3096, i1 false), !tbaa.struct !4
@@ -44,7 +44,7 @@ define internal range(i32 0, 2) i32 @test_poly1305(i32 noundef %0) #0 {
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 2064
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 2072
   %12 = load i64, ptr %10, align 8, !tbaa !13
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %13 = tail call i32 @test_size_t_eq(ptr noundef nonnull @.str.1, i32 noundef 1517, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i64 noundef %12, i64 noundef 16) #4
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %.critedge, label %14
@@ -123,17 +123,14 @@ define internal range(i32 0, 2) i32 @test_poly1305(i32 noundef %0) #0 {
 
 .critedge:                                        ; preds = %36, %17, %35, %31, %24, %1, %23, %16
   %.050 = phi i32 [ 0, %23 ], [ 0, %16 ], [ 0, %1 ], [ 1, %24 ], [ 0, %31 ], [ 0, %35 ], [ 1, %17 ], [ 1, %36 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #4
-  call void @llvm.lifetime.end.p0(i64 3096, ptr nonnull %3) #4
-  call void @llvm.lifetime.end.p0(i64 248, ptr nonnull %2) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.050
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare i32 @test_size_t_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
@@ -148,12 +145,15 @@ declare i32 @test_mem_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr
 declare void @test_info(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

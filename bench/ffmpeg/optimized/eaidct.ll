@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @ff_ea_idct_put_c(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca [64 x i16], align 16
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #2
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load i16, ptr %2, align 2, !tbaa !4
   %6 = add i16 %5, 4
   store i16 %6, ptr %2, align 2, !tbaa !4
@@ -266,19 +266,18 @@ ea_idct_col.exit:                                 ; preds = %38, %41
   br i1 %exitcond119.not, label %191, label %.preheader, !llvm.loop !11
 
 191:                                              ; preds = %.preheader
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #2
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #1
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

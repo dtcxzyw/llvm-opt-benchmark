@@ -121,15 +121,9 @@ declare i32 @SDL_GetNumAllocations() local_unnamed_addr #1
 
 declare void @SDL_Log(ptr noundef, ...) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare ptr @SDL_getenv_unsafe(ptr noundef) local_unnamed_addr #1
 
 declare i32 @SDL_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 declare void @SDL_GetMemoryFunctions(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -200,14 +194,14 @@ SDL_GetTrackedAllocationSize.exit.thread:         ; preds = %2
   br i1 %9, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %0, ptr %3, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %10 = call zeroext i1 @SDLTest_Crc32Calc(ptr noundef nonnull @s_crc32_context, ptr noundef nonnull %3, i32 noundef 8, ptr noundef nonnull %4) #4
   %11 = load i32, ptr %4, align 4
   %12 = and i32 %11, 255
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %13 = zext nneg i32 %12 to i64
   %14 = getelementptr inbounds nuw [256 x ptr], ptr @s_tracked_allocations, i64 0, i64 %13
   %.0710.i.i = load ptr, ptr %14, align 8
@@ -297,7 +291,7 @@ define dso_local void @SDLTest_RandFillAllocations() local_unnamed_addr #0 {
 define dso_local void @SDLTest_LogAllocations() local_unnamed_addr #0 {
   %1 = alloca [256 x i8], align 16
   %2 = alloca [256 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %1) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = load ptr, ptr @SDL_malloc_orig, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %.loopexit109, label %4
@@ -363,7 +357,7 @@ define dso_local void @SDLTest_LogAllocations() local_unnamed_addr #0 {
   %indvars.iv = phi i64 [ 1, %28 ], [ %indvars.iv.next, %48 ]
   %.2133 = phi i64 [ %25, %28 ], [ %44, %48 ]
   %.276132 = phi ptr [ %27, %28 ], [ %46, %48 ]
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %2) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %2, i8 0, i64 256, i1 false)
   store i8 63, ptr %2, align 16
   store i8 63, ptr %15, align 1
@@ -395,16 +389,16 @@ define dso_local void @SDLTest_LogAllocations() local_unnamed_addr #0 {
   br i1 %.not99, label %.thread, label %48
 
 .thread:                                          ; preds = %39
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %2) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.loopexit109
 
 47:                                               ; preds = %32
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %2) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.loopexit
 
 48:                                               ; preds = %39
   %49 = call i64 @SDL_strlcat(ptr noundef nonnull %46, ptr noundef nonnull %1, i64 noundef %44) #4
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %2) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
   br i1 %exitcond.not, label %.loopexit, label %32, !llvm.loop !8
@@ -481,7 +475,7 @@ define dso_local void @SDLTest_LogAllocations() local_unnamed_addr #0 {
   br label %.loopexit109
 
 .loopexit109:                                     ; preds = %.lr.ph, %.thread, %75, %66, %54, %7, %4, %0, %82
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %1) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }
 
@@ -494,7 +488,7 @@ declare i64 @SDL_strlcat(ptr noundef, ptr noundef, i64 noundef) local_unnamed_ad
 declare i32 @SDL_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @SDL_TrackAllocation(ptr noundef nonnull %0, i64 noundef %1) unnamed_addr #0 {
@@ -507,14 +501,14 @@ define internal fastcc void @SDL_TrackAllocation(ptr noundef nonnull %0, i64 nou
   %9 = alloca i64, align 8
   %10 = alloca i64, align 8
   %11 = alloca [236 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %0, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %12 = call zeroext i1 @SDLTest_Crc32Calc(ptr noundef nonnull @s_crc32_context, ptr noundef nonnull %5, i32 noundef 8, ptr noundef nonnull %6) #4
   %13 = load i32, ptr %6, align 4
   %14 = and i32 %13, 255
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %15 = call zeroext i1 @SDL_CompareAndSwapAtomicInt(ptr noundef nonnull @s_lock, i32 noundef 0, i32 noundef 1) #4
   br i1 %15, label %._crit_edge.i.i, label %.lr.ph.i.i
 
@@ -524,14 +518,14 @@ define internal fastcc void @SDL_TrackAllocation(ptr noundef nonnull %0, i64 nou
   br i1 %16, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %0, ptr %3, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %17 = call zeroext i1 @SDLTest_Crc32Calc(ptr noundef nonnull @s_crc32_context, ptr noundef nonnull %3, i32 noundef 8, ptr noundef nonnull %4) #4
   %18 = load i32, ptr %4, align 4
   %19 = and i32 %18, 255
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %20 = zext nneg i32 %19 to i64
   %21 = getelementptr inbounds nuw [256 x ptr], ptr @s_tracked_allocations, i64 0, i64 %20
   %.0710.i.i = load ptr, ptr %21, align 8
@@ -572,8 +566,8 @@ define internal fastcc void @SDL_TrackAllocation(ptr noundef nonnull %0, i64 nou
   store i64 %1, ptr %31, align 8
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %32, i8 0, i64 256, i1 false)
-  call void @llvm.lifetime.start.p0(i64 1016, ptr nonnull %7) #4
-  call void @llvm.lifetime.start.p0(i64 968, ptr nonnull %8) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %33 = call i32 @_Ux86_64_getcontext(ptr noundef nonnull %8) #4
   %34 = call i32 @_ULx86_64_init_local(ptr noundef nonnull %7, ptr noundef nonnull %8) #4
   %35 = getelementptr inbounds nuw i8, ptr %28, i64 280
@@ -586,9 +580,9 @@ define internal fastcc void @SDL_TrackAllocation(ptr noundef nonnull %0, i64 nou
   br i1 %38, label %39, label %52
 
 39:                                               ; preds = %36
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #4
-  call void @llvm.lifetime.start.p0(i64 236, ptr nonnull %11) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %40 = call i32 @_ULx86_64_get_reg(ptr noundef nonnull %7, i32 noundef 16, ptr noundef nonnull %9) #4
   %41 = load i64, ptr %9, align 8
   %42 = getelementptr inbounds nuw [32 x i64], ptr %32, i64 0, i64 %indvars.iv
@@ -610,14 +604,14 @@ define internal fastcc void @SDL_TrackAllocation(ptr noundef nonnull %0, i64 nou
 50:                                               ; preds = %46, %43, %39
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %51 = icmp eq i64 %indvars.iv.next, 32
-  call void @llvm.lifetime.end.p0(i64 236, ptr nonnull %11) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br i1 %51, label %52, label %36
 
 52:                                               ; preds = %50, %36
-  call void @llvm.lifetime.end.p0(i64 968, ptr nonnull %8) #4
-  call void @llvm.lifetime.end.p0(i64 1016, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %53 = zext nneg i32 %14 to i64
   %54 = getelementptr inbounds nuw [256 x ptr], ptr @s_tracked_allocations, i64 0, i64 %53
   %55 = load ptr, ptr %54, align 8
@@ -656,14 +650,14 @@ declare zeroext i8 @SDLTest_RandomUint8() local_unnamed_addr #1
 define internal fastcc void @SDL_UntrackAllocation(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %0, ptr %2, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call zeroext i1 @SDLTest_Crc32Calc(ptr noundef nonnull @s_crc32_context, ptr noundef nonnull %2, i32 noundef 8, ptr noundef nonnull %3) #4
   %5 = load i32, ptr %3, align 4
   %6 = and i32 %5, 255
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %7 = call zeroext i1 @SDL_CompareAndSwapAtomicInt(ptr noundef nonnull @s_lock, i32 noundef 0, i32 noundef 1) #4
   br i1 %7, label %._crit_edge, label %.lr.ph
 
@@ -729,10 +723,16 @@ define internal fastcc void @SDL_UntrackAllocation(ptr noundef nonnull %0) unnam
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

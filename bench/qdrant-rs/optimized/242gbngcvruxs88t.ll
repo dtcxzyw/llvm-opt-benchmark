@@ -311,8 +311,8 @@ _ZN6common3cpu14get_cpu_budget17h98b86ed8cdaa4d53E.exit: ; preds = %0, %4, %6, %
   %.0.i.neg.i = phi i64 [ %.neg.i.neg.i, %14 ], [ 0, %0 ], [ 1, %4 ], [ 2, %6 ], [ 3, %8 ], [ 4, %10 ], [ 6, %12 ]
   %15 = tail call i64 @llvm.usub.sat.i64(i64 %2, i64 %.0.i.neg.i)
   %16 = tail call i64 @_ZN4core3cmp6max_by17h8d07869766a11c32E(i64 %15, i64 1)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %.sroa.3.i)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.3.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @_ZN5tokio4sync9semaphore9Semaphore3new17h24677e77db170fb8E(ptr nonnull sret({ { { {}, { { { i8 } }, [7 x i8], { { { ptr, ptr, {} }, i8, [7 x i8] } } } }, { { { i64 } } } } }) align 8 %1, i64 %16, ptr nonnull align 8 @anon.cc052e27bd61535bd7e25b5293e3cbed.2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.3.i, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false)
   %17 = call ptr @_ZN5alloc5alloc15exchange_malloc17hf3f6835a3d5df5f4E(i64 56, i64 8)
@@ -323,8 +323,8 @@ _ZN6common3cpu14get_cpu_budget17h98b86ed8cdaa4d53E.exit: ; preds = %0, %4, %6, %
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.3.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.3.i, i64 40, i1 false)
   %18 = insertvalue { ptr, i64 } poison, ptr %17, 0
   %19 = insertvalue { ptr, i64 } %18, i64 %16, 1
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %.sroa.3.i)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.3.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret { ptr, i64 } %19
 }
 
@@ -367,10 +367,10 @@ define void @_ZN6common3cpu25linux_low_thread_priority17h3a5c33c46f5d3808E(ptr s
   %4 = alloca { i32, [5 x i32] }, align 8
   %5 = alloca { [12 x i32], i32, [1 x i32] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @"_ZN89_$LT$thread_priority..ThreadPriorityValue$u20$as$u20$core..convert..TryFrom$LT$u8$GT$$GT$8try_from17hb7d9e726c3642caaE"(ptr nonnull sret({ ptr, [1 x i64] }) align 8 %3, i8 25), !noalias !6
   call void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h3a042ce2749ebe66E"(ptr nonnull sret({ i32, [5 x i32] }) align 8 %4, ptr nonnull align 8 %3), !noalias !6
   %6 = load i32, ptr %4, align 8, !range !9, !noalias !6, !noundef !4
@@ -397,10 +397,10 @@ define void @_ZN6common3cpu25linux_low_thread_priority17h3a5c33c46f5d3808E(ptr s
   br label %_ZN6common3cpu25set_linux_thread_priority17hae5d3d3d608103e1E.exit
 
 _ZN6common3cpu25set_linux_thread_priority17hae5d3d3d608103e1E.exit: ; preds = %10, %12
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -411,10 +411,10 @@ define void @_ZN6common3cpu26linux_high_thread_priority17h76c90b4c2bf18929E(ptr 
   %4 = alloca { i32, [5 x i32] }, align 8
   %5 = alloca { [12 x i32], i32, [1 x i32] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @"_ZN89_$LT$thread_priority..ThreadPriorityValue$u20$as$u20$core..convert..TryFrom$LT$u8$GT$$GT$8try_from17hb7d9e726c3642caaE"(ptr nonnull sret({ ptr, [1 x i64] }) align 8 %3, i8 75), !noalias !10
   call void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h3a042ce2749ebe66E"(ptr nonnull sret({ i32, [5 x i32] }) align 8 %4, ptr nonnull align 8 %3), !noalias !10
   %6 = load i32, ptr %4, align 8, !range !9, !noalias !10, !noundef !4
@@ -441,10 +441,10 @@ define void @_ZN6common3cpu26linux_high_thread_priority17h76c90b4c2bf18929E(ptr 
   br label %_ZN6common3cpu25set_linux_thread_priority17hae5d3d3d608103e1E.exit
 
 _ZN6common3cpu25set_linux_thread_priority17hae5d3d3d608103e1E.exit: ; preds = %10, %12
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -584,10 +584,10 @@ declare zeroext i1 @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17hecb
 declare range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64, i64) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #11

@@ -39,7 +39,7 @@ define dso_local noundef zeroext i8 @_ZN4absl16strings_internal32CappedDamerauLe
   br label %116
 
 20:                                               ; preds = %16
-  call void @llvm.lifetime.start.p0(i64 10404, ptr nonnull %6) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 %12
   br label %.lr.ph.i
 
@@ -70,7 +70,7 @@ define dso_local noundef zeroext i8 @_ZN4absl16strings_internal32CappedDamerauLe
   %31 = getelementptr inbounds nuw [102 x %"struct.std::array.0"], ptr %6, i64 0, i64 %.sroa.080.0
   %32 = getelementptr inbounds nuw [102 x i8], ptr %31, i64 0, i64 %.sroa.0.0
   %33 = load i8, ptr %32, align 1, !tbaa !4
-  call void @llvm.lifetime.end.p0(i64 10404, ptr nonnull %6) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %116
 
 34:                                               ; preds = %.lr.ph96, %._crit_edge
@@ -137,7 +137,7 @@ define dso_local noundef zeroext i8 @_ZN4absl16strings_internal32CappedDamerauLe
   %70 = load i8, ptr %69, align 1, !tbaa !4
   %71 = zext i1 %68 to i8
   %72 = add i8 %70, %71
-  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %7) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 %8, ptr %7, align 1, !tbaa !4
   store i8 %61, ptr %.ptr91, align 1, !tbaa !4
   store i8 %65, ptr %28, align 1, !tbaa !4
@@ -162,7 +162,7 @@ _ZSt3minIhET_St16initializer_listIS0_E.exit.us:   ; preds = %.lr.ph.i.i.us
   %77 = load i8, ptr %spec.select.i.i.us, align 1, !tbaa !4
   %78 = getelementptr inbounds nuw [102 x i8], ptr %53, i64 0, i64 %.06093.us
   store i8 %77, ptr %78, align 1, !tbaa !4
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %7) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %79 = add i64 %.06093.us, 1
   %.not64.us = icmp ugt i64 %79, %.059
   br i1 %.not64.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !10
@@ -211,7 +211,7 @@ _ZSt3minIhET_St16initializer_listIS0_E.exit.us:   ; preds = %.lr.ph.i.i.us
 
 108:                                              ; preds = %104, %101, %96, %.lr.ph.split
   %.056 = phi i8 [ %107, %104 ], [ %8, %101 ], [ %8, %96 ], [ %8, %.lr.ph.split ]
-  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %7) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 %8, ptr %7, align 1, !tbaa !4
   store i8 %83, ptr %.ptr91, align 1, !tbaa !4
   store i8 %87, ptr %28, align 1, !tbaa !4
@@ -236,7 +236,7 @@ _ZSt3minIhET_St16initializer_listIS0_E.exit:      ; preds = %.lr.ph.i.i
   %113 = load i8, ptr %spec.select.i.i, align 1, !tbaa !4
   %114 = getelementptr inbounds nuw [102 x i8], ptr %53, i64 0, i64 %.06093
   store i8 %113, ptr %114, align 1, !tbaa !4
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %7) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %115 = add i64 %.06093, 1
   %.not64 = icmp ugt i64 %115, %.059
   br i1 %.not64, label %._crit_edge, label %.lr.ph.split, !llvm.loop !13
@@ -247,10 +247,10 @@ _ZSt3minIhET_St16initializer_listIS0_E.exit:      ; preds = %.lr.ph.i.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.umin.i8(i8, i8) #2
@@ -258,7 +258,6 @@ declare i8 @llvm.umin.i8(i8, i8) #2
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -126,41 +126,35 @@ define void @lv_demo_render(i32 noundef %0, i8 noundef zeroext %1) local_unnamed
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @lv_screen_active() local_unnamed_addr #1
 
-declare ptr @lv_screen_active() local_unnamed_addr #2
+declare void @lv_obj_clean(ptr noundef) local_unnamed_addr #1
 
-declare void @lv_obj_clean(ptr noundef) local_unnamed_addr #2
+declare void @lv_obj_remove_style_all(ptr noundef) local_unnamed_addr #1
 
-declare void @lv_obj_remove_style_all(ptr noundef) local_unnamed_addr #2
+declare void @lv_obj_set_style_bg_opa(ptr noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_obj_set_style_bg_opa(ptr noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_set_style_text_color(ptr noundef, i24, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_obj_set_style_text_color(ptr noundef, i24, i32 noundef) local_unnamed_addr #2
-
-declare i24 @lv_color_black() local_unnamed_addr #2
+declare i24 @lv_color_black() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
-declare void @lv_obj_set_style_bg_color(ptr noundef, i24, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_set_style_bg_color(ptr noundef, i24, i32 noundef) local_unnamed_addr #1
 
-declare i24 @lv_color_white() local_unnamed_addr #2
+declare i24 @lv_color_white() local_unnamed_addr #1
 
-declare ptr @lv_obj_create(ptr noundef) local_unnamed_addr #2
+declare ptr @lv_obj_create(ptr noundef) local_unnamed_addr #1
 
-declare i24 @lv_color_hex3(i32 noundef) local_unnamed_addr #2
+declare i24 @lv_color_hex3(i32 noundef) local_unnamed_addr #1
 
-declare void @lv_obj_set_size(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_set_size(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_obj_set_grid_dsc_array(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @lv_obj_set_grid_dsc_array(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define ptr @lv_demo_render_get_scene_name(i32 noundef %0) local_unnamed_addr #4 {
+define ptr @lv_demo_render_get_scene_name(i32 noundef %0) local_unnamed_addr #3 {
   %2 = icmp ugt i32 %0, 14
   br i1 %2, label %7, label %3
 
@@ -872,14 +866,14 @@ define internal void @blend_mode_cb(ptr noundef %0) #0 {
   call void @lv_canvas_set_draw_buf(ptr noundef %7, ptr noundef %25) #6
   %26 = call i24 @lv_color_hex3(i32 noundef 2116) #6
   call void @lv_canvas_fill_bg(ptr noundef %7, i24 %26, i8 noundef zeroext -1) #6
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @lv_canvas_init_layer(ptr noundef %7, ptr noundef nonnull %2) #6
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @lv_draw_label_dsc_init(ptr noundef nonnull %3) #6
   %27 = call i24 @lv_color_hex(i32 noundef 16711680) #6
   store i24 %27, ptr %8, align 8
   store ptr @.str.31, ptr %9, align 8, !tbaa !49
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) @__const.create_blend_mode_image_buffer.coords, i64 16, i1 false)
   call void @lv_draw_label(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4) #6
   %28 = call i24 @lv_color_hex(i32 noundef 65280) #6
@@ -904,9 +898,9 @@ define internal void @blend_mode_cb(ptr noundef %0) #0 {
   store i32 20, ptr %4, align 4, !tbaa !58
   call void @lv_draw_label(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4) #6
   call void @lv_canvas_finish_layer(ptr noundef %7, ptr noundef nonnull %2) #6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #6
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #6
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %32 = call ptr @lv_canvas_get_draw_buf(ptr noundef %7) #6
   %33 = getelementptr inbounds nuw [4 x %struct._lv_draw_buf_t], ptr @blend_mode_cb.image_dscs, i64 0, i64 %indvars.iv67
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32, i64 40, i1 false), !tbaa.struct !61
@@ -983,7 +977,7 @@ define internal void @blend_mode_cb(ptr noundef %0) #0 {
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @fill_obj_create(ptr noundef %0, i32 noundef range(i32 0, 8) %1, i32 noundef range(i32 0, 7) %2) unnamed_addr #0 {
   %4 = alloca [8 x %struct.lv_color_t], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call i24 @lv_color_hex3(i32 noundef 0) #6
   store i24 %5, ptr %4, align 16
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 3
@@ -1018,29 +1012,29 @@ define internal fastcc noundef ptr @fill_obj_create(ptr noundef %0, i32 noundef 
   tail call void @lv_obj_set_style_bg_color(ptr noundef %20, i24 %.0.copyload, i32 noundef 0) #6
   tail call void @lv_obj_set_size(ptr noundef %20, i32 noundef 55, i32 noundef 30) #6
   tail call void @lv_obj_set_grid_cell(ptr noundef %20, i32 noundef 1, i32 noundef range(i32 0, 9) %1, i32 noundef 1, i32 noundef 1, i32 noundef range(i32 -8, 21) %2, i32 noundef 1) #6
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %20
 }
 
-declare void @lv_obj_set_style_radius(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_set_style_radius(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_obj_set_style_bg_grad_dir(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_set_style_bg_grad_dir(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_obj_set_style_bg_grad_color(ptr noundef, i24, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_set_style_bg_grad_color(ptr noundef, i24, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_obj_set_style_bg_grad_stop(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_set_style_bg_grad_stop(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_obj_set_style_bg_grad_opa(ptr noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_set_style_bg_grad_opa(ptr noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_obj_set_style_opa(ptr noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_set_style_opa(ptr noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_obj_set_grid_cell(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_set_grid_cell(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_obj_set_style_border_side(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_set_style_border_side(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_obj_set_style_border_color(ptr noundef, i24, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_set_style_border_color(ptr noundef, i24, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_obj_set_style_border_width(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_set_style_border_width(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @box_shadow_obj_create(ptr noundef %0, i32 noundef range(i32 0, 7) %1, i32 noundef range(i32 0, 4) %2) unnamed_addr #0 {
@@ -1058,25 +1052,25 @@ define internal fastcc noundef ptr @box_shadow_obj_create(ptr noundef %0, i32 no
   ret ptr %4
 }
 
-declare void @lv_obj_set_style_shadow_width(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_set_style_shadow_width(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_obj_set_style_shadow_offset_x(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_set_style_shadow_offset_x(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_obj_set_style_shadow_offset_y(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_set_style_shadow_offset_y(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_obj_set_style_shadow_spread(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_set_style_shadow_spread(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_obj_set_style_shadow_color(ptr noundef, i24, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_set_style_shadow_color(ptr noundef, i24, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_label_set_text_selection_start(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_label_set_text_selection_start(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_label_set_text_selection_end(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_label_set_text_selection_end(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_obj_set_style_text_decor(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_set_style_text_decor(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @lv_label_create(ptr noundef) local_unnamed_addr #2
+declare ptr @lv_label_create(ptr noundef) local_unnamed_addr #1
 
-declare void @lv_label_set_text(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @lv_label_set_text(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @image_core_cb(ptr noundef %0, i1 noundef zeroext %1, i32 noundef range(i32 0, 5) %2) unnamed_addr #0 {
@@ -1155,33 +1149,33 @@ define internal fastcc noundef ptr @image_obj_create(ptr noundef %0, i32 noundef
   ret ptr %5
 }
 
-declare void @lv_image_set_src(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @lv_image_set_src(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @lv_image_set_rotation(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_image_set_rotation(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_image_set_pivot(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_image_set_pivot(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_image_set_scale(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_image_set_scale(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_image_set_scale_x(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_image_set_scale_x(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_image_set_scale_y(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_image_set_scale_y(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @lv_image_create(ptr noundef) local_unnamed_addr #2
+declare ptr @lv_image_create(ptr noundef) local_unnamed_addr #1
 
-declare void @lv_obj_set_style_image_recolor_opa(ptr noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_set_style_image_recolor_opa(ptr noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_obj_set_style_image_recolor(ptr noundef, i24, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_set_style_image_recolor(ptr noundef, i24, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_obj_set_style_line_width(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_set_style_line_width(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_obj_set_style_line_rounded(ptr noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_set_style_line_rounded(ptr noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
-declare ptr @lv_line_create(ptr noundef) local_unnamed_addr #2
+declare ptr @lv_line_create(ptr noundef) local_unnamed_addr #1
 
-declare void @lv_line_set_points(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_line_set_points(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_obj_set_style_line_color(ptr noundef, i24, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_set_style_line_color(ptr noundef, i24, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @arc_core_cb(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
@@ -1238,29 +1232,29 @@ define internal fastcc void @arc_core_cb(ptr noundef %0, ptr noundef %1) unnamed
   ret void
 }
 
-declare void @lv_obj_set_style_arc_rounded(ptr noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_set_style_arc_rounded(ptr noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_obj_set_style_arc_image_src(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_set_style_arc_image_src(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @lv_arc_create(ptr noundef) local_unnamed_addr #2
+declare ptr @lv_arc_create(ptr noundef) local_unnamed_addr #1
 
-declare void @lv_obj_set_style_arc_width(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_set_style_arc_width(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_obj_set_style_arc_color(ptr noundef, i24, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_set_style_arc_color(ptr noundef, i24, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_arc_set_bg_angles(ptr noundef, float noundef, float noundef) local_unnamed_addr #2
+declare void @lv_arc_set_bg_angles(ptr noundef, float noundef, float noundef) local_unnamed_addr #1
 
-declare ptr @lv_obj_add_event_cb(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @lv_obj_add_event_cb(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @triangle_draw_event_cb(ptr noundef %0) #0 {
   %2 = alloca %struct.lv_draw_triangle_dsc_t, align 8
   %3 = alloca %struct.lv_area_t, align 4
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @lv_draw_triangle_dsc_init(ptr noundef nonnull %2) #6
   %4 = call ptr @lv_event_get_target(ptr noundef %0) #6
   %5 = call ptr @lv_event_get_user_data(ptr noundef %0) #6
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @lv_obj_get_coords(ptr noundef %4, ptr noundef nonnull %3) #6
   %6 = load i32, ptr %5, align 4, !tbaa !29
   %7 = load i32, ptr %3, align 4, !tbaa !58
@@ -1362,24 +1356,24 @@ define internal void @triangle_draw_event_cb(ptr noundef %0) #0 {
   store i8 %84, ptr %85, align 8, !tbaa !83
   %86 = call ptr @lv_event_get_layer(ptr noundef %0) #6
   call void @lv_draw_triangle(ptr noundef %86, ptr noundef nonnull %2) #6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #6
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
-declare void @lv_draw_triangle_dsc_init(ptr noundef) local_unnamed_addr #2
+declare void @lv_draw_triangle_dsc_init(ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_event_get_target(ptr noundef) local_unnamed_addr #2
+declare ptr @lv_event_get_target(ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_event_get_user_data(ptr noundef) local_unnamed_addr #2
+declare ptr @lv_event_get_user_data(ptr noundef) local_unnamed_addr #1
 
-declare void @lv_obj_get_coords(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @lv_obj_get_coords(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @lv_draw_triangle(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @lv_draw_triangle(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_event_get_layer(ptr noundef) local_unnamed_addr #2
+declare ptr @lv_event_get_layer(ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_obj_get_style_prop(ptr noundef, i32 noundef, i8 noundef zeroext) local_unnamed_addr #2
+declare ptr @lv_obj_get_style_prop(ptr noundef, i32 noundef, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @layer_obj_create(ptr noundef %0, i32 noundef range(i32 0, 8) %1, i32 noundef range(i32 0, 7) %2) unnamed_addr #0 {
@@ -1407,62 +1401,68 @@ define internal fastcc noundef ptr @layer_obj_create(ptr noundef %0, i32 noundef
   ret ptr %4
 }
 
-declare void @lv_obj_set_style_transform_rotation(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_set_style_transform_rotation(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_obj_set_style_translate_x(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_set_style_translate_x(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_obj_set_style_transform_scale_x(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_set_style_transform_scale_x(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_obj_set_style_transform_scale_y(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_set_style_transform_scale_y(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_obj_set_style_opa_layered(ptr noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_set_style_opa_layered(ptr noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_obj_set_style_translate_y(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_set_style_translate_y(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_obj_set_style_transform_pivot_x(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_set_style_transform_pivot_x(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_obj_set_style_transform_pivot_y(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_set_style_transform_pivot_y(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_obj_set_style_blend_mode(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_set_style_blend_mode(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_obj_center(ptr noundef) local_unnamed_addr #2
+declare void @lv_obj_center(ptr noundef) local_unnamed_addr #1
 
-declare i24 @lv_color_hex(i32 noundef) local_unnamed_addr #2
+declare i24 @lv_color_hex(i32 noundef) local_unnamed_addr #1
 
-declare ptr @lv_canvas_create(ptr noundef) local_unnamed_addr #2
+declare ptr @lv_canvas_create(ptr noundef) local_unnamed_addr #1
 
-declare void @lv_canvas_set_draw_buf(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @lv_canvas_set_draw_buf(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_canvas_get_draw_buf(ptr noundef) local_unnamed_addr #2
+declare ptr @lv_canvas_get_draw_buf(ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_canvas_get_image(ptr noundef) local_unnamed_addr #2
+declare ptr @lv_canvas_get_image(ptr noundef) local_unnamed_addr #1
 
-declare void @lv_obj_set_y(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_set_y(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_obj_add_flag(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_add_flag(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_canvas_fill_bg(ptr noundef, i24, i8 noundef zeroext) local_unnamed_addr #2
+declare void @lv_canvas_fill_bg(ptr noundef, i24, i8 noundef zeroext) local_unnamed_addr #1
 
-declare void @lv_canvas_init_layer(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @lv_canvas_init_layer(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @lv_draw_label_dsc_init(ptr noundef) local_unnamed_addr #2
+declare void @lv_draw_label_dsc_init(ptr noundef) local_unnamed_addr #1
 
-declare void @lv_draw_label(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @lv_draw_label(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @lv_canvas_finish_layer(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @lv_canvas_finish_layer(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @lv_image_set_blend_mode(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_image_set_blend_mode(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_obj_set_style_image_opa(ptr noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_set_style_image_opa(ptr noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nounwind }
 

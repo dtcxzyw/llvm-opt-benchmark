@@ -354,9 +354,9 @@ _ZNK19ConcurrentHashTableI19ThreadIdTableConfigL8MEMFLAGS9EE10get_bucketEm.exit.
   store ptr %1, ptr %61, align 8
   store ptr %60, ptr %5, align 8
   %62 = load volatile ptr, ptr @_ZL12_local_table, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %63 = call noundef zeroext i1 @_ZN19ConcurrentHashTableI19ThreadIdTableConfigL8MEMFLAGS9EE19internal_insert_getI19ThreadIdTableLookupZNS2_6insertIS4_EEbP6ThreadRT_RKP18ThreadIdTableEntryPbSE_E3NOPEEbS7_S9_SD_RT0_SE_SE_(ptr noundef nonnull align 8 dereferenceable(88) %62, ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef null, ptr noundef null)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %63, label %64, label %14, !llvm.loop !12
 
 64:                                               ; preds = %.loopexit
@@ -993,9 +993,9 @@ define hidden noundef zeroext i1 @_ZN13ThreadIdTable13remove_threadEl(i64 nounde
   %10 = zext i32 %9 to i64
   store i64 %10, ptr %6, align 8
   %11 = load volatile ptr, ptr @_ZL12_local_table, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %12 = call noundef zeroext i1 @_ZN19ConcurrentHashTableI19ThreadIdTableConfigL8MEMFLAGS9EE15internal_removeI19ThreadIdTableLookupZNS2_6removeIS4_EEbP6ThreadRT_EUt_EEbS7_S9_RT0_(ptr noundef nonnull align 8 dereferenceable(88) %11, ptr noundef %5, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 1 dereferenceable(1) %2)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %12
 }
 
@@ -1890,10 +1890,10 @@ declare i64 @llvm.umin.i64(i64, i64) #9
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -218,7 +218,7 @@ _ZN24btInverseDynamicsBullet35mat3xC2Eii.exit:    ; preds = %3
           to label %.noexc unwind label %260
 
 .noexc:                                           ; preds = %_ZN24btInverseDynamicsBullet35mat3xC2Eii.exit
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   invoke void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull @.str.33)
           to label %.noexc35 unwind label %260
 
@@ -236,8 +236,8 @@ _Z9btSetZeroIfEvPT_i.exit.i.i.i:                  ; preds = %.noexc35
 
 68:                                               ; preds = %.noexc35, %_Z9btSetZeroIfEvPT_i.exit.i.i.i
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #18
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #18
-  call void @llvm.lifetime.start.p0(i64 816, ptr nonnull %5) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %69 = getelementptr inbounds nuw i8, ptr %5, i64 656
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(816) %5, i8 0, i64 816, i1 false)
   store i8 1, ptr %69, align 8, !tbaa !54
@@ -444,7 +444,7 @@ _ZN20btAlignedObjectArrayIS_IiEED2Ev.exit.i:      ; preds = %137, %_ZN20btAligne
   unreachable
 
 _ZN9btMatrixXIfED2Ev.exit:                        ; preds = %_ZN20btAlignedObjectArrayIS_IiEED2Ev.exit.i, %144
-  call void @llvm.lifetime.end.p0(i64 816, ptr nonnull %5) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %148 = load i32, ptr %15, align 4, !tbaa !39
   %149 = icmp sgt i32 %1, %148
   br i1 %149, label %150, label %.loopexit117
@@ -538,7 +538,7 @@ _ZN20b3AlignedObjectArrayIiE10deallocateEv.exit.i.i: ; preds = %167, %_ZNK20b3Al
 
 .loopexit117:                                     ; preds = %.lr.ph.i, %_ZN9btMatrixXIfED2Ev.exit
   store i32 %1, ptr %15, align 4, !tbaa !39
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %173 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i8 1, ptr %173, align 8, !tbaa !37
   %174 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -637,7 +637,7 @@ _ZN20b3AlignedObjectArrayIiED2Ev.exit.i:          ; preds = %188, %180
   unreachable
 
 _ZN20b3AlignedObjectArrayIiED2Ev.exit:            ; preds = %.loopexit114, %203
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %207 = load i32, ptr %40, align 4, !tbaa !39
   %208 = icmp sgt i32 %1, %207
   br i1 %208, label %209, label %.loopexit113
@@ -841,7 +841,7 @@ _ZN20b3AlignedObjectArrayIPvE10deallocateEv.exit.i.i: ; preds = %252, %_ZNK20b3A
   %264 = getelementptr inbounds nuw i8, ptr %5, i64 608
   call void @_ZN9btMatrixXIfED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %76) #18
   call void @_ZN9btMatrixXIfED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %264) #18
-  call void @llvm.lifetime.end.p0(i64 816, ptr nonnull %5) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %272
 
 265:                                              ; preds = %167, %.noexc38, %_ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit15.i.i, %_ZN20b3AlignedObjectArrayIiE8allocateEi.exit.i.i
@@ -862,7 +862,7 @@ _ZN20b3AlignedObjectArrayIPvE10deallocateEv.exit.i.i: ; preds = %252, %_ZNK20b3A
 267:                                              ; preds = %.loopexit.split-lp, %.loopexit115
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit115 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN20b3AlignedObjectArrayIiED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %6) #18
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %272
 
 268:                                              ; preds = %226, %.noexc71, %_ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit15.i.i69, %_ZN20b3AlignedObjectArrayIiE8allocateEi.exit.i.i56
@@ -1025,17 +1025,11 @@ define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIN24btInverseDynami
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIiED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIiED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !38
   %.not.i.i = icmp ne ptr %3, null
@@ -1067,7 +1061,7 @@ define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIiED2Ev(ptr noundef
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN9btMatrixXIfED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN9btMatrixXIfED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %3 = load i32, ptr %2, align 4, !tbaa !60
   %4 = icmp sgt i32 %3, 0
@@ -1171,7 +1165,7 @@ _ZN20btAlignedObjectArrayIfED2Ev.exit:            ; preds = %_ZN20btAlignedObjec
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIPvED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIPvED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !46
   %.not.i.i = icmp ne ptr %3, null
@@ -1203,7 +1197,7 @@ define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIPvED2Ev(ptr nounde
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIS_IiEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIS_IiEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4, !tbaa !43
   %4 = icmp sgt i32 %3, 0
@@ -1280,7 +1274,7 @@ _ZN20b3AlignedObjectArrayIS_IiEE7destroyEii.exit.i: ; preds = %_ZN20b3AlignedObj
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39RigidBodyEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39RigidBodyEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4, !tbaa !35
   %4 = icmp sgt i32 %3, 0
@@ -1334,7 +1328,7 @@ _ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39RigidBodyEE7destroyEii.exi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull ptr @_ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl17jointTypeToStringERKNS_9JointTypeE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(400) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #6 align 2 {
+define dso_local noundef nonnull ptr @_ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl17jointTypeToStringERKNS_9JointTypeE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(400) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #5 align 2 {
   %3 = load i32, ptr %1, align 4, !tbaa !86
   %4 = icmp ult i32 %3, 5
   br i1 %4, label %switch.lookup, label %6
@@ -1372,7 +1366,7 @@ _ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl17jointTypeToStringE
   ret void
 }
 
-declare void @b3OutputPrintfVarArgsInternal(ptr noundef, ...) local_unnamed_addr #7
+declare void @b3OutputPrintfVarArgsInternal(ptr noundef, ...) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl9printTreeEii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(400) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
@@ -1677,17 +1671,17 @@ switch.lookup:                                    ; preds = %2
   ret i32 %.0
 }
 
-declare void @b3OutputErrorMessageVarArgsInternal(ptr noundef, ...) local_unnamed_addr #7
+declare void @b3OutputErrorMessageVarArgsInternal(ptr noundef, ...) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef i32 @_ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl22setGravityInWorldFrameERKNS_4vec3E(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(400) initializes((8, 24)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1) local_unnamed_addr #8 align 2 {
+define dso_local noundef i32 @_ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl22setGravityInWorldFrameERKNS_4vec3E(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(400) initializes((8, 24)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false)
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl17generateIndexSetsEv(ptr noundef nonnull align 8 dereferenceable(400) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
@@ -2205,7 +2199,7 @@ _ZN20b3AlignedObjectArrayIiE9push_backERKi.exit110: ; preds = %152, %156, %_ZN20
 
 193:                                              ; preds = %._crit_edge
   %194 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %195 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i8 1, ptr %195, align 8, !tbaa !37
   %196 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -2307,7 +2301,7 @@ _ZN20b3AlignedObjectArrayIiED2Ev.exit.i:          ; preds = %212, %204
   unreachable
 
 _ZN20b3AlignedObjectArrayIiED2Ev.exit:            ; preds = %.loopexit154, %228
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %232 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %233 = load i32, ptr %232, align 4, !tbaa !39
   %.not43180 = icmp sgt i32 %233, 1
@@ -2331,7 +2325,7 @@ _ZN20b3AlignedObjectArrayIiED2Ev.exit:            ; preds = %.loopexit154, %228
 236:                                              ; preds = %.loopexit.split-lp, %.loopexit155
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit155 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN20b3AlignedObjectArrayIiED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %2) #18
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %lpad.phi
 
 237:                                              ; preds = %.lr.ph183, %_ZN20b3AlignedObjectArrayIiE9push_backERKi.exit135
@@ -2473,7 +2467,7 @@ _ZN20b3AlignedObjectArrayIiE9push_backERKi.exit135: ; preds = %.critedge, %254, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl19calculateStaticDataEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(400) %0) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl19calculateStaticDataEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(400) %0) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.CProfileSample, align 1
   %3 = alloca %class.CProfileSample, align 1
   %4 = alloca %class.CProfileSample, align 1
@@ -2656,7 +2650,7 @@ define dso_local void @_ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyIm
   %106 = getelementptr inbounds nuw i8, ptr %13, i64 608
   %107 = load i32, ptr %10, align 4, !tbaa !32
   call void @_ZN9btMatrixXIfE6resizeEii(ptr noundef nonnull align 8 dereferenceable(88) %106, i32 noundef 3, i32 noundef %107)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull @.str.33)
   %108 = getelementptr inbounds nuw i8, ptr %13, i64 636
   %109 = load i32, ptr %108, align 4, !tbaa !56
@@ -2673,11 +2667,11 @@ _Z9btSetZeroIfEvPT_i.exit.i.i.i:                  ; preds = %99
 
 _ZN24btInverseDynamicsBullet36resizeERNS_5mat3xEi.exit: ; preds = %99, %_Z9btSetZeroIfEvPT_i.exit.i.i.i
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #18
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %114 = getelementptr inbounds nuw i8, ptr %13, i64 696
   %115 = load i32, ptr %10, align 4, !tbaa !32
   call void @_ZN9btMatrixXIfE6resizeEii(ptr noundef nonnull align 8 dereferenceable(88) %114, i32 noundef 3, i32 noundef %115)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull @.str.33)
   %116 = getelementptr inbounds nuw i8, ptr %13, i64 724
   %117 = load i32, ptr %116, align 4, !tbaa !56
@@ -2694,8 +2688,8 @@ _Z9btSetZeroIfEvPT_i.exit.i.i.i58:                ; preds = %_ZN24btInverseDynam
 
 _ZN24btInverseDynamicsBullet36resizeERNS_5mat3xEi.exit59: ; preds = %_ZN24btInverseDynamicsBullet36resizeERNS_5mat3xEi.exit, %_Z9btSetZeroIfEvPT_i.exit.i.i.i58
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #18
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #18
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull @.str.33)
   %122 = load i32, ptr %108, align 4, !tbaa !56
   %.not.i.i = icmp eq i32 %122, 0
@@ -2711,8 +2705,8 @@ _Z9btSetZeroIfEvPT_i.exit.i.i:                    ; preds = %_ZN24btInverseDynam
 
 _ZN24btInverseDynamicsBullet35mat3x7setZeroEv.exit: ; preds = %_ZN24btInverseDynamicsBullet36resizeERNS_5mat3xEi.exit59, %_Z9btSetZeroIfEvPT_i.exit.i.i
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #18
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #18
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull @.str.33)
   %127 = load i32, ptr %116, align 4, !tbaa !56
   %.not.i.i60 = icmp eq i32 %127, 0
@@ -2728,7 +2722,7 @@ _Z9btSetZeroIfEvPT_i.exit.i.i61:                  ; preds = %_ZN24btInverseDynam
 
 _ZN24btInverseDynamicsBullet35mat3x7setZeroEv.exit62: ; preds = %_ZN24btInverseDynamicsBullet35mat3x7setZeroEv.exit, %_Z9btSetZeroIfEvPT_i.exit.i.i61
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #18
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %132 = load i32, ptr %6, align 4, !tbaa !35
   %133 = sext i32 %132 to i64
@@ -2737,7 +2731,7 @@ _ZN24btInverseDynamicsBullet35mat3x7setZeroEv.exit62: ; preds = %_ZN24btInverseD
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl24calculateInverseDynamicsERKNS_4vecxES4_S4_PS2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(400) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #10 align 2 {
+define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl24calculateInverseDynamicsERKNS_4vecxES4_S4_PS2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(400) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #9 align 2 {
   %6 = alloca %"class.btInverseDynamicsBullet3::vec3", align 4
   %7 = alloca %"class.btInverseDynamicsBullet3::vec3", align 4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -2985,8 +2979,8 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313Mu
 195:                                              ; preds = %.lr.ph275, %._crit_edge
   %indvars.iv288 = phi i64 [ %41, %.lr.ph275 ], [ %indvars.iv.next289, %._crit_edge ]
   %indvars.iv.next289 = add nsw i64 %indvars.iv288, -1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #18
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN24btInverseDynamicsBullet37setZeroERNS_4vec3E(ptr noundef nonnull align 4 dereferenceable(16) %6)
   call void @_ZN24btInverseDynamicsBullet37setZeroERNS_4vec3E(ptr noundef nonnull align 4 dereferenceable(16) %7)
   %196 = load ptr, ptr %35, align 8, !tbaa !42
@@ -3056,8 +3050,8 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313Mu
   store <2 x float> %.sroa.0.4.vec.insert.i173, ptr %231, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %208, i64 124
   store <2 x float> %.sroa.3.12.vec.insert.i174, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !82
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #18
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %232 = icmp samesign ugt i64 %indvars.iv288, 1
   br i1 %232, label %195, label %.preheader260, !llvm.loop !106
 
@@ -3340,7 +3334,7 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313Mu
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl19calculateKinematicsERKNS_4vecxES4_S4_NS1_13KinUpdateTypeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(400) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %3, i32 noundef %4) local_unnamed_addr #10 align 2 {
+define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl19calculateKinematicsERKNS_4vecxES4_S4_NS1_13KinUpdateTypeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(400) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %3, i32 noundef %4) local_unnamed_addr #9 align 2 {
   %6 = alloca %"class.btInverseDynamicsBullet3::mat33", align 4
   %7 = alloca %"class.btInverseDynamicsBullet3::mat33", align 4
   %8 = alloca %"class.btInverseDynamicsBullet3::mat33", align 4
@@ -3429,7 +3423,7 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313Mu
   %58 = load ptr, ptr %31, align 8, !tbaa !34
   %59 = sext i32 %57 to i64
   %60 = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %58, i64 %59
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 488
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 536
   %63 = load i32, ptr %62, align 8, !tbaa !89
@@ -3557,7 +3551,7 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313Mu
   br label %147
 
 147:                                              ; preds = %54, %139, %124
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %148 = load i32, ptr %27, align 4, !tbaa !39
   %149 = sext i32 %148 to i64
@@ -3765,7 +3759,7 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313Mu
   %306 = load ptr, ptr %155, align 8, !tbaa !34
   %307 = sext i32 %305 to i64
   %308 = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %306, i64 %307
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %309 = getelementptr inbounds nuw i8, ptr %308, i64 536
   %310 = load i32, ptr %309, align 8, !tbaa !89
   %311 = load ptr, ptr %156, align 8, !tbaa !55
@@ -3773,7 +3767,7 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313Mu
   %313 = getelementptr float, ptr %311, i64 %312
   %314 = getelementptr i8, ptr %313, i64 8
   call void @_ZN24btInverseDynamicsBullet310transformZERKf(ptr dead_on_unwind nonnull writable sret(%"class.btInverseDynamicsBullet3::mat33") align 4 %7, ptr noundef nonnull align 4 dereferenceable(4) %314)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %315 = load i32, ptr %309, align 8, !tbaa !89
   %316 = load ptr, ptr %156, align 8, !tbaa !55
   %317 = sext i32 %315 to i64
@@ -3825,7 +3819,7 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313Mu
   %362 = fmul float %336, %354
   %363 = call float @llvm.fmuladd.f32(float %335, float %353, float %362)
   %364 = call noundef float @llvm.fmuladd.f32(float %339, float %357, float %363)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %365 = load i32, ptr %309, align 8, !tbaa !89
   %366 = load ptr, ptr %156, align 8, !tbaa !55
   %367 = sext i32 %365 to i64
@@ -3891,9 +3885,9 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313Mu
   store float %404, ptr %.sroa.15605.32..sroa_idx, align 4
   %.sroa.16606.32..sroa_idx = getelementptr inbounds nuw i8, ptr %308, i64 336
   store float 0.000000e+00, ptr %.sroa.16606.32..sroa_idx, align 4, !tbaa !82
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9) #18
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #18
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %408 = load i32, ptr %309, align 8, !tbaa !89
   %409 = add nsw i32 %408, 3
   %410 = load ptr, ptr %156, align 8, !tbaa !55
@@ -4092,14 +4086,14 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313Mu
   %553 = load ptr, ptr %273, align 8, !tbaa !34
   %554 = sext i32 %552 to i64
   %555 = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %553, i64 %554
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %556 = getelementptr inbounds nuw i8, ptr %555, i64 536
   %557 = load i32, ptr %556, align 8, !tbaa !89
   %558 = load ptr, ptr %274, align 8, !tbaa !55
   %559 = sext i32 %557 to i64
   %560 = getelementptr inbounds float, ptr %558, i64 %559
   call void @_ZN24btInverseDynamicsBullet310transformXERKf(ptr dead_on_unwind nonnull writable sret(%"class.btInverseDynamicsBullet3::mat33") align 4 %10, ptr noundef nonnull align 4 dereferenceable(4) %560)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %11) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %561 = load i32, ptr %556, align 8, !tbaa !89
   %562 = load ptr, ptr %274, align 8, !tbaa !55
   %563 = sext i32 %561 to i64
@@ -4151,7 +4145,7 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313Mu
   %608 = fmul float %582, %600
   %609 = call float @llvm.fmuladd.f32(float %581, float %599, float %608)
   %610 = call noundef float @llvm.fmuladd.f32(float %585, float %603, float %609)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %12) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %611 = load i32, ptr %556, align 8, !tbaa !89
   %612 = load ptr, ptr %274, align 8, !tbaa !55
   %613 = sext i32 %611 to i64
@@ -4194,9 +4188,9 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313Mu
   %649 = fmul float %607, %629
   %650 = call float @llvm.fmuladd.f32(float %628, float %604, float %649)
   %651 = call noundef float @llvm.fmuladd.f32(float %632, float %610, float %650)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %12) #18
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11) #18
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %652 = getelementptr inbounds nuw i8, ptr %555, i64 440
   %653 = load float, ptr %652, align 4, !tbaa !62, !noalias !139
   %654 = getelementptr inbounds nuw i8, ptr %555, i64 456
@@ -4822,18 +4816,18 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313Mu
   ret i32 %.0
 }
 
-declare void @_ZN24btInverseDynamicsBullet37setZeroERNS_4vec3E(ptr noundef nonnull align 4 dereferenceable(16)) local_unnamed_addr #7
+declare void @_ZN24btInverseDynamicsBullet37setZeroERNS_4vec3E(ptr noundef nonnull align 4 dereferenceable(16)) local_unnamed_addr #6
 
-declare void @_ZN24btInverseDynamicsBullet324bodyTParentFromAxisAngleERKNS_4vec3ERKfPNS_5mat33E(ptr noundef nonnull align 4 dereferenceable(16), ptr noundef nonnull align 4 dereferenceable(4), ptr noundef) local_unnamed_addr #7
+declare void @_ZN24btInverseDynamicsBullet324bodyTParentFromAxisAngleERKNS_4vec3ERKfPNS_5mat33E(ptr noundef nonnull align 4 dereferenceable(16), ptr noundef nonnull align 4 dereferenceable(4), ptr noundef) local_unnamed_addr #6
 
-declare void @_ZN24btInverseDynamicsBullet310transformZERKf(ptr dead_on_unwind writable sret(%"class.btInverseDynamicsBullet3::mat33") align 4, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #7
+declare void @_ZN24btInverseDynamicsBullet310transformZERKf(ptr dead_on_unwind writable sret(%"class.btInverseDynamicsBullet3::mat33") align 4, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #6
 
-declare void @_ZN24btInverseDynamicsBullet310transformYERKf(ptr dead_on_unwind writable sret(%"class.btInverseDynamicsBullet3::mat33") align 4, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #7
+declare void @_ZN24btInverseDynamicsBullet310transformYERKf(ptr dead_on_unwind writable sret(%"class.btInverseDynamicsBullet3::mat33") align 4, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #6
 
-declare void @_ZN24btInverseDynamicsBullet310transformXERKf(ptr dead_on_unwind writable sret(%"class.btInverseDynamicsBullet3::mat33") align 4, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #7
+declare void @_ZN24btInverseDynamicsBullet310transformXERKf(ptr dead_on_unwind writable sret(%"class.btInverseDynamicsBullet3::mat33") align 4, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl28addRelativeJacobianComponentERNS_9RigidBodyE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(816) %1) local_unnamed_addr #11 align 2 {
+define dso_local void @_ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl28addRelativeJacobianComponentERNS_9RigidBodyE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(816) %1) local_unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 536
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 420
   %5 = load i32, ptr %4, align 4, !tbaa !98
@@ -5054,10 +5048,10 @@ define dso_local void @_ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyIm
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #12
+declare float @llvm.fmuladd.f32(float, float, float) #11
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl18calculateJacobiansERKNS_4vecxES4_NS1_13KinUpdateTypeE(ptr noundef nonnull align 8 dereferenceable(400) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %2, i32 noundef %3) local_unnamed_addr #10 align 2 {
+define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl18calculateJacobiansERKNS_4vecxES4_NS1_13KinUpdateTypeE(ptr noundef nonnull align 8 dereferenceable(400) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %2, i32 noundef %3) local_unnamed_addr #9 align 2 {
   %5 = alloca %"class.btInverseDynamicsBullet3::mat33", align 4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4, !tbaa !56
@@ -5181,11 +5175,11 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313Mu
   unreachable
 
 _ZN24btInverseDynamicsBullet35mat3xaSERKS0_.exit: ; preds = %.preheader12.i, %.preheader.lr.ph.i, %._crit_edge15.split.us.i
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %65 = getelementptr inbounds nuw i8, ptr %29, i64 340
   call void @_ZN24btInverseDynamicsBullet313tildeOperatorERKNS_4vec3E(ptr dead_on_unwind nonnull writable sret(%"class.btInverseDynamicsBullet3::mat33") align 4 %5, ptr noundef nonnull align 4 dereferenceable(16) %65)
   call void @_ZN24btInverseDynamicsBullet33mulERKNS_5mat33ERKNS_5mat3xEPS3_(ptr noundef nonnull align 4 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(88) %36, ptr noundef nonnull %25)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN24btInverseDynamicsBullet33subERKNS_5mat3xES2_PS0_(ptr noundef nonnull align 8 dereferenceable(88) %38, ptr noundef nonnull align 8 dereferenceable(88) %25, ptr noundef nonnull %38)
   call void @_ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl28addRelativeJacobianComponentERNS_9RigidBodyE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(816) %29)
   call void @_ZN24btInverseDynamicsBullet33mulERKNS_5mat33ERKNS_5mat3xEPS3_(ptr noundef nonnull align 4 dereferenceable(48) %35, ptr noundef nonnull align 8 dereferenceable(88) %38, ptr noundef nonnull %38)
@@ -5359,14 +5353,14 @@ _ZN24btInverseDynamicsBullet35mat3xaSERKS0_.exit: ; preds = %.preheader12.i, %.p
   ret i32 %.0
 }
 
-declare void @_ZN24btInverseDynamicsBullet33mulERKNS_5mat33ERKNS_5mat3xEPS3_(ptr noundef nonnull align 4 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(88), ptr noundef) local_unnamed_addr #7
+declare void @_ZN24btInverseDynamicsBullet33mulERKNS_5mat33ERKNS_5mat3xEPS3_(ptr noundef nonnull align 4 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(88), ptr noundef) local_unnamed_addr #6
 
-declare void @_ZN24btInverseDynamicsBullet313tildeOperatorERKNS_4vec3E(ptr dead_on_unwind writable sret(%"class.btInverseDynamicsBullet3::mat33") align 4, ptr noundef nonnull align 4 dereferenceable(16)) local_unnamed_addr #7
+declare void @_ZN24btInverseDynamicsBullet313tildeOperatorERKNS_4vec3E(ptr dead_on_unwind writable sret(%"class.btInverseDynamicsBullet3::mat33") align 4, ptr noundef nonnull align 4 dereferenceable(16)) local_unnamed_addr #6
 
-declare void @_ZN24btInverseDynamicsBullet33subERKNS_5mat3xES2_PS0_(ptr noundef nonnull align 8 dereferenceable(88), ptr noundef nonnull align 8 dereferenceable(88), ptr noundef) local_unnamed_addr #7
+declare void @_ZN24btInverseDynamicsBullet33subERKNS_5mat3xES2_PS0_(ptr noundef nonnull align 8 dereferenceable(88), ptr noundef nonnull align 8 dereferenceable(88), ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl19calculateMassMatrixERKNS_4vecxEbbbP9btMatrixXIfE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(400) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4, ptr noundef captures(none) %5) local_unnamed_addr #10 align 2 {
+define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl19calculateMassMatrixERKNS_4vecxEbbbP9btMatrixXIfE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(400) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4, ptr noundef captures(none) %5) local_unnamed_addr #9 align 2 {
   %7 = alloca %"class.btInverseDynamicsBullet3::mat33", align 4
   %8 = alloca %"class.btInverseDynamicsBullet3::mat33", align 4
   %9 = alloca %"class.btInverseDynamicsBullet3::mat33", align 4
@@ -5484,7 +5478,7 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313Mu
   %73 = load ptr, ptr %53, align 8, !tbaa !34
   %74 = sext i32 %72 to i64
   %75 = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %73, i64 %74
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 488
   %77 = getelementptr inbounds nuw i8, ptr %75, i64 536
   %78 = load i32, ptr %77, align 8, !tbaa !89
@@ -5570,7 +5564,7 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313Mu
   store float %135, ptr %.sroa.15626.32..sroa_idx, align 4
   %.sroa.16627.32..sroa_idx = getelementptr inbounds nuw i8, ptr %75, i64 336
   store float 0.000000e+00, ptr %.sroa.16627.32..sroa_idx, align 4, !tbaa !82
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %139 = load i32, ptr %49, align 4, !tbaa !39
   %140 = sext i32 %139 to i64
@@ -5702,7 +5696,7 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313Mu
   %241 = load ptr, ptr %146, align 8, !tbaa !34
   %242 = sext i32 %240 to i64
   %243 = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %241, i64 %242
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %244 = getelementptr inbounds nuw i8, ptr %243, i64 536
   %245 = load i32, ptr %244, align 8, !tbaa !89
   %246 = load ptr, ptr %147, align 8, !tbaa !55
@@ -5710,7 +5704,7 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313Mu
   %248 = getelementptr float, ptr %246, i64 %247
   %249 = getelementptr i8, ptr %248, i64 8
   call void @_ZN24btInverseDynamicsBullet310transformZERKf(ptr dead_on_unwind nonnull writable sret(%"class.btInverseDynamicsBullet3::mat33") align 4 %8, ptr noundef nonnull align 4 dereferenceable(4) %249)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %250 = load i32, ptr %244, align 8, !tbaa !89
   %251 = load ptr, ptr %147, align 8, !tbaa !55
   %252 = sext i32 %250 to i64
@@ -5762,7 +5756,7 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313Mu
   %297 = fmul float %271, %289
   %298 = call float @llvm.fmuladd.f32(float %270, float %288, float %297)
   %299 = call noundef float @llvm.fmuladd.f32(float %274, float %292, float %298)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %300 = load i32, ptr %244, align 8, !tbaa !89
   %301 = load ptr, ptr %147, align 8, !tbaa !55
   %302 = sext i32 %300 to i64
@@ -5828,9 +5822,9 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313Mu
   store float %339, ptr %.sroa.15610.32..sroa_idx, align 4
   %.sroa.16611.32..sroa_idx = getelementptr inbounds nuw i8, ptr %243, i64 336
   store float 0.000000e+00, ptr %.sroa.16611.32..sroa_idx, align 4, !tbaa !82
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10) #18
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9) #18
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %343 = load i32, ptr %244, align 8, !tbaa !89
   %344 = load ptr, ptr %147, align 8, !tbaa !55
   %345 = sext i32 %343 to i64
@@ -5883,14 +5877,14 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313Mu
   %381 = load ptr, ptr %211, align 8, !tbaa !34
   %382 = sext i32 %380 to i64
   %383 = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %381, i64 %382
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %11) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %384 = getelementptr inbounds nuw i8, ptr %383, i64 536
   %385 = load i32, ptr %384, align 8, !tbaa !89
   %386 = load ptr, ptr %212, align 8, !tbaa !55
   %387 = sext i32 %385 to i64
   %388 = getelementptr inbounds float, ptr %386, i64 %387
   call void @_ZN24btInverseDynamicsBullet310transformXERKf(ptr dead_on_unwind nonnull writable sret(%"class.btInverseDynamicsBullet3::mat33") align 4 %11, ptr noundef nonnull align 4 dereferenceable(4) %388)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %12) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %389 = load i32, ptr %384, align 8, !tbaa !89
   %390 = load ptr, ptr %212, align 8, !tbaa !55
   %391 = sext i32 %389 to i64
@@ -5942,7 +5936,7 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313Mu
   %436 = fmul float %410, %428
   %437 = call float @llvm.fmuladd.f32(float %409, float %427, float %436)
   %438 = call noundef float @llvm.fmuladd.f32(float %413, float %431, float %437)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %13) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %439 = load i32, ptr %384, align 8, !tbaa !89
   %440 = load ptr, ptr %212, align 8, !tbaa !55
   %441 = sext i32 %439 to i64
@@ -5985,9 +5979,9 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313Mu
   %477 = fmul float %435, %457
   %478 = call float @llvm.fmuladd.f32(float %456, float %432, float %477)
   %479 = call noundef float @llvm.fmuladd.f32(float %460, float %438, float %478)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %13) #18
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %12) #18
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %480 = getelementptr inbounds nuw i8, ptr %383, i64 440
   %481 = load float, ptr %480, align 4, !tbaa !62, !noalias !169
   %482 = getelementptr inbounds nuw i8, ptr %383, i64 456
@@ -6361,7 +6355,7 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313Mu
   br i1 %773, label %774, label %909
 
 774:                                              ; preds = %608
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %775 = load float, ptr %639, align 4, !tbaa !62
   %776 = load float, ptr %641, align 4, !tbaa !62
   %777 = fmul float %627, %776
@@ -6383,10 +6377,10 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313Mu
   %.sroa.3.12.vec.insert.i.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %790, i64 0
   store <2 x float> %.sroa.0.4.vec.insert.i.i, ptr %14, align 8
   store <2 x float> %.sroa.3.12.vec.insert.i.i, ptr %.sroa.4469.0..sroa_idx, align 8, !tbaa !82
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %15) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @_ZN24btInverseDynamicsBullet313tildeOperatorERKNS_4vec3E(ptr dead_on_unwind nonnull writable sret(%"class.btInverseDynamicsBullet3::mat33") align 4 %15, ptr noundef nonnull align 4 dereferenceable(16) %14)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %16) #18
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %791 = load float, ptr %654, align 4, !tbaa !62
   %792 = load float, ptr %14, align 8, !tbaa !62
   %793 = fadd float %791, %792
@@ -6402,7 +6396,7 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313Mu
   store <2 x float> %.sroa.0.4.vec.insert.i244, ptr %17, align 8
   store <2 x float> %.sroa.3.12.vec.insert.i245, ptr %.sroa.4465.0..sroa_idx, align 8, !tbaa !82
   call void @_ZN24btInverseDynamicsBullet313tildeOperatorERKNS_4vec3E(ptr dead_on_unwind nonnull writable sret(%"class.btInverseDynamicsBullet3::mat33") align 4 %16, ptr noundef nonnull align 4 dereferenceable(16) %17)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %800 = load float, ptr %15, align 4, !tbaa !62, !noalias !184
   %801 = load float, ptr %548, align 4, !tbaa !62, !noalias !184
   %802 = load float, ptr %549, align 4, !tbaa !62, !noalias !184
@@ -6524,9 +6518,9 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313Mu
   store float %906, ptr %603, align 4, !tbaa !62
   store float %908, ptr %604, align 4, !tbaa !62
   store float 0.000000e+00, ptr %607, align 4, !tbaa !62
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %16) #18
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %15) #18
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %909
 
 909:                                              ; preds = %774, %608
@@ -6582,16 +6576,16 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313Mu
   unreachable
 
 _ZN24btInverseDynamicsBullet3L12jointNumDoFsERKNS_9JointTypeE.exit: ; preds = %919
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18) #18
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %19) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   br label %._crit_edge678
 
 .lr.ph677:                                        ; preds = %919, %919, %925, %926
   %.0.i.ph = phi i32 [ 3, %926 ], [ 6, %925 ], [ 1, %919 ], [ 1, %919 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %928 = getelementptr inbounds nuw i8, ptr %921, i64 488
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(16) %928, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %19) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %929 = getelementptr inbounds nuw i8, ptr %921, i64 504
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %929, i64 16, i1 false)
   %930 = add nsw i32 %.0.i.ph, %923
@@ -6616,8 +6610,8 @@ _ZN24btInverseDynamicsBullet3L12jointNumDoFsERKNS_9JointTypeE.exit: ; preds = %9
   br i1 %.not204.not, label %946, label %._crit_edge678, !llvm.loop !196
 
 ._crit_edge678:                                   ; preds = %.loopexit631, %_ZN24btInverseDynamicsBullet3L12jointNumDoFsERKNS_9JointTypeE.exit
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19) #18
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %945 = icmp sgt i64 %indvars.iv709, 1
   br i1 %945, label %919, label %._crit_edge683, !llvm.loop !197
 
@@ -7061,20 +7055,20 @@ _ZN24btInverseDynamicsBullet3L18setSixDoFJacobiansEiRNS_4vec3ES1_.exit283: ; pre
   unreachable
 
 _ZN24btInverseDynamicsBullet3L12jointNumDoFsERKNS_9JointTypeE.exit300: ; preds = %.lr.ph672
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %20) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %1179 = getelementptr inbounds nuw i8, ptr %1117, i64 488
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(16) %1179, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %21) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %1180 = getelementptr inbounds nuw i8, ptr %1117, i64 504
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %21, ptr noundef nonnull align 8 dereferenceable(16) %1180, i64 16, i1 false)
   br label %._crit_edge664
 
 .lr.ph663.preheader:                              ; preds = %.lr.ph672, %.lr.ph672, %1176, %1177
   %.0.i299.ph = phi i32 [ 3, %1177 ], [ 6, %1176 ], [ 1, %.lr.ph672 ], [ 1, %.lr.ph672 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %20) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %1181 = getelementptr inbounds nuw i8, ptr %1117, i64 488
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(16) %1181, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %21) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %1182 = getelementptr inbounds nuw i8, ptr %1117, i64 504
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %21, ptr noundef nonnull align 8 dereferenceable(16) %1182, i64 16, i1 false)
   %1183 = add nsw i32 %.0.i299.ph, %1174
@@ -7088,8 +7082,8 @@ _ZN24btInverseDynamicsBullet3L12jointNumDoFsERKNS_9JointTypeE.exit300: ; preds =
   %1184 = phi ptr [ %.pre726, %._crit_edge664.loopexit ], [ %1112, %_ZN24btInverseDynamicsBullet3L12jointNumDoFsERKNS_9JointTypeE.exit300 ]
   %1185 = getelementptr inbounds nuw i32, ptr %1184, i64 %1116
   %1186 = load i32, ptr %1185, align 4, !tbaa !73
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21) #18
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   %1187 = icmp sgt i32 %1186, -1
   br i1 %1187, label %.lr.ph672, label %.loopexit631, !llvm.loop !202
 
@@ -7388,7 +7382,7 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313Mu
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i32 -1, 1) i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl13getBodyOriginEiPNS_4vec3E(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(400) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #10 align 2 {
+define dso_local noundef range(i32 -1, 1) i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl13getBodyOriginEiPNS_4vec3E(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(400) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #9 align 2 {
   %4 = icmp sgt i32 %1, -1
   %5 = load i32, ptr %0, align 8
   %.not = icmp slt i32 %1, %5
@@ -7453,7 +7447,7 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZNK24btInverseDynamicsBullet313M
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i32 -1, 1) i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl10getBodyCoMEiPNS_4vec3E(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(400) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #10 align 2 {
+define dso_local noundef range(i32 -1, 1) i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl10getBodyCoMEiPNS_4vec3E(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(400) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #9 align 2 {
   %4 = icmp sgt i32 %1, -1
   %5 = load i32, ptr %0, align 8
   %.not = icmp slt i32 %1, %5
@@ -7625,7 +7619,7 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZNK24btInverseDynamicsBullet313M
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i32 -1, 1) i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl22getBodyAngularVelocityEiPNS_4vec3E(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(400) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #10 align 2 {
+define dso_local noundef range(i32 -1, 1) i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl22getBodyAngularVelocityEiPNS_4vec3E(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(400) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #9 align 2 {
   %4 = icmp sgt i32 %1, -1
   %5 = load i32, ptr %0, align 8
   %.not = icmp slt i32 %1, %5
@@ -7690,7 +7684,7 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZNK24btInverseDynamicsBullet313M
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i32 -1, 1) i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl21getBodyLinearVelocityEiPNS_4vec3E(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(400) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #10 align 2 {
+define dso_local noundef range(i32 -1, 1) i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl21getBodyLinearVelocityEiPNS_4vec3E(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(400) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #9 align 2 {
   %4 = icmp sgt i32 %1, -1
   %5 = load i32, ptr %0, align 8
   %.not = icmp slt i32 %1, %5
@@ -7755,7 +7749,7 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZNK24btInverseDynamicsBullet313M
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i32 -1, 1) i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl24getBodyLinearVelocityCoMEiPNS_4vec3E(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(400) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #10 align 2 {
+define dso_local noundef range(i32 -1, 1) i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl24getBodyLinearVelocityCoMEiPNS_4vec3E(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(400) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #9 align 2 {
   %4 = icmp sgt i32 %1, -1
   %5 = load i32, ptr %0, align 8
   %.not = icmp slt i32 %1, %5
@@ -7864,7 +7858,7 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZNK24btInverseDynamicsBullet313M
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i32 -1, 1) i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl26getBodyAngularAccelerationEiPNS_4vec3E(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(400) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #10 align 2 {
+define dso_local noundef range(i32 -1, 1) i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl26getBodyAngularAccelerationEiPNS_4vec3E(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(400) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #9 align 2 {
   %4 = icmp sgt i32 %1, -1
   %5 = load i32, ptr %0, align 8
   %.not = icmp slt i32 %1, %5
@@ -7929,7 +7923,7 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZNK24btInverseDynamicsBullet313M
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i32 -1, 1) i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl25getBodyLinearAccelerationEiPNS_4vec3E(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(400) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #10 align 2 {
+define dso_local noundef range(i32 -1, 1) i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl25getBodyLinearAccelerationEiPNS_4vec3E(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(400) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #9 align 2 {
   %4 = icmp sgt i32 %1, -1
   %5 = load i32, ptr %0, align 8
   %.not = icmp slt i32 %1, %5
@@ -8481,7 +8475,7 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313Mu
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i32 -1, 1) i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl24getBodyDotJacobianTransUEiPNS_4vec3E(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(400) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #10 align 2 {
+define dso_local noundef range(i32 -1, 1) i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl24getBodyDotJacobianTransUEiPNS_4vec3E(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(400) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #9 align 2 {
   %4 = icmp sgt i32 %1, -1
   %5 = load i32, ptr %0, align 8
   %.not = icmp slt i32 %1, %5
@@ -8546,7 +8540,7 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZNK24btInverseDynamicsBullet313M
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i32 -1, 1) i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl22getBodyDotJacobianRotUEiPNS_4vec3E(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(400) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #10 align 2 {
+define dso_local noundef range(i32 -1, 1) i32 @_ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl22getBodyDotJacobianRotUEiPNS_4vec3E(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(400) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #9 align 2 {
   %4 = icmp sgt i32 %1, -1
   %5 = load i32, ptr %0, align 8
   %.not = icmp slt i32 %1, %5
@@ -8630,7 +8624,7 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZNK24btInverseDynamicsBullet313M
   %11 = load ptr, ptr %10, align 8, !tbaa !34
   %12 = zext nneg i32 %1 to i64
   %13 = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::RigidBody", ptr %11, i64 %12
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 244
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 260
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 276
@@ -8674,7 +8668,7 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZNK24btInverseDynamicsBullet313M
   store float 0.000000e+00, ptr %.sroa.16.32..sroa_idx, align 4, !tbaa !82
   %34 = getelementptr inbounds nuw i8, ptr %13, i64 608
   call void @_ZN24btInverseDynamicsBullet33mulERKNS_5mat33ERKNS_5mat3xEPS3_(ptr noundef nonnull align 4 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(88) %34, ptr noundef %2)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %35
 
 35:                                               ; preds = %9, %7
@@ -8702,7 +8696,7 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZNK24btInverseDynamicsBullet313M
   %11 = load ptr, ptr %10, align 8, !tbaa !34
   %12 = zext nneg i32 %1 to i64
   %13 = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::RigidBody", ptr %11, i64 %12
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 244
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 260
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 276
@@ -8746,7 +8740,7 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZNK24btInverseDynamicsBullet313M
   store float 0.000000e+00, ptr %.sroa.16.32..sroa_idx, align 4, !tbaa !82
   %34 = getelementptr inbounds nuw i8, ptr %13, i64 696
   call void @_ZN24btInverseDynamicsBullet33mulERKNS_5mat33ERKNS_5mat3xEPS3_(ptr noundef nonnull align 4 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(88) %34, ptr noundef %2)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %35
 
 35:                                               ; preds = %9, %7
@@ -8764,7 +8758,7 @@ define linkonce_odr dso_local void @_ZN9btMatrixXIfE6resizeEii(ptr noundef nonnu
   store i32 %1, ptr %0, align 8, !tbaa !49
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %2, ptr %8, align 4, !tbaa !50
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull @.str.31)
   %9 = mul nsw i32 %2, %1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -8858,19 +8852,19 @@ _ZN20btAlignedObjectArrayIfE10deallocateEv.exit.i.i: ; preds = %33, %_ZNK20btAli
 .loopexit:                                        ; preds = %.lr.ph.i, %3
   store i32 %9, ptr %10, align 4, !tbaa !56
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #18
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
 40:                                               ; preds = %33, %18
   %41 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #18
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %41
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIS_IiEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIS_IiEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4, !tbaa !60
   %4 = icmp sgt i32 %3, 0
@@ -8947,7 +8941,7 @@ _ZN20btAlignedObjectArrayIS_IiEE7destroyEii.exit.i: ; preds = %_ZN20btAlignedObj
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIfED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIfED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !55
   %.not.i.i = icmp ne ptr %3, null
@@ -8978,17 +8972,17 @@ define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIfED2Ev(ptr noundef
   unreachable
 }
 
-declare void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef) unnamed_addr #7
+declare void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef) unnamed_addr #6
 
 ; Function Attrs: nounwind
-declare void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #13
+declare void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #12
 
-declare noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef, i32 noundef) local_unnamed_addr #7
+declare noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef, i32 noundef) local_unnamed_addr #6
 
-declare void @_Z21btAlignedFreeInternalPv(ptr noundef) local_unnamed_addr #7
+declare void @_Z21btAlignedFreeInternalPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: noinline noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #14 comdat {
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #13 comdat {
   %2 = tail call ptr @__cxa_begin_catch(ptr %0) #18
   tail call void @_ZSt9terminatev() #19
   unreachable
@@ -8997,12 +8991,12 @@ define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_un
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #15
+declare void @_ZSt9terminatev() local_unnamed_addr #14
 
 ; Function Attrs: cold nofree noreturn nounwind
-declare void @abort() local_unnamed_addr #16
+declare void @abort() local_unnamed_addr #15
 
-declare void @_Z21b3AlignedFreeInternalPv(ptr noundef) local_unnamed_addr #7
+declare void @_Z21b3AlignedFreeInternalPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39RigidBodyEE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -9177,7 +9171,7 @@ _ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39RigidBodyEE10deallocateEv.
   ret void
 }
 
-declare noundef ptr @_Z22b3AlignedAllocInternalmi(i64 noundef, i32 noundef) local_unnamed_addr #7
+declare noundef ptr @_Z22b3AlignedAllocInternalmi(i64 noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN24btInverseDynamicsBullet35mat3xC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(88) %1) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -9490,26 +9484,32 @@ _ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit:    ; preds = %2
   br i1 %exitcond.not, label %._crit_edge, label %26, !llvm.loop !246
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #16
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #16
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #17
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { mustprogress uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #13 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { cold nofree noreturn }
-attributes #16 = { cold nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { mustprogress uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { cold nofree noreturn }
+attributes #15 = { cold nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #18 = { nounwind }
 attributes #19 = { noreturn nounwind }

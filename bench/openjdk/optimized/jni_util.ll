@@ -1254,7 +1254,7 @@ define ptr @JNU_NewStringPlatform(ptr noundef %0, ptr noundef %1) local_unnamed_
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %8
   %19 = phi i32 [ %18, %._crit_edge.i ], [ 0, %8 ]
   %20 = phi i64 [ %17, %._crit_edge.i ], [ 0, %8 ]
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %6, i8 0, i64 1024, i1 false)
   %21 = load ptr, ptr %0, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 208
@@ -1324,7 +1324,7 @@ define ptr @JNU_NewStringPlatform(ptr noundef %0, ptr noundef %1) local_unnamed_
 
 newSizedString8859_1.exit.i:                      ; preds = %53, %._crit_edge.i.i, %38, %33, %._crit_edge.thread.i
   %.020.i.i = phi ptr [ null, %._crit_edge.thread.i ], [ %52, %53 ], [ %52, %._crit_edge.i.i ], [ null, %33 ], [ null, %38 ]
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %newStringUTF8.exit
 
 54:                                               ; preds = %._crit_edge.i
@@ -1334,7 +1334,7 @@ newSizedString8859_1.exit.i:                      ; preds = %53, %._crit_edge.i.
 56:                                               ; preds = %2
   %57 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #11
   %58 = trunc i64 %57 to i32
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %5, i8 0, i64 1024, i1 false)
   %59 = load ptr, ptr %0, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 208
@@ -1404,11 +1404,11 @@ newSizedString8859_1.exit.i:                      ; preds = %53, %._crit_edge.i.
 
 newString8859_1.exit:                             ; preds = %56, %71, %76, %._crit_edge.i.i13, %91
   %.020.i.i17 = phi ptr [ null, %56 ], [ %90, %91 ], [ %90, %._crit_edge.i.i13 ], [ null, %71 ], [ null, %76 ]
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %newStringUTF8.exit
 
 92:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %93 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #11
   %94 = trunc i64 %93 to i32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %4, i8 0, i64 1024, i1 false)
@@ -1482,11 +1482,11 @@ newString8859_1.exit:                             ; preds = %56, %71, %76, %._cr
 
 newString646_US.exit:                             ; preds = %92, %107, %112, %._crit_edge.i26, %127
   %.0.i = phi ptr [ null, %92 ], [ %126, %127 ], [ %126, %._crit_edge.i26 ], [ null, %107 ], [ null, %112 ]
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %newStringUTF8.exit
 
 128:                                              ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %129 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #11
   %130 = trunc i64 %129 to i32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %3, i8 0, i64 1024, i1 false)
@@ -1574,7 +1574,7 @@ newString646_US.exit:                             ; preds = %92, %107, %112, %._
 
 newStringCp1252.exit:                             ; preds = %128, %143, %148, %._crit_edge.i29, %171
   %.0.i31 = phi ptr [ null, %128 ], [ %170, %171 ], [ %170, %._crit_edge.i29 ], [ null, %143 ], [ null, %148 ]
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %newStringUTF8.exit
 
 172:                                              ; preds = %2
@@ -3345,10 +3345,10 @@ JNU_ThrowIllegalArgumentException.exit:           ; preds = %52, %57
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #9

@@ -16,8 +16,8 @@ define range(i32 -1, 2) i32 @inflate_table(i32 noundef %0, ptr noundef readonly 
 .preheader236:
   %6 = alloca [16 x i16], align 16
   %7 = alloca [16 x i16], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #4
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %6, i8 0, i64 32, i1 false), !tbaa !3
   %.not266 = icmp eq i32 %2, 0
   br i1 %.not266, label %._crit_edge, label %.lr.ph.preheader
@@ -411,16 +411,16 @@ define range(i32 -1, 2) i32 @inflate_table(i32 noundef %0, ptr noundef readonly 
 
 .loopexit:                                        ; preds = %33, %._crit_edge262, %.loopexit.sink.split, %63, %65, %41
   %.0180 = phi i32 [ -1, %41 ], [ 1, %65 ], [ 1, %63 ], [ 0, %.loopexit.sink.split ], [ 1, %._crit_edge262 ], [ -1, %33 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #4
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0180
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #2
@@ -435,7 +435,6 @@ attributes #0 = { nofree norecurse nosync nounwind memory(readwrite, inaccessibl
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

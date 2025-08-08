@@ -84,8 +84,8 @@ define weak i64 @ruby_abi_version() local_unnamed_addr #0 {
 define noundef i32 @ossl_verify_cb_call(i64 noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.ossl_verify_cb_args, align 8
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = icmp eq i64 %0, 4
   br i1 %6, label %26, label %7
 
@@ -140,15 +140,12 @@ define noundef i32 @ossl_verify_cb_call(i64 noundef %0, i32 noundef %1, ptr noun
 
 26:                                               ; preds = %.sink.split, %23, %3
   %.012 = phi i32 [ %1, %3 ], [ 0, %23 ], [ %.012.ph, %.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.012
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare i64 @rb_protect(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare i64 @rb_protect(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @ossl_x509stctx_new_i(i64 noundef %0) #0 {
@@ -170,10 +167,10 @@ ossl_x509stctx_new.exit:                          ; preds = %1
   ret i64 %3
 }
 
-declare void @rb_set_errinfo(i64 noundef) local_unnamed_addr #2
+declare void @rb_set_errinfo(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold
-declare void @rb_warn(ptr noundef, ...) local_unnamed_addr #3
+declare void @rb_warn(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @call_verify_cb_proc(i64 noundef %0) #0 {
@@ -199,12 +196,9 @@ rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %1
   ret i64 %9
 }
 
-declare void @X509_STORE_CTX_set_error(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @X509_STORE_CTX_set_error(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @X509_STORE_CTX_get_error(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @X509_STORE_CTX_get_error(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define nonnull ptr @GetX509StorePtr(i64 noundef %0) local_unnamed_addr #0 {
@@ -221,10 +215,10 @@ define nonnull ptr @GetX509StorePtr(i64 noundef %0) local_unnamed_addr #0 {
   ret ptr %2
 }
 
-declare ptr @rb_check_typeddata(i64 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @rb_check_typeddata(i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare void @ossl_raise(i64 noundef, ptr noundef, ...) local_unnamed_addr #4
+declare void @ossl_raise(i64 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
 define void @Init_ossl_x509store() local_unnamed_addr #0 {
@@ -333,15 +327,15 @@ define void @Init_ossl_x509store() local_unnamed_addr #0 {
   ret void
 }
 
-declare i32 @CRYPTO_get_ex_new_index(i32 noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @CRYPTO_get_ex_new_index(i32 noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i64 @rb_define_class_under(i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @rb_define_class_under(i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @rb_attr(i64 noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @rb_attr(i64 noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare i64 @rb_intern(ptr noundef) local_unnamed_addr #2
+declare i64 @rb_intern(ptr noundef) local_unnamed_addr #1
 
-declare void @rb_define_alloc_func(i64 noundef, ptr noundef) local_unnamed_addr #2
+declare void @rb_define_alloc_func(i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @ossl_x509store_alloc(i64 noundef %0) #0 {
@@ -362,7 +356,7 @@ define internal i64 @ossl_x509store_alloc(i64 noundef %0) #0 {
   ret i64 %2
 }
 
-declare extern_weak void @rb_define_method(i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare extern_weak void @rb_define_method(i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i64 @ossl_x509store_initialize(i32 noundef %0, ptr readnone captures(none) %1, i64 noundef returned %2) #0 {
@@ -404,7 +398,7 @@ ossl_x509store_set_vfy_cb.exit:                   ; preds = %9
   ret i64 %2
 }
 
-declare void @rb_undef_method(i64 noundef, ptr noundef) local_unnamed_addr #2
+declare void @rb_undef_method(i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i64 @ossl_x509store_set_vfy_cb(i64 noundef %0, i64 noundef returned %1) #0 {
@@ -851,9 +845,9 @@ define internal noundef i64 @ossl_x509stctx_initialize(i32 noundef %0, ptr nound
   %5 = alloca i64, align 8
   %6 = alloca i32, align 4
   %7 = alloca [3 x ptr], align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %4, ptr %8, align 8, !tbaa !23
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -974,9 +968,9 @@ rb_scan_args_set.exit:                            ; preds = %27
   %56 = call i64 @rb_iv_set(i64 noundef %2, ptr noundef nonnull @.str.40, i64 noundef %55) #5
   %57 = load i64, ptr %4, align 8, !tbaa !20
   %58 = call i64 @rb_iv_set(i64 noundef %2, ptr noundef nonnull @.str.54, i64 noundef %57) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %2
 }
 
@@ -1294,7 +1288,7 @@ rb_num2long_inline.exit:                          ; preds = %5, %7
   ret i64 %1
 }
 
-declare i64 @rb_data_typed_object_wrap(i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i64 @rb_data_typed_object_wrap(i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @ossl_x509stctx_mark(ptr noundef %0) #0 {
@@ -1331,23 +1325,23 @@ define internal void @ossl_x509stctx_free(ptr noundef %0) #0 {
   ret void
 }
 
-declare void @rb_gc_mark(i64 noundef) local_unnamed_addr #2
+declare void @rb_gc_mark(i64 noundef) local_unnamed_addr #1
 
-declare ptr @X509_STORE_CTX_get_ex_data(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @X509_STORE_CTX_get_ex_data(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @X509_STORE_CTX_get0_untrusted(ptr noundef) local_unnamed_addr #2
+declare ptr @X509_STORE_CTX_get0_untrusted(ptr noundef) local_unnamed_addr #1
 
-declare void @OPENSSL_sk_pop_free(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @OPENSSL_sk_pop_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @X509_free(ptr noundef) #2
+declare void @X509_free(ptr noundef) #1
 
-declare ptr @X509_STORE_CTX_get0_cert(ptr noundef) local_unnamed_addr #2
+declare ptr @X509_STORE_CTX_get0_cert(ptr noundef) local_unnamed_addr #1
 
-declare void @X509_STORE_CTX_free(ptr noundef) local_unnamed_addr #2
+declare void @X509_STORE_CTX_free(ptr noundef) local_unnamed_addr #1
 
-declare i64 @rb_funcall(i64 noundef, i64 noundef, i32 noundef, ...) local_unnamed_addr #2
+declare i64 @rb_funcall(i64 noundef, i64 noundef, i32 noundef, ...) local_unnamed_addr #1
 
-declare i64 @rb_intern2(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @rb_intern2(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @ossl_x509store_mark(ptr noundef %0) #0 {
@@ -1364,13 +1358,13 @@ define internal void @ossl_x509store_free(ptr noundef %0) #0 {
   ret void
 }
 
-declare ptr @X509_STORE_get_ex_data(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @X509_STORE_get_ex_data(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @X509_STORE_free(ptr noundef) local_unnamed_addr #2
+declare void @X509_STORE_free(ptr noundef) local_unnamed_addr #1
 
-declare ptr @X509_STORE_new() local_unnamed_addr #2
+declare ptr @X509_STORE_new() local_unnamed_addr #1
 
-declare void @X509_STORE_set_verify_cb(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @X509_STORE_set_verify_cb(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i32 @x509store_verify_cb(i32 noundef %0, ptr noundef %1) #0 {
@@ -1397,107 +1391,113 @@ define internal noundef i32 @x509store_verify_cb(i32 noundef %0, ptr noundef %1)
   ret i32 %.08
 }
 
-declare i64 @rb_iv_set(i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @rb_iv_set(i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare ptr @X509_STORE_CTX_get0_store(ptr noundef) local_unnamed_addr #2
+declare ptr @X509_STORE_CTX_get0_store(ptr noundef) local_unnamed_addr #1
 
-declare i32 @X509_STORE_set_ex_data(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @X509_STORE_set_ex_data(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @X509_STORE_set_flags(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @X509_STORE_set_flags(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i64 @rb_num2long(i64 noundef) local_unnamed_addr #2
+declare i64 @rb_num2long(i64 noundef) local_unnamed_addr #1
 
-declare i32 @X509_STORE_set_purpose(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @X509_STORE_set_purpose(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i64 @rb_fix2int(i64 noundef) local_unnamed_addr #2
+declare i64 @rb_fix2int(i64 noundef) local_unnamed_addr #1
 
-declare i64 @rb_num2int(i64 noundef) local_unnamed_addr #2
+declare i64 @rb_num2int(i64 noundef) local_unnamed_addr #1
 
-declare i32 @X509_STORE_set_trust(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @X509_STORE_set_trust(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @X509_STORE_get0_param(ptr noundef) local_unnamed_addr #2
+declare ptr @X509_STORE_get0_param(ptr noundef) local_unnamed_addr #1
 
-declare void @X509_VERIFY_PARAM_set_time(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @X509_VERIFY_PARAM_set_time(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i64 @rb_Integer(i64 noundef) local_unnamed_addr #2
+declare i64 @rb_Integer(i64 noundef) local_unnamed_addr #1
 
-declare ptr @rb_string_value_cstr(ptr noundef) local_unnamed_addr #2
+declare ptr @rb_string_value_cstr(ptr noundef) local_unnamed_addr #1
 
-declare ptr @X509_STORE_add_lookup(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @X509_STORE_add_lookup(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @X509_LOOKUP_hash_dir() local_unnamed_addr #2
+declare ptr @X509_LOOKUP_hash_dir() local_unnamed_addr #1
 
-declare i32 @X509_LOOKUP_ctrl(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @X509_LOOKUP_ctrl(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @X509_LOOKUP_file() local_unnamed_addr #2
+declare ptr @X509_LOOKUP_file() local_unnamed_addr #1
 
-declare i32 @X509_STORE_set_default_paths(ptr noundef) local_unnamed_addr #2
+declare i32 @X509_STORE_set_default_paths(ptr noundef) local_unnamed_addr #1
 
-declare ptr @GetX509CertPtr(i64 noundef) local_unnamed_addr #2
+declare ptr @GetX509CertPtr(i64 noundef) local_unnamed_addr #1
 
-declare i32 @X509_STORE_add_cert(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @X509_STORE_add_cert(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @GetX509CRLPtr(i64 noundef) local_unnamed_addr #2
+declare ptr @GetX509CRLPtr(i64 noundef) local_unnamed_addr #1
 
-declare i32 @X509_STORE_add_crl(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @X509_STORE_add_crl(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @rb_block_given_p() local_unnamed_addr #2
+declare i32 @rb_block_given_p() local_unnamed_addr #1
 
-declare i64 @rb_block_proc() local_unnamed_addr #2
+declare i64 @rb_block_proc() local_unnamed_addr #1
 
-declare i64 @rb_iv_get(i64 noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: noreturn
-declare void @rb_error_arity(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
-
-declare ptr @X509_STORE_CTX_new() local_unnamed_addr #2
-
-declare ptr @DupX509CertPtr(i64 noundef) local_unnamed_addr #2
-
-declare ptr @ossl_protect_x509_ary2sk(i64 noundef, ptr noundef) local_unnamed_addr #2
+declare i64 @rb_iv_get(i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare void @rb_jump_tag(i32 noundef) local_unnamed_addr #4
+declare void @rb_error_arity(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @X509_STORE_CTX_init(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @X509_STORE_CTX_new() local_unnamed_addr #1
 
-declare i32 @X509_STORE_CTX_set_ex_data(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @DupX509CertPtr(i64 noundef) local_unnamed_addr #1
 
-declare i32 @X509_verify_cert(ptr noundef) local_unnamed_addr #2
+declare ptr @ossl_protect_x509_ary2sk(i64 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ossl_clear_error() local_unnamed_addr #2
+; Function Attrs: noreturn
+declare void @rb_jump_tag(i32 noundef) local_unnamed_addr #3
 
-declare ptr @X509_STORE_CTX_get0_chain(ptr noundef) local_unnamed_addr #2
+declare i32 @X509_STORE_CTX_init(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i64 @ossl_x509_sk2ary(ptr noundef) local_unnamed_addr #2
+declare i32 @X509_STORE_CTX_set_ex_data(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i64 @rb_str_new_cstr(ptr noundef) local_unnamed_addr #2
+declare i32 @X509_verify_cert(ptr noundef) local_unnamed_addr #1
 
-declare ptr @X509_verify_cert_error_string(i64 noundef) local_unnamed_addr #2
+declare void @ossl_clear_error() local_unnamed_addr #1
 
-declare i32 @X509_STORE_CTX_get_error_depth(ptr noundef) local_unnamed_addr #2
+declare ptr @X509_STORE_CTX_get0_chain(ptr noundef) local_unnamed_addr #1
 
-declare i64 @ossl_x509_new(ptr noundef) local_unnamed_addr #2
+declare i64 @ossl_x509_sk2ary(ptr noundef) local_unnamed_addr #1
 
-declare ptr @X509_STORE_CTX_get_current_cert(ptr noundef) local_unnamed_addr #2
+declare i64 @rb_str_new_cstr(ptr noundef) local_unnamed_addr #1
 
-declare ptr @X509_STORE_CTX_get0_current_crl(ptr noundef) local_unnamed_addr #2
+declare ptr @X509_verify_cert_error_string(i64 noundef) local_unnamed_addr #1
 
-declare i64 @ossl_x509crl_new(ptr noundef) local_unnamed_addr #2
+declare i32 @X509_STORE_CTX_get_error_depth(ptr noundef) local_unnamed_addr #1
 
-declare void @X509_STORE_CTX_set_flags(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @ossl_x509_new(ptr noundef) local_unnamed_addr #1
 
-declare i32 @X509_STORE_CTX_set_purpose(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @X509_STORE_CTX_get_current_cert(ptr noundef) local_unnamed_addr #1
 
-declare i32 @X509_STORE_CTX_set_trust(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @X509_STORE_CTX_get0_current_crl(ptr noundef) local_unnamed_addr #1
 
-declare void @X509_STORE_CTX_set_time(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @ossl_x509crl_new(ptr noundef) local_unnamed_addr #1
+
+declare void @X509_STORE_CTX_set_flags(ptr noundef, i64 noundef) local_unnamed_addr #1
+
+declare i32 @X509_STORE_CTX_set_purpose(ptr noundef, i32 noundef) local_unnamed_addr #1
+
+declare i32 @X509_STORE_CTX_set_trust(ptr noundef, i32 noundef) local_unnamed_addr #1
+
+declare void @X509_STORE_CTX_set_time(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 attributes #0 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nounwind }
 attributes #6 = { cold nounwind }
 attributes #7 = { noreturn nounwind }

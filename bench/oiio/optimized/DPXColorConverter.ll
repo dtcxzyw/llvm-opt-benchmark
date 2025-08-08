@@ -682,7 +682,7 @@ switch.lookup92:                                  ; preds = %284
   %286 = zext nneg i8 %switch.tableidx93 to i64
   %switch.gep94 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN3dpx12ConvertToRGBERKNS_6HeaderEiPKvPvRKNS_5BlockE.20, i64 0, i64 %286
   %switch.load95 = load ptr, ptr %switch.gep94, align 8
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %15) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %287 = icmp sgt i32 %36, 0
   br i1 %287, label %.lr.ph.preheader.i207.i, label %._crit_edge.i.i
 
@@ -691,7 +691,7 @@ switch.lookup92:                                  ; preds = %284
   br label %.lr.ph.i209.i
 
 ._crit_edge.i.i:                                  ; preds = %_ZN3dpxL22ConvertPixelYCbCrToRGBIhLj255EEEvPKT_PS1_PKf.exit.i216.i, %switch.lookup92
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %15) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %_ZN3dpxL20ConvertToRGBInternalENS_10DescriptorENS_8DataSizeENS_14CharacteristicEPKvPvi.exit
 
 .lr.ph.i209.i:                                    ; preds = %_ZN3dpxL22ConvertPixelYCbCrToRGBIhLj255EEEvPKT_PS1_PKf.exit.i216.i, %.lr.ph.preheader.i207.i
@@ -748,7 +748,7 @@ switch.lookup96:                                  ; preds = %315
   %317 = zext nneg i8 %switch.tableidx97 to i64
   %switch.gep98 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN3dpx12ConvertToRGBERKNS_6HeaderEiPKvPvRKNS_5BlockE.20, i64 0, i64 %317
   %switch.load99 = load ptr, ptr %switch.gep98, align 8
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %14) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %318 = icmp sgt i32 %36, 0
   br i1 %318, label %.lr.ph.preheader.i221.i, label %._crit_edge.i220.i
 
@@ -757,7 +757,7 @@ switch.lookup96:                                  ; preds = %315
   br label %.lr.ph.i223.i
 
 ._crit_edge.i220.i:                               ; preds = %_ZN3dpxL22ConvertPixelYCbCrToRGBItLj65535EEEvPKT_PS1_PKf.exit.i230.i, %switch.lookup96
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %14) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %_ZN3dpxL20ConvertToRGBInternalENS_10DescriptorENS_8DataSizeENS_14CharacteristicEPKvPvi.exit
 
 .lr.ph.i223.i:                                    ; preds = %_ZN3dpxL22ConvertPixelYCbCrToRGBItLj65535EEEvPKT_PS1_PKf.exit.i230.i, %.lr.ph.preheader.i221.i
@@ -814,7 +814,7 @@ switch.lookup100:                                 ; preds = %346
   %348 = zext nneg i8 %switch.tableidx101 to i64
   %switch.gep102 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN3dpx12ConvertToRGBERKNS_6HeaderEiPKvPvRKNS_5BlockE.20, i64 0, i64 %348
   %switch.load103 = load ptr, ptr %switch.gep102, align 8
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %13) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %349 = icmp sgt i32 %36, 0
   br i1 %349, label %.lr.ph.preheader.i235.i, label %._crit_edge.i234.i
 
@@ -823,7 +823,7 @@ switch.lookup100:                                 ; preds = %346
   br label %.lr.ph.i237.i
 
 ._crit_edge.i234.i:                               ; preds = %_ZN3dpxL22ConvertPixelYCbCrToRGBIjLj4294967295EEEvPKT_PS1_PKf.exit.i244.i, %switch.lookup100
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %13) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %_ZN3dpxL20ConvertToRGBInternalENS_10DescriptorENS_8DataSizeENS_14CharacteristicEPKvPvi.exit
 
 .lr.ph.i237.i:                                    ; preds = %_ZN3dpxL22ConvertPixelYCbCrToRGBIjLj4294967295EEEvPKT_PS1_PKf.exit.i244.i, %.lr.ph.preheader.i235.i
@@ -880,7 +880,7 @@ switch.lookup104:                                 ; preds = %377
   %379 = zext nneg i8 %switch.tableidx105 to i64
   %switch.gep106 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN3dpx12ConvertToRGBERKNS_6HeaderEiPKvPvRKNS_5BlockE.20, i64 0, i64 %379
   %switch.load107 = load ptr, ptr %switch.gep106, align 8
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %12) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %380 = icmp sgt i32 %36, 0
   br i1 %380, label %.lr.ph.preheader.i249.i, label %._crit_edge.i248.i
 
@@ -889,7 +889,7 @@ switch.lookup104:                                 ; preds = %377
   br label %.lr.ph.i251.i
 
 ._crit_edge.i248.i:                               ; preds = %_ZN3dpxL22ConvertPixelYCbCrToRGBIfLj1EEEvPKT_PS1_PKf.exit.i259.i, %switch.lookup104
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %12) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %_ZN3dpxL20ConvertToRGBInternalENS_10DescriptorENS_8DataSizeENS_14CharacteristicEPKvPvi.exit
 
 .lr.ph.i251.i:                                    ; preds = %_ZN3dpxL22ConvertPixelYCbCrToRGBIfLj1EEEvPKT_PS1_PKf.exit.i259.i, %.lr.ph.preheader.i249.i
@@ -944,7 +944,7 @@ switch.lookup108:                                 ; preds = %405
   %407 = zext nneg i8 %switch.tableidx109 to i64
   %switch.gep110 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN3dpx12ConvertToRGBERKNS_6HeaderEiPKvPvRKNS_5BlockE.20, i64 0, i64 %407
   %switch.load111 = load ptr, ptr %switch.gep110, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %408 = icmp sgt i32 %36, 0
   br i1 %408, label %.lr.ph.preheader.i264.i, label %._crit_edge.i263.i
 
@@ -953,7 +953,7 @@ switch.lookup108:                                 ; preds = %405
   br label %.lr.ph.i266.i
 
 ._crit_edge.i263.i:                               ; preds = %_ZN3dpxL22ConvertPixelYCbCrToRGBIdLj1EEEvPKT_PS1_PKf.exit.i274.i, %switch.lookup108
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_ZN3dpxL20ConvertToRGBInternalENS_10DescriptorENS_8DataSizeENS_14CharacteristicEPKvPvi.exit
 
 .lr.ph.i266.i:                                    ; preds = %_ZN3dpxL22ConvertPixelYCbCrToRGBIdLj1EEEvPKT_PS1_PKf.exit.i274.i, %.lr.ph.preheader.i264.i
@@ -1398,7 +1398,7 @@ switch.lookup132:                                 ; preds = %647
   %649 = zext nneg i8 %switch.tableidx133 to i64
   %switch.gep134 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN3dpx12ConvertToRGBERKNS_6HeaderEiPKvPvRKNS_5BlockE.20, i64 0, i64 %649
   %switch.load135 = load ptr, ptr %switch.gep134, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %650 = icmp sgt i32 %36, 0
   br i1 %650, label %.lr.ph.i353.i, label %._crit_edge.i352.i
 
@@ -1408,7 +1408,7 @@ switch.lookup132:                                 ; preds = %647
   br label %652
 
 ._crit_edge.i352.i:                               ; preds = %_ZN3dpxL22ConvertPixelYCbCrToRGBIhLj255EEEvPKT_PS1_PKf.exit.i361.i, %switch.lookup132
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %_ZN3dpxL20ConvertToRGBInternalENS_10DescriptorENS_8DataSizeENS_14CharacteristicEPKvPvi.exit
 
 652:                                              ; preds = %_ZN3dpxL22ConvertPixelYCbCrToRGBIhLj255EEEvPKT_PS1_PKf.exit.i361.i, %.lr.ph.i353.i
@@ -1469,7 +1469,7 @@ switch.lookup136:                                 ; preds = %683
   %685 = zext nneg i8 %switch.tableidx137 to i64
   %switch.gep138 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN3dpx12ConvertToRGBERKNS_6HeaderEiPKvPvRKNS_5BlockE.20, i64 0, i64 %685
   %switch.load139 = load ptr, ptr %switch.gep138, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %686 = icmp sgt i32 %36, 0
   br i1 %686, label %.lr.ph.i366.i, label %._crit_edge.i365.i
 
@@ -1479,7 +1479,7 @@ switch.lookup136:                                 ; preds = %683
   br label %688
 
 ._crit_edge.i365.i:                               ; preds = %_ZN3dpxL22ConvertPixelYCbCrToRGBItLj65535EEEvPKT_PS1_PKf.exit.i374.i, %switch.lookup136
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZN3dpxL20ConvertToRGBInternalENS_10DescriptorENS_8DataSizeENS_14CharacteristicEPKvPvi.exit
 
 688:                                              ; preds = %_ZN3dpxL22ConvertPixelYCbCrToRGBItLj65535EEEvPKT_PS1_PKf.exit.i374.i, %.lr.ph.i366.i
@@ -1540,7 +1540,7 @@ switch.lookup140:                                 ; preds = %719
   %721 = zext nneg i8 %switch.tableidx141 to i64
   %switch.gep142 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN3dpx12ConvertToRGBERKNS_6HeaderEiPKvPvRKNS_5BlockE.20, i64 0, i64 %721
   %switch.load143 = load ptr, ptr %switch.gep142, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %722 = icmp sgt i32 %36, 0
   br i1 %722, label %.lr.ph.i379.i, label %._crit_edge.i378.i
 
@@ -1550,7 +1550,7 @@ switch.lookup140:                                 ; preds = %719
   br label %724
 
 ._crit_edge.i378.i:                               ; preds = %_ZN3dpxL22ConvertPixelYCbCrToRGBIjLj4294967295EEEvPKT_PS1_PKf.exit.i387.i, %switch.lookup140
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZN3dpxL20ConvertToRGBInternalENS_10DescriptorENS_8DataSizeENS_14CharacteristicEPKvPvi.exit
 
 724:                                              ; preds = %_ZN3dpxL22ConvertPixelYCbCrToRGBIjLj4294967295EEEvPKT_PS1_PKf.exit.i387.i, %.lr.ph.i379.i
@@ -1610,7 +1610,7 @@ switch.lookup144:                                 ; preds = %754
   %756 = zext nneg i8 %switch.tableidx145 to i64
   %switch.gep146 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN3dpx12ConvertToRGBERKNS_6HeaderEiPKvPvRKNS_5BlockE.20, i64 0, i64 %756
   %switch.load147 = load ptr, ptr %switch.gep146, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %757 = icmp sgt i32 %36, 0
   br i1 %757, label %.lr.ph.i392.i, label %._crit_edge.i391.i
 
@@ -1620,7 +1620,7 @@ switch.lookup144:                                 ; preds = %754
   br label %759
 
 ._crit_edge.i391.i:                               ; preds = %_ZN3dpxL22ConvertPixelYCbCrToRGBIfLj1EEEvPKT_PS1_PKf.exit.i401.i, %switch.lookup144
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN3dpxL20ConvertToRGBInternalENS_10DescriptorENS_8DataSizeENS_14CharacteristicEPKvPvi.exit
 
 759:                                              ; preds = %_ZN3dpxL22ConvertPixelYCbCrToRGBIfLj1EEEvPKT_PS1_PKf.exit.i401.i, %.lr.ph.i392.i
@@ -1678,7 +1678,7 @@ switch.lookup148:                                 ; preds = %786
   %788 = zext nneg i8 %switch.tableidx149 to i64
   %switch.gep150 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN3dpx12ConvertToRGBERKNS_6HeaderEiPKvPvRKNS_5BlockE.20, i64 0, i64 %788
   %switch.load151 = load ptr, ptr %switch.gep150, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %789 = icmp sgt i32 %36, 0
   br i1 %789, label %.lr.ph.i406.i, label %._crit_edge.i405.i
 
@@ -1688,7 +1688,7 @@ switch.lookup148:                                 ; preds = %786
   br label %791
 
 ._crit_edge.i405.i:                               ; preds = %_ZN3dpxL22ConvertPixelYCbCrToRGBIdLj1EEEvPKT_PS1_PKf.exit.i415.i, %switch.lookup148
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN3dpxL20ConvertToRGBInternalENS_10DescriptorENS_8DataSizeENS_14CharacteristicEPKvPvi.exit
 
 791:                                              ; preds = %_ZN3dpxL22ConvertPixelYCbCrToRGBIdLj1EEEvPKT_PS1_PKf.exit.i415.i, %.lr.ph.i406.i
@@ -1762,37 +1762,37 @@ define hidden noundef zeroext i1 @_ZN3dpx15ConvertToNativeENS_10DescriptorENS_8D
   ret i1 %switch.i
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #7
+declare float @llvm.fmuladd.f32(float, float, float) #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #7
+declare double @llvm.fmuladd.f64(double, double, double) #6
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_DPXColorConverter.cpp() #8 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_DPXColorConverter.cpp() #7 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #9
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind }
 attributes #3 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

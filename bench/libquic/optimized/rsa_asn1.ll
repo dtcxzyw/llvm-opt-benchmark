@@ -22,7 +22,7 @@ define internal fastcc ptr @parse_public_key(ptr noundef %0, i32 noundef range(i
   br i1 %5, label %33, label %6
 
 6:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %7 = call i32 @CBS_get_asn1(ptr noundef %0, ptr noundef nonnull %3, i32 noundef 48) #5
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %parse_integer_buggy.exit.thread, label %8
@@ -94,7 +94,7 @@ parse_integer_buggy.exit.thread:                  ; preds = %17, %8, %22, %parse
 
 32:                                               ; preds = %.sink.split, %27
   %.1 = phi ptr [ %4, %27 ], [ null, %.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %33
 
 33:                                               ; preds = %2, %32
@@ -111,7 +111,7 @@ define hidden ptr @RSA_parse_public_key_buggy(ptr noundef %0) local_unnamed_addr
 ; Function Attrs: nounwind uwtable
 define hidden ptr @RSA_public_key_from_bytes(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.cbs_st, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @CBS_init(ptr noundef nonnull %3, ptr noundef %0, i64 noundef %1) #5
   %4 = call fastcc ptr @parse_public_key(ptr noundef nonnull %3, i32 noundef 0)
   %5 = icmp eq ptr %4, null
@@ -129,28 +129,22 @@ define hidden ptr @RSA_public_key_from_bytes(ptr noundef %0, i64 noundef %1) loc
 
 9:                                                ; preds = %6, %8
   %.0 = phi ptr [ null, %8 ], [ %4, %6 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare void @CBS_init(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @CBS_init(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @CBS_len(ptr noundef) local_unnamed_addr #1
 
-declare i64 @CBS_len(ptr noundef) local_unnamed_addr #2
+declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
-
-declare void @RSA_free(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @RSA_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @RSA_marshal_public_key(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.cbb_st, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 @CBB_add_asn1(ptr noundef %0, ptr noundef nonnull %3, i8 noundef zeroext 48) #5
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %17, label %5
@@ -192,11 +186,11 @@ marshal_integer.exit8:                            ; preds = %10
 
 18:                                               ; preds = %15, %17
   %.0 = phi i32 [ 0, %17 ], [ 1, %15 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
-declare i32 @CBB_add_asn1(ptr noundef, ptr noundef, i8 noundef zeroext) local_unnamed_addr #2
+declare i32 @CBB_add_asn1(ptr noundef, ptr noundef, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @marshal_integer(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
@@ -216,12 +210,12 @@ define internal fastcc i32 @marshal_integer(ptr noundef nonnull %0, ptr noundef 
   ret i32 %.0
 }
 
-declare i32 @CBB_flush(ptr noundef) local_unnamed_addr #2
+declare i32 @CBB_flush(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @RSA_public_key_to_bytes(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca %struct.cbb_st, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @CBB_zero(ptr noundef nonnull %4) #5
   %5 = call i32 @CBB_init(ptr noundef nonnull %4, i64 noundef 0) #5
   %.not = icmp eq i32 %5, 0
@@ -244,17 +238,17 @@ define hidden range(i32 0, 2) i32 @RSA_public_key_to_bytes(ptr noundef %0, ptr n
 
 11:                                               ; preds = %8, %10
   %.0 = phi i32 [ 0, %10 ], [ 1, %8 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
-declare void @CBB_zero(ptr noundef) local_unnamed_addr #2
+declare void @CBB_zero(ptr noundef) local_unnamed_addr #1
 
-declare i32 @CBB_init(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @CBB_init(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @CBB_finish(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @CBB_finish(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @CBB_cleanup(ptr noundef) local_unnamed_addr #2
+declare void @CBB_cleanup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @RSA_parse_private_key(ptr noundef %0) local_unnamed_addr #0 {
@@ -266,8 +260,8 @@ define hidden ptr @RSA_parse_private_key(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %6, label %91, label %7
 
 7:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = call i32 @CBS_get_asn1(ptr noundef %0, ptr noundef nonnull %2, i32 noundef 48) #5
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %11, label %9
@@ -368,7 +362,7 @@ parse_integer.exit72:                             ; preds = %30
   br i1 %49, label %50, label %86
 
 50:                                               ; preds = %47
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %51 = call i32 @CBS_get_asn1(ptr noundef nonnull %2, ptr noundef nonnull %4, i32 noundef 48) #5
   %.not60 = icmp eq i32 %51, 0
   br i1 %.not60, label %55, label %52
@@ -414,7 +408,7 @@ parse_integer.exit72:                             ; preds = %30
   br i1 %.not62, label %.thread88, label %71
 
 .thread88:                                        ; preds = %.preheader
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %86
 
 71:                                               ; preds = %.preheader
@@ -449,11 +443,11 @@ parse_integer.exit72:                             ; preds = %30
 .thread84:                                        ; preds = %71, %78, %55, %60, %66, %61, %77
   %.246.ph = phi ptr [ %63, %61 ], [ %63, %66 ], [ null, %60 ], [ null, %55 ], [ %63, %77 ], [ %63, %78 ], [ %63, %71 ]
   %.2.ph = phi ptr [ %62, %61 ], [ %62, %66 ], [ null, %60 ], [ null, %55 ], [ %62, %77 ], [ %62, %78 ], [ %62, %71 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %parse_integer.exit.thread
 
 85:                                               ; preds = %82
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %parse_integer.exit.thread
 
 86:                                               ; preds = %.thread88, %47
@@ -482,8 +476,8 @@ parse_integer.exit.thread:                        ; preds = %85, %30, %25, %20, 
 
 90:                                               ; preds = %parse_integer.exit.thread, %89
   %.1 = phi ptr [ null, %parse_integer.exit.thread ], [ %5, %89 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %91
 
 91:                                               ; preds = %1, %90
@@ -491,11 +485,11 @@ parse_integer.exit.thread:                        ; preds = %85, %30, %25, %20, 
   ret ptr %.0
 }
 
-declare ptr @RSA_new() local_unnamed_addr #2
+declare ptr @RSA_new() local_unnamed_addr #1
 
-declare i32 @CBS_get_asn1(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @CBS_get_asn1(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @CBS_get_asn1_uint64(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @CBS_get_asn1_uint64(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @parse_integer(ptr noundef nonnull %0, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %1) unnamed_addr #0 {
@@ -513,13 +507,13 @@ parse_integer_buggy.exit:                         ; preds = %2, %5
   ret i32 %.0.i
 }
 
-declare ptr @sk_new_null() local_unnamed_addr #2
+declare ptr @sk_new_null() local_unnamed_addr #1
 
-declare ptr @BN_CTX_new() local_unnamed_addr #2
+declare ptr @BN_CTX_new() local_unnamed_addr #1
 
-declare ptr @BN_new() local_unnamed_addr #2
+declare ptr @BN_new() local_unnamed_addr #1
 
-declare i32 @BN_mul(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @BN_mul(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @rsa_parse_additional_prime(ptr noundef nonnull %0) unnamed_addr #0 {
@@ -533,7 +527,7 @@ define internal fastcc noundef ptr @rsa_parse_additional_prime(ptr noundef nonnu
   br label %24
 
 5:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %6 = call i32 @CBS_get_asn1(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef 48) #5
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %parse_integer.exit.thread, label %7
@@ -585,7 +579,7 @@ parse_integer.exit.thread:                        ; preds = %16, %11, %7, %21, %
 
 23:                                               ; preds = %21, %parse_integer.exit.thread
   %.1 = phi ptr [ null, %parse_integer.exit.thread ], [ %calloc, %21 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %24
 
 24:                                               ; preds = %23, %4
@@ -593,20 +587,20 @@ parse_integer.exit.thread:                        ; preds = %16, %11, %7, %21, %
   ret ptr %.0
 }
 
-declare i64 @sk_push(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i64 @sk_push(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @RSA_additional_prime_free(ptr noundef) local_unnamed_addr #2
+declare void @RSA_additional_prime_free(ptr noundef) local_unnamed_addr #1
 
-declare ptr @BN_dup(ptr noundef) local_unnamed_addr #2
+declare ptr @BN_dup(ptr noundef) local_unnamed_addr #1
 
-declare void @BN_CTX_free(ptr noundef) local_unnamed_addr #2
+declare void @BN_CTX_free(ptr noundef) local_unnamed_addr #1
 
-declare void @BN_free(ptr noundef) local_unnamed_addr #2
+declare void @BN_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @RSA_private_key_from_bytes(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.cbs_st, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @CBS_init(ptr noundef nonnull %3, ptr noundef %0, i64 noundef %1) #5
   %4 = call ptr @RSA_parse_private_key(ptr noundef nonnull %3)
   %5 = icmp eq ptr %4, null
@@ -624,7 +618,7 @@ define hidden ptr @RSA_private_key_from_bytes(ptr noundef %0, i64 noundef %1) lo
 
 9:                                                ; preds = %6, %8
   %.0 = phi ptr [ null, %8 ], [ %4, %6 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
@@ -637,7 +631,7 @@ define hidden range(i32 0, 2) i32 @RSA_marshal_private_key(ptr noundef %0, ptr n
   %7 = load ptr, ptr %6, align 8, !tbaa !24
   %8 = tail call i64 @sk_num(ptr noundef %7) #5
   %.not = icmp ne i64 %8, 0
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %9 = call i32 @CBB_add_asn1(ptr noundef %0, ptr noundef nonnull %3, i8 noundef zeroext 48) #5
   %.not28 = icmp eq i32 %9, 0
   br i1 %.not28, label %52, label %10
@@ -744,7 +738,7 @@ marshal_integer.exit59:                           ; preds = %43
   br i1 %.not, label %54, label %79
 
 54:                                               ; preds = %53
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %55 = call i32 @CBB_add_asn1(ptr noundef nonnull %3, ptr noundef nonnull %4, i8 noundef zeroext 48) #5
   %.not38 = icmp eq i32 %55, 0
   br i1 %.not38, label %.critedge45, label %.preheader
@@ -757,14 +751,14 @@ marshal_integer.exit59:                           ; preds = %43
 
 .critedge45:                                      ; preds = %54
   call void @ERR_put_error(i32 noundef 4, i32 noundef 0, i32 noundef 121, ptr noundef nonnull @.str, i32 noundef 329) #5
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %82
 
 .lr.ph:                                           ; preds = %.preheader, %75
   %.02488 = phi i64 [ %76, %75 ], [ 0, %.preheader ]
   %58 = load ptr, ptr %6, align 8, !tbaa !24
   %59 = call ptr @sk_value(ptr noundef %58, i64 noundef %.02488) #5
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %60 = call i32 @CBB_add_asn1(ptr noundef nonnull %4, ptr noundef nonnull %5, i8 noundef zeroext 48) #5
   %.not39 = icmp eq i32 %60, 0
   br i1 %.not39, label %.critedge, label %61
@@ -807,12 +801,12 @@ marshal_integer.exit65:                           ; preds = %70
 
 .critedge:                                        ; preds = %marshal_integer.exit65, %marshal_integer.exit63, %marshal_integer.exit61, %.lr.ph, %.critedge.sink.split
   call void @ERR_put_error(i32 noundef 4, i32 noundef 0, i32 noundef 121, ptr noundef nonnull @.str, i32 noundef 342) #5
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %82
 
 75:                                               ; preds = %marshal_integer.exit65
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %76 = add nuw i64 %.02488, 1
   %77 = load ptr, ptr %6, align 8, !tbaa !24
   %78 = call i64 @sk_num(ptr noundef %77) #5
@@ -820,7 +814,7 @@ marshal_integer.exit65:                           ; preds = %70
   br i1 %.not86, label %.lr.ph, label %.critedge47, !llvm.loop !38
 
 .critedge47:                                      ; preds = %75, %.preheader
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %79
 
 79:                                               ; preds = %.critedge47, %53
@@ -834,20 +828,20 @@ marshal_integer.exit65:                           ; preds = %70
 
 82:                                               ; preds = %.critedge, %79, %.critedge45, %81, %52
   %.0 = phi i32 [ 0, %81 ], [ 0, %.critedge ], [ 0, %52 ], [ 0, %.critedge45 ], [ 1, %79 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
-declare i64 @sk_num(ptr noundef) local_unnamed_addr #2
+declare i64 @sk_num(ptr noundef) local_unnamed_addr #1
 
-declare i32 @CBB_add_asn1_uint64(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @CBB_add_asn1_uint64(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare ptr @sk_value(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @sk_value(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @RSA_private_key_to_bytes(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca %struct.cbb_st, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @CBB_zero(ptr noundef nonnull %4) #5
   %5 = call i32 @CBB_init(ptr noundef nonnull %4, i64 noundef 0) #5
   %.not = icmp eq i32 %5, 0
@@ -870,7 +864,7 @@ define hidden range(i32 0, 2) i32 @RSA_private_key_to_bytes(ptr noundef %0, ptr 
 
 11:                                               ; preds = %8, %10
   %.0 = phi i32 [ 0, %10 ], [ 1, %8 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -881,7 +875,7 @@ define hidden ptr @d2i_RSAPublicKey(ptr noundef captures(address_is_null) %0, pt
   br i1 %5, label %16, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = load ptr, ptr %1, align 8, !tbaa !39
   call void @CBS_init(ptr noundef nonnull %4, ptr noundef %7, i64 noundef %2) #5
   %8 = call fastcc ptr @parse_public_key(ptr noundef nonnull %4, i32 noundef 0)
@@ -904,7 +898,7 @@ define hidden ptr @d2i_RSAPublicKey(ptr noundef captures(address_is_null) %0, pt
   br label %15
 
 15:                                               ; preds = %6, %13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %16
 
 16:                                               ; preds = %3, %15
@@ -912,12 +906,12 @@ define hidden ptr @d2i_RSAPublicKey(ptr noundef captures(address_is_null) %0, pt
   ret ptr %.0
 }
 
-declare ptr @CBS_data(ptr noundef) local_unnamed_addr #2
+declare ptr @CBS_data(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @i2d_RSAPublicKey(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.cbb_st, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 @CBB_init(ptr noundef nonnull %3, i64 noundef 0) #5
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %7, label %5
@@ -937,11 +931,11 @@ define hidden i32 @i2d_RSAPublicKey(ptr noundef readonly captures(none) %0, ptr 
 
 10:                                               ; preds = %8, %7
   %.0 = phi i32 [ %9, %8 ], [ -1, %7 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
-declare i32 @CBB_finish_i2d(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @CBB_finish_i2d(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @d2i_RSAPrivateKey(ptr noundef captures(address_is_null) %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
@@ -950,7 +944,7 @@ define hidden ptr @d2i_RSAPrivateKey(ptr noundef captures(address_is_null) %0, p
   br i1 %5, label %16, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = load ptr, ptr %1, align 8, !tbaa !39
   call void @CBS_init(ptr noundef nonnull %4, ptr noundef %7, i64 noundef %2) #5
   %8 = call ptr @RSA_parse_private_key(ptr noundef nonnull %4)
@@ -973,7 +967,7 @@ define hidden ptr @d2i_RSAPrivateKey(ptr noundef captures(address_is_null) %0, p
   br label %15
 
 15:                                               ; preds = %6, %13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %16
 
 16:                                               ; preds = %3, %15
@@ -984,7 +978,7 @@ define hidden ptr @d2i_RSAPrivateKey(ptr noundef captures(address_is_null) %0, p
 ; Function Attrs: nounwind uwtable
 define hidden i32 @i2d_RSAPrivateKey(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.cbb_st, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 @CBB_init(ptr noundef nonnull %3, i64 noundef 0) #5
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %7, label %5
@@ -1004,7 +998,7 @@ define hidden i32 @i2d_RSAPrivateKey(ptr noundef readonly captures(none) %0, ptr
 
 10:                                               ; preds = %8, %7
   %.0 = phi i32 [ %9, %8 ], [ -1, %7 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
@@ -1014,9 +1008,9 @@ define hidden ptr @RSAPublicKey_dup(ptr noundef readonly captures(none) %0) loca
   %3 = alloca %struct.cbb_st, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @CBB_zero(ptr noundef nonnull %3) #5
   %6 = call i32 @CBB_init(ptr noundef nonnull %3, i64 noundef 0) #5
   %.not.i = icmp eq i32 %6, 0
@@ -1035,14 +1029,14 @@ define hidden ptr @RSAPublicKey_dup(ptr noundef readonly captures(none) %0) loca
 RSA_public_key_to_bytes.exit.thread:              ; preds = %1, %7, %9
   call void @ERR_put_error(i32 noundef 4, i32 noundef 0, i32 noundef 121, ptr noundef nonnull @.str, i32 noundef 164) #5
   call void @CBB_cleanup(ptr noundef nonnull %3) #5
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %20
 
 11:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %12 = load ptr, ptr %4, align 8, !tbaa !39
   %13 = load i64, ptr %5, align 8, !tbaa !22
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @CBS_init(ptr noundef nonnull %2, ptr noundef %12, i64 noundef %13) #5
   %14 = call fastcc ptr @parse_public_key(ptr noundef nonnull %2, i32 noundef 0)
   %15 = icmp eq ptr %14, null
@@ -1060,20 +1054,20 @@ RSA_public_key_to_bytes.exit.thread:              ; preds = %1, %7, %9
 
 RSA_public_key_from_bytes.exit:                   ; preds = %16, %18
   %.0.i4 = phi ptr [ null, %18 ], [ %14, %16 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %19 = load ptr, ptr %4, align 8, !tbaa !39
   call void @free(ptr noundef %19) #5
   br label %20
 
 20:                                               ; preds = %RSA_public_key_to_bytes.exit.thread, %RSA_public_key_from_bytes.exit
   %.0 = phi ptr [ %.0.i4, %RSA_public_key_from_bytes.exit ], [ null, %RSA_public_key_to_bytes.exit.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @RSAPrivateKey_dup(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -1081,9 +1075,9 @@ define hidden ptr @RSAPrivateKey_dup(ptr noundef readonly captures(none) %0) loc
   %3 = alloca %struct.cbb_st, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @CBB_zero(ptr noundef nonnull %3) #5
   %6 = call i32 @CBB_init(ptr noundef nonnull %3, i64 noundef 0) #5
   %.not.i = icmp eq i32 %6, 0
@@ -1102,14 +1096,14 @@ define hidden ptr @RSAPrivateKey_dup(ptr noundef readonly captures(none) %0) loc
 RSA_private_key_to_bytes.exit.thread:             ; preds = %1, %7, %9
   call void @ERR_put_error(i32 noundef 4, i32 noundef 0, i32 noundef 121, ptr noundef nonnull @.str, i32 noundef 362) #5
   call void @CBB_cleanup(ptr noundef nonnull %3) #5
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %20
 
 11:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %12 = load ptr, ptr %4, align 8, !tbaa !39
   %13 = load i64, ptr %5, align 8, !tbaa !22
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @CBS_init(ptr noundef nonnull %2, ptr noundef %12, i64 noundef %13) #5
   %14 = call ptr @RSA_parse_private_key(ptr noundef nonnull %2)
   %15 = icmp eq ptr %14, null
@@ -1127,35 +1121,41 @@ RSA_private_key_to_bytes.exit.thread:             ; preds = %1, %7, %9
 
 RSA_private_key_from_bytes.exit:                  ; preds = %16, %18
   %.0.i4 = phi ptr [ null, %18 ], [ %14, %16 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %19 = load ptr, ptr %4, align 8, !tbaa !39
   call void @free(ptr noundef %19) #5
   br label %20
 
 20:                                               ; preds = %RSA_private_key_to_bytes.exit.thread, %RSA_private_key_from_bytes.exit
   %.0 = phi ptr [ %.0.i4, %RSA_private_key_from_bytes.exit ], [ null, %RSA_private_key_to_bytes.exit.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
 
-declare i32 @BN_is_odd(ptr noundef) local_unnamed_addr #2
+declare i32 @BN_is_odd(ptr noundef) local_unnamed_addr #1
 
-declare i32 @BN_num_bits(ptr noundef) local_unnamed_addr #2
+declare i32 @BN_num_bits(ptr noundef) local_unnamed_addr #1
 
-declare i32 @BN_parse_asn1_unsigned_buggy(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @BN_parse_asn1_unsigned_buggy(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @BN_parse_asn1_unsigned(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @BN_parse_asn1_unsigned(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @BN_marshal_asn1(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @BN_marshal_asn1(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #4
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
 attributes #5 = { nounwind }
 

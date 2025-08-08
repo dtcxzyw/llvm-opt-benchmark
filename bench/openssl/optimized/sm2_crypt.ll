@@ -83,17 +83,11 @@ define range(i32 0, 2) i32 @ossl_sm2_plaintext_size(ptr noundef %0, i64 noundef 
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 declare void @ERR_new() local_unnamed_addr #2
 
 declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ossl_sm2_ciphertext_size(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #1 {
@@ -149,7 +143,7 @@ define range(i32 0, 2) i32 @ossl_sm2_encrypt(ptr noundef %0, ptr noundef %1, ptr
   %8 = alloca %struct.SM2_Ciphertext_st, align 8
   store ptr %4, ptr %7, align 8, !tbaa !3
   %9 = tail call ptr @EVP_MD_CTX_new() #5
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %10 = tail call ptr @EC_KEY_get0_group(ptr noundef %0) #5
   %11 = tail call ptr @EC_GROUP_get0_order(ptr noundef %10) #5
   %12 = tail call ptr @EC_KEY_get0_public_key(ptr noundef %0) #5
@@ -468,7 +462,7 @@ is_all_zeros.exit.thread:                         ; preds = %79, %is_all_zeros.e
   call void @BN_CTX_free(ptr noundef %.0122) #5
   call void @EC_POINT_free(ptr noundef %.0127) #5
   call void @EC_POINT_free(ptr noundef %.0126) #5
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
 
@@ -493,7 +487,7 @@ declare ptr @BN_CTX_get(ptr noundef) local_unnamed_addr #2
 declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare i32 @BN_priv_rand_range_ex(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
@@ -784,11 +778,17 @@ declare ptr @EC_GROUP_get0_field(ptr noundef) local_unnamed_addr #2
 
 declare i32 @BN_num_bits(ptr noundef) local_unnamed_addr #2
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
+
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

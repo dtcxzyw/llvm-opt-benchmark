@@ -82,14 +82,8 @@ define hidden void @newhope_poly_frombytes(ptr noundef writeonly captures(none) 
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nounwind uwtable
-define hidden void @newhope_poly_tobytes(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
+define hidden void @newhope_poly_tobytes(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
   br label %3
 
 3:                                                ; preds = %2, %3
@@ -164,25 +158,25 @@ define hidden void @newhope_poly_tobytes(ptr noundef writeonly captures(none) %0
   ret void
 }
 
-declare zeroext i16 @newhope_barrett_reduce(i16 noundef zeroext) local_unnamed_addr #3
+declare zeroext i16 @newhope_barrett_reduce(i16 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @newhope_poly_uniform(ptr noundef writeonly captures(none) %0, ptr noundef %1) local_unnamed_addr #2 {
+define hidden void @newhope_poly_uniform(ptr noundef writeonly captures(none) %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = alloca [16 x i8], align 16
   %4 = alloca %struct.aes_key_st, align 4
   %5 = alloca [16 x i8], align 16
   %6 = alloca [2688 x i8], align 16
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %3, ptr noundef nonnull align 1 dereferenceable(16) %8, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 244, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %9 = call i32 @AES_set_encrypt_key(ptr noundef %1, i32 noundef 128, ptr noundef nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 2688, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2688) %6, i8 0, i64 2688, i1 false)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4, !tbaa !14
   call void @AES_ctr128_encrypt(ptr noundef nonnull %6, ptr noundef nonnull %6, i64 noundef 2688, ptr noundef nonnull %4, ptr noundef nonnull %3, ptr noundef nonnull %5, ptr noundef nonnull %7) #6
   br label %10
@@ -226,28 +220,28 @@ define hidden void @newhope_poly_uniform(ptr noundef writeonly captures(none) %0
   br i1 %29, label %10, label %30, !llvm.loop !16
 
 30:                                               ; preds = %28
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 2688, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 244, ptr nonnull %4) #6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
-declare i32 @AES_set_encrypt_key(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @AES_set_encrypt_key(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
-declare void @AES_ctr128_encrypt(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @AES_ctr128_encrypt(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @newhope_poly_getnoise(ptr noundef writeonly captures(none) %0) local_unnamed_addr #2 {
+define hidden void @newhope_poly_getnoise(ptr noundef writeonly captures(none) %0) local_unnamed_addr #1 {
   %2 = alloca [1024 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = call i32 @RAND_bytes(ptr noundef nonnull %2, i64 noundef 4096) #6
   br label %4
 
@@ -287,14 +281,14 @@ define hidden void @newhope_poly_getnoise(ptr noundef writeonly captures(none) %
   br i1 %exitcond22.not, label %26, label %4, !llvm.loop !18
 
 26:                                               ; preds = %13
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
-declare i32 @RAND_bytes(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @RAND_bytes(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @newhope_poly_pointwise(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #2 {
+define hidden void @newhope_poly_pointwise(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 {
   br label %4
 
 4:                                                ; preds = %3, %4
@@ -320,10 +314,10 @@ define hidden void @newhope_poly_pointwise(ptr noundef writeonly captures(none) 
   ret void
 }
 
-declare zeroext i16 @newhope_montgomery_reduce(i32 noundef) local_unnamed_addr #3
+declare zeroext i16 @newhope_montgomery_reduce(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @newhope_poly_add(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #2 {
+define hidden void @newhope_poly_add(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 {
   br label %4
 
 4:                                                ; preds = %3, %4
@@ -345,32 +339,38 @@ define hidden void @newhope_poly_add(ptr noundef writeonly captures(none) %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @newhope_poly_ntt(ptr noundef %0) local_unnamed_addr #2 {
+define hidden void @newhope_poly_ntt(ptr noundef %0) local_unnamed_addr #1 {
   tail call void @newhope_mul_coefficients(ptr noundef %0, ptr noundef nonnull @newhope_psis_bitrev_montgomery) #6
   tail call void @newhope_ntt(ptr noundef %0, ptr noundef nonnull @newhope_omegas_montgomery) #6
   ret void
 }
 
-declare void @newhope_mul_coefficients(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @newhope_mul_coefficients(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @newhope_ntt(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @newhope_ntt(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @newhope_poly_invntt(ptr noundef %0) local_unnamed_addr #2 {
+define hidden void @newhope_poly_invntt(ptr noundef %0) local_unnamed_addr #1 {
   tail call void @newhope_bitrev_vector(ptr noundef %0) #6
   tail call void @newhope_ntt(ptr noundef %0, ptr noundef nonnull @newhope_omegas_inv_montgomery) #6
   tail call void @newhope_mul_coefficients(ptr noundef %0, ptr noundef nonnull @newhope_psis_inv_montgomery) #6
   ret void
 }
 
-declare void @newhope_bitrev_vector(ptr noundef) local_unnamed_addr #3
+declare void @newhope_bitrev_vector(ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}

@@ -5033,14 +5033,14 @@ entry:
   br i1 %cmp, label %if.end, label %lor.rhs
 
 lor.rhs:                                          ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   invoke void @_ZNK8facebook5velox4type6fbhive14HiveTypeParser9nextTokenEN5folly5RangeIPKcEEb(ptr nonnull sret(%"struct.facebook::velox::type::fbhive::TokenAndRemaining") align 8 %ref.tmp.i, ptr noundef nonnull readonly align 8 dereferenceable(48) %this, ptr %1, ptr %0, i1 noundef zeroext false)
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %lor.rhs
   %2 = load ptr, ptr %ref.tmp.i, align 8
   %3 = load i32, ptr %2, align 8
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %cmp5.not = icmp eq i32 %3, 20
   br i1 %cmp5.not, label %if.end, label %if.then
 
@@ -5187,7 +5187,7 @@ entry:
   %agg.tmp93 = alloca %"class.std::shared_ptr", align 8
   %ref.tmp111 = alloca %"class.std::shared_ptr.22", align 8
   %agg.tmp112 = alloca %"class.std::shared_ptr", align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %token.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %token.i)
   %remaining_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %remaining_.i, align 8, !noalias !86
   %agg.tmp.sroa.2.0.remaining_.sroa_idx.i = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -5196,7 +5196,7 @@ entry:
   %remaining.i = getelementptr inbounds nuw i8, ptr %token.i, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %remaining_.i, ptr noundef nonnull align 8 dereferenceable(16) %remaining.i, i64 16, i1 false), !noalias !86
   %nt.sroa.0.0.copyload = load ptr, ptr %token.i, align 8
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %token.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %token.i)
   %0 = load i32, ptr %nt.sroa.0.0.copyload, align 8
   %cmp.i = icmp eq i32 %0, 20
   br i1 %cmp.i, label %if.then, label %if.end
@@ -5225,7 +5225,7 @@ if.then5:                                         ; preds = %land.lhs.true
   br i1 %cmp.i10, label %if.then8, label %if.else
 
 if.then8:                                         ; preds = %if.then5
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %token.i11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %token.i11)
   %agg.tmp.sroa.0.0.copyload.i13 = load ptr, ptr %remaining_.i, align 8, !noalias !89
   %agg.tmp.sroa.2.0.copyload.i15 = load ptr, ptr %agg.tmp.sroa.2.0.remaining_.sroa_idx.i, align 8, !noalias !89
   call void @_ZNK8facebook5velox4type6fbhive14HiveTypeParser9nextTokenEN5folly5RangeIPKcEEb(ptr nonnull sret(%"struct.facebook::velox::type::fbhive::TokenAndRemaining") align 8 %token.i11, ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %agg.tmp.sroa.0.0.copyload.i13, ptr %agg.tmp.sroa.2.0.copyload.i15, i1 noundef zeroext false), !noalias !89
@@ -5241,8 +5241,8 @@ if.end.i:                                         ; preds = %if.then8
 _ZN8facebook5velox4type6fbhive14HiveTypeParser8eatTokenENS2_9TokenTypeEb.exit: ; preds = %if.then8
   %remaining.i17 = getelementptr inbounds nuw i8, ptr %token.i11, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %remaining_.i, ptr noundef nonnull align 8 dereferenceable(16) %remaining.i17, i64 16, i1 false), !noalias !89
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %token.i11)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %token.i18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %token.i11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %token.i18)
   %agg.tmp.sroa.0.0.copyload.i20 = load ptr, ptr %remaining_.i, align 8, !noalias !92
   %agg.tmp.sroa.2.0.copyload.i22 = load ptr, ptr %agg.tmp.sroa.2.0.remaining_.sroa_idx.i, align 8, !noalias !92
   call void @_ZNK8facebook5velox4type6fbhive14HiveTypeParser9nextTokenEN5folly5RangeIPKcEEb(ptr nonnull sret(%"struct.facebook::velox::type::fbhive::TokenAndRemaining") align 8 %token.i18, ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %agg.tmp.sroa.0.0.copyload.i20, ptr %agg.tmp.sroa.2.0.copyload.i22, i1 noundef zeroext false), !noalias !92
@@ -5252,8 +5252,8 @@ _ZN8facebook5velox4type6fbhive14HiveTypeParser8eatTokenENS2_9TokenTypeEb.exit: ;
   %precision.sroa.1.0.copyload = load ptr, ptr %precision.sroa.1.0.token.i18.sroa_idx, align 8
   %precision.sroa.3.0.token.i18.sroa_idx = getelementptr inbounds nuw i8, ptr %token.i18, i64 16
   %precision.sroa.3.0.copyload = load ptr, ptr %precision.sroa.3.0.token.i18.sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %token.i18)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i), !noalias !95
+  call void @llvm.lifetime.end.p0(ptr nonnull %token.i18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i), !noalias !95
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %precision.sroa.3.0.copyload to i64
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %precision.sroa.1.0.copyload to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
@@ -5273,7 +5273,7 @@ lpad.i.i:                                         ; preds = %_ZN8facebook5velox4
 
 _ZNK5folly5RangeIPKcE8toStringB5cxx11Ev.exit:     ; preds = %_ZN8facebook5velox4type6fbhive14HiveTypeParser8eatTokenENS2_9TokenTypeEb.exit
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #26
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i), !noalias !95
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i), !noalias !95
   %call9 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117isPositiveIntegerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #26
   br i1 %call9, label %if.end12, label %if.then11
@@ -5283,7 +5283,7 @@ if.then11:                                        ; preds = %_ZNK5folly5RangeIPK
   unreachable
 
 if.end12:                                         ; preds = %_ZNK5folly5RangeIPKcE8toStringB5cxx11Ev.exit
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %token.i24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %token.i24)
   %agg.tmp.sroa.0.0.copyload.i26 = load ptr, ptr %remaining_.i, align 8, !noalias !101
   %agg.tmp.sroa.2.0.copyload.i28 = load ptr, ptr %agg.tmp.sroa.2.0.remaining_.sroa_idx.i, align 8, !noalias !101
   call void @_ZNK8facebook5velox4type6fbhive14HiveTypeParser9nextTokenEN5folly5RangeIPKcEEb(ptr nonnull sret(%"struct.facebook::velox::type::fbhive::TokenAndRemaining") align 8 %token.i24, ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %agg.tmp.sroa.0.0.copyload.i26, ptr %agg.tmp.sroa.2.0.copyload.i28, i1 noundef zeroext false), !noalias !101
@@ -5299,8 +5299,8 @@ if.end.i30:                                       ; preds = %if.end12
 _ZN8facebook5velox4type6fbhive14HiveTypeParser8eatTokenENS2_9TokenTypeEb.exit32: ; preds = %if.end12
   %remaining.i31 = getelementptr inbounds nuw i8, ptr %token.i24, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %remaining_.i, ptr noundef nonnull align 8 dereferenceable(16) %remaining.i31, i64 16, i1 false), !noalias !101
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %token.i24)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %token.i33)
+  call void @llvm.lifetime.end.p0(ptr nonnull %token.i24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %token.i33)
   %agg.tmp.sroa.0.0.copyload.i35 = load ptr, ptr %remaining_.i, align 8, !noalias !104
   %agg.tmp.sroa.2.0.copyload.i37 = load ptr, ptr %agg.tmp.sroa.2.0.remaining_.sroa_idx.i, align 8, !noalias !104
   call void @_ZNK8facebook5velox4type6fbhive14HiveTypeParser9nextTokenEN5folly5RangeIPKcEEb(ptr nonnull sret(%"struct.facebook::velox::type::fbhive::TokenAndRemaining") align 8 %token.i33, ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %agg.tmp.sroa.0.0.copyload.i35, ptr %agg.tmp.sroa.2.0.copyload.i37, i1 noundef zeroext false), !noalias !104
@@ -5310,8 +5310,8 @@ _ZN8facebook5velox4type6fbhive14HiveTypeParser8eatTokenENS2_9TokenTypeEb.exit32:
   %scale.sroa.1.0.copyload = load ptr, ptr %scale.sroa.1.0.token.i33.sroa_idx, align 8
   %scale.sroa.3.0.token.i33.sroa_idx = getelementptr inbounds nuw i8, ptr %token.i33, i64 16
   %scale.sroa.3.0.copyload = load ptr, ptr %scale.sroa.3.0.token.i33.sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %token.i33)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i39), !noalias !107
+  call void @llvm.lifetime.end.p0(ptr nonnull %token.i33)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i39), !noalias !107
   %sub.ptr.lhs.cast.i.i.i.i.i41 = ptrtoint ptr %scale.sroa.3.0.copyload to i64
   %sub.ptr.rhs.cast.i.i.i.i.i42 = ptrtoint ptr %scale.sroa.1.0.copyload to i64
   %sub.ptr.sub.i.i.i.i.i43 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i41, %sub.ptr.rhs.cast.i.i.i.i.i42
@@ -5327,7 +5327,7 @@ lpad.i.i44:                                       ; preds = %_ZN8facebook5velox4
 
 _ZNK5folly5RangeIPKcE8toStringB5cxx11Ev.exit45:   ; preds = %_ZN8facebook5velox4type6fbhive14HiveTypeParser8eatTokenENS2_9TokenTypeEb.exit32
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i39) #26
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i39), !noalias !107
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i39), !noalias !107
   %call18 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117isPositiveIntegerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp14)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp14) #26
   br i1 %call18, label %if.end21, label %if.then20
@@ -5337,7 +5337,7 @@ if.then20:                                        ; preds = %_ZNK5folly5RangeIPK
   unreachable
 
 if.end21:                                         ; preds = %_ZNK5folly5RangeIPKcE8toStringB5cxx11Ev.exit45
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %token.i46)
+  call void @llvm.lifetime.start.p0(ptr nonnull %token.i46)
   %agg.tmp.sroa.0.0.copyload.i48 = load ptr, ptr %remaining_.i, align 8, !noalias !113
   %agg.tmp.sroa.2.0.copyload.i50 = load ptr, ptr %agg.tmp.sroa.2.0.remaining_.sroa_idx.i, align 8, !noalias !113
   call void @_ZNK8facebook5velox4type6fbhive14HiveTypeParser9nextTokenEN5folly5RangeIPKcEEb(ptr nonnull sret(%"struct.facebook::velox::type::fbhive::TokenAndRemaining") align 8 %token.i46, ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %agg.tmp.sroa.0.0.copyload.i48, ptr %agg.tmp.sroa.2.0.copyload.i50, i1 noundef zeroext false), !noalias !113
@@ -5353,7 +5353,7 @@ if.end.i52:                                       ; preds = %if.end21
 _ZN8facebook5velox4type6fbhive14HiveTypeParser8eatTokenENS2_9TokenTypeEb.exit54: ; preds = %if.end21
   %remaining.i53 = getelementptr inbounds nuw i8, ptr %token.i46, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %remaining_.i, ptr noundef nonnull align 8 dereferenceable(16) %remaining.i53, i64 16, i1 false), !noalias !113
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %token.i46)
+  call void @llvm.lifetime.end.p0(ptr nonnull %token.i46)
   %call25 = call i32 @atoi(ptr noundef %precision.sroa.1.0.copyload) #31
   %conv = trunc i32 %call25 to i8
   %call28 = call i32 @atoi(ptr noundef %scale.sroa.1.0.copyload) #31
@@ -5411,7 +5411,7 @@ if.end44:                                         ; preds = %if.end38
   br i1 %cmp, label %land.lhs.true46, label %if.end67
 
 land.lhs.true46:                                  ; preds = %if.end44
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %agg.tmp.sroa.0.0.copyload.i59 = load ptr, ptr %remaining_.i, align 8
   %agg.tmp.sroa.2.0.copyload.i61 = load ptr, ptr %agg.tmp.sroa.2.0.remaining_.sroa_idx.i, align 8
   invoke void @_ZNK8facebook5velox4type6fbhive14HiveTypeParser9nextTokenEN5folly5RangeIPKcEEb(ptr nonnull sret(%"struct.facebook::velox::type::fbhive::TokenAndRemaining") align 8 %ref.tmp.i, ptr noundef nonnull readonly align 8 dereferenceable(48) %this, ptr %agg.tmp.sroa.0.0.copyload.i59, ptr %agg.tmp.sroa.2.0.copyload.i61, i1 noundef zeroext false)
@@ -5420,7 +5420,7 @@ land.lhs.true46:                                  ; preds = %if.end44
 invoke.cont48:                                    ; preds = %land.lhs.true46
   %21 = load ptr, ptr %ref.tmp.i, align 8
   %22 = load i32, ptr %21, align 8
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %cmp50 = icmp eq i32 %22, 22
   br i1 %cmp50, label %if.then51, label %if.end67
 
@@ -5429,7 +5429,7 @@ if.then51:                                        ; preds = %invoke.cont48
           to label %invoke.cont53 unwind label %lpad47
 
 invoke.cont53:                                    ; preds = %if.then51
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %token.i62)
+  call void @llvm.lifetime.start.p0(ptr nonnull %token.i62)
   %agg.tmp.sroa.0.0.copyload.i64 = load ptr, ptr %remaining_.i, align 8, !noalias !116
   %agg.tmp.sroa.2.0.copyload.i66 = load ptr, ptr %agg.tmp.sroa.2.0.remaining_.sroa_idx.i, align 8, !noalias !116
   invoke void @_ZNK8facebook5velox4type6fbhive14HiveTypeParser9nextTokenEN5folly5RangeIPKcEEb(ptr nonnull sret(%"struct.facebook::velox::type::fbhive::TokenAndRemaining") align 8 %token.i62, ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %agg.tmp.sroa.0.0.copyload.i64, ptr %agg.tmp.sroa.2.0.copyload.i66, i1 noundef zeroext false)
@@ -5439,7 +5439,7 @@ invoke.cont54:                                    ; preds = %invoke.cont53
   %remaining.i67 = getelementptr inbounds nuw i8, ptr %token.i62, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %remaining_.i, ptr noundef nonnull align 8 dereferenceable(16) %remaining.i67, i64 16, i1 false), !noalias !116
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %length, ptr noundef nonnull align 8 dereferenceable(24) %token.i62, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %token.i62)
+  call void @llvm.lifetime.end.p0(ptr nonnull %token.i62)
   %value56 = getelementptr inbounds nuw i8, ptr %length, i64 8
   invoke void @_ZNK5folly5RangeIPKcE8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp55, ptr noundef nonnull align 8 dereferenceable(16) %value56)
           to label %invoke.cont57 unwind label %lpad47
@@ -6297,7 +6297,7 @@ land.end:                                         ; preds = %"_ZSt7find_ifIN9__g
 define linkonce_odr void @_ZNK5folly5RangeIPKcE8toStringB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::allocator.5", align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %0 = load ptr, ptr %this, align 8, !noalias !120
   %e_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load ptr, ptr %e_.i.i, align 8, !noalias !120
@@ -6316,7 +6316,7 @@ lpad.i:                                           ; preds = %entry
 
 _ZNK5folly5RangeIPKcE2toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJEEENSt9enable_ifIXsr3std16is_constructibleIT_RKS2_mEE5valueESC_E4typeEDpOT0_.exit: ; preds = %entry
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #26
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   ret void
 }
 
@@ -6433,7 +6433,7 @@ entry:
   %result = alloca %"struct.facebook::velox::type::fbhive::Result", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %subTypeList, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %names, i8 0, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %token.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %token.i)
   %remaining_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %remaining_.i, align 8, !noalias !123
   %agg.tmp.sroa.2.0.remaining_.sroa_idx.i = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -6454,7 +6454,7 @@ if.end.i:                                         ; preds = %.noexc
 _ZN8facebook5velox4type6fbhive14HiveTypeParser8eatTokenENS2_9TokenTypeEb.exit: ; preds = %.noexc
   %remaining.i = getelementptr inbounds nuw i8, ptr %token.i, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %remaining_.i, ptr noundef nonnull align 8 dereferenceable(16) %remaining.i, i64 16, i1 false), !noalias !123
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %token.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %token.i)
   %remaining.i39 = getelementptr inbounds nuw i8, ptr %token.i32, i64 24
   %ref.tmp.sroa.1.0.token.i32.sroa_idx = getelementptr inbounds nuw i8, ptr %token.i32, i64 8
   %ref.tmp.sroa.2.0.token.i32.sroa_idx = getelementptr inbounds nuw i8, ptr %token.i32, i64 16
@@ -6468,7 +6468,7 @@ _ZN8facebook5velox4type6fbhive14HiveTypeParser8eatTokenENS2_9TokenTypeEb.exit: ;
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.backedge, %_ZN8facebook5velox4type6fbhive14HiveTypeParser8eatTokenENS2_9TokenTypeEb.exit
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %agg.tmp.sroa.0.0.copyload.i3 = load ptr, ptr %remaining_.i, align 8
   %agg.tmp.sroa.2.0.copyload.i5 = load ptr, ptr %agg.tmp.sroa.2.0.remaining_.sroa_idx.i, align 8
   invoke void @_ZNK8facebook5velox4type6fbhive14HiveTypeParser9nextTokenEN5folly5RangeIPKcEEb(ptr nonnull sret(%"struct.facebook::velox::type::fbhive::TokenAndRemaining") align 8 %ref.tmp.i, ptr noundef nonnull readonly align 8 dereferenceable(48) %this, ptr %agg.tmp.sroa.0.0.copyload.i3, ptr %agg.tmp.sroa.2.0.copyload.i5, i1 noundef zeroext false)
@@ -6477,12 +6477,12 @@ while.cond:                                       ; preds = %while.cond.backedge
 invoke.cont2:                                     ; preds = %while.cond
   %2 = load ptr, ptr %ref.tmp.i, align 8
   %3 = load i32, ptr %2, align 8
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %cmp = icmp eq i32 %3, 15
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %invoke.cont2
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %token.i7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %token.i7)
   %agg.tmp.sroa.0.0.copyload.i9 = load ptr, ptr %remaining_.i, align 8, !noalias !126
   %agg.tmp.sroa.2.0.copyload.i11 = load ptr, ptr %agg.tmp.sroa.2.0.remaining_.sroa_idx.i, align 8, !noalias !126
   invoke void @_ZNK8facebook5velox4type6fbhive14HiveTypeParser9nextTokenEN5folly5RangeIPKcEEb(ptr nonnull sret(%"struct.facebook::velox::type::fbhive::TokenAndRemaining") align 8 %token.i7, ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %agg.tmp.sroa.0.0.copyload.i9, ptr %agg.tmp.sroa.2.0.copyload.i11, i1 noundef zeroext false)
@@ -6501,7 +6501,7 @@ if.end.i13:                                       ; preds = %.noexc15
 _ZNSt6vectorISt10shared_ptrIKN8facebook5velox4TypeEESaIS5_EED2Ev.exit: ; preds = %.noexc15
   %remaining.i14 = getelementptr inbounds nuw i8, ptr %token.i7, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %remaining_.i, ptr noundef nonnull align 8 dereferenceable(16) %remaining.i14, i64 16, i1 false), !noalias !126
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %token.i7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %token.i7)
   %6 = load ptr, ptr %subTypeList, align 8
   store ptr %6, ptr %agg.result, align 8
   %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
@@ -6535,7 +6535,7 @@ if.end:                                           ; preds = %invoke.cont2
   br i1 %hasFieldNames, label %if.then7, label %if.end15
 
 if.then7:                                         ; preds = %if.end
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %token.i32)
+  call void @llvm.lifetime.start.p0(ptr nonnull %token.i32)
   %agg.tmp.sroa.0.0.copyload.i34 = load ptr, ptr %remaining_.i, align 8, !noalias !129
   %agg.tmp.sroa.2.0.copyload.i36 = load ptr, ptr %agg.tmp.sroa.2.0.remaining_.sroa_idx.i, align 8, !noalias !129
   invoke void @_ZNK8facebook5velox4type6fbhive14HiveTypeParser9nextTokenEN5folly5RangeIPKcEEb(ptr nonnull sret(%"struct.facebook::velox::type::fbhive::TokenAndRemaining") align 8 %token.i32, ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %agg.tmp.sroa.0.0.copyload.i34, ptr %agg.tmp.sroa.2.0.copyload.i36, i1 noundef zeroext true)
@@ -6555,8 +6555,8 @@ invoke.cont8:                                     ; preds = %.noexc40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %remaining_.i, ptr noundef nonnull align 8 dereferenceable(16) %remaining.i39, i64 16, i1 false), !noalias !129
   %ref.tmp.sroa.1.0.copyload = load ptr, ptr %ref.tmp.sroa.1.0.token.i32.sroa_idx, align 8
   %ref.tmp.sroa.2.0.copyload = load ptr, ptr %ref.tmp.sroa.2.0.token.i32.sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %token.i32)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %token.i42)
+  call void @llvm.lifetime.end.p0(ptr nonnull %token.i32)
+  call void @llvm.lifetime.start.p0(ptr nonnull %token.i42)
   %agg.tmp.sroa.0.0.copyload.i44 = load ptr, ptr %remaining_.i, align 8, !noalias !132
   %agg.tmp.sroa.2.0.copyload.i46 = load ptr, ptr %agg.tmp.sroa.2.0.remaining_.sroa_idx.i, align 8, !noalias !132
   invoke void @_ZNK8facebook5velox4type6fbhive14HiveTypeParser9nextTokenEN5folly5RangeIPKcEEb(ptr nonnull sret(%"struct.facebook::velox::type::fbhive::TokenAndRemaining") align 8 %token.i42, ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %agg.tmp.sroa.0.0.copyload.i44, ptr %agg.tmp.sroa.2.0.copyload.i46, i1 noundef zeroext false)
@@ -6574,8 +6574,8 @@ if.end.i48:                                       ; preds = %.noexc50
 
 invoke.cont10:                                    ; preds = %.noexc50
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %remaining_.i, ptr noundef nonnull align 8 dereferenceable(16) %remaining.i49, i64 16, i1 false), !noalias !132
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %token.i42)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i), !noalias !135
+  call void @llvm.lifetime.end.p0(ptr nonnull %token.i42)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i), !noalias !135
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %ref.tmp.sroa.2.0.copyload to i64
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %ref.tmp.sroa.1.0.copyload to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
@@ -6591,7 +6591,7 @@ lpad.i.i:                                         ; preds = %invoke.cont10
 
 invoke.cont12:                                    ; preds = %invoke.cont10
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #26
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i), !noalias !135
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i), !noalias !135
   %17 = load ptr, ptr %_M_finish.i.i, align 8
   %18 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %17, %18
@@ -6664,7 +6664,7 @@ if.else.i:                                        ; preds = %invoke.cont16
           to label %invoke.cont18 unwind label %lpad17
 
 invoke.cont18:                                    ; preds = %_ZNSt16allocator_traitsISaISt10shared_ptrIKN8facebook5velox4TypeEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit.i, %if.else.i
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %ref.tmp.i57)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i57)
   %agg.tmp.sroa.0.0.copyload.i59 = load ptr, ptr %remaining_.i, align 8
   %agg.tmp.sroa.2.0.copyload.i61 = load ptr, ptr %agg.tmp.sroa.2.0.remaining_.sroa_idx.i, align 8
   invoke void @_ZNK8facebook5velox4type6fbhive14HiveTypeParser9nextTokenEN5folly5RangeIPKcEEb(ptr nonnull sret(%"struct.facebook::velox::type::fbhive::TokenAndRemaining") align 8 %ref.tmp.i57, ptr noundef nonnull readonly align 8 dereferenceable(48) %this, ptr %agg.tmp.sroa.0.0.copyload.i59, ptr %agg.tmp.sroa.2.0.copyload.i61, i1 noundef zeroext false)
@@ -6673,12 +6673,12 @@ invoke.cont18:                                    ; preds = %_ZNSt16allocator_tr
 invoke.cont19:                                    ; preds = %invoke.cont18
   %29 = load ptr, ptr %ref.tmp.i57, align 8
   %30 = load i32, ptr %29, align 8
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %ref.tmp.i57)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i57)
   %cmp21 = icmp eq i32 %30, 17
   br i1 %cmp21, label %if.then22, label %if.end25
 
 if.then22:                                        ; preds = %invoke.cont19
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %token.i64)
+  call void @llvm.lifetime.start.p0(ptr nonnull %token.i64)
   %agg.tmp.sroa.0.0.copyload.i66 = load ptr, ptr %remaining_.i, align 8, !noalias !141
   %agg.tmp.sroa.2.0.copyload.i68 = load ptr, ptr %agg.tmp.sroa.2.0.remaining_.sroa_idx.i, align 8, !noalias !141
   invoke void @_ZNK8facebook5velox4type6fbhive14HiveTypeParser9nextTokenEN5folly5RangeIPKcEEb(ptr nonnull sret(%"struct.facebook::velox::type::fbhive::TokenAndRemaining") align 8 %token.i64, ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %agg.tmp.sroa.0.0.copyload.i66, ptr %agg.tmp.sroa.2.0.copyload.i68, i1 noundef zeroext false)
@@ -6696,7 +6696,7 @@ if.end.i70:                                       ; preds = %.noexc73
 
 _ZN8facebook5velox4type6fbhive14HiveTypeParser8eatTokenENS2_9TokenTypeEb.exit74: ; preds = %.noexc73
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %remaining_.i, ptr noundef nonnull align 8 dereferenceable(16) %remaining.i72, i64 16, i1 false), !noalias !141
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %token.i64)
+  call void @llvm.lifetime.end.p0(ptr nonnull %token.i64)
   br label %if.end25
 
 lpad17:                                           ; preds = %if.then22, %invoke.cont18, %if.else.i
@@ -7163,10 +7163,10 @@ while.cond37:                                     ; preds = %while.body42, %if.e
   br i1 %tobool40.not, label %lor.rhs, label %while.body42
 
 lor.rhs:                                          ; preds = %while.cond37
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp2.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp3.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp4.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp4.i)
   %14 = load atomic i8, ptr @_ZGVZN12_GLOBAL__N_122isSupportedSpecialCharEcE9supported acquire, align 8
   %guard.uninitialized.i = icmp eq i8 %14, 0
   br i1 %guard.uninitialized.i, label %init.check.i, label %init.end.i, !prof !148
@@ -7253,10 +7253,10 @@ lpad.i:                                           ; preds = %init.i
   resume { ptr, i32 } %26
 
 _ZN12_GLOBAL__N_122isSupportedSpecialCharEc.exit: ; preds = %for.cond.i.i.i.i.i.i, %for.body.i.i.i.i, %if.end.i.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp2.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp3.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp4.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp4.i)
   br label %while.body42
 
 while.body42:                                     ; preds = %_ZN12_GLOBAL__N_122isSupportedSpecialCharEc.exit, %while.cond37
@@ -7265,10 +7265,10 @@ while.body42:                                     ; preds = %_ZN12_GLOBAL__N_122
   br label %while.cond37, !llvm.loop !151
 
 while.end43:                                      ; preds = %if.end15.i.i.i.i, %if.end3.i.i.i.i.i.i, %for.cond.i.i.i.i, %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp2.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp3.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp4.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp4.i)
   %cmp44.not = icmp eq i64 %len.0, 0
   br i1 %cmp44.not, label %if.end48, label %if.then45
 
@@ -8347,13 +8347,13 @@ _ZNSt10_HashtableIccSaIcENSt8__detail9_IdentityESt8equal_toIcESt4hashIcENS1_18_M
 
 for.body:                                         ; preds = %_ZNSt10_HashtableIccSaIcENSt8__detail9_IdentityESt8equal_toIcESt4hashIcENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEEC2EmRKS6_RKS4_RKS0_.exit, %invoke.cont
   %__f.addr.05 = phi ptr [ %incdec.ptr, %invoke.cont ], [ %__f, %_ZNSt10_HashtableIccSaIcENSt8__detail9_IdentityESt8equal_toIcESt4hashIcENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEEC2EmRKS6_RKS4_RKS0_.exit ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__node_gen.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__node_gen.i)
   store ptr %this, ptr %__node_gen.i, align 8
   %call3.i.i3 = invoke { ptr, i8 } @_ZNSt10_HashtableIccSaIcENSt8__detail9_IdentityESt8equal_toIcESt4hashIcENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE16_M_insert_uniqueIRKcSF_NS1_10_AllocNodeISaINS1_10_Hash_nodeIcLb0EEEEEEEESt4pairINS1_14_Node_iteratorIcLb1ELb0EEEbEOT_OT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 1 dereferenceable(1) %__f.addr.05, ptr noundef nonnull align 1 dereferenceable(1) %__f.addr.05, ptr noundef nonnull align 8 dereferenceable(8) %__node_gen.i)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %for.body
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__node_gen.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__node_gen.i)
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %__f.addr.05, i64 1
   %cmp.not = icmp eq ptr %incdec.ptr, %__l
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !157
@@ -9078,10 +9078,10 @@ declare i64 @llvm.umin.i64(i64, i64) #23
 declare void @llvm.experimental.noalias.scope.decl(metadata) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #25
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #25
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #25
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }

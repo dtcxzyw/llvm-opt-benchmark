@@ -495,7 +495,7 @@ init.i:                                           ; preds = %init.check.i
 
 _ZN8facebook5velox12_GLOBAL__N_123getNamedVectorSerdeImplB5cxx11Ev.exit: ; preds = %entry, %init.check.i, %init.i
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #23
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i)
   %call.i = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %serdeName.coerce0, ptr %serdeName.coerce1) #23
   %3 = extractvalue { i64, ptr } %call.i, 0
   %4 = extractvalue { i64, ptr } %call.i, 1
@@ -507,7 +507,7 @@ _ZN8facebook5velox12_GLOBAL__N_123getNamedVectorSerdeImplB5cxx11Ev.exit: ; preds
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN8facebook5velox12_GLOBAL__N_123getNamedVectorSerdeImplB5cxx11Ev.exit
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i)
   %call.i78 = invoke ptr @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10unique_ptrIN8facebook5velox11VectorSerdeESt14default_deleteISB_EEESaISF_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSH_18_Mod_range_hashingENSH_20_Default_ranged_hashENSH_20_Prime_rehash_policyENSH_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS7_(ptr noundef nonnull align 8 dereferenceable(56) @_ZZN8facebook5velox12_GLOBAL__N_123getNamedVectorSerdeImplB5cxx11EvE10namedSerdeB5cxx11, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1)
           to label %invoke.cont4 unwind label %lpad3
 
@@ -534,7 +534,7 @@ lpad3:                                            ; preds = %invoke.cont
 
 if.end:                                           ; preds = %invoke.cont4
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp13) #23
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i9)
   %call.i13 = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %serdeName.coerce0, ptr %serdeName.coerce1) #23
   %10 = extractvalue { i64, ptr } %call.i13, 0
   %11 = extractvalue { i64, ptr } %call.i13, 1
@@ -546,7 +546,7 @@ if.end:                                           ; preds = %invoke.cont4
           to label %invoke.cont15 unwind label %lpad14
 
 invoke.cont15:                                    ; preds = %if.end
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i9)
   %call.i1516 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_St10unique_ptrIN8facebook5velox11VectorSerdeESt14default_deleteISC_EEESaISG_ENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS6_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN8facebook5velox12_GLOBAL__N_123getNamedVectorSerdeImplB5cxx11EvE10namedSerdeB5cxx11, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp12)
           to label %invoke.cont17 unwind label %lpad16
 
@@ -624,7 +624,7 @@ init.i:                                           ; preds = %init.check.i
 
 _ZN8facebook5velox12_GLOBAL__N_123getNamedVectorSerdeImplB5cxx11Ev.exit: ; preds = %entry, %init.check.i, %init.i
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1) #23
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i)
   %call.i = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %serdeName.coerce0, ptr %serdeName.coerce1) #23
   %3 = extractvalue { i64, ptr } %call.i, 0
   %4 = extractvalue { i64, ptr } %call.i, 1
@@ -636,7 +636,7 @@ _ZN8facebook5velox12_GLOBAL__N_123getNamedVectorSerdeImplB5cxx11Ev.exit: ; preds
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN8facebook5velox12_GLOBAL__N_123getNamedVectorSerdeImplB5cxx11Ev.exit
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i)
   %call.i.i2 = invoke noundef i64 @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10unique_ptrIN8facebook5velox11VectorSerdeESt14default_deleteISB_EEESaISF_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSH_18_Mod_range_hashingENSH_20_Default_ranged_hashENSH_20_Prime_rehash_policyENSH_17_Hashtable_traitsILb1ELb0ELb1EEEE8_M_eraseESt17integral_constantIbLb1EERS7_(ptr noundef nonnull align 8 dereferenceable(56) @_ZZN8facebook5velox12_GLOBAL__N_123getNamedVectorSerdeImplB5cxx11EvE10namedSerdeB5cxx11, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont3 unwind label %lpad2
 
@@ -689,7 +689,7 @@ init.i:                                           ; preds = %init.check.i
 
 _ZN8facebook5velox12_GLOBAL__N_123getNamedVectorSerdeImplB5cxx11Ev.exit: ; preds = %entry, %init.check.i, %init.i
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #23
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i)
   %call.i = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %serdeName.coerce0, ptr %serdeName.coerce1) #23
   %3 = extractvalue { i64, ptr } %call.i, 0
   %4 = extractvalue { i64, ptr } %call.i, 1
@@ -701,7 +701,7 @@ _ZN8facebook5velox12_GLOBAL__N_123getNamedVectorSerdeImplB5cxx11Ev.exit: ; preds
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN8facebook5velox12_GLOBAL__N_123getNamedVectorSerdeImplB5cxx11Ev.exit
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i)
   %call.i34 = invoke ptr @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10unique_ptrIN8facebook5velox11VectorSerdeESt14default_deleteISB_EEESaISF_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSH_18_Mod_range_hashingENSH_20_Default_ranged_hashENSH_20_Prime_rehash_policyENSH_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS7_(ptr noundef nonnull align 8 dereferenceable(56) @_ZZN8facebook5velox12_GLOBAL__N_123getNamedVectorSerdeImplB5cxx11EvE10namedSerdeB5cxx11, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1)
           to label %invoke.cont4 unwind label %lpad3
 
@@ -755,7 +755,7 @@ init.i:                                           ; preds = %init.check.i
 
 _ZN8facebook5velox12_GLOBAL__N_123getNamedVectorSerdeImplB5cxx11Ev.exit: ; preds = %entry, %init.check.i, %init.i
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1) #23
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i)
   %call.i = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %serdeName.coerce0, ptr %serdeName.coerce1) #23
   %3 = extractvalue { i64, ptr } %call.i, 0
   %4 = extractvalue { i64, ptr } %call.i, 1
@@ -767,7 +767,7 @@ _ZN8facebook5velox12_GLOBAL__N_123getNamedVectorSerdeImplB5cxx11Ev.exit: ; preds
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN8facebook5velox12_GLOBAL__N_123getNamedVectorSerdeImplB5cxx11Ev.exit
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i)
   %call.i34 = invoke ptr @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10unique_ptrIN8facebook5velox11VectorSerdeESt14default_deleteISB_EEESaISF_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSH_18_Mod_range_hashingENSH_20_Default_ranged_hashENSH_20_Prime_rehash_policyENSH_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS7_(ptr noundef nonnull align 8 dereferenceable(56) @_ZZN8facebook5velox12_GLOBAL__N_123getNamedVectorSerdeImplB5cxx11EvE10namedSerdeB5cxx11, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont3 unwind label %lpad2
 
@@ -3899,10 +3899,10 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 declare void @llvm.experimental.noalias.scope.decl(metadata) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #21
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #21
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #18

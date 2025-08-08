@@ -462,7 +462,7 @@ define internal i32 @dissect_v5ua(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 ._crit_edge:                                      ; preds = %38, %.thread62, %4
   %39 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 0, i32 noundef 8)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %40 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %39, i32 noundef 2)
   %41 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %39, i32 noundef 3)
   %42 = load ptr, ptr %11, align 8
@@ -507,7 +507,7 @@ define internal i32 @dissect_v5ua(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %dissect_common_header.exit.i
 
 dissect_common_header.exit.i:                     ; preds = %65, %64
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %67 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 8)
   %68 = call i32 @tvb_reported_length_remaining(ptr noundef %67, i32 noundef 0)
   %.not1.i.i = icmp eq i32 %68, 0
@@ -553,7 +553,7 @@ dissect_common_header.exit.i:                     ; preds = %65, %64
   %89 = call i32 @llvm.smin.i32(i32 %88, i32 %71)
   %.030.i.i = select i1 %.not33.i.i, i32 %88, i32 %89
   %90 = call ptr @tvb_new_subset_length(ptr noundef %67, i32 noundef %.02.i.i, i32 noundef %.030.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %91 = call zeroext i16 @tvb_get_ntohs(ptr noundef %90, i32 noundef 0)
   %92 = call zeroext i16 @tvb_get_ntohs(ptr noundef %90, i32 noundef 2)
   %.b124.i.i.i = load i1, ptr @iua_version, align 4
@@ -769,7 +769,7 @@ dissect_draft_tei_status_parameter.exit.i.i:      ; preds = %151, %144
 
 200:                                              ; preds = %104
   %201 = load ptr, ptr %9, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %202 = call zeroext i16 @tvb_get_ntohs(ptr noundef %90, i32 noundef 2)
   %203 = load i32, ptr @hf_adaptation_layer_id, align 4
   %204 = zext i16 %202 to i32
@@ -777,7 +777,7 @@ dissect_draft_tei_status_parameter.exit.i.i:      ; preds = %151, %144
   %206 = call ptr @proto_tree_add_item_ret_string(ptr noundef %112, i32 noundef %203, ptr noundef %90, i32 noundef 4, i32 noundef %204, i32 noundef 0, ptr noundef %205, ptr noundef nonnull %8)
   %207 = load ptr, ptr %8, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %201, ptr noundef nonnull @.str.178, ptr noundef %207)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %dissect_release_reason_parameter.exit.i.i.i
 
 208:                                              ; preds = %104
@@ -786,7 +786,7 @@ dissect_draft_tei_status_parameter.exit.i.i:      ; preds = %151, %144
 
 209:                                              ; preds = %208
   %210 = load ptr, ptr %9, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %211 = call zeroext i16 @tvb_get_ntohs(ptr noundef %90, i32 noundef 2)
   %212 = add i16 %211, -4
   %213 = load i32, ptr @hf_text_if_id, align 4
@@ -795,13 +795,13 @@ dissect_draft_tei_status_parameter.exit.i.i:      ; preds = %151, %144
   %216 = call ptr @proto_tree_add_item_ret_string(ptr noundef %112, i32 noundef %213, ptr noundef %90, i32 noundef 4, i32 noundef %214, i32 noundef 0, ptr noundef %215, ptr noundef nonnull %7)
   %217 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %210, ptr noundef nonnull @.str.259, ptr noundef %217)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.b.pr.i.i.i = load i1, ptr @iua_version, align 4
   br i1 %.b.pr.i.i.i, label %.thread130.i.i.i, label %dissect_release_reason_parameter.exit.i.i.i
 
 .thread130.i.i.i:                                 ; preds = %209, %208
   %218 = load ptr, ptr %9, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %219 = call zeroext i16 @tvb_get_ntohs(ptr noundef %90, i32 noundef 2)
   %220 = load i32, ptr @hf_scn_protocol_id, align 4
   %221 = zext i16 %219 to i32
@@ -809,12 +809,12 @@ dissect_draft_tei_status_parameter.exit.i.i:      ; preds = %151, %144
   %223 = call ptr @proto_tree_add_item_ret_string(ptr noundef %112, i32 noundef %220, ptr noundef %90, i32 noundef 4, i32 noundef %221, i32 noundef 0, ptr noundef %222, ptr noundef nonnull %6)
   %224 = load ptr, ptr %6, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %218, ptr noundef nonnull @.str.178, ptr noundef %224)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %dissect_release_reason_parameter.exit.i.i.i
 
 225:                                              ; preds = %104
   %226 = load ptr, ptr %9, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %227 = call zeroext i16 @tvb_get_ntohs(ptr noundef %90, i32 noundef 2)
   %.b.i.i.i.i = load i1, ptr @iua_version, align 4
   %228 = add i16 %227, 4
@@ -833,7 +833,7 @@ dissect_draft_tei_status_parameter.exit.i.i:      ; preds = %151, %144
   br label %dissect_info_string_parameter.exit.i.i.i
 
 dissect_info_string_parameter.exit.i.i.i:         ; preds = %230, %225
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %dissect_release_reason_parameter.exit.i.i.i
 
 237:                                              ; preds = %104
@@ -1068,7 +1068,7 @@ dissect_release_reason_parameter.exit.i.i.i:      ; preds = %dissect_unknown_par
   br label %dissect_parameter.exit.i.i
 
 dissect_parameter.exit.i.i:                       ; preds = %379, %dissect_release_reason_parameter.exit.i.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %382 = add i32 %.030.i.i, %.02.i.i
   %383 = call i32 @tvb_reported_length_remaining(ptr noundef %67, i32 noundef %382)
   %.not.i21.i = icmp eq i32 %383, 0
@@ -1165,9 +1165,6 @@ declare ptr @find_dissector_add_dependency(ptr noundef, i32 noundef) local_unnam
 ; Function Attrs: null_pointer_is_valid
 declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: null_pointer_is_valid
 declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1194,9 +1191,6 @@ declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unname
 
 ; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
@@ -1401,6 +1395,12 @@ declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) 
 ; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_item_ret_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #3
 
@@ -1408,7 +1408,6 @@ attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-widt
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

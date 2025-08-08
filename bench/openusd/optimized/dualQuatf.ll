@@ -441,7 +441,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__11GfDualQuatf14SetTranslationE
   %5 = fmul float %.sroa.0.4.vec.extract.i.i, 5.000000e-01
   %.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i, float %5, i64 1
   %6 = fmul float %.sroa.6.0.copyload.i.i7, 5.000000e-01
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store <2 x float> %.sroa.0.4.vec.insert.i.i, ptr %3, align 8
   %.sroa.26.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store float %6, ptr %.sroa.26.0..sroa_idx, align 8
@@ -451,7 +451,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__11GfDualQuatf14SetTranslationE
   %.sroa.0.0.copyload.i = load <2 x float>, ptr %7, align 4
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.sroa.2.0.copyload.i = load <2 x float>, ptr %.sroa.2.0..sroa_idx.i, align 4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store <2 x float> %.sroa.0.0.copyload.i, ptr %8, align 4
   %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -515,29 +515,29 @@ define noundef nonnull align 4 dereferenceable(32) ptr @_ZN32pxrInternal_v0_24__
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfQuatf", align 4
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfQuatf", align 4
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfQuatf", align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %0, i64 16, i1 false)
   %6 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7GfQuatfmLERKS0_(ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %1)
   %.sroa.0.0.copyload.i = load <2 x float>, ptr %6, align 4
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.2.0.copyload.i = load <2 x float>, ptr %.sroa.2.0..sroa_idx.i, align 4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %0, i64 16, i1 false)
   %8 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7GfQuatfmLERKS0_(ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %7)
   %.sroa.0.0.copyload.i4 = load <2 x float>, ptr %8, align 4
   %.sroa.2.0..sroa_idx.i5 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.sroa.2.0.copyload.i6 = load <2 x float>, ptr %.sroa.2.0..sroa_idx.i5, align 4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(16) %9, i64 16, i1 false)
   %10 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7GfQuatfmLERKS0_(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(16) %1)
   %.sroa.0.0.copyload.i9 = load <2 x float>, ptr %10, align 4
   %.sroa.2.0..sroa_idx.i10 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %.sroa.2.0.copyload.i11 = load <2 x float>, ptr %.sroa.2.0..sroa_idx.i10, align 4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.sroa.0.4.vec.insert.i = fadd <2 x float> %.sroa.0.0.copyload.i4, %.sroa.0.0.copyload.i9
   %.sroa.6.8.vec.insert.i = fadd <2 x float> %.sroa.2.0.copyload.i6, %.sroa.2.0.copyload.i11
   store <2 x float> %.sroa.0.0.copyload.i, ptr %0, align 4
@@ -700,10 +700,10 @@ declare float @llvm.sqrt.f32(float) #14
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #16
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

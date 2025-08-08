@@ -81,7 +81,7 @@ define i32 @ff_dca_set_channel_layout(ptr noundef %0, ptr noundef writeonly capt
   br label %51
 
 21:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %22 = and i32 %2, -33
   %or.cond = icmp eq i32 %22, 393247
   %ff_dca_set_channel_layout.dca2wav_wide.ff_dca_set_channel_layout.dca2wav_norm = select i1 %or.cond, ptr @ff_dca_set_channel_layout.dca2wav_wide, ptr @ff_dca_set_channel_layout.dca2wav_norm
@@ -145,7 +145,7 @@ define i32 @ff_dca_set_channel_layout(ptr noundef %0, ptr noundef writeonly capt
 48:                                               ; preds = %47
   %49 = sext i32 %.1 to i64
   %50 = tail call i32 @av_channel_layout_from_mask(ptr noundef nonnull %7, i64 noundef %49) #7
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %51
 
 51:                                               ; preds = %48, %19
@@ -153,15 +153,9 @@ define i32 @ff_dca_set_channel_layout(ptr noundef %0, ptr noundef writeonly capt
   ret i32 %.2
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare void @av_channel_layout_uninit(ptr noundef) local_unnamed_addr #1
 
-declare void @av_channel_layout_uninit(ptr noundef) local_unnamed_addr #2
-
-declare i32 @av_channel_layout_from_mask(ptr noundef, i64 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @av_channel_layout_from_mask(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @ff_dca_downmix_to_stereo_fixed(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
@@ -284,10 +278,10 @@ define void @ff_dca_downmix_to_stereo_fixed(ptr noundef readonly captures(none) 
   ret void
 }
 
-declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: cold nofree noreturn nounwind
-declare void @abort() local_unnamed_addr #3
+declare void @abort() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define void @ff_dca_downmix_to_stereo_float(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
@@ -418,7 +412,7 @@ define void @ff_dca_downmix_to_stereo_float(ptr noundef readonly captures(none) 
 }
 
 ; Function Attrs: cold nounwind optsize uwtable
-define internal range(i32 -12, 1) i32 @dcadec_init(ptr noundef %0) #4 {
+define internal range(i32 -12, 1) i32 @dcadec_init(ptr noundef %0) #3 {
   %2 = alloca %struct.AVChannelLayout, align 8
   %3 = alloca %struct.AVChannelLayout, align 8
   %4 = alloca %struct.AVChannelLayout, align 8
@@ -930,7 +924,7 @@ define internal i32 @dcadec_decode_frame(ptr noundef %0, ptr noundef %1, ptr nou
 }
 
 ; Function Attrs: cold nounwind optsize uwtable
-define internal noundef i32 @dcadec_close(ptr noundef readonly captures(none) %0) #4 {
+define internal noundef i32 @dcadec_close(ptr noundef readonly captures(none) %0) #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -947,7 +941,7 @@ define internal noundef i32 @dcadec_close(ptr noundef readonly captures(none) %0
 }
 
 ; Function Attrs: cold nounwind optsize uwtable
-define internal void @dcadec_flush(ptr noundef readonly captures(none) %0) #4 {
+define internal void @dcadec_flush(ptr noundef readonly captures(none) %0) #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -963,87 +957,93 @@ define internal void @dcadec_flush(ptr noundef readonly captures(none) %0) #4 {
   ret void
 }
 
-declare ptr @av_default_item_name(ptr noundef) #2
+declare ptr @av_default_item_name(ptr noundef) #1
 
 ; Function Attrs: cold
-declare i32 @ff_dca_core_init(ptr noundef) local_unnamed_addr #5
+declare i32 @ff_dca_core_init(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: cold
-declare i32 @ff_dca_lbr_init(ptr noundef) local_unnamed_addr #5
+declare i32 @ff_dca_lbr_init(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: cold
-declare void @ff_dcadsp_init(ptr noundef) local_unnamed_addr #5
+declare void @ff_dcadsp_init(ptr noundef) local_unnamed_addr #4
 
-declare ptr @av_crc_get_table(i32 noundef) local_unnamed_addr #2
+declare ptr @av_crc_get_table(i32 noundef) local_unnamed_addr #1
 
-declare i32 @av_channel_layout_compare(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @av_channel_layout_compare(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @pthread_once(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @pthread_once(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold nounwind optsize uwtable
-define internal void @dcadec_init_static() #4 {
+define internal void @dcadec_init_static() #3 {
   tail call void @ff_dca_lbr_init_tables() #9
   tail call void @ff_dca_init_vlcs() #9
   ret void
 }
 
 ; Function Attrs: cold
-declare void @ff_dca_lbr_init_tables() local_unnamed_addr #5
+declare void @ff_dca_lbr_init_tables() local_unnamed_addr #4
 
 ; Function Attrs: cold
-declare void @ff_dca_init_vlcs() local_unnamed_addr #5
+declare void @ff_dca_init_vlcs() local_unnamed_addr #4
 
-declare void @av_fast_padded_malloc(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @av_fast_padded_malloc(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @avpriv_dca_convert_bitstream(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @avpriv_dca_convert_bitstream(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @ff_dca_core_parse(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ff_dca_core_parse(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @ff_dca_exss_parse(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ff_dca_exss_parse(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @ff_dca_xll_parse(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ff_dca_xll_parse(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @ff_dca_lbr_parse(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ff_dca_lbr_parse(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @ff_dca_core_parse_exss(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ff_dca_core_parse_exss(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @ff_dca_lbr_filter_frame(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ff_dca_lbr_filter_frame(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @ff_dca_core_filter_fixed(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ff_dca_core_filter_fixed(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @ff_dca_xll_filter_frame(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ff_dca_xll_filter_frame(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @ff_dca_core_filter_frame(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: cold
-declare void @ff_dca_core_close(ptr noundef) local_unnamed_addr #5
+declare i32 @ff_dca_core_filter_frame(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold
-declare void @ff_dca_xll_close(ptr noundef) local_unnamed_addr #5
+declare void @ff_dca_core_close(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: cold
-declare void @ff_dca_lbr_close(ptr noundef) local_unnamed_addr #5
-
-declare void @av_freep(ptr noundef) local_unnamed_addr #2
+declare void @ff_dca_xll_close(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: cold
-declare void @ff_dca_core_flush(ptr noundef) local_unnamed_addr #5
+declare void @ff_dca_lbr_close(ptr noundef) local_unnamed_addr #4
+
+declare void @av_freep(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold
-declare void @ff_dca_xll_flush(ptr noundef) local_unnamed_addr #5
+declare void @ff_dca_core_flush(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: cold
-declare void @ff_dca_lbr_flush(ptr noundef) local_unnamed_addr #5
+declare void @ff_dca_xll_flush(ptr noundef) local_unnamed_addr #4
+
+; Function Attrs: cold
+declare void @ff_dca_lbr_flush(ptr noundef) local_unnamed_addr #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.bswap.i32(i32) #6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { cold nofree noreturn nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { cold nounwind optsize uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { cold "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { cold nofree noreturn nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { cold nounwind optsize uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { cold "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { nounwind }
 attributes #8 = { noreturn nounwind }

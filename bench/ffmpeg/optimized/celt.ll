@@ -17,8 +17,8 @@ target triple = "x86_64-pc-linux-gnu"
 define void @ff_celt_quant_bands(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca [176 x float], align 16
   %4 = alloca [1600 x float], align 16
-  call void @llvm.lifetime.start.p0(i64 704, ptr nonnull %3) #6
-  call void @llvm.lifetime.start.p0(i64 6400, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3200
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 34084
   %7 = load i32, ptr %6, align 4, !tbaa !4
@@ -386,19 +386,13 @@ opus_rc_tell_frac.exit:                           ; preds = %56
   br i1 %233, label %35, label %._crit_edge, !llvm.loop !45
 
 ._crit_edge:                                      ; preds = %214, %2
-  call void @llvm.lifetime.end.p0(i64 6400, ptr nonnull %4) #6
-  call void @llvm.lifetime.end.p0(i64 704, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
 define void @ff_celt_bitalloc(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -409,12 +403,12 @@ define void @ff_celt_bitalloc(ptr noundef %0, ptr noundef %1, i32 noundef %2) lo
   %8 = alloca [21 x i32], align 16
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 33912
   %10 = load i32, ptr %9, align 8, !tbaa !16
-  call void @llvm.lifetime.start.p0(i64 84, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(84) %4, i8 0, i64 84, i1 false)
-  call void @llvm.lifetime.start.p0(i64 84, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 84, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 84, ptr nonnull %7) #6
-  call void @llvm.lifetime.start.p0(i64 84, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %12 = load i32, ptr %11, align 8, !tbaa !22
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -1650,28 +1644,34 @@ opus_rc_tell_frac.exit:                           ; preds = %210
   br i1 %680, label %667, label %._crit_edge797, !llvm.loop !62
 
 ._crit_edge797:                                   ; preds = %667, %._crit_edge791
-  call void @llvm.lifetime.end.p0(i64 84, ptr nonnull %8) #6
-  call void @llvm.lifetime.end.p0(i64 84, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 84, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 84, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 84, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
-declare void @ff_opus_rc_enc_cdf(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare void @ff_opus_rc_enc_cdf(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @ff_opus_rc_dec_cdf(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @ff_opus_rc_dec_cdf(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @ff_opus_rc_enc_log(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare void @ff_opus_rc_enc_log(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @ff_opus_rc_dec_log(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @ff_opus_rc_dec_log(ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @ff_opus_rc_enc_uint(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare void @ff_opus_rc_enc_uint(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @ff_opus_rc_dec_uint(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @ff_opus_rc_dec_uint(ptr noundef, i32 noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #5
@@ -1683,10 +1683,10 @@ declare i32 @llvm.smin.i32(i32, i32) #5
 declare i32 @llvm.umin.i32(i32, i32) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nounwind }
 

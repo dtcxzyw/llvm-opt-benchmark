@@ -88,17 +88,11 @@ define range(i32 -1, 2) i32 @CMS_get1_ReceiptRequest(ptr noundef %0, ptr noundef
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare ptr @OBJ_nid2obj(i32 noundef) local_unnamed_addr #1
 
 declare ptr @CMS_signed_get0_data_by_OBJ(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 declare ptr @ASN1_item_unpack(ptr noundef, ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ossl_cms_check_signing_certs(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -241,7 +235,7 @@ define ptr @CMS_ReceiptRequest_create0(ptr noundef %0, i32 noundef %1, i32 nound
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @CMS_add1_ReceiptRequest(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !23
   %4 = tail call ptr @CMS_ReceiptRequest_it() #5
   %5 = call i32 @ASN1_item_i2d(ptr noundef %1, ptr noundef nonnull %3, ptr noundef %4) #5
@@ -265,7 +259,7 @@ define range(i32 0, 2) i32 @CMS_add1_ReceiptRequest(ptr noundef %0, ptr noundef 
   %.0 = phi i32 [ 1, %7 ], [ 0, %.sink.split ]
   %11 = load ptr, ptr %3, align 8, !tbaa !23
   call void @CRYPTO_free(ptr noundef %11, ptr noundef nonnull @.str, i32 noundef 187) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
@@ -274,7 +268,7 @@ declare i32 @CMS_signed_add1_attr_by_NID(ptr noundef, i32 noundef, i32 noundef, 
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @CMS_ReceiptRequest_get0_values(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #3 {
+define void @CMS_ReceiptRequest_get0_values(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %8, label %6
 
@@ -343,8 +337,8 @@ define void @CMS_ReceiptRequest_get0_values(ptr noundef readonly captures(none) 
 define range(i32 0, 2) i32 @ossl_cms_msgSigDigest_add1(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca [64 x i8], align 16
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call fastcc i32 @cms_msgSigDigest(ptr noundef %1, ptr noundef %3, ptr noundef %4)
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %.sink.split, label %6
@@ -365,8 +359,8 @@ define range(i32 0, 2) i32 @ossl_cms_msgSigDigest_add1(ptr noundef %0, ptr nound
 
 9:                                                ; preds = %.sink.split, %6
   %.0 = phi i32 [ 1, %6 ], [ 0, %.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #5
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
@@ -405,10 +399,10 @@ define range(i32 0, 2) i32 @ossl_cms_Receipt_verify(ptr noundef %0, ptr noundef 
   %3 = alloca ptr, align 8
   %4 = alloca [64 x i8], align 16
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = tail call ptr @CMS_get0_SignerInfos(ptr noundef %1) #5
   %7 = tail call ptr @CMS_get0_SignerInfos(ptr noundef %0) #5
   %8 = icmp ne ptr %6, null
@@ -615,9 +609,9 @@ define range(i32 0, 2) i32 @ossl_cms_Receipt_verify(ptr noundef %0, ptr noundef 
   call void @ASN1_item_free(ptr noundef %82, ptr noundef %83) #5
   %84 = call ptr @CMS_Receipt_it() #5
   call void @ASN1_item_free(ptr noundef %.035, ptr noundef %84) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
@@ -642,7 +636,7 @@ declare i32 @OBJ_cmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define ptr @ossl_cms_encode_Receipt(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.CMS_Receipt_st, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = tail call ptr @OBJ_nid2obj(i32 noundef 212) #5
   %4 = tail call ptr @CMS_signed_get0_data_by_OBJ(ptr noundef %0, ptr noundef %3, i32 noundef -3, i32 noundef 16) #5
   %5 = icmp eq ptr %4, null
@@ -692,7 +686,7 @@ CMS_get1_ReceiptRequest.exit:                     ; preds = %6
   %.0 = phi ptr [ null, %10 ], [ %22, %14 ], [ null, %13 ]
   %24 = call ptr @CMS_ReceiptRequest_it() #5
   call void @ASN1_item_free(ptr noundef %.0811, ptr noundef %24) #5
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0
 }
 
@@ -714,13 +708,19 @@ declare ptr @ossl_cms_ctx_get0_libctx(ptr noundef) local_unnamed_addr #1
 
 declare ptr @ossl_cms_ctx_get0_propq(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #4
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #5 = { nounwind }
 

@@ -225,7 +225,7 @@ define hidden void @_ZN24JfrEventClassTransformer17on_klass_creationERP13Instanc
   %32 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %33 = load i64, ptr %32, align 8
   call void @_ZN10HandleMark10initializeEP6Thread(ptr noundef nonnull align 8 dereferenceable(56) %16, ptr noundef %2) #17
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i8 0, ptr %15, align 1
   %34 = load ptr, ptr %0, align 8
   %35 = getelementptr i8, ptr %2, i64 1536
@@ -279,8 +279,8 @@ define hidden void @_ZN24JfrEventClassTransformer17on_klass_creationERP13Instanc
   br i1 %exitcond.not.i.i.i, label %.loopexit.i, label %48, !llvm.loop !6
 
 _ZL19find_existing_klassPK13InstanceKlassP10JavaThread.exit.i: ; preds = %54
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i32 0, ptr %13, align 4
   store ptr null, ptr %14, align 8
   %60 = call noundef ptr @_ZNK15ClassFileParser12clone_streamEv(ptr noundef nonnull align 8 dereferenceable(440) %1) #17
@@ -344,33 +344,33 @@ _ZNK5Klass11java_mirrorEv.exit.i.i:               ; preds = %64, %_ZL19find_exis
   br i1 %92, label %93, label %_ZL18initialize_symbolsv.exit.i.i
 
 93:                                               ; preds = %90
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %94 = call noundef ptr @_ZN11SymbolTable11lookup_onlyEPKciRj(ptr noundef nonnull @.str.11, i32 noundef 5, ptr noundef nonnull align 4 dereferenceable(4) %12) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   store ptr %94, ptr @_ZL5begin, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %95 = call noundef ptr @_ZN11SymbolTable11lookup_onlyEPKciRj(ptr noundef nonnull @.str.12, i32 noundef 3, ptr noundef nonnull align 4 dereferenceable(4) %11) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   store ptr %95, ptr @_ZL3end, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %96 = call noundef ptr @_ZN11SymbolTable11lookup_onlyEPKciRj(ptr noundef nonnull @.str.13, i32 noundef 6, ptr noundef nonnull align 4 dereferenceable(4) %10) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   store ptr %96, ptr @_ZL6commit, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %97 = call noundef ptr @_ZN11SymbolTable11lookup_onlyEPKciRj(ptr noundef nonnull @.str.14, i32 noundef 9, ptr noundef nonnull align 4 dereferenceable(4) %9) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   store ptr %97, ptr @_ZL9isEnabled, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %98 = call noundef ptr @_ZN11SymbolTable11lookup_onlyEPKciRj(ptr noundef nonnull @.str.15, i32 noundef 12, ptr noundef nonnull align 4 dereferenceable(4) %8) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   store ptr %98, ptr @_ZL12shouldCommit, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %99 = call noundef ptr @_ZN11SymbolTable11lookup_onlyEPKciRj(ptr noundef nonnull @.str.16, i32 noundef 3, ptr noundef nonnull align 4 dereferenceable(4) %7) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   store ptr %99, ptr @_ZL15void_method_sig, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %100 = call noundef ptr @_ZN11SymbolTable11lookup_onlyEPKciRj(ptr noundef nonnull @.str.17, i32 noundef 3, ptr noundef nonnull align 4 dereferenceable(4) %6) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store ptr %100, ptr @_ZL18boolean_method_sig, align 8
   br label %_ZL18initialize_symbolsv.exit.i.i
 
@@ -633,14 +633,14 @@ _ZL31schema_extend_event_klass_bytesPK13InstanceKlassRK15ClassFileParserP10JavaT
   %212 = load i8, ptr @_ZN15ClassFileStream6verifyE, align 1
   %213 = trunc i8 %212 to i1
   call void @_ZN15ClassFileStreamC1EPKhiPKcbb(ptr noundef nonnull align 8 dereferenceable(42) %209, ptr noundef %210, i32 noundef %211, ptr noundef null, i1 noundef zeroext %213, i1 noundef zeroext false) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %218
 
 .thread95.i:                                      ; preds = %88, %86, %84, %82
   call void @_ZN12ThreadShadow23clear_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(28) %2) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %_ZL9transformRP13InstanceKlassR15ClassFileParserP10JavaThread.exit
 
 .thread.i:                                        ; preds = %_ZL31schema_extend_event_klass_bytesPK13InstanceKlassRK15ClassFileParserP10JavaThread.exit.i, %_ZL18initialize_symbolsv.exit.i.i
@@ -658,8 +658,8 @@ _ZL31schema_extend_event_klass_bytesPK13InstanceKlassRK15ClassFileParserP10JavaT
   %.072.i = phi ptr [ %203, %_ZL31schema_extend_event_klass_bytesPK13InstanceKlassRK15ClassFileParserP10JavaThread.exit.thread68.i ], [ %207, %_ZL31schema_extend_event_klass_bytesPK13InstanceKlassRK15ClassFileParserP10JavaThread.exit.i ], [ %209, %_ZL31schema_extend_event_klass_bytesPK13InstanceKlassRK15ClassFileParserP10JavaThread.exit.thread.i ]
   %.not6071.i = phi i1 [ true, %_ZL31schema_extend_event_klass_bytesPK13InstanceKlassRK15ClassFileParserP10JavaThread.exit.thread68.i ], [ true, %_ZL31schema_extend_event_klass_bytesPK13InstanceKlassRK15ClassFileParserP10JavaThread.exit.i ], [ false, %_ZL31schema_extend_event_klass_bytesPK13InstanceKlassRK15ClassFileParserP10JavaThread.exit.thread.i ]
   %219 = load ptr, ptr %0, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 440, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %220 = load ptr, ptr %24, align 8
   %221 = getelementptr inbounds nuw i8, ptr %220, i64 24
   %222 = load ptr, ptr %221, align 8
@@ -795,8 +795,8 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit.i.i.i:        ; preds = %_ZN10HandleArea15al
   br label %_ZL25create_new_instance_klassP13InstanceKlassP15ClassFileStreamP10JavaThread.exit.i.i
 
 _ZL25create_new_instance_klassP13InstanceKlassP15ClassFileStreamP10JavaThread.exit.i.i: ; preds = %278, %276
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 440, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %279 = icmp eq ptr %.0.i.i.i, null
   %or.cond.i.i = and i1 %.not6071.i, %279
   br i1 %or.cond.i.i, label %280, label %_ZL21create_instance_klassRP13InstanceKlassP15ClassFileStreambP10JavaThread.exit.i
@@ -1070,7 +1070,7 @@ _ZL19bless_commit_methodPK13InstanceKlass.exit.i: ; preds = %413, %_ZL26bless_st
   br label %_ZL9transformRP13InstanceKlassR15ClassFileParserP10JavaThread.exit
 
 _ZL9transformRP13InstanceKlassR15ClassFileParserP10JavaThread.exit: ; preds = %.thread95.i, %.thread.i, %215, %280, %282, %_ZL21create_instance_klassRP13InstanceKlassP15ClassFileStreambP10JavaThread.exit.i, %_ZL19bless_commit_methodPK13InstanceKlass.exit.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @_ZN10HandleMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %16) #17
   %421 = load ptr, ptr %27, align 8
   %.not.i.i.i.i7 = icmp eq ptr %421, null
@@ -1389,18 +1389,18 @@ _ZL50invalid_preconditions_for_subklass_on_initial_loadPK13InstanceKlass.exit.th
   br label %2410
 
 32:                                               ; preds = %_ZL50invalid_preconditions_for_subklass_on_initial_loadPK13InstanceKlass.exit
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %33 = tail call noundef ptr @_ZNK13InstanceKlass17class_initializerEv(ptr noundef nonnull align 8 dereferenceable(464) %0) #17
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %34 = load ptr, ptr @_ZZL21should_register_klassPK13InstanceKlassRbE17registered_symbol, align 8
   %35 = icmp eq ptr %34, null
   br i1 %35, label %36, label %39
 
 36:                                               ; preds = %32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %37 = call noundef ptr @_ZN11SymbolTable11lookup_onlyEPKciRj(ptr noundef nonnull @_ZL19registered_constant, i32 noundef 20, ptr noundef nonnull align 4 dereferenceable(4) %8) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   store ptr %37, ptr @_ZZL21should_register_klassPK13InstanceKlassRbE17registered_symbol, align 8
   %38 = icmp eq ptr %37, null
   br i1 %38, label %_ZL21should_register_klassPK13InstanceKlassRb.exit.i, label %39
@@ -1421,9 +1421,9 @@ _ZL50invalid_preconditions_for_subklass_on_initial_loadPK13InstanceKlass.exit.th
   br i1 %45, label %46, label %49
 
 46:                                               ; preds = %43
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %47 = call noundef ptr @_ZN11SymbolTable11lookup_onlyEPKciRj(ptr noundef nonnull @_ZL19jdk_jfr_module_name, i32 noundef 7, ptr noundef nonnull align 4 dereferenceable(4) %7) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   store ptr %47, ptr @_ZZL26java_base_can_read_jdk_jfrvE21jdk_jfr_module_symbol, align 8
   %48 = icmp eq ptr %47, null
   br i1 %48, label %_ZL26java_base_can_read_jdk_jfrv.exit.i.i, label %49
@@ -1478,7 +1478,7 @@ _ZL26java_base_can_read_jdk_jfrv.exit.i.i:        ; preds = %64, %._crit_edge.i.
 _ZL21should_register_klassPK13InstanceKlassRb.exit.i: ; preds = %_ZL26java_base_can_read_jdk_jfrv.exit.i.i, %36
   %.0273.i = phi i1 [ %65, %_ZL26java_base_can_read_jdk_jfrv.exit.i.i ], [ true, %36 ]
   %.0.i.i = phi i1 [ %67, %_ZL26java_base_can_read_jdk_jfrv.exit.i.i ], [ false, %36 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %68 = call noundef ptr @_ZNK15ClassFileParser12clone_streamEv(ptr noundef nonnull align 8 dereferenceable(440) %1) #17
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 16
   %70 = load ptr, ptr %69, align 8
@@ -1667,7 +1667,7 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE11write_bytesEPKvl.exit.i
 
 _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE11write_bytesEPKvl.exit.i: ; preds = %153, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE11ensure_sizeEm.exit.i.i, %_ZN18JfrBigEndianWriterC2IhEEPT_m.exit.i
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i16 0, ptr %6, align 2
   br label %156
 
@@ -1789,7 +1789,7 @@ _ZL20resolve_utf8_indexesR18JfrBigEndianWriterPK13InstanceKlassPttPK6MethodbbP10
   %208 = getelementptr inbounds nuw i8, ptr %11, i64 44
   store i16 %.sink11.i.i, ptr %208, align 4
   %209 = load i16, ptr %6, align 2
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.pre309.i = load ptr, ptr %122, align 8
   br i1 %.0.i.i, label %210, label %366
 
@@ -5510,7 +5510,7 @@ _ZL16adjust_stack_mapR18JfrBigEndianWriterP5ArrayIhEPKttP10JavaThread.exit.i.i.i
   %1686 = add nuw nsw i16 %.1.i.i.i, 1
   %1687 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %.val41.i.i.i = load i16, ptr %1687, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not.i.i.i.i45.i.i.i = icmp eq ptr %1679, null
   %1688 = ptrtoint ptr %.pre366420.i to i64
   br i1 %.not.i.i.i.i45.i.i.i, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE5writeItEEvT_.exit.thread.i66.i.i.i, label %1692
@@ -5912,7 +5912,7 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18
 _ZL24adjust_line_number_tableR18JfrBigEndianWriterPKtjPK6MethodP10JavaThread.exit.i.i.i: ; preds = %1841, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE5writeIjEEvT_.exit.i.i62.i.i.i, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE5writeItEEvT_.exit.i.i.i.i.i, %._crit_edge.i.i.i.i
   %.pre366423.i = phi ptr [ %.pre366425.i, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE5writeIjEEvT_.exit.i.i62.i.i.i ], [ %1843, %1841 ], [ %.pre366424.i, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE5writeItEEvT_.exit.i.i.i.i.i ], [ %.pre.i.i.i.i, %._crit_edge.i.i.i.i ]
   %1844 = phi ptr [ null, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE5writeIjEEvT_.exit.i.i62.i.i.i ], [ %1840, %1841 ], [ null, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE5writeItEEvT_.exit.i.i.i.i.i ], [ null, %._crit_edge.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.pre149.i.i.i = load ptr, ptr %1271, align 8
   %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %.pre149.i.i.i, i64 28
   %.pre150.i.i.i = load i32, ptr %.phi.trans.insert.i.i.i, align 4
@@ -7235,8 +7235,8 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18
   br label %_ZL34schema_extend_event_subklass_bytesPK13InstanceKlassRK15ClassFileParserRiP10JavaThread.exit
 
 _ZL34schema_extend_event_subklass_bytesPK13InstanceKlassRK15ClassFileParserRiP10JavaThread.exit.thread: ; preds = %111, %113
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %2410
 
 _ZL34schema_extend_event_subklass_bytesPK13InstanceKlassRK15ClassFileParserRiP10JavaThread.exit: ; preds = %2312, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE5writeItEEvT_.exit.i153.i, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18NoOwnershipAdapter8StackObj21ExclusiveAccessAssertEE11ensure_sizeEm.exit.i158.i, %2352
@@ -7246,8 +7246,8 @@ _ZL34schema_extend_event_subklass_bytesPK13InstanceKlassRK15ClassFileParserRiP10
   %2358 = ptrtoint ptr %2355 to i64
   %2359 = sub i64 %2357, %2358
   %2360 = trunc i64 %2359 to i32
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %2361 = call noundef zeroext i1 @_ZN12JfrOptionSet24allow_event_retransformsEv() #17
   %2362 = load i8, ptr @_ZL22_force_instrumentation, align 1
   %2363 = trunc nuw i8 %2362 to i1
@@ -7965,9 +7965,9 @@ _ZNK18AnnotationIterator12move_to_nextEv.exit.i:  ; preds = %.lr.ph.i.i.i, %17, 
   br i1 %.not.i, label %47, label %45
 
 45:                                               ; preds = %43
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %46 = call noundef ptr @_ZN11SymbolTable11lookup_onlyEPKciRj(ptr noundef nonnull @_ZL10value_name, i32 noundef 5, ptr noundef nonnull align 4 dereferenceable(4) %4) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store ptr %46, ptr @_ZZL14has_annotationPK13InstanceKlassPK6SymbolRbE12value_symbol, align 8
   call void @__cxa_guard_release(ptr nonnull @_ZGVZL14has_annotationPK13InstanceKlassPK6SymbolRbE12value_symbol) #17
   br label %47
@@ -8754,10 +8754,10 @@ declare noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef, i64 noundef) local_
 declare i16 @llvm.umax.i16(i16, i16) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16

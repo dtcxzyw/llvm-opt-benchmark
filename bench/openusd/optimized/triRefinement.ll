@@ -522,7 +522,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Vtr8internal13TriRefinement26populateFaceVer
   br i1 %9, label %10, label %27
 
 10:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %11 = load i32, ptr %4, align 8
   store i32 3, ptr %2, align 4
   %.not = icmp eq i32 %11, 0
@@ -557,7 +557,7 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i:          ; preds = %10
 
 _ZN10OpenSubdiv6v3_6_03Vtr8internal13TriRefinement34populateFaceVertexCountsAndOffsetsEv.exit: ; preds = %.lr.ph.i, %10, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i
   %26 = phi ptr [ %.pre, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i ], [ %4, %10 ], [ %22, %.lr.ph.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %27
 
 27:                                               ; preds = %_ZN10OpenSubdiv6v3_6_03Vtr8internal13TriRefinement34populateFaceVertexCountsAndOffsetsEv.exit, %1
@@ -612,7 +612,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Vtr8internal13TriRefinement24populateFaceEdg
   br i1 %9, label %10, label %27
 
 10:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %11 = load i32, ptr %4, align 8
   store i32 3, ptr %2, align 4
   %.not = icmp eq i32 %11, 0
@@ -647,7 +647,7 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i:          ; preds = %10
 
 _ZN10OpenSubdiv6v3_6_03Vtr8internal13TriRefinement34populateFaceVertexCountsAndOffsetsEv.exit: ; preds = %.lr.ph.i, %10, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i
   %26 = phi ptr [ %.pre, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i ], [ %4, %10 ], [ %22, %.lr.ph.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %27
 
 27:                                               ; preds = %_ZN10OpenSubdiv6v3_6_03Vtr8internal13TriRefinement34populateFaceVertexCountsAndOffsetsEv.exit, %1
@@ -3921,10 +3921,10 @@ declare i64 @llvm.umin.i64(i64, i64) #11
 declare i32 @llvm.smax.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

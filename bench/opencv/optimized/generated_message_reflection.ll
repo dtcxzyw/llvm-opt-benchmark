@@ -321,13 +321,7 @@ define hidden noundef zeroext i1 @_ZN6google8protobuf8internal14ParseNamedEnumEP
   ret i1 %5
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
-
 declare noundef ptr @_ZNK6google8protobuf14EnumDescriptor15FindValueByNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobuf8internal10NameOfEnumB5cxx11EPKNS0_14EnumDescriptorEi(ptr noundef nonnull %0, i32 noundef %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
@@ -385,7 +379,7 @@ define hidden void @_ZN6google8protobuf10ReflectionC2EPKNS0_10DescriptorERKNS0_8
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare noundef ptr @_ZN6google8protobuf14DescriptorPool23internal_generated_poolEv() local_unnamed_addr #0
 
@@ -444,7 +438,7 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef ptr @_ZNK6google8protobuf10Reflection23MutableInternalMetadataEPNS0_7MessageE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef readnone captures(ret: address, provenance) %1) local_unnamed_addr #6 align 2 {
+define hidden noundef ptr @_ZNK6google8protobuf10Reflection23MutableInternalMetadataEPNS0_7MessageE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef readnone captures(ret: address, provenance) %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %4 = load i32, ptr %3, align 4, !tbaa !44
   %5 = zext i32 %4 to i64
@@ -476,7 +470,7 @@ define hidden noundef zeroext i1 @_ZNK6google8protobuf10Reflection15IsLazyExtens
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK6google8protobuf10Reflection15GetExtensionSetERKNS0_7MessageE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(16) %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK6google8protobuf10Reflection15GetExtensionSetERKNS0_7MessageE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(16) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8, !tbaa !49
   %5 = zext i32 %4 to i64
@@ -487,7 +481,7 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK6google8proto
 declare noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet7HasLazyEi(ptr noundef nonnull align 8 dereferenceable(24), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK6google8protobuf10Reflection25IsLazilyVerifiedLazyFieldEPKNS0_15FieldDescriptorE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #7 align 2 {
+define hidden noundef zeroext i1 @_ZNK6google8protobuf10Reflection25IsLazilyVerifiedLazyFieldEPKNS0_15FieldDescriptorE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %4 = load ptr, ptr %3, align 8, !tbaa !54
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 77
@@ -507,11 +501,11 @@ define hidden noundef zeroext i1 @_ZNK6google8protobuf10Reflection26IsEagerlyVer
   br i1 %.not.i, label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit, label %8
 
 8:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %4, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %1, ptr %5, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %4, ptr %3, align 8, !tbaa !73
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %5, ptr %9, align 8, !tbaa !74
@@ -527,7 +521,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i:            ; preds = %8
   br i1 %.not.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i, label %13
 
 13:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %12) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %12) #25
           to label %14 unwind label %15
 
 14:                                               ; preds = %13
@@ -538,15 +532,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i:            ; preds = %8
           cleanup
   store ptr null, ptr %10, align 8, !tbaa !71
   store ptr null, ptr %11, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %16
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i
   store ptr null, ptr %10, align 8, !tbaa !71
   store ptr null, ptr %11, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor4typeEv.exit: ; preds = %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i, %2
@@ -648,11 +642,11 @@ _ZNK6google8protobuf10Reflection16GetUnknownFieldsERKNS0_7MessageE.exit: ; preds
   br i1 %.not.i.i, label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit, label %63
 
 63:                                               ; preds = %60
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %13, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr %55, ptr %14, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr %13, ptr %12, align 8, !tbaa !73
   store ptr %14, ptr %49, align 8, !tbaa !74
   store ptr %12, ptr %45, align 8, !tbaa !71
@@ -665,7 +659,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %63
   br i1 %.not.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i, label %65
 
 65:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %64) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %64) #25
           to label %66 unwind label %.loopexit.split-lp101
 
 66:                                               ; preds = %65
@@ -689,15 +683,15 @@ common.resume:                                    ; preds = %325, %271, %197, %6
   %lpad.phi104 = phi { ptr, i32 } [ %lpad.loopexit102, %.loopexit100 ], [ %lpad.loopexit.split-lp103, %.loopexit.split-lp101 ]
   store ptr null, ptr %45, align 8, !tbaa !71
   store ptr null, ptr %46, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %common.resume
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %45, align 8, !tbaa !71
   store ptr null, ptr %46, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %60, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i
@@ -881,11 +875,11 @@ _ZNK6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_trait
   br i1 %.not.i.i.i, label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i, label %193
 
 193:                                              ; preds = %191
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %10, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %55, ptr %11, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %10, ptr %9, align 8, !tbaa !73
   store ptr %11, ptr %50, align 8, !tbaa !74
   store ptr %9, ptr %45, align 8, !tbaa !71
@@ -898,7 +892,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i:        ; preds = %193
   br i1 %.not.i.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i, label %195
 
 195:                                              ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %194) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %194) #25
           to label %196 unwind label %.loopexit.split-lp106
 
 196:                                              ; preds = %195
@@ -918,15 +912,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i:        ; preds = %193
   %lpad.phi109 = phi { ptr, i32 } [ %lpad.loopexit107, %.loopexit105 ], [ %lpad.loopexit.split-lp108, %.loopexit.split-lp106 ]
   store ptr null, ptr %45, align 8, !tbaa !71
   store ptr null, ptr %46, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %common.resume
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i
   store ptr null, ptr %45, align 8, !tbaa !71
   store ptr null, ptr %46, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %.pre = load i8, ptr %68, align 2, !tbaa !78
   br label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i
 
@@ -1046,11 +1040,11 @@ _ZNK6google8protobuf8internal16ReflectionSchema11InRealOneofEPKNS0_15FieldDescri
   br i1 %.not.i.i78, label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit82, label %267
 
 267:                                              ; preds = %_ZNK6google8protobuf8internal16ReflectionSchema11InRealOneofEPKNS0_15FieldDescriptorE.exit.thread92
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %7, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %55, ptr %8, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %7, ptr %6, align 8, !tbaa !73
   store ptr %8, ptr %44, align 8, !tbaa !74
   store ptr %6, ptr %45, align 8, !tbaa !71
@@ -1063,7 +1057,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i79:        ; preds = %267
   br i1 %.not.i.i.i.i80, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i81, label %269
 
 269:                                              ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i79
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %268) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %268) #25
           to label %270 unwind label %.loopexit.split-lp
 
 270:                                              ; preds = %269
@@ -1083,15 +1077,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i79:        ; preds = %267
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   store ptr null, ptr %45, align 8, !tbaa !71
   store ptr null, ptr %46, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %common.resume
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i81: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i79
   store ptr null, ptr %45, align 8, !tbaa !71
   store ptr null, ptr %46, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit82
 
 _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit82: ; preds = %_ZNK6google8protobuf8internal16ReflectionSchema11InRealOneofEPKNS0_15FieldDescriptorE.exit.thread92, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i81
@@ -1187,11 +1181,11 @@ _ZNK6google8protobuf15FieldDescriptor5indexEv.exit.i.i: ; preds = %310, %_ZNK6go
   br i1 %.not.i3.i.i, label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i91, label %321
 
 321:                                              ; preds = %_ZNK6google8protobuf15FieldDescriptor5indexEv.exit.i.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %4, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %55, ptr %5, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %4, ptr %3, align 8, !tbaa !73
   store ptr %5, ptr %48, align 8, !tbaa !74
   store ptr %3, ptr %45, align 8, !tbaa !71
@@ -1204,7 +1198,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i88:      ; preds = %321
   br i1 %.not.i.i.i.i.i89, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i90, label %323
 
 323:                                              ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i88
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %322) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %322) #25
           to label %324 unwind label %.loopexit.split-lp96
 
 324:                                              ; preds = %323
@@ -1224,15 +1218,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i88:      ; preds = %321
   %lpad.phi99 = phi { ptr, i32 } [ %lpad.loopexit97, %.loopexit95 ], [ %lpad.loopexit.split-lp98, %.loopexit.split-lp96 ]
   store ptr null, ptr %45, align 8, !tbaa !71
   store ptr null, ptr %46, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %common.resume
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i90: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i88
   store ptr null, ptr %45, align 8, !tbaa !71
   store ptr null, ptr %46, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i91
 
 _ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i91: ; preds = %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i90, %_ZNK6google8protobuf15FieldDescriptor5indexEv.exit.i.i
@@ -1356,11 +1350,11 @@ _ZNK6google8protobuf15FieldDescriptor5indexEv.exit.i: ; preds = %19, %_ZNK6googl
   br i1 %.not.i3.i, label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i, label %31
 
 31:                                               ; preds = %_ZNK6google8protobuf15FieldDescriptor5indexEv.exit.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %4, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %1, ptr %5, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %4, ptr %3, align 8, !tbaa !73
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %5, ptr %32, align 8, !tbaa !74
@@ -1376,7 +1370,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %31
   br i1 %.not.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i, label %36
 
 36:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %35) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %35) #25
           to label %37 unwind label %38
 
 37:                                               ; preds = %36
@@ -1387,15 +1381,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %31
           cleanup
   store ptr null, ptr %33, align 8, !tbaa !71
   store ptr null, ptr %34, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %39
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %33, align 8, !tbaa !71
   store ptr null, ptr %34, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i
 
 _ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i: ; preds = %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i, %_ZNK6google8protobuf15FieldDescriptor5indexEv.exit.i
@@ -1465,7 +1459,7 @@ define hidden void @_ZN6google8protobuf8internal15SwapFieldHelper18SwapArenaStri
   br label %62
 
 26:                                               ; preds = %21
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %27 = ptrtoint ptr %12 to i64
   %28 = and i64 %27, -2
   %29 = inttoptr i64 %28 to ptr
@@ -1474,7 +1468,7 @@ define hidden void @_ZN6google8protobuf8internal15SwapFieldHelper18SwapArenaStri
   %31 = load ptr, ptr %29, align 8, !tbaa !122
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %33 = load i64, ptr %32, align 8, !tbaa !124
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 %33, ptr %6, align 8, !tbaa !125
   %34 = icmp ugt i64 %33, 15
   br i1 %34, label %.noexc.i, label %._crit_edge.i.i
@@ -1509,7 +1503,7 @@ define hidden void @_ZN6google8protobuf8internal15SwapFieldHelper18SwapArenaStri
   %44 = load ptr, ptr %7, align 8, !tbaa !122
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 %42
   store i8 0, ptr %45, align 1, !tbaa !118
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %46 = load ptr, ptr %3, align 8, !tbaa !111
   %47 = ptrtoint ptr %46 to i64
   %48 = and i64 %47, -2
@@ -1533,11 +1527,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %51
-  call void @_ZdlPv(ptr noundef %52) #27
+  call void @_ZdlPv(ptr noundef %52) #26
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %62
 
 56:                                               ; preds = %50, %41
@@ -1554,11 +1548,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit46
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i44: ; preds = %56
-  call void @_ZdlPv(ptr noundef %58) #27
+  call void @_ZdlPv(ptr noundef %58) #26
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit46
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit46: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i45, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i44
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   resume { ptr, i32 } %57
 
 62:                                               ; preds = %16, %22, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %17, %9
@@ -1801,11 +1795,11 @@ define hidden void @_ZNK6google8protobuf10Reflection4SwapEPNS0_7MessageES3_(ptr 
   %13 = tail call { ptr, ptr } %12(ptr noundef nonnull align 8 dereferenceable(16) %1)
   %14 = extractvalue { ptr, ptr } %13, 1
   %.not = icmp eq ptr %14, %0
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br i1 %.not, label %.thread, label %15
 
 15:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN6google8protobuf8internal10LogMessageC1ENS0_8LogLevelEPKci(ptr noundef nonnull align 8 dereferenceable(56) %4, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 920)
   %16 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull @.str.2)
           to label %17 unwind label %117
@@ -1850,13 +1844,13 @@ define hidden void @_ZNK6google8protobuf10Reflection4SwapEPNS0_7MessageES3_(ptr 
           to label %41 unwind label %119
 
 .thread:                                          ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.critedge33
 
 41:                                               ; preds = %40
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #25
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #25
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.critedge33
 
 .critedge33:                                      ; preds = %.thread, %41
@@ -1866,11 +1860,11 @@ define hidden void @_ZNK6google8protobuf10Reflection4SwapEPNS0_7MessageES3_(ptr 
   %45 = call { ptr, ptr } %44(ptr noundef nonnull align 8 dereferenceable(16) %2)
   %46 = extractvalue { ptr, ptr } %45, 1
   %.not30 = icmp eq ptr %46, %0
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br i1 %.not30, label %.thread64, label %47
 
 47:                                               ; preds = %.critedge33
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN6google8protobuf8internal10LogMessageC1ENS0_8LogLevelEPKci(ptr noundef nonnull align 8 dereferenceable(56) %6, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 928)
   %48 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull @.str.6)
           to label %49 unwind label %122
@@ -1915,13 +1909,13 @@ define hidden void @_ZNK6google8protobuf10Reflection4SwapEPNS0_7MessageES3_(ptr 
           to label %73 unwind label %124
 
 .thread64:                                        ; preds = %.critedge33
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.critedge37
 
 73:                                               ; preds = %72
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #25
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #25
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.critedge37
 
 .critedge37:                                      ; preds = %.thread64, %73
@@ -2026,13 +2020,13 @@ _ZNK6google8protobuf11MessageLite14GetOwningArenaEv.exit44.thread: ; preds = %98
 119:                                              ; preds = %40
   %120 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %121
 
 121:                                              ; preds = %117, %119
   %.pn = phi { ptr, i32 } [ %120, %119 ], [ %118, %117 ]
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #25
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #25
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %139
 
 122:                                              ; preds = %51, %70, %64, %62, %56, %49, %47
@@ -2043,13 +2037,13 @@ _ZNK6google8protobuf11MessageLite14GetOwningArenaEv.exit44.thread: ; preds = %98
 124:                                              ; preds = %72
   %125 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %126
 
 126:                                              ; preds = %122, %124
   %.pn27 = phi { ptr, i32 } [ %125, %124 ], [ %123, %122 ]
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #25
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #25
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %139
 
 _ZNK6google8protobuf11MessageLite14GetOwningArenaEv.exit47: ; preds = %_ZNK6google8protobuf11MessageLite14GetOwningArenaEv.exit44, %115, %111, %_ZNK6google8protobuf11MessageLite14GetOwningArenaEv.exit44.thread
@@ -2084,7 +2078,7 @@ _ZNK6google8protobuf11MessageLite14GetOwningArenaEv.exit47: ; preds = %_ZNK6goog
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZNK6google8protobuf10Reflection6HasBitERKNS0_7MessageEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %2) local_unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden noundef zeroext i1 @_ZNK6google8protobuf10Reflection6HasBitERKNS0_7MessageEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %2) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.anon.31, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -2198,11 +2192,11 @@ _ZNK6google8protobuf8internal16ReflectionSchema11HasBitIndexEPKNS0_15FieldDescri
   br i1 %.not.i.i49, label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit, label %66
 
 66:                                               ; preds = %_ZNK6google8protobuf8internal16ReflectionSchema11HasBitIndexEPKNS0_15FieldDescriptorE.exit.thread
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %8, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %2, ptr %9, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %8, ptr %7, align 8, !tbaa !73
   %67 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %9, ptr %67, align 8, !tbaa !74
@@ -2218,7 +2212,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %66
   br i1 %.not.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i, label %71
 
 71:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %70) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %70) #25
           to label %72 unwind label %73
 
 72:                                               ; preds = %71
@@ -2233,15 +2227,15 @@ common.resume:                                    ; preds = %175, %99, %73
           cleanup
   store ptr null, ptr %68, align 8, !tbaa !71
   store ptr null, ptr %69, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %common.resume
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %68, align 8, !tbaa !71
   store ptr null, ptr %69, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %_ZNK6google8protobuf8internal16ReflectionSchema11HasBitIndexEPKNS0_15FieldDescriptorE.exit.thread, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i
@@ -2272,11 +2266,11 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %_ZNK6google8pr
   br i1 %.not.i.i50, label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit54, label %92
 
 92:                                               ; preds = %90
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %5, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %2, ptr %6, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %5, ptr %4, align 8, !tbaa !73
   %93 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %6, ptr %93, align 8, !tbaa !74
@@ -2292,7 +2286,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i51:        ; preds = %92
   br i1 %.not.i.i.i.i52, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i53, label %97
 
 97:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i51
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %96) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %96) #25
           to label %98 unwind label %99
 
 98:                                               ; preds = %97
@@ -2303,15 +2297,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i51:        ; preds = %92
           cleanup
   store ptr null, ptr %94, align 8, !tbaa !71
   store ptr null, ptr %95, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %common.resume
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i53: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i51
   store ptr null, ptr %94, align 8, !tbaa !71
   store ptr null, ptr %95, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.pre = load i8, ptr %75, align 2, !tbaa !78
   %.phi.trans.insert = zext i8 %.pre to i64
   %.phi.trans.insert57 = getelementptr inbounds nuw [19 x i32], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 0, i64 %.phi.trans.insert
@@ -2420,20 +2414,20 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit54: ; preds = %90, %_ZN6goo
   br label %176
 
 167:                                              ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit54
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %10) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZN6google8protobuf8internal10LogMessageC1ENS0_8LogLevelEPKci(ptr noundef nonnull align 8 dereferenceable(56) %10, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 2538)
   %168 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef nonnull @.str.137)
           to label %169 unwind label %171
 
 169:                                              ; preds = %167
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   invoke void @_ZN6google8protobuf8internal11LogFinisheraSERNS1_10LogMessageE(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 8 dereferenceable(56) %168)
           to label %170 unwind label %173
 
 170:                                              ; preds = %169
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #25
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %10) #25
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %10) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %10) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %176
 
 171:                                              ; preds = %167
@@ -2444,13 +2438,13 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit54: ; preds = %90, %_ZN6goo
 173:                                              ; preds = %169
   %174 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %175
 
 175:                                              ; preds = %173, %171
   %.pn = phi { ptr, i32 } [ %174, %173 ], [ %172, %171 ]
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %10) #25
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %10) #25
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %10) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %common.resume
 
 176:                                              ; preds = %81, %84, %170, %161, %155, %149, %143, %137, %131, %125, %119, %111, %107, %_ZNK6google8protobuf8internal16ReflectionSchema11HasBitIndexEPKNS0_15FieldDescriptorE.exit48
@@ -2625,11 +2619,11 @@ _ZNK6google8protobuf10Reflection8ClearBitEPNS0_7MessageEPKNS0_15FieldDescriptorE
   br i1 %.not.i.i84, label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit, label %105
 
 105:                                              ; preds = %_ZNK6google8protobuf10Reflection8ClearBitEPNS0_7MessageEPKNS0_15FieldDescriptorE.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %11, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr %2, ptr %12, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %11, ptr %10, align 8, !tbaa !73
   %106 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %12, ptr %106, align 8, !tbaa !74
@@ -2645,7 +2639,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %105
   br i1 %.not.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i, label %110
 
 110:                                              ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %109) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %109) #25
           to label %111 unwind label %112
 
 111:                                              ; preds = %110
@@ -2660,15 +2654,15 @@ common.resume:                                    ; preds = %301, %236, %112
           cleanup
   store ptr null, ptr %107, align 8, !tbaa !71
   store ptr null, ptr %108, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %common.resume
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %107, align 8, !tbaa !71
   store ptr null, ptr %108, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %_ZNK6google8protobuf10Reflection8ClearBitEPNS0_7MessageEPKNS0_15FieldDescriptorE.exit, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i
@@ -2838,7 +2832,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit88: ; preds = %19
   %211 = load ptr, ptr %208, align 8, !tbaa !101
   %212 = getelementptr inbounds nuw i8, ptr %211, i64 8
   %213 = load ptr, ptr %212, align 8
-  call void %213(ptr noundef nonnull align 8 dereferenceable(16) %208) #25
+  call void %213(ptr noundef nonnull align 8 dereferenceable(16) %208) #27
   br label %214
 
 214:                                              ; preds = %204, %210, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit88
@@ -2866,11 +2860,11 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit88: ; preds = %19
   br i1 %.not.i.i89, label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit93, label %229
 
 229:                                              ; preds = %226
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %8, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %2, ptr %9, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %8, ptr %7, align 8, !tbaa !73
   %230 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %9, ptr %230, align 8, !tbaa !74
@@ -2886,7 +2880,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i90:        ; preds = %229
   br i1 %.not.i.i.i.i91, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i92, label %234
 
 234:                                              ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i90
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %233) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %233) #25
           to label %235 unwind label %236
 
 235:                                              ; preds = %234
@@ -2897,15 +2891,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i90:        ; preds = %229
           cleanup
   store ptr null, ptr %231, align 8, !tbaa !71
   store ptr null, ptr %232, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %common.resume
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i92: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i90
   store ptr null, ptr %231, align 8, !tbaa !71
   store ptr null, ptr %232, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit93
 
 _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit93: ; preds = %226, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i92
@@ -3021,11 +3015,11 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit93: ; preds = %226, %_ZN6go
   br i1 %.not.i.i.i94, label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i, label %294
 
 294:                                              ; preds = %292
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %5, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %2, ptr %6, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %5, ptr %4, align 8, !tbaa !73
   %295 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %6, ptr %295, align 8, !tbaa !74
@@ -3041,7 +3035,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i:        ; preds = %294
   br i1 %.not.i.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i, label %299
 
 299:                                              ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %298) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %298) #25
           to label %300 unwind label %301
 
 300:                                              ; preds = %299
@@ -3052,15 +3046,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i:        ; preds = %294
           cleanup
   store ptr null, ptr %296, align 8, !tbaa !71
   store ptr null, ptr %297, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %common.resume
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i
   store ptr null, ptr %296, align 8, !tbaa !71
   store ptr null, ptr %297, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.pre = load i8, ptr %238, align 2, !tbaa !78
   br label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i
 
@@ -3150,11 +3144,11 @@ define hidden void @_ZNK6google8protobuf10Reflection9SwapFieldEPNS0_7MessageES3_
   br i1 %.not.i.i, label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit, label %28
 
 28:                                               ; preds = %27
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %15, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store ptr %3, ptr %16, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr %15, ptr %14, align 8, !tbaa !73
   %29 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %16, ptr %29, align 8, !tbaa !74
@@ -3170,7 +3164,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %28
   br i1 %.not.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i, label %33
 
 33:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %32) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %32) #25
           to label %34 unwind label %35
 
 34:                                               ; preds = %33
@@ -3185,15 +3179,15 @@ common.resume:                                    ; preds = %.body, %.body104, %
           cleanup
   store ptr null, ptr %30, align 8, !tbaa !71
   store ptr null, ptr %31, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %common.resume
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %30, align 8, !tbaa !71
   store ptr null, ptr %31, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %27, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i
@@ -3346,7 +3340,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %27, %_ZN6googl
   br label %_ZN6google8protobuf8internal15SwapFieldHelper23SwapRepeatedStringFieldILb0EEEvPKNS0_10ReflectionEPNS0_7MessageES8_PKNS0_15FieldDescriptorE.exit
 
 132:                                              ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %17) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @_ZN6google8protobuf8internal10LogMessageC1ENS0_8LogLevelEPKci(ptr noundef nonnull align 8 dereferenceable(56) %17, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 708)
   %133 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull align 8 dereferenceable(56) %17, ptr noundef nonnull @.str.1)
           to label %134 unwind label %153
@@ -3357,11 +3351,11 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %27, %_ZN6googl
   br i1 %.not.i.i90, label %145, label %136
 
 136:                                              ; preds = %134
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %12, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr %3, ptr %13, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %12, ptr %11, align 8, !tbaa !73
   %137 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %13, ptr %137, align 8, !tbaa !74
@@ -3377,7 +3371,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i91:        ; preds = %136
   br i1 %.not.i.i.i.i92, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i93, label %141
 
 141:                                              ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i91
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %140) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %140) #25
           to label %142 unwind label %143
 
 142:                                              ; preds = %141
@@ -3388,15 +3382,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i91:        ; preds = %136
           cleanup
   store ptr null, ptr %138, align 8, !tbaa !71
   store ptr null, ptr %139, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.body
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i93: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i91
   store ptr null, ptr %138, align 8, !tbaa !71
   store ptr null, ptr %139, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %145
 
 145:                                              ; preds = %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i93, %134
@@ -3408,14 +3402,14 @@ _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorE
           to label %151 unwind label %153
 
 151:                                              ; preds = %145
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %18) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   invoke void @_ZN6google8protobuf8internal11LogFinisheraSERNS1_10LogMessageE(ptr noundef nonnull align 1 dereferenceable(1) %18, ptr noundef nonnull align 8 dereferenceable(56) %150)
           to label %152 unwind label %155
 
 152:                                              ; preds = %151
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %18) #25
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %17) #25
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %17) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %17) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %_ZN6google8protobuf8internal15SwapFieldHelper23SwapRepeatedStringFieldILb0EEEvPKNS0_10ReflectionEPNS0_7MessageES8_PKNS0_15FieldDescriptorE.exit
 
 153:                                              ; preds = %145, %132
@@ -3426,24 +3420,24 @@ _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorE
 155:                                              ; preds = %151
   %156 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %18) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %.body
 
 .body:                                            ; preds = %153, %143, %155
   %.pn87 = phi { ptr, i32 } [ %156, %155 ], [ %154, %153 ], [ %144, %143 ]
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %17) #25
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %17) #25
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %17) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %common.resume
 
 157:                                              ; preds = %4
   br i1 %.not.i.i, label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit99, label %158
 
 158:                                              ; preds = %157
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %9, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %3, ptr %10, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %9, ptr %8, align 8, !tbaa !73
   %159 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %10, ptr %159, align 8, !tbaa !74
@@ -3459,7 +3453,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i96:        ; preds = %158
   br i1 %.not.i.i.i.i97, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i98, label %163
 
 163:                                              ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i96
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %162) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %162) #25
           to label %164 unwind label %165
 
 164:                                              ; preds = %163
@@ -3470,15 +3464,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i96:        ; preds = %158
           cleanup
   store ptr null, ptr %160, align 8, !tbaa !71
   store ptr null, ptr %161, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %common.resume
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i98: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i96
   store ptr null, ptr %160, align 8, !tbaa !71
   store ptr null, ptr %161, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit99
 
 _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit99: ; preds = %157, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i98
@@ -3658,7 +3652,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit: ; preds = %_ZNK
   br label %_ZN6google8protobuf8internal15SwapFieldHelper23SwapRepeatedStringFieldILb0EEEvPKNS0_10ReflectionEPNS0_7MessageES8_PKNS0_15FieldDescriptorE.exit
 
 272:                                              ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit99
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %19) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   call void @_ZN6google8protobuf8internal10LogMessageC1ENS0_8LogLevelEPKci(ptr noundef nonnull align 8 dereferenceable(56) %19, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 738)
   %273 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull align 8 dereferenceable(56) %19, ptr noundef nonnull @.str.1)
           to label %274 unwind label %293
@@ -3669,11 +3663,11 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit: ; preds = %_ZNK
   br i1 %.not.i.i100, label %285, label %276
 
 276:                                              ; preds = %274
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %6, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %3, ptr %7, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !tbaa !73
   %277 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %7, ptr %277, align 8, !tbaa !74
@@ -3689,7 +3683,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i101:       ; preds = %276
   br i1 %.not.i.i.i.i102, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i103, label %281
 
 281:                                              ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i101
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %280) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %280) #25
           to label %282 unwind label %283
 
 282:                                              ; preds = %281
@@ -3700,15 +3694,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i101:       ; preds = %276
           cleanup
   store ptr null, ptr %278, align 8, !tbaa !71
   store ptr null, ptr %279, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.body104
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i103: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i101
   store ptr null, ptr %278, align 8, !tbaa !71
   store ptr null, ptr %279, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %285
 
 285:                                              ; preds = %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i103, %274
@@ -3720,14 +3714,14 @@ _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorE
           to label %291 unwind label %293
 
 291:                                              ; preds = %285
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %20) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   invoke void @_ZN6google8protobuf8internal11LogFinisheraSERNS1_10LogMessageE(ptr noundef nonnull align 1 dereferenceable(1) %20, ptr noundef nonnull align 8 dereferenceable(56) %290)
           to label %292 unwind label %295
 
 292:                                              ; preds = %291
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %20) #25
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %19) #25
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %19) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %19) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %_ZN6google8protobuf8internal15SwapFieldHelper23SwapRepeatedStringFieldILb0EEEvPKNS0_10ReflectionEPNS0_7MessageES8_PKNS0_15FieldDescriptorE.exit
 
 293:                                              ; preds = %285, %272
@@ -3738,13 +3732,13 @@ _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorE
 295:                                              ; preds = %291
   %296 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %20) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %.body104
 
 .body104:                                         ; preds = %293, %283, %295
   %.pn = phi { ptr, i32 } [ %296, %295 ], [ %294, %293 ], [ %284, %283 ]
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %19) #25
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %19) #25
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %19) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %common.resume
 
 _ZN6google8protobuf8internal15SwapFieldHelper23SwapRepeatedStringFieldILb0EEEvPKNS0_10ReflectionEPNS0_7MessageES8_PKNS0_15FieldDescriptorE.exit: ; preds = %271, %270, %130, %117, %172, %182, %192, %202, %212, %222, %232, %242, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit, %292, %42, %50, %58, %66, %74, %82, %90, %98, %131, %152
@@ -3776,11 +3770,11 @@ define linkonce_odr hidden void @_ZN6google8protobuf8internal15SwapFieldHelper24
   br i1 %.not.i.i.i, label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i, label %10
 
 10:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %6, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %3, ptr %7, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !tbaa !73
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %7, ptr %11, align 8, !tbaa !74
@@ -3796,7 +3790,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i:        ; preds = %10
   br i1 %.not.i.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i, label %15
 
 15:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %14) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %14) #25
           to label %16 unwind label %17
 
 16:                                               ; preds = %15
@@ -3807,15 +3801,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i:        ; preds = %10
           cleanup
   store ptr null, ptr %12, align 8, !tbaa !71
   store ptr null, ptr %13, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %18
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i
   store ptr null, ptr %12, align 8, !tbaa !71
   store ptr null, ptr %13, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i
 
 _ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i: ; preds = %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i, %4
@@ -3924,11 +3918,11 @@ define hidden void @_ZNK6google8protobuf10Reflection22UnsafeShallowSwapFieldEPNS
   br i1 %.not.i.i61, label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit, label %26
 
 26:                                               ; preds = %25
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %15, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store ptr %3, ptr %16, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr %15, ptr %14, align 8, !tbaa !73
   %27 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %16, ptr %27, align 8, !tbaa !74
@@ -3944,7 +3938,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %26
   br i1 %.not.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i, label %31
 
 31:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %30) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %30) #25
           to label %32 unwind label %33
 
 32:                                               ; preds = %31
@@ -3959,15 +3953,15 @@ common.resume:                                    ; preds = %.body, %90, %60, %3
           cleanup
   store ptr null, ptr %28, align 8, !tbaa !71
   store ptr null, ptr %29, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %common.resume
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %28, align 8, !tbaa !71
   store ptr null, ptr %29, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %25, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i
@@ -3999,11 +3993,11 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %25, %_ZN6googl
   br i1 %.not.i.i56, label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit60, label %53
 
 53:                                               ; preds = %51
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %12, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr %3, ptr %13, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %12, ptr %11, align 8, !tbaa !73
   %54 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %13, ptr %54, align 8, !tbaa !74
@@ -4019,7 +4013,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i57:        ; preds = %53
   br i1 %.not.i.i.i.i58, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i59, label %58
 
 58:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i57
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %57) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %57) #25
           to label %59 unwind label %60
 
 59:                                               ; preds = %58
@@ -4030,15 +4024,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i57:        ; preds = %53
           cleanup
   store ptr null, ptr %55, align 8, !tbaa !71
   store ptr null, ptr %56, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %common.resume
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i59: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i57
   store ptr null, ptr %55, align 8, !tbaa !71
   store ptr null, ptr %56, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %.pre = load i8, ptr %35, align 2, !tbaa !78
   %.phi.trans.insert = zext i8 %.pre to i64
   %.phi.trans.insert78 = getelementptr inbounds nuw [19 x i32], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 0, i64 %.phi.trans.insert
@@ -4062,7 +4056,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit60: ; preds = %51, %_ZN6goo
   %71 = getelementptr inbounds nuw i8, ptr %2, i64 %70
   %72 = zext i32 %67 to i64
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 %72
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(32) %73, ptr noundef nonnull align 8 dereferenceable(32) %71) #25
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(32) %73, ptr noundef nonnull align 8 dereferenceable(32) %71) #27
   br label %_ZN6google8protobuf8internal15SwapFieldHelper15SwapStringFieldILb1EEEvPKNS0_10ReflectionEPNS0_7MessageES8_PKNS0_15FieldDescriptorE.exit
 
 74:                                               ; preds = %64
@@ -4085,11 +4079,11 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit60: ; preds = %51, %_ZN6goo
   br i1 %.not.i.i61, label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit65, label %83
 
 83:                                               ; preds = %82
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %9, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %3, ptr %10, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %9, ptr %8, align 8, !tbaa !73
   %84 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %10, ptr %84, align 8, !tbaa !74
@@ -4105,7 +4099,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i62:        ; preds = %83
   br i1 %.not.i.i.i.i63, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i64, label %88
 
 88:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i62
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %87) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %87) #25
           to label %89 unwind label %90
 
 89:                                               ; preds = %88
@@ -4116,15 +4110,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i62:        ; preds = %83
           cleanup
   store ptr null, ptr %85, align 8, !tbaa !71
   store ptr null, ptr %86, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %common.resume
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i64: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i62
   store ptr null, ptr %85, align 8, !tbaa !71
   store ptr null, ptr %86, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit65
 
 _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit65: ; preds = %82, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i64
@@ -4287,7 +4281,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit65: ; preds = %82, %_ZN6goo
   br label %_ZN6google8protobuf8internal15SwapFieldHelper15SwapStringFieldILb1EEEvPKNS0_10ReflectionEPNS0_7MessageES8_PKNS0_15FieldDescriptorE.exit
 
 184:                                              ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit65
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %17) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @_ZN6google8protobuf8internal10LogMessageC1ENS0_8LogLevelEPKci(ptr noundef nonnull align 8 dereferenceable(56) %17, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 785)
   %185 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull align 8 dereferenceable(56) %17, ptr noundef nonnull @.str.1)
           to label %186 unwind label %205
@@ -4298,11 +4292,11 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit65: ; preds = %82, %_ZN6goo
   br i1 %.not.i.i73, label %197, label %188
 
 188:                                              ; preds = %186
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %6, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %3, ptr %7, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !tbaa !73
   %189 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %7, ptr %189, align 8, !tbaa !74
@@ -4318,7 +4312,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i74:        ; preds = %188
   br i1 %.not.i.i.i.i75, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i76, label %193
 
 193:                                              ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i74
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %192) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %192) #25
           to label %194 unwind label %195
 
 194:                                              ; preds = %193
@@ -4329,15 +4323,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i74:        ; preds = %188
           cleanup
   store ptr null, ptr %190, align 8, !tbaa !71
   store ptr null, ptr %191, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.body
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i76: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i74
   store ptr null, ptr %190, align 8, !tbaa !71
   store ptr null, ptr %191, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %197
 
 197:                                              ; preds = %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i76, %186
@@ -4349,14 +4343,14 @@ _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorE
           to label %203 unwind label %205
 
 203:                                              ; preds = %197
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %18) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   invoke void @_ZN6google8protobuf8internal11LogFinisheraSERNS1_10LogMessageE(ptr noundef nonnull align 1 dereferenceable(1) %18, ptr noundef nonnull align 8 dereferenceable(56) %202)
           to label %204 unwind label %207
 
 204:                                              ; preds = %203
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %18) #25
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %17) #25
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %17) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %17) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %_ZN6google8protobuf8internal15SwapFieldHelper15SwapStringFieldILb1EEEvPKNS0_10ReflectionEPNS0_7MessageES8_PKNS0_15FieldDescriptorE.exit
 
 _ZN6google8protobuf8internal15SwapFieldHelper15SwapStringFieldILb1EEEvPKNS0_10ReflectionEPNS0_7MessageES8_PKNS0_15FieldDescriptorE.exit: ; preds = %74, %68, %41, %81, %204, %183, %161, %153, %145, %137, %129, %121, %113, %105, %97
@@ -4370,13 +4364,13 @@ _ZN6google8protobuf8internal15SwapFieldHelper15SwapStringFieldILb1EEEvPKNS0_10Re
 207:                                              ; preds = %203
   %208 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %18) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %.body
 
 .body:                                            ; preds = %205, %195, %207
   %.pn = phi { ptr, i32 } [ %208, %207 ], [ %206, %205 ], [ %196, %195 ]
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %17) #25
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %17) #25
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %17) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %common.resume
 }
 
@@ -4391,11 +4385,11 @@ define linkonce_odr hidden void @_ZN6google8protobuf8internal15SwapFieldHelper24
   br i1 %.not.i.i.i, label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i, label %10
 
 10:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %6, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %3, ptr %7, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !tbaa !73
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %7, ptr %11, align 8, !tbaa !74
@@ -4411,7 +4405,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i:        ; preds = %10
   br i1 %.not.i.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i, label %15
 
 15:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %14) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %14) #25
           to label %16 unwind label %17
 
 16:                                               ; preds = %15
@@ -4422,15 +4416,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i:        ; preds = %10
           cleanup
   store ptr null, ptr %12, align 8, !tbaa !71
   store ptr null, ptr %13, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %18
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i
   store ptr null, ptr %12, align 8, !tbaa !71
   store ptr null, ptr %13, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i
 
 _ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i: ; preds = %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i, %4
@@ -4732,11 +4726,11 @@ define linkonce_odr hidden void @_ZNK6google8protobuf10Reflection14SwapFieldsImp
   %15 = tail call { ptr, ptr } %14(ptr noundef nonnull align 8 dereferenceable(16) %1)
   %16 = extractvalue { ptr, ptr } %15, 1
   %.not = icmp eq ptr %16, %0
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br i1 %.not, label %.thread, label %17
 
 17:                                               ; preds = %11
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN6google8protobuf8internal10LogMessageC1ENS0_8LogLevelEPKci(ptr noundef nonnull align 8 dereferenceable(56) %5, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 977)
   %18 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull @.str.2)
           to label %19 unwind label %87
@@ -4781,13 +4775,13 @@ define linkonce_odr hidden void @_ZNK6google8protobuf10Reflection14SwapFieldsImp
           to label %43 unwind label %89
 
 .thread:                                          ; preds = %11
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.critedge65
 
 43:                                               ; preds = %42
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #25
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #25
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.critedge65
 
 .critedge65:                                      ; preds = %.thread, %43
@@ -4797,11 +4791,11 @@ define linkonce_odr hidden void @_ZNK6google8protobuf10Reflection14SwapFieldsImp
   %47 = call { ptr, ptr } %46(ptr noundef nonnull align 8 dereferenceable(16) %2)
   %48 = extractvalue { ptr, ptr } %47, 1
   %.not57 = icmp eq ptr %48, %0
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   br i1 %.not57, label %.thread84, label %49
 
 49:                                               ; preds = %.critedge65
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN6google8protobuf8internal10LogMessageC1ENS0_8LogLevelEPKci(ptr noundef nonnull align 8 dereferenceable(56) %7, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 985)
   %50 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull @.str.6)
           to label %51 unwind label %92
@@ -4846,17 +4840,17 @@ define linkonce_odr hidden void @_ZNK6google8protobuf10Reflection14SwapFieldsImp
           to label %75 unwind label %94
 
 .thread84:                                        ; preds = %.critedge65
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.critedge69
 
 75:                                               ; preds = %74
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #25
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #25
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.critedge69
 
 .critedge69:                                      ; preds = %.thread84, %75
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %76 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 0, ptr %76, align 8, !tbaa !178
   %77 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -4883,13 +4877,13 @@ define linkonce_odr hidden void @_ZNK6google8protobuf10Reflection14SwapFieldsImp
 89:                                               ; preds = %42
   %90 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %91
 
 91:                                               ; preds = %87, %89
   %.pn = phi { ptr, i32 } [ %90, %89 ], [ %88, %87 ]
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #25
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #25
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %191
 
 92:                                               ; preds = %53, %72, %66, %64, %58, %51, %49
@@ -4900,13 +4894,13 @@ define linkonce_odr hidden void @_ZNK6google8protobuf10Reflection14SwapFieldsImp
 94:                                               ; preds = %74
   %95 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %96
 
 96:                                               ; preds = %92, %94
   %.pn55 = phi { ptr, i32 } [ %95, %94 ], [ %93, %92 ]
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #25
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7) #25
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %191
 
 97:                                               ; preds = %.critedge69
@@ -4941,7 +4935,7 @@ define linkonce_odr hidden void @_ZNK6google8protobuf10Reflection14SwapFieldsImp
   unreachable
 
 _ZNSt3setIiSt4lessIiESaIiEED2Ev.exit:             ; preds = %._crit_edge
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %189
 
 112:                                              ; preds = %.critedge69, %97
@@ -5089,7 +5083,7 @@ _ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE10_M_insert_IRKiNS5_11_Alloc_nod
 .noexc:                                           ; preds = %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE10_M_insert_IRKiNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIiEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 32
   store i32 %150, ptr %175, align 4, !tbaa !15
-  call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %173, ptr noundef nonnull %174, ptr noundef nonnull %.sroa.4.0.i.ph.i.i, ptr noundef nonnull align 8 dereferenceable(32) %76) #25
+  call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %173, ptr noundef nonnull %174, ptr noundef nonnull %.sroa.4.0.i.ph.i.i, ptr noundef nonnull align 8 dereferenceable(32) %76) #27
   %176 = load i64, ptr %80, align 8, !tbaa !186
   %177 = add i64 %176, 1
   store i64 %177, ptr %80, align 8, !tbaa !186
@@ -5134,8 +5128,8 @@ _ZNK6google8protobuf8internal16ReflectionSchema11InRealOneofEPKNS0_15FieldDescri
 
 190:                                              ; preds = %126, %181, %112
   %.pn60.pn = phi { ptr, i32 } [ %113, %112 ], [ %127, %126 ], [ %182, %181 ]
-  call void @_ZNSt3setIiSt4lessIiESaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %9) #25
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9) #25
+  call void @_ZNSt3setIiSt4lessIiESaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %9) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %191
 
 191:                                              ; preds = %96, %91, %190
@@ -5166,11 +5160,11 @@ define linkonce_odr hidden void @_ZNK6google8protobuf10Reflection14SwapFieldsImp
   %15 = tail call { ptr, ptr } %14(ptr noundef nonnull align 8 dereferenceable(16) %1)
   %16 = extractvalue { ptr, ptr } %15, 1
   %.not = icmp eq ptr %16, %0
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br i1 %.not, label %.thread, label %17
 
 17:                                               ; preds = %11
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN6google8protobuf8internal10LogMessageC1ENS0_8LogLevelEPKci(ptr noundef nonnull align 8 dereferenceable(56) %5, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 977)
   %18 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull @.str.2)
           to label %19 unwind label %87
@@ -5215,13 +5209,13 @@ define linkonce_odr hidden void @_ZNK6google8protobuf10Reflection14SwapFieldsImp
           to label %43 unwind label %89
 
 .thread:                                          ; preds = %11
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.critedge64
 
 43:                                               ; preds = %42
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #25
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #25
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.critedge64
 
 .critedge64:                                      ; preds = %.thread, %43
@@ -5231,11 +5225,11 @@ define linkonce_odr hidden void @_ZNK6google8protobuf10Reflection14SwapFieldsImp
   %47 = call { ptr, ptr } %46(ptr noundef nonnull align 8 dereferenceable(16) %2)
   %48 = extractvalue { ptr, ptr } %47, 1
   %.not56 = icmp eq ptr %48, %0
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   br i1 %.not56, label %.thread83, label %49
 
 49:                                               ; preds = %.critedge64
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN6google8protobuf8internal10LogMessageC1ENS0_8LogLevelEPKci(ptr noundef nonnull align 8 dereferenceable(56) %7, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 985)
   %50 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull @.str.6)
           to label %51 unwind label %92
@@ -5280,17 +5274,17 @@ define linkonce_odr hidden void @_ZNK6google8protobuf10Reflection14SwapFieldsImp
           to label %75 unwind label %94
 
 .thread83:                                        ; preds = %.critedge64
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.critedge68
 
 75:                                               ; preds = %74
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #25
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #25
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.critedge68
 
 .critedge68:                                      ; preds = %.thread83, %75
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %76 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 0, ptr %76, align 8, !tbaa !178
   %77 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -5317,13 +5311,13 @@ define linkonce_odr hidden void @_ZNK6google8protobuf10Reflection14SwapFieldsImp
 89:                                               ; preds = %42
   %90 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %91
 
 91:                                               ; preds = %87, %89
   %.pn = phi { ptr, i32 } [ %90, %89 ], [ %88, %87 ]
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #25
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #25
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %191
 
 92:                                               ; preds = %53, %72, %66, %64, %58, %51, %49
@@ -5334,13 +5328,13 @@ define linkonce_odr hidden void @_ZNK6google8protobuf10Reflection14SwapFieldsImp
 94:                                               ; preds = %74
   %95 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %96
 
 96:                                               ; preds = %92, %94
   %.pn54 = phi { ptr, i32 } [ %95, %94 ], [ %93, %92 ]
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #25
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7) #25
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %191
 
 97:                                               ; preds = %.critedge68
@@ -5375,7 +5369,7 @@ define linkonce_odr hidden void @_ZNK6google8protobuf10Reflection14SwapFieldsImp
   unreachable
 
 _ZNSt3setIiSt4lessIiESaIiEED2Ev.exit:             ; preds = %._crit_edge
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %189
 
 112:                                              ; preds = %.critedge68, %97
@@ -5523,7 +5517,7 @@ _ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE10_M_insert_IRKiNS5_11_Alloc_nod
 .noexc:                                           ; preds = %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE10_M_insert_IRKiNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIiEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 32
   store i32 %150, ptr %175, align 4, !tbaa !15
-  call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %173, ptr noundef nonnull %174, ptr noundef nonnull %.sroa.4.0.i.ph.i.i, ptr noundef nonnull align 8 dereferenceable(32) %76) #25
+  call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %173, ptr noundef nonnull %174, ptr noundef nonnull %.sroa.4.0.i.ph.i.i, ptr noundef nonnull align 8 dereferenceable(32) %76) #27
   %176 = load i64, ptr %80, align 8, !tbaa !186
   %177 = add i64 %176, 1
   store i64 %177, ptr %80, align 8, !tbaa !186
@@ -5568,8 +5562,8 @@ _ZNK6google8protobuf8internal16ReflectionSchema11InRealOneofEPKNS0_15FieldDescri
 
 190:                                              ; preds = %126, %181, %112
   %.pn59.pn = phi { ptr, i32 } [ %113, %112 ], [ %127, %126 ], [ %182, %181 ]
-  call void @_ZNSt3setIiSt4lessIiESaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %9) #25
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9) #25
+  call void @_ZNSt3setIiSt4lessIiESaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %9) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %191
 
 191:                                              ; preds = %96, %91, %190
@@ -5683,7 +5677,7 @@ _ZNK6google8protobuf8internal16ReflectionSchema11InRealOneofEPKNS0_15FieldDescri
 define internal fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflectionUsageErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcS9_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.google::protobuf::internal::LogMessage", align 8
   %6 = alloca %"class.google::protobuf::internal::LogFinisher", align 1
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN6google8protobuf8internal10LogMessageC1ENS0_8LogLevelEPKci(ptr noundef nonnull align 8 dereferenceable(56) %5, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 127)
   %7 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull @.str.106)
           to label %8 unwind label %30
@@ -5723,14 +5717,14 @@ define internal fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflection
           to label %28 unwind label %30
 
 28:                                               ; preds = %26
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   invoke void @_ZN6google8protobuf8internal11LogFinisheraSERNS1_10LogMessageE(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(56) %27)
           to label %29 unwind label %32
 
 29:                                               ; preds = %28
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #25
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #25
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
 30:                                               ; preds = %26, %24, %19, %17, %12, %10, %8, %4
@@ -5741,13 +5735,13 @@ define internal fastcc void @_ZN6google8protobuf12_GLOBAL__N_126ReportReflection
 32:                                               ; preds = %28
   %33 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %34
 
 34:                                               ; preds = %32, %30
   %.pn = phi { ptr, i32 } [ %33, %32 ], [ %31, %30 ]
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #25
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #25
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn
 }
 
@@ -5816,7 +5810,7 @@ define linkonce_odr hidden void @_ZNK6google8protobuf10Reflection14SwapOneofFiel
   %63 = load i32, ptr %62, align 4, !tbaa !15
   %64 = getelementptr inbounds nuw i8, ptr %2, i64 %61
   %65 = load i32, ptr %64, align 4, !tbaa !15
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %47) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %47)
   %66 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %47, i64 24
   store ptr %67, ptr %66, align 8, !tbaa !119
@@ -5838,11 +5832,11 @@ define linkonce_odr hidden void @_ZNK6google8protobuf10Reflection14SwapOneofFiel
   br i1 %.not.i.i.i, label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i, label %75
 
 75:                                               ; preds = %72
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %43) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %43)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %43, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %44) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %44)
   store ptr %71, ptr %44, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %42) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %42)
   store ptr %43, ptr %42, align 8, !tbaa !73
   %76 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store ptr %44, ptr %76, align 8, !tbaa !74
@@ -5858,7 +5852,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i:        ; preds = %75
   br i1 %.not.i.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i, label %80
 
 80:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %79) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %79) #25
           to label %81 unwind label %82
 
 81:                                               ; preds = %80
@@ -5869,15 +5863,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i:        ; preds = %75
           cleanup
   store ptr null, ptr %77, align 8, !tbaa !71
   store ptr null, ptr %78, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %42) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
   br label %.body
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i
   store ptr null, ptr %77, align 8, !tbaa !71
   store ptr null, ptr %78, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %42) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %44) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %43) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
+  call void @llvm.lifetime.end.p0(ptr nonnull %44)
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
   br label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i
 
 _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i: ; preds = %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i, %72
@@ -6016,7 +6010,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i: ; preds = %_ZN6google8p
   br label %_ZN6google8protobuf12_GLOBAL__N_115OneofFieldMoverILb1EEclIZNKS0_10Reflection14SwapOneofFieldILb1EEEvPNS0_7MessageES8_PKNS0_15OneofDescriptorEE14MessageWrapperZNKS6_ILb1EEEvS8_S8_SB_E15LocalVarWrapperEEvPKNS0_15FieldDescriptorEPT_PT0_.exit
 
 144:                                              ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %45) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %45)
   invoke void @_ZN6google8protobuf8internal10LogMessageC1ENS0_8LogLevelEPKci(ptr noundef nonnull align 8 dereferenceable(56) %45, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 447)
           to label %.noexc52 unwind label %189
 
@@ -6030,11 +6024,11 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i: ; preds = %_ZN6google8p
   br i1 %.not.i.i27.i, label %157, label %148
 
 148:                                              ; preds = %146
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %40) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %40)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %40, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %41) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %41)
   store ptr %71, ptr %41, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %39) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %39)
   store ptr %40, ptr %39, align 8, !tbaa !73
   %149 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store ptr %41, ptr %149, align 8, !tbaa !74
@@ -6050,7 +6044,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i28.i:      ; preds = %148
   br i1 %.not.i.i.i.i29.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i30.i, label %153
 
 153:                                              ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i28.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %152) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %152) #25
           to label %154 unwind label %155
 
 154:                                              ; preds = %153
@@ -6061,15 +6055,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i28.i:      ; preds = %148
           cleanup
   store ptr null, ptr %150, align 8, !tbaa !71
   store ptr null, ptr %151, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %39) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
   br label %.body.i
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i30.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i28.i
   store ptr null, ptr %150, align 8, !tbaa !71
   store ptr null, ptr %151, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %39) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %41) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %40) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
   br label %157
 
 157:                                              ; preds = %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i30.i, %146
@@ -6081,14 +6075,14 @@ _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorE
           to label %163 unwind label %165
 
 163:                                              ; preds = %157
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %46) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %46)
   invoke void @_ZN6google8protobuf8internal11LogFinisheraSERNS1_10LogMessageE(ptr noundef nonnull align 1 dereferenceable(1) %46, ptr noundef nonnull align 8 dereferenceable(56) %162)
           to label %164 unwind label %167
 
 164:                                              ; preds = %163
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %46) #25
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %45) #25
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %45) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %46)
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %45) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
   br label %_ZN6google8protobuf12_GLOBAL__N_115OneofFieldMoverILb1EEclIZNKS0_10Reflection14SwapOneofFieldILb1EEEvPNS0_7MessageES8_PKNS0_15OneofDescriptorEE14MessageWrapperZNKS6_ILb1EEEvS8_S8_SB_E15LocalVarWrapperEEvPKNS0_15FieldDescriptorEPT_PT0_.exit
 
 165:                                              ; preds = %157, %.noexc52
@@ -6099,13 +6093,13 @@ _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorE
 167:                                              ; preds = %163
   %168 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %46) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %46)
   br label %.body.i
 
 .body.i:                                          ; preds = %167, %165, %155
   %.pn.i = phi { ptr, i32 } [ %168, %167 ], [ %166, %165 ], [ %156, %155 ]
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %45) #25
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %45) #25
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %45) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
   br label %.body
 
 _ZN6google8protobuf12_GLOBAL__N_115OneofFieldMoverILb1EEclIZNKS0_10Reflection14SwapOneofFieldILb1EEEvPNS0_7MessageES8_PKNS0_15OneofDescriptorEE14MessageWrapperZNKS6_ILb1EEEvS8_S8_SB_E15LocalVarWrapperEEvPKNS0_15FieldDescriptorEPT_PT0_.exit: ; preds = %.noexc, %.noexc43, %.noexc44, %.noexc45, %.noexc46, %.noexc47, %.noexc48, %.noexc49, %.noexc50, %.noexc51, %164
@@ -6155,11 +6149,11 @@ _ZN6google8protobuf12_GLOBAL__N_115OneofFieldMoverILb1EEclIZNKS0_10Reflection14S
   br i1 %.not.i.i.i53, label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i59, label %198
 
 198:                                              ; preds = %195
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %35) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %35, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %36) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
   store ptr %194, ptr %36, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %34) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
   store ptr %35, ptr %34, align 8, !tbaa !73
   %199 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store ptr %36, ptr %199, align 8, !tbaa !74
@@ -6175,7 +6169,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i56:      ; preds = %198
   br i1 %.not.i.i.i.i.i57, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i58, label %203
 
 203:                                              ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i56
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %202) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %202) #25
           to label %204 unwind label %205
 
 204:                                              ; preds = %203
@@ -6186,15 +6180,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i56:      ; preds = %198
           cleanup
   store ptr null, ptr %200, align 8, !tbaa !71
   store ptr null, ptr %201, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %34) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
   br label %.body
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i58: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i56
   store ptr null, ptr %200, align 8, !tbaa !71
   store ptr null, ptr %201, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %34) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %36) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %35) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
   br label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i59
 
 _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i59: ; preds = %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i58, %195
@@ -6225,13 +6219,13 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i59: ; preds = %_ZN6google
   %215 = zext i32 %214 to i64
   %216 = getelementptr inbounds nuw i8, ptr %2, i64 %215
   %217 = load i32, ptr %216, align 4, !tbaa !15
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %33)
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
   store i32 %217, ptr %33, align 4, !tbaa !15
   invoke void @_ZNK6google8protobuf10Reflection8SetFieldIiEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %1, ptr noundef nonnull %194, ptr noundef nonnull align 4 dereferenceable(4) %33)
           to label %.noexc71 unwind label %312
 
 .noexc71:                                         ; preds = %.noexc70
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %33)
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
   br label %_ZN6google8protobuf12_GLOBAL__N_115OneofFieldMoverILb1EEclIZNKS0_10Reflection14SwapOneofFieldILb1EEEvPNS0_7MessageES8_PKNS0_15OneofDescriptorEE14MessageWrapperSC_EEvPKNS0_15FieldDescriptorEPT_PT0_.exit
 
 218:                                              ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i59
@@ -6243,13 +6237,13 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i59: ; preds = %_ZN6google
   %221 = zext i32 %220 to i64
   %222 = getelementptr inbounds nuw i8, ptr %2, i64 %221
   %223 = load i64, ptr %222, align 8, !tbaa !125
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %32)
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
   store i64 %223, ptr %32, align 8, !tbaa !125
   invoke void @_ZNK6google8protobuf10Reflection8SetFieldIlEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %1, ptr noundef nonnull %194, ptr noundef nonnull align 8 dereferenceable(8) %32)
           to label %.noexc73 unwind label %312
 
 .noexc73:                                         ; preds = %.noexc72
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32)
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
   br label %_ZN6google8protobuf12_GLOBAL__N_115OneofFieldMoverILb1EEclIZNKS0_10Reflection14SwapOneofFieldILb1EEEvPNS0_7MessageES8_PKNS0_15OneofDescriptorEE14MessageWrapperSC_EEvPKNS0_15FieldDescriptorEPT_PT0_.exit
 
 224:                                              ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i59
@@ -6261,13 +6255,13 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i59: ; preds = %_ZN6google
   %227 = zext i32 %226 to i64
   %228 = getelementptr inbounds nuw i8, ptr %2, i64 %227
   %229 = load i32, ptr %228, align 4, !tbaa !15
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %31)
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
   store i32 %229, ptr %31, align 4, !tbaa !15
   invoke void @_ZNK6google8protobuf10Reflection8SetFieldIjEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %1, ptr noundef nonnull %194, ptr noundef nonnull align 4 dereferenceable(4) %31)
           to label %.noexc75 unwind label %312
 
 .noexc75:                                         ; preds = %.noexc74
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
   br label %_ZN6google8protobuf12_GLOBAL__N_115OneofFieldMoverILb1EEclIZNKS0_10Reflection14SwapOneofFieldILb1EEEvPNS0_7MessageES8_PKNS0_15OneofDescriptorEE14MessageWrapperSC_EEvPKNS0_15FieldDescriptorEPT_PT0_.exit
 
 230:                                              ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i59
@@ -6279,13 +6273,13 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i59: ; preds = %_ZN6google
   %233 = zext i32 %232 to i64
   %234 = getelementptr inbounds nuw i8, ptr %2, i64 %233
   %235 = load i64, ptr %234, align 8, !tbaa !125
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %30)
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   store i64 %235, ptr %30, align 8, !tbaa !125
   invoke void @_ZNK6google8protobuf10Reflection8SetFieldImEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %1, ptr noundef nonnull %194, ptr noundef nonnull align 8 dereferenceable(8) %30)
           to label %.noexc77 unwind label %312
 
 .noexc77:                                         ; preds = %.noexc76
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
   br label %_ZN6google8protobuf12_GLOBAL__N_115OneofFieldMoverILb1EEclIZNKS0_10Reflection14SwapOneofFieldILb1EEEvPNS0_7MessageES8_PKNS0_15OneofDescriptorEE14MessageWrapperSC_EEvPKNS0_15FieldDescriptorEPT_PT0_.exit
 
 236:                                              ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i59
@@ -6297,13 +6291,13 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i59: ; preds = %_ZN6google
   %239 = zext i32 %238 to i64
   %240 = getelementptr inbounds nuw i8, ptr %2, i64 %239
   %241 = load float, ptr %240, align 4, !tbaa !132
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %29)
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   store float %241, ptr %29, align 4, !tbaa !132
   invoke void @_ZNK6google8protobuf10Reflection8SetFieldIfEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %1, ptr noundef nonnull %194, ptr noundef nonnull align 4 dereferenceable(4) %29)
           to label %.noexc79 unwind label %312
 
 .noexc79:                                         ; preds = %.noexc78
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   br label %_ZN6google8protobuf12_GLOBAL__N_115OneofFieldMoverILb1EEclIZNKS0_10Reflection14SwapOneofFieldILb1EEEvPNS0_7MessageES8_PKNS0_15OneofDescriptorEE14MessageWrapperSC_EEvPKNS0_15FieldDescriptorEPT_PT0_.exit
 
 242:                                              ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i59
@@ -6315,13 +6309,13 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i59: ; preds = %_ZN6google
   %245 = zext i32 %244 to i64
   %246 = getelementptr inbounds nuw i8, ptr %2, i64 %245
   %247 = load double, ptr %246, align 8, !tbaa !134
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28)
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   store double %247, ptr %28, align 8, !tbaa !134
   invoke void @_ZNK6google8protobuf10Reflection8SetFieldIdEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %1, ptr noundef nonnull %194, ptr noundef nonnull align 8 dereferenceable(8) %28)
           to label %.noexc81 unwind label %312
 
 .noexc81:                                         ; preds = %.noexc80
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %_ZN6google8protobuf12_GLOBAL__N_115OneofFieldMoverILb1EEclIZNKS0_10Reflection14SwapOneofFieldILb1EEEvPNS0_7MessageES8_PKNS0_15OneofDescriptorEE14MessageWrapperSC_EEvPKNS0_15FieldDescriptorEPT_PT0_.exit
 
 248:                                              ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i59
@@ -6333,13 +6327,13 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i59: ; preds = %_ZN6google
   %251 = zext i32 %250 to i64
   %252 = getelementptr inbounds nuw i8, ptr %2, i64 %251
   %253 = load i8, ptr %252, align 1, !tbaa !131, !range !68, !noundef !69
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %27)
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   store i8 %253, ptr %27, align 1, !tbaa !131
   invoke void @_ZNK6google8protobuf10Reflection8SetFieldIbEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %1, ptr noundef nonnull %194, ptr noundef nonnull align 1 dereferenceable(1) %27)
           to label %.noexc83 unwind label %312
 
 .noexc83:                                         ; preds = %.noexc82
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %_ZN6google8protobuf12_GLOBAL__N_115OneofFieldMoverILb1EEclIZNKS0_10Reflection14SwapOneofFieldILb1EEEvPNS0_7MessageES8_PKNS0_15OneofDescriptorEE14MessageWrapperSC_EEvPKNS0_15FieldDescriptorEPT_PT0_.exit
 
 254:                                              ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i59
@@ -6351,13 +6345,13 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i59: ; preds = %_ZN6google
   %257 = zext i32 %256 to i64
   %258 = getelementptr inbounds nuw i8, ptr %2, i64 %257
   %259 = load i32, ptr %258, align 4, !tbaa !15
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   store i32 %259, ptr %26, align 4, !tbaa !15
   invoke void @_ZNK6google8protobuf10Reflection8SetFieldIiEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %1, ptr noundef nonnull %194, ptr noundef nonnull align 4 dereferenceable(4) %26)
           to label %.noexc85 unwind label %312
 
 .noexc85:                                         ; preds = %.noexc84
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br label %_ZN6google8protobuf12_GLOBAL__N_115OneofFieldMoverILb1EEclIZNKS0_10Reflection14SwapOneofFieldILb1EEEvPNS0_7MessageES8_PKNS0_15OneofDescriptorEE14MessageWrapperSC_EEvPKNS0_15FieldDescriptorEPT_PT0_.exit
 
 260:                                              ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i59
@@ -6377,17 +6371,17 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i59: ; preds = %_ZN6google
   %265 = zext i32 %264 to i64
   %266 = getelementptr inbounds nuw i8, ptr %2, i64 %265
   %.sroa.0.0.copyload.i.i60 = load ptr, ptr %266, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store ptr %.sroa.0.0.copyload.i.i60, ptr %25, align 8
   invoke void @_ZNK6google8protobuf10Reflection8SetFieldINS0_8internal14ArenaStringPtrEEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %1, ptr noundef nonnull %194, ptr noundef nonnull align 8 dereferenceable(8) %25)
           to label %.noexc89 unwind label %312
 
 .noexc89:                                         ; preds = %.noexc88
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %_ZN6google8protobuf12_GLOBAL__N_115OneofFieldMoverILb1EEclIZNKS0_10Reflection14SwapOneofFieldILb1EEEvPNS0_7MessageES8_PKNS0_15OneofDescriptorEE14MessageWrapperSC_EEvPKNS0_15FieldDescriptorEPT_PT0_.exit
 
 267:                                              ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i59
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %37) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
   invoke void @_ZN6google8protobuf8internal10LogMessageC1ENS0_8LogLevelEPKci(ptr noundef nonnull align 8 dereferenceable(56) %37, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 447)
           to label %.noexc90 unwind label %312
 
@@ -6401,11 +6395,11 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i59: ; preds = %_ZN6google
   br i1 %.not.i.i27.i64, label %280, label %271
 
 271:                                              ; preds = %269
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %23, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   store ptr %194, ptr %24, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %22) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   store ptr %23, ptr %22, align 8, !tbaa !73
   %272 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr %24, ptr %272, align 8, !tbaa !74
@@ -6421,7 +6415,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i28.i65:    ; preds = %271
   br i1 %.not.i.i.i.i29.i66, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i30.i67, label %276
 
 276:                                              ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i28.i65
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %275) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %275) #25
           to label %277 unwind label %278
 
 277:                                              ; preds = %276
@@ -6432,15 +6426,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i28.i65:    ; preds = %271
           cleanup
   store ptr null, ptr %273, align 8, !tbaa !71
   store ptr null, ptr %274, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %.body.i62
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i30.i67: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i28.i65
   store ptr null, ptr %273, align 8, !tbaa !71
   store ptr null, ptr %274, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %280
 
 280:                                              ; preds = %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i30.i67, %269
@@ -6452,14 +6446,14 @@ _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorE
           to label %286 unwind label %288
 
 286:                                              ; preds = %280
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %38) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %38)
   invoke void @_ZN6google8protobuf8internal11LogFinisheraSERNS1_10LogMessageE(ptr noundef nonnull align 1 dereferenceable(1) %38, ptr noundef nonnull align 8 dereferenceable(56) %285)
           to label %287 unwind label %290
 
 287:                                              ; preds = %286
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %38) #25
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %37) #25
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %37) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %37) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
   br label %_ZN6google8protobuf12_GLOBAL__N_115OneofFieldMoverILb1EEclIZNKS0_10Reflection14SwapOneofFieldILb1EEEvPNS0_7MessageES8_PKNS0_15OneofDescriptorEE14MessageWrapperSC_EEvPKNS0_15FieldDescriptorEPT_PT0_.exit
 
 288:                                              ; preds = %280, %.noexc90
@@ -6470,13 +6464,13 @@ _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorE
 290:                                              ; preds = %286
   %291 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %38) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
   br label %.body.i62
 
 .body.i62:                                        ; preds = %290, %288, %278
   %.pn.i63 = phi { ptr, i32 } [ %291, %290 ], [ %289, %288 ], [ %279, %278 ]
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %37) #25
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %37) #25
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %37) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
   br label %.body
 
 _ZN6google8protobuf12_GLOBAL__N_115OneofFieldMoverILb1EEclIZNKS0_10Reflection14SwapOneofFieldILb1EEEvPNS0_7MessageES8_PKNS0_15OneofDescriptorEE14MessageWrapperSC_EEvPKNS0_15FieldDescriptorEPT_PT0_.exit: ; preds = %.noexc86, %.noexc71, %.noexc73, %.noexc75, %.noexc77, %.noexc79, %.noexc81, %.noexc83, %.noexc85, %.noexc89, %287
@@ -6519,11 +6513,11 @@ _ZN6google8protobuf12_GLOBAL__N_115OneofFieldMoverILb1EEclIZNKS0_10Reflection14S
   br i1 %.not.i.i.i91, label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i97, label %318
 
 318:                                              ; preds = %315
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %18, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store ptr %.038, ptr %19, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store ptr %18, ptr %17, align 8, !tbaa !73
   %319 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %19, ptr %319, align 8, !tbaa !74
@@ -6539,7 +6533,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i94:      ; preds = %318
   br i1 %.not.i.i.i.i.i95, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i96, label %323
 
 323:                                              ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i94
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %322) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %322) #25
           to label %324 unwind label %325
 
 324:                                              ; preds = %323
@@ -6550,15 +6544,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i94:      ; preds = %318
           cleanup
   store ptr null, ptr %320, align 8, !tbaa !71
   store ptr null, ptr %321, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %.body
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i96: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i94
   store ptr null, ptr %320, align 8, !tbaa !71
   store ptr null, ptr %321, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i97
 
 _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i97: ; preds = %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i96, %315
@@ -6582,90 +6576,90 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i97: ; preds = %_ZN6google
 
 332:                                              ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i97
   %333 = load i32, ptr %47, align 8, !tbaa !118
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i32 %333, ptr %16, align 4, !tbaa !15
   invoke void @_ZNK6google8protobuf10Reflection8SetFieldIiEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %2, ptr noundef nonnull %.038, ptr noundef nonnull align 4 dereferenceable(4) %16)
           to label %.noexc107 unwind label %189
 
 .noexc107:                                        ; preds = %332
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %376
 
 334:                                              ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i97
   %335 = load i64, ptr %47, align 8, !tbaa !118
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i64 %335, ptr %15, align 8, !tbaa !125
   invoke void @_ZNK6google8protobuf10Reflection8SetFieldIlEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %2, ptr noundef nonnull %.038, ptr noundef nonnull align 8 dereferenceable(8) %15)
           to label %.noexc108 unwind label %189
 
 .noexc108:                                        ; preds = %334
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %376
 
 336:                                              ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i97
   %337 = load i32, ptr %47, align 8, !tbaa !118
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i32 %337, ptr %14, align 4, !tbaa !15
   invoke void @_ZNK6google8protobuf10Reflection8SetFieldIjEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %2, ptr noundef nonnull %.038, ptr noundef nonnull align 4 dereferenceable(4) %14)
           to label %.noexc109 unwind label %189
 
 .noexc109:                                        ; preds = %336
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %376
 
 338:                                              ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i97
   %339 = load i64, ptr %47, align 8, !tbaa !118
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i64 %339, ptr %13, align 8, !tbaa !125
   invoke void @_ZNK6google8protobuf10Reflection8SetFieldImEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %2, ptr noundef nonnull %.038, ptr noundef nonnull align 8 dereferenceable(8) %13)
           to label %.noexc110 unwind label %189
 
 .noexc110:                                        ; preds = %338
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %376
 
 340:                                              ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i97
   %341 = load float, ptr %47, align 8, !tbaa !118
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store float %341, ptr %12, align 4, !tbaa !132
   invoke void @_ZNK6google8protobuf10Reflection8SetFieldIfEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %2, ptr noundef nonnull %.038, ptr noundef nonnull align 4 dereferenceable(4) %12)
           to label %.noexc111 unwind label %189
 
 .noexc111:                                        ; preds = %340
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %376
 
 342:                                              ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i97
   %343 = load double, ptr %47, align 8, !tbaa !118
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store double %343, ptr %11, align 8, !tbaa !134
   invoke void @_ZNK6google8protobuf10Reflection8SetFieldIdEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %2, ptr noundef nonnull %.038, ptr noundef nonnull align 8 dereferenceable(8) %11)
           to label %.noexc112 unwind label %189
 
 .noexc112:                                        ; preds = %342
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %376
 
 344:                                              ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i97
   %345 = load i8, ptr %47, align 8, !tbaa !118, !range !68, !noundef !69
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i8 %345, ptr %10, align 1, !tbaa !131
   invoke void @_ZNK6google8protobuf10Reflection8SetFieldIbEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %2, ptr noundef nonnull %.038, ptr noundef nonnull align 1 dereferenceable(1) %10)
           to label %.noexc113 unwind label %189
 
 .noexc113:                                        ; preds = %344
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %376
 
 346:                                              ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i97
   %347 = load i32, ptr %47, align 8, !tbaa !118
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 %347, ptr %9, align 4, !tbaa !15
   invoke void @_ZNK6google8protobuf10Reflection8SetFieldIiEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %2, ptr noundef nonnull %.038, ptr noundef nonnull align 4 dereferenceable(4) %9)
           to label %.noexc114 unwind label %189
 
 .noexc114:                                        ; preds = %346
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %376
 
 348:                                              ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i97
@@ -6675,17 +6669,17 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i97: ; preds = %_ZN6google
 
 350:                                              ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i97
   %.sroa.0.0.copyload.i.i98 = load ptr, ptr %47, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %.sroa.0.0.copyload.i.i98, ptr %8, align 8
   invoke void @_ZNK6google8protobuf10Reflection8SetFieldINS0_8internal14ArenaStringPtrEEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %2, ptr noundef nonnull %.038, ptr noundef nonnull align 8 dereferenceable(8) %8)
           to label %.noexc116 unwind label %189
 
 .noexc116:                                        ; preds = %350
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %376
 
 351:                                              ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i97
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %20) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   invoke void @_ZN6google8protobuf8internal10LogMessageC1ENS0_8LogLevelEPKci(ptr noundef nonnull align 8 dereferenceable(56) %20, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 447)
           to label %.noexc117 unwind label %189
 
@@ -6699,11 +6693,11 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i97: ; preds = %_ZN6google
   br i1 %.not.i.i27.i101, label %364, label %355
 
 355:                                              ; preds = %353
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %6, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %.038, ptr %7, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !tbaa !73
   %356 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %7, ptr %356, align 8, !tbaa !74
@@ -6719,7 +6713,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i28.i102:   ; preds = %355
   br i1 %.not.i.i.i.i29.i103, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i30.i104, label %360
 
 360:                                              ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i28.i102
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %359) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %359) #25
           to label %361 unwind label %362
 
 361:                                              ; preds = %360
@@ -6730,15 +6724,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i28.i102:   ; preds = %355
           cleanup
   store ptr null, ptr %357, align 8, !tbaa !71
   store ptr null, ptr %358, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.body.i99
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i30.i104: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i28.i102
   store ptr null, ptr %357, align 8, !tbaa !71
   store ptr null, ptr %358, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %364
 
 364:                                              ; preds = %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i30.i104, %353
@@ -6750,14 +6744,14 @@ _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorE
           to label %370 unwind label %372
 
 370:                                              ; preds = %364
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %21) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   invoke void @_ZN6google8protobuf8internal11LogFinisheraSERNS1_10LogMessageE(ptr noundef nonnull align 1 dereferenceable(1) %21, ptr noundef nonnull align 8 dereferenceable(56) %369)
           to label %371 unwind label %374
 
 371:                                              ; preds = %370
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %21) #25
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %20) #25
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %20) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %20) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %376
 
 372:                                              ; preds = %364, %.noexc117
@@ -6768,13 +6762,13 @@ _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorE
 374:                                              ; preds = %370
   %375 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %21) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %.body.i99
 
 .body.i99:                                        ; preds = %374, %372, %362
   %.pn.i100 = phi { ptr, i32 } [ %375, %374 ], [ %373, %372 ], [ %363, %362 ]
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %20) #25
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %20) #25
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %20) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %.body
 
 376:                                              ; preds = %371, %.noexc116, %.noexc114, %.noexc113, %.noexc112, %.noexc111, %.noexc110, %.noexc109, %.noexc108, %.noexc107, %348, %314
@@ -6807,11 +6801,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZZNK6google8protobuf10Reflection14SwapOneofFieldILb1EEEvPNS0_7MessageES4_PKNS0_15OneofDescriptorEEN15LocalVarWrapperD2Ev.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %376
-  call void @_ZdlPv(ptr noundef %393) #27
+  call void @_ZdlPv(ptr noundef %393) #26
   br label %_ZZNK6google8protobuf10Reflection14SwapOneofFieldILb1EEEvPNS0_7MessageES4_PKNS0_15OneofDescriptorEEN15LocalVarWrapperD2Ev.exit
 
 _ZZNK6google8protobuf10Reflection14SwapOneofFieldILb1EEEvPNS0_7MessageES4_PKNS0_15OneofDescriptorEEN15LocalVarWrapperD2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %47) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
   ret void
 
 .body:                                            ; preds = %325, %.body.i99, %312, %.body.i62, %205, %.body.i, %82, %189
@@ -6827,16 +6821,16 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZZNK6google8protobuf10Reflection14SwapOneofFieldILb1EEEvPNS0_7MessageES4_PKNS0_15OneofDescriptorEEN15LocalVarWrapperD2Ev.exit120
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i118: ; preds = %.body
-  call void @_ZdlPv(ptr noundef %397) #27
+  call void @_ZdlPv(ptr noundef %397) #26
   br label %_ZZNK6google8protobuf10Reflection14SwapOneofFieldILb1EEEvPNS0_7MessageES4_PKNS0_15OneofDescriptorEEN15LocalVarWrapperD2Ev.exit120
 
 _ZZNK6google8protobuf10Reflection14SwapOneofFieldILb1EEEvPNS0_7MessageES4_PKNS0_15OneofDescriptorEEN15LocalVarWrapperD2Ev.exit120: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i119, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i118
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %47) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
   resume { ptr, i32 } %.pn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef ptr @_ZNK6google8protobuf10Reflection19MutableExtensionSetEPNS0_7MessageE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef readnone captures(ret: address, provenance) %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZNK6google8protobuf10Reflection19MutableExtensionSetEPNS0_7MessageE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef readnone captures(ret: address, provenance) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8, !tbaa !49
   %5 = zext i32 %4 to i64
@@ -6902,11 +6896,11 @@ define hidden noundef i32 @_ZNK6google8protobuf10Reflection9FieldSizeERKNS0_7Mes
   br i1 %.not.i.i, label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit, label %38
 
 38:                                               ; preds = %35
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %8, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %2, ptr %9, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %8, ptr %7, align 8, !tbaa !73
   %39 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %9, ptr %39, align 8, !tbaa !74
@@ -6922,7 +6916,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %38
   br i1 %.not.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i, label %43
 
 43:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %42) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %42) #25
           to label %44 unwind label %45
 
 44:                                               ; preds = %43
@@ -6937,15 +6931,15 @@ common.resume:                                    ; preds = %143, %109, %45
           cleanup
   store ptr null, ptr %40, align 8, !tbaa !71
   store ptr null, ptr %41, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %common.resume
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %40, align 8, !tbaa !71
   store ptr null, ptr %41, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %35, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i
@@ -7037,11 +7031,11 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %35, %_ZN6googl
   br i1 %.not.i.i.i, label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i, label %102
 
 102:                                              ; preds = %100
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %5, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %2, ptr %6, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %5, ptr %4, align 8, !tbaa !73
   %103 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %6, ptr %103, align 8, !tbaa !74
@@ -7057,7 +7051,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i:        ; preds = %102
   br i1 %.not.i.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i, label %107
 
 107:                                              ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %106) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %106) #25
           to label %108 unwind label %109
 
 108:                                              ; preds = %107
@@ -7068,15 +7062,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i:        ; preds = %102
           cleanup
   store ptr null, ptr %104, align 8, !tbaa !71
   store ptr null, ptr %105, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %common.resume
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i
   store ptr null, ptr %104, align 8, !tbaa !71
   store ptr null, ptr %105, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.pre40 = load i8, ptr %47, align 2, !tbaa !78
   br label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i
 
@@ -7120,20 +7114,20 @@ _ZN6google8protobuf12_GLOBAL__N_115IsMapFieldInApiEPKNS0_15FieldDescriptorE.exit
   br label %144
 
 135:                                              ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %10) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZN6google8protobuf8internal10LogMessageC1ENS0_8LogLevelEPKci(ptr noundef nonnull align 8 dereferenceable(56) %10, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 1164)
   %136 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef nonnull @.str.15)
           to label %137 unwind label %139
 
 137:                                              ; preds = %135
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   invoke void @_ZN6google8protobuf8internal11LogFinisheraSERNS1_10LogMessageE(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 8 dereferenceable(56) %136)
           to label %138 unwind label %141
 
 138:                                              ; preds = %137
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #25
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %10) #25
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %10) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %10) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %144
 
 139:                                              ; preds = %135
@@ -7144,13 +7138,13 @@ _ZN6google8protobuf12_GLOBAL__N_115IsMapFieldInApiEPKNS0_15FieldDescriptorE.exit
 141:                                              ; preds = %137
   %142 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %143
 
 143:                                              ; preds = %141, %139
   %.pn = phi { ptr, i32 } [ %142, %141 ], [ %140, %139 ]
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %10) #25
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %10) #25
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %10) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %common.resume
 
 144:                                              ; preds = %120, %124, %138, %_ZN6google8protobuf12_GLOBAL__N_115IsMapFieldInApiEPKNS0_15FieldDescriptorE.exit.thread, %94, %88, %82, %76, %70, %64, %58, %52, %27
@@ -7280,11 +7274,11 @@ define hidden void @_ZNK6google8protobuf10Reflection10RemoveLastEPNS0_7MessageEP
   br i1 %.not.i.i, label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit, label %35
 
 35:                                               ; preds = %32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %8, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %2, ptr %9, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %8, ptr %7, align 8, !tbaa !73
   %36 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %9, ptr %36, align 8, !tbaa !74
@@ -7300,7 +7294,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %35
   br i1 %.not.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i, label %40
 
 40:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %39) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %39) #25
           to label %41 unwind label %42
 
 41:                                               ; preds = %40
@@ -7315,15 +7309,15 @@ common.resume:                                    ; preds = %130, %42
           cleanup
   store ptr null, ptr %37, align 8, !tbaa !71
   store ptr null, ptr %38, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %common.resume
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %37, align 8, !tbaa !71
   store ptr null, ptr %38, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %32, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i
@@ -7452,11 +7446,11 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %32, %_ZN6googl
   br i1 %.not.i.i.i, label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i, label %123
 
 123:                                              ; preds = %121
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %5, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %2, ptr %6, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %5, ptr %4, align 8, !tbaa !73
   %124 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %6, ptr %124, align 8, !tbaa !74
@@ -7472,7 +7466,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i:        ; preds = %123
   br i1 %.not.i.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i, label %128
 
 128:                                              ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %127) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %127) #25
           to label %129 unwind label %130
 
 129:                                              ; preds = %128
@@ -7483,15 +7477,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i:        ; preds = %123
           cleanup
   store ptr null, ptr %125, align 8, !tbaa !71
   store ptr null, ptr %126, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %common.resume
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i
   store ptr null, ptr %125, align 8, !tbaa !71
   store ptr null, ptr %126, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.pre34 = load i8, ptr %44, align 2, !tbaa !78
   br label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i
 
@@ -7592,11 +7586,11 @@ define hidden noundef ptr @_ZNK6google8protobuf10Reflection11ReleaseLastEPNS0_7M
   br i1 %.not.i.i, label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit, label %25
 
 25:                                               ; preds = %22
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %8, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %2, ptr %9, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %8, ptr %7, align 8, !tbaa !73
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %9, ptr %26, align 8, !tbaa !74
@@ -7612,7 +7606,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %25
   br i1 %.not.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i, label %30
 
 30:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %29) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %29) #25
           to label %31 unwind label %32
 
 31:                                               ; preds = %30
@@ -7627,15 +7621,15 @@ common.resume:                                    ; preds = %61, %32
           cleanup
   store ptr null, ptr %27, align 8, !tbaa !71
   store ptr null, ptr %28, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %common.resume
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %27, align 8, !tbaa !71
   store ptr null, ptr %28, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %22, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i
@@ -7674,11 +7668,11 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %22, %_ZN6googl
   br i1 %.not.i.i.i, label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i, label %54
 
 54:                                               ; preds = %52
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %5, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %2, ptr %6, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %5, ptr %4, align 8, !tbaa !73
   %55 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %6, ptr %55, align 8, !tbaa !74
@@ -7694,7 +7688,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i:        ; preds = %54
   br i1 %.not.i.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i, label %59
 
 59:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %58) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %58) #25
           to label %60 unwind label %61
 
 60:                                               ; preds = %59
@@ -7705,15 +7699,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i:        ; preds = %54
           cleanup
   store ptr null, ptr %56, align 8, !tbaa !71
   store ptr null, ptr %57, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %common.resume
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i
   store ptr null, ptr %56, align 8, !tbaa !71
   store ptr null, ptr %57, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i
 
 _ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i: ; preds = %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i, %52
@@ -7814,7 +7808,7 @@ define internal fastcc void @_ZN6google8protobuf12_GLOBAL__N_130ReportReflection
   %7 = alloca ptr, align 8
   %8 = alloca %"class.google::protobuf::internal::LogMessage", align 8
   %9 = alloca %"class.google::protobuf::internal::LogFinisher", align 1
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %8) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZN6google8protobuf8internal10LogMessageC1ENS0_8LogLevelEPKci(ptr noundef nonnull align 8 dereferenceable(56) %8, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 149)
   %10 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull @.str.106)
           to label %11 unwind label %60
@@ -7867,11 +7861,11 @@ define internal fastcc void @_ZN6google8protobuf12_GLOBAL__N_130ReportReflection
   br i1 %.not.i.i, label %48, label %39
 
 39:                                               ; preds = %36
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %6, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %1, ptr %7, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !tbaa !73
   %40 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %7, ptr %40, align 8, !tbaa !74
@@ -7887,7 +7881,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %39
   br i1 %.not.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i, label %44
 
 44:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %43) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %43) #25
           to label %45 unwind label %46
 
 45:                                               ; preds = %44
@@ -7898,15 +7892,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %39
           cleanup
   store ptr null, ptr %41, align 8, !tbaa !71
   store ptr null, ptr %42, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.body
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %41, align 8, !tbaa !71
   store ptr null, ptr %42, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %48
 
 48:                                               ; preds = %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i, %36
@@ -7922,14 +7916,14 @@ _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorE
           to label %58 unwind label %60
 
 58:                                               ; preds = %48
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   invoke void @_ZN6google8protobuf8internal11LogFinisheraSERNS1_10LogMessageE(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(56) %57)
           to label %59 unwind label %62
 
 59:                                               ; preds = %58
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #25
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %8) #25
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %8) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 
 60:                                               ; preds = %48, %34, %29, %27, %22, %20, %15, %13, %11, %4
@@ -7940,13 +7934,13 @@ _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorE
 62:                                               ; preds = %58
   %63 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.body
 
 .body:                                            ; preds = %60, %46, %62
   %.pn = phi { ptr, i32 } [ %63, %62 ], [ %61, %60 ], [ %47, %46 ]
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %8) #25
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8) #25
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %8) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   resume { ptr, i32 } %.pn
 }
 
@@ -7989,11 +7983,11 @@ define hidden noundef ptr @_ZNK6google8protobuf10Reflection22UnsafeArenaReleaseL
   br i1 %.not.i.i, label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit, label %25
 
 25:                                               ; preds = %22
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %8, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %2, ptr %9, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %8, ptr %7, align 8, !tbaa !73
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %9, ptr %26, align 8, !tbaa !74
@@ -8009,7 +8003,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %25
   br i1 %.not.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i, label %30
 
 30:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %29) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %29) #25
           to label %31 unwind label %32
 
 31:                                               ; preds = %30
@@ -8024,15 +8018,15 @@ common.resume:                                    ; preds = %61, %32
           cleanup
   store ptr null, ptr %27, align 8, !tbaa !71
   store ptr null, ptr %28, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %common.resume
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %27, align 8, !tbaa !71
   store ptr null, ptr %28, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %22, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i
@@ -8071,11 +8065,11 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %22, %_ZN6googl
   br i1 %.not.i.i.i, label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i, label %54
 
 54:                                               ; preds = %52
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %5, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %2, ptr %6, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %5, ptr %4, align 8, !tbaa !73
   %55 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %6, ptr %55, align 8, !tbaa !74
@@ -8091,7 +8085,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i:        ; preds = %54
   br i1 %.not.i.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i, label %59
 
 59:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %58) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %58) #25
           to label %60 unwind label %61
 
 60:                                               ; preds = %59
@@ -8102,15 +8096,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i:        ; preds = %54
           cleanup
   store ptr null, ptr %56, align 8, !tbaa !71
   store ptr null, ptr %57, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %common.resume
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i
   store ptr null, ptr %56, align 8, !tbaa !71
   store ptr null, ptr %57, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i
 
 _ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i: ; preds = %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i, %52
@@ -8240,11 +8234,11 @@ define hidden void @_ZNK6google8protobuf10Reflection12SwapElementsEPNS0_7Message
   br i1 %.not.i.i, label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit, label %37
 
 37:                                               ; preds = %34
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %10, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %2, ptr %11, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %10, ptr %9, align 8, !tbaa !73
   %38 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %11, ptr %38, align 8, !tbaa !74
@@ -8260,7 +8254,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %37
   br i1 %.not.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i, label %42
 
 42:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %41) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %41) #25
           to label %43 unwind label %44
 
 43:                                               ; preds = %42
@@ -8275,15 +8269,15 @@ common.resume:                                    ; preds = %100, %44
           cleanup
   store ptr null, ptr %39, align 8, !tbaa !71
   store ptr null, ptr %40, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %common.resume
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %39, align 8, !tbaa !71
   store ptr null, ptr %40, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %34, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i
@@ -8375,11 +8369,11 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %34, %_ZN6googl
   br i1 %.not.i.i.i, label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i, label %93
 
 93:                                               ; preds = %91
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %7, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %2, ptr %8, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %7, ptr %6, align 8, !tbaa !73
   %94 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %8, ptr %94, align 8, !tbaa !74
@@ -8395,7 +8389,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i:        ; preds = %93
   br i1 %.not.i.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i, label %98
 
 98:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %97) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %97) #25
           to label %99 unwind label %100
 
 99:                                               ; preds = %98
@@ -8406,15 +8400,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i:        ; preds = %93
           cleanup
   store ptr null, ptr %95, align 8, !tbaa !71
   store ptr null, ptr %96, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %common.resume
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i
   store ptr null, ptr %95, align 8, !tbaa !71
   store ptr null, ptr %96, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.pre52 = load i8, ptr %46, align 2, !tbaa !78
   br label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i
 
@@ -8485,7 +8479,7 @@ declare void @_ZN6google8protobuf13RepeatedFieldIfE12SwapElementsEii(ptr noundef
 declare void @_ZN6google8protobuf13RepeatedFieldIbE12SwapElementsEii(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN6google8protobuf8internal23CreateUnknownEnumValuesEPKNS0_15FieldDescriptorE(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
+define hidden noundef zeroext i1 @_ZN6google8protobuf8internal23CreateUnknownEnumValuesEPKNS0_15FieldDescriptorE(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !116
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 58
@@ -8528,7 +8522,7 @@ _ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE5clearEv.exit: ; preds
   br i1 %23, label %24, label %25
 
 24:                                               ; preds = %12
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.156) #26
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.156) #25
   unreachable
 
 25:                                               ; preds = %12
@@ -8548,7 +8542,7 @@ _ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE11_S_relocateEPS4_S7_S
   br i1 %.not.i8.i, label %_ZNSt12_Vector_baseIPKN6google8protobuf15FieldDescriptorESaIS4_EE13_M_deallocateEPS4_m.exit.i, label %35
 
 35:                                               ; preds = %_ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit.i
-  tail call void @_ZdlPv(ptr noundef nonnull %5) #27
+  tail call void @_ZdlPv(ptr noundef nonnull %5) #26
   br label %_ZNSt12_Vector_baseIPKN6google8protobuf15FieldDescriptorESaIS4_EE13_M_deallocateEPS4_m.exit.i
 
 _ZNSt12_Vector_baseIPKN6google8protobuf15FieldDescriptorESaIS4_EE13_M_deallocateEPS4_m.exit.i: ; preds = %35, %_ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit.i
@@ -8614,7 +8608,7 @@ _ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE7reserveEm.exit: ; pre
   br i1 %65, label %66, label %_ZNKSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE12_M_check_lenEmPKc.exit.i.i
 
 66:                                               ; preds = %60
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.142) #26
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.142) #25
   unreachable
 
 _ZNKSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %60
@@ -8643,7 +8637,7 @@ _ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE11_S_relocateEPS4_S7_S
   br i1 %.not.i17.i.i, label %_ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i, label %78
 
 78:                                               ; preds = %_ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %61) #27
+  tail call void @_ZdlPv(ptr noundef nonnull %61) #26
   br label %_ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i
 
 _ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i: ; preds = %78, %_ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i
@@ -8721,7 +8715,7 @@ _ZNK6google8protobuf8internal16ReflectionSchema11InRealOneofEPKNS0_15FieldDescri
   br i1 %123, label %124, label %_ZNKSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE12_M_check_lenEmPKc.exit.i.i36
 
 124:                                              ; preds = %118
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.142) #26
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.142) #25
   unreachable
 
 _ZNKSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE12_M_check_lenEmPKc.exit.i.i36: ; preds = %118
@@ -8750,7 +8744,7 @@ _ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE11_S_relocateEPS4_S7_S
   br i1 %.not.i17.i.i40, label %_ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i41, label %136
 
 136:                                              ; preds = %_ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i39
-  tail call void @_ZdlPv(ptr noundef nonnull %119) #27
+  tail call void @_ZdlPv(ptr noundef nonnull %119) #26
   br label %_ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i41
 
 _ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i41: ; preds = %136, %_ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i39
@@ -8801,7 +8795,7 @@ _ZNK6google8protobuf8internal16ReflectionSchema11InRealOneofEPKNS0_15FieldDescri
   br i1 %159, label %160, label %_ZNKSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE12_M_check_lenEmPKc.exit.i.i44
 
 160:                                              ; preds = %154
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.142) #26
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.142) #25
   unreachable
 
 _ZNKSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE12_M_check_lenEmPKc.exit.i.i44: ; preds = %154
@@ -8830,7 +8824,7 @@ _ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE11_S_relocateEPS4_S7_S
   br i1 %.not.i17.i.i48, label %_ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i49, label %172
 
 172:                                              ; preds = %_ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i47
-  tail call void @_ZdlPv(ptr noundef nonnull %155) #27
+  tail call void @_ZdlPv(ptr noundef nonnull %155) #26
   br label %_ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i49
 
 _ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i49: ; preds = %172, %_ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i47
@@ -8865,7 +8859,7 @@ _ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE17_M_realloc_insertIJR
   br i1 %186, label %187, label %_ZNKSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE12_M_check_lenEmPKc.exit.i.i52
 
 187:                                              ; preds = %181
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.142) #26
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.142) #25
   unreachable
 
 _ZNKSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE12_M_check_lenEmPKc.exit.i.i52: ; preds = %181
@@ -8894,7 +8888,7 @@ _ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE11_S_relocateEPS4_S7_S
   br i1 %.not.i17.i.i56, label %_ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i57, label %199
 
 199:                                              ; preds = %_ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i55
-  tail call void @_ZdlPv(ptr noundef nonnull %182) #27
+  tail call void @_ZdlPv(ptr noundef nonnull %182) #26
   br label %_ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i57
 
 _ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i57: ; preds = %199, %_ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i55
@@ -9120,11 +9114,11 @@ define hidden noundef i32 @_ZNK6google8protobuf10Reflection8GetInt32ERKNS0_7Mess
   br i1 %.not.i.i, label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit, label %21
 
 21:                                               ; preds = %18
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %5, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %2, ptr %6, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %5, ptr %4, align 8, !tbaa !73
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %6, ptr %22, align 8, !tbaa !74
@@ -9140,7 +9134,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %21
   br i1 %.not.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i, label %26
 
 26:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %25) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %25) #25
           to label %27 unwind label %28
 
 27:                                               ; preds = %26
@@ -9151,15 +9145,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %21
           cleanup
   store ptr null, ptr %23, align 8, !tbaa !71
   store ptr null, ptr %24, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %29
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %23, align 8, !tbaa !71
   store ptr null, ptr %24, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %18, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i
@@ -9299,11 +9293,11 @@ define hidden void @_ZNK6google8protobuf10Reflection8SetInt32EPNS0_7MessageEPKNS
   br i1 %.not.i.i, label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit, label %26
 
 26:                                               ; preds = %23
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %9, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %2, ptr %10, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %9, ptr %8, align 8, !tbaa !73
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %10, ptr %27, align 8, !tbaa !74
@@ -9319,7 +9313,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %26
   br i1 %.not.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i, label %31
 
 31:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %30) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %30) #25
           to label %32 unwind label %33
 
 32:                                               ; preds = %31
@@ -9334,15 +9328,15 @@ common.resume:                                    ; preds = %60, %33
           cleanup
   store ptr null, ptr %28, align 8, !tbaa !71
   store ptr null, ptr %29, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %common.resume
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %28, align 8, !tbaa !71
   store ptr null, ptr %29, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %23, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i
@@ -9377,11 +9371,11 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %23, %_ZN6googl
   br i1 %.not.i, label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit, label %53
 
 53:                                               ; preds = %45
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %6, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %2, ptr %7, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !tbaa !73
   %54 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %7, ptr %54, align 8, !tbaa !74
@@ -9397,7 +9391,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i:            ; preds = %53
   br i1 %.not.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i, label %58
 
 58:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %57) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %57) #25
           to label %59 unwind label %60
 
 59:                                               ; preds = %58
@@ -9408,15 +9402,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i:            ; preds = %53
           cleanup
   store ptr null, ptr %55, align 8, !tbaa !71
   store ptr null, ptr %56, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %common.resume
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i
   store ptr null, ptr %55, align 8, !tbaa !71
   store ptr null, ptr %56, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor4typeEv.exit: ; preds = %45, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i
@@ -9435,7 +9429,7 @@ _ZNK6google8protobuf15FieldDescriptor4typeEv.exit: ; preds = %45, %_ZN6google8pr
 declare void @_ZN6google8protobuf8internal12ExtensionSet8SetInt32EihiPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24), i32 noundef, i8 noundef zeroext, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr hidden void @_ZNK6google8protobuf10Reflection8SetFieldIiEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %3) local_unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNK6google8protobuf10Reflection8SetFieldIiEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %3) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %6 = load i8, ptr %5, align 1
   %7 = and i8 %6, 16
@@ -9623,11 +9617,11 @@ define hidden noundef i32 @_ZNK6google8protobuf10Reflection16GetRepeatedInt32ERK
   br i1 %.not.i.i, label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit, label %23
 
 23:                                               ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %6, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %2, ptr %7, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !tbaa !73
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %7, ptr %24, align 8, !tbaa !74
@@ -9643,7 +9637,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %23
   br i1 %.not.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i, label %28
 
 28:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %27) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %27) #25
           to label %29 unwind label %30
 
 29:                                               ; preds = %28
@@ -9654,15 +9648,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %23
           cleanup
   store ptr null, ptr %25, align 8, !tbaa !71
   store ptr null, ptr %26, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %31
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %25, align 8, !tbaa !71
   store ptr null, ptr %26, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %20, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i
@@ -9748,11 +9742,11 @@ define hidden void @_ZNK6google8protobuf10Reflection16SetRepeatedInt32EPNS0_7Mes
   br i1 %.not.i.i, label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit, label %24
 
 24:                                               ; preds = %21
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %7, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %2, ptr %8, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %7, ptr %6, align 8, !tbaa !73
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %8, ptr %25, align 8, !tbaa !74
@@ -9768,7 +9762,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %24
   br i1 %.not.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i, label %29
 
 29:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %28) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %28) #25
           to label %30 unwind label %31
 
 30:                                               ; preds = %29
@@ -9779,15 +9773,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %24
           cleanup
   store ptr null, ptr %26, align 8, !tbaa !71
   store ptr null, ptr %27, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %32
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %26, align 8, !tbaa !71
   store ptr null, ptr %27, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %21, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i
@@ -9875,11 +9869,11 @@ define hidden void @_ZNK6google8protobuf10Reflection8AddInt32EPNS0_7MessageEPKNS
   br i1 %.not.i.i, label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit, label %26
 
 26:                                               ; preds = %23
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %9, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %2, ptr %10, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %9, ptr %8, align 8, !tbaa !73
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %10, ptr %27, align 8, !tbaa !74
@@ -9895,7 +9889,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %26
   br i1 %.not.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i, label %31
 
 31:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %30) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %30) #25
           to label %32 unwind label %33
 
 32:                                               ; preds = %31
@@ -9910,15 +9904,15 @@ common.resume:                                    ; preds = %60, %33
           cleanup
   store ptr null, ptr %28, align 8, !tbaa !71
   store ptr null, ptr %29, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %common.resume
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %28, align 8, !tbaa !71
   store ptr null, ptr %29, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %23, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i
@@ -9953,11 +9947,11 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %23, %_ZN6googl
   br i1 %.not.i, label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit, label %53
 
 53:                                               ; preds = %45
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %6, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %2, ptr %7, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !tbaa !73
   %54 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %7, ptr %54, align 8, !tbaa !74
@@ -9973,7 +9967,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i:            ; preds = %53
   br i1 %.not.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i, label %58
 
 58:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %57) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %57) #25
           to label %59 unwind label %60
 
 59:                                               ; preds = %58
@@ -9984,15 +9978,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i:            ; preds = %53
           cleanup
   store ptr null, ptr %55, align 8, !tbaa !71
   store ptr null, ptr %56, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %common.resume
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i
   store ptr null, ptr %55, align 8, !tbaa !71
   store ptr null, ptr %56, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor4typeEv.exit: ; preds = %45, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i
@@ -10080,11 +10074,11 @@ define hidden noundef i64 @_ZNK6google8protobuf10Reflection8GetInt64ERKNS0_7Mess
   br i1 %.not.i.i, label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit, label %21
 
 21:                                               ; preds = %18
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %5, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %2, ptr %6, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %5, ptr %4, align 8, !tbaa !73
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %6, ptr %22, align 8, !tbaa !74
@@ -10100,7 +10094,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %21
   br i1 %.not.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i, label %26
 
 26:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %25) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %25) #25
           to label %27 unwind label %28
 
 27:                                               ; preds = %26
@@ -10111,15 +10105,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %21
           cleanup
   store ptr null, ptr %23, align 8, !tbaa !71
   store ptr null, ptr %24, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %29
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %23, align 8, !tbaa !71
   store ptr null, ptr %24, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %18, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i
@@ -10259,11 +10253,11 @@ define hidden void @_ZNK6google8protobuf10Reflection8SetInt64EPNS0_7MessageEPKNS
   br i1 %.not.i.i, label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit, label %26
 
 26:                                               ; preds = %23
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %9, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %2, ptr %10, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %9, ptr %8, align 8, !tbaa !73
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %10, ptr %27, align 8, !tbaa !74
@@ -10279,7 +10273,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %26
   br i1 %.not.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i, label %31
 
 31:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %30) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %30) #25
           to label %32 unwind label %33
 
 32:                                               ; preds = %31
@@ -10294,15 +10288,15 @@ common.resume:                                    ; preds = %60, %33
           cleanup
   store ptr null, ptr %28, align 8, !tbaa !71
   store ptr null, ptr %29, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %common.resume
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %28, align 8, !tbaa !71
   store ptr null, ptr %29, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %23, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i
@@ -10337,11 +10331,11 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %23, %_ZN6googl
   br i1 %.not.i, label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit, label %53
 
 53:                                               ; preds = %45
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %6, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %2, ptr %7, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !tbaa !73
   %54 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %7, ptr %54, align 8, !tbaa !74
@@ -10357,7 +10351,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i:            ; preds = %53
   br i1 %.not.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i, label %58
 
 58:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %57) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %57) #25
           to label %59 unwind label %60
 
 59:                                               ; preds = %58
@@ -10368,15 +10362,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i:            ; preds = %53
           cleanup
   store ptr null, ptr %55, align 8, !tbaa !71
   store ptr null, ptr %56, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %common.resume
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i
   store ptr null, ptr %55, align 8, !tbaa !71
   store ptr null, ptr %56, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor4typeEv.exit: ; preds = %45, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i
@@ -10395,7 +10389,7 @@ _ZNK6google8protobuf15FieldDescriptor4typeEv.exit: ; preds = %45, %_ZN6google8pr
 declare void @_ZN6google8protobuf8internal12ExtensionSet8SetInt64EihlPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24), i32 noundef, i8 noundef zeroext, i64 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr hidden void @_ZNK6google8protobuf10Reflection8SetFieldIlEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %3) local_unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNK6google8protobuf10Reflection8SetFieldIlEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %3) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %6 = load i8, ptr %5, align 1
   %7 = and i8 %6, 16
@@ -10583,11 +10577,11 @@ define hidden noundef i64 @_ZNK6google8protobuf10Reflection16GetRepeatedInt64ERK
   br i1 %.not.i.i, label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit, label %23
 
 23:                                               ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %6, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %2, ptr %7, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !tbaa !73
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %7, ptr %24, align 8, !tbaa !74
@@ -10603,7 +10597,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %23
   br i1 %.not.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i, label %28
 
 28:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %27) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %27) #25
           to label %29 unwind label %30
 
 29:                                               ; preds = %28
@@ -10614,15 +10608,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %23
           cleanup
   store ptr null, ptr %25, align 8, !tbaa !71
   store ptr null, ptr %26, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %31
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %25, align 8, !tbaa !71
   store ptr null, ptr %26, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %20, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i
@@ -10708,11 +10702,11 @@ define hidden void @_ZNK6google8protobuf10Reflection16SetRepeatedInt64EPNS0_7Mes
   br i1 %.not.i.i, label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit, label %24
 
 24:                                               ; preds = %21
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %7, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %2, ptr %8, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %7, ptr %6, align 8, !tbaa !73
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %8, ptr %25, align 8, !tbaa !74
@@ -10728,7 +10722,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %24
   br i1 %.not.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i, label %29
 
 29:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %28) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %28) #25
           to label %30 unwind label %31
 
 30:                                               ; preds = %29
@@ -10739,15 +10733,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %24
           cleanup
   store ptr null, ptr %26, align 8, !tbaa !71
   store ptr null, ptr %27, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %32
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %26, align 8, !tbaa !71
   store ptr null, ptr %27, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %21, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i
@@ -10835,11 +10829,11 @@ define hidden void @_ZNK6google8protobuf10Reflection8AddInt64EPNS0_7MessageEPKNS
   br i1 %.not.i.i, label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit, label %26
 
 26:                                               ; preds = %23
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %9, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %2, ptr %10, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %9, ptr %8, align 8, !tbaa !73
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %10, ptr %27, align 8, !tbaa !74
@@ -10855,7 +10849,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %26
   br i1 %.not.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i, label %31
 
 31:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %30) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %30) #25
           to label %32 unwind label %33
 
 32:                                               ; preds = %31
@@ -10870,15 +10864,15 @@ common.resume:                                    ; preds = %60, %33
           cleanup
   store ptr null, ptr %28, align 8, !tbaa !71
   store ptr null, ptr %29, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %common.resume
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %28, align 8, !tbaa !71
   store ptr null, ptr %29, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %23, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i
@@ -10913,11 +10907,11 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %23, %_ZN6googl
   br i1 %.not.i, label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit, label %53
 
 53:                                               ; preds = %45
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %6, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %2, ptr %7, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !tbaa !73
   %54 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %7, ptr %54, align 8, !tbaa !74
@@ -10933,7 +10927,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i:            ; preds = %53
   br i1 %.not.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i, label %58
 
 58:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %57) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %57) #25
           to label %59 unwind label %60
 
 59:                                               ; preds = %58
@@ -10944,15 +10938,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i:            ; preds = %53
           cleanup
   store ptr null, ptr %55, align 8, !tbaa !71
   store ptr null, ptr %56, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %common.resume
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i
   store ptr null, ptr %55, align 8, !tbaa !71
   store ptr null, ptr %56, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor4typeEv.exit: ; preds = %45, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i
@@ -11040,11 +11034,11 @@ define hidden noundef i32 @_ZNK6google8protobuf10Reflection9GetUInt32ERKNS0_7Mes
   br i1 %.not.i.i, label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit, label %21
 
 21:                                               ; preds = %18
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %5, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %2, ptr %6, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %5, ptr %4, align 8, !tbaa !73
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %6, ptr %22, align 8, !tbaa !74
@@ -11060,7 +11054,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %21
   br i1 %.not.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i, label %26
 
 26:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %25) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %25) #25
           to label %27 unwind label %28
 
 27:                                               ; preds = %26
@@ -11071,15 +11065,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %21
           cleanup
   store ptr null, ptr %23, align 8, !tbaa !71
   store ptr null, ptr %24, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %29
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %23, align 8, !tbaa !71
   store ptr null, ptr %24, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %18, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i
@@ -11219,11 +11213,11 @@ define hidden void @_ZNK6google8protobuf10Reflection9SetUInt32EPNS0_7MessageEPKN
   br i1 %.not.i.i, label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit, label %26
 
 26:                                               ; preds = %23
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %9, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %2, ptr %10, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %9, ptr %8, align 8, !tbaa !73
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %10, ptr %27, align 8, !tbaa !74
@@ -11239,7 +11233,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %26
   br i1 %.not.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i, label %31
 
 31:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %30) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %30) #25
           to label %32 unwind label %33
 
 32:                                               ; preds = %31
@@ -11254,15 +11248,15 @@ common.resume:                                    ; preds = %60, %33
           cleanup
   store ptr null, ptr %28, align 8, !tbaa !71
   store ptr null, ptr %29, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %common.resume
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %28, align 8, !tbaa !71
   store ptr null, ptr %29, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %23, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i
@@ -11297,11 +11291,11 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %23, %_ZN6googl
   br i1 %.not.i, label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit, label %53
 
 53:                                               ; preds = %45
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %6, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %2, ptr %7, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !tbaa !73
   %54 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %7, ptr %54, align 8, !tbaa !74
@@ -11317,7 +11311,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i:            ; preds = %53
   br i1 %.not.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i, label %58
 
 58:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %57) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %57) #25
           to label %59 unwind label %60
 
 59:                                               ; preds = %58
@@ -11328,15 +11322,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i:            ; preds = %53
           cleanup
   store ptr null, ptr %55, align 8, !tbaa !71
   store ptr null, ptr %56, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %common.resume
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i
   store ptr null, ptr %55, align 8, !tbaa !71
   store ptr null, ptr %56, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor4typeEv.exit: ; preds = %45, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i
@@ -11355,7 +11349,7 @@ _ZNK6google8protobuf15FieldDescriptor4typeEv.exit: ; preds = %45, %_ZN6google8pr
 declare void @_ZN6google8protobuf8internal12ExtensionSet9SetUInt32EihjPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24), i32 noundef, i8 noundef zeroext, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr hidden void @_ZNK6google8protobuf10Reflection8SetFieldIjEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %3) local_unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNK6google8protobuf10Reflection8SetFieldIjEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %3) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %6 = load i8, ptr %5, align 1
   %7 = and i8 %6, 16
@@ -11543,11 +11537,11 @@ define hidden noundef i32 @_ZNK6google8protobuf10Reflection17GetRepeatedUInt32ER
   br i1 %.not.i.i, label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit, label %23
 
 23:                                               ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %6, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %2, ptr %7, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !tbaa !73
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %7, ptr %24, align 8, !tbaa !74
@@ -11563,7 +11557,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %23
   br i1 %.not.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i, label %28
 
 28:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %27) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %27) #25
           to label %29 unwind label %30
 
 29:                                               ; preds = %28
@@ -11574,15 +11568,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %23
           cleanup
   store ptr null, ptr %25, align 8, !tbaa !71
   store ptr null, ptr %26, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %31
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %25, align 8, !tbaa !71
   store ptr null, ptr %26, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %20, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i
@@ -11668,11 +11662,11 @@ define hidden void @_ZNK6google8protobuf10Reflection17SetRepeatedUInt32EPNS0_7Me
   br i1 %.not.i.i, label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit, label %24
 
 24:                                               ; preds = %21
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %7, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %2, ptr %8, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %7, ptr %6, align 8, !tbaa !73
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %8, ptr %25, align 8, !tbaa !74
@@ -11688,7 +11682,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %24
   br i1 %.not.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i, label %29
 
 29:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %28) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %28) #25
           to label %30 unwind label %31
 
 30:                                               ; preds = %29
@@ -11699,15 +11693,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %24
           cleanup
   store ptr null, ptr %26, align 8, !tbaa !71
   store ptr null, ptr %27, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %32
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %26, align 8, !tbaa !71
   store ptr null, ptr %27, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %21, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i
@@ -11795,11 +11789,11 @@ define hidden void @_ZNK6google8protobuf10Reflection9AddUInt32EPNS0_7MessageEPKN
   br i1 %.not.i.i, label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit, label %26
 
 26:                                               ; preds = %23
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %9, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %2, ptr %10, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %9, ptr %8, align 8, !tbaa !73
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %10, ptr %27, align 8, !tbaa !74
@@ -11815,7 +11809,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %26
   br i1 %.not.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i, label %31
 
 31:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %30) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %30) #25
           to label %32 unwind label %33
 
 32:                                               ; preds = %31
@@ -11830,15 +11824,15 @@ common.resume:                                    ; preds = %60, %33
           cleanup
   store ptr null, ptr %28, align 8, !tbaa !71
   store ptr null, ptr %29, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %common.resume
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %28, align 8, !tbaa !71
   store ptr null, ptr %29, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %23, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i
@@ -11873,11 +11867,11 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %23, %_ZN6googl
   br i1 %.not.i, label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit, label %53
 
 53:                                               ; preds = %45
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %6, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %2, ptr %7, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !tbaa !73
   %54 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %7, ptr %54, align 8, !tbaa !74
@@ -11893,7 +11887,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i:            ; preds = %53
   br i1 %.not.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i, label %58
 
 58:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %57) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %57) #25
           to label %59 unwind label %60
 
 59:                                               ; preds = %58
@@ -11904,15 +11898,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i:            ; preds = %53
           cleanup
   store ptr null, ptr %55, align 8, !tbaa !71
   store ptr null, ptr %56, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %common.resume
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i
   store ptr null, ptr %55, align 8, !tbaa !71
   store ptr null, ptr %56, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor4typeEv.exit: ; preds = %45, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i
@@ -12000,11 +11994,11 @@ define hidden noundef i64 @_ZNK6google8protobuf10Reflection9GetUInt64ERKNS0_7Mes
   br i1 %.not.i.i, label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit, label %21
 
 21:                                               ; preds = %18
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %5, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %2, ptr %6, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %5, ptr %4, align 8, !tbaa !73
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %6, ptr %22, align 8, !tbaa !74
@@ -12020,7 +12014,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %21
   br i1 %.not.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i, label %26
 
 26:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %25) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %25) #25
           to label %27 unwind label %28
 
 27:                                               ; preds = %26
@@ -12031,15 +12025,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %21
           cleanup
   store ptr null, ptr %23, align 8, !tbaa !71
   store ptr null, ptr %24, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %29
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %23, align 8, !tbaa !71
   store ptr null, ptr %24, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %18, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i
@@ -12179,11 +12173,11 @@ define hidden void @_ZNK6google8protobuf10Reflection9SetUInt64EPNS0_7MessageEPKN
   br i1 %.not.i.i, label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit, label %26
 
 26:                                               ; preds = %23
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %9, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %2, ptr %10, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %9, ptr %8, align 8, !tbaa !73
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %10, ptr %27, align 8, !tbaa !74
@@ -12199,7 +12193,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %26
   br i1 %.not.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i, label %31
 
 31:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %30) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %30) #25
           to label %32 unwind label %33
 
 32:                                               ; preds = %31
@@ -12214,15 +12208,15 @@ common.resume:                                    ; preds = %60, %33
           cleanup
   store ptr null, ptr %28, align 8, !tbaa !71
   store ptr null, ptr %29, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %common.resume
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %28, align 8, !tbaa !71
   store ptr null, ptr %29, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %23, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i
@@ -12257,11 +12251,11 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %23, %_ZN6googl
   br i1 %.not.i, label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit, label %53
 
 53:                                               ; preds = %45
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %6, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %2, ptr %7, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !tbaa !73
   %54 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %7, ptr %54, align 8, !tbaa !74
@@ -12277,7 +12271,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i:            ; preds = %53
   br i1 %.not.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i, label %58
 
 58:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %57) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %57) #25
           to label %59 unwind label %60
 
 59:                                               ; preds = %58
@@ -12288,15 +12282,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i:            ; preds = %53
           cleanup
   store ptr null, ptr %55, align 8, !tbaa !71
   store ptr null, ptr %56, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %common.resume
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i
   store ptr null, ptr %55, align 8, !tbaa !71
   store ptr null, ptr %56, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor4typeEv.exit: ; preds = %45, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i
@@ -12315,7 +12309,7 @@ _ZNK6google8protobuf15FieldDescriptor4typeEv.exit: ; preds = %45, %_ZN6google8pr
 declare void @_ZN6google8protobuf8internal12ExtensionSet9SetUInt64EihmPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24), i32 noundef, i8 noundef zeroext, i64 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr hidden void @_ZNK6google8protobuf10Reflection8SetFieldImEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %3) local_unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNK6google8protobuf10Reflection8SetFieldImEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %3) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %6 = load i8, ptr %5, align 1
   %7 = and i8 %6, 16
@@ -12503,11 +12497,11 @@ define hidden noundef i64 @_ZNK6google8protobuf10Reflection17GetRepeatedUInt64ER
   br i1 %.not.i.i, label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit, label %23
 
 23:                                               ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %6, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %2, ptr %7, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !tbaa !73
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %7, ptr %24, align 8, !tbaa !74
@@ -12523,7 +12517,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %23
   br i1 %.not.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i, label %28
 
 28:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %27) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %27) #25
           to label %29 unwind label %30
 
 29:                                               ; preds = %28
@@ -12534,15 +12528,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %23
           cleanup
   store ptr null, ptr %25, align 8, !tbaa !71
   store ptr null, ptr %26, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %31
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %25, align 8, !tbaa !71
   store ptr null, ptr %26, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %20, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i
@@ -12628,11 +12622,11 @@ define hidden void @_ZNK6google8protobuf10Reflection17SetRepeatedUInt64EPNS0_7Me
   br i1 %.not.i.i, label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit, label %24
 
 24:                                               ; preds = %21
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %7, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %2, ptr %8, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %7, ptr %6, align 8, !tbaa !73
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %8, ptr %25, align 8, !tbaa !74
@@ -12648,7 +12642,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %24
   br i1 %.not.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i, label %29
 
 29:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %28) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %28) #25
           to label %30 unwind label %31
 
 30:                                               ; preds = %29
@@ -12659,15 +12653,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %24
           cleanup
   store ptr null, ptr %26, align 8, !tbaa !71
   store ptr null, ptr %27, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %32
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %26, align 8, !tbaa !71
   store ptr null, ptr %27, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %21, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i
@@ -12755,11 +12749,11 @@ define hidden void @_ZNK6google8protobuf10Reflection9AddUInt64EPNS0_7MessageEPKN
   br i1 %.not.i.i, label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit, label %26
 
 26:                                               ; preds = %23
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %9, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %2, ptr %10, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %9, ptr %8, align 8, !tbaa !73
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %10, ptr %27, align 8, !tbaa !74
@@ -12775,7 +12769,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %26
   br i1 %.not.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i, label %31
 
 31:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %30) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %30) #25
           to label %32 unwind label %33
 
 32:                                               ; preds = %31
@@ -12790,15 +12784,15 @@ common.resume:                                    ; preds = %60, %33
           cleanup
   store ptr null, ptr %28, align 8, !tbaa !71
   store ptr null, ptr %29, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %common.resume
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %28, align 8, !tbaa !71
   store ptr null, ptr %29, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %23, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i
@@ -12833,11 +12827,11 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %23, %_ZN6googl
   br i1 %.not.i, label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit, label %53
 
 53:                                               ; preds = %45
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %6, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %2, ptr %7, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !tbaa !73
   %54 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %7, ptr %54, align 8, !tbaa !74
@@ -12853,7 +12847,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i:            ; preds = %53
   br i1 %.not.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i, label %58
 
 58:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %57) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %57) #25
           to label %59 unwind label %60
 
 59:                                               ; preds = %58
@@ -12864,15 +12858,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i:            ; preds = %53
           cleanup
   store ptr null, ptr %55, align 8, !tbaa !71
   store ptr null, ptr %56, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %common.resume
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i
   store ptr null, ptr %55, align 8, !tbaa !71
   store ptr null, ptr %56, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor4typeEv.exit: ; preds = %45, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i
@@ -12960,11 +12954,11 @@ define hidden noundef float @_ZNK6google8protobuf10Reflection8GetFloatERKNS0_7Me
   br i1 %.not.i.i, label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit, label %21
 
 21:                                               ; preds = %18
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %5, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %2, ptr %6, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %5, ptr %4, align 8, !tbaa !73
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %6, ptr %22, align 8, !tbaa !74
@@ -12980,7 +12974,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %21
   br i1 %.not.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i, label %26
 
 26:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %25) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %25) #25
           to label %27 unwind label %28
 
 27:                                               ; preds = %26
@@ -12991,15 +12985,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %21
           cleanup
   store ptr null, ptr %23, align 8, !tbaa !71
   store ptr null, ptr %24, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %29
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %23, align 8, !tbaa !71
   store ptr null, ptr %24, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %18, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i
@@ -13139,11 +13133,11 @@ define hidden void @_ZNK6google8protobuf10Reflection8SetFloatEPNS0_7MessageEPKNS
   br i1 %.not.i.i, label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit, label %26
 
 26:                                               ; preds = %23
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %9, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %2, ptr %10, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %9, ptr %8, align 8, !tbaa !73
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %10, ptr %27, align 8, !tbaa !74
@@ -13159,7 +13153,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %26
   br i1 %.not.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i, label %31
 
 31:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %30) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %30) #25
           to label %32 unwind label %33
 
 32:                                               ; preds = %31
@@ -13174,15 +13168,15 @@ common.resume:                                    ; preds = %60, %33
           cleanup
   store ptr null, ptr %28, align 8, !tbaa !71
   store ptr null, ptr %29, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %common.resume
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %28, align 8, !tbaa !71
   store ptr null, ptr %29, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %23, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i
@@ -13217,11 +13211,11 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %23, %_ZN6googl
   br i1 %.not.i, label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit, label %53
 
 53:                                               ; preds = %45
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %6, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %2, ptr %7, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !tbaa !73
   %54 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %7, ptr %54, align 8, !tbaa !74
@@ -13237,7 +13231,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i:            ; preds = %53
   br i1 %.not.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i, label %58
 
 58:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %57) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %57) #25
           to label %59 unwind label %60
 
 59:                                               ; preds = %58
@@ -13248,15 +13242,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i:            ; preds = %53
           cleanup
   store ptr null, ptr %55, align 8, !tbaa !71
   store ptr null, ptr %56, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %common.resume
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i
   store ptr null, ptr %55, align 8, !tbaa !71
   store ptr null, ptr %56, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor4typeEv.exit: ; preds = %45, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i
@@ -13275,7 +13269,7 @@ _ZNK6google8protobuf15FieldDescriptor4typeEv.exit: ; preds = %45, %_ZN6google8pr
 declare void @_ZN6google8protobuf8internal12ExtensionSet8SetFloatEihfPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24), i32 noundef, i8 noundef zeroext, float noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr hidden void @_ZNK6google8protobuf10Reflection8SetFieldIfEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %3) local_unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNK6google8protobuf10Reflection8SetFieldIfEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %3) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %6 = load i8, ptr %5, align 1
   %7 = and i8 %6, 16
@@ -13463,11 +13457,11 @@ define hidden noundef float @_ZNK6google8protobuf10Reflection16GetRepeatedFloatE
   br i1 %.not.i.i, label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit, label %23
 
 23:                                               ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %6, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %2, ptr %7, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !tbaa !73
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %7, ptr %24, align 8, !tbaa !74
@@ -13483,7 +13477,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %23
   br i1 %.not.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i, label %28
 
 28:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %27) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %27) #25
           to label %29 unwind label %30
 
 29:                                               ; preds = %28
@@ -13494,15 +13488,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %23
           cleanup
   store ptr null, ptr %25, align 8, !tbaa !71
   store ptr null, ptr %26, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %31
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %25, align 8, !tbaa !71
   store ptr null, ptr %26, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %20, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i
@@ -13588,11 +13582,11 @@ define hidden void @_ZNK6google8protobuf10Reflection16SetRepeatedFloatEPNS0_7Mes
   br i1 %.not.i.i, label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit, label %24
 
 24:                                               ; preds = %21
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %7, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %2, ptr %8, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %7, ptr %6, align 8, !tbaa !73
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %8, ptr %25, align 8, !tbaa !74
@@ -13608,7 +13602,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %24
   br i1 %.not.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i, label %29
 
 29:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %28) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %28) #25
           to label %30 unwind label %31
 
 30:                                               ; preds = %29
@@ -13619,15 +13613,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %24
           cleanup
   store ptr null, ptr %26, align 8, !tbaa !71
   store ptr null, ptr %27, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %32
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %26, align 8, !tbaa !71
   store ptr null, ptr %27, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %21, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i
@@ -13715,11 +13709,11 @@ define hidden void @_ZNK6google8protobuf10Reflection8AddFloatEPNS0_7MessageEPKNS
   br i1 %.not.i.i, label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit, label %26
 
 26:                                               ; preds = %23
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %9, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %2, ptr %10, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %9, ptr %8, align 8, !tbaa !73
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %10, ptr %27, align 8, !tbaa !74
@@ -13735,7 +13729,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %26
   br i1 %.not.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i, label %31
 
 31:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %30) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %30) #25
           to label %32 unwind label %33
 
 32:                                               ; preds = %31
@@ -13750,15 +13744,15 @@ common.resume:                                    ; preds = %60, %33
           cleanup
   store ptr null, ptr %28, align 8, !tbaa !71
   store ptr null, ptr %29, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %common.resume
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %28, align 8, !tbaa !71
   store ptr null, ptr %29, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %23, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i
@@ -13793,11 +13787,11 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %23, %_ZN6googl
   br i1 %.not.i, label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit, label %53
 
 53:                                               ; preds = %45
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %6, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %2, ptr %7, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !tbaa !73
   %54 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %7, ptr %54, align 8, !tbaa !74
@@ -13813,7 +13807,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i:            ; preds = %53
   br i1 %.not.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i, label %58
 
 58:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %57) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %57) #25
           to label %59 unwind label %60
 
 59:                                               ; preds = %58
@@ -13824,15 +13818,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i:            ; preds = %53
           cleanup
   store ptr null, ptr %55, align 8, !tbaa !71
   store ptr null, ptr %56, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %common.resume
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i
   store ptr null, ptr %55, align 8, !tbaa !71
   store ptr null, ptr %56, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor4typeEv.exit: ; preds = %45, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i
@@ -13920,11 +13914,11 @@ define hidden noundef double @_ZNK6google8protobuf10Reflection9GetDoubleERKNS0_7
   br i1 %.not.i.i, label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit, label %21
 
 21:                                               ; preds = %18
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %5, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %2, ptr %6, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %5, ptr %4, align 8, !tbaa !73
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %6, ptr %22, align 8, !tbaa !74
@@ -13940,7 +13934,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %21
   br i1 %.not.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i, label %26
 
 26:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %25) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %25) #25
           to label %27 unwind label %28
 
 27:                                               ; preds = %26
@@ -13951,15 +13945,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %21
           cleanup
   store ptr null, ptr %23, align 8, !tbaa !71
   store ptr null, ptr %24, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %29
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %23, align 8, !tbaa !71
   store ptr null, ptr %24, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %18, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i
@@ -14099,11 +14093,11 @@ define hidden void @_ZNK6google8protobuf10Reflection9SetDoubleEPNS0_7MessageEPKN
   br i1 %.not.i.i, label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit, label %26
 
 26:                                               ; preds = %23
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %9, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %2, ptr %10, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %9, ptr %8, align 8, !tbaa !73
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %10, ptr %27, align 8, !tbaa !74
@@ -14119,7 +14113,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %26
   br i1 %.not.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i, label %31
 
 31:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %30) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %30) #25
           to label %32 unwind label %33
 
 32:                                               ; preds = %31
@@ -14134,15 +14128,15 @@ common.resume:                                    ; preds = %60, %33
           cleanup
   store ptr null, ptr %28, align 8, !tbaa !71
   store ptr null, ptr %29, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %common.resume
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %28, align 8, !tbaa !71
   store ptr null, ptr %29, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %23, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i
@@ -14177,11 +14171,11 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %23, %_ZN6googl
   br i1 %.not.i, label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit, label %53
 
 53:                                               ; preds = %45
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %6, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %2, ptr %7, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !tbaa !73
   %54 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %7, ptr %54, align 8, !tbaa !74
@@ -14197,7 +14191,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i:            ; preds = %53
   br i1 %.not.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i, label %58
 
 58:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %57) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %57) #25
           to label %59 unwind label %60
 
 59:                                               ; preds = %58
@@ -14208,15 +14202,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i:            ; preds = %53
           cleanup
   store ptr null, ptr %55, align 8, !tbaa !71
   store ptr null, ptr %56, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %common.resume
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i
   store ptr null, ptr %55, align 8, !tbaa !71
   store ptr null, ptr %56, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor4typeEv.exit: ; preds = %45, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i
@@ -14235,7 +14229,7 @@ _ZNK6google8protobuf15FieldDescriptor4typeEv.exit: ; preds = %45, %_ZN6google8pr
 declare void @_ZN6google8protobuf8internal12ExtensionSet9SetDoubleEihdPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24), i32 noundef, i8 noundef zeroext, double noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr hidden void @_ZNK6google8protobuf10Reflection8SetFieldIdEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %3) local_unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNK6google8protobuf10Reflection8SetFieldIdEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %3) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %6 = load i8, ptr %5, align 1
   %7 = and i8 %6, 16
@@ -14423,11 +14417,11 @@ define hidden noundef double @_ZNK6google8protobuf10Reflection17GetRepeatedDoubl
   br i1 %.not.i.i, label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit, label %23
 
 23:                                               ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %6, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %2, ptr %7, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !tbaa !73
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %7, ptr %24, align 8, !tbaa !74
@@ -14443,7 +14437,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %23
   br i1 %.not.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i, label %28
 
 28:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %27) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %27) #25
           to label %29 unwind label %30
 
 29:                                               ; preds = %28
@@ -14454,15 +14448,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %23
           cleanup
   store ptr null, ptr %25, align 8, !tbaa !71
   store ptr null, ptr %26, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %31
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %25, align 8, !tbaa !71
   store ptr null, ptr %26, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %20, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i
@@ -14548,11 +14542,11 @@ define hidden void @_ZNK6google8protobuf10Reflection17SetRepeatedDoubleEPNS0_7Me
   br i1 %.not.i.i, label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit, label %24
 
 24:                                               ; preds = %21
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %7, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %2, ptr %8, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %7, ptr %6, align 8, !tbaa !73
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %8, ptr %25, align 8, !tbaa !74
@@ -14568,7 +14562,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %24
   br i1 %.not.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i, label %29
 
 29:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %28) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %28) #25
           to label %30 unwind label %31
 
 30:                                               ; preds = %29
@@ -14579,15 +14573,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %24
           cleanup
   store ptr null, ptr %26, align 8, !tbaa !71
   store ptr null, ptr %27, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %32
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %26, align 8, !tbaa !71
   store ptr null, ptr %27, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %21, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i
@@ -14675,11 +14669,11 @@ define hidden void @_ZNK6google8protobuf10Reflection9AddDoubleEPNS0_7MessageEPKN
   br i1 %.not.i.i, label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit, label %26
 
 26:                                               ; preds = %23
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %9, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %2, ptr %10, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %9, ptr %8, align 8, !tbaa !73
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %10, ptr %27, align 8, !tbaa !74
@@ -14695,7 +14689,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %26
   br i1 %.not.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i, label %31
 
 31:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %30) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %30) #25
           to label %32 unwind label %33
 
 32:                                               ; preds = %31
@@ -14710,15 +14704,15 @@ common.resume:                                    ; preds = %60, %33
           cleanup
   store ptr null, ptr %28, align 8, !tbaa !71
   store ptr null, ptr %29, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %common.resume
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %28, align 8, !tbaa !71
   store ptr null, ptr %29, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %23, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i
@@ -14753,11 +14747,11 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %23, %_ZN6googl
   br i1 %.not.i, label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit, label %53
 
 53:                                               ; preds = %45
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %6, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %2, ptr %7, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !tbaa !73
   %54 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %7, ptr %54, align 8, !tbaa !74
@@ -14773,7 +14767,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i:            ; preds = %53
   br i1 %.not.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i, label %58
 
 58:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %57) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %57) #25
           to label %59 unwind label %60
 
 59:                                               ; preds = %58
@@ -14784,15 +14778,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i:            ; preds = %53
           cleanup
   store ptr null, ptr %55, align 8, !tbaa !71
   store ptr null, ptr %56, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %common.resume
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i
   store ptr null, ptr %55, align 8, !tbaa !71
   store ptr null, ptr %56, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor4typeEv.exit: ; preds = %45, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i
@@ -14880,11 +14874,11 @@ define hidden noundef zeroext i1 @_ZNK6google8protobuf10Reflection7GetBoolERKNS0
   br i1 %.not.i.i, label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit, label %21
 
 21:                                               ; preds = %18
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %5, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %2, ptr %6, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %5, ptr %4, align 8, !tbaa !73
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %6, ptr %22, align 8, !tbaa !74
@@ -14900,7 +14894,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %21
   br i1 %.not.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i, label %26
 
 26:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %25) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %25) #25
           to label %27 unwind label %28
 
 27:                                               ; preds = %26
@@ -14911,15 +14905,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %21
           cleanup
   store ptr null, ptr %23, align 8, !tbaa !71
   store ptr null, ptr %24, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %29
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %23, align 8, !tbaa !71
   store ptr null, ptr %24, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %18, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i
@@ -15063,11 +15057,11 @@ define hidden void @_ZNK6google8protobuf10Reflection7SetBoolEPNS0_7MessageEPKNS0
   br i1 %.not.i.i, label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit, label %27
 
 27:                                               ; preds = %24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %9, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %2, ptr %10, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %9, ptr %8, align 8, !tbaa !73
   %28 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %10, ptr %28, align 8, !tbaa !74
@@ -15083,7 +15077,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %27
   br i1 %.not.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i, label %32
 
 32:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %31) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %31) #25
           to label %33 unwind label %34
 
 33:                                               ; preds = %32
@@ -15098,15 +15092,15 @@ common.resume:                                    ; preds = %61, %34
           cleanup
   store ptr null, ptr %29, align 8, !tbaa !71
   store ptr null, ptr %30, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %common.resume
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %29, align 8, !tbaa !71
   store ptr null, ptr %30, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %24, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i
@@ -15141,11 +15135,11 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %24, %_ZN6googl
   br i1 %.not.i, label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit, label %54
 
 54:                                               ; preds = %46
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %6, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %2, ptr %7, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !tbaa !73
   %55 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %7, ptr %55, align 8, !tbaa !74
@@ -15161,7 +15155,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i:            ; preds = %54
   br i1 %.not.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i, label %59
 
 59:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %58) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %58) #25
           to label %60 unwind label %61
 
 60:                                               ; preds = %59
@@ -15172,15 +15166,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i:            ; preds = %54
           cleanup
   store ptr null, ptr %56, align 8, !tbaa !71
   store ptr null, ptr %57, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %common.resume
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i
   store ptr null, ptr %56, align 8, !tbaa !71
   store ptr null, ptr %57, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor4typeEv.exit: ; preds = %46, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i
@@ -15199,7 +15193,7 @@ _ZNK6google8protobuf15FieldDescriptor4typeEv.exit: ; preds = %46, %_ZN6google8pr
 declare void @_ZN6google8protobuf8internal12ExtensionSet7SetBoolEihbPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24), i32 noundef, i8 noundef zeroext, i1 noundef zeroext, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr hidden void @_ZNK6google8protobuf10Reflection8SetFieldIbEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3) local_unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNK6google8protobuf10Reflection8SetFieldIbEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %6 = load i8, ptr %5, align 1
   %7 = and i8 %6, 16
@@ -15387,11 +15381,11 @@ define hidden noundef zeroext i1 @_ZNK6google8protobuf10Reflection15GetRepeatedB
   br i1 %.not.i.i, label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit, label %23
 
 23:                                               ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %6, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %2, ptr %7, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !tbaa !73
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %7, ptr %24, align 8, !tbaa !74
@@ -15407,7 +15401,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %23
   br i1 %.not.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i, label %28
 
 28:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %27) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %27) #25
           to label %29 unwind label %30
 
 29:                                               ; preds = %28
@@ -15418,15 +15412,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %23
           cleanup
   store ptr null, ptr %25, align 8, !tbaa !71
   store ptr null, ptr %26, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %31
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %25, align 8, !tbaa !71
   store ptr null, ptr %26, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %20, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i
@@ -15513,11 +15507,11 @@ define hidden void @_ZNK6google8protobuf10Reflection15SetRepeatedBoolEPNS0_7Mess
   br i1 %.not.i.i, label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit, label %24
 
 24:                                               ; preds = %21
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %7, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %2, ptr %8, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %7, ptr %6, align 8, !tbaa !73
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %8, ptr %25, align 8, !tbaa !74
@@ -15533,7 +15527,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %24
   br i1 %.not.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i, label %29
 
 29:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %28) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %28) #25
           to label %30 unwind label %31
 
 30:                                               ; preds = %29
@@ -15544,15 +15538,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %24
           cleanup
   store ptr null, ptr %26, align 8, !tbaa !71
   store ptr null, ptr %27, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %32
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %26, align 8, !tbaa !71
   store ptr null, ptr %27, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %21, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i
@@ -15642,11 +15636,11 @@ define hidden void @_ZNK6google8protobuf10Reflection7AddBoolEPNS0_7MessageEPKNS0
   br i1 %.not.i.i, label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit, label %27
 
 27:                                               ; preds = %24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %9, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %2, ptr %10, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %9, ptr %8, align 8, !tbaa !73
   %28 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %10, ptr %28, align 8, !tbaa !74
@@ -15662,7 +15656,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %27
   br i1 %.not.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i, label %32
 
 32:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %31) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %31) #25
           to label %33 unwind label %34
 
 33:                                               ; preds = %32
@@ -15677,15 +15671,15 @@ common.resume:                                    ; preds = %61, %34
           cleanup
   store ptr null, ptr %29, align 8, !tbaa !71
   store ptr null, ptr %30, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %common.resume
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %29, align 8, !tbaa !71
   store ptr null, ptr %30, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %24, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i
@@ -15720,11 +15714,11 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %24, %_ZN6googl
   br i1 %.not.i, label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit, label %54
 
 54:                                               ; preds = %46
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %6, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %2, ptr %7, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !tbaa !73
   %55 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %7, ptr %55, align 8, !tbaa !74
@@ -15740,7 +15734,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i:            ; preds = %54
   br i1 %.not.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i, label %59
 
 59:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %58) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %58) #25
           to label %60 unwind label %61
 
 60:                                               ; preds = %59
@@ -15751,15 +15745,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i:            ; preds = %54
           cleanup
   store ptr null, ptr %56, align 8, !tbaa !71
   store ptr null, ptr %57, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %common.resume
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i
   store ptr null, ptr %56, align 8, !tbaa !71
   store ptr null, ptr %57, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor4typeEv.exit: ; preds = %46, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i
@@ -15852,11 +15846,11 @@ define hidden void @_ZNK6google8protobuf10Reflection9GetStringB5cxx11ERKNS0_7Mes
   br i1 %.not.i.i, label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit, label %27
 
 27:                                               ; preds = %24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %11, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr %3, ptr %12, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %11, ptr %10, align 8, !tbaa !73
   %28 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %12, ptr %28, align 8, !tbaa !74
@@ -15872,7 +15866,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %27
   br i1 %.not.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i, label %32
 
 32:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %31) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %31) #25
           to label %33 unwind label %34
 
 33:                                               ; preds = %32
@@ -15883,15 +15877,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %27
           cleanup
   store ptr null, ptr %29, align 8, !tbaa !71
   store ptr null, ptr %30, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %35
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %29, align 8, !tbaa !71
   store ptr null, ptr %30, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %24, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i
@@ -15929,7 +15923,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %24, %_ZN6googl
   %57 = load ptr, ptr %55, align 8, !tbaa !122
   %58 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %59 = load i64, ptr %58, align 8, !tbaa !124
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 %59, ptr %9, align 8, !tbaa !125
   %60 = icmp ugt i64 %59, 15
   br i1 %60, label %.noexc.i, label %._crit_edge.i.i
@@ -15964,7 +15958,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
   %69 = load ptr, ptr %0, align 8, !tbaa !122
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 %67
   store i8 0, ptr %70, align 1, !tbaa !118
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %183
 
 71:                                               ; preds = %43
@@ -16021,7 +16015,7 @@ _ZNK6google8protobuf8internal16ReflectionSchema11InRealOneofEPKNS0_15FieldDescri
   %108 = load ptr, ptr %106, align 8, !tbaa !122
   %109 = getelementptr inbounds nuw i8, ptr %106, i64 8
   %110 = load i64, ptr %109, align 8, !tbaa !124
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 %110, ptr %8, align 8, !tbaa !125
   %111 = icmp ugt i64 %110, 15
   br i1 %111, label %.noexc.i31, label %._crit_edge.i.i30
@@ -16056,7 +16050,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit32: ; preds = 
   %120 = load ptr, ptr %0, align 8, !tbaa !122
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 %118
   store i8 0, ptr %121, align 1, !tbaa !118
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %183
 
 _ZNK6google8protobuf8internal16ReflectionSchema11InRealOneofEPKNS0_15FieldDescriptorE.exit.thread42: ; preds = %71, %_ZNK6google8protobuf8internal16ReflectionSchema11InRealOneofEPKNS0_15FieldDescriptorE.exit.thread, %_ZNK6google8protobuf8internal16ReflectionSchema11InRealOneofEPKNS0_15FieldDescriptorE.exit
@@ -16073,7 +16067,7 @@ _ZNK6google8protobuf8internal16ReflectionSchema11InRealOneofEPKNS0_15FieldDescri
   %129 = load ptr, ptr %126, align 8, !tbaa !122
   %130 = getelementptr inbounds nuw i8, ptr %126, i64 8
   %131 = load i64, ptr %130, align 8, !tbaa !124
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %131, ptr %7, align 8, !tbaa !125
   %132 = icmp ugt i64 %131, 15
   br i1 %132, label %.noexc.i34, label %._crit_edge.i.i33
@@ -16108,7 +16102,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit35: ; preds = 
   %141 = load ptr, ptr %0, align 8, !tbaa !122
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 %139
   store i8 0, ptr %142, align 1, !tbaa !118
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %183
 
 143:                                              ; preds = %_ZNK6google8protobuf8internal16ReflectionSchema11InRealOneofEPKNS0_15FieldDescriptorE.exit.thread42
@@ -16125,7 +16119,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit35: ; preds = 
   %150 = load ptr, ptr %148, align 8, !tbaa !122
   %151 = getelementptr inbounds nuw i8, ptr %148, i64 8
   %152 = load i64, ptr %151, align 8, !tbaa !124
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 %152, ptr %6, align 8, !tbaa !125
   %153 = icmp ugt i64 %152, 15
   br i1 %153, label %.noexc.i37, label %._crit_edge.i.i36
@@ -16160,7 +16154,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit35: ; preds = 
   %163 = load ptr, ptr %0, align 8, !tbaa !122
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 %161
   store i8 0, ptr %164, align 1, !tbaa !118
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %183
 
 165:                                              ; preds = %143
@@ -16171,7 +16165,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit35: ; preds = 
   %169 = load ptr, ptr %167, align 8, !tbaa !122
   %170 = getelementptr inbounds nuw i8, ptr %167, i64 8
   %171 = load i64, ptr %170, align 8, !tbaa !124
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %171, ptr %5, align 8, !tbaa !125
   %172 = icmp ugt i64 %171, 15
   br i1 %172, label %.noexc.i40, label %._crit_edge.i.i39
@@ -16206,7 +16200,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit41: ; preds = 
   %181 = load ptr, ptr %0, align 8, !tbaa !122
   %182 = getelementptr inbounds nuw i8, ptr %181, i64 %179
   store i8 0, ptr %182, align 1, !tbaa !118
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %183
 
 183:                                              ; preds = %160, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit41, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit35, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit32, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit
@@ -16249,11 +16243,11 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8proto
   br i1 %.not.i.i, label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit, label %22
 
 22:                                               ; preds = %19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %6, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %2, ptr %7, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !tbaa !73
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %7, ptr %23, align 8, !tbaa !74
@@ -16269,7 +16263,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %22
   br i1 %.not.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i, label %27
 
 27:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %26) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %26) #25
           to label %28 unwind label %29
 
 28:                                               ; preds = %27
@@ -16280,15 +16274,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %22
           cleanup
   store ptr null, ptr %24, align 8, !tbaa !71
   store ptr null, ptr %25, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %30
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %24, align 8, !tbaa !71
   store ptr null, ptr %25, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %19, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i
@@ -16441,11 +16435,11 @@ define hidden void @_ZNK6google8protobuf10Reflection9SetStringEPNS0_7MessageEPKN
   br i1 %.not.i.i, label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit, label %29
 
 29:                                               ; preds = %26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %12, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr %2, ptr %13, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %12, ptr %11, align 8, !tbaa !73
   %30 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %13, ptr %30, align 8, !tbaa !74
@@ -16461,7 +16455,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %29
   br i1 %.not.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i, label %34
 
 34:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %33) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %33) #25
           to label %35 unwind label %36
 
 35:                                               ; preds = %34
@@ -16476,15 +16470,15 @@ common.resume:                                    ; preds = %_ZNKSt7__cxx1112bas
           cleanup
   store ptr null, ptr %31, align 8, !tbaa !71
   store ptr null, ptr %32, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %common.resume
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %31, align 8, !tbaa !71
   store ptr null, ptr %32, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %26, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i
@@ -16519,11 +16513,11 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %26, %_ZN6googl
   br i1 %.not.i, label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit, label %56
 
 56:                                               ; preds = %48
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %9, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %2, ptr %10, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %9, ptr %8, align 8, !tbaa !73
   %57 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %10, ptr %57, align 8, !tbaa !74
@@ -16539,7 +16533,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i:            ; preds = %56
   br i1 %.not.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i, label %61
 
 61:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %60) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %60) #25
           to label %62 unwind label %63
 
 62:                                               ; preds = %61
@@ -16550,15 +16544,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i:            ; preds = %56
           cleanup
   store ptr null, ptr %58, align 8, !tbaa !71
   store ptr null, ptr %59, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %common.resume
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i
   store ptr null, ptr %58, align 8, !tbaa !71
   store ptr null, ptr %59, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor4typeEv.exit: ; preds = %48, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i
@@ -16694,7 +16688,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %110
-  call void @_ZdlPv(ptr noundef %112) #27
+  call void @_ZdlPv(ptr noundef %112) #26
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 116:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit
@@ -16711,7 +16705,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %common.resume
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i42: ; preds = %116
-  call void @_ZdlPv(ptr noundef %118) #27
+  call void @_ZdlPv(ptr noundef %118) #26
   br label %common.resume
 
 122:                                              ; preds = %45
@@ -16901,11 +16895,11 @@ _ZNK6google8protobuf15FieldDescriptor5indexEv.exit.i.i: ; preds = %217, %_ZNK6go
   br i1 %.not.i3.i.i, label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i, label %228
 
 228:                                              ; preds = %_ZNK6google8protobuf15FieldDescriptor5indexEv.exit.i.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %6, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %2, ptr %7, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !tbaa !73
   %229 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %7, ptr %229, align 8, !tbaa !74
@@ -16921,7 +16915,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i:        ; preds = %228
   br i1 %.not.i.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i, label %233
 
 233:                                              ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %232) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %232) #25
           to label %234 unwind label %235
 
 234:                                              ; preds = %233
@@ -16932,15 +16926,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i:        ; preds = %228
           cleanup
   store ptr null, ptr %230, align 8, !tbaa !71
   store ptr null, ptr %231, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %common.resume
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i
   store ptr null, ptr %230, align 8, !tbaa !71
   store ptr null, ptr %231, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i
 
 _ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i: ; preds = %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i, %_ZNK6google8protobuf15FieldDescriptor5indexEv.exit.i.i
@@ -17326,11 +17320,11 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit: ; preds = %32, 
   br i1 %.not.i.i, label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit, label %46
 
 46:                                               ; preds = %43
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %5, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %34, ptr %6, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %5, ptr %4, align 8, !tbaa !73
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %6, ptr %47, align 8, !tbaa !74
@@ -17346,7 +17340,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %46
   br i1 %.not.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i, label %51
 
 51:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %50) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %50) #25
           to label %52 unwind label %53
 
 52:                                               ; preds = %51
@@ -17357,15 +17351,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %46
           cleanup
   store ptr null, ptr %48, align 8, !tbaa !71
   store ptr null, ptr %49, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %54
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %48, align 8, !tbaa !71
   store ptr null, ptr %49, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %43, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i
@@ -17518,7 +17512,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit22: ; preds = %_Z
   %142 = load ptr, ptr %139, align 8, !tbaa !101
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 8
   %144 = load ptr, ptr %143, align 8
-  call void %144(ptr noundef nonnull align 8 dereferenceable(16) %139) #25
+  call void %144(ptr noundef nonnull align 8 dereferenceable(16) %139) #27
   br label %145
 
 145:                                              ; preds = %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit22, %141, %134, %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit
@@ -17577,11 +17571,11 @@ define hidden void @_ZNK6google8protobuf10Reflection17GetRepeatedStringB5cxx11ER
   br i1 %.not.i.i, label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit, label %26
 
 26:                                               ; preds = %23
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %9, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %3, ptr %10, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %9, ptr %8, align 8, !tbaa !73
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %10, ptr %27, align 8, !tbaa !74
@@ -17597,7 +17591,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %26
   br i1 %.not.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i, label %31
 
 31:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %30) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %30) #25
           to label %32 unwind label %33
 
 32:                                               ; preds = %31
@@ -17608,15 +17602,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %26
           cleanup
   store ptr null, ptr %28, align 8, !tbaa !71
   store ptr null, ptr %29, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   resume { ptr, i32 } %34
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %28, align 8, !tbaa !71
   store ptr null, ptr %29, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %23, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i
@@ -17652,7 +17646,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %23, %_ZN6googl
   %54 = load ptr, ptr %52, align 8, !tbaa !122
   %55 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %56 = load i64, ptr %55, align 8, !tbaa !124
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %56, ptr %7, align 8, !tbaa !125
   %57 = icmp ugt i64 %56, 15
   br i1 %57, label %.noexc.i, label %._crit_edge.i.i
@@ -17687,7 +17681,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
   %66 = load ptr, ptr %0, align 8, !tbaa !122
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 %64
   store i8 0, ptr %67, align 1, !tbaa !118
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %94
 
 68:                                               ; preds = %42
@@ -17706,7 +17700,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
   %80 = load ptr, ptr %78, align 8, !tbaa !122
   %81 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %82 = load i64, ptr %81, align 8, !tbaa !124
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 %82, ptr %6, align 8, !tbaa !125
   %83 = icmp ugt i64 %82, 15
   br i1 %83, label %.noexc.i15, label %._crit_edge.i.i14
@@ -17741,7 +17735,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit16: ; preds = 
   %92 = load ptr, ptr %0, align 8, !tbaa !122
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 %90
   store i8 0, ptr %93, align 1, !tbaa !118
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %94
 
 94:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit16, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit
@@ -17784,11 +17778,11 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8proto
   br i1 %.not.i.i, label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit, label %24
 
 24:                                               ; preds = %21
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %7, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %2, ptr %8, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %7, ptr %6, align 8, !tbaa !73
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %8, ptr %25, align 8, !tbaa !74
@@ -17804,7 +17798,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %24
   br i1 %.not.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i, label %29
 
 29:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %28) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %28) #25
           to label %30 unwind label %31
 
 30:                                               ; preds = %29
@@ -17815,15 +17809,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %24
           cleanup
   store ptr null, ptr %26, align 8, !tbaa !71
   store ptr null, ptr %27, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %32
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %26, align 8, !tbaa !71
   store ptr null, ptr %27, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %21, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i
@@ -17909,11 +17903,11 @@ define hidden void @_ZNK6google8protobuf10Reflection17SetRepeatedStringEPNS0_7Me
   br i1 %.not.i.i, label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit, label %25
 
 25:                                               ; preds = %22
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %7, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %2, ptr %8, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %7, ptr %6, align 8, !tbaa !73
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %8, ptr %26, align 8, !tbaa !74
@@ -17929,7 +17923,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %25
   br i1 %.not.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i, label %30
 
 30:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %29) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %29) #25
           to label %31 unwind label %32
 
 31:                                               ; preds = %30
@@ -17944,15 +17938,15 @@ common.resume:                                    ; preds = %_ZNKSt7__cxx1112bas
           cleanup
   store ptr null, ptr %27, align 8, !tbaa !71
   store ptr null, ptr %28, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %common.resume
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %27, align 8, !tbaa !71
   store ptr null, ptr %28, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %22, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i
@@ -18113,7 +18107,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %95
-  call void @_ZdlPv(ptr noundef %97) #27
+  call void @_ZdlPv(ptr noundef %97) #26
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 101:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit
@@ -18130,7 +18124,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %common.resume
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i16: ; preds = %101
-  call void @_ZdlPv(ptr noundef %103) #27
+  call void @_ZdlPv(ptr noundef %103) #26
   br label %common.resume
 
 107:                                              ; preds = %41
@@ -18279,11 +18273,11 @@ define hidden void @_ZNK6google8protobuf10Reflection9AddStringEPNS0_7MessageEPKN
   br i1 %.not.i.i, label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit, label %27
 
 27:                                               ; preds = %24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %9, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %2, ptr %10, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %9, ptr %8, align 8, !tbaa !73
   %28 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %10, ptr %28, align 8, !tbaa !74
@@ -18299,7 +18293,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %27
   br i1 %.not.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i, label %32
 
 32:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %31) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %31) #25
           to label %33 unwind label %34
 
 33:                                               ; preds = %32
@@ -18314,15 +18308,15 @@ common.resume:                                    ; preds = %_ZNKSt7__cxx1112bas
           cleanup
   store ptr null, ptr %29, align 8, !tbaa !71
   store ptr null, ptr %30, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %common.resume
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %29, align 8, !tbaa !71
   store ptr null, ptr %30, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %24, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i
@@ -18357,11 +18351,11 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %24, %_ZN6googl
   br i1 %.not.i, label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit, label %54
 
 54:                                               ; preds = %46
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %6, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %2, ptr %7, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !tbaa !73
   %55 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %7, ptr %55, align 8, !tbaa !74
@@ -18377,7 +18371,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i:            ; preds = %54
   br i1 %.not.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i, label %59
 
 59:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %58) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %58) #25
           to label %60 unwind label %61
 
 60:                                               ; preds = %59
@@ -18388,15 +18382,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i:            ; preds = %54
           cleanup
   store ptr null, ptr %56, align 8, !tbaa !71
   store ptr null, ptr %57, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %common.resume
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i
   store ptr null, ptr %56, align 8, !tbaa !71
   store ptr null, ptr %57, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor4typeEv.exit: ; preds = %46, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i
@@ -18532,7 +18526,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %108
-  call void @_ZdlPv(ptr noundef %110) #27
+  call void @_ZdlPv(ptr noundef %110) #26
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 114:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit
@@ -18549,7 +18543,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %common.resume
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i17: ; preds = %114
-  call void @_ZdlPv(ptr noundef %116) #27
+  call void @_ZdlPv(ptr noundef %116) #26
   br label %common.resume
 
 120:                                              ; preds = %43
@@ -18747,11 +18741,11 @@ define hidden noundef i32 @_ZNK6google8protobuf10Reflection12GetEnumValueERKNS0_
   br i1 %.not.i.i, label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit, label %21
 
 21:                                               ; preds = %18
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %5, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %2, ptr %6, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %5, ptr %4, align 8, !tbaa !73
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %6, ptr %22, align 8, !tbaa !74
@@ -18767,7 +18761,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %21
   br i1 %.not.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i, label %26
 
 26:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %25) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %25) #25
           to label %27 unwind label %28
 
 27:                                               ; preds = %26
@@ -18778,15 +18772,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %21
           cleanup
   store ptr null, ptr %23, align 8, !tbaa !71
   store ptr null, ptr %24, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %29
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %23, align 8, !tbaa !71
   store ptr null, ptr %24, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %18, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i
@@ -18917,7 +18911,7 @@ define hidden void @_ZNK6google8protobuf10Reflection7SetEnumEPNS0_7MessageEPKNS0
 define internal fastcc void @_ZN6google8protobuf12_GLOBAL__N_134ReportReflectionUsageEnumTypeErrorEPKNS0_10DescriptorEPKNS0_15FieldDescriptorEPKcPKNS0_19EnumValueDescriptorE(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.google::protobuf::internal::LogMessage", align 8
   %6 = alloca %"class.google::protobuf::internal::LogFinisher", align 1
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN6google8protobuf8internal10LogMessageC1ENS0_8LogLevelEPKci(ptr noundef nonnull align 8 dereferenceable(56) %5, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 171)
   %7 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull @.str.106)
           to label %8 unwind label %42
@@ -18975,14 +18969,14 @@ define internal fastcc void @_ZN6google8protobuf12_GLOBAL__N_134ReportReflection
           to label %40 unwind label %42
 
 40:                                               ; preds = %35
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   invoke void @_ZN6google8protobuf8internal11LogFinisheraSERNS1_10LogMessageE(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(56) %39)
           to label %41 unwind label %44
 
 41:                                               ; preds = %40
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #25
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #25
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
 42:                                               ; preds = %35, %33, %28, %26, %24, %19, %17, %12, %10, %8, %4
@@ -18993,13 +18987,13 @@ define internal fastcc void @_ZN6google8protobuf12_GLOBAL__N_134ReportReflection
 44:                                               ; preds = %40
   %45 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %46
 
 46:                                               ; preds = %44, %42
   %.pn = phi { ptr, i32 } [ %45, %44 ], [ %43, %42 ]
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #25
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #25
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn
 }
 
@@ -19029,11 +19023,11 @@ define hidden void @_ZNK6google8protobuf10Reflection20SetEnumValueInternalEPNS0_
   br i1 %.not.i, label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit, label %21
 
 21:                                               ; preds = %12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %6, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %2, ptr %7, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !tbaa !73
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %7, ptr %22, align 8, !tbaa !74
@@ -19049,7 +19043,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i:            ; preds = %21
   br i1 %.not.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i, label %26
 
 26:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %25) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %25) #25
           to label %27 unwind label %28
 
 27:                                               ; preds = %26
@@ -19060,15 +19054,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i:            ; preds = %21
           cleanup
   store ptr null, ptr %23, align 8, !tbaa !71
   store ptr null, ptr %24, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %29
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i
   store ptr null, ptr %23, align 8, !tbaa !71
   store ptr null, ptr %24, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor4typeEv.exit: ; preds = %12, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i
@@ -19119,11 +19113,11 @@ define hidden void @_ZNK6google8protobuf10Reflection12SetEnumValueEPNS0_7Message
   br i1 %.not.i.i, label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit, label %22
 
 22:                                               ; preds = %19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %6, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %2, ptr %7, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !tbaa !73
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %7, ptr %23, align 8, !tbaa !74
@@ -19139,7 +19133,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %22
   br i1 %.not.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i, label %27
 
 27:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %26) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %26) #25
           to label %28 unwind label %29
 
 28:                                               ; preds = %27
@@ -19150,15 +19144,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %22
           cleanup
   store ptr null, ptr %24, align 8, !tbaa !71
   store ptr null, ptr %25, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %30
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %24, align 8, !tbaa !71
   store ptr null, ptr %25, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %19, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i
@@ -19271,11 +19265,11 @@ define hidden noundef i32 @_ZNK6google8protobuf10Reflection20GetRepeatedEnumValu
   br i1 %.not.i.i, label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit, label %23
 
 23:                                               ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %6, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %2, ptr %7, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !tbaa !73
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %7, ptr %24, align 8, !tbaa !74
@@ -19291,7 +19285,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %23
   br i1 %.not.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i, label %28
 
 28:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %27) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %27) #25
           to label %29 unwind label %30
 
 29:                                               ; preds = %28
@@ -19302,15 +19296,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %23
           cleanup
   store ptr null, ptr %25, align 8, !tbaa !71
   store ptr null, ptr %26, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %31
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %25, align 8, !tbaa !71
   store ptr null, ptr %26, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %20, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i
@@ -19478,11 +19472,11 @@ define hidden void @_ZNK6google8protobuf10Reflection20SetRepeatedEnumValueEPNS0_
   br i1 %.not.i.i, label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit, label %24
 
 24:                                               ; preds = %21
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %7, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %2, ptr %8, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %7, ptr %6, align 8, !tbaa !73
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %8, ptr %25, align 8, !tbaa !74
@@ -19498,7 +19492,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %24
   br i1 %.not.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i, label %29
 
 29:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %28) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %28) #25
           to label %30 unwind label %31
 
 30:                                               ; preds = %29
@@ -19509,15 +19503,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %24
           cleanup
   store ptr null, ptr %26, align 8, !tbaa !71
   store ptr null, ptr %27, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %32
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %26, align 8, !tbaa !71
   store ptr null, ptr %27, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %21, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i
@@ -19654,11 +19648,11 @@ define hidden void @_ZNK6google8protobuf10Reflection20AddEnumValueInternalEPNS0_
   br i1 %.not.i, label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit, label %20
 
 20:                                               ; preds = %11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %6, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %2, ptr %7, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !tbaa !73
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %7, ptr %21, align 8, !tbaa !74
@@ -19674,7 +19668,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i:            ; preds = %20
   br i1 %.not.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i, label %25
 
 25:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %24) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %24) #25
           to label %26 unwind label %27
 
 26:                                               ; preds = %25
@@ -19685,15 +19679,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i:            ; preds = %20
           cleanup
   store ptr null, ptr %22, align 8, !tbaa !71
   store ptr null, ptr %23, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %28
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i
   store ptr null, ptr %22, align 8, !tbaa !71
   store ptr null, ptr %23, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor4typeEv.exit: ; preds = %11, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i
@@ -19780,11 +19774,11 @@ define hidden void @_ZNK6google8protobuf10Reflection12AddEnumValueEPNS0_7Message
   br i1 %.not.i.i, label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit, label %23
 
 23:                                               ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %6, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %2, ptr %7, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !tbaa !73
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %7, ptr %24, align 8, !tbaa !74
@@ -19800,7 +19794,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %23
   br i1 %.not.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i, label %28
 
 28:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %27) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %27) #25
           to label %29 unwind label %30
 
 29:                                               ; preds = %28
@@ -19811,15 +19805,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %23
           cleanup
   store ptr null, ptr %25, align 8, !tbaa !71
   store ptr null, ptr %26, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %31
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %25, align 8, !tbaa !71
   store ptr null, ptr %26, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %20, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i
@@ -19948,11 +19942,11 @@ define hidden noundef ptr @_ZNK6google8protobuf10Reflection25GetDefaultMessageIn
   br i1 %.not.i.i.i, label %51, label %42
 
 42:                                               ; preds = %39
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %7, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %1, ptr %8, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %7, ptr %6, align 8, !tbaa !73
   %43 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %8, ptr %43, align 8, !tbaa !74
@@ -19968,7 +19962,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i:        ; preds = %42
   br i1 %.not.i.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i, label %47
 
 47:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %46) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %46) #25
           to label %48 unwind label %49
 
 48:                                               ; preds = %47
@@ -19983,15 +19977,15 @@ common.resume:                                    ; preds = %93, %49
           cleanup
   store ptr null, ptr %44, align 8, !tbaa !71
   store ptr null, ptr %45, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %common.resume
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i
   store ptr null, ptr %44, align 8, !tbaa !71
   store ptr null, ptr %45, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.pre = load i8, ptr %26, align 1
   br label %51
 
@@ -20064,11 +20058,11 @@ _ZNK6google8protobuf15FieldDescriptor5indexEv.exit.i.i: ; preds = %75, %_ZNK6goo
   br i1 %.not.i3.i.i, label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i, label %86
 
 86:                                               ; preds = %_ZNK6google8protobuf15FieldDescriptor5indexEv.exit.i.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %4, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %1, ptr %5, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %4, ptr %3, align 8, !tbaa !73
   %87 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %5, ptr %87, align 8, !tbaa !74
@@ -20084,7 +20078,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i21:      ; preds = %86
   br i1 %.not.i.i.i.i.i22, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i23, label %91
 
 91:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i21
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %90) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %90) #25
           to label %92 unwind label %93
 
 92:                                               ; preds = %91
@@ -20095,15 +20089,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i21:      ; preds = %86
           cleanup
   store ptr null, ptr %88, align 8, !tbaa !71
   store ptr null, ptr %89, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %common.resume
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i23: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i21
   store ptr null, ptr %88, align 8, !tbaa !71
   store ptr null, ptr %89, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i
 
 _ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i: ; preds = %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i23, %_ZNK6google8protobuf15FieldDescriptor5indexEv.exit.i.i
@@ -20180,11 +20174,11 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNK6google8proto
   br i1 %.not.i.i, label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit, label %22
 
 22:                                               ; preds = %19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %6, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %2, ptr %7, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !tbaa !73
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %7, ptr %23, align 8, !tbaa !74
@@ -20200,7 +20194,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %22
   br i1 %.not.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i, label %27
 
 27:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %26) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %26) #25
           to label %28 unwind label %29
 
 28:                                               ; preds = %27
@@ -20211,15 +20205,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %22
           cleanup
   store ptr null, ptr %24, align 8, !tbaa !71
   store ptr null, ptr %25, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %30
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %24, align 8, !tbaa !71
   store ptr null, ptr %25, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %19, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i
@@ -20361,11 +20355,11 @@ define hidden noundef ptr @_ZNK6google8protobuf10Reflection14MutableMessageEPNS0
   br i1 %.not.i.i, label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit, label %22
 
 22:                                               ; preds = %19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %6, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %2, ptr %7, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !tbaa !73
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %7, ptr %23, align 8, !tbaa !74
@@ -20381,7 +20375,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %22
   br i1 %.not.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i, label %27
 
 27:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %26) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %26) #25
           to label %28 unwind label %29
 
 28:                                               ; preds = %27
@@ -20392,15 +20386,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %22
           cleanup
   store ptr null, ptr %24, align 8, !tbaa !71
   store ptr null, ptr %25, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %30
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %24, align 8, !tbaa !71
   store ptr null, ptr %25, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %19, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i
@@ -20749,11 +20743,11 @@ define hidden void @_ZNK6google8protobuf10Reflection30UnsafeArenaSetAllocatedMes
   br i1 %.not.i.i, label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit, label %25
 
 25:                                               ; preds = %22
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %9, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %3, ptr %10, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %9, ptr %8, align 8, !tbaa !73
   %26 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %10, ptr %26, align 8, !tbaa !74
@@ -20769,7 +20763,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %25
   br i1 %.not.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i, label %30
 
 30:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %29) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %29) #25
           to label %31 unwind label %32
 
 31:                                               ; preds = %30
@@ -20784,15 +20778,15 @@ common.resume:                                    ; preds = %59, %32
           cleanup
   store ptr null, ptr %27, align 8, !tbaa !71
   store ptr null, ptr %28, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %common.resume
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %27, align 8, !tbaa !71
   store ptr null, ptr %28, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %22, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i
@@ -20827,11 +20821,11 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %22, %_ZN6googl
   br i1 %.not.i, label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit, label %52
 
 52:                                               ; preds = %44
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %6, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %3, ptr %7, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !tbaa !73
   %53 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %7, ptr %53, align 8, !tbaa !74
@@ -20847,7 +20841,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i:            ; preds = %52
   br i1 %.not.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i, label %57
 
 57:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %56) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %56) #25
           to label %58 unwind label %59
 
 58:                                               ; preds = %57
@@ -20858,15 +20852,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i:            ; preds = %52
           cleanup
   store ptr null, ptr %54, align 8, !tbaa !71
   store ptr null, ptr %55, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %common.resume
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i
   store ptr null, ptr %54, align 8, !tbaa !71
   store ptr null, ptr %55, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor4typeEv.exit: ; preds = %44, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i
@@ -21039,7 +21033,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit: ; preds = %_ZNK
   %168 = load ptr, ptr %165, align 8, !tbaa !101
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 8
   %170 = load ptr, ptr %169, align 8
-  call void %170(ptr noundef nonnull align 8 dereferenceable(16) %165) #25
+  call void %170(ptr noundef nonnull align 8 dereferenceable(16) %165) #27
   br label %171
 
 171:                                              ; preds = %164, %167, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit
@@ -21193,11 +21187,11 @@ define hidden noundef ptr @_ZNK6google8protobuf10Reflection25UnsafeArenaReleaseM
   br i1 %.not.i.i, label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit, label %22
 
 22:                                               ; preds = %19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %6, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %2, ptr %7, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !tbaa !73
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %7, ptr %23, align 8, !tbaa !74
@@ -21213,7 +21207,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %22
   br i1 %.not.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i, label %27
 
 27:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %26) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %26) #25
           to label %28 unwind label %29
 
 28:                                               ; preds = %27
@@ -21224,15 +21218,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %22
           cleanup
   store ptr null, ptr %24, align 8, !tbaa !71
   store ptr null, ptr %25, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %30
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %24, align 8, !tbaa !71
   store ptr null, ptr %25, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %19, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i
@@ -21476,11 +21470,11 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNK6google8proto
   br i1 %.not.i.i, label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit, label %26
 
 26:                                               ; preds = %23
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %9, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %2, ptr %10, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %9, ptr %8, align 8, !tbaa !73
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %10, ptr %27, align 8, !tbaa !74
@@ -21496,7 +21490,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %26
   br i1 %.not.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i, label %31
 
 31:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %30) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %30) #25
           to label %32 unwind label %33
 
 32:                                               ; preds = %31
@@ -21511,15 +21505,15 @@ common.resume:                                    ; preds = %62, %33
           cleanup
   store ptr null, ptr %28, align 8, !tbaa !71
   store ptr null, ptr %29, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %common.resume
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %28, align 8, !tbaa !71
   store ptr null, ptr %29, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %23, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i
@@ -21558,11 +21552,11 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %23, %_ZN6googl
   br i1 %.not.i.i.i, label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i, label %55
 
 55:                                               ; preds = %53
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %6, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %2, ptr %7, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !tbaa !73
   %56 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %7, ptr %56, align 8, !tbaa !74
@@ -21578,7 +21572,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i:        ; preds = %55
   br i1 %.not.i.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i, label %60
 
 60:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %59) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %59) #25
           to label %61 unwind label %62
 
 61:                                               ; preds = %60
@@ -21589,15 +21583,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i:        ; preds = %55
           cleanup
   store ptr null, ptr %57, align 8, !tbaa !71
   store ptr null, ptr %58, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %common.resume
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i
   store ptr null, ptr %57, align 8, !tbaa !71
   store ptr null, ptr %58, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i
 
 _ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i: ; preds = %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i, %53
@@ -21680,11 +21674,11 @@ define hidden noundef ptr @_ZNK6google8protobuf10Reflection22MutableRepeatedMess
   br i1 %.not.i.i, label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit, label %26
 
 26:                                               ; preds = %23
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %9, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %2, ptr %10, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %9, ptr %8, align 8, !tbaa !73
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %10, ptr %27, align 8, !tbaa !74
@@ -21700,7 +21694,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %26
   br i1 %.not.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i, label %31
 
 31:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %30) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %30) #25
           to label %32 unwind label %33
 
 32:                                               ; preds = %31
@@ -21715,15 +21709,15 @@ common.resume:                                    ; preds = %62, %33
           cleanup
   store ptr null, ptr %28, align 8, !tbaa !71
   store ptr null, ptr %29, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %common.resume
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %28, align 8, !tbaa !71
   store ptr null, ptr %29, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %23, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i
@@ -21762,11 +21756,11 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %23, %_ZN6googl
   br i1 %.not.i.i.i, label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i, label %55
 
 55:                                               ; preds = %53
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %6, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %2, ptr %7, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !tbaa !73
   %56 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %7, ptr %56, align 8, !tbaa !74
@@ -21782,7 +21776,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i:        ; preds = %55
   br i1 %.not.i.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i, label %60
 
 60:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %59) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %59) #25
           to label %61 unwind label %62
 
 61:                                               ; preds = %60
@@ -21793,15 +21787,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i:        ; preds = %55
           cleanup
   store ptr null, ptr %57, align 8, !tbaa !71
   store ptr null, ptr %58, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %common.resume
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i
   store ptr null, ptr %57, align 8, !tbaa !71
   store ptr null, ptr %58, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i
 
 _ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i: ; preds = %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i, %53
@@ -21884,11 +21878,11 @@ define hidden noundef ptr @_ZNK6google8protobuf10Reflection10AddMessageEPNS0_7Me
   br i1 %.not.i.i, label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit, label %26
 
 26:                                               ; preds = %23
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %9, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %2, ptr %10, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %9, ptr %8, align 8, !tbaa !73
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %10, ptr %27, align 8, !tbaa !74
@@ -21904,7 +21898,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %26
   br i1 %.not.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i, label %31
 
 31:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %30) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %30) #25
           to label %32 unwind label %33
 
 32:                                               ; preds = %31
@@ -21919,15 +21913,15 @@ common.resume:                                    ; preds = %63, %33
           cleanup
   store ptr null, ptr %28, align 8, !tbaa !71
   store ptr null, ptr %29, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %common.resume
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %28, align 8, !tbaa !71
   store ptr null, ptr %29, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %23, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i
@@ -21968,11 +21962,11 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %23, %_ZN6googl
   br i1 %.not.i.i.i, label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i, label %56
 
 56:                                               ; preds = %54
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %6, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %2, ptr %7, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !tbaa !73
   %57 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %7, ptr %57, align 8, !tbaa !74
@@ -21988,7 +21982,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i:        ; preds = %56
   br i1 %.not.i.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i, label %61
 
 61:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %60) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %60) #25
           to label %62 unwind label %63
 
 62:                                               ; preds = %61
@@ -21999,15 +21993,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i:        ; preds = %56
           cleanup
   store ptr null, ptr %58, align 8, !tbaa !71
   store ptr null, ptr %59, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %common.resume
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i
   store ptr null, ptr %58, align 8, !tbaa !71
   store ptr null, ptr %59, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i
 
 _ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i: ; preds = %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i, %54
@@ -22143,7 +22137,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit: ; preds = %102,
   %138 = load ptr, ptr %133, align 8, !tbaa !101
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 8
   %140 = load ptr, ptr %139, align 8
-  call void %140(ptr noundef nonnull align 8 dereferenceable(16) %133) #25
+  call void %140(ptr noundef nonnull align 8 dereferenceable(16) %133) #27
   %.pre5.i = load ptr, ptr %79, align 8, !tbaa !96
   br label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase23UnsafeArenaAddAllocatedINS1_18GenericTypeHandlerINS0_7MessageEEEEEvPNT_4TypeE.exit
 
@@ -22225,11 +22219,11 @@ define hidden void @_ZNK6google8protobuf10Reflection19AddAllocatedMessageEPNS0_7
   br i1 %.not.i.i, label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit, label %26
 
 26:                                               ; preds = %23
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %9, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %2, ptr %10, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %9, ptr %8, align 8, !tbaa !73
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %10, ptr %27, align 8, !tbaa !74
@@ -22245,7 +22239,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %26
   br i1 %.not.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i, label %31
 
 31:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %30) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %30) #25
           to label %32 unwind label %33
 
 32:                                               ; preds = %31
@@ -22260,15 +22254,15 @@ common.resume:                                    ; preds = %59, %33
           cleanup
   store ptr null, ptr %28, align 8, !tbaa !71
   store ptr null, ptr %29, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %common.resume
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %28, align 8, !tbaa !71
   store ptr null, ptr %29, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %23, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i
@@ -22305,11 +22299,11 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %23, %_ZN6googl
   br i1 %.not.i.i.i, label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i, label %52
 
 52:                                               ; preds = %50
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %6, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %2, ptr %7, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !tbaa !73
   %53 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %7, ptr %53, align 8, !tbaa !74
@@ -22325,7 +22319,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i:        ; preds = %52
   br i1 %.not.i.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i, label %57
 
 57:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %56) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %56) #25
           to label %58 unwind label %59
 
 58:                                               ; preds = %57
@@ -22336,15 +22330,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i:        ; preds = %52
           cleanup
   store ptr null, ptr %54, align 8, !tbaa !71
   store ptr null, ptr %55, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %common.resume
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i
   store ptr null, ptr %54, align 8, !tbaa !71
   store ptr null, ptr %55, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i
 
 _ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i: ; preds = %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i, %50
@@ -22465,11 +22459,11 @@ define hidden void @_ZNK6google8protobuf10Reflection30UnsafeArenaAddAllocatedMes
   br i1 %.not.i.i, label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit, label %26
 
 26:                                               ; preds = %23
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %9, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %2, ptr %10, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %9, ptr %8, align 8, !tbaa !73
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %10, ptr %27, align 8, !tbaa !74
@@ -22485,7 +22479,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %26
   br i1 %.not.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i, label %31
 
 31:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %30) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %30) #25
           to label %32 unwind label %33
 
 32:                                               ; preds = %31
@@ -22500,15 +22494,15 @@ common.resume:                                    ; preds = %59, %33
           cleanup
   store ptr null, ptr %28, align 8, !tbaa !71
   store ptr null, ptr %29, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %common.resume
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %28, align 8, !tbaa !71
   store ptr null, ptr %29, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %23, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i
@@ -22545,11 +22539,11 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %23, %_ZN6googl
   br i1 %.not.i.i.i, label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i, label %52
 
 52:                                               ; preds = %50
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %6, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %2, ptr %7, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !tbaa !73
   %53 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %7, ptr %53, align 8, !tbaa !74
@@ -22565,7 +22559,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i:        ; preds = %52
   br i1 %.not.i.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i, label %57
 
 57:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %56) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %56) #25
           to label %58 unwind label %59
 
 58:                                               ; preds = %57
@@ -22576,15 +22570,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i:        ; preds = %52
           cleanup
   store ptr null, ptr %54, align 8, !tbaa !71
   store ptr null, ptr %55, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %common.resume
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i
   store ptr null, ptr %54, align 8, !tbaa !71
   store ptr null, ptr %55, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i
 
 _ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i: ; preds = %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i, %50
@@ -22661,7 +22655,7 @@ _ZN6google8protobuf12_GLOBAL__N_115IsMapFieldInApiEPKNS0_15FieldDescriptorE.exit
   %101 = load ptr, ptr %96, align 8, !tbaa !101
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
   %103 = load ptr, ptr %102, align 8
-  call void %103(ptr noundef nonnull align 8 dereferenceable(16) %96) #25
+  call void %103(ptr noundef nonnull align 8 dereferenceable(16) %96) #27
   %.pre5.i = load ptr, ptr %75, align 8, !tbaa !96
   br label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase23UnsafeArenaAddAllocatedINS1_18GenericTypeHandlerINS0_7MessageEEEEEvPNT_4TypeE.exit
 
@@ -22746,11 +22740,11 @@ define hidden noundef ptr @_ZNK6google8protobuf10Reflection23MutableRawRepeatedF
   br i1 %.not.i.i, label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit, label %36
 
 36:                                               ; preds = %33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %23, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   store ptr %2, ptr %24, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %22) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   store ptr %23, ptr %22, align 8, !tbaa !73
   %37 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr %24, ptr %37, align 8, !tbaa !74
@@ -22766,7 +22760,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %36
   br i1 %.not.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i, label %41
 
 41:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %40) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %40) #25
           to label %42 unwind label %43
 
 42:                                               ; preds = %41
@@ -22781,15 +22775,15 @@ common.resume:                                    ; preds = %181, %144, %111, %9
           cleanup
   store ptr null, ptr %38, align 8, !tbaa !71
   store ptr null, ptr %39, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %common.resume
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %38, align 8, !tbaa !71
   store ptr null, ptr %39, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %33, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i
@@ -22807,11 +22801,11 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %33, %_ZN6googl
   br i1 %.not.i.i42, label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit46, label %52
 
 52:                                               ; preds = %50
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %20, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store ptr %2, ptr %21, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %19) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store ptr %20, ptr %19, align 8, !tbaa !73
   %53 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %21, ptr %53, align 8, !tbaa !74
@@ -22827,7 +22821,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i43:        ; preds = %52
   br i1 %.not.i.i.i.i44, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i45, label %57
 
 57:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i43
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %56) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %56) #25
           to label %58 unwind label %59
 
 58:                                               ; preds = %57
@@ -22838,15 +22832,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i43:        ; preds = %52
           cleanup
   store ptr null, ptr %54, align 8, !tbaa !71
   store ptr null, ptr %55, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %common.resume
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i45: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i43
   store ptr null, ptr %54, align 8, !tbaa !71
   store ptr null, ptr %55, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   %.pre = load i8, ptr %45, align 2, !tbaa !78
   %.phi.trans.insert = zext i8 %.pre to i64
   %.phi.trans.insert70 = getelementptr inbounds nuw [19 x i32], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 0, i64 %.phi.trans.insert
@@ -22872,11 +22866,11 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit46: ; preds = %50, %_ZN6goo
 67:                                               ; preds = %66
   %68 = call noundef ptr @_ZNK6google8protobuf15FieldDescriptor12message_typeEv(ptr noundef nonnull align 8 dereferenceable(72) %2)
   %.not39 = icmp eq ptr %68, %5
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %26) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   br i1 %.not39, label %.thread, label %69
 
 69:                                               ; preds = %67
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %25) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   call void @_ZN6google8protobuf8internal10LogMessageC1ENS0_8LogLevelEPKci(ptr noundef nonnull align 8 dereferenceable(56) %25, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 2257)
   %70 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull align 8 dereferenceable(56) %25, ptr noundef nonnull @.str.81)
           to label %71 unwind label %75
@@ -22890,13 +22884,13 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit46: ; preds = %50, %_ZN6goo
           to label %74 unwind label %77
 
 .thread:                                          ; preds = %67
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %26) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br label %.critedge41
 
 74:                                               ; preds = %73
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %26) #25
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %25) #25
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %25) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %25) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %.critedge41
 
 75:                                               ; preds = %71, %69
@@ -22907,13 +22901,13 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit46: ; preds = %50, %_ZN6goo
 77:                                               ; preds = %73
   %78 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %26) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br label %79
 
 79:                                               ; preds = %75, %77
   %.pn = phi { ptr, i32 } [ %78, %77 ], [ %76, %75 ]
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %25) #25
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %25) #25
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %25) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %common.resume
 
 .critedge41:                                      ; preds = %.thread, %74, %66
@@ -22934,11 +22928,11 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit46: ; preds = %50, %_ZN6goo
   br i1 %.not.i, label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit, label %90
 
 90:                                               ; preds = %82
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %17, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store ptr %2, ptr %18, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store ptr %17, ptr %16, align 8, !tbaa !73
   %91 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %18, ptr %91, align 8, !tbaa !74
@@ -22954,7 +22948,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i:            ; preds = %90
   br i1 %.not.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i, label %95
 
 95:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %94) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %94) #25
           to label %96 unwind label %97
 
 96:                                               ; preds = %95
@@ -22965,15 +22959,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i:            ; preds = %90
           cleanup
   store ptr null, ptr %92, align 8, !tbaa !71
   store ptr null, ptr %93, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %common.resume
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i
   store ptr null, ptr %92, align 8, !tbaa !71
   store ptr null, ptr %93, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor4typeEv.exit: ; preds = %82, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i
@@ -22988,11 +22982,11 @@ _ZNK6google8protobuf15FieldDescriptor4typeEv.exit: ; preds = %82, %_ZN6google8pr
   br i1 %.not.i.i.i47, label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i, label %104
 
 104:                                              ; preds = %102
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %14, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store ptr %2, ptr %15, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr %14, ptr %13, align 8, !tbaa !73
   %105 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %15, ptr %105, align 8, !tbaa !74
@@ -23008,7 +23002,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i:        ; preds = %104
   br i1 %.not.i.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i, label %109
 
 109:                                              ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %108) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %108) #25
           to label %110 unwind label %111
 
 110:                                              ; preds = %109
@@ -23019,15 +23013,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i:        ; preds = %104
           cleanup
   store ptr null, ptr %106, align 8, !tbaa !71
   store ptr null, ptr %107, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %common.resume
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i
   store ptr null, ptr %106, align 8, !tbaa !71
   store ptr null, ptr %107, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i
 
 _ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i: ; preds = %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i, %102
@@ -23089,11 +23083,11 @@ _ZNK6google8protobuf15FieldDescriptor5indexEv.exit.i.i: ; preds = %126, %_ZNK6go
   br i1 %.not.i3.i.i, label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i52, label %137
 
 137:                                              ; preds = %_ZNK6google8protobuf15FieldDescriptor5indexEv.exit.i.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %11, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr %2, ptr %12, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %11, ptr %10, align 8, !tbaa !73
   %138 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %12, ptr %138, align 8, !tbaa !74
@@ -23109,7 +23103,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i49:      ; preds = %137
   br i1 %.not.i.i.i.i.i50, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i51, label %142
 
 142:                                              ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i49
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %141) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %141) #25
           to label %143 unwind label %144
 
 143:                                              ; preds = %142
@@ -23120,15 +23114,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i49:      ; preds = %137
           cleanup
   store ptr null, ptr %139, align 8, !tbaa !71
   store ptr null, ptr %140, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %common.resume
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i51: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i49
   store ptr null, ptr %139, align 8, !tbaa !71
   store ptr null, ptr %140, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i52
 
 _ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i52: ; preds = %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i51, %_ZNK6google8protobuf15FieldDescriptor5indexEv.exit.i.i
@@ -23197,11 +23191,11 @@ _ZNK6google8protobuf15FieldDescriptor5indexEv.exit.i.i58: ; preds = %163, %_ZNK6
   br i1 %.not.i3.i.i63, label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i67, label %174
 
 174:                                              ; preds = %_ZNK6google8protobuf15FieldDescriptor5indexEv.exit.i.i58
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %8, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %2, ptr %9, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %8, ptr %7, align 8, !tbaa !73
   %175 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %9, ptr %175, align 8, !tbaa !74
@@ -23217,7 +23211,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i64:      ; preds = %174
   br i1 %.not.i.i.i.i.i65, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i66, label %179
 
 179:                                              ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i64
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %178) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %178) #25
           to label %180 unwind label %181
 
 180:                                              ; preds = %179
@@ -23228,15 +23222,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i64:      ; preds = %174
           cleanup
   store ptr null, ptr %176, align 8, !tbaa !71
   store ptr null, ptr %177, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %common.resume
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i66: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i64
   store ptr null, ptr %176, align 8, !tbaa !71
   store ptr null, ptr %177, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i67
 
 _ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i67: ; preds = %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i66, %_ZNK6google8protobuf15FieldDescriptor5indexEv.exit.i.i58
@@ -23306,11 +23300,11 @@ define hidden noundef ptr @_ZNK6google8protobuf10Reflection19GetRawRepeatedField
   br i1 %.not.i.i, label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit, label %35
 
 35:                                               ; preds = %32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %20, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store ptr %2, ptr %21, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %19) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store ptr %20, ptr %19, align 8, !tbaa !73
   %36 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %21, ptr %36, align 8, !tbaa !74
@@ -23326,7 +23320,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %35
   br i1 %.not.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i, label %40
 
 40:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %39) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %39) #25
           to label %41 unwind label %42
 
 41:                                               ; preds = %40
@@ -23341,15 +23335,15 @@ common.resume:                                    ; preds = %68, %81, %183, %146
           cleanup
   store ptr null, ptr %37, align 8, !tbaa !71
   store ptr null, ptr %38, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %common.resume
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %37, align 8, !tbaa !71
   store ptr null, ptr %38, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %32, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i
@@ -23376,11 +23370,11 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %32, %_ZN6googl
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 72
   %57 = load i32, ptr %56, align 8, !tbaa !228
   %.not46 = icmp eq i32 %57, %4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %23) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   br i1 %.not46, label %.thread, label %58
 
 58:                                               ; preds = %53
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %22) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   call void @_ZN6google8protobuf8internal10LogMessageC1ENS0_8LogLevelEPKci(ptr noundef nonnull align 8 dereferenceable(56) %22, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 2281)
   %59 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull align 8 dereferenceable(56) %22, ptr noundef nonnull @.str.85)
           to label %60 unwind label %64
@@ -23394,13 +23388,13 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %32, %_ZN6googl
           to label %63 unwind label %66
 
 .thread:                                          ; preds = %53
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %23) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %.critedge53
 
 63:                                               ; preds = %62
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %23) #25
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %22) #25
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %22) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %22) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %.critedge53
 
 64:                                               ; preds = %60, %58
@@ -23411,13 +23405,13 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %32, %_ZN6googl
 66:                                               ; preds = %62
   %67 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %23) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %68
 
 68:                                               ; preds = %64, %66
   %.pn = phi { ptr, i32 } [ %67, %66 ], [ %65, %64 ]
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %22) #25
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %22) #25
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %22) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %common.resume
 
 .critedge53:                                      ; preds = %.thread, %63, %51
@@ -23427,11 +23421,11 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %32, %_ZN6googl
 69:                                               ; preds = %.critedge53
   %70 = call noundef ptr @_ZNK6google8protobuf15FieldDescriptor12message_typeEv(ptr noundef nonnull align 8 dereferenceable(72) %2)
   %.not51 = icmp eq ptr %70, %5
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %25) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   br i1 %.not51, label %.thread80, label %71
 
 71:                                               ; preds = %69
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %24) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   call void @_ZN6google8protobuf8internal10LogMessageC1ENS0_8LogLevelEPKci(ptr noundef nonnull align 8 dereferenceable(56) %24, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 2283)
   %72 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull align 8 dereferenceable(56) %24, ptr noundef nonnull @.str.81)
           to label %73 unwind label %77
@@ -23445,13 +23439,13 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %32, %_ZN6googl
           to label %76 unwind label %79
 
 .thread80:                                        ; preds = %69
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %25) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %.critedge57
 
 76:                                               ; preds = %75
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %25) #25
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %24) #25
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %24) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %24) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %.critedge57
 
 77:                                               ; preds = %73, %71
@@ -23462,13 +23456,13 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %32, %_ZN6googl
 79:                                               ; preds = %75
   %80 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %25) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %81
 
 81:                                               ; preds = %77, %79
   %.pn48 = phi { ptr, i32 } [ %80, %79 ], [ %78, %77 ]
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %24) #25
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %24) #25
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %24) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %common.resume
 
 .critedge57:                                      ; preds = %.thread80, %76, %.critedge53
@@ -23489,11 +23483,11 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %32, %_ZN6googl
   br i1 %.not.i, label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit, label %92
 
 92:                                               ; preds = %84
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %17, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store ptr %2, ptr %18, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store ptr %17, ptr %16, align 8, !tbaa !73
   %93 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %18, ptr %93, align 8, !tbaa !74
@@ -23509,7 +23503,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i:            ; preds = %92
   br i1 %.not.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i, label %97
 
 97:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %96) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %96) #25
           to label %98 unwind label %99
 
 98:                                               ; preds = %97
@@ -23520,15 +23514,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i:            ; preds = %92
           cleanup
   store ptr null, ptr %94, align 8, !tbaa !71
   store ptr null, ptr %95, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %common.resume
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i
   store ptr null, ptr %94, align 8, !tbaa !71
   store ptr null, ptr %95, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor4typeEv.exit: ; preds = %84, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i
@@ -23543,11 +23537,11 @@ _ZNK6google8protobuf15FieldDescriptor4typeEv.exit: ; preds = %84, %_ZN6google8pr
   br i1 %.not.i.i.i58, label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i, label %106
 
 106:                                              ; preds = %104
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %14, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store ptr %2, ptr %15, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr %14, ptr %13, align 8, !tbaa !73
   %107 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %15, ptr %107, align 8, !tbaa !74
@@ -23563,7 +23557,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i:        ; preds = %106
   br i1 %.not.i.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i, label %111
 
 111:                                              ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %110) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %110) #25
           to label %112 unwind label %113
 
 112:                                              ; preds = %111
@@ -23574,15 +23568,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i:        ; preds = %106
           cleanup
   store ptr null, ptr %108, align 8, !tbaa !71
   store ptr null, ptr %109, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %common.resume
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i
   store ptr null, ptr %108, align 8, !tbaa !71
   store ptr null, ptr %109, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i
 
 _ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i: ; preds = %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i, %104
@@ -23644,11 +23638,11 @@ _ZNK6google8protobuf15FieldDescriptor5indexEv.exit.i.i: ; preds = %128, %_ZNK6go
   br i1 %.not.i3.i.i, label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i63, label %139
 
 139:                                              ; preds = %_ZNK6google8protobuf15FieldDescriptor5indexEv.exit.i.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %11, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr %2, ptr %12, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %11, ptr %10, align 8, !tbaa !73
   %140 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %12, ptr %140, align 8, !tbaa !74
@@ -23664,7 +23658,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i60:      ; preds = %139
   br i1 %.not.i.i.i.i.i61, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i62, label %144
 
 144:                                              ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i60
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %143) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %143) #25
           to label %145 unwind label %146
 
 145:                                              ; preds = %144
@@ -23675,15 +23669,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i60:      ; preds = %139
           cleanup
   store ptr null, ptr %141, align 8, !tbaa !71
   store ptr null, ptr %142, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %common.resume
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i62: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i60
   store ptr null, ptr %141, align 8, !tbaa !71
   store ptr null, ptr %142, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i63
 
 _ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i63: ; preds = %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i62, %_ZNK6google8protobuf15FieldDescriptor5indexEv.exit.i.i
@@ -23752,11 +23746,11 @@ _ZNK6google8protobuf15FieldDescriptor5indexEv.exit.i.i69: ; preds = %165, %_ZNK6
   br i1 %.not.i3.i.i74, label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i78, label %176
 
 176:                                              ; preds = %_ZNK6google8protobuf15FieldDescriptor5indexEv.exit.i.i69
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %8, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %2, ptr %9, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %8, ptr %7, align 8, !tbaa !73
   %177 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %9, ptr %177, align 8, !tbaa !74
@@ -23772,7 +23766,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i75:      ; preds = %176
   br i1 %.not.i.i.i.i.i76, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i77, label %181
 
 181:                                              ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i75
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %180) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %180) #25
           to label %182 unwind label %183
 
 182:                                              ; preds = %181
@@ -23783,15 +23777,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i75:      ; preds = %176
           cleanup
   store ptr null, ptr %178, align 8, !tbaa !71
   store ptr null, ptr %179, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %common.resume
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i77: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i75
   store ptr null, ptr %178, align 8, !tbaa !71
   store ptr null, ptr %179, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i78
 
 _ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i78: ; preds = %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i77, %_ZNK6google8protobuf15FieldDescriptor5indexEv.exit.i.i69
@@ -23882,11 +23876,11 @@ define hidden noundef zeroext i1 @_ZNK6google8protobuf10Reflection14ContainsMapK
   br i1 %.not.i.i.i, label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i, label %10
 
 10:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %6, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %2, ptr %7, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !tbaa !73
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %7, ptr %11, align 8, !tbaa !74
@@ -23902,7 +23896,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i:        ; preds = %10
   br i1 %.not.i.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i, label %15
 
 15:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %14) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %14) #25
           to label %16 unwind label %17
 
 16:                                               ; preds = %15
@@ -23913,15 +23907,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i:        ; preds = %10
           cleanup
   store ptr null, ptr %12, align 8, !tbaa !71
   store ptr null, ptr %13, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %18
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i
   store ptr null, ptr %12, align 8, !tbaa !71
   store ptr null, ptr %13, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i
 
 _ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i: ; preds = %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i, %4
@@ -23966,11 +23960,11 @@ define hidden noundef zeroext i1 @_ZNK6google8protobuf10Reflection22InsertOrLook
   br i1 %.not.i.i.i, label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i, label %15
 
 15:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %10, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %2, ptr %11, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %10, ptr %9, align 8, !tbaa !73
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %11, ptr %16, align 8, !tbaa !74
@@ -23986,7 +23980,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i:        ; preds = %15
   br i1 %.not.i.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i, label %20
 
 20:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %19) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %19) #25
           to label %21 unwind label %22
 
 21:                                               ; preds = %20
@@ -24001,15 +23995,15 @@ common.resume:                                    ; preds = %_ZNSt7__cxx1112basi
           cleanup
   store ptr null, ptr %17, align 8, !tbaa !71
   store ptr null, ptr %18, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %common.resume
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i
   store ptr null, ptr %17, align 8, !tbaa !71
   store ptr null, ptr %18, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i
 
 _ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i: ; preds = %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i, %5
@@ -24029,7 +24023,7 @@ _ZN6google8protobuf12_GLOBAL__N_115IsMapFieldInApiEPKNS0_15FieldDescriptorE.exit
 
 ._crit_edge.i.i:                                  ; preds = %_ZN6google8protobuf12_GLOBAL__N_115IsMapFieldInApiEPKNS0_15FieldDescriptorE.exit.thread, %_ZN6google8protobuf12_GLOBAL__N_115IsMapFieldInApiEPKNS0_15FieldDescriptorE.exit
   %29 = call noundef ptr @_ZNK6google8protobuf15FieldDescriptor12message_typeEv(ptr noundef nonnull align 8 dereferenceable(72) %2)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %30 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr %30, ptr %12, align 8, !tbaa !119
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %30, ptr noundef nonnull align 1 dereferenceable(5) @.str.90, i64 5, i1 false)
@@ -24047,11 +24041,11 @@ _ZN6google8protobuf12_GLOBAL__N_115IsMapFieldInApiEPKNS0_15FieldDescriptorE.exit
   br i1 %.not.i.i, label %46, label %37
 
 37:                                               ; preds = %34
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %7, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %33, ptr %8, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %7, ptr %6, align 8, !tbaa !73
   %38 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %8, ptr %38, align 8, !tbaa !74
@@ -24067,7 +24061,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %37
   br i1 %.not.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i, label %42
 
 42:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %41) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %41) #25
           to label %43 unwind label %44
 
 43:                                               ; preds = %42
@@ -24078,15 +24072,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %37
           cleanup
   store ptr null, ptr %39, align 8, !tbaa !71
   store ptr null, ptr %40, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.body
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %39, align 8, !tbaa !71
   store ptr null, ptr %40, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %46
 
 46:                                               ; preds = %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i, %34
@@ -24108,11 +24102,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %46
-  call void @_ZdlPv(ptr noundef %53) #27
+  call void @_ZdlPv(ptr noundef %53) #26
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %58 = call noundef i32 @_ZNK6google8protobuf8internal16ReflectionSchema14GetFieldOffsetEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(64) %57, ptr noundef nonnull %2)
   %59 = zext i32 %58 to i64
@@ -24141,11 +24135,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit14
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i12: ; preds = %.body
-  call void @_ZdlPv(ptr noundef %67) #27
+  call void @_ZdlPv(ptr noundef %67) #26
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit14
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit14: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i12, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i13
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %common.resume
 }
 
@@ -24166,11 +24160,11 @@ define hidden noundef zeroext i1 @_ZNK6google8protobuf10Reflection14LookupMapVal
   br i1 %.not.i.i.i, label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i, label %15
 
 15:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %10, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %2, ptr %11, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %10, ptr %9, align 8, !tbaa !73
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %11, ptr %16, align 8, !tbaa !74
@@ -24186,7 +24180,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i:        ; preds = %15
   br i1 %.not.i.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i, label %20
 
 20:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %19) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %19) #25
           to label %21 unwind label %22
 
 21:                                               ; preds = %20
@@ -24201,15 +24195,15 @@ common.resume:                                    ; preds = %_ZNSt7__cxx1112basi
           cleanup
   store ptr null, ptr %17, align 8, !tbaa !71
   store ptr null, ptr %18, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %common.resume
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i
   store ptr null, ptr %17, align 8, !tbaa !71
   store ptr null, ptr %18, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i
 
 _ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i: ; preds = %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i, %5
@@ -24229,7 +24223,7 @@ _ZN6google8protobuf12_GLOBAL__N_115IsMapFieldInApiEPKNS0_15FieldDescriptorE.exit
 
 ._crit_edge.i.i:                                  ; preds = %_ZN6google8protobuf12_GLOBAL__N_115IsMapFieldInApiEPKNS0_15FieldDescriptorE.exit.thread, %_ZN6google8protobuf12_GLOBAL__N_115IsMapFieldInApiEPKNS0_15FieldDescriptorE.exit
   %29 = call noundef ptr @_ZNK6google8protobuf15FieldDescriptor12message_typeEv(ptr noundef nonnull align 8 dereferenceable(72) %2)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %30 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr %30, ptr %12, align 8, !tbaa !119
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %30, ptr noundef nonnull align 1 dereferenceable(5) @.str.90, i64 5, i1 false)
@@ -24247,11 +24241,11 @@ _ZN6google8protobuf12_GLOBAL__N_115IsMapFieldInApiEPKNS0_15FieldDescriptorE.exit
   br i1 %.not.i.i, label %46, label %37
 
 37:                                               ; preds = %34
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %7, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %33, ptr %8, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %7, ptr %6, align 8, !tbaa !73
   %38 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %8, ptr %38, align 8, !tbaa !74
@@ -24267,7 +24261,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %37
   br i1 %.not.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i, label %42
 
 42:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %41) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %41) #25
           to label %43 unwind label %44
 
 43:                                               ; preds = %42
@@ -24278,15 +24272,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %37
           cleanup
   store ptr null, ptr %39, align 8, !tbaa !71
   store ptr null, ptr %40, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.body
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %39, align 8, !tbaa !71
   store ptr null, ptr %40, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %46
 
 46:                                               ; preds = %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i, %34
@@ -24308,11 +24302,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %46
-  call void @_ZdlPv(ptr noundef %53) #27
+  call void @_ZdlPv(ptr noundef %53) #26
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %58 = call noundef i32 @_ZNK6google8protobuf8internal16ReflectionSchema14GetFieldOffsetEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(64) %57, ptr noundef nonnull %2)
   %59 = zext i32 %58 to i64
@@ -24341,11 +24335,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit14
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i12: ; preds = %.body
-  call void @_ZdlPv(ptr noundef %67) #27
+  call void @_ZdlPv(ptr noundef %67) #26
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit14
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit14: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i12, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i13
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %common.resume
 }
 
@@ -24360,11 +24354,11 @@ define hidden noundef zeroext i1 @_ZNK6google8protobuf10Reflection14DeleteMapVal
   br i1 %.not.i.i.i, label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i, label %10
 
 10:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %6, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %2, ptr %7, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !tbaa !73
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %7, ptr %11, align 8, !tbaa !74
@@ -24380,7 +24374,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i:        ; preds = %10
   br i1 %.not.i.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i, label %15
 
 15:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %14) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %14) #25
           to label %16 unwind label %17
 
 16:                                               ; preds = %15
@@ -24391,15 +24385,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i:        ; preds = %10
           cleanup
   store ptr null, ptr %12, align 8, !tbaa !71
   store ptr null, ptr %13, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %18
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i
   store ptr null, ptr %12, align 8, !tbaa !71
   store ptr null, ptr %13, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i
 
 _ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i: ; preds = %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i, %4
@@ -24440,11 +24434,11 @@ define hidden void @_ZNK6google8protobuf10Reflection8MapBeginEPNS0_7MessageEPKNS
   br i1 %.not.i.i.i, label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i, label %10
 
 10:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %6, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %3, ptr %7, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !tbaa !73
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %7, ptr %11, align 8, !tbaa !74
@@ -24460,7 +24454,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i:        ; preds = %10
   br i1 %.not.i.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i, label %15
 
 15:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %14) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %14) #25
           to label %16 unwind label %17
 
 16:                                               ; preds = %15
@@ -24475,15 +24469,15 @@ common.resume:                                    ; preds = %33, %17
           cleanup
   store ptr null, ptr %12, align 8, !tbaa !71
   store ptr null, ptr %13, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %common.resume
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i
   store ptr null, ptr %12, align 8, !tbaa !71
   store ptr null, ptr %13, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i
 
 _ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i: ; preds = %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i, %4
@@ -24519,7 +24513,7 @@ _ZN6google8protobuf12_GLOBAL__N_115IsMapFieldInApiEPKNS0_15FieldDescriptorE.exit
 33:                                               ; preds = %24, %27
   %34 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google8protobuf11MapIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #25
+  call void @_ZN6google8protobuf11MapIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #27
   br label %common.resume
 
 35:                                               ; preds = %27
@@ -24561,7 +24555,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf11MapIteratorC2EPNS0_7Messag
           to label %._crit_edge.i.i unwind label %99
 
 ._crit_edge.i.i:                                  ; preds = %23
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %26 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %26, ptr %10, align 8, !tbaa !119
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %26, ptr noundef nonnull align 1 dereferenceable(3) @.str.132, i64 3, i1 false)
@@ -24579,11 +24573,11 @@ define linkonce_odr hidden void @_ZN6google8protobuf11MapIteratorC2EPNS0_7Messag
   br i1 %.not.i.i, label %42, label %33
 
 33:                                               ; preds = %30
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %8, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %29, ptr %9, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %8, ptr %7, align 8, !tbaa !73
   %34 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %9, ptr %34, align 8, !tbaa !74
@@ -24599,7 +24593,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %33
   br i1 %.not.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i, label %38
 
 38:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %37) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %37) #25
           to label %39 unwind label %40
 
 39:                                               ; preds = %38
@@ -24610,15 +24604,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %33
           cleanup
   store ptr null, ptr %35, align 8, !tbaa !71
   store ptr null, ptr %36, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.body
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %35, align 8, !tbaa !71
   store ptr null, ptr %36, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %42
 
 42:                                               ; preds = %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i, %30
@@ -24649,7 +24643,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZN6google8protobuf8internal21ExplicitlyConstructedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8DestructEv.exit.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i: ; preds = %52
-  call void @_ZdlPv(ptr noundef %53) #27
+  call void @_ZdlPv(ptr noundef %53) #26
   br label %_ZN6google8protobuf8internal21ExplicitlyConstructedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8DestructEv.exit.i
 
 _ZN6google8protobuf8internal21ExplicitlyConstructedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8DestructEv.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, %50
@@ -24677,16 +24671,16 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %_ZN6google8protobuf6MapKey7SetTypeENS0_15FieldDescriptor7CppTypeE.exit
-  call void @_ZdlPv(ptr noundef %63) #27
+  call void @_ZdlPv(ptr noundef %63) #26
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %67 = invoke noundef ptr @_ZNK6google8protobuf15FieldDescriptor12message_typeEv(ptr noundef nonnull align 8 dereferenceable(72) %2)
           to label %._crit_edge.i.i18 unwind label %99
 
 ._crit_edge.i.i18:                                ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %68 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %68, ptr %11, align 8, !tbaa !119
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %68, ptr noundef nonnull align 1 dereferenceable(5) @.str.90, i64 5, i1 false)
@@ -24704,11 +24698,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br i1 %.not.i.i22, label %84, label %75
 
 75:                                               ; preds = %72
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %5, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %71, ptr %6, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %5, ptr %4, align 8, !tbaa !73
   %76 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %6, ptr %76, align 8, !tbaa !74
@@ -24724,7 +24718,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i23:        ; preds = %75
   br i1 %.not.i.i.i.i24, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i25, label %80
 
 80:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i23
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %79) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %79) #25
           to label %81 unwind label %82
 
 81:                                               ; preds = %80
@@ -24735,15 +24729,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i23:        ; preds = %75
           cleanup
   store ptr null, ptr %77, align 8, !tbaa !71
   store ptr null, ptr %78, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.body26
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i25: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i23
   store ptr null, ptr %77, align 8, !tbaa !71
   store ptr null, ptr %78, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %84
 
 84:                                               ; preds = %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i25, %72
@@ -24764,11 +24758,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit31
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i29: ; preds = %84
-  call void @_ZdlPv(ptr noundef %90) #27
+  call void @_ZdlPv(ptr noundef %90) #26
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit31
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit31: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i30, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i29
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %94 = load ptr, ptr %24, align 8, !tbaa !234
   %95 = load ptr, ptr %94, align 8, !tbaa !101
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 136
@@ -24802,11 +24796,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit34
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i32: ; preds = %.body
-  call void @_ZdlPv(ptr noundef %103) #27
+  call void @_ZdlPv(ptr noundef %103) #26
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit34
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit34: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i32, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i33
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %113
 
 107:                                              ; preds = %._crit_edge.i.i18
@@ -24827,11 +24821,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit37
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i35: ; preds = %.body26
-  call void @_ZdlPv(ptr noundef %109) #27
+  call void @_ZdlPv(ptr noundef %109) #26
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit37
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit37: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i35, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i36
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %113
 
 113:                                              ; preds = %99, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit34, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit37
@@ -24854,7 +24848,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZN6google8protobuf6MapKeyD2Ev.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i39: ; preds = %116
-  call void @_ZdlPv(ptr noundef %117) #27
+  call void @_ZdlPv(ptr noundef %117) #26
   br label %_ZN6google8protobuf6MapKeyD2Ev.exit
 
 _ZN6google8protobuf6MapKeyD2Ev.exit:              ; preds = %113, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i40, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i39
@@ -24862,7 +24856,7 @@ _ZN6google8protobuf6MapKeyD2Ev.exit:              ; preds = %113, %_ZNKSt7__cxx1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN6google8protobuf11MapIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN6google8protobuf11MapIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !234
   %4 = load ptr, ptr %3, align 8, !tbaa !101
@@ -24892,7 +24886,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZN6google8protobuf6MapKeyD2Ev.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i: ; preds = %11
-  tail call void @_ZdlPv(ptr noundef %13) #27
+  tail call void @_ZdlPv(ptr noundef %13) #26
   br label %_ZN6google8protobuf6MapKeyD2Ev.exit
 
 _ZN6google8protobuf6MapKeyD2Ev.exit:              ; preds = %7, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
@@ -24917,11 +24911,11 @@ define hidden void @_ZNK6google8protobuf10Reflection6MapEndEPNS0_7MessageEPKNS0_
   br i1 %.not.i.i.i, label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i, label %10
 
 10:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %6, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %3, ptr %7, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !tbaa !73
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %7, ptr %11, align 8, !tbaa !74
@@ -24937,7 +24931,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i:        ; preds = %10
   br i1 %.not.i.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i, label %15
 
 15:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %14) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %14) #25
           to label %16 unwind label %17
 
 16:                                               ; preds = %15
@@ -24952,15 +24946,15 @@ common.resume:                                    ; preds = %33, %17
           cleanup
   store ptr null, ptr %12, align 8, !tbaa !71
   store ptr null, ptr %13, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %common.resume
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i
   store ptr null, ptr %12, align 8, !tbaa !71
   store ptr null, ptr %13, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i
 
 _ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i: ; preds = %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i, %4
@@ -24996,7 +24990,7 @@ _ZN6google8protobuf12_GLOBAL__N_115IsMapFieldInApiEPKNS0_15FieldDescriptorE.exit
 33:                                               ; preds = %24, %27
   %34 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google8protobuf11MapIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #25
+  call void @_ZN6google8protobuf11MapIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #27
   br label %common.resume
 
 35:                                               ; preds = %27
@@ -25014,11 +25008,11 @@ define hidden noundef i32 @_ZNK6google8protobuf10Reflection7MapSizeERKNS0_7Messa
   br i1 %.not.i.i.i, label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i, label %9
 
 9:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %5, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %2, ptr %6, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %5, ptr %4, align 8, !tbaa !73
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %6, ptr %10, align 8, !tbaa !74
@@ -25034,7 +25028,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i:        ; preds = %9
   br i1 %.not.i.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i, label %14
 
 14:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %13) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %13) #25
           to label %15 unwind label %16
 
 15:                                               ; preds = %14
@@ -25045,15 +25039,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i:        ; preds = %9
           cleanup
   store ptr null, ptr %11, align 8, !tbaa !71
   store ptr null, ptr %12, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %17
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i
   store ptr null, ptr %11, align 8, !tbaa !71
   store ptr null, ptr %12, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i
 
 _ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i: ; preds = %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i, %3
@@ -25126,7 +25120,7 @@ define hidden noundef ptr @_ZNK6google8protobuf10Reflection26FindKnownExtensionB
 declare noundef ptr @_ZNK6google8protobuf14DescriptorPool21FindExtensionByNumberEPKNS0_10DescriptorEi(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK6google8protobuf10Reflection25SupportsUnknownEnumValuesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) local_unnamed_addr #7 align 2 {
+define hidden noundef zeroext i1 @_ZNK6google8protobuf10Reflection25SupportsUnknownEnumValuesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) local_unnamed_addr #6 align 2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !18
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !238
@@ -25272,7 +25266,7 @@ define hidden noundef ptr @_ZNK6google8protobuf10Reflection24MutableRawRepeatedS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef ptr @_ZNK6google8protobuf10Reflection17GetMessageFactoryEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) local_unnamed_addr #6 align 2 {
+define hidden noundef ptr @_ZNK6google8protobuf10Reflection17GetMessageFactoryEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8, !tbaa !30
   ret ptr %3
@@ -25302,11 +25296,11 @@ define hidden noundef ptr @_ZNK6google8protobuf10Reflection17RepeatedFieldDataEP
   %25 = load i8, ptr %24, align 1
   %26 = and i8 %25, 96
   %27 = icmp eq i8 %26, 96
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %19) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   br i1 %27, label %.thread, label %28
 
 28:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %18) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @_ZN6google8protobuf8internal10LogMessageC1ENS0_8LogLevelEPKci(ptr noundef nonnull align 8 dereferenceable(56) %18, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 2756)
   %29 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull align 8 dereferenceable(56) %18, ptr noundef nonnull @.str.95)
           to label %30 unwind label %79
@@ -25316,13 +25310,13 @@ define hidden noundef ptr @_ZNK6google8protobuf10Reflection17RepeatedFieldDataEP
           to label %31 unwind label %81
 
 .thread:                                          ; preds = %5
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %19) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %.critedge53
 
 31:                                               ; preds = %30
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %19) #25
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %18) #25
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %18) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %18) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %.critedge53
 
 .critedge53:                                      ; preds = %.thread, %31
@@ -25332,11 +25326,11 @@ define hidden noundef ptr @_ZNK6google8protobuf10Reflection17RepeatedFieldDataEP
   br i1 %.not.i.i, label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit, label %34
 
 34:                                               ; preds = %.critedge53
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %16, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store ptr %2, ptr %17, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store ptr %16, ptr %15, align 8, !tbaa !73
   %35 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %17, ptr %35, align 8, !tbaa !74
@@ -25352,7 +25346,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %34
   br i1 %.not.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i, label %39
 
 39:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %38) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %38) #25
           to label %40 unwind label %41
 
 40:                                               ; preds = %39
@@ -25367,15 +25361,15 @@ common.resume:                                    ; preds = %83, %88, %93, %135,
           cleanup
   store ptr null, ptr %36, align 8, !tbaa !71
   store ptr null, ptr %37, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %common.resume
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %36, align 8, !tbaa !71
   store ptr null, ptr %37, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %.critedge53, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i
@@ -25385,7 +25379,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %.critedge53, %
   %46 = getelementptr inbounds nuw [19 x i32], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 0, i64 %45
   %47 = load i32, ptr %46, align 4, !tbaa !79
   %48 = icmp eq i32 %47, %3
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %21) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   br i1 %48, label %.critedge55.critedge, label %49
 
 49:                                               ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit
@@ -25394,11 +25388,11 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %.critedge53, %
   br i1 %.not.i.i61, label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit65, label %51
 
 51:                                               ; preds = %49
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %13, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr %2, ptr %14, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr %13, ptr %12, align 8, !tbaa !73
   %52 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %14, ptr %52, align 8, !tbaa !74
@@ -25414,7 +25408,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i62:        ; preds = %51
   br i1 %.not.i.i.i.i63, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i64, label %56
 
 56:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i62
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %55) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %55) #25
           to label %57 unwind label %58
 
 57:                                               ; preds = %56
@@ -25425,15 +25419,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i62:        ; preds = %51
           cleanup
   store ptr null, ptr %53, align 8, !tbaa !71
   store ptr null, ptr %54, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %common.resume
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i64: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i62
   store ptr null, ptr %53, align 8, !tbaa !71
   store ptr null, ptr %54, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %.pre = load i8, ptr %43, align 2, !tbaa !78
   %.phi.trans.insert = zext i8 %.pre to i64
   %.phi.trans.insert69 = getelementptr inbounds nuw [19 x i32], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 0, i64 %.phi.trans.insert
@@ -25448,7 +25442,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit65: ; preds = %49, %_ZN6goo
   br i1 %or.cond, label %.critedge55.critedge, label %63
 
 63:                                               ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit65
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %20) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   call void @_ZN6google8protobuf8internal10LogMessageC1ENS0_8LogLevelEPKci(ptr noundef nonnull align 8 dereferenceable(56) %20, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 2759)
   %64 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull align 8 dereferenceable(56) %20, ptr noundef nonnull @.str.96)
           to label %65 unwind label %84
@@ -25470,13 +25464,13 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit65: ; preds = %49, %_ZN6goo
           to label %72 unwind label %86
 
 72:                                               ; preds = %71
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %21) #25
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %20) #25
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %20) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %20) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %.critedge55
 
 .critedge55.critedge:                             ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit65, %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %21) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %.critedge55
 
 .critedge55:                                      ; preds = %.critedge55.critedge, %72
@@ -25486,11 +25480,11 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit65: ; preds = %49, %_ZN6goo
 73:                                               ; preds = %.critedge55
   %74 = call noundef ptr @_ZNK6google8protobuf15FieldDescriptor12message_typeEv(ptr noundef nonnull align 8 dereferenceable(72) %2)
   %.not51 = icmp eq ptr %4, %74
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %23) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   br i1 %.not51, label %.thread67, label %75
 
 75:                                               ; preds = %73
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %22) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   call void @_ZN6google8protobuf8internal10LogMessageC1ENS0_8LogLevelEPKci(ptr noundef nonnull align 8 dereferenceable(56) %22, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 2764)
   %76 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull align 8 dereferenceable(56) %22, ptr noundef nonnull @.str.100)
           to label %77 unwind label %89
@@ -25500,13 +25494,13 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit65: ; preds = %49, %_ZN6goo
           to label %78 unwind label %91
 
 .thread67:                                        ; preds = %73
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %23) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %.critedge59
 
 78:                                               ; preds = %77
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %23) #25
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %22) #25
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %22) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %22) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %.critedge59
 
 79:                                               ; preds = %28
@@ -25517,13 +25511,13 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit65: ; preds = %49, %_ZN6goo
 81:                                               ; preds = %30
   %82 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %19) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %83
 
 83:                                               ; preds = %79, %81
   %.pn = phi { ptr, i32 } [ %82, %81 ], [ %80, %79 ]
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %18) #25
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %18) #25
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %18) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %common.resume
 
 84:                                               ; preds = %69, %67, %65, %63
@@ -25534,13 +25528,13 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit65: ; preds = %49, %_ZN6goo
 86:                                               ; preds = %71
   %87 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %21) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %88
 
 88:                                               ; preds = %84, %86
   %.pn46 = phi { ptr, i32 } [ %87, %86 ], [ %85, %84 ]
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %20) #25
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %20) #25
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %20) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %common.resume
 
 89:                                               ; preds = %75
@@ -25551,13 +25545,13 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit65: ; preds = %49, %_ZN6goo
 91:                                               ; preds = %77
   %92 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %23) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %93
 
 93:                                               ; preds = %89, %91
   %.pn48 = phi { ptr, i32 } [ %92, %91 ], [ %90, %89 ]
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %22) #25
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %22) #25
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %22) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %common.resume
 
 .critedge59:                                      ; preds = %.thread67, %78, %.critedge55
@@ -25578,11 +25572,11 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit65: ; preds = %49, %_ZN6goo
   br i1 %.not.i, label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit, label %104
 
 104:                                              ; preds = %96
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %10, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %2, ptr %11, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %10, ptr %9, align 8, !tbaa !73
   %105 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %11, ptr %105, align 8, !tbaa !74
@@ -25598,7 +25592,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i:            ; preds = %104
   br i1 %.not.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i, label %109
 
 109:                                              ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %108) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %108) #25
           to label %110 unwind label %111
 
 110:                                              ; preds = %109
@@ -25609,15 +25603,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i:            ; preds = %104
           cleanup
   store ptr null, ptr %106, align 8, !tbaa !71
   store ptr null, ptr %107, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %common.resume
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i
   store ptr null, ptr %106, align 8, !tbaa !71
   store ptr null, ptr %107, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor4typeEv.exit: ; preds = %96, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i
@@ -25646,11 +25640,11 @@ _ZNK6google8protobuf15FieldDescriptor5indexEv.exit.i.i: ; preds = %.critedge59
   br i1 %.not.i3.i.i, label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i, label %128
 
 128:                                              ; preds = %_ZNK6google8protobuf15FieldDescriptor5indexEv.exit.i.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %7, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %2, ptr %8, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %7, ptr %6, align 8, !tbaa !73
   %129 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %8, ptr %129, align 8, !tbaa !74
@@ -25666,7 +25660,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i:        ; preds = %128
   br i1 %.not.i.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i, label %133
 
 133:                                              ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %132) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %132) #25
           to label %134 unwind label %135
 
 134:                                              ; preds = %133
@@ -25677,15 +25671,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i:        ; preds = %128
           cleanup
   store ptr null, ptr %130, align 8, !tbaa !71
   store ptr null, ptr %131, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %common.resume
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i
   store ptr null, ptr %130, align 8, !tbaa !71
   store ptr null, ptr %131, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i
 
 _ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i: ; preds = %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i, %_ZNK6google8protobuf15FieldDescriptor5indexEv.exit.i.i
@@ -25723,11 +25717,11 @@ define hidden noundef ptr @_ZNK6google8protobuf10Reflection14MutableMapDataEPNS0
   br i1 %.not.i.i.i, label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i, label %9
 
 9:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %5, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %2, ptr %6, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %5, ptr %4, align 8, !tbaa !73
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %6, ptr %10, align 8, !tbaa !74
@@ -25743,7 +25737,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i:        ; preds = %9
   br i1 %.not.i.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i, label %14
 
 14:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %13) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %13) #25
           to label %15 unwind label %16
 
 15:                                               ; preds = %14
@@ -25754,15 +25748,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i:        ; preds = %9
           cleanup
   store ptr null, ptr %11, align 8, !tbaa !71
   store ptr null, ptr %12, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %17
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i
   store ptr null, ptr %11, align 8, !tbaa !71
   store ptr null, ptr %12, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i
 
 _ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i: ; preds = %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i, %3
@@ -25799,11 +25793,11 @@ define hidden noundef nonnull ptr @_ZNK6google8protobuf10Reflection10GetMapDataE
   br i1 %.not.i.i.i, label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i, label %9
 
 9:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %5, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %2, ptr %6, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %5, ptr %4, align 8, !tbaa !73
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %6, ptr %10, align 8, !tbaa !74
@@ -25819,7 +25813,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i:        ; preds = %9
   br i1 %.not.i.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i, label %14
 
 14:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %13) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %13) #25
           to label %15 unwind label %16
 
 15:                                               ; preds = %14
@@ -25830,15 +25824,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i:        ; preds = %9
           cleanup
   store ptr null, ptr %11, align 8, !tbaa !71
   store ptr null, ptr %12, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %17
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i
   store ptr null, ptr %11, align 8, !tbaa !71
   store ptr null, ptr %12, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i
 
 _ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i: ; preds = %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i, %3
@@ -25868,9 +25862,9 @@ _ZN6google8protobuf12_GLOBAL__N_115IsMapFieldInApiEPKNS0_15FieldDescriptorE.exit
 define hidden { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef %0, ptr noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.anon.84, align 8
   %5 = alloca %class.anon, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %0, ptr %5, align 8, !tbaa !239
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %5, ptr %4, align 8, !tbaa !71
   %6 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt15__once_callable)
   store ptr %4, ptr %6, align 8, !tbaa !71
@@ -25884,7 +25878,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i:                ; preds = %3
   br i1 %.not.i, label %"_ZSt9call_onceIZN6google8protobuf8internal17AssignDescriptorsEPFPKNS2_15DescriptorTableEvEPSt9once_flagRKNS1_8MetadataEE3$_0JEEvRS8_OT_DpOT0_.exit", label %9
 
 9:                                                ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %8) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %8) #25
           to label %10 unwind label %11
 
 10:                                               ; preds = %9
@@ -25895,14 +25889,14 @@ _ZL14__gthread_oncePiPFvvE.exit.i:                ; preds = %3
           cleanup
   store ptr null, ptr %6, align 8, !tbaa !71
   store ptr null, ptr %7, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %12
 
 "_ZSt9call_onceIZN6google8protobuf8internal17AssignDescriptorsEPFPKNS2_15DescriptorTableEvEPSt9once_flagRKNS1_8MetadataEE3$_0JEEvRS8_OT_DpOT0_.exit": ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i
   store ptr null, ptr %6, align 8, !tbaa !71
   store ptr null, ptr %7, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.sroa.0.0.copyload = load ptr, ptr %2, align 8, !tbaa !241
   %.sroa.2.0..0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..0..sroa_idx, align 8, !tbaa !242
@@ -25930,7 +25924,7 @@ define hidden void @_ZN6google8protobuf8internal17AssignDescriptorsEPKNS1_15Desc
 10:                                               ; preds = %7, %2
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8, !tbaa !254
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr @_ZN6google8protobuf12_GLOBAL__N_121AssignDescriptorsImplEPKNS0_8internal15DescriptorTableEb, ptr %3, align 8, !tbaa !71
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %4, ptr %13, align 8, !tbaa !255
@@ -25948,7 +25942,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i:                ; preds = %10
   br i1 %.not.i, label %_ZSt9call_onceIRFvPKN6google8protobuf8internal15DescriptorTableEbEJRS5_RbEEvRSt9once_flagOT_DpOT0_.exit, label %18
 
 18:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %17) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %17) #25
           to label %19 unwind label %20
 
 19:                                               ; preds = %18
@@ -25959,13 +25953,13 @@ _ZL14__gthread_oncePiPFvvE.exit.i:                ; preds = %10
           cleanup
   store ptr null, ptr %15, align 8, !tbaa !71
   store ptr null, ptr %16, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %21
 
 _ZSt9call_onceIRFvPKN6google8protobuf8internal15DescriptorTableEbEJRS5_RbEEvRSt9once_flagOT_DpOT0_.exit: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i
   store ptr null, ptr %15, align 8, !tbaa !71
   store ptr null, ptr %16, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -25979,17 +25973,17 @@ define internal void @_ZN6google8protobuf12_GLOBAL__N_121AssignDescriptorsImplEP
   %8 = alloca %"class.google::protobuf::internal::LogMessage", align 8
   %9 = alloca %"class.google::protobuf::internal::LogFinisher", align 1
   %10 = alloca %"class.google::protobuf::AssignDescriptorsHelper", align 8
-  %11 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) @_ZZN6google8protobuf12_GLOBAL__N_121AssignDescriptorsImplEPKNS0_8internal15DescriptorTableEbE2mu) #25
+  %11 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) @_ZZN6google8protobuf12_GLOBAL__N_121AssignDescriptorsImplEPKNS0_8internal15DescriptorTableEbE2mu) #27
   %.not.i.i = icmp eq i32 %11, 0
   br i1 %.not.i.i, label %_ZN6google8protobuf8internal12WrappedMutex4LockEv.exit, label %12
 
 12:                                               ; preds = %2
-  tail call void @_ZSt20__throw_system_errori(i32 noundef %11) #26
+  tail call void @_ZSt20__throw_system_errori(i32 noundef %11) #25
   unreachable
 
 _ZN6google8protobuf8internal12WrappedMutex4LockEv.exit: ; preds = %2
   tail call fastcc void @_ZN6google8protobuf12_GLOBAL__N_114AddDescriptorsEPKNS0_8internal15DescriptorTableE(ptr noundef %0)
-  %13 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZZN6google8protobuf12_GLOBAL__N_121AssignDescriptorsImplEPKNS0_8internal15DescriptorTableEbE2mu) #25
+  %13 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZZN6google8protobuf12_GLOBAL__N_121AssignDescriptorsImplEPKNS0_8internal15DescriptorTableEbE2mu) #27
   br i1 %1, label %14, label %.loopexit65
 
 14:                                               ; preds = %_ZN6google8protobuf8internal12WrappedMutex4LockEv.exit
@@ -26016,13 +26010,13 @@ _ZN6google8protobuf8internal12WrappedMutex4LockEv.exit: ; preds = %2
   br i1 %.not56, label %34, label %27
 
 27:                                               ; preds = %23
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %26, ptr %5, align 8, !tbaa !244
   store i8 1, ptr %6, align 1, !tbaa !131
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %29 = load ptr, ptr %28, align 8, !tbaa !254
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr @_ZN6google8protobuf12_GLOBAL__N_121AssignDescriptorsImplEPKNS0_8internal15DescriptorTableEb, ptr %4, align 8, !tbaa !71
   store ptr %5, ptr %19, align 8, !tbaa !255
   store ptr %6, ptr %20, align 8, !tbaa !256
@@ -26036,7 +26030,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i:              ; preds = %27
   br i1 %.not.i.i59, label %_ZN6google8protobuf8internal17AssignDescriptorsEPKNS1_15DescriptorTableEb.exit, label %31
 
 31:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %30) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %30) #25
           to label %32 unwind label %.loopexit.split-lp
 
 32:                                               ; preds = %31
@@ -26060,15 +26054,15 @@ common.resume:                                    ; preds = %_ZNSt7__cxx1112basi
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit66 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   store ptr null, ptr %21, align 8, !tbaa !71
   store ptr null, ptr %22, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %common.resume
 
 _ZN6google8protobuf8internal17AssignDescriptorsEPKNS1_15DescriptorTableEb.exit: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i
   store ptr null, ptr %21, align 8, !tbaa !71
   store ptr null, ptr %22, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %34
 
 34:                                               ; preds = %23, %_ZN6google8protobuf8internal17AssignDescriptorsEPKNS1_15DescriptorTableEb.exit
@@ -26078,7 +26072,7 @@ _ZN6google8protobuf8internal17AssignDescriptorsEPKNS1_15DescriptorTableEb.exit: 
 
 .loopexit65:                                      ; preds = %34, %14, %_ZN6google8protobuf8internal12WrappedMutex4LockEv.exit
   %35 = call noundef ptr @_ZN6google8protobuf14DescriptorPool23internal_generated_poolEv()
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %37 = load ptr, ptr %36, align 8, !tbaa !261
   %38 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -26087,15 +26081,15 @@ _ZN6google8protobuf8internal17AssignDescriptorsEPKNS1_15DescriptorTableEb.exit: 
   br i1 %39, label %40, label %41
 
 40:                                               ; preds = %.loopexit65
-  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.143) #26
+  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.143) #25
           to label %.noexc unwind label %90
 
 .noexc:                                           ; preds = %40
   unreachable
 
 41:                                               ; preds = %.loopexit65
-  %42 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %37) #25
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #25
+  %42 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %37) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %42, ptr %3, align 8, !tbaa !125
   %43 = icmp ugt i64 %42, 15
   br i1 %43, label %.noexc.i, label %._crit_edge.i.i
@@ -26133,7 +26127,7 @@ _ZN6google8protobuf8internal17AssignDescriptorsEPKNS1_15DescriptorTableEb.exit: 
   %53 = load ptr, ptr %7, align 8, !tbaa !122
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 %51
   store i8 0, ptr %54, align 1, !tbaa !118
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %55 = invoke noundef ptr @_ZNK6google8protobuf14DescriptorPool14FindFileByNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(96) %35, ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %56 unwind label %92
 
@@ -26149,17 +26143,17 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %56
-  call void @_ZdlPv(ptr noundef %57) #27
+  call void @_ZdlPv(ptr noundef %57) #26
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not = icmp eq ptr %55, null
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   br i1 %.not, label %61, label %64
 
 61:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %8) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZN6google8protobuf8internal10LogMessageC1ENS0_8LogLevelEPKci(ptr noundef nonnull align 8 dereferenceable(56) %8, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 2933)
   %62 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull @.str.141)
           to label %63 unwind label %98
@@ -26169,18 +26163,18 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
           to label %65 unwind label %100
 
 64:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.critedge58
 
 65:                                               ; preds = %63
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #25
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %8) #25
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %8) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.critedge58
 
 .critedge58:                                      ; preds = %64, %65
   %66 = call noundef ptr @_ZN6google8protobuf14MessageFactory17generated_factoryEv()
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %68 = load ptr, ptr %67, align 8, !tbaa !262
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -26242,12 +26236,12 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit63
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i61: ; preds = %92
-  call void @_ZdlPv(ptr noundef %94) #27
+  call void @_ZdlPv(ptr noundef %94) #26
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit63
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit63: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i61, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i62, %90
   %.pn = phi { ptr, i32 } [ %91, %90 ], [ %93, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i62 ], [ %93, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i61 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %common.resume
 
 98:                                               ; preds = %61
@@ -26258,13 +26252,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit63: ; preds = %_ZN
 100:                                              ; preds = %63
   %101 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %102
 
 102:                                              ; preds = %98, %100
   %.pn53 = phi { ptr, i32 } [ %101, %100 ], [ %99, %98 ]
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %8) #25
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8) #25
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %8) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %common.resume
 
 103:                                              ; preds = %.lr.ph74, %103
@@ -26330,7 +26324,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit63: ; preds = %_ZN
   br i1 %131, label %132, label %_ZN6google8protobuf12_GLOBAL__N_113MetadataOwner8InstanceEv.exit, !prof !290
 
 132:                                              ; preds = %.loopexit
-  %133 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN6google8protobuf12_GLOBAL__N_113MetadataOwner8InstanceEvE3res) #25
+  %133 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN6google8protobuf12_GLOBAL__N_113MetadataOwner8InstanceEvE3res) #27
   %.not.i = icmp eq i32 %133, 0
   br i1 %.not.i, label %_ZN6google8protobuf12_GLOBAL__N_113MetadataOwner8InstanceEv.exit, label %134
 
@@ -26345,25 +26339,25 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit63: ; preds = %_ZN
 
 _ZN6google8protobuf8internal16OnShutdownDeleteINS0_12_GLOBAL__N_113MetadataOwnerEEEPT_S6_.exit.i: ; preds = %136
   store ptr %135, ptr @_ZZN6google8protobuf12_GLOBAL__N_113MetadataOwner8InstanceEvE3res, align 8, !tbaa !291
-  call void @__cxa_guard_release(ptr nonnull @_ZGVZN6google8protobuf12_GLOBAL__N_113MetadataOwner8InstanceEvE3res) #25
+  call void @__cxa_guard_release(ptr nonnull @_ZGVZN6google8protobuf12_GLOBAL__N_113MetadataOwner8InstanceEvE3res) #27
   br label %_ZN6google8protobuf12_GLOBAL__N_113MetadataOwner8InstanceEv.exit
 
 137:                                              ; preds = %136, %134
   %138 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_guard_abort(ptr nonnull @_ZGVZN6google8protobuf12_GLOBAL__N_113MetadataOwner8InstanceEvE3res) #25
+  call void @__cxa_guard_abort(ptr nonnull @_ZGVZN6google8protobuf12_GLOBAL__N_113MetadataOwner8InstanceEvE3res) #27
   br label %common.resume
 
 _ZN6google8protobuf12_GLOBAL__N_113MetadataOwner8InstanceEv.exit: ; preds = %.loopexit, %132, %_ZN6google8protobuf8internal16OnShutdownDeleteINS0_12_GLOBAL__N_113MetadataOwnerEEEPT_S6_.exit.i
   %139 = load ptr, ptr @_ZZN6google8protobuf12_GLOBAL__N_113MetadataOwner8InstanceEvE3res, align 8, !tbaa !291
   %140 = load ptr, ptr %67, align 8, !tbaa !262
   %141 = load ptr, ptr %77, align 8, !tbaa !269
-  %142 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(64) %139) #25
+  %142 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(64) %139) #27
   %.not.i.i.i = icmp eq i32 %142, 0
   br i1 %.not.i.i.i, label %_ZN6google8protobuf8internal12WrappedMutex4LockEv.exit.i, label %143
 
 143:                                              ; preds = %_ZN6google8protobuf12_GLOBAL__N_113MetadataOwner8InstanceEv.exit
-  call void @_ZSt20__throw_system_errori(i32 noundef %142) #26
+  call void @_ZSt20__throw_system_errori(i32 noundef %142) #25
   unreachable
 
 _ZN6google8protobuf8internal12WrappedMutex4LockEv.exit.i: ; preds = %_ZN6google8protobuf12_GLOBAL__N_113MetadataOwner8InstanceEv.exit
@@ -26393,7 +26387,7 @@ _ZN6google8protobuf8internal12WrappedMutex4LockEv.exit.i: ; preds = %_ZN6google8
   br i1 %157, label %158, label %_ZNKSt6vectorISt4pairIPKN6google8protobuf8MetadataES5_ESaIS6_EE12_M_check_lenEmPKc.exit.i.i.i.i
 
 158:                                              ; preds = %152
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.142) #26
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.142) #25
   unreachable
 
 _ZNKSt6vectorISt4pairIPKN6google8protobuf8MetadataES5_ESaIS6_EE12_M_check_lenEmPKc.exit.i.i.i.i: ; preds = %152
@@ -26430,7 +26424,7 @@ _ZNSt6vectorISt4pairIPKN6google8protobuf8MetadataES5_ESaIS6_EE11_S_relocateEPS6_
   br i1 %.not.i23.i.i.i.i, label %_ZNSt6vectorISt4pairIPKN6google8protobuf8MetadataES5_ESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i.i, label %170
 
 170:                                              ; preds = %_ZNSt6vectorISt4pairIPKN6google8protobuf8MetadataES5_ESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %153) #27
+  call void @_ZdlPv(ptr noundef nonnull %153) #26
   br label %_ZNSt6vectorISt4pairIPKN6google8protobuf8MetadataES5_ESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i.i
 
 _ZNSt6vectorISt4pairIPKN6google8protobuf8MetadataES5_ESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i.i: ; preds = %170, %_ZNSt6vectorISt4pairIPKN6google8protobuf8MetadataES5_ESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i.i.i.i
@@ -26441,8 +26435,8 @@ _ZNSt6vectorISt4pairIPKN6google8protobuf8MetadataES5_ESaIS6_EE17_M_realloc_inser
   br label %_ZN6google8protobuf12_GLOBAL__N_113MetadataOwner8AddArrayEPKNS0_8MetadataES5_.exit
 
 _ZN6google8protobuf12_GLOBAL__N_113MetadataOwner8AddArrayEPKNS0_8MetadataES5_.exit: ; preds = %149, %_ZNSt6vectorISt4pairIPKN6google8protobuf8MetadataES5_ESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i.i
-  %172 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(64) %139) #25
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10) #25
+  %172 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(64) %139) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 }
 
@@ -26514,15 +26508,15 @@ define hidden void @_ZN6google8protobuf8internal25RegisterFileLevelMetadataEPKNS
   %2 = alloca %class.anon.87, align 8
   %3 = alloca ptr, align 8
   %4 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %0, ptr %3, align 8, !tbaa !244
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %6 = load i8, ptr %5, align 1, !tbaa !246, !range !68, !noundef !69
   store i8 %6, ptr %4, align 1, !tbaa !131
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8, !tbaa !254
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr @_ZN6google8protobuf12_GLOBAL__N_121AssignDescriptorsImplEPKNS0_8internal15DescriptorTableEb, ptr %2, align 8, !tbaa !71
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %3, ptr %9, align 8, !tbaa !255
@@ -26540,7 +26534,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i:              ; preds = %1
   br i1 %.not.i.i, label %_ZN6google8protobuf8internal17AssignDescriptorsEPKNS1_15DescriptorTableEb.exit, label %14
 
 14:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %13) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %13) #25
           to label %15 unwind label %16
 
 15:                                               ; preds = %14
@@ -26551,15 +26545,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i:              ; preds = %1
           cleanup
   store ptr null, ptr %11, align 8, !tbaa !71
   store ptr null, ptr %12, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %17
 
 _ZN6google8protobuf8internal17AssignDescriptorsEPKNS1_15DescriptorTableEb.exit: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i
   store ptr null, ptr %11, align 8, !tbaa !71
   store ptr null, ptr %12, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %19 = load ptr, ptr %18, align 8, !tbaa !262
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -26614,8 +26608,8 @@ _ZNK6google8protobuf8internal16InternalMetadata14unknown_fieldsINS0_15UnknownFie
 declare void @_ZN6google8protobuf8internal24InitProtobufDefaultsSlowEv() local_unnamed_addr #0
 
 ; Function Attrs: noinline noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #10 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #25
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #9 comdat {
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #27
   tail call void @_ZSt9terminatev() #28
   unreachable
 }
@@ -26623,20 +26617,20 @@ define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_un
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #11
+declare void @_ZSt9terminatev() local_unnamed_addr #10
 
 declare void @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_(ptr noundef) #0
 
 declare void @__once_proxy() #0
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_system_errori(i32 noundef) local_unnamed_addr #12
+declare void @_ZSt20__throw_system_errori(i32 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #13
+declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #12
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr hidden void @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIPFvPKN6google8protobuf15FieldDescriptorEEJS7_EEvRS_OT_DpOT0_EUlvE_EERSB_ENUlvE_8__invokeEv() #8 comdat align 2 {
+define linkonce_odr hidden void @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIPFvPKN6google8protobuf15FieldDescriptorEEJS7_EEvRS_OT_DpOT0_EUlvE_EERSB_ENUlvE_8__invokeEv() #7 comdat align 2 {
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt15__once_callable)
   %2 = load ptr, ptr %1, align 8, !tbaa !71
   %3 = load ptr, ptr %2, align 8, !tbaa !317
@@ -26704,11 +26698,11 @@ _ZNK6google8protobuf15FieldDescriptor5indexEv.exit: ; preds = %11, %_ZNK6google8
   br i1 %.not.i3, label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit, label %29
 
 29:                                               ; preds = %_ZNK6google8protobuf15FieldDescriptor5indexEv.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %4, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %1, ptr %5, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %4, ptr %3, align 8, !tbaa !73
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %5, ptr %30, align 8, !tbaa !74
@@ -26724,7 +26718,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i:            ; preds = %29
   br i1 %.not.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i, label %34
 
 34:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %33) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %33) #25
           to label %35 unwind label %36
 
 35:                                               ; preds = %34
@@ -26735,15 +26729,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i:            ; preds = %29
           cleanup
   store ptr null, ptr %31, align 8, !tbaa !71
   store ptr null, ptr %32, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %37
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i
   store ptr null, ptr %31, align 8, !tbaa !71
   store ptr null, ptr %32, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor4typeEv.exit: ; preds = %_ZNK6google8protobuf15FieldDescriptor5indexEv.exit, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i
@@ -26831,11 +26825,11 @@ _ZNK6google8protobuf8internal16ReflectionSchema11InRealOneofEPKNS0_15FieldDescri
   br i1 %.not.i8, label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit, label %45
 
 45:                                               ; preds = %_ZNK6google8protobuf8internal16ReflectionSchema11InRealOneofEPKNS0_15FieldDescriptorE.exit.thread
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %7, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %1, ptr %8, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %7, ptr %6, align 8, !tbaa !73
   %46 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %8, ptr %46, align 8, !tbaa !74
@@ -26851,7 +26845,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i:            ; preds = %45
   br i1 %.not.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i, label %50
 
 50:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %49) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %49) #25
           to label %51 unwind label %52
 
 51:                                               ; preds = %50
@@ -26866,15 +26860,15 @@ common.resume:                                    ; preds = %85, %52
           cleanup
   store ptr null, ptr %47, align 8, !tbaa !71
   store ptr null, ptr %48, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %common.resume
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i
   store ptr null, ptr %47, align 8, !tbaa !71
   store ptr null, ptr %48, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor4typeEv.exit: ; preds = %_ZNK6google8protobuf8internal16ReflectionSchema11InRealOneofEPKNS0_15FieldDescriptorE.exit.thread, %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i
@@ -26938,11 +26932,11 @@ _ZNK6google8protobuf15FieldDescriptor5indexEv.exit.i: ; preds = %66, %_ZNK6googl
   br i1 %.not.i3.i, label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i, label %78
 
 78:                                               ; preds = %_ZNK6google8protobuf15FieldDescriptor5indexEv.exit.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %4, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %1, ptr %5, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %4, ptr %3, align 8, !tbaa !73
   %79 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %5, ptr %79, align 8, !tbaa !74
@@ -26958,7 +26952,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %78
   br i1 %.not.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i, label %83
 
 83:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %82) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %82) #25
           to label %84 unwind label %85
 
 84:                                               ; preds = %83
@@ -26969,15 +26963,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %78
           cleanup
   store ptr null, ptr %80, align 8, !tbaa !71
   store ptr null, ptr %81, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %common.resume
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i
   store ptr null, ptr %80, align 8, !tbaa !71
   store ptr null, ptr %81, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i
 
 _ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i: ; preds = %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i, %_ZNK6google8protobuf15FieldDescriptor5indexEv.exit.i
@@ -27158,7 +27152,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf23AssignDescriptorsHelper23A
 74:                                               ; preds = %50, %._crit_edge
   %75 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %9) #27
+  tail call void @_ZdlPv(ptr noundef nonnull %9) #26
   resume { ptr, i32 } %75
 
 76:                                               ; preds = %.lr.ph20, %76
@@ -27180,10 +27174,10 @@ declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #1
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #14
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #15
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #14
 
 ; Function Attrs: nofree nounwind
 declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #2
@@ -27197,7 +27191,7 @@ declare void @__cxa_guard_release(ptr) local_unnamed_addr #2
 declare void @_ZN6google8protobuf8internal13OnShutdownRunEPFvPKvES3_(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZZN6google8protobuf8internal16OnShutdownDeleteINS0_12_GLOBAL__N_113MetadataOwnerEEEPT_S6_ENUlPKvE_8__invokeES8_(ptr noundef %0) #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZZN6google8protobuf8internal16OnShutdownDeleteINS0_12_GLOBAL__N_113MetadataOwnerEEEPT_S6_ENUlPKvE_8__invokeES8_(ptr noundef %0) #15 align 2 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %_ZZN6google8protobuf8internal16OnShutdownDeleteINS0_12_GLOBAL__N_113MetadataOwnerEEEPT_S6_ENKUlPKvE_clES8_.exit, label %3
 
@@ -27219,7 +27213,7 @@ define internal void @_ZZN6google8protobuf8internal16OnShutdownDeleteINS0_12_GLO
   br i1 %.not.i.i.i.i.i, label %_ZN6google8protobuf12_GLOBAL__N_113MetadataOwnerD2Ev.exit.i, label %9
 
 9:                                                ; preds = %._crit_edge15.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %8) #27
+  tail call void @_ZdlPv(ptr noundef nonnull %8) #26
   br label %_ZN6google8protobuf12_GLOBAL__N_113MetadataOwnerD2Ev.exit.i
 
 .lr.ph14.i.i:                                     ; preds = %3, %._crit_edge.i.i
@@ -27243,7 +27237,7 @@ define internal void @_ZZN6google8protobuf8internal16OnShutdownDeleteINS0_12_GLO
   br i1 %14, label %16, label %15
 
 15:                                               ; preds = %.lr.ph.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %13) #27
+  tail call void @_ZdlPv(ptr noundef nonnull %13) #26
   br label %16
 
 16:                                               ; preds = %15, %.lr.ph.i.i
@@ -27252,7 +27246,7 @@ define internal void @_ZZN6google8protobuf8internal16OnShutdownDeleteINS0_12_GLO
   br i1 %18, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !330
 
 _ZN6google8protobuf12_GLOBAL__N_113MetadataOwnerD2Ev.exit.i: ; preds = %9, %._crit_edge15.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #27
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   br label %_ZZN6google8protobuf8internal16OnShutdownDeleteINS0_12_GLOBAL__N_113MetadataOwnerEEEPT_S6_ENKUlPKvE_clES8_.exit
 
 _ZZN6google8protobuf8internal16OnShutdownDeleteINS0_12_GLOBAL__N_113MetadataOwnerEEEPT_S6_ENKUlPKvE_clES8_.exit: ; preds = %1, %_ZN6google8protobuf12_GLOBAL__N_113MetadataOwnerD2Ev.exit.i
@@ -27260,10 +27254,10 @@ _ZZN6google8protobuf8internal16OnShutdownDeleteINS0_12_GLOBAL__N_113MetadataOwne
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #17
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #12
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #11
 
 declare void @_ZN6google8protobuf14DescriptorPool24InternalAddGeneratedFileEPKvi(ptr noundef, i32 noundef) local_unnamed_addr #0
 
@@ -27276,13 +27270,13 @@ declare noundef ptr @_ZN6google8protobuf8internal10WireFormat37InternalSerialize
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: noreturn
-declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #12
+declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #18
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress noinline uwtable
-define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v(ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #19 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v(ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #18 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load i64, ptr %0, align 8, !tbaa !45
   %3 = and i64 %2, 1
   %.not = icmp eq i64 %3, 0
@@ -27329,7 +27323,7 @@ _ZN6google8protobuf5Arena14CreateInternalINS0_8internal16InternalMetadata9Contai
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN6google8protobuf8internal21arena_destruct_objectINS1_16InternalMetadata9ContainerINS0_15UnknownFieldSetEEEEEvPv(ptr noundef %0) #9 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN6google8protobuf8internal21arena_destruct_objectINS1_16InternalMetadata9ContainerINS0_15UnknownFieldSetEEEEEvPv(ptr noundef %0) #8 comdat personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !331
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -27351,7 +27345,7 @@ _ZN6google8protobuf15UnknownFieldSet5ClearEv.exit.i.i: ; preds = %_ZN6google8pro
   br i1 %.not.i.i.i.i.i, label %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit, label %9
 
 9:                                                ; preds = %_ZN6google8protobuf15UnknownFieldSet5ClearEv.exit.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %8) #27
+  tail call void @_ZdlPv(ptr noundef nonnull %8) #26
   br label %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit
 
 10:                                               ; preds = %7
@@ -27370,9 +27364,9 @@ declare void @_ZN6google8protobuf15UnknownFieldSet13ClearFallbackEv(ptr noundef 
 declare { ptr, ptr } @_ZN6google8protobuf5Arena26AllocateAlignedWithCleanupEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress noinline uwtable
-define linkonce_odr hidden void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase12SwapFallbackINS1_18GenericTypeHandlerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvPS2_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) local_unnamed_addr #19 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase12SwapFallbackINS1_18GenericTypeHandlerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvPS2_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) local_unnamed_addr #18 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.google::protobuf::internal::RepeatedPtrFieldBase", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load ptr, ptr %1, align 8, !tbaa !146
   store ptr %4, ptr %3, align 8, !tbaa !146
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -27503,7 +27497,7 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase5ClearINS1_18GenericTypeHandle
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %66
   %70 = phi ptr [ %.pre.i, %._crit_edge.loopexit.i ], [ %61, %66 ]
-  call void @_ZdlPv(ptr noundef %70) #25
+  call void @_ZdlPv(ptr noundef %70) #27
   br label %81
 
 .lr.ph.i:                                         ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6DeleteEPS8_PNS0_5ArenaE.exit.i, %.lr.ph.preheader.i
@@ -27527,11 +27521,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i: ; preds = %74
-  call void @_ZdlPv(ptr noundef %75) #27
+  call void @_ZdlPv(ptr noundef %75) #26
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %72) #27
+  call void @_ZdlPv(ptr noundef nonnull %72) #26
   br label %_ZN6google8protobuf8internal18GenericTypeHandlerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6DeleteEPS8_PNS0_5ArenaE.exit.i
 
 _ZN6google8protobuf8internal18GenericTypeHandlerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6DeleteEPS8_PNS0_5ArenaE.exit.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i, %.lr.ph.i
@@ -27540,12 +27534,12 @@ _ZN6google8protobuf8internal18GenericTypeHandlerINSt7__cxx1112basic_stringIcSt11
   br i1 %exitcond.not.i12, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !342
 
 81:                                               ; preds = %._crit_edge.i, %52
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define linkonce_odr hidden void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18MergeFromInnerLoopINS1_18GenericTypeHandlerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvPPvSD_ii(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #19 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18MergeFromInnerLoopINS1_18GenericTypeHandlerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvPPvSD_ii(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #18 comdat align 2 personality ptr @__gxx_personality_v0 {
   %6 = icmp slt i32 %4, %3
   br i1 %6, label %7, label %.loopexit
 
@@ -27617,7 +27611,7 @@ declare noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase14Interna
 declare void @_ZN6google8protobuf8internal18GenericTypeHandlerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5MergeERKS8_PS8_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN6google8protobuf8internal21arena_destruct_objectINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPv(ptr noundef %0) #9 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN6google8protobuf8internal21arena_destruct_objectINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPv(ptr noundef %0) #8 comdat personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !122
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = icmp eq ptr %2, %3
@@ -27631,7 +27625,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %1
-  tail call void @_ZdlPv(ptr noundef %2) #27
+  tail call void @_ZdlPv(ptr noundef %2) #26
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -27639,9 +27633,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define linkonce_odr hidden void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase12SwapFallbackINS1_18GenericTypeHandlerINS0_7MessageEEEEEvPS2_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) local_unnamed_addr #19 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase12SwapFallbackINS1_18GenericTypeHandlerINS0_7MessageEEEEEvPS2_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) local_unnamed_addr #18 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.google::protobuf::internal::RepeatedPtrFieldBase", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load ptr, ptr %1, align 8, !tbaa !146
   store ptr %4, ptr %3, align 8, !tbaa !146
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -27772,7 +27766,7 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase5ClearINS1_18GenericTypeHandle
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %66
   %70 = phi ptr [ %.pre.i, %._crit_edge.loopexit.i ], [ %61, %66 ]
-  call void @_ZdlPv(ptr noundef %70) #25
+  call void @_ZdlPv(ptr noundef %70) #27
   br label %78
 
 .lr.ph.i:                                         ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerINS0_7MessageEE6DeleteEPS3_PNS0_5ArenaE.exit.i, %.lr.ph.preheader.i
@@ -27786,7 +27780,7 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase5ClearINS1_18GenericTypeHandle
   %75 = load ptr, ptr %72, align 8, !tbaa !101
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %77 = load ptr, ptr %76, align 8
-  call void %77(ptr noundef nonnull align 8 dereferenceable(16) %72) #25
+  call void %77(ptr noundef nonnull align 8 dereferenceable(16) %72) #27
   br label %_ZN6google8protobuf8internal18GenericTypeHandlerINS0_7MessageEE6DeleteEPS3_PNS0_5ArenaE.exit.i
 
 _ZN6google8protobuf8internal18GenericTypeHandlerINS0_7MessageEE6DeleteEPS3_PNS0_5ArenaE.exit.i: ; preds = %74, %.lr.ph.i
@@ -27795,12 +27789,12 @@ _ZN6google8protobuf8internal18GenericTypeHandlerINS0_7MessageEE6DeleteEPS3_PNS0_
   br i1 %exitcond.not.i13, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !353
 
 78:                                               ; preds = %._crit_edge.i, %52
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define linkonce_odr hidden void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18MergeFromInnerLoopINS1_18GenericTypeHandlerINS0_7MessageEEEEEvPPvS8_ii(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #19 comdat align 2 {
+define linkonce_odr hidden void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18MergeFromInnerLoopINS1_18GenericTypeHandlerINS0_7MessageEEEEEvPPvS8_ii(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #18 comdat align 2 {
   %6 = icmp slt i32 %4, %3
   br i1 %6, label %7, label %.loopexit
 
@@ -27846,7 +27840,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf8internal20RepeatedPtrFieldB
 declare noundef ptr @_ZN6google8protobuf8internal18GenericTypeHandlerINS0_7MessageEE16NewFromPrototypeEPKS3_PNS0_5ArenaE(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress noinline uwtable
-define linkonce_odr hidden void @_ZN6google8protobuf8internal18GenericTypeHandlerINS0_7MessageEE5MergeERKS3_PS3_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #19 comdat align 2 {
+define linkonce_odr hidden void @_ZN6google8protobuf8internal18GenericTypeHandlerINS0_7MessageEE5MergeERKS3_PS3_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #18 comdat align 2 {
   %3 = load ptr, ptr %1, align 8, !tbaa !101
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 112
   %5 = load ptr, ptr %4, align 8
@@ -27897,17 +27891,17 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit51: ; preds = %_Z
   br i1 %28, label %_ZNK6google8protobuf10Reflection22IsInlinedStringDonatedERKNS0_7MessageEPKNS0_15FieldDescriptorE.exit, label %29
 
 _ZNK6google8protobuf10Reflection22IsInlinedStringDonatedERKNS0_7MessageEPKNS0_15FieldDescriptorE.exit: ; preds = %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit51
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %27) #25
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %27) #27
   br label %64
 
 29:                                               ; preds = %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit51
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %30, ptr %6, align 8, !tbaa !119
   %31 = load ptr, ptr %24, align 8, !tbaa !122
   %32 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %33 = load i64, ptr %32, align 8, !tbaa !124
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %33, ptr %5, align 8, !tbaa !125
   %34 = icmp ugt i64 %33, 15
   br i1 %34, label %.noexc.i, label %._crit_edge.i.i
@@ -27942,7 +27936,7 @@ _ZNK6google8protobuf15FieldDescriptor15extension_scopeEv.exit.i.i.i63: ; preds =
   %43 = load ptr, ptr %6, align 8, !tbaa !122
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 %41
   store i8 0, ptr %44, align 1, !tbaa !118
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %45 = load ptr, ptr %27, align 8, !tbaa !122
   %46 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %47 = load i64, ptr %46, align 8, !tbaa !124
@@ -27969,11 +27963,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %_ZN6google8protobuf8internal18InlinedStringField3SetEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS9_PNS0_5ArenaEbPjj.exit82
-  call void @_ZdlPv(ptr noundef %54) #27
+  call void @_ZdlPv(ptr noundef %54) #26
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %64
 
 58:                                               ; preds = %_ZN6google8protobuf8internal18InlinedStringField3SetEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS9_PNS0_5ArenaEbPjj.exit, %_ZNK6google8protobuf15FieldDescriptor15extension_scopeEv.exit.i.i.i63
@@ -27990,11 +27984,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit85
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i83: ; preds = %58
-  call void @_ZdlPv(ptr noundef %60) #27
+  call void @_ZdlPv(ptr noundef %60) #26
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit85
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit85: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i84, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i83
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %59
 
 64:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZNK6google8protobuf10Reflection22IsInlinedStringDonatedERKNS0_7MessageEPKNS0_15FieldDescriptorE.exit
@@ -28057,11 +28051,11 @@ _ZNK6google8protobuf15FieldDescriptor5indexEv.exit.i.i: ; preds = %23, %_ZNK6goo
   br i1 %.not.i3.i.i, label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i, label %35
 
 35:                                               ; preds = %_ZNK6google8protobuf15FieldDescriptor5indexEv.exit.i.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %6, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %3, ptr %7, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !tbaa !73
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %7, ptr %36, align 8, !tbaa !74
@@ -28077,7 +28071,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i:        ; preds = %35
   br i1 %.not.i.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i, label %40
 
 40:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %39) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %39) #25
           to label %41 unwind label %42
 
 41:                                               ; preds = %40
@@ -28088,15 +28082,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i:        ; preds = %35
           cleanup
   store ptr null, ptr %37, align 8, !tbaa !71
   store ptr null, ptr %38, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %43
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i
   store ptr null, ptr %37, align 8, !tbaa !71
   store ptr null, ptr %38, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i
 
 _ZNK6google8protobuf15FieldDescriptor4typeEv.exit.i.i: ; preds = %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i, %_ZNK6google8protobuf15FieldDescriptor5indexEv.exit.i.i
@@ -28227,15 +28221,15 @@ define linkonce_odr hidden void @_ZNK6google8protobuf10Reflection14SwapOneofFiel
   %65 = load i32, ptr %64, align 4, !tbaa !15
   %66 = getelementptr inbounds nuw i8, ptr %2, i64 %63
   %67 = load i32, ptr %66, align 4, !tbaa !15
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %47) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %47)
   %68 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %69 = getelementptr inbounds nuw i8, ptr %47, i64 24
   store ptr %69, ptr %68, align 8, !tbaa !119
   %70 = getelementptr inbounds nuw i8, ptr %47, i64 16
   store i64 0, ptr %70, align 8, !tbaa !124
   store i8 0, ptr %69, align 8, !tbaa !118
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %48) #25
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %49) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %48)
+  call void @llvm.lifetime.start.p0(ptr nonnull %49)
   %.not = icmp eq i32 %65, 0
   br i1 %.not, label %_ZN6google8protobuf12_GLOBAL__N_115OneofFieldMoverILb0EEclIZNKS0_10Reflection14SwapOneofFieldILb0EEEvPNS0_7MessageES8_PKNS0_15OneofDescriptorEE14MessageWrapperZNKS6_ILb0EEEvS8_S8_SB_E15LocalVarWrapperEEvPKNS0_15FieldDescriptorEPT_PT0_.exit, label %71
 
@@ -28256,11 +28250,11 @@ define linkonce_odr hidden void @_ZNK6google8protobuf10Reflection14SwapOneofFiel
   br i1 %.not.i.i.i, label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i, label %77
 
 77:                                               ; preds = %74
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %42) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %42)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %42, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %43) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %43)
   store ptr %73, ptr %43, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %41) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %41)
   store ptr %42, ptr %41, align 8, !tbaa !73
   %78 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store ptr %43, ptr %78, align 8, !tbaa !74
@@ -28276,7 +28270,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i:        ; preds = %77
   br i1 %.not.i.i.i.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i, label %82
 
 82:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %81) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %81) #25
           to label %83 unwind label %84
 
 83:                                               ; preds = %82
@@ -28287,15 +28281,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i:        ; preds = %77
           cleanup
   store ptr null, ptr %79, align 8, !tbaa !71
   store ptr null, ptr %80, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %41) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
   br label %.body
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i
   store ptr null, ptr %79, align 8, !tbaa !71
   store ptr null, ptr %80, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %41) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %43) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %42) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
   br label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i
 
 _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i: ; preds = %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i, %74
@@ -28484,7 +28478,7 @@ _ZZNK6google8protobuf10Reflection14SwapOneofFieldILb0EEEvPNS0_7MessageES4_PKNS0_
   br label %_ZN6google8protobuf12_GLOBAL__N_115OneofFieldMoverILb0EEclIZNKS0_10Reflection14SwapOneofFieldILb0EEEvPNS0_7MessageES8_PKNS0_15OneofDescriptorEE14MessageWrapperZNKS6_ILb0EEEvS8_S8_SB_E15LocalVarWrapperEEvPKNS0_15FieldDescriptorEPT_PT0_.exit
 
 185:                                              ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %44) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %44)
   %186 = load ptr, ptr %48, align 8, !tbaa !356, !noalias !360
   %187 = load ptr, ptr %.sroa.410.0..sroa_idx, align 8, !tbaa !358, !noalias !360
   %188 = load ptr, ptr %.sroa.511.0..sroa_idx, align 8, !tbaa !359, !noalias !360
@@ -28509,11 +28503,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %_ZZNK6google8protobuf10Reflection14SwapOneofFieldILb0EEEvPNS0_7MessageES4_PKNS0_15OneofDescriptorEEN15LocalVarWrapper9SetStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i
-  call void @_ZdlPv(ptr noundef %189) #27
+  call void @_ZdlPv(ptr noundef %189) #26
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %44) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %44)
   br label %_ZN6google8protobuf12_GLOBAL__N_115OneofFieldMoverILb0EEclIZNKS0_10Reflection14SwapOneofFieldILb0EEEvPNS0_7MessageES8_PKNS0_15OneofDescriptorEE14MessageWrapperZNKS6_ILb0EEEvS8_S8_SB_E15LocalVarWrapperEEvPKNS0_15FieldDescriptorEPT_PT0_.exit
 
 195:                                              ; preds = %.noexc51
@@ -28532,15 +28526,15 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit29.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i27.i: ; preds = %195
-  call void @_ZdlPv(ptr noundef %197) #27
+  call void @_ZdlPv(ptr noundef %197) #26
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit29.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit29.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i27.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i28.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %44) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %44)
   br label %.body
 
 203:                                              ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %45) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %45)
   invoke void @_ZN6google8protobuf8internal10LogMessageC1ENS0_8LogLevelEPKci(ptr noundef nonnull align 8 dereferenceable(56) %45, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 447)
           to label %.noexc52 unwind label %228
 
@@ -28554,11 +28548,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit29.i: ; preds = %_
   br i1 %.not.i.i30.i, label %216, label %207
 
 207:                                              ; preds = %205
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %39) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %39)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %39, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %40) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %40)
   store ptr %73, ptr %40, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %38) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %38)
   store ptr %39, ptr %38, align 8, !tbaa !73
   %208 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store ptr %40, ptr %208, align 8, !tbaa !74
@@ -28574,7 +28568,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i31.i:      ; preds = %207
   br i1 %.not.i.i.i.i32.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i33.i, label %212
 
 212:                                              ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i31.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %211) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %211) #25
           to label %213 unwind label %214
 
 213:                                              ; preds = %212
@@ -28585,15 +28579,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i31.i:      ; preds = %207
           cleanup
   store ptr null, ptr %209, align 8, !tbaa !71
   store ptr null, ptr %210, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %38) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
   br label %.body.i
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i33.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i31.i
   store ptr null, ptr %209, align 8, !tbaa !71
   store ptr null, ptr %210, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %38) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %40) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %39) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
   br label %216
 
 216:                                              ; preds = %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i33.i, %205
@@ -28605,14 +28599,14 @@ _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorE
           to label %222 unwind label %224
 
 222:                                              ; preds = %216
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %46) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %46)
   invoke void @_ZN6google8protobuf8internal11LogFinisheraSERNS1_10LogMessageE(ptr noundef nonnull align 1 dereferenceable(1) %46, ptr noundef nonnull align 8 dereferenceable(56) %221)
           to label %223 unwind label %226
 
 223:                                              ; preds = %222
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %46) #25
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %45) #25
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %45) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %46)
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %45) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
   br label %_ZN6google8protobuf12_GLOBAL__N_115OneofFieldMoverILb0EEclIZNKS0_10Reflection14SwapOneofFieldILb0EEEvPNS0_7MessageES8_PKNS0_15OneofDescriptorEE14MessageWrapperZNKS6_ILb0EEEvS8_S8_SB_E15LocalVarWrapperEEvPKNS0_15FieldDescriptorEPT_PT0_.exit
 
 224:                                              ; preds = %216, %.noexc52
@@ -28623,13 +28617,13 @@ _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorE
 226:                                              ; preds = %222
   %227 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %46) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %46)
   br label %.body.i
 
 .body.i:                                          ; preds = %226, %224, %214
   %.pn.i = phi { ptr, i32 } [ %227, %226 ], [ %225, %224 ], [ %215, %214 ]
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %45) #25
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %45) #25
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %45) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
   br label %.body
 
 228:                                              ; preds = %425, %424, %422, %420, %418, %416, %414, %412, %410, %408, %406, %203, %185, %.noexc49, %177, %163, %154, %145, %136, %127, %118, %109, %100, %91, %450, %388, %71
@@ -28664,11 +28658,11 @@ _ZN6google8protobuf12_GLOBAL__N_115OneofFieldMoverILb0EEclIZNKS0_10Reflection14S
   br i1 %.not.i.i.i53, label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i59, label %237
 
 237:                                              ; preds = %234
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %33) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %33, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %34) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
   store ptr %233, ptr %34, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %32) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
   store ptr %33, ptr %32, align 8, !tbaa !73
   %238 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store ptr %34, ptr %238, align 8, !tbaa !74
@@ -28684,7 +28678,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i56:      ; preds = %237
   br i1 %.not.i.i.i.i.i57, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i58, label %242
 
 242:                                              ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i56
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %241) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %241) #25
           to label %243 unwind label %244
 
 243:                                              ; preds = %242
@@ -28695,15 +28689,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i56:      ; preds = %237
           cleanup
   store ptr null, ptr %239, align 8, !tbaa !71
   store ptr null, ptr %240, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %32) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
   br label %.body
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i58: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i56
   store ptr null, ptr %239, align 8, !tbaa !71
   store ptr null, ptr %240, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %32) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %34) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %33) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
   br label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i59
 
 _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i59: ; preds = %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i58, %234
@@ -28734,7 +28728,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i59: ; preds = %_ZN6google
   %254 = zext i32 %253 to i64
   %255 = getelementptr inbounds nuw i8, ptr %2, i64 %254
   %256 = load i32, ptr %255, align 4, !tbaa !15
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %31)
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
   store i32 %256, ptr %31, align 4, !tbaa !15
   %257 = load ptr, ptr %48, align 8, !tbaa !356
   %258 = load ptr, ptr %.sroa.45.0..sroa_idx, align 8, !tbaa !358
@@ -28743,7 +28737,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i59: ; preds = %_ZN6google
           to label %.noexc81 unwind label %386
 
 .noexc81:                                         ; preds = %.noexc80
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
   br label %_ZN6google8protobuf12_GLOBAL__N_115OneofFieldMoverILb0EEclIZNKS0_10Reflection14SwapOneofFieldILb0EEEvPNS0_7MessageES8_PKNS0_15OneofDescriptorEE14MessageWrapperSC_EEvPKNS0_15FieldDescriptorEPT_PT0_.exit
 
 260:                                              ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i59
@@ -28755,7 +28749,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i59: ; preds = %_ZN6google
   %263 = zext i32 %262 to i64
   %264 = getelementptr inbounds nuw i8, ptr %2, i64 %263
   %265 = load i64, ptr %264, align 8, !tbaa !125
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %30)
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   store i64 %265, ptr %30, align 8, !tbaa !125
   %266 = load ptr, ptr %48, align 8, !tbaa !356
   %267 = load ptr, ptr %.sroa.45.0..sroa_idx, align 8, !tbaa !358
@@ -28764,7 +28758,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i59: ; preds = %_ZN6google
           to label %.noexc83 unwind label %386
 
 .noexc83:                                         ; preds = %.noexc82
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
   br label %_ZN6google8protobuf12_GLOBAL__N_115OneofFieldMoverILb0EEclIZNKS0_10Reflection14SwapOneofFieldILb0EEEvPNS0_7MessageES8_PKNS0_15OneofDescriptorEE14MessageWrapperSC_EEvPKNS0_15FieldDescriptorEPT_PT0_.exit
 
 269:                                              ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i59
@@ -28776,7 +28770,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i59: ; preds = %_ZN6google
   %272 = zext i32 %271 to i64
   %273 = getelementptr inbounds nuw i8, ptr %2, i64 %272
   %274 = load i32, ptr %273, align 4, !tbaa !15
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %29)
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   store i32 %274, ptr %29, align 4, !tbaa !15
   %275 = load ptr, ptr %48, align 8, !tbaa !356
   %276 = load ptr, ptr %.sroa.45.0..sroa_idx, align 8, !tbaa !358
@@ -28785,7 +28779,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i59: ; preds = %_ZN6google
           to label %.noexc85 unwind label %386
 
 .noexc85:                                         ; preds = %.noexc84
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   br label %_ZN6google8protobuf12_GLOBAL__N_115OneofFieldMoverILb0EEclIZNKS0_10Reflection14SwapOneofFieldILb0EEEvPNS0_7MessageES8_PKNS0_15OneofDescriptorEE14MessageWrapperSC_EEvPKNS0_15FieldDescriptorEPT_PT0_.exit
 
 278:                                              ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i59
@@ -28797,7 +28791,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i59: ; preds = %_ZN6google
   %281 = zext i32 %280 to i64
   %282 = getelementptr inbounds nuw i8, ptr %2, i64 %281
   %283 = load i64, ptr %282, align 8, !tbaa !125
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28)
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   store i64 %283, ptr %28, align 8, !tbaa !125
   %284 = load ptr, ptr %48, align 8, !tbaa !356
   %285 = load ptr, ptr %.sroa.45.0..sroa_idx, align 8, !tbaa !358
@@ -28806,7 +28800,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i59: ; preds = %_ZN6google
           to label %.noexc87 unwind label %386
 
 .noexc87:                                         ; preds = %.noexc86
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %_ZN6google8protobuf12_GLOBAL__N_115OneofFieldMoverILb0EEclIZNKS0_10Reflection14SwapOneofFieldILb0EEEvPNS0_7MessageES8_PKNS0_15OneofDescriptorEE14MessageWrapperSC_EEvPKNS0_15FieldDescriptorEPT_PT0_.exit
 
 287:                                              ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i59
@@ -28818,7 +28812,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i59: ; preds = %_ZN6google
   %290 = zext i32 %289 to i64
   %291 = getelementptr inbounds nuw i8, ptr %2, i64 %290
   %292 = load float, ptr %291, align 4, !tbaa !132
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %27)
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   store float %292, ptr %27, align 4, !tbaa !132
   %293 = load ptr, ptr %48, align 8, !tbaa !356
   %294 = load ptr, ptr %.sroa.45.0..sroa_idx, align 8, !tbaa !358
@@ -28827,7 +28821,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i59: ; preds = %_ZN6google
           to label %.noexc89 unwind label %386
 
 .noexc89:                                         ; preds = %.noexc88
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %_ZN6google8protobuf12_GLOBAL__N_115OneofFieldMoverILb0EEclIZNKS0_10Reflection14SwapOneofFieldILb0EEEvPNS0_7MessageES8_PKNS0_15OneofDescriptorEE14MessageWrapperSC_EEvPKNS0_15FieldDescriptorEPT_PT0_.exit
 
 296:                                              ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i59
@@ -28839,7 +28833,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i59: ; preds = %_ZN6google
   %299 = zext i32 %298 to i64
   %300 = getelementptr inbounds nuw i8, ptr %2, i64 %299
   %301 = load double, ptr %300, align 8, !tbaa !134
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   store double %301, ptr %26, align 8, !tbaa !134
   %302 = load ptr, ptr %48, align 8, !tbaa !356
   %303 = load ptr, ptr %.sroa.45.0..sroa_idx, align 8, !tbaa !358
@@ -28848,7 +28842,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i59: ; preds = %_ZN6google
           to label %.noexc91 unwind label %386
 
 .noexc91:                                         ; preds = %.noexc90
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br label %_ZN6google8protobuf12_GLOBAL__N_115OneofFieldMoverILb0EEclIZNKS0_10Reflection14SwapOneofFieldILb0EEEvPNS0_7MessageES8_PKNS0_15OneofDescriptorEE14MessageWrapperSC_EEvPKNS0_15FieldDescriptorEPT_PT0_.exit
 
 305:                                              ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i59
@@ -28860,7 +28854,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i59: ; preds = %_ZN6google
   %308 = zext i32 %307 to i64
   %309 = getelementptr inbounds nuw i8, ptr %2, i64 %308
   %310 = load i8, ptr %309, align 1, !tbaa !131, !range !68, !noundef !69
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i8 %310, ptr %25, align 1, !tbaa !131
   %311 = load ptr, ptr %48, align 8, !tbaa !356
   %312 = load ptr, ptr %.sroa.45.0..sroa_idx, align 8, !tbaa !358
@@ -28869,7 +28863,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i59: ; preds = %_ZN6google
           to label %.noexc93 unwind label %386
 
 .noexc93:                                         ; preds = %.noexc92
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %_ZN6google8protobuf12_GLOBAL__N_115OneofFieldMoverILb0EEclIZNKS0_10Reflection14SwapOneofFieldILb0EEEvPNS0_7MessageES8_PKNS0_15OneofDescriptorEE14MessageWrapperSC_EEvPKNS0_15FieldDescriptorEPT_PT0_.exit
 
 314:                                              ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i59
@@ -28881,7 +28875,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i59: ; preds = %_ZN6google
   %317 = zext i32 %316 to i64
   %318 = getelementptr inbounds nuw i8, ptr %2, i64 %317
   %319 = load i32, ptr %318, align 4, !tbaa !15
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   store i32 %319, ptr %24, align 4, !tbaa !15
   %320 = load ptr, ptr %48, align 8, !tbaa !356
   %321 = load ptr, ptr %.sroa.45.0..sroa_idx, align 8, !tbaa !358
@@ -28890,7 +28884,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i59: ; preds = %_ZN6google
           to label %.noexc95 unwind label %386
 
 .noexc95:                                         ; preds = %.noexc94
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %_ZN6google8protobuf12_GLOBAL__N_115OneofFieldMoverILb0EEclIZNKS0_10Reflection14SwapOneofFieldILb0EEEvPNS0_7MessageES8_PKNS0_15OneofDescriptorEE14MessageWrapperSC_EEvPKNS0_15FieldDescriptorEPT_PT0_.exit
 
 323:                                              ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i59
@@ -28940,7 +28934,7 @@ _ZZNK6google8protobuf10Reflection14SwapOneofFieldILb0EEEvPNS0_7MessageES4_PKNS0_
           to label %_ZN6google8protobuf12_GLOBAL__N_115OneofFieldMoverILb0EEclIZNKS0_10Reflection14SwapOneofFieldILb0EEEvPNS0_7MessageES8_PKNS0_15OneofDescriptorEE14MessageWrapperSC_EEvPKNS0_15FieldDescriptorEPT_PT0_.exit unwind label %386
 
 345:                                              ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i59
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %35) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
   invoke void @_ZNK6google8protobuf10Reflection9GetStringB5cxx11ERKNS0_7MessageEPKNS0_15FieldDescriptorE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %35, ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %233)
           to label %.noexc100 unwind label %386
 
@@ -28962,11 +28956,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i64
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i63: ; preds = %346
-  call void @_ZdlPv(ptr noundef %347) #27
+  call void @_ZdlPv(ptr noundef %347) #26
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i64
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i64: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i63, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i65
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %35) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
   br label %_ZN6google8protobuf12_GLOBAL__N_115OneofFieldMoverILb0EEclIZNKS0_10Reflection14SwapOneofFieldILb0EEEvPNS0_7MessageES8_PKNS0_15OneofDescriptorEE14MessageWrapperSC_EEvPKNS0_15FieldDescriptorEPT_PT0_.exit
 
 353:                                              ; preds = %.noexc100
@@ -28985,15 +28979,15 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit29.i61
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i27.i60: ; preds = %353
-  call void @_ZdlPv(ptr noundef %355) #27
+  call void @_ZdlPv(ptr noundef %355) #26
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit29.i61
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit29.i61: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i27.i60, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i28.i62
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %35) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
   br label %.body
 
 361:                                              ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i59
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %36) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
   invoke void @_ZN6google8protobuf8internal10LogMessageC1ENS0_8LogLevelEPKci(ptr noundef nonnull align 8 dereferenceable(56) %36, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 447)
           to label %.noexc101 unwind label %386
 
@@ -29007,11 +29001,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit29.i61: ; preds = 
   br i1 %.not.i.i30.i74, label %374, label %365
 
 365:                                              ; preds = %363
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %22, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store ptr %233, ptr %23, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %21) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store ptr %22, ptr %21, align 8, !tbaa !73
   %366 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %23, ptr %366, align 8, !tbaa !74
@@ -29027,7 +29021,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i31.i75:    ; preds = %365
   br i1 %.not.i.i.i.i32.i76, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i33.i77, label %370
 
 370:                                              ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i31.i75
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %369) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %369) #25
           to label %371 unwind label %372
 
 371:                                              ; preds = %370
@@ -29038,15 +29032,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i31.i75:    ; preds = %365
           cleanup
   store ptr null, ptr %367, align 8, !tbaa !71
   store ptr null, ptr %368, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %.body.i72
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i33.i77: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i31.i75
   store ptr null, ptr %367, align 8, !tbaa !71
   store ptr null, ptr %368, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %374
 
 374:                                              ; preds = %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i33.i77, %363
@@ -29058,14 +29052,14 @@ _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorE
           to label %380 unwind label %382
 
 380:                                              ; preds = %374
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %37) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
   invoke void @_ZN6google8protobuf8internal11LogFinisheraSERNS1_10LogMessageE(ptr noundef nonnull align 1 dereferenceable(1) %37, ptr noundef nonnull align 8 dereferenceable(56) %379)
           to label %381 unwind label %384
 
 381:                                              ; preds = %380
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %37) #25
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %36) #25
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %36) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %36) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
   br label %_ZN6google8protobuf12_GLOBAL__N_115OneofFieldMoverILb0EEclIZNKS0_10Reflection14SwapOneofFieldILb0EEEvPNS0_7MessageES8_PKNS0_15OneofDescriptorEE14MessageWrapperSC_EEvPKNS0_15FieldDescriptorEPT_PT0_.exit
 
 382:                                              ; preds = %374, %.noexc101
@@ -29076,13 +29070,13 @@ _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorE
 384:                                              ; preds = %380
   %385 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %37) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
   br label %.body.i72
 
 .body.i72:                                        ; preds = %384, %382, %372
   %.pn.i73 = phi { ptr, i32 } [ %385, %384 ], [ %383, %382 ], [ %373, %372 ]
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %36) #25
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %36) #25
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %36) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
   br label %.body
 
 386:                                              ; preds = %361, %345, %_ZZNK6google8protobuf10Reflection14SwapOneofFieldILb0EEEvPNS0_7MessageES4_PKNS0_15OneofDescriptorEENK14MessageWrapper10GetMessageEv.exit.i70, %.noexc97, %334, %323, %.noexc94, %314, %.noexc92, %305, %.noexc90, %296, %.noexc88, %287, %.noexc86, %278, %.noexc84, %269, %.noexc82, %260, %.noexc80, %251, %231
@@ -29109,11 +29103,11 @@ _ZN6google8protobuf12_GLOBAL__N_115OneofFieldMoverILb0EEclIZNKS0_10Reflection14S
   br i1 %.not.i.i.i102, label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i108, label %392
 
 392:                                              ; preds = %389
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %17, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store ptr %230, ptr %18, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store ptr %17, ptr %16, align 8, !tbaa !73
   %393 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %18, ptr %393, align 8, !tbaa !74
@@ -29129,7 +29123,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i105:     ; preds = %392
   br i1 %.not.i.i.i.i.i106, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i107, label %397
 
 397:                                              ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i105
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %396) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %396) #25
           to label %398 unwind label %399
 
 398:                                              ; preds = %397
@@ -29140,15 +29134,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i105:     ; preds = %392
           cleanup
   store ptr null, ptr %394, align 8, !tbaa !71
   store ptr null, ptr %395, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %.body
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i107: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i105
   store ptr null, ptr %394, align 8, !tbaa !71
   store ptr null, ptr %395, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i108
 
 _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i108: ; preds = %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i.i107, %389
@@ -29172,90 +29166,90 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i108: ; preds = %_ZN6googl
 
 406:                                              ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i108
   %407 = load i32, ptr %47, align 8, !tbaa !118
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i32 %407, ptr %15, align 4, !tbaa !15
   invoke void @_ZNK6google8protobuf10Reflection8SetFieldIiEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %2, ptr noundef nonnull %230, ptr noundef nonnull align 4 dereferenceable(4) %15)
           to label %.noexc113 unwind label %228
 
 .noexc113:                                        ; preds = %406
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %_ZN6google8protobuf12_GLOBAL__N_115OneofFieldMoverILb0EEclIZNKS0_10Reflection14SwapOneofFieldILb0EEEvPNS0_7MessageES8_PKNS0_15OneofDescriptorEE15LocalVarWrapperZNKS6_ILb0EEEvS8_S8_SB_E14MessageWrapperEEvPKNS0_15FieldDescriptorEPT_PT0_.exit
 
 408:                                              ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i108
   %409 = load i64, ptr %47, align 8, !tbaa !118
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i64 %409, ptr %14, align 8, !tbaa !125
   invoke void @_ZNK6google8protobuf10Reflection8SetFieldIlEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %2, ptr noundef nonnull %230, ptr noundef nonnull align 8 dereferenceable(8) %14)
           to label %.noexc114 unwind label %228
 
 .noexc114:                                        ; preds = %408
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %_ZN6google8protobuf12_GLOBAL__N_115OneofFieldMoverILb0EEclIZNKS0_10Reflection14SwapOneofFieldILb0EEEvPNS0_7MessageES8_PKNS0_15OneofDescriptorEE15LocalVarWrapperZNKS6_ILb0EEEvS8_S8_SB_E14MessageWrapperEEvPKNS0_15FieldDescriptorEPT_PT0_.exit
 
 410:                                              ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i108
   %411 = load i32, ptr %47, align 8, !tbaa !118
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 %411, ptr %13, align 4, !tbaa !15
   invoke void @_ZNK6google8protobuf10Reflection8SetFieldIjEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %2, ptr noundef nonnull %230, ptr noundef nonnull align 4 dereferenceable(4) %13)
           to label %.noexc115 unwind label %228
 
 .noexc115:                                        ; preds = %410
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %_ZN6google8protobuf12_GLOBAL__N_115OneofFieldMoverILb0EEclIZNKS0_10Reflection14SwapOneofFieldILb0EEEvPNS0_7MessageES8_PKNS0_15OneofDescriptorEE15LocalVarWrapperZNKS6_ILb0EEEvS8_S8_SB_E14MessageWrapperEEvPKNS0_15FieldDescriptorEPT_PT0_.exit
 
 412:                                              ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i108
   %413 = load i64, ptr %47, align 8, !tbaa !118
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i64 %413, ptr %12, align 8, !tbaa !125
   invoke void @_ZNK6google8protobuf10Reflection8SetFieldImEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %2, ptr noundef nonnull %230, ptr noundef nonnull align 8 dereferenceable(8) %12)
           to label %.noexc116 unwind label %228
 
 .noexc116:                                        ; preds = %412
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %_ZN6google8protobuf12_GLOBAL__N_115OneofFieldMoverILb0EEclIZNKS0_10Reflection14SwapOneofFieldILb0EEEvPNS0_7MessageES8_PKNS0_15OneofDescriptorEE15LocalVarWrapperZNKS6_ILb0EEEvS8_S8_SB_E14MessageWrapperEEvPKNS0_15FieldDescriptorEPT_PT0_.exit
 
 414:                                              ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i108
   %415 = load float, ptr %47, align 8, !tbaa !118
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store float %415, ptr %11, align 4, !tbaa !132
   invoke void @_ZNK6google8protobuf10Reflection8SetFieldIfEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %2, ptr noundef nonnull %230, ptr noundef nonnull align 4 dereferenceable(4) %11)
           to label %.noexc117 unwind label %228
 
 .noexc117:                                        ; preds = %414
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_ZN6google8protobuf12_GLOBAL__N_115OneofFieldMoverILb0EEclIZNKS0_10Reflection14SwapOneofFieldILb0EEEvPNS0_7MessageES8_PKNS0_15OneofDescriptorEE15LocalVarWrapperZNKS6_ILb0EEEvS8_S8_SB_E14MessageWrapperEEvPKNS0_15FieldDescriptorEPT_PT0_.exit
 
 416:                                              ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i108
   %417 = load double, ptr %47, align 8, !tbaa !118
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store double %417, ptr %10, align 8, !tbaa !134
   invoke void @_ZNK6google8protobuf10Reflection8SetFieldIdEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %2, ptr noundef nonnull %230, ptr noundef nonnull align 8 dereferenceable(8) %10)
           to label %.noexc118 unwind label %228
 
 .noexc118:                                        ; preds = %416
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %_ZN6google8protobuf12_GLOBAL__N_115OneofFieldMoverILb0EEclIZNKS0_10Reflection14SwapOneofFieldILb0EEEvPNS0_7MessageES8_PKNS0_15OneofDescriptorEE15LocalVarWrapperZNKS6_ILb0EEEvS8_S8_SB_E14MessageWrapperEEvPKNS0_15FieldDescriptorEPT_PT0_.exit
 
 418:                                              ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i108
   %419 = load i8, ptr %47, align 8, !tbaa !118, !range !68, !noundef !69
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 %419, ptr %9, align 1, !tbaa !131
   invoke void @_ZNK6google8protobuf10Reflection8SetFieldIbEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %2, ptr noundef nonnull %230, ptr noundef nonnull align 1 dereferenceable(1) %9)
           to label %.noexc119 unwind label %228
 
 .noexc119:                                        ; preds = %418
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZN6google8protobuf12_GLOBAL__N_115OneofFieldMoverILb0EEclIZNKS0_10Reflection14SwapOneofFieldILb0EEEvPNS0_7MessageES8_PKNS0_15OneofDescriptorEE15LocalVarWrapperZNKS6_ILb0EEEvS8_S8_SB_E14MessageWrapperEEvPKNS0_15FieldDescriptorEPT_PT0_.exit
 
 420:                                              ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i108
   %421 = load i32, ptr %47, align 8, !tbaa !118
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 %421, ptr %8, align 4, !tbaa !15
   invoke void @_ZNK6google8protobuf10Reflection8SetFieldIiEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %2, ptr noundef nonnull %230, ptr noundef nonnull align 4 dereferenceable(4) %8)
           to label %.noexc120 unwind label %228
 
 .noexc120:                                        ; preds = %420
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZN6google8protobuf12_GLOBAL__N_115OneofFieldMoverILb0EEclIZNKS0_10Reflection14SwapOneofFieldILb0EEEvPNS0_7MessageES8_PKNS0_15OneofDescriptorEE15LocalVarWrapperZNKS6_ILb0EEEvS8_S8_SB_E14MessageWrapperEEvPKNS0_15FieldDescriptorEPT_PT0_.exit
 
 422:                                              ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i108
@@ -29268,7 +29262,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i108: ; preds = %_ZN6googl
           to label %_ZN6google8protobuf12_GLOBAL__N_115OneofFieldMoverILb0EEclIZNKS0_10Reflection14SwapOneofFieldILb0EEEvPNS0_7MessageES8_PKNS0_15OneofDescriptorEE15LocalVarWrapperZNKS6_ILb0EEEvS8_S8_SB_E14MessageWrapperEEvPKNS0_15FieldDescriptorEPT_PT0_.exit unwind label %228
 
 425:                                              ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i108
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %19) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   invoke void @_ZN6google8protobuf8internal10LogMessageC1ENS0_8LogLevelEPKci(ptr noundef nonnull align 8 dereferenceable(56) %19, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 447)
           to label %.noexc123 unwind label %228
 
@@ -29282,11 +29276,11 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i108: ; preds = %_ZN6googl
   br i1 %.not.i.i25.i, label %438, label %429
 
 429:                                              ; preds = %427
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_, ptr %6, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %230, ptr %7, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %6, ptr %5, align 8, !tbaa !73
   %430 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %7, ptr %430, align 8, !tbaa !74
@@ -29302,7 +29296,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i26.i:      ; preds = %429
   br i1 %.not.i.i.i.i27.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i28.i, label %434
 
 434:                                              ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i26.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %433) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %433) #25
           to label %435 unwind label %436
 
 435:                                              ; preds = %434
@@ -29313,15 +29307,15 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i26.i:      ; preds = %429
           cleanup
   store ptr null, ptr %431, align 8, !tbaa !71
   store ptr null, ptr %432, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.body.i109
 
 _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i28.i: ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i.i.i26.i
   store ptr null, ptr %431, align 8, !tbaa !71
   store ptr null, ptr %432, align 8, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %438
 
 438:                                              ; preds = %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorEES7_EEEvDpOT_.exit.i.i28.i, %427
@@ -29333,14 +29327,14 @@ _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorE
           to label %444 unwind label %446
 
 444:                                              ; preds = %438
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %20) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   invoke void @_ZN6google8protobuf8internal11LogFinisheraSERNS1_10LogMessageE(ptr noundef nonnull align 1 dereferenceable(1) %20, ptr noundef nonnull align 8 dereferenceable(56) %443)
           to label %445 unwind label %448
 
 445:                                              ; preds = %444
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %20) #25
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %19) #25
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %19) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %19) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %_ZN6google8protobuf12_GLOBAL__N_115OneofFieldMoverILb0EEclIZNKS0_10Reflection14SwapOneofFieldILb0EEEvPNS0_7MessageES8_PKNS0_15OneofDescriptorEE15LocalVarWrapperZNKS6_ILb0EEEvS8_S8_SB_E14MessageWrapperEEvPKNS0_15FieldDescriptorEPT_PT0_.exit
 
 446:                                              ; preds = %438, %.noexc123
@@ -29351,13 +29345,13 @@ _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorE
 448:                                              ; preds = %444
   %449 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %20) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %.body.i109
 
 .body.i109:                                       ; preds = %448, %446, %436
   %.pn.i110 = phi { ptr, i32 } [ %449, %448 ], [ %447, %446 ], [ %437, %436 ]
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %19) #25
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %19) #25
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %19) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %.body
 
 450:                                              ; preds = %_ZN6google8protobuf12_GLOBAL__N_115OneofFieldMoverILb0EEclIZNKS0_10Reflection14SwapOneofFieldILb0EEEvPNS0_7MessageES8_PKNS0_15OneofDescriptorEE14MessageWrapperSC_EEvPKNS0_15FieldDescriptorEPT_PT0_.exit
@@ -29365,8 +29359,8 @@ _ZN6google8protobuf8internal9call_onceIJRSt9once_flagPFvPKNS0_15FieldDescriptorE
           to label %_ZN6google8protobuf12_GLOBAL__N_115OneofFieldMoverILb0EEclIZNKS0_10Reflection14SwapOneofFieldILb0EEEvPNS0_7MessageES8_PKNS0_15OneofDescriptorEE15LocalVarWrapperZNKS6_ILb0EEEvS8_S8_SB_E14MessageWrapperEEvPKNS0_15FieldDescriptorEPT_PT0_.exit unwind label %228
 
 _ZN6google8protobuf12_GLOBAL__N_115OneofFieldMoverILb0EEclIZNKS0_10Reflection14SwapOneofFieldILb0EEEvPNS0_7MessageES8_PKNS0_15OneofDescriptorEE15LocalVarWrapperZNKS6_ILb0EEEvS8_S8_SB_E14MessageWrapperEEvPKNS0_15FieldDescriptorEPT_PT0_.exit: ; preds = %445, %.noexc120, %.noexc119, %.noexc118, %.noexc117, %.noexc116, %.noexc115, %.noexc114, %.noexc113, %422, %424, %450
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %49) #25
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %48) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %49)
+  call void @llvm.lifetime.end.p0(ptr nonnull %48)
   %451 = load ptr, ptr %68, align 8, !tbaa !122
   %452 = icmp eq ptr %451, %69
   br i1 %452, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i126, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i124
@@ -29378,17 +29372,17 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZZNK6google8protobuf10Reflection14SwapOneofFieldILb0EEEvPNS0_7MessageES4_PKNS0_15OneofDescriptorEEN15LocalVarWrapperD2Ev.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i124: ; preds = %_ZN6google8protobuf12_GLOBAL__N_115OneofFieldMoverILb0EEclIZNKS0_10Reflection14SwapOneofFieldILb0EEEvPNS0_7MessageES8_PKNS0_15OneofDescriptorEE15LocalVarWrapperZNKS6_ILb0EEEvS8_S8_SB_E14MessageWrapperEEvPKNS0_15FieldDescriptorEPT_PT0_.exit
-  call void @_ZdlPv(ptr noundef %451) #27
+  call void @_ZdlPv(ptr noundef %451) #26
   br label %_ZZNK6google8protobuf10Reflection14SwapOneofFieldILb0EEEvPNS0_7MessageES4_PKNS0_15OneofDescriptorEEN15LocalVarWrapperD2Ev.exit
 
 _ZZNK6google8protobuf10Reflection14SwapOneofFieldILb0EEEvPNS0_7MessageES4_PKNS0_15OneofDescriptorEEN15LocalVarWrapperD2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i126, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i124
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %47) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
   ret void
 
 .body:                                            ; preds = %399, %.body.i109, %386, %.body.i72, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit29.i61, %244, %.body.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit29.i, %84, %228
   %.pn = phi { ptr, i32 } [ %85, %84 ], [ %.pn.i, %.body.i ], [ %196, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit29.i ], [ %229, %228 ], [ %387, %386 ], [ %245, %244 ], [ %.pn.i73, %.body.i72 ], [ %354, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit29.i61 ], [ %400, %399 ], [ %.pn.i110, %.body.i109 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %49) #25
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %48) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %49)
+  call void @llvm.lifetime.end.p0(ptr nonnull %48)
   %455 = load ptr, ptr %68, align 8, !tbaa !122
   %456 = icmp eq ptr %455, %69
   br i1 %456, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i129, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i127
@@ -29400,16 +29394,16 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZZNK6google8protobuf10Reflection14SwapOneofFieldILb0EEEvPNS0_7MessageES4_PKNS0_15OneofDescriptorEEN15LocalVarWrapperD2Ev.exit130
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i127: ; preds = %.body
-  call void @_ZdlPv(ptr noundef %455) #27
+  call void @_ZdlPv(ptr noundef %455) #26
   br label %_ZZNK6google8protobuf10Reflection14SwapOneofFieldILb0EEEvPNS0_7MessageES4_PKNS0_15OneofDescriptorEEN15LocalVarWrapperD2Ev.exit130
 
 _ZZNK6google8protobuf10Reflection14SwapOneofFieldILb0EEEvPNS0_7MessageES4_PKNS0_15OneofDescriptorEEN15LocalVarWrapperD2Ev.exit130: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i129, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i127
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %47) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
   resume { ptr, i32 } %.pn
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr hidden void @_ZNK6google8protobuf10Reflection7SwapBitEPNS0_7MessageES3_PKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNK6google8protobuf10Reflection7SwapBitEPNS0_7MessageES3_PKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load i32, ptr %5, align 8, !tbaa !126
   %.not = icmp eq i32 %6, -1
@@ -29678,7 +29672,7 @@ _ZNK6google8protobuf10Reflection6SetBitEPNS0_7MessageEPKNS0_15FieldDescriptorE.e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt3setIiSt4lessIiESaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt3setIiSt4lessIiESaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !183
   invoke void @_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE8_M_eraseEPSt13_Rb_tree_nodeIiE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %3)
@@ -29696,7 +29690,7 @@ _ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEED2Ev.exit: ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #20
+declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #19
 
 ; Function Attrs: nounwind
 declare void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
@@ -29717,7 +29711,7 @@ define linkonce_odr hidden void @_ZZNK6google8protobuf10Reflection14SwapOneofFie
   %11 = load ptr, ptr %1, align 8, !tbaa !122
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load i64, ptr %12, align 8, !tbaa !124
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %13, ptr %3, align 8, !tbaa !125
   %14 = icmp ugt i64 %13, 15
   br i1 %14, label %.noexc.i, label %._crit_edge.i.i
@@ -29752,7 +29746,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
   %23 = load ptr, ptr %4, align 8, !tbaa !122
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 %21
   store i8 0, ptr %24, align 1, !tbaa !118
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   invoke void @_ZNK6google8protobuf10Reflection9SetStringEPNS0_7MessageEPKNS0_15FieldDescriptorENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(96) %5, ptr noundef %7, ptr noundef %9, ptr noundef nonnull %4)
           to label %25 unwind label %30
 
@@ -29768,7 +29762,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %25
-  call void @_ZdlPv(ptr noundef %26) #27
+  call void @_ZdlPv(ptr noundef %26) #26
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -29788,7 +29782,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i3: ; preds = %30
-  call void @_ZdlPv(ptr noundef %32) #27
+  call void @_ZdlPv(ptr noundef %32) #26
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i4, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i3
@@ -29807,7 +29801,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE8_M_er
   tail call void @_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE8_M_eraseEPSt13_Rb_tree_nodeIiE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %4)
   %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !364
-  tail call void @_ZdlPv(ptr noundef nonnull %.07) #27
+  tail call void @_ZdlPv(ptr noundef nonnull %.07) #26
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !365
 
@@ -29818,7 +29812,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE8_M_er
 declare void @_ZN6google8protobuf8internal12ExtensionSet26UnsafeShallowSwapExtensionEPS2_i(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr hidden void @_ZNK6google8protobuf10Reflection8SetFieldINS0_8internal14ArenaStringPtrEEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %3) local_unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNK6google8protobuf10Reflection8SetFieldINS0_8internal14ArenaStringPtrEEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %3) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %6 = load i8, ptr %5, align 1
   %7 = and i8 %6, 16
@@ -29973,10 +29967,10 @@ _ZNK6google8protobuf10Reflection6SetBitEPNS0_7MessageEPKNS0_15FieldDescriptorE.e
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEElNS0_5__ops15_Iter_comp_iterINS3_12_GLOBAL__N_117FieldNumberSorterEEEEvT_SH_T0_T1_(ptr %0, ptr %1, i64 noundef %2) unnamed_addr #21 {
+define internal fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEElNS0_5__ops15_Iter_comp_iterINS3_12_GLOBAL__N_117FieldNumberSorterEEEEvT_SH_T0_T1_(ptr %0, ptr %1, i64 noundef %2) unnamed_addr #20 {
   %.fr36 = freeze ptr %1
   %.fr29 = freeze ptr %0
   %4 = ptrtoint ptr %.fr29 to i64
@@ -30362,7 +30356,7 @@ _ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldD
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #13
+declare i64 @llvm.ctlz.i64(i64, i1 immarg) #12
 
 declare void @_ZN6google8protobuf13RepeatedFieldIiE7ReserveEi(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef) local_unnamed_addr #0
 
@@ -30383,7 +30377,7 @@ declare noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18AddOutO
 declare void @_ZN6google8protobuf8internal15ThreadSafeArena10AddCleanupEPvPFvS3_E(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN6google8protobuf8internal19arena_delete_objectINS0_11MessageLiteEEEvPv(ptr noundef %0) #9 comdat {
+define linkonce_odr hidden void @_ZN6google8protobuf8internal19arena_delete_objectINS0_11MessageLiteEEEvPv(ptr noundef %0) #8 comdat {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %7, label %3
 
@@ -30391,7 +30385,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf8internal19arena_delete_obje
   %4 = load ptr, ptr %0, align 8, !tbaa !101
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #25
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #27
   br label %7
 
 7:                                                ; preds = %3, %1
@@ -30403,7 +30397,7 @@ declare void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase7ReserveEi(ptr n
 declare noundef ptr @_ZN6google8protobuf8internal18GenericTypeHandlerINS0_7MessageEE14GetOwningArenaEPS3_(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress noinline uwtable
-define linkonce_odr hidden void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase24AddAllocatedSlowWithCopyINS1_18GenericTypeHandlerINS0_7MessageEEEEEvPNT_4TypeEPNS0_5ArenaESB_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #19 comdat align 2 {
+define linkonce_odr hidden void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase24AddAllocatedSlowWithCopyINS1_18GenericTypeHandlerINS0_7MessageEEEEEvPNT_4TypeEPNS0_5ArenaESB_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #18 comdat align 2 {
   %5 = icmp ne ptr %3, null
   %6 = icmp eq ptr %2, null
   %or.cond = and i1 %6, %5
@@ -30430,7 +30424,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf8internal20RepeatedPtrFieldB
   %13 = load ptr, ptr %1, align 8, !tbaa !101
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
-  tail call void %15(ptr noundef nonnull align 8 dereferenceable(16) %1) #25
+  tail call void %15(ptr noundef nonnull align 8 dereferenceable(16) %1) #27
   br label %_ZN6google8protobuf5Arena11OwnInternalINS0_7MessageEEEvPT_St17integral_constantIbLb1EE.exit
 
 _ZN6google8protobuf5Arena11OwnInternalINS0_7MessageEEEvPT_St17integral_constantIbLb1EE.exit: ; preds = %12, %10, %8, %7, %9
@@ -30483,7 +30477,7 @@ _ZN6google8protobuf5Arena11OwnInternalINS0_7MessageEEEvPT_St17integral_constantI
   %42 = load ptr, ptr %37, align 8, !tbaa !101
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %44 = load ptr, ptr %43, align 8
-  tail call void %44(ptr noundef nonnull align 8 dereferenceable(16) %37) #25
+  tail call void %44(ptr noundef nonnull align 8 dereferenceable(16) %37) #27
   %.pre5.i = load ptr, ptr %16, align 8, !tbaa !96
   br label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase23UnsafeArenaAddAllocatedINS1_18GenericTypeHandlerINS0_7MessageEEEEEvPNT_4TypeE.exit
 
@@ -30524,7 +30518,7 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase23UnsafeArenaAddAllocatedINS1_
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal void @"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN6google8protobuf8internal17AssignDescriptorsEPFPKNS5_15DescriptorTableEvEPS_RKNS4_8MetadataEE3$_0JEEvRS_OT_DpOT0_EUlvE_EERSH_ENUlvE_8__invokeEv"() #8 align 2 {
+define internal void @"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN6google8protobuf8internal17AssignDescriptorsEPFPKNS5_15DescriptorTableEvEPS_RKNS4_8MetadataEE3$_0JEEvRS_OT_DpOT0_EUlvE_EERSH_ENUlvE_8__invokeEv"() #7 align 2 {
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt15__once_callable)
   %2 = load ptr, ptr %1, align 8, !tbaa !71
   %.val.i = load ptr, ptr %2, align 8, !tbaa !375
@@ -30538,7 +30532,7 @@ define internal void @"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN6g
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr hidden void @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIRFvPKN6google8protobuf8internal15DescriptorTableEbEJRS8_RbEEvRS_OT_DpOT0_EUlvE_EERSE_ENUlvE_8__invokeEv() #8 comdat align 2 {
+define linkonce_odr hidden void @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIRFvPKN6google8protobuf8internal15DescriptorTableEbEJRS8_RbEEvRS_OT_DpOT0_EUlvE_EERSE_ENUlvE_8__invokeEv() #7 comdat align 2 {
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt15__once_callable)
   %2 = load ptr, ptr %1, align 8, !tbaa !71
   %3 = load ptr, ptr %2, align 8, !tbaa !377
@@ -30554,11 +30548,17 @@ define linkonce_odr hidden void @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call
 }
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_generated_message_reflection.cc() #22 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_generated_message_reflection.cc() #21 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #25
+  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #27
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #22
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #23
@@ -30573,30 +30573,30 @@ attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "t
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind }
 attributes #3 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #8 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #10 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #11 = { cold nofree noreturn }
-attributes #12 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #14 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #15 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #16 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #18 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #19 = { mustprogress noinline uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #20 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #21 = { mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #22 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #7 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #9 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #10 = { cold nofree noreturn }
+attributes #11 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #14 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #15 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #17 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress noinline uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #20 = { mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #21 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #22 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #23 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #24 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #25 = { nounwind }
-attributes #26 = { noreturn }
-attributes #27 = { builtin nounwind }
+attributes #25 = { noreturn }
+attributes #26 = { builtin nounwind }
+attributes #27 = { nounwind }
 attributes #28 = { noreturn nounwind }
 attributes #29 = { nounwind willreturn memory(read) }
 attributes #30 = { builtin allocsize(0) }

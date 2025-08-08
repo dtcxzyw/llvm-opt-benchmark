@@ -360,18 +360,12 @@ _pack_script_complete.exit:                       ; preds = %148, %151
   ret i32 %.019
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
-declare void @packmem(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @packmem(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare i32 @error(ptr noundef, ...) local_unnamed_addr #3
+declare i32 @error(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @slurmscriptd_unpack_msg(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -396,10 +390,10 @@ define dso_local range(i32 -1, 1) i32 @slurmscriptd_unpack_msg(ptr noundef %0, p
   %21 = alloca i32, align 4
   %22 = alloca i32, align 4
   %23 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %23) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   %24 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %0, ptr noundef nonnull %23, ptr noundef %1) #5
   %.not = icmp eq i32 %24, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %26 = load i32, ptr %25, align 8
   br i1 %.not, label %27, label %161
@@ -420,42 +414,42 @@ define dso_local range(i32 -1, 1) i32 @slurmscriptd_unpack_msg(ptr noundef %0, p
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 112, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 113, ptr noundef nonnull @__func__._unpack_bb_script_info) #5
   store ptr %30, ptr %29, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %31 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %30, ptr noundef nonnull %14, ptr noundef %1) #5
   %.not.i = icmp eq i32 %31, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br i1 %.not.i, label %32, label %74
 
 32:                                               ; preds = %28
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %34 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %33, ptr noundef nonnull %15, ptr noundef %1) #5
   %.not44.i = icmp eq i32 %34, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br i1 %.not44.i, label %35, label %74
 
 35:                                               ; preds = %32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %36 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %37 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %36, ptr noundef nonnull %16, ptr noundef %1) #5
   %.not45.i = icmp eq i32 %37, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br i1 %.not45.i, label %38, label %74
 
 38:                                               ; preds = %35
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %39 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %40 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %39, ptr noundef nonnull %17, ptr noundef %1) #5
   %.not46.i = icmp eq i32 %40, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br i1 %.not46.i, label %41, label %74
 
 41:                                               ; preds = %38
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %42 = getelementptr inbounds nuw i8, ptr %30, i64 32
   %43 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %42, ptr noundef nonnull %18, ptr noundef %1) #5
   %.not47.i = icmp eq i32 %43, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br i1 %.not47.i, label %44, label %74
 
 44:                                               ; preds = %41
@@ -471,11 +465,11 @@ define dso_local range(i32 -1, 1) i32 @slurmscriptd_unpack_msg(ptr noundef %0, p
   br i1 %.not49.i, label %50, label %74
 
 50:                                               ; preds = %47
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %51 = getelementptr inbounds nuw i8, ptr %30, i64 56
   %52 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %51, ptr noundef nonnull %19, ptr noundef %1) #5
   %.not50.i = icmp eq i32 %52, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br i1 %.not50.i, label %53, label %74
 
 53:                                               ; preds = %50
@@ -491,11 +485,11 @@ define dso_local range(i32 -1, 1) i32 @slurmscriptd_unpack_msg(ptr noundef %0, p
   br i1 %.not52.i, label %59, label %74
 
 59:                                               ; preds = %56
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %60 = getelementptr inbounds nuw i8, ptr %30, i64 72
   %61 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %60, ptr noundef nonnull %20, ptr noundef %1) #5
   %.not53.i = icmp eq i32 %61, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br i1 %.not53.i, label %62, label %74
 
 62:                                               ; preds = %59
@@ -505,19 +499,19 @@ define dso_local range(i32 -1, 1) i32 @slurmscriptd_unpack_msg(ptr noundef %0, p
   br i1 %.not54.i, label %65, label %74
 
 65:                                               ; preds = %62
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %21) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %66 = getelementptr inbounds nuw i8, ptr %30, i64 88
   %67 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %66, ptr noundef nonnull %21, ptr noundef %1) #5
   %.not55.i = icmp eq i32 %67, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br i1 %.not55.i, label %68, label %74
 
 68:                                               ; preds = %65
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %22) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %69 = getelementptr inbounds nuw i8, ptr %30, i64 96
   %70 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %69, ptr noundef nonnull %22, ptr noundef %1) #5
   %.not56.i = icmp eq i32 %70, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br i1 %.not56.i, label %71, label %74
 
 71:                                               ; preds = %68
@@ -533,7 +527,7 @@ define dso_local range(i32 -1, 1) i32 @slurmscriptd_unpack_msg(ptr noundef %0, p
 
 76:                                               ; preds = %27
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %78 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 4, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 186, ptr noundef nonnull @__func__._unpack_flush_job) #5
   store ptr %78, ptr %13, align 8
   store ptr %78, ptr %77, align 8
@@ -549,12 +543,12 @@ define dso_local range(i32 -1, 1) i32 @slurmscriptd_unpack_msg(ptr noundef %0, p
 
 _unpack_flush_job.exit:                           ; preds = %76, %80
   %.0.i = phi i32 [ -1, %80 ], [ 0, %76 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %_unpack_bb_script_info.exit
 
 82:                                               ; preds = %27
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %84 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 40, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 158, ptr noundef nonnull @__func__._unpack_script_complete) #5
   store ptr %84, ptr %83, align 8
   %85 = call i32 @unpack32(ptr noundef %84, ptr noundef %1) #5
@@ -562,19 +556,19 @@ _unpack_flush_job.exit:                           ; preds = %76, %80
   br i1 %.not.i22, label %86, label %105
 
 86:                                               ; preds = %82
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %87 = getelementptr inbounds nuw i8, ptr %84, i64 8
   %88 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %87, ptr noundef nonnull %11, ptr noundef %1) #5
   %.not21.i = icmp eq i32 %88, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br i1 %.not21.i, label %89, label %105
 
 89:                                               ; preds = %86
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %90 = getelementptr inbounds nuw i8, ptr %84, i64 16
   %91 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %90, ptr noundef nonnull %12, ptr noundef %1) #5
   %.not22.i = icmp eq i32 %91, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br i1 %.not22.i, label %92, label %105
 
 92:                                               ; preds = %89
@@ -611,12 +605,12 @@ _unpack_flush_job.exit:                           ; preds = %76, %80
 
 _unpack_script_complete.exit:                     ; preds = %100, %105
   %.020.i = phi i32 [ -1, %105 ], [ 0, %100 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %_unpack_bb_script_info.exit
 
 107:                                              ; preds = %27
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %109 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 80, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 65, ptr noundef nonnull @__func__._unpack_run_script) #5
   store ptr %109, ptr %108, align 8
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 8
@@ -649,19 +643,19 @@ _unpack_script_complete.exit:                     ; preds = %100, %105
   br i1 %.not37.i, label %124, label %142
 
 124:                                              ; preds = %121
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %125 = getelementptr inbounds nuw i8, ptr %109, i64 40
   %126 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %125, ptr noundef nonnull %6, ptr noundef %1) #5
   %.not38.i = icmp eq i32 %126, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %.not38.i, label %127, label %142
 
 127:                                              ; preds = %124
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %128 = getelementptr inbounds nuw i8, ptr %109, i64 48
   %129 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %128, ptr noundef nonnull %7, ptr noundef %1) #5
   %.not39.i = icmp eq i32 %129, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %.not39.i, label %130, label %142
 
 130:                                              ; preds = %127
@@ -677,19 +671,19 @@ _unpack_script_complete.exit:                     ; preds = %100, %105
   br i1 %.not41.i, label %136, label %142
 
 136:                                              ; preds = %133
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %137 = getelementptr inbounds nuw i8, ptr %109, i64 64
   %138 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %137, ptr noundef nonnull %8, ptr noundef %1) #5
   %.not42.i = icmp eq i32 %138, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %.not42.i, label %139, label %142
 
 139:                                              ; preds = %136
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %140 = getelementptr inbounds nuw i8, ptr %109, i64 72
   %141 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %140, ptr noundef nonnull %9, ptr noundef %1) #5
   %.not43.i = icmp eq i32 %141, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br i1 %.not43.i, label %_unpack_run_script.exit, label %142
 
 142:                                              ; preds = %139, %136, %133, %130, %127, %124, %121, %118, %115, %112, %107
@@ -700,12 +694,12 @@ _unpack_script_complete.exit:                     ; preds = %100, %105
 
 _unpack_run_script.exit:                          ; preds = %139, %142
   %.033.i = phi i32 [ -1, %142 ], [ 0, %139 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_unpack_bb_script_info.exit
 
 144:                                              ; preds = %27
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %146 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 207, ptr noundef nonnull @__func__._unpack_debug_flags) #5
   store ptr %146, ptr %4, align 8
   store ptr %146, ptr %145, align 8
@@ -721,12 +715,12 @@ _unpack_run_script.exit:                          ; preds = %139, %142
 
 _unpack_debug_flags.exit:                         ; preds = %144, %148
   %.0.i25 = phi i32 [ -1, %148 ], [ 0, %144 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_unpack_bb_script_info.exit
 
 150:                                              ; preds = %27
   %151 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %152 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 229, ptr noundef nonnull @__func__._unpack_log_msg) #5
   store ptr %152, ptr %3, align 8
   store ptr %152, ptr %151, align 8
@@ -748,7 +742,7 @@ _unpack_debug_flags.exit:                         ; preds = %144, %148
 
 _unpack_log_msg.exit:                             ; preds = %154, %157
   %.0.i27 = phi i32 [ -1, %157 ], [ 0, %154 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_unpack_bb_script_info.exit
 
 159:                                              ; preds = %27
@@ -764,46 +758,52 @@ _unpack_bb_script_info.exit:                      ; preds = %74, %71, %27, %27, 
   ret i32 %.020
 }
 
-declare i32 @unpackstr_xmalloc_chooser(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @unpackstr_xmalloc_chooser(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @pack32(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @pack32(i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @pack16(i16 noundef zeroext, ptr noundef) local_unnamed_addr #3
+declare void @pack16(i16 noundef zeroext, ptr noundef) local_unnamed_addr #2
 
-declare void @packstr_array(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @packstr_array(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @envcount(ptr noundef) local_unnamed_addr #3
+declare i32 @envcount(ptr noundef) local_unnamed_addr #2
 
-declare void @packbool(i1 noundef zeroext, ptr noundef) local_unnamed_addr #3
+declare void @packbool(i1 noundef zeroext, ptr noundef) local_unnamed_addr #2
 
-declare void @pack64(i64 noundef, ptr noundef) local_unnamed_addr #3
+declare void @pack64(i64 noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @slurm_xcalloc(i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @slurm_xcalloc(i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @unpack32(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @unpack32(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @unpackmem_xmalloc(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @unpackmem_xmalloc(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @unpack16(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @unpack16(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @slurmscriptd_free_bb_script_info_msg(ptr noundef) local_unnamed_addr #3
+declare void @slurmscriptd_free_bb_script_info_msg(ptr noundef) local_unnamed_addr #2
 
-declare void @slurm_xfree(ptr noundef) local_unnamed_addr #3
+declare void @slurm_xfree(ptr noundef) local_unnamed_addr #2
 
-declare i32 @unpackbool(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @unpackbool(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @slurmscriptd_free_script_complete(ptr noundef) local_unnamed_addr #3
+declare void @slurmscriptd_free_script_complete(ptr noundef) local_unnamed_addr #2
 
-declare i32 @unpackstr_array(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @unpackstr_array(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @slurmscriptd_free_run_script_msg(ptr noundef) local_unnamed_addr #3
+declare void @slurmscriptd_free_run_script_msg(ptr noundef) local_unnamed_addr #2
 
-declare i32 @unpack64(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @unpack64(ptr noundef, ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind willreturn memory(read) }
 attributes #5 = { nounwind }
 

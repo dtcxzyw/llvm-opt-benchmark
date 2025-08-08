@@ -82,8 +82,7 @@ define void @"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$10try_insert17h1aea62b35c
   br i1 %.not.i, label %10, label %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17hfc29eb9e96063690E.exit"
 
 10:                                               ; preds = %.noexc
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %6, ptr %5, align 8
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %1, ptr %11, align 8
@@ -93,8 +92,7 @@ define void @"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$10try_insert17h1aea62b35c
           to label %.noexc2 unwind label %13
 
 .noexc2:                                          ; preds = %10
-  call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.pre = load ptr, ptr %6, align 8
   br label %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17hfc29eb9e96063690E.exit"
 
@@ -172,16 +170,14 @@ define align 8 ptr @"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init1
   br i1 %.not, label %8, label %11
 
 8:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %1, ptr %4, align 8
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %0, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %3, ptr %10, align 8
   call void @_ZN3std4sync6poison4once4Once15call_once_force17h50eed8a896f4aa9dE(ptr nonnull align 4 %5, ptr nonnull align 8 %4)
-  call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %11
 
 11:                                               ; preds = %2, %8
@@ -200,16 +196,14 @@ define align 8 ptr @"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init1
   br i1 %.not, label %8, label %11
 
 8:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %1, ptr %4, align 8
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %0, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %3, ptr %10, align 8
   call void @_ZN3std4sync6poison4once4Once15call_once_force17hf1d94a382bfabe5aE(ptr nonnull align 4 %5, ptr nonnull align 8 %4)
-  call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %11
 
 11:                                               ; preds = %2, %8
@@ -234,7 +228,7 @@ define void @"_ZN88_$LT$std..sync..once_lock..OnceLock$LT$T$GT$$u20$as$u20$core.
   %7 = alloca [16 x i8], align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 0, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %1, ptr %5, align 8
   %9 = invoke i32 @_ZN4core4sync6atomic11atomic_load17hdc71614c8fe40341E(ptr nonnull %8, i8 2)
           to label %.noexc.i unwind label %13
@@ -244,8 +238,7 @@ define void @"_ZN88_$LT$std..sync..once_lock..OnceLock$LT$T$GT$$u20$as$u20$core.
   br i1 %.not, label %17, label %10
 
 10:                                               ; preds = %.noexc.i
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %5, ptr %4, align 8
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %7, ptr %11, align 8
@@ -255,8 +248,7 @@ define void @"_ZN88_$LT$std..sync..once_lock..OnceLock$LT$T$GT$$u20$as$u20$core.
           to label %.noexc2.i unwind label %13
 
 .noexc2.i:                                        ; preds = %10
-  call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.pre.i = load ptr, ptr %5, align 8
   br label %17
 
@@ -275,7 +267,7 @@ define void @"_ZN88_$LT$std..sync..once_lock..OnceLock$LT$T$GT$$u20$as$u20$core.
 17:                                               ; preds = %.noexc2.i, %.noexc.i
   %18 = phi ptr [ %.pre.i, %.noexc2.i ], [ %1, %.noexc.i ]
   %.not.i = icmp eq ptr %18, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store ptr %18, ptr %6, align 8
   br i1 %.not.i, label %20, label %19
 
@@ -349,10 +341,10 @@ declare void @_ZN4core9panicking5panic17h48a7e1f3665210c6E(ptr align 1, i64, ptr
 declare void @"_ZN4core3ptr98drop_in_place$LT$std..sync..once_lock..OnceLock$LT$ruff_source_file..line_index..LineIndex$GT$$GT$17hcd340d8bf0cab985E"(ptr align 8) unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 attributes #0 = { cold minsize nonlazybind optsize uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

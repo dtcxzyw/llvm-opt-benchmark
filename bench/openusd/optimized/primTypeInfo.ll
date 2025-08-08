@@ -90,7 +90,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__15UsdPrimTypeInfoC2EONS0_7_Typ
 
 .noexc:                                           ; preds = %23
   store ptr %24, ptr %18, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__6TfTypeC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %.noexc6 unwind label %73
 
@@ -98,7 +98,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__15UsdPrimTypeInfoC2EONS0_7_Typ
   %25 = load ptr, ptr %18, align 8
   %26 = load ptr, ptr %4, align 8
   %27 = icmp eq ptr %25, %26
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %27, label %"_ZZN32pxrInternal_v0_24__pxrReserved__15UsdPrimTypeInfoC1EONS0_7_TypeIdEENK3$_0clERKNS_7TfTokenE.exit15", label %28
 
 28:                                               ; preds = %.noexc6
@@ -142,7 +142,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7_AddRefEv.exit.i.i: ; preds = %37
 
 .noexc13:                                         ; preds = %46
   store ptr %47, ptr %18, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__6TfTypeC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %.noexc14 unwind label %73
 
@@ -150,7 +150,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7_AddRefEv.exit.i.i: ; preds = %37
   %48 = load ptr, ptr %18, align 8
   %49 = load ptr, ptr %3, align 8
   %50 = icmp eq ptr %48, %49
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %50, label %"_ZZN32pxrInternal_v0_24__pxrReserved__15UsdPrimTypeInfoC1EONS0_7_TypeIdEENK3$_0clERKNS_7TfTokenE.exit15", label %51
 
 51:                                               ; preds = %.noexc14
@@ -1084,10 +1084,10 @@ declare void @_ZNK32pxrInternal_v0_24__pxrReserved__12Sdf_PathNode25_RemovePathT
 declare i64 @llvm.bswap.i64(i64) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -27,7 +27,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define internal ptr @GENERIC_Title_Create(ptr noundef %0, i32 %1) #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %15, label %4
@@ -90,7 +90,7 @@ thread-pre-split:                                 ; preds = %12
 
 28:                                               ; preds = %21, %26, %23, %12
   %.1 = phi ptr [ null, %12 ], [ null, %26 ], [ %24, %23 ], [ null, %21 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.1
 }
 
@@ -117,7 +117,7 @@ define internal ptr @GENERIC_User_Create(ptr noundef %0, ptr noundef %1, i32 %2)
 ; Function Attrs: nounwind uwtable
 define hidden ptr @GENERIC_OpenFileStorage(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.critedge, label %3
@@ -162,27 +162,21 @@ define hidden ptr @GENERIC_OpenFileStorage(ptr noundef %0) local_unnamed_addr #0
 
 20:                                               ; preds = %.critedge, %18, %10, %12
   %.1 = phi ptr [ null, %12 ], [ null, %10 ], [ null, %18 ], [ %16, %.critedge ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.1
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare i64 @SDL_strlen_REAL(ptr noundef) local_unnamed_addr #1
 
-declare i64 @SDL_strlen_REAL(ptr noundef) local_unnamed_addr #2
+declare noalias ptr @SDL_strdup_REAL(ptr noundef) local_unnamed_addr #1
 
-declare noalias ptr @SDL_strdup_REAL(ptr noundef) local_unnamed_addr #2
+declare i32 @SDL_asprintf_REAL(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare i32 @SDL_asprintf_REAL(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare ptr @SDL_OpenStorage_REAL(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @SDL_free_REAL(ptr noundef) local_unnamed_addr #1
 
-declare ptr @SDL_OpenStorage_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare void @SDL_free_REAL(ptr noundef) local_unnamed_addr #2
-
-declare ptr @SDL_GetBasePath_REAL() local_unnamed_addr #2
+declare ptr @SDL_GetBasePath_REAL() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @GENERIC_CloseStorage(ptr noundef %0) #0 {
@@ -194,14 +188,14 @@ define internal noundef zeroext i1 @GENERIC_CloseStorage(ptr noundef %0) #0 {
 define internal zeroext i1 @GENERIC_EnumerateStorageDirectory(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca %struct.GenericEnumerateData, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8
   %.not.i = icmp eq ptr %0, null
   %7 = select i1 %.not.i, ptr @.str.6, ptr %0
   %8 = call i32 (ptr, ptr, ...) @SDL_asprintf_REAL(ptr noundef nonnull %5, ptr noundef nonnull @.str.4, ptr noundef nonnull %7, ptr noundef %1) #4
   %9 = load ptr, ptr %5, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %15, label %10
 
@@ -218,20 +212,20 @@ define internal zeroext i1 @GENERIC_EnumerateStorageDirectory(ptr noundef %0, pt
 
 15:                                               ; preds = %10, %4
   %.0 = phi i1 [ %14, %10 ], [ false, %4 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @GENERIC_GetStoragePathInfo(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8
   %.not.i = icmp eq ptr %0, null
   %5 = select i1 %.not.i, ptr @.str.6, ptr %0
   %6 = call i32 (ptr, ptr, ...) @SDL_asprintf_REAL(ptr noundef nonnull %4, ptr noundef nonnull @.str.4, ptr noundef nonnull %5, ptr noundef %1) #4
   %7 = load ptr, ptr %4, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %10, label %8
 
@@ -248,13 +242,13 @@ define internal zeroext i1 @GENERIC_GetStoragePathInfo(ptr noundef %0, ptr nound
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @GENERIC_ReadStorageFile(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) #0 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8
   %.not.i = icmp eq ptr %0, null
   %6 = select i1 %.not.i, ptr @.str.6, ptr %0
   %7 = call i32 (ptr, ptr, ...) @SDL_asprintf_REAL(ptr noundef nonnull %5, ptr noundef nonnull @.str.4, ptr noundef nonnull %6, ptr noundef %1) #4
   %8 = load ptr, ptr %5, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %19, label %9
 
@@ -286,7 +280,7 @@ define internal noundef zeroext i1 @GENERIC_ReadStorageFile(ptr noundef %0, ptr 
   ret i1 %.013
 }
 
-declare zeroext i1 @SDL_EnumerateDirectory_REAL(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_EnumerateDirectory_REAL(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @GENERIC_EnumerateDirectory(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) #0 {
@@ -300,28 +294,28 @@ define internal i32 @GENERIC_EnumerateDirectory(ptr noundef readonly captures(no
   ret i32 %10
 }
 
-declare zeroext i1 @SDL_GetPathInfo_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_GetPathInfo_REAL(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_SetError_REAL(ptr noundef, ...) local_unnamed_addr #2
+declare zeroext i1 @SDL_SetError_REAL(ptr noundef, ...) local_unnamed_addr #1
 
-declare ptr @SDL_IOFromFile_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @SDL_IOFromFile_REAL(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i64 @SDL_ReadIO_REAL(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @SDL_ReadIO_REAL(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_CloseIO_REAL(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_CloseIO_REAL(ptr noundef) local_unnamed_addr #1
 
-declare ptr @SDL_GetPrefPath_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @SDL_GetPrefPath_REAL(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @GENERIC_WriteStorageFile(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) #0 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8
   %.not.i = icmp eq ptr %0, null
   %6 = select i1 %.not.i, ptr @.str.6, ptr %0
   %7 = call i32 (ptr, ptr, ...) @SDL_asprintf_REAL(ptr noundef nonnull %5, ptr noundef nonnull @.str.4, ptr noundef nonnull %6, ptr noundef %1) #4
   %8 = load ptr, ptr %5, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %19, label %9
 
@@ -356,13 +350,13 @@ define internal noundef zeroext i1 @GENERIC_WriteStorageFile(ptr noundef %0, ptr
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @GENERIC_CreateStorageDirectory(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8
   %.not.i = icmp eq ptr %0, null
   %4 = select i1 %.not.i, ptr @.str.6, ptr %0
   %5 = call i32 (ptr, ptr, ...) @SDL_asprintf_REAL(ptr noundef nonnull %3, ptr noundef nonnull @.str.4, ptr noundef nonnull %4, ptr noundef %1) #4
   %6 = load ptr, ptr %3, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %9, label %7
 
@@ -379,13 +373,13 @@ define internal zeroext i1 @GENERIC_CreateStorageDirectory(ptr noundef %0, ptr n
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @GENERIC_RemoveStoragePath(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8
   %.not.i = icmp eq ptr %0, null
   %4 = select i1 %.not.i, ptr @.str.6, ptr %0
   %5 = call i32 (ptr, ptr, ...) @SDL_asprintf_REAL(ptr noundef nonnull %3, ptr noundef nonnull @.str.4, ptr noundef nonnull %4, ptr noundef %1) #4
   %6 = load ptr, ptr %3, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %9, label %7
 
@@ -403,18 +397,18 @@ define internal zeroext i1 @GENERIC_RemoveStoragePath(ptr noundef %0, ptr nounde
 define internal zeroext i1 @GENERIC_RenameStoragePath(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8
   %.not.i = icmp eq ptr %0, null
   %6 = select i1 %.not.i, ptr @.str.6, ptr %0
   %7 = call i32 (ptr, ptr, ...) @SDL_asprintf_REAL(ptr noundef nonnull %5, ptr noundef nonnull @.str.4, ptr noundef nonnull %6, ptr noundef %1) #4
   %8 = load ptr, ptr %5, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8
   %9 = call i32 (ptr, ptr, ...) @SDL_asprintf_REAL(ptr noundef nonnull %4, ptr noundef nonnull @.str.4, ptr noundef nonnull %6, ptr noundef %2) #4
   %10 = load ptr, ptr %4, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %11 = icmp ne ptr %8, null
   %12 = icmp ne ptr %10, null
   %or.cond = select i1 %11, i1 %12, i1 false
@@ -435,18 +429,18 @@ define internal zeroext i1 @GENERIC_RenameStoragePath(ptr noundef %0, ptr nounde
 define internal zeroext i1 @GENERIC_CopyStorageFile(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8
   %.not.i = icmp eq ptr %0, null
   %6 = select i1 %.not.i, ptr @.str.6, ptr %0
   %7 = call i32 (ptr, ptr, ...) @SDL_asprintf_REAL(ptr noundef nonnull %5, ptr noundef nonnull @.str.4, ptr noundef nonnull %6, ptr noundef %1) #4
   %8 = load ptr, ptr %5, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8
   %9 = call i32 (ptr, ptr, ...) @SDL_asprintf_REAL(ptr noundef nonnull %4, ptr noundef nonnull @.str.4, ptr noundef nonnull %6, ptr noundef %2) #4
   %10 = load ptr, ptr %4, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %11 = icmp ne ptr %8, null
   %12 = icmp ne ptr %10, null
   %or.cond = select i1 %11, i1 %12, i1 false
@@ -464,24 +458,30 @@ define internal zeroext i1 @GENERIC_CopyStorageFile(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i64 @GENERIC_GetStorageSpaceRemaining(ptr readnone captures(none) %0) #3 {
+define internal noundef i64 @GENERIC_GetStorageSpaceRemaining(ptr readnone captures(none) %0) #2 {
   ret i64 -1
 }
 
-declare i64 @SDL_WriteIO_REAL(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @SDL_WriteIO_REAL(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_CreateDirectory_REAL(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_CreateDirectory_REAL(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_RemovePath_REAL(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_RemovePath_REAL(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_RenamePath_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_RenamePath_REAL(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_CopyFile_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_CopyFile_REAL(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

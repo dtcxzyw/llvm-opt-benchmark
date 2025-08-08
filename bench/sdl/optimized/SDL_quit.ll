@@ -18,7 +18,7 @@ define hidden noundef zeroext i1 @SDL_InitQuit() local_unnamed_addr #0 {
   br i1 %3, label %15, label %4
 
 4:                                                ; preds = %0
-  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %2) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %5 = call i32 @sigaction(i32 noundef 2, ptr noundef null, ptr noundef nonnull %2) #4
   %6 = load ptr, ptr %2, align 8
   %7 = icmp eq ptr %6, null
@@ -30,8 +30,8 @@ define hidden noundef zeroext i1 @SDL_InitQuit() local_unnamed_addr #0 {
   br label %SDL_EventSignal_Init.exit.i
 
 SDL_EventSignal_Init.exit.i:                      ; preds = %8, %4
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %2) #4
-  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %1) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %10 = call i32 @sigaction(i32 noundef 15, ptr noundef null, ptr noundef nonnull %1) #4
   %11 = load ptr, ptr %1, align 8
   %12 = icmp eq ptr %11, null
@@ -43,7 +43,7 @@ SDL_EventSignal_Init.exit.i:                      ; preds = %8, %4
   br label %SDL_QuitInit_Internal.exit
 
 SDL_QuitInit_Internal.exit:                       ; preds = %SDL_EventSignal_Init.exit.i, %13
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %1) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %15
 
 15:                                               ; preds = %0, %SDL_QuitInit_Internal.exit
@@ -56,7 +56,7 @@ declare zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef, i1 noundef zeroext) loc
 define hidden void @SDL_QuitQuit() local_unnamed_addr #0 {
   %1 = alloca %struct.sigaction, align 8
   %2 = alloca %struct.sigaction, align 8
-  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %2) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = call i32 @sigaction(i32 noundef 2, ptr noundef null, ptr noundef nonnull %2) #4
   %4 = load ptr, ptr %2, align 8
   %5 = icmp eq ptr %4, @SDL_HandleSIG
@@ -68,8 +68,8 @@ define hidden void @SDL_QuitQuit() local_unnamed_addr #0 {
   br label %SDL_EventSignal_Quit.exit.i
 
 SDL_EventSignal_Quit.exit.i:                      ; preds = %6, %0
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %2) #4
-  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %1) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %8 = call i32 @sigaction(i32 noundef 15, ptr noundef null, ptr noundef nonnull %1) #4
   %9 = load ptr, ptr %1, align 8
   %10 = icmp eq ptr %9, @SDL_HandleSIG
@@ -81,7 +81,7 @@ SDL_EventSignal_Quit.exit.i:                      ; preds = %6, %0
   br label %SDL_QuitQuit_Internal.exit
 
 SDL_QuitQuit_Internal.exit:                       ; preds = %SDL_EventSignal_Quit.exit.i, %11
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %1) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }
 
@@ -108,11 +108,8 @@ define hidden void @SDL_SendQuit() local_unnamed_addr #0 {
 
 declare void @SDL_SendAppEvent(i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: nounwind
-declare i32 @sigaction(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @sigaction(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal void @SDL_HandleSIG(i32 noundef %0) #0 {
@@ -130,16 +127,19 @@ define internal void @SDL_HandleSIG(i32 noundef %0) #0 {
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: nounwind
-declare ptr @signal(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @signal(i32 noundef, ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

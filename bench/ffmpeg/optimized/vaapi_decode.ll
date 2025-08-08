@@ -136,22 +136,16 @@ define range(i32 -12, 1) i32 @ff_vaapi_decode_make_param_buffer(ptr noundef %0, 
   ret i32 %.1
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: cold nofree noreturn nounwind
-declare void @abort() local_unnamed_addr #3
+declare void @abort() local_unnamed_addr #2
 
-declare ptr @av_realloc_array(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @av_realloc_array(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @vaCreateBuffer(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @vaCreateBuffer(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare ptr @vaErrorStr(i32 noundef) local_unnamed_addr #2
+declare ptr @vaErrorStr(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -12, 1) i32 @ff_vaapi_decode_make_slice_buffer(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6) local_unnamed_addr #0 {
@@ -273,7 +267,7 @@ define range(i32 -12, 1) i32 @ff_vaapi_decode_make_slice_buffer(ptr noundef %0, 
   ret i32 %.1
 }
 
-declare i32 @vaDestroyBuffer(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @vaDestroyBuffer(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -22, 1) i32 @ff_vaapi_decode_issue(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -381,11 +375,11 @@ define range(i32 -22, 1) i32 @ff_vaapi_decode_issue(ptr noundef %0, ptr noundef 
   ret i32 %.2
 }
 
-declare i32 @vaBeginPicture(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @vaBeginPicture(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @vaRenderPicture(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @vaRenderPicture(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @vaEndPicture(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @vaEndPicture(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @ff_vaapi_decode_destroy_buffers(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
@@ -471,7 +465,7 @@ define internal fastcc void @ff_vaapi_decode_destroy_buffers(ptr noundef %0, ptr
   ret void
 }
 
-declare void @av_freep(ptr noundef) local_unnamed_addr #2
+declare void @av_freep(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @ff_vaapi_decode_cancel(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -498,7 +492,7 @@ define range(i32 -38, 1) i32 @ff_vaapi_common_frame_params(ptr noundef %0, ptr n
   %5 = load ptr, ptr %4, align 8, !tbaa !57
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !60
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 -1, ptr %3, align 4, !tbaa !49
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i32, ptr %8, align 8, !tbaa !63
@@ -526,7 +520,7 @@ define range(i32 -38, 1) i32 @ff_vaapi_common_frame_params(ptr noundef %0, ptr n
 
 21:                                               ; preds = %16, %18, %10, %2
   %.0 = phi i32 [ -22, %2 ], [ %15, %10 ], [ 0, %18 ], [ 0, %16 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
@@ -536,13 +530,13 @@ define internal fastcc range(i32 -38, 1) i32 @vaapi_decode_make_config(ptr nound
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !67
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !69
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !57
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -795,14 +789,14 @@ define internal fastcc range(i32 -38, 1) i32 @vaapi_decode_make_config(ptr nound
   %.sink = phi ptr [ %5, %117 ], [ %7, %120 ], [ %7, %118 ]
   %.0 = phi i32 [ 0, %117 ], [ %.085, %120 ], [ %.085, %118 ]
   call void @av_freep(ptr noundef nonnull %.sink) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
-declare i32 @vaDestroyConfig(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @vaDestroyConfig(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -2147483648, 1) i32 @ff_vaapi_decode_init(ptr noundef %0) local_unnamed_addr #0 {
@@ -880,9 +874,9 @@ define range(i32 -2147483648, 1) i32 @ff_vaapi_decode_init(ptr noundef %0) local
   ret i32 %.033
 }
 
-declare i32 @ff_decode_get_hw_frames_ctx(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ff_decode_get_hw_frames_ctx(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @vaCreateContext(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @vaCreateContext(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @ff_vaapi_decode_uninit(ptr noundef %0) local_unnamed_addr #0 {
@@ -932,28 +926,28 @@ define noundef i32 @ff_vaapi_decode_uninit(ptr noundef %0) local_unnamed_addr #0
   ret i32 0
 }
 
-declare i32 @vaDestroyContext(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @vaDestroyContext(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @avcodec_descriptor_get(i32 noundef) local_unnamed_addr #2
+declare ptr @avcodec_descriptor_get(i32 noundef) local_unnamed_addr #1
 
-declare i32 @vaMaxNumProfiles(ptr noundef) local_unnamed_addr #2
+declare i32 @vaMaxNumProfiles(ptr noundef) local_unnamed_addr #1
 
-declare ptr @av_malloc_array(i64 noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @av_malloc_array(i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @vaQueryConfigProfiles(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @vaQueryConfigProfiles(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @vaCreateConfig(ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @vaCreateConfig(ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @av_hwdevice_hwconfig_alloc(ptr noundef) local_unnamed_addr #2
+declare ptr @av_hwdevice_hwconfig_alloc(ptr noundef) local_unnamed_addr #1
 
-declare ptr @av_hwdevice_get_hwframe_constraints(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @av_hwdevice_get_hwframe_constraints(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -38, 1) i32 @vaapi_decode_find_best_format(ptr noundef %0, ptr readonly captures(none) %.16.val, i32 noundef %1, ptr noundef captures(none) %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %7 = load i32, ptr %6, align 4, !tbaa !110
   %.not = icmp eq i32 %7, -1
@@ -1098,25 +1092,31 @@ define internal fastcc range(i32 -38, 1) i32 @vaapi_decode_find_best_format(ptr 
 
 62:                                               ; preds = %49, %57, %14, %48, %23, %12
   %.0 = phi i32 [ -38, %12 ], [ -38, %23 ], [ -22, %48 ], [ -12, %14 ], [ 0, %57 ], [ 0, %49 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
-declare void @av_hwframe_constraints_free(ptr noundef) local_unnamed_addr #2
+declare void @av_hwframe_constraints_free(ptr noundef) local_unnamed_addr #1
 
-declare i32 @ff_vaapi_parse_hevc_rext_scc_profile(ptr noundef) #2
+declare i32 @ff_vaapi_parse_hevc_rext_scc_profile(ptr noundef) #1
 
-declare i32 @vaQuerySurfaceAttributes(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @vaQuerySurfaceAttributes(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @av_get_pix_fmt_name(i32 noundef) local_unnamed_addr #2
+declare ptr @av_get_pix_fmt_name(i32 noundef) local_unnamed_addr #1
 
-declare i32 @av_find_best_pix_fmt_of_2(i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @av_find_best_pix_fmt_of_2(i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { cold nofree noreturn nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { cold nofree noreturn nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind }
 attributes #5 = { noreturn nounwind }
 

@@ -1128,9 +1128,9 @@ define internal ptr @ec_import_types(i32 noundef %0) #1 {
 define internal i32 @ec_export(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !42
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !42
   %7 = tail call i32 @ossl_prov_is_running() #5
   %8 = icmp eq i32 %7, 0
@@ -1220,8 +1220,8 @@ define internal i32 @ec_export(ptr noundef %0, i32 noundef %1, ptr noundef reado
 
 45:                                               ; preds = %15, %12, %4, %.thread
   %.0 = phi i32 [ %.1, %.thread ], [ 0, %4 ], [ 0, %12 ], [ 0, %15 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -1584,15 +1584,9 @@ declare ptr @EC_KEY_new_ex(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 declare ptr @ossl_prov_ctx_get0_libctx(ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 declare ptr @EC_KEY_get0_group(ptr noundef) local_unnamed_addr #2
 
@@ -1831,9 +1825,9 @@ define internal fastcc range(i32 0, 2) i32 @common_get_params(ptr noundef %0, pt
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8, !tbaa !42
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8, !tbaa !42
   %9 = tail call ptr @EC_KEY_get0_group(ptr noundef %0) #5
   %10 = icmp eq ptr %9, null
@@ -1989,11 +1983,11 @@ define internal fastcc range(i32 0, 2) i32 @common_get_params(ptr noundef %0, pt
   br i1 %78, label %.thread, label %79
 
 79:                                               ; preds = %71, %65
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !44
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4, !tbaa !44
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4, !tbaa !44
   %80 = tail call i32 @EC_GROUP_get_field_type(ptr noundef nonnull %9) #5
   %.not.i = icmp eq i32 %80, 407
@@ -2058,15 +2052,15 @@ define internal fastcc range(i32 0, 2) i32 @common_get_params(ptr noundef %0, pt
   br i1 %.not26.i, label %ec_get_ecm_params.exit.thread, label %108
 
 ec_get_ecm_params.exit.thread:                    ; preds = %94, %92, %105, %102, %99, %97, %89, %86, %84
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread
 
 108:                                              ; preds = %94, %105, %79
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %109 = call i32 @ossl_ec_group_todata(ptr noundef nonnull %9, ptr noundef null, ptr noundef %1, ptr noundef %13, ptr noundef %14, ptr noundef nonnull %15, ptr noundef nonnull %8) #5
   %.not101 = icmp eq i32 %109, 0
   br i1 %.not101, label %.thread, label %110
@@ -2094,8 +2088,8 @@ ec_get_ecm_params.exit.thread:                    ; preds = %94, %92, %105, %102
 
 118:                                              ; preds = %12, %.thread, %11
   %.0 = phi i32 [ 0, %11 ], [ %.068, %.thread ], [ 0, %12 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
 
@@ -2128,7 +2122,7 @@ declare i64 @EC_POINT_point2oct(ptr noundef, ptr noundef, i32 noundef, ptr nound
 declare i32 @ossl_ec_group_todata(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @key_to_params(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3, ptr noundef nonnull %4) unnamed_addr #4 {
+define internal fastcc range(i32 0, 2) i32 @key_to_params(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3, ptr noundef nonnull %4) unnamed_addr #3 {
   %6 = icmp eq ptr %0, null
   br i1 %6, label %58, label %7
 
@@ -2257,7 +2251,7 @@ define internal fastcc range(i32 0, 2) i32 @key_to_params(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc i32 @otherparams_to_params(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #4 {
+define internal fastcc i32 @otherparams_to_params(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %25, label %5
 
@@ -2440,11 +2434,17 @@ declare ptr @EC_KEY_new_by_curve_name_ex(ptr noundef, ptr noundef, i32 noundef) 
 
 declare i32 @ossl_sm2_key_private_check(ptr noundef) local_unnamed_addr #2
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

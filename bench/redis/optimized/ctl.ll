@@ -435,9 +435,9 @@ define hidden i32 @je_ctl_byname(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %7 = alloca i64, align 8
   %8 = alloca [7 x i64], align 16
   %9 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #15
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %8) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %.b12 = load i1, ptr @ctl_initialized, align 1
   br i1 %.b12, label %12, label %10
 
@@ -469,14 +469,11 @@ define hidden i32 @je_ctl_byname(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 22:                                               ; preds = %14, %16, %10, %19, %12
   %.0 = phi i32 [ %13, %12 ], [ %21, %19 ], [ 11, %10 ], [ 2, %16 ], [ 2, %14 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #15
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i1 @ctl_init(ptr noundef %0) unnamed_addr #0 {
@@ -849,9 +846,6 @@ define internal fastcc range(i32 0, 3) i32 @ctl_lookup(ptr noundef %0, ptr nound
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 12) i32 @je_ctl_nametomib(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
   %.b5 = load i1, ptr @ctl_initialized, align 1
@@ -1014,7 +1008,7 @@ ctl_lookupbymib.exit:                             ; preds = %20, %15, %26, %.thr
 ; Function Attrs: nounwind uwtable
 define hidden i32 @je_ctl_bymibname(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, i64 noundef %8) local_unnamed_addr #0 {
   %10 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %.b27 = load i1, ptr @ctl_initialized, align 1
   br i1 %.b27, label %13, label %11
 
@@ -1105,7 +1099,7 @@ define hidden i32 @je_ctl_bymibname(ptr noundef %0, ptr noundef %1, i64 noundef 
 
 ctl_lookupbymib.exit.thread:                      ; preds = %20, %25, %43, %45, %31, %33, %11, %48, %36
   %.0 = phi i32 [ %40, %36 ], [ %49, %48 ], [ 11, %11 ], [ 2, %33 ], [ 2, %31 ], [ 2, %45 ], [ 2, %43 ], [ 2, %25 ], [ 2, %20 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.0
 }
 
@@ -1122,7 +1116,7 @@ define hidden noundef zeroext i1 @je_ctl_boot() local_unnamed_addr #0 {
   ret i1 %1
 }
 
-declare zeroext i1 @je_malloc_mutex_init(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @je_malloc_mutex_init(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @je_ctl_prefork(ptr noundef %0) local_unnamed_addr #0 {
@@ -1130,7 +1124,7 @@ define hidden void @je_ctl_prefork(ptr noundef %0) local_unnamed_addr #0 {
   ret void
 }
 
-declare void @je_malloc_mutex_prefork(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @je_malloc_mutex_prefork(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @je_ctl_postfork_parent(ptr noundef %0) local_unnamed_addr #0 {
@@ -1138,7 +1132,7 @@ define hidden void @je_ctl_postfork_parent(ptr noundef %0) local_unnamed_addr #0
   ret void
 }
 
-declare void @je_malloc_mutex_postfork_parent(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @je_malloc_mutex_postfork_parent(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @je_ctl_postfork_child(ptr noundef %0) local_unnamed_addr #0 {
@@ -1146,18 +1140,18 @@ define hidden void @je_ctl_postfork_child(ptr noundef %0) local_unnamed_addr #0 
   ret void
 }
 
-declare void @je_malloc_mutex_postfork_child(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @je_malloc_mutex_postfork_child(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @je_ctl_mtx_assert_held(ptr noundef readnone captures(none) %0) local_unnamed_addr #3 {
+define hidden void @je_ctl_mtx_assert_held(ptr noundef readnone captures(none) %0) local_unnamed_addr #2 {
   ret void
 }
 
-declare ptr @je_base_alloc(ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @je_base_alloc(ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare ptr @je_b0get() local_unnamed_addr #2
+declare ptr @je_b0get() local_unnamed_addr #1
 
-declare i32 @je_narenas_total_get() local_unnamed_addr #2
+declare i32 @je_narenas_total_get() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @ctl_refresh(ptr noundef %0) unnamed_addr #0 {
@@ -1395,16 +1389,16 @@ malloc_mutex_lock.exit:                           ; preds = %110, %114
   ret void
 }
 
-declare void @je_malloc_mutex_lock_slow(ptr noundef) local_unnamed_addr #2
+declare void @je_malloc_mutex_lock_slow(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_trylock(ptr noundef) local_unnamed_addr #4
+declare i32 @pthread_mutex_trylock(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare ptr @llvm.stacksave.p0() #6
+declare ptr @llvm.stacksave.p0() #5
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @ctl_arena_refresh(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2, i32 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 {
@@ -2678,48 +2672,48 @@ ctl_arena_stats_sdmerge.exit:                     ; preds = %847
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.stackrestore.p0(ptr) #6
+declare void @llvm.stackrestore.p0(ptr) #5
 
-declare ptr @je_tsd_fetch_slow(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare ptr @je_tsd_fetch_slow(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #7
+declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #6
 
-declare ptr @je_arena_init(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @je_arena_init(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @je_arena_stats_merge(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @je_arena_stats_merge(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
-declare void @je_hpa_shard_stats_accum(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @je_hpa_shard_stats_accum(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @je_nstime_add(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @je_nstime_add(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @je_nstime_compare(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @je_nstime_compare(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @je_nstime_copy(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @je_nstime_copy(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @je_background_thread_stats_read(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @je_background_thread_stats_read(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #4
+declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #9
+declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #9
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #8
 
-declare i64 @je_malloc_strtoumax(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i64 @je_malloc_strtoumax(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 23) i32 @version_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #10 {
+define internal range(i32 0, 23) i32 @version_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #9 {
   %8 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp ne ptr %5, null
   %10 = icmp ne i64 %6, 0
   %or.cond = or i1 %9, %10
@@ -2749,7 +2743,7 @@ define internal range(i32 0, 23) i32 @version_ctl(ptr readnone captures(none) %0
 
 18:                                               ; preds = %16, %7, %17, %11
   %.018 = phi i32 [ 22, %16 ], [ 1, %7 ], [ 0, %17 ], [ 0, %11 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
 
@@ -2825,7 +2819,7 @@ malloc_mutex_lock.exit:                           ; preds = %10, %14
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @background_thread_ctl(ptr noundef %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   tail call void @je_background_thread_ctl_init(ptr noundef %0) #15
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
@@ -2970,14 +2964,14 @@ malloc_mutex_lock.exit61:                         ; preds = %20, %24
   %61 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @je_background_thread_lock, i64 64)) #15
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %62 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.045
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @max_background_threads_ctl(ptr noundef %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   tail call void @je_background_thread_ctl_init(ptr noundef %0) #15
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
@@ -3119,20 +3113,20 @@ malloc_mutex_lock.exit63:                         ; preds = %20, %24
   %59 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @je_background_thread_lock, i64 64)) #15
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %60 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.047
 }
 
-declare void @je_background_thread_ctl_init(ptr noundef) local_unnamed_addr #2
+declare void @je_background_thread_ctl_init(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @je_background_threads_enable(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @je_background_threads_enable(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @je_background_threads_disable(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @je_background_threads_disable(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @thread_arena_ctl(ptr noundef %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call fastcc ptr @arena_choose(ptr noundef %0)
   %10 = icmp eq ptr %9, null
   br i1 %10, label %.thread, label %11
@@ -3231,14 +3225,14 @@ arena_get.exit:                                   ; preds = %35, %40
 
 .thread:                                          ; preds = %arena_get.exit, %percpu_arena_ind_limit.exit, %24, %23, %43, %46, %21, %13, %7
   %.0 = phi i32 [ 11, %7 ], [ 22, %21 ], [ 22, %13 ], [ 0, %46 ], [ 0, %43 ], [ 0, %23 ], [ 11, %arena_get.exit ], [ 1, %percpu_arena_ind_limit.exit ], [ 14, %24 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 23) i32 @thread_allocated_ctl(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #10 {
+define internal range(i32 0, 23) i32 @thread_allocated_ctl(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #9 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp ne ptr %5, null
   %10 = icmp ne i64 %6, 0
   %or.cond = or i1 %9, %10
@@ -3270,14 +3264,14 @@ define internal range(i32 0, 23) i32 @thread_allocated_ctl(ptr noundef readonly 
 
 20:                                               ; preds = %18, %7, %19, %11
   %.019 = phi i32 [ 22, %18 ], [ 1, %7 ], [ 0, %19 ], [ 0, %11 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.019
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 23) i32 @thread_allocatedp_ctl(ptr noundef %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #10 {
+define internal range(i32 0, 23) i32 @thread_allocatedp_ctl(ptr noundef %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #9 {
   %8 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp ne ptr %5, null
   %10 = icmp ne i64 %6, 0
   %or.cond = or i1 %9, %10
@@ -3308,14 +3302,14 @@ define internal range(i32 0, 23) i32 @thread_allocatedp_ctl(ptr noundef %0, ptr 
 
 19:                                               ; preds = %17, %7, %18, %11
   %.019 = phi i32 [ 22, %17 ], [ 1, %7 ], [ 0, %18 ], [ 0, %11 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.019
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 23) i32 @thread_deallocated_ctl(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #10 {
+define internal range(i32 0, 23) i32 @thread_deallocated_ctl(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #9 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp ne ptr %5, null
   %10 = icmp ne i64 %6, 0
   %or.cond = or i1 %9, %10
@@ -3347,14 +3341,14 @@ define internal range(i32 0, 23) i32 @thread_deallocated_ctl(ptr noundef readonl
 
 20:                                               ; preds = %18, %7, %19, %11
   %.019 = phi i32 [ 22, %18 ], [ 1, %7 ], [ 0, %19 ], [ 0, %11 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.019
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 23) i32 @thread_deallocatedp_ctl(ptr noundef %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #10 {
+define internal range(i32 0, 23) i32 @thread_deallocatedp_ctl(ptr noundef %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #9 {
   %8 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp ne ptr %5, null
   %10 = icmp ne i64 %6, 0
   %or.cond = or i1 %9, %10
@@ -3385,7 +3379,7 @@ define internal range(i32 0, 23) i32 @thread_deallocatedp_ctl(ptr noundef %0, pt
 
 19:                                               ; preds = %17, %7, %18, %11
   %.019 = phi i32 [ 22, %17 ], [ 1, %7 ], [ 0, %18 ], [ 0, %11 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.019
 }
 
@@ -3431,7 +3425,7 @@ define internal range(i32 0, 2) i32 @thread_idle_ctl(ptr noundef %0, ptr readnon
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc ptr @arena_choose(ptr noundef %0) unnamed_addr #11 {
+define internal fastcc ptr @arena_choose(ptr noundef %0) unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %3 = load i8, ptr %2, align 1, !tbaa !55
   %4 = icmp sgt i8 %3, 0
@@ -3572,21 +3566,21 @@ arena_choose_impl.exit:                           ; preds = %5, %8, %26, %percpu
   ret ptr %.0.i
 }
 
-declare void @je_arena_migrate(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @je_arena_migrate(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @je_tcache_arena_reassociate(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @je_tcache_arena_reassociate(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @je_arena_choose_hard(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare ptr @je_arena_choose_hard(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare void @je_tcache_arena_associate(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @je_tcache_arena_associate(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare i32 @sched_getcpu() local_unnamed_addr #4
+declare i32 @sched_getcpu() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @thread_tcache_enabled_ctl(ptr noundef %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.val = load i8, ptr %0, align 1, !tbaa !139, !range !48, !noundef !49
   %9 = trunc nuw i8 %.val to i1
   store i8 %.val, ptr %8, align 1, !tbaa !139
@@ -3649,7 +3643,7 @@ tcache_enabled_set.exit:                          ; preds = %14, %16, %17
 
 27:                                               ; preds = %24, %10, %26, %18
   %.019 = phi i32 [ 22, %24 ], [ 22, %10 ], [ 0, %26 ], [ 0, %18 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.019
 }
 
@@ -3678,13 +3672,13 @@ define internal range(i32 0, 15) i32 @thread_tcache_flush_ctl(ptr noundef %0, pt
   ret i32 %.0
 }
 
-declare zeroext i1 @je_tsd_tcache_data_init(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @je_tsd_tcache_data_init(ptr noundef) local_unnamed_addr #1
 
-declare void @je_tcache_cleanup(ptr noundef) local_unnamed_addr #2
+declare void @je_tcache_cleanup(ptr noundef) local_unnamed_addr #1
 
-declare void @je_tsd_slow_update(ptr noundef) local_unnamed_addr #2
+declare void @je_tsd_slow_update(ptr noundef) local_unnamed_addr #1
 
-declare void @je_tcache_flush(ptr noundef) local_unnamed_addr #2
+declare void @je_tcache_flush(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @thread_peak_read_ctl(ptr noundef %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
@@ -3743,28 +3737,28 @@ define internal range(i32 0, 2) i32 @thread_peak_reset_ctl(ptr noundef %0, ptr r
   ret i32 %.0
 }
 
-declare void @je_peak_event_update(ptr noundef) local_unnamed_addr #2
+declare void @je_peak_event_update(ptr noundef) local_unnamed_addr #1
 
-declare i64 @je_peak_event_max(ptr noundef) local_unnamed_addr #2
+declare i64 @je_peak_event_max(ptr noundef) local_unnamed_addr #1
 
-declare void @je_peak_event_zero(ptr noundef) local_unnamed_addr #2
+declare void @je_peak_event_zero(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @thread_prof_name_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5, i64 %6) #3 {
+define internal noundef i32 @thread_prof_name_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5, i64 %6) #2 {
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @thread_prof_active_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5, i64 %6) #3 {
+define internal noundef i32 @thread_prof_active_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5, i64 %6) #2 {
   ret i32 2
 }
 
-declare void @je_arena_decay(ptr noundef, ptr noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #2
+declare void @je_arena_decay(ptr noundef, ptr noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 23) i32 @config_cache_oblivious_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #10 {
+define internal range(i32 0, 23) i32 @config_cache_oblivious_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #9 {
   %8 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp ne ptr %5, null
   %10 = icmp ne i64 %6, 0
   %or.cond = or i1 %9, %10
@@ -3799,14 +3793,14 @@ define internal range(i32 0, 23) i32 @config_cache_oblivious_ctl(ptr readnone ca
 
 20:                                               ; preds = %17, %7, %19, %11
   %.018 = phi i32 [ 22, %17 ], [ 1, %7 ], [ 0, %19 ], [ 0, %11 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 23) i32 @config_debug_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #10 {
+define internal range(i32 0, 23) i32 @config_debug_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #9 {
   %8 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp ne ptr %5, null
   %10 = icmp ne i64 %6, 0
   %or.cond = or i1 %9, %10
@@ -3841,14 +3835,14 @@ define internal range(i32 0, 23) i32 @config_debug_ctl(ptr readnone captures(non
 
 20:                                               ; preds = %17, %7, %19, %11
   %.018 = phi i32 [ 22, %17 ], [ 1, %7 ], [ 0, %19 ], [ 0, %11 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 23) i32 @config_fill_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #10 {
+define internal range(i32 0, 23) i32 @config_fill_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #9 {
   %8 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp ne ptr %5, null
   %10 = icmp ne i64 %6, 0
   %or.cond = or i1 %9, %10
@@ -3883,14 +3877,14 @@ define internal range(i32 0, 23) i32 @config_fill_ctl(ptr readnone captures(none
 
 20:                                               ; preds = %17, %7, %19, %11
   %.018 = phi i32 [ 22, %17 ], [ 1, %7 ], [ 0, %19 ], [ 0, %11 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 23) i32 @config_lazy_lock_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #10 {
+define internal range(i32 0, 23) i32 @config_lazy_lock_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #9 {
   %8 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp ne ptr %5, null
   %10 = icmp ne i64 %6, 0
   %or.cond = or i1 %9, %10
@@ -3925,14 +3919,14 @@ define internal range(i32 0, 23) i32 @config_lazy_lock_ctl(ptr readnone captures
 
 20:                                               ; preds = %17, %7, %19, %11
   %.018 = phi i32 [ 22, %17 ], [ 1, %7 ], [ 0, %19 ], [ 0, %11 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 23) i32 @config_malloc_conf_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #10 {
+define internal range(i32 0, 23) i32 @config_malloc_conf_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #9 {
   %8 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp ne ptr %5, null
   %10 = icmp ne i64 %6, 0
   %or.cond = or i1 %9, %10
@@ -3962,14 +3956,14 @@ define internal range(i32 0, 23) i32 @config_malloc_conf_ctl(ptr readnone captur
 
 18:                                               ; preds = %16, %7, %17, %11
   %.018 = phi i32 [ 22, %16 ], [ 1, %7 ], [ 0, %17 ], [ 0, %11 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 23) i32 @config_opt_safety_checks_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #10 {
+define internal range(i32 0, 23) i32 @config_opt_safety_checks_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #9 {
   %8 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp ne ptr %5, null
   %10 = icmp ne i64 %6, 0
   %or.cond = or i1 %9, %10
@@ -4004,14 +3998,14 @@ define internal range(i32 0, 23) i32 @config_opt_safety_checks_ctl(ptr readnone 
 
 20:                                               ; preds = %17, %7, %19, %11
   %.018 = phi i32 [ 22, %17 ], [ 1, %7 ], [ 0, %19 ], [ 0, %11 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 23) i32 @config_prof_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #10 {
+define internal range(i32 0, 23) i32 @config_prof_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #9 {
   %8 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp ne ptr %5, null
   %10 = icmp ne i64 %6, 0
   %or.cond = or i1 %9, %10
@@ -4046,14 +4040,14 @@ define internal range(i32 0, 23) i32 @config_prof_ctl(ptr readnone captures(none
 
 20:                                               ; preds = %17, %7, %19, %11
   %.018 = phi i32 [ 22, %17 ], [ 1, %7 ], [ 0, %19 ], [ 0, %11 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 23) i32 @config_prof_libgcc_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #10 {
+define internal range(i32 0, 23) i32 @config_prof_libgcc_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #9 {
   %8 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp ne ptr %5, null
   %10 = icmp ne i64 %6, 0
   %or.cond = or i1 %9, %10
@@ -4088,14 +4082,14 @@ define internal range(i32 0, 23) i32 @config_prof_libgcc_ctl(ptr readnone captur
 
 20:                                               ; preds = %17, %7, %19, %11
   %.018 = phi i32 [ 22, %17 ], [ 1, %7 ], [ 0, %19 ], [ 0, %11 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 23) i32 @config_prof_libunwind_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #10 {
+define internal range(i32 0, 23) i32 @config_prof_libunwind_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #9 {
   %8 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp ne ptr %5, null
   %10 = icmp ne i64 %6, 0
   %or.cond = or i1 %9, %10
@@ -4130,14 +4124,14 @@ define internal range(i32 0, 23) i32 @config_prof_libunwind_ctl(ptr readnone cap
 
 20:                                               ; preds = %17, %7, %19, %11
   %.018 = phi i32 [ 22, %17 ], [ 1, %7 ], [ 0, %19 ], [ 0, %11 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 23) i32 @config_stats_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #10 {
+define internal range(i32 0, 23) i32 @config_stats_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #9 {
   %8 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp ne ptr %5, null
   %10 = icmp ne i64 %6, 0
   %or.cond = or i1 %9, %10
@@ -4172,14 +4166,14 @@ define internal range(i32 0, 23) i32 @config_stats_ctl(ptr readnone captures(non
 
 20:                                               ; preds = %17, %7, %19, %11
   %.018 = phi i32 [ 22, %17 ], [ 1, %7 ], [ 0, %19 ], [ 0, %11 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 23) i32 @config_utrace_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #10 {
+define internal range(i32 0, 23) i32 @config_utrace_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #9 {
   %8 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp ne ptr %5, null
   %10 = icmp ne i64 %6, 0
   %or.cond = or i1 %9, %10
@@ -4214,14 +4208,14 @@ define internal range(i32 0, 23) i32 @config_utrace_ctl(ptr readnone captures(no
 
 20:                                               ; preds = %17, %7, %19, %11
   %.018 = phi i32 [ 22, %17 ], [ 1, %7 ], [ 0, %19 ], [ 0, %11 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 23) i32 @config_xmalloc_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #10 {
+define internal range(i32 0, 23) i32 @config_xmalloc_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #9 {
   %8 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp ne ptr %5, null
   %10 = icmp ne i64 %6, 0
   %or.cond = or i1 %9, %10
@@ -4256,14 +4250,14 @@ define internal range(i32 0, 23) i32 @config_xmalloc_ctl(ptr readnone captures(n
 
 20:                                               ; preds = %17, %7, %19, %11
   %.018 = phi i32 [ 22, %17 ], [ 1, %7 ], [ 0, %19 ], [ 0, %11 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 23) i32 @opt_abort_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #12 {
+define internal range(i32 0, 23) i32 @opt_abort_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #11 {
   %8 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp ne ptr %5, null
   %10 = icmp ne i64 %6, 0
   %or.cond = or i1 %9, %10
@@ -4299,14 +4293,14 @@ define internal range(i32 0, 23) i32 @opt_abort_ctl(ptr readnone captures(none) 
 
 21:                                               ; preds = %18, %7, %20, %11
   %.018 = phi i32 [ 22, %18 ], [ 1, %7 ], [ 0, %20 ], [ 0, %11 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 23) i32 @opt_abort_conf_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #12 {
+define internal range(i32 0, 23) i32 @opt_abort_conf_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #11 {
   %8 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp ne ptr %5, null
   %10 = icmp ne i64 %6, 0
   %or.cond = or i1 %9, %10
@@ -4342,14 +4336,14 @@ define internal range(i32 0, 23) i32 @opt_abort_conf_ctl(ptr readnone captures(n
 
 21:                                               ; preds = %18, %7, %20, %11
   %.018 = phi i32 [ 22, %18 ], [ 1, %7 ], [ 0, %20 ], [ 0, %11 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 23) i32 @opt_cache_oblivious_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #12 {
+define internal range(i32 0, 23) i32 @opt_cache_oblivious_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #11 {
   %8 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp ne ptr %5, null
   %10 = icmp ne i64 %6, 0
   %or.cond = or i1 %9, %10
@@ -4385,14 +4379,14 @@ define internal range(i32 0, 23) i32 @opt_cache_oblivious_ctl(ptr readnone captu
 
 21:                                               ; preds = %18, %7, %20, %11
   %.018 = phi i32 [ 22, %18 ], [ 1, %7 ], [ 0, %20 ], [ 0, %11 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 23) i32 @opt_trust_madvise_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #12 {
+define internal range(i32 0, 23) i32 @opt_trust_madvise_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #11 {
   %8 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp ne ptr %5, null
   %10 = icmp ne i64 %6, 0
   %or.cond = or i1 %9, %10
@@ -4428,14 +4422,14 @@ define internal range(i32 0, 23) i32 @opt_trust_madvise_ctl(ptr readnone capture
 
 21:                                               ; preds = %18, %7, %20, %11
   %.018 = phi i32 [ 22, %18 ], [ 1, %7 ], [ 0, %20 ], [ 0, %11 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 23) i32 @opt_confirm_conf_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #12 {
+define internal range(i32 0, 23) i32 @opt_confirm_conf_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #11 {
   %8 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp ne ptr %5, null
   %10 = icmp ne i64 %6, 0
   %or.cond = or i1 %9, %10
@@ -4471,14 +4465,14 @@ define internal range(i32 0, 23) i32 @opt_confirm_conf_ctl(ptr readnone captures
 
 21:                                               ; preds = %18, %7, %20, %11
   %.018 = phi i32 [ 22, %18 ], [ 1, %7 ], [ 0, %20 ], [ 0, %11 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 23) i32 @opt_hpa_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #12 {
+define internal range(i32 0, 23) i32 @opt_hpa_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #11 {
   %8 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp ne ptr %5, null
   %10 = icmp ne i64 %6, 0
   %or.cond = or i1 %9, %10
@@ -4514,14 +4508,14 @@ define internal range(i32 0, 23) i32 @opt_hpa_ctl(ptr readnone captures(none) %0
 
 21:                                               ; preds = %18, %7, %20, %11
   %.018 = phi i32 [ 22, %18 ], [ 1, %7 ], [ 0, %20 ], [ 0, %11 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 23) i32 @opt_hpa_slab_max_alloc_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #12 {
+define internal range(i32 0, 23) i32 @opt_hpa_slab_max_alloc_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #11 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp ne ptr %5, null
   %10 = icmp ne i64 %6, 0
   %or.cond = or i1 %9, %10
@@ -4552,14 +4546,14 @@ define internal range(i32 0, 23) i32 @opt_hpa_slab_max_alloc_ctl(ptr readnone ca
 
 19:                                               ; preds = %17, %7, %18, %11
   %.018 = phi i32 [ 22, %17 ], [ 1, %7 ], [ 0, %18 ], [ 0, %11 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 23) i32 @opt_hpa_hugification_threshold_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #12 {
+define internal range(i32 0, 23) i32 @opt_hpa_hugification_threshold_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #11 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp ne ptr %5, null
   %10 = icmp ne i64 %6, 0
   %or.cond = or i1 %9, %10
@@ -4590,14 +4584,14 @@ define internal range(i32 0, 23) i32 @opt_hpa_hugification_threshold_ctl(ptr rea
 
 19:                                               ; preds = %17, %7, %18, %11
   %.018 = phi i32 [ 22, %17 ], [ 1, %7 ], [ 0, %18 ], [ 0, %11 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 23) i32 @opt_hpa_hugify_delay_ms_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #12 {
+define internal range(i32 0, 23) i32 @opt_hpa_hugify_delay_ms_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #11 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp ne ptr %5, null
   %10 = icmp ne i64 %6, 0
   %or.cond = or i1 %9, %10
@@ -4628,14 +4622,14 @@ define internal range(i32 0, 23) i32 @opt_hpa_hugify_delay_ms_ctl(ptr readnone c
 
 19:                                               ; preds = %17, %7, %18, %11
   %.018 = phi i32 [ 22, %17 ], [ 1, %7 ], [ 0, %18 ], [ 0, %11 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 23) i32 @opt_hpa_min_purge_interval_ms_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #12 {
+define internal range(i32 0, 23) i32 @opt_hpa_min_purge_interval_ms_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #11 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp ne ptr %5, null
   %10 = icmp ne i64 %6, 0
   %or.cond = or i1 %9, %10
@@ -4666,14 +4660,14 @@ define internal range(i32 0, 23) i32 @opt_hpa_min_purge_interval_ms_ctl(ptr read
 
 19:                                               ; preds = %17, %7, %18, %11
   %.018 = phi i32 [ 22, %17 ], [ 1, %7 ], [ 0, %18 ], [ 0, %11 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 23) i32 @opt_hpa_dirty_mult_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #12 {
+define internal range(i32 0, 23) i32 @opt_hpa_dirty_mult_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #11 {
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp ne ptr %5, null
   %10 = icmp ne i64 %6, 0
   %or.cond = or i1 %9, %10
@@ -4704,14 +4698,14 @@ define internal range(i32 0, 23) i32 @opt_hpa_dirty_mult_ctl(ptr readnone captur
 
 19:                                               ; preds = %17, %7, %18, %11
   %.018 = phi i32 [ 22, %17 ], [ 1, %7 ], [ 0, %18 ], [ 0, %11 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 23) i32 @opt_hpa_sec_nshards_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #12 {
+define internal range(i32 0, 23) i32 @opt_hpa_sec_nshards_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #11 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp ne ptr %5, null
   %10 = icmp ne i64 %6, 0
   %or.cond = or i1 %9, %10
@@ -4742,14 +4736,14 @@ define internal range(i32 0, 23) i32 @opt_hpa_sec_nshards_ctl(ptr readnone captu
 
 19:                                               ; preds = %17, %7, %18, %11
   %.018 = phi i32 [ 22, %17 ], [ 1, %7 ], [ 0, %18 ], [ 0, %11 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 23) i32 @opt_hpa_sec_max_alloc_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #12 {
+define internal range(i32 0, 23) i32 @opt_hpa_sec_max_alloc_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #11 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp ne ptr %5, null
   %10 = icmp ne i64 %6, 0
   %or.cond = or i1 %9, %10
@@ -4780,14 +4774,14 @@ define internal range(i32 0, 23) i32 @opt_hpa_sec_max_alloc_ctl(ptr readnone cap
 
 19:                                               ; preds = %17, %7, %18, %11
   %.018 = phi i32 [ 22, %17 ], [ 1, %7 ], [ 0, %18 ], [ 0, %11 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 23) i32 @opt_hpa_sec_max_bytes_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #12 {
+define internal range(i32 0, 23) i32 @opt_hpa_sec_max_bytes_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #11 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp ne ptr %5, null
   %10 = icmp ne i64 %6, 0
   %or.cond = or i1 %9, %10
@@ -4818,14 +4812,14 @@ define internal range(i32 0, 23) i32 @opt_hpa_sec_max_bytes_ctl(ptr readnone cap
 
 19:                                               ; preds = %17, %7, %18, %11
   %.018 = phi i32 [ 22, %17 ], [ 1, %7 ], [ 0, %18 ], [ 0, %11 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 23) i32 @opt_hpa_sec_bytes_after_flush_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #12 {
+define internal range(i32 0, 23) i32 @opt_hpa_sec_bytes_after_flush_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #11 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp ne ptr %5, null
   %10 = icmp ne i64 %6, 0
   %or.cond = or i1 %9, %10
@@ -4856,14 +4850,14 @@ define internal range(i32 0, 23) i32 @opt_hpa_sec_bytes_after_flush_ctl(ptr read
 
 19:                                               ; preds = %17, %7, %18, %11
   %.018 = phi i32 [ 22, %17 ], [ 1, %7 ], [ 0, %18 ], [ 0, %11 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 23) i32 @opt_hpa_sec_batch_fill_extra_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #12 {
+define internal range(i32 0, 23) i32 @opt_hpa_sec_batch_fill_extra_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #11 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp ne ptr %5, null
   %10 = icmp ne i64 %6, 0
   %or.cond = or i1 %9, %10
@@ -4894,14 +4888,14 @@ define internal range(i32 0, 23) i32 @opt_hpa_sec_batch_fill_extra_ctl(ptr readn
 
 19:                                               ; preds = %17, %7, %18, %11
   %.018 = phi i32 [ 22, %17 ], [ 1, %7 ], [ 0, %18 ], [ 0, %11 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 23) i32 @opt_metadata_thp_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #12 {
+define internal range(i32 0, 23) i32 @opt_metadata_thp_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #11 {
   %8 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp ne ptr %5, null
   %10 = icmp ne i64 %6, 0
   %or.cond = or i1 %9, %10
@@ -4935,14 +4929,14 @@ define internal range(i32 0, 23) i32 @opt_metadata_thp_ctl(ptr readnone captures
 
 22:                                               ; preds = %20, %7, %21, %11
   %.018 = phi i32 [ 22, %20 ], [ 1, %7 ], [ 0, %21 ], [ 0, %11 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 23) i32 @opt_retain_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #12 {
+define internal range(i32 0, 23) i32 @opt_retain_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #11 {
   %8 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp ne ptr %5, null
   %10 = icmp ne i64 %6, 0
   %or.cond = or i1 %9, %10
@@ -4978,14 +4972,14 @@ define internal range(i32 0, 23) i32 @opt_retain_ctl(ptr readnone captures(none)
 
 21:                                               ; preds = %18, %7, %20, %11
   %.018 = phi i32 [ 22, %18 ], [ 1, %7 ], [ 0, %20 ], [ 0, %11 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 23) i32 @opt_dss_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #12 {
+define internal range(i32 0, 23) i32 @opt_dss_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #11 {
   %8 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp ne ptr %5, null
   %10 = icmp ne i64 %6, 0
   %or.cond = or i1 %9, %10
@@ -5016,14 +5010,14 @@ define internal range(i32 0, 23) i32 @opt_dss_ctl(ptr readnone captures(none) %0
 
 19:                                               ; preds = %17, %7, %18, %11
   %.018 = phi i32 [ 22, %17 ], [ 1, %7 ], [ 0, %18 ], [ 0, %11 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 23) i32 @opt_narenas_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #12 {
+define internal range(i32 0, 23) i32 @opt_narenas_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #11 {
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp ne ptr %5, null
   %10 = icmp ne i64 %6, 0
   %or.cond = or i1 %9, %10
@@ -5054,14 +5048,14 @@ define internal range(i32 0, 23) i32 @opt_narenas_ctl(ptr readnone captures(none
 
 19:                                               ; preds = %17, %7, %18, %11
   %.018 = phi i32 [ 22, %17 ], [ 1, %7 ], [ 0, %18 ], [ 0, %11 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 23) i32 @opt_percpu_arena_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #12 {
+define internal range(i32 0, 23) i32 @opt_percpu_arena_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #11 {
   %8 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp ne ptr %5, null
   %10 = icmp ne i64 %6, 0
   %or.cond = or i1 %9, %10
@@ -5095,14 +5089,14 @@ define internal range(i32 0, 23) i32 @opt_percpu_arena_ctl(ptr readnone captures
 
 22:                                               ; preds = %20, %7, %21, %11
   %.018 = phi i32 [ 22, %20 ], [ 1, %7 ], [ 0, %21 ], [ 0, %11 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 23) i32 @opt_oversize_threshold_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #12 {
+define internal range(i32 0, 23) i32 @opt_oversize_threshold_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #11 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp ne ptr %5, null
   %10 = icmp ne i64 %6, 0
   %or.cond = or i1 %9, %10
@@ -5133,14 +5127,14 @@ define internal range(i32 0, 23) i32 @opt_oversize_threshold_ctl(ptr readnone ca
 
 19:                                               ; preds = %17, %7, %18, %11
   %.018 = phi i32 [ 22, %17 ], [ 1, %7 ], [ 0, %18 ], [ 0, %11 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 23) i32 @opt_mutex_max_spin_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #12 {
+define internal range(i32 0, 23) i32 @opt_mutex_max_spin_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #11 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp ne ptr %5, null
   %10 = icmp ne i64 %6, 0
   %or.cond = or i1 %9, %10
@@ -5171,14 +5165,14 @@ define internal range(i32 0, 23) i32 @opt_mutex_max_spin_ctl(ptr readnone captur
 
 19:                                               ; preds = %17, %7, %18, %11
   %.018 = phi i32 [ 22, %17 ], [ 1, %7 ], [ 0, %18 ], [ 0, %11 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 23) i32 @opt_background_thread_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #12 {
+define internal range(i32 0, 23) i32 @opt_background_thread_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #11 {
   %8 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp ne ptr %5, null
   %10 = icmp ne i64 %6, 0
   %or.cond = or i1 %9, %10
@@ -5214,14 +5208,14 @@ define internal range(i32 0, 23) i32 @opt_background_thread_ctl(ptr readnone cap
 
 21:                                               ; preds = %18, %7, %20, %11
   %.018 = phi i32 [ 22, %18 ], [ 1, %7 ], [ 0, %20 ], [ 0, %11 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 23) i32 @opt_max_background_threads_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #12 {
+define internal range(i32 0, 23) i32 @opt_max_background_threads_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #11 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp ne ptr %5, null
   %10 = icmp ne i64 %6, 0
   %or.cond = or i1 %9, %10
@@ -5252,14 +5246,14 @@ define internal range(i32 0, 23) i32 @opt_max_background_threads_ctl(ptr readnon
 
 19:                                               ; preds = %17, %7, %18, %11
   %.018 = phi i32 [ 22, %17 ], [ 1, %7 ], [ 0, %18 ], [ 0, %11 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 23) i32 @opt_dirty_decay_ms_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #12 {
+define internal range(i32 0, 23) i32 @opt_dirty_decay_ms_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #11 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp ne ptr %5, null
   %10 = icmp ne i64 %6, 0
   %or.cond = or i1 %9, %10
@@ -5290,14 +5284,14 @@ define internal range(i32 0, 23) i32 @opt_dirty_decay_ms_ctl(ptr readnone captur
 
 19:                                               ; preds = %17, %7, %18, %11
   %.018 = phi i32 [ 22, %17 ], [ 1, %7 ], [ 0, %18 ], [ 0, %11 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 23) i32 @opt_muzzy_decay_ms_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #12 {
+define internal range(i32 0, 23) i32 @opt_muzzy_decay_ms_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #11 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp ne ptr %5, null
   %10 = icmp ne i64 %6, 0
   %or.cond = or i1 %9, %10
@@ -5328,14 +5322,14 @@ define internal range(i32 0, 23) i32 @opt_muzzy_decay_ms_ctl(ptr readnone captur
 
 19:                                               ; preds = %17, %7, %18, %11
   %.018 = phi i32 [ 22, %17 ], [ 1, %7 ], [ 0, %18 ], [ 0, %11 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 23) i32 @opt_stats_print_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #12 {
+define internal range(i32 0, 23) i32 @opt_stats_print_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #11 {
   %8 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp ne ptr %5, null
   %10 = icmp ne i64 %6, 0
   %or.cond = or i1 %9, %10
@@ -5371,14 +5365,14 @@ define internal range(i32 0, 23) i32 @opt_stats_print_ctl(ptr readnone captures(
 
 21:                                               ; preds = %18, %7, %20, %11
   %.018 = phi i32 [ 22, %18 ], [ 1, %7 ], [ 0, %20 ], [ 0, %11 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 23) i32 @opt_stats_print_opts_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #10 {
+define internal range(i32 0, 23) i32 @opt_stats_print_opts_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #9 {
   %8 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp ne ptr %5, null
   %10 = icmp ne i64 %6, 0
   %or.cond = or i1 %9, %10
@@ -5408,14 +5402,14 @@ define internal range(i32 0, 23) i32 @opt_stats_print_opts_ctl(ptr readnone capt
 
 18:                                               ; preds = %16, %7, %17, %11
   %.018 = phi i32 [ 22, %16 ], [ 1, %7 ], [ 0, %17 ], [ 0, %11 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 23) i32 @opt_stats_interval_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #12 {
+define internal range(i32 0, 23) i32 @opt_stats_interval_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #11 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp ne ptr %5, null
   %10 = icmp ne i64 %6, 0
   %or.cond = or i1 %9, %10
@@ -5446,14 +5440,14 @@ define internal range(i32 0, 23) i32 @opt_stats_interval_ctl(ptr readnone captur
 
 19:                                               ; preds = %17, %7, %18, %11
   %.018 = phi i32 [ 22, %17 ], [ 1, %7 ], [ 0, %18 ], [ 0, %11 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 23) i32 @opt_stats_interval_opts_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #10 {
+define internal range(i32 0, 23) i32 @opt_stats_interval_opts_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #9 {
   %8 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp ne ptr %5, null
   %10 = icmp ne i64 %6, 0
   %or.cond = or i1 %9, %10
@@ -5483,14 +5477,14 @@ define internal range(i32 0, 23) i32 @opt_stats_interval_opts_ctl(ptr readnone c
 
 18:                                               ; preds = %16, %7, %17, %11
   %.018 = phi i32 [ 22, %16 ], [ 1, %7 ], [ 0, %17 ], [ 0, %11 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 23) i32 @opt_junk_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #12 {
+define internal range(i32 0, 23) i32 @opt_junk_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #11 {
   %8 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp ne ptr %5, null
   %10 = icmp ne i64 %6, 0
   %or.cond = or i1 %9, %10
@@ -5521,14 +5515,14 @@ define internal range(i32 0, 23) i32 @opt_junk_ctl(ptr readnone captures(none) %
 
 19:                                               ; preds = %17, %7, %18, %11
   %.018 = phi i32 [ 22, %17 ], [ 1, %7 ], [ 0, %18 ], [ 0, %11 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 23) i32 @opt_zero_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #12 {
+define internal range(i32 0, 23) i32 @opt_zero_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #11 {
   %8 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp ne ptr %5, null
   %10 = icmp ne i64 %6, 0
   %or.cond = or i1 %9, %10
@@ -5564,29 +5558,29 @@ define internal range(i32 0, 23) i32 @opt_zero_ctl(ptr readnone captures(none) %
 
 21:                                               ; preds = %18, %7, %20, %11
   %.018 = phi i32 [ 22, %18 ], [ 1, %7 ], [ 0, %20 ], [ 0, %11 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @opt_utrace_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5, i64 %6) #3 {
+define internal noundef i32 @opt_utrace_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5, i64 %6) #2 {
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @opt_xmalloc_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5, i64 %6) #3 {
+define internal noundef i32 @opt_xmalloc_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5, i64 %6) #2 {
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @opt_experimental_infallible_new_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5, i64 %6) #3 {
+define internal noundef i32 @opt_experimental_infallible_new_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5, i64 %6) #2 {
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 23) i32 @opt_tcache_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #12 {
+define internal range(i32 0, 23) i32 @opt_tcache_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #11 {
   %8 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp ne ptr %5, null
   %10 = icmp ne i64 %6, 0
   %or.cond = or i1 %9, %10
@@ -5622,14 +5616,14 @@ define internal range(i32 0, 23) i32 @opt_tcache_ctl(ptr readnone captures(none)
 
 21:                                               ; preds = %18, %7, %20, %11
   %.018 = phi i32 [ 22, %18 ], [ 1, %7 ], [ 0, %20 ], [ 0, %11 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 23) i32 @opt_tcache_max_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #12 {
+define internal range(i32 0, 23) i32 @opt_tcache_max_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #11 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp ne ptr %5, null
   %10 = icmp ne i64 %6, 0
   %or.cond = or i1 %9, %10
@@ -5660,14 +5654,14 @@ define internal range(i32 0, 23) i32 @opt_tcache_max_ctl(ptr readnone captures(n
 
 19:                                               ; preds = %17, %7, %18, %11
   %.018 = phi i32 [ 22, %17 ], [ 1, %7 ], [ 0, %18 ], [ 0, %11 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 23) i32 @opt_tcache_nslots_small_min_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #12 {
+define internal range(i32 0, 23) i32 @opt_tcache_nslots_small_min_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #11 {
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp ne ptr %5, null
   %10 = icmp ne i64 %6, 0
   %or.cond = or i1 %9, %10
@@ -5698,14 +5692,14 @@ define internal range(i32 0, 23) i32 @opt_tcache_nslots_small_min_ctl(ptr readno
 
 19:                                               ; preds = %17, %7, %18, %11
   %.018 = phi i32 [ 22, %17 ], [ 1, %7 ], [ 0, %18 ], [ 0, %11 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 23) i32 @opt_tcache_nslots_small_max_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #12 {
+define internal range(i32 0, 23) i32 @opt_tcache_nslots_small_max_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #11 {
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp ne ptr %5, null
   %10 = icmp ne i64 %6, 0
   %or.cond = or i1 %9, %10
@@ -5736,14 +5730,14 @@ define internal range(i32 0, 23) i32 @opt_tcache_nslots_small_max_ctl(ptr readno
 
 19:                                               ; preds = %17, %7, %18, %11
   %.018 = phi i32 [ 22, %17 ], [ 1, %7 ], [ 0, %18 ], [ 0, %11 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 23) i32 @opt_tcache_nslots_large_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #12 {
+define internal range(i32 0, 23) i32 @opt_tcache_nslots_large_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #11 {
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp ne ptr %5, null
   %10 = icmp ne i64 %6, 0
   %or.cond = or i1 %9, %10
@@ -5774,14 +5768,14 @@ define internal range(i32 0, 23) i32 @opt_tcache_nslots_large_ctl(ptr readnone c
 
 19:                                               ; preds = %17, %7, %18, %11
   %.018 = phi i32 [ 22, %17 ], [ 1, %7 ], [ 0, %18 ], [ 0, %11 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 23) i32 @opt_lg_tcache_nslots_mul_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #12 {
+define internal range(i32 0, 23) i32 @opt_lg_tcache_nslots_mul_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #11 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp ne ptr %5, null
   %10 = icmp ne i64 %6, 0
   %or.cond = or i1 %9, %10
@@ -5812,14 +5806,14 @@ define internal range(i32 0, 23) i32 @opt_lg_tcache_nslots_mul_ctl(ptr readnone 
 
 19:                                               ; preds = %17, %7, %18, %11
   %.018 = phi i32 [ 22, %17 ], [ 1, %7 ], [ 0, %18 ], [ 0, %11 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 23) i32 @opt_tcache_gc_incr_bytes_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #12 {
+define internal range(i32 0, 23) i32 @opt_tcache_gc_incr_bytes_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #11 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp ne ptr %5, null
   %10 = icmp ne i64 %6, 0
   %or.cond = or i1 %9, %10
@@ -5850,14 +5844,14 @@ define internal range(i32 0, 23) i32 @opt_tcache_gc_incr_bytes_ctl(ptr readnone 
 
 19:                                               ; preds = %17, %7, %18, %11
   %.018 = phi i32 [ 22, %17 ], [ 1, %7 ], [ 0, %18 ], [ 0, %11 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 23) i32 @opt_tcache_gc_delay_bytes_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #12 {
+define internal range(i32 0, 23) i32 @opt_tcache_gc_delay_bytes_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #11 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp ne ptr %5, null
   %10 = icmp ne i64 %6, 0
   %or.cond = or i1 %9, %10
@@ -5888,14 +5882,14 @@ define internal range(i32 0, 23) i32 @opt_tcache_gc_delay_bytes_ctl(ptr readnone
 
 19:                                               ; preds = %17, %7, %18, %11
   %.018 = phi i32 [ 22, %17 ], [ 1, %7 ], [ 0, %18 ], [ 0, %11 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 23) i32 @opt_lg_tcache_flush_small_div_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #12 {
+define internal range(i32 0, 23) i32 @opt_lg_tcache_flush_small_div_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #11 {
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp ne ptr %5, null
   %10 = icmp ne i64 %6, 0
   %or.cond = or i1 %9, %10
@@ -5926,14 +5920,14 @@ define internal range(i32 0, 23) i32 @opt_lg_tcache_flush_small_div_ctl(ptr read
 
 19:                                               ; preds = %17, %7, %18, %11
   %.018 = phi i32 [ 22, %17 ], [ 1, %7 ], [ 0, %18 ], [ 0, %11 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 23) i32 @opt_lg_tcache_flush_large_div_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #12 {
+define internal range(i32 0, 23) i32 @opt_lg_tcache_flush_large_div_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #11 {
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp ne ptr %5, null
   %10 = icmp ne i64 %6, 0
   %or.cond = or i1 %9, %10
@@ -5964,14 +5958,14 @@ define internal range(i32 0, 23) i32 @opt_lg_tcache_flush_large_div_ctl(ptr read
 
 19:                                               ; preds = %17, %7, %18, %11
   %.018 = phi i32 [ 22, %17 ], [ 1, %7 ], [ 0, %18 ], [ 0, %11 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 23) i32 @opt_thp_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #12 {
+define internal range(i32 0, 23) i32 @opt_thp_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #11 {
   %8 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp ne ptr %5, null
   %10 = icmp ne i64 %6, 0
   %or.cond = or i1 %9, %10
@@ -6005,14 +5999,14 @@ define internal range(i32 0, 23) i32 @opt_thp_ctl(ptr readnone captures(none) %0
 
 22:                                               ; preds = %20, %7, %21, %11
   %.018 = phi i32 [ 22, %20 ], [ 1, %7 ], [ 0, %21 ], [ 0, %11 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 23) i32 @opt_lg_extent_max_active_fit_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #12 {
+define internal range(i32 0, 23) i32 @opt_lg_extent_max_active_fit_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #11 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp ne ptr %5, null
   %10 = icmp ne i64 %6, 0
   %or.cond = or i1 %9, %10
@@ -6043,94 +6037,94 @@ define internal range(i32 0, 23) i32 @opt_lg_extent_max_active_fit_ctl(ptr readn
 
 19:                                               ; preds = %17, %7, %18, %11
   %.018 = phi i32 [ 22, %17 ], [ 1, %7 ], [ 0, %18 ], [ 0, %11 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @opt_prof_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5, i64 %6) #3 {
+define internal noundef i32 @opt_prof_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5, i64 %6) #2 {
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @opt_prof_prefix_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5, i64 %6) #3 {
+define internal noundef i32 @opt_prof_prefix_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5, i64 %6) #2 {
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @opt_prof_active_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5, i64 %6) #3 {
+define internal noundef i32 @opt_prof_active_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5, i64 %6) #2 {
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @opt_prof_thread_active_init_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5, i64 %6) #3 {
+define internal noundef i32 @opt_prof_thread_active_init_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5, i64 %6) #2 {
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @opt_lg_prof_sample_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5, i64 %6) #3 {
+define internal noundef i32 @opt_lg_prof_sample_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5, i64 %6) #2 {
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @opt_lg_prof_interval_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5, i64 %6) #3 {
+define internal noundef i32 @opt_lg_prof_interval_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5, i64 %6) #2 {
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @opt_prof_gdump_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5, i64 %6) #3 {
+define internal noundef i32 @opt_prof_gdump_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5, i64 %6) #2 {
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @opt_prof_final_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5, i64 %6) #3 {
+define internal noundef i32 @opt_prof_final_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5, i64 %6) #2 {
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @opt_prof_leak_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5, i64 %6) #3 {
+define internal noundef i32 @opt_prof_leak_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5, i64 %6) #2 {
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @opt_prof_leak_error_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5, i64 %6) #3 {
+define internal noundef i32 @opt_prof_leak_error_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5, i64 %6) #2 {
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @opt_prof_accum_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5, i64 %6) #3 {
+define internal noundef i32 @opt_prof_accum_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5, i64 %6) #2 {
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @opt_prof_recent_alloc_max_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5, i64 %6) #3 {
+define internal noundef i32 @opt_prof_recent_alloc_max_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5, i64 %6) #2 {
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @opt_prof_stats_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5, i64 %6) #3 {
+define internal noundef i32 @opt_prof_stats_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5, i64 %6) #2 {
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @opt_prof_sys_thread_name_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5, i64 %6) #3 {
+define internal noundef i32 @opt_prof_sys_thread_name_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5, i64 %6) #2 {
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @opt_prof_time_res_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5, i64 %6) #3 {
+define internal noundef i32 @opt_prof_time_res_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5, i64 %6) #2 {
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @opt_lg_san_uaf_align_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5, i64 %6) #3 {
+define internal noundef i32 @opt_lg_san_uaf_align_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5, i64 %6) #2 {
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 23) i32 @opt_zero_realloc_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #12 {
+define internal range(i32 0, 23) i32 @opt_zero_realloc_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #11 {
   %8 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp ne ptr %5, null
   %10 = icmp ne i64 %6, 0
   %or.cond = or i1 %9, %10
@@ -6164,14 +6158,14 @@ define internal range(i32 0, 23) i32 @opt_zero_realloc_ctl(ptr readnone captures
 
 22:                                               ; preds = %20, %7, %21, %11
   %.018 = phi i32 [ 22, %20 ], [ 1, %7 ], [ 0, %21 ], [ 0, %11 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @tcache_create_ctl(ptr noundef %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp ne ptr %5, null
   %10 = icmp ne i64 %6, 0
   %or.cond = or i1 %9, %10
@@ -6215,7 +6209,7 @@ define internal range(i32 0, 23) i32 @tcache_create_ctl(ptr noundef %0, ptr read
 
 25:                                               ; preds = %16, %23, %22, %7, %17
   %.024 = phi i32 [ 22, %16 ], [ 22, %22 ], [ 0, %23 ], [ 1, %7 ], [ 14, %17 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.024
 }
 
@@ -6265,11 +6259,11 @@ define internal range(i32 0, 23) i32 @tcache_destroy_ctl(ptr noundef %0, ptr rea
   ret i32 %.0
 }
 
-declare zeroext i1 @je_tcaches_create(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @je_tcaches_create(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @je_tcaches_flush(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @je_tcaches_flush(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @je_tcaches_destroy(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @je_tcaches_destroy(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @arena_i_index(ptr noundef %0, ptr readnone captures(none) %1, i64 %2, i64 noundef %3) #0 {
@@ -6323,7 +6317,7 @@ malloc_mutex_lock.exit:                           ; preds = %7, %11
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @arena_i_initialized_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp ne ptr %5, null
   %10 = icmp ne i64 %6, 0
   %or.cond = or i1 %9, %10
@@ -6431,7 +6425,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
 
 54:                                               ; preds = %51, %7, %11, %53, %arenas_i.exit
   %.024 = phi i32 [ 22, %51 ], [ 1, %7 ], [ 14, %11 ], [ 0, %53 ], [ 0, %arenas_i.exit ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.024
 }
 
@@ -6798,7 +6792,7 @@ arena_i_reset_destroy_helper.exit.thread:         ; preds = %arena_get.exit.i, %
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @arena_i_dss_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8, !tbaa !38
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
@@ -6942,12 +6936,12 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   %.042 = phi i32 [ 22, %64 ], [ 22, %18 ], [ 14, %19 ], [ 14, %43 ], [ 0, %65 ], [ 0, %56 ], [ 14, %52 ], [ 14, %47 ], [ 14, %.thread ], [ 22, %32 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %66 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.042
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 23) i32 @arena_i_oversize_threshold_ctl(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i64 noundef %6) #13 {
+define internal range(i32 0, 23) i32 @arena_i_oversize_threshold_ctl(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i64 noundef %6) #12 {
   %8 = alloca i64, align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load i64, ptr %9, align 8, !tbaa !4
@@ -6968,7 +6962,7 @@ define internal range(i32 0, 23) i32 @arena_i_oversize_threshold_ctl(ptr readnon
   br i1 %or.cond, label %19, label %24
 
 19:                                               ; preds = %16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %20 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 69312
   %21 = load atomic i64, ptr %20 monotonic, align 8
   store i64 %21, ptr %8, align 8, !tbaa !4
@@ -6978,14 +6972,14 @@ define internal range(i32 0, 23) i32 @arena_i_oversize_threshold_ctl(ptr readnon
 
 .thread:                                          ; preds = %19
   store i64 %21, ptr %3, align 8, !tbaa !4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %24
 
 23:                                               ; preds = %19
   %spec.select = tail call i64 @llvm.umin.i64(i64 %22, i64 8)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %3, ptr nonnull align 8 %8, i64 %spec.select, i1 false)
   store i64 %spec.select, ptr %4, align 8, !tbaa !4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %arena_get.exit.thread
 
 24:                                               ; preds = %.thread, %16
@@ -7030,7 +7024,7 @@ define internal range(i32 0, 23) i32 @arena_i_dirty_decay_ms_ctl(ptr noundef %0,
   br i1 %or.cond.i, label %19, label %23
 
 19:                                               ; preds = %16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %20 = tail call i64 @je_arena_decay_ms_get(ptr noundef nonnull %.0.i.i.i, i32 noundef 1) #15
   store i64 %20, ptr %8, align 8, !tbaa !4
   %21 = load i64, ptr %4, align 8, !tbaa !4
@@ -7039,14 +7033,14 @@ define internal range(i32 0, 23) i32 @arena_i_dirty_decay_ms_ctl(ptr noundef %0,
 
 .thread.i:                                        ; preds = %19
   store i64 %20, ptr %3, align 8, !tbaa !4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %23
 
 22:                                               ; preds = %19
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %21, i64 8)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %3, ptr nonnull align 8 %8, i64 %spec.select.i, i1 false)
   store i64 %spec.select.i, ptr %4, align 8, !tbaa !4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %arena_i_decay_ms_ctl_impl.exit
 
 23:                                               ; preds = %.thread.i, %16
@@ -7108,7 +7102,7 @@ define internal range(i32 0, 23) i32 @arena_i_muzzy_decay_ms_ctl(ptr noundef %0,
   br i1 %or.cond.i, label %19, label %23
 
 19:                                               ; preds = %16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %20 = tail call i64 @je_arena_decay_ms_get(ptr noundef nonnull %.0.i.i.i, i32 noundef 2) #15
   store i64 %20, ptr %8, align 8, !tbaa !4
   %21 = load i64, ptr %4, align 8, !tbaa !4
@@ -7117,14 +7111,14 @@ define internal range(i32 0, 23) i32 @arena_i_muzzy_decay_ms_ctl(ptr noundef %0,
 
 .thread.i:                                        ; preds = %19
   store i64 %20, ptr %3, align 8, !tbaa !4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %23
 
 22:                                               ; preds = %19
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %21, i64 8)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %3, ptr nonnull align 8 %8, i64 %spec.select.i, i1 false)
   store i64 %spec.select.i, ptr %4, align 8, !tbaa !4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %arena_i_decay_ms_ctl_impl.exit
 
 23:                                               ; preds = %.thread.i, %16
@@ -7204,7 +7198,7 @@ malloc_mutex_lock.exit:                           ; preds = %12, %16
   br i1 %25, label %26, label %60
 
 26:                                               ; preds = %22
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %27 = getelementptr inbounds nuw [0 x %struct.atomic_p_t], ptr @je_arenas, i64 0, i64 %20
   %28 = load atomic i64, ptr %27 acquire, align 8
   %.0.i.i = inttoptr i64 %28 to ptr
@@ -7242,12 +7236,12 @@ arena_get.exit.thread:                            ; preds = %26
 
 39:                                               ; preds = %38
   %40 = load ptr, ptr %5, align 8, !tbaa !210
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) @je_arena_config_default, i64 16, i1 false), !tbaa.struct !212
   store ptr %40, ptr %9, align 8, !tbaa !213
   %41 = call ptr @je_arena_init(ptr noundef %0, i32 noundef %23, ptr noundef nonnull %9) #15
   %42 = icmp eq ptr %41, null
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br i1 %42, label %.sink.split, label %.thread104
 
 43:                                               ; preds = %26
@@ -7305,7 +7299,7 @@ arena_get.exit.thread:                            ; preds = %26
 
 .sink.split:                                      ; preds = %39, %38, %44, %arena_get.exit.thread, %.thread108.sink.split, %.thread104
   %.068.ph = phi i32 [ 0, %.thread104 ], [ 22, %44 ], [ 14, %arena_get.exit.thread ], [ 22, %38 ], [ 14, %39 ], [ 22, %.thread108.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %60
 
 60:                                               ; preds = %.sink.split, %malloc_mutex_lock.exit, %22
@@ -7368,8 +7362,8 @@ malloc_mutex_lock.exit:                           ; preds = %15, %19
   br i1 %.not, label %arena_get.exit.thread, label %32, !prof !209
 
 32:                                               ; preds = %29
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %.not40 = icmp eq ptr %5, null
   br i1 %.not40, label %36, label %33
 
@@ -7411,8 +7405,8 @@ malloc_mutex_lock.exit:                           ; preds = %15, %19
 
 46:                                               ; preds = %43, %36, %38, %44, %33
   %.1 = phi i32 [ 22, %33 ], [ 22, %43 ], [ 0, %44 ], [ 0, %38 ], [ 14, %36 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %arena_get.exit.thread
 
 arena_get.exit.thread:                            ; preds = %29, %25, %46, %malloc_mutex_lock.exit
@@ -7619,41 +7613,41 @@ malloc_mutex_lock.exit8:                          ; preds = %25, %31
   ret void
 }
 
-declare void @je_arena_reset(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @je_arena_reset(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @je_arena_nthreads_get(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare i32 @je_arena_nthreads_get(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare void @je_arena_destroy(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @je_arena_destroy(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #9
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
-declare zeroext i1 @je_extent_dss_prec_set(i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @je_extent_dss_prec_set(i32 noundef) local_unnamed_addr #1
 
-declare i32 @je_extent_dss_prec_get() local_unnamed_addr #2
+declare i32 @je_extent_dss_prec_get() local_unnamed_addr #1
 
-declare zeroext i1 @je_arena_dss_prec_set(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @je_arena_dss_prec_set(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @je_arena_dss_prec_get(ptr noundef) local_unnamed_addr #2
+declare i32 @je_arena_dss_prec_get(ptr noundef) local_unnamed_addr #1
 
-declare i64 @je_arena_decay_ms_get(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i64 @je_arena_decay_ms_get(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @je_arena_is_huge(i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @je_arena_is_huge(i32 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @je_background_thread_create(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @je_background_thread_create(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @je_arena_decay_ms_set(ptr noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
+declare zeroext i1 @je_arena_decay_ms_set(ptr noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
-declare ptr @je_arena_set_extent_hooks(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @je_arena_set_extent_hooks(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @je_arena_get_ehooks(ptr noundef) local_unnamed_addr #2
+declare ptr @je_arena_get_ehooks(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @je_arena_retain_grow_limit_get_set(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @je_arena_retain_grow_limit_get_set(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @arenas_narenas_ctl(ptr noundef %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -7713,7 +7707,7 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.020
 }
 
@@ -7726,7 +7720,7 @@ define internal range(i32 0, 23) i32 @arenas_dirty_decay_ms_ctl(ptr readnone cap
   br i1 %or.cond.i, label %11, label %15
 
 11:                                               ; preds = %7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %12 = tail call i64 @je_arena_dirty_decay_ms_default_get() #15
   store i64 %12, ptr %8, align 8, !tbaa !4
   %13 = load i64, ptr %4, align 8, !tbaa !4
@@ -7735,14 +7729,14 @@ define internal range(i32 0, 23) i32 @arenas_dirty_decay_ms_ctl(ptr readnone cap
 
 .thread.i:                                        ; preds = %11
   store i64 %12, ptr %3, align 8, !tbaa !4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %15
 
 14:                                               ; preds = %11
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %13, i64 8)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %3, ptr nonnull align 8 %8, i64 %spec.select.i, i1 false)
   store i64 %spec.select.i, ptr %4, align 8, !tbaa !4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %arenas_decay_ms_ctl_impl.exit
 
 15:                                               ; preds = %.thread.i, %7
@@ -7775,7 +7769,7 @@ define internal range(i32 0, 23) i32 @arenas_muzzy_decay_ms_ctl(ptr readnone cap
   br i1 %or.cond.i, label %11, label %15
 
 11:                                               ; preds = %7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %12 = tail call i64 @je_arena_muzzy_decay_ms_default_get() #15
   store i64 %12, ptr %8, align 8, !tbaa !4
   %13 = load i64, ptr %4, align 8, !tbaa !4
@@ -7784,14 +7778,14 @@ define internal range(i32 0, 23) i32 @arenas_muzzy_decay_ms_ctl(ptr readnone cap
 
 .thread.i:                                        ; preds = %11
   store i64 %12, ptr %3, align 8, !tbaa !4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %15
 
 14:                                               ; preds = %11
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %13, i64 8)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %3, ptr nonnull align 8 %8, i64 %spec.select.i, i1 false)
   store i64 %spec.select.i, ptr %4, align 8, !tbaa !4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %arenas_decay_ms_ctl_impl.exit
 
 15:                                               ; preds = %.thread.i, %7
@@ -7816,9 +7810,9 @@ arenas_decay_ms_ctl_impl.exit:                    ; preds = %14, %16, %17, %20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 23) i32 @arenas_quantum_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #10 {
+define internal range(i32 0, 23) i32 @arenas_quantum_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #9 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp ne ptr %5, null
   %10 = icmp ne i64 %6, 0
   %or.cond = or i1 %9, %10
@@ -7848,14 +7842,14 @@ define internal range(i32 0, 23) i32 @arenas_quantum_ctl(ptr readnone captures(n
 
 18:                                               ; preds = %16, %7, %17, %11
   %.018 = phi i32 [ 22, %16 ], [ 1, %7 ], [ 0, %17 ], [ 0, %11 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 23) i32 @arenas_page_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #10 {
+define internal range(i32 0, 23) i32 @arenas_page_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #9 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp ne ptr %5, null
   %10 = icmp ne i64 %6, 0
   %or.cond = or i1 %9, %10
@@ -7885,14 +7879,14 @@ define internal range(i32 0, 23) i32 @arenas_page_ctl(ptr readnone captures(none
 
 18:                                               ; preds = %16, %7, %17, %11
   %.018 = phi i32 [ 22, %16 ], [ 1, %7 ], [ 0, %17 ], [ 0, %11 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 23) i32 @arenas_tcache_max_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #12 {
+define internal range(i32 0, 23) i32 @arenas_tcache_max_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #11 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp ne ptr %5, null
   %10 = icmp ne i64 %6, 0
   %or.cond = or i1 %9, %10
@@ -7923,14 +7917,14 @@ define internal range(i32 0, 23) i32 @arenas_tcache_max_ctl(ptr readnone capture
 
 19:                                               ; preds = %17, %7, %18, %11
   %.018 = phi i32 [ 22, %17 ], [ 1, %7 ], [ 0, %18 ], [ 0, %11 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 23) i32 @arenas_nbins_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #10 {
+define internal range(i32 0, 23) i32 @arenas_nbins_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #9 {
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp ne ptr %5, null
   %10 = icmp ne i64 %6, 0
   %or.cond = or i1 %9, %10
@@ -7960,14 +7954,14 @@ define internal range(i32 0, 23) i32 @arenas_nbins_ctl(ptr readnone captures(non
 
 18:                                               ; preds = %16, %7, %17, %11
   %.018 = phi i32 [ 22, %16 ], [ 1, %7 ], [ 0, %17 ], [ 0, %11 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 23) i32 @arenas_nhbins_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #12 {
+define internal range(i32 0, 23) i32 @arenas_nhbins_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #11 {
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp ne ptr %5, null
   %10 = icmp ne i64 %6, 0
   %or.cond = or i1 %9, %10
@@ -7998,14 +7992,14 @@ define internal range(i32 0, 23) i32 @arenas_nhbins_ctl(ptr readnone captures(no
 
 19:                                               ; preds = %17, %7, %18, %11
   %.018 = phi i32 [ 22, %17 ], [ 1, %7 ], [ 0, %18 ], [ 0, %11 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 23) i32 @arenas_nlextents_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #10 {
+define internal range(i32 0, 23) i32 @arenas_nlextents_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #9 {
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp ne ptr %5, null
   %10 = icmp ne i64 %6, 0
   %or.cond = or i1 %9, %10
@@ -8035,7 +8029,7 @@ define internal range(i32 0, 23) i32 @arenas_nlextents_ctl(ptr readnone captures
 
 18:                                               ; preds = %16, %7, %17, %11
   %.018 = phi i32 [ 22, %16 ], [ 1, %7 ], [ 0, %17 ], [ 0, %11 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.018
 }
 
@@ -8043,7 +8037,7 @@ define internal range(i32 0, 23) i32 @arenas_nlextents_ctl(ptr readnone captures
 define internal range(i32 0, 23) i32 @arenas_create_ctl(ptr noundef %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i32, align 4
   %9 = alloca %struct.arena_config_s, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %10 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %10, 0
   br i1 %.not.i, label %12, label %11
@@ -8122,7 +8116,7 @@ malloc_mutex_lock.exit:                           ; preds = %12, %16
   %.026 = phi i32 [ 22, %23 ], [ 22, %33 ], [ 0, %34 ], [ 22, %25 ], [ 11, %28 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %36 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.026
 }
 
@@ -8130,7 +8124,7 @@ malloc_mutex_lock.exit:                           ; preds = %12, %16
 define internal range(i32 0, 23) i32 @arenas_lookup_ctl(ptr noundef %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca %struct.rtree_ctx_s, align 8
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %10, 0
   br i1 %.not.i, label %12, label %11
@@ -8170,7 +8164,7 @@ malloc_mutex_lock.exit:                           ; preds = %12, %16
 
 23:                                               ; preds = %20, %malloc_mutex_lock.exit
   %.026 = phi i64 [ %22, %20 ], [ 0, %malloc_mutex_lock.exit ]
-  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %8) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %24 = icmp eq ptr %0, null
   br i1 %24, label %25, label %26, !prof !59
 
@@ -8264,7 +8258,7 @@ rtree_read.exit:                                  ; preds = %34, %44, %56, %70
   %73 = shl i64 %72, 16
   %74 = ashr exact i64 %73, 16
   %75 = and i64 %74, -128
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %8) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %76 = icmp eq i64 %75, 0
   br i1 %76, label %91, label %77
 
@@ -8306,29 +8300,29 @@ rtree_read.exit:                                  ; preds = %34, %44, %56, %70
   %.025 = phi i32 [ 22, %rtree_read.exit ], [ 22, %77 ], [ 22, %89 ], [ 22, %19 ], [ 0, %90 ], [ 0, %83 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %92 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.025
 }
 
-declare i64 @je_arena_dirty_decay_ms_default_get() local_unnamed_addr #2
+declare i64 @je_arena_dirty_decay_ms_default_get() local_unnamed_addr #1
 
-declare i64 @je_arena_muzzy_decay_ms_default_get() local_unnamed_addr #2
+declare i64 @je_arena_muzzy_decay_ms_default_get() local_unnamed_addr #1
 
-declare zeroext i1 @je_arena_dirty_decay_ms_default_set(i64 noundef) local_unnamed_addr #2
+declare zeroext i1 @je_arena_dirty_decay_ms_default_set(i64 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @je_arena_muzzy_decay_ms_default_set(i64 noundef) local_unnamed_addr #2
+declare zeroext i1 @je_arena_muzzy_decay_ms_default_set(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef ptr @arenas_bin_i_index(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, i64 noundef %3) #3 {
+define internal noundef ptr @arenas_bin_i_index(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, i64 noundef %3) #2 {
   %5 = icmp ugt i64 %3, 39
   %.super_arenas_bin_i_node = select i1 %5, ptr null, ptr @super_arenas_bin_i_node
   ret ptr %.super_arenas_bin_i_node
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 23) i32 @arenas_bin_i_size_ctl(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #12 {
+define internal range(i32 0, 23) i32 @arenas_bin_i_size_ctl(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #11 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp ne ptr %5, null
   %10 = icmp ne i64 %6, 0
   %or.cond = or i1 %9, %10
@@ -8362,14 +8356,14 @@ define internal range(i32 0, 23) i32 @arenas_bin_i_size_ctl(ptr readnone capture
 
 22:                                               ; preds = %20, %7, %21, %11
   %.019 = phi i32 [ 22, %20 ], [ 1, %7 ], [ 0, %21 ], [ 0, %11 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.019
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 23) i32 @arenas_bin_i_nregs_ctl(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #12 {
+define internal range(i32 0, 23) i32 @arenas_bin_i_nregs_ctl(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #11 {
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp ne ptr %5, null
   %10 = icmp ne i64 %6, 0
   %or.cond = or i1 %9, %10
@@ -8403,14 +8397,14 @@ define internal range(i32 0, 23) i32 @arenas_bin_i_nregs_ctl(ptr readnone captur
 
 22:                                               ; preds = %20, %7, %21, %11
   %.019 = phi i32 [ 22, %20 ], [ 1, %7 ], [ 0, %21 ], [ 0, %11 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.019
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 23) i32 @arenas_bin_i_slab_size_ctl(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #12 {
+define internal range(i32 0, 23) i32 @arenas_bin_i_slab_size_ctl(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #11 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp ne ptr %5, null
   %10 = icmp ne i64 %6, 0
   %or.cond = or i1 %9, %10
@@ -8444,14 +8438,14 @@ define internal range(i32 0, 23) i32 @arenas_bin_i_slab_size_ctl(ptr readnone ca
 
 22:                                               ; preds = %20, %7, %21, %11
   %.019 = phi i32 [ 22, %20 ], [ 1, %7 ], [ 0, %21 ], [ 0, %11 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.019
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 23) i32 @arenas_bin_i_nshards_ctl(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #12 {
+define internal range(i32 0, 23) i32 @arenas_bin_i_nshards_ctl(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #11 {
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp ne ptr %5, null
   %10 = icmp ne i64 %6, 0
   %or.cond = or i1 %9, %10
@@ -8485,21 +8479,21 @@ define internal range(i32 0, 23) i32 @arenas_bin_i_nshards_ctl(ptr readnone capt
 
 22:                                               ; preds = %20, %7, %21, %11
   %.019 = phi i32 [ 22, %20 ], [ 1, %7 ], [ 0, %21 ], [ 0, %11 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.019
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef ptr @arenas_lextent_i_index(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, i64 noundef %3) #3 {
+define internal noundef ptr @arenas_lextent_i_index(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, i64 noundef %3) #2 {
   %5 = icmp ugt i64 %3, 196
   %.super_arenas_lextent_i_node = select i1 %5, ptr null, ptr @super_arenas_lextent_i_node
   ret ptr %.super_arenas_lextent_i_node
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 23) i32 @arenas_lextent_i_size_ctl(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #12 {
+define internal range(i32 0, 23) i32 @arenas_lextent_i_size_ctl(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #11 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp ne ptr %5, null
   %10 = icmp ne i64 %6, 0
   %or.cond = or i1 %9, %10
@@ -8535,7 +8529,7 @@ define internal range(i32 0, 23) i32 @arenas_lextent_i_size_ctl(ptr readnone cap
 
 24:                                               ; preds = %22, %7, %23, %11
   %.019 = phi i32 [ 22, %22 ], [ 1, %7 ], [ 0, %23 ], [ 0, %11 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.019
 }
 
@@ -8671,74 +8665,74 @@ arenas_i_impl.exit:                               ; preds = %40, %56, %61, %53
   ret i32 %.0
 }
 
-declare void @je_rtree_ctx_data_init(ptr noundef) local_unnamed_addr #2
+declare void @je_rtree_ctx_data_init(ptr noundef) local_unnamed_addr #1
 
-declare ptr @je_rtree_leaf_elm_lookup_hard(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #2
+declare ptr @je_rtree_leaf_elm_lookup_hard(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @prof_thread_active_init_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5, i64 %6) #3 {
+define internal noundef i32 @prof_thread_active_init_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5, i64 %6) #2 {
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @prof_active_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5, i64 %6) #3 {
+define internal noundef i32 @prof_active_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5, i64 %6) #2 {
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @prof_dump_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5, i64 %6) #3 {
+define internal noundef i32 @prof_dump_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5, i64 %6) #2 {
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @prof_gdump_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5, i64 %6) #3 {
+define internal noundef i32 @prof_gdump_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5, i64 %6) #2 {
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @prof_prefix_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5, i64 %6) #3 {
+define internal noundef i32 @prof_prefix_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5, i64 %6) #2 {
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @prof_reset_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5, i64 %6) #3 {
+define internal noundef i32 @prof_reset_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5, i64 %6) #2 {
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @prof_interval_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5, i64 %6) #3 {
+define internal noundef i32 @prof_interval_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5, i64 %6) #2 {
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @lg_prof_sample_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5, i64 %6) #3 {
+define internal noundef i32 @lg_prof_sample_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5, i64 %6) #2 {
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @prof_log_start_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5, i64 %6) #3 {
+define internal noundef i32 @prof_log_start_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5, i64 %6) #2 {
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @prof_log_stop_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5, i64 %6) #3 {
+define internal noundef i32 @prof_log_stop_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5, i64 %6) #2 {
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noalias noundef ptr @prof_stats_bins_i_index(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, i64 %3) #3 {
+define internal noalias noundef ptr @prof_stats_bins_i_index(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, i64 %3) #2 {
   ret ptr null
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noalias noundef ptr @prof_stats_lextents_i_index(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, i64 %3) #3 {
+define internal noalias noundef ptr @prof_stats_lextents_i_index(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, i64 %3) #2 {
   ret ptr null
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_allocated_ctl(ptr noundef %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -8797,14 +8791,14 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   %.020 = phi i32 [ 22, %27 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %28 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %30 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.020
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_active_ctl(ptr noundef %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -8864,14 +8858,14 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.020
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_metadata_ctl(ptr noundef %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -8931,14 +8925,14 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.020
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_metadata_thp_ctl(ptr noundef %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -8998,14 +8992,14 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.020
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_resident_ctl(ptr noundef %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -9065,14 +9059,14 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.020
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_mapped_ctl(ptr noundef %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -9132,14 +9126,14 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.020
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_retained_ctl(ptr noundef %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -9199,14 +9193,14 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.020
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_zero_reallocs_ctl(ptr noundef %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -9264,14 +9258,14 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   %.020 = phi i32 [ 22, %26 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %27 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %29 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.020
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_background_thread_num_threads_ctl(ptr noundef %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -9331,14 +9325,14 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.020
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_background_thread_num_runs_ctl(ptr noundef %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -9398,14 +9392,14 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.020
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_background_thread_run_interval_ctl(ptr noundef %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -9465,11 +9459,11 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.020
 }
 
-declare i64 @je_nstime_ns(ptr noundef) local_unnamed_addr #2
+declare i64 @je_nstime_ns(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @stats_mutexes_reset_ctl(ptr noundef %0, ptr readnone captures(none) %1, i64 %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5, i64 %6) #0 {
@@ -9944,7 +9938,7 @@ arena_get.exit.thread:                            ; preds = %._crit_edge, %.lr.p
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_mutexes_background_thread_num_ops_ctl(ptr noundef %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -10004,14 +9998,14 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.020
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_mutexes_background_thread_num_wait_ctl(ptr noundef %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -10071,14 +10065,14 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.020
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_mutexes_background_thread_num_spin_acq_ctl(ptr noundef %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -10138,14 +10132,14 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.020
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_mutexes_background_thread_num_owner_switch_ctl(ptr noundef %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -10205,14 +10199,14 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.020
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_mutexes_background_thread_total_wait_time_ctl(ptr noundef %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -10272,14 +10266,14 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.020
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_mutexes_background_thread_max_wait_time_ctl(ptr noundef %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -10339,14 +10333,14 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.020
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_mutexes_background_thread_max_num_thds_ctl(ptr noundef %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -10406,14 +10400,14 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.020
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_mutexes_max_per_bg_thd_num_ops_ctl(ptr noundef %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -10473,14 +10467,14 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.020
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_mutexes_max_per_bg_thd_num_wait_ctl(ptr noundef %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -10540,14 +10534,14 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.020
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_mutexes_max_per_bg_thd_num_spin_acq_ctl(ptr noundef %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -10607,14 +10601,14 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.020
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_mutexes_max_per_bg_thd_num_owner_switch_ctl(ptr noundef %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -10674,14 +10668,14 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.020
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_mutexes_max_per_bg_thd_total_wait_time_ctl(ptr noundef %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -10741,14 +10735,14 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.020
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_mutexes_max_per_bg_thd_max_wait_time_ctl(ptr noundef %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -10808,14 +10802,14 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.020
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_mutexes_max_per_bg_thd_max_num_thds_ctl(ptr noundef %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -10875,14 +10869,14 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.020
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_mutexes_ctl_num_ops_ctl(ptr noundef %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -10942,14 +10936,14 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.020
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_mutexes_ctl_num_wait_ctl(ptr noundef %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -11009,14 +11003,14 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.020
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_mutexes_ctl_num_spin_acq_ctl(ptr noundef %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -11076,14 +11070,14 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.020
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_mutexes_ctl_num_owner_switch_ctl(ptr noundef %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -11143,14 +11137,14 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.020
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_mutexes_ctl_total_wait_time_ctl(ptr noundef %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -11210,14 +11204,14 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.020
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_mutexes_ctl_max_wait_time_ctl(ptr noundef %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -11277,14 +11271,14 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.020
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_mutexes_ctl_max_num_thds_ctl(ptr noundef %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -11344,14 +11338,14 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.020
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_mutexes_prof_num_ops_ctl(ptr noundef %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -11411,14 +11405,14 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.020
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_mutexes_prof_num_wait_ctl(ptr noundef %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -11478,14 +11472,14 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.020
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_mutexes_prof_num_spin_acq_ctl(ptr noundef %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -11545,14 +11539,14 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.020
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_mutexes_prof_num_owner_switch_ctl(ptr noundef %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -11612,14 +11606,14 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.020
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_mutexes_prof_total_wait_time_ctl(ptr noundef %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -11679,14 +11673,14 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.020
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_mutexes_prof_max_wait_time_ctl(ptr noundef %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -11746,14 +11740,14 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.020
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_mutexes_prof_max_num_thds_ctl(ptr noundef %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -11813,14 +11807,14 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.020
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_mutexes_prof_thds_data_num_ops_ctl(ptr noundef %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -11880,14 +11874,14 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.020
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_mutexes_prof_thds_data_num_wait_ctl(ptr noundef %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -11947,14 +11941,14 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.020
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_mutexes_prof_thds_data_num_spin_acq_ctl(ptr noundef %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -12014,14 +12008,14 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.020
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_mutexes_prof_thds_data_num_owner_switch_ctl(ptr noundef %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -12081,14 +12075,14 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.020
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_mutexes_prof_thds_data_total_wait_time_ctl(ptr noundef %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -12148,14 +12142,14 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.020
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_mutexes_prof_thds_data_max_wait_time_ctl(ptr noundef %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -12215,14 +12209,14 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.020
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_mutexes_prof_thds_data_max_num_thds_ctl(ptr noundef %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -12282,14 +12276,14 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.020
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_mutexes_prof_dump_num_ops_ctl(ptr noundef %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -12349,14 +12343,14 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.020
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_mutexes_prof_dump_num_wait_ctl(ptr noundef %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -12416,14 +12410,14 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.020
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_mutexes_prof_dump_num_spin_acq_ctl(ptr noundef %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -12483,14 +12477,14 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.020
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_mutexes_prof_dump_num_owner_switch_ctl(ptr noundef %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -12550,14 +12544,14 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.020
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_mutexes_prof_dump_total_wait_time_ctl(ptr noundef %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -12617,14 +12611,14 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.020
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_mutexes_prof_dump_max_wait_time_ctl(ptr noundef %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -12684,14 +12678,14 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.020
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_mutexes_prof_dump_max_num_thds_ctl(ptr noundef %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -12751,14 +12745,14 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.020
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_mutexes_prof_recent_alloc_num_ops_ctl(ptr noundef %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -12818,14 +12812,14 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.020
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_mutexes_prof_recent_alloc_num_wait_ctl(ptr noundef %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -12885,14 +12879,14 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.020
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_mutexes_prof_recent_alloc_num_spin_acq_ctl(ptr noundef %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -12952,14 +12946,14 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.020
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_mutexes_prof_recent_alloc_num_owner_switch_ctl(ptr noundef %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -13019,14 +13013,14 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.020
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_mutexes_prof_recent_alloc_total_wait_time_ctl(ptr noundef %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -13086,14 +13080,14 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.020
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_mutexes_prof_recent_alloc_max_wait_time_ctl(ptr noundef %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -13153,14 +13147,14 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.020
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_mutexes_prof_recent_alloc_max_num_thds_ctl(ptr noundef %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -13220,14 +13214,14 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.020
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_mutexes_prof_recent_dump_num_ops_ctl(ptr noundef %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -13287,14 +13281,14 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.020
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_mutexes_prof_recent_dump_num_wait_ctl(ptr noundef %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -13354,14 +13348,14 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.020
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_mutexes_prof_recent_dump_num_spin_acq_ctl(ptr noundef %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -13421,14 +13415,14 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.020
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_mutexes_prof_recent_dump_num_owner_switch_ctl(ptr noundef %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -13488,14 +13482,14 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.020
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_mutexes_prof_recent_dump_total_wait_time_ctl(ptr noundef %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -13555,14 +13549,14 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.020
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_mutexes_prof_recent_dump_max_wait_time_ctl(ptr noundef %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -13622,14 +13616,14 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.020
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_mutexes_prof_recent_dump_max_num_thds_ctl(ptr noundef %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -13689,14 +13683,14 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.020
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_mutexes_prof_stats_num_ops_ctl(ptr noundef %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -13756,14 +13750,14 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.020
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_mutexes_prof_stats_num_wait_ctl(ptr noundef %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -13823,14 +13817,14 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.020
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_mutexes_prof_stats_num_spin_acq_ctl(ptr noundef %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -13890,14 +13884,14 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.020
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_mutexes_prof_stats_num_owner_switch_ctl(ptr noundef %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -13957,14 +13951,14 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.020
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_mutexes_prof_stats_total_wait_time_ctl(ptr noundef %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -14024,14 +14018,14 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.020
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_mutexes_prof_stats_max_wait_time_ctl(ptr noundef %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -14091,14 +14085,14 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.020
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_mutexes_prof_stats_max_num_thds_ctl(ptr noundef %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -14158,11 +14152,11 @@ malloc_mutex_lock.exit:                           ; preds = %11, %15
   %.020 = phi i32 [ 22, %28 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %29 ], [ 0, %20 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.020
 }
 
-declare void @je_malloc_mutex_prof_data_reset(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @je_malloc_mutex_prof_data_reset(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @stats_arenas_i_index(ptr noundef %0, ptr readnone captures(none) %1, i64 %2, i64 noundef %3) #0 {
@@ -14240,7 +14234,7 @@ ctl_arenas_i_verify.exit.thread:                  ; preds = %21, %ctl_arenas_i_v
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_nthreads_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -14338,14 +14332,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %47 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %48 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %50 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_uptime_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -14445,14 +14439,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_dss_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -14550,14 +14544,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %47 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %48 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %50 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_dirty_decay_ms_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -14655,14 +14649,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %47 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %48 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %50 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_muzzy_decay_ms_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -14760,14 +14754,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %47 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %48 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %50 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_pactive_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -14865,14 +14859,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %47 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %48 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %50 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_pdirty_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -14970,14 +14964,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %47 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %48 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %50 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_pmuzzy_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -15075,14 +15069,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %47 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %48 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %50 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_mapped_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -15182,14 +15176,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_retained_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -15289,14 +15283,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_extent_avail_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -15396,14 +15390,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_dirty_npurge_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -15503,14 +15497,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_dirty_nmadvise_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -15610,14 +15604,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_dirty_purged_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -15717,14 +15711,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_muzzy_npurge_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -15824,14 +15818,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_muzzy_nmadvise_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -15931,14 +15925,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_muzzy_purged_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -16038,14 +16032,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_base_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -16144,14 +16138,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %48 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %49 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %51 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_internal_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -16251,14 +16245,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_metadata_thp_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -16358,14 +16352,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_tcache_bytes_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -16465,14 +16459,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_tcache_stashed_bytes_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -16572,14 +16566,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_resident_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -16679,14 +16673,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_abandoned_vm_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -16786,14 +16780,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_hpa_sec_bytes_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -16893,14 +16887,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_small_allocated_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -17000,14 +16994,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_small_nmalloc_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -17107,14 +17101,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_small_ndalloc_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -17214,14 +17208,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_small_nrequests_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -17321,14 +17315,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_small_nfills_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -17428,14 +17422,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_small_nflushes_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -17535,14 +17529,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_large_allocated_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -17642,14 +17636,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_large_nmalloc_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -17749,14 +17743,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_large_ndalloc_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -17856,14 +17850,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_large_nrequests_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -17963,14 +17957,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_large_nfills_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -18070,14 +18064,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_large_nflushes_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -18177,12 +18171,12 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef ptr @stats_arenas_i_bins_j_index(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, i64 noundef %3) #3 {
+define internal noundef ptr @stats_arenas_i_bins_j_index(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, i64 noundef %3) #2 {
   %5 = icmp ugt i64 %3, 39
   %.super_stats_arenas_i_bins_j_node = select i1 %5, ptr null, ptr @super_stats_arenas_i_bins_j_node
   ret ptr %.super_stats_arenas_i_bins_j_node
@@ -18191,7 +18185,7 @@ define internal noundef ptr @stats_arenas_i_bins_j_index(ptr readnone captures(n
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_bins_j_nmalloc_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -18294,14 +18288,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.022 = phi i32 [ 22, %52 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %53 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %55 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.022
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_bins_j_ndalloc_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -18405,14 +18399,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.022 = phi i32 [ 22, %52 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %53 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %55 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.022
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_bins_j_nrequests_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -18516,14 +18510,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.022 = phi i32 [ 22, %52 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %53 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %55 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.022
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_bins_j_curregs_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -18627,14 +18621,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.022 = phi i32 [ 22, %52 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %53 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %55 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.022
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_bins_j_nfills_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -18738,14 +18732,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.022 = phi i32 [ 22, %52 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %53 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %55 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.022
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_bins_j_nflushes_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -18849,14 +18843,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.022 = phi i32 [ 22, %52 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %53 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %55 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.022
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_bins_j_nslabs_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -18960,14 +18954,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.022 = phi i32 [ 22, %52 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %53 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %55 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.022
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_bins_j_nreslabs_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -19071,14 +19065,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.022 = phi i32 [ 22, %52 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %53 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %55 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.022
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_bins_j_curslabs_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -19182,14 +19176,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.022 = phi i32 [ 22, %52 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %53 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %55 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.022
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_bins_j_nonfull_slabs_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -19293,14 +19287,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.022 = phi i32 [ 22, %52 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %53 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %55 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.022
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_bins_j_mutex_num_ops_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -19405,14 +19399,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.022 = phi i32 [ 22, %53 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %54 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %56 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.022
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_bins_j_mutex_num_wait_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -19517,14 +19511,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.022 = phi i32 [ 22, %53 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %54 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %56 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.022
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_bins_j_mutex_num_spin_acq_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -19629,14 +19623,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.022 = phi i32 [ 22, %53 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %54 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %56 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.022
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_bins_j_mutex_num_owner_switch_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -19741,14 +19735,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.022 = phi i32 [ 22, %53 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %54 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %56 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.022
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_bins_j_mutex_total_wait_time_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -19852,14 +19846,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.022 = phi i32 [ 22, %52 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %53 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %55 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.022
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_bins_j_mutex_max_wait_time_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -19964,14 +19958,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.022 = phi i32 [ 22, %53 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %54 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %56 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.022
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_bins_j_mutex_max_num_thds_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -20076,12 +20070,12 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.022 = phi i32 [ 22, %53 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %54 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %56 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.022
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef ptr @stats_arenas_i_lextents_j_index(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, i64 noundef %3) #3 {
+define internal noundef ptr @stats_arenas_i_lextents_j_index(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, i64 noundef %3) #2 {
   %5 = icmp ugt i64 %3, 196
   %.super_stats_arenas_i_lextents_j_node = select i1 %5, ptr null, ptr @super_stats_arenas_i_lextents_j_node
   ret ptr %.super_stats_arenas_i_lextents_j_node
@@ -20090,7 +20084,7 @@ define internal noundef ptr @stats_arenas_i_lextents_j_index(ptr readnone captur
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_lextents_j_nmalloc_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -20193,14 +20187,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.022 = phi i32 [ 22, %52 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %53 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %55 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.022
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_lextents_j_ndalloc_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -20304,14 +20298,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.022 = phi i32 [ 22, %52 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %53 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %55 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.022
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_lextents_j_nrequests_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -20415,14 +20409,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.022 = phi i32 [ 22, %52 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %53 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %55 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.022
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_lextents_j_curlextents_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -20526,12 +20520,12 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.022 = phi i32 [ 22, %52 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %53 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %55 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.022
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef ptr @stats_arenas_i_extents_j_index(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, i64 noundef %3) #3 {
+define internal noundef ptr @stats_arenas_i_extents_j_index(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, i64 noundef %3) #2 {
   %5 = icmp ugt i64 %3, 198
   %.super_stats_arenas_i_extents_j_node = select i1 %5, ptr null, ptr @super_stats_arenas_i_extents_j_node
   ret ptr %.super_stats_arenas_i_extents_j_node
@@ -20540,7 +20534,7 @@ define internal noundef ptr @stats_arenas_i_extents_j_index(ptr readnone capture
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_extents_j_ndirty_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -20643,14 +20637,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.022 = phi i32 [ 22, %52 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %53 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %55 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.022
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_extents_j_nmuzzy_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -20754,14 +20748,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.022 = phi i32 [ 22, %52 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %53 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %55 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.022
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_extents_j_nretained_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -20865,14 +20859,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.022 = phi i32 [ 22, %52 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %53 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %55 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.022
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_extents_j_dirty_bytes_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -20976,14 +20970,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.022 = phi i32 [ 22, %52 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %53 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %55 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.022
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_extents_j_muzzy_bytes_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -21087,14 +21081,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.022 = phi i32 [ 22, %52 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %53 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %55 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.022
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_extents_j_retained_bytes_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -21198,14 +21192,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.022 = phi i32 [ 22, %52 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %53 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %55 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.022
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_large_num_ops_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -21305,14 +21299,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_large_num_wait_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -21412,14 +21406,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_large_num_spin_acq_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -21519,14 +21513,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_large_num_owner_switch_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -21626,14 +21620,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_large_total_wait_time_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -21733,14 +21727,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_large_max_wait_time_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -21840,14 +21834,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_large_max_num_thds_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -21947,14 +21941,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_extent_avail_num_ops_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -22054,14 +22048,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_extent_avail_num_wait_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -22161,14 +22155,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_extent_avail_num_spin_acq_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -22268,14 +22262,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_extent_avail_num_owner_switch_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -22375,14 +22369,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_extent_avail_total_wait_time_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -22482,14 +22476,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_extent_avail_max_wait_time_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -22589,14 +22583,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_extent_avail_max_num_thds_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -22696,14 +22690,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_extents_dirty_num_ops_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -22803,14 +22797,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_extents_dirty_num_wait_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -22910,14 +22904,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_extents_dirty_num_spin_acq_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -23017,14 +23011,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_extents_dirty_num_owner_switch_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -23124,14 +23118,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_extents_dirty_total_wait_time_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -23231,14 +23225,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_extents_dirty_max_wait_time_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -23338,14 +23332,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_extents_dirty_max_num_thds_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -23445,14 +23439,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_extents_muzzy_num_ops_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -23552,14 +23546,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_extents_muzzy_num_wait_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -23659,14 +23653,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_extents_muzzy_num_spin_acq_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -23766,14 +23760,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_extents_muzzy_num_owner_switch_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -23873,14 +23867,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_extents_muzzy_total_wait_time_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -23980,14 +23974,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_extents_muzzy_max_wait_time_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -24087,14 +24081,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_extents_muzzy_max_num_thds_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -24194,14 +24188,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_extents_retained_num_ops_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -24301,14 +24295,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_extents_retained_num_wait_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -24408,14 +24402,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_extents_retained_num_spin_acq_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -24515,14 +24509,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_extents_retained_num_owner_switch_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -24622,14 +24616,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_extents_retained_total_wait_time_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -24729,14 +24723,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_extents_retained_max_wait_time_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -24836,14 +24830,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_extents_retained_max_num_thds_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -24943,14 +24937,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_decay_dirty_num_ops_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -25050,14 +25044,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_decay_dirty_num_wait_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -25157,14 +25151,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_decay_dirty_num_spin_acq_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -25264,14 +25258,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_decay_dirty_num_owner_switch_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -25371,14 +25365,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_decay_dirty_total_wait_time_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -25478,14 +25472,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_decay_dirty_max_wait_time_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -25585,14 +25579,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_decay_dirty_max_num_thds_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -25692,14 +25686,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_decay_muzzy_num_ops_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -25799,14 +25793,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_decay_muzzy_num_wait_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -25906,14 +25900,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_decay_muzzy_num_spin_acq_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -26013,14 +26007,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_decay_muzzy_num_owner_switch_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -26120,14 +26114,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_decay_muzzy_total_wait_time_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -26227,14 +26221,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_decay_muzzy_max_wait_time_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -26334,14 +26328,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_decay_muzzy_max_num_thds_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -26441,14 +26435,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_base_num_ops_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -26548,14 +26542,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_base_num_wait_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -26655,14 +26649,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_base_num_spin_acq_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -26762,14 +26756,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_base_num_owner_switch_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -26869,14 +26863,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_base_total_wait_time_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -26976,14 +26970,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_base_max_wait_time_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -27083,14 +27077,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_base_max_num_thds_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -27190,14 +27184,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_tcache_list_num_ops_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -27297,14 +27291,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_tcache_list_num_wait_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -27404,14 +27398,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_tcache_list_num_spin_acq_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -27511,14 +27505,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_tcache_list_num_owner_switch_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -27618,14 +27612,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_tcache_list_total_wait_time_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -27725,14 +27719,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_tcache_list_max_wait_time_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -27832,14 +27826,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_tcache_list_max_num_thds_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -27939,14 +27933,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_hpa_shard_num_ops_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -28046,14 +28040,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_hpa_shard_num_wait_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -28153,14 +28147,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_hpa_shard_num_spin_acq_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -28260,14 +28254,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_hpa_shard_num_owner_switch_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -28367,14 +28361,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_hpa_shard_total_wait_time_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -28474,14 +28468,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_hpa_shard_max_wait_time_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -28581,14 +28575,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_hpa_shard_max_num_thds_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -28688,14 +28682,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_hpa_shard_grow_num_ops_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -28795,14 +28789,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_hpa_shard_grow_num_wait_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -28902,14 +28896,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_hpa_shard_grow_num_spin_acq_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -29009,14 +29003,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_hpa_shard_grow_num_owner_switch_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -29116,14 +29110,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_hpa_shard_grow_total_wait_time_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -29223,14 +29217,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_hpa_shard_grow_max_wait_time_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -29330,14 +29324,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_hpa_shard_grow_max_num_thds_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -29437,14 +29431,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_hpa_sec_num_ops_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -29544,14 +29538,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_hpa_sec_num_wait_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -29651,14 +29645,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_hpa_sec_num_spin_acq_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -29758,14 +29752,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_hpa_sec_num_owner_switch_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -29865,14 +29859,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_hpa_sec_total_wait_time_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -29972,14 +29966,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_hpa_sec_max_wait_time_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -30079,14 +30073,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_mutexes_hpa_sec_max_num_thds_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -30186,14 +30180,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_hpa_shard_npurge_passes_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -30293,14 +30287,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_hpa_shard_npurges_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -30400,14 +30394,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_hpa_shard_nhugifies_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -30507,14 +30501,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_hpa_shard_ndehugifies_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -30614,14 +30608,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_hpa_shard_full_slabs_npageslabs_nonhuge_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -30721,14 +30715,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_hpa_shard_full_slabs_npageslabs_huge_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -30828,14 +30822,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_hpa_shard_full_slabs_nactive_nonhuge_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -30935,14 +30929,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_hpa_shard_full_slabs_nactive_huge_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -31042,14 +31036,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_hpa_shard_full_slabs_ndirty_nonhuge_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -31149,14 +31143,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_hpa_shard_full_slabs_ndirty_huge_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -31256,14 +31250,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_hpa_shard_empty_slabs_npageslabs_nonhuge_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -31363,14 +31357,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_hpa_shard_empty_slabs_npageslabs_huge_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -31470,14 +31464,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_hpa_shard_empty_slabs_nactive_nonhuge_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -31577,14 +31571,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_hpa_shard_empty_slabs_nactive_huge_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -31684,14 +31678,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_hpa_shard_empty_slabs_ndirty_nonhuge_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -31791,14 +31785,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_hpa_shard_empty_slabs_ndirty_huge_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -31898,12 +31892,12 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.021 = phi i32 [ 22, %49 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %50 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef ptr @stats_arenas_i_hpa_shard_nonfull_slabs_j_index(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, i64 noundef %3) #3 {
+define internal noundef ptr @stats_arenas_i_hpa_shard_nonfull_slabs_j_index(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, i64 noundef %3) #2 {
   %5 = icmp ugt i64 %3, 63
   %.super_stats_arenas_i_hpa_shard_nonfull_slabs_j_node = select i1 %5, ptr null, ptr @super_stats_arenas_i_hpa_shard_nonfull_slabs_j_node
   ret ptr %.super_stats_arenas_i_hpa_shard_nonfull_slabs_j_node
@@ -31912,7 +31906,7 @@ define internal noundef ptr @stats_arenas_i_hpa_shard_nonfull_slabs_j_index(ptr 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_hpa_shard_nonfull_slabs_j_npageslabs_nonhuge_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -32015,14 +32009,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.022 = phi i32 [ 22, %52 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %53 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %55 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.022
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_hpa_shard_nonfull_slabs_j_npageslabs_huge_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -32126,14 +32120,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.022 = phi i32 [ 22, %52 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %53 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %55 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.022
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_hpa_shard_nonfull_slabs_j_nactive_nonhuge_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -32237,14 +32231,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.022 = phi i32 [ 22, %52 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %53 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %55 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.022
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_hpa_shard_nonfull_slabs_j_nactive_huge_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -32349,14 +32343,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.022 = phi i32 [ 22, %53 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %54 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %56 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.022
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_hpa_shard_nonfull_slabs_j_ndirty_nonhuge_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -32460,14 +32454,14 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.022 = phi i32 [ 22, %52 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %53 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %55 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.022
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @stats_arenas_i_hpa_shard_nonfull_slabs_j_ndirty_huge_ctl(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readnone captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %11, label %10
@@ -32572,7 +32566,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
   %.022 = phi i32 [ 22, %53 ], [ 1, %malloc_mutex_lock.exit ], [ 0, %54 ], [ 0, %arenas_i.exit ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %56 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.022
 }
 
@@ -32580,7 +32574,7 @@ arenas_i.exit:                                    ; preds = %tsd_fetch_impl.exit
 define internal range(i32 0, 23) i32 @experimental_arenas_create_ext_ctl(ptr noundef %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i64 noundef %6) #0 {
   %8 = alloca i32, align 4
   %9 = alloca %struct.arena_config_s, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %10 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %10, 0
   br i1 %.not.i, label %12, label %11
@@ -32606,7 +32600,7 @@ define internal range(i32 0, 23) i32 @experimental_arenas_create_ext_ctl(ptr nou
   br label %malloc_mutex_lock.exit
 
 malloc_mutex_lock.exit:                           ; preds = %12, %16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) @je_arena_config_default, i64 16, i1 false), !tbaa.struct !212
   %19 = icmp eq ptr %3, null
   %20 = icmp eq ptr %4, null
@@ -32659,8 +32653,8 @@ malloc_mutex_lock.exit:                           ; preds = %12, %16
   %.026 = phi i32 [ 22, %23 ], [ 22, %32 ], [ 0, %33 ], [ 22, %25 ], [ 11, %27 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %35 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.026
 }
 
@@ -32795,7 +32789,7 @@ define internal range(i32 0, 23) i32 @experimental_hooks_prof_backtrace_ctl(ptr 
   br i1 %9, label %18, label %12
 
 12:                                               ; preds = %11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %13 = tail call ptr (...) @je_prof_backtrace_hook_get() #15
   store ptr %13, ptr %8, align 8, !tbaa !217
   %.not34 = icmp eq ptr %4, null
@@ -32811,14 +32805,14 @@ define internal range(i32 0, 23) i32 @experimental_hooks_prof_backtrace_ctl(ptr 
   br label %.thread
 
 .thread:                                          ; preds = %16, %12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %18
 
 17:                                               ; preds = %14
   %spec.select = tail call i64 @llvm.umin.i64(i64 %15, i64 8)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %3, ptr nonnull align 8 %8, i64 %spec.select, i1 false)
   store i64 %spec.select, ptr %4, align 8, !tbaa !4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.thread45
 
 18:                                               ; preds = %.thread, %11
@@ -32859,7 +32853,7 @@ define internal range(i32 0, 23) i32 @experimental_hooks_prof_dump_ctl(ptr readn
   br i1 %9, label %18, label %12
 
 12:                                               ; preds = %11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %13 = tail call ptr (...) @je_prof_dump_hook_get() #15
   store ptr %13, ptr %8, align 8, !tbaa !217
   %.not33 = icmp eq ptr %4, null
@@ -32875,14 +32869,14 @@ define internal range(i32 0, 23) i32 @experimental_hooks_prof_dump_ctl(ptr readn
   br label %.thread
 
 .thread:                                          ; preds = %16, %12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %18
 
 17:                                               ; preds = %14
   %spec.select = tail call i64 @llvm.umin.i64(i64 %15, i64 8)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %3, ptr nonnull align 8 %8, i64 %spec.select, i1 false)
   store i64 %spec.select, ptr %4, align 8, !tbaa !4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %24
 
 18:                                               ; preds = %.thread, %11
@@ -32932,19 +32926,19 @@ define internal range(i32 0, 23) i32 @experimental_hooks_safety_check_abort_ctl(
   ret i32 %.012
 }
 
-declare ptr @je_hook_install(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @je_hook_install(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @je_hook_remove(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @je_hook_remove(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @je_prof_backtrace_hook_get(...) local_unnamed_addr #2
+declare ptr @je_prof_backtrace_hook_get(...) local_unnamed_addr #1
 
-declare void @je_prof_backtrace_hook_set(ptr noundef) local_unnamed_addr #2
+declare void @je_prof_backtrace_hook_set(ptr noundef) local_unnamed_addr #1
 
-declare ptr @je_prof_dump_hook_get(...) local_unnamed_addr #2
+declare ptr @je_prof_dump_hook_get(...) local_unnamed_addr #1
 
-declare void @je_prof_dump_hook_set(ptr noundef) local_unnamed_addr #2
+declare void @je_prof_dump_hook_set(ptr noundef) local_unnamed_addr #1
 
-declare void @je_safety_check_set_abort(ptr noundef) local_unnamed_addr #2
+declare void @je_safety_check_set_abort(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 23) i32 @experimental_utilization_query_ctl(ptr noundef %0, ptr readnone captures(none) %1, i64 %2, ptr noundef %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i64 noundef %6) #0 {
@@ -33015,9 +33009,9 @@ define internal range(i32 0, 23) i32 @experimental_utilization_batch_query_ctl(p
   ret i32 %.028
 }
 
-declare void @je_inspect_extent_util_stats_verbose_get(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @je_inspect_extent_util_stats_verbose_get(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @je_inspect_extent_util_stats_get(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @je_inspect_extent_util_stats_get(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @experimental_arenas_i_index(ptr noundef %0, ptr readnone captures(none) %1, i64 %2, i64 noundef %3) #0 {
@@ -33106,7 +33100,7 @@ define internal range(i32 0, 23) i32 @experimental_arenas_i_pactivep_ctl(ptr nou
   br i1 %.not, label %13, label %42
 
 13:                                               ; preds = %11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %14 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
   %.not.i = icmp eq i32 %14, 0
   br i1 %.not.i, label %16, label %15
@@ -33177,7 +33171,7 @@ arena_get.exit.thread:                            ; preds = %33, %29, %25, %mall
   %.031 = phi i32 [ 22, %39 ], [ 0, %40 ], [ 1, %malloc_mutex_lock.exit ], [ 14, %25 ], [ 14, %29 ], [ 14, %33 ]
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 104) monotonic, align 8
   %41 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ctl_mtx, i64 64)) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %42
 
 42:                                               ; preds = %7, %11, %arena_get.exit.thread
@@ -33186,21 +33180,21 @@ arena_get.exit.thread:                            ; preds = %33, %29, %25, %mall
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @experimental_prof_recent_alloc_max_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5, i64 %6) #3 {
+define internal noundef i32 @experimental_prof_recent_alloc_max_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5, i64 %6) #2 {
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @experimental_prof_recent_alloc_dump_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5, i64 %6) #3 {
+define internal noundef i32 @experimental_prof_recent_alloc_dump_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5, i64 %6) #2 {
   ret i32 2
 }
 
-declare i64 @je_batch_alloc(ptr noundef, i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
+declare i64 @je_batch_alloc(ptr noundef, i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 23) i32 @experimental_thread_activity_callback_ctl(ptr noundef captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i64 noundef %6) #10 {
+define internal range(i32 0, 23) i32 @experimental_thread_activity_callback_ctl(ptr noundef captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i64 noundef %6) #9 {
   %8 = alloca %struct.activity_callback_thunk_s, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %.sroa.0.0.copyload.i = load ptr, ptr %9, align 8, !tbaa !217
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 248
@@ -33246,27 +33240,33 @@ define internal range(i32 0, 23) i32 @experimental_thread_activity_callback_ctl(
 
 18:                                               ; preds = %16, %.thread, %17, %14
   %.021 = phi i32 [ 22, %14 ], [ 22, %17 ], [ 0, %.thread ], [ 0, %16 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.021
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #14
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #15 = { nounwind }
 attributes #16 = { nounwind willreturn memory(read) }

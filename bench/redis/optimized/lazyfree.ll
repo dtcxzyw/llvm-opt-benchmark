@@ -39,13 +39,7 @@ define dso_local void @lazyfreeFreeObject(ptr noundef readonly captures(none) %0
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare void @decrRefCount(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @decrRefCount(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @lazyfreeFreeDatabase(ptr noundef readonly captures(none) %0) #0 {
@@ -53,7 +47,7 @@ define dso_local void @lazyfreeFreeDatabase(ptr noundef readonly captures(none) 
   %3 = load ptr, ptr %0, align 8, !tbaa !5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !5
   store ptr %7, ptr %2, align 8, !tbaa !5
@@ -65,20 +59,20 @@ define dso_local void @lazyfreeFreeDatabase(ptr noundef readonly captures(none) 
   %10 = atomicrmw add ptr @lazyfreed_objects, i64 %8 monotonic, align 8
   %11 = call i32 @je_mallctl(ptr noundef nonnull @.str, ptr noundef null, ptr noundef null, ptr noundef null, i64 noundef 0) #6
   %12 = call i32 @jemalloc_purge() #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
-declare void @ebDestroy(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ebDestroy(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i64 @kvstoreSize(ptr noundef) local_unnamed_addr #2
+declare i64 @kvstoreSize(ptr noundef) local_unnamed_addr #1
 
-declare void @kvstoreRelease(ptr noundef) local_unnamed_addr #2
+declare void @kvstoreRelease(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare i32 @je_mallctl(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @je_mallctl(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @jemalloc_purge() local_unnamed_addr #2
+declare i32 @jemalloc_purge() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @lazyFreeTrackingTable(ptr noundef readonly captures(none) %0) #0 {
@@ -91,7 +85,7 @@ define dso_local void @lazyFreeTrackingTable(ptr noundef readonly captures(none)
   ret void
 }
 
-declare void @freeTrackingRadixTree(ptr noundef) local_unnamed_addr #2
+declare void @freeTrackingRadixTree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @lazyFreeErrors(ptr noundef readonly captures(none) %0) #0 {
@@ -104,9 +98,9 @@ define dso_local void @lazyFreeErrors(ptr noundef readonly captures(none) %0) #0
   ret void
 }
 
-declare void @raxFreeWithCallback(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @raxFreeWithCallback(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @zfree(ptr noundef) #2
+declare void @zfree(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @lazyFreeLuaScripts(ptr noundef readonly captures(none) %0) #0 {
@@ -126,7 +120,7 @@ define dso_local void @lazyFreeLuaScripts(ptr noundef readonly captures(none) %0
   ret void
 }
 
-declare void @freeLuaScriptsSync(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @freeLuaScriptsSync(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @lazyFreeFunctionsCtx(ptr noundef readonly captures(none) %0) #0 {
@@ -147,11 +141,11 @@ define dso_local void @lazyFreeFunctionsCtx(ptr noundef readonly captures(none) 
   ret void
 }
 
-declare i64 @functionsLibCtxFunctionsLen(ptr noundef) local_unnamed_addr #2
+declare i64 @functionsLibCtxFunctionsLen(ptr noundef) local_unnamed_addr #1
 
-declare void @functionsLibCtxFree(ptr noundef) local_unnamed_addr #2
+declare void @functionsLibCtxFree(ptr noundef) local_unnamed_addr #1
 
-declare void @dictRelease(ptr noundef) local_unnamed_addr #2
+declare void @dictRelease(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @lazyFreeReplicationBacklogRefMem(ptr noundef readonly captures(none) %0) #0 {
@@ -169,26 +163,26 @@ define dso_local void @lazyFreeReplicationBacklogRefMem(ptr noundef readonly cap
   ret void
 }
 
-declare i64 @raxSize(ptr noundef) local_unnamed_addr #2
+declare i64 @raxSize(ptr noundef) local_unnamed_addr #1
 
-declare void @listRelease(ptr noundef) local_unnamed_addr #2
+declare void @listRelease(ptr noundef) local_unnamed_addr #1
 
-declare void @raxFree(ptr noundef) local_unnamed_addr #2
+declare void @raxFree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define dso_local i64 @lazyfreeGetPendingObjectsCount() local_unnamed_addr #4 {
+define dso_local i64 @lazyfreeGetPendingObjectsCount() local_unnamed_addr #3 {
   %1 = load atomic i64, ptr @lazyfree_objects monotonic, align 8
   ret i64 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define dso_local i64 @lazyfreeGetFreedObjectsCount() local_unnamed_addr #4 {
+define dso_local i64 @lazyfreeGetFreedObjectsCount() local_unnamed_addr #3 {
   %1 = load atomic i64, ptr @lazyfreed_objects monotonic, align 8
   ret i64 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define dso_local void @lazyfreeResetStats() local_unnamed_addr #4 {
+define dso_local void @lazyfreeResetStats() local_unnamed_addr #3 {
   store atomic i64 0, ptr @lazyfreed_objects monotonic, align 8
   ret void
 }
@@ -265,7 +259,7 @@ define dso_local i64 @lazyfreeGetFreeEffort(ptr noundef %0, ptr noundef %1, i32 
   br i1 %.not38, label %66, label %46
 
 46:                                               ; preds = %44
-  call void @llvm.lifetime.start.p0(i64 480, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %47 = load ptr, ptr %42, align 8, !tbaa !28
   call void @raxStart(ptr noundef nonnull %4, ptr noundef %47) #6
   %48 = call i32 @raxSeek(ptr noundef nonnull %4, ptr noundef nonnull @.str.1, ptr noundef null, i64 noundef 0) #6
@@ -290,7 +284,7 @@ define dso_local i64 @lazyfreeGetFreeEffort(ptr noundef %0, ptr noundef %1, i32 
   %60 = mul i64 %59, %55
   %61 = add i64 %60, %41
   call void @raxStop(ptr noundef nonnull %4) #6
-  call void @llvm.lifetime.end.p0(i64 480, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %66
 
 62:                                               ; preds = %34
@@ -304,20 +298,20 @@ define dso_local i64 @lazyfreeGetFreeEffort(ptr noundef %0, ptr noundef %1, i32 
   ret i64 %.0
 }
 
-declare void @raxStart(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @raxStart(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @raxSeek(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @raxSeek(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @raxNext(ptr noundef) local_unnamed_addr #2
+declare i32 @raxNext(ptr noundef) local_unnamed_addr #1
 
-declare void @_serverAssert(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @_serverAssert(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold nofree noreturn nounwind
-declare void @abort() local_unnamed_addr #5
+declare void @abort() local_unnamed_addr #4
 
-declare void @raxStop(ptr noundef) local_unnamed_addr #2
+declare void @raxStop(ptr noundef) local_unnamed_addr #1
 
-declare i64 @moduleGetFreeEffort(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i64 @moduleGetFreeEffort(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @freeObjAsync(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -344,7 +338,7 @@ define dso_local void @freeObjAsync(ptr noundef %0, ptr noundef %1, i32 noundef 
   ret void
 }
 
-declare void @bioCreateLazyFreeJob(ptr noundef, i32 noundef, ...) local_unnamed_addr #2
+declare void @bioCreateLazyFreeJob(ptr noundef, i32 noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @emptyDbAsync(ptr noundef captures(none) %0) local_unnamed_addr #0 {
@@ -369,7 +363,7 @@ define dso_local void @emptyDbAsync(ptr noundef captures(none) %0) local_unnamed
   ret void
 }
 
-declare ptr @kvstoreCreate(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @kvstoreCreate(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @freeTrackingRadixTreeAsync(ptr noundef %0) local_unnamed_addr #0 {
@@ -498,12 +492,18 @@ define dso_local void @freeReplicationBacklogRefMemAsync(ptr noundef %0, ptr nou
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
+
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nounwind }
 attributes #7 = { noreturn nounwind }
 

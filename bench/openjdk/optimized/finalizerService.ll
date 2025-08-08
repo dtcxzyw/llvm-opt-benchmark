@@ -391,7 +391,7 @@ define hidden noundef zeroext i1 @_ZN16FinalizerService8has_workEv() local_unnam
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN16FinalizerService18do_concurrent_workEP10JavaThread(ptr noundef %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %"class.ConcurrentHashTable<FinalizerTableConfig, MEMFLAGS::mtServiceability>::GrowTask", align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = load ptr, ptr @_ZL6_table, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %5 = load volatile i8, ptr %4, align 8
@@ -546,7 +546,7 @@ _ZN19ConcurrentHashTableI20FinalizerTableConfigL8MEMFLAGS23EE8GrowTask4doneEP6Th
   br label %_ZL24do_table_concurrent_workP10JavaThread.exit
 
 _ZL24do_table_concurrent_workP10JavaThread.exit:  ; preds = %7, %_ZN19ConcurrentHashTableI20FinalizerTableConfigL8MEMFLAGS23EE8GrowTask4doneEP6Thread.exit.i
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -920,9 +920,9 @@ _ZL12lookup_entryPK13InstanceKlassP6Thread.exit.i: ; preds = %.lr.ph.i.i.i.i.i
 .loopexit.i:                                      ; preds = %66, %_ZNK19ConcurrentHashTableI20FinalizerTableConfigL8MEMFLAGS23EE10get_bucketEm.exit.i.i.i.i
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !8
   store volatile i64 %24, ptr %23, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %.0.i, ptr %4, align 8
   store ptr null, ptr %5, align 8
   store i8 0, ptr %6, align 1
@@ -933,9 +933,9 @@ _ZL12lookup_entryPK13InstanceKlassP6Thread.exit.i: ; preds = %.lr.ph.i.i.i.i.i
   call void @_ZN14FinalizerEntryC2EPK13InstanceKlass(ptr noundef nonnull align 8 dereferenceable(32) %69, ptr noundef %.0.i)
   store ptr %69, ptr %5, align 8
   %70 = load ptr, ptr @_ZL6_table, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %71 = call noundef zeroext i1 @_ZN19ConcurrentHashTableI20FinalizerTableConfigL8MEMFLAGS23EE19internal_insert_getI20FinalizerEntryLookupZNS2_6insertIS4_EEbP6ThreadRT_RKP14FinalizerEntryPbSE_E3NOPEEbS7_S9_SD_RT0_SE_SE_(ptr noundef nonnull align 8 dereferenceable(88) %70, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull %6, ptr noundef null)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %71, label %.loopexit.i.i, label %72
 
 72:                                               ; preds = %68
@@ -1087,9 +1087,9 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i.i.i: ; preds = %137, 
 
 _ZL22add_to_table_if_neededPK13InstanceKlassP6Thread.exit.i: ; preds = %143, %142, %132, %.loopexit.i.i
   %144 = load ptr, ptr %5, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZL9get_entryPK13InstanceKlassP6Thread.exit
 
 _ZL9get_entryPK13InstanceKlassP6Thread.exit:      ; preds = %_ZL12lookup_entryPK13InstanceKlassP6Thread.exit.i, %_ZL22add_to_table_if_neededPK13InstanceKlassP6Thread.exit.i
@@ -1306,15 +1306,15 @@ define internal void @_ZL12on_unloadingP5Klass(ptr noundef %0) #0 {
   br i1 %.not, label %16, label %11
 
 11:                                               ; preds = %7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %0, ptr %3, align 8
   %12 = load ptr, ptr @_ZL6_table, align 8
   %13 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %14 = load ptr, ptr %13, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %15 = call noundef zeroext i1 @_ZN19ConcurrentHashTableI20FinalizerTableConfigL8MEMFLAGS23EE15internal_removeI20FinalizerEntryLookupZNS2_6removeIS4_EEbP6ThreadRT_EUt_EEbS7_S9_RT0_(ptr noundef nonnull align 8 dereferenceable(88) %12, ptr noundef %14, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 1 dereferenceable(1) %2)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %16
 
 16:                                               ; preds = %1, %11, %7
@@ -3033,10 +3033,10 @@ declare i64 @llvm.umin.i64(i64, i64) #13
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

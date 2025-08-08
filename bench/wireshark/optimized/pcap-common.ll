@@ -58,12 +58,6 @@ define i32 @wtap_pcap_encap_to_wtap_encap(i32 noundef %0) local_unnamed_addr #0 
   ret i32 %.06
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(none) uwtable
 define hidden i32 @wtap_wtap_encap_to_pcap_encap(i32 noundef %0) local_unnamed_addr #0 {
   switch i32 %0, label %.preheader [
@@ -103,7 +97,7 @@ define hidden i32 @wtap_wtap_encap_to_pcap_encap(i32 noundef %0) local_unnamed_a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define hidden range(i32 262144, 134217729) i32 @wtap_max_snaplen_for_encap(i32 noundef %0) local_unnamed_addr #2 {
+define hidden range(i32 262144, 134217729) i32 @wtap_max_snaplen_for_encap(i32 noundef %0) local_unnamed_addr #1 {
   switch i32 %0, label %3 [
     i32 146, label %4
     i32 204, label %2
@@ -126,7 +120,7 @@ define hidden range(i32 262144, 134217729) i32 @wtap_max_snaplen_for_encap(i32 n
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden i32 @pcap_process_pseudo_header(ptr noundef %0, i1 noundef zeroext %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #3 {
+define hidden i32 @pcap_process_pseudo_header(ptr noundef %0, i1 noundef zeroext %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #2 {
   %8 = alloca %struct.i2c_linux_file_hdr, align 1
   %9 = alloca [16 x i8], align 16
   %10 = alloca [4 x i8], align 2
@@ -168,7 +162,7 @@ define hidden i32 @pcap_process_pseudo_header(ptr noundef %0, i1 noundef zeroext
   br i1 %1, label %26, label %49
 
 26:                                               ; preds = %23
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %22) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   br i1 %25, label %27, label %29
 
 27:                                               ; preds = %26
@@ -182,7 +176,7 @@ define hidden i32 @pcap_process_pseudo_header(ptr noundef %0, i1 noundef zeroext
   br i1 %30, label %pcap_read_nokiaatm_pseudoheader.exit, label %pcap_read_nokiaatm_pseudoheader.exit.thread
 
 pcap_read_nokiaatm_pseudoheader.exit.thread:      ; preds = %27, %29
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %447
 
 pcap_read_nokiaatm_pseudoheader.exit:             ; preds = %29
@@ -215,11 +209,11 @@ pcap_read_nokiaatm_pseudoheader.exit:             ; preds = %29
   store i16 0, ptr %47, align 4
   %48 = getelementptr inbounds nuw i8, ptr %4, i64 104
   store i32 0, ptr %48, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %447
 
 49:                                               ; preds = %23
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %21) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   br i1 %25, label %50, label %52
 
 50:                                               ; preds = %49
@@ -257,7 +251,7 @@ pcap_read_nokiaatm_pseudoheader.exit:             ; preds = %29
   br label %pcap_read_sunatm_pseudoheader.exit
 
 pcap_read_sunatm_pseudoheader.exit.thread:        ; preds = %50, %52
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %447
 
 switch.lookup:                                    ; preds = %54
@@ -298,14 +292,14 @@ pcap_read_sunatm_pseudoheader.exit:               ; preds = %switch.lookup, %66
   store i16 0, ptr %81, align 4
   %82 = getelementptr inbounds nuw i8, ptr %4, i64 104
   store i32 0, ptr %82, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %447
 
 83:                                               ; preds = %7
   br i1 %1, label %84, label %94
 
 84:                                               ; preds = %83
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %85 = tail call i64 @file_seek(ptr noundef %0, i64 noundef -4, i32 noundef 1, ptr noundef %5)
   %86 = icmp eq i64 %85, -1
   br i1 %86, label %87, label %90
@@ -322,14 +316,14 @@ pcap_read_sunatm_pseudoheader.exit:               ; preds = %switch.lookup, %66
   br i1 %91, label %pcap_read_nokia_pseudoheader.exit, label %pcap_read_nokia_pseudoheader.exit.thread
 
 pcap_read_nokia_pseudoheader.exit.thread:         ; preds = %87, %90
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %447
 
 pcap_read_nokia_pseudoheader.exit:                ; preds = %90
   %92 = getelementptr inbounds nuw i8, ptr %4, i64 84
   %93 = load i32, ptr %20, align 4
   store i32 %93, ptr %92, align 1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %94
 
 94:                                               ; preds = %pcap_read_nokia_pseudoheader.exit, %83
@@ -347,7 +341,7 @@ pcap_read_nokia_pseudoheader.exit:                ; preds = %90
 
 99:                                               ; preds = %7
   %100 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %19) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %101 = icmp ult i32 %3, 16
   br i1 %101, label %102, label %104
 
@@ -387,7 +381,7 @@ pcap_read_irda_pseudoheader.exit.thread.sink.split: ; preds = %114, %102
   br label %pcap_read_irda_pseudoheader.exit.thread
 
 pcap_read_irda_pseudoheader.exit.thread:          ; preds = %pcap_read_irda_pseudoheader.exit.thread.sink.split, %104, %113
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %447
 
 pcap_read_irda_pseudoheader.exit:                 ; preds = %106
@@ -399,12 +393,12 @@ pcap_read_irda_pseudoheader.exit:                 ; preds = %106
   %119 = zext i8 %.val16.i to i16
   %120 = or disjoint i16 %118, %119
   store i16 %120, ptr %100, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %447
 
 121:                                              ; preds = %7
   %122 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %123 = icmp ult i32 %3, 4
   br i1 %123, label %124, label %126
 
@@ -419,7 +413,7 @@ pcap_read_irda_pseudoheader.exit:                 ; preds = %106
   br i1 %127, label %pcap_read_mtp2_pseudoheader.exit, label %pcap_read_mtp2_pseudoheader.exit.thread
 
 pcap_read_mtp2_pseudoheader.exit.thread:          ; preds = %124, %126
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %447
 
 pcap_read_mtp2_pseudoheader.exit:                 ; preds = %126
@@ -439,12 +433,12 @@ pcap_read_mtp2_pseudoheader.exit:                 ; preds = %126
   %137 = or disjoint i16 %135, %136
   %138 = getelementptr inbounds nuw i8, ptr %4, i64 82
   store i16 %137, ptr %138, align 2
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %447
 
 139:                                              ; preds = %7
   %140 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %141 = icmp ult i32 %3, 16
   br i1 %141, label %142, label %144
 
@@ -484,7 +478,7 @@ pcap_read_lapd_pseudoheader.exit.thread.sink.split: ; preds = %154, %142
   br label %pcap_read_lapd_pseudoheader.exit.thread
 
 pcap_read_lapd_pseudoheader.exit.thread:          ; preds = %pcap_read_lapd_pseudoheader.exit.thread.sink.split, %144, %153
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %447
 
 pcap_read_lapd_pseudoheader.exit:                 ; preds = %146
@@ -502,12 +496,12 @@ pcap_read_lapd_pseudoheader.exit:                 ; preds = %146
   %164 = zext i1 %163 to i8
   %165 = getelementptr inbounds nuw i8, ptr %4, i64 82
   store i8 %164, ptr %165, align 2
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %447
 
 166:                                              ; preds = %7
   %167 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %16) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %168 = icmp ult i32 %3, 5
   br i1 %168, label %169, label %171
 
@@ -522,7 +516,7 @@ pcap_read_lapd_pseudoheader.exit:                 ; preds = %146
   br i1 %172, label %pcap_read_sita_pseudoheader.exit, label %pcap_read_sita_pseudoheader.exit.thread
 
 pcap_read_sita_pseudoheader.exit.thread:          ; preds = %169, %171
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %16) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %447
 
 pcap_read_sita_pseudoheader.exit:                 ; preds = %171
@@ -544,7 +538,7 @@ pcap_read_sita_pseudoheader.exit:                 ; preds = %171
   %184 = load i8, ptr %183, align 1
   %185 = getelementptr inbounds nuw i8, ptr %4, i64 84
   store i8 %184, ptr %185, align 4
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %16) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %447
 
 186:                                              ; preds = %7
@@ -554,7 +548,7 @@ pcap_read_sita_pseudoheader.exit:                 ; preds = %171
 
 188:                                              ; preds = %7
   %189 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %190 = icmp ult i32 %3, 4
   br i1 %190, label %191, label %193
 
@@ -575,16 +569,16 @@ pcap_read_bt_pseudoheader.exit:                   ; preds = %193
   %198 = and i8 %197, 1
   %199 = xor i8 %198, 1
   store i8 %199, ptr %189, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %447
 
 pcap_read_bt_pseudoheader.exit.thread:            ; preds = %191, %193
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %447
 
 200:                                              ; preds = %7
   %201 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %202 = icmp ult i32 %3, 4
   br i1 %202, label %203, label %205
 
@@ -599,7 +593,7 @@ pcap_read_bt_pseudoheader.exit.thread:            ; preds = %191, %193
   br i1 %206, label %pcap_read_bt_monitor_pseudoheader.exit, label %pcap_read_bt_monitor_pseudoheader.exit.thread
 
 pcap_read_bt_monitor_pseudoheader.exit.thread:    ; preds = %203, %205
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %447
 
 pcap_read_bt_monitor_pseudoheader.exit:           ; preds = %205
@@ -611,12 +605,12 @@ pcap_read_bt_monitor_pseudoheader.exit:           ; preds = %205
   %rev9.i = call i16 @llvm.bswap.i16(i16 %209)
   %210 = getelementptr inbounds nuw i8, ptr %4, i64 82
   store i16 %rev9.i, ptr %210, align 2
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %447
 
 211:                                              ; preds = %7
   %212 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %13) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %213 = icmp ult i32 %3, 2
   br i1 %213, label %214, label %216
 
@@ -631,7 +625,7 @@ pcap_read_bt_monitor_pseudoheader.exit:           ; preds = %205
   br i1 %217, label %pcap_read_llcp_pseudoheader.exit, label %pcap_read_llcp_pseudoheader.exit.thread
 
 pcap_read_llcp_pseudoheader.exit.thread:          ; preds = %214, %216
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %13) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %447
 
 pcap_read_llcp_pseudoheader.exit:                 ; preds = %216
@@ -641,12 +635,12 @@ pcap_read_llcp_pseudoheader.exit:                 ; preds = %216
   %220 = load i8, ptr %219, align 1
   %221 = getelementptr inbounds nuw i8, ptr %4, i64 81
   store i8 %220, ptr %221, align 1
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %13) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %447
 
 222:                                              ; preds = %7
   %223 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %224 = icmp eq i32 %3, 0
   br i1 %224, label %225, label %227
 
@@ -661,7 +655,7 @@ pcap_read_llcp_pseudoheader.exit:                 ; preds = %216
   br i1 %228, label %pcap_read_ppp_pseudoheader.exit, label %pcap_read_ppp_pseudoheader.exit.thread
 
 pcap_read_ppp_pseudoheader.exit.thread:           ; preds = %225, %227
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %447
 
 pcap_read_ppp_pseudoheader.exit:                  ; preds = %227
@@ -669,13 +663,13 @@ pcap_read_ppp_pseudoheader.exit:                  ; preds = %227
   %230 = icmp ne i8 %229, 0
   %231 = zext i1 %230 to i8
   store i8 %231, ptr %223, align 8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %447
 
 232:                                              ; preds = %7
   %233 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %234 = icmp ult i32 %3, 16
   br i1 %234, label %235, label %237
 
@@ -765,7 +759,7 @@ pcap_read_ppp_pseudoheader.exit:                  ; preds = %227
   br i1 %.not97.i, label %341, label %285
 
 285:                                              ; preds = %284
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %286 = getelementptr inbounds nuw i8, ptr %11, i64 1
   %287 = getelementptr inbounds nuw i8, ptr %11, i64 2
   %288 = getelementptr inbounds nuw i8, ptr %11, i64 3
@@ -846,7 +840,7 @@ pcap_read_ppp_pseudoheader.exit:                  ; preds = %227
   br i1 %.not98.i, label %340, label %294, !llvm.loop !10
 
 340:                                              ; preds = %339
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %.pre109.i = load i8, ptr %243, align 8
   br label %341
 
@@ -870,8 +864,8 @@ pcap_read_ppp_pseudoheader.exit:                  ; preds = %227
   ]
 
 pcap_read_erf_pseudoheader.exit.thread137:        ; preds = %341
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #9
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %447
 
 344:                                              ; preds = %341, %341, %341, %341, %341, %341, %341
@@ -1005,23 +999,23 @@ pcap_read_erf_pseudoheader.exit.thread137:        ; preds = %341
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %303, %.critedge.sink.split.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %pcap_read_erf_pseudoheader.exit.thread
 
 pcap_read_erf_pseudoheader.exit.thread:           ; preds = %235, %346, %351, %376, %381, %406, %411, %237, %.critedge.i, %353, %383, %413
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #9
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %447
 
 pcap_read_erf_pseudoheader.exit:                  ; preds = %355, %385, %415
   %.0.i120 = phi i32 [ %349, %355 ], [ %379, %385 ], [ %409, %415 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #9
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %447
 
 418:                                              ; preds = %7
   %419 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %420 = icmp ult i32 %3, 5
   br i1 %420, label %421, label %423
 
@@ -1036,7 +1030,7 @@ pcap_read_erf_pseudoheader.exit:                  ; preds = %355, %385, %415
   br i1 %424, label %pcap_read_i2c_linux_pseudoheader.exit, label %pcap_read_i2c_linux_pseudoheader.exit.thread
 
 pcap_read_i2c_linux_pseudoheader.exit.thread:     ; preds = %421, %423
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %447
 
 pcap_read_i2c_linux_pseudoheader.exit:            ; preds = %423
@@ -1066,7 +1060,7 @@ pcap_read_i2c_linux_pseudoheader.exit:            ; preds = %423
   %445 = or disjoint i32 %441, %444
   %446 = getelementptr inbounds nuw i8, ptr %4, i64 84
   store i32 %445, ptr %446, align 4
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %447
 
 447:                                              ; preds = %pcap_read_erf_pseudoheader.exit, %7, %94, %96, %186, %pcap_read_nokiaatm_pseudoheader.exit, %pcap_read_sunatm_pseudoheader.exit, %pcap_read_irda_pseudoheader.exit, %pcap_read_mtp2_pseudoheader.exit, %pcap_read_lapd_pseudoheader.exit, %pcap_read_sita_pseudoheader.exit, %pcap_read_bt_pseudoheader.exit, %pcap_read_bt_monitor_pseudoheader.exit, %pcap_read_llcp_pseudoheader.exit, %pcap_read_ppp_pseudoheader.exit, %pcap_read_erf_pseudoheader.exit.thread137, %pcap_read_i2c_linux_pseudoheader.exit, %pcap_read_i2c_linux_pseudoheader.exit.thread, %pcap_read_erf_pseudoheader.exit.thread, %pcap_read_ppp_pseudoheader.exit.thread, %pcap_read_llcp_pseudoheader.exit.thread, %pcap_read_bt_monitor_pseudoheader.exit.thread, %pcap_read_bt_pseudoheader.exit.thread, %pcap_read_sita_pseudoheader.exit.thread, %pcap_read_lapd_pseudoheader.exit.thread, %pcap_read_mtp2_pseudoheader.exit.thread, %pcap_read_irda_pseudoheader.exit.thread, %pcap_read_nokia_pseudoheader.exit.thread, %pcap_read_sunatm_pseudoheader.exit.thread, %pcap_read_nokiaatm_pseudoheader.exit.thread
@@ -1075,7 +1069,7 @@ pcap_read_i2c_linux_pseudoheader.exit:            ; preds = %423
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden void @pcap_read_post_process(i1 noundef zeroext %0, i32 noundef %1, ptr noundef %2, i1 noundef zeroext %3, i32 noundef %4) local_unnamed_addr #3 {
+define hidden void @pcap_read_post_process(i1 noundef zeroext %0, i32 noundef %1, ptr noundef %2, i1 noundef zeroext %3, i32 noundef %4) local_unnamed_addr #2 {
   switch i32 %1, label %pcap_byteswap_linux_sll_pseudoheader.exit [
     i32 13, label %6
     i32 1, label %13
@@ -1581,13 +1575,13 @@ pcap_byteswap_linux_sll_pseudoheader.exit:        ; preds = %.lr.ph.i, %239, %23
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @atm_guess_traffic_type(ptr noundef) local_unnamed_addr #4
+declare void @atm_guess_traffic_type(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare void @atm_guess_lane_type(ptr noundef) local_unnamed_addr #4
+declare void @atm_guess_lane_type(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @pcap_byteswap_linux_usb_pseudoheader(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1) unnamed_addr #5 {
+define internal fastcc void @pcap_byteswap_linux_usb_pseudoheader(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1) unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %.val = load ptr, ptr %3, align 8
   %4 = getelementptr i8, ptr %0, i64 296
@@ -1941,7 +1935,7 @@ define internal fastcc void @pcap_byteswap_linux_usb_pseudoheader(ptr noundef re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define noundef zeroext i1 @wtap_encap_requires_phdr(i32 noundef %0) local_unnamed_addr #2 {
+define noundef zeroext i1 @wtap_encap_requires_phdr(i32 noundef %0) local_unnamed_addr #1 {
   switch i32 %0, label %2 [
     i32 13, label %3
     i32 44, label %3
@@ -1965,7 +1959,7 @@ define noundef zeroext i1 @wtap_encap_requires_phdr(i32 noundef %0) local_unname
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(argmem: read) uwtable
-define hidden i32 @pcap_get_phdr_size(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #6 {
+define hidden i32 @pcap_get_phdr_size(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #5 {
   switch i32 %0, label %25 [
     i32 13, label %26
     i32 44, label %3
@@ -2053,7 +2047,7 @@ define hidden i32 @pcap_get_phdr_size(i32 noundef %0, ptr noundef readonly captu
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden noundef zeroext i1 @pcap_write_phdr(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #3 {
+define hidden noundef zeroext i1 @pcap_write_phdr(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #2 {
   %5 = alloca %struct.i2c_linux_file_hdr, align 1
   %6 = alloca [16 x i8], align 16
   %7 = alloca [4 x i8], align 2
@@ -2082,7 +2076,7 @@ define hidden noundef zeroext i1 @pcap_write_phdr(ptr noundef %0, i32 noundef %1
   ]
 
 18:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 14
   %20 = load i16, ptr %19, align 2
   %21 = icmp eq i16 %20, 0
@@ -2132,11 +2126,11 @@ pcap_write_sunatm_pseudoheader.exit:              ; preds = %18, %25, %.sink.spl
   %41 = getelementptr inbounds nuw i8, ptr %17, i64 3
   store i8 %40, ptr %41, align 1
   %42 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %17, i64 noundef 4, ptr noundef %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br i1 %42, label %299, label %300
 
 43:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %16, i8 noundef 0, i64 noundef 16, i1 noundef false) #9
   %44 = load i16, ptr %2, align 8
   %45 = lshr i16 %44, 8
@@ -2148,11 +2142,11 @@ pcap_write_sunatm_pseudoheader.exit:              ; preds = %18, %25, %.sink.spl
   %49 = getelementptr inbounds nuw i8, ptr %16, i64 15
   store i8 23, ptr %49, align 1
   %50 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %16, i64 noundef 16, ptr noundef %3)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br i1 %50, label %299, label %300
 
 51:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %52 = load i8, ptr %2, align 8
   store i8 %52, ptr %15, align 1
   %53 = getelementptr inbounds nuw i8, ptr %2, i64 1
@@ -2169,11 +2163,11 @@ pcap_write_sunatm_pseudoheader.exit:              ; preds = %18, %25, %.sink.spl
   %62 = getelementptr inbounds nuw i8, ptr %15, i64 3
   store i8 %61, ptr %62, align 1
   %63 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %15, i64 noundef 4, ptr noundef %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br i1 %63, label %299, label %300
 
 64:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %14, i8 noundef 0, i64 noundef 16, i1 noundef false) #9
   %65 = load i16, ptr %2, align 8
   %66 = lshr i16 %65, 8
@@ -2191,11 +2185,11 @@ pcap_write_sunatm_pseudoheader.exit:              ; preds = %18, %25, %.sink.spl
   %74 = getelementptr inbounds nuw i8, ptr %14, i64 6
   store i8 %73, ptr %74, align 2
   %75 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %14, i64 noundef 16, ptr noundef %3)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br i1 %75, label %299, label %300
 
 76:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %13) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %77 = load i8, ptr %2, align 8
   store i8 %77, ptr %13, align 1
   %78 = getelementptr inbounds nuw i8, ptr %2, i64 1
@@ -2215,57 +2209,57 @@ pcap_write_sunatm_pseudoheader.exit:              ; preds = %18, %25, %.sink.spl
   %89 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store i8 %88, ptr %89, align 1
   %90 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %13, i64 noundef 5, ptr noundef %3)
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %13) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br i1 %90, label %299, label %300
 
 pcap_write_bt_pseudoheader.exit:                  ; preds = %4
   %.val = load i8, ptr %2, align 8, !range !15, !noundef !16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %91 = xor i8 %.val, 1
   %not..i = zext nneg i8 %91 to i32
   %92 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %not..i) #10, !srcloc !17
   store i32 %92, ptr %12, align 4
   %93 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %12, i64 noundef 4, ptr noundef %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br i1 %93, label %299, label %300
 
 94:                                               ; preds = %4
   %.val34 = load i16, ptr %2, align 8
   %95 = getelementptr i8, ptr %2, i64 2
   %.val35 = load i16, ptr %95, align 2
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %rev.i = tail call i16 @llvm.bswap.i16(i16 %.val34)
   store i16 %rev.i, ptr %11, align 2
   %rev7.i = tail call i16 @llvm.bswap.i16(i16 %.val35)
   %96 = getelementptr inbounds nuw i8, ptr %11, i64 2
   store i16 %rev7.i, ptr %96, align 2
   %97 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %11, i64 noundef 4, ptr noundef %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br i1 %97, label %299, label %300
 
 98:                                               ; preds = %4
   %.val36 = load i8, ptr %2, align 8
   %99 = getelementptr i8, ptr %2, i64 1
   %.val37 = load i8, ptr %99, align 1
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %10) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i8 %.val36, ptr %10, align 1
   %100 = getelementptr inbounds nuw i8, ptr %10, i64 1
   store i8 %.val37, ptr %100, align 1
   %101 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %10, i64 noundef 2, ptr noundef %3)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %10) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br i1 %101, label %299, label %300
 
 102:                                              ; preds = %4
   %.val38 = load i8, ptr %2, align 8, !range !15, !noundef !16
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 %.val38, ptr %9, align 1
   %103 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %9, i64 noundef 1, ptr noundef %3)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br i1 %103, label %299, label %300
 
 104:                                              ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %105 = load i64, ptr %2, align 8
   store i64 %105, ptr %6, align 16
   %106 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -2532,7 +2526,7 @@ pcap_get_phdr_size.exit99.i:                      ; preds = %185, %183, %181, %.
   br i1 %.not.i39, label %244, label %207
 
 207:                                              ; preds = %205
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %208 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %209 = getelementptr inbounds nuw i8, ptr %8, i64 1
   %210 = getelementptr inbounds nuw i8, ptr %8, i64 2
@@ -2590,7 +2584,7 @@ pcap_get_phdr_size.exit99.i:                      ; preds = %185, %183, %181, %.
   br i1 %242, label %216, label %243, !llvm.loop !18
 
 243:                                              ; preds = %239
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.pre.i = load i8, ptr %106, align 8
   br label %244
 
@@ -2660,21 +2654,21 @@ pcap_get_phdr_size.exit99.i:                      ; preds = %185, %183, %181, %.
   br i1 %278, label %pcap_write_erf_pseudoheader.exit, label %pcap_write_erf_pseudoheader.exit.thread
 
 .critedge.i:                                      ; preds = %237
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %pcap_write_erf_pseudoheader.exit.thread
 
 pcap_write_erf_pseudoheader.exit.thread:          ; preds = %188, %.critedge.i, %247, %261, %275
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %300
 
 pcap_write_erf_pseudoheader.exit:                 ; preds = %244, %247, %261, %275
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %299
 
 279:                                              ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %280 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %281 = load i8, ptr %280, align 1
   %282 = load i8, ptr %2, align 8
@@ -2700,7 +2694,7 @@ pcap_write_erf_pseudoheader.exit:                 ; preds = %244, %247, %261, %2
   %297 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i8 %296, ptr %297, align 1
   %298 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %5, i64 noundef 5, ptr noundef %3)
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %298, label %299, label %300
 
 299:                                              ; preds = %pcap_write_erf_pseudoheader.exit, %279, %102, %98, %94, %pcap_write_bt_pseudoheader.exit, %76, %64, %51, %43, %pcap_write_sunatm_pseudoheader.exit, %4
@@ -2712,22 +2706,28 @@ pcap_write_erf_pseudoheader.exit:                 ; preds = %244, %247, %261, %2
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
+declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i1 @wtap_read_bytes(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare zeroext i1 @wtap_read_bytes(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare i64 @file_seek(ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare i64 @file_seek(ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @file_error(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @file_error(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #4
+declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i1 @wtap_dump_file_write(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
+declare zeroext i1 @wtap_dump_file_write(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.bswap.i16(i16) #7
@@ -2742,12 +2742,12 @@ declare i32 @llvm.umax.i32(i32, i32) #7
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 attributes #0 = { nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #9 = { nounwind }

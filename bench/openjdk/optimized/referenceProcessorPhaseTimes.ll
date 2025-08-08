@@ -345,7 +345,7 @@ _ZN27RefProcPhaseTimeBaseTracker12elapsed_timeEv.exit: ; preds = %1, %6
   %18 = zext i32 %16 to i64
   %19 = getelementptr inbounds nuw [3 x double], ptr %17, i64 0, i64 %18
   store double %13, ptr %19, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %20 = load i64, ptr %3, align 8
   %21 = icmp slt i64 %20, 1
   br i1 %21, label %22, label %._crit_edge.i.i
@@ -374,7 +374,7 @@ _ZN27RefProcPhaseTimeBaseTrackerD2Ev.exit:        ; preds = %._crit_edge.i.i, %2
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 176
   %29 = load ptr, ptr %28, align 8
   call void @_ZN7GCTimer21register_gc_phase_endERK11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE(ptr noundef nonnull align 8 dereferenceable(112) %29, ptr noundef nonnull align 8 dereferenceable(16) %2) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -440,7 +440,7 @@ _ZN27RefProcPhaseTimeBaseTracker12elapsed_timeEv.exit: ; preds = %1, %6
   %18 = zext i32 %16 to i64
   %19 = getelementptr inbounds nuw [3 x double], ptr %17, i64 0, i64 %18
   store double %13, ptr %19, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %20 = load i64, ptr %3, align 8
   %21 = icmp slt i64 %20, 1
   br i1 %21, label %22, label %._crit_edge.i.i
@@ -469,7 +469,7 @@ _ZN27RefProcPhaseTimeBaseTrackerD2Ev.exit:        ; preds = %._crit_edge.i.i, %2
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 176
   %29 = load ptr, ptr %28, align 8
   call void @_ZN7GCTimer21register_gc_phase_endERK11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE(ptr noundef nonnull align 8 dereferenceable(112) %29, ptr noundef nonnull align 8 dereferenceable(16) %2) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -1452,10 +1452,10 @@ declare void @_ZN15WorkerDataArrayIdE10WDAPrinter7detailsEPKS0_P12outputStream(p
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

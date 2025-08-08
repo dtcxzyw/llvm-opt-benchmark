@@ -35,13 +35,7 @@ define hidden void @VP8EncFreeBitWriters(ptr noundef %0) local_unnamed_addr #0 {
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare void @VP8BitWriterWipeOut(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @VP8BitWriterWipeOut(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @VP8EncWrite(ptr noundef %0) local_unnamed_addr #0 {
@@ -350,7 +344,7 @@ GeneratePartition0.exit.thread:                   ; preds = %147, %GenerateParti
   %178 = getelementptr i8, ptr %0, i64 80
   %.val93 = load ptr, ptr %178, align 8, !tbaa !63
   %179 = load ptr, ptr %10, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %9, ptr noundef nonnull align 1 dereferenceable(12) @__const.PutRIFFHeader.riff, i64 12, i1 false)
   %180 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %181 = trunc nuw i64 %.177 to i32
@@ -359,7 +353,7 @@ GeneratePartition0.exit.thread:                   ; preds = %147, %GenerateParti
   %183 = load ptr, ptr %182, align 8, !tbaa !64
   %184 = call i32 %183(ptr noundef nonnull %9, i64 noundef 12, ptr noundef %179) #4
   %.not.i.not.i = icmp eq i32 %184, 0
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br i1 %.not.i.not.i, label %PutWebPHeaders.exit, label %185
 
 185:                                              ; preds = %177
@@ -369,7 +363,7 @@ GeneratePartition0.exit.thread:                   ; preds = %147, %GenerateParti
 
 186:                                              ; preds = %185
   %.val32.i = load ptr, ptr %10, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 18, ptr nonnull %8) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(18) %8, ptr noundef nonnull align 16 dereferenceable(18) @__const.PutVP8XHeader.vp8x, i64 16, i1 false)
   %187 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 10, ptr %187, align 4
@@ -399,7 +393,7 @@ GeneratePartition0.exit.thread:                   ; preds = %147, %GenerateParti
   %206 = load ptr, ptr %205, align 8, !tbaa !64
   %207 = call i32 %206(ptr noundef nonnull %8, i64 noundef 18, ptr noundef %.val32.i) #4
   %.not9.i.not.i = icmp eq i32 %207, 0
-  call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %8) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %.not9.i.not.i, label %PutWebPHeaders.exit, label %thread-pre-split.i
 
 thread-pre-split.i:                               ; preds = %186
@@ -409,7 +403,7 @@ thread-pre-split.i:                               ; preds = %186
 
 209:                                              ; preds = %thread-pre-split.i
   %210 = load ptr, ptr %10, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 1213221953, ptr %7, align 8
   %211 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %212 = getelementptr inbounds nuw i8, ptr %0, i64 552
@@ -438,24 +432,24 @@ thread-pre-split.i:                               ; preds = %186
   br i1 %.not11.i.i, label %PutAlphaChunk.exit.i, label %227
 
 227:                                              ; preds = %224
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 0, ptr %6, align 1
   %228 = load ptr, ptr %214, align 8, !tbaa !64
   %229 = call i32 %228(ptr noundef nonnull %6, i64 noundef 1, ptr noundef nonnull %210) #4
   %.not13.i.i = icmp eq i32 %229, 0
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %.not13.i.i, label %PutAlphaChunk.exit.thread.i, label %PutAlphaChunk.exit.i
 
 PutAlphaChunk.exit.thread.i:                      ; preds = %227, %217, %209
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %PutWebPHeaders.exit
 
 PutAlphaChunk.exit.i:                             ; preds = %227, %224
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %PutAlphaChunk.exit.i, %thread-pre-split.i, %185
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 540561494, ptr %5, align 8
   %230 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %231 = trunc i64 %163 to i32
@@ -463,13 +457,13 @@ PutAlphaChunk.exit.i:                             ; preds = %227, %224
   %232 = load ptr, ptr %182, align 8, !tbaa !64
   %233 = call i32 %232(ptr noundef nonnull %5, i64 noundef 8, ptr noundef nonnull %179) #4
   %.not.i36.not.i = icmp eq i32 %233, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.not.i36.not.i, label %PutWebPHeaders.exit, label %234
 
 234:                                              ; preds = %.critedge.i
   %235 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %236 = load i32, ptr %235, align 4, !tbaa !68
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %237 = icmp ugt i64 %.val, 524287
   br i1 %237, label %PutVP8FrameHeader.exit.thread.i, label %238
 
@@ -508,11 +502,11 @@ PutAlphaChunk.exit.i:                             ; preds = %227, %224
 
 PutVP8FrameHeader.exit.thread.i:                  ; preds = %238, %234
   %.0.i40.ph.i = phi i32 [ 6, %234 ], [ 8, %238 ]
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %PutWebPHeaders.exit
 
 PutWebPHeaders.exit.thread:                       ; preds = %238
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %262
 
 PutWebPHeaders.exit:                              ; preds = %177, %186, %PutAlphaChunk.exit.thread.i, %.critedge.i, %PutVP8FrameHeader.exit.thread.i
@@ -529,7 +523,7 @@ PutWebPHeaders.exit:                              ; preds = %177, %186, %PutAlph
   br i1 %.not84, label %293, label %266
 
 266:                                              ; preds = %262
-  call void @llvm.lifetime.start.p0(i64 21, ptr nonnull %3) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %267 = load i32, ptr %13, align 4, !tbaa !3
   %268 = add i32 %267, -1
   %269 = icmp sgt i32 %267, 1
@@ -584,7 +578,7 @@ EmitPartitionsSize.exit.sink.split:               ; preds = %271, %._crit_edge.i
 
 EmitPartitionsSize.exit:                          ; preds = %EmitPartitionsSize.exit.sink.split, %266, %._crit_edge.i
   %.2.i = phi i32 [ 1, %._crit_edge.i ], [ 1, %266 ], [ %292, %EmitPartitionsSize.exit.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 21, ptr nonnull %3) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %293
 
 293:                                              ; preds = %EmitPartitionsSize.exit, %262, %PutWebPHeaders.exit
@@ -655,14 +649,14 @@ EmitPartitionsSize.exit:                          ; preds = %EmitPartitionsSize.
   br i1 %or.cond, label %323, label %329
 
 323:                                              ; preds = %._crit_edge115
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i8 0, ptr %2, align 1
   %324 = getelementptr inbounds nuw i8, ptr %11, i64 96
   %325 = load ptr, ptr %324, align 8, !tbaa !64
   %326 = call i32 %325(ptr noundef nonnull %2, i64 noundef 1, ptr noundef %11) #4
   %327 = icmp ne i32 %326, 0
   %328 = zext i1 %327 to i32
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %329
 
 329:                                              ; preds = %323, %._crit_edge115
@@ -687,31 +681,37 @@ EmitPartitionsSize.exit:                          ; preds = %EmitPartitionsSize.
   ret i32 %.0
 }
 
-declare i32 @WebPEncodingSetError(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @WebPEncodingSetError(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @WebPReportProgress(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @WebPReportProgress(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @VP8BitWriterInit(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @VP8BitWriterInit(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @VP8PutBitUniform(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @VP8PutBitUniform(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @VP8PutBits(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @VP8PutBits(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @VP8WriteProbas(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @VP8WriteProbas(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @VP8CodeIntraModes(ptr noundef) local_unnamed_addr #2
+declare void @VP8CodeIntraModes(ptr noundef) local_unnamed_addr #1
 
-declare ptr @VP8BitWriterFinish(ptr noundef) local_unnamed_addr #2
+declare ptr @VP8BitWriterFinish(ptr noundef) local_unnamed_addr #1
 
-declare void @VP8PutSignedBits(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @VP8PutSignedBits(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

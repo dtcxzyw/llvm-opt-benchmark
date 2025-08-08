@@ -42,12 +42,9 @@ define void @lv_bin_decoder_init() local_unnamed_addr #0 {
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @lv_image_decoder_create() local_unnamed_addr #1
 
-declare ptr @lv_image_decoder_create() local_unnamed_addr #2
-
-declare void @lv_image_decoder_set_info_cb(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @lv_image_decoder_set_info_cb(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @lv_bin_decoder_info(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2) #0 {
@@ -74,7 +71,7 @@ define range(i32 0, 2) i32 @lv_bin_decoder_info(ptr readnone captures(none) %0, 
   br i1 %.not, label %14, label %41
 
 14:                                               ; preds = %11
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %16 = call i32 @lv_fs_read(ptr noundef nonnull %15, ptr noundef %2, i32 noundef 12, ptr noundef nonnull %4) #4
   %17 = icmp eq i32 %16, 0
@@ -101,7 +98,7 @@ define range(i32 0, 2) i32 @lv_bin_decoder_info(ptr readnone captures(none) %0, 
   %30 = phi i64 [ %28, %23 ], [ %21, %20 ]
   %31 = or i64 %30, 2097152
   store i64 %31, ptr %2, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %36
 
 32:                                               ; preds = %3
@@ -123,7 +120,7 @@ define range(i32 0, 2) i32 @lv_bin_decoder_info(ptr readnone captures(none) %0, 
   br label %41
 
 .critedge:                                        ; preds = %14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %41
 
 41:                                               ; preds = %36, %39, %3, %.critedge, %11
@@ -131,7 +128,7 @@ define range(i32 0, 2) i32 @lv_bin_decoder_info(ptr readnone captures(none) %0, 
   ret i32 %.0
 }
 
-declare void @lv_image_decoder_set_open_cb(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @lv_image_decoder_set_open_cb(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @lv_bin_decoder_open(ptr noundef %0, ptr noundef %1) #0 {
@@ -346,7 +343,7 @@ get_decoder_data.exit170:                         ; preds = %85, %91
   br i1 %99, label %100, label %115
 
 100:                                              ; preds = %94
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %46, i64 32, i1 false), !tbaa.struct !35
   %101 = load i64, ptr %3, align 8
   %102 = lshr i64 %101, 32
@@ -364,7 +361,7 @@ get_decoder_data.exit170:                         ; preds = %85, %91
   %114 = or disjoint i32 %112, %113
   store i32 %114, ptr %110, align 8
   call void @lv_draw_buf_from_image(ptr noundef nonnull %95, ptr noundef nonnull %3) #4
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %116
 
 115:                                              ; preds = %94
@@ -470,7 +467,7 @@ get_decoder_data.exit174:                         ; preds = %.critedge157, %146
   br i1 %154, label %155, label %.critedge
 
 155:                                              ; preds = %153
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %156 = load i32, ptr %5, align 8, !tbaa !22
   %157 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 %156, ptr %157, align 8, !tbaa !42
@@ -520,7 +517,7 @@ get_decoder_data.exit178:                         ; preds = %170, %176
 
 178:                                              ; preds = %get_decoder_data.exit178, %169
   %.9 = phi i32 [ 0, %169 ], [ 1, %get_decoder_data.exit178 ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.critedge
 
 .critedge:                                        ; preds = %20, %24, %44, %139, %178, %149, %148, %153, %.thread184, %7, %.thread
@@ -528,7 +525,7 @@ get_decoder_data.exit178:                         ; preds = %170, %176
   ret i32 %.0
 }
 
-declare void @lv_image_decoder_set_get_area_cb(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @lv_image_decoder_set_get_area_cb(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @lv_bin_decoder_get_area(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef captures(none) %3) #0 {
@@ -877,7 +874,7 @@ fs_read_file_at.exit174:                          ; preds = %144
   ret i32 %.0
 }
 
-declare void @lv_image_decoder_set_close_cb(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @lv_image_decoder_set_close_cb(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @lv_bin_decoder_close(ptr readnone captures(none) %0, ptr noundef captures(none) %1) #0 {
@@ -902,18 +899,15 @@ define void @lv_bin_decoder_close(ptr readnone captures(none) %0, ptr noundef ca
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @lv_memcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare ptr @lv_memcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @lv_strcmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @lv_strcmp(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @lv_fs_get_ext(ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_fs_get_ext(ptr noundef) local_unnamed_addr #2
+declare i32 @lv_fs_read(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @lv_fs_read(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
-
-declare ptr @lv_malloc(i64 noundef) local_unnamed_addr #2
+declare ptr @lv_malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @free_decoder_data(ptr noundef captures(none) %0) unnamed_addr #0 {
@@ -965,14 +959,14 @@ define internal fastcc void @free_decoder_data(ptr noundef captures(none) %0) un
   ret void
 }
 
-declare i32 @lv_fs_open(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @lv_fs_open(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_free(ptr noundef) local_unnamed_addr #2
+declare void @lv_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @decode_indexed(ptr noundef captures(none) %0) unnamed_addr #0 {
   %2 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load ptr, ptr %3, align 8, !tbaa !23
   %5 = load ptr, ptr %4, align 8, !tbaa !24
@@ -1080,14 +1074,14 @@ fs_read_file_at.exit.thread:                      ; preds = %33, %fs_read_file_a
 
 56:                                               ; preds = %27, %53, %fs_read_file_at.exit.thread
   %.0 = phi i32 [ 1, %53 ], [ 0, %fs_read_file_at.exit.thread ], [ 0, %27 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @decode_alpha_only(ptr noundef captures(none) %0) unnamed_addr #0 {
   %2 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load ptr, ptr %3, align 8, !tbaa !23
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -1267,32 +1261,32 @@ bit_extend.exit.us:                               ; preds = %.lr.ph.i.us, %.lr.p
 
 90:                                               ; preds = %13, %.loopexit, %fs_read_file_at.exit.thread, %1
   %.0 = phi i32 [ 0, %1 ], [ 0, %13 ], [ 1, %.loopexit ], [ 0, %fs_read_file_at.exit.thread ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
-declare zeroext i8 @lv_color_format_get_bpp(i32 noundef) local_unnamed_addr #2
+declare zeroext i8 @lv_color_format_get_bpp(i32 noundef) local_unnamed_addr #1
 
-declare void @lv_draw_buf_from_image(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @lv_draw_buf_from_image(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @lv_draw_buf_set_flag(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_draw_buf_set_flag(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @lv_image_decoder_post_process(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @lv_image_decoder_post_process(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @lv_image_cache_is_enabled() local_unnamed_addr #2
+declare zeroext i1 @lv_image_cache_is_enabled() local_unnamed_addr #1
 
-declare ptr @lv_image_decoder_add_to_cache(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @lv_image_decoder_add_to_cache(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @lv_draw_buf_destroy(ptr noundef) local_unnamed_addr #2
+declare void @lv_draw_buf_destroy(ptr noundef) local_unnamed_addr #1
 
-declare i32 @lv_area_get_width(ptr noundef) local_unnamed_addr #2
+declare i32 @lv_area_get_width(ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_draw_buf_reshape(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @lv_draw_buf_reshape(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @lv_draw_buf_create_ex(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @lv_draw_buf_create_ex(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @fs_read_file_at(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
@@ -1317,16 +1311,22 @@ define internal fastcc i32 @fs_read_file_at(ptr noundef %0, i32 noundef %1, ptr 
   ret i32 %.0
 }
 
-declare ptr @lv_malloc_zeroed(i64 noundef) local_unnamed_addr #2
+declare ptr @lv_malloc_zeroed(i64 noundef) local_unnamed_addr #1
 
-declare i32 @lv_fs_close(ptr noundef) local_unnamed_addr #2
+declare i32 @lv_fs_close(ptr noundef) local_unnamed_addr #1
 
-declare i32 @lv_fs_seek(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @lv_fs_seek(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

@@ -547,13 +547,13 @@ define noundef i64 @_RINvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB5_5
   %.sroa.3.0.copyload = load ptr, ptr %.sroa.3.0..sroa_idx, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %5, ptr %4, align 8, !noalias !218
   %9 = call noundef i64 @_RINvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB7_4IterNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowENtNtNtNtBb_4iter6traits8iterator8Iterator4foldjQQNCINvNvXs_NtNtB1E_8adapters9enumerateINtB2v_9EnumeratepEB1y_4fold9enumerateRBQ_jNCNvMNtBU_4gridNtB3I_4Grid18size_with_contents0E0EBU_.llvm.10109814100354086291(ptr noundef nonnull %6, ptr noundef %.sroa.2.0.copyload, i64 noundef %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %4), !noalias !222
   %10 = icmp ne ptr %.sroa.3.0.copyload, null
   call void @llvm.assume(i1 %10)
   %11 = call noundef i64 @_RINvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB7_4IterNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowENtNtNtNtBb_4iter6traits8iterator8Iterator4foldjQQNCINvNvXs_NtNtB1E_8adapters9enumerateINtB2v_9EnumeratepEB1y_4fold9enumerateRBQ_jNCNvMNtBU_4gridNtB3I_4Grid18size_with_contents0E0EBU_.llvm.10109814100354086291(ptr noundef nonnull %.sroa.3.0.copyload, ptr noundef %.sroa.4.0.copyload, i64 noundef %9, ptr noalias noundef nonnull align 8 dereferenceable(8) %4), !noalias !222
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %12
 
 12:                                               ; preds = %3, %8
@@ -688,7 +688,7 @@ define noundef zeroext i1 @_RNvXs0_NtCslmLCWD9els8_8arrayvec6errorsINtB5_13Capac
 _ZN4core3fmt9Formatter9write_fmt17h7b1b66abcbe56eabE.exit:
   %2 = alloca [48 x i8], align 8
   %3 = alloca [16 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr @anon.274bce46664a9529a7dfad30630efeaf.4, ptr %3, align 8
   %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @_RNvXsR_NtCs1LoaDTb72WA_4core3fmtReNtB5_7Display3fmtCs4XtYKdFCiz1_3log, ptr %.sroa.42.0..sroa_idx, align 8
@@ -696,7 +696,7 @@ _ZN4core3fmt9Formatter9write_fmt17h7b1b66abcbe56eabE.exit:
   %.val = load ptr, ptr %4, align 8, !nonnull !7, !noundef !7
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.val3 = load ptr, ptr %5, align 8, !nonnull !7, !noundef !7
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2), !noalias !283
+  call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !283
   store ptr @anon.274bce46664a9529a7dfad30630efeaf.6, ptr %2, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 1, ptr %.sroa.5.0..sroa_idx, align 8
@@ -707,8 +707,8 @@ _ZN4core3fmt9Formatter9write_fmt17h7b1b66abcbe56eabE.exit:
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr null, ptr %.sroa.10.0..sroa_idx, align 8
   %6 = call noundef zeroext i1 @_ZN4core3fmt5write17h70fe4701d8d7a171E(ptr noundef nonnull align 1 %.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.val3, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %2), !noalias !283
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2), !noalias !283
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !283
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %6
 }
 
@@ -1063,17 +1063,17 @@ declare void @llvm.assume(i1 noundef) #12
 ; Function Attrs: nounwind nonlazybind allockind("free") uwtable
 declare void @__rust_dealloc(ptr allocptr noundef, i64 noundef, i64 noundef) unnamed_addr #13
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
-
 ; Function Attrs: nonlazybind uwtable
 declare { i64, i64 } @_RINvNtNtCs1LoaDTb72WA_4core5slice5index5rangeNtNtNtB6_3ops5range9RangeFullECsaWlx1u69XGo_9crossterm(i64 noundef, ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #0
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-declare hidden noundef i64 @_RINvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB7_4IterNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowENtNtNtNtBb_4iter6traits8iterator8Iterator4foldjQQNCINvNvXs_NtNtB1E_8adapters9enumerateINtB2v_9EnumeratepEB1y_4fold9enumerateRBQ_jNCNvMNtBU_4gridNtB3I_4Grid18size_with_contents0E0EBU_.llvm.10109814100354086291(ptr noundef nonnull, ptr noundef, i64 noundef, ptr noalias noundef align 8 dereferenceable(8)) unnamed_addr #15
+declare hidden noundef i64 @_RINvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB7_4IterNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowENtNtNtNtBb_4iter6traits8iterator8Iterator4foldjQQNCINvNvXs_NtNtB1E_8adapters9enumerateINtB2v_9EnumeratepEB1y_4fold9enumerateRBQ_jNCNvMNtBU_4gridNtB3I_4Grid18size_with_contents0E0EBU_.llvm.10109814100354086291(ptr noundef nonnull, ptr noundef, i64 noundef, ptr noalias noundef align 8 dereferenceable(8)) unnamed_addr #14
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #16
@@ -1098,8 +1098,8 @@ attributes #10 = { inlinehint nofree norecurse nosync nounwind nonlazybind memor
 attributes #11 = { cold noreturn nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #13 = { nounwind nonlazybind allockind("free") uwtable "alloc-family"="__rust_alloc" "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #15 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #14 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #16 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #17 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #18 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }

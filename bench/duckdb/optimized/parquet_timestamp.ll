@@ -29,13 +29,7 @@ define i64 @_ZN6duckdb26ImpalaTimestampToTimestampERKNS_5Int96E(ptr noundef nonn
   ret i64 %8
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
-declare i64 @_ZN6duckdb9Timestamp21FromEpochMicroSecondsEl(i64 noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare i64 @_ZN6duckdb9Timestamp21FromEpochMicroSecondsEl(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define { i64, i32 } @_ZN6duckdb26TimestampToImpalaTimestampERNS_11timestamp_tE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #1 {
@@ -43,10 +37,10 @@ define { i64, i32 } @_ZN6duckdb26TimestampToImpalaTimestampERNS_11timestamp_tE(p
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.sroa.04.0.copyload = load i64, ptr %0, align 8, !tbaa !7
   %6 = tail call i64 @_ZN6duckdb9Timestamp7GetTimeENS_11timestamp_tE(i64 %.sroa.04.0.copyload)
   call void @_ZN6duckdb4Time7ConvertENS_7dtime_tERiS2_S2_S2_(i64 %6, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 4 dereferenceable(4) %5)
@@ -68,22 +62,22 @@ define { i64, i32 } @_ZN6duckdb26TimestampToImpalaTimestampERNS_11timestamp_tE(p
   %21 = mul nsw i64 %17, 1000000
   %22 = trunc i64 %20 to i32
   %23 = add i32 %22, 2440588
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.fca.0.insert = insertvalue { i64, i32 } poison, i64 %21, 0
   %.fca.1.insert = insertvalue { i64, i32 } %.fca.0.insert, i32 %23, 1
   ret { i64, i32 } %.fca.1.insert
 }
 
-declare void @_ZN6duckdb4Time7ConvertENS_7dtime_tERiS2_S2_S2_(i64, ptr noundef nonnull align 4 dereferenceable(4), ptr noundef nonnull align 4 dereferenceable(4), ptr noundef nonnull align 4 dereferenceable(4), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #3
+declare void @_ZN6duckdb4Time7ConvertENS_7dtime_tERiS2_S2_S2_(i64, ptr noundef nonnull align 4 dereferenceable(4), ptr noundef nonnull align 4 dereferenceable(4), ptr noundef nonnull align 4 dereferenceable(4), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #2
 
-declare i64 @_ZN6duckdb9Timestamp7GetTimeENS_11timestamp_tE(i64) local_unnamed_addr #3
+declare i64 @_ZN6duckdb9Timestamp7GetTimeENS_11timestamp_tE(i64) local_unnamed_addr #2
 
-declare noundef i64 @_ZN6duckdb4Date5EpochENS_6date_tE(i32) local_unnamed_addr #3
+declare noundef i64 @_ZN6duckdb4Date5EpochENS_6date_tE(i32) local_unnamed_addr #2
 
-declare i32 @_ZN6duckdb9Timestamp7GetDateENS_11timestamp_tE(i64) local_unnamed_addr #3
+declare i32 @_ZN6duckdb9Timestamp7GetDateENS_11timestamp_tE(i64) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define i64 @_ZN6duckdb33ParquetTimestampMicrosToTimestampERKl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #1 {
@@ -109,7 +103,7 @@ define i64 @_ZN6duckdb29ParquetTimestampMsToTimestampERKl(ptr noundef nonnull re
   ret i64 %.sroa.02.0
 }
 
-declare i64 @_ZN6duckdb9Timestamp11FromEpochMsEl(i64 noundef) local_unnamed_addr #3
+declare i64 @_ZN6duckdb9Timestamp11FromEpochMsEl(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define i64 @_ZN6duckdb31ParquetTimestampMsToTimestampNsERKl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #1 {
@@ -128,7 +122,7 @@ define i64 @_ZN6duckdb31ParquetTimestampMsToTimestampNsERKl(ptr noundef nonnull 
   ret i64 %.sroa.03.0
 }
 
-declare i64 @_ZN6duckdb9Timestamp26TimestampNsFromEpochMillisEl(i64 noundef) local_unnamed_addr #3
+declare i64 @_ZN6duckdb9Timestamp26TimestampNsFromEpochMillisEl(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define i64 @_ZN6duckdb31ParquetTimestampUsToTimestampNsERKl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #1 {
@@ -147,7 +141,7 @@ define i64 @_ZN6duckdb31ParquetTimestampUsToTimestampNsERKl(ptr noundef nonnull 
   ret i64 %.sroa.03.0
 }
 
-declare i64 @_ZN6duckdb9Timestamp26TimestampNsFromEpochMicrosEl(i64 noundef) local_unnamed_addr #3
+declare i64 @_ZN6duckdb9Timestamp26TimestampNsFromEpochMicrosEl(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i64 @_ZN6duckdb31ParquetTimestampNsToTimestampNsERKl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #0 {
@@ -172,7 +166,7 @@ define i64 @_ZN6duckdb29ParquetTimestampNsToTimestampERKl(ptr noundef nonnull re
   ret i64 %.sroa.02.0
 }
 
-declare i64 @_ZN6duckdb9Timestamp20FromEpochNanoSecondsEl(i64 noundef) local_unnamed_addr #3
+declare i64 @_ZN6duckdb9Timestamp20FromEpochNanoSecondsEl(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @_ZN6duckdb16ParquetIntToDateERKi(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #0 {
@@ -188,7 +182,7 @@ define i64 @_ZN6duckdb18ParquetIntToTimeMsERKi(ptr noundef nonnull readonly alig
   ret i64 %4
 }
 
-declare i64 @_ZN6duckdb4Time10FromTimeMsEl(i64 noundef) local_unnamed_addr #3
+declare i64 @_ZN6duckdb4Time10FromTimeMsEl(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i64 @_ZN6duckdb16ParquetIntToTimeERKl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #0 {
@@ -203,7 +197,7 @@ define i64 @_ZN6duckdb18ParquetIntToTimeNsERKl(ptr noundef nonnull readonly alig
   ret i64 %3
 }
 
-declare i64 @_ZN6duckdb4Time10FromTimeNsEl(i64 noundef) local_unnamed_addr #3
+declare i64 @_ZN6duckdb4Time10FromTimeNsEl(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define range(i64 57599, -16711680) i64 @_ZN6duckdb20ParquetIntToTimeMsTZERKi(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #1 {
@@ -268,11 +262,16 @@ _ZN6duckdbL15ParquetWrapTimeIlEET_RKS1_S1_.exit:  ; preds = %1, %3
   ret i64 %9
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
+
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

@@ -2614,8 +2614,8 @@ if.else45:                                        ; preds = %if.else37
   br i1 %cmp.i26, label %if.then48, label %if.else53
 
 if.then48:                                        ; preds = %if.else45
-  call void @llvm.lifetime.start.p0(i64 392, ptr nonnull %ss.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %x.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ss.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %x.i)
   invoke void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss.i)
           to label %.noexc30 unwind label %lpad27
 
@@ -2641,8 +2641,8 @@ lpad.i29:                                         ; preds = %invoke.cont1.i, %in
 invoke.cont49:                                    ; preds = %invoke.cont1.i
   %6 = load i64, ptr %x.i, align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss.i) #25
-  call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %ss.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %x.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ss.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %x.i)
   %.fca.1.insert.i.i32 = insertvalue { i32, i64 } { i32 3, i64 poison }, i64 %6, 1
   br label %cleanup
 
@@ -2652,10 +2652,10 @@ if.else53:                                        ; preds = %if.else45
   br i1 %cmp.i34, label %if.then56, label %if.else61
 
 if.then56:                                        ; preds = %if.else53
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %str_end.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %str_end.i)
   %call.i35 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %rest) #25
   %call1.i = call noundef i64 @strtoll(ptr noundef %call.i35, ptr noundef nonnull %str_end.i, i32 noundef 10) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %str_end.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %str_end.i)
   %.fca.1.insert.i.i36 = insertvalue { i32, i64 } { i32 4, i64 poison }, i64 %call1.i, 1
   br label %cleanup
 
@@ -5247,8 +5247,8 @@ entry:
   tail call void @_ZN6hermes11JSONEmitter9emitValueEm(ptr noundef nonnull align 8 dereferenceable(72) %json, i64 noundef %0)
   %method_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load i32, ptr %method_, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp2.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2.i)
   %switch.i = icmp eq i32 %1, 0
   br i1 %switch.i, label %sw.bb.i, label %sw.bb1.i
 
@@ -5262,7 +5262,7 @@ call.i.noexc.i:                                   ; preds = %sw.bb.i
           to label %.noexc.i unwind label %lpad.i
 
 .noexc.i:                                         ; preds = %call.i.noexc.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i20)
   %call.i.i21 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %if.end.i23 unwind label %terminate.lpad.i.i22
 
@@ -5292,7 +5292,7 @@ lpad.i25:                                         ; preds = %invoke.cont.i26, %i
   br label %eh.resume.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag.exit28: ; preds = %invoke.cont.i26
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i20)
   br label %_ZN8facebook6hermes7tracingL26createBigIntMethodToStringB5cxx11ENS1_10SynthTrace18CreateBigIntRecord6MethodE.exit
 
 lpad.i:                                           ; preds = %call.i.noexc.i, %sw.bb.i
@@ -5310,7 +5310,7 @@ call.i.noexc6.i:                                  ; preds = %sw.bb1.i
           to label %.noexc8.i unwind label %lpad3.i
 
 .noexc8.i:                                        ; preds = %call.i.noexc6.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i)
   %call.i.i17 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %if.end.i unwind label %terminate.lpad.i.i
 
@@ -5340,7 +5340,7 @@ lpad.i18:                                         ; preds = %invoke.cont.i, %if.
   br label %eh.resume.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag.exit: ; preds = %invoke.cont.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i)
   br label %_ZN8facebook6hermes7tracingL26createBigIntMethodToStringB5cxx11ENS1_10SynthTrace18CreateBigIntRecord6MethodE.exit
 
 lpad3.i:                                          ; preds = %call.i.noexc6.i, %sw.bb1.i
@@ -5361,8 +5361,8 @@ eh.resume.i:                                      ; preds = %lpad3.i, %lpad.i18,
 _ZN8facebook6hermes7tracingL26createBigIntMethodToStringB5cxx11ENS1_10SynthTrace18CreateBigIntRecord6MethodE.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag.exit28, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag.exit
   %ref.tmp2.sink.i = phi ptr [ %ref.tmp.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag.exit28 ], [ %ref.tmp2.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag.exit ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2.sink.i) #25
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp2.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i)
   invoke void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %json, ptr nonnull @.str.54, i64 6)
           to label %.noexc unwind label %lpad
 
@@ -8903,10 +8903,10 @@ declare void @llvm.assume(i1 noundef) #19
 declare void @llvm.experimental.noalias.scope.decl(metadata) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #21
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #21
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #22

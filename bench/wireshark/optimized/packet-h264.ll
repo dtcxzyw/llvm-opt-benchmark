@@ -956,26 +956,20 @@ define hidden void @dissect_h264_profile(ptr noundef %0, ptr noundef readnone ca
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
-
-; Function Attrs: null_pointer_is_valid
-declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @dissect_h264_nal_unit(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -1051,7 +1045,7 @@ define hidden void @dissect_h264_nal_unit(ptr noundef %0, ptr noundef %1, ptr no
 
 37:                                               ; preds = %27
   %38 = shl i32 %36, 3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 %38, ptr %10, align 4
   %39 = load i32, ptr @hf_h264_first_mb_in_slice, align 4
   %40 = call fastcc i32 @dissect_h264_exp_golomb_code(ptr noundef %15, ptr noundef readonly %1, i32 noundef %39, ptr noundef %0, ptr noundef nonnull %10, i32 noundef 0)
@@ -1060,7 +1054,7 @@ define hidden void @dissect_h264_nal_unit(ptr noundef %0, ptr noundef %1, ptr no
   %43 = load i32, ptr @hf_h264_pic_parameter_set_id, align 4
   %44 = call fastcc i32 @dissect_h264_exp_golomb_code(ptr noundef %15, ptr noundef readonly %1, i32 noundef %43, ptr noundef %0, ptr noundef nonnull %10, i32 noundef 0)
   %45 = load i32, ptr %10, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %46 = ashr i32 %45, 3
   %47 = tail call ptr @proto_tree_add_expert(ptr noundef %15, ptr noundef %1, ptr noundef nonnull @ei_h264_undecoded, ptr noundef %0, i32 noundef %46, i32 noundef -1)
   br label %.loopexit
@@ -1082,7 +1076,7 @@ define hidden void @dissect_h264_nal_unit(ptr noundef %0, ptr noundef %1, ptr no
   br label %.loopexit
 
 61:                                               ; preds = %27
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %62 = shl i32 %36, 3
   store i32 %62, ptr %8, align 4
   %63 = load i32, ptr @hf_h264_slice_id, align 4
@@ -1090,11 +1084,11 @@ define hidden void @dissect_h264_nal_unit(ptr noundef %0, ptr noundef %1, ptr no
   %65 = load i32, ptr %8, align 4
   %66 = ashr i32 %65, 3
   %67 = tail call ptr @proto_tree_add_expert(ptr noundef %15, ptr noundef %1, ptr noundef nonnull @ei_h264_undecoded, ptr noundef %0, i32 noundef %66, i32 noundef -1)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.loopexit
 
 68:                                               ; preds = %27
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %69 = shl i32 %36, 3
   store i32 %69, ptr %7, align 4
   %70 = load i32, ptr @hf_h264_slice_id, align 4
@@ -1102,12 +1096,12 @@ define hidden void @dissect_h264_nal_unit(ptr noundef %0, ptr noundef %1, ptr no
   %72 = load i32, ptr %7, align 4
   %73 = ashr i32 %72, 3
   %74 = tail call ptr @proto_tree_add_expert(ptr noundef %15, ptr noundef %1, ptr noundef nonnull @ei_h264_undecoded, ptr noundef %0, i32 noundef %73, i32 noundef -1)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.loopexit
 
 75:                                               ; preds = %27
   %76 = shl i32 %36, 3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 %76, ptr %6, align 4
   %77 = load i32, ptr @hf_h264_first_mb_in_slice, align 4
   %78 = call fastcc i32 @dissect_h264_exp_golomb_code(ptr noundef %15, ptr noundef readonly %1, i32 noundef %77, ptr noundef %0, ptr noundef nonnull %6, i32 noundef 0)
@@ -1116,7 +1110,7 @@ define hidden void @dissect_h264_nal_unit(ptr noundef %0, ptr noundef %1, ptr no
   %81 = load i32, ptr @hf_h264_pic_parameter_set_id, align 4
   %82 = call fastcc i32 @dissect_h264_exp_golomb_code(ptr noundef %15, ptr noundef readonly %1, i32 noundef %81, ptr noundef %0, ptr noundef nonnull %6, i32 noundef 0)
   %83 = load i32, ptr %6, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %84 = ashr i32 %83, 3
   %85 = tail call ptr @proto_tree_add_expert(ptr noundef %15, ptr noundef %1, ptr noundef nonnull @ei_h264_undecoded, ptr noundef %0, i32 noundef %84, i32 noundef -1)
   br label %.loopexit
@@ -1177,7 +1171,7 @@ define hidden void @dissect_h264_nal_unit(ptr noundef %0, ptr noundef %1, ptr no
 
 114:                                              ; preds = %27
   %115 = shl i32 %36, 3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 %115, ptr %5, align 4
   %116 = load i32, ptr @hf_h264_first_mb_in_slice, align 4
   %117 = call fastcc i32 @dissect_h264_exp_golomb_code(ptr noundef %2, ptr noundef readonly %1, i32 noundef %116, ptr noundef %0, ptr noundef nonnull %5, i32 noundef 0)
@@ -1186,14 +1180,14 @@ define hidden void @dissect_h264_nal_unit(ptr noundef %0, ptr noundef %1, ptr no
   %120 = load i32, ptr @hf_h264_pic_parameter_set_id, align 4
   %121 = call fastcc i32 @dissect_h264_exp_golomb_code(ptr noundef %2, ptr noundef readonly %1, i32 noundef %120, ptr noundef %0, ptr noundef nonnull %5, i32 noundef 0)
   %122 = load i32, ptr %5, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %123 = ashr i32 %122, 3
   %124 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_h264_undecoded, ptr noundef %0, i32 noundef %123, i32 noundef -1)
   br label %.loopexit
 
 125:                                              ; preds = %27
   %126 = shl i32 %36, 3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 %126, ptr %4, align 4
   %127 = load i32, ptr @hf_h264_first_mb_in_slice, align 4
   %128 = call fastcc i32 @dissect_h264_exp_golomb_code(ptr noundef %2, ptr noundef readonly %1, i32 noundef %127, ptr noundef %0, ptr noundef nonnull %4, i32 noundef 0)
@@ -1202,7 +1196,7 @@ define hidden void @dissect_h264_nal_unit(ptr noundef %0, ptr noundef %1, ptr no
   %131 = load i32, ptr @hf_h264_pic_parameter_set_id, align 4
   %132 = call fastcc i32 @dissect_h264_exp_golomb_code(ptr noundef %2, ptr noundef readonly %1, i32 noundef %131, ptr noundef %0, ptr noundef nonnull %4, i32 noundef 0)
   %133 = load i32, ptr %4, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %134 = ashr i32 %133, 3
   %135 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_h264_undecoded, ptr noundef %0, i32 noundef %134, i32 noundef -1)
   br label %.loopexit
@@ -1216,10 +1210,10 @@ define hidden void @dissect_h264_nal_unit(ptr noundef %0, ptr noundef %1, ptr no
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @tvb_get_bits32(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @tvb_get_bits32(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @dissect_h264_sei_rbsp(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
@@ -1289,7 +1283,7 @@ define internal fastcc void @dissect_h264_sei_rbsp(ptr noundef %0, ptr noundef %
 
 40:                                               ; preds = %._crit_edge50.i
   %41 = ashr i32 %31, 3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %42 = load i32, ptr @hf_h264_sei_uuid, align 4
   %43 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %42, ptr noundef %1, i32 noundef %41, i32 noundef 16, i32 noundef 0)
   call void @tvb_get_ntohguid(ptr noundef %1, i32 noundef %41, ptr noundef nonnull %5)
@@ -1462,7 +1456,7 @@ define internal fastcc void @dissect_h264_sei_rbsp(ptr noundef %0, ptr noundef %
 h264_user_data_unregistered.exit.i.i:             ; preds = %.lr.ph.i.i.i, %.lr.ph150.i.i.i, %150, %146, %137, %107, %71, %55
   %.2.i.i.i = phi i32 [ %59, %55 ], [ %145, %137 ], [ %153, %150 ], [ %44, %146 ], [ %65, %71 ], [ %116, %107 ], [ %102, %.lr.ph150.i.i.i ], [ %134, %.lr.ph.i.i.i ]
   %154 = shl i32 %.2.i.i.i, 3
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %dissect_h264_sei_message.exit
 
 155:                                              ; preds = %._crit_edge50.i
@@ -1509,7 +1503,7 @@ define internal fastcc noundef range(i32 -268435456, 268435456) i32 @dissect_h26
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %3)
   %10 = load i32, ptr @hf_h264_profile_idc, align 4
   %11 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %10, ptr noundef %1, i32 noundef %3, i32 noundef 1, i32 noundef 0)
@@ -1617,7 +1611,7 @@ define internal fastcc noundef range(i32 -268435456, 268435456) i32 @dissect_h26
   br i1 %75, label %76, label %87
 
 76:                                               ; preds = %74
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 %73, ptr %7, align 4
   br label %77
 
@@ -1648,11 +1642,11 @@ define internal fastcc noundef range(i32 -268435456, 268435456) i32 @dissect_h26
 
 dissect_h264_scaling_list.exit:                   ; preds = %.thread.i
   %86 = load i32, ptr %7, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %98
 
 87:                                               ; preds = %74
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 %73, ptr %6, align 4
   br label %88
 
@@ -1683,7 +1677,7 @@ dissect_h264_scaling_list.exit:                   ; preds = %.thread.i
 
 dissect_h264_scaling_list.exit206:                ; preds = %.thread.i202
   %97 = load i32, ptr %6, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %98
 
 98:                                               ; preds = %.preheader, %dissect_h264_scaling_list.exit206, %dissect_h264_scaling_list.exit
@@ -1797,7 +1791,7 @@ dissect_h264_scaling_list.exit206:                ; preds = %.thread.i202
   br i1 %.not194, label %296, label %167
 
 167:                                              ; preds = %161
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %168 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %1, i32 noundef %166, i32 noundef 1)
   %169 = load i32, ptr @hf_h264_aspect_ratio_info_present_flag, align 4
   %170 = tail call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %169, ptr noundef %1, i32 noundef %166, i32 noundef 1, i32 noundef 0)
@@ -1983,7 +1977,7 @@ dissect_h264_scaling_list.exit206:                ; preds = %.thread.i202
 
 dissect_h264_vui_parameters.exit:                 ; preds = %270, %279
   %295 = phi i32 [ %.pre111.i, %279 ], [ %278, %270 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %296
 
 296:                                              ; preds = %dissect_h264_vui_parameters.exit, %161
@@ -2005,17 +1999,17 @@ dissect_h264_rbsp_trailing_bits.exit:             ; preds = %296, %302
   %.0.i = phi i32 [ %303, %302 ], [ 0, %296 ]
   %306 = add i32 %.0.i, %300
   %307 = ashr i32 %306, 3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %307
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @dissect_h264_pic_parameter_set_rbsp(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = shl i32 %3, 3
   store i32 %6, ptr %5, align 4
   %7 = load i32, ptr @hf_h264_pic_parameter_set_id, align 4
@@ -2137,12 +2131,12 @@ more_rbsp_data.exit.thread:                       ; preds = %61, %26, %75
   br label %dissect_h264_rbsp_trailing_bits.exit
 
 dissect_h264_rbsp_trailing_bits.exit:             ; preds = %83, %more_rbsp_data.exit.thread, %72, %20
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_h264() local_unnamed_addr #0 {
@@ -2165,28 +2159,28 @@ define hidden void @proto_register_h264() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #2
+declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @prefs_register_obsolete_preference(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @prefs_register_obsolete_preference(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_h264(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
@@ -2280,7 +2274,7 @@ define internal i32 @dissect_h264(ptr noundef %0, ptr noundef %1, ptr noundef %2
   ]
 
 54:                                               ; preds = %.split110
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %55 = load i32, ptr @hf_h264_first_mb_in_slice, align 4
   %56 = call fastcc i32 @dissect_h264_exp_golomb_code(ptr noundef %53, ptr noundef readonly %1, i32 noundef %55, ptr noundef %51, ptr noundef nonnull %9, i32 noundef 0)
@@ -2289,35 +2283,35 @@ define internal i32 @dissect_h264(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %59 = load i32, ptr @hf_h264_pic_parameter_set_id, align 4
   %60 = call fastcc i32 @dissect_h264_exp_golomb_code(ptr noundef %53, ptr noundef readonly %1, i32 noundef %59, ptr noundef %51, ptr noundef nonnull %9, i32 noundef 0)
   %61 = load i32, ptr %9, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %62 = ashr i32 %61, 3
   %63 = tail call ptr @proto_tree_add_expert(ptr noundef %53, ptr noundef %1, ptr noundef nonnull @ei_h264_undecoded, ptr noundef %51, i32 noundef %62, i32 noundef -1)
   br label %dissect_h264_prefix.exit
 
 64:                                               ; preds = %.split110
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4
   %65 = load i32, ptr @hf_h264_slice_id, align 4
   %66 = call fastcc i32 @dissect_h264_exp_golomb_code(ptr noundef %53, ptr noundef %1, i32 noundef %65, ptr noundef %51, ptr noundef nonnull %8, i32 noundef 0)
   %67 = load i32, ptr %8, align 4
   %68 = ashr i32 %67, 3
   %69 = tail call ptr @proto_tree_add_expert(ptr noundef %53, ptr noundef %1, ptr noundef nonnull @ei_h264_undecoded, ptr noundef %51, i32 noundef %68, i32 noundef -1)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %dissect_h264_prefix.exit
 
 70:                                               ; preds = %.split110
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4
   %71 = load i32, ptr @hf_h264_slice_id, align 4
   %72 = call fastcc i32 @dissect_h264_exp_golomb_code(ptr noundef %53, ptr noundef %1, i32 noundef %71, ptr noundef %51, ptr noundef nonnull %7, i32 noundef 0)
   %73 = load i32, ptr %7, align 4
   %74 = ashr i32 %73, 3
   %75 = tail call ptr @proto_tree_add_expert(ptr noundef %53, ptr noundef %1, ptr noundef nonnull @ei_h264_undecoded, ptr noundef %51, i32 noundef %74, i32 noundef -1)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %dissect_h264_prefix.exit
 
 76:                                               ; preds = %.split110
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4
   %77 = load i32, ptr @hf_h264_first_mb_in_slice, align 4
   %78 = call fastcc i32 @dissect_h264_exp_golomb_code(ptr noundef %53, ptr noundef readonly %1, i32 noundef %77, ptr noundef %51, ptr noundef nonnull %6, i32 noundef 0)
@@ -2326,7 +2320,7 @@ define internal i32 @dissect_h264(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %81 = load i32, ptr @hf_h264_pic_parameter_set_id, align 4
   %82 = call fastcc i32 @dissect_h264_exp_golomb_code(ptr noundef %53, ptr noundef readonly %1, i32 noundef %81, ptr noundef %51, ptr noundef nonnull %6, i32 noundef 0)
   %83 = load i32, ptr %6, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %84 = ashr i32 %83, 3
   %85 = tail call ptr @proto_tree_add_expert(ptr noundef %53, ptr noundef %1, ptr noundef nonnull @ei_h264_undecoded, ptr noundef %51, i32 noundef %84, i32 noundef -1)
   br label %dissect_h264_prefix.exit
@@ -2353,7 +2347,7 @@ define internal i32 @dissect_h264(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %dissect_h264_prefix.exit
 
 94:                                               ; preds = %.split110
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4
   %95 = load i32, ptr @hf_h264_first_mb_in_slice, align 4
   %96 = call fastcc i32 @dissect_h264_exp_golomb_code(ptr noundef %53, ptr noundef readonly %1, i32 noundef %95, ptr noundef %51, ptr noundef nonnull %5, i32 noundef 0)
@@ -2362,7 +2356,7 @@ define internal i32 @dissect_h264(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %99 = load i32, ptr @hf_h264_pic_parameter_set_id, align 4
   %100 = call fastcc i32 @dissect_h264_exp_golomb_code(ptr noundef %53, ptr noundef readonly %1, i32 noundef %99, ptr noundef %51, ptr noundef nonnull %5, i32 noundef 0)
   %101 = load i32, ptr %5, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %102 = ashr i32 %101, 3
   %103 = tail call ptr @proto_tree_add_expert(ptr noundef %53, ptr noundef %1, ptr noundef nonnull @ei_h264_undecoded, ptr noundef %51, i32 noundef %102, i32 noundef -1)
   br label %dissect_h264_prefix.exit
@@ -2665,7 +2659,7 @@ dissect_h264_prefix.exit:                         ; preds = %129, %164, %277, %1
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @register_dissector_with_description(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @register_dissector_with_description(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_h264_bytestream(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
@@ -2805,10 +2799,10 @@ define hidden void @proto_reg_handoff_h264() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @dissector_add_string(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @dissector_add_string(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @create_dissector_handle(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @create_dissector_handle(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_h264_name(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) #0 {
@@ -2821,7 +2815,7 @@ define internal i32 @dissect_h264_name(ptr noundef %0, ptr noundef readonly capt
   br i1 %.not, label %8, label %9
 
 8:                                                ; preds = %6
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.626, ptr noundef nonnull @.str.412, i32 noundef 2849, ptr noundef nonnull @.str.627) #8
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.626, ptr noundef nonnull @.str.412, i32 noundef 2849, ptr noundef nonnull @.str.627) #7
   unreachable
 
 9:                                                ; preds = %6
@@ -2836,7 +2830,7 @@ define internal i32 @dissect_h264_name(ptr noundef %0, ptr noundef readonly capt
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %14
   %12 = phi ptr [ %16, %14 ], [ @.str.631, %.lr.ph.i.preheader ]
   %.010.i = phi ptr [ %15, %14 ], [ @h264_capability_tab, %.lr.ph.i.preheader ]
-  %13 = tail call i32 @strcmp(ptr noundef readonly %11, ptr noundef nonnull dereferenceable(1) %12) #9
+  %13 = tail call i32 @strcmp(ptr noundef readonly %11, ptr noundef nonnull dereferenceable(1) %12) #8
   %.not8.i = icmp eq i32 %13, 0
   br i1 %.not8.i, label %find_cap.exit, label %14
 
@@ -2877,10 +2871,10 @@ find_cap.exit.thread:                             ; preds = %14, %find_cap.exit
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @dissector_add_uint_range_with_preference(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @dissector_add_uint_range_with_preference(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_expert(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_expert(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_h264_exp_golomb_code(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef %3, ptr noundef captures(none) %4, i32 noundef range(i32 0, 3) %5) unnamed_addr #0 {
@@ -2907,7 +2901,7 @@ define internal fastcc i32 @dissect_h264_exp_golomb_code(ptr noundef %0, ptr nou
 17:                                               ; preds = %15
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %19 = load ptr, ptr %18, align 8
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.411, ptr noundef nonnull @.str.412, i32 noundef 572, ptr noundef %19) #8
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.411, ptr noundef nonnull @.str.412, i32 noundef 572, ptr noundef %19) #7
   unreachable
 
 20:                                               ; preds = %12
@@ -2917,7 +2911,7 @@ define internal fastcc i32 @dissect_h264_exp_golomb_code(ptr noundef %0, ptr nou
 22:                                               ; preds = %20
   %23 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %24 = load ptr, ptr %23, align 8
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.413, ptr noundef nonnull @.str.412, i32 noundef 576, ptr noundef %24) #8
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.413, ptr noundef nonnull @.str.412, i32 noundef 576, ptr noundef %24) #7
   unreachable
 
 .thread:                                          ; preds = %6, %15, %20, %10
@@ -2926,7 +2920,7 @@ define internal fastcc i32 @dissect_h264_exp_golomb_code(ptr noundef %0, ptr nou
   %25 = load i32, ptr %4, align 4
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %27 = load ptr, ptr %26, align 8
-  %28 = tail call noalias dereferenceable_or_null(256) ptr @wmem_alloc(ptr noundef %27, i64 noundef 256) #10
+  %28 = tail call noalias dereferenceable_or_null(256) ptr @wmem_alloc(ptr noundef %27, i64 noundef 256) #9
   store i8 0, ptr %28, align 1
   %29 = and i32 %25, 7
   %.not334 = icmp eq i32 %29, 0
@@ -3060,7 +3054,7 @@ define internal fastcc i32 @dissect_h264_exp_golomb_code(ptr noundef %0, ptr nou
   br label %212
 
 83:                                               ; preds = %78
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.421, ptr noundef nonnull @.str.412, i32 noundef 649) #8
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.421, ptr noundef nonnull @.str.412, i32 noundef 649) #7
   unreachable
 
 84:                                               ; preds = %64
@@ -3095,11 +3089,11 @@ define internal fastcc i32 @dissect_h264_exp_golomb_code(ptr noundef %0, ptr nou
   br label %212
 
 99:                                               ; preds = %92
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.421, ptr noundef nonnull @.str.412, i32 noundef 680) #8
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.421, ptr noundef nonnull @.str.412, i32 noundef 680) #7
   unreachable
 
 100:                                              ; preds = %84
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.421, ptr noundef nonnull @.str.412, i32 noundef 686) #8
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.421, ptr noundef nonnull @.str.412, i32 noundef 686) #7
   unreachable
 
 101:                                              ; preds = %52
@@ -3319,7 +3313,7 @@ define internal fastcc i32 @dissect_h264_exp_golomb_code(ptr noundef %0, ptr nou
   br label %211
 
 195:                                              ; preds = %188
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.421, ptr noundef nonnull @.str.412, i32 noundef 843) #8
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.421, ptr noundef nonnull @.str.412, i32 noundef 843) #7
   unreachable
 
 196:                                              ; preds = %178
@@ -3345,7 +3339,7 @@ define internal fastcc i32 @dissect_h264_exp_golomb_code(ptr noundef %0, ptr nou
   br label %209
 
 208:                                              ; preds = %203
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.421, ptr noundef nonnull @.str.412, i32 noundef 863) #8
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.421, ptr noundef nonnull @.str.412, i32 noundef 863) #7
   unreachable
 
 209:                                              ; preds = %206, %200
@@ -3353,7 +3347,7 @@ define internal fastcc i32 @dissect_h264_exp_golomb_code(ptr noundef %0, ptr nou
   br label %212
 
 210:                                              ; preds = %178
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.421, ptr noundef nonnull @.str.412, i32 noundef 871) #8
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.421, ptr noundef nonnull @.str.412, i32 noundef 871) #7
   unreachable
 
 211:                                              ; preds = %191, %193, %185, %._crit_edge
@@ -3366,49 +3360,49 @@ define internal fastcc i32 @dissect_h264_exp_golomb_code(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_registrar_get_nth(i32 noundef) local_unnamed_addr #2
+declare ptr @proto_registrar_get_nth(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn null_pointer_is_valid
-declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #3
+declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid allocsize(1)
-declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare i64 @g_strlcat(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @g_strlcat(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i8 @tvb_get_bits8(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i8 @tvb_get_bits8(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_int_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare ptr @proto_tree_add_int_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_uint_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare ptr @proto_tree_add_uint_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i16 @tvb_get_bits16(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i16 @tvb_get_bits16(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_int_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare ptr @proto_tree_add_int_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_uint_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare ptr @proto_tree_add_uint_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @tvb_get_ntohguid(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @tvb_get_ntohguid(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_bits_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_bits_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc noundef i32 @dissect_h264_hrd_parameters(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) unnamed_addr #0 {
@@ -3459,19 +3453,19 @@ define internal fastcc noundef i32 @dissect_h264_hrd_parameters(ptr noundef %0, 
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #2
+declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc noundef ptr @dissect_h265_unescap_nal_unit(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 3) %2) unnamed_addr #0 {
@@ -3479,7 +3473,7 @@ define internal fastcc noundef ptr @dissect_h265_unescap_nal_unit(ptr noundef %0
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %6 = load ptr, ptr %5, align 8
   %7 = sext i32 %4 to i64
-  %8 = tail call noalias ptr @wmem_alloc(ptr noundef %6, i64 noundef %7) #10
+  %8 = tail call noalias ptr @wmem_alloc(ptr noundef %6, i64 noundef %7) #9
   %9 = icmp sgt i32 %4, 0
   br i1 %9, label %.lr.ph, label %._crit_edge
 
@@ -3529,22 +3523,22 @@ define internal fastcc noundef ptr @dissect_h265_unescap_nal_unit(ptr noundef %0
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @increment_dissection_depth(ptr noundef) local_unnamed_addr #2
+declare void @increment_dissection_depth(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @decrement_dissection_depth(ptr noundef) local_unnamed_addr #2
+declare void @decrement_dissection_depth(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #2
+declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @tvb_get_ntoh24(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @tvb_get_ntoh24(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @tvb_new_child_real_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @tvb_new_child_real_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @add_new_data_source(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @add_new_data_source(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc range(i32 3, 6) i32 @dissect_h264_svc_nal_header_extension(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 3) %2) unnamed_addr #0 {
@@ -3577,34 +3571,34 @@ define internal fastcc range(i32 3, 6) i32 @dissect_h264_svc_nal_header_extensio
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @tvb_new_subset_length_caplen(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @tvb_new_subset_length_caplen(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @tvb_get_uint32(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @tvb_get_uint32(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @tvb_find_uint16(ptr noundef, i32 noundef, i32 noundef, i16 noundef zeroext) local_unnamed_addr #2
+declare i32 @tvb_find_uint16(ptr noundef, i32 noundef, i32 noundef, i16 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @get_asn1_ctx(ptr noundef) local_unnamed_addr #2
+declare ptr @get_asn1_ctx(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_item_get_parent(ptr noundef) local_unnamed_addr #2
+declare ptr @proto_item_get_parent(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_get_parent(ptr noundef) local_unnamed_addr #2
+declare ptr @proto_tree_get_parent(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @dissect_h264_par_profile(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
@@ -3625,7 +3619,7 @@ define internal range(i32 0, 3) i32 @dissect_h264_par_level(ptr noundef %0, ptr 
   br i1 %.not, label %8, label %9
 
 8:                                                ; preds = %6
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.626, ptr noundef nonnull @.str.412, i32 noundef 2774, ptr noundef nonnull @.str.627) #8
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.626, ptr noundef nonnull @.str.412, i32 noundef 2774, ptr noundef nonnull @.str.627) #7
   unreachable
 
 9:                                                ; preds = %6
@@ -3665,7 +3659,7 @@ define internal i32 @dissect_h264_par_DecoderConfigurationInformation(ptr nounde
   br i1 %.not, label %8, label %9
 
 8:                                                ; preds = %6
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.626, ptr noundef nonnull @.str.412, i32 noundef 2794, ptr noundef nonnull @.str.627) #8
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.626, ptr noundef nonnull @.str.412, i32 noundef 2794, ptr noundef nonnull @.str.627) #7
   unreachable
 
 9:                                                ; preds = %6
@@ -3687,25 +3681,30 @@ define internal noundef i32 @dissect_h264_ProfileIOP(ptr noundef %0, ptr readnon
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @try_val_to_str(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @try_val_to_str(i32 noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #6
 
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { noreturn null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { noreturn null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #7 = { nounwind }
-attributes #8 = { noreturn }
-attributes #9 = { nounwind willreturn memory(read) }
-attributes #10 = { allocsize(1) }
+attributes #7 = { noreturn }
+attributes #8 = { nounwind willreturn memory(read) }
+attributes #9 = { allocsize(1) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

@@ -116,8 +116,8 @@ define hidden noundef ptr @_ZN11JdkJfrEvent15get_all_klassesEP10JavaThread(ptr n
   br i1 %11, label %_ZL10initializeP10JavaThread.exit, label %12
 
 12:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 304, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 12, ptr %6, align 8
   call void @_ZN16JfrJavaArgumentsC1EP9JavaValuePKcS3_S3_P10JavaThread(ptr noundef nonnull align 8 dereferenceable(300) %7, ptr noundef nonnull %6, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, ptr noundef %0) #10
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -132,15 +132,15 @@ define hidden noundef ptr @_ZN11JdkJfrEvent15get_all_klassesEP10JavaThread(ptr n
   br i1 %.not5.i.i, label %17, label %_ZL23new_java_util_arraylistP10JavaThread.exit.thread.i
 
 _ZL23new_java_util_arraylistP10JavaThread.exit.thread.i: ; preds = %15, %12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 304, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZL10initializeP10JavaThread.exit
 
 17:                                               ; preds = %15
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %19 = load ptr, ptr %18, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 304, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %20 = call noundef ptr @_ZN14JfrJavaSupport17global_jni_handleEP7oopDescP10JavaThread(ptr noundef %19, ptr noundef nonnull %0) #10
   store ptr %20, ptr @_ZL25empty_java_util_arraylist, align 8
   %21 = icmp ne ptr %20, null
@@ -149,9 +149,9 @@ _ZL23new_java_util_arraylistP10JavaThread.exit.thread.i: ; preds = %15, %12
   br label %_ZL10initializeP10JavaThread.exit
 
 _ZL10initializeP10JavaThread.exit:                ; preds = %1, %_ZL23new_java_util_arraylistP10JavaThread.exit.thread.i, %17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %23 = call noundef ptr @_ZN11SymbolTable11lookup_onlyEPKciRj(ptr noundef nonnull @_ZZN11JdkJfrEvent15get_all_klassesEP10JavaThreadE18jdk_jfr_event_name, i32 noundef 24, ptr noundef nonnull align 4 dereferenceable(4) %5) #10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %24 = icmp eq ptr %23, null
   br i1 %24, label %25, label %27
 
@@ -182,7 +182,7 @@ _ZL10initializeP10JavaThread.exit:                ; preds = %1, %_ZL23new_java_u
   %42 = load i64, ptr %41, align 8
   %43 = call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 64, i32 noundef 8) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %43, i8 0, i64 512, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %28, ptr %4, align 8
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %28, ptr %44, align 8
@@ -283,7 +283,7 @@ _ZL10is_allowedPK5Klass.exit.thread.i:            ; preds = %_ZN26GrowableArrayW
   br i1 %85, label %_ZL12fill_klassesR13GrowableArrayIPKvEPK13InstanceKlassP10JavaThread.exit, label %46, !llvm.loop !8
 
 _ZL12fill_klassesR13GrowableArrayIPKvEPK13InstanceKlassP10JavaThread.exit: ; preds = %_ZL10is_allowedPK5Klass.exit.thread.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %86 = icmp eq i32 %.sroa.041.1, 0
   br i1 %86, label %87, label %89
 
@@ -322,8 +322,8 @@ _ZNK5Klass11java_mirrorEv.exit.i:                 ; preds = %97, %.lr.ph.i24
   br i1 %exitcond74.not, label %_ZL38transform_klasses_to_local_jni_handlesR13GrowableArrayIPKvEP10JavaThread.exit, label %.lr.ph.i24, !llvm.loop !9
 
 _ZL38transform_klasses_to_local_jni_handlesR13GrowableArrayIPKvEP10JavaThread.exit: ; preds = %_ZNK5Klass11java_mirrorEv.exit.i, %89
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 304, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 12, ptr %2, align 8
   call void @_ZN16JfrJavaArgumentsC1EP9JavaValuePKcS3_S3_P10JavaThread(ptr noundef nonnull align 8 dereferenceable(300) %3, ptr noundef nonnull %2, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, ptr noundef %0) #10
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -338,15 +338,15 @@ _ZL38transform_klasses_to_local_jni_handlesR13GrowableArrayIPKvEP10JavaThread.ex
   br i1 %.not5.i, label %_ZL23new_java_util_arraylistP10JavaThread.exit, label %_ZL23new_java_util_arraylistP10JavaThread.exit.thread
 
 _ZL23new_java_util_arraylistP10JavaThread.exit.thread: ; preds = %_ZL38transform_klasses_to_local_jni_handlesR13GrowableArrayIPKvEP10JavaThread.exit, %104
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 304, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN6HandleC2EP6ThreadP7oopDesc.exit
 
 _ZL23new_java_util_arraylistP10JavaThread.exit:   ; preds = %104
   %106 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %107 = load ptr, ptr %106, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 304, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %108 = icmp eq ptr %107, null
   br i1 %108, label %_ZN6HandleC2EP6ThreadP7oopDesc.exit, label %109
 
@@ -1263,10 +1263,10 @@ declare noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef, i64 noundef) local_
 declare i32 @llvm.ctpop.i32(i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9

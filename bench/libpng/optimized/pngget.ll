@@ -349,11 +349,11 @@ define i32 @png_get_pixel_aspect_ratio_fixed(ptr noalias noundef readnone captur
   br i1 %or.cond19, label %18, label %21
 
 18:                                               ; preds = %13
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %19 = call i32 @png_muldiv(ptr noundef nonnull %3, i32 noundef %15, i32 noundef 100000, i32 noundef %12) #10
   %.not17.not = icmp eq i32 %19, 0
   %20 = load i32, ptr %3, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not17.not, label %21, label %22
 
 21:                                               ; preds = %18, %13, %10, %6, %2
@@ -364,13 +364,7 @@ define i32 @png_get_pixel_aspect_ratio_fixed(ptr noalias noundef readnone captur
   ret i32 %.1
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
-declare i32 @png_muldiv(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare i32 @png_muldiv(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @png_get_x_offset_microns(ptr noalias noundef readnone captures(address_is_null) %0, ptr noalias noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
@@ -522,11 +516,11 @@ define i32 @png_get_pixels_per_inch(ptr noalias noundef readnone captures(addres
   br i1 %19, label %png_get_pixels_per_meter.exit, label %png_get_pixels_per_meter.exit.thread
 
 png_get_pixels_per_meter.exit.thread:             ; preds = %2, %6, %10, %14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %21
 
 png_get_pixels_per_meter.exit:                    ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %20 = icmp sgt i32 %16, -1
   br i1 %20, label %21, label %ppi_from_ppm.exit
 
@@ -540,7 +534,7 @@ png_get_pixels_per_meter.exit:                    ; preds = %14
 
 ppi_from_ppm.exit:                                ; preds = %png_get_pixels_per_meter.exit, %21
   %.0.i2 = phi i32 [ 0, %png_get_pixels_per_meter.exit ], [ %spec.select.i, %21 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0.i2
 }
 
@@ -566,13 +560,13 @@ define i32 @png_get_x_pixels_per_inch(ptr noalias noundef readnone captures(addr
   br i1 %13, label %png_get_x_pixels_per_meter.exit, label %png_get_x_pixels_per_meter.exit.thread
 
 png_get_x_pixels_per_meter.exit.thread:           ; preds = %10, %6, %2
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %17
 
 png_get_x_pixels_per_meter.exit:                  ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %15 = load i32, ptr %14, align 8, !tbaa !40, !alias.scope !50, !noalias !53
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %16 = icmp sgt i32 %15, -1
   br i1 %16, label %17, label %ppi_from_ppm.exit
 
@@ -586,7 +580,7 @@ png_get_x_pixels_per_meter.exit:                  ; preds = %10
 
 ppi_from_ppm.exit:                                ; preds = %png_get_x_pixels_per_meter.exit, %17
   %.0.i2 = phi i32 [ 0, %png_get_x_pixels_per_meter.exit ], [ %spec.select.i, %17 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0.i2
 }
 
@@ -612,13 +606,13 @@ define i32 @png_get_y_pixels_per_inch(ptr noalias noundef readnone captures(addr
   br i1 %13, label %png_get_y_pixels_per_meter.exit, label %png_get_y_pixels_per_meter.exit.thread
 
 png_get_y_pixels_per_meter.exit.thread:           ; preds = %10, %6, %2
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %17
 
 png_get_y_pixels_per_meter.exit:                  ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 188
   %15 = load i32, ptr %14, align 4, !tbaa !41, !alias.scope !55, !noalias !58
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %16 = icmp sgt i32 %15, -1
   br i1 %16, label %17, label %ppi_from_ppm.exit
 
@@ -632,7 +626,7 @@ png_get_y_pixels_per_meter.exit:                  ; preds = %10
 
 ppi_from_ppm.exit:                                ; preds = %png_get_y_pixels_per_meter.exit, %17
   %.0.i2 = phi i32 [ 0, %png_get_y_pixels_per_meter.exit ], [ %spec.select.i, %17 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0.i2
 }
 
@@ -664,7 +658,7 @@ define i32 @png_get_x_offset_inches_fixed(ptr noalias noundef %0, ptr noalias no
 
 png_get_x_offset_microns.exit:                    ; preds = %2, %6, %10, %14
   %.0.i = phi i32 [ %16, %14 ], [ 0, %10 ], [ 0, %6 ], [ 0, %2 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #10, !noalias !65
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !65
   %17 = call i32 @png_muldiv(ptr noundef nonnull %3, i32 noundef %.0.i, i32 noundef 500, i32 noundef 127) #10, !noalias !65
   %.not.i3 = icmp eq i32 %17, 0
   br i1 %.not.i3, label %20, label %18
@@ -679,7 +673,7 @@ png_get_x_offset_microns.exit:                    ; preds = %2, %6, %10, %14
 
 png_fixed_inches_from_microns.exit:               ; preds = %18, %20
   %.0.i4 = phi i32 [ %19, %18 ], [ 0, %20 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #10, !noalias !65
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !65
   ret i32 %.0.i4
 }
 
@@ -711,7 +705,7 @@ define i32 @png_get_y_offset_inches_fixed(ptr noalias noundef %0, ptr noalias no
 
 png_get_y_offset_microns.exit:                    ; preds = %2, %6, %10, %14
   %.0.i = phi i32 [ %16, %14 ], [ 0, %10 ], [ 0, %6 ], [ 0, %2 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #10, !noalias !74
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !74
   %17 = call i32 @png_muldiv(ptr noundef nonnull %3, i32 noundef %.0.i, i32 noundef 500, i32 noundef 127) #10, !noalias !74
   %.not.i3 = icmp eq i32 %17, 0
   br i1 %.not.i3, label %20, label %18
@@ -726,7 +720,7 @@ png_get_y_offset_microns.exit:                    ; preds = %2, %6, %10, %14
 
 png_fixed_inches_from_microns.exit:               ; preds = %18, %20
   %.0.i4 = phi i32 [ %19, %18 ], [ 0, %20 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #10, !noalias !74
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !74
   ret i32 %.0.i4
 }
 
@@ -797,7 +791,7 @@ png_get_y_offset_microns.exit:                    ; preds = %2, %5, %9, %13
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 129) i32 @png_get_pHYs_dpi(ptr noalias noundef readnone captures(address_is_null) %0, ptr noalias noundef readonly captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #4 {
+define range(i32 0, 129) i32 @png_get_pHYs_dpi(ptr noalias noundef readnone captures(address_is_null) %0, ptr noalias noundef readonly captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #3 {
   %6 = icmp ne ptr %0, null
   %7 = icmp ne ptr %1, null
   %or.cond = and i1 %6, %7
@@ -872,7 +866,7 @@ define range(i32 0, 129) i32 @png_get_pHYs_dpi(ptr noalias noundef readnone capt
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #5
+declare double @llvm.fmuladd.f64(double, double, double) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define zeroext i8 @png_get_channels(ptr noalias noundef readnone captures(address_is_null) %0, ptr noalias noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
@@ -892,7 +886,7 @@ define zeroext i8 @png_get_channels(ptr noalias noundef readnone captures(addres
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define ptr @png_get_signature(ptr noalias noundef readnone captures(address_is_null) %0, ptr noalias noundef readnone captures(address_is_null, ret: address, provenance) %1) local_unnamed_addr #6 {
+define ptr @png_get_signature(ptr noalias noundef readnone captures(address_is_null) %0, ptr noalias noundef readnone captures(address_is_null, ret: address, provenance) %1) local_unnamed_addr #5 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
@@ -902,7 +896,7 @@ define ptr @png_get_signature(ptr noalias noundef readnone captures(address_is_n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 33) i32 @png_get_bKGD(ptr noalias noundef readnone captures(address_is_null) %0, ptr noalias noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #4 {
+define range(i32 0, 33) i32 @png_get_bKGD(ptr noalias noundef readnone captures(address_is_null) %0, ptr noalias noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #3 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
   %or.cond = and i1 %4, %5
@@ -928,7 +922,7 @@ define range(i32 0, 33) i32 @png_get_bKGD(ptr noalias noundef readnone captures(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 5) i32 @png_get_cHRM(ptr noalias noundef readnone captures(address_is_null) %0, ptr noalias noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7, ptr noundef writeonly captures(address_is_null) %8, ptr noundef writeonly captures(address_is_null) %9) local_unnamed_addr #4 {
+define range(i32 0, 5) i32 @png_get_cHRM(ptr noalias noundef readnone captures(address_is_null) %0, ptr noalias noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7, ptr noundef writeonly captures(address_is_null) %8, ptr noundef writeonly captures(address_is_null) %9) local_unnamed_addr #3 {
   %11 = icmp ne ptr %0, null
   %12 = icmp ne ptr %1, null
   %or.cond = and i1 %11, %12
@@ -1045,7 +1039,7 @@ define range(i32 0, 5) i32 @png_get_cHRM(ptr noalias noundef readnone captures(a
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 5) i32 @png_get_cHRM_XYZ(ptr noalias noundef readnone captures(address_is_null) %0, ptr noalias noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7, ptr noundef writeonly captures(address_is_null) %8, ptr noundef writeonly captures(address_is_null) %9, ptr noundef writeonly captures(address_is_null) %10) local_unnamed_addr #1 {
   %12 = alloca %struct.png_XYZ, align 4
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %12) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %13 = icmp ne ptr %0, null
   %14 = icmp ne ptr %1, null
   %or.cond = and i1 %13, %14
@@ -1173,16 +1167,16 @@ define range(i32 0, 5) i32 @png_get_cHRM_XYZ(ptr noalias noundef readnone captur
 
 76:                                               ; preds = %11, %15, %19, %70, %71
   %.0 = phi i32 [ 4, %71 ], [ 4, %70 ], [ 0, %19 ], [ 0, %15 ], [ 0, %11 ]
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %12) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret i32 %.0
 }
 
-declare i32 @png_XYZ_from_xy(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @png_XYZ_from_xy(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 5) i32 @png_get_cHRM_XYZ_fixed(ptr noalias noundef readnone captures(address_is_null) %0, ptr noalias noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7, ptr noundef writeonly captures(address_is_null) %8, ptr noundef writeonly captures(address_is_null) %9, ptr noundef writeonly captures(address_is_null) %10) local_unnamed_addr #1 {
   %12 = alloca %struct.png_XYZ, align 4
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %12) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %13 = icmp ne ptr %0, null
   %14 = icmp ne ptr %1, null
   %or.cond = and i1 %13, %14
@@ -1292,12 +1286,12 @@ define range(i32 0, 5) i32 @png_get_cHRM_XYZ_fixed(ptr noalias noundef readnone 
 
 58:                                               ; preds = %11, %15, %19, %54, %55
   %.0 = phi i32 [ 4, %55 ], [ 4, %54 ], [ 0, %19 ], [ 0, %15 ], [ 0, %11 ]
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %12) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 5) i32 @png_get_cHRM_fixed(ptr noalias noundef readnone captures(address_is_null) %0, ptr noalias noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7, ptr noundef writeonly captures(address_is_null) %8, ptr noundef writeonly captures(address_is_null) %9) local_unnamed_addr #4 {
+define range(i32 0, 5) i32 @png_get_cHRM_fixed(ptr noalias noundef readnone captures(address_is_null) %0, ptr noalias noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7, ptr noundef writeonly captures(address_is_null) %8, ptr noundef writeonly captures(address_is_null) %9) local_unnamed_addr #3 {
   %11 = icmp ne ptr %0, null
   %12 = icmp ne ptr %1, null
   %or.cond = and i1 %11, %12
@@ -1396,7 +1390,7 @@ define range(i32 0, 5) i32 @png_get_cHRM_fixed(ptr noalias noundef readnone capt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @png_get_gAMA_fixed(ptr noalias noundef readnone captures(address_is_null) %0, ptr noalias noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @png_get_gAMA_fixed(ptr noalias noundef readnone captures(address_is_null) %0, ptr noalias noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #3 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
   %or.cond = and i1 %4, %5
@@ -1425,7 +1419,7 @@ define range(i32 0, 2) i32 @png_get_gAMA_fixed(ptr noalias noundef readnone capt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @png_get_gAMA(ptr noalias noundef readnone captures(address_is_null) %0, ptr noalias noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @png_get_gAMA(ptr noalias noundef readnone captures(address_is_null) %0, ptr noalias noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #3 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
   %or.cond = and i1 %4, %5
@@ -1456,7 +1450,7 @@ define range(i32 0, 2) i32 @png_get_gAMA(ptr noalias noundef readnone captures(a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2049) i32 @png_get_sRGB(ptr noalias noundef readnone captures(address_is_null) %0, ptr noalias noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #4 {
+define range(i32 0, 2049) i32 @png_get_sRGB(ptr noalias noundef readnone captures(address_is_null) %0, ptr noalias noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #3 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
   %or.cond = and i1 %4, %5
@@ -1485,7 +1479,7 @@ define range(i32 0, 2049) i32 @png_get_sRGB(ptr noalias noundef readnone capture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 4097) i32 @png_get_iCCP(ptr noalias noundef readnone captures(address_is_null) %0, ptr noalias noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #7 {
+define range(i32 0, 4097) i32 @png_get_iCCP(ptr noalias noundef readnone captures(address_is_null) %0, ptr noalias noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #6 {
   %7 = icmp ne ptr %0, null
   %8 = icmp ne ptr %1, null
   %or.cond = and i1 %7, %8
@@ -1542,7 +1536,7 @@ define range(i32 0, 4097) i32 @png_get_iCCP(ptr noalias noundef readnone capture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i32 @png_get_sPLT(ptr noalias noundef readnone captures(address_is_null) %0, ptr noalias noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #4 {
+define i32 @png_get_sPLT(ptr noalias noundef readnone captures(address_is_null) %0, ptr noalias noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #3 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
   %or.cond = and i1 %4, %5
@@ -1564,7 +1558,7 @@ define i32 @png_get_sPLT(ptr noalias noundef readnone captures(address_is_null) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 131073) i32 @png_get_cICP(ptr noalias noundef readnone captures(address_is_null) %0, ptr noalias noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #4 {
+define range(i32 0, 131073) i32 @png_get_cICP(ptr noalias noundef readnone captures(address_is_null) %0, ptr noalias noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #3 {
   %7 = icmp ne ptr %0, null
   %8 = icmp ne ptr %1, null
   %or.cond = and i1 %7, %8
@@ -1606,7 +1600,7 @@ define range(i32 0, 131073) i32 @png_get_cICP(ptr noalias noundef readnone captu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 262145) i32 @png_get_cLLI_fixed(ptr noalias noundef readnone captures(address_is_null) %0, ptr noalias noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #4 {
+define range(i32 0, 262145) i32 @png_get_cLLI_fixed(ptr noalias noundef readnone captures(address_is_null) %0, ptr noalias noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #3 {
   %5 = icmp ne ptr %0, null
   %6 = icmp ne ptr %1, null
   %or.cond = and i1 %5, %6
@@ -1645,7 +1639,7 @@ define range(i32 0, 262145) i32 @png_get_cLLI_fixed(ptr noalias noundef readnone
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 262145) i32 @png_get_cLLI(ptr noalias noundef readnone captures(address_is_null) %0, ptr noalias noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #4 {
+define range(i32 0, 262145) i32 @png_get_cLLI(ptr noalias noundef readnone captures(address_is_null) %0, ptr noalias noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #3 {
   %5 = icmp ne ptr %0, null
   %6 = icmp ne ptr %1, null
   %or.cond = and i1 %5, %6
@@ -1688,7 +1682,7 @@ define range(i32 0, 262145) i32 @png_get_cLLI(ptr noalias noundef readnone captu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 524289) i32 @png_get_mDCV_fixed(ptr noalias noundef readnone captures(address_is_null) %0, ptr noalias noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7, ptr noundef writeonly captures(address_is_null) %8, ptr noundef writeonly captures(address_is_null) %9, ptr noundef writeonly captures(address_is_null) %10, ptr noundef writeonly captures(address_is_null) %11) local_unnamed_addr #4 {
+define range(i32 0, 524289) i32 @png_get_mDCV_fixed(ptr noalias noundef readnone captures(address_is_null) %0, ptr noalias noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7, ptr noundef writeonly captures(address_is_null) %8, ptr noundef writeonly captures(address_is_null) %9, ptr noundef writeonly captures(address_is_null) %10, ptr noundef writeonly captures(address_is_null) %11) local_unnamed_addr #3 {
   %13 = icmp ne ptr %0, null
   %14 = icmp ne ptr %1, null
   %or.cond = and i1 %13, %14
@@ -1823,7 +1817,7 @@ define range(i32 0, 524289) i32 @png_get_mDCV_fixed(ptr noalias noundef readnone
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 524289) i32 @png_get_mDCV(ptr noalias noundef readnone captures(address_is_null) %0, ptr noalias noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7, ptr noundef writeonly captures(address_is_null) %8, ptr noundef writeonly captures(address_is_null) %9, ptr noundef writeonly captures(address_is_null) %10, ptr noundef writeonly captures(address_is_null) %11) local_unnamed_addr #4 {
+define range(i32 0, 524289) i32 @png_get_mDCV(ptr noalias noundef readnone captures(address_is_null) %0, ptr noalias noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7, ptr noundef writeonly captures(address_is_null) %8, ptr noundef writeonly captures(address_is_null) %9, ptr noundef writeonly captures(address_is_null) %10, ptr noundef writeonly captures(address_is_null) %11) local_unnamed_addr #3 {
   %13 = icmp ne ptr %0, null
   %14 = icmp ne ptr %1, null
   %or.cond = and i1 %13, %14
@@ -1967,10 +1961,10 @@ define noundef i32 @png_get_eXIf(ptr noalias noundef %0, ptr noalias noundef rea
   ret i32 0
 }
 
-declare void @png_warning(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @png_warning(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 65537) i32 @png_get_eXIf_1(ptr noalias noundef readnone captures(address_is_null) %0, ptr noalias noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #4 {
+define range(i32 0, 65537) i32 @png_get_eXIf_1(ptr noalias noundef readnone captures(address_is_null) %0, ptr noalias noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #3 {
   %5 = icmp ne ptr %0, null
   %6 = icmp ne ptr %1, null
   %or.cond = and i1 %5, %6
@@ -2000,7 +1994,7 @@ define range(i32 0, 65537) i32 @png_get_eXIf_1(ptr noalias noundef readnone capt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 65) i32 @png_get_hIST(ptr noalias noundef readnone captures(address_is_null) %0, ptr noalias noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #4 {
+define range(i32 0, 65) i32 @png_get_hIST(ptr noalias noundef readnone captures(address_is_null) %0, ptr noalias noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #3 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
   %or.cond = and i1 %4, %5
@@ -2131,10 +2125,10 @@ define range(i32 0, 2) i32 @png_get_IHDR(ptr noalias noundef %0, ptr noalias nou
   ret i32 %.0
 }
 
-declare void @png_check_IHDR(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare void @png_check_IHDR(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 257) i32 @png_get_oFFs(ptr noalias noundef readnone captures(address_is_null) %0, ptr noalias noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #4 {
+define range(i32 0, 257) i32 @png_get_oFFs(ptr noalias noundef readnone captures(address_is_null) %0, ptr noalias noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #3 {
   %6 = icmp ne ptr %0, null
   %7 = icmp ne ptr %1, null
   %or.cond = and i1 %6, %7
@@ -2172,7 +2166,7 @@ define range(i32 0, 257) i32 @png_get_oFFs(ptr noalias noundef readnone captures
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 1025) i32 @png_get_pCAL(ptr noalias noundef readnone captures(address_is_null) %0, ptr noalias noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7, ptr noundef writeonly captures(address_is_null) %8) local_unnamed_addr #4 {
+define range(i32 0, 1025) i32 @png_get_pCAL(ptr noalias noundef readnone captures(address_is_null) %0, ptr noalias noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7, ptr noundef writeonly captures(address_is_null) %8) local_unnamed_addr #3 {
   %10 = icmp ne ptr %0, null
   %11 = icmp ne ptr %1, null
   %or.cond = and i1 %10, %11
@@ -2266,10 +2260,10 @@ define range(i32 0, 16385) i32 @png_get_sCAL_fixed(ptr noalias noundef %0, ptr n
   ret i32 %.0
 }
 
-declare i32 @png_fixed(ptr noundef, double noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @png_fixed(ptr noundef, double noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define range(i32 0, 16385) i32 @png_get_sCAL(ptr noalias noundef readnone captures(address_is_null) %0, ptr noalias noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #8 {
+define range(i32 0, 16385) i32 @png_get_sCAL(ptr noalias noundef readnone captures(address_is_null) %0, ptr noalias noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #7 {
   %6 = icmp ne ptr %0, null
   %7 = icmp ne ptr %1, null
   %or.cond = and i1 %6, %7
@@ -2303,7 +2297,7 @@ define range(i32 0, 16385) i32 @png_get_sCAL(ptr noalias noundef readnone captur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 16385) i32 @png_get_sCAL_s(ptr noalias noundef readnone captures(address_is_null) %0, ptr noalias noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #4 {
+define range(i32 0, 16385) i32 @png_get_sCAL_s(ptr noalias noundef readnone captures(address_is_null) %0, ptr noalias noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #3 {
   %6 = icmp ne ptr %0, null
   %7 = icmp ne ptr %1, null
   %or.cond = and i1 %6, %7
@@ -2335,7 +2329,7 @@ define range(i32 0, 16385) i32 @png_get_sCAL_s(ptr noalias noundef readnone capt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 129) i32 @png_get_pHYs(ptr noalias noundef readnone captures(address_is_null) %0, ptr noalias noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #4 {
+define range(i32 0, 129) i32 @png_get_pHYs(ptr noalias noundef readnone captures(address_is_null) %0, ptr noalias noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #3 {
   %6 = icmp ne ptr %0, null
   %7 = icmp ne ptr %1, null
   %or.cond = and i1 %6, %7
@@ -2387,7 +2381,7 @@ define range(i32 0, 129) i32 @png_get_pHYs(ptr noalias noundef readnone captures
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 9) i32 @png_get_PLTE(ptr noalias noundef readnone captures(address_is_null) %0, ptr noalias noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #4 {
+define range(i32 0, 9) i32 @png_get_PLTE(ptr noalias noundef readnone captures(address_is_null) %0, ptr noalias noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #3 {
   %5 = icmp ne ptr %0, null
   %6 = icmp ne ptr %1, null
   %or.cond = and i1 %5, %6
@@ -2418,7 +2412,7 @@ define range(i32 0, 9) i32 @png_get_PLTE(ptr noalias noundef readnone captures(a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 3) i32 @png_get_sBIT(ptr noalias noundef readnone captures(address_is_null) %0, ptr noalias noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @png_get_sBIT(ptr noalias noundef readnone captures(address_is_null) %0, ptr noalias noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #3 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
   %or.cond = and i1 %4, %5
@@ -2444,7 +2438,7 @@ define range(i32 0, 3) i32 @png_get_sBIT(ptr noalias noundef readnone captures(a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, -2147483648) i32 @png_get_text(ptr noalias noundef readnone captures(address_is_null) %0, ptr noalias noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #4 {
+define range(i32 0, -2147483648) i32 @png_get_text(ptr noalias noundef readnone captures(address_is_null) %0, ptr noalias noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #3 {
   %5 = icmp ne ptr %0, null
   %6 = icmp ne ptr %1, null
   %or.cond = and i1 %5, %6
@@ -2485,7 +2479,7 @@ define range(i32 0, -2147483648) i32 @png_get_text(ptr noalias noundef readnone 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 513) i32 @png_get_tIME(ptr noalias noundef readnone captures(address_is_null) %0, ptr noalias noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #4 {
+define range(i32 0, 513) i32 @png_get_tIME(ptr noalias noundef readnone captures(address_is_null) %0, ptr noalias noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #3 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
   %or.cond = and i1 %4, %5
@@ -2511,7 +2505,7 @@ define range(i32 0, 513) i32 @png_get_tIME(ptr noalias noundef readnone captures
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 17) i32 @png_get_tRNS(ptr noalias noundef readnone captures(address_is_null) %0, ptr noalias noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #4 {
+define range(i32 0, 17) i32 @png_get_tRNS(ptr noalias noundef readnone captures(address_is_null) %0, ptr noalias noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #3 {
   %6 = icmp ne ptr %0, null
   %7 = icmp ne ptr %1, null
   %or.cond = and i1 %6, %7
@@ -2586,7 +2580,7 @@ define range(i32 0, 17) i32 @png_get_tRNS(ptr noalias noundef readnone captures(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i32 @png_get_unknown_chunks(ptr noalias noundef readnone captures(address_is_null) %0, ptr noalias noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #4 {
+define i32 @png_get_unknown_chunks(ptr noalias noundef readnone captures(address_is_null) %0, ptr noalias noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #3 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
   %or.cond = and i1 %4, %5
@@ -2750,18 +2744,24 @@ define i32 @png_get_palette_max(ptr noundef readonly captures(address_is_null) %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare double @strtod(ptr noundef readonly, ptr noundef captures(none)) local_unnamed_addr #9
+declare double @strtod(ptr noundef readonly, ptr noundef captures(none)) local_unnamed_addr #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

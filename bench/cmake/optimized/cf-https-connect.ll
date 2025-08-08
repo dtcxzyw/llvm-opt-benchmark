@@ -835,7 +835,7 @@ define internal i32 @cf_hc_shutdown(ptr noundef %0, ptr noundef %1, ptr noundef 
 14:                                               ; preds = %9, %cf_hc_baller_is_active.exit.thread
   %15 = phi i1 [ true, %9 ], [ false, %cf_hc_baller_is_active.exit.thread ]
   %.04360.sroa.phi.sroa.speculated = phi ptr [ %12, %9 ], [ %13, %cf_hc_baller_is_active.exit.thread ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 0, ptr %4, align 1, !tbaa !97
   %16 = getelementptr inbounds nuw i8, ptr %.04360.sroa.phi.sroa.speculated, i64 44
   %17 = load i8, ptr %16, align 4
@@ -877,7 +877,7 @@ cf_hc_baller_is_active.exit:                      ; preds = %19
   br label %cf_hc_baller_is_active.exit.thread
 
 cf_hc_baller_is_active.exit.thread:               ; preds = %14, %19, %33, %25, %cf_hc_baller_is_active.exit
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %15, label %14, label %36, !llvm.loop !121
 
 36:                                               ; preds = %cf_hc_baller_is_active.exit.thread
@@ -1335,7 +1335,7 @@ define dso_local i32 @Curl_cf_https_setup(ptr noundef %0, ptr noundef %1, i32 no
 
 21:                                               ; preds = %13, %15, %17
   %.015 = phi i8 [ %20, %17 ], [ 0, %15 ], [ 1, %13 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !129
   %22 = load ptr, ptr @Curl_ccalloc, align 8, !tbaa !96
   %23 = tail call ptr %22(i64 noundef 1, i64 noundef 144) #4
@@ -1417,14 +1417,14 @@ cf_hc_create.exit.i:                              ; preds = %24, %21
   %.025.i.i = phi i32 [ %35, %24 ], [ 27, %21 ]
   %56 = load ptr, ptr @Curl_cfree, align 8, !tbaa !96
   call void %56(ptr noundef %23) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %cf_http_connect_add.exit
 
 57:                                               ; preds = %cf_hc_baller_reset.exit13.i.i.i, %36
   %.ph.i = phi ptr [ %.pre.i.i, %cf_hc_baller_reset.exit13.i.i.i ], [ %37, %36 ]
   %58 = load ptr, ptr @Curl_cfree, align 8, !tbaa !96
   call void %58(ptr noundef null) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @Curl_conn_cf_add(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %2, ptr noundef %.ph.i) #4
   br label %cf_http_connect_add.exit
 
@@ -1433,13 +1433,7 @@ cf_http_connect_add.exit:                         ; preds = %57, %cf_hc_create.e
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare i32 @Curl_conn_may_http3(ptr noundef, ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 declare void @Curl_trc_cf_infof(ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
@@ -1660,7 +1654,7 @@ declare i32 @Curl_conn_cf_cntrl(ptr noundef, ptr noundef, i1 noundef zeroext, i3
 ; Function Attrs: nounwind uwtable
 define internal fastcc { i64, i32 } @cf_get_max_baller_time(ptr readonly captures(none) %.16.val, ptr noundef %0, i32 noundef range(i32 4, 6) %1) unnamed_addr #0 {
   %3 = alloca %struct.curltime, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %.16.val, i64 132
   %5 = load i8, ptr %4, align 4
@@ -1747,14 +1741,14 @@ define internal fastcc { i64, i32 } @cf_get_max_baller_time(ptr readonly capture
 .thread2:                                         ; preds = %.thread, %42, %45, %36, %31, %28
   %.sroa.6.1 = phi i32 [ %.sroa.6.0, %31 ], [ %.sroa.6.0.copyload22, %45 ], [ %.sroa.6.0, %42 ], [ %.sroa.6.0, %36 ], [ %.sroa.6.0, %28 ], [ %.sroa.6.0, %.thread ]
   %.sroa.0.1 = phi i64 [ %.sroa.0.0, %31 ], [ %.sroa.0.0.copyload20, %45 ], [ %.sroa.0.0, %42 ], [ %.sroa.0.0, %36 ], [ %.sroa.0.0, %28 ], [ %.sroa.0.0, %.thread ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.fca.0.insert = insertvalue { i64, i32 } poison, i64 %.sroa.0.1, 0
   %.fca.1.insert = insertvalue { i64, i32 } %.fca.0.insert, i32 %.sroa.6.1, 1
   ret { i64, i32 } %.fca.1.insert
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare i64 @Curl_timediff_us(i64, i32, i64, i32) local_unnamed_addr #1
 
@@ -1764,10 +1758,16 @@ declare void @Curl_conn_cf_add(ptr noundef, ptr noundef, i32 noundef, ptr nounde
 
 declare i32 @Curl_cf_create(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

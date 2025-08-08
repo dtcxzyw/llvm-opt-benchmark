@@ -290,14 +290,8 @@ virtio_pci_add_mem_cap.exit:
   ret i32 %11
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @virtio_pci_types_register(ptr noundef %0) local_unnamed_addr #0 {
@@ -308,7 +302,7 @@ define dso_local void @virtio_pci_types_register(ptr noundef %0) local_unnamed_a
   %6 = alloca [3 x %struct.InterfaceInfo], align 8
   %7 = alloca %struct.TypeInfo, align 8
   %8 = alloca [2 x %struct.InterfaceInfo], align 8
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %2) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %9 = load ptr, ptr %0, align 8
   store ptr %9, ptr %2, align 8
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -347,7 +341,7 @@ define dso_local void @virtio_pci_types_register(ptr noundef %0) local_unnamed_a
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, i8 0, i64 24, i1 false)
   %32 = load ptr, ptr %31, align 8
   store ptr %32, ptr %30, align 8
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load ptr, ptr %33, align 8
   store ptr %34, ptr %3, align 8
@@ -415,7 +409,7 @@ define dso_local void @virtio_pci_types_register(ptr noundef %0) local_unnamed_a
   br i1 %.not26, label %67, label %59
 
 59:                                               ; preds = %56
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %58, ptr %5, align 8
   %60 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %61 = load ptr, ptr %2, align 8
@@ -430,7 +424,7 @@ define dso_local void @virtio_pci_types_register(ptr noundef %0) local_unnamed_a
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) @constinit.7, i64 24, i1 false)
   store ptr %6, ptr %65, align 8
   %66 = call ptr @type_register_static(ptr noundef nonnull %5) #15
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %67
 
 67:                                               ; preds = %59, %56
@@ -440,7 +434,7 @@ define dso_local void @virtio_pci_types_register(ptr noundef %0) local_unnamed_a
   br i1 %.not27, label %79, label %70
 
 70:                                               ; preds = %67
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %69, ptr %7, align 8
   %71 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %72 = load ptr, ptr %2, align 8
@@ -457,18 +451,18 @@ define dso_local void @virtio_pci_types_register(ptr noundef %0) local_unnamed_a
   store ptr null, ptr %77, align 8
   store ptr %8, ptr %76, align 8
   %78 = call ptr @type_register_static(ptr noundef nonnull %7) #15
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %79
 
 79:                                               ; preds = %70, %67
   call void @g_free(ptr noundef %.0) #15
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %3) #15
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %2) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @virtio_pci_generic_class_init(ptr noundef %0, ptr readnone captures(none) %1) #0 {
@@ -495,7 +489,7 @@ define internal void @virtio_pci_base_class_init(ptr noundef %0, ptr noundef rea
 }
 
 ; Function Attrs: noreturn nounwind
-declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
+declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 
@@ -522,7 +516,7 @@ define internal void @virtio_pci_transitional_instance_init(ptr noundef %0) #0 {
 declare void @g_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @virtio_pci_optimal_num_queues(i32 noundef %0) local_unnamed_addr #6 {
+define dso_local i32 @virtio_pci_optimal_num_queues(i32 noundef %0) local_unnamed_addr #5 {
   %2 = load ptr, ptr @current_machine, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 304
   %4 = load i32, ptr %3, align 8
@@ -551,7 +545,7 @@ define internal void @virtio_pci_register_types() #0 {
 declare void @error_report(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: cold nofree noreturn nounwind
-declare void @abort() local_unnamed_addr #7
+declare void @abort() local_unnamed_addr #6
 
 declare i32 @pci_add_capability(ptr noundef, i8 noundef zeroext, i8 noundef zeroext, i8 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
@@ -814,7 +808,7 @@ define internal i32 @virtio_pci_load_extra_state(ptr noundef %0, ptr noundef %1)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @virtio_pci_has_extra_state(ptr noundef readonly captures(none) %0) #8 {
+define internal zeroext i1 @virtio_pci_has_extra_state(ptr noundef readonly captures(none) %0) #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 5348
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 4
@@ -1340,7 +1334,7 @@ virtio_pci_modern_mem_region_map.exit101:         ; preds = %58
   %60 = and i32 %.val95, 32
   %.not.i98 = icmp eq i32 %60, 0
   %61 = select i1 %.not.i98, i32 4, i32 4096
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %.sroa.7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %.sroa.7, i8 0, i64 3, i1 false)
   %62 = getelementptr inbounds nuw i8, ptr %14, i64 152
   %63 = load ptr, ptr %62, align 8
@@ -1556,7 +1550,7 @@ virtio_pci_add_mem_cap.exit:                      ; preds = %virtio_pci_modern_i
   store i32 -1, ptr %184, align 1
   %185 = getelementptr inbounds nuw i8, ptr %181, i64 16
   store i32 -1, ptr %185, align 1
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
   br label %186
 
 186:                                              ; preds = %virtio_pci_add_mem_cap.exit, %58
@@ -1665,7 +1659,7 @@ define internal i32 @virtio_pci_query_nvectors(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @virtio_pci_ioeventfd_enabled(ptr noundef readonly captures(none) %0) #8 {
+define internal zeroext i1 @virtio_pci_ioeventfd_enabled(ptr noundef readonly captures(none) %0) #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 5348
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 2
@@ -1839,7 +1833,7 @@ declare void @virtio_queue_set_vector(ptr noundef, i32 noundef, i16 noundef zero
 declare i32 @vmstate_save_state(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @virtio_pci_modern_state_needed(ptr noundef readonly captures(none) %0) #8 {
+define internal zeroext i1 @virtio_pci_modern_state_needed(ptr noundef readonly captures(none) %0) #7 {
   %2 = getelementptr i8, ptr %0, i64 5352
   %.val = load i8, ptr %2, align 8, !range !7, !noundef !6
   %3 = trunc nuw i8 %.val to i1
@@ -1850,7 +1844,7 @@ define internal zeroext i1 @virtio_pci_modern_state_needed(ptr noundef readonly 
 declare i32 @vmstate_load_state(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal fastcc ptr @VIRTIO_DEVICE_GET_CLASS(ptr noundef %0) unnamed_addr #9 {
+define internal fastcc ptr @VIRTIO_DEVICE_GET_CLASS(ptr noundef %0) unnamed_addr #8 {
   %2 = tail call ptr @object_get_class(ptr noundef %0) #15
   %3 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %2, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.43, i32 noundef 88, ptr noundef nonnull @__func__.VIRTIO_DEVICE_GET_CLASS) #15
   ret ptr %3
@@ -1980,7 +1974,7 @@ virtio_pci_set_guest_notifier_fd_handler.exit:    ; preds = %23, %22, %virtio_pc
 }
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #10
+declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #9
 
 declare i32 @msix_nr_vectors_allocated(ptr noundef) local_unnamed_addr #1
 
@@ -2689,7 +2683,7 @@ virtio_pci_get_notifier.exit:                     ; preds = %29, %23
   br i1 %40, label %41, label %51
 
 41:                                               ; preds = %34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %42 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 0, ptr %42, align 8, !annotation !16
   %43 = load ptr, ptr @kvm_state, align 8
@@ -2711,12 +2705,12 @@ virtio_pci_get_notifier.exit:                     ; preds = %29, %23
 kvm_irqchip_commit_route_changes.exit.i:          ; preds = %48, %46
   %50 = getelementptr inbounds nuw i8, ptr %37, i64 16
   store i32 %44, ptr %50, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.pre.i = load i32, ptr %38, align 4
   br label %51
 
 kvm_virtio_pci_vq_vector_use.exit.thread:         ; preds = %41
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %kvm_virtio_pci_vq_vector_release.exit
 
 51:                                               ; preds = %kvm_irqchip_commit_route_changes.exit.i, %34
@@ -3100,7 +3094,7 @@ virtio_set_disabled.exit48:                       ; preds = %73, %72, %virtio_se
 
 108:                                              ; preds = %103
   %109 = zext i32 %102 to i64
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %5, i8 0, i64 64, i1 false), !annotation !16
   %110 = sub nsw i64 %95, %109
   call void @memory_region_find(ptr dead_on_unwind nonnull writable sret(%struct.MemoryRegionSection) align 16 %5, ptr noundef nonnull %100, i64 noundef %110, i64 noundef %97) #15
@@ -3123,7 +3117,7 @@ virtio_address_space_lookup.exit.i:               ; preds = %108
   %116 = load i64, ptr %115, align 16
   call void @memory_region_unref(ptr noundef nonnull %112) #15
   %117 = load ptr, ptr %111, align 16
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not.i49 = icmp eq ptr %117, null
   br i1 %.not.i49, label %virtio_address_space_write.exit, label %118
 
@@ -3210,7 +3204,7 @@ define internal i32 @virtio_read_config(ptr noundef %0, i32 noundef %1, i32 noun
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %27 = load i32, ptr %26, align 4
   %28 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %29 = sub nsw i32 0, %24
   %30 = and i32 %27, %29
   %31 = zext i32 %30 to i64
@@ -3238,7 +3232,7 @@ define internal i32 @virtio_read_config(ptr noundef %0, i32 noundef %1, i32 noun
 44:                                               ; preds = %39
   %45 = zext i32 %38 to i64
   store i64 0, ptr %5, align 8, !annotation !16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %4, i8 0, i64 64, i1 false), !annotation !16
   %46 = sub nsw i64 %31, %45
   call void @memory_region_find(ptr dead_on_unwind nonnull writable sret(%struct.MemoryRegionSection) align 16 %4, ptr noundef nonnull %36, i64 noundef %46, i64 noundef %33) #15
@@ -3261,7 +3255,7 @@ virtio_address_space_lookup.exit.i:               ; preds = %44
   %52 = load i64, ptr %51, align 16
   call void @memory_region_unref(ptr noundef nonnull %48) #15
   %53 = load ptr, ptr %47, align 16
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not.i = icmp eq ptr %53, null
   br i1 %.not.i, label %virtio_address_space_read.exit, label %54
 
@@ -3305,7 +3299,7 @@ virtio_address_space_lookup.exit.i:               ; preds = %44
   br label %virtio_address_space_read.exit
 
 virtio_address_space_read.exit:                   ; preds = %50, %virtio_address_space_lookup.exit.i, %60, %63, %66, %69
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %72
 
 72:                                               ; preds = %virtio_address_space_read.exit, %19, %9, %3
@@ -3980,7 +3974,7 @@ virtio_bus_get_device.exit.thread:                ; preds = %3, %virtio_bus_get_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal void @virtio_pci_isr_write(ptr readnone captures(none) %0, i64 %1, i64 %2, i32 %3) #11 {
+define internal void @virtio_pci_isr_write(ptr readnone captures(none) %0, i64 %1, i64 %2, i32 %3) #10 {
   ret void
 }
 
@@ -4072,7 +4066,7 @@ virtio_bus_get_device.exit.thread:                ; preds = %4, %9, %10, %13, %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i64 -1, 1) i64 @virtio_pci_notify_read(ptr noundef readonly captures(none) %0, i64 %1, i32 %2) #6 {
+define internal range(i64 -1, 1) i64 @virtio_pci_notify_read(ptr noundef readonly captures(none) %0, i64 %1, i32 %2) #5 {
   %4 = getelementptr i8, ptr %0, i64 34160
   %.val = load ptr, ptr %4, align 8
   %.not.i = icmp eq ptr %.val, null
@@ -4139,7 +4133,7 @@ virtio_bus_get_device.exit:                       ; preds = %4, %7
   br i1 %27, label %28, label %34
 
 28:                                               ; preds = %25
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !16
   %29 = call i32 @gettimeofday(ptr noundef nonnull %5, ptr noundef null) #15
   %30 = tail call i32 @qemu_get_thread_id() #15
@@ -4147,7 +4141,7 @@ virtio_bus_get_device.exit:                       ; preds = %4, %7
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %33 = load i64, ptr %32, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.60, i32 noundef %30, i64 noundef %31, i64 noundef %33, i64 noundef %1, i64 noundef %2, i32 noundef %3) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %trace_virtio_pci_notify_write.exit
 
 34:                                               ; preds = %25
@@ -4201,7 +4195,7 @@ virtio_bus_get_device.exit:                       ; preds = %4
   br i1 %21, label %22, label %28
 
 22:                                               ; preds = %19
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !16
   %23 = call i32 @gettimeofday(ptr noundef nonnull %5, ptr noundef null) #15
   %24 = tail call i32 @qemu_get_thread_id() #15
@@ -4209,7 +4203,7 @@ virtio_bus_get_device.exit:                       ; preds = %4
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %27 = load i64, ptr %26, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.62, i32 noundef %24, i64 noundef %25, i64 noundef %27, i64 noundef %1, i64 noundef %2, i32 noundef %3) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %trace_virtio_pci_notify_write_pio.exit
 
 28:                                               ; preds = %19
@@ -4275,7 +4269,7 @@ declare void @virtio_config_modern_writel(ptr noundef, i32 noundef, i32 noundef)
 declare void @virtio_queue_notify(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #12
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #11
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 
@@ -4294,14 +4288,14 @@ declare void @memory_region_find(ptr dead_on_unwind writable sret(%struct.Memory
 declare void @memory_region_unref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #13
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #12
 
 declare i32 @pci_default_read_config(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 declare i32 @memory_region_dispatch_read(ptr noundef, i64 noundef, ptr noundef, i32 noundef, i64) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #13
+declare i64 @llvm.ctlz.i64(i64, i1 immarg) #12
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 -1, 4294967296) i64 @virtio_pci_config_read(ptr noundef %0, i64 noundef %1, i32 noundef %2) #0 {
@@ -4810,12 +4804,12 @@ declare i32 @virtio_config_readb(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @virtio_config_readw(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.bswap.i16(i16) #13
+declare i16 @llvm.bswap.i16(i16) #12
 
 declare i32 @virtio_config_readl(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.bswap.i32(i32) #13
+declare i32 @llvm.bswap.i32(i32) #12
 
 declare i64 @virtio_queue_get_addr(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -5104,10 +5098,10 @@ define internal void @virtio_pci_realize(ptr noundef %0, ptr noundef %1) #0 {
 119:                                              ; preds = %116, %113, %._crit_edge102
   %120 = getelementptr inbounds nuw i8, ptr %4, i64 34080
   %121 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %4, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #15
-  call void @llvm.lifetime.start.p0(i64 11, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %3, ptr noundef nonnull align 1 dereferenceable(11) @__const.virtio_pci_bus_new.virtio_bus_name, i64 11, i1 false)
   call void @qbus_init(ptr noundef nonnull %120, i64 noundef 128, ptr noundef nonnull @.str.16, ptr noundef %121, ptr noundef nonnull %3) #15
-  call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %122 = getelementptr inbounds nuw i8, ptr %6, i64 248
   %123 = load ptr, ptr %122, align 8
   %.not88 = icmp eq ptr %123, null
@@ -5328,6 +5322,12 @@ declare void @pcie_cap_lnkctl_reset(ptr noundef) local_unnamed_addr #1
 
 declare i32 @qdev_sync_config(ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.fshl.i64(i64, i64, i64) #14
 
@@ -5342,18 +5342,18 @@ declare i32 @llvm.smin.i32(i32, i32) #14
 
 attributes #0 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
-attributes #7 = { cold nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
-attributes #9 = { inlinehint nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
-attributes #10 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
-attributes #12 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
-attributes #13 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #6 = { cold nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #8 = { inlinehint nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #9 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #11 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #15 = { nounwind }
 attributes #16 = { noreturn nounwind }

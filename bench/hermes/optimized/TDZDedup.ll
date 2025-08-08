@@ -614,7 +614,7 @@ for.end30.i.loopexit:                             ; preds = %for.inc28.i
 for.end30.i:                                      ; preds = %for.end30.i.loopexit, %entry
   %43 = phi ptr [ %.pre, %for.end30.i.loopexit ], [ %DT, %entry ]
   %call.i17.i = call noundef ptr @_ZNK4llvh17DominatorTreeBaseIN6hermes10BasicBlockELb0EE11getRootNodeEv(ptr noundef nonnull align 8 dereferenceable(72) %43) #10
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %nodesToProcess.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %nodesToProcess.i.i.i)
   %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %nodesToProcess.i.i.i, i64 16
   store ptr %add.ptr.i.i.i.i.i.i.i.i, ptr %nodesToProcess.i.i.i, align 8
   %Size.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %nodesToProcess.i.i.i, i64 8
@@ -671,10 +671,10 @@ while.body.i.i.i:                                 ; preds = %if.end16.i.i.i, %wh
 
 if.then.i.i.i:                                    ; preds = %while.body.i.i.i
   %.val8.i.i.i = load ptr, ptr %51, align 8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %destroyer.i.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tdzStorage.i.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp32.i.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp50.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %destroyer.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %tdzStorage.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp32.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp50.i.i.i.i)
   %call2.i.i.i.i = call noundef ptr @_ZNK4llvh15DomTreeNodeBaseIN6hermes10BasicBlockEE8getBlockEv(ptr noundef nonnull align 8 dereferenceable(56) %.val8.i.i.i) #10
   store ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, ptr %destroyer.i.i.i.i, align 8
   store i32 0, ptr %Size.i.i.i.i.i.i.i.i.i.i, align 8
@@ -1250,10 +1250,10 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %for.end.i.i.i.i.i
 
 _ZN6hermes12_GLOBAL__N_115TDZDedupContext11processNodeEPNS0_9StackNodeE.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i, %for.end.i.i.i.i.i, %if.then.i.i.i
   %changed.0.lcssa2326.i.i.i.i = phi i1 [ %changed.1.i.i.i.i, %for.end.i.i.i.i.i ], [ %changed.1.i.i.i.i, %if.then.i.i.i.i.i.i.i ], [ false, %if.then.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %destroyer.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tdzStorage.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp32.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp50.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %destroyer.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %tdzStorage.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp32.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp50.i.i.i.i)
   %or6.i.i.i = or i1 %changed.0224.i.i.i, %changed.0.lcssa2326.i.i.i.i
   store i8 1, ptr %52, align 8
   br label %if.end16thread-pre-split.i.i.i
@@ -1639,7 +1639,7 @@ if.then.i.i.i.i.i:                                ; preds = %while.end.i.i.i
   br label %_ZN6hermes12_GLOBAL__N_115TDZDedupContext3runEv.exit
 
 _ZN6hermes12_GLOBAL__N_115TDZDedupContext3runEv.exit: ; preds = %while.end.i.i.i, %if.then.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %nodesToProcess.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nodesToProcess.i.i.i)
   %availableValues_.i = getelementptr inbounds nuw i8, ptr %CCtx, i64 152
   %193 = load ptr, ptr %availableValues_.i, align 8
   call void @_ZdlPv(ptr noundef %193) #10
@@ -2383,10 +2383,10 @@ declare i32 @llvm.umax.i32(i32, i32) #8
 declare i32 @llvm.umin.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -961,25 +961,25 @@ define hidden void @_PyTraceMalloc_Init(ptr dead_on_unwind noalias writable writ
   br label %41
 
 13:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) @__const.hashtable_new.hashtable_alloc, i64 16, i1 false)
   %14 = call ptr @_Py_hashtable_new_full(ptr noundef nonnull @hashtable_hash_pyobject, ptr noundef nonnull @hashtable_compare_unicode, ptr noundef nonnull @tracemalloc_clear_filename, ptr noundef null, ptr noundef nonnull %5) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store ptr %14, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10312), align 8, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) @__const.hashtable_new.hashtable_alloc, i64 16, i1 false)
   %15 = call ptr @_Py_hashtable_new_full(ptr noundef nonnull @hashtable_hash_traceback, ptr noundef nonnull @hashtable_compare_traceback, ptr noundef nonnull @raw_free, ptr noundef null, ptr noundef nonnull %4) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store ptr %15, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10328), align 8, !tbaa !180
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) @__const.hashtable_new.hashtable_alloc, i64 16, i1 false)
   %16 = call ptr @_Py_hashtable_new_full(ptr noundef nonnull @_Py_hashtable_hash_ptr, ptr noundef nonnull @_Py_hashtable_compare_direct, ptr noundef null, ptr noundef nonnull @raw_free, ptr noundef nonnull %3) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr %16, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10336), align 8, !tbaa !181
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) @__const.hashtable_new.hashtable_alloc, i64 16, i1 false)
   %17 = call ptr @_Py_hashtable_new_full(ptr noundef nonnull @hashtable_hash_uint, ptr noundef nonnull @_Py_hashtable_compare_direct, ptr noundef null, ptr noundef nonnull @_Py_hashtable_destroy, ptr noundef nonnull %2) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   store ptr %17, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10344), align 8, !tbaa !182
   %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10312), align 8, !tbaa !14
   %19 = icmp eq ptr %18, null
@@ -1207,7 +1207,7 @@ _PyTraceMalloc_IsTracing.exit:                    ; preds = %PyMutex_LockFlags.e
   br label %42
 
 27:                                               ; preds = %16
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @tracemalloc_raw_malloc, ptr %28, align 8, !tbaa !203
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -1254,7 +1254,7 @@ PyMutex_LockFlags.exit:                           ; preds = %34, %37
 
 _PyMutex_Unlock.exit:                             ; preds = %41, %PyMutex_LockFlags.exit, %27
   %.2 = phi i32 [ -1, %27 ], [ 0, %PyMutex_LockFlags.exit ], [ 0, %41 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %42
 
 42:                                               ; preds = %25, %_PyMutex_Unlock.exit, %_PyTraceMalloc_IsTracing.exit, %4
@@ -1287,9 +1287,6 @@ PyMutex_LockFlags.exit:                           ; preds = %0, %3
 _PyMutex_Unlock.exit:                             ; preds = %PyMutex_LockFlags.exit, %8
   ret i32 %5
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 declare ptr @PyErr_NoMemory() local_unnamed_addr #1
 
@@ -1458,9 +1455,6 @@ PyMutex_LockFlags.exit:                           ; preds = %6, %9
 _PyMutex_Unlock.exit:                             ; preds = %29, %26, %4, %3
   ret i32 0
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nounwind uwtable
 define hidden void @_PyTraceMalloc_Stop() local_unnamed_addr #0 {
@@ -1662,10 +1656,10 @@ tracemalloc_get_traces_table.exit:                ; preds = %9, %11
   br i1 %16, label %17, label %27
 
 17:                                               ; preds = %tracemalloc_get_traces_table.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) @__const.hashtable_new.hashtable_alloc, i64 16, i1 false)
   %18 = call ptr @_Py_hashtable_new_full(ptr noundef nonnull @_Py_hashtable_hash_ptr, ptr noundef nonnull @_Py_hashtable_compare_direct, ptr noundef null, ptr noundef nonnull @raw_free, ptr noundef nonnull %4) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %19 = icmp eq ptr %18, null
   br i1 %19, label %51, label %20
 
@@ -2113,7 +2107,7 @@ define hidden ptr @_PyTraceMalloc_GetTraces() local_unnamed_addr #0 {
 
 PyMutex_LockFlags.exit:                           ; preds = %0, %7
   %9 = tail call i32 @PyThread_tss_set(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10376), ptr noundef nonnull @_Py_TrueStruct) #14
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i32 0, ptr %10, align 8, !tbaa !221
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -2129,20 +2123,20 @@ PyMutex_LockFlags.exit:                           ; preds = %0, %7
   br i1 %or.cond, label %18, label %Py_DECREF.exit
 
 18:                                               ; preds = %PyMutex_LockFlags.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) @__const.hashtable_new.hashtable_alloc, i64 16, i1 false)
   %19 = call ptr @_Py_hashtable_new_full(ptr noundef nonnull @_Py_hashtable_hash_ptr, ptr noundef nonnull @_Py_hashtable_compare_direct, ptr noundef null, ptr noundef nonnull @tracemalloc_pyobject_decref, ptr noundef nonnull %3) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr %19, ptr %12, align 8, !tbaa !224
   %20 = icmp eq ptr %19, null
   br i1 %20, label %47, label %21
 
 21:                                               ; preds = %18
   %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10336), align 8, !tbaa !181
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) @__const.hashtable_new.hashtable_alloc, i64 16, i1 false)
   %23 = call ptr @_Py_hashtable_new_full(ptr noundef nonnull @_Py_hashtable_hash_ptr, ptr noundef nonnull @_Py_hashtable_compare_direct, ptr noundef null, ptr noundef nonnull @raw_free, ptr noundef nonnull %2) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %24 = icmp eq ptr %23, null
   br i1 %24, label %tracemalloc_copy_traces.exit.thread, label %25
 
@@ -2162,10 +2156,10 @@ tracemalloc_copy_traces.exit.thread:              ; preds = %21, %27
 28:                                               ; preds = %25
   store ptr %23, ptr %4, align 8, !tbaa !225
   %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10344), align 8, !tbaa !182
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) @__const.hashtable_new.hashtable_alloc, i64 16, i1 false)
   %30 = call ptr @_Py_hashtable_new_full(ptr noundef nonnull @hashtable_hash_uint, ptr noundef nonnull @_Py_hashtable_compare_direct, ptr noundef null, ptr noundef nonnull @_Py_hashtable_destroy, ptr noundef nonnull %1) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %31 = icmp eq ptr %30, null
   br i1 %31, label %tracemalloc_copy_domains.exit.thread, label %32
 
@@ -2268,7 +2262,7 @@ _PyMutex_Unlock.exit:                             ; preds = %Py_DECREF.exit, %56
 
 65:                                               ; preds = %64, %62
   %66 = load ptr, ptr %14, align 8, !tbaa !223
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %66
 }
 
@@ -2465,7 +2459,7 @@ define hidden ptr @_PyTraceMalloc_GetObjectTraceback(ptr noundef %0) local_unnam
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden i32 @_PyTraceMalloc_GetTracebackLimit() local_unnamed_addr #6 {
+define hidden i32 @_PyTraceMalloc_GetTracebackLimit() local_unnamed_addr #5 {
   %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10160), align 8, !tbaa !200
   ret i32 %1
 }
@@ -2482,7 +2476,7 @@ define hidden i64 @_PyTraceMalloc_GetMemory() local_unnamed_addr #0 {
   br label %PyMutex_LockFlags.exit
 
 PyMutex_LockFlags.exit:                           ; preds = %0, %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10156), align 4, !tbaa !199
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %18, label %7
@@ -2516,7 +2510,7 @@ PyMutex_LockFlags.exit:                           ; preds = %0, %4
 
 _PyMutex_Unlock.exit:                             ; preds = %19, %22
   %23 = load i64, ptr %1, align 8, !tbaa !227
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i64 %23
 }
 
@@ -2597,13 +2591,13 @@ _PyMutex_Unlock.exit:                             ; preds = %8, %11
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) #7
+declare noalias noundef ptr @malloc(i64 noundef) #6
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) #8
+declare void @free(ptr allocptr noundef captures(none)) #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 declare ptr @_Py_hashtable_new_full(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -2612,7 +2606,7 @@ declare i64 @PyObject_Hash(ptr noundef) local_unnamed_addr #1
 declare i32 @PyUnicode_Compare(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef range(i64 0, 4294967296) i64 @hashtable_hash_uint(ptr noundef %0) #10 {
+define internal noundef range(i64 0, 4294967296) i64 @hashtable_hash_uint(ptr noundef %0) #9 {
   %2 = ptrtoint ptr %0 to i64
   %3 = and i64 %2, 4294967295
   ret i64 %3
@@ -2845,7 +2839,7 @@ _PyMutex_Unlock.exit:                             ; preds = %47, %50
 }
 
 ; Function Attrs: noreturn
-declare void @_Py_FatalErrorFunc(ptr noundef, ptr noundef) local_unnamed_addr #11
+declare void @_Py_FatalErrorFunc(ptr noundef, ptr noundef) local_unnamed_addr #10
 
 declare i32 @_PyMutex_LockTimed(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -3126,7 +3120,7 @@ traceback_hash.exit:                              ; preds = %.lr.ph.i25
 declare i32 @_Py_hashtable_set(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #12
+declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #11
 
 declare i32 @PyUnstable_InterpreterFrame_GetLine(ptr noundef) local_unnamed_addr #1
 
@@ -3168,10 +3162,10 @@ define internal range(i32 -1, 1) i32 @tracemalloc_copy_trace(ptr readnone captur
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @tracemalloc_copy_domain(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca %struct._Py_hashtable_allocator_t, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) @__const.hashtable_new.hashtable_alloc, i64 16, i1 false)
   %6 = call ptr @_Py_hashtable_new_full(ptr noundef nonnull @_Py_hashtable_hash_ptr, ptr noundef nonnull @_Py_hashtable_compare_direct, ptr noundef null, ptr noundef nonnull @raw_free, ptr noundef nonnull %5) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %7 = icmp eq ptr %6, null
   br i1 %7, label %tracemalloc_copy_traces.exit.thread, label %8
 
@@ -3203,6 +3197,12 @@ declare ptr @PyLong_FromSize_t(i64 noundef) local_unnamed_addr #1
 
 declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #13
 
@@ -3211,14 +3211,14 @@ attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "t
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #14 = { nounwind }
 attributes #15 = { noreturn nounwind }

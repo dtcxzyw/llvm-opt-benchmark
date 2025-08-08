@@ -163,14 +163,8 @@ _ZN6snappy6Varint16Parse32WithLimitEPKcS2_Pj.exit.thread: ; preds = %38, %37, %2
   ret i1 %.not8
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN6snappy8internal13WorkingMemoryC2Em(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 40)) %0, i64 noundef %1) unnamed_addr #3 align 2 {
+define dso_local void @_ZN6snappy8internal13WorkingMemoryC2Em(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 40)) %0, i64 noundef %1) unnamed_addr #2 align 2 {
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %1, i64 65536)
   %3 = trunc nuw nsw i64 %.sroa.speculated to i32
   %4 = icmp ugt i64 %1, 32768
@@ -212,14 +206,14 @@ _ZN6snappy12_GLOBAL__N_118CalculateTableSizeEj.exit: ; preds = %2, %5, %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN6snappy8internal13WorkingMemoryD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #3 align 2 {
+define dso_local void @_ZN6snappy8internal13WorkingMemoryD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #2 align 2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !14
   tail call void @_ZdlPv(ptr noundef %2) #22
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @_ZNK6snappy8internal13WorkingMemory12GetHashTableEmPi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i64 noundef %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) local_unnamed_addr #4 align 2 {
+define dso_local noundef ptr @_ZNK6snappy8internal13WorkingMemory12GetHashTableEmPi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i64 noundef %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) local_unnamed_addr #3 align 2 {
   %4 = trunc i64 %1 to i32
   %5 = icmp ugt i32 %4, 32768
   br i1 %5, label %_ZN6snappy12_GLOBAL__N_118CalculateTableSizeEj.exit, label %6
@@ -248,10 +242,10 @@ _ZN6snappy12_GLOBAL__N_118CalculateTableSizeEj.exit: ; preds = %3, %6, %8
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN6snappy8internal16CompressFragmentEPKcmPcPti(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(address, ret: address, provenance) %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #3 {
+define dso_local noundef ptr @_ZN6snappy8internal16CompressFragmentEPKcmPcPti(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(address, ret: address, provenance) %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #2 {
   %6 = shl i32 %4, 1
   %7 = add i32 %6, -2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 %1
@@ -771,10 +765,10 @@ _ZN6snappyL11EmitLiteralILb0EEEPcS1_PKci.exit:    ; preds = %264, %266
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @_ZN6snappy8internal26CompressFragmentDoubleHashEPKcmPcPtiS4_i(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(address, ret: address, provenance) %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 %6) local_unnamed_addr #7 {
+define dso_local noundef ptr @_ZN6snappy8internal26CompressFragmentDoubleHashEPKcmPcPtiS4_i(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(address, ret: address, provenance) %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 %6) local_unnamed_addr #6 {
   %8 = shl i32 %4, 1
   %9 = add i32 %8, -2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 %1
@@ -1634,7 +1628,7 @@ define dso_local void @_ZN6snappy9MemCopy64EPcPKvm(ptr noundef writeonly capture
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local void @_ZN6snappy9MemCopy64ElPKvm(i64 noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
@@ -1642,21 +1636,21 @@ define dso_local void @_ZN6snappy9MemCopy64ElPKvm(i64 noundef %0, ptr noundef re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN6snappy13ClearDeferredEPPKvPmPh(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef %2) local_unnamed_addr #8 {
+define dso_local void @_ZN6snappy13ClearDeferredEPPKvPmPh(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef %2) local_unnamed_addr #7 {
   store ptr %2, ptr %0, align 8, !tbaa !42
   store i64 0, ptr %1, align 8, !tbaa !7
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN6snappy12DeferMemCopyEPPKvPmS1_m(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #8 {
+define dso_local void @_ZN6snappy12DeferMemCopyEPPKvPmS1_m(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #7 {
   store ptr %2, ptr %0, align 8, !tbaa !42
   store i64 %3, ptr %1, align 8, !tbaa !7
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN6snappy18SnappyDecompressor9RefillTagEv(ptr noundef nonnull align 8 dereferenceable(42) %0) local_unnamed_addr #3 align 2 {
+define dso_local noundef zeroext i1 @_ZN6snappy18SnappyDecompressor9RefillTagEv(ptr noundef nonnull align 8 dereferenceable(42) %0) local_unnamed_addr #2 align 2 {
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1675,7 +1669,7 @@ define dso_local noundef zeroext i1 @_ZN6snappy18SnappyDecompressor9RefillTagEv(
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %16 = load ptr, ptr %15, align 8
   tail call void %16(ptr noundef nonnull align 8 dereferenceable(8) %10, i64 noundef %13) #24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %17 = load ptr, ptr %0, align 8, !tbaa !48
   %18 = load ptr, ptr %17, align 8, !tbaa !50
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
@@ -1693,7 +1687,7 @@ define dso_local noundef zeroext i1 @_ZN6snappy18SnappyDecompressor9RefillTagEv(
 27:                                               ; preds = %9
   %28 = getelementptr inbounds nuw i8, ptr %21, i64 %22
   store ptr %28, ptr %6, align 8, !tbaa !47
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %29
 
 29:                                               ; preds = %27, %1
@@ -1745,7 +1739,7 @@ _ZN6snappy15CalculateNeededEh.exit:               ; preds = %36, %39
 
 60:                                               ; preds = %50, %67
   %.03041 = phi i32 [ %48, %50 ], [ %73, %67 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %61 = load ptr, ptr %0, align 8, !tbaa !48
   %62 = load ptr, ptr %61, align 8, !tbaa !50
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 24
@@ -1769,7 +1763,7 @@ _ZN6snappy15CalculateNeededEh.exit:               ; preds = %36, %39
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 32
   %77 = load ptr, ptr %76, align 8
   call void %77(ptr noundef nonnull align 8 dereferenceable(8) %74, i64 noundef %72) #24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %78 = icmp ult i32 %73, %44
   br i1 %78, label %60, label %79, !llvm.loop !53
 
@@ -1807,11 +1801,11 @@ _ZN6snappy15CalculateNeededEh.exit:               ; preds = %36, %39
   br label %96
 
 .critedge37:                                      ; preds = %60
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %96
 
 .critedge:                                        ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %96
 
 96:                                               ; preds = %.critedge37, %84, %95, %79, %.critedge
@@ -1820,14 +1814,14 @@ _ZN6snappy15CalculateNeededEh.exit:               ; preds = %36, %39
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN6snappy21GetUncompressedLengthEPNS_6SourceEPj(ptr noundef %0, ptr noundef captures(none) initializes((0, 4)) %1) local_unnamed_addr #3 {
+define dso_local noundef zeroext i1 @_ZN6snappy21GetUncompressedLengthEPNS_6SourceEPj(ptr noundef %0, ptr noundef captures(none) initializes((0, 4)) %1) local_unnamed_addr #2 {
   %3 = alloca i64, align 8
   store i32 0, ptr %1, align 4, !tbaa !18
   br label %4
 
 4:                                                ; preds = %27, %2
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %27 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = load ptr, ptr %0, align 8, !tbaa !50
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = load ptr, ptr %6, align 8
@@ -1861,13 +1855,13 @@ define dso_local noundef zeroext i1 @_ZN6snappy21GetUncompressedLengthEPNS_6Sour
 
 27:                                               ; preds = %20
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %28 = icmp samesign ugt i64 %indvars.iv.i, 24
   br i1 %28, label %_ZN6snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit, label %4
 
 .loopexit.sink.split.i:                           ; preds = %20, %11, %4
   %.1.ph.i = phi i1 [ false, %4 ], [ false, %11 ], [ true, %20 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN6snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit
 
 _ZN6snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit: ; preds = %27, %.loopexit.sink.split.i
@@ -1880,20 +1874,20 @@ _ZN6snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit: ; preds = %27, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i64 @_ZN6snappy8CompressEPNS_6SourceEPNS_4SinkE(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 {
+define dso_local noundef i64 @_ZN6snappy8CompressEPNS_6SourceEPNS_4SinkE(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = tail call noundef i64 @_ZN6snappy8CompressEPNS_6SourceEPNS_4SinkENS_18CompressionOptionsE(ptr noundef %0, ptr noundef %1, i32 1)
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i64 @_ZN6snappy8CompressEPNS_6SourceEPNS_4SinkENS_18CompressionOptionsE(ptr noundef %0, ptr noundef %1, i32 %2) local_unnamed_addr #3 {
+define dso_local noundef i64 @_ZN6snappy8CompressEPNS_6SourceEPNS_4SinkENS_18CompressionOptionsE(ptr noundef %0, ptr noundef %1, i32 %2) local_unnamed_addr #2 {
   %4 = alloca [5 x i8], align 1
   %5 = alloca i64, align 8
   %6 = load ptr, ptr %0, align 8, !tbaa !50
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef i64 %8(ptr noundef nonnull align 8 dereferenceable(8) %0) #24
-  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %4) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %10 = trunc i64 %9 to i32
   %11 = icmp ult i32 %10, 128
   br i1 %11, label %12, label %15
@@ -2017,7 +2011,7 @@ _ZN6snappy8internal13WorkingMemoryC2Em.exit:      ; preds = %_ZN6snappy6Varint8E
 .lr.ph:                                           ; preds = %_ZN6snappy8internal13WorkingMemoryC2Em.exit, %132
   %.05583 = phi i64 [ %139, %132 ], [ %62, %_ZN6snappy8internal13WorkingMemoryC2Em.exit ]
   %.07982 = phi i64 [ %140, %132 ], [ %9, %_ZN6snappy8internal13WorkingMemoryC2Em.exit ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %83 = load ptr, ptr %0, align 8, !tbaa !50
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 24
   %85 = load ptr, ptr %84, align 8
@@ -2120,21 +2114,21 @@ _ZNK6snappy8internal13WorkingMemory12GetHashTableEmPi.exit: ; preds = %.loopexit
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 32
   %143 = load ptr, ptr %142, align 8
   call void %143(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %.058) #24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not = icmp eq i64 %140, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !55
 
 ._crit_edge:                                      ; preds = %132, %_ZN6snappy8internal13WorkingMemoryC2Em.exit
   %.055.lcssa = phi i64 [ %62, %_ZN6snappy8internal13WorkingMemoryC2Em.exit ], [ %139, %132 ]
   call void @_ZdlPv(ptr noundef nonnull %80) #22
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %4) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %.055.lcssa
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN6snappy20RawUncompressToIOVecEPKcmPK5iovecm(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #3 {
+define dso_local noundef zeroext i1 @_ZN6snappy20RawUncompressToIOVecEPKcmPK5iovecm(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #2 {
   %5 = alloca %"class.snappy::ByteArraySource", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN6snappy15ByteArraySourceE, i64 16), ptr %5, align 8, !tbaa !50
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %0, ptr %6, align 8, !tbaa !56
@@ -2142,16 +2136,16 @@ define dso_local noundef zeroext i1 @_ZN6snappy20RawUncompressToIOVecEPKcmPK5iov
   store i64 %1, ptr %7, align 8, !tbaa !59
   %8 = call noundef zeroext i1 @_ZN6snappy20RawUncompressToIOVecEPNS_6SourceEPK5iovecm(ptr noundef nonnull %5, ptr noundef %2, i64 noundef %3)
   call void @_ZN6snappy15ByteArraySourceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #24
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN6snappy20RawUncompressToIOVecEPNS_6SourceEPK5iovecm(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #3 {
+define dso_local noundef zeroext i1 @_ZN6snappy20RawUncompressToIOVecEPNS_6SourceEPK5iovecm(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #2 {
   %4 = alloca i64, align 8
   %5 = alloca %"class.snappy::SnappyDecompressor", align 8
   %6 = alloca %"class.snappy::SnappyIOVecWriter", align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds nuw %struct.iovec, ptr %1, i64 %2
   store ptr %7, ptr %6, align 8, !tbaa !60
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -2176,7 +2170,7 @@ _ZN6snappy17SnappyIOVecWriterC2EPK5iovecm.exit:   ; preds = %3, %9
   store i64 0, ptr %16, align 8, !tbaa !69
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i64 -1, ptr %17, align 8, !tbaa !70
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %0, ptr %5, align 8, !tbaa !48
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -2189,7 +2183,7 @@ _ZN6snappy17SnappyIOVecWriterC2EPK5iovecm.exit:   ; preds = %3, %9
 21:                                               ; preds = %43, %_ZN6snappy17SnappyIOVecWriterC2EPK5iovecm.exit
   %.05.i = phi i32 [ 0, %_ZN6snappy17SnappyIOVecWriterC2EPK5iovecm.exit ], [ %41, %43 ]
   %indvars.iv.i.i = phi i64 [ 0, %_ZN6snappy17SnappyIOVecWriterC2EPK5iovecm.exit ], [ %indvars.iv.next.i.i, %43 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %22 = load ptr, ptr %0, align 8, !tbaa !50
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %24 = load ptr, ptr %23, align 8
@@ -2221,16 +2215,16 @@ _ZN6snappy17SnappyIOVecWriterC2EPK5iovecm.exit:   ; preds = %3, %9
 
 43:                                               ; preds = %37
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %44 = icmp samesign ugt i64 %indvars.iv.i.i, 24
   br i1 %44, label %_ZN6snappyL18InternalUncompressINS_17SnappyIOVecWriterEEEbPNS_6SourceEPT_.exit, label %21
 
 _ZN6snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit.thread8.i: ; preds = %28, %21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN6snappyL18InternalUncompressINS_17SnappyIOVecWriterEEEbPNS_6SourceEPT_.exit
 
 45:                                               ; preds = %37
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %46 = load ptr, ptr %0, align 8, !tbaa !50
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %48 = load ptr, ptr %47, align 8
@@ -2257,18 +2251,18 @@ _ZN6snappyL18InternalUncompressINS_17SnappyIOVecWriterEEEbPNS_6SourceEPT_.exit: 
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 32
   %62 = load ptr, ptr %61, align 8
   call void %62(ptr noundef nonnull align 8 dereferenceable(8) %57, i64 noundef %59) #24
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #24
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0.i
 }
 
 ; Function Attrs: nounwind
-declare void @_ZN6snappy15ByteArraySourceD1Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #9
+declare void @_ZN6snappy15ByteArraySourceD1Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN6snappy13RawUncompressEPKcmPc(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #3 {
+define dso_local noundef zeroext i1 @_ZN6snappy13RawUncompressEPKcmPc(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #2 {
   %4 = alloca %"class.snappy::ByteArraySource", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN6snappy15ByteArraySourceE, i64 16), ptr %4, align 8, !tbaa !50
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %0, ptr %5, align 8, !tbaa !56
@@ -2276,16 +2270,16 @@ define dso_local noundef zeroext i1 @_ZN6snappy13RawUncompressEPKcmPc(ptr nounde
   store i64 %1, ptr %6, align 8, !tbaa !59
   %7 = call noundef zeroext i1 @_ZN6snappy13RawUncompressEPNS_6SourceEPc(ptr noundef nonnull %4, ptr noundef %2)
   call void @_ZN6snappy15ByteArraySourceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #24
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN6snappy13RawUncompressEPNS_6SourceEPc(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 {
+define dso_local noundef zeroext i1 @_ZN6snappy13RawUncompressEPNS_6SourceEPc(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = alloca i64, align 8
   %4 = alloca %"class.snappy::SnappyDecompressor", align 8
   %5 = alloca %"class.snappy::SnappyArrayWriter", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %1, ptr %5, align 8, !tbaa !73
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %1, ptr %6, align 8, !tbaa !75
@@ -2293,7 +2287,7 @@ define dso_local noundef zeroext i1 @_ZN6snappy13RawUncompressEPNS_6SourceEPc(pt
   store ptr %1, ptr %7, align 8, !tbaa !76
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %1, ptr %8, align 8, !tbaa !77
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %0, ptr %4, align 8, !tbaa !48
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -2306,7 +2300,7 @@ define dso_local noundef zeroext i1 @_ZN6snappy13RawUncompressEPNS_6SourceEPc(pt
 12:                                               ; preds = %34, %2
   %.05.i = phi i32 [ 0, %2 ], [ %32, %34 ]
   %indvars.iv.i.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i.i, %34 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %13 = load ptr, ptr %0, align 8, !tbaa !50
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load ptr, ptr %14, align 8
@@ -2338,16 +2332,16 @@ define dso_local noundef zeroext i1 @_ZN6snappy13RawUncompressEPNS_6SourceEPc(pt
 
 34:                                               ; preds = %28
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %35 = icmp samesign ugt i64 %indvars.iv.i.i, 24
   br i1 %35, label %_ZN6snappyL18InternalUncompressINS_17SnappyArrayWriterEEEbPNS_6SourceEPT_.exit, label %12
 
 _ZN6snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit.thread8.i: ; preds = %19, %12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN6snappyL18InternalUncompressINS_17SnappyArrayWriterEEEbPNS_6SourceEPT_.exit
 
 36:                                               ; preds = %28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %37 = load ptr, ptr %0, align 8, !tbaa !50
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %39 = load ptr, ptr %38, align 8
@@ -2379,13 +2373,13 @@ _ZN6snappyL18InternalUncompressINS_17SnappyArrayWriterEEEbPNS_6SourceEPT_.exit: 
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 32
   %56 = load ptr, ptr %55, align 8
   call void %56(ptr noundef nonnull align 8 dereferenceable(8) %51, i64 noundef %53) #24
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #24
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN6snappy10UncompressEPKcmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #3 {
+define dso_local noundef zeroext i1 @_ZN6snappy10UncompressEPKcmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #2 {
   %4 = alloca %"class.snappy::ByteArraySource", align 8
   %.not.i.not.i = icmp eq i64 %1, 0
   br i1 %.not.i.not.i, label %_ZN6snappy21GetUncompressedLengthEPKcmPm.exit.thread, label %5
@@ -2467,7 +2461,7 @@ define dso_local noundef zeroext i1 @_ZN6snappy10UncompressEPKcmPNSt7__cxx1112ba
 
 _ZN6snappy15string_as_arrayEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %45, %50
   %52 = phi ptr [ %51, %50 ], [ null, %45 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN6snappy15ByteArraySourceE, i64 16), ptr %4, align 8, !tbaa !50
   %53 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %0, ptr %53, align 8, !tbaa !56
@@ -2475,7 +2469,7 @@ _ZN6snappy15string_as_arrayEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE
   store i64 %1, ptr %54, align 8, !tbaa !59
   %55 = call noundef zeroext i1 @_ZN6snappy13RawUncompressEPNS_6SourceEPc(ptr noundef nonnull %4, ptr noundef %52)
   call void @_ZN6snappy15ByteArraySourceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #24
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN6snappy21GetUncompressedLengthEPKcmPm.exit.thread
 
 _ZN6snappy21GetUncompressedLengthEPKcmPm.exit.thread: ; preds = %39, %38, %29, %20, %11, %3, %_ZN6snappy15string_as_arrayEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
@@ -2484,29 +2478,29 @@ _ZN6snappy21GetUncompressedLengthEPKcmPm.exit.thread: ; preds = %39, %38, %29, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN6snappy23IsValidCompressedBufferEPKcm(ptr noundef %0, i64 noundef %1) local_unnamed_addr #3 {
+define dso_local noundef zeroext i1 @_ZN6snappy23IsValidCompressedBufferEPKcm(ptr noundef %0, i64 noundef %1) local_unnamed_addr #2 {
   %3 = alloca %"class.snappy::ByteArraySource", align 8
   %4 = alloca %"class.snappy::SnappyDecompressionValidator", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN6snappy15ByteArraySourceE, i64 16), ptr %3, align 8, !tbaa !50
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %0, ptr %5, align 8, !tbaa !56
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %1, ptr %6, align 8, !tbaa !59
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   %7 = call fastcc noundef zeroext i1 @_ZN6snappyL18InternalUncompressINS_28SnappyDecompressionValidatorEEEbPNS_6SourceEPT_(ptr noundef nonnull %3, ptr noundef %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZN6snappy15ByteArraySourceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #24
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN6snappyL18InternalUncompressINS_28SnappyDecompressionValidatorEEEbPNS_6SourceEPT_(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #3 {
+define internal fastcc noundef zeroext i1 @_ZN6snappyL18InternalUncompressINS_28SnappyDecompressionValidatorEEEbPNS_6SourceEPT_(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #2 {
   %3 = alloca i64, align 8
   %4 = alloca %"class.snappy::SnappyDecompressor", align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %0, ptr %4, align 8, !tbaa !48
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -2519,7 +2513,7 @@ define internal fastcc noundef zeroext i1 @_ZN6snappyL18InternalUncompressINS_28
 8:                                                ; preds = %30, %2
   %.05 = phi i32 [ 0, %2 ], [ %28, %30 ]
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %30 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %9 = load ptr, ptr %0, align 8, !tbaa !50
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %11 = load ptr, ptr %10, align 8
@@ -2551,16 +2545,16 @@ define internal fastcc noundef zeroext i1 @_ZN6snappyL18InternalUncompressINS_28
 
 30:                                               ; preds = %24
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %31 = icmp samesign ugt i64 %indvars.iv.i, 24
   br i1 %31, label %_ZN6snappyL25InternalUncompressAllTagsINS_28SnappyDecompressionValidatorEEEbPNS_18SnappyDecompressorEPT_jj.exit, label %8
 
 _ZN6snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit.thread8: ; preds = %8, %15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN6snappyL25InternalUncompressAllTagsINS_28SnappyDecompressionValidatorEEEbPNS_18SnappyDecompressorEPT_jj.exit
 
 32:                                               ; preds = %24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %33 = load ptr, ptr %0, align 8, !tbaa !50
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load ptr, ptr %34, align 8
@@ -2588,31 +2582,31 @@ _ZN6snappyL25InternalUncompressAllTagsINS_28SnappyDecompressionValidatorEEEbPNS_
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 32
   %50 = load ptr, ptr %49, align 8
   call void %50(ptr noundef nonnull align 8 dereferenceable(8) %45, i64 noundef %47) #24
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN6snappy17IsValidCompressedEPNS_6SourceE(ptr noundef %0) local_unnamed_addr #3 {
+define dso_local noundef zeroext i1 @_ZN6snappy17IsValidCompressedEPNS_6SourceE(ptr noundef %0) local_unnamed_addr #2 {
   %2 = alloca %"class.snappy::SnappyDecompressionValidator", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %3 = call fastcc noundef zeroext i1 @_ZN6snappyL18InternalUncompressINS_28SnappyDecompressionValidatorEEEbPNS_6SourceEPT_(ptr noundef %0, ptr noundef %2)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN6snappy11RawCompressEPKcmPcPm(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3) local_unnamed_addr #3 {
+define dso_local void @_ZN6snappy11RawCompressEPKcmPcPm(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3) local_unnamed_addr #2 {
   %5 = alloca %"class.snappy::ByteArraySource", align 8
   %6 = alloca %"class.snappy::UncheckedByteArraySink", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN6snappy15ByteArraySourceE, i64 16), ptr %5, align 8, !tbaa !50
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %0, ptr %7, align 8, !tbaa !56
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 %1, ptr %8, align 8, !tbaa !59
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN6snappy22UncheckedByteArraySinkE, i64 16), ptr %6, align 8, !tbaa !50
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %2, ptr %9, align 8, !tbaa !85
@@ -2623,23 +2617,23 @@ define dso_local void @_ZN6snappy11RawCompressEPKcmPcPm(ptr noundef %0, i64 noun
   %14 = sub i64 %12, %13
   store i64 %14, ptr %3, align 8, !tbaa !7
   call void @_ZN6snappy22UncheckedByteArraySinkD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #24
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZN6snappy15ByteArraySourceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #24
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN6snappy11RawCompressEPKcmPcPmNS_18CompressionOptionsE(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3, i32 %4) local_unnamed_addr #3 {
+define dso_local void @_ZN6snappy11RawCompressEPKcmPcPmNS_18CompressionOptionsE(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3, i32 %4) local_unnamed_addr #2 {
   %6 = alloca %"class.snappy::ByteArraySource", align 8
   %7 = alloca %"class.snappy::UncheckedByteArraySink", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN6snappy15ByteArraySourceE, i64 16), ptr %6, align 8, !tbaa !50
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %0, ptr %8, align 8, !tbaa !56
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 %1, ptr %9, align 8, !tbaa !59
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN6snappy22UncheckedByteArraySinkE, i64 16), ptr %7, align 8, !tbaa !50
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %2, ptr %10, align 8, !tbaa !85
@@ -2650,20 +2644,20 @@ define dso_local void @_ZN6snappy11RawCompressEPKcmPcPmNS_18CompressionOptionsE(
   %15 = sub i64 %13, %14
   store i64 %15, ptr %3, align 8, !tbaa !7
   call void @_ZN6snappy22UncheckedByteArraySinkD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #24
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_ZN6snappy15ByteArraySourceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #24
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
 ; Function Attrs: nounwind
-declare void @_ZN6snappy22UncheckedByteArraySinkD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #9
+declare void @_ZN6snappy22UncheckedByteArraySinkD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN6snappy20RawCompressFromIOVecEPK5iovecmPcPm(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #3 {
+define dso_local void @_ZN6snappy20RawCompressFromIOVecEPK5iovecmPcPm(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #2 {
   %5 = alloca %"class.snappy::SnappyIOVecReader", align 8
   %6 = alloca %"class.snappy::UncheckedByteArraySink", align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN6snappy17SnappyIOVecReaderE, i64 16), ptr %5, align 8, !tbaa !50
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %0, ptr %7, align 8, !tbaa !88
@@ -2703,7 +2697,7 @@ define dso_local void @_ZN6snappy20RawCompressFromIOVecEPK5iovecmPcPm(ptr nounde
   br label %_ZN6snappy20RawCompressFromIOVecEPK5iovecmPcPmNS_18CompressionOptionsE.exit
 
 _ZN6snappy20RawCompressFromIOVecEPK5iovecmPcPmNS_18CompressionOptionsE.exit: ; preds = %9, %.loopexit.i.i.i, %.critedge.i.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN6snappy22UncheckedByteArraySinkE, i64 16), ptr %6, align 8, !tbaa !50
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %2, ptr %22, align 8, !tbaa !85
@@ -2714,17 +2708,17 @@ _ZN6snappy20RawCompressFromIOVecEPK5iovecmPcPmNS_18CompressionOptionsE.exit: ; p
   %27 = sub i64 %25, %26
   store i64 %27, ptr %3, align 8, !tbaa !7
   call void @_ZN6snappy22UncheckedByteArraySinkD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #24
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZN6snappy6SourceD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #24
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN6snappy20RawCompressFromIOVecEPK5iovecmPcPmNS_18CompressionOptionsE(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) %3, i32 %4) local_unnamed_addr #3 {
+define dso_local void @_ZN6snappy20RawCompressFromIOVecEPK5iovecmPcPmNS_18CompressionOptionsE(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) %3, i32 %4) local_unnamed_addr #2 {
   %6 = alloca %"class.snappy::SnappyIOVecReader", align 8
   %7 = alloca %"class.snappy::UncheckedByteArraySink", align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN6snappy17SnappyIOVecReaderE, i64 16), ptr %6, align 8, !tbaa !50
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %0, ptr %8, align 8, !tbaa !88
@@ -2764,7 +2758,7 @@ define dso_local void @_ZN6snappy20RawCompressFromIOVecEPK5iovecmPcPmNS_18Compre
   br label %_ZN6snappy17SnappyIOVecReaderC2EPK5iovecm.exit
 
 _ZN6snappy17SnappyIOVecReaderC2EPK5iovecm.exit:   ; preds = %10, %.loopexit.i.i, %.critedge.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN6snappy22UncheckedByteArraySinkE, i64 16), ptr %7, align 8, !tbaa !50
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %2, ptr %23, align 8, !tbaa !85
@@ -2775,23 +2769,23 @@ _ZN6snappy17SnappyIOVecReaderC2EPK5iovecm.exit:   ; preds = %10, %.loopexit.i.i,
   %28 = sub i64 %26, %27
   store i64 %28, ptr %3, align 8, !tbaa !7
   call void @_ZN6snappy22UncheckedByteArraySinkD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #24
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_ZN6snappy6SourceD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %6) #24
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
 ; Function Attrs: nounwind
-declare void @_ZN6snappy6SourceD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #9
+declare void @_ZN6snappy6SourceD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i64 @_ZN6snappy8CompressEPKcmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %2) local_unnamed_addr #3 {
+define dso_local noundef i64 @_ZN6snappy8CompressEPKcmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %2) local_unnamed_addr #2 {
   %4 = tail call noundef i64 @_ZN6snappy8CompressEPKcmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_18CompressionOptionsE(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 1)
   ret i64 %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i64 @_ZN6snappy8CompressEPKcmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_18CompressionOptionsE(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %2, i32 %3) local_unnamed_addr #3 {
+define dso_local noundef i64 @_ZN6snappy8CompressEPKcmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_18CompressionOptionsE(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %2, i32 %3) local_unnamed_addr #2 {
   %5 = alloca %"class.snappy::ByteArraySource", align 8
   %6 = alloca %"class.snappy::UncheckedByteArraySink", align 8
   %7 = add i64 %1, 32
@@ -2809,13 +2803,13 @@ define dso_local noundef i64 @_ZN6snappy8CompressEPKcmPNSt7__cxx1112basic_string
 
 _ZN6snappy15string_as_arrayEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %4, %13
   %15 = phi ptr [ %14, %13 ], [ null, %4 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN6snappy15ByteArraySourceE, i64 16), ptr %5, align 8, !tbaa !50
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %0, ptr %16, align 8, !tbaa !56
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 %1, ptr %17, align 8, !tbaa !59
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN6snappy22UncheckedByteArraySinkE, i64 16), ptr %6, align 8, !tbaa !50
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %15, ptr %18, align 8, !tbaa !85
@@ -2825,9 +2819,9 @@ _ZN6snappy15string_as_arrayEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE
   %22 = ptrtoint ptr %15 to i64
   %23 = sub i64 %21, %22
   call void @_ZN6snappy22UncheckedByteArraySinkD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #24
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZN6snappy15ByteArraySourceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #24
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %24 = load i64, ptr %10, align 8, !tbaa !78
   %25 = icmp ugt i64 %23, %24
   br i1 %25, label %26, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit
@@ -2845,13 +2839,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i64 @_ZN6snappy17CompressFromIOVecEPK5iovecmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #3 {
+define dso_local noundef i64 @_ZN6snappy17CompressFromIOVecEPK5iovecmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #2 {
   %4 = tail call noundef i64 @_ZN6snappy17CompressFromIOVecEPK5iovecmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_18CompressionOptionsE(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 1)
   ret i64 %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i64 @_ZN6snappy17CompressFromIOVecEPK5iovecmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_18CompressionOptionsE(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 %3) local_unnamed_addr #3 {
+define dso_local noundef i64 @_ZN6snappy17CompressFromIOVecEPK5iovecmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_18CompressionOptionsE(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 %3) local_unnamed_addr #2 {
   %5 = alloca %"class.snappy::SnappyIOVecReader", align 8
   %6 = alloca %"class.snappy::UncheckedByteArraySink", align 8
   %.not = icmp eq i64 %1, 0
@@ -2874,7 +2868,7 @@ define dso_local noundef i64 @_ZN6snappy17CompressFromIOVecEPK5iovecmPNSt7__cxx1
 
 _ZN6snappy15string_as_arrayEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %._crit_edge, %13
   %15 = phi ptr [ %14, %13 ], [ null, %._crit_edge ]
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN6snappy17SnappyIOVecReaderE, i64 16), ptr %5, align 8, !tbaa !50
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %0, ptr %16, align 8, !tbaa !88
@@ -2914,7 +2908,7 @@ _ZN6snappy15string_as_arrayEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE
   br label %_ZN6snappy20RawCompressFromIOVecEPK5iovecmPcPmNS_18CompressionOptionsE.exit
 
 _ZN6snappy20RawCompressFromIOVecEPK5iovecmPcPmNS_18CompressionOptionsE.exit: ; preds = %18, %.loopexit.i.i.i, %.critedge.i.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN6snappy22UncheckedByteArraySinkE, i64 16), ptr %6, align 8, !tbaa !50
   %31 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %15, ptr %31, align 8, !tbaa !85
@@ -2924,9 +2918,9 @@ _ZN6snappy20RawCompressFromIOVecEPK5iovecmPcPmNS_18CompressionOptionsE.exit: ; p
   %35 = ptrtoint ptr %15 to i64
   %36 = sub i64 %34, %35
   call void @_ZN6snappy22UncheckedByteArraySinkD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #24
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZN6snappy6SourceD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #24
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %37 = load i64, ptr %10, align 8, !tbaa !78
   %38 = icmp ugt i64 %36, %37
   br i1 %38, label %39, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit
@@ -2954,12 +2948,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i64 @_ZN6snappy26UncompressAsMuchAsPossibleEPNS_6SourceEPNS_4SinkE(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 {
+define dso_local noundef i64 @_ZN6snappy26UncompressAsMuchAsPossibleEPNS_6SourceEPNS_4SinkE(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
 _ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEEC2ERKS1_.exit:
   %2 = alloca i64, align 8
   %3 = alloca %"class.snappy::SnappyDecompressor", align 8
   %4 = alloca %"class.snappy::SnappyScatteredWriter", align 8
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %4) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %1, ptr %4, align 8, !tbaa !95
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -2967,7 +2961,7 @@ _ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEEC2ERKS1_.exit:
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, i8 0, i64 40, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, i8 0, i64 48, i1 false)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %0, ptr %3, align 8, !tbaa !48
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -2980,7 +2974,7 @@ _ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEEC2ERKS1_.exit:
 12:                                               ; preds = %34, %_ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEEC2ERKS1_.exit
   %.05.i = phi i32 [ 0, %_ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEEC2ERKS1_.exit ], [ %32, %34 ]
   %indvars.iv.i.i = phi i64 [ 0, %_ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEEC2ERKS1_.exit ], [ %indvars.iv.next.i.i, %34 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %13 = load ptr, ptr %0, align 8, !tbaa !50
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load ptr, ptr %14, align 8
@@ -3012,16 +3006,16 @@ _ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEEC2ERKS1_.exit:
 
 34:                                               ; preds = %28
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %35 = icmp samesign ugt i64 %indvars.iv.i.i, 24
   br i1 %35, label %_ZN6snappyL18InternalUncompressINS_21SnappyScatteredWriterINS_19SnappySinkAllocatorEEEEEbPNS_6SourceEPT_.exit, label %12
 
 _ZN6snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit.thread8.i: ; preds = %19, %12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %_ZN6snappyL18InternalUncompressINS_21SnappyScatteredWriterINS_19SnappySinkAllocatorEEEEEbPNS_6SourceEPT_.exit
 
 36:                                               ; preds = %28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %37 = load ptr, ptr %0, align 8, !tbaa !50
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %39 = load ptr, ptr %38, align 8
@@ -3083,7 +3077,7 @@ _ZN6snappyL18InternalUncompressINS_21SnappyScatteredWriterINS_19SnappySinkAlloca
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 32
   %71 = load ptr, ptr %70, align 8
   call void %71(ptr noundef nonnull align 8 dereferenceable(8) %66, i64 noundef %68) #24
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %72 = load i64, ptr %8, align 8, !tbaa !114
   %73 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %74 = load ptr, ptr %73, align 8, !tbaa !113
@@ -3111,19 +3105,19 @@ _ZN6snappy19SnappySinkAllocatorD2Ev.exit:         ; preds = %80, %_ZNSt6vectorIP
   %82 = add i64 %72, %81
   %83 = ptrtoint ptr %76 to i64
   %84 = sub i64 %82, %83
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %4) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %84
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN6snappy10UncompressEPNS_6SourceEPNS_4SinkE(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 {
+define dso_local noundef zeroext i1 @_ZN6snappy10UncompressEPNS_6SourceEPNS_4SinkE(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = alloca i64, align 8
   %4 = alloca %"class.snappy::SnappyDecompressor", align 8
   %5 = alloca i8, align 1
   %6 = alloca i64, align 8
   %7 = alloca %"class.snappy::SnappyArrayWriter", align 8
   %8 = alloca %"class.snappy::SnappyScatteredWriter", align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %0, ptr %4, align 8, !tbaa !48
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -3136,7 +3130,7 @@ define dso_local noundef zeroext i1 @_ZN6snappy10UncompressEPNS_6SourceEPNS_4Sin
 12:                                               ; preds = %34, %2
   %.018 = phi i32 [ 0, %2 ], [ %32, %34 ]
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %34 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %13 = load ptr, ptr %0, align 8, !tbaa !50
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load ptr, ptr %14, align 8
@@ -3168,18 +3162,18 @@ define dso_local noundef zeroext i1 @_ZN6snappy10UncompressEPNS_6SourceEPNS_4Sin
 
 34:                                               ; preds = %28
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %35 = icmp samesign ugt i64 %indvars.iv.i, 24
   br i1 %35, label %_ZN6snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit.thread, label %12
 
 _ZN6snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit.thread22: ; preds = %12, %19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN6snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit.thread
 
 36:                                               ; preds = %28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #24
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %37 = zext i32 %32 to i64
   %38 = load ptr, ptr %1, align 8, !tbaa !50
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 40
@@ -3194,7 +3188,7 @@ _ZN6snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit.thread22: ; preds
   br i1 %.not, label %_ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEEC2ERKS1_.exit, label %_ZN6snappyL25InternalUncompressAllTagsINS_17SnappyArrayWriterEEEbPNS_18SnappyDecompressorEPT_jj.exit
 
 _ZN6snappyL25InternalUncompressAllTagsINS_17SnappyArrayWriterEEEbPNS_18SnappyDecompressorEPT_jj.exit: ; preds = %36
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %41, ptr %7, align 8, !tbaa !73
   %47 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %41, ptr %47, align 8, !tbaa !75
@@ -3221,11 +3215,11 @@ _ZN6snappyL25InternalUncompressAllTagsINS_17SnappyArrayWriterEEEbPNS_18SnappyDec
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 16
   %65 = load ptr, ptr %64, align 8
   call void %65(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %41, i64 noundef %62) #24
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %114
 
 _ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEEC2ERKS1_.exit: ; preds = %36
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %8) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %1, ptr %8, align 8, !tbaa !95
   %66 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -3322,13 +3316,13 @@ _ZNSt6vectorIPcSaIS0_EED2Ev.exit.i:               ; preds = %111, %_ZN6snappyL25
   br label %_ZN6snappy19SnappySinkAllocatorD2Ev.exit
 
 _ZN6snappy19SnappySinkAllocatorD2Ev.exit:         ; preds = %113, %_ZNSt6vectorIPcSaIS0_EED2Ev.exit.i
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %8) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %114
 
 114:                                              ; preds = %_ZN6snappy19SnappySinkAllocatorD2Ev.exit, %_ZN6snappyL25InternalUncompressAllTagsINS_17SnappyArrayWriterEEEbPNS_18SnappyDecompressorEPT_jj.exit
   %.1 = phi i1 [ %58, %_ZN6snappyL25InternalUncompressAllTagsINS_17SnappyArrayWriterEEEbPNS_18SnappyDecompressorEPT_jj.exit ], [ %109, %_ZN6snappy19SnappySinkAllocatorD2Ev.exit ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #24
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.pre29 = load ptr, ptr %4, align 8, !tbaa !48
   %.pre30 = load i32, ptr %10, align 8, !tbaa !49
   %115 = zext i32 %.pre30 to i64
@@ -3342,37 +3336,37 @@ _ZN6snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit.thread: ; preds =
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 32
   %120 = load ptr, ptr %119, align 8
   call void %120(ptr noundef nonnull align 8 dereferenceable(8) %117, i64 noundef %116) #24
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #10
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @llvm.prefetch.p0(ptr readonly captures(none), i32 immarg, i32 immarg, i32 immarg) #11
+declare void @llvm.prefetch.p0(ptr readonly captures(none), i32 immarg, i32 immarg, i32 immarg) #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.cttz.i64(i64, i1 immarg) #10
+declare i64 @llvm.cttz.i64(i64, i1 immarg) #9
 
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i8 noundef signext) local_unnamed_addr #12
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i8 noundef signext) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN6snappy17SnappyIOVecReaderD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 comdat align 2 {
+define linkonce_odr dso_local void @_ZN6snappy17SnappyIOVecReaderD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #2 comdat align 2 {
   tail call void @_ZN6snappy6SourceD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #24
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i64 @_ZNK6snappy17SnappyIOVecReader9AvailableEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 comdat align 2 {
+define linkonce_odr dso_local noundef i64 @_ZNK6snappy17SnappyIOVecReader9AvailableEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #2 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8, !tbaa !92
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef ptr @_ZN6snappy17SnappyIOVecReader4PeekEPm(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZN6snappy17SnappyIOVecReader4PeekEPm(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i64, ptr %3, align 8, !tbaa !91
   store i64 %4, ptr %1, align 8, !tbaa !7
@@ -3382,7 +3376,7 @@ define linkonce_odr dso_local noundef ptr @_ZN6snappy17SnappyIOVecReader4PeekEPm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN6snappy17SnappyIOVecReader4SkipEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1) unnamed_addr #3 comdat align 2 {
+define linkonce_odr dso_local void @_ZN6snappy17SnappyIOVecReader4SkipEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1) unnamed_addr #2 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i64, ptr %3, align 8, !tbaa !91
   %5 = icmp uge i64 %1, %4
@@ -3462,13 +3456,13 @@ _ZN6snappy17SnappyIOVecReader7AdvanceEv.exit:     ; preds = %21, %.loopexit.i
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #13
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #14
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN6snappy18SnappyDecompressor17DecompressAllTagsINS_17SnappyIOVecWriterEEEvPT_(ptr noundef nonnull align 8 dereferenceable(42) %0, ptr noundef %1) local_unnamed_addr #3 comdat align 32 {
+define linkonce_odr dso_local void @_ZN6snappy18SnappyDecompressor17DecompressAllTagsINS_17SnappyIOVecWriterEEEvPT_(ptr noundef nonnull align 8 dereferenceable(42) %0, ptr noundef %1) local_unnamed_addr #2 comdat align 32 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3483,7 +3477,7 @@ define linkonce_odr dso_local void @_ZN6snappy18SnappyDecompressor17DecompressAl
   %13 = getelementptr inbounds i8, ptr %8, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %13, ptr %14, align 8, !tbaa !121
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !122
   %.not = icmp ult ptr %6, %13
   br i1 %.not, label %25, label %15, !prof !20
@@ -3650,7 +3644,7 @@ _ZN6snappy17SnappyIOVecWriter6AppendEPKcmPPc.exit.backedge: ; preds = %46, %128,
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 32
   %100 = load ptr, ptr %99, align 8
   call void %100(ptr noundef nonnull align 8 dereferenceable(8) %95, i64 noundef %97) #24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %101 = load ptr, ptr %0, align 8, !tbaa !48
   %102 = load ptr, ptr %101, align 8, !tbaa !50
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 24
@@ -3663,7 +3657,7 @@ _ZN6snappy17SnappyIOVecWriter6AppendEPKcmPPc.exit.backedge: ; preds = %46, %128,
   br i1 %.not119, label %.thread, label %108
 
 .thread:                                          ; preds = %.loopexit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread150
 
 108:                                              ; preds = %.loopexit
@@ -3674,7 +3668,7 @@ _ZN6snappy17SnappyIOVecWriter6AppendEPKcmPPc.exit.backedge: ; preds = %46, %128,
   %111 = sub i64 0, %.sroa.speculated.i128
   %112 = getelementptr inbounds i8, ptr %110, i64 %111
   store ptr %112, ptr %14, align 8, !tbaa !121
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %113 = icmp ult i64 %106, %109
   br i1 %113, label %.lr.ph, label %._crit_edge, !llvm.loop !126
 
@@ -3780,16 +3774,16 @@ _ZN6snappy17SnappyIOVecWriter6AppendEPKcmPPc.exit.backedge: ; preds = %46, %128,
   br label %_ZN6snappy17SnappyIOVecWriter6AppendEPKcmPPc.exit.backedge
 
 .thread150:                                       ; preds = %131, %118, %._crit_edge, %137, %.thread175, %.lr.ph, %76, %.thread, %15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local { ptr, i64 } @_ZN6snappy20DecompressBranchlessIPcEESt4pairIPKhlES4_S4_lT_l(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #3 comdat {
+define linkonce_odr dso_local { ptr, i64 } @_ZN6snappy20DecompressBranchlessIPcEESt4pairIPKhlES4_S4_lT_l(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #2 comdat {
   %6 = alloca %"struct.std::array.10", align 8
   %7 = alloca i64, align 8
   %8 = alloca [64 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = add nsw i64 %4, -64
   %10 = ptrtoint ptr %1 to i64
   %11 = ptrtoint ptr %0 to i64
@@ -3850,14 +3844,14 @@ define linkonce_odr dso_local { ptr, i64 } @_ZN6snappy20DecompressBranchlessIPcE
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(i64 %38) #24, !srcloc !130
   %.0.copyload.i = load i32, ptr %.2117190, align 1
   %46 = and i64 %26, 255
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 281470698455040, ptr %7, align 8, !tbaa !7
   %47 = shl i64 %29, 1
   %48 = getelementptr inbounds nuw i8, ptr %7, i64 %47
   %.0.copyload.i58 = load i16, ptr %48, align 2
   %49 = zext i16 %.0.copyload.i58 to i32
   %50 = and i32 %.0.copyload.i, %49
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %51 = zext nneg i32 %50 to i64
   %52 = sub nsw i64 %26, %51
   %53 = icmp sgt i64 %26, %51
@@ -3927,7 +3921,7 @@ _ZN6snappy9MemCopy64EPcPKvm.exit:                 ; preds = %56, %62
   br i1 %.not.i, label %89, label %84
 
 84:                                               ; preds = %82
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br label %85
 
 85:                                               ; preds = %85, %84
@@ -3945,7 +3939,7 @@ _ZN6snappy9MemCopy64EPcPKvm.exit:                 ; preds = %56, %62
 _ZZN6snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcmENKUlvE_clEv.exit: ; preds = %85
   %.fca.0.load.i = load i64, ptr %6, align 8
   %.fca.1.load.i = load i64, ptr %.fca.1.gep.i, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store i64 %.fca.0.load.i, ptr @_ZZN6snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcmE13pattern_sizes, align 8
   store i64 %.fca.1.load.i, ptr getelementptr inbounds nuw (i8, ptr @_ZZN6snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcmE13pattern_sizes, i64 8), align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN6snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcmE13pattern_sizes) #24
@@ -4064,14 +4058,14 @@ _ZN6snappy9MemCopy64EPcPKvm.exit61:               ; preds = %129, %132
 .thread156:                                       ; preds = %.thread.thread, %5, %_ZN6snappy9MemCopy64EPcPKvm.exit61, %.thread
   %.0115162 = phi ptr [ %128, %.thread ], [ %128, %_ZN6snappy9MemCopy64EPcPKvm.exit61 ], [ %0, %5 ], [ %127, %.thread.thread ]
   %.7 = phi i64 [ %.2110183, %.thread ], [ %135, %_ZN6snappy9MemCopy64EPcPKvm.exit61 ], [ %2, %5 ], [ %57, %.thread.thread ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.0115162, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.7, 1
   ret { ptr, i64 } %.fca.1.insert
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZN6snappy17SnappyIOVecWriter13TryFastAppendEPKcmmPPc(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #15 comdat align 2 {
+define linkonce_odr dso_local noundef zeroext i1 @_ZN6snappy17SnappyIOVecWriter13TryFastAppendEPKcmmPPc(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #14 comdat align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load i64, ptr %6, align 8, !tbaa !70
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -4111,7 +4105,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN6snappy17SnappyIOVecWriter1
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZN6snappy17SnappyIOVecWriter6AppendEPKcmPPc(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #15 comdat align 2 {
+define linkonce_odr dso_local noundef zeroext i1 @_ZN6snappy17SnappyIOVecWriter6AppendEPKcmPPc(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #14 comdat align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load i64, ptr %5, align 8, !tbaa !69
   %7 = add i64 %6, %2
@@ -4183,7 +4177,7 @@ _ZN6snappy17SnappyIOVecWriter13AppendNoCheckEPKcm.exit: ; preds = %26, %18, %11,
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZN6snappy17SnappyIOVecWriter14AppendFromSelfEmmPPc(ptr noundef nonnull align 8 dereferenceable(48) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #15 comdat align 2 {
+define linkonce_odr dso_local noundef zeroext i1 @_ZN6snappy17SnappyIOVecWriter14AppendFromSelfEmmPPc(ptr noundef nonnull align 8 dereferenceable(48) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #14 comdat align 2 {
   %5 = add i64 %1, -1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load i64, ptr %6, align 8, !tbaa !69
@@ -4518,16 +4512,16 @@ _ZN6snappy17SnappyIOVecWriter13AppendNoCheckEPKcm.exit: ; preds = %36, %44, %.sp
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #16
+declare void @llvm.assume(i1 noundef) #15
 
 ; Function Attrs: nofree nounwind
-declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #17
+declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #16
 
 ; Function Attrs: nofree nounwind
-declare void @__cxa_guard_release(ptr) local_unnamed_addr #17
+declare void @__cxa_guard_release(ptr) local_unnamed_addr #16
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef ptr @_ZN6snappy12_GLOBAL__N_115IncrementalCopyEPKcPcS3_S3_(ptr noundef %0, ptr noundef %1, ptr noundef readnone returned captures(address, ret: address, provenance) %2, ptr noundef readnone captures(address) %3) unnamed_addr #18 {
+define internal fastcc noundef ptr @_ZN6snappy12_GLOBAL__N_115IncrementalCopyEPKcPcS3_S3_(ptr noundef %0, ptr noundef %1, ptr noundef readnone returned captures(address, ret: address, provenance) %2, ptr noundef readnone captures(address) %3) unnamed_addr #17 {
   %5 = ptrtoint ptr %1 to i64
   %6 = ptrtoint ptr %0 to i64
   %7 = sub i64 %5, %6
@@ -4682,7 +4676,7 @@ _ZN6snappy12_GLOBAL__N_119IncrementalCopySlowEPKcPcS3_.exit: ; preds = %.lr.ph.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN6snappy18SnappyDecompressor17DecompressAllTagsINS_28SnappyDecompressionValidatorEEEvPT_(ptr noundef nonnull align 8 dereferenceable(42) %0, ptr noundef %1) local_unnamed_addr #3 comdat align 32 {
+define linkonce_odr dso_local void @_ZN6snappy18SnappyDecompressor17DecompressAllTagsINS_28SnappyDecompressionValidatorEEEvPT_(ptr noundef nonnull align 8 dereferenceable(42) %0, ptr noundef %1) local_unnamed_addr #2 comdat align 32 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4784,14 +4778,14 @@ define linkonce_odr dso_local void @_ZN6snappy18SnappyDecompressor17DecompressAl
   call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(i64 %59) #24, !srcloc !130
   %.0.copyload.i.i = load i32, ptr %.2113171.i, align 1
   %67 = and i64 %47, 255
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 281470698455040, ptr %3, align 8, !tbaa !7
   %68 = shl i64 %50, 1
   %69 = getelementptr inbounds nuw i8, ptr %3, i64 %68
   %.0.copyload.i58.i = load i16, ptr %69, align 2
   %70 = zext i16 %.0.copyload.i58.i to i32
   %71 = and i32 %.0.copyload.i.i, %70
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %72 = zext nneg i32 %71 to i64
   %73 = sub nsw i64 %47, %72
   %74 = icmp sgt i64 %47, %72
@@ -4933,7 +4927,7 @@ _ZN6snappy20DecompressBranchlessImEESt4pairIPKhlES3_S3_lT_l.exit: ; preds = %.lo
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 32
   %144 = load ptr, ptr %143, align 8
   call void %144(ptr noundef nonnull align 8 dereferenceable(8) %139, i64 noundef %141) #24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %145 = load ptr, ptr %0, align 8, !tbaa !48
   %146 = load ptr, ptr %145, align 8, !tbaa !50
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 24
@@ -4946,7 +4940,7 @@ _ZN6snappy20DecompressBranchlessImEESt4pairIPKhlES3_S3_lT_l.exit: ; preds = %.lo
   br i1 %.not119, label %.thread176, label %152
 
 .thread176:                                       ; preds = %138
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread196
 
 152:                                              ; preds = %138
@@ -4957,7 +4951,7 @@ _ZN6snappy20DecompressBranchlessImEESt4pairIPKhlES3_S3_lT_l.exit: ; preds = %.lo
   %155 = sub i64 0, %.sroa.speculated.i128
   %156 = getelementptr inbounds i8, ptr %154, i64 %155
   store ptr %156, ptr %14, align 8, !tbaa !121
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %157 = icmp ult i64 %150, %153
   br i1 %157, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !147
 
@@ -5070,10 +5064,10 @@ _ZN6snappy28SnappyDecompressionValidator14AppendFromSelfEmmPm.exit135: ; preds =
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef, ...) local_unnamed_addr #19
+declare void @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef, ...) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN6snappy18SnappyDecompressor17DecompressAllTagsINS_17SnappyArrayWriterEEEvPT_(ptr noundef nonnull align 8 dereferenceable(42) %0, ptr noundef %1) local_unnamed_addr #3 comdat align 32 {
+define linkonce_odr dso_local void @_ZN6snappy18SnappyDecompressor17DecompressAllTagsINS_17SnappyArrayWriterEEEvPT_(ptr noundef nonnull align 8 dereferenceable(42) %0, ptr noundef %1) local_unnamed_addr #2 comdat align 32 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !43
@@ -5258,7 +5252,7 @@ _ZN6snappy17SnappyArrayWriter13TryFastAppendEPKcmmPPc.exit: ; preds = %63
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 32
   %108 = load ptr, ptr %107, align 8
   call void %108(ptr noundef nonnull align 8 dereferenceable(8) %103, i64 noundef %105) #24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %109 = load ptr, ptr %0, align 8, !tbaa !48
   %110 = load ptr, ptr %109, align 8, !tbaa !50
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 24
@@ -5271,7 +5265,7 @@ _ZN6snappy17SnappyArrayWriter13TryFastAppendEPKcmmPPc.exit: ; preds = %63
   br i1 %.not119, label %.thread186, label %116
 
 .thread186:                                       ; preds = %101
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN6snappy17SnappyArrayWriter14AppendFromSelfEmmPPc.exit.thread212
 
 116:                                              ; preds = %101
@@ -5282,7 +5276,7 @@ _ZN6snappy17SnappyArrayWriter13TryFastAppendEPKcmmPPc.exit: ; preds = %63
   %119 = sub i64 0, %.sroa.speculated.i132
   %120 = getelementptr inbounds i8, ptr %118, i64 %119
   store ptr %120, ptr %13, align 8, !tbaa !121
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %121 = icmp ult i64 %114, %117
   br i1 %121, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !149
 
@@ -5468,7 +5462,7 @@ _ZN6snappy17SnappyArrayWriter14AppendFromSelfEmmPPc.exit.thread212: ; preds = %.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN6snappy18SnappyDecompressor17DecompressAllTagsINS_21SnappyScatteredWriterINS_19SnappySinkAllocatorEEEEEvPT_(ptr noundef nonnull align 8 dereferenceable(42) %0, ptr noundef %1) local_unnamed_addr #3 comdat align 32 {
+define linkonce_odr dso_local void @_ZN6snappy18SnappyDecompressor17DecompressAllTagsINS_21SnappyScatteredWriterINS_19SnappySinkAllocatorEEEEEvPT_(ptr noundef nonnull align 8 dereferenceable(42) %0, ptr noundef %1) local_unnamed_addr #2 comdat align 32 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5483,7 +5477,7 @@ define linkonce_odr dso_local void @_ZN6snappy18SnappyDecompressor17DecompressAl
   %13 = getelementptr inbounds i8, ptr %8, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %13, ptr %14, align 8, !tbaa !121
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %16 = load ptr, ptr %15, align 8, !tbaa !113
   store ptr %16, ptr %3, align 8, !tbaa !122
@@ -5670,7 +5664,7 @@ _ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEE6AppendEPKcmPPc.exit
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 32
   %117 = load ptr, ptr %116, align 8
   call void %117(ptr noundef nonnull align 8 dereferenceable(8) %112, i64 noundef %114) #24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %118 = load ptr, ptr %0, align 8, !tbaa !48
   %119 = load ptr, ptr %118, align 8, !tbaa !50
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 24
@@ -5683,7 +5677,7 @@ _ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEE6AppendEPKcmPPc.exit
   br i1 %.not119, label %.thread166, label %125
 
 .thread166:                                       ; preds = %111
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread181
 
 125:                                              ; preds = %111
@@ -5694,7 +5688,7 @@ _ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEE6AppendEPKcmPPc.exit
   %128 = sub i64 0, %.sroa.speculated.i128
   %129 = getelementptr inbounds i8, ptr %127, i64 %128
   store ptr %129, ptr %14, align 8, !tbaa !121
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %130 = icmp ult i64 %123, %126
   br i1 %130, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !153
 
@@ -5871,12 +5865,12 @@ _ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEE14AppendFromSelfEmmP
 .thread181:                                       ; preds = %151, %138, %_ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEE6AppendEPKcmPPc.exit132, %.critedge.i, %_ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEE14AppendFromSelfEmmPPc.exit, %.thread, %50, %_ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEE6AppendEPKcmPPc.exit, %.thread166, %17
   %214 = load ptr, ptr %3, align 8, !tbaa !122
   store ptr %214, ptr %15, align 8, !tbaa !113
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEE14AppendFromSelfEmmPPc(ptr noundef nonnull align 8 dereferenceable(104) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #15 comdat align 2 {
+define linkonce_odr dso_local noundef zeroext i1 @_ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEE14AppendFromSelfEmmPPc(ptr noundef nonnull align 8 dereferenceable(104) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #14 comdat align 2 {
   %5 = load ptr, ptr %3, align 8, !tbaa !122
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %7 = load ptr, ptr %6, align 8, !tbaa !112
@@ -5936,7 +5930,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN6snappy21SnappyScatteredWri
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEE10SlowAppendEPKcm(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #3 comdat align 2 {
+define linkonce_odr dso_local noundef zeroext i1 @_ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEE10SlowAppendEPKcm(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #2 comdat align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %5 = load ptr, ptr %4, align 8, !tbaa !151
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -6076,7 +6070,7 @@ _ZNSt6vectorIPcSaIS0_EE9push_backERKS0_.exit:     ; preds = %42, %_ZNSt6vectorIP
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef ptr @_ZN6snappy19SnappySinkAllocator8AllocateEi(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1) local_unnamed_addr #3 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZN6snappy19SnappySinkAllocator8AllocateEi(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1) local_unnamed_addr #2 comdat align 2 {
   %3 = sext i32 %1 to i64
   %4 = icmp slt i32 %1, 0
   %5 = select i1 %4, i64 -1, i64 %3
@@ -6158,13 +6152,13 @@ _ZNSt6vectorIN6snappy19SnappySinkAllocator9DatablockESaIS2_EE9push_backERKS2_.ex
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #14
+declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #19
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEE18SlowAppendFromSelfEmm(ptr noundef nonnull align 8 dereferenceable(104) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #3 comdat align 2 {
+define linkonce_odr dso_local noundef zeroext i1 @_ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEE18SlowAppendFromSelfEmm(ptr noundef nonnull align 8 dereferenceable(104) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #2 comdat align 2 {
   %4 = alloca i8, align 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load i64, ptr %5, align 8, !tbaa !114
@@ -6202,7 +6196,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN6snappy21SnappyScatteredWri
   %.034 = phi i64 [ %22, %.lr.ph ], [ %39, %38 ]
   %.02133 = phi ptr [ %8, %.lr.ph ], [ %storemerge.i25, %38 ]
   %26 = add i64 %.in, -1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %27 = lshr i64 %.034, 16
   %28 = load ptr, ptr %23, align 8, !tbaa !119
   %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %27
@@ -6227,13 +6221,13 @@ _ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEE6AppendEPKcmPPc.exit
   br i1 %36, label %38, label %.thread
 
 .thread:                                          ; preds = %_ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEE6AppendEPKcmPPc.exit
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %40
 
 38:                                               ; preds = %_ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEE6AppendEPKcmPPc.exit, %_ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEE6AppendEPKcmPPc.exit.thread
   %storemerge.i25 = phi ptr [ %35, %_ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEE6AppendEPKcmPPc.exit.thread ], [ %37, %_ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEE6AppendEPKcmPPc.exit ]
   %39 = add i64 %.034, 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not18 = icmp eq i64 %26, 0
   br i1 %.not18, label %._crit_edge, label %25
 
@@ -6248,7 +6242,7 @@ _ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEE6AppendEPKcmPPc.exit
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN6snappy19SnappySinkAllocator7DeleterEPvPKcm(ptr noundef %0, ptr noundef %1, i64 noundef %2) #3 comdat align 2 {
+define linkonce_odr dso_local void @_ZN6snappy19SnappySinkAllocator7DeleterEPvPKcm(ptr noundef %0, ptr noundef %1, i64 noundef %2) #2 comdat align 2 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %6, label %5
 
@@ -6261,7 +6255,13 @@ define linkonce_odr dso_local void @_ZN6snappy19SnappySinkAllocator7DeleterEPvPK
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdaPv(ptr noundef) local_unnamed_addr #13
+declare void @_ZdaPv(ptr noundef) local_unnamed_addr #12
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #19
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #20
@@ -6277,24 +6277,24 @@ declare i64 @llvm.umax.i64(i64, i64) #20
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) }
-attributes #12 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #17 = { nofree nounwind }
-attributes #18 = { inlinehint mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) }
+attributes #11 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #16 = { nofree nounwind }
+attributes #17 = { inlinehint mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #20 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #21 = { builtin nounwind allocsize(0) }
 attributes #22 = { builtin nounwind }

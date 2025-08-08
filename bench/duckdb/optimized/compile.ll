@@ -207,9 +207,6 @@ declare void @_ZN10duckdb_re24ProgC1Ev(ptr noundef nonnull align 8 dereferenceab
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
-
 ; Function Attrs: mustprogress uwtable
 define hidden noundef i32 @_ZN10duckdb_re28Compiler9AllocInstEi(ptr noundef nonnull align 8 captures(none) dereferenceable(228) %0, i32 noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -307,11 +304,8 @@ _ZN10duckdb_re28PODArrayINS_4Prog4InstEED2Ev.exit: ; preds = %35, %.thread
 
 declare void @_ZN10duckdb_re24Prog4Inst8InitFailEv(ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
-
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt13unordered_mapImiSt4hashImESt8equal_toImESaISt4pairIKmiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt13unordered_mapImiSt4hashImESt8equal_toImESaISt4pairIKmiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !63
   %.not5.i.i.i = icmp eq ptr %3, null
@@ -345,7 +339,7 @@ _ZNSt10_HashtableImSt4pairIKmiESaIS2_ENSt8__detail10_Select1stESt8equal_toImESt4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10duckdb_re28CompilerD2Ev(ptr noundef nonnull align 8 dereferenceable(228) initializes((0, 8)) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN10duckdb_re28CompilerD2Ev(ptr noundef nonnull align 8 dereferenceable(228) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN10duckdb_re28CompilerE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8, !tbaa !30
@@ -447,23 +441,23 @@ _ZN10duckdb_re26Regexp6WalkerINS_4FragEED2Ev.exit: ; preds = %22, %_ZNSt11_Deque
 }
 
 ; Function Attrs: nounwind
-declare void @_ZN10duckdb_re24ProgD1Ev(ptr noundef nonnull align 8 dereferenceable(432)) unnamed_addr #7
+declare void @_ZN10duckdb_re24ProgD1Ev(ptr noundef nonnull align 8 dereferenceable(432)) unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10duckdb_re28CompilerD0Ev(ptr noundef nonnull align 8 dereferenceable(228) initializes((0, 8)) %0) unnamed_addr #6 align 2 {
+define hidden void @_ZN10duckdb_re28CompilerD0Ev(ptr noundef nonnull align 8 dereferenceable(228) initializes((0, 8)) %0) unnamed_addr #5 align 2 {
   tail call void @_ZN10duckdb_re28CompilerD2Ev(ptr noundef nonnull align 8 dereferenceable(228) %0) #24
   tail call void @_ZdlPv(ptr noundef nonnull %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #8
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden { i64, i64 } @_ZN10duckdb_re28Compiler7NoMatchEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(228) %0) local_unnamed_addr #10 align 2 {
+define hidden { i64, i64 } @_ZN10duckdb_re28Compiler7NoMatchEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(228) %0) local_unnamed_addr #9 align 2 {
   %2 = alloca %"struct.duckdb_re2::Frag", align 8
   store i32 0, ptr %2, align 8, !tbaa !71
   %.4..4..4..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -479,7 +473,7 @@ define hidden { i64, i64 } @_ZN10duckdb_re28Compiler7NoMatchEv(ptr noundef nonnu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden { i64, i64 } @_ZN10duckdb_re28Compiler3CatENS_4FragES1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(228) %0, i64 %1, i64 %2, i64 %3, i64 %4) local_unnamed_addr #11 align 2 {
+define hidden { i64, i64 } @_ZN10duckdb_re28Compiler3CatENS_4FragES1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(228) %0, i64 %1, i64 %2, i64 %3, i64 %4) local_unnamed_addr #10 align 2 {
   %6 = alloca %"struct.duckdb_re2::Frag", align 8
   %7 = alloca %"struct.duckdb_re2::Frag", align 8
   %8 = alloca %"struct.duckdb_re2::Frag", align 8
@@ -506,7 +500,7 @@ define hidden { i64, i64 } @_ZN10duckdb_re28Compiler3CatENS_4FragES1_(ptr nounde
   br i1 %or.cond, label %22, label %23
 
 22:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 8, !tbaa !71
   %.4..4..4..4..4..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i64 0, ptr %.4..4..4..4..4..sroa_idx, align 4
@@ -515,7 +509,7 @@ define hidden { i64, i64 } @_ZN10duckdb_re28Compiler3CatENS_4FragES1_(ptr nounde
   %.0..0..0..0..0..fca.0.load.i = load i64, ptr %6, align 8
   %.8..8..8..8..8..fca.1.gep.sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.8..8..8..8..8..fca.1.load.i = load i64, ptr %.8..8..8..8..8..fca.1.gep.sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store i64 %.0..0..0..0..0..fca.0.load.i, ptr %7, align 8
   %.sroa.2.0.extract.trunc = trunc i64 %.8..8..8..8..8..fca.1.load.i to i40
   %.8..8..8..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -703,7 +697,7 @@ _ZN10duckdb_re29PatchList5PatchEPNS_4Prog4InstES0_j.exit48: ; preds = %89, %74
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress uwtable
 define hidden { i64, i64 } @_ZN10duckdb_re28Compiler3AltENS_4FragES1_(ptr noundef nonnull align 8 captures(none) dereferenceable(228) %0, i64 %1, i64 %2, i64 %3, i64 %4) local_unnamed_addr #0 align 2 {
@@ -744,7 +738,7 @@ define hidden { i64, i64 } @_ZN10duckdb_re28Compiler3AltENS_4FragES1_(ptr nounde
   br i1 %23, label %24, label %25
 
 24:                                               ; preds = %21
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 8, !tbaa !71
   %.4..4..4..4..4..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i64 0, ptr %.4..4..4..4..4..sroa_idx, align 4
@@ -753,7 +747,7 @@ define hidden { i64, i64 } @_ZN10duckdb_re28Compiler3AltENS_4FragES1_(ptr nounde
   %.0..0..0..0..0..fca.0.load.i = load i64, ptr %6, align 8
   %.8..8..8..8..8..fca.1.gep.sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.8..8..8..8..8..fca.1.load.i = load i64, ptr %.8..8..8..8..8..fca.1.gep.sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store i64 %.0..0..0..0..0..fca.0.load.i, ptr %7, align 8
   %.sroa.2.0.extract.trunc = trunc i64 %.8..8..8..8..8..fca.1.load.i to i40
   %.8..8..8..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -847,7 +841,7 @@ define hidden { i64, i64 } @_ZN10duckdb_re28Compiler4PlusENS_4FragEb(ptr noundef
   br i1 %9, label %13, label %14
 
 13:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 8, !tbaa !71
   %.4..4..4..4..4..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i64 0, ptr %.4..4..4..4..4..sroa_idx, align 4
@@ -856,7 +850,7 @@ define hidden { i64, i64 } @_ZN10duckdb_re28Compiler4PlusENS_4FragEb(ptr noundef
   %.0..0..0..0..0..fca.0.load.i = load i64, ptr %5, align 8
   %.8..8..8..8..8..fca.1.gep.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.8..8..8..8..8..fca.1.load.i = load i64, ptr %.8..8..8..8..8..fca.1.gep.sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.sroa.2.0.extract.trunc = trunc i64 %.8..8..8..8..8..fca.1.load.i to i40
   %.8..8..8..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i40 %.sroa.2.0.extract.trunc, ptr %.8..8..8..sroa_idx, align 8
@@ -974,7 +968,7 @@ define hidden { i64, i64 } @_ZN10duckdb_re28Compiler4StarENS_4FragEb(ptr noundef
   br i1 %15, label %16, label %17
 
 16:                                               ; preds = %13
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 8, !tbaa !71
   %.4..4..4..4..4..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i64 0, ptr %.4..4..4..4..4..sroa_idx, align 4
@@ -983,7 +977,7 @@ define hidden { i64, i64 } @_ZN10duckdb_re28Compiler4StarENS_4FragEb(ptr noundef
   %.0..0..0..0..0..fca.0.load.i = load i64, ptr %5, align 8
   %.8..8..8..8..8..fca.1.gep.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.8..8..8..8..8..fca.1.load.i = load i64, ptr %.8..8..8..8..8..fca.1.gep.sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.sroa.2.0.extract.trunc = trunc i64 %.8..8..8..8..8..fca.1.load.i to i40
   %.8..8..8..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i40 %.sroa.2.0.extract.trunc, ptr %.8..8..8..sroa_idx, align 8
@@ -1084,13 +1078,13 @@ define hidden { i64, i64 } @_ZN10duckdb_re28Compiler5QuestENS_4FragEb(ptr nounde
   br i1 %11, label %13, label %23
 
 13:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %14 = tail call noundef i32 @_ZN10duckdb_re28Compiler9AllocInstEi(ptr noundef nonnull align 8 dereferenceable(228) %0, i32 noundef 1)
   %15 = icmp slt i32 %14, 0
   br i1 %15, label %16, label %17
 
 16:                                               ; preds = %13
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 8, !tbaa !71
   %.4..4..4..4..4..4..4..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i64 0, ptr %.4..4..4..4..4..4..4..sroa_idx, align 4
@@ -1099,7 +1093,7 @@ define hidden { i64, i64 } @_ZN10duckdb_re28Compiler5QuestENS_4FragEb(ptr nounde
   %.0..0..0..0..0..0..0..fca.0.load.i.i = load i64, ptr %6, align 8
   %.8..8..8..8..8..8..8..fca.1.gep.sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.8..8..8..8..8..8..8..fca.1.load.i.i = load i64, ptr %.8..8..8..8..8..8..8..fca.1.gep.sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.sroa.2.0.extract.trunc.i = trunc i64 %.8..8..8..8..8..8..8..fca.1.load.i.i to i40
   %.8..8..8..8..8..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i40 %.sroa.2.0.extract.trunc.i, ptr %.8..8..8..8..8..sroa_idx, align 8
@@ -1126,7 +1120,7 @@ _ZN10duckdb_re28Compiler3NopEv.exit:              ; preds = %16, %17
   %.0..0..fca.0.load.i = phi i64 [ %.0..0..0..0..0..fca.0.load.pre.i, %17 ], [ %.0..0..0..0..0..0..0..fca.0.load.i.i, %16 ]
   %.8..8..8..8..8..fca.1.gep.sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.8..8..8..8..8..fca.1.load.i = load i64, ptr %.8..8..8..8..8..fca.1.gep.sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.sroa.215.0.extract.trunc = trunc i64 %.8..8..8..8..8..fca.1.load.i to i40
   %.8..8..8..sroa_idx44 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i40 %.sroa.215.0.extract.trunc, ptr %.8..8..8..sroa_idx44, align 8
@@ -1138,7 +1132,7 @@ _ZN10duckdb_re28Compiler3NopEv.exit:              ; preds = %16, %17
   br i1 %25, label %26, label %27
 
 26:                                               ; preds = %23
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 8, !tbaa !71
   %.4..4..4..4..4..sroa_idx45 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i64 0, ptr %.4..4..4..4..4..sroa_idx45, align 4
@@ -1147,7 +1141,7 @@ _ZN10duckdb_re28Compiler3NopEv.exit:              ; preds = %16, %17
   %.0..0..0..0..0..fca.0.load.i24 = load i64, ptr %5, align 8
   %.8..8..8..8..8..fca.1.gep.sroa_idx46 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.8..8..8..8..8..fca.1.load.i27 = load i64, ptr %.8..8..8..8..8..fca.1.gep.sroa_idx46, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.sroa.2.0.extract.trunc = trunc i64 %.8..8..8..8..8..fca.1.load.i27 to i40
   %.8..8..8..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i40 %.sroa.2.0.extract.trunc, ptr %.8..8..8..sroa_idx, align 8
@@ -1242,7 +1236,7 @@ define hidden { i64, i64 } @_ZN10duckdb_re28Compiler3NopEv(ptr noundef nonnull a
   br i1 %5, label %6, label %7
 
 6:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 8, !tbaa !71
   %.4..4..4..4..4..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i64 0, ptr %.4..4..4..4..4..sroa_idx, align 4
@@ -1251,7 +1245,7 @@ define hidden { i64, i64 } @_ZN10duckdb_re28Compiler3NopEv(ptr noundef nonnull a
   %.0..0..0..0..0..fca.0.load.i = load i64, ptr %2, align 8
   %.8..8..8..8..8..fca.1.gep.sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.8..8..8..8..8..fca.1.load.i = load i64, ptr %.8..8..8..8..8..fca.1.gep.sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.sroa.2.0.extract.trunc = trunc i64 %.8..8..8..8..8..fca.1.load.i to i40
   %.8..8..8..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i40 %.sroa.2.0.extract.trunc, ptr %.8..8..8..sroa_idx, align 8
@@ -1292,7 +1286,7 @@ define hidden { i64, i64 } @_ZN10duckdb_re28Compiler9ByteRangeEiib(ptr noundef n
   br i1 %8, label %9, label %10
 
 9:                                                ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 8, !tbaa !71
   %.4..4..4..4..4..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i64 0, ptr %.4..4..4..4..4..sroa_idx, align 4
@@ -1301,7 +1295,7 @@ define hidden { i64, i64 } @_ZN10duckdb_re28Compiler9ByteRangeEiib(ptr noundef n
   %.0..0..0..0..0..fca.0.load.i = load i64, ptr %5, align 8
   %.8..8..8..8..8..fca.1.gep.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.8..8..8..8..8..fca.1.load.i = load i64, ptr %.8..8..8..8..8..fca.1.gep.sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.sroa.2.0.extract.trunc = trunc i64 %.8..8..8..8..8..fca.1.load.i to i40
   %.8..8..8..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i40 %.sroa.2.0.extract.trunc, ptr %.8..8..8..sroa_idx, align 8
@@ -1347,7 +1341,7 @@ define hidden { i64, i64 } @_ZN10duckdb_re28Compiler5MatchEi(ptr noundef nonnull
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 8, !tbaa !71
   %.4..4..4..4..4..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i64 0, ptr %.4..4..4..4..4..sroa_idx, align 4
@@ -1356,7 +1350,7 @@ define hidden { i64, i64 } @_ZN10duckdb_re28Compiler5MatchEi(ptr noundef nonnull
   %.0..0..0..0..0..fca.0.load.i = load i64, ptr %3, align 8
   %.8..8..8..8..8..fca.1.gep.sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.8..8..8..8..8..fca.1.load.i = load i64, ptr %.8..8..8..8..8..fca.1.gep.sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.sroa.2.0.extract.trunc = trunc i64 %.8..8..8..8..8..fca.1.load.i to i40
   %.8..8..8..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i40 %.sroa.2.0.extract.trunc, ptr %.8..8..8..sroa_idx, align 8
@@ -1396,7 +1390,7 @@ define hidden { i64, i64 } @_ZN10duckdb_re28Compiler10EmptyWidthENS_7EmptyOpE(pt
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 8, !tbaa !71
   %.4..4..4..4..4..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i64 0, ptr %.4..4..4..4..4..sroa_idx, align 4
@@ -1405,7 +1399,7 @@ define hidden { i64, i64 } @_ZN10duckdb_re28Compiler10EmptyWidthENS_7EmptyOpE(pt
   %.0..0..0..0..0..fca.0.load.i = load i64, ptr %3, align 8
   %.8..8..8..8..8..fca.1.gep.sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.8..8..8..8..8..fca.1.load.i = load i64, ptr %.8..8..8..8..8..fca.1.gep.sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.sroa.2.0.extract.trunc = trunc i64 %.8..8..8..8..8..fca.1.load.i to i40
   %.8..8..8..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i40 %.sroa.2.0.extract.trunc, ptr %.8..8..8..sroa_idx, align 8
@@ -1456,7 +1450,7 @@ define hidden { i64, i64 } @_ZN10duckdb_re28Compiler7CaptureENS_4FragEi(ptr noun
   br i1 %10, label %14, label %15
 
 14:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 8, !tbaa !71
   %.4..4..4..4..4..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i64 0, ptr %.4..4..4..4..4..sroa_idx, align 4
@@ -1465,7 +1459,7 @@ define hidden { i64, i64 } @_ZN10duckdb_re28Compiler7CaptureENS_4FragEi(ptr noun
   %.0..0..0..0..0..fca.0.load.i = load i64, ptr %6, align 8
   %.8..8..8..8..8..fca.1.gep.sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.8..8..8..8..8..fca.1.load.i = load i64, ptr %.8..8..8..8..8..fca.1.gep.sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.sroa.211.0.extract.trunc = trunc i64 %.8..8..8..8..8..fca.1.load.i to i40
   %.8..8..8..sroa_idx37 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i40 %.sroa.211.0.extract.trunc, ptr %.8..8..8..sroa_idx37, align 8
@@ -1477,7 +1471,7 @@ define hidden { i64, i64 } @_ZN10duckdb_re28Compiler7CaptureENS_4FragEi(ptr noun
   br i1 %17, label %18, label %19
 
 18:                                               ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 8, !tbaa !71
   %.4..4..4..4..4..sroa_idx38 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i64 0, ptr %.4..4..4..4..4..sroa_idx38, align 4
@@ -1486,7 +1480,7 @@ define hidden { i64, i64 } @_ZN10duckdb_re28Compiler7CaptureENS_4FragEi(ptr noun
   %.0..0..0..0..0..fca.0.load.i20 = load i64, ptr %5, align 8
   %.8..8..8..8..8..fca.1.gep.sroa_idx39 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.8..8..8..8..8..fca.1.load.i23 = load i64, ptr %.8..8..8..8..8..fca.1.gep.sroa_idx39, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.sroa.2.0.extract.trunc = trunc i64 %.8..8..8..8..8..fca.1.load.i23 to i40
   %.8..8..8..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i40 %.sroa.2.0.extract.trunc, ptr %.8..8..8..sroa_idx, align 8
@@ -1569,7 +1563,7 @@ _ZN10duckdb_re29PatchList5PatchEPNS_4Prog4InstES0_j.exit: ; preds = %45, %19
 declare void @_ZN10duckdb_re24Prog4Inst11InitCaptureEij(ptr noundef nonnull align 4 dereferenceable(8), i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10duckdb_re28Compiler10BeginRangeEv(ptr noundef nonnull align 8 captures(none) dereferenceable(228) %0) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN10duckdb_re28Compiler10BeginRangeEv(ptr noundef nonnull align 8 captures(none) dereferenceable(228) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %3 = load ptr, ptr %2, align 8, !tbaa !63
   %.not5.i.i.i = icmp eq ptr %3, null
@@ -1602,14 +1596,14 @@ define hidden noundef i32 @_ZN10duckdb_re28Compiler22UncachedRuneByteSuffixEhhbi
   %6 = alloca %"struct.duckdb_re2::Frag", align 8
   %7 = alloca %"struct.duckdb_re2::Frag", align 8
   %.sroa.05 = alloca <{ i32, %"struct.duckdb_re2::PatchList", i8 }>, align 8
-  call void @llvm.lifetime.start.p0(i64 13, ptr nonnull %.sroa.05)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.05)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = tail call noundef i32 @_ZN10duckdb_re28Compiler9AllocInstEi(ptr noundef nonnull align 8 dereferenceable(228) %0, i32 noundef 1)
   %9 = icmp slt i32 %8, 0
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 8, !tbaa !71
   %.4..4..4..4..4..4..4..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i64 0, ptr %.4..4..4..4..4..4..4..sroa_idx, align 4
@@ -1618,7 +1612,7 @@ define hidden noundef i32 @_ZN10duckdb_re28Compiler22UncachedRuneByteSuffixEhhbi
   %.0..0..0..0..0..0..0..fca.0.load.i.i = load i64, ptr %6, align 8
   %.8..8..8..8..8..8..8..fca.1.gep.sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.8..8..8..8..8..8..8..fca.1.load.i.i = load i64, ptr %.8..8..8..8..8..8..8..fca.1.gep.sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.sroa.2.0.extract.trunc.i = trunc i64 %.8..8..8..8..8..8..8..fca.1.load.i.i to i40
   %.8..8..8..8..8..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i40 %.sroa.2.0.extract.trunc.i, ptr %.8..8..8..8..8..sroa_idx, align 8
@@ -1648,7 +1642,7 @@ _ZN10duckdb_re28Compiler9ByteRangeEiib.exit:      ; preds = %10, %11
   %.0..0..fca.0.load.i = phi i64 [ %.0..0..0..0..0..fca.0.load.pre.i, %11 ], [ %.0..0..0..0..0..0..0..fca.0.load.i.i, %10 ]
   %.8..8..8..8..8..fca.1.gep.sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.8..8..8..8..8..fca.1.load.i = load i64, ptr %.8..8..8..8..8..fca.1.gep.sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   store i64 %.0..0..fca.0.load.i, ptr %.sroa.05, align 8
   %.sroa.2.0.extract.trunc = trunc i64 %.8..8..8..8..8..fca.1.load.i to i40
   %.sroa.05.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.05, i64 8
@@ -1745,7 +1739,7 @@ _ZN10duckdb_re29PatchList6AppendEPNS_4Prog4InstES0_S0_.exit: ; preds = %._ZN10du
 
 _ZN10duckdb_re29PatchList5PatchEPNS_4Prog4InstES0_j.exit: ; preds = %37, %22, %_ZN10duckdb_re29PatchList6AppendEPNS_4Prog4InstES0_S0_.exit
   %55 = trunc i64 %.0..0..fca.0.load.i to i32
-  call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %.sroa.05)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.05)
   ret i32 %55
 }
 
@@ -1892,7 +1886,7 @@ _ZNSt13unordered_mapImiSt4hashImESt8equal_toImESaISt4pairIKmiEEEixERS5_.exit: ; 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN10duckdb_re28Compiler22IsCachedRuneByteSuffixEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(228) %0, i32 noundef %1) local_unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN10duckdb_re28Compiler22IsCachedRuneByteSuffixEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(228) %0, i32 noundef %1) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %5 = load ptr, ptr %4, align 8, !tbaa !55
@@ -2439,7 +2433,7 @@ _ZN10duckdb_re28Compiler14ByteRangeEqualEii.exit: ; preds = %64
   br label %.thread
 
 _ZN10duckdb_re28Compiler14ByteRangeEqualEii.exit.thread: ; preds = %56, %64, %_ZN10duckdb_re28Compiler14ByteRangeEqualEii.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 8, !tbaa !71
   %.4..4..4..4..4..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i64 0, ptr %.4..4..4..4..4..sroa_idx, align 4
@@ -2448,7 +2442,7 @@ _ZN10duckdb_re28Compiler14ByteRangeEqualEii.exit.thread: ; preds = %56, %64, %_Z
   %.0..0..0..0..0..fca.0.load.i = load i64, ptr %7, align 8
   %.8..8..8..8..8..fca.1.gep.sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.8..8..8..8..8..fca.1.load.i = load i64, ptr %.8..8..8..8..8..fca.1.gep.sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   store i64 %.0..0..0..0..0..fca.0.load.i, ptr %8, align 8
   %.sroa.219.0.extract.trunc = trunc i64 %.8..8..8..8..8..fca.1.load.i to i40
   %.8..8..8..sroa_idx139 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -2500,7 +2494,7 @@ _ZN10duckdb_re28Compiler14ByteRangeEqualEii.exit37: ; preds = %88
   br label %.thread
 
 _ZN10duckdb_re28Compiler14ByteRangeEqualEii.exit37.thread: ; preds = %_ZN10duckdb_re28Compiler14ByteRangeEqualEii.exit37, %88, %79
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 8, !tbaa !71
   %.4..4..4..4..4..sroa_idx142 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i64 0, ptr %.4..4..4..4..4..sroa_idx142, align 4
@@ -2509,7 +2503,7 @@ _ZN10duckdb_re28Compiler14ByteRangeEqualEii.exit37.thread: ; preds = %_ZN10duckd
   %.0..0..0..0..0..fca.0.load.i40 = load i64, ptr %6, align 8
   %.8..8..8..8..8..fca.1.gep.sroa_idx143 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.8..8..8..8..8..fca.1.load.i43 = load i64, ptr %.8..8..8..8..8..fca.1.gep.sroa_idx143, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store i64 %.0..0..0..0..0..fca.0.load.i40, ptr %8, align 8
   %.sroa.212.0.extract.trunc = trunc i64 %.8..8..8..8..8..fca.1.load.i43 to i40
   %.8..8..8..sroa_idx138 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -2551,7 +2545,7 @@ _ZN10duckdb_re28Compiler14ByteRangeEqualEii.exit45: ; preds = %105
   br label %.thread
 
 _ZN10duckdb_re28Compiler14ByteRangeEqualEii.exit45.thread: ; preds = %.split96.us, %105, %_ZN10duckdb_re28Compiler14ByteRangeEqualEii.exit45
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 8, !tbaa !71
   %.4..4..4..4..4..sroa_idx145 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i64 0, ptr %.4..4..4..4..4..sroa_idx145, align 4
@@ -2560,7 +2554,7 @@ _ZN10duckdb_re28Compiler14ByteRangeEqualEii.exit45.thread: ; preds = %.split96.u
   %.0..0..0..0..0..fca.0.load.i50 = load i64, ptr %5, align 8
   %.8..8..8..8..8..fca.1.gep.sroa_idx146 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.8..8..8..8..8..fca.1.load.i53 = load i64, ptr %.8..8..8..8..8..fca.1.gep.sroa_idx146, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store i64 %.0..0..0..0..0..fca.0.load.i50, ptr %8, align 8
   %.sroa.24.0.extract.trunc = trunc i64 %.8..8..8..8..8..fca.1.load.i53 to i40
   %.8..8..8..sroa_idx137 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -2568,7 +2562,7 @@ _ZN10duckdb_re28Compiler14ByteRangeEqualEii.exit45.thread: ; preds = %.split96.u
   br label %.thread
 
 .split.us:                                        ; preds = %.preheader.split.us, %.preheader.split
-  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %9) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 0, ptr %9, align 8, !tbaa !90
   %118 = getelementptr inbounds nuw i8, ptr %9, i64 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %118)
@@ -2608,8 +2602,8 @@ _ZN10LogMessageD2Ev.exit:                         ; preds = %_ZNKSt7__cxx1112bas
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %133) #24
   %134 = getelementptr inbounds nuw i8, ptr %9, i64 120
   call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %134) #24
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %9) #24
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 8, !tbaa !71
   %.4..4..4..4..4..sroa_idx148 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i64 0, ptr %.4..4..4..4..4..sroa_idx148, align 4
@@ -2618,7 +2612,7 @@ _ZN10LogMessageD2Ev.exit:                         ; preds = %_ZNKSt7__cxx1112bas
   %.0..0..0..0..0..fca.0.load.i57 = load i64, ptr %4, align 8
   %.8..8..8..8..8..fca.1.gep.sroa_idx149 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.8..8..8..8..8..fca.1.load.i60 = load i64, ptr %.8..8..8..8..8..fca.1.gep.sroa_idx149, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store i64 %.0..0..0..0..0..fca.0.load.i57, ptr %8, align 8
   %.sroa.2.0.extract.trunc = trunc i64 %.8..8..8..8..8..fca.1.load.i60 to i40
   %.8..8..8..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -2629,7 +2623,7 @@ _ZN10LogMessageD2Ev.exit:                         ; preds = %_ZNKSt7__cxx1112bas
   %136 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN10LogMessageD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %9) #24
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %9) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   resume { ptr, i32 } %136
 
 .thread:                                          ; preds = %_ZN10duckdb_re28Compiler14ByteRangeEqualEii.exit45.thread, %116, %_ZN10duckdb_re28Compiler14ByteRangeEqualEii.exit37.thread, %.split94.us, %_ZN10LogMessageD2Ev.exit, %_ZN10duckdb_re28Compiler14ByteRangeEqualEii.exit.thread, %77
@@ -2642,7 +2636,7 @@ _ZN10LogMessageD2Ev.exit:                         ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN10duckdb_re28Compiler14ByteRangeEqualEii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(228) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #12 align 2 {
+define hidden noundef zeroext i1 @_ZN10duckdb_re28Compiler14ByteRangeEqualEii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(228) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #11 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %6 = load ptr, ptr %5, align 8, !tbaa !55
@@ -2680,7 +2674,7 @@ define hidden noundef zeroext i1 @_ZN10duckdb_re28Compiler14ByteRangeEqualEii(pt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN10LogMessageD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN10LogMessageD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, align 8
   store ptr %3, ptr %2, align 8, !tbaa !3
@@ -2718,7 +2712,7 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden { i64, i64 } @_ZN10duckdb_re28Compiler8EndRangeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(228) %0) local_unnamed_addr #13 align 2 {
+define hidden { i64, i64 } @_ZN10duckdb_re28Compiler8EndRangeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(228) %0) local_unnamed_addr #12 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %.sroa.0.0.copyload = load i64, ptr %2, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 216
@@ -2930,8 +2924,8 @@ tailrecurse.backedge:                             ; preds = %22, %58, %63
 67:                                               ; preds = %65
   store i32 %.tr97120, ptr %5, align 4, !tbaa !62
   store i32 %2, ptr %6, align 4, !tbaa !62
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #24
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %68 = call noundef i32 @_ZN10duckdb_re210runetocharEPcPKi(ptr noundef nonnull %7, ptr noundef nonnull %5)
   %69 = call noundef i32 @_ZN10duckdb_re210runetocharEPcPKi(ptr noundef nonnull %8, ptr noundef nonnull %6)
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -3076,8 +3070,8 @@ tailrecurse.backedge:                             ; preds = %22, %58, %63
   br label %_ZN10duckdb_re28Compiler9AddSuffixEi.exit90
 
 _ZN10duckdb_re28Compiler9AddSuffixEi.exit90:      ; preds = %.loopexit, %.sink.split.i88
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #24
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN10duckdb_re28Compiler9AddSuffixEi.exit
 
 _ZN10duckdb_re28Compiler9AddSuffixEi.exit:        ; preds = %tailrecurse.backedge, %4, %.sink.split.i, %26, %_ZN10duckdb_re28Compiler9AddSuffixEi.exit90, %13
@@ -3415,7 +3409,7 @@ define hidden { i64, i64 } @_ZN10duckdb_re28Compiler4CopyENS_4FragE(ptr noundef 
   %5 = alloca %class.LogMessage, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i8 1, ptr %6, align 8, !tbaa !49
-  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %5) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 0, ptr %5, align 8, !tbaa !90
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7)
@@ -3455,8 +3449,8 @@ _ZN10LogMessageD2Ev.exit:                         ; preds = %_ZNKSt7__cxx1112bas
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #24
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 120
   call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %23) #24
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %5) #24
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 8, !tbaa !71
   %.4..4..4..4..4..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i64 0, ptr %.4..4..4..4..4..sroa_idx, align 4
@@ -3466,7 +3460,7 @@ _ZN10LogMessageD2Ev.exit:                         ; preds = %_ZNKSt7__cxx1112bas
   %.fca.0.insert.i = insertvalue { i64, i64 } poison, i64 %.0..0..0..0..0..fca.0.load.i, 0
   %.8..8..8..8..8..fca.1.gep.sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.8..8..8..8..8..fca.1.load.i = load i64, ptr %.8..8..8..8..8..fca.1.gep.sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.sroa.24.8.insert.ext = and i64 %.8..8..8..8..8..fca.1.load.i, 1099511627775
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert.i, i64 %.sroa.24.8.insert.ext, 1
   ret { i64, i64 } %.fca.1.insert
@@ -3475,16 +3469,16 @@ _ZN10LogMessageD2Ev.exit:                         ; preds = %_ZNKSt7__cxx1112bas
   %25 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN10LogMessageD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %5) #24
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %5) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %25
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden { i64, i64 } @_ZN10duckdb_re28Compiler10ShortVisitEPNS_6RegexpENS_4FragE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(228) initializes((104, 105)) %0, ptr readnone captures(none) %1, i64 %2, i64 %3) unnamed_addr #14 align 2 {
+define hidden { i64, i64 } @_ZN10duckdb_re28Compiler10ShortVisitEPNS_6RegexpENS_4FragE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(228) initializes((104, 105)) %0, ptr readnone captures(none) %1, i64 %2, i64 %3) unnamed_addr #13 align 2 {
   %5 = alloca %"struct.duckdb_re2::Frag", align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i8 1, ptr %6, align 8, !tbaa !49
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 8, !tbaa !71
   %.4..4..4..4..4..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i64 0, ptr %.4..4..4..4..4..sroa_idx, align 4
@@ -3494,14 +3488,14 @@ define hidden { i64, i64 } @_ZN10duckdb_re28Compiler10ShortVisitEPNS_6RegexpENS_
   %.fca.0.insert.i = insertvalue { i64, i64 } poison, i64 %.0..0..0..0..0..fca.0.load.i, 0
   %.8..8..8..8..8..fca.1.gep.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.8..8..8..8..8..fca.1.load.i = load i64, ptr %.8..8..8..8..8..fca.1.gep.sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.sroa.23.8.insert.ext = and i64 %.8..8..8..8..8..fca.1.load.i, 1099511627775
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert.i, i64 %.sroa.23.8.insert.ext, 1
   ret { i64, i64 } %.fca.1.insert
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden { i64, i64 } @_ZN10duckdb_re28Compiler8PreVisitEPNS_6RegexpENS_4FragEPb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(228) %0, ptr readnone captures(none) %1, i64 %2, i64 %3, ptr noundef writeonly captures(none) %4) unnamed_addr #15 align 2 {
+define hidden { i64, i64 } @_ZN10duckdb_re28Compiler8PreVisitEPNS_6RegexpENS_4FragEPb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(228) %0, ptr readnone captures(none) %1, i64 %2, i64 %3, ptr noundef writeonly captures(none) %4) unnamed_addr #14 align 2 {
   %6 = alloca %"struct.duckdb_re2::Frag", align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %8 = load i8, ptr %7, align 8, !tbaa !49, !range !56, !noundef !57
@@ -3557,13 +3551,13 @@ define hidden { i64, i64 } @_ZN10duckdb_re28Compiler7LiteralEib(ptr noundef nonn
   br label %70
 
 18:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %19 = tail call noundef i32 @_ZN10duckdb_re28Compiler9AllocInstEi(ptr noundef nonnull align 8 dereferenceable(228) %0, i32 noundef 1)
   %20 = icmp slt i32 %19, 0
   br i1 %20, label %21, label %22
 
 21:                                               ; preds = %18
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 0, ptr %10, align 8, !tbaa !71
   %.4..4..4..4..4..4..4..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i64 0, ptr %.4..4..4..4..4..4..4..sroa_idx, align 4
@@ -3572,7 +3566,7 @@ define hidden { i64, i64 } @_ZN10duckdb_re28Compiler7LiteralEib(ptr noundef nonn
   %.0..0..0..0..0..0..0..fca.0.load.i.i = load i64, ptr %10, align 8
   %.8..8..8..8..8..8..8..fca.1.gep.sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
   %.8..8..8..8..8..8..8..fca.1.load.i.i = load i64, ptr %.8..8..8..8..8..8..8..fca.1.gep.sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %.sroa.2.0.extract.trunc.i = trunc i64 %.8..8..8..8..8..8..8..fca.1.load.i.i to i40
   %.8..8..8..8..8..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i40 %.sroa.2.0.extract.trunc.i, ptr %.8..8..8..8..8..sroa_idx, align 8
@@ -3600,7 +3594,7 @@ _ZN10duckdb_re28Compiler9ByteRangeEiib.exit:      ; preds = %21, %22
   %.0..0..fca.0.load.i = phi i64 [ %.0..0..0..0..0..fca.0.load.pre.i, %22 ], [ %.0..0..0..0..0..0..0..fca.0.load.i.i, %21 ]
   %.8..8..8..8..8..fca.1.gep.sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
   %.8..8..8..8..8..fca.1.load.i = load i64, ptr %.8..8..8..8..8..fca.1.gep.sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %.sroa.225.0.extract.trunc = trunc i64 %.8..8..8..8..8..fca.1.load.i to i40
   %.8..8..8..sroa_idx141 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i40 %.sroa.225.0.extract.trunc, ptr %.8..8..8..sroa_idx141, align 8
@@ -3611,13 +3605,13 @@ _ZN10duckdb_re28Compiler9ByteRangeEiib.exit:      ; preds = %21, %22
   br i1 %30, label %31, label %42
 
 31:                                               ; preds = %29
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %32 = tail call noundef i32 @_ZN10duckdb_re28Compiler9AllocInstEi(ptr noundef nonnull align 8 dereferenceable(228) %0, i32 noundef 1)
   %33 = icmp slt i32 %32, 0
   br i1 %33, label %34, label %35
 
 34:                                               ; preds = %31
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 8, !tbaa !71
   %.4..4..4..4..4..4..4..sroa_idx146 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i64 0, ptr %.4..4..4..4..4..4..4..sroa_idx146, align 4
@@ -3626,7 +3620,7 @@ _ZN10duckdb_re28Compiler9ByteRangeEiib.exit:      ; preds = %21, %22
   %.0..0..0..0..0..0..0..fca.0.load.i.i41 = load i64, ptr %8, align 8
   %.8..8..8..8..8..8..8..fca.1.gep.sroa_idx147 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.8..8..8..8..8..8..8..fca.1.load.i.i43 = load i64, ptr %.8..8..8..8..8..8..8..fca.1.gep.sroa_idx147, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.sroa.2.0.extract.trunc.i44 = trunc i64 %.8..8..8..8..8..8..8..fca.1.load.i.i43 to i40
   %.8..8..8..8..8..sroa_idx144 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i40 %.sroa.2.0.extract.trunc.i44, ptr %.8..8..8..8..8..sroa_idx144, align 8
@@ -3654,23 +3648,23 @@ _ZN10duckdb_re28Compiler9ByteRangeEiib.exit46:    ; preds = %34, %35
   %.0..0..fca.0.load.i34 = phi i64 [ %.0..0..0..0..0..fca.0.load.pre.i33, %35 ], [ %.0..0..0..0..0..0..0..fca.0.load.i.i41, %34 ]
   %.8..8..8..8..8..fca.1.gep.sroa_idx143 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %.8..8..8..8..8..fca.1.load.i37 = load i64, ptr %.8..8..8..8..8..fca.1.gep.sroa_idx143, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %.sroa.221.0.extract.trunc = trunc i64 %.8..8..8..8..8..fca.1.load.i37 to i40
   %.8..8..8..sroa_idx140 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i40 %.sroa.221.0.extract.trunc, ptr %.8..8..8..sroa_idx140, align 8
   br label %70
 
 42:                                               ; preds = %29
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %43 = call noundef i32 @_ZN10duckdb_re210runetocharEPcPKi(ptr noundef nonnull %14, ptr noundef nonnull %13)
   %44 = load i8, ptr %14, align 1, !tbaa !75
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %45 = call noundef i32 @_ZN10duckdb_re28Compiler9AllocInstEi(ptr noundef nonnull align 8 dereferenceable(228) %0, i32 noundef 1)
   %46 = icmp slt i32 %45, 0
   br i1 %46, label %47, label %48
 
 47:                                               ; preds = %42
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 8, !tbaa !71
   %.4..4..4..4..4..4..4..sroa_idx153 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i64 0, ptr %.4..4..4..4..4..4..4..sroa_idx153, align 4
@@ -3679,7 +3673,7 @@ _ZN10duckdb_re28Compiler9ByteRangeEiib.exit46:    ; preds = %34, %35
   %.0..0..0..0..0..0..0..fca.0.load.i.i59 = load i64, ptr %6, align 8
   %.8..8..8..8..8..8..8..fca.1.gep.sroa_idx154 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.8..8..8..8..8..8..8..fca.1.load.i.i61 = load i64, ptr %.8..8..8..8..8..8..8..fca.1.gep.sroa_idx154, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.sroa.2.0.extract.trunc.i62 = trunc i64 %.8..8..8..8..8..8..8..fca.1.load.i.i61 to i40
   %.8..8..8..8..8..sroa_idx151 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i40 %.sroa.2.0.extract.trunc.i62, ptr %.8..8..8..8..8..sroa_idx151, align 8
@@ -3707,7 +3701,7 @@ _ZN10duckdb_re28Compiler9ByteRangeEiib.exit64:    ; preds = %47, %48
   %.0..0..fca.0.load.i52 = phi i64 [ %.0..0..0..0..0..fca.0.load.pre.i51, %48 ], [ %.0..0..0..0..0..0..0..fca.0.load.i.i59, %47 ]
   %.8..8..8..8..8..fca.1.gep.sroa_idx150 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.8..8..8..8..8..fca.1.load.i55 = load i64, ptr %.8..8..8..8..8..fca.1.gep.sroa_idx150, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.sroa.216.0.extract.trunc = trunc i64 %.8..8..8..8..8..fca.1.load.i55 to i40
   %.8..8..8..sroa_idx138 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i40 %.sroa.216.0.extract.trunc, ptr %.8..8..8..sroa_idx138, align 8
@@ -3730,7 +3724,7 @@ _ZN10duckdb_re28Compiler9ByteRangeEiib.exit64:    ; preds = %47, %48
 
 ._crit_edge:                                      ; preds = %_ZN10duckdb_re28Compiler9ByteRangeEiib.exit82, %_ZN10duckdb_re28Compiler9ByteRangeEiib.exit64
   %.fca.0.extract108.lcssa = phi i64 [ %.0..0..fca.0.load.i52, %_ZN10duckdb_re28Compiler9ByteRangeEiib.exit64 ], [ %.fca.0.extract, %_ZN10duckdb_re28Compiler9ByteRangeEiib.exit82 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %70
 
 57:                                               ; preds = %.lr.ph, %_ZN10duckdb_re28Compiler9ByteRangeEiib.exit82
@@ -3739,19 +3733,19 @@ _ZN10duckdb_re28Compiler9ByteRangeEiib.exit64:    ; preds = %47, %48
   %.8..8..8..sroa.28.0.copyload = load i64, ptr %.8..8..8..sroa_idx, align 8
   %58 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 0, i64 %indvars.iv
   %59 = load i8, ptr %58, align 1, !tbaa !75
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %60 = call noundef i32 @_ZN10duckdb_re28Compiler9AllocInstEi(ptr noundef nonnull align 8 dereferenceable(228) %0, i32 noundef 1)
   %61 = icmp slt i32 %60, 0
   br i1 %61, label %62, label %63
 
 62:                                               ; preds = %57
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 8, !tbaa !71
   store i64 0, ptr %.4..4..4..4..4..4..4..sroa_idx160, align 4
   store i8 0, ptr %.12..12..12..12..12..12..12..sroa_idx162, align 4, !tbaa !72
   %.0..0..0..0..0..0..0..fca.0.load.i.i77 = load i64, ptr %4, align 8
   %.8..8..8..8..8..8..8..fca.1.load.i.i79 = load i64, ptr %.8..8..8..8..8..8..8..fca.1.gep.sroa_idx161, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.sroa.2.0.extract.trunc.i80 = trunc i64 %.8..8..8..8..8..8..8..fca.1.load.i.i79 to i40
   store i40 %.sroa.2.0.extract.trunc.i80, ptr %.8..8..8..8..8..sroa_idx158, align 8
   br label %_ZN10duckdb_re28Compiler9ByteRangeEiib.exit82
@@ -3774,7 +3768,7 @@ _ZN10duckdb_re28Compiler9ByteRangeEiib.exit64:    ; preds = %47, %48
 _ZN10duckdb_re28Compiler9ByteRangeEiib.exit82:    ; preds = %62, %63
   %.0..0..fca.0.load.i70 = phi i64 [ %.0..0..0..0..0..fca.0.load.pre.i69, %63 ], [ %.0..0..0..0..0..0..0..fca.0.load.i.i77, %62 ]
   %.8..8..8..8..8..fca.1.load.i73 = load i64, ptr %.8..8..8..8..8..fca.1.gep.sroa_idx157, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.sroa.26.8.insert.ext = and i64 %.8..8..8..8..8..fca.1.load.i73, 1099511627775
   %69 = call { i64, i64 } @_ZN10duckdb_re28Compiler3CatENS_4FragES1_(ptr noundef nonnull align 8 dereferenceable(228) %0, i64 %.fca.0.extract108109, i64 %.8..8..8..sroa.28.0.copyload, i64 %.0..0..fca.0.load.i70, i64 %.sroa.26.8.insert.ext)
   %.fca.0.extract = extractvalue { i64, i64 } %69, 0
@@ -3827,7 +3821,7 @@ define hidden { i64, i64 } @_ZN10duckdb_re28Compiler9PostVisitEPNS_6RegexpENS_4F
   br i1 %36, label %37, label %38
 
 37:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %30)
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   store i32 0, ptr %30, align 8, !tbaa !71
   %.4..4..4..4..4..sroa_idx = getelementptr inbounds nuw i8, ptr %30, i64 4
   store i64 0, ptr %.4..4..4..4..4..sroa_idx, align 4
@@ -3836,7 +3830,7 @@ define hidden { i64, i64 } @_ZN10duckdb_re28Compiler9PostVisitEPNS_6RegexpENS_4F
   %.0..0..0..0..0..fca.0.load.i = load i64, ptr %30, align 8
   %.8..8..8..8..8..fca.1.gep.sroa_idx = getelementptr inbounds nuw i8, ptr %30, i64 8
   %.8..8..8..8..8..fca.1.load.i = load i64, ptr %.8..8..8..8..8..fca.1.gep.sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
   %.sroa.2170.0.extract.trunc = trunc i64 %.8..8..8..8..8..fca.1.load.i to i40
   %.8..8..8..sroa_idx652 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i40 %.sroa.2170.0.extract.trunc, ptr %.8..8..8..sroa_idx652, align 8
@@ -3868,7 +3862,7 @@ define hidden { i64, i64 } @_ZN10duckdb_re28Compiler9PostVisitEPNS_6RegexpENS_4F
   ]
 
 40:                                               ; preds = %38
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %29)
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   store i32 0, ptr %29, align 8, !tbaa !71
   %.4..4..4..4..4..sroa_idx653 = getelementptr inbounds nuw i8, ptr %29, i64 4
   store i64 0, ptr %.4..4..4..4..4..sroa_idx653, align 4
@@ -3877,20 +3871,20 @@ define hidden { i64, i64 } @_ZN10duckdb_re28Compiler9PostVisitEPNS_6RegexpENS_4F
   %.0..0..0..0..0..fca.0.load.i212 = load i64, ptr %29, align 8
   %.8..8..8..8..8..fca.1.gep.sroa_idx654 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %.8..8..8..8..8..fca.1.load.i215 = load i64, ptr %.8..8..8..8..8..fca.1.gep.sroa_idx654, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   %.sroa.2166.0.extract.trunc = trunc i64 %.8..8..8..8..8..fca.1.load.i215 to i40
   %.8..8..8..sroa_idx651 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i40 %.sroa.2166.0.extract.trunc, ptr %.8..8..8..sroa_idx651, align 8
   br label %.loopexit
 
 41:                                               ; preds = %38
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %28)
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   %42 = tail call noundef i32 @_ZN10duckdb_re28Compiler9AllocInstEi(ptr noundef nonnull align 8 dereferenceable(228) %0, i32 noundef 1)
   %43 = icmp slt i32 %42, 0
   br i1 %43, label %44, label %45
 
 44:                                               ; preds = %41
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %27)
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   store i32 0, ptr %27, align 8, !tbaa !71
   %.4..4..4..4..4..4..4..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 4
   store i64 0, ptr %.4..4..4..4..4..4..4..sroa_idx, align 4
@@ -3899,7 +3893,7 @@ define hidden { i64, i64 } @_ZN10duckdb_re28Compiler9PostVisitEPNS_6RegexpENS_4F
   %.0..0..0..0..0..0..0..fca.0.load.i.i = load i64, ptr %27, align 8
   %.8..8..8..8..8..8..8..fca.1.gep.sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 8
   %.8..8..8..8..8..8..8..fca.1.load.i.i = load i64, ptr %.8..8..8..8..8..8..8..fca.1.gep.sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   %.sroa.2.0.extract.trunc.i = trunc i64 %.8..8..8..8..8..8..8..fca.1.load.i.i to i40
   %.8..8..8..8..8..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 8
   store i40 %.sroa.2.0.extract.trunc.i, ptr %.8..8..8..8..8..sroa_idx, align 8
@@ -3926,7 +3920,7 @@ _ZN10duckdb_re28Compiler3NopEv.exit:              ; preds = %44, %45
   %.0..0..fca.0.load.i219 = phi i64 [ %.0..0..0..0..0..fca.0.load.pre.i, %45 ], [ %.0..0..0..0..0..0..0..fca.0.load.i.i, %44 ]
   %.8..8..8..8..8..fca.1.gep.sroa_idx657 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %.8..8..8..8..8..fca.1.load.i222 = load i64, ptr %.8..8..8..8..8..fca.1.gep.sroa_idx657, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   %.sroa.2162.0.extract.trunc = trunc i64 %.8..8..8..8..8..fca.1.load.i222 to i40
   %.8..8..8..sroa_idx650 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i40 %.sroa.2162.0.extract.trunc, ptr %.8..8..8..sroa_idx650, align 8
@@ -3935,13 +3929,13 @@ _ZN10duckdb_re28Compiler3NopEv.exit:              ; preds = %44, %45
 51:                                               ; preds = %38
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %53 = load i32, ptr %52, align 8, !tbaa !75
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   %54 = tail call noundef i32 @_ZN10duckdb_re28Compiler9AllocInstEi(ptr noundef nonnull align 8 dereferenceable(228) %0, i32 noundef 1)
   %55 = icmp slt i32 %54, 0
   br i1 %55, label %56, label %57
 
 56:                                               ; preds = %51
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i32 0, ptr %25, align 8, !tbaa !71
   %.4..4..4..4..4..4..4..sroa_idx663 = getelementptr inbounds nuw i8, ptr %25, i64 4
   store i64 0, ptr %.4..4..4..4..4..4..4..sroa_idx663, align 4
@@ -3950,7 +3944,7 @@ _ZN10duckdb_re28Compiler3NopEv.exit:              ; preds = %44, %45
   %.0..0..0..0..0..0..0..fca.0.load.i.i234 = load i64, ptr %25, align 8
   %.8..8..8..8..8..8..8..fca.1.gep.sroa_idx664 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %.8..8..8..8..8..8..8..fca.1.load.i.i236 = load i64, ptr %.8..8..8..8..8..8..8..fca.1.gep.sroa_idx664, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   %.sroa.2.0.extract.trunc.i237 = trunc i64 %.8..8..8..8..8..8..8..fca.1.load.i.i236 to i40
   %.8..8..8..8..8..sroa_idx661 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store i40 %.sroa.2.0.extract.trunc.i237, ptr %.8..8..8..8..8..sroa_idx661, align 8
@@ -3974,7 +3968,7 @@ _ZN10duckdb_re28Compiler5MatchEi.exit:            ; preds = %56, %57
   %.0..0..sroa.0143.0.copyload = phi i64 [ %.0..0..0..0..0..fca.0.load.pre.i226, %57 ], [ %.0..0..0..0..0..0..0..fca.0.load.i.i234, %56 ]
   %.8..8..8..8..8..fca.1.gep.sroa_idx660 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %.8..8..8..8..8..fca.1.load.i230 = load i64, ptr %.8..8..8..8..8..fca.1.gep.sroa_idx660, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   %.sroa.2158.0.extract.trunc = trunc i64 %.8..8..8..8..8..fca.1.load.i230 to i40
   %.8..8..8..sroa_idx648 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i40 %.sroa.2158.0.extract.trunc, ptr %.8..8..8..sroa_idx648, align 8
@@ -4220,13 +4214,13 @@ _ZN10duckdb_re28Compiler10BeginRangeEv.exit:      ; preds = %.lr.ph.i.i.i.i, %12
   br label %.loopexit
 
 140:                                              ; preds = %38
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   %141 = tail call noundef i32 @_ZN10duckdb_re28Compiler9AllocInstEi(ptr noundef nonnull align 8 dereferenceable(228) %0, i32 noundef 1)
   %142 = icmp slt i32 %141, 0
   br i1 %142, label %143, label %144
 
 143:                                              ; preds = %140
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i32 0, ptr %23, align 8, !tbaa !71
   %.4..4..4..4..4..4..4..sroa_idx670 = getelementptr inbounds nuw i8, ptr %23, i64 4
   store i64 0, ptr %.4..4..4..4..4..4..4..sroa_idx670, align 4
@@ -4235,7 +4229,7 @@ _ZN10duckdb_re28Compiler10BeginRangeEv.exit:      ; preds = %.lr.ph.i.i.i.i, %12
   %.0..0..0..0..0..0..0..fca.0.load.i.i253 = load i64, ptr %23, align 8
   %.8..8..8..8..8..8..8..fca.1.gep.sroa_idx671 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %.8..8..8..8..8..8..8..fca.1.load.i.i255 = load i64, ptr %.8..8..8..8..8..8..8..fca.1.gep.sroa_idx671, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   %.sroa.2.0.extract.trunc.i256 = trunc i64 %.8..8..8..8..8..8..8..fca.1.load.i.i255 to i40
   %.8..8..8..8..8..sroa_idx668 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i40 %.sroa.2.0.extract.trunc.i256, ptr %.8..8..8..8..8..sroa_idx668, align 8
@@ -4262,7 +4256,7 @@ _ZN10duckdb_re28Compiler9ByteRangeEiib.exit:      ; preds = %143, %144
   %.0..0..fca.0.load.i246 = phi i64 [ %.0..0..0..0..0..fca.0.load.pre.i245, %144 ], [ %.0..0..0..0..0..0..0..fca.0.load.i.i253, %143 ]
   %.8..8..8..8..8..fca.1.gep.sroa_idx667 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %.8..8..8..8..8..fca.1.load.i249 = load i64, ptr %.8..8..8..8..8..fca.1.gep.sroa_idx667, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   %.sroa.261.0.extract.trunc = trunc i64 %.8..8..8..8..8..fca.1.load.i249 to i40
   %.8..8..8..sroa_idx641 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i40 %.sroa.261.0.extract.trunc, ptr %.8..8..8..sroa_idx641, align 8
@@ -4278,7 +4272,7 @@ _ZN10duckdb_re28Compiler9ByteRangeEiib.exit:      ; preds = %143, %144
 
 156:                                              ; preds = %150
   store i8 1, ptr %34, align 8, !tbaa !49
-  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %32) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
   store i8 0, ptr %32, align 8, !tbaa !90
   %157 = getelementptr inbounds nuw i8, ptr %32, i64 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %157)
@@ -4287,8 +4281,8 @@ _ZN10duckdb_re28Compiler9ByteRangeEiib.exit:      ; preds = %143, %144
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %156
   call void @_ZN10LogMessageD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %32) #24
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %32) #24
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   store i32 0, ptr %22, align 8, !tbaa !71
   %.4..4..4..4..4..sroa_idx673 = getelementptr inbounds nuw i8, ptr %22, i64 4
   store i64 0, ptr %.4..4..4..4..4..sroa_idx673, align 4
@@ -4297,7 +4291,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %156
   %.0..0..0..0..0..fca.0.load.i260 = load i64, ptr %22, align 8
   %.8..8..8..8..8..fca.1.gep.sroa_idx674 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %.8..8..8..8..8..fca.1.load.i263 = load i64, ptr %.8..8..8..8..8..fca.1.gep.sroa_idx674, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   %.sroa.251.0.extract.trunc = trunc i64 %.8..8..8..8..8..fca.1.load.i263 to i40
   %.8..8..8..sroa_idx640 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i40 %.sroa.251.0.extract.trunc, ptr %.8..8..8..sroa_idx640, align 8
@@ -4307,7 +4301,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %156
   %160 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN10LogMessageD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %32) #24
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %32) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
   br label %304
 
 161:                                              ; preds = %150
@@ -4423,13 +4417,13 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %156
 204:                                              ; preds = %38
   %205 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %206 = load i8, ptr %205, align 8, !tbaa !51, !range !56, !noundef !57
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %207 = tail call noundef i32 @_ZN10duckdb_re28Compiler9AllocInstEi(ptr noundef nonnull align 8 dereferenceable(228) %0, i32 noundef 1)
   %208 = icmp slt i32 %207, 0
   br i1 %208, label %209, label %210
 
 209:                                              ; preds = %204
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store i32 0, ptr %20, align 8, !tbaa !71
   %.4..4..4..4..4..4..4..sroa_idx680 = getelementptr inbounds nuw i8, ptr %20, i64 4
   store i64 0, ptr %.4..4..4..4..4..4..4..sroa_idx680, align 4
@@ -4438,7 +4432,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %156
   %.0..0..0..0..0..0..0..fca.0.load.i.i282 = load i64, ptr %20, align 8
   %.8..8..8..8..8..8..8..fca.1.gep.sroa_idx681 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %.8..8..8..8..8..8..8..fca.1.load.i.i284 = load i64, ptr %.8..8..8..8..8..8..8..fca.1.gep.sroa_idx681, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   %.sroa.2.0.extract.trunc.i285 = trunc i64 %.8..8..8..8..8..8..8..fca.1.load.i.i284 to i40
   %.8..8..8..8..8..sroa_idx678 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i40 %.sroa.2.0.extract.trunc.i285, ptr %.8..8..8..8..8..sroa_idx678, align 8
@@ -4467,7 +4461,7 @@ _ZN10duckdb_re28Compiler10EmptyWidthENS_7EmptyOpE.exit: ; preds = %209, %210
   %.0..0..fca.0.load.i275 = phi i64 [ %.0..0..0..0..0..fca.0.load.pre.i274, %210 ], [ %.0..0..0..0..0..0..0..fca.0.load.i.i282, %209 ]
   %.8..8..8..8..8..fca.1.gep.sroa_idx677 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %.8..8..8..8..8..fca.1.load.i278 = load i64, ptr %.8..8..8..8..8..fca.1.gep.sroa_idx677, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %.sroa.224.0.extract.trunc = trunc i64 %.8..8..8..8..8..fca.1.load.i278 to i40
   %.8..8..8..sroa_idx637 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i40 %.sroa.224.0.extract.trunc, ptr %.8..8..8..sroa_idx637, align 8
@@ -4476,13 +4470,13 @@ _ZN10duckdb_re28Compiler10EmptyWidthENS_7EmptyOpE.exit: ; preds = %209, %210
 218:                                              ; preds = %38
   %219 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %220 = load i8, ptr %219, align 8, !tbaa !51, !range !56, !noundef !57
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %221 = tail call noundef i32 @_ZN10duckdb_re28Compiler9AllocInstEi(ptr noundef nonnull align 8 dereferenceable(228) %0, i32 noundef 1)
   %222 = icmp slt i32 %221, 0
   br i1 %222, label %223, label %224
 
 223:                                              ; preds = %218
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i32 0, ptr %18, align 8, !tbaa !71
   %.4..4..4..4..4..4..4..sroa_idx687 = getelementptr inbounds nuw i8, ptr %18, i64 4
   store i64 0, ptr %.4..4..4..4..4..4..4..sroa_idx687, align 4
@@ -4491,7 +4485,7 @@ _ZN10duckdb_re28Compiler10EmptyWidthENS_7EmptyOpE.exit: ; preds = %209, %210
   %.0..0..0..0..0..0..0..fca.0.load.i.i299 = load i64, ptr %18, align 8
   %.8..8..8..8..8..8..8..fca.1.gep.sroa_idx688 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %.8..8..8..8..8..8..8..fca.1.load.i.i301 = load i64, ptr %.8..8..8..8..8..8..8..fca.1.gep.sroa_idx688, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %.sroa.2.0.extract.trunc.i302 = trunc i64 %.8..8..8..8..8..8..8..fca.1.load.i.i301 to i40
   %.8..8..8..8..8..sroa_idx685 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i40 %.sroa.2.0.extract.trunc.i302, ptr %.8..8..8..8..8..sroa_idx685, align 8
@@ -4520,7 +4514,7 @@ _ZN10duckdb_re28Compiler10EmptyWidthENS_7EmptyOpE.exit304: ; preds = %223, %224
   %.0..0..fca.0.load.i292 = phi i64 [ %.0..0..0..0..0..fca.0.load.pre.i291, %224 ], [ %.0..0..0..0..0..0..0..fca.0.load.i.i299, %223 ]
   %.8..8..8..8..8..fca.1.gep.sroa_idx684 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %.8..8..8..8..8..fca.1.load.i295 = load i64, ptr %.8..8..8..8..8..fca.1.gep.sroa_idx684, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %.sroa.220.0.extract.trunc = trunc i64 %.8..8..8..8..8..fca.1.load.i295 to i40
   %.8..8..8..sroa_idx636 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i40 %.sroa.220.0.extract.trunc, ptr %.8..8..8..sroa_idx636, align 8
@@ -4529,13 +4523,13 @@ _ZN10duckdb_re28Compiler10EmptyWidthENS_7EmptyOpE.exit304: ; preds = %223, %224
 232:                                              ; preds = %38
   %233 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %234 = load i8, ptr %233, align 8, !tbaa !51, !range !56, !noundef !57
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %235 = tail call noundef i32 @_ZN10duckdb_re28Compiler9AllocInstEi(ptr noundef nonnull align 8 dereferenceable(228) %0, i32 noundef 1)
   %236 = icmp slt i32 %235, 0
   br i1 %236, label %237, label %238
 
 237:                                              ; preds = %232
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i32 0, ptr %16, align 8, !tbaa !71
   %.4..4..4..4..4..4..4..sroa_idx694 = getelementptr inbounds nuw i8, ptr %16, i64 4
   store i64 0, ptr %.4..4..4..4..4..4..4..sroa_idx694, align 4
@@ -4544,7 +4538,7 @@ _ZN10duckdb_re28Compiler10EmptyWidthENS_7EmptyOpE.exit304: ; preds = %223, %224
   %.0..0..0..0..0..0..0..fca.0.load.i.i317 = load i64, ptr %16, align 8
   %.8..8..8..8..8..8..8..fca.1.gep.sroa_idx695 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %.8..8..8..8..8..8..8..fca.1.load.i.i319 = load i64, ptr %.8..8..8..8..8..8..8..fca.1.gep.sroa_idx695, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %.sroa.2.0.extract.trunc.i320 = trunc i64 %.8..8..8..8..8..8..8..fca.1.load.i.i319 to i40
   %.8..8..8..8..8..sroa_idx692 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i40 %.sroa.2.0.extract.trunc.i320, ptr %.8..8..8..8..8..sroa_idx692, align 8
@@ -4573,7 +4567,7 @@ _ZN10duckdb_re28Compiler10EmptyWidthENS_7EmptyOpE.exit322: ; preds = %237, %238
   %.0..0..fca.0.load.i310 = phi i64 [ %.0..0..0..0..0..fca.0.load.pre.i309, %238 ], [ %.0..0..0..0..0..0..0..fca.0.load.i.i317, %237 ]
   %.8..8..8..8..8..fca.1.gep.sroa_idx691 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %.8..8..8..8..8..fca.1.load.i313 = load i64, ptr %.8..8..8..8..8..fca.1.gep.sroa_idx691, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %.sroa.216.0.extract.trunc = trunc i64 %.8..8..8..8..8..fca.1.load.i313 to i40
   %.8..8..8..sroa_idx635 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i40 %.sroa.216.0.extract.trunc, ptr %.8..8..8..sroa_idx635, align 8
@@ -4582,13 +4576,13 @@ _ZN10duckdb_re28Compiler10EmptyWidthENS_7EmptyOpE.exit322: ; preds = %237, %238
 246:                                              ; preds = %38
   %247 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %248 = load i8, ptr %247, align 8, !tbaa !51, !range !56, !noundef !57
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %249 = tail call noundef i32 @_ZN10duckdb_re28Compiler9AllocInstEi(ptr noundef nonnull align 8 dereferenceable(228) %0, i32 noundef 1)
   %250 = icmp slt i32 %249, 0
   br i1 %250, label %251, label %252
 
 251:                                              ; preds = %246
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i32 0, ptr %14, align 8, !tbaa !71
   %.4..4..4..4..4..4..4..sroa_idx701 = getelementptr inbounds nuw i8, ptr %14, i64 4
   store i64 0, ptr %.4..4..4..4..4..4..4..sroa_idx701, align 4
@@ -4597,7 +4591,7 @@ _ZN10duckdb_re28Compiler10EmptyWidthENS_7EmptyOpE.exit322: ; preds = %237, %238
   %.0..0..0..0..0..0..0..fca.0.load.i.i335 = load i64, ptr %14, align 8
   %.8..8..8..8..8..8..8..fca.1.gep.sroa_idx702 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %.8..8..8..8..8..8..8..fca.1.load.i.i337 = load i64, ptr %.8..8..8..8..8..8..8..fca.1.gep.sroa_idx702, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %.sroa.2.0.extract.trunc.i338 = trunc i64 %.8..8..8..8..8..8..8..fca.1.load.i.i337 to i40
   %.8..8..8..8..8..sroa_idx699 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i40 %.sroa.2.0.extract.trunc.i338, ptr %.8..8..8..8..8..sroa_idx699, align 8
@@ -4626,20 +4620,20 @@ _ZN10duckdb_re28Compiler10EmptyWidthENS_7EmptyOpE.exit340: ; preds = %251, %252
   %.0..0..fca.0.load.i328 = phi i64 [ %.0..0..0..0..0..fca.0.load.pre.i327, %252 ], [ %.0..0..0..0..0..0..0..fca.0.load.i.i335, %251 ]
   %.8..8..8..8..8..fca.1.gep.sroa_idx698 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %.8..8..8..8..8..fca.1.load.i331 = load i64, ptr %.8..8..8..8..8..fca.1.gep.sroa_idx698, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %.sroa.212.0.extract.trunc = trunc i64 %.8..8..8..8..8..fca.1.load.i331 to i40
   %.8..8..8..sroa_idx634 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i40 %.sroa.212.0.extract.trunc, ptr %.8..8..8..sroa_idx634, align 8
   br label %.loopexit
 
 260:                                              ; preds = %38
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %261 = tail call noundef i32 @_ZN10duckdb_re28Compiler9AllocInstEi(ptr noundef nonnull align 8 dereferenceable(228) %0, i32 noundef 1)
   %262 = icmp slt i32 %261, 0
   br i1 %262, label %263, label %264
 
 263:                                              ; preds = %260
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 0, ptr %12, align 8, !tbaa !71
   %.4..4..4..4..4..4..4..sroa_idx708 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i64 0, ptr %.4..4..4..4..4..4..4..sroa_idx708, align 4
@@ -4648,7 +4642,7 @@ _ZN10duckdb_re28Compiler10EmptyWidthENS_7EmptyOpE.exit340: ; preds = %251, %252
   %.0..0..0..0..0..0..0..fca.0.load.i.i353 = load i64, ptr %12, align 8
   %.8..8..8..8..8..8..8..fca.1.gep.sroa_idx709 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %.8..8..8..8..8..8..8..fca.1.load.i.i355 = load i64, ptr %.8..8..8..8..8..8..8..fca.1.gep.sroa_idx709, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %.sroa.2.0.extract.trunc.i356 = trunc i64 %.8..8..8..8..8..8..8..fca.1.load.i.i355 to i40
   %.8..8..8..8..8..sroa_idx706 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i40 %.sroa.2.0.extract.trunc.i356, ptr %.8..8..8..8..8..sroa_idx706, align 8
@@ -4675,20 +4669,20 @@ _ZN10duckdb_re28Compiler10EmptyWidthENS_7EmptyOpE.exit358: ; preds = %263, %264
   %.0..0..fca.0.load.i346 = phi i64 [ %.0..0..0..0..0..fca.0.load.pre.i345, %264 ], [ %.0..0..0..0..0..0..0..fca.0.load.i.i353, %263 ]
   %.8..8..8..8..8..fca.1.gep.sroa_idx705 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %.8..8..8..8..8..fca.1.load.i349 = load i64, ptr %.8..8..8..8..8..fca.1.gep.sroa_idx705, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %.sroa.28.0.extract.trunc = trunc i64 %.8..8..8..8..8..fca.1.load.i349 to i40
   %.8..8..8..sroa_idx633 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i40 %.sroa.28.0.extract.trunc, ptr %.8..8..8..sroa_idx633, align 8
   br label %.loopexit
 
 270:                                              ; preds = %38
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %271 = tail call noundef i32 @_ZN10duckdb_re28Compiler9AllocInstEi(ptr noundef nonnull align 8 dereferenceable(228) %0, i32 noundef 1)
   %272 = icmp slt i32 %271, 0
   br i1 %272, label %273, label %274
 
 273:                                              ; preds = %270
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 0, ptr %10, align 8, !tbaa !71
   %.4..4..4..4..4..4..4..sroa_idx715 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i64 0, ptr %.4..4..4..4..4..4..4..sroa_idx715, align 4
@@ -4697,7 +4691,7 @@ _ZN10duckdb_re28Compiler10EmptyWidthENS_7EmptyOpE.exit358: ; preds = %263, %264
   %.0..0..0..0..0..0..0..fca.0.load.i.i371 = load i64, ptr %10, align 8
   %.8..8..8..8..8..8..8..fca.1.gep.sroa_idx716 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %.8..8..8..8..8..8..8..fca.1.load.i.i373 = load i64, ptr %.8..8..8..8..8..8..8..fca.1.gep.sroa_idx716, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %.sroa.2.0.extract.trunc.i374 = trunc i64 %.8..8..8..8..8..8..8..fca.1.load.i.i373 to i40
   %.8..8..8..8..8..sroa_idx713 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i40 %.sroa.2.0.extract.trunc.i374, ptr %.8..8..8..8..8..sroa_idx713, align 8
@@ -4724,7 +4718,7 @@ _ZN10duckdb_re28Compiler10EmptyWidthENS_7EmptyOpE.exit376: ; preds = %273, %274
   %.0..0..fca.0.load.i364 = phi i64 [ %.0..0..0..0..0..fca.0.load.pre.i363, %274 ], [ %.0..0..0..0..0..0..0..fca.0.load.i.i371, %273 ]
   %.8..8..8..8..8..fca.1.gep.sroa_idx712 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %.8..8..8..8..8..fca.1.load.i367 = load i64, ptr %.8..8..8..8..8..fca.1.gep.sroa_idx712, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %.sroa.24.0.extract.trunc = trunc i64 %.8..8..8..8..8..fca.1.load.i367 to i40
   %.8..8..8..sroa_idx632 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i40 %.sroa.24.0.extract.trunc, ptr %.8..8..8..sroa_idx632, align 8
@@ -4732,7 +4726,7 @@ _ZN10duckdb_re28Compiler10EmptyWidthENS_7EmptyOpE.exit376: ; preds = %273, %274
 
 280:                                              ; preds = %38
   store i8 1, ptr %34, align 8, !tbaa !49
-  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %33) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
   store i8 0, ptr %33, align 8, !tbaa !90
   %281 = getelementptr inbounds nuw i8, ptr %33, i64 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %281)
@@ -4778,8 +4772,8 @@ _ZN10LogMessageD2Ev.exit:                         ; preds = %_ZNKSt7__cxx1112bas
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %300) #24
   %301 = getelementptr inbounds nuw i8, ptr %33, i64 120
   call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %301) #24
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %33) #24
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 8, !tbaa !71
   %.4..4..4..4..4..sroa_idx718 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i64 0, ptr %.4..4..4..4..4..sroa_idx718, align 4
@@ -4788,7 +4782,7 @@ _ZN10LogMessageD2Ev.exit:                         ; preds = %_ZNKSt7__cxx1112bas
   %.0..0..0..0..0..fca.0.load.i380 = load i64, ptr %9, align 8
   %.8..8..8..8..8..fca.1.gep.sroa_idx719 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %.8..8..8..8..8..fca.1.load.i383 = load i64, ptr %.8..8..8..8..8..fca.1.gep.sroa_idx719, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %.sroa.2.0.extract.trunc = trunc i64 %.8..8..8..8..8..fca.1.load.i383 to i40
   %.8..8..8..sroa_idx631 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i40 %.sroa.2.0.extract.trunc, ptr %.8..8..8..sroa_idx631, align 8
@@ -4798,7 +4792,7 @@ _ZN10LogMessageD2Ev.exit:                         ; preds = %_ZNKSt7__cxx1112bas
   %303 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN10LogMessageD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %33) #24
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %33) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
   br label %304
 
 .loopexit:                                        ; preds = %125, %75, %70, %110, %73, %68, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit, %._crit_edge, %_ZN10duckdb_re28Compiler5MatchEi.exit, %65, %_ZN10LogMessageD2Ev.exit, %_ZN10duckdb_re28Compiler10EmptyWidthENS_7EmptyOpE.exit376, %_ZN10duckdb_re28Compiler10EmptyWidthENS_7EmptyOpE.exit358, %_ZN10duckdb_re28Compiler10EmptyWidthENS_7EmptyOpE.exit340, %_ZN10duckdb_re28Compiler10EmptyWidthENS_7EmptyOpE.exit322, %_ZN10duckdb_re28Compiler10EmptyWidthENS_7EmptyOpE.exit304, %_ZN10duckdb_re28Compiler10EmptyWidthENS_7EmptyOpE.exit, %202, %201, %_ZN10duckdb_re28Compiler9ByteRangeEiib.exit, %_ZN10duckdb_re28Compiler10BeginRangeEv.exit, %108, %96, %90, %84, %78, %_ZN10duckdb_re28Compiler3NopEv.exit, %40, %37
@@ -4817,7 +4811,7 @@ _ZN10LogMessageD2Ev.exit:                         ; preds = %_ZNKSt7__cxx1112bas
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN10duckdb_re28Compiler5SetupENS_6Regexp10ParseFlagsElNS_3RE26AnchorE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(228) initializes((140, 152), (224, 228)) %0, i32 noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #14 align 2 {
+define hidden void @_ZN10duckdb_re28Compiler5SetupENS_6Regexp10ParseFlagsElNS_3RE26AnchorE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(228) initializes((140, 152), (224, 228)) %0, i32 noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #13 align 2 {
   %5 = and i32 %1, 32
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %8, label %6
@@ -4862,7 +4856,7 @@ define hidden noundef ptr @_ZN10duckdb_re28Compiler7CompileEPNS_6RegexpEbl(ptr n
   %8 = alloca %"class.duckdb_re2::Compiler", align 8
   %9 = alloca ptr, align 8
   %10 = alloca %"struct.duckdb_re2::Frag", align 8
-  call void @llvm.lifetime.start.p0(i64 232, ptr nonnull %8) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZN10duckdb_re28CompilerC2Ev(ptr noundef nonnull align 8 dereferenceable(228) %8)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %12 = load i16, ptr %11, align 2, !tbaa !116
@@ -4901,7 +4895,7 @@ define hidden noundef ptr @_ZN10duckdb_re28Compiler7CompileEPNS_6RegexpEbl(ptr n
   %28 = zext i1 %1 to i8
   %29 = getelementptr inbounds nuw i8, ptr %8, i64 112
   store i8 %28, ptr %29, align 8, !tbaa !51
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %30 = invoke noundef ptr @_ZN10duckdb_re26Regexp8SimplifyEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
           to label %31 unwind label %33
 
@@ -4970,7 +4964,7 @@ define hidden noundef ptr @_ZN10duckdb_re28Compiler7CompileEPNS_6RegexpEbl(ptr n
 
 56:                                               ; preds = %46
   store i8 0, ptr %29, align 8, !tbaa !51
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %57 = getelementptr inbounds nuw i8, ptr %8, i64 136
   %58 = load i32, ptr %57, align 8, !tbaa !52
   %59 = add nsw i32 %58, 1
@@ -5060,7 +5054,7 @@ _ZN10duckdb_re28PODArrayINS_4Prog4InstEED2Ev.exit.i: ; preds = %80, %.thread.i
   br i1 %87, label %88, label %89
 
 88:                                               ; preds = %.noexc.thread, %.noexc
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 8, !tbaa !71
   %.4..4..4..4..4..4..4..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i64 0, ptr %.4..4..4..4..4..4..4..sroa_idx, align 4
@@ -5069,7 +5063,7 @@ _ZN10duckdb_re28PODArrayINS_4Prog4InstEED2Ev.exit.i: ; preds = %80, %.thread.i
   %.0..0..0..0..0..0..0..fca.0.load.i.i = load i64, ptr %6, align 8
   %.8..8..8..8..8..8..8..fca.1.gep.sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.8..8..8..8..8..8..8..fca.1.load.i.i = load i64, ptr %.8..8..8..8..8..8..8..fca.1.gep.sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.sroa.2.0.extract.trunc.i = trunc i64 %.8..8..8..8..8..8..8..fca.1.load.i.i to i40
   %.8..8..8..8..8..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i40 %.sroa.2.0.extract.trunc.i, ptr %.8..8..8..8..8..sroa_idx, align 8
@@ -5096,7 +5090,7 @@ _ZN10duckdb_re28PODArrayINS_4Prog4InstEED2Ev.exit.i: ; preds = %80, %.thread.i
   %.0..0..fca.0.load.i = phi i64 [ %.0..0..0..0..0..fca.0.load.pre.i, %.noexc72 ], [ %.0..0..0..0..0..0..0..fca.0.load.i.i, %88 ]
   %.8..8..8..8..8..fca.1.gep.sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.8..8..8..8..8..fca.1.load.i = load i64, ptr %.8..8..8..8..8..fca.1.gep.sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.sroa.219.8.insert.ext = and i64 %.8..8..8..8..8..fca.1.load.i, 1099511627775
   %95 = call { i64, i64 } @_ZN10duckdb_re28Compiler3CatENS_4FragES1_(ptr noundef nonnull align 8 dereferenceable(228) %8, i64 %.fca.0.extract30, i64 %.sroa.27.8.insert.ext.i, i64 %.0..0..fca.0.load.i, i64 %.sroa.219.8.insert.ext)
   %.fca.0.extract10 = extractvalue { i64, i64 } %95, 0
@@ -5133,7 +5127,7 @@ _ZN10duckdb_re28PODArrayINS_4Prog4InstEED2Ev.exit.i: ; preds = %80, %.thread.i
   br i1 %38, label %151, label %105
 
 105:                                              ; preds = %103, %104
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %106 = load i8, ptr %47, align 8, !tbaa !49, !range !56, !noundef !57
   %107 = trunc nuw i8 %106 to i1
   br i1 %107, label %.noexc79.thread, label %108
@@ -5227,7 +5221,7 @@ _ZN10duckdb_re28PODArrayINS_4Prog4InstEED2Ev.exit.i94: ; preds = %131, %.thread.
   br i1 %138, label %139, label %140
 
 139:                                              ; preds = %.noexc79.thread, %.noexc79
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 8, !tbaa !71
   %.4..4..4..4..4..4..4..4..4..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i64 0, ptr %.4..4..4..4..4..4..4..4..4..sroa_idx, align 4
@@ -5236,7 +5230,7 @@ _ZN10duckdb_re28PODArrayINS_4Prog4InstEED2Ev.exit.i94: ; preds = %131, %.thread.
   %.0..0..0..0..0..0..0..0..0..fca.0.load.i.i.i = load i64, ptr %4, align 8
   %.8..8..8..8..8..8..8..8..8..fca.1.gep.sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.8..8..8..8..8..8..8..8..8..fca.1.load.i.i.i = load i64, ptr %.8..8..8..8..8..8..8..8..8..fca.1.gep.sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.sroa.2.0.extract.trunc.i.i = trunc i64 %.8..8..8..8..8..8..8..8..8..fca.1.load.i.i.i to i40
   %.8..8..8..8..8..8..8..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i40 %.sroa.2.0.extract.trunc.i.i, ptr %.8..8..8..8..8..8..8..sroa_idx, align 8
@@ -5266,7 +5260,7 @@ _ZN10duckdb_re28Compiler9ByteRangeEiib.exit.i:    ; preds = %.noexc80, %139
   %.0..0..fca.0.load.i.i = phi i64 [ %.0..0..0..0..0..0..0..fca.0.load.pre.i.i, %.noexc80 ], [ %.0..0..0..0..0..0..0..0..0..fca.0.load.i.i.i, %139 ]
   %.8..8..8..8..8..8..8..fca.1.gep.sroa_idx121 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.8..8..8..8..8..8..8..fca.1.load.i.i76 = load i64, ptr %.8..8..8..8..8..8..8..fca.1.gep.sroa_idx121, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.sroa.26.8.insert.ext.i = and i64 %.8..8..8..8..8..8..8..fca.1.load.i.i76, 1099511627775
   %146 = invoke { i64, i64 } @_ZN10duckdb_re28Compiler4StarENS_4FragEb(ptr noundef nonnull align 8 dereferenceable(228) %8, i64 %.0..0..fca.0.load.i.i, i64 %.sroa.26.8.insert.ext.i, i1 noundef zeroext true)
           to label %147 unwind label %149
@@ -5296,16 +5290,16 @@ _ZN10duckdb_re28Compiler9ByteRangeEiib.exit.i:    ; preds = %.noexc80, %139
 
 155:                                              ; preds = %46, %151, %31
   %.0 = phi ptr [ null, %31 ], [ null, %46 ], [ %154, %151 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @_ZN10duckdb_re28CompilerD2Ev(ptr noundef nonnull align 8 dereferenceable(228) %8) #24
-  call void @llvm.lifetime.end.p0(i64 232, ptr nonnull %8) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret ptr %.0
 
 156:                                              ; preds = %50, %54, %101, %149, %52, %33
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %34, %33 ], [ %51, %50 ], [ %53, %52 ], [ %55, %54 ], [ %150, %149 ], [ %102, %101 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @_ZN10duckdb_re28CompilerD2Ev(ptr noundef nonnull align 8 dereferenceable(228) %8) #24
-  call void @llvm.lifetime.end.p0(i64 232, ptr nonnull %8) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   resume { ptr, i32 } %.pn.pn.pn.pn
 }
 
@@ -5315,7 +5309,7 @@ declare noundef ptr @_ZN10duckdb_re26Regexp8SimplifyEv(ptr noundef nonnull align
 define internal fastcc noundef zeroext i1 @_ZN10duckdb_re2L13IsAnchorStartEPPNS_6RegexpEi(ptr noundef nonnull captures(none) %0, i32 noundef range(i32 0, 5) %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = load ptr, ptr %0, align 8, !tbaa !128
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = icmp eq ptr %4, null
   %6 = icmp samesign ugt i32 %1, 3
   %or.cond = select i1 %5, i1 true, i1 %6
@@ -5408,7 +5402,7 @@ _ZN10duckdb_re28PODArrayIPNS_6RegexpEED2Ev.exit:  ; preds = %46
 _ZN10duckdb_re28PODArrayIPNS_6RegexpEED2Ev.exit38: ; preds = %33, %31
   %.pn = phi { ptr, i32 } [ %34, %33 ], [ %32, %31 ]
   tail call void @_ZdlPv(ptr noundef nonnull %24) #23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn
 
 47:                                               ; preds = %12
@@ -5457,7 +5451,7 @@ _ZN10duckdb_re28PODArrayIPNS_6RegexpEED2Ev.exit38: ; preds = %33, %31
 
 73:                                               ; preds = %67, %7, %47, %9, %2, %68, %60, %_ZN10duckdb_re28PODArrayIPNS_6RegexpEED2Ev.exit
   %.032 = phi i1 [ true, %_ZN10duckdb_re28PODArrayIPNS_6RegexpEED2Ev.exit ], [ true, %60 ], [ true, %68 ], [ false, %2 ], [ false, %9 ], [ false, %47 ], [ false, %7 ], [ false, %67 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.032
 }
 
@@ -5465,7 +5459,7 @@ _ZN10duckdb_re28PODArrayIPNS_6RegexpEED2Ev.exit38: ; preds = %33, %31
 define internal fastcc noundef zeroext i1 @_ZN10duckdb_re2L11IsAnchorEndEPPNS_6RegexpEi(ptr noundef nonnull captures(none) %0, i32 noundef range(i32 0, 5) %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = load ptr, ptr %0, align 8, !tbaa !128
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = icmp eq ptr %4, null
   %6 = icmp samesign ugt i32 %1, 3
   %or.cond = select i1 %5, i1 true, i1 %6
@@ -5565,7 +5559,7 @@ _ZN10duckdb_re28PODArrayIPNS_6RegexpEED2Ev.exit:  ; preds = %54
 _ZN10duckdb_re28PODArrayIPNS_6RegexpEED2Ev.exit40: ; preds = %52, %37
   %.pn = phi { ptr, i32 } [ %53, %52 ], [ %38, %37 ]
   tail call void @_ZdlPv(ptr noundef nonnull %27) #23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn
 
 55:                                               ; preds = %12
@@ -5614,7 +5608,7 @@ _ZN10duckdb_re28PODArrayIPNS_6RegexpEED2Ev.exit40: ; preds = %52, %37
 
 81:                                               ; preds = %75, %7, %55, %9, %2, %76, %68, %_ZN10duckdb_re28PODArrayIPNS_6RegexpEED2Ev.exit
   %.034 = phi i1 [ true, %_ZN10duckdb_re28PODArrayIPNS_6RegexpEED2Ev.exit ], [ true, %68 ], [ true, %76 ], [ false, %2 ], [ false, %9 ], [ false, %55 ], [ false, %7 ], [ false, %75 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.034
 }
 
@@ -5624,13 +5618,13 @@ declare void @_ZN10duckdb_re26Regexp6DecrefEv(ptr noundef nonnull align 8 derefe
 define hidden { i64, i64 } @_ZN10duckdb_re28Compiler7DotStarEv(ptr noundef nonnull align 8 captures(none) dereferenceable(228) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %"struct.duckdb_re2::Frag", align 8
   %3 = alloca %"struct.duckdb_re2::Frag", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = tail call noundef i32 @_ZN10duckdb_re28Compiler9AllocInstEi(ptr noundef nonnull align 8 dereferenceable(228) %0, i32 noundef 1)
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %6, label %7
 
 6:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 8, !tbaa !71
   %.4..4..4..4..4..4..4..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i64 0, ptr %.4..4..4..4..4..4..4..sroa_idx, align 4
@@ -5639,7 +5633,7 @@ define hidden { i64, i64 } @_ZN10duckdb_re28Compiler7DotStarEv(ptr noundef nonnu
   %.0..0..0..0..0..0..0..fca.0.load.i.i = load i64, ptr %2, align 8
   %.8..8..8..8..8..8..8..fca.1.gep.sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.8..8..8..8..8..8..8..fca.1.load.i.i = load i64, ptr %.8..8..8..8..8..8..8..fca.1.gep.sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.sroa.2.0.extract.trunc.i = trunc i64 %.8..8..8..8..8..8..8..fca.1.load.i.i to i40
   %.8..8..8..8..8..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i40 %.sroa.2.0.extract.trunc.i, ptr %.8..8..8..8..8..sroa_idx, align 8
@@ -5666,7 +5660,7 @@ _ZN10duckdb_re28Compiler9ByteRangeEiib.exit:      ; preds = %6, %7
   %.0..0..fca.0.load.i = phi i64 [ %.0..0..0..0..0..fca.0.load.pre.i, %7 ], [ %.0..0..0..0..0..0..0..fca.0.load.i.i, %6 ]
   %.8..8..8..8..8..fca.1.gep.sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.8..8..8..8..8..fca.1.load.i = load i64, ptr %.8..8..8..8..8..fca.1.gep.sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.sroa.26.8.insert.ext = and i64 %.8..8..8..8..8..fca.1.load.i, 1099511627775
   %13 = tail call { i64, i64 } @_ZN10duckdb_re28Compiler4StarENS_4FragEb(ptr noundef nonnull align 8 dereferenceable(228) %0, i64 %.0..0..fca.0.load.i, i64 %.sroa.26.8.insert.ext, i1 noundef zeroext true)
   %.fca.1.extract = extractvalue { i64, i64 } %13, 1
@@ -5740,13 +5734,13 @@ _ZN10duckdb_re28PODArrayINS_4Prog4InstEEaSEOS3_.exit: ; preds = %20, %27
   br i1 %38, label %59, label %39
 
 39:                                               ; preds = %_ZN10duckdb_re28PODArrayINS_4Prog4InstEEaSEOS3_.exit
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %40, ptr %3, align 8, !tbaa !163
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 0, ptr %41, align 8, !tbaa !103
   store i8 0, ptr %40, align 8, !tbaa !75
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %42 = invoke noundef zeroext i1 @_ZN10duckdb_re26Regexp22RequiredPrefixForAccelEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPb(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %3, ptr noundef nonnull %4)
           to label %43 unwind label %48
 
@@ -5763,7 +5757,7 @@ _ZN10duckdb_re28PODArrayINS_4Prog4InstEEaSEOS3_.exit: ; preds = %20, %27
 48:                                               ; preds = %44, %39
   %49 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %50 = load ptr, ptr %3, align 8, !tbaa !102
   %51 = icmp eq ptr %50, %40
   br i1 %51, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -5779,11 +5773,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %49
 
 54:                                               ; preds = %44, %43
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %55 = load ptr, ptr %3, align 8, !tbaa !102
   %56 = icmp eq ptr %55, %40
   br i1 %56, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i12, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i11
@@ -5799,7 +5793,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i11
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i12, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i11
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %59
 
 59:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13, %_ZN10duckdb_re28PODArrayINS_4Prog4InstEEaSEOS3_.exit
@@ -5867,7 +5861,7 @@ define hidden noundef ptr @_ZN10duckdb_re28Compiler10CompileSetEPNS_6RegexpENS_3
   %7 = alloca %"struct.duckdb_re2::Frag", align 8
   %8 = alloca i8, align 1
   %9 = alloca %"class.duckdb_re2::StringPiece", align 8
-  call void @llvm.lifetime.start.p0(i64 232, ptr nonnull %6) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN10duckdb_re28CompilerC2Ev(ptr noundef nonnull align 8 dereferenceable(228) %6)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %11 = load i16, ptr %10, align 2, !tbaa !116
@@ -5959,7 +5953,7 @@ define hidden noundef ptr @_ZN10duckdb_re28Compiler10CompileSetEPNS_6RegexpENS_3
   br i1 %48, label %49, label %93
 
 49:                                               ; preds = %44
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 136
   %51 = load i32, ptr %50, align 8, !tbaa !52
   %52 = add nsw i32 %51, 1
@@ -6049,7 +6043,7 @@ _ZN10duckdb_re28PODArrayINS_4Prog4InstEED2Ev.exit.i: ; preds = %73, %.thread.i
   br i1 %80, label %81, label %82
 
 81:                                               ; preds = %.noexc.thread, %.noexc
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 8, !tbaa !71
   %.4..4..4..4..4..4..4..4..4..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i64 0, ptr %.4..4..4..4..4..4..4..4..4..sroa_idx, align 4
@@ -6058,7 +6052,7 @@ _ZN10duckdb_re28PODArrayINS_4Prog4InstEED2Ev.exit.i: ; preds = %73, %.thread.i
   %.0..0..0..0..0..0..0..0..0..fca.0.load.i.i.i = load i64, ptr %4, align 8
   %.8..8..8..8..8..8..8..8..8..fca.1.gep.sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.8..8..8..8..8..8..8..8..8..fca.1.load.i.i.i = load i64, ptr %.8..8..8..8..8..8..8..8..8..fca.1.gep.sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.sroa.2.0.extract.trunc.i.i = trunc i64 %.8..8..8..8..8..8..8..8..8..fca.1.load.i.i.i to i40
   %.8..8..8..8..8..8..8..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i40 %.sroa.2.0.extract.trunc.i.i, ptr %.8..8..8..8..8..8..8..sroa_idx, align 8
@@ -6088,7 +6082,7 @@ _ZN10duckdb_re28Compiler9ByteRangeEiib.exit.i:    ; preds = %.noexc52, %81
   %.0..0..fca.0.load.i.i = phi i64 [ %.0..0..0..0..0..0..0..fca.0.load.pre.i.i, %.noexc52 ], [ %.0..0..0..0..0..0..0..0..0..fca.0.load.i.i.i, %81 ]
   %.8..8..8..8..8..8..8..fca.1.gep.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.8..8..8..8..8..8..8..fca.1.load.i.i = load i64, ptr %.8..8..8..8..8..8..8..fca.1.gep.sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.sroa.26.8.insert.ext.i = and i64 %.8..8..8..8..8..8..8..fca.1.load.i.i, 1099511627775
   %88 = invoke { i64, i64 } @_ZN10duckdb_re28Compiler4StarENS_4FragEb(ptr noundef nonnull align 8 dereferenceable(228) %6, i64 %.0..0..fca.0.load.i.i, i64 %.sroa.26.8.insert.ext.i, i1 noundef zeroext true)
           to label %89 unwind label %91
@@ -6128,9 +6122,9 @@ _ZN10duckdb_re28Compiler9ByteRangeEiib.exit.i:    ; preds = %.noexc52, %81
   br label %113
 
 102:                                              ; preds = %98
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i8 0, ptr %8, align 1, !tbaa !78
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr @.str.5, ptr %9, align 8, !tbaa !166
   %103 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 12, ptr %103, align 8, !tbaa !168
@@ -6150,26 +6144,26 @@ _ZN10duckdb_re28Compiler9ByteRangeEiib.exit.i:    ; preds = %.noexc52, %81
 109:                                              ; preds = %102
   %110 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #24
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %113
 
 111:                                              ; preds = %105, %108
   %.3 = phi ptr [ null, %108 ], [ %97, %105 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #24
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %112
 
 112:                                              ; preds = %38, %98, %111, %28
   %.0 = phi ptr [ null, %28 ], [ null, %38 ], [ %.3, %111 ], [ null, %98 ]
   call void @_ZN10duckdb_re28CompilerD2Ev(ptr noundef nonnull align 8 dereferenceable(228) %6) #24
-  call void @llvm.lifetime.end.p0(i64 232, ptr nonnull %6) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0
 
 113:                                              ; preds = %30, %100, %109, %91, %42
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %31, %30 ], [ %92, %91 ], [ %43, %42 ], [ %110, %109 ], [ %101, %100 ]
   call void @_ZN10duckdb_re28CompilerD2Ev(ptr noundef nonnull align 8 dereferenceable(228) %6) #24
-  call void @llvm.lifetime.end.p0(i64 232, ptr nonnull %6) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %.pn.pn.pn.pn
 }
 
@@ -6182,7 +6176,7 @@ define hidden noundef ptr @_ZN10duckdb_re24Prog10CompileSetEPNS_6RegexpENS_3RE26
 }
 
 ; Function Attrs: noinline noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #16 comdat {
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #15 comdat {
   %2 = tail call ptr @__cxa_begin_catch(ptr %0) #24
   tail call void @_ZSt9terminatev() #26
   unreachable
@@ -6191,16 +6185,16 @@ define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_un
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #17
+declare void @_ZSt9terminatev() local_unnamed_addr #16
 
 ; Function Attrs: mustprogress uwtable
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #0 align 2
 
 ; Function Attrs: nounwind
-declare void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(216)) unnamed_addr #7
+declare void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(216)) unnamed_addr #6
 
 ; Function Attrs: nounwind
-declare void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #7
+declare void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #6
 
 declare noundef ptr @_ZN10duckdb_re26Regexp6IncrefEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #2
 
@@ -6211,13 +6205,13 @@ declare noundef ptr @_ZN10duckdb_re26Regexp7CaptureEPS0_NS0_10ParseFlagsEi(ptr n
 declare noundef ptr @_ZN10duckdb_re26Regexp13LiteralStringEPiiNS0_10ParseFlagsE(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: noreturn
-declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #18
+declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #17
 
 ; Function Attrs: noreturn
-declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #18
+declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN10duckdb_re26Regexp6WalkerINS_4FragEED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN10duckdb_re26Regexp6WalkerINS_4FragEED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN10duckdb_re26Regexp6WalkerINS_4FragEEE, i64 16), ptr %0, align 8, !tbaa !3
   invoke void @_ZN10duckdb_re26Regexp6WalkerINS_4FragEE5ResetEv(ptr noundef nonnull align 8 dereferenceable(96) %0)
           to label %2 unwind label %16
@@ -6266,27 +6260,27 @@ _ZNSt5stackIN10duckdb_re29WalkStateINS0_4FragEEESt5dequeIS3_SaIS3_EEED2Ev.exit: 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN10duckdb_re26Regexp6WalkerINS_4FragEED0Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #6 comdat align 2 {
+define linkonce_odr hidden void @_ZN10duckdb_re26Regexp6WalkerINS_4FragEED0Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #5 comdat align 2 {
   tail call void @llvm.trap() #26
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden { i64, i64 } @_ZN10duckdb_re26Regexp6WalkerINS_4FragEE8PreVisitEPS0_S2_Pb(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1, i64 %2, i64 %3, ptr noundef %4) unnamed_addr #6 comdat align 2 {
+define linkonce_odr hidden { i64, i64 } @_ZN10duckdb_re26Regexp6WalkerINS_4FragEE8PreVisitEPS0_S2_Pb(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1, i64 %2, i64 %3, ptr noundef %4) unnamed_addr #5 comdat align 2 {
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %2, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %3, 1
   ret { i64, i64 } %.fca.1.insert
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden { i64, i64 } @_ZN10duckdb_re26Regexp6WalkerINS_4FragEE9PostVisitEPS0_S2_S2_PS2_i(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1, i64 %2, i64 %3, i64 %4, i64 %5, ptr noundef %6, i32 noundef %7) unnamed_addr #6 comdat align 2 {
+define linkonce_odr hidden { i64, i64 } @_ZN10duckdb_re26Regexp6WalkerINS_4FragEE9PostVisitEPS0_S2_S2_PS2_i(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1, i64 %2, i64 %3, i64 %4, i64 %5, ptr noundef %6, i32 noundef %7) unnamed_addr #5 comdat align 2 {
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %4, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %5, 1
   ret { i64, i64 } %.fca.1.insert
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden { i64, i64 } @_ZN10duckdb_re26Regexp6WalkerINS_4FragEE4CopyES2_(ptr noundef nonnull align 8 dereferenceable(96) %0, i64 %1, i64 %2) unnamed_addr #6 comdat align 2 {
+define linkonce_odr hidden { i64, i64 } @_ZN10duckdb_re26Regexp6WalkerINS_4FragEE4CopyES2_(ptr noundef nonnull align 8 dereferenceable(96) %0, i64 %1, i64 %2) unnamed_addr #5 comdat align 2 {
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %1, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %2, 1
   ret { i64, i64 } %.fca.1.insert
@@ -6435,7 +6429,7 @@ declare void @__cxa_rethrow() local_unnamed_addr
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #19
+declare void @llvm.trap() #18
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN10duckdb_re26Regexp6WalkerINS_4FragEE5ResetEv(ptr noundef nonnull align 8 dereferenceable(96) %0) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -6448,7 +6442,7 @@ define linkonce_odr hidden void @_ZN10duckdb_re26Regexp6WalkerINS_4FragEE5ResetE
   br i1 %7, label %.loopexit, label %8
 
 8:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %2) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i8 0, ptr %2, align 8, !tbaa !90
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %9)
@@ -6488,7 +6482,7 @@ _ZN10LogMessageD2Ev.exit:                         ; preds = %_ZNKSt7__cxx1112bas
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %24) #24
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 120
   call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %25) #24
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %2) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %26 = load ptr, ptr %3, align 8, !tbaa !176
   %27 = load ptr, ptr %4, align 8, !tbaa !176
   %28 = icmp eq ptr %26, %27
@@ -6547,7 +6541,7 @@ _ZNSt5stackIN10duckdb_re29WalkStateINS0_4FragEEESt5dequeIS3_SaIS3_EEE3topEv.exit
   %57 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN10LogMessageD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %2) #24
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %2) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %57
 
 58:                                               ; preds = %_ZNSt5stackIN10duckdb_re29WalkStateINS0_4FragEEESt5dequeIS3_SaIS3_EEE3topEv.exit.thread, %_ZNSt5stackIN10duckdb_re29WalkStateINS0_4FragEEESt5dequeIS3_SaIS3_EEE3topEv.exit2, %55, %_ZNSt5stackIN10duckdb_re29WalkStateINS0_4FragEEESt5dequeIS3_SaIS3_EEE3topEv.exit
@@ -6794,7 +6788,7 @@ define linkonce_odr hidden { i64, i64 } @_ZN10duckdb_re26Regexp6WalkerINS_4FragE
   br i1 %11, label %12, label %32
 
 12:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %7) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 0, ptr %7, align 8, !tbaa !90
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %13)
@@ -6834,19 +6828,19 @@ _ZN10LogMessageD2Ev.exit:                         ; preds = %_ZNKSt7__cxx1112bas
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %28) #24
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 120
   call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %29) #24
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %7) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.loopexit
 
 30:                                               ; preds = %12
   %31 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN10LogMessageD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %7) #24
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %7) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   resume { ptr, i32 } %31
 
 32:                                               ; preds = %5
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %8) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %1, ptr %8, align 8, !tbaa !180
   %34 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 -1, ptr %34, align 8, !tbaa !189
@@ -6888,7 +6882,7 @@ _ZN10LogMessageD2Ev.exit:                         ; preds = %_ZNKSt7__cxx1112bas
   br label %_ZNSt5stackIN10duckdb_re29WalkStateINS0_4FragEEESt5dequeIS3_SaIS3_EEE4pushEOS3_.exit
 
 _ZNSt5stackIN10duckdb_re29WalkStateINS0_4FragEEESt5dequeIS3_SaIS3_EEE4pushEOS3_.exit: ; preds = %48, %51
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %8) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 92
@@ -6958,7 +6952,7 @@ _ZNSt5stackIN10duckdb_re29WalkStateINS0_4FragEEESt5dequeIS3_SaIS3_EEE3topEv.exit
   br label %175
 
 90:                                               ; preds = %80
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 0, ptr %9, align 1, !tbaa !78
   %91 = getelementptr inbounds i8, ptr %75, i64 -60
   %.sroa.024.0.copyload = load i64, ptr %91, align 4
@@ -7020,12 +7014,12 @@ _ZNSt5stackIN10duckdb_re29WalkStateINS0_4FragEEESt5dequeIS3_SaIS3_EEE3topEv.exit
 
 .thread:                                          ; preds = %99, %116, %103
   %.pre113.pre = phi i32 [ 0, %99 ], [ %.pre113.pre.pre, %116 ], [ 0, %103 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %118
 
 117:                                              ; preds = %90
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %6, ptr noundef nonnull align 4 dereferenceable(13) %96, i64 13, i1 false), !tbaa.struct !77
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %175
 
 118:                                              ; preds = %.thread, %_ZNSt5stackIN10duckdb_re29WalkStateINS0_4FragEEESt5dequeIS3_SaIS3_EEE3topEv.exit
@@ -7094,7 +7088,7 @@ _ZNSt5stackIN10duckdb_re29WalkStateINS0_4FragEEESt5dequeIS3_SaIS3_EEE3topEv.exit
 
 ._crit_edge118:                                   ; preds = %129, %._crit_edge
   %152 = phi ptr [ %.pre, %._crit_edge ], [ %136, %129 ]
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %10) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %153 = getelementptr inbounds i8, ptr %75, i64 -44
   %.sroa.06.0.copyload = load i64, ptr %153, align 4
   %.sroa.27.0..sroa_idx = getelementptr inbounds i8, ptr %75, i64 -36
@@ -7128,7 +7122,7 @@ _ZNSt5stackIN10duckdb_re29WalkStateINS0_4FragEEESt5dequeIS3_SaIS3_EEE3topEv.exit
   br label %_ZNSt5stackIN10duckdb_re29WalkStateINS0_4FragEEESt5dequeIS3_SaIS3_EEE4pushEOS3_.exit101
 
 _ZNSt5stackIN10duckdb_re29WalkStateINS0_4FragEEESt5dequeIS3_SaIS3_EEE4pushEOS3_.exit101: ; preds = %157, %160
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %10) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.backedge, !llvm.loop !196
 
 .thread107:                                       ; preds = %121, %118
@@ -7325,7 +7319,7 @@ _ZNSt5dequeIN10duckdb_re29WalkStateINS0_4FragEEESaIS3_EE22_M_reserve_map_at_back
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #18
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt5dequeIN10duckdb_re29WalkStateINS0_4FragEEESaIS3_EE17_M_reallocate_mapEmb(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -7444,6 +7438,12 @@ _ZSt4copyIPPN10duckdb_re29WalkStateINS0_4FragEEES5_ET0_T_S7_S6_.exit: ; preds = 
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #19
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #19
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #20
 
@@ -7463,22 +7463,22 @@ attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping
 attributes #1 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { cold nofree noreturn }
-attributes #18 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #4 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { cold nofree noreturn }
+attributes #17 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #19 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #20 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #21 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #22 = { builtin allocsize(0) }

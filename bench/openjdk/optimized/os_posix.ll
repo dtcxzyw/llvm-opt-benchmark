@@ -895,13 +895,13 @@ define hidden noundef ptr @_ZN2os26map_memory_to_file_alignedEmmi8MEMFLAGS(i64 n
   %8 = alloca %class.FormatBuffer, align 8
   %9 = alloca %class.NativeCallStack, align 8
   %10 = add i64 %1, %0
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %11 = tail call ptr @mmap64(ptr noundef null, i64 noundef %10, i32 noundef 0, i32 noundef 16418, i32 noundef -1, i64 noundef 0) #28
   %.not.i = icmp eq ptr %11, inttoptr (i64 -1 to ptr)
   br i1 %.not.i, label %_ZL22reserve_mmapped_memorymPc8MEMFLAGS.exit.thread, label %12
 
 _ZL22reserve_mmapped_memorymPc8MEMFLAGS.exit.thread: ; preds = %4
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %56
 
 12:                                               ; preds = %4
@@ -916,7 +916,7 @@ _ZL22reserve_mmapped_memorymPc8MEMFLAGS.exit.thread: ; preds = %4
 
 16:                                               ; preds = %15, %12
   %17 = phi i32 [ %13, %12 ], [ %.pre.i, %15 ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %18 = icmp sgt i32 %17, 1
   %19 = icmp ne ptr %11, null
   %or.cond.i.i = and i1 %19, %18
@@ -926,13 +926,13 @@ _ZL22reserve_mmapped_memorymPc8MEMFLAGS.exit.thread18: ; preds = %16
   call void @_ZN14ThreadCriticalC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #28
   %20 = call noundef zeroext i1 @_ZN20VirtualMemoryTracker19add_reserved_regionEPhmRK15NativeCallStack8MEMFLAGS(ptr noundef nonnull %11, i64 noundef %10, ptr noundef nonnull align 8 dereferenceable(32) %7, i8 noundef zeroext %3) #28
   call void @_ZN14ThreadCriticalD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #28
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %22
 
 _ZL22reserve_mmapped_memorymPc8MEMFLAGS.exit:     ; preds = %16
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %21 = icmp eq ptr %11, null
   br i1 %21, label %56, label %22
 
@@ -989,7 +989,7 @@ _ZL17chop_extra_memorymmPcm.exit:                 ; preds = %37, %38
 
 50:                                               ; preds = %46, %49
   %51 = phi i32 [ %47, %46 ], [ %.pre, %49 ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %52 = icmp sgt i32 %51, 1
   %53 = icmp ne i64 %27, 0
   %or.cond.i = and i1 %53, %52
@@ -1002,7 +1002,7 @@ _ZL17chop_extra_memorymmPcm.exit:                 ; preds = %37, %38
   br label %_ZN10MemTracker28record_virtual_memory_commitEPvmRK15NativeCallStack.exit
 
 _ZN10MemTracker28record_virtual_memory_commitEPvmRK15NativeCallStack.exit: ; preds = %50, %54
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %56
 
 56:                                               ; preds = %_ZL22reserve_mmapped_memorymPc8MEMFLAGS.exit.thread, %_ZL22reserve_mmapped_memorymPc8MEMFLAGS.exit, %_ZN10MemTracker28record_virtual_memory_commitEPvmRK15NativeCallStack.exit
@@ -1839,12 +1839,12 @@ declare i32 @nanosleep(ptr noundef, ptr noundef) local_unnamed_addr #2
 define hidden void @_ZN2os17naked_short_sleepEl(i64 noundef %0) local_unnamed_addr #1 align 2 {
   %2 = alloca %struct.timespec, align 8
   %3 = mul nsw i64 %0, 1000000
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 0, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %3, ptr %4, align 8
   %5 = call i32 @nanosleep(ptr noundef nonnull %2, ptr noundef null) #28
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -2146,10 +2146,10 @@ define hidden noundef zeroext i1 @_ZN2os5Posix21handle_stack_overflowEP10JavaThr
   store ptr null, ptr %39, align 8
   %40 = getelementptr inbounds nuw i8, ptr %10, i64 36
   store i8 0, ptr %40, align 4
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %41 = load ptr, ptr @_ZN19AbstractInterpreter5_codeE, align 8
   %.not.i.i29 = icmp eq ptr %41, null
   br i1 %.not.i.i29, label %_ZN19TemplateInterpreter8containsEPh.exit.thread.i, label %_ZN19TemplateInterpreter8containsEPh.exit.i
@@ -2220,17 +2220,17 @@ _ZNK8CodeBlob20is_frame_complete_atEPh.exit.thread.i: ; preds = %61, %58
   br label %76
 
 _ZL32get_frame_at_stack_banging_pointP10JavaThreadPhPKvP5frame.exit: ; preds = %_ZN19TemplateInterpreter8containsEPh.exit.thread.i, %54, %61
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZNK10JavaThread18is_vthread_mountedEv.exit
 
 76:                                               ; preds = %_ZNK8CodeBlob20is_frame_complete_atEPh.exit.thread.i, %50, %.sink.split.i
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @_ZN13SharedRuntime40look_for_reserved_stack_annotated_methodEP10JavaThread5frame(ptr dead_on_unwind nonnull writable sret(%class.frame) align 8 %11, ptr noundef nonnull %0, ptr noundef nonnull byval(%class.frame) align 8 %10) #28
   %77 = load ptr, ptr %11, align 8
   %.not = icmp eq ptr %77, null
@@ -2459,14 +2459,14 @@ _ZL19pthread_init_commonv.exit:                   ; preds = %16
   br label %29
 
 29:                                               ; preds = %24, %28, %_ZL19pthread_init_commonv.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %30 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %1) #28
   %31 = load i64, ptr %1, align 8
   %32 = mul nsw i64 %31, 1000000000
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %34 = load i64, ptr %33, align 8
   %35 = add nsw i64 %32, %34
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   store i64 %35, ptr @_ZL18initial_time_count, align 8
   ret void
 }
@@ -2529,7 +2529,7 @@ define hidden void @_ZN2os5Posix14to_RTC_abstimeEP8timespecl(ptr noundef writeon
   %4 = icmp sgt i64 %1, 100000000999
   %5 = mul nsw i64 %1, 1000000
   %6 = select i1 %4, i64 100000000000000000, i64 %5
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %7 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %3) #28
   %8 = load i64, ptr %3, align 8
   %9 = icmp sgt i64 %6, 99999999999999999
@@ -2562,7 +2562,7 @@ _ZL10to_abstimeP8timespeclbb.exit:                ; preds = %10, %12, %20
   %.sink.i.sink.i = phi i64 [ 0, %10 ], [ %22, %20 ], [ %18, %12 ]
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sink.i.sink.i, ptr %23, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -2609,14 +2609,14 @@ define hidden void @_ZN2os18javaTimeNanos_infoEP14jvmtiTimerInfo(ptr noundef wri
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef double @_ZN2os11elapsedTimeEv() local_unnamed_addr #1 align 2 {
   %1 = alloca %struct.timespec, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %2 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %1) #28
   %3 = load i64, ptr %1, align 8
   %4 = mul nsw i64 %3, 1000000000
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = add nsw i64 %4, %6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %8 = load i64, ptr @_ZL18initial_time_count, align 8
   %9 = sub i64 %7, %8
   %10 = sitofp i64 %9 to double
@@ -2627,14 +2627,14 @@ define hidden noundef double @_ZN2os11elapsedTimeEv() local_unnamed_addr #1 alig
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i64 @_ZN2os15elapsed_counterEv() local_unnamed_addr #1 align 2 {
   %1 = alloca %struct.timespec, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %2 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %1) #28
   %3 = load i64, ptr %1, align 8
   %4 = mul nsw i64 %3, 1000000000
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = add nsw i64 %4, %6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %8 = load i64, ptr @_ZL18initial_time_count, align 8
   %9 = sub i64 %7, %8
   ret i64 %9
@@ -2861,7 +2861,7 @@ define hidden noundef range(i32 -3, 1) i32 @_ZN13PlatformEvent10park_nanosEl(ptr
   br i1 %16, label %17, label %57
 
 17:                                               ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.b11.i = load i1, ptr @_ZL29_use_clock_monotonic_condattr, align 1
   %spec.select.i = zext i1 %.b11.i to i32
   %18 = call i32 @clock_gettime(i32 noundef %spec.select.i, ptr noundef nonnull %3) #28
@@ -2896,7 +2896,7 @@ _ZL10to_abstimeP8timespeclbb.exit:                ; preds = %21, %23, %31
   %.sink.i.sink.i = phi i64 [ 0, %21 ], [ %33, %31 ], [ %29, %23 ]
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %.sink.i.sink.i, ptr %34, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %36 = call i32 @pthread_mutex_lock(ptr noundef nonnull %35) #28
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 36
@@ -3031,7 +3031,7 @@ define hidden void @_ZN6Parker4parkEbl(ptr noundef nonnull align 8 dereferenceab
   br i1 %14, label %39, label %16
 
 16:                                               ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.b11.i = load i1, ptr @_ZL29_use_clock_monotonic_condattr, align 1
   %not. = xor i1 %1, true
   %not.or.cond3.i = select i1 %not., i1 %.b11.i, i1 false
@@ -3081,7 +3081,7 @@ _ZL10to_abstimeP8timespeclbb.exit:                ; preds = %21, %23, %31, %_ZL1
   %.sink.i.sink.i = phi i64 [ %.sink.i.i, %_ZL15unpack_abs_timeP8timespecll.exit.i ], [ 0, %21 ], [ %33, %31 ], [ %29, %23 ]
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %.sink.i.sink.i, ptr %38, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %39
 
 39:                                               ; preds = %_ZL10to_abstimeP8timespeclbb.exit, %15
@@ -3254,7 +3254,7 @@ define hidden noundef range(i32 -3, 1) i32 @_ZN15PlatformMonitor4waitEm(ptr noun
   %6 = icmp ugt i64 %1, 100000000999
   %7 = mul nuw nsw i64 %1, 1000000
   %8 = select i1 %6, i64 100000000000000000, i64 %7
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.b11.i = load i1, ptr @_ZL29_use_clock_monotonic_condattr, align 1
   %spec.select.i = zext i1 %.b11.i to i32
   %9 = call i32 @clock_gettime(i32 noundef %spec.select.i, ptr noundef nonnull %3) #28
@@ -3288,7 +3288,7 @@ _ZL10to_abstimeP8timespeclbb.exit:                ; preds = %12, %14, %22
   %.sink.i.sink.i = phi i64 [ 0, %12 ], [ %24, %22 ], [ %20, %14 ]
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %.sink.i.sink.i, ptr %25, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %27 = call i32 @pthread_cond_timedwait(ptr noundef nonnull %26, ptr noundef nonnull %0, ptr noundef nonnull %4) #28
   %28 = icmp eq i32 %27, 0
@@ -3674,14 +3674,14 @@ define linkonce_odr hidden void @_ZN20FormatStringEventLogILm256EE4logvEP6Thread
   br i1 %6, label %39, label %7
 
 7:                                                ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %8 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #28
   %9 = load i64, ptr %5, align 8
   %10 = mul nsw i64 %9, 1000000000
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %12 = load i64, ptr %11, align 8
   %13 = add nsw i64 %10, %12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %14 = load i64, ptr @_ZL18initial_time_count, align 8
   %15 = sub i64 %13, %14
   %16 = sitofp i64 %15 to double
@@ -3799,10 +3799,10 @@ declare i64 @llvm.smax.i64(i64, i64) #25
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #27
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #27
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #27
 
 attributes #0 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

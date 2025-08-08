@@ -226,7 +226,7 @@ define dso_local noundef ptr @php_XML_ParserCreate_MM(ptr noundef readnone captu
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @php_XML_ParserCreateNS(ptr noundef readnone captures(none) %0, i8 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = alloca [2 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 %1, ptr %3, align 1, !tbaa !46
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 0, ptr %4, align 1, !tbaa !46
@@ -274,48 +274,42 @@ define dso_local noundef ptr @php_XML_ParserCreateNS(ptr noundef readnone captur
 
 php_XML_ParserCreate_MM.exit:                     ; preds = %9, %10
   %.0.i = phi ptr [ null, %9 ], [ %5, %10 ]
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0.i
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare noalias ptr @_emalloc_128() local_unnamed_addr #2
+declare noalias ptr @_emalloc_128() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
-declare ptr @xmlCreatePushParserCtxt(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @xmlCreatePushParserCtxt(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @_efree(ptr noundef) local_unnamed_addr #2
+declare void @_efree(ptr noundef) local_unnamed_addr #1
 
-declare i32 @xmlCtxtUseOptions(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @xmlCtxtUseOptions(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #4
+declare void @llvm.assume(i1 noundef) #3
 
-declare ptr @xmlStrdup(ptr noundef) local_unnamed_addr #2
+declare ptr @xmlStrdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @php_XML_SetUserData(ptr noundef writeonly captures(none) initializes((16, 24)) %0, ptr noundef %1) local_unnamed_addr #5 {
+define dso_local void @php_XML_SetUserData(ptr noundef writeonly captures(none) initializes((16, 24)) %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %3, align 8, !tbaa !47
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @XML_GetUserData(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
+define dso_local ptr @XML_GetUserData(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !47
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @php_XML_SetElementHandler(ptr noundef writeonly captures(none) initializes((32, 48)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #5 {
+define dso_local void @php_XML_SetElementHandler(ptr noundef writeonly captures(none) initializes((32, 48)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #4 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %1, ptr %4, align 8, !tbaa !48
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -324,63 +318,63 @@ define dso_local void @php_XML_SetElementHandler(ptr noundef writeonly captures(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @php_XML_SetCharacterDataHandler(ptr noundef writeonly captures(none) initializes((48, 56)) %0, ptr noundef %1) local_unnamed_addr #5 {
+define dso_local void @php_XML_SetCharacterDataHandler(ptr noundef writeonly captures(none) initializes((48, 56)) %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %1, ptr %3, align 8, !tbaa !50
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @php_XML_SetProcessingInstructionHandler(ptr noundef writeonly captures(none) initializes((56, 64)) %0, ptr noundef %1) local_unnamed_addr #5 {
+define dso_local void @php_XML_SetProcessingInstructionHandler(ptr noundef writeonly captures(none) initializes((56, 64)) %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %1, ptr %3, align 8, !tbaa !51
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @php_XML_SetCommentHandler(ptr noundef writeonly captures(none) initializes((64, 72)) %0, ptr noundef %1) local_unnamed_addr #5 {
+define dso_local void @php_XML_SetCommentHandler(ptr noundef writeonly captures(none) initializes((64, 72)) %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %1, ptr %3, align 8, !tbaa !52
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @php_XML_SetDefaultHandler(ptr noundef writeonly captures(none) initializes((72, 80)) %0, ptr noundef %1) local_unnamed_addr #5 {
+define dso_local void @php_XML_SetDefaultHandler(ptr noundef writeonly captures(none) initializes((72, 80)) %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %1, ptr %3, align 8, !tbaa !53
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @php_XML_SetUnparsedEntityDeclHandler(ptr noundef writeonly captures(none) initializes((80, 88)) %0, ptr noundef %1) local_unnamed_addr #5 {
+define dso_local void @php_XML_SetUnparsedEntityDeclHandler(ptr noundef writeonly captures(none) initializes((80, 88)) %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %1, ptr %3, align 8, !tbaa !54
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @php_XML_SetNotationDeclHandler(ptr noundef writeonly captures(none) initializes((88, 96)) %0, ptr noundef %1) local_unnamed_addr #5 {
+define dso_local void @php_XML_SetNotationDeclHandler(ptr noundef writeonly captures(none) initializes((88, 96)) %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr %1, ptr %3, align 8, !tbaa !55
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @php_XML_SetExternalEntityRefHandler(ptr noundef writeonly captures(none) initializes((96, 104)) %0, ptr noundef %1) local_unnamed_addr #5 {
+define dso_local void @php_XML_SetExternalEntityRefHandler(ptr noundef writeonly captures(none) initializes((96, 104)) %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %1, ptr %3, align 8, !tbaa !56
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @php_XML_SetStartNamespaceDeclHandler(ptr noundef writeonly captures(none) initializes((104, 112)) %0, ptr noundef %1) local_unnamed_addr #5 {
+define dso_local void @php_XML_SetStartNamespaceDeclHandler(ptr noundef writeonly captures(none) initializes((104, 112)) %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr %1, ptr %3, align 8, !tbaa !57
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @php_XML_SetEndNamespaceDeclHandler(ptr noundef writeonly captures(none) initializes((112, 120)) %0, ptr noundef %1) local_unnamed_addr #5 {
+define dso_local void @php_XML_SetEndNamespaceDeclHandler(ptr noundef writeonly captures(none) initializes((112, 120)) %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr %1, ptr %3, align 8, !tbaa !58
   ret void
@@ -412,12 +406,12 @@ define dso_local range(i32 0, 2) i32 @php_XML_Parse(ptr noundef readonly capture
   ret i32 %.0
 }
 
-declare i32 @xmlParseChunk(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @xmlParseChunk(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @xmlCtxtGetLastError(ptr noundef) local_unnamed_addr #2
+declare ptr @xmlCtxtGetLastError(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @php_XML_GetErrorCode(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
+define dso_local i32 @php_XML_GetErrorCode(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 136
@@ -426,7 +420,7 @@ define dso_local i32 @php_XML_GetErrorCode(ptr noundef readonly captures(none) %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local ptr @php_XML_ErrorString(i32 noundef %0) local_unnamed_addr #8 {
+define dso_local ptr @php_XML_ErrorString(i32 noundef %0) local_unnamed_addr #7 {
   %or.cond = icmp ugt i32 %0, 101
   br i1 %or.cond, label %6, label %2
 
@@ -442,7 +436,7 @@ define dso_local ptr @php_XML_ErrorString(i32 noundef %0) local_unnamed_addr #8 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @php_XML_GetCurrentLineNumber(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
+define dso_local i32 @php_XML_GetCurrentLineNumber(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
@@ -453,7 +447,7 @@ define dso_local i32 @php_XML_GetCurrentLineNumber(ptr noundef readonly captures
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @php_XML_GetCurrentColumnNumber(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
+define dso_local i32 @php_XML_GetCurrentColumnNumber(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
@@ -496,7 +490,7 @@ define dso_local i64 @php_XML_GetCurrentByteIndex(ptr noundef readonly captures(
   ret i64 %16
 }
 
-declare i64 @xmlByteConsumed(ptr noundef) local_unnamed_addr #2
+declare i64 @xmlByteConsumed(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @php_XML_GetCurrentByteCount(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -533,7 +527,7 @@ php_XML_GetCurrentByteIndex.exit:                 ; preds = %.thread.i, %8, %12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull ptr @php_XML_ExpatVersion() local_unnamed_addr #8 {
+define dso_local noundef nonnull ptr @php_XML_ExpatVersion() local_unnamed_addr #7 {
   ret ptr @.str.1
 }
 
@@ -576,9 +570,9 @@ define dso_local void @php_XML_ParserFree(ptr noundef %0) local_unnamed_addr #0 
   ret void
 }
 
-declare void @xmlFreeDoc(ptr noundef) local_unnamed_addr #2
+declare void @xmlFreeDoc(ptr noundef) local_unnamed_addr #1
 
-declare void @xmlFreeParserCtxt(ptr noundef) local_unnamed_addr #2
+declare void @xmlFreeParserCtxt(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @get_entity(ptr noundef %0, ptr noundef %1) #0 {
@@ -772,7 +766,7 @@ define internal void @start_element_handler(ptr noundef readonly captures(none) 
   %15 = phi ptr [ %25, %.lr.ph ], [ %14, %.preheader ]
   %.131 = phi ptr [ %22, %.lr.ph ], [ %13, %.preheader ]
   %16 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !61
@@ -782,7 +776,7 @@ define internal void @start_element_handler(ptr noundef readonly captures(none) 
   %22 = call ptr @xmlStrncat(ptr noundef %.131, ptr noundef %21, i32 noundef %20) #11
   %23 = load ptr, ptr %4, align 8, !tbaa !61
   call void @_efree(ptr noundef %23) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %24 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.next
   %25 = load ptr, ptr %24, align 8, !tbaa !61
   %.not28 = icmp eq ptr %25, null
@@ -825,7 +819,7 @@ define internal void @end_element_handler(ptr noundef readonly captures(none) %0
   br i1 %.not, label %22, label %10
 
 10:                                               ; preds = %7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %11 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %3, i64 noundef 0, ptr noundef nonnull @.str.7, ptr noundef %1) #11
   %12 = load ptr, ptr %8, align 8, !tbaa !53
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -836,7 +830,7 @@ define internal void @end_element_handler(ptr noundef readonly captures(none) %0
   call void %12(ptr noundef %14, ptr noundef nonnull %15, i32 noundef %17) #11
   %18 = load ptr, ptr %3, align 8, !tbaa !61
   call void @_efree(ptr noundef %18) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %22
 
 19:                                               ; preds = %2
@@ -888,7 +882,7 @@ define internal void @pi_handler(ptr noundef readonly captures(none) %0, ptr nou
   br i1 %.not, label %23, label %11
 
 11:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %12 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %4, i64 noundef 0, ptr noundef nonnull @.str.8, ptr noundef %1, ptr noundef %2) #11
   %13 = load ptr, ptr %9, align 8, !tbaa !53
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -899,7 +893,7 @@ define internal void @pi_handler(ptr noundef readonly captures(none) %0, ptr nou
   call void %13(ptr noundef %15, ptr noundef nonnull %16, i32 noundef %18) #11
   %19 = load ptr, ptr %4, align 8, !tbaa !61
   call void @_efree(ptr noundef %19) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %23
 
 20:                                               ; preds = %3
@@ -1017,7 +1011,7 @@ define internal void @start_element_handler_ns(ptr noundef readonly captures(non
   %indvars.iv180 = phi i64 [ %indvars.iv.next181, %50 ], [ 0, %41 ]
   %.0107154 = phi i32 [ %54, %50 ], [ 0, %41 ]
   %.1136153 = phi ptr [ %52, %50 ], [ %storemerge, %41 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %42 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv180
   %43 = load ptr, ptr %42, align 8, !tbaa !61
   %indvars.iv.next181 = add nuw nsw i64 %indvars.iv180, 2
@@ -1041,7 +1035,7 @@ define internal void @start_element_handler_ns(ptr noundef readonly captures(non
   %52 = call ptr @xmlStrncat(ptr noundef %.1136153, ptr noundef %51, i32 noundef %.0108) #11
   %53 = load ptr, ptr %10, align 8, !tbaa !61
   call void @_efree(ptr noundef %53) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %54 = add nuw nsw i32 %.0107154, 1
   %exitcond183.not = icmp eq i32 %54, %4
   br i1 %exitcond183.not, label %.loopexit140, label %.lr.ph156
@@ -1057,7 +1051,7 @@ define internal void @start_element_handler_ns(ptr noundef readonly captures(non
   %indvars.iv184 = phi i64 [ %indvars.iv.next185, %68 ], [ 0, %.loopexit140 ]
   %.1160 = phi i32 [ %78, %68 ], [ 0, %.loopexit140 ]
   %.3138158 = phi ptr [ %76, %68 ], [ %.0135, %.loopexit140 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %56 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv184
   %57 = load ptr, ptr %56, align 8, !tbaa !61
   %58 = getelementptr i8, ptr %56, i64 8
@@ -1091,7 +1085,7 @@ define internal void @start_element_handler_ns(ptr noundef readonly captures(non
   %76 = call ptr @xmlStrncat(ptr noundef %75, ptr noundef nonnull @.str.16, i32 noundef 1) #11
   %77 = load ptr, ptr %11, align 8, !tbaa !61
   call void @_efree(ptr noundef %77) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %78 = add nuw nsw i32 %.1160, 1
   %exitcond187.not = icmp eq i32 %78, %6
   br i1 %exitcond187.not, label %.loopexit, label %.lr.ph161
@@ -1263,7 +1257,7 @@ define internal void @end_element_handler_ns(ptr noundef readonly captures(none)
   br i1 %.not, label %37, label %12
 
 12:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not15 = icmp eq ptr %2, null
   br i1 %.not15, label %15, label %13
 
@@ -1285,7 +1279,7 @@ define internal void @end_element_handler_ns(ptr noundef readonly captures(none)
   call void %18(ptr noundef %20, ptr noundef %21, i32 noundef %.0) #11
   %22 = load ptr, ptr %5, align 8, !tbaa !61
   call void @_efree(ptr noundef %22) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %37
 
 23:                                               ; preds = %4
@@ -1319,11 +1313,11 @@ qualify_namespace.exit:                           ; preds = %24, %31
   ret void
 }
 
-declare ptr @xmlGetPredefinedEntity(ptr noundef) local_unnamed_addr #2
+declare ptr @xmlGetPredefinedEntity(ptr noundef) local_unnamed_addr #1
 
-declare ptr @xmlGetDocEntity(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @xmlGetDocEntity(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @xmlStrlen(ptr noundef) local_unnamed_addr #2
+declare i32 @xmlStrlen(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @external_entity_ref_handler(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
@@ -1351,34 +1345,40 @@ define internal fastcc void @external_entity_ref_handler(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
-declare void @xmlStopParser(ptr noundef) local_unnamed_addr #2
+declare void @xmlStopParser(ptr noundef) local_unnamed_addr #1
 
-declare ptr @xmlStrncatNew(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @xmlStrncatNew(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i64 @zend_spprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare i64 @zend_spprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare ptr @xmlStrncat(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @xmlStrncat(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #10
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 
-declare noalias ptr @_safe_emalloc(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
+declare noalias ptr @_safe_emalloc(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare ptr @xmlStrndup(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @xmlStrndup(ptr noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { nounwind }
 attributes #12 = { nounwind willreturn memory(read) }
 

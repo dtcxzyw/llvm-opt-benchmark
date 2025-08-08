@@ -840,9 +840,6 @@ _ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinD2Ev.exit22
   resume { ptr, i32 } %.pn
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
-
 ; Function Attrs: mustprogress uwtable
 define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl9Histogram6addBinENS1_12HistogramBinE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -918,11 +915,8 @@ _ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBin
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
-
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #9
+declare float @llvm.fmuladd.f32(float, float, float) #8
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl9Histogram12addEdgeInBinENS1_4EdgeEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, i64 %1, i32 %2, i32 noundef %3) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
@@ -1093,7 +1087,7 @@ define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl14unwrapPhas
   %9 = alloca %"class.cv::_InputArray", align 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !83
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %5) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #24
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -1110,7 +1104,7 @@ define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl14unwrapPhas
           to label %19 unwind label %25
 
 19:                                               ; preds = %18
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store double 2.550000e+02, ptr %6, align 8, !tbaa !94, !alias.scope !96
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store double 2.550000e+02, ptr %20, align 8, !tbaa !94, !alias.scope !96
@@ -1122,7 +1116,7 @@ define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl14unwrapPhas
           to label %24 unwind label %27
 
 24:                                               ; preds = %19
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %37
 
 25:                                               ; preds = %.invoke, %57, %56, %55, %18, %4
@@ -1133,13 +1127,13 @@ define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl14unwrapPhas
 27:                                               ; preds = %19
   %28 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %61
 
 29:                                               ; preds = %17
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %31 = load ptr, ptr %30, align 8, !tbaa !83
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %32 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %33 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 0, ptr %33, align 8
@@ -1149,13 +1143,13 @@ define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl14unwrapPhas
           to label %34 unwind label %35
 
 34:                                               ; preds = %29
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %37
 
 35:                                               ; preds = %29
   %36 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %61
 
 37:                                               ; preds = %24, %34
@@ -1181,7 +1175,7 @@ define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl14unwrapPhas
   unreachable
 
 48:                                               ; preds = %41
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %49 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 0, ptr %49, align 8, !tbaa !109
   %50 = getelementptr inbounds nuw i8, ptr %8, i64 20
@@ -1189,7 +1183,7 @@ define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl14unwrapPhas
   store i32 16842752, ptr %8, align 8, !tbaa !99
   %51 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %11, ptr %51, align 8, !tbaa !83
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %52 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i32 0, ptr %52, align 8, !tbaa !109
   %53 = getelementptr inbounds nuw i8, ptr %9, i64 20
@@ -1201,8 +1195,8 @@ define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl14unwrapPhas
           to label %55 unwind label %59
 
 55:                                               ; preds = %48
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #24
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   invoke void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl41computeEdgesReliabilityAndCreateHistogramEv(ptr noundef nonnull align 8 dereferenceable(104) %0)
           to label %56 unwind label %25
 
@@ -1216,20 +1210,20 @@ define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl14unwrapPhas
 
 58:                                               ; preds = %57
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #24
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %5) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
 59:                                               ; preds = %48
   %60 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #24
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %61
 
 61:                                               ; preds = %59, %35, %27, %25
   %.pn20 = phi { ptr, i32 } [ %26, %25 ], [ %60, %59 ], [ %28, %27 ], [ %36, %35 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #24
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %5) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn20
 }
 
@@ -1245,7 +1239,7 @@ declare noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSERKNS_7Scal
 declare void @_ZNK2cv3Mat6copyToERKNS_12_OutputArrayE(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #3
 
 ; Function Attrs: noreturn
-declare void @_ZN2cv6detail20check_failed_MatTypeEiiRKNS0_12CheckContextE(i32 noundef, i32 noundef, ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #10
+declare void @_ZN2cv6detail20check_failed_MatTypeEiiRKNS0_12CheckContextE(i32 noundef, i32 noundef, ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl24computePixelsReliabilityERKNS_11_InputArrayES4_(ptr noundef nonnull align 8 captures(none) dereferenceable(104) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
@@ -1330,17 +1324,17 @@ define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl24computePix
 57:                                               ; preds = %54
   %58 = add nsw i64 %indvars.iv, -1
   %59 = add nuw nsw i64 %indvars.iv, 1
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %5) #24
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %60 = trunc nsw i64 %58 to i32
   store i32 %60, ptr %6, align 4, !tbaa !116
   store i32 %44, ptr %24, align 4, !tbaa !118
   store i32 3, ptr %25, align 4, !tbaa !119
   store i32 3, ptr %26, align 4, !tbaa !120
   call void @_ZN2cv3MatC1ERKS0_RKNS_5Rect_IiEE(ptr noundef nonnull align 8 dereferenceable(96) %5, ptr noundef nonnull align 8 dereferenceable(96) %17, ptr noundef nonnull align 4 dereferenceable(16) %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #24
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #24
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %27, align 8, !tbaa !109
   store i32 0, ptr %28, align 4, !tbaa !110
   store i32 16842752, ptr %8, align 8, !tbaa !99
@@ -1353,7 +1347,7 @@ define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl24computePix
           to label %63 unwind label %.split.us
 
 63:                                               ; preds = %62
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %64 = load double, ptr %7, align 8, !tbaa !94
   %65 = fcmp une double %64, 2.550000e+02
   br i1 %65, label %193, label %66
@@ -1539,7 +1533,7 @@ _ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4wrapEff.exit151.us: ; pr
   %164 = call float @llvm.fmuladd.f32(float %140, float %140, float %163)
   %165 = call float @llvm.fmuladd.f32(float %161, float %161, float %164)
   %166 = add i64 %indvars.iv, %43
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %167 = trunc i64 %166 to i32
   invoke void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelC1Efibfi(ptr noundef nonnull align 4 dereferenceable(29) %10, float noundef %75, i32 noundef %167, i1 noundef zeroext true, float noundef %165, i32 noundef 0)
           to label %168 unwind label %.loopexit.split.us
@@ -1611,12 +1605,12 @@ _ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_E
   br label %_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE9push_backERKS3_.exit167.us
 
 _ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE9push_backERKS3_.exit167.us: ; preds = %_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i164.us, %171
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %228
 
 193:                                              ; preds = %63
   %194 = add i64 %indvars.iv, %43
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %195 = load ptr, ptr %30, align 8, !tbaa !111
   %196 = load ptr, ptr %31, align 8, !tbaa !112
   %197 = load i64, ptr %196, align 8, !tbaa !113
@@ -1695,18 +1689,18 @@ _ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_E
   br label %_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE9push_backERKS3_.exit137.us
 
 _ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE9push_backERKS3_.exit137.us: ; preds = %_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i135.us, %206
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %228
 
 228:                                              ; preds = %_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE9push_backERKS3_.exit137.us, %_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE9push_backERKS3_.exit167.us
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #24
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %5) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %297
 
 229:                                              ; preds = %54, %53
   %230 = add i64 %indvars.iv, %43
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %231 = load ptr, ptr %30, align 8, !tbaa !111
   %232 = load ptr, ptr %31, align 8, !tbaa !112
   %233 = load i64, ptr %232, align 8, !tbaa !113
@@ -1779,12 +1773,12 @@ _ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_E
   br label %_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE9push_backERKS3_.exit.us
 
 _ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE9push_backERKS3_.exit.us: ; preds = %_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.us, %241
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %297
 
 263:                                              ; preds = %45
   %264 = add i64 %indvars.iv, %43
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %265 = load ptr, ptr %30, align 8, !tbaa !111
   %266 = load ptr, ptr %31, align 8, !tbaa !112
   %267 = load i64, ptr %266, align 8, !tbaa !113
@@ -1857,7 +1851,7 @@ _ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_E
   br label %_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE9push_backERKS3_.exit181.us
 
 _ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE9push_backERKS3_.exit181.us: ; preds = %_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i180.us, %275
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %297
 
 297:                                              ; preds = %_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE9push_backERKS3_.exit181.us, %_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE9push_backERKS3_.exit.us, %228
@@ -1872,7 +1866,7 @@ _ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_E
 .split.us:                                        ; preds = %62, %57
   %298 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %301
 
 .loopexit.split.us:                               ; preds = %_ZNKSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_EE12_M_check_lenEmPKc.exit.i.i153.us, %_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4wrapEff.exit151.us
@@ -1906,7 +1900,7 @@ _ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_E
 
 299:                                              ; preds = %.loopexit.split-lp212, %.loopexit211.split.us
   %lpad.phi215 = phi { ptr, i32 } [ %lpad.loopexit213.us, %.loopexit211.split.us ], [ %lpad.loopexit.split-lp214, %.loopexit.split-lp212 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %301
 
 .split225.us:                                     ; preds = %174
@@ -1923,14 +1917,14 @@ _ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_E
 
 300:                                              ; preds = %.loopexit.split-lp, %.loopexit.split.us
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit.us, %.loopexit.split.us ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %301
 
 301:                                              ; preds = %300, %299, %.split.us
   %.pn119 = phi { ptr, i32 } [ %lpad.phi215, %299 ], [ %lpad.phi, %300 ], [ %298, %.split.us ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #24
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %5) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn119
 
 .split232.us:                                     ; preds = %278
@@ -2444,10 +2438,10 @@ define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12addIncreme
 
 11:                                               ; preds = %2
   tail call void @_ZN2cv3Mat6createEiii(ptr noundef nonnull align 8 dereferenceable(96) %5, i32 noundef %8, i32 noundef %9, i32 noundef 5)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
   %12 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSERKNS_7Scalar_IdEE(ptr noundef nonnull align 8 dereferenceable(96) %5, ptr noundef nonnull align 8 dereferenceable(32) %3)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %13
 
 13:                                               ; preds = %11, %2
@@ -2567,7 +2561,7 @@ define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl17createAndS
   %24 = fcmp olt float %22, 0xC00921FB60000000
   %..i = zext i1 %24 to i32
   %.0.i = select i1 %23, i32 -1, i32 %..i
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeC1Eiii(ptr noundef nonnull align 4 dereferenceable(12) %4, i32 noundef %1, i32 noundef %2, i32 noundef %.0.i)
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -2756,7 +2750,7 @@ _ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE
   br label %_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl9Histogram12addEdgeInBinENS1_4EdgeEi.exit
 
 _ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl9Histogram12addEdgeInBinENS1_4EdgeEi.exit: ; preds = %_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i34, %89, %_ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i, %46
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %112
 
 112:                                              ; preds = %_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl9Histogram12addEdgeInBinENS1_4EdgeEi.exit, %3
@@ -2892,34 +2886,34 @@ _ZNSt12__shared_ptrIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplELN9__g
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN2cv16phase_unwrapping24HistogramPhaseUnwrappingD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden void @_ZN2cv16phase_unwrapping24HistogramPhaseUnwrappingD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #10 comdat align 2 {
   tail call void @llvm.trap() #27
   unreachable
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN2cv16phase_unwrapping24HistogramPhaseUnwrappingD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden void @_ZN2cv16phase_unwrapping24HistogramPhaseUnwrappingD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #10 comdat align 2 {
   tail call void @llvm.trap() #27
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN2cv9Algorithm5clearEv(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr hidden void @_ZN2cv9Algorithm5clearEv(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #11 comdat align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNK2cv9Algorithm5writeERNS_11FileStorageE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #12 comdat align 2 {
+define linkonce_odr hidden void @_ZNK2cv9Algorithm5writeERNS_11FileStorageE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #11 comdat align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN2cv9Algorithm4readERKNS_8FileNodeE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #12 comdat align 2 {
+define linkonce_odr hidden void @_ZN2cv9Algorithm4readERKNS_8FileNodeE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #11 comdat align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZNK2cv9Algorithm5emptyEv(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr hidden noundef zeroext i1 @_ZNK2cv9Algorithm5emptyEv(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #11 comdat align 2 {
   ret i1 false
 }
 
@@ -2930,19 +2924,19 @@ declare void @_ZNK2cv9Algorithm14getDefaultNameB5cxx11Ev(ptr dead_on_unwind writ
 declare void @__cxa_pure_virtual() unnamed_addr
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN2cv16phase_unwrapping15PhaseUnwrappingD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden void @_ZN2cv16phase_unwrapping15PhaseUnwrappingD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #10 comdat align 2 {
   tail call void @llvm.trap() #27
   unreachable
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN2cv16phase_unwrapping15PhaseUnwrappingD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #11 comdat align 2 {
+define linkonce_odr hidden void @_ZN2cv16phase_unwrapping15PhaseUnwrappingD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #10 comdat align 2 {
   tail call void @llvm.trap() #27
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplD1Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplD1Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-80, 80) (i8, ptr @_ZTVN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplE, i64 80), ptr %0, align 8, !tbaa !13
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8, !tbaa !75
@@ -2996,7 +2990,7 @@ _ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplD2Ev.exit: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-80, 80) (i8, ptr @_ZTVN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplE, i64 80), ptr %0, align 8, !tbaa !13
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8, !tbaa !75
@@ -3053,7 +3047,7 @@ _ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplD1Ev.exit: ; preds = %_ZN
 declare void @_ZN2cv3MatC1ERKS0_RKNS_5Rect_IiEE(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef nonnull align 8 dereferenceable(96), ptr noundef nonnull align 4 dereferenceable(16)) unnamed_addr #3
 
 ; Function Attrs: noinline noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #13 comdat {
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #12 comdat {
   %2 = tail call ptr @__cxa_begin_catch(ptr %0) #24
   tail call void @_ZSt9terminatev() #27
   unreachable
@@ -3062,22 +3056,22 @@ define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_un
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #14
+declare void @_ZSt9terminatev() local_unnamed_addr #13
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #15
+declare void @llvm.trap() #14
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #16
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #15
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #10
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: noreturn
-declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #10
+declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #9
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #17
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #16
 
 declare void @__cxa_rethrow() local_unnamed_addr
 
@@ -3278,18 +3272,18 @@ _ZNSt12_Vector_baseIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12Histo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr hidden void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #11 comdat align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #11 comdat align 2 {
   tail call void @_ZdlPv(ptr noundef nonnull %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !13
   %4 = load ptr, ptr %3, align 8
@@ -3298,14 +3292,14 @@ define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv16phase_unwr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %0) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #12 comdat align 2 {
+define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #11 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = icmp eq ptr %1, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
   br i1 %4, label %_ZNKSt9type_infoeqERKS_.exit.thread8, label %5
@@ -3336,7 +3330,13 @@ _ZNKSt9type_infoeqERKS_.exit.thread8:             ; preds = %9, %_ZNKSt9type_inf
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #18
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #17
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #18
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.ceil.f32(float) #19
@@ -3364,17 +3364,17 @@ attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-siz
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #11 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #13 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #14 = { cold nofree noreturn }
-attributes #15 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #16 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #17 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #10 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #12 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #13 = { cold nofree noreturn }
+attributes #14 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #15 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #16 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #19 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #20 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #21 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }

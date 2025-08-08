@@ -241,9 +241,6 @@ Py_DECREF.exit18:                                 ; preds = %19, %23, %26
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare ptr @PyType_FromModuleAndSpec(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare i32 @PyModule_AddType(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -253,9 +250,6 @@ declare ptr @PyLong_FromLong(i64 noundef) local_unnamed_addr #1
 declare ptr @PyObject_Type(ptr noundef) local_unnamed_addr #1
 
 declare ptr @PyObject_GetAttrString(ptr noundef, ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 declare ptr @PyType_GenericNew(ptr noundef, ptr noundef, ptr noundef) #1
 
@@ -429,7 +423,7 @@ _random_Random_getstate_impl.exit:                ; preds = %2, %21, %.loopexit.
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @_random_Random_setstate(ptr noundef writeonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca [624 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 2496, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr i8, ptr %1, i64 8
   %.val.i = load ptr, ptr %4, align 8, !tbaa !17
   %5 = getelementptr i8, ptr %.val.i, i64 168
@@ -509,7 +503,7 @@ define internal noundef ptr @_random_Random_setstate(ptr noundef writeonly captu
 
 _random_Random_setstate_impl.exit:                ; preds = %19, %7, %12, %29, %.thread.i, %.loopexit.loopexit.i
   %.0.i = phi ptr [ null, %12 ], [ null, %.thread.i ], [ null, %7 ], [ null, %29 ], [ @_Py_NoneStruct, %.loopexit.loopexit.i ], [ null, %19 ]
-  call void @llvm.lifetime.end.p0(i64 2496, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0.i
 }
 
@@ -539,7 +533,7 @@ define internal ptr @_random_Random_getrandbits(ptr noundef captures(none) %0, p
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc i32 @genrand_uint32(ptr noundef captures(none) %0) unnamed_addr #3 {
+define internal fastcc i32 @genrand_uint32(ptr noundef captures(none) %0) unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8, !tbaa !32
@@ -643,7 +637,7 @@ define internal fastcc i32 @genrand_uint32(ptr noundef captures(none) %0) unname
 declare ptr @PyFloat_FromDouble(double noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #4
+declare double @llvm.fmuladd.f64(double, double, double) #3
 
 declare i32 @_PyArg_CheckPositional(ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
@@ -658,7 +652,7 @@ define internal fastcc range(i32 -1, 1) i32 @random_seed(ptr noundef captures(no
   br i1 %or.cond, label %8, label %118
 
 8:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 2496, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %9 = call i32 @_PyOS_URandomNonblock(ptr noundef nonnull %5, i64 noundef 2496) #8
   %10 = icmp slt i32 %9, 0
   br i1 %10, label %59, label %11
@@ -755,23 +749,23 @@ init_genrand.exit.i.i:                            ; preds = %13
 
 random_seed_urandom.exit:                         ; preds = %57
   store i32 -2147483648, ptr %12, align 4, !tbaa !29
-  call void @llvm.lifetime.end.p0(i64 2496, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %210
 
 59:                                               ; preds = %8
-  call void @llvm.lifetime.end.p0(i64 2496, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @PyErr_Clear() #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %60 = call i32 @PyTime_Time(ptr noundef nonnull %3) #8
   %61 = icmp slt i32 %60, 0
   br i1 %61, label %random_seed_time_pid.exit.thread, label %62
 
 random_seed_time_pid.exit.thread:                 ; preds = %59
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %210
 
 62:                                               ; preds = %59
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %63 = load i64, ptr %3, align 8, !tbaa !41
   store i64 %63, ptr %4, align 16
   %64 = call i32 @getpid() #8
@@ -782,8 +776,8 @@ random_seed_time_pid.exit.thread:                 ; preds = %59
   br i1 %67, label %random_seed_time_pid.exit.thread69, label %68
 
 random_seed_time_pid.exit.thread69:               ; preds = %62
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %210
 
 68:                                               ; preds = %62
@@ -881,8 +875,8 @@ init_genrand.exit.i.i49:                          ; preds = %72
 
 random_seed_time_pid.exit:                        ; preds = %116
   store i32 -2147483648, ptr %71, align 4, !tbaa !29
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %210
 
 118:                                              ; preds = %2
@@ -1103,7 +1097,7 @@ declare i32 @_PyOS_URandomNonblock(ptr noundef, i64 noundef) local_unnamed_addr 
 declare i32 @PyTime_Time(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare i32 @getpid() local_unnamed_addr #5
+declare i32 @getpid() local_unnamed_addr #4
 
 declare i32 @PyTime_Monotonic(ptr noundef) local_unnamed_addr #1
 
@@ -1203,6 +1197,12 @@ declare i32 @_PyArg_NoKeywords(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #6
 
@@ -1211,10 +1211,10 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nounwind }

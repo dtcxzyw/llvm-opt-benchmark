@@ -86,16 +86,13 @@ define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+declare i32 @test_skip_common_options() local_unnamed_addr #2
 
-declare i32 @test_skip_common_options() local_unnamed_addr #3
+declare void @test_error(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare void @test_error(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
+declare i64 @test_get_argument_count() local_unnamed_addr #2
 
-declare i64 @test_get_argument_count() local_unnamed_addr #3
-
-declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_print_acert(i32 noundef %0) #1 {
@@ -144,7 +141,7 @@ define internal range(i32 0, 2) i32 @test_print_acert(i32 noundef %0) #1 {
   ret i32 %.0
 }
 
-declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_acert_sign() #1 {
@@ -201,7 +198,7 @@ define internal range(i32 0, 2) i32 @test_acert_sign() #1 {
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_object_group_attr(i32 noundef %0) #1 {
   %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = load ptr, ptr @stderr, align 8, !tbaa !4
   %4 = tail call ptr @BIO_new_fp(ptr noundef %3, i32 noundef 0) #4
   %5 = tail call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 128, ptr noundef nonnull @.str.23, ptr noundef %4) #4
@@ -250,55 +247,58 @@ define internal range(i32 0, 2) i32 @test_object_group_attr(i32 noundef %0) #1 {
   %.0 = phi i32 [ 0, %23 ], [ 0, %17 ], [ 0, %15 ], [ 0, %1 ], [ 1, %20 ], [ 1, %19 ]
   call void @OSSL_IETF_ATTR_SYNTAX_free(ptr noundef %.013) #4
   %25 = call i32 @BIO_free(ptr noundef %4) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
 
+declare i32 @test_ptr(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+
+declare ptr @test_get_argument(i64 noundef) local_unnamed_addr #2
+
+declare ptr @BIO_new_file(ptr noundef, ptr noundef) local_unnamed_addr #2
+
+declare ptr @BIO_new_fp(ptr noundef, i32 noundef) local_unnamed_addr #2
+
+declare ptr @PEM_read_bio_X509_ACERT(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+
+declare i32 @test_int_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+
+declare i32 @X509_ACERT_print(ptr noundef, ptr noundef) local_unnamed_addr #2
+
+declare i32 @BIO_free(ptr noundef) local_unnamed_addr #2
+
+declare void @X509_ACERT_free(ptr noundef) local_unnamed_addr #2
+
+declare ptr @EVP_PKEY_Q_keygen(ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+
+declare i32 @test_int_gt(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+
+declare i32 @X509_ACERT_sign(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+
+declare ptr @EVP_sha256() local_unnamed_addr #2
+
+declare i32 @X509_ACERT_verify(ptr noundef, ptr noundef) local_unnamed_addr #2
+
+declare void @EVP_PKEY_free(ptr noundef) local_unnamed_addr #2
+
+declare ptr @d2i_OSSL_IETF_ATTR_SYNTAX(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+
+declare i32 @test_ptr_null(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+
+declare i32 @OSSL_IETF_ATTR_SYNTAX_print(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+
+declare void @OSSL_IETF_ATTR_SYNTAX_free(ptr noundef) local_unnamed_addr #2
+
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
 
-declare i32 @test_ptr(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
-
-declare ptr @test_get_argument(i64 noundef) local_unnamed_addr #3
-
-declare ptr @BIO_new_file(ptr noundef, ptr noundef) local_unnamed_addr #3
-
-declare ptr @BIO_new_fp(ptr noundef, i32 noundef) local_unnamed_addr #3
-
-declare ptr @PEM_read_bio_X509_ACERT(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
-
-declare i32 @test_int_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
-
-declare i32 @X509_ACERT_print(ptr noundef, ptr noundef) local_unnamed_addr #3
-
-declare i32 @BIO_free(ptr noundef) local_unnamed_addr #3
-
-declare void @X509_ACERT_free(ptr noundef) local_unnamed_addr #3
-
-declare ptr @EVP_PKEY_Q_keygen(ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #3
-
-declare i32 @test_int_gt(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
-
-declare i32 @X509_ACERT_sign(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
-
-declare ptr @EVP_sha256() local_unnamed_addr #3
-
-declare i32 @X509_ACERT_verify(ptr noundef, ptr noundef) local_unnamed_addr #3
-
-declare void @EVP_PKEY_free(ptr noundef) local_unnamed_addr #3
-
-declare ptr @d2i_OSSL_IETF_ATTR_SYNTAX(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
-
-declare i32 @test_ptr_null(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
-
-declare i32 @OSSL_IETF_ATTR_SYNTAX_print(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
-
-declare void @OSSL_IETF_ATTR_SYNTAX_free(ptr noundef) local_unnamed_addr #3
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

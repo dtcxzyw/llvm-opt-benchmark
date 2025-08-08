@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @uriParseIpFourAddressA(ptr noundef %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2) local_unnamed_addr #0 {
   %4 = alloca %struct.UriIp4ParserStruct, align 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = icmp ne ptr %0, null
   %6 = icmp ne ptr %1, null
   %or.cond.not50 = and i1 %5, %6
@@ -73,15 +73,12 @@ define range(i32 0, 2) i32 @uriParseIpFourAddressA(ptr noundef %0, ptr noundef c
 
 31:                                               ; preds = %25, %18, %23, %12, %16, %7, %10, %3, %29
   %.0 = phi i32 [ 0, %29 ], [ 1, %3 ], [ 1, %10 ], [ 1, %7 ], [ 1, %16 ], [ 1, %12 ], [ 1, %23 ], [ 1, %18 ], [ 1, %25 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc ptr @uriParseDecOctetA(ptr noundef nonnull %0, ptr noundef nonnull readonly captures(address, ret: address, provenance) %1, ptr noundef readnone captures(address, ret: address, provenance) %2) unnamed_addr #2 {
+define internal fastcc ptr @uriParseDecOctetA(ptr noundef nonnull %0, ptr noundef nonnull readonly captures(address, ret: address, provenance) %1, ptr noundef readnone captures(address, ret: address, provenance) %2) unnamed_addr #1 {
   %.not = icmp ult ptr %1, %2
   br i1 %.not, label %4, label %uriParseDecOctetOneA.exit
 
@@ -214,15 +211,12 @@ uriParseDecOctetOneA.exit:                        ; preds = %39, %37, %34, %uriP
   ret ptr %.0
 }
 
-declare void @uriStackToOctet(ptr noundef, ptr noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @uriStackToOctet(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @uriParseIpFourAddressW(ptr noundef %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2) local_unnamed_addr #0 {
   %4 = alloca %struct.UriIp4ParserStruct, align 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = icmp ne ptr %0, null
   %6 = icmp ne ptr %1, null
   %or.cond.not50 = and i1 %5, %6
@@ -287,12 +281,12 @@ define range(i32 0, 2) i32 @uriParseIpFourAddressW(ptr noundef %0, ptr noundef c
 
 31:                                               ; preds = %25, %18, %23, %12, %16, %7, %10, %3, %29
   %.0 = phi i32 [ 0, %29 ], [ 1, %3 ], [ 1, %10 ], [ 1, %7 ], [ 1, %16 ], [ 1, %12 ], [ 1, %23 ], [ 1, %18 ], [ 1, %25 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc ptr @uriParseDecOctetW(ptr noundef nonnull %0, ptr noundef nonnull readonly captures(address, ret: address, provenance) %1, ptr noundef readnone captures(address, ret: address, provenance) %2) unnamed_addr #2 {
+define internal fastcc ptr @uriParseDecOctetW(ptr noundef nonnull %0, ptr noundef nonnull readonly captures(address, ret: address, provenance) %1, ptr noundef readnone captures(address, ret: address, provenance) %2) unnamed_addr #1 {
   %.not = icmp ult ptr %1, %2
   br i1 %.not, label %4, label %uriParseDecOctetOneW.exit
 
@@ -431,12 +425,18 @@ uriParseDecOctetOneW.exit:                        ; preds = %45, %43, %39, %uriP
   ret ptr %.0
 }
 
-declare void @uriPushToStack(ptr noundef, i8 noundef zeroext) local_unnamed_addr #3
+declare void @uriPushToStack(ptr noundef, i8 noundef zeroext) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #1 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

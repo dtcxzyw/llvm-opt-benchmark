@@ -341,9 +341,6 @@ copy_issuer.exit.thread:                          ; preds = %39, %34, %58, %copy
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare i32 @OPENSSL_sk_num(ptr noundef) local_unnamed_addr #0
 
 declare ptr @OPENSSL_sk_value(ptr noundef, i32 noundef) local_unnamed_addr #0
@@ -354,8 +351,8 @@ define ptr @i2v_GENERAL_NAME(ptr readnone captures(none) %0, ptr noundef readonl
   %5 = alloca [300 x i8], align 16
   %6 = alloca [256 x i8], align 16
   store ptr %2, ptr %4, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 300, ptr nonnull %5) #4
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr %1, align 8, !tbaa !28
   switch i32 %7, label %166 [
     i32 0, label %8
@@ -635,8 +632,8 @@ define ptr @i2v_GENERAL_NAME(ptr readnone captures(none) %0, ptr noundef readonl
 
 168:                                              ; preds = %161, %142, %147, %134, %126, %118, %116, %114, %112, %62, %66, %50, %54, %38, %42, %26, %30, %14, %18, %166, %110, %96
   %.0 = phi ptr [ %167, %166 ], [ %97, %96 ], [ %111, %110 ], [ null, %18 ], [ null, %14 ], [ null, %30 ], [ null, %26 ], [ null, %42 ], [ null, %38 ], [ null, %54 ], [ null, %50 ], [ null, %66 ], [ null, %62 ], [ null, %112 ], [ null, %114 ], [ null, %116 ], [ null, %118 ], [ null, %126 ], [ null, %134 ], [ null, %147 ], [ null, %142 ], [ null, %161 ]
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #4
-  call void @llvm.lifetime.end.p0(i64 300, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }
 
@@ -645,9 +642,6 @@ declare void @OPENSSL_sk_pop_free(ptr noundef, ptr noundef) local_unnamed_addr #
 declare void @X509V3_conf_free(ptr noundef) #0
 
 declare ptr @OPENSSL_sk_new_null() local_unnamed_addr #0
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 declare i32 @OBJ_obj2nid(ptr noundef) local_unnamed_addr #0
 
@@ -1192,14 +1186,14 @@ declare ptr @ASN1_IA5STRING_new() local_unnamed_addr #0
 declare i32 @ASN1_STRING_set(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare void @ASN1_IA5STRING_free(ptr noundef) local_unnamed_addr #0
 
 declare i32 @ossl_v3_name_cmp(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 declare i32 @X509_get_ext_by_NID(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
@@ -1342,7 +1336,7 @@ declare ptr @X509_NAME_delete_entry(ptr noundef, i32 noundef) local_unnamed_addr
 declare void @X509_NAME_ENTRY_free(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 declare ptr @OTHERNAME_new() local_unnamed_addr #0
 
@@ -1364,10 +1358,16 @@ declare void @X509_NAME_free(ptr noundef) local_unnamed_addr #0
 
 declare void @X509V3_section_free(ptr noundef, ptr noundef) local_unnamed_addr #0
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
+
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind }
 attributes #5 = { nounwind willreturn memory(read) }
 

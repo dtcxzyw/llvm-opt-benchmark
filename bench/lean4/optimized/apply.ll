@@ -4521,22 +4521,16 @@ _ZL8lean_incP11lean_object.exit685:               ; preds = %1794, %1793, %1791,
   unreachable
 
 1813:                                             ; preds = %1807
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %1, ptr %3, align 8, !tbaa !15
   %1814 = call fastcc noalias noundef nonnull ptr @_ZN4leanL8fix_argsEP11lean_objectjPKS1_(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull readonly %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZL8lean_decP11lean_object.exit
 
 _ZL8lean_decP11lean_object.exit:                  ; preds = %1806, %1805, %1803, %1778, %1777, %1775, %1604, %1603, %1601, %1441, %1440, %1438, %1289, %1288, %1286, %1148, %1147, %1145, %1018, %1017, %1015, %899, %898, %896, %791, %790, %788, %694, %693, %691, %608, %607, %605, %533, %532, %530, %469, %468, %466, %416, %415, %413, %374, %373, %371, %343, %342, %340, %323, %322, %320, %6, %12, %14, %15, %26, %29, %34, %41, %50, %61, %74, %89, %106, %125, %146, %169, %194, %221, %250, %281, %1813
   %.0 = phi ptr [ %28, %26 ], [ %33, %29 ], [ %40, %34 ], [ %49, %41 ], [ %60, %50 ], [ %73, %61 ], [ %88, %74 ], [ %105, %89 ], [ %124, %106 ], [ %145, %125 ], [ %168, %146 ], [ %193, %169 ], [ %220, %194 ], [ %249, %221 ], [ %280, %250 ], [ %313, %281 ], [ %1814, %1813 ], [ %0, %15 ], [ %0, %14 ], [ %0, %12 ], [ %0, %6 ], [ %317, %320 ], [ %317, %322 ], [ %317, %323 ], [ %337, %340 ], [ %337, %342 ], [ %337, %343 ], [ %368, %371 ], [ %368, %373 ], [ %368, %374 ], [ %410, %413 ], [ %410, %415 ], [ %410, %416 ], [ %463, %466 ], [ %463, %468 ], [ %463, %469 ], [ %527, %530 ], [ %527, %532 ], [ %527, %533 ], [ %602, %605 ], [ %602, %607 ], [ %602, %608 ], [ %688, %691 ], [ %688, %693 ], [ %688, %694 ], [ %785, %788 ], [ %785, %790 ], [ %785, %791 ], [ %893, %896 ], [ %893, %898 ], [ %893, %899 ], [ %1012, %1015 ], [ %1012, %1017 ], [ %1012, %1018 ], [ %1142, %1145 ], [ %1142, %1147 ], [ %1142, %1148 ], [ %1283, %1286 ], [ %1283, %1288 ], [ %1283, %1289 ], [ %1435, %1438 ], [ %1435, %1440 ], [ %1435, %1441 ], [ %1598, %1601 ], [ %1598, %1603 ], [ %1598, %1604 ], [ %1772, %1775 ], [ %1772, %1777 ], [ %1772, %1778 ], [ %1800, %1803 ], [ %1800, %1805 ], [ %1800, %1806 ]
   ret ptr %.0
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress uwtable
 define ptr @lean_apply_2(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -8208,7 +8202,7 @@ _ZL8lean_incP11lean_object.exit580:               ; preds = %1604, %1603, %1601,
   br i1 %1612, label %1613, label %1651
 
 1613:                                             ; preds = %1611
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %1, ptr %4, align 16, !tbaa !15
   %1614 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %2, ptr %1614, align 8, !tbaa !15
@@ -8294,7 +8288,7 @@ _ZL12lean_dec_refP11lean_object.exit547:          ; preds = %1637, %1639, %1640
   %1642 = zext i32 %1619 to i64
   %1643 = getelementptr inbounds nuw [2 x ptr], ptr %4, i64 0, i64 %1642
   %1644 = call ptr @lean_apply_n(ptr noundef %1634, i32 noundef %1641, ptr noundef nonnull %1643)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZL8lean_decP11lean_object.exit
 
 .lr.ph1153:                                       ; preds = %.lr.ph1153.preheader, %.lr.ph1153
@@ -8311,12 +8305,12 @@ _ZL12lean_dec_refP11lean_object.exit547:          ; preds = %1637, %1639, %1640
   br i1 %exitcond1166.not, label %._crit_edge, label %.lr.ph1153, !llvm.loop !26
 
 1651:                                             ; preds = %1611
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %1, ptr %5, align 8, !tbaa !15
   %1652 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %2, ptr %1652, align 8, !tbaa !15
   %1653 = call fastcc noalias noundef nonnull ptr @_ZN4leanL8fix_argsEP11lean_objectjPKS1_(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull readonly %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZL8lean_decP11lean_object.exit
 
 _ZL8lean_decP11lean_object.exit:                  ; preds = %1610, %1609, %1607, %1582, %1581, %1579, %1419, %1418, %1416, %1267, %1266, %1264, %1126, %1125, %1123, %996, %995, %993, %877, %876, %874, %769, %768, %766, %672, %671, %669, %586, %585, %583, %511, %510, %508, %447, %446, %444, %394, %393, %391, %352, %351, %349, %321, %320, %318, %301, %300, %298, %_ZL8lean_decP11lean_object.exit543, %23, %25, %26, %37, %40, %45, %52, %61, %72, %85, %100, %117, %136, %157, %180, %205, %232, %261, %_ZL12lean_dec_refP11lean_object.exit547, %1651
@@ -11946,7 +11940,7 @@ _ZL8lean_incP11lean_object.exit561:               ; preds = %1420, %1419, %1417,
   br i1 %1428, label %1429, label %1468
 
 1429:                                             ; preds = %1427
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %1, ptr %5, align 16, !tbaa !15
   %1430 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %2, ptr %1430, align 8, !tbaa !15
@@ -12034,7 +12028,7 @@ _ZL12lean_dec_refP11lean_object.exit530:          ; preds = %1454, %1456, %1457
   %1459 = zext i32 %1436 to i64
   %1460 = getelementptr inbounds nuw [3 x ptr], ptr %5, i64 0, i64 %1459
   %1461 = call ptr @lean_apply_n(ptr noundef %1451, i32 noundef %1458, ptr noundef nonnull %1460)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZL8lean_decP11lean_object.exit
 
 .lr.ph1063:                                       ; preds = %.lr.ph1063.preheader, %.lr.ph1063
@@ -12051,14 +12045,14 @@ _ZL12lean_dec_refP11lean_object.exit530:          ; preds = %1454, %1456, %1457
   br i1 %exitcond1076.not, label %._crit_edge, label %.lr.ph1063, !llvm.loop !29
 
 1468:                                             ; preds = %1427
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %1, ptr %6, align 8, !tbaa !15
   %1469 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %2, ptr %1469, align 8, !tbaa !15
   %1470 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %3, ptr %1470, align 8, !tbaa !15
   %1471 = call fastcc noalias noundef nonnull ptr @_ZN4leanL8fix_argsEP11lean_objectjPKS1_(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull readonly %6)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZL8lean_decP11lean_object.exit
 
 _ZL8lean_decP11lean_object.exit:                  ; preds = %1426, %1425, %1423, %1398, %1397, %1395, %1246, %1245, %1243, %1105, %1104, %1102, %975, %974, %972, %856, %855, %853, %748, %747, %745, %651, %650, %648, %565, %564, %562, %490, %489, %487, %426, %425, %423, %373, %372, %370, %331, %330, %328, %300, %299, %297, %280, %279, %277, %_ZL8lean_decP11lean_object.exit523, %33, %35, %36, %47, %50, %55, %62, %71, %82, %95, %110, %127, %146, %167, %190, %215, %242, %_ZL12lean_dec_refP11lean_object.exit530, %1468
@@ -14943,7 +14937,7 @@ _ZL8lean_incP11lean_object.exit541:               ; preds = %1249, %1248, %1246,
   br i1 %1257, label %1258, label %1298
 
 1258:                                             ; preds = %1256
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %1, ptr %6, align 16, !tbaa !15
   %1259 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %2, ptr %1259, align 8, !tbaa !15
@@ -15033,7 +15027,7 @@ _ZL12lean_dec_refP11lean_object.exit512:          ; preds = %1284, %1286, %1287
   %1289 = zext i32 %1266 to i64
   %1290 = getelementptr inbounds nuw [4 x ptr], ptr %6, i64 0, i64 %1289
   %1291 = call ptr @lean_apply_n(ptr noundef %1281, i32 noundef %1288, ptr noundef nonnull %1290)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZL8lean_decP11lean_object.exit
 
 .lr.ph977:                                        ; preds = %.lr.ph977.preheader, %.lr.ph977
@@ -15050,7 +15044,7 @@ _ZL12lean_dec_refP11lean_object.exit512:          ; preds = %1284, %1286, %1287
   br i1 %exitcond990.not, label %._crit_edge, label %.lr.ph977, !llvm.loop !32
 
 1298:                                             ; preds = %1256
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %1, ptr %7, align 8, !tbaa !15
   %1299 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %2, ptr %1299, align 8, !tbaa !15
@@ -15059,7 +15053,7 @@ _ZL12lean_dec_refP11lean_object.exit512:          ; preds = %1284, %1286, %1287
   %1301 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %4, ptr %1301, align 8, !tbaa !15
   %1302 = call fastcc noalias noundef nonnull ptr @_ZN4leanL8fix_argsEP11lean_objectjPKS1_(ptr noundef nonnull %0, i32 noundef 4, ptr noundef nonnull readonly %7)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZL8lean_decP11lean_object.exit
 
 _ZL8lean_decP11lean_object.exit:                  ; preds = %1255, %1254, %1252, %1227, %1226, %1224, %1086, %1085, %1083, %956, %955, %953, %837, %836, %834, %729, %728, %726, %632, %631, %629, %546, %545, %543, %471, %470, %468, %407, %406, %404, %354, %353, %351, %312, %311, %309, %281, %280, %278, %261, %260, %258, %_ZL8lean_decP11lean_object.exit502, %43, %45, %46, %57, %60, %65, %72, %81, %92, %105, %120, %137, %156, %177, %200, %225, %_ZL12lean_dec_refP11lean_object.exit512, %1298
@@ -17591,7 +17585,7 @@ _ZL8lean_incP11lean_object.exit520:               ; preds = %1091, %1090, %1088,
   br i1 %1099, label %1100, label %1141
 
 1100:                                             ; preds = %1098
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %1, ptr %7, align 16, !tbaa !15
   %1101 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %2, ptr %1101, align 8, !tbaa !15
@@ -17683,7 +17677,7 @@ _ZL12lean_dec_refP11lean_object.exit493:          ; preds = %1127, %1129, %1130
   %1132 = zext i32 %1109 to i64
   %1133 = getelementptr inbounds nuw [5 x ptr], ptr %7, i64 0, i64 %1132
   %1134 = call ptr @lean_apply_n(ptr noundef %1124, i32 noundef %1131, ptr noundef nonnull %1133)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZL8lean_decP11lean_object.exit
 
 .lr.ph895:                                        ; preds = %.lr.ph895.preheader, %.lr.ph895
@@ -17700,7 +17694,7 @@ _ZL12lean_dec_refP11lean_object.exit493:          ; preds = %1127, %1129, %1130
   br i1 %exitcond908.not, label %._crit_edge, label %.lr.ph895, !llvm.loop !35
 
 1141:                                             ; preds = %1098
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %1, ptr %8, align 8, !tbaa !15
   %1142 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %2, ptr %1142, align 8, !tbaa !15
@@ -17711,7 +17705,7 @@ _ZL12lean_dec_refP11lean_object.exit493:          ; preds = %1127, %1129, %1130
   %1145 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr %5, ptr %1145, align 8, !tbaa !15
   %1146 = call fastcc noalias noundef nonnull ptr @_ZN4leanL8fix_argsEP11lean_objectjPKS1_(ptr noundef nonnull %0, i32 noundef 5, ptr noundef nonnull readonly %8)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZL8lean_decP11lean_object.exit
 
 _ZL8lean_decP11lean_object.exit:                  ; preds = %1097, %1096, %1094, %1069, %1068, %1066, %939, %938, %936, %820, %819, %817, %712, %711, %709, %615, %614, %612, %529, %528, %526, %454, %453, %451, %390, %389, %387, %337, %336, %334, %295, %294, %292, %264, %263, %261, %244, %243, %241, %_ZL8lean_decP11lean_object.exit480, %53, %55, %56, %67, %70, %75, %82, %91, %102, %115, %130, %147, %166, %187, %210, %_ZL12lean_dec_refP11lean_object.exit493, %1141
@@ -19919,7 +19913,7 @@ _ZL8lean_incP11lean_object.exit498:               ; preds = %946, %945, %943, %9
   br i1 %954, label %955, label %997
 
 955:                                              ; preds = %953
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %1, ptr %8, align 16, !tbaa !15
   %956 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %2, ptr %956, align 8, !tbaa !15
@@ -20013,7 +20007,7 @@ _ZL12lean_dec_refP11lean_object.exit473:          ; preds = %983, %985, %986
   %988 = zext i32 %965 to i64
   %989 = getelementptr inbounds nuw [6 x ptr], ptr %8, i64 0, i64 %988
   %990 = call ptr @lean_apply_n(ptr noundef %980, i32 noundef %987, ptr noundef nonnull %989)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZL8lean_decP11lean_object.exit
 
 .lr.ph817:                                        ; preds = %.lr.ph817.preheader, %.lr.ph817
@@ -20030,7 +20024,7 @@ _ZL12lean_dec_refP11lean_object.exit473:          ; preds = %983, %985, %986
   br i1 %exitcond830.not, label %._crit_edge, label %.lr.ph817, !llvm.loop !38
 
 997:                                              ; preds = %953
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %1, ptr %9, align 8, !tbaa !15
   %998 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %2, ptr %998, align 8, !tbaa !15
@@ -20043,7 +20037,7 @@ _ZL12lean_dec_refP11lean_object.exit473:          ; preds = %983, %985, %986
   %1002 = getelementptr inbounds nuw i8, ptr %9, i64 40
   store ptr %6, ptr %1002, align 8, !tbaa !15
   %1003 = call fastcc noalias noundef nonnull ptr @_ZN4leanL8fix_argsEP11lean_objectjPKS1_(ptr noundef nonnull %0, i32 noundef 6, ptr noundef nonnull readonly %9)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZL8lean_decP11lean_object.exit
 
 _ZL8lean_decP11lean_object.exit:                  ; preds = %952, %951, %949, %924, %923, %921, %805, %804, %802, %697, %696, %694, %600, %599, %597, %514, %513, %511, %439, %438, %436, %375, %374, %372, %322, %321, %319, %280, %279, %277, %249, %248, %246, %229, %228, %226, %_ZL8lean_decP11lean_object.exit457, %63, %65, %66, %77, %80, %85, %92, %101, %112, %125, %140, %157, %176, %197, %_ZL12lean_dec_refP11lean_object.exit473, %997
@@ -21956,7 +21950,7 @@ _ZL8lean_incP11lean_object.exit475:               ; preds = %814, %813, %811, %8
   br i1 %822, label %823, label %866
 
 823:                                              ; preds = %821
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %9) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %1, ptr %9, align 16, !tbaa !15
   %824 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %2, ptr %824, align 8, !tbaa !15
@@ -22052,7 +22046,7 @@ _ZL12lean_dec_refP11lean_object.exit452:          ; preds = %852, %854, %855
   %857 = zext i32 %834 to i64
   %858 = getelementptr inbounds nuw [7 x ptr], ptr %9, i64 0, i64 %857
   %859 = call ptr @lean_apply_n(ptr noundef %849, i32 noundef %856, ptr noundef nonnull %858)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZL8lean_decP11lean_object.exit
 
 .lr.ph743:                                        ; preds = %.lr.ph743.preheader, %.lr.ph743
@@ -22069,7 +22063,7 @@ _ZL12lean_dec_refP11lean_object.exit452:          ; preds = %852, %854, %855
   br i1 %exitcond756.not, label %._crit_edge, label %.lr.ph743, !llvm.loop !41
 
 866:                                              ; preds = %821
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %10) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %1, ptr %10, align 8, !tbaa !15
   %867 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %2, ptr %867, align 8, !tbaa !15
@@ -22084,7 +22078,7 @@ _ZL12lean_dec_refP11lean_object.exit452:          ; preds = %852, %854, %855
   %872 = getelementptr inbounds nuw i8, ptr %10, i64 48
   store ptr %7, ptr %872, align 8, !tbaa !15
   %873 = call fastcc noalias noundef nonnull ptr @_ZN4leanL8fix_argsEP11lean_objectjPKS1_(ptr noundef nonnull %0, i32 noundef 7, ptr noundef nonnull readonly %10)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %10) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %_ZL8lean_decP11lean_object.exit
 
 _ZL8lean_decP11lean_object.exit:                  ; preds = %820, %819, %817, %792, %791, %789, %684, %683, %681, %587, %586, %584, %501, %500, %498, %426, %425, %423, %362, %361, %359, %309, %308, %306, %267, %266, %264, %236, %235, %233, %216, %215, %213, %_ZL8lean_decP11lean_object.exit433, %73, %75, %76, %87, %90, %95, %102, %111, %122, %135, %150, %167, %186, %_ZL12lean_dec_refP11lean_object.exit452, %866
@@ -23731,7 +23725,7 @@ _ZL8lean_incP11lean_object.exit451:               ; preds = %695, %694, %692, %6
   br i1 %703, label %704, label %748
 
 704:                                              ; preds = %702
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %1, ptr %10, align 16, !tbaa !15
   %705 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %2, ptr %705, align 8, !tbaa !15
@@ -23829,7 +23823,7 @@ _ZL12lean_dec_refP11lean_object.exit430:          ; preds = %734, %736, %737
   %739 = zext i32 %716 to i64
   %740 = getelementptr inbounds nuw [8 x ptr], ptr %10, i64 0, i64 %739
   %741 = call ptr @lean_apply_n(ptr noundef %731, i32 noundef %738, ptr noundef nonnull %740)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %_ZL8lean_decP11lean_object.exit
 
 .lr.ph673:                                        ; preds = %.lr.ph673.preheader, %.lr.ph673
@@ -23846,7 +23840,7 @@ _ZL12lean_dec_refP11lean_object.exit430:          ; preds = %734, %736, %737
   br i1 %exitcond686.not, label %._crit_edge, label %.lr.ph673, !llvm.loop !44
 
 748:                                              ; preds = %702
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %1, ptr %11, align 8, !tbaa !15
   %749 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %2, ptr %749, align 8, !tbaa !15
@@ -23863,7 +23857,7 @@ _ZL12lean_dec_refP11lean_object.exit430:          ; preds = %734, %736, %737
   %755 = getelementptr inbounds nuw i8, ptr %11, i64 56
   store ptr %8, ptr %755, align 8, !tbaa !15
   %756 = call fastcc noalias noundef nonnull ptr @_ZN4leanL8fix_argsEP11lean_objectjPKS1_(ptr noundef nonnull %0, i32 noundef 8, ptr noundef nonnull readonly %11)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_ZL8lean_decP11lean_object.exit
 
 _ZL8lean_decP11lean_object.exit:                  ; preds = %701, %700, %698, %673, %672, %670, %576, %575, %573, %490, %489, %487, %415, %414, %412, %351, %350, %348, %298, %297, %295, %256, %255, %253, %225, %224, %222, %205, %204, %202, %_ZL8lean_decP11lean_object.exit408, %83, %85, %86, %97, %100, %105, %112, %121, %132, %145, %160, %177, %_ZL12lean_dec_refP11lean_object.exit430, %748
@@ -25273,7 +25267,7 @@ _ZL8lean_incP11lean_object.exit426:               ; preds = %589, %588, %586, %5
   br i1 %597, label %598, label %643
 
 598:                                              ; preds = %596
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %11) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %1, ptr %11, align 16, !tbaa !15
   %599 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %2, ptr %599, align 8, !tbaa !15
@@ -25373,7 +25367,7 @@ _ZL12lean_dec_refP11lean_object.exit407:          ; preds = %629, %631, %632
   %634 = zext i32 %611 to i64
   %635 = getelementptr inbounds nuw [9 x ptr], ptr %11, i64 0, i64 %634
   %636 = call ptr @lean_apply_n(ptr noundef %626, i32 noundef %633, ptr noundef nonnull %635)
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %11) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_ZL8lean_decP11lean_object.exit
 
 .lr.ph607:                                        ; preds = %.lr.ph607.preheader, %.lr.ph607
@@ -25390,7 +25384,7 @@ _ZL12lean_dec_refP11lean_object.exit407:          ; preds = %629, %631, %632
   br i1 %exitcond620.not, label %._crit_edge, label %.lr.ph607, !llvm.loop !47
 
 643:                                              ; preds = %596
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr %1, ptr %12, align 8, !tbaa !15
   %644 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %2, ptr %644, align 8, !tbaa !15
@@ -25409,7 +25403,7 @@ _ZL12lean_dec_refP11lean_object.exit407:          ; preds = %629, %631, %632
   %651 = getelementptr inbounds nuw i8, ptr %12, i64 64
   store ptr %9, ptr %651, align 8, !tbaa !15
   %652 = call fastcc noalias noundef nonnull ptr @_ZN4leanL8fix_argsEP11lean_objectjPKS1_(ptr noundef nonnull %0, i32 noundef 9, ptr noundef nonnull readonly %12)
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %12) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %_ZL8lean_decP11lean_object.exit
 
 _ZL8lean_decP11lean_object.exit:                  ; preds = %595, %594, %592, %567, %566, %564, %481, %480, %478, %406, %405, %403, %342, %341, %339, %289, %288, %286, %247, %246, %244, %216, %215, %213, %196, %195, %193, %_ZL8lean_decP11lean_object.exit382, %93, %95, %96, %107, %110, %115, %122, %131, %142, %155, %170, %_ZL12lean_dec_refP11lean_object.exit407, %643
@@ -26611,7 +26605,7 @@ _ZL8lean_incP11lean_object.exit400:               ; preds = %496, %495, %493, %4
   br i1 %504, label %505, label %551
 
 505:                                              ; preds = %503
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %12) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr %1, ptr %12, align 16, !tbaa !15
   %506 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %2, ptr %506, align 8, !tbaa !15
@@ -26713,7 +26707,7 @@ _ZL12lean_dec_refP11lean_object.exit383:          ; preds = %537, %539, %540
   %542 = zext i32 %519 to i64
   %543 = getelementptr inbounds nuw [10 x ptr], ptr %12, i64 0, i64 %542
   %544 = call ptr @lean_apply_n(ptr noundef %534, i32 noundef %541, ptr noundef nonnull %543)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %12) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %_ZL8lean_decP11lean_object.exit
 
 .lr.ph545:                                        ; preds = %.lr.ph545.preheader, %.lr.ph545
@@ -26730,7 +26724,7 @@ _ZL12lean_dec_refP11lean_object.exit383:          ; preds = %537, %539, %540
   br i1 %exitcond558.not, label %._crit_edge, label %.lr.ph545, !llvm.loop !50
 
 551:                                              ; preds = %503
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %13) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr %1, ptr %13, align 8, !tbaa !15
   %552 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %2, ptr %552, align 8, !tbaa !15
@@ -26751,7 +26745,7 @@ _ZL12lean_dec_refP11lean_object.exit383:          ; preds = %537, %539, %540
   %560 = getelementptr inbounds nuw i8, ptr %13, i64 72
   store ptr %10, ptr %560, align 8, !tbaa !15
   %561 = call fastcc noalias noundef nonnull ptr @_ZN4leanL8fix_argsEP11lean_objectjPKS1_(ptr noundef nonnull %0, i32 noundef 10, ptr noundef nonnull readonly %13)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %13) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %_ZL8lean_decP11lean_object.exit
 
 _ZL8lean_decP11lean_object.exit:                  ; preds = %502, %501, %499, %474, %473, %471, %399, %398, %396, %335, %334, %332, %282, %281, %279, %240, %239, %237, %209, %208, %206, %189, %188, %186, %_ZL8lean_decP11lean_object.exit355, %103, %105, %106, %117, %120, %125, %132, %141, %152, %165, %_ZL12lean_dec_refP11lean_object.exit383, %551
@@ -27774,7 +27768,7 @@ _ZL8lean_incP11lean_object.exit373:               ; preds = %416, %415, %413, %4
   br i1 %424, label %425, label %472
 
 425:                                              ; preds = %423
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %13) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr %1, ptr %13, align 16, !tbaa !15
   %426 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %2, ptr %426, align 8, !tbaa !15
@@ -27878,7 +27872,7 @@ _ZL12lean_dec_refP11lean_object.exit358:          ; preds = %458, %460, %461
   %463 = zext i32 %440 to i64
   %464 = getelementptr inbounds nuw [11 x ptr], ptr %13, i64 0, i64 %463
   %465 = call ptr @lean_apply_n(ptr noundef %455, i32 noundef %462, ptr noundef nonnull %464)
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %13) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %_ZL8lean_decP11lean_object.exit
 
 .lr.ph487:                                        ; preds = %.lr.ph487.preheader, %.lr.ph487
@@ -27895,7 +27889,7 @@ _ZL12lean_dec_refP11lean_object.exit358:          ; preds = %458, %460, %461
   br i1 %exitcond500.not, label %._crit_edge, label %.lr.ph487, !llvm.loop !53
 
 472:                                              ; preds = %423
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %14) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr %1, ptr %14, align 8, !tbaa !15
   %473 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %2, ptr %473, align 8, !tbaa !15
@@ -27918,7 +27912,7 @@ _ZL12lean_dec_refP11lean_object.exit358:          ; preds = %458, %460, %461
   %482 = getelementptr inbounds nuw i8, ptr %14, i64 80
   store ptr %11, ptr %482, align 8, !tbaa !15
   %483 = call fastcc noalias noundef nonnull ptr @_ZN4leanL8fix_argsEP11lean_objectjPKS1_(ptr noundef nonnull %0, i32 noundef 11, ptr noundef nonnull readonly %14)
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %14) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %_ZL8lean_decP11lean_object.exit
 
 _ZL8lean_decP11lean_object.exit:                  ; preds = %422, %421, %419, %394, %393, %391, %330, %329, %327, %277, %276, %274, %235, %234, %232, %204, %203, %201, %184, %183, %181, %_ZL8lean_decP11lean_object.exit327, %113, %115, %116, %127, %130, %135, %142, %151, %162, %_ZL12lean_dec_refP11lean_object.exit358, %472
@@ -28791,7 +28785,7 @@ _ZL8lean_incP11lean_object.exit345:               ; preds = %349, %348, %346, %3
   br i1 %357, label %358, label %406
 
 358:                                              ; preds = %356
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %14) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr %1, ptr %14, align 16, !tbaa !15
   %359 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %2, ptr %359, align 8, !tbaa !15
@@ -28897,7 +28891,7 @@ _ZL12lean_dec_refP11lean_object.exit332:          ; preds = %392, %394, %395
   %397 = zext i32 %374 to i64
   %398 = getelementptr inbounds nuw [12 x ptr], ptr %14, i64 0, i64 %397
   %399 = call ptr @lean_apply_n(ptr noundef %389, i32 noundef %396, ptr noundef nonnull %398)
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %14) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %_ZL8lean_decP11lean_object.exit
 
 .lr.ph433:                                        ; preds = %.lr.ph433.preheader, %.lr.ph433
@@ -28914,7 +28908,7 @@ _ZL12lean_dec_refP11lean_object.exit332:          ; preds = %392, %394, %395
   br i1 %exitcond446.not, label %._crit_edge, label %.lr.ph433, !llvm.loop !56
 
 406:                                              ; preds = %356
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %15) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store ptr %1, ptr %15, align 8, !tbaa !15
   %407 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %2, ptr %407, align 8, !tbaa !15
@@ -28939,7 +28933,7 @@ _ZL12lean_dec_refP11lean_object.exit332:          ; preds = %392, %394, %395
   %417 = getelementptr inbounds nuw i8, ptr %15, i64 88
   store ptr %12, ptr %417, align 8, !tbaa !15
   %418 = call fastcc noalias noundef nonnull ptr @_ZN4leanL8fix_argsEP11lean_objectjPKS1_(ptr noundef nonnull %0, i32 noundef 12, ptr noundef nonnull readonly %15)
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %15) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %_ZL8lean_decP11lean_object.exit
 
 _ZL8lean_decP11lean_object.exit:                  ; preds = %355, %354, %352, %327, %326, %324, %274, %273, %271, %232, %231, %229, %201, %200, %198, %181, %180, %178, %_ZL8lean_decP11lean_object.exit298, %123, %125, %126, %137, %140, %145, %152, %161, %_ZL12lean_dec_refP11lean_object.exit332, %406
@@ -29691,7 +29685,7 @@ _ZL8lean_incP11lean_object.exit316:               ; preds = %295, %294, %292, %2
   br i1 %303, label %304, label %353
 
 304:                                              ; preds = %302
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %15) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store ptr %1, ptr %15, align 16, !tbaa !15
   %305 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %2, ptr %305, align 8, !tbaa !15
@@ -29799,7 +29793,7 @@ _ZL12lean_dec_refP11lean_object.exit305:          ; preds = %339, %341, %342
   %344 = zext i32 %321 to i64
   %345 = getelementptr inbounds nuw [13 x ptr], ptr %15, i64 0, i64 %344
   %346 = call ptr @lean_apply_n(ptr noundef %336, i32 noundef %343, ptr noundef nonnull %345)
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %15) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %_ZL8lean_decP11lean_object.exit
 
 .lr.ph383:                                        ; preds = %.lr.ph383.preheader, %.lr.ph383
@@ -29816,7 +29810,7 @@ _ZL12lean_dec_refP11lean_object.exit305:          ; preds = %339, %341, %342
   br i1 %exitcond396.not, label %._crit_edge, label %.lr.ph383, !llvm.loop !59
 
 353:                                              ; preds = %302
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %16) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store ptr %1, ptr %16, align 8, !tbaa !15
   %354 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %2, ptr %354, align 8, !tbaa !15
@@ -29843,7 +29837,7 @@ _ZL12lean_dec_refP11lean_object.exit305:          ; preds = %339, %341, %342
   %365 = getelementptr inbounds nuw i8, ptr %16, i64 96
   store ptr %13, ptr %365, align 8, !tbaa !15
   %366 = call fastcc noalias noundef nonnull ptr @_ZN4leanL8fix_argsEP11lean_objectjPKS1_(ptr noundef nonnull %0, i32 noundef 13, ptr noundef nonnull readonly %16)
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %16) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %_ZL8lean_decP11lean_object.exit
 
 _ZL8lean_decP11lean_object.exit:                  ; preds = %301, %300, %298, %273, %272, %270, %231, %230, %228, %200, %199, %197, %180, %179, %177, %_ZL8lean_decP11lean_object.exit268, %133, %135, %136, %147, %150, %155, %162, %_ZL12lean_dec_refP11lean_object.exit305, %353
@@ -30503,7 +30497,7 @@ _ZL8lean_incP11lean_object.exit286:               ; preds = %254, %253, %251, %2
   br i1 %262, label %263, label %313
 
 263:                                              ; preds = %261
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %16) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store ptr %1, ptr %16, align 16, !tbaa !15
   %264 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %2, ptr %264, align 8, !tbaa !15
@@ -30613,7 +30607,7 @@ _ZL12lean_dec_refP11lean_object.exit277:          ; preds = %299, %301, %302
   %304 = zext i32 %281 to i64
   %305 = getelementptr inbounds nuw [14 x ptr], ptr %16, i64 0, i64 %304
   %306 = call ptr @lean_apply_n(ptr noundef %296, i32 noundef %303, ptr noundef nonnull %305)
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %16) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %_ZL8lean_decP11lean_object.exit
 
 .lr.ph337:                                        ; preds = %.lr.ph337.preheader, %.lr.ph337
@@ -30630,7 +30624,7 @@ _ZL12lean_dec_refP11lean_object.exit277:          ; preds = %299, %301, %302
   br i1 %exitcond350.not, label %._crit_edge, label %.lr.ph337, !llvm.loop !62
 
 313:                                              ; preds = %261
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %17) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store ptr %1, ptr %17, align 8, !tbaa !15
   %314 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %2, ptr %314, align 8, !tbaa !15
@@ -30659,7 +30653,7 @@ _ZL12lean_dec_refP11lean_object.exit277:          ; preds = %299, %301, %302
   %326 = getelementptr inbounds nuw i8, ptr %17, i64 104
   store ptr %14, ptr %326, align 8, !tbaa !15
   %327 = call fastcc noalias noundef nonnull ptr @_ZN4leanL8fix_argsEP11lean_objectjPKS1_(ptr noundef nonnull %0, i32 noundef 14, ptr noundef nonnull readonly %17)
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %17) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %_ZL8lean_decP11lean_object.exit
 
 _ZL8lean_decP11lean_object.exit:                  ; preds = %260, %259, %257, %232, %231, %229, %201, %200, %198, %181, %180, %178, %_ZL8lean_decP11lean_object.exit237, %143, %145, %146, %157, %160, %165, %_ZL12lean_dec_refP11lean_object.exit277, %313
@@ -31256,7 +31250,7 @@ _ZL8lean_incP11lean_object.exit255:               ; preds = %226, %225, %223, %2
   br i1 %234, label %235, label %286
 
 235:                                              ; preds = %233
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %17) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store ptr %1, ptr %17, align 16, !tbaa !15
   %236 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %2, ptr %236, align 8, !tbaa !15
@@ -31368,7 +31362,7 @@ _ZL12lean_dec_refP11lean_object.exit248:          ; preds = %272, %274, %275
   %277 = zext i32 %254 to i64
   %278 = getelementptr inbounds nuw [15 x ptr], ptr %17, i64 0, i64 %277
   %279 = call ptr @lean_apply_n(ptr noundef %269, i32 noundef %276, ptr noundef nonnull %278)
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %17) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %_ZL8lean_decP11lean_object.exit
 
 .lr.ph295:                                        ; preds = %.lr.ph295.preheader, %.lr.ph295
@@ -31385,7 +31379,7 @@ _ZL12lean_dec_refP11lean_object.exit248:          ; preds = %272, %274, %275
   br i1 %exitcond308.not, label %._crit_edge, label %.lr.ph295, !llvm.loop !65
 
 286:                                              ; preds = %233
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %18) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store ptr %1, ptr %18, align 8, !tbaa !15
   %287 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %2, ptr %287, align 8, !tbaa !15
@@ -31416,7 +31410,7 @@ _ZL12lean_dec_refP11lean_object.exit248:          ; preds = %272, %274, %275
   %300 = getelementptr inbounds nuw i8, ptr %18, i64 112
   store ptr %15, ptr %300, align 8, !tbaa !15
   %301 = call fastcc noalias noundef nonnull ptr @_ZN4leanL8fix_argsEP11lean_objectjPKS1_(ptr noundef nonnull %0, i32 noundef 15, ptr noundef nonnull readonly %18)
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %18) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %_ZL8lean_decP11lean_object.exit
 
 _ZL8lean_decP11lean_object.exit:                  ; preds = %232, %231, %229, %204, %203, %201, %184, %183, %181, %_ZL8lean_decP11lean_object.exit205, %153, %155, %156, %167, %170, %_ZL12lean_dec_refP11lean_object.exit248, %286
@@ -31974,7 +31968,7 @@ _ZL8lean_incP11lean_object.exit222:               ; preds = %210, %209, %207, %2
   br i1 %218, label %219, label %271
 
 219:                                              ; preds = %217
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %18) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store ptr %1, ptr %18, align 16, !tbaa !15
   %220 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %2, ptr %220, align 8, !tbaa !15
@@ -32088,7 +32082,7 @@ _ZL12lean_dec_refP11lean_object.exit217:          ; preds = %257, %259, %260
   %262 = zext i32 %239 to i64
   %263 = getelementptr inbounds nuw [16 x ptr], ptr %18, i64 0, i64 %262
   %264 = call ptr @lean_apply_n(ptr noundef %254, i32 noundef %261, ptr noundef nonnull %263)
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %18) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %_ZL8lean_decP11lean_object.exit
 
 .lr.ph256:                                        ; preds = %.lr.ph256.preheader, %.lr.ph256
@@ -32105,7 +32099,7 @@ _ZL12lean_dec_refP11lean_object.exit217:          ; preds = %257, %259, %260
   br i1 %exitcond269.not, label %._crit_edge, label %.lr.ph256, !llvm.loop !68
 
 271:                                              ; preds = %217
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %19) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store ptr %1, ptr %19, align 8, !tbaa !15
   %272 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %2, ptr %272, align 8, !tbaa !15
@@ -32138,7 +32132,7 @@ _ZL12lean_dec_refP11lean_object.exit217:          ; preds = %257, %259, %260
   %286 = getelementptr inbounds nuw i8, ptr %19, i64 120
   store ptr %16, ptr %286, align 8, !tbaa !15
   %287 = call fastcc noalias noundef nonnull ptr @_ZN4leanL8fix_argsEP11lean_objectjPKS1_(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull readonly %19)
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %19) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %_ZL8lean_decP11lean_object.exit
 
 _ZL8lean_decP11lean_object.exit:                  ; preds = %216, %215, %213, %188, %187, %185, %_ZL8lean_decP11lean_object.exit171, %163, %165, %166, %176, %_ZL12lean_dec_refP11lean_object.exit217, %271
@@ -32550,34 +32544,40 @@ _ZL12lean_dec_refP11lean_object.exit:             ; preds = %36, %35, %33, %._cr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN4lean19unreachable_reachedD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 {
+define linkonce_odr hidden void @_ZN4lean19unreachable_reachedD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 comdat align 2 {
   tail call void @_ZN4lean9throwableD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #9
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 40) #11
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZNK4lean19unreachable_reached4whatEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 {
+define linkonce_odr hidden noundef ptr @_ZNK4lean19unreachable_reached4whatEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 comdat align 2 {
   ret ptr @.str
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #5
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind
 declare void @mi_free(ptr noundef) local_unnamed_addr #1
 
-declare void @lean_dec_ref_cold(ptr noundef) local_unnamed_addr #6
+declare void @lean_dec_ref_cold(ptr noundef) local_unnamed_addr #5
 
-declare void @lean_inc_ref_cold(ptr noundef) local_unnamed_addr #6
+declare void @lean_inc_ref_cold(ptr noundef) local_unnamed_addr #5
 
-declare void @lean_inc_heartbeat() local_unnamed_addr #6
+declare void @lean_inc_heartbeat() local_unnamed_addr #5
 
 ; Function Attrs: nounwind
 declare noalias ptr @mi_malloc_small(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare void @lean_internal_panic_out_of_memory() local_unnamed_addr #7
+declare void @lean_internal_panic_out_of_memory() local_unnamed_addr #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
@@ -32585,11 +32585,11 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { cold noreturn }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nounwind }
 attributes #10 = { noreturn }

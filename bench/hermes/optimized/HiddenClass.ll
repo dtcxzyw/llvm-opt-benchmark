@@ -165,8 +165,8 @@ if.end.i.i.i.i.i.i:                               ; preds = %if.then
 _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_11HiddenClassEEENS0_6HandleIT_EEPS5_.exit: ; preds = %if.then.i.i.i.i.i.i, %if.end.i.i.i.i.i.i
   %retval.sroa.0.0.copyload.i.i.i.i.i = phi i64 [ %or.i.i.i.i.i, %if.then.i.i.i.i.i.i ], [ %retval.sroa.0.0.copyload.i.i.i.i.i.pre, %if.end.i.i.i.i.i.i ]
   %retval.0.i.i.i.i.i.i = phi ptr [ %5, %if.then.i.i.i.i.i.i ], [ %call7.i.i.i.i.i.i, %if.end.i.i.i.i.i.i ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %itAndInserted.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %itAndInserted.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %and.i.i.i.i.i.i.i = and i64 %retval.sroa.0.0.copyload.i.i.i.i.i, 281474976710655
   %tobool.not.i.i.i.i.i.i = icmp eq i64 %and.i.i.i.i.i.i.i, 0
   %sub.i.i.i.i.i.i.i = sub i64 %retval.sroa.0.0.copyload.i.i.i.i.i, %2
@@ -207,8 +207,8 @@ if.end15.i:                                       ; preds = %if.end.i7, %_ZN6her
   br label %_ZN6hermes2vm12WeakValueMapINS0_6detail10TransitionENS0_11HiddenClassEE15insertNewLockedERNS0_7RuntimeERKS3_NS0_6HandleIS4_EE.exit
 
 _ZN6hermes2vm12WeakValueMapINS0_6detail10TransitionENS0_11HiddenClassEE15insertNewLockedERNS0_7RuntimeERKS3_NS0_6HandleIS4_EE.exit: ; preds = %if.then.i, %if.end15.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %itAndInserted.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %itAndInserted.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   br label %if.end
 
 if.end:                                           ; preds = %_ZN6hermes2vm12WeakValueMapINS0_6detail10TransitionENS0_11HiddenClassEEC2Ev.exit, %_ZN6hermes2vm12WeakValueMapINS0_6detail10TransitionENS0_11HiddenClassEE15insertNewLockedERNS0_7RuntimeERKS3_NS0_6HandleIS4_EE.exit, %_ZNK6hermes2vm7WeakRefINS0_11HiddenClassEE3getERNS0_7RuntimeE.exit
@@ -429,7 +429,7 @@ define hidden { i32, i64 } @_ZN6hermes2vm11HiddenClass10createRootERNS0_7Runtime
 entry:
   %lk.i.i.i.i.i = alloca %"class.std::lock_guard", align 8
   %heapStorage_.i.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 840
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %lk.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %lk.i.i.i.i.i)
   call void @_ZN6hermes2vm7HadesGC19pauseBackgroundTaskEv(ptr nonnull sret(%"class.std::lock_guard") align 8 %lk.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i.i) #13
   %call.i.i.i.i.i = call noundef ptr @_ZN6hermes2vm7HadesGC14allocLongLivedEj(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i.i, i32 noundef 48) #13
   %symbolID_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i, i64 4
@@ -476,7 +476,7 @@ _ZN6hermes2vm11HiddenClass6createERNS0_7RuntimeENS0_10ClassFlagsENS0_6HandleIS1_
   store i32 218103856, ptr %call.i.i.i.i.i, align 4
   %5 = load ptr, ptr %lk.i.i.i.i.i, align 8
   %call1.i.i.i.i.i.i.i.i.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %5) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %lk.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %lk.i.i.i.i.i)
   %6 = ptrtoint ptr %call.i.i.i.i.i to i64
   %or.i.i.i.i = or i64 %6, -281474976710656
   %.fca.1.insert.i = insertvalue { i32, i64 } { i32 1, i64 poison }, i64 %or.i.i.i.i, 1
@@ -488,7 +488,7 @@ define hidden { i32, i64 } @_ZN6hermes2vm11HiddenClass6createERNS0_7RuntimeENS0_
 entry:
   %lk.i.i.i.i = alloca %"class.std::lock_guard", align 8
   %heapStorage_.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 840
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %lk.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %lk.i.i.i.i)
   call void @_ZN6hermes2vm7HadesGC19pauseBackgroundTaskEv(ptr nonnull sret(%"class.std::lock_guard") align 8 %lk.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i) #13
   %call.i.i.i.i = call noundef ptr @_ZN6hermes2vm7HadesGC14allocLongLivedEj(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i, i32 noundef 48) #13
   %symbolID_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 4
@@ -535,7 +535,7 @@ _ZN6hermes2vm7Runtime10makeAFixedINS0_11HiddenClassELNS0_12HasFinalizerE1ELNS0_9
   store i32 218103856, ptr %call.i.i.i.i, align 4
   %5 = load ptr, ptr %lk.i.i.i.i, align 8
   %call1.i.i.i.i.i.i.i.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %5) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %lk.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %lk.i.i.i.i)
   %6 = ptrtoint ptr %call.i.i.i.i to i64
   %or.i.i.i = or i64 %6, -281474976710656
   %.fca.1.insert = insertvalue { i32, i64 } { i32 1, i64 poison }, i64 %or.i.i.i, 1
@@ -556,7 +556,7 @@ entry:
   %numProperties_ = getelementptr inbounds nuw i8, ptr %0, i64 12
   %1 = load i32, ptr %numProperties_, align 4
   %heapStorage_.i.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 840
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %lk.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %lk.i.i.i.i.i)
   call void @_ZN6hermes2vm7HadesGC19pauseBackgroundTaskEv(ptr nonnull sret(%"class.std::lock_guard") align 8 %lk.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i.i) #13
   %call.i.i.i.i.i = call noundef ptr @_ZN6hermes2vm7HadesGC14allocLongLivedEj(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i.i, i32 noundef 48) #13
   %symbolID_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i, i64 4
@@ -603,7 +603,7 @@ _ZN6hermes2vm11HiddenClass6createERNS0_7RuntimeENS0_10ClassFlagsENS0_6HandleIS1_
   store i32 218103856, ptr %call.i.i.i.i.i, align 4
   %7 = load ptr, ptr %lk.i.i.i.i.i, align 8
   %call1.i.i.i.i.i.i.i.i.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %7) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %lk.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %lk.i.i.i.i.i)
   %8 = ptrtoint ptr %call.i.i.i.i.i to i64
   %or.i.i.i.i = or i64 %8, -281474976710656
   %topGCScope_.i.i.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 8
@@ -1058,8 +1058,8 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
 if.then.i15:                                      ; preds = %for.body.i
   %second.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 4
   %agg.tmp4.sroa.0.0.copyload.i = load i64, ptr %second.i, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %__args.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args4.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__args.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__args4.i.i)
   store i32 %11, ptr %__args.i.i, align 4
   store i64 %agg.tmp4.sroa.0.0.copyload.i, ptr %__args4.i.i, align 8
   %12 = load ptr, ptr %_M_manager.i.i.i, align 8
@@ -1073,8 +1073,8 @@ if.then.i.i:                                      ; preds = %if.then.i15
 _ZNKSt8functionIFvN6hermes2vm8SymbolIDENS1_23NamedPropertyDescriptorEEEclES2_S3_.exit.i: ; preds = %if.then.i15
   %13 = load ptr, ptr %_M_invoker.i.i, align 8
   call void %13(ptr noundef nonnull align 8 dereferenceable(32) %callback, ptr noundef nonnull align 4 dereferenceable(4) %__args.i.i, ptr noundef nonnull align 4 dereferenceable(8) %__args4.i.i) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args4.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__args.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__args4.i.i)
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %_ZNKSt8functionIFvN6hermes2vm8SymbolIDENS1_23NamedPropertyDescriptorEEEclES2_S3_.exit.i, %for.body.i
@@ -1099,8 +1099,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %agg.tmp16.sroa.0.0.copyload = load i32, ptr %incdec.ptr.i.i18, align 4
   %second = getelementptr inbounds i8, ptr %it.sroa.0.058, i64 -8
   %agg.tmp18.sroa.0.0.copyload = load i64, ptr %second, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %__args.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args4.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__args.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__args4.i)
   store i32 %agg.tmp16.sroa.0.0.copyload, ptr %__args.i, align 4
   store i64 %agg.tmp18.sroa.0.0.copyload, ptr %__args4.i, align 8
   %14 = load ptr, ptr %_M_manager.i.i, align 8
@@ -1114,8 +1114,8 @@ if.then.i20:                                      ; preds = %for.body
 _ZNKSt8functionIFvN6hermes2vm8SymbolIDENS1_23NamedPropertyDescriptorEEEclES2_S3_.exit: ; preds = %for.body
   %15 = load ptr, ptr %_M_invoker.i, align 8
   call void %15(ptr noundef nonnull align 8 dereferenceable(32) %callback, ptr noundef nonnull align 4 dereferenceable(4) %__args.i, ptr noundef nonnull align 4 dereferenceable(8) %__args4.i) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args4.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__args.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__args4.i)
   %cmp.i.i.i17.not = icmp eq ptr %incdec.ptr.i.i18, %properties.sroa.0.046
   br i1 %cmp.i.i.i17.not, label %for.end, label %for.body, !llvm.loop !19
 
@@ -1866,7 +1866,7 @@ if.end157:                                        ; preds = %if.end98
   %61 = load i32, ptr %numProperties_187, align 4
   %add = add i32 %61, 1
   %heapStorage_.i.i.i122 = getelementptr inbounds nuw i8, ptr %runtime, i64 840
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %lk.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %lk.i.i.i.i.i)
   call void @_ZN6hermes2vm7HadesGC19pauseBackgroundTaskEv(ptr nonnull sret(%"class.std::lock_guard") align 8 %lk.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i.i122) #13
   %call.i.i.i.i.i = call noundef ptr @_ZN6hermes2vm7HadesGC14allocLongLivedEj(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i.i122, i32 noundef 48) #13
   %symbolID_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i, i64 4
@@ -1913,7 +1913,7 @@ _ZN6hermes2vm11HiddenClass6createERNS0_7RuntimeENS0_10ClassFlagsENS0_6HandleIS1_
   store i32 218103856, ptr %call.i.i.i.i.i, align 4
   %67 = load ptr, ptr %lk.i.i.i.i.i, align 8
   %call1.i.i.i.i.i.i.i.i.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %67) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %lk.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %lk.i.i.i.i.i)
   %68 = ptrtoint ptr %call.i.i.i.i.i to i64
   %or.i.i.i.i = or i64 %68, -281474976710656
   %topGCScope_.i.i.i.i127 = getelementptr inbounds nuw i8, ptr %runtime, i64 8
@@ -2083,7 +2083,7 @@ if.end.i.i.i.i.i.i:                               ; preds = %entry
 _ZN6hermes2vm13MutableHandleINS0_15DictPropertyMapEEC2ERNS0_15HandleRootOwnerEPS2_.exit: ; preds = %if.then.i.i.i.i.i.i, %if.end.i.i.i.i.i.i
   %retval.0.i.i.i.i.i.i = phi ptr [ %4, %if.then.i.i.i.i.i.i ], [ %call7.i.i.i.i.i.i, %if.end.i.i.i.i.i.i ]
   store ptr %retval.0.i.i.i.i.i.i, ptr %updatedMap, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %found.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %found.i)
   call void @_ZN6hermes2vm15DictPropertyMap9findOrAddERNS0_13MutableHandleIS1_EERNS0_7RuntimeENS0_8SymbolIDE(ptr nonnull sret(%"class.hermes::vm::CallResult.212") align 8 %found.i, ptr noundef nonnull align 8 dereferenceable(8) %updatedMap, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 %name.coerce) #13
   %hasVal.i.i.i.i = getelementptr inbounds nuw i8, ptr %found.i, i64 16
   %6 = load i8, ptr %hasVal.i.i.i.i, align 8
@@ -2092,13 +2092,13 @@ _ZN6hermes2vm13MutableHandleINS0_15DictPropertyMapEEC2ERNS0_15HandleRootOwnerEPS
   br i1 %cmp.i.i, label %_ZN6hermes2vm15DictPropertyMap3addERNS0_13MutableHandleIS1_EERNS0_7RuntimeENS0_8SymbolIDENS0_23NamedPropertyDescriptorE.exit.thread, label %if.end
 
 _ZN6hermes2vm15DictPropertyMap3addERNS0_13MutableHandleIS1_EERNS0_7RuntimeENS0_8SymbolIDENS0_23NamedPropertyDescriptorE.exit.thread: ; preds = %_ZN6hermes2vm13MutableHandleINS0_15DictPropertyMapEEC2ERNS0_15HandleRootOwnerEPS2_.exit
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %found.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %found.i)
   br label %return
 
 if.end:                                           ; preds = %_ZN6hermes2vm13MutableHandleINS0_15DictPropertyMapEEC2ERNS0_15HandleRootOwnerEPS2_.exit
   %8 = load ptr, ptr %found.i, align 8
   store i64 %desc.coerce, ptr %8, align 4
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %found.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %found.i)
   %agg.tmp.sroa.0.0.copyload.i.i6 = load i64, ptr %selfHandle.coerce, align 8
   %and.i.i.i.i.i7 = and i64 %agg.tmp.sroa.0.0.copyload.i.i6, 281474976710655
   %9 = inttoptr i64 %and.i.i.i.i.i7 to ptr
@@ -2194,8 +2194,8 @@ if.then15:                                        ; preds = %_ZNSt10lock_guardIS
 if.end16:                                         ; preds = %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit, %if.then15
   %u.i9 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %8 = load ptr, ptr %u.i9, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %itAndInserted.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %itAndInserted.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %retval.sroa.0.0.copyload.i.i.i.i.i = load i64, ptr %value.coerce, align 8
   %and.i.i.i.i.i.i.i = and i64 %retval.sroa.0.0.copyload.i.i.i.i.i, 281474976710655
   %tobool.not.i.i.i.i.i.i = icmp eq i64 %and.i.i.i.i.i.i.i, 0
@@ -2239,8 +2239,8 @@ if.end15.i:                                       ; preds = %if.end.i, %if.end16
 
 _ZN6hermes2vm12WeakValueMapINS0_6detail10TransitionENS0_11HiddenClassEE15insertNewLockedERNS0_7RuntimeERKS3_NS0_6HandleIS4_EE.exit: ; preds = %if.then.i, %if.end15.i
   %retval.0.i = phi i1 [ true, %if.end15.i ], [ false, %if.then.i ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %itAndInserted.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %itAndInserted.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZN6hermes2vm12WeakValueMapINS0_6detail10TransitionENS0_11HiddenClassEE15insertNewLockedERNS0_7RuntimeERKS3_NS0_6HandleIS4_EE.exit, %if.then8
@@ -2484,7 +2484,7 @@ if.end84:                                         ; preds = %if.then.i, %if.else
   %numProperties_ = getelementptr inbounds nuw i8, ptr %38, i64 12
   %42 = load i32, ptr %numProperties_, align 4
   %heapStorage_.i.i.i82 = getelementptr inbounds nuw i8, ptr %runtime, i64 840
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %lk.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %lk.i.i.i.i.i)
   call void @_ZN6hermes2vm7HadesGC19pauseBackgroundTaskEv(ptr nonnull sret(%"class.std::lock_guard") align 8 %lk.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i.i82) #13
   %call.i.i.i.i.i = call noundef ptr @_ZN6hermes2vm7HadesGC14allocLongLivedEj(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i.i82, i32 noundef 48) #13
   %symbolID_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i, i64 4
@@ -2530,7 +2530,7 @@ _ZN6hermes2vm11HiddenClass6createERNS0_7RuntimeENS0_10ClassFlagsENS0_6HandleIS1_
   store i32 218103856, ptr %call.i.i.i.i.i, align 4
   %47 = load ptr, ptr %lk.i.i.i.i.i, align 8
   %call1.i.i.i.i.i.i.i.i.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %47) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %lk.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %lk.i.i.i.i.i)
   %48 = ptrtoint ptr %call.i.i.i.i.i to i64
   %or.i.i.i.i = or i64 %48, -281474976710656
   %topGCScope_.i.i.i.i86 = getelementptr inbounds nuw i8, ptr %runtime, i64 8
@@ -4425,10 +4425,10 @@ declare void @llvm.assume(i1 noundef) #9
 declare i32 @llvm.umax.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #10

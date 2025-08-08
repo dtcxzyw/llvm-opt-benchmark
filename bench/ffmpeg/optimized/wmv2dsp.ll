@@ -597,11 +597,11 @@ declare void @ff_put_pixels8x8_c(ptr noundef, ptr noundef, i64 noundef) #2
 ; Function Attrs: nounwind uwtable
 define internal void @put_mspel8_mc10_c(ptr noundef %0, ptr noundef %1, i64 noundef %2) #3 {
   %4 = alloca [64 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   call fastcc void @wmv2_mspel8_h_lowpass(ptr noundef nonnull %4, ptr noundef %1, i32 noundef 8, i32 noundef %5, i32 noundef 8)
   call void @ff_put_pixels8_l2_8(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4, i32 noundef %5, i32 noundef %5, i32 noundef 8, i32 noundef 8) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -615,12 +615,12 @@ define internal void @put_mspel8_mc20_c(ptr noundef writeonly captures(none) %0,
 ; Function Attrs: nounwind uwtable
 define internal void @put_mspel8_mc30_c(ptr noundef %0, ptr noundef %1, i64 noundef %2) #3 {
   %4 = alloca [64 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc i64 %2 to i32
   call fastcc void @wmv2_mspel8_h_lowpass(ptr noundef nonnull %4, ptr noundef %1, i32 noundef 8, i32 noundef %5, i32 noundef 8)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 1
   call void @ff_put_pixels8_l2_8(ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %4, i32 noundef %5, i32 noundef %5, i32 noundef 8, i32 noundef 8) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -636,9 +636,9 @@ define internal void @put_mspel8_mc12_c(ptr noundef %0, ptr noundef readonly cap
   %4 = alloca [88 x i8], align 16
   %5 = alloca [64 x i8], align 16
   %6 = alloca [64 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = sub i64 0, %2
   %8 = getelementptr inbounds i8, ptr %1, i64 %7
   %9 = trunc i64 %2 to i32
@@ -647,23 +647,23 @@ define internal void @put_mspel8_mc12_c(ptr noundef %0, ptr noundef readonly cap
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call fastcc void @wmv2_mspel8_v_lowpass(ptr noundef nonnull %6, ptr noundef nonnull %10, i32 noundef 8, i32 noundef 8)
   call void @ff_put_pixels8_l2_8(ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef %9, i32 noundef 8, i32 noundef 8, i32 noundef 8) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @put_mspel8_mc22_c(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #1 {
   %4 = alloca [88 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = sub i64 0, %2
   %6 = getelementptr inbounds i8, ptr %1, i64 %5
   %7 = trunc i64 %2 to i32
   call fastcc void @wmv2_mspel8_h_lowpass(ptr noundef nonnull %4, ptr noundef %6, i32 noundef 8, i32 noundef %7, i32 noundef 11)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call fastcc void @wmv2_mspel8_v_lowpass(ptr noundef %0, ptr noundef nonnull %8, i32 noundef %7, i32 noundef 8)
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -672,9 +672,9 @@ define internal void @put_mspel8_mc32_c(ptr noundef %0, ptr noundef readonly cap
   %4 = alloca [88 x i8], align 16
   %5 = alloca [64 x i8], align 16
   %6 = alloca [64 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = sub i64 0, %2
   %8 = getelementptr inbounds i8, ptr %1, i64 %7
   %9 = trunc i64 %2 to i32
@@ -684,17 +684,14 @@ define internal void @put_mspel8_mc32_c(ptr noundef %0, ptr noundef readonly cap
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call fastcc void @wmv2_mspel8_v_lowpass(ptr noundef nonnull %6, ptr noundef nonnull %11, i32 noundef 8, i32 noundef 8)
   call void @ff_put_pixels8_l2_8(ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef %9, i32 noundef 8, i32 noundef 8, i32 noundef 8) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @wmv2_idct_col(ptr noundef captures(none) %0) unnamed_addr #5 {
+define internal fastcc void @wmv2_idct_col(ptr noundef captures(none) %0) unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i16, ptr %2, align 2, !tbaa !13
   %4 = sext i16 %3 to i32
@@ -812,9 +809,6 @@ define internal fastcc void @wmv2_idct_col(ptr noundef captures(none) %0) unname
   store i16 %102, ptr %6, align 2, !tbaa !13
   ret void
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc void @wmv2_mspel8_h_lowpass(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef range(i32 8, 12) %4) unnamed_addr #1 {
@@ -1168,12 +1162,18 @@ define internal fastcc void @wmv2_mspel8_v_lowpass(ptr noundef writeonly capture
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
+
 attributes #0 = { cold mustprogress nofree norecurse nosync nounwind optsize willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

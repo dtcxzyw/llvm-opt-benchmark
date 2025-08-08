@@ -2552,9 +2552,9 @@ if.end62:                                         ; preds = %if.end41, %_ZNK2v82
   %flags.1 = phi i32 [ %ref.tmp43.sroa.327.0.extract.trunc, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit ], [ 0, %if.end41 ]
   %buf_.i = getelementptr inbounds nuw i8, ptr %ip_address, i64 16
   %37 = load ptr, ptr %buf_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %__args.addr2.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr4.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr2.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr4.i)
   store ptr %37, ptr %__args.addr.i, align 8
   store i32 %ref.tmp23.sroa.331.0.extract.trunc, ptr %__args.addr2.i, align 4
   store ptr %addr, ptr %__args.addr4.i, align 8
@@ -2571,9 +2571,9 @@ _ZNKSt8functionIFiPKciP11sockaddr_inEEclES1_iS3_.exit: ; preds = %if.end62
   %_M_invoker.i = getelementptr inbounds nuw i8, ptr %uv_ip_addr, i64 24
   %39 = load ptr, ptr %_M_invoker.i, align 8
   %call6.i = call noundef i32 %39(ptr noundef nonnull align 8 dereferenceable(32) %uv_ip_addr, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr2.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i) #18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr2.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr4.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr2.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr4.i)
   %cmp65 = icmp eq i32 %call6.i, 0
   br i1 %cmp65, label %if.then66, label %if.then.i132
 
@@ -2757,9 +2757,9 @@ if.end62:                                         ; preds = %if.end41, %_ZNK2v82
   %flags.1 = phi i32 [ %ref.tmp43.sroa.327.0.extract.trunc, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit ], [ 0, %if.end41 ]
   %buf_.i = getelementptr inbounds nuw i8, ptr %ip_address, i64 16
   %37 = load ptr, ptr %buf_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %__args.addr2.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr4.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr2.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr4.i)
   store ptr %37, ptr %__args.addr.i, align 8
   store i32 %ref.tmp23.sroa.331.0.extract.trunc, ptr %__args.addr2.i, align 4
   store ptr %addr, ptr %__args.addr4.i, align 8
@@ -2776,9 +2776,9 @@ _ZNKSt8functionIFiPKciP12sockaddr_in6EEclES1_iS3_.exit: ; preds = %if.end62
   %_M_invoker.i = getelementptr inbounds nuw i8, ptr %uv_ip_addr, i64 24
   %39 = load ptr, ptr %_M_invoker.i, align 8
   %call6.i = call noundef i32 %39(ptr noundef nonnull align 8 dereferenceable(32) %uv_ip_addr, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr2.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i) #18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr2.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr4.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr2.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr4.i)
   %cmp65 = icmp eq i32 %call6.i, 0
   br i1 %cmp65, label %if.then66, label %if.then.i132
 
@@ -3017,8 +3017,8 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit175: ; preds = %_ZNK2v820Funct
   call void @_ZN4node9Utf8ValueC1EPN2v87IsolateENS1_5LocalINS1_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(1048) %ip_address, ptr noundef %48, ptr %retval.i158.sroa.0.0) #18
   %buf_.i = getelementptr inbounds nuw i8, ptr %ip_address, i64 16
   %49 = load ptr, ptr %buf_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr2.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr2.i)
   store ptr %49, ptr %__args.addr.i, align 8
   store ptr %addr, ptr %__args.addr2.i, align 8
   %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %uv_ip_addr, i64 16
@@ -3034,8 +3034,8 @@ _ZNKSt8functionIFiPKcP11sockaddr_inEEclES1_S3_.exit: ; preds = %_ZNK2v820Functio
   %_M_invoker.i = getelementptr inbounds nuw i8, ptr %uv_ip_addr, i64 24
   %51 = load ptr, ptr %_M_invoker.i, align 8
   %call4.i = call noundef i32 %51(ptr noundef nonnull align 8 dereferenceable(32) %uv_ip_addr, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i) #18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr2.i)
   %cmp65 = icmp eq i32 %call4.i, 0
   br i1 %cmp65, label %if.then66, label %if.then.i259
 
@@ -3201,9 +3201,9 @@ if.end123:                                        ; preds = %_ZN4node7tracing16T
 
 if.then125:                                       ; preds = %if.end123
   %81 = load ptr, ptr %buf_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %arg_names.i)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %arg_types.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %arg_values.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %arg_names.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %arg_types.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %arg_values.i)
   store ptr @.str.57, ptr %arg_names.i, align 16
   %arrayinit.element.i = getelementptr inbounds nuw i8, ptr %arg_names.i, i64 8
   store ptr @.str.58, ptr %arrayinit.element.i, align 8
@@ -3215,7 +3215,7 @@ if.then125:                                       ; preds = %if.end123
   store i8 3, ptr %arrayidx2.i, align 1
   %conv.i.i = ashr i64 %call116, 32
   store i64 %conv.i.i, ptr %arrayidx3.i, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %arg_convertibles.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %arg_convertibles.i.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arg_convertibles.i.i, i8 0, i64 16, i1 false)
   %arrayctor.end.i.i = getelementptr inbounds nuw i8, ptr %arg_convertibles.i.i, i64 16
   %call.i.i81 = call noundef ptr @_ZN4node7tracing16TraceEventHelper20GetTracingControllerEv() #18
@@ -3253,10 +3253,10 @@ _ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EED2Ev.ex
   br i1 %arraydestroy.done.i.i, label %_ZN4node7tracingL13AddTraceEventINS0_19TraceStringWithCopyERiEEmcPKhPKcS7_mmjS7_OT_S7_OT0_.exit, label %arraydestroy.body.i.i
 
 _ZN4node7tracingL13AddTraceEventINS0_19TraceStringWithCopyERiEEmcPKhPKcS7_mmjS7_OT_S7_OT0_.exit: ; preds = %_ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EED2Ev.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %arg_convertibles.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %arg_names.i)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %arg_types.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %arg_values.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %arg_convertibles.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %arg_names.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %arg_types.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %arg_values.i)
   br label %if.end134
 
 if.end134:                                        ; preds = %if.end123, %_ZN4node7tracingL13AddTraceEventINS0_19TraceStringWithCopyERiEEmcPKhPKcS7_mmjS7_OT_S7_OT0_.exit, %delete.notnull
@@ -3481,8 +3481,8 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit175: ; preds = %_ZNK2v820Funct
   call void @_ZN4node9Utf8ValueC1EPN2v87IsolateENS1_5LocalINS1_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(1048) %ip_address, ptr noundef %48, ptr %retval.i158.sroa.0.0) #18
   %buf_.i = getelementptr inbounds nuw i8, ptr %ip_address, i64 16
   %49 = load ptr, ptr %buf_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr2.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr2.i)
   store ptr %49, ptr %__args.addr.i, align 8
   store ptr %addr, ptr %__args.addr2.i, align 8
   %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %uv_ip_addr, i64 16
@@ -3498,8 +3498,8 @@ _ZNKSt8functionIFiPKcP12sockaddr_in6EEclES1_S3_.exit: ; preds = %_ZNK2v820Functi
   %_M_invoker.i = getelementptr inbounds nuw i8, ptr %uv_ip_addr, i64 24
   %51 = load ptr, ptr %_M_invoker.i, align 8
   %call4.i = call noundef i32 %51(ptr noundef nonnull align 8 dereferenceable(32) %uv_ip_addr, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i) #18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr2.i)
   %cmp65 = icmp eq i32 %call4.i, 0
   br i1 %cmp65, label %if.then66, label %if.then.i259
 
@@ -3665,9 +3665,9 @@ if.end123:                                        ; preds = %_ZN4node7tracing16T
 
 if.then125:                                       ; preds = %if.end123
   %81 = load ptr, ptr %buf_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %arg_names.i)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %arg_types.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %arg_values.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %arg_names.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %arg_types.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %arg_values.i)
   store ptr @.str.57, ptr %arg_names.i, align 16
   %arrayinit.element.i = getelementptr inbounds nuw i8, ptr %arg_names.i, i64 8
   store ptr @.str.58, ptr %arrayinit.element.i, align 8
@@ -3679,7 +3679,7 @@ if.then125:                                       ; preds = %if.end123
   store i8 3, ptr %arrayidx2.i, align 1
   %conv.i.i = ashr i64 %call116, 32
   store i64 %conv.i.i, ptr %arrayidx3.i, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %arg_convertibles.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %arg_convertibles.i.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arg_convertibles.i.i, i8 0, i64 16, i1 false)
   %arrayctor.end.i.i = getelementptr inbounds nuw i8, ptr %arg_convertibles.i.i, i64 16
   %call.i.i81 = call noundef ptr @_ZN4node7tracing16TraceEventHelper20GetTracingControllerEv() #18
@@ -3717,10 +3717,10 @@ _ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EED2Ev.ex
   br i1 %arraydestroy.done.i.i, label %_ZN4node7tracingL13AddTraceEventINS0_19TraceStringWithCopyERiEEmcPKhPKcS7_mmjS7_OT_S7_OT0_.exit, label %arraydestroy.body.i.i
 
 _ZN4node7tracingL13AddTraceEventINS0_19TraceStringWithCopyERiEEmcPKhPKcS7_mmjS7_OT_S7_OT0_.exit: ; preds = %_ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EED2Ev.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %arg_convertibles.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %arg_names.i)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %arg_types.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %arg_values.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %arg_convertibles.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %arg_names.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %arg_types.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %arg_values.i)
   br label %if.end134
 
 if.end134:                                        ; preds = %if.end123, %_ZN4node7tracingL13AddTraceEventINS0_19TraceStringWithCopyERiEEmcPKhPKcS7_mmjS7_OT_S7_OT0_.exit, %delete.notnull
@@ -4665,10 +4665,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #16

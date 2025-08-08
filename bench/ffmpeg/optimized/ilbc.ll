@@ -32,7 +32,7 @@ define internal range(i32 -2147483648, 1) i32 @ilbc_read_header(ptr noundef %0) 
   %2 = alloca [9 x i8], align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %5 = call i32 @ffio_read_size(ptr noundef %4, ptr noundef nonnull %2, i32 noundef 9) #5
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %29, label %7
@@ -95,7 +95,7 @@ define internal range(i32 -2147483648, 1) i32 @ilbc_read_header(ptr noundef %0) 
 
 29:                                               ; preds = %19, %24, %7, %1, %28
   %.0 = phi i32 [ -1094995529, %28 ], [ %5, %1 ], [ -12, %7 ], [ 0, %24 ], [ 0, %19 ]
-  call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
 
@@ -169,9 +169,6 @@ define internal range(i32 -22, 1) i32 @ilbc_write_header(ptr noundef %0) #1 {
 
 declare i32 @ff_raw_write_packet(ptr noundef, ptr noundef) #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 declare i32 @ffio_read_size(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 declare ptr @avformat_new_stream(ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -180,12 +177,15 @@ declare void @avpriv_set_pts_info(ptr noundef, i32 noundef, i32 noundef, i32 nou
 
 declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
-
 declare i32 @av_get_packet(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 declare void @avio_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #4

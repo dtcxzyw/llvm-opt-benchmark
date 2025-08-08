@@ -260,28 +260,22 @@ define dso_local noundef i32 @SPI_connect_ext(i32 noundef %0) local_unnamed_addr
   ret i32 1
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @errstart(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @errstart(i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #3
+declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @MemoryContextAlloc(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare ptr @MemoryContextAlloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare ptr @repalloc(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare ptr @repalloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @GetCurrentSubTransactionId() local_unnamed_addr #3
+declare i32 @GetCurrentSubTransactionId() local_unnamed_addr #2
 
-declare ptr @AllocSetContextCreateInternal(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @AllocSetContextCreateInternal(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -4, 3) i32 @SPI_finish() local_unnamed_addr #0 {
@@ -330,10 +324,10 @@ define dso_local range(i32 -4, 3) i32 @SPI_finish() local_unnamed_addr #0 {
   ret i32 %.0
 }
 
-declare void @MemoryContextDelete(ptr noundef) local_unnamed_addr #3
+declare void @MemoryContextDelete(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @SPI_start_transaction() local_unnamed_addr #4 {
+define dso_local void @SPI_start_transaction() local_unnamed_addr #3 {
   ret void
 }
 
@@ -348,7 +342,7 @@ define internal fastcc void @_SPI_commit(i1 noundef zeroext %0) unnamed_addr #0 
   %2 = alloca %struct.SavedTransactionCharacteristics, align 4
   %3 = alloca [1 x %struct.__jmp_buf_tag], align 16
   %4 = load ptr, ptr @CurrentMemoryContext, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %5 = load ptr, ptr @_SPI_current, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %7 = load i8, ptr %6, align 8, !range !4, !noundef !5
@@ -385,7 +379,7 @@ define internal fastcc void @_SPI_commit(i1 noundef zeroext %0) unnamed_addr #0 
 21:                                               ; preds = %19, %20
   %22 = load ptr, ptr @PG_exception_stack, align 8
   %23 = load ptr, ptr @error_context_stack, align 8
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %24 = call i32 @__sigsetjmp(ptr noundef nonnull %3, i32 noundef 0) #16
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %26, label %33
@@ -412,8 +406,8 @@ define internal fastcc void @_SPI_commit(i1 noundef zeroext %0) unnamed_addr #0 
   store i8 0, ptr %32, align 1
   store ptr %22, ptr @PG_exception_stack, align 8
   store ptr %23, ptr @error_context_stack, align 8
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %3) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 33:                                               ; preds = %21
@@ -456,7 +450,7 @@ define internal fastcc void @_SPI_rollback(i1 noundef zeroext %0) unnamed_addr #
   %2 = alloca %struct.SavedTransactionCharacteristics, align 4
   %3 = alloca [1 x %struct.__jmp_buf_tag], align 16
   %4 = load ptr, ptr @CurrentMemoryContext, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %5 = load ptr, ptr @_SPI_current, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %7 = load i8, ptr %6, align 8, !range !4, !noundef !5
@@ -493,7 +487,7 @@ define internal fastcc void @_SPI_rollback(i1 noundef zeroext %0) unnamed_addr #
 21:                                               ; preds = %19, %20
   %22 = load ptr, ptr @PG_exception_stack, align 8
   %23 = load ptr, ptr @error_context_stack, align 8
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %24 = call i32 @__sigsetjmp(ptr noundef nonnull %3, i32 noundef 0) #16
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %26, label %33
@@ -520,8 +514,8 @@ define internal fastcc void @_SPI_rollback(i1 noundef zeroext %0) unnamed_addr #
   store i8 0, ptr %32, align 1
   store ptr %22, ptr @PG_exception_stack, align 8
   store ptr %23, ptr @error_context_stack, align 8
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %3) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 33:                                               ; preds = %21
@@ -620,11 +614,11 @@ define dso_local void @AtEOXact_SPI(i1 noundef zeroext %0) local_unnamed_addr #0
   ret void
 }
 
-declare i32 @errcode(i32 noundef) local_unnamed_addr #3
+declare i32 @errcode(i32 noundef) local_unnamed_addr #2
 
-declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #3
+declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #2
 
-declare i32 @errhint(ptr noundef, ...) local_unnamed_addr #3
+declare i32 @errhint(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @AtEOSubXact_SPI(i1 noundef zeroext %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -790,7 +784,7 @@ define dso_local void @AtEOSubXact_SPI(i1 noundef zeroext %0, i32 noundef %1) lo
   ret void
 }
 
-declare void @MemoryContextReset(ptr noundef) local_unnamed_addr #3
+declare void @MemoryContextReset(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @SPI_inside_nonatomic_context() local_unnamed_addr #0 {
@@ -814,7 +808,7 @@ define dso_local zeroext i1 @SPI_inside_nonatomic_context() local_unnamed_addr #
   ret i1 %.0
 }
 
-declare zeroext i1 @IsSubTransaction() local_unnamed_addr #3
+declare zeroext i1 @IsSubTransaction() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @SPI_execute(ptr noundef %0, i1 noundef zeroext %1, i64 noundef %2) local_unnamed_addr #0 {
@@ -823,8 +817,8 @@ define dso_local i32 @SPI_execute(ptr noundef %0, i1 noundef zeroext %1, i64 nou
   %6 = alloca %struct._SPI_plan, align 8
   %7 = alloca %struct.SPIExecuteOptions, align 8
   %8 = zext i1 %1 to i8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #15
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %9 = icmp eq ptr %0, null
   %10 = icmp slt i64 %2, 0
   %or.cond = or i1 %9, %10
@@ -847,8 +841,8 @@ _SPI_begin_call.exit.thread:                      ; preds = %11
   store i32 569278163, ptr %6, align 8
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 28
   store i32 2048, ptr %18, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #15
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %0, ptr %4, align 8
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %19, align 8
@@ -895,8 +889,8 @@ _SPI_prepare_oneshot_plan.exit:                   ; preds = %.lr.ph28.i, %_SPI_b
   store i8 1, ptr %40, align 1
   %41 = load ptr, ptr %5, align 8
   store ptr %41, ptr @error_context_stack, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, i8 0, i64 40, i1 false)
   %42 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i8 %8, ptr %42, align 8
@@ -916,13 +910,13 @@ _SPI_prepare_oneshot_plan.exit:                   ; preds = %.lr.ph28.i, %_SPI_b
 
 _SPI_begin_call.exit:                             ; preds = %11, %3, %_SPI_prepare_oneshot_plan.exit
   %.0 = phi i32 [ %44, %_SPI_prepare_oneshot_plan.exit ], [ -6, %3 ], [ -4, %11 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #15
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @_SPI_execute_plan(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4) unnamed_addr #0 {
@@ -931,8 +925,8 @@ define internal fastcc i32 @_SPI_execute_plan(ptr noundef nonnull readonly captu
   %8 = alloca %struct.QueryCompletion, align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %10 = load ptr, ptr %9, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #15
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 9
   %12 = load i8, ptr %11, align 1, !range !4, !noundef !5
   %13 = trunc nuw i8 %12 to i1
@@ -1403,7 +1397,7 @@ _SPI_pquery.exit:                                 ; preds = %198, %258
   br label %284
 
 259:                                              ; preds = %182
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @InitializeQueryCompletion(ptr noundef nonnull %8) #15
   %260 = load ptr, ptr %71, align 8
   %261 = load ptr, ptr %1, align 8
@@ -1450,7 +1444,7 @@ _SPI_pquery.exit:                                 ; preds = %198, %258
 
 283:                                              ; preds = %271, %281, %274
   %.2144 = phi i32 [ %spec.select189, %274 ], [ 4, %281 ], [ 4, %271 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %284
 
 284:                                              ; preds = %283, %_SPI_pquery.exit
@@ -1534,8 +1528,8 @@ _SPI_pquery.exit:                                 ; preds = %198, %258
   store ptr null, ptr %311, align 8
   %312 = icmp eq i32 %.1241, 0
   %spec.store.select = select i1 %312, i32 14, i32 %.1241
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %spec.store.select
 }
 
@@ -1550,7 +1544,7 @@ define dso_local i32 @SPI_execute_extended(ptr noundef %0, ptr noundef readonly 
   %3 = alloca %struct.SPICallbackArg, align 8
   %4 = alloca %struct.ErrorContextCallback, align 8
   %5 = alloca %struct._SPI_plan, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = icmp eq ptr %0, null
   %7 = icmp eq ptr %1, null
   %or.cond = or i1 %6, %7
@@ -1589,8 +1583,8 @@ _SPI_begin_call.exit.thread:                      ; preds = %8
   br label %24
 
 24:                                               ; preds = %17, %_SPI_begin_call.exit.thread
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #15
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %0, ptr %3, align 8
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 0, ptr %25, align 8
@@ -1637,8 +1631,8 @@ _SPI_prepare_oneshot_plan.exit:                   ; preds = %.lr.ph28.i, %24, %.
   store i8 1, ptr %46, align 1
   %47 = load ptr, ptr %4, align 8
   store ptr %47, ptr @error_context_stack, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %48 = call fastcc i32 @_SPI_execute_plan(ptr noundef %5, ptr noundef %1, ptr noundef null, ptr noundef null, i1 noundef zeroext true)
   %49 = load ptr, ptr @_SPI_current, align 8
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 32
@@ -1653,7 +1647,7 @@ _SPI_prepare_oneshot_plan.exit:                   ; preds = %.lr.ph28.i, %24, %.
 
 _SPI_begin_call.exit:                             ; preds = %8, %2, %_SPI_prepare_oneshot_plan.exit
   %.0 = phi i32 [ %48, %_SPI_prepare_oneshot_plan.exit ], [ -6, %2 ], [ -4, %8 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -1661,7 +1655,7 @@ _SPI_begin_call.exit:                             ; preds = %8, %2, %_SPI_prepar
 define dso_local i32 @SPI_execute_plan(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, i1 noundef zeroext %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.SPIExecuteOptions, align 8
   %7 = zext i1 %3 to i8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %8 = icmp eq ptr %0, null
   br i1 %8, label %_SPI_begin_call.exit, label %9
 
@@ -1769,7 +1763,7 @@ _SPI_convert_params.exit:                         ; preds = %.split.i, %.split.u
 
 _SPI_begin_call.exit:                             ; preds = %18, %13, %5, %9, %_SPI_convert_params.exit
   %.0 = phi i32 [ %55, %_SPI_convert_params.exit ], [ -6, %9 ], [ -6, %5 ], [ -7, %13 ], [ -4, %18 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
@@ -1825,7 +1819,7 @@ _SPI_begin_call.exit:                             ; preds = %8, %2, %4, %_SPI_be
 define dso_local i32 @SPI_execute_plan_with_paramlist(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i1 noundef zeroext %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.SPIExecuteOptions, align 8
   %6 = zext i1 %2 to i8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = icmp eq ptr %0, null
   br i1 %7, label %_SPI_begin_call.exit, label %8
 
@@ -1870,7 +1864,7 @@ _SPI_begin_call.exit.thread:                      ; preds = %12
 
 _SPI_begin_call.exit:                             ; preds = %12, %4, %8, %_SPI_begin_call.exit.thread
   %.0 = phi i32 [ %22, %_SPI_begin_call.exit.thread ], [ -6, %8 ], [ -6, %4 ], [ -4, %12 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -1878,7 +1872,7 @@ _SPI_begin_call.exit:                             ; preds = %12, %4, %8, %_SPI_b
 define dso_local i32 @SPI_execute_snapshot(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5, i1 noundef zeroext %6, i64 noundef %7) local_unnamed_addr #0 {
   %9 = alloca %struct.SPIExecuteOptions, align 8
   %10 = zext i1 %5 to i8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %11 = icmp eq ptr %0, null
   br i1 %11, label %_SPI_begin_call.exit, label %12
 
@@ -1986,7 +1980,7 @@ _SPI_convert_params.exit:                         ; preds = %.split.i, %.split.u
 
 _SPI_begin_call.exit:                             ; preds = %21, %16, %8, %12, %_SPI_convert_params.exit
   %.0 = phi i32 [ %58, %_SPI_convert_params.exit ], [ -6, %12 ], [ -6, %8 ], [ -7, %16 ], [ -4, %21 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0
 }
 
@@ -1997,8 +1991,8 @@ define dso_local i32 @SPI_execute_with_args(ptr noundef %0, i32 noundef %1, ptr 
   %10 = alloca %struct._SPI_plan, align 8
   %11 = alloca %struct.SPIExecuteOptions, align 8
   %12 = zext i1 %5 to i8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10) #15
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %13 = icmp eq ptr %0, null
   %14 = icmp slt i32 %1, 0
   %or.cond = or i1 %13, %14
@@ -2090,8 +2084,8 @@ _SPI_begin_call.exit.thread:                      ; preds = %20
 
 _SPI_convert_params.exit:                         ; preds = %.split.i, %.split.us.i, %_SPI_begin_call.exit.thread
   %.0.i28 = phi ptr [ null, %_SPI_begin_call.exit.thread ], [ %32, %.split.us.i ], [ %32, %.split.i ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #15
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %0, ptr %8, align 8
   %54 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 0, ptr %54, align 8
@@ -2138,8 +2132,8 @@ _SPI_prepare_oneshot_plan.exit:                   ; preds = %.lr.ph28.i, %_SPI_c
   store i8 1, ptr %75, align 1
   %76 = load ptr, ptr %9, align 8
   store ptr %76, ptr @error_context_stack, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %77 = getelementptr inbounds nuw i8, ptr %11, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %77, i8 0, i64 32, i1 false)
   store ptr %.0.i28, ptr %11, align 8
@@ -2161,15 +2155,15 @@ _SPI_prepare_oneshot_plan.exit:                   ; preds = %.lr.ph28.i, %_SPI_c
 
 _SPI_begin_call.exit:                             ; preds = %20, %17, %7, %_SPI_prepare_oneshot_plan.exit
   %.0 = phi i32 [ %80, %_SPI_prepare_oneshot_plan.exit ], [ -6, %7 ], [ -7, %17 ], [ -4, %20 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11) #15
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @SPI_prepare(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct._SPI_plan, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = icmp eq ptr %0, null
   %6 = icmp slt i32 %1, 0
   %or.cond.i = or i1 %5, %6
@@ -2226,14 +2220,14 @@ _SPI_begin_call.exit.i:                           ; preds = %11
 
 SPI_prepare_cursor.exit:                          ; preds = %10, %_SPI_begin_call.exit.thread.i, %_SPI_begin_call.exit.i
   %.0.i = phi ptr [ null, %10 ], [ %21, %_SPI_begin_call.exit.thread.i ], [ null, %_SPI_begin_call.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0.i
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @SPI_prepare_cursor(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct._SPI_plan, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = icmp eq ptr %0, null
   %7 = icmp slt i32 %1, 0
   %or.cond = or i1 %6, %7
@@ -2292,7 +2286,7 @@ _SPI_begin_call.exit:                             ; preds = %12
 
 30:                                               ; preds = %_SPI_begin_call.exit, %_SPI_begin_call.exit.thread, %11
   %.0 = phi ptr [ null, %11 ], [ %23, %_SPI_begin_call.exit.thread ], [ null, %_SPI_begin_call.exit ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }
 
@@ -2300,8 +2294,8 @@ _SPI_begin_call.exit:                             ; preds = %12
 define internal fastcc void @_SPI_prepare_plan(ptr noundef nonnull %0, ptr noundef nonnull captures(none) %1) unnamed_addr #0 {
   %3 = alloca %struct.SPICallbackArg, align 8
   %4 = alloca %struct.ErrorContextCallback, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #15
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %0, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load i32, ptr %5, align 8
@@ -2352,8 +2346,8 @@ define internal fastcc void @_SPI_prepare_plan(ptr noundef nonnull %0, ptr nound
   store i8 0, ptr %30, align 1
   %31 = load ptr, ptr %4, align 8
   store ptr %31, ptr @error_context_stack, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 32:                                               ; preds = %.lr.ph47
@@ -2481,7 +2475,7 @@ define internal fastcc noundef ptr @_SPI_make_plan_non_temp(ptr noundef nonnull 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @SPI_prepare_extended(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca %struct._SPI_plan, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %1, null
   %or.cond = or i1 %4, %5
@@ -2543,14 +2537,14 @@ _SPI_begin_call.exit:                             ; preds = %7
 
 33:                                               ; preds = %_SPI_begin_call.exit, %_SPI_begin_call.exit.thread, %6
   %.0 = phi ptr [ null, %6 ], [ %26, %_SPI_begin_call.exit.thread ], [ null, %_SPI_begin_call.exit ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @SPI_prepare_params(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct._SPI_plan, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = icmp eq ptr %0, null
   br i1 %6, label %7, label %8
 
@@ -2601,7 +2595,7 @@ _SPI_begin_call.exit:                             ; preds = %8
 
 26:                                               ; preds = %_SPI_begin_call.exit, %_SPI_begin_call.exit.thread, %7
   %.0 = phi ptr [ null, %7 ], [ %19, %_SPI_begin_call.exit.thread ], [ null, %_SPI_begin_call.exit ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }
 
@@ -2662,9 +2656,9 @@ define dso_local range(i32 -6, 1) i32 @SPI_keepplan(ptr noundef captures(address
   ret i32 %.0
 }
 
-declare void @MemoryContextSetParent(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @MemoryContextSetParent(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @SaveCachedPlan(ptr noundef) local_unnamed_addr #3
+declare void @SaveCachedPlan(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @SPI_saveplan(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
@@ -2851,7 +2845,7 @@ define dso_local range(i32 -6, 1) i32 @SPI_freeplan(ptr noundef readonly capture
   ret i32 %.0
 }
 
-declare void @DropCachedPlan(ptr noundef) local_unnamed_addr #3
+declare void @DropCachedPlan(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @SPI_copytuple(ptr noundef %0) local_unnamed_addr #0 {
@@ -2885,7 +2879,7 @@ define dso_local ptr @SPI_copytuple(ptr noundef %0) local_unnamed_addr #0 {
   ret ptr %.0
 }
 
-declare ptr @heap_copytuple(ptr noundef) local_unnamed_addr #3
+declare ptr @heap_copytuple(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @SPI_returntuple(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -2941,11 +2935,11 @@ define dso_local ptr @SPI_returntuple(ptr noundef %0, ptr noundef %1) local_unna
   ret ptr %.0
 }
 
-declare void @assign_record_type_typmod(ptr noundef) local_unnamed_addr #3
+declare void @assign_record_type_typmod(ptr noundef) local_unnamed_addr #2
 
-declare ptr @pg_detoast_datum(ptr noundef) local_unnamed_addr #3
+declare ptr @pg_detoast_datum(ptr noundef) local_unnamed_addr #2
 
-declare i64 @heap_copy_tuple_as_datum(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i64 @heap_copy_tuple_as_datum(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @SPI_modifytuple(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5) local_unnamed_addr #0 {
@@ -3098,16 +3092,16 @@ define dso_local ptr @SPI_modifytuple(ptr noundef readonly captures(address_is_n
   ret ptr %.053
 }
 
-declare ptr @palloc(i64 noundef) local_unnamed_addr #3
+declare ptr @palloc(i64 noundef) local_unnamed_addr #2
 
-declare void @heap_deform_tuple(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @heap_deform_tuple(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @heap_form_tuple(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @heap_form_tuple(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
-declare void @pfree(ptr noundef) local_unnamed_addr #3
+declare void @pfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -2147483647, -2147483648) i32 @SPI_fnumber(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -3162,9 +3156,9 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @SPI_fnumber(ptr nounde
   ret i32 %.2
 }
 
-declare i32 @namestrcmp(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @namestrcmp(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @SystemAttributeByName(ptr noundef) local_unnamed_addr #3
+declare ptr @SystemAttributeByName(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @SPI_fname(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -3211,18 +3205,18 @@ define dso_local ptr @SPI_fname(ptr noundef %0, i32 noundef %1) local_unnamed_ad
   ret ptr %.012
 }
 
-declare ptr @SystemAttributeDefinition(i16 noundef signext) local_unnamed_addr #3
+declare ptr @SystemAttributeDefinition(i16 noundef signext) local_unnamed_addr #2
 
-declare ptr @pstrdup(ptr noundef) local_unnamed_addr #3
+declare ptr @pstrdup(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @SPI_getvalue(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i8, align 1
   %5 = alloca i32, align 4
   %6 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #15
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #15
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr @SPI_result, align 4
   %7 = load i32, ptr %1, align 8
   %8 = icmp sgt i32 %2, %7
@@ -3273,14 +3267,14 @@ define dso_local ptr @SPI_getvalue(ptr noundef %0, ptr noundef %1, i32 noundef %
 
 33:                                               ; preds = %12, %30, %11
   %.016 = phi ptr [ null, %11 ], [ %32, %30 ], [ null, %12 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #15
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.016
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef range(i32 1, 0) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #7 {
+define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef range(i32 1, 0) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #6 {
   %5 = icmp sgt i32 %1, 0
   br i1 %5, label %6, label %71
 
@@ -3403,9 +3397,9 @@ fastgetattr.exit:                                 ; preds = %69, %68, %56, %54, 
   ret i64 %.0
 }
 
-declare void @getTypeOutputInfo(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @getTypeOutputInfo(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @OidOutputFunctionCall(i32 noundef, i64 noundef) local_unnamed_addr #3
+declare ptr @OidOutputFunctionCall(i32 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @SPI_getbinval(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
@@ -3496,9 +3490,9 @@ define dso_local ptr @SPI_gettype(ptr noundef readonly captures(none) %0, i32 no
   ret ptr %.0
 }
 
-declare ptr @SearchSysCache1(i32 noundef, i64 noundef) local_unnamed_addr #3
+declare ptr @SearchSysCache1(i32 noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @ReleaseSysCache(ptr noundef) local_unnamed_addr #3
+declare void @ReleaseSysCache(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @SPI_gettypeid(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -3561,7 +3555,7 @@ define dso_local ptr @SPI_getnspname(ptr noundef readonly captures(none) %0) loc
   ret ptr %6
 }
 
-declare ptr @get_namespace_name(i32 noundef) local_unnamed_addr #3
+declare ptr @get_namespace_name(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @SPI_palloc(i64 noundef %0) local_unnamed_addr #0 {
@@ -3618,7 +3612,7 @@ define dso_local i64 @SPI_datumTransfer(i64 noundef %0, i1 noundef zeroext %1, i
   ret i64 %13
 }
 
-declare i64 @datumTransfer(i64 noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #3
+declare i64 @datumTransfer(i64 noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @SPI_freetuple(ptr noundef %0) local_unnamed_addr #0 {
@@ -3626,7 +3620,7 @@ define dso_local void @SPI_freetuple(ptr noundef %0) local_unnamed_addr #0 {
   ret void
 }
 
-declare void @heap_freetuple(ptr noundef) local_unnamed_addr #3
+declare void @heap_freetuple(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @SPI_freetuptable(ptr noundef %0) local_unnamed_addr #0 {
@@ -3778,8 +3772,8 @@ _SPI_convert_params.exit:                         ; preds = %5
 define internal fastcc ptr @SPI_cursor_open_internal(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = alloca %struct.SPICallbackArg, align 8
   %6 = alloca %struct.ErrorContextCallback, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #15
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = icmp eq ptr %1, null
   br i1 %7, label %10, label %8
 
@@ -4117,15 +4111,15 @@ list_length.exit87.thread:                        ; preds = %list_length.exit87,
   %162 = getelementptr inbounds nuw i8, ptr %158, i64 40
   %163 = load ptr, ptr %162, align 8
   call void @MemoryContextReset(ptr noundef %163) #15
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.061
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @SPI_cursor_open_with_args(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i1 noundef zeroext %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = alloca %struct._SPI_plan, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = icmp eq ptr %1, null
   %11 = icmp slt i32 %2, 0
   %or.cond = or i1 %10, %11
@@ -4249,7 +4243,7 @@ _SPI_convert_params.exit:                         ; preds = %.split.i, %.split.u
   %63 = getelementptr inbounds nuw i8, ptr %59, i64 40
   %64 = load ptr, ptr %63, align 8
   call void @MemoryContextReset(ptr noundef %64) #15
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret ptr %58
 }
 
@@ -4262,7 +4256,7 @@ define dso_local ptr @SPI_cursor_open_with_paramlist(ptr noundef %0, ptr noundef
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @SPI_cursor_parse_open(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca %struct._SPI_plan, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = icmp eq ptr %1, null
   %6 = icmp eq ptr %2, null
   %or.cond = or i1 %5, %6
@@ -4334,7 +4328,7 @@ _SPI_begin_call.exit:                             ; preds = %10
   %40 = getelementptr inbounds nuw i8, ptr %36, i64 40
   %41 = load ptr, ptr %40, align 8
   call void @MemoryContextReset(ptr noundef %41) #15
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %35
 }
 
@@ -4344,7 +4338,7 @@ define dso_local ptr @SPI_cursor_find(ptr noundef %0) local_unnamed_addr #0 {
   ret ptr %2
 }
 
-declare ptr @GetPortalByName(ptr noundef) local_unnamed_addr #3
+declare ptr @GetPortalByName(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @SPI_cursor_fetch(ptr noundef %0, i1 noundef zeroext %1, i64 noundef %2) local_unnamed_addr #0 {
@@ -4433,7 +4427,7 @@ _SPI_begin_call.exit.thread._crit_edge:           ; preds = %_SPI_begin_call.exi
   ret void
 }
 
-declare ptr @CreateDestReceiver(i32 noundef) local_unnamed_addr #3
+declare ptr @CreateDestReceiver(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @SPI_cursor_move(ptr noundef %0, i1 noundef zeroext %1, i64 noundef %2) local_unnamed_addr #0 {
@@ -4475,10 +4469,10 @@ define dso_local void @SPI_cursor_close(ptr noundef %0) local_unnamed_addr #0 {
   ret void
 }
 
-declare void @PortalDrop(ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare void @PortalDrop(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: read, inaccessiblemem: none) uwtable
-define dso_local i32 @SPI_getargtypeid(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #8 {
+define dso_local i32 @SPI_getargtypeid(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %11, label %4
 
@@ -4513,7 +4507,7 @@ define dso_local i32 @SPI_getargtypeid(ptr noundef readonly captures(address_is_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: read, inaccessiblemem: none) uwtable
-define dso_local i32 @SPI_getargcount(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #9 {
+define dso_local i32 @SPI_getargcount(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #8 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %5, label %3
 
@@ -4537,7 +4531,7 @@ define dso_local i32 @SPI_getargcount(ptr noundef readonly captures(address_is_n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: read, inaccessiblemem: none) uwtable
-define dso_local zeroext i1 @SPI_is_cursor_plan(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #8 {
+define dso_local zeroext i1 @SPI_is_cursor_plan(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #7 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %5, label %3
 
@@ -4615,7 +4609,7 @@ define dso_local noundef zeroext i1 @SPI_plan_is_valid(ptr noundef readonly capt
   ret i1 %.not1417
 }
 
-declare zeroext i1 @CachedPlanIsValid(ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @CachedPlanIsValid(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef nonnull ptr @SPI_result_code_string(i32 noundef %0) local_unnamed_addr #0 {
@@ -4642,10 +4636,10 @@ switch.lookup:                                    ; preds = %1
   ret ptr %.0
 }
 
-declare i32 @pg_sprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
+declare i32 @pg_sprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @SPI_plan_get_plan_sources(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 {
+define dso_local ptr @SPI_plan_get_plan_sources(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
@@ -4655,8 +4649,8 @@ define dso_local ptr @SPI_plan_get_plan_sources(ptr noundef readonly captures(no
 define dso_local ptr @SPI_plan_get_cached_plan(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.SPICallbackArg, align 8
   %3 = alloca %struct.ErrorContextCallback, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #15
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 5
   %5 = load i8, ptr %4, align 1, !range !4, !noundef !5
   %6 = trunc nuw i8 %5 to i1
@@ -4707,8 +4701,8 @@ list_length.exit:                                 ; preds = %7
 
 list_length.exit.thread:                          ; preds = %7, %list_length.exit, %1, %12
   %.0 = phi ptr [ %31, %12 ], [ null, %1 ], [ null, %list_length.exit ], [ null, %7 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0
 }
 
@@ -4758,7 +4752,7 @@ define internal void @_SPI_error_callback(ptr noundef readonly captures(none) %0
   ret void
 }
 
-declare ptr @GetCachedPlan(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @GetCachedPlan(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @spi_dest_startup(ptr noundef readnone captures(none) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -4821,9 +4815,9 @@ define dso_local void @spi_dest_startup(ptr noundef readnone captures(none) %0, 
   ret void
 }
 
-declare ptr @palloc0(i64 noundef) local_unnamed_addr #3
+declare ptr @palloc0(i64 noundef) local_unnamed_addr #2
 
-declare ptr @CreateTupleDescCopy(ptr noundef) local_unnamed_addr #3
+declare ptr @CreateTupleDescCopy(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef zeroext i1 @spi_printtup(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
@@ -4891,7 +4885,7 @@ define dso_local noundef zeroext i1 @spi_printtup(ptr noundef %0, ptr noundef re
   ret i1 true
 }
 
-declare ptr @repalloc_huge(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare ptr @repalloc_huge(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -12, 16) i32 @SPI_register_relation(ptr noundef %0) local_unnamed_addr #0 {
@@ -4943,9 +4937,9 @@ _SPI_find_ENR_by_name.exit.thread.thread:         ; preds = %8, %_SPI_find_ENR_b
   ret i32 %.08
 }
 
-declare ptr @create_queryEnv() local_unnamed_addr #3
+declare ptr @create_queryEnv() local_unnamed_addr #2
 
-declare void @register_ENR(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @register_ENR(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -13, 17) i32 @SPI_unregister_relation(ptr noundef %0) local_unnamed_addr #0 {
@@ -4981,7 +4975,7 @@ _SPI_find_ENR_by_name.exit.thread:                ; preds = %5, %10, %_SPI_find_
   ret i32 %.07
 }
 
-declare void @unregister_ENR(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @unregister_ENR(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -12, 18) i32 @SPI_register_trigger_data(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
@@ -5133,159 +5127,165 @@ SPI_register_relation.exit.thread:                ; preds = %_SPI_find_ENR_by_na
   ret i32 %.0
 }
 
-declare i64 @tuplestore_tuple_count(ptr noundef) local_unnamed_addr #3
+declare i64 @tuplestore_tuple_count(ptr noundef) local_unnamed_addr #2
 
-declare void @SaveTransactionCharacteristics(ptr noundef) local_unnamed_addr #3
+declare void @SaveTransactionCharacteristics(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind returns_twice
-declare i32 @__sigsetjmp(ptr noundef, i32 noundef) local_unnamed_addr #11
+declare i32 @__sigsetjmp(ptr noundef, i32 noundef) local_unnamed_addr #10
 
-declare void @HoldPinnedPortals() local_unnamed_addr #3
+declare void @HoldPinnedPortals() local_unnamed_addr #2
 
-declare void @ForgetPortalSnapshots() local_unnamed_addr #3
+declare void @ForgetPortalSnapshots() local_unnamed_addr #2
 
-declare void @CommitTransactionCommand() local_unnamed_addr #3
+declare void @CommitTransactionCommand() local_unnamed_addr #2
 
-declare void @StartTransactionCommand() local_unnamed_addr #3
+declare void @StartTransactionCommand() local_unnamed_addr #2
 
-declare void @RestoreTransactionCharacteristics(ptr noundef) local_unnamed_addr #3
+declare void @RestoreTransactionCharacteristics(ptr noundef) local_unnamed_addr #2
 
-declare ptr @CopyErrorData() local_unnamed_addr #3
+declare ptr @CopyErrorData() local_unnamed_addr #2
 
-declare void @FlushErrorState() local_unnamed_addr #3
+declare void @FlushErrorState() local_unnamed_addr #2
 
-declare void @AbortCurrentTransaction() local_unnamed_addr #3
+declare void @AbortCurrentTransaction() local_unnamed_addr #2
 
 ; Function Attrs: noreturn
-declare void @ReThrowError(ptr noundef) local_unnamed_addr #12
+declare void @ReThrowError(ptr noundef) local_unnamed_addr #11
 
-declare i64 @getmissingattr(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i64 @getmissingattr(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i64 @heap_getsysattr(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i64 @heap_getsysattr(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i64 @nocachegetattr(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i64 @nocachegetattr(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @GetCommandTagName(i32 noundef) local_unnamed_addr #3
+declare ptr @GetCommandTagName(i32 noundef) local_unnamed_addr #2
 
-declare ptr @CreateNewPortal() local_unnamed_addr #3
+declare ptr @CreateNewPortal() local_unnamed_addr #2
 
-declare ptr @CreatePortal(ptr noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #3
+declare ptr @CreatePortal(ptr noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #2
 
-declare ptr @MemoryContextStrdup(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @MemoryContextStrdup(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @copyObjectImpl(ptr noundef) local_unnamed_addr #3
+declare ptr @copyObjectImpl(ptr noundef) local_unnamed_addr #2
 
-declare void @ReleaseCachedPlan(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @ReleaseCachedPlan(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @PortalDefineQuery(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @PortalDefineQuery(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare zeroext i1 @ExecSupportsBackwardScan(ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @ExecSupportsBackwardScan(ptr noundef) local_unnamed_addr #2
 
-declare i32 @errdetail(ptr noundef, ...) local_unnamed_addr #3
+declare i32 @errdetail(ptr noundef, ...) local_unnamed_addr #2
 
-declare zeroext i1 @CommandIsReadOnly(ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @CommandIsReadOnly(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc ptr @CreateCommandName(ptr noundef %0) unnamed_addr #7 {
+define internal fastcc ptr @CreateCommandName(ptr noundef %0) unnamed_addr #6 {
   %2 = tail call i32 @CreateCommandTag(ptr noundef %0) #15
   %3 = tail call ptr @GetCommandTagName(i32 noundef %2) #15
   ret ptr %3
 }
 
-declare ptr @GetActiveSnapshot() local_unnamed_addr #3
+declare ptr @GetActiveSnapshot() local_unnamed_addr #2
 
-declare void @CommandCounterIncrement() local_unnamed_addr #3
+declare void @CommandCounterIncrement() local_unnamed_addr #2
 
-declare ptr @GetTransactionSnapshot() local_unnamed_addr #3
+declare ptr @GetTransactionSnapshot() local_unnamed_addr #2
 
-declare ptr @copyParamList(ptr noundef) local_unnamed_addr #3
+declare ptr @copyParamList(ptr noundef) local_unnamed_addr #2
 
-declare void @PortalStart(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @PortalStart(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @CreateCommandTag(ptr noundef) local_unnamed_addr #3
+declare i32 @CreateCommandTag(ptr noundef) local_unnamed_addr #2
 
-declare ptr @raw_parser(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @raw_parser(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @CreateCachedPlan(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @CreateCachedPlan(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @pg_analyze_and_rewrite_withcb(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @pg_analyze_and_rewrite_withcb(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @pg_analyze_and_rewrite_fixedparams(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @pg_analyze_and_rewrite_fixedparams(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @CompleteCachedPlan(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare void @CompleteCachedPlan(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
-declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @CreateOneShotCachedPlan(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @CreateOneShotCachedPlan(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @PushActiveSnapshot(ptr noundef) local_unnamed_addr #3
+declare void @PushActiveSnapshot(ptr noundef) local_unnamed_addr #2
 
-declare void @PushCopiedSnapshot(ptr noundef) local_unnamed_addr #3
+declare void @PushCopiedSnapshot(ptr noundef) local_unnamed_addr #2
 
-declare zeroext i1 @PlannedStmtRequiresSnapshot(ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @PlannedStmtRequiresSnapshot(ptr noundef) local_unnamed_addr #2
 
-declare void @EnsurePortalSnapshotExists() local_unnamed_addr #3
+declare void @EnsurePortalSnapshotExists() local_unnamed_addr #2
 
-declare void @PopActiveSnapshot() local_unnamed_addr #3
+declare void @PopActiveSnapshot() local_unnamed_addr #2
 
-declare void @UpdateActiveSnapshotCommandId() local_unnamed_addr #3
+declare void @UpdateActiveSnapshotCommandId() local_unnamed_addr #2
 
-declare zeroext i1 @ActiveSnapshotSet() local_unnamed_addr #3
+declare zeroext i1 @ActiveSnapshotSet() local_unnamed_addr #2
 
-declare ptr @CreateQueryDesc(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @CreateQueryDesc(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @FreeQueryDesc(ptr noundef) local_unnamed_addr #3
+declare void @FreeQueryDesc(ptr noundef) local_unnamed_addr #2
 
-declare void @InitializeQueryCompletion(ptr noundef) local_unnamed_addr #3
+declare void @InitializeQueryCompletion(ptr noundef) local_unnamed_addr #2
 
-declare void @ProcessUtility(ptr noundef, ptr noundef, i1 noundef zeroext, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @ProcessUtility(ptr noundef, ptr noundef, i1 noundef zeroext, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @ExecutorStart(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @ExecutorStart(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @ExecutorRun(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
+declare void @ExecutorRun(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @ExecutorFinish(ptr noundef) local_unnamed_addr #3
+declare void @ExecutorFinish(ptr noundef) local_unnamed_addr #2
 
-declare void @ExecutorEnd(ptr noundef) local_unnamed_addr #3
+declare void @ExecutorEnd(ptr noundef) local_unnamed_addr #2
 
-declare ptr @makeParamList(i32 noundef) local_unnamed_addr #3
+declare ptr @makeParamList(i32 noundef) local_unnamed_addr #2
 
-declare i32 @geterrposition() local_unnamed_addr #3
+declare i32 @geterrposition() local_unnamed_addr #2
 
-declare i32 @errposition(i32 noundef) local_unnamed_addr #3
+declare i32 @errposition(i32 noundef) local_unnamed_addr #2
 
-declare i32 @internalerrposition(i32 noundef) local_unnamed_addr #3
+declare i32 @internalerrposition(i32 noundef) local_unnamed_addr #2
 
-declare i32 @internalerrquery(ptr noundef) local_unnamed_addr #3
+declare i32 @internalerrquery(ptr noundef) local_unnamed_addr #2
 
-declare i32 @set_errcontext_domain(ptr noundef) local_unnamed_addr #3
+declare i32 @set_errcontext_domain(ptr noundef) local_unnamed_addr #2
 
-declare i32 @errcontext_msg(ptr noundef, ...) local_unnamed_addr #3
+declare i32 @errcontext_msg(ptr noundef, ...) local_unnamed_addr #2
 
-declare i64 @PortalRunFetch(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
+declare i64 @PortalRunFetch(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @CachedPlanSetParentContext(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @CachedPlanSetParentContext(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @CopyCachedPlan(ptr noundef) local_unnamed_addr #3
+declare ptr @CopyCachedPlan(ptr noundef) local_unnamed_addr #2
 
-declare ptr @get_ENR(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @get_ENR(ptr noundef, ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #13
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nounwind returns_twice "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nounwind returns_twice "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #13 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #14 = { cold nounwind }
 attributes #15 = { nounwind }

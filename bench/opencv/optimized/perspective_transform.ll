@@ -59,9 +59,9 @@ define hidden void @_ZN5zxing20PerspectiveTransformC2Efffffffff(ptr noundef nonn
 define hidden void @_ZN5zxing20PerspectiveTransform28quadrilateralToQuadrilateralEffffffffffffffff(ptr dead_on_unwind noalias writable writeonly sret(%"class.zxing::Ref") align 8 captures(none) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, float noundef %9, float noundef %10, float noundef %11, float noundef %12, float noundef %13, float noundef %14, float noundef %15, float noundef %16) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %18 = alloca %"class.zxing::Ref", align 8
   %19 = alloca %"class.zxing::Ref", align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @_ZN5zxing20PerspectiveTransform21quadrilateralToSquareEffffffff(ptr dead_on_unwind nonnull writable sret(%"class.zxing::Ref") align 8 %18, float noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   invoke void @_ZN5zxing20PerspectiveTransform21squareToQuadrilateralEffffffff(ptr dead_on_unwind nonnull writable sret(%"class.zxing::Ref") align 8 %19, float noundef %9, float noundef %10, float noundef %11, float noundef %12, float noundef %13, float noundef %14, float noundef %15, float noundef %16)
           to label %20 unwind label %126
 
@@ -80,7 +80,7 @@ define hidden void @_ZN5zxing20PerspectiveTransform28quadrilateralToQuadrilatera
 
 _ZN5zxing3RefINS_20PerspectiveTransformEEC2ERKS2_.exit: ; preds = %23, %20
   tail call void @llvm.experimental.noalias.scope.decl(metadata !25)
-  %27 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #12
+  %27 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #11
           to label %28 unwind label %128
 
 28:                                               ; preds = %_ZN5zxing3RefINS_20PerspectiveTransformEEC2ERKS2_.exit
@@ -181,7 +181,7 @@ _ZN5zxing3RefINS_20PerspectiveTransformEEC2ERKS2_.exit: ; preds = %23, %20
   %107 = load ptr, ptr %22, align 8, !tbaa !8
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 8
   %109 = load ptr, ptr %108, align 8
-  tail call void %109(ptr noundef nonnull align 8 dereferenceable(12) %22) #11
+  tail call void %109(ptr noundef nonnull align 8 dereferenceable(12) %22) #12
   br label %_ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit
 
 _ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit: ; preds = %106, %28
@@ -197,11 +197,11 @@ _ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit: ; preds = %106, %28
   %115 = load ptr, ptr %21, align 8, !tbaa !8
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 8
   %117 = load ptr, ptr %116, align 8
-  tail call void %117(ptr noundef nonnull align 8 dereferenceable(12) %21) #11
+  tail call void %117(ptr noundef nonnull align 8 dereferenceable(12) %21) #12
   br label %118
 
 118:                                              ; preds = %114, %_ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %119 = load i32, ptr %102, align 8, !tbaa !3
   %120 = add i32 %119, -1
   store i32 %120, ptr %102, align 8, !tbaa !3
@@ -213,11 +213,11 @@ _ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit: ; preds = %106, %28
   %123 = load ptr, ptr %22, align 8, !tbaa !8
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 8
   %125 = load ptr, ptr %124, align 8
-  tail call void %125(ptr noundef nonnull align 8 dereferenceable(12) %22) #11
+  tail call void %125(ptr noundef nonnull align 8 dereferenceable(12) %22) #12
   br label %_ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit24
 
 _ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit24: ; preds = %118, %122
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   ret void
 
 126:                                              ; preds = %17
@@ -244,7 +244,7 @@ _ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit24: ; preds = %118, %122
   %136 = load ptr, ptr %22, align 8, !tbaa !8
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 8
   %138 = load ptr, ptr %137, align 8
-  tail call void %138(ptr noundef nonnull align 8 dereferenceable(12) %22) #11
+  tail call void %138(ptr noundef nonnull align 8 dereferenceable(12) %22) #12
   br label %_ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit26
 
 _ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit26: ; preds = %135, %130, %128
@@ -264,13 +264,13 @@ _ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit26: ; preds = %135, %130, %128
   %145 = load ptr, ptr %21, align 8, !tbaa !8
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 8
   %147 = load ptr, ptr %146, align 8
-  tail call void %147(ptr noundef nonnull align 8 dereferenceable(12) %21) #11
+  tail call void %147(ptr noundef nonnull align 8 dereferenceable(12) %21) #12
   br label %_ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit28
 
 _ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit28: ; preds = %144, %139, %_ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit26, %126
   %148 = phi ptr [ %.pre, %126 ], [ %22, %_ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit26 ], [ %22, %139 ], [ %22, %144 ]
   %.pn.pn = phi { ptr, i32 } [ %127, %126 ], [ %129, %_ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit26 ], [ %129, %139 ], [ %129, %144 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %.not.i29 = icmp eq ptr %148, null
   br i1 %.not.i29, label %_ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit30, label %149
 
@@ -287,25 +287,22 @@ _ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit28: ; preds = %144, %139, %_ZN
   %155 = load ptr, ptr %148, align 8, !tbaa !8
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 8
   %157 = load ptr, ptr %156, align 8
-  tail call void %157(ptr noundef nonnull align 8 dereferenceable(12) %148) #11
+  tail call void %157(ptr noundef nonnull align 8 dereferenceable(12) %148) #12
   br label %_ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit30
 
 _ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit30: ; preds = %_ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit28, %149, %154
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   resume { ptr, i32 } %.pn.pn
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN5zxing20PerspectiveTransform21quadrilateralToSquareEffffffff(ptr dead_on_unwind noalias writable writeonly sret(%"class.zxing::Ref") align 8 captures(none) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.zxing::Ref", align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZN5zxing20PerspectiveTransform21squareToQuadrilateralEffffffff(ptr dead_on_unwind nonnull writable sret(%"class.zxing::Ref") align 8 %10, float noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8)
   %11 = load ptr, ptr %10, align 8, !tbaa !21
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28)
-  %12 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #12
+  %12 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #11
           to label %13 unwind label %74
 
 13:                                               ; preds = %9
@@ -385,11 +382,11 @@ define hidden void @_ZN5zxing20PerspectiveTransform21quadrilateralToSquareEfffff
   %71 = load ptr, ptr %11, align 8, !tbaa !8
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %73 = load ptr, ptr %72, align 8
-  tail call void %73(ptr noundef nonnull align 8 dereferenceable(12) %11) #11
+  tail call void %73(ptr noundef nonnull align 8 dereferenceable(12) %11) #12
   br label %_ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit
 
 _ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit: ; preds = %13, %70
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 
 74:                                               ; preds = %9
@@ -411,11 +408,11 @@ _ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit: ; preds = %13, %70
   %82 = load ptr, ptr %11, align 8, !tbaa !8
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %84 = load ptr, ptr %83, align 8
-  tail call void %84(ptr noundef nonnull align 8 dereferenceable(12) %11) #11
+  tail call void %84(ptr noundef nonnull align 8 dereferenceable(12) %11) #12
   br label %_ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit10
 
 _ZN5zxing3RefINS_20PerspectiveTransformEED2Ev.exit10: ; preds = %74, %76, %81
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %75
 }
 
@@ -439,7 +436,7 @@ define hidden void @_ZN5zxing20PerspectiveTransform21squareToQuadrilateralEfffff
   br i1 %22, label %29, label %23
 
 23:                                               ; preds = %19
-  %24 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #12
+  %24 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #11
   %25 = fsub float %3, %1
   %26 = fsub float %5, %3
   %27 = fsub float %4, %2
@@ -461,7 +458,7 @@ define hidden void @_ZN5zxing20PerspectiveTransform21squareToQuadrilateralEfffff
   %41 = fmul float %12, %34
   %42 = tail call float @llvm.fmuladd.f32(float %30, float %15, float %41)
   %43 = fdiv float %42, %36
-  %44 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #12
+  %44 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #11
   %45 = fsub float %3, %1
   %46 = tail call float @llvm.fmuladd.f32(float %40, float %3, float %45)
   %47 = fsub float %7, %1
@@ -509,7 +506,7 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN5zxing20PerspectiveTransform5timesENS_3RefIS0_EE(ptr dead_on_unwind noalias writable writeonly sret(%"class.zxing::Ref") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-  %4 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #12
+  %4 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #11
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %6 = load float, ptr %5, align 4, !tbaa !10
   %7 = load ptr, ptr %2, align 8, !tbaa !21
@@ -599,21 +596,18 @@ define hidden void @_ZN5zxing20PerspectiveTransform5timesENS_3RefIS0_EE(ptr dead
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #3
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #4
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #5
+declare float @llvm.fmuladd.f32(float, float, float) #4
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN5zxing20PerspectiveTransform12buildAdjointEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.zxing::Ref") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #12
+  %3 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #11
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %5 = load float, ptr %4, align 4, !tbaa !16
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 44
@@ -682,7 +676,7 @@ define hidden void @_ZN5zxing20PerspectiveTransform12buildAdjointEv(ptr dead_on_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5zxing20PerspectiveTransform15transformPointsERSt6vectorIfSaIfEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #6 align 2 {
+define hidden void @_ZN5zxing20PerspectiveTransform15transformPointsERSt6vectorIfSaIfEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !31
   %5 = load ptr, ptr %1, align 8, !tbaa !34
@@ -747,15 +741,21 @@ define hidden void @_ZN5zxing20PerspectiveTransform15transformPointsERSt6vectorI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN5zxing7CountedD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) unnamed_addr #7 comdat align 2 {
+define linkonce_odr hidden void @_ZN5zxing7CountedD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) unnamed_addr #6 comdat align 2 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN5zxing20PerspectiveTransformD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #8 comdat align 2 {
+define linkonce_odr hidden void @_ZN5zxing20PerspectiveTransformD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #7 comdat align 2 {
   tail call void @_ZdlPv(ptr noundef nonnull %0) #13
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fabs.f32(float) #9
@@ -765,17 +765,17 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #10
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #4 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #8 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #2 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #3 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #7 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #10 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #11 = { nounwind }
-attributes #12 = { builtin allocsize(0) }
+attributes #11 = { builtin allocsize(0) }
+attributes #12 = { nounwind }
 attributes #13 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

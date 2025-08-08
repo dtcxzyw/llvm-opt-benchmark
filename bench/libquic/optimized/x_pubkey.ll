@@ -57,14 +57,14 @@ define hidden range(i32 0, 2) i32 @X509_PUBKEY_set(ptr noundef captures(address_
   %4 = alloca i64, align 8
   %5 = alloca %struct.cbb_st, align 8
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = icmp eq ptr %0, null
   br i1 %7, label %33, label %8
 
 8:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %9 = call i32 @CBB_init(ptr noundef nonnull %5, i64 noundef 0) #5
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %17, label %10
@@ -122,18 +122,15 @@ define hidden range(i32 0, 2) i32 @X509_PUBKEY_set(ptr noundef captures(address_
 
 32:                                               ; preds = %30, %28
   %.1 = phi i32 [ 0, %30 ], [ 1, %28 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %33
 
 33:                                               ; preds = %2, %32
   %.08 = phi i32 [ %.1, %32 ], [ 0, %2 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.08
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 declare i32 @CBB_init(ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -146,16 +143,13 @@ declare void @CBB_cleanup(ptr noundef) local_unnamed_addr #1
 declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @X509_PUBKEY_get(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca %struct.cbs_st, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !6
   %4 = icmp eq ptr %0, null
   br i1 %4, label %29, label %5
@@ -229,7 +223,7 @@ define hidden ptr @X509_PUBKEY_get(ptr noundef %0) local_unnamed_addr #0 {
 
 31:                                               ; preds = %29, %26, %8
   %.0 = phi ptr [ null, %29 ], [ %10, %8 ], [ %28, %26 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0
 }
 
@@ -279,7 +273,7 @@ define hidden ptr @d2i_PUBKEY(ptr noundef captures(address_is_null) %0, ptr noun
 ; Function Attrs: nounwind uwtable
 define hidden i32 @i2d_PUBKEY(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !13
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %4
@@ -297,14 +291,14 @@ define hidden i32 @i2d_PUBKEY(ptr noundef %0, ptr noundef %1) local_unnamed_addr
 
 9:                                                ; preds = %4, %2, %6
   %.0 = phi i32 [ %8, %6 ], [ 0, %2 ], [ 0, %4 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @d2i_RSA_PUBKEY(ptr noundef captures(address_is_null) %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load ptr, ptr %1, align 8, !tbaa !6
   store ptr %5, ptr %4, align 8, !tbaa !6
   %6 = call ptr @ASN1_item_d2i(ptr noundef null, ptr noundef nonnull %4, i64 noundef %2, ptr noundef nonnull @X509_PUBKEY_it) #5
@@ -337,7 +331,7 @@ d2i_PUBKEY.exit:                                  ; preds = %7
 
 d2i_PUBKEY.exit.thread:                           ; preds = %7, %3, %10, %12, %d2i_PUBKEY.exit
   %.0 = phi ptr [ null, %d2i_PUBKEY.exit ], [ %9, %12 ], [ %9, %10 ], [ null, %3 ], [ null, %7 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
 
@@ -362,7 +356,7 @@ define hidden i32 @i2d_RSA_PUBKEY(ptr noundef %0, ptr noundef %1) local_unnamed_
 
 7:                                                ; preds = %4
   %8 = tail call i32 @EVP_PKEY_set1_RSA(ptr noundef nonnull %5, ptr noundef nonnull %0) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !13
   %9 = call i32 @X509_PUBKEY_set(ptr noundef nonnull %3, ptr noundef nonnull %5)
   %.not5.i = icmp eq i32 %9, 0
@@ -376,7 +370,7 @@ define hidden i32 @i2d_RSA_PUBKEY(ptr noundef %0, ptr noundef %1) local_unnamed_
 
 i2d_PUBKEY.exit:                                  ; preds = %7, %10
   %.0.i = phi i32 [ %12, %10 ], [ 0, %7 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @EVP_PKEY_free(ptr noundef nonnull %5) #5
   br label %13
 
@@ -392,7 +386,7 @@ declare i32 @EVP_PKEY_set1_RSA(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define hidden ptr @d2i_DSA_PUBKEY(ptr noundef captures(address_is_null) %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load ptr, ptr %1, align 8, !tbaa !6
   store ptr %5, ptr %4, align 8, !tbaa !6
   %6 = call ptr @ASN1_item_d2i(ptr noundef null, ptr noundef nonnull %4, i64 noundef %2, ptr noundef nonnull @X509_PUBKEY_it) #5
@@ -425,7 +419,7 @@ d2i_PUBKEY.exit:                                  ; preds = %7
 
 d2i_PUBKEY.exit.thread:                           ; preds = %7, %3, %10, %12, %d2i_PUBKEY.exit
   %.0 = phi ptr [ null, %d2i_PUBKEY.exit ], [ %9, %12 ], [ %9, %10 ], [ null, %3 ], [ null, %7 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
 
@@ -450,7 +444,7 @@ define hidden i32 @i2d_DSA_PUBKEY(ptr noundef %0, ptr noundef %1) local_unnamed_
 
 7:                                                ; preds = %4
   %8 = tail call i32 @EVP_PKEY_set1_DSA(ptr noundef nonnull %5, ptr noundef nonnull %0) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !13
   %9 = call i32 @X509_PUBKEY_set(ptr noundef nonnull %3, ptr noundef nonnull %5)
   %.not5.i = icmp eq i32 %9, 0
@@ -464,7 +458,7 @@ define hidden i32 @i2d_DSA_PUBKEY(ptr noundef %0, ptr noundef %1) local_unnamed_
 
 i2d_PUBKEY.exit:                                  ; preds = %7, %10
   %.0.i = phi i32 [ %12, %10 ], [ 0, %7 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @EVP_PKEY_free(ptr noundef nonnull %5) #5
   br label %13
 
@@ -478,7 +472,7 @@ declare i32 @EVP_PKEY_set1_DSA(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define hidden ptr @d2i_EC_PUBKEY(ptr noundef captures(address_is_null) %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load ptr, ptr %1, align 8, !tbaa !6
   store ptr %5, ptr %4, align 8, !tbaa !6
   %6 = call ptr @ASN1_item_d2i(ptr noundef null, ptr noundef nonnull %4, i64 noundef %2, ptr noundef nonnull @X509_PUBKEY_it) #5
@@ -511,7 +505,7 @@ d2i_PUBKEY.exit:                                  ; preds = %7
 
 d2i_PUBKEY.exit.thread:                           ; preds = %7, %3, %10, %12, %d2i_PUBKEY.exit
   %.0 = phi ptr [ null, %d2i_PUBKEY.exit ], [ %9, %12 ], [ %9, %10 ], [ null, %3 ], [ null, %7 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
 
@@ -536,7 +530,7 @@ define hidden i32 @i2d_EC_PUBKEY(ptr noundef %0, ptr noundef %1) local_unnamed_a
 
 8:                                                ; preds = %4
   %9 = tail call i32 @EVP_PKEY_set1_EC_KEY(ptr noundef nonnull %5, ptr noundef nonnull %0) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !13
   %10 = call i32 @X509_PUBKEY_set(ptr noundef nonnull %3, ptr noundef nonnull %5)
   %.not5.i = icmp eq i32 %10, 0
@@ -550,7 +544,7 @@ define hidden i32 @i2d_EC_PUBKEY(ptr noundef %0, ptr noundef %1) local_unnamed_a
 
 i2d_PUBKEY.exit:                                  ; preds = %8, %11
   %.0.i = phi i32 [ %13, %11 ], [ 0, %8 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @EVP_PKEY_free(ptr noundef nonnull %5) #5
   br label %14
 
@@ -605,7 +599,7 @@ define hidden range(i32 0, 2) i32 @X509_PUBKEY_set0_param(ptr noundef readonly c
 declare i32 @X509_ALGOR_set0(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @X509_PUBKEY_get0_param(ptr noundef writeonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #4 {
+define hidden noundef i32 @X509_PUBKEY_get0_param(ptr noundef writeonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %6
 
@@ -658,11 +652,17 @@ define internal noundef i32 @pubkey_cb(i32 noundef %0, ptr noundef readonly capt
   ret i32 1
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}

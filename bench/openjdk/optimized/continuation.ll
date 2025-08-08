@@ -641,7 +641,7 @@ _ZNK5frame20is_interpreted_frameEv.exit:          ; preds = %9
   br i1 %20, label %_ZNK5frame20is_interpreted_frameEv.exit.i.i.i.i, label %_ZNK11RegisterMap7in_contEv.exit.thread
 
 _ZNK5frame20is_interpreted_frameEv.exit.i.i.i.i:  ; preds = %_ZNK5frame20is_interpreted_frameEv.exit
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.sroa.011.0.copyload.i = load ptr, ptr %0, align 8
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.sroa.4.0.copyload.i = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8
@@ -686,7 +686,7 @@ _ZNK5frame20is_interpreted_frameEv.exit.i.i.i.i:  ; preds = %_ZNK5frame20is_inte
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr %41, ptr %.sroa.9.0..sroa_idx.i, align 8
   %46 = call noundef ptr @_ZNK5frame24interpreter_frame_methodEv(ptr noundef nonnull align 8 dereferenceable(56) %3) #18
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN18ContinuationHelper5Frame12frame_methodERK5frame.exit
 
 _ZNK11RegisterMap7in_contEv.exit.thread:          ; preds = %4, %_ZNK5frame20is_interpreted_frameEv.exit, %_ZNK11RegisterMap7in_contEv.exit, %2
@@ -2472,10 +2472,10 @@ declare noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef, i64 noundef) local_
 declare void @llvm.experimental.noalias.scope.decl(metadata) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15

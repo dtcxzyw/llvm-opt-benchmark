@@ -124,14 +124,8 @@ define dso_local noundef range(i40 4096, 4294971393) i40 @_ZN4llvm8codeview23Mer
   ret i40 %.sroa.01.0.insert.insert
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local range(i40 0, 8589934592) i40 @_ZN4llvm8codeview23MergingTypeTableBuilder7getNextENS0_9TypeIndexE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0, i32 %1) unnamed_addr #0 align 2 {
@@ -147,7 +141,7 @@ define dso_local range(i40 0, 8589934592) i40 @_ZN4llvm8codeview23MergingTypeTab
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local { ptr, i64 } @_ZN4llvm8codeview23MergingTypeTableBuilder7getTypeENS0_9TypeIndexE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0, i32 %1) unnamed_addr #7 align 2 {
+define dso_local { ptr, i64 } @_ZN4llvm8codeview23MergingTypeTableBuilder7getTypeENS0_9TypeIndexE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0, i32 %1) unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = and i32 %1, 2147483647
   %5 = add nsw i32 %4, -4096
@@ -163,7 +157,7 @@ define dso_local { ptr, i64 } @_ZN4llvm8codeview23MergingTypeTableBuilder7getTyp
 }
 
 ; Function Attrs: mustprogress nofree norecurse noreturn nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef { ptr, i64 } @_ZN4llvm8codeview23MergingTypeTableBuilder11getTypeNameENS0_9TypeIndexE(ptr nonnull readnone align 8 captures(none) %0, i32 %1) unnamed_addr #8 align 2 {
+define dso_local noundef { ptr, i64 } @_ZN4llvm8codeview23MergingTypeTableBuilder11getTypeNameENS0_9TypeIndexE(ptr nonnull readnone align 8 captures(none) %0, i32 %1) unnamed_addr #7 align 2 {
   unreachable
 }
 
@@ -232,7 +226,7 @@ define dso_local void @_ZN4llvm8codeview23MergingTypeTableBuilder5resetEv(ptr no
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_8codeview17LocallyHashedTypeENS2_9TypeIndexENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S6_S9_E5clearEv.exit
 
 17:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) @_ZN4llvm12DenseMapInfoINS_8codeview17LocallyHashedTypeEvE5EmptyE, i64 24, i1 false), !tbaa.struct !24
   %18 = load ptr, ptr %3, align 8, !tbaa !15
   %19 = zext i32 %13 to i64
@@ -244,7 +238,7 @@ define dso_local void @_ZN4llvm8codeview23MergingTypeTableBuilder5resetEv(ptr no
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %17
   store i32 0, ptr %4, align 8, !tbaa !23
   store i32 0, ptr %7, align 4, !tbaa !25
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_8codeview17LocallyHashedTypeENS2_9TypeIndexENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S6_S9_E5clearEv.exit
 
 .lr.ph.i:                                         ; preds = %17, %.lr.ph.i
@@ -264,20 +258,20 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_8codeview17LocallyHashedTypeENS2_9TypeInd
 define dso_local i32 @_ZN4llvm8codeview23MergingTypeTableBuilder14insertRecordAsENS_9hash_codeERNS_8ArrayRefIhEE(ptr noundef nonnull align 8 dereferenceable(112) %0, i64 %1, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %2) local_unnamed_addr #1 align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca %"struct.llvm::codeview::LocallyHashedType", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %1, ptr %5, align 8, !tbaa !21
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !28
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %9 = load i32, ptr %8, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #17, !noalias !29
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !29
   %10 = call noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_8codeview17LocallyHashedTypeENS2_9TypeIndexENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S6_S9_E15LookupBucketForIS3_EEbRKT_RPS9_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(8) %4), !noalias !29
   %11 = load ptr, ptr %4, align 8, !tbaa !32, !noalias !29
   br i1 %10, label %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_8codeview17LocallyHashedTypeENS2_9TypeIndexENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S6_S9_E11try_emplaceIJS4_EEESt4pairINS_16DenseMapIteratorIS3_S4_S6_S9_Lb0EEEbERKS3_DpOT_.exit, label %12
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapINS_8codeview17LocallyHashedTypeENS2_9TypeIndexENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S6_S9_E11try_emplaceIJS4_EEESt4pairINS_16DenseMapIteratorIS3_S4_S6_S9_Lb0EEEbERKS3_DpOT_.exit: ; preds = %3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #17, !noalias !29
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !29
   br label %48
 
 12:                                               ; preds = %3
@@ -286,7 +280,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_8codeview17LocallyHashedTypeENS2_9TypeInd
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !tbaa.struct !24, !noalias !29
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store i32 %13, ptr %15, align 1, !tbaa !33, !noalias !29
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #17, !noalias !29
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !29
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !34
   %.sroa.01.0.copyload = load ptr, ptr %2, align 8, !tbaa !19
@@ -362,7 +356,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8ArrayRefIhEELb1EE9push_backES2_.exit: ; pr
   %55 = load ptr, ptr %51, align 8, !tbaa !13
   %56 = getelementptr inbounds nuw %"class.llvm::ArrayRef", ptr %55, i64 %54
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %56, i64 16, i1 false), !tbaa.struct !28
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %50
 }
 
@@ -381,7 +375,7 @@ define dso_local i32 @_ZN4llvm8codeview23MergingTypeTableBuilder17insertRecordBy
 define dso_local i32 @_ZN4llvm8codeview23MergingTypeTableBuilder12insertRecordERNS0_25ContinuationRecordBuilderE(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(248) %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %"class.std::vector.15", align 8
   %4 = alloca %"class.llvm::codeview::CVRecord", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = load i32, ptr %5, align 8, !tbaa !3
   %7 = add i32 %6, 4096
@@ -416,19 +410,19 @@ define dso_local i32 @_ZN4llvm8codeview23MergingTypeTableBuilder12insertRecordER
   br label %_ZNSt6vectorIN4llvm8codeview8CVRecordINS1_12TypeLeafKindEEESaIS4_EED2Ev.exit
 
 _ZNSt6vectorIN4llvm8codeview8CVRecordINS1_12TypeLeafKindEEESaIS4_EED2Ev.exit: ; preds = %._crit_edge, %12
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.sroa.08.0.lcssa
 
 18:                                               ; preds = %.lr.ph, %18
   %.sroa.05.010 = phi ptr [ %8, %.lr.ph ], [ %22, %18 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.05.010, i64 16, i1 false), !tbaa.struct !28
   %.sroa.0.0.copyload.i = load ptr, ptr %4, align 8, !tbaa !19
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !21
   %19 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i
   %20 = call i64 @_ZN4llvm7hashing6detail23hash_combine_range_implIKhEENSt9enable_ifIXsr16is_hashable_dataIT_EE5valueENS_9hash_codeEE4typeEPS5_S9_(ptr noundef %.sroa.0.0.copyload.i, ptr noundef %19)
   %21 = call i32 @_ZN4llvm8codeview23MergingTypeTableBuilder14insertRecordAsENS_9hash_codeERNS_8ArrayRefIhEE(ptr noundef nonnull align 8 dereferenceable(112) %0, i64 %20, ptr noundef nonnull align 8 dereferenceable(16) %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %22 = getelementptr inbounds nuw i8, ptr %.sroa.05.010, i64 16
   %.not = icmp eq ptr %22, %10
   br i1 %.not, label %._crit_edge.loopexit, label %18
@@ -440,7 +434,7 @@ declare void @_ZN4llvm8codeview25ContinuationRecordBuilder3endENS0_9TypeIndexE(p
 define dso_local noundef zeroext i1 @_ZN4llvm8codeview23MergingTypeTableBuilder11replaceTypeERNS0_9TypeIndexENS0_8CVRecordINS0_12TypeLeafKindEEEb(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull align 1 dereferenceable(4) %1, ptr %2, i64 %3, i1 noundef zeroext %4) unnamed_addr #1 align 2 {
   %6 = alloca ptr, align 8
   %7 = alloca %"struct.llvm::codeview::LocallyHashedType", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 %3
   %9 = tail call i64 @_ZN4llvm7hashing6detail23hash_combine_range_implIKhEENSt9enable_ifIXsr16is_hashable_dataIT_EE5valueENS_9hash_codeEE4typeEPS5_S9_(ptr noundef %2, ptr noundef %8)
   store i64 %9, ptr %7, align 8
@@ -451,13 +445,13 @@ define dso_local noundef zeroext i1 @_ZN4llvm8codeview23MergingTypeTableBuilder1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 1) ]
   %.0.copyload.i.i.i.i.i = load i32, ptr %1, align 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #17, !noalias !66
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !66
   %12 = call noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_8codeview17LocallyHashedTypeENS2_9TypeIndexENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S6_S9_E15LookupBucketForIS3_EEbRKT_RPS9_(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(8) %6), !noalias !66
   %13 = load ptr, ptr %6, align 8, !tbaa !32, !noalias !66
   br i1 %12, label %14, label %17
 
 14:                                               ; preds = %5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #17, !noalias !66
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !66
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %16 = load i32, ptr %15, align 8, !tbaa !33
   store i32 %16, ptr %1, align 1, !tbaa !33
@@ -471,7 +465,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm8codeview23MergingTypeTableBuilder1
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   call void @llvm.assume(i1 true) [ "align"(ptr %21, i64 1) ]
   store i32 %19, ptr %21, align 1, !noalias !66
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #17, !noalias !66
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !66
   br i1 %4, label %22, label %41
 
 22:                                               ; preds = %17
@@ -527,15 +521,15 @@ _ZL9stabilizeRN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm
 
 48:                                               ; preds = %41, %14
   %49 = xor i1 %12, true
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i1 %49
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #9
+declare void @llvm.assume(i1 noundef) #8
 
 ; Function Attrs: mustprogress noinline nounwind uwtable
-define linkonce_odr hidden noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %0, i64 noundef %1, i64 noundef %2, i8 %3) local_unnamed_addr #10 comdat align 2 {
+define linkonce_odr hidden noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %0, i64 noundef %1, i64 noundef %2, i8 %3) local_unnamed_addr #9 comdat align 2 {
   %5 = zext nneg i8 %3 to i64
   %6 = shl nuw i64 1, %5
   %7 = add i64 %6, -1
@@ -635,7 +629,7 @@ declare void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull ali
 declare void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #11
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm8DenseMapINS_8codeview17LocallyHashedTypeENS1_9TypeIndexENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S3_EEE16shrink_and_clearEv(ptr noundef nonnull align 8 dereferenceable(20) %0) local_unnamed_addr #1 comdat align 2 {
@@ -664,7 +658,7 @@ define linkonce_odr hidden void @_ZN4llvm8DenseMapINS_8codeview17LocallyHashedTy
   store i32 0, ptr %5, align 8, !tbaa !23
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 0, ptr %15, align 4, !tbaa !25
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) @_ZN4llvm12DenseMapInfoINS_8codeview17LocallyHashedTypeEvE5EmptyE, i64 24, i1 false), !tbaa.struct !24
   %16 = load ptr, ptr %0, align 8, !tbaa !15
   %17 = zext nneg i32 %4 to i64
@@ -681,7 +675,7 @@ define linkonce_odr hidden void @_ZN4llvm8DenseMapINS_8codeview17LocallyHashedTy
   br i1 %.not.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_8codeview17LocallyHashedTypeENS2_9TypeIndexENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S6_S9_E9initEmptyEv.exit, label %.lr.ph.i, !llvm.loop !69
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapINS_8codeview17LocallyHashedTypeENS2_9TypeIndexENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S6_S9_E9initEmptyEv.exit: ; preds = %.lr.ph.i, %14
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %_ZN4llvm8DenseMapINS_8codeview17LocallyHashedTypeENS1_9TypeIndexENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S3_EEE4initEj.exit
 
 20:                                               ; preds = %12
@@ -740,7 +734,7 @@ _ZN4llvm8DenseMapINS_8codeview17LocallyHashedTypeENS1_9TypeIndexENS_12DenseMapIn
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #12
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #11
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_8codeview17LocallyHashedTypeENS2_9TypeIndexENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S6_S9_E15LookupBucketForIS3_EEbRKT_RPS9_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #1 comdat align 2 {
@@ -1054,7 +1048,7 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_8codevie
   store i32 0, ptr %6, align 8, !tbaa !23
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 0, ptr %7, align 4, !tbaa !25
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) @_ZN4llvm12DenseMapInfoINS_8codeview17LocallyHashedTypeEvE5EmptyE, i64 24, i1 false), !tbaa.struct !24
   %8 = load ptr, ptr %0, align 8, !tbaa !15
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1073,7 +1067,7 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_8codevie
   br i1 %.not.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_8codeview17LocallyHashedTypeENS2_9TypeIndexENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S6_S9_E9initEmptyEv.exit, label %.lr.ph.i, !llvm.loop !69
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapINS_8codeview17LocallyHashedTypeENS2_9TypeIndexENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S6_S9_E9initEmptyEv.exit: ; preds = %.lr.ph.i, %3
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.sroa.034.0.copyload = load i64, ptr @_ZN4llvm12DenseMapInfoINS_8codeview17LocallyHashedTypeEvE5EmptyE, align 8, !tbaa !21
   %.sroa.435.0.copyload = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm12DenseMapInfoINS_8codeview17LocallyHashedTypeEvE5EmptyE, i64 8), align 8, !tbaa !19
   %.sroa.536.0.copyload = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm12DenseMapInfoINS_8codeview17LocallyHashedTypeEvE5EmptyE, i64 16), align 8, !tbaa !21
@@ -1126,7 +1120,7 @@ _ZN4llvm12DenseMapInfoINS_8codeview17LocallyHashedTypeEvE7isEqualES2_S2_.exit26:
   br i1 %.not9.i.i.i.i.i.i.i25, label %_ZN4llvm12DenseMapInfoINS_8codeview17LocallyHashedTypeEvE7isEqualES2_S2_.exit.thread53, label %_ZN4llvm12DenseMapInfoINS_8codeview17LocallyHashedTypeEvE7isEqualES2_S2_.exit26.thread
 
 _ZN4llvm12DenseMapInfoINS_8codeview17LocallyHashedTypeEvE7isEqualES2_S2_.exit26.thread: ; preds = %_ZN4llvm12DenseMapInfoINS_8codeview17LocallyHashedTypeEvE7isEqualES2_S2_.exit.thread, %_ZN4llvm12DenseMapInfoINS_8codeview17LocallyHashedTypeEvE7isEqualES2_S2_.exit26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %16 = call noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_8codeview17LocallyHashedTypeENS2_9TypeIndexENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S6_S9_E15LookupBucketForIS3_EEbRKT_RPS9_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(24) %.060, ptr noundef nonnull align 8 dereferenceable(8) %5)
   %17 = load ptr, ptr %5, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %.060, i64 24, i1 false), !tbaa.struct !24
@@ -1137,7 +1131,7 @@ _ZN4llvm12DenseMapInfoINS_8codeview17LocallyHashedTypeEvE7isEqualES2_S2_.exit26.
   %21 = load i32, ptr %6, align 8, !tbaa !23
   %22 = add i32 %21, 1
   store i32 %22, ptr %6, align 8, !tbaa !23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN4llvm12DenseMapInfoINS_8codeview17LocallyHashedTypeEvE7isEqualES2_S2_.exit.thread53
 
 _ZN4llvm12DenseMapInfoINS_8codeview17LocallyHashedTypeEvE7isEqualES2_S2_.exit.thread53: ; preds = %15, %14, %_ZN4llvm12DenseMapInfoINS_8codeview17LocallyHashedTypeEvE7isEqualES2_S2_.exit26.thread, %_ZN4llvm12DenseMapInfoINS_8codeview17LocallyHashedTypeEvE7isEqualES2_S2_.exit26, %_ZN4llvm12DenseMapInfoINS_8codeview17LocallyHashedTypeEvE7isEqualES2_S2_.exit
@@ -1405,7 +1399,7 @@ define linkonce_odr i64 @_ZN4llvm7hashing6detail23hash_combine_range_implIKhEENS
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden noundef i64 @_ZN4llvm7hashing6detail10hash_shortEPKcmm(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #13 comdat {
+define linkonce_odr hidden noundef i64 @_ZN4llvm7hashing6detail10hash_shortEPKcmm(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #12 comdat {
   %4 = add i64 %1, -4
   %or.cond = icmp ult i64 %4, 5
   br i1 %or.cond, label %5, label %22
@@ -1595,6 +1589,12 @@ define linkonce_odr hidden noundef i64 @_ZN4llvm7hashing6detail10hash_shortEPKcm
   ret i64 %.0
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
@@ -1621,15 +1621,15 @@ attributes #1 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse noreturn nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #10 = { mustprogress noinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #13 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse noreturn nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #9 = { mustprogress noinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #14 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #16 = { nocallback nofree nounwind willreturn memory(argmem: read) }

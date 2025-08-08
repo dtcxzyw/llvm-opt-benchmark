@@ -49,16 +49,10 @@ define range(i64 17, 1) i64 @CRYPTO_cts128_encrypt_block(ptr noundef %0, ptr nou
   ret i64 %.032
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare void @CRYPTO_cbc128_encrypt(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @CRYPTO_cbc128_encrypt(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
 define range(i64 16, 1) i64 @CRYPTO_nistcts128_encrypt_block(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
@@ -104,7 +98,7 @@ define range(i64 16, 1) i64 @CRYPTO_nistcts128_encrypt_block(ptr noundef %0, ptr
 ; Function Attrs: nounwind uwtable
 define range(i64 17, 1) i64 @CRYPTO_cts128_encrypt(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5) local_unnamed_addr #0 {
   %7 = alloca %union.anon, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = icmp ult i64 %2, 17
   br i1 %8, label %18, label %9
 
@@ -127,17 +121,17 @@ define range(i64 17, 1) i64 @CRYPTO_cts128_encrypt(ptr noundef %0, ptr noundef %
 
 18:                                               ; preds = %6, %9
   %.0 = phi i64 [ %2, %9 ], [ 0, %6 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i64 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define range(i64 16, 1) i64 @CRYPTO_nistcts128_encrypt(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5) local_unnamed_addr #0 {
   %7 = alloca %union.anon.0, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = icmp ult i64 %2, 16
   br i1 %8, label %20, label %9
 
@@ -162,14 +156,14 @@ define range(i64 16, 1) i64 @CRYPTO_nistcts128_encrypt(ptr noundef %0, ptr nound
 
 20:                                               ; preds = %9, %6, %13
   %.0 = phi i64 [ %2, %13 ], [ 0, %6 ], [ %11, %9 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i64 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define range(i64 33, 16) i64 @CRYPTO_cts128_decrypt_block(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = alloca %union.anon.1, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = icmp ult i64 %2, 17
   br i1 %8, label %38, label %9
 
@@ -234,16 +228,16 @@ define range(i64 33, 16) i64 @CRYPTO_cts128_decrypt_block(ptr noundef %0, ptr no
 
 38:                                               ; preds = %6, %._crit_edge
   %.0 = phi i64 [ %37, %._crit_edge ], [ 0, %6 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i64 %.0
 }
 
-declare void @CRYPTO_cbc128_decrypt(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @CRYPTO_cbc128_decrypt(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define noundef i64 @CRYPTO_nistcts128_decrypt_block(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = alloca %union.anon.2, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = icmp ult i64 %2, 16
   br i1 %8, label %43, label %9
 
@@ -318,14 +312,14 @@ define noundef i64 @CRYPTO_nistcts128_decrypt_block(ptr noundef %0, ptr noundef 
 
 43:                                               ; preds = %6, %._crit_edge, %12
   %.0 = phi i64 [ %2, %12 ], [ %42, %._crit_edge ], [ 0, %6 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i64 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define range(i64 17, 1) i64 @CRYPTO_cts128_decrypt(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5) local_unnamed_addr #0 {
   %7 = alloca %union.anon.3, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = icmp ult i64 %2, 17
   br i1 %8, label %20, label %9
 
@@ -358,14 +352,14 @@ define range(i64 17, 1) i64 @CRYPTO_cts128_decrypt(ptr noundef %0, ptr noundef %
 
 20:                                               ; preds = %6, %17
   %.0 = phi i64 [ %2, %17 ], [ 0, %6 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i64 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define range(i64 16, 1) i64 @CRYPTO_nistcts128_decrypt(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5) local_unnamed_addr #0 {
   %7 = alloca %union.anon.4, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = icmp ult i64 %2, 16
   br i1 %8, label %22, label %9
 
@@ -404,15 +398,21 @@ define range(i64 16, 1) i64 @CRYPTO_nistcts128_decrypt(ptr noundef %0, ptr nound
 
 22:                                               ; preds = %6, %19, %12
   %.0 = phi i64 [ %2, %12 ], [ %2, %19 ], [ 0, %6 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i64 %.0
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

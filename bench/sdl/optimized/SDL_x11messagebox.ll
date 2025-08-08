@@ -98,10 +98,10 @@ define hidden zeroext i1 @X11_ShowMessageBox(ptr noundef %0, ptr noundef %1) loc
   %3 = alloca [2 x i32], align 4
   %4 = alloca i32, align 4
   %5 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 1, ptr %5, align 1
   %6 = call i32 @pipe(ptr noundef nonnull %3) #11
   %7 = icmp eq i32 %6, -1
@@ -210,17 +210,14 @@ define hidden zeroext i1 @X11_ShowMessageBox(ptr noundef %0, ptr noundef %1) loc
 
 60:                                               ; preds = %56, %12, %8
   %.0 = phi i1 [ %9, %8 ], [ %18, %12 ], [ %57, %56 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nounwind
-declare i32 @pipe(ptr noundef) local_unnamed_addr #2
+declare i32 @pipe(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @X11_ShowMessageBoxImpl(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
@@ -251,7 +248,7 @@ define internal fastcc zeroext i1 @X11_ShowMessageBoxImpl(ptr noundef %0, ptr no
   %27 = alloca ptr, align 8
   %28 = alloca i32, align 4
   %29 = alloca %struct.SDL_MessageBoxDataX11, align 8
-  call void @llvm.lifetime.start.p0(i64 496, ptr nonnull %29) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(496) %29, i8 0, i64 496, i1 false)
   %30 = tail call zeroext i1 @SDL_X11_LoadSymbols() #11
   br i1 %30, label %31, label %872
@@ -315,9 +312,9 @@ define internal fastcc zeroext i1 @X11_ShowMessageBoxImpl(ptr noundef %0, ptr no
   br i1 %.not47.i, label %75, label %60
 
 60:                                               ; preds = %58
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   store ptr null, ptr %27, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %28) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   store i32 0, ptr %28, align 4
   %61 = getelementptr inbounds nuw i8, ptr %29, i64 72
   br label %63
@@ -351,8 +348,8 @@ define internal fastcc zeroext i1 @X11_ShowMessageBoxImpl(ptr noundef %0, ptr no
   br i1 %.not51.i, label %62, label %74
 
 74:                                               ; preds = %72
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %28) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %81
 
 75:                                               ; preds = %58
@@ -398,8 +395,8 @@ define internal fastcc zeroext i1 @X11_ShowMessageBoxImpl(ptr noundef %0, ptr no
 
 X11_MessageBoxInit.exit:                          ; preds = %62
   %100 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.5) #11
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %28) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br i1 %100, label %X11_MessageBoxInit.exit.thread, label %X11_MessageBoxInitPositions.exit
 
 X11_MessageBoxInit.exit.thread:                   ; preds = %85, %56, %79, %43, %X11_MessageBoxInit.exit
@@ -482,8 +479,8 @@ CountLinesOfText.exit.i:                          ; preds = %select.unfold.i.i, 
   br i1 %.not.i.i, label %145, label %137
 
 137:                                              ; preds = %132
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %138 = load ptr, ptr @X11_Xutf8TextExtents, align 8
   %139 = load ptr, ptr %116, align 8
   %140 = call i32 %138(ptr noundef %139, ptr noundef %.0159183.i, i32 noundef %134, ptr noundef nonnull %21, ptr noundef nonnull %22) #11
@@ -491,15 +488,15 @@ CountLinesOfText.exit.i:                          ; preds = %select.unfold.i.i, 
   %142 = zext i16 %141 to i32
   %143 = load i16, ptr %118, align 2
   %144 = zext i16 %143 to i32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %GetTextWidthHeight.exit.i
 
 145:                                              ; preds = %132
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %23) #11
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %24) #11
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %25) #11
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %26) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   %146 = load ptr, ptr @X11_XTextExtents, align 8
   %147 = load ptr, ptr %119, align 8
   %148 = call i32 %146(ptr noundef %147, ptr noundef %.0159183.i, i32 noundef %134, ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef nonnull %26, ptr noundef nonnull %23) #11
@@ -510,10 +507,10 @@ CountLinesOfText.exit.i:                          ; preds = %select.unfold.i.i, 
   %153 = load i16, ptr %122, align 2
   %154 = sext i16 %153 to i32
   %155 = add nsw i32 %154, %152
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %26) #11
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25) #11
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24) #11
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %23) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %GetTextWidthHeight.exit.i
 
 GetTextWidthHeight.exit.i:                        ; preds = %145, %137
@@ -603,8 +600,8 @@ GetTextWidthHeight.exit.i:                        ; preds = %145, %137
   br i1 %.not.i171.i, label %211, label %203
 
 203:                                              ; preds = %186
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %204 = load ptr, ptr @X11_Xutf8TextExtents, align 8
   %205 = load ptr, ptr %179, align 8
   %206 = call i32 %204(ptr noundef %205, ptr noundef %198, i32 noundef %200, ptr noundef nonnull %15, ptr noundef nonnull %16) #11
@@ -612,15 +609,15 @@ GetTextWidthHeight.exit.i:                        ; preds = %145, %137
   %208 = zext i16 %207 to i32
   %209 = load i16, ptr %181, align 2
   %210 = zext i16 %209 to i32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %GetTextWidthHeight.exit174.i
 
 211:                                              ; preds = %186
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %17) #11
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18) #11
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19) #11
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %212 = load ptr, ptr @X11_XTextExtents, align 8
   %213 = load ptr, ptr %182, align 8
   %214 = call i32 %212(ptr noundef %213, ptr noundef %198, i32 noundef %200, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull %20, ptr noundef nonnull %17) #11
@@ -631,10 +628,10 @@ GetTextWidthHeight.exit.i:                        ; preds = %145, %137
   %219 = load i16, ptr %185, align 2
   %220 = sext i16 %219 to i32
   %221 = add nsw i32 %220, %218
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20) #11
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #11
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #11
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %GetTextWidthHeight.exit174.i
 
 GetTextWidthHeight.exit174.i:                     ; preds = %211, %203
@@ -769,10 +766,10 @@ GetTextWidthHeight.exit174.i:                     ; preds = %211, %203
   br i1 %exitcond207.not.i, label %.loopexit, label %281, !llvm.loop !10
 
 .loopexit:                                        ; preds = %281, %244, %270
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #11
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #11
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %8) #11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %295 = load ptr, ptr %29, align 8
   %296 = load ptr, ptr %101, align 8
   %297 = getelementptr inbounds nuw i8, ptr %296, i64 8
@@ -824,7 +821,7 @@ GetTextWidthHeight.exit174.i:                     ; preds = %211, %203
 324:                                              ; preds = %323
   %325 = load ptr, ptr @X11_XInternAtom, align 8
   %326 = call i64 %325(ptr noundef nonnull %295, ptr noundef nonnull @.str.16, i32 noundef 0) #11
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %10) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %327 = load ptr, ptr @X11_XInternAtom, align 8
   %328 = call i64 %327(ptr noundef nonnull %295, ptr noundef nonnull @.str.17, i32 noundef 0) #11
   store i64 %328, ptr %10, align 16
@@ -848,7 +845,7 @@ GetTextWidthHeight.exit174.i:                     ; preds = %211, %203
   %343 = getelementptr inbounds nuw i8, ptr %.0114.i, i64 8
   %344 = load i64, ptr %343, align 8
   %345 = call i32 %341(ptr noundef nonnull %295, i64 noundef %342, i64 noundef %344) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %10) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %.pre.i = load i64, ptr %321, align 8
   br label %346
 
@@ -879,8 +876,8 @@ GetTextWidthHeight.exit174.i:                     ; preds = %211, %203
   br i1 %.not119.i, label %395, label %367
 
 367:                                              ; preds = %346
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %11) #11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %368 = load ptr, ptr @X11_XGetWindowAttributes, align 8
   %369 = getelementptr inbounds nuw i8, ptr %.0114.i, i64 8
   %370 = load i64, ptr %369, align 8
@@ -910,8 +907,8 @@ GetTextWidthHeight.exit174.i:                     ; preds = %211, %203
   %392 = getelementptr inbounds %struct.Screen, ptr %389, i64 %391, i32 2
   %393 = load i64, ptr %392, align 8
   %394 = call i32 %387(ptr noundef nonnull %295, i64 noundef %388, i64 noundef %393, i32 noundef %378, i32 noundef %386, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %12) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #11
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %11) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %.pre125.i = load i32, ptr %6, align 4
   %.pre126.i = load i32, ptr %7, align 4
   br label %466
@@ -1060,8 +1057,8 @@ GetTextWidthHeight.exit174.i:                     ; preds = %211, %203
   br i1 %.not123.i, label %X11_MessageBoxCreateWindow.exit.thread, label %498
 
 498:                                              ; preds = %493
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #11
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %499 = load ptr, ptr @X11_XdbeQueryExtension, align 8
   %500 = call i32 %499(ptr noundef nonnull %295, ptr noundef nonnull %13, ptr noundef nonnull %14) #11
   %.not124.i = icmp eq i32 %500, 0
@@ -1082,27 +1079,27 @@ GetTextWidthHeight.exit174.i:                     ; preds = %211, %203
   br label %508
 
 508:                                              ; preds = %507, %502
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #11
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %X11_MessageBoxCreateWindow.exit.thread
 
 X11_MessageBoxCreateWindow.exit.thread:           ; preds = %508, %493
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #11
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %8) #11
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #11
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %510
 
 X11_MessageBoxCreateWindow.exit:                  ; preds = %306
   %509 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.15) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #11
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %8) #11
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #11
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %509, label %510, label %X11_MessageBoxInitPositions.exit
 
 510:                                              ; preds = %X11_MessageBoxCreateWindow.exit.thread, %X11_MessageBoxCreateWindow.exit
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %511 = load i32, ptr @SDL_X11_HAVE_UTF8, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %4, i8 0, i64 128, i1 false)
   %512 = getelementptr inbounds nuw i8, ptr %29, i64 464
@@ -1175,7 +1172,7 @@ X11_MessageBoxCreateWindow.exit:                  ; preds = %306
 
 .backedge.i:                                      ; preds = %.backedge.i.outer, %X11_MessageBoxDraw.exit.i.thread
   %.062139.i = phi i1 [ %.163.i.ph, %X11_MessageBoxDraw.exit.i.thread ], [ %.062139.i.ph, %.backedge.i.outer ]
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %558 = load ptr, ptr @X11_XIfEvent, align 8
   %559 = load ptr, ptr %29, align 8
   %560 = call i32 %558(ptr noundef %559, ptr noundef nonnull %5, ptr noundef nonnull @X11_MessageBoxEventTest, ptr noundef nonnull %29) #11
@@ -1665,7 +1662,7 @@ GetHitButtonIndex.exit113.thread.i:               ; preds = %667, %670, %GetHitB
   br i1 %or.cond44, label %818, label %X11_MessageBoxDraw.exit.i
 
 818:                                              ; preds = %._crit_edge.i.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %819 = load i64, ptr %321, align 8
   store i64 %819, ptr %3, align 8
   store i8 0, ptr %557, align 8
@@ -1675,17 +1672,17 @@ GetHitButtonIndex.exit113.thread.i:               ; preds = %667, %670, %GetHitB
   %823 = load ptr, ptr @X11_XdbeEndIdiom, align 8
   %824 = load ptr, ptr %29, align 8
   %825 = call i32 %823(ptr noundef %824) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #11
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.2132.i, label %826, label %.backedge.i.outer.backedge
 
 X11_MessageBoxDraw.exit.i.thread:                 ; preds = %562, %.thread.i33, %GetHitButtonIndex.exit.i
   %.163.i.ph = phi i1 [ true, %GetHitButtonIndex.exit.i ], [ %.062139.i, %.thread.i33 ], [ %.062139.i, %562 ]
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.backedge.i
 
 X11_MessageBoxDraw.exit.i:                        ; preds = %._crit_edge.i.i
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.2132.i, label %826, label %.backedge.i.outer.backedge
 
 .backedge.i.outer.backedge:                       ; preds = %X11_MessageBoxDraw.exit.i, %818
@@ -1699,7 +1696,7 @@ X11_MessageBoxDraw.exit.i:                        ; preds = %._crit_edge.i.i
 
 X11_MessageBoxLoop.exit:                          ; preds = %529, %826
   %.0.i25 = phi i1 [ %530, %529 ], [ true, %826 ]
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %X11_MessageBoxInitPositions.exit
 
 X11_MessageBoxInitPositions.exit:                 ; preds = %CountLinesOfText.exit.i, %56, %79, %43, %X11_MessageBoxLoop.exit, %X11_MessageBoxCreateWindow.exit, %X11_MessageBoxInit.exit
@@ -1794,62 +1791,59 @@ X11_MessageBoxShutdown.exit:                      ; preds = %850, %864
 
 872:                                              ; preds = %X11_MessageBoxShutdown.exit, %870, %33, %2
   %.011 = phi i1 [ false, %2 ], [ false, %33 ], [ %.010, %870 ], [ %.010, %X11_MessageBoxShutdown.exit ]
-  call void @llvm.lifetime.end.p0(i64 496, ptr nonnull %29) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   ret i1 %.011
 }
 
 ; Function Attrs: nofree nounwind
-declare i32 @fork() local_unnamed_addr #3
+declare i32 @fork() local_unnamed_addr #2
 
-declare i32 @close(i32 noundef) local_unnamed_addr #4
+declare i32 @close(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #5
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: noreturn
-declare void @_exit(i32 noundef) local_unnamed_addr #6
+declare void @_exit(i32 noundef) local_unnamed_addr #5
 
-declare i32 @waitpid(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @waitpid(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #7
+declare ptr @__errno_location() local_unnamed_addr #6
 
-declare zeroext i1 @SDL_SetError_REAL(ptr noundef, ...) local_unnamed_addr #4
+declare zeroext i1 @SDL_SetError_REAL(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #5
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
-declare zeroext i1 @SDL_X11_LoadSymbols() local_unnamed_addr #4
+declare zeroext i1 @SDL_X11_LoadSymbols() local_unnamed_addr #3
 
 ; Function Attrs: nounwind
-declare ptr @setlocale(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @setlocale(i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare noalias ptr @SDL_strdup_REAL(ptr noundef) local_unnamed_addr #4
+declare noalias ptr @SDL_strdup_REAL(ptr noundef) local_unnamed_addr #3
 
-declare void @SDL_free_REAL(ptr noundef) local_unnamed_addr #4
+declare void @SDL_free_REAL(ptr noundef) local_unnamed_addr #3
 
-declare noalias ptr @SDL_malloc_REAL(i64 noundef) local_unnamed_addr #4
+declare noalias ptr @SDL_malloc_REAL(i64 noundef) local_unnamed_addr #3
 
-declare ptr @SDL_strchr_REAL(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare ptr @SDL_strchr_REAL(ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare i64 @SDL_strlen_REAL(ptr noundef) local_unnamed_addr #4
+declare i64 @SDL_strlen_REAL(ptr noundef) local_unnamed_addr #3
 
-declare ptr @SDL_GetDisplayDriverDataForWindow(ptr noundef) local_unnamed_addr #4
+declare ptr @SDL_GetDisplayDriverDataForWindow(ptr noundef) local_unnamed_addr #3
 
-declare zeroext i1 @SDL_X11_SetWindowTitle(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
+declare zeroext i1 @SDL_X11_SetWindowTitle(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @SDL_GetVideoDevice() local_unnamed_addr #4
+declare ptr @SDL_GetVideoDevice() local_unnamed_addr #3
 
-declare zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef, i1 noundef zeroext) local_unnamed_addr #4
+declare zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @X11_MessageBoxEventTest(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #9 {
+define internal range(i32 0, 2) i32 @X11_MessageBoxEventTest(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #8 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %2, align 8
@@ -1870,19 +1864,25 @@ define internal range(i32 0, 2) i32 @X11_MessageBoxEventTest(ptr readnone captur
   ret i32 %16
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #10
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #11 = { nounwind }
 attributes #12 = { noreturn nounwind }

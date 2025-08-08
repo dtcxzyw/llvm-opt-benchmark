@@ -20,9 +20,9 @@ define hidden i32 @MuxImageFinalize(ptr noundef captures(none) %0) local_unnamed
   %8 = load i32, ptr %6, align 8, !tbaa !11
   %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @kChunks, i64 72), align 8, !tbaa !16
   %10 = icmp eq i32 %8, %9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !18
   %11 = load ptr, ptr %7, align 8, !tbaa !19
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -77,31 +77,25 @@ define hidden i32 @MuxImageFinalize(ptr noundef captures(none) %0) local_unnamed
 
 36:                                               ; preds = %.thread, %33, %14
   %37 = phi i32 [ 0, %.thread ], [ %22, %33 ], [ 0, %14 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %37
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @VP8LGetInfo(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @VP8LGetInfo(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @VP8GetInfo(ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @VP8GetInfo(ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare ptr @ChunkDelete(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @ChunkDelete(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @WebPMuxCreateInternal(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.WebPData, align 8
   %5 = alloca %struct.WebPChunk, align 8
   %6 = alloca [11 x ptr], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #5
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(88) %6, i8 0, i64 88, i1 false)
   call void @ChunkInit(ptr noundef nonnull %5) #5
   %.mask = and i32 %2, -256
@@ -201,7 +195,7 @@ define ptr @WebPMuxCreateInternal(ptr noundef readonly captures(address_is_null)
 58:                                               ; preds = %.lr.ph, %133
   %.1124 = phi i64 [ %50, %.lr.ph ], [ %135, %133 ]
   %.072123 = phi ptr [ %21, %.lr.ph ], [ %134, %133 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %59 = icmp ult i64 %.1124, 8
   br i1 %59, label %ChunkVerifyAndAssign.exit.thread, label %60
 
@@ -228,7 +222,7 @@ define ptr @WebPMuxCreateInternal(ptr noundef readonly captures(address_is_null)
   br i1 %or.cond121, label %ChunkVerifyAndAssign.exit.thread, label %ChunkVerifyAndAssign.exit
 
 ChunkVerifyAndAssign.exit.thread:                 ; preds = %58, %60, %68
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread
 
 ChunkVerifyAndAssign.exit:                        ; preds = %68
@@ -237,7 +231,7 @@ ChunkVerifyAndAssign.exit:                        ; preds = %68
   store i64 %69, ptr %51, align 8, !tbaa !20
   %.val.i19.i = load i32, ptr %.072123, align 1
   %75 = call i32 @ChunkAssignData(ptr noundef nonnull %5, ptr noundef nonnull %4, i32 noundef %1, i32 noundef %.val.i19.i) #5
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not92 = icmp eq i32 %75, 1
   br i1 %.not92, label %76, label %.thread
 
@@ -389,25 +383,25 @@ ChunkVerifyAndAssign.exit:                        ; preds = %68
 
 144:                                              ; preds = %17, %14, %15, %8, %3, %.thread, %140
   %.0 = phi ptr [ null, %.thread ], [ %18, %140 ], [ null, %3 ], [ null, %8 ], [ null, %15 ], [ null, %14 ], [ null, %17 ]
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
-declare void @ChunkInit(ptr noundef) local_unnamed_addr #2
+declare void @ChunkInit(ptr noundef) local_unnamed_addr #1
 
-declare ptr @WebPSafeMalloc(i64 noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @WebPSafeMalloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @MuxImageInit(ptr noundef) local_unnamed_addr #2
+declare void @MuxImageInit(ptr noundef) local_unnamed_addr #1
 
-declare i32 @ChunkGetIdFromTag(i32 noundef) local_unnamed_addr #2
+declare i32 @ChunkGetIdFromTag(i32 noundef) local_unnamed_addr #1
 
-declare i32 @ChunkSetHead(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ChunkSetHead(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @MuxImagePush(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @MuxImagePush(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @MuxImageParse(ptr noundef nonnull readonly captures(none) %0, i32 noundef %1, ptr noundef nonnull %2) unnamed_addr #0 {
@@ -422,12 +416,12 @@ define internal fastcc range(i32 0, 2) i32 @MuxImageParse(ptr noundef nonnull re
   %12 = icmp eq ptr %9, null
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 %11
   %14 = select i1 %12, ptr null, ptr %13
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %15, ptr %6, align 8, !tbaa !27
   call void @ChunkInit(ptr noundef nonnull %5) #5
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %9, ptr %7, align 8, !tbaa !19
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 16, ptr %16, align 8, !tbaa !20
@@ -441,11 +435,11 @@ define internal fastcc range(i32 0, 2) i32 @MuxImageParse(ptr noundef nonnull re
   br i1 %.not, label %21, label %.thread
 
 .thread:                                          ; preds = %3, %18
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.loopexit
 
 21:                                               ; preds = %18
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %22 = call i32 @ChunkSetHead(ptr noundef nonnull %5, ptr noundef nonnull %2) #5
   %.not39 = icmp eq i32 %22, 1
   br i1 %.not39, label %23, label %.loopexit
@@ -472,7 +466,7 @@ define internal fastcc range(i32 0, 2) i32 @MuxImageParse(ptr noundef nonnull re
   %.03758 = phi ptr [ %28, %.lr.ph ], [ %72, %68 ]
   %.03857 = phi i64 [ %29, %.lr.ph ], [ %73, %68 ]
   call void @ChunkInit(ptr noundef nonnull %5) #5
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %34 = icmp ult i64 %.03857, 8
   br i1 %34, label %ChunkVerifyAndAssign.exit.thread, label %35
 
@@ -497,7 +491,7 @@ define internal fastcc range(i32 0, 2) i32 @MuxImageParse(ptr noundef nonnull re
   br i1 %48, label %ChunkVerifyAndAssign.exit.thread, label %ChunkVerifyAndAssign.exit
 
 ChunkVerifyAndAssign.exit.thread:                 ; preds = %33, %35, %43
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit
 
 ChunkVerifyAndAssign.exit:                        ; preds = %43
@@ -506,7 +500,7 @@ ChunkVerifyAndAssign.exit:                        ; preds = %43
   store i64 %44, ptr %30, align 8, !tbaa !20
   %.val.i19.i = load i32, ptr %.03758, align 1
   %50 = call i32 @ChunkAssignData(ptr noundef nonnull %5, ptr noundef nonnull %4, i32 noundef %1, i32 noundef %.val.i19.i) #5
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not42 = icmp eq i32 %50, 1
   br i1 %.not42, label %51, label %.loopexit
 
@@ -580,22 +574,22 @@ ChunkVerifyAndAssign.exit:                        ; preds = %43
 
 76:                                               ; preds = %._crit_edge, %.loopexit
   %.036 = phi i32 [ 0, %.loopexit ], [ 1, %._crit_edge ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.036
 }
 
-declare ptr @ChunkRelease(ptr noundef) local_unnamed_addr #2
+declare ptr @ChunkRelease(ptr noundef) local_unnamed_addr #1
 
-declare ptr @MuxGetChunkListFromId(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @MuxGetChunkListFromId(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @ChunkAppend(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ChunkAppend(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @MuxValidate(ptr noundef) local_unnamed_addr #2
+declare i32 @MuxValidate(ptr noundef) local_unnamed_addr #1
 
-declare ptr @MuxImageDelete(ptr noundef) local_unnamed_addr #2
+declare ptr @MuxImageDelete(ptr noundef) local_unnamed_addr #1
 
-declare void @WebPMuxDelete(ptr noundef) local_unnamed_addr #2
+declare void @WebPMuxDelete(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -2, 2) i32 @WebPMuxGetCanvasSize(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
@@ -796,7 +790,7 @@ IsWPI.exit:                                       ; preds = %7, %7, %7, %21, %15
   ret i32 %.0
 }
 
-declare i32 @ChunkGetIndexFromFourCC(ptr noundef) local_unnamed_addr #2
+declare i32 @ChunkGetIndexFromFourCC(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @MuxGet(ptr noundef nonnull readonly captures(none) %0, i32 noundef range(i32 10, 9) %1, ptr noundef nonnull writeonly captures(none) initializes((0, 16)) %2) unnamed_addr #0 {
@@ -860,17 +854,17 @@ define internal fastcc range(i32 0, 2) i32 @MuxGet(ptr noundef nonnull readonly 
   ret i32 %.1
 }
 
-declare ptr @ChunkSearchList(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @ChunkSearchList(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @ChunkGetTagFromFourCC(ptr noundef) local_unnamed_addr #2
+declare i32 @ChunkGetTagFromFourCC(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define i32 @WebPMuxGetFrame(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = icmp eq ptr %0, null
   %6 = icmp eq ptr %2, null
   %or.cond = or i1 %5, %6
@@ -973,11 +967,11 @@ MuxGetFrameInternal.exit.sink.split:              ; preds = %13, %32
 
 MuxGetFrameInternal.exit:                         ; preds = %MuxGetFrameInternal.exit.sink.split, %26, %22, %7, %3
   %.0 = phi i32 [ -1, %3 ], [ %8, %7 ], [ -1, %22 ], [ -2, %26 ], [ %69, %MuxGetFrameInternal.exit.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
-declare i32 @MuxImageGetNth(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @MuxImageGetNth(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -2, 2) i32 @WebPMuxGetAnimationParams(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
@@ -1104,11 +1098,11 @@ CountChunks.exit:                                 ; preds = %.lr.ph.split.i, %.l
   ret i32 %.0
 }
 
-declare i32 @MuxImageCount(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @MuxImageCount(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @WebPNewInternal(i32 noundef) local_unnamed_addr #2
+declare ptr @WebPNewInternal(i32 noundef) local_unnamed_addr #1
 
-declare i32 @ChunkAssignData(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ChunkAssignData(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -3, 2) i32 @SynthesizeBitstream(ptr noundef readonly captures(none) %0, ptr noundef nonnull writeonly captures(none) %1) unnamed_addr #0 {
@@ -1189,15 +1183,21 @@ define internal fastcc range(i32 -3, 2) i32 @SynthesizeBitstream(ptr noundef rea
   ret i32 %.0
 }
 
-declare ptr @MuxEmitRiffHeader(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @MuxEmitRiffHeader(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare ptr @ChunkListEmit(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @ChunkListEmit(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

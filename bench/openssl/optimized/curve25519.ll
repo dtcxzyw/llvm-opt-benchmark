@@ -30,13 +30,13 @@ define range(i32 0, 2) i32 @ossl_ed25519_sign(ptr noundef %0, ptr noundef %1, i6
   %17 = alloca %struct.ge_p3, align 4
   %18 = alloca [64 x i8], align 16
   %19 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %15) #9
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %16) #9
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %17) #9
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %18) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %20 = tail call ptr @EVP_MD_fetch(ptr noundef %10, ptr noundef nonnull @.str, ptr noundef %11) #9
   %21 = tail call ptr @EVP_MD_CTX_new() #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %22 = icmp eq ptr %8, null
   %spec.select = select i1 %22, i64 0, i64 %9
   %23 = icmp ne i8 %7, 0
@@ -80,9 +80,9 @@ define range(i32 0, 2) i32 @ossl_ed25519_sign(ptr noundef %0, ptr noundef %1, i6
   %42 = and i8 %41, 63
   %43 = or disjoint i8 %42, 64
   store i8 %43, ptr %40, align 1, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 33, ptr nonnull %13) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(33) %13, ptr noundef nonnull align 16 dereferenceable(33) @__const.hash_init_with_dom.dom_s, i64 33, i1 false)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %14) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %44 = call i32 @EVP_DigestInit_ex(ptr noundef nonnull %21, ptr noundef nonnull %20, ptr noundef null) #9
   %.not.i = icmp eq i32 %44, 0
   br i1 %.not.i, label %hash_init_with_dom.exit.thread, label %45
@@ -91,8 +91,8 @@ define range(i32 0, 2) i32 @ossl_ed25519_sign(ptr noundef %0, ptr noundef %1, i6
   br i1 %26, label %hash_init_with_dom.exit.thread64, label %46
 
 hash_init_with_dom.exit.thread64:                 ; preds = %45
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %14) #9
-  call void @llvm.lifetime.end.p0(i64 33, ptr nonnull %13) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %56
 
 46:                                               ; preds = %45
@@ -116,15 +116,15 @@ hash_init_with_dom.exit.thread64:                 ; preds = %45
   br i1 %.not15.i, label %hash_init_with_dom.exit.thread, label %hash_init_with_dom.exit
 
 hash_init_with_dom.exit.thread:                   ; preds = %37, %46, %53, %48
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %14) #9
-  call void @llvm.lifetime.end.p0(i64 33, ptr nonnull %13) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %75
 
 hash_init_with_dom.exit:                          ; preds = %53
   %55 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %21, ptr noundef %8, i64 noundef %spec.select) #9
   %.not16.i.not = icmp eq i32 %55, 0
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %14) #9
-  call void @llvm.lifetime.end.p0(i64 33, ptr nonnull %13) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br i1 %.not16.i.not, label %75, label %56
 
 56:                                               ; preds = %hash_init_with_dom.exit.thread64, %hash_init_with_dom.exit
@@ -183,34 +183,31 @@ hash_init_with_dom.exit:                          ; preds = %53
   call void @OPENSSL_cleanse(ptr noundef nonnull %15, i64 noundef 64) #9
   call void @EVP_MD_free(ptr noundef %20) #9
   call void @EVP_MD_CTX_free(ptr noundef %21) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #9
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %18) #9
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %17) #9
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %16) #9
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %15) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @EVP_MD_fetch(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @EVP_MD_fetch(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @EVP_MD_CTX_new() local_unnamed_addr #1
 
-declare ptr @EVP_MD_CTX_new() local_unnamed_addr #2
+declare i32 @EVP_DigestInit_ex(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @EVP_DigestInit_ex(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @EVP_DigestUpdate(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @EVP_DigestUpdate(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
-
-declare i32 @EVP_DigestFinal_ex(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @EVP_DigestFinal_ex(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @hash_init_with_dom(ptr noundef nonnull %0, ptr noundef nonnull %1, i8 noundef zeroext %2, i8 noundef zeroext %3, ptr noundef %4, i64 noundef %5) unnamed_addr #0 {
   %7 = alloca [33 x i8], align 16
   %8 = alloca [2 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 33, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(33) %7, ptr noundef nonnull align 16 dereferenceable(33) @__const.hash_init_with_dom.dom_s, i64 33, i1 false)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @EVP_DigestInit_ex(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef null) #9
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %22, label %10
@@ -247,13 +244,13 @@ define internal fastcc range(i32 0, 2) i32 @hash_init_with_dom(ptr noundef nonnu
 
 22:                                               ; preds = %20, %13, %18, %11, %10, %6
   %.0 = phi i32 [ 0, %6 ], [ 1, %10 ], [ 0, %11 ], [ 0, %18 ], [ 0, %13 ], [ %spec.select, %20 ]
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 33, ptr nonnull %7) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @x25519_sc_reduce(ptr noundef nonnull captures(none) %0) unnamed_addr #3 {
+define internal fastcc void @x25519_sc_reduce(ptr noundef nonnull captures(none) %0) unnamed_addr #2 {
   %2 = load i16, ptr %0, align 1
   %3 = zext i16 %2 to i64
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2
@@ -873,10 +870,10 @@ define internal fastcc void @ge_scalarmult_base(ptr noundef nonnull captures(non
   %5 = alloca %struct.ge_p1p1, align 4
   %6 = alloca %struct.ge_p2, align 4
   %7 = alloca %struct.ge_precomp, align 4
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #9
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %5) #9
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %8
 
 8:                                                ; preds = %2, %8
@@ -948,14 +945,14 @@ define internal fastcc void @ge_scalarmult_base(ptr noundef nonnull captures(non
   br i1 %41, label %36, label %42, !llvm.loop !11
 
 42:                                               ; preds = %36
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %3, ptr noundef nonnull readonly align 4 dereferenceable(40) %0, i64 40, i1 false)
   %43 = getelementptr inbounds nuw i8, ptr %3, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %43, ptr noundef nonnull readonly align 4 dereferenceable(40) %28, i64 40, i1 false)
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %44, ptr noundef nonnull readonly align 4 dereferenceable(40) %30, i64 40, i1 false)
   call fastcc void @ge_p2_dbl(ptr noundef nonnull %5, ptr noundef %3)
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call fastcc void @fe_mul(ptr noundef nonnull %6, ptr noundef nonnull readonly %5, ptr noundef nonnull readonly %33)
   %45 = getelementptr inbounds nuw i8, ptr %6, i64 40
   call fastcc void @fe_mul(ptr noundef %45, ptr noundef nonnull readonly %34, ptr noundef nonnull readonly %35)
@@ -994,45 +991,45 @@ define internal fastcc void @ge_scalarmult_base(ptr noundef nonnull captures(non
 
 53:                                               ; preds = %47
   call void @OPENSSL_cleanse(ptr noundef nonnull %4, i64 noundef 64) #9
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @ge_p3_tobytes(ptr noundef captures(none) initializes((0, 32)) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #4 {
+define internal fastcc void @ge_p3_tobytes(ptr noundef captures(none) initializes((0, 32)) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #3 {
   %3 = alloca [32 x i8], align 16
   %4 = alloca [10 x i32], align 16
   %5 = alloca [10 x i32], align 16
   %6 = alloca [10 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #9
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #9
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 80
   call fastcc void @fe_invert(ptr noundef %4, ptr noundef %7)
   call fastcc void @fe_mul(ptr noundef %5, ptr noundef nonnull %1, ptr noundef nonnull %4)
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 40
   call fastcc void @fe_mul(ptr noundef %6, ptr noundef nonnull %8, ptr noundef nonnull %4)
   call fastcc void @fe_tobytes(ptr noundef %0, ptr noundef %6)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call fastcc void @fe_tobytes(ptr noundef nonnull %3, ptr noundef nonnull readonly %5)
   %9 = load i8, ptr %3, align 16, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 31
   %11 = load i8, ptr %10, align 1, !tbaa !3
   %12 = shl i8 %9, 7
   %13 = xor i8 %11, %12
   store i8 %13, ptr %10, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @sc_muladd(ptr noundef writeonly captures(none) initializes((0, 32)) %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef nonnull readonly captures(none) %3) unnamed_addr #3 {
+define internal fastcc void @sc_muladd(ptr noundef writeonly captures(none) initializes((0, 32)) %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef nonnull readonly captures(none) %3) unnamed_addr #2 {
   %5 = load i16, ptr %1, align 1
   %6 = zext i16 %5 to i64
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 2
@@ -2129,19 +2126,16 @@ define internal fastcc void @sc_muladd(ptr noundef writeonly captures(none) init
   ret void
 }
 
-declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @EVP_MD_free(ptr noundef) local_unnamed_addr #2
+declare void @EVP_MD_free(ptr noundef) local_unnamed_addr #1
 
-declare void @EVP_MD_CTX_free(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @EVP_MD_CTX_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ossl_ed25519_pubkey_verify(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.ge_p3, align 4
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.not = icmp eq i64 %1, 32
   br i1 %.not, label %4, label %8
 
@@ -2153,7 +2147,7 @@ define range(i32 0, 2) i32 @ossl_ed25519_pubkey_verify(ptr noundef readonly capt
 
 8:                                                ; preds = %2, %4
   %.0 = phi i32 [ %7, %4 ], [ 0, %2 ]
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
@@ -2170,11 +2164,11 @@ define internal fastcc range(i32 -1, 1) i32 @ge_frombytes_vartime(ptr noundef no
   %11 = alloca [10 x i32], align 16
   %12 = alloca [10 x i32], align 16
   %13 = alloca [10 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #9
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10) #9
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11) #9
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %12) #9
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %13) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %15 = load i32, ptr %1, align 1
   %16 = zext i32 %15 to i64
@@ -2368,9 +2362,9 @@ fe_sub.exit:                                      ; preds = %164, %fe_sub.exit
 
 fe_add.exit:                                      ; preds = %fe_sub.exit
   call fastcc void @fe_mul(ptr noundef %11, ptr noundef nonnull %9, ptr noundef nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call fastcc void @fe_sq(ptr noundef %6, ptr noundef nonnull readonly %11)
   call fastcc void @fe_sq(ptr noundef %7, ptr noundef %6)
   call fastcc void @fe_sq(ptr noundef %7, ptr noundef %7)
@@ -2465,9 +2459,9 @@ fe_pow22523.exit:                                 ; preds = %193
   call fastcc void @fe_sq(ptr noundef %6, ptr noundef %6)
   call fastcc void @fe_sq(ptr noundef %6, ptr noundef %6)
   call fastcc void @fe_mul(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull readonly %11)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call fastcc void @fe_mul(ptr noundef %0, ptr noundef nonnull %0, ptr noundef nonnull %9)
   call fastcc void @fe_sq(ptr noundef %12, ptr noundef %0)
   call fastcc void @fe_mul(ptr noundef %12, ptr noundef nonnull %12, ptr noundef nonnull %10)
@@ -2487,11 +2481,11 @@ fe_pow22523.exit:                                 ; preds = %193
   br i1 %exitcond.not.i27, label %fe_sub.exit28, label %195, !llvm.loop !13
 
 fe_sub.exit28:                                    ; preds = %195
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call fastcc void @fe_tobytes(ptr noundef nonnull %5, ptr noundef nonnull readonly %13)
   %202 = call i32 @CRYPTO_memcmp(ptr noundef nonnull %5, ptr noundef nonnull @fe_isnonzero.zero, i64 noundef 32) #9
   %.not36 = icmp eq i32 %202, 0
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.not36, label %211, label %.preheader41
 
 .preheader41:                                     ; preds = %fe_sub.exit28, %.preheader41
@@ -2508,11 +2502,11 @@ fe_sub.exit28:                                    ; preds = %195
   br i1 %exitcond.not.i31, label %fe_add.exit32, label %.preheader41, !llvm.loop !14
 
 fe_add.exit32:                                    ; preds = %.preheader41
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call fastcc void @fe_tobytes(ptr noundef nonnull %4, ptr noundef nonnull readonly %13)
   %209 = call i32 @CRYPTO_memcmp(ptr noundef nonnull %4, ptr noundef nonnull @fe_isnonzero.zero, i64 noundef 32) #9
   %.not = icmp eq i32 %209, 0
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.not, label %210, label %220
 
 210:                                              ; preds = %fe_add.exit32
@@ -2520,11 +2514,11 @@ fe_add.exit32:                                    ; preds = %.preheader41
   br label %211
 
 211:                                              ; preds = %210, %fe_sub.exit28
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call fastcc void @fe_tobytes(ptr noundef nonnull %3, ptr noundef nonnull readonly %0)
   %212 = load i8, ptr %3, align 16, !tbaa !3
   %213 = and i8 %212, 1
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %214 = load i8, ptr %86, align 1, !tbaa !3
   %215 = lshr i8 %214, 7
   %.not20 = icmp eq i8 %213, %215
@@ -2547,11 +2541,11 @@ fe_neg.exit:                                      ; preds = %.preheader, %211
 
 220:                                              ; preds = %fe_add.exit32, %fe_neg.exit
   %.0 = phi i32 [ 0, %fe_neg.exit ], [ -1, %fe_add.exit32 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %13) #9
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12) #9
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11) #9
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10) #9
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0
 }
 
@@ -2562,11 +2556,11 @@ define range(i32 0, 2) i32 @ossl_ed25519_verify(ptr noundef %0, i64 noundef %1, 
   %14 = alloca %struct.ge_p2, align 4
   %15 = alloca [32 x i8], align 16
   %16 = alloca [64 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %12) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #9
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %14) #9
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15) #9
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %16) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %17 = icmp eq ptr %7, null
   %spec.select = select i1 %17, i64 0, i64 %8
   %18 = icmp ne i8 %6, 0
@@ -2695,19 +2689,19 @@ fe_neg.exit63:                                    ; preds = %46
 
 .thread:                                          ; preds = %38, %fe_neg.exit63, %.loopexit, %30, %23, %20, %11, %69
   %.046 = phi i32 [ %.0, %69 ], [ 0, %11 ], [ 0, %20 ], [ 0, %23 ], [ 0, %30 ], [ 0, %.loopexit ], [ 0, %fe_neg.exit63 ], [ 0, %38 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %16) #9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15) #9
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %14) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #9
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %12) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret i32 %.046
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @ge_double_scalarmult_vartime(ptr noundef nonnull captures(none) %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef readonly captures(none) %3) unnamed_addr #4 {
+define internal fastcc void @ge_double_scalarmult_vartime(ptr noundef nonnull captures(none) %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef readonly captures(none) %3) unnamed_addr #3 {
   %5 = alloca [10 x i32], align 16
   %6 = alloca [10 x i32], align 16
   %7 = alloca %struct.ge_p2, align 4
@@ -2717,12 +2711,12 @@ define internal fastcc void @ge_double_scalarmult_vartime(ptr noundef nonnull ca
   %11 = alloca %struct.ge_p1p1, align 4
   %12 = alloca %struct.ge_p3, align 4
   %13 = alloca %struct.ge_p3, align 4
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %8) #9
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %9) #9
-  call void @llvm.lifetime.start.p0(i64 1280, ptr nonnull %10) #9
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %11) #9
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %12) #9
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %13) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   br label %14
 
 14:                                               ; preds = %14, %4
@@ -2960,14 +2954,14 @@ ge_p3_to_cached.exit:                             ; preds = %90
   %99 = getelementptr inbounds nuw i8, ptr %10, i64 120
   %100 = getelementptr inbounds nuw i8, ptr %2, i64 120
   call fastcc void @fe_mul(ptr noundef %99, ptr noundef nonnull readonly %100, ptr noundef nonnull @d2)
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %7, ptr noundef nonnull readonly align 4 dereferenceable(40) %2, i64 40, i1 false)
   %101 = getelementptr inbounds nuw i8, ptr %7, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %101, ptr noundef nonnull readonly align 4 dereferenceable(40) %81, i64 40, i1 false)
   %102 = getelementptr inbounds nuw i8, ptr %7, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %102, ptr noundef nonnull readonly align 4 dereferenceable(40) %98, i64 40, i1 false)
   call fastcc void @ge_p2_dbl(ptr noundef nonnull %11, ptr noundef %7)
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %7) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %103 = getelementptr inbounds nuw i8, ptr %11, i64 120
   call fastcc void @fe_mul(ptr noundef nonnull %13, ptr noundef nonnull readonly %11, ptr noundef nonnull readonly %103)
   %104 = getelementptr inbounds nuw i8, ptr %13, i64 40
@@ -3348,7 +3342,7 @@ ge_p3_to_cached.exit110:                          ; preds = %229
   call fastcc void @fe_mul(ptr noundef %109, ptr noundef nonnull readonly %105, ptr noundef nonnull readonly %106)
   call fastcc void @fe_mul(ptr noundef %110, ptr noundef nonnull readonly %106, ptr noundef nonnull readonly %103)
   call fastcc void @fe_mul(ptr noundef %111, ptr noundef nonnull readonly %11, ptr noundef nonnull readonly %105)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br label %264
 
 264:                                              ; preds = %264, %263
@@ -3453,7 +3447,7 @@ fe_sub.exit48.i:                                  ; preds = %fe_add.exit44.i, %f
   br i1 %exitcond.not.i51.i, label %ge_sub.exit, label %fe_sub.exit48.i, !llvm.loop !14
 
 ge_sub.exit:                                      ; preds = %fe_sub.exit48.i
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %310
 
 310:                                              ; preds = %261, %ge_sub.exit, %257
@@ -3482,7 +3476,7 @@ ge_sub.exit:                                      ; preds = %fe_sub.exit48.i
   call fastcc void @fe_mul(ptr noundef %109, ptr noundef nonnull readonly %105, ptr noundef nonnull readonly %106)
   call fastcc void @fe_mul(ptr noundef %110, ptr noundef nonnull readonly %106, ptr noundef nonnull readonly %103)
   call fastcc void @fe_mul(ptr noundef %111, ptr noundef nonnull readonly %11, ptr noundef nonnull readonly %105)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br label %321
 
 321:                                              ; preds = %321, %320
@@ -3585,7 +3579,7 @@ fe_sub.exit45.i:                                  ; preds = %fe_add.exit41.i, %f
   br i1 %exitcond.not.i48.i, label %ge_msub.exit, label %fe_sub.exit45.i, !llvm.loop !14
 
 ge_msub.exit:                                     ; preds = %fe_sub.exit45.i
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %366
 
 366:                                              ; preds = %318, %ge_msub.exit, %314
@@ -3597,46 +3591,46 @@ ge_msub.exit:                                     ; preds = %fe_sub.exit45.i
   br i1 %367, label %.lr.ph, label %._crit_edge, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %249, %366, %251
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %13) #9
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %12) #9
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %11) #9
-  call void @llvm.lifetime.end.p0(i64 1280, ptr nonnull %10) #9
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %9) #9
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @ge_tobytes(ptr noundef nonnull captures(none) initializes((0, 32)) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #4 {
+define internal fastcc void @ge_tobytes(ptr noundef nonnull captures(none) initializes((0, 32)) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #3 {
   %3 = alloca [32 x i8], align 16
   %4 = alloca [10 x i32], align 16
   %5 = alloca [10 x i32], align 16
   %6 = alloca [10 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #9
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #9
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 80
   call fastcc void @fe_invert(ptr noundef %4, ptr noundef %7)
   call fastcc void @fe_mul(ptr noundef %5, ptr noundef nonnull %1, ptr noundef nonnull %4)
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 40
   call fastcc void @fe_mul(ptr noundef %6, ptr noundef nonnull %8, ptr noundef nonnull %4)
   call fastcc void @fe_tobytes(ptr noundef nonnull %0, ptr noundef %6)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call fastcc void @fe_tobytes(ptr noundef nonnull %3, ptr noundef nonnull readonly %5)
   %9 = load i8, ptr %3, align 16, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 31
   %11 = load i8, ptr %10, align 1, !tbaa !3
   %12 = shl i8 %9, 7
   %13 = xor i8 %11, %12
   store i8 %13, ptr %10, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
-declare i32 @CRYPTO_memcmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @CRYPTO_memcmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ossl_ed25519_public_from_private(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
@@ -3646,8 +3640,8 @@ define range(i32 0, 2) i32 @ossl_ed25519_public_from_private(ptr noundef %0, ptr
   %8 = alloca [10 x i32], align 16
   %9 = alloca [64 x i8], align 16
   %10 = alloca %struct.ge_p3, align 4
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #9
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %10) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %11 = tail call ptr @EVP_MD_fetch(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef %3) #9
   %12 = icmp eq ptr %11, null
   br i1 %12, label %29, label %13
@@ -3668,27 +3662,27 @@ define range(i32 0, 2) i32 @ossl_ed25519_public_from_private(ptr noundef %0, ptr
   %21 = or disjoint i8 %20, 64
   store i8 %21, ptr %18, align 1, !tbaa !3
   call fastcc void @ge_scalarmult_base(ptr noundef %10, ptr noundef %9)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %22 = getelementptr inbounds nuw i8, ptr %10, i64 80
   call fastcc void @fe_invert(ptr noundef %6, ptr noundef readonly %22)
   call fastcc void @fe_mul(ptr noundef %7, ptr noundef nonnull readonly %10, ptr noundef nonnull %6)
   %23 = getelementptr inbounds nuw i8, ptr %10, i64 40
   call fastcc void @fe_mul(ptr noundef %8, ptr noundef nonnull readonly %23, ptr noundef nonnull %6)
   call fastcc void @fe_tobytes(ptr noundef %1, ptr noundef %8)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call fastcc void @fe_tobytes(ptr noundef nonnull %5, ptr noundef nonnull readonly %7)
   %24 = load i8, ptr %5, align 16, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 31
   %26 = load i8, ptr %25, align 1, !tbaa !3
   %27 = shl i8 %24, 7
   %28 = xor i8 %26, %27
   store i8 %28, ptr %25, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.sink.split
 
 .sink.split:                                      ; preds = %13, %15
@@ -3698,12 +3692,12 @@ define range(i32 0, 2) i32 @ossl_ed25519_public_from_private(ptr noundef %0, ptr
 
 29:                                               ; preds = %.sink.split, %4
   %.0 = phi i32 [ 0, %4 ], [ %.0.ph, %.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %10) #9
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0
 }
 
-declare i32 @EVP_Digest(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @EVP_Digest(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ossl_x25519(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
@@ -3731,27 +3725,27 @@ define range(i32 0, 2) i32 @ossl_x25519(ptr noundef %0, ptr noundef readonly cap
   %25 = alloca [5 x i64], align 16
   %26 = alloca [5 x i64], align 16
   %27 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %20) #9
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %21) #9
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %22) #9
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %23) #9
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %24) #9
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %25) #9
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %26) #9
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %27) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   %28 = tail call i32 @x25519_fe64_eligible() #9
   %.not.i = icmp eq i32 %28, 0
   br i1 %.not.i, label %106, label %29
 
 29:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #9
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #9
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14) #9
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15) #9
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16) #9
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17) #9
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %18) #9
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %19) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %19, ptr noundef nonnull readonly align 1 dereferenceable(32) %1, i64 32, i1 false)
   %30 = load i8, ptr %19, align 16, !tbaa !3
   %31 = and i8 %30, -8
@@ -3864,10 +3858,10 @@ fe64_cswap.exit15.i.i:                            ; preds = %fe64_cswap.exit.i.i
   br i1 %.not.i.i, label %82, label %52, !llvm.loop !33
 
 82:                                               ; preds = %fe64_cswap.exit15.i.i
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #9
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #9
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #9
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @x25519_fe64_sqr(ptr noundef nonnull %8, ptr noundef nonnull %14) #9
   call void @x25519_fe64_sqr(ptr noundef nonnull %9, ptr noundef nonnull %8) #9
   call void @x25519_fe64_sqr(ptr noundef nonnull %9, ptr noundef nonnull %9) #9
@@ -3968,21 +3962,21 @@ fe64_cswap.exit15.i.i:                            ; preds = %fe64_cswap.exit.i.i
 
 x25519_scalar_mulx.exit.i:                        ; preds = %104
   call void @x25519_fe64_mul(ptr noundef nonnull %14, ptr noundef nonnull %9, ptr noundef nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @x25519_fe64_mul(ptr noundef nonnull %13, ptr noundef nonnull %13, ptr noundef nonnull %14) #9
   call void @x25519_fe64_tobytes(ptr noundef %0, ptr noundef nonnull %13) #9
   call void @OPENSSL_cleanse(ptr noundef nonnull %19, i64 noundef 32) #9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %19) #9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %18) #9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17) #9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16) #9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15) #9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14) #9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %x25519_scalar_mult.exit
 
 106:                                              ; preds = %3
@@ -4345,10 +4339,10 @@ fe51_cswap.exit18.i:                              ; preds = %fe51_cswap.exit.i
   br i1 %.not42.i, label %364, label %224, !llvm.loop !43
 
 364:                                              ; preds = %fe51_cswap.exit18.i
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #9
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #9
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @x25519_fe51_sqr(ptr noundef nonnull %4, ptr noundef nonnull %22) #9
   call void @x25519_fe51_sqr(ptr noundef nonnull %5, ptr noundef nonnull %4) #9
   call void @x25519_fe51_sqr(ptr noundef nonnull %5, ptr noundef nonnull %5) #9
@@ -4449,10 +4443,10 @@ fe51_cswap.exit18.i:                              ; preds = %fe51_cswap.exit.i
 
 fe51_invert.exit.i:                               ; preds = %386
   call void @x25519_fe51_mul(ptr noundef nonnull %22, ptr noundef nonnull %5, ptr noundef nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @x25519_fe51_mul(ptr noundef nonnull %21, ptr noundef nonnull %21, ptr noundef nonnull %22) #9
   %388 = load i64, ptr %21, align 16, !tbaa !30
   %389 = load i64, ptr %200, align 8, !tbaa !30
@@ -4622,14 +4616,14 @@ fe51_invert.exit.i:                               ; preds = %386
   br label %x25519_scalar_mult.exit
 
 x25519_scalar_mult.exit:                          ; preds = %x25519_scalar_mulx.exit.i, %fe51_invert.exit.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %27) #9
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %26) #9
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %25) #9
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %24) #9
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %23) #9
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %22) #9
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %21) #9
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %20) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   %520 = call i32 @CRYPTO_memcmp(ptr noundef nonnull @ossl_x25519.kZeros, ptr noundef %0, i64 noundef 32) #9
   %521 = icmp ne i32 %520, 0
   %522 = zext i1 %521 to i32
@@ -4643,11 +4637,11 @@ define void @ossl_x25519_public_from_private(ptr noundef writeonly captures(none
   %5 = alloca [10 x i32], align 16
   %6 = alloca [10 x i32], align 16
   %7 = alloca [10 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #9
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %4) #9
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #9
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, ptr noundef nonnull align 1 dereferenceable(32) %1, i64 32, i1 false)
   %8 = load i8, ptr %3, align 16, !tbaa !3
   %9 = and i8 %8, -8
@@ -4693,24 +4687,24 @@ fe_sub.exit:                                      ; preds = %fe_add.exit
   call fastcc void @fe_mul(ptr noundef %5, ptr noundef nonnull %5, ptr noundef nonnull %7)
   call fastcc void @fe_tobytes(ptr noundef %0, ptr noundef %5)
   call void @OPENSSL_cleanse(ptr noundef nonnull %3, i64 noundef 32) #9
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @fe_invert(ptr noundef nonnull writeonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #4 {
+define internal fastcc void @fe_invert(ptr noundef nonnull writeonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #3 {
   %3 = alloca [10 x i32], align 16
   %4 = alloca [10 x i32], align 16
   %5 = alloca [10 x i32], align 16
   %6 = alloca [10 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #9
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #9
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #9
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call fastcc void @fe_sq(ptr noundef %3, ptr noundef %1)
   call fastcc void @fe_sq(ptr noundef %4, ptr noundef %3)
   call fastcc void @fe_sq(ptr noundef %4, ptr noundef %4)
@@ -4813,15 +4807,15 @@ define internal fastcc void @fe_invert(ptr noundef nonnull writeonly captures(no
 
 30:                                               ; preds = %28
   call fastcc void @fe_mul(ptr noundef %0, ptr noundef nonnull %4, ptr noundef nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @fe_mul(ptr noundef nonnull writeonly captures(none) initializes((0, 40)) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) unnamed_addr #3 {
+define internal fastcc void @fe_mul(ptr noundef nonnull writeonly captures(none) initializes((0, 40)) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) unnamed_addr #2 {
   %4 = load i32, ptr %1, align 4, !tbaa !9
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4, !tbaa !9
@@ -5192,7 +5186,7 @@ define internal fastcc void @fe_mul(ptr noundef nonnull writeonly captures(none)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @fe_tobytes(ptr noundef writeonly captures(none) initializes((0, 32)) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #3 {
+define internal fastcc void @fe_tobytes(ptr noundef writeonly captures(none) initializes((0, 32)) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #2 {
   %3 = load i32, ptr %1, align 4, !tbaa !9
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4, !tbaa !9
@@ -5381,9 +5375,9 @@ define internal fastcc void @fe_tobytes(ptr noundef writeonly captures(none) ini
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @table_select(ptr noundef nonnull captures(none) initializes((0, 120)) %0, i32 noundef range(i32 -1073741824, 32) %1, i8 noundef signext %2) unnamed_addr #4 {
+define internal fastcc void @table_select(ptr noundef nonnull captures(none) initializes((0, 120)) %0, i32 noundef range(i32 -1073741824, 32) %1, i8 noundef signext %2) unnamed_addr #3 {
   %4 = alloca %struct.ge_precomp, align 4
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call i8 @llvm.smin.i8(i8 %2, i8 0)
   %6 = shl i8 %5, 1
   %7 = sub i8 %2, %6
@@ -5926,14 +5920,14 @@ fe_cmov.exit10.i101:                              ; preds = %fe_cmov.exit.i98, %
   br i1 %exitcond.not.i12.i103, label %cmov.exit104, label %fe_cmov.exit10.i101, !llvm.loop !60
 
 cmov.exit104:                                     ; preds = %fe_cmov.exit10.i101
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @ge_madd(ptr noundef nonnull captures(none) %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef readonly captures(none) %2) unnamed_addr #4 {
+define internal fastcc void @ge_madd(ptr noundef nonnull captures(none) %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef readonly captures(none) %2) unnamed_addr #3 {
   %4 = alloca [10 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
   br label %6
 
@@ -6041,14 +6035,14 @@ fe_add.exit45:                                    ; preds = %fe_add.exit41, %fe_
   br i1 %exitcond.not.i48, label %fe_sub.exit49, label %fe_add.exit45, !llvm.loop !13
 
 fe_sub.exit49:                                    ; preds = %fe_add.exit45
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @ge_p2_dbl(ptr noundef nonnull captures(none) initializes((0, 40), (80, 160)) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #4 {
+define internal fastcc void @ge_p2_dbl(ptr noundef nonnull captures(none) initializes((0, 40), (80, 160)) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #3 {
   %3 = alloca [10 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   tail call fastcc void @fe_sq(ptr noundef %0, ptr noundef %1)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -6381,15 +6375,15 @@ fe_sub.exit31:                                    ; preds = %fe_sub.exit, %fe_su
   br i1 %exitcond.not.i34, label %fe_sub.exit35, label %fe_sub.exit31, !llvm.loop !13
 
 fe_sub.exit35:                                    ; preds = %fe_sub.exit31
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @fe_sq(ptr noundef nonnull writeonly captures(none) initializes((0, 40)) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #3 {
+define internal fastcc void @fe_sq(ptr noundef nonnull writeonly captures(none) initializes((0, 40)) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #2 {
   %3 = load i32, ptr %1, align 4, !tbaa !9
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4, !tbaa !9
@@ -6639,9 +6633,9 @@ define internal fastcc void @fe_sq(ptr noundef nonnull writeonly captures(none) 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @ge_add(ptr noundef nonnull captures(none) %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef nonnull readonly captures(none) %2) unnamed_addr #4 {
+define internal fastcc void @ge_add(ptr noundef nonnull captures(none) %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef nonnull readonly captures(none) %2) unnamed_addr #3 {
   %4 = alloca [10 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
   br label %6
 
@@ -6751,29 +6745,35 @@ fe_add.exit48:                                    ; preds = %fe_add.exit44, %fe_
   br i1 %exitcond.not.i51, label %fe_sub.exit52, label %fe_add.exit48, !llvm.loop !13
 
 fe_sub.exit52:                                    ; preds = %fe_add.exit48
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
-declare i32 @x25519_fe64_eligible() local_unnamed_addr #2
+declare i32 @x25519_fe64_eligible() local_unnamed_addr #1
 
-declare void @x25519_fe51_mul(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @x25519_fe51_mul(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @x25519_fe51_sqr(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @x25519_fe51_sqr(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @x25519_fe51_mul121666(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @x25519_fe51_mul121666(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @x25519_fe64_sub(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @x25519_fe64_sub(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @x25519_fe64_add(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @x25519_fe64_add(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @x25519_fe64_mul(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @x25519_fe64_mul(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @x25519_fe64_sqr(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @x25519_fe64_sqr(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @x25519_fe64_mul121666(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @x25519_fe64_mul121666(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @x25519_fe64_tobytes(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @x25519_fe64_tobytes(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #7
@@ -6785,12 +6785,12 @@ declare i8 @llvm.smin.i8(i8, i8) #8
 declare i32 @llvm.umin.i32(i32, i32) #8
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #9 = { nounwind }

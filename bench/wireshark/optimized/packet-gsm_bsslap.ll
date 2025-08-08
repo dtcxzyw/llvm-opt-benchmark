@@ -178,7 +178,7 @@ define internal zeroext i16 @de_rrlp_ie(ptr noundef %0, ptr noundef %1, ptr noun
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal zeroext i16 @de_cell_id_list(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly captures(address_is_null) %5, i32 %6) #1 {
   %8 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8
   %9 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %3)
   %.not46 = icmp eq i32 %4, 0
@@ -241,7 +241,7 @@ define internal zeroext i16 @de_cell_id_list(ptr noundef %0, ptr noundef %1, ptr
   %.043.lcssa = phi i32 [ %3, %7 ], [ %31, %29 ]
   %35 = sub i32 %.043.lcssa, %3
   %36 = trunc i32 %35 to i16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i16 %36
 }
 
@@ -315,7 +315,7 @@ declare ptr @find_dissector_add_dependency(ptr noundef, i32 noundef) local_unnam
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_gsm_bsslap() local_unnamed_addr #1 {
   %1 = alloca [48 x ptr], align 16
-  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %1) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store ptr @ett_gsm_bsslap, ptr %1, align 16
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @ett_bsslap_cell_list, ptr %2, align 8
@@ -353,12 +353,9 @@ define hidden void @proto_register_gsm_bsslap() local_unnamed_addr #1 {
   call void @expert_register_field_array(ptr noundef %11, ptr noundef nonnull @proto_register_gsm_bsslap.ei, i32 noundef 2)
   %12 = load i32, ptr @proto_gsm_bsslap, align 4
   %13 = call ptr @register_dissector(ptr noundef nonnull @.str.33, ptr noundef nonnull @dissect_gsm_bsslap, i32 noundef %12)
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %1) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
@@ -1033,9 +1030,6 @@ dissect_gsm_bsslap_ta_res.exit:                   ; preds = %387, %382, %376, %3
   ret i32 %390
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
@@ -1087,10 +1081,15 @@ declare ptr @get_gsm_a_msg_string(i32 noundef, i32 noundef) local_unnamed_addr #
 ; Function Attrs: null_pointer_is_valid
 declare zeroext i16 @elem_tlv(ptr noundef, ptr noundef, ptr noundef, i8 noundef zeroext, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
+
 attributes #0 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

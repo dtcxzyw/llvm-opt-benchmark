@@ -12,10 +12,10 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 62) i32 @Curl_base64_decode(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #0 {
   %4 = alloca [256 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %1, align 8, !tbaa !4
   store i64 0, ptr %2, align 8, !tbaa !9
-  %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #6
+  %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #5
   %.not = icmp ne i64 %5, 0
   %6 = and i64 %5, 3
   %.not83 = icmp eq i64 %6, 0
@@ -48,7 +48,7 @@ define dso_local range(i32 0, 62) i32 @Curl_base64_decode(ptr noundef readonly c
   %19 = sub i64 %18, %.075
   %20 = load ptr, ptr @Curl_cmalloc, align 8, !tbaa !14
   %21 = add i64 %19, 1
-  %22 = tail call ptr %20(i64 noundef %21) #5
+  %22 = tail call ptr %20(i64 noundef %21) #6
   %.not85 = icmp eq ptr %22, null
   br i1 %.not85, label %.loopexit, label %23
 
@@ -171,29 +171,23 @@ define dso_local range(i32 0, 62) i32 @Curl_base64_decode(ptr noundef readonly c
 
 .thread92:                                        ; preds = %25, %52, %49
   %75 = load ptr, ptr @Curl_cfree, align 8, !tbaa !14
-  tail call void %75(ptr noundef nonnull %22) #5
+  tail call void %75(ptr noundef nonnull %22) #6
   br label %.loopexit
 
 .loopexit:                                        ; preds = %13, %15, %3, %.thread92, %74
   %.064 = phi i32 [ 61, %.thread92 ], [ 0, %74 ], [ 61, %3 ], [ 27, %15 ], [ 61, %13 ]
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.064
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 28) i32 @Curl_base64_encode(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3) local_unnamed_addr #0 {
@@ -210,7 +204,7 @@ define internal fastcc range(i32 0, 28) i32 @base64_encode(ptr noundef readonly 
   br i1 %.not, label %7, label %9
 
 7:                                                ; preds = %5
-  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #6
+  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #5
   br label %9
 
 9:                                                ; preds = %7, %5
@@ -220,7 +214,7 @@ define internal fastcc range(i32 0, 28) i32 @base64_encode(ptr noundef readonly 
   %12 = udiv i64 %11, 3
   %13 = shl i64 %12, 2
   %14 = or disjoint i64 %13, 1
-  %15 = tail call ptr %10(i64 noundef %14) #5
+  %15 = tail call ptr %10(i64 noundef %14) #6
   %.not62 = icmp eq ptr %15, null
   br i1 %.not62, label %98, label %.preheader
 
@@ -362,13 +356,19 @@ define dso_local range(i32 0, 28) i32 @Curl_base64url_encode(ptr noundef readonl
   ret i32 %5
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nounwind }
-attributes #6 = { nounwind willreturn memory(read) }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { nounwind willreturn memory(read) }
+attributes #6 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

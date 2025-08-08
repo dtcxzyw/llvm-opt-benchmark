@@ -26,10 +26,8 @@ define { ptr, i64 } @"_ZN107_$LT$alloc..boxed..Box$LT$$u5b$I$u5d$$GT$$u20$as$u20
 ; Function Attrs: nonlazybind uwtable
 define nonnull align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17h0eb199c4561ff93cE"() unnamed_addr #0 personality ptr @rust_eh_personality {
   %1 = alloca {}, align 1
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %1)
   %2 = call { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h7002ed8d5ebfef06E"(ptr nonnull align 1 %1, i64 8, i64 104)
   %3 = extractvalue { ptr, i64 } %2, 0
-  call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %1)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
 
@@ -37,17 +35,15 @@ define nonnull align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17h
   ret ptr %3
 
 5:                                                ; preds = %0
-  call void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 8, i64 104) #5
+  call void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 8, i64 104) #4
   unreachable
 }
 
 ; Function Attrs: nonlazybind uwtable
 define nonnull align 16 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17h24b1018aced40b86E"() unnamed_addr #0 personality ptr @rust_eh_personality {
   %1 = alloca {}, align 1
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %1)
   %2 = call { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h7002ed8d5ebfef06E"(ptr nonnull align 1 %1, i64 16, i64 128)
   %3 = extractvalue { ptr, i64 } %2, 0
-  call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %1)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
 
@@ -55,17 +51,15 @@ define nonnull align 16 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17
   ret ptr %3
 
 5:                                                ; preds = %0
-  call void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 16, i64 128) #5
+  call void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 16, i64 128) #4
   unreachable
 }
 
 ; Function Attrs: nonlazybind uwtable
 define nonnull align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17h7c37725652548d16E"() unnamed_addr #0 personality ptr @rust_eh_personality {
   %1 = alloca {}, align 1
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %1)
   %2 = call { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h7002ed8d5ebfef06E"(ptr nonnull align 1 %1, i64 8, i64 200)
   %3 = extractvalue { ptr, i64 } %2, 0
-  call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %1)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
 
@@ -73,17 +67,15 @@ define nonnull align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17h
   ret ptr %3
 
 5:                                                ; preds = %0
-  call void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 8, i64 200) #5
+  call void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 8, i64 200) #4
   unreachable
 }
 
 ; Function Attrs: nonlazybind uwtable
 define nonnull align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17hce0b1ffb4ff36066E"() unnamed_addr #0 personality ptr @rust_eh_personality {
   %1 = alloca {}, align 1
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %1)
   %2 = call { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h7002ed8d5ebfef06E"(ptr nonnull align 1 %1, i64 8, i64 368)
   %3 = extractvalue { ptr, i64 } %2, 0
-  call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %1)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
 
@@ -91,17 +83,15 @@ define nonnull align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17h
   ret ptr %3
 
 5:                                                ; preds = %0
-  call void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 8, i64 368) #5
+  call void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 8, i64 368) #4
   unreachable
 }
 
 ; Function Attrs: nonlazybind uwtable
 define nonnull align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17he49d51af1058fbb8E"() unnamed_addr #0 personality ptr @rust_eh_personality {
   %1 = alloca {}, align 1
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %1)
   %2 = call { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h7002ed8d5ebfef06E"(ptr nonnull align 1 %1, i64 8, i64 464)
   %3 = extractvalue { ptr, i64 } %2, 0
-  call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %1)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
 
@@ -109,17 +99,15 @@ define nonnull align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17h
   ret ptr %3
 
 5:                                                ; preds = %0
-  call void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 8, i64 464) #5
+  call void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 8, i64 464) #4
   unreachable
 }
 
 ; Function Attrs: nonlazybind uwtable
 define nonnull align 16 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17he66b11159ca5f9b7E"() unnamed_addr #0 personality ptr @rust_eh_personality {
   %1 = alloca {}, align 1
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %1)
   %2 = call { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h7002ed8d5ebfef06E"(ptr nonnull align 1 %1, i64 16, i64 128)
   %3 = extractvalue { ptr, i64 } %2, 0
-  call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %1)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
 
@@ -127,7 +115,7 @@ define nonnull align 16 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17
   ret ptr %3
 
 5:                                                ; preds = %0
-  call void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 16, i64 128) #5
+  call void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 16, i64 128) #4
   unreachable
 }
 
@@ -185,15 +173,13 @@ define nonnull align 16 ptr @"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u2
   %3 = alloca ptr, align 8
   %4 = getelementptr i8, ptr %0, i64 8
   tail call void @"_ZN59_$LT$alloc..alloc..Global$u20$as$u20$core..clone..Clone$GT$5clone17h1924cda468b3a531E"(ptr align 1 %4)
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %2)
   %5 = call { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h7002ed8d5ebfef06E"(ptr nonnull align 1 %2, i64 16, i64 128)
   %6 = extractvalue { ptr, i64 } %5, 0
-  call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2)
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %7, label %"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17he66b11159ca5f9b7E.exit"
 
 7:                                                ; preds = %1
-  call void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 16, i64 128) #5
+  call void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 16, i64 128) #4
   unreachable
 
 "_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17he66b11159ca5f9b7E.exit": ; preds = %1
@@ -205,7 +191,7 @@ define nonnull align 16 ptr @"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u2
 9:                                                ; preds = %"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17he66b11159ca5f9b7E.exit"
   %10 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$core..mem..maybe_uninit..MaybeUninit$LT$cranelift_isle..ast..Pattern$GT$$GT$$GT$17h0ce6b159290e890eE"(ptr nonnull align 8 %3) #6
+  invoke void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$core..mem..maybe_uninit..MaybeUninit$LT$cranelift_isle..ast..Pattern$GT$$GT$$GT$17h0ce6b159290e890eE"(ptr nonnull align 8 %3) #5
           to label %14 unwind label %12
 
 11:                                               ; preds = %"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17he66b11159ca5f9b7E.exit"
@@ -214,7 +200,7 @@ define nonnull align 16 ptr @"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u2
 12:                                               ; preds = %9
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #7
+  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #6
   unreachable
 
 14:                                               ; preds = %9
@@ -227,15 +213,13 @@ define nonnull align 16 ptr @"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u2
   %3 = alloca ptr, align 8
   %4 = getelementptr i8, ptr %0, i64 8
   tail call void @"_ZN59_$LT$alloc..alloc..Global$u20$as$u20$core..clone..Clone$GT$5clone17h1924cda468b3a531E"(ptr align 1 %4)
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %2)
   %5 = call { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h7002ed8d5ebfef06E"(ptr nonnull align 1 %2, i64 16, i64 128)
   %6 = extractvalue { ptr, i64 } %5, 0
-  call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2)
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %7, label %"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17h24b1018aced40b86E.exit"
 
 7:                                                ; preds = %1
-  call void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 16, i64 128) #5
+  call void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 16, i64 128) #4
   unreachable
 
 "_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17h24b1018aced40b86E.exit": ; preds = %1
@@ -247,7 +231,7 @@ define nonnull align 16 ptr @"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u2
 9:                                                ; preds = %"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17h24b1018aced40b86E.exit"
   %10 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr115drop_in_place$LT$alloc..boxed..Box$LT$core..mem..maybe_uninit..MaybeUninit$LT$cranelift_isle..ast..Expr$GT$$GT$$GT$17ha608a13accf90229E"(ptr nonnull align 8 %3) #6
+  invoke void @"_ZN4core3ptr115drop_in_place$LT$alloc..boxed..Box$LT$core..mem..maybe_uninit..MaybeUninit$LT$cranelift_isle..ast..Expr$GT$$GT$$GT$17ha608a13accf90229E"(ptr nonnull align 8 %3) #5
           to label %14 unwind label %12
 
 11:                                               ; preds = %"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17h24b1018aced40b86E.exit"
@@ -256,7 +240,7 @@ define nonnull align 16 ptr @"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u2
 12:                                               ; preds = %9
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #7
+  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #6
   unreachable
 
 14:                                               ; preds = %9
@@ -321,20 +305,13 @@ declare void @"_ZN4core3ptr115drop_in_place$LT$alloc..boxed..Box$LT$core..mem..m
 ; Function Attrs: inlinehint nonlazybind uwtable
 declare void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h9bcdba0673c330d3E"(ptr sret({ { i64, ptr, {} }, i64 }) align 8, ptr align 2, i64) unnamed_addr #1
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
-
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #2 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #3 = { cold noreturn nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #4 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { noreturn }
-attributes #6 = { cold }
-attributes #7 = { cold noreturn nounwind }
+attributes #4 = { noreturn }
+attributes #5 = { cold }
+attributes #6 = { cold noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1}
 !llvm.ident = !{!2}

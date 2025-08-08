@@ -34,7 +34,7 @@ define internal noundef zeroext i1 @_ZN5bytes5bytes16static_is_unique17h27d008ef
 define hidden noundef i32 @_ZN8protobuf2rt10value_size17h0895dd1b5f89a237E(i32 noundef %0, i64 noundef %1, i8 noundef range(i8 0, 6) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca [8 x i8], align 8
   %5 = tail call noundef i32 @_ZN8protobuf2rt8tag_size17h3060511248e74f4aE(i32 noundef %0)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %1, ptr %4, align 8
   switch i8 %2, label %6 [
     i8 0, label %7
@@ -55,7 +55,7 @@ define hidden noundef i32 @_ZN8protobuf2rt10value_size17h0895dd1b5f89a237E(i32 n
 
 _ZN8protobuf2rt17value_size_no_tag17h4f1ec5feb0ce45a7E.exit: ; preds = %3, %7, %9
   %.sroa.0.0.i = phi i32 [ %8, %7 ], [ 4, %9 ], [ 8, %3 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %10 = add i32 %.sroa.0.0.i, %5
   ret i32 %10
 }
@@ -64,7 +64,7 @@ _ZN8protobuf2rt17value_size_no_tag17h4f1ec5feb0ce45a7E.exit: ; preds = %3, %7, %
 define hidden noundef i32 @_ZN8protobuf2rt10value_size17ha406cc1fd9c52e0fE(i32 noundef %0, i64 noundef %1, i8 noundef range(i8 0, 6) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca [8 x i8], align 8
   %5 = tail call noundef i32 @_ZN8protobuf2rt8tag_size17h3060511248e74f4aE(i32 noundef %0)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %1, ptr %4, align 8
   switch i8 %2, label %6 [
     i8 0, label %7
@@ -85,7 +85,7 @@ define hidden noundef i32 @_ZN8protobuf2rt10value_size17ha406cc1fd9c52e0fE(i32 n
 
 _ZN8protobuf2rt17value_size_no_tag17h7bb9eb3ba62574f3E.exit: ; preds = %3, %7, %9
   %.sroa.0.0.i = phi i32 [ %8, %7 ], [ 4, %9 ], [ 8, %3 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %10 = add i32 %.sroa.0.0.i, %5
   ret i32 %10
 }
@@ -379,14 +379,14 @@ define hidden noundef i32 @_ZN8protobuf2rt9enum_size17h06b2691ae796a132E(i32 nou
   %3 = alloca [4 x i8], align 4
   %4 = alloca [1 x i8], align 1
   %5 = tail call noundef i32 @_ZN8protobuf2rt8tag_size17h3060511248e74f4aE(i32 noundef %0)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 %1, ptr %4, align 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = call noundef i32 @"_ZN90_$LT$raft_proto..protos..eraftpb..MessageType$u20$as$u20$protobuf..enums..ProtobufEnum$GT$5value17hfab3b429a5fc6593E"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %4)
   store i32 %6, ptr %3, align 4
   %7 = call noundef i32 @"_ZN52_$LT$i32$u20$as$u20$protobuf..rt..ProtobufVarint$GT$10len_varint17h502854a1a296297cE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %8 = add i32 %7, %5
   ret i32 %8
 }
@@ -396,14 +396,14 @@ define hidden noundef i32 @_ZN8protobuf2rt9enum_size17ha1e8512f3c5e85feE(i32 nou
   %3 = alloca [4 x i8], align 4
   %4 = alloca [1 x i8], align 1
   %5 = tail call noundef i32 @_ZN8protobuf2rt8tag_size17h3060511248e74f4aE(i32 noundef %0)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 %1, ptr %4, align 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = call noundef i32 @"_ZN93_$LT$raft_proto..protos..eraftpb..ConfChangeType$u20$as$u20$protobuf..enums..ProtobufEnum$GT$5value17h99a3b103cdcd87d4E"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %4)
   store i32 %6, ptr %3, align 4
   %7 = call noundef i32 @"_ZN52_$LT$i32$u20$as$u20$protobuf..rt..ProtobufVarint$GT$10len_varint17h502854a1a296297cE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %8 = add i32 %7, %5
   ret i32 %8
 }
@@ -413,14 +413,14 @@ define hidden noundef i32 @_ZN8protobuf2rt9enum_size17ha87cbabe106b46f3E(i32 nou
   %3 = alloca [4 x i8], align 4
   %4 = alloca [1 x i8], align 1
   %5 = tail call noundef i32 @_ZN8protobuf2rt8tag_size17h3060511248e74f4aE(i32 noundef %0)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 %1, ptr %4, align 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = call noundef i32 @"_ZN88_$LT$raft_proto..protos..eraftpb..EntryType$u20$as$u20$protobuf..enums..ProtobufEnum$GT$5value17hf119b526dcf117b3E"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %4)
   store i32 %6, ptr %3, align 4
   %7 = call noundef i32 @"_ZN52_$LT$i32$u20$as$u20$protobuf..rt..ProtobufVarint$GT$10len_varint17h502854a1a296297cE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %8 = add i32 %7, %5
   ret i32 %8
 }
@@ -430,14 +430,14 @@ define hidden noundef i32 @_ZN8protobuf2rt9enum_size17hb7714ab50d752381E(i32 nou
   %3 = alloca [4 x i8], align 4
   %4 = alloca [1 x i8], align 1
   %5 = tail call noundef i32 @_ZN8protobuf2rt8tag_size17h3060511248e74f4aE(i32 noundef %0)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 %1, ptr %4, align 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = call noundef i32 @"_ZN99_$LT$raft_proto..protos..eraftpb..ConfChangeTransition$u20$as$u20$protobuf..enums..ProtobufEnum$GT$5value17h183430d84f237da1E"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %4)
   store i32 %6, ptr %3, align 4
   %7 = call noundef i32 @"_ZN52_$LT$i32$u20$as$u20$protobuf..rt..ProtobufVarint$GT$10len_varint17h502854a1a296297cE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %8 = add i32 %7, %5
   ret i32 %8
 }
@@ -1075,10 +1075,10 @@ declare { ptr, i64 } @_ZN10raft_proto6protos7eraftpb9ConfState19get_voters_outgo
 declare { ptr, i64 } @_ZN10raft_proto6protos7eraftpb9ConfState17get_learners_next17h0e5b4890f79c88dbE(ptr noundef nonnull align 8) unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6

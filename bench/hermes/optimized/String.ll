@@ -397,7 +397,7 @@ entry:
   store i32 0, ptr %curChunkIndex_.i, align 8
   store ptr %gcScope, ptr %topGCScope_.i, align 8
   %2 = load ptr, ptr %args, align 8, !noalias !10
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %3 = load i64, ptr %2, align 8
   %shr.i.mask.i.i = and i64 %3, -140737488355328
   switch i64 %shr.i.mask.i.i, label %_ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit.thread [
@@ -406,7 +406,7 @@ entry:
   ]
 
 _ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit.thread: ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   br label %if.end
 
 _ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit: ; preds = %entry, %entry
@@ -420,7 +420,7 @@ _ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueE
   %4 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   store i32 3, ptr %4, align 8
   %call5.i = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i) #15
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %cmp = icmp eq i32 %call5.i, 0
   br i1 %cmp, label %cleanup, label %_ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit.if.end_crit_edge
 
@@ -510,7 +510,7 @@ define hidden { i32, i64 } @_ZN6hermes2vm25stringPrototypeCharCodeAtEPvRNS0_7Run
 entry:
   %ref.tmp.i = alloca %"class.hermes::vm::TwineChar16", align 8
   %1 = load ptr, ptr %args, align 8, !noalias !16
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %2 = load i64, ptr %1, align 8
   %shr.i.mask.i.i = and i64 %2, -140737488355328
   switch i64 %shr.i.mask.i.i, label %_ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit.thread [
@@ -519,7 +519,7 @@ entry:
   ]
 
 _ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit.thread: ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   br label %if.end
 
 _ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit: ; preds = %entry, %entry
@@ -533,7 +533,7 @@ _ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueE
   %3 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   store i32 3, ptr %3, align 8
   %call5.i = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i) #15
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %cmp = icmp eq i32 %call5.i, 0
   br i1 %cmp, label %return, label %if.end
 
@@ -750,7 +750,7 @@ entry:
   %ref.tmp.i = alloca %"class.hermes::vm::TwineChar16", align 8
   %strView = alloca %"class.hermes::vm::StringView", align 8
   %1 = load ptr, ptr %args, align 8, !noalias !22
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %2 = load i64, ptr %1, align 8
   %shr.i.mask.i.i = and i64 %2, -140737488355328
   switch i64 %shr.i.mask.i.i, label %_ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit.thread [
@@ -759,7 +759,7 @@ entry:
   ]
 
 _ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit.thread: ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   br label %if.end
 
 _ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit: ; preds = %entry, %entry
@@ -773,7 +773,7 @@ _ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueE
   %3 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   store i32 3, ptr %3, align 8
   %call5.i = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i) #15
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %cmp = icmp eq i32 %call5.i, 0
   br i1 %cmp, label %return, label %_ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit.if.end_crit_edge
 
@@ -1026,7 +1026,7 @@ entry:
   store i32 0, ptr %curChunkIndex_.i, align 8
   store ptr %gcScope, ptr %topGCScope_.i, align 8
   %2 = load ptr, ptr %args, align 8, !noalias !28
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %3 = load i64, ptr %2, align 8
   %shr.i.mask.i.i = and i64 %3, -140737488355328
   switch i64 %shr.i.mask.i.i, label %_ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit.thread [
@@ -1035,7 +1035,7 @@ entry:
   ]
 
 _ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit.thread: ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   br label %if.end
 
 _ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit: ; preds = %entry, %entry
@@ -1049,7 +1049,7 @@ _ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueE
   %4 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   store i32 3, ptr %4, align 8
   %call5.i = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i) #15
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %cmp = icmp eq i32 %call5.i, 0
   br i1 %cmp, label %cleanup100, label %_ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit.if.end_crit_edge
 
@@ -1386,7 +1386,7 @@ define hidden { i32, i64 } @_ZN6hermes2vm24stringPrototypeSubstringEPvRNS0_7Runt
 entry:
   %ref.tmp.i = alloca %"class.hermes::vm::TwineChar16", align 8
   %1 = load ptr, ptr %args, align 8, !noalias !40
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %2 = load i64, ptr %1, align 8
   %shr.i.mask.i.i = and i64 %2, -140737488355328
   switch i64 %shr.i.mask.i.i, label %_ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit.thread [
@@ -1395,7 +1395,7 @@ entry:
   ]
 
 _ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit.thread: ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   br label %if.end
 
 _ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit: ; preds = %entry, %entry
@@ -1409,7 +1409,7 @@ _ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueE
   %3 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   store i32 3, ptr %3, align 8
   %call5.i = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i) #15
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %cmp = icmp eq i32 %call5.i, 0
   br i1 %cmp, label %return, label %_ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit.if.end_crit_edge
 
@@ -1525,7 +1525,7 @@ define hidden { i32, i64 } @_ZN6hermes2vm26stringPrototypeToLowerCaseEPvRNS0_7Ru
 entry:
   %ref.tmp.i = alloca %"class.hermes::vm::TwineChar16", align 8
   %1 = load ptr, ptr %args, align 8, !noalias !49
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %2 = load i64, ptr %1, align 8
   %shr.i.mask.i.i = and i64 %2, -140737488355328
   switch i64 %shr.i.mask.i.i, label %_ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit.thread [
@@ -1534,7 +1534,7 @@ entry:
   ]
 
 _ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit.thread: ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   br label %if.end
 
 _ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit: ; preds = %entry, %entry
@@ -1548,7 +1548,7 @@ _ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueE
   %3 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   store i32 3, ptr %3, align 8
   %call5.i = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i) #15
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %cmp = icmp eq i32 %call5.i, 0
   br i1 %cmp, label %return, label %_ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit.if.end_crit_edge
 
@@ -1604,7 +1604,7 @@ define hidden { i32, i64 } @_ZN6hermes2vm32stringPrototypeToLocaleLowerCaseEPvRN
 entry:
   %ref.tmp.i = alloca %"class.hermes::vm::TwineChar16", align 8
   %0 = load ptr, ptr %args, align 8, !noalias !55
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %1 = load i64, ptr %0, align 8
   %shr.i.mask.i.i = and i64 %1, -140737488355328
   switch i64 %shr.i.mask.i.i, label %_ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit.thread [
@@ -1613,7 +1613,7 @@ entry:
   ]
 
 _ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit.thread: ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   br label %if.end
 
 _ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit: ; preds = %entry, %entry
@@ -1627,7 +1627,7 @@ _ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueE
   %2 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   store i32 3, ptr %2, align 8
   %call5.i = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i) #15
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %cmp = icmp eq i32 %call5.i, 0
   br i1 %cmp, label %return, label %_ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit.if.end_crit_edge
 
@@ -1683,7 +1683,7 @@ define hidden { i32, i64 } @_ZN6hermes2vm26stringPrototypeToUpperCaseEPvRNS0_7Ru
 entry:
   %ref.tmp.i = alloca %"class.hermes::vm::TwineChar16", align 8
   %1 = load ptr, ptr %args, align 8, !noalias !61
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %2 = load i64, ptr %1, align 8
   %shr.i.mask.i.i = and i64 %2, -140737488355328
   switch i64 %shr.i.mask.i.i, label %_ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit.thread [
@@ -1692,7 +1692,7 @@ entry:
   ]
 
 _ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit.thread: ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   br label %if.end
 
 _ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit: ; preds = %entry, %entry
@@ -1706,7 +1706,7 @@ _ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueE
   %3 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   store i32 3, ptr %3, align 8
   %call5.i = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i) #15
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %cmp = icmp eq i32 %call5.i, 0
   br i1 %cmp, label %return, label %_ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit.if.end_crit_edge
 
@@ -1762,7 +1762,7 @@ define hidden { i32, i64 } @_ZN6hermes2vm32stringPrototypeToLocaleUpperCaseEPvRN
 entry:
   %ref.tmp.i = alloca %"class.hermes::vm::TwineChar16", align 8
   %0 = load ptr, ptr %args, align 8, !noalias !67
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %1 = load i64, ptr %0, align 8
   %shr.i.mask.i.i = and i64 %1, -140737488355328
   switch i64 %shr.i.mask.i.i, label %_ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit.thread [
@@ -1771,7 +1771,7 @@ entry:
   ]
 
 _ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit.thread: ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   br label %if.end
 
 _ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit: ; preds = %entry, %entry
@@ -1785,7 +1785,7 @@ _ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueE
   %2 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   store i32 3, ptr %2, align 8
   %call5.i = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i) #15
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %cmp = icmp eq i32 %call5.i, 0
   br i1 %cmp, label %return, label %_ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit.if.end_crit_edge
 
@@ -1841,7 +1841,7 @@ define hidden { i32, i64 } @_ZN6hermes2vm21stringPrototypeSubstrEPvRNS0_7Runtime
 entry:
   %ref.tmp.i = alloca %"class.hermes::vm::TwineChar16", align 8
   %1 = load ptr, ptr %args, align 8, !noalias !73
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %2 = load i64, ptr %1, align 8
   %shr.i.mask.i.i = and i64 %2, -140737488355328
   switch i64 %shr.i.mask.i.i, label %_ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit.thread [
@@ -1850,7 +1850,7 @@ entry:
   ]
 
 _ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit.thread: ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   br label %if.end
 
 _ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit: ; preds = %entry, %entry
@@ -1864,7 +1864,7 @@ _ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueE
   %3 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   store i32 3, ptr %3, align 8
   %call5.i = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i) #15
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %cmp = icmp eq i32 %call5.i, 0
   br i1 %cmp, label %return, label %_ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit.if.end_crit_edge
 
@@ -1996,7 +1996,7 @@ define hidden { i32, i64 } @_ZN6hermes2vm19stringPrototypeTrimEPvRNS0_7RuntimeEN
 entry:
   %ref.tmp.i = alloca %"class.hermes::vm::TwineChar16", align 8
   %1 = load ptr, ptr %args, align 8, !noalias !82
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %2 = load i64, ptr %1, align 8
   %shr.i.mask.i.i = and i64 %2, -140737488355328
   switch i64 %shr.i.mask.i.i, label %_ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit.thread [
@@ -2005,7 +2005,7 @@ entry:
   ]
 
 _ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit.thread: ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   br label %if.end
 
 _ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit: ; preds = %entry, %entry
@@ -2019,7 +2019,7 @@ _ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueE
   %3 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   store i32 3, ptr %3, align 8
   %call5.i = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i) #15
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %cmp = icmp eq i32 %call5.i, 0
   br i1 %cmp, label %return, label %_ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit.if.end_crit_edge
 
@@ -2447,7 +2447,7 @@ entry:
   %ref.tmp = alloca %"class.hermes::vm::StringView", align 8
   %ref.tmp38 = alloca %"class.hermes::vm::StringView", align 8
   %0 = load ptr, ptr %args, align 8, !noalias !89
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %1 = load i64, ptr %0, align 8
   %shr.i.mask.i.i = and i64 %1, -140737488355328
   switch i64 %shr.i.mask.i.i, label %_ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit.thread [
@@ -2456,7 +2456,7 @@ entry:
   ]
 
 _ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit.thread: ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   br label %if.end
 
 _ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit: ; preds = %entry, %entry
@@ -2470,7 +2470,7 @@ _ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueE
   %2 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   store i32 3, ptr %2, align 8
   %call5.i = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i) #15
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %cmp = icmp eq i32 %call5.i, 0
   br i1 %cmp, label %return, label %if.end
 
@@ -2610,7 +2610,7 @@ entry:
   %ref.tmp60 = alloca %"class.hermes::vm::TwineChar16", align 8
   %ns = alloca %"class.llvh::SmallVector.172", align 8
   %1 = load ptr, ptr %args, align 8, !noalias !92
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %2 = load i64, ptr %1, align 8
   %shr.i.mask.i.i = and i64 %2, -140737488355328
   switch i64 %shr.i.mask.i.i, label %_ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit.thread [
@@ -2619,7 +2619,7 @@ entry:
   ]
 
 _ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit.thread: ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   br label %if.end
 
 _ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit: ; preds = %entry, %entry
@@ -2633,7 +2633,7 @@ _ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueE
   %3 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   store i32 3, ptr %3, align 8
   %call5.i = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i) #15
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %cmp = icmp eq i32 %call5.i, 0
   br i1 %cmp, label %return, label %if.end
 
@@ -2801,7 +2801,7 @@ entry:
   %ref.tmp57 = alloca %"class.hermes::vm::TwineChar16", align 8
   %builderRes = alloca %"class.hermes::vm::CallResult.169", align 8
   %1 = load ptr, ptr %args, align 8, !noalias !98
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %2 = load i64, ptr %1, align 8
   %shr.i.mask.i.i = and i64 %2, -140737488355328
   switch i64 %shr.i.mask.i.i, label %_ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit.thread [
@@ -2810,7 +2810,7 @@ entry:
   ]
 
 _ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit.thread: ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   br label %if.end
 
 _ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit: ; preds = %entry, %entry
@@ -2824,7 +2824,7 @@ _ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueE
   %3 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   store i32 3, ptr %3, align 8
   %call5.i = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i) #15
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %cmp = icmp eq i32 %call5.i, 0
   br i1 %cmp, label %return, label %if.end
 
@@ -2975,7 +2975,7 @@ define hidden { i32, i64 } @_ZN6hermes2vm24stringPrototypeTrimStartEPvRNS0_7Runt
 entry:
   %ref.tmp.i = alloca %"class.hermes::vm::TwineChar16", align 8
   %1 = load ptr, ptr %args, align 8, !noalias !102
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %2 = load i64, ptr %1, align 8
   %shr.i.mask.i.i = and i64 %2, -140737488355328
   switch i64 %shr.i.mask.i.i, label %_ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit.thread [
@@ -2984,7 +2984,7 @@ entry:
   ]
 
 _ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit.thread: ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   br label %if.end
 
 _ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit: ; preds = %entry, %entry
@@ -2998,7 +2998,7 @@ _ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueE
   %3 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   store i32 3, ptr %3, align 8
   %call5.i = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i) #15
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %cmp = icmp eq i32 %call5.i, 0
   br i1 %cmp, label %return, label %_ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit.if.end_crit_edge
 
@@ -3336,7 +3336,7 @@ define hidden { i32, i64 } @_ZN6hermes2vm22stringPrototypeTrimEndEPvRNS0_7Runtim
 entry:
   %ref.tmp.i = alloca %"class.hermes::vm::TwineChar16", align 8
   %1 = load ptr, ptr %args, align 8, !noalias !108
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %2 = load i64, ptr %1, align 8
   %shr.i.mask.i.i = and i64 %2, -140737488355328
   switch i64 %shr.i.mask.i.i, label %_ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit.thread [
@@ -3345,7 +3345,7 @@ entry:
   ]
 
 _ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit.thread: ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   br label %if.end
 
 _ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit: ; preds = %entry, %entry
@@ -3359,7 +3359,7 @@ _ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueE
   %3 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   store i32 3, ptr %3, align 8
   %call5.i = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i) #15
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %cmp = icmp eq i32 %call5.i, 0
   br i1 %cmp, label %return, label %_ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit.if.end_crit_edge
 
@@ -3701,7 +3701,7 @@ define hidden { i32, i64 } @_ZN6hermes2vm29stringPrototypeSymbolIteratorEPvRNS0_
 entry:
   %ref.tmp.i = alloca %"class.hermes::vm::TwineChar16", align 8
   %1 = load ptr, ptr %args, align 8, !noalias !114
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %2 = load i64, ptr %1, align 8
   %shr.i.mask.i.i = and i64 %2, -140737488355328
   switch i64 %shr.i.mask.i.i, label %_ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit.thread [
@@ -3710,7 +3710,7 @@ entry:
   ]
 
 _ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit.thread: ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   br label %if.end
 
 _ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit: ; preds = %entry, %entry
@@ -3724,7 +3724,7 @@ _ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueE
   %3 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   store i32 3, ptr %3, align 8
   %call5.i = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i) #15
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %cmp = icmp eq i32 %call5.i, 0
   br i1 %cmp, label %return, label %if.end
 
@@ -3903,7 +3903,7 @@ if.end34:                                         ; preds = %for.body
   %17 = extractvalue { i32, i64 } %call30, 1
   %18 = bitcast i64 %17 to double
   %conv38 = fptoui double %18 to i16
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %ch.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ch.addr.i)
   store i16 %conv38, ptr %ch.addr.i, align 2
   %19 = load ptr, ptr %builder, align 8
   %agg.tmp.sroa.0.0.copyload.i.i.i = load i64, ptr %19, align 8
@@ -3988,7 +3988,7 @@ _ZN6hermes2vm15StringPrimitive26castToUTF16PointerForWriteEv.exit.i: ; preds = %
   br label %_ZN6hermes2vm13StringBuilder15appendCharacterEDs.exit
 
 _ZN6hermes2vm13StringBuilder15appendCharacterEDs.exit: ; preds = %_ZN6hermes2vm15StringPrimitive26castToASCIIPointerForWriteEv.exit.i, %if.else.i, %_ZN6hermes2vm15StringPrimitive26castToUTF16PointerForWriteEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %ch.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ch.addr.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !120
@@ -4120,9 +4120,9 @@ if.end27:                                         ; preds = %if.end
   br i1 %call35, label %if.end42, label %_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit
 
 _ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit:     ; preds = %if.end27
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %buf.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i)
   %call.i = call noundef i64 @_ZN6hermes14numberToStringEdPcm(double noundef %12, ptr noundef nonnull %buf.i, i64 noundef 32) #15
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %buf.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i)
   %13 = bitcast double %12 to i64
   %14 = inttoptr i64 %13 to ptr
   store ptr @.str, ptr %ref.tmp, align 8, !alias.scope !124
@@ -4146,9 +4146,9 @@ if.end42:                                         ; preds = %if.end27
   br i1 %or.cond, label %_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit78, label %if.end56
 
 _ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit78:   ; preds = %if.end42
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %buf.i35)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i35)
   %call.i39 = call noundef i64 @_ZN6hermes14numberToStringEdPcm(double noundef %12, ptr noundef nonnull %buf.i35, i64 noundef 32) #15
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %buf.i35)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i35)
   %15 = bitcast double %12 to i64
   %16 = inttoptr i64 %15 to ptr
   store ptr @.str.1, ptr %ref.tmp50, align 8, !alias.scope !129
@@ -4614,7 +4614,7 @@ entry:
   %ref.tmp = alloca %"class.hermes::vm::TwineChar16", align 8
   %ref.tmp181 = alloca %"class.hermes::vm::TwineChar16", align 8
   %1 = load ptr, ptr %args, align 8, !noalias !139
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %2 = load i64, ptr %1, align 8
   %shr.i.mask.i.i = and i64 %2, -140737488355328
   switch i64 %shr.i.mask.i.i, label %_ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit.thread [
@@ -4623,7 +4623,7 @@ entry:
   ]
 
 _ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit.thread: ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   br label %if.end
 
 _ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit: ; preds = %entry, %entry
@@ -4637,7 +4637,7 @@ _ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueE
   %3 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   store i32 3, ptr %3, align 8
   %call5.i = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i) #15
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %cmp = icmp eq i32 %call5.i, 0
   br i1 %cmp, label %return, label %_ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit.if.end_crit_edge
 
@@ -5004,7 +5004,7 @@ entry:
   store i32 0, ptr %curChunkIndex_.i, align 8
   store ptr %gcScope, ptr %topGCScope_.i, align 8
   %2 = load ptr, ptr %args, align 8, !noalias !142
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %3 = load i64, ptr %2, align 8
   %shr.i.mask.i.i = and i64 %3, -140737488355328
   switch i64 %shr.i.mask.i.i, label %_ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit.thread [
@@ -5013,7 +5013,7 @@ entry:
   ]
 
 _ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit.thread: ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   br label %if.end
 
 _ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit: ; preds = %entry, %entry
@@ -5027,7 +5027,7 @@ _ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueE
   %4 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   store i32 3, ptr %4, align 8
   %call5.i = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i) #15
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %cmp = icmp eq i32 %call5.i, 0
   br i1 %cmp, label %cleanup324, label %_ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit.if.end_crit_edge
 
@@ -5695,7 +5695,7 @@ if.end319:                                        ; preds = %if.then316, %for.en
   %115 = load ptr, ptr %result, align 8
   %116 = load i32, ptr %Size.i.i.i.i.i.i158, align 8
   %conv.i.i225 = zext i32 %116 to i64
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i226)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i226)
   %cmp.i.not.i = icmp ult i32 %116, 65536
   br i1 %cmp.i.not.i, label %if.then.i228, label %if.end.i.i.i.i
 
@@ -5732,7 +5732,7 @@ if.then.i.i.i:                                    ; preds = %if.end.i.i.i.i
 
 _ZN6hermes2vm15StringPrimitive6createERNS0_7RuntimeEN4llvh8ArrayRefIDsEE.exit: ; preds = %if.then.i228, %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE11_M_is_localEv.exit.thread.i.i.i, %if.then.i.i.i
   %call3.pn.i = phi { i32, i64 } [ %call3.i, %if.then.i228 ], [ %call5.i227, %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE11_M_is_localEv.exit.thread.i.i.i ], [ %call5.i227, %if.then.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i226)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i226)
   %120 = extractvalue { i32, i64 } %call3.pn.i, 0
   %121 = extractvalue { i32, i64 } %call3.pn.i, 1
   br label %cleanup322
@@ -5772,7 +5772,7 @@ entry:
   %ref.tmp.i = alloca %"class.hermes::vm::TwineChar16", align 8
   %ref.tmp109 = alloca %"class.hermes::vm::TwineChar16", align 8
   %1 = load ptr, ptr %args, align 8, !noalias !152
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %2 = load i64, ptr %1, align 8
   %shr.i.mask.i.i = and i64 %2, -140737488355328
   switch i64 %shr.i.mask.i.i, label %_ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit.thread [
@@ -5781,7 +5781,7 @@ entry:
   ]
 
 _ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit.thread: ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   br label %if.end
 
 _ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit: ; preds = %entry, %entry
@@ -5795,7 +5795,7 @@ _ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueE
   %3 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   store i32 3, ptr %3, align 8
   %call5.i = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i) #15
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %cmp = icmp eq i32 %call5.i, 0
   br i1 %cmp, label %return, label %_ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit.if.end_crit_edge
 
@@ -6000,7 +6000,7 @@ entry:
   %addFiller = alloca %class.anon, align 8
   %tobool.not = icmp eq ptr %ctx, null
   %0 = load ptr, ptr %args, align 8, !noalias !155
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %1 = load i64, ptr %0, align 8
   %shr.i.mask.i.i = and i64 %1, -140737488355328
   switch i64 %shr.i.mask.i.i, label %_ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit.thread [
@@ -6009,7 +6009,7 @@ entry:
   ]
 
 _ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit.thread: ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   br label %if.end
 
 _ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit: ; preds = %entry, %entry
@@ -6023,7 +6023,7 @@ _ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueE
   %2 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   store i32 3, ptr %2, align 8
   %call5.i = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i) #15
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %cmp = icmp eq i32 %call5.i, 0
   br i1 %cmp, label %return, label %if.end
 
@@ -6225,7 +6225,7 @@ entry:
   %ref.tmp238 = alloca %"class.hermes::vm::StringView", align 8
   %ref.tmp243 = alloca %"class.hermes::vm::StringView", align 8
   %1 = load ptr, ptr %args, align 8, !noalias !161
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %2 = load i64, ptr %1, align 8
   %shr.i.mask.i.i = and i64 %2, -140737488355328
   switch i64 %shr.i.mask.i.i, label %_ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit.thread [
@@ -6234,7 +6234,7 @@ entry:
   ]
 
 _ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit.thread: ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   br label %if.end
 
 _ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit: ; preds = %entry, %entry
@@ -6248,7 +6248,7 @@ _ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueE
   %3 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   store i32 3, ptr %3, align 8
   %call5.i = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i) #15
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %cmp = icmp eq i32 %call5.i, 0
   br i1 %cmp, label %return, label %_ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit.if.end_crit_edge
 
@@ -6831,12 +6831,12 @@ _ZNK6hermes2vm10StringView3endEv.exit286:         ; preds = %_ZNK6hermes2vm10Str
   %retval.sroa.3.0.i172540 = phi ptr [ null, %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i266 ], [ %add.ptr10.i17.i171552, %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i231 ]
   %retval.sroa.3.0.i239 = phi ptr [ null, %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i266 ], [ %add.ptr6.i238, %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i231 ]
   %retval.sroa.0.0.i240 = phi ptr [ %add.ptr.i274, %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i266 ], [ null, %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i231 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp128287)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp128287)
   store ptr %retval.sroa.0.0.i240, ptr %agg.tmp128287, align 8
   %agg.tmp128.sroa.2.0.agg.tmp128287.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp128287, i64 8
   store ptr %retval.sroa.3.0.i239, ptr %agg.tmp128.sroa.2.0.agg.tmp128287.sroa_idx, align 8
   %call.i = call { ptr, ptr } @_ZSt8__searchIN6hermes2vm10StringView14const_iteratorES3_N9__gnu_cxx5__ops19_Iter_equal_to_iterEET_S7_S7_T0_S8_T1_(ptr %retval.sroa.0.0.i85525, ptr %retval.sroa.3.0.i523, ptr %retval.sroa.0.0.i109, ptr %retval.sroa.3.0.i108, ptr %retval.sroa.0.0.i173542, ptr %retval.sroa.3.0.i172540, ptr noundef nonnull byval(%"class.hermes::vm::StringView::const_iterator") align 8 %agg.tmp128287)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp128287)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp128287)
   %60 = extractvalue { ptr, ptr } %call.i, 0
   %61 = extractvalue { ptr, ptr } %call.i, 1
   br i1 %tobool.i.i, label %if.then.i323, label %if.end.i291
@@ -7223,7 +7223,7 @@ entry:
   %ref.tmp.i = alloca %"class.hermes::vm::TwineChar16", align 8
   %ref.tmp110 = alloca %"class.hermes::vm::TwineChar16", align 8
   %1 = load ptr, ptr %args, align 8, !noalias !164
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %2 = load i64, ptr %1, align 8
   %shr.i.mask.i.i = and i64 %2, -140737488355328
   switch i64 %shr.i.mask.i.i, label %_ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit.thread [
@@ -7232,7 +7232,7 @@ entry:
   ]
 
 _ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit.thread: ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   br label %if.end
 
 _ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit: ; preds = %entry, %entry
@@ -7246,7 +7246,7 @@ _ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueE
   %3 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   store i32 3, ptr %3, align 8
   %call5.i = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i) #15
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %cmp = icmp eq i32 %call5.i, 0
   br i1 %cmp, label %return, label %_ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit.if.end_crit_edge
 
@@ -7433,7 +7433,7 @@ define hidden { i32, i64 } @_ZN6hermes2vm21stringPrototypeCharAtEPvRNS0_7Runtime
 entry:
   %ref.tmp.i = alloca %"class.hermes::vm::TwineChar16", align 8
   %1 = load ptr, ptr %args, align 8, !noalias !167
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %2 = load i64, ptr %1, align 8
   %shr.i.mask.i.i = and i64 %2, -140737488355328
   switch i64 %shr.i.mask.i.i, label %_ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit.thread [
@@ -7442,7 +7442,7 @@ entry:
   ]
 
 _ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit.thread: ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   br label %if.end
 
 _ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit: ; preds = %entry, %entry
@@ -7456,7 +7456,7 @@ _ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueE
   %3 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   store i32 3, ptr %3, align 8
   %call5.i = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i) #15
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %cmp = icmp eq i32 %call5.i, 0
   br i1 %cmp, label %return, label %if.end
 
@@ -7682,7 +7682,7 @@ entry:
   %ref.tmp.i = alloca %"class.hermes::vm::TwineChar16", align 8
   %ref.tmp = alloca %"class.hermes::vm::TwineChar16", align 8
   %1 = load ptr, ptr %args, align 8, !noalias !173
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %2 = load i64, ptr %1, align 8
   %shr.i.mask.i.i = and i64 %2, -140737488355328
   switch i64 %shr.i.mask.i.i, label %_ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit.thread [
@@ -7691,7 +7691,7 @@ entry:
   ]
 
 _ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit.thread: ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   br label %if.end
 
 _ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit: ; preds = %entry, %entry
@@ -7705,7 +7705,7 @@ _ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueE
   %3 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   store i32 3, ptr %3, align 8
   %call5.i = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i) #15
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %cmp = icmp eq i32 %call5.i, 0
   br i1 %cmp, label %return, label %_ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit.if.end_crit_edge
 
@@ -7882,7 +7882,7 @@ entry:
   %ref.tmp64 = alloca double, align 8
   %ref.tmp66 = alloca double, align 8
   %1 = load ptr, ptr %args, align 8, !noalias !182
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %2 = load i64, ptr %1, align 8
   %shr.i.mask.i.i = and i64 %2, -140737488355328
   switch i64 %shr.i.mask.i.i, label %_ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit.thread [
@@ -7891,7 +7891,7 @@ entry:
   ]
 
 _ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit.thread: ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   br label %if.end
 
 _ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit: ; preds = %entry, %entry
@@ -7905,7 +7905,7 @@ _ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueE
   %3 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   store i32 3, ptr %3, align 8
   %call5.i = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i) #15
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %cmp = icmp eq i32 %call5.i, 0
   br i1 %cmp, label %return, label %_ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit.if.end_crit_edge
 
@@ -8074,7 +8074,7 @@ entry:
   store i32 0, ptr %curChunkIndex_.i, align 8
   store ptr %gcScope, ptr %topGCScope_.i, align 8
   %2 = load ptr, ptr %args, align 8, !noalias !191
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %3 = load i64, ptr %2, align 8
   %shr.i.mask.i.i = and i64 %3, -140737488355328
   switch i64 %shr.i.mask.i.i, label %_ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit.thread [
@@ -8083,7 +8083,7 @@ entry:
   ]
 
 _ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit.thread: ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   br label %if.end
 
 _ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit: ; preds = %entry, %entry
@@ -8097,7 +8097,7 @@ _ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueE
   %4 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   store i32 3, ptr %4, align 8
   %call5.i = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i) #15
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %cmp = icmp eq i32 %call5.i, 0
   br i1 %cmp, label %cleanup, label %_ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit.if.end_crit_edge
 
@@ -8479,7 +8479,7 @@ entry:
   %searchStrView = alloca %"class.hermes::vm::StringView", align 8
   %tobool.not = icmp eq ptr %ctx, null
   %0 = load ptr, ptr %args, align 8, !noalias !201
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %1 = load i64, ptr %0, align 8
   %shr.i.mask.i.i = and i64 %1, -140737488355328
   switch i64 %shr.i.mask.i.i, label %_ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit.thread [
@@ -8488,7 +8488,7 @@ entry:
   ]
 
 _ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit.thread: ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   br label %if.end
 
 _ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit: ; preds = %entry, %entry
@@ -8502,7 +8502,7 @@ _ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueE
   %2 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   store i32 3, ptr %2, align 8
   %call5.i = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i) #15
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %cmp = icmp eq i32 %call5.i, 0
   br i1 %cmp, label %return, label %_ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit.if.end_crit_edge
 
@@ -8678,12 +8678,12 @@ if.end89:                                         ; preds = %if.end60
   %call108 = call { ptr, ptr } @_ZNK6hermes2vm10StringView3endEv(ptr noundef nonnull align 8 dereferenceable(16) %searchStrView)
   %39 = extractvalue { ptr, ptr } %call108, 0
   %40 = extractvalue { ptr, ptr } %call108, 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp10753)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp10753)
   store ptr %39, ptr %agg.tmp10753, align 8
   %agg.tmp107.sroa.2.0.agg.tmp10753.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp10753, i64 8
   store ptr %40, ptr %agg.tmp107.sroa.2.0.agg.tmp10753.sroa_idx, align 8
   %call.i = call { ptr, ptr } @_ZSt8__searchIN6hermes2vm10StringView14const_iteratorES3_N9__gnu_cxx5__ops19_Iter_equal_to_iterEET_S7_S7_T0_S8_T1_(ptr %retval.sroa.0.0.i52, ptr %retval.sroa.3.0.i, ptr %35, ptr %36, ptr %37, ptr %38, ptr noundef nonnull byval(%"class.hermes::vm::StringView::const_iterator") align 8 %agg.tmp10753)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp10753)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp10753)
   %41 = extractvalue { ptr, ptr } %call.i, 0
   %42 = extractvalue { ptr, ptr } %call.i, 1
   %call112 = call { ptr, ptr } @_ZNK6hermes2vm10StringView3endEv(ptr noundef nonnull align 8 dereferenceable(16) %SView)
@@ -9375,7 +9375,7 @@ for.body116:                                      ; preds = %if.end109, %_ZN6her
   %24 = icmp ult i16 %23, 26
   %not129 = select i1 %24, i16 -33, i16 -1
   %and130 = and i16 %not129, %22
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %ch.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ch.addr.i)
   store i16 %and130, ptr %ch.addr.i, align 2
   %25 = load ptr, ptr %builder, align 8
   %agg.tmp.sroa.0.0.copyload.i.i.i = load i64, ptr %25, align 8
@@ -9460,7 +9460,7 @@ _ZN6hermes2vm15StringPrimitive26castToUTF16PointerForWriteEv.exit.i: ; preds = %
   br label %_ZN6hermes2vm13StringBuilder15appendCharacterEDs.exit
 
 _ZN6hermes2vm13StringBuilder15appendCharacterEDs.exit: ; preds = %_ZN6hermes2vm15StringPrimitive26castToASCIIPointerForWriteEv.exit.i, %if.else.i, %_ZN6hermes2vm15StringPrimitive26castToUTF16PointerForWriteEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %ch.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ch.addr.i)
   %incdec.ptr134 = getelementptr inbounds nuw i8, ptr %__begin5.0147, i64 2
   %cmp115.not = icmp eq ptr %incdec.ptr134, %add.ptr.i54
   br i1 %cmp115.not, label %cleanup, label %for.body116
@@ -9472,7 +9472,7 @@ for.body144:                                      ; preds = %if.end109, %_ZN6her
   %33 = icmp ult i16 %32, 26
   %shl156 = select i1 %33, i16 32, i16 0
   %or157 = or i16 %shl156, %31
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %ch.addr.i60)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ch.addr.i60)
   store i16 %or157, ptr %ch.addr.i60, align 2
   %34 = load ptr, ptr %builder, align 8
   %agg.tmp.sroa.0.0.copyload.i.i.i61 = load i64, ptr %34, align 8
@@ -9557,7 +9557,7 @@ _ZN6hermes2vm15StringPrimitive26castToUTF16PointerForWriteEv.exit.i72: ; preds =
   br label %_ZN6hermes2vm13StringBuilder15appendCharacterEDs.exit104
 
 _ZN6hermes2vm13StringBuilder15appendCharacterEDs.exit104: ; preds = %_ZN6hermes2vm15StringPrimitive26castToASCIIPointerForWriteEv.exit.i93, %if.else.i84, %_ZN6hermes2vm15StringPrimitive26castToUTF16PointerForWriteEv.exit.i72
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %ch.addr.i60)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ch.addr.i60)
   %incdec.ptr161 = getelementptr inbounds nuw i8, ptr %__begin5138.0145, i64 2
   %cmp143.not = icmp eq ptr %incdec.ptr161, %add.ptr.i54
   br i1 %cmp143.not, label %cleanup, label %for.body144
@@ -9583,7 +9583,7 @@ if.end175:                                        ; preds = %if.end, %entry
   %42 = load ptr, ptr %buff, align 8
   %43 = load i32, ptr %Size.i.i.i.i.i.i, align 8
   %conv.i.i110 = zext i32 %43 to i64
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i111)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i111)
   %cmp.i.not.i112 = icmp ult i32 %43, 65536
   br i1 %cmp.i.not.i112, label %if.then.i114, label %if.end.i.i.i.i
 
@@ -9620,7 +9620,7 @@ if.then.i.i.i:                                    ; preds = %if.end.i.i.i.i
 
 _ZN6hermes2vm15StringPrimitive6createERNS0_7RuntimeEN4llvh8ArrayRefIDsEE.exit: ; preds = %if.then.i114, %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE11_M_is_localEv.exit.thread.i.i.i, %if.then.i.i.i
   %call3.pn.i = phi { i32, i64 } [ %call3.i, %if.then.i114 ], [ %call5.i, %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE11_M_is_localEv.exit.thread.i.i.i ], [ %call5.i, %if.then.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i111)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i111)
   %47 = extractvalue { i32, i64 } %call3.pn.i, 0
   %48 = extractvalue { i32, i64 } %call3.pn.i, 1
   br label %cleanup180
@@ -10616,12 +10616,12 @@ _ZNK6hermes2vm10StringView3endEv.exit206:         ; preds = %_ZNK6hermes2vm10Str
   %retval.sroa.3.0.i92388 = phi ptr [ null, %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i186 ], [ %add.ptr10.i17.i91400, %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i151 ]
   %retval.sroa.3.0.i159 = phi ptr [ null, %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i186 ], [ %add.ptr6.i158, %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i151 ]
   %retval.sroa.0.0.i160 = phi ptr [ %add.ptr.i194, %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i186 ], [ null, %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i151 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp24207)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp24207)
   store ptr %retval.sroa.0.0.i160, ptr %agg.tmp24207, align 8
   %agg.tmp24.sroa.2.0.agg.tmp24207.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp24207, i64 8
   store ptr %retval.sroa.3.0.i159, ptr %agg.tmp24.sroa.2.0.agg.tmp24207.sroa_idx, align 8
   %call.i = tail call { ptr, ptr } @_ZSt8__searchIN6hermes2vm10StringView14const_iteratorES3_N9__gnu_cxx5__ops19_Iter_equal_to_iterEET_S7_S7_T0_S8_T1_(ptr %retval.sroa.0.0.i373, ptr %retval.sroa.3.0.i371, ptr %retval.sroa.0.0.i29, ptr %retval.sroa.3.0.i28, ptr %retval.sroa.0.0.i93390, ptr %retval.sroa.3.0.i92388, ptr noundef nonnull byval(%"class.hermes::vm::StringView::const_iterator") align 8 %agg.tmp24207)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp24207)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp24207)
   %30 = extractvalue { ptr, ptr } %call.i, 0
   %31 = extractvalue { ptr, ptr } %call.i, 1
   br i1 %tobool.i.i, label %if.then.i243, label %if.end.i211
@@ -10862,7 +10862,7 @@ entry:
   %SView = alloca %"class.hermes::vm::StringView", align 8
   %searchStrView = alloca %"class.hermes::vm::StringView", align 8
   %foundIter = alloca %"class.std::reverse_iterator.239", align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %0 = load i64, ptr %string.coerce, align 8
   %shr.i.mask.i.i = and i64 %0, -140737488355328
   switch i64 %shr.i.mask.i.i, label %_ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit.thread [
@@ -10871,7 +10871,7 @@ entry:
   ]
 
 _ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit.thread: ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   br label %if.end
 
 _ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit: ; preds = %entry, %entry
@@ -10885,7 +10885,7 @@ _ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueE
   %1 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   store i32 3, ptr %1, align 8
   %call5.i = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i) #15
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %cmp = icmp eq i32 %call5.i, 0
   br i1 %cmp, label %return, label %if.end
 
@@ -11064,10 +11064,10 @@ if.then100:                                       ; preds = %if.end86
   %call.i55 = call { ptr, ptr } @_ZNK6hermes2vm10StringView5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %searchStrView), !noalias !233
   %41 = extractvalue { ptr, ptr } %call.i55, 0
   %42 = extractvalue { ptr, ptr } %call.i55, 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp1.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp2.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp3.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp1.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp2.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp3.i)
   store ptr %retval.sroa.0.0.i.i, ptr %agg.tmp.i, align 8, !noalias !236
   %agg.tmp108.sroa.2.0.agg.tmp.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp.i, i64 8
   store ptr %retval.sroa.3.0.i.i, ptr %agg.tmp108.sroa.2.0.agg.tmp.i.sroa_idx, align 8, !noalias !236
@@ -11081,10 +11081,10 @@ if.then100:                                       ; preds = %if.end86
   %agg.tmp114.sroa.2.0.agg.tmp3.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp3.i, i64 8
   store ptr %42, ptr %agg.tmp114.sroa.2.0.agg.tmp3.i.sroa_idx, align 8, !noalias !236
   call void @_ZSt8__searchISt16reverse_iteratorIN6hermes2vm10StringView14const_iteratorEES5_N9__gnu_cxx5__ops19_Iter_equal_to_iterEET_S9_S9_T0_SA_T1_(ptr nonnull sret(%"class.std::reverse_iterator.239") align 8 %foundIter, ptr noundef nonnull %agg.tmp.i, ptr noundef nonnull %agg.tmp1.i, ptr noundef nonnull %agg.tmp2.i, ptr noundef nonnull %agg.tmp3.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp1.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp2.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp3.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp1.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp2.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp3.i)
   %call.i57 = call { ptr, ptr } @_ZNK6hermes2vm10StringView5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %SView), !noalias !239
   %43 = extractvalue { ptr, ptr } %call.i57, 0
   %44 = extractvalue { ptr, ptr } %call.i57, 1
@@ -11139,12 +11139,12 @@ if.else125:                                       ; preds = %if.end86
   %call137 = call { ptr, ptr } @_ZNK6hermes2vm10StringView3endEv(ptr noundef nonnull align 8 dereferenceable(16) %searchStrView)
   %55 = extractvalue { ptr, ptr } %call137, 0
   %56 = extractvalue { ptr, ptr } %call137, 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp13666)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp13666)
   store ptr %55, ptr %agg.tmp13666, align 8
   %agg.tmp136.sroa.2.0.agg.tmp13666.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp13666, i64 8
   store ptr %56, ptr %agg.tmp136.sroa.2.0.agg.tmp13666.sroa_idx, align 8
   %call.i67 = call { ptr, ptr } @_ZSt8__searchIN6hermes2vm10StringView14const_iteratorES3_N9__gnu_cxx5__ops19_Iter_equal_to_iterEET_S7_S7_T0_S8_T1_(ptr %retval.sroa.0.0.i, ptr %retval.sroa.3.0.i, ptr %51, ptr %52, ptr %53, ptr %54, ptr noundef nonnull byval(%"class.hermes::vm::StringView::const_iterator") align 8 %agg.tmp13666)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp13666)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp13666)
   %57 = extractvalue { ptr, ptr } %call.i67, 0
   %58 = extractvalue { ptr, ptr } %call.i67, 1
   %call140 = call { ptr, ptr } @_ZNK6hermes2vm10StringView3endEv(ptr noundef nonnull align 8 dereferenceable(16) %SView)
@@ -11922,29 +11922,29 @@ if.end:                                           ; preds = %lor.lhs.false
   br i1 %retval.0.i.i21, label %if.then4, label %for.cond
 
 if.then4:                                         ; preds = %if.end
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %__first1, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp1.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp1.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp1.i, ptr noundef nonnull align 8 dereferenceable(16) %__last1, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp2.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp2.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2.i, ptr noundef nonnull align 8 dereferenceable(16) %__first2, i64 16, i1 false)
   call void @_ZSt9__find_ifISt16reverse_iteratorIN6hermes2vm10StringView14const_iteratorEEN9__gnu_cxx5__ops17_Iter_equals_iterIS5_EEET_SA_SA_T0_St26random_access_iterator_tag(ptr sret(%"class.std::reverse_iterator.239") align 8 %agg.result, ptr noundef nonnull %agg.tmp.i, ptr noundef nonnull %agg.tmp1.i, ptr noundef nonnull %agg.tmp2.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp1.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp2.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp1.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp2.i)
   br label %return
 
 for.cond:                                         ; preds = %if.end, %for.cond.backedge
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i22)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i22, ptr noundef nonnull align 8 dereferenceable(16) %__first1, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp1.i23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp1.i23)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp1.i23, ptr noundef nonnull align 8 dereferenceable(16) %__last1, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp2.i24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp2.i24)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2.i24, ptr noundef nonnull align 8 dereferenceable(16) %__first2, i64 16, i1 false)
   call void @_ZSt9__find_ifISt16reverse_iteratorIN6hermes2vm10StringView14const_iteratorEEN9__gnu_cxx5__ops17_Iter_equals_iterIS5_EEET_SA_SA_T0_St26random_access_iterator_tag(ptr nonnull sret(%"class.std::reverse_iterator.239") align 8 %ref.tmp, ptr noundef nonnull %agg.tmp.i22, ptr noundef nonnull %agg.tmp1.i23, ptr noundef nonnull %agg.tmp2.i24)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i22)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp1.i23)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp2.i24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp1.i23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp2.i24)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__first1, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i64 16, i1 false)
   %retval.sroa.0.0.copyload.i.i25 = load ptr, ptr %__first1, align 8
   %retval.sroa.2.0.copyload.i.i27 = load ptr, ptr %retval.sroa.2.0.current.sroa_idx.i.i, align 8
@@ -13056,10 +13056,10 @@ declare i64 @llvm.usub.sat.i64(i64, i64) #11
 declare void @llvm.experimental.noalias.scope.decl(metadata) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #11

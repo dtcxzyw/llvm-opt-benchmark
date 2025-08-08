@@ -36,10 +36,10 @@ define i32 @ERKStepSetTable(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = call i32 @erkStep_AccessARKODEStepMem(ptr noundef %0, ptr noundef nonnull @__func__.ERKStepSetTable, ptr noundef nonnull %3, ptr noundef nonnull %4) #5
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %8, label %57
@@ -122,28 +122,22 @@ define i32 @ERKStepSetTable(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
 
 57:                                               ; preds = %2, %47, %45, %10
   %.0 = phi i32 [ -21, %10 ], [ -21, %45 ], [ 0, %47 ], [ %7, %2 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @erkStep_AccessARKODEStepMem(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @erkStep_AccessARKODEStepMem(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @arkProcessError(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare void @arkProcessError(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @ARKodeButcherTable_Space(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ARKodeButcherTable_Space(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ARKodeButcherTable_Free(ptr noundef) local_unnamed_addr #1
 
-declare void @ARKodeButcherTable_Free(ptr noundef) local_unnamed_addr #2
-
-declare ptr @ARKodeButcherTable_Copy(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @ARKodeButcherTable_Copy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ERKStepSetTableNum(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -151,10 +145,10 @@ define i32 @ERKStepSetTableNum(ptr noundef %0, i32 noundef %1) local_unnamed_add
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = call i32 @erkStep_AccessARKODEStepMem(ptr noundef %0, ptr noundef nonnull @__func__.ERKStepSetTableNum, ptr noundef nonnull %3, ptr noundef nonnull %4) #5
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %8, label %56
@@ -237,14 +231,14 @@ define i32 @ERKStepSetTableNum(ptr noundef %0, i32 noundef %1) local_unnamed_add
 
 56:                                               ; preds = %2, %38, %36, %9
   %.0 = phi i32 [ -22, %9 ], [ -22, %36 ], [ 0, %38 ], [ %7, %2 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
-declare ptr @ARKodeButcherTable_LoadERK(i32 noundef) local_unnamed_addr #2
+declare ptr @ARKodeButcherTable_LoadERK(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ERKStepSetTableName(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -253,12 +247,12 @@ define i32 @ERKStepSetTableName(ptr noundef %0, ptr noundef %1) local_unnamed_ad
   ret i32 %4
 }
 
-declare i32 @arkButcherTableERKNameToID(ptr noundef) local_unnamed_addr #2
+declare i32 @arkButcherTableERKNameToID(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @erkStep_GetNumRhsEvals(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !8
   %5 = call i32 @erkStep_AccessStepMem(ptr noundef %0, ptr noundef nonnull @__func__.erkStep_GetNumRhsEvals, ptr noundef nonnull %4) #5
   %.not = icmp eq i32 %5, 0
@@ -289,11 +283,11 @@ define i32 @erkStep_GetNumRhsEvals(ptr noundef %0, i32 noundef %1, ptr noundef w
 
 16:                                               ; preds = %3, %12, %11, %8
   %.0 = phi i32 [ -22, %8 ], [ -22, %11 ], [ 0, %12 ], [ %5, %3 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
-declare i32 @erkStep_AccessStepMem(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @erkStep_AccessStepMem(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ERKStepGetNumRhsEvals(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -301,14 +295,14 @@ define i32 @ERKStepGetNumRhsEvals(ptr noundef %0, ptr noundef %1) local_unnamed_
   ret i32 %3
 }
 
-declare i32 @ARKodeGetNumRhsEvals(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetNumRhsEvals(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ERKStepGetCurrentButcherTable(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call i32 @erkStep_AccessARKODEStepMem(ptr noundef %0, ptr noundef nonnull @__func__.ERKStepGetCurrentButcherTable, ptr noundef nonnull %3, ptr noundef nonnull %4) #5
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %10
@@ -321,8 +315,8 @@ define i32 @ERKStepGetCurrentButcherTable(ptr noundef %0, ptr noundef writeonly 
   br label %10
 
 10:                                               ; preds = %2, %6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %5
 }
 
@@ -330,8 +324,8 @@ define i32 @ERKStepGetCurrentButcherTable(ptr noundef %0, ptr noundef writeonly 
 define i32 @ERKStepGetTimestepperStats(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = call i32 @erkStep_AccessARKODEStepMem(ptr noundef %0, ptr noundef nonnull @__func__.ERKStepGetTimestepperStats, ptr noundef nonnull %7, ptr noundef nonnull %8) #5
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %10, label %25
@@ -359,8 +353,8 @@ define i32 @ERKStepGetTimestepperStats(ptr noundef %0, ptr noundef writeonly cap
   br label %25
 
 25:                                               ; preds = %6, %10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -370,11 +364,11 @@ define i32 @erkStep_SetRelaxFn(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   ret i32 %4
 }
 
-declare i32 @arkRelaxCreate(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @arkRelaxCreate(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @erkStep_RelaxDeltaE(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
+declare i32 @erkStep_RelaxDeltaE(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
-declare i32 @erkStep_GetOrder(ptr noundef) #2
+declare i32 @erkStep_GetOrder(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @erkStep_SetDefaults(ptr noundef %0) local_unnamed_addr #0 {
@@ -383,11 +377,11 @@ define i32 @erkStep_SetDefaults(ptr noundef %0) local_unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = call i32 @erkStep_AccessStepMem(ptr noundef %0, ptr noundef nonnull @__func__.erkStep_SetDefaults, ptr noundef nonnull %2) #5
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %8, label %89
@@ -524,32 +518,32 @@ define i32 @erkStep_SetDefaults(ptr noundef %0) local_unnamed_addr #0 {
 
 89:                                               ; preds = %1, %80, %66, %59
   %.0 = phi i32 [ -20, %59 ], [ -20, %66 ], [ 0, %80 ], [ %7, %1 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
 
-declare i32 @SUNAdaptController_Space(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @SUNAdaptController_Space(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @SUNAdaptController_Destroy(ptr noundef) local_unnamed_addr #2
+declare i32 @SUNAdaptController_Destroy(ptr noundef) local_unnamed_addr #1
 
-declare ptr @SUNAdaptController_PI(ptr noundef) local_unnamed_addr #2
+declare ptr @SUNAdaptController_PI(ptr noundef) local_unnamed_addr #1
 
-declare i32 @SUNAdaptController_SetErrorBias(ptr noundef, double noundef) local_unnamed_addr #2
+declare i32 @SUNAdaptController_SetErrorBias(ptr noundef, double noundef) local_unnamed_addr #1
 
-declare i32 @SUNAdaptController_SetParams_PI(ptr noundef, double noundef, double noundef) local_unnamed_addr #2
+declare i32 @SUNAdaptController_SetParams_PI(ptr noundef, double noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @erkStep_SetOrder(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = call i32 @erkStep_AccessStepMem(ptr noundef %0, ptr noundef nonnull @__func__.erkStep_SetOrder, ptr noundef nonnull %3) #5
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %28
@@ -587,16 +581,16 @@ define i32 @erkStep_SetOrder(ptr noundef %0, i32 noundef %1) local_unnamed_addr 
   br label %28
 
 28:                                               ; preds = %2, %7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @erkStep_GetEstLocalErrors(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 @erkStep_AccessStepMem(ptr noundef %0, ptr noundef nonnull @__func__.erkStep_GetEstLocalErrors, ptr noundef nonnull %3) #5
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %20
@@ -628,16 +622,16 @@ define i32 @erkStep_GetEstLocalErrors(ptr noundef %0, ptr noundef %1) local_unna
 
 20:                                               ; preds = %8, %12, %2, %17
   %.0 = phi i32 [ 0, %17 ], [ %4, %2 ], [ -48, %12 ], [ -48, %8 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
-declare void @N_VScale(double noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @N_VScale(double noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @erkStep_PrintAllStats(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call i32 @erkStep_AccessStepMem(ptr noundef %0, ptr noundef nonnull @__func__.erkStep_PrintAllStats, ptr noundef nonnull %4) #5
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %18
@@ -669,17 +663,17 @@ define i32 @erkStep_PrintAllStats(ptr noundef %0, ptr noundef captures(none) %1,
 
 18:                                               ; preds = %7, %12, %3, %17
   %.0 = phi i32 [ -22, %17 ], [ %5, %3 ], [ 0, %12 ], [ 0, %7 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define i32 @erkStep_WriteParameters(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 @erkStep_AccessStepMem(ptr noundef %0, ptr noundef nonnull @__func__.erkStep_WriteParameters, ptr noundef nonnull %3) #5
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %11
@@ -694,7 +688,7 @@ define i32 @erkStep_WriteParameters(ptr noundef %0, ptr noundef captures(none) %
   br label %11
 
 11:                                               ; preds = %2, %5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %4
 }
 
@@ -704,7 +698,7 @@ define i32 @ERKStepResize(ptr noundef %0, ptr noundef %1, double noundef %2, dou
   ret i32 %7
 }
 
-declare i32 @ARKodeResize(ptr noundef, ptr noundef, double noundef, double noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeResize(ptr noundef, ptr noundef, double noundef, double noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ERKStepReset(ptr noundef %0, double noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -712,7 +706,7 @@ define i32 @ERKStepReset(ptr noundef %0, double noundef %1, ptr noundef %2) loca
   ret i32 %4
 }
 
-declare i32 @ARKodeReset(ptr noundef, double noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeReset(ptr noundef, double noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ERKStepSStolerances(ptr noundef %0, double noundef %1, double noundef %2) local_unnamed_addr #0 {
@@ -720,7 +714,7 @@ define i32 @ERKStepSStolerances(ptr noundef %0, double noundef %1, double nounde
   ret i32 %4
 }
 
-declare i32 @ARKodeSStolerances(ptr noundef, double noundef, double noundef) local_unnamed_addr #2
+declare i32 @ARKodeSStolerances(ptr noundef, double noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ERKStepSVtolerances(ptr noundef %0, double noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -728,7 +722,7 @@ define i32 @ERKStepSVtolerances(ptr noundef %0, double noundef %1, ptr noundef %
   ret i32 %4
 }
 
-declare i32 @ARKodeSVtolerances(ptr noundef, double noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeSVtolerances(ptr noundef, double noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ERKStepWFtolerances(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -736,7 +730,7 @@ define i32 @ERKStepWFtolerances(ptr noundef %0, ptr noundef %1) local_unnamed_ad
   ret i32 %3
 }
 
-declare i32 @ARKodeWFtolerances(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeWFtolerances(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ERKStepRootInit(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -744,7 +738,7 @@ define i32 @ERKStepRootInit(ptr noundef %0, i32 noundef %1, ptr noundef %2) loca
   ret i32 %4
 }
 
-declare i32 @ARKodeRootInit(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeRootInit(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ERKStepSetDefaults(ptr noundef %0) local_unnamed_addr #0 {
@@ -752,7 +746,7 @@ define i32 @ERKStepSetDefaults(ptr noundef %0) local_unnamed_addr #0 {
   ret i32 %2
 }
 
-declare i32 @ARKodeSetDefaults(ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetDefaults(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ERKStepSetOrder(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -760,7 +754,7 @@ define i32 @ERKStepSetOrder(ptr noundef %0, i32 noundef %1) local_unnamed_addr #
   ret i32 %3
 }
 
-declare i32 @ARKodeSetOrder(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetOrder(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ERKStepSetInterpolantType(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -768,7 +762,7 @@ define i32 @ERKStepSetInterpolantType(ptr noundef %0, i32 noundef %1) local_unna
   ret i32 %3
 }
 
-declare i32 @ARKodeSetInterpolantType(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetInterpolantType(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ERKStepSetInterpolantDegree(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -776,7 +770,7 @@ define i32 @ERKStepSetInterpolantDegree(ptr noundef %0, i32 noundef %1) local_un
   ret i32 %3
 }
 
-declare i32 @ARKodeSetInterpolantDegree(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetInterpolantDegree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ERKStepSetDenseOrder(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -790,7 +784,7 @@ define i32 @ERKStepSetAdaptController(ptr noundef %0, ptr noundef %1) local_unna
   ret i32 %3
 }
 
-declare i32 @ARKodeSetAdaptController(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetAdaptController(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ERKStepSetAdaptivityAdjustment(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -798,7 +792,7 @@ define i32 @ERKStepSetAdaptivityAdjustment(ptr noundef %0, i32 noundef %1) local
   ret i32 %3
 }
 
-declare i32 @ARKodeSetAdaptivityAdjustment(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetAdaptivityAdjustment(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ERKStepSetCFLFraction(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
@@ -806,7 +800,7 @@ define i32 @ERKStepSetCFLFraction(ptr noundef %0, double noundef %1) local_unnam
   ret i32 %3
 }
 
-declare i32 @ARKodeSetCFLFraction(ptr noundef, double noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetCFLFraction(ptr noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ERKStepSetSafetyFactor(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
@@ -814,7 +808,7 @@ define i32 @ERKStepSetSafetyFactor(ptr noundef %0, double noundef %1) local_unna
   ret i32 %3
 }
 
-declare i32 @ARKodeSetSafetyFactor(ptr noundef, double noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetSafetyFactor(ptr noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ERKStepSetErrorBias(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
@@ -822,7 +816,7 @@ define i32 @ERKStepSetErrorBias(ptr noundef %0, double noundef %1) local_unnamed
   ret i32 %3
 }
 
-declare i32 @ARKodeSetErrorBias(ptr noundef, double noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetErrorBias(ptr noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ERKStepSetMaxGrowth(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
@@ -830,7 +824,7 @@ define i32 @ERKStepSetMaxGrowth(ptr noundef %0, double noundef %1) local_unnamed
   ret i32 %3
 }
 
-declare i32 @ARKodeSetMaxGrowth(ptr noundef, double noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetMaxGrowth(ptr noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ERKStepSetMinReduction(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
@@ -838,7 +832,7 @@ define i32 @ERKStepSetMinReduction(ptr noundef %0, double noundef %1) local_unna
   ret i32 %3
 }
 
-declare i32 @ARKodeSetMinReduction(ptr noundef, double noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetMinReduction(ptr noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ERKStepSetFixedStepBounds(ptr noundef %0, double noundef %1, double noundef %2) local_unnamed_addr #0 {
@@ -846,7 +840,7 @@ define i32 @ERKStepSetFixedStepBounds(ptr noundef %0, double noundef %1, double 
   ret i32 %4
 }
 
-declare i32 @ARKodeSetFixedStepBounds(ptr noundef, double noundef, double noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetFixedStepBounds(ptr noundef, double noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ERKStepSetAdaptivityMethod(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
@@ -854,7 +848,7 @@ define i32 @ERKStepSetAdaptivityMethod(ptr noundef %0, i32 noundef %1, i32 nound
   ret i32 %6
 }
 
-declare i32 @arkSetAdaptivityMethod(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @arkSetAdaptivityMethod(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ERKStepSetAdaptivityFn(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -862,7 +856,7 @@ define i32 @ERKStepSetAdaptivityFn(ptr noundef %0, ptr noundef %1, ptr noundef %
   ret i32 %4
 }
 
-declare i32 @arkSetAdaptivityFn(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @arkSetAdaptivityFn(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ERKStepSetMaxFirstGrowth(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
@@ -870,7 +864,7 @@ define i32 @ERKStepSetMaxFirstGrowth(ptr noundef %0, double noundef %1) local_un
   ret i32 %3
 }
 
-declare i32 @ARKodeSetMaxFirstGrowth(ptr noundef, double noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetMaxFirstGrowth(ptr noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ERKStepSetMaxEFailGrowth(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
@@ -878,7 +872,7 @@ define i32 @ERKStepSetMaxEFailGrowth(ptr noundef %0, double noundef %1) local_un
   ret i32 %3
 }
 
-declare i32 @ARKodeSetMaxEFailGrowth(ptr noundef, double noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetMaxEFailGrowth(ptr noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ERKStepSetSmallNumEFails(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -886,7 +880,7 @@ define i32 @ERKStepSetSmallNumEFails(ptr noundef %0, i32 noundef %1) local_unnam
   ret i32 %3
 }
 
-declare i32 @ARKodeSetSmallNumEFails(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetSmallNumEFails(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ERKStepSetStabilityFn(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -894,7 +888,7 @@ define i32 @ERKStepSetStabilityFn(ptr noundef %0, ptr noundef %1, ptr noundef %2
   ret i32 %4
 }
 
-declare i32 @ARKodeSetStabilityFn(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetStabilityFn(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ERKStepSetMaxErrTestFails(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -902,7 +896,7 @@ define i32 @ERKStepSetMaxErrTestFails(ptr noundef %0, i32 noundef %1) local_unna
   ret i32 %3
 }
 
-declare i32 @ARKodeSetMaxErrTestFails(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetMaxErrTestFails(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ERKStepSetConstraints(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -910,7 +904,7 @@ define i32 @ERKStepSetConstraints(ptr noundef %0, ptr noundef %1) local_unnamed_
   ret i32 %3
 }
 
-declare i32 @ARKodeSetConstraints(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetConstraints(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ERKStepSetMaxNumSteps(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
@@ -918,7 +912,7 @@ define i32 @ERKStepSetMaxNumSteps(ptr noundef %0, i64 noundef %1) local_unnamed_
   ret i32 %3
 }
 
-declare i32 @ARKodeSetMaxNumSteps(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetMaxNumSteps(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ERKStepSetMaxHnilWarns(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -926,7 +920,7 @@ define i32 @ERKStepSetMaxHnilWarns(ptr noundef %0, i32 noundef %1) local_unnamed
   ret i32 %3
 }
 
-declare i32 @ARKodeSetMaxHnilWarns(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetMaxHnilWarns(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ERKStepSetInitStep(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
@@ -934,7 +928,7 @@ define i32 @ERKStepSetInitStep(ptr noundef %0, double noundef %1) local_unnamed_
   ret i32 %3
 }
 
-declare i32 @ARKodeSetInitStep(ptr noundef, double noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetInitStep(ptr noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ERKStepSetMinStep(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
@@ -942,7 +936,7 @@ define i32 @ERKStepSetMinStep(ptr noundef %0, double noundef %1) local_unnamed_a
   ret i32 %3
 }
 
-declare i32 @ARKodeSetMinStep(ptr noundef, double noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetMinStep(ptr noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ERKStepSetMaxStep(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
@@ -950,7 +944,7 @@ define i32 @ERKStepSetMaxStep(ptr noundef %0, double noundef %1) local_unnamed_a
   ret i32 %3
 }
 
-declare i32 @ARKodeSetMaxStep(ptr noundef, double noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetMaxStep(ptr noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ERKStepSetInterpolateStopTime(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -958,7 +952,7 @@ define i32 @ERKStepSetInterpolateStopTime(ptr noundef %0, i32 noundef %1) local_
   ret i32 %3
 }
 
-declare i32 @ARKodeSetInterpolateStopTime(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetInterpolateStopTime(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ERKStepSetStopTime(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
@@ -966,7 +960,7 @@ define i32 @ERKStepSetStopTime(ptr noundef %0, double noundef %1) local_unnamed_
   ret i32 %3
 }
 
-declare i32 @ARKodeSetStopTime(ptr noundef, double noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetStopTime(ptr noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ERKStepClearStopTime(ptr noundef %0) local_unnamed_addr #0 {
@@ -974,7 +968,7 @@ define i32 @ERKStepClearStopTime(ptr noundef %0) local_unnamed_addr #0 {
   ret i32 %2
 }
 
-declare i32 @ARKodeClearStopTime(ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeClearStopTime(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ERKStepSetFixedStep(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
@@ -982,7 +976,7 @@ define i32 @ERKStepSetFixedStep(ptr noundef %0, double noundef %1) local_unnamed
   ret i32 %3
 }
 
-declare i32 @ARKodeSetFixedStep(ptr noundef, double noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetFixedStep(ptr noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ERKStepSetMaxNumConstrFails(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -990,7 +984,7 @@ define i32 @ERKStepSetMaxNumConstrFails(ptr noundef %0, i32 noundef %1) local_un
   ret i32 %3
 }
 
-declare i32 @ARKodeSetMaxNumConstrFails(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetMaxNumConstrFails(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ERKStepSetRootDirection(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -998,7 +992,7 @@ define i32 @ERKStepSetRootDirection(ptr noundef %0, ptr noundef %1) local_unname
   ret i32 %3
 }
 
-declare i32 @ARKodeSetRootDirection(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetRootDirection(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ERKStepSetNoInactiveRootWarn(ptr noundef %0) local_unnamed_addr #0 {
@@ -1006,7 +1000,7 @@ define i32 @ERKStepSetNoInactiveRootWarn(ptr noundef %0) local_unnamed_addr #0 {
   ret i32 %2
 }
 
-declare i32 @ARKodeSetNoInactiveRootWarn(ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetNoInactiveRootWarn(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ERKStepSetUserData(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -1014,7 +1008,7 @@ define i32 @ERKStepSetUserData(ptr noundef %0, ptr noundef %1) local_unnamed_add
   ret i32 %3
 }
 
-declare i32 @ARKodeSetUserData(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetUserData(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ERKStepSetPostprocessStepFn(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -1022,7 +1016,7 @@ define i32 @ERKStepSetPostprocessStepFn(ptr noundef %0, ptr noundef %1) local_un
   ret i32 %3
 }
 
-declare i32 @ARKodeSetPostprocessStepFn(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetPostprocessStepFn(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ERKStepSetPostprocessStageFn(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -1030,7 +1024,7 @@ define i32 @ERKStepSetPostprocessStageFn(ptr noundef %0, ptr noundef %1) local_u
   ret i32 %3
 }
 
-declare i32 @ARKodeSetPostprocessStageFn(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetPostprocessStageFn(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ERKStepEvolve(ptr noundef %0, double noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
@@ -1038,7 +1032,7 @@ define i32 @ERKStepEvolve(ptr noundef %0, double noundef %1, ptr noundef %2, ptr
   ret i32 %6
 }
 
-declare i32 @ARKodeEvolve(ptr noundef, double noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ARKodeEvolve(ptr noundef, double noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ERKStepGetDky(ptr noundef %0, double noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
@@ -1046,7 +1040,7 @@ define i32 @ERKStepGetDky(ptr noundef %0, double noundef %1, i32 noundef %2, ptr
   ret i32 %5
 }
 
-declare i32 @ARKodeGetDky(ptr noundef, double noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetDky(ptr noundef, double noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ERKStepGetNumExpSteps(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -1054,7 +1048,7 @@ define i32 @ERKStepGetNumExpSteps(ptr noundef %0, ptr noundef %1) local_unnamed_
   ret i32 %3
 }
 
-declare i32 @ARKodeGetNumExpSteps(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetNumExpSteps(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ERKStepGetNumAccSteps(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -1062,7 +1056,7 @@ define i32 @ERKStepGetNumAccSteps(ptr noundef %0, ptr noundef %1) local_unnamed_
   ret i32 %3
 }
 
-declare i32 @ARKodeGetNumAccSteps(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetNumAccSteps(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ERKStepGetNumStepAttempts(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -1070,7 +1064,7 @@ define i32 @ERKStepGetNumStepAttempts(ptr noundef %0, ptr noundef %1) local_unna
   ret i32 %3
 }
 
-declare i32 @ARKodeGetNumStepAttempts(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetNumStepAttempts(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ERKStepGetNumErrTestFails(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -1078,7 +1072,7 @@ define i32 @ERKStepGetNumErrTestFails(ptr noundef %0, ptr noundef %1) local_unna
   ret i32 %3
 }
 
-declare i32 @ARKodeGetNumErrTestFails(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetNumErrTestFails(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ERKStepGetEstLocalErrors(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -1086,7 +1080,7 @@ define i32 @ERKStepGetEstLocalErrors(ptr noundef %0, ptr noundef %1) local_unnam
   ret i32 %3
 }
 
-declare i32 @ARKodeGetEstLocalErrors(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetEstLocalErrors(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ERKStepGetWorkSpace(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -1094,7 +1088,7 @@ define i32 @ERKStepGetWorkSpace(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   ret i32 %4
 }
 
-declare i32 @ARKodeGetWorkSpace(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetWorkSpace(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ERKStepGetNumSteps(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -1102,7 +1096,7 @@ define i32 @ERKStepGetNumSteps(ptr noundef %0, ptr noundef %1) local_unnamed_add
   ret i32 %3
 }
 
-declare i32 @ARKodeGetNumSteps(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetNumSteps(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ERKStepGetActualInitStep(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -1110,7 +1104,7 @@ define i32 @ERKStepGetActualInitStep(ptr noundef %0, ptr noundef %1) local_unnam
   ret i32 %3
 }
 
-declare i32 @ARKodeGetActualInitStep(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetActualInitStep(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ERKStepGetLastStep(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -1118,7 +1112,7 @@ define i32 @ERKStepGetLastStep(ptr noundef %0, ptr noundef %1) local_unnamed_add
   ret i32 %3
 }
 
-declare i32 @ARKodeGetLastStep(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetLastStep(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ERKStepGetCurrentStep(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -1126,7 +1120,7 @@ define i32 @ERKStepGetCurrentStep(ptr noundef %0, ptr noundef %1) local_unnamed_
   ret i32 %3
 }
 
-declare i32 @ARKodeGetCurrentStep(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetCurrentStep(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ERKStepGetCurrentTime(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -1134,7 +1128,7 @@ define i32 @ERKStepGetCurrentTime(ptr noundef %0, ptr noundef %1) local_unnamed_
   ret i32 %3
 }
 
-declare i32 @ARKodeGetCurrentTime(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetCurrentTime(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ERKStepGetTolScaleFactor(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -1142,7 +1136,7 @@ define i32 @ERKStepGetTolScaleFactor(ptr noundef %0, ptr noundef %1) local_unnam
   ret i32 %3
 }
 
-declare i32 @ARKodeGetTolScaleFactor(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetTolScaleFactor(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ERKStepGetErrWeights(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -1150,7 +1144,7 @@ define i32 @ERKStepGetErrWeights(ptr noundef %0, ptr noundef %1) local_unnamed_a
   ret i32 %3
 }
 
-declare i32 @ARKodeGetErrWeights(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetErrWeights(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ERKStepGetNumGEvals(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -1158,7 +1152,7 @@ define i32 @ERKStepGetNumGEvals(ptr noundef %0, ptr noundef %1) local_unnamed_ad
   ret i32 %3
 }
 
-declare i32 @ARKodeGetNumGEvals(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetNumGEvals(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ERKStepGetRootInfo(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -1166,7 +1160,7 @@ define i32 @ERKStepGetRootInfo(ptr noundef %0, ptr noundef %1) local_unnamed_add
   ret i32 %3
 }
 
-declare i32 @ARKodeGetRootInfo(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetRootInfo(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ERKStepGetNumConstrFails(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -1174,7 +1168,7 @@ define i32 @ERKStepGetNumConstrFails(ptr noundef %0, ptr noundef %1) local_unnam
   ret i32 %3
 }
 
-declare i32 @ARKodeGetNumConstrFails(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetNumConstrFails(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ERKStepGetUserData(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -1182,7 +1176,7 @@ define i32 @ERKStepGetUserData(ptr noundef %0, ptr noundef %1) local_unnamed_add
   ret i32 %3
 }
 
-declare i32 @ARKodeGetUserData(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetUserData(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ERKStepPrintAllStats(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -1190,7 +1184,7 @@ define i32 @ERKStepPrintAllStats(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   ret i32 %4
 }
 
-declare i32 @ARKodePrintAllStats(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ARKodePrintAllStats(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @ERKStepGetReturnFlagName(i64 noundef %0) local_unnamed_addr #0 {
@@ -1198,7 +1192,7 @@ define ptr @ERKStepGetReturnFlagName(i64 noundef %0) local_unnamed_addr #0 {
   ret ptr %2
 }
 
-declare ptr @ARKodeGetReturnFlagName(i64 noundef) local_unnamed_addr #2
+declare ptr @ARKodeGetReturnFlagName(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ERKStepWriteParameters(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -1206,14 +1200,14 @@ define i32 @ERKStepWriteParameters(ptr noundef %0, ptr noundef %1) local_unnamed
   ret i32 %3
 }
 
-declare i32 @ARKodeWriteParameters(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeWriteParameters(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ERKStepWriteButcher(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call i32 @erkStep_AccessARKODEStepMem(ptr noundef %0, ptr noundef nonnull @__func__.ERKStepWriteButcher, ptr noundef nonnull %3, ptr noundef nonnull %4) #5
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %20
@@ -1243,12 +1237,12 @@ define i32 @ERKStepWriteButcher(ptr noundef %0, ptr noundef %1) local_unnamed_ad
 
 20:                                               ; preds = %2, %13, %11
   %.0 = phi i32 [ -21, %11 ], [ 0, %13 ], [ %5, %2 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
-declare void @ARKodeButcherTable_Write(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ARKodeButcherTable_Write(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ERKStepGetStepStats(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
@@ -1256,7 +1250,7 @@ define i32 @ERKStepGetStepStats(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   ret i32 %7
 }
 
-declare i32 @ARKodeGetStepStats(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetStepStats(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @ERKStepFree(ptr noundef %0) local_unnamed_addr #0 {
@@ -1264,7 +1258,7 @@ define void @ERKStepFree(ptr noundef %0) local_unnamed_addr #0 {
   ret void
 }
 
-declare void @ARKodeFree(ptr noundef) local_unnamed_addr #2
+declare void @ARKodeFree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @ERKStepPrintMem(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -1272,7 +1266,7 @@ define void @ERKStepPrintMem(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   ret void
 }
 
-declare void @ARKodePrintMem(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ARKodePrintMem(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ERKStepSetRelaxFn(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -1280,7 +1274,7 @@ define i32 @ERKStepSetRelaxFn(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
   ret i32 %4
 }
 
-declare i32 @ARKodeSetRelaxFn(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetRelaxFn(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ERKStepSetRelaxEtaFail(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
@@ -1288,7 +1282,7 @@ define i32 @ERKStepSetRelaxEtaFail(ptr noundef %0, double noundef %1) local_unna
   ret i32 %3
 }
 
-declare i32 @ARKodeSetRelaxEtaFail(ptr noundef, double noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetRelaxEtaFail(ptr noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ERKStepSetRelaxLowerBound(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
@@ -1296,7 +1290,7 @@ define i32 @ERKStepSetRelaxLowerBound(ptr noundef %0, double noundef %1) local_u
   ret i32 %3
 }
 
-declare i32 @ARKodeSetRelaxLowerBound(ptr noundef, double noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetRelaxLowerBound(ptr noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ERKStepSetRelaxMaxFails(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -1304,7 +1298,7 @@ define i32 @ERKStepSetRelaxMaxFails(ptr noundef %0, i32 noundef %1) local_unname
   ret i32 %3
 }
 
-declare i32 @ARKodeSetRelaxMaxFails(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetRelaxMaxFails(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ERKStepSetRelaxMaxIters(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -1312,7 +1306,7 @@ define i32 @ERKStepSetRelaxMaxIters(ptr noundef %0, i32 noundef %1) local_unname
   ret i32 %3
 }
 
-declare i32 @ARKodeSetRelaxMaxIters(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetRelaxMaxIters(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ERKStepSetRelaxSolver(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -1320,7 +1314,7 @@ define i32 @ERKStepSetRelaxSolver(ptr noundef %0, i32 noundef %1) local_unnamed_
   ret i32 %3
 }
 
-declare i32 @ARKodeSetRelaxSolver(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetRelaxSolver(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ERKStepSetRelaxResTol(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
@@ -1328,7 +1322,7 @@ define i32 @ERKStepSetRelaxResTol(ptr noundef %0, double noundef %1) local_unnam
   ret i32 %3
 }
 
-declare i32 @ARKodeSetRelaxResTol(ptr noundef, double noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetRelaxResTol(ptr noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ERKStepSetRelaxTol(ptr noundef %0, double noundef %1, double noundef %2) local_unnamed_addr #0 {
@@ -1336,7 +1330,7 @@ define i32 @ERKStepSetRelaxTol(ptr noundef %0, double noundef %1, double noundef
   ret i32 %4
 }
 
-declare i32 @ARKodeSetRelaxTol(ptr noundef, double noundef, double noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetRelaxTol(ptr noundef, double noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ERKStepSetRelaxUpperBound(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
@@ -1344,7 +1338,7 @@ define i32 @ERKStepSetRelaxUpperBound(ptr noundef %0, double noundef %1) local_u
   ret i32 %3
 }
 
-declare i32 @ARKodeSetRelaxUpperBound(ptr noundef, double noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetRelaxUpperBound(ptr noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ERKStepGetNumRelaxFnEvals(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -1352,7 +1346,7 @@ define i32 @ERKStepGetNumRelaxFnEvals(ptr noundef %0, ptr noundef %1) local_unna
   ret i32 %3
 }
 
-declare i32 @ARKodeGetNumRelaxFnEvals(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetNumRelaxFnEvals(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ERKStepGetNumRelaxJacEvals(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -1360,7 +1354,7 @@ define i32 @ERKStepGetNumRelaxJacEvals(ptr noundef %0, ptr noundef %1) local_unn
   ret i32 %3
 }
 
-declare i32 @ARKodeGetNumRelaxJacEvals(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetNumRelaxJacEvals(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ERKStepGetNumRelaxFails(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -1368,7 +1362,7 @@ define i32 @ERKStepGetNumRelaxFails(ptr noundef %0, ptr noundef %1) local_unname
   ret i32 %3
 }
 
-declare i32 @ARKodeGetNumRelaxFails(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetNumRelaxFails(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ERKStepGetNumRelaxBoundFails(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -1376,7 +1370,7 @@ define i32 @ERKStepGetNumRelaxBoundFails(ptr noundef %0, ptr noundef %1) local_u
   ret i32 %3
 }
 
-declare i32 @ARKodeGetNumRelaxBoundFails(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetNumRelaxBoundFails(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ERKStepGetNumRelaxSolveFails(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -1384,7 +1378,7 @@ define i32 @ERKStepGetNumRelaxSolveFails(ptr noundef %0, ptr noundef %1) local_u
   ret i32 %3
 }
 
-declare i32 @ARKodeGetNumRelaxSolveFails(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetNumRelaxSolveFails(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ERKStepGetNumRelaxSolveIters(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -1392,7 +1386,13 @@ define i32 @ERKStepGetNumRelaxSolveIters(ptr noundef %0, ptr noundef %1) local_u
   ret i32 %3
 }
 
-declare i32 @ARKodeGetNumRelaxSolveIters(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetNumRelaxSolveIters(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nofree nounwind
 declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #4
@@ -1401,9 +1401,9 @@ declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i6
 declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nofree nounwind }
 attributes #5 = { nounwind }
 

@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define zeroext i1 @json_validate(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.jsmn_parser, align 4
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = icmp eq i64 %1, 0
   br i1 %4, label %13, label %5
 
@@ -21,7 +21,7 @@ define zeroext i1 @json_validate(ptr noundef %0, i64 noundef %1) local_unnamed_a
   br i1 %7, label %13, label %8
 
 8:                                                ; preds = %5
-  %9 = tail call noalias dereferenceable_or_null(16384) ptr @g_malloc0(i64 noundef 16384) #11
+  %9 = tail call noalias dereferenceable_or_null(16384) ptr @g_malloc0(i64 noundef 16384) #10
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %13, label %10
 
@@ -34,44 +34,38 @@ define zeroext i1 @json_validate(ptr noundef %0, i64 noundef %1) local_unnamed_a
 
 13:                                               ; preds = %8, %5, %2, %10
   %.0 = phi i1 [ %12, %10 ], [ false, %2 ], [ false, %5 ], [ false, %8 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: null_pointer_is_valid allocsize(0)
-declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @jsmn_init(ptr noundef) local_unnamed_addr #3
+declare void @jsmn_init(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @jsmn_parse(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @jsmn_parse(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare void @g_free(ptr noundef) local_unnamed_addr #3
+declare void @g_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define i32 @json_parse(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.jsmn_parser, align 4
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @jsmn_init(ptr noundef nonnull %4)
-  %5 = call i64 @strlen(ptr noundef %0) #12
+  %5 = call i64 @strlen(ptr noundef %0) #11
   %6 = call i32 @jsmn_parse(ptr noundef nonnull %4, ptr noundef %0, i64 noundef %5, ptr noundef %1, i32 noundef %2)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %6
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid sspstrong memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @json_get_object(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #5 {
+define noundef ptr @json_get_object(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #4 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %5 = load i32, ptr %4, align 4
   %6 = icmp sgt i32 %5, 0
@@ -97,12 +91,12 @@ define noundef ptr @json_get_object(ptr noundef readonly captures(none) %0, ptr 
   %16 = load i32, ptr %15, align 4
   %17 = sub i32 %16, %12
   %18 = sext i32 %17 to i64
-  %19 = tail call i32 @strncmp(ptr noundef %14, ptr noundef %2, i64 noundef %18) #12
+  %19 = tail call i32 @strncmp(ptr noundef %14, ptr noundef %2, i64 noundef %18) #11
   %.not = icmp eq i32 %19, 0
   br i1 %.not, label %20, label %31
 
 20:                                               ; preds = %10
-  %21 = tail call i64 @strlen(ptr noundef %2) #12
+  %21 = tail call i64 @strlen(ptr noundef %2) #11
   %22 = icmp eq i64 %21, %18
   br i1 %22, label %23, label %31
 
@@ -134,10 +128,10 @@ define noundef ptr @json_get_object(ptr noundef readonly captures(none) %0, ptr 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nosync nounwind null_pointer_is_valid sspstrong memory(read, inaccessiblemem: none) uwtable
-define internal fastcc ptr @json_get_next_object(ptr noundef readonly %0) unnamed_addr #6 {
+define internal fastcc ptr @json_get_next_object(ptr noundef readonly %0) unnamed_addr #5 {
   %2 = getelementptr i8, ptr %0, i64 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %4 = load i32, ptr %3, align 4
@@ -158,7 +152,7 @@ define internal fastcc ptr @json_get_next_object(ptr noundef readonly %0) unname
 }
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid sspstrong memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @json_get_array(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #5 {
+define noundef ptr @json_get_array(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #4 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %5 = load i32, ptr %4, align 4
   %6 = icmp sgt i32 %5, 0
@@ -184,12 +178,12 @@ define noundef ptr @json_get_array(ptr noundef readonly captures(none) %0, ptr n
   %16 = load i32, ptr %15, align 4
   %17 = sub i32 %16, %12
   %18 = sext i32 %17 to i64
-  %19 = tail call i32 @strncmp(ptr noundef %14, ptr noundef %2, i64 noundef %18) #12
+  %19 = tail call i32 @strncmp(ptr noundef %14, ptr noundef %2, i64 noundef %18) #11
   %.not = icmp eq i32 %19, 0
   br i1 %.not, label %20, label %31
 
 20:                                               ; preds = %10
-  %21 = tail call i64 @strlen(ptr noundef %2) #12
+  %21 = tail call i64 @strlen(ptr noundef %2) #11
   %22 = icmp eq i64 %21, %18
   br i1 %22, label %23, label %31
 
@@ -221,7 +215,7 @@ define noundef ptr @json_get_array(ptr noundef readonly captures(none) %0, ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable
-define i32 @json_get_array_len(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
+define i32 @json_get_array_len(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = load i32, ptr %0, align 4
   %.not = icmp eq i32 %2, 2
   br i1 %.not, label %3, label %6
@@ -237,7 +231,7 @@ define i32 @json_get_array_len(ptr noundef readonly captures(none) %0) local_unn
 }
 
 ; Function Attrs: nofree nosync nounwind null_pointer_is_valid sspstrong memory(read, inaccessiblemem: none) uwtable
-define ptr @json_get_array_index(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #6 {
+define ptr @json_get_array_index(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = load i32, ptr %0, align 4
   %4 = icmp ne i32 %3, 2
   %5 = icmp slt i32 %1, 0
@@ -295,12 +289,12 @@ define ptr @json_get_string(ptr noundef %0, ptr noundef readonly %1, ptr noundef
   %16 = load i32, ptr %15, align 4
   %17 = sub i32 %16, %12
   %18 = sext i32 %17 to i64
-  %19 = tail call i32 @strncmp(ptr noundef %14, ptr noundef %2, i64 noundef %18) #12
+  %19 = tail call i32 @strncmp(ptr noundef %14, ptr noundef %2, i64 noundef %18) #11
   %.not = icmp eq i32 %19, 0
   br i1 %.not, label %20, label %45
 
 20:                                               ; preds = %10
-  %21 = tail call i64 @strlen(ptr noundef %2) #12
+  %21 = tail call i64 @strlen(ptr noundef %2) #11
   %22 = icmp eq i64 %21, %18
   br i1 %22, label %23, label %45
 
@@ -477,7 +471,7 @@ define noundef zeroext i1 @json_decode_string_inplace(ptr noundef %0) local_unna
 55:                                               ; preds = %29, %50
   %.581 = phi ptr [ %43, %50 ], [ %25, %29 ]
   %.271 = phi i32 [ %54, %50 ], [ %27, %29 ]
-  %56 = tail call i32 @g_unichar_validate(i32 noundef %.271) #13
+  %56 = tail call i32 @g_unichar_validate(i32 noundef %.271) #12
   %.not89 = icmp eq i32 %56, 0
   %57 = icmp eq i32 %.271, 0
   %or.cond90 = or i1 %57, %.not89
@@ -538,12 +532,12 @@ define zeroext i1 @json_get_double(ptr noundef %0, ptr noundef readonly %1, ptr 
   %17 = load i32, ptr %16, align 4
   %18 = sub i32 %17, %13
   %19 = sext i32 %18 to i64
-  %20 = tail call i32 @strncmp(ptr noundef %15, ptr noundef %2, i64 noundef %19) #12
+  %20 = tail call i32 @strncmp(ptr noundef %15, ptr noundef %2, i64 noundef %19) #11
   %.not = icmp eq i32 %20, 0
   br i1 %.not, label %21, label %44
 
 21:                                               ; preds = %11
-  %22 = tail call i64 @strlen(ptr noundef %2) #12
+  %22 = tail call i64 @strlen(ptr noundef %2) #11
   %23 = icmp eq i64 %22, %19
   br i1 %23, label %24, label %44
 
@@ -571,7 +565,7 @@ define zeroext i1 @json_get_double(ptr noundef %0, ptr noundef readonly %1, ptr 
   %40 = getelementptr i8, ptr %0, i64 %39
   %41 = tail call double @g_ascii_strtod(ptr noundef %40, ptr noundef null)
   store double %41, ptr %3, align 8
-  %42 = tail call ptr @__errno_location() #13
+  %42 = tail call ptr @__errno_location() #12
   %43 = load i32, ptr %42, align 4
   %.not23 = icmp eq i32 %43, 0
   br label %.loopexit
@@ -588,13 +582,13 @@ define zeroext i1 @json_get_double(ptr noundef %0, ptr noundef readonly %1, ptr 
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare double @g_ascii_strtod(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare double @g_ascii_strtod(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind null_pointer_is_valid willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #8
+declare ptr @__errno_location() local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @json_get_boolean(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #9 {
+define noundef zeroext i1 @json_get_boolean(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #8 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %6 = load i32, ptr %5, align 4
   %7 = icmp sgt i32 %6, 0
@@ -620,12 +614,12 @@ define noundef zeroext i1 @json_get_boolean(ptr noundef readonly captures(none) 
   %17 = load i32, ptr %16, align 4
   %18 = sub i32 %17, %13
   %19 = sext i32 %18 to i64
-  %20 = tail call i32 @strncmp(ptr noundef %15, ptr noundef %2, i64 noundef %19) #12
+  %20 = tail call i32 @strncmp(ptr noundef %15, ptr noundef %2, i64 noundef %19) #11
   %.not = icmp eq i32 %20, 0
   br i1 %.not, label %21, label %51
 
 21:                                               ; preds = %11
-  %22 = tail call i64 @strlen(ptr noundef %2) #12
+  %22 = tail call i64 @strlen(ptr noundef %2) #11
   %23 = icmp eq i64 %22, %19
   br i1 %23, label %24, label %51
 
@@ -660,7 +654,7 @@ define noundef zeroext i1 @json_get_boolean(ptr noundef readonly captures(none) 
   br i1 %42, label %43, label %.loopexit
 
 43:                                               ; preds = %41
-  %44 = tail call i32 @strncmp(ptr noundef %39, ptr noundef nonnull dereferenceable(5) @.str, i64 noundef 4) #12
+  %44 = tail call i32 @strncmp(ptr noundef %39, ptr noundef nonnull dereferenceable(5) @.str, i64 noundef 4) #11
   %45 = icmp eq i32 %44, 0
   br i1 %45, label %.loopexit.sink.split, label %.loopexit
 
@@ -669,7 +663,7 @@ define noundef zeroext i1 @json_get_boolean(ptr noundef readonly captures(none) 
   br i1 %47, label %48, label %.loopexit
 
 48:                                               ; preds = %46
-  %49 = tail call i32 @strncmp(ptr noundef %39, ptr noundef nonnull dereferenceable(6) @.str.1, i64 noundef 5) #12
+  %49 = tail call i32 @strncmp(ptr noundef %39, ptr noundef nonnull dereferenceable(6) @.str.1, i64 noundef 5) #11
   %50 = icmp eq i32 %49, 0
   br i1 %50, label %.loopexit.sink.split, label %.loopexit
 
@@ -690,28 +684,33 @@ define noundef zeroext i1 @json_get_boolean(ptr noundef readonly captures(none) 
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @ws_xton(i8 noundef signext) local_unnamed_addr #3
+declare i32 @ws_xton(i8 noundef signext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind null_pointer_is_valid willreturn memory(none)
-declare i32 @g_unichar_validate(i32 noundef) local_unnamed_addr #8
+declare i32 @g_unichar_validate(i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @g_unichar_to_utf8(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @g_unichar_to_utf8(i32 noundef, ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree nounwind null_pointer_is_valid sspstrong memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree nosync nounwind null_pointer_is_valid sspstrong memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nosync nounwind null_pointer_is_valid willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nofree nounwind null_pointer_is_valid sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nounwind }
-attributes #11 = { allocsize(0) }
-attributes #12 = { nounwind willreturn memory(read) }
-attributes #13 = { nounwind willreturn memory(none) }
+attributes #1 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree nounwind null_pointer_is_valid sspstrong memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree nosync nounwind null_pointer_is_valid sspstrong memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nosync nounwind null_pointer_is_valid willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree nounwind null_pointer_is_valid sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { allocsize(0) }
+attributes #11 = { nounwind willreturn memory(read) }
+attributes #12 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

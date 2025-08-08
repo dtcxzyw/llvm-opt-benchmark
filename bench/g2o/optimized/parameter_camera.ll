@@ -143,7 +143,7 @@ define void @_ZN3g2o15ParameterCameraC2Ev(ptr noundef nonnull align 16 dereferen
   %41 = fmul double %16, -5.000000e-01
   store double %41, ptr %40, align 8, !tbaa !6
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %43 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %44 = load <2 x double>, ptr %11, align 8, !tbaa !9
   %45 = load <2 x double>, ptr %7, align 16, !tbaa !9
@@ -201,8 +201,8 @@ define void @_ZN3g2o15ParameterCameraC2Ev(ptr noundef nonnull align 16 dereferen
   %82 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %83 = load double, ptr %82, align 16, !tbaa !6
   store double %83, ptr %81, align 16, !tbaa !6
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3) #15
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store double 1.000000e+00, ptr %4, align 16, !tbaa !6, !alias.scope !12
   %84 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %85 = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -217,7 +217,7 @@ define void @_ZN3g2o15ParameterCameraC2Ev(ptr noundef nonnull align 16 dereferen
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %88, i8 0, i64 32, i1 false), !alias.scope !12
   store double 1.000000e+00, ptr %89, align 8, !tbaa !6, !alias.scope !12
   call void @_ZN3g2o18ParameterSE3Offset9setOffsetERKN5Eigen9TransformIdLi3ELi1ELi0EEE(ptr noundef nonnull align 16 dereferenceable(488) %0, ptr noundef nonnull align 16 dereferenceable(128) %4)
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %2) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %90 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 312
@@ -277,8 +277,8 @@ define void @_ZN3g2o15ParameterCameraC2Ev(ptr noundef nonnull align 16 dereferen
   %132 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %133 = load double, ptr %132, align 16, !tbaa !6
   store double %133, ptr %81, align 16, !tbaa !6
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %2) #15
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -364,7 +364,7 @@ define void @_ZN3g2o15ParameterCamera7setKcamEdddd(ptr noundef nonnull align 16 
   %60 = fmul double %19, %26
   store double %60, ptr %59, align 8, !tbaa !6
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %62 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %63 = load <2 x double>, ptr %15, align 8, !tbaa !9
   %64 = load <2 x double>, ptr %9, align 16, !tbaa !9
@@ -422,7 +422,7 @@ _ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEaSINS_7ProductIS1_NS_5BlockIKNS0_IdLi4ELi
   %101 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %102 = load double, ptr %101, align 16, !tbaa !6
   store double %102, ptr %100, align 16, !tbaa !6
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -432,7 +432,7 @@ define void @_ZN3g2o15ParameterCamera9setOffsetERKN5Eigen9TransformIdLi3ELi1ELi0
   tail call void @_ZN3g2o18ParameterSE3Offset9setOffsetERKN5Eigen9TransformIdLi3ELi1ELi0EEE(ptr noundef nonnull align 16 dereferenceable(272) %0, ptr noundef nonnull align 16 dereferenceable(128) %1)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -500,15 +500,9 @@ _ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEaSINS_7ProductIS1_NS_5BlockIKNS0_IdLi4ELi
   %55 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %56 = load double, ptr %55, align 16, !tbaa !6
   store double %56, ptr %54, align 16, !tbaa !6
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 declare void @_ZN3g2o18ParameterSE3Offset9setOffsetERKN5Eigen9TransformIdLi3ELi1ELi0EEE(ptr noundef nonnull align 16 dereferenceable(272), ptr noundef nonnull align 16 dereferenceable(128)) local_unnamed_addr #0
 
@@ -522,7 +516,7 @@ define noundef zeroext i1 @_ZN3g2o15ParameterCamera4readERSi(ptr noundef nonnull
   %8 = alloca double, align 8
   %9 = alloca double, align 8
   %10 = alloca double, align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br label %11
 
 11:                                               ; preds = %19, %2
@@ -571,12 +565,12 @@ _ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi7ELi1ELi0ELi7ELi1EEEEEbRSiRNS2_9D
   br label %_ZN5Eigen10MatrixBaseINS_3MapINS_6MatrixIdLi4ELi1ELi0ELi4ELi1EEELi0ENS_6StrideILi0ELi0EEEEEE9normalizeEv.exit
 
 _ZN5Eigen10MatrixBaseINS_3MapINS_6MatrixIdLi4ELi1ELi0ELi4ELi1EEELi0ENS_6StrideILi0ELi0EEEEEE9normalizeEv.exit: ; preds = %_ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi7ELi1ELi0ELi7ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit, %32
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN3g2o8internal12fromVectorQTERKN5Eigen6MatrixIdLi7ELi1ELi0ELi7ELi1EEE(ptr dead_on_unwind nonnull writable sret(%"class.Eigen::Transform") align 16 %6, ptr noundef nonnull align 8 dereferenceable(56) %5)
   call void @_ZN3g2o18ParameterSE3Offset9setOffsetERKN5Eigen9TransformIdLi3ELi1ELi0EEE(ptr noundef nonnull align 16 dereferenceable(488) %0, ptr noundef nonnull align 16 dereferenceable(128) %6)
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -644,12 +638,12 @@ _ZN3g2o15ParameterCamera9setOffsetERKN5Eigen9TransformIdLi3ELi1ELi0EEE.exit: ; p
   %88 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %89 = load double, ptr %88, align 16, !tbaa !6
   store double %89, ptr %87, align 16, !tbaa !6
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #15
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %90 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi10_M_extractIdEERSiRT_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %7)
   %91 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi10_M_extractIdEERSiRT_(ptr noundef nonnull align 8 dereferenceable(16) %90, ptr noundef nonnull align 8 dereferenceable(8) %8)
   %92 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi10_M_extractIdEERSiRT_(ptr noundef nonnull align 8 dereferenceable(16) %91, ptr noundef nonnull align 8 dereferenceable(8) %9)
@@ -723,7 +717,7 @@ _ZN3g2o15ParameterCamera9setOffsetERKN5Eigen9TransformIdLi3ELi1ELi0EEE.exit: ; p
   %143 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %144 = fmul double %106, %113
   store double %144, ptr %143, align 8, !tbaa !6
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %145 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %146 = load <2 x double>, ptr %39, align 8, !tbaa !9
   %147 = load <2 x double>, ptr %40, align 16, !tbaa !9
@@ -776,7 +770,7 @@ _ZN3g2o15ParameterCamera7setKcamEdddd.exit:       ; preds = %148
   %179 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %180 = load double, ptr %179, align 16, !tbaa !6
   store double %180, ptr %87, align 16, !tbaa !6
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %181 = load ptr, ptr %1, align 8, !tbaa !3
   %182 = getelementptr i8, ptr %181, i64 -24
   %183 = load i64, ptr %182, align 8
@@ -784,11 +778,11 @@ _ZN3g2o15ParameterCamera7setKcamEdddd.exit:       ; preds = %148
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 32
   %186 = load i32, ptr %185, align 8, !tbaa !15
   %187 = icmp eq i32 %186, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #15
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %187
 }
 
@@ -797,7 +791,7 @@ declare void @_ZN3g2o8internal12fromVectorQTERKN5Eigen6MatrixIdLi7ELi1ELi0ELi7EL
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZNK3g2o15ParameterCamera5writeERSo(ptr noundef nonnull align 16 dereferenceable(488) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.Eigen::Matrix.26", align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @_ZN3g2o8internal10toVectorQTERKN5Eigen9TransformIdLi3ELi1ELi0EEE(ptr dead_on_unwind nonnull writable sret(%"class.Eigen::Matrix.26") align 8 %3, ptr noundef nonnull align 16 dereferenceable(128) %4)
   br label %5
@@ -813,7 +807,7 @@ define noundef zeroext i1 @_ZNK3g2o15ParameterCamera5writeERSo(ptr noundef nonnu
   br i1 %exitcond.not.i, label %_ZN3g2o8internal11writeVectorIN5Eigen6MatrixIdLi7ELi1ELi0ELi7ELi1EEEEEbRSoRKNS2_9DenseBaseIT_EE.exit, label %5, !llvm.loop !28
 
 _ZN3g2o8internal11writeVectorIN5Eigen6MatrixIdLi7ELi1ELi0ELi7ELi1EEEEEbRSoRKNS2_9DenseBaseIT_EE.exit: ; preds = %5
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %11 = load double, ptr %10, align 16, !tbaa !6
   %12 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1, double noundef %11)
@@ -883,7 +877,7 @@ define void @_ZN3g2o11CacheCamera10updateImplEv(ptr noundef nonnull align 16 der
   %4 = load ptr, ptr %3, align 16, !tbaa !34
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 272
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %2) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 296
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 320
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -953,7 +947,7 @@ _ZN5Eigen6MatrixIdLi3ELi4ELi0ELi3ELi4EEC2INS_7ProductINS0_IdLi3ELi3ELi0ELi3ELi3E
   br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i, label %_ZN5Eigen5BlockINS_6MatrixIdLi4ELi4ELi0ELi4ELi4EEELi3ELi4ELb0EEaSINS_7ProductINS1_IdLi3ELi3ELi0ELi3ELi3EEENS0_IKS2_Li3ELi4ELb0EEELi0EEEEERS3_RKNS_9DenseBaseIT_EE.exit, label %_ZN5Eigen6MatrixIdLi3ELi4ELi0ELi3ELi4EEC2INS_7ProductINS0_IdLi3ELi3ELi0ELi3ELi3EEENS_5BlockIKNS0_IdLi4ELi4ELi0ELi4ELi4EEELi3ELi4ELb0EEELi0EEEEERKT_.exit.i.i.i.i.i.i, !llvm.loop !58
 
 _ZN5Eigen5BlockINS_6MatrixIdLi4ELi4ELi0ELi4ELi4EEELi3ELi4ELb0EEaSINS_7ProductINS1_IdLi3ELi3ELi0ELi3ELi3EEENS0_IKS2_Li3ELi4ELb0EEELi0EEEEERS3_RKNS_9DenseBaseIT_EE.exit: ; preds = %_ZN5Eigen6MatrixIdLi3ELi4ELi0ELi3ELi4EEC2INS_7ProductINS0_IdLi3ELi3ELi0ELi3ELi3EEENS_5BlockIKNS0_IdLi4ELi4ELi0ELi4ELi4EEELi3ELi4ELb0EEELi0EEEEERKT_.exit.i.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %2) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -1074,6 +1068,12 @@ define internal void @_GLOBAL__sub_I_parameter_camera.cpp() #12 section ".text.s
   %4 = tail call ptr @llvm.invariant.start.p0(i64 1, ptr nonnull @_ZN5EigenL3allE)
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13

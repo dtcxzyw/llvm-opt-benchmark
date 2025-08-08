@@ -177,10 +177,7 @@ define dso_local noundef zeroext i1 @pg_parse_json_or_errsave(ptr noundef %0, pt
   ret i1 %.not
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare i32 @pg_parse_json(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @pg_parse_json(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @json_errsave_error(i32 noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -243,9 +240,6 @@ define dso_local void @json_errsave_error(i32 noundef %0, ptr noundef %1, ptr no
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @makeJsonLexContext(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = tail call ptr @pg_detoast_datum_packed(ptr noundef %1) #15
@@ -293,11 +287,11 @@ define dso_local ptr @makeJsonLexContext(ptr noundef %0, ptr noundef %1, i1 noun
   ret ptr %33
 }
 
-declare ptr @pg_detoast_datum_packed(ptr noundef) local_unnamed_addr #2
+declare ptr @pg_detoast_datum_packed(ptr noundef) local_unnamed_addr #1
 
-declare ptr @makeJsonLexContextCstringLen(ptr noundef, ptr noundef, i64 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare ptr @makeJsonLexContextCstringLen(ptr noundef, ptr noundef, i64 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare i32 @GetDatabaseEncoding() local_unnamed_addr #2
+declare i32 @GetDatabaseEncoding() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @jsonb_object_keys(ptr noundef %0) local_unnamed_addr #0 {
@@ -314,8 +308,8 @@ define dso_local i64 @jsonb_object_keys(ptr noundef %0) local_unnamed_addr #0 {
   %10 = load i64, ptr %9, align 8
   %11 = inttoptr i64 %10 to ptr
   %12 = tail call ptr @pg_detoast_datum(ptr noundef %11) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %14 = load i32, ptr %13, align 4
   %15 = and i32 %14, 268435456
@@ -406,8 +400,8 @@ define dso_local i64 @jsonb_object_keys(ptr noundef %0) local_unnamed_addr #0 {
   store ptr %30, ptr @CurrentMemoryContext, align 8
   %63 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store ptr %31, ptr %63, align 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %64
 
 64:                                               ; preds = %62, %1
@@ -456,36 +450,36 @@ define dso_local i64 @jsonb_object_keys(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @errcode(i32 noundef) local_unnamed_addr #2
+declare i32 @errcode(i32 noundef) local_unnamed_addr #1
 
-declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #1
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @init_MultiFuncCall(ptr noundef) local_unnamed_addr #2
+declare ptr @init_MultiFuncCall(ptr noundef) local_unnamed_addr #1
 
-declare ptr @palloc(i64 noundef) local_unnamed_addr #2
+declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 
-declare ptr @JsonbIteratorInit(ptr noundef) local_unnamed_addr #2
+declare ptr @JsonbIteratorInit(ptr noundef) local_unnamed_addr #1
 
-declare i32 @JsonbIteratorNext(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare i32 @JsonbIteratorNext(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
-declare ptr @per_MultiFuncCall(ptr noundef) local_unnamed_addr #2
+declare ptr @per_MultiFuncCall(ptr noundef) local_unnamed_addr #1
 
-declare ptr @cstring_to_text(ptr noundef) local_unnamed_addr #2
+declare ptr @cstring_to_text(ptr noundef) local_unnamed_addr #1
 
-declare void @end_MultiFuncCall(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @end_MultiFuncCall(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @errsave_start(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @errsave_start(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @errdetail_internal(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errdetail_internal(ptr noundef, ...) local_unnamed_addr #1
 
-declare ptr @json_errdetail(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @json_errdetail(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @report_json_context(ptr noundef readonly captures(none) %0) unnamed_addr #0 {
@@ -569,9 +563,9 @@ define internal fastcc void @report_json_context(ptr noundef readonly captures(n
   ret void
 }
 
-declare void @errsave_finish(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @errsave_finish(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @json_object_keys(ptr noundef %0) local_unnamed_addr #0 {
@@ -587,7 +581,7 @@ define dso_local i64 @json_object_keys(ptr noundef %0) local_unnamed_addr #0 {
   %9 = load i64, ptr %8, align 8
   %10 = inttoptr i64 %9 to ptr
   %11 = tail call ptr @pg_detoast_datum_packed(ptr noundef %10) #15
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %2) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %12 = tail call ptr @init_MultiFuncCall(ptr noundef nonnull %0) #15
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %14 = load ptr, ptr %13, align 8
@@ -668,7 +662,7 @@ pg_parse_json_or_errsave.exit:                    ; preds = %makeJsonLexContext.
   store ptr %15, ptr @CurrentMemoryContext, align 8
   %57 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr %16, ptr %57, align 8
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %2) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %58
 
 58:                                               ; preds = %pg_parse_json_or_errsave.exit, %1
@@ -716,7 +710,7 @@ pg_parse_json_or_errsave.exit:                    ; preds = %makeJsonLexContext.
   ret i64 %.0
 }
 
-declare ptr @palloc0(i64 noundef) local_unnamed_addr #2
+declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @okeys_array_start(ptr noundef readonly captures(none) %0) #0 {
@@ -801,9 +795,9 @@ define internal noundef i32 @okeys_object_field_start(ptr noundef captures(none)
   ret i32 0
 }
 
-declare void @freeJsonLexContext(ptr noundef) local_unnamed_addr #2
+declare void @freeJsonLexContext(ptr noundef) local_unnamed_addr #1
 
-declare void @pfree(ptr noundef) local_unnamed_addr #2
+declare void @pfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @json_object_field(ptr noundef captures(none) %0) local_unnamed_addr #0 {
@@ -816,7 +810,7 @@ define dso_local i64 @json_object_field(ptr noundef captures(none) %0) local_unn
   %8 = load i64, ptr %7, align 8
   %9 = inttoptr i64 %8 to ptr
   %10 = tail call ptr @pg_detoast_datum_packed(ptr noundef %9) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %11 = tail call ptr @text_to_cstring(ptr noundef %10) #15
   store ptr %11, ptr %2, align 8
   %12 = call fastcc ptr @get_worker(ptr noundef %6, ptr noundef nonnull %2, ptr noundef null, i32 noundef 1, i1 noundef zeroext false)
@@ -834,11 +828,11 @@ define dso_local i64 @json_object_field(ptr noundef captures(none) %0) local_unn
 
 17:                                               ; preds = %15, %13
   %.0 = phi i64 [ %14, %13 ], [ 0, %15 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
 
-declare ptr @text_to_cstring(ptr noundef) local_unnamed_addr #2
+declare ptr @text_to_cstring(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @get_worker(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 {
@@ -989,7 +983,7 @@ define dso_local i64 @jsonb_object_field(ptr noundef captures(none) %0) local_un
   %8 = load i64, ptr %7, align 8
   %9 = inttoptr i64 %8 to ptr
   %10 = tail call ptr @pg_detoast_datum_packed(ptr noundef %9) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %12 = load i32, ptr %11, align 4
   %13 = and i32 %12, 536870912
@@ -1055,13 +1049,13 @@ define dso_local i64 @jsonb_object_field(ptr noundef captures(none) %0) local_un
 
 48:                                               ; preds = %46, %43, %14
   %.0 = phi i64 [ %45, %43 ], [ 0, %46 ], [ 0, %14 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
 
-declare ptr @getKeyJsonValueFromContainer(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @getKeyJsonValueFromContainer(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @JsonbValueToJsonb(ptr noundef) local_unnamed_addr #2
+declare ptr @JsonbValueToJsonb(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @json_object_field_text(ptr noundef captures(none) %0) local_unnamed_addr #0 {
@@ -1074,7 +1068,7 @@ define dso_local i64 @json_object_field_text(ptr noundef captures(none) %0) loca
   %8 = load i64, ptr %7, align 8
   %9 = inttoptr i64 %8 to ptr
   %10 = tail call ptr @pg_detoast_datum_packed(ptr noundef %9) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %11 = tail call ptr @text_to_cstring(ptr noundef %10) #15
   store ptr %11, ptr %2, align 8
   %12 = call fastcc ptr @get_worker(ptr noundef %6, ptr noundef nonnull %2, ptr noundef null, i32 noundef 1, i1 noundef zeroext true)
@@ -1092,7 +1086,7 @@ define dso_local i64 @json_object_field_text(ptr noundef captures(none) %0) loca
 
 17:                                               ; preds = %15, %13
   %.0 = phi i64 [ %14, %13 ], [ 0, %15 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
 
@@ -1107,7 +1101,7 @@ define dso_local i64 @jsonb_object_field_text(ptr noundef captures(none) %0) loc
   %8 = load i64, ptr %7, align 8
   %9 = inttoptr i64 %8 to ptr
   %10 = tail call ptr @pg_detoast_datum_packed(ptr noundef %9) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %12 = load i32, ptr %11, align 4
   %13 = and i32 %12, 536870912
@@ -1178,7 +1172,7 @@ define dso_local i64 @jsonb_object_field_text(ptr noundef captures(none) %0) loc
 
 50:                                               ; preds = %48, %45, %14
   %.0 = phi i64 [ %47, %45 ], [ 0, %48 ], [ 0, %14 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
 
@@ -1226,7 +1220,7 @@ define internal fastcc ptr @JsonbValueAsText(ptr noundef readonly captures(none)
   br label %39
 
 25:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @initStringInfo(ptr noundef nonnull %2) #15
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1237,7 +1231,7 @@ define internal fastcc ptr @JsonbValueAsText(ptr noundef readonly captures(none)
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %33 = load i32, ptr %32, align 8
   %34 = call ptr @cstring_to_text_with_len(ptr noundef %31, i32 noundef %33) #15
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %39
 
 35:                                               ; preds = %1
@@ -1260,7 +1254,7 @@ define dso_local i64 @json_array_element(ptr noundef captures(none) %0) local_un
   %4 = load i64, ptr %3, align 8
   %5 = inttoptr i64 %4 to ptr
   %6 = tail call ptr @pg_detoast_datum_packed(ptr noundef %5) #15
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load i64, ptr %7, align 8
   %9 = trunc i64 %8 to i32
@@ -1280,7 +1274,7 @@ define dso_local i64 @json_array_element(ptr noundef captures(none) %0) local_un
 
 15:                                               ; preds = %13, %11
   %.0 = phi i64 [ %12, %11 ], [ 0, %13 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
 
@@ -1344,7 +1338,7 @@ define dso_local i64 @jsonb_array_element(ptr noundef captures(none) %0) local_u
   ret i64 %.0
 }
 
-declare ptr @getIthJsonbValueFromContainer(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @getIthJsonbValueFromContainer(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @json_array_element_text(ptr noundef captures(none) %0) local_unnamed_addr #0 {
@@ -1353,7 +1347,7 @@ define dso_local i64 @json_array_element_text(ptr noundef captures(none) %0) loc
   %4 = load i64, ptr %3, align 8
   %5 = inttoptr i64 %4 to ptr
   %6 = tail call ptr @pg_detoast_datum_packed(ptr noundef %5) #15
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load i64, ptr %7, align 8
   %9 = trunc i64 %8 to i32
@@ -1373,7 +1367,7 @@ define dso_local i64 @json_array_element_text(ptr noundef captures(none) %0) loc
 
 15:                                               ; preds = %13, %11
   %.0 = phi i64 [ %12, %11 ], [ 0, %13 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
 
@@ -1462,9 +1456,9 @@ define internal fastcc i64 @get_path_all(ptr noundef captures(none) %0, i1 nound
   %12 = load i64, ptr %11, align 8
   %13 = inttoptr i64 %12 to ptr
   %14 = tail call ptr @pg_detoast_datum(ptr noundef %13) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #15
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %15 = tail call zeroext i1 @array_contains_nulls(ptr noundef %14) #15
   br i1 %15, label %16, label %18
 
@@ -1501,7 +1495,7 @@ define internal fastcc i64 @get_path_all(ptr noundef captures(none) %0, i1 nound
   br i1 %.not34, label %49, label %36
 
 36:                                               ; preds = %.lr.ph
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %37 = tail call ptr @__errno_location() #17
   store i32 0, ptr %37, align 4
   %38 = load ptr, ptr %34, align 8
@@ -1526,7 +1520,7 @@ define internal fastcc i64 @get_path_all(ptr noundef captures(none) %0, i1 nound
   %.sink = phi i32 [ -2147483648, %43 ], [ -2147483648, %36 ], [ %spec.select, %45 ]
   %48 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv
   store i32 %.sink, ptr %48, align 4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %51
 
 49:                                               ; preds = %.lr.ph
@@ -1558,9 +1552,9 @@ define internal fastcc i64 @get_path_all(ptr noundef captures(none) %0, i1 nound
 
 60:                                               ; preds = %58, %56, %16
   %.0 = phi i64 [ 0, %16 ], [ %57, %56 ], [ 0, %58 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %.0
 }
 
@@ -1584,10 +1578,10 @@ define dso_local i64 @jsonb_extract_path(ptr noundef captures(none) %0) local_un
   %11 = load i64, ptr %10, align 8
   %12 = inttoptr i64 %11 to ptr
   %13 = tail call ptr @pg_detoast_datum(ptr noundef %12) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #15
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #15
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %14 = tail call zeroext i1 @array_contains_nulls(ptr noundef %13) #15
   br i1 %14, label %.sink.split.i, label %15
 
@@ -1607,10 +1601,10 @@ define dso_local i64 @jsonb_extract_path(ptr noundef captures(none) %0) local_un
 
 get_jsonb_path_all.exit:                          ; preds = %15, %.sink.split.i
   %.0.i = phi i64 [ %18, %15 ], [ 0, %.sink.split.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #15
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0.i
 }
 
@@ -1628,10 +1622,10 @@ define dso_local i64 @jsonb_extract_path_text(ptr noundef captures(none) %0) loc
   %11 = load i64, ptr %10, align 8
   %12 = inttoptr i64 %11 to ptr
   %13 = tail call ptr @pg_detoast_datum(ptr noundef %12) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #15
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #15
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %14 = tail call zeroext i1 @array_contains_nulls(ptr noundef %13) #15
   br i1 %14, label %.sink.split.i, label %15
 
@@ -1651,10 +1645,10 @@ define dso_local i64 @jsonb_extract_path_text(ptr noundef captures(none) %0) loc
 
 get_jsonb_path_all.exit:                          ; preds = %15, %.sink.split.i
   %.0.i = phi i64 [ %18, %15 ], [ 0, %.sink.split.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #15
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0.i
 }
 
@@ -1774,7 +1768,7 @@ define dso_local i64 @jsonb_get_element(ptr noundef %0, ptr noundef readonly cap
   %66 = load i64, ptr %65, align 8
   %67 = inttoptr i64 %66 to ptr
   %68 = call ptr @text_to_cstring(ptr noundef %67) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %69 = tail call ptr @__errno_location() #17
   store i32 0, ptr %69, align 4
   %70 = call i32 @strtoint(ptr noundef %68, ptr noundef nonnull %6, i32 noundef 10) #15
@@ -1823,13 +1817,13 @@ define dso_local i64 @jsonb_get_element(ptr noundef %0, ptr noundef readonly cap
 
 .thread109:                                       ; preds = %85, %64, %73, %75
   store i8 1, ptr %3, align 1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %121
 
 91:                                               ; preds = %77, %.thread
   %.377 = phi i32 [ %70, %77 ], [ %90, %.thread ]
   %92 = call ptr @getIthJsonbValueFromContainer(ptr noundef %.067117, i32 noundef %.377) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %94
 
 93:                                               ; preds = %63
@@ -1899,20 +1893,20 @@ define dso_local i64 @jsonb_get_element(ptr noundef %0, ptr noundef readonly cap
   ret i64 %.0
 }
 
-declare ptr @JsonbToCString(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @JsonbToCString(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #5
+declare ptr @__errno_location() local_unnamed_addr #4
 
-declare i32 @strtoint(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @strtoint(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @jsonb_set_element(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = sext i32 %2 to i64
   %8 = tail call ptr @palloc0(i64 noundef %7) #15
   %9 = load i32, ptr %3, align 8
@@ -1939,8 +1933,8 @@ define dso_local i64 @jsonb_set_element(ptr noundef %0, ptr noundef %1, i32 noun
   call void @pfree(ptr noundef %8) #15
   %22 = call ptr @JsonbValueToJsonb(ptr noundef %21) #15
   %23 = ptrtoint ptr %22 to i64
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %23
 }
 
@@ -1957,7 +1951,7 @@ define internal fastcc ptr @setPath(ptr noundef nonnull %0, ptr noundef %1, ptr 
   %17 = alloca %struct.JsonbValue, align 8
   %18 = alloca ptr, align 8
   %19 = alloca %struct.JsonbValue, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %19) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   tail call void @check_stack_depth() #15
   %20 = sext i32 %5 to i64
   %21 = getelementptr inbounds i8, ptr %2, i64 %20
@@ -2010,7 +2004,7 @@ define internal fastcc ptr @setPath(ptr noundef nonnull %0, ptr noundef %1, ptr 
   %45 = call ptr @pushJsonbValue(ptr noundef nonnull %4, i32 noundef 4, ptr noundef null) #15
   %46 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %47 = load i32, ptr %46, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %48 = icmp sge i32 %5, %3
   br i1 %48, label %71, label %49
 
@@ -2024,7 +2018,7 @@ define internal fastcc ptr @setPath(ptr noundef nonnull %0, ptr noundef %1, ptr 
   %54 = load i64, ptr %53, align 8
   %55 = inttoptr i64 %54 to ptr
   %56 = call ptr @text_to_cstring(ptr noundef %55) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %57 = tail call ptr @__errno_location() #17
   store i32 0, ptr %57, align 4
   %58 = call i32 @strtoint(ptr noundef %56, ptr noundef nonnull %18, i32 noundef 10) #15
@@ -2052,7 +2046,7 @@ define internal fastcc ptr @setPath(ptr noundef nonnull %0, ptr noundef %1, ptr 
   unreachable
 
 70:                                               ; preds = %63
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %71
 
 71:                                               ; preds = %70, %49, %44
@@ -2109,7 +2103,7 @@ define internal fastcc ptr @setPath(ptr noundef nonnull %0, ptr noundef %1, ptr 
   br i1 %or.cond5.i, label %97, label %101
 
 97:                                               ; preds = %93
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 8
   br label %.lr.ph.i69
 
@@ -2121,7 +2115,7 @@ define internal fastcc ptr @setPath(ptr noundef nonnull %0, ptr noundef %1, ptr 
   br i1 %100, label %.lr.ph.i69, label %push_null_elements.exit71, !llvm.loop !10
 
 push_null_elements.exit71:                        ; preds = %.lr.ph.i69
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %101
 
 101:                                              ; preds = %push_null_elements.exit71, %93
@@ -2225,7 +2219,7 @@ push_null_elements.exit71:                        ; preds = %.lr.ph.i69
 
 138:                                              ; preds = %136
   %139 = sub nuw i32 %.2123.i, %47
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 0, ptr %10, align 8
   %140 = icmp sgt i32 %139, 0
   br i1 %140, label %.lr.ph.i66, label %push_null_elements.exit68
@@ -2238,7 +2232,7 @@ push_null_elements.exit71:                        ; preds = %.lr.ph.i69
   br i1 %143, label %.lr.ph.i66, label %push_null_elements.exit68, !llvm.loop !10
 
 push_null_elements.exit68:                        ; preds = %.lr.ph.i66, %138
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.thread
 
 .thread:                                          ; preds = %136, %push_null_elements.exit68
@@ -2257,7 +2251,7 @@ push_null_elements.exit68:                        ; preds = %.lr.ph.i66, %138
 
 150:                                              ; preds = %148
   %151 = sub i32 %.2123.i, %47
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 0, ptr %11, align 8
   %152 = icmp sgt i32 %151, 0
   br i1 %152, label %.lr.ph.i, label %push_null_elements.exit
@@ -2270,7 +2264,7 @@ push_null_elements.exit68:                        ; preds = %.lr.ph.i66, %138
   br i1 %155, label %.lr.ph.i, label %push_null_elements.exit, !llvm.loop !10
 
 push_null_elements.exit:                          ; preds = %.lr.ph.i, %150
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %156
 
 156:                                              ; preds = %push_null_elements.exit, %148
@@ -2278,7 +2272,7 @@ push_null_elements.exit:                          ; preds = %.lr.ph.i, %150
   br label %setPathArray.exit
 
 setPathArray.exit:                                ; preds = %.thread, %145, %156
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %157 = call i32 @JsonbIteratorNext(ptr noundef nonnull %0, ptr noundef nonnull %19, i1 noundef zeroext false) #15
   %158 = call ptr @pushJsonbValue(ptr noundef nonnull %4, i32 noundef %157, ptr noundef null) #15
   br label %359
@@ -2287,8 +2281,8 @@ setPathArray.exit:                                ; preds = %.thread, %145, %156
   %160 = call ptr @pushJsonbValue(ptr noundef nonnull %4, i32 noundef 6, ptr noundef null) #15
   %161 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %162 = load i32, ptr %161, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %.not.i47 = icmp slt i32 %5, %3
   br i1 %.not.i47, label %163, label %171
 
@@ -2317,7 +2311,7 @@ setPathArray.exit:                                ; preds = %.thread, %145, %156
   br i1 %or.cond154.i50, label %176, label %207
 
 176:                                              ; preds = %171
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i32 1, ptr %14, align 8
   %177 = load i8, ptr %.0126.i, align 1
   %178 = and i8 %177, 1
@@ -2365,7 +2359,7 @@ setPathArray.exit:                                ; preds = %.thread, %145, %156
   store i32 %204, ptr %182, align 8
   %205 = call ptr @pushJsonbValue(ptr noundef nonnull %4, i32 noundef 1, ptr noundef nonnull %14) #15
   %206 = call ptr @pushJsonbValue(ptr noundef nonnull %4, i32 noundef 2, ptr noundef %6) #15
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %._crit_edge
 
 207:                                              ; preds = %171
@@ -2481,7 +2475,7 @@ setPathArray.exit:                                ; preds = %.thread, %145, %156
   br i1 %or.cond162.i.reass.reass.reass, label %271, label %.thread76
 
 271:                                              ; preds = %269
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i32 1, ptr %15, align 8
   %272 = load i8, ptr %.0126.i, align 1
   %273 = and i8 %272, 1
@@ -2525,7 +2519,7 @@ setPathArray.exit:                                ; preds = %.thread, %145, %156
   store i32 %296, ptr %213, align 8
   %297 = call ptr @pushJsonbValue(ptr noundef nonnull %4, i32 noundef 1, ptr noundef nonnull %15) #15
   %298 = call ptr @pushJsonbValue(ptr noundef nonnull %4, i32 noundef 2, ptr noundef %6) #15
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %.thread76
 
 .thread76:                                        ; preds = %218, %295, %269
@@ -2571,7 +2565,7 @@ setPathArray.exit:                                ; preds = %.thread, %145, %156
   br i1 %or.cond167.i.not, label %setPathObject.exit, label %314
 
 314:                                              ; preds = %._crit_edge
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i32 1, ptr %16, align 8
   %315 = load i8, ptr %.0126.i, align 1
   %316 = and i8 %315, 1
@@ -2618,12 +2612,12 @@ setPathArray.exit:                                ; preds = %.thread, %145, %156
   store i32 %342, ptr %320, align 8
   %343 = call ptr @pushJsonbValue(ptr noundef nonnull %4, i32 noundef 1, ptr noundef nonnull %16) #15
   call fastcc void @push_path(ptr noundef nonnull %4, i32 noundef %5, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %6)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %setPathObject.exit
 
 setPathObject.exit:                               ; preds = %._crit_edge, %341
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #15
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %344 = call i32 @JsonbIteratorNext(ptr noundef nonnull %0, ptr noundef nonnull %19, i1 noundef zeroext true) #15
   %345 = call ptr @pushJsonbValue(ptr noundef nonnull %4, i32 noundef %344, ptr noundef null) #15
   br label %359
@@ -2658,7 +2652,7 @@ setPathObject.exit:                               ; preds = %._crit_edge, %341
 
 359:                                              ; preds = %354, %setPathObject.exit, %setPathArray.exit
   %.0 = phi ptr [ %158, %setPathArray.exit ], [ %345, %setPathObject.exit ], [ %355, %354 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %19) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   ret ptr %.0
 }
 
@@ -2669,7 +2663,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @json_array_length(ptr n
   %4 = load i64, ptr %3, align 8
   %5 = inttoptr i64 %4 to ptr
   %6 = tail call ptr @pg_detoast_datum_packed(ptr noundef %5) #15
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %2) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %7 = tail call ptr @palloc0(i64 noundef 16) #15
   %8 = tail call ptr @pg_detoast_datum_packed(ptr noundef %6) #15
   %9 = load i8, ptr %8, align 1
@@ -2735,7 +2729,7 @@ pg_parse_json_or_errsave.exit:                    ; preds = %makeJsonLexContext.
   %44 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %45 = load i32, ptr %44, align 8
   %46 = sext i32 %45 to i64
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %2) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %46
 }
 
@@ -2780,7 +2774,7 @@ define internal noundef i32 @alen_scalar(ptr noundef readonly captures(none) %0,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @alen_array_element_start(ptr noundef captures(none) %0, i1 zeroext %1) #6 {
+define internal noundef i32 @alen_array_element_start(ptr noundef captures(none) %0, i1 zeroext %1) #5 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %5 = load i32, ptr %4, align 8
@@ -2851,7 +2845,7 @@ define internal fastcc void @each_worker(ptr noundef %0, i1 noundef zeroext %1) 
   %6 = load i64, ptr %5, align 8
   %7 = inttoptr i64 %6 to ptr
   %8 = tail call ptr @pg_detoast_datum_packed(ptr noundef %7) #15
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %9 = tail call ptr @palloc0(i64 noundef 56) #15
   %10 = tail call ptr @palloc0(i64 noundef 80) #15
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2939,7 +2933,7 @@ pg_parse_json_or_errsave.exit:                    ; preds = %makeJsonLexContext.
   call void @freeJsonLexContext(ptr noundef nonnull %3) #15
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %60, align 4
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -2959,8 +2953,8 @@ define internal fastcc void @each_worker_jsonb(ptr noundef %0, ptr noundef %1, i
   %9 = load i64, ptr %8, align 8
   %10 = inttoptr i64 %9 to ptr
   %11 = tail call ptr @pg_detoast_datum(ptr noundef %10) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %13 = load i32, ptr %12, align 4
   %14 = and i32 %13, 536870912
@@ -3000,8 +2994,8 @@ define internal fastcc void @each_worker_jsonb(ptr noundef %0, ptr noundef %1, i
   ]
 
 32:                                               ; preds = %.split.us
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #15
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i16 0, ptr %7, align 2
   %33 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %23, ptr @CurrentMemoryContext, align 8
@@ -3032,8 +3026,8 @@ define internal fastcc void @each_worker_jsonb(ptr noundef %0, ptr noundef %1, i
   call void @tuplestore_putvalues(ptr noundef %46, ptr noundef %47, ptr noundef nonnull %6, ptr noundef nonnull %7) #15
   store ptr %33, ptr @CurrentMemoryContext, align 8
   call void @MemoryContextReset(ptr noundef %23) #15
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %7) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %45, %.split.us
@@ -3051,8 +3045,8 @@ define internal fastcc void @each_worker_jsonb(ptr noundef %0, ptr noundef %1, i
   br label %.split, !llvm.loop !17
 
 49:                                               ; preds = %.split
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #15
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i16 0, ptr %7, align 2
   %50 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %23, ptr @CurrentMemoryContext, align 8
@@ -3070,16 +3064,16 @@ define internal fastcc void @each_worker_jsonb(ptr noundef %0, ptr noundef %1, i
   call void @tuplestore_putvalues(ptr noundef %58, ptr noundef %59, ptr noundef nonnull %6, ptr noundef nonnull %7) #15
   store ptr %50, ptr @CurrentMemoryContext, align 8
   call void @MemoryContextReset(ptr noundef %23) #15
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %7) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.split.backedge
 
 .split22.us:                                      ; preds = %.split, %.split.us
   call void @MemoryContextDelete(ptr noundef %23) #15
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %60, align 4
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -3111,8 +3105,8 @@ define internal fastcc void @elements_worker_jsonb(ptr noundef %0, i1 noundef ze
   %8 = load i64, ptr %7, align 8
   %9 = inttoptr i64 %8 to ptr
   %10 = tail call ptr @pg_detoast_datum(ptr noundef %9) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %12 = load i32, ptr %11, align 4
   %13 = and i32 %12, 268435456
@@ -3161,8 +3155,8 @@ define internal fastcc void @elements_worker_jsonb(ptr noundef %0, i1 noundef ze
   ]
 
 33:                                               ; preds = %.split.us
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #15
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 0, ptr %6, align 1
   %34 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %28, ptr @CurrentMemoryContext, align 8
@@ -3187,8 +3181,8 @@ define internal fastcc void @elements_worker_jsonb(ptr noundef %0, i1 noundef ze
   call void @tuplestore_putvalues(ptr noundef %42, ptr noundef %43, ptr noundef nonnull %5, ptr noundef nonnull %6) #15
   store ptr %34, ptr @CurrentMemoryContext, align 8
   call void @MemoryContextReset(ptr noundef %28) #15
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %41, %.split.us
@@ -3206,8 +3200,8 @@ define internal fastcc void @elements_worker_jsonb(ptr noundef %0, i1 noundef ze
   br label %.split, !llvm.loop !19
 
 45:                                               ; preds = %.split
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #15
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 0, ptr %6, align 1
   %46 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %28, ptr @CurrentMemoryContext, align 8
@@ -3219,16 +3213,16 @@ define internal fastcc void @elements_worker_jsonb(ptr noundef %0, i1 noundef ze
   call void @tuplestore_putvalues(ptr noundef %49, ptr noundef %50, ptr noundef nonnull %5, ptr noundef nonnull %6) #15
   store ptr %46, ptr @CurrentMemoryContext, align 8
   call void @MemoryContextReset(ptr noundef %28) #15
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.split.backedge
 
 .split2.us:                                       ; preds = %.split, %.split.us
   call void @MemoryContextDelete(ptr noundef %28) #15
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %51, align 4
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -3252,7 +3246,7 @@ define internal fastcc void @elements_worker(ptr noundef %0, ptr noundef %1, i1 
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
   %9 = tail call ptr @pg_detoast_datum_packed(ptr noundef %8) #15
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %10 = tail call ptr @pg_detoast_datum_packed(ptr noundef %9) #15
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i32
@@ -3342,7 +3336,7 @@ pg_parse_json_or_errsave.exit:                    ; preds = %makeJsonLexContext.
   call void @freeJsonLexContext(ptr noundef nonnull %4) #15
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %62, align 4
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -3364,10 +3358,10 @@ define internal fastcc i64 @populate_record_worker(ptr noundef %0, ptr noundef %
   %7 = alloca i8, align 1
   %8 = alloca %struct.JsonbValue, align 8
   %9 = zext i1 %2 to i8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %10 = load ptr, ptr %0, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %12 = load ptr, ptr %11, align 8
@@ -3536,23 +3530,23 @@ define internal fastcc i64 @populate_record_worker(ptr noundef %0, ptr noundef %
 
 100:                                              ; preds = %96, %51, %49
   %.0 = phi i64 [ %50, %49 ], [ 0, %51 ], [ %99, %96 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #15
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #15
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i64 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 2) i64 @jsonb_populate_record_valid(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.ErrorSaveContext, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) @__const.jsonb_populate_record_valid.escontext, i64 16, i1 false)
   %3 = call fastcc i64 @populate_record_worker(ptr noundef %0, ptr noundef nonnull @.str.18, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef nonnull %2)
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %5 = load i8, ptr %4, align 4, !range !4, !noundef !5
   %6 = xor i8 %5, 1
   %7 = zext nneg i8 %6 to i64
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %7
 }
 
@@ -3578,9 +3572,9 @@ define dso_local i64 @json_to_record(ptr noundef %0) local_unnamed_addr #0 {
 define dso_local i64 @json_populate_type(i64 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef captures(none) %4, ptr noundef %5, ptr noundef captures(none) %6, i1 noundef zeroext %7, ptr noundef %8) local_unnamed_addr #0 {
   %10 = alloca %struct.JsValue, align 8
   %11 = alloca %struct.JsonbValue, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %12 = icmp eq i32 %1, 114
   %13 = zext i1 %12 to i8
   store i8 %13, ptr %10, align 8
@@ -3689,20 +3683,20 @@ define dso_local i64 @json_populate_type(i64 noundef %0, i32 noundef %1, i32 nou
 73:                                               ; preds = %71, %68
   %74 = phi ptr [ %72, %71 ], [ %69, %68 ]
   %75 = call fastcc i64 @populate_record_field(ptr noundef %74, i32 noundef %2, i32 noundef %3, ptr noundef null, ptr noundef %5, i64 noundef 0, ptr noundef %10, ptr noundef nonnull %6, ptr noundef %8, i1 noundef zeroext %7)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #15
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i64 %75
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
-declare ptr @JsonbUnquote(ptr noundef) local_unnamed_addr #2
+declare ptr @JsonbUnquote(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
-declare ptr @MemoryContextAllocZero(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @MemoryContextAllocZero(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i64 @populate_record_field(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef nonnull readonly captures(none) %6, ptr noundef captures(none) initializes((0, 1)) %7, ptr noundef %8, i1 noundef zeroext %9) unnamed_addr #0 {
@@ -3808,7 +3802,7 @@ switch.early.test:                                ; preds = %55
 
 57:                                               ; preds = %56
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %59 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br i1 %41, label %60, label %82
 
@@ -3828,7 +3822,7 @@ switch.early.test:                                ; preds = %55
   br i1 %67, label %68, label %74
 
 68:                                               ; preds = %64
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @initStringInfo(ptr noundef nonnull %15) #15
   %69 = icmp sgt i32 %62, -1
   br i1 %69, label %70, label %71
@@ -3843,7 +3837,7 @@ switch.early.test:                                ; preds = %55
 
 72:                                               ; preds = %71, %70
   %73 = load ptr, ptr %15, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %.thread64.i
 
 74:                                               ; preds = %64, %60
@@ -3975,12 +3969,12 @@ switch.early.test:                                ; preds = %55
 
 populate_scalar.exit:                             ; preds = %130, %139
   %.1.i = phi i64 [ %140, %139 ], [ %132, %130 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %populate_domain.exit
 
 141:                                              ; preds = %56
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %13) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %143 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %142, ptr %143, align 8
   %144 = getelementptr inbounds nuw i8, ptr %13, i64 24
@@ -4019,8 +4013,8 @@ populate_scalar.exit:                             ; preds = %130, %139
 
 166:                                              ; preds = %163, %159
   %167 = phi i32 [ %165, %163 ], [ %161, %159 ]
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11) #15
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %12) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %168 = sext i32 %167 to i64
   %169 = tail call i32 @GetDatabaseEncoding() #15
   %170 = tail call ptr @makeJsonLexContextCstringLen(ptr noundef null, ptr noundef %158, i64 noundef %168, i32 noundef %169, i1 noundef zeroext true) #15
@@ -4061,16 +4055,16 @@ pg_parse_json_or_errsave.exit.i:                  ; preds = %179, %166
   br i1 %184, label %populate_array_json.exit, label %populate_array_json.exit.thread
 
 populate_array_json.exit.thread:                  ; preds = %182, %pg_parse_json_or_errsave.exit.i
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %12) #15
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %194
 
 populate_array_json.exit:                         ; preds = %182
   %185 = getelementptr inbounds nuw i8, ptr %181, i64 4
   %186 = load i8, ptr %185, align 4, !range !4, !noundef !5
   %187 = trunc nuw i8 %186 to i1
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %12) #15
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br i1 %187, label %populate_array.exit, label %194
 
 188:                                              ; preds = %141
@@ -4120,7 +4114,7 @@ populate_array.exit:                              ; preds = %188, %populate_arra
   %.sink = phi i8 [ 0, %._crit_edge ], [ 1, %populate_array_json.exit ], [ 1, %188 ]
   %.021.i = phi i64 [ %208, %._crit_edge ], [ 0, %populate_array_json.exit ], [ 0, %188 ]
   store i8 %.sink, ptr %7, align 1
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %13) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %populate_domain.exit
 
 211:                                              ; preds = %switch.early.test, %56, %56
@@ -4386,7 +4380,7 @@ update_cached_tupdesc.exit:                       ; preds = %80, %92, %98
 
 116:                                              ; preds = %update_cached_tupdesc.exit
   %117 = tail call ptr @pg_detoast_datum_packed(ptr noundef %115) #15
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %118 = tail call ptr @palloc0(i64 noundef 80) #15
   %119 = tail call ptr @pg_detoast_datum_packed(ptr noundef %117) #15
   %120 = load i8, ptr %119, align 1
@@ -4457,13 +4451,13 @@ makeJsonLexContext.exit:                          ; preds = %125, %134, %138
 pg_parse_json_or_errsave.exit:                    ; preds = %makeJsonLexContext.exit, %156
   call void @freeJsonLexContext(ptr noundef nonnull %5) #15
   store ptr null, ptr %99, align 8
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %184
 
 157:                                              ; preds = %update_cached_tupdesc.exit
   %158 = tail call ptr @pg_detoast_datum(ptr noundef %115) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 4
   %160 = load i32, ptr %159, align 4
   %161 = and i32 %160, 1342177280
@@ -4497,7 +4491,7 @@ pg_parse_json_or_errsave.exit:                    ; preds = %makeJsonLexContext.
   br label %170, !llvm.loop !21
 
 172:                                              ; preds = %170
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %173 = load i32, ptr %7, align 8
   %.not87 = icmp eq i32 %173, 18
   br i1 %.not87, label %174, label %178
@@ -4521,12 +4515,12 @@ pg_parse_json_or_errsave.exit:                    ; preds = %makeJsonLexContext.
   store i8 0, ptr %8, align 8
   store ptr %175, ptr %169, align 8
   call fastcc void @populate_recordset_record(ptr noundef %99, ptr noundef %8)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.backedge
 
 183:                                              ; preds = %170
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %184
 
 184:                                              ; preds = %183, %pg_parse_json_or_errsave.exit
@@ -4570,7 +4564,7 @@ define dso_local i64 @json_strip_nulls(ptr noundef readonly captures(none) %0) l
   %4 = load i64, ptr %3, align 8
   %5 = inttoptr i64 %4 to ptr
   %6 = tail call ptr @pg_detoast_datum_packed(ptr noundef %5) #15
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %2) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %7 = tail call ptr @palloc0(i64 noundef 24) #15
   %8 = tail call ptr @palloc0(i64 noundef 80) #15
   %9 = tail call ptr @pg_detoast_datum_packed(ptr noundef %6) #15
@@ -4651,11 +4645,11 @@ pg_parse_json_or_errsave.exit:                    ; preds = %makeJsonLexContext.
   %53 = load i32, ptr %52, align 8
   %54 = call ptr @cstring_to_text_with_len(ptr noundef %51, i32 noundef %53) #15
   %55 = ptrtoint ptr %54 to i64
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %2) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %55
 }
 
-declare ptr @makeStringInfo() local_unnamed_addr #2
+declare ptr @makeStringInfo() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @sn_object_start(ptr noundef readonly captures(none) %0) #0 {
@@ -4958,7 +4952,7 @@ define internal noundef i32 @sn_object_field_start(ptr noundef captures(none) %0
   ret i32 0
 }
 
-declare ptr @cstring_to_text_with_len(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @cstring_to_text_with_len(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @jsonb_strip_nulls(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -4970,11 +4964,11 @@ define dso_local i64 @jsonb_strip_nulls(ptr noundef readonly captures(none) %0) 
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
   %9 = tail call ptr @pg_detoast_datum(ptr noundef %8) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = and i32 %11, 268435456
@@ -5034,14 +5028,14 @@ define dso_local i64 @jsonb_strip_nulls(ptr noundef readonly captures(none) %0) 
 28:                                               ; preds = %1, %26
   %.016.in = phi ptr [ %27, %26 ], [ %9, %1 ]
   %.016 = ptrtoint ptr %.016.in to i64
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #15
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.016
 }
 
-declare ptr @pushJsonbValue(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @pushJsonbValue(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @jsonb_pretty(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -5062,7 +5056,7 @@ define dso_local i64 @jsonb_pretty(ptr noundef readonly captures(none) %0) local
   ret i64 %15
 }
 
-declare ptr @JsonbToCStringIndent(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @JsonbToCStringIndent(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @jsonb_concat(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -5079,10 +5073,10 @@ define dso_local i64 @jsonb_concat(ptr noundef readonly captures(none) %0) local
   %12 = load i64, ptr %11, align 8
   %13 = inttoptr i64 %12 to ptr
   %14 = tail call ptr @pg_detoast_datum(ptr noundef %13) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %16 = load i32, ptr %15, align 4
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 4
@@ -5111,8 +5105,8 @@ define dso_local i64 @jsonb_concat(ptr noundef readonly captures(none) %0) local
   store ptr %31, ptr %5, align 8
   %32 = tail call ptr @JsonbIteratorInit(ptr noundef nonnull %17) #15
   store ptr %32, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %33 = call i32 @JsonbIteratorNext(ptr noundef nonnull %5, ptr noundef nonnull %2, i1 noundef zeroext false) #15
   %34 = call i32 @JsonbIteratorNext(ptr noundef nonnull %6, ptr noundef nonnull %3, i1 noundef zeroext false) #15
   %35 = icmp eq i32 %33, 6
@@ -5242,17 +5236,17 @@ define dso_local i64 @jsonb_concat(ptr noundef readonly captures(none) %0) local
 
 IteratorConcat.exit:                              ; preds = %.lr.ph82.i, %.lr.ph93.i, %.preheader.i, %.preheader71.i, %.loopexit.sink.split.i
   %.1.i = phi ptr [ null, %.preheader.i ], [ null, %.preheader71.i ], [ %80, %.loopexit.sink.split.i ], [ %45, %.lr.ph93.i ], [ %68, %.lr.ph82.i ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #15
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %81 = call ptr @JsonbValueToJsonb(ptr noundef %.1.i) #15
   br label %82
 
 82:                                               ; preds = %26, %22, %IteratorConcat.exit
   %.0.in = phi ptr [ %81, %IteratorConcat.exit ], [ %14, %22 ], [ %10, %26 ]
   %.0 = ptrtoint ptr %.0.in to i64
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %.0
 }
 
@@ -5306,10 +5300,10 @@ define dso_local i64 @jsonb_delete(ptr noundef readonly captures(none) %0) local
 
 36:                                               ; preds = %29, %32, %20
   %37 = phi i32 [ %27, %20 ], [ %31, %29 ], [ %35, %32 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %38 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %39 = load i32, ptr %38, align 4
   %40 = and i32 %39, 268435456
@@ -5394,9 +5388,9 @@ define dso_local i64 @jsonb_delete(ptr noundef readonly captures(none) %0) local
 75:                                               ; preds = %45, %.outer._crit_edge
   %.0.in = phi ptr [ %74, %.outer._crit_edge ], [ %8, %45 ]
   %.0 = ptrtoint ptr %.0.in to i64
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
 
@@ -5416,13 +5410,13 @@ define dso_local i64 @jsonb_delete_array(ptr noundef readonly captures(none) %0)
   %13 = load i64, ptr %12, align 8
   %14 = inttoptr i64 %13 to ptr
   %15 = tail call ptr @pg_detoast_datum(ptr noundef %14) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #15
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %17 = load i32, ptr %16, align 4
   %18 = icmp sgt i32 %17, 1
@@ -5591,18 +5585,18 @@ define dso_local i64 @jsonb_delete_array(ptr noundef readonly captures(none) %0)
 102:                                              ; preds = %34, %31, %.outer._crit_edge
   %.0.in = phi ptr [ %101, %.outer._crit_edge ], [ %11, %31 ], [ %11, %34 ]
   %.0 = ptrtoint ptr %.0.in to i64
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
 
-declare ptr @pg_detoast_datum(ptr noundef) local_unnamed_addr #2
+declare ptr @pg_detoast_datum(ptr noundef) local_unnamed_addr #1
 
-declare void @deconstruct_array_builtin(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @deconstruct_array_builtin(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @jsonb_delete_idx(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -5616,10 +5610,10 @@ define dso_local i64 @jsonb_delete_idx(ptr noundef readonly captures(none) %0) l
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = load i64, ptr %9, align 8
   %11 = trunc i64 %10 to i32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %13 = load i32, ptr %12, align 4
   %14 = and i32 %13, 268435456
@@ -5707,9 +5701,9 @@ define dso_local i64 @jsonb_delete_idx(ptr noundef readonly captures(none) %0) l
 50:                                               ; preds = %28, %25, %48
   %.023.in = phi ptr [ %49, %48 ], [ %8, %25 ], [ %8, %28 ]
   %.023 = ptrtoint ptr %.023.in to i64
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.023
 }
 
@@ -5733,15 +5727,15 @@ define dso_local i64 @jsonb_set(ptr noundef readonly captures(none) %0) local_un
   %17 = load i64, ptr %16, align 8
   %18 = inttoptr i64 %17 to ptr
   %19 = tail call ptr @pg_detoast_datum(ptr noundef %18) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %21 = load i64, ptr %20, align 8
   %22 = icmp ne i64 %21, 0
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #15
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
   call void @JsonbToJsonbValue(ptr noundef %19, ptr noundef nonnull %2) #15
   %23 = getelementptr inbounds nuw i8, ptr %15, i64 4
@@ -5798,16 +5792,16 @@ define dso_local i64 @jsonb_set(ptr noundef readonly captures(none) %0) local_un
 52:                                               ; preds = %41, %38, %44
   %.0.in = phi ptr [ %51, %44 ], [ %11, %38 ], [ %11, %41 ]
   %.0 = ptrtoint ptr %.0.in to i64
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
 
-declare void @JsonbToJsonbValue(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @JsonbToJsonbValue(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @jsonb_set_lax(ptr noundef captures(none) %0) local_unnamed_addr #0 {
@@ -5926,15 +5920,15 @@ define dso_local i64 @jsonb_set_lax(ptr noundef captures(none) %0) local_unnamed
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
-declare i32 @errdetail(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errdetail(ptr noundef, ...) local_unnamed_addr #1
 
-declare i32 @errhint(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errhint(ptr noundef, ...) local_unnamed_addr #1
 
-declare i64 @DirectFunctionCall1Coll(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @DirectFunctionCall1Coll(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
-declare i64 @jsonb_in(ptr noundef) #2
+declare i64 @jsonb_in(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @jsonb_delete_path(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -5951,11 +5945,11 @@ define dso_local i64 @jsonb_delete_path(ptr noundef readonly captures(none) %0) 
   %12 = load i64, ptr %11, align 8
   %13 = inttoptr i64 %12 to ptr
   %14 = tail call ptr @pg_detoast_datum(ptr noundef %13) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #15
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %16 = load i32, ptr %15, align 4
@@ -6009,11 +6003,11 @@ define dso_local i64 @jsonb_delete_path(ptr noundef readonly captures(none) %0) 
 43:                                               ; preds = %33, %30, %36
   %.0.in = phi ptr [ %42, %36 ], [ %10, %30 ], [ %10, %33 ]
   %.0 = ptrtoint ptr %.0.in to i64
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
 
@@ -6037,15 +6031,15 @@ define dso_local i64 @jsonb_insert(ptr noundef readonly captures(none) %0) local
   %17 = load i64, ptr %16, align 8
   %18 = inttoptr i64 %17 to ptr
   %19 = tail call ptr @pg_detoast_datum(ptr noundef %18) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %21 = load i64, ptr %20, align 8
   %.not12 = icmp eq i64 %21, 0
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #15
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
   call void @JsonbToJsonbValue(ptr noundef %19, ptr noundef nonnull %2) #15
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 4
@@ -6096,12 +6090,12 @@ define dso_local i64 @jsonb_insert(ptr noundef readonly captures(none) %0) local
 48:                                               ; preds = %37, %40
   %.0.in = phi ptr [ %47, %40 ], [ %11, %37 ]
   %.0 = ptrtoint ptr %.0.in to i64
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
 
@@ -6109,8 +6103,8 @@ define dso_local i64 @jsonb_insert(ptr noundef readonly captures(none) %0) local
 define dso_local range(i32 0, 16) i32 @parse_jsonb_index_flags(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca %struct.JsonbValue, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = tail call ptr @JsonbIteratorInit(ptr noundef nonnull %4) #15
   store ptr %5, ptr %2, align 8
@@ -6269,21 +6263,21 @@ thread-pre-split13:                               ; preds = %31
   unreachable
 
 78:                                               ; preds = %73
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
 
-declare i32 @pg_strncasecmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @pg_strncasecmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare ptr @pnstrdup(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @pnstrdup(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @iterate_jsonb_values(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca %struct.JsonbValue, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %8 = tail call ptr @JsonbIteratorInit(ptr noundef nonnull %7) #15
   store ptr %8, ptr %5, align 8
@@ -6531,17 +6525,17 @@ define dso_local void @iterate_jsonb_values(ptr noundef %0, i32 noundef %1, ptr 
   br label %.split.split.split.backedge
 
 .split26.us:                                      ; preds = %.split.split.split, %.split.split.split.us, %.split.split.us, %.split.us
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
-declare i64 @numeric_out(ptr noundef) #2
+declare i64 @numeric_out(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @iterate_json_values(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.JsonLexContext, align 8
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = tail call ptr @palloc0(i64 noundef 80) #15
   %7 = tail call ptr @palloc0(i64 noundef 32) #15
   %8 = tail call ptr @pg_detoast_datum_packed(ptr noundef %0) #15
@@ -6608,7 +6602,7 @@ makeJsonLexContext.exit:                          ; preds = %14, %23, %27
 
 pg_parse_json_or_errsave.exit:                    ; preds = %makeJsonLexContext.exit, %43
   call void @freeJsonLexContext(ptr noundef nonnull %5) #15
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -6684,9 +6678,9 @@ define dso_local ptr @transform_jsonb_string_values(ptr noundef %0, ptr noundef 
   %4 = alloca ptr, align 8
   %5 = alloca %struct.JsonbValue, align 8
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %8 = tail call ptr @JsonbIteratorInit(ptr noundef nonnull %7) #15
@@ -6785,16 +6779,16 @@ define dso_local ptr @transform_jsonb_string_values(ptr noundef %0, ptr noundef 
 
 60:                                               ; preds = %58, %._crit_edge
   %61 = call ptr @JsonbValueToJsonb(ptr noundef nonnull %.0.lcssa) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #15
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %61
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @transform_json_string_values(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.JsonLexContext, align 8
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call ptr @palloc0(i64 noundef 80) #15
   %6 = tail call ptr @palloc0(i64 noundef 32) #15
   %7 = tail call ptr @pg_detoast_datum_packed(ptr noundef %0) #15
@@ -6877,7 +6871,7 @@ pg_parse_json_or_errsave.exit:                    ; preds = %makeJsonLexContext.
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %52 = load i32, ptr %51, align 8
   %53 = call ptr @cstring_to_text_with_len(ptr noundef %50, i32 noundef %52) #15
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %53
 }
 
@@ -7176,7 +7170,7 @@ define internal noundef i32 @transform_string_values_object_field_start(ptr noun
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @json_get_first_token(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = alloca %struct.JsonLexContext, align 8
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = tail call ptr @pg_detoast_datum_packed(ptr noundef %0) #15
   %5 = load i8, ptr %4, align 1
   %6 = zext i8 %5 to i32
@@ -7237,17 +7231,17 @@ makeJsonLexContext.exit:                          ; preds = %10, %19, %23
 
 40:                                               ; preds = %38, %39, %35
   %.0 = phi i32 [ %37, %35 ], [ 0, %39 ], [ 0, %38 ]
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
-declare i32 @json_lex(ptr noundef) local_unnamed_addr #2
+declare i32 @json_lex(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @json_categorize_type(i32 noundef %0, i1 noundef zeroext %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr noundef initializes((0, 4)) %3) local_unnamed_addr #0 {
   %5 = alloca i8, align 1
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = tail call i32 @getBaseType(i32 noundef %0) #15
   store i32 0, ptr %3, align 4
   switch i32 %7, label %16 [
@@ -7334,7 +7328,7 @@ switch.early.test:                                ; preds = %16
   br i1 %23, label %24, label %32
 
 24:                                               ; preds = %22
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %25 = call i32 @find_coercion_pathway(i32 noundef 114, i32 noundef %7, i32 noundef 3, ptr noundef nonnull %6) #15
   %26 = icmp eq i32 %25, 1
   %27 = load i32, ptr %6, align 4
@@ -7352,7 +7346,7 @@ switch.early.test:                                ; preds = %16
   br label %31
 
 31:                                               ; preds = %30, %29
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %33
 
 32:                                               ; preds = %22
@@ -7360,31 +7354,31 @@ switch.early.test:                                ; preds = %16
   br label %33
 
 33:                                               ; preds = %18, %31, %32, %21, %14, %13, %12, %11, %10, %9, %8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
-declare i32 @getBaseType(i32 noundef) local_unnamed_addr #2
+declare i32 @getBaseType(i32 noundef) local_unnamed_addr #1
 
-declare void @getTypeOutputInfo(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @getTypeOutputInfo(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @get_element_type(i32 noundef) local_unnamed_addr #2
+declare i32 @get_element_type(i32 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @type_is_rowtype(i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @type_is_rowtype(i32 noundef) local_unnamed_addr #1
 
-declare i32 @find_coercion_pathway(i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @find_coercion_pathway(i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @pg_mblen(ptr noundef) local_unnamed_addr #2
+declare i32 @pg_mblen(ptr noundef) local_unnamed_addr #1
 
-declare i32 @set_errcontext_domain(ptr noundef) local_unnamed_addr #2
+declare i32 @set_errcontext_domain(ptr noundef) local_unnamed_addr #1
 
-declare i32 @errcontext_msg(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errcontext_msg(ptr noundef, ...) local_unnamed_addr #1
 
-declare ptr @repalloc(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @repalloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare ptr @pstrdup(ptr noundef) local_unnamed_addr #2
+declare ptr @pstrdup(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @array_contains_nulls(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @array_contains_nulls(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @get_scalar(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2) #0 {
@@ -7454,7 +7448,7 @@ define internal noundef i32 @get_scalar(ptr noundef captures(none) %0, ptr nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @get_object_start(ptr noundef captures(none) %0) #6 {
+define internal noundef i32 @get_object_start(ptr noundef captures(none) %0) #5 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %4 = load i32, ptr %3, align 8
@@ -7535,7 +7529,7 @@ define internal noundef i32 @get_array_start(ptr noundef captures(none) %0) #0 {
   br i1 %or.cond, label %38, label %18
 
 18:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %19 = load ptr, ptr %0, align 8
   %20 = call i32 @json_count_array_elements(ptr noundef %19, ptr noundef nonnull %2) #15
   %.not25 = icmp eq i32 %20, 0
@@ -7561,7 +7555,7 @@ define internal noundef i32 @get_array_start(ptr noundef captures(none) %0) #0 {
   br label %31
 
 31:                                               ; preds = %29, %23
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %38
 
 32:                                               ; preds = %1
@@ -7613,7 +7607,7 @@ define internal noundef i32 @get_array_end(ptr noundef captures(none) %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @get_object_field_start(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i1 zeroext %2) #9 {
+define internal noundef i32 @get_object_field_start(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i1 zeroext %2) #8 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %6 = load i32, ptr %5, align 8
@@ -7773,7 +7767,7 @@ define internal noundef i32 @get_object_field_end(ptr noundef captures(none) %0,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @get_array_element_start(ptr noundef captures(none) %0, i1 zeroext %1) #10 {
+define internal noundef i32 @get_array_element_start(ptr noundef captures(none) %0, i1 zeroext %1) #9 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %5 = load i32, ptr %4, align 8
@@ -7948,19 +7942,19 @@ define internal noundef i32 @get_array_element_end(ptr noundef captures(none) %0
   ret i32 0
 }
 
-declare i32 @json_count_array_elements(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @json_count_array_elements(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @initStringInfo(ptr noundef) local_unnamed_addr #2
+declare void @initStringInfo(ptr noundef) local_unnamed_addr #1
 
-declare void @InitMaterializedSRF(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @InitMaterializedSRF(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @AllocSetContextCreateInternal(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @AllocSetContextCreateInternal(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @tuplestore_putvalues(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @tuplestore_putvalues(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @MemoryContextReset(ptr noundef) local_unnamed_addr #2
+declare void @MemoryContextReset(ptr noundef) local_unnamed_addr #1
 
-declare void @MemoryContextDelete(ptr noundef) local_unnamed_addr #2
+declare void @MemoryContextDelete(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @each_array_start(ptr noundef readonly captures(none) %0) #0 {
@@ -8014,7 +8008,7 @@ define internal noundef i32 @each_scalar(ptr noundef captures(none) %0, ptr noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @each_object_field_start(ptr noundef captures(none) %0, ptr readnone captures(none) %1, i1 zeroext %2) #6 {
+define internal noundef i32 @each_object_field_start(ptr noundef captures(none) %0, ptr readnone captures(none) %1, i1 zeroext %2) #5 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %6 = load i32, ptr %5, align 8
@@ -8053,8 +8047,8 @@ define internal noundef i32 @each_object_field_start(ptr noundef captures(none) 
 define internal noundef i32 @each_object_field_end(ptr noundef captures(none) %0, ptr noundef %1, i1 noundef zeroext %2) #0 {
   %4 = alloca [2 x i64], align 16
   %5 = alloca [2 x i8], align 2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #15
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i16 0, ptr %5, align 2
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 56
@@ -8130,14 +8124,14 @@ define internal noundef i32 @each_object_field_end(ptr noundef captures(none) %0
   br label %52
 
 52:                                               ; preds = %3, %45
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 0
 }
 
-declare ptr @heap_form_tuple(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @heap_form_tuple(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @tuplestore_puttuple(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @tuplestore_puttuple(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @elements_object_start(ptr noundef readonly captures(none) %0) #0 {
@@ -8195,7 +8189,7 @@ define internal noundef i32 @elements_scalar(ptr noundef captures(none) %0, ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @elements_array_element_start(ptr noundef captures(none) %0, i1 zeroext %1) #6 {
+define internal noundef i32 @elements_array_element_start(ptr noundef captures(none) %0, i1 zeroext %1) #5 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %5 = load i32, ptr %4, align 8
@@ -8234,8 +8228,8 @@ define internal noundef i32 @elements_array_element_start(ptr noundef captures(n
 define internal noundef i32 @elements_array_element_end(ptr noundef captures(none) %0, i1 noundef zeroext %1) #0 {
   %3 = alloca [1 x i64], align 8
   %4 = alloca [1 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #15
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 0, ptr %4, align 1
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 56
@@ -8304,12 +8298,12 @@ define internal noundef i32 @elements_array_element_end(ptr noundef captures(non
   br label %45
 
 45:                                               ; preds = %2, %38
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 0
 }
 
-declare void @check_stack_depth() local_unnamed_addr #2
+declare void @check_stack_depth() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @prepare_column_cache(ptr noundef initializes((0, 8)) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i1 noundef zeroext %4) unnamed_addr #0 {
@@ -8343,7 +8337,7 @@ define internal fastcc void @prepare_column_cache(ptr noundef initializes((0, 8)
   br i1 %22, label %23, label %40
 
 23:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 %2, ptr %6, align 4
   %24 = call i32 @getBaseTypeAndTypmod(i32 noundef %1, ptr noundef nonnull %6) #15
   %25 = call signext i8 @get_typtype(i32 noundef %24) #15
@@ -8378,7 +8372,7 @@ define internal fastcc void @prepare_column_cache(ptr noundef initializes((0, 8)
   store ptr null, ptr %38, align 8
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %.sink, ptr %39, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %64
 
 40:                                               ; preds = %14
@@ -8434,13 +8428,13 @@ define internal fastcc void @prepare_column_cache(ptr noundef initializes((0, 8)
   br i1 %4, label %65, label %69
 
 65:                                               ; preds = %.critedge, %64
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @getTypeInputInfo(i32 noundef %1, ptr noundef nonnull %7, ptr noundef nonnull %66) #15
   %67 = load i32, ptr %7, align 4
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @fmgr_info_cxt(i32 noundef %67, ptr noundef nonnull %68, ptr noundef %3) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %69
 
 69:                                               ; preds = %65, %64
@@ -8512,7 +8506,7 @@ update_cached_tupdesc.exit:                       ; preds = %17, %29, %35
   br i1 %37, label %118, label %38
 
 38:                                               ; preds = %update_cached_tupdesc.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %39 = load i8, ptr %4, align 8, !range !4, !noundef !5
   store i8 %39, ptr %9, align 8
   %40 = trunc nuw i8 %39 to i1
@@ -8533,7 +8527,7 @@ update_cached_tupdesc.exit:                       ; preds = %17, %29, %35
 
 50:                                               ; preds = %47, %43
   %51 = phi i32 [ %49, %47 ], [ %45, %43 ]
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %8) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %52 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store i64 64, ptr %52, align 8
   %53 = getelementptr inbounds nuw i8, ptr %8, i64 40
@@ -8576,7 +8570,7 @@ get_json_object_as_hash.exit.i:                   ; preds = %70, %50
   %.0.i.i = phi ptr [ null, %70 ], [ %56, %50 ]
   %72 = load ptr, ptr %57, align 8
   call void @freeJsonLexContext(ptr noundef %72) #15
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %8) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %73 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %.0.i.i, ptr %73, align 8
   br label %95
@@ -8680,7 +8674,7 @@ JsValueToJsObject.exit:                           ; preds = %99
   br label %117
 
 117:                                              ; preds = %113, %116
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %118
 
 118:                                              ; preds = %117, %update_cached_tupdesc.exit
@@ -8705,7 +8699,7 @@ JsValueToJsObject.exit:                           ; preds = %99
 
 .critedge:                                        ; preds = %109, %JsValueToJsObject.exit
   store i8 1, ptr %5, align 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %129
 
 129:                                              ; preds = %118, %123, %.critedge, %128
@@ -8713,25 +8707,25 @@ JsValueToJsObject.exit:                           ; preds = %99
   ret i64 %.1
 }
 
-declare ptr @SearchSysCache1(i32 noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @SearchSysCache1(i32 noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @getBaseTypeAndTypmod(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @getBaseTypeAndTypmod(i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare signext i8 @get_typtype(i32 noundef) local_unnamed_addr #2
+declare signext i8 @get_typtype(i32 noundef) local_unnamed_addr #1
 
-declare void @getTypeInputInfo(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @getTypeInputInfo(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @fmgr_info_cxt(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @fmgr_info_cxt(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ReleaseSysCache(ptr noundef) local_unnamed_addr #2
+declare void @ReleaseSysCache(ptr noundef) local_unnamed_addr #1
 
-declare void @escape_json_with_len(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @escape_json_with_len(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @escape_json(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @escape_json(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @InputFunctionCallSafe(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @InputFunctionCallSafe(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @initArrayResult(i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare ptr @initArrayResult(i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i1 @populate_array_dim_jsonb(ptr noundef nonnull captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) unnamed_addr #0 {
@@ -8741,9 +8735,9 @@ define internal fastcc noundef zeroext i1 @populate_array_dim_jsonb(ptr noundef 
   %7 = alloca %struct.JsValue, align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load ptr, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #15
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   tail call void @check_stack_depth() #15
   %10 = load i32, ptr %1, align 8
   %.not = icmp eq i32 %10, 18
@@ -8850,7 +8844,7 @@ populate_array_assign_ndims.exit.thread:          ; preds = %41, %16
   br i1 %or.cond31, label %87, label %57
 
 57:                                               ; preds = %54
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %58 = load ptr, ptr %47, align 8
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 8
@@ -8889,11 +8883,11 @@ populate_array_element.exit.thread:               ; preds = %57, %68, %71
   %85 = load i32, ptr %84, align 4
   %86 = add i32 %85, 1
   store i32 %86, ptr %84, align 4
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %91
 
 populate_array_element.exit:                      ; preds = %71
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit
 
 87:                                               ; preds = %54
@@ -8915,13 +8909,13 @@ populate_array_element.exit:                      ; preds = %71
 
 .loopexit:                                        ; preds = %89, %87, %populate_array_element.exit, %populate_array_assign_ndims.exit, %._crit_edge, %14
   %.022 = phi i1 [ false, %14 ], [ true, %._crit_edge ], [ false, %populate_array_assign_ndims.exit ], [ false, %populate_array_element.exit ], [ false, %87 ], [ false, %89 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #15
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.022
 }
 
-declare i64 @makeMdArrayResult(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare i64 @makeMdArrayResult(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 24) i32 @populate_array_object_start(ptr noundef readonly captures(none) %0) #0 {
@@ -9037,7 +9031,7 @@ populate_array_assign_ndims.exit.thread:          ; preds = %populate_array_assi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @populate_array_element_start(ptr noundef captures(none) %0, i1 zeroext %1) #6 {
+define internal noundef i32 @populate_array_element_start(ptr noundef captures(none) %0, i1 zeroext %1) #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 56
@@ -9084,7 +9078,7 @@ define internal range(i32 0, 24) i32 @populate_array_element_end(ptr noundef rea
   br i1 %12, label %13, label %70
 
 13:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 1, ptr %4, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %15 = load i32, ptr %14, align 8
@@ -9123,7 +9117,7 @@ define internal range(i32 0, 24) i32 @populate_array_element_end(ptr noundef rea
   %.sink = phi i32 [ -1, %22 ], [ %31, %23 ], [ 0, %18 ]
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 %.sink, ptr %33, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %35 = load ptr, ptr %34, align 8
   %36 = load ptr, ptr %35, align 8
@@ -9173,8 +9167,8 @@ populate_array_element.exit.thread:               ; preds = %32, %47, %50
 
 .sink.split:                                      ; preds = %50, %populate_array_element.exit.thread
   %.1.ph = phi i32 [ 0, %populate_array_element.exit.thread ], [ 23, %50 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #15
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %70
 
 70:                                               ; preds = %.sink.split, %2
@@ -9286,7 +9280,7 @@ define internal fastcc void @populate_array_report_expected_array(ptr noundef re
   br label %47
 
 21:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @initStringInfo(ptr noundef nonnull %3) #15
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %wide.trip.count = zext nneg i32 %1 to i64
@@ -9338,14 +9332,14 @@ define internal fastcc void @populate_array_report_expected_array(ptr noundef re
   br label %46
 
 46:                                               ; preds = %.sink.split, %40, %33
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %47
 
 47:                                               ; preds = %17, %18, %11, %12, %46
   ret void
 }
 
-declare void @appendStringInfo(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @appendStringInfo(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i1 @populate_array_check_dimension(ptr noundef readonly captures(none) %0, i32 noundef %1) unnamed_addr #0 {
@@ -9405,7 +9399,7 @@ define internal fastcc noundef zeroext i1 @populate_array_check_dimension(ptr no
   ret i1 %.0
 }
 
-declare ptr @accumArrayResult(ptr noundef, i64 noundef, i1 noundef zeroext, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @accumArrayResult(ptr noundef, i64 noundef, i1 noundef zeroext, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @populate_record(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull readonly captures(none) %4, ptr noundef %5) unnamed_addr #0 {
@@ -9578,7 +9572,7 @@ allocate_record_info.exit:                        ; preds = %allocate_record_inf
   br i1 %exitcond.not, label %.lr.ph110, label %.lr.ph108, !llvm.loop !44
 
 .loopexit:                                        ; preds = %80
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.val = load i32, ptr %2, align 4
   %87 = lshr i32 %.val, 2
   store i32 %87, ptr %7, align 8
@@ -9593,7 +9587,7 @@ allocate_record_info.exit:                        ; preds = %allocate_record_inf
   %92 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %2, ptr %92, align 8
   call void @heap_deform_tuple(ptr noundef nonnull %7, ptr noundef nonnull %0, ptr noundef %82, ptr noundef %83) #15
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %93 = icmp sgt i32 %10, 0
   br i1 %93, label %.lr.ph110, label %._crit_edge
 
@@ -9615,7 +9609,7 @@ allocate_record_info.exit:                        ; preds = %allocate_record_inf
   %104 = getelementptr i8, ptr %103, i64 24
   %105 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %104, i64 %indvars.iv113
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
   %107 = getelementptr inbounds nuw i8, ptr %105, i64 91
   %108 = load i8, ptr %107, align 1, !range !4, !noundef !5
@@ -9708,7 +9702,7 @@ JsObjectGetField.exit:                            ; preds = %126, %134
   br label %153
 
 153:                                              ; preds = %JsObjectGetField.exit, %149, %110
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1
   %exitcond117.not = icmp eq i64 %indvars.iv.next114, %wide.trip.count116
   br i1 %exitcond117.not, label %._crit_edge, label %99, !llvm.loop !45
@@ -9726,21 +9720,21 @@ JsObjectGetField.exit:                            ; preds = %126, %134
   ret ptr %.0
 }
 
-declare i64 @HeapTupleHeaderGetDatum(ptr noundef) local_unnamed_addr #2
+declare i64 @HeapTupleHeaderGetDatum(ptr noundef) local_unnamed_addr #1
 
-declare void @hash_destroy(ptr noundef) local_unnamed_addr #2
+declare void @hash_destroy(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @domain_check_safe(i64 noundef, i1 noundef zeroext, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @domain_check_safe(i64 noundef, i1 noundef zeroext, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @lookup_rowtype_tupdesc(i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @lookup_rowtype_tupdesc(i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @FreeTupleDesc(ptr noundef) local_unnamed_addr #2
+declare void @FreeTupleDesc(ptr noundef) local_unnamed_addr #1
 
-declare ptr @CreateTupleDescCopy(ptr noundef) local_unnamed_addr #2
+declare ptr @CreateTupleDescCopy(ptr noundef) local_unnamed_addr #1
 
-declare void @DecrTupleDescRefCount(ptr noundef) local_unnamed_addr #2
+declare void @DecrTupleDescRefCount(ptr noundef) local_unnamed_addr #1
 
-declare ptr @hash_create(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @hash_create(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @hash_array_start(ptr noundef readonly captures(none) %0) #0 {
@@ -9794,7 +9788,7 @@ define internal noundef i32 @hash_scalar(ptr noundef captures(none) %0, ptr noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @hash_object_field_start(ptr noundef captures(none) %0, ptr readnone captures(none) %1, i1 zeroext %2) #6 {
+define internal noundef i32 @hash_object_field_start(ptr noundef captures(none) %0, ptr readnone captures(none) %1, i1 zeroext %2) #5 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %6 = load i32, ptr %5, align 8
@@ -9829,7 +9823,7 @@ define internal noundef i32 @hash_object_field_start(ptr noundef captures(none) 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @hash_object_field_end(ptr noundef readonly captures(none) %0, ptr noundef %1, i1 zeroext %2) #0 {
   %4 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %7 = load i32, ptr %6, align 8
@@ -9884,17 +9878,17 @@ define internal noundef i32 @hash_object_field_end(ptr noundef readonly captures
   br label %38
 
 38:                                               ; preds = %.sink.split, %9, %3
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 0
 }
 
-declare ptr @hash_search(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @hash_search(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i64 @hash_get_num_entries(ptr noundef) local_unnamed_addr #2
+declare i64 @hash_get_num_entries(ptr noundef) local_unnamed_addr #1
 
-declare void @heap_deform_tuple(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @heap_deform_tuple(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @MemoryContextAlloc(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @MemoryContextAlloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @get_record_type_from_argument(ptr %.0.val, ptr noundef %0, ptr noundef initializes((0, 4), (8, 16)) %1) unnamed_addr #0 {
@@ -9926,7 +9920,7 @@ define internal fastcc void @get_record_type_from_argument(ptr %.0.val, ptr noun
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @get_record_type_from_query(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call i32 @get_call_result_type(ptr noundef %0, ptr noundef null, ptr noundef nonnull %4) #15
   %.not = icmp eq i32 %5, 1
   br i1 %.not, label %11, label %6
@@ -9973,18 +9967,18 @@ define internal fastcc void @get_record_type_from_query(ptr noundef %0, ptr noun
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 100
   store i32 %29, ptr %30, align 4
   store ptr %22, ptr @CurrentMemoryContext, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
-declare i32 @get_fn_expr_argtype(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @get_fn_expr_argtype(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @get_call_result_type(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @get_call_result_type(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @tuplestore_begin_heap(i1 noundef zeroext, i1 noundef zeroext, i32 noundef) local_unnamed_addr #2
+declare ptr @tuplestore_begin_heap(i1 noundef zeroext, i1 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @populate_recordset_array_start(ptr readnone captures(none) %0) #11 {
+define internal noundef i32 @populate_recordset_array_start(ptr readnone captures(none) %0) #10 {
   ret i32 0
 }
 
@@ -10046,7 +10040,7 @@ define internal noundef i32 @populate_recordset_scalar(ptr noundef captures(none
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @populate_recordset_object_field_start(ptr noundef captures(none) %0, ptr readnone captures(none) %1, i1 zeroext %2) #6 {
+define internal noundef i32 @populate_recordset_object_field_start(ptr noundef captures(none) %0, ptr readnone captures(none) %1, i1 zeroext %2) #5 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %6 = load i32, ptr %5, align 8
@@ -10081,7 +10075,7 @@ define internal noundef i32 @populate_recordset_object_field_start(ptr noundef c
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @populate_recordset_object_field_end(ptr noundef readonly captures(none) %0, ptr noundef %1, i1 zeroext %2) #0 {
   %4 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %7 = load i32, ptr %6, align 8
@@ -10136,7 +10130,7 @@ define internal noundef i32 @populate_recordset_object_field_end(ptr noundef rea
   br label %38
 
 38:                                               ; preds = %.sink.split, %9, %3
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 0
 }
 
@@ -10146,7 +10140,7 @@ define internal noundef i32 @populate_recordset_object_start(ptr noundef capture
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %5 = load i32, ptr %4, align 8
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %2) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %13
 
@@ -10178,14 +10172,14 @@ define internal noundef i32 @populate_recordset_object_start(ptr noundef capture
   br label %22
 
 22:                                               ; preds = %13, %15
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %2) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @populate_recordset_object_end(ptr noundef captures(none) %0) #0 {
   %2 = alloca %struct.JsObject, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %5 = load i32, ptr %4, align 8
@@ -10205,7 +10199,7 @@ define internal noundef i32 @populate_recordset_object_end(ptr noundef captures(
   br label %12
 
 12:                                               ; preds = %1, %7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 0
 }
 
@@ -10214,7 +10208,7 @@ define internal fastcc void @populate_recordset_record(ptr noundef readonly capt
   %3 = alloca %struct.HeapTupleData, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 80
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 112
   %8 = load ptr, ptr %7, align 8
@@ -10309,13 +10303,13 @@ update_cached_tupdesc.exit:                       ; preds = %16, %28, %34
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %57 = load ptr, ptr %56, align 8
   call void @tuplestore_puttuple(ptr noundef %57, ptr noundef nonnull %3) #15
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-declare void @appendStringInfoChar(ptr noundef, i8 noundef signext) local_unnamed_addr #2
+declare void @appendStringInfoChar(ptr noundef, i8 noundef signext) local_unnamed_addr #1
 
-declare void @appendStringInfoString(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @appendStringInfoString(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @push_path(ptr noundef nonnull %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4, ptr noundef %5) unnamed_addr #0 {
@@ -10326,7 +10320,7 @@ define internal fastcc void @push_path(ptr noundef nonnull %0, i32 noundef %1, p
   %11 = sext i32 %10 to i64
   %12 = shl nsw i64 %11, 2
   %13 = tail call ptr @palloc0(i64 noundef %12) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.04348 = add i32 %1, 1
   %14 = icmp slt i32 %.04348, %4
   br i1 %14, label %.lr.ph, label %.loopexit
@@ -10339,7 +10333,7 @@ define internal fastcc void @push_path(ptr noundef nonnull %0, i32 noundef %1, p
 
 18:                                               ; preds = %.lr.ph, %46
   %indvars.iv = phi i64 [ %17, %.lr.ph ], [ %indvars.iv.next, %46 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %19 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv
   %20 = load i8, ptr %19, align 1, !range !4, !noundef !5
   %21 = trunc nuw i8 %20 to i1
@@ -10379,7 +10373,7 @@ define internal fastcc void @push_path(ptr noundef nonnull %0, i32 noundef %1, p
 
 40:                                               ; preds = %33
   %41 = call ptr @pushJsonbValue(ptr noundef nonnull %0, i32 noundef 4, ptr noundef null) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 8
   %42 = icmp sgt i32 %28, 0
   br i1 %42, label %.lr.ph.i, label %push_null_elements.exit
@@ -10392,7 +10386,7 @@ define internal fastcc void @push_path(ptr noundef nonnull %0, i32 noundef %1, p
   br i1 %45, label %.lr.ph.i, label %push_null_elements.exit, !llvm.loop !10
 
 push_null_elements.exit:                          ; preds = %.lr.ph.i, %40
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %46
 
 46:                                               ; preds = %35, %push_null_elements.exit
@@ -10402,14 +10396,14 @@ push_null_elements.exit:                          ; preds = %.lr.ph.i, %40
   %49 = sext i32 %48 to i64
   %50 = getelementptr inbounds i32, ptr %13, i64 %49
   store i32 %.sink, ptr %50, align 4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %4, %lftr.wideiv
   br i1 %exitcond.not, label %.loopexit, label %18, !llvm.loop !46
 
 .critedge:                                        ; preds = %18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %46, %6, %.critedge
@@ -10450,11 +10444,17 @@ push_null_elements.exit:                          ; preds = %.lr.ph.i, %40
   br i1 %71, label %.lr.ph52, label %._crit_edge, !llvm.loop !47
 
 ._crit_edge:                                      ; preds = %63, %.lr.ph52, %.loopexit
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
 
-declare void @escape_json_text(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @escape_json_text(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #12
@@ -10466,17 +10466,17 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 declare i64 @llvm.umax.i64(i64, i64) #14
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }

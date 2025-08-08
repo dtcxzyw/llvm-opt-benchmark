@@ -133,7 +133,7 @@ define dso_local void @_ZN9Stockfish6ThreadC2ERNS_6Search11SharedStateESt10uniqu
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN9Stockfish6ThreadE, i64 16), ptr %0, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %12 = tail call noalias noundef nonnull align 64 dereferenceable(9583808) ptr @_ZnwmSt11align_val_t(i64 noundef 9583808, i64 noundef 64) #14, !noalias !5
   %13 = load i64, ptr %2, align 8, !noalias !5
   store i64 %13, ptr %7, align 8, !noalias !5
@@ -152,7 +152,7 @@ _ZNKSt14default_deleteIN9Stockfish6Search14ISearchManagerEEclEPS2_.exit.i.i: ; p
   br label %_ZSt11make_uniqueIN9Stockfish6Search6WorkerEJRNS1_11SharedStateESt10unique_ptrINS1_14ISearchManagerESt14default_deleteIS6_EERmEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
 
 _ZSt11make_uniqueIN9Stockfish6Search6WorkerEJRNS1_11SharedStateESt10unique_ptrINS1_14ISearchManagerESt14default_deleteIS6_EERmEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit: ; preds = %4, %_ZNKSt14default_deleteIN9Stockfish6Search14ISearchManagerEEclEPS2_.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %18, i8 0, i64 40, i1 false)
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -192,7 +192,7 @@ _ZN9Stockfish6OptionD2Ev.exit:                    ; preds = %_ZSt11make_uniqueIN
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 121
   store i8 1, ptr %34, align 1
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %36 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #14
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 24
@@ -211,8 +211,8 @@ _ZN9Stockfish6OptionD2Ev.exit:                    ; preds = %_ZSt11make_uniqueIN
   %43 = call i32 @pthread_attr_init(ptr noundef nonnull %6) #15
   %44 = call i32 @pthread_attr_setstacksize(ptr noundef nonnull %6, i64 noundef 8388608) #15
   %45 = call i32 @pthread_create(ptr noundef nonnull align 8 dereferenceable(8) %35, ptr noundef nonnull %6, ptr noundef nonnull @_ZZN9Stockfish12NativeThreadC1IMNS_6ThreadEFvvEJPS2_EEEOT_DpOT0_ENUlPvE_8__invokeESB_, ptr noundef nonnull %36) #15
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %18, ptr %5, align 8
   %46 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %47 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %18) #15
@@ -249,7 +249,7 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i:       ; preds = %_ZN9Stockfish6Optio
   br label %_ZN9Stockfish6Thread24wait_for_search_finishedEv.exit
 
 _ZN9Stockfish6Thread24wait_for_search_finishedEv.exit: ; preds = %"_ZNSt18condition_variable4waitIZN9Stockfish6Thread24wait_for_search_finishedEvE3$_0EEvRSt11unique_lockISt5mutexET_.exit.i", %"_ZNSt18condition_variable4waitIZN9Stockfish6Thread24wait_for_search_finishedEvE3$_0EEvRSt11unique_lockISt5mutexET_.exit.thread.i.thread"
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -574,7 +574,7 @@ define dso_local void @_ZN9Stockfish10ThreadPool3setENS_6Search11SharedStateE(pt
 
 17:                                               ; preds = %2
   %18 = load ptr, ptr %16, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store ptr %19, ptr %4, align 8
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -614,7 +614,7 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i:       ; preds = %17
   br label %_ZN9Stockfish6Thread24wait_for_search_finishedEv.exit
 
 _ZN9Stockfish6Thread24wait_for_search_finishedEv.exit: ; preds = %"_ZNSt18condition_variable4waitIZN9Stockfish6Thread24wait_for_search_finishedEvE3$_0EEvRSt11unique_lockISt5mutexET_.exit.i", %"_ZNSt18condition_variable4waitIZN9Stockfish6Thread24wait_for_search_finishedEvE3$_0EEvRSt11unique_lockISt5mutexET_.exit.thread.i.thread"
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %30 = load ptr, ptr %14, align 8
   %31 = load ptr, ptr %13, align 8
   %.not437 = icmp eq ptr %30, %31
@@ -925,7 +925,7 @@ _ZN9Stockfish10ThreadPool5clearEv.exit:           ; preds = %._crit_edge, %._cri
   call void @_ZN9Stockfish14TimeManagement5clearEv(ptr noundef nonnull align 8 dereferenceable(33) %177) #15
   %178 = load ptr, ptr %13, align 8
   %179 = load ptr, ptr %178, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 16
   store ptr %180, ptr %3, align 8
   %181 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -965,7 +965,7 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i22:     ; preds = %_ZN9Stockfish10Thre
   br label %_ZN9Stockfish6Thread24wait_for_search_finishedEv.exit30
 
 _ZN9Stockfish6Thread24wait_for_search_finishedEv.exit30: ; preds = %"_ZNSt18condition_variable4waitIZN9Stockfish6Thread24wait_for_search_finishedEvE3$_0EEvRSt11unique_lockISt5mutexET_.exit.i28", %"_ZNSt18condition_variable4waitIZN9Stockfish6Thread24wait_for_search_finishedEvE3$_0EEvRSt11unique_lockISt5mutexET_.exit.thread.i24.thread"
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %191 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %192 = load ptr, ptr %191, align 8
   %193 = load ptr, ptr %1, align 8
@@ -1089,7 +1089,7 @@ define dso_local void @_ZN9Stockfish10ThreadPool14start_thinkingERKNS_10OptionsM
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %12, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %14, ptr %7, align 8
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -1129,7 +1129,7 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i:       ; preds = %6
   br label %_ZN9Stockfish6Thread24wait_for_search_finishedEv.exit
 
 _ZN9Stockfish6Thread24wait_for_search_finishedEv.exit: ; preds = %"_ZNSt18condition_variable4waitIZN9Stockfish6Thread24wait_for_search_finishedEvE3$_0EEvRSt11unique_lockISt5mutexET_.exit.i", %"_ZNSt18condition_variable4waitIZN9Stockfish6Thread24wait_for_search_finishedEvE3$_0EEvRSt11unique_lockISt5mutexET_.exit.thread.i.thread"
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store atomic i8 0, ptr %25 seq_cst, align 1
   store atomic i8 0, ptr %0 seq_cst, align 8
@@ -2008,7 +2008,7 @@ define dso_local void @_ZNK9Stockfish10ThreadPool24wait_for_search_finishedEv(pt
   br i1 %.not, label %24, label %12
 
 12:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %13, ptr %2, align 8
   %14 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %13) #15
@@ -2048,7 +2048,7 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i:       ; preds = %12
   br label %_ZN9Stockfish6Thread24wait_for_search_finishedEv.exit
 
 _ZN9Stockfish6Thread24wait_for_search_finishedEv.exit: ; preds = %"_ZNSt18condition_variable4waitIZN9Stockfish6Thread24wait_for_search_finishedEvE3$_0EEvRSt11unique_lockISt5mutexET_.exit.i", %"_ZNSt18condition_variable4waitIZN9Stockfish6Thread24wait_for_search_finishedEvE3$_0EEvRSt11unique_lockISt5mutexET_.exit.thread.i", %22
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %24
 
 24:                                               ; preds = %8, %_ZN9Stockfish6Thread24wait_for_search_finishedEv.exit
@@ -2835,10 +2835,10 @@ define internal void @_GLOBAL__sub_I_thread.cpp() #9 section ".text.startup" {
 declare void @llvm.experimental.noalias.scope.decl(metadata) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #12

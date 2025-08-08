@@ -140,12 +140,6 @@ define range(i32 0, 2) i32 @X509_NAME_set(ptr noundef captures(none) %0, ptr nou
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
-
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @X509_NAME_print(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = tail call ptr @X509_NAME_oneline(ptr noundef %1, ptr noundef null, i32 noundef 0) #6
@@ -379,12 +373,12 @@ define internal range(i32 -2147483648, 2) i32 @x509_name_ex_d2i(ptr noundef capt
   %9 = alloca ptr, align 8
   %10 = alloca %union.anon, align 8
   %11 = alloca %union.anon.0, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %12 = load ptr, ptr %1, align 8, !tbaa !18
   store ptr %12, ptr %9, align 8, !tbaa !18
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i64 0, ptr %10, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i64 0, ptr %11, align 8
   %spec.store.select = tail call i64 @llvm.smin.i64(i64 %2, i64 1048576)
   %13 = call i32 @ASN1_item_ex_d2i(ptr noundef nonnull %10, ptr noundef nonnull %9, i64 noundef %spec.store.select, ptr noundef nonnull @X509_NAME_INTERNAL_it.local_it, i32 noundef %4, i32 noundef %5, i8 noundef signext %6, ptr noundef %7) #6
@@ -504,9 +498,9 @@ x509_name_ex_free.exit:                           ; preds = %15
 
 66:                                               ; preds = %8, %64, %60
   %.0 = phi i32 [ 0, %64 ], [ 1, %60 ], [ %13, %8 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0
 }
 
@@ -521,8 +515,8 @@ define internal i32 @x509_name_ex_i2d(ptr noundef readonly captures(none) %0, pt
   br i1 %.not, label %49, label %11
 
 11:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %12 = tail call ptr @OPENSSL_sk_new_null() #6
   store ptr %12, ptr %6, align 8, !tbaa !8
   %.not.i = icmp eq ptr %12, null
@@ -602,8 +596,8 @@ define internal i32 @x509_name_ex_i2d(ptr noundef readonly captures(none) %0, pt
 x509_name_encode.exit.thread:                     ; preds = %39, %.loopexit.i
   %40 = phi ptr [ %12, %.loopexit.i ], [ %.pre.i, %39 ]
   call void @OPENSSL_sk_pop_free(ptr noundef %40, ptr noundef nonnull @local_sk_X509_NAME_ENTRY_free) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %61
 
 x509_name_encode.exit:                            ; preds = %._crit_edge.i
@@ -615,8 +609,8 @@ x509_name_encode.exit:                            ; preds = %._crit_edge.i
   %45 = load ptr, ptr %6, align 8, !tbaa !8
   call void @OPENSSL_sk_pop_free(ptr noundef %45, ptr noundef nonnull @local_sk_X509_NAME_ENTRY_free) #6
   store i32 0, ptr %9, align 8, !tbaa !22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %46 = icmp slt i32 %34, 0
   br i1 %46, label %61, label %47
 
@@ -678,7 +672,7 @@ declare i32 @ASN1_item_ex_d2i(ptr noundef, ptr noundef, i64 noundef, ptr noundef
 declare i64 @BUF_MEM_grow(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare i32 @OPENSSL_sk_num(ptr noundef) local_unnamed_addr #2
 
@@ -693,7 +687,7 @@ define internal fastcc range(i32 0, 2) i32 @x509_name_canon(ptr noundef captures
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8, !tbaa !25
   tail call void @CRYPTO_free(ptr noundef %6, ptr noundef nonnull @.str.2, i32 noundef 318) #6
@@ -945,7 +939,7 @@ asn1_string_canon.exit:                           ; preds = %45
   br label %asn1_string_canon.exit.thread
 
 ._crit_edge:                                      ; preds = %19, %.preheader
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %112 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %13) #6
   %113 = icmp sgt i32 %112, 0
   br i1 %113, label %.lr.ph.i52, label %i2d_name_canon.exit.thread66
@@ -963,7 +957,7 @@ asn1_string_canon.exit:                           ; preds = %45
   br i1 %or.cond.i, label %i2d_name_canon.exit.thread, label %119
 
 i2d_name_canon.exit.thread:                       ; preds = %.lr.ph.i52
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %asn1_string_canon.exit.thread
 
 119:                                              ; preds = %.lr.ph.i52
@@ -975,7 +969,7 @@ i2d_name_canon.exit.thread:                       ; preds = %.lr.ph.i52
 
 i2d_name_canon.exit.thread66:                     ; preds = %119, %._crit_edge
   %.0.i68 = phi i32 [ 0, %._crit_edge ], [ %120, %119 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %.0.i68, ptr %124, align 8, !tbaa !36
   %125 = zext nneg i32 %.0.i68 to i64
@@ -986,7 +980,7 @@ i2d_name_canon.exit.thread66:                     ; preds = %119, %._crit_edge
 
 128:                                              ; preds = %i2d_name_canon.exit.thread66
   store ptr %126, ptr %5, align 8, !tbaa !25
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %129 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %13) #6
   %130 = icmp sgt i32 %129, 0
   br i1 %130, label %.lr.ph.i55, label %i2d_name_canon.exit59
@@ -1011,7 +1005,7 @@ i2d_name_canon.exit.thread66:                     ; preds = %119, %._crit_edge
   br i1 %140, label %.lr.ph.i55, label %i2d_name_canon.exit59, !llvm.loop !48
 
 i2d_name_canon.exit59:                            ; preds = %.lr.ph.i55, %136, %128
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %asn1_string_canon.exit.thread
 
 asn1_string_canon.exit.thread:                    ; preds = %54, %asn1_string_canon.exit, %28, %i2d_name_canon.exit.thread, %i2d_name_canon.exit.thread66, %i2d_name_canon.exit59, %111, %44, %39, %33, %18
@@ -1023,7 +1017,7 @@ asn1_string_canon.exit.thread:                    ; preds = %54, %asn1_string_ca
 
 141:                                              ; preds = %asn1_string_canon.exit.thread, %10
   %.0 = phi i32 [ 1, %10 ], [ %.035, %asn1_string_canon.exit.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -1062,14 +1056,20 @@ declare i32 @ASN1_item_ex_i2d(ptr noundef, ptr noundef, ptr noundef, i32 noundef
 
 declare i32 @X509_NAME_print_ex(ptr noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #5
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nounwind }
 

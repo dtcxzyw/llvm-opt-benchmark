@@ -238,13 +238,13 @@ define hidden void @_ZN14cranelift_wasm5state20FuncTranslationState3new17hbe4026
   %2 = alloca {}, align 1
   %3 = alloca { { i64, ptr, {} }, i64 }, align 8
   %4 = alloca { { i64, ptr, {} }, i64 }, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr inttoptr (i64 4 to ptr), ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 0, ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr inttoptr (i64 8 to ptr), ptr %7, align 8
@@ -273,7 +273,6 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i: ; 
   br label %"_ZN4core3ptr140drop_in_place$LT$std..collections..hash..map..HashMap$LT$wasmtime_types..GlobalIndex$C$cranelift_wasm..environ..spec..GlobalVariable$GT$$GT$17h2a08f92aa50f5b25E.exit"
 
 14:                                               ; preds = %.noexc
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %2)
   invoke void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.1ebe03cf8da41ec25042ed3876485d5d.5, i64 noundef 70, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1ebe03cf8da41ec25042ed3876485d5d.0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1ebe03cf8da41ec25042ed3876485d5d.7) #14
           to label %.noexc18 unwind label %12
 
@@ -305,7 +304,6 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i20: 
   br label %"_ZN4core3ptr140drop_in_place$LT$std..collections..hash..map..HashMap$LT$wasmtime_types..GlobalIndex$C$cranelift_wasm..environ..spec..GlobalVariable$GT$$GT$17h2a08f92aa50f5b25E.exit"
 
 25:                                               ; preds = %.noexc24
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %2)
   invoke void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.1ebe03cf8da41ec25042ed3876485d5d.5, i64 noundef 70, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1ebe03cf8da41ec25042ed3876485d5d.0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1ebe03cf8da41ec25042ed3876485d5d.7) #14
           to label %.noexc28 unwind label %23
 
@@ -337,7 +335,6 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i31: 
   br label %"_ZN4core3ptr140drop_in_place$LT$std..collections..hash..map..HashMap$LT$wasmtime_types..GlobalIndex$C$cranelift_wasm..environ..spec..GlobalVariable$GT$$GT$17h2a08f92aa50f5b25E.exit"
 
 36:                                               ; preds = %.noexc35
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %2)
   invoke void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.1ebe03cf8da41ec25042ed3876485d5d.5, i64 noundef 70, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1ebe03cf8da41ec25042ed3876485d5d.0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1ebe03cf8da41ec25042ed3876485d5d.7) #14
           to label %.noexc39 unwind label %34
 
@@ -369,7 +366,6 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i42: 
   br label %"_ZN4core3ptr140drop_in_place$LT$std..collections..hash..map..HashMap$LT$wasmtime_types..GlobalIndex$C$cranelift_wasm..environ..spec..GlobalVariable$GT$$GT$17h2a08f92aa50f5b25E.exit"
 
 47:                                               ; preds = %.noexc46
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %2)
   invoke void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.1ebe03cf8da41ec25042ed3876485d5d.5, i64 noundef 70, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1ebe03cf8da41ec25042ed3876485d5d.0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1ebe03cf8da41ec25042ed3876485d5d.7) #14
           to label %.noexc50 unwind label %45
 
@@ -412,8 +408,8 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i42: 
   store i64 %49, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8
   %.sroa.0.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 232
   store i64 %51, ptr %.sroa.0.sroa.5.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
 59:                                               ; preds = %61, %"_ZN4core3ptr140drop_in_place$LT$std..collections..hash..map..HashMap$LT$wasmtime_types..GlobalIndex$C$cranelift_wasm..environ..spec..GlobalVariable$GT$$GT$17h2a08f92aa50f5b25E.exit"
@@ -1011,17 +1007,11 @@ declare void @_ZN4core5slice5index26slice_start_index_len_fail17h6f35008186d11ab
 ; Function Attrs: cold noreturn nonlazybind uwtable
 declare void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef, i64 noundef, ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #6
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
-
 ; Function Attrs: inlinehint nonlazybind uwtable
 declare hidden void @_ZN9hashbrown3raw13RawTableInner13clear_no_drop17h5b6403f348821fb3E.llvm.999389807221543417(ptr noalias noundef align 8 dereferenceable(32)) unnamed_addr #2
 
 ; Function Attrs: cold nonlazybind uwtable
-declare hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17habb06cc7eeb47eb4E"(ptr noalias noundef align 8 dereferenceable(16), i64 noundef, i64 noundef) unnamed_addr #11
+declare hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17habb06cc7eeb47eb4E"(ptr noalias noundef align 8 dereferenceable(16), i64 noundef, i64 noundef) unnamed_addr #10
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN4core3ptr82drop_in_place$LT$alloc..vec..Vec$LT$cranelift_codegen..ir..entities..Value$GT$$GT$17h8005e3887b5281b5E"(ptr noalias noundef align 8 dereferenceable(24)) unnamed_addr #5
@@ -1031,6 +1021,12 @@ declare hidden void @"_ZN4core3ptr84drop_in_place$LT$alloc..vec..Vec$LT$cranelif
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden noundef align 8 ptr @"_ZN3std3sys3pal6common12thread_local10fast_local12Key$LT$T$GT$14try_initialize17h396e5ff18208b5aaE.llvm.7466715301661297591"(ptr noundef nonnull align 8, ptr noalias noundef align 8 dereferenceable_or_null(24)) unnamed_addr #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #12
@@ -1045,8 +1041,8 @@ attributes #6 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "
 attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { cold noreturn nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { cold nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #10 = { cold nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #13 = { cold }
 attributes #14 = { noreturn }

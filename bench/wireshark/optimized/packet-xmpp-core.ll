@@ -228,34 +228,28 @@ define hidden void @xmpp_init_parsers() local_unnamed_addr #0 {
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvbparse_chars(i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @tvbparse_chars(i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @tvbparse_set_seq(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @tvbparse_set_seq(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare ptr @tvbparse_char(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @tvbparse_char(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @tvbparse_set_oneof(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @tvbparse_set_oneof(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
-
-; Function Attrs: null_pointer_is_valid
-declare ptr @tvbparse_string(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @tvbparse_string(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @xmpp_iq(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca [6 x %struct._xmpp_attr_info], align 16
   %6 = alloca [29 x %struct._xmpp_elem_info], align 16
-  call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(240) %5, ptr noundef nonnull align 16 dereferenceable(240) @__const.xmpp_iq.attrs_info, i64 240, i1 false)
-  call void @llvm.lifetime.start.p0(i64 928, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 2, ptr %6, align 16
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 0, ptr %7, align 4
@@ -782,72 +776,72 @@ proto_item_set_generated.exit103:                 ; preds = %259, %256, %253, %p
   br label %proto_item_set_generated.exit106
 
 proto_item_set_generated.exit106:                 ; preds = %293, %290, %287, %280, %277, %274, %proto_item_set_generated.exit103, %297, %284, %216
-  call void @llvm.lifetime.end.p0(i64 928, ptr nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @xmpp_name_attr_struct(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @xmpp_name_attr_struct(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @xmpp_disco_items_query(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
+declare void @xmpp_disco_items_query(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @xmpp_roster_query(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
+declare void @xmpp_roster_query(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @xmpp_disco_info_query(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
+declare void @xmpp_disco_info_query(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @xmpp_bytestreams_query(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
+declare void @xmpp_bytestreams_query(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @xmpp_muc_owner_query(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
+declare void @xmpp_muc_owner_query(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @xmpp_muc_admin_query(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
+declare void @xmpp_muc_admin_query(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @xmpp_iq_bind(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
+declare void @xmpp_iq_bind(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @xmpp_session(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
+declare void @xmpp_session(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @xmpp_vcard(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
+declare void @xmpp_vcard(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @xmpp_jingle(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
+declare void @xmpp_jingle(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @xmpp_jinglenodes_services(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
+declare void @xmpp_jinglenodes_services(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @xmpp_jinglenodes_channel(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
+declare void @xmpp_jinglenodes_channel(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @xmpp_ibb_open(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
+declare void @xmpp_ibb_open(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @xmpp_ibb_close(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
+declare void @xmpp_ibb_close(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @xmpp_ibb_data(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
+declare void @xmpp_ibb_data(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @xmpp_si(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
+declare void @xmpp_si(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @xmpp_error(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca [3 x %struct._xmpp_attr_info], align 16
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(120) %5, ptr noundef nonnull align 16 dereferenceable(120) @__const.xmpp_error.attrs_info, i64 120, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %7 = load ptr, ptr %6, align 8
@@ -927,81 +921,81 @@ xmpp_error_text.exit:                             ; preds = %.lr.ph, %42
   %.1.lcssa = phi ptr [ %.0, %32 ], [ %52, %50 ]
   %54 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %14, ptr noundef nonnull @ei_xmpp_response, ptr noundef nonnull @.str.123, ptr noundef %.1.lcssa)
   call void @xmpp_unknown(ptr noundef %16, ptr noundef %1, ptr noundef %2, ptr noundef %3)
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @xmpp_gtalk_session(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
+declare void @xmpp_gtalk_session(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @xmpp_gtalk_jingleinfo_query(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
+declare void @xmpp_gtalk_jingleinfo_query(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @xmpp_gtalk_usersetting(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
+declare void @xmpp_gtalk_usersetting(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @xmpp_last_query(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
+declare void @xmpp_last_query(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @xmpp_version_query(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
+declare void @xmpp_version_query(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @xmpp_gtalk_mail_query(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
+declare void @xmpp_gtalk_mail_query(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @xmpp_gtalk_mail_mailbox(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
+declare void @xmpp_gtalk_mail_mailbox(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @xmpp_gtalk_mail_new_mail(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
+declare void @xmpp_gtalk_mail_new_mail(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @xmpp_gtalk_status_query(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
+declare void @xmpp_gtalk_status_query(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @xmpp_conference_info(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
+declare void @xmpp_conference_info(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @xmpp_ping(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
+declare void @xmpp_ping(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @xmpp_jitsi_inputevt(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
+declare void @xmpp_jitsi_inputevt(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @xmpp_get_attr(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @xmpp_get_attr(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @find_or_create_conversation(ptr noundef) local_unnamed_addr #2
+declare ptr @find_or_create_conversation(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @conversation_get_proto_data(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @conversation_get_proto_data(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @xmpp_display_attrs(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @xmpp_display_attrs(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @xmpp_display_elems(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @xmpp_display_elems(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @wmem_tree_lookup_string(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @wmem_tree_lookup_string(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @xmpp_presence(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
@@ -1012,7 +1006,7 @@ define hidden void @xmpp_presence(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %9 = tail call ptr @xmpp_ep_init_array_t(ptr noundef %8, ptr noundef nonnull @xmpp_presence.type_enums, i32 noundef 7)
   %10 = load ptr, ptr %7, align 8
   %11 = tail call ptr @xmpp_ep_init_array_t(ptr noundef %10, ptr noundef nonnull @xmpp_presence.show_enums, i32 noundef 4)
-  call void @llvm.lifetime.start.p0(i64 280, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr @.str.8, ptr %5, align 16
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @hf_xmpp_from, ptr %12, align 8
@@ -1068,7 +1062,7 @@ define hidden void @xmpp_presence(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 240
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %37, i8 0, i64 40, i1 false)
   store ptr @.str.61, ptr %37, align 16
-  call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 16
   %38 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 0, ptr %38, align 4
@@ -1245,21 +1239,21 @@ define hidden void @xmpp_presence(ptr noundef %0, ptr noundef %1, ptr noundef %2
 142:                                              ; preds = %132, %124
   call void @xmpp_display_attrs(ptr noundef %106, ptr noundef %3, ptr noundef %2, ptr noundef %1, ptr noundef nonnull %5, i32 noundef 7)
   call void @xmpp_display_elems(ptr noundef %106, ptr noundef %3, ptr noundef %2, ptr noundef %1, ptr noundef nonnull %6, i32 noundef 9)
-  call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 280, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @xmpp_ep_init_array_t(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @xmpp_ep_init_array_t(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @xmpp_val_enum_list(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
+declare void @xmpp_val_enum_list(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @xmpp_presence_status(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca [2 x %struct._xmpp_attr_info], align 16
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %5, ptr noundef nonnull align 16 dereferenceable(80) @__const.xmpp_message_body.attrs_info, i64 80, i1 false)
   %6 = load i32, ptr @hf_xmpp_presence_status, align 4
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -1290,36 +1284,36 @@ define internal void @xmpp_presence_status(ptr noundef %0, ptr noundef %1, ptr n
   %26 = tail call i32 @g_hash_table_insert(ptr noundef %25, ptr noundef nonnull @.str.124, ptr noundef %23)
   call void @xmpp_display_attrs(ptr noundef %13, ptr noundef %3, ptr noundef %2, ptr noundef %1, ptr noundef nonnull %5, i32 noundef 2)
   call void @xmpp_unknown(ptr noundef %13, ptr noundef %1, ptr noundef %2, ptr noundef %3)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @xmpp_presence_caps(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
+declare void @xmpp_presence_caps(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @xmpp_delay(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
+declare void @xmpp_delay(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @xmpp_vcard_x_update(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
+declare void @xmpp_vcard_x_update(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @xmpp_muc_x(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
+declare void @xmpp_muc_x(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @xmpp_muc_user_x(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
+declare void @xmpp_muc_user_x(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @xmpp_steal_element_by_name(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @xmpp_steal_element_by_name(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @xmpp_ep_init_attr_t(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @xmpp_ep_init_attr_t(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @g_hash_table_insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @g_hash_table_insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @xmpp_message(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
@@ -1328,7 +1322,7 @@ define hidden void @xmpp_message(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr @xmpp_ep_init_array_t(ptr noundef %8, ptr noundef nonnull @xmpp_message.type_enums, i32 noundef 5)
-  call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr @.str.8, ptr %5, align 16
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @hf_xmpp_from, ptr %10, align 8
@@ -1377,7 +1371,7 @@ define hidden void @xmpp_message(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   store i8 1, ptr %31, align 1
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 218
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(22) %32, i8 0, i64 22, i1 false)
-  call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 2, ptr %6, align 16
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 0, ptr %33, align 4
@@ -1543,15 +1537,15 @@ define hidden void @xmpp_message(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %proto_item_set_generated.exit
 
 proto_item_set_generated.exit:                    ; preds = %125, %122, %119, %114, %111
-  call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @xmpp_message_thread(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca [2 x %struct._xmpp_attr_info], align 16
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %5, ptr noundef nonnull align 16 dereferenceable(80) @__const.xmpp_message_thread.attrs_info, i64 80, i1 false)
   %6 = load i32, ptr @hf_xmpp_message_thread, align 4
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -1582,14 +1576,14 @@ define internal void @xmpp_message_thread(ptr noundef %0, ptr noundef %1, ptr no
   %27 = tail call i32 @g_hash_table_insert(ptr noundef %26, ptr noundef nonnull @.str.124, ptr noundef %24)
   call void @xmpp_display_attrs(ptr noundef %13, ptr noundef %3, ptr noundef %2, ptr noundef %1, ptr noundef nonnull %5, i32 noundef 2)
   call void @xmpp_unknown(ptr noundef %13, ptr noundef %1, ptr noundef %2, ptr noundef %3)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @xmpp_message_body(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca [2 x %struct._xmpp_attr_info], align 16
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %5, ptr noundef nonnull align 16 dereferenceable(80) @__const.xmpp_message_body.attrs_info, i64 80, i1 false)
   %6 = load i32, ptr @hf_xmpp_message_body, align 4
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -1620,14 +1614,14 @@ define internal void @xmpp_message_body(ptr noundef %0, ptr noundef %1, ptr noun
   %27 = tail call i32 @g_hash_table_insert(ptr noundef %26, ptr noundef nonnull @.str.124, ptr noundef %24)
   call void @xmpp_display_attrs(ptr noundef %13, ptr noundef %3, ptr noundef %2, ptr noundef %1, ptr noundef nonnull %5, i32 noundef 2)
   call void @xmpp_unknown(ptr noundef %13, ptr noundef %1, ptr noundef %2, ptr noundef %3)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @xmpp_message_subject(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca [2 x %struct._xmpp_attr_info], align 16
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %5, ptr noundef nonnull align 16 dereferenceable(80) @__const.xmpp_message_subject.attrs_info, i64 80, i1 false)
   %6 = load i32, ptr @hf_xmpp_message_subject, align 4
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -1658,23 +1652,23 @@ define internal void @xmpp_message_subject(ptr noundef %0, ptr noundef %1, ptr n
   %27 = tail call i32 @g_hash_table_insert(ptr noundef %26, ptr noundef nonnull @.str.124, ptr noundef %24)
   call void @xmpp_display_attrs(ptr noundef %13, ptr noundef %3, ptr noundef %2, ptr noundef %1, ptr noundef nonnull %5, i32 noundef 2)
   call void @xmpp_unknown(ptr noundef %13, ptr noundef %1, ptr noundef %2, ptr noundef %3)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @xmpp_x_event(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
+declare void @xmpp_x_event(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @xmpp_gtalk_nosave_x(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
+declare void @xmpp_gtalk_nosave_x(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @xmpp_steal_element_by_attr(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @xmpp_steal_element_by_attr(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @xmpp_auth(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca [4 x %struct._xmpp_attr_info_ext], align 16
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(192) %5, ptr noundef nonnull align 16 dereferenceable(192) @__const.xmpp_auth.attrs_info, i64 192, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -1690,23 +1684,23 @@ define hidden void @xmpp_auth(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   call void @xmpp_display_attrs_ext(ptr noundef %15, ptr noundef %3, ptr noundef %2, ptr noundef %1, ptr noundef nonnull %5, i32 noundef 4)
   call void @xmpp_cdata(ptr noundef %15, ptr noundef %1, ptr noundef %3, i32 noundef -1)
   call void @xmpp_unknown(ptr noundef %15, ptr noundef %1, ptr noundef %2, ptr noundef %3)
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @xmpp_display_attrs_ext(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @xmpp_display_attrs_ext(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @xmpp_cdata(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @xmpp_cdata(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @xmpp_unknown(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @xmpp_unknown(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @xmpp_challenge_response_success(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = alloca [1 x %struct._xmpp_attr_info], align 16
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %8, ptr noundef nonnull align 16 dereferenceable(40) @__const.xmpp_features_mechanisms.attrs_info, i64 40, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %10 = load ptr, ptr %9, align 8
@@ -1720,17 +1714,17 @@ define hidden void @xmpp_challenge_response_success(ptr noundef %0, ptr noundef 
   call void @xmpp_display_attrs(ptr noundef %16, ptr noundef %3, ptr noundef %2, ptr noundef %1, ptr noundef nonnull %8, i32 noundef 1)
   call void @xmpp_cdata(ptr noundef %16, ptr noundef %1, ptr noundef %3, i32 noundef -1)
   call void @xmpp_unknown(ptr noundef %16, ptr noundef %1, ptr noundef %2, ptr noundef %3)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_expert(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_expert(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @xmpp_failure(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca [2 x %struct._xmpp_attr_info], align 16
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %5, ptr noundef nonnull align 16 dereferenceable(80) @__const.xmpp_failure.attrs_info, i64 80, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -1813,12 +1807,12 @@ xmpp_failure_text.exit:                           ; preds = %49, %52
 56:                                               ; preds = %xmpp_failure_text.exit, %29
   call void @xmpp_display_attrs(ptr noundef %15, ptr noundef %3, ptr noundef %2, ptr noundef %1, ptr noundef nonnull %5, i32 noundef 2)
   call void @xmpp_unknown(ptr noundef %15, ptr noundef %1, ptr noundef %2, ptr noundef %3)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @xmpp_steal_element_by_names(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @xmpp_steal_element_by_names(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @xmpp_xml_header(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
@@ -1837,7 +1831,7 @@ define hidden void @xmpp_xml_header(ptr noundef %0, ptr noundef %1, ptr noundef 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @xmpp_stream(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca [7 x %struct._xmpp_attr_info_ext], align 16
-  call void @llvm.lifetime.start.p0(i64 336, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(336) %5, ptr noundef nonnull align 16 dereferenceable(336) @__const.xmpp_stream.attrs_info, i64 336, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -1852,7 +1846,7 @@ define hidden void @xmpp_stream(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %15 = tail call ptr @proto_item_add_subtree(ptr noundef %13, i32 noundef %14)
   call void @xmpp_display_attrs_ext(ptr noundef %15, ptr noundef %3, ptr noundef %2, ptr noundef %1, ptr noundef nonnull %5, i32 noundef 7)
   call void @xmpp_display_elems(ptr noundef %15, ptr noundef %3, ptr noundef %2, ptr noundef %1, ptr noundef null, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 336, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -1884,15 +1878,15 @@ define hidden noundef zeroext i1 @xmpp_stream_close(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @tvbparse_init(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @tvbparse_init(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @tvbparse_get(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @tvbparse_get(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @xmpp_features(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca [1 x %struct._xmpp_elem_info], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %5, ptr noundef nonnull align 16 dereferenceable(32) @__const.xmpp_features.elems_info, i64 32, i1 false)
   %6 = load i32, ptr @hf_xmpp_features, align 4
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -1907,7 +1901,7 @@ define hidden void @xmpp_features(ptr noundef %0, ptr noundef %1, ptr noundef %2
   tail call void @col_set_str(ptr noundef %15, i32 noundef 25, ptr noundef nonnull @.str.111)
   tail call void @xmpp_display_attrs(ptr noundef %13, ptr noundef %3, ptr noundef %2, ptr noundef %1, ptr noundef null, i32 noundef 0)
   call void @xmpp_display_elems(ptr noundef %13, ptr noundef %3, ptr noundef %2, ptr noundef %1, ptr noundef nonnull %5, i32 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -1915,9 +1909,9 @@ define hidden void @xmpp_features(ptr noundef %0, ptr noundef %1, ptr noundef %2
 define internal void @xmpp_features_mechanisms(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca [1 x %struct._xmpp_attr_info], align 16
   %6 = alloca [1 x %struct._xmpp_elem_info], align 16
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %5, ptr noundef nonnull align 16 dereferenceable(40) @__const.xmpp_features_mechanisms.attrs_info, i64 40, i1 false)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %6, ptr noundef nonnull align 16 dereferenceable(32) @__const.xmpp_features_mechanisms.elems_info, i64 32, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %8 = load i32, ptr %7, align 8
@@ -1927,15 +1921,15 @@ define internal void @xmpp_features_mechanisms(ptr noundef %0, ptr noundef %1, p
   %12 = tail call ptr @proto_tree_add_subtree(ptr noundef %0, ptr noundef %1, i32 noundef %8, i32 noundef %10, i32 noundef %11, ptr noundef null, ptr noundef nonnull @.str.129)
   call void @xmpp_display_attrs(ptr noundef %12, ptr noundef %3, ptr noundef %2, ptr noundef %1, ptr noundef nonnull %5, i32 noundef 1)
   call void @xmpp_display_elems(ptr noundef %12, ptr noundef %3, ptr noundef %2, ptr noundef %1, ptr noundef nonnull %6, i32 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @xmpp_starttls(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(none) %4) local_unnamed_addr #0 {
   %6 = alloca [1 x %struct._xmpp_attr_info], align 16
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %6, ptr noundef nonnull align 16 dereferenceable(40) @__const.xmpp_features_mechanisms.attrs_info, i64 40, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = load ptr, ptr %7, align 8
@@ -1971,17 +1965,17 @@ define hidden void @xmpp_starttls(ptr noundef %0, ptr noundef %1, ptr noundef %2
 23:                                               ; preds = %._crit_edge, %20
   call void @xmpp_display_attrs(ptr noundef %16, ptr noundef %3, ptr noundef %2, ptr noundef %1, ptr noundef nonnull %6, i32 noundef 1)
   call void @xmpp_display_elems(ptr noundef %16, ptr noundef %3, ptr noundef %2, ptr noundef %1, ptr noundef null, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @xmpp_proceed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #0 {
   %6 = alloca [1 x %struct._xmpp_attr_info], align 16
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %6, ptr noundef nonnull align 16 dereferenceable(40) @__const.xmpp_features_mechanisms.attrs_info, i64 40, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = load ptr, ptr %7, align 8
@@ -2023,37 +2017,42 @@ define hidden void @xmpp_proceed(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 30:                                               ; preds = %28, %25, %21
   call void @xmpp_display_attrs(ptr noundef %16, ptr noundef %3, ptr noundef %2, ptr noundef %1, ptr noundef nonnull %6, i32 noundef 1)
   call void @xmpp_display_elems(ptr noundef %16, ptr noundef %3, ptr noundef %2, ptr noundef %1, ptr noundef null, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @ssl_starttls_ack(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ssl_starttls_ack(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @find_dissector(ptr noundef) local_unnamed_addr #2
+declare ptr @find_dissector(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare noalias ptr @wmem_strdup(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare noalias ptr @wmem_strdup(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_string_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare ptr @proto_tree_add_string_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @xmpp_simple_cdata_elem(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
+declare void @xmpp_simple_cdata_elem(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { nounwind }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

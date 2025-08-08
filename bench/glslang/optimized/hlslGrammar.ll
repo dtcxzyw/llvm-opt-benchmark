@@ -3212,7 +3212,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2E
   br i1 %180, label %181, label %.loopexit
 
 181:                                              ; preds = %179
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %182 = call noundef zeroext i1 @_ZN7glslang15HlslTokenStream16acceptTokenClassENS_15EHlslTokenClassE(ptr noundef nonnull align 8 dereferenceable(360) %0, i32 noundef 373) #16
   br i1 %182, label %183, label %_ZN7glslang11HlslGrammar17acceptAnnotationsERNS_10TQualifierE.exit
 
@@ -3257,7 +3257,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2E
   br label %_ZN7glslang11HlslGrammar17acceptAnnotationsERNS_10TQualifierE.exit
 
 _ZN7glslang11HlslGrammar17acceptAnnotationsERNS_10TQualifierE.exit: ; preds = %181, %194, %199
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit.backedge
 
 .loopexit:                                        ; preds = %179, %55, %123, %140, %132, %115, %106, %86, %79, %64, %47, %38, %31
@@ -3636,10 +3636,10 @@ define noundef zeroext i1 @_ZN7glslang11HlslGrammar24acceptControlDeclarationERP
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 80
   store ptr null, ptr %30, align 8
   store i64 0, ptr %17, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8
   %31 = call noundef zeroext i1 @_ZN7glslang11HlslGrammar24acceptFullySpecifiedTypeERNS_5TTypeERP11TIntermNodeRKNS_5TListINS_14TAttributeArgsEEEb(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(152) %5, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(32) %4, i1 noundef zeroext false)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %31, label %32, label %76
 
 32:                                               ; preds = %2
@@ -6373,10 +6373,10 @@ define noundef zeroext i1 @_ZN7glslang11HlslGrammar35acceptTessellationPatchTemp
   br i1 %8, label %9, label %_ZN7glslang11HlslGrammar26acceptTessellationDeclTypeERNS_16TBuiltInVariableE.exit
 
 9:                                                ; preds = %7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8
   %10 = call noundef zeroext i1 @_ZN7glslang11HlslGrammar10acceptTypeERNS_5TTypeERP11TIntermNode(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %10, label %11, label %_ZN7glslang11HlslGrammar26acceptTessellationDeclTypeERNS_16TBuiltInVariableE.exit.sink.split
 
 11:                                               ; preds = %9
@@ -6470,10 +6470,10 @@ switch.lookup:                                    ; preds = %3
   br i1 %7, label %8, label %_ZN7glslang11HlslGrammar29acceptOutputPrimitiveGeometryERNS_15TLayoutGeometryE.exit
 
 8:                                                ; preds = %switch.lookup
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8
   %9 = call noundef zeroext i1 @_ZN7glslang11HlslGrammar10acceptTypeERNS_5TTypeERP11TIntermNode(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %9, label %10, label %_ZN7glslang11HlslGrammar29acceptOutputPrimitiveGeometryERNS_15TLayoutGeometryE.exit.sink.split
 
 10:                                               ; preds = %8
@@ -6627,10 +6627,10 @@ define noundef zeroext i1 @_ZN7glslang11HlslGrammar22acceptSubpassInputTypeERNS_
   br i1 %28, label %29, label %.thread
 
 29:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8
   %30 = call noundef zeroext i1 @_ZN7glslang11HlslGrammar10acceptTypeERNS_5TTypeERP11TIntermNode(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %30, label %38, label %31
 
 31:                                               ; preds = %29
@@ -7100,10 +7100,10 @@ define noundef zeroext i1 @_ZN7glslang11HlslGrammar17acceptTextureTypeERNS_5TTyp
   br i1 %45, label %46, label %136
 
 46:                                               ; preds = %23
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8
   %47 = call noundef zeroext i1 @_ZN7glslang11HlslGrammar10acceptTypeERNS_5TTypeERP11TIntermNode(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %47, label %55, label %48
 
 48:                                               ; preds = %46
@@ -7766,10 +7766,10 @@ define noundef zeroext i1 @_ZN7glslang11HlslGrammar22acceptStructBufferTypeERNS_
   br label %172
 
 58:                                               ; preds = %49
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8
   %59 = call noundef zeroext i1 @_ZN7glslang11HlslGrammar10acceptTypeERNS_5TTypeERP11TIntermNode(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(152) %14, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %59, label %67, label %60
 
 60:                                               ; preds = %58
@@ -8048,10 +8048,10 @@ define noundef zeroext i1 @_ZN7glslang11HlslGrammar23acceptTextureBufferTypeERNS
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr null, ptr %35, align 8
   store i64 0, ptr %22, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8
   %36 = call noundef zeroext i1 @_ZN7glslang11HlslGrammar10acceptTypeERNS_5TTypeERP11TIntermNode(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %36, label %44, label %37
 
 37:                                               ; preds = %16
@@ -8209,10 +8209,10 @@ define noundef zeroext i1 @_ZN7glslang11HlslGrammar24acceptConstantBufferTypeERN
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr null, ptr %35, align 8
   store i64 0, ptr %22, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8
   %36 = call noundef zeroext i1 @_ZN7glslang11HlslGrammar10acceptTypeERNS_5TTypeERP11TIntermNode(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %36, label %44, label %37
 
 37:                                               ; preds = %16
@@ -9469,10 +9469,10 @@ define noundef zeroext i1 @_ZN7glslang11HlslGrammar26acceptParameterDeclarationE
   store ptr null, ptr %47, align 8
   %48 = and i64 %27, -9223372019674906624
   store i64 %48, ptr %26, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8
   %49 = call noundef zeroext i1 @_ZN7glslang11HlslGrammar24acceptFullySpecifiedTypeERNS_5TTypeERP11TIntermNodeRKNS_5TListINS_14TAttributeArgsEEEb(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(152) %14, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(32) %4, i1 noundef zeroext false)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %49, label %50, label %112
 
 50:                                               ; preds = %2
@@ -10248,10 +10248,10 @@ define noundef zeroext i1 @_ZN7glslang11HlslGrammar21acceptUnaryExpressionERPNS_
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr null, ptr %29, align 8
   store i64 0, ptr %16, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8
   %30 = call noundef zeroext i1 @_ZN7glslang11HlslGrammar10acceptTypeERNS_5TTypeERP11TIntermNode(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %30, label %31, label %63
 
 31:                                               ; preds = %10
@@ -10770,10 +10770,10 @@ define noundef zeroext i1 @_ZN7glslang11HlslGrammar17acceptConstructorERPNS_12TI
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr null, ptr %24, align 8
   store i64 0, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8
   %25 = call noundef zeroext i1 @_ZN7glslang11HlslGrammar10acceptTypeERNS_5TTypeERP11TIntermNode(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %25, label %26, label %46
 
 26:                                               ; preds = %2
@@ -11313,7 +11313,7 @@ _ZN7glslang16HlslParseContext8popScopeEv.exit:    ; preds = %11, %25
   br label %84
 
 53:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %54, i64 24, i1 false)
   %55 = call noundef zeroext i1 @_ZN7glslang15HlslTokenStream16acceptTokenClassENS_15EHlslTokenClassE(ptr noundef nonnull align 8 dereferenceable(360) %0, i32 noundef 332) #16
@@ -11341,11 +11341,11 @@ _ZN7glslang16HlslParseContext8popScopeEv.exit:    ; preds = %11, %25
 
 _ZN7glslang11HlslGrammar18acceptDefaultLabelERP11TIntermNode.exit: ; preds = %53, %60, %64
   %.0.i = phi i1 [ true, %64 ], [ false, %60 ], [ false, %53 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %84
 
 68:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %69 = call noundef zeroext i1 @_ZN7glslang15HlslTokenStream16acceptTokenClassENS_15EHlslTokenClassE(ptr noundef nonnull align 8 dereferenceable(360) %0, i32 noundef 365) #16
   br i1 %69, label %_ZN7glslang11HlslGrammar21acceptSimpleStatementERP11TIntermNode.exit, label %70
 
@@ -11375,7 +11375,7 @@ _ZN7glslang11HlslGrammar18acceptDefaultLabelERP11TIntermNode.exit: ; preds = %53
 
 _ZN7glslang11HlslGrammar21acceptSimpleStatementERP11TIntermNode.exit: ; preds = %68, %70, %72, %74, %77
   %.0.i11 = phi i1 [ false, %77 ], [ true, %68 ], [ true, %70 ], [ false, %72 ], [ true, %74 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %84
 
 84:                                               ; preds = %2, %_ZN7glslang11HlslGrammar21acceptSimpleStatementERP11TIntermNode.exit, %_ZN7glslang11HlslGrammar18acceptDefaultLabelERP11TIntermNode.exit, %51, %49, %47, %45, %43, %_ZN7glslang16HlslParseContext8popScopeEv.exit
@@ -12119,7 +12119,7 @@ _ZN7glslang16HlslParseContext8popScopeEv.exit18:  ; preds = %106, %128
   %198 = load ptr, ptr %197, align 8
   tail call void @_ZN7glslang12TSymbolTable4pushEv(ptr noundef nonnull align 8 dereferenceable(40) %198)
   store ptr null, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %199 = tail call noundef zeroext i1 @_ZN7glslang15HlslTokenStream16acceptTokenClassENS_15EHlslTokenClassE(ptr noundef nonnull align 8 dereferenceable(360) %0, i32 noundef 365) #16
   br i1 %199, label %_ZN7glslang11HlslGrammar21acceptSimpleStatementERP11TIntermNode.exit.thread, label %200
 
@@ -12146,11 +12146,11 @@ _ZN7glslang16HlslParseContext8popScopeEv.exit18:  ; preds = %106, %128
   br label %212
 
 _ZN7glslang11HlslGrammar21acceptSimpleStatementERP11TIntermNode.exit.thread: ; preds = %194, %200, %204
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %217
 
 212:                                              ; preds = %207, %202
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %213 = load ptr, ptr %195, align 8
   %214 = load ptr, ptr %213, align 8
   %215 = getelementptr inbounds nuw i8, ptr %214, i64 344
@@ -17022,10 +17022,10 @@ declare void @llvm.assume(i1 noundef) #11
 declare i64 @llvm.umin.i64(i64, i64) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #12

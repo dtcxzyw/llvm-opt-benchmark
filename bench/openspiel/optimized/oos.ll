@@ -4368,7 +4368,7 @@ define void @_ZN10open_spiel10algorithms12OOSAlgorithm21RunTargetedIterationsERK
   br i1 %6, label %7, label %40
 
 7:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 56
@@ -4448,7 +4448,7 @@ _ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit11.i: ; p
   br i1 %exitcond.not.i, label %_ZN10open_spiel10algorithms12OOSAlgorithm21RunUnbiasedIterationsEi.exit, label %.preheader.i, !llvm.loop !29
 
 _ZN10open_spiel10algorithms12OOSAlgorithm21RunUnbiasedIterationsEi.exit: ; preds = %38, %7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %46
 
 40:                                               ; preds = %3
@@ -4491,7 +4491,7 @@ define void @_ZN10open_spiel10algorithms12OOSAlgorithm21RunTargetedIterationsEi(
   br label %.preheader
 
 16:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 56
@@ -4574,7 +4574,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   br i1 %exitcond.not.i, label %_ZN10open_spiel10algorithms12OOSAlgorithm21RunUnbiasedIterationsEi.exit, label %.preheader.i, !llvm.loop !29
 
 _ZN10open_spiel10algorithms12OOSAlgorithm21RunUnbiasedIterationsEi.exit: ; preds = %47, %16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.loopexit
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %78
@@ -4659,7 +4659,7 @@ define void @_ZN10open_spiel10algorithms12OOSAlgorithm21RunTargetedIterationsERK
   br i1 %6, label %7, label %40
 
 7:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 56
@@ -4739,7 +4739,7 @@ _ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit11.i: ; p
   br i1 %exitcond.not.i, label %_ZN10open_spiel10algorithms12OOSAlgorithm21RunUnbiasedIterationsEi.exit, label %.preheader.i, !llvm.loop !29
 
 _ZN10open_spiel10algorithms12OOSAlgorithm21RunUnbiasedIterationsEi.exit: ; preds = %38, %7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %46
 
 40:                                               ; preds = %3
@@ -4830,7 +4830,7 @@ common.ret28:                                     ; preds = %87, %35, %55
   ret double %common.ret28.op
 
 55:                                               ; preds = %50
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %57 = load i8, ptr %56, align 8
   %58 = trunc i8 %57 to i1
@@ -4862,7 +4862,7 @@ common.ret28:                                     ; preds = %87, %35, %55
   %79 = tail call noundef double @_ZN10open_spiel10algorithms12OOSAlgorithm9IterationEPNS_5StateEdddddi(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull %1, double noundef %2, double noundef %3, double noundef %76, double noundef %77, double noundef %78, i32 noundef %7)
   %80 = fmul double %66, %79
   %81 = fdiv double %80, %71
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %common.ret28
 
 82:                                               ; preds = %50
@@ -4999,7 +4999,7 @@ _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open
 34:                                               ; preds = %_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel10algorithms18CFRInfoStateValuesESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S8_EEE4findERSE_.exit
   %35 = getelementptr inbounds nuw i8, ptr %31, i64 40
   call void @llvm.experimental.noalias.scope.decl(metadata !35)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %36 = load ptr, ptr %1, align 8, !noalias !35
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 8, !noalias !35
@@ -5067,7 +5067,7 @@ _ZN10open_spiel10algorithms12OOSAlgorithm18SampleExistingTreeEPNS_5StateERKNSt7_
   store double %77, ptr %76, align 8, !alias.scope !35
   %78 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store ptr %35, ptr %78, align 8, !alias.scope !35
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %79
 
 79:                                               ; preds = %_ZN10open_spiel10algorithms12OOSAlgorithm18SampleExistingTreeEPNS_5StateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_18CFRInfoStateValuesEdddddi.exit, %33
@@ -9608,10 +9608,10 @@ declare void @llvm.assume(i1 noundef) #22
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #24
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #24
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #24
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

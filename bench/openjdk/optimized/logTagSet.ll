@@ -354,7 +354,7 @@ define hidden void @_ZN9LogTagSet6vwriteEN8LogLevel4typeEPKcP13__va_list_tag(ptr
   br i1 %25, label %26, label %51
 
 26:                                               ; preds = %24
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %28 = call noundef i32 @_ZN13LogOutputList16increase_readersEv(ptr noundef nonnull align 8 dereferenceable(52) %27) #11, !noalias !30
   %29 = zext i32 %1 to i64
@@ -381,8 +381,8 @@ define hidden void @_ZN9LogTagSet6vwriteEN8LogLevel4typeEPKcP13__va_list_tag(ptr
 
 _ZN9LogTagSet3logEN8LogLevel4typeEPKc.exit:       ; preds = %.lr.ph.i, %26
   %40 = call noundef i32 @_ZN13LogOutputList16decrease_readersEv(ptr noundef nonnull align 8 dereferenceable(52) %27) #11
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %41 = call noundef i32 @_ZN13LogOutputList16increase_readersEv(ptr noundef nonnull align 8 dereferenceable(52) %27) #11, !noalias !33
   %42 = load volatile ptr, ptr %30, align 8, !noalias !33
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !noalias !33, !srcloc !12
@@ -405,7 +405,7 @@ _ZN9LogTagSet3logEN8LogLevel4typeEPKc.exit:       ; preds = %.lr.ph.i, %26
 
 _ZN9LogTagSet3logEN8LogLevel4typeEPKc.exit43:     ; preds = %.lr.ph.i40, %_ZN9LogTagSet3logEN8LogLevel4typeEPKc.exit
   %50 = call noundef i32 @_ZN13LogOutputList16decrease_readersEv(ptr noundef nonnull align 8 dereferenceable(52) %27) #11
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %135
 
 51:                                               ; preds = %24
@@ -416,7 +416,7 @@ _ZN9LogTagSet3logEN8LogLevel4typeEPKc.exit43:     ; preds = %.lr.ph.i40, %_ZN9Lo
   br i1 %55, label %56, label %71
 
 56:                                               ; preds = %51
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %58 = call noundef i32 @_ZN13LogOutputList16increase_readersEv(ptr noundef nonnull align 8 dereferenceable(52) %57) #11, !noalias !36
   %59 = zext i32 %1 to i64
@@ -443,7 +443,7 @@ _ZN9LogTagSet3logEN8LogLevel4typeEPKc.exit43:     ; preds = %.lr.ph.i40, %_ZN9Lo
 
 _ZN9LogTagSet3logEN8LogLevel4typeEPKc.exit48:     ; preds = %.lr.ph.i45, %56
   %70 = call noundef i32 @_ZN13LogOutputList16decrease_readersEv(ptr noundef nonnull align 8 dereferenceable(52) %57) #11
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %135
 
 71:                                               ; preds = %51
@@ -457,7 +457,7 @@ _ZN9LogTagSet3logEN8LogLevel4typeEPKc.exit48:     ; preds = %.lr.ph.i45, %56
   %76 = getelementptr inbounds i8, ptr %72, i64 %75
   %77 = sub i64 %54, %75
   %78 = call noundef i32 @_ZN2os9vsnprintfEPcmPKcP13__va_list_tag(ptr noundef nonnull %76, i64 noundef %77, ptr noundef %2, ptr noundef nonnull %13) #11
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %80 = call noundef i32 @_ZN13LogOutputList16increase_readersEv(ptr noundef nonnull align 8 dereferenceable(52) %79) #11, !noalias !39
   %81 = zext i32 %1 to i64
@@ -484,12 +484,12 @@ _ZN9LogTagSet3logEN8LogLevel4typeEPKc.exit48:     ; preds = %.lr.ph.i45, %56
 
 _ZN9LogTagSet3logEN8LogLevel4typeEPKc.exit53:     ; preds = %.lr.ph.i50, %73
   %92 = call noundef i32 @_ZN13LogOutputList16decrease_readersEv(ptr noundef nonnull align 8 dereferenceable(52) %79) #11
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %93 = icmp slt i32 %78, 0
   br i1 %93, label %94, label %105
 
 94:                                               ; preds = %_ZN9LogTagSet3logEN8LogLevel4typeEPKc.exit53
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %95 = call noundef i32 @_ZN13LogOutputList16increase_readersEv(ptr noundef nonnull align 8 dereferenceable(52) %79) #11, !noalias !42
   %96 = load volatile ptr, ptr %82, align 8, !noalias !42
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !noalias !42, !srcloc !12
@@ -512,7 +512,7 @@ _ZN9LogTagSet3logEN8LogLevel4typeEPKc.exit53:     ; preds = %.lr.ph.i50, %73
 
 _ZN9LogTagSet3logEN8LogLevel4typeEPKc.exit58:     ; preds = %.lr.ph.i55, %94
   %104 = call noundef i32 @_ZN13LogOutputList16decrease_readersEv(ptr noundef nonnull align 8 dereferenceable(52) %79) #11
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %105
 
 105:                                              ; preds = %_ZN9LogTagSet3logEN8LogLevel4typeEPKc.exit58, %_ZN9LogTagSet3logEN8LogLevel4typeEPKc.exit53
@@ -522,7 +522,7 @@ _ZN9LogTagSet3logEN8LogLevel4typeEPKc.exit58:     ; preds = %.lr.ph.i55, %94
 106:                                              ; preds = %71
   %107 = getelementptr inbounds nuw i8, ptr %12, i64 486
   %108 = call noundef i32 (ptr, i64, ptr, ...) @_ZN2os8snprintfEPcmPKcz(ptr noundef nonnull %107, i64 noundef 26, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.7) #11
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %110 = call noundef i32 @_ZN13LogOutputList16increase_readersEv(ptr noundef nonnull align 8 dereferenceable(52) %109) #11, !noalias !45
   %111 = zext i32 %1 to i64
@@ -549,12 +549,12 @@ _ZN9LogTagSet3logEN8LogLevel4typeEPKc.exit58:     ; preds = %.lr.ph.i55, %94
 
 _ZN9LogTagSet3logEN8LogLevel4typeEPKc.exit63:     ; preds = %.lr.ph.i60, %106
   %122 = call noundef i32 @_ZN13LogOutputList16decrease_readersEv(ptr noundef nonnull align 8 dereferenceable(52) %109) #11
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %123 = icmp slt i32 %108, 0
   br i1 %123, label %124, label %135
 
 124:                                              ; preds = %_ZN9LogTagSet3logEN8LogLevel4typeEPKc.exit63
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %125 = call noundef i32 @_ZN13LogOutputList16increase_readersEv(ptr noundef nonnull align 8 dereferenceable(52) %109) #11, !noalias !48
   %126 = load volatile ptr, ptr %112, align 8, !noalias !48
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !noalias !48, !srcloc !12
@@ -577,7 +577,7 @@ _ZN9LogTagSet3logEN8LogLevel4typeEPKc.exit63:     ; preds = %.lr.ph.i60, %106
 
 _ZN9LogTagSet3logEN8LogLevel4typeEPKc.exit68:     ; preds = %.lr.ph.i65, %124
   %134 = call noundef i32 @_ZN13LogOutputList16decrease_readersEv(ptr noundef nonnull align 8 dereferenceable(52) %109) #11
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %135
 
 135:                                              ; preds = %_ZN9LogTagSet3logEN8LogLevel4typeEPKc.exit48, %_ZN9LogTagSet3logEN8LogLevel4typeEPKc.exit63, %_ZN9LogTagSet3logEN8LogLevel4typeEPKc.exit68, %105, %_ZN9LogTagSet3logEN8LogLevel4typeEPKc.exit43
@@ -667,7 +667,7 @@ define hidden void @_ZN9LogTagSet16list_all_tagsetsEP12outputStream(ptr noundef 
 .lr.ph:                                           ; preds = %1, %_ZNK9LogTagSet5labelEPcmPKc.exit
   %.020 = phi ptr [ %.0, %_ZNK9LogTagSet5labelEPcmPKc.exit ], [ %.017, %1 ]
   %.01619 = phi i64 [ %22, %_ZNK9LogTagSet5labelEPcmPKc.exit ], [ 0, %1 ]
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZN12stringStreamC1EPcm(ptr noundef nonnull align 8 dereferenceable(129) %2, ptr noundef nonnull %3, i64 noundef 128) #11
   %7 = getelementptr inbounds nuw i8, ptr %.020, i64 8
   %8 = load i64, ptr %7, align 8
@@ -695,7 +695,7 @@ define hidden void @_ZN9LogTagSet16list_all_tagsetsEP12outputStream(ptr noundef 
 
 _ZNK9LogTagSet5labelEPcmPKc.exit:                 ; preds = %10, %.lr.ph
   call void @_ZN12stringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(129) %2) #11
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %21 = call noundef ptr @_ZN2os16strdup_check_oomEPKc8MEMFLAGS(ptr noundef nonnull %3, i8 noundef zeroext 17) #11
   %22 = add i64 %.01619, 1
   %23 = getelementptr inbounds ptr, ptr %6, i64 %.01619
@@ -763,10 +763,10 @@ declare void @_ZN16LogMessageBuffer8Iterator30skip_messages_with_finer_levelEv(p
 declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 attributes #0 = { mustprogress nofree norecurse nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

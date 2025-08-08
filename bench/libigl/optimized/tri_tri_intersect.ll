@@ -96,8 +96,8 @@ $_ZN3igl8internal18_IGL_CHECK_MIN_MAXIN5Eigen5BlockIKNS2_6MatrixIdLin1ELin1ELi0E
 define weak_odr dso_local noundef zeroext i1 @_ZN3igl28tri_tri_intersection_test_3dIN5Eigen5BlockIKNS1_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEES6_S6_NS2_IS4_Li1ELin1ELb0EEES6_S6_NS3_IdLi1ELi3ELi1ELi1ELi3EEES8_EEbRKNS1_10MatrixBaseIT_EERKNS9_IT0_EERKNS9_IT1_EERKNS9_IT2_EERKNS9_IT3_EERKNS9_IT4_EERbRNS9_IT5_EERNS9_IT6_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 1 dereferenceable(1) %8) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.Eigen::Matrix", align 16
   %11 = alloca %"class.Eigen::Matrix", align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #7
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %.sroa.0310.0.copyload = load ptr, ptr %3, align 8
   %.sroa.4312.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 24
   %.sroa.4312.0.copyload = load ptr, ptr %.sroa.4312.0..sroa_idx, align 8
@@ -475,33 +475,27 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl28tri_tri_intersection_test
 
 251:                                              ; preds = %201, %207, %211, %213, %219, %223, %225, %230, %232, %238, %240, %243, %247, %249, %99, %9
   %.0 = phi i1 [ false, %9 ], [ false, %99 ], [ %202, %201 ], [ %208, %207 ], [ %212, %211 ], [ %214, %213 ], [ %220, %219 ], [ %224, %223 ], [ %226, %225 ], [ %231, %230 ], [ %233, %232 ], [ %239, %238 ], [ %241, %240 ], [ %244, %243 ], [ %248, %247 ], [ %250, %249 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare noundef double @_ZN3igl3EPSIdEET_v() local_unnamed_addr #2
+declare noundef double @_ZN3igl3EPSIdEET_v() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal18coplanar_tri_tri3dIN5Eigen5BlockIKNS2_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEES7_S7_NS3_IS5_Li1ELin1ELb0EEES7_S7_NS4_IdLi1ELi3ELi1ELi1ELi3EEEEEbRKNS2_10MatrixBaseIT_EERKNSA_IT0_EERKNSA_IT1_EERKNSA_IT2_EERKNSA_IT3_EERKNSA_IT4_EERKNSA_IT5_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal18coplanar_tri_tri3dIN5Eigen5BlockIKNS2_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEES7_S7_NS3_IS5_Li1ELin1ELb0EEES7_S7_NS4_IdLi1ELi3ELi1ELi1ELi3EEEEEbRKNS2_10MatrixBaseIT_EERKNSA_IT0_EERKNSA_IT1_EERKNSA_IT2_EERKNSA_IT3_EERKNSA_IT4_EERKNSA_IT5_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) local_unnamed_addr #2 comdat personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.Eigen::Matrix.111", align 16
   %9 = alloca %"class.Eigen::Matrix.111", align 16
   %10 = alloca %"class.Eigen::Matrix.111", align 16
   %11 = alloca %"class.Eigen::Matrix.111", align 16
   %12 = alloca %"class.Eigen::Matrix.111", align 16
   %13 = alloca %"class.Eigen::Matrix.111", align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #7
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #7
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #7
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #7
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #7
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %14 = load double, ptr %6, align 8, !tbaa !11
   %15 = fcmp olt double %14, 0.000000e+00
   %16 = fneg double %14
@@ -749,17 +743,17 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal18coplanar_tri
   %199 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store double %.sink, ptr %199, align 8, !tbaa !11
   %200 = call noundef zeroext i1 @_ZN3igl23tri_tri_overlap_test_2dIN5Eigen6MatrixIdLi1ELi2ELi1ELi1ELi2EEES3_S3_S3_S3_S3_EEbRKNS1_10MatrixBaseIT_EERKNS4_IT0_EERKNS4_IT1_EERKNS4_IT2_EERKNS4_IT3_EERKNS4_IT4_EE(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i1 %200
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal21_IGL_TRI_TRI_INTER_3DIN5Eigen5BlockIKNS2_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEES7_S7_NS3_IS5_Li1ELin1ELb0EEES7_S7_dddNS4_IdLi1ELi3ELi1ELi1ELi3EEES9_S9_S9_EEbRKNS2_10MatrixBaseIT_EERKNSA_IT0_EERKNSA_IT1_EERKNSA_IT2_EERKNSA_IT3_EERKNSA_IT4_EET5_T6_T7_RbRNSA_IT8_EERNSA_IT9_EERKNSA_IT10_EERKNSA_IT11_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 1 dereferenceable(1) %5, double noundef %6, double noundef %7, double noundef %8, ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 1 dereferenceable(1) %13) local_unnamed_addr #4 comdat {
+define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal21_IGL_TRI_TRI_INTER_3DIN5Eigen5BlockIKNS2_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEES7_S7_NS3_IS5_Li1ELin1ELb0EEES7_S7_dddNS4_IdLi1ELi3ELi1ELi1ELi3EEES9_S9_S9_EEbRKNS2_10MatrixBaseIT_EERKNSA_IT0_EERKNSA_IT1_EERKNSA_IT2_EERKNSA_IT3_EERKNSA_IT4_EET5_T6_T7_RbRNSA_IT8_EERNSA_IT9_EERKNSA_IT10_EERKNSA_IT11_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 1 dereferenceable(1) %5, double noundef %6, double noundef %7, double noundef %8, ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 1 dereferenceable(1) %13) local_unnamed_addr #3 comdat {
   %15 = fcmp ogt double %6, 0.000000e+00
   br i1 %15, label %16, label %26
 
@@ -867,8 +861,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal21_IGL_TRI_TRI
 define weak_odr dso_local noundef zeroext i1 @_ZN3igl28tri_tri_intersection_test_3dIN5Eigen5BlockIKNS1_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEES6_S6_NS3_IdLi1ELin1ELi1ELi1ELin1EEES6_S6_NS3_IdLi1ELi3ELi1ELi1ELi3EEES8_EEbRKNS1_10MatrixBaseIT_EERKNS9_IT0_EERKNS9_IT1_EERKNS9_IT2_EERKNS9_IT3_EERKNS9_IT4_EERbRNS9_IT5_EERNS9_IT6_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 1 dereferenceable(1) %8) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.Eigen::Matrix", align 16
   %11 = alloca %"class.Eigen::Matrix", align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #7
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %.sroa.4305.8.copyload = load ptr, ptr %5, align 8
   %.sroa.6307.8..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
   %.sroa.6307.8.copyload = load ptr, ptr %.sroa.6307.8..sroa_idx, align 8
@@ -1234,25 +1228,25 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl28tri_tri_intersection_test
 
 246:                                              ; preds = %196, %202, %206, %208, %214, %218, %220, %225, %227, %233, %235, %238, %242, %244, %98, %9
   %.0 = phi i1 [ false, %9 ], [ false, %98 ], [ %197, %196 ], [ %203, %202 ], [ %207, %206 ], [ %209, %208 ], [ %215, %214 ], [ %219, %218 ], [ %221, %220 ], [ %226, %225 ], [ %228, %227 ], [ %234, %233 ], [ %236, %235 ], [ %239, %238 ], [ %243, %242 ], [ %245, %244 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i1 %.0
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal18coplanar_tri_tri3dIN5Eigen5BlockIKNS2_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEES7_S7_NS4_IdLi1ELin1ELi1ELi1ELin1EEES7_S7_NS4_IdLi1ELi3ELi1ELi1ELi3EEEEEbRKNS2_10MatrixBaseIT_EERKNSA_IT0_EERKNSA_IT1_EERKNSA_IT2_EERKNSA_IT3_EERKNSA_IT4_EERKNSA_IT5_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal18coplanar_tri_tri3dIN5Eigen5BlockIKNS2_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEES7_S7_NS4_IdLi1ELin1ELi1ELi1ELin1EEES7_S7_NS4_IdLi1ELi3ELi1ELi1ELi3EEEEEbRKNS2_10MatrixBaseIT_EERKNSA_IT0_EERKNSA_IT1_EERKNSA_IT2_EERKNSA_IT3_EERKNSA_IT4_EERKNSA_IT5_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) local_unnamed_addr #2 comdat personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.Eigen::Matrix.111", align 16
   %9 = alloca %"class.Eigen::Matrix.111", align 16
   %10 = alloca %"class.Eigen::Matrix.111", align 16
   %11 = alloca %"class.Eigen::Matrix.111", align 16
   %12 = alloca %"class.Eigen::Matrix.111", align 16
   %13 = alloca %"class.Eigen::Matrix.111", align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #7
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #7
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #7
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #7
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #7
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %14 = load double, ptr %6, align 8, !tbaa !11
   %15 = fcmp olt double %14, 0.000000e+00
   %16 = fneg double %14
@@ -1486,17 +1480,17 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal18coplanar_tri
   %187 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store double %.sink, ptr %187, align 8, !tbaa !11
   %188 = call noundef zeroext i1 @_ZN3igl23tri_tri_overlap_test_2dIN5Eigen6MatrixIdLi1ELi2ELi1ELi1ELi2EEES3_S3_S3_S3_S3_EEbRKNS1_10MatrixBaseIT_EERKNS4_IT0_EERKNS4_IT1_EERKNS4_IT2_EERKNS4_IT3_EERKNS4_IT4_EE(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i1 %188
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal21_IGL_TRI_TRI_INTER_3DIN5Eigen5BlockIKNS2_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEES7_S7_NS4_IdLi1ELin1ELi1ELi1ELin1EEES7_S7_dddNS4_IdLi1ELi3ELi1ELi1ELi3EEES9_S9_S9_EEbRKNS2_10MatrixBaseIT_EERKNSA_IT0_EERKNSA_IT1_EERKNSA_IT2_EERKNSA_IT3_EERKNSA_IT4_EET5_T6_T7_RbRNSA_IT8_EERNSA_IT9_EERKNSA_IT10_EERKNSA_IT11_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 1 dereferenceable(1) %5, double noundef %6, double noundef %7, double noundef %8, ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 1 dereferenceable(1) %13) local_unnamed_addr #4 comdat {
+define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal21_IGL_TRI_TRI_INTER_3DIN5Eigen5BlockIKNS2_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEES7_S7_NS4_IdLi1ELin1ELi1ELi1ELin1EEES7_S7_dddNS4_IdLi1ELi3ELi1ELi1ELi3EEES9_S9_S9_EEbRKNS2_10MatrixBaseIT_EERKNSA_IT0_EERKNSA_IT1_EERKNSA_IT2_EERKNSA_IT3_EERKNSA_IT4_EET5_T6_T7_RbRNSA_IT8_EERNSA_IT9_EERKNSA_IT10_EERKNSA_IT11_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 1 dereferenceable(1) %5, double noundef %6, double noundef %7, double noundef %8, ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 1 dereferenceable(1) %13) local_unnamed_addr #3 comdat {
   %15 = fcmp ogt double %6, 0.000000e+00
   br i1 %15, label %16, label %26
 
@@ -1604,8 +1598,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal21_IGL_TRI_TRI
 define weak_odr dso_local noundef zeroext i1 @_ZN3igl28tri_tri_intersection_test_3dIN5Eigen5BlockINS1_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEES5_S5_NS3_IdLi1ELi3ELi1ELi1ELi3EEES5_S5_S6_S6_EEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EERKNS7_IT1_EERKNS7_IT2_EERKNS7_IT3_EERKNS7_IT4_EERbRNS7_IT5_EERNS7_IT6_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 1 dereferenceable(1) %8) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.Eigen::Matrix", align 16
   %11 = alloca %"class.Eigen::Matrix", align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #7
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %.sroa.4305.8.copyload = load ptr, ptr %5, align 8
   %.sroa.6307.8..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
   %.sroa.6307.8.copyload = load ptr, ptr %.sroa.6307.8..sroa_idx, align 8
@@ -1967,25 +1961,25 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl28tri_tri_intersection_test
 
 242:                                              ; preds = %192, %198, %202, %204, %210, %214, %216, %221, %223, %229, %231, %234, %238, %240, %97, %9
   %.0 = phi i1 [ false, %9 ], [ false, %97 ], [ %193, %192 ], [ %199, %198 ], [ %203, %202 ], [ %205, %204 ], [ %211, %210 ], [ %215, %214 ], [ %217, %216 ], [ %222, %221 ], [ %224, %223 ], [ %230, %229 ], [ %232, %231 ], [ %235, %234 ], [ %239, %238 ], [ %241, %240 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i1 %.0
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal18coplanar_tri_tri3dIN5Eigen5BlockINS2_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEES6_S6_NS4_IdLi1ELi3ELi1ELi1ELi3EEES6_S6_S7_EEbRKNS2_10MatrixBaseIT_EERKNS8_IT0_EERKNS8_IT1_EERKNS8_IT2_EERKNS8_IT3_EERKNS8_IT4_EERKNS8_IT5_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal18coplanar_tri_tri3dIN5Eigen5BlockINS2_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEES6_S6_NS4_IdLi1ELi3ELi1ELi1ELi3EEES6_S6_S7_EEbRKNS2_10MatrixBaseIT_EERKNS8_IT0_EERKNS8_IT1_EERKNS8_IT2_EERKNS8_IT3_EERKNS8_IT4_EERKNS8_IT5_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) local_unnamed_addr #2 comdat personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.Eigen::Matrix.111", align 16
   %9 = alloca %"class.Eigen::Matrix.111", align 16
   %10 = alloca %"class.Eigen::Matrix.111", align 16
   %11 = alloca %"class.Eigen::Matrix.111", align 16
   %12 = alloca %"class.Eigen::Matrix.111", align 16
   %13 = alloca %"class.Eigen::Matrix.111", align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #7
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #7
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #7
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #7
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #7
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %14 = load double, ptr %6, align 8, !tbaa !11
   %15 = fcmp olt double %14, 0.000000e+00
   %16 = fneg double %14
@@ -2216,17 +2210,17 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal18coplanar_tri
   %184 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store double %.sink, ptr %184, align 8, !tbaa !11
   %185 = call noundef zeroext i1 @_ZN3igl23tri_tri_overlap_test_2dIN5Eigen6MatrixIdLi1ELi2ELi1ELi1ELi2EEES3_S3_S3_S3_S3_EEbRKNS1_10MatrixBaseIT_EERKNS4_IT0_EERKNS4_IT1_EERKNS4_IT2_EERKNS4_IT3_EERKNS4_IT4_EE(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i1 %185
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal21_IGL_TRI_TRI_INTER_3DIN5Eigen5BlockINS2_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEES6_S6_NS4_IdLi1ELi3ELi1ELi1ELi3EEES6_S6_dddS7_S7_S7_S7_EEbRKNS2_10MatrixBaseIT_EERKNS8_IT0_EERKNS8_IT1_EERKNS8_IT2_EERKNS8_IT3_EERKNS8_IT4_EET5_T6_T7_RbRNS8_IT8_EERNS8_IT9_EERKNS8_IT10_EERKNS8_IT11_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 1 dereferenceable(1) %5, double noundef %6, double noundef %7, double noundef %8, ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 1 dereferenceable(1) %13) local_unnamed_addr #4 comdat {
+define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal21_IGL_TRI_TRI_INTER_3DIN5Eigen5BlockINS2_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEES6_S6_NS4_IdLi1ELi3ELi1ELi1ELi3EEES6_S6_dddS7_S7_S7_S7_EEbRKNS2_10MatrixBaseIT_EERKNS8_IT0_EERKNS8_IT1_EERKNS8_IT2_EERKNS8_IT3_EERKNS8_IT4_EET5_T6_T7_RbRNS8_IT8_EERNS8_IT9_EERKNS8_IT10_EERKNS8_IT11_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 1 dereferenceable(1) %5, double noundef %6, double noundef %7, double noundef %8, ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 1 dereferenceable(1) %13) local_unnamed_addr #3 comdat {
   %15 = fcmp ogt double %6, 0.000000e+00
   br i1 %15, label %16, label %26
 
@@ -2334,8 +2328,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal21_IGL_TRI_TRI
 define weak_odr dso_local noundef zeroext i1 @_ZN3igl28tri_tri_intersection_test_3dIN5Eigen5BlockIKNS1_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEES6_S6_S6_S6_S6_NS3_IdLi1ELi3ELi1ELi1ELi3EEES7_EEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EERKNS8_IT1_EERKNS8_IT2_EERKNS8_IT3_EERKNS8_IT4_EERbRNS8_IT5_EERNS8_IT6_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 1 dereferenceable(1) %8) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.Eigen::Matrix", align 16
   %11 = alloca %"class.Eigen::Matrix", align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #7
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %.sroa.0310.0.copyload = load ptr, ptr %3, align 8
   %.sroa.4312.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 24
   %.sroa.4312.0.copyload = load ptr, ptr %.sroa.4312.0..sroa_idx, align 8
@@ -2713,25 +2707,25 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl28tri_tri_intersection_test
 
 251:                                              ; preds = %201, %207, %211, %213, %219, %223, %225, %230, %232, %238, %240, %243, %247, %249, %99, %9
   %.0 = phi i1 [ false, %9 ], [ false, %99 ], [ %202, %201 ], [ %208, %207 ], [ %212, %211 ], [ %214, %213 ], [ %220, %219 ], [ %224, %223 ], [ %226, %225 ], [ %231, %230 ], [ %233, %232 ], [ %239, %238 ], [ %241, %240 ], [ %244, %243 ], [ %248, %247 ], [ %250, %249 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i1 %.0
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal18coplanar_tri_tri3dIN5Eigen5BlockIKNS2_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEES7_S7_S7_S7_S7_NS4_IdLi1ELi3ELi1ELi1ELi3EEEEEbRKNS2_10MatrixBaseIT_EERKNS9_IT0_EERKNS9_IT1_EERKNS9_IT2_EERKNS9_IT3_EERKNS9_IT4_EERKNS9_IT5_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal18coplanar_tri_tri3dIN5Eigen5BlockIKNS2_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEES7_S7_S7_S7_S7_NS4_IdLi1ELi3ELi1ELi1ELi3EEEEEbRKNS2_10MatrixBaseIT_EERKNS9_IT0_EERKNS9_IT1_EERKNS9_IT2_EERKNS9_IT3_EERKNS9_IT4_EERKNS9_IT5_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) local_unnamed_addr #2 comdat personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.Eigen::Matrix.111", align 16
   %9 = alloca %"class.Eigen::Matrix.111", align 16
   %10 = alloca %"class.Eigen::Matrix.111", align 16
   %11 = alloca %"class.Eigen::Matrix.111", align 16
   %12 = alloca %"class.Eigen::Matrix.111", align 16
   %13 = alloca %"class.Eigen::Matrix.111", align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #7
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #7
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #7
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #7
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #7
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %14 = load double, ptr %6, align 8, !tbaa !11
   %15 = fcmp olt double %14, 0.000000e+00
   %16 = fneg double %14
@@ -2979,17 +2973,17 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal18coplanar_tri
   %199 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store double %.sink, ptr %199, align 8, !tbaa !11
   %200 = call noundef zeroext i1 @_ZN3igl23tri_tri_overlap_test_2dIN5Eigen6MatrixIdLi1ELi2ELi1ELi1ELi2EEES3_S3_S3_S3_S3_EEbRKNS1_10MatrixBaseIT_EERKNS4_IT0_EERKNS4_IT1_EERKNS4_IT2_EERKNS4_IT3_EERKNS4_IT4_EE(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i1 %200
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal21_IGL_TRI_TRI_INTER_3DIN5Eigen5BlockIKNS2_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEES7_S7_S7_S7_S7_dddNS4_IdLi1ELi3ELi1ELi1ELi3EEES8_S8_S8_EEbRKNS2_10MatrixBaseIT_EERKNS9_IT0_EERKNS9_IT1_EERKNS9_IT2_EERKNS9_IT3_EERKNS9_IT4_EET5_T6_T7_RbRNS9_IT8_EERNS9_IT9_EERKNS9_IT10_EERKNS9_IT11_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 1 dereferenceable(1) %5, double noundef %6, double noundef %7, double noundef %8, ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 1 dereferenceable(1) %13) local_unnamed_addr #4 comdat {
+define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal21_IGL_TRI_TRI_INTER_3DIN5Eigen5BlockIKNS2_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEES7_S7_S7_S7_S7_dddNS4_IdLi1ELi3ELi1ELi1ELi3EEES8_S8_S8_EEbRKNS2_10MatrixBaseIT_EERKNS9_IT0_EERKNS9_IT1_EERKNS9_IT2_EERKNS9_IT3_EERKNS9_IT4_EET5_T6_T7_RbRNS9_IT8_EERNS9_IT9_EERKNS9_IT10_EERKNS9_IT11_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 1 dereferenceable(1) %5, double noundef %6, double noundef %7, double noundef %8, ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 1 dereferenceable(1) %13) local_unnamed_addr #3 comdat {
   %15 = fcmp ogt double %6, 0.000000e+00
   br i1 %15, label %16, label %26
 
@@ -3097,8 +3091,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal21_IGL_TRI_TRI
 define weak_odr dso_local noundef zeroext i1 @_ZN3igl28tri_tri_intersection_test_3dIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEES3_S3_S3_S3_S3_S3_S3_EEbRKNS1_10MatrixBaseIT_EERKNS4_IT0_EERKNS4_IT1_EERKNS4_IT2_EERKNS4_IT3_EERKNS4_IT4_EERbRNS4_IT5_EERNS4_IT6_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 1 dereferenceable(1) %8) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.Eigen::Matrix", align 16
   %11 = alloca %"class.Eigen::Matrix", align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #7
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %12 = load <2 x double>, ptr %3, align 1, !tbaa !13
   %13 = load <2 x double>, ptr %5, align 1, !tbaa !13
   %14 = fsub <2 x double> %12, %13
@@ -3360,25 +3354,25 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl28tri_tri_intersection_test
 
 179:                                              ; preds = %129, %135, %139, %141, %147, %151, %153, %158, %160, %166, %168, %171, %175, %177, %69, %9
   %.0 = phi i1 [ false, %9 ], [ false, %69 ], [ %130, %129 ], [ %136, %135 ], [ %140, %139 ], [ %142, %141 ], [ %148, %147 ], [ %152, %151 ], [ %154, %153 ], [ %159, %158 ], [ %161, %160 ], [ %167, %166 ], [ %169, %168 ], [ %172, %171 ], [ %176, %175 ], [ %178, %177 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i1 %.0
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal18coplanar_tri_tri3dIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEES4_S4_S4_S4_S4_S4_EEbRKNS2_10MatrixBaseIT_EERKNS5_IT0_EERKNS5_IT1_EERKNS5_IT2_EERKNS5_IT3_EERKNS5_IT4_EERKNS5_IT5_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal18coplanar_tri_tri3dIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEES4_S4_S4_S4_S4_S4_EEbRKNS2_10MatrixBaseIT_EERKNS5_IT0_EERKNS5_IT1_EERKNS5_IT2_EERKNS5_IT3_EERKNS5_IT4_EERKNS5_IT5_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) local_unnamed_addr #2 comdat personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.Eigen::Matrix.111", align 16
   %9 = alloca %"class.Eigen::Matrix.111", align 16
   %10 = alloca %"class.Eigen::Matrix.111", align 16
   %11 = alloca %"class.Eigen::Matrix.111", align 16
   %12 = alloca %"class.Eigen::Matrix.111", align 16
   %13 = alloca %"class.Eigen::Matrix.111", align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #7
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #7
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #7
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #7
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #7
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %14 = load double, ptr %6, align 8, !tbaa !11
   %15 = fcmp olt double %14, 0.000000e+00
   %16 = fneg double %14
@@ -3515,17 +3509,17 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal18coplanar_tri
   %101 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store double %100, ptr %101, align 8, !tbaa !11
   %102 = call noundef zeroext i1 @_ZN3igl23tri_tri_overlap_test_2dIN5Eigen6MatrixIdLi1ELi2ELi1ELi1ELi2EEES3_S3_S3_S3_S3_EEbRKNS1_10MatrixBaseIT_EERKNS4_IT0_EERKNS4_IT1_EERKNS4_IT2_EERKNS4_IT3_EERKNS4_IT4_EE(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i1 %102
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal21_IGL_TRI_TRI_INTER_3DIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEES4_S4_S4_S4_S4_dddS4_S4_S4_S4_EEbRKNS2_10MatrixBaseIT_EERKNS5_IT0_EERKNS5_IT1_EERKNS5_IT2_EERKNS5_IT3_EERKNS5_IT4_EET5_T6_T7_RbRNS5_IT8_EERNS5_IT9_EERKNS5_IT10_EERKNS5_IT11_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 1 dereferenceable(1) %5, double noundef %6, double noundef %7, double noundef %8, ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 1 dereferenceable(1) %13) local_unnamed_addr #4 comdat {
+define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal21_IGL_TRI_TRI_INTER_3DIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEES4_S4_S4_S4_S4_dddS4_S4_S4_S4_EEbRKNS2_10MatrixBaseIT_EERKNS5_IT0_EERKNS5_IT1_EERKNS5_IT2_EERKNS5_IT3_EERKNS5_IT4_EET5_T6_T7_RbRNS5_IT8_EERNS5_IT9_EERKNS5_IT10_EERKNS5_IT11_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 1 dereferenceable(1) %5, double noundef %6, double noundef %7, double noundef %8, ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 1 dereferenceable(1) %13) local_unnamed_addr #3 comdat {
   %15 = fcmp ogt double %6, 0.000000e+00
   br i1 %15, label %16, label %26
 
@@ -3632,7 +3626,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal21_IGL_TRI_TRI
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef zeroext i1 @_ZN3igl23tri_tri_overlap_test_3dIN5Eigen5BlockIKNS1_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEES6_S6_NS2_IS4_Li1ELin1ELb0EEES6_S6_EEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EERKNS8_IT1_EERKNS8_IT2_EERKNS8_IT3_EERKNS8_IT4_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 1 dereferenceable(1) %5) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.Eigen::Matrix", align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.sroa.0252.0.copyload = load ptr, ptr %3, align 8
   %.sroa.4254.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 24
   %.sroa.4254.0.copyload = load ptr, ptr %.sroa.4254.0..sroa_idx, align 8
@@ -3935,12 +3929,12 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl23tri_tri_overlap_test_3dIN
 
 201:                                              ; preds = %94, %6, %199, %197, %193, %190, %188, %182, %180, %175, %173, %169, %163, %161, %157
   %.0 = phi i1 [ %158, %157 ], [ %162, %161 ], [ %164, %163 ], [ %170, %169 ], [ %174, %173 ], [ %176, %175 ], [ %181, %180 ], [ %183, %182 ], [ %189, %188 ], [ %191, %190 ], [ %194, %193 ], [ %198, %197 ], [ %200, %199 ], [ false, %6 ], [ false, %94 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i1 %.0
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI_3DIN5Eigen5BlockIKNS2_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEES7_S7_NS3_IS5_Li1ELin1ELb0EEES7_S7_dddNS4_IdLi1ELi3ELi1ELi1ELi3EEEEEbRKNS2_10MatrixBaseIT_EERKNSA_IT0_EERKNSA_IT1_EERKNSA_IT2_EERKNSA_IT3_EERKNSA_IT4_EET5_T6_T7_RKNSA_IT8_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 1 dereferenceable(1) %5, double noundef %6, double noundef %7, double noundef %8, ptr noundef nonnull align 1 dereferenceable(1) %9) local_unnamed_addr #5 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI_3DIN5Eigen5BlockIKNS2_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEES7_S7_NS3_IS5_Li1ELin1ELb0EEES7_S7_dddNS4_IdLi1ELi3ELi1ELi1ELi3EEEEEbRKNS2_10MatrixBaseIT_EERKNSA_IT0_EERKNSA_IT1_EERKNSA_IT2_EERKNSA_IT3_EERKNSA_IT4_EET5_T6_T7_RKNSA_IT8_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 1 dereferenceable(1) %5, double noundef %6, double noundef %7, double noundef %8, ptr noundef nonnull align 1 dereferenceable(1) %9) local_unnamed_addr #4 comdat personality ptr @__gxx_personality_v0 {
   %11 = fcmp ogt double %6, 0.000000e+00
   br i1 %11, label %12, label %298
 
@@ -5432,7 +5426,7 @@ _ZN3igl8internal18_IGL_CHECK_MIN_MAXIN5Eigen5BlockIKNS2_6MatrixIdLin1ELin1ELi0EL
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef zeroext i1 @_ZN3igl23tri_tri_overlap_test_3dIN5Eigen5BlockIKNS1_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEES6_S6_NS3_IdLi1ELin1ELi1ELi1ELin1EEES6_S6_EEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EERKNS8_IT1_EERKNS8_IT2_EERKNS8_IT3_EERKNS8_IT4_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 1 dereferenceable(1) %5) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.Eigen::Matrix", align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.sroa.4247.8.copyload = load ptr, ptr %5, align 8
   %.sroa.6249.8..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
   %.sroa.6249.8.copyload = load ptr, ptr %.sroa.6249.8..sroa_idx, align 8
@@ -5725,12 +5719,12 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl23tri_tri_overlap_test_3dIN
 
 196:                                              ; preds = %93, %6, %194, %192, %188, %185, %183, %177, %175, %170, %168, %164, %158, %156, %152
   %.0 = phi i1 [ %153, %152 ], [ %157, %156 ], [ %159, %158 ], [ %165, %164 ], [ %169, %168 ], [ %171, %170 ], [ %176, %175 ], [ %178, %177 ], [ %184, %183 ], [ %186, %185 ], [ %189, %188 ], [ %193, %192 ], [ %195, %194 ], [ false, %6 ], [ false, %93 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i1 %.0
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI_3DIN5Eigen5BlockIKNS2_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEES7_S7_NS4_IdLi1ELin1ELi1ELi1ELin1EEES7_S7_dddNS4_IdLi1ELi3ELi1ELi1ELi3EEEEEbRKNS2_10MatrixBaseIT_EERKNSA_IT0_EERKNSA_IT1_EERKNSA_IT2_EERKNSA_IT3_EERKNSA_IT4_EET5_T6_T7_RKNSA_IT8_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 1 dereferenceable(1) %5, double noundef %6, double noundef %7, double noundef %8, ptr noundef nonnull align 1 dereferenceable(1) %9) local_unnamed_addr #5 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI_3DIN5Eigen5BlockIKNS2_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEES7_S7_NS4_IdLi1ELin1ELi1ELi1ELin1EEES7_S7_dddNS4_IdLi1ELi3ELi1ELi1ELi3EEEEEbRKNS2_10MatrixBaseIT_EERKNSA_IT0_EERKNSA_IT1_EERKNSA_IT2_EERKNSA_IT3_EERKNSA_IT4_EET5_T6_T7_RKNSA_IT8_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 1 dereferenceable(1) %5, double noundef %6, double noundef %7, double noundef %8, ptr noundef nonnull align 1 dereferenceable(1) %9) local_unnamed_addr #4 comdat personality ptr @__gxx_personality_v0 {
   %11 = fcmp ogt double %6, 0.000000e+00
   br i1 %11, label %12, label %295
 
@@ -7167,7 +7161,7 @@ _ZN3igl8internal18_IGL_CHECK_MIN_MAXIN5Eigen5BlockIKNS2_6MatrixIdLin1ELin1ELi0EL
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef zeroext i1 @_ZN3igl23tri_tri_overlap_test_3dIN5Eigen5BlockIKNS1_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEES6_S6_S6_S6_S6_EEbRKNS1_10MatrixBaseIT_EERKNS7_IT0_EERKNS7_IT1_EERKNS7_IT2_EERKNS7_IT3_EERKNS7_IT4_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 1 dereferenceable(1) %5) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.Eigen::Matrix", align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.sroa.0252.0.copyload = load ptr, ptr %3, align 8
   %.sroa.4254.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 24
   %.sroa.4254.0.copyload = load ptr, ptr %.sroa.4254.0..sroa_idx, align 8
@@ -7470,12 +7464,12 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl23tri_tri_overlap_test_3dIN
 
 201:                                              ; preds = %94, %6, %199, %197, %193, %190, %188, %182, %180, %175, %173, %169, %163, %161, %157
   %.0 = phi i1 [ %158, %157 ], [ %162, %161 ], [ %164, %163 ], [ %170, %169 ], [ %174, %173 ], [ %176, %175 ], [ %181, %180 ], [ %183, %182 ], [ %189, %188 ], [ %191, %190 ], [ %194, %193 ], [ %198, %197 ], [ %200, %199 ], [ false, %6 ], [ false, %94 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i1 %.0
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI_3DIN5Eigen5BlockIKNS2_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEES7_S7_S7_S7_S7_dddNS4_IdLi1ELi3ELi1ELi1ELi3EEEEEbRKNS2_10MatrixBaseIT_EERKNS9_IT0_EERKNS9_IT1_EERKNS9_IT2_EERKNS9_IT3_EERKNS9_IT4_EET5_T6_T7_RKNS9_IT8_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 1 dereferenceable(1) %5, double noundef %6, double noundef %7, double noundef %8, ptr noundef nonnull align 1 dereferenceable(1) %9) local_unnamed_addr #5 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal15_IGL_TRI_TRI_3DIN5Eigen5BlockIKNS2_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEES7_S7_S7_S7_S7_dddNS4_IdLi1ELi3ELi1ELi1ELi3EEEEEbRKNS2_10MatrixBaseIT_EERKNS9_IT0_EERKNS9_IT1_EERKNS9_IT2_EERKNS9_IT3_EERKNS9_IT4_EET5_T6_T7_RKNS9_IT8_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 1 dereferenceable(1) %5, double noundef %6, double noundef %7, double noundef %8, ptr noundef nonnull align 1 dereferenceable(1) %9) local_unnamed_addr #4 comdat personality ptr @__gxx_personality_v0 {
   %11 = fcmp ogt double %6, 0.000000e+00
   br i1 %11, label %12, label %298
 
@@ -8965,15 +8959,15 @@ _ZN3igl8internal18_IGL_CHECK_MIN_MAXIN5Eigen5BlockIKNS2_6MatrixIdLin1ELin1ELi0EL
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #6
+declare double @llvm.fabs.f64(double) #5
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #6
+declare double @llvm.fmuladd.f64(double, double, double) #5
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl23tri_tri_overlap_test_2dIN5Eigen6MatrixIdLi1ELi2ELi1ELi1ELi2EEES3_S3_S3_S3_S3_EEbRKNS1_10MatrixBaseIT_EERKNS4_IT0_EERKNS4_IT1_EERKNS4_IT2_EERKNS4_IT3_EERKNS4_IT4_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 1 dereferenceable(1) %5) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl23tri_tri_overlap_test_2dIN5Eigen6MatrixIdLi1ELi2ELi1ELi1ELi2EEES3_S3_S3_S3_S3_EEbRKNS1_10MatrixBaseIT_EERKNS4_IT0_EERKNS4_IT1_EERKNS4_IT2_EERKNS4_IT3_EERKNS4_IT4_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 1 dereferenceable(1) %5) local_unnamed_addr #2 comdat personality ptr @__gxx_personality_v0 {
   %7 = load double, ptr %0, align 8, !tbaa !11
   %8 = load double, ptr %2, align 8, !tbaa !11
   %9 = fsub double %7, %8
@@ -9038,7 +9032,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl23tri_tri_overlap_test_
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27ccw_tri_tri_intersection_2dIN5Eigen6MatrixIdLi1ELi2ELi1ELi1ELi2EEES4_S4_S4_S4_S4_EEbRKNS2_10MatrixBaseIT_EERKNS5_IT0_EERKNS5_IT1_EERKNS5_IT2_EERKNS5_IT3_EERKNS5_IT4_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 1 dereferenceable(1) %5) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27ccw_tri_tri_intersection_2dIN5Eigen6MatrixIdLi1ELi2ELi1ELi1ELi2EEES4_S4_S4_S4_S4_EEbRKNS2_10MatrixBaseIT_EERKNS5_IT0_EERKNS5_IT1_EERKNS5_IT2_EERKNS5_IT3_EERKNS5_IT4_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 1 dereferenceable(1) %5) local_unnamed_addr #2 comdat personality ptr @__gxx_personality_v0 {
   %7 = load double, ptr %3, align 8, !tbaa !11
   %8 = load double, ptr %0, align 8, !tbaa !11
   %9 = fsub double %7, %8
@@ -9120,7 +9114,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27ccw_tri_tri_
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_INTERSECTION_TEST_EDGEIN5Eigen6MatrixIdLi1ELi2ELi1ELi1ELi2EEES4_S4_S4_S4_S4_EEbRKNS2_10MatrixBaseIT_EERKNS5_IT0_EERKNS5_IT1_EERKNS5_IT2_EERKNS5_IT3_EERKNS5_IT4_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 1 dereferenceable(1) %5) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_INTERSECTION_TEST_EDGEIN5Eigen6MatrixIdLi1ELi2ELi1ELi1ELi2EEES4_S4_S4_S4_S4_EEbRKNS2_10MatrixBaseIT_EERKNS5_IT0_EERKNS5_IT1_EERKNS5_IT2_EERKNS5_IT3_EERKNS5_IT4_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 1 dereferenceable(1) %5) local_unnamed_addr #2 comdat personality ptr @__gxx_personality_v0 {
   %7 = load double, ptr %5, align 8, !tbaa !11
   %8 = load double, ptr %1, align 8, !tbaa !11
   %9 = fsub double %7, %8
@@ -9235,7 +9229,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_INTERSE
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal29_IGL_INTERSECTION_TEST_VERTEXIN5Eigen6MatrixIdLi1ELi2ELi1ELi1ELi2EEES4_S4_S4_S4_S4_EEbRKNS2_10MatrixBaseIT_EERKNS5_IT0_EERKNS5_IT1_EERKNS5_IT2_EERKNS5_IT3_EERKNS5_IT4_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 1 dereferenceable(1) %5) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal29_IGL_INTERSECTION_TEST_VERTEXIN5Eigen6MatrixIdLi1ELi2ELi1ELi1ELi2EEES4_S4_S4_S4_S4_EEbRKNS2_10MatrixBaseIT_EERKNS5_IT0_EERKNS5_IT1_EERKNS5_IT2_EERKNS5_IT3_EERKNS5_IT4_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 1 dereferenceable(1) %5) local_unnamed_addr #2 comdat personality ptr @__gxx_personality_v0 {
   %7 = load double, ptr %5, align 8, !tbaa !11
   %8 = load double, ptr %1, align 8, !tbaa !11
   %9 = fsub double %7, %8
@@ -16387,7 +16381,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal27_IGL_CONSTRU
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal18_IGL_CHECK_MIN_MAXIN5Eigen5BlockIKNS2_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEES7_S7_S7_NS3_IS5_Li1ELin1ELb0EEES7_EEbRKNS2_10MatrixBaseIT_EERKNS9_IT0_EERKNS9_IT1_EERKNS9_IT2_EERKNS9_IT3_EERKNS9_IT4_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 1 dereferenceable(1) %5) local_unnamed_addr #5 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal18_IGL_CHECK_MIN_MAXIN5Eigen5BlockIKNS2_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEES7_S7_S7_NS3_IS5_Li1ELin1ELb0EEES7_EEbRKNS2_10MatrixBaseIT_EERKNS9_IT0_EERKNS9_IT1_EERKNS9_IT2_EERKNS9_IT3_EERKNS9_IT4_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 1 dereferenceable(1) %5) local_unnamed_addr #4 comdat personality ptr @__gxx_personality_v0 {
   %.sroa.072.0.copyload = load ptr, ptr %3, align 8
   %.sroa.474.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 24
   %.sroa.474.0.copyload = load ptr, ptr %.sroa.474.0..sroa_idx, align 8
@@ -16523,7 +16517,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal18_IGL_CHECK_M
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal18_IGL_CHECK_MIN_MAXIN5Eigen5BlockIKNS2_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEES7_S7_S7_NS4_IdLi1ELin1ELi1ELi1ELin1EEES7_EEbRKNS2_10MatrixBaseIT_EERKNS9_IT0_EERKNS9_IT1_EERKNS9_IT2_EERKNS9_IT3_EERKNS9_IT4_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 1 dereferenceable(1) %5) local_unnamed_addr #5 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal18_IGL_CHECK_MIN_MAXIN5Eigen5BlockIKNS2_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEES7_S7_S7_NS4_IdLi1ELin1ELi1ELi1ELin1EEES7_EEbRKNS2_10MatrixBaseIT_EERKNS9_IT0_EERKNS9_IT1_EERKNS9_IT2_EERKNS9_IT3_EERKNS9_IT4_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 1 dereferenceable(1) %5) local_unnamed_addr #4 comdat personality ptr @__gxx_personality_v0 {
   %.sroa.068.0.copyload = load ptr, ptr %3, align 8
   %.sroa.470.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 24
   %.sroa.470.0.copyload = load ptr, ptr %.sroa.470.0..sroa_idx, align 8
@@ -16654,7 +16648,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal18_IGL_CHECK_M
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal18_IGL_CHECK_MIN_MAXIN5Eigen5BlockIKNS2_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEES7_S7_S7_S7_S7_EEbRKNS2_10MatrixBaseIT_EERKNS8_IT0_EERKNS8_IT1_EERKNS8_IT2_EERKNS8_IT3_EERKNS8_IT4_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 1 dereferenceable(1) %5) local_unnamed_addr #5 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal18_IGL_CHECK_MIN_MAXIN5Eigen5BlockIKNS2_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEES7_S7_S7_S7_S7_EEbRKNS2_10MatrixBaseIT_EERKNS8_IT0_EERKNS8_IT1_EERKNS8_IT2_EERKNS8_IT3_EERKNS8_IT4_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 1 dereferenceable(1) %5) local_unnamed_addr #4 comdat personality ptr @__gxx_personality_v0 {
   %.sroa.072.0.copyload = load ptr, ptr %3, align 8
   %.sroa.474.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 24
   %.sroa.474.0.copyload = load ptr, ptr %.sroa.474.0..sroa_idx, align 8
@@ -16789,14 +16783,19 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8internal18_IGL_CHECK_M
   ret i1 %.0
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
+
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { inlinehint mustprogress uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nounwind }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { inlinehint mustprogress uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

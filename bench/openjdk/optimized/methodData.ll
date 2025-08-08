@@ -991,7 +991,7 @@ _ZN15Bytecode_invokeC2ERK12methodHandlei.exit:    ; preds = %1, %13
 20:                                               ; preds = %_ZN15Bytecode_invokeC2ERK12methodHandlei.exit
   %21 = call noundef ptr @_ZNK19Bytecode_member_ref9signatureEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #20
   %22 = load i32, ptr @TypeProfileArgsLimit, align 4
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %23 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 800
@@ -1030,7 +1030,7 @@ _ZN15Bytecode_invokeC2ERK12methodHandlei.exit:    ; preds = %1, %13
 _ZN20TypeStackSlotEntries18compute_cell_countEP6Symbolbi.exit: ; preds = %39, %41
   %42 = call noundef i32 @llvm.smin.i32(i32 %36, i32 %22)
   %43 = shl nsw i32 %42, 1
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %44
 
 44:                                               ; preds = %_ZN20TypeStackSlotEntries18compute_cell_countEP6Symbolbi.exit, %_ZN15Bytecode_invokeC2ERK12methodHandlei.exit
@@ -1048,7 +1048,7 @@ _ZN20TypeStackSlotEntries18compute_cell_countEP6Symbolbi.exit: ; preds = %39, %4
   br i1 %49, label %_ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit.thread, label %50
 
 50:                                               ; preds = %48
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %51 = load ptr, ptr %4, align 8
   %52 = call noundef zeroext i1 @_ZNK6Method23is_compiled_lambda_formEv(ptr noundef nonnull align 8 dereferenceable(88) %51) #20
   br i1 %52, label %_ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit.thread14, label %53
@@ -1079,14 +1079,14 @@ _ZN15Bytecode_invokeC2ERK12methodHandlei.exit.i.i: ; preds = %58, %53
   br i1 %65, label %_ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit.thread14, label %_ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit
 
 _ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit.thread14: ; preds = %50, %_ZN15Bytecode_invokeC2ERK12methodHandlei.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %_ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit.thread
 
 _ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit: ; preds = %_ZN15Bytecode_invokeC2ERK12methodHandlei.exit.i.i
   %66 = sext i32 %64 to i64
   %67 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %66
   %68 = load i32, ptr %67, align 4
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   switch i32 %68, label %_Z17is_reference_type9BasicTypeb.exit [
     i32 233, label %_ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit.thread
     i32 186, label %_ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit.thread
@@ -1132,7 +1132,7 @@ define hidden noundef zeroext i1 @_ZN10MethodData28profile_arguments_for_invokeE
   br i1 %13, label %35, label %14
 
 14:                                               ; preds = %12
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %15 = load ptr, ptr %0, align 8
   %16 = tail call noundef zeroext i1 @_ZNK6Method23is_compiled_lambda_formEv(ptr noundef nonnull align 8 dereferenceable(88) %15) #20
   br i1 %16, label %_ZN10MethodData14profile_jsr292ERK12methodHandlei.exit, label %17
@@ -1173,7 +1173,7 @@ _ZNK15Bytecode_invoke16is_invokedynamicEv.exit.i: ; preds = %_ZN15Bytecode_invok
 
 _ZN10MethodData14profile_jsr292ERK12methodHandlei.exit: ; preds = %14, %_ZN15Bytecode_invokeC2ERK12methodHandlei.exit.i, %_ZNK15Bytecode_invoke16is_invokedynamicEv.exit.i
   %.0.i = phi i1 [ true, %14 ], [ true, %_ZN15Bytecode_invokeC2ERK12methodHandlei.exit.i ], [ %spec.select.i, %_ZNK15Bytecode_invoke16is_invokedynamicEv.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %35
 
 35:                                               ; preds = %12, %10, %2, %_ZN10MethodData14profile_jsr292ERK12methodHandlei.exit
@@ -1199,7 +1199,7 @@ define hidden noundef zeroext i1 @_ZN10MethodData25profile_return_for_invokeERK1
   br i1 %8, label %30, label %9
 
 9:                                                ; preds = %7
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %10 = load ptr, ptr %0, align 8
   %11 = tail call noundef zeroext i1 @_ZNK6Method23is_compiled_lambda_formEv(ptr noundef nonnull align 8 dereferenceable(88) %10) #20
   br i1 %11, label %_ZN10MethodData14profile_jsr292ERK12methodHandlei.exit, label %12
@@ -1240,7 +1240,7 @@ _ZNK15Bytecode_invoke16is_invokedynamicEv.exit.i: ; preds = %_ZN15Bytecode_invok
 
 _ZN10MethodData14profile_jsr292ERK12methodHandlei.exit: ; preds = %9, %_ZN15Bytecode_invokeC2ERK12methodHandlei.exit.i, %_ZNK15Bytecode_invoke16is_invokedynamicEv.exit.i
   %.0.i = phi i1 [ true, %9 ], [ true, %_ZN15Bytecode_invokeC2ERK12methodHandlei.exit.i ], [ %spec.select.i2, %_ZNK15Bytecode_invoke16is_invokedynamicEv.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %30
 
 30:                                               ; preds = %7, %2, %_ZN10MethodData14profile_jsr292ERK12methodHandlei.exit
@@ -3113,7 +3113,7 @@ _ZN10MethodData29profile_parameters_for_methodERK12methodHandle.exit: ; preds = 
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.sroa.0.0.copyload.i.i = load i32, ptr %46, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %47 = load ptr, ptr %4, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 800
   %49 = load ptr, ptr %48, align 8
@@ -3156,7 +3156,7 @@ _ZN20TypeStackSlotEntries18compute_cell_countEP6Symbolbi.exit: ; preds = %62, %6
   %68 = call i32 @llvm.smin.i32(i32 %67, i32 %34)
   %69 = select i1 %35, i32 %67, i32 %68
   %70 = shl nsw i32 %69, 1
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %71 = icmp sgt i32 %69, 0
   %72 = or disjoint i32 %70, 1
   %spec.select = select i1 %71, i32 %72, i32 0
@@ -3523,7 +3523,7 @@ _ZN15MultiBranchData18compute_cell_countEP14BytecodeStream.exit: ; preds = %_ZN2
   br i1 %57, label %_ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit.thread, label %58
 
 58:                                               ; preds = %56
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %59 = load ptr, ptr %47, align 8
   %60 = tail call noundef zeroext i1 @_ZNK6Method23is_compiled_lambda_formEv(ptr noundef nonnull align 8 dereferenceable(88) %59) #20
   br i1 %60, label %_ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit.thread33, label %61
@@ -3554,14 +3554,14 @@ _ZN15Bytecode_invokeC2ERK12methodHandlei.exit.i.i: ; preds = %66, %61
   br i1 %73, label %_ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit.thread33, label %_ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit
 
 _ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit.thread33: ; preds = %58, %_ZN15Bytecode_invokeC2ERK12methodHandlei.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit.thread
 
 _ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit: ; preds = %_ZN15Bytecode_invokeC2ERK12methodHandlei.exit.i.i
   %74 = sext i32 %72 to i64
   %75 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %74
   %76 = load i32, ptr %75, align 4
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   switch i32 %76, label %_ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit.thread31 [
     i32 233, label %_ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit.thread
     i32 186, label %_ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit.thread
@@ -3594,7 +3594,7 @@ _ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit.thread: ; pred
   br i1 %90, label %_ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit29.thread, label %91
 
 91:                                               ; preds = %89
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %92 = load ptr, ptr %80, align 8
   %93 = tail call noundef zeroext i1 @_ZNK6Method23is_compiled_lambda_formEv(ptr noundef nonnull align 8 dereferenceable(88) %92) #20
   br i1 %93, label %_ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit29.thread38, label %94
@@ -3625,14 +3625,14 @@ _ZN15Bytecode_invokeC2ERK12methodHandlei.exit.i.i24: ; preds = %99, %94
   br i1 %106, label %_ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit29.thread38, label %_ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit29
 
 _ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit29.thread38: ; preds = %91, %_ZN15Bytecode_invokeC2ERK12methodHandlei.exit.i.i24
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %_ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit29.thread
 
 _ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit29: ; preds = %_ZN15Bytecode_invokeC2ERK12methodHandlei.exit.i.i24
   %107 = sext i32 %105 to i64
   %108 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %107
   %109 = load i32, ptr %108, align 4
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   switch i32 %109, label %_ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit29.thread36 [
     i32 233, label %_ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit29.thread
     i32 186, label %_ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit29.thread
@@ -3744,7 +3744,7 @@ define hidden noundef zeroext i1 @_ZN17FailedSpeculation22add_failed_speculation
   %6 = sext i32 %3 to i64
   %7 = add nsw i64 %6, 16
   %.val = load ptr, ptr %1, align 8
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %8 = ptrtoint ptr %.val to i64
   %9 = and i64 %8, 1
   %.not.i = icmp eq i64 %9, 0
@@ -3795,7 +3795,7 @@ define hidden noundef zeroext i1 @_ZN17FailedSpeculation22add_failed_speculation
   unreachable
 
 _ZL35guarantee_failed_speculations_aliveP7nmethodPP17FailedSpeculation.exit: ; preds = %4
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %26
 
 26:                                               ; preds = %56, %_ZL35guarantee_failed_speculations_aliveP7nmethodPP17FailedSpeculation.exit
@@ -4249,7 +4249,7 @@ define hidden noundef range(i32 0, -2147483648) i32 @_ZN10MethodData15initialize
   br i1 %27, label %_ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit.thread, label %28
 
 28:                                               ; preds = %26
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %29 = load ptr, ptr %17, align 8
   %30 = tail call noundef zeroext i1 @_ZNK6Method23is_compiled_lambda_formEv(ptr noundef nonnull align 8 dereferenceable(88) %29) #20
   br i1 %30, label %_ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit.thread54, label %31
@@ -4280,14 +4280,14 @@ _ZN15Bytecode_invokeC2ERK12methodHandlei.exit.i.i: ; preds = %36, %31
   br i1 %43, label %_ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit.thread54, label %_ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit
 
 _ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit.thread54: ; preds = %28, %_ZN15Bytecode_invokeC2ERK12methodHandlei.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit.thread
 
 _ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit: ; preds = %_ZN15Bytecode_invokeC2ERK12methodHandlei.exit.i.i
   %44 = sext i32 %42 to i64
   %45 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %44
   %46 = load i32, ptr %45, align 4
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   switch i32 %46, label %.thread78 [
     i32 233, label %_ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit.thread
     i32 186, label %_ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit.thread
@@ -4326,7 +4326,7 @@ _ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit.thread: ; pred
   br i1 %65, label %_ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit49.thread, label %66
 
 66:                                               ; preds = %64
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %67 = load ptr, ptr %55, align 8
   %68 = tail call noundef zeroext i1 @_ZNK6Method23is_compiled_lambda_formEv(ptr noundef nonnull align 8 dereferenceable(88) %67) #20
   br i1 %68, label %_ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit49.thread62, label %69
@@ -4357,14 +4357,14 @@ _ZN15Bytecode_invokeC2ERK12methodHandlei.exit.i.i44: ; preds = %74, %69
   br i1 %81, label %_ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit49.thread62, label %_ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit49
 
 _ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit49.thread62: ; preds = %66, %_ZN15Bytecode_invokeC2ERK12methodHandlei.exit.i.i44
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit49.thread
 
 _ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit49: ; preds = %_ZN15Bytecode_invokeC2ERK12methodHandlei.exit.i.i44
   %82 = sext i32 %80 to i64
   %83 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %82
   %84 = load i32, ptr %83, align 4
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   switch i32 %84, label %_ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit49.thread60 [
     i32 233, label %_ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit49.thread
     i32 186, label %_ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit49.thread
@@ -8346,10 +8346,10 @@ declare i32 @llvm.ctpop.i32(i32) #17
 declare i64 @llvm.smin.i64(i64, i64) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #19
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #19
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #17

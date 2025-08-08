@@ -31,14 +31,8 @@ define dso_local noundef i64 @spg_quad_config(ptr noundef readonly captures(none
   ret i64 0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @spg_quad_choose(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
+define dso_local noundef i64 @spg_quad_choose(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -77,7 +71,7 @@ define dso_local noundef i64 @spg_quad_choose(ptr noundef readonly captures(none
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc signext range(i16 1, 5) i16 @getQuadrant(ptr noundef %0, ptr noundef %1) unnamed_addr #2 {
+define internal fastcc signext range(i16 1, 5) i16 @getQuadrant(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
   %3 = ptrtoint ptr %1 to i64
   %4 = ptrtoint ptr %0 to i64
   %5 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @point_above, i32 noundef 0, i64 noundef %3, i64 noundef %4) #7
@@ -152,7 +146,7 @@ define internal fastcc signext range(i16 1, 5) i16 @getQuadrant(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @spg_quad_picksplit(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
+define dso_local noundef i64 @spg_quad_picksplit(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -266,12 +260,12 @@ define dso_local noundef i64 @spg_quad_picksplit(ptr noundef readonly captures(n
   ret i64 0
 }
 
-declare ptr @palloc0(i64 noundef) local_unnamed_addr #3
+declare ptr @palloc0(i64 noundef) local_unnamed_addr #2
 
-declare ptr @palloc(i64 noundef) local_unnamed_addr #3
+declare ptr @palloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @spg_quad_inner_consistent(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
+define dso_local noundef i64 @spg_quad_inner_consistent(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = alloca %struct.BOX, align 8
   %3 = alloca %struct.Point, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -280,7 +274,7 @@ define dso_local noundef i64 @spg_quad_inner_consistent(ptr noundef readonly cap
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load i64, ptr %7, align 8
   %9 = inttoptr i64 %8 to ptr
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %11 = load i64, ptr %10, align 8
   %12 = inttoptr i64 %11 to ptr
@@ -448,7 +442,7 @@ define dso_local noundef i64 @spg_quad_inner_consistent(ptr noundef readonly cap
 
 102:                                              ; preds = %100
   %103 = inttoptr i64 %84 to ptr
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %104, i64 16, i1 false)
   %105 = call fastcc signext i16 @getQuadrant(ptr noundef %12, ptr noundef nonnull %3)
@@ -472,7 +466,7 @@ define dso_local noundef i64 @spg_quad_inner_consistent(ptr noundef readonly cap
   %120 = zext nneg i16 %119 to i32
   %121 = shl nuw nsw i32 1, %120
   %122 = or i32 %117, %121
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %select.unfold
 
 123:                                              ; preds = %81
@@ -632,38 +626,38 @@ getQuadrantArea.exit:                             ; preds = %161, %165, %167, %1
   br i1 %exitcond145.not, label %.loopexit, label %150, !llvm.loop !12
 
 .loopexit:                                        ; preds = %200, %77, %46
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 0
 }
 
-declare ptr @box_copy(ptr noundef) local_unnamed_addr #3
+declare ptr @box_copy(ptr noundef) local_unnamed_addr #2
 
-declare ptr @spg_key_orderbys_distances(i64 noundef, i1 noundef zeroext, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @spg_key_orderbys_distances(i64 noundef, i1 noundef zeroext, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i64 @DirectFunctionCall2Coll(ptr noundef, i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
+declare i64 @DirectFunctionCall2Coll(ptr noundef, i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
-declare i64 @point_right(ptr noundef) #3
+declare i64 @point_right(ptr noundef) #2
 
-declare i64 @point_left(ptr noundef) #3
+declare i64 @point_left(ptr noundef) #2
 
-declare i64 @point_above(ptr noundef) #3
+declare i64 @point_above(ptr noundef) #2
 
-declare i64 @point_below(ptr noundef) #3
+declare i64 @point_below(ptr noundef) #2
 
-declare i64 @box_contain_pt(ptr noundef) #3
+declare i64 @box_contain_pt(ptr noundef) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #5
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #4
 
-declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #3
+declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @spg_quad_leaf_consistent(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
+define dso_local range(i64 0, 2) i64 @spg_quad_leaf_consistent(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -767,21 +761,27 @@ define dso_local range(i64 0, 2) i64 @spg_quad_leaf_consistent(ptr noundef reado
   ret i64 %51
 }
 
-declare i64 @point_eq(ptr noundef) #3
+declare i64 @point_eq(ptr noundef) #2
 
-declare i64 @point_horiz(ptr noundef) #3
+declare i64 @point_horiz(ptr noundef) #2
 
-declare i64 @point_vert(ptr noundef) #3
+declare i64 @point_vert(ptr noundef) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #6
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #7 = { nounwind }
 attributes #8 = { cold nounwind }

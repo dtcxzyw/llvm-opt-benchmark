@@ -108,7 +108,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN4absl19str_format_internal13Con
   store i64 %1, ptr %5, align 8
   %.sroa.225.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %2, ptr %.sroa.225.0..sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %1 to i8
   switch i8 %7, label %52 [
     i8 0, label %8
@@ -278,20 +278,17 @@ _ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexUpperIhEEvT_.ex
 
 _ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %81, %72, %60, %11, %14, %84, %49
   %.0 = phi i1 [ true, %84 ], [ %51, %49 ], [ %13, %11 ], [ true, %14 ], [ true, %60 ], [ true, %72 ], [ true, %81 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress uwtable
 define internal fastcc noundef zeroext i1 @_ZN4absl19str_format_internal12_GLOBAL__N_117ConvertWCharTImplEwNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(i32 noundef signext %0, i64 %1, i32 %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca [4 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = icmp ult i32 %0, 128
   br i1 %6, label %7, label %9
 
@@ -422,7 +419,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_110WideToUtf8EwPcRNS1_10ShiftStateE.ex
 
 _ZN4absl19str_format_internal12_GLOBAL__N_116ConvertStringArgESt17basic_string_viewIcSt11char_traitsIcEENS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit: ; preds = %36, %80, %77, %68
   %84 = phi i1 [ %83, %80 ], [ true, %68 ], [ true, %77 ], [ false, %36 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %84
 }
 
@@ -582,7 +579,7 @@ _ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit20: ; preds = %._cri
   ret void
 }
 
-declare noundef zeroext i1 @_ZN4absl19str_format_internal16ConvertFloatImplEdRKNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(double noundef, ptr noundef nonnull align 4 dereferenceable(12), ptr noundef) local_unnamed_addr #3
+declare noundef zeroext i1 @_ZN4absl19str_format_internal16ConvertFloatImplEdRKNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(double noundef, ptr noundef nonnull align 4 dereferenceable(12), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_123ConvertIntImplInnerSlowERKNS1_9IntDigitsENS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(ptr %.0.val, i64 %.8.val, i64 %0, i32 %1, ptr noundef %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -990,9 +987,6 @@ _ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit75: ; preds = %_ZN4a
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef zeroext i1 @_ZN4absl19str_format_internal13ConvertIntArgIaEEbT_NS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(i8 noundef signext %0, i64 %1, i32 %2, ptr noundef %3) local_unnamed_addr #0 comdat {
   %5 = alloca %"class.absl::str_format_internal::FormatConversionSpecImpl", align 8
@@ -1000,7 +994,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN4absl19str_format_internal13Con
   store i64 %1, ptr %5, align 8
   %.sroa.225.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %2, ptr %.sroa.225.0..sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %1 to i8
   switch i8 %7, label %52 [
     i8 0, label %8
@@ -1170,7 +1164,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexUpperIhEEvT_.ex
 
 _ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %81, %72, %60, %11, %14, %84, %49
   %.0 = phi i1 [ true, %84 ], [ %51, %49 ], [ %13, %11 ], [ true, %14 ], [ true, %60 ], [ true, %72 ], [ true, %81 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0
 }
 
@@ -1181,7 +1175,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN4absl19str_format_internal13Con
   store i64 %1, ptr %5, align 8
   %.sroa.225.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %2, ptr %.sroa.225.0..sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %1 to i8
   switch i8 %7, label %52 [
     i8 0, label %8
@@ -1351,7 +1345,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexUpperIhEEvT_.ex
 
 _ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %81, %72, %60, %11, %14, %84, %49
   %.0 = phi i1 [ true, %84 ], [ %51, %49 ], [ %13, %11 ], [ true, %14 ], [ true, %60 ], [ true, %72 ], [ true, %81 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0
 }
 
@@ -1362,7 +1356,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN4absl19str_format_internal13Con
   store i64 %1, ptr %5, align 8
   %.sroa.219.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %2, ptr %.sroa.219.0..sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %1 to i8
   switch i8 %7, label %49 [
     i8 0, label %8
@@ -1532,7 +1526,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexUpperIjEEvT_.ex
 
 _ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %78, %69, %57, %81, %46, %8
   %.0 = phi i1 [ %9, %8 ], [ true, %81 ], [ %48, %46 ], [ true, %57 ], [ true, %69 ], [ true, %78 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0
 }
 
@@ -1543,7 +1537,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN4absl19str_format_internal13Con
   store i64 %1, ptr %5, align 8
   %.sroa.225.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %2, ptr %.sroa.225.0..sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %1 to i8
   switch i8 %7, label %57 [
     i8 0, label %8
@@ -1726,7 +1720,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexUpperItEEvT_.ex
 
 _ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %86, %77, %65, %11, %14, %89, %54
   %.0 = phi i1 [ true, %89 ], [ %56, %54 ], [ %13, %11 ], [ true, %14 ], [ true, %65 ], [ true, %77 ], [ true, %86 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0
 }
 
@@ -1737,7 +1731,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN4absl19str_format_internal13Con
   store i64 %1, ptr %5, align 8
   %.sroa.225.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %2, ptr %.sroa.225.0..sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %1 to i8
   switch i8 %7, label %57 [
     i8 0, label %8
@@ -1920,7 +1914,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexUpperItEEvT_.ex
 
 _ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %86, %77, %65, %11, %14, %89, %54
   %.0 = phi i1 [ true, %89 ], [ %56, %54 ], [ %13, %11 ], [ true, %14 ], [ true, %65 ], [ true, %77 ], [ true, %86 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0
 }
 
@@ -1931,7 +1925,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN4absl19str_format_internal13Con
   store i64 %1, ptr %5, align 8
   %.sroa.225.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %2, ptr %.sroa.225.0..sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %1 to i8
   switch i8 %7, label %54 [
     i8 0, label %8
@@ -2111,7 +2105,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexUpperIjEEvT_.ex
 
 _ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %83, %74, %62, %11, %13, %86, %51
   %.0 = phi i1 [ true, %86 ], [ %53, %51 ], [ %12, %11 ], [ true, %13 ], [ true, %62 ], [ true, %74 ], [ true, %83 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0
 }
 
@@ -2122,7 +2116,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN4absl19str_format_internal13Con
   store i64 %1, ptr %5, align 8
   %.sroa.225.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %2, ptr %.sroa.225.0..sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %1 to i8
   switch i8 %7, label %54 [
     i8 0, label %8
@@ -2302,7 +2296,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexUpperIjEEvT_.ex
 
 _ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %83, %74, %62, %11, %13, %86, %51
   %.0 = phi i1 [ true, %86 ], [ %53, %51 ], [ %12, %11 ], [ true, %13 ], [ true, %62 ], [ true, %74 ], [ true, %83 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0
 }
 
@@ -2313,7 +2307,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN4absl19str_format_internal13Con
   store i64 %1, ptr %5, align 8
   %.sroa.225.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %2, ptr %.sroa.225.0..sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %1 to i8
   switch i8 %7, label %53 [
     i8 0, label %8
@@ -2492,7 +2486,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexUpperImEEvT_.ex
 
 _ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %82, %73, %61, %11, %14, %85, %50
   %.0 = phi i1 [ true, %85 ], [ %52, %50 ], [ %13, %11 ], [ true, %14 ], [ true, %61 ], [ true, %73 ], [ true, %82 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0
 }
 
@@ -2503,7 +2497,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN4absl19str_format_internal13Con
   store i64 %1, ptr %5, align 8
   %.sroa.225.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %2, ptr %.sroa.225.0..sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %1 to i8
   switch i8 %7, label %53 [
     i8 0, label %8
@@ -2682,7 +2676,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexUpperImEEvT_.ex
 
 _ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %82, %73, %61, %11, %14, %85, %50
   %.0 = phi i1 [ true, %85 ], [ %52, %50 ], [ %13, %11 ], [ true, %14 ], [ true, %61 ], [ true, %73 ], [ true, %82 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0
 }
 
@@ -2693,7 +2687,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN4absl19str_format_internal13Con
   store i64 %1, ptr %5, align 8
   %.sroa.225.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %2, ptr %.sroa.225.0..sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %1 to i8
   switch i8 %7, label %53 [
     i8 0, label %8
@@ -2872,7 +2866,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexUpperIyEEvT_.ex
 
 _ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %82, %73, %61, %11, %14, %85, %50
   %.0 = phi i1 [ true, %85 ], [ %52, %50 ], [ %13, %11 ], [ true, %14 ], [ true, %61 ], [ true, %73 ], [ true, %82 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0
 }
 
@@ -2883,7 +2877,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN4absl19str_format_internal13Con
   store i64 %1, ptr %5, align 8
   %.sroa.225.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %2, ptr %.sroa.225.0..sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %1 to i8
   switch i8 %7, label %53 [
     i8 0, label %8
@@ -3062,7 +3056,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexUpperIyEEvT_.ex
 
 _ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %82, %73, %61, %11, %14, %85, %50
   %.0 = phi i1 [ true, %85 ], [ %52, %50 ], [ %13, %11 ], [ true, %14 ], [ true, %61 ], [ true, %73 ], [ true, %82 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0
 }
 
@@ -3114,7 +3108,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN4absl19str_format_internal13For
 
 31:                                               ; preds = %8
   %32 = ptrtoint ptr %0 to i64
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 60
   br label %34
 
@@ -3143,7 +3137,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexLowerImEEvT_.ex
   %47 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %46, ptr %47, align 8, !tbaa !15
   call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_123ConvertIntImplInnerSlowERKNS1_9IntDigitsENS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(ptr nonnull %spec.select.i.i, i64 %46, i64 %1, i32 %2, ptr noundef %3)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN4absl19str_format_internal17FormatConvertImplENS0_7VoidPtrENS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit
 
 _ZN4absl19str_format_internal17FormatConvertImplENS0_7VoidPtrENS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit: ; preds = %_ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexLowerImEEvT_.exit.i, %28, %19, %4
@@ -3192,7 +3186,7 @@ define dso_local noundef i8 @_ZN4absl19str_format_internal17FormatConvertImplENS
   br label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 28:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 60
   br label %30
 
@@ -3221,7 +3215,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexLowerImEEvT_.ex
   %43 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %42, ptr %43, align 8, !tbaa !15
   call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_123ConvertIntImplInnerSlowERKNS1_9IntDigitsENS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(ptr nonnull %spec.select.i, i64 %42, i64 %1, i32 %2, ptr noundef %3)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 _ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %25, %16, %_ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexLowerImEEvT_.exit
@@ -3830,7 +3824,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN4absl19str_format_internal13For
   %12 = ptrtoint ptr %0 to i64
   %13 = trunc i64 %12 to i32
   %14 = bitcast i32 %13 to float
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %1, ptr %5, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %2, ptr %.sroa.2.0..sroa_idx.i.i, align 8
@@ -3853,7 +3847,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN4absl19str_format_internal13For
 
 _ZN4absl19str_format_internal17FormatConvertImplEfNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit: ; preds = %17, %19
   %21 = phi i1 [ false, %17 ], [ %20, %19 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %22
 
 22:                                               ; preds = %4, %8, %_ZN4absl19str_format_internal17FormatConvertImplEfNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit
@@ -3864,7 +3858,7 @@ _ZN4absl19str_format_internal17FormatConvertImplEfNS0_24FormatConversionSpecImpl
 ; Function Attrs: mustprogress uwtable
 define dso_local range(i8 0, 2) i8 @_ZN4absl19str_format_internal17FormatConvertImplEfNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(float noundef %0, i64 %1, i32 %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca %"class.absl::str_format_internal::FormatConversionSpecImpl", align 8
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %1, ptr %5, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %2, ptr %.sroa.2.0..sroa_idx.i, align 8
@@ -3888,7 +3882,7 @@ define dso_local range(i8 0, 2) i8 @_ZN4absl19str_format_internal17FormatConvert
 
 _ZN4absl19str_format_internal12_GLOBAL__N_115ConvertFloatArgIfEEbT_NS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit: ; preds = %8, %10
   %13 = phi i8 [ 0, %8 ], [ %12, %10 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i8 %13
 }
 
@@ -3908,7 +3902,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN4absl19str_format_internal13For
 11:                                               ; preds = %8
   %12 = ptrtoint ptr %0 to i64
   %13 = bitcast i64 %12 to double
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %1, ptr %5, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %2, ptr %.sroa.2.0..sroa_idx.i.i, align 8
@@ -3931,7 +3925,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN4absl19str_format_internal13For
 
 _ZN4absl19str_format_internal17FormatConvertImplEdNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit: ; preds = %16, %18
   %20 = phi i1 [ false, %16 ], [ %19, %18 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %21
 
 21:                                               ; preds = %4, %8, %_ZN4absl19str_format_internal17FormatConvertImplEdNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit
@@ -3942,7 +3936,7 @@ _ZN4absl19str_format_internal17FormatConvertImplEdNS0_24FormatConversionSpecImpl
 ; Function Attrs: mustprogress uwtable
 define dso_local range(i8 0, 2) i8 @_ZN4absl19str_format_internal17FormatConvertImplEdNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(double noundef %0, i64 %1, i32 %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca %"class.absl::str_format_internal::FormatConversionSpecImpl", align 8
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %1, ptr %5, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %2, ptr %.sroa.2.0..sroa_idx.i, align 8
@@ -3966,7 +3960,7 @@ define dso_local range(i8 0, 2) i8 @_ZN4absl19str_format_internal17FormatConvert
 
 _ZN4absl19str_format_internal12_GLOBAL__N_115ConvertFloatArgIdEEbT_NS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit: ; preds = %8, %10
   %13 = phi i8 [ 0, %8 ], [ %12, %10 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i8 %13
 }
 
@@ -3985,7 +3979,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN4absl19str_format_internal13For
 
 11:                                               ; preds = %8
   %12 = load x86_fp80, ptr %0, align 16, !tbaa !47
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %1, ptr %5, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %2, ptr %.sroa.2.0..sroa_idx.i.i, align 8
@@ -4008,7 +4002,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN4absl19str_format_internal13For
 
 _ZN4absl19str_format_internal17FormatConvertImplEeNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit: ; preds = %15, %17
   %19 = phi i1 [ false, %15 ], [ %18, %17 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %20
 
 20:                                               ; preds = %4, %8, %_ZN4absl19str_format_internal17FormatConvertImplEeNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit
@@ -4019,7 +4013,7 @@ _ZN4absl19str_format_internal17FormatConvertImplEeNS0_24FormatConversionSpecImpl
 ; Function Attrs: mustprogress uwtable
 define dso_local range(i8 0, 2) i8 @_ZN4absl19str_format_internal17FormatConvertImplEeNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(x86_fp80 noundef %0, i64 %1, i32 %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca %"class.absl::str_format_internal::FormatConversionSpecImpl", align 8
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %1, ptr %5, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %2, ptr %.sroa.2.0..sroa_idx.i, align 8
@@ -4043,7 +4037,7 @@ define dso_local range(i8 0, 2) i8 @_ZN4absl19str_format_internal17FormatConvert
 
 _ZN4absl19str_format_internal12_GLOBAL__N_115ConvertFloatArgIeEEbT_NS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit: ; preds = %8, %10
   %13 = phi i8 [ 0, %8 ], [ %12, %10 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i8 %13
 }
 
@@ -4117,7 +4111,7 @@ define dso_local range(i8 0, 2) i8 @_ZN4absl19str_format_internal17FormatConvert
 
 31:                                               ; preds = %8
   %32 = ptrtoint ptr %0 to i64
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 60
   br label %34
 
@@ -4146,7 +4140,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexLowerImEEvT_.ex
   %47 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %46, ptr %47, align 8, !tbaa !15
   call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_123ConvertIntImplInnerSlowERKNS1_9IntDigitsENS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(ptr nonnull %spec.select.i.i, i64 %46, i64 %1, i32 %2, ptr noundef %3)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN4absl19str_format_internal17FormatConvertImplENS0_7VoidPtrENS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit
 
 48:                                               ; preds = %4
@@ -4157,7 +4151,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexLowerImEEvT_.ex
   br i1 %50, label %51, label %53
 
 51:                                               ; preds = %49
-  %52 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #13
+  %52 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #12
   br label %97
 
 53:                                               ; preds = %49
@@ -4672,7 +4666,7 @@ define dso_local range(i8 0, 2) i8 @_ZN4absl19str_format_internal17FormatConvert
 
 31:                                               ; preds = %8
   %32 = ptrtoint ptr %0 to i64
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 60
   br label %34
 
@@ -4701,7 +4695,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexLowerImEEvT_.ex
   %47 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %46, ptr %47, align 8, !tbaa !15
   call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_123ConvertIntImplInnerSlowERKNS1_9IntDigitsENS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(ptr nonnull %spec.select.i.i, i64 %46, i64 %1, i32 %2, ptr noundef %3)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN4absl19str_format_internal17FormatConvertImplENS0_7VoidPtrENS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit
 
 48:                                               ; preds = %4
@@ -4712,7 +4706,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexLowerImEEvT_.ex
   br i1 %50, label %51, label %53
 
 51:                                               ; preds = %49
-  %52 = tail call i64 @wcslen(ptr noundef nonnull %0) #13
+  %52 = tail call i64 @wcslen(ptr noundef nonnull %0) #12
   br label %97
 
 53:                                               ; preds = %49
@@ -4970,9 +4964,9 @@ _ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN4absl19str_format_internal12_GLOBAL__N_116ConvertStringArgEPKwmNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 %2, i32 %3, ptr noundef %4) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN4absl19str_format_internal12_GLOBAL__N_116ConvertStringArgEPKwmNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 %2, i32 %3, ptr noundef %4) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.absl::FixedArray", align 8
-  call void @llvm.lifetime.start.p0(i64 272, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = shl i64 %1, 2
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 256
   store i64 %7, ptr %8, align 8, !tbaa !64
@@ -4984,11 +4978,11 @@ define internal fastcc noundef zeroext i1 @_ZN4absl19str_format_internal12_GLOBA
   br i1 %11, label %.noexc.i.i, label %_ZNSt16allocator_traitsISaIcEE8allocateERS0_m.exit.i.i.i, !prof !36
 
 .noexc.i.i:                                       ; preds = %10
-  tail call void @_ZSt17__throw_bad_allocv() #14
+  tail call void @_ZSt17__throw_bad_allocv() #13
   unreachable
 
 _ZNSt16allocator_traitsISaIcEE8allocateERS0_m.exit.i.i.i: ; preds = %10
-  %12 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %7) #15
+  %12 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %7) #14
   br label %13
 
 13:                                               ; preds = %_ZNSt16allocator_traitsISaIcEE8allocateERS0_m.exit.i.i.i, %5
@@ -5220,28 +5214,28 @@ _ZN4absl19str_format_internal12_GLOBAL__N_116ConvertStringArgESt17basic_string_v
 
 142:                                              ; preds = %_ZN4absl19str_format_internal12_GLOBAL__N_116ConvertStringArgESt17basic_string_viewIcSt11char_traitsIcEENS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit
   %143 = load ptr, ptr %14, align 8, !tbaa !66
-  call void @_ZdlPvm(ptr noundef %143, i64 noundef %140) #16
+  call void @_ZdlPvm(ptr noundef %143, i64 noundef %140) #15
   br label %_ZN4absl10FixedArrayIcLm18446744073709551615ESaIcEED2Ev.exit
 
 _ZN4absl10FixedArrayIcLm18446744073709551615ESaIcEED2Ev.exit: ; preds = %_ZN4absl19str_format_internal12_GLOBAL__N_116ConvertStringArgESt17basic_string_viewIcSt11char_traitsIcEENS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit, %142
-  call void @llvm.lifetime.end.p0(i64 272, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.3
 
 144:                                              ; preds = %136
   %145 = load ptr, ptr %14, align 8, !tbaa !66
-  call void @_ZdlPvm(ptr noundef %145, i64 noundef %138) #16
+  call void @_ZdlPvm(ptr noundef %145, i64 noundef %138) #15
   br label %_ZN4absl10FixedArrayIcLm18446744073709551615ESaIcEED2Ev.exit42
 
 _ZN4absl10FixedArrayIcLm18446744073709551615ESaIcEED2Ev.exit42: ; preds = %144, %136
-  call void @llvm.lifetime.end.p0(i64 272, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %137
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @wcslen(ptr noundef captures(none)) local_unnamed_addr #5
+declare i64 @wcslen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
 define dso_local range(i8 0, 2) i8 @_ZN4absl19str_format_internal17FormatConvertImplEDnNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(ptr readnone captures(none) %0, i64 %1, i32 %2, ptr noundef %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -5318,7 +5312,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4absl19str_format_internal1
   store i64 %2, ptr %6, align 8
   %.sroa.228.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %3, ptr %.sroa.228.0..sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = trunc i64 %2 to i8
   switch i8 %8, label %101 [
     i8 0, label %9
@@ -5625,7 +5619,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits10PrintAsDecENS_6int128E.ex
 
 _ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %126, %117, %105, %12, %15, %129, %98
   %.0 = phi i1 [ true, %129 ], [ %100, %98 ], [ %14, %12 ], [ true, %15 ], [ true, %105 ], [ true, %117 ], [ true, %126 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i1 %.0
 }
 
@@ -5636,7 +5630,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4absl19str_format_internal1
   store i64 %2, ptr %6, align 8
   %.sroa.228.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %3, ptr %.sroa.228.0..sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = trunc i64 %2 to i8
   switch i8 %8, label %100 [
     i8 0, label %9
@@ -5922,42 +5916,48 @@ _ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits10PrintAsDecENS_7uint128Eb.
 
 _ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %125, %116, %104, %12, %15, %128, %95
   %.0 = phi i1 [ true, %128 ], [ %99, %95 ], [ %14, %12 ], [ true, %15 ], [ true, %104 ], [ true, %116 ], [ true, %125 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i1 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare i32 @__gxx_personality_v0(...)
 
-declare noundef zeroext i1 @_ZN4absl19str_format_internal14FormatSinkImpl15PutPaddedStringESt17basic_string_viewIcSt11char_traitsIcEEiib(ptr noundef nonnull align 8 dereferenceable(1056), i64, ptr, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare noundef zeroext i1 @_ZN4absl19str_format_internal14FormatSinkImpl15PutPaddedStringESt17basic_string_viewIcSt11char_traitsIcEEiib(ptr noundef nonnull align 8 dereferenceable(1056), i64, ptr, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: noreturn
-declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #7
+declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #6
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #8
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #9
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #8
 
-declare noundef ptr @_ZN4absl16numbers_internal15FastIntToBufferEiPc(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare noundef ptr @_ZN4absl16numbers_internal15FastIntToBufferEiPc(i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare noundef ptr @_ZN4absl16numbers_internal15FastIntToBufferEjPc(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare noundef ptr @_ZN4absl16numbers_internal15FastIntToBufferEjPc(i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare noundef ptr @_ZN4absl16numbers_internal15FastIntToBufferEmPc(i64 noundef, ptr noundef) local_unnamed_addr #3
+declare noundef ptr @_ZN4absl16numbers_internal15FastIntToBufferEmPc(i64 noundef, ptr noundef) local_unnamed_addr #2
 
-declare noundef ptr @_ZN4absl16numbers_internal15FastIntToBufferElPc(i64 noundef, ptr noundef) local_unnamed_addr #3
+declare noundef ptr @_ZN4absl16numbers_internal15FastIntToBufferElPc(i64 noundef, ptr noundef) local_unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN4absl19str_format_internal16ConvertFloatImplEfRKNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(float noundef, ptr noundef nonnull align 4 dereferenceable(12), ptr noundef) local_unnamed_addr #3
+declare noundef zeroext i1 @_ZN4absl19str_format_internal16ConvertFloatImplEfRKNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(float noundef, ptr noundef nonnull align 4 dereferenceable(12), ptr noundef) local_unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN4absl19str_format_internal16ConvertFloatImplEeRKNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(x86_fp80 noundef, ptr noundef nonnull align 4 dereferenceable(12), ptr noundef) local_unnamed_addr #3
+declare noundef zeroext i1 @_ZN4absl19str_format_internal16ConvertFloatImplEeRKNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(x86_fp80 noundef, ptr noundef nonnull align 4 dereferenceable(12), ptr noundef) local_unnamed_addr #2
 
-declare void @_ZN4absl16numbers_internal12PutTwoDigitsEjPc(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @_ZN4absl16numbers_internal12PutTwoDigitsEjPc(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #10
+declare double @llvm.fmuladd.f64(double, double, double) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #11
@@ -5979,21 +5979,20 @@ declare i64 @llvm.umin.i64(i64, i64) #11
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { nounwind }
-attributes #13 = { nounwind willreturn memory(read) }
-attributes #14 = { noreturn }
-attributes #15 = { builtin allocsize(0) }
-attributes #16 = { builtin nounwind }
+attributes #12 = { nounwind willreturn memory(read) }
+attributes #13 = { noreturn }
+attributes #14 = { builtin allocsize(0) }
+attributes #15 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

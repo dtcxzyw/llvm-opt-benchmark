@@ -88,13 +88,7 @@ tuplehash_update_parameters.exit:                 ; preds = %tuplehash_compute_s
   ret ptr %4
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare ptr @MemoryContextAllocZero(ptr noundef, i64 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @MemoryContextAllocZero(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @tuplehash_destroy(ptr noundef %0) local_unnamed_addr #0 {
@@ -105,10 +99,10 @@ define dso_local void @tuplehash_destroy(ptr noundef %0) local_unnamed_addr #0 {
   ret void
 }
 
-declare void @pfree(ptr noundef) local_unnamed_addr #2
+declare void @pfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @tuplehash_reset(ptr noundef captures(none) initializes((8, 12)) %0) local_unnamed_addr #3 {
+define dso_local void @tuplehash_reset(ptr noundef captures(none) initializes((8, 12)) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = load i64, ptr %0, align 8
@@ -120,7 +114,7 @@ define dso_local void @tuplehash_reset(ptr noundef captures(none) initializes((8
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @tuplehash_grow(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
@@ -256,14 +250,14 @@ tuplehash_update_parameters.exit:                 ; preds = %tuplehash_compute_s
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @tuplehash_insert(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca i8, align 1
   %5 = getelementptr i8, ptr %0, i64 40
   %.val = load ptr, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = icmp eq ptr %1, null
   %7 = getelementptr inbounds nuw i8, ptr %.val, i64 96
   %8 = load ptr, ptr %7, align 8
@@ -300,13 +294,13 @@ TupleHashTableHash_internal.exit:                 ; preds = %10, %13
   %28 = mul i32 %27, -1028477387
   %29 = lshr i32 %28, 16
   %30 = xor i32 %29, %28
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %31 = call fastcc ptr @tuplehash_insert_hash_internal(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %30, ptr noundef %2)
   ret ptr %31
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc ptr @tuplehash_insert_hash_internal(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) unnamed_addr #6 {
+define internal fastcc ptr @tuplehash_insert_hash_internal(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) unnamed_addr #5 {
   %5 = alloca i8, align 1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -391,12 +385,12 @@ define internal fastcc ptr @tuplehash_insert_hash_internal(ptr noundef captures(
   store ptr %42, ptr %47, align 8
   %48 = getelementptr inbounds nuw i8, ptr %.val100, i64 88
   %49 = load ptr, ptr %48, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %50 = icmp eq ptr %49, null
   br i1 %50, label %TupleHashTableMatch.exit.thread, label %TupleHashTableMatch.exit
 
 TupleHashTableMatch.exit.thread:                  ; preds = %37
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %51 = getelementptr inbounds nuw i8, ptr %40, i64 40
   %52 = load ptr, ptr %51, align 8
   call void @MemoryContextReset(ptr noundef %52) #15
@@ -412,7 +406,7 @@ TupleHashTableMatch.exit:                         ; preds = %37
   %58 = call i64 %57(ptr noundef nonnull %49, ptr noundef nonnull %40, ptr noundef nonnull %5) #15
   store ptr %55, ptr @CurrentMemoryContext, align 8
   %.not115 = icmp eq i64 %58, 0
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %59 = load ptr, ptr %53, align 8
   call void @MemoryContextReset(ptr noundef %59) #15
   br i1 %.not115, label %TupleHashTableMatch.exit._crit_edge, label %.thread106
@@ -546,7 +540,7 @@ define dso_local ptr @tuplehash_lookup(ptr noundef readonly captures(none) %0, p
   %4 = alloca i8, align 1
   %5 = getelementptr i8, ptr %0, i64 40
   %.val = load ptr, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = icmp eq ptr %1, null
   %7 = getelementptr inbounds nuw i8, ptr %.val, i64 96
   %8 = load ptr, ptr %7, align 8
@@ -583,7 +577,7 @@ TupleHashTableHash_internal.exit:                 ; preds = %10, %13
   %28 = mul i32 %27, -1028477387
   %29 = lshr i32 %28, 16
   %30 = xor i32 %29, %28
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %31 = getelementptr i8, ptr %0, i64 12
   %.val.i = load i32, ptr %31, align 4
   %32 = and i32 %30, %.val.i
@@ -622,12 +616,12 @@ TupleHashTableHash_internal.exit:                 ; preds = %10, %13
   store ptr %50, ptr %55, align 8
   %56 = getelementptr inbounds nuw i8, ptr %.val20.i, i64 88
   %57 = load ptr, ptr %56, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %58 = icmp eq ptr %57, null
   br i1 %58, label %TupleHashTableMatch.exit.thread.i, label %TupleHashTableMatch.exit.i
 
 TupleHashTableMatch.exit.thread.i:                ; preds = %45
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %59 = getelementptr inbounds nuw i8, ptr %48, i64 40
   %60 = load ptr, ptr %59, align 8
   call void @MemoryContextReset(ptr noundef %60) #15
@@ -643,7 +637,7 @@ TupleHashTableMatch.exit.i:                       ; preds = %45
   %66 = call i64 %65(ptr noundef nonnull %57, ptr noundef nonnull %48, ptr noundef nonnull %3) #15
   store ptr %63, ptr @CurrentMemoryContext, align 8
   %.not.i = icmp eq i64 %66, 0
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %67 = load ptr, ptr %61, align 8
   call void @MemoryContextReset(ptr noundef %67) #15
   br i1 %.not.i, label %TupleHashTableMatch.exit._crit_edge.i, label %tuplehash_lookup_hash_internal.exit
@@ -715,12 +709,12 @@ define dso_local ptr @tuplehash_lookup_hash(ptr noundef readonly captures(none) 
   store ptr %26, ptr %31, align 8
   %32 = getelementptr inbounds nuw i8, ptr %.val20.i, i64 88
   %33 = load ptr, ptr %32, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %34 = icmp eq ptr %33, null
   br i1 %34, label %TupleHashTableMatch.exit.thread.i, label %TupleHashTableMatch.exit.i
 
 TupleHashTableMatch.exit.thread.i:                ; preds = %21
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %35 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %36 = load ptr, ptr %35, align 8
   call void @MemoryContextReset(ptr noundef %36) #15
@@ -736,7 +730,7 @@ TupleHashTableMatch.exit.i:                       ; preds = %21
   %42 = call i64 %41(ptr noundef nonnull %33, ptr noundef nonnull %24, ptr noundef nonnull %4) #15
   store ptr %39, ptr @CurrentMemoryContext, align 8
   %.not.i = icmp eq i64 %42, 0
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %43 = load ptr, ptr %37, align 8
   call void @MemoryContextReset(ptr noundef %43) #15
   br i1 %.not.i, label %TupleHashTableMatch.exit._crit_edge.i, label %tuplehash_lookup_hash_internal.exit
@@ -769,7 +763,7 @@ define dso_local noundef zeroext i1 @tuplehash_delete(ptr noundef captures(none)
   %4 = alloca i8, align 1
   %5 = getelementptr i8, ptr %0, i64 40
   %.val49 = load ptr, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = icmp eq ptr %1, null
   %7 = getelementptr inbounds nuw i8, ptr %.val49, i64 96
   %8 = load ptr, ptr %7, align 8
@@ -806,7 +800,7 @@ TupleHashTableHash_internal.exit:                 ; preds = %10, %13
   %28 = mul i32 %27, -1028477387
   %29 = lshr i32 %28, 16
   %30 = xor i32 %29, %28
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %31 = getelementptr i8, ptr %0, i64 12
   %.val46 = load i32, ptr %31, align 4
   %32 = and i32 %30, %.val46
@@ -848,12 +842,12 @@ TupleHashTableHash_internal.exit:                 ; preds = %10, %13
   store ptr %49, ptr %54, align 8
   %55 = getelementptr inbounds nuw i8, ptr %.val50, i64 88
   %56 = load ptr, ptr %55, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %57 = icmp eq ptr %56, null
   br i1 %57, label %TupleHashTableMatch.exit.thread, label %TupleHashTableMatch.exit
 
 TupleHashTableMatch.exit.thread:                  ; preds = %44
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %58 = getelementptr inbounds nuw i8, ptr %47, i64 40
   %59 = load ptr, ptr %58, align 8
   call void @MemoryContextReset(ptr noundef %59) #15
@@ -869,7 +863,7 @@ TupleHashTableMatch.exit:                         ; preds = %44
   %65 = call i64 %64(ptr noundef nonnull %56, ptr noundef nonnull %47, ptr noundef nonnull %3) #15
   store ptr %62, ptr @CurrentMemoryContext, align 8
   %.not61 = icmp eq i64 %65, 0
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %66 = load ptr, ptr %60, align 8
   call void @MemoryContextReset(ptr noundef %66) #15
   br i1 %.not61, label %TupleHashTableMatch.exit._crit_edge, label %.loopexit
@@ -936,7 +930,7 @@ TupleHashTableMatch.exit._crit_edge:              ; preds = %TupleHashTableMatch
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @tuplehash_delete_item(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #7 {
+define dso_local void @tuplehash_delete_item(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #6 {
   %3 = getelementptr i8, ptr %0, i64 12
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
@@ -991,7 +985,7 @@ define dso_local void @tuplehash_delete_item(ptr noundef captures(none) %0, ptr 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @tuplehash_start_iterate(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #8 {
+define dso_local void @tuplehash_start_iterate(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #7 {
   %3 = load i64, ptr %0, align 8
   %.not18 = icmp eq i64 %3, 0
   br i1 %.not18, label %._crit_edge, label %.lr.ph
@@ -1026,7 +1020,7 @@ define dso_local void @tuplehash_start_iterate(ptr noundef readonly captures(non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @tuplehash_start_iterate_at(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 9)) %1, i32 noundef %2) local_unnamed_addr #9 {
+define dso_local void @tuplehash_start_iterate_at(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 9)) %1, i32 noundef %2) local_unnamed_addr #8 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, %2
@@ -1039,7 +1033,7 @@ define dso_local void @tuplehash_start_iterate_at(ptr noundef readonly captures(
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local ptr @tuplehash_iterate(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #8 {
+define dso_local ptr @tuplehash_iterate(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.promoted = load i8, ptr %3, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1202,16 +1196,16 @@ tuplehash_distance.exit:                          ; preds = %8
   ret void
 }
 
-declare ptr @palloc0(i64 noundef) local_unnamed_addr #2
+declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #10
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #9
 
-declare zeroext i1 @errstart(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @errstart(i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @execTuplesMatchPrepare(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
@@ -1249,11 +1243,11 @@ define dso_local ptr @execTuplesMatchPrepare(ptr noundef %0, i32 noundef %1, ptr
   ret ptr %.0
 }
 
-declare ptr @palloc(i64 noundef) local_unnamed_addr #2
+declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 
-declare i32 @get_opcode(i32 noundef) local_unnamed_addr #2
+declare i32 @get_opcode(i32 noundef) local_unnamed_addr #1
 
-declare ptr @ExecBuildGroupingEqual(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @ExecBuildGroupingEqual(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @execTuplesHashPrepare(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) initializes((0, 8)) %2, ptr noundef captures(none) initializes((0, 8)) %3) local_unnamed_addr #0 {
@@ -1277,8 +1271,8 @@ define dso_local void @execTuplesHashPrepare(i32 noundef %0, ptr noundef readonl
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %20 ]
   %13 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %14 = load i32, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #15
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %15 = call i32 @get_opcode(i32 noundef %14) #15
   %16 = call zeroext i1 @get_op_hash_functions(i32 noundef %14, ptr noundef nonnull %5, ptr noundef nonnull %6) #15
   br i1 %16, label %20, label %17
@@ -1298,8 +1292,8 @@ define dso_local void @execTuplesHashPrepare(i32 noundef %0, ptr noundef readonl
   %24 = load ptr, ptr %3, align 8
   %25 = getelementptr inbounds nuw %struct.FmgrInfo, ptr %24, i64 %indvars.iv
   call void @fmgr_info(i32 noundef %23, ptr noundef %25) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
@@ -1308,9 +1302,9 @@ define dso_local void @execTuplesHashPrepare(i32 noundef %0, ptr noundef readonl
   ret void
 }
 
-declare zeroext i1 @get_op_hash_functions(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @get_op_hash_functions(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @fmgr_info(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @fmgr_info(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @BuildTupleHashTable(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, i64 noundef %8, i64 noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12, i1 noundef zeroext %13) local_unnamed_addr #0 {
@@ -1370,18 +1364,18 @@ define dso_local ptr @BuildTupleHashTable(ptr noundef %0, ptr noundef %1, ptr no
   ret ptr %17
 }
 
-declare i64 @get_hash_memory_limit() local_unnamed_addr #2
+declare i64 @get_hash_memory_limit() local_unnamed_addr #1
 
-declare ptr @MakeSingleTupleTableSlot(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @MakeSingleTupleTableSlot(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @CreateTupleDescCopy(ptr noundef) local_unnamed_addr #2
+declare ptr @CreateTupleDescCopy(ptr noundef) local_unnamed_addr #1
 
-declare ptr @ExecBuildHash32FromAttrs(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @ExecBuildHash32FromAttrs(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @CreateStandaloneExprContext() local_unnamed_addr #2
+declare ptr @CreateStandaloneExprContext() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @ResetTupleHashTable(ptr noundef readonly captures(none) %0) local_unnamed_addr #11 {
+define dso_local void @ResetTupleHashTable(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %4 = load ptr, ptr %3, align 8
@@ -1414,7 +1408,7 @@ define dso_local ptr @LookupTupleHashEntry(ptr noundef captures(none) initialize
   %17 = load ptr, ptr %0, align 8
   %18 = getelementptr i8, ptr %17, i64 40
   %.val = load ptr, ptr %18, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %19 = getelementptr inbounds nuw i8, ptr %.val, i64 96
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
@@ -1436,8 +1430,8 @@ define dso_local ptr @LookupTupleHashEntry(ptr noundef captures(none) initialize
   %35 = mul i32 %34, -1028477387
   %36 = lshr i32 %35, 16
   %37 = xor i32 %36, %35
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #15
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not.i = icmp eq ptr %2, null
   %38 = load ptr, ptr %0, align 8
   br i1 %.not.i, label %53, label %39
@@ -1473,7 +1467,7 @@ define dso_local ptr @LookupTupleHashEntry(ptr noundef captures(none) initialize
 
 LookupTupleHashEntry_internal.exit:               ; preds = %43, %44, %53
   %.0.i16 = phi ptr [ %40, %43 ], [ %40, %44 ], [ %54, %53 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %56, label %55
 
@@ -1502,7 +1496,7 @@ define dso_local i32 @TupleHashTableHash(ptr noundef captures(none) initializes(
   %11 = load ptr, ptr %0, align 8
   %12 = getelementptr i8, ptr %11, i64 40
   %.val = load ptr, ptr %12, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %13 = getelementptr inbounds nuw i8, ptr %.val, i64 96
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -1524,7 +1518,7 @@ define dso_local i32 @TupleHashTableHash(ptr noundef captures(none) initializes(
   %29 = mul i32 %28, -1028477387
   %30 = lshr i32 %29, 16
   %31 = xor i32 %30, %29
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr %10, ptr @CurrentMemoryContext, align 8
   ret i32 %31
 }
@@ -1546,7 +1540,7 @@ define dso_local ptr @LookupTupleHashEntryHash(ptr noundef captures(none) initia
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr %14, ptr %15, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not.i = icmp eq ptr %2, null
   %16 = load ptr, ptr %0, align 8
   br i1 %.not.i, label %31, label %17
@@ -1582,7 +1576,7 @@ define dso_local ptr @LookupTupleHashEntryHash(ptr noundef captures(none) initia
 
 LookupTupleHashEntry_internal.exit:               ; preds = %21, %22, %31
   %.0.i = phi ptr [ %18, %21 ], [ %18, %22 ], [ %32, %31 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store ptr %8, ptr @CurrentMemoryContext, align 8
   ret ptr %.0.i
 }
@@ -1606,13 +1600,19 @@ define dso_local ptr @FindTupleHashEntry(ptr noundef captures(none) initializes(
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #12
+declare i64 @llvm.ctlz.i64(i64, i1 immarg) #11
 
-declare ptr @MemoryContextAllocExtended(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @MemoryContextAllocExtended(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @ExecStoreMinimalTuple(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare ptr @ExecStoreMinimalTuple(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare void @MemoryContextReset(ptr noundef) local_unnamed_addr #2
+declare void @MemoryContextReset(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #13
@@ -1633,18 +1633,18 @@ declare i32 @llvm.usub.sat.i32(i32, i32) #14
 declare i64 @llvm.umin.i64(i64, i64) #14
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #13 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #15 = { nounwind }

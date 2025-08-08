@@ -257,7 +257,7 @@ define internal fastcc range(i32 0, 2) i32 @jent_measure_jitter(ptr noundef capt
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   store i64 0, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8
   call void @jent_get_nstime(ptr noundef nonnull %4) #4
   %.promoted.i.i = load i64, ptr %4, align 8
@@ -276,7 +276,7 @@ define internal fastcc range(i32 0, 2) i32 @jent_measure_jitter(ptr noundef capt
 
 jent_loop_shuffle.exit.i:                         ; preds = %6
   %12 = add nuw nsw i64 %9, 1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %13 = icmp eq ptr %0, null
   br i1 %13, label %jent_memaccess.exit, label %14
 
@@ -439,7 +439,7 @@ jent_apt_insert.exit.i:                           ; preds = %79, %74, %57
 jent_stuck.exit:                                  ; preds = %92, %96, %98, %102
   %103 = phi i32 [ 0, %102 ], [ -1, %92 ], [ %88, %96 ], [ -1, %98 ]
   %.0.i = phi i32 [ 0, %102 ], [ 1, %92 ], [ 1, %96 ], [ 1, %98 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %103, ptr %3, align 4
   %104 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 76
@@ -453,7 +453,7 @@ jent_stuck.exit:                                  ; preds = %92, %96, %98, %102
   store i32 %81, ptr %110, align 4
   %111 = load ptr, ptr %0, align 8
   %112 = call i32 @jent_hash_time(ptr noundef %111, i64 noundef %46, ptr noundef nonnull %3, i32 noundef 16, i64 noundef 8, i32 noundef range(i32 0, 2) %.0.i) #4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not12 = icmp eq ptr %1, null
   br i1 %.not12, label %114, label %113
 
@@ -477,10 +477,10 @@ declare dso_local i32 @jent_hash_time(ptr noundef, i64 noundef, ptr noundef, i32
 declare i32 @llvm.umax.i32(i32, i32) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #2

@@ -51,9 +51,6 @@ declare void @WebPInitAlphaProcessing() local_unnamed_addr #1
 
 declare i32 @WebPPictureHasTransparency(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare ptr @WebPGetWorkerInterface() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
@@ -82,7 +79,7 @@ define internal range(i32 0, 2) i32 @CompressAlphaJob(ptr noundef captures(none)
   %24 = load i32, ptr %23, align 4, !tbaa !43
   %25 = mul nsw i32 %24, %22
   %26 = sext i32 %25 to i64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 0, ptr %6, align 8, !tbaa !44
   %27 = icmp slt i32 %16, 100
   %28 = zext i1 %27 to i32
@@ -147,7 +144,7 @@ define internal range(i32 0, 2) i32 @CompressAlphaJob(ptr noundef captures(none)
   call void @VP8FiltersInit() #5
   %58 = getelementptr inbounds nuw i8, ptr %20, i64 128
   %59 = load ptr, ptr %58, align 8, !tbaa !47
-  call void @llvm.lifetime.start.p0(i64 248, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   switch i32 %spec.select.i, label %GetFilterMap.exit.thread60.i.i [
     i32 6, label %62
     i32 0, label %GetFilterMap.exit.thread.i.i
@@ -161,7 +158,7 @@ GetFilterMap.exit.thread.i.i:                     ; preds = %.critedge.i
 
 62:                                               ; preds = %.critedge.i
   %63 = icmp sgt i32 %9, 3
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %3, i8 0, i64 256, i1 false)
   %64 = icmp sgt i32 %24, 0
   %65 = icmp sgt i32 %22, 0
@@ -211,7 +208,7 @@ GetFilterMap.exit.thread.i.i:                     ; preds = %.critedge.i
   br i1 %exitcond34.not.i.i.i.i, label %GetNumColors.exit.i.i.i, label %.preheader.i.i.i.i, !llvm.loop !56
 
 GetNumColors.exit.i.i.i:                          ; preds = %.preheader.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %77 = icmp samesign ult i32 %spec.select.i.i.i.i, 17
   br i1 %77, label %GetFilterMap.exit.i.i, label %78
 
@@ -257,7 +254,7 @@ GetFilterMap.exit.i.i:                            ; preds = %78, %GetNumColors.e
   br i1 %.not52.i.i, label %103, label %94
 
 94:                                               ; preds = %92
-  call void @llvm.lifetime.start.p0(i64 248, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %95 = call fastcc i32 @EncodeAlphaInternal(ptr noundef nonnull %37, i32 noundef %22, i32 noundef %24, i32 noundef range(i32 0, 2) %18, i32 noundef %.04864.i.i, i32 noundef range(i32 0, 2) %28, i32 noundef %9, ptr noundef nonnull %90, ptr noundef %5)
   %.not53.i.i = icmp eq i32 %95, 0
   br i1 %.not53.i.i, label %101, label %96
@@ -278,7 +275,7 @@ GetFilterMap.exit.i.i:                            ; preds = %78, %GetNumColors.e
   br label %102
 
 102:                                              ; preds = %101, %100
-  call void @llvm.lifetime.end.p0(i64 248, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %103
 
 103:                                              ; preds = %102, %92
@@ -357,11 +354,11 @@ ApplyFiltersAndEncode.exit.i:                     ; preds = %116, %115
   %.val.i.i = load i64, ptr %145, align 8, !tbaa !79
   %146 = getelementptr i8, ptr %114, i64 16
   %.val57.i.i = load ptr, ptr %146, align 8, !tbaa !80
-  call void @llvm.lifetime.end.p0(i64 248, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %149
 
 147:                                              ; preds = %144, %88
-  call void @llvm.lifetime.end.p0(i64 248, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %148 = call i32 @WebPEncodingSetError(ptr noundef %20, i32 noundef 1) #5
   br label %149
 
@@ -394,7 +391,7 @@ EncodeAlpha.exit:                                 ; preds = %29, %32, %39, %157
   %.219 = phi ptr [ null, %29 ], [ null, %32 ], [ null, %39 ], [ %.118, %157 ]
   %.2 = phi i64 [ 0, %29 ], [ 0, %32 ], [ 0, %39 ], [ %.1, %157 ]
   %.0.i = phi i32 [ %30, %29 ], [ %33, %32 ], [ %40, %39 ], [ %.1.i, %157 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not = icmp eq i32 %.0.i, 0
   br i1 %.not, label %164, label %158
 
@@ -418,9 +415,6 @@ EncodeAlpha.exit:                                 ; preds = %29, %32, %39, %157
   %.0 = phi i32 [ 0, %159 ], [ 1, %160 ], [ 0, %EncodeAlpha.exit ]
   ret i32 %.0
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @VP8EncStartAlpha(ptr noundef %0) local_unnamed_addr #0 {
@@ -551,10 +545,10 @@ define internal fastcc range(i32 0, 2) i32 @EncodeAlphaInternal(ptr noundef nonn
   %11 = alloca %struct.WebPPicture, align 8
   %12 = alloca i8, align 1
   %13 = alloca %struct.VP8LBitWriter, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %14 = mul nsw i32 %2, %1
   %15 = sext i32 %14 to i64
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %13) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %16 = sext i32 %4 to i64
   %17 = getelementptr inbounds [4 x ptr], ptr @WebPFilters, i64 0, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !87
@@ -577,8 +571,8 @@ define internal fastcc range(i32 0, 2) i32 @EncodeAlphaInternal(ptr noundef nonn
   br i1 %.not59, label %.critedge, label %24
 
 24:                                               ; preds = %21
-  call void @llvm.lifetime.start.p0(i64 116, ptr nonnull %10) #5
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %11) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %25 = call i32 @WebPPictureInitInternal(ptr noundef nonnull %11, i32 noundef 528) #5
   %.not.i = icmp eq i32 %25, 0
   br i1 %.not.i, label %EncodeLossless.exit.thread, label %26
@@ -637,13 +631,13 @@ define internal fastcc range(i32 0, 2) i32 @EncodeAlphaInternal(ptr noundef nonn
   br label %EncodeLossless.exit.thread
 
 EncodeLossless.exit.thread:                       ; preds = %.critedge.i, %24, %26, %32
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %11) #5
-  call void @llvm.lifetime.end.p0(i64 116, ptr nonnull %10) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.critedge
 
 53:                                               ; preds = %41
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %11) #5
-  call void @llvm.lifetime.end.p0(i64 116, ptr nonnull %10) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %54 = call ptr @VP8LBitWriterFinish(ptr noundef nonnull %13) #5
   %55 = load i32, ptr %51, align 8, !tbaa !94
   %.not61 = icmp eq i32 %55, 0
@@ -737,20 +731,20 @@ EncodeLossless.exit.thread:                       ; preds = %.critedge.i, %24, %
 
 101:                                              ; preds = %98, %.critedge, %56
   %.048 = phi i32 [ 0, %56 ], [ %99, %98 ], [ 0, %.critedge ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %13) #5
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret i32 %.048
 }
 
 declare void @VP8BitWriterWipeOut(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare i32 @WebPEstimateBestFilter(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare i32 @VP8BitWriterInit(ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -772,11 +766,17 @@ declare i32 @WebPPictureInitInternal(ptr noundef, i32 noundef) local_unnamed_add
 
 declare i32 @WebPConfigInitInternal(ptr noundef, i32 noundef, float noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

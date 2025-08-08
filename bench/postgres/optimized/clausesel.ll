@@ -15,9 +15,9 @@ define dso_local double @clauselist_selectivity(ptr noundef %0, ptr noundef %1, 
 define dso_local double @clauselist_selectivity_ext(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i1 noundef zeroext %5) local_unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %list_length.exit.thread, label %list_length.exit
@@ -496,13 +496,10 @@ addRangeClause.exit:                              ; preds = %121, %132, %168, %1
 
 .loopexit:                                        ; preds = %227, %.critedge, %27, %12
   %.079 = phi double [ %15, %12 ], [ %.183160.lcssa, %.critedge ], [ %.082, %27 ], [ %.7, %227 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret double %.079
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local double @clause_selectivity_ext(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i1 noundef zeroext %5) local_unnamed_addr #0 {
@@ -870,7 +867,7 @@ define internal fastcc ptr @find_single_rel_for_clauses(ptr noundef %0, ptr noun
   %8 = load ptr, ptr %5, align 8
   %9 = getelementptr inbounds nuw %union.ListCell, ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.pr.pre = load i32, ptr %10, align 4
   switch i32 %.pr.pre, label %.thread49 [
     i32 21, label %is_andclause.exit
@@ -920,12 +917,12 @@ is_andclause.exit:                                ; preds = %.lr.ph64.preheader
   br i1 %.not37, label %select.unfold, label %.thread49
 
 .thread49:                                        ; preds = %.lr.ph64.preheader, %is_andclause.exit, %14, %28, %23, %33
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %._crit_edge.thread
 
 select.unfold:                                    ; preds = %30, %19, %33, %23, %24
   %.428 = phi i32 [ %.0245761, %24 ], [ %.0245761, %23 ], [ %.0245761, %33 ], [ %22, %19 ], [ %32, %30 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %34 = load i32, ptr %4, align 4
   %35 = sext i32 %34 to i64
@@ -945,24 +942,21 @@ select.unfold:                                    ; preds = %30, %19, %33, %23, 
   ret ptr %.4
 }
 
-declare double @statext_clauselist_selectivity(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare double @statext_clauselist_selectivity(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare zeroext i1 @bms_is_member(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @bms_is_member(i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @is_pseudo_constant_clause_relids(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @is_pseudo_constant_clause_relids(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @NumRelids(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @NumRelids(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @is_pseudo_constant_clause(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @is_pseudo_constant_clause(ptr noundef) local_unnamed_addr #1
 
-declare i32 @get_oprrest(i32 noundef) local_unnamed_addr #2
+declare i32 @get_oprrest(i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare double @nulltestsel(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare double @nulltestsel(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
-
-declare void @pfree(ptr noundef) local_unnamed_addr #2
+declare void @pfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local double @clause_selectivity(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
@@ -970,14 +964,14 @@ define dso_local double @clause_selectivity(ptr noundef %0, ptr noundef %1, i32 
   ret double %6
 }
 
-declare double @boolvarsel(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare double @boolvarsel(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @estimate_expression_value(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @estimate_expression_value(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc double @clauselist_selectivity_or(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i1 noundef zeroext %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
   %8 = tail call fastcc ptr @find_single_rel_for_clauses(ptr noundef %0, ptr noundef %1)
   %9 = icmp ne ptr %8, null
@@ -1024,7 +1018,7 @@ define internal fastcc double @clauselist_selectivity_or(ptr noundef %0, ptr nou
 
 .critedge:                                        ; preds = %35, %.lr.ph, %19
   %.1.lcssa = phi double [ %.0, %19 ], [ %.0, %.lr.ph ], [ %.2, %35 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret double %.1.lcssa
 
 28:                                               ; preds = %.lr.ph45
@@ -1045,33 +1039,39 @@ define internal fastcc double @clauselist_selectivity_or(ptr noundef %0, ptr nou
   br i1 %38, label %.lr.ph45, label %.critedge
 }
 
-declare double @join_selectivity(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare double @join_selectivity(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare double @restriction_selectivity(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare double @restriction_selectivity(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare double @function_selectivity(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i1 noundef zeroext, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare double @function_selectivity(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i1 noundef zeroext, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare double @scalararraysel(ptr noundef, ptr noundef, i1 noundef zeroext, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare double @scalararraysel(ptr noundef, ptr noundef, i1 noundef zeroext, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare double @rowcomparesel(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare double @rowcomparesel(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare double @booltestsel(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare double @booltestsel(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @find_base_rel(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @find_base_rel(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @equal(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @equal(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @palloc(i64 noundef) local_unnamed_addr #2
+declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @bms_get_singleton_member(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @bms_get_singleton_member(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #3
+declare double @llvm.fmuladd.f64(double, double, double) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

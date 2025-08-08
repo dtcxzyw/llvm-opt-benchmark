@@ -220,12 +220,6 @@ define i32 @ucase_tolower_77(i32 noundef %0) local_unnamed_addr #3 {
   ret i32 %.1
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define i32 @ucase_toupper_77(i32 noundef %0) local_unnamed_addr #3 {
   %2 = icmp ult i32 %0, 55296
@@ -1812,7 +1806,7 @@ define signext range(i8 0, 2) i8 @ucase_isCaseSensitive_77(i32 noundef %0) local
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 1, 7) i32 @ucase_getCaseLocale_77(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
+define range(i32 1, 7) i32 @ucase_getCaseLocale_77(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %3 = load i8, ptr %0, align 1, !tbaa !16
   switch i8 %3, label %15 [
@@ -3778,7 +3772,7 @@ define i32 @u_foldCase_77(i32 noundef %0, i32 noundef %1) local_unnamed_addr #3 
 ; Function Attrs: mustprogress uwtable
 define range(i32 0, 2) i32 @ucase_hasBinaryProperty_77(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   switch i32 %1, label %283 [
     i32 22, label %4
     i32 30, label %43
@@ -4228,16 +4222,22 @@ ucase_getTypeOrIgnorable_77.exit:                 ; preds = %233, %235, %.sink.s
 
 283:                                              ; preds = %2, %273, %276, %279, %269, %265, %261, %ucase_getTypeOrIgnorable_77.exit, %ucase_getType_77.exit20, %ucase_isCaseSensitive_77.exit, %ucase_isSoftDotted_77.exit, %ucase_getType_77.exit16, %ucase_getType_77.exit
   %.0 = phi i32 [ %42, %ucase_getType_77.exit ], [ %81, %ucase_getType_77.exit16 ], [ %132, %ucase_isSoftDotted_77.exit ], [ %182, %ucase_isCaseSensitive_77.exit ], [ %221, %ucase_getType_77.exit20 ], [ %260, %ucase_getTypeOrIgnorable_77.exit ], [ %264, %261 ], [ %268, %265 ], [ %272, %269 ], [ 1, %276 ], [ 1, %273 ], [ %282, %279 ], [ 0, %2 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

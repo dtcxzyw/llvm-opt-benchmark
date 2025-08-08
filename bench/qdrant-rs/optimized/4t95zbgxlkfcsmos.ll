@@ -28,14 +28,14 @@ define hidden void @_ZN6memory8mmap_ops19prefault_mmap_pages17h10751c99dc8e66afE
   %10 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %11 = alloca { ptr, i64 }, align 8
   %12 = alloca { ptr, i64 }, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %13 = icmp ne ptr %1, null
   %spec.select.i = zext i1 %13 to i64
   %spec.select1.i = select i1 %13, ptr @anon.616088ef07ca1b37bebf04047481bb24.32, ptr @anon.616088ef07ca1b37bebf04047481bb24.3
   store ptr %spec.select1.i, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 %spec.select.i, ptr %14, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %15 = icmp eq ptr %1, null
   %spec.select = select i1 %15, ptr @anon.616088ef07ca1b37bebf04047481bb24.3, ptr %1
   %spec.select64 = select i1 %15, i64 0, i64 %2
@@ -49,7 +49,7 @@ define hidden void @_ZN6memory8mmap_ops19prefault_mmap_pages17h10751c99dc8e66afE
   br i1 %19, label %20, label %.critedge33
 
 20:                                               ; preds = %.critedge, %.critedge33
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %21 = call { i64, i32 } @_ZN3std4time7Instant3now17h040a3784a947fafaE()
   %22 = extractvalue { i64, i32 } %21, 0
   %23 = extractvalue { i64, i32 } %21, 1
@@ -67,8 +67,8 @@ define hidden void @_ZN6memory8mmap_ops19prefault_mmap_pages17h10751c99dc8e66afE
   br label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h3d69ab78bce8e7d4E.exit"
 
 .critedge33:                                      ; preds = %.critedge
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %12, ptr %9, align 8
   %27 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h6beb447370b49610E", ptr %27, align 8
@@ -86,8 +86,8 @@ define hidden void @_ZN6memory8mmap_ops19prefault_mmap_pages17h10751c99dc8e66afE
   %33 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store i64 2, ptr %33, align 8, !alias.scope !5, !noalias !8
   call void @_ZN3log13__private_api8log_impl17h6f2172fcba2687bdE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %10, i64 noundef 5, ptr noalias noundef readonly align 8 dereferenceable(48) @anon.616088ef07ca1b37bebf04047481bb24.26, i32 noundef 80, ptr noalias noundef readonly align 8 null, i64 undef)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %20
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h3d69ab78bce8e7d4E.exit": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h3d69ab78bce8e7d4E.exit.preheader", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h3d69ab78bce8e7d4E.exit"
@@ -103,10 +103,10 @@ define hidden void @_ZN6memory8mmap_ops19prefault_mmap_pages17h10751c99dc8e66afE
   br i1 %37, label %.critedge35, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h3d69ab78bce8e7d4E.exit"
 
 .critedge35:                                      ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h3d69ab78bce8e7d4E.exit", %20
-  call void @llvm.lifetime.start.p0(i64 8096, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(8096) %6, ptr noundef nonnull align 1 dereferenceable(8096) %7, i64 8096, i1 false)
   call void asm sideeffect "", "r,~{memory}"(ptr nonnull %6) #6, !srcloc !11
-  call void @llvm.lifetime.end.p0(i64 8096, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %38 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hd6ff06cf4e1ed23bE monotonic, align 8
   %39 = icmp ult i64 %38, 6
   call void @llvm.assume(i1 %39)
@@ -114,15 +114,15 @@ define hidden void @_ZN6memory8mmap_ops19prefault_mmap_pages17h10751c99dc8e66afE
   br i1 %40, label %41, label %.critedge37
 
 41:                                               ; preds = %.critedge35, %.critedge37
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret void
 
 .critedge37:                                      ; preds = %.critedge35
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %42 = call { i64, i32 } @_ZN3std4time7Instant7elapsed17hde0168e4d7c22c73E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %8)
   %43 = extractvalue { i64, i32 } %42, 0
   %44 = extractvalue { i64, i32 } %42, 1
@@ -150,9 +150,9 @@ define hidden void @_ZN6memory8mmap_ops19prefault_mmap_pages17h10751c99dc8e66afE
   %54 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 3, ptr %54, align 8, !alias.scope !12, !noalias !15
   call void @_ZN3log13__private_api8log_impl17h6f2172fcba2687bdE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, i64 noundef 5, ptr noalias noundef readonly align 8 dereferenceable(48) @anon.616088ef07ca1b37bebf04047481bb24.26, i32 noundef 92, ptr noalias noundef readonly align 8 null, i64 undef)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %41
 }
 
@@ -187,10 +187,10 @@ declare { i64, i32 } @_ZN3std4time7Instant7elapsed17hde0168e4d7c22c73E(ptr noali
 declare noundef zeroext i1 @"_ZN57_$LT$core..time..Duration$u20$as$u20$core..fmt..Debug$GT$3fmt17h47b16190160c2128E"(ptr noalias noundef readonly align 8 dereferenceable(16), ptr noalias noundef align 8 dereferenceable(64)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #5

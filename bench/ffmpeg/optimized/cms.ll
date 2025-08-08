@@ -436,22 +436,22 @@ define range(i32 -2147483648, 1) i32 @ff_sws_color_map_generate_dynamic(ptr noun
   %9 = alloca %struct.SwsColor, align 8
   %10 = alloca %struct.SwsColor, align 8
   %11 = alloca %struct.SwsMatrix3x3, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #14
-  call void @llvm.lifetime.start.p0(i64 952, ptr nonnull %8) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, i8 0, i64 40, i1 false)
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %9) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %9, ptr noundef nonnull align 4 dereferenceable(88) %5, i64 88, i1 false), !tbaa.struct !17
   call fastcc void @gamut_from_colorspace(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull byval(%struct.SwsColor) align 8 %9)
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %9) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 256
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %13, i8 0, i64 216, i1 false)
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 472
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 88
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %10) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %10, ptr noundef nonnull align 4 dereferenceable(88) %15, i64 88, i1 false), !tbaa.struct !17
   call fastcc void @gamut_from_colorspace(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef nonnull byval(%struct.SwsColor) align 8 %10)
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %10) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 688
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %16, i8 0, i64 36, i1 false)
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 724
@@ -512,7 +512,7 @@ switch.lookup:                                    ; preds = %6
   br i1 %45, label %46, label %56
 
 46:                                               ; preds = %31
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %11) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %47 = getelementptr inbounds nuw i8, ptr %8, i64 820
   %48 = getelementptr inbounds nuw i8, ptr %8, i64 656
   %49 = getelementptr inbounds nuw i8, ptr %8, i64 224
@@ -524,7 +524,7 @@ switch.lookup:                                    ; preds = %6
   %55 = load i64, ptr %54, align 8
   call void @ff_sws_get_adaptation(ptr dead_on_unwind nonnull writable sret(%struct.SwsMatrix3x3) align 4 %11, ptr noundef nonnull %47, i64 %50, i64 %52, i64 %53, i64 %55) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %16, ptr noundef nonnull align 4 dereferenceable(36) %11, i64 36, i1 false), !tbaa.struct !47
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %11) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %56
 
 56:                                               ; preds = %46, %31
@@ -548,23 +548,20 @@ switch.lookup:                                    ; preds = %6
 
 68:                                               ; preds = %6, %56, %59
   %.0 = phi i32 [ 0, %59 ], [ -22, %6 ], [ %57, %56 ]
-  call void @llvm.lifetime.end.p0(i64 952, ptr nonnull %8) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @gamut_from_colorspace(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef readonly byval(%struct.SwsColor) align 8 captures(none) %1) unnamed_addr #0 {
   %3 = alloca %struct.AVColorPrimariesDesc, align 4
   %4 = load i32, ptr %1, align 8, !tbaa !50
   %5 = tail call ptr @av_csp_primaries_desc_from_id(i32 noundef %4) #14
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !51
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -684,18 +681,15 @@ define internal fastcc void @gamut_from_colorspace(ptr dead_on_unwind noalias no
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %85, ptr noundef nonnull align 4 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !51
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 200
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %86, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal { <2 x float>, float } @perceptual(ptr noundef readonly captures(none) %0, <2 x float> %1, float %2) #6 {
+define internal { <2 x float>, float } @perceptual(ptr noundef readonly captures(none) %0, <2 x float> %1, float %2) #5 {
   %.sroa.03.4.vec.extract.i = extractelement <2 x float> %1, i64 1
   %4 = fmul nsz float %2, %2
   %5 = tail call nsz float @llvm.fmuladd.f32(float %.sroa.03.4.vec.extract.i, float %.sroa.03.4.vec.extract.i, float %4)
@@ -1122,10 +1116,10 @@ softclip.exit107:                                 ; preds = %softclip.exit104, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal { <2 x float>, float } @relative(ptr noundef readonly captures(none) %0, <2 x float> %1, float %2) #7 {
+define internal { <2 x float>, float } @relative(ptr noundef readonly captures(none) %0, <2 x float> %1, float %2) #6 {
   %4 = alloca %struct.Gamut, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 472
-  call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %4, ptr noundef nonnull align 8 dereferenceable(216) %5, i64 216, i1 false)
   %.sroa.072.0.vec.extract.i = extractelement <2 x float> %1, i64 0
   %6 = fmul nsz float %.sroa.072.0.vec.extract.i, 0x3F0A36E2E0000000
@@ -1202,12 +1196,12 @@ clip_gamma.exit:                                  ; preds = %11, %12, %46
   %.pn100.i = phi float [ 0.000000e+00, %11 ], [ %51, %46 ], [ %2, %12 ]
   %.pn.i = insertvalue { <2 x float>, float } poison, <2 x float> %.sroa.077.4.vec.insert.pn.i, 0
   %.fca.1.insert.merged.i = insertvalue { <2 x float>, float } %.pn.i, float %.pn100.i, 1
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret { <2 x float>, float } %.fca.1.insert.merged.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal { <2 x float>, float } @saturation(ptr noundef readonly captures(none) %0, <2 x float> %1, float %2) #6 {
+define internal { <2 x float>, float } @saturation(ptr noundef readonly captures(none) %0, <2 x float> %1, float %2) #5 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %.sroa.0.0.copyload = load float, ptr %4, align 8
   %.sroa.428.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 332
@@ -1365,7 +1359,7 @@ define internal { <2 x float>, float } @saturation(ptr noundef readonly captures
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { <2 x float>, float } @absolute(ptr noundef %0, <2 x float> %1, float %2) #8 {
+define internal { <2 x float>, float } @absolute(ptr noundef %0, <2 x float> %1, float %2) #7 {
   %4 = alloca %struct.Gamut, align 8
   %5 = alloca [3 x float], align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 472
@@ -1461,7 +1455,7 @@ define internal { <2 x float>, float } @absolute(ptr noundef %0, <2 x float> %1,
   %74 = fmul nsz float %.sroa.0.sroa.10.0.copyload, %49
   %75 = tail call nsz float @llvm.fmuladd.f32(float %.sroa.0.sroa.9.0.copyload, float %31, float %74)
   %76 = tail call nsz float @llvm.fmuladd.f32(float %.sroa.0.sroa.11.0.copyload, float %67, float %75)
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store float %70, ptr %5, align 4, !tbaa !38
   %77 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store float %73, ptr %77, align 4, !tbaa !38
@@ -1528,7 +1522,7 @@ define internal { <2 x float>, float } @absolute(ptr noundef %0, <2 x float> %1,
   %119 = fmul nsz float %105, 0x3FD6DC5D60000000
   %120 = call nsz float @llvm.fmuladd.f32(float %98, float 0x3FE9C779A0000000, float %119)
   %121 = call nsz float @llvm.fmuladd.f32(float %112, float 0xBFF29AD420000000, float %120)
-  call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %4, ptr noundef nonnull align 8 dereferenceable(216) %6, i64 216, i1 false)
   %122 = fmul nsz float %115, 0x3F0A36E2E0000000
   %123 = call nsz float @llvm.maxnum.f32(float %122, float 0x3E7AD7F2A0000000)
@@ -1605,13 +1599,13 @@ clip_gamma.exit:                                  ; preds = %127, %128, %162
   %.pn100.i = phi float [ 0.000000e+00, %127 ], [ %167, %162 ], [ %121, %128 ]
   %.pn.i = insertvalue { <2 x float>, float } poison, <2 x float> %.sroa.077.4.vec.insert.pn.i, 0
   %.fca.1.insert.merged.i = insertvalue { <2 x float>, float } %.pn.i, float %.pn100.i, 1
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret { <2 x float>, float } %.fca.1.insert.merged.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @tone_map_setup(ptr noundef nonnull captures(none) %0, i1 noundef zeroext %1) unnamed_addr #9 {
+define internal fastcc void @tone_map_setup(ptr noundef nonnull captures(none) %0, i1 noundef zeroext %1) unnamed_addr #8 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %4 = load float, ptr %3, align 8, !tbaa !43
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 644
@@ -1772,11 +1766,11 @@ declare void @ff_sws_get_adaptation(ptr dead_on_unwind writable sret(%struct.Sws
 declare i32 @avpriv_slicethread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @generate_slice(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 %2, i32 noundef %3, i32 %4) #8 {
+define internal void @generate_slice(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 %2, i32 noundef %3, i32 %4) #7 {
   %6 = alloca %struct.CmsCtx, align 8
   %7 = alloca [3 x double], align 16
   %8 = alloca [3 x double], align 16
-  call void @llvm.lifetime.start.p0(i64 952, ptr nonnull %6) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(952) %6, ptr noundef nonnull align 8 dereferenceable(952) %0, i64 952, i1 false), !tbaa.struct !77
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 936
   %10 = load i32, ptr %9, align 8, !tbaa !29
@@ -1966,7 +1960,7 @@ define internal void @generate_slice(ptr noundef readonly captures(none) %0, i32
 122:                                              ; preds = %.lr.ph, %320
   %.2212 = phi ptr [ %.1214, %.lr.ph ], [ %.3, %320 ]
   %.0130211 = phi i32 [ 0, %.lr.ph ], [ %325, %320 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %123 = uitofp nneg i32 %.0130211 to float
   %124 = fmul nsz float %44, %123
   %125 = fpext nsz float %124 to double
@@ -2267,7 +2261,7 @@ tone_map_apply.exit:                              ; preds = %209, %update_hue_pe
   %.sroa.330.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.2212, i64 4
   store i16 %.0.i151, ptr %.sroa.330.0..sroa_idx, align 2, !tbaa !93
   %.3 = getelementptr inbounds nuw i8, ptr %.2212, i64 6
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %325 = add nuw nsw i32 %.0130211, 1
   %326 = load i32, ptr %12, align 4, !tbaa !30
   %327 = icmp slt i32 %325, %326
@@ -2432,7 +2426,7 @@ update_hue_peaks.exit185:                         ; preds = %.lr.ph232, %343
   %421 = fmul nsz float %.sroa.0.sroa.10.0.copyload, %396
   %422 = call nsz float @llvm.fmuladd.f32(float %.sroa.0.sroa.9.0.copyload, float %378, float %421)
   %423 = call nsz float @llvm.fmuladd.f32(float %.sroa.0.sroa.11.0.copyload, float %414, float %422)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %424 = fpext nsz float %417 to double
   store double %424, ptr %8, align 16, !tbaa !83
   %425 = fpext nsz float %420 to double
@@ -2478,14 +2472,14 @@ update_hue_peaks.exit185:                         ; preds = %.lr.ph232, %343
   store i16 %.0.i145, ptr %.sroa.2.0..sroa_idx, align 2, !tbaa !93
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.2127225, i64 4
   store i16 %.0.i142, ptr %.sroa.3.0..sroa_idx, align 2, !tbaa !93
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %451 = add nuw nsw i32 %.0133224, 1
   %452 = load i32, ptr %22, align 8, !tbaa !31
   %453 = icmp slt i32 %451, %452
   br i1 %453, label %.lr.ph226, label %._crit_edge227.loopexit, !llvm.loop !98
 
 .loopexit:                                        ; preds = %._crit_edge233, %.lr.ph237, %._crit_edge223
-  call void @llvm.lifetime.end.p0(i64 952, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -2494,25 +2488,25 @@ declare void @avpriv_slicethread_execute(ptr noundef, i32 noundef, i32 noundef) 
 declare void @avpriv_slicethread_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @ff_sws_tone_map_generate(ptr noundef writeonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #8 {
+define void @ff_sws_tone_map_generate(ptr noundef writeonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #7 {
   %4 = alloca %struct.CmsCtx, align 8
   %5 = alloca %struct.SwsColor, align 8
   %6 = alloca %struct.SwsColor, align 8
-  call void @llvm.lifetime.start.p0(i64 952, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %5, ptr noundef nonnull align 4 dereferenceable(88) %2, i64 88, i1 false), !tbaa.struct !17
   call fastcc void @gamut_from_colorspace(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull byval(%struct.SwsColor) align 8 %5)
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 256
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %8, i8 0, i64 216, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 472
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 88
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %6) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %6, ptr noundef nonnull align 4 dereferenceable(88) %10, i64 88, i1 false), !tbaa.struct !17
   call fastcc void @gamut_from_colorspace(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull byval(%struct.SwsColor) align 8 %6)
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 688
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %11, i8 0, i64 36, i1 false)
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 724
@@ -2618,7 +2612,7 @@ tone_map_apply.exit.us:                           ; preds = %58, %56
   br i1 %exitcond33.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !99
 
 ._crit_edge:                                      ; preds = %tone_map_apply.exit, %tone_map_apply.exit.us, %3
-  call void @llvm.lifetime.end.p0(i64 952, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
 tone_map_apply.exit:                              ; preds = %.lr.ph, %tone_map_apply.exit
@@ -2661,7 +2655,7 @@ tone_map_apply.exit:                              ; preds = %.lr.ph, %tone_map_a
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #10
+declare float @llvm.fmuladd.f32(float, float, float) #9
 
 declare ptr @av_csp_primaries_desc_from_id(i32 noundef) local_unnamed_addr #1
 
@@ -2674,25 +2668,25 @@ declare ptr @av_csp_itu_eotf(i32 noundef) local_unnamed_addr #1
 declare ptr @av_csp_itu_eotf_inv(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.maxnum.f32(float, float) #10
+declare float @llvm.maxnum.f32(float, float) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.pow.f32(float, float) #10
+declare float @llvm.pow.f32(float, float) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.sqrt.f32(float) #10
+declare float @llvm.sqrt.f32(float) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.atan2.f32(float, float) #10
+declare float @llvm.atan2.f32(float, float) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.floor.f32(float) #10
+declare float @llvm.floor.f32(float) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.minnum.f32(float, float) #10
+declare float @llvm.minnum.f32(float, float) #9
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc zeroext i1 @ingamut(<2 x float> %0, float %1, ptr noundef readonly byval(%struct.Gamut) align 8 captures(none) %2) unnamed_addr #11 {
+define internal fastcc zeroext i1 @ingamut(<2 x float> %0, float %1, ptr noundef readonly byval(%struct.Gamut) align 8 captures(none) %2) unnamed_addr #10 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 176
   %5 = load float, ptr %4, align 8, !tbaa !62
   %6 = fadd nsz float %5, 0xBF1A36E2E0000000
@@ -2830,15 +2824,15 @@ define internal fastcc zeroext i1 @ingamut(<2 x float> %0, float %1, ptr noundef
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.cos.f32(float) #10
+declare float @llvm.cos.f32(float) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.sin.f32(float) #10
+declare float @llvm.sin.f32(float) #9
 
 declare void @ff_sws_matrix3x3_apply(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal fastcc { <2 x float>, float } @saturate(float noundef %0, ptr noundef readonly byval(%struct.Gamut) align 8 captures(none) %1) unnamed_addr #12 {
+define internal fastcc { <2 x float>, float } @saturate(float noundef %0, ptr noundef readonly byval(%struct.Gamut) align 8 captures(none) %1) unnamed_addr #11 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %4 = load float, ptr %3, align 8, !tbaa !60
   %.sroa.062.4.vec.insert = insertelement <2 x float> <float poison, float 0.000000e+00>, float %4, i64 0
@@ -3264,22 +3258,28 @@ desat_bounded.exit111:                            ; preds = %.thread154, %.threa
   ret { <2 x float>, float } %.fca.1.insert
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #13
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { cold nofree noreturn nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="64" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="64" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nounwind uwtable "min-legal-vector-width"="64" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="64" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { inlinehint nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="64" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="64" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="64" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind uwtable "min-legal-vector-width"="64" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="64" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { inlinehint nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="64" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #14 = { nounwind }
 attributes #15 = { noreturn nounwind }

@@ -1444,7 +1444,7 @@ define void @_ZN21EditMutualCorrsPlugin8decorateER9MeshModelP6GLAreaP8QPainter(p
 53:                                               ; preds = %50, %41
   %54 = call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.11, i32 noundef 16)
   store ptr %54, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 1208
   invoke void @_ZN9QFileInfoC1ERK7QString(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %55)
           to label %.noexc unwind label %130
@@ -1461,7 +1461,7 @@ define void @_ZN21EditMutualCorrsPlugin8decorateER9MeshModelP6GLAreaP8QPainter(p
 
 58:                                               ; preds = %.noexc
   call void @_ZN9QFileInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 216
   invoke void @_ZNK7QString11toStdStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %11, ptr noundef nonnull align 8 dereferenceable(8) %59)
           to label %60 unwind label %132
@@ -1808,7 +1808,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i57:  ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringD2Ev.exit62
 
 _ZN7QStringD2Ev.exit62:                           ; preds = %193, %_ZN9QtPrivate8RefCount5derefEv.exit.i58, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i57
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   invoke void @_ZN5QFontC1Ev(ptr noundef nonnull align 8 dereferenceable(12) %121)
           to label %.noexc63 unwind label %.loopexit.split-lp.loopexit
 
@@ -1837,7 +1837,7 @@ _ZN3vcg7glLabel4ModeC2Ev.exit.i:                  ; preds = %.noexc63
 
 203:                                              ; preds = %_ZN3vcg7glLabel4ModeC2Ev.exit.i
   call void @_ZN5QFontD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %121) #23
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %204 = add nuw i64 %.040123, 1
   %205 = load ptr, ptr %105, align 8
   %206 = load i32, ptr %106, align 8
@@ -2165,7 +2165,7 @@ define linkonce_odr void @_ZNK7QString11toStdStringB5cxx11Ev(ptr dead_on_unwind 
   %3 = alloca %"class.std::allocator.186", align 1
   %4 = alloca %class.QByteArray, align 8
   call void @_ZN7QString13toUtf8_helperERKS_(ptr dead_on_unwind nonnull writable sret(%class.QByteArray) align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %1)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = load ptr, ptr %4, align 8, !noalias !32
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load i64, ptr %6, align 8, !noalias !32
@@ -2186,7 +2186,7 @@ define linkonce_odr void @_ZNK7QString11toStdStringB5cxx11Ev(ptr dead_on_unwind 
 
 13:                                               ; preds = %2
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #23
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %14 = load ptr, ptr %4, align 8
   %15 = load atomic i32, ptr %14 monotonic, align 4
   switch i32 %15, label %_ZN9QtPrivate8RefCount5derefEv.exit.i [
@@ -2726,7 +2726,7 @@ _ZN3vcg7glLabel7enter2DEP8QPainter.exit:          ; preds = %.noexc26
 
 92:                                               ; preds = %88, %81
   %.sroa.0.0 = phi double [ %89, %88 ], [ 0.000000e+00, %81 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store double %.sroa.0.0, ptr %5, align 8
   %93 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %94 = sitofp i32 %82 to double
@@ -2735,7 +2735,7 @@ _ZN3vcg7glLabel7enter2DEP8QPainter.exit:          ; preds = %.noexc26
           to label %95 unwind label %90
 
 95:                                               ; preds = %92
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   invoke void @_ZN8QPainter7restoreEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
           to label %.noexc34 unwind label %90
 
@@ -3062,7 +3062,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i17:  ; preds = %_ZN9QtPrivate8RefCo
   call void @_ZN7QObject7connectEPKS_PKcS1_S3_N2Qt14ConnectionTypeE(ptr dead_on_unwind nonnull writable sret(%"class.QMetaObject::Connection") align 8 %24, ptr noundef nonnull %0, ptr noundef nonnull @.str.37, ptr noundef %2, ptr noundef nonnull @.str.38, i32 noundef 0)
   call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %24) #23
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZN7QString15fromUtf8_helperEPKci(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %8, ptr noundef nonnull @.str.39, i32 noundef 0)
   %104 = load ptr, ptr %103, align 8
   %105 = load ptr, ptr %8, align 8
@@ -3089,9 +3089,9 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i:  ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringaSEPKc.exit
 
 _ZN7QStringaSEPKc.exit:                           ; preds = %101, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN7QString15fromUtf8_helperEPKci(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %7, ptr noundef nonnull @.str.39, i32 noundef 0)
   %110 = load ptr, ptr %109, align 8
   %111 = load ptr, ptr %7, align 8
@@ -3118,9 +3118,9 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i23: ; preds = %_ZN9QtPrivate8RefC
   br label %_ZN7QStringaSEPKc.exit28
 
 _ZN7QStringaSEPKc.exit28:                         ; preds = %_ZN7QStringaSEPKc.exit, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i24, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN7QString15fromUtf8_helperEPKci(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %6, ptr noundef nonnull @.str.39, i32 noundef 0)
   %116 = load ptr, ptr %115, align 8
   %117 = load ptr, ptr %6, align 8
@@ -3147,9 +3147,9 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i29: ; preds = %_ZN9QtPrivate8RefC
   br label %_ZN7QStringaSEPKc.exit34
 
 _ZN7QStringaSEPKc.exit34:                         ; preds = %_ZN7QStringaSEPKc.exit28, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i30, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i29
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN7QString15fromUtf8_helperEPKci(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %5, ptr noundef nonnull @.str.39, i32 noundef 0)
   %122 = load ptr, ptr %121, align 8
   %123 = load ptr, ptr %5, align 8
@@ -3176,7 +3176,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i35: ; preds = %_ZN9QtPrivate8RefC
   br label %_ZN7QStringaSEPKc.exit40
 
 _ZN7QStringaSEPKc.exit40:                         ; preds = %_ZN7QStringaSEPKc.exit34, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i36, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i35
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %127 = load ptr, ptr %27, align 8
   call void @_ZN7QWidget6updateEv(ptr noundef nonnull align 8 dereferenceable(48) %127)
   br label %_ZN7QStringD2Ev.exit22
@@ -3637,7 +3637,7 @@ define void @_ZN21EditMutualCorrsPlugin11addNewPointEv(ptr noundef nonnull align
   %5 = alloca %class.QString, align 8
   %6 = alloca %class.QString, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN7QString15fromUtf8_helperEPKci(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %3, ptr noundef nonnull @.str.39, i32 noundef 0)
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %3, align 8
@@ -3664,7 +3664,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i:  ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringaSEPKc.exit
 
 _ZN7QStringaSEPKc.exit:                           ; preds = %1, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr @_ZN10QArrayData11shared_nullE, ptr %4, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -3688,7 +3688,7 @@ _ZN7QStringaSEPKc.exit:                           ; preds = %1, %_ZN9QtPrivate8R
   br label %35
 
 29:                                               ; preds = %_ZN7QStringaSEPKc.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   invoke void @_ZN7QString15fromUtf8_helperEPKci(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %2, ptr noundef nonnull @.str.42, i32 noundef 15)
           to label %.noexc unwind label %.loopexit.split-lp
 
@@ -3718,7 +3718,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i10: ; preds = %_ZN9QtPrivate8RefC
   br label %_ZN7QStringaSEPKc.exit15
 
 _ZN7QStringaSEPKc.exit15:                         ; preds = %.noexc, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i11, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %187
 
 .loopexit:                                        ; preds = %35
@@ -4634,7 +4634,7 @@ define void @_ZN21EditMutualCorrsPlugin18deleteCurrentPointEv(ptr noundef nonnul
   %2 = alloca %class.QString, align 8
   %3 = alloca %class.QString, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN7QString15fromUtf8_helperEPKci(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %3, ptr noundef nonnull @.str.39, i32 noundef 0)
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %3, align 8
@@ -4661,7 +4661,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i:  ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringaSEPKc.exit
 
 _ZN7QStringaSEPKc.exit:                           ; preds = %1, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 48
@@ -4673,7 +4673,7 @@ _ZN7QStringaSEPKc.exit:                           ; preds = %1, %_ZN9QtPrivate8R
   br i1 %17, label %18, label %24
 
 18:                                               ; preds = %_ZN7QStringaSEPKc.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZN7QString15fromUtf8_helperEPKci(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %2, ptr noundef nonnull @.str.46, i32 noundef 17)
   %19 = load ptr, ptr %4, align 8
   %20 = load ptr, ptr %2, align 8
@@ -4700,7 +4700,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i10: ; preds = %_ZN9QtPrivate8RefC
   br label %_ZN7QStringaSEPKc.exit15
 
 _ZN7QStringaSEPKc.exit15:                         ; preds = %18, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i11, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %139
 
 24:                                               ; preds = %_ZN7QStringaSEPKc.exit
@@ -4954,7 +4954,7 @@ define void @_ZN21EditMutualCorrsPlugin16pickCurrentPointEv(ptr noundef nonnull 
   %4 = alloca %class.QString, align 8
   %5 = alloca %class.QString, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN7QString15fromUtf8_helperEPKci(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %4, ptr noundef nonnull @.str.39, i32 noundef 0)
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %4, align 8
@@ -4981,7 +4981,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i:  ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringaSEPKc.exit
 
 _ZN7QStringaSEPKc.exit:                           ; preds = %1, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 48
@@ -4993,7 +4993,7 @@ _ZN7QStringaSEPKc.exit:                           ; preds = %1, %_ZN9QtPrivate8R
   br i1 %19, label %20, label %26
 
 20:                                               ; preds = %_ZN7QStringaSEPKc.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN7QString15fromUtf8_helperEPKci(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %3, ptr noundef nonnull @.str.46, i32 noundef 17)
   %21 = load ptr, ptr %6, align 8
   %22 = load ptr, ptr %3, align 8
@@ -5020,7 +5020,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i3: ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringaSEPKc.exit8
 
 _ZN7QStringaSEPKc.exit8:                          ; preds = %20, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i4, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %41
 
 26:                                               ; preds = %_ZN7QStringaSEPKc.exit
@@ -5053,7 +5053,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCo
 
 _ZN7QStringD2Ev.exit:                             ; preds = %28, %_ZN9QtPrivate8RefCount5derefEv.exit.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZN7QString15fromUtf8_helperEPKci(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %2, ptr noundef nonnull @.str.48, i32 noundef 35)
   %34 = load ptr, ptr %33, align 8
   %35 = load ptr, ptr %2, align 8
@@ -5080,7 +5080,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i9: ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringaSEPKc.exit14
 
 _ZN7QStringaSEPKc.exit14:                         ; preds = %_ZN7QStringD2Ev.exit, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i10, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %40 = load ptr, ptr %39, align 8
   call void @_ZN7QWidget6updateEv(ptr noundef nonnull align 8 dereferenceable(48) %40)
@@ -5105,7 +5105,7 @@ define void @_ZN21EditMutualCorrsPlugin19pickCurrentRefPointEv(ptr noundef nonnu
   %4 = alloca %class.QString, align 8
   %5 = alloca %class.QString, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN7QString15fromUtf8_helperEPKci(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %4, ptr noundef nonnull @.str.39, i32 noundef 0)
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %4, align 8
@@ -5132,7 +5132,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i:  ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringaSEPKc.exit
 
 _ZN7QStringaSEPKc.exit:                           ; preds = %1, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 48
@@ -5144,7 +5144,7 @@ _ZN7QStringaSEPKc.exit:                           ; preds = %1, %_ZN9QtPrivate8R
   br i1 %19, label %20, label %26
 
 20:                                               ; preds = %_ZN7QStringaSEPKc.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN7QString15fromUtf8_helperEPKci(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %3, ptr noundef nonnull @.str.46, i32 noundef 17)
   %21 = load ptr, ptr %6, align 8
   %22 = load ptr, ptr %3, align 8
@@ -5171,7 +5171,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i3: ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringaSEPKc.exit8
 
 _ZN7QStringaSEPKc.exit8:                          ; preds = %20, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i4, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %41
 
 26:                                               ; preds = %_ZN7QStringaSEPKc.exit
@@ -5204,7 +5204,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCo
 
 _ZN7QStringD2Ev.exit:                             ; preds = %28, %_ZN9QtPrivate8RefCount5derefEv.exit.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZN7QString15fromUtf8_helperEPKci(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %2, ptr noundef nonnull @.str.50, i32 noundef 35)
   %34 = load ptr, ptr %33, align 8
   %35 = load ptr, ptr %2, align 8
@@ -5231,7 +5231,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i9: ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringaSEPKc.exit14
 
 _ZN7QStringaSEPKc.exit14:                         ; preds = %_ZN7QStringD2Ev.exit, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i10, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %40 = load ptr, ptr %39, align 8
   call void @_ZN7QWidget6updateEv(ptr noundef nonnull align 8 dereferenceable(48) %40)
@@ -5254,7 +5254,7 @@ define void @_ZN21EditMutualCorrsPlugin20receivedSurfacePointE7QStringN3vcg6Poin
   %5 = alloca %class.QString, align 8
   %6 = alloca %class.QString, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN7QString15fromUtf8_helperEPKci(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %6, ptr noundef nonnull @.str.39, i32 noundef 0)
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %6, align 8
@@ -5281,7 +5281,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i:  ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringaSEPKc.exit
 
 _ZN7QStringaSEPKc.exit:                           ; preds = %4, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 48
@@ -5315,7 +5315,7 @@ _ZN7QStringaSEPKc.exit:                           ; preds = %4, %_ZN9QtPrivate8R
 
 33:                                               ; preds = %28, %_ZN7QStringaSEPKc.exit
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN7QString15fromUtf8_helperEPKci(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %5, ptr noundef nonnull @.str.39, i32 noundef 0)
   %35 = load ptr, ptr %34, align 8
   %36 = load ptr, ptr %5, align 8
@@ -5342,7 +5342,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i2: ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringaSEPKc.exit7
 
 _ZN7QStringaSEPKc.exit7:                          ; preds = %33, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i3, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i2
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %40 = load ptr, ptr %13, align 8
   call void @_ZN22edit_mutualcorrsDialog11updateTableEv(ptr noundef nonnull align 8 dereferenceable(72) %40)
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -5364,7 +5364,7 @@ define void @_ZN21EditMutualCorrsPlugin18receivedImagePointE7QStringN3vcg6Point2
   %4 = alloca %class.QString, align 8
   %5 = alloca %class.QString, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN7QString15fromUtf8_helperEPKci(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %5, ptr noundef nonnull @.str.39, i32 noundef 0)
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %5, align 8
@@ -5391,7 +5391,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i:  ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringaSEPKc.exit
 
 _ZN7QStringaSEPKc.exit:                           ; preds = %3, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 48
@@ -5483,7 +5483,7 @@ _ZN7QStringaSEPKc.exit:                           ; preds = %3, %_ZN9QtPrivate8R
 
 89:                                               ; preds = %27, %82, %_ZN7QStringaSEPKc.exit
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN7QString15fromUtf8_helperEPKci(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %4, ptr noundef nonnull @.str.39, i32 noundef 0)
   %91 = load ptr, ptr %90, align 8
   %92 = load ptr, ptr %4, align 8
@@ -5510,7 +5510,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i4: ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringaSEPKc.exit9
 
 _ZN7QStringaSEPKc.exit9:                          ; preds = %89, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i5, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %96 = load ptr, ptr %12, align 8
   call void @_ZN22edit_mutualcorrsDialog11updateTableEv(ptr noundef nonnull align 8 dereferenceable(72) %96)
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -5690,7 +5690,7 @@ define void @_ZN21EditMutualCorrsPlugin12loadFromFileEv(ptr noundef nonnull alig
   %14 = alloca %class.QStringList, align 8
   %15 = alloca %class.QString, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZN7QString15fromUtf8_helperEPKci(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %2, ptr noundef nonnull @.str.39, i32 noundef 0)
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %2, align 8
@@ -5717,7 +5717,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i:  ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringaSEPKc.exit
 
 _ZN7QStringaSEPKc.exit:                           ; preds = %1, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %22 = call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.39, i32 noundef 0)
   store ptr %22, ptr %3, align 8
   %23 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.52, i32 noundef 45)
@@ -6845,7 +6845,7 @@ define void @_ZN21EditMutualCorrsPlugin10saveToFileEv(ptr noundef nonnull align 
   %10 = alloca %class.QString, align 8
   %11 = alloca %class.QString, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZN7QString15fromUtf8_helperEPKci(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %2, ptr noundef nonnull @.str.39, i32 noundef 0)
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %2, align 8
@@ -6872,7 +6872,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i:  ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringaSEPKc.exit
 
 _ZN7QStringaSEPKc.exit:                           ; preds = %1, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %18 = call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.39, i32 noundef 0)
   store ptr %18, ptr %3, align 8
   %19 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.55, i32 noundef 25)
@@ -8375,7 +8375,7 @@ _ZN5QListIiED2Ev.exit105:                         ; preds = %_ZN9QtPrivate8RefCo
   br i1 %.not.i106, label %_ZNK19MeshLabPluginLogger3logIJiRiEEEvPKcDpOT_.exit, label %546
 
 546:                                              ; preds = %543
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %547 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 4096, ptr noundef nonnull @.str.63, i32 noundef %544, i32 noundef %521) #23
   invoke void @_ZN11GLLogStream3logEiPKc(ptr noundef nonnull align 8 dereferenceable(40) %545, i32 noundef 2, ptr noundef nonnull %2)
           to label %.noexc107 unwind label %.loopexit
@@ -8389,7 +8389,7 @@ _ZN5QListIiED2Ev.exit105:                         ; preds = %_ZN9QtPrivate8RefCo
           to label %_ZN11GLLogStream4logfIJiRiEEEviPKcDpOT_.exit.i unwind label %.loopexit
 
 _ZN11GLLogStream4logfIJiRiEEEviPKcDpOT_.exit.i:   ; preds = %549, %.noexc107
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %_ZNK19MeshLabPluginLogger3logIJiRiEEEvPKcDpOT_.exit
 
 _ZNK19MeshLabPluginLogger3logIJiRiEEEvPKcDpOT_.exit: ; preds = %_ZN11GLLogStream4logfIJiRiEEEviPKcDpOT_.exit.i, %543
@@ -8864,7 +8864,7 @@ define linkonce_odr void @_ZN5QListIiE6appendERKi(ptr noundef nonnull align 8 de
   br i1 %6, label %7, label %50
 
 7:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 2147483647, ptr %3, align 4
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -8948,7 +8948,7 @@ _ZN5QListIiE18detach_helper_growEii.exit:         ; preds = %_ZN5QListIiE9node_c
   %46 = load i32, ptr %3, align 4
   %47 = sext i32 %46 to i64
   %48 = getelementptr inbounds ptr, ptr %45, i64 %47
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %49 = load i32, ptr %1, align 4
   store i32 %49, ptr %48, align 4
   br label %60
@@ -9034,9 +9034,9 @@ define internal void @_GLOBAL__sub_I_edit_mutualcorrs.cpp() #13 section ".text.s
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %5, ptr noundef nonnull align 4 dereferenceable(24) @constinit, i64 24, i1 false)
   store ptr %6, ptr getelementptr inbounds nuw (i8, ptr @_ZN3vcgL13ColorMapEnumsE, i64 8), align 8
   %7 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorIN3vcg8ColorMapESaIS1_EED2Ev, ptr nonnull @_ZN3vcgL13ColorMapEnumsE, ptr nonnull @__dso_handle) #23
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %1)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #26
   store i8 68, ptr %8, align 1
   %.sroa.2583.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 1
@@ -10556,9 +10556,9 @@ __cxx_global_var_init.5.exit:                     ; preds = %_ZNSt4pairIKN3vcg8C
   call void @_ZdlPv(ptr noundef nonnull %15) #22
   call void @_ZdlPv(ptr noundef nonnull %8) #22
   %82 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt3mapIN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS4_EESt4lessIS1_ESaISt4pairIKS1_S6_EEED2Ev, ptr nonnull @_ZN3vcgL9colorMapsE, ptr nonnull @__dso_handle) #23
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %1)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -10569,10 +10569,10 @@ declare i64 @llvm.umin.i64(i64, i64) #17
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #19
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #19
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #20

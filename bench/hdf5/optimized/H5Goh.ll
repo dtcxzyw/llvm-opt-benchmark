@@ -297,7 +297,7 @@ define internal range(i32 -1, 1) i32 @H5O__group_bh_info(ptr noundef readonly ca
   br i1 %.not, label %83, label %20
 
 20:                                               ; preds = %19
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %21 = load ptr, ptr %0, align 8, !tbaa !24
   %22 = call ptr @H5O_msg_read_oh(ptr noundef %21, ptr noundef %1, i32 noundef 2, ptr noundef nonnull %4) #3
   %23 = icmp eq ptr %22, null
@@ -400,7 +400,7 @@ define internal range(i32 -1, 1) i32 @H5O__group_bh_info(ptr noundef readonly ca
   br label %100
 
 83:                                               ; preds = %19
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %84 = load ptr, ptr %0, align 8, !tbaa !24
   %85 = call ptr @H5O_msg_read_oh(ptr noundef %84, ptr noundef %1, i32 noundef 17, ptr noundef nonnull %5) #3
   %86 = icmp eq ptr %85, null
@@ -426,19 +426,19 @@ define internal range(i32 -1, 1) i32 @H5O__group_bh_info(ptr noundef readonly ca
 
 99:                                               ; preds = %91, %95, %87
   %.3 = phi i32 [ -1, %87 ], [ -1, %95 ], [ 0, %91 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread87
 
 .thread75:                                        ; preds = %24, %35, %42, %53, %60, %71, %64
   %.145.ph = phi ptr [ %.246, %64 ], [ %.246, %71 ], [ %.246, %60 ], [ %.246, %53 ], [ %33, %42 ], [ null, %35 ], [ null, %24 ]
   %.142.ph = phi ptr [ %.243, %64 ], [ %.243, %71 ], [ %51, %60 ], [ null, %53 ], [ null, %42 ], [ null, %35 ], [ null, %24 ]
   %.2.ph = phi i32 [ 0, %64 ], [ -1, %71 ], [ -1, %60 ], [ -1, %53 ], [ -1, %42 ], [ -1, %35 ], [ -1, %24 ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %107
 
 100:                                              ; preds = %75, %79
   %.2 = phi i32 [ -1, %79 ], [ 0, %75 ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %101 = call i32 @H5HF_close(ptr noundef nonnull %69) #3
   %102 = icmp slt i32 %101, 0
   br i1 %102, label %103, label %107
@@ -488,53 +488,53 @@ define internal range(i32 -1, 1) i32 @H5O__group_bh_info(ptr noundef readonly ca
   ret i32 %.050
 }
 
+declare noalias ptr @H5FL_reg_calloc(ptr noundef) local_unnamed_addr #1
+
+declare i32 @H5E_printf_stack(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
+
+declare ptr @H5O_msg_free(i32 noundef, ptr noundef) local_unnamed_addr #1
+
+declare ptr @H5FL_reg_free(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare i32 @H5O_msg_exists_oh(ptr noundef, i32 noundef) local_unnamed_addr #1
+
+declare ptr @H5G_open(ptr noundef) local_unnamed_addr #1
+
+declare i32 @H5G_close(ptr noundef) local_unnamed_addr #1
+
+declare ptr @H5G__create(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare ptr @H5G_oloc(ptr noundef) local_unnamed_addr #1
+
+declare ptr @H5G_nameof(ptr noundef) local_unnamed_addr #1
+
+declare ptr @H5VL_object(i64 noundef) local_unnamed_addr #1
+
+declare ptr @H5O_msg_read_oh(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+
+declare ptr @H5B2_open(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
+
+declare i32 @H5B2_size(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare ptr @H5HF_open(ptr noundef, i64 noundef) local_unnamed_addr #1
+
+declare i32 @H5HF_size(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare i32 @H5G__stab_bh_size(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare i32 @H5HF_close(ptr noundef) local_unnamed_addr #1
+
+declare i32 @H5B2_close(ptr noundef) local_unnamed_addr #1
+
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare noalias ptr @H5FL_reg_calloc(ptr noundef) local_unnamed_addr #2
-
-declare i32 @H5E_printf_stack(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare ptr @H5O_msg_free(i32 noundef, ptr noundef) local_unnamed_addr #2
-
-declare ptr @H5FL_reg_free(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare i32 @H5O_msg_exists_oh(ptr noundef, i32 noundef) local_unnamed_addr #2
-
-declare ptr @H5G_open(ptr noundef) local_unnamed_addr #2
-
-declare i32 @H5G_close(ptr noundef) local_unnamed_addr #2
-
-declare ptr @H5G__create(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare ptr @H5G_oloc(ptr noundef) local_unnamed_addr #2
-
-declare ptr @H5G_nameof(ptr noundef) local_unnamed_addr #2
-
-declare ptr @H5VL_object(i64 noundef) local_unnamed_addr #2
-
-declare ptr @H5O_msg_read_oh(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
-
-declare ptr @H5B2_open(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
-
-declare i32 @H5B2_size(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare ptr @H5HF_open(ptr noundef, i64 noundef) local_unnamed_addr #2
-
-declare i32 @H5HF_size(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare i32 @H5G__stab_bh_size(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare i32 @H5HF_close(ptr noundef) local_unnamed_addr #2
-
-declare i32 @H5B2_close(ptr noundef) local_unnamed_addr #2
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

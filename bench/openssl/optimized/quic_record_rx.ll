@@ -61,13 +61,7 @@ define noalias ptr @ossl_qrx_new(ptr noundef readonly captures(none) %0) local_u
   ret ptr %.022
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @ossl_qrx_free(ptr noundef %0) local_unnamed_addr #0 {
@@ -359,9 +353,9 @@ qrx_cleanup_urxl.exit40:                          ; preds = %qrx_cleanup_urxl.ex
   ret void
 }
 
-declare void @ossl_qrl_enc_level_set_discard(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @ossl_qrl_enc_level_set_discard(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @ossl_qrx_inject_urxe(ptr noundef captures(none) %0, ptr noundef initializes((32, 48), (288, 289)) %1) local_unnamed_addr #0 {
@@ -516,7 +510,7 @@ qrx_requeue_deferred.exit:                        ; preds = %ossl_list_urxe_inse
   ret i32 %.0
 }
 
-declare i32 @ossl_qrl_enc_level_set_provide_secret(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #2
+declare i32 @ossl_qrl_enc_level_set_provide_secret(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ossl_qrx_discard_enc_level(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -534,7 +528,7 @@ define range(i32 0, 2) i32 @ossl_qrx_discard_enc_level(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @ossl_qrx_processed_read_pending(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @ossl_qrx_processed_read_pending(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr i8, ptr %0, i64 136
   %.val = load i64, ptr %2, align 8, !tbaa !45
   %3 = icmp ne i64 %.val, 0
@@ -543,7 +537,7 @@ define range(i32 0, 2) i32 @ossl_qrx_processed_read_pending(ptr noundef readonly
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @ossl_qrx_unprocessed_read_pending(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @ossl_qrx_unprocessed_read_pending(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr i8, ptr %0, i64 64
   %.val = load i64, ptr %2, align 8, !tbaa !54
   %.not = icmp eq i64 %.val, 0
@@ -615,8 +609,8 @@ define range(i32 0, 2) i32 @ossl_qrx_read_pkt(ptr noundef %0, ptr noundef writeo
   %.val30.i = phi ptr [ %.val28.i, %.lr.ph.i ], [ %.val.i34, %qrx_process_one_urxe.exit.i ]
   %41 = getelementptr inbounds nuw i8, ptr %.val30.i, i64 16
   %42 = load i64, ptr %41, align 8, !tbaa !59
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #11
-  call void @llvm.lifetime.start.p0(i64 21, ptr nonnull %9) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(21) %9, ptr noundef nonnull align 1 dereferenceable(21) @__const.qrx_process_datagram.first_dcid, i64 21, i1 false)
   %43 = load i64, ptr %13, align 8, !tbaa !63
   %44 = add i64 %43, %42
@@ -650,10 +644,10 @@ PACKET_buf_init.exit.i.i.i:                       ; preds = %40
   br i1 %or.cond.i.i.i, label %qrx_process_datagram.exit.i.i, label %56
 
 56:                                               ; preds = %53
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false), !tbaa.struct !67
   %.val113.i.i.i.i = load ptr, ptr %8, align 8, !tbaa !64
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.val8.i.i.i.i.i = load ptr, ptr %15, align 8, !tbaa !31
   %.not.i.i.i.i.i = icmp eq ptr %.val8.i.i.i.i.i, null
   br i1 %.not.i.i.i.i.i, label %57, label %qrx_ensure_free_rxe.exit.i.i.i.i
@@ -1048,11 +1042,11 @@ qrx_validate_hdr.exit.i:                          ; preds = %195, %switch.lookup
   %240 = lshr i32 %239, 9
   %241 = and i32 %240, 1
   %242 = zext nneg i32 %241 to i64
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !tbaa !88
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !88
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %243 = call ptr @ossl_qrl_enc_level_set_get(ptr noundef nonnull %20, i32 noundef range(i32 0, 4) %.0.i125.i.i.i.i, i32 noundef 1) #11
   %244 = or i64 %236, %229
   %or.cond.not.i.i = icmp ugt i64 %244, 2147483647
@@ -1188,17 +1182,17 @@ qrx_get_cipher_ctx_idx.exit.thread.i.i:           ; preds = %272, %qrx_get_ciphe
   br label %qrx_decrypt_pkt_body.exit.thread.i
 
 qrx_decrypt_pkt_body.exit.thread.i:               ; preds = %312, %305, %302, %295, %293, %qrx_get_cipher_ctx_idx.exit.thread.i.i, %272, %249, %245, %226
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #11
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %qrx_relocate_buffer.exit.i.i.i.i
 
 315:                                              ; preds = %310
   %316 = load i32, ptr %3, align 4, !tbaa !88
   %317 = sext i32 %316 to i64
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #11
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.val.i5.i = load i32, ptr %232, align 8
   %trunc.i.i.i.i = trunc i32 %.val.i5.i to i8
   %switch.tableidx48 = add i8 %trunc.i.i.i.i, -2
@@ -1421,13 +1415,13 @@ PACKET_forward.exit136.i.i.i.i:                   ; preds = %qrx_relocate_buffer
 
 qrx_process_pkt.exit.i.i.i:                       ; preds = %390, %385
   %.val33.i.i.i = phi i64 [ %.val.i.i.i.i.i, %385 ], [ %392, %390 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %408
 
 407:                                              ; preds = %PACKET_forward.exit136.i.i.i.i, %400, %393, %ossl_list_rxe_insert_tail.exit129.i.i.i.i, %ossl_list_rxe_insert_tail.exit.i.i.i.i, %59, %57
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.val.pre.i.i.i = load i64, ptr %14, align 8, !tbaa !66
   br label %408
 
@@ -1439,8 +1433,8 @@ qrx_process_pkt.exit.i.i.i:                       ; preds = %390, %385
   br i1 %.not14.i.i.i, label %qrx_process_datagram.exit.i.i, label %53, !llvm.loop !105
 
 qrx_process_datagram.exit.thread.i.i:             ; preds = %PACKET_buf_init.exit.i.i.i, %40
-  call void @llvm.lifetime.end.p0(i64 21, ptr nonnull %9) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %413
 
 qrx_process_datagram.exit.i.i:                    ; preds = %408, %53
@@ -1448,8 +1442,8 @@ qrx_process_datagram.exit.i.i:                    ; preds = %408, %53
   %.pre.i.i = load ptr, ptr %12, align 8, !tbaa !48
   %411 = icmp eq ptr %.pre.i.i, %.val30.i
   %412 = icmp eq i32 %.013.i.ph.i.i, 0
-  call void @llvm.lifetime.end.p0(i64 21, ptr nonnull %9) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %411, label %413, label %415
 
 413:                                              ; preds = %qrx_process_datagram.exit.i.i, %qrx_process_datagram.exit.thread.i.i
@@ -1657,12 +1651,12 @@ qrx_pop_pending_rxe.exit.thread:                  ; preds = %11, %450, %qrx_proc
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
-declare i32 @BIO_ADDR_family(ptr noundef) local_unnamed_addr #2
+declare i32 @BIO_ADDR_family(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @ossl_qrx_pkt_release(ptr noundef %0) local_unnamed_addr #5 {
+define void @ossl_qrx_pkt_release(ptr noundef %0) local_unnamed_addr #4 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %25, label %3
 
@@ -1715,7 +1709,7 @@ qrx_recycle_rxe.exit:                             ; preds = %16, %21
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @ossl_qrx_pkt_up_ref(ptr noundef captures(none) %0) local_unnamed_addr #6 {
+define void @ossl_qrx_pkt_up_ref(ptr noundef captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load i64, ptr %2, align 8, !tbaa !71
   %4 = add i64 %3, 1
@@ -1724,7 +1718,7 @@ define void @ossl_qrx_pkt_up_ref(ptr noundef captures(none) %0) local_unnamed_ad
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i64 @ossl_qrx_get_bytes_received(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #6 {
+define i64 @ossl_qrx_get_bytes_received(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1000
   %4 = load i64, ptr %3, align 8, !tbaa !63
   %.not = icmp eq i32 %1, 0
@@ -1739,7 +1733,7 @@ define i64 @ossl_qrx_get_bytes_received(ptr noundef captures(none) %0, i32 nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @ossl_qrx_set_late_validation_cb(ptr noundef writeonly captures(none) initializes((1024, 1040)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #7 {
+define noundef i32 @ossl_qrx_set_late_validation_cb(ptr noundef writeonly captures(none) initializes((1024, 1040)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #6 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1024
   store ptr %1, ptr %4, align 8, !tbaa !103
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1032
@@ -1748,7 +1742,7 @@ define noundef i32 @ossl_qrx_set_late_validation_cb(ptr noundef writeonly captur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @ossl_qrx_set_key_update_cb(ptr noundef writeonly captures(none) initializes((1040, 1056)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #7 {
+define noundef i32 @ossl_qrx_set_key_update_cb(ptr noundef writeonly captures(none) initializes((1040, 1056)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #6 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1040
   store ptr %1, ptr %4, align 8, !tbaa !119
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1048
@@ -1773,7 +1767,7 @@ define i64 @ossl_qrx_get_key_epoch(ptr noundef %0) local_unnamed_addr #0 {
   ret i64 %9
 }
 
-declare ptr @ossl_qrl_enc_level_set_get(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @ossl_qrl_enc_level_set_get(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ossl_qrx_key_update_timeout(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -1815,12 +1809,12 @@ define range(i32 0, 2) i32 @ossl_qrx_key_update_timeout(ptr noundef %0, i32 noun
   ret i32 %.0
 }
 
-declare i32 @ossl_qrl_enc_level_set_key_update_done(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ossl_qrl_enc_level_set_key_update_done(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @ossl_qrl_enc_level_set_key_cooldown_done(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ossl_qrl_enc_level_set_key_cooldown_done(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @ossl_qrx_get_cur_forged_pkt_count(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
+define i64 @ossl_qrx_get_cur_forged_pkt_count(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1008
   %3 = load i64, ptr %2, align 8, !tbaa !96
   ret i64 %3
@@ -1844,10 +1838,10 @@ define i64 @ossl_qrx_get_max_forged_pkt_count(ptr noundef %0, i32 noundef %1) lo
   ret i64 %11
 }
 
-declare i64 @ossl_qrl_get_suite_max_forged_pkt(i32 noundef) local_unnamed_addr #2
+declare i64 @ossl_qrl_get_suite_max_forged_pkt(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @ossl_qrx_allow_1rtt_processing(ptr noundef captures(none) %0) local_unnamed_addr #8 {
+define void @ossl_qrx_allow_1rtt_processing(ptr noundef captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1057
   %3 = load i8, ptr %2, align 1, !tbaa !85
   %.not = icmp eq i8 %3, 0
@@ -1937,7 +1931,7 @@ qrx_requeue_deferred.exit:                        ; preds = %ossl_list_urxe_inse
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ossl_qrx_set_msg_callback(ptr noundef writeonly captures(none) initializes((1064, 1072), (1080, 1088)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #7 {
+define void @ossl_qrx_set_msg_callback(ptr noundef writeonly captures(none) initializes((1064, 1072), (1080, 1088)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #6 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1064
   store ptr %1, ptr %4, align 8, !tbaa !58
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1080
@@ -1946,25 +1940,25 @@ define void @ossl_qrx_set_msg_callback(ptr noundef writeonly captures(none) init
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ossl_qrx_set_msg_callback_arg(ptr noundef writeonly captures(none) initializes((1072, 1080)) %0, ptr noundef %1) local_unnamed_addr #7 {
+define void @ossl_qrx_set_msg_callback_arg(ptr noundef writeonly captures(none) initializes((1072, 1080)) %0, ptr noundef %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1072
   store ptr %1, ptr %3, align 8, !tbaa !61
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @ossl_qrx_get_short_hdr_conn_id_len(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
+define i64 @ossl_qrx_get_short_hdr_conn_id_len(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i64, ptr %2, align 8, !tbaa !27
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
-declare void @ossl_quic_demux_release_urxe(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ossl_quic_demux_release_urxe(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @ossl_quic_wire_decode_pkt_hdr(ptr noundef, i64 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ossl_quic_wire_decode_pkt_hdr(ptr noundef, i64 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @qrx_reserve_rxe(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 {
@@ -2158,9 +2152,9 @@ qrx_resize_rxe.exit:                              ; preds = %ossl_list_rxe_inser
   ret ptr %.0
 }
 
-declare i32 @ossl_qrl_enc_level_set_have_el(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ossl_qrl_enc_level_set_have_el(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @ossl_quic_hdr_protector_decrypt(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ossl_quic_hdr_protector_decrypt(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @qrx_key_update_initiated(ptr noundef %0, i64 noundef %1) unnamed_addr #0 {
@@ -2187,37 +2181,43 @@ define internal fastcc void @qrx_key_update_initiated(ptr noundef %0, i64 nounde
   ret void
 }
 
-declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @CRYPTO_realloc(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @CRYPTO_realloc(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @ossl_quic_wire_decode_pkt_hdr_pn(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ossl_quic_wire_decode_pkt_hdr_pn(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @EVP_CIPHER_CTX_get_iv_length(ptr noundef) local_unnamed_addr #2
+declare i32 @EVP_CIPHER_CTX_get_iv_length(ptr noundef) local_unnamed_addr #1
 
-declare i32 @EVP_CipherInit_ex(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @EVP_CipherInit_ex(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @EVP_CIPHER_CTX_ctrl(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @EVP_CIPHER_CTX_ctrl(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @EVP_CipherUpdate(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @EVP_CipherUpdate(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @EVP_CipherFinal_ex(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @EVP_CipherFinal_ex(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @ossl_qrl_enc_level_set_key_update(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ossl_qrl_enc_level_set_key_update(ptr noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #10
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #11 = { nounwind }
 

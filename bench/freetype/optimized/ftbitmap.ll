@@ -37,7 +37,7 @@ define void @FT_Bitmap_New(ptr noundef writeonly captures(address_is_null) %0) l
 ; Function Attrs: nounwind uwtable
 define i32 @FT_Bitmap_Copy(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address) %1, ptr noundef captures(address) %2) local_unnamed_addr #2 {
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !3
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %60, label %5
@@ -151,19 +151,13 @@ define i32 @FT_Bitmap_Copy(ptr noundef readonly captures(address_is_null) %0, pt
 
 60:                                               ; preds = %31, %8, %5, %3, %.loopexit
   %.049 = phi i32 [ %59, %.loopexit ], [ 33, %3 ], [ 6, %5 ], [ 0, %8 ], [ 0, %31 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.049
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
+declare hidden void @ft_mem_free(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare hidden void @ft_mem_free(ptr noundef, ptr noundef) local_unnamed_addr #4
-
-declare hidden ptr @ft_mem_qrealloc(ptr noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
+declare hidden ptr @ft_mem_qrealloc(ptr noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define i32 @FT_Bitmap_Embolden(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #2 {
@@ -217,7 +211,7 @@ define i32 @FT_Bitmap_Embolden(ptr noundef readonly captures(address_is_null) %0
   ]
 
 27:                                               ; preds = %24, %24
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, i8 0, i64 40, i1 false)
   %28 = call i32 @FT_Bitmap_Convert(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %6, i32 noundef 1)
   %.not125 = icmp eq i32 %28, 0
@@ -228,14 +222,14 @@ FT_Bitmap_Done.exit:                              ; preds = %27
   %30 = load ptr, ptr %9, align 8, !tbaa !19
   call void @ft_mem_free(ptr noundef %29, ptr noundef %30) #7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false), !tbaa.struct !20
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.pre = load i8, ptr %25, align 2, !tbaa !28
   br label %49
 
 .thread184:                                       ; preds = %24
   %spec.store.select = tail call i32 @llvm.smin.i32(i32 %17, i32 8)
   %31 = load ptr, ptr %0, align 8, !tbaa !12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %33 = load i32, ptr %32, align 4, !tbaa !29
   %34 = load i32, ptr %1, align 8, !tbaa !25
@@ -256,7 +250,7 @@ FT_Bitmap_Done.exit:                              ; preds = %27
   %.0105.ph = phi i32 [ %17, %40 ], [ %39, %38 ]
   %.0104.ph = phi i32 [ %41, %40 ], [ %20, %38 ]
   %42 = load ptr, ptr %0, align 8, !tbaa !12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %44 = load i32, ptr %43, align 4, !tbaa !29
   %45 = load i32, ptr %1, align 8, !tbaa !25
@@ -268,7 +262,7 @@ FT_Bitmap_Done.exit:                              ; preds = %27
 49:                                               ; preds = %FT_Bitmap_Done.exit, %24
   %50 = phi i8 [ %26, %24 ], [ %.pre, %FT_Bitmap_Done.exit ]
   %51 = load ptr, ptr %0, align 8, !tbaa !12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %53 = load i32, ptr %52, align 4, !tbaa !29
   %54 = load i32, ptr %1, align 8, !tbaa !25
@@ -500,7 +494,7 @@ FT_Bitmap_Done.exit:                              ; preds = %27
 
 ft_bitmap_assure_buffer.exit:                     ; preds = %49, %125
   %.0.i133 = phi i32 [ 18, %49 ], [ %130, %125 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %286
 
 thread-pre-split:                                 ; preds = %122, %111, %97, %92
@@ -509,7 +503,7 @@ thread-pre-split:                                 ; preds = %122, %111, %97, %92
 
 174:                                              ; preds = %thread-pre-split, %.loopexit.i
   %175 = phi i32 [ %.pr, %thread-pre-split ], [ %storemerge.i, %.loopexit.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %176 = icmp sgt i32 %175, 0
   br i1 %176, label %177, label %182
 
@@ -742,7 +736,7 @@ thread-pre-split:                                 ; preds = %122, %111, %97, %92
   br label %286
 
 .critedge:                                        ; preds = %27
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %286
 
 286:                                              ; preds = %ft_bitmap_assure_buffer.exit, %24, %.critedge, %22, %14, %11, %7, %8, %4, %._crit_edge
@@ -753,7 +747,7 @@ thread-pre-split:                                 ; preds = %122, %111, %97, %92
 ; Function Attrs: nounwind uwtable
 define i32 @FT_Bitmap_Convert(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #2 {
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4, !tbaa !3
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.critedge, label %6
@@ -1265,7 +1259,7 @@ ft_gray_for_premultiplied_srgb_bgra.exit:         ; preds = %.lr.ph, %217
 
 .critedge:                                        ; preds = %41, %6, %4, %.loopexit238
   %.0177 = phi i32 [ %244, %.loopexit238 ], [ 33, %4 ], [ 6, %6 ], [ %45, %41 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0177
 }
 
@@ -1298,9 +1292,9 @@ define i32 @FT_Bitmap_Blend(ptr noundef readonly captures(address_is_null) %0, p
   %.sroa.2.0.extract.shift = lshr i32 %6, 8
   %.sroa.3.0.extract.shift = lshr i32 %6, 16
   %.sroa.4208.0.extract.shift = lshr i32 %6, 24
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = icmp ne ptr %0, null
   %11 = icmp ne ptr %4, null
   %or.cond = and i1 %10, %11
@@ -1743,12 +1737,12 @@ FT_Bitmap_Done.exit281:                           ; preds = %FT_Bitmap_Done.exit
 
 .thread284:                                       ; preds = %115, %.thread, %106, %98, %77, %67, %62, %50, %38, %.thread283, %36, %28, %21, %18, %14, %7, %.thread293
   %.0 = phi i32 [ %258, %.thread293 ], [ 6, %7 ], [ 6, %14 ], [ 6, %18 ], [ 0, %21 ], [ 6, %28 ], [ 0, %36 ], [ 0, %.thread283 ], [ 6, %38 ], [ 6, %50 ], [ 6, %62 ], [ 6, %67 ], [ 0, %77 ], [ 6, %98 ], [ %111, %106 ], [ 0, %.thread ], [ 6, %115 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
 
-declare hidden ptr @ft_mem_alloc(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
+declare hidden ptr @ft_mem_alloc(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define i32 @FT_GlyphSlot_Own_Bitmap(ptr noundef captures(address) %0) local_unnamed_addr #2 {
@@ -1772,7 +1766,7 @@ define i32 @FT_GlyphSlot_Own_Bitmap(ptr noundef captures(address) %0) local_unna
   br i1 %.not12, label %13, label %21
 
 13:                                               ; preds = %7
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, i8 0, i64 40, i1 false)
   %14 = load ptr, ptr %0, align 8, !tbaa !78
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 152
@@ -1791,7 +1785,7 @@ define i32 @FT_GlyphSlot_Own_Bitmap(ptr noundef captures(address) %0) local_unna
 
 .sink.split:                                      ; preds = %13, %.thread
   %.1.ph = phi i32 [ 0, %.thread ], [ %16, %13 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %21
 
 21:                                               ; preds = %.sink.split, %1, %3, %7
@@ -1800,7 +1794,13 @@ define i32 @FT_GlyphSlot_Own_Bitmap(ptr noundef captures(address) %0) local_unna
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #6
@@ -1817,9 +1817,9 @@ declare i32 @llvm.abs.i32(i32, i1 immarg) #6
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { nounwind }
 

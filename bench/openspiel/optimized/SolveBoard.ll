@@ -219,8 +219,8 @@ define void @_Z16SolveChunkCommoni(i32 noundef %0) local_unnamed_addr #3 {
 
 27:                                               ; preds = %.lr.ph._crit_edge, %8
   %.pre-phi = phi i64 [ %.pre13, %.lr.ph._crit_edge ], [ %10, %8 ]
-  call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %28 = getelementptr inbounds nuw i8, ptr %.pre, i64 4
   %29 = getelementptr inbounds [200 x %struct.deal], ptr %28, i64 0, i64 %.pre-phi
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %3, ptr noundef nonnull align 4 dereferenceable(96) %29, i64 96, i1 false)
@@ -249,8 +249,8 @@ define void @_Z16SolveChunkCommoni(i32 noundef %0) local_unnamed_addr #3 {
   br label %_Z17SolveSingleCommonii.exit
 
 _Z17SolveSingleCommonii.exit:                     ; preds = %41, %45
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.backedge
 
 ._crit_edge:                                      ; preds = %.backedge, %1
@@ -1069,10 +1069,10 @@ define internal void @_GLOBAL__sub_I_SolveBoard.cpp() #10 section ".text.startup
 declare void @llvm.assume(i1 noundef) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #13

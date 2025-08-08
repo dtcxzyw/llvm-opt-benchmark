@@ -725,7 +725,7 @@ define hidden void @_ZN31ShenandoahConcurrentRootScanner8roots_doEP10OopClosurej
   br i1 %15, label %17, label %28
 
 17:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br label %18
 
 18:                                               ; preds = %20, %17
@@ -750,11 +750,11 @@ define hidden void @_ZN31ShenandoahConcurrentRootScanner8roots_doEP10OopClosurej
   br label %_ZN30ShenandoahClassLoaderDataRootsILb1EE20always_strong_cld_doEP10CLDClosurej.exit
 
 _ZN30ShenandoahClassLoaderDataRootsILb1EE20always_strong_cld_doEP10CLDClosurej.exit: ; preds = %18, %24
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %45
 
 28:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br label %29
 
 29:                                               ; preds = %31, %28
@@ -779,7 +779,7 @@ _ZN30ShenandoahClassLoaderDataRootsILb1EE20always_strong_cld_doEP10CLDClosurej.e
   br label %_ZN30ShenandoahClassLoaderDataRootsILb1EE6cld_doEP10CLDClosurej.exit
 
 _ZN30ShenandoahClassLoaderDataRootsILb1EE6cld_doEP10CLDClosurej.exit: ; preds = %29, %35
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %40 = load i32, ptr %39, align 8
   call void @_ZN30ShenandoahWorkerTimingsTrackerC1EN22ShenandoahPhaseTimings5PhaseENS0_8ParPhaseEj(ptr noundef nonnull align 8 dereferenceable(72) %8, i32 noundef %40, i32 noundef 2, i32 noundef %2) #12
@@ -798,7 +798,7 @@ _ZN30ShenandoahClassLoaderDataRootsILb1EE6cld_doEP10CLDClosurej.exit: ; preds = 
   store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV37ShenandoahConcurrentMarkThreadClosure, i64 16), ptr %10, align 8
   %46 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %1, ptr %46, align 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %48 = load i32, ptr %47, align 4
   call void @_ZN30ShenandoahWorkerTimingsTrackerC1EN22ShenandoahPhaseTimings5PhaseENS0_8ParPhaseEj(ptr noundef nonnull align 8 dereferenceable(72) %4, i32 noundef %48, i32 noundef 1, i32 noundef %2) #12
@@ -856,7 +856,7 @@ _ZN30ShenandoahClassLoaderDataRootsILb1EE6cld_doEP10CLDClosurej.exit: ; preds = 
 
 _ZN29ShenandoahJavaThreadsIterator10threads_doEP13ThreadClosurej.exit: ; preds = %._crit_edge.i, %45
   call void @_ZN30ShenandoahWorkerTimingsTrackerD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %4) #12
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -874,7 +874,7 @@ define linkonce_odr hidden void @_ZN17ShenandoahVMRootsILb1EE7oops_doI10OopClosu
   %indvars.iv.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i, %_ZN10OopStorage8ParStateILb1ELb0EE7oops_doI10OopClosureEEvPT_.exit.i ]
   %10 = getelementptr inbounds nuw [5 x ptr], ptr %0, i64 0, i64 %indvars.iv.i
   %11 = load ptr, ptr %10, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %12 = call noundef zeroext i1 @_ZN10OopStorage13BasicParState18claim_next_segmentEPNS0_13IterationDataE(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef nonnull %4) #12
   br i1 %12, label %.lr.ph.i.i.i.i, label %_ZN10OopStorage8ParStateILb1ELb0EE7oops_doI10OopClosureEEvPT_.exit.i
@@ -921,7 +921,7 @@ _ZN10OopStorage5Block7iterateINS_13BasicParState12AlwaysTrueFnINS_5OopFnI10OopCl
   br i1 %33, label %14, label %_ZN10OopStorage8ParStateILb1ELb0EE7oops_doI10OopClosureEEvPT_.exit.i, !llvm.loop !18
 
 _ZN10OopStorage8ParStateILb1ELb0EE7oops_doI10OopClosureEEvPT_.exit.i: ; preds = %32, %9
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.not.i = icmp eq i64 %indvars.iv.next.i, 5
   br i1 %.not.i, label %_ZN27OopStorageSetStrongParStateILb1ELb0EE7oops_doI10OopClosureEEvPT_.exit, label %9
@@ -1069,30 +1069,30 @@ define hidden void @_ZN22ShenandoahRootAdjuster8roots_doEjP10OopClosure(ptr noun
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN17ShenandoahVMRootsILb0EE7oops_doI10OopClosureEEvPT_j(ptr noundef nonnull align 8 dereferenceable(292) %22, ptr noundef %2, i32 noundef %1)
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 464
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 1032
   %25 = load i32, ptr %24, align 8
   call void @_ZN30ShenandoahWorkerTimingsTrackerC1EN22ShenandoahPhaseTimings5PhaseENS0_8ParPhaseEj(ptr noundef nonnull align 8 dereferenceable(72) %7, i32 noundef %25, i32 noundef 4, i32 noundef %1) #12
   call void @_ZN25OopStorageSetWeakParStateILb0ELb0EE7oops_doI10OopClosureEEvPT_(ptr noundef nonnull align 8 dereferenceable(572) %23, ptr noundef %2)
   call void @_ZN30ShenandoahWorkerTimingsTrackerD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %7) #12
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 452
   %27 = load i32, ptr %26, align 4
   call void @_ZN30ShenandoahWorkerTimingsTrackerC1EN22ShenandoahPhaseTimings5PhaseENS0_8ParPhaseEj(ptr noundef nonnull align 8 dereferenceable(72) %6, i32 noundef %27, i32 noundef 5, i32 noundef %1) #12
   call void @_ZN20ClassLoaderDataGraph6cld_doEP10CLDClosure(ptr noundef nonnull %10) #12
   call void @_ZN30ShenandoahWorkerTimingsTrackerD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %6) #12
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 1040
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %29 = load i32, ptr %28, align 8
   call void @_ZN30ShenandoahWorkerTimingsTrackerC1EN22ShenandoahPhaseTimings5PhaseENS0_8ParPhaseEj(ptr noundef nonnull align 8 dereferenceable(72) %5, i32 noundef %29, i32 noundef 2, i32 noundef %1) #12
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 1048
   call void @_ZN27ShenandoahCodeRootsIterator29possibly_parallel_nmethods_doEP14NMethodClosure(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef nonnull %.) #12
   call void @_ZN30ShenandoahWorkerTimingsTrackerD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %5) #12
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 456
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %32 = load i32, ptr %31, align 8
   call void @_ZN30ShenandoahWorkerTimingsTrackerC1EN22ShenandoahPhaseTimings5PhaseENS0_8ParPhaseEj(ptr noundef nonnull align 8 dereferenceable(72) %4, i32 noundef %32, i32 noundef 1, i32 noundef %1) #12
   %33 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
@@ -1133,7 +1133,7 @@ define hidden void @_ZN22ShenandoahRootAdjuster8roots_doEjP10OopClosure(ptr noun
 
 _ZN21ShenandoahThreadRoots7oops_doEP10OopClosureP14NMethodClosurej.exit: ; preds = %50, %52
   call void @_ZN30ShenandoahWorkerTimingsTrackerD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %4) #12
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -1153,7 +1153,7 @@ define linkonce_odr hidden void @_ZN17ShenandoahVMRootsILb0EE7oops_doI10OopClosu
   %indvars.iv.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i, %_ZN10OopStorage8ParStateILb0ELb0EE7oops_doI10OopClosureEEvPT_.exit.i ]
   %10 = getelementptr inbounds nuw [5 x ptr], ptr %0, i64 0, i64 %indvars.iv.i
   %11 = load ptr, ptr %10, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %12 = call noundef zeroext i1 @_ZN10OopStorage13BasicParState18claim_next_segmentEPNS0_13IterationDataE(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef nonnull %4) #12
   br i1 %12, label %.lr.ph.i.i.i.i, label %_ZN10OopStorage8ParStateILb0ELb0EE7oops_doI10OopClosureEEvPT_.exit.i
@@ -1200,7 +1200,7 @@ _ZN10OopStorage5Block7iterateINS_13BasicParState12AlwaysTrueFnINS_5OopFnI10OopCl
   br i1 %33, label %14, label %_ZN10OopStorage8ParStateILb0ELb0EE7oops_doI10OopClosureEEvPT_.exit.i, !llvm.loop !18
 
 _ZN10OopStorage8ParStateILb0ELb0EE7oops_doI10OopClosureEEvPT_.exit.i: ; preds = %32, %9
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.not.i = icmp eq i64 %indvars.iv.next.i, 5
   br i1 %.not.i, label %_ZN27OopStorageSetStrongParStateILb0ELb0EE7oops_doI10OopClosureEEvPT_.exit, label %9
@@ -1299,30 +1299,30 @@ define hidden void @_ZN34ShenandoahHeapIterationRootScanner8roots_doEP10OopClosu
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @_ZN17ShenandoahVMRootsILb0EE7oops_doI10OopClosureEEvPT_j(ptr noundef nonnull align 8 dereferenceable(292) %32, ptr noundef %1, i32 noundef 0)
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 464
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 1032
   %35 = load i32, ptr %34, align 8
   call void @_ZN30ShenandoahWorkerTimingsTrackerC1EN22ShenandoahPhaseTimings5PhaseENS0_8ParPhaseEj(ptr noundef nonnull align 8 dereferenceable(72) %6, i32 noundef %35, i32 noundef 4, i32 noundef 0) #12
   call void @_ZN25OopStorageSetWeakParStateILb0ELb0EE7oops_doI10OopClosureEEvPT_(ptr noundef nonnull align 8 dereferenceable(572) %33, ptr noundef %1)
   call void @_ZN30ShenandoahWorkerTimingsTrackerD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %6) #12
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 460
   %37 = load i32, ptr %36, align 4
   call void @_ZN30ShenandoahWorkerTimingsTrackerC1EN22ShenandoahPhaseTimings5PhaseENS0_8ParPhaseEj(ptr noundef nonnull align 8 dereferenceable(72) %5, i32 noundef %37, i32 noundef 5, i32 noundef 0) #12
   call void @_ZN20ClassLoaderDataGraph6cld_doEP10CLDClosure(ptr noundef nonnull %7) #12
   call void @_ZN30ShenandoahWorkerTimingsTrackerD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %5) #12
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 1040
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %39 = load i32, ptr %38, align 8
   call void @_ZN30ShenandoahWorkerTimingsTrackerC1EN22ShenandoahPhaseTimings5PhaseENS0_8ParPhaseEj(ptr noundef nonnull align 8 dereferenceable(72) %4, i32 noundef %39, i32 noundef 2, i32 noundef 0) #12
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 1048
   call void @_ZN27ShenandoahCodeRootsIterator29possibly_parallel_nmethods_doEP14NMethodClosure(ptr noundef nonnull align 8 dereferenceable(8) %40, ptr noundef nonnull %8) #12
   call void @_ZN30ShenandoahWorkerTimingsTrackerD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %4) #12
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %42 = load i32, ptr %41, align 8
   call void @_ZN30ShenandoahWorkerTimingsTrackerC1EN22ShenandoahPhaseTimings5PhaseENS0_8ParPhaseEj(ptr noundef nonnull align 8 dereferenceable(72) %3, i32 noundef %42, i32 noundef 1, i32 noundef 0) #12
   %43 = load ptr, ptr %20, align 8
@@ -1362,7 +1362,7 @@ define hidden void @_ZN34ShenandoahHeapIterationRootScanner8roots_doEP10OopClosu
 
 _ZN21ShenandoahThreadRoots10threads_doEP13ThreadClosurej.exit: ; preds = %59, %61
   call void @_ZN30ShenandoahWorkerTimingsTrackerD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #12
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %62 = load ptr, ptr %25, align 8
   %.not.i.i.i.i = icmp eq ptr %62, null
   br i1 %.not.i.i.i.i, label %64, label %63
@@ -1806,7 +1806,7 @@ define linkonce_odr hidden void @_ZN25OopStorageSetWeakParStateILb0ELb0EE7oops_d
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV18DeadCounterClosureI10OopClosureE, i64 16), ptr %5, align 8
   store ptr %1, ptr %7, align 8
   store i64 0, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %17 = call noundef zeroext i1 @_ZN10OopStorage13BasicParState18claim_next_segmentEPNS0_13IterationDataE(ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef nonnull %4) #12
   br i1 %17, label %.lr.ph.i.i.i, label %_ZN10OopStorage8ParStateILb0ELb0EE7oops_doI18DeadCounterClosureI10OopClosureEEEvPT_.exit
@@ -1853,13 +1853,13 @@ _ZN10OopStorage5Block7iterateINS_13BasicParState12AlwaysTrueFnINS_5OopFnI18DeadC
   br i1 %38, label %19, label %_ZN10OopStorage8ParStateILb0ELb0EE7oops_doI18DeadCounterClosureI10OopClosureEEEvPT_.exit, !llvm.loop !23
 
 _ZN10OopStorage8ParStateILb0ELb0EE7oops_doI18DeadCounterClosureI10OopClosureEEEvPT_.exit: ; preds = %37, %16
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %39 = load i64, ptr %8, align 8
   call void @_ZN10OopStorage13BasicParState18increment_num_deadEm(ptr noundef nonnull align 8 dereferenceable(48) %13, i64 noundef %39) #12
   br label %63
 
 40:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   %41 = call noundef zeroext i1 @_ZN10OopStorage13BasicParState18claim_next_segmentEPNS0_13IterationDataE(ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef nonnull %3) #12
   br i1 %41, label %.lr.ph.i.i.i10, label %_ZN10OopStorage8ParStateILb0ELb0EE7oops_doI10OopClosureEEvPT_.exit
@@ -1906,7 +1906,7 @@ _ZN10OopStorage5Block7iterateINS_13BasicParState12AlwaysTrueFnINS_5OopFnI10OopCl
   br i1 %62, label %43, label %_ZN10OopStorage8ParStateILb0ELb0EE7oops_doI10OopClosureEEvPT_.exit, !llvm.loop !18
 
 _ZN10OopStorage8ParStateILb0ELb0EE7oops_doI10OopClosureEEvPT_.exit: ; preds = %61, %40
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %63
 
 63:                                               ; preds = %_ZN10OopStorage8ParStateILb0ELb0EE7oops_doI18DeadCounterClosureI10OopClosureEEEvPT_.exit, %_ZN10OopStorage8ParStateILb0ELb0EE7oops_doI10OopClosureEEvPT_.exit
@@ -2776,10 +2776,10 @@ declare i32 @llvm.umin.i32(i32, i32) #9
 declare void @llvm.assume(i1 noundef) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

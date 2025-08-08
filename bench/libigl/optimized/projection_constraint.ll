@@ -68,7 +68,7 @@ define weak_odr dso_local void @_ZN3igl21projection_constraintIN5Eigen6MatrixIdL
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %29 = load float, ptr %28, align 4, !tbaa !8
   %30 = fpext float %29 to double
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %16) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %31 = load float, ptr %1, align 4, !tbaa !8
   %32 = fpext float %31 to double
   store double %32, ptr %16, align 16, !tbaa !4
@@ -151,7 +151,7 @@ define weak_odr dso_local void @_ZN3igl21projection_constraintIN5Eigen6MatrixIdL
   %94 = fmul double %93, 2.000000e+00
   %95 = fdiv double %94, %27
   %96 = fadd double %95, -1.000000e+00
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %15) #6, !noalias !10
+  call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !10
   store ptr %3, ptr %15, align 8, !tbaa !13, !alias.scope !19, !noalias !10
   %97 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i64 1, ptr %97, align 8, !tbaa !22, !alias.scope !19, !noalias !10
@@ -163,17 +163,17 @@ define weak_odr dso_local void @_ZN3igl21projection_constraintIN5Eigen6MatrixIdL
   %101 = getelementptr inbounds nuw i8, ptr %15, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %100, i8 0, i64 16, i1 false), !noalias !10
   store i64 2, ptr %101, align 8, !tbaa !25, !alias.scope !19, !noalias !10
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %14) #6, !noalias !10
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11) #6, !noalias !10
+  call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !10
+  call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !10
   %102 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store double %96, ptr %102, align 8, !tbaa !28, !noalias !10
   %103 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store ptr %41, ptr %103, align 8, !tbaa !30, !noalias !10
   %104 = getelementptr inbounds nuw i8, ptr %11, i64 48
   store ptr %16, ptr %104, align 8, !tbaa !30, !noalias !10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #6, !noalias !10
+  call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !10
   store ptr %3, ptr %12, align 8, !tbaa !34, !noalias !10
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #6, !noalias !10
+  call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !10
   store ptr %12, ptr %13, align 8, !tbaa !37, !noalias !10
   %105 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %11, ptr %105, align 8, !tbaa !39, !noalias !10
@@ -182,16 +182,16 @@ define weak_odr dso_local void @_ZN3igl21projection_constraintIN5Eigen6MatrixIdL
   %107 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store ptr %15, ptr %107, align 8, !tbaa !43, !noalias !10
   call void @_ZN5Eigen8internal21dense_assignment_loopINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIdLi2ELi3ELi0ELi2ELi3EEELin1ELin1ELb0EEEEENS3_INS_13CwiseBinaryOpINS0_20scalar_difference_opIddEEKNS9_INS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS5_IdLin1ELin1ELi0ELi4ELi4EEEEEKNS4_INS5_IdLi4ELi4ELi0ELi4ELi4EEELin1ELin1ELb0EEEEESN_EEEENS0_9assign_opIddEELi0EEELi4ELi0EE3runERSU_(ptr noundef nonnull align 8 dereferenceable(32) %13), !noalias !10
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #6, !noalias !10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #6, !noalias !10
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11) #6, !noalias !10
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %14) #6, !noalias !10
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %15) #6, !noalias !10
+  call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !10
+  call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !10
+  call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !10
+  call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !10
+  call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !10
   %108 = fsub double %19, %24
   %109 = fmul double %108, 2.000000e+00
   %110 = fdiv double %109, %30
   %111 = fadd double %110, -1.000000e+00
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %112 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %112, ptr %10, align 8, !tbaa !13, !alias.scope !45
   %113 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -206,17 +206,17 @@ define weak_odr dso_local void @_ZN3igl21projection_constraintIN5Eigen6MatrixIdL
   store i64 0, ptr %117, align 8, !tbaa !22, !alias.scope !45
   %118 = getelementptr inbounds nuw i8, ptr %10, i64 48
   store i64 2, ptr %118, align 8, !tbaa !25, !alias.scope !45
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %119 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store double %111, ptr %119, align 8, !tbaa !28
   %120 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr %41, ptr %120, align 8, !tbaa !30
   %121 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store ptr %33, ptr %121, align 8, !tbaa !30
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %112, ptr %7, align 8, !tbaa !34
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %7, ptr %8, align 8, !tbaa !37
   %122 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %6, ptr %122, align 8, !tbaa !39
@@ -225,11 +225,11 @@ define weak_odr dso_local void @_ZN3igl21projection_constraintIN5Eigen6MatrixIdL
   %124 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr %10, ptr %124, align 8, !tbaa !43
   call void @_ZN5Eigen8internal21dense_assignment_loopINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIdLi2ELi3ELi0ELi2ELi3EEELin1ELin1ELb0EEEEENS3_INS_13CwiseBinaryOpINS0_20scalar_difference_opIddEEKNS9_INS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS5_IdLin1ELin1ELi0ELi4ELi4EEEEEKNS4_INS5_IdLi4ELi4ELi0ELi4ELi4EEELin1ELin1ELb0EEEEESN_EEEENS0_9assign_opIddEELi0EEELi4ELi0EE3runERSU_(ptr noundef nonnull align 8 dereferenceable(32) %8)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %10) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %125 = load double, ptr %77, align 16, !tbaa !4
   %126 = load double, ptr %89, align 8, !tbaa !4
   %127 = fneg double %96
@@ -240,20 +240,14 @@ define weak_odr dso_local void @_ZN3igl21projection_constraintIN5Eigen6MatrixIdL
   %131 = call double @llvm.fmuladd.f64(double %130, double %126, double %129)
   %132 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store double %131, ptr %132, align 8, !tbaa !4
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %16) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   ret void
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #2
+declare double @llvm.fmuladd.f64(double, double, double) #1
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN3igl21projection_constraintIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEENS2_IfLi4ELi4ELi0ELi4ELi4EEENS2_IfLi4ELi1ELi0ELi4ELi1EEENS2_IdLi2ELi3ELi0ELi2ELi3EEES3_EEvRKNS1_10MatrixBaseIT_EERKNS7_IT0_EERKNS7_IT1_EERNS1_15PlainObjectBaseIT2_EERNSK_IT3_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 16 dereferenceable(48) %3, ptr noundef nonnull align 16 dereferenceable(16) %4) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
@@ -282,7 +276,7 @@ define weak_odr dso_local void @_ZN3igl21projection_constraintIN5Eigen6MatrixIdL
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %29 = load float, ptr %28, align 4, !tbaa !8
   %30 = fpext float %29 to double
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %16) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %31 = load float, ptr %1, align 4, !tbaa !8
   %32 = fpext float %31 to double
   store double %32, ptr %16, align 16, !tbaa !4
@@ -365,7 +359,7 @@ define weak_odr dso_local void @_ZN3igl21projection_constraintIN5Eigen6MatrixIdL
   %94 = fmul double %93, 2.000000e+00
   %95 = fdiv double %94, %27
   %96 = fadd double %95, -1.000000e+00
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %15) #6, !noalias !51
+  call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !51
   store ptr %3, ptr %15, align 8, !tbaa !13, !alias.scope !54, !noalias !51
   %97 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i64 1, ptr %97, align 8, !tbaa !22, !alias.scope !54, !noalias !51
@@ -377,17 +371,17 @@ define weak_odr dso_local void @_ZN3igl21projection_constraintIN5Eigen6MatrixIdL
   %101 = getelementptr inbounds nuw i8, ptr %15, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %100, i8 0, i64 16, i1 false), !noalias !51
   store i64 2, ptr %101, align 8, !tbaa !25, !alias.scope !54, !noalias !51
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %14) #6, !noalias !51
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11) #6, !noalias !51
+  call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !51
+  call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !51
   %102 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store double %96, ptr %102, align 8, !tbaa !28, !noalias !51
   %103 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store ptr %41, ptr %103, align 8, !tbaa !30, !noalias !51
   %104 = getelementptr inbounds nuw i8, ptr %11, i64 48
   store ptr %16, ptr %104, align 8, !tbaa !30, !noalias !51
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #6, !noalias !51
+  call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !51
   store ptr %3, ptr %12, align 8, !tbaa !34, !noalias !51
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #6, !noalias !51
+  call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !51
   store ptr %12, ptr %13, align 8, !tbaa !37, !noalias !51
   %105 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %11, ptr %105, align 8, !tbaa !39, !noalias !51
@@ -396,16 +390,16 @@ define weak_odr dso_local void @_ZN3igl21projection_constraintIN5Eigen6MatrixIdL
   %107 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store ptr %15, ptr %107, align 8, !tbaa !43, !noalias !51
   call void @_ZN5Eigen8internal21dense_assignment_loopINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIdLi2ELi3ELi0ELi2ELi3EEELin1ELin1ELb0EEEEENS3_INS_13CwiseBinaryOpINS0_20scalar_difference_opIddEEKNS9_INS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS5_IdLin1ELin1ELi0ELi4ELi4EEEEEKNS4_INS5_IdLi4ELi4ELi0ELi4ELi4EEELin1ELin1ELb0EEEEESN_EEEENS0_9assign_opIddEELi0EEELi4ELi0EE3runERSU_(ptr noundef nonnull align 8 dereferenceable(32) %13), !noalias !51
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #6, !noalias !51
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #6, !noalias !51
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11) #6, !noalias !51
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %14) #6, !noalias !51
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %15) #6, !noalias !51
+  call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !51
+  call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !51
+  call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !51
+  call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !51
+  call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !51
   %108 = fsub double %19, %24
   %109 = fmul double %108, 2.000000e+00
   %110 = fdiv double %109, %30
   %111 = fadd double %110, -1.000000e+00
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %112 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %112, ptr %10, align 8, !tbaa !13, !alias.scope !57
   %113 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -420,17 +414,17 @@ define weak_odr dso_local void @_ZN3igl21projection_constraintIN5Eigen6MatrixIdL
   store i64 0, ptr %117, align 8, !tbaa !22, !alias.scope !57
   %118 = getelementptr inbounds nuw i8, ptr %10, i64 48
   store i64 2, ptr %118, align 8, !tbaa !25, !alias.scope !57
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %119 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store double %111, ptr %119, align 8, !tbaa !28
   %120 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr %41, ptr %120, align 8, !tbaa !30
   %121 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store ptr %33, ptr %121, align 8, !tbaa !30
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %112, ptr %7, align 8, !tbaa !34
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %7, ptr %8, align 8, !tbaa !37
   %122 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %6, ptr %122, align 8, !tbaa !39
@@ -439,11 +433,11 @@ define weak_odr dso_local void @_ZN3igl21projection_constraintIN5Eigen6MatrixIdL
   %124 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr %10, ptr %124, align 8, !tbaa !43
   call void @_ZN5Eigen8internal21dense_assignment_loopINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIdLi2ELi3ELi0ELi2ELi3EEELin1ELin1ELb0EEEEENS3_INS_13CwiseBinaryOpINS0_20scalar_difference_opIddEEKNS9_INS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS5_IdLin1ELin1ELi0ELi4ELi4EEEEEKNS4_INS5_IdLi4ELi4ELi0ELi4ELi4EEELin1ELin1ELb0EEEEESN_EEEENS0_9assign_opIddEELi0EEELi4ELi0EE3runERSU_(ptr noundef nonnull align 8 dereferenceable(32) %8)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %10) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %125 = load double, ptr %77, align 16, !tbaa !4
   %126 = load double, ptr %89, align 8, !tbaa !4
   %127 = fneg double %96
@@ -454,12 +448,12 @@ define weak_odr dso_local void @_ZN3igl21projection_constraintIN5Eigen6MatrixIdL
   %131 = call double @llvm.fmuladd.f64(double %130, double %126, double %129)
   %132 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store double %131, ptr %132, align 8, !tbaa !4
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %16) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local void @_ZN5Eigen8internal21dense_assignment_loopINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIdLi2ELi3ELi0ELi2ELi3EEELin1ELin1ELb0EEEEENS3_INS_13CwiseBinaryOpINS0_20scalar_difference_opIddEEKNS9_INS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS5_IdLin1ELin1ELi0ELi4ELi4EEEEEKNS4_INS5_IdLi4ELi4ELi0ELi4ELi4EEELin1ELin1ELb0EEEEESN_EEEENS0_9assign_opIddEELi0EEELi4ELi0EE3runERSU_(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN5Eigen8internal21dense_assignment_loopINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIdLi2ELi3ELi0ELi2ELi3EEELin1ELin1ELb0EEEEENS3_INS_13CwiseBinaryOpINS0_20scalar_difference_opIddEEKNS9_INS0_17scalar_product_opIddEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEEKNS5_IdLin1ELin1ELi0ELi4ELi4EEEEEKNS4_INS5_IdLi4ELi4ELi0ELi4ELi4EEELin1ELin1ELb0EEEEESN_EEEENS0_9assign_opIddEELi0EEELi4ELi0EE3runERSU_(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !63
   %4 = load ptr, ptr %3, align 8, !tbaa !13
@@ -649,6 +643,12 @@ _ZN5Eigen8internal21dense_assignment_loopINS0_31generic_dense_assignment_kernelI
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #4
 
@@ -656,12 +656,11 @@ declare i64 @llvm.smin.i64(i64, i64) #4
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #3 = { inlinehint mustprogress uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #2 = { inlinehint mustprogress uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

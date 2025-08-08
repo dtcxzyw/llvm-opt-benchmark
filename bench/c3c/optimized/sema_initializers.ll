@@ -780,8 +780,8 @@ define internal fastcc noundef zeroext i1 @sema_expr_analyse_initializer(ptr nou
   %.0117206.i = phi i32 [ -1, %.lr.ph210.preheader.i ], [ %.5128.i, %166 ]
   %33 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv.i
   %34 = load ptr, ptr %33, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %36 = load ptr, ptr %35, align 8
   store ptr %36, ptr %5, align 8
@@ -981,16 +981,16 @@ sema_find_type_of_element.exit.thread.i.i:        ; preds = %sema_find_type_of_e
   br i1 %.not.i.i, label %sema_expr_analyse_designator.exit.thread123.i, label %.lr.ph.i.i, !llvm.loop !11
 
 sema_expr_analyse_designator.exit.thread.i:       ; preds = %86, %67, %sema_find_type_of_element.exit.thread.i.i, %100, %93, %74
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %sema_expr_analyse_designated_initializer.exit
 
 sema_expr_analyse_designator.exit.thread123.i:    ; preds = %121, %.lr.ph.i.i, %.lr.ph.i.preheader.i, %.lr.ph210.i
   %.015.i130.i = phi ptr [ %15, %.lr.ph210.i ], [ %15, %.lr.ph.i.preheader.i ], [ %.063.i.i.i, %.lr.ph.i.i ], [ %.063.i.i.i, %121 ]
   %.1116129.i = phi ptr [ null, %.lr.ph210.i ], [ null, %.lr.ph.i.preheader.i ], [ %.1.i.i, %.lr.ph.i.i ], [ %.1.i.i, %121 ]
   %.5128.i = phi i32 [ %.0117206.i, %.lr.ph210.i ], [ %.0117206.i, %.lr.ph.i.preheader.i ], [ %.2.i, %.lr.ph.i.i ], [ %.2.i, %121 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %124 = getelementptr inbounds nuw i8, ptr %34, i64 32
   %125 = load ptr, ptr %124, align 8
   %126 = tail call zeroext i1 @sema_analyse_expr_rhs(ptr noundef %0, ptr noundef nonnull %.015.i130.i, ptr noundef %125, i1 noundef zeroext true, ptr noundef null) #7
@@ -4582,10 +4582,10 @@ declare i32 @llvm.umax.i32(i32, i32) #5
 declare i32 @llvm.smin.i32(i32, i32) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #5

@@ -129,14 +129,8 @@ stbtt__buf_get8.exit:                             ; preds = %7, %10
   ret i32 %.05.lcssa
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define { ptr, i64 } @stbtt__new_buf(ptr noundef %0, i64 noundef %1) local_unnamed_addr #5 {
+define { ptr, i64 } @stbtt__new_buf(ptr noundef %0, i64 noundef %1) local_unnamed_addr #4 {
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %0, 0
   %.sroa.4.8.insert.ext = shl i64 %1, 32
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.4.8.insert.ext, 1
@@ -144,7 +138,7 @@ define { ptr, i64 } @stbtt__new_buf(ptr noundef %0, i64 noundef %1) local_unname
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define { ptr, i64 } @stbtt__buf_range(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #6 {
+define { ptr, i64 } @stbtt__buf_range(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #5 {
   %4 = or i32 %2, %1
   %or.cond.not = icmp sgt i32 %4, -1
   br i1 %or.cond.not, label %5, label %17
@@ -908,7 +902,7 @@ stbtt__buf_get.exit:                              ; preds = %stbtt__buf_get8.exi
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define { ptr, i64 } @stbtt__cff_index_get(ptr %0, i64 %1, i32 noundef %2) local_unnamed_addr #7 {
+define { ptr, i64 } @stbtt__cff_index_get(ptr %0, i64 %1, i32 noundef %2) local_unnamed_addr #6 {
   %.sroa.18.8.extract.shift = lshr i64 %1, 32
   %.sroa.18.8.extract.trunc = trunc nuw i64 %.sroa.18.8.extract.shift to i32
   %4 = tail call i32 @llvm.smin.i32(i32 %.sroa.18.8.extract.trunc, i32 0)
@@ -1047,7 +1041,7 @@ stbtt__buf_range.exit:                            ; preds = %stbtt__buf_get.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define zeroext i16 @ttUSHORT(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
+define zeroext i16 @ttUSHORT(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = load i8, ptr %0, align 1, !tbaa !12
   %3 = zext i8 %2 to i16
   %4 = shl nuw i16 %3, 8
@@ -1059,7 +1053,7 @@ define zeroext i16 @ttUSHORT(ptr noundef readonly captures(none) %0) local_unnam
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define signext i16 @ttSHORT(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
+define signext i16 @ttSHORT(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = load i8, ptr %0, align 1, !tbaa !12
   %3 = zext i8 %2 to i16
   %4 = shl nuw i16 %3, 8
@@ -1071,7 +1065,7 @@ define signext i16 @ttSHORT(ptr noundef readonly captures(none) %0) local_unname
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @ttULONG(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
+define i32 @ttULONG(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = load i8, ptr %0, align 1, !tbaa !12
   %3 = zext i8 %2 to i32
   %4 = shl nuw i32 %3, 24
@@ -1093,7 +1087,7 @@ define i32 @ttULONG(ptr noundef readonly captures(none) %0) local_unnamed_addr #
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @ttLONG(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
+define i32 @ttLONG(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = load i8, ptr %0, align 1, !tbaa !12
   %3 = zext i8 %2 to i32
   %4 = shl nuw i32 %3, 24
@@ -1115,7 +1109,7 @@ define i32 @ttLONG(ptr noundef readonly captures(none) %0) local_unnamed_addr #6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @stbtt__isfont(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @stbtt__isfont(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = load i8, ptr %0, align 1, !tbaa !12
   switch i8 %2, label %.thread26 [
     i8 49, label %3
@@ -1219,7 +1213,7 @@ define range(i32 0, 2) i32 @stbtt__isfont(ptr noundef readonly captures(none) %0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @stbtt__find_table(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #7 {
+define i32 @stbtt__find_table(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #6 {
   %4 = zext i32 %1 to i64
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 %4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -1314,7 +1308,7 @@ define i32 @stbtt__find_table(ptr noundef readonly captures(none) %0, i32 nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @stbtt_GetFontOffsetForIndex_internal(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #6 {
+define i32 @stbtt_GetFontOffsetForIndex_internal(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = tail call i32 @stbtt__isfont(ptr noundef %0)
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %7, label %4
@@ -1423,7 +1417,7 @@ define i32 @stbtt_GetFontOffsetForIndex_internal(ptr noundef readonly captures(n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @stbtt_GetNumberOfFonts_internal(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
+define i32 @stbtt_GetNumberOfFonts_internal(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = tail call i32 @stbtt__isfont(ptr noundef %0)
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %3, label %56
@@ -1502,7 +1496,7 @@ define i32 @stbtt_GetNumberOfFonts_internal(ptr noundef readonly captures(none) 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define { ptr, i64 } @stbtt__get_subrs(ptr %0, i64 %1, ptr %2, i64 %3) local_unnamed_addr #8 {
+define { ptr, i64 } @stbtt__get_subrs(ptr %0, i64 %1, ptr %2, i64 %3) local_unnamed_addr #7 {
   %5 = alloca %struct.stbtt__buf, align 8
   %6 = alloca i32, align 4
   %7 = alloca [2 x i32], align 8
@@ -1512,11 +1506,11 @@ define { ptr, i64 } @stbtt__get_subrs(ptr %0, i64 %1, ptr %2, i64 %3) local_unna
   store ptr %2, ptr %5, align 8
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %3, ptr %9, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 0, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @stbtt__dict_get_ints(ptr noundef nonnull %5, i32 noundef 18, i32 noundef 2, ptr noundef nonnull %7)
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %11 = load i32, ptr %10, align 4, !tbaa !17
@@ -1670,17 +1664,17 @@ stbtt__cff_get_index.exit:                        ; preds = %stbtt__buf_get.exit
 
 79:                                               ; preds = %stbtt__buf_range.exit, %4, %stbtt__cff_get_index.exit
   %.pn = phi { ptr, i64 } [ %.fca.1.insert.i.i, %stbtt__cff_get_index.exit ], [ zeroinitializer, %4 ], [ zeroinitializer, %stbtt__buf_range.exit ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #33
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret { ptr, i64 } %.pn
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define i32 @stbtt__get_svg(ptr noundef captures(none) %0) local_unnamed_addr #3 {
@@ -2404,15 +2398,15 @@ stbtt__find_table.exit185:                        ; preds = %378, %stbtt__find_t
   br i1 %.not120, label %._crit_edge.thread, label %734
 
 382:                                              ; preds = %380
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #33
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #33
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 2, ptr %6, align 4, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4, !tbaa !17
   %383 = load i8, ptr %15, align 1, !tbaa !12
   %384 = zext i8 %383 to i32
@@ -3147,21 +3141,21 @@ stbtt__buf_range.exit:                            ; preds = %711
   store ptr %732, ptr %730, align 8, !tbaa !20
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i64 %733, ptr %.sroa.4.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #33
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #33
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #33
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #33
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #33
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %734
 
 stbtt__find_table.exit194.thread:                 ; preds = %408, %382, %711, %stbtt__cff_get_index.exit307, %stbtt__find_table.exit194
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #33
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #33
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #33
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #33
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #33
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %._crit_edge.thread
 
 734:                                              ; preds = %.critedge, %381
@@ -3361,7 +3355,7 @@ stbtt__find_table.exit319.thread:                 ; preds = %760, %stbtt__find_t
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @stbtt_FindGlyphIndex(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #8 {
+define i32 @stbtt_FindGlyphIndex(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !23
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -3743,7 +3737,7 @@ define i32 @stbtt_FindGlyphIndex(ptr noundef readonly captures(none) %0, i32 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stbtt_GetCodepointShape(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #11 {
+define i32 @stbtt_GetCodepointShape(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #10 {
   %4 = alloca %struct.stbtt__csctx, align 8
   %5 = alloca %struct.stbtt__csctx, align 8
   %6 = tail call i32 @stbtt_FindGlyphIndex(ptr noundef %0, i32 noundef %1)
@@ -3757,10 +3751,10 @@ define i32 @stbtt_GetCodepointShape(ptr noundef readonly captures(none) %0, i32 
   br label %stbtt_GetGlyphShape.exit
 
 11:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 56, i1 false)
   store i32 1, ptr %4, align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
   %12 = call i32 @stbtt__run_charstring(ptr noundef nonnull readonly %0, i32 noundef %6, ptr noundef nonnull %4)
   %.not.i.i = icmp eq i32 %12, 0
@@ -3771,7 +3765,7 @@ define i32 @stbtt_GetCodepointShape(ptr noundef readonly captures(none) %0, i32 
   %15 = load i32, ptr %14, align 8, !tbaa !40
   %16 = sext i32 %15 to i64
   %17 = mul nsw i64 %16, 14
-  %18 = call noalias ptr @malloc(i64 noundef %17) #34
+  %18 = call noalias ptr @malloc(i64 noundef %17) #33
   store ptr %18, ptr %2, align 8, !tbaa !43
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store ptr %18, ptr %19, align 8, !tbaa !44
@@ -3790,8 +3784,8 @@ define i32 @stbtt_GetCodepointShape(ptr noundef readonly captures(none) %0, i32 
 
 stbtt__GetGlyphShapeT2.exit.i:                    ; preds = %24, %21
   %.0.i.i = phi i32 [ %23, %21 ], [ 0, %24 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #33
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %stbtt_GetGlyphShape.exit
 
 stbtt_GetGlyphShape.exit:                         ; preds = %9, %stbtt__GetGlyphShapeT2.exit.i
@@ -3800,7 +3794,7 @@ stbtt_GetGlyphShape.exit:                         ; preds = %9, %stbtt__GetGlyph
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stbtt_GetGlyphShape(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #11 {
+define i32 @stbtt_GetGlyphShape(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #10 {
   %4 = alloca %struct.stbtt__csctx, align 8
   %5 = alloca %struct.stbtt__csctx, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 76
@@ -3813,10 +3807,10 @@ define i32 @stbtt_GetGlyphShape(ptr noundef readonly captures(none) %0, i32 noun
   br label %24
 
 10:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 56, i1 false)
   store i32 1, ptr %4, align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
   %11 = call i32 @stbtt__run_charstring(ptr noundef nonnull readonly %0, i32 noundef %1, ptr noundef nonnull %4)
   %.not.i = icmp eq i32 %11, 0
@@ -3827,7 +3821,7 @@ define i32 @stbtt_GetGlyphShape(ptr noundef readonly captures(none) %0, i32 noun
   %14 = load i32, ptr %13, align 8, !tbaa !40
   %15 = sext i32 %14 to i64
   %16 = mul nsw i64 %15, 14
-  %17 = call noalias ptr @malloc(i64 noundef %16) #34
+  %17 = call noalias ptr @malloc(i64 noundef %16) #33
   store ptr %17, ptr %2, align 8, !tbaa !43
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store ptr %17, ptr %18, align 8, !tbaa !44
@@ -3846,8 +3840,8 @@ define i32 @stbtt_GetGlyphShape(ptr noundef readonly captures(none) %0, i32 noun
 
 stbtt__GetGlyphShapeT2.exit:                      ; preds = %20, %23
   %.0.i = phi i32 [ %22, %20 ], [ 0, %23 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #33
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %24
 
 24:                                               ; preds = %stbtt__GetGlyphShapeT2.exit, %8
@@ -3856,7 +3850,7 @@ stbtt__GetGlyphShapeT2.exit:                      ; preds = %20, %23
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @stbtt_setvertex(ptr noundef writeonly captures(none) initializes((0, 8), (12, 13)) %0, i8 noundef zeroext %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #12 {
+define void @stbtt_setvertex(ptr noundef writeonly captures(none) initializes((0, 8), (12, 13)) %0, i8 noundef zeroext %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #11 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i8 %1, ptr %7, align 2, !tbaa !45
   %8 = trunc i32 %2 to i16
@@ -3976,7 +3970,7 @@ define i32 @stbtt__GetGlyfOffset(ptr noundef readonly captures(none) %0, i32 nou
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @stbtt_GetGlyphBox(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #13 {
+define range(i32 0, 2) i32 @stbtt_GetGlyphBox(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #12 {
   %7 = alloca %struct.stbtt__csctx, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %9 = load i32, ptr %8, align 4, !tbaa !39
@@ -3984,7 +3978,7 @@ define range(i32 0, 2) i32 @stbtt_GetGlyphBox(ptr noundef readonly captures(none
   br i1 %.not, label %31, label %10
 
 10:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 56, i1 false)
   store i32 1, ptr %7, align 8
   %11 = call i32 @stbtt__run_charstring(ptr noundef nonnull readonly %0, i32 noundef %1, ptr noundef nonnull %7)
@@ -4036,7 +4030,7 @@ define range(i32 0, 2) i32 @stbtt_GetGlyphBox(ptr noundef readonly captures(none
   br label %stbtt__GetGlyphInfoT2.exit
 
 stbtt__GetGlyphInfoT2.exit:                       ; preds = %26, %27
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %stbtt__GetGlyfOffset.exit.thread
 
 31:                                               ; preds = %6
@@ -4218,9 +4212,9 @@ stbtt__GetGlyfOffset.exit.thread:                 ; preds = %151, %150, %108, %3
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @stbtt__GetGlyphInfoT2(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #13 {
+define i32 @stbtt__GetGlyphInfoT2(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #12 {
   %7 = alloca %struct.stbtt__csctx, align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 56, i1 false)
   store i32 1, ptr %7, align 8
   %8 = call i32 @stbtt__run_charstring(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %7)
@@ -4276,19 +4270,19 @@ define i32 @stbtt__GetGlyphInfoT2(ptr noundef readonly captures(none) %0, i32 no
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %30 = load i32, ptr %29, align 8
   %31 = select i1 %.not24, i32 0, i32 %30
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %31
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @stbtt_GetCodepointBox(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #13 {
+define range(i32 0, 2) i32 @stbtt_GetCodepointBox(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #12 {
   %7 = tail call i32 @stbtt_FindGlyphIndex(ptr noundef %0, i32 noundef %1)
   %8 = tail call i32 @stbtt_GetGlyphBox(ptr noundef %0, i32 noundef %7, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
   ret i32 %8
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @stbtt_IsGlyphEmpty(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #13 {
+define range(i32 0, 2) i32 @stbtt_IsGlyphEmpty(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #12 {
   %3 = alloca %struct.stbtt__csctx, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %5 = load i32, ptr %4, align 4, !tbaa !39
@@ -4296,14 +4290,14 @@ define range(i32 0, 2) i32 @stbtt_IsGlyphEmpty(ptr noundef readonly captures(non
   br i1 %.not, label %12, label %6
 
 6:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false)
   store i32 1, ptr %3, align 8
   %7 = call i32 @stbtt__run_charstring(ptr noundef nonnull readonly %0, i32 noundef %1, ptr noundef nonnull %3)
   %.not24.i = icmp eq i32 %7, 0
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %9 = load i32, ptr %8, align 8
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %10 = icmp eq i32 %9, 0
   %11 = select i1 %.not24.i, i1 true, i1 %10
   br label %stbtt__GetGlyfOffset.exit.thread
@@ -4422,7 +4416,7 @@ stbtt__GetGlyfOffset.exit.thread:                 ; preds = %89, %15, %12, %92, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 -2147483647, -2147483648) i32 @stbtt__close_shape(ptr noundef writeonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #12 {
+define range(i32 -2147483647, -2147483648) i32 @stbtt__close_shape(ptr noundef writeonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #11 {
   %.not = icmp eq i32 %3, 0
   %.not27 = icmp eq i32 %2, 0
   br i1 %.not, label %38, label %11
@@ -4508,7 +4502,7 @@ define range(i32 -2147483647, -2147483648) i32 @stbtt__close_shape(ptr noundef w
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stbtt__GetGlyphShapeTT(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #11 {
+define i32 @stbtt__GetGlyphShapeTT(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #10 {
   %4 = alloca %struct.stbtt__csctx, align 8
   %5 = alloca %struct.stbtt__csctx, align 8
   %6 = alloca ptr, align 8
@@ -4649,7 +4643,7 @@ stbtt__GetGlyfOffset.exit:                        ; preds = %83
   %115 = add nuw nsw i32 %114, %113
   %narrow = mul nuw nsw i32 %115, 14
   %116 = zext nneg i32 %narrow to i64
-  %117 = tail call noalias ptr @malloc(i64 noundef %116) #34
+  %117 = tail call noalias ptr @malloc(i64 noundef %116) #33
   %.not368 = icmp eq ptr %117, null
   br i1 %.not368, label %.thread, label %118
 
@@ -5171,7 +5165,7 @@ stbtt__close_shape.exit:                          ; preds = %223, %240, %244
   %.1273398 = phi ptr [ null, %375 ], [ %.2274, %575 ]
   %.7397 = phi i32 [ 0, %375 ], [ %.8, %575 ]
   %.0296396 = phi ptr [ %376, %375 ], [ %.2298, %575 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !43
   %382 = getelementptr inbounds nuw i8, ptr %.0296396, i64 1
   %383 = load i8, ptr %382, align 1, !tbaa !12
@@ -5340,10 +5334,10 @@ stbtt__close_shape.exit:                          ; preds = %223, %240, %244
   br label %stbtt_GetGlyphShape.exit
 
 508:                                              ; preds = %500
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 56, i1 false)
   store i32 1, ptr %4, align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
   %509 = call i32 @stbtt__run_charstring(ptr noundef nonnull readonly %0, i32 noundef %392, ptr noundef nonnull %4)
   %.not.i.i = icmp eq i32 %509, 0
@@ -5353,7 +5347,7 @@ stbtt__close_shape.exit:                          ; preds = %223, %240, %244
   %511 = load i32, ptr %378, align 8, !tbaa !40
   %512 = sext i32 %511 to i64
   %513 = mul nsw i64 %512, 14
-  %514 = call noalias ptr @malloc(i64 noundef %513) #34
+  %514 = call noalias ptr @malloc(i64 noundef %513) #33
   store ptr %514, ptr %6, align 8, !tbaa !43
   store ptr %514, ptr %379, align 8, !tbaa !44
   %515 = call i32 @stbtt__run_charstring(ptr noundef nonnull readonly %0, i32 noundef %392, ptr noundef nonnull %5)
@@ -5370,8 +5364,8 @@ stbtt__close_shape.exit:                          ; preds = %223, %240, %244
 
 stbtt__GetGlyphShapeT2.exit.i:                    ; preds = %518, %516
   %.0.i.i = phi i32 [ %517, %516 ], [ 0, %518 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #33
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %stbtt_GetGlyphShape.exit
 
 stbtt_GetGlyphShape.exit:                         ; preds = %506, %stbtt__GetGlyphShapeT2.exit.i
@@ -5430,7 +5424,7 @@ stbtt_GetGlyphShape.exit:                         ; preds = %506, %stbtt__GetGly
   %555 = add nuw nsw i32 %.0.i379, %.7397
   %556 = zext nneg i32 %555 to i64
   %557 = mul nuw nsw i64 %556, 14
-  %558 = call noalias ptr @malloc(i64 noundef %557) #34
+  %558 = call noalias ptr @malloc(i64 noundef %557) #33
   %.not348 = icmp eq ptr %558, null
   br i1 %.not348, label %559, label %562
 
@@ -5439,14 +5433,14 @@ stbtt_GetGlyphShape.exit:                         ; preds = %506, %stbtt__GetGly
   br i1 %.not349, label %.thread442, label %560
 
 560:                                              ; preds = %559
-  call void @free(ptr noundef nonnull %.1273398) #33
+  call void @free(ptr noundef nonnull %.1273398) #34
   %.pre441 = load ptr, ptr %6, align 8, !tbaa !43
   %.not350 = icmp eq ptr %.pre441, null
   br i1 %.not350, label %577, label %.thread442
 
 .thread442:                                       ; preds = %559, %560
   %561 = phi ptr [ %.pre441, %560 ], [ %520, %559 ]
-  call void @free(ptr noundef nonnull %561) #33
+  call void @free(ptr noundef nonnull %561) #34
   br label %577
 
 562:                                              ; preds = %554
@@ -5471,25 +5465,25 @@ stbtt_GetGlyphShape.exit:                         ; preds = %506, %stbtt__GetGly
   br i1 %564, label %572, label %573
 
 572:                                              ; preds = %.thread382, %569
-  call void @free(ptr noundef nonnull %.1273398) #33
+  call void @free(ptr noundef nonnull %.1273398) #34
   %.pre = load ptr, ptr %6, align 8, !tbaa !43
   br label %573
 
 573:                                              ; preds = %572, %569
   %574 = phi ptr [ %.pre, %572 ], [ %520, %569 ]
-  call void @free(ptr noundef %574) #33
+  call void @free(ptr noundef %574) #34
   br label %575
 
 575:                                              ; preds = %stbtt_GetGlyphShape.exit, %573
   %.8 = phi i32 [ %555, %573 ], [ %.7397, %stbtt_GetGlyphShape.exit ]
   %.2274 = phi ptr [ %558, %573 ], [ %.1273398, %stbtt_GetGlyphShape.exit ]
   %576 = and i32 %384, 32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not = icmp eq i32 %576, 0
   br i1 %.not, label %.thread388, label %381, !llvm.loop !57
 
 577:                                              ; preds = %.thread442, %560
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.thread
 
 .thread388:                                       ; preds = %575, %370, %373
@@ -5504,16 +5498,16 @@ stbtt_GetGlyphShape.exit:                         ; preds = %506, %stbtt__GetGly
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #14
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @sqrt(double noundef) local_unnamed_addr #15
+declare double @sqrt(double noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #16
+declare float @llvm.fmuladd.f32(float, float, float) #15
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #17
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @stbtt__track_vertex(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
@@ -5587,7 +5581,7 @@ define void @stbtt__track_vertex(ptr noundef captures(none) %0, i32 noundef %1, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @stbtt__csctx_v(ptr noundef captures(none) %0, i8 noundef zeroext %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #18 {
+define void @stbtt__csctx_v(ptr noundef captures(none) %0, i8 noundef zeroext %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #17 {
   %9 = load i32, ptr %0, align 8, !tbaa !63
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %75, label %10
@@ -5775,7 +5769,7 @@ stbtt__track_vertex.exit33:                       ; preds = %72, %74
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @stbtt__csctx_close_shape(ptr noundef captures(none) %0) local_unnamed_addr #18 {
+define void @stbtt__csctx_close_shape(ptr noundef captures(none) %0) local_unnamed_addr #17 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load float, ptr %2, align 8, !tbaa !66
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -5899,7 +5893,7 @@ stbtt__csctx_v.exit:                              ; preds = %stbtt__track_vertex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @stbtt__csctx_rmove_to(ptr noundef captures(none) %0, float noundef %1, float noundef %2) local_unnamed_addr #18 {
+define void @stbtt__csctx_rmove_to(ptr noundef captures(none) %0, float noundef %1, float noundef %2) local_unnamed_addr #17 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load float, ptr %4, align 8, !tbaa !66
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -6136,7 +6130,7 @@ stbtt__csctx_v.exit:                              ; preds = %stbtt__track_vertex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @stbtt__csctx_rline_to(ptr noundef captures(none) %0, float noundef %1, float noundef %2) local_unnamed_addr #18 {
+define void @stbtt__csctx_rline_to(ptr noundef captures(none) %0, float noundef %1, float noundef %2) local_unnamed_addr #17 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load float, ptr %4, align 8, !tbaa !67
   %6 = fadd float %1, %5
@@ -6249,7 +6243,7 @@ stbtt__csctx_v.exit:                              ; preds = %stbtt__track_vertex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @stbtt__csctx_rccurve_to(ptr noundef captures(none) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6) local_unnamed_addr #18 {
+define void @stbtt__csctx_rccurve_to(ptr noundef captures(none) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6) local_unnamed_addr #17 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load float, ptr %8, align 8, !tbaa !67
   %10 = fadd float %1, %9
@@ -6273,7 +6267,7 @@ define void @stbtt__csctx_rccurve_to(ptr noundef captures(none) %0, float nounde
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define { ptr, i64 } @stbtt__get_subr(ptr readonly %0, i64 %1, i32 noundef %2) local_unnamed_addr #7 {
+define { ptr, i64 } @stbtt__get_subr(ptr readonly %0, i64 %1, i32 noundef %2) local_unnamed_addr #6 {
   %.sroa.7.8.extract.shift = lshr i64 %1, 32
   %.sroa.7.8.extract.trunc = trunc nuw i64 %.sroa.7.8.extract.shift to i32
   %4 = tail call i32 @llvm.smin.i32(i32 %.sroa.7.8.extract.trunc, i32 0)
@@ -6329,7 +6323,7 @@ stbtt__cff_index_count.exit:                      ; preds = %stbtt__buf_get8.exi
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define { ptr, i64 } @stbtt__cid_get_glyph_subrs(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #8 {
+define { ptr, i64 } @stbtt__cid_get_glyph_subrs(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %.sroa.0.0.copyload = load ptr, ptr %3, align 8, !tbaa !20
   %.sroa.24.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 156
@@ -6498,11 +6492,11 @@ stbtt__buf_get.exit46:                            ; preds = %stbtt__buf_get8.exi
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @stbtt__run_charstring(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #13 {
+define range(i32 0, 2) i32 @stbtt__run_charstring(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #12 {
   %4 = alloca [48 x float], align 16
   %5 = alloca [10 x %struct.stbtt__buf], align 16
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %4) #33
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %5) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -8264,19 +8258,19 @@ stbtt__cff_int.exit:                              ; preds = %stbtt__buf_get8.exi
 
 .critedge:                                        ; preds = %53, %64, %71, %78, %131, %133, %233, %235, %315, %350, %._crit_edge453, %439, %._crit_edge, %531, %606, %608, %stbtt__get_subr.exit, %645, %877, %957, %.thread, %stbtt__buf_get8.exit324, %822, %780, %737, %703, %698, %3, %stbtt__csctx_v.exit.i, %656
   %.2 = phi i32 [ 1, %656 ], [ 1, %stbtt__csctx_v.exit.i ], [ 0, %3 ], [ 0, %698 ], [ 0, %703 ], [ 0, %737 ], [ 0, %780 ], [ 0, %822 ], [ 0, %stbtt__buf_get8.exit324 ], [ 0, %.thread ], [ 0, %957 ], [ 0, %877 ], [ 0, %645 ], [ 0, %stbtt__get_subr.exit ], [ 0, %608 ], [ 0, %606 ], [ 0, %531 ], [ 0, %._crit_edge ], [ 0, %439 ], [ 0, %._crit_edge453 ], [ 0, %350 ], [ 0, %315 ], [ 0, %235 ], [ 0, %233 ], [ 0, %133 ], [ 0, %131 ], [ 0, %78 ], [ 0, %71 ], [ 0, %64 ], [ 0, %53 ]
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %5) #33
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %4) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.2
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define i32 @stbtt__GetGlyphShapeT2(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #19 {
+define i32 @stbtt__GetGlyphShapeT2(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #18 {
   %4 = alloca %struct.stbtt__csctx, align 8
   %5 = alloca %struct.stbtt__csctx, align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 56, i1 false)
   store i32 1, ptr %4, align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
   %6 = call i32 @stbtt__run_charstring(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %4)
   %.not = icmp eq i32 %6, 0
@@ -8287,7 +8281,7 @@ define i32 @stbtt__GetGlyphShapeT2(ptr noundef readonly captures(none) %0, i32 n
   %9 = load i32, ptr %8, align 8, !tbaa !40
   %10 = sext i32 %9 to i64
   %11 = mul nsw i64 %10, 14
-  %12 = call noalias ptr @malloc(i64 noundef %11) #34
+  %12 = call noalias ptr @malloc(i64 noundef %11) #33
   store ptr %12, ptr %2, align 8, !tbaa !43
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store ptr %12, ptr %13, align 8, !tbaa !44
@@ -8306,8 +8300,8 @@ define i32 @stbtt__GetGlyphShapeT2(ptr noundef readonly captures(none) %0, i32 n
 
 19:                                               ; preds = %18, %15
   %.0 = phi i32 [ %17, %15 ], [ 0, %18 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #33
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -8572,7 +8566,7 @@ define range(i32 -2147483648, 65536) i32 @stbtt_GetKerningTable(ptr noundef read
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 -32768, 32768) i32 @stbtt__GetGlyphKernInfoAdvance(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #8 {
+define range(i32 -32768, 32768) i32 @stbtt__GetGlyphKernInfoAdvance(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #7 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !23
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -8687,7 +8681,7 @@ define range(i32 -32768, 32768) i32 @stbtt__GetGlyphKernInfoAdvance(ptr noundef 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i32 -1073741824, 1073741824) i32 @stbtt__GetCoverageIndex(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #7 {
+define range(i32 -1073741824, 1073741824) i32 @stbtt__GetCoverageIndex(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = load i8, ptr %0, align 1, !tbaa !12
   %4 = zext i8 %3 to i16
   %5 = shl nuw i16 %4, 8
@@ -8833,7 +8827,7 @@ define range(i32 -1073741824, 1073741824) i32 @stbtt__GetCoverageIndex(ptr nound
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i32 -1, 65536) i32 @stbtt__GetGlyphClass(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #7 {
+define range(i32 -1, 65536) i32 @stbtt__GetGlyphClass(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = load i8, ptr %0, align 1, !tbaa !12
   %4 = zext i8 %3 to i16
   %5 = shl nuw i16 %4, 8
@@ -8964,7 +8958,7 @@ define range(i32 -1, 65536) i32 @stbtt__GetGlyphClass(ptr noundef readonly captu
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 -32768, 32768) i32 @stbtt__GetGlyphGPOSInfoAdvance(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #8 {
+define range(i32 -32768, 32768) i32 @stbtt__GetGlyphGPOSInfoAdvance(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #7 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load i32, ptr %4, align 8, !tbaa !31
   %.not = icmp eq i32 %5, 0
@@ -9304,7 +9298,7 @@ define range(i32 -32768, 32768) i32 @stbtt__GetGlyphGPOSInfoAdvance(ptr noundef 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 -32768, 32768) i32 @stbtt_GetGlyphKernAdvance(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #8 {
+define range(i32 -32768, 32768) i32 @stbtt_GetGlyphKernAdvance(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #7 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load i32, ptr %4, align 8, !tbaa !31
   %.not = icmp eq i32 %5, 0
@@ -9429,7 +9423,7 @@ stbtt__GetGlyphKernInfoAdvance.exit:              ; preds = %85, %74, %31, %22, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 -32768, 32768) i32 @stbtt_GetCodepointKernAdvance(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #8 {
+define range(i32 -32768, 32768) i32 @stbtt_GetCodepointKernAdvance(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #7 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4, !tbaa !30
   %.not = icmp eq i32 %5, 0
@@ -9900,8 +9894,8 @@ define float @stbtt_ScaleForMappingEmToPixels(ptr noundef readonly captures(none
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @stbtt_FreeShape(ptr noundef readnone captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #20 {
-  tail call void @free(ptr noundef %1) #33
+define void @stbtt_FreeShape(ptr noundef readnone captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #19 {
+  tail call void @free(ptr noundef %1) #34
   ret void
 }
 
@@ -10203,17 +10197,17 @@ stbtt_GetGlyphSVG.exit:                           ; preds = %3, %10, %12
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @stbtt_GetGlyphBitmapBoxSubpixel(ptr noundef readonly captures(none) %0, i32 noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7, ptr noundef writeonly captures(address_is_null) %8, ptr noundef writeonly captures(address_is_null) %9) local_unnamed_addr #13 {
+define void @stbtt_GetGlyphBitmapBoxSubpixel(ptr noundef readonly captures(none) %0, i32 noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7, ptr noundef writeonly captures(address_is_null) %8, ptr noundef writeonly captures(address_is_null) %9) local_unnamed_addr #12 {
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4
   %14 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 0, ptr %11, align 4, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 0, ptr %12, align 4, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #33
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %15 = call i32 @stbtt_GetGlyphBox(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14)
   %.not = icmp eq i32 %15, 0
   %.not31 = icmp eq ptr %6, null
@@ -10304,25 +10298,25 @@ define void @stbtt_GetGlyphBitmapBoxSubpixel(ptr noundef readonly captures(none)
   br label %53
 
 53:                                               ; preds = %.sink.split, %45, %22
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #33
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #33
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #33
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @stbtt_GetGlyphBitmapBox(ptr noundef readonly captures(none) %0, i32 noundef %1, float noundef %2, float noundef %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7) local_unnamed_addr #13 {
+define void @stbtt_GetGlyphBitmapBox(ptr noundef readonly captures(none) %0, i32 noundef %1, float noundef %2, float noundef %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7) local_unnamed_addr #12 {
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 0, ptr %10, align 4, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #33
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %13 = call i32 @stbtt_GetGlyphBox(ptr noundef readonly %0, i32 noundef %1, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12)
   %.not.i = icmp eq i32 %13, 0
   %.not31.i = icmp eq ptr %4, null
@@ -10413,26 +10407,26 @@ define void @stbtt_GetGlyphBitmapBox(ptr noundef readonly captures(none) %0, i32
   br label %stbtt_GetGlyphBitmapBoxSubpixel.exit
 
 stbtt_GetGlyphBitmapBoxSubpixel.exit:             ; preds = %20, %43, %.sink.split.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #33
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #33
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #33
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @stbtt_GetCodepointBitmapBoxSubpixel(ptr noundef readonly captures(none) %0, i32 noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7, ptr noundef writeonly captures(address_is_null) %8, ptr noundef writeonly captures(address_is_null) %9) local_unnamed_addr #13 {
+define void @stbtt_GetCodepointBitmapBoxSubpixel(ptr noundef readonly captures(none) %0, i32 noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7, ptr noundef writeonly captures(address_is_null) %8, ptr noundef writeonly captures(address_is_null) %9) local_unnamed_addr #12 {
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4
   %14 = alloca i32, align 4
   %15 = tail call i32 @stbtt_FindGlyphIndex(ptr noundef %0, i32 noundef %1)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 0, ptr %11, align 4, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 0, ptr %12, align 4, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #33
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %16 = call i32 @stbtt_GetGlyphBox(ptr noundef readonly %0, i32 noundef %15, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14)
   %.not.i = icmp eq i32 %16, 0
   %.not31.i = icmp eq ptr %6, null
@@ -10523,21 +10517,21 @@ define void @stbtt_GetCodepointBitmapBoxSubpixel(ptr noundef readonly captures(n
   br label %stbtt_GetGlyphBitmapBoxSubpixel.exit
 
 stbtt_GetGlyphBitmapBoxSubpixel.exit:             ; preds = %23, %46, %.sink.split.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #33
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #33
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #33
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @stbtt_GetCodepointBitmapBox(ptr noundef readonly captures(none) %0, i32 noundef %1, float noundef %2, float noundef %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7) local_unnamed_addr #13 {
+define void @stbtt_GetCodepointBitmapBox(ptr noundef readonly captures(none) %0, i32 noundef %1, float noundef %2, float noundef %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7) local_unnamed_addr #12 {
   tail call void @stbtt_GetCodepointBitmapBoxSubpixel(ptr noundef %0, i32 noundef %1, float noundef %2, float noundef %3, float noundef 0.000000e+00, float noundef 0.000000e+00, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define ptr @stbtt__hheap_alloc(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #21 {
+define ptr @stbtt__hheap_alloc(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #20 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !94
   %.not = icmp eq ptr %5, null
@@ -10566,7 +10560,7 @@ define ptr @stbtt__hheap_alloc(ptr noundef captures(none) %0, i64 noundef %1, pt
   %17 = zext nneg i32 %16 to i64
   %18 = mul i64 %1, %17
   %19 = add i64 %18, 8
-  %20 = tail call noalias ptr @malloc(i64 noundef %19) #34
+  %20 = tail call noalias ptr @malloc(i64 noundef %19) #33
   %21 = icmp eq ptr %20, null
   br i1 %21, label %31, label %.thread
 
@@ -10602,7 +10596,7 @@ define void @stbtt__hheap_free(ptr noundef captures(none) %0, ptr noundef initia
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbtt__hheap_cleanup(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #11 {
+define void @stbtt__hheap_cleanup(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #10 {
   %3 = load ptr, ptr %0, align 8, !tbaa !98
   %.not5 = icmp eq ptr %3, null
   br i1 %.not5, label %._crit_edge, label %.lr.ph
@@ -10610,7 +10604,7 @@ define void @stbtt__hheap_cleanup(ptr noundef readonly captures(none) %0, ptr no
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.06 = phi ptr [ %4, %.lr.ph ], [ %3, %2 ]
   %4 = load ptr, ptr %.06, align 8, !tbaa !99
-  tail call void @free(ptr noundef nonnull %.06) #33
+  tail call void @free(ptr noundef nonnull %.06) #34
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !101
 
@@ -10619,7 +10613,7 @@ define void @stbtt__hheap_cleanup(ptr noundef readonly captures(none) %0, ptr no
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define ptr @stbtt__new_active(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, float noundef %3, ptr noundef readnone captures(none) %4) local_unnamed_addr #21 {
+define ptr @stbtt__new_active(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, float noundef %3, ptr noundef readnone captures(none) %4) local_unnamed_addr #20 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !94
   %.not.i = icmp eq ptr %7, null
@@ -10642,7 +10636,7 @@ define ptr @stbtt__new_active(ptr noundef captures(none) %0, ptr noundef readonl
   br label %19
 
 15:                                               ; preds = %10
-  %16 = tail call noalias dereferenceable_or_null(25608) ptr @malloc(i64 noundef 25608) #34
+  %16 = tail call noalias dereferenceable_or_null(25608) ptr @malloc(i64 noundef 25608) #33
   %17 = icmp eq ptr %16, null
   br i1 %17, label %stbtt__hheap_alloc.exit, label %.thread.i
 
@@ -10800,7 +10794,7 @@ define void @stbtt__handle_clipped_edge(ptr noundef captures(none) %0, i32 nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef float @stbtt__sized_trapezoid_area(float noundef %0, float noundef %1, float noundef %2) local_unnamed_addr #5 {
+define noundef float @stbtt__sized_trapezoid_area(float noundef %0, float noundef %1, float noundef %2) local_unnamed_addr #4 {
   %4 = fadd float %1, %2
   %5 = fmul float %4, 5.000000e-01
   %6 = fmul float %0, %5
@@ -10808,7 +10802,7 @@ define noundef float @stbtt__sized_trapezoid_area(float noundef %0, float nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef float @stbtt__position_trapezoid_area(float noundef %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4) local_unnamed_addr #5 {
+define noundef float @stbtt__position_trapezoid_area(float noundef %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4) local_unnamed_addr #4 {
   %6 = fsub float %2, %1
   %7 = fsub float %4, %3
   %8 = fadd float %6, %7
@@ -10818,7 +10812,7 @@ define noundef float @stbtt__position_trapezoid_area(float noundef %0, float nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef float @stbtt__sized_triangle_area(float noundef %0, float noundef %1) local_unnamed_addr #5 {
+define noundef float @stbtt__sized_triangle_area(float noundef %0, float noundef %1) local_unnamed_addr #4 {
   %3 = fmul float %0, %1
   %4 = fmul float %3, 5.000000e-01
   ret float %4
@@ -12509,12 +12503,12 @@ stbtt__handle_clipped_edge.exit351:               ; preds = %stbtt__handle_clipp
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbtt__rasterize_sorted_edges(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 %3, i32 noundef %4, i32 noundef %5, ptr readnone captures(none) %6) local_unnamed_addr #11 {
+define void @stbtt__rasterize_sorted_edges(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 %3, i32 noundef %4, i32 noundef %5, ptr readnone captures(none) %6) local_unnamed_addr #10 {
   %8 = alloca ptr, align 8
   %9 = alloca [129 x float], align 16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8, !tbaa !120
-  call void @llvm.lifetime.start.p0(i64 516, ptr nonnull %9) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = load i32, ptr %0, align 8, !tbaa !121
   %11 = icmp sgt i32 %10, 64
   br i1 %11, label %12, label %18
@@ -12524,7 +12518,7 @@ define void @stbtt__rasterize_sorted_edges(ptr noundef readonly captures(none) %
   %14 = or disjoint i32 %13, 1
   %15 = zext nneg i32 %14 to i64
   %16 = shl nuw nsw i64 %15, 2
-  %17 = tail call noalias ptr @malloc(i64 noundef %16) #34
+  %17 = tail call noalias ptr @malloc(i64 noundef %16) #33
   br label %18
 
 18:                                               ; preds = %7, %12
@@ -12635,7 +12629,7 @@ define void @stbtt__rasterize_sorted_edges(ptr noundef readonly captures(none) %
   br label %70
 
 67:                                               ; preds = %64
-  %68 = call noalias dereferenceable_or_null(25608) ptr @malloc(i64 noundef 25608) #34
+  %68 = call noalias dereferenceable_or_null(25608) ptr @malloc(i64 noundef 25608) #33
   %69 = icmp eq ptr %68, null
   br i1 %69, label %stbtt__new_active.exit.thread, label %.thread.i.i
 
@@ -12789,7 +12783,7 @@ stbtt__new_active.exit.thread:                    ; preds = %67, %100, %56
 .lr.ph.i:                                         ; preds = %._crit_edge129, %.lr.ph.i
   %.06.i = phi ptr [ %141, %.lr.ph.i ], [ %.sroa.0.1.lcssa, %._crit_edge129 ]
   %141 = load ptr, ptr %.06.i, align 8, !tbaa !99
-  call void @free(ptr noundef nonnull %.06.i) #33
+  call void @free(ptr noundef nonnull %.06.i) #34
   %.not.i = icmp eq ptr %141, null
   br i1 %.not.i, label %stbtt__hheap_cleanup.exit, label %.lr.ph.i, !llvm.loop !101
 
@@ -12798,17 +12792,17 @@ stbtt__hheap_cleanup.exit:                        ; preds = %.lr.ph.i, %18, %._c
   br i1 %.not, label %143, label %142
 
 142:                                              ; preds = %stbtt__hheap_cleanup.exit
-  call void @free(ptr noundef %.079) #33
+  call void @free(ptr noundef %.079) #34
   br label %143
 
 143:                                              ; preds = %142, %stbtt__hheap_cleanup.exit
-  call void @llvm.lifetime.end.p0(i64 516, ptr nonnull %9) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @stbtt__sort_edges_ins_sort(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #22 {
+define void @stbtt__sort_edges_ins_sort(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #21 {
   %.sroa.5 = alloca { float, float, i32 }, align 8
   %3 = icmp sgt i32 %1, 1
   br i1 %3, label %.lr.ph.preheader, label %._crit_edge
@@ -12819,7 +12813,7 @@ define void @stbtt__sort_edges_ins_sort(ptr noundef captures(none) %0, i32 nound
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %18
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %18 ]
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %.sroa.5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5)
   %4 = getelementptr inbounds nuw %struct.stbtt__edge, ptr %0, i64 %indvars.iv
   %.sroa.0.0.copyload = load float, ptr %4, align 4, !tbaa !71
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -12864,7 +12858,7 @@ define void @stbtt__sort_edges_ins_sort(ptr noundef captures(none) %0, i32 nound
   br label %18
 
 18:                                               ; preds = %15, %.thread
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %.sroa.5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !133
@@ -12874,7 +12868,7 @@ define void @stbtt__sort_edges_ins_sort(ptr noundef captures(none) %0, i32 nound
 }
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
-define void @stbtt__sort_edges_quicksort(ptr noundef %0, i32 noundef %1) local_unnamed_addr #23 {
+define void @stbtt__sort_edges_quicksort(ptr noundef %0, i32 noundef %1) local_unnamed_addr #22 {
   %3 = alloca %struct.stbtt__edge, align 4
   %4 = icmp sgt i32 %1, 12
   br i1 %4, label %.lr.ph, label %._crit_edge
@@ -12882,7 +12876,7 @@ define void @stbtt__sort_edges_quicksort(ptr noundef %0, i32 noundef %1) local_u
 .lr.ph:                                           ; preds = %2, %49
   %.078 = phi ptr [ %.1, %49 ], [ %0, %2 ]
   %.06977 = phi i32 [ %.170, %49 ], [ %1, %2 ]
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = lshr i32 %.06977, 1
   %6 = getelementptr inbounds nuw i8, ptr %.078, i64 4
   %7 = load float, ptr %6, align 4, !tbaa !106
@@ -12975,7 +12969,7 @@ define void @stbtt__sort_edges_quicksort(ptr noundef %0, i32 noundef %1) local_u
 49:                                               ; preds = %48, %47
   %.170 = phi i32 [ %45, %47 ], [ %39, %48 ]
   %.1 = phi ptr [ %28, %47 ], [ %.078, %48 ]
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %50 = icmp sgt i32 %.170, 12
   br i1 %50, label %.lr.ph, label %._crit_edge, !llvm.loop !134
 
@@ -12984,7 +12978,7 @@ define void @stbtt__sort_edges_quicksort(ptr noundef %0, i32 noundef %1) local_u
 }
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
-define void @stbtt__sort_edges(ptr noundef %0, i32 noundef %1) local_unnamed_addr #23 {
+define void @stbtt__sort_edges(ptr noundef %0, i32 noundef %1) local_unnamed_addr #22 {
   %.sroa.5.i = alloca { float, float, i32 }, align 8
   tail call void @stbtt__sort_edges_quicksort(ptr noundef %0, i32 noundef %1)
   %3 = icmp sgt i32 %1, 1
@@ -12996,7 +12990,7 @@ define void @stbtt__sort_edges(ptr noundef %0, i32 noundef %1) local_unnamed_add
 
 .lr.ph.i:                                         ; preds = %18, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 1, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %18 ]
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %.sroa.5.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5.i)
   %4 = getelementptr inbounds nuw %struct.stbtt__edge, ptr %0, i64 %indvars.iv.i
   %.sroa.0.0.copyload.i = load float, ptr %4, align 4, !tbaa !71
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -13041,7 +13035,7 @@ define void @stbtt__sort_edges(ptr noundef %0, i32 noundef %1) local_unnamed_add
   br label %18
 
 18:                                               ; preds = %15, %.thread.i
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %.sroa.5.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %stbtt__sort_edges_ins_sort.exit, label %.lr.ph.i, !llvm.loop !133
@@ -13051,7 +13045,7 @@ stbtt__sort_edges_ins_sort.exit:                  ; preds = %18, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbtt__rasterize(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, ptr readnone captures(none) %11) local_unnamed_addr #11 {
+define void @stbtt__rasterize(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, ptr readnone captures(none) %11) local_unnamed_addr #10 {
   %.sroa.5.i.i = alloca { float, float, i32 }, align 8
   %.not = icmp eq i32 %10, 0
   %13 = fneg float %5
@@ -13077,12 +13071,12 @@ define void @stbtt__rasterize(ptr noundef readonly captures(none) %0, ptr nounde
   %19 = add nsw i32 %18, 1
   %20 = sext i32 %19 to i64
   %21 = mul nsw i64 %20, 20
-  %22 = tail call noalias ptr @malloc(i64 noundef %21) #34
+  %22 = tail call noalias ptr @malloc(i64 noundef %21) #33
   %23 = icmp eq ptr %22, null
   br i1 %23, label %111, label %.lr.ph104
 
 ._crit_edge.thread:                               ; preds = %12
-  %24 = tail call noalias dereferenceable_or_null(20) ptr @malloc(i64 noundef 20) #34
+  %24 = tail call noalias dereferenceable_or_null(20) ptr @malloc(i64 noundef 20) #33
   %25 = icmp eq ptr %24, null
   br i1 %25, label %111, label %._crit_edge105.thread
 
@@ -13256,7 +13250,7 @@ define void @stbtt__rasterize(ptr noundef readonly captures(none) %0, ptr nounde
 
 .lr.ph.i.i:                                       ; preds = %109, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 1, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %109 ]
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %.sroa.5.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5.i.i)
   %95 = getelementptr inbounds nuw %struct.stbtt__edge, ptr %22, i64 %indvars.iv.i.i
   %.sroa.0.0.copyload.i.i = load float, ptr %95, align 4, !tbaa !71
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %95, i64 4
@@ -13301,7 +13295,7 @@ define void @stbtt__rasterize(ptr noundef readonly captures(none) %0, ptr nounde
   br label %109
 
 109:                                              ; preds = %106, %.thread.i.i
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %.sroa.5.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5.i.i)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %stbtt__sort_edges.exit, label %.lr.ph.i.i, !llvm.loop !133
@@ -13310,7 +13304,7 @@ stbtt__sort_edges.exit:                           ; preds = %109, %._crit_edge10
   %.1.lcssa149 = phi i32 [ 0, %._crit_edge105.thread ], [ %.1.lcssa, %._crit_edge105 ], [ %.1.lcssa, %109 ]
   %110 = phi ptr [ %24, %._crit_edge105.thread ], [ %22, %._crit_edge105 ], [ %22, %109 ]
   tail call void @stbtt__rasterize_sorted_edges(ptr noundef %0, ptr noundef nonnull %110, i32 noundef %.1.lcssa149, i32 poison, i32 noundef %8, i32 noundef %9, ptr poison)
-  tail call void @free(ptr noundef nonnull %110) #33
+  tail call void @free(ptr noundef nonnull %110) #34
   br label %111
 
 111:                                              ; preds = %._crit_edge.thread, %._crit_edge, %stbtt__sort_edges.exit
@@ -13318,7 +13312,7 @@ stbtt__sort_edges.exit:                           ; preds = %109, %._crit_edge10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @stbtt__add_point(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1, float noundef %2, float noundef %3) local_unnamed_addr #12 {
+define void @stbtt__add_point(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1, float noundef %2, float noundef %3) local_unnamed_addr #11 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %5
 
@@ -13335,7 +13329,7 @@ define void @stbtt__add_point(ptr noundef writeonly captures(address_is_null) %0
 }
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
-define noundef i32 @stbtt__tesselate_curve(ptr noundef writeonly captures(address_is_null) %0, ptr noundef captures(none) %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, i32 noundef %9) local_unnamed_addr #23 {
+define noundef i32 @stbtt__tesselate_curve(ptr noundef writeonly captures(address_is_null) %0, ptr noundef captures(none) %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, i32 noundef %9) local_unnamed_addr #22 {
   %11 = icmp sgt i32 %9, 16
   br i1 %11, label %.loopexit, label %.lr.ph.preheader
 
@@ -13406,7 +13400,7 @@ stbtt__add_point.exit:                            ; preds = %37, %39
 }
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
-define void @stbtt__tesselate_cubic(ptr noundef writeonly captures(address_is_null) %0, ptr noundef captures(none) %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, float noundef %9, float noundef %10, i32 noundef %11) local_unnamed_addr #23 {
+define void @stbtt__tesselate_cubic(ptr noundef writeonly captures(address_is_null) %0, ptr noundef captures(none) %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, float noundef %9, float noundef %10, i32 noundef %11) local_unnamed_addr #22 {
   %smax = tail call i32 @llvm.smax.i32(i32 %11, i32 17)
   %exitcond107 = icmp sgt i32 %11, 16
   br i1 %exitcond107, label %.loopexit, label %.lr.ph
@@ -13504,9 +13498,9 @@ stbtt__add_point.exit:                            ; preds = %64, %66
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @stbtt_FlattenCurves(ptr noundef readonly captures(none) %0, i32 noundef %1, float noundef %2, ptr noundef captures(none) %3, ptr noundef writeonly captures(none) %4, ptr readnone captures(none) %5) local_unnamed_addr #11 {
+define ptr @stbtt_FlattenCurves(ptr noundef readonly captures(none) %0, i32 noundef %1, float noundef %2, ptr noundef captures(none) %3, ptr noundef writeonly captures(none) %4, ptr readnone captures(none) %5) local_unnamed_addr #10 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = fmul float %2, %2
   %9 = icmp sgt i32 %1, 0
   br i1 %9, label %.lr.ph.preheader, label %.loopexit.sink.split
@@ -13535,7 +13529,7 @@ define ptr @stbtt_FlattenCurves(ptr noundef readonly captures(none) %0, i32 noun
 15:                                               ; preds = %._crit_edge
   %16 = zext nneg i32 %spec.select to i64
   %17 = shl nuw nsw i64 %16, 2
-  %18 = tail call noalias ptr @malloc(i64 noundef %17) #34
+  %18 = tail call noalias ptr @malloc(i64 noundef %17) #33
   store ptr %18, ptr %3, align 8, !tbaa !144
   %19 = icmp eq ptr %18, null
   br i1 %19, label %.loopexit.sink.split, label %.preheader.split.us.preheader
@@ -13556,7 +13550,7 @@ define ptr @stbtt_FlattenCurves(ptr noundef readonly captures(none) %0, i32 noun
 24:                                               ; preds = %.preheader.split.us
   %25 = sext i32 %21 to i64
   %26 = shl nsw i64 %25, 3
-  %27 = tail call noalias ptr @malloc(i64 noundef %26) #34
+  %27 = tail call noalias ptr @malloc(i64 noundef %26) #33
   %28 = icmp eq ptr %27, null
   br i1 %28, label %.split.us, label %.lr.ph125.us
 
@@ -13696,7 +13690,7 @@ stbtt__add_point.exit.us:                         ; preds = %99, %91, %80, %72, 
   br i1 %23, label %.preheader.split.us, label %.loopexit, !llvm.loop !147
 
 .split.us:                                        ; preds = %24
-  tail call void @free(ptr noundef nonnull %20) #33
+  tail call void @free(ptr noundef nonnull %20) #34
   store ptr null, ptr %3, align 8, !tbaa !144
   br label %.loopexit.sink.split
 
@@ -13706,19 +13700,19 @@ stbtt__add_point.exit.us:                         ; preds = %99, %91, %80, %72, 
 
 .loopexit:                                        ; preds = %._crit_edge126.us, %.loopexit.sink.split, %._crit_edge
   %.0100 = phi ptr [ null, %._crit_edge ], [ null, %.loopexit.sink.split ], [ %.1102.us, %._crit_edge126.us ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %.0100
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbtt_Rasterize(ptr noundef readonly captures(none) %0, float noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, ptr noundef readnone captures(none) %11) local_unnamed_addr #11 {
+define void @stbtt_Rasterize(ptr noundef readonly captures(none) %0, float noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, ptr noundef readnone captures(none) %11) local_unnamed_addr #10 {
   %13 = alloca i32, align 4
   %14 = alloca ptr, align 8
   %15 = fcmp ogt float %4, %5
   %16 = select i1 %15, float %5, float %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 0, ptr %13, align 4, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr null, ptr %14, align 8, !tbaa !144
   %17 = fdiv float %1, %16
   %18 = call ptr @stbtt_FlattenCurves(ptr noundef %2, i32 noundef %3, float noundef %17, ptr noundef nonnull %14, ptr noundef nonnull %13, ptr poison)
@@ -13729,24 +13723,24 @@ define void @stbtt_Rasterize(ptr noundef readonly captures(none) %0, float nound
   %20 = load ptr, ptr %14, align 8, !tbaa !144
   %21 = load i32, ptr %13, align 4, !tbaa !17
   tail call void @stbtt__rasterize(ptr noundef %0, ptr noundef nonnull %18, ptr noundef %20, i32 noundef %21, float noundef %4, float noundef %5, float noundef %6, float noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, ptr poison)
-  tail call void @free(ptr noundef %20) #33
-  tail call void @free(ptr noundef nonnull %18) #33
+  tail call void @free(ptr noundef %20) #34
+  tail call void @free(ptr noundef nonnull %18) #34
   br label %22
 
 22:                                               ; preds = %19, %12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #33
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @stbtt_FreeBitmap(ptr noundef captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #20 {
-  tail call void @free(ptr noundef %0) #33
+define void @stbtt_FreeBitmap(ptr noundef captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #19 {
+  tail call void @free(ptr noundef %0) #34
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @stbtt_GetGlyphBitmapSubpixel(ptr noundef readonly captures(none) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, i32 noundef %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7, ptr noundef writeonly captures(address_is_null) %8, ptr noundef writeonly captures(address_is_null) %9) local_unnamed_addr #11 {
+define noundef ptr @stbtt_GetGlyphBitmapSubpixel(ptr noundef readonly captures(none) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, i32 noundef %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7, ptr noundef writeonly captures(address_is_null) %8, ptr noundef writeonly captures(address_is_null) %9) local_unnamed_addr #10 {
   %11 = alloca i32, align 4
   %12 = alloca ptr, align 8
   %13 = alloca i32, align 4
@@ -13757,8 +13751,8 @@ define noundef ptr @stbtt_GetGlyphBitmapSubpixel(ptr noundef readonly captures(n
   %18 = alloca %struct.stbtt__csctx, align 8
   %19 = alloca %struct.stbtt__bitmap, align 8
   %20 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %19) #33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %22 = load i32, ptr %21, align 4, !tbaa !39
   %.not.i = icmp eq i32 %22, 0
@@ -13769,10 +13763,10 @@ define noundef ptr @stbtt_GetGlyphBitmapSubpixel(ptr noundef readonly captures(n
   br label %stbtt_GetGlyphShape.exit
 
 25:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %17) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %17, i8 0, i64 56, i1 false)
   store i32 1, ptr %17, align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %18) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %18, i8 0, i64 56, i1 false)
   %26 = call i32 @stbtt__run_charstring(ptr noundef nonnull readonly %0, i32 noundef %5, ptr noundef nonnull %17)
   %.not.i.i = icmp eq i32 %26, 0
@@ -13783,7 +13777,7 @@ define noundef ptr @stbtt_GetGlyphBitmapSubpixel(ptr noundef readonly captures(n
   %29 = load i32, ptr %28, align 8, !tbaa !40
   %30 = sext i32 %29 to i64
   %31 = mul nsw i64 %30, 14
-  %32 = call noalias ptr @malloc(i64 noundef %31) #34
+  %32 = call noalias ptr @malloc(i64 noundef %31) #33
   store ptr %32, ptr %20, align 8, !tbaa !43
   %33 = getelementptr inbounds nuw i8, ptr %18, i64 40
   store ptr %32, ptr %33, align 8, !tbaa !44
@@ -13802,8 +13796,8 @@ define noundef ptr @stbtt_GetGlyphBitmapSubpixel(ptr noundef readonly captures(n
 
 stbtt__GetGlyphShapeT2.exit.i:                    ; preds = %38, %35
   %.0.i.i = phi i32 [ %37, %35 ], [ 0, %38 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %18) #33
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %17) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %stbtt_GetGlyphShape.exit
 
 stbtt_GetGlyphShape.exit:                         ; preds = %23, %stbtt__GetGlyphShapeT2.exit.i
@@ -13820,12 +13814,12 @@ stbtt_GetGlyphShape.exit:                         ; preds = %23, %stbtt__GetGlyp
   br label %95
 
 43:                                               ; preds = %stbtt_GetGlyphShape.exit
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 0, ptr %13, align 4, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i32 0, ptr %14, align 4, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #33
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %44 = call i32 @stbtt_GetGlyphBox(ptr noundef nonnull readonly %0, i32 noundef %5, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16)
   %.not.i43 = icmp eq i32 %44, 0
   br i1 %.not.i43, label %stbtt_GetGlyphBitmapBoxSubpixel.exit, label %45
@@ -13860,10 +13854,10 @@ stbtt_GetGlyphBitmapBoxSubpixel.exit:             ; preds = %43, %45
   %.053 = phi i32 [ %61, %45 ], [ 0, %43 ]
   %.052 = phi i32 [ %50, %45 ], [ 0, %43 ]
   %.sink.i = phi i32 [ %67, %45 ], [ 0, %43 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #33
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #33
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #33
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %68 = sub nsw i32 %.053, %.052
   store i32 %68, ptr %19, align 8, !tbaa !121
   %69 = sub nsw i32 %.sink.i, %.054
@@ -13914,7 +13908,7 @@ stbtt_GetGlyphBitmapBoxSubpixel.exit:             ; preds = %43, %45
 82:                                               ; preds = %79
   %83 = mul nsw i32 %69, %68
   %84 = sext i32 %83 to i64
-  %85 = call noalias ptr @malloc(i64 noundef %84) #34
+  %85 = call noalias ptr @malloc(i64 noundef %84) #33
   store ptr %85, ptr %71, align 8, !tbaa !126
   %.not42 = icmp eq ptr %85, null
   %.pre57 = load ptr, ptr %20, align 8, !tbaa !43
@@ -13925,9 +13919,9 @@ stbtt_GetGlyphBitmapBoxSubpixel.exit:             ; preds = %43, %45
   store i32 %68, ptr %87, align 8, !tbaa !127
   %88 = fcmp ogt float %.029, %.mux
   %89 = select i1 %88, float %.mux, float %.029
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 0, ptr %11, align 4, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr null, ptr %12, align 8, !tbaa !144
   %90 = fdiv float 0x3FD6666660000000, %89
   %91 = call ptr @stbtt_FlattenCurves(ptr noundef readonly %.pre57, i32 noundef %.0.i, float noundef %90, ptr noundef nonnull %12, ptr noundef nonnull %11, ptr readnone poison)
@@ -13938,32 +13932,32 @@ stbtt_GetGlyphBitmapBoxSubpixel.exit:             ; preds = %43, %45
   %93 = load ptr, ptr %12, align 8, !tbaa !144
   %94 = load i32, ptr %11, align 4, !tbaa !17
   call void @stbtt__rasterize(ptr noundef nonnull readonly %19, ptr noundef nonnull %91, ptr noundef %93, i32 noundef %94, float noundef %.029, float noundef %.mux, float noundef %3, float noundef %4, i32 noundef %.052, i32 noundef %.054, i32 noundef 1, ptr readnone poison)
-  call void @free(ptr noundef %93) #33
-  call void @free(ptr noundef nonnull %91) #33
+  call void @free(ptr noundef %93) #34
+  call void @free(ptr noundef nonnull %91) #34
   br label %stbtt_Rasterize.exit
 
 stbtt_Rasterize.exit:                             ; preds = %86, %92
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #33
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %95
 
 95:                                               ; preds = %stbtt_Rasterize.exit, %82, %._crit_edge, %41
   %.sink = phi ptr [ %42, %41 ], [ %.pre57, %82 ], [ %.pre57, %stbtt_Rasterize.exit ], [ %.pre, %._crit_edge ]
   %.0 = phi ptr [ null, %41 ], [ null, %82 ], [ %85, %stbtt_Rasterize.exit ], [ null, %._crit_edge ]
-  call void @free(ptr noundef %.sink) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #33
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19) #33
+  call void @free(ptr noundef %.sink) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @stbtt_GetGlyphBitmap(ptr noundef readonly captures(none) %0, float noundef %1, float noundef %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7) local_unnamed_addr #11 {
+define noundef ptr @stbtt_GetGlyphBitmap(ptr noundef readonly captures(none) %0, float noundef %1, float noundef %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7) local_unnamed_addr #10 {
   %9 = tail call ptr @stbtt_GetGlyphBitmapSubpixel(ptr noundef %0, float noundef %1, float noundef %2, float noundef 0.000000e+00, float noundef 0.000000e+00, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   ret ptr %9
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbtt_MakeGlyphBitmapSubpixel(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, i32 noundef %9) local_unnamed_addr #11 {
+define void @stbtt_MakeGlyphBitmapSubpixel(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, i32 noundef %9) local_unnamed_addr #10 {
   %11 = alloca i32, align 4
   %12 = alloca ptr, align 8
   %13 = alloca i32, align 4
@@ -13974,7 +13968,7 @@ define void @stbtt_MakeGlyphBitmapSubpixel(ptr noundef readonly captures(none) %
   %18 = alloca %struct.stbtt__csctx, align 8
   %19 = alloca ptr, align 8
   %20 = alloca %struct.stbtt__bitmap, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %22 = load i32, ptr %21, align 4, !tbaa !39
   %.not.i = icmp eq i32 %22, 0
@@ -13985,10 +13979,10 @@ define void @stbtt_MakeGlyphBitmapSubpixel(ptr noundef readonly captures(none) %
   br label %stbtt_GetGlyphShape.exit
 
 25:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %17) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %17, i8 0, i64 56, i1 false)
   store i32 1, ptr %17, align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %18) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %18, i8 0, i64 56, i1 false)
   %26 = call i32 @stbtt__run_charstring(ptr noundef nonnull readonly %0, i32 noundef %9, ptr noundef nonnull %17)
   %.not.i.i = icmp eq i32 %26, 0
@@ -13999,7 +13993,7 @@ define void @stbtt_MakeGlyphBitmapSubpixel(ptr noundef readonly captures(none) %
   %29 = load i32, ptr %28, align 8, !tbaa !40
   %30 = sext i32 %29 to i64
   %31 = mul nsw i64 %30, 14
-  %32 = call noalias ptr @malloc(i64 noundef %31) #34
+  %32 = call noalias ptr @malloc(i64 noundef %31) #33
   store ptr %32, ptr %19, align 8, !tbaa !43
   %33 = getelementptr inbounds nuw i8, ptr %18, i64 40
   store ptr %32, ptr %33, align 8, !tbaa !44
@@ -14018,18 +14012,18 @@ define void @stbtt_MakeGlyphBitmapSubpixel(ptr noundef readonly captures(none) %
 
 stbtt__GetGlyphShapeT2.exit.i:                    ; preds = %38, %35
   %.0.i.i = phi i32 [ %37, %35 ], [ 0, %38 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %18) #33
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %17) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %stbtt_GetGlyphShape.exit
 
 stbtt_GetGlyphShape.exit:                         ; preds = %23, %stbtt__GetGlyphShapeT2.exit.i
   %.0.i = phi i32 [ %.0.i.i, %stbtt__GetGlyphShapeT2.exit.i ], [ %24, %23 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %20) #33
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 0, ptr %13, align 4, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #33
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #33
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %39 = call i32 @stbtt_GetGlyphBox(ptr noundef nonnull readonly %0, i32 noundef %9, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16)
   %.not.i19 = icmp eq i32 %39, 0
   br i1 %.not.i19, label %stbtt_GetGlyphBitmapBoxSubpixel.exit, label %40
@@ -14051,10 +14045,10 @@ stbtt_GetGlyphShape.exit:                         ; preds = %23, %stbtt__GetGlyp
 stbtt_GetGlyphBitmapBoxSubpixel.exit:             ; preds = %stbtt_GetGlyphShape.exit, %40
   %.022 = phi i32 [ %45, %40 ], [ 0, %stbtt_GetGlyphShape.exit ]
   %.0 = phi i32 [ %51, %40 ], [ 0, %stbtt_GetGlyphShape.exit ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #33
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #33
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #33
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %52 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store ptr %1, ptr %52, align 8, !tbaa !126
   store i32 %2, ptr %20, align 8, !tbaa !121
@@ -14071,9 +14065,9 @@ stbtt_GetGlyphBitmapBoxSubpixel.exit:             ; preds = %stbtt_GetGlyphShape
 57:                                               ; preds = %stbtt_GetGlyphBitmapBoxSubpixel.exit
   %58 = fcmp ogt float %5, %6
   %59 = select i1 %58, float %6, float %5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 0, ptr %11, align 4, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr null, ptr %12, align 8, !tbaa !144
   %60 = fdiv float 0x3FD6666660000000, %59
   %61 = call ptr @stbtt_FlattenCurves(ptr noundef readonly %.pre, i32 noundef %.0.i, float noundef %60, ptr noundef nonnull %12, ptr noundef nonnull %11, ptr readnone poison)
@@ -14084,37 +14078,37 @@ stbtt_GetGlyphBitmapBoxSubpixel.exit:             ; preds = %stbtt_GetGlyphShape
   %63 = load ptr, ptr %12, align 8, !tbaa !144
   %64 = load i32, ptr %11, align 4, !tbaa !17
   call void @stbtt__rasterize(ptr noundef nonnull readonly %20, ptr noundef nonnull %61, ptr noundef %63, i32 noundef %64, float noundef %5, float noundef %6, float noundef %7, float noundef %8, i32 noundef %.022, i32 noundef %.0, i32 noundef 1, ptr readnone poison)
-  call void @free(ptr noundef %63) #33
-  call void @free(ptr noundef nonnull %61) #33
+  call void @free(ptr noundef %63) #34
+  call void @free(ptr noundef nonnull %61) #34
   br label %stbtt_Rasterize.exit
 
 stbtt_Rasterize.exit:                             ; preds = %57, %62
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #33
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %65
 
 65:                                               ; preds = %stbtt_Rasterize.exit, %stbtt_GetGlyphBitmapBoxSubpixel.exit
-  call void @free(ptr noundef %.pre) #33
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %20) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #33
+  call void @free(ptr noundef %.pre) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbtt_MakeGlyphBitmap(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, float noundef %5, float noundef %6, i32 noundef %7) local_unnamed_addr #11 {
+define void @stbtt_MakeGlyphBitmap(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, float noundef %5, float noundef %6, i32 noundef %7) local_unnamed_addr #10 {
   tail call void @stbtt_MakeGlyphBitmapSubpixel(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, float noundef %5, float noundef %6, float noundef 0.000000e+00, float noundef 0.000000e+00, i32 noundef %7)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @stbtt_GetCodepointBitmapSubpixel(ptr noundef readonly captures(none) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, i32 noundef %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7, ptr noundef writeonly captures(address_is_null) %8, ptr noundef writeonly captures(address_is_null) %9) local_unnamed_addr #11 {
+define noundef ptr @stbtt_GetCodepointBitmapSubpixel(ptr noundef readonly captures(none) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, i32 noundef %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7, ptr noundef writeonly captures(address_is_null) %8, ptr noundef writeonly captures(address_is_null) %9) local_unnamed_addr #10 {
   %11 = tail call i32 @stbtt_FindGlyphIndex(ptr noundef %0, i32 noundef %5)
   %12 = tail call ptr @stbtt_GetGlyphBitmapSubpixel(ptr noundef %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, i32 noundef %11, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9)
   ret ptr %12
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbtt_MakeCodepointBitmapSubpixelPrefilter(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, i32 noundef %9, i32 noundef %10, ptr noundef writeonly captures(none) initializes((0, 4)) %11, ptr noundef writeonly captures(none) initializes((0, 4)) %12, i32 noundef %13) local_unnamed_addr #11 {
+define void @stbtt_MakeCodepointBitmapSubpixelPrefilter(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, i32 noundef %9, i32 noundef %10, ptr noundef writeonly captures(none) initializes((0, 4)) %11, ptr noundef writeonly captures(none) initializes((0, 4)) %12, i32 noundef %13) local_unnamed_addr #10 {
   %15 = tail call i32 @stbtt_FindGlyphIndex(ptr noundef %0, i32 noundef %13)
   %.neg31.i = add i32 %2, 1
   %16 = sub i32 %.neg31.i, %9
@@ -14169,7 +14163,7 @@ stbtt_MakeGlyphBitmapSubpixelPrefilter.exit:      ; preds = %stbtt__oversample_s
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbtt_MakeGlyphBitmapSubpixelPrefilter(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, i32 noundef %9, i32 noundef %10, ptr noundef writeonly captures(none) initializes((0, 4)) %11, ptr noundef writeonly captures(none) initializes((0, 4)) %12, i32 noundef %13) local_unnamed_addr #11 {
+define void @stbtt_MakeGlyphBitmapSubpixelPrefilter(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, i32 noundef %9, i32 noundef %10, ptr noundef writeonly captures(none) initializes((0, 4)) %11, ptr noundef writeonly captures(none) initializes((0, 4)) %12, i32 noundef %13) local_unnamed_addr #10 {
   %.neg31 = add i32 %2, 1
   %15 = sub i32 %.neg31, %9
   %.neg33 = add i32 %3, 1
@@ -14223,34 +14217,34 @@ stbtt__oversample_shift.exit30:                   ; preds = %stbtt__oversample_s
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbtt_MakeCodepointBitmapSubpixel(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, i32 noundef %9) local_unnamed_addr #11 {
+define void @stbtt_MakeCodepointBitmapSubpixel(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, i32 noundef %9) local_unnamed_addr #10 {
   %11 = tail call i32 @stbtt_FindGlyphIndex(ptr noundef %0, i32 noundef %9)
   tail call void @stbtt_MakeGlyphBitmapSubpixel(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, i32 noundef %11)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @stbtt_GetCodepointBitmap(ptr noundef readonly captures(none) %0, float noundef %1, float noundef %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7) local_unnamed_addr #11 {
+define noundef ptr @stbtt_GetCodepointBitmap(ptr noundef readonly captures(none) %0, float noundef %1, float noundef %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7) local_unnamed_addr #10 {
   %9 = tail call i32 @stbtt_FindGlyphIndex(ptr noundef readonly %0, i32 noundef %3)
   %10 = tail call noundef ptr @stbtt_GetGlyphBitmapSubpixel(ptr noundef readonly %0, float noundef %1, float noundef %2, float noundef 0.000000e+00, float noundef 0.000000e+00, i32 noundef %9, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   ret ptr %10
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbtt_MakeCodepointBitmap(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, float noundef %5, float noundef %6, i32 noundef %7) local_unnamed_addr #11 {
+define void @stbtt_MakeCodepointBitmap(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, float noundef %5, float noundef %6, i32 noundef %7) local_unnamed_addr #10 {
   %9 = tail call i32 @stbtt_FindGlyphIndex(ptr noundef readonly %0, i32 noundef %7)
   tail call void @stbtt_MakeGlyphBitmapSubpixel(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, float noundef %5, float noundef %6, float noundef 0.000000e+00, float noundef 0.000000e+00, i32 noundef %9)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483647, -2147483648) i32 @stbtt_BakeFontBitmap_internal(ptr noundef %0, i32 noundef %1, float noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef writeonly captures(none) %8) local_unnamed_addr #11 {
+define range(i32 -2147483647, -2147483648) i32 @stbtt_BakeFontBitmap_internal(ptr noundef %0, i32 noundef %1, float noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef writeonly captures(none) %8) local_unnamed_addr #10 {
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4
   %14 = alloca %struct.stbtt_fontinfo, align 8
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %14) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr null, ptr %14, align 8, !tbaa !148
   %15 = call range(i32 0, 2) i32 @stbtt_InitFont_internal(ptr noundef nonnull %14, ptr noundef %0, i32 noundef %1)
   %.not = icmp eq i32 %15, 0
@@ -14332,12 +14326,12 @@ stbtt_GetGlyphHMetrics.exit:                      ; preds = %.lr.ph, %107
   %.sink105 = load i8, ptr %.sink105.in, align 1, !tbaa !12
   %72 = zext i8 %.sink105 to i16
   %73 = or disjoint i16 %.sink, %72
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 0, ptr %10, align 4, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 0, ptr %11, align 4, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #33
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %74 = call i32 @stbtt_GetGlyphBox(ptr noundef nonnull readonly %14, i32 noundef %55, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13)
   %.not.i.i = icmp eq i32 %74, 0
   br i1 %.not.i.i, label %stbtt_GetGlyphBitmapBox.exit, label %75
@@ -14372,10 +14366,10 @@ stbtt_GetGlyphBitmapBox.exit:                     ; preds = %stbtt_GetGlyphHMetr
   %.087 = phi i32 [ %86, %75 ], [ 0, %stbtt_GetGlyphHMetrics.exit ]
   %.086 = phi i32 [ %91, %75 ], [ 0, %stbtt_GetGlyphHMetrics.exit ]
   %.sink.i.i = phi i32 [ %97, %75 ], [ 0, %stbtt_GetGlyphHMetrics.exit ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #33
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #33
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #33
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %98 = sub nsw i32 %.086, %.088
   %99 = sub nsw i32 %.sink.i.i, %.087
   %100 = add i32 %.063100, 1
@@ -14431,7 +14425,7 @@ stbtt_GetGlyphBitmapBox.exit:                     ; preds = %stbtt_GetGlyphHMetr
 
 .loopexit:                                        ; preds = %107, %16, %104, %9
   %.0 = phi i32 [ %106, %104 ], [ -1, %9 ], [ 1, %16 ], [ %spec.select78, %107 ]
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %14) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   ret i32 %.0
 }
 
@@ -14520,7 +14514,7 @@ define void @stbtt_GetBakedQuad(ptr noundef readonly captures(none) %0, i32 noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @stbrp_init_target(ptr noundef writeonly captures(none) initializes((0, 20)) %0, i32 noundef %1, i32 noundef %2, ptr noundef readnone captures(none) %3, i32 noundef %4) local_unnamed_addr #12 {
+define void @stbrp_init_target(ptr noundef writeonly captures(none) initializes((0, 20)) %0, i32 noundef %1, i32 noundef %2, ptr noundef readnone captures(none) %3, i32 noundef %4) local_unnamed_addr #11 {
   store i32 %1, ptr %0, align 4, !tbaa !167
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %2, ptr %6, align 4, !tbaa !169
@@ -14534,7 +14528,7 @@ define void @stbrp_init_target(ptr noundef writeonly captures(none) initializes(
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @stbrp_pack_rects(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #22 {
+define void @stbrp_pack_rects(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #21 {
   %4 = icmp sgt i32 %2, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
 
@@ -14624,11 +14618,11 @@ define void @stbrp_pack_rects(ptr noundef captures(none) %0, ptr noundef capture
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(readwrite, argmem: write) uwtable
-define range(i32 0, 2) i32 @stbtt_PackBegin(ptr noundef writeonly captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #24 {
-  %8 = tail call noalias dereferenceable_or_null(20) ptr @malloc(i64 noundef 20) #34
+define range(i32 0, 2) i32 @stbtt_PackBegin(ptr noundef writeonly captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #23 {
+  %8 = tail call noalias dereferenceable_or_null(20) ptr @malloc(i64 noundef 20) #33
   %9 = sub nsw i32 %2, %5
   %10 = sext i32 %9 to i64
-  %11 = tail call noalias ptr @malloc(i64 noundef %10) #34
+  %11 = tail call noalias ptr @malloc(i64 noundef %10) #33
   %12 = icmp eq ptr %8, null
   %13 = icmp eq ptr %11, null
   %or.cond = or i1 %12, %13
@@ -14638,14 +14632,14 @@ define range(i32 0, 2) i32 @stbtt_PackBegin(ptr noundef writeonly captures(none)
   br i1 %12, label %16, label %15
 
 15:                                               ; preds = %14
-  tail call void @free(ptr noundef nonnull %8) #33
+  tail call void @free(ptr noundef nonnull %8) #34
   br label %16
 
 16:                                               ; preds = %15, %14
   br i1 %13, label %38, label %17
 
 17:                                               ; preds = %16
-  tail call void @free(ptr noundef nonnull %11) #33
+  tail call void @free(ptr noundef nonnull %11) #34
   br label %38
 
 18:                                               ; preds = %7
@@ -14697,18 +14691,18 @@ define range(i32 0, 2) i32 @stbtt_PackBegin(ptr noundef writeonly captures(none)
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @stbtt_PackEnd(ptr noundef readonly captures(none) %0) local_unnamed_addr #25 {
+define void @stbtt_PackEnd(ptr noundef readonly captures(none) %0) local_unnamed_addr #24 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8, !tbaa !187
-  tail call void @free(ptr noundef %3) #33
+  tail call void @free(ptr noundef %3) #34
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !186
-  tail call void @free(ptr noundef %5) #33
+  tail call void @free(ptr noundef %5) #34
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @stbtt_PackSetOversampling(ptr noundef writeonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #12 {
+define void @stbtt_PackSetOversampling(ptr noundef writeonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #11 {
   %4 = icmp ult i32 %1, 9
   br i1 %4, label %5, label %7
 
@@ -14731,16 +14725,16 @@ define void @stbtt_PackSetOversampling(ptr noundef writeonly captures(none) %0, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @stbtt_PackSetSkipMissingCodepoints(ptr noundef writeonly captures(none) initializes((32, 36)) %0, i32 noundef %1) local_unnamed_addr #12 {
+define void @stbtt_PackSetSkipMissingCodepoints(ptr noundef writeonly captures(none) initializes((32, 36)) %0, i32 noundef %1) local_unnamed_addr #11 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %1, ptr %3, align 8, !tbaa !192
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @stbtt__h_prefilter(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #22 {
+define void @stbtt__h_prefilter(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #21 {
   %6 = alloca [8 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 0, ptr %6, align 8
   %7 = icmp sgt i32 %2, 0
   br i1 %7, label %.lr.ph148, label %._crit_edge149
@@ -14936,14 +14930,14 @@ define void @stbtt__h_prefilter(ptr noundef captures(none) %0, i32 noundef %1, i
   br i1 %exitcond187.not, label %._crit_edge149, label %13, !llvm.loop !199
 
 ._crit_edge149:                                   ; preds = %._crit_edge, %5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @stbtt__v_prefilter(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #22 {
+define void @stbtt__v_prefilter(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #21 {
   %6 = alloca [8 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 0, ptr %6, align 8
   %7 = icmp sgt i32 %1, 0
   br i1 %7, label %.lr.ph163, label %._crit_edge164
@@ -15145,12 +15139,12 @@ define void @stbtt__v_prefilter(ptr noundef captures(none) %0, i32 noundef %1, i
   br i1 %exitcond204.not, label %._crit_edge164, label %13, !llvm.loop !206
 
 ._crit_edge164:                                   ; preds = %._crit_edge, %5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define float @stbtt__oversample_shift(i32 noundef %0) local_unnamed_addr #5 {
+define float @stbtt__oversample_shift(i32 noundef %0) local_unnamed_addr #4 {
   %.not = icmp eq i32 %0, 0
   br i1 %.not, label %8, label %2
 
@@ -15168,7 +15162,7 @@ define float @stbtt__oversample_shift(i32 noundef %0) local_unnamed_addr #5 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @stbtt_PackFontRangesGatherRects(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, i32 noundef %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #13 {
+define i32 @stbtt_PackFontRangesGatherRects(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, i32 noundef %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #12 {
   %6 = alloca %struct.stbtt__csctx, align 8
   %7 = icmp sgt i32 %3, 0
   br i1 %7, label %.lr.ph99, label %._crit_edge100
@@ -15328,7 +15322,7 @@ define i32 @stbtt_PackFontRangesGatherRects(ptr noundef readonly captures(none) 
   br i1 %.not.i61, label %127, label %117
 
 117:                                              ; preds = %111
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %6, i8 0, i64 56, i1 false)
   store i32 1, ptr %6, align 8
   %118 = call i32 @stbtt__run_charstring(ptr noundef nonnull readonly %1, i32 noundef %101, ptr noundef nonnull %6)
@@ -15341,7 +15335,7 @@ define i32 @stbtt_PackFontRangesGatherRects(ptr noundef readonly captures(none) 
   %124 = select i1 %.not17.i.i, i32 0, i32 %123
   %125 = load i32, ptr %18, align 4
   %126 = select i1 %.not17.i.i, i32 0, i32 %125
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.pre.pre = load i32, ptr %11, align 4, !tbaa !190
   %.pre110.pre = load i32, ptr %12, align 8, !tbaa !191
   %.pre111.pre.pre = load i32, ptr %78, align 8, !tbaa !211
@@ -15570,7 +15564,7 @@ stbtt_GetGlyphBitmapBoxSubpixel.exit:             ; preds = %199, %129, %127, %s
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @stbtt_PackFontRangesRenderIntoRects(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef captures(none) %4) local_unnamed_addr #11 {
+define range(i32 0, 2) i32 @stbtt_PackFontRangesRenderIntoRects(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef captures(none) %4) local_unnamed_addr #10 {
   %6 = alloca %struct.stbtt__csctx, align 8
   %7 = alloca [8 x i8], align 8
   %8 = alloca [8 x i8], align 8
@@ -15794,7 +15788,7 @@ stbtt_GetGlyphHMetrics.exit:                      ; preds = %120, %116
   br i1 %.not.i173, label %173, label %167
 
 167:                                              ; preds = %stbtt_GetGlyphHMetrics.exit
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %6, i8 0, i64 56, i1 false)
   store i32 1, ptr %6, align 8
   %168 = call i32 @stbtt__run_charstring(ptr noundef nonnull readonly %1, i32 noundef %124, ptr noundef nonnull %6)
@@ -15803,7 +15797,7 @@ stbtt_GetGlyphHMetrics.exit:                      ; preds = %120, %116
   %170 = select i1 %.not17.i.i, i32 0, i32 %169
   %171 = load i32, ptr %21, align 4
   %172 = select i1 %.not17.i.i, i32 0, i32 %171
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.pre.pre = load i32, ptr %102, align 4, !tbaa !176
   %.pre270.pre = load i32, ptr %128, align 4, !tbaa !177
   %.pre271.pre = load i32, ptr %106, align 4, !tbaa !173
@@ -15986,7 +15980,7 @@ stbtt_GetGlyphBitmapBox.exit:                     ; preds = %244, %175, %173, %s
 296:                                              ; preds = %stbtt_GetGlyphBitmapBox.exit
   %297 = load ptr, ptr %26, align 8, !tbaa !185
   %298 = load i32, ptr %27, align 8, !tbaa !189
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 0, ptr %8, align 8
   %299 = icmp sgt i32 %.pre282.pre295, 0
   br i1 %299, label %.lr.ph148.i, label %stbtt__h_prefilter.exit
@@ -16192,7 +16186,7 @@ stbtt__h_prefilter.exit:                          ; preds = %stbtt__h_prefilter.
   %.pre280.pre = phi i32 [ %.pre280.pre.pre, %stbtt__h_prefilter.exit.loopexit ], [ %.pre280.pre293, %296 ]
   %.pre278.pre = phi i32 [ %.pre278.pre.pre, %stbtt__h_prefilter.exit.loopexit ], [ %.pre278.pre291, %296 ]
   %.pre276.pre = phi i32 [ %.pre276.pre.pre, %stbtt__h_prefilter.exit.loopexit ], [ %.pre276.pre289, %296 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %395
 
 395:                                              ; preds = %stbtt__h_prefilter.exit, %stbtt_GetGlyphBitmapBox.exit
@@ -16207,7 +16201,7 @@ stbtt__h_prefilter.exit:                          ; preds = %stbtt__h_prefilter.
 398:                                              ; preds = %395
   %399 = load ptr, ptr %26, align 8, !tbaa !185
   %400 = load i32, ptr %27, align 8, !tbaa !189
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 0, ptr %7, align 8
   %401 = icmp sgt i32 %.pre280, 0
   br i1 %401, label %.lr.ph163.i, label %stbtt__v_prefilter.exit
@@ -16419,7 +16413,7 @@ stbtt__v_prefilter.exit:                          ; preds = %stbtt__v_prefilter.
   %.pre279 = phi i32 [ %.pre279.pre, %stbtt__v_prefilter.exit.loopexit ], [ %.pre280, %398 ]
   %.pre277 = phi i32 [ %.pre277.pre, %stbtt__v_prefilter.exit.loopexit ], [ %.pre278, %398 ]
   %.pre275 = phi i32 [ %.pre275.pre, %stbtt__v_prefilter.exit.loopexit ], [ %.pre276, %398 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %501
 
 501:                                              ; preds = %stbtt__v_prefilter.exit, %395
@@ -16518,7 +16512,7 @@ stbtt__v_prefilter.exit:                          ; preds = %stbtt__v_prefilter.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @stbtt_PackFontRangesPackRects(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #13 {
+define void @stbtt_PackFontRangesPackRects(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #12 {
   %4 = icmp sgt i32 %2, 0
   br i1 %4, label %.lr.ph.i, label %._crit_edge.i
 
@@ -16610,9 +16604,9 @@ stbrp_pack_rects.exit:                            ; preds = %37, %.lr.ph44.i, %.
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @stbtt_PackFontRanges(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(none) %3, i32 noundef %4) local_unnamed_addr #11 {
+define range(i32 0, 2) i32 @stbtt_PackFontRanges(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(none) %3, i32 noundef %4) local_unnamed_addr #10 {
   %6 = alloca %struct.stbtt_fontinfo, align 8
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %6) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = icmp sgt i32 %4, 0
   br i1 %7, label %.preheader50.preheader, label %._crit_edge57
 
@@ -16668,7 +16662,7 @@ define range(i32 0, 2) i32 @stbtt_PackFontRanges(ptr noundef captures(none) %0, 
 
 ._crit_edge57:                                    ; preds = %5, %._crit_edge57.loopexit
   %.044.lcssa = phi i64 [ %20, %._crit_edge57.loopexit ], [ 0, %5 ]
-  %21 = tail call noalias ptr @malloc(i64 noundef %.044.lcssa) #34
+  %21 = tail call noalias ptr @malloc(i64 noundef %.044.lcssa) #33
   %22 = icmp eq ptr %21, null
   br i1 %22, label %67, label %23
 
@@ -16766,25 +16760,25 @@ define range(i32 0, 2) i32 @stbtt_PackFontRanges(ptr noundef captures(none) %0, 
 
 stbtt_PackFontRangesPackRects.exit:               ; preds = %61, %.lr.ph44.i.i, %._crit_edge.i.i
   %66 = call i32 @stbtt_PackFontRangesRenderIntoRects(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef %3, i32 noundef %4, ptr noundef nonnull %21)
-  tail call void @free(ptr noundef nonnull %21) #33
+  tail call void @free(ptr noundef nonnull %21) #34
   br label %67
 
 67:                                               ; preds = %._crit_edge57, %stbtt_PackFontRangesPackRects.exit
   %.0 = phi i32 [ %66, %stbtt_PackFontRangesPackRects.exit ], [ 0, %._crit_edge57 ]
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %6) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @stbtt_GetFontOffsetForIndex(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #6 {
+define i32 @stbtt_GetFontOffsetForIndex(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = tail call i32 @stbtt_GetFontOffsetForIndex_internal(ptr noundef %0, i32 noundef %1)
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @stbtt_PackFontRange(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, float noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #11 {
+define range(i32 0, 2) i32 @stbtt_PackFontRange(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, float noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #10 {
   %8 = alloca %struct.stbtt_pack_range, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 %4, ptr %9, align 4, !tbaa !213
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -16795,14 +16789,14 @@ define range(i32 0, 2) i32 @stbtt_PackFontRange(ptr noundef captures(none) %0, p
   store ptr %6, ptr %12, align 8, !tbaa !216
   store float %3, ptr %8, align 8, !tbaa !207
   %13 = call i32 @stbtt_PackFontRanges(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %8, i32 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %13
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @stbtt_GetScaledFontVMetrics(ptr noundef %0, i32 noundef %1, float noundef %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3, ptr noundef writeonly captures(none) initializes((0, 4)) %4, ptr noundef writeonly captures(none) initializes((0, 4)) %5) local_unnamed_addr #3 {
   %7 = alloca %struct.stbtt_fontinfo, align 8
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %7) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = tail call i32 @stbtt_GetFontOffsetForIndex_internal(ptr noundef readonly %0, i32 noundef %1)
   %9 = call range(i32 0, 2) i32 @stbtt_InitFont_internal(ptr noundef nonnull %7, ptr noundef %0, i32 noundef %8)
   %10 = fcmp ogt float %2, 0.000000e+00
@@ -16902,7 +16896,7 @@ define void @stbtt_GetScaledFontVMetrics(ptr noundef %0, i32 noundef %1, float n
   %73 = sitofp i16 %68 to float
   %74 = fmul float %59, %73
   store float %74, ptr %5, align 4, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %7) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
@@ -17005,7 +16999,7 @@ define void @stbtt_GetPackedQuad(ptr noundef readonly captures(none) %0, i32 nou
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, errnomem: write) uwtable
-define range(i32 0, 3) i32 @stbtt__ray_intersect_bezier(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #26 {
+define range(i32 0, 3) i32 @stbtt__ray_intersect_bezier(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #25 {
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %8 = load float, ptr %7, align 4, !tbaa !71
   %9 = load float, ptr %1, align 4, !tbaa !71
@@ -17046,7 +17040,7 @@ define range(i32 0, 3) i32 @stbtt__ray_intersect_bezier(ptr noundef readonly cap
 
 41:                                               ; preds = %36
   %42 = fdiv float -1.000000e+00, %32
-  %sqrtf = tail call float @sqrtf(float noundef %39) #15
+  %sqrtf = tail call float @sqrtf(float noundef %39) #14
   %43 = fadd float %33, %sqrtf
   %44 = fmul float %42, %43
   %45 = fsub float %33, %sqrtf
@@ -17136,7 +17130,7 @@ define range(i32 0, 3) i32 @stbtt__ray_intersect_bezier(ptr noundef readonly cap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @equal(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @equal(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #5 {
   %3 = load float, ptr %0, align 4, !tbaa !71
   %4 = load float, ptr %1, align 4, !tbaa !71
   %5 = fcmp oeq float %3, %4
@@ -17157,18 +17151,18 @@ define range(i32 0, 2) i32 @equal(ptr noundef readonly captures(none) %0, ptr no
 }
 
 ; Function Attrs: nofree nounwind memory(argmem: read, errnomem: write) uwtable
-define i32 @stbtt__compute_crossings_x(float noundef %0, float noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #27 {
+define i32 @stbtt__compute_crossings_x(float noundef %0, float noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #26 {
   %5 = alloca [2 x float], align 4
   %6 = alloca [2 x float], align 8
   %7 = alloca [2 x float], align 4
   %8 = alloca [2 x float], align 4
   %9 = alloca [2 x float], align 4
   %10 = alloca [2 x [2 x float]], align 16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 1065353216, ptr %6, align 8
   %11 = fpext float %1 to double
-  %12 = tail call double @fmod(double noundef %11, double noundef 1.000000e+00) #33, !tbaa !17
+  %12 = tail call double @fmod(double noundef %11, double noundef 1.000000e+00) #34, !tbaa !17
   %13 = fcmp olt double %12, 0x3F847AE130000000
   br i1 %13, label %14, label %16
 
@@ -17289,10 +17283,10 @@ define i32 @stbtt__compute_crossings_x(float noundef %0, float noundef %1, i32 n
   br i1 %or.cond164, label %94, label %.thread
 
 94:                                               ; preds = %70
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #33
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %95 = sitofp i16 %72 to float
   store float %95, ptr %7, align 4, !tbaa !71
   %96 = sitofp i16 %74 to float
@@ -17376,10 +17370,10 @@ equal.exit165.thread:                             ; preds = %equal.exit.thread
 
 147:                                              ; preds = %105, %113, %117, %121, %equal.exit165.thread
   %.6 = phi i32 [ %.5, %121 ], [ %.0150171, %117 ], [ %.0150171, %113 ], [ %.0150171, %105 ], [ %.8, %equal.exit165.thread ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread
 
 .thread:                                          ; preds = %29, %57, %53, %49, %33, %70, %147
@@ -17390,30 +17384,30 @@ equal.exit165.thread:                             ; preds = %equal.exit.thread
 
 ._crit_edge:                                      ; preds = %.thread, %20
   %.0150.lcssa = phi i32 [ 0, %20 ], [ %.9, %.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0150.lcssa
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @fmod(double noundef, double noundef) local_unnamed_addr #15
+declare double @fmod(double noundef, double noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(errnomem: write) uwtable
-define float @stbtt__cuberoot(float noundef %0) local_unnamed_addr #28 {
+define float @stbtt__cuberoot(float noundef %0) local_unnamed_addr #27 {
   %2 = fcmp olt float %0, 0.000000e+00
   br i1 %2, label %3, label %9
 
 3:                                                ; preds = %1
   %4 = fneg float %0
   %5 = fpext float %4 to double
-  %6 = tail call double @pow(double noundef %5, double noundef 0x3FD5555560000000) #33, !tbaa !17
+  %6 = tail call double @pow(double noundef %5, double noundef 0x3FD5555560000000) #34, !tbaa !17
   %7 = fptrunc double %6 to float
   %8 = fneg float %7
   br label %13
 
 9:                                                ; preds = %1
   %10 = fpext float %0 to double
-  %11 = tail call double @pow(double noundef %10, double noundef 0x3FD5555560000000) #33, !tbaa !17
+  %11 = tail call double @pow(double noundef %10, double noundef 0x3FD5555560000000) #34, !tbaa !17
   %12 = fptrunc double %11 to float
   br label %13
 
@@ -17423,10 +17417,10 @@ define float @stbtt__cuberoot(float noundef %0) local_unnamed_addr #28 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @pow(double noundef, double noundef) local_unnamed_addr #15
+declare double @pow(double noundef, double noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write, errnomem: write) uwtable
-define range(i32 1, 4) i32 @stbtt__solve_cubic(float noundef %0, float noundef %1, float noundef %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3) local_unnamed_addr #29 {
+define range(i32 1, 4) i32 @stbtt__solve_cubic(float noundef %0, float noundef %1, float noundef %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3) local_unnamed_addr #28 {
   %5 = fdiv float %0, -3.000000e+00
   %6 = fmul float %0, %0
   %7 = fdiv float %6, 3.000000e+00
@@ -17446,7 +17440,7 @@ define range(i32 1, 4) i32 @stbtt__solve_cubic(float noundef %0, float noundef %
   br i1 %20, label %51, label %21
 
 21:                                               ; preds = %4
-  %sqrtf47 = tail call float @sqrtf(float noundef %19) #15
+  %sqrtf47 = tail call float @sqrtf(float noundef %19) #14
   %22 = fneg float %14
   %23 = fsub float %sqrtf47, %14
   %24 = fmul float %23, 5.000000e-01
@@ -17458,14 +17452,14 @@ define range(i32 1, 4) i32 @stbtt__solve_cubic(float noundef %0, float noundef %
 28:                                               ; preds = %21
   %29 = fneg float %24
   %30 = fpext float %29 to double
-  %31 = tail call double @pow(double noundef %30, double noundef 0x3FD5555560000000) #33, !tbaa !17
+  %31 = tail call double @pow(double noundef %30, double noundef 0x3FD5555560000000) #34, !tbaa !17
   %32 = fptrunc double %31 to float
   %33 = fneg float %32
   br label %stbtt__cuberoot.exit
 
 34:                                               ; preds = %21
   %35 = fpext float %24 to double
-  %36 = tail call double @pow(double noundef %35, double noundef 0x3FD5555560000000) #33, !tbaa !17
+  %36 = tail call double @pow(double noundef %35, double noundef 0x3FD5555560000000) #34, !tbaa !17
   %37 = fptrunc double %36 to float
   br label %stbtt__cuberoot.exit
 
@@ -17477,14 +17471,14 @@ stbtt__cuberoot.exit:                             ; preds = %28, %34
 39:                                               ; preds = %stbtt__cuberoot.exit
   %40 = fneg float %26
   %41 = fpext float %40 to double
-  %42 = tail call double @pow(double noundef %41, double noundef 0x3FD5555560000000) #33, !tbaa !17
+  %42 = tail call double @pow(double noundef %41, double noundef 0x3FD5555560000000) #34, !tbaa !17
   %43 = fptrunc double %42 to float
   %44 = fneg float %43
   br label %stbtt__cuberoot.exit49
 
 45:                                               ; preds = %stbtt__cuberoot.exit
   %46 = fpext float %26 to double
-  %47 = tail call double @pow(double noundef %46, double noundef 0x3FD5555560000000) #33, !tbaa !17
+  %47 = tail call double @pow(double noundef %46, double noundef 0x3FD5555560000000) #34, !tbaa !17
   %48 = fptrunc double %47 to float
   br label %stbtt__cuberoot.exit49
 
@@ -17497,22 +17491,22 @@ stbtt__cuberoot.exit49:                           ; preds = %39, %45
 
 51:                                               ; preds = %4
   %52 = fdiv float %8, -3.000000e+00
-  %sqrtf = tail call float @sqrtf(float noundef %52) #15
+  %sqrtf = tail call float @sqrtf(float noundef %52) #14
   %53 = fdiv float -2.700000e+01, %16
   %54 = fpext float %53 to double
-  %55 = tail call double @sqrt(double noundef %54) #33, !tbaa !17
+  %55 = tail call double @sqrt(double noundef %54) #34, !tbaa !17
   %56 = fneg double %55
   %57 = fpext float %14 to double
   %58 = fmul double %57, %56
   %59 = fmul double %58, 5.000000e-01
-  %60 = tail call double @acos(double noundef %59) #33, !tbaa !17
+  %60 = tail call double @acos(double noundef %59) #34, !tbaa !17
   %61 = fptrunc double %60 to float
   %62 = fdiv float %61, 3.000000e+00
   %63 = fpext float %62 to double
-  %64 = tail call double @cos(double noundef %63) #33, !tbaa !17
+  %64 = tail call double @cos(double noundef %63) #34, !tbaa !17
   %65 = fptrunc double %64 to float
   %66 = fadd double %63, 0xBFF921FAFC8B007A
-  %67 = tail call double @cos(double noundef %66) #33, !tbaa !17
+  %67 = tail call double @cos(double noundef %66) #34, !tbaa !17
   %68 = fptrunc double %67 to float
   %69 = fmul float %68, 0x3FFBB67AE0000000
   %70 = fmul float %sqrtf, 2.000000e+00
@@ -17535,13 +17529,13 @@ stbtt__cuberoot.exit49:                           ; preds = %39, %45
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @acos(double noundef) local_unnamed_addr #15
+declare double @acos(double noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @cos(double noundef) local_unnamed_addr #15
+declare double @cos(double noundef) local_unnamed_addr #14
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @stbtt_GetGlyphSDF(ptr noundef readonly captures(none) %0, float noundef %1, i32 noundef %2, i32 noundef %3, i8 noundef zeroext %4, float noundef %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7, ptr noundef writeonly captures(address_is_null) %8, ptr noundef writeonly captures(address_is_null) %9) local_unnamed_addr #11 {
+define noalias noundef ptr @stbtt_GetGlyphSDF(ptr noundef readonly captures(none) %0, float noundef %1, i32 noundef %2, i32 noundef %3, i8 noundef zeroext %4, float noundef %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7, ptr noundef writeonly captures(address_is_null) %8, ptr noundef writeonly captures(address_is_null) %9) local_unnamed_addr #10 {
   %11 = alloca %struct.stbtt__csctx, align 8
   %12 = alloca %struct.stbtt__csctx, align 8
   %13 = alloca i32, align 4
@@ -17553,21 +17547,21 @@ define noalias noundef ptr @stbtt_GetGlyphSDF(ptr noundef readonly captures(none
   br i1 %18, label %487, label %19
 
 19:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 0, ptr %13, align 4, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i32 0, ptr %14, align 4, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #33
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %20 = call i32 @stbtt_GetGlyphBox(ptr noundef readonly %0, i32 noundef %2, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16)
   %.not.i = icmp eq i32 %20, 0
   br i1 %.not.i, label %stbtt_GetGlyphBitmapBoxSubpixel.exit.thread, label %stbtt_GetGlyphBitmapBoxSubpixel.exit
 
 stbtt_GetGlyphBitmapBoxSubpixel.exit.thread:      ; preds = %19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #33
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #33
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #33
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %487
 
 stbtt_GetGlyphBitmapBoxSubpixel.exit:             ; preds = %19
@@ -17593,10 +17587,10 @@ stbtt_GetGlyphBitmapBoxSubpixel.exit:             ; preds = %19
   %40 = call float @llvm.fmuladd.f32(float %39, float %1, float 0.000000e+00)
   %41 = call float @llvm.ceil.f32(float %40)
   %42 = fptosi float %41 to i32
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #33
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #33
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #33
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %43 = icmp eq i32 %25, %36
   %44 = icmp eq i32 %31, %42
   %or.cond508 = select i1 %43, i1 true, i1 %44
@@ -17642,7 +17636,7 @@ stbtt_GetGlyphBitmapBoxSubpixel.exit:             ; preds = %19
 
 59:                                               ; preds = %58, %57
   %60 = fneg float %1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %62 = load i32, ptr %61, align 4, !tbaa !39
   %.not.i482 = icmp eq i32 %62, 0
@@ -17654,10 +17648,10 @@ stbtt_GetGlyphBitmapBoxSubpixel.exit:             ; preds = %19
   br label %stbtt_GetGlyphShape.exit
 
 65:                                               ; preds = %59
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %11) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %11, i8 0, i64 56, i1 false)
   store i32 1, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %12) #33
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %12, i8 0, i64 56, i1 false)
   %66 = call i32 @stbtt__run_charstring(ptr noundef nonnull readonly %0, i32 noundef %2, ptr noundef nonnull %11)
   %.not.i.i = icmp eq i32 %66, 0
@@ -17668,7 +17662,7 @@ stbtt_GetGlyphBitmapBoxSubpixel.exit:             ; preds = %19
   %69 = load i32, ptr %68, align 8, !tbaa !40
   %70 = sext i32 %69 to i64
   %71 = mul nsw i64 %70, 14
-  %72 = call noalias ptr @malloc(i64 noundef %71) #34
+  %72 = call noalias ptr @malloc(i64 noundef %71) #33
   store ptr %72, ptr %17, align 8, !tbaa !43
   %73 = getelementptr inbounds nuw i8, ptr %12, i64 40
   store ptr %72, ptr %73, align 8, !tbaa !44
@@ -17688,8 +17682,8 @@ stbtt_GetGlyphBitmapBoxSubpixel.exit:             ; preds = %19
 stbtt__GetGlyphShapeT2.exit.i:                    ; preds = %78, %75
   %.pre.pre544 = phi ptr [ %72, %75 ], [ null, %78 ]
   %.0.i.i = phi i32 [ %77, %75 ], [ 0, %78 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %12) #33
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %11) #33
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %stbtt_GetGlyphShape.exit
 
 stbtt_GetGlyphShape.exit:                         ; preds = %63, %stbtt__GetGlyphShapeT2.exit.i
@@ -17698,10 +17692,10 @@ stbtt_GetGlyphShape.exit:                         ; preds = %63, %stbtt__GetGlyp
   %.0.i.fr = freeze i32 %.0.i
   %79 = mul nsw i32 %51, %50
   %80 = sext i32 %79 to i64
-  %81 = call noalias ptr @malloc(i64 noundef %80) #34
+  %81 = call noalias ptr @malloc(i64 noundef %80) #33
   %82 = sext i32 %.0.i.fr to i64
   %83 = shl nsw i64 %82, 2
-  %84 = call noalias ptr @malloc(i64 noundef %83) #34
+  %84 = call noalias ptr @malloc(i64 noundef %83) #33
   %85 = icmp sgt i32 %.0.i.fr, 0
   br i1 %85, label %.lr.ph, label %.preheader514
 
@@ -17907,7 +17901,7 @@ stbtt_GetGlyphShape.exit:                         ; preds = %63, %stbtt__GetGlyp
   br i1 %221, label %252, label %222
 
 222:                                              ; preds = %195
-  %sqrtf47.i.us.us = call float @sqrtf(float noundef %220) #15
+  %sqrtf47.i.us.us = call float @sqrtf(float noundef %220) #14
   %223 = fneg float %215
   %224 = fsub float %sqrtf47.i.us.us, %215
   %225 = fmul float %224, 5.000000e-01
@@ -17918,14 +17912,14 @@ stbtt_GetGlyphShape.exit:                         ; preds = %63, %stbtt__GetGlyp
 
 229:                                              ; preds = %222
   %230 = fpext float %225 to double
-  %231 = call double @pow(double noundef %230, double noundef 0x3FD5555560000000) #33, !tbaa !17
+  %231 = call double @pow(double noundef %230, double noundef 0x3FD5555560000000) #34, !tbaa !17
   %232 = fptrunc double %231 to float
   br label %stbtt__cuberoot.exit.i.us.us
 
 233:                                              ; preds = %222
   %234 = fneg float %225
   %235 = fpext float %234 to double
-  %236 = call double @pow(double noundef %235, double noundef 0x3FD5555560000000) #33, !tbaa !17
+  %236 = call double @pow(double noundef %235, double noundef 0x3FD5555560000000) #34, !tbaa !17
   %237 = fptrunc double %236 to float
   %238 = fneg float %237
   br label %stbtt__cuberoot.exit.i.us.us
@@ -17937,14 +17931,14 @@ stbtt__cuberoot.exit.i.us.us:                     ; preds = %233, %229
 
 240:                                              ; preds = %stbtt__cuberoot.exit.i.us.us
   %241 = fpext float %227 to double
-  %242 = call double @pow(double noundef %241, double noundef 0x3FD5555560000000) #33, !tbaa !17
+  %242 = call double @pow(double noundef %241, double noundef 0x3FD5555560000000) #34, !tbaa !17
   %243 = fptrunc double %242 to float
   br label %stbtt__cuberoot.exit49.i.us.us
 
 244:                                              ; preds = %stbtt__cuberoot.exit.i.us.us
   %245 = fneg float %227
   %246 = fpext float %245 to double
-  %247 = call double @pow(double noundef %246, double noundef 0x3FD5555560000000) #33, !tbaa !17
+  %247 = call double @pow(double noundef %246, double noundef 0x3FD5555560000000) #34, !tbaa !17
   %248 = fptrunc double %247 to float
   %249 = fneg float %248
   br label %stbtt__cuberoot.exit49.i.us.us
@@ -17957,22 +17951,22 @@ stbtt__cuberoot.exit49.i.us.us:                   ; preds = %244, %240
 
 252:                                              ; preds = %195
   %253 = fdiv float %209, -3.000000e+00
-  %sqrtf.i.us.us = call float @sqrtf(float noundef %253) #15
+  %sqrtf.i.us.us = call float @sqrtf(float noundef %253) #14
   %254 = fdiv float -2.700000e+01, %217
   %255 = fpext float %254 to double
-  %256 = call double @sqrt(double noundef %255) #33, !tbaa !17
+  %256 = call double @sqrt(double noundef %255) #34, !tbaa !17
   %257 = fneg double %256
   %258 = fpext float %215 to double
   %259 = fmul double %258, %257
   %260 = fmul double %259, 5.000000e-01
-  %261 = call double @acos(double noundef %260) #33, !tbaa !17
+  %261 = call double @acos(double noundef %260) #34, !tbaa !17
   %262 = fptrunc double %261 to float
   %263 = fdiv float %262, 3.000000e+00
   %264 = fpext float %263 to double
-  %265 = call double @cos(double noundef %264) #33, !tbaa !17
+  %265 = call double @cos(double noundef %264) #34, !tbaa !17
   %266 = fptrunc double %265 to float
   %267 = fadd double %264, 0xBFF921FAFC8B007A
-  %268 = call double @cos(double noundef %267) #33, !tbaa !17
+  %268 = call double @cos(double noundef %267) #34, !tbaa !17
   %269 = fptrunc double %268 to float
   %270 = fmul float %269, 0x3FFBB67AE0000000
   %271 = fmul float %sqrtf.i.us.us, 2.000000e+00
@@ -18005,7 +17999,7 @@ stbtt__cuberoot.exit49.i.us.us:                   ; preds = %244, %240
   br i1 %293, label %stbtt__solve_cubic.exit.us.us, label %294
 
 294:                                              ; preds = %288
-  %sqrtf.us.us = call float @sqrtf(float noundef %292) #15
+  %sqrtf.us.us = call float @sqrtf(float noundef %292) #14
   %295 = fneg float %283
   %296 = fsub float %295, %sqrtf.us.us
   %297 = fmul float %194, 2.000000e+00
@@ -18277,9 +18271,9 @@ stbtt__solve_cubic.exit.us.us:                    ; preds = %304, %301, %294, %2
   br i1 %exitcond.not, label %.preheader514, label %422, !llvm.loop !239
 
 ._crit_edge:                                      ; preds = %._crit_edge522.us, %.preheader.lr.ph, %.preheader514
-  call void @free(ptr noundef %84) #33
-  call void @free(ptr noundef %.pre.pre) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #33
+  call void @free(ptr noundef %84) #34
+  call void @free(ptr noundef %.pre.pre) #34
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %487
 
 487:                                              ; preds = %stbtt_GetGlyphBitmapBoxSubpixel.exit.thread, %stbtt_GetGlyphBitmapBoxSubpixel.exit, %10, %._crit_edge
@@ -18288,20 +18282,20 @@ stbtt__solve_cubic.exit.us.us:                    ; preds = %304, %301, %294, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @stbtt_GetCodepointSDF(ptr noundef readonly captures(none) %0, float noundef %1, i32 noundef %2, i32 noundef %3, i8 noundef zeroext %4, float noundef %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7, ptr noundef writeonly captures(address_is_null) %8, ptr noundef writeonly captures(address_is_null) %9) local_unnamed_addr #11 {
+define noalias noundef ptr @stbtt_GetCodepointSDF(ptr noundef readonly captures(none) %0, float noundef %1, i32 noundef %2, i32 noundef %3, i8 noundef zeroext %4, float noundef %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7, ptr noundef writeonly captures(address_is_null) %8, ptr noundef writeonly captures(address_is_null) %9) local_unnamed_addr #10 {
   %11 = tail call i32 @stbtt_FindGlyphIndex(ptr noundef %0, i32 noundef %2)
   %12 = tail call ptr @stbtt_GetGlyphSDF(ptr noundef %0, float noundef %1, i32 noundef %11, i32 noundef %3, i8 noundef zeroext %4, float noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9)
   ret ptr %12
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @stbtt_FreeSDF(ptr noundef captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #20 {
-  tail call void @free(ptr noundef %0) #33
+define void @stbtt_FreeSDF(ptr noundef captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #19 {
+  tail call void @free(ptr noundef %0) #34
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i32 -2147483647, -2147483648) i32 @stbtt__CompareUTF8toUTF16_bigendian_prefix(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #7 {
+define range(i32 -2147483647, -2147483648) i32 @stbtt__CompareUTF8toUTF16_bigendian_prefix(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #6 {
   %.not97 = icmp eq i32 %3, 0
   br i1 %.not97, label %.critedge, label %.lr.ph
 
@@ -18481,7 +18475,7 @@ define range(i32 -2147483647, -2147483648) i32 @stbtt__CompareUTF8toUTF16_bigend
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @stbtt_CompareUTF8toUTF16_bigendian_internal(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @stbtt_CompareUTF8toUTF16_bigendian_internal(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #6 {
   %5 = tail call i32 @stbtt__CompareUTF8toUTF16_bigendian_prefix(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3)
   %6 = icmp eq i32 %1, %5
   %7 = zext i1 %6 to i32
@@ -18683,7 +18677,7 @@ stbtt__find_table.exit.thread:                    ; preds = %41, %145, %60, %6, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @stbtt__matchpair(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @stbtt__matchpair(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #6 {
   %7 = zext i32 %1 to i64
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 2
@@ -18902,7 +18896,7 @@ define range(i32 0, 2) i32 @stbtt__matchpair(ptr noundef readonly captures(none)
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @stbtt__matches(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #30 {
+define range(i32 0, 2) i32 @stbtt__matches(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #29 {
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #35
   %6 = trunc i64 %5 to i32
   %7 = zext i32 %1 to i64
@@ -19114,10 +19108,10 @@ stbtt__find_table.exit56.thread:                  ; preds = %83, %63, %113, %111
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #31
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #30
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: read) uwtable
-define i32 @stbtt_FindMatchingFont_internal(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #30 {
+define i32 @stbtt_FindMatchingFont_internal(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #29 {
   %4 = tail call i32 @stbtt_GetFontOffsetForIndex_internal(ptr noundef readonly %0, i32 noundef 0)
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %.thread, label %.lr.ph
@@ -19141,13 +19135,13 @@ define i32 @stbtt_FindMatchingFont_internal(ptr noundef readonly captures(none) 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483647, -2147483648) i32 @stbtt_BakeFontBitmap(ptr noundef %0, i32 noundef %1, float noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef writeonly captures(none) %8) local_unnamed_addr #11 {
+define range(i32 -2147483647, -2147483648) i32 @stbtt_BakeFontBitmap(ptr noundef %0, i32 noundef %1, float noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef writeonly captures(none) %8) local_unnamed_addr #10 {
   %10 = tail call i32 @stbtt_BakeFontBitmap_internal(ptr noundef %0, i32 noundef %1, float noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8)
   ret i32 %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @stbtt_GetNumberOfFonts(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
+define i32 @stbtt_GetNumberOfFonts(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = tail call i32 @stbtt__isfont(ptr noundef readonly %0)
   %.not.i = icmp eq i32 %2, 0
   br i1 %.not.i, label %3, label %stbtt_GetNumberOfFonts_internal.exit
@@ -19226,7 +19220,7 @@ stbtt_GetNumberOfFonts_internal.exit:             ; preds = %1, %3, %6, %10, %14
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: read) uwtable
-define i32 @stbtt_FindMatchingFont(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #30 {
+define i32 @stbtt_FindMatchingFont(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #29 {
   %4 = tail call i32 @stbtt_GetFontOffsetForIndex_internal(ptr noundef readonly %0, i32 noundef 0)
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %stbtt_FindMatchingFont_internal.exit, label %.lr.ph.i
@@ -19250,12 +19244,18 @@ stbtt_FindMatchingFont_internal.exit:             ; preds = %6, %.lr.ph.i, %3
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @stbtt_CompareUTF8toUTF16_bigendian(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @stbtt_CompareUTF8toUTF16_bigendian(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #6 {
   %5 = tail call i32 @stbtt__CompareUTF8toUTF16_bigendian_prefix(ptr noundef readonly %0, i32 noundef %1, ptr noundef readonly %2, i32 noundef %3)
   %6 = icmp eq i32 %1, %5
   %7 = zext i1 %6 to i32
   ret i32 %7
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #31
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #31
 
 declare float @sqrtf(float) local_unnamed_addr
 
@@ -19290,37 +19290,37 @@ attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #17 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { mustprogress nofree nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #22 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #23 = { nofree nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #24 = { mustprogress nounwind willreturn memory(readwrite, argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #25 = { mustprogress nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #26 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #27 = { nofree nounwind memory(argmem: read, errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #28 = { mustprogress nofree norecurse nounwind willreturn memory(errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #29 = { mustprogress nofree nounwind willreturn memory(argmem: write, errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #30 = { nofree norecurse nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #31 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #16 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { mustprogress nofree nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #22 = { nofree nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #23 = { mustprogress nounwind willreturn memory(readwrite, argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #24 = { mustprogress nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #25 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #26 = { nofree nounwind memory(argmem: read, errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #27 = { mustprogress nofree norecurse nounwind willreturn memory(errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #28 = { mustprogress nofree nounwind willreturn memory(argmem: write, errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #29 = { nofree norecurse nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #30 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #31 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #32 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #33 = { nounwind }
-attributes #34 = { nounwind allocsize(0) }
+attributes #33 = { nounwind allocsize(0) }
+attributes #34 = { nounwind }
 attributes #35 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2}

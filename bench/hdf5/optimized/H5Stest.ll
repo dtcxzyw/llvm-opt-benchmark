@@ -73,17 +73,11 @@ define range(i32 -1, 1) i32 @H5S__get_rebuild_status_test(i64 noundef %0, ptr no
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @H5I_object_verify(i64 noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @H5I_object_verify(i64 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @H5E_printf_stack(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare i32 @H5E_printf_stack(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
-
-declare void @H5S__hyper_rebuild(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @H5S__hyper_rebuild(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5S__get_diminfo_status_test(i64 noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
@@ -142,8 +136,8 @@ define range(i32 -1, 2) i32 @H5S__internal_consistency_test(i64 noundef %0) loca
   br label %140
 
 17:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %2) #5
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %18 = load i8, ptr @H5S_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %19 = trunc nuw i8 %18 to i1
   %20 = load i8, ptr @H5_libterm_g, align 1, !range !7
@@ -359,13 +353,13 @@ define range(i32 -1, 2) i32 @H5S__internal_consistency_test(i64 noundef %0) loca
   br label %136
 
 H5S__check_internal_consistency.exit.thread:      ; preds = %17, %24, %106, %.loopexit.i, %39, %113, %126, %116
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %3) #5
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %140
 
 136:                                              ; preds = %129, %109, %100, %89, %76, %66, %35
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %3) #5
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %137 = load i64, ptr @H5E_DATASPACE_g, align 8, !tbaa !10
   %138 = load i64, ptr @H5E_INCONSISTENTSTATE_g, align 8, !tbaa !10
   %139 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5S__internal_consistency_test, i32 noundef 360, i64 noundef %137, i64 noundef %138, ptr noundef nonnull @.str.2) #5
@@ -436,7 +430,7 @@ define range(i32 -1, 1) i32 @H5S__verify_offsets(i64 noundef %0, ptr noundef rea
   ret i32 %.0
 }
 
-declare i32 @H5S_get_select_bounds(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @H5S_get_select_bounds(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 2) i32 @H5S__check_spans_tail_ptr(ptr noundef nonnull readonly captures(none) %0) unnamed_addr #0 {
@@ -494,6 +488,12 @@ define internal fastcc range(i32 -1, 2) i32 @H5S__check_spans_tail_ptr(ptr nound
   ret i32 %.0
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
@@ -501,8 +501,8 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #4
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #5 = { nounwind }

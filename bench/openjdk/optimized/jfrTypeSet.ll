@@ -421,7 +421,7 @@ _ZL10package_idPK5Klassb.exit.i:                  ; preds = %_ZL12artifact_tagI1
   %107 = ptrtoint ptr %106 to i64
   %108 = sub i64 %102, %107
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %110 = load ptr, ptr %109, align 8
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %112 = load ptr, ptr %111, align 8
@@ -429,7 +429,7 @@ _ZL10package_idPK5Klassb.exit.i:                  ; preds = %_ZL12artifact_tagI1
   %113 = load ptr, ptr %5, align 8
   store ptr %113, ptr %109, align 8
   %.not5.i.i.i.i = icmp eq ptr %113, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.not5.i.i.i.i, label %.sink.split.i.i.i.i, label %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i
 
 _ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i: ; preds = %105
@@ -716,7 +716,7 @@ _ZNK12PackageEntry11is_exportedEv.exit:           ; preds = %_ZL11mark_symbolP6S
   %37 = ptrtoint ptr %36 to i64
   %38 = sub i64 %35, %37
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %42 = load ptr, ptr %41, align 8
@@ -724,7 +724,7 @@ _ZNK12PackageEntry11is_exportedEv.exit:           ; preds = %_ZL11mark_symbolP6S
   %43 = load ptr, ptr %4, align 8
   store ptr %43, ptr %39, align 8
   %.not5.i.i.i.i = icmp eq ptr %43, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.not5.i.i.i.i, label %.sink.split.i.i.i.i, label %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i
 
 _ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i: ; preds = %34
@@ -1013,7 +1013,7 @@ define internal fastcc void @_ZL9write_cldP19JfrCheckpointWriterPK15ClassLoaderD
   %22 = ptrtoint ptr %21 to i64
   %23 = sub i64 %17, %22
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %27 = load ptr, ptr %26, align 8
@@ -1021,7 +1021,7 @@ define internal fastcc void @_ZL9write_cldP19JfrCheckpointWriterPK15ClassLoaderD
   %28 = load ptr, ptr %4, align 8
   store ptr %28, ptr %24, align 8
   %.not5.i.i.i = icmp eq ptr %28, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.not5.i.i.i, label %.sink.split.i.i.i, label %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i
 
 _ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i: ; preds = %20
@@ -1259,7 +1259,7 @@ _ZL11mark_symbolP6Symbolb.exit20:                 ; preds = %_ZL11mark_symbolP6S
   %61 = ptrtoint ptr %60 to i64
   %62 = sub i64 %56, %61
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %64 = load ptr, ptr %63, align 8
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %66 = load ptr, ptr %65, align 8
@@ -1267,7 +1267,7 @@ _ZL11mark_symbolP6Symbolb.exit20:                 ; preds = %_ZL11mark_symbolP6S
   %67 = load ptr, ptr %4, align 8
   store ptr %67, ptr %63, align 8
   %.not5.i.i.i = icmp eq ptr %67, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.not5.i.i.i, label %.sink.split.i.i.i, label %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i
 
 _ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i: ; preds = %59
@@ -1419,14 +1419,14 @@ define hidden noundef i64 @_ZN10JfrTypeSet9serializeEP19JfrCheckpointWriterS1_bb
 
 _ZL5setupP19JfrCheckpointWriterS0_bb.exit:        ; preds = %61, %64
   %69 = phi i8 [ 1, %61 ], [ %68, %64 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %31)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %32)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %33)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %34)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %35)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %36)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %37)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %38)
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
+  call void @llvm.lifetime.start.p0(ptr nonnull %38)
   %70 = load ptr, ptr @_ZL10_artifacts, align 8
   store ptr %70, ptr %31, align 8
   %71 = load ptr, ptr @_ZL7_writer, align 8
@@ -1466,7 +1466,7 @@ _ZL5setupP19JfrCheckpointWriterS0_bb.exit:        ; preds = %61, %64
   %92 = ptrtoint ptr %91 to i64
   %93 = sub i64 %87, %92
   %94 = getelementptr inbounds nuw i8, ptr %71, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %30)
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   %95 = load ptr, ptr %94, align 8
   %96 = getelementptr inbounds nuw i8, ptr %71, i64 32
   %97 = load ptr, ptr %96, align 8
@@ -1474,7 +1474,7 @@ _ZL5setupP19JfrCheckpointWriterS0_bb.exit:        ; preds = %61, %64
   %98 = load ptr, ptr %30, align 8
   store ptr %98, ptr %94, align 8
   %.not5.i.i.i.i = icmp eq ptr %98, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
   br i1 %.not5.i.i.i.i, label %.sink.split.i.i.i.i, label %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i
 
 _ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i: ; preds = %90
@@ -1577,7 +1577,7 @@ _ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK5Klass18SerializePred
   %144 = ptrtoint ptr %143 to i64
   %145 = sub i64 %139, %144
   %146 = getelementptr inbounds nuw i8, ptr %118, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %29)
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   %147 = load ptr, ptr %146, align 8
   %148 = getelementptr inbounds nuw i8, ptr %118, i64 32
   %149 = load ptr, ptr %148, align 8
@@ -1585,7 +1585,7 @@ _ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK5Klass18SerializePred
   %150 = load ptr, ptr %29, align 8
   store ptr %150, ptr %146, align 8
   %.not5.i.i.i7.i = icmp eq ptr %150, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   br i1 %.not5.i.i.i7.i, label %.sink.split.i.i.i9.i, label %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i8.i
 
 _ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i8.i: ; preds = %142
@@ -1715,18 +1715,18 @@ _ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK5Klass13LeakPredicate
   br label %_ZL13write_klassesv.exit
 
 _ZL13write_klassesv.exit:                         ; preds = %198, %200, %203
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %31)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %32)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %33)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %34)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %35)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %36)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %37)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %38)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %25)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %26)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %27)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   %206 = load ptr, ptr @_ZL7_writer, align 8
   %207 = load i8, ptr @_ZL13_class_unload, align 1
   store ptr %206, ptr %25, align 8
@@ -1766,7 +1766,7 @@ _ZL13write_klassesv.exit:                         ; preds = %198, %200, %203
   %229 = ptrtoint ptr %228 to i64
   %230 = sub i64 %224, %229
   %231 = getelementptr inbounds nuw i8, ptr %206, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   %232 = load ptr, ptr %231, align 8
   %233 = getelementptr inbounds nuw i8, ptr %206, i64 32
   %234 = load ptr, ptr %233, align 8
@@ -1774,7 +1774,7 @@ _ZL13write_klassesv.exit:                         ; preds = %198, %200, %203
   %235 = load ptr, ptr %24, align 8
   store ptr %235, ptr %231, align 8
   %.not5.i.i.i.i11 = icmp eq ptr %235, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br i1 %.not5.i.i.i.i11, label %.sink.split.i.i.i.i13, label %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i12
 
 _ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i12: ; preds = %227
@@ -1830,7 +1830,7 @@ _ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK12PackageEntry18Seria
   br i1 %258, label %259, label %267
 
 259:                                              ; preds = %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK12PackageEntry18SerializePredicateIS3_EXadL_Z14write__packageP19JfrCheckpointWriterPKvEEELj202EEC2ES7_bb.exit.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store ptr %25, ptr %23, align 8
   %260 = load ptr, ptr @_ZL10_artifacts, align 8
   call void @_ZNK14JfrArtifactSet15iterate_klassesI20KlassToFieldEnvelopeI20PackageFieldSelector17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK12PackageEntry18SerializePredicateIS7_EXadL_Z14write__packageP19JfrCheckpointWriterPKvEEELj202EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(41) %260, ptr noundef nonnull align 8 dereferenceable(8) %23)
@@ -1841,7 +1841,7 @@ _ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK12PackageEntry18Seria
   %265 = load i64, ptr %264, align 8
   %266 = add i64 %265, %263
   store i64 %266, ptr %264, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %282
 
 267:                                              ; preds = %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK12PackageEntry18SerializePredicateIS3_EXadL_Z14write__packageP19JfrCheckpointWriterPKvEEELj202EEC2ES7_bb.exit.i
@@ -1900,14 +1900,14 @@ _ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK12PackageEntry18Seria
   br label %_ZL14write_packagesv.exit
 
 _ZL14write_packagesv.exit:                        ; preds = %285, %287, %290
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %25)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %26)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %27)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %28)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %19)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %20)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %21)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %293 = load ptr, ptr @_ZL7_writer, align 8
   %294 = load i8, ptr @_ZL13_class_unload, align 1
   store ptr %293, ptr %19, align 8
@@ -1947,7 +1947,7 @@ _ZL14write_packagesv.exit:                        ; preds = %285, %287, %290
   %316 = ptrtoint ptr %315 to i64
   %317 = sub i64 %311, %316
   %318 = getelementptr inbounds nuw i8, ptr %293, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %319 = load ptr, ptr %318, align 8
   %320 = getelementptr inbounds nuw i8, ptr %293, i64 32
   %321 = load ptr, ptr %320, align 8
@@ -1955,7 +1955,7 @@ _ZL14write_packagesv.exit:                        ; preds = %285, %287, %290
   %322 = load ptr, ptr %18, align 8
   store ptr %322, ptr %318, align 8
   %.not5.i.i.i.i25 = icmp eq ptr %322, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br i1 %.not5.i.i.i.i25, label %.sink.split.i.i.i.i27, label %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i26
 
 _ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i26: ; preds = %314
@@ -2258,14 +2258,14 @@ _ZL10do_modulesR17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK11Module
   br label %_ZL13write_modulesv.exit
 
 _ZL13write_modulesv.exit:                         ; preds = %465, %467, %470
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %19)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %20)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %22)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %14)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %15)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %473 = load ptr, ptr @_ZL7_writer, align 8
   %474 = load i8, ptr @_ZL13_class_unload, align 1
   store ptr %473, ptr %14, align 8
@@ -2305,7 +2305,7 @@ _ZL13write_modulesv.exit:                         ; preds = %465, %467, %470
   %496 = ptrtoint ptr %495 to i64
   %497 = sub i64 %491, %496
   %498 = getelementptr inbounds nuw i8, ptr %473, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %499 = load ptr, ptr %498, align 8
   %500 = getelementptr inbounds nuw i8, ptr %473, i64 32
   %501 = load ptr, ptr %500, align 8
@@ -2313,7 +2313,7 @@ _ZL13write_modulesv.exit:                         ; preds = %465, %467, %470
   %502 = load ptr, ptr %13, align 8
   store ptr %502, ptr %498, align 8
   %.not5.i.i.i.i39 = icmp eq ptr %502, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br i1 %.not5.i.i.i.i39, label %.sink.split.i.i.i.i41, label %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i40
 
 _ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i40: ; preds = %494
@@ -2369,9 +2369,9 @@ _ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK15ClassLoaderData18Se
   br i1 %525, label %526, label %559
 
 526:                                              ; preds = %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK15ClassLoaderData18SerializePredicateIS3_EXadL_Z10write__cldP19JfrCheckpointWriterPKvEEELj182EEC2ES7_bb.exit.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr %14, ptr %10, align 8
   store ptr %14, ptr %11, align 8
   store ptr %10, ptr %12, align 8
@@ -2435,9 +2435,9 @@ _ZL7do_cldsR17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK15ClassLoade
   %557 = load i64, ptr %556, align 8
   %558 = add i64 %557, %555
   store i64 %558, ptr %556, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %574
 
 559:                                              ; preds = %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK15ClassLoaderData18SerializePredicateIS3_EXadL_Z10write__cldP19JfrCheckpointWriterPKvEEELj182EEC2ES7_bb.exit.i
@@ -2455,10 +2455,10 @@ _ZL7do_cldsR17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK15ClassLoade
   %565 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store ptr %16, ptr %565, align 8
   store ptr %17, ptr @_ZL19_subsystem_callback, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV11CLDCallback, i64 16), ptr %9, align 8
   call void @_ZN20ClassLoaderDataGraph13loaded_cld_doEP10CLDClosure(ptr noundef nonnull %9) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %566 = load ptr, ptr @_ZL10_artifacts, align 8
   %567 = load i32, ptr %483, align 8
   %568 = sext i32 %567 to i64
@@ -2499,11 +2499,11 @@ _ZL7do_cldsR17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK15ClassLoade
   br label %_ZL10write_cldsv.exit
 
 _ZL10write_cldsv.exit:                            ; preds = %577, %579, %582
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %15)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %585 = load ptr, ptr @_ZL7_writer, align 8
   %586 = load i8, ptr @_ZL13_class_unload, align 1
   store ptr %585, ptr %8, align 8
@@ -2543,7 +2543,7 @@ _ZL10write_cldsv.exit:                            ; preds = %577, %579, %582
   %608 = ptrtoint ptr %607 to i64
   %609 = sub i64 %603, %608
   %610 = getelementptr inbounds nuw i8, ptr %585, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %611 = load ptr, ptr %610, align 8
   %612 = getelementptr inbounds nuw i8, ptr %585, i64 32
   %613 = load ptr, ptr %612, align 8
@@ -2551,7 +2551,7 @@ _ZL10write_cldsv.exit:                            ; preds = %577, %579, %582
   %614 = load ptr, ptr %7, align 8
   store ptr %614, ptr %610, align 8
   %.not5.i.i.i.i55 = icmp eq ptr %614, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %.not5.i.i.i.i55, label %.sink.split.i.i.i.i57, label %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i56
 
 _ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i56: ; preds = %606
@@ -2705,8 +2705,8 @@ _ZNK14JfrArtifactSet15iterate_klassesI18MethodIteratorHostI17JfrTypeWriterHostI3
   br label %_ZL13write_methodsv.exit
 
 _ZL13write_methodsv.exit:                         ; preds = %681, %683, %686
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %689 = load ptr, ptr @_ZL13_leakp_writer, align 8
   %.not.i = icmp eq ptr %689, null
   br i1 %.not.i, label %691, label %690
@@ -2755,7 +2755,7 @@ _ZL13write_methodsv.exit:                         ; preds = %681, %683, %686
   %715 = ptrtoint ptr %714 to i64
   %716 = sub i64 %710, %715
   %717 = getelementptr inbounds nuw i8, ptr %692, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %718 = load ptr, ptr %717, align 8
   %719 = getelementptr inbounds nuw i8, ptr %692, i64 32
   %720 = load ptr, ptr %719, align 8
@@ -2763,7 +2763,7 @@ _ZL13write_methodsv.exit:                         ; preds = %681, %683, %686
   %721 = load ptr, ptr %5, align 8
   store ptr %721, ptr %717, align 8
   %.not5.i.i.i.i67 = icmp eq ptr %721, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.not5.i.i.i.i67, label %.sink.split.i.i.i.i69, label %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i68
 
 _ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i68: ; preds = %713
@@ -2936,7 +2936,7 @@ _ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK9ListEntryIPKcmE15Sym
   br label %_ZL13write_symbolsv.exit
 
 _ZL13write_symbolsv.exit:                         ; preds = %690, %787, %789, %792
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %795 = call fastcc noundef i64 @_ZL8teardownv()
   %796 = load ptr, ptr %44, align 8
   %.not.i.i.i.i72 = icmp eq ptr %796, null
@@ -2975,7 +2975,7 @@ define internal fastcc noundef i64 @_ZL8teardownv() unnamed_addr #0 {
   br i1 %8, label %41, label %9
 
 9:                                                ; preds = %0
-  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 2
   store i8 0, ptr %10, align 1
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 3
@@ -3035,7 +3035,7 @@ define internal fastcc noundef i64 @_ZL8teardownv() unnamed_addr #0 {
   br i1 %39, label %32, label %_ZL25clear_klasses_and_methodsv.exit
 
 _ZL25clear_klasses_and_methodsv.exit:             ; preds = %22, %32, %35, %.loopexit.i.i
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   call void @_ZN17JfrKlassUnloading5clearEv() #9
   %40 = load ptr, ptr @_ZL10_artifacts, align 8
   call void @_ZN14JfrArtifactSet23increment_checkpoint_idEv(ptr noundef nonnull align 8 dereferenceable(41) %40) #9
@@ -3117,12 +3117,12 @@ define hidden void @_ZN10JfrTypeSet5clearEP19JfrCheckpointWriterS1_(ptr noundef 
 
 _ZL5setupP19JfrCheckpointWriterS0_bb.exit:        ; preds = %39, %42
   %47 = phi i8 [ 1, %39 ], [ %46, %42 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %14)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %15)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %48 = load ptr, ptr @_ZL10_artifacts, align 8
   store ptr %48, ptr %13, align 8
   %49 = load ptr, ptr @_ZL7_writer, align 8
@@ -3162,7 +3162,7 @@ _ZL5setupP19JfrCheckpointWriterS0_bb.exit:        ; preds = %39, %42
   %70 = ptrtoint ptr %69 to i64
   %71 = sub i64 %65, %70
   %72 = getelementptr inbounds nuw i8, ptr %49, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %73 = load ptr, ptr %72, align 8
   %74 = getelementptr inbounds nuw i8, ptr %49, i64 32
   %75 = load ptr, ptr %74, align 8
@@ -3170,7 +3170,7 @@ _ZL5setupP19JfrCheckpointWriterS0_bb.exit:        ; preds = %39, %42
   %76 = load ptr, ptr %12, align 8
   store ptr %76, ptr %72, align 8
   %.not5.i.i.i.i = icmp eq ptr %76, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br i1 %.not5.i.i.i.i, label %.sink.split.i.i.i.i, label %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i
 
 _ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i: ; preds = %68
@@ -3253,7 +3253,7 @@ _ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK5Klass18SerializePred
   %115 = ptrtoint ptr %114 to i64
   %116 = sub i64 %110, %115
   %117 = getelementptr inbounds nuw i8, ptr %95, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %118 = load ptr, ptr %117, align 8
   %119 = getelementptr inbounds nuw i8, ptr %95, i64 32
   %120 = load ptr, ptr %119, align 8
@@ -3261,7 +3261,7 @@ _ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK5Klass18SerializePred
   %121 = load ptr, ptr %11, align 8
   store ptr %121, ptr %117, align 8
   %.not5.i.i.i7.i = icmp eq ptr %121, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br i1 %.not5.i.i.i7.i, label %.sink.split.i.i.i9.i, label %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i8.i
 
 _ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i8.i: ; preds = %113
@@ -3378,13 +3378,13 @@ _ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK5Klass13LeakPredicate
   br label %_ZL22write_klasses_on_clearv.exit
 
 _ZL22write_klasses_on_clearv.exit:                ; preds = %163, %165, %168
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %15)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %171 = load ptr, ptr @_ZL7_writer, align 8
   %172 = load i8, ptr @_ZL13_class_unload, align 1
   store ptr %171, ptr %10, align 8
@@ -3424,7 +3424,7 @@ _ZL22write_klasses_on_clearv.exit:                ; preds = %163, %165, %168
   %194 = ptrtoint ptr %193 to i64
   %195 = sub i64 %189, %194
   %196 = getelementptr inbounds nuw i8, ptr %171, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %197 = load ptr, ptr %196, align 8
   %198 = getelementptr inbounds nuw i8, ptr %171, i64 32
   %199 = load ptr, ptr %198, align 8
@@ -3432,7 +3432,7 @@ _ZL22write_klasses_on_clearv.exit:                ; preds = %163, %165, %168
   %200 = load ptr, ptr %9, align 8
   store ptr %200, ptr %196, align 8
   %.not5.i.i.i.i10 = icmp eq ptr %200, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br i1 %.not5.i.i.i.i10, label %.sink.split.i.i.i.i12, label %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i11
 
 _ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i11: ; preds = %192
@@ -3504,8 +3504,8 @@ _ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK12PackageEntry18Seria
   br label %_ZL23write_packages_on_clearv.exit
 
 _ZL23write_packages_on_clearv.exit:               ; preds = %221, %223, %226
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %229 = load ptr, ptr @_ZL7_writer, align 8
   %230 = load i8, ptr @_ZL13_class_unload, align 1
   store ptr %229, ptr %8, align 8
@@ -3545,7 +3545,7 @@ _ZL23write_packages_on_clearv.exit:               ; preds = %221, %223, %226
   %252 = ptrtoint ptr %251 to i64
   %253 = sub i64 %247, %252
   %254 = getelementptr inbounds nuw i8, ptr %229, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %255 = load ptr, ptr %254, align 8
   %256 = getelementptr inbounds nuw i8, ptr %229, i64 32
   %257 = load ptr, ptr %256, align 8
@@ -3553,7 +3553,7 @@ _ZL23write_packages_on_clearv.exit:               ; preds = %221, %223, %226
   %258 = load ptr, ptr %7, align 8
   store ptr %258, ptr %254, align 8
   %.not5.i.i.i.i23 = icmp eq ptr %258, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %.not5.i.i.i.i23, label %.sink.split.i.i.i.i25, label %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i24
 
 _ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i24: ; preds = %250
@@ -3625,8 +3625,8 @@ _ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK11ModuleEntry18Serial
   br label %_ZL22write_modules_on_clearv.exit
 
 _ZL22write_modules_on_clearv.exit:                ; preds = %279, %281, %284
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %287 = load ptr, ptr @_ZL7_writer, align 8
   %288 = load i8, ptr @_ZL13_class_unload, align 1
   store ptr %287, ptr %6, align 8
@@ -3666,7 +3666,7 @@ _ZL22write_modules_on_clearv.exit:                ; preds = %279, %281, %284
   %310 = ptrtoint ptr %309 to i64
   %311 = sub i64 %305, %310
   %312 = getelementptr inbounds nuw i8, ptr %287, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %313 = load ptr, ptr %312, align 8
   %314 = getelementptr inbounds nuw i8, ptr %287, i64 32
   %315 = load ptr, ptr %314, align 8
@@ -3674,7 +3674,7 @@ _ZL22write_modules_on_clearv.exit:                ; preds = %279, %281, %284
   %316 = load ptr, ptr %5, align 8
   store ptr %316, ptr %312, align 8
   %.not5.i.i.i.i36 = icmp eq ptr %316, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.not5.i.i.i.i36, label %.sink.split.i.i.i.i38, label %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i37
 
 _ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i37: ; preds = %308
@@ -3746,8 +3746,8 @@ _ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK15ClassLoaderData18Se
   br label %_ZL19write_clds_on_clearv.exit
 
 _ZL19write_clds_on_clearv.exit:                   ; preds = %337, %339, %342
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %345 = load ptr, ptr @_ZL7_writer, align 8
   %346 = load i8, ptr @_ZL13_class_unload, align 1
   store ptr %345, ptr %4, align 8
@@ -3787,7 +3787,7 @@ _ZL19write_clds_on_clearv.exit:                   ; preds = %337, %339, %342
   %368 = ptrtoint ptr %367 to i64
   %369 = sub i64 %363, %368
   %370 = getelementptr inbounds nuw i8, ptr %345, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %371 = load ptr, ptr %370, align 8
   %372 = getelementptr inbounds nuw i8, ptr %345, i64 32
   %373 = load ptr, ptr %372, align 8
@@ -3795,7 +3795,7 @@ _ZL19write_clds_on_clearv.exit:                   ; preds = %337, %339, %342
   %374 = load ptr, ptr %3, align 8
   store ptr %374, ptr %370, align 8
   %.not5.i.i.i.i47 = icmp eq ptr %374, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not5.i.i.i.i47, label %.sink.split.i.i.i.i49, label %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i48
 
 _ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i48: ; preds = %366
@@ -3878,7 +3878,7 @@ _ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK6Method18SerializePre
   br label %_ZL22write_methods_on_clearv.exit
 
 _ZL22write_methods_on_clearv.exit:                ; preds = %403, %405, %408
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call fastcc void @_ZL24write_symbols_with_leakpv()
   %411 = call fastcc noundef i64 @_ZL8teardownv()
   %412 = load ptr, ptr %24, align 8
@@ -4164,7 +4164,7 @@ define linkonce_odr hidden void @_ZN10WriterHostI11EncoderHostI20BigEndianEncode
   %15 = ptrtoint ptr %14 to i64
   %16 = sub i64 %10, %15
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %20 = load ptr, ptr %19, align 8
@@ -4172,7 +4172,7 @@ define linkonce_odr hidden void @_ZN10WriterHostI11EncoderHostI20BigEndianEncode
   %21 = load ptr, ptr %3, align 8
   store ptr %21, ptr %17, align 8
   %.not5.i.i = icmp eq ptr %21, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not5.i.i, label %.sink.split.i.i, label %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i
 
 _ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i: ; preds = %13
@@ -4371,7 +4371,7 @@ define linkonce_odr hidden void @_ZN10WriterHostI11EncoderHostI20BigEndianEncode
   %15 = ptrtoint ptr %14 to i64
   %16 = sub i64 %10, %15
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %20 = load ptr, ptr %19, align 8
@@ -4379,7 +4379,7 @@ define linkonce_odr hidden void @_ZN10WriterHostI11EncoderHostI20BigEndianEncode
   %21 = load ptr, ptr %3, align 8
   store ptr %21, ptr %17, align 8
   %.not5.i.i = icmp eq ptr %21, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not5.i.i, label %.sink.split.i.i, label %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i
 
 _ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i: ; preds = %13
@@ -4662,7 +4662,7 @@ define linkonce_odr hidden void @_ZN10WriterHostI11EncoderHostI20BigEndianEncode
   %15 = ptrtoint ptr %14 to i64
   %16 = sub i64 %10, %15
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %20 = load ptr, ptr %19, align 8
@@ -4670,7 +4670,7 @@ define linkonce_odr hidden void @_ZN10WriterHostI11EncoderHostI20BigEndianEncode
   %21 = load ptr, ptr %3, align 8
   store ptr %21, ptr %17, align 8
   %.not5.i.i = icmp eq ptr %21, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not5.i.i, label %.sink.split.i.i, label %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i
 
 _ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i: ; preds = %13
@@ -4860,11 +4860,11 @@ _ZN18SerializePredicateIPK5KlassEclERKS2_.exit.i.i.i: ; preds = %2
 
 _ZN18SerializePredicateIPK5KlassEclERKS2_.exit.thread.i.i.i: ; preds = %_ZN18SerializePredicateIPK5KlassEclERKS2_.exit.i.i.i, %2
   %13 = load ptr, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4
   call fastcc void @_ZL11write_klassP19JfrCheckpointWriterPK5KlassbRi(ptr noundef %13, ptr noundef %1, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3)
   %14 = load i32, ptr %3, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN16CompositeFunctorIPK5Klass17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIS2_18SerializePredicateIS2_EXadL_Z12write__klassP19JfrCheckpointWriterPKvEEELj181EE24KlassArtifactRegistratorEclERKS2_.exit
 
 _ZN16CompositeFunctorIPK5Klass17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIS2_18SerializePredicateIS2_EXadL_Z12write__klassP19JfrCheckpointWriterPKvEEELj181EE24KlassArtifactRegistratorEclERKS2_.exit: ; preds = %_ZN18SerializePredicateIPK5KlassEclERKS2_.exit.i.i.i, %_ZN18SerializePredicateIPK5KlassEclERKS2_.exit.thread.i.i.i
@@ -5007,9 +5007,9 @@ _ZL6cld_idPK15ClassLoaderDatab.exit:              ; preds = %_ZL7get_cldPK5Klass
   br i1 %.not.i, label %53, label %51
 
 51:                                               ; preds = %49
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %52 = call noundef ptr @_ZN11SymbolTable11lookup_onlyEPKciRj(ptr noundef nonnull @.str, i32 noundef 4, ptr noundef nonnull align 4 dereferenceable(4) %6) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store ptr %52, ptr @_ZZL16primitive_symbolPK5KlassE15void_class_name, align 8
   call void @__cxa_guard_release(ptr nonnull @_ZGVZL16primitive_symbolPK5KlassE15void_class_name) #9
   br label %53
@@ -5062,9 +5062,9 @@ _ZL14primitive_namePK5Klass.exit.i:               ; preds = %64, %63, %62, %61, 
   %.0.i.i = phi ptr [ @.str.9, %58 ], [ @.str.10, %59 ], [ @.str.11, %60 ], [ @.str.12, %61 ], [ @.str.13, %62 ], [ @.str.14, %63 ], [ @.str.15, %64 ], [ @.str.8, %55 ]
   %66 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i.i) #10
   %67 = trunc i64 %66 to i32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %68 = call noundef ptr @_ZN11SymbolTable11lookup_onlyEPKciRj(ptr noundef nonnull %.0.i.i, i32 noundef %67, ptr noundef nonnull align 4 dereferenceable(4) %5) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZL16primitive_symbolPK5Klass.exit
 
 _ZL16primitive_symbolPK5Klass.exit:               ; preds = %53, %_ZL14primitive_namePK5Klass.exit.i
@@ -5222,7 +5222,7 @@ _ZL10package_idPK5Klassb.exit:                    ; preds = %_ZL11mark_symbolP6S
   %148 = ptrtoint ptr %147 to i64
   %149 = sub i64 %143, %148
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %151 = load ptr, ptr %150, align 8
   %152 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %153 = load ptr, ptr %152, align 8
@@ -5230,7 +5230,7 @@ _ZL10package_idPK5Klassb.exit:                    ; preds = %_ZL11mark_symbolP6S
   %154 = load ptr, ptr %4, align 8
   store ptr %154, ptr %150, align 8
   %.not5.i.i.i = icmp eq ptr %154, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.not5.i.i.i, label %.sink.split.i.i.i, label %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i
 
 _ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i: ; preds = %146
@@ -5312,7 +5312,7 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderIm
   %184 = ptrtoint ptr %183 to i64
   %185 = sub i64 %179, %184
   %186 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %187 = load ptr, ptr %186, align 8
   %188 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %189 = load ptr, ptr %188, align 8
@@ -5320,7 +5320,7 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderIm
   %190 = load ptr, ptr %3, align 8
   store ptr %190, ptr %186, align 8
   %.not5.i.i.i24 = icmp eq ptr %190, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not5.i.i.i24, label %.sink.split.i.i.i26, label %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i25
 
 _ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i25: ; preds = %182
@@ -5387,11 +5387,11 @@ define linkonce_odr hidden void @_ZN23JfrArtifactCallbackHostIPK5Klass16Composit
 
 12:                                               ; preds = %2
   %13 = load ptr, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4
   call fastcc void @_ZL11write_klassP19JfrCheckpointWriterPK5KlassbRi(ptr noundef %13, ptr noundef nonnull %1, i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %4)
   %14 = load i32, ptr %4, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %15
 
 15:                                               ; preds = %12, %2
@@ -5415,11 +5415,11 @@ _ZN18SerializePredicateIPK5KlassEclERKS2_.exit.i.i.i.i: ; preds = %15
 
 _ZN18SerializePredicateIPK5KlassEclERKS2_.exit.thread.i.i.i.i: ; preds = %_ZN18SerializePredicateIPK5KlassEclERKS2_.exit.i.i.i.i, %15
   %27 = load ptr, ptr %21, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4
   call fastcc void @_ZL11write_klassP19JfrCheckpointWriterPK5KlassbRi(ptr noundef %27, ptr noundef nonnull %1, i1 noundef zeroext false, ptr noundef nonnull align 4 dereferenceable(4) %3)
   %28 = load i32, ptr %3, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN16CompositeFunctorIPK5KlassS_IS2_17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIS2_13LeakPredicateIS2_EXadL_Z19write__klass__leakpP19JfrCheckpointWriterPKvEEELj181EES3_IS4_IS2_18SerializePredicateIS2_EXadL_Z12write__klassS8_SA_EEELj181EEE24KlassArtifactRegistratorEclERKS2_.exit
 
 _ZN16CompositeFunctorIPK5KlassS_IS2_17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIS2_13LeakPredicateIS2_EXadL_Z19write__klass__leakpP19JfrCheckpointWriterPKvEEELj181EES3_IS4_IS2_18SerializePredicateIS2_EXadL_Z12write__klassS8_SA_EEELj181EEE24KlassArtifactRegistratorEclERKS2_.exit: ; preds = %_ZN18SerializePredicateIPK5KlassEclERKS2_.exit.i.i.i.i, %_ZN18SerializePredicateIPK5KlassEclERKS2_.exit.thread.i.i.i.i
@@ -5482,7 +5482,7 @@ define internal fastcc void @_ZL25write_packages_with_leakpR17JfrTypeWriterHostI
   %28 = ptrtoint ptr %27 to i64
   %29 = sub i64 %23, %28
   %30 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %33 = load ptr, ptr %32, align 8
@@ -5490,7 +5490,7 @@ define internal fastcc void @_ZL25write_packages_with_leakpR17JfrTypeWriterHostI
   %34 = load ptr, ptr %2, align 8
   store ptr %34, ptr %30, align 8
   %.not5.i.i.i = icmp eq ptr %34, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not5.i.i.i, label %.sink.split.i.i.i, label %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i
 
 _ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i: ; preds = %26
@@ -6120,7 +6120,7 @@ define internal fastcc void @_ZL24write_modules_with_leakpR17JfrTypeWriterHostI3
   %28 = ptrtoint ptr %27 to i64
   %29 = sub i64 %23, %28
   %30 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %33 = load ptr, ptr %32, align 8
@@ -6128,7 +6128,7 @@ define internal fastcc void @_ZL24write_modules_with_leakpR17JfrTypeWriterHostI3
   %34 = load ptr, ptr %2, align 8
   store ptr %34, ptr %30, align 8
   %.not5.i.i.i = icmp eq ptr %34, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not5.i.i.i, label %.sink.split.i.i.i, label %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i
 
 _ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i: ; preds = %26
@@ -6578,7 +6578,7 @@ define internal fastcc void @_ZL21write_clds_with_leakpR17JfrTypeWriterHostI31Jf
   %29 = ptrtoint ptr %28 to i64
   %30 = sub i64 %24, %29
   %31 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %34 = load ptr, ptr %33, align 8
@@ -6586,7 +6586,7 @@ define internal fastcc void @_ZL21write_clds_with_leakpR17JfrTypeWriterHostI31Jf
   %35 = load ptr, ptr %3, align 8
   store ptr %35, ptr %31, align 8
   %.not5.i.i.i = icmp eq ptr %35, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not5.i.i.i, label %.sink.split.i.i.i, label %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i
 
 _ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i: ; preds = %27
@@ -6646,10 +6646,10 @@ _ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK15ClassLoaderData13Le
   %57 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %7, ptr %57, align 8
   store ptr %8, ptr @_ZL19_subsystem_callback, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV11CLDCallback, i64 16), ptr %2, align 8
   call void @_ZN20ClassLoaderDataGraph13loaded_cld_doEP10CLDClosure(ptr noundef nonnull %2) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %58 = load ptr, ptr @_ZL10_artifacts, align 8
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %60 = load i32, ptr %59, align 8
@@ -7219,7 +7219,7 @@ define internal fastcc void @_ZL24write_methods_with_leakpR18MethodIteratorHostI
   %25 = ptrtoint ptr %24 to i64
   %26 = sub i64 %20, %25
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %30 = load ptr, ptr %29, align 8
@@ -7227,7 +7227,7 @@ define internal fastcc void @_ZL24write_methods_with_leakpR18MethodIteratorHostI
   %31 = load ptr, ptr %2, align 8
   store ptr %31, ptr %27, align 8
   %.not5.i.i.i = icmp eq ptr %31, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not5.i.i.i, label %.sink.split.i.i.i, label %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i
 
 _ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i: ; preds = %23
@@ -7651,7 +7651,7 @@ define internal fastcc void @_ZL24write_symbols_with_leakpv() unnamed_addr #0 {
   %27 = ptrtoint ptr %26 to i64
   %28 = sub i64 %22, %27
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %32 = load ptr, ptr %31, align 8
@@ -7659,7 +7659,7 @@ define internal fastcc void @_ZL24write_symbols_with_leakpv() unnamed_addr #0 {
   %33 = load ptr, ptr %2, align 8
   store ptr %33, ptr %29, align 8
   %.not5.i.i.i = icmp eq ptr %33, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not5.i.i.i, label %.sink.split.i.i.i, label %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i
 
 _ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i: ; preds = %25
@@ -7731,7 +7731,7 @@ _ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK9ListEntryIPK6Symbolm
   %67 = ptrtoint ptr %66 to i64
   %68 = sub i64 %62, %67
   %69 = getelementptr inbounds nuw i8, ptr %52, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %70 = load ptr, ptr %69, align 8
   %71 = getelementptr inbounds nuw i8, ptr %52, i64 32
   %72 = load ptr, ptr %71, align 8
@@ -7739,7 +7739,7 @@ _ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK9ListEntryIPK6Symbolm
   %73 = load ptr, ptr %1, align 8
   store ptr %73, ptr %69, align 8
   %.not5.i.i.i15 = icmp eq ptr %73, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br i1 %.not5.i.i.i15, label %.sink.split.i.i.i17, label %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i16
 
 _ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i16: ; preds = %65
@@ -8059,7 +8059,7 @@ define linkonce_odr hidden void @_ZN10WriterHostI11EncoderHostI20BigEndianEncode
   %19 = ptrtoint ptr %18 to i64
   %20 = sub i64 %14, %19
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %24 = load ptr, ptr %23, align 8
@@ -8067,7 +8067,7 @@ define linkonce_odr hidden void @_ZN10WriterHostI11EncoderHostI20BigEndianEncode
   %25 = load ptr, ptr %5, align 8
   store ptr %25, ptr %21, align 8
   %.not5.i.i.i = icmp eq ptr %25, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.not5.i.i.i, label %.sink.split.i.i.i, label %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i
 
 _ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i: ; preds = %17
@@ -8120,7 +8120,7 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderIm
   %48 = ptrtoint ptr %47 to i64
   %49 = sub i64 %43, %48
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %51 = load ptr, ptr %50, align 8
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %53 = load ptr, ptr %52, align 8
@@ -8128,7 +8128,7 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderIm
   %54 = load ptr, ptr %4, align 8
   store ptr %54, ptr %50, align 8
   %.not5.i.i.i11 = icmp eq ptr %54, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.not5.i.i.i11, label %.sink.split.i.i.i13, label %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i12
 
 _ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i12: ; preds = %46
@@ -8191,7 +8191,7 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderIm
   %82 = ptrtoint ptr %81 to i64
   %83 = sub i64 %77, %82
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %85 = load ptr, ptr %84, align 8
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %87 = load ptr, ptr %86, align 8
@@ -8199,7 +8199,7 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderIm
   %88 = load ptr, ptr %3, align 8
   store ptr %88, ptr %84, align 8
   %.not5.i.i = icmp eq ptr %88, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not5.i.i, label %.sink.split.i.i, label %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i
 
 _ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i: ; preds = %80
@@ -8534,10 +8534,10 @@ _ZL11do_artifactI5KlassEvPKT_.exit:               ; preds = %1, %16
 declare noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

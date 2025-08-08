@@ -55,7 +55,7 @@ define dso_local i64 @_ZN4llvm8codeview18GloballyHashedType8hashTypeENS_8ArrayRe
   %8 = alloca %"class.llvm::SmallVector", align 8
   %9 = alloca %"class.llvm::TruncatedBLAKE3", align 8
   %10 = alloca %"class.llvm::codeview::TypeIndex", align 4
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %11, ptr %8, align 8, !tbaa !10
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -63,7 +63,7 @@ define dso_local i64 @_ZN4llvm8codeview18GloballyHashedType8hashTypeENS_8ArrayRe
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 4, ptr %13, align 4, !tbaa !14
   call void @_ZN4llvm8codeview19discoverTypeIndicesENS_8ArrayRefIhEERNS_15SmallVectorImplINS0_11TiReferenceEEE(ptr %0, i64 %1, ptr noundef nonnull align 8 dereferenceable(16) %8) #9
-  call void @llvm.lifetime.start.p0(i64 1912, ptr nonnull %9) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm_blake3_hasher_init(ptr noundef nonnull align 8 dereferenceable(1912) %9) #9
   call void @llvm_blake3_hasher_init(ptr noundef nonnull align 8 dereferenceable(1912) %9) #9
   %..i = call i64 @llvm.umin.i64(i64 %1, i64 4)
@@ -109,7 +109,7 @@ define dso_local i64 @_ZN4llvm8codeview18GloballyHashedType8hashTypeENS_8ArrayRe
 
 35:                                               ; preds = %.lr.ph, %.critedge
   %.052101 = phi ptr [ %33, %.lr.ph ], [ %47, %.critedge ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %36 = load i32, ptr %.052101, align 1, !tbaa !20
   store i32 %36, ptr %10, align 4, !tbaa !20
   %37 = icmp ult i32 %36, 4096
@@ -139,7 +139,7 @@ define dso_local i64 @_ZN4llvm8codeview18GloballyHashedType8hashTypeENS_8ArrayRe
   %.sroa.7.2 = phi i64 [ 8, %46 ], [ 4, %35 ]
   %.sroa.066.2 = phi ptr [ %43, %46 ], [ %10, %35 ]
   call void @llvm_blake3_hasher_update(ptr noundef nonnull align 8 dereferenceable(1912) %9, ptr noundef nonnull %.sroa.066.2, i64 noundef %.sroa.7.2) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %47 = getelementptr inbounds nuw i8, ptr %.052101, i64 4
   %.not53 = icmp eq ptr %47, %34
   br i1 %.not53, label %._crit_edge.loopexit, label %35
@@ -159,7 +159,7 @@ define dso_local i64 @_ZN4llvm8codeview18GloballyHashedType8hashTypeENS_8ArrayRe
   br i1 %.not, label %.thread95.loopexit, label %.lr.ph106
 
 53:                                               ; preds = %42, %38
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %58
 
 .thread95.loopexit:                               ; preds = %._crit_edge
@@ -171,15 +171,15 @@ define dso_local i64 @_ZN4llvm8codeview18GloballyHashedType8hashTypeENS_8ArrayRe
   %55 = sub i64 %14, %.0.lcssa
   %56 = getelementptr inbounds nuw i8, ptr %15, i64 %.0.lcssa
   call void @llvm_blake3_hasher_update(ptr noundef nonnull align 8 dereferenceable(1912) %9, ptr noundef nonnull %56, i64 noundef %55) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm_blake3_hasher_finalize(ptr noundef nonnull align 8 dereferenceable(1912) %9, ptr noundef nonnull %7, i64 noundef 8) #9
   %57 = load i64, ptr %7, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %58
 
 58:                                               ; preds = %53, %.thread95
   %.sroa.086.4 = phi i64 [ %57, %.thread95 ], [ 0, %53 ]
-  call void @llvm.lifetime.end.p0(i64 1912, ptr nonnull %9) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %59 = load ptr, ptr %8, align 8, !tbaa !10
   %60 = icmp eq ptr %59, %11
   br i1 %60, label %_ZN4llvm11SmallVectorINS_8codeview11TiReferenceELj4EED2Ev.exit, label %61
@@ -189,24 +189,18 @@ define dso_local i64 @_ZN4llvm8codeview18GloballyHashedType8hashTypeENS_8ArrayRe
   br label %_ZN4llvm11SmallVectorINS_8codeview11TiReferenceELj4EED2Ev.exit
 
 _ZN4llvm11SmallVectorINS_8codeview11TiReferenceELj4EED2Ev.exit: ; preds = %58, %61
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i64 %.sroa.086.4
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+declare void @_ZN4llvm8codeview19discoverTypeIndicesENS_8ArrayRefIhEERNS_15SmallVectorImplINS0_11TiReferenceEEE(ptr, i64, ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2
 
-declare void @_ZN4llvm8codeview19discoverTypeIndicesENS_8ArrayRefIhEERNS_15SmallVectorImplINS0_11TiReferenceEEE(ptr, i64, ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #3
+declare void @llvm_blake3_hasher_init(ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
-declare void @llvm_blake3_hasher_init(ptr noundef) local_unnamed_addr #3
-
-declare void @llvm_blake3_hasher_update(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @llvm_blake3_hasher_update(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #4
+declare void @llvm.assume(i1 noundef) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr i64 @_ZN4llvm7hashing6detail23hash_combine_range_implIKhEENSt9enable_ifIXsr16is_hashable_dataIT_EE5valueENS_9hash_codeEE4typeEPS5_S9_(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 comdat {
@@ -467,7 +461,7 @@ define linkonce_odr i64 @_ZN4llvm7hashing6detail23hash_combine_range_implIKhEENS
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden noundef i64 @_ZN4llvm7hashing6detail10hash_shortEPKcmm(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #5 comdat {
+define linkonce_odr hidden noundef i64 @_ZN4llvm7hashing6detail10hash_shortEPKcmm(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #4 comdat {
   %4 = add i64 %1, -4
   %or.cond = icmp ult i64 %4, 5
   br i1 %or.cond, label %5, label %22
@@ -658,12 +652,12 @@ define linkonce_odr hidden noundef i64 @_ZN4llvm7hashing6detail10hash_shortEPKcm
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
-declare void @llvm_blake3_hasher_finalize(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @llvm_blake3_hasher_finalize(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define internal void @_GLOBAL__sub_I_TypeHashing.cpp() #7 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_TypeHashing.cpp() #6 section ".text.startup" {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) @_ZN4llvm12DenseMapInfoINS_8codeview17LocallyHashedTypeEvE5EmptyE, i8 0, i64 24, i1 false)
   store i64 -1, ptr @_ZN4llvm12DenseMapInfoINS_8codeview17LocallyHashedTypeEvE9TombstoneE, align 8, !tbaa !26
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN4llvm12DenseMapInfoINS_8codeview17LocallyHashedTypeEvE9TombstoneE, i64 8), i8 0, i64 16, i1 false)
@@ -671,6 +665,12 @@ define internal void @_GLOBAL__sub_I_TypeHashing.cpp() #7 section ".text.startup
   store i64 255, ptr @_ZN4llvm12DenseMapInfoINS_8codeview18GloballyHashedTypeEvE9TombstoneE, align 1
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.fshr.i64(i64, i64, i64) #8
@@ -683,12 +683,12 @@ declare i64 @llvm.umin.i64(i64, i64) #8
 
 attributes #0 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #1 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #5 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #4 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #9 = { nounwind }
 

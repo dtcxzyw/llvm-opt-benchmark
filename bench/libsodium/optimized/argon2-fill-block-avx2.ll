@@ -18,7 +18,7 @@ define hidden void @_sodium_argon2_fill_segment_avx2(ptr noundef readonly captur
   %.sroa.7.0.extract.shift = lshr i64 %1, 32
   %.sroa.7.0.extract.trunc = trunc nuw i64 %.sroa.7.0.extract.shift to i32
   %.sroa.11.8.extract.trunc = trunc i64 %2 to i8
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %11 = icmp eq ptr %0, null
   br i1 %11, label %.loopexit, label %12
 
@@ -48,9 +48,9 @@ define hidden void @_sodium_argon2_fill_segment_avx2(ptr noundef readonly captur
 
 23:                                               ; preds = %.thread, %18
   %24 = phi ptr [ %17, %.thread ], [ %22, %18 ]
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %5, i8 noundef 0, i64 noundef 1024, i1 noundef false) #6
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(968) %25, i8 noundef 0, i64 noundef 968, i1 noundef false) #6
@@ -91,8 +91,8 @@ define hidden void @_sodium_argon2_fill_segment_avx2(ptr noundef readonly captur
   br i1 %46, label %47, label %49
 
 47:                                               ; preds = %43
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %8) #6
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(1024) %8, i8 noundef 0, i64 noundef 1024, i1 noundef false) #6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(1024) %9, i8 noundef 0, i64 noundef 1024, i1 noundef false) #6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %5, i8 noundef 0, i64 noundef 1024, i1 noundef false) #6
@@ -101,8 +101,8 @@ define hidden void @_sodium_argon2_fill_segment_avx2(ptr noundef readonly captur
   store i64 %48, ptr %42, align 8
   call fastcc void @fill_block_with_xor(ptr noundef %8, ptr noundef nonnull %6, ptr noundef nonnull %7)
   call fastcc void @fill_block_with_xor(ptr noundef %9, ptr noundef nonnull %7, ptr noundef nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %9) #6
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %49
 
 49:                                               ; preds = %47, %43
@@ -119,9 +119,9 @@ define hidden void @_sodium_argon2_fill_segment_avx2(ptr noundef readonly captur
 
 generate_addresses.exit:                          ; preds = %49, %23
   %57 = phi i32 [ 0, %23 ], [ %54, %49 ]
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %58
 
 58:                                               ; preds = %._crit_edge, %generate_addresses.exit
@@ -281,7 +281,7 @@ index_alpha.exit:                                 ; preds = %104, %109, %113, %1
   br label %539
 
 155:                                              ; preds = %index_alpha.exit
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %156
 
 156:                                              ; preds = %156, %155
@@ -712,7 +712,7 @@ index_alpha.exit:                                 ; preds = %104, %109, %113, %1
   br i1 %exitcond934.not.i, label %fill_block.exit, label %.preheader.i, !llvm.loop !9
 
 fill_block.exit:                                  ; preds = %.preheader.i
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %539
 
 539:                                              ; preds = %154, %fill_block.exit
@@ -725,17 +725,14 @@ fill_block.exit:                                  ; preds = %.preheader.i
   br i1 %544, label %85, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %539, %58, %3
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %10) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nofree norecurse nosync nounwind ssp memory(argmem: readwrite) uwtable
-define internal fastcc void @fill_block_with_xor(ptr noundef nonnull captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2) unnamed_addr #2 {
+define internal fastcc void @fill_block_with_xor(ptr noundef nonnull captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2) unnamed_addr #1 {
   %4 = alloca [32 x <4 x i64>], align 32
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %5
 
 5:                                                ; preds = %3, %5
@@ -1173,12 +1170,15 @@ define internal fastcc void @fill_block_with_xor(ptr noundef nonnull captures(no
   br i1 %exitcond938.not, label %395, label %.preheader, !llvm.loop !14
 
 395:                                              ; preds = %.preheader
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare <4 x i64> @llvm.fshl.v4i64(<4 x i64>, <4 x i64>, <4 x i64>) #3
@@ -1190,8 +1190,8 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 attributes #0 = { nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nofree norecurse nosync nounwind ssp memory(argmem: readwrite) uwtable "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #1 = { nofree norecurse nosync nounwind ssp memory(argmem: readwrite) uwtable "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }

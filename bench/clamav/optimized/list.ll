@@ -80,7 +80,7 @@ define void @_Z11ListArchiveP11CommandData(ptr noundef %0) local_unnamed_addr #0
   %20 = icmp eq i32 %13, 66
   %21 = load i32, ptr %11, align 4, !tbaa !3
   %22 = icmp eq i32 %21, 86
-  call void @llvm.lifetime.start.p0(i64 8192, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %23 = call noundef zeroext i1 @_ZN11CommandData10GetArcNameEPwi(ptr noundef nonnull align 8 dereferenceable(100904) %0, ptr noundef nonnull %2, i32 noundef 2048)
   br i1 %23, label %.lr.ph, label %._crit_edge
 
@@ -116,7 +116,7 @@ define void @_Z11ListArchiveP11CommandData(ptr noundef %0) local_unnamed_addr #0
   br label %44
 
 44:                                               ; preds = %43, %40
-  call void @llvm.lifetime.start.p0(i64 57112, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN7ArchiveC1EP11CommandData(ptr noundef nonnull align 8 dereferenceable(57108) %3, ptr noundef nonnull %0)
   %45 = invoke noundef zeroext i1 @_ZN4File5WOpenEPKw(ptr noundef nonnull align 8 dereferenceable(8256) %3, ptr noundef nonnull %2)
           to label %46 unwind label %47
@@ -141,7 +141,7 @@ define void @_Z11ListArchiveP11CommandData(ptr noundef %0) local_unnamed_addr #0
   br i1 %49, label %51, label %.thread166
 
 51:                                               ; preds = %50
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 0, ptr %4, align 1, !tbaa !30
   br i1 %20, label %.split.us, label %52
 
@@ -165,27 +165,27 @@ define void @_Z11ListArchiveP11CommandData(ptr noundef %0) local_unnamed_addr #0
   br label %148
 
 59:                                               ; preds = %53
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   invoke void @_ZN7RarTime7GetTextEPwmb(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull %5, i64 noundef 50, i1 noundef zeroext %14)
           to label %60 unwind label %61
 
 60:                                               ; preds = %59
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.split.preheader
 
 61:                                               ; preds = %59
   %62 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %148
 
 .split.preheader:                                 ; preds = %60, %53
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 16, !tbaa !3
   br label %.split
 
 .split.us:                                        ; preds = %51
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 16, !tbaa !3
   br label %63
 
@@ -364,12 +364,12 @@ define void @_Z11ListArchiveP11CommandData(ptr noundef %0) local_unnamed_addr #0
   br i1 %118, label %119, label %132
 
 119:                                              ; preds = %116
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   invoke void @_Z4itoalPwm(i64 noundef %.0110188, ptr noundef nonnull %7, i64 noundef 20)
           to label %120 unwind label %124
 
 120:                                              ; preds = %119
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   invoke void @_Z4itoalPwm(i64 noundef %.0115192, ptr noundef nonnull %8, i64 noundef 20)
           to label %121 unwind label %126
 
@@ -388,19 +388,19 @@ define void @_Z11ListArchiveP11CommandData(ptr noundef %0) local_unnamed_addr #0
 126:                                              ; preds = %122, %120
   %127 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %131
 
 128:                                              ; preds = %121, %122
   %129 = add nsw i64 %.0110188, %.297
   %130 = add nsw i64 %.0115192, %.2
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #6
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %132
 
 131:                                              ; preds = %126, %124
   %.pn = phi { ptr, i32 } [ %127, %126 ], [ %125, %124 ]
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.loopexit
 
 132:                                              ; preds = %.thread, %.thread, %116, %128
@@ -438,22 +438,22 @@ define void @_Z11ListArchiveP11CommandData(ptr noundef %0) local_unnamed_addr #0
 
 .loopexit:                                        ; preds = %.split275, %.split275.us, %.loopexit.split-lp, %.loopexit.split.us, %.loopexit.split, %131
   %.pn152 = phi { ptr, i32 } [ %.pn, %131 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit.split ], [ %lpad.loopexit.us, %.loopexit.split.us ], [ %97, %.split275 ], [ %83, %.split275.us ]
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %148
 
 148:                                              ; preds = %.loopexit, %61, %57
   %.pn152.pn = phi { ptr, i32 } [ %.pn152, %.loopexit ], [ %62, %61 ], [ %58, %57 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %152
 
 .thread175:                                       ; preds = %146, %138, %132
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread166
 
 149:                                              ; preds = %147
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.preheader
 
 .thread166:                                       ; preds = %50, %.thread175, %46
@@ -462,15 +462,15 @@ define void @_Z11ListArchiveP11CommandData(ptr noundef %0) local_unnamed_addr #0
   %.1 = phi i64 [ %.0280, %46 ], [ %.3, %.thread175 ], [ %.2, %50 ]
   %150 = freeze i32 %.1138
   call void @_ZN7ArchiveD1Ev(ptr noundef nonnull align 8 dereferenceable(57108) %3) #6
-  call void @llvm.lifetime.end.p0(i64 57112, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %151 = call noundef zeroext i1 @_ZN11CommandData10GetArcNameEPwi(ptr noundef nonnull align 8 dereferenceable(100904) %0, ptr noundef nonnull %2, i32 noundef 2048)
   br i1 %151, label %40, label %._crit_edge.loopexit
 
 152:                                              ; preds = %55, %148, %47
   %.pn152.pn.pn.pn = phi { ptr, i32 } [ %48, %47 ], [ %.pn152.pn, %148 ], [ %56, %55 ]
   call void @_ZN7ArchiveD1Ev(ptr noundef nonnull align 8 dereferenceable(57108) %3) #6
-  call void @llvm.lifetime.end.p0(i64 57112, ptr nonnull %3) #6
-  call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %.pn152.pn.pn.pn
 
 ._crit_edge.loopexit:                             ; preds = %.thread166
@@ -501,8 +501,8 @@ switch.early.test:                                ; preds = %159
   ]
 
 160:                                              ; preds = %switch.early.test
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %9) #6
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_Z4itoalPwm(i64 noundef %.095.lcssa, ptr noundef nonnull %9, i64 noundef 20)
   call void @_Z4itoalPwm(i64 noundef %.0.lcssa, ptr noundef nonnull %10, i64 noundef 20)
   br i1 %22, label %161, label %163
@@ -512,45 +512,39 @@ switch.early.test:                                ; preds = %159
   br label %163
 
 163:                                              ; preds = %160, %161
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %10) #6
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %164
 
 164:                                              ; preds = %switch.early.test, %switch.early.test, %159, %163
-  call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare noundef zeroext i1 @_ZN11CommandData10GetArcNameEPwi(ptr noundef nonnull align 8 dereferenceable(100904), ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare noundef zeroext i1 @_ZN11CommandData10GetArcNameEPwi(ptr noundef nonnull align 8 dereferenceable(100904), ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @_ZN11SecPassword5CleanEv(ptr noundef nonnull align 8 dereferenceable(25)) local_unnamed_addr #1
 
-declare void @_ZN11SecPassword5CleanEv(ptr noundef nonnull align 8 dereferenceable(25)) local_unnamed_addr #2
+declare void @_ZN7ArchiveC1EP11CommandData(ptr noundef nonnull align 8 dereferenceable(57108), ptr noundef) unnamed_addr #1
 
-declare void @_ZN7ArchiveC1EP11CommandData(ptr noundef nonnull align 8 dereferenceable(57108), ptr noundef) unnamed_addr #2
-
-declare noundef zeroext i1 @_ZN4File5WOpenEPKw(ptr noundef nonnull align 8 dereferenceable(8256), ptr noundef) local_unnamed_addr #2
+declare noundef zeroext i1 @_ZN4File5WOpenEPKw(ptr noundef nonnull align 8 dereferenceable(8256), ptr noundef) local_unnamed_addr #1
 
 declare i32 @__gxx_personality_v0(...)
 
-declare noundef zeroext i1 @_ZN7Archive9IsArchiveEb(ptr noundef nonnull align 8 dereferenceable(57108), i1 noundef zeroext) local_unnamed_addr #2
+declare noundef zeroext i1 @_ZN7Archive9IsArchiveEb(ptr noundef nonnull align 8 dereferenceable(57108), i1 noundef zeroext) local_unnamed_addr #1
 
-declare void @_ZN7Archive11ViewCommentEv(ptr noundef nonnull align 8 dereferenceable(57108)) local_unnamed_addr #2
+declare void @_ZN7Archive11ViewCommentEv(ptr noundef nonnull align 8 dereferenceable(57108)) local_unnamed_addr #1
 
-declare void @_ZN7RarTime7GetTextEPwmb(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare void @_ZN7RarTime7GetTextEPwmb(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare noundef i64 @_ZN7Archive10ReadHeaderEv(ptr noundef nonnull align 8 dereferenceable(57108)) local_unnamed_addr #1
 
-declare noundef i64 @_ZN7Archive10ReadHeaderEv(ptr noundef nonnull align 8 dereferenceable(57108)) local_unnamed_addr #2
-
-declare void @_Z4Waitv() local_unnamed_addr #2
+declare void @_Z4Waitv() local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare i32 @swprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #3
+declare i32 @swprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare noundef i32 @_ZN11CommandData13IsProcessFileER10FileHeaderPbibPwj(ptr noundef nonnull align 8 dereferenceable(100904), ptr noundef nonnull align 8 dereferenceable(17184), ptr noundef, i32 noundef, i1 noundef zeroext, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare noundef i32 @_ZN11CommandData13IsProcessFileER10FileHeaderPbibPwj(ptr noundef nonnull align 8 dereferenceable(100904), ptr noundef nonnull align 8 dereferenceable(17184), ptr noundef, i32 noundef, i1 noundef zeroext, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZL14ListFileHeaderR7ArchiveR10FileHeaderRbbbbb(ptr noundef nonnull align 8 dereferenceable(57108) %0, ptr noundef nonnull align 8 dereferenceable(17184) %1, ptr noundef nonnull align 1 captures(none) dereferenceable(1) %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5) unnamed_addr #0 {
@@ -583,8 +577,8 @@ define internal fastcc void @_ZL14ListFileHeaderR7ArchiveR10FileHeaderRbbbbb(ptr
   br i1 %4, label %170, label %24
 
 24:                                               ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %7) #6
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8296
   %26 = load i64, ptr %25, align 8, !tbaa !86
   %27 = icmp eq i64 %26, 9223372034707292159
@@ -602,7 +596,7 @@ define internal fastcc void @_ZL14ListFileHeaderR7ArchiveR10FileHeaderRbbbbb(ptr
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 8288
   %32 = load i64, ptr %31, align 8, !tbaa !87
   call void @_Z4itoalPwm(i64 noundef %32, ptr noundef nonnull %8, i64 noundef 30)
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %34 = load i32, ptr %33, align 4, !tbaa !88
   %35 = icmp eq i32 %34, 3
@@ -707,7 +701,7 @@ define internal fastcc void @_ZL14ListFileHeaderR7ArchiveR10FileHeaderRbbbbb(ptr
   br label %_ZL12ListFileAttrj16HOST_SYSTEM_TYPEPwm.exit
 
 _ZL12ListFileAttrj16HOST_SYSTEM_TYPEPwm.exit:     ; preds = %93, %63, %47, %42, %36
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %94 = getelementptr inbounds nuw i8, ptr %1, i64 8352
   %95 = load i8, ptr %94, align 8, !tbaa !92, !range !26, !noundef !27
   %96 = trunc nuw i8 %95 to i1
@@ -743,7 +737,7 @@ _ZL12ListFileAttrj16HOST_SYSTEM_TYPEPwm.exit:     ; preds = %93, %63, %47, %42, 
   br label %110
 
 110:                                              ; preds = %102, %105, %104, %100
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %11) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %111 = getelementptr inbounds nuw i8, ptr %1, i64 8264
   call void @_ZN7RarTime7GetTextEPwmb(ptr noundef nonnull align 8 dereferenceable(8) %111, ptr noundef nonnull %11, i64 noundef 50, i1 noundef zeroext %3)
   br i1 %3, label %112, label %.critedge
@@ -760,9 +754,9 @@ _ZL12ListFileAttrj16HOST_SYSTEM_TYPEPwm.exit:     ; preds = %93, %63, %47, %42, 
   br i1 %118, label %119, label %120
 
 119:                                              ; preds = %115
-  call void @llvm.lifetime.start.p0(i64 8192, ptr nonnull %12) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @_Z17GetStreamNameNTFSR7ArchivePwm(ptr noundef nonnull align 8 dereferenceable(57108) %0, ptr noundef nonnull %12, i64 noundef 2048)
-  call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %12) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %138
 
 120:                                              ; preds = %115, %112
@@ -774,7 +768,7 @@ _ZL12ListFileAttrj16HOST_SYSTEM_TYPEPwm.exit:     ; preds = %93, %63, %47, %42, 
   br i1 %or.cond131, label %124, label %138
 
 124:                                              ; preds = %120
-  call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %13) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 22331
   %126 = load i8, ptr %125, align 1, !tbaa !94, !range !26, !noundef !27
   %127 = trunc nuw i8 %126 to i1
@@ -796,10 +790,10 @@ _ZL12ListFileAttrj16HOST_SYSTEM_TYPEPwm.exit:     ; preds = %93, %63, %47, %42, 
   br label %136
 
 136:                                              ; preds = %129, %128
-  call void @llvm.lifetime.start.p0(i64 8192, ptr nonnull %14) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %137 = call noundef zeroext i1 @_Z10CharToWidePKcPwm(ptr noundef nonnull %13, ptr noundef nonnull %14, i64 noundef 2048)
-  call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %14) #6
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %13) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %138
 
 138:                                              ; preds = %120, %136, %119
@@ -829,10 +823,10 @@ _ZL12ListFileAttrj16HOST_SYSTEM_TYPEPwm.exit:     ; preds = %93, %63, %47, %42, 
   br i1 %cond, label %149, label %.thread129
 
 149:                                              ; preds = %146
-  call void @llvm.lifetime.start.p0(i64 260, ptr nonnull %15) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %150 = getelementptr inbounds nuw i8, ptr %1, i64 8316
   call void @_Z8BinToHexPKhmPcPwm(ptr noundef nonnull %150, i64 noundef 32, ptr noundef null, ptr noundef nonnull %15, i64 noundef 65)
-  call void @llvm.lifetime.end.p0(i64 260, ptr nonnull %15) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %.thread129
 
 .thread129:                                       ; preds = %146, %149
@@ -872,55 +866,61 @@ _ZL12ListFileAttrj16HOST_SYSTEM_TYPEPwm.exit:     ; preds = %93, %63, %47, %42, 
   br label %.critedge
 
 .critedge:                                        ; preds = %110, %165, %156, %168
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %11) #6
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10) #6
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %9) #6
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %8) #6
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %170
 
 170:                                              ; preds = %20, %.critedge, %19
   ret void
 }
 
-declare void @_ZN7Archive10SeekToNextEv(ptr noundef nonnull align 8 dereferenceable(57108)) local_unnamed_addr #2
+declare void @_ZN7Archive10SeekToNextEv(ptr noundef nonnull align 8 dereferenceable(57108)) local_unnamed_addr #1
 
-declare void @_Z4itoalPwm(i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @_Z4itoalPwm(i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare noundef i32 @_Z14ToPercentUnlimll(i64 noundef, i64 noundef) local_unnamed_addr #2
+declare noundef i32 @_Z14ToPercentUnlimll(i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare noundef zeroext i1 @_Z12MergeArchiveR7ArchiveP11ComprDataIObw(ptr noundef nonnull align 8 dereferenceable(57108), ptr noundef, i1 noundef zeroext, i32 noundef signext) local_unnamed_addr #2
+declare noundef zeroext i1 @_Z12MergeArchiveR7ArchiveP11ComprDataIObw(ptr noundef nonnull align 8 dereferenceable(57108), ptr noundef, i1 noundef zeroext, i32 noundef signext) local_unnamed_addr #1
 
-declare void @_ZN7Archive4SeekEli(ptr noundef nonnull align 8 dereferenceable(57108), i64 noundef, i32 noundef) unnamed_addr #2
+declare void @_ZN7Archive4SeekEli(ptr noundef nonnull align 8 dereferenceable(57108), i64 noundef, i32 noundef) unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare void @_ZN7ArchiveD1Ev(ptr noundef nonnull align 8 dereferenceable(57108)) unnamed_addr #3
+declare void @_ZN7ArchiveD1Ev(ptr noundef nonnull align 8 dereferenceable(57108)) unnamed_addr #2
 
-declare void @_Z8wcsncpyzPwPKwm(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @_Z8wcsncpyzPwPKwm(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @_Z17GetStreamNameNTFSR7ArchivePwm(ptr noundef nonnull align 8 dereferenceable(57108), ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @_Z17GetStreamNameNTFSR7ArchivePwm(ptr noundef nonnull align 8 dereferenceable(57108), ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @_Z8strncpyzPcPKcm(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @_Z8strncpyzPcPKcm(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare noundef zeroext i1 @_Z10CharToWidePKcPwm(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare noundef zeroext i1 @_Z10CharToWidePKcPwm(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @_Z8BinToHexPKhmPcPwm(ptr noundef, i64 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @_Z8BinToHexPKhmPcPwm(ptr noundef, i64 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare noundef i32 @_Z20ParseVersionFileNamePwb(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare noundef i32 @_Z20ParseVersionFileNamePwb(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare noundef ptr @_Z7GetWidePKc(ptr noundef) local_unnamed_addr #2
+declare noundef ptr @_Z7GetWidePKc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @wcscmp(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @wcscmp(ptr noundef, ptr noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #5
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nounwind }
 attributes #7 = { nounwind willreturn memory(read) }

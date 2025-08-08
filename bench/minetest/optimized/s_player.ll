@@ -120,7 +120,7 @@ invoke.cont15:                                    ; preds = %_ZN11LockCheckerC2E
   %add.ptr19 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset18
   %m_luastack.i = getelementptr inbounds nuw i8, ptr %add.ptr19, i64 96
   %1 = load ptr, ptr %m_luastack.i, align 8, !tbaa !12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %stack_unroller) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %stack_unroller)
   store ptr %1, ptr %stack_unroller, align 8, !tbaa !22
   %call.i48 = invoke i32 @lua_gettop(ptr noundef %1)
           to label %invoke.cont23 unwind label %lpad22
@@ -163,7 +163,7 @@ terminate.lpad.i:                                 ; preds = %invoke.cont36
   unreachable
 
 _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit: ; preds = %invoke.cont36
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %stack_unroller)
   %4 = load i32, ptr %m_lock_recursion_count, align 4, !tbaa !7
   %dec.i = add nsw i32 %4, -1
   store i32 %dec.i, ptr %m_lock_recursion_count, align 4, !tbaa !7
@@ -188,7 +188,7 @@ lpad24:                                           ; preds = %invoke.cont31, %inv
 
 ehcleanup:                                        ; preds = %lpad24, %lpad22
   %.pn = phi { ptr, i32 } [ %7, %lpad24 ], [ %6, %lpad22 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %stack_unroller)
   br label %_ZNSt11unique_lockISt15recursive_mutexED2Ev.exit59
 
 _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit59: ; preds = %ehcleanup, %lpad14
@@ -199,9 +199,6 @@ _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit59: ; preds = %ehcleanup, %lpad1
   %call1.i.i.i.i.i58 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_luastackmutex) #15
   resume { ptr, i32 } %.pn.pn
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -214,7 +211,7 @@ declare void @_ZN13ScriptApiBase20objectrefGetOrCreateEP9lua_StateP18ServerActiv
 declare void @_ZN13ScriptApiBase15runCallbacksRawEi16RunCallbacksModePKc(ptr noundef nonnull align 8 dereferenceable(137), i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN13StackUnrollerD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN13StackUnrollerD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8, !tbaa !22
   %m_original_top = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -232,9 +229,6 @@ terminate.lpad:                                   ; preds = %entry
   tail call void @__clang_call_terminate(ptr %3) #18
   unreachable
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN15ScriptApiPlayer12on_dieplayerEP18ServerActiveObjectRK20PlayerHPChangeReason(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %player, ptr noundef nonnull align 1 %reason) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
@@ -284,7 +278,7 @@ invoke.cont15:                                    ; preds = %_ZN11LockCheckerC2E
   %add.ptr19 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset18
   %m_luastack.i = getelementptr inbounds nuw i8, ptr %add.ptr19, i64 96
   %1 = load ptr, ptr %m_luastack.i, align 8, !tbaa !12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %stack_unroller) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %stack_unroller)
   store ptr %1, ptr %stack_unroller, align 8, !tbaa !22
   %call.i54 = invoke i32 @lua_gettop(ptr noundef %1)
           to label %invoke.cont23 unwind label %lpad22
@@ -335,7 +329,7 @@ terminate.lpad.i:                                 ; preds = %invoke.cont41
   unreachable
 
 _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit: ; preds = %invoke.cont41
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %stack_unroller)
   %4 = load i32, ptr %m_lock_recursion_count, align 4, !tbaa !7
   %dec.i = add nsw i32 %4, -1
   store i32 %dec.i, ptr %m_lock_recursion_count, align 4, !tbaa !7
@@ -360,7 +354,7 @@ lpad24:                                           ; preds = %invoke.cont36, %inv
 
 ehcleanup:                                        ; preds = %lpad24, %lpad22
   %.pn = phi { ptr, i32 } [ %7, %lpad24 ], [ %6, %lpad22 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %stack_unroller)
   br label %_ZNSt11unique_lockISt15recursive_mutexED2Ev.exit65
 
 _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit65: ; preds = %ehcleanup, %lpad14
@@ -375,7 +369,7 @@ _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit65: ; preds = %ehcleanup, %lpad1
 declare void @_ZN13ScriptApiBase24pushPlayerHPChangeReasonEP9lua_StateRK20PlayerHPChangeReason(ptr noundef nonnull align 8 dereferenceable(137), ptr noundef, ptr noundef nonnull align 1) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN15ScriptApiPlayer14on_punchplayerEP18ServerActiveObjectS1_fPK16ToolCapabilitiesN3irr4core8vector3dIfEEi(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %player, ptr noundef %hitter, float noundef %time_from_last_punch, ptr noundef %toolcap, <2 x float> %dir.coerce0, float %dir.coerce1, i32 noundef %damage) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN15ScriptApiPlayer14on_punchplayerEP18ServerActiveObjectS1_fPK16ToolCapabilitiesN3irr4core8vector3dIfEEi(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %player, ptr noundef %hitter, float noundef %time_from_last_punch, ptr noundef %toolcap, <2 x float> %dir.coerce0, float %dir.coerce1, i32 noundef %damage) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %stack_unroller = alloca %class.StackUnroller, align 8
   %vtable = load ptr, ptr %this, align 8, !tbaa !4
@@ -422,7 +416,7 @@ invoke.cont15:                                    ; preds = %_ZN11LockCheckerC2E
   %add.ptr19 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset18
   %m_luastack.i = getelementptr inbounds nuw i8, ptr %add.ptr19, i64 96
   %1 = load ptr, ptr %m_luastack.i, align 8, !tbaa !12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %stack_unroller) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %stack_unroller)
   store ptr %1, ptr %stack_unroller, align 8, !tbaa !22
   %call.i66 = invoke i32 @lua_gettop(ptr noundef %1)
           to label %invoke.cont23 unwind label %lpad22
@@ -495,7 +489,7 @@ terminate.lpad.i:                                 ; preds = %invoke.cont47
   unreachable
 
 _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit: ; preds = %invoke.cont47
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %stack_unroller)
   %4 = load i32, ptr %m_lock_recursion_count, align 4, !tbaa !7
   %dec.i = add nsw i32 %4, -1
   store i32 %dec.i, ptr %m_lock_recursion_count, align 4, !tbaa !7
@@ -520,7 +514,7 @@ lpad24:                                           ; preds = %invoke.cont46, %inv
 
 ehcleanup:                                        ; preds = %lpad24, %lpad22
   %.pn = phi { ptr, i32 } [ %7, %lpad24 ], [ %6, %lpad22 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %stack_unroller)
   br label %_ZNSt11unique_lockISt15recursive_mutexED2Ev.exit77
 
 _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit77: ; preds = %ehcleanup, %lpad14
@@ -533,7 +527,7 @@ _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit77: ; preds = %ehcleanup, %lpad1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare void @lua_pushnumber(ptr noundef, double noundef) local_unnamed_addr #0
 
@@ -591,7 +585,7 @@ invoke.cont15:                                    ; preds = %_ZN11LockCheckerC2E
   %add.ptr19 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset18
   %m_luastack.i = getelementptr inbounds nuw i8, ptr %add.ptr19, i64 96
   %1 = load ptr, ptr %m_luastack.i, align 8, !tbaa !12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %stack_unroller) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %stack_unroller)
   store ptr %1, ptr %stack_unroller, align 8, !tbaa !22
   %call.i54 = invoke i32 @lua_gettop(ptr noundef %1)
           to label %invoke.cont23 unwind label %lpad22
@@ -642,7 +636,7 @@ terminate.lpad.i:                                 ; preds = %invoke.cont41
   unreachable
 
 _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit: ; preds = %invoke.cont41
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %stack_unroller)
   %4 = load i32, ptr %m_lock_recursion_count, align 4, !tbaa !7
   %dec.i = add nsw i32 %4, -1
   store i32 %dec.i, ptr %m_lock_recursion_count, align 4, !tbaa !7
@@ -667,7 +661,7 @@ lpad24:                                           ; preds = %invoke.cont36, %inv
 
 ehcleanup:                                        ; preds = %lpad24, %lpad22
   %.pn = phi { ptr, i32 } [ %7, %lpad24 ], [ %6, %lpad22 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %stack_unroller)
   br label %_ZNSt11unique_lockISt15recursive_mutexED2Ev.exit65
 
 _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit65: ; preds = %ehcleanup, %lpad14
@@ -727,7 +721,7 @@ invoke.cont15:                                    ; preds = %_ZN11LockCheckerC2E
   %add.ptr19 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset18
   %m_luastack.i = getelementptr inbounds nuw i8, ptr %add.ptr19, i64 96
   %1 = load ptr, ptr %m_luastack.i, align 8, !tbaa !12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %stack_unroller) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %stack_unroller)
   store ptr %1, ptr %stack_unroller, align 8, !tbaa !22
   %call.i78 = invoke i32 @lua_gettop(ptr noundef %1)
           to label %invoke.cont23 unwind label %lpad22
@@ -832,7 +826,7 @@ terminate.lpad.i:                                 ; preds = %invoke.cont53
 
 _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit: ; preds = %invoke.cont53
   %conv52 = trunc i64 %call51 to i32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %stack_unroller)
   %8 = load i32, ptr %m_lock_recursion_count, align 4, !tbaa !7
   %dec.i = add nsw i32 %8, -1
   store i32 %dec.i, ptr %m_lock_recursion_count, align 4, !tbaa !7
@@ -846,7 +840,7 @@ ehcleanup:                                        ; preds = %lpad42, %lpad24
 
 ehcleanup55:                                      ; preds = %ehcleanup, %lpad22
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %3, %lpad22 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %stack_unroller)
   br label %_ZNSt11unique_lockISt15recursive_mutexED2Ev.exit89
 
 _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit89: ; preds = %ehcleanup55, %lpad14
@@ -920,7 +914,7 @@ invoke.cont15:                                    ; preds = %_ZN11LockCheckerC2E
   %add.ptr19 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset18
   %m_luastack.i = getelementptr inbounds nuw i8, ptr %add.ptr19, i64 96
   %1 = load ptr, ptr %m_luastack.i, align 8, !tbaa !12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %stack_unroller) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %stack_unroller)
   store ptr %1, ptr %stack_unroller, align 8, !tbaa !22
   %call.i51 = invoke i32 @lua_gettop(ptr noundef %1)
           to label %invoke.cont23 unwind label %lpad22
@@ -967,7 +961,7 @@ terminate.lpad.i:                                 ; preds = %invoke.cont37
   unreachable
 
 _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit: ; preds = %invoke.cont37
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %stack_unroller)
   %4 = load i32, ptr %m_lock_recursion_count, align 4, !tbaa !7
   %dec.i = add nsw i32 %4, -1
   store i32 %dec.i, ptr %m_lock_recursion_count, align 4, !tbaa !7
@@ -992,7 +986,7 @@ lpad24:                                           ; preds = %invoke.cont36, %inv
 
 ehcleanup:                                        ; preds = %lpad24, %lpad22
   %.pn = phi { ptr, i32 } [ %7, %lpad24 ], [ %6, %lpad22 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %stack_unroller)
   br label %_ZNSt11unique_lockISt15recursive_mutexED2Ev.exit62
 
 _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit62: ; preds = %ehcleanup, %lpad14
@@ -1053,7 +1047,7 @@ invoke.cont15:                                    ; preds = %_ZN11LockCheckerC2E
   %add.ptr19 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset18
   %m_luastack.i = getelementptr inbounds nuw i8, ptr %add.ptr19, i64 96
   %1 = load ptr, ptr %m_luastack.i, align 8, !tbaa !12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %stack_unroller) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %stack_unroller)
   store ptr %1, ptr %stack_unroller, align 8, !tbaa !22
   %m_original_top.i = getelementptr inbounds nuw i8, ptr %stack_unroller, i64 8
   %call.i63 = invoke i32 @lua_gettop(ptr noundef %1)
@@ -1095,7 +1089,7 @@ invoke.cont36:                                    ; preds = %invoke.cont35
   br i1 %tobool.not, label %if.then, label %cleanup
 
 if.then:                                          ; preds = %invoke.cont36
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp)
   invoke void @_ZN9LuaHelper9readParamINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET_P9lua_Statei(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef %1, i32 noundef -1)
           to label %invoke.cont39 unwind label %lpad38
 
@@ -1205,7 +1199,7 @@ if.then.i.i:                                      ; preds = %_ZNSt7__cxx1112basi
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.then.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
   %.pre = load ptr, ptr %stack_unroller, align 8, !tbaa !22
   %.pre82 = load i32, ptr %m_original_top.i, align 8, !tbaa !24
   br label %cleanup
@@ -1228,7 +1222,7 @@ lpad24:                                           ; preds = %invoke.cont35, %inv
 lpad38:                                           ; preds = %if.then
   %28 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
   br label %ehcleanup
 
 cleanup:                                          ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %invoke.cont36
@@ -1245,7 +1239,7 @@ terminate.lpad.i:                                 ; preds = %cleanup
   unreachable
 
 _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit: ; preds = %cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %stack_unroller)
   %33 = load i32, ptr %m_lock_recursion_count, align 4, !tbaa !7
   %dec.i = add nsw i32 %33, -1
   store i32 %dec.i, ptr %m_lock_recursion_count, align 4, !tbaa !7
@@ -1259,7 +1253,7 @@ ehcleanup:                                        ; preds = %lpad38, %lpad24
 
 ehcleanup42:                                      ; preds = %ehcleanup, %lpad22
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %26, %lpad22 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %stack_unroller)
   br label %_ZNSt11unique_lockISt15recursive_mutexED2Ev.exit77
 
 _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit77: ; preds = %ehcleanup42, %lpad14
@@ -1325,7 +1319,7 @@ invoke.cont15:                                    ; preds = %_ZN11LockCheckerC2E
   %add.ptr19 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset18
   %m_luastack.i = getelementptr inbounds nuw i8, ptr %add.ptr19, i64 96
   %1 = load ptr, ptr %m_luastack.i, align 8, !tbaa !12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %stack_unroller) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %stack_unroller)
   store ptr %1, ptr %stack_unroller, align 8, !tbaa !22
   %call.i51 = invoke i32 @lua_gettop(ptr noundef %1)
           to label %invoke.cont23 unwind label %lpad22
@@ -1375,7 +1369,7 @@ terminate.lpad.i:                                 ; preds = %invoke.cont36
 
 _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit: ; preds = %invoke.cont36
   %tobool = icmp ne i32 %call37, 0
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %stack_unroller)
   %6 = load i32, ptr %m_lock_recursion_count, align 4, !tbaa !7
   %dec.i = add nsw i32 %6, -1
   store i32 %dec.i, ptr %m_lock_recursion_count, align 4, !tbaa !7
@@ -1400,7 +1394,7 @@ lpad24:                                           ; preds = %invoke.cont35, %inv
 
 ehcleanup:                                        ; preds = %lpad24, %lpad22
   %.pn = phi { ptr, i32 } [ %9, %lpad24 ], [ %8, %lpad22 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %stack_unroller)
   br label %_ZNSt11unique_lockISt15recursive_mutexED2Ev.exit62
 
 _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit62: ; preds = %ehcleanup, %lpad14
@@ -1462,7 +1456,7 @@ invoke.cont15:                                    ; preds = %_ZN11LockCheckerC2E
   %add.ptr19 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset18
   %m_luastack.i = getelementptr inbounds nuw i8, ptr %add.ptr19, i64 96
   %1 = load ptr, ptr %m_luastack.i, align 8, !tbaa !12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %stack_unroller) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %stack_unroller)
   store ptr %1, ptr %stack_unroller, align 8, !tbaa !22
   %call.i53 = invoke i32 @lua_gettop(ptr noundef %1)
           to label %invoke.cont23 unwind label %lpad22
@@ -1533,7 +1527,7 @@ terminate.lpad.i:                                 ; preds = %invoke.cont38
   unreachable
 
 _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit: ; preds = %invoke.cont38
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %stack_unroller)
   %7 = load i32, ptr %m_lock_recursion_count, align 4, !tbaa !7
   %dec.i = add nsw i32 %7, -1
   store i32 %dec.i, ptr %m_lock_recursion_count, align 4, !tbaa !7
@@ -1542,7 +1536,7 @@ _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit: ; preds = %invoke.cont38
 
 ehcleanup:                                        ; preds = %lpad24, %lpad22
   %.pn = phi { ptr, i32 } [ %4, %lpad24 ], [ %3, %lpad22 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %stack_unroller)
   br label %_ZNSt11unique_lockISt15recursive_mutexED2Ev.exit64
 
 _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit64: ; preds = %ehcleanup, %lpad14
@@ -1606,7 +1600,7 @@ invoke.cont15:                                    ; preds = %_ZN11LockCheckerC2E
   %add.ptr19 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset18
   %m_luastack.i = getelementptr inbounds nuw i8, ptr %add.ptr19, i64 96
   %1 = load ptr, ptr %m_luastack.i, align 8, !tbaa !12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %stack_unroller) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %stack_unroller)
   store ptr %1, ptr %stack_unroller, align 8, !tbaa !22
   %call.i50 = invoke i32 @lua_gettop(ptr noundef %1)
           to label %invoke.cont23 unwind label %lpad22
@@ -1654,7 +1648,7 @@ terminate.lpad.i:                                 ; preds = %invoke.cont37
   unreachable
 
 _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit: ; preds = %invoke.cont37
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %stack_unroller)
   %4 = load i32, ptr %m_lock_recursion_count, align 4, !tbaa !7
   %dec.i = add nsw i32 %4, -1
   store i32 %dec.i, ptr %m_lock_recursion_count, align 4, !tbaa !7
@@ -1679,7 +1673,7 @@ lpad24:                                           ; preds = %invoke.cont32, %inv
 
 ehcleanup:                                        ; preds = %lpad24, %lpad22
   %.pn = phi { ptr, i32 } [ %7, %lpad24 ], [ %6, %lpad22 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %stack_unroller)
   br label %_ZNSt11unique_lockISt15recursive_mutexED2Ev.exit61
 
 _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit61: ; preds = %ehcleanup, %lpad14
@@ -1741,7 +1735,7 @@ invoke.cont15:                                    ; preds = %_ZN11LockCheckerC2E
   %add.ptr19 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset18
   %m_luastack.i = getelementptr inbounds nuw i8, ptr %add.ptr19, i64 96
   %1 = load ptr, ptr %m_luastack.i, align 8, !tbaa !12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %stack_unroller) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %stack_unroller)
   store ptr %1, ptr %stack_unroller, align 8, !tbaa !22
   %call.i57 = invoke i32 @lua_gettop(ptr noundef %1)
           to label %invoke.cont23 unwind label %lpad22
@@ -1799,7 +1793,7 @@ terminate.lpad.i:                                 ; preds = %invoke.cont41
   unreachable
 
 _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit: ; preds = %invoke.cont41
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %stack_unroller)
   %6 = load i32, ptr %m_lock_recursion_count, align 4, !tbaa !7
   %dec.i = add nsw i32 %6, -1
   store i32 %dec.i, ptr %m_lock_recursion_count, align 4, !tbaa !7
@@ -1824,7 +1818,7 @@ lpad24:                                           ; preds = %invoke.cont36, %inv
 
 ehcleanup:                                        ; preds = %lpad24, %lpad22
   %.pn = phi { ptr, i32 } [ %9, %lpad24 ], [ %8, %lpad22 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %stack_unroller)
   br label %_ZNSt11unique_lockISt15recursive_mutexED2Ev.exit68
 
 _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit68: ; preds = %ehcleanup, %lpad14
@@ -1890,7 +1884,7 @@ invoke.cont15:                                    ; preds = %_ZN11LockCheckerC2E
   %add.ptr19 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset18
   %m_luastack.i = getelementptr inbounds nuw i8, ptr %add.ptr19, i64 96
   %1 = load ptr, ptr %m_luastack.i, align 8, !tbaa !12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %stack_unroller) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %stack_unroller)
   store ptr %1, ptr %stack_unroller, align 8, !tbaa !22
   %call.i81 = invoke i32 @lua_gettop(ptr noundef %1)
           to label %invoke.cont23 unwind label %lpad22
@@ -1995,7 +1989,7 @@ terminate.lpad.i:                                 ; preds = %invoke.cont58
   unreachable
 
 _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit: ; preds = %invoke.cont58
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %stack_unroller)
   %13 = load i32, ptr %m_lock_recursion_count, align 4, !tbaa !7
   %dec.i = add nsw i32 %13, -1
   store i32 %dec.i, ptr %m_lock_recursion_count, align 4, !tbaa !7
@@ -2009,7 +2003,7 @@ ehcleanup59:                                      ; preds = %lpad47, %lpad35, %l
 
 ehcleanup60:                                      ; preds = %ehcleanup59, %lpad22
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup59 ], [ %7, %lpad22 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %stack_unroller)
   br label %_ZNSt11unique_lockISt15recursive_mutexED2Ev.exit94
 
 _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit94: ; preds = %ehcleanup60, %lpad14
@@ -2071,7 +2065,7 @@ invoke.cont15:                                    ; preds = %_ZN11LockCheckerC2E
   %add.ptr19 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset18
   %m_luastack.i = getelementptr inbounds nuw i8, ptr %add.ptr19, i64 96
   %1 = load ptr, ptr %m_luastack.i, align 8, !tbaa !12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %stack_unroller) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %stack_unroller)
   store ptr %1, ptr %stack_unroller, align 8, !tbaa !22
   %call.i50 = invoke i32 @lua_gettop(ptr noundef %1)
           to label %invoke.cont23 unwind label %lpad22
@@ -2121,7 +2115,7 @@ terminate.lpad.i:                                 ; preds = %invoke.cont36
   unreachable
 
 _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit: ; preds = %invoke.cont36
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %stack_unroller)
   %6 = load i32, ptr %m_lock_recursion_count, align 4, !tbaa !7
   %dec.i = add nsw i32 %6, -1
   store i32 %dec.i, ptr %m_lock_recursion_count, align 4, !tbaa !7
@@ -2146,7 +2140,7 @@ lpad24:                                           ; preds = %invoke.cont31, %inv
 
 ehcleanup:                                        ; preds = %lpad24, %lpad22
   %.pn = phi { ptr, i32 } [ %9, %lpad24 ], [ %8, %lpad22 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %stack_unroller)
   br label %_ZNSt11unique_lockISt15recursive_mutexED2Ev.exit61
 
 _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit61: ; preds = %ehcleanup, %lpad14
@@ -2274,7 +2268,7 @@ invoke.cont15:                                    ; preds = %_ZN11LockCheckerC2E
   %add.ptr19 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset18
   %m_luastack.i = getelementptr inbounds nuw i8, ptr %add.ptr19, i64 96
   %1 = load ptr, ptr %m_luastack.i, align 8, !tbaa !12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %stack_unroller) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %stack_unroller)
   store ptr %1, ptr %stack_unroller, align 8, !tbaa !22
   %call.i51 = invoke i32 @lua_gettop(ptr noundef %1)
           to label %invoke.cont23 unwind label %lpad22
@@ -2331,7 +2325,7 @@ terminate.lpad.i:                                 ; preds = %cond.end
 
 _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit: ; preds = %cond.end
   %conv37 = fptosi double %cond to i32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %stack_unroller)
   %4 = load i32, ptr %m_lock_recursion_count, align 4, !tbaa !7
   %dec.i = add nsw i32 %4, -1
   store i32 %dec.i, ptr %m_lock_recursion_count, align 4, !tbaa !7
@@ -2356,7 +2350,7 @@ lpad24:                                           ; preds = %cond.true, %invoke.
 
 ehcleanup:                                        ; preds = %lpad24, %lpad22
   %.pn = phi { ptr, i32 } [ %7, %lpad24 ], [ %6, %lpad22 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %stack_unroller)
   br label %_ZNSt11unique_lockISt15recursive_mutexED2Ev.exit62
 
 _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit62: ; preds = %ehcleanup, %lpad14
@@ -2420,7 +2414,7 @@ invoke.cont15:                                    ; preds = %_ZN11LockCheckerC2E
   %add.ptr19 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset18
   %m_luastack.i = getelementptr inbounds nuw i8, ptr %add.ptr19, i64 96
   %1 = load ptr, ptr %m_luastack.i, align 8, !tbaa !12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %stack_unroller) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %stack_unroller)
   store ptr %1, ptr %stack_unroller, align 8, !tbaa !22
   %call.i55 = invoke i32 @lua_gettop(ptr noundef %1)
           to label %invoke.cont23 unwind label %lpad22
@@ -2484,7 +2478,7 @@ terminate.lpad.i:                                 ; preds = %cond.end
 
 _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit: ; preds = %cond.end
   %conv39 = fptosi double %cond to i32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %stack_unroller)
   %6 = load i32, ptr %m_lock_recursion_count, align 4, !tbaa !7
   %dec.i = add nsw i32 %6, -1
   store i32 %dec.i, ptr %m_lock_recursion_count, align 4, !tbaa !7
@@ -2509,7 +2503,7 @@ lpad24:                                           ; preds = %cond.true, %invoke.
 
 ehcleanup:                                        ; preds = %lpad24, %lpad22
   %.pn = phi { ptr, i32 } [ %9, %lpad24 ], [ %8, %lpad22 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %stack_unroller)
   br label %_ZNSt11unique_lockISt15recursive_mutexED2Ev.exit66
 
 _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit66: ; preds = %ehcleanup, %lpad14
@@ -2569,7 +2563,7 @@ invoke.cont15:                                    ; preds = %_ZN11LockCheckerC2E
   %add.ptr19 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset18
   %m_luastack.i = getelementptr inbounds nuw i8, ptr %add.ptr19, i64 96
   %1 = load ptr, ptr %m_luastack.i, align 8, !tbaa !12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %stack_unroller) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %stack_unroller)
   store ptr %1, ptr %stack_unroller, align 8, !tbaa !22
   %call.i55 = invoke i32 @lua_gettop(ptr noundef %1)
           to label %invoke.cont23 unwind label %lpad22
@@ -2632,7 +2626,7 @@ terminate.lpad.i:                                 ; preds = %cond.end
 
 _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit: ; preds = %cond.end
   %conv39 = fptosi double %cond to i32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %stack_unroller)
   %6 = load i32, ptr %m_lock_recursion_count, align 4, !tbaa !7
   %dec.i = add nsw i32 %6, -1
   store i32 %dec.i, ptr %m_lock_recursion_count, align 4, !tbaa !7
@@ -2657,7 +2651,7 @@ lpad24:                                           ; preds = %cond.true, %invoke.
 
 ehcleanup:                                        ; preds = %lpad24, %lpad22
   %.pn = phi { ptr, i32 } [ %9, %lpad24 ], [ %8, %lpad22 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %stack_unroller)
   br label %_ZNSt11unique_lockISt15recursive_mutexED2Ev.exit66
 
 _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit66: ; preds = %ehcleanup, %lpad14
@@ -2717,7 +2711,7 @@ invoke.cont15:                                    ; preds = %_ZN11LockCheckerC2E
   %add.ptr19 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset18
   %m_luastack.i = getelementptr inbounds nuw i8, ptr %add.ptr19, i64 96
   %1 = load ptr, ptr %m_luastack.i, align 8, !tbaa !12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %stack_unroller) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %stack_unroller)
   store ptr %1, ptr %stack_unroller, align 8, !tbaa !22
   %call.i43 = invoke i32 @lua_gettop(ptr noundef %1)
           to label %invoke.cont23 unwind label %lpad22
@@ -2756,7 +2750,7 @@ terminate.lpad.i:                                 ; preds = %invoke.cont32
   unreachable
 
 _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit: ; preds = %invoke.cont32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %stack_unroller)
   %4 = load i32, ptr %m_lock_recursion_count, align 4, !tbaa !7
   %dec.i = add nsw i32 %4, -1
   store i32 %dec.i, ptr %m_lock_recursion_count, align 4, !tbaa !7
@@ -2781,7 +2775,7 @@ lpad24:                                           ; preds = %invoke.cont27, %inv
 
 ehcleanup:                                        ; preds = %lpad24, %lpad22
   %.pn = phi { ptr, i32 } [ %7, %lpad24 ], [ %6, %lpad22 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %stack_unroller)
   br label %_ZNSt11unique_lockISt15recursive_mutexED2Ev.exit54
 
 _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit54: ; preds = %ehcleanup, %lpad14
@@ -2841,7 +2835,7 @@ invoke.cont15:                                    ; preds = %_ZN11LockCheckerC2E
   %add.ptr19 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset18
   %m_luastack.i = getelementptr inbounds nuw i8, ptr %add.ptr19, i64 96
   %1 = load ptr, ptr %m_luastack.i, align 8, !tbaa !12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %stack_unroller) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %stack_unroller)
   store ptr %1, ptr %stack_unroller, align 8, !tbaa !22
   %call.i45 = invoke i32 @lua_gettop(ptr noundef %1)
           to label %invoke.cont23 unwind label %lpad22
@@ -2885,7 +2879,7 @@ terminate.lpad.i:                                 ; preds = %invoke.cont32
   unreachable
 
 _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit: ; preds = %invoke.cont32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %stack_unroller)
   %5 = load i32, ptr %m_lock_recursion_count, align 4, !tbaa !7
   %dec.i = add nsw i32 %5, -1
   store i32 %dec.i, ptr %m_lock_recursion_count, align 4, !tbaa !7
@@ -2910,7 +2904,7 @@ lpad24:                                           ; preds = %invoke.cont27, %inv
 
 ehcleanup:                                        ; preds = %lpad24, %lpad22
   %.pn = phi { ptr, i32 } [ %8, %lpad24 ], [ %7, %lpad22 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %stack_unroller)
   br label %_ZNSt11unique_lockISt15recursive_mutexED2Ev.exit56
 
 _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit56: ; preds = %ehcleanup, %lpad14
@@ -2970,7 +2964,7 @@ invoke.cont15:                                    ; preds = %_ZN11LockCheckerC2E
   %add.ptr19 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset18
   %m_luastack.i = getelementptr inbounds nuw i8, ptr %add.ptr19, i64 96
   %1 = load ptr, ptr %m_luastack.i, align 8, !tbaa !12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %stack_unroller) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %stack_unroller)
   store ptr %1, ptr %stack_unroller, align 8, !tbaa !22
   %call.i45 = invoke i32 @lua_gettop(ptr noundef %1)
           to label %invoke.cont23 unwind label %lpad22
@@ -3013,7 +3007,7 @@ terminate.lpad.i:                                 ; preds = %invoke.cont32
   unreachable
 
 _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit: ; preds = %invoke.cont32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %stack_unroller)
   %5 = load i32, ptr %m_lock_recursion_count, align 4, !tbaa !7
   %dec.i = add nsw i32 %5, -1
   store i32 %dec.i, ptr %m_lock_recursion_count, align 4, !tbaa !7
@@ -3038,7 +3032,7 @@ lpad24:                                           ; preds = %invoke.cont27, %inv
 
 ehcleanup:                                        ; preds = %lpad24, %lpad22
   %.pn = phi { ptr, i32 } [ %8, %lpad24 ], [ %7, %lpad22 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %stack_unroller)
   br label %_ZNSt11unique_lockISt15recursive_mutexED2Ev.exit56
 
 _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit56: ; preds = %ehcleanup, %lpad14
@@ -3051,10 +3045,10 @@ _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit56: ; preds = %ehcleanup, %lpad1
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i64 @pthread_self() local_unnamed_addr #8
+declare i64 @pthread_self() local_unnamed_addr #7
 
 ; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #9 comdat {
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #8 comdat {
   %2 = tail call ptr @__cxa_begin_catch(ptr %0) #15
   tail call void @_ZSt9terminatev() #18
   unreachable
@@ -3063,13 +3057,13 @@ define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_un
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #10
+declare void @_ZSt9terminatev() local_unnamed_addr #9
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #11
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_system_errori(i32 noundef) local_unnamed_addr #12
+declare void @_ZSt20__throw_system_errori(i32 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind
 declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #1
@@ -3078,7 +3072,7 @@ declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #1
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_s_player.cpp() #13 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_s_player.cpp() #12 section ".text.startup" {
 entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #15
@@ -3086,23 +3080,29 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #14
+declare void @llvm.assume(i1 noundef) #13
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
 attributes #0 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind }
 attributes #3 = { mustprogress uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress uwtable "min-legal-vector-width"="64" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { noreturn nounwind uwtable "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { cold nofree noreturn }
-attributes #11 = { nobuiltin nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { noreturn "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #4 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress uwtable "min-legal-vector-width"="64" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { noreturn nounwind uwtable "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { cold nofree noreturn }
+attributes #10 = { nobuiltin nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { noreturn "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #15 = { nounwind }
 attributes #16 = { noreturn }
 attributes #17 = { nounwind willreturn memory(none) }

@@ -33,22 +33,16 @@ define dso_local noundef ptr @makeParamList(i32 noundef %0) local_unnamed_addr #
   ret ptr %5
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare ptr @palloc(i64 noundef) local_unnamed_addr #2
+declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @paramlist_parser_setup(ptr noundef writeonly captures(none) initializes((216, 224), (232, 240)) %0, ptr noundef %1) #3 {
+define internal void @paramlist_parser_setup(ptr noundef writeonly captures(none) initializes((216, 224), (232, 240)) %0, ptr noundef %1) #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store ptr @paramlist_param_ref, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store ptr %1, ptr %4, align 8
   ret void
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @copyParamList(ptr noundef %0) local_unnamed_addr #0 {
@@ -90,9 +84,9 @@ define dso_local noundef ptr @copyParamList(ptr noundef %0) local_unnamed_addr #
 23:                                               ; preds = %.lr.ph, %46
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %46 ]
   %24 = getelementptr inbounds nuw [0 x %struct.ParamExternData], ptr %21, i64 0, i64 %indvars.iv
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #7
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #7
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %25 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %25, null
   br i1 %.not, label %30, label %26
@@ -133,9 +127,9 @@ define dso_local noundef ptr @copyParamList(ptr noundef %0) local_unnamed_addr #
   br label %46
 
 46:                                               ; preds = %32, %36, %39
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %47 = load i32, ptr %7, align 8
   %48 = sext i32 %47 to i64
@@ -148,11 +142,11 @@ define dso_local noundef ptr @copyParamList(ptr noundef %0) local_unnamed_addr #
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
-declare void @get_typlenbyval(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @get_typlenbyval(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i64 @datumCopy(i64 noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #2
+declare i64 @datumCopy(i64 noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @EstimateParamListSpace(ptr noundef %0) local_unnamed_addr #0 {
@@ -175,9 +169,9 @@ define dso_local i64 @EstimateParamListSpace(ptr noundef %0) local_unnamed_addr 
 11:                                               ; preds = %.lr.ph, %28
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %28 ]
   %.02229 = phi i64 [ 4, %.lr.ph ], [ %36, %28 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #7
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #7
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %12 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %17, label %13
@@ -223,9 +217,9 @@ define dso_local i64 @EstimateParamListSpace(ptr noundef %0) local_unnamed_addr 
   %34 = trunc nuw i8 %33 to i1
   %35 = call i64 @datumEstimateSpace(i64 noundef %31, i1 noundef zeroext %34, i1 noundef zeroext %30, i32 noundef %29) #7
   %36 = call i64 @add_size(i64 noundef %23, i64 noundef %35) #7
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %37 = load i32, ptr %7, align 8
   %38 = sext i32 %37 to i64
@@ -237,9 +231,9 @@ define dso_local i64 @EstimateParamListSpace(ptr noundef %0) local_unnamed_addr 
   ret i64 %.0
 }
 
-declare i64 @add_size(i64 noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @add_size(i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare i64 @datumEstimateSpace(i64 noundef, i1 noundef zeroext, i1 noundef zeroext, i32 noundef) local_unnamed_addr #2
+declare i64 @datumEstimateSpace(i64 noundef, i1 noundef zeroext, i1 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @SerializeParamList(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -276,9 +270,9 @@ define dso_local void @SerializeParamList(ptr noundef %0, ptr noundef %1) local_
 
 17:                                               ; preds = %.lr.ph, %39
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %39 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #7
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4) #7
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %18 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %18, null
   br i1 %.not, label %23, label %19
@@ -332,9 +326,9 @@ define dso_local void @SerializeParamList(ptr noundef %0, ptr noundef %1) local_
   %44 = load i8, ptr %43, align 8, !range !4, !noundef !5
   %45 = trunc nuw i8 %44 to i1
   call void @datumSerialize(i64 noundef %42, i1 noundef zeroext %45, i1 noundef zeroext %41, i32 noundef %40, ptr noundef nonnull %1) #7
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !9
@@ -343,7 +337,7 @@ define dso_local void @SerializeParamList(ptr noundef %0, ptr noundef %1) local_
   ret void
 }
 
-declare void @datumSerialize(i64 noundef, i1 noundef zeroext, i1 noundef zeroext, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @datumSerialize(i64 noundef, i1 noundef zeroext, i1 noundef zeroext, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @RestoreParamList(ptr noundef %0) local_unnamed_addr #0 {
@@ -399,14 +393,14 @@ define dso_local noundef ptr @RestoreParamList(ptr noundef %0) local_unnamed_add
   br i1 %exitcond.not, label %._crit_edge, label %14, !llvm.loop !10
 }
 
-declare i64 @datumRestore(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i64 @datumRestore(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @BuildParamLogString(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.StringInfoData, align 8
   %5 = alloca i32, align 4
   %6 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %8, label %59
@@ -451,15 +445,15 @@ define dso_local ptr @BuildParamLogString(ptr noundef readonly captures(none) %0
   br i1 %.not26.us, label %31, label %27
 
 27:                                               ; preds = %24
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #7
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @getTypeOutputInfo(i32 noundef %26, ptr noundef nonnull %5, ptr noundef nonnull %6) #7
   %28 = load i32, ptr %5, align 4
   %29 = load i64, ptr %18, align 8
   %30 = call ptr @OidOutputFunctionCall(i32 noundef %28, i64 noundef %29) #7
   call void @appendStringInfoStringQuoted(ptr noundef nonnull %4, ptr noundef %30, i32 noundef %2) #7
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %32
 
 31:                                               ; preds = %24, %.lr.ph.split.us
@@ -512,15 +506,15 @@ define dso_local ptr @BuildParamLogString(ptr noundef readonly captures(none) %0
   br label %55
 
 51:                                               ; preds = %47
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #7
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @getTypeOutputInfo(i32 noundef %45, ptr noundef nonnull %5, ptr noundef nonnull %6) #7
   %52 = load i32, ptr %5, align 4
   %53 = load i64, ptr %37, align 8
   %54 = call ptr @OidOutputFunctionCall(i32 noundef %52, i64 noundef %53) #7
   call void @appendStringInfoStringQuoted(ptr noundef nonnull %4, ptr noundef %54, i32 noundef %2) #7
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %55
 
 55:                                               ; preds = %50, %51, %46
@@ -531,27 +525,27 @@ define dso_local ptr @BuildParamLogString(ptr noundef readonly captures(none) %0
 
 59:                                               ; preds = %3, %8, %._crit_edge
   %.0 = phi ptr [ %36, %._crit_edge ], [ null, %8 ], [ null, %3 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
 
-declare zeroext i1 @IsAbortedTransactionBlockState() local_unnamed_addr #2
+declare zeroext i1 @IsAbortedTransactionBlockState() local_unnamed_addr #1
 
-declare void @initStringInfo(ptr noundef) local_unnamed_addr #2
+declare void @initStringInfo(ptr noundef) local_unnamed_addr #1
 
-declare ptr @AllocSetContextCreateInternal(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @AllocSetContextCreateInternal(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @appendStringInfo(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @appendStringInfo(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare void @appendStringInfoString(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @appendStringInfoString(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @appendStringInfoStringQuoted(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @appendStringInfoStringQuoted(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @getTypeOutputInfo(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @getTypeOutputInfo(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @OidOutputFunctionCall(i32 noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @OidOutputFunctionCall(i32 noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @MemoryContextDelete(ptr noundef) local_unnamed_addr #2
+declare void @MemoryContextDelete(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ParamsErrorCallback(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
@@ -601,9 +595,9 @@ define dso_local void @ParamsErrorCallback(ptr noundef readonly captures(address
   ret void
 }
 
-declare i32 @set_errcontext_domain(ptr noundef) local_unnamed_addr #2
+declare i32 @set_errcontext_domain(ptr noundef) local_unnamed_addr #1
 
-declare i32 @errcontext_msg(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errcontext_msg(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @paramlist_param_ref(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
@@ -612,7 +606,7 @@ define internal noundef ptr @paramlist_param_ref(ptr noundef readonly captures(n
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = icmp slt i32 %7, 1
   br i1 %8, label %37, label %9
 
@@ -668,13 +662,19 @@ define internal noundef ptr @paramlist_param_ref(ptr noundef readonly captures(n
 
 37:                                               ; preds = %22, %2, %9, %25
   %.0 = phi ptr [ %26, %25 ], [ null, %9 ], [ null, %2 ], [ null, %22 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
-declare i32 @get_typcollation(i32 noundef) local_unnamed_addr #2
+declare i32 @get_typcollation(i32 noundef) local_unnamed_addr #1
 
-declare ptr @palloc0(i64 noundef) local_unnamed_addr #2
+declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
@@ -683,10 +683,10 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare i32 @llvm.smax.i32(i32, i32) #6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { nounwind }

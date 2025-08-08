@@ -324,7 +324,7 @@ define hidden void @_ZN4cvc58internal7Minisat10SimpSolverC2ERNS0_3EnvEPNS0_4prop
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 1064
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 1080
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %71, i8 0, i64 48, i1 false)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %74 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 0, ptr %74, align 8
   %75 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -336,13 +336,13 @@ define hidden void @_ZN4cvc58internal7Minisat10SimpSolverC2ERNS0_3EnvEPNS0_4prop
   br i1 %77, label %78, label %._crit_edge.i
 
 78:                                               ; preds = %70
-  %79 = tail call ptr @__errno_location() #28
+  %79 = tail call ptr @__errno_location() #27
   %80 = load i32, ptr %79, align 4, !tbaa !6
   %81 = icmp eq i32 %80, 12
   br i1 %81, label %82, label %._crit_edge.i
 
 82:                                               ; preds = %78
-  %83 = tail call ptr @__cxa_allocate_exception(i64 1) #27
+  %83 = tail call ptr @__cxa_allocate_exception(i64 1) #28
   invoke void @__cxa_throw(ptr %83, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #29
           to label %.noexc59 unwind label %107
 
@@ -387,11 +387,11 @@ define hidden void @_ZN4cvc58internal7Minisat10SimpSolverC2ERNS0_3EnvEPNS0_4prop
 
 .preheader.i.i:                                   ; preds = %._crit_edge
   store i32 0, ptr %75, align 8, !tbaa !282
-  call void @free(ptr noundef nonnull %102) #27
+  call void @free(ptr noundef nonnull %102) #28
   br label %_ZN4cvc58internal7Minisat3vecINS1_3LitEED2Ev.exit
 
 _ZN4cvc58internal7Minisat3vecINS1_3LitEED2Ev.exit: ; preds = %._crit_edge, %.preheader.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 
 103:                                              ; preds = %47, %33, %23
@@ -454,14 +454,14 @@ _ZN4cvc58internal7Minisat3vecINS1_3LitEED2Ev.exit: ; preds = %._crit_edge, %.pre
   br label %135
 
 130:                                              ; preds = %124
-  %131 = tail call ptr @__errno_location() #28
+  %131 = tail call ptr @__errno_location() #27
   %132 = load i32, ptr %131, align 4, !tbaa !6
   %133 = icmp eq i32 %132, 12
   call void @llvm.assume(i1 %133)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %117, %130
-  %134 = call ptr @__cxa_allocate_exception(i64 1) #27
+  %134 = call ptr @__cxa_allocate_exception(i64 1) #28
   invoke void @__cxa_throw(ptr %134, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #29
           to label %.noexc unwind label %254
 
@@ -509,14 +509,14 @@ _ZN4cvc58internal7Minisat3vecINS1_3LitEED2Ev.exit: ; preds = %._crit_edge, %.pre
   br label %162
 
 157:                                              ; preds = %151
-  %158 = tail call ptr @__errno_location() #28
+  %158 = tail call ptr @__errno_location() #27
   %159 = load i32, ptr %158, align 4, !tbaa !6
   %160 = icmp eq i32 %159, 12
   call void @llvm.assume(i1 %160)
   br label %.loopexit69
 
 .loopexit69:                                      ; preds = %144, %157
-  %161 = call ptr @__cxa_allocate_exception(i64 1) #27
+  %161 = call ptr @__cxa_allocate_exception(i64 1) #28
   invoke void @__cxa_throw(ptr %161, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #29
           to label %.noexc29 unwind label %256
 
@@ -574,14 +574,14 @@ _ZN4cvc58internal7Minisat3vecINS1_3LitEED2Ev.exit: ; preds = %._crit_edge, %.pre
   br label %193
 
 188:                                              ; preds = %181
-  %189 = tail call ptr @__errno_location() #28
+  %189 = tail call ptr @__errno_location() #27
   %190 = load i32, ptr %189, align 4, !tbaa !6
   %191 = icmp eq i32 %190, 12
   call void @llvm.assume(i1 %191)
   br label %.loopexit70
 
 .loopexit70:                                      ; preds = %174, %188
-  %192 = call ptr @__cxa_allocate_exception(i64 1) #27
+  %192 = call ptr @__cxa_allocate_exception(i64 1) #28
   invoke void @__cxa_throw(ptr %192, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #29
           to label %.noexc32 unwind label %258
 
@@ -625,14 +625,14 @@ _ZN4cvc58internal7Minisat3vecINS1_3LitEED2Ev.exit: ; preds = %._crit_edge, %.pre
   br label %._ZN4cvc58internal7Minisat3vecIiE8capacityEi.exit_crit_edge.i33
 
 215:                                              ; preds = %209
-  %216 = tail call ptr @__errno_location() #28
+  %216 = tail call ptr @__errno_location() #27
   %217 = load i32, ptr %216, align 4, !tbaa !6
   %218 = icmp eq i32 %217, 12
   call void @llvm.assume(i1 %218)
   br label %.loopexit71
 
 .loopexit71:                                      ; preds = %202, %215
-  %219 = call ptr @__cxa_allocate_exception(i64 1) #27
+  %219 = call ptr @__cxa_allocate_exception(i64 1) #28
   invoke void @__cxa_throw(ptr %219, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #29
           to label %.noexc35 unwind label %260
 
@@ -652,13 +652,13 @@ _ZN4cvc58internal7Minisat3vecINS1_3LitEED2Ev.exit: ; preds = %._crit_edge, %.pre
           to label %.noexc37 unwind label %111
 
 .noexc37:                                         ; preds = %._ZN4cvc58internal7Minisat3vecIiE8capacityEi.exit_crit_edge.i33
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i8 0, ptr %8, align 1, !tbaa !290
   invoke void @_ZN4cvc58internal7Minisat3vecIcE6growToEiRKc(ptr noundef nonnull align 8 dereferenceable(16) %99, i32 noundef %225, ptr noundef nonnull align 1 dereferenceable(1) %8)
           to label %226 unwind label %111
 
 226:                                              ; preds = %.noexc37
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %227 = load i32, ptr %100, align 8, !tbaa !286
   %228 = load i32, ptr %101, align 4, !tbaa !288
   %229 = icmp eq i32 %227, %228
@@ -692,14 +692,14 @@ _ZN4cvc58internal7Minisat3vecINS1_3LitEED2Ev.exit: ; preds = %._crit_edge, %.pre
   br label %248
 
 243:                                              ; preds = %237
-  %244 = tail call ptr @__errno_location() #28
+  %244 = tail call ptr @__errno_location() #27
   %245 = load i32, ptr %244, align 4, !tbaa !6
   %246 = icmp eq i32 %245, 12
   call void @llvm.assume(i1 %246)
   br label %.loopexit72
 
 .loopexit72:                                      ; preds = %230, %243
-  %247 = call ptr @__cxa_allocate_exception(i64 1) #27
+  %247 = call ptr @__cxa_allocate_exception(i64 1) #28
   invoke void @__cxa_throw(ptr %247, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #29
           to label %.noexc41 unwind label %262
 
@@ -756,12 +756,12 @@ _ZN4cvc58internal7Minisat3vecINS1_3LitEED2Ev.exit: ; preds = %._crit_edge, %.pre
 
 .preheader.i.i44:                                 ; preds = %267
   store i32 0, ptr %75, align 8, !tbaa !282
-  call void @free(ptr noundef nonnull %268) #27
+  call void @free(ptr noundef nonnull %268) #28
   br label %_ZN4cvc58internal7Minisat3vecINS1_3LitEED2Ev.exit45
 
 _ZN4cvc58internal7Minisat3vecINS1_3LitEED2Ev.exit45: ; preds = %.preheader.i.i44, %267, %107
   %.pn.pn.pn = phi { ptr, i32 } [ %108, %107 ], [ %.pn.pn, %267 ], [ %.pn.pn, %.preheader.i.i44 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %269 = load ptr, ptr %73, align 8, !tbaa !289
   %.not.i.i46 = icmp eq ptr %269, null
   br i1 %.not.i.i46, label %_ZN4cvc58internal7Minisat3vecIcED2Ev.exit, label %.preheader.i.i47
@@ -769,7 +769,7 @@ _ZN4cvc58internal7Minisat3vecINS1_3LitEED2Ev.exit45: ; preds = %.preheader.i.i44
 .preheader.i.i47:                                 ; preds = %_ZN4cvc58internal7Minisat3vecINS1_3LitEED2Ev.exit45
   %270 = getelementptr inbounds nuw i8, ptr %0, i64 1088
   store i32 0, ptr %270, align 8, !tbaa !286
-  call void @free(ptr noundef nonnull %269) #27
+  call void @free(ptr noundef nonnull %269) #28
   store ptr null, ptr %73, align 8, !tbaa !289
   %271 = getelementptr inbounds nuw i8, ptr %0, i64 1092
   store i32 0, ptr %271, align 4, !tbaa !288
@@ -783,7 +783,7 @@ _ZN4cvc58internal7Minisat3vecIcED2Ev.exit:        ; preds = %_ZN4cvc58internal7M
 .preheader.i.i49:                                 ; preds = %_ZN4cvc58internal7Minisat3vecIcED2Ev.exit
   %273 = getelementptr inbounds nuw i8, ptr %0, i64 1072
   store i32 0, ptr %273, align 8, !tbaa !286
-  call void @free(ptr noundef nonnull %272) #27
+  call void @free(ptr noundef nonnull %272) #28
   store ptr null, ptr %72, align 8, !tbaa !289
   %274 = getelementptr inbounds nuw i8, ptr %0, i64 1076
   store i32 0, ptr %274, align 4, !tbaa !288
@@ -797,7 +797,7 @@ _ZN4cvc58internal7Minisat3vecIcED2Ev.exit50:      ; preds = %_ZN4cvc58internal7M
 .preheader.i.i.i:                                 ; preds = %_ZN4cvc58internal7Minisat3vecIcED2Ev.exit50
   %276 = getelementptr inbounds nuw i8, ptr %0, i64 1048
   store i32 0, ptr %276, align 8, !tbaa !297
-  call void @free(ptr noundef nonnull %275) #27
+  call void @free(ptr noundef nonnull %275) #28
   store ptr null, ptr %69, align 8, !tbaa !296
   %277 = getelementptr inbounds nuw i8, ptr %0, i64 1052
   store i32 0, ptr %277, align 4, !tbaa !298
@@ -805,7 +805,7 @@ _ZN4cvc58internal7Minisat3vecIcED2Ev.exit50:      ; preds = %_ZN4cvc58internal7M
 
 _ZN4cvc58internal7Minisat5QueueIjED2Ev.exit:      ; preds = %.preheader.i.i.i, %_ZN4cvc58internal7Minisat3vecIcED2Ev.exit50, %105
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %106, %105 ], [ %.pn.pn.pn, %_ZN4cvc58internal7Minisat3vecIcED2Ev.exit50 ], [ %.pn.pn.pn, %.preheader.i.i.i ]
-  call void @_ZN4cvc58internal7Minisat4HeapINS1_10SimpSolver6ElimLtEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %66) #27
+  call void @_ZN4cvc58internal7Minisat4HeapINS1_10SimpSolver6ElimLtEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %66) #28
   %278 = load ptr, ptr %65, align 8, !tbaa !293
   %.not.i.i51 = icmp eq ptr %278, null
   br i1 %.not.i.i51, label %_ZN4cvc58internal7Minisat3vecIiED2Ev.exit, label %.preheader.i.i52
@@ -813,14 +813,14 @@ _ZN4cvc58internal7Minisat5QueueIjED2Ev.exit:      ; preds = %.preheader.i.i.i, %
 .preheader.i.i52:                                 ; preds = %_ZN4cvc58internal7Minisat5QueueIjED2Ev.exit
   %279 = getelementptr inbounds nuw i8, ptr %0, i64 992
   store i32 0, ptr %279, align 8, !tbaa !291
-  call void @free(ptr noundef nonnull %278) #27
+  call void @free(ptr noundef nonnull %278) #28
   store ptr null, ptr %65, align 8, !tbaa !293
   %280 = getelementptr inbounds nuw i8, ptr %0, i64 996
   store i32 0, ptr %280, align 4, !tbaa !292
   br label %_ZN4cvc58internal7Minisat3vecIiED2Ev.exit
 
 _ZN4cvc58internal7Minisat3vecIiED2Ev.exit:        ; preds = %_ZN4cvc58internal7Minisat5QueueIjED2Ev.exit, %.preheader.i.i52
-  call void @_ZN4cvc58internal7Minisat8OccListsIiNS1_3vecIjEENS1_10SimpSolver13ClauseDeletedEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %61) #27
+  call void @_ZN4cvc58internal7Minisat8OccListsIiNS1_3vecIjEENS1_10SimpSolver13ClauseDeletedEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %61) #28
   %281 = load ptr, ptr %60, align 8, !tbaa !289
   %.not.i.i53 = icmp eq ptr %281, null
   br i1 %.not.i.i53, label %_ZN4cvc58internal7Minisat3vecIcED2Ev.exit55, label %.preheader.i.i54
@@ -828,7 +828,7 @@ _ZN4cvc58internal7Minisat3vecIiED2Ev.exit:        ; preds = %_ZN4cvc58internal7M
 .preheader.i.i54:                                 ; preds = %_ZN4cvc58internal7Minisat3vecIiED2Ev.exit
   %282 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store i32 0, ptr %282, align 8, !tbaa !286
-  call void @free(ptr noundef nonnull %281) #27
+  call void @free(ptr noundef nonnull %281) #28
   store ptr null, ptr %60, align 8, !tbaa !289
   %283 = getelementptr inbounds nuw i8, ptr %0, i64 924
   store i32 0, ptr %283, align 4, !tbaa !288
@@ -842,7 +842,7 @@ _ZN4cvc58internal7Minisat3vecIcED2Ev.exit55:      ; preds = %_ZN4cvc58internal7M
 .preheader.i.i57:                                 ; preds = %_ZN4cvc58internal7Minisat3vecIcED2Ev.exit55
   %285 = getelementptr inbounds nuw i8, ptr %0, i64 904
   store i32 0, ptr %285, align 8, !tbaa !297
-  call void @free(ptr noundef nonnull %284) #27
+  call void @free(ptr noundef nonnull %284) #28
   store ptr null, ptr %59, align 8, !tbaa !296
   %286 = getelementptr inbounds nuw i8, ptr %0, i64 908
   store i32 0, ptr %286, align 4, !tbaa !298
@@ -850,7 +850,7 @@ _ZN4cvc58internal7Minisat3vecIcED2Ev.exit55:      ; preds = %_ZN4cvc58internal7M
 
 _ZN4cvc58internal7Minisat3vecIjED2Ev.exit:        ; preds = %.preheader.i.i57, %_ZN4cvc58internal7Minisat3vecIcED2Ev.exit55, %103
   %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %104, %103 ], [ %.pn.pn.pn.pn, %_ZN4cvc58internal7Minisat3vecIcED2Ev.exit55 ], [ %.pn.pn.pn.pn, %.preheader.i.i57 ]
-  call void @_ZN4cvc58internal7Minisat6SolverD2Ev(ptr noundef nonnull align 8 dereferenceable(850) %0) #27
+  call void @_ZN4cvc58internal7Minisat6SolverD2Ev(ptr noundef nonnull align 8 dereferenceable(850) %0) #28
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn
 }
 
@@ -859,12 +859,6 @@ declare void @_ZN4cvc58internal7Minisat6SolverC2ERNS0_3EnvEPNS0_4prop11TheoryPro
 declare i32 @__gxx_personality_v0(...)
 
 declare noundef nonnull align 8 dereferenceable(408) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i32 @_ZN4cvc58internal7Minisat15ClauseAllocator5allocINS1_3vecINS1_3LitEEEEEjiRKT_b(ptr noundef nonnull align 8 dereferenceable(21) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i1 noundef zeroext %3) local_unnamed_addr #5 comdat align 2 {
@@ -889,7 +883,7 @@ define linkonce_odr hidden noundef i32 @_ZN4cvc58internal7Minisat15ClauseAllocat
   br i1 %19, label %20, label %_ZN4cvc58internal7Minisat15RegionAllocatorIjE5allocEi.exit
 
 20:                                               ; preds = %4
-  %21 = tail call ptr @__cxa_allocate_exception(i64 1) #27
+  %21 = tail call ptr @__cxa_allocate_exception(i64 1) #28
   tail call void @__cxa_throw(ptr %21, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #29
   unreachable
 
@@ -986,10 +980,10 @@ define linkonce_odr hidden void @_ZN4cvc58internal7Minisat4HeapINS1_10SimpSolver
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = add nsw i32 %1, 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 -1, ptr %3, align 4, !tbaa !6
   call void @_ZN4cvc58internal7Minisat3vecIiE6growToEiRKi(ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef %5, ptr noundef nonnull align 4 dereferenceable(4) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i32, ptr %7, align 8, !tbaa !291
@@ -1032,14 +1026,14 @@ define linkonce_odr hidden void @_ZN4cvc58internal7Minisat4HeapINS1_10SimpSolver
   br label %_ZN4cvc58internal7Minisat3vecIiE4pushERKi.exit
 
 29:                                               ; preds = %22
-  %30 = tail call ptr @__errno_location() #28
+  %30 = tail call ptr @__errno_location() #27
   %31 = load i32, ptr %30, align 4, !tbaa !6
   %32 = icmp eq i32 %31, 12
   call void @llvm.assume(i1 %32)
   br label %33
 
 33:                                               ; preds = %29, %15
-  %34 = call ptr @__cxa_allocate_exception(i64 1) #27
+  %34 = call ptr @__cxa_allocate_exception(i64 1) #28
   call void @__cxa_throw(ptr %34, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #29
   unreachable
 
@@ -1131,7 +1125,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal7Minisat4HeapINS1_10SimpSolver
 .preheader.i.i:                                   ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 0, ptr %4, align 8, !tbaa !291
-  tail call void @free(ptr noundef nonnull %3) #27
+  tail call void @free(ptr noundef nonnull %3) #28
   store ptr null, ptr %2, align 8, !tbaa !293
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 0, ptr %5, align 4, !tbaa !292
@@ -1146,7 +1140,7 @@ _ZN4cvc58internal7Minisat3vecIiED2Ev.exit:        ; preds = %1, %.preheader.i.i
 .preheader.i.i2:                                  ; preds = %_ZN4cvc58internal7Minisat3vecIiED2Ev.exit
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %8, align 8, !tbaa !291
-  tail call void @free(ptr noundef nonnull %7) #27
+  tail call void @free(ptr noundef nonnull %7) #28
   store ptr null, ptr %6, align 8, !tbaa !293
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 0, ptr %9, align 4, !tbaa !292
@@ -1166,7 +1160,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal7Minisat8OccListsIiNS1_3vecIjE
 .preheader.i.i:                                   ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 0, ptr %4, align 8, !tbaa !291
-  tail call void @free(ptr noundef nonnull %3) #27
+  tail call void @free(ptr noundef nonnull %3) #28
   store ptr null, ptr %2, align 8, !tbaa !293
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 0, ptr %5, align 4, !tbaa !292
@@ -1181,7 +1175,7 @@ _ZN4cvc58internal7Minisat3vecIiED2Ev.exit:        ; preds = %1, %.preheader.i.i
 .preheader.i.i2:                                  ; preds = %_ZN4cvc58internal7Minisat3vecIiED2Ev.exit
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %8, align 8, !tbaa !286
-  tail call void @free(ptr noundef nonnull %7) #27
+  tail call void @free(ptr noundef nonnull %7) #28
   store ptr null, ptr %6, align 8, !tbaa !289
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 0, ptr %9, align 4, !tbaa !288
@@ -1205,7 +1199,7 @@ _ZN4cvc58internal7Minisat3vecIcED2Ev.exit:        ; preds = %_ZN4cvc58internal7M
 ._crit_edge.i.i:                                  ; preds = %._crit_edge.i.loopexit.i, %.preheader.i.i4
   %14 = phi ptr [ %.pre.i, %._crit_edge.i.loopexit.i ], [ %10, %.preheader.i.i4 ]
   store i32 0, ptr %11, align 8, !tbaa !307
-  tail call void @free(ptr noundef %14) #27
+  tail call void @free(ptr noundef %14) #28
   store ptr null, ptr %0, align 8, !tbaa !306
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 0, ptr %15, align 4, !tbaa !308
@@ -1223,7 +1217,7 @@ _ZN4cvc58internal7Minisat3vecIcED2Ev.exit:        ; preds = %_ZN4cvc58internal7M
 .preheader.i.i.i.i:                               ; preds = %.lr.ph.i.i
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i32 0, ptr %20, align 8, !tbaa !297
-  tail call void @free(ptr noundef nonnull %19) #27
+  tail call void @free(ptr noundef nonnull %19) #28
   store ptr null, ptr %18, align 8, !tbaa !296
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 12
   store i32 0, ptr %21, align 4, !tbaa !298
@@ -1255,7 +1249,7 @@ define hidden void @_ZN4cvc58internal7Minisat10SimpSolverD2Ev(ptr noundef nonnul
 .preheader.i.i:                                   ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1088
   store i32 0, ptr %4, align 8, !tbaa !286
-  tail call void @free(ptr noundef nonnull %3) #27
+  tail call void @free(ptr noundef nonnull %3) #28
   store ptr null, ptr %2, align 8, !tbaa !289
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1092
   store i32 0, ptr %5, align 4, !tbaa !288
@@ -1270,7 +1264,7 @@ _ZN4cvc58internal7Minisat3vecIcED2Ev.exit:        ; preds = %1, %.preheader.i.i
 .preheader.i.i2:                                  ; preds = %_ZN4cvc58internal7Minisat3vecIcED2Ev.exit
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 1072
   store i32 0, ptr %8, align 8, !tbaa !286
-  tail call void @free(ptr noundef nonnull %7) #27
+  tail call void @free(ptr noundef nonnull %7) #28
   store ptr null, ptr %6, align 8, !tbaa !289
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 1076
   store i32 0, ptr %9, align 4, !tbaa !288
@@ -1285,7 +1279,7 @@ _ZN4cvc58internal7Minisat3vecIcED2Ev.exit3:       ; preds = %_ZN4cvc58internal7M
 .preheader.i.i.i:                                 ; preds = %_ZN4cvc58internal7Minisat3vecIcED2Ev.exit3
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 1048
   store i32 0, ptr %12, align 8, !tbaa !297
-  tail call void @free(ptr noundef nonnull %11) #27
+  tail call void @free(ptr noundef nonnull %11) #28
   store ptr null, ptr %10, align 8, !tbaa !296
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 1052
   store i32 0, ptr %13, align 4, !tbaa !298
@@ -1300,7 +1294,7 @@ _ZN4cvc58internal7Minisat5QueueIjED2Ev.exit:      ; preds = %_ZN4cvc58internal7M
 .preheader.i.i.i5:                                ; preds = %_ZN4cvc58internal7Minisat5QueueIjED2Ev.exit
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 1032
   store i32 0, ptr %16, align 8, !tbaa !291
-  tail call void @free(ptr noundef nonnull %15) #27
+  tail call void @free(ptr noundef nonnull %15) #28
   store ptr null, ptr %14, align 8, !tbaa !293
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 1036
   store i32 0, ptr %17, align 4, !tbaa !292
@@ -1315,7 +1309,7 @@ _ZN4cvc58internal7Minisat3vecIiED2Ev.exit.i:      ; preds = %.preheader.i.i.i5, 
 .preheader.i.i2.i:                                ; preds = %_ZN4cvc58internal7Minisat3vecIiED2Ev.exit.i
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 1016
   store i32 0, ptr %20, align 8, !tbaa !291
-  tail call void @free(ptr noundef nonnull %19) #27
+  tail call void @free(ptr noundef nonnull %19) #28
   store ptr null, ptr %18, align 8, !tbaa !293
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 1020
   store i32 0, ptr %21, align 4, !tbaa !292
@@ -1330,7 +1324,7 @@ _ZN4cvc58internal7Minisat4HeapINS1_10SimpSolver6ElimLtEED2Ev.exit: ; preds = %_Z
 .preheader.i.i7:                                  ; preds = %_ZN4cvc58internal7Minisat4HeapINS1_10SimpSolver6ElimLtEED2Ev.exit
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 992
   store i32 0, ptr %24, align 8, !tbaa !291
-  tail call void @free(ptr noundef nonnull %23) #27
+  tail call void @free(ptr noundef nonnull %23) #28
   store ptr null, ptr %22, align 8, !tbaa !293
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 996
   store i32 0, ptr %25, align 4, !tbaa !292
@@ -1346,7 +1340,7 @@ _ZN4cvc58internal7Minisat3vecIiED2Ev.exit:        ; preds = %_ZN4cvc58internal7M
 .preheader.i.i.i9:                                ; preds = %_ZN4cvc58internal7Minisat3vecIiED2Ev.exit
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 968
   store i32 0, ptr %29, align 8, !tbaa !291
-  tail call void @free(ptr noundef nonnull %28) #27
+  tail call void @free(ptr noundef nonnull %28) #28
   store ptr null, ptr %27, align 8, !tbaa !293
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 972
   store i32 0, ptr %30, align 4, !tbaa !292
@@ -1361,7 +1355,7 @@ _ZN4cvc58internal7Minisat3vecIiED2Ev.exit.i10:    ; preds = %.preheader.i.i.i9, 
 .preheader.i.i2.i12:                              ; preds = %_ZN4cvc58internal7Minisat3vecIiED2Ev.exit.i10
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 952
   store i32 0, ptr %33, align 8, !tbaa !286
-  tail call void @free(ptr noundef nonnull %32) #27
+  tail call void @free(ptr noundef nonnull %32) #28
   store ptr null, ptr %31, align 8, !tbaa !289
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 956
   store i32 0, ptr %34, align 4, !tbaa !288
@@ -1385,7 +1379,7 @@ _ZN4cvc58internal7Minisat3vecIcED2Ev.exit.i:      ; preds = %.preheader.i.i2.i12
 ._crit_edge.i.i.i:                                ; preds = %._crit_edge.i.loopexit.i.i, %.preheader.i.i4.i
   %39 = phi ptr [ %.pre.i.i, %._crit_edge.i.loopexit.i.i ], [ %35, %.preheader.i.i4.i ]
   store i32 0, ptr %36, align 8, !tbaa !307
-  tail call void @free(ptr noundef %39) #27
+  tail call void @free(ptr noundef %39) #28
   store ptr null, ptr %26, align 8, !tbaa !306
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 940
   store i32 0, ptr %40, align 4, !tbaa !308
@@ -1403,7 +1397,7 @@ _ZN4cvc58internal7Minisat3vecIcED2Ev.exit.i:      ; preds = %.preheader.i.i2.i12
 .preheader.i.i.i.i.i:                             ; preds = %.lr.ph.i.i.i
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store i32 0, ptr %45, align 8, !tbaa !297
-  tail call void @free(ptr noundef nonnull %44) #27
+  tail call void @free(ptr noundef nonnull %44) #28
   store ptr null, ptr %43, align 8, !tbaa !296
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 12
   store i32 0, ptr %46, align 4, !tbaa !298
@@ -1426,7 +1420,7 @@ _ZN4cvc58internal7Minisat8OccListsIiNS1_3vecIjEENS1_10SimpSolver13ClauseDeletedE
 .preheader.i.i14:                                 ; preds = %_ZN4cvc58internal7Minisat8OccListsIiNS1_3vecIjEENS1_10SimpSolver13ClauseDeletedEED2Ev.exit
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store i32 0, ptr %52, align 8, !tbaa !286
-  tail call void @free(ptr noundef nonnull %51) #27
+  tail call void @free(ptr noundef nonnull %51) #28
   store ptr null, ptr %50, align 8, !tbaa !289
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 924
   store i32 0, ptr %53, align 4, !tbaa !288
@@ -1441,20 +1435,20 @@ _ZN4cvc58internal7Minisat3vecIcED2Ev.exit15:      ; preds = %_ZN4cvc58internal7M
 .preheader.i.i17:                                 ; preds = %_ZN4cvc58internal7Minisat3vecIcED2Ev.exit15
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 904
   store i32 0, ptr %56, align 8, !tbaa !297
-  tail call void @free(ptr noundef nonnull %55) #27
+  tail call void @free(ptr noundef nonnull %55) #28
   store ptr null, ptr %54, align 8, !tbaa !296
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 908
   store i32 0, ptr %57, align 4, !tbaa !298
   br label %_ZN4cvc58internal7Minisat3vecIjED2Ev.exit
 
 _ZN4cvc58internal7Minisat3vecIjED2Ev.exit:        ; preds = %_ZN4cvc58internal7Minisat3vecIcED2Ev.exit15, %.preheader.i.i17
-  tail call void @_ZN4cvc58internal7Minisat6SolverD2Ev(ptr noundef nonnull align 8 dereferenceable(850) %0) #27
+  tail call void @_ZN4cvc58internal7Minisat6SolverD2Ev(ptr noundef nonnull align 8 dereferenceable(850) %0) #28
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4cvc58internal7Minisat10SimpSolverD0Ev(ptr noundef nonnull align 8 dereferenceable(1108) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
-  tail call void @_ZN4cvc58internal7Minisat10SimpSolverD2Ev(ptr noundef nonnull align 8 dereferenceable(1108) %0) #27
+  tail call void @_ZN4cvc58internal7Minisat10SimpSolverD2Ev(ptr noundef nonnull align 8 dereferenceable(1108) %0) #28
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 1112) #31
   ret void
 }
@@ -1510,14 +1504,14 @@ define hidden noundef i32 @_ZN4cvc58internal7Minisat10SimpSolver6newVarEbbbb(ptr
   br label %_ZN4cvc58internal7Minisat3vecIcE4pushERKc.exit
 
 33:                                               ; preds = %27
-  %34 = tail call ptr @__errno_location() #28
+  %34 = tail call ptr @__errno_location() #27
   %35 = load i32, ptr %34, align 4, !tbaa !6
   %36 = icmp eq i32 %35, 12
   tail call void @llvm.assume(i1 %36)
   br label %37
 
 37:                                               ; preds = %33, %20
-  %38 = tail call ptr @__cxa_allocate_exception(i64 1) #27
+  %38 = tail call ptr @__cxa_allocate_exception(i64 1) #28
   tail call void @__cxa_throw(ptr %38, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #29
   unreachable
 
@@ -1565,14 +1559,14 @@ _ZN4cvc58internal7Minisat3vecIcE4pushERKc.exit:   ; preds = %._ZN4cvc58internal7
   br label %_ZN4cvc58internal7Minisat3vecIcE4pushERKc.exit7
 
 63:                                               ; preds = %57
-  %64 = tail call ptr @__errno_location() #28
+  %64 = tail call ptr @__errno_location() #27
   %65 = load i32, ptr %64, align 4, !tbaa !6
   %66 = icmp eq i32 %65, 12
   tail call void @llvm.assume(i1 %66)
   br label %67
 
 67:                                               ; preds = %63, %50
-  %68 = tail call ptr @__cxa_allocate_exception(i64 1) #27
+  %68 = tail call ptr @__cxa_allocate_exception(i64 1) #28
   tail call void @__cxa_throw(ptr %68, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #29
   unreachable
 
@@ -1621,14 +1615,14 @@ _ZN4cvc58internal7Minisat3vecIcE4pushERKc.exit7:  ; preds = %._ZN4cvc58internal7
   br label %_ZN4cvc58internal7Minisat3vecIiE4pushERKi.exit
 
 94:                                               ; preds = %87
-  %95 = tail call ptr @__errno_location() #28
+  %95 = tail call ptr @__errno_location() #27
   %96 = load i32, ptr %95, align 4, !tbaa !6
   %97 = icmp eq i32 %96, 12
   tail call void @llvm.assume(i1 %97)
   br label %98
 
 98:                                               ; preds = %94, %80
-  %99 = tail call ptr @__cxa_allocate_exception(i64 1) #27
+  %99 = tail call ptr @__cxa_allocate_exception(i64 1) #28
   tail call void @__cxa_throw(ptr %99, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #29
   unreachable
 
@@ -1669,14 +1663,14 @@ _ZN4cvc58internal7Minisat3vecIiE4pushERKi.exit:   ; preds = %._ZN4cvc58internal7
   br label %_ZN4cvc58internal7Minisat3vecIiE4pushERKi.exit11
 
 121:                                              ; preds = %115
-  %122 = tail call ptr @__errno_location() #28
+  %122 = tail call ptr @__errno_location() #27
   %123 = load i32, ptr %122, align 4, !tbaa !6
   %124 = icmp eq i32 %123, 12
   tail call void @llvm.assume(i1 %124)
   br label %125
 
 125:                                              ; preds = %121, %108
-  %126 = tail call ptr @__cxa_allocate_exception(i64 1) #27
+  %126 = tail call ptr @__cxa_allocate_exception(i64 1) #28
   tail call void @__cxa_throw(ptr %126, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #29
   unreachable
 
@@ -1692,10 +1686,10 @@ _ZN4cvc58internal7Minisat3vecIiE4pushERKi.exit11: ; preds = %_ZN4cvc58internal7M
   %133 = add nsw i32 %7, 1
   tail call void @_ZN4cvc58internal7Minisat3vecINS2_IjEEE6growToEi(ptr noundef nonnull align 8 dereferenceable(56) %132, i32 noundef %133)
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 944
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 0, ptr %6, align 1, !tbaa !290
   call void @_ZN4cvc58internal7Minisat3vecIcE6growToEiRKc(ptr noundef nonnull align 8 dereferenceable(16) %134, i32 noundef %133, ptr noundef nonnull align 1 dereferenceable(1) %6)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 912
   %136 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %137 = load i32, ptr %136, align 8, !tbaa !286
@@ -1732,14 +1726,14 @@ _ZN4cvc58internal7Minisat3vecIiE4pushERKi.exit11: ; preds = %_ZN4cvc58internal7M
   br label %_ZN4cvc58internal7Minisat3vecIcE4pushERKc.exit14
 
 154:                                              ; preds = %148
-  %155 = tail call ptr @__errno_location() #28
+  %155 = tail call ptr @__errno_location() #27
   %156 = load i32, ptr %155, align 4, !tbaa !6
   %157 = icmp eq i32 %156, 12
   call void @llvm.assume(i1 %157)
   br label %158
 
 158:                                              ; preds = %154, %141
-  %159 = call ptr @__cxa_allocate_exception(i64 1) #27
+  %159 = call ptr @__cxa_allocate_exception(i64 1) #28
   call void @__cxa_throw(ptr %159, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #29
   unreachable
 
@@ -1772,7 +1766,7 @@ define hidden i8 @_ZN4cvc58internal7Minisat10SimpSolver6solve_Ebb(ptr noundef no
   br i1 %9, label %10, label %19
 
 10:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   %11 = load ptr, ptr @stdout, align 8, !tbaa !311
   invoke void @_ZN4cvc58internal7Minisat6Solver8toDimacsEP8_IO_FILERKNS1_3vecINS1_3LitEEE(ptr noundef nonnull align 8 dereferenceable(850) %0, ptr noundef %11, ptr noundef nonnull align 8 dereferenceable(16) %4)
@@ -1786,7 +1780,7 @@ define hidden i8 @_ZN4cvc58internal7Minisat10SimpSolver6solve_Ebb(ptr noundef no
 .preheader.i.i.i:                                 ; preds = %12
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %14, align 8, !tbaa !282
-  call void @free(ptr noundef nonnull %13) #27
+  call void @free(ptr noundef nonnull %13) #28
   br label %_ZN4cvc58internal7Minisat6Solver8toDimacsEv.exit
 
 15:                                               ; preds = %10
@@ -1799,7 +1793,7 @@ define hidden i8 @_ZN4cvc58internal7Minisat10SimpSolver6solve_Ebb(ptr noundef no
 .preheader.i.i3.i:                                ; preds = %15
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %18, align 8, !tbaa !282
-  call void @free(ptr noundef nonnull %17) #27
+  call void @free(ptr noundef nonnull %17) #28
   br label %_ZN4cvc58internal7Minisat3vecINS1_3LitEED2Ev.exit4.i
 
 common.resume:                                    ; preds = %.preheader.i.i24, %152, %_ZN4cvc58internal7Minisat3vecINS1_3LitEED2Ev.exit4.i
@@ -1807,11 +1801,11 @@ common.resume:                                    ; preds = %.preheader.i.i24, %
   resume { ptr, i32 } %common.resume.op
 
 _ZN4cvc58internal7Minisat3vecINS1_3LitEED2Ev.exit4.i: ; preds = %.preheader.i.i3.i, %15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %common.resume
 
 _ZN4cvc58internal7Minisat6Solver8toDimacsEv.exit: ; preds = %12, %.preheader.i.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN4cvc58internal7Minisat3vecIiED2Ev.exit
 
 19:                                               ; preds = %3
@@ -1878,7 +1872,7 @@ _ZN4cvc58internal7Minisat6Solver8toDimacsEv.exit: ; preds = %12, %.preheader.i.i
   br i1 %51, label %52, label %_ZN4cvc58internal7Minisat3vecIiE4pushERKi.exit
 
 52:                                               ; preds = %46
-  %53 = tail call ptr @__errno_location() #28
+  %53 = tail call ptr @__errno_location() #27
   %54 = load i32, ptr %53, align 4, !tbaa !6
   %55 = icmp eq i32 %54, 12
   tail call void @llvm.assume(i1 %55)
@@ -1886,7 +1880,7 @@ _ZN4cvc58internal7Minisat6Solver8toDimacsEv.exit: ; preds = %12, %.preheader.i.i
 
 .loopexit59:                                      ; preds = %39, %52
   %.sroa.029.4 = phi ptr [ null, %52 ], [ %.sroa.029.168, %39 ]
-  %56 = tail call ptr @__cxa_allocate_exception(i64 1) #27
+  %56 = tail call ptr @__cxa_allocate_exception(i64 1) #28
   invoke void @__cxa_throw(ptr %56, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #29
           to label %.noexc unwind label %60
 
@@ -2111,7 +2105,7 @@ _ZN4cvc58internal7Minisat10SimpSolver9setFrozenEib.exit: ; preds = %148, %144, %
   br i1 %.not.i.i22, label %_ZN4cvc58internal7Minisat3vecIiED2Ev.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %_ZN4cvc58internal7Minisat10SimpSolver9setFrozenEib.exit, %.loopexit
-  tail call void @free(ptr noundef nonnull %.sroa.029.04585) #27
+  tail call void @free(ptr noundef nonnull %.sroa.029.04585) #28
   br label %_ZN4cvc58internal7Minisat3vecIiED2Ev.exit
 
 152:                                              ; preds = %70, %66, %60
@@ -2123,7 +2117,7 @@ _ZN4cvc58internal7Minisat10SimpSolver9setFrozenEib.exit: ; preds = %148, %144, %
 .preheader.i.i24:                                 ; preds = %.thread47, %152
   %.pn52 = phi { ptr, i32 } [ %125, %.thread47 ], [ %.pn, %152 ]
   %.sroa.029.251 = phi ptr [ %.sroa.029.04585, %.thread47 ], [ %.sroa.029.2, %152 ]
-  tail call void @free(ptr noundef nonnull %.sroa.029.251) #27
+  tail call void @free(ptr noundef nonnull %.sroa.029.251) #28
   br label %common.resume
 
 _ZN4cvc58internal7Minisat3vecIiED2Ev.exit:        ; preds = %.preheader.i.i, %.loopexit, %_ZN4cvc58internal7Minisat6Solver8toDimacsEv.exit
@@ -2402,7 +2396,7 @@ _ZN4cvc58internal7Minisat4HeapINS1_10SimpSolver6ElimLtEE5clearEb.exit: ; preds =
 .preheader.i:                                     ; preds = %147
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store i32 0, ptr %150, align 8, !tbaa !286
-  tail call void @free(ptr noundef nonnull %149) #27
+  tail call void @free(ptr noundef nonnull %149) #28
   store ptr null, ptr %148, align 8, !tbaa !289
   %151 = getelementptr inbounds nuw i8, ptr %0, i64 924
   store i32 0, ptr %151, align 4, !tbaa !288
@@ -2419,7 +2413,7 @@ _ZN4cvc58internal7Minisat3vecIcE5clearEb.exit:    ; preds = %147, %.preheader.i
 .preheader.i29:                                   ; preds = %_ZN4cvc58internal7Minisat3vecIcE5clearEb.exit
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 992
   store i32 0, ptr %155, align 8, !tbaa !291
-  tail call void @free(ptr noundef nonnull %154) #27
+  tail call void @free(ptr noundef nonnull %154) #28
   store ptr null, ptr %153, align 8, !tbaa !293
   %156 = getelementptr inbounds nuw i8, ptr %0, i64 996
   store i32 0, ptr %156, align 4, !tbaa !292
@@ -2441,7 +2435,7 @@ _ZN4cvc58internal7Minisat3vecIiE5clearEb.exit:    ; preds = %_ZN4cvc58internal7M
 
 .preheader.i.i33:                                 ; preds = %161, %._crit_edge.i31
   store i32 0, ptr %11, align 8, !tbaa !291
-  tail call void @free(ptr noundef nonnull %.pre.i30) #27
+  tail call void @free(ptr noundef nonnull %.pre.i30) #28
   store ptr null, ptr %17, align 8, !tbaa !293
   %160 = getelementptr inbounds nuw i8, ptr %0, i64 1020
   store i32 0, ptr %160, align 4, !tbaa !292
@@ -2468,7 +2462,7 @@ _ZN4cvc58internal7Minisat4HeapINS1_10SimpSolver6ElimLtEE5clearEb.exit37: ; preds
 
 .preheader.i.i39:                                 ; preds = %_ZN4cvc58internal7Minisat4HeapINS1_10SimpSolver6ElimLtEE5clearEb.exit37
   store i32 0, ptr %14, align 8, !tbaa !297
-  tail call void @free(ptr noundef nonnull %170) #27
+  tail call void @free(ptr noundef nonnull %170) #28
   store ptr null, ptr %169, align 8, !tbaa !296
   %171 = getelementptr inbounds nuw i8, ptr %0, i64 1052
   store i32 0, ptr %171, align 4, !tbaa !298
@@ -2724,14 +2718,14 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal7Minisat10SimpSolver10addClau
   br label %_ZN4cvc58internal7Minisat3vecIjE4pushERKj.exit
 
 69:                                               ; preds = %62
-  %70 = tail call ptr @__errno_location() #28
+  %70 = tail call ptr @__errno_location() #27
   %71 = load i32, ptr %70, align 4, !tbaa !6
   %72 = icmp eq i32 %71, 12
   tail call void @llvm.assume(i1 %72)
   br label %.loopexit30
 
 .loopexit30:                                      ; preds = %55, %69
-  %73 = tail call ptr @__cxa_allocate_exception(i64 1) #27
+  %73 = tail call ptr @__cxa_allocate_exception(i64 1) #28
   tail call void @__cxa_throw(ptr %73, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #29
   unreachable
 
@@ -2831,14 +2825,14 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal7Minisat10SimpSolver7impliedE
   br label %_ZN4cvc58internal7Minisat3vecIiE4pushERKi.exit
 
 25:                                               ; preds = %18
-  %26 = tail call ptr @__errno_location() #28
+  %26 = tail call ptr @__errno_location() #27
   %27 = load i32, ptr %26, align 4, !tbaa !6
   %28 = icmp eq i32 %27, 12
   tail call void @llvm.assume(i1 %28)
   br label %29
 
 29:                                               ; preds = %25, %11
-  %30 = tail call ptr @__cxa_allocate_exception(i64 1) #27
+  %30 = tail call ptr @__cxa_allocate_exception(i64 1) #28
   tail call void @__cxa_throw(ptr %30, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #29
   unreachable
 
@@ -2935,7 +2929,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal7Minisat5QueueIjE6insertEj(ptr
   br i1 %19, label %20, label %54
 
 20:                                               ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %21 = mul nsw i32 %12, 3
   %22 = add nsw i32 %21, 1
   %23 = ashr i32 %22, 1
@@ -2995,7 +2989,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal7Minisat5QueueIjE6insertEj(ptr
 
 .preheader.i.i:                                   ; preds = %._crit_edge.thread, %._crit_edge
   store i32 0, ptr %11, align 8, !tbaa !297
-  call void @free(ptr noundef nonnull %.pre35.pre) #27
+  call void @free(ptr noundef nonnull %.pre35.pre) #28
   br label %_ZN4cvc58internal7Minisat3vecIjED2Ev.exit
 
 41:                                               ; preds = %.lr.ph22, %41
@@ -3022,7 +3016,7 @@ _ZN4cvc58internal7Minisat3vecIjED2Ev.exit:        ; preds = %._crit_edge, %.preh
   %52 = load i32, ptr %51, align 4, !tbaa !298
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %52, ptr %53, align 4, !tbaa !298
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %54
 
 54:                                               ; preds = %_ZN4cvc58internal7Minisat3vecIjED2Ev.exit, %15
@@ -3163,14 +3157,14 @@ _ZN4cvc58internal7Minisat10SimpSolver14updateElimHeapEi.exit: ; preds = %_ZNK4cv
   br label %_ZN4cvc58internal7Minisat3vecIiE4pushERKi.exit.i
 
 73:                                               ; preds = %66
-  %74 = tail call ptr @__errno_location() #28
+  %74 = tail call ptr @__errno_location() #27
   %75 = load i32, ptr %74, align 4, !tbaa !6
   %76 = icmp eq i32 %75, 12
   tail call void @llvm.assume(i1 %76)
   br label %.loopexit46
 
 .loopexit46:                                      ; preds = %59, %73
-  %77 = tail call ptr @__cxa_allocate_exception(i64 1) #27
+  %77 = tail call ptr @__cxa_allocate_exception(i64 1) #28
   tail call void @__cxa_throw(ptr %77, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #29
   unreachable
 
@@ -3694,14 +3688,14 @@ _ZN4cvc58internal7Minisat3vecINS1_3LitEE5clearEb.exit: ; preds = %5, %.preheader
   br label %_ZN4cvc58internal7Minisat3vecINS1_3LitEE4pushERKS3_.exit
 
 63:                                               ; preds = %57
-  %64 = tail call ptr @__errno_location() #28
+  %64 = tail call ptr @__errno_location() #27
   %65 = load i32, ptr %64, align 4, !tbaa !6
   %66 = icmp eq i32 %65, 12
   tail call void @llvm.assume(i1 %66)
   br label %.loopexit69
 
 .loopexit69:                                      ; preds = %50, %63
-  %67 = tail call ptr @__cxa_allocate_exception(i64 1) #27
+  %67 = tail call ptr @__cxa_allocate_exception(i64 1) #28
   tail call void @__cxa_throw(ptr %67, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #29
   unreachable
 
@@ -3765,14 +3759,14 @@ _ZN4cvc58internal7Minisat3vecINS1_3LitEE4pushERKS3_.exit: ; preds = %._crit_edge
   br label %_ZN4cvc58internal7Minisat3vecINS1_3LitEE4pushERKS3_.exit62
 
 98:                                               ; preds = %92
-  %99 = tail call ptr @__errno_location() #28
+  %99 = tail call ptr @__errno_location() #27
   %100 = load i32, ptr %99, align 4, !tbaa !6
   %101 = icmp eq i32 %100, 12
   tail call void @llvm.assume(i1 %101)
   br label %.loopexit68
 
 .loopexit68:                                      ; preds = %85, %98
-  %102 = tail call ptr @__cxa_allocate_exception(i64 1) #27
+  %102 = tail call ptr @__cxa_allocate_exception(i64 1) #28
   tail call void @__cxa_throw(ptr %102, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #29
   unreachable
 
@@ -4127,13 +4121,13 @@ _ZN4cvc58internal7Minisat8OccListsIiNS1_3vecIjEENS1_10SimpSolver13ClauseDeletedE
   br i1 %141, label %142, label %._crit_edge.i15
 
 142:                                              ; preds = %136
-  %143 = tail call ptr @__errno_location() #28
+  %143 = tail call ptr @__errno_location() #27
   %144 = load i32, ptr %143, align 4, !tbaa !6
   %145 = icmp eq i32 %144, 12
   br i1 %145, label %146, label %._crit_edge.i15
 
 146:                                              ; preds = %142
-  %147 = tail call ptr @__cxa_allocate_exception(i64 1) #27
+  %147 = tail call ptr @__cxa_allocate_exception(i64 1) #28
   tail call void @__cxa_throw(ptr %147, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #29
   unreachable
 
@@ -4198,7 +4192,7 @@ _ZN4cvc58internal7Minisat3vecIjED2Ev.exit.i:      ; preds = %.lr.ph22.i, %.prehe
   store i32 0, ptr %7, align 8, !tbaa !324
   store i32 %125, ptr %6, align 4, !tbaa !323
   store i32 0, ptr %8, align 8, !tbaa !297
-  tail call void @free(ptr noundef nonnull %121) #27
+  tail call void @free(ptr noundef nonnull %121) #28
   store ptr %.sroa.0.6, ptr %5, align 8, !tbaa !296
   store i32 %.sroa.9.5, ptr %8, align 8, !tbaa !297
   store i32 %.sroa.13.6, ptr %28, align 4, !tbaa !298
@@ -4794,14 +4788,14 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal7Minisat10SimpSolver5asymmEij
   br label %_ZN4cvc58internal7Minisat3vecIiE4pushERKi.exit
 
 35:                                               ; preds = %28
-  %36 = tail call ptr @__errno_location() #28
+  %36 = tail call ptr @__errno_location() #27
   %37 = load i32, ptr %36, align 4, !tbaa !6
   %38 = icmp eq i32 %37, 12
   tail call void @llvm.assume(i1 %38)
   br label %39
 
 39:                                               ; preds = %35, %21
-  %40 = tail call ptr @__cxa_allocate_exception(i64 1) #27
+  %40 = tail call ptr @__cxa_allocate_exception(i64 1) #28
   tail call void @__cxa_throw(ptr %40, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #29
   unreachable
 
@@ -5305,7 +5299,7 @@ _ZN4cvc58internal7MinisatL4findINS1_6ClauseENS1_3LitEEEbRT_RKT0_.exit: ; preds =
   br label %_ZN4cvc58internal7Minisat3vecIjE4pushERKj.exit
 
 137:                                              ; preds = %.cont.cont
-  %138 = tail call ptr @__errno_location() #28
+  %138 = tail call ptr @__errno_location() #27
   %139 = load i32, ptr %138, align 4, !tbaa !6
   %140 = icmp eq i32 %139, 12
   tail call void @llvm.assume(i1 %140)
@@ -5314,7 +5308,7 @@ _ZN4cvc58internal7MinisatL4findINS1_6ClauseENS1_3LitEEEbRT_RKT0_.exit: ; preds =
 .loopexit240:                                     ; preds = %122, %137
   %.sroa.0132.2 = phi ptr [ %.sroa.0132.4, %137 ], [ %.sroa.0132.0263, %122 ]
   %.sroa.0153.2 = phi ptr [ %.sroa.0153.4, %137 ], [ %.sroa.0153.0268, %122 ]
-  %141 = tail call ptr @__cxa_allocate_exception(i64 1) #27
+  %141 = tail call ptr @__cxa_allocate_exception(i64 1) #28
   invoke void @__cxa_throw(ptr %141, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #29
           to label %.noexc unwind label %150
 
@@ -5489,7 +5483,7 @@ _ZN4cvc58internal7Minisat6Solver14setDecisionVarEib.exit: ; preds = %_ZNK4cvc58i
   br i1 %211, label %.lr.ph291, label %._crit_edge292
 
 ._crit_edge292:                                   ; preds = %246, %209
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 -2, ptr %3, align 4, !tbaa !6
   %212 = getelementptr inbounds nuw i8, ptr %0, i64 792
   br i1 %.not82279360, label %.preheader.lr.ph, label %.thread208
@@ -5595,7 +5589,7 @@ _ZN4cvc58internal7Minisat6Solver14setDecisionVarEib.exit: ; preds = %_ZNK4cvc58i
 .preheader.i105:                                  ; preds = %.thread208
   %253 = getelementptr inbounds nuw i8, ptr %251, i64 8
   store i32 0, ptr %253, align 8, !tbaa !297
-  call void @free(ptr noundef nonnull %252) #27
+  call void @free(ptr noundef nonnull %252) #28
   store ptr null, ptr %251, align 8, !tbaa !296
   %254 = getelementptr inbounds nuw i8, ptr %251, i64 12
   store i32 0, ptr %254, align 4, !tbaa !298
@@ -5619,7 +5613,7 @@ _ZN4cvc58internal7Minisat6Solver14setDecisionVarEib.exit: ; preds = %_ZNK4cvc58i
 
 .preheader.i108:                                  ; preds = %264
   store i32 0, ptr %261, align 8, !tbaa !373
-  call void @free(ptr noundef nonnull %265) #27
+  call void @free(ptr noundef nonnull %265) #28
   store ptr null, ptr %260, align 8, !tbaa !376
   %266 = getelementptr inbounds nuw i8, ptr %260, i64 12
   store i32 0, ptr %266, align 4, !tbaa !377
@@ -5647,7 +5641,7 @@ _ZN4cvc58internal7Minisat6Solver14setDecisionVarEib.exit: ; preds = %_ZNK4cvc58i
 
 .preheader.i112:                                  ; preds = %276
   store i32 0, ptr %273, align 8, !tbaa !373
-  call void @free(ptr noundef nonnull %277) #27
+  call void @free(ptr noundef nonnull %277) #28
   store ptr null, ptr %272, align 8, !tbaa !376
   %278 = getelementptr i8, ptr %271, i64 28
   store i32 0, ptr %278, align 4, !tbaa !377
@@ -5659,12 +5653,12 @@ _ZN4cvc58internal7Minisat3vecINS1_6Solver7WatcherEE5clearEb.exit113: ; preds = %
 
 .loopexit:                                        ; preds = %238, %_ZN4cvc58internal7Minisat3vecINS1_6Solver7WatcherEE5clearEb.exit113
   %.9 = phi i1 [ %279, %_ZN4cvc58internal7Minisat3vecINS1_6Solver7WatcherEE5clearEb.exit113 ], [ false, %238 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.loopexit237
 
 280:                                              ; preds = %267, %.split.us
   %.pn = phi { ptr, i32 } [ %268, %267 ], [ %240, %.split.us ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %281
 
 .loopexit237:                                     ; preds = %98, %.loopexit235.us, %.loopexit
@@ -5675,7 +5669,7 @@ _ZN4cvc58internal7Minisat3vecINS1_6Solver7WatcherEE5clearEb.exit113: ; preds = %
   br i1 %.not.i.i114, label %_ZN4cvc58internal7Minisat3vecIjED2Ev.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %.loopexit237
-  call void @free(ptr noundef nonnull %.sroa.0132.0.lcssa355) #27
+  call void @free(ptr noundef nonnull %.sroa.0132.0.lcssa355) #28
   br label %_ZN4cvc58internal7Minisat3vecIjED2Ev.exit
 
 _ZN4cvc58internal7Minisat3vecIjED2Ev.exit:        ; preds = %.loopexit237, %.preheader.i.i
@@ -5683,7 +5677,7 @@ _ZN4cvc58internal7Minisat3vecIjED2Ev.exit:        ; preds = %.loopexit237, %.pre
   br i1 %.not.i.i115, label %_ZN4cvc58internal7Minisat3vecIjED2Ev.exit117, label %.preheader.i.i116
 
 .preheader.i.i116:                                ; preds = %_ZN4cvc58internal7Minisat3vecIjED2Ev.exit
-  call void @free(ptr noundef nonnull %.sroa.0153.0.lcssa359) #27
+  call void @free(ptr noundef nonnull %.sroa.0153.0.lcssa359) #28
   br label %_ZN4cvc58internal7Minisat3vecIjED2Ev.exit117
 
 _ZN4cvc58internal7Minisat3vecIjED2Ev.exit117:     ; preds = %_ZN4cvc58internal7Minisat3vecIjED2Ev.exit, %.preheader.i.i116
@@ -5700,7 +5694,7 @@ _ZN4cvc58internal7Minisat3vecIjED2Ev.exit117:     ; preds = %_ZN4cvc58internal7M
   %.pn88.pn218 = phi { ptr, i32 } [ %188, %.thread210 ], [ %.pn88.pn, %281 ]
   %.sroa.0153.1216 = phi ptr [ %.sroa.0153.0.lcssa358, %.thread210 ], [ %.sroa.0153.1, %281 ]
   %.sroa.0132.1215 = phi ptr [ %.sroa.0132.0.lcssa354, %.thread210 ], [ %.sroa.0132.1, %281 ]
-  call void @free(ptr noundef nonnull %.sroa.0132.1215) #27
+  call void @free(ptr noundef nonnull %.sroa.0132.1215) #28
   br label %_ZN4cvc58internal7Minisat3vecIjED2Ev.exit120
 
 _ZN4cvc58internal7Minisat3vecIjED2Ev.exit120:     ; preds = %281, %.preheader.i.i119
@@ -5710,7 +5704,7 @@ _ZN4cvc58internal7Minisat3vecIjED2Ev.exit120:     ; preds = %281, %.preheader.i.
   br i1 %.not.i.i121, label %_ZN4cvc58internal7Minisat3vecIjED2Ev.exit123, label %.preheader.i.i122
 
 .preheader.i.i122:                                ; preds = %_ZN4cvc58internal7Minisat3vecIjED2Ev.exit120
-  call void @free(ptr noundef nonnull %.sroa.0153.1217) #27
+  call void @free(ptr noundef nonnull %.sroa.0153.1217) #28
   br label %_ZN4cvc58internal7Minisat3vecIjED2Ev.exit123
 
 _ZN4cvc58internal7Minisat3vecIjED2Ev.exit123:     ; preds = %_ZN4cvc58internal7Minisat3vecIjED2Ev.exit120, %.preheader.i.i122
@@ -5780,14 +5774,14 @@ define internal fastcc void @_ZL12mkElimClauseRN4cvc58internal7Minisat3vecIjEEiR
   br label %_ZN4cvc58internal7Minisat3vecIjE4pushERKj.exit
 
 34:                                               ; preds = %28
-  %35 = tail call ptr @__errno_location() #28
+  %35 = tail call ptr @__errno_location() #27
   %36 = load i32, ptr %35, align 4, !tbaa !6
   %37 = icmp eq i32 %36, 12
   tail call void @llvm.assume(i1 %37)
   br label %38
 
 38:                                               ; preds = %34, %21
-  %39 = tail call ptr @__cxa_allocate_exception(i64 1) #27
+  %39 = tail call ptr @__cxa_allocate_exception(i64 1) #28
   tail call void @__cxa_throw(ptr %39, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #29
   unreachable
 
@@ -5842,14 +5836,14 @@ _ZN4cvc58internal7Minisat3vecIjE4pushERKj.exit:   ; preds = %._ZN4cvc58internal7
   br label %_ZN4cvc58internal7Minisat3vecIjE4pushERKj.exit26
 
 66:                                               ; preds = %59
-  %67 = tail call ptr @__errno_location() #28
+  %67 = tail call ptr @__errno_location() #27
   %68 = load i32, ptr %67, align 4, !tbaa !6
   %69 = icmp eq i32 %68, 12
   tail call void @llvm.assume(i1 %69)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %52, %66
-  %70 = tail call ptr @__cxa_allocate_exception(i64 1) #27
+  %70 = tail call ptr @__cxa_allocate_exception(i64 1) #28
   tail call void @__cxa_throw(ptr %70, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #29
   unreachable
 
@@ -5913,14 +5907,14 @@ define internal fastcc void @_ZL12mkElimClauseRN4cvc58internal7Minisat3vecIjEENS
   br label %_ZN4cvc58internal7Minisat3vecIjE4pushERKj.exit
 
 22:                                               ; preds = %15
-  %23 = tail call ptr @__errno_location() #28
+  %23 = tail call ptr @__errno_location() #27
   %24 = load i32, ptr %23, align 4, !tbaa !6
   %25 = icmp eq i32 %24, 12
   tail call void @llvm.assume(i1 %25)
   br label %26
 
 26:                                               ; preds = %22, %8
-  %27 = tail call ptr @__cxa_allocate_exception(i64 1) #27
+  %27 = tail call ptr @__cxa_allocate_exception(i64 1) #28
   tail call void @__cxa_throw(ptr %27, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #29
   unreachable
 
@@ -5961,14 +5955,14 @@ _ZN4cvc58internal7Minisat3vecIjE4pushERKj.exit:   ; preds = %._ZN4cvc58internal7
   br label %_ZN4cvc58internal7Minisat3vecIjE4pushERKj.exit5
 
 49:                                               ; preds = %43
-  %50 = tail call ptr @__errno_location() #28
+  %50 = tail call ptr @__errno_location() #27
   %51 = load i32, ptr %50, align 4, !tbaa !6
   %52 = icmp eq i32 %51, 12
   tail call void @llvm.assume(i1 %52)
   br label %53
 
 53:                                               ; preds = %49, %36
-  %54 = tail call ptr @__cxa_allocate_exception(i64 1) #27
+  %54 = tail call ptr @__cxa_allocate_exception(i64 1) #28
   tail call void @__cxa_throw(ptr %54, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #29
   unreachable
 
@@ -6156,7 +6150,7 @@ _ZN4cvc58internal7Minisat3vecINS1_3LitEE5clearEb.exit: ; preds = %78, %.preheade
   %90 = getelementptr inbounds nuw i32, ptr %89, i64 %indvars.iv44
   %91 = load i32, ptr %90, align 4, !tbaa !6
   call void @_ZN4cvc58internal7Minisat10SimpSolver12removeClauseEj(ptr noundef nonnull align 8 dereferenceable(1108) %0, i32 noundef %91)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 -2, ptr %4, align 4, !tbaa !6
   %92 = load i64, ptr %84, align 4
   %93 = and i64 %92, 4
@@ -6203,14 +6197,14 @@ _ZN4cvc58internal7Minisat3vecINS1_3LitEE5clearEb.exit: ; preds = %78, %.preheade
   br label %_ZN4cvc58internal7Minisat3vecINS1_3LitEE4pushERKS3_.exit
 
 119:                                              ; preds = %113
-  %120 = tail call ptr @__errno_location() #28
+  %120 = tail call ptr @__errno_location() #27
   %121 = load i32, ptr %120, align 4, !tbaa !6
   %122 = icmp eq i32 %121, 12
   call void @llvm.assume(i1 %122)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %106, %119
-  %123 = call ptr @__cxa_allocate_exception(i64 1) #27
+  %123 = call ptr @__cxa_allocate_exception(i64 1) #28
   call void @__cxa_throw(ptr %123, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #29
   unreachable
 
@@ -6231,11 +6225,11 @@ _ZN4cvc58internal7Minisat3vecINS1_3LitEE4pushERKS3_.exit: ; preds = %96, %._ZN4c
 
 132:                                              ; preds = %._crit_edge
   store i8 0, ptr %5, align 8, !tbaa !325
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.critedge31
 
 .critedge:                                        ; preds = %._crit_edge
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
   %133 = load i32, ptr %73, align 8, !tbaa !297
   %134 = sext i32 %133 to i64
@@ -6277,7 +6271,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal7Minisat8OccListsIiNS1_3vecIjE
 .preheader.i.i.i:                                 ; preds = %.lr.ph.i
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 0, ptr %11, align 8, !tbaa !297
-  tail call void @free(ptr noundef nonnull %10) #27
+  tail call void @free(ptr noundef nonnull %10) #28
   store ptr null, ptr %9, align 8, !tbaa !296
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i32 0, ptr %12, align 4, !tbaa !298
@@ -6299,7 +6293,7 @@ _ZN4cvc58internal7Minisat3vecINS2_IjEEE5clearEb.exit: ; preds = %2
 
 _ZN4cvc58internal7Minisat3vecINS2_IjEEE5clearEb.exit.thread8: ; preds = %._crit_edge.i
   %18 = load ptr, ptr %0, align 8, !tbaa !306
-  tail call void @free(ptr noundef %18) #27
+  tail call void @free(ptr noundef %18) #28
   store ptr null, ptr %0, align 8, !tbaa !306
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 0, ptr %19, align 4, !tbaa !308
@@ -6332,7 +6326,7 @@ _ZN4cvc58internal7Minisat3vecINS2_IjEEE5clearEb.exit.thread: ; preds = %._crit_e
 27:                                               ; preds = %.preheader.i4.thread10, %.preheader.i4
   %28 = phi ptr [ %20, %.preheader.i4.thread10 ], [ %16, %.preheader.i4 ]
   %29 = phi ptr [ %21, %.preheader.i4.thread10 ], [ %17, %.preheader.i4 ]
-  tail call void @free(ptr noundef nonnull %29) #27
+  tail call void @free(ptr noundef nonnull %29) #28
   store ptr null, ptr %28, align 8, !tbaa !289
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 0, ptr %30, align 4, !tbaa !288
@@ -6350,7 +6344,7 @@ _ZN4cvc58internal7Minisat3vecIcE5clearEb.exit:    ; preds = %_ZN4cvc58internal7M
   br i1 %1, label %34, label %_ZN4cvc58internal7Minisat3vecIiE5clearEb.exit
 
 34:                                               ; preds = %.preheader.i6
-  tail call void @free(ptr noundef nonnull %32) #27
+  tail call void @free(ptr noundef nonnull %32) #28
   store ptr null, ptr %31, align 8, !tbaa !293
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 0, ptr %35, align 4, !tbaa !292
@@ -6629,7 +6623,7 @@ declare void @_ZN4cvc58internal7Minisat15ClauseAllocator5relocERjRS2_(ptr nounde
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN4cvc58internal7Minisat10SimpSolver14garbageCollectEv(ptr noundef nonnull align 8 dereferenceable(1108) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.cvc5::internal::Minisat::ClauseAllocator", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 704
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 712
   %5 = load i32, ptr %4, align 8, !tbaa !300
@@ -6674,11 +6668,11 @@ define hidden void @_ZN4cvc58internal7Minisat10SimpSolver14garbageCollectEv(ptr 
   br i1 %.not.i, label %_ZN4cvc58internal7Minisat15RegionAllocatorIjED2Ev.exit, label %27
 
 27:                                               ; preds = %24
-  call void @free(ptr noundef nonnull %26) #27
+  call void @free(ptr noundef nonnull %26) #28
   br label %_ZN4cvc58internal7Minisat15RegionAllocatorIjED2Ev.exit
 
 _ZN4cvc58internal7Minisat15RegionAllocatorIjED2Ev.exit: ; preds = %24, %27
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %25
 
 28:                                               ; preds = %17, %13
@@ -6689,7 +6683,7 @@ _ZN4cvc58internal7Minisat15RegionAllocatorIjED2Ev.exit: ; preds = %24, %27
   br i1 %.not.i.i, label %_ZN4cvc58internal7Minisat15RegionAllocatorIjED2Ev.exit3, label %31
 
 31:                                               ; preds = %28
-  call void @free(ptr noundef nonnull %30) #27
+  call void @free(ptr noundef nonnull %30) #28
   br label %_ZN4cvc58internal7Minisat15RegionAllocatorIjED2Ev.exit3
 
 _ZN4cvc58internal7Minisat15RegionAllocatorIjED2Ev.exit3: ; preds = %28, %31
@@ -6705,7 +6699,7 @@ _ZN4cvc58internal7Minisat15RegionAllocatorIjED2Ev.exit3: ; preds = %28, %31
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %39 = load i32, ptr %38, align 8, !tbaa !328
   store i32 %39, ptr %6, align 8, !tbaa !328
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -6724,7 +6718,7 @@ define internal void @__cxx_global_var_init.26() #11 section ".text.startup" com
   br i1 %5, label %6, label %_ZN4cvc58internal4expr9NodeValue4nullEv.exit, !prof !387
 
 6:                                                ; preds = %3
-  %7 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #27
+  %7 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #28
   %.not.i = icmp eq i32 %7, 0
   br i1 %.not.i, label %_ZN4cvc58internal4expr9NodeValue4nullEv.exit, label %8
 
@@ -6737,13 +6731,13 @@ define internal void @__cxx_global_var_init.26() #11 section ".text.startup" com
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   store ptr %9, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8, !tbaa !388
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #27
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #28
   br label %_ZN4cvc58internal4expr9NodeValue4nullEv.exit
 
 12:                                               ; preds = %8
   %13 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #27
+  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #28
   resume { ptr, i32 } %13
 
 _ZN4cvc58internal4expr9NodeValue4nullEv.exit:     ; preds = %3, %6, %10
@@ -6776,7 +6770,7 @@ _ZN4cvc58internal4expr9NodeValue4nullEv.exit:     ; preds = %3, %6, %10
   br label %_ZN4cvc58internal12NodeTemplateILb1EEC2EPKNS0_4expr9NodeValueE.exit
 
 _ZN4cvc58internal12NodeTemplateILb1EEC2EPKNS0_4expr9NodeValueE.exit: ; preds = %20, %26, %28
-  %30 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4cvc58internal12NodeTemplateILb1EED2Ev, ptr nonnull @_ZN4cvc58internal12NodeTemplateILb1EE6s_nullE, ptr nonnull @__dso_handle) #27
+  %30 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4cvc58internal12NodeTemplateILb1EED2Ev, ptr nonnull @_ZN4cvc58internal12NodeTemplateILb1EE6s_nullE, ptr nonnull @__dso_handle) #28
   br label %31
 
 31:                                               ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2EPKNS0_4expr9NodeValueE.exit, %0
@@ -6831,14 +6825,14 @@ define linkonce_odr hidden void @_ZN4cvc58internal7Minisat6OptionC2EPKcS4_S4_S4_
   br i1 %11, label %12, label %_ZN4cvc58internal7Minisat6Option13getOptionListEv.exit, !prof !387
 
 12:                                               ; preds = %5
-  %13 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4cvc58internal7Minisat6Option13getOptionListEvE7options) #27
+  %13 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4cvc58internal7Minisat6Option13getOptionListEvE7options) #28
   %.not.i = icmp eq i32 %13, 0
   br i1 %.not.i, label %_ZN4cvc58internal7Minisat6Option13getOptionListEv.exit, label %14
 
 14:                                               ; preds = %12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) @_ZZN4cvc58internal7Minisat6Option13getOptionListEvE7options, i8 0, i64 16, i1 false)
-  %15 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4cvc58internal7Minisat3vecIPNS1_6OptionEED2Ev, ptr nonnull @_ZZN4cvc58internal7Minisat6Option13getOptionListEvE7options, ptr nonnull @__dso_handle) #27
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4cvc58internal7Minisat6Option13getOptionListEvE7options) #27
+  %15 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4cvc58internal7Minisat3vecIPNS1_6OptionEED2Ev, ptr nonnull @_ZZN4cvc58internal7Minisat6Option13getOptionListEvE7options, ptr nonnull @__dso_handle) #28
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4cvc58internal7Minisat6Option13getOptionListEvE7options) #28
   br label %_ZN4cvc58internal7Minisat6Option13getOptionListEv.exit
 
 _ZN4cvc58internal7Minisat6Option13getOptionListEv.exit: ; preds = %5, %12, %14
@@ -6876,14 +6870,14 @@ _ZN4cvc58internal7Minisat6Option13getOptionListEv.exit: ; preds = %5, %12, %14
   br label %_ZN4cvc58internal7Minisat3vecIPNS1_6OptionEE4pushERKS4_.exit
 
 33:                                               ; preds = %26
-  %34 = tail call ptr @__errno_location() #28
+  %34 = tail call ptr @__errno_location() #27
   %35 = load i32, ptr %34, align 4, !tbaa !6
   %36 = icmp eq i32 %35, 12
   tail call void @llvm.assume(i1 %36)
   br label %37
 
 37:                                               ; preds = %33, %19
-  %38 = tail call ptr @__cxa_allocate_exception(i64 1) #27
+  %38 = tail call ptr @__cxa_allocate_exception(i64 1) #28
   tail call void @__cxa_throw(ptr %38, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #29
   unreachable
 
@@ -7022,7 +7016,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal7Minisat3vecIPNS1_6OptionEED2E
 .preheader.i:                                     ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %3, align 8, !tbaa !399
-  tail call void @free(ptr noundef nonnull %2) #27
+  tail call void @free(ptr noundef nonnull %2) #28
   store ptr null, ptr %0, align 8, !tbaa !403
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 0, ptr %4, align 4, !tbaa !402
@@ -7040,7 +7034,7 @@ declare void @__cxa_guard_release(ptr) local_unnamed_addr #2
 
 ; Function Attrs: noinline noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #12 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #27
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #28
   tail call void @_ZSt9terminatev() #33
   unreachable
 }
@@ -7122,8 +7116,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4cvc58internal7Minisat9IntOpti
 
 17:                                               ; preds = %.loopexit
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #27
-  %19 = call i64 @strtol(ptr noundef nonnull %18, ptr noundef nonnull %2, i32 noundef 10) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  %19 = call i64 @strtol(ptr noundef nonnull %18, ptr noundef nonnull %2, i32 noundef 10) #28
   %20 = trunc i64 %19 to i32
   %21 = load ptr, ptr %2, align 8, !tbaa !410
   %22 = icmp ne ptr %21, null
@@ -7161,7 +7155,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4cvc58internal7Minisat9IntOpti
   br label %41
 
 41:                                               ; preds = %17, %39
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %_ZN4cvc58internal7MinisatL5matchIPKcEEbRT_S4_.exit
 
 _ZN4cvc58internal7MinisatL5matchIPKcEEbRT_S4_.exit: ; preds = %.lr.ph.i7, %.lr.ph.i, %.loopexit, %41
@@ -7280,8 +7274,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4cvc58internal7Minisat12Double
 
 17:                                               ; preds = %.loopexit
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #27
-  %19 = call double @strtod(ptr noundef nonnull %18, ptr noundef nonnull %2) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  %19 = call double @strtod(ptr noundef nonnull %18, ptr noundef nonnull %2) #28
   %20 = load ptr, ptr %2, align 8, !tbaa !410
   %21 = icmp ne ptr %20, null
   br i1 %21, label %22, label %50
@@ -7334,7 +7328,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4cvc58internal7Minisat12Double
   br label %50
 
 50:                                               ; preds = %17, %48
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %_ZN4cvc58internal7MinisatL5matchIPKcEEbRT_S4_.exit
 
 _ZN4cvc58internal7MinisatL5matchIPKcEEbRT_S4_.exit: ; preds = %.lr.ph.i15, %.lr.ph.i, %.loopexit, %50
@@ -7615,10 +7609,10 @@ define linkonce_odr hidden void @_ZN4cvc58internal7Minisat4HeapINS1_6Solver10Var
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = add nsw i32 %1, 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 -1, ptr %3, align 4, !tbaa !6
   call void @_ZN4cvc58internal7Minisat3vecIiE6growToEiRKi(ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef %5, ptr noundef nonnull align 4 dereferenceable(4) %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i32, ptr %7, align 8, !tbaa !291
@@ -7661,14 +7655,14 @@ define linkonce_odr hidden void @_ZN4cvc58internal7Minisat4HeapINS1_6Solver10Var
   br label %_ZN4cvc58internal7Minisat3vecIiE4pushERKi.exit
 
 29:                                               ; preds = %22
-  %30 = tail call ptr @__errno_location() #28
+  %30 = tail call ptr @__errno_location() #27
   %31 = load i32, ptr %30, align 4, !tbaa !6
   %32 = icmp eq i32 %31, 12
   call void @llvm.assume(i1 %32)
   br label %33
 
 33:                                               ; preds = %29, %15
-  %34 = call ptr @__cxa_allocate_exception(i64 1) #27
+  %34 = call ptr @__cxa_allocate_exception(i64 1) #28
   call void @__cxa_throw(ptr %34, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #29
   unreachable
 
@@ -7767,13 +7761,13 @@ define linkonce_odr hidden void @_ZN4cvc58internal7Minisat3vecIiE6growToEiRKi(pt
   br i1 %25, label %26, label %_ZN4cvc58internal7Minisat3vecIiE8capacityEi.exit
 
 26:                                               ; preds = %19
-  %27 = tail call ptr @__errno_location() #28
+  %27 = tail call ptr @__errno_location() #27
   %28 = load i32, ptr %27, align 4, !tbaa !6
   %29 = icmp eq i32 %28, 12
   br i1 %29, label %30, label %_ZN4cvc58internal7Minisat3vecIiE8capacityEi.exit
 
 30:                                               ; preds = %26, %9
-  %31 = tail call ptr @__cxa_allocate_exception(i64 1) #27
+  %31 = tail call ptr @__cxa_allocate_exception(i64 1) #28
   tail call void @__cxa_throw(ptr %31, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #29
   unreachable
 
@@ -7829,7 +7823,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal7Minisat15RegionAllocatorIjE8c
   br i1 %.not6, label %.preheader, label %14, !llvm.loop !427
 
 14:                                               ; preds = %7
-  %15 = tail call ptr @__cxa_allocate_exception(i64 1) #27
+  %15 = tail call ptr @__cxa_allocate_exception(i64 1) #28
   tail call void @__cxa_throw(ptr %15, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #29
   unreachable
 
@@ -7842,13 +7836,13 @@ define linkonce_odr hidden void @_ZN4cvc58internal7Minisat15RegionAllocatorIjE8c
   br i1 %21, label %22, label %_ZN4cvc58internal7MinisatL8xreallocEPvm.exit
 
 22:                                               ; preds = %16
-  %23 = tail call ptr @__errno_location() #28
+  %23 = tail call ptr @__errno_location() #27
   %24 = load i32, ptr %23, align 4, !tbaa !6
   %25 = icmp eq i32 %24, 12
   br i1 %25, label %26, label %_ZN4cvc58internal7MinisatL8xreallocEPvm.exit
 
 26:                                               ; preds = %22
-  %27 = tail call ptr @__cxa_allocate_exception(i64 1) #27
+  %27 = tail call ptr @__cxa_allocate_exception(i64 1) #28
   tail call void @__cxa_throw(ptr %27, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #29
   unreachable
 
@@ -7904,13 +7898,13 @@ define linkonce_odr hidden void @_ZN4cvc58internal7Minisat3vecIjE6growToEi(ptr n
   br i1 %24, label %25, label %_ZN4cvc58internal7Minisat3vecIjE8capacityEi.exit
 
 25:                                               ; preds = %18
-  %26 = tail call ptr @__errno_location() #28
+  %26 = tail call ptr @__errno_location() #27
   %27 = load i32, ptr %26, align 4, !tbaa !6
   %28 = icmp eq i32 %27, 12
   br i1 %28, label %29, label %_ZN4cvc58internal7Minisat3vecIjE8capacityEi.exit
 
 29:                                               ; preds = %25, %8
-  %30 = tail call ptr @__cxa_allocate_exception(i64 1) #27
+  %30 = tail call ptr @__cxa_allocate_exception(i64 1) #28
   tail call void @__cxa_throw(ptr %30, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #29
   unreachable
 
@@ -7977,13 +7971,13 @@ define linkonce_odr hidden void @_ZN4cvc58internal7Minisat3vecINS2_IjEEE6growToE
   br i1 %24, label %25, label %_ZN4cvc58internal7Minisat3vecINS2_IjEEE8capacityEi.exit
 
 25:                                               ; preds = %18
-  %26 = tail call ptr @__errno_location() #28
+  %26 = tail call ptr @__errno_location() #27
   %27 = load i32, ptr %26, align 4, !tbaa !6
   %28 = icmp eq i32 %27, 12
   br i1 %28, label %29, label %_ZN4cvc58internal7Minisat3vecINS2_IjEEE8capacityEi.exit
 
 29:                                               ; preds = %25, %8
-  %30 = tail call ptr @__cxa_allocate_exception(i64 1) #27
+  %30 = tail call ptr @__cxa_allocate_exception(i64 1) #28
   tail call void @__cxa_throw(ptr %30, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #29
   unreachable
 
@@ -8050,13 +8044,13 @@ define linkonce_odr hidden void @_ZN4cvc58internal7Minisat3vecIcE6growToEiRKc(pt
   br i1 %24, label %25, label %_ZN4cvc58internal7Minisat3vecIcE8capacityEi.exit
 
 25:                                               ; preds = %19
-  %26 = tail call ptr @__errno_location() #28
+  %26 = tail call ptr @__errno_location() #27
   %27 = load i32, ptr %26, align 4, !tbaa !6
   %28 = icmp eq i32 %27, 12
   br i1 %28, label %29, label %_ZN4cvc58internal7Minisat3vecIcE8capacityEi.exit
 
 29:                                               ; preds = %25, %9
-  %30 = tail call ptr @__cxa_allocate_exception(i64 1) #27
+  %30 = tail call ptr @__cxa_allocate_exception(i64 1) #28
   tail call void @__cxa_throw(ptr %30, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #29
   unreachable
 
@@ -8091,7 +8085,7 @@ _ZN4cvc58internal7Minisat3vecIcE8capacityEi.exit: ; preds = %6, %19, %25
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_SimpSolver.cc() #11 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #27
+  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #28
   store i64 -2, ptr @_ZN4cvc58internal4propL15undefSatLiteralE, align 8, !tbaa !430
   %2 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN4cvc58internal4propL15undefSatLiteralE)
   tail call void @_ZN4cvc58internal7Minisat6OptionC2EPKcS4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(40) @_ZL13opt_use_asymm, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.28)
@@ -8121,6 +8115,12 @@ define internal void @_GLOBAL__sub_I_SimpSolver.cc() #11 section ".text.startup"
   store double 5.000000e-01, ptr getelementptr inbounds nuw (i8, ptr @_ZL21opt_simp_garbage_frac, i64 64), align 8, !tbaa !422
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #2
@@ -8176,8 +8176,8 @@ attributes #23 = { nocallback nofree nosync nounwind speculatable willreturn mem
 attributes #24 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #25 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #26 = { nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
-attributes #27 = { nounwind }
-attributes #28 = { nounwind willreturn memory(none) }
+attributes #27 = { nounwind willreturn memory(none) }
+attributes #28 = { nounwind }
 attributes #29 = { noreturn }
 attributes #30 = { nounwind allocsize(1) }
 attributes #31 = { builtin nounwind }

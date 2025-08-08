@@ -289,12 +289,6 @@ define void @ff_ivi_recompose53(ptr noundef readonly captures(none) %0, ptr noun
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @ff_ivi_recompose_haar(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -428,9 +422,9 @@ define void @ff_ivi_recompose_haar(ptr noundef readonly captures(none) %0, ptr n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @ff_ivi_inverse_haar_8x8(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #2 {
+define void @ff_ivi_inverse_haar_8x8(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #1 {
   %5 = alloca [64 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br label %6
 
 6:                                                ; preds = %4, %60
@@ -659,15 +653,15 @@ define void @ff_ivi_inverse_haar_8x8(ptr noundef readonly captures(none) %0, ptr
   br i1 %exitcond163.not, label %154, label %.preheader, !llvm.loop !36
 
 154:                                              ; preds = %150
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @ff_ivi_row_haar8(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #2 {
+define void @ff_ivi_row_haar8(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #1 {
   br label %5
 
 5:                                                ; preds = %4, %86
@@ -803,7 +797,7 @@ define void @ff_ivi_row_haar8(ptr noundef readonly captures(none) %0, ptr nounde
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @ff_ivi_col_haar8(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #2 {
+define void @ff_ivi_col_haar8(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #1 {
   %.idx89 = shl nsw i64 %2, 2
   %.idx90 = mul nsw i64 %2, 6
   %.idx91 = shl nsw i64 %2, 3
@@ -922,9 +916,9 @@ define void @ff_ivi_col_haar8(ptr noundef readonly captures(none) %0, ptr nounde
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @ff_ivi_inverse_haar_4x4(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #2 {
+define void @ff_ivi_inverse_haar_4x4(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #1 {
   %5 = alloca [16 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br label %6
 
 6:                                                ; preds = %4, %32
@@ -1047,12 +1041,12 @@ define void @ff_ivi_inverse_haar_4x4(ptr noundef readonly captures(none) %0, ptr
   br i1 %exitcond87.not, label %76, label %.preheader, !llvm.loop !40
 
 76:                                               ; preds = %72
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @ff_ivi_row_haar4(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #2 {
+define void @ff_ivi_row_haar4(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #1 {
   br label %5
 
 5:                                                ; preds = %4, %40
@@ -1126,7 +1120,7 @@ define void @ff_ivi_row_haar4(ptr noundef readonly captures(none) %0, ptr nounde
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @ff_ivi_col_haar4(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #2 {
+define void @ff_ivi_col_haar4(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #1 {
   %.idx43 = shl nsw i64 %2, 2
   %.idx44 = mul nsw i64 %2, 6
   br label %5
@@ -1195,7 +1189,7 @@ define void @ff_ivi_col_haar4(ptr noundef readonly captures(none) %0, ptr nounde
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @ff_ivi_dc_haar_2d(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #2 {
+define void @ff_ivi_dc_haar_2d(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = load i32, ptr %0, align 4, !tbaa !34
   %6 = lshr i32 %5, 3
   %7 = trunc i32 %6 to i16
@@ -1230,9 +1224,9 @@ define void @ff_ivi_dc_haar_2d(ptr noundef readonly captures(none) %0, ptr nound
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @ff_ivi_inverse_slant_8x8(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #2 {
+define void @ff_ivi_inverse_slant_8x8(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #1 {
   %5 = alloca [64 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br label %6
 
 6:                                                ; preds = %4, %70
@@ -1507,14 +1501,14 @@ define void @ff_ivi_inverse_slant_8x8(ptr noundef readonly captures(none) %0, pt
   br i1 %exitcond243.not, label %191, label %.preheader, !llvm.loop !47
 
 191:                                              ; preds = %187
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @ff_ivi_inverse_slant_4x4(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #2 {
+define void @ff_ivi_inverse_slant_4x4(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #1 {
   %5 = alloca [16 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br label %6
 
 6:                                                ; preds = %4, %32
@@ -1647,12 +1641,12 @@ define void @ff_ivi_inverse_slant_4x4(ptr noundef readonly captures(none) %0, pt
   br i1 %exitcond102.not, label %85, label %.preheader, !llvm.loop !49
 
 85:                                               ; preds = %81
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @ff_ivi_dc_slant_2d(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #2 {
+define void @ff_ivi_dc_slant_2d(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = load i32, ptr %0, align 4, !tbaa !34
   %6 = add nsw i32 %5, 1
   %7 = lshr i32 %6, 1
@@ -1688,7 +1682,7 @@ define void @ff_ivi_dc_slant_2d(ptr noundef readonly captures(none) %0, ptr noun
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @ff_ivi_row_slant8(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #2 {
+define void @ff_ivi_row_slant8(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #1 {
   br label %5
 
 5:                                                ; preds = %4, %113
@@ -1856,7 +1850,7 @@ define void @ff_ivi_row_slant8(ptr noundef readonly captures(none) %0, ptr nound
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @ff_ivi_dc_row_slant(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #2 {
+define void @ff_ivi_dc_row_slant(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = load i32, ptr %0, align 4, !tbaa !34
   %6 = add nsw i32 %5, 1
   %7 = lshr i32 %6, 1
@@ -1903,7 +1897,7 @@ define void @ff_ivi_dc_row_slant(ptr noundef readonly captures(none) %0, ptr nou
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @ff_ivi_col_slant8(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #2 {
+define void @ff_ivi_col_slant8(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #1 {
   %.tr = trunc i64 %2 to i32
   %5 = shl i32 %.tr, 1
   %6 = shl i32 %.tr, 2
@@ -2058,7 +2052,7 @@ define void @ff_ivi_col_slant8(ptr noundef readonly captures(none) %0, ptr nound
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @ff_ivi_dc_col_slant(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #2 {
+define void @ff_ivi_dc_col_slant(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = load i32, ptr %0, align 4, !tbaa !34
   %6 = add nsw i32 %5, 1
   %7 = lshr i32 %6, 1
@@ -2100,7 +2094,7 @@ define void @ff_ivi_dc_col_slant(ptr noundef readonly captures(none) %0, ptr nou
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @ff_ivi_row_slant4(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #2 {
+define void @ff_ivi_row_slant4(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #1 {
   br label %5
 
 5:                                                ; preds = %4, %49
@@ -2184,7 +2178,7 @@ define void @ff_ivi_row_slant4(ptr noundef readonly captures(none) %0, ptr nound
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @ff_ivi_col_slant4(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #2 {
+define void @ff_ivi_col_slant4(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #1 {
   %.tr = trunc i64 %2 to i32
   %5 = shl i32 %.tr, 1
   %6 = sext i32 %5 to i64
@@ -2264,7 +2258,7 @@ define void @ff_ivi_col_slant4(ptr noundef readonly captures(none) %0, ptr nound
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @ff_ivi_put_pixels_8x8(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #2 {
+define void @ff_ivi_put_pixels_8x8(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #1 {
   br label %.preheader
 
 .preheader:                                       ; preds = %4, %10
@@ -2296,7 +2290,7 @@ define void @ff_ivi_put_pixels_8x8(ptr noundef readonly captures(none) %0, ptr n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @ff_ivi_put_dc_pixel_8x8(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 16)) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #2 {
+define void @ff_ivi_put_dc_pixel_8x8(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 16)) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = load i32, ptr %0, align 4, !tbaa !34
   %6 = trunc i32 %5 to i16
   store i16 %6, ptr %1, align 2, !tbaa !27
@@ -2318,7 +2312,7 @@ define void @ff_ivi_put_dc_pixel_8x8(ptr noundef readonly captures(none) %0, ptr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @ff_ivi_mc_8x8_no_delta(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #2 {
+define void @ff_ivi_mc_8x8_no_delta(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
   switch i32 %3, label %ivi_mc_8x8_no_delta.exit [
     i32 0, label %.preheader.i
     i32 1, label %.preheader82.i
@@ -2452,13 +2446,13 @@ ivi_mc_8x8_no_delta.exit:                         ; preds = %61, %39, %24, %9, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @ff_ivi_mc_8x8_delta(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #2 {
+define void @ff_ivi_mc_8x8_delta(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
   tail call fastcc void @ivi_mc_8x8_delta(ptr noundef %0, i64 noundef %2, ptr noundef %1, i64 noundef %2, i32 noundef %3)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @ivi_mc_8x8_delta(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4) unnamed_addr #2 {
+define internal fastcc void @ivi_mc_8x8_delta(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4) unnamed_addr #1 {
   switch i32 %4, label %.loopexit [
     i32 0, label %.preheader
     i32 1, label %.preheader82
@@ -2600,7 +2594,7 @@ define internal fastcc void @ivi_mc_8x8_delta(ptr noundef captures(none) %0, i64
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @ff_ivi_mc_4x4_no_delta(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #2 {
+define void @ff_ivi_mc_4x4_no_delta(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
   switch i32 %3, label %ivi_mc_4x4_no_delta.exit [
     i32 0, label %.preheader.i
     i32 1, label %.preheader82.i
@@ -2734,13 +2728,13 @@ ivi_mc_4x4_no_delta.exit:                         ; preds = %61, %39, %24, %9, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @ff_ivi_mc_4x4_delta(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #2 {
+define void @ff_ivi_mc_4x4_delta(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
   tail call fastcc void @ivi_mc_4x4_delta(ptr noundef %0, i64 noundef %2, ptr noundef %1, i64 noundef %2, i32 noundef %3)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @ivi_mc_4x4_delta(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4) unnamed_addr #2 {
+define internal fastcc void @ivi_mc_4x4_delta(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4) unnamed_addr #1 {
   switch i32 %4, label %.loopexit [
     i32 0, label %.preheader
     i32 1, label %.preheader82
@@ -2882,9 +2876,9 @@ define internal fastcc void @ivi_mc_4x4_delta(ptr noundef captures(none) %0, i64
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @ff_ivi_mc_avg_8x8_no_delta(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #2 {
+define void @ff_ivi_mc_avg_8x8_no_delta(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = alloca [64 x i16], align 16
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   switch i32 %4, label %ivi_mc_8x8_no_delta.exit [
     i32 0, label %.preheader.i
     i32 1, label %.preheader82.i
@@ -3034,14 +3028,14 @@ ivi_mc_8x8_no_delta.exit:                         ; preds = %56, %36, %21, %.pre
   br i1 %exitcond30.not, label %68, label %.preheader, !llvm.loop !95
 
 68:                                               ; preds = %66
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @ff_ivi_mc_avg_8x8_delta(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #2 {
+define void @ff_ivi_mc_avg_8x8_delta(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = alloca [64 x i16], align 16
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   switch i32 %4, label %ivi_mc_8x8_no_delta.exit [
     i32 0, label %.preheader.i
     i32 1, label %.preheader82.i
@@ -3193,14 +3187,14 @@ ivi_mc_8x8_no_delta.exit:                         ; preds = %56, %36, %21, %.pre
   br i1 %exitcond30.not, label %70, label %.preheader, !llvm.loop !97
 
 70:                                               ; preds = %68
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @ff_ivi_mc_avg_4x4_no_delta(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #2 {
+define void @ff_ivi_mc_avg_4x4_no_delta(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = alloca [16 x i16], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   switch i32 %4, label %ivi_mc_4x4_no_delta.exit [
     i32 0, label %.preheader.i
     i32 1, label %.preheader82.i
@@ -3351,14 +3345,14 @@ ivi_mc_4x4_no_delta.exit:                         ; preds = %57, %37, %22, %.pre
   br i1 %exitcond30.not, label %69, label %.preheader, !llvm.loop !99
 
 69:                                               ; preds = %67
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @ff_ivi_mc_avg_4x4_delta(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #2 {
+define void @ff_ivi_mc_avg_4x4_delta(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = alloca [16 x i16], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   switch i32 %4, label %ivi_mc_4x4_no_delta.exit [
     i32 0, label %.preheader.i
     i32 1, label %.preheader82.i
@@ -3511,19 +3505,24 @@ ivi_mc_4x4_no_delta.exit:                         ; preds = %57, %37, %22, %.pre
   br i1 %exitcond30.not, label %71, label %.preheader, !llvm.loop !101
 
 71:                                               ; preds = %69
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 attributes #0 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #1 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

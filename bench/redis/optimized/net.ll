@@ -100,21 +100,15 @@ define noundef i64 @redisNetRead(ptr noundef %0, ptr noundef %1, i64 noundef %2)
   ret i64 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare i64 @recv(i32 noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #3
+declare ptr @__errno_location() local_unnamed_addr #2
 
 declare void @__redisSetError(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare ptr @strerror(i32 noundef) local_unnamed_addr #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare ptr @strerror(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define range(i64 -1, -9223372036854775808) i64 @redisNetWrite(ptr noundef %0) local_unnamed_addr #0 {
@@ -198,7 +192,7 @@ declare i64 @send(i32 noundef, ptr noundef, i64 noundef, i32 noundef) local_unna
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @redisKeepAlive(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 1, ptr %3, align 4, !tbaa !18
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %5 = load i32, ptr %4, align 4, !tbaa !4
@@ -237,18 +231,18 @@ define range(i32 -1, 1) i32 @redisKeepAlive(ptr noundef %0, i32 noundef %1) loca
 
 22:                                               ; preds = %.sink.split, %16
   %.0 = phi i32 [ 0, %16 ], [ -1, %.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind
-declare i32 @setsockopt(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @setsockopt(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @redisSetTcpNoDelay(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca [128 x i8], align 16
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 1, ptr %3, align 4, !tbaa !18
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %5 = load i32, ptr %4, align 4, !tbaa !4
@@ -259,7 +253,7 @@ define range(i32 -1, 1) i32 @redisSetTcpNoDelay(ptr noundef %0) local_unnamed_ad
 8:                                                ; preds = %1
   %9 = tail call ptr @__errno_location() #11
   %10 = load i32, ptr %9, align 4, !tbaa !18
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %2, i8 0, i64 128, i1 false)
   %11 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 128, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.2) #10
   %12 = sext i32 %11 to i64
@@ -267,7 +261,7 @@ define range(i32 -1, 1) i32 @redisSetTcpNoDelay(ptr noundef %0) local_unnamed_ad
   %14 = sub nsw i64 128, %12
   %15 = call i32 @__xpg_strerror_r(i32 noundef %10, ptr noundef nonnull %13, i64 noundef %14) #10
   call void @__redisSetError(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull %2) #10
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %16 = load i32, ptr %4, align 4, !tbaa !4
   %.not5.i = icmp eq i32 %16, -1
   br i1 %.not5.i, label %redisNetClose.exit, label %17
@@ -279,7 +273,7 @@ define range(i32 -1, 1) i32 @redisSetTcpNoDelay(ptr noundef %0) local_unnamed_ad
 
 redisNetClose.exit:                               ; preds = %17, %8, %1
   %.0 = phi i32 [ 0, %1 ], [ -1, %8 ], [ -1, %17 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
@@ -297,7 +291,7 @@ define range(i32 -1, 1) i32 @redisContextSetTcpUserTimeout(ptr noundef %0, i32 n
 9:                                                ; preds = %2
   %10 = tail call ptr @__errno_location() #11
   %11 = load i32, ptr %10, align 4, !tbaa !18
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %3, i8 0, i64 128, i1 false)
   %12 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 128, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.3) #10
   %13 = sext i32 %12 to i64
@@ -305,7 +299,7 @@ define range(i32 -1, 1) i32 @redisContextSetTcpUserTimeout(ptr noundef %0, i32 n
   %15 = sub nsw i64 128, %13
   %16 = call i32 @__xpg_strerror_r(i32 noundef %11, ptr noundef nonnull %14, i64 noundef %15) #10
   call void @__redisSetError(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull %3) #10
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %17 = load i32, ptr %5, align 4, !tbaa !4
   %.not5.i = icmp eq i32 %17, -1
   br i1 %.not5.i, label %redisNetClose.exit, label %18
@@ -346,8 +340,8 @@ define range(i32 -1, 1) i32 @redisCheckConnectDone(ptr noundef readonly captures
   br i1 %18, label %19, label %28
 
 19:                                               ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #10
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 4, ptr %4, align 4, !tbaa !18
   %20 = load i32, ptr %5, align 4, !tbaa !4
   %21 = call i32 @getsockopt(i32 noundef %20, i32 noundef 1, i32 noundef 4, ptr noundef nonnull %3, ptr noundef nonnull %4) #10
@@ -361,8 +355,8 @@ define range(i32 -1, 1) i32 @redisCheckConnectDone(ptr noundef readonly captures
 
 .critedge:                                        ; preds = %23
   store i32 1, ptr %1, align 4, !tbaa !18
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %31
 
 26:                                               ; preds = %23
@@ -371,8 +365,8 @@ define range(i32 -1, 1) i32 @redisCheckConnectDone(ptr noundef readonly captures
 
 27:                                               ; preds = %19, %26
   %.215 = phi i32 [ %24, %26 ], [ 115, %19 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %28
 
 28:                                               ; preds = %27, %15
@@ -399,7 +393,7 @@ define range(i32 -1, 1) i32 @redisCheckConnectDone(ptr noundef readonly captures
 declare i32 @connect(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare i32 @getsockopt(i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @getsockopt(i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @redisCheckSocketError(ptr noundef %0) local_unnamed_addr #0 {
@@ -407,11 +401,11 @@ define range(i32 -1, 1) i32 @redisCheckSocketError(ptr noundef %0) local_unnamed
   %3 = alloca [128 x i8], align 16
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !18
   %6 = tail call ptr @__errno_location() #11
   %7 = load i32, ptr %6, align 4, !tbaa !18
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 4, ptr %5, align 4, !tbaa !18
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %9 = load i32, ptr %8, align 4, !tbaa !4
@@ -421,7 +415,7 @@ define range(i32 -1, 1) i32 @redisCheckSocketError(ptr noundef %0) local_unnamed
 
 12:                                               ; preds = %1
   %13 = load i32, ptr %6, align 4, !tbaa !18
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %3, i8 0, i64 128, i1 false)
   %14 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 128, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.4) #10
   %15 = sext i32 %14 to i64
@@ -429,7 +423,7 @@ define range(i32 -1, 1) i32 @redisCheckSocketError(ptr noundef %0) local_unnamed
   %17 = sub nsw i64 128, %15
   %18 = call i32 @__xpg_strerror_r(i32 noundef %13, ptr noundef nonnull %16, i64 noundef %17) #10
   call void @__redisSetError(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull %3) #10
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %25
 
 19:                                               ; preds = %1
@@ -445,17 +439,17 @@ define range(i32 -1, 1) i32 @redisCheckSocketError(ptr noundef %0) local_unnamed
 .thread:                                          ; preds = %19, %22
   %23 = phi i32 [ %7, %22 ], [ %20, %19 ]
   store i32 %23, ptr %6, align 4, !tbaa !18
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %2, i8 0, i64 128, i1 false)
   %24 = call i32 @__xpg_strerror_r(i32 noundef %23, ptr noundef nonnull %2, i64 noundef 128) #10
   call void @__redisSetError(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull %2) #10
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %25
 
 25:                                               ; preds = %22, %.thread, %12
   %.0 = phi i32 [ -1, %12 ], [ -1, %.thread ], [ 0, %22 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -502,7 +496,7 @@ redisContextUpdateCommandTimeout.exit:            ; preds = %13
 24:                                               ; preds = %19
   %25 = tail call ptr @__errno_location() #11
   %26 = load i32, ptr %25, align 4, !tbaa !18
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %5, i8 0, i64 128, i1 false)
   %27 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 128, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.6) #10
   %28 = sext i32 %27 to i64
@@ -510,7 +504,7 @@ redisContextUpdateCommandTimeout.exit:            ; preds = %13
   %30 = sub nsw i64 128, %28
   %31 = call i32 @__xpg_strerror_r(i32 noundef %26, ptr noundef nonnull %29, i64 noundef %30) #10
   call void @__redisSetError(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull %5) #10
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %44
 
 32:                                               ; preds = %19
@@ -522,7 +516,7 @@ redisContextUpdateCommandTimeout.exit:            ; preds = %13
 36:                                               ; preds = %32
   %37 = tail call ptr @__errno_location() #11
   %38 = load i32, ptr %37, align 4, !tbaa !18
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %4, i8 0, i64 128, i1 false)
   %39 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 128, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.7) #10
   %40 = sext i32 %39 to i64
@@ -530,7 +524,7 @@ redisContextUpdateCommandTimeout.exit:            ; preds = %13
   %42 = sub nsw i64 128, %40
   %43 = call i32 @__xpg_strerror_r(i32 noundef %38, ptr noundef nonnull %41, i64 noundef %42) #10
   call void @__redisSetError(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull %4) #10
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %44
 
 44:                                               ; preds = %32, %36, %24, %redisContextUpdateCommandTimeout.exit
@@ -595,7 +589,7 @@ define range(i32 -1, 1) i32 @redisContextUpdateConnectTimeout(ptr noundef captur
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @redisContextConnectTcp(ptr noundef initializes((168, 172), (208, 212)) %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(address) %3) local_unnamed_addr #0 {
@@ -613,11 +607,11 @@ define internal fastcc range(i32 -1, 1) i32 @_redisContextConnectTcp(ptr noundef
   %11 = alloca [128 x i8], align 16
   %12 = alloca [128 x i8], align 16
   %13 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #10
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %7) #10
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %15 = load i32, ptr %14, align 8, !tbaa !19
   %16 = and i32 %15, 1
@@ -822,11 +816,11 @@ redisContextTimeoutMsec.exit:                     ; preds = %42, %46
   br i1 %.not118, label %110, label %107
 
 107:                                              ; preds = %105
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %11) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %108 = call ptr @gai_strerror(i32 noundef %106) #10
   %109 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %11, i64 noundef 128, ptr noundef nonnull @.str.10, ptr noundef %108) #10
   call void @__redisSetError(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull %11) #10
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %11) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.thread
 
 110:                                              ; preds = %105
@@ -871,13 +865,13 @@ redisContextTimeoutMsec.exit:                     ; preds = %42, %46
 ._crit_edge:                                      ; preds = %116, %._crit_edge.loopexit
   %124 = phi ptr [ %.pre189, %._crit_edge.loopexit ], [ null, %116 ]
   call void @freeaddrinfo(ptr noundef %124) #10
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %12) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %125 = tail call ptr @__errno_location() #11
   %126 = load i32, ptr %125, align 4, !tbaa !18
   %127 = call ptr @strerror(i32 noundef %126) #10
   %128 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %12, i64 noundef 128, ptr noundef nonnull @.str.11, ptr noundef %127) #10
   call void @__redisSetError(ptr noundef %0, i32 noundef 2, ptr noundef nonnull %12) #10
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %12) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.thread
 
 129:                                              ; preds = %.lr.ph
@@ -993,13 +987,13 @@ redisNetClose.exit:                               ; preds = %redisNetClose.exit1
   br i1 %.not115, label %._crit_edge173, label %.preheader
 
 ._crit_edge173:                                   ; preds = %redisNetClose.exit, %.preheader141
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %13) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %178 = tail call ptr @__errno_location() #11
   %179 = load i32, ptr %178, align 4, !tbaa !18
   %180 = call ptr @strerror(i32 noundef %179) #10
   %181 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %13, i64 noundef 128, ptr noundef nonnull @.str.12, ptr noundef %180) #10
   call void @__redisSetError(ptr noundef %0, i32 noundef 2, ptr noundef nonnull %13) #10
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %13) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.thread
 
 redisContextUpdateConnectTimeout.exit:            ; preds = %131, %34, %22
@@ -1018,11 +1012,11 @@ redisContextUpdateConnectTimeout.exit:            ; preds = %131, %34, %22
 
 184:                                              ; preds = %.thread, %183, %88
   %.090 = phi i32 [ -1, %88 ], [ %.192, %183 ], [ %.192, %.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #10
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #10
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %7) #10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.090
 }
 
@@ -1045,11 +1039,11 @@ define range(i32 -1, 1) i32 @redisContextConnectUnix(ptr noundef %0, ptr noundef
 redisCreateSocket.exit.thread:                    ; preds = %3
   %10 = tail call ptr @__errno_location() #11
   %11 = load i32, ptr %10, align 4, !tbaa !18
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %4, i8 0, i64 128, i1 false)
   %12 = call i32 @__xpg_strerror_r(i32 noundef %11, ptr noundef nonnull %4, i64 noundef 128) #10
   call void @__redisSetError(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull %4) #10
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %80
 
 13:                                               ; preds = %3
@@ -1217,7 +1211,7 @@ define internal fastcc range(i32 -1, 1) i32 @redisSetBlocking(ptr noundef %0, i3
 9:                                                ; preds = %2
   %10 = tail call ptr @__errno_location() #11
   %11 = load i32, ptr %10, align 4, !tbaa !18
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %4, i8 0, i64 128, i1 false)
   %12 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 128, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.13) #10
   %13 = sext i32 %12 to i64
@@ -1225,7 +1219,7 @@ define internal fastcc range(i32 -1, 1) i32 @redisSetBlocking(ptr noundef %0, i3
   %15 = sub nsw i64 128, %13
   %16 = call i32 @__xpg_strerror_r(i32 noundef %11, ptr noundef nonnull %14, i64 noundef %15) #10
   call void @__redisSetError(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull %4) #10
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %17 = load i32, ptr %5, align 4, !tbaa !4
   %.not5.i = icmp eq i32 %17, -1
   br i1 %.not5.i, label %redisNetClose.exit, label %redisNetClose.exit.sink.split
@@ -1243,7 +1237,7 @@ define internal fastcc range(i32 -1, 1) i32 @redisSetBlocking(ptr noundef %0, i3
 23:                                               ; preds = %18
   %24 = tail call ptr @__errno_location() #11
   %25 = load i32, ptr %24, align 4, !tbaa !18
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %3, i8 0, i64 128, i1 false)
   %26 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 128, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.14) #10
   %27 = sext i32 %26 to i64
@@ -1251,7 +1245,7 @@ define internal fastcc range(i32 -1, 1) i32 @redisSetBlocking(ptr noundef %0, i3
   %29 = sub nsw i64 128, %27
   %30 = call i32 @__xpg_strerror_r(i32 noundef %25, ptr noundef nonnull %28, i64 noundef %29) #10
   call void @__redisSetError(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull %3) #10
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %31 = load i32, ptr %5, align 4, !tbaa !4
   %.not5.i13 = icmp eq i32 %31, -1
   br i1 %.not5.i13, label %redisNetClose.exit, label %redisNetClose.exit.sink.split
@@ -1268,7 +1262,7 @@ redisNetClose.exit:                               ; preds = %redisNetClose.exit.
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #6
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @redisContextWaitReady(ptr noundef %0, i64 noundef %1) unnamed_addr #0 {
@@ -1278,7 +1272,7 @@ define internal fastcc range(i32 -1, 1) i32 @redisContextWaitReady(ptr noundef %
   %6 = alloca [128 x i8], align 16
   %7 = alloca [128 x i8], align 16
   %8 = alloca [1 x %struct.pollfd], align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %10 = load i32, ptr %9, align 4, !tbaa !4
   store i32 %10, ptr %8, align 4, !tbaa !51
@@ -1299,7 +1293,7 @@ define internal fastcc range(i32 -1, 1) i32 @redisContextWaitReady(ptr noundef %
 
 18:                                               ; preds = %15
   %19 = load i32, ptr %12, align 4, !tbaa !18
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %7, i8 0, i64 128, i1 false)
   %20 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 128, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.16) #10
   %21 = sext i32 %20 to i64
@@ -1307,7 +1301,7 @@ define internal fastcc range(i32 -1, 1) i32 @redisContextWaitReady(ptr noundef %
   %23 = sub nsw i64 128, %21
   %24 = call i32 @__xpg_strerror_r(i32 noundef %19, ptr noundef nonnull %22, i64 noundef %23) #10
   call void @__redisSetError(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull %7) #10
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %25 = load i32, ptr %9, align 4, !tbaa !4
   %.not5.i = icmp eq i32 %25, -1
   br i1 %.not5.i, label %redisNetClose.exit, label %26
@@ -1319,11 +1313,11 @@ define internal fastcc range(i32 -1, 1) i32 @redisContextWaitReady(ptr noundef %
 
 28:                                               ; preds = %15
   store i32 110, ptr %12, align 4, !tbaa !18
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %6, i8 0, i64 128, i1 false)
   %29 = call i32 @__xpg_strerror_r(i32 noundef 110, ptr noundef nonnull %6, i64 noundef 128) #10
   call void @__redisSetError(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull %6) #10
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %30 = load i32, ptr %9, align 4, !tbaa !4
   %.not5.i13 = icmp eq i32 %30, -1
   br i1 %.not5.i13, label %redisNetClose.exit, label %31
@@ -1350,8 +1344,8 @@ define internal fastcc range(i32 -1, 1) i32 @redisContextWaitReady(ptr noundef %
   br i1 %44, label %45, label %54
 
 45:                                               ; preds = %42
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #10
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 4, ptr %5, align 4, !tbaa !18
   %46 = load i32, ptr %9, align 4, !tbaa !4
   %47 = call i32 @getsockopt(i32 noundef %46, i32 noundef 1, i32 noundef 4, ptr noundef nonnull %4, ptr noundef nonnull %5) #10
@@ -1364,8 +1358,8 @@ define internal fastcc range(i32 -1, 1) i32 @redisContextWaitReady(ptr noundef %
   br i1 %51, label %.critedge.i, label %52
 
 .critedge.i:                                      ; preds = %49
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %redisNetClose.exit
 
 52:                                               ; preds = %49
@@ -1374,8 +1368,8 @@ define internal fastcc range(i32 -1, 1) i32 @redisContextWaitReady(ptr noundef %
 
 53:                                               ; preds = %52, %45
   %.215.i = phi i32 [ %50, %52 ], [ 115, %45 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %54
 
 54:                                               ; preds = %53, %42
@@ -1388,11 +1382,11 @@ redisCheckConnectDone.exit.thread:                ; preds = %54
   br label %redisNetClose.exit
 
 56:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %3, i8 0, i64 128, i1 false)
   %57 = call i32 @__xpg_strerror_r(i32 noundef %13, ptr noundef nonnull %3, i64 noundef 128) #10
   call void @__redisSetError(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull %3) #10
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %58 = load i32, ptr %9, align 4, !tbaa !4
   %.not5.i17 = icmp eq i32 %58, -1
   br i1 %.not5.i17, label %redisNetClose.exit, label %59
@@ -1404,36 +1398,42 @@ redisCheckConnectDone.exit.thread:                ; preds = %54
 
 redisNetClose.exit:                               ; preds = %.critedge.i, %33, %54, %59, %56, %redisCheckConnectDone.exit.thread, %18, %26, %28, %31
   %.1 = phi i32 [ -1, %redisCheckConnectDone.exit.thread ], [ -1, %18 ], [ -1, %26 ], [ -1, %28 ], [ -1, %31 ], [ -1, %56 ], [ -1, %59 ], [ 0, %54 ], [ 0, %33 ], [ 0, %.critedge.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #8
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 ; Function Attrs: nounwind
-declare i32 @__xpg_strerror_r(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @__xpg_strerror_r(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 declare i32 @getaddrinfo(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare ptr @gai_strerror(i32 noundef) local_unnamed_addr #4
+declare ptr @gai_strerror(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
-declare i32 @socket(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @socket(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
-declare void @freeaddrinfo(ptr noundef) local_unnamed_addr #4
+declare void @freeaddrinfo(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
-declare i32 @bind(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @bind(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 declare i32 @fcntl(i32 noundef, i32 noundef, ...) local_unnamed_addr #1
 
 declare i32 @poll(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #9
@@ -1443,13 +1443,13 @@ declare i32 @llvm.smax.i32(i32, i32) #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #10 = { nounwind }
 attributes #11 = { nounwind willreturn memory(none) }

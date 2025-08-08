@@ -326,44 +326,38 @@ define dso_local ptr @js_load_file(ptr noundef %0, ptr noundef writeonly capture
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+; Function Attrs: nofree nounwind
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #2
+declare noundef i32 @fseek(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fseek(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: nofree nounwind
-declare noundef i64 @ftell(ptr noundef captures(none)) local_unnamed_addr #2
+declare noundef i64 @ftell(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #3
+declare ptr @__errno_location() local_unnamed_addr #2
 
-declare ptr @js_malloc(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare ptr @js_malloc(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #2
+declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #1
 
-declare void @js_free(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @js_free(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @js_module_set_import_meta(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca [4112 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 4112, ptr nonnull %6) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.sroa.037.0..sroa.037.0..cast = inttoptr i64 %1 to ptr
   %7 = tail call i32 @JS_GetModuleName(ptr noundef %0, ptr noundef %.sroa.037.0..sroa.037.0..cast) #30
   %8 = tail call ptr @JS_AtomToCString(ptr noundef %0, i32 noundef %7) #30
@@ -436,44 +430,44 @@ define dso_local range(i32 -1, 1) i32 @js_module_set_import_meta(ptr noundef %0,
 
 JS_FreeValue.exit:                                ; preds = %39, %34, %25, %16, %.critedge, %5
   %.0 = phi i32 [ -1, %16 ], [ -1, %5 ], [ -1, %.critedge ], [ 0, %25 ], [ 0, %34 ], [ 0, %39 ]
-  call void @llvm.lifetime.end.p0(i64 4112, ptr nonnull %6) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
-declare i32 @JS_GetModuleName(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @JS_GetModuleName(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @JS_AtomToCString(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare ptr @JS_AtomToCString(ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @JS_FreeAtom(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare void @JS_FreeAtom(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #7
+declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #8
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @realpath(ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #2
+declare noundef ptr @realpath(ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
-declare { i64, i64 } @JS_ThrowTypeError(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
+declare { i64, i64 } @JS_ThrowTypeError(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
-declare void @JS_FreeCString(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @JS_FreeCString(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @pstrcat(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @pstrcat(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @pstrcpy(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare void @pstrcpy(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare { i64, i64 } @JS_GetImportMeta(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare { i64, i64 } @JS_GetImportMeta(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
-declare i32 @JS_DefinePropertyValueStr(ptr noundef, i64, i64, ptr noundef, i64, i64, i32 noundef) local_unnamed_addr #4
+declare i32 @JS_DefinePropertyValueStr(ptr noundef, i64, i64, ptr noundef, i64, i64, i32 noundef) local_unnamed_addr #3
 
-declare { i64, i64 } @JS_NewString(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare { i64, i64 } @JS_NewString(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @js_module_loader(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
@@ -536,7 +530,7 @@ define dso_local ptr @js_module_loader(ptr noundef %0, ptr noundef %1, ptr readn
   br label %js_module_loader_so.exit
 
 29:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %30 = call ptr @js_load_file(ptr noundef %0, ptr noundef nonnull %4, ptr noundef %1)
   %.not27 = icmp eq ptr %30, null
   br i1 %.not27, label %31, label %33
@@ -574,11 +568,11 @@ define dso_local ptr @js_module_loader(ptr noundef %0, ptr noundef %1, ptr readn
   br label %JS_FreeValue.exit
 
 JS_FreeValue.exit:                                ; preds = %39, %43, %47
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %js_module_loader_so.exit
 
 .critedge:                                        ; preds = %33, %31
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %js_module_loader_so.exit
 
 js_module_loader_so.exit:                         ; preds = %26, %24, %22, %9, %JS_FreeValue.exit, %.critedge
@@ -586,11 +580,11 @@ js_module_loader_so.exit:                         ; preds = %26, %24, %22, %9, %
   ret ptr %.1
 }
 
-declare i32 @has_suffix(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @has_suffix(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare { i64, i64 } @JS_ThrowReferenceError(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
+declare { i64, i64 } @JS_ThrowReferenceError(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
-declare { i64, i64 } @JS_Eval(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare { i64, i64 } @JS_Eval(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @js_init_module_std(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -609,7 +603,7 @@ define dso_local ptr @js_init_module_std(ptr noundef %0, ptr noundef %1) local_u
   ret ptr %3
 }
 
-declare ptr @JS_NewCModule(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @JS_NewCModule(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @js_std_init(ptr noundef %0, ptr noundef %1) #0 {
@@ -783,12 +777,12 @@ js_new_std_file.exit46:                           ; preds = %62, %65, %68, %73, 
   ret i32 0
 }
 
-declare i32 @JS_AddModuleExportList(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @JS_AddModuleExportList(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @JS_AddModuleExport(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @JS_AddModuleExport(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define dso_local void @js_std_set_worker_new_context_func(ptr noundef %0) local_unnamed_addr #10 {
+define dso_local void @js_std_set_worker_new_context_func(ptr noundef %0) local_unnamed_addr #9 {
   store ptr %0, ptr @js_worker_new_context_func, align 8, !tbaa !23
   ret void
 }
@@ -924,16 +918,16 @@ JS_FreeValue.exit:                                ; preds = %28, %39, %44
   ret void
 }
 
-declare { i64, i64 } @JS_GetGlobalObject(ptr noundef) local_unnamed_addr #4
+declare { i64, i64 } @JS_GetGlobalObject(ptr noundef) local_unnamed_addr #3
 
-declare { i64, i64 } @JS_NewObject(ptr noundef) local_unnamed_addr #4
+declare { i64, i64 } @JS_NewObject(ptr noundef) local_unnamed_addr #3
 
-declare i32 @JS_SetPropertyStr(ptr noundef, i64, i64, ptr noundef, i64, i64) local_unnamed_addr #4
+declare i32 @JS_SetPropertyStr(ptr noundef, i64, i64, ptr noundef, i64, i64) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal { i64, i64 } @js_print(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = icmp sgt i32 %3, 0
   br i1 %7, label %.lr.ph.preheader, label %._crit_edge
 
@@ -976,19 +970,19 @@ define internal { i64, i64 } @js_print(ptr noundef %0, i64 %1, i64 %2, i32 nound
 
 .loopexit:                                        ; preds = %11, %._crit_edge
   %.sroa.5.0 = phi i64 [ 3, %._crit_edge ], [ 6, %11 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.fca.1.insert = insertvalue { i64, i64 } { i64 0, i64 poison }, i64 %.sroa.5.0, 1
   ret { i64, i64 } %.fca.1.insert
 }
 
-declare { i64, i64 } @JS_NewArray(ptr noundef) local_unnamed_addr #4
+declare { i64, i64 } @JS_NewArray(ptr noundef) local_unnamed_addr #3
 
-declare i32 @JS_SetPropertyUint32(ptr noundef, i64, i64, i32 noundef, i64, i64) local_unnamed_addr #4
+declare i32 @JS_SetPropertyUint32(ptr noundef, i64, i64, i32 noundef, i64, i64) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal { i64, i64 } @js_loadScript(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i64, ptr %4, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = load i64, ptr %8, align 8
@@ -1021,7 +1015,7 @@ define internal { i64, i64 } @js_loadScript(ptr noundef %0, i64 %1, i64 %2, i32 
   %.sroa.022.0 = phi i64 [ %20, %15 ], [ 0, %13 ], [ 0, %5 ]
   %.sroa.423.0 = phi i64 [ %.sroa.423.0.extract.shift, %15 ], [ 0, %13 ], [ 0, %5 ]
   %.sroa.6.0 = phi i64 [ %19, %15 ], [ 6, %13 ], [ 6, %5 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.sroa.022.0.insert.insert = or disjoint i64 %.sroa.423.0, %.sroa.022.0
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.022.0.insert.insert, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.6.0, 1
@@ -1060,7 +1054,7 @@ define dso_local void @js_std_init_handlers(ptr noundef %0) local_unnamed_addr #
   %14 = getelementptr inbounds nuw i8, ptr %calloc, i64 68
   store i32 1, ptr %14, align 4, !tbaa !36
   tail call void @JS_SetRuntimeOpaque(ptr noundef %0, ptr noundef nonnull %calloc) #30
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 0, ptr %15, align 8
   store ptr @js_sab_alloc, ptr %2, align 8, !tbaa !37
@@ -1069,23 +1063,23 @@ define dso_local void @js_std_init_handlers(ptr noundef %0) local_unnamed_addr #
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr @js_sab_dup, ptr %17, align 8, !tbaa !40
   call void @JS_SetSharedArrayBufferFunctions(ptr noundef %0, ptr noundef nonnull %2) #30
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #11
+declare void @exit(i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
-declare void @JS_SetRuntimeOpaque(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @JS_SetRuntimeOpaque(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable
-define internal noalias ptr @js_sab_alloc(ptr readnone captures(none) %0, i64 noundef %1) #13 {
+define internal noalias ptr @js_sab_alloc(ptr readnone captures(none) %0, i64 noundef %1) #12 {
   %3 = add i64 %1, 8
   %4 = tail call noalias ptr @malloc(i64 noundef %3) #31
   %.not = icmp eq ptr %4, null
@@ -1102,7 +1096,7 @@ define internal noalias ptr @js_sab_alloc(ptr readnone captures(none) %0, i64 no
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal void @js_sab_free(ptr readnone captures(none) %0, ptr noundef captures(none) %1) #14 {
+define internal void @js_sab_free(ptr readnone captures(none) %0, ptr noundef captures(none) %1) #13 {
   %3 = getelementptr inbounds i8, ptr %1, i64 -8
   %4 = atomicrmw add ptr %3, i32 -1 seq_cst, align 4
   %5 = icmp eq i32 %4, 1
@@ -1117,13 +1111,13 @@ define internal void @js_sab_free(ptr readnone captures(none) %0, ptr noundef ca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @js_sab_dup(ptr readnone captures(none) %0, ptr noundef captures(none) %1) #15 {
+define internal void @js_sab_dup(ptr readnone captures(none) %0, ptr noundef captures(none) %1) #14 {
   %3 = getelementptr inbounds i8, ptr %1, i64 -8
   %4 = atomicrmw add ptr %3, i32 1 seq_cst, align 4
   ret void
 }
 
-declare void @JS_SetSharedArrayBufferFunctions(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @JS_SetSharedArrayBufferFunctions(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @js_std_free_handlers(ptr noundef %0) local_unnamed_addr #0 {
@@ -1270,7 +1264,7 @@ free_timer.exit:                                  ; preds = %.lr.ph50, %50, %55
   ret void
 }
 
-declare ptr @JS_GetRuntimeOpaque(ptr noundef) local_unnamed_addr #4
+declare ptr @JS_GetRuntimeOpaque(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @js_free_message_pipe(ptr noundef %0) unnamed_addr #0 {
@@ -1350,7 +1344,7 @@ js_free_message.exit:                             ; preds = %js_sab_free.exit.i,
 }
 
 ; Function Attrs: cold nounwind uwtable
-define dso_local void @js_std_dump_error(ptr noundef %0) local_unnamed_addr #16 {
+define dso_local void @js_std_dump_error(ptr noundef %0) local_unnamed_addr #15 {
   %2 = tail call { i64, i64 } @JS_GetException(ptr noundef %0) #30
   %3 = extractvalue { i64, i64 } %2, 0
   %4 = extractvalue { i64, i64 } %2, 1
@@ -1375,10 +1369,10 @@ JS_FreeValue.exit:                                ; preds = %1, %7, %12
   ret void
 }
 
-declare { i64, i64 } @JS_GetException(ptr noundef) local_unnamed_addr #4
+declare { i64, i64 } @JS_GetException(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: cold nounwind uwtable
-define internal fastcc void @js_std_dump_error1(ptr noundef %0, i64 %1, i64 %2) unnamed_addr #16 {
+define internal fastcc void @js_std_dump_error1(ptr noundef %0, i64 %1, i64 %2) unnamed_addr #15 {
   %4 = tail call i32 @JS_IsError(ptr noundef %0, i64 %1, i64 %2) #30
   %5 = load ptr, ptr @stderr, align 8, !tbaa !16
   %6 = tail call ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef null, i64 %1, i64 %2, i32 noundef 0) #30
@@ -1460,7 +1454,7 @@ define dso_local void @js_std_promise_rejection_tracker(ptr noundef %0, i64 %1, 
 ; Function Attrs: nounwind uwtable
 define dso_local void @js_std_loop(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   br label %3
 
 3:                                                ; preds = %.backedge, %1
@@ -1492,13 +1486,13 @@ define dso_local void @js_std_loop(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not4, label %.backedge, label %15
 
 15:                                               ; preds = %11, %13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
-declare i32 @JS_ExecutePendingJob(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @JS_ExecutePendingJob(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @JS_GetRuntime(ptr noundef) local_unnamed_addr #4
+declare ptr @JS_GetRuntime(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local { i64, i64 } @js_std_await(ptr noundef %0, i64 %1, i64 %2) local_unnamed_addr #0 {
@@ -1553,7 +1547,7 @@ define dso_local { i64, i64 } @js_std_await(ptr noundef %0, i64 %1, i64 %2) loca
   br label %JS_FreeValue.exit
 
 30:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %31 = call ptr @JS_GetRuntime(ptr noundef %0) #30
   %32 = call i32 @JS_ExecutePendingJob(ptr noundef %31, ptr noundef nonnull %4) #30
   %33 = icmp slt i32 %32, 0
@@ -1574,7 +1568,7 @@ define dso_local { i64, i64 } @js_std_await(ptr noundef %0, i64 %1, i64 %2) loca
   br label %40
 
 40:                                               ; preds = %38, %36
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %5
 
 41:                                               ; preds = %5
@@ -1587,11 +1581,11 @@ JS_FreeValue.exit:                                ; preds = %29, %24, %17, %16, 
   ret { i64, i64 } %.fca.1.insert.merged
 }
 
-declare i32 @JS_PromiseState(ptr noundef, i64, i64) local_unnamed_addr #4
+declare i32 @JS_PromiseState(ptr noundef, i64, i64) local_unnamed_addr #3
 
-declare { i64, i64 } @JS_PromiseResult(ptr noundef, i64, i64) local_unnamed_addr #4
+declare { i64, i64 } @JS_PromiseResult(ptr noundef, i64, i64) local_unnamed_addr #3
 
-declare { i64, i64 } @JS_Throw(ptr noundef, i64, i64) local_unnamed_addr #4
+declare { i64, i64 } @JS_Throw(ptr noundef, i64, i64) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @js_std_eval_binary(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
@@ -1680,34 +1674,34 @@ JS_FreeValue.exit41:                              ; preds = %42, %37, %34, %11, 
   ret void
 }
 
-declare { i64, i64 } @JS_ReadObject(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #4
+declare { i64, i64 } @JS_ReadObject(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @JS_ResolveModule(ptr noundef, i64, i64) local_unnamed_addr #4
+declare i32 @JS_ResolveModule(ptr noundef, i64, i64) local_unnamed_addr #3
 
-declare { i64, i64 } @JS_EvalFunction(ptr noundef, i64, i64) local_unnamed_addr #4
+declare { i64, i64 } @JS_EvalFunction(ptr noundef, i64, i64) local_unnamed_addr #3
 
-declare void @__JS_FreeValue(ptr noundef, i64, i64) local_unnamed_addr #4
-
-; Function Attrs: nounwind
-declare ptr @dlopen(ptr noundef, i32 noundef) local_unnamed_addr #17
+declare void @__JS_FreeValue(ptr noundef, i64, i64) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
-declare ptr @dlsym(ptr noundef, ptr noundef) local_unnamed_addr #17
+declare ptr @dlopen(ptr noundef, i32 noundef) local_unnamed_addr #16
 
 ; Function Attrs: nounwind
-declare i32 @dlclose(ptr noundef) local_unnamed_addr #17
+declare ptr @dlsym(ptr noundef, ptr noundef) local_unnamed_addr #16
 
-declare i32 @JS_NewClassID(ptr noundef) local_unnamed_addr #4
+; Function Attrs: nounwind
+declare i32 @dlclose(ptr noundef) local_unnamed_addr #16
 
-declare i32 @JS_NewClass(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @JS_NewClassID(ptr noundef) local_unnamed_addr #3
 
-declare void @JS_SetPropertyFunctionList(ptr noundef, i64, i64, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @JS_NewClass(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @JS_SetClassProto(ptr noundef, i32 noundef, i64, i64) local_unnamed_addr #4
+declare void @JS_SetPropertyFunctionList(ptr noundef, i64, i64, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @JS_SetModuleExportList(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare void @JS_SetClassProto(ptr noundef, i32 noundef, i64, i64) local_unnamed_addr #3
 
-declare i32 @JS_SetModuleExport(ptr noundef, ptr noundef, ptr noundef, i64, i64) local_unnamed_addr #4
+declare i32 @JS_SetModuleExportList(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+
+declare i32 @JS_SetModuleExport(ptr noundef, ptr noundef, ptr noundef, i64, i64) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal void @js_std_file_finalizer(ptr noundef %0, i64 %1, i64 %2) #0 {
@@ -1749,12 +1743,12 @@ define internal void @js_std_file_finalizer(ptr noundef %0, i64 %1, i64 %2) #0 {
   ret void
 }
 
-declare ptr @JS_GetOpaque(i64, i64, i32 noundef) local_unnamed_addr #4
+declare ptr @JS_GetOpaque(i64, i64, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @pclose(ptr noundef captures(none)) local_unnamed_addr #2
+declare noundef i32 @pclose(ptr noundef captures(none)) local_unnamed_addr #1
 
-declare void @js_free_rt(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @js_free_rt(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal { i64, i64 } @js_std_file_close(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr readnone captures(none) %4) #0 {
@@ -1817,7 +1811,7 @@ js_get_errno.exit:                                ; preds = %js_get_errno.exit.s
 ; Function Attrs: nounwind uwtable
 define internal { i64, i64 } @js_std_file_puts(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = icmp eq i32 %5, 0
   br i1 %8, label %9, label %11
 
@@ -1869,7 +1863,7 @@ js_std_file_get.exit:                             ; preds = %14, %9
 
 js_std_file_get.exit.thread:                      ; preds = %.lr.ph, %24, %js_std_file_get.exit, %11, %16
   %.sroa.7.0 = phi i64 [ 6, %16 ], [ 6, %11 ], [ 3, %js_std_file_get.exit ], [ 6, %.lr.ph ], [ 3, %24 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.fca.1.insert = insertvalue { i64, i64 } { i64 0, i64 poison }, i64 %.sroa.7.0, 1
   ret { i64, i64 } %.fca.1.insert
 }
@@ -1999,13 +1993,13 @@ define internal { i64, i64 } @js_std_file_seek(ptr noundef %0, i64 %1, i64 %2, i
   br label %js_std_file_get.exit.thread
 
 js_std_file_get.exit.thread:                      ; preds = %12, %5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #30
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %35
 
 14:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #30
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %15 = load i64, ptr %4, align 8
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %17 = load i64, ptr %16, align 8
@@ -2043,8 +2037,8 @@ js_std_file_get.exit.thread:                      ; preds = %12, %5
 35:                                               ; preds = %js_std_file_get.exit.thread, %19, %14, %34
   %.sroa.09.0 = phi i64 [ %.sroa.0.0.insert.ext.i, %34 ], [ 0, %14 ], [ 0, %19 ], [ 0, %js_std_file_get.exit.thread ]
   %.sroa.8.0 = phi i64 [ 0, %34 ], [ 6, %14 ], [ 6, %19 ], [ 6, %js_std_file_get.exit.thread ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #30
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.09.0, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.8.0, 1
   ret { i64, i64 } %.fca.1.insert
@@ -2185,15 +2179,15 @@ define internal { i64, i64 } @js_std_file_read_write(ptr noundef %0, i64 %1, i64
   br label %js_std_file_get.exit.thread
 
 js_std_file_get.exit.thread:                      ; preds = %14, %6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #30
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #30
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   br label %53
 
 16:                                               ; preds = %12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #30
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #30
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %18 = load i64, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -2263,9 +2257,9 @@ JS_NewInt64.exit:                                 ; preds = %47, %45
   %.sroa.016.0 = phi i64 [ %41, %39 ], [ %.sroa.0.0.insert.ext.i.i.pn, %JS_NewInt64.exit ], [ 0, %16 ], [ 0, %22 ], [ 0, %28 ], [ 0, %js_std_file_get.exit.thread ]
   %.sroa.7.0 = phi i64 [ %.sroa.7.0.extract.shift, %39 ], [ %.sroa.7.0.extract.shift18, %JS_NewInt64.exit ], [ 0, %16 ], [ 0, %22 ], [ 0, %28 ], [ 0, %js_std_file_get.exit.thread ]
   %.sroa.11.0 = phi i64 [ %42, %39 ], [ %.sroa.3.0.i, %JS_NewInt64.exit ], [ 6, %16 ], [ 6, %22 ], [ 6, %28 ], [ 6, %js_std_file_get.exit.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #30
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #30
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.sroa.016.0.insert.ext = and i64 %.sroa.016.0, 4294967295
   %.sroa.016.0.insert.insert = or disjoint i64 %.sroa.7.0, %.sroa.016.0.insert.ext
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.016.0.insert.insert, 0
@@ -2291,11 +2285,11 @@ define internal { i64, i64 } @js_std_file_getline(ptr noundef %0, i64 %1, i64 %2
   br label %js_std_file_get.exit.thread
 
 js_std_file_get.exit.thread:                      ; preds = %11, %5
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br label %34
 
 13:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %14 = tail call ptr @JS_GetRuntime(ptr noundef %0) #30
   call void @dbuf_init2(ptr noundef nonnull %6, ptr noundef %14, ptr noundef nonnull @js_realloc_rt) #30
   br label %15
@@ -2350,7 +2344,7 @@ js_std_file_get.exit.thread:                      ; preds = %11, %5
   %.sroa.011.0 = phi i64 [ 0, %21 ], [ %32, %.loopexit ], [ %27, %25 ], [ 0, %js_std_file_get.exit.thread ]
   %.sroa.5.0 = phi i64 [ 0, %21 ], [ %.sroa.5.0.extract.shift13, %.loopexit ], [ %.sroa.5.0.extract.shift, %25 ], [ 0, %js_std_file_get.exit.thread ]
   %.sroa.7.0 = phi i64 [ 2, %21 ], [ %33, %.loopexit ], [ %28, %25 ], [ 6, %js_std_file_get.exit.thread ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.sroa.011.0.insert.ext = and i64 %.sroa.011.0, 4294967295
   %.sroa.011.0.insert.insert = or disjoint i64 %.sroa.5.0, %.sroa.011.0.insert.ext
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.011.0.insert.insert, 0
@@ -2377,13 +2371,13 @@ define internal { i64, i64 } @js_std_file_readAsString(ptr noundef %0, i64 %1, i
   br label %js_std_file_get.exit.thread
 
 js_std_file_get.exit.thread:                      ; preds = %12, %5
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #30
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %38
 
 14:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #30
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %15 = icmp sgt i32 %3, 0
   br i1 %15, label %16, label %.thread
 
@@ -2448,8 +2442,8 @@ js_std_file_get.exit.thread:                      ; preds = %12, %5
   %.sroa.027.0 = phi i64 [ %37, %._crit_edge ], [ 0, %30 ], [ 0, %18 ], [ 0, %js_std_file_get.exit.thread ]
   %.sroa.5.0 = phi i64 [ %.sroa.5.0.extract.shift, %._crit_edge ], [ 0, %30 ], [ 0, %18 ], [ 0, %js_std_file_get.exit.thread ]
   %.sroa.8.0 = phi i64 [ %36, %._crit_edge ], [ 6, %30 ], [ 6, %18 ], [ 6, %js_std_file_get.exit.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #30
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.sroa.027.0.insert.insert = or disjoint i64 %.sroa.5.0, %.sroa.027.0
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.027.0.insert.insert, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.8.0, 1
@@ -2503,11 +2497,11 @@ define internal { i64, i64 } @js_std_file_putByte(ptr noundef %0, i64 %1, i64 %2
   br label %js_std_file_get.exit.thread
 
 js_std_file_get.exit.thread:                      ; preds = %11, %5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br label %21
 
 13:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %14 = load i64, ptr %4, align 8
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %16 = load i64, ptr %15, align 8
@@ -2524,18 +2518,18 @@ js_std_file_get.exit.thread:                      ; preds = %11, %5
 21:                                               ; preds = %js_std_file_get.exit.thread, %13, %18
   %.sroa.06.0 = phi i64 [ %.sroa.0.0.insert.ext.i, %18 ], [ 0, %13 ], [ 0, %js_std_file_get.exit.thread ]
   %.sroa.6.0 = phi i64 [ 0, %18 ], [ 6, %13 ], [ 6, %js_std_file_get.exit.thread ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.06.0, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.6.0, 1
   ret { i64, i64 } %.fca.1.insert
 }
 
-declare ptr @JS_GetOpaque2(ptr noundef, i64, i64, i32 noundef) local_unnamed_addr #4
+declare ptr @JS_GetOpaque2(ptr noundef, i64, i64, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #2
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #1
 
-declare ptr @JS_ToCStringLen2(ptr noundef, ptr noundef, i64, i64, i32 noundef) local_unnamed_addr #4
+declare ptr @JS_ToCStringLen2(ptr noundef, ptr noundef, i64, i64, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc { i64, i64 } @js_printf_internal(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef captures(address_is_null) %3) unnamed_addr #0 {
@@ -2547,14 +2541,14 @@ define internal fastcc { i64, i64 } @js_printf_internal(ptr noundef %0, i32 noun
   %10 = alloca i32, align 4
   %11 = alloca i64, align 8
   %12 = alloca double, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #30
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %6) #30
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #30
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #30
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #30
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #30
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #30
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %13 = tail call ptr @JS_GetRuntime(ptr noundef %0) #30
   call void @dbuf_init2(ptr noundef nonnull %7, ptr noundef %13, ptr noundef nonnull @js_realloc_rt) #30
   %14 = icmp sgt i32 %1, 0
@@ -2978,93 +2972,93 @@ thread-pre-split:                                 ; preds = %88, %81, %.preheade
   %.sroa.4144.0 = phi i64 [ %.sroa.6.0, %188 ], [ 6, %.loopexit202 ]
   %.sroa.0143.0.insert.insert = phi i64 [ %.sroa.0106.0, %188 ], [ 0, %.loopexit202 ]
   call void @dbuf_free(ptr noundef nonnull %7) #30
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #30
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #30
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #30
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #30
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #30
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #30
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %6) #30
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.0143.0.insert.insert, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.4144.0, 1
   ret { i64, i64 } %.fca.1.insert
 }
 
-declare i32 @dbuf_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
+declare i32 @dbuf_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
-declare i32 @dbuf_put(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @dbuf_put(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare i32 @JS_ToInt32(ptr noundef, ptr noundef, i64, i64) local_unnamed_addr #4
-
-; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #2
-
-declare i32 @unicode_from_utf8(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
-
-declare i32 @unicode_to_utf8(ptr noundef, i32 noundef) local_unnamed_addr #4
-
-declare i32 @JS_ToInt64Ext(ptr noundef, ptr noundef, i64, i64) local_unnamed_addr #4
-
-declare i32 @JS_ToFloat64(ptr noundef, ptr noundef, i64, i64) local_unnamed_addr #4
-
-declare i32 @dbuf_putc(ptr noundef, i8 noundef zeroext) local_unnamed_addr #4
-
-declare { i64, i64 } @JS_ThrowOutOfMemory(ptr noundef) local_unnamed_addr #4
-
-declare { i64, i64 } @JS_NewStringLen(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
-
-declare void @dbuf_free(ptr noundef) local_unnamed_addr #4
-
-declare void @dbuf_init2(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
-
-declare ptr @js_realloc_rt(ptr noundef, ptr noundef, i64 noundef) #4
+declare i32 @JS_ToInt32(ptr noundef, ptr noundef, i64, i64) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #2
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #1
+
+declare i32 @unicode_from_utf8(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+
+declare i32 @unicode_to_utf8(ptr noundef, i32 noundef) local_unnamed_addr #3
+
+declare i32 @JS_ToInt64Ext(ptr noundef, ptr noundef, i64, i64) local_unnamed_addr #3
+
+declare i32 @JS_ToFloat64(ptr noundef, ptr noundef, i64, i64) local_unnamed_addr #3
+
+declare i32 @dbuf_putc(ptr noundef, i8 noundef zeroext) local_unnamed_addr #3
+
+declare { i64, i64 } @JS_ThrowOutOfMemory(ptr noundef) local_unnamed_addr #3
+
+declare { i64, i64 } @JS_NewStringLen(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+
+declare void @dbuf_free(ptr noundef) local_unnamed_addr #3
+
+declare void @dbuf_init2(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+
+declare ptr @js_realloc_rt(ptr noundef, ptr noundef, i64 noundef) #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @ftello(ptr noundef captures(none)) local_unnamed_addr #2
-
-declare { i64, i64 } @JS_NewBigInt64(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fseeko(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #2
+declare noundef i64 @ftello(ptr noundef captures(none)) local_unnamed_addr #1
+
+declare { i64, i64 } @JS_NewBigInt64(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @feof(ptr noundef captures(none)) local_unnamed_addr #2
+declare noundef i32 @fseeko(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fileno(ptr noundef captures(none)) local_unnamed_addr #2
+declare noundef i32 @feof(ptr noundef captures(none)) local_unnamed_addr #1
+
+; Function Attrs: nofree nounwind
+declare noundef i32 @fileno(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef i32 @ferror(ptr noundef captures(none)) local_unnamed_addr #18
+declare noundef i32 @ferror(ptr noundef captures(none)) local_unnamed_addr #17
 
 ; Function Attrs: nofree nounwind
-declare void @clearerr(ptr noundef captures(none)) local_unnamed_addr #2
+declare void @clearerr(ptr noundef captures(none)) local_unnamed_addr #1
 
-declare i32 @JS_ToIndex(ptr noundef, ptr noundef, i64, i64) local_unnamed_addr #4
+declare i32 @JS_ToIndex(ptr noundef, ptr noundef, i64, i64) local_unnamed_addr #3
 
-declare ptr @JS_GetArrayBuffer(ptr noundef, ptr noundef, i64, i64) local_unnamed_addr #4
+declare ptr @JS_GetArrayBuffer(ptr noundef, ptr noundef, i64, i64) local_unnamed_addr #3
 
-declare { i64, i64 } @JS_ThrowRangeError(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
-
-; Function Attrs: nofree nounwind
-declare noundef i32 @fgetc(ptr noundef captures(none)) local_unnamed_addr #2
+declare { i64, i64 } @JS_ThrowRangeError(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #2
+declare noundef i32 @fgetc(ptr noundef captures(none)) local_unnamed_addr #1
 
-declare { i64, i64 } @JS_NewObjectClass(ptr noundef, i32 noundef) local_unnamed_addr #4
+; Function Attrs: nofree nounwind
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #1
 
-declare ptr @js_mallocz(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare { i64, i64 } @JS_NewObjectClass(ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @JS_SetOpaque(i64, i64, ptr noundef) local_unnamed_addr #4
+declare ptr @js_mallocz(ptr noundef, i64 noundef) local_unnamed_addr #3
+
+declare void @JS_SetOpaque(i64, i64, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal noundef { i64, i64 } @js_std_exit(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #19 {
+define internal noundef { i64, i64 } @js_std_exit(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #18 {
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i64, ptr %4, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = load i64, ptr %8, align 8
@@ -3098,7 +3092,7 @@ define internal { i64, i64 } @js_evalScript(ptr noundef %0, i64 %1, i64 %2, i32 
   %6 = alloca i64, align 8
   %7 = tail call ptr @JS_GetRuntime(ptr noundef %0) #30
   %8 = tail call ptr @JS_GetRuntimeOpaque(ptr noundef %7) #30
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %9 = icmp sgt i32 %3, 1
   br i1 %9, label %10, label %get_bool_option.exit41.thread
 
@@ -3236,7 +3230,7 @@ get_bool_option.exit:                             ; preds = %.thread.i, %10, %ge
   %.sroa.028.0 = phi i64 [ %69, %68 ], [ 0, %get_bool_option.exit41.thread ], [ 0, %10 ], [ 0, %.thread.i ]
   %.sroa.529.0 = phi i64 [ %.sroa.529.0.extract.shift, %68 ], [ 0, %get_bool_option.exit41.thread ], [ 0, %10 ], [ 0, %.thread.i ]
   %.sroa.8.0 = phi i64 [ %55, %68 ], [ 6, %get_bool_option.exit41.thread ], [ 6, %10 ], [ 6, %.thread.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.sroa.028.0.insert.insert = or disjoint i64 %.sroa.529.0, %.sroa.028.0
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.028.0.insert.insert, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.8.0, 1
@@ -3416,9 +3410,9 @@ define internal { i64, i64 } @js_std_urlGet(ptr noundef %0, i64 %1, i64 %2, i32 
   %6 = alloca %struct.DynBuf, align 8
   %7 = alloca %struct.DynBuf, align 8
   %8 = alloca %struct.DynBuf, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #30
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #30
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = load i64, ptr %4, align 8
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %11 = load i64, ptr %10, align 8
@@ -3830,9 +3824,9 @@ JS_FreeValue.exit:                                ; preds = %164, %159, %156, %5
   %.sroa.0139.0 = phi i64 [ 0, %get_bool_option.exit ], [ 0, %58 ], [ %.sroa.021.0, %153 ], [ %64, %62 ], [ 0, %5 ], [ 0, %156 ], [ 0, %159 ], [ 0, %164 ]
   %.sroa.7.0 = phi i64 [ 0, %get_bool_option.exit ], [ 0, %58 ], [ %.sroa.7.0.extract.shift141, %153 ], [ %.sroa.7.0.extract.shift, %62 ], [ 0, %5 ], [ 0, %156 ], [ 0, %159 ], [ 0, %164 ]
   %.sroa.11.0 = phi i64 [ 6, %get_bool_option.exit ], [ 6, %58 ], [ %.sroa.9.0, %153 ], [ %65, %62 ], [ 6, %5 ], [ 6, %156 ], [ 6, %159 ], [ 6, %164 ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #30
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #30
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.sroa.0139.0.insert.ext = and i64 %.sroa.0139.0, 4294967295
   %.sroa.0139.0.insert.insert = or disjoint i64 %.sroa.7.0, %.sroa.0139.0.insert.ext
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.0139.0.insert.insert, 0
@@ -3843,7 +3837,7 @@ JS_FreeValue.exit:                                ; preds = %164, %159, %156, %5
 ; Function Attrs: nounwind uwtable
 define internal { i64, i64 } @js_std_loadFile(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i64, ptr %4, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = load i64, ptr %8, align 8
@@ -3871,7 +3865,7 @@ define internal { i64, i64 } @js_std_loadFile(ptr noundef %0, i64 %1, i64 %2, i3
   %.sroa.015.0 = phi i64 [ %18, %13 ], [ 0, %5 ], [ 0, %11 ]
   %.sroa.416.0 = phi i64 [ %.sroa.416.0.extract.shift, %13 ], [ 0, %5 ], [ 0, %11 ]
   %.sroa.6.0 = phi i64 [ %17, %13 ], [ 6, %5 ], [ 2, %11 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.sroa.015.0.insert.insert = or disjoint i64 %.sroa.416.0, %.sroa.015.0
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.015.0.insert.insert, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.6.0, 1
@@ -3881,7 +3875,7 @@ define internal { i64, i64 } @js_std_loadFile(ptr noundef %0, i64 %1, i64 %2, i3
 ; Function Attrs: nounwind uwtable
 define internal { i64, i64 } @js_std_strerror(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i64, ptr %4, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = load i64, ptr %8, align 8
@@ -3900,7 +3894,7 @@ define internal { i64, i64 } @js_std_strerror(ptr noundef %0, i64 %1, i64 %2, i3
 17:                                               ; preds = %5, %11
   %.sroa.4.0 = phi i64 [ %16, %11 ], [ 6, %5 ]
   %.sroa.03.0.insert.insert = phi i64 [ %15, %11 ], [ 0, %5 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.03.0.insert.insert, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.4.0, 1
   ret { i64, i64 } %.fca.1.insert
@@ -3909,7 +3903,7 @@ define internal { i64, i64 } @js_std_strerror(ptr noundef %0, i64 %1, i64 %2, i3
 ; Function Attrs: nounwind uwtable
 define internal { i64, i64 } @js_std_parseExtJSON(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i64, ptr %4, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = load i64, ptr %8, align 8
@@ -3928,7 +3922,7 @@ define internal { i64, i64 } @js_std_parseExtJSON(ptr noundef %0, i64 %1, i64 %2
 16:                                               ; preds = %5, %11
   %.sroa.411.0 = phi i64 [ %15, %11 ], [ 6, %5 ]
   %.sroa.010.0.insert.insert = phi i64 [ %14, %11 ], [ 0, %5 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.010.0.insert.insert, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.411.0, 1
   ret { i64, i64 } %.fca.1.insert
@@ -4199,7 +4193,7 @@ js_new_std_file.exit:                             ; preds = %44, %47, %50, %55, 
 ; Function Attrs: nounwind uwtable
 define internal { i64, i64 } @js_std_fdopen(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i64, ptr %4, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = load i64, ptr %8, align 8
@@ -4321,7 +4315,7 @@ js_new_std_file.exit:                             ; preds = %46, %49, %52, %57, 
   %.sroa.022.0 = phi i64 [ 0, %61 ], [ %.sroa.018.0.insert.ext.i, %js_new_std_file.exit ], [ 0, %5 ], [ 0, %js_set_error_object.exit ]
   %.sroa.5.0 = phi i64 [ 0, %61 ], [ %.sroa.420.0.i, %js_new_std_file.exit ], [ 0, %5 ], [ 0, %js_set_error_object.exit ]
   %.sroa.8.0 = phi i64 [ 6, %61 ], [ %.sroa.5.0.i, %js_new_std_file.exit ], [ 6, %5 ], [ 2, %js_set_error_object.exit ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.sroa.022.0.insert.insert = or disjoint i64 %.sroa.5.0, %.sroa.022.0
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.022.0.insert.insert, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.8.0, 1
@@ -4435,7 +4429,7 @@ define internal { i64, i64 } @js_std_sprintf(ptr noundef %0, i64 %1, i64 %2, i32
   ret { i64, i64 } %6
 }
 
-declare void @JS_RunGC(ptr noundef) local_unnamed_addr #4
+declare void @JS_RunGC(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @get_bool_option(ptr noundef %0, ptr noundef nonnull writeonly captures(none) %1, i64 %2, i64 %3, ptr noundef %4) unnamed_addr #0 {
@@ -4474,10 +4468,10 @@ JS_FreeValue.exit:                                ; preds = %.thread, %5, %17, %
   ret i32 %.0
 }
 
-declare void @JS_SetInterruptHandler(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @JS_SetInterruptHandler(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @interrupt_handler(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #20 {
+define internal range(i32 0, 2) i32 @interrupt_handler(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #19 {
   %3 = load i64, ptr @os_pending_signals, align 8, !tbaa !12
   %4 = trunc i64 %3 to i32
   %5 = lshr i32 %4, 2
@@ -4485,48 +4479,48 @@ define internal range(i32 0, 2) i32 @interrupt_handler(ptr readnone captures(non
   ret i32 %6
 }
 
-declare void @JS_ResetUncatchableError(ptr noundef) local_unnamed_addr #4
+declare void @JS_ResetUncatchableError(ptr noundef) local_unnamed_addr #3
 
-declare { i64, i64 } @JS_GetPropertyStr(ptr noundef, i64, i64, ptr noundef) local_unnamed_addr #4
+declare { i64, i64 } @JS_GetPropertyStr(ptr noundef, i64, i64, ptr noundef) local_unnamed_addr #3
 
-declare i32 @JS_ToBool(ptr noundef, i64, i64) local_unnamed_addr #4
+declare i32 @JS_ToBool(ptr noundef, i64, i64) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #18
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #17
 
 ; Function Attrs: nounwind
-declare i32 @setenv(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #17
+declare i32 @setenv(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #16
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unsetenv(ptr noundef readonly captures(none)) local_unnamed_addr #2
+declare noundef i32 @unsetenv(ptr noundef readonly captures(none)) local_unnamed_addr #1
 
-declare i32 @JS_NewAtomLen(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @JS_NewAtomLen(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare i32 @JS_DefinePropertyValue(ptr noundef, i64, i64, i32 noundef, i64, i64, i32 noundef) local_unnamed_addr #4
+declare i32 @JS_DefinePropertyValue(ptr noundef, i64, i64, i32 noundef, i64, i64, i32 noundef) local_unnamed_addr #3
 
-declare i32 @dbuf_putstr(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @dbuf_putstr(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @popen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #2
+declare noalias noundef ptr @popen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #1
 
-declare { i64, i64 } @JS_NewArrayBufferCopy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+declare { i64, i64 } @JS_NewArrayBufferCopy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #21
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #20
 
 ; Function Attrs: nounwind
-declare ptr @strerror(i32 noundef) local_unnamed_addr #17
+declare ptr @strerror(i32 noundef) local_unnamed_addr #16
 
-declare { i64, i64 } @JS_ParseJSON2(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare { i64, i64 } @JS_ParseJSON2(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
+declare i64 @strspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fdopen(i32 noundef, ptr noundef readonly captures(none)) local_unnamed_addr #2
+declare noalias noundef ptr @fdopen(i32 noundef, ptr noundef readonly captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @tmpfile() local_unnamed_addr #2
+declare noalias noundef ptr @tmpfile() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @js_os_poll(ptr noundef %0) #0 {
@@ -4538,9 +4532,9 @@ define internal range(i32 -1, 1) i32 @js_os_poll(ptr noundef %0) #0 {
   %7 = alloca %struct.timeval, align 8
   %8 = tail call ptr @JS_GetRuntime(ptr noundef %0) #30
   %9 = tail call ptr @JS_GetRuntimeOpaque(ptr noundef %8) #30
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #30
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #30
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 72
   %11 = load ptr, ptr %10, align 8, !tbaa !24
   %.not = icmp ne ptr %11, null
@@ -4616,7 +4610,7 @@ define internal range(i32 -1, 1) i32 @js_os_poll(ptr noundef %0) #0 {
 
 43:                                               ; preds = %40
   %44 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %45 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #30
   %46 = load i64, ptr %4, align 8, !tbaa !89
   %.neg166 = mul i64 %46, -1000
@@ -4624,7 +4618,7 @@ define internal range(i32 -1, 1) i32 @js_os_poll(ptr noundef %0) #0 {
   %48 = load i64, ptr %47, align 8, !tbaa !91
   %.neg = sdiv i64 %48, -1000000
   %.neg167 = add i64 %.neg, %.neg166
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.1114197 = load ptr, ptr %44, align 8, !tbaa !35
   %.not137198 = icmp eq ptr %.1114197, %42
   br i1 %.not137198, label %._crit_edge, label %.lr.ph201
@@ -4916,7 +4910,7 @@ free_timer.exit:                                  ; preds = %53, %63, %68
   br i1 %.not143, label %.thread, label %190
 
 190:                                              ; preds = %177
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %191 = getelementptr inbounds nuw i8, ptr %179, i64 8
   %192 = call i32 @pthread_mutex_lock(ptr noundef nonnull %191) #30
   %193 = getelementptr inbounds nuw i8, ptr %179, i64 48
@@ -4942,7 +4936,7 @@ free_timer.exit:                                  ; preds = %53, %63, %68
   br i1 %.not1.i, label %206, label %219
 
 206:                                              ; preds = %196
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %207 = load i32, ptr %198, align 8, !tbaa !59
   %208 = call i64 @read(i32 noundef %207, ptr noundef nonnull %3, i64 noundef 16) #30
   %209 = and i64 %208, 2147483648
@@ -4968,7 +4962,7 @@ free_timer.exit:                                  ; preds = %53, %63, %68
   br i1 %218, label %._crit_edge.i, label %212
 
 ._crit_edge.i:                                    ; preds = %214, %212, %206
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %219
 
 219:                                              ; preds = %._crit_edge.i, %196
@@ -5128,11 +5122,11 @@ JS_FreeValue.exit.i:                              ; preds = %JS_FreeValue.exit52
 
 handle_posted_message.exit:                       ; preds = %190
   %299 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %191) #30
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.thread
 
 300:                                              ; preds = %298, %293, %290, %JS_FreeValue.exit.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %JS_FreeValue.exit.thread
 
 .thread:                                          ; preds = %177, %handle_posted_message.exit, %.lr.ph230
@@ -5143,13 +5137,13 @@ handle_posted_message.exit:                       ; preds = %190
 
 JS_FreeValue.exit.thread:                         ; preds = %.thread, %.preheader, %free_timer.exit, %71, %76, %300, %21, %151, %169, %._crit_edge217, %36
   %.2 = phi i32 [ 0, %21 ], [ -1, %36 ], [ 0, %._crit_edge217 ], [ 0, %300 ], [ 0, %169 ], [ 0, %151 ], [ 0, %76 ], [ 0, %71 ], [ 0, %free_timer.exit ], [ 0, %.preheader ], [ 0, %.thread ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #30
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #30
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.2
 }
 
-declare { i64, i64 } @JS_NewCFunction2(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare { i64, i64 } @JS_NewCFunction2(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal { i64, i64 } @js_worker_ctor(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
@@ -5158,8 +5152,8 @@ define internal { i64, i64 } @js_worker_ctor(ptr noundef %0, i64 %1, i64 %2, i32
   %8 = alloca i64, align 8
   %9 = alloca %union.pthread_attr_t, align 8
   %10 = tail call ptr @JS_GetRuntime(ptr noundef %0) #30
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #30
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %9) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %11 = tail call ptr @JS_GetRuntimeOpaque(ptr noundef %10) #30
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 72
   %13 = load ptr, ptr %12, align 8, !tbaa !24
@@ -5210,7 +5204,7 @@ define internal { i64, i64 } @js_worker_ctor(ptr noundef %0, i64 %1, i64 %2, i32
   %35 = tail call noalias ptr @strdup(ptr noundef nonnull %26) #30
   %36 = getelementptr inbounds nuw i8, ptr %calloc, i64 8
   store ptr %35, ptr %36, align 8, !tbaa !109
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %37 = call i32 @pipe(ptr noundef nonnull %7) #30
   %38 = icmp slt i32 %37, 0
   br i1 %38, label %js_new_message_pipe.exit.thread, label %39
@@ -5229,7 +5223,7 @@ define internal { i64, i64 } @js_worker_ctor(ptr noundef %0, i64 %1, i64 %2, i32
   br label %js_new_message_pipe.exit.thread
 
 js_new_message_pipe.exit.thread:                  ; preds = %41, %33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.sink.split
 
 47:                                               ; preds = %39
@@ -5247,10 +5241,10 @@ js_new_message_pipe.exit.thread:                  ; preds = %41, %33
   %55 = load i32, ptr %54, align 4, !tbaa !7
   %56 = getelementptr inbounds nuw i8, ptr %40, i64 68
   store i32 %55, ptr %56, align 4, !tbaa !60
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %57 = getelementptr inbounds nuw i8, ptr %calloc, i64 16
   store ptr %40, ptr %57, align 8, !tbaa !111
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %58 = call i32 @pipe(ptr noundef nonnull %6) #30
   %59 = icmp slt i32 %58, 0
   br i1 %59, label %js_new_message_pipe.exit78.thread, label %60
@@ -5269,7 +5263,7 @@ js_new_message_pipe.exit.thread:                  ; preds = %41, %33
   br label %js_new_message_pipe.exit78.thread
 
 js_new_message_pipe.exit78.thread:                ; preds = %62, %47
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.sink.split
 
 68:                                               ; preds = %60
@@ -5287,7 +5281,7 @@ js_new_message_pipe.exit78.thread:                ; preds = %62, %47
   %76 = load i32, ptr %75, align 4, !tbaa !7
   %77 = getelementptr inbounds nuw i8, ptr %61, i64 68
   store i32 %76, ptr %77, align 4, !tbaa !60
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %78 = getelementptr inbounds nuw i8, ptr %calloc, i64 24
   store ptr %61, ptr %78, align 8, !tbaa !112
   %79 = call fastcc { i64, i64 } @js_worker_ctor_internal(ptr noundef %0, i64 %1, i64 %2, ptr noundef %61, ptr noundef nonnull %40)
@@ -5371,8 +5365,8 @@ JS_FreeValue.exit:                                ; preds = %111, %106, %103, %9
   %.sroa.054.0 = phi i64 [ %23, %21 ], [ %80, %90 ], [ %16, %14 ], [ 0, %103 ], [ 0, %106 ], [ 0, %111 ]
   %.sroa.5.0 = phi i64 [ %.sroa.5.0.extract.shift57, %21 ], [ %.sroa.5.0.extract.shift59, %90 ], [ %.sroa.5.0.extract.shift, %14 ], [ 0, %103 ], [ 0, %106 ], [ 0, %111 ]
   %.sroa.6.0 = phi i64 [ %24, %21 ], [ %81, %90 ], [ %17, %14 ], [ 6, %103 ], [ 6, %106 ], [ 6, %111 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9) #30
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.sroa.054.0.insert.ext = and i64 %.sroa.054.0, 4294967295
   %.sroa.054.0.insert.insert = or disjoint i64 %.sroa.5.0, %.sroa.054.0.insert.ext
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.054.0.insert.insert, 0
@@ -5380,7 +5374,7 @@ JS_FreeValue.exit:                                ; preds = %111, %106, %103, %9
   ret { i64, i64 } %.fca.1.insert
 }
 
-declare void @JS_SetConstructor(ptr noundef, i64, i64, i64, i64) local_unnamed_addr #4
+declare void @JS_SetConstructor(ptr noundef, i64, i64, i64, i64) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc { i64, i64 } @js_worker_ctor_internal(ptr noundef %0, i64 %1, i64 %2, ptr noundef nonnull %3, ptr noundef %4) unnamed_addr #0 {
@@ -5528,21 +5522,21 @@ JS_FreeValue.exit17:                              ; preds = %20, %23, %28
   ret void
 }
 
-declare i32 @select(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @select(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare { i64, i64 } @JS_Call(ptr noundef, i64, i64, i64, i64, i32 noundef, ptr noundef) local_unnamed_addr #4
-
-; Function Attrs: nounwind
-declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #17
+declare { i64, i64 } @JS_Call(ptr noundef, i64, i64, i64, i64, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #17
+declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #16
+
+; Function Attrs: nounwind
+declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #16
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #22
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #21
 
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #17
+declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #16
 
 ; Function Attrs: nounwind uwtable
 define internal void @js_worker_finalizer(ptr noundef %0, i64 %1, i64 %2) #0 {
@@ -5605,7 +5599,7 @@ js_free_port.exit:                                ; preds = %6, %JS_FreeValueRT.
   ret void
 }
 
-declare void @__JS_FreeValueRT(ptr noundef, i64, i64) local_unnamed_addr #4
+declare void @__JS_FreeValueRT(ptr noundef, i64, i64) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal { i64, i64 } @js_worker_postMessage(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
@@ -5615,9 +5609,9 @@ define internal { i64, i64 } @js_worker_postMessage(ptr noundef %0, i64 %1, i64 
   %9 = alloca i8, align 1
   %10 = load i32, ptr @js_worker_class_id, align 4, !tbaa !7
   %11 = tail call ptr @JS_GetOpaque2(ptr noundef %0, i64 %1, i64 %2, i32 noundef %10) #30
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #30
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #30
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %67, label %12
 
@@ -5701,7 +5695,7 @@ define internal { i64, i64 } @js_worker_postMessage(ptr noundef %0, i64 %1, i64 
   br i1 %.not55, label %51, label %60
 
 51:                                               ; preds = %._crit_edge
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 0, ptr %9, align 1, !tbaa !11
   %52 = getelementptr inbounds nuw i8, ptr %45, i64 68
   br label %53
@@ -5716,7 +5710,7 @@ define internal { i64, i64 } @js_worker_postMessage(ptr noundef %0, i64 %1, i64 
   br i1 %or.cond, label %59, label %53
 
 59:                                               ; preds = %53
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %60
 
 60:                                               ; preds = %59, %._crit_edge
@@ -5743,9 +5737,9 @@ define internal { i64, i64 } @js_worker_postMessage(ptr noundef %0, i64 %1, i64 
 
 67:                                               ; preds = %12, %5, %.critedge, %60
   %.sroa.9.0 = phi i64 [ 3, %60 ], [ 6, %.critedge ], [ 6, %5 ], [ 6, %12 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #30
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #30
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.fca.1.insert = insertvalue { i64, i64 } { i64 0, i64 poison }, i64 %.sroa.9.0, 1
   ret { i64, i64 } %.fca.1.insert
 }
@@ -5943,26 +5937,26 @@ JS_DupValue.exit:                                 ; preds = %JS_FreeValue.exit, 
   ret { i64, i64 } %.fca.1.insert
 }
 
-declare ptr @JS_WriteObject2(ptr noundef, ptr noundef, i64, i64, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @JS_WriteObject2(ptr noundef, ptr noundef, i64, i64, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #22
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #21
 
-declare i32 @JS_IsFunction(ptr noundef, i64, i64) local_unnamed_addr #4
+declare i32 @JS_IsFunction(ptr noundef, i64, i64) local_unnamed_addr #3
 
-declare i32 @JS_GetScriptOrModuleName(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @JS_GetScriptOrModuleName(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #23
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #22
 
 ; Function Attrs: nounwind
-declare i32 @pthread_attr_init(ptr noundef) local_unnamed_addr #17
+declare i32 @pthread_attr_init(ptr noundef) local_unnamed_addr #16
 
 ; Function Attrs: nounwind
-declare i32 @pthread_attr_setdetachstate(ptr noundef, i32 noundef) local_unnamed_addr #17
+declare i32 @pthread_attr_setdetachstate(ptr noundef, i32 noundef) local_unnamed_addr #16
 
 ; Function Attrs: nounwind
-declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #17
+declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #16
 
 ; Function Attrs: nounwind uwtable
 define internal noalias noundef ptr @worker_func(ptr noundef captures(none) %0) #0 {
@@ -6043,7 +6037,7 @@ define internal noalias noundef ptr @worker_func(ptr noundef captures(none) %0) 
   br label %JS_FreeValue.exit
 
 JS_FreeValue.exit:                                ; preds = %34, %37, %42
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   br label %43
 
 43:                                               ; preds = %.backedge, %JS_FreeValue.exit
@@ -6075,7 +6069,7 @@ JS_FreeValue.exit:                                ; preds = %34, %37, %42
   br i1 %.not4.i, label %.backedge, label %js_std_loop.exit
 
 js_std_loop.exit:                                 ; preds = %51, %53
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @JS_FreeContext(ptr noundef %17) #30
   call void @js_std_free_handlers(ptr noundef nonnull %3)
   call void @JS_FreeRuntime(ptr noundef nonnull %3) #30
@@ -6083,38 +6077,38 @@ js_std_loop.exit:                                 ; preds = %51, %53
 }
 
 ; Function Attrs: nounwind
-declare i32 @pthread_attr_destroy(ptr noundef) local_unnamed_addr #17
+declare i32 @pthread_attr_destroy(ptr noundef) local_unnamed_addr #16
 
 ; Function Attrs: nounwind
-declare i32 @pipe(ptr noundef) local_unnamed_addr #17
+declare i32 @pipe(ptr noundef) local_unnamed_addr #16
 
-declare i32 @close(i32 noundef) local_unnamed_addr #4
+declare i32 @close(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_init(ptr noundef, ptr noundef) local_unnamed_addr #17
+declare i32 @pthread_mutex_init(ptr noundef, ptr noundef) local_unnamed_addr #16
 
-declare ptr @JS_NewRuntime() local_unnamed_addr #4
+declare ptr @JS_NewRuntime() local_unnamed_addr #3
 
-declare void @JS_SetModuleLoaderFunc(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @JS_SetModuleLoaderFunc(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @JS_SetCanBlock(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare void @JS_SetCanBlock(ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare { i64, i64 } @JS_LoadModule(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare { i64, i64 } @JS_LoadModule(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @JS_FreeContext(ptr noundef) local_unnamed_addr #4
+declare void @JS_FreeContext(ptr noundef) local_unnamed_addr #3
 
-declare void @JS_FreeRuntime(ptr noundef) local_unnamed_addr #4
+declare void @JS_FreeRuntime(ptr noundef) local_unnamed_addr #3
 
-declare { i64, i64 } @JS_GetClassProto(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare { i64, i64 } @JS_GetClassProto(ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare { i64, i64 } @JS_NewObjectProtoClass(ptr noundef, i64, i64, i32 noundef) local_unnamed_addr #4
+declare { i64, i64 } @JS_NewObjectProtoClass(ptr noundef, i64, i64, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal { i64, i64 } @js_os_open(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #30
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i64, ptr %4, align 8
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load i64, ptr %9, align 8
@@ -6183,8 +6177,8 @@ js_get_errno.exit:                                ; preds = %30, %35
 39:                                               ; preds = %5, %js_get_errno.exit, %28
   %.sroa.015.0 = phi i64 [ 0, %28 ], [ %.sroa.0.0.insert.ext.i, %js_get_errno.exit ], [ 0, %5 ]
   %.sroa.6.0 = phi i64 [ 6, %28 ], [ 0, %js_get_errno.exit ], [ 6, %5 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #30
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.015.0, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.6.0, 1
   ret { i64, i64 } %.fca.1.insert
@@ -6193,7 +6187,7 @@ js_get_errno.exit:                                ; preds = %30, %35
 ; Function Attrs: nounwind uwtable
 define internal { i64, i64 } @js_os_close(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i64, ptr %4, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = load i64, ptr %8, align 8
@@ -6221,7 +6215,7 @@ js_get_errno.exit:                                ; preds = %11, %15
 19:                                               ; preds = %5, %js_get_errno.exit
   %.sroa.03.0 = phi i64 [ %.sroa.0.0.insert.ext.i, %js_get_errno.exit ], [ 0, %5 ]
   %.sroa.4.0 = phi i64 [ 0, %js_get_errno.exit ], [ 6, %5 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.03.0, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.4.0, 1
   ret { i64, i64 } %.fca.1.insert
@@ -6232,9 +6226,9 @@ define internal { i64, i64 } @js_os_seek(ptr noundef %0, i64 %1, i64 %2, i32 %3,
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #30
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #30
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = load i64, ptr %4, align 8
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %11 = load i64, ptr %10, align 8
@@ -6303,9 +6297,9 @@ JS_NewInt64.exit:                                 ; preds = %37
   %.sroa.013.0 = phi i64 [ %40, %38 ], [ %.sroa.0.0.insert.ext.i.i.pn, %JS_NewInt64.exit ], [ 0, %5 ], [ 0, %13 ], [ 0, %20 ]
   %.sroa.6.0 = phi i64 [ %.sroa.6.0.extract.shift, %38 ], [ %.sroa.6.0.extract.shift15, %JS_NewInt64.exit ], [ 0, %5 ], [ 0, %13 ], [ 0, %20 ]
   %.sroa.9.0 = phi i64 [ %41, %38 ], [ %.sroa.3.0.i, %JS_NewInt64.exit ], [ 6, %5 ], [ 6, %13 ], [ 6, %20 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #30
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #30
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.sroa.013.0.insert.ext = and i64 %.sroa.013.0, 4294967295
   %.sroa.013.0.insert.insert = or disjoint i64 %.sroa.6.0, %.sroa.013.0.insert.ext
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.013.0.insert.insert, 0
@@ -6319,10 +6313,10 @@ define internal { i64, i64 } @js_os_read_write(ptr noundef %0, i64 %1, i64 %2, i
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8
   %10 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #30
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #30
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #30
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %11 = load i64, ptr %4, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %13 = load i64, ptr %12, align 8
@@ -6411,10 +6405,10 @@ js_get_errno.exit:                                ; preds = %js_get_errno.exit.s
   %.sroa.014.0 = phi i64 [ %41, %39 ], [ %.sroa.0.0.insert.ext.i.i.pn, %js_get_errno.exit ], [ 0, %6 ], [ 0, %15 ], [ 0, %21 ], [ 0, %27 ]
   %.sroa.7.0 = phi i64 [ %.sroa.7.0.extract.shift, %39 ], [ %.sroa.7.0.extract.shift16, %js_get_errno.exit ], [ 0, %6 ], [ 0, %15 ], [ 0, %21 ], [ 0, %27 ]
   %.sroa.11.0 = phi i64 [ %42, %39 ], [ %.sroa.3.0.i, %js_get_errno.exit ], [ 6, %6 ], [ 6, %15 ], [ 6, %21 ], [ 6, %27 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #30
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #30
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #30
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.sroa.014.0.insert.ext = and i64 %.sroa.014.0, 4294967295
   %.sroa.014.0.insert.insert = or disjoint i64 %.sroa.7.0, %.sroa.014.0.insert.ext
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.014.0.insert.insert, 0
@@ -6425,7 +6419,7 @@ js_get_errno.exit:                                ; preds = %js_get_errno.exit.s
 ; Function Attrs: nounwind uwtable
 define internal { i64, i64 } @js_os_isatty(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i64, ptr %4, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = load i64, ptr %8, align 8
@@ -6443,7 +6437,7 @@ define internal { i64, i64 } @js_os_isatty(ptr noundef %0, i64 %1, i64 %2, i32 %
 15:                                               ; preds = %5, %11
   %.sroa.03.0 = phi i64 [ %.sroa.0.0.insert.ext.i, %11 ], [ 0, %5 ]
   %.sroa.4.0 = phi i64 [ 1, %11 ], [ 6, %5 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.03.0, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.4.0, 1
   ret { i64, i64 } %.fca.1.insert
@@ -6453,8 +6447,8 @@ define internal { i64, i64 } @js_os_isatty(ptr noundef %0, i64 %1, i64 %2, i32 %
 define internal { i64, i64 } @js_os_ttyGetWinSize(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca i32, align 4
   %7 = alloca %struct.winsize, align 2
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #30
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i64, ptr %4, align 8
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load i64, ptr %9, align 8
@@ -6501,8 +6495,8 @@ define internal { i64, i64 } @js_os_ttyGetWinSize(ptr noundef %0, i64 %1, i64 %2
   %.sroa.026.0 = phi i64 [ %23, %26 ], [ %23, %27 ], [ 0, %5 ], [ 0, %12 ]
   %.sroa.5.0 = phi i64 [ %.sroa.5.0.extract.shift, %26 ], [ %.sroa.5.0.extract.shift28, %27 ], [ 0, %5 ], [ 0, %12 ]
   %.sroa.7.0 = phi i64 [ %24, %26 ], [ %24, %27 ], [ 6, %5 ], [ 2, %12 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #30
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.sroa.026.0.insert.ext = and i64 %.sroa.026.0, 4294967295
   %.sroa.026.0.insert.insert = or disjoint i64 %.sroa.5.0, %.sroa.026.0.insert.ext
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.026.0.insert.insert, 0
@@ -6514,8 +6508,8 @@ define internal { i64, i64 } @js_os_ttyGetWinSize(ptr noundef %0, i64 %1, i64 %2
 define internal { i64, i64 } @js_os_ttySetRaw(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca %struct.termios, align 4
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 60, ptr nonnull %6) #30
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i64, ptr %4, align 8
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load i64, ptr %9, align 8
@@ -6555,8 +6549,8 @@ define internal { i64, i64 } @js_os_ttySetRaw(ptr noundef %0, i64 %1, i64 %2, i3
 
 32:                                               ; preds = %5, %12
   %.sroa.5.0 = phi i64 [ 3, %12 ], [ 6, %5 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #30
-  call void @llvm.lifetime.end.p0(i64 60, ptr nonnull %6) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.fca.1.insert = insertvalue { i64, i64 } { i64 0, i64 poison }, i64 %.sroa.5.0, 1
   ret { i64, i64 } %.fca.1.insert
 }
@@ -6648,7 +6642,7 @@ define internal { i64, i64 } @js_os_setReadHandler(ptr noundef %0, i64 %1, i64 %
   %7 = alloca i32, align 4
   %8 = tail call ptr @JS_GetRuntime(ptr noundef %0) #30
   %9 = tail call ptr @JS_GetRuntimeOpaque(ptr noundef %8) #30
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %10 = load i64, ptr %4, align 8
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %12 = load i64, ptr %11, align 8
@@ -6869,7 +6863,7 @@ find_rh.exit.thread:                              ; preds = %19, %JS_DupValue.ex
   %.sroa.045.0 = phi i64 [ %71, %67 ], [ 0, %6 ], [ 0, %79 ], [ 0, %free_rw_handler.exit ], [ 0, %41 ], [ 0, %JS_FreeValue.exit ], [ 0, %JS_DupValue.exit ], [ 0, %19 ]
   %.sroa.5.0 = phi i64 [ %.sroa.5.0.extract.shift, %67 ], [ 0, %6 ], [ 0, %79 ], [ 0, %free_rw_handler.exit ], [ 0, %41 ], [ 0, %JS_FreeValue.exit ], [ 0, %JS_DupValue.exit ], [ 0, %19 ]
   %.sroa.8.0 = phi i64 [ %70, %67 ], [ 6, %6 ], [ 6, %79 ], [ 3, %free_rw_handler.exit ], [ 3, %41 ], [ 3, %JS_FreeValue.exit ], [ 3, %JS_DupValue.exit ], [ 3, %19 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.sroa.045.0.insert.insert = or disjoint i64 %.sroa.5.0, %.sroa.045.0
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.045.0.insert.insert, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.8.0, 1
@@ -6881,7 +6875,7 @@ define internal { i64, i64 } @js_os_signal(ptr noundef %0, i64 %1, i64 %2, i32 %
   %6 = alloca i32, align 4
   %7 = tail call ptr @JS_GetRuntime(ptr noundef %0) #30
   %8 = tail call ptr @JS_GetRuntimeOpaque(ptr noundef %7) #30
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %9 = tail call ptr @JS_GetRuntimeOpaque(ptr noundef %7) #30
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 72
   %11 = load ptr, ptr %10, align 8, !tbaa !24
@@ -7082,7 +7076,7 @@ JS_DupValue.exit:                                 ; preds = %JS_FreeValue.exit, 
   %.sroa.036.0 = phi i64 [ %26, %24 ], [ %63, %61 ], [ %14, %12 ], [ 0, %16 ], [ 0, %.loopexit ], [ 0, %JS_DupValue.exit ], [ 0, %find_sh.exit.thread ]
   %.sroa.7.0 = phi i64 [ %.sroa.7.0.extract.shift39, %24 ], [ %.sroa.7.0.extract.shift41, %61 ], [ %.sroa.7.0.extract.shift, %12 ], [ 0, %16 ], [ 0, %.loopexit ], [ 0, %JS_DupValue.exit ], [ 0, %find_sh.exit.thread ]
   %.sroa.10.0 = phi i64 [ %27, %24 ], [ %64, %61 ], [ %15, %12 ], [ 6, %16 ], [ 6, %.loopexit ], [ 3, %JS_DupValue.exit ], [ 3, %find_sh.exit.thread ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.sroa.036.0.insert.ext = and i64 %.sroa.036.0, 4294967295
   %.sroa.036.0.insert.insert = or disjoint i64 %.sroa.7.0, %.sroa.036.0.insert.ext
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.036.0.insert.insert, 0
@@ -7093,14 +7087,14 @@ JS_DupValue.exit:                                 ; preds = %JS_FreeValue.exit, 
 ; Function Attrs: nounwind uwtable
 define internal { i64, i64 } @js_os_now(ptr readnone captures(none) %0, i64 %1, i64 %2, i32 %3, ptr readnone captures(none) %4) #0 {
   %6 = alloca %struct.timespec, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #30
   %8 = load i64, ptr %6, align 8, !tbaa !89
   %9 = mul i64 %8, 1000000000
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %11 = load i64, ptr %10, align 8, !tbaa !91
   %12 = add i64 %9, %11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %13 = sitofp i64 %12 to double
   %14 = fdiv double %13, 1.000000e+06
   %15 = fcmp oge double %14, 0xC1E0000000000000
@@ -7143,7 +7137,7 @@ define internal { i64, i64 } @js_os_setTimeout(ptr noundef %0, i64 %1, i64 %2, i
   %7 = alloca i64, align 8
   %8 = tail call ptr @JS_GetRuntime(ptr noundef %0) #30
   %9 = tail call ptr @JS_GetRuntimeOpaque(ptr noundef %8) #30
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.sroa.06.0.copyload = load i64, ptr %4, align 8, !tbaa !11
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !12
@@ -7181,7 +7175,7 @@ define internal { i64, i64 } @js_os_setTimeout(ptr noundef %0, i64 %1, i64 %2, i
   %28 = add nsw i32 %25, 1
   %storemerge = select i1 %27, i32 1, i32 %28
   store i32 %storemerge, ptr %24, align 4, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %29 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #30
   %30 = load i64, ptr %6, align 8, !tbaa !89
   %31 = mul i64 %30, 1000
@@ -7189,7 +7183,7 @@ define internal { i64, i64 } @js_os_setTimeout(ptr noundef %0, i64 %1, i64 %2, i
   %33 = load i64, ptr %32, align 8, !tbaa !91
   %34 = sdiv i64 %33, 1000000
   %35 = add i64 %34, %31
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %36 = load i64, ptr %7, align 8, !tbaa !12
   %37 = add i64 %35, %36
   %38 = getelementptr inbounds nuw i8, ptr %22, i64 24
@@ -7226,7 +7220,7 @@ JS_DupValue.exit:                                 ; preds = %23, %42
   %.sroa.025.0 = phi i64 [ %.sroa.0.0.insert.ext.i, %JS_DupValue.exit ], [ %13, %11 ], [ 0, %15 ], [ 0, %21 ]
   %.sroa.527.0 = phi i64 [ 0, %JS_DupValue.exit ], [ %.sroa.527.0.extract.shift, %11 ], [ 0, %15 ], [ 0, %21 ]
   %.sroa.7.0 = phi i64 [ 0, %JS_DupValue.exit ], [ %14, %11 ], [ 6, %15 ], [ 6, %21 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.sroa.025.0.insert.ext = and i64 %.sroa.025.0, 4294967295
   %.sroa.025.0.insert.insert = or disjoint i64 %.sroa.527.0, %.sroa.025.0.insert.ext
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.025.0.insert.insert, 0
@@ -7239,7 +7233,7 @@ define internal { i64, i64 } @js_os_clearTimeout(ptr noundef %0, i64 %1, i64 %2,
   %6 = alloca i32, align 4
   %7 = tail call ptr @JS_GetRuntime(ptr noundef %0) #30
   %8 = tail call ptr @JS_GetRuntimeOpaque(ptr noundef %7) #30
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %9 = load i64, ptr %4, align 8
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %11 = load i64, ptr %10, align 8
@@ -7306,7 +7300,7 @@ free_timer.exit:                                  ; preds = %find_timer_by_id.ex
 
 find_timer_by_id.exit.thread:                     ; preds = %21, %16, %13, %5, %free_timer.exit
   %.sroa.7.0 = phi i64 [ 3, %free_timer.exit ], [ 6, %5 ], [ 3, %13 ], [ 3, %16 ], [ 3, %21 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.fca.1.insert = insertvalue { i64, i64 } { i64 0, i64 poison }, i64 %.sroa.7.0, 1
   ret { i64, i64 } %.fca.1.insert
 }
@@ -7318,8 +7312,8 @@ define internal { i64, i64 } @js_os_sleepAsync(ptr noundef %0, i64 %1, i64 %2, i
   %8 = alloca [2 x %struct.JSValue], align 16
   %9 = tail call ptr @JS_GetRuntime(ptr noundef %0) #30
   %10 = tail call ptr @JS_GetRuntimeOpaque(ptr noundef %9) #30
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #30
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %11 = load i64, ptr %4, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %13 = load i64, ptr %12, align 8
@@ -7401,7 +7395,7 @@ JS_FreeValue.exit27:                              ; preds = %JS_FreeValue.exit, 
 54:                                               ; preds = %20
   %55 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store i32 -1, ptr %55, align 8, !tbaa !130
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %56 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #30
   %57 = load i64, ptr %6, align 8, !tbaa !89
   %58 = mul i64 %57, 1000
@@ -7409,7 +7403,7 @@ JS_FreeValue.exit27:                              ; preds = %JS_FreeValue.exit, 
   %60 = load i64, ptr %59, align 8, !tbaa !91
   %61 = sdiv i64 %60, 1000000
   %62 = add i64 %61, %58
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %63 = load i64, ptr %7, align 8, !tbaa !12
   %64 = add i64 %62, %63
   %65 = getelementptr inbounds nuw i8, ptr %21, i64 24
@@ -7489,8 +7483,8 @@ JS_FreeValue.exit28:                              ; preds = %53, %48, %JS_FreeVa
   %.sroa.024.0 = phi i64 [ %102, %JS_FreeValue.exit30 ], [ 0, %5 ], [ 0, %15 ], [ 0, %JS_FreeValue.exit27 ], [ 0, %48 ], [ 0, %53 ]
   %.sroa.5.0 = phi i64 [ %.sroa.5.0.extract.shift, %JS_FreeValue.exit30 ], [ 0, %5 ], [ 0, %15 ], [ 0, %JS_FreeValue.exit27 ], [ 0, %48 ], [ 0, %53 ]
   %.sroa.8.0 = phi i64 [ %18, %JS_FreeValue.exit30 ], [ 6, %5 ], [ 6, %15 ], [ 6, %JS_FreeValue.exit27 ], [ 6, %48 ], [ 6, %53 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #30
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.sroa.024.0.insert.insert = or disjoint i64 %.sroa.5.0, %.sroa.024.0
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.024.0.insert.insert, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.8.0, 1
@@ -7500,7 +7494,7 @@ JS_FreeValue.exit28:                              ; preds = %53, %48, %JS_FreeVa
 ; Function Attrs: nounwind uwtable
 define internal { i64, i64 } @js_os_getcwd(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr readnone captures(none) %4) #0 {
   %6 = alloca [4096 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %6) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = call ptr @getcwd(ptr noundef nonnull %6, i64 noundef 4096) #30
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %8, label %12
@@ -7547,7 +7541,7 @@ make_string_error.exit:                           ; preds = %17, %18, %22
   %.sroa.014.0.insert.insert.i.i = or disjoint i64 %.sroa.416.0.i.i, %.sroa.014.0.insert.ext.i.i
   %.fca.0.insert.i.i = insertvalue { i64, i64 } poison, i64 %.sroa.014.0.insert.insert.i.i, 0
   %.fca.1.insert.i.i = insertvalue { i64, i64 } %.fca.0.insert.i.i, i64 %.sroa.5.0.i.i, 1
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %6) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret { i64, i64 } %.fca.1.insert.i.i
 }
 
@@ -7588,7 +7582,7 @@ js_get_errno.exit:                                ; preds = %10, %13
 ; Function Attrs: nounwind uwtable
 define internal { i64, i64 } @js_os_mkdir(ptr noundef %0, i64 %1, i64 %2, i32 noundef %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = icmp sgt i32 %3, 1
   br i1 %7, label %8, label %14
 
@@ -7634,7 +7628,7 @@ js_get_errno.exit:                                ; preds = %20, %24
 28:                                               ; preds = %15, %8, %js_get_errno.exit
   %.sroa.010.0 = phi i64 [ %.sroa.0.0.insert.ext.i, %js_get_errno.exit ], [ 0, %8 ], [ 0, %15 ]
   %.sroa.6.0 = phi i64 [ 0, %js_get_errno.exit ], [ 6, %8 ], [ 6, %15 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.010.0, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.6.0, 1
   ret { i64, i64 } %.fca.1.insert
@@ -7729,7 +7723,7 @@ make_obj_error.exit:                              ; preds = %37, %33, %5, %15
 ; Function Attrs: nounwind uwtable
 define internal { i64, i64 } @js_os_stat(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = alloca %struct.stat, align 8
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %7) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i64, ptr %4, align 8
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load i64, ptr %9, align 8
@@ -7921,7 +7915,7 @@ make_obj_error.exit:                              ; preds = %119, %115, %22, %6
   %.sroa.089.0 = phi i64 [ 0, %6 ], [ 0, %22 ], [ %123, %119 ], [ 0, %115 ]
   %.sroa.490.0 = phi i64 [ 0, %6 ], [ 0, %22 ], [ %.sroa.416.0.extract.shift.i, %119 ], [ 0, %115 ]
   %.sroa.6.0 = phi i64 [ 6, %6 ], [ 6, %22 ], [ %117, %119 ], [ 6, %115 ]
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %7) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.sroa.089.0.insert.insert = or disjoint i64 %.sroa.490.0, %.sroa.089.0
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.089.0.insert.insert, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.6.0, 1
@@ -7933,8 +7927,8 @@ define internal { i64, i64 } @js_os_utimes(ptr noundef %0, i64 %1, i64 %2, i32 %
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca [2 x %struct.timeval], align 16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #30
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %10 = load i64, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -7961,7 +7955,7 @@ define internal { i64, i64 } @js_os_utimes(ptr noundef %0, i64 %1, i64 %2, i32 %
   br i1 %.not13, label %43, label %25
 
 25:                                               ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %26 = load i64, ptr %6, align 8, !tbaa !12
   %27 = udiv i64 %26, 1000
   store i64 %27, ptr %8, align 16, !tbaa !95
@@ -7989,7 +7983,7 @@ define internal { i64, i64 } @js_os_utimes(ptr noundef %0, i64 %1, i64 %2, i32 %
 
 js_get_errno.exit:                                ; preds = %25, %39
   %.0.i.in = phi i32 [ %42, %39 ], [ %37, %25 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @JS_FreeCString(ptr noundef %0, ptr noundef nonnull %24) #30
   %.sroa.0.0.insert.ext.i = zext i32 %.0.i.in to i64
   br label %43
@@ -7997,8 +7991,8 @@ js_get_errno.exit:                                ; preds = %25, %39
 43:                                               ; preds = %20, %14, %5, %js_get_errno.exit
   %.sroa.011.0 = phi i64 [ %.sroa.0.0.insert.ext.i, %js_get_errno.exit ], [ 0, %5 ], [ 0, %14 ], [ 0, %20 ]
   %.sroa.8.0 = phi i64 [ 0, %js_get_errno.exit ], [ 6, %5 ], [ 6, %14 ], [ 6, %20 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #30
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.011.0, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.8.0, 1
   ret { i64, i64 } %.fca.1.insert
@@ -8008,7 +8002,7 @@ js_get_errno.exit:                                ; preds = %25, %39
 define internal { i64, i64 } @js_os_sleep(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca i64, align 8
   %7 = alloca %struct.timespec, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %8 = load i64, ptr %4, align 8
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load i64, ptr %9, align 8
@@ -8027,7 +8021,7 @@ define internal { i64, i64 } @js_os_sleep(ptr noundef %0, i64 %1, i64 %2, i32 %3
 
 16:                                               ; preds = %15, %12
   %17 = phi i64 [ 0, %15 ], [ %13, %12 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %18 = udiv i64 %17, 1000
   store i64 %18, ptr %7, align 8, !tbaa !89
   %19 = urem i64 %17, 1000
@@ -8046,14 +8040,14 @@ define internal { i64, i64 } @js_os_sleep(ptr noundef %0, i64 %1, i64 %2, i32 %3
 
 js_get_errno.exit:                                ; preds = %16, %24
   %.0.i.in = phi i32 [ %27, %24 ], [ %22, %16 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.sroa.0.0.insert.ext.i = zext i32 %.0.i.in to i64
   br label %28
 
 28:                                               ; preds = %5, %js_get_errno.exit
   %.sroa.03.0 = phi i64 [ %.sroa.0.0.insert.ext.i, %js_get_errno.exit ], [ 0, %5 ]
   %.sroa.4.0 = phi i64 [ 0, %js_get_errno.exit ], [ 6, %5 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.03.0, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.4.0, 1
   ret { i64, i64 } %.fca.1.insert
@@ -8062,7 +8056,7 @@ js_get_errno.exit:                                ; preds = %16, %24
 ; Function Attrs: nounwind uwtable
 define internal { i64, i64 } @js_os_realpath(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca [4096 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %6) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i64, ptr %4, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = load i64, ptr %8, align 8
@@ -8121,7 +8115,7 @@ make_string_error.exit:                           ; preds = %22, %23, %27
 31:                                               ; preds = %5, %make_string_error.exit
   %.sroa.4.0 = phi i64 [ %.sroa.5.0.i.i, %make_string_error.exit ], [ 6, %5 ]
   %.sroa.08.0.insert.insert = phi i64 [ %.sroa.014.0.insert.insert.i.i, %make_string_error.exit ], [ 0, %5 ]
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %6) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.08.0.insert.insert, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.4.0, 1
   ret { i64, i64 } %.fca.1.insert
@@ -8178,7 +8172,7 @@ js_get_errno.exit:                                ; preds = %17, %20
 ; Function Attrs: nounwind uwtable
 define internal { i64, i64 } @js_os_readlink(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca [4096 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %6) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i64, ptr %4, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = load i64, ptr %8, align 8
@@ -8242,7 +8236,7 @@ make_string_error.exit:                           ; preds = %25, %26, %30
 34:                                               ; preds = %5, %make_string_error.exit
   %.sroa.4.0 = phi i64 [ %.sroa.5.0.i.i, %make_string_error.exit ], [ 6, %5 ]
   %.sroa.09.0.insert.insert = phi i64 [ %.sroa.014.0.insert.insert.i.i, %make_string_error.exit ], [ 0, %5 ]
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %6) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.09.0.insert.insert, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.4.0, 1
   ret { i64, i64 } %.fca.1.insert
@@ -8262,16 +8256,16 @@ define internal { i64, i64 } @js_os_exec(ptr noundef %0, i64 %1, i64 %2, i32 nou
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !12
   %14 = load ptr, ptr @environ, align 8, !tbaa !77
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #30
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #30
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 1, ptr %8, align 4, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 1, ptr %9, align 4, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %10) #30
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 -1, ptr %11, align 4, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 -1, ptr %12, align 4, !tbaa !7
   %15 = tail call { i64, i64 } @JS_GetPropertyStr(ptr noundef %0, i64 %.sroa.0139.0.copyload, i64 %.sroa.5.0.copyload, ptr noundef nonnull @.str.199) #30
   %16 = extractvalue { i64, i64 } %15, 0
@@ -8487,7 +8481,7 @@ JS_FreeValue.exit270:                             ; preds = %91, %94, %99
   ]
 
 107:                                              ; preds = %101
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %108 = call i32 @JS_ToInt32(ptr noundef %0, ptr noundef nonnull %13, i64 %105, i64 %106) #30
   %109 = icmp ugt i32 %trunc311, -12
   br i1 %109, label %110, label %JS_FreeValue.exit271
@@ -8512,11 +8506,11 @@ JS_FreeValue.exit271:                             ; preds = %107, %110, %115
   %116 = load i32, ptr %13, align 4, !tbaa !7
   %117 = getelementptr inbounds nuw [3 x i32], ptr %10, i64 0, i64 %indvars.iv326
   store i32 %116, ptr %117, align 4, !tbaa !7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %119
 
 118:                                              ; preds = %JS_FreeValue.exit271
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.loopexit
 
 119:                                              ; preds = %101, %.thread
@@ -8815,13 +8809,13 @@ JS_FreeValue.exit274:                             ; preds = %150, %153, %158
   %.sroa.0198.0 = phi i64 [ %34, %32 ], [ 0, %5 ], [ 0, %JS_FreeValue.exit ], [ 0, %36 ], [ %.sroa.079.sroa.0.0, %._crit_edge308 ], [ %.sroa.079.sroa.0.0, %._crit_edge304 ]
   %.sroa.6200.0 = phi i64 [ %.sroa.6200.0.extract.shift, %32 ], [ 0, %5 ], [ 0, %JS_FreeValue.exit ], [ 0, %36 ], [ 0, %._crit_edge308 ], [ 0, %._crit_edge304 ]
   %.sroa.9.0 = phi i64 [ %35, %32 ], [ 6, %5 ], [ 6, %JS_FreeValue.exit ], [ 6, %36 ], [ %.sroa.6.0, %._crit_edge308 ], [ %.sroa.6.0, %._crit_edge304 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #30
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #30
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %10) #30
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #30
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #30
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #30
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.sroa.0198.0.insert.ext = and i64 %.sroa.0198.0, 4294967295
   %.sroa.0198.0.insert.insert = or disjoint i64 %.sroa.6200.0, %.sroa.0198.0.insert.ext
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.0198.0.insert.insert, 0
@@ -8843,9 +8837,9 @@ define internal { i64, i64 } @js_os_waitpid(ptr noundef %0, i64 %1, i64 %2, i32 
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #30
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #30
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = load i64, ptr %4, align 8
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %11 = load i64, ptr %10, align 8
@@ -8902,9 +8896,9 @@ define internal { i64, i64 } @js_os_waitpid(ptr noundef %0, i64 %1, i64 %2, i32 
   %.sroa.022.0 = phi i64 [ %30, %33 ], [ %30, %34 ], [ 0, %5 ], [ 0, %13 ]
   %.sroa.5.0 = phi i64 [ %.sroa.5.0.extract.shift, %33 ], [ %.sroa.5.0.extract.shift24, %34 ], [ 0, %5 ], [ 0, %13 ]
   %.sroa.7.0 = phi i64 [ %31, %33 ], [ %31, %34 ], [ 6, %5 ], [ 6, %13 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #30
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #30
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.sroa.022.0.insert.ext = and i64 %.sroa.022.0, 4294967295
   %.sroa.022.0.insert.insert = or disjoint i64 %.sroa.5.0, %.sroa.022.0.insert.ext
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.022.0.insert.insert, 0
@@ -8915,7 +8909,7 @@ define internal { i64, i64 } @js_os_waitpid(ptr noundef %0, i64 %1, i64 %2, i32 
 ; Function Attrs: nounwind uwtable
 define internal { i64, i64 } @js_os_pipe(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr readnone captures(none) %4) #0 {
   %6 = alloca [2 x i32], align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = call i32 @pipe(ptr noundef nonnull %6) #30
   %8 = icmp slt i32 %7, 0
   br i1 %8, label %21, label %9
@@ -8947,7 +8941,7 @@ define internal { i64, i64 } @js_os_pipe(ptr noundef %0, i64 %1, i64 %2, i32 %3,
   %.sroa.017.0 = phi i64 [ %11, %14 ], [ %11, %15 ], [ 0, %5 ]
   %.sroa.419.0 = phi i64 [ %.sroa.419.0.extract.shift, %14 ], [ %.sroa.419.0.extract.shift20, %15 ], [ 0, %5 ]
   %.sroa.5.0 = phi i64 [ %12, %14 ], [ %12, %15 ], [ 2, %5 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.sroa.017.0.insert.ext = and i64 %.sroa.017.0, 4294967295
   %.sroa.017.0.insert.insert = or disjoint i64 %.sroa.419.0, %.sroa.017.0.insert.ext
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.017.0.insert.insert, 0
@@ -8959,8 +8953,8 @@ define internal { i64, i64 } @js_os_pipe(ptr noundef %0, i64 %1, i64 %2, i32 %3,
 define internal { i64, i64 } @js_os_kill(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #30
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i64, ptr %4, align 8
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load i64, ptr %9, align 8
@@ -8998,8 +8992,8 @@ js_get_errno.exit:                                ; preds = %18, %23
 27:                                               ; preds = %12, %5, %js_get_errno.exit
   %.sroa.05.0 = phi i64 [ %.sroa.0.0.insert.ext.i, %js_get_errno.exit ], [ 0, %5 ], [ 0, %12 ]
   %.sroa.6.0 = phi i64 [ 0, %js_get_errno.exit ], [ 6, %5 ], [ 6, %12 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #30
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.05.0, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.6.0, 1
   ret { i64, i64 } %.fca.1.insert
@@ -9008,7 +9002,7 @@ js_get_errno.exit:                                ; preds = %18, %23
 ; Function Attrs: nounwind uwtable
 define internal { i64, i64 } @js_os_dup(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i64, ptr %4, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = load i64, ptr %8, align 8
@@ -9036,7 +9030,7 @@ js_get_errno.exit:                                ; preds = %11, %15
 19:                                               ; preds = %5, %js_get_errno.exit
   %.sroa.03.0 = phi i64 [ %.sroa.0.0.insert.ext.i, %js_get_errno.exit ], [ 0, %5 ]
   %.sroa.4.0 = phi i64 [ 0, %js_get_errno.exit ], [ 6, %5 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.03.0, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.4.0, 1
   ret { i64, i64 } %.fca.1.insert
@@ -9046,8 +9040,8 @@ js_get_errno.exit:                                ; preds = %11, %15
 define internal { i64, i64 } @js_os_dup2(ptr noundef %0, i64 %1, i64 %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #30
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i64, ptr %4, align 8
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load i64, ptr %9, align 8
@@ -9085,35 +9079,35 @@ js_get_errno.exit:                                ; preds = %18, %23
 27:                                               ; preds = %12, %5, %js_get_errno.exit
   %.sroa.05.0 = phi i64 [ %.sroa.0.0.insert.ext.i, %js_get_errno.exit ], [ 0, %5 ], [ 0, %12 ]
   %.sroa.6.0 = phi i64 [ 0, %js_get_errno.exit ], [ 6, %5 ], [ 6, %12 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #30
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.05.0, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.6.0, 1
   ret { i64, i64 } %.fca.1.insert
 }
 
 ; Function Attrs: nofree
-declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #22
+declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #21
 
 ; Function Attrs: nounwind
-declare i64 @lseek(i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #17
+declare i64 @lseek(i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #16
 
 ; Function Attrs: nounwind
-declare i32 @isatty(i32 noundef) local_unnamed_addr #17
+declare i32 @isatty(i32 noundef) local_unnamed_addr #16
 
 ; Function Attrs: nounwind
-declare i32 @ioctl(i32 noundef, i64 noundef, ...) local_unnamed_addr #17
+declare i32 @ioctl(i32 noundef, i64 noundef, ...) local_unnamed_addr #16
 
-declare i32 @JS_DefinePropertyValueUint32(ptr noundef, i64, i64, i32 noundef, i64, i64, i32 noundef) local_unnamed_addr #4
-
-; Function Attrs: nounwind
-declare i32 @tcgetattr(i32 noundef, ptr noundef) local_unnamed_addr #17
+declare i32 @JS_DefinePropertyValueUint32(ptr noundef, i64, i64, i32 noundef, i64, i64, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
-declare i32 @tcsetattr(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #17
+declare i32 @tcgetattr(i32 noundef, ptr noundef) local_unnamed_addr #16
+
+; Function Attrs: nounwind
+declare i32 @tcsetattr(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #16
 
 ; Function Attrs: nofree nounwind
-declare i32 @atexit(ptr noundef) local_unnamed_addr #2
+declare i32 @atexit(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @term_exit() #0 {
@@ -9122,16 +9116,16 @@ define internal void @term_exit() #0 {
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @remove(ptr noundef readonly captures(none)) local_unnamed_addr #2
+declare noundef i32 @remove(ptr noundef readonly captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @rename(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #2
+declare noundef i32 @rename(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare ptr @signal(i32 noundef, ptr noundef) local_unnamed_addr #17
+declare ptr @signal(i32 noundef, ptr noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define internal void @os_signal_handler(i32 noundef %0) #24 {
+define internal void @os_signal_handler(i32 noundef %0) #23 {
   %2 = zext nneg i32 %0 to i64
   %3 = shl nuw i64 1, %2
   %4 = load i64, ptr @os_pending_signals, align 8, !tbaa !12
@@ -9140,52 +9134,52 @@ define internal void @os_signal_handler(i32 noundef %0) #24 {
   ret void
 }
 
-declare i32 @JS_ToInt64(ptr noundef, ptr noundef, i64, i64) local_unnamed_addr #4
+declare i32 @JS_ToInt64(ptr noundef, ptr noundef, i64, i64) local_unnamed_addr #3
 
-declare { i64, i64 } @JS_NewPromiseCapability(ptr noundef, ptr noundef) local_unnamed_addr #4
-
-; Function Attrs: nounwind
-declare ptr @getcwd(ptr noundef, i64 noundef) local_unnamed_addr #17
+declare { i64, i64 } @JS_NewPromiseCapability(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
-declare i32 @chdir(ptr noundef) local_unnamed_addr #17
-
-; Function Attrs: nofree nounwind
-declare noundef i32 @mkdir(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: nofree nounwind
-declare noalias noundef ptr @opendir(ptr noundef readonly captures(none)) local_unnamed_addr #2
-
-declare ptr @readdir(ptr noundef) local_unnamed_addr #4
-
-; Function Attrs: nofree nounwind
-declare noundef i32 @closedir(ptr noundef captures(none)) local_unnamed_addr #2
-
-; Function Attrs: nofree nounwind
-declare noundef i32 @lstat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #2
-
-; Function Attrs: nofree nounwind
-declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #2
-
-; Function Attrs: nofree nounwind
-declare noundef i32 @utimes(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #2
-
-declare i32 @nanosleep(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @getcwd(ptr noundef, i64 noundef) local_unnamed_addr #16
 
 ; Function Attrs: nounwind
-declare i32 @symlink(ptr noundef, ptr noundef) local_unnamed_addr #17
+declare i32 @chdir(ptr noundef) local_unnamed_addr #16
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @readlink(ptr noundef readonly captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #2
+declare noundef i32 @mkdir(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #1
 
-declare { i64, i64 } @JS_GetPropertyUint32(ptr noundef, i64, i64, i32 noundef) local_unnamed_addr #4
+; Function Attrs: nofree nounwind
+declare noalias noundef ptr @opendir(ptr noundef readonly captures(none)) local_unnamed_addr #1
+
+declare ptr @readdir(ptr noundef) local_unnamed_addr #3
+
+; Function Attrs: nofree nounwind
+declare noundef i32 @closedir(ptr noundef captures(none)) local_unnamed_addr #1
+
+; Function Attrs: nofree nounwind
+declare noundef i32 @lstat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #1
+
+; Function Attrs: nofree nounwind
+declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #1
+
+; Function Attrs: nofree nounwind
+declare noundef i32 @utimes(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #1
+
+declare i32 @nanosleep(ptr noundef, ptr noundef) local_unnamed_addr #3
+
+; Function Attrs: nounwind
+declare i32 @symlink(ptr noundef, ptr noundef) local_unnamed_addr #16
+
+; Function Attrs: nofree nounwind
+declare noundef i64 @readlink(ptr noundef readonly captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #1
+
+declare { i64, i64 } @JS_GetPropertyUint32(ptr noundef, i64, i64, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @build_envp(ptr noundef %0, i64 %1, i64 %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #30
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = call i32 @JS_GetOwnPropertyNames(ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %4, i64 %1, i64 %2, i32 noundef 17) #30
   %7 = icmp slt i32 %6, 0
   br i1 %7, label %65, label %8
@@ -9328,33 +9322,33 @@ JS_FreeValue.exit:                                ; preds = %21, %25, %30
 
 65:                                               ; preds = %3, %._crit_edge87
   %.0 = phi ptr [ %.067106, %._crit_edge87 ], [ null, %3 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #30
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
 
 ; Function Attrs: nofree nounwind
-declare i32 @fork() local_unnamed_addr #2
+declare i32 @fork() local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare i32 @dup2(i32 noundef, i32 noundef) local_unnamed_addr #17
+declare i32 @dup2(i32 noundef, i32 noundef) local_unnamed_addr #16
 
 ; Function Attrs: noreturn
-declare void @_exit(i32 noundef) local_unnamed_addr #25
+declare void @_exit(i32 noundef) local_unnamed_addr #24
 
 ; Function Attrs: nounwind
-declare void @closefrom(i32 noundef) local_unnamed_addr #17
+declare void @closefrom(i32 noundef) local_unnamed_addr #16
 
 ; Function Attrs: nounwind
-declare i32 @setuid(i32 noundef) local_unnamed_addr #17
+declare i32 @setuid(i32 noundef) local_unnamed_addr #16
 
 ; Function Attrs: nounwind
-declare i32 @setgid(i32 noundef) local_unnamed_addr #17
+declare i32 @setgid(i32 noundef) local_unnamed_addr #16
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @my_execvpe(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #26 {
+define internal fastcc void @my_execvpe(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #25 {
   %4 = alloca [4096 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %4) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #32
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %7, label %9
@@ -9445,35 +9439,41 @@ select.unfold.thread:                             ; preds = %27
   br label %.loopexit
 
 .loopexit:                                        ; preds = %27, %35, %.thread, %11, %7
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %4) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nofree nounwind
-declare i32 @execve(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @execve(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @waitpid(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @waitpid(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @JS_GetOwnPropertyNames(ptr noundef, ptr noundef, ptr noundef, i64, i64, i32 noundef) local_unnamed_addr #4
+declare i32 @JS_GetOwnPropertyNames(ptr noundef, ptr noundef, ptr noundef, i64, i64, i32 noundef) local_unnamed_addr #3
 
-declare { i64, i64 } @JS_GetPropertyInternal(ptr noundef, i64, i64, i32 noundef, i64, i64, i32 noundef) local_unnamed_addr #4
-
-; Function Attrs: nounwind
-declare i32 @getpid() local_unnamed_addr #17
+declare { i64, i64 } @JS_GetPropertyInternal(ptr noundef, i64, i64, i32 noundef, i64, i64, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
-declare i32 @kill(i32 noundef, i32 noundef) local_unnamed_addr #17
+declare i32 @getpid() local_unnamed_addr #16
 
 ; Function Attrs: nounwind
-declare i32 @dup(i32 noundef) local_unnamed_addr #17
+declare i32 @kill(i32 noundef, i32 noundef) local_unnamed_addr #16
+
+; Function Attrs: nounwind
+declare i32 @dup(i32 noundef) local_unnamed_addr #16
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @putc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #2
+declare noundef i32 @putc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_destroy(ptr noundef) local_unnamed_addr #17
+declare i32 @pthread_mutex_destroy(ptr noundef) local_unnamed_addr #16
 
-declare i32 @JS_IsError(ptr noundef, i64, i64) local_unnamed_addr #4
+declare i32 @JS_IsError(ptr noundef, i64, i64) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #26
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #26
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #27
@@ -9485,32 +9485,32 @@ declare i32 @llvm.smax.i32(i32, i32) #28
 declare i64 @llvm.umin.i64(i64, i64) #28
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #13 = { mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { cold nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { nofree nounwind memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #22 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #23 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #24 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #25 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #26 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #12 = { mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { cold nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { nofree nounwind memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #22 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #23 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #24 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #25 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #26 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #27 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
 attributes #28 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #29 = { nounwind willreturn memory(none) }

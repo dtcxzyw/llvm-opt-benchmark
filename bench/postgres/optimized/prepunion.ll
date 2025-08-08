@@ -37,7 +37,7 @@ define dso_local ptr @plan_set_operations(ptr noundef initializes((184, 185)) %0
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 248
   %11 = load ptr, ptr %10, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store i8 1, ptr %12, align 8
   tail call void @setup_simple_rel_arrays(ptr noundef %0) #7
@@ -73,10 +73,10 @@ define dso_local ptr @plan_set_operations(ptr noundef initializes((184, 185)) %0
 29:                                               ; preds = %.critedge
   %30 = getelementptr inbounds nuw i8, ptr %25, i64 112
   %31 = load ptr, ptr %30, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #7
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %32 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %33 = load i32, ptr %32, align 4
   %.not.i = icmp eq i32 %33, 1
@@ -246,14 +246,14 @@ generate_setop_grouplist.exit.i:                  ; preds = %.lr.ph6.i.i, %.lr.p
 
 generate_recursion_path.exit:                     ; preds = %126, %132
   tail call void @set_cheapest(ptr noundef nonnull %80) #7
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %141
 
 133:                                              ; preds = %.critedge
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %134 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %135 = load ptr, ptr %134, align 8
   %136 = getelementptr inbounds nuw i8, ptr %11, i64 48
@@ -261,7 +261,7 @@ generate_recursion_path.exit:                     ; preds = %126, %132
   %138 = getelementptr inbounds nuw i8, ptr %25, i64 112
   %139 = load ptr, ptr %138, align 8
   %140 = call fastcc ptr @recurse_set_operations(ptr noundef %11, ptr noundef nonnull %0, ptr noundef null, ptr noundef %135, ptr noundef %137, ptr noundef %139, ptr noundef %6, ptr noundef %7)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.pre = load ptr, ptr %6, align 8
   br label %141
 
@@ -270,14 +270,11 @@ generate_recursion_path.exit:                     ; preds = %126, %132
   %.0 = phi ptr [ %80, %generate_recursion_path.exit ], [ %140, %133 ]
   %143 = getelementptr inbounds nuw i8, ptr %0, i64 528
   store ptr %142, ptr %143, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare void @setup_simple_rel_arrays(ptr noundef) local_unnamed_addr #2
+declare void @setup_simple_rel_arrays(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @recurse_set_operations(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull captures(none) %6, ptr noundef nonnull writeonly captures(none) initializes((0, 1)) %7) unnamed_addr #0 {
@@ -310,7 +307,7 @@ define internal fastcc ptr @recurse_set_operations(ptr noundef %0, ptr noundef %
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 56
   %30 = load ptr, ptr %29, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %18) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %31 = tail call ptr @build_simple_rel(ptr noundef %1, i32 noundef %25, ptr noundef null) #7
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %33 = load ptr, ptr %32, align 8
@@ -343,7 +340,7 @@ define internal fastcc ptr @recurse_set_operations(ptr noundef %0, ptr noundef %
   store ptr %47, ptr %6, align 8
   %51 = load i8, ptr %18, align 1, !range !6, !noundef !7
   store i8 %51, ptr %7, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %18) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %542
 
 52:                                               ; preds = %8
@@ -354,8 +351,8 @@ define internal fastcc ptr @recurse_set_operations(ptr noundef %0, ptr noundef %
 
 56:                                               ; preds = %52
   %57 = tail call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %0) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #7
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %.not.i112148 = icmp eq ptr %57, null
   br i1 %.not.i112148, label %plan_union_children.exit, label %.lr.ph
 
@@ -444,8 +441,8 @@ plan_union_children.exit:                         ; preds = %107, %56
   %.0134.lcssa = phi ptr [ null, %56 ], [ %.1135, %107 ]
   %.0132.lcssa = phi ptr [ null, %56 ], [ %.1133, %107 ]
   %.035.i.lcssa = phi ptr [ null, %56 ], [ %.136.i, %107 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %109 = load ptr, ptr %108, align 8
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -880,13 +877,13 @@ list_length.exit:                                 ; preds = %311, %313
 320:                                              ; preds = %52
   %321 = getelementptr inbounds nuw i8, ptr %1, i64 576
   %322 = load double, ptr %321, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #7
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %13) #7
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %14) #7
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %15) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store double 0.000000e+00, ptr %321, align 8
   %323 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %324 = load ptr, ptr %323, align 8
@@ -1175,13 +1172,13 @@ generate_setop_grouplist.exit127:                 ; preds = %.lr.ph6.i120, %list
   br label %generate_nonunion_paths.exit
 
 generate_nonunion_paths.exit:                     ; preds = %459, %489
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #7
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %15) #7
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %14) #7
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %generate_union_paths.exit
 
 generate_union_paths.exit:                        ; preds = %319, %318, %list_length.exit, %308, %.thread144, %generate_nonunion_paths.exit
@@ -1196,7 +1193,7 @@ generate_union_paths.exit:                        ; preds = %319, %318, %list_le
   br i1 %495, label %535, label %496
 
 496:                                              ; preds = %493, %generate_union_paths.exit
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %19) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %497 = load ptr, ptr %6, align 8
   %498 = call fastcc ptr @generate_setop_tlist(ptr noundef %3, ptr noundef %4, i32 noundef 0, i1 noundef zeroext false, ptr noundef %497, ptr noundef %5, ptr noundef %19)
   store ptr %498, ptr %6, align 8
@@ -1268,7 +1265,7 @@ generate_union_paths.exit:                        ; preds = %319, %318, %list_le
   br i1 %534, label %.lr.ph226, label %.critedge94
 
 .critedge94:                                      ; preds = %.lr.ph226, %.lr.ph223, %.critedge
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %19) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %535
 
 535:                                              ; preds = %.critedge94, %493
@@ -1297,21 +1294,18 @@ postprocess_setop_rel.exit:                       ; preds = %535, %537
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @check_stack_depth() local_unnamed_addr #1
 
-declare void @check_stack_depth() local_unnamed_addr #2
+declare ptr @build_simple_rel(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @build_simple_rel(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
-
-declare ptr @subquery_planner(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, double noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @subquery_planner(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, double noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @generate_setop_tlist(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i1 noundef zeroext %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, ptr noundef nonnull writeonly captures(none) initializes((0, 1)) %6) unnamed_addr #0 {
@@ -1478,35 +1472,35 @@ define internal fastcc ptr @generate_setop_tlist(ptr noundef readonly captures(a
   br label %16, !llvm.loop !9
 }
 
-declare ptr @set_pathtarget_cost_width(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @set_pathtarget_cost_width(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @make_pathtarget_from_tlist(ptr noundef) local_unnamed_addr #2
+declare ptr @make_pathtarget_from_tlist(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @tlist_same_datatypes(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare zeroext i1 @tlist_same_datatypes(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare zeroext i1 @tlist_same_collations(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare zeroext i1 @tlist_same_collations(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare ptr @apply_projection_to_path(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @apply_projection_to_path(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @create_projection_path(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @create_projection_path(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @makeVar(i32 noundef, i16 noundef signext, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @makeVar(i32 noundef, i16 noundef signext, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @exprType(ptr noundef) local_unnamed_addr #2
+declare i32 @exprType(ptr noundef) local_unnamed_addr #1
 
-declare i32 @exprTypmod(ptr noundef) local_unnamed_addr #2
+declare i32 @exprTypmod(ptr noundef) local_unnamed_addr #1
 
-declare i32 @exprCollation(ptr noundef) local_unnamed_addr #2
+declare i32 @exprCollation(ptr noundef) local_unnamed_addr #1
 
-declare ptr @coerce_to_common_type(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @coerce_to_common_type(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @applyRelabelType(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare ptr @applyRelabelType(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare ptr @makeTargetEntry(ptr noundef, i16 noundef signext, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare ptr @makeTargetEntry(ptr noundef, i16 noundef signext, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare ptr @pstrdup(ptr noundef) local_unnamed_addr #2
+declare ptr @pstrdup(ptr noundef) local_unnamed_addr #1
 
-declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @generate_append_tlist(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3) unnamed_addr #0 {
@@ -1701,9 +1695,9 @@ list_head.exit102:                                ; preds = %.lr.ph112
   br label %.critedge96.split.split.split, !llvm.loop !10
 }
 
-declare zeroext i1 @grouping_is_sortable(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @grouping_is_sortable(ptr noundef) local_unnamed_addr #1
 
-declare ptr @make_pathkeys_for_sortclauses(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @make_pathkeys_for_sortclauses(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @build_setop_child_paths(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef %3, ptr noundef %4, ptr noundef writeonly captures(address_is_null) %5) unnamed_addr #0 {
@@ -1752,7 +1746,7 @@ define internal fastcc void @build_setop_child_paths(ptr noundef %0, ptr noundef
   %27 = getelementptr inbounds nuw %union.ListCell, ptr %26, i64 %indvars.iv112121
   %28 = load ptr, ptr %27, align 8
   %29 = load ptr, ptr %23, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %30 = icmp eq ptr %28, %29
   br i1 %30, label %31, label %.lr.ph.split.us
 
@@ -1768,7 +1762,7 @@ define internal fastcc void @build_setop_child_paths(ptr noundef %0, ptr noundef
   br label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %31, %.lr.ph122
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112121, 1
   %39 = load i32, ptr %21, align 4
   %40 = sext i32 %39 to i64
@@ -1781,7 +1775,7 @@ define internal fastcc void @build_setop_child_paths(ptr noundef %0, ptr noundef
   %43 = getelementptr inbounds nuw %union.ListCell, ptr %42, i64 %indvars.iv119
   %44 = load ptr, ptr %43, align 8
   %45 = load ptr, ptr %23, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %46 = icmp eq ptr %44, %45
   br i1 %46, label %49, label %57
 
@@ -1856,7 +1850,7 @@ define internal fastcc void @build_setop_child_paths(ptr noundef %0, ptr noundef
   br label %.lr.ph.split
 
 .lr.ph.split:                                     ; preds = %65, %.thread, %74
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv119, 1
   %82 = load i32, ptr %21, align 4
   %83 = sext i32 %82 to i64
@@ -1957,85 +1951,91 @@ postprocess_setop_rel.exit:                       ; preds = %96, %98
   ret void
 }
 
-declare ptr @get_cheapest_path_for_pathkeys(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare ptr @get_cheapest_path_for_pathkeys(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare ptr @bms_union(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @bms_union(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @fetch_upper_rel(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @fetch_upper_rel(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @create_append_path(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext, double noundef) local_unnamed_addr #2
+declare ptr @create_append_path(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext, double noundef) local_unnamed_addr #1
 
-declare ptr @create_gather_path(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @create_gather_path(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @grouping_is_hashable(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @grouping_is_hashable(ptr noundef) local_unnamed_addr #1
 
-declare ptr @create_agg_path(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, double noundef) local_unnamed_addr #2
+declare ptr @create_agg_path(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, double noundef) local_unnamed_addr #1
 
-declare void @add_path(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @add_path(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @create_sort_path(ptr noundef, ptr noundef, ptr noundef, ptr noundef, double noundef) local_unnamed_addr #2
+declare ptr @create_sort_path(ptr noundef, ptr noundef, ptr noundef, ptr noundef, double noundef) local_unnamed_addr #1
 
-declare ptr @create_upper_unique_path(ptr noundef, ptr noundef, ptr noundef, i32 noundef, double noundef) local_unnamed_addr #2
+declare ptr @create_upper_unique_path(ptr noundef, ptr noundef, ptr noundef, i32 noundef, double noundef) local_unnamed_addr #1
 
-declare ptr @create_merge_append_path(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @create_merge_append_path(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @list_make1_impl(i32 noundef, ptr) local_unnamed_addr #2
+declare ptr @list_make1_impl(i32 noundef, ptr) local_unnamed_addr #1
 
-declare ptr @list_delete_first(ptr noundef) local_unnamed_addr #2
+declare ptr @list_delete_first(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @equal(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @equal(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @lcons(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @lcons(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @lappend_int(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @lappend_int(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @palloc(i64 noundef) local_unnamed_addr #2
+declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 
-declare void @pfree(ptr noundef) local_unnamed_addr #2
+declare void @pfree(ptr noundef) local_unnamed_addr #1
 
-declare ptr @copyObjectImpl(ptr noundef) local_unnamed_addr #2
+declare ptr @copyObjectImpl(ptr noundef) local_unnamed_addr #1
 
-declare void @add_setop_child_rel_equivalences(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @add_setop_child_rel_equivalences(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @set_subquery_size_estimates(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @set_subquery_size_estimates(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @convert_subquery_pathkeys(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @convert_subquery_pathkeys(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @make_tlist_from_pathtarget(ptr noundef) local_unnamed_addr #2
+declare ptr @make_tlist_from_pathtarget(ptr noundef) local_unnamed_addr #1
 
-declare ptr @create_subqueryscan_path(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @create_subqueryscan_path(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @pathkeys_count_contained_in(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @pathkeys_count_contained_in(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @create_incremental_sort_path(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, double noundef) local_unnamed_addr #2
+declare ptr @create_incremental_sort_path(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, double noundef) local_unnamed_addr #1
 
-declare void @add_partial_path(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @add_partial_path(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare double @estimate_num_groups(ptr noundef, ptr noundef, double noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare double @estimate_num_groups(ptr noundef, ptr noundef, double noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @get_tlist_exprs(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #4
-
-declare i32 @errcode(i32 noundef) local_unnamed_addr #2
-
-declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #2
-
-declare i32 @errdetail(ptr noundef, ...) local_unnamed_addr #2
-
-declare ptr @create_setop_path(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, double noundef, double noundef) local_unnamed_addr #2
-
-declare zeroext i1 @pathkeys_contained_in(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare void @set_cheapest(ptr noundef) local_unnamed_addr #2
-
-declare ptr @list_make2_impl(i32 noundef, ptr, ptr) local_unnamed_addr #2
+declare ptr @get_tlist_exprs(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #4
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #3
 
-declare ptr @create_recursiveunion_path(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, double noundef) local_unnamed_addr #2
+declare i32 @errcode(i32 noundef) local_unnamed_addr #1
+
+declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #1
+
+declare i32 @errdetail(ptr noundef, ...) local_unnamed_addr #1
+
+declare ptr @create_setop_path(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, double noundef, double noundef) local_unnamed_addr #1
+
+declare zeroext i1 @pathkeys_contained_in(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare void @set_cheapest(ptr noundef) local_unnamed_addr #1
+
+declare ptr @list_make2_impl(i32 noundef, ptr, ptr) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.fmuladd.f64(double, double, double) #3
+
+declare ptr @create_recursiveunion_path(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, double noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #5
@@ -2047,10 +2047,10 @@ declare i32 @llvm.smin.i32(i32, i32) #6
 declare i32 @llvm.smax.i32(i32, i32) #6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { nounwind }

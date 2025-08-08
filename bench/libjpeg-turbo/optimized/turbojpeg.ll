@@ -273,31 +273,28 @@ default.unreachable:                              ; preds = %10
   ret ptr %.024
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #2
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #3
+declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @_tjInitCompress(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr @_tjInitCompress.buffer, ptr %2, align 8, !tbaa !52
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 1, ptr %3, align 8, !tbaa !53
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1152
   %5 = call ptr @jpeg_std_error(ptr noundef nonnull %4) #26
@@ -336,8 +333,8 @@ define internal fastcc noundef ptr @_tjInitCompress(ptr noundef nonnull %0) unna
 
 20:                                               ; preds = %16, %15
   %.0 = phi ptr [ null, %15 ], [ %0, %16 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #26
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0
 }
 
@@ -383,9 +380,6 @@ define internal fastcc noundef ptr @_tjInitDecompress(ptr noundef nonnull %0) un
   %.0 = phi ptr [ null, %14 ], [ %0, %15 ]
   ret ptr %.0
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define void @tj3Destroy(ptr noundef %0) local_unnamed_addr #0 {
@@ -440,14 +434,14 @@ define void @tj3Destroy(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind returns_twice
-declare i32 @_setjmp(ptr noundef) local_unnamed_addr #7
+declare i32 @_setjmp(ptr noundef) local_unnamed_addr #6
 
-declare void @jpeg_destroy_compress(ptr noundef) local_unnamed_addr #8
+declare void @jpeg_destroy_compress(ptr noundef) local_unnamed_addr #7
 
-declare void @jpeg_destroy_decompress(ptr noundef) local_unnamed_addr #8
+declare void @jpeg_destroy_decompress(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #9
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @tjDestroy(ptr noundef %0) local_unnamed_addr #0 {
@@ -473,7 +467,7 @@ define range(i32 -1, 1) i32 @tjDestroy(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define nonnull ptr @tj3GetErrorStr(ptr noundef captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #10 {
+define nonnull ptr @tj3GetErrorStr(ptr noundef captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #9 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %2
 
@@ -498,7 +492,7 @@ define nonnull ptr @tj3GetErrorStr(ptr noundef captures(address_is_null, ret: ad
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define nonnull ptr @tjGetErrorStr2(ptr noundef captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #10 {
+define nonnull ptr @tjGetErrorStr2(ptr noundef captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #9 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %7, label %2
 
@@ -523,13 +517,13 @@ tj3GetErrorStr.exit:                              ; preds = %5, %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @tjGetErrorStr() local_unnamed_addr #11 {
+define nonnull ptr @tjGetErrorStr() local_unnamed_addr #10 {
   %1 = tail call align 16 ptr @llvm.threadlocal.address.p0(ptr align 16 @errStr)
   ret ptr %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @tj3GetErrorCode(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #12 {
+define range(i32 0, 2) i32 @tj3GetErrorCode(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #11 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -548,7 +542,7 @@ define range(i32 0, 2) i32 @tj3GetErrorCode(ptr noundef readonly captures(addres
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @tjGetErrorCode(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #12 {
+define range(i32 0, 2) i32 @tjGetErrorCode(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #11 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %5, label %2
 
@@ -567,7 +561,7 @@ tj3GetErrorCode.exit:                             ; preds = %2, %5
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i32 -1, 1) i32 @tj3Set(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #13 {
+define range(i32 -1, 1) i32 @tj3Set(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #12 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %7
 
@@ -1346,7 +1340,7 @@ define range(i32 -1, 1) i32 @tj3Set(ptr noundef %0, i32 noundef %1, i32 noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @tj3Get(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #12 {
+define i32 @tj3Get(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #11 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %82, label %3
 
@@ -1516,32 +1510,32 @@ define i32 @tj3Get(ptr noundef readonly captures(address_is_null) %0, i32 nounde
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable
-define noalias noundef ptr @tj3Alloc(i64 noundef %0) local_unnamed_addr #14 {
+define noalias noundef ptr @tj3Alloc(i64 noundef %0) local_unnamed_addr #13 {
   %2 = tail call noalias ptr @malloc(i64 noundef %0) #28
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable
-define noalias noundef ptr @tjAlloc(i32 noundef %0) local_unnamed_addr #14 {
+define noalias noundef ptr @tjAlloc(i32 noundef %0) local_unnamed_addr #13 {
   %2 = sext i32 %0 to i64
   %3 = tail call noalias noundef ptr @malloc(i64 noundef %2) #28
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @tj3Free(ptr noundef captures(none) %0) local_unnamed_addr #15 {
+define void @tj3Free(ptr noundef captures(none) %0) local_unnamed_addr #14 {
   tail call void @free(ptr noundef %0) #26
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @tjFree(ptr noundef captures(none) %0) local_unnamed_addr #15 {
+define void @tjFree(ptr noundef captures(none) %0) local_unnamed_addr #14 {
   tail call void @free(ptr noundef %0) #26
   ret void
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i64 -554050779136, 554050782975) i64 @tj3JPEGBufSize(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #13 {
+define range(i64 -554050779136, 554050782975) i64 @tj3JPEGBufSize(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #12 {
   %4 = icmp slt i32 %0, 1
   %5 = icmp slt i32 %1, 1
   %or.cond = or i1 %4, %5
@@ -1595,7 +1589,7 @@ define range(i64 -554050779136, 554050782975) i64 @tj3JPEGBufSize(i32 noundef %0
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i64 -554050779136, 554050782975) i64 @tjBufSize(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #13 {
+define range(i64 -554050779136, 554050782975) i64 @tjBufSize(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #12 {
   %4 = icmp slt i32 %2, 0
   br i1 %4, label %tj3JPEGBufSize.exit.thread.sink.split, label %5
 
@@ -1657,7 +1651,7 @@ tj3JPEGBufSize.exit.thread:                       ; preds = %tj3JPEGBufSize.exit
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i64 -1, 12884903931) i64 @TJBUFSIZE(i32 noundef %0, i32 noundef %1) local_unnamed_addr #13 {
+define range(i64 -1, 12884903931) i64 @TJBUFSIZE(i32 noundef %0, i32 noundef %1) local_unnamed_addr #12 {
   %3 = icmp slt i32 %0, 1
   %4 = icmp slt i32 %1, 1
   %or.cond = or i1 %3, %4
@@ -1685,7 +1679,7 @@ define range(i64 -1, 12884903931) i64 @TJBUFSIZE(i32 noundef %0, i32 noundef %1)
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define i64 @tj3YUVBufSize(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #13 {
+define i64 @tj3YUVBufSize(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #12 {
   %5 = icmp slt i32 %1, 1
   br i1 %5, label %10, label %6
 
@@ -1833,7 +1827,7 @@ tj3YUVPlaneHeight.exit:                           ; preds = %75
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i32 0, -2147483648) i32 @tj3YUVPlaneWidth(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #13 {
+define range(i32 0, -2147483648) i32 @tj3YUVPlaneWidth(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #12 {
   %4 = icmp slt i32 %1, 1
   %5 = icmp ugt i32 %2, 6
   %or.cond3 = or i1 %4, %5
@@ -1886,7 +1880,7 @@ define range(i32 0, -2147483648) i32 @tj3YUVPlaneWidth(i32 noundef %0, i32 nound
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i32 0, -2147483648) i32 @tj3YUVPlaneHeight(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #13 {
+define range(i32 0, -2147483648) i32 @tj3YUVPlaneHeight(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #12 {
   %4 = icmp slt i32 %1, 1
   %5 = icmp ugt i32 %2, 6
   %or.cond3 = or i1 %4, %5
@@ -1939,7 +1933,7 @@ define range(i32 0, -2147483648) i32 @tj3YUVPlaneHeight(i32 noundef %0, i32 noun
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define i64 @tjBufSizeYUV2(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #13 {
+define i64 @tjBufSizeYUV2(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #12 {
   %5 = tail call i64 @tj3YUVBufSize(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3)
   %6 = icmp eq i64 %5, 0
   %7 = select i1 %6, i64 -1, i64 %5
@@ -1947,7 +1941,7 @@ define i64 @tjBufSizeYUV2(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 no
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define i64 @tjBufSizeYUV(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #13 {
+define i64 @tjBufSizeYUV(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #12 {
   %4 = tail call i64 @tj3YUVBufSize(i32 noundef %0, i32 noundef 4, i32 noundef %1, i32 noundef %2)
   %5 = icmp eq i64 %4, 0
   %6 = select i1 %5, i64 -1, i64 %4
@@ -1955,7 +1949,7 @@ define i64 @tjBufSizeYUV(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_u
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define i64 @TJBUFSIZEYUV(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #13 {
+define i64 @TJBUFSIZEYUV(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #12 {
   %4 = tail call i64 @tj3YUVBufSize(i32 noundef %0, i32 noundef 4, i32 noundef %1, i32 noundef %2)
   %5 = icmp eq i64 %4, 0
   %6 = select i1 %5, i64 -1, i64 %4
@@ -1963,7 +1957,7 @@ define i64 @TJBUFSIZEYUV(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_u
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i64 0, 4611686014132420610) i64 @tj3YUVPlaneSize(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #13 {
+define range(i64 0, 4611686014132420610) i64 @tj3YUVPlaneSize(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #12 {
   %6 = icmp slt i32 %1, 1
   %7 = icmp slt i32 %3, 1
   %or.cond = or i1 %6, %7
@@ -2083,10 +2077,10 @@ tj3YUVPlaneHeight.exit:                           ; preds = %57
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #3
+declare i32 @llvm.abs.i32(i32, i1 immarg) #2
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i64 -1, 4611686014132420610) i64 @tjPlaneSizeYUV(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #13 {
+define range(i64 -1, 4611686014132420610) i64 @tjPlaneSizeYUV(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #12 {
   %6 = tail call i64 @tj3YUVPlaneSize(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4)
   %7 = icmp eq i64 %6, 0
   %8 = select i1 %7, i64 -1, i64 %6
@@ -2094,7 +2088,7 @@ define range(i64 -1, 4611686014132420610) i64 @tjPlaneSizeYUV(i32 noundef %0, i3
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i32 -1, -2147483648) i32 @tjPlaneWidth(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #13 {
+define range(i32 -1, -2147483648) i32 @tjPlaneWidth(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #12 {
   %4 = icmp slt i32 %1, 1
   %5 = icmp ugt i32 %2, 6
   %or.cond3.i = or i1 %4, %5
@@ -2155,7 +2149,7 @@ tj3YUVPlaneWidth.exit:                            ; preds = %27
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i32 -1, -2147483648) i32 @tjPlaneHeight(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #13 {
+define range(i32 -1, -2147483648) i32 @tjPlaneHeight(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #12 {
   %4 = icmp slt i32 %1, 1
   %5 = icmp ugt i32 %2, 6
   %or.cond3.i = or i1 %4, %5
@@ -2759,24 +2753,24 @@ switch.lookup:                                    ; preds = %44
   ret void
 }
 
-declare void @jpeg_mem_dest_tj(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
+declare void @jpeg_mem_dest_tj(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @jpeg_start_compress(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare void @jpeg_start_compress(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @jpeg_write_icc_profile(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
+declare void @jpeg_write_icc_profile(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare i32 @jpeg_write_scanlines(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
+declare i32 @jpeg_write_scanlines(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @jpeg_finish_compress(ptr noundef) local_unnamed_addr #8
+declare void @jpeg_finish_compress(ptr noundef) local_unnamed_addr #7
 
-declare void @jpeg_abort_compress(ptr noundef) local_unnamed_addr #8
+declare void @jpeg_abort_compress(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @tj3Decompress8(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = alloca %struct.my_progress_mgr, align 8
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %13
 
@@ -3007,9 +3001,9 @@ setDecompParameters.exit:                         ; preds = %61, %switch.lookup
 
 148:                                              ; preds = %._crit_edge253, %141
   %149 = phi i32 [ %.pre, %._crit_edge253 ], [ %147, %141 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 %140, ptr %8, align 4, !tbaa !88
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 1848
   store i32 %149, ptr %9, align 4, !tbaa !88
   call void @jpeg_crop_scanline(ptr noundef nonnull %14, ptr noundef nonnull %8, ptr noundef nonnull %9) #26
@@ -3045,13 +3039,13 @@ setDecompParameters.exit:                         ; preds = %61, %switch.lookup
   br label %.thread
 
 .thread:                                          ; preds = %153, %163
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #26
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %279
 
 170:                                              ; preds = %160
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #26
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %171
 
 171:                                              ; preds = %170, %141
@@ -3272,7 +3266,7 @@ setDecompParameters.exit:                         ; preds = %61, %switch.lookup
 
 286:                                              ; preds = %284, %10
   %.0 = phi i32 [ %spec.select, %284 ], [ -1, %10 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
 
@@ -3317,21 +3311,21 @@ define internal void @my_progress_monitor(ptr noundef readonly captures(none) %0
   ret void
 }
 
-declare void @jpeg_mem_src_tj(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #8
+declare void @jpeg_mem_src_tj(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #7
 
-declare i32 @jpeg_read_header(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare i32 @jpeg_read_header(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare i32 @jpeg_start_decompress(ptr noundef) local_unnamed_addr #8
+declare i32 @jpeg_start_decompress(ptr noundef) local_unnamed_addr #7
 
-declare void @jpeg_crop_scanline(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
+declare void @jpeg_crop_scanline(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare i32 @jpeg_skip_scanlines(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare i32 @jpeg_skip_scanlines(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare i32 @jpeg_read_scanlines(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
+declare i32 @jpeg_read_scanlines(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare i32 @jpeg_finish_decompress(ptr noundef) local_unnamed_addr #8
+declare i32 @jpeg_finish_decompress(ptr noundef) local_unnamed_addr #7
 
-declare void @jpeg_abort_decompress(ptr noundef) local_unnamed_addr #8
+declare void @jpeg_abort_decompress(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @tj3LoadImage8(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, i32 noundef %3, ptr noundef captures(address_is_null) %4, ptr noundef captures(address_is_null) %5) local_unnamed_addr #0 {
@@ -3766,26 +3760,26 @@ tj3Init.exit:                                     ; preds = %33
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #2
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare ptr @strerror(i32 noundef) local_unnamed_addr #16
+declare ptr @strerror(i32 noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #17
+declare ptr @__errno_location() local_unnamed_addr #16
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @getc(ptr noundef captures(none)) local_unnamed_addr #2
+declare noundef i32 @getc(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @ungetc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #2
+declare noundef i32 @ungetc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #1
 
-declare ptr @jinit_read_bmp(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @jinit_read_bmp(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @jinit_read_ppm(ptr noundef) local_unnamed_addr #8
+declare ptr @jinit_read_ppm(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #2
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @tj3SaveImage8(ptr noundef captures(address_is_null) %0, ptr noundef readonly %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
@@ -4071,14 +4065,14 @@ tj3Init.exit:                                     ; preds = %25
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #18
+declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #19
+declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #18
 
-declare ptr @jinit_write_bmp(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @jinit_write_bmp(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @jinit_write_ppm(ptr noundef) local_unnamed_addr #8
+declare ptr @jinit_write_ppm(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @tj3Compress12(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #0 {
@@ -4344,14 +4338,14 @@ define range(i32 -1, 1) i32 @tj3Compress12(ptr noundef %0, ptr noundef %1, i32 n
   ret i32 %.0
 }
 
-declare i32 @jpeg12_write_scanlines(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
+declare i32 @jpeg12_write_scanlines(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @tj3Decompress12(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = alloca %struct.my_progress_mgr, align 8
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %13
 
@@ -4582,9 +4576,9 @@ setDecompParameters.exit:                         ; preds = %61, %switch.lookup
 
 148:                                              ; preds = %._crit_edge253, %141
   %149 = phi i32 [ %.pre, %._crit_edge253 ], [ %147, %141 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 %140, ptr %8, align 4, !tbaa !88
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 1848
   store i32 %149, ptr %9, align 4, !tbaa !88
   call void @jpeg12_crop_scanline(ptr noundef nonnull %14, ptr noundef nonnull %8, ptr noundef nonnull %9) #26
@@ -4620,13 +4614,13 @@ setDecompParameters.exit:                         ; preds = %61, %switch.lookup
   br label %.thread
 
 .thread:                                          ; preds = %153, %163
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #26
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %279
 
 170:                                              ; preds = %160
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #26
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %171
 
 171:                                              ; preds = %170, %141
@@ -4847,15 +4841,15 @@ setDecompParameters.exit:                         ; preds = %61, %switch.lookup
 
 286:                                              ; preds = %284, %10
   %.0 = phi i32 [ %spec.select, %284 ], [ -1, %10 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
 
-declare void @jpeg12_crop_scanline(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
+declare void @jpeg12_crop_scanline(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare i32 @jpeg12_skip_scanlines(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare i32 @jpeg12_skip_scanlines(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare i32 @jpeg12_read_scanlines(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
+declare i32 @jpeg12_read_scanlines(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @tj3LoadImage12(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, i32 noundef %3, ptr noundef captures(address_is_null) %4, ptr noundef captures(address_is_null) %5) local_unnamed_addr #0 {
@@ -5292,7 +5286,7 @@ tj3Init.exit:                                     ; preds = %33
   ret ptr %.0
 }
 
-declare ptr @j12init_read_ppm(ptr noundef) local_unnamed_addr #8
+declare ptr @j12init_read_ppm(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @tj3SaveImage12(ptr noundef captures(address_is_null) %0, ptr noundef readonly %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
@@ -5578,7 +5572,7 @@ tj3Init.exit:                                     ; preds = %25
   ret i32 %.098
 }
 
-declare ptr @j12init_write_ppm(ptr noundef) local_unnamed_addr #8
+declare ptr @j12init_write_ppm(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @tj3Compress16(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #0 {
@@ -5844,12 +5838,12 @@ define range(i32 -1, 1) i32 @tj3Compress16(ptr noundef %0, ptr noundef %1, i32 n
   ret i32 %.0
 }
 
-declare i32 @jpeg16_write_scanlines(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
+declare i32 @jpeg16_write_scanlines(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @tj3Decompress16(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = alloca %struct.my_progress_mgr, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %11
 
@@ -6168,11 +6162,11 @@ setDecompParameters.exit:                         ; preds = %59, %switch.lookup
 
 191:                                              ; preds = %189, %8
   %.0 = phi i32 [ %spec.select, %189 ], [ -1, %8 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
 
-declare i32 @jpeg16_read_scanlines(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
+declare i32 @jpeg16_read_scanlines(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @tj3LoadImage16(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, i32 noundef %3, ptr noundef captures(address_is_null) %4, ptr noundef captures(address_is_null) %5) local_unnamed_addr #0 {
@@ -6609,7 +6603,7 @@ tj3Init.exit:                                     ; preds = %33
   ret ptr %.0
 }
 
-declare ptr @j16init_read_ppm(ptr noundef) local_unnamed_addr #8
+declare ptr @j16init_read_ppm(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @tj3SaveImage16(ptr noundef captures(address_is_null) %0, ptr noundef readonly %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
@@ -6895,12 +6889,12 @@ tj3Init.exit:                                     ; preds = %25
   ret i32 %.098
 }
 
-declare ptr @j16init_write_ppm(ptr noundef) local_unnamed_addr #8
+declare ptr @j16init_write_ppm(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @tjCompress2(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef captures(address_is_null) %7, i32 noundef %8, i32 noundef %9, i32 noundef %10) local_unnamed_addr #0 {
   %12 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %13, label %16
 
@@ -7060,7 +7054,7 @@ tj3JPEGBufSize.exit:                              ; preds = %61, %76
 
 93:                                               ; preds = %22, %90, %13
   %.0 = phi i32 [ -1, %13 ], [ -1, %22 ], [ %91, %90 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret i32 %.0
 }
 
@@ -7069,7 +7063,7 @@ define range(i32 -1, 1) i32 @tjCompress(ptr noundef %0, ptr noundef %1, i32 noun
   %12 = alloca ptr, align 8
   %13 = alloca i64, align 8
   store ptr %6, ptr %12, align 8, !tbaa !52
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %16, label %14
 
@@ -7159,7 +7153,7 @@ getPixelFormat.exit32:                            ; preds = %32, %33, %38, %39, 
   %44 = phi i64 [ %22, %getPixelFormat.exit ], [ %.pre, %getPixelFormat.exit32 ]
   %.0 = phi i32 [ %31, %getPixelFormat.exit ], [ %42, %getPixelFormat.exit32 ]
   store i64 %44, ptr %7, align 8, !tbaa !53
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret i32 %.0
 }
 
@@ -7178,12 +7172,12 @@ define range(i32 -1, 1) i32 @tj3CompressFromYUVPlanes8(ptr noundef %0, ptr nound
   %12 = alloca [10 x ptr], align 16
   %13 = alloca [10 x ptr], align 16
   %14 = alloca [10 x ptr], align 16
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #26
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #26
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10) #26
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11) #26
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %12) #26
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %13) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %15, label %18
 
@@ -7567,7 +7561,7 @@ define range(i32 -1, 1) i32 @tj3CompressFromYUVPlanes8(ptr noundef %0, ptr nound
 .lr.ph312.split.us:                               ; preds = %.lr.ph312.split.us.preheader, %._crit_edge309.split.us.us
   %.pre374 = phi i32 [ %204, %._crit_edge309.split.us.us ], [ %.pre374.pre, %.lr.ph312.split.us.preheader ]
   %.2208310.us = phi i32 [ %206, %._crit_edge309.split.us.us ], [ 0, %.lr.ph312.split.us.preheader ]
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %14) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %200 = load i32, ptr %93, align 4, !tbaa !235
   %201 = icmp sgt i32 %200, 0
   br i1 %201, label %.lr.ph308.us, label %._crit_edge309.split.us.us
@@ -7575,7 +7569,7 @@ define range(i32 -1, 1) i32 @tj3CompressFromYUVPlanes8(ptr noundef %0, ptr nound
 ._crit_edge309.split.us.us:                       ; preds = %210, %.lr.ph312.split.us
   %202 = shl nsw i32 %.pre374, 3
   %203 = call i32 @jpeg_write_raw_data(ptr noundef nonnull %0, ptr noundef nonnull %14, i32 noundef %202) #26
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %14) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %204 = load i32, ptr %199, align 4, !tbaa !238
   %205 = shl nsw i32 %204, 3
   %206 = add nsw i32 %205, %.2208310.us
@@ -7606,7 +7600,7 @@ define range(i32 -1, 1) i32 @tj3CompressFromYUVPlanes8(ptr noundef %0, ptr nound
 
 .lr.ph312.split:                                  ; preds = %.lr.ph312, %._crit_edge309.split
   %.2208310 = phi i32 [ %281, %._crit_edge309.split ], [ 0, %.lr.ph312 ]
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %14) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %220 = load i32, ptr %93, align 4, !tbaa !235
   %221 = icmp sgt i32 %220, 0
   br i1 %221, label %.preheader259, label %._crit_edge309.split
@@ -7726,7 +7720,7 @@ define range(i32 -1, 1) i32 @tj3CompressFromYUVPlanes8(ptr noundef %0, ptr nound
   %276 = load i32, ptr %199, align 4, !tbaa !238
   %277 = shl nsw i32 %276, 3
   %278 = call i32 @jpeg_write_raw_data(ptr noundef nonnull %0, ptr noundef nonnull %14, i32 noundef %277) #26
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %14) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %279 = load i32, ptr %199, align 4, !tbaa !238
   %280 = shl nsw i32 %279, 3
   %281 = add nsw i32 %280, %.2208310
@@ -7792,21 +7786,21 @@ define range(i32 -1, 1) i32 @tj3CompressFromYUVPlanes8(ptr noundef %0, ptr nound
 
 305:                                              ; preds = %303, %15
   %.0203 = phi i32 [ %spec.select253, %303 ], [ -1, %15 ]
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %13) #26
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %12) #26
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11) #26
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10) #26
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #26
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0203
 }
 
-declare i32 @jpeg_write_raw_data(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
+declare i32 @jpeg_write_raw_data(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @tjCompressFromYUVPlanes(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef captures(address_is_null) %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #0 {
   %11 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %12, label %15
 
@@ -7966,7 +7960,7 @@ tj3JPEGBufSize.exit:                              ; preds = %59, %74
 
 91:                                               ; preds = %20, %88, %12
   %.0 = phi i32 [ -1, %12 ], [ -1, %20 ], [ %89, %88 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i32 %.0
 }
 
@@ -7974,8 +7968,8 @@ tj3JPEGBufSize.exit:                              ; preds = %59, %74
 define range(i32 -1, 1) i32 @tj3CompressFromYUV8(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = alloca [3 x ptr], align 16
   %9 = alloca [3 x i32], align 4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #26
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %9) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %13
 
@@ -8228,15 +8222,15 @@ tjPlaneHeight.exit:                               ; preds = %tj3YUVPlaneHeight.e
 
 160:                                              ; preds = %153, %23, %32, %158, %10
   %.0 = phi i32 [ %159, %158 ], [ -1, %10 ], [ -1, %153 ], [ -1, %32 ], [ -1, %23 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %9) #26
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @tjCompressFromYUV(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef captures(none) %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #0 {
   %11 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %12, label %15
 
@@ -8392,7 +8386,7 @@ tj3JPEGBufSize.exit:                              ; preds = %57, %72
 
 89:                                               ; preds = %18, %86, %12
   %.0 = phi i32 [ -1, %12 ], [ -1, %18 ], [ %87, %86 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i32 %.0
 }
 
@@ -8404,12 +8398,12 @@ define range(i32 -1, 1) i32 @tj3EncodeYUVPlanes8(ptr noundef %0, ptr noundef %1,
   %12 = alloca [10 x ptr], align 16
   %13 = alloca [10 x ptr], align 16
   %14 = alloca [10 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %9) #26
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %10) #26
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %11) #26
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %12) #26
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %13) #26
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %14) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %15, label %18
 
@@ -9001,22 +8995,22 @@ define range(i32 -1, 1) i32 @tj3EncodeYUVPlanes8(ptr noundef %0, ptr noundef %1,
 
 311:                                              ; preds = %309, %15
   %.0 = phi i32 [ %spec.select, %309 ], [ -1, %15 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %14) #26
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %13) #26
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %12) #26
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %11) #26
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %10) #26
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %9) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0
 }
 
-declare void @jinit_c_master_control(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare void @jinit_c_master_control(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @jinit_color_converter(ptr noundef) local_unnamed_addr #8
+declare void @jinit_color_converter(ptr noundef) local_unnamed_addr #7
 
-declare void @jinit_downsampler(ptr noundef) local_unnamed_addr #8
+declare void @jinit_downsampler(ptr noundef) local_unnamed_addr #7
 
-declare void @jcopy_sample_rows(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @jcopy_sample_rows(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @tjEncodeYUVPlanes(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef readonly captures(address_is_null) %6, ptr noundef readonly captures(address_is_null) %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #0 {
@@ -9118,8 +9112,8 @@ processFlags.exit:                                ; preds = %32, %47
 define range(i32 -1, 1) i32 @tj3EncodeYUV8(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = alloca [3 x ptr], align 16
   %10 = alloca [3 x i32], align 4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #26
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %10) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %11, label %14
 
@@ -9353,8 +9347,8 @@ tj3YUVPlaneHeight.exit79:                         ; preds = %111, %.sink.split.i
 
 155:                                              ; preds = %148, %25, %34, %153, %11
   %.0 = phi i32 [ %154, %153 ], [ -1, %11 ], [ -1, %148 ], [ -1, %34 ], [ -1, %25 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %10) #26
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0
 }
 
@@ -9531,9 +9525,9 @@ tj3Init.exit:                                     ; preds = %2, %5
 define range(i32 -1, 1) i32 @tj3DecompressHeader(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !52
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4, !tbaa !88
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %9
@@ -9711,14 +9705,14 @@ setDecompParameters.exit:                         ; preds = %30, %switch.lookup
 
 101:                                              ; preds = %27, %20, %99, %6
   %.0 = phi i32 [ %spec.select, %99 ], [ -1, %6 ], [ -1, %20 ], [ 0, %27 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #26
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
-declare void @jpeg_save_markers(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @jpeg_save_markers(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare i32 @jpeg_read_icc_profile(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
+declare i32 @jpeg_read_icc_profile(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @tjDecompressHeader3(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6) local_unnamed_addr #0 {
@@ -9788,9 +9782,9 @@ tj3Get.exit44:                                    ; preds = %tj3Get.exit41
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @tjDecompressHeader2(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = call i32 @tjDecompressHeader3(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %8
 }
 
@@ -9798,16 +9792,16 @@ define range(i32 -1, 1) i32 @tjDecompressHeader2(ptr noundef %0, ptr noundef %1,
 define range(i32 -1, 1) i32 @tjDecompressHeader(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #26
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %8 = call range(i32 -1, 1) i32 @tjDecompressHeader3(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %7, ptr noundef nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #26
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %8
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i32 -1, 1) i32 @tj3GetICCProfile(ptr noundef captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #13 {
+define range(i32 -1, 1) i32 @tj3GetICCProfile(ptr noundef captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #12 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %7
 
@@ -9894,7 +9888,7 @@ define range(i32 -1, 1) i32 @tj3GetICCProfile(ptr noundef captures(address_is_nu
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef ptr @tj3GetScalingFactors(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #13 {
+define noundef ptr @tj3GetScalingFactors(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #12 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %6
 
@@ -9913,7 +9907,7 @@ define noundef ptr @tj3GetScalingFactors(ptr noundef writeonly captures(address_
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef ptr @tjGetScalingFactors(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #13 {
+define noundef ptr @tjGetScalingFactors(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #12 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %6
 
@@ -9932,7 +9926,7 @@ tj3GetScalingFactors.exit:                        ; preds = %3, %6
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i32 -1, 1) i32 @tj3SetScalingFactor(ptr noundef captures(address_is_null) %0, i64 %1) local_unnamed_addr #13 {
+define range(i32 -1, 1) i32 @tj3SetScalingFactor(ptr noundef captures(address_is_null) %0, i64 %1) local_unnamed_addr #12 {
   %.sroa.0.0.extract.trunc = trunc i64 %1 to i32
   %.sroa.3.0.extract.shift = lshr i64 %1, 32
   %.sroa.3.0.extract.trunc = trunc nuw i64 %.sroa.3.0.extract.shift to i32
@@ -10000,7 +9994,7 @@ define range(i32 -1, 1) i32 @tj3SetScalingFactor(ptr noundef captures(address_is
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i32 -1, 1) i32 @tj3SetCroppingRegion(ptr noundef captures(address_is_null) %0, i64 %1, i64 %2) local_unnamed_addr #13 {
+define range(i32 -1, 1) i32 @tj3SetCroppingRegion(ptr noundef captures(address_is_null) %0, i64 %1, i64 %2) local_unnamed_addr #12 {
   %.sroa.0.sroa.0.0.extract.trunc = trunc i64 %1 to i32
   %.sroa.0.sroa.10.0.extract.shift = lshr i64 %1, 32
   %.sroa.0.sroa.10.0.extract.trunc = trunc nuw i64 %.sroa.0.sroa.10.0.extract.shift to i32
@@ -10438,13 +10432,13 @@ define range(i32 -1, 1) i32 @tj3DecompressToYUVPlanes8(ptr noundef %0, ptr nound
   %12 = alloca %struct.my_progress_mgr, align 8
   %13 = alloca [10 x ptr], align 16
   %14 = alloca [10 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #26
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #26
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #26
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #26
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %10) #26
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %11) #26
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %12) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %15, label %18
 
@@ -11013,8 +11007,8 @@ tj3YUVPlaneHeight.exit:                           ; preds = %228, %.sink.split.i
 318:                                              ; preds = %.lr.ph300, %.loopexit
   %.pre367 = phi i32 [ %.pre367.pre, %.lr.ph300 ], [ %408, %.loopexit ]
   %.2202296 = phi i32 [ 0, %.lr.ph300 ], [ %411, %.loopexit ]
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %13) #26
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %14) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %319 = load i32, ptr %141, align 8, !tbaa !283
   %320 = icmp sgt i32 %319, 0
   br i1 %320, label %.lr.ph289, label %._crit_edge290
@@ -11195,8 +11189,8 @@ tj3YUVPlaneHeight.exit:                           ; preds = %228, %.sink.split.i
   br i1 %407, label %.preheader, label %.loopexit, !llvm.loop !303
 
 .loopexit:                                        ; preds = %._crit_edge294, %._crit_edge290.thread, %.preheader258, %._crit_edge290
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %14) #26
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %13) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %408 = load i32, ptr %315, align 4, !tbaa !293
   %409 = load i32, ptr %317, align 8, !tbaa !300
   %410 = mul nsw i32 %409, %408
@@ -11245,19 +11239,19 @@ tj3YUVPlaneHeight.exit:                           ; preds = %228, %.sink.split.i
 
 427:                                              ; preds = %425, %15
   %.0198 = phi i32 [ %spec.select, %425 ], [ -1, %15 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12) #26
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %11) #26
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %10) #26
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #26
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #26
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #26
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0198
 }
 
-declare void @jpeg_calc_output_dimensions(ptr noundef) local_unnamed_addr #8
+declare void @jpeg_calc_output_dimensions(ptr noundef) local_unnamed_addr #7
 
-declare i32 @jpeg_read_raw_data(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
+declare i32 @jpeg_read_raw_data(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @tjDecompressToYUVPlanes(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
@@ -11428,8 +11422,8 @@ processFlags.exit:                                ; preds = %59, %71
 define range(i32 -1, 1) i32 @tj3DecompressToYUV8(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca [3 x ptr], align 16
   %7 = alloca [3 x i32], align 4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #26
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %7) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %11
 
@@ -11757,8 +11751,8 @@ tj3YUVPlaneHeight.exit97:                         ; preds = %160, %.sink.split.i
 
 208:                                              ; preds = %203, %207, %197, %8
   %.0 = phi i32 [ %198, %197 ], [ -1, %8 ], [ -1, %207 ], [ -1, %203 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7) #26
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
@@ -11935,10 +11929,10 @@ define range(i32 -1, 1) i32 @tj3DecodeYUVPlanes8(ptr noundef %0, ptr noundef rea
   %12 = alloca [10 x i32], align 16
   %13 = alloca i32, align 4
   %14 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %9) #26
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %10) #26
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %11) #26
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %12) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %15, label %18
 
@@ -12394,9 +12388,9 @@ define range(i32 -1, 1) i32 @tj3DecodeYUVPlanes8(ptr noundef %0, ptr noundef rea
 
 243:                                              ; preds = %.lr.ph269, %._crit_edge267
   %.2213268 = phi i32 [ 0, %.lr.ph269 ], [ %269, %._crit_edge267 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 0, ptr %13, align 4, !tbaa !88
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i32 0, ptr %14, align 4, !tbaa !88
   %244 = load i32, ptr %161, align 8, !tbaa !283
   %245 = icmp sgt i32 %244, 0
@@ -12436,8 +12430,8 @@ define range(i32 -1, 1) i32 @tj3DecodeYUVPlanes8(ptr noundef %0, ptr noundef rea
   %266 = sext i32 %.2213268 to i64
   %267 = getelementptr inbounds ptr, ptr %135, i64 %266
   call void %264(ptr noundef nonnull %21, ptr noundef nonnull %10, ptr noundef nonnull %13, i32 noundef %265, ptr noundef nonnull %267, ptr noundef nonnull %14, i32 noundef %265) #26
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #26
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %268 = load i32, ptr %119, align 4, !tbaa !293
   %269 = add nsw i32 %268, %.2213268
   %270 = icmp slt i32 %269, %124
@@ -12486,10 +12480,10 @@ define range(i32 -1, 1) i32 @tj3DecodeYUVPlanes8(ptr noundef %0, ptr noundef rea
 
 286:                                              ; preds = %284, %15
   %.0 = phi i32 [ %spec.select, %284 ], [ -1, %15 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12) #26
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %11) #26
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %10) #26
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %9) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0
 }
 
@@ -12603,16 +12597,16 @@ define internal fastcc void @setDecodeDefaults(ptr noundef nonnull initializes((
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @my_read_markers(ptr readnone captures(none) %0) #11 {
+define internal noundef i32 @my_read_markers(ptr readnone captures(none) %0) #10 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @my_reset_marker_reader(ptr readnone captures(none) %0) #11 {
+define internal void @my_reset_marker_reader(ptr readnone captures(none) %0) #10 {
   ret void
 }
 
-declare void @jinit_master_decompress(ptr noundef) local_unnamed_addr #8
+declare void @jinit_master_decompress(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @tjDecodeYUVPlanes(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #0 {
@@ -12709,8 +12703,8 @@ processFlags.exit:                                ; preds = %32, %44
 define range(i32 -1, 1) i32 @tj3DecodeYUV8(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = alloca [3 x ptr], align 16
   %10 = alloca [3 x i32], align 4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #26
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %10) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %11, label %14
 
@@ -12946,8 +12940,8 @@ tj3YUVPlaneHeight.exit77:                         ; preds = %110, %.sink.split.i
 
 154:                                              ; preds = %147, %24, %33, %152, %11
   %.0 = phi i32 [ %153, %152 ], [ -1, %11 ], [ -1, %147 ], [ -1, %33 ], [ -1, %24 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %10) #26
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0
 }
 
@@ -13086,13 +13080,13 @@ tj3Init.exit:                                     ; preds = %2, %5, %16
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define i64 @tj3TransformBufSize(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #13 {
+define i64 @tj3TransformBufSize(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #12 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #26
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #26
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %9
 
@@ -13243,14 +13237,14 @@ tj3JPEGBufSize.exit:                              ; preds = %53, %68
 
 96:                                               ; preds = %15, %22, %35, %92, %88, %40, %6
   %.0 = phi i64 [ 0, %6 ], [ 0, %15 ], [ 0, %22 ], [ 0, %35 ], [ %95, %92 ], [ %91, %88 ], [ 0, %40 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #26
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #26
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %.0
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @getTransformedSpecs(ptr noundef nonnull captures(none) initializes((1528, 1532), (1740, 1744)) %0, ptr noundef nonnull captures(none) %1, ptr noundef nonnull captures(none) %2, ptr noundef nonnull captures(none) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef %5) unnamed_addr #13 {
+define internal fastcc range(i32 -1, 1) i32 @getTransformedSpecs(ptr noundef nonnull captures(none) initializes((1528, 1532), (1740, 1744)) %0, ptr noundef nonnull captures(none) %1, ptr noundef nonnull captures(none) %2, ptr noundef nonnull captures(none) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef %5) unnamed_addr #12 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 1528
   store i32 0, ptr %7, align 8, !tbaa !64
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 1740
@@ -13467,7 +13461,7 @@ getDstSubsamp.exit:                               ; preds = %36, %41, %42, %43, 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @tj3Transform(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = alloca %struct.my_progress_mgr, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %12
 
@@ -14149,14 +14143,14 @@ split:                                            ; preds = %189, %getDstSubsamp
 
 330:                                              ; preds = %328, %9
   %.0 = phi i32 [ %spec.select349, %328 ], [ -1, %9 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
 
-declare void @jcopy_markers_setup(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare void @jcopy_markers_setup(ptr noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -2147483648, 7) i32 @getSubsamp(ptr noundef nonnull readonly captures(none) %0) unnamed_addr #20 {
+define internal fastcc range(i32 -2147483648, 7) i32 @getSubsamp(ptr noundef nonnull readonly captures(none) %0) unnamed_addr #19 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load i32, ptr %2, align 8, !tbaa !283
   %4 = icmp eq i32 %3, 1
@@ -14399,21 +14393,21 @@ define internal fastcc range(i32 -2147483648, 7) i32 @getSubsamp(ptr noundef non
   ret i32 %.0100
 }
 
-declare i32 @jtransform_request_workspace(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare i32 @jtransform_request_workspace(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare ptr @jpeg_read_coefficients(ptr noundef) local_unnamed_addr #8
+declare ptr @jpeg_read_coefficients(ptr noundef) local_unnamed_addr #7
 
-declare void @jpeg_copy_critical_parameters(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare void @jpeg_copy_critical_parameters(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare ptr @jtransform_adjust_parameters(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
+declare ptr @jtransform_adjust_parameters(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare void @jpeg_simple_progression(ptr noundef) local_unnamed_addr #8
+declare void @jpeg_simple_progression(ptr noundef) local_unnamed_addr #7
 
-declare void @jpeg_write_coefficients(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare void @jpeg_write_coefficients(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare void @jcopy_markers_execute(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
+declare void @jcopy_markers_execute(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @jtransform_execute_transform(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
+declare void @jtransform_execute_transform(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @tjTransform(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef captures(address_is_null) %5, ptr noundef %6, i32 noundef %7) local_unnamed_addr #0 {
@@ -14580,13 +14574,13 @@ processFlags.exit:                                ; preds = %48, %63
   br i1 %.not74, label %130, label %87
 
 87:                                               ; preds = %.lr.ph.split
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %88 = load i32, ptr %73, align 8, !tbaa !188
   store i32 %88, ptr %9, align 4, !tbaa !88
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %89 = load i32, ptr %74, align 4, !tbaa !189
   store i32 %89, ptr %10, align 4, !tbaa !88
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 %.063, ptr %11, align 4, !tbaa !88
   %90 = getelementptr inbounds nuw %struct.tjtransform, ptr %6, i64 %indvars.iv
   %91 = call fastcc i32 @getTransformedSpecs(ptr noundef %0, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %90, ptr noundef nonnull @tjTransform.FUNCTION_NAME)
@@ -14646,15 +14640,15 @@ processFlags.exit:                                ; preds = %48, %63
 .thread:                                          ; preds = %115, %101
   %.0.i = phi i64 [ 0, %101 ], [ %128, %115 ]
   store i64 %.0.i, ptr %86, align 8, !tbaa !53
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #26
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #26
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %130
 
 129:                                              ; preds = %87
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #26
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #26
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.loopexit
 
 130:                                              ; preds = %.thread, %.lr.ph.split
@@ -14892,10 +14886,10 @@ processFlags.exit:                                ; preds = %31, %43
   ret i32 %.0
 }
 
-declare ptr @jpeg_std_error(ptr noundef) local_unnamed_addr #8
+declare ptr @jpeg_std_error(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal void @my_error_exit(ptr noundef %0) #21 {
+define internal void @my_error_exit(ptr noundef %0) #20 {
   %2 = load ptr, ptr %0, align 8, !tbaa !163
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !396
@@ -14941,25 +14935,31 @@ define internal void @my_emit_message(ptr noundef %0, i32 noundef %1) #0 {
   ret void
 }
 
-declare void @jpeg_CreateCompress(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #8
+declare void @jpeg_CreateCompress(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: noreturn nounwind
-declare void @longjmp(ptr noundef, i32 noundef) local_unnamed_addr #22
+declare void @longjmp(ptr noundef, i32 noundef) local_unnamed_addr #21
 
-declare void @jpeg_set_defaults(ptr noundef) local_unnamed_addr #8
+declare void @jpeg_set_defaults(ptr noundef) local_unnamed_addr #7
 
-declare void @jpeg_enable_lossless(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @jpeg_enable_lossless(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @jpeg_set_quality(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @jpeg_set_quality(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @jpeg_set_colorspace(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare void @jpeg_set_colorspace(ptr noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind
-declare i32 @setenv(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #16
+declare i32 @setenv(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #15
 
-declare void @jpeg_CreateDecompress(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #8
+declare void @jpeg_CreateDecompress(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #7
 
-declare ptr @jpeg_alloc_quant_table(ptr noundef) local_unnamed_addr #8
+declare ptr @jpeg_alloc_quant_table(ptr noundef) local_unnamed_addr #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #22
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #22
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #23
@@ -14974,28 +14974,28 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare i32 @llvm.smin.i32(i32, i32) #24
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nounwind returns_twice "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { mustprogress nocallback nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #22 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #3 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { nounwind returns_twice "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nocallback nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #22 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #23 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #24 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #25 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }

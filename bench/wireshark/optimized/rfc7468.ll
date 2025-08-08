@@ -19,7 +19,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden range(i32 -1, 2) i32 @rfc7468_open(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca [2048 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load ptr, ptr %0, align 8
   %6 = call i32 @file_read(ptr noundef nonnull %4, i32 noundef 2048, ptr noundef %5)
   %7 = icmp slt i32 %6, 0
@@ -51,7 +51,7 @@ define hidden range(i32 -1, 2) i32 @rfc7468_open(ptr noundef captures(none) %0, 
   br i1 %21, label %25, label %22
 
 22:                                               ; preds = %20
-  %23 = call ptr @memchr(ptr noundef %.025, i32 noundef 10, i64 noundef %17) #7
+  %23 = call ptr @memchr(ptr noundef %.025, i32 noundef 10, i64 noundef %17) #6
   %.not.not = icmp eq ptr %23, null
   %24 = getelementptr i8, ptr %23, i64 1
   br i1 %.not.not, label %.critedge, label %15
@@ -80,27 +80,21 @@ define hidden range(i32 -1, 2) i32 @rfc7468_open(ptr noundef captures(none) %0, 
 
 .critedge:                                        ; preds = %15, %22, %29, %25, %8
   %.0 = phi i32 [ -1, %8 ], [ 1, %29 ], [ -1, %25 ], [ 0, %22 ], [ 0, %15 ]
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @file_read(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @file_read(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: null_pointer_is_valid
-declare i32 @file_error(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @file_error(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare i64 @file_seek(ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i64 @file_seek(ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef zeroext i1 @rfc7468_read(ptr noundef readonly captures(none) %0, ptr noundef initializes((296, 312)) %1, ptr noundef captures(none) %2, ptr noundef %3, ptr noundef writeonly captures(none) initializes((0, 8)) %4) #0 {
@@ -139,13 +133,13 @@ define hidden void @register_rfc7468() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @wtap_register_file_type_subtype(ptr noundef) local_unnamed_addr #2
+declare i32 @wtap_register_file_type_subtype(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @wtap_register_backwards_compatibility_lua_name(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @wtap_register_backwards_compatibility_lua_name(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i64 @file_tell(ptr noundef) local_unnamed_addr #2
+declare i64 @file_tell(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc noundef zeroext i1 @rfc7468_read_impl(ptr noundef %0, ptr noundef initializes((296, 312)) %1, ptr noundef captures(none) %2, ptr noundef %3) unnamed_addr #0 {
@@ -153,7 +147,7 @@ define internal fastcc noundef zeroext i1 @rfc7468_read_impl(ptr noundef %0, ptr
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 296
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 131, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %8 = call ptr @file_getsp(ptr noundef nonnull %5, i32 noundef 131, ptr noundef %0)
   %.not.i45 = icmp eq ptr %8, null
   br i1 %.not.i45, label %._crit_edge, label %.lr.ph
@@ -229,7 +223,7 @@ define internal fastcc noundef zeroext i1 @rfc7468_read_impl(ptr noundef %0, ptr
 35:                                               ; preds = %._crit_edge, %23, %33
   %36 = phi i32 [ %11, %._crit_edge ], [ %.pre, %23 ], [ %34, %33 ]
   %.02044 = phi i8 [ %.020.lcssa, %._crit_edge ], [ %.02046, %23 ], [ %.02046, %33 ]
-  call void @llvm.lifetime.end.p0(i64 131, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %37 = icmp eq i32 %36, 0
   %38 = trunc nuw i8 %.02044 to i1
   %or.cond = select i1 %37, i1 %38, i1 false
@@ -242,7 +236,7 @@ define internal fastcc noundef zeroext i1 @rfc7468_read_impl(ptr noundef %0, ptr
   br label %.thread
 
 41:                                               ; preds = %29, %25
-  call void @llvm.lifetime.end.p0(i64 131, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %42 = trunc nuw i8 %.02046 to i1
   br i1 %42, label %43, label %45
 
@@ -257,7 +251,7 @@ define internal fastcc noundef zeroext i1 @rfc7468_read_impl(ptr noundef %0, ptr
 
 47:                                               ; preds = %43, %45
   %.1 = phi i8 [ %spec.select, %45 ], [ 1, %43 ]
-  call void @llvm.lifetime.start.p0(i64 131, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %48 = call ptr @file_getsp(ptr noundef nonnull %5, i32 noundef 131, ptr noundef %0)
   %.not.i = icmp eq ptr %48, null
   br i1 %.not.i, label %._crit_edge, label %12
@@ -286,19 +280,25 @@ define internal fastcc noundef zeroext i1 @rfc7468_read_impl(ptr noundef %0, ptr
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #2
+declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @file_getsp(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @file_getsp(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare noalias ptr @g_strdup_printf(ptr noundef, ...) local_unnamed_addr #2
+declare noalias ptr @g_strdup_printf(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @ws_buffer_append(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @ws_buffer_append(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @file_eof(ptr noundef) local_unnamed_addr #2
+declare i32 @file_eof(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #4
@@ -307,13 +307,12 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { nounwind }
-attributes #7 = { nounwind willreturn memory(read) }
+attributes #6 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

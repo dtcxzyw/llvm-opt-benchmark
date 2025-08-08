@@ -953,15 +953,9 @@ define noundef ptr @lv_ime_pinyin_create(ptr noundef %0) local_unnamed_addr #0 {
   ret ptr %2
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @lv_obj_class_create_obj(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_obj_class_create_obj(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare void @lv_obj_class_init_obj(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @lv_obj_class_init_obj(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @lv_ime_pinyin_set_keyboard(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -988,11 +982,11 @@ define void @lv_ime_pinyin_set_keyboard(ptr noundef %0, ptr noundef %1) local_un
   ret void
 }
 
-declare void @lv_obj_set_parent(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @lv_obj_set_parent(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_obj_get_parent(ptr noundef) local_unnamed_addr #2
+declare ptr @lv_obj_get_parent(ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_obj_add_event_cb(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @lv_obj_add_event_cb(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @lv_ime_pinyin_kb_event(ptr noundef %0) #0 {
@@ -1356,10 +1350,10 @@ lv_ime_pinyin_set_mode.exit149:                   ; preds = %113
   ret void
 }
 
-declare void @lv_obj_align_to(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_align_to(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @lv_ime_pinyin_set_dict(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #3 {
+define void @lv_ime_pinyin_set_dict(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %3
 
@@ -1498,12 +1492,12 @@ pinyin_k9_init_data.exit:                         ; preds = %.preheader10
   ret void
 }
 
-declare void @lv_keyboard_set_map(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @lv_keyboard_set_map(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @lv_keyboard_set_mode(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_keyboard_set_mode(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define ptr @lv_ime_pinyin_get_kb(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
+define ptr @lv_ime_pinyin_get_kb(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -1517,7 +1511,7 @@ define ptr @lv_ime_pinyin_get_kb(ptr noundef readonly captures(address_is_null) 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define ptr @lv_ime_pinyin_get_cand_panel(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
+define ptr @lv_ime_pinyin_get_cand_panel(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -1531,7 +1525,7 @@ define ptr @lv_ime_pinyin_get_cand_panel(ptr noundef readonly captures(address_i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define ptr @lv_ime_pinyin_get_dict(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
+define ptr @lv_ime_pinyin_get_dict(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -1544,31 +1538,31 @@ define ptr @lv_ime_pinyin_get_dict(ptr noundef readonly captures(address_is_null
   ret ptr %4
 }
 
-declare void @lv_obj_add_flag(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_add_flag(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @lv_buttonmatrix_create(ptr noundef) local_unnamed_addr #2
+declare ptr @lv_buttonmatrix_create(ptr noundef) local_unnamed_addr #1
 
-declare void @lv_buttonmatrix_set_map(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @lv_buttonmatrix_set_map(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @lv_obj_set_size(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_set_size(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_buttonmatrix_set_one_checked(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare void @lv_buttonmatrix_set_one_checked(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare void @lv_obj_remove_flag(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_remove_flag(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_obj_set_style_bg_opa(ptr noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_set_style_bg_opa(ptr noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_obj_set_style_border_width(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_set_style_border_width(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_obj_set_style_radius(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_set_style_radius(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_obj_set_style_base_dir(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_set_style_base_dir(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_obj_set_style_bg_color(ptr noundef, i24, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_set_style_bg_color(ptr noundef, i24, i32 noundef) local_unnamed_addr #1
 
-declare i24 @lv_color_white() local_unnamed_addr #2
+declare i24 @lv_color_white() local_unnamed_addr #1
 
-declare void @lv_obj_set_style_shadow_opa(ptr noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_set_style_shadow_opa(ptr noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @lv_ime_pinyin_cand_panel_event(ptr noundef %0) #0 {
@@ -1643,31 +1637,31 @@ define internal void @lv_ime_pinyin_style_change_event(ptr noundef %0) #0 {
   ret void
 }
 
-declare void @lv_ll_init(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_ll_init(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_memset(ptr noundef, i8 noundef zeroext, i64 noundef) local_unnamed_addr #2
+declare void @lv_memset(ptr noundef, i8 noundef zeroext, i64 noundef) local_unnamed_addr #1
 
-declare void @lv_obj_set_style_pad_left(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_set_style_pad_left(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_obj_set_style_pad_right(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_set_style_pad_right(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_obj_set_style_pad_top(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_set_style_pad_top(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_obj_set_style_pad_bottom(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_set_style_pad_bottom(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_obj_set_style_pad_row(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_set_style_pad_row(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_obj_set_style_pad_column(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_set_style_pad_column(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @lv_event_get_code(ptr noundef) local_unnamed_addr #2
+declare i32 @lv_event_get_code(ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_event_get_current_target(ptr noundef) local_unnamed_addr #2
+declare ptr @lv_event_get_current_target(ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_event_get_user_data(ptr noundef) local_unnamed_addr #2
+declare ptr @lv_event_get_user_data(ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_keyboard_get_textarea(ptr noundef) local_unnamed_addr #2
+declare ptr @lv_keyboard_get_textarea(ptr noundef) local_unnamed_addr #1
 
-declare i32 @lv_buttonmatrix_get_selected_button(ptr noundef) local_unnamed_addr #2
+declare i32 @lv_buttonmatrix_get_selected_button(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @pinyin_page_proc(ptr noundef captures(none) %0, i16 noundef zeroext range(i16 0, 2) %1) unnamed_addr #0 {
@@ -1803,11 +1797,11 @@ define internal fastcc void @pinyin_page_proc(ptr noundef captures(none) %0, i16
   ret void
 }
 
-declare ptr @lv_buttonmatrix_get_button_text(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @lv_buttonmatrix_get_button_text(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_textarea_delete_char(ptr noundef) local_unnamed_addr #2
+declare void @lv_textarea_delete_char(ptr noundef) local_unnamed_addr #1
 
-declare void @lv_textarea_add_text(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @lv_textarea_add_text(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @pinyin_ime_clear_data(ptr noundef %0) unnamed_addr #0 {
@@ -1867,26 +1861,26 @@ define internal fastcc void @pinyin_ime_clear_data(ptr noundef %0) unnamed_addr 
   br i1 %exitcond23.not, label %20, label %24, !llvm.loop !48
 }
 
-declare ptr @lv_strcpy(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @lv_strcpy(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @lv_obj_set_style_text_font(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_set_style_text_font(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @lv_obj_get_style_prop(ptr noundef, i32 noundef, i8 noundef zeroext) local_unnamed_addr #2
+declare ptr @lv_obj_get_style_prop(ptr noundef, i32 noundef, i8 noundef zeroext) local_unnamed_addr #1
 
-declare zeroext i1 @lv_obj_is_valid(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @lv_obj_is_valid(ptr noundef) local_unnamed_addr #1
 
-declare void @lv_obj_delete(ptr noundef) local_unnamed_addr #2
+declare void @lv_obj_delete(ptr noundef) local_unnamed_addr #1
 
-declare i64 @lv_strlen(ptr noundef) local_unnamed_addr #2
+declare i64 @lv_strlen(ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_strcat(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @lv_strcat(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @pinyin_input_proc(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store volatile i8 0, ptr %2, align 1, !tbaa !8
   %5 = load i8, ptr %3, align 1, !tbaa !8
   switch i8 %5, label %6 [
@@ -1972,7 +1966,7 @@ define internal fastcc void @pinyin_input_proc(ptr noundef %0) unnamed_addr #0 {
   br i1 %.not.us.i, label %pinyin_search_matching.exit.thread, label %.preheader.us.i, !llvm.loop !50
 
 pinyin_search_matching.exit.thread:               ; preds = %36, %1, %1, %1, %1, %1, %6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr null, ptr %39, align 8, !tbaa !41
   br label %69
@@ -1986,7 +1980,7 @@ pinyin_search_matching.exit:                      ; preds = %._crit_edge.us.i, %
   %44 = trunc i64 %43 to i16
   store i16 %44, ptr %4, align 2, !tbaa !28
   %45 = load ptr, ptr %40, align 8, !tbaa !26
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr %45, ptr %46, align 8, !tbaa !41
   %47 = icmp eq ptr %45, null
@@ -2048,7 +2042,7 @@ pinyin_search_matching.exit:                      ; preds = %._crit_edge.us.i, %
   ret void
 }
 
-declare i32 @lv_strcmp(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @lv_strcmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @pinyin_k9_get_legal_py(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
@@ -2063,9 +2057,9 @@ define internal fastcc void @pinyin_k9_get_legal_py(ptr noundef %0, ptr noundef 
   br i1 %or.cond, label %95, label %10
 
 10:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %4, i8 0, i64 7, i1 false)
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(28) %5, i8 0, i64 28, i1 false)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %12 = tail call i32 @lv_ll_get_len(ptr noundef nonnull %11) #6
@@ -2084,7 +2078,7 @@ define internal fastcc void @pinyin_k9_get_legal_py(ptr noundef %0, ptr noundef 
   br i1 %19, label %20, label %61
 
 20:                                               ; preds = %18
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store volatile i8 0, ptr %3, align 1, !tbaa !8
   %21 = load i8, ptr %4, align 1, !tbaa !8
   switch i8 %21, label %22 [
@@ -2166,11 +2160,11 @@ define internal fastcc void @pinyin_k9_get_legal_py(ptr noundef %0, ptr noundef 
   br i1 %.not.us.i, label %pinyin_k9_is_valid_py.exit.thread, label %.preheader.us.i, !llvm.loop !55
 
 pinyin_k9_is_valid_py.exit.thread:                ; preds = %49, %20, %20, %20, %20, %22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %87
 
 .loopexit:                                        ; preds = %._crit_edge.us.i, %.preheader.lr.ph.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %52 = zext i16 %.0443 to i32
   %.not52 = icmp ugt i32 %12, %52
   br i1 %.not52, label %56, label %53
@@ -2246,8 +2240,8 @@ pinyin_k9_is_valid_py.exit.thread:                ; preds = %49, %20, %20, %20, 
   br label %94
 
 94:                                               ; preds = %89, %88
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %95
 
 95:                                               ; preds = %2, %94
@@ -2342,9 +2336,9 @@ define internal fastcc void @pinyin_k9_fill_cand(ptr noundef %0) unnamed_addr #0
   ret void
 }
 
-declare void @lv_textarea_set_cursor_pos(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_textarea_set_cursor_pos(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @lv_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare i32 @lv_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @pinyin_k9_cand_page_proc(ptr noundef %0, i16 noundef zeroext range(i16 0, 2) %1) unnamed_addr #0 {
@@ -2478,24 +2472,30 @@ define internal fastcc void @pinyin_k9_cand_page_proc(ptr noundef %0, i16 nounde
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
-declare i32 @lv_ll_get_len(ptr noundef) local_unnamed_addr #2
+declare i32 @lv_ll_get_len(ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_ll_get_head(ptr noundef) local_unnamed_addr #2
+declare ptr @lv_ll_get_head(ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_ll_ins_tail(ptr noundef) local_unnamed_addr #2
+declare ptr @lv_ll_ins_tail(ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_ll_get_next(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @lv_ll_get_next(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_ll_get_prev(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @lv_ll_get_prev(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

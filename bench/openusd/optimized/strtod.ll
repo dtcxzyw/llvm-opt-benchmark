@@ -122,8 +122,8 @@ define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__
   br i1 %17, label %18, label %.thread
 
 .thread:                                          ; preds = %16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br label %.lr.ph.preheader.i.i.i
 
 18:                                               ; preds = %16
@@ -260,8 +260,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL12DoubleStrtodENS0_
   br label %227
 
 82:                                               ; preds = %55, %58
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %83 = icmp sgt i32 %1, 0
   br i1 %83, label %.lr.ph.preheader.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL10ReadUint64ENS0_6VectorIKcEEPi.exit.i.i
 
@@ -344,8 +344,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion5DiyFp9NormalizeEv.e
 
 _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL11DiyFpStrtodENS0_6VectorIKcEEiPd.exit.thread: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion5DiyFp9NormalizeEv.exit.i
   store double 0.000000e+00, ptr %3, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %227
 
 116:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion5DiyFp9NormalizeEv.exit.i
@@ -549,8 +549,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL11DiyFpStrtodENS0_6
   %224 = sub i64 %194, %.1.i
   %225 = icmp uge i64 %224, %193
   %or.cond.not.i = or i1 %225, %.not60.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %226 = fcmp oeq double %223, 0x7FF0000000000000
   %spec.select = select i1 %or.cond.not.i, i1 true, i1 %226
   br label %227
@@ -675,7 +675,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL10TrimAndCutENS0_6V
   %.sroa.4.0 = phi i32 [ 780, %.preheader.i.preheader ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit.thread.i ], [ %16, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit.i ]
   %.sroa.0.0 = phi ptr [ %5, %.preheader.i.preheader ], [ %.sroa.07.0.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit.thread.i ], [ %.sroa.07.0.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit.i ]
   %.0 = phi i32 [ %28, %.preheader.i.preheader ], [ %18, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit.thread.i ], [ %24, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit.i ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %29 = call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL12ComputeGuessENS0_6VectorIKcEEiPd(ptr %.sroa.0.0, i32 %.sroa.4.0, i32 noundef %.0, ptr noundef %4)
   %30 = load double, ptr %4, align 8
   br i1 %29, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion13StrtodTrimmedENS0_6VectorIKcEEi.exit, label %31
@@ -749,7 +749,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL10TrimAndCutENS0_6V
 
 _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion13StrtodTrimmedENS0_6VectorIKcEEi.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL10TrimAndCutENS0_6VectorIKcEEiPciPS3_Pi.exit, %31, %48, %52, %54, %57, %60, %65, %67, %70
   %.0.i = phi double [ %30, %31 ], [ %56, %54 ], [ %59, %57 ], [ 0.000000e+00, %52 ], [ 0x7FF0000000000000, %48 ], [ %30, %60 ], [ %69, %67 ], [ %72, %70 ], [ 0.000000e+00, %65 ], [ %30, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL10TrimAndCutENS0_6VectorIKcEEiPciPS3_Pi.exit ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret double %.0.i
 }
 
@@ -1017,10 +1017,10 @@ declare noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversio
 declare i32 @llvm.usub.sat.i32(i32, i32) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

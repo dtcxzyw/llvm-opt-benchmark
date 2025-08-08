@@ -787,11 +787,11 @@ _ZNK4llvm3LLT9isPointerEv.exit.i.i1258:           ; preds = %602
   %625 = or disjoint i64 %622, 1038
   %626 = or disjoint i64 %622, 2062
   %627 = or disjoint i64 %622, 4110
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %372) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %372)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %372, ptr noundef nonnull align 8 dereferenceable(56) @constinit, i64 56, i1 false), !tbaa.struct !160
-  call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %373) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %373)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %373, ptr noundef nonnull align 8 dereferenceable(176) @constinit.1, i64 176, i1 false), !tbaa.struct !162
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %374) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %374)
   store i64 %623, ptr %374, align 8, !tbaa !161
   %628 = getelementptr inbounds nuw i8, ptr %374, i64 8
   store i64 %624, ptr %628, align 8, !tbaa !161
@@ -801,15 +801,15 @@ _ZNK4llvm3LLT9isPointerEv.exit.i.i1258:           ; preds = %602
   store i64 %626, ptr %630, align 8, !tbaa !161
   %631 = getelementptr inbounds nuw i8, ptr %374, i64 32
   store i64 %627, ptr %631, align 8, !tbaa !161
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %375) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %375)
   store i32 53, ptr %375, align 4, !tbaa !163
   %632 = getelementptr inbounds nuw i8, ptr %375, i64 4
   store i32 54, ptr %632, align 4, !tbaa !163
   %633 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderESt16initializer_listIjE(ptr noundef nonnull align 8 dereferenceable(125504) %0, ptr nonnull %375, i64 2) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %376) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %376)
   %634 = load i64, ptr %616, align 8, !tbaa !161
   store i64 %634, ptr %376, align 8, !tbaa !161
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %371)
+  call void @llvm.lifetime.start.p0(ptr nonnull %371)
   call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %371, i32 noundef 0, ptr nonnull %376, i64 1) #17
   %635 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %633, i8 noundef zeroext 0, ptr noundef nonnull %371)
   %636 = getelementptr inbounds nuw i8, ptr %371, i64 16
@@ -822,9 +822,9 @@ _ZNK4llvm3LLT9isPointerEv.exit.i.i1258:           ; preds = %602
   br label %_ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listINS_3LLTEE.exit
 
 _ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listINS_3LLTEE.exit: ; preds = %_ZNK4llvm3LLT9isPointerEv.exit.i.i1258, %638
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %371)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %369)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %370)
+  call void @llvm.lifetime.end.p0(ptr nonnull %371)
+  call void @llvm.lifetime.start.p0(ptr nonnull %369)
+  call void @llvm.lifetime.start.p0(ptr nonnull %370)
   call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %369, i32 noundef 0, ptr nonnull %373, i64 22) #17, !noalias !166
   %640 = getelementptr inbounds nuw i8, ptr %370, i64 24
   %641 = getelementptr inbounds nuw i8, ptr %370, i64 16
@@ -834,7 +834,7 @@ _ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listINS_3LLTEE.exit: ; preds 
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL21typeIsLegalIntOrFPVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %640, align 8, !tbaa !169, !noalias !166
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL21typeIsLegalIntOrFPVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation", ptr %641, align 8, !tbaa !164, !noalias !166
   call void @llvm.experimental.noalias.scope.decl(metadata !171)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %68) #17, !noalias !171
+  call void @llvm.lifetime.start.p0(ptr nonnull %68), !noalias !171
   %642 = getelementptr inbounds nuw i8, ptr %369, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %68, i8 0, i64 32, i1 false), !noalias !171
   %643 = load ptr, ptr %642, align 8, !tbaa !164, !noalias !171
@@ -914,7 +914,7 @@ _ZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E9_M_invokeERKSt9_Any_dataS3_, ptr %673, align 8, !tbaa !169, !alias.scope !171
   %674 = getelementptr inbounds nuw i8, ptr %377, i64 16
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %674, align 8, !tbaa !164, !alias.scope !171
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %68) #17, !noalias !171
+  call void @llvm.lifetime.end.p0(ptr nonnull %68), !noalias !171
   br label %_ZNSt14_Function_baseD2Ev.exit.i
 
 675:                                              ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i2568
@@ -926,7 +926,7 @@ _ZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E9_M_invokeERKSt9_Any_dataS3_, ptr %677, align 8, !tbaa !169, !alias.scope !171
   %678 = getelementptr inbounds nuw i8, ptr %377, i64 16
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %678, align 8, !tbaa !164, !alias.scope !171
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %68) #17, !noalias !171
+  call void @llvm.lifetime.end.p0(ptr nonnull %68), !noalias !171
   %679 = call noundef zeroext i1 %661(ptr noundef nonnull align 8 dereferenceable(32) %370, ptr noundef nonnull align 8 dereferenceable(32) %370, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i
 
@@ -942,9 +942,9 @@ _ZNSt14_Function_baseD2Ev.exit.i:                 ; preds = %_ZN4llvm18LegalityP
   br label %_ZL21typeIsLegalIntOrFPVecjSt16initializer_listIN4llvm3LLTEERKNS0_14RISCVSubtargetE.exit
 
 _ZL21typeIsLegalIntOrFPVecjSt16initializer_listIN4llvm3LLTEERKNS0_14RISCVSubtargetE.exit: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i, %683
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %369)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %370)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %368)
+  call void @llvm.lifetime.end.p0(ptr nonnull %369)
+  call void @llvm.lifetime.end.p0(ptr nonnull %370)
+  call void @llvm.lifetime.start.p0(ptr nonnull %368)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %368, i8 0, i64 32, i1 false)
   %685 = load ptr, ptr %680, align 8, !tbaa !164
   %.not.i.i.not.i.i = icmp eq ptr %685, null
@@ -972,15 +972,15 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i: ; preds = %686, %_ZL
   br label %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit
 
 _ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit: ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i, %695
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %368)
+  call void @llvm.lifetime.end.p0(ptr nonnull %368)
   %697 = load i8, ptr %612, align 1, !tbaa !24, !range !153, !noundef !154
   %698 = trunc nuw i8 %697 to i1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %378) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %378)
   store i64 137438953473, ptr %378, align 8, !tbaa !161
   br i1 %698, label %699, label %_ZN4llvm15LegalizeRuleSet9customForEbSt16initializer_listINS_3LLTEE.exit
 
 699:                                              ; preds = %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %367)
+  call void @llvm.lifetime.start.p0(ptr nonnull %367)
   call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %367, i32 noundef 0, ptr nonnull %378, i64 1) #17
   %700 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %692, i8 noundef zeroext 8, ptr noundef nonnull %367)
   %701 = getelementptr inbounds nuw i8, ptr %367, i64 16
@@ -993,13 +993,13 @@ _ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit: ; 
   br label %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listINS_3LLTEE.exit.i
 
 _ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listINS_3LLTEE.exit.i: ; preds = %703, %699
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %367)
+  call void @llvm.lifetime.end.p0(ptr nonnull %367)
   br label %_ZN4llvm15LegalizeRuleSet9customForEbSt16initializer_listINS_3LLTEE.exit
 
 _ZN4llvm15LegalizeRuleSet9customForEbSt16initializer_listINS_3LLTEE.exit: ; preds = %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit, %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listINS_3LLTEE.exit.i
   %.0.i = phi ptr [ %700, %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listINS_3LLTEE.exit.i ], [ %692, %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %365)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %366)
+  call void @llvm.lifetime.start.p0(ptr nonnull %365)
+  call void @llvm.lifetime.start.p0(ptr nonnull %366)
   call void @_ZN4llvm18LegalityPredicates11sizeNotPow2Ej(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %365, i32 noundef 0) #17
   call void @_ZN4llvm17LegalizeMutations26widenScalarOrEltToNextPow2Ejj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.77") align 8 %366, i32 noundef 0, i32 noundef 0) #17
   %705 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %.0.i, i8 noundef zeroext 2, ptr noundef nonnull %365, ptr noundef nonnull %366)
@@ -1023,12 +1023,12 @@ _ZNSt14_Function_baseD2Ev.exit.i1345:             ; preds = %708, %_ZN4llvm15Leg
   br label %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit
 
 _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i1345, %712
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %365)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %366)
+  call void @llvm.lifetime.end.p0(ptr nonnull %365)
+  call void @llvm.lifetime.end.p0(ptr nonnull %366)
   %.sroa.0517.0.copyload = load i64, ptr %616, align 8, !tbaa !161
   %714 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE(ptr noundef nonnull align 8 dereferenceable(168) %705, i32 noundef 0, i64 %.sroa.0517.0.copyload)
   %715 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet9maxScalarEjNS_3LLTE(ptr noundef nonnull align 8 dereferenceable(168) %714, i32 noundef 0, i64 %.sroa.0517.0.copyload)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %378) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %378)
   %716 = load ptr, ptr %680, align 8, !tbaa !164
   %.not.i = icmp eq ptr %716, null
   br i1 %.not.i, label %_ZNSt14_Function_baseD2Ev.exit, label %717
@@ -1038,19 +1038,19 @@ _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit: ; preds = %_ZNSt14_Fun
   br label %_ZNSt14_Function_baseD2Ev.exit
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit, %717
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %376) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %375) #17
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %379) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %376)
+  call void @llvm.lifetime.end.p0(ptr nonnull %375)
+  call void @llvm.lifetime.start.p0(ptr nonnull %379)
   store i32 62, ptr %379, align 4, !tbaa !163
   %719 = getelementptr inbounds nuw i8, ptr %379, i64 4
   store i32 63, ptr %719, align 4, !tbaa !163
   %720 = getelementptr inbounds nuw i8, ptr %379, i64 8
   store i32 64, ptr %720, align 4, !tbaa !163
   %721 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderESt16initializer_listIjE(ptr noundef nonnull align 8 dereferenceable(125504) %0, ptr nonnull %379, i64 3) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %380) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %380)
   %722 = load i64, ptr %616, align 8, !tbaa !161
   store i64 %722, ptr %380, align 8, !tbaa !161
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %364)
+  call void @llvm.lifetime.start.p0(ptr nonnull %364)
   call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %364, i32 noundef 0, ptr nonnull %380, i64 1) #17
   %723 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %721, i8 noundef zeroext 0, ptr noundef nonnull %364)
   %724 = getelementptr inbounds nuw i8, ptr %364, i64 16
@@ -1063,9 +1063,9 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZN4llvm15LegalizeR
   br label %_ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listINS_3LLTEE.exit1348
 
 _ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listINS_3LLTEE.exit1348: ; preds = %_ZNSt14_Function_baseD2Ev.exit, %726
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %364)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %362)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %363)
+  call void @llvm.lifetime.end.p0(ptr nonnull %364)
+  call void @llvm.lifetime.start.p0(ptr nonnull %362)
+  call void @llvm.lifetime.start.p0(ptr nonnull %363)
   call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %362, i32 noundef 0, ptr nonnull %373, i64 22) #17, !noalias !176
   %728 = getelementptr inbounds nuw i8, ptr %363, i64 24
   %729 = getelementptr inbounds nuw i8, ptr %363, i64 16
@@ -1075,7 +1075,7 @@ _ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listINS_3LLTEE.exit1348: ; pr
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL21typeIsLegalIntOrFPVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %728, align 8, !tbaa !169, !noalias !176
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL21typeIsLegalIntOrFPVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation", ptr %729, align 8, !tbaa !164, !noalias !176
   call void @llvm.experimental.noalias.scope.decl(metadata !179)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %67) #17, !noalias !179
+  call void @llvm.lifetime.start.p0(ptr nonnull %67), !noalias !179
   %730 = getelementptr inbounds nuw i8, ptr %362, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %67, i8 0, i64 32, i1 false), !noalias !179
   %731 = load ptr, ptr %730, align 8, !tbaa !164, !noalias !179
@@ -1155,7 +1155,7 @@ _ZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E9_M_invokeERKSt9_Any_dataS3_, ptr %761, align 8, !tbaa !169, !alias.scope !179
   %762 = getelementptr inbounds nuw i8, ptr %381, i64 16
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %762, align 8, !tbaa !164, !alias.scope !179
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %67) #17, !noalias !179
+  call void @llvm.lifetime.end.p0(ptr nonnull %67), !noalias !179
   br label %_ZNSt14_Function_baseD2Ev.exit.i1351
 
 763:                                              ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i2583
@@ -1167,7 +1167,7 @@ _ZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E9_M_invokeERKSt9_Any_dataS3_, ptr %765, align 8, !tbaa !169, !alias.scope !179
   %766 = getelementptr inbounds nuw i8, ptr %381, i64 16
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %766, align 8, !tbaa !164, !alias.scope !179
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %67) #17, !noalias !179
+  call void @llvm.lifetime.end.p0(ptr nonnull %67), !noalias !179
   %767 = call noundef zeroext i1 %749(ptr noundef nonnull align 8 dereferenceable(32) %363, ptr noundef nonnull align 8 dereferenceable(32) %363, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i1351
 
@@ -1183,9 +1183,9 @@ _ZNSt14_Function_baseD2Ev.exit.i1351:             ; preds = %_ZN4llvm18LegalityP
   br label %_ZL21typeIsLegalIntOrFPVecjSt16initializer_listIN4llvm3LLTEERKNS0_14RISCVSubtargetE.exit1353
 
 _ZL21typeIsLegalIntOrFPVecjSt16initializer_listIN4llvm3LLTEERKNS0_14RISCVSubtargetE.exit1353: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i1351, %771
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %362)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %363)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %361)
+  call void @llvm.lifetime.end.p0(ptr nonnull %362)
+  call void @llvm.lifetime.end.p0(ptr nonnull %363)
+  call void @llvm.lifetime.start.p0(ptr nonnull %361)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %361, i8 0, i64 32, i1 false)
   %773 = load ptr, ptr %768, align 8, !tbaa !164
   %.not.i.i.not.i.i1354 = icmp eq ptr %773, null
@@ -1213,9 +1213,9 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1355: ; preds = %774, 
   br label %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1358
 
 _ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1358: ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1355, %783
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %361)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %359)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %360)
+  call void @llvm.lifetime.end.p0(ptr nonnull %361)
+  call void @llvm.lifetime.start.p0(ptr nonnull %359)
+  call void @llvm.lifetime.start.p0(ptr nonnull %360)
   call void @_ZN4llvm18LegalityPredicates11sizeNotPow2Ej(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %359, i32 noundef 0) #17
   call void @_ZN4llvm17LegalizeMutations26widenScalarOrEltToNextPow2Ejj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.77") align 8 %360, i32 noundef 0, i32 noundef 0) #17
   %785 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %780, i8 noundef zeroext 2, ptr noundef nonnull %359, ptr noundef nonnull %360)
@@ -1239,8 +1239,8 @@ _ZNSt14_Function_baseD2Ev.exit.i1360:             ; preds = %788, %_ZN4llvm15Leg
   br label %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1362
 
 _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1362: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i1360, %792
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %359)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %360)
+  call void @llvm.lifetime.end.p0(ptr nonnull %359)
+  call void @llvm.lifetime.end.p0(ptr nonnull %360)
   %.sroa.0509.0.copyload = load i64, ptr %616, align 8, !tbaa !161
   %794 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE(ptr noundef nonnull align 8 dereferenceable(168) %785, i32 noundef 0, i64 %.sroa.0509.0.copyload)
   %795 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet9maxScalarEjNS_3LLTE(ptr noundef nonnull align 8 dereferenceable(168) %794, i32 noundef 0, i64 %.sroa.0509.0.copyload)
@@ -1253,9 +1253,9 @@ _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1362: ; preds = %_ZNSt14
   br label %_ZNSt14_Function_baseD2Ev.exit1364
 
 _ZNSt14_Function_baseD2Ev.exit1364:               ; preds = %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1362, %797
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %380) #17
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %379) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %382) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %380)
+  call void @llvm.lifetime.end.p0(ptr nonnull %379)
+  call void @llvm.lifetime.start.p0(ptr nonnull %382)
   store i32 153, ptr %382, align 4, !tbaa !163
   %799 = getelementptr inbounds nuw i8, ptr %382, i64 4
   store i32 152, ptr %799, align 4, !tbaa !163
@@ -1264,7 +1264,7 @@ _ZNSt14_Function_baseD2Ev.exit1364:               ; preds = %_ZN4llvm15LegalizeR
   %801 = getelementptr inbounds nuw i8, ptr %382, i64 12
   store i32 154, ptr %801, align 4, !tbaa !163
   %802 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderESt16initializer_listIjE(ptr noundef nonnull align 8 dereferenceable(125504) %0, ptr nonnull %382, i64 4) #17
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %358)
+  call void @llvm.lifetime.start.p0(ptr nonnull %358)
   %803 = getelementptr inbounds nuw i8, ptr %358, i64 16
   %804 = getelementptr inbounds nuw i8, ptr %358, i64 24
   %805 = getelementptr inbounds nuw i8, ptr %358, i64 8
@@ -1282,16 +1282,16 @@ _ZNSt14_Function_baseD2Ev.exit1364:               ; preds = %_ZN4llvm15LegalizeR
   br label %_ZN4llvm15LegalizeRuleSet5lowerEv.exit
 
 _ZN4llvm15LegalizeRuleSet5lowerEv.exit:           ; preds = %_ZNSt14_Function_baseD2Ev.exit1364, %808
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %358)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %382) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %383) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %358)
+  call void @llvm.lifetime.end.p0(ptr nonnull %382)
+  call void @llvm.lifetime.start.p0(ptr nonnull %383)
   store i32 156, ptr %383, align 4, !tbaa !163
   %810 = getelementptr inbounds nuw i8, ptr %383, i64 4
   store i32 158, ptr %810, align 4, !tbaa !163
   %811 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderESt16initializer_listIjE(ptr noundef nonnull align 8 dereferenceable(125504) %0, ptr nonnull %383, i64 2) #17
   %.sroa.0503.0.copyload = load i64, ptr %616, align 8, !tbaa !161
   %812 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE(ptr noundef nonnull align 8 dereferenceable(168) %811, i32 noundef 0, i64 %.sroa.0503.0.copyload)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %357)
+  call void @llvm.lifetime.start.p0(ptr nonnull %357)
   %813 = getelementptr inbounds nuw i8, ptr %357, i64 16
   %814 = getelementptr inbounds nuw i8, ptr %357, i64 24
   %815 = getelementptr inbounds nuw i8, ptr %357, i64 8
@@ -1309,9 +1309,9 @@ _ZN4llvm15LegalizeRuleSet5lowerEv.exit:           ; preds = %_ZNSt14_Function_ba
   br label %_ZN4llvm15LegalizeRuleSet5lowerEv.exit1369
 
 _ZN4llvm15LegalizeRuleSet5lowerEv.exit1369:       ; preds = %_ZN4llvm15LegalizeRuleSet5lowerEv.exit, %818
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %357)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %383) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %384) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %357)
+  call void @llvm.lifetime.end.p0(ptr nonnull %383)
+  call void @llvm.lifetime.start.p0(ptr nonnull %384)
   store i32 164, ptr %384, align 4, !tbaa !163
   %820 = getelementptr inbounds nuw i8, ptr %384, i64 4
   store i32 165, ptr %820, align 4, !tbaa !163
@@ -1320,7 +1320,7 @@ _ZN4llvm15LegalizeRuleSet5lowerEv.exit1369:       ; preds = %_ZN4llvm15LegalizeR
   %822 = getelementptr inbounds nuw i8, ptr %384, i64 12
   store i32 167, ptr %822, align 4, !tbaa !163
   %823 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderESt16initializer_listIjE(ptr noundef nonnull align 8 dereferenceable(125504) %0, ptr nonnull %384, i64 4) #17
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %356)
+  call void @llvm.lifetime.start.p0(ptr nonnull %356)
   %824 = getelementptr inbounds nuw i8, ptr %356, i64 16
   %825 = getelementptr inbounds nuw i8, ptr %356, i64 24
   %826 = getelementptr inbounds nuw i8, ptr %356, i64 8
@@ -1338,21 +1338,21 @@ _ZN4llvm15LegalizeRuleSet5lowerEv.exit1369:       ; preds = %_ZN4llvm15LegalizeR
   br label %_ZN4llvm15LegalizeRuleSet5lowerEv.exit1372
 
 _ZN4llvm15LegalizeRuleSet5lowerEv.exit1372:       ; preds = %_ZN4llvm15LegalizeRuleSet5lowerEv.exit1369, %829
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %356)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %384) #17
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %385) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %356)
+  call void @llvm.lifetime.end.p0(ptr nonnull %384)
+  call void @llvm.lifetime.start.p0(ptr nonnull %385)
   store i32 140, ptr %385, align 4, !tbaa !163
   %831 = getelementptr inbounds nuw i8, ptr %385, i64 4
   store i32 142, ptr %831, align 4, !tbaa !163
   %832 = getelementptr inbounds nuw i8, ptr %385, i64 8
   store i32 141, ptr %832, align 4, !tbaa !163
   %833 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderESt16initializer_listIjE(ptr noundef nonnull align 8 dereferenceable(125504) %0, ptr nonnull %385, i64 3) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %386) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %386)
   %834 = load i64, ptr %616, align 8, !tbaa !161
   store i64 %834, ptr %386, align 8, !tbaa !161
   %835 = getelementptr inbounds nuw i8, ptr %386, i64 8
   store i64 %834, ptr %835, align 8, !tbaa !161
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %355)
+  call void @llvm.lifetime.start.p0(ptr nonnull %355)
   call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %355, i32 noundef 0, i32 noundef 1, ptr nonnull %386, i64 1) #17
   %836 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %833, i8 noundef zeroext 0, ptr noundef nonnull %355)
   %837 = getelementptr inbounds nuw i8, ptr %355, i64 16
@@ -1365,17 +1365,17 @@ _ZN4llvm15LegalizeRuleSet5lowerEv.exit1372:       ; preds = %_ZN4llvm15LegalizeR
   br label %_ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listISt4pairINS_3LLTES3_EE.exit
 
 _ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listISt4pairINS_3LLTES3_EE.exit: ; preds = %_ZN4llvm15LegalizeRuleSet5lowerEv.exit1372, %839
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %355)
+  call void @llvm.lifetime.end.p0(ptr nonnull %355)
   %841 = load i8, ptr %612, align 1, !tbaa !24, !range !153, !noundef !154
   %842 = trunc nuw i8 %841 to i1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %387) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %387)
   store i64 137438953473, ptr %387, align 8, !tbaa !161
   %843 = getelementptr inbounds nuw i8, ptr %387, i64 8
   store i64 137438953473, ptr %843, align 8, !tbaa !161
   br i1 %842, label %844, label %_ZN4llvm15LegalizeRuleSet9customForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit
 
 844:                                              ; preds = %_ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listISt4pairINS_3LLTES3_EE.exit
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %354)
+  call void @llvm.lifetime.start.p0(ptr nonnull %354)
   call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %354, i32 noundef 0, i32 noundef 1, ptr nonnull %387, i64 1) #17
   %845 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %836, i8 noundef zeroext 8, ptr noundef nonnull %354)
   %846 = getelementptr inbounds nuw i8, ptr %354, i64 16
@@ -1388,13 +1388,13 @@ _ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listISt4pairINS_3LLTES3_EE.ex
   br label %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i
 
 _ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i: ; preds = %848, %844
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %354)
+  call void @llvm.lifetime.end.p0(ptr nonnull %354)
   br label %_ZN4llvm15LegalizeRuleSet9customForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit
 
 _ZN4llvm15LegalizeRuleSet9customForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit: ; preds = %_ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listISt4pairINS_3LLTES3_EE.exit, %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i
   %.0.i1374 = phi ptr [ %845, %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i ], [ %836, %_ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listISt4pairINS_3LLTES3_EE.exit ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %352)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %353)
+  call void @llvm.lifetime.start.p0(ptr nonnull %352)
+  call void @llvm.lifetime.start.p0(ptr nonnull %353)
   call void @_ZN4llvm18LegalityPredicates11sizeNotPow2Ej(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %352, i32 noundef 0) #17
   call void @_ZN4llvm17LegalizeMutations26widenScalarOrEltToNextPow2Ejj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.77") align 8 %353, i32 noundef 0, i32 noundef 0) #17
   %850 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %.0.i1374, i8 noundef zeroext 2, ptr noundef nonnull %352, ptr noundef nonnull %353)
@@ -1418,29 +1418,29 @@ _ZNSt14_Function_baseD2Ev.exit.i1377:             ; preds = %853, %_ZN4llvm15Leg
   br label %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1379
 
 _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1379: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i1377, %857
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %352)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %353)
+  call void @llvm.lifetime.end.p0(ptr nonnull %352)
+  call void @llvm.lifetime.end.p0(ptr nonnull %353)
   %.sroa.0494.0.copyload = load i64, ptr %616, align 8, !tbaa !161
   %859 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE(ptr noundef nonnull align 8 dereferenceable(168) %850, i32 noundef 1, i64 %.sroa.0494.0.copyload)
   %860 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet9maxScalarEjNS_3LLTE(ptr noundef nonnull align 8 dereferenceable(168) %859, i32 noundef 1, i64 %.sroa.0494.0.copyload)
   %.sroa.0492.0.copyload = load i64, ptr %616, align 8, !tbaa !161
   %861 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE(ptr noundef nonnull align 8 dereferenceable(168) %860, i32 noundef 0, i64 %.sroa.0492.0.copyload)
   %862 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet9maxScalarEjNS_3LLTE(ptr noundef nonnull align 8 dereferenceable(168) %861, i32 noundef 0, i64 %.sroa.0492.0.copyload)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %387) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %386) #17
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %385) #17
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %388) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %387)
+  call void @llvm.lifetime.end.p0(ptr nonnull %386)
+  call void @llvm.lifetime.end.p0(ptr nonnull %385)
+  call void @llvm.lifetime.start.p0(ptr nonnull %388)
   store i32 139, ptr %388, align 4, !tbaa !163
   %863 = getelementptr inbounds nuw i8, ptr %388, i64 4
   store i32 137, ptr %863, align 4, !tbaa !163
   %864 = getelementptr inbounds nuw i8, ptr %388, i64 8
   store i32 131, ptr %864, align 4, !tbaa !163
   %865 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderESt16initializer_listIjE(ptr noundef nonnull align 8 dereferenceable(125504) %0, ptr nonnull %388, i64 3) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %389) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %389)
   store i64 137438953473, ptr %389, align 8, !tbaa !161
   %866 = getelementptr inbounds nuw i8, ptr %389, i64 8
   store i64 68719476737, ptr %866, align 8, !tbaa !161
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %351)
+  call void @llvm.lifetime.start.p0(ptr nonnull %351)
   call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %351, i32 noundef 0, i32 noundef 1, ptr nonnull %389, i64 1) #17
   %867 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %865, i8 noundef zeroext 0, ptr noundef nonnull %351)
   %868 = getelementptr inbounds nuw i8, ptr %351, i64 16
@@ -1453,10 +1453,10 @@ _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1379: ; preds = %_ZNSt14
   br label %_ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listISt4pairINS_3LLTES3_EE.exit1382
 
 _ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listISt4pairINS_3LLTES3_EE.exit1382: ; preds = %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1379, %870
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %351)
+  call void @llvm.lifetime.end.p0(ptr nonnull %351)
   %872 = load i8, ptr %612, align 1, !tbaa !24, !range !153, !noundef !154
   %873 = trunc nuw i8 %872 to i1
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %390) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %390)
   store i64 274877906945, ptr %390, align 8, !tbaa !161
   %874 = getelementptr inbounds nuw i8, ptr %390, i64 8
   store i64 68719476737, ptr %874, align 8, !tbaa !161
@@ -1467,7 +1467,7 @@ _ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listISt4pairINS_3LLTES3_EE.ex
   br i1 %873, label %877, label %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit
 
 877:                                              ; preds = %_ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listISt4pairINS_3LLTES3_EE.exit1382
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %350)
+  call void @llvm.lifetime.start.p0(ptr nonnull %350)
   call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %350, i32 noundef 0, i32 noundef 1, ptr nonnull %390, i64 2) #17
   %878 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %867, i8 noundef zeroext 0, ptr noundef nonnull %350)
   %879 = getelementptr inbounds nuw i8, ptr %350, i64 16
@@ -1480,13 +1480,13 @@ _ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listISt4pairINS_3LLTES3_EE.ex
   br label %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i1385
 
 _ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i1385: ; preds = %881, %877
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %350)
+  call void @llvm.lifetime.end.p0(ptr nonnull %350)
   br label %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit
 
 _ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit: ; preds = %_ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listISt4pairINS_3LLTES3_EE.exit1382, %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i1385
   %.0.i1383 = phi ptr [ %878, %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i1385 ], [ %867, %_ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listISt4pairINS_3LLTES3_EE.exit1382 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %348)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %349)
+  call void @llvm.lifetime.start.p0(ptr nonnull %348)
+  call void @llvm.lifetime.start.p0(ptr nonnull %349)
   call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %348, i32 noundef 0, ptr nonnull %373, i64 22) #17, !noalias !182
   %883 = getelementptr inbounds nuw i8, ptr %349, i64 24
   %884 = getelementptr inbounds nuw i8, ptr %349, i64 16
@@ -1496,7 +1496,7 @@ _ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.e
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL21typeIsLegalIntOrFPVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %883, align 8, !tbaa !169, !noalias !182
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL21typeIsLegalIntOrFPVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation", ptr %884, align 8, !tbaa !164, !noalias !182
   call void @llvm.experimental.noalias.scope.decl(metadata !185)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %66) #17, !noalias !185
+  call void @llvm.lifetime.start.p0(ptr nonnull %66), !noalias !185
   %885 = getelementptr inbounds nuw i8, ptr %348, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %66, i8 0, i64 32, i1 false), !noalias !185
   %886 = load ptr, ptr %885, align 8, !tbaa !164, !noalias !185
@@ -1576,7 +1576,7 @@ _ZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E9_M_invokeERKSt9_Any_dataS3_, ptr %916, align 8, !tbaa !169, !alias.scope !185
   %917 = getelementptr inbounds nuw i8, ptr %392, i64 16
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %917, align 8, !tbaa !164, !alias.scope !185
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %66) #17, !noalias !185
+  call void @llvm.lifetime.end.p0(ptr nonnull %66), !noalias !185
   br label %_ZNSt14_Function_baseD2Ev.exit.i1388
 
 918:                                              ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i2598
@@ -1588,7 +1588,7 @@ _ZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E9_M_invokeERKSt9_Any_dataS3_, ptr %920, align 8, !tbaa !169, !alias.scope !185
   %921 = getelementptr inbounds nuw i8, ptr %392, i64 16
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %921, align 8, !tbaa !164, !alias.scope !185
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %66) #17, !noalias !185
+  call void @llvm.lifetime.end.p0(ptr nonnull %66), !noalias !185
   %922 = call noundef zeroext i1 %904(ptr noundef nonnull align 8 dereferenceable(32) %349, ptr noundef nonnull align 8 dereferenceable(32) %349, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i1388
 
@@ -1604,10 +1604,10 @@ _ZNSt14_Function_baseD2Ev.exit.i1388:             ; preds = %_ZN4llvm18LegalityP
   br label %_ZL21typeIsLegalIntOrFPVecjSt16initializer_listIN4llvm3LLTEERKNS0_14RISCVSubtargetE.exit1390
 
 _ZL21typeIsLegalIntOrFPVecjSt16initializer_listIN4llvm3LLTEERKNS0_14RISCVSubtargetE.exit1390: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i1388, %926
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %348)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %349)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %346)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %347)
+  call void @llvm.lifetime.end.p0(ptr nonnull %348)
+  call void @llvm.lifetime.end.p0(ptr nonnull %349)
+  call void @llvm.lifetime.start.p0(ptr nonnull %346)
+  call void @llvm.lifetime.start.p0(ptr nonnull %347)
   call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %346, i32 noundef 1, ptr nonnull %373, i64 22) #17, !noalias !188
   %928 = getelementptr inbounds nuw i8, ptr %347, i64 24
   %929 = getelementptr inbounds nuw i8, ptr %347, i64 16
@@ -1617,7 +1617,7 @@ _ZL21typeIsLegalIntOrFPVecjSt16initializer_listIN4llvm3LLTEERKNS0_14RISCVSubtarg
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL21typeIsLegalIntOrFPVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %928, align 8, !tbaa !169, !noalias !188
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL21typeIsLegalIntOrFPVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation", ptr %929, align 8, !tbaa !164, !noalias !188
   call void @llvm.experimental.noalias.scope.decl(metadata !191)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %65) #17, !noalias !191
+  call void @llvm.lifetime.start.p0(ptr nonnull %65), !noalias !191
   %930 = getelementptr inbounds nuw i8, ptr %346, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %65, i8 0, i64 32, i1 false), !noalias !191
   %931 = load ptr, ptr %930, align 8, !tbaa !164, !noalias !191
@@ -1697,7 +1697,7 @@ _ZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E9_M_invokeERKSt9_Any_dataS3_, ptr %961, align 8, !tbaa !169, !alias.scope !191
   %962 = getelementptr inbounds nuw i8, ptr %393, i64 16
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %962, align 8, !tbaa !164, !alias.scope !191
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %65) #17, !noalias !191
+  call void @llvm.lifetime.end.p0(ptr nonnull %65), !noalias !191
   br label %_ZNSt14_Function_baseD2Ev.exit.i1393
 
 963:                                              ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i2613
@@ -1709,7 +1709,7 @@ _ZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E9_M_invokeERKSt9_Any_dataS3_, ptr %965, align 8, !tbaa !169, !alias.scope !191
   %966 = getelementptr inbounds nuw i8, ptr %393, i64 16
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %966, align 8, !tbaa !164, !alias.scope !191
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %65) #17, !noalias !191
+  call void @llvm.lifetime.end.p0(ptr nonnull %65), !noalias !191
   %967 = call noundef zeroext i1 %949(ptr noundef nonnull align 8 dereferenceable(32) %347, ptr noundef nonnull align 8 dereferenceable(32) %347, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i1393
 
@@ -1725,10 +1725,10 @@ _ZNSt14_Function_baseD2Ev.exit.i1393:             ; preds = %_ZN4llvm18LegalityP
   br label %_ZL21typeIsLegalIntOrFPVecjSt16initializer_listIN4llvm3LLTEERKNS0_14RISCVSubtargetE.exit1395
 
 _ZL21typeIsLegalIntOrFPVecjSt16initializer_listIN4llvm3LLTEERKNS0_14RISCVSubtargetE.exit1395: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i1393, %971
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %346)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %347)
+  call void @llvm.lifetime.end.p0(ptr nonnull %346)
+  call void @llvm.lifetime.end.p0(ptr nonnull %347)
   call void @llvm.experimental.noalias.scope.decl(metadata !194)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %345) #17, !noalias !194
+  call void @llvm.lifetime.start.p0(ptr nonnull %345), !noalias !194
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %345, i8 0, i64 32, i1 false), !noalias !194
   %973 = load ptr, ptr %923, align 8, !tbaa !164, !noalias !194
   %.not.i.i.not.i.i1396 = icmp eq ptr %973, null
@@ -1803,8 +1803,8 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1399: ; preds = %_ZNSt
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E9_M_invokeERKSt9_Any_dataS3_, ptr %1000, align 8, !tbaa !169, !alias.scope !194
   %1001 = getelementptr inbounds nuw i8, ptr %391, i64 16
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %1001, align 8, !tbaa !164, !alias.scope !194
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %345) #17, !noalias !194
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %344)
+  call void @llvm.lifetime.end.p0(ptr nonnull %345), !noalias !194
+  call void @llvm.lifetime.start.p0(ptr nonnull %344)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %344, i8 0, i64 32, i1 false)
   %1002 = getelementptr inbounds nuw i8, ptr %344, i64 24
   %1003 = getelementptr inbounds nuw i8, ptr %344, i64 16
@@ -1859,9 +1859,9 @@ _ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates3allISt8function
   br label %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1402
 
 _ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1402: ; preds = %_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates3allISt8functionIFbRKNS1_13LegalityQueryEEEEET_SA_SA_EUlS7_E_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit, %1025
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %344)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %342)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %343)
+  call void @llvm.lifetime.end.p0(ptr nonnull %344)
+  call void @llvm.lifetime.start.p0(ptr nonnull %342)
+  call void @llvm.lifetime.start.p0(ptr nonnull %343)
   call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %342, i32 noundef 1, ptr nonnull %372, i64 7) #17, !noalias !197
   %1027 = getelementptr inbounds nuw i8, ptr %343, i64 24
   %1028 = getelementptr inbounds nuw i8, ptr %343, i64 16
@@ -1871,7 +1871,7 @@ _ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1402
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL18typeIsLegalBoolVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %1027, align 8, !tbaa !169, !noalias !197
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL18typeIsLegalBoolVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation", ptr %1028, align 8, !tbaa !164, !noalias !197
   call void @llvm.experimental.noalias.scope.decl(metadata !200)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %64) #17, !noalias !200
+  call void @llvm.lifetime.start.p0(ptr nonnull %64), !noalias !200
   %1029 = getelementptr inbounds nuw i8, ptr %342, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %64, i8 0, i64 32, i1 false), !noalias !200
   %1030 = load ptr, ptr %1029, align 8, !tbaa !164, !noalias !200
@@ -1951,7 +1951,7 @@ _ZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E9_M_invokeERKSt9_Any_dataS3_, ptr %1060, align 8, !tbaa !169, !alias.scope !200
   %1061 = getelementptr inbounds nuw i8, ptr %394, i64 16
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %1061, align 8, !tbaa !164, !alias.scope !200
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %64) #17, !noalias !200
+  call void @llvm.lifetime.end.p0(ptr nonnull %64), !noalias !200
   br label %_ZNSt14_Function_baseD2Ev.exit.i1405
 
 1062:                                             ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i2628
@@ -1963,7 +1963,7 @@ _ZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E9_M_invokeERKSt9_Any_dataS3_, ptr %1064, align 8, !tbaa !169, !alias.scope !200
   %1065 = getelementptr inbounds nuw i8, ptr %394, i64 16
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %1065, align 8, !tbaa !164, !alias.scope !200
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %64) #17, !noalias !200
+  call void @llvm.lifetime.end.p0(ptr nonnull %64), !noalias !200
   %1066 = call noundef zeroext i1 %1048(ptr noundef nonnull align 8 dereferenceable(32) %343, ptr noundef nonnull align 8 dereferenceable(32) %343, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i1405
 
@@ -1979,9 +1979,9 @@ _ZNSt14_Function_baseD2Ev.exit.i1405:             ; preds = %_ZN4llvm18LegalityP
   br label %_ZL18typeIsLegalBoolVecjSt16initializer_listIN4llvm3LLTEERKNS0_14RISCVSubtargetE.exit
 
 _ZL18typeIsLegalBoolVecjSt16initializer_listIN4llvm3LLTEERKNS0_14RISCVSubtargetE.exit: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i1405, %1070
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %342)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %343)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %341)
+  call void @llvm.lifetime.end.p0(ptr nonnull %342)
+  call void @llvm.lifetime.end.p0(ptr nonnull %343)
+  call void @llvm.lifetime.start.p0(ptr nonnull %341)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %341, i8 0, i64 32, i1 false)
   %1072 = load ptr, ptr %1067, align 8, !tbaa !164
   %.not.i.i.not.i.i1407 = icmp eq ptr %1072, null
@@ -2009,7 +2009,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1408: ; preds = %1073,
   br label %_ZN4llvm15LegalizeRuleSet8customIfESt8functionIFbRKNS_13LegalityQueryEEE.exit
 
 _ZN4llvm15LegalizeRuleSet8customIfESt8functionIFbRKNS_13LegalityQueryEEE.exit: ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1408, %1082
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %341)
+  call void @llvm.lifetime.end.p0(ptr nonnull %341)
   %.sroa.0478.0.copyload = load i64, ptr %616, align 8, !tbaa !161
   %1084 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet9maxScalarEjNS_3LLTE(ptr noundef nonnull align 8 dereferenceable(168) %1079, i32 noundef 0, i64 %.sroa.0478.0.copyload)
   %1085 = load ptr, ptr %1067, align 8, !tbaa !164
@@ -2048,14 +2048,14 @@ _ZNSt14_Function_baseD2Ev.exit1416:               ; preds = %_ZNSt14_Function_ba
   br label %_ZNSt14_Function_baseD2Ev.exit1418
 
 _ZNSt14_Function_baseD2Ev.exit1418:               ; preds = %_ZNSt14_Function_baseD2Ev.exit1416, %1095
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %390) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %389) #17
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %388) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %390)
+  call void @llvm.lifetime.end.p0(ptr nonnull %389)
+  call void @llvm.lifetime.end.p0(ptr nonnull %388)
   %1097 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(125504) %0, i32 noundef 138) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %395) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %395)
   %1098 = load i64, ptr %616, align 8, !tbaa !161
   store i64 %1098, ptr %395, align 8, !tbaa !161
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %340)
+  call void @llvm.lifetime.start.p0(ptr nonnull %340)
   call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %340, i32 noundef 0, ptr nonnull %395, i64 1) #17
   %1099 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %1097, i8 noundef zeroext 8, ptr noundef nonnull %340)
   %1100 = getelementptr inbounds nuw i8, ptr %340, i64 16
@@ -2068,11 +2068,11 @@ _ZNSt14_Function_baseD2Ev.exit1418:               ; preds = %_ZNSt14_Function_ba
   br label %_ZN4llvm15LegalizeRuleSet9customForESt16initializer_listINS_3LLTEE.exit
 
 _ZN4llvm15LegalizeRuleSet9customForESt16initializer_listINS_3LLTEE.exit: ; preds = %_ZNSt14_Function_baseD2Ev.exit1418, %1102
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %340)
+  call void @llvm.lifetime.end.p0(ptr nonnull %340)
   %.sroa.0475.0.copyload = load i64, ptr %616, align 8, !tbaa !161
   %1104 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE(ptr noundef nonnull align 8 dereferenceable(168) %1099, i32 noundef 0, i64 %.sroa.0475.0.copyload)
   %1105 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet9maxScalarEjNS_3LLTE(ptr noundef nonnull align 8 dereferenceable(168) %1104, i32 noundef 0, i64 %.sroa.0475.0.copyload)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %339)
+  call void @llvm.lifetime.start.p0(ptr nonnull %339)
   %1106 = getelementptr inbounds nuw i8, ptr %339, i64 16
   %1107 = getelementptr inbounds nuw i8, ptr %339, i64 24
   %1108 = getelementptr inbounds nuw i8, ptr %339, i64 8
@@ -2090,9 +2090,9 @@ _ZN4llvm15LegalizeRuleSet9customForESt16initializer_listINS_3LLTEE.exit: ; preds
   br label %_ZN4llvm15LegalizeRuleSet5lowerEv.exit1423
 
 _ZN4llvm15LegalizeRuleSet5lowerEv.exit1423:       ; preds = %_ZN4llvm15LegalizeRuleSet9customForESt16initializer_listINS_3LLTEE.exit, %1111
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %339)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %395) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %396) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %339)
+  call void @llvm.lifetime.end.p0(ptr nonnull %395)
+  call void @llvm.lifetime.start.p0(ptr nonnull %396)
   store i32 76, ptr %396, align 4, !tbaa !161
   %1113 = getelementptr inbounds nuw i8, ptr %396, i64 4
   store i32 74, ptr %1113, align 4, !tbaa !161
@@ -2116,13 +2116,13 @@ _ZN4llvm15LegalizeRuleSet5lowerEv.exit1423:       ; preds = %_ZN4llvm15LegalizeR
   br label %1148
 
 1131:                                             ; preds = %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1460
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %396) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %400) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %396)
+  call void @llvm.lifetime.start.p0(ptr nonnull %400)
   store i32 143, ptr %400, align 4, !tbaa !163
   %1132 = getelementptr inbounds nuw i8, ptr %400, i64 4
   store i32 144, ptr %1132, align 4, !tbaa !163
   %1133 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderESt16initializer_listIjE(ptr noundef nonnull align 8 dereferenceable(125504) %0, ptr nonnull %400, i64 2) #17
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %338)
+  call void @llvm.lifetime.start.p0(ptr nonnull %338)
   %1134 = getelementptr inbounds nuw i8, ptr %338, i64 16
   %1135 = getelementptr inbounds nuw i8, ptr %338, i64 24
   %1136 = getelementptr inbounds nuw i8, ptr %338, i64 8
@@ -2140,9 +2140,9 @@ _ZN4llvm15LegalizeRuleSet5lowerEv.exit1423:       ; preds = %_ZN4llvm15LegalizeR
   br label %_ZN4llvm15LegalizeRuleSet5lowerEv.exit1426
 
 _ZN4llvm15LegalizeRuleSet5lowerEv.exit1426:       ; preds = %1131, %1139
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %338)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %400) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %401) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %338)
+  call void @llvm.lifetime.end.p0(ptr nonnull %400)
+  call void @llvm.lifetime.start.p0(ptr nonnull %401)
   store i32 145, ptr %401, align 4, !tbaa !163
   %1141 = getelementptr inbounds nuw i8, ptr %401, i64 4
   store i32 146, ptr %1141, align 4, !tbaa !163
@@ -2153,7 +2153,7 @@ _ZN4llvm15LegalizeRuleSet5lowerEv.exit1426:       ; preds = %1131, %1139
   br i1 %1145, label %.thread, label %1234
 
 .thread:                                          ; preds = %_ZN4llvm15LegalizeRuleSet5lowerEv.exit1426
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %402) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %402)
   %1146 = load i64, ptr %616, align 8, !tbaa !161
   store i64 %1146, ptr %402, align 8, !tbaa !161
   %1147 = getelementptr inbounds nuw i8, ptr %402, i64 8
@@ -2180,7 +2180,7 @@ _ZN4llvm15LegalizeRuleSet5lowerEv.exit1426:       ; preds = %1131, %1139
   call void @_ZN4llvm18LegalityPredicates6typeIsEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %398, i32 noundef %1152, i64 274877906945) #17
   call void @_ZN4llvm18LegalityPredicates6typeIsEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %399, i32 noundef %1153, i64 137438953473) #17
   call void @llvm.experimental.noalias.scope.decl(metadata !204)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %337) #17, !noalias !204
+  call void @llvm.lifetime.start.p0(ptr nonnull %337), !noalias !204
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %337, i8 0, i64 32, i1 false), !noalias !204
   %1159 = load ptr, ptr %1115, align 8, !tbaa !164, !noalias !204
   %.not.i.i.not.i.i1427 = icmp eq ptr %1159, null
@@ -2247,8 +2247,8 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1443: ; preds = %_ZNSt
   store ptr %1175, ptr %397, align 8, !tbaa !175, !alias.scope !204
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E9_M_invokeERKSt9_Any_dataS3_, ptr %1123, align 8, !tbaa !169, !alias.scope !204
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %1124, align 8, !tbaa !164, !alias.scope !204
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %337) #17, !noalias !204
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %336)
+  call void @llvm.lifetime.end.p0(ptr nonnull %337), !noalias !204
+  call void @llvm.lifetime.start.p0(ptr nonnull %336)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %336, i8 0, i64 32, i1 false)
   %1182 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %1182, i8 0, i64 32, i1 false)
@@ -2301,7 +2301,7 @@ _ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates3allISt8function
   br label %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1446
 
 _ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1446: ; preds = %_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates3allISt8functionIFbRKNS1_13LegalityQueryEEEEET_SA_SA_EUlS7_E_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit3837, %1203
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %336)
+  call void @llvm.lifetime.end.p0(ptr nonnull %336)
   %1205 = load ptr, ptr %1124, align 8, !tbaa !164
   %.not.i1447 = icmp eq ptr %1205, null
   br i1 %.not.i1447, label %_ZNSt14_Function_baseD2Ev.exit1448, label %1206
@@ -2330,8 +2330,8 @@ _ZNSt14_Function_baseD2Ev.exit1450:               ; preds = %_ZNSt14_Function_ba
 
 _ZNSt14_Function_baseD2Ev.exit1452:               ; preds = %1212, %_ZNSt14_Function_baseD2Ev.exit1450, %1148
   %1214 = load i32, ptr %611, align 8, !tbaa !155
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %334)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %335)
+  call void @llvm.lifetime.start.p0(ptr nonnull %334)
+  call void @llvm.lifetime.start.p0(ptr nonnull %335)
   call void @_ZN4llvm18LegalityPredicates11sizeNotPow2Ej(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %334, i32 noundef %1153) #17
   call void @_ZN4llvm17LegalizeMutations26widenScalarOrEltToNextPow2Ejj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.77") align 8 %335, i32 noundef %1153, i32 noundef %1214) #17
   %1215 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %1150, i8 noundef zeroext 2, ptr noundef nonnull %334, ptr noundef nonnull %335)
@@ -2353,11 +2353,11 @@ _ZNSt14_Function_baseD2Ev.exit.i1454:             ; preds = %1217, %_ZNSt14_Func
   br label %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1456
 
 _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1456: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i1454, %1220
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %334)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %335)
+  call void @llvm.lifetime.end.p0(ptr nonnull %334)
+  call void @llvm.lifetime.end.p0(ptr nonnull %335)
   %1222 = load i32, ptr %611, align 8, !tbaa !155
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %332)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %333)
+  call void @llvm.lifetime.start.p0(ptr nonnull %332)
+  call void @llvm.lifetime.start.p0(ptr nonnull %333)
   call void @_ZN4llvm18LegalityPredicates11sizeNotPow2Ej(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %332, i32 noundef %1152) #17
   call void @_ZN4llvm17LegalizeMutations26widenScalarOrEltToNextPow2Ejj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.77") align 8 %333, i32 noundef %1152, i32 noundef %1222) #17
   %1223 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %1215, i8 noundef zeroext 2, ptr noundef nonnull %332, ptr noundef nonnull %333)
@@ -2379,8 +2379,8 @@ _ZNSt14_Function_baseD2Ev.exit.i1458:             ; preds = %1225, %_ZN4llvm15Le
   br label %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1460
 
 _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1460: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i1458, %1228
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %332)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %333)
+  call void @llvm.lifetime.end.p0(ptr nonnull %332)
+  call void @llvm.lifetime.end.p0(ptr nonnull %333)
   %.sroa.0455.0.copyload = load i64, ptr %616, align 8, !tbaa !161
   %1230 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE(ptr noundef nonnull align 8 dereferenceable(168) %1223, i32 noundef %1153, i64 %.sroa.0455.0.copyload)
   %1231 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet9maxScalarEjNS_3LLTE(ptr noundef nonnull align 8 dereferenceable(168) %1230, i32 noundef %1153, i64 %.sroa.0455.0.copyload)
@@ -2395,7 +2395,7 @@ _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1460: ; preds = %_ZNSt14
   %1235 = getelementptr inbounds nuw i8, ptr %1, i64 398
   %1236 = load i8, ptr %1235, align 2, !tbaa !207, !range !153, !noundef !154
   %1237 = trunc nuw i8 %1236 to i1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %402) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %402)
   %1238 = load i64, ptr %616, align 8, !tbaa !161
   store i64 %1238, ptr %402, align 8, !tbaa !161
   %1239 = getelementptr inbounds nuw i8, ptr %402, i64 8
@@ -2403,7 +2403,7 @@ _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1460: ; preds = %_ZNSt14
   br i1 %1237, label %1240, label %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit1464
 
 1240:                                             ; preds = %.thread, %1234
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %331)
+  call void @llvm.lifetime.start.p0(ptr nonnull %331)
   call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %331, i32 noundef 0, i32 noundef 1, ptr nonnull %402, i64 1) #17
   %1241 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %1142, i8 noundef zeroext 0, ptr noundef nonnull %331)
   %1242 = getelementptr inbounds nuw i8, ptr %331, i64 16
@@ -2416,7 +2416,7 @@ _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1460: ; preds = %_ZNSt14
   br label %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i1463
 
 _ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i1463: ; preds = %1244, %1240
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %331)
+  call void @llvm.lifetime.end.p0(ptr nonnull %331)
   br label %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit1464
 
 _ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit1464: ; preds = %1234, %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i1463
@@ -2426,7 +2426,7 @@ _ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.e
   br i1 %1247, label %1249, label %.thread3489
 
 .thread3489:                                      ; preds = %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit1464
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %403) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %403)
   store i64 137438953473, ptr %403, align 8, !tbaa !161
   %1248 = getelementptr inbounds nuw i8, ptr %403, i64 8
   store i64 137438953473, ptr %1248, align 8, !tbaa !161
@@ -2438,7 +2438,7 @@ _ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.e
   br i1 %1251, label %.thread3487, label %1253
 
 .thread3487:                                      ; preds = %1249
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %403) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %403)
   store i64 137438953473, ptr %403, align 8, !tbaa !161
   %1252 = getelementptr inbounds nuw i8, ptr %403, i64 8
   store i64 137438953473, ptr %1252, align 8, !tbaa !161
@@ -2448,14 +2448,14 @@ _ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.e
   %1254 = getelementptr inbounds nuw i8, ptr %1, i64 398
   %1255 = load i8, ptr %1254, align 2, !tbaa !207, !range !153, !noundef !154
   %1256 = trunc nuw i8 %1255 to i1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %403) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %403)
   store i64 137438953473, ptr %403, align 8, !tbaa !161
   %1257 = getelementptr inbounds nuw i8, ptr %403, i64 8
   store i64 137438953473, ptr %1257, align 8, !tbaa !161
   br i1 %1256, label %1258, label %_ZN4llvm15LegalizeRuleSet9customForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit1468
 
 1258:                                             ; preds = %.thread3487, %1253
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %330)
+  call void @llvm.lifetime.start.p0(ptr nonnull %330)
   call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %330, i32 noundef 0, i32 noundef 1, ptr nonnull %403, i64 1) #17
   %1259 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %.0.i1461, i8 noundef zeroext 8, ptr noundef nonnull %330)
   %1260 = getelementptr inbounds nuw i8, ptr %330, i64 16
@@ -2468,12 +2468,12 @@ _ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.e
   br label %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i1467
 
 _ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i1467: ; preds = %1262, %1258
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %330)
+  call void @llvm.lifetime.end.p0(ptr nonnull %330)
   br label %_ZN4llvm15LegalizeRuleSet9customForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit1468
 
 _ZN4llvm15LegalizeRuleSet9customForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit1468: ; preds = %.thread3489, %1253, %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i1467
   %.0.i1465 = phi ptr [ %1259, %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i1467 ], [ %.0.i1461, %1253 ], [ %.0.i1461, %.thread3489 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %329)
+  call void @llvm.lifetime.start.p0(ptr nonnull %329)
   %1264 = getelementptr inbounds nuw i8, ptr %329, i64 16
   %1265 = getelementptr inbounds nuw i8, ptr %329, i64 24
   %1266 = getelementptr inbounds nuw i8, ptr %329, i64 8
@@ -2491,14 +2491,14 @@ _ZN4llvm15LegalizeRuleSet9customForEbSt16initializer_listISt4pairINS_3LLTES3_EE.
   br label %_ZN4llvm15LegalizeRuleSet5lowerEv.exit1471
 
 _ZN4llvm15LegalizeRuleSet5lowerEv.exit1471:       ; preds = %_ZN4llvm15LegalizeRuleSet9customForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit1468, %1269
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %329)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %403) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %402) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %401) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %329)
+  call void @llvm.lifetime.end.p0(ptr nonnull %403)
+  call void @llvm.lifetime.end.p0(ptr nonnull %402)
+  call void @llvm.lifetime.end.p0(ptr nonnull %401)
   %1271 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(125504) %0, i32 noundef 246) #17
   %.sroa.0443.0.copyload = load i64, ptr %616, align 8, !tbaa !161
   %1272 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet9maxScalarEjNS_3LLTE(ptr noundef nonnull align 8 dereferenceable(168) %1271, i32 noundef 0, i64 %.sroa.0443.0.copyload)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %328)
+  call void @llvm.lifetime.start.p0(ptr nonnull %328)
   %1273 = getelementptr inbounds nuw i8, ptr %328, i64 16
   %1274 = getelementptr inbounds nuw i8, ptr %328, i64 24
   %1275 = getelementptr inbounds nuw i8, ptr %328, i64 8
@@ -2516,10 +2516,10 @@ _ZN4llvm15LegalizeRuleSet5lowerEv.exit1471:       ; preds = %_ZN4llvm15LegalizeR
   br label %_ZN4llvm15LegalizeRuleSet5lowerEv.exit1474
 
 _ZN4llvm15LegalizeRuleSet5lowerEv.exit1474:       ; preds = %_ZN4llvm15LegalizeRuleSet5lowerEv.exit1471, %1278
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %328)
+  call void @llvm.lifetime.end.p0(ptr nonnull %328)
   %1280 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(125504) %0, i32 noundef 82) #17
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %326)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %327)
+  call void @llvm.lifetime.start.p0(ptr nonnull %326)
+  call void @llvm.lifetime.start.p0(ptr nonnull %327)
   call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %326, i32 noundef 0, ptr nonnull %373, i64 22) #17, !noalias !208
   %1281 = getelementptr inbounds nuw i8, ptr %327, i64 24
   %1282 = getelementptr inbounds nuw i8, ptr %327, i64 16
@@ -2529,7 +2529,7 @@ _ZN4llvm15LegalizeRuleSet5lowerEv.exit1474:       ; preds = %_ZN4llvm15LegalizeR
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL21typeIsLegalIntOrFPVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %1281, align 8, !tbaa !169, !noalias !208
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL21typeIsLegalIntOrFPVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation", ptr %1282, align 8, !tbaa !164, !noalias !208
   call void @llvm.experimental.noalias.scope.decl(metadata !211)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %63) #17, !noalias !211
+  call void @llvm.lifetime.start.p0(ptr nonnull %63), !noalias !211
   %1283 = getelementptr inbounds nuw i8, ptr %326, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %63, i8 0, i64 32, i1 false), !noalias !211
   %1284 = load ptr, ptr %1283, align 8, !tbaa !164, !noalias !211
@@ -2609,7 +2609,7 @@ _ZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E9_M_invokeERKSt9_Any_dataS3_, ptr %1314, align 8, !tbaa !169, !alias.scope !211
   %1315 = getelementptr inbounds nuw i8, ptr %406, i64 16
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %1315, align 8, !tbaa !164, !alias.scope !211
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %63) #17, !noalias !211
+  call void @llvm.lifetime.end.p0(ptr nonnull %63), !noalias !211
   br label %_ZNSt14_Function_baseD2Ev.exit.i1477
 
 1316:                                             ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i2643
@@ -2621,7 +2621,7 @@ _ZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E9_M_invokeERKSt9_Any_dataS3_, ptr %1318, align 8, !tbaa !169, !alias.scope !211
   %1319 = getelementptr inbounds nuw i8, ptr %406, i64 16
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %1319, align 8, !tbaa !164, !alias.scope !211
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %63) #17, !noalias !211
+  call void @llvm.lifetime.end.p0(ptr nonnull %63), !noalias !211
   %1320 = call noundef zeroext i1 %1302(ptr noundef nonnull align 8 dereferenceable(32) %327, ptr noundef nonnull align 8 dereferenceable(32) %327, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i1477
 
@@ -2637,10 +2637,10 @@ _ZNSt14_Function_baseD2Ev.exit.i1477:             ; preds = %_ZN4llvm18LegalityP
   br label %_ZL21typeIsLegalIntOrFPVecjSt16initializer_listIN4llvm3LLTEERKNS0_14RISCVSubtargetE.exit1479
 
 _ZL21typeIsLegalIntOrFPVecjSt16initializer_listIN4llvm3LLTEERKNS0_14RISCVSubtargetE.exit1479: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i1477, %1324
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %326)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %327)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %324)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %325)
+  call void @llvm.lifetime.end.p0(ptr nonnull %326)
+  call void @llvm.lifetime.end.p0(ptr nonnull %327)
+  call void @llvm.lifetime.start.p0(ptr nonnull %324)
+  call void @llvm.lifetime.start.p0(ptr nonnull %325)
   call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %324, i32 noundef 0, ptr nonnull %372, i64 7) #17, !noalias !214
   %1326 = getelementptr inbounds nuw i8, ptr %325, i64 24
   %1327 = getelementptr inbounds nuw i8, ptr %325, i64 16
@@ -2650,7 +2650,7 @@ _ZL21typeIsLegalIntOrFPVecjSt16initializer_listIN4llvm3LLTEERKNS0_14RISCVSubtarg
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL18typeIsLegalBoolVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %1326, align 8, !tbaa !169, !noalias !214
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL18typeIsLegalBoolVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation", ptr %1327, align 8, !tbaa !164, !noalias !214
   call void @llvm.experimental.noalias.scope.decl(metadata !217)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %62) #17, !noalias !217
+  call void @llvm.lifetime.start.p0(ptr nonnull %62), !noalias !217
   %1328 = getelementptr inbounds nuw i8, ptr %324, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %62, i8 0, i64 32, i1 false), !noalias !217
   %1329 = load ptr, ptr %1328, align 8, !tbaa !164, !noalias !217
@@ -2730,7 +2730,7 @@ _ZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E9_M_invokeERKSt9_Any_dataS3_, ptr %1359, align 8, !tbaa !169, !alias.scope !217
   %1360 = getelementptr inbounds nuw i8, ptr %407, i64 16
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %1360, align 8, !tbaa !164, !alias.scope !217
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %62) #17, !noalias !217
+  call void @llvm.lifetime.end.p0(ptr nonnull %62), !noalias !217
   br label %_ZNSt14_Function_baseD2Ev.exit.i1482
 
 1361:                                             ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i2658
@@ -2742,7 +2742,7 @@ _ZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E9_M_invokeERKSt9_Any_dataS3_, ptr %1363, align 8, !tbaa !169, !alias.scope !217
   %1364 = getelementptr inbounds nuw i8, ptr %407, i64 16
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %1364, align 8, !tbaa !164, !alias.scope !217
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %62) #17, !noalias !217
+  call void @llvm.lifetime.end.p0(ptr nonnull %62), !noalias !217
   %1365 = call noundef zeroext i1 %1347(ptr noundef nonnull align 8 dereferenceable(32) %325, ptr noundef nonnull align 8 dereferenceable(32) %325, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i1482
 
@@ -2758,10 +2758,10 @@ _ZNSt14_Function_baseD2Ev.exit.i1482:             ; preds = %_ZN4llvm18LegalityP
   br label %_ZL18typeIsLegalBoolVecjSt16initializer_listIN4llvm3LLTEERKNS0_14RISCVSubtargetE.exit1484
 
 _ZL18typeIsLegalBoolVecjSt16initializer_listIN4llvm3LLTEERKNS0_14RISCVSubtargetE.exit1484: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i1482, %1369
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %324)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %325)
+  call void @llvm.lifetime.end.p0(ptr nonnull %324)
+  call void @llvm.lifetime.end.p0(ptr nonnull %325)
   call void @llvm.experimental.noalias.scope.decl(metadata !220)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %323) #17, !noalias !220
+  call void @llvm.lifetime.start.p0(ptr nonnull %323), !noalias !220
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %323, i8 0, i64 32, i1 false), !noalias !220
   %1371 = load ptr, ptr %1321, align 8, !tbaa !164, !noalias !220
   %.not.i.i.not.i.i1485 = icmp eq ptr %1371, null
@@ -2836,9 +2836,9 @@ _ZN4llvm18LegalityPredicates3anyISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3anyISt8functionIS4_EEET_S9_S9_EUlS3_E_E9_M_invokeERKSt9_Any_dataS3_, ptr %1398, align 8, !tbaa !169, !alias.scope !220
   %1399 = getelementptr inbounds nuw i8, ptr %405, i64 16
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3anyISt8functionIS4_EEET_S9_S9_EUlS3_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %1399, align 8, !tbaa !164, !alias.scope !220
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %323) #17, !noalias !220
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %321)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %322)
+  call void @llvm.lifetime.end.p0(ptr nonnull %323), !noalias !220
+  call void @llvm.lifetime.start.p0(ptr nonnull %321)
+  call void @llvm.lifetime.start.p0(ptr nonnull %322)
   call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %321, i32 noundef 1, ptr nonnull %373, i64 22) #17, !noalias !223
   %1400 = getelementptr inbounds nuw i8, ptr %322, i64 24
   %1401 = getelementptr inbounds nuw i8, ptr %322, i64 16
@@ -2848,7 +2848,7 @@ _ZN4llvm18LegalityPredicates3anyISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL21typeIsLegalIntOrFPVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %1400, align 8, !tbaa !169, !noalias !223
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL21typeIsLegalIntOrFPVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation", ptr %1401, align 8, !tbaa !164, !noalias !223
   call void @llvm.experimental.noalias.scope.decl(metadata !226)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %61) #17, !noalias !226
+  call void @llvm.lifetime.start.p0(ptr nonnull %61), !noalias !226
   %1402 = getelementptr inbounds nuw i8, ptr %321, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %61, i8 0, i64 32, i1 false), !noalias !226
   %1403 = load ptr, ptr %1402, align 8, !tbaa !164, !noalias !226
@@ -2928,7 +2928,7 @@ _ZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E9_M_invokeERKSt9_Any_dataS3_, ptr %1433, align 8, !tbaa !169, !alias.scope !226
   %1434 = getelementptr inbounds nuw i8, ptr %409, i64 16
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %1434, align 8, !tbaa !164, !alias.scope !226
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %61) #17, !noalias !226
+  call void @llvm.lifetime.end.p0(ptr nonnull %61), !noalias !226
   br label %_ZNSt14_Function_baseD2Ev.exit.i1500
 
 1435:                                             ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i2673
@@ -2940,7 +2940,7 @@ _ZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E9_M_invokeERKSt9_Any_dataS3_, ptr %1437, align 8, !tbaa !169, !alias.scope !226
   %1438 = getelementptr inbounds nuw i8, ptr %409, i64 16
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %1438, align 8, !tbaa !164, !alias.scope !226
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %61) #17, !noalias !226
+  call void @llvm.lifetime.end.p0(ptr nonnull %61), !noalias !226
   %1439 = call noundef zeroext i1 %1421(ptr noundef nonnull align 8 dereferenceable(32) %322, ptr noundef nonnull align 8 dereferenceable(32) %322, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i1500
 
@@ -2956,10 +2956,10 @@ _ZNSt14_Function_baseD2Ev.exit.i1500:             ; preds = %_ZN4llvm18LegalityP
   br label %_ZL21typeIsLegalIntOrFPVecjSt16initializer_listIN4llvm3LLTEERKNS0_14RISCVSubtargetE.exit1502
 
 _ZL21typeIsLegalIntOrFPVecjSt16initializer_listIN4llvm3LLTEERKNS0_14RISCVSubtargetE.exit1502: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i1500, %1443
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %321)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %322)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %319)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %320)
+  call void @llvm.lifetime.end.p0(ptr nonnull %321)
+  call void @llvm.lifetime.end.p0(ptr nonnull %322)
+  call void @llvm.lifetime.start.p0(ptr nonnull %319)
+  call void @llvm.lifetime.start.p0(ptr nonnull %320)
   call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %319, i32 noundef 1, ptr nonnull %372, i64 7) #17, !noalias !229
   %1445 = getelementptr inbounds nuw i8, ptr %320, i64 24
   %1446 = getelementptr inbounds nuw i8, ptr %320, i64 16
@@ -2969,7 +2969,7 @@ _ZL21typeIsLegalIntOrFPVecjSt16initializer_listIN4llvm3LLTEERKNS0_14RISCVSubtarg
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL18typeIsLegalBoolVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %1445, align 8, !tbaa !169, !noalias !229
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL18typeIsLegalBoolVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation", ptr %1446, align 8, !tbaa !164, !noalias !229
   call void @llvm.experimental.noalias.scope.decl(metadata !232)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %60) #17, !noalias !232
+  call void @llvm.lifetime.start.p0(ptr nonnull %60), !noalias !232
   %1447 = getelementptr inbounds nuw i8, ptr %319, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %60, i8 0, i64 32, i1 false), !noalias !232
   %1448 = load ptr, ptr %1447, align 8, !tbaa !164, !noalias !232
@@ -3049,7 +3049,7 @@ _ZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E9_M_invokeERKSt9_Any_dataS3_, ptr %1478, align 8, !tbaa !169, !alias.scope !232
   %1479 = getelementptr inbounds nuw i8, ptr %410, i64 16
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %1479, align 8, !tbaa !164, !alias.scope !232
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %60) #17, !noalias !232
+  call void @llvm.lifetime.end.p0(ptr nonnull %60), !noalias !232
   br label %_ZNSt14_Function_baseD2Ev.exit.i1505
 
 1480:                                             ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i2688
@@ -3061,7 +3061,7 @@ _ZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E9_M_invokeERKSt9_Any_dataS3_, ptr %1482, align 8, !tbaa !169, !alias.scope !232
   %1483 = getelementptr inbounds nuw i8, ptr %410, i64 16
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %1483, align 8, !tbaa !164, !alias.scope !232
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %60) #17, !noalias !232
+  call void @llvm.lifetime.end.p0(ptr nonnull %60), !noalias !232
   %1484 = call noundef zeroext i1 %1466(ptr noundef nonnull align 8 dereferenceable(32) %320, ptr noundef nonnull align 8 dereferenceable(32) %320, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i1505
 
@@ -3077,10 +3077,10 @@ _ZNSt14_Function_baseD2Ev.exit.i1505:             ; preds = %_ZN4llvm18LegalityP
   br label %_ZL18typeIsLegalBoolVecjSt16initializer_listIN4llvm3LLTEERKNS0_14RISCVSubtargetE.exit1507
 
 _ZL18typeIsLegalBoolVecjSt16initializer_listIN4llvm3LLTEERKNS0_14RISCVSubtargetE.exit1507: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i1505, %1488
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %319)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %320)
+  call void @llvm.lifetime.end.p0(ptr nonnull %319)
+  call void @llvm.lifetime.end.p0(ptr nonnull %320)
   call void @llvm.experimental.noalias.scope.decl(metadata !235)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %318) #17, !noalias !235
+  call void @llvm.lifetime.start.p0(ptr nonnull %318), !noalias !235
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %318, i8 0, i64 32, i1 false), !noalias !235
   %1490 = load ptr, ptr %1440, align 8, !tbaa !164, !noalias !235
   %.not.i.i.not.i.i1508 = icmp eq ptr %1490, null
@@ -3156,9 +3156,9 @@ _ZN4llvm18LegalityPredicates3anyISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_
   %1518 = getelementptr inbounds nuw i8, ptr %408, i64 16
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3anyISt8functionIS4_EEET_S9_S9_EUlS3_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %1518, align 8, !tbaa !164, !alias.scope !235
   %.pre3706 = load ptr, ptr %1399, align 8, !tbaa !164, !noalias !238
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %318) #17, !noalias !235
+  call void @llvm.lifetime.end.p0(ptr nonnull %318), !noalias !235
   call void @llvm.experimental.noalias.scope.decl(metadata !238)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %317) #17, !noalias !238
+  call void @llvm.lifetime.start.p0(ptr nonnull %317), !noalias !238
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %317, i8 0, i64 32, i1 false), !noalias !238
   %.not.i.i.not.i.i1523 = icmp eq ptr %.pre3706, null
   br i1 %.not.i.i.not.i.i1523, label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1524.thread, label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1524
@@ -3241,8 +3241,8 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1539: ; preds = %_ZNSt
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E9_M_invokeERKSt9_Any_dataS3_, ptr %1548, align 8, !tbaa !169, !alias.scope !238
   %1549 = getelementptr inbounds nuw i8, ptr %404, i64 16
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %1549, align 8, !tbaa !164, !alias.scope !238
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %317) #17, !noalias !238
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %316)
+  call void @llvm.lifetime.end.p0(ptr nonnull %317), !noalias !238
+  call void @llvm.lifetime.start.p0(ptr nonnull %316)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %316, i8 0, i64 32, i1 false)
   %1550 = getelementptr inbounds nuw i8, ptr %316, i64 24
   %1551 = getelementptr inbounds nuw i8, ptr %316, i64 16
@@ -3297,7 +3297,7 @@ _ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates3allISt8function
   br label %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1542
 
 _ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1542: ; preds = %_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates3allISt8functionIFbRKNS1_13LegalityQueryEEEEET_SA_SA_EUlS7_E_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit3841, %1573
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %316)
+  call void @llvm.lifetime.end.p0(ptr nonnull %316)
   %1575 = load ptr, ptr %1549, align 8, !tbaa !164
   %.not.i1543 = icmp eq ptr %1575, null
   br i1 %.not.i1543, label %_ZNSt14_Function_baseD2Ev.exit1544, label %1576
@@ -3371,10 +3371,10 @@ _ZNSt14_Function_baseD2Ev.exit1556:               ; preds = %_ZNSt14_Function_ba
   br i1 %or.cond3534, label %1602, label %1611
 
 1602:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit1556
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %411) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %411)
   %1603 = load i64, ptr %616, align 8, !tbaa !161
   store i64 %1603, ptr %411, align 8, !tbaa !161
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %315)
+  call void @llvm.lifetime.start.p0(ptr nonnull %315)
   call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %315, i32 noundef 0, ptr nonnull %411, i64 1) #17
   %1604 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %1596, i8 noundef zeroext 0, ptr noundef nonnull %315)
   %1605 = getelementptr inbounds nuw i8, ptr %315, i64 16
@@ -3387,17 +3387,17 @@ _ZNSt14_Function_baseD2Ev.exit1556:               ; preds = %_ZNSt14_Function_ba
   br label %_ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listINS_3LLTEE.exit1559
 
 _ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listINS_3LLTEE.exit1559: ; preds = %1602, %1607
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %315)
+  call void @llvm.lifetime.end.p0(ptr nonnull %315)
   %.sroa.0430.0.copyload = load i64, ptr %616, align 8, !tbaa !161
   %1609 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE(ptr noundef nonnull align 8 dereferenceable(168) %1604, i32 noundef 0, i64 %.sroa.0430.0.copyload)
   %1610 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet9maxScalarEjNS_3LLTE(ptr noundef nonnull align 8 dereferenceable(168) %1609, i32 noundef 0, i64 %.sroa.0430.0.copyload)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %411) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %411)
   br label %1620
 
 1611:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit1556
   %.sroa.0428.0.copyload = load i64, ptr %616, align 8, !tbaa !161
   %1612 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet9maxScalarEjNS_3LLTE(ptr noundef nonnull align 8 dereferenceable(168) %1596, i32 noundef 0, i64 %.sroa.0428.0.copyload)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %314)
+  call void @llvm.lifetime.start.p0(ptr nonnull %314)
   %1613 = getelementptr inbounds nuw i8, ptr %314, i64 16
   %1614 = getelementptr inbounds nuw i8, ptr %314, i64 24
   %1615 = getelementptr inbounds nuw i8, ptr %314, i64 8
@@ -3415,33 +3415,33 @@ _ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listINS_3LLTEE.exit1559: ; pr
   br label %_ZN4llvm15LegalizeRuleSet5lowerEv.exit1562
 
 _ZN4llvm15LegalizeRuleSet5lowerEv.exit1562:       ; preds = %1611, %1618
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %314)
+  call void @llvm.lifetime.end.p0(ptr nonnull %314)
   br label %1620
 
 1620:                                             ; preds = %_ZN4llvm15LegalizeRuleSet5lowerEv.exit1562, %_ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listINS_3LLTEE.exit1559
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %412) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %412)
   store i32 242, ptr %412, align 4, !tbaa !163
   %1621 = getelementptr inbounds nuw i8, ptr %412, i64 4
   store i32 240, ptr %1621, align 4, !tbaa !163
   %1622 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderESt16initializer_listIjE(ptr noundef nonnull align 8 dereferenceable(125504) %0, ptr nonnull %412, i64 2) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %412) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %413) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %412)
+  call void @llvm.lifetime.start.p0(ptr nonnull %413)
   store i32 243, ptr %413, align 4, !tbaa !163
   %1623 = getelementptr inbounds nuw i8, ptr %413, i64 4
   store i32 241, ptr %1623, align 4, !tbaa !163
   %1624 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderESt16initializer_listIjE(ptr noundef nonnull align 8 dereferenceable(125504) %0, ptr nonnull %413, i64 2) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %413) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %413)
   %1625 = load i8, ptr %1143, align 4, !tbaa !203, !range !153, !noundef !154
   %1626 = trunc nuw i8 %1625 to i1
   br i1 %1626, label %1627, label %1663
 
 1627:                                             ; preds = %1620
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %414) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %414)
   %1628 = load i64, ptr %616, align 8, !tbaa !161
   store i64 %1628, ptr %414, align 8, !tbaa !161
   %1629 = getelementptr inbounds nuw i8, ptr %414, i64 8
   store i64 %1628, ptr %1629, align 8, !tbaa !161
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %313)
+  call void @llvm.lifetime.start.p0(ptr nonnull %313)
   call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %313, i32 noundef 0, i32 noundef 1, ptr nonnull %414, i64 1) #17
   %1630 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %1622, i8 noundef zeroext 0, ptr noundef nonnull %313)
   %1631 = getelementptr inbounds nuw i8, ptr %313, i64 16
@@ -3454,12 +3454,12 @@ _ZN4llvm15LegalizeRuleSet5lowerEv.exit1562:       ; preds = %1611, %1618
   br label %_ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listISt4pairINS_3LLTES3_EE.exit1565
 
 _ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listISt4pairINS_3LLTES3_EE.exit1565: ; preds = %1627, %1633
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %313)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %415) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %313)
+  call void @llvm.lifetime.start.p0(ptr nonnull %415)
   store i64 137438953473, ptr %415, align 8, !tbaa !161
   %1635 = getelementptr inbounds nuw i8, ptr %415, i64 8
   store i64 137438953473, ptr %1635, align 8, !tbaa !161
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %312)
+  call void @llvm.lifetime.start.p0(ptr nonnull %312)
   call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %312, i32 noundef 0, i32 noundef 1, ptr nonnull %415, i64 1) #17
   %1636 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %1630, i8 noundef zeroext 8, ptr noundef nonnull %312)
   %1637 = getelementptr inbounds nuw i8, ptr %312, i64 16
@@ -3472,11 +3472,11 @@ _ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listISt4pairINS_3LLTES3_EE.ex
   br label %_ZN4llvm15LegalizeRuleSet9customForESt16initializer_listISt4pairINS_3LLTES3_EE.exit
 
 _ZN4llvm15LegalizeRuleSet9customForESt16initializer_listISt4pairINS_3LLTES3_EE.exit: ; preds = %_ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listISt4pairINS_3LLTES3_EE.exit1565, %1639
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %312)
+  call void @llvm.lifetime.end.p0(ptr nonnull %312)
   %.sroa.0414.0.copyload = load i64, ptr %616, align 8, !tbaa !161
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %33)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %35)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %34) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
   store i64 32, ptr %34, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %34, i64 8
   store i8 0, ptr %.sroa.2.0..sroa_idx.i, align 8
@@ -3505,12 +3505,12 @@ _ZNSt14_Function_baseD2Ev.exit.i3782:             ; preds = %1646, %_ZN4llvm15Le
   br label %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit
 
 _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i3782, %1650
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %34) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %33)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %35)
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
   %1652 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet9maxScalarEjNS_3LLTE(ptr noundef nonnull align 8 dereferenceable(168) %1643, i32 noundef 0, i64 %.sroa.0414.0.copyload)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %310)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %311)
+  call void @llvm.lifetime.start.p0(ptr nonnull %310)
+  call void @llvm.lifetime.start.p0(ptr nonnull %311)
   call void @_ZN4llvm18LegalityPredicates11sizeNotPow2Ej(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %310, i32 noundef 0) #17
   call void @_ZN4llvm17LegalizeMutations26widenScalarOrEltToNextPow2Ejj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.77") align 8 %311, i32 noundef 0, i32 noundef 0) #17
   %1653 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %1652, i8 noundef zeroext 2, ptr noundef nonnull %310, ptr noundef nonnull %311)
@@ -3534,18 +3534,18 @@ _ZNSt14_Function_baseD2Ev.exit.i1569:             ; preds = %1656, %_ZN4llvm15Le
   br label %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1571
 
 _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1571: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i1569, %1660
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %310)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %311)
+  call void @llvm.lifetime.end.p0(ptr nonnull %310)
+  call void @llvm.lifetime.end.p0(ptr nonnull %311)
   %1662 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet16scalarSameSizeAsEjj(ptr noundef nonnull align 8 dereferenceable(168) %1653, i32 noundef 1, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %415) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %414) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %415)
+  call void @llvm.lifetime.end.p0(ptr nonnull %414)
   br label %1675
 
 1663:                                             ; preds = %1620
   %.sroa.0413.0.copyload = load i64, ptr %616, align 8, !tbaa !161
   %1664 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet9maxScalarEjNS_3LLTE(ptr noundef nonnull align 8 dereferenceable(168) %1622, i32 noundef 0, i64 %.sroa.0413.0.copyload)
   %1665 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet16scalarSameSizeAsEjj(ptr noundef nonnull align 8 dereferenceable(168) %1664, i32 noundef 1, i32 noundef 0)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %309)
+  call void @llvm.lifetime.start.p0(ptr nonnull %309)
   %1666 = getelementptr inbounds nuw i8, ptr %309, i64 16
   %1667 = getelementptr inbounds nuw i8, ptr %309, i64 24
   %1668 = getelementptr inbounds nuw i8, ptr %309, i64 8
@@ -3563,14 +3563,14 @@ _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1571: ; preds = %_ZNSt14
   br label %_ZN4llvm15LegalizeRuleSet5lowerEv.exit1574
 
 _ZN4llvm15LegalizeRuleSet5lowerEv.exit1574:       ; preds = %1663, %1671
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %309)
+  call void @llvm.lifetime.end.p0(ptr nonnull %309)
   %.sroa.0412.0.copyload = load i64, ptr %616, align 8, !tbaa !161
   %1673 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet9maxScalarEjNS_3LLTE(ptr noundef nonnull align 8 dereferenceable(168) %1624, i32 noundef 0, i64 %.sroa.0412.0.copyload)
   %1674 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet16scalarSameSizeAsEjj(ptr noundef nonnull align 8 dereferenceable(168) %1673, i32 noundef 1, i32 noundef 0)
   br label %1675
 
 1675:                                             ; preds = %_ZN4llvm15LegalizeRuleSet5lowerEv.exit1574, %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1571
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %308)
+  call void @llvm.lifetime.start.p0(ptr nonnull %308)
   %1676 = getelementptr inbounds nuw i8, ptr %308, i64 16
   %1677 = getelementptr inbounds nuw i8, ptr %308, i64 24
   %1678 = getelementptr inbounds nuw i8, ptr %308, i64 8
@@ -3588,19 +3588,19 @@ _ZN4llvm15LegalizeRuleSet5lowerEv.exit1574:       ; preds = %1663, %1671
   br label %_ZN4llvm15LegalizeRuleSet5lowerEv.exit1577
 
 _ZN4llvm15LegalizeRuleSet5lowerEv.exit1577:       ; preds = %1675, %1681
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %308)
+  call void @llvm.lifetime.end.p0(ptr nonnull %308)
   %1683 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(125504) %0, i32 noundef 244) #17
   %1684 = load i8, ptr %1143, align 4, !tbaa !203, !range !153, !noundef !154
   %1685 = trunc nuw i8 %1684 to i1
   br i1 %1685, label %1686, label %1697
 
 1686:                                             ; preds = %_ZN4llvm15LegalizeRuleSet5lowerEv.exit1577
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %416) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %416)
   %1687 = load i64, ptr %616, align 8, !tbaa !161
   store i64 %1687, ptr %416, align 8, !tbaa !161
   %1688 = getelementptr inbounds nuw i8, ptr %416, i64 8
   store i64 %1687, ptr %1688, align 8, !tbaa !161
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %307)
+  call void @llvm.lifetime.start.p0(ptr nonnull %307)
   call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %307, i32 noundef 0, i32 noundef 1, ptr nonnull %416, i64 1) #17
   %1689 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %1683, i8 noundef zeroext 0, ptr noundef nonnull %307)
   %1690 = getelementptr inbounds nuw i8, ptr %307, i64 16
@@ -3613,19 +3613,19 @@ _ZN4llvm15LegalizeRuleSet5lowerEv.exit1577:       ; preds = %1675, %1681
   br label %_ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listISt4pairINS_3LLTES3_EE.exit1580
 
 _ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listISt4pairINS_3LLTES3_EE.exit1580: ; preds = %1686, %1692
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %307)
+  call void @llvm.lifetime.end.p0(ptr nonnull %307)
   %.sroa.0407.0.copyload = load i64, ptr %616, align 8, !tbaa !161
   %1694 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE(ptr noundef nonnull align 8 dereferenceable(168) %1689, i32 noundef 0, i64 %.sroa.0407.0.copyload)
   %1695 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet9maxScalarEjNS_3LLTE(ptr noundef nonnull align 8 dereferenceable(168) %1694, i32 noundef 0, i64 %.sroa.0407.0.copyload)
   %1696 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet16scalarSameSizeAsEjj(ptr noundef nonnull align 8 dereferenceable(168) %1695, i32 noundef 1, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %416) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %416)
   br label %1707
 
 1697:                                             ; preds = %_ZN4llvm15LegalizeRuleSet5lowerEv.exit1577
   %.sroa.0405.0.copyload = load i64, ptr %616, align 8, !tbaa !161
   %1698 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet9maxScalarEjNS_3LLTE(ptr noundef nonnull align 8 dereferenceable(168) %1683, i32 noundef 0, i64 %.sroa.0405.0.copyload)
   %1699 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet16scalarSameSizeAsEjj(ptr noundef nonnull align 8 dereferenceable(168) %1698, i32 noundef 1, i32 noundef 0)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %306)
+  call void @llvm.lifetime.start.p0(ptr nonnull %306)
   %1700 = getelementptr inbounds nuw i8, ptr %306, i64 16
   %1701 = getelementptr inbounds nuw i8, ptr %306, i64 24
   %1702 = getelementptr inbounds nuw i8, ptr %306, i64 8
@@ -3643,14 +3643,14 @@ _ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listISt4pairINS_3LLTES3_EE.ex
   br label %_ZN4llvm15LegalizeRuleSet5lowerEv.exit1583
 
 _ZN4llvm15LegalizeRuleSet5lowerEv.exit1583:       ; preds = %1697, %1705
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %306)
+  call void @llvm.lifetime.end.p0(ptr nonnull %306)
   br label %1707
 
 1707:                                             ; preds = %_ZN4llvm15LegalizeRuleSet5lowerEv.exit1583, %_ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listISt4pairINS_3LLTES3_EE.exit1580
   %1708 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(125504) %0, i32 noundef 133) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %417) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %417)
   store i64 %storemerge.i.i.i876, ptr %417, align 8, !tbaa !161
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %305)
+  call void @llvm.lifetime.start.p0(ptr nonnull %305)
   call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %305, i32 noundef 0, ptr nonnull %417, i64 1) #17
   %1709 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %1708, i8 noundef zeroext 0, ptr noundef nonnull %305)
   %1710 = getelementptr inbounds nuw i8, ptr %305, i64 16
@@ -3663,20 +3663,20 @@ _ZN4llvm15LegalizeRuleSet5lowerEv.exit1583:       ; preds = %1697, %1705
   br label %_ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listINS_3LLTEE.exit1586
 
 _ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listINS_3LLTEE.exit1586: ; preds = %1707, %1712
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %305)
+  call void @llvm.lifetime.end.p0(ptr nonnull %305)
   %1714 = load i8, ptr %612, align 1, !tbaa !24, !range !153, !noundef !154
   %1715 = trunc nuw i8 %1714 to i1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %418) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %418)
   store i64 137438953473, ptr %418, align 8, !tbaa !161
   br i1 %1715, label %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit.thread, label %1716
 
 _ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit.thread: ; preds = %_ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listINS_3LLTEE.exit1586
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %419) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %419)
   store i64 274877906945, ptr %419, align 8, !tbaa !161
   br label %1723
 
 1716:                                             ; preds = %_ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listINS_3LLTEE.exit1586
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %304)
+  call void @llvm.lifetime.start.p0(ptr nonnull %304)
   call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %304, i32 noundef 0, ptr nonnull %418, i64 1) #17
   %1717 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %1709, i8 noundef zeroext 0, ptr noundef nonnull %304)
   %1718 = getelementptr inbounds nuw i8, ptr %304, i64 16
@@ -3689,16 +3689,16 @@ _ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit.thread: 
   br label %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit
 
 _ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit: ; preds = %1716, %1720
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %304)
+  call void @llvm.lifetime.end.p0(ptr nonnull %304)
   %.pre3635 = load i8, ptr %612, align 1, !tbaa !24, !range !153
   %1722 = trunc nuw i8 %.pre3635 to i1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %419) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %419)
   store i64 274877906945, ptr %419, align 8, !tbaa !161
   br i1 %1722, label %1723, label %_ZN4llvm15LegalizeRuleSet9customForEbSt16initializer_listINS_3LLTEE.exit1593
 
 1723:                                             ; preds = %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit.thread, %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit
   %.0.i15873721 = phi ptr [ %1709, %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit.thread ], [ %1717, %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %303)
+  call void @llvm.lifetime.start.p0(ptr nonnull %303)
   call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %303, i32 noundef 0, ptr nonnull %419, i64 1) #17
   %1724 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %.0.i15873721, i8 noundef zeroext 8, ptr noundef nonnull %303)
   %1725 = getelementptr inbounds nuw i8, ptr %303, i64 16
@@ -3711,13 +3711,13 @@ _ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit: ; preds
   br label %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listINS_3LLTEE.exit.i1592
 
 _ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listINS_3LLTEE.exit.i1592: ; preds = %1727, %1723
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %303)
+  call void @llvm.lifetime.end.p0(ptr nonnull %303)
   br label %_ZN4llvm15LegalizeRuleSet9customForEbSt16initializer_listINS_3LLTEE.exit1593
 
 _ZN4llvm15LegalizeRuleSet9customForEbSt16initializer_listINS_3LLTEE.exit1593: ; preds = %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit, %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listINS_3LLTEE.exit.i1592
   %.0.i1590 = phi ptr [ %1724, %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listINS_3LLTEE.exit.i1592 ], [ %1717, %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %301)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %302)
+  call void @llvm.lifetime.start.p0(ptr nonnull %301)
+  call void @llvm.lifetime.start.p0(ptr nonnull %302)
   call void @_ZN4llvm18LegalityPredicates11sizeNotPow2Ej(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %301, i32 noundef 0) #17
   call void @_ZN4llvm17LegalizeMutations26widenScalarOrEltToNextPow2Ejj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.77") align 8 %302, i32 noundef 0, i32 noundef 0) #17
   %1729 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %.0.i1590, i8 noundef zeroext 2, ptr noundef nonnull %301, ptr noundef nonnull %302)
@@ -3741,22 +3741,22 @@ _ZNSt14_Function_baseD2Ev.exit.i1595:             ; preds = %1732, %_ZN4llvm15Le
   br label %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1597
 
 _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1597: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i1595, %1736
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %301)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %302)
+  call void @llvm.lifetime.end.p0(ptr nonnull %301)
+  call void @llvm.lifetime.end.p0(ptr nonnull %302)
   %.sroa.0398.0.copyload = load i64, ptr %616, align 8, !tbaa !161
   %1738 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE(ptr noundef nonnull align 8 dereferenceable(168) %1729, i32 noundef 0, i64 %.sroa.0398.0.copyload)
   %1739 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet9maxScalarEjNS_3LLTE(ptr noundef nonnull align 8 dereferenceable(168) %1738, i32 noundef 0, i64 %.sroa.0398.0.copyload)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %419) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %418) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %417) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %419)
+  call void @llvm.lifetime.end.p0(ptr nonnull %418)
+  call void @llvm.lifetime.end.p0(ptr nonnull %417)
   %1740 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(125504) %0, i32 noundef 83) #17
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %420) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %420)
   store i64 68719476737, ptr %420, align 8, !tbaa !161
   %1741 = getelementptr inbounds nuw i8, ptr %420, i64 8
   store i64 137438953473, ptr %1741, align 8, !tbaa !161
   %1742 = getelementptr inbounds nuw i8, ptr %420, i64 16
   store i64 %storemerge.i.i.i876, ptr %1742, align 8, !tbaa !161
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %300)
+  call void @llvm.lifetime.start.p0(ptr nonnull %300)
   call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %300, i32 noundef 0, ptr nonnull %420, i64 3) #17
   %1743 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %1740, i8 noundef zeroext 0, ptr noundef nonnull %300)
   %1744 = getelementptr inbounds nuw i8, ptr %300, i64 16
@@ -3769,15 +3769,15 @@ _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1597: ; preds = %_ZNSt14
   br label %_ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listINS_3LLTEE.exit1600
 
 _ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listINS_3LLTEE.exit1600: ; preds = %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1597, %1746
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %300)
+  call void @llvm.lifetime.end.p0(ptr nonnull %300)
   %1748 = load i8, ptr %612, align 1, !tbaa !24, !range !153, !noundef !154
   %1749 = trunc nuw i8 %1748 to i1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %421) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %421)
   store i64 274877906945, ptr %421, align 8, !tbaa !161
   br i1 %1749, label %1750, label %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit1604
 
 1750:                                             ; preds = %_ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listINS_3LLTEE.exit1600
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %299)
+  call void @llvm.lifetime.start.p0(ptr nonnull %299)
   call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %299, i32 noundef 0, ptr nonnull %421, i64 1) #17
   %1751 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %1743, i8 noundef zeroext 0, ptr noundef nonnull %299)
   %1752 = getelementptr inbounds nuw i8, ptr %299, i64 16
@@ -3790,13 +3790,13 @@ _ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listINS_3LLTEE.exit1600: ; pr
   br label %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listINS_3LLTEE.exit.i1603
 
 _ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listINS_3LLTEE.exit.i1603: ; preds = %1754, %1750
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %299)
+  call void @llvm.lifetime.end.p0(ptr nonnull %299)
   br label %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit1604
 
 _ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit1604: ; preds = %_ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listINS_3LLTEE.exit1600, %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listINS_3LLTEE.exit.i1603
   %.0.i1601 = phi ptr [ %1751, %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listINS_3LLTEE.exit.i1603 ], [ %1743, %_ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listINS_3LLTEE.exit1600 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %297)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %298)
+  call void @llvm.lifetime.start.p0(ptr nonnull %297)
+  call void @llvm.lifetime.start.p0(ptr nonnull %298)
   call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %297, i32 noundef 0, ptr nonnull %372, i64 7) #17, !noalias !241
   %1756 = getelementptr inbounds nuw i8, ptr %298, i64 24
   %1757 = getelementptr inbounds nuw i8, ptr %298, i64 16
@@ -3806,7 +3806,7 @@ _ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit1604: ; p
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL18typeIsLegalBoolVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %1756, align 8, !tbaa !169, !noalias !241
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL18typeIsLegalBoolVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation", ptr %1757, align 8, !tbaa !164, !noalias !241
   call void @llvm.experimental.noalias.scope.decl(metadata !244)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %59) #17, !noalias !244
+  call void @llvm.lifetime.start.p0(ptr nonnull %59), !noalias !244
   %1758 = getelementptr inbounds nuw i8, ptr %297, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %59, i8 0, i64 32, i1 false), !noalias !244
   %1759 = load ptr, ptr %1758, align 8, !tbaa !164, !noalias !244
@@ -3886,7 +3886,7 @@ _ZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E9_M_invokeERKSt9_Any_dataS3_, ptr %1789, align 8, !tbaa !169, !alias.scope !244
   %1790 = getelementptr inbounds nuw i8, ptr %422, i64 16
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %1790, align 8, !tbaa !164, !alias.scope !244
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %59) #17, !noalias !244
+  call void @llvm.lifetime.end.p0(ptr nonnull %59), !noalias !244
   br label %_ZNSt14_Function_baseD2Ev.exit.i1607
 
 1791:                                             ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i2703
@@ -3898,7 +3898,7 @@ _ZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E9_M_invokeERKSt9_Any_dataS3_, ptr %1793, align 8, !tbaa !169, !alias.scope !244
   %1794 = getelementptr inbounds nuw i8, ptr %422, i64 16
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %1794, align 8, !tbaa !164, !alias.scope !244
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %59) #17, !noalias !244
+  call void @llvm.lifetime.end.p0(ptr nonnull %59), !noalias !244
   %1795 = call noundef zeroext i1 %1777(ptr noundef nonnull align 8 dereferenceable(32) %298, ptr noundef nonnull align 8 dereferenceable(32) %298, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i1607
 
@@ -3914,9 +3914,9 @@ _ZNSt14_Function_baseD2Ev.exit.i1607:             ; preds = %_ZN4llvm18LegalityP
   br label %_ZL18typeIsLegalBoolVecjSt16initializer_listIN4llvm3LLTEERKNS0_14RISCVSubtargetE.exit1609
 
 _ZL18typeIsLegalBoolVecjSt16initializer_listIN4llvm3LLTEERKNS0_14RISCVSubtargetE.exit1609: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i1607, %1799
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %297)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %298)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %296)
+  call void @llvm.lifetime.end.p0(ptr nonnull %297)
+  call void @llvm.lifetime.end.p0(ptr nonnull %298)
+  call void @llvm.lifetime.start.p0(ptr nonnull %296)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %296, i8 0, i64 32, i1 false)
   %1801 = load ptr, ptr %1796, align 8, !tbaa !164
   %.not.i.i.not.i.i1610 = icmp eq ptr %1801, null
@@ -3944,9 +3944,9 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1611: ; preds = %1802,
   br label %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1614
 
 _ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1614: ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1611, %1811
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %296)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %294)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %295)
+  call void @llvm.lifetime.end.p0(ptr nonnull %296)
+  call void @llvm.lifetime.start.p0(ptr nonnull %294)
+  call void @llvm.lifetime.start.p0(ptr nonnull %295)
   call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %294, i32 noundef 0, ptr nonnull %373, i64 22) #17, !noalias !247
   %1813 = getelementptr inbounds nuw i8, ptr %295, i64 24
   %1814 = getelementptr inbounds nuw i8, ptr %295, i64 16
@@ -3956,7 +3956,7 @@ _ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1614
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL21typeIsLegalIntOrFPVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %1813, align 8, !tbaa !169, !noalias !247
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL21typeIsLegalIntOrFPVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation", ptr %1814, align 8, !tbaa !164, !noalias !247
   call void @llvm.experimental.noalias.scope.decl(metadata !250)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %58) #17, !noalias !250
+  call void @llvm.lifetime.start.p0(ptr nonnull %58), !noalias !250
   %1815 = getelementptr inbounds nuw i8, ptr %294, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %58, i8 0, i64 32, i1 false), !noalias !250
   %1816 = load ptr, ptr %1815, align 8, !tbaa !164, !noalias !250
@@ -4036,7 +4036,7 @@ _ZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E9_M_invokeERKSt9_Any_dataS3_, ptr %1846, align 8, !tbaa !169, !alias.scope !250
   %1847 = getelementptr inbounds nuw i8, ptr %423, i64 16
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %1847, align 8, !tbaa !164, !alias.scope !250
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %58) #17, !noalias !250
+  call void @llvm.lifetime.end.p0(ptr nonnull %58), !noalias !250
   br label %_ZNSt14_Function_baseD2Ev.exit.i1617
 
 1848:                                             ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i2718
@@ -4048,7 +4048,7 @@ _ZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E9_M_invokeERKSt9_Any_dataS3_, ptr %1850, align 8, !tbaa !169, !alias.scope !250
   %1851 = getelementptr inbounds nuw i8, ptr %423, i64 16
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %1851, align 8, !tbaa !164, !alias.scope !250
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %58) #17, !noalias !250
+  call void @llvm.lifetime.end.p0(ptr nonnull %58), !noalias !250
   %1852 = call noundef zeroext i1 %1834(ptr noundef nonnull align 8 dereferenceable(32) %295, ptr noundef nonnull align 8 dereferenceable(32) %295, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i1617
 
@@ -4064,9 +4064,9 @@ _ZNSt14_Function_baseD2Ev.exit.i1617:             ; preds = %_ZN4llvm18LegalityP
   br label %_ZL21typeIsLegalIntOrFPVecjSt16initializer_listIN4llvm3LLTEERKNS0_14RISCVSubtargetE.exit1619
 
 _ZL21typeIsLegalIntOrFPVecjSt16initializer_listIN4llvm3LLTEERKNS0_14RISCVSubtargetE.exit1619: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i1617, %1856
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %294)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %295)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %293)
+  call void @llvm.lifetime.end.p0(ptr nonnull %294)
+  call void @llvm.lifetime.end.p0(ptr nonnull %295)
+  call void @llvm.lifetime.start.p0(ptr nonnull %293)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %293, i8 0, i64 32, i1 false)
   %1858 = load ptr, ptr %1853, align 8, !tbaa !164
   %.not.i.i.not.i.i1620 = icmp eq ptr %1858, null
@@ -4094,9 +4094,9 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1621: ; preds = %1859,
   br label %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1624
 
 _ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1624: ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1621, %1868
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %293)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %291)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %292)
+  call void @llvm.lifetime.end.p0(ptr nonnull %293)
+  call void @llvm.lifetime.start.p0(ptr nonnull %291)
+  call void @llvm.lifetime.start.p0(ptr nonnull %292)
   call void @_ZN4llvm18LegalityPredicates11sizeNotPow2Ej(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %291, i32 noundef 0) #17
   call void @_ZN4llvm17LegalizeMutations26widenScalarOrEltToNextPow2Ejj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.77") align 8 %292, i32 noundef 0, i32 noundef 0) #17
   %1870 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %1865, i8 noundef zeroext 2, ptr noundef nonnull %291, ptr noundef nonnull %292)
@@ -4120,12 +4120,12 @@ _ZNSt14_Function_baseD2Ev.exit.i1626:             ; preds = %1873, %_ZN4llvm15Le
   br label %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1628
 
 _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1628: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i1626, %1877
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %291)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %292)
+  call void @llvm.lifetime.end.p0(ptr nonnull %291)
+  call void @llvm.lifetime.end.p0(ptr nonnull %292)
   %.sroa.0387.0.copyload = load i64, ptr %616, align 8, !tbaa !161
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %30)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %32)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %31) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
   store i64 16, ptr %31, align 8
   %.sroa.2.0..sroa_idx.i3784 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i8 0, ptr %.sroa.2.0..sroa_idx.i3784, align 8
@@ -4154,9 +4154,9 @@ _ZNSt14_Function_baseD2Ev.exit.i3786:             ; preds = %1884, %_ZN4llvm15Le
   br label %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit3788
 
 _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit3788: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i3786, %1888
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %31) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %30)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %32)
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
   %1890 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet9maxScalarEjNS_3LLTE(ptr noundef nonnull align 8 dereferenceable(168) %1881, i32 noundef 0, i64 %.sroa.0387.0.copyload)
   %1891 = load ptr, ptr %1853, align 8, !tbaa !164
   %.not.i1629 = icmp eq ptr %1891, null
@@ -4176,21 +4176,21 @@ _ZNSt14_Function_baseD2Ev.exit1630:               ; preds = %_ZN4llvm15LegalizeR
   br label %_ZNSt14_Function_baseD2Ev.exit1632
 
 _ZNSt14_Function_baseD2Ev.exit1632:               ; preds = %_ZNSt14_Function_baseD2Ev.exit1630, %1895
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %421) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %420) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %424) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %421)
+  call void @llvm.lifetime.end.p0(ptr nonnull %420)
+  call void @llvm.lifetime.start.p0(ptr nonnull %424)
   store i32 67, ptr %424, align 4, !tbaa !163
   %1897 = getelementptr inbounds nuw i8, ptr %424, i64 4
   store i32 84, ptr %1897, align 4, !tbaa !163
   %1898 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderESt16initializer_listIjE(ptr noundef nonnull align 8 dereferenceable(125504) %0, ptr nonnull %424, i64 2) #17
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %425) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %425)
   store i64 137438953473, ptr %425, align 8, !tbaa !161
   %1899 = getelementptr inbounds nuw i8, ptr %425, i64 8
   %1900 = load i64, ptr %616, align 8, !tbaa !161
   store i64 %1900, ptr %1899, align 8, !tbaa !161
   %1901 = getelementptr inbounds nuw i8, ptr %425, i64 16
   store i64 %storemerge.i.i.i876, ptr %1901, align 8, !tbaa !161
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %290)
+  call void @llvm.lifetime.start.p0(ptr nonnull %290)
   call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %290, i32 noundef 0, ptr nonnull %425, i64 3) #17
   %1902 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %1898, i8 noundef zeroext 0, ptr noundef nonnull %290)
   %1903 = getelementptr inbounds nuw i8, ptr %290, i64 16
@@ -4203,9 +4203,9 @@ _ZNSt14_Function_baseD2Ev.exit1632:               ; preds = %_ZNSt14_Function_ba
   br label %_ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listINS_3LLTEE.exit1635
 
 _ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listINS_3LLTEE.exit1635: ; preds = %_ZNSt14_Function_baseD2Ev.exit1632, %1905
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %290)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %288)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %289)
+  call void @llvm.lifetime.end.p0(ptr nonnull %290)
+  call void @llvm.lifetime.start.p0(ptr nonnull %288)
+  call void @llvm.lifetime.start.p0(ptr nonnull %289)
   call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %288, i32 noundef 0, ptr nonnull %372, i64 7) #17, !noalias !253
   %1907 = getelementptr inbounds nuw i8, ptr %289, i64 24
   %1908 = getelementptr inbounds nuw i8, ptr %289, i64 16
@@ -4215,7 +4215,7 @@ _ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listINS_3LLTEE.exit1635: ; pr
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL18typeIsLegalBoolVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %1907, align 8, !tbaa !169, !noalias !253
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL18typeIsLegalBoolVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation", ptr %1908, align 8, !tbaa !164, !noalias !253
   call void @llvm.experimental.noalias.scope.decl(metadata !256)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %57) #17, !noalias !256
+  call void @llvm.lifetime.start.p0(ptr nonnull %57), !noalias !256
   %1909 = getelementptr inbounds nuw i8, ptr %288, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %57, i8 0, i64 32, i1 false), !noalias !256
   %1910 = load ptr, ptr %1909, align 8, !tbaa !164, !noalias !256
@@ -4295,7 +4295,7 @@ _ZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E9_M_invokeERKSt9_Any_dataS3_, ptr %1940, align 8, !tbaa !169, !alias.scope !256
   %1941 = getelementptr inbounds nuw i8, ptr %426, i64 16
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %1941, align 8, !tbaa !164, !alias.scope !256
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %57) #17, !noalias !256
+  call void @llvm.lifetime.end.p0(ptr nonnull %57), !noalias !256
   br label %_ZNSt14_Function_baseD2Ev.exit.i1638
 
 1942:                                             ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i2733
@@ -4307,7 +4307,7 @@ _ZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E9_M_invokeERKSt9_Any_dataS3_, ptr %1944, align 8, !tbaa !169, !alias.scope !256
   %1945 = getelementptr inbounds nuw i8, ptr %426, i64 16
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %1945, align 8, !tbaa !164, !alias.scope !256
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %57) #17, !noalias !256
+  call void @llvm.lifetime.end.p0(ptr nonnull %57), !noalias !256
   %1946 = call noundef zeroext i1 %1928(ptr noundef nonnull align 8 dereferenceable(32) %289, ptr noundef nonnull align 8 dereferenceable(32) %289, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i1638
 
@@ -4323,9 +4323,9 @@ _ZNSt14_Function_baseD2Ev.exit.i1638:             ; preds = %_ZN4llvm18LegalityP
   br label %_ZL18typeIsLegalBoolVecjSt16initializer_listIN4llvm3LLTEERKNS0_14RISCVSubtargetE.exit1640
 
 _ZL18typeIsLegalBoolVecjSt16initializer_listIN4llvm3LLTEERKNS0_14RISCVSubtargetE.exit1640: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i1638, %1950
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %288)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %289)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %287)
+  call void @llvm.lifetime.end.p0(ptr nonnull %288)
+  call void @llvm.lifetime.end.p0(ptr nonnull %289)
+  call void @llvm.lifetime.start.p0(ptr nonnull %287)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %287, i8 0, i64 32, i1 false)
   %1952 = load ptr, ptr %1947, align 8, !tbaa !164
   %.not.i.i.not.i.i1641 = icmp eq ptr %1952, null
@@ -4353,9 +4353,9 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1642: ; preds = %1953,
   br label %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1645
 
 _ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1645: ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1642, %1962
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %287)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %285)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %286)
+  call void @llvm.lifetime.end.p0(ptr nonnull %287)
+  call void @llvm.lifetime.start.p0(ptr nonnull %285)
+  call void @llvm.lifetime.start.p0(ptr nonnull %286)
   call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %285, i32 noundef 0, ptr nonnull %373, i64 22) #17, !noalias !259
   %1964 = getelementptr inbounds nuw i8, ptr %286, i64 24
   %1965 = getelementptr inbounds nuw i8, ptr %286, i64 16
@@ -4365,7 +4365,7 @@ _ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1645
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL21typeIsLegalIntOrFPVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %1964, align 8, !tbaa !169, !noalias !259
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL21typeIsLegalIntOrFPVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation", ptr %1965, align 8, !tbaa !164, !noalias !259
   call void @llvm.experimental.noalias.scope.decl(metadata !262)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %56) #17, !noalias !262
+  call void @llvm.lifetime.start.p0(ptr nonnull %56), !noalias !262
   %1966 = getelementptr inbounds nuw i8, ptr %285, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %56, i8 0, i64 32, i1 false), !noalias !262
   %1967 = load ptr, ptr %1966, align 8, !tbaa !164, !noalias !262
@@ -4445,7 +4445,7 @@ _ZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E9_M_invokeERKSt9_Any_dataS3_, ptr %1997, align 8, !tbaa !169, !alias.scope !262
   %1998 = getelementptr inbounds nuw i8, ptr %427, i64 16
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %1998, align 8, !tbaa !164, !alias.scope !262
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %56) #17, !noalias !262
+  call void @llvm.lifetime.end.p0(ptr nonnull %56), !noalias !262
   br label %_ZNSt14_Function_baseD2Ev.exit.i1648
 
 1999:                                             ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i2748
@@ -4457,7 +4457,7 @@ _ZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E9_M_invokeERKSt9_Any_dataS3_, ptr %2001, align 8, !tbaa !169, !alias.scope !262
   %2002 = getelementptr inbounds nuw i8, ptr %427, i64 16
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %2002, align 8, !tbaa !164, !alias.scope !262
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %56) #17, !noalias !262
+  call void @llvm.lifetime.end.p0(ptr nonnull %56), !noalias !262
   %2003 = call noundef zeroext i1 %1985(ptr noundef nonnull align 8 dereferenceable(32) %286, ptr noundef nonnull align 8 dereferenceable(32) %286, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i1648
 
@@ -4473,9 +4473,9 @@ _ZNSt14_Function_baseD2Ev.exit.i1648:             ; preds = %_ZN4llvm18LegalityP
   br label %_ZL21typeIsLegalIntOrFPVecjSt16initializer_listIN4llvm3LLTEERKNS0_14RISCVSubtargetE.exit1650
 
 _ZL21typeIsLegalIntOrFPVecjSt16initializer_listIN4llvm3LLTEERKNS0_14RISCVSubtargetE.exit1650: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i1648, %2007
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %285)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %286)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %284)
+  call void @llvm.lifetime.end.p0(ptr nonnull %285)
+  call void @llvm.lifetime.end.p0(ptr nonnull %286)
+  call void @llvm.lifetime.start.p0(ptr nonnull %284)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %284, i8 0, i64 32, i1 false)
   %2009 = load ptr, ptr %2004, align 8, !tbaa !164
   %.not.i.i.not.i.i1651 = icmp eq ptr %2009, null
@@ -4503,9 +4503,9 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1652: ; preds = %2010,
   br label %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1655
 
 _ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1655: ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1652, %2019
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %284)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %282)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %283)
+  call void @llvm.lifetime.end.p0(ptr nonnull %284)
+  call void @llvm.lifetime.start.p0(ptr nonnull %282)
+  call void @llvm.lifetime.start.p0(ptr nonnull %283)
   call void @_ZN4llvm18LegalityPredicates11sizeNotPow2Ej(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %282, i32 noundef 0) #17
   call void @_ZN4llvm17LegalizeMutations26widenScalarOrEltToNextPow2Ejj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.77") align 8 %283, i32 noundef 0, i32 noundef 0) #17
   %2021 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %2016, i8 noundef zeroext 2, ptr noundef nonnull %282, ptr noundef nonnull %283)
@@ -4529,12 +4529,12 @@ _ZNSt14_Function_baseD2Ev.exit.i1657:             ; preds = %2024, %_ZN4llvm15Le
   br label %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1659
 
 _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1659: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i1657, %2028
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %282)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %283)
+  call void @llvm.lifetime.end.p0(ptr nonnull %282)
+  call void @llvm.lifetime.end.p0(ptr nonnull %283)
   %.sroa.0377.0.copyload = load i64, ptr %616, align 8, !tbaa !161
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %27)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %29)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %28) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   store i64 32, ptr %28, align 8
   %.sroa.2.0..sroa_idx.i3789 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store i8 0, ptr %.sroa.2.0..sroa_idx.i3789, align 8
@@ -4563,9 +4563,9 @@ _ZNSt14_Function_baseD2Ev.exit.i3791:             ; preds = %2035, %_ZN4llvm15Le
   br label %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit3793
 
 _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit3793: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i3791, %2039
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %28) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %27)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   %2041 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet9maxScalarEjNS_3LLTE(ptr noundef nonnull align 8 dereferenceable(168) %2032, i32 noundef 0, i64 %.sroa.0377.0.copyload)
   %2042 = load ptr, ptr %2004, align 8, !tbaa !164
   %.not.i1660 = icmp eq ptr %2042, null
@@ -4585,10 +4585,10 @@ _ZNSt14_Function_baseD2Ev.exit1661:               ; preds = %_ZN4llvm15LegalizeR
   br label %_ZNSt14_Function_baseD2Ev.exit1663
 
 _ZNSt14_Function_baseD2Ev.exit1663:               ; preds = %_ZNSt14_Function_baseD2Ev.exit1661, %2046
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %425) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %424) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %425)
+  call void @llvm.lifetime.end.p0(ptr nonnull %424)
   %2048 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(125504) %0, i32 noundef 147) #17
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %428) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %428)
   %2049 = load i64, ptr %616, align 8, !tbaa !161
   store i64 %2049, ptr %428, align 8, !tbaa !161
   %2050 = getelementptr inbounds nuw i8, ptr %428, i64 8
@@ -4597,7 +4597,7 @@ _ZNSt14_Function_baseD2Ev.exit1663:               ; preds = %_ZNSt14_Function_ba
   store i64 %2049, ptr %2051, align 8, !tbaa !161
   %2052 = getelementptr inbounds nuw i8, ptr %428, i64 24
   store i64 %storemerge.i.i.i876, ptr %2052, align 8, !tbaa !161
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %281)
+  call void @llvm.lifetime.start.p0(ptr nonnull %281)
   call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %281, i32 noundef 0, i32 noundef 1, ptr nonnull %428, i64 2) #17
   %2053 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %2048, i8 noundef zeroext 0, ptr noundef nonnull %281)
   %2054 = getelementptr inbounds nuw i8, ptr %281, i64 16
@@ -4610,9 +4610,9 @@ _ZNSt14_Function_baseD2Ev.exit1663:               ; preds = %_ZNSt14_Function_ba
   br label %_ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listISt4pairINS_3LLTES3_EE.exit1666
 
 _ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listISt4pairINS_3LLTES3_EE.exit1666: ; preds = %_ZNSt14_Function_baseD2Ev.exit1663, %2056
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %281)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %279)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %280)
+  call void @llvm.lifetime.end.p0(ptr nonnull %281)
+  call void @llvm.lifetime.start.p0(ptr nonnull %279)
+  call void @llvm.lifetime.start.p0(ptr nonnull %280)
   call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %279, i32 noundef 0, ptr nonnull %372, i64 7) #17, !noalias !265
   %2058 = getelementptr inbounds nuw i8, ptr %280, i64 24
   %2059 = getelementptr inbounds nuw i8, ptr %280, i64 16
@@ -4622,7 +4622,7 @@ _ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listISt4pairINS_3LLTES3_EE.ex
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL18typeIsLegalBoolVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %2058, align 8, !tbaa !169, !noalias !265
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL18typeIsLegalBoolVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation", ptr %2059, align 8, !tbaa !164, !noalias !265
   call void @llvm.experimental.noalias.scope.decl(metadata !268)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %55) #17, !noalias !268
+  call void @llvm.lifetime.start.p0(ptr nonnull %55), !noalias !268
   %2060 = getelementptr inbounds nuw i8, ptr %279, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %55, i8 0, i64 32, i1 false), !noalias !268
   %2061 = load ptr, ptr %2060, align 8, !tbaa !164, !noalias !268
@@ -4702,7 +4702,7 @@ _ZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E9_M_invokeERKSt9_Any_dataS3_, ptr %2091, align 8, !tbaa !169, !alias.scope !268
   %2092 = getelementptr inbounds nuw i8, ptr %430, i64 16
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %2092, align 8, !tbaa !164, !alias.scope !268
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %55) #17, !noalias !268
+  call void @llvm.lifetime.end.p0(ptr nonnull %55), !noalias !268
   br label %_ZNSt14_Function_baseD2Ev.exit.i1669
 
 2093:                                             ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i2763
@@ -4714,7 +4714,7 @@ _ZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E9_M_invokeERKSt9_Any_dataS3_, ptr %2095, align 8, !tbaa !169, !alias.scope !268
   %2096 = getelementptr inbounds nuw i8, ptr %430, i64 16
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %2096, align 8, !tbaa !164, !alias.scope !268
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %55) #17, !noalias !268
+  call void @llvm.lifetime.end.p0(ptr nonnull %55), !noalias !268
   %2097 = call noundef zeroext i1 %2079(ptr noundef nonnull align 8 dereferenceable(32) %280, ptr noundef nonnull align 8 dereferenceable(32) %280, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i1669
 
@@ -4730,10 +4730,10 @@ _ZNSt14_Function_baseD2Ev.exit.i1669:             ; preds = %_ZN4llvm18LegalityP
   br label %_ZL18typeIsLegalBoolVecjSt16initializer_listIN4llvm3LLTEERKNS0_14RISCVSubtargetE.exit1671
 
 _ZL18typeIsLegalBoolVecjSt16initializer_listIN4llvm3LLTEERKNS0_14RISCVSubtargetE.exit1671: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i1669, %2101
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %279)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %280)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %277)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %278)
+  call void @llvm.lifetime.end.p0(ptr nonnull %279)
+  call void @llvm.lifetime.end.p0(ptr nonnull %280)
+  call void @llvm.lifetime.start.p0(ptr nonnull %277)
+  call void @llvm.lifetime.start.p0(ptr nonnull %278)
   call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %277, i32 noundef 1, ptr nonnull %373, i64 22) #17, !noalias !271
   %2103 = getelementptr inbounds nuw i8, ptr %278, i64 24
   %2104 = getelementptr inbounds nuw i8, ptr %278, i64 16
@@ -4743,7 +4743,7 @@ _ZL18typeIsLegalBoolVecjSt16initializer_listIN4llvm3LLTEERKNS0_14RISCVSubtargetE
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL21typeIsLegalIntOrFPVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %2103, align 8, !tbaa !169, !noalias !271
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL21typeIsLegalIntOrFPVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation", ptr %2104, align 8, !tbaa !164, !noalias !271
   call void @llvm.experimental.noalias.scope.decl(metadata !274)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %54) #17, !noalias !274
+  call void @llvm.lifetime.start.p0(ptr nonnull %54), !noalias !274
   %2105 = getelementptr inbounds nuw i8, ptr %277, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %54, i8 0, i64 32, i1 false), !noalias !274
   %2106 = load ptr, ptr %2105, align 8, !tbaa !164, !noalias !274
@@ -4823,7 +4823,7 @@ _ZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E9_M_invokeERKSt9_Any_dataS3_, ptr %2136, align 8, !tbaa !169, !alias.scope !274
   %2137 = getelementptr inbounds nuw i8, ptr %431, i64 16
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %2137, align 8, !tbaa !164, !alias.scope !274
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %54) #17, !noalias !274
+  call void @llvm.lifetime.end.p0(ptr nonnull %54), !noalias !274
   br label %_ZNSt14_Function_baseD2Ev.exit.i1674
 
 2138:                                             ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i2778
@@ -4835,7 +4835,7 @@ _ZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E9_M_invokeERKSt9_Any_dataS3_, ptr %2140, align 8, !tbaa !169, !alias.scope !274
   %2141 = getelementptr inbounds nuw i8, ptr %431, i64 16
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %2141, align 8, !tbaa !164, !alias.scope !274
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %54) #17, !noalias !274
+  call void @llvm.lifetime.end.p0(ptr nonnull %54), !noalias !274
   %2142 = call noundef zeroext i1 %2124(ptr noundef nonnull align 8 dereferenceable(32) %278, ptr noundef nonnull align 8 dereferenceable(32) %278, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i1674
 
@@ -4851,10 +4851,10 @@ _ZNSt14_Function_baseD2Ev.exit.i1674:             ; preds = %_ZN4llvm18LegalityP
   br label %_ZL21typeIsLegalIntOrFPVecjSt16initializer_listIN4llvm3LLTEERKNS0_14RISCVSubtargetE.exit1676
 
 _ZL21typeIsLegalIntOrFPVecjSt16initializer_listIN4llvm3LLTEERKNS0_14RISCVSubtargetE.exit1676: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i1674, %2146
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %277)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %278)
+  call void @llvm.lifetime.end.p0(ptr nonnull %277)
+  call void @llvm.lifetime.end.p0(ptr nonnull %278)
   call void @llvm.experimental.noalias.scope.decl(metadata !277)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %276) #17, !noalias !277
+  call void @llvm.lifetime.start.p0(ptr nonnull %276), !noalias !277
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %276, i8 0, i64 32, i1 false), !noalias !277
   %2148 = load ptr, ptr %2098, align 8, !tbaa !164, !noalias !277
   %.not.i.i.not.i.i1677 = icmp eq ptr %2148, null
@@ -4929,8 +4929,8 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1693: ; preds = %_ZNSt
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E9_M_invokeERKSt9_Any_dataS3_, ptr %2175, align 8, !tbaa !169, !alias.scope !277
   %2176 = getelementptr inbounds nuw i8, ptr %429, i64 16
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %2176, align 8, !tbaa !164, !alias.scope !277
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %276) #17, !noalias !277
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %275)
+  call void @llvm.lifetime.end.p0(ptr nonnull %276), !noalias !277
+  call void @llvm.lifetime.start.p0(ptr nonnull %275)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %275, i8 0, i64 32, i1 false)
   %2177 = getelementptr inbounds nuw i8, ptr %275, i64 24
   %2178 = getelementptr inbounds nuw i8, ptr %275, i64 16
@@ -4985,7 +4985,7 @@ _ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates3allISt8function
   br label %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1696
 
 _ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1696: ; preds = %_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates3allISt8functionIFbRKNS1_13LegalityQueryEEEEET_SA_SA_EUlS7_E_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit3845, %2200
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %275)
+  call void @llvm.lifetime.end.p0(ptr nonnull %275)
   %2202 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet35widenScalarOrEltToNextPow2OrMinSizeEjj(ptr noundef nonnull align 8 dereferenceable(168) %2198, i32 noundef 1, i32 noundef 8)
   %.sroa.0370.0.copyload = load i64, ptr %616, align 8, !tbaa !161
   %2203 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE(ptr noundef nonnull align 8 dereferenceable(168) %2202, i32 noundef 1, i64 %.sroa.0370.0.copyload)
@@ -5020,9 +5020,9 @@ _ZNSt14_Function_baseD2Ev.exit1700:               ; preds = %_ZNSt14_Function_ba
   br label %_ZNSt14_Function_baseD2Ev.exit1702
 
 _ZNSt14_Function_baseD2Ev.exit1702:               ; preds = %_ZNSt14_Function_baseD2Ev.exit1700, %2214
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %428) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %428)
   %2216 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(125504) %0, i32 noundef 151) #17
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %432) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %432)
   store i64 137438953473, ptr %432, align 8, !tbaa !161
   %2217 = getelementptr inbounds nuw i8, ptr %432, i64 8
   %2218 = load i64, ptr %616, align 8, !tbaa !161
@@ -5031,7 +5031,7 @@ _ZNSt14_Function_baseD2Ev.exit1702:               ; preds = %_ZNSt14_Function_ba
   store i64 %storemerge.i.i.i876, ptr %2219, align 8, !tbaa !161
   %2220 = getelementptr inbounds nuw i8, ptr %432, i64 24
   store i64 %2218, ptr %2220, align 8, !tbaa !161
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %274)
+  call void @llvm.lifetime.start.p0(ptr nonnull %274)
   call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %274, i32 noundef 0, i32 noundef 1, ptr nonnull %432, i64 2) #17
   %2221 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %2216, i8 noundef zeroext 0, ptr noundef nonnull %274)
   %2222 = getelementptr inbounds nuw i8, ptr %274, i64 16
@@ -5044,9 +5044,9 @@ _ZNSt14_Function_baseD2Ev.exit1702:               ; preds = %_ZNSt14_Function_ba
   br label %_ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listISt4pairINS_3LLTES3_EE.exit1705
 
 _ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listISt4pairINS_3LLTES3_EE.exit1705: ; preds = %_ZNSt14_Function_baseD2Ev.exit1702, %2224
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %274)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %272)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %273)
+  call void @llvm.lifetime.end.p0(ptr nonnull %274)
+  call void @llvm.lifetime.start.p0(ptr nonnull %272)
+  call void @llvm.lifetime.start.p0(ptr nonnull %273)
   call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %272, i32 noundef 0, ptr nonnull %373, i64 22) #17, !noalias !280
   %2226 = getelementptr inbounds nuw i8, ptr %273, i64 24
   %2227 = getelementptr inbounds nuw i8, ptr %273, i64 16
@@ -5056,7 +5056,7 @@ _ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listISt4pairINS_3LLTES3_EE.ex
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL21typeIsLegalIntOrFPVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %2226, align 8, !tbaa !169, !noalias !280
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL21typeIsLegalIntOrFPVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation", ptr %2227, align 8, !tbaa !164, !noalias !280
   call void @llvm.experimental.noalias.scope.decl(metadata !283)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %53) #17, !noalias !283
+  call void @llvm.lifetime.start.p0(ptr nonnull %53), !noalias !283
   %2228 = getelementptr inbounds nuw i8, ptr %272, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %53, i8 0, i64 32, i1 false), !noalias !283
   %2229 = load ptr, ptr %2228, align 8, !tbaa !164, !noalias !283
@@ -5136,7 +5136,7 @@ _ZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E9_M_invokeERKSt9_Any_dataS3_, ptr %2259, align 8, !tbaa !169, !alias.scope !283
   %2260 = getelementptr inbounds nuw i8, ptr %434, i64 16
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %2260, align 8, !tbaa !164, !alias.scope !283
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %53) #17, !noalias !283
+  call void @llvm.lifetime.end.p0(ptr nonnull %53), !noalias !283
   br label %_ZNSt14_Function_baseD2Ev.exit.i1708
 
 2261:                                             ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i2793
@@ -5148,7 +5148,7 @@ _ZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E9_M_invokeERKSt9_Any_dataS3_, ptr %2263, align 8, !tbaa !169, !alias.scope !283
   %2264 = getelementptr inbounds nuw i8, ptr %434, i64 16
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %2264, align 8, !tbaa !164, !alias.scope !283
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %53) #17, !noalias !283
+  call void @llvm.lifetime.end.p0(ptr nonnull %53), !noalias !283
   %2265 = call noundef zeroext i1 %2247(ptr noundef nonnull align 8 dereferenceable(32) %273, ptr noundef nonnull align 8 dereferenceable(32) %273, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i1708
 
@@ -5164,10 +5164,10 @@ _ZNSt14_Function_baseD2Ev.exit.i1708:             ; preds = %_ZN4llvm18LegalityP
   br label %_ZL21typeIsLegalIntOrFPVecjSt16initializer_listIN4llvm3LLTEERKNS0_14RISCVSubtargetE.exit1710
 
 _ZL21typeIsLegalIntOrFPVecjSt16initializer_listIN4llvm3LLTEERKNS0_14RISCVSubtargetE.exit1710: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i1708, %2269
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %272)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %273)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %270)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %271)
+  call void @llvm.lifetime.end.p0(ptr nonnull %272)
+  call void @llvm.lifetime.end.p0(ptr nonnull %273)
+  call void @llvm.lifetime.start.p0(ptr nonnull %270)
+  call void @llvm.lifetime.start.p0(ptr nonnull %271)
   call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %270, i32 noundef 1, ptr nonnull %372, i64 7) #17, !noalias !286
   %2271 = getelementptr inbounds nuw i8, ptr %271, i64 24
   %2272 = getelementptr inbounds nuw i8, ptr %271, i64 16
@@ -5177,7 +5177,7 @@ _ZL21typeIsLegalIntOrFPVecjSt16initializer_listIN4llvm3LLTEERKNS0_14RISCVSubtarg
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL18typeIsLegalBoolVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %2271, align 8, !tbaa !169, !noalias !286
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL18typeIsLegalBoolVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation", ptr %2272, align 8, !tbaa !164, !noalias !286
   call void @llvm.experimental.noalias.scope.decl(metadata !289)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %52) #17, !noalias !289
+  call void @llvm.lifetime.start.p0(ptr nonnull %52), !noalias !289
   %2273 = getelementptr inbounds nuw i8, ptr %270, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %52, i8 0, i64 32, i1 false), !noalias !289
   %2274 = load ptr, ptr %2273, align 8, !tbaa !164, !noalias !289
@@ -5257,7 +5257,7 @@ _ZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E9_M_invokeERKSt9_Any_dataS3_, ptr %2304, align 8, !tbaa !169, !alias.scope !289
   %2305 = getelementptr inbounds nuw i8, ptr %435, i64 16
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %2305, align 8, !tbaa !164, !alias.scope !289
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %52) #17, !noalias !289
+  call void @llvm.lifetime.end.p0(ptr nonnull %52), !noalias !289
   br label %_ZNSt14_Function_baseD2Ev.exit.i1713
 
 2306:                                             ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i2808
@@ -5269,7 +5269,7 @@ _ZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E9_M_invokeERKSt9_Any_dataS3_, ptr %2308, align 8, !tbaa !169, !alias.scope !289
   %2309 = getelementptr inbounds nuw i8, ptr %435, i64 16
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %2309, align 8, !tbaa !164, !alias.scope !289
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %52) #17, !noalias !289
+  call void @llvm.lifetime.end.p0(ptr nonnull %52), !noalias !289
   %2310 = call noundef zeroext i1 %2292(ptr noundef nonnull align 8 dereferenceable(32) %271, ptr noundef nonnull align 8 dereferenceable(32) %271, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i1713
 
@@ -5285,10 +5285,10 @@ _ZNSt14_Function_baseD2Ev.exit.i1713:             ; preds = %_ZN4llvm18LegalityP
   br label %_ZL18typeIsLegalBoolVecjSt16initializer_listIN4llvm3LLTEERKNS0_14RISCVSubtargetE.exit1715
 
 _ZL18typeIsLegalBoolVecjSt16initializer_listIN4llvm3LLTEERKNS0_14RISCVSubtargetE.exit1715: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i1713, %2314
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %270)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %271)
+  call void @llvm.lifetime.end.p0(ptr nonnull %270)
+  call void @llvm.lifetime.end.p0(ptr nonnull %271)
   call void @llvm.experimental.noalias.scope.decl(metadata !292)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %269) #17, !noalias !292
+  call void @llvm.lifetime.start.p0(ptr nonnull %269), !noalias !292
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %269, i8 0, i64 32, i1 false), !noalias !292
   %2316 = load ptr, ptr %2266, align 8, !tbaa !164, !noalias !292
   %.not.i.i.not.i.i1716 = icmp eq ptr %2316, null
@@ -5363,8 +5363,8 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1732: ; preds = %_ZNSt
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E9_M_invokeERKSt9_Any_dataS3_, ptr %2343, align 8, !tbaa !169, !alias.scope !292
   %2344 = getelementptr inbounds nuw i8, ptr %433, i64 16
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %2344, align 8, !tbaa !164, !alias.scope !292
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %269) #17, !noalias !292
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %268)
+  call void @llvm.lifetime.end.p0(ptr nonnull %269), !noalias !292
+  call void @llvm.lifetime.start.p0(ptr nonnull %268)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %268, i8 0, i64 32, i1 false)
   %2345 = getelementptr inbounds nuw i8, ptr %268, i64 24
   %2346 = getelementptr inbounds nuw i8, ptr %268, i64 16
@@ -5419,13 +5419,13 @@ _ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates3allISt8function
   br label %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1735
 
 _ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1735: ; preds = %_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates3allISt8functionIFbRKNS1_13LegalityQueryEEEEET_SA_SA_EUlS7_E_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit3849, %2368
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %268)
+  call void @llvm.lifetime.end.p0(ptr nonnull %268)
   %2370 = load i32, ptr %611, align 8, !tbaa !155
   %2371 = icmp eq i32 %2370, 64
   br i1 %2371, label %.thread3497, label %2374
 
 .thread3497:                                      ; preds = %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1735
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %436) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %436)
   store i64 274877906945, ptr %436, align 8, !tbaa !161
   %2372 = getelementptr inbounds nuw i8, ptr %436, i64 8
   %2373 = load i64, ptr %616, align 8, !tbaa !161
@@ -5435,7 +5435,7 @@ _ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1735
 2374:                                             ; preds = %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1735
   %2375 = load i8, ptr %1114, align 2, !tbaa !295, !range !153, !noundef !154
   %2376 = trunc nuw i8 %2375 to i1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %436) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %436)
   store i64 274877906945, ptr %436, align 8, !tbaa !161
   %2377 = getelementptr inbounds nuw i8, ptr %436, i64 8
   %2378 = load i64, ptr %616, align 8, !tbaa !161
@@ -5443,7 +5443,7 @@ _ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1735
   br i1 %2376, label %2379, label %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit1739
 
 2379:                                             ; preds = %.thread3497, %2374
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %267)
+  call void @llvm.lifetime.start.p0(ptr nonnull %267)
   call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %267, i32 noundef 0, i32 noundef 1, ptr nonnull %436, i64 1) #17
   %2380 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %2366, i8 noundef zeroext 0, ptr noundef nonnull %267)
   %2381 = getelementptr inbounds nuw i8, ptr %267, i64 16
@@ -5456,13 +5456,13 @@ _ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1735
   br label %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i1738
 
 _ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i1738: ; preds = %2383, %2379
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %267)
+  call void @llvm.lifetime.end.p0(ptr nonnull %267)
   br label %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit1739
 
 _ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit1739: ; preds = %2374, %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i1738
   %.0.i1736 = phi ptr [ %2380, %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i1738 ], [ %2366, %2374 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %265)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %266)
+  call void @llvm.lifetime.start.p0(ptr nonnull %265)
+  call void @llvm.lifetime.start.p0(ptr nonnull %266)
   call void @_ZN4llvm18LegalityPredicates11sizeNotPow2Ej(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %265, i32 noundef 0) #17
   call void @_ZN4llvm17LegalizeMutations26widenScalarOrEltToNextPow2Ejj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.77") align 8 %266, i32 noundef 0, i32 noundef 0) #17
   %2385 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %.0.i1736, i8 noundef zeroext 2, ptr noundef nonnull %265, ptr noundef nonnull %266)
@@ -5486,17 +5486,17 @@ _ZNSt14_Function_baseD2Ev.exit.i1741:             ; preds = %2388, %_ZN4llvm15Le
   br label %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1743
 
 _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1743: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i1741, %2392
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %265)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %266)
+  call void @llvm.lifetime.end.p0(ptr nonnull %265)
+  call void @llvm.lifetime.end.p0(ptr nonnull %266)
   %2394 = load i32, ptr %611, align 8, !tbaa !155
   %2395 = icmp eq i32 %2394, 64
   %2396 = load i8, ptr %1114, align 2, !range !153
   %2397 = trunc nuw i8 %2396 to i1
   %2398 = select i1 %2395, i1 true, i1 %2397
   %.sroa.0357.0.copyload = select i1 %2398, i64 274877906945, i64 137438953473
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %24)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %26)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %25) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i64 32, ptr %25, align 8
   %.sroa.2.0..sroa_idx.i3794 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store i8 0, ptr %.sroa.2.0..sroa_idx.i3794, align 8
@@ -5525,14 +5525,14 @@ _ZNSt14_Function_baseD2Ev.exit.i3796:             ; preds = %2404, %_ZN4llvm15Le
   br label %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit3798
 
 _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit3798: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i3796, %2408
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %25) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %24)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   %2410 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet9maxScalarEjNS_3LLTE(ptr noundef nonnull align 8 dereferenceable(168) %2401, i32 noundef 0, i64 %.sroa.0357.0.copyload)
   %.sroa.0356.0.copyload = load i64, ptr %616, align 8, !tbaa !161
   %2411 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE(ptr noundef nonnull align 8 dereferenceable(168) %2410, i32 noundef 1, i64 %.sroa.0356.0.copyload)
   %2412 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet9maxScalarEjNS_3LLTE(ptr noundef nonnull align 8 dereferenceable(168) %2411, i32 noundef 1, i64 %.sroa.0356.0.copyload)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %436) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %436)
   %2413 = load ptr, ptr %2344, align 8, !tbaa !164
   %.not.i1744 = icmp eq ptr %2413, null
   br i1 %.not.i1744, label %_ZNSt14_Function_baseD2Ev.exit1745, label %2414
@@ -5560,16 +5560,16 @@ _ZNSt14_Function_baseD2Ev.exit1747:               ; preds = %_ZNSt14_Function_ba
   br label %_ZNSt14_Function_baseD2Ev.exit1749
 
 _ZNSt14_Function_baseD2Ev.exit1749:               ; preds = %_ZNSt14_Function_baseD2Ev.exit1747, %2420
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %432) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %432)
   %2422 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(125504) %0, i32 noundef 93) #17
   %2423 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(125504) %0, i32 noundef 99) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %437) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %437)
   store i32 94, ptr %437, align 4, !tbaa !163
   %2424 = getelementptr inbounds nuw i8, ptr %437, i64 4
   store i32 95, ptr %2424, align 4, !tbaa !163
   %2425 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderESt16initializer_listIjE(ptr noundef nonnull align 8 dereferenceable(125504) %0, ptr nonnull %437, i64 2) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %437) #17
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %438) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %437)
+  call void @llvm.lifetime.start.p0(ptr nonnull %438)
   store i64 68719476737, ptr %438, align 8, !tbaa !161
   %2426 = getelementptr inbounds nuw i8, ptr %438, i64 8
   store i64 %storemerge.i.i.i876, ptr %2426, align 8, !tbaa !161
@@ -5626,7 +5626,7 @@ _ZNSt14_Function_baseD2Ev.exit1749:               ; preds = %_ZNSt14_Function_ba
   %2455 = zext i32 %2454 to i64
   %2456 = select i1 %2438, i64 8, i64 %2455
   store i64 %2456, ptr %2453, align 8, !tbaa !297
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %264)
+  call void @llvm.lifetime.start.p0(ptr nonnull %264)
   call void @_ZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS0_18TypePairAndMemDescEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %264, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr nonnull %438, i64 6) #17
   %2457 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %2422, i8 noundef zeroext 0, ptr noundef nonnull %264)
   %2458 = getelementptr inbounds nuw i8, ptr %264, i64 16
@@ -5639,9 +5639,9 @@ _ZNSt14_Function_baseD2Ev.exit1749:               ; preds = %_ZNSt14_Function_ba
   br label %_ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18LegalityPredicates18TypePairAndMemDescEE.exit
 
 _ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18LegalityPredicates18TypePairAndMemDescEE.exit: ; preds = %_ZNSt14_Function_baseD2Ev.exit1749, %2460
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %264)
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %438) #17
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %439) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %264)
+  call void @llvm.lifetime.end.p0(ptr nonnull %438)
+  call void @llvm.lifetime.start.p0(ptr nonnull %439)
   store i64 68719476737, ptr %439, align 8, !tbaa !161
   %2462 = getelementptr inbounds nuw i8, ptr %439, i64 8
   store i64 %storemerge.i.i.i876, ptr %2462, align 8, !tbaa !161
@@ -5697,7 +5697,7 @@ _ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18Le
   %2490 = zext i32 %2489 to i64
   %2491 = select i1 %2473, i64 8, i64 %2490
   store i64 %2491, ptr %2488, align 8, !tbaa !297
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %263)
+  call void @llvm.lifetime.start.p0(ptr nonnull %263)
   call void @_ZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS0_18TypePairAndMemDescEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %263, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr nonnull %439, i64 6) #17
   %2492 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %2423, i8 noundef zeroext 0, ptr noundef nonnull %263)
   %2493 = getelementptr inbounds nuw i8, ptr %263, i64 16
@@ -5710,9 +5710,9 @@ _ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18Le
   br label %_ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18LegalityPredicates18TypePairAndMemDescEE.exit1754
 
 _ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18LegalityPredicates18TypePairAndMemDescEE.exit1754: ; preds = %_ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18LegalityPredicates18TypePairAndMemDescEE.exit, %2495
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %263)
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %439) #17
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %440) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %263)
+  call void @llvm.lifetime.end.p0(ptr nonnull %439)
+  call void @llvm.lifetime.start.p0(ptr nonnull %440)
   %2497 = load i64, ptr %616, align 8, !tbaa !161
   store i64 %2497, ptr %440, align 8, !tbaa !161
   %2498 = getelementptr inbounds nuw i8, ptr %440, i64 8
@@ -5732,7 +5732,7 @@ _ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18Le
   %2505 = trunc nuw i8 %.val861.val to i1
   %2506 = select i1 %2505, i64 8, i64 16
   store i64 %2506, ptr %2504, align 8, !tbaa !297
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %262)
+  call void @llvm.lifetime.start.p0(ptr nonnull %262)
   call void @_ZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS0_18TypePairAndMemDescEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %262, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr nonnull %440, i64 2) #17
   %2507 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %2425, i8 noundef zeroext 0, ptr noundef nonnull %262)
   %2508 = getelementptr inbounds nuw i8, ptr %262, i64 16
@@ -5745,14 +5745,14 @@ _ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18Le
   br label %_ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18LegalityPredicates18TypePairAndMemDescEE.exit1757
 
 _ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18LegalityPredicates18TypePairAndMemDescEE.exit1757: ; preds = %_ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18LegalityPredicates18TypePairAndMemDescEE.exit1754, %2510
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %262)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %440) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %262)
+  call void @llvm.lifetime.end.p0(ptr nonnull %440)
   %2512 = load i32, ptr %611, align 8, !tbaa !155
   %2513 = icmp eq i32 %2512, 64
   br i1 %2513, label %2514, label %2573
 
 2514:                                             ; preds = %_ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18LegalityPredicates18TypePairAndMemDescEE.exit1757
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %441) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %441)
   store i64 274877906945, ptr %441, align 8, !tbaa !161
   %2515 = getelementptr inbounds nuw i8, ptr %441, i64 8
   store i64 %storemerge.i.i.i876, ptr %2515, align 8, !tbaa !161
@@ -5789,7 +5789,7 @@ _ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18Le
   %2532 = getelementptr inbounds nuw i8, ptr %441, i64 120
   %2533 = select i1 %2522, i64 8, i64 64
   store i64 %2533, ptr %2532, align 8, !tbaa !297
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %261)
+  call void @llvm.lifetime.start.p0(ptr nonnull %261)
   call void @_ZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS0_18TypePairAndMemDescEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %261, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr nonnull %441, i64 4) #17
   %2534 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %2422, i8 noundef zeroext 0, ptr noundef nonnull %261)
   %2535 = getelementptr inbounds nuw i8, ptr %261, i64 16
@@ -5802,9 +5802,9 @@ _ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18Le
   br label %_ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18LegalityPredicates18TypePairAndMemDescEE.exit1760
 
 _ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18LegalityPredicates18TypePairAndMemDescEE.exit1760: ; preds = %2514, %2537
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %261)
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %441) #17
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %442) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %261)
+  call void @llvm.lifetime.end.p0(ptr nonnull %441)
+  call void @llvm.lifetime.start.p0(ptr nonnull %442)
   store i64 274877906945, ptr %442, align 8, !tbaa !161
   %2539 = getelementptr inbounds nuw i8, ptr %442, i64 8
   store i64 %storemerge.i.i.i876, ptr %2539, align 8, !tbaa !161
@@ -5841,7 +5841,7 @@ _ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18Le
   %2556 = getelementptr inbounds nuw i8, ptr %442, i64 120
   %2557 = select i1 %2546, i64 8, i64 64
   store i64 %2557, ptr %2556, align 8, !tbaa !297
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %260)
+  call void @llvm.lifetime.start.p0(ptr nonnull %260)
   call void @_ZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS0_18TypePairAndMemDescEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %260, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr nonnull %442, i64 4) #17
   %2558 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %2423, i8 noundef zeroext 0, ptr noundef nonnull %260)
   %2559 = getelementptr inbounds nuw i8, ptr %260, i64 16
@@ -5854,9 +5854,9 @@ _ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18Le
   br label %_ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18LegalityPredicates18TypePairAndMemDescEE.exit1763
 
 _ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18LegalityPredicates18TypePairAndMemDescEE.exit1763: ; preds = %_ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18LegalityPredicates18TypePairAndMemDescEE.exit1760, %2561
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %260)
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %442) #17
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %443) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %260)
+  call void @llvm.lifetime.end.p0(ptr nonnull %442)
+  call void @llvm.lifetime.start.p0(ptr nonnull %443)
   store i64 274877906945, ptr %443, align 8, !tbaa !161
   %2563 = getelementptr inbounds nuw i8, ptr %443, i64 8
   store i64 %storemerge.i.i.i876, ptr %2563, align 8, !tbaa !161
@@ -5867,7 +5867,7 @@ _ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18Le
   %2566 = trunc nuw i8 %.val871.val to i1
   %2567 = select i1 %2566, i64 8, i64 32
   store i64 %2567, ptr %2565, align 8, !tbaa !297
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %259)
+  call void @llvm.lifetime.start.p0(ptr nonnull %259)
   call void @_ZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS0_18TypePairAndMemDescEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %259, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr nonnull %443, i64 1) #17
   %2568 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %2425, i8 noundef zeroext 0, ptr noundef nonnull %259)
   %2569 = getelementptr inbounds nuw i8, ptr %259, i64 16
@@ -5880,8 +5880,8 @@ _ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18Le
   br label %_ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18LegalityPredicates18TypePairAndMemDescEE.exit1766
 
 _ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18LegalityPredicates18TypePairAndMemDescEE.exit1766: ; preds = %_ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18LegalityPredicates18TypePairAndMemDescEE.exit1763, %2571
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %259)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %443) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %259)
+  call void @llvm.lifetime.end.p0(ptr nonnull %443)
   br label %2597
 
 2573:                                             ; preds = %_ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18LegalityPredicates18TypePairAndMemDescEE.exit1757
@@ -5890,7 +5890,7 @@ _ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18Le
   br i1 %2575, label %2576, label %2597
 
 2576:                                             ; preds = %2573
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %444) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %444)
   store i64 274877906945, ptr %444, align 8, !tbaa !161
   %2577 = getelementptr inbounds nuw i8, ptr %444, i64 8
   store i64 %storemerge.i.i.i876, ptr %2577, align 8, !tbaa !161
@@ -5901,7 +5901,7 @@ _ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18Le
   %2580 = trunc nuw i8 %.val872.val to i1
   %2581 = select i1 %2580, i64 8, i64 64
   store i64 %2581, ptr %2579, align 8, !tbaa !297
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %258)
+  call void @llvm.lifetime.start.p0(ptr nonnull %258)
   call void @_ZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS0_18TypePairAndMemDescEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %258, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr nonnull %444, i64 1) #17
   %2582 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %2422, i8 noundef zeroext 0, ptr noundef nonnull %258)
   %2583 = getelementptr inbounds nuw i8, ptr %258, i64 16
@@ -5914,9 +5914,9 @@ _ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18Le
   br label %_ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18LegalityPredicates18TypePairAndMemDescEE.exit1769
 
 _ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18LegalityPredicates18TypePairAndMemDescEE.exit1769: ; preds = %2576, %2585
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %258)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %444) #17
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %445) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %258)
+  call void @llvm.lifetime.end.p0(ptr nonnull %444)
+  call void @llvm.lifetime.start.p0(ptr nonnull %445)
   store i64 274877906945, ptr %445, align 8, !tbaa !161
   %2587 = getelementptr inbounds nuw i8, ptr %445, i64 8
   store i64 %storemerge.i.i.i876, ptr %2587, align 8, !tbaa !161
@@ -5927,7 +5927,7 @@ _ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18Le
   %2590 = trunc nuw i8 %.val873.val to i1
   %2591 = select i1 %2590, i64 8, i64 64
   store i64 %2591, ptr %2589, align 8, !tbaa !297
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %257)
+  call void @llvm.lifetime.start.p0(ptr nonnull %257)
   call void @_ZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS0_18TypePairAndMemDescEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %257, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr nonnull %445, i64 1) #17
   %2592 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %2423, i8 noundef zeroext 0, ptr noundef nonnull %257)
   %2593 = getelementptr inbounds nuw i8, ptr %257, i64 16
@@ -5940,8 +5940,8 @@ _ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18Le
   br label %_ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18LegalityPredicates18TypePairAndMemDescEE.exit1772
 
 _ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18LegalityPredicates18TypePairAndMemDescEE.exit1772: ; preds = %_ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18LegalityPredicates18TypePairAndMemDescEE.exit1769, %2595
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %257)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %445) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %257)
+  call void @llvm.lifetime.end.p0(ptr nonnull %445)
   br label %2597
 
 2597:                                             ; preds = %2573, %_ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18LegalityPredicates18TypePairAndMemDescEE.exit1772, %_ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18LegalityPredicates18TypePairAndMemDescEE.exit1766
@@ -5951,7 +5951,7 @@ _ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18Le
   br i1 %2600, label %2601, label %_ZNSt14_Function_baseD2Ev.exit1837
 
 2601:                                             ; preds = %2597
-  call void @llvm.lifetime.start.p0(i64 480, ptr nonnull %446) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %446)
   store i64 34359738892, ptr %446, align 8, !tbaa !161
   %2602 = getelementptr inbounds nuw i8, ptr %446, i64 8
   store i64 %storemerge.i.i.i876, ptr %2602, align 8, !tbaa !161
@@ -6071,7 +6071,7 @@ _ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18Le
   store i64 137438957580, ptr %2659, align 8, !tbaa !161
   %2660 = getelementptr inbounds nuw i8, ptr %446, i64 472
   store i64 32, ptr %2660, align 8, !tbaa !297
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %256)
+  call void @llvm.lifetime.start.p0(ptr nonnull %256)
   call void @_ZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS0_18TypePairAndMemDescEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %256, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr nonnull %446, i64 15) #17
   %2661 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %2422, i8 noundef zeroext 0, ptr noundef nonnull %256)
   %2662 = getelementptr inbounds nuw i8, ptr %256, i64 16
@@ -6084,9 +6084,9 @@ _ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18Le
   br label %_ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18LegalityPredicates18TypePairAndMemDescEE.exit1775
 
 _ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18LegalityPredicates18TypePairAndMemDescEE.exit1775: ; preds = %2601, %2664
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %256)
-  call void @llvm.lifetime.end.p0(i64 480, ptr nonnull %446) #17
-  call void @llvm.lifetime.start.p0(i64 480, ptr nonnull %447) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %256)
+  call void @llvm.lifetime.end.p0(ptr nonnull %446)
+  call void @llvm.lifetime.start.p0(ptr nonnull %447)
   store i64 34359738892, ptr %447, align 8, !tbaa !161
   %2666 = getelementptr inbounds nuw i8, ptr %447, i64 8
   store i64 %storemerge.i.i.i876, ptr %2666, align 8, !tbaa !161
@@ -6206,7 +6206,7 @@ _ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18Le
   store i64 137438957580, ptr %2723, align 8, !tbaa !161
   %2724 = getelementptr inbounds nuw i8, ptr %447, i64 472
   store i64 32, ptr %2724, align 8, !tbaa !297
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %255)
+  call void @llvm.lifetime.start.p0(ptr nonnull %255)
   call void @_ZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS0_18TypePairAndMemDescEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %255, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr nonnull %447, i64 15) #17
   %2725 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %2423, i8 noundef zeroext 0, ptr noundef nonnull %255)
   %2726 = getelementptr inbounds nuw i8, ptr %255, i64 16
@@ -6219,15 +6219,15 @@ _ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18Le
   br label %_ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18LegalityPredicates18TypePairAndMemDescEE.exit1778
 
 _ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18LegalityPredicates18TypePairAndMemDescEE.exit1778: ; preds = %_ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18LegalityPredicates18TypePairAndMemDescEE.exit1775, %2728
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %255)
-  call void @llvm.lifetime.end.p0(i64 480, ptr nonnull %447) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %255)
+  call void @llvm.lifetime.end.p0(ptr nonnull %447)
   %2730 = getelementptr inbounds nuw i8, ptr %1, i64 455
   %2731 = load i8, ptr %2730, align 1, !tbaa !300, !range !153, !noundef !154
   %2732 = trunc nuw i8 %2731 to i1
   br i1 %2732, label %2733, label %.thread3730
 
 2733:                                             ; preds = %_ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18LegalityPredicates18TypePairAndMemDescEE.exit1778
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %448) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %448)
   store i64 34359738636, ptr %448, align 8, !tbaa !161
   %2734 = getelementptr inbounds nuw i8, ptr %448, i64 8
   store i64 %storemerge.i.i.i876, ptr %2734, align 8, !tbaa !161
@@ -6251,7 +6251,7 @@ _ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18Le
   store i64 137438953740, ptr %2743, align 8, !tbaa !161
   %2744 = getelementptr inbounds nuw i8, ptr %448, i64 88
   store i64 32, ptr %2744, align 8, !tbaa !297
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %254)
+  call void @llvm.lifetime.start.p0(ptr nonnull %254)
   call void @_ZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS0_18TypePairAndMemDescEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %254, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr nonnull %448, i64 3) #17
   %2745 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %2422, i8 noundef zeroext 0, ptr noundef nonnull %254)
   %2746 = getelementptr inbounds nuw i8, ptr %254, i64 16
@@ -6264,9 +6264,9 @@ _ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18Le
   br label %_ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18LegalityPredicates18TypePairAndMemDescEE.exit1781
 
 _ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18LegalityPredicates18TypePairAndMemDescEE.exit1781: ; preds = %2733, %2748
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %254)
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %448) #17
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %449) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %254)
+  call void @llvm.lifetime.end.p0(ptr nonnull %448)
+  call void @llvm.lifetime.start.p0(ptr nonnull %449)
   store i64 34359738636, ptr %449, align 8, !tbaa !161
   %2750 = getelementptr inbounds nuw i8, ptr %449, i64 8
   store i64 %storemerge.i.i.i876, ptr %2750, align 8, !tbaa !161
@@ -6290,7 +6290,7 @@ _ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18Le
   store i64 137438953740, ptr %2759, align 8, !tbaa !161
   %2760 = getelementptr inbounds nuw i8, ptr %449, i64 88
   store i64 32, ptr %2760, align 8, !tbaa !297
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %253)
+  call void @llvm.lifetime.start.p0(ptr nonnull %253)
   call void @_ZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS0_18TypePairAndMemDescEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %253, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr nonnull %449, i64 3) #17
   %2761 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %2423, i8 noundef zeroext 0, ptr noundef nonnull %253)
   %2762 = getelementptr inbounds nuw i8, ptr %253, i64 16
@@ -6303,14 +6303,14 @@ _ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18Le
   br label %2766
 
 2766:                                             ; preds = %2764, %_ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18LegalityPredicates18TypePairAndMemDescEE.exit1781
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %253)
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %449) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %253)
+  call void @llvm.lifetime.end.p0(ptr nonnull %449)
   %.pre3652 = load i8, ptr %2730, align 1, !tbaa !300, !range !153
   %2767 = trunc nuw i8 %.pre3652 to i1
   br i1 %2767, label %2768, label %.thread3730
 
 2768:                                             ; preds = %2766
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %450) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %450)
   store i64 274877907212, ptr %450, align 8, !tbaa !161
   %2769 = getelementptr inbounds nuw i8, ptr %450, i64 8
   store i64 %storemerge.i.i.i876, ptr %2769, align 8, !tbaa !161
@@ -6342,7 +6342,7 @@ _ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18Le
   store i64 274877909004, ptr %2782, align 8, !tbaa !161
   %2783 = getelementptr inbounds nuw i8, ptr %450, i64 120
   store i64 64, ptr %2783, align 8, !tbaa !297
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %252)
+  call void @llvm.lifetime.start.p0(ptr nonnull %252)
   call void @_ZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS0_18TypePairAndMemDescEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %252, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr nonnull %450, i64 4) #17
   %2784 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %2422, i8 noundef zeroext 0, ptr noundef nonnull %252)
   %2785 = getelementptr inbounds nuw i8, ptr %252, i64 16
@@ -6355,9 +6355,9 @@ _ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18Le
   br label %_ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18LegalityPredicates18TypePairAndMemDescEE.exit1787
 
 _ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18LegalityPredicates18TypePairAndMemDescEE.exit1787: ; preds = %2768, %2787
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %252)
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %450) #17
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %451) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %252)
+  call void @llvm.lifetime.end.p0(ptr nonnull %450)
+  call void @llvm.lifetime.start.p0(ptr nonnull %451)
   store i64 274877907212, ptr %451, align 8, !tbaa !161
   %2789 = getelementptr inbounds nuw i8, ptr %451, i64 8
   store i64 %storemerge.i.i.i876, ptr %2789, align 8, !tbaa !161
@@ -6389,7 +6389,7 @@ _ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18Le
   store i64 274877909004, ptr %2802, align 8, !tbaa !161
   %2803 = getelementptr inbounds nuw i8, ptr %451, i64 120
   store i64 64, ptr %2803, align 8, !tbaa !297
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %251)
+  call void @llvm.lifetime.start.p0(ptr nonnull %251)
   call void @_ZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS0_18TypePairAndMemDescEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %251, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr nonnull %451, i64 4) #17
   %2804 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %2423, i8 noundef zeroext 0, ptr noundef nonnull %251)
   %2805 = getelementptr inbounds nuw i8, ptr %251, i64 16
@@ -6402,13 +6402,13 @@ _ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18Le
   br label %_ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18LegalityPredicates18TypePairAndMemDescEE.exit1790
 
 _ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18LegalityPredicates18TypePairAndMemDescEE.exit1790: ; preds = %_ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18LegalityPredicates18TypePairAndMemDescEE.exit1787, %2807
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %251)
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %451) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %251)
+  call void @llvm.lifetime.end.p0(ptr nonnull %451)
   br label %.thread3730
 
 .thread3730:                                      ; preds = %_ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18LegalityPredicates18TypePairAndMemDescEE.exit1778, %_ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18LegalityPredicates18TypePairAndMemDescEE.exit1790, %2766
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %249)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %250)
+  call void @llvm.lifetime.start.p0(ptr nonnull %249)
+  call void @llvm.lifetime.start.p0(ptr nonnull %250)
   call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %249, i32 noundef 0, ptr nonnull %373, i64 22) #17, !noalias !301
   %2809 = getelementptr inbounds nuw i8, ptr %250, i64 24
   %2810 = getelementptr inbounds nuw i8, ptr %250, i64 16
@@ -6418,7 +6418,7 @@ _ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18Le
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL21typeIsLegalIntOrFPVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %2809, align 8, !tbaa !169, !noalias !301
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL21typeIsLegalIntOrFPVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation", ptr %2810, align 8, !tbaa !164, !noalias !301
   call void @llvm.experimental.noalias.scope.decl(metadata !304)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %51) #17, !noalias !304
+  call void @llvm.lifetime.start.p0(ptr nonnull %51), !noalias !304
   %2811 = getelementptr inbounds nuw i8, ptr %249, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %51, i8 0, i64 32, i1 false), !noalias !304
   %2812 = load ptr, ptr %2811, align 8, !tbaa !164, !noalias !304
@@ -6498,7 +6498,7 @@ _ZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E9_M_invokeERKSt9_Any_dataS3_, ptr %2842, align 8, !tbaa !169, !alias.scope !304
   %2843 = getelementptr inbounds nuw i8, ptr %452, i64 16
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %2843, align 8, !tbaa !164, !alias.scope !304
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %51) #17, !noalias !304
+  call void @llvm.lifetime.end.p0(ptr nonnull %51), !noalias !304
   br label %_ZNSt14_Function_baseD2Ev.exit.i1793
 
 2844:                                             ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i2823
@@ -6510,7 +6510,7 @@ _ZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E9_M_invokeERKSt9_Any_dataS3_, ptr %2846, align 8, !tbaa !169, !alias.scope !304
   %2847 = getelementptr inbounds nuw i8, ptr %452, i64 16
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %2847, align 8, !tbaa !164, !alias.scope !304
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %51) #17, !noalias !304
+  call void @llvm.lifetime.end.p0(ptr nonnull %51), !noalias !304
   %2848 = call noundef zeroext i1 %2830(ptr noundef nonnull align 8 dereferenceable(32) %250, ptr noundef nonnull align 8 dereferenceable(32) %250, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i1793
 
@@ -6526,9 +6526,9 @@ _ZNSt14_Function_baseD2Ev.exit.i1793:             ; preds = %_ZN4llvm18LegalityP
   br label %_ZL21typeIsLegalIntOrFPVecjSt16initializer_listIN4llvm3LLTEERKNS0_14RISCVSubtargetE.exit1795
 
 _ZL21typeIsLegalIntOrFPVecjSt16initializer_listIN4llvm3LLTEERKNS0_14RISCVSubtargetE.exit1795: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i1793, %2852
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %249)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %250)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %248)
+  call void @llvm.lifetime.end.p0(ptr nonnull %249)
+  call void @llvm.lifetime.end.p0(ptr nonnull %250)
+  call void @llvm.lifetime.start.p0(ptr nonnull %248)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %248, i8 0, i64 32, i1 false)
   %2854 = load ptr, ptr %2849, align 8, !tbaa !164
   %.not.i.i.not.i.i1796 = icmp eq ptr %2854, null
@@ -6556,7 +6556,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1797: ; preds = %2855,
   br label %_ZN4llvm15LegalizeRuleSet8customIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1800
 
 _ZN4llvm15LegalizeRuleSet8customIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1800: ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1797, %2864
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %248)
+  call void @llvm.lifetime.end.p0(ptr nonnull %248)
   %2866 = load ptr, ptr %2849, align 8, !tbaa !164
   %.not.i1801 = icmp eq ptr %2866, null
   br i1 %.not.i1801, label %_ZNSt14_Function_baseD2Ev.exit1802, label %2867
@@ -6566,8 +6566,8 @@ _ZN4llvm15LegalizeRuleSet8customIfESt8functionIFbRKNS_13LegalityQueryEEE.exit180
   br label %_ZNSt14_Function_baseD2Ev.exit1802
 
 _ZNSt14_Function_baseD2Ev.exit1802:               ; preds = %_ZN4llvm15LegalizeRuleSet8customIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1800, %2867
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %246)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %247)
+  call void @llvm.lifetime.start.p0(ptr nonnull %246)
+  call void @llvm.lifetime.start.p0(ptr nonnull %247)
   call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %246, i32 noundef 0, ptr nonnull %373, i64 22) #17, !noalias !307
   %2869 = getelementptr inbounds nuw i8, ptr %247, i64 24
   %2870 = getelementptr inbounds nuw i8, ptr %247, i64 16
@@ -6577,7 +6577,7 @@ _ZNSt14_Function_baseD2Ev.exit1802:               ; preds = %_ZN4llvm15LegalizeR
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL21typeIsLegalIntOrFPVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %2869, align 8, !tbaa !169, !noalias !307
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL21typeIsLegalIntOrFPVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation", ptr %2870, align 8, !tbaa !164, !noalias !307
   call void @llvm.experimental.noalias.scope.decl(metadata !310)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %50) #17, !noalias !310
+  call void @llvm.lifetime.start.p0(ptr nonnull %50), !noalias !310
   %2871 = getelementptr inbounds nuw i8, ptr %246, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %50, i8 0, i64 32, i1 false), !noalias !310
   %2872 = load ptr, ptr %2871, align 8, !tbaa !164, !noalias !310
@@ -6657,7 +6657,7 @@ _ZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E9_M_invokeERKSt9_Any_dataS3_, ptr %2902, align 8, !tbaa !169, !alias.scope !310
   %2903 = getelementptr inbounds nuw i8, ptr %453, i64 16
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %2903, align 8, !tbaa !164, !alias.scope !310
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %50) #17, !noalias !310
+  call void @llvm.lifetime.end.p0(ptr nonnull %50), !noalias !310
   br label %_ZNSt14_Function_baseD2Ev.exit.i1805
 
 2904:                                             ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i2838
@@ -6669,7 +6669,7 @@ _ZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E9_M_invokeERKSt9_Any_dataS3_, ptr %2906, align 8, !tbaa !169, !alias.scope !310
   %2907 = getelementptr inbounds nuw i8, ptr %453, i64 16
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %2907, align 8, !tbaa !164, !alias.scope !310
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %50) #17, !noalias !310
+  call void @llvm.lifetime.end.p0(ptr nonnull %50), !noalias !310
   %2908 = call noundef zeroext i1 %2890(ptr noundef nonnull align 8 dereferenceable(32) %247, ptr noundef nonnull align 8 dereferenceable(32) %247, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i1805
 
@@ -6685,9 +6685,9 @@ _ZNSt14_Function_baseD2Ev.exit.i1805:             ; preds = %_ZN4llvm18LegalityP
   br label %_ZL21typeIsLegalIntOrFPVecjSt16initializer_listIN4llvm3LLTEERKNS0_14RISCVSubtargetE.exit1807
 
 _ZL21typeIsLegalIntOrFPVecjSt16initializer_listIN4llvm3LLTEERKNS0_14RISCVSubtargetE.exit1807: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i1805, %2912
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %246)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %247)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %245)
+  call void @llvm.lifetime.end.p0(ptr nonnull %246)
+  call void @llvm.lifetime.end.p0(ptr nonnull %247)
+  call void @llvm.lifetime.start.p0(ptr nonnull %245)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %245, i8 0, i64 32, i1 false)
   %2914 = load ptr, ptr %2909, align 8, !tbaa !164
   %.not.i.i.not.i.i1808 = icmp eq ptr %2914, null
@@ -6715,7 +6715,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1809: ; preds = %2915,
   br label %_ZN4llvm15LegalizeRuleSet8customIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1812
 
 _ZN4llvm15LegalizeRuleSet8customIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1812: ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1809, %2924
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %245)
+  call void @llvm.lifetime.end.p0(ptr nonnull %245)
   %2926 = load ptr, ptr %2909, align 8, !tbaa !164
   %.not.i1813 = icmp eq ptr %2926, null
   br i1 %.not.i1813, label %_ZNSt14_Function_baseD2Ev.exit1814, label %2927
@@ -6733,8 +6733,8 @@ _ZNSt14_Function_baseD2Ev.exit1814:               ; preds = %_ZN4llvm15LegalizeR
   br i1 %.not846, label %_ZNSt14_Function_baseD2Ev.exit1837, label %2933
 
 2933:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit1814
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %243)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %244)
+  call void @llvm.lifetime.start.p0(ptr nonnull %243)
+  call void @llvm.lifetime.start.p0(ptr nonnull %244)
   call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %243, i32 noundef 0, ptr nonnull %374, i64 5) #17, !noalias !313
   %2934 = getelementptr inbounds nuw i8, ptr %244, i64 24
   %2935 = getelementptr inbounds nuw i8, ptr %244, i64 16
@@ -6744,7 +6744,7 @@ _ZNSt14_Function_baseD2Ev.exit1814:               ; preds = %_ZN4llvm15LegalizeR
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL17typeIsLegalPtrVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %2934, align 8, !tbaa !169, !noalias !313
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL17typeIsLegalPtrVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation", ptr %2935, align 8, !tbaa !164, !noalias !313
   call void @llvm.experimental.noalias.scope.decl(metadata !316)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %49) #17, !noalias !316
+  call void @llvm.lifetime.start.p0(ptr nonnull %49), !noalias !316
   %2936 = getelementptr inbounds nuw i8, ptr %243, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %49, i8 0, i64 32, i1 false), !noalias !316
   %2937 = load ptr, ptr %2936, align 8, !tbaa !164, !noalias !316
@@ -6824,7 +6824,7 @@ _ZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E9_M_invokeERKSt9_Any_dataS3_, ptr %2967, align 8, !tbaa !169, !alias.scope !316
   %2968 = getelementptr inbounds nuw i8, ptr %454, i64 16
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %2968, align 8, !tbaa !164, !alias.scope !316
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %49) #17, !noalias !316
+  call void @llvm.lifetime.end.p0(ptr nonnull %49), !noalias !316
   br label %_ZNSt14_Function_baseD2Ev.exit.i1817
 
 2969:                                             ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i2853
@@ -6836,7 +6836,7 @@ _ZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E9_M_invokeERKSt9_Any_dataS3_, ptr %2971, align 8, !tbaa !169, !alias.scope !316
   %2972 = getelementptr inbounds nuw i8, ptr %454, i64 16
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %2972, align 8, !tbaa !164, !alias.scope !316
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %49) #17, !noalias !316
+  call void @llvm.lifetime.end.p0(ptr nonnull %49), !noalias !316
   %2973 = call noundef zeroext i1 %2955(ptr noundef nonnull align 8 dereferenceable(32) %244, ptr noundef nonnull align 8 dereferenceable(32) %244, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i1817
 
@@ -6852,9 +6852,9 @@ _ZNSt14_Function_baseD2Ev.exit.i1817:             ; preds = %_ZN4llvm18LegalityP
   br label %_ZL17typeIsLegalPtrVecjSt16initializer_listIN4llvm3LLTEERKNS0_14RISCVSubtargetE.exit
 
 _ZL17typeIsLegalPtrVecjSt16initializer_listIN4llvm3LLTEERKNS0_14RISCVSubtargetE.exit: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i1817, %2977
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %243)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %244)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %242)
+  call void @llvm.lifetime.end.p0(ptr nonnull %243)
+  call void @llvm.lifetime.end.p0(ptr nonnull %244)
+  call void @llvm.lifetime.start.p0(ptr nonnull %242)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %242, i8 0, i64 32, i1 false)
   %2979 = load ptr, ptr %2974, align 8, !tbaa !164
   %.not.i.i.not.i.i1819 = icmp eq ptr %2979, null
@@ -6882,7 +6882,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1820: ; preds = %2980,
   br label %_ZN4llvm15LegalizeRuleSet8customIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1823
 
 _ZN4llvm15LegalizeRuleSet8customIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1823: ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1820, %2989
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %242)
+  call void @llvm.lifetime.end.p0(ptr nonnull %242)
   %2991 = load ptr, ptr %2974, align 8, !tbaa !164
   %.not.i1824 = icmp eq ptr %2991, null
   br i1 %.not.i1824, label %_ZNSt14_Function_baseD2Ev.exit1825, label %2992
@@ -6892,8 +6892,8 @@ _ZN4llvm15LegalizeRuleSet8customIfESt8functionIFbRKNS_13LegalityQueryEEE.exit182
   br label %_ZNSt14_Function_baseD2Ev.exit1825
 
 _ZNSt14_Function_baseD2Ev.exit1825:               ; preds = %_ZN4llvm15LegalizeRuleSet8customIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1823, %2992
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %240)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %241)
+  call void @llvm.lifetime.start.p0(ptr nonnull %240)
+  call void @llvm.lifetime.start.p0(ptr nonnull %241)
   call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %240, i32 noundef 0, ptr nonnull %374, i64 5) #17, !noalias !319
   %2994 = getelementptr inbounds nuw i8, ptr %241, i64 24
   %2995 = getelementptr inbounds nuw i8, ptr %241, i64 16
@@ -6903,7 +6903,7 @@ _ZNSt14_Function_baseD2Ev.exit1825:               ; preds = %_ZN4llvm15LegalizeR
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL17typeIsLegalPtrVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %2994, align 8, !tbaa !169, !noalias !319
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL17typeIsLegalPtrVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation", ptr %2995, align 8, !tbaa !164, !noalias !319
   call void @llvm.experimental.noalias.scope.decl(metadata !322)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %48) #17, !noalias !322
+  call void @llvm.lifetime.start.p0(ptr nonnull %48), !noalias !322
   %2996 = getelementptr inbounds nuw i8, ptr %240, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %48, i8 0, i64 32, i1 false), !noalias !322
   %2997 = load ptr, ptr %2996, align 8, !tbaa !164, !noalias !322
@@ -6983,7 +6983,7 @@ _ZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E9_M_invokeERKSt9_Any_dataS3_, ptr %3027, align 8, !tbaa !169, !alias.scope !322
   %3028 = getelementptr inbounds nuw i8, ptr %455, i64 16
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %3028, align 8, !tbaa !164, !alias.scope !322
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %48) #17, !noalias !322
+  call void @llvm.lifetime.end.p0(ptr nonnull %48), !noalias !322
   br label %_ZNSt14_Function_baseD2Ev.exit.i1828
 
 3029:                                             ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i2868
@@ -6995,7 +6995,7 @@ _ZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E9_M_invokeERKSt9_Any_dataS3_, ptr %3031, align 8, !tbaa !169, !alias.scope !322
   %3032 = getelementptr inbounds nuw i8, ptr %455, i64 16
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %3032, align 8, !tbaa !164, !alias.scope !322
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %48) #17, !noalias !322
+  call void @llvm.lifetime.end.p0(ptr nonnull %48), !noalias !322
   %3033 = call noundef zeroext i1 %3015(ptr noundef nonnull align 8 dereferenceable(32) %241, ptr noundef nonnull align 8 dereferenceable(32) %241, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i1828
 
@@ -7011,9 +7011,9 @@ _ZNSt14_Function_baseD2Ev.exit.i1828:             ; preds = %_ZN4llvm18LegalityP
   br label %_ZL17typeIsLegalPtrVecjSt16initializer_listIN4llvm3LLTEERKNS0_14RISCVSubtargetE.exit1830
 
 _ZL17typeIsLegalPtrVecjSt16initializer_listIN4llvm3LLTEERKNS0_14RISCVSubtargetE.exit1830: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i1828, %3037
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %240)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %241)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %239)
+  call void @llvm.lifetime.end.p0(ptr nonnull %240)
+  call void @llvm.lifetime.end.p0(ptr nonnull %241)
+  call void @llvm.lifetime.start.p0(ptr nonnull %239)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %239, i8 0, i64 32, i1 false)
   %3039 = load ptr, ptr %3034, align 8, !tbaa !164
   %.not.i.i.not.i.i1831 = icmp eq ptr %3039, null
@@ -7041,7 +7041,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1832: ; preds = %3040,
   br label %_ZN4llvm15LegalizeRuleSet8customIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1835
 
 _ZN4llvm15LegalizeRuleSet8customIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1835: ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1832, %3049
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %239)
+  call void @llvm.lifetime.end.p0(ptr nonnull %239)
   %3051 = load ptr, ptr %3034, align 8, !tbaa !164
   %.not.i1836 = icmp eq ptr %3051, null
   br i1 %.not.i1836, label %_ZNSt14_Function_baseD2Ev.exit1837, label %3052
@@ -7051,8 +7051,8 @@ _ZN4llvm15LegalizeRuleSet8customIfESt8functionIFbRKNS_13LegalityQueryEEE.exit183
   br label %_ZNSt14_Function_baseD2Ev.exit1837
 
 _ZNSt14_Function_baseD2Ev.exit1837:               ; preds = %3052, %_ZN4llvm15LegalizeRuleSet8customIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1835, %_ZNSt14_Function_baseD2Ev.exit1814, %2597
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %237)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %238)
+  call void @llvm.lifetime.start.p0(ptr nonnull %237)
+  call void @llvm.lifetime.start.p0(ptr nonnull %238)
   call void @_ZN4llvm18LegalityPredicates11sizeNotPow2Ej(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %237, i32 noundef 0) #17
   call void @_ZN4llvm17LegalizeMutations26widenScalarOrEltToNextPow2Ejj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.77") align 8 %238, i32 noundef 0, i32 noundef 8) #17
   %3054 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %2422, i8 noundef zeroext 2, ptr noundef nonnull %237, ptr noundef nonnull %238)
@@ -7076,9 +7076,9 @@ _ZNSt14_Function_baseD2Ev.exit.i1839:             ; preds = %3057, %_ZNSt14_Func
   br label %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1841
 
 _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1841: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i1839, %3061
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %237)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %238)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %236)
+  call void @llvm.lifetime.end.p0(ptr nonnull %237)
+  call void @llvm.lifetime.end.p0(ptr nonnull %238)
+  call void @llvm.lifetime.start.p0(ptr nonnull %236)
   call void @_ZN4llvm18LegalityPredicates22memSizeNotByteSizePow2Ej(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %236, i32 noundef 0) #17
   %3063 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %3054, i8 noundef zeroext 6, ptr noundef nonnull %236)
   %3064 = getelementptr inbounds nuw i8, ptr %236, i64 16
@@ -7091,11 +7091,11 @@ _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1841: ; preds = %_ZNSt14
   br label %_ZN4llvm15LegalizeRuleSet29lowerIfMemSizeNotByteSizePow2Ev.exit
 
 _ZN4llvm15LegalizeRuleSet29lowerIfMemSizeNotByteSizePow2Ev.exit: ; preds = %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1841, %3066
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %236)
+  call void @llvm.lifetime.end.p0(ptr nonnull %236)
   %.sroa.0294.0.copyload = load i64, ptr %616, align 8, !tbaa !161
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %21)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %23)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %22) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   store i64 16, ptr %22, align 8
   %.sroa.2.0..sroa_idx.i3799 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i8 0, ptr %.sroa.2.0..sroa_idx.i3799, align 8
@@ -7124,11 +7124,11 @@ _ZNSt14_Function_baseD2Ev.exit.i3801:             ; preds = %3073, %_ZN4llvm15Le
   br label %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit3803
 
 _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit3803: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i3801, %3077
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %21)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   %3079 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet9maxScalarEjNS_3LLTE(ptr noundef nonnull align 8 dereferenceable(168) %3070, i32 noundef 0, i64 %.sroa.0294.0.copyload)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %235)
+  call void @llvm.lifetime.start.p0(ptr nonnull %235)
   %3080 = getelementptr inbounds nuw i8, ptr %235, i64 16
   %3081 = getelementptr inbounds nuw i8, ptr %235, i64 24
   %3082 = getelementptr inbounds nuw i8, ptr %235, i64 8
@@ -7146,11 +7146,11 @@ _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit3803: ; preds = %_ZNSt14_Funct
   br label %_ZN4llvm15LegalizeRuleSet5lowerEv.exit1846
 
 _ZN4llvm15LegalizeRuleSet5lowerEv.exit1846:       ; preds = %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit3803, %3085
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %235)
+  call void @llvm.lifetime.end.p0(ptr nonnull %235)
   %.sroa.0292.0.copyload = load i64, ptr %616, align 8, !tbaa !161
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %18)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %20)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %19) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store i64 16, ptr %19, align 8
   %.sroa.2.0..sroa_idx.i3804 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i8 0, ptr %.sroa.2.0..sroa_idx.i3804, align 8
@@ -7179,11 +7179,11 @@ _ZNSt14_Function_baseD2Ev.exit.i3806:             ; preds = %3092, %_ZN4llvm15Le
   br label %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit3808
 
 _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit3808: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i3806, %3096
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %18)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   %3098 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet9maxScalarEjNS_3LLTE(ptr noundef nonnull align 8 dereferenceable(168) %3089, i32 noundef 0, i64 %.sroa.0292.0.copyload)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %234)
+  call void @llvm.lifetime.start.p0(ptr nonnull %234)
   call void @_ZN4llvm18LegalityPredicates22memSizeNotByteSizePow2Ej(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %234, i32 noundef 0) #17
   %3099 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %3098, i8 noundef zeroext 6, ptr noundef nonnull %234)
   %3100 = getelementptr inbounds nuw i8, ptr %234, i64 16
@@ -7196,8 +7196,8 @@ _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit3808: ; preds = %_ZNSt14_Funct
   br label %_ZN4llvm15LegalizeRuleSet29lowerIfMemSizeNotByteSizePow2Ev.exit1849
 
 _ZN4llvm15LegalizeRuleSet29lowerIfMemSizeNotByteSizePow2Ev.exit1849: ; preds = %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit3808, %3102
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %234)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %233)
+  call void @llvm.lifetime.end.p0(ptr nonnull %234)
+  call void @llvm.lifetime.start.p0(ptr nonnull %233)
   %3104 = getelementptr inbounds nuw i8, ptr %233, i64 16
   %3105 = getelementptr inbounds nuw i8, ptr %233, i64 24
   %3106 = getelementptr inbounds nuw i8, ptr %233, i64 8
@@ -7215,9 +7215,9 @@ _ZN4llvm15LegalizeRuleSet29lowerIfMemSizeNotByteSizePow2Ev.exit1849: ; preds = %
   br label %_ZN4llvm15LegalizeRuleSet5lowerEv.exit1852
 
 _ZN4llvm15LegalizeRuleSet5lowerEv.exit1852:       ; preds = %_ZN4llvm15LegalizeRuleSet29lowerIfMemSizeNotByteSizePow2Ev.exit1849, %3109
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %233)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %231)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %232)
+  call void @llvm.lifetime.end.p0(ptr nonnull %233)
+  call void @llvm.lifetime.start.p0(ptr nonnull %231)
+  call void @llvm.lifetime.start.p0(ptr nonnull %232)
   call void @_ZN4llvm18LegalityPredicates11sizeNotPow2Ej(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %231, i32 noundef 0) #17
   call void @_ZN4llvm17LegalizeMutations26widenScalarOrEltToNextPow2Ejj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.77") align 8 %232, i32 noundef 0, i32 noundef 0) #17
   %3111 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %2425, i8 noundef zeroext 2, ptr noundef nonnull %231, ptr noundef nonnull %232)
@@ -7241,12 +7241,12 @@ _ZNSt14_Function_baseD2Ev.exit.i1854:             ; preds = %3114, %_ZN4llvm15Le
   br label %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1856
 
 _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1856: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i1854, %3118
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %231)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %232)
+  call void @llvm.lifetime.end.p0(ptr nonnull %231)
+  call void @llvm.lifetime.end.p0(ptr nonnull %232)
   %.sroa.0291.0.copyload = load i64, ptr %616, align 8, !tbaa !161
   %3120 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE(ptr noundef nonnull align 8 dereferenceable(168) %3111, i32 noundef 0, i64 %.sroa.0291.0.copyload)
   %3121 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet9maxScalarEjNS_3LLTE(ptr noundef nonnull align 8 dereferenceable(168) %3120, i32 noundef 0, i64 %.sroa.0291.0.copyload)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %230)
+  call void @llvm.lifetime.start.p0(ptr nonnull %230)
   %3122 = getelementptr inbounds nuw i8, ptr %230, i64 16
   %3123 = getelementptr inbounds nuw i8, ptr %230, i64 24
   %3124 = getelementptr inbounds nuw i8, ptr %230, i64 8
@@ -7264,18 +7264,18 @@ _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1856: ; preds = %_ZNSt14
   br label %_ZN4llvm15LegalizeRuleSet5lowerEv.exit1859
 
 _ZN4llvm15LegalizeRuleSet5lowerEv.exit1859:       ; preds = %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1856, %3127
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %230)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %456) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %230)
+  call void @llvm.lifetime.start.p0(ptr nonnull %456)
   store i32 220, ptr %456, align 4, !tbaa !163
   %3129 = getelementptr inbounds nuw i8, ptr %456, i64 4
   store i32 221, ptr %3129, align 4, !tbaa !163
   %3130 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderESt16initializer_listIjE(ptr noundef nonnull align 8 dereferenceable(125504) %0, ptr nonnull %456, i64 2) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %457) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %457)
   store i64 %storemerge.i.i.i876, ptr %457, align 8, !tbaa !161
   %3131 = getelementptr inbounds nuw i8, ptr %457, i64 8
   %3132 = load i64, ptr %616, align 8, !tbaa !161
   store i64 %3132, ptr %3131, align 8, !tbaa !161
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %229)
+  call void @llvm.lifetime.start.p0(ptr nonnull %229)
   call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %229, i32 noundef 0, i32 noundef 1, ptr nonnull %457, i64 1) #17
   %3133 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %3130, i8 noundef zeroext 0, ptr noundef nonnull %229)
   %3134 = getelementptr inbounds nuw i8, ptr %229, i64 16
@@ -7288,16 +7288,16 @@ _ZN4llvm15LegalizeRuleSet5lowerEv.exit1859:       ; preds = %_ZN4llvm15LegalizeR
   br label %_ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listISt4pairINS_3LLTES3_EE.exit1862
 
 _ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listISt4pairINS_3LLTES3_EE.exit1862: ; preds = %_ZN4llvm15LegalizeRuleSet5lowerEv.exit1859, %3136
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %229)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %457) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %456) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %229)
+  call void @llvm.lifetime.end.p0(ptr nonnull %457)
+  call void @llvm.lifetime.end.p0(ptr nonnull %456)
   %3138 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(125504) %0, i32 noundef 80) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %458) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %458)
   %3139 = load i64, ptr %616, align 8, !tbaa !161
   store i64 %3139, ptr %458, align 8, !tbaa !161
   %3140 = getelementptr inbounds nuw i8, ptr %458, i64 8
   store i64 %storemerge.i.i.i876, ptr %3140, align 8, !tbaa !161
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %228)
+  call void @llvm.lifetime.start.p0(ptr nonnull %228)
   call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %228, i32 noundef 0, i32 noundef 1, ptr nonnull %458, i64 1) #17
   %3141 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %3138, i8 noundef zeroext 0, ptr noundef nonnull %228)
   %3142 = getelementptr inbounds nuw i8, ptr %228, i64 16
@@ -7310,18 +7310,18 @@ _ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listISt4pairINS_3LLTES3_EE.ex
   br label %_ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listISt4pairINS_3LLTES3_EE.exit1865
 
 _ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listISt4pairINS_3LLTES3_EE.exit1865: ; preds = %_ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listISt4pairINS_3LLTES3_EE.exit1862, %3144
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %228)
+  call void @llvm.lifetime.end.p0(ptr nonnull %228)
   %.sroa.0283.0.copyload = load i64, ptr %616, align 8, !tbaa !161
   %3146 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE(ptr noundef nonnull align 8 dereferenceable(168) %3141, i32 noundef 0, i64 %.sroa.0283.0.copyload)
   %3147 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet9maxScalarEjNS_3LLTE(ptr noundef nonnull align 8 dereferenceable(168) %3146, i32 noundef 0, i64 %.sroa.0283.0.copyload)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %458) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %458)
   %3148 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(125504) %0, i32 noundef 81) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %459) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %459)
   store i64 %storemerge.i.i.i876, ptr %459, align 8, !tbaa !161
   %3149 = getelementptr inbounds nuw i8, ptr %459, i64 8
   %3150 = load i64, ptr %616, align 8, !tbaa !161
   store i64 %3150, ptr %3149, align 8, !tbaa !161
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %227)
+  call void @llvm.lifetime.start.p0(ptr nonnull %227)
   call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %227, i32 noundef 0, i32 noundef 1, ptr nonnull %459, i64 1) #17
   %3151 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %3148, i8 noundef zeroext 0, ptr noundef nonnull %227)
   %3152 = getelementptr inbounds nuw i8, ptr %227, i64 16
@@ -7334,16 +7334,16 @@ _ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listISt4pairINS_3LLTES3_EE.ex
   br label %_ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listISt4pairINS_3LLTES3_EE.exit1868
 
 _ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listISt4pairINS_3LLTES3_EE.exit1868: ; preds = %_ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listISt4pairINS_3LLTES3_EE.exit1865, %3154
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %227)
+  call void @llvm.lifetime.end.p0(ptr nonnull %227)
   %.sroa.0279.0.copyload = load i64, ptr %616, align 8, !tbaa !161
   %3156 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE(ptr noundef nonnull align 8 dereferenceable(168) %3151, i32 noundef 1, i64 %.sroa.0279.0.copyload)
   %3157 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet9maxScalarEjNS_3LLTE(ptr noundef nonnull align 8 dereferenceable(168) %3156, i32 noundef 1, i64 %.sroa.0279.0.copyload)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %459) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %459)
   %3158 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(125504) %0, i32 noundef 124) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %460) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %460)
   %3159 = load i64, ptr %616, align 8, !tbaa !161
   store i64 %3159, ptr %460, align 8, !tbaa !161
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %226)
+  call void @llvm.lifetime.start.p0(ptr nonnull %226)
   call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %226, i32 noundef 0, ptr nonnull %460, i64 1) #17
   %3160 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %3158, i8 noundef zeroext 0, ptr noundef nonnull %226)
   %3161 = getelementptr inbounds nuw i8, ptr %226, i64 16
@@ -7356,17 +7356,17 @@ _ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listISt4pairINS_3LLTES3_EE.ex
   br label %_ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listINS_3LLTEE.exit1871
 
 _ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listINS_3LLTEE.exit1871: ; preds = %_ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listISt4pairINS_3LLTES3_EE.exit1868, %3163
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %226)
+  call void @llvm.lifetime.end.p0(ptr nonnull %226)
   %.sroa.0275.0.copyload = load i64, ptr %616, align 8, !tbaa !161
   %3165 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE(ptr noundef nonnull align 8 dereferenceable(168) %3160, i32 noundef 0, i64 %.sroa.0275.0.copyload)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %460) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %460)
   %3166 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(125504) %0, i32 noundef 230) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %461) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %461)
   store i64 %storemerge.i.i.i876, ptr %461, align 8, !tbaa !161
   %3167 = getelementptr inbounds nuw i8, ptr %461, i64 8
   %3168 = load i64, ptr %616, align 8, !tbaa !161
   store i64 %3168, ptr %3167, align 8, !tbaa !161
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %225)
+  call void @llvm.lifetime.start.p0(ptr nonnull %225)
   call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %225, i32 noundef 0, i32 noundef 1, ptr nonnull %461, i64 1) #17
   %3169 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %3166, i8 noundef zeroext 8, ptr noundef nonnull %225)
   %3170 = getelementptr inbounds nuw i8, ptr %225, i64 16
@@ -7379,12 +7379,12 @@ _ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listINS_3LLTEE.exit1871: ; pr
   br label %_ZN4llvm15LegalizeRuleSet9customForESt16initializer_listISt4pairINS_3LLTES3_EE.exit1874
 
 _ZN4llvm15LegalizeRuleSet9customForESt16initializer_listISt4pairINS_3LLTES3_EE.exit1874: ; preds = %_ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listINS_3LLTEE.exit1871, %3172
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %225)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %461) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %225)
+  call void @llvm.lifetime.end.p0(ptr nonnull %461)
   %3174 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(125504) %0, i32 noundef 125) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %462) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %462)
   store i64 %storemerge.i.i.i876, ptr %462, align 8, !tbaa !161
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %224)
+  call void @llvm.lifetime.start.p0(ptr nonnull %224)
   call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %224, i32 noundef 0, ptr nonnull %462, i64 1) #17
   %3175 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %3174, i8 noundef zeroext 0, ptr noundef nonnull %224)
   %3176 = getelementptr inbounds nuw i8, ptr %224, i64 16
@@ -7397,17 +7397,17 @@ _ZN4llvm15LegalizeRuleSet9customForESt16initializer_listISt4pairINS_3LLTES3_EE.e
   br label %_ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listINS_3LLTEE.exit1877
 
 _ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listINS_3LLTEE.exit1877: ; preds = %_ZN4llvm15LegalizeRuleSet9customForESt16initializer_listISt4pairINS_3LLTES3_EE.exit1874, %3178
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %224)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %462) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %224)
+  call void @llvm.lifetime.end.p0(ptr nonnull %462)
   %3180 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(125504) %0, i32 noundef 68) #17
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %463) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %463)
   store i64 %storemerge.i.i.i876, ptr %463, align 8, !tbaa !161
   %3181 = getelementptr inbounds nuw i8, ptr %463, i64 8
   store i64 137438953473, ptr %3181, align 8, !tbaa !161
   %3182 = getelementptr inbounds nuw i8, ptr %463, i64 16
   %3183 = load i64, ptr %616, align 8, !tbaa !161
   store i64 %3183, ptr %3182, align 8, !tbaa !161
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %223)
+  call void @llvm.lifetime.start.p0(ptr nonnull %223)
   call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %223, i32 noundef 0, ptr nonnull %463, i64 3) #17
   %3184 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %3180, i8 noundef zeroext 0, ptr noundef nonnull %223)
   %3185 = getelementptr inbounds nuw i8, ptr %223, i64 16
@@ -7420,9 +7420,9 @@ _ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listINS_3LLTEE.exit1877: ; pr
   br label %_ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listINS_3LLTEE.exit1880
 
 _ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listINS_3LLTEE.exit1880: ; preds = %_ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listINS_3LLTEE.exit1877, %3187
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %223)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %221)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %222)
+  call void @llvm.lifetime.end.p0(ptr nonnull %223)
+  call void @llvm.lifetime.start.p0(ptr nonnull %221)
+  call void @llvm.lifetime.start.p0(ptr nonnull %222)
   call void @_ZN4llvm18LegalityPredicates11sizeNotPow2Ej(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %221, i32 noundef 0) #17
   call void @_ZN4llvm17LegalizeMutations26widenScalarOrEltToNextPow2Ejj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.77") align 8 %222, i32 noundef 0, i32 noundef 0) #17
   %3189 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %3184, i8 noundef zeroext 2, ptr noundef nonnull %221, ptr noundef nonnull %222)
@@ -7446,12 +7446,12 @@ _ZNSt14_Function_baseD2Ev.exit.i1882:             ; preds = %3192, %_ZN4llvm15Le
   br label %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1884
 
 _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1884: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i1882, %3196
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %221)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %222)
+  call void @llvm.lifetime.end.p0(ptr nonnull %221)
+  call void @llvm.lifetime.end.p0(ptr nonnull %222)
   %.sroa.0267.0.copyload = load i64, ptr %616, align 8, !tbaa !161
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i64 32, ptr %16, align 8
   %.sroa.2.0..sroa_idx.i3809 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i8 0, ptr %.sroa.2.0..sroa_idx.i3809, align 8
@@ -7480,21 +7480,21 @@ _ZNSt14_Function_baseD2Ev.exit.i3811:             ; preds = %3203, %_ZN4llvm15Le
   br label %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit3813
 
 _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit3813: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i3811, %3207
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %3209 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet9maxScalarEjNS_3LLTE(ptr noundef nonnull align 8 dereferenceable(168) %3200, i32 noundef 0, i64 %.sroa.0267.0.copyload)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %463) #17
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %464) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %463)
+  call void @llvm.lifetime.start.p0(ptr nonnull %464)
   store i32 70, ptr %464, align 4, !tbaa !163
   %3210 = getelementptr inbounds nuw i8, ptr %464, i64 4
   store i32 265, ptr %3210, align 4, !tbaa !163
   %3211 = getelementptr inbounds nuw i8, ptr %464, i64 8
   store i32 72, ptr %3211, align 4, !tbaa !163
   %3212 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderESt16initializer_listIjE(ptr noundef nonnull align 8 dereferenceable(125504) %0, ptr nonnull %464, i64 3) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %465) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %465)
   store i64 %storemerge.i.i.i876, ptr %465, align 8, !tbaa !161
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %220)
+  call void @llvm.lifetime.start.p0(ptr nonnull %220)
   call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %220, i32 noundef 0, ptr nonnull %465, i64 1) #17
   %3213 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %3212, i8 noundef zeroext 0, ptr noundef nonnull %220)
   %3214 = getelementptr inbounds nuw i8, ptr %220, i64 16
@@ -7507,9 +7507,9 @@ _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit3813: ; preds = %_ZNSt14_Funct
   br label %_ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listINS_3LLTEE.exit1887
 
 _ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listINS_3LLTEE.exit1887: ; preds = %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit3813, %3216
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %220)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %465) #17
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %464) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %220)
+  call void @llvm.lifetime.end.p0(ptr nonnull %465)
+  call void @llvm.lifetime.end.p0(ptr nonnull %464)
   %3218 = getelementptr inbounds nuw i8, ptr %1, i64 446
   %3219 = load i8, ptr %3218, align 2, !tbaa !325, !range !153, !noundef !154
   %3220 = trunc nuw i8 %3219 to i1
@@ -7517,10 +7517,10 @@ _ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listINS_3LLTEE.exit1887: ; pr
   br i1 %3220, label %3222, label %3265
 
 3222:                                             ; preds = %_ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listINS_3LLTEE.exit1887
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %466) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %466)
   %3223 = load i64, ptr %616, align 8, !tbaa !161
   store i64 %3223, ptr %466, align 8, !tbaa !161
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %219)
+  call void @llvm.lifetime.start.p0(ptr nonnull %219)
   call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %219, i32 noundef 0, ptr nonnull %466, i64 1) #17
   %3224 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %3221, i8 noundef zeroext 0, ptr noundef nonnull %219)
   %3225 = getelementptr inbounds nuw i8, ptr %219, i64 16
@@ -7533,9 +7533,9 @@ _ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listINS_3LLTEE.exit1887: ; pr
   br label %_ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listINS_3LLTEE.exit1890
 
 _ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listINS_3LLTEE.exit1890: ; preds = %3222, %3227
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %219)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %217)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %218)
+  call void @llvm.lifetime.end.p0(ptr nonnull %219)
+  call void @llvm.lifetime.start.p0(ptr nonnull %217)
+  call void @llvm.lifetime.start.p0(ptr nonnull %218)
   call void @_ZN4llvm18LegalityPredicates11sizeNotPow2Ej(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %217, i32 noundef 0) #17
   call void @_ZN4llvm17LegalizeMutations26widenScalarOrEltToNextPow2Ejj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.77") align 8 %218, i32 noundef 0, i32 noundef 0) #17
   %3229 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %3224, i8 noundef zeroext 2, ptr noundef nonnull %217, ptr noundef nonnull %218)
@@ -7559,21 +7559,21 @@ _ZNSt14_Function_baseD2Ev.exit.i1892:             ; preds = %3232, %_ZN4llvm15Le
   br label %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1894
 
 _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1894: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i1892, %3236
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %217)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %218)
+  call void @llvm.lifetime.end.p0(ptr nonnull %217)
+  call void @llvm.lifetime.end.p0(ptr nonnull %218)
   %.sroa.0260.0.copyload = load i64, ptr %616, align 8, !tbaa !161
   %3238 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE(ptr noundef nonnull align 8 dereferenceable(168) %3229, i32 noundef 0, i64 %.sroa.0260.0.copyload)
   %3239 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet9maxScalarEjNS_3LLTE(ptr noundef nonnull align 8 dereferenceable(168) %3238, i32 noundef 0, i64 %.sroa.0260.0.copyload)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %466) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %467) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %466)
+  call void @llvm.lifetime.start.p0(ptr nonnull %467)
   store i32 163, ptr %467, align 4, !tbaa !163
   %3240 = getelementptr inbounds nuw i8, ptr %467, i64 4
   store i32 162, ptr %3240, align 4, !tbaa !163
   %3241 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderESt16initializer_listIjE(ptr noundef nonnull align 8 dereferenceable(125504) %0, ptr nonnull %467, i64 2) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %468) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %468)
   %3242 = load i64, ptr %616, align 8, !tbaa !161
   store i64 %3242, ptr %468, align 8, !tbaa !161
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %216)
+  call void @llvm.lifetime.start.p0(ptr nonnull %216)
   call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %216, i32 noundef 0, ptr nonnull %468, i64 1) #17
   %3243 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %3241, i8 noundef zeroext 0, ptr noundef nonnull %216)
   %3244 = getelementptr inbounds nuw i8, ptr %216, i64 16
@@ -7586,8 +7586,8 @@ _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1894: ; preds = %_ZNSt14
   br label %_ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listINS_3LLTEE.exit1897
 
 _ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listINS_3LLTEE.exit1897: ; preds = %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1894, %3246
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %216)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %215)
+  call void @llvm.lifetime.end.p0(ptr nonnull %216)
+  call void @llvm.lifetime.start.p0(ptr nonnull %215)
   %3248 = getelementptr inbounds nuw i8, ptr %215, i64 16
   %3249 = getelementptr inbounds nuw i8, ptr %215, i64 24
   %3250 = getelementptr inbounds nuw i8, ptr %215, i64 8
@@ -7605,17 +7605,17 @@ _ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listINS_3LLTEE.exit1897: ; pr
   br label %_ZN4llvm15LegalizeRuleSet5lowerEv.exit1900
 
 _ZN4llvm15LegalizeRuleSet5lowerEv.exit1900:       ; preds = %_ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listINS_3LLTEE.exit1897, %3253
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %215)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %468) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %467) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %469) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %215)
+  call void @llvm.lifetime.end.p0(ptr nonnull %468)
+  call void @llvm.lifetime.end.p0(ptr nonnull %467)
+  call void @llvm.lifetime.start.p0(ptr nonnull %469)
   store i32 161, ptr %469, align 4, !tbaa !163
   %3255 = getelementptr inbounds nuw i8, ptr %469, i64 4
   store i32 160, ptr %3255, align 4, !tbaa !163
   %3256 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderESt16initializer_listIjE(ptr noundef nonnull align 8 dereferenceable(125504) %0, ptr nonnull %469, i64 2) #17
   %.sroa.0252.0.copyload = load i64, ptr %616, align 8, !tbaa !161
   %3257 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE(ptr noundef nonnull align 8 dereferenceable(168) %3256, i32 noundef 0, i64 %.sroa.0252.0.copyload)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %214)
+  call void @llvm.lifetime.start.p0(ptr nonnull %214)
   %3258 = getelementptr inbounds nuw i8, ptr %214, i64 16
   %3259 = getelementptr inbounds nuw i8, ptr %214, i64 24
   %3260 = getelementptr inbounds nuw i8, ptr %214, i64 8
@@ -7633,17 +7633,17 @@ _ZN4llvm15LegalizeRuleSet5lowerEv.exit1900:       ; preds = %_ZN4llvm15LegalizeR
   br label %_ZN4llvm15LegalizeRuleSet5lowerEv.exit1903
 
 _ZN4llvm15LegalizeRuleSet5lowerEv.exit1903:       ; preds = %_ZN4llvm15LegalizeRuleSet5lowerEv.exit1900, %3263
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %214)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %469) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %214)
+  call void @llvm.lifetime.end.p0(ptr nonnull %469)
   br label %3335
 
 3265:                                             ; preds = %_ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listINS_3LLTEE.exit1887
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %470) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %470)
   %3266 = load i64, ptr %616, align 8, !tbaa !161
   store i64 %3266, ptr %470, align 8, !tbaa !161
   %3267 = getelementptr inbounds nuw i8, ptr %470, i64 8
   store i64 %storemerge.i.i.i875, ptr %3267, align 8, !tbaa !161
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %213)
+  call void @llvm.lifetime.start.p0(ptr nonnull %213)
   call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %213, i32 noundef 0, ptr nonnull %470, i64 2) #17
   %3268 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %3221, i8 noundef zeroext 7, ptr noundef nonnull %213)
   %3269 = getelementptr inbounds nuw i8, ptr %213, i64 16
@@ -7656,9 +7656,9 @@ _ZN4llvm15LegalizeRuleSet5lowerEv.exit1903:       ; preds = %_ZN4llvm15LegalizeR
   br label %_ZN4llvm15LegalizeRuleSet10libcallForESt16initializer_listINS_3LLTEE.exit
 
 _ZN4llvm15LegalizeRuleSet10libcallForESt16initializer_listINS_3LLTEE.exit: ; preds = %3265, %3271
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %213)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %211)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %212)
+  call void @llvm.lifetime.end.p0(ptr nonnull %213)
+  call void @llvm.lifetime.start.p0(ptr nonnull %211)
+  call void @llvm.lifetime.start.p0(ptr nonnull %212)
   call void @_ZN4llvm18LegalityPredicates11sizeNotPow2Ej(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %211, i32 noundef 0) #17
   call void @_ZN4llvm17LegalizeMutations26widenScalarOrEltToNextPow2Ejj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.77") align 8 %212, i32 noundef 0, i32 noundef 0) #17
   %3273 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %3268, i8 noundef zeroext 2, ptr noundef nonnull %211, ptr noundef nonnull %212)
@@ -7682,21 +7682,21 @@ _ZNSt14_Function_baseD2Ev.exit.i1907:             ; preds = %3276, %_ZN4llvm15Le
   br label %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1909
 
 _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1909: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i1907, %3280
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %211)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %212)
+  call void @llvm.lifetime.end.p0(ptr nonnull %211)
+  call void @llvm.lifetime.end.p0(ptr nonnull %212)
   %.sroa.0249.0.copyload = load i64, ptr %616, align 8, !tbaa !161
   %3282 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE(ptr noundef nonnull align 8 dereferenceable(168) %3273, i32 noundef 0, i64 %.sroa.0249.0.copyload)
   %3283 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet9maxScalarEjNS_3LLTE(ptr noundef nonnull align 8 dereferenceable(168) %3282, i32 noundef 0, i64 %storemerge.i.i.i875)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %470) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %471) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %470)
+  call void @llvm.lifetime.start.p0(ptr nonnull %471)
   store i32 163, ptr %471, align 4, !tbaa !163
   %3284 = getelementptr inbounds nuw i8, ptr %471, i64 4
   store i32 162, ptr %3284, align 4, !tbaa !163
   %3285 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderESt16initializer_listIjE(ptr noundef nonnull align 8 dereferenceable(125504) %0, ptr nonnull %471, i64 2) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %472) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %472)
   %3286 = load i64, ptr %616, align 8, !tbaa !161
   store i64 %3286, ptr %472, align 8, !tbaa !161
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %210)
+  call void @llvm.lifetime.start.p0(ptr nonnull %210)
   call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %210, i32 noundef 0, ptr nonnull %472, i64 1) #17
   %3287 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %3285, i8 noundef zeroext 6, ptr noundef nonnull %210)
   %3288 = getelementptr inbounds nuw i8, ptr %210, i64 16
@@ -7709,10 +7709,10 @@ _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1909: ; preds = %_ZNSt14
   br label %_ZN4llvm15LegalizeRuleSet8lowerForESt16initializer_listINS_3LLTEE.exit
 
 _ZN4llvm15LegalizeRuleSet8lowerForESt16initializer_listINS_3LLTEE.exit: ; preds = %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1909, %3290
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %210)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %472) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %471) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %473) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %210)
+  call void @llvm.lifetime.end.p0(ptr nonnull %472)
+  call void @llvm.lifetime.end.p0(ptr nonnull %471)
+  call void @llvm.lifetime.start.p0(ptr nonnull %473)
   store i32 161, ptr %473, align 4, !tbaa !163
   %3292 = getelementptr inbounds nuw i8, ptr %473, i64 4
   store i32 160, ptr %3292, align 4, !tbaa !163
@@ -7722,8 +7722,8 @@ _ZN4llvm15LegalizeRuleSet8lowerForESt16initializer_listINS_3LLTEE.exit: ; preds 
   %.sroa.0240.0.copyload = load i64, ptr %616, align 8, !tbaa !161
   call void @_ZN4llvm18LegalityPredicates6typeIsEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %474, i32 noundef 0, i64 %.sroa.0240.0.copyload) #17
   call void @_ZN4llvm17LegalizeMutations8changeToEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function.77") align 8 %475, i32 noundef 0, i64 %storemerge.i.i.i875) #17
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %208)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %209)
+  call void @llvm.lifetime.start.p0(ptr nonnull %208)
+  call void @llvm.lifetime.start.p0(ptr nonnull %209)
   %3295 = getelementptr inbounds nuw i8, ptr %474, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %208, i8 0, i64 32, i1 false)
   %3296 = load ptr, ptr %3295, align 8, !tbaa !164
@@ -7781,9 +7781,9 @@ _ZNSt14_Function_baseD2Ev.exit.i1916:             ; preds = %3316, %_ZNSt8functi
   br label %_ZN4llvm15LegalizeRuleSet13widenScalarIfESt8functionIFbRKNS_13LegalityQueryEEES1_IFSt4pairIjNS_3LLTEES4_EE.exit
 
 _ZN4llvm15LegalizeRuleSet13widenScalarIfESt8functionIFbRKNS_13LegalityQueryEEES1_IFSt4pairIjNS_3LLTEES4_EE.exit: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i1916, %3320
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %208)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %209)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %207)
+  call void @llvm.lifetime.end.p0(ptr nonnull %208)
+  call void @llvm.lifetime.end.p0(ptr nonnull %209)
+  call void @llvm.lifetime.start.p0(ptr nonnull %207)
   %3322 = getelementptr inbounds nuw i8, ptr %207, i64 16
   %3323 = getelementptr inbounds nuw i8, ptr %207, i64 24
   %3324 = getelementptr inbounds nuw i8, ptr %207, i64 8
@@ -7801,7 +7801,7 @@ _ZN4llvm15LegalizeRuleSet13widenScalarIfESt8functionIFbRKNS_13LegalityQueryEEES1
   br label %_ZN4llvm15LegalizeRuleSet5lowerEv.exit1919
 
 _ZN4llvm15LegalizeRuleSet5lowerEv.exit1919:       ; preds = %_ZN4llvm15LegalizeRuleSet13widenScalarIfESt8functionIFbRKNS_13LegalityQueryEEES1_IFSt4pairIjNS_3LLTEES4_EE.exit, %3327
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %207)
+  call void @llvm.lifetime.end.p0(ptr nonnull %207)
   %3329 = load ptr, ptr %3304, align 8, !tbaa !164
   %.not.i1920 = icmp eq ptr %3329, null
   br i1 %.not.i1920, label %_ZNSt14_Function_baseD2Ev.exit1921, label %3330
@@ -7820,7 +7820,7 @@ _ZNSt14_Function_baseD2Ev.exit1921:               ; preds = %_ZN4llvm15LegalizeR
   br label %_ZNSt14_Function_baseD2Ev.exit1923
 
 _ZNSt14_Function_baseD2Ev.exit1923:               ; preds = %_ZNSt14_Function_baseD2Ev.exit1921, %3333
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %473) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %473)
   br label %3335
 
 3335:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit1923, %_ZN4llvm15LegalizeRuleSet5lowerEv.exit1903
@@ -7830,17 +7830,17 @@ _ZNSt14_Function_baseD2Ev.exit1923:               ; preds = %_ZNSt14_Function_ba
   br i1 %3338, label %3339, label %3403
 
 3339:                                             ; preds = %3335
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %476) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %476)
   store i32 56, ptr %476, align 4, !tbaa !163
   %3340 = getelementptr inbounds nuw i8, ptr %476, i64 4
   store i32 57, ptr %3340, align 4, !tbaa !163
   %3341 = getelementptr inbounds nuw i8, ptr %476, i64 8
   store i32 59, ptr %3341, align 4, !tbaa !163
   %3342 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderESt16initializer_listIjE(ptr noundef nonnull align 8 dereferenceable(125504) %0, ptr nonnull %476, i64 3) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %477) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %477)
   %3343 = load i64, ptr %616, align 8, !tbaa !161
   store i64 %3343, ptr %477, align 8, !tbaa !161
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %206)
+  call void @llvm.lifetime.start.p0(ptr nonnull %206)
   call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %206, i32 noundef 0, ptr nonnull %477, i64 1) #17
   %3344 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %3342, i8 noundef zeroext 0, ptr noundef nonnull %206)
   %3345 = getelementptr inbounds nuw i8, ptr %206, i64 16
@@ -7853,10 +7853,10 @@ _ZNSt14_Function_baseD2Ev.exit1923:               ; preds = %_ZNSt14_Function_ba
   br label %_ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listINS_3LLTEE.exit1926
 
 _ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listINS_3LLTEE.exit1926: ; preds = %3339, %3347
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %206)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %478) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %206)
+  call void @llvm.lifetime.start.p0(ptr nonnull %478)
   store i64 137438953473, ptr %478, align 8, !tbaa !161
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %205)
+  call void @llvm.lifetime.start.p0(ptr nonnull %205)
   call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %205, i32 noundef 0, ptr nonnull %478, i64 1) #17
   %3349 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %3344, i8 noundef zeroext 8, ptr noundef nonnull %205)
   %3350 = getelementptr inbounds nuw i8, ptr %205, i64 16
@@ -7869,10 +7869,10 @@ _ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listINS_3LLTEE.exit1926: ; pr
   br label %_ZN4llvm15LegalizeRuleSet9customForESt16initializer_listINS_3LLTEE.exit1929
 
 _ZN4llvm15LegalizeRuleSet9customForESt16initializer_listINS_3LLTEE.exit1929: ; preds = %_ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listINS_3LLTEE.exit1926, %3352
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %205)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %479) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %205)
+  call void @llvm.lifetime.start.p0(ptr nonnull %479)
   store i64 %storemerge.i.i.i875, ptr %479, align 8, !tbaa !161
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %204)
+  call void @llvm.lifetime.start.p0(ptr nonnull %204)
   call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %204, i32 noundef 0, ptr nonnull %479, i64 1) #17
   %3354 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %3349, i8 noundef zeroext 7, ptr noundef nonnull %204)
   %3355 = getelementptr inbounds nuw i8, ptr %204, i64 16
@@ -7885,10 +7885,10 @@ _ZN4llvm15LegalizeRuleSet9customForESt16initializer_listINS_3LLTEE.exit1929: ; p
   br label %_ZN4llvm15LegalizeRuleSet10libcallForESt16initializer_listINS_3LLTEE.exit1932
 
 _ZN4llvm15LegalizeRuleSet10libcallForESt16initializer_listINS_3LLTEE.exit1932: ; preds = %_ZN4llvm15LegalizeRuleSet9customForESt16initializer_listINS_3LLTEE.exit1929, %3357
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %204)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %204)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i64 32, ptr %13, align 8
   %.sroa.2.0..sroa_idx.i3814 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i8 0, ptr %.sroa.2.0..sroa_idx.i3814, align 8
@@ -7917,12 +7917,12 @@ _ZNSt14_Function_baseD2Ev.exit.i3816:             ; preds = %3364, %_ZN4llvm15Le
   br label %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit3818
 
 _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit3818: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i3816, %3368
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %3370 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet9maxScalarEjNS_3LLTE(ptr noundef nonnull align 8 dereferenceable(168) %3361, i32 noundef 0, i64 %storemerge.i.i.i875)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %202)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %203)
+  call void @llvm.lifetime.start.p0(ptr nonnull %202)
+  call void @llvm.lifetime.start.p0(ptr nonnull %203)
   call void @_ZN4llvm18LegalityPredicates11sizeNotPow2Ej(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %202, i32 noundef 0) #17
   call void @_ZN4llvm17LegalizeMutations26widenScalarOrEltToNextPow2Ejj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.77") align 8 %203, i32 noundef 0, i32 noundef 0) #17
   %3371 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %3370, i8 noundef zeroext 2, ptr noundef nonnull %202, ptr noundef nonnull %203)
@@ -7946,17 +7946,17 @@ _ZNSt14_Function_baseD2Ev.exit.i1934:             ; preds = %3374, %_ZN4llvm15Le
   br label %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1936
 
 _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1936: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i1934, %3378
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %202)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %203)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %479) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %478) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %477) #17
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %476) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %202)
+  call void @llvm.lifetime.end.p0(ptr nonnull %203)
+  call void @llvm.lifetime.end.p0(ptr nonnull %479)
+  call void @llvm.lifetime.end.p0(ptr nonnull %478)
+  call void @llvm.lifetime.end.p0(ptr nonnull %477)
+  call void @llvm.lifetime.end.p0(ptr nonnull %476)
   %3380 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(125504) %0, i32 noundef 58) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %480) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %480)
   %3381 = load i64, ptr %616, align 8, !tbaa !161
   store i64 %3381, ptr %480, align 8, !tbaa !161
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %201)
+  call void @llvm.lifetime.start.p0(ptr nonnull %201)
   call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %201, i32 noundef 0, ptr nonnull %480, i64 1) #17
   %3382 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %3380, i8 noundef zeroext 0, ptr noundef nonnull %201)
   %3383 = getelementptr inbounds nuw i8, ptr %201, i64 16
@@ -7969,10 +7969,10 @@ _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1936: ; preds = %_ZNSt14
   br label %_ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listINS_3LLTEE.exit1939
 
 _ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listINS_3LLTEE.exit1939: ; preds = %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1936, %3385
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %201)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %481) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %201)
+  call void @llvm.lifetime.start.p0(ptr nonnull %481)
   store i64 %storemerge.i.i.i875, ptr %481, align 8, !tbaa !161
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %200)
+  call void @llvm.lifetime.start.p0(ptr nonnull %200)
   call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %200, i32 noundef 0, ptr nonnull %481, i64 1) #17
   %3387 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %3382, i8 noundef zeroext 7, ptr noundef nonnull %200)
   %3388 = getelementptr inbounds nuw i8, ptr %200, i64 16
@@ -7985,12 +7985,12 @@ _ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listINS_3LLTEE.exit1939: ; pr
   br label %_ZN4llvm15LegalizeRuleSet10libcallForESt16initializer_listINS_3LLTEE.exit1942
 
 _ZN4llvm15LegalizeRuleSet10libcallForESt16initializer_listINS_3LLTEE.exit1942: ; preds = %_ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listINS_3LLTEE.exit1939, %3390
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %200)
+  call void @llvm.lifetime.end.p0(ptr nonnull %200)
   %.sroa.0224.0.copyload = load i64, ptr %616, align 8, !tbaa !161
   %3392 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE(ptr noundef nonnull align 8 dereferenceable(168) %3387, i32 noundef 0, i64 %.sroa.0224.0.copyload)
   %3393 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet9maxScalarEjNS_3LLTE(ptr noundef nonnull align 8 dereferenceable(168) %3392, i32 noundef 0, i64 %storemerge.i.i.i875)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %198)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %199)
+  call void @llvm.lifetime.start.p0(ptr nonnull %198)
+  call void @llvm.lifetime.start.p0(ptr nonnull %199)
   call void @_ZN4llvm18LegalityPredicates11sizeNotPow2Ej(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %198, i32 noundef 0) #17
   call void @_ZN4llvm17LegalizeMutations26widenScalarOrEltToNextPow2Ejj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.77") align 8 %199, i32 noundef 0, i32 noundef 0) #17
   %3394 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %3393, i8 noundef zeroext 2, ptr noundef nonnull %198, ptr noundef nonnull %199)
@@ -8014,14 +8014,14 @@ _ZNSt14_Function_baseD2Ev.exit.i1944:             ; preds = %3397, %_ZN4llvm15Le
   br label %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1946
 
 _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1946: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i1944, %3401
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %198)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %199)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %481) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %480) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %198)
+  call void @llvm.lifetime.end.p0(ptr nonnull %199)
+  call void @llvm.lifetime.end.p0(ptr nonnull %481)
+  call void @llvm.lifetime.end.p0(ptr nonnull %480)
   br label %3426
 
 3403:                                             ; preds = %3335
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %482) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %482)
   store i32 57, ptr %482, align 4, !tbaa !163
   %3404 = getelementptr inbounds nuw i8, ptr %482, i64 4
   store i32 56, ptr %3404, align 4, !tbaa !163
@@ -8030,12 +8030,12 @@ _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1946: ; preds = %_ZNSt14
   %3406 = getelementptr inbounds nuw i8, ptr %482, i64 12
   store i32 58, ptr %3406, align 4, !tbaa !163
   %3407 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderESt16initializer_listIjE(ptr noundef nonnull align 8 dereferenceable(125504) %0, ptr nonnull %482, i64 4) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %483) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %483)
   %3408 = load i64, ptr %616, align 8, !tbaa !161
   store i64 %3408, ptr %483, align 8, !tbaa !161
   %3409 = getelementptr inbounds nuw i8, ptr %483, i64 8
   store i64 %storemerge.i.i.i875, ptr %3409, align 8, !tbaa !161
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %197)
+  call void @llvm.lifetime.start.p0(ptr nonnull %197)
   call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %197, i32 noundef 0, ptr nonnull %483, i64 2) #17
   %3410 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %3407, i8 noundef zeroext 7, ptr noundef nonnull %197)
   %3411 = getelementptr inbounds nuw i8, ptr %197, i64 16
@@ -8048,12 +8048,12 @@ _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1946: ; preds = %_ZNSt14
   br label %_ZN4llvm15LegalizeRuleSet10libcallForESt16initializer_listINS_3LLTEE.exit1949
 
 _ZN4llvm15LegalizeRuleSet10libcallForESt16initializer_listINS_3LLTEE.exit1949: ; preds = %3403, %3413
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %197)
+  call void @llvm.lifetime.end.p0(ptr nonnull %197)
   %.sroa.0218.0.copyload = load i64, ptr %616, align 8, !tbaa !161
   %3415 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE(ptr noundef nonnull align 8 dereferenceable(168) %3410, i32 noundef 0, i64 %.sroa.0218.0.copyload)
   %3416 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet9maxScalarEjNS_3LLTE(ptr noundef nonnull align 8 dereferenceable(168) %3415, i32 noundef 0, i64 %storemerge.i.i.i875)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %195)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %196)
+  call void @llvm.lifetime.start.p0(ptr nonnull %195)
+  call void @llvm.lifetime.start.p0(ptr nonnull %196)
   call void @_ZN4llvm18LegalityPredicates11sizeNotPow2Ej(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %195, i32 noundef 0) #17
   call void @_ZN4llvm17LegalizeMutations26widenScalarOrEltToNextPow2Ejj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.77") align 8 %196, i32 noundef 0, i32 noundef 0) #17
   %3417 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %3416, i8 noundef zeroext 2, ptr noundef nonnull %195, ptr noundef nonnull %196)
@@ -8077,19 +8077,19 @@ _ZNSt14_Function_baseD2Ev.exit.i1951:             ; preds = %3420, %_ZN4llvm15Le
   br label %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1953
 
 _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1953: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i1951, %3424
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %195)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %196)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %483) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %482) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %195)
+  call void @llvm.lifetime.end.p0(ptr nonnull %196)
+  call void @llvm.lifetime.end.p0(ptr nonnull %483)
+  call void @llvm.lifetime.end.p0(ptr nonnull %482)
   br label %3426
 
 3426:                                             ; preds = %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1953, %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1946
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %484) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %484)
   store i32 60, ptr %484, align 4, !tbaa !163
   %3427 = getelementptr inbounds nuw i8, ptr %484, i64 4
   store i32 61, ptr %3427, align 4, !tbaa !163
   %3428 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderESt16initializer_listIjE(ptr noundef nonnull align 8 dereferenceable(125504) %0, ptr nonnull %484, i64 2) #17
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %194)
+  call void @llvm.lifetime.start.p0(ptr nonnull %194)
   %3429 = getelementptr inbounds nuw i8, ptr %194, i64 16
   %3430 = getelementptr inbounds nuw i8, ptr %194, i64 24
   %3431 = getelementptr inbounds nuw i8, ptr %194, i64 8
@@ -8107,18 +8107,18 @@ _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1953: ; preds = %_ZNSt14
   br label %_ZN4llvm15LegalizeRuleSet5lowerEv.exit1956
 
 _ZN4llvm15LegalizeRuleSet5lowerEv.exit1956:       ; preds = %3426, %3434
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %194)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %484) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %194)
+  call void @llvm.lifetime.end.p0(ptr nonnull %484)
   %3436 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(125504) %0, i32 noundef 226) #17
   %3437 = load i8, ptr %1143, align 4, !tbaa !203, !range !153, !noundef !154
   %3438 = trunc nuw i8 %3437 to i1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %485) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %485)
   %3439 = load i64, ptr %616, align 8, !tbaa !161
   store i64 %3439, ptr %485, align 8, !tbaa !161
   br i1 %3438, label %3440, label %_ZN4llvm15LegalizeRuleSet9minScalarEbjNS_3LLTE.exit
 
 3440:                                             ; preds = %_ZN4llvm15LegalizeRuleSet5lowerEv.exit1956
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %193)
+  call void @llvm.lifetime.start.p0(ptr nonnull %193)
   call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %193, i32 noundef 0, ptr nonnull %485, i64 1) #17
   %3441 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %3436, i8 noundef zeroext 8, ptr noundef nonnull %193)
   %3442 = getelementptr inbounds nuw i8, ptr %193, i64 16
@@ -8131,7 +8131,7 @@ _ZN4llvm15LegalizeRuleSet5lowerEv.exit1956:       ; preds = %3426, %3434
   br label %_ZN4llvm15LegalizeRuleSet9customForEbSt16initializer_listINS_3LLTEE.exit1960
 
 _ZN4llvm15LegalizeRuleSet9customForEbSt16initializer_listINS_3LLTEE.exit1960: ; preds = %3440, %3444
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %193)
+  call void @llvm.lifetime.end.p0(ptr nonnull %193)
   %.pre3661 = load i8, ptr %1143, align 4, !tbaa !203, !range !153
   %3446 = trunc nuw i8 %.pre3661 to i1
   br i1 %3446, label %3447, label %_ZN4llvm15LegalizeRuleSet9minScalarEbjNS_3LLTE.exit
@@ -8143,7 +8143,7 @@ _ZN4llvm15LegalizeRuleSet9customForEbSt16initializer_listINS_3LLTEE.exit1960: ; 
 
 _ZN4llvm15LegalizeRuleSet9minScalarEbjNS_3LLTE.exit: ; preds = %_ZN4llvm15LegalizeRuleSet5lowerEv.exit1956, %_ZN4llvm15LegalizeRuleSet9customForEbSt16initializer_listINS_3LLTEE.exit1960, %3447
   %.0.i1961 = phi ptr [ %3448, %3447 ], [ %3441, %_ZN4llvm15LegalizeRuleSet9customForEbSt16initializer_listINS_3LLTEE.exit1960 ], [ %3436, %_ZN4llvm15LegalizeRuleSet5lowerEv.exit1956 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %192)
+  call void @llvm.lifetime.start.p0(ptr nonnull %192)
   %3449 = getelementptr inbounds nuw i8, ptr %192, i64 16
   %3450 = getelementptr inbounds nuw i8, ptr %192, i64 24
   %3451 = getelementptr inbounds nuw i8, ptr %192, i64 8
@@ -8161,9 +8161,9 @@ _ZN4llvm15LegalizeRuleSet9minScalarEbjNS_3LLTE.exit: ; preds = %_ZN4llvm15Legali
   br label %_ZN4llvm15LegalizeRuleSet5lowerEv.exit1964
 
 _ZN4llvm15LegalizeRuleSet5lowerEv.exit1964:       ; preds = %_ZN4llvm15LegalizeRuleSet9minScalarEbjNS_3LLTE.exit, %3454
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %192)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %485) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %486) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %192)
+  call void @llvm.lifetime.end.p0(ptr nonnull %485)
+  call void @llvm.lifetime.start.p0(ptr nonnull %486)
   store i32 225, ptr %486, align 4, !tbaa !163
   %3456 = getelementptr inbounds nuw i8, ptr %486, i64 4
   store i32 224, ptr %3456, align 4, !tbaa !163
@@ -8174,13 +8174,13 @@ _ZN4llvm15LegalizeRuleSet5lowerEv.exit1964:       ; preds = %_ZN4llvm15LegalizeR
   %3459 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderESt16initializer_listIjE(ptr noundef nonnull align 8 dereferenceable(125504) %0, ptr nonnull %486, i64 4) #17
   %3460 = load i8, ptr %1143, align 4, !tbaa !203, !range !153, !noundef !154
   %3461 = trunc nuw i8 %3460 to i1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %487) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %487)
   %3462 = load i64, ptr %616, align 8, !tbaa !161
   store i64 %3462, ptr %487, align 8, !tbaa !161
   br i1 %3461, label %3463, label %_ZN4llvm15LegalizeRuleSet9minScalarEbjNS_3LLTE.exit1970
 
 3463:                                             ; preds = %_ZN4llvm15LegalizeRuleSet5lowerEv.exit1964
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %191)
+  call void @llvm.lifetime.start.p0(ptr nonnull %191)
   call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %191, i32 noundef 0, ptr nonnull %487, i64 1) #17
   %3464 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %3459, i8 noundef zeroext 0, ptr noundef nonnull %191)
   %3465 = getelementptr inbounds nuw i8, ptr %191, i64 16
@@ -8193,7 +8193,7 @@ _ZN4llvm15LegalizeRuleSet5lowerEv.exit1964:       ; preds = %_ZN4llvm15LegalizeR
   br label %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit1968
 
 _ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit1968: ; preds = %3463, %3467
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %191)
+  call void @llvm.lifetime.end.p0(ptr nonnull %191)
   %.pre3662 = load i8, ptr %1143, align 4, !tbaa !203, !range !153
   %3469 = trunc nuw i8 %.pre3662 to i1
   br i1 %3469, label %3470, label %_ZN4llvm15LegalizeRuleSet9minScalarEbjNS_3LLTE.exit1970
@@ -8205,7 +8205,7 @@ _ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit1968: ; p
 
 _ZN4llvm15LegalizeRuleSet9minScalarEbjNS_3LLTE.exit1970: ; preds = %_ZN4llvm15LegalizeRuleSet5lowerEv.exit1964, %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit1968, %3470
   %.0.i1969 = phi ptr [ %3471, %3470 ], [ %3464, %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit1968 ], [ %3459, %_ZN4llvm15LegalizeRuleSet5lowerEv.exit1964 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %190)
+  call void @llvm.lifetime.start.p0(ptr nonnull %190)
   %3472 = getelementptr inbounds nuw i8, ptr %190, i64 16
   %3473 = getelementptr inbounds nuw i8, ptr %190, i64 24
   %3474 = getelementptr inbounds nuw i8, ptr %190, i64 8
@@ -8223,15 +8223,15 @@ _ZN4llvm15LegalizeRuleSet9minScalarEbjNS_3LLTE.exit1970: ; preds = %_ZN4llvm15Le
   br label %_ZN4llvm15LegalizeRuleSet5lowerEv.exit1973
 
 _ZN4llvm15LegalizeRuleSet5lowerEv.exit1973:       ; preds = %_ZN4llvm15LegalizeRuleSet9minScalarEbjNS_3LLTE.exit1970, %3477
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %190)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %487) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %486) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %488) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %190)
+  call void @llvm.lifetime.end.p0(ptr nonnull %487)
+  call void @llvm.lifetime.end.p0(ptr nonnull %486)
+  call void @llvm.lifetime.start.p0(ptr nonnull %488)
   store i32 149, ptr %488, align 4, !tbaa !163
   %3479 = getelementptr inbounds nuw i8, ptr %488, i64 4
   store i32 150, ptr %3479, align 4, !tbaa !163
   %3480 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderESt16initializer_listIjE(ptr noundef nonnull align 8 dereferenceable(125504) %0, ptr nonnull %488, i64 2) #17
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %189)
+  call void @llvm.lifetime.start.p0(ptr nonnull %189)
   %3481 = getelementptr inbounds nuw i8, ptr %189, i64 16
   %3482 = getelementptr inbounds nuw i8, ptr %189, i64 24
   %3483 = getelementptr inbounds nuw i8, ptr %189, i64 8
@@ -8249,12 +8249,12 @@ _ZN4llvm15LegalizeRuleSet5lowerEv.exit1973:       ; preds = %_ZN4llvm15LegalizeR
   br label %_ZN4llvm15LegalizeRuleSet5lowerEv.exit1976
 
 _ZN4llvm15LegalizeRuleSet5lowerEv.exit1976:       ; preds = %_ZN4llvm15LegalizeRuleSet5lowerEv.exit1973, %3486
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %189)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %488) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %189)
+  call void @llvm.lifetime.end.p0(ptr nonnull %488)
   %3488 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(125504) %0, i32 noundef 69) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %489) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %489)
   store i64 %storemerge.i.i.i876, ptr %489, align 8, !tbaa !161
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %188)
+  call void @llvm.lifetime.start.p0(ptr nonnull %188)
   call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %188, i32 noundef 0, ptr nonnull %489, i64 1) #17
   %3489 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %3488, i8 noundef zeroext 0, ptr noundef nonnull %188)
   %3490 = getelementptr inbounds nuw i8, ptr %188, i64 16
@@ -8267,16 +8267,16 @@ _ZN4llvm15LegalizeRuleSet5lowerEv.exit1976:       ; preds = %_ZN4llvm15LegalizeR
   br label %_ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listINS_3LLTEE.exit1979
 
 _ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listINS_3LLTEE.exit1979: ; preds = %_ZN4llvm15LegalizeRuleSet5lowerEv.exit1976, %3492
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %188)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %489) #17
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %490) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %188)
+  call void @llvm.lifetime.end.p0(ptr nonnull %489)
+  call void @llvm.lifetime.start.p0(ptr nonnull %490)
   store i32 279, ptr %490, align 4, !tbaa !163
   %3494 = getelementptr inbounds nuw i8, ptr %490, i64 4
   store i32 281, ptr %3494, align 4, !tbaa !163
   %3495 = getelementptr inbounds nuw i8, ptr %490, i64 8
   store i32 282, ptr %3495, align 4, !tbaa !163
   %3496 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderESt16initializer_listIjE(ptr noundef nonnull align 8 dereferenceable(125504) %0, ptr nonnull %490, i64 3) #17
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %187)
+  call void @llvm.lifetime.start.p0(ptr nonnull %187)
   %3497 = getelementptr inbounds nuw i8, ptr %187, i64 16
   %3498 = getelementptr inbounds nuw i8, ptr %187, i64 24
   %3499 = getelementptr inbounds nuw i8, ptr %187, i64 8
@@ -8294,16 +8294,16 @@ _ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listINS_3LLTEE.exit1979: ; pr
   br label %_ZN4llvm15LegalizeRuleSet7libcallEv.exit
 
 _ZN4llvm15LegalizeRuleSet7libcallEv.exit:         ; preds = %_ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listINS_3LLTEE.exit1979, %3502
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %187)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %490) #17
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %491) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %187)
+  call void @llvm.lifetime.end.p0(ptr nonnull %490)
+  call void @llvm.lifetime.start.p0(ptr nonnull %491)
   store i32 266, ptr %491, align 4, !tbaa !163
   %3504 = getelementptr inbounds nuw i8, ptr %491, i64 4
   store i32 267, ptr %3504, align 4, !tbaa !163
   %3505 = getelementptr inbounds nuw i8, ptr %491, i64 8
   store i32 268, ptr %3505, align 4, !tbaa !163
   %3506 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderESt16initializer_listIjE(ptr noundef nonnull align 8 dereferenceable(125504) %0, ptr nonnull %491, i64 3) #17
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %186)
+  call void @llvm.lifetime.start.p0(ptr nonnull %186)
   %3507 = getelementptr inbounds nuw i8, ptr %186, i64 16
   %3508 = getelementptr inbounds nuw i8, ptr %186, i64 24
   %3509 = getelementptr inbounds nuw i8, ptr %186, i64 8
@@ -8321,20 +8321,20 @@ _ZN4llvm15LegalizeRuleSet7libcallEv.exit:         ; preds = %_ZN4llvm15LegalizeR
   br label %_ZN4llvm15LegalizeRuleSet5lowerEv.exit1984
 
 _ZN4llvm15LegalizeRuleSet5lowerEv.exit1984:       ; preds = %_ZN4llvm15LegalizeRuleSet7libcallEv.exit, %3512
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %186)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %491) #17
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %492) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %186)
+  call void @llvm.lifetime.end.p0(ptr nonnull %491)
+  call void @llvm.lifetime.start.p0(ptr nonnull %492)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %492, ptr noundef nonnull align 4 dereferenceable(32) @constinit.2, i64 32, i1 false), !tbaa.struct !329
   %3514 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderESt16initializer_listIjE(ptr noundef nonnull align 8 dereferenceable(125504) %0, ptr nonnull %492, i64 8) #17
   %3515 = getelementptr inbounds nuw i8, ptr %1, i64 336
   %3516 = load i8, ptr %3515, align 8, !tbaa !330, !range !153, !noundef !154
   %3517 = trunc nuw i8 %3516 to i1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %493) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %493)
   store i64 137438953473, ptr %493, align 8, !tbaa !161
   br i1 %3517, label %3518, label %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit1988
 
 3518:                                             ; preds = %_ZN4llvm15LegalizeRuleSet5lowerEv.exit1984
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %185)
+  call void @llvm.lifetime.start.p0(ptr nonnull %185)
   call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %185, i32 noundef 0, ptr nonnull %493, i64 1) #17
   %3519 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %3514, i8 noundef zeroext 0, ptr noundef nonnull %185)
   %3520 = getelementptr inbounds nuw i8, ptr %185, i64 16
@@ -8347,19 +8347,19 @@ _ZN4llvm15LegalizeRuleSet5lowerEv.exit1984:       ; preds = %_ZN4llvm15LegalizeR
   br label %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listINS_3LLTEE.exit.i1987
 
 _ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listINS_3LLTEE.exit.i1987: ; preds = %3522, %3518
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %185)
+  call void @llvm.lifetime.end.p0(ptr nonnull %185)
   br label %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit1988
 
 _ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit1988: ; preds = %_ZN4llvm15LegalizeRuleSet5lowerEv.exit1984, %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listINS_3LLTEE.exit.i1987
   %.0.i1985 = phi ptr [ %3519, %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listINS_3LLTEE.exit.i1987 ], [ %3514, %_ZN4llvm15LegalizeRuleSet5lowerEv.exit1984 ]
   %3524 = load i8, ptr %1114, align 2, !tbaa !295, !range !153, !noundef !154
   %3525 = trunc nuw i8 %3524 to i1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %494) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %494)
   store i64 274877906945, ptr %494, align 8, !tbaa !161
   br i1 %3525, label %3526, label %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit1992
 
 3526:                                             ; preds = %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit1988
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %184)
+  call void @llvm.lifetime.start.p0(ptr nonnull %184)
   call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %184, i32 noundef 0, ptr nonnull %494, i64 1) #17
   %3527 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %.0.i1985, i8 noundef zeroext 0, ptr noundef nonnull %184)
   %3528 = getelementptr inbounds nuw i8, ptr %184, i64 16
@@ -8372,7 +8372,7 @@ _ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit1988: ; p
   br label %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listINS_3LLTEE.exit.i1991
 
 _ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listINS_3LLTEE.exit.i1991: ; preds = %3530, %3526
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %184)
+  call void @llvm.lifetime.end.p0(ptr nonnull %184)
   br label %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit1992
 
 _ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit1992: ; preds = %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit1988, %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listINS_3LLTEE.exit.i1991
@@ -8380,12 +8380,12 @@ _ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit1992: ; p
   %3532 = getelementptr inbounds nuw i8, ptr %1, i64 413
   %3533 = load i8, ptr %3532, align 1, !tbaa !331, !range !153, !noundef !154
   %3534 = trunc nuw i8 %3533 to i1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %495) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %495)
   store i64 68719476737, ptr %495, align 8, !tbaa !161
   br i1 %3534, label %3535, label %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit1996
 
 3535:                                             ; preds = %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit1992
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %183)
+  call void @llvm.lifetime.start.p0(ptr nonnull %183)
   call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %183, i32 noundef 0, ptr nonnull %495, i64 1) #17
   %3536 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %.0.i1989, i8 noundef zeroext 0, ptr noundef nonnull %183)
   %3537 = getelementptr inbounds nuw i8, ptr %183, i64 16
@@ -8398,16 +8398,16 @@ _ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit1992: ; p
   br label %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listINS_3LLTEE.exit.i1995
 
 _ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listINS_3LLTEE.exit.i1995: ; preds = %3539, %3535
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %183)
+  call void @llvm.lifetime.end.p0(ptr nonnull %183)
   br label %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit1996
 
 _ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit1996: ; preds = %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit1992, %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listINS_3LLTEE.exit.i1995
   %.0.i1993 = phi ptr [ %3536, %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listINS_3LLTEE.exit.i1995 ], [ %.0.i1989, %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit1992 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %496) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %496)
   store i64 137438953473, ptr %496, align 8, !tbaa !161
   %3541 = getelementptr inbounds nuw i8, ptr %496, i64 8
   store i64 274877906945, ptr %3541, align 8, !tbaa !161
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %182)
+  call void @llvm.lifetime.start.p0(ptr nonnull %182)
   call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %182, i32 noundef 0, ptr nonnull %496, i64 2) #17
   %3542 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %.0.i1993, i8 noundef zeroext 7, ptr noundef nonnull %182)
   %3543 = getelementptr inbounds nuw i8, ptr %182, i64 16
@@ -8420,15 +8420,15 @@ _ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit1996: ; p
   br label %_ZN4llvm15LegalizeRuleSet10libcallForESt16initializer_listINS_3LLTEE.exit1999
 
 _ZN4llvm15LegalizeRuleSet10libcallForESt16initializer_listINS_3LLTEE.exit1999: ; preds = %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit1996, %3545
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %182)
+  call void @llvm.lifetime.end.p0(ptr nonnull %182)
   %3547 = load i8, ptr %612, align 1, !tbaa !24, !range !153, !noundef !154
   %3548 = trunc nuw i8 %3547 to i1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %497) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %497)
   store i64 549755813889, ptr %497, align 8, !tbaa !161
   br i1 %3548, label %3549, label %_ZN4llvm15LegalizeRuleSet10libcallForEbSt16initializer_listINS_3LLTEE.exit
 
 3549:                                             ; preds = %_ZN4llvm15LegalizeRuleSet10libcallForESt16initializer_listINS_3LLTEE.exit1999
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %181)
+  call void @llvm.lifetime.start.p0(ptr nonnull %181)
   call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %181, i32 noundef 0, ptr nonnull %497, i64 1) #17
   %3550 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %3542, i8 noundef zeroext 7, ptr noundef nonnull %181)
   %3551 = getelementptr inbounds nuw i8, ptr %181, i64 16
@@ -8441,29 +8441,29 @@ _ZN4llvm15LegalizeRuleSet10libcallForESt16initializer_listINS_3LLTEE.exit1999: ;
   br label %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listINS_3LLTEE.exit.i2002
 
 _ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listINS_3LLTEE.exit.i2002: ; preds = %3553, %3549
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %181)
+  call void @llvm.lifetime.end.p0(ptr nonnull %181)
   br label %_ZN4llvm15LegalizeRuleSet10libcallForEbSt16initializer_listINS_3LLTEE.exit
 
 _ZN4llvm15LegalizeRuleSet10libcallForEbSt16initializer_listINS_3LLTEE.exit: ; preds = %_ZN4llvm15LegalizeRuleSet10libcallForESt16initializer_listINS_3LLTEE.exit1999, %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listINS_3LLTEE.exit.i2002
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %497) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %496) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %495) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %494) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %493) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %492) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %498) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %497)
+  call void @llvm.lifetime.end.p0(ptr nonnull %496)
+  call void @llvm.lifetime.end.p0(ptr nonnull %495)
+  call void @llvm.lifetime.end.p0(ptr nonnull %494)
+  call void @llvm.lifetime.end.p0(ptr nonnull %493)
+  call void @llvm.lifetime.end.p0(ptr nonnull %492)
+  call void @llvm.lifetime.start.p0(ptr nonnull %498)
   store i32 195, ptr %498, align 4, !tbaa !163
   %3555 = getelementptr inbounds nuw i8, ptr %498, i64 4
   store i32 204, ptr %3555, align 4, !tbaa !163
   %3556 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderESt16initializer_listIjE(ptr noundef nonnull align 8 dereferenceable(125504) %0, ptr nonnull %498, i64 2) #17
   %3557 = load i8, ptr %3515, align 8, !tbaa !330, !range !153, !noundef !154
   %3558 = trunc nuw i8 %3557 to i1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %499) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %499)
   store i64 137438953473, ptr %499, align 8, !tbaa !161
   br i1 %3558, label %3559, label %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit2006
 
 3559:                                             ; preds = %_ZN4llvm15LegalizeRuleSet10libcallForEbSt16initializer_listINS_3LLTEE.exit
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %180)
+  call void @llvm.lifetime.start.p0(ptr nonnull %180)
   call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %180, i32 noundef 0, ptr nonnull %499, i64 1) #17
   %3560 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %3556, i8 noundef zeroext 0, ptr noundef nonnull %180)
   %3561 = getelementptr inbounds nuw i8, ptr %180, i64 16
@@ -8476,19 +8476,19 @@ _ZN4llvm15LegalizeRuleSet10libcallForEbSt16initializer_listINS_3LLTEE.exit: ; pr
   br label %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listINS_3LLTEE.exit.i2005
 
 _ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listINS_3LLTEE.exit.i2005: ; preds = %3563, %3559
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %180)
+  call void @llvm.lifetime.end.p0(ptr nonnull %180)
   br label %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit2006
 
 _ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit2006: ; preds = %_ZN4llvm15LegalizeRuleSet10libcallForEbSt16initializer_listINS_3LLTEE.exit, %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listINS_3LLTEE.exit.i2005
   %.0.i2003 = phi ptr [ %3560, %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listINS_3LLTEE.exit.i2005 ], [ %3556, %_ZN4llvm15LegalizeRuleSet10libcallForEbSt16initializer_listINS_3LLTEE.exit ]
   %3565 = load i8, ptr %1114, align 2, !tbaa !295, !range !153, !noundef !154
   %3566 = trunc nuw i8 %3565 to i1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %500) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %500)
   store i64 274877906945, ptr %500, align 8, !tbaa !161
   br i1 %3566, label %3567, label %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit2010
 
 3567:                                             ; preds = %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit2006
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %179)
+  call void @llvm.lifetime.start.p0(ptr nonnull %179)
   call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %179, i32 noundef 0, ptr nonnull %500, i64 1) #17
   %3568 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %.0.i2003, i8 noundef zeroext 0, ptr noundef nonnull %179)
   %3569 = getelementptr inbounds nuw i8, ptr %179, i64 16
@@ -8501,19 +8501,19 @@ _ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit2006: ; p
   br label %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listINS_3LLTEE.exit.i2009
 
 _ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listINS_3LLTEE.exit.i2009: ; preds = %3571, %3567
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %179)
+  call void @llvm.lifetime.end.p0(ptr nonnull %179)
   br label %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit2010
 
 _ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit2010: ; preds = %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit2006, %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listINS_3LLTEE.exit.i2009
   %.0.i2007 = phi ptr [ %3568, %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listINS_3LLTEE.exit.i2009 ], [ %.0.i2003, %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit2006 ]
   %3573 = load i8, ptr %3532, align 1, !tbaa !331, !range !153, !noundef !154
   %3574 = trunc nuw i8 %3573 to i1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %501) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %501)
   store i64 68719476737, ptr %501, align 8, !tbaa !161
   br i1 %3574, label %3575, label %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit2014
 
 3575:                                             ; preds = %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit2010
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %178)
+  call void @llvm.lifetime.start.p0(ptr nonnull %178)
   call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %178, i32 noundef 0, ptr nonnull %501, i64 1) #17
   %3576 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %.0.i2007, i8 noundef zeroext 0, ptr noundef nonnull %178)
   %3577 = getelementptr inbounds nuw i8, ptr %178, i64 16
@@ -8526,14 +8526,14 @@ _ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit2010: ; p
   br label %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listINS_3LLTEE.exit.i2013
 
 _ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listINS_3LLTEE.exit.i2013: ; preds = %3579, %3575
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %178)
+  call void @llvm.lifetime.end.p0(ptr nonnull %178)
   br label %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit2014
 
 _ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit2014: ; preds = %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit2010, %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listINS_3LLTEE.exit.i2013
   %.0.i2011 = phi ptr [ %3576, %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listINS_3LLTEE.exit.i2013 ], [ %.0.i2007, %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit2010 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %502) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %502)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %502, ptr noundef nonnull align 8 dereferenceable(24) @constinit.4, i64 24, i1 false), !tbaa.struct !332
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %177)
+  call void @llvm.lifetime.start.p0(ptr nonnull %177)
   call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %177, i32 noundef 0, ptr nonnull %502, i64 3) #17
   %3581 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %.0.i2011, i8 noundef zeroext 6, ptr noundef nonnull %177)
   %3582 = getelementptr inbounds nuw i8, ptr %177, i64 16
@@ -8546,18 +8546,18 @@ _ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit2014: ; p
   br label %_ZN4llvm15LegalizeRuleSet8lowerForESt16initializer_listINS_3LLTEE.exit2017
 
 _ZN4llvm15LegalizeRuleSet8lowerForESt16initializer_listINS_3LLTEE.exit2017: ; preds = %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit2014, %3584
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %177)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %502) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %501) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %500) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %499) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %498) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %177)
+  call void @llvm.lifetime.end.p0(ptr nonnull %502)
+  call void @llvm.lifetime.end.p0(ptr nonnull %501)
+  call void @llvm.lifetime.end.p0(ptr nonnull %500)
+  call void @llvm.lifetime.end.p0(ptr nonnull %499)
+  call void @llvm.lifetime.end.p0(ptr nonnull %498)
   %3586 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(125504) %0, i32 noundef 184) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %503) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %503)
   store i64 137438953473, ptr %503, align 8, !tbaa !161
   %3587 = getelementptr inbounds nuw i8, ptr %503, i64 8
   store i64 274877906945, ptr %3587, align 8, !tbaa !161
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %176)
+  call void @llvm.lifetime.start.p0(ptr nonnull %176)
   call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %176, i32 noundef 0, ptr nonnull %503, i64 2) #17
   %3588 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %3586, i8 noundef zeroext 7, ptr noundef nonnull %176)
   %3589 = getelementptr inbounds nuw i8, ptr %176, i64 16
@@ -8570,15 +8570,15 @@ _ZN4llvm15LegalizeRuleSet8lowerForESt16initializer_listINS_3LLTEE.exit2017: ; pr
   br label %_ZN4llvm15LegalizeRuleSet10libcallForESt16initializer_listINS_3LLTEE.exit2020
 
 _ZN4llvm15LegalizeRuleSet10libcallForESt16initializer_listINS_3LLTEE.exit2020: ; preds = %_ZN4llvm15LegalizeRuleSet8lowerForESt16initializer_listINS_3LLTEE.exit2017, %3591
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %176)
+  call void @llvm.lifetime.end.p0(ptr nonnull %176)
   %3593 = load i8, ptr %612, align 1, !tbaa !24, !range !153, !noundef !154
   %3594 = trunc nuw i8 %3593 to i1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %504) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %504)
   store i64 549755813889, ptr %504, align 8, !tbaa !161
   br i1 %3594, label %3595, label %_ZN4llvm15LegalizeRuleSet10libcallForEbSt16initializer_listINS_3LLTEE.exit2024
 
 3595:                                             ; preds = %_ZN4llvm15LegalizeRuleSet10libcallForESt16initializer_listINS_3LLTEE.exit2020
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %175)
+  call void @llvm.lifetime.start.p0(ptr nonnull %175)
   call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %175, i32 noundef 0, ptr nonnull %504, i64 1) #17
   %3596 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %3588, i8 noundef zeroext 7, ptr noundef nonnull %175)
   %3597 = getelementptr inbounds nuw i8, ptr %175, i64 16
@@ -8591,14 +8591,14 @@ _ZN4llvm15LegalizeRuleSet10libcallForESt16initializer_listINS_3LLTEE.exit2020: ;
   br label %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listINS_3LLTEE.exit.i2023
 
 _ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listINS_3LLTEE.exit.i2023: ; preds = %3599, %3595
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %175)
+  call void @llvm.lifetime.end.p0(ptr nonnull %175)
   br label %_ZN4llvm15LegalizeRuleSet10libcallForEbSt16initializer_listINS_3LLTEE.exit2024
 
 _ZN4llvm15LegalizeRuleSet10libcallForEbSt16initializer_listINS_3LLTEE.exit2024: ; preds = %_ZN4llvm15LegalizeRuleSet10libcallForESt16initializer_listINS_3LLTEE.exit2020, %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listINS_3LLTEE.exit.i2023
   %.0.i2021 = phi ptr [ %3596, %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listINS_3LLTEE.exit.i2023 ], [ %3588, %_ZN4llvm15LegalizeRuleSet10libcallForESt16initializer_listINS_3LLTEE.exit2020 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i64 32, ptr %10, align 8
   %.sroa.2.0..sroa_idx.i3819 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i8 0, ptr %.sroa.2.0..sroa_idx.i3819, align 8
@@ -8627,11 +8627,11 @@ _ZNSt14_Function_baseD2Ev.exit.i3821:             ; preds = %3606, %_ZN4llvm15Le
   br label %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit3823
 
 _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit3823: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i3821, %3610
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %173)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %174)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %173)
+  call void @llvm.lifetime.start.p0(ptr nonnull %174)
   call void @_ZN4llvm18LegalityPredicates8isVectorEj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %173, i32 noundef 0) #17
   call void @_ZN4llvm17LegalizeMutations9scalarizeEj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.77") align 8 %174, i32 noundef 0) #17
   %3612 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %3603, i8 noundef zeroext 3, ptr noundef nonnull %173, ptr noundef nonnull %174)
@@ -8655,21 +8655,21 @@ _ZNSt14_Function_baseD2Ev.exit.i2026:             ; preds = %3615, %_ZN4llvm15Le
   br label %_ZN4llvm15LegalizeRuleSet9scalarizeEj.exit
 
 _ZN4llvm15LegalizeRuleSet9scalarizeEj.exit:       ; preds = %_ZNSt14_Function_baseD2Ev.exit.i2026, %3619
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %173)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %174)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %504) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %503) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %173)
+  call void @llvm.lifetime.end.p0(ptr nonnull %174)
+  call void @llvm.lifetime.end.p0(ptr nonnull %504)
+  call void @llvm.lifetime.end.p0(ptr nonnull %503)
   %3621 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(125504) %0, i32 noundef 205) #17
   %3622 = load i8, ptr %3515, align 8, !tbaa !330, !range !153, !noundef !154
   %3623 = trunc nuw i8 %3622 to i1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %505) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %505)
   store i64 137438953473, ptr %505, align 8, !tbaa !161
   %3624 = getelementptr inbounds nuw i8, ptr %505, i64 8
   store i64 137438953473, ptr %3624, align 8, !tbaa !161
   br i1 %3623, label %3625, label %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2031
 
 3625:                                             ; preds = %_ZN4llvm15LegalizeRuleSet9scalarizeEj.exit
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %172)
+  call void @llvm.lifetime.start.p0(ptr nonnull %172)
   call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %172, i32 noundef 0, i32 noundef 1, ptr nonnull %505, i64 1) #17
   %3626 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %3621, i8 noundef zeroext 0, ptr noundef nonnull %172)
   %3627 = getelementptr inbounds nuw i8, ptr %172, i64 16
@@ -8682,14 +8682,14 @@ _ZN4llvm15LegalizeRuleSet9scalarizeEj.exit:       ; preds = %_ZNSt14_Function_ba
   br label %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i2030
 
 _ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i2030: ; preds = %3629, %3625
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %172)
+  call void @llvm.lifetime.end.p0(ptr nonnull %172)
   br label %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2031
 
 _ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2031: ; preds = %_ZN4llvm15LegalizeRuleSet9scalarizeEj.exit, %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i2030
   %.0.i2028 = phi ptr [ %3626, %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i2030 ], [ %3621, %_ZN4llvm15LegalizeRuleSet9scalarizeEj.exit ]
   %3631 = load i8, ptr %1114, align 2, !tbaa !295, !range !153, !noundef !154
   %3632 = trunc nuw i8 %3631 to i1
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %506) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %506)
   store i64 274877906945, ptr %506, align 8, !tbaa !161
   %3633 = getelementptr inbounds nuw i8, ptr %506, i64 8
   store i64 274877906945, ptr %3633, align 8, !tbaa !161
@@ -8704,7 +8704,7 @@ _ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.e
   br i1 %3632, label %3638, label %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2035
 
 3638:                                             ; preds = %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2031
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %171)
+  call void @llvm.lifetime.start.p0(ptr nonnull %171)
   call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %171, i32 noundef 0, i32 noundef 1, ptr nonnull %506, i64 3) #17
   %3639 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %.0.i2028, i8 noundef zeroext 0, ptr noundef nonnull %171)
   %3640 = getelementptr inbounds nuw i8, ptr %171, i64 16
@@ -8717,14 +8717,14 @@ _ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.e
   br label %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i2034
 
 _ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i2034: ; preds = %3642, %3638
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %171)
+  call void @llvm.lifetime.end.p0(ptr nonnull %171)
   br label %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2035
 
 _ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2035: ; preds = %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2031, %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i2034
   %.0.i2032 = phi ptr [ %3639, %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i2034 ], [ %.0.i2028, %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2031 ]
   %3644 = load i8, ptr %3532, align 1, !tbaa !331, !range !153, !noundef !154
   %3645 = trunc nuw i8 %3644 to i1
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %507) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %507)
   store i64 68719476737, ptr %507, align 8, !tbaa !161
   %3646 = getelementptr inbounds nuw i8, ptr %507, i64 8
   store i64 68719476737, ptr %3646, align 8, !tbaa !161
@@ -8739,7 +8739,7 @@ _ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.e
   br i1 %3645, label %3651, label %.thread3499
 
 3651:                                             ; preds = %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2035
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %170)
+  call void @llvm.lifetime.start.p0(ptr nonnull %170)
   call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %170, i32 noundef 0, i32 noundef 1, ptr nonnull %507, i64 3) #17
   %3652 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %.0.i2032, i8 noundef zeroext 0, ptr noundef nonnull %170)
   %3653 = getelementptr inbounds nuw i8, ptr %170, i64 16
@@ -8752,14 +8752,14 @@ _ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.e
   br label %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2039
 
 _ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2039: ; preds = %3651, %3655
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %170)
+  call void @llvm.lifetime.end.p0(ptr nonnull %170)
   %.pre3663 = load i8, ptr %3532, align 1, !tbaa !331, !range !153
   %3657 = trunc nuw i8 %.pre3663 to i1
   br i1 %3657, label %3661, label %.thread3499
 
 .thread3499:                                      ; preds = %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2035, %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2039
   %.0.i20363738 = phi ptr [ %3652, %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2039 ], [ %.0.i2032, %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2035 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %508) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %508)
   store i64 68719476737, ptr %508, align 8, !tbaa !161
   %3658 = getelementptr inbounds nuw i8, ptr %508, i64 8
   store i64 274877906945, ptr %3658, align 8, !tbaa !161
@@ -8772,7 +8772,7 @@ _ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.e
 3661:                                             ; preds = %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2039
   %3662 = load i8, ptr %1114, align 2, !tbaa !295, !range !153, !noundef !154
   %3663 = trunc nuw i8 %3662 to i1
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %508) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %508)
   store i64 68719476737, ptr %508, align 8, !tbaa !161
   %3664 = getelementptr inbounds nuw i8, ptr %508, i64 8
   store i64 274877906945, ptr %3664, align 8, !tbaa !161
@@ -8783,7 +8783,7 @@ _ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.e
   br i1 %3663, label %3667, label %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2043
 
 3667:                                             ; preds = %3661
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %169)
+  call void @llvm.lifetime.start.p0(ptr nonnull %169)
   call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %169, i32 noundef 0, i32 noundef 1, ptr nonnull %508, i64 2) #17
   %3668 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %3652, i8 noundef zeroext 0, ptr noundef nonnull %169)
   %3669 = getelementptr inbounds nuw i8, ptr %169, i64 16
@@ -8796,12 +8796,12 @@ _ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.e
   br label %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i2042
 
 _ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i2042: ; preds = %3671, %3667
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %169)
+  call void @llvm.lifetime.end.p0(ptr nonnull %169)
   br label %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2043
 
 _ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2043: ; preds = %.thread3499, %3661, %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i2042
   %.0.i2040 = phi ptr [ %3668, %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i2042 ], [ %3652, %3661 ], [ %.0.i20363738, %.thread3499 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %168)
+  call void @llvm.lifetime.start.p0(ptr nonnull %168)
   %3673 = getelementptr inbounds nuw i8, ptr %168, i64 16
   %3674 = getelementptr inbounds nuw i8, ptr %168, i64 24
   %3675 = getelementptr inbounds nuw i8, ptr %168, i64 8
@@ -8819,22 +8819,22 @@ _ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.e
   br label %_ZN4llvm15LegalizeRuleSet5lowerEv.exit2046
 
 _ZN4llvm15LegalizeRuleSet5lowerEv.exit2046:       ; preds = %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2043, %3678
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %168)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %508) #17
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %507) #17
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %506) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %505) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %168)
+  call void @llvm.lifetime.end.p0(ptr nonnull %508)
+  call void @llvm.lifetime.end.p0(ptr nonnull %507)
+  call void @llvm.lifetime.end.p0(ptr nonnull %506)
+  call void @llvm.lifetime.end.p0(ptr nonnull %505)
   %3680 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(125504) %0, i32 noundef 197) #17
   %3681 = load i8, ptr %1114, align 2, !tbaa !295, !range !153, !noundef !154
   %3682 = trunc nuw i8 %3681 to i1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %509) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %509)
   store i64 137438953473, ptr %509, align 8, !tbaa !161
   %3683 = getelementptr inbounds nuw i8, ptr %509, i64 8
   store i64 274877906945, ptr %3683, align 8, !tbaa !161
   br i1 %3682, label %3684, label %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2050
 
 3684:                                             ; preds = %_ZN4llvm15LegalizeRuleSet5lowerEv.exit2046
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %167)
+  call void @llvm.lifetime.start.p0(ptr nonnull %167)
   call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %167, i32 noundef 0, i32 noundef 1, ptr nonnull %509, i64 1) #17
   %3685 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %3680, i8 noundef zeroext 0, ptr noundef nonnull %167)
   %3686 = getelementptr inbounds nuw i8, ptr %167, i64 16
@@ -8847,21 +8847,21 @@ _ZN4llvm15LegalizeRuleSet5lowerEv.exit2046:       ; preds = %_ZN4llvm15LegalizeR
   br label %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i2049
 
 _ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i2049: ; preds = %3688, %3684
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %167)
+  call void @llvm.lifetime.end.p0(ptr nonnull %167)
   br label %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2050
 
 _ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2050: ; preds = %_ZN4llvm15LegalizeRuleSet5lowerEv.exit2046, %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i2049
   %.0.i2047 = phi ptr [ %3685, %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i2049 ], [ %3680, %_ZN4llvm15LegalizeRuleSet5lowerEv.exit2046 ]
   %3690 = load i8, ptr %3532, align 1, !tbaa !331, !range !153, !noundef !154
   %3691 = trunc nuw i8 %3690 to i1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %510) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %510)
   store i64 68719476737, ptr %510, align 8, !tbaa !161
   %3692 = getelementptr inbounds nuw i8, ptr %510, i64 8
   store i64 137438953473, ptr %3692, align 8, !tbaa !161
   br i1 %3691, label %3693, label %.thread3501
 
 3693:                                             ; preds = %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2050
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %166)
+  call void @llvm.lifetime.start.p0(ptr nonnull %166)
   call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %166, i32 noundef 0, i32 noundef 1, ptr nonnull %510, i64 1) #17
   %3694 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %.0.i2047, i8 noundef zeroext 0, ptr noundef nonnull %166)
   %3695 = getelementptr inbounds nuw i8, ptr %166, i64 16
@@ -8874,14 +8874,14 @@ _ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.e
   br label %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2054
 
 _ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2054: ; preds = %3693, %3697
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %166)
+  call void @llvm.lifetime.end.p0(ptr nonnull %166)
   %.pre3664 = load i8, ptr %3532, align 1, !tbaa !331, !range !153
   %3699 = trunc nuw i8 %.pre3664 to i1
   br i1 %3699, label %3701, label %.thread3501
 
 .thread3501:                                      ; preds = %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2050, %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2054
   %.0.i20513740 = phi ptr [ %3694, %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2054 ], [ %.0.i2047, %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2050 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %511) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %511)
   store i64 68719476737, ptr %511, align 8, !tbaa !161
   %3700 = getelementptr inbounds nuw i8, ptr %511, i64 8
   store i64 274877906945, ptr %3700, align 8, !tbaa !161
@@ -8890,14 +8890,14 @@ _ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.e
 3701:                                             ; preds = %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2054
   %3702 = load i8, ptr %1114, align 2, !tbaa !295, !range !153, !noundef !154
   %3703 = trunc nuw i8 %3702 to i1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %511) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %511)
   store i64 68719476737, ptr %511, align 8, !tbaa !161
   %3704 = getelementptr inbounds nuw i8, ptr %511, i64 8
   store i64 274877906945, ptr %3704, align 8, !tbaa !161
   br i1 %3703, label %3705, label %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2058
 
 3705:                                             ; preds = %3701
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %165)
+  call void @llvm.lifetime.start.p0(ptr nonnull %165)
   call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %165, i32 noundef 0, i32 noundef 1, ptr nonnull %511, i64 1) #17
   %3706 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %3694, i8 noundef zeroext 0, ptr noundef nonnull %165)
   %3707 = getelementptr inbounds nuw i8, ptr %165, i64 16
@@ -8910,16 +8910,16 @@ _ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.e
   br label %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i2057
 
 _ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i2057: ; preds = %3709, %3705
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %165)
+  call void @llvm.lifetime.end.p0(ptr nonnull %165)
   br label %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2058
 
 _ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2058: ; preds = %.thread3501, %3701, %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i2057
   %.0.i2055 = phi ptr [ %3706, %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i2057 ], [ %3694, %3701 ], [ %.0.i20513740, %.thread3501 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %512) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %512)
   store i64 137438953473, ptr %512, align 8, !tbaa !161
   %3711 = getelementptr inbounds nuw i8, ptr %512, i64 8
   store i64 274877906945, ptr %3711, align 8, !tbaa !161
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %164)
+  call void @llvm.lifetime.start.p0(ptr nonnull %164)
   call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %164, i32 noundef 0, i32 noundef 1, ptr nonnull %512, i64 1) #17
   %3712 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %.0.i2055, i8 noundef zeroext 7, ptr noundef nonnull %164)
   %3713 = getelementptr inbounds nuw i8, ptr %164, i64 16
@@ -8932,10 +8932,10 @@ _ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.e
   br label %_ZN4llvm15LegalizeRuleSet10libcallForESt16initializer_listISt4pairINS_3LLTES3_EE.exit
 
 _ZN4llvm15LegalizeRuleSet10libcallForESt16initializer_listISt4pairINS_3LLTES3_EE.exit: ; preds = %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2058, %3715
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %164)
+  call void @llvm.lifetime.end.p0(ptr nonnull %164)
   %3717 = load i8, ptr %612, align 1, !tbaa !24, !range !153, !noundef !154
   %3718 = trunc nuw i8 %3717 to i1
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %513) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %513)
   store i64 137438953473, ptr %513, align 8, !tbaa !161
   %3719 = getelementptr inbounds nuw i8, ptr %513, i64 8
   store i64 549755813889, ptr %3719, align 8, !tbaa !161
@@ -8946,7 +8946,7 @@ _ZN4llvm15LegalizeRuleSet10libcallForESt16initializer_listISt4pairINS_3LLTES3_EE
   br i1 %3718, label %3722, label %_ZN4llvm15LegalizeRuleSet10libcallForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit
 
 3722:                                             ; preds = %_ZN4llvm15LegalizeRuleSet10libcallForESt16initializer_listISt4pairINS_3LLTES3_EE.exit
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %163)
+  call void @llvm.lifetime.start.p0(ptr nonnull %163)
   call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %163, i32 noundef 0, i32 noundef 1, ptr nonnull %513, i64 2) #17
   %3723 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %3712, i8 noundef zeroext 7, ptr noundef nonnull %163)
   %3724 = getelementptr inbounds nuw i8, ptr %163, i64 16
@@ -8959,26 +8959,26 @@ _ZN4llvm15LegalizeRuleSet10libcallForESt16initializer_listISt4pairINS_3LLTES3_EE
   br label %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i2063
 
 _ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i2063: ; preds = %3726, %3722
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %163)
+  call void @llvm.lifetime.end.p0(ptr nonnull %163)
   br label %_ZN4llvm15LegalizeRuleSet10libcallForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit
 
 _ZN4llvm15LegalizeRuleSet10libcallForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit: ; preds = %_ZN4llvm15LegalizeRuleSet10libcallForESt16initializer_listISt4pairINS_3LLTES3_EE.exit, %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i2063
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %513) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %512) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %511) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %510) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %509) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %513)
+  call void @llvm.lifetime.end.p0(ptr nonnull %512)
+  call void @llvm.lifetime.end.p0(ptr nonnull %511)
+  call void @llvm.lifetime.end.p0(ptr nonnull %510)
+  call void @llvm.lifetime.end.p0(ptr nonnull %509)
   %3728 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(125504) %0, i32 noundef 196) #17
   %3729 = load i8, ptr %1114, align 2, !tbaa !295, !range !153, !noundef !154
   %3730 = trunc nuw i8 %3729 to i1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %514) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %514)
   store i64 274877906945, ptr %514, align 8, !tbaa !161
   %3731 = getelementptr inbounds nuw i8, ptr %514, i64 8
   store i64 137438953473, ptr %3731, align 8, !tbaa !161
   br i1 %3730, label %3732, label %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2067
 
 3732:                                             ; preds = %_ZN4llvm15LegalizeRuleSet10libcallForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %162)
+  call void @llvm.lifetime.start.p0(ptr nonnull %162)
   call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %162, i32 noundef 0, i32 noundef 1, ptr nonnull %514, i64 1) #17
   %3733 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %3728, i8 noundef zeroext 0, ptr noundef nonnull %162)
   %3734 = getelementptr inbounds nuw i8, ptr %162, i64 16
@@ -8991,21 +8991,21 @@ _ZN4llvm15LegalizeRuleSet10libcallForEbSt16initializer_listISt4pairINS_3LLTES3_E
   br label %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i2066
 
 _ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i2066: ; preds = %3736, %3732
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %162)
+  call void @llvm.lifetime.end.p0(ptr nonnull %162)
   br label %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2067
 
 _ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2067: ; preds = %_ZN4llvm15LegalizeRuleSet10libcallForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit, %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i2066
   %.0.i2064 = phi ptr [ %3733, %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i2066 ], [ %3728, %_ZN4llvm15LegalizeRuleSet10libcallForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit ]
   %3738 = load i8, ptr %3532, align 1, !tbaa !331, !range !153, !noundef !154
   %3739 = trunc nuw i8 %3738 to i1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %515) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %515)
   store i64 137438953473, ptr %515, align 8, !tbaa !161
   %3740 = getelementptr inbounds nuw i8, ptr %515, i64 8
   store i64 68719476737, ptr %3740, align 8, !tbaa !161
   br i1 %3739, label %3741, label %.thread3502
 
 3741:                                             ; preds = %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2067
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %161)
+  call void @llvm.lifetime.start.p0(ptr nonnull %161)
   call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %161, i32 noundef 0, i32 noundef 1, ptr nonnull %515, i64 1) #17
   %3742 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %.0.i2064, i8 noundef zeroext 0, ptr noundef nonnull %161)
   %3743 = getelementptr inbounds nuw i8, ptr %161, i64 16
@@ -9018,14 +9018,14 @@ _ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.e
   br label %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2071
 
 _ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2071: ; preds = %3741, %3745
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %161)
+  call void @llvm.lifetime.end.p0(ptr nonnull %161)
   %.pre3665 = load i8, ptr %3532, align 1, !tbaa !331, !range !153
   %3747 = trunc nuw i8 %.pre3665 to i1
   br i1 %3747, label %3749, label %.thread3502
 
 .thread3502:                                      ; preds = %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2067, %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2071
   %.0.i20683742 = phi ptr [ %3742, %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2071 ], [ %.0.i2064, %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2067 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %516) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %516)
   store i64 274877906945, ptr %516, align 8, !tbaa !161
   %3748 = getelementptr inbounds nuw i8, ptr %516, i64 8
   store i64 68719476737, ptr %3748, align 8, !tbaa !161
@@ -9034,14 +9034,14 @@ _ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.e
 3749:                                             ; preds = %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2071
   %3750 = load i8, ptr %1114, align 2, !tbaa !295, !range !153, !noundef !154
   %3751 = trunc nuw i8 %3750 to i1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %516) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %516)
   store i64 274877906945, ptr %516, align 8, !tbaa !161
   %3752 = getelementptr inbounds nuw i8, ptr %516, i64 8
   store i64 68719476737, ptr %3752, align 8, !tbaa !161
   br i1 %3751, label %3753, label %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2075
 
 3753:                                             ; preds = %3749
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %160)
+  call void @llvm.lifetime.start.p0(ptr nonnull %160)
   call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %160, i32 noundef 0, i32 noundef 1, ptr nonnull %516, i64 1) #17
   %3754 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %3742, i8 noundef zeroext 0, ptr noundef nonnull %160)
   %3755 = getelementptr inbounds nuw i8, ptr %160, i64 16
@@ -9054,16 +9054,16 @@ _ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.e
   br label %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i2074
 
 _ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i2074: ; preds = %3757, %3753
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %160)
+  call void @llvm.lifetime.end.p0(ptr nonnull %160)
   br label %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2075
 
 _ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2075: ; preds = %.thread3502, %3749, %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i2074
   %.0.i2072 = phi ptr [ %3754, %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i2074 ], [ %3742, %3749 ], [ %.0.i20683742, %.thread3502 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %517) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %517)
   store i64 274877906945, ptr %517, align 8, !tbaa !161
   %3759 = getelementptr inbounds nuw i8, ptr %517, i64 8
   store i64 137438953473, ptr %3759, align 8, !tbaa !161
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %159)
+  call void @llvm.lifetime.start.p0(ptr nonnull %159)
   call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %159, i32 noundef 0, i32 noundef 1, ptr nonnull %517, i64 1) #17
   %3760 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %.0.i2072, i8 noundef zeroext 7, ptr noundef nonnull %159)
   %3761 = getelementptr inbounds nuw i8, ptr %159, i64 16
@@ -9076,10 +9076,10 @@ _ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.e
   br label %_ZN4llvm15LegalizeRuleSet10libcallForESt16initializer_listISt4pairINS_3LLTES3_EE.exit2078
 
 _ZN4llvm15LegalizeRuleSet10libcallForESt16initializer_listISt4pairINS_3LLTES3_EE.exit2078: ; preds = %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2075, %3763
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %159)
+  call void @llvm.lifetime.end.p0(ptr nonnull %159)
   %3765 = load i8, ptr %612, align 1, !tbaa !24, !range !153, !noundef !154
   %3766 = trunc nuw i8 %3765 to i1
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %518) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %518)
   store i64 549755813889, ptr %518, align 8, !tbaa !161
   %3767 = getelementptr inbounds nuw i8, ptr %518, i64 8
   store i64 137438953473, ptr %3767, align 8, !tbaa !161
@@ -9090,7 +9090,7 @@ _ZN4llvm15LegalizeRuleSet10libcallForESt16initializer_listISt4pairINS_3LLTES3_EE
   br i1 %3766, label %3770, label %_ZN4llvm15LegalizeRuleSet10libcallForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2082
 
 3770:                                             ; preds = %_ZN4llvm15LegalizeRuleSet10libcallForESt16initializer_listISt4pairINS_3LLTES3_EE.exit2078
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %158)
+  call void @llvm.lifetime.start.p0(ptr nonnull %158)
   call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %158, i32 noundef 0, i32 noundef 1, ptr nonnull %518, i64 2) #17
   %3771 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %3760, i8 noundef zeroext 7, ptr noundef nonnull %158)
   %3772 = getelementptr inbounds nuw i8, ptr %158, i64 16
@@ -9103,19 +9103,19 @@ _ZN4llvm15LegalizeRuleSet10libcallForESt16initializer_listISt4pairINS_3LLTES3_EE
   br label %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i2081
 
 _ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i2081: ; preds = %3774, %3770
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %158)
+  call void @llvm.lifetime.end.p0(ptr nonnull %158)
   br label %_ZN4llvm15LegalizeRuleSet10libcallForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2082
 
 _ZN4llvm15LegalizeRuleSet10libcallForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2082: ; preds = %_ZN4llvm15LegalizeRuleSet10libcallForESt16initializer_listISt4pairINS_3LLTES3_EE.exit2078, %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i2081
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %518) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %517) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %516) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %515) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %514) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %518)
+  call void @llvm.lifetime.end.p0(ptr nonnull %517)
+  call void @llvm.lifetime.end.p0(ptr nonnull %516)
+  call void @llvm.lifetime.end.p0(ptr nonnull %515)
+  call void @llvm.lifetime.end.p0(ptr nonnull %514)
   %3776 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(125504) %0, i32 noundef 148) #17
   %3777 = load i8, ptr %3515, align 8, !tbaa !330, !range !153, !noundef !154
   %3778 = trunc nuw i8 %3777 to i1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %519) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %519)
   %3779 = load i64, ptr %616, align 8, !tbaa !161
   store i64 %3779, ptr %519, align 8, !tbaa !161
   %3780 = getelementptr inbounds nuw i8, ptr %519, i64 8
@@ -9123,7 +9123,7 @@ _ZN4llvm15LegalizeRuleSet10libcallForEbSt16initializer_listISt4pairINS_3LLTES3_E
   br i1 %3778, label %3781, label %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2086
 
 3781:                                             ; preds = %_ZN4llvm15LegalizeRuleSet10libcallForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2082
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %157)
+  call void @llvm.lifetime.start.p0(ptr nonnull %157)
   call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %157, i32 noundef 0, i32 noundef 1, ptr nonnull %519, i64 1) #17
   %3782 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %3776, i8 noundef zeroext 0, ptr noundef nonnull %157)
   %3783 = getelementptr inbounds nuw i8, ptr %157, i64 16
@@ -9136,7 +9136,7 @@ _ZN4llvm15LegalizeRuleSet10libcallForEbSt16initializer_listISt4pairINS_3LLTES3_E
   br label %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i2085
 
 _ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i2085: ; preds = %3785, %3781
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %157)
+  call void @llvm.lifetime.end.p0(ptr nonnull %157)
   %.pre3666 = load i64, ptr %616, align 8, !tbaa !161
   br label %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2086
 
@@ -9145,14 +9145,14 @@ _ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.e
   %.0.i2083 = phi ptr [ %3782, %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i2085 ], [ %3776, %_ZN4llvm15LegalizeRuleSet10libcallForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2082 ]
   %3788 = load i8, ptr %1114, align 2, !tbaa !295, !range !153, !noundef !154
   %3789 = trunc nuw i8 %3788 to i1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %520) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %520)
   store i64 %3787, ptr %520, align 8, !tbaa !161
   %3790 = getelementptr inbounds nuw i8, ptr %520, i64 8
   store i64 274877906945, ptr %3790, align 8, !tbaa !161
   br i1 %3789, label %3791, label %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2090
 
 3791:                                             ; preds = %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2086
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %156)
+  call void @llvm.lifetime.start.p0(ptr nonnull %156)
   call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %156, i32 noundef 0, i32 noundef 1, ptr nonnull %520, i64 1) #17
   %3792 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %.0.i2083, i8 noundef zeroext 0, ptr noundef nonnull %156)
   %3793 = getelementptr inbounds nuw i8, ptr %156, i64 16
@@ -9165,7 +9165,7 @@ _ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.e
   br label %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i2089
 
 _ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i2089: ; preds = %3795, %3791
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %156)
+  call void @llvm.lifetime.end.p0(ptr nonnull %156)
   %.pre3667 = load i64, ptr %616, align 8, !tbaa !161
   br label %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2090
 
@@ -9174,14 +9174,14 @@ _ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.e
   %.0.i2087 = phi ptr [ %3792, %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i2089 ], [ %.0.i2083, %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2086 ]
   %3798 = load i8, ptr %3532, align 1, !tbaa !331, !range !153, !noundef !154
   %3799 = trunc nuw i8 %3798 to i1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %521) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %521)
   store i64 %3797, ptr %521, align 8, !tbaa !161
   %3800 = getelementptr inbounds nuw i8, ptr %521, i64 8
   store i64 68719476737, ptr %3800, align 8, !tbaa !161
   br i1 %3799, label %3801, label %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2094
 
 3801:                                             ; preds = %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2090
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %155)
+  call void @llvm.lifetime.start.p0(ptr nonnull %155)
   call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %155, i32 noundef 0, i32 noundef 1, ptr nonnull %521, i64 1) #17
   %3802 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %.0.i2087, i8 noundef zeroext 0, ptr noundef nonnull %155)
   %3803 = getelementptr inbounds nuw i8, ptr %155, i64 16
@@ -9194,7 +9194,7 @@ _ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.e
   br label %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i2093
 
 _ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i2093: ; preds = %3805, %3801
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %155)
+  call void @llvm.lifetime.end.p0(ptr nonnull %155)
   %.sroa.0137.0.copyload.pre = load i64, ptr %616, align 8, !tbaa !161
   br label %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2094
 
@@ -9203,7 +9203,7 @@ _ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.e
   %.0.i2091 = phi ptr [ %3802, %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i2093 ], [ %.0.i2087, %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2090 ]
   %3807 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE(ptr noundef nonnull align 8 dereferenceable(168) %.0.i2091, i32 noundef 0, i64 %.sroa.0137.0.copyload)
   %3808 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet9maxScalarEjNS_3LLTE(ptr noundef nonnull align 8 dereferenceable(168) %3807, i32 noundef 0, i64 %.sroa.0137.0.copyload)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %522) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %522)
   %3809 = load i64, ptr %616, align 8, !tbaa !161
   store i64 %3809, ptr %522, align 8, !tbaa !161
   %3810 = getelementptr inbounds nuw i8, ptr %522, i64 8
@@ -9212,7 +9212,7 @@ _ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.e
   store i64 %3809, ptr %3811, align 8, !tbaa !161
   %3812 = getelementptr inbounds nuw i8, ptr %522, i64 24
   store i64 274877906945, ptr %3812, align 8, !tbaa !161
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %154)
+  call void @llvm.lifetime.start.p0(ptr nonnull %154)
   call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %154, i32 noundef 0, i32 noundef 1, ptr nonnull %522, i64 2) #17
   %3813 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %3808, i8 noundef zeroext 7, ptr noundef nonnull %154)
   %3814 = getelementptr inbounds nuw i8, ptr %154, i64 16
@@ -9225,10 +9225,10 @@ _ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.e
   br label %_ZN4llvm15LegalizeRuleSet10libcallForESt16initializer_listISt4pairINS_3LLTES3_EE.exit2097
 
 _ZN4llvm15LegalizeRuleSet10libcallForESt16initializer_listISt4pairINS_3LLTES3_EE.exit2097: ; preds = %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2094, %3816
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %154)
+  call void @llvm.lifetime.end.p0(ptr nonnull %154)
   %3818 = load i8, ptr %612, align 1, !tbaa !24, !range !153, !noundef !154
   %3819 = trunc nuw i8 %3818 to i1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %523) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %523)
   %3820 = load i64, ptr %616, align 8, !tbaa !161
   store i64 %3820, ptr %523, align 8, !tbaa !161
   %3821 = getelementptr inbounds nuw i8, ptr %523, i64 8
@@ -9236,7 +9236,7 @@ _ZN4llvm15LegalizeRuleSet10libcallForESt16initializer_listISt4pairINS_3LLTES3_EE
   br i1 %3819, label %3822, label %_ZN4llvm15LegalizeRuleSet10libcallForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2101
 
 3822:                                             ; preds = %_ZN4llvm15LegalizeRuleSet10libcallForESt16initializer_listISt4pairINS_3LLTES3_EE.exit2097
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %153)
+  call void @llvm.lifetime.start.p0(ptr nonnull %153)
   call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %153, i32 noundef 0, i32 noundef 1, ptr nonnull %523, i64 1) #17
   %3823 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %3813, i8 noundef zeroext 7, ptr noundef nonnull %153)
   %3824 = getelementptr inbounds nuw i8, ptr %153, i64 16
@@ -9249,26 +9249,26 @@ _ZN4llvm15LegalizeRuleSet10libcallForESt16initializer_listISt4pairINS_3LLTES3_EE
   br label %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i2100
 
 _ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i2100: ; preds = %3826, %3822
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %153)
+  call void @llvm.lifetime.end.p0(ptr nonnull %153)
   br label %_ZN4llvm15LegalizeRuleSet10libcallForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2101
 
 _ZN4llvm15LegalizeRuleSet10libcallForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2101: ; preds = %_ZN4llvm15LegalizeRuleSet10libcallForESt16initializer_listISt4pairINS_3LLTES3_EE.exit2097, %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i2100
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %523) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %522) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %521) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %520) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %519) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %523)
+  call void @llvm.lifetime.end.p0(ptr nonnull %522)
+  call void @llvm.lifetime.end.p0(ptr nonnull %521)
+  call void @llvm.lifetime.end.p0(ptr nonnull %520)
+  call void @llvm.lifetime.end.p0(ptr nonnull %519)
   %3828 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(125504) %0, i32 noundef 206) #17
   %3829 = load i8, ptr %3515, align 8, !tbaa !330, !range !153, !noundef !154
   %3830 = trunc nuw i8 %3829 to i1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %524) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %524)
   store i64 4294967297, ptr %524, align 8, !tbaa !161
   %3831 = getelementptr inbounds nuw i8, ptr %524, i64 8
   store i64 137438953473, ptr %3831, align 8, !tbaa !161
   br i1 %3830, label %3832, label %_ZN4llvm15LegalizeRuleSet9customForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2105
 
 3832:                                             ; preds = %_ZN4llvm15LegalizeRuleSet10libcallForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2101
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %152)
+  call void @llvm.lifetime.start.p0(ptr nonnull %152)
   call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %152, i32 noundef 0, i32 noundef 1, ptr nonnull %524, i64 1) #17
   %3833 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %3828, i8 noundef zeroext 8, ptr noundef nonnull %152)
   %3834 = getelementptr inbounds nuw i8, ptr %152, i64 16
@@ -9281,21 +9281,21 @@ _ZN4llvm15LegalizeRuleSet10libcallForEbSt16initializer_listISt4pairINS_3LLTES3_E
   br label %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i2104
 
 _ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i2104: ; preds = %3836, %3832
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %152)
+  call void @llvm.lifetime.end.p0(ptr nonnull %152)
   br label %_ZN4llvm15LegalizeRuleSet9customForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2105
 
 _ZN4llvm15LegalizeRuleSet9customForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2105: ; preds = %_ZN4llvm15LegalizeRuleSet10libcallForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2101, %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i2104
   %.0.i2102 = phi ptr [ %3833, %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i2104 ], [ %3828, %_ZN4llvm15LegalizeRuleSet10libcallForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2101 ]
   %3838 = load i8, ptr %1114, align 2, !tbaa !295, !range !153, !noundef !154
   %3839 = trunc nuw i8 %3838 to i1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %525) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %525)
   store i64 4294967297, ptr %525, align 8, !tbaa !161
   %3840 = getelementptr inbounds nuw i8, ptr %525, i64 8
   store i64 274877906945, ptr %3840, align 8, !tbaa !161
   br i1 %3839, label %3841, label %_ZN4llvm15LegalizeRuleSet9customForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2109
 
 3841:                                             ; preds = %_ZN4llvm15LegalizeRuleSet9customForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2105
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %151)
+  call void @llvm.lifetime.start.p0(ptr nonnull %151)
   call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %151, i32 noundef 0, i32 noundef 1, ptr nonnull %525, i64 1) #17
   %3842 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %.0.i2102, i8 noundef zeroext 8, ptr noundef nonnull %151)
   %3843 = getelementptr inbounds nuw i8, ptr %151, i64 16
@@ -9308,21 +9308,21 @@ _ZN4llvm15LegalizeRuleSet9customForEbSt16initializer_listISt4pairINS_3LLTES3_EE.
   br label %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i2108
 
 _ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i2108: ; preds = %3845, %3841
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %151)
+  call void @llvm.lifetime.end.p0(ptr nonnull %151)
   br label %_ZN4llvm15LegalizeRuleSet9customForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2109
 
 _ZN4llvm15LegalizeRuleSet9customForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2109: ; preds = %_ZN4llvm15LegalizeRuleSet9customForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2105, %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i2108
   %.0.i2106 = phi ptr [ %3842, %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i2108 ], [ %.0.i2102, %_ZN4llvm15LegalizeRuleSet9customForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2105 ]
   %3847 = load i8, ptr %3532, align 1, !tbaa !331, !range !153, !noundef !154
   %3848 = trunc nuw i8 %3847 to i1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %526) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %526)
   store i64 4294967297, ptr %526, align 8, !tbaa !161
   %3849 = getelementptr inbounds nuw i8, ptr %526, i64 8
   store i64 68719476737, ptr %3849, align 8, !tbaa !161
   br i1 %3848, label %3850, label %_ZN4llvm15LegalizeRuleSet9customForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2113
 
 3850:                                             ; preds = %_ZN4llvm15LegalizeRuleSet9customForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2109
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %150)
+  call void @llvm.lifetime.start.p0(ptr nonnull %150)
   call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %150, i32 noundef 0, i32 noundef 1, ptr nonnull %526, i64 1) #17
   %3851 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %.0.i2106, i8 noundef zeroext 8, ptr noundef nonnull %150)
   %3852 = getelementptr inbounds nuw i8, ptr %150, i64 16
@@ -9335,12 +9335,12 @@ _ZN4llvm15LegalizeRuleSet9customForEbSt16initializer_listISt4pairINS_3LLTES3_EE.
   br label %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i2112
 
 _ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i2112: ; preds = %3854, %3850
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %150)
+  call void @llvm.lifetime.end.p0(ptr nonnull %150)
   br label %_ZN4llvm15LegalizeRuleSet9customForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2113
 
 _ZN4llvm15LegalizeRuleSet9customForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2113: ; preds = %_ZN4llvm15LegalizeRuleSet9customForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2109, %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i2112
   %.0.i2110 = phi ptr [ %3851, %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i2112 ], [ %.0.i2106, %_ZN4llvm15LegalizeRuleSet9customForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2109 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %527) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %527)
   store i64 4294967297, ptr %527, align 8, !tbaa !161
   %3856 = getelementptr inbounds nuw i8, ptr %527, i64 8
   store i64 137438953473, ptr %3856, align 8, !tbaa !161
@@ -9348,7 +9348,7 @@ _ZN4llvm15LegalizeRuleSet9customForEbSt16initializer_listISt4pairINS_3LLTES3_EE.
   store i64 4294967297, ptr %3857, align 8, !tbaa !161
   %3858 = getelementptr inbounds nuw i8, ptr %527, i64 24
   store i64 274877906945, ptr %3858, align 8, !tbaa !161
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %149)
+  call void @llvm.lifetime.start.p0(ptr nonnull %149)
   call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %149, i32 noundef 0, i32 noundef 1, ptr nonnull %527, i64 2) #17
   %3859 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %.0.i2110, i8 noundef zeroext 6, ptr noundef nonnull %149)
   %3860 = getelementptr inbounds nuw i8, ptr %149, i64 16
@@ -9361,20 +9361,20 @@ _ZN4llvm15LegalizeRuleSet9customForEbSt16initializer_listISt4pairINS_3LLTES3_EE.
   br label %_ZN4llvm15LegalizeRuleSet8lowerForESt16initializer_listISt4pairINS_3LLTES3_EE.exit
 
 _ZN4llvm15LegalizeRuleSet8lowerForESt16initializer_listISt4pairINS_3LLTES3_EE.exit: ; preds = %_ZN4llvm15LegalizeRuleSet9customForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2113, %3862
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %149)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %527) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %526) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %525) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %524) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %149)
+  call void @llvm.lifetime.end.p0(ptr nonnull %527)
+  call void @llvm.lifetime.end.p0(ptr nonnull %526)
+  call void @llvm.lifetime.end.p0(ptr nonnull %525)
+  call void @llvm.lifetime.end.p0(ptr nonnull %524)
   %3864 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(125504) %0, i32 noundef 134) #17
   %3865 = load i8, ptr %3515, align 8, !tbaa !330, !range !153, !noundef !154
   %3866 = trunc nuw i8 %3865 to i1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %528) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %528)
   store i64 137438953473, ptr %528, align 8, !tbaa !161
   br i1 %3866, label %3867, label %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit2119
 
 3867:                                             ; preds = %_ZN4llvm15LegalizeRuleSet8lowerForESt16initializer_listISt4pairINS_3LLTES3_EE.exit
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %148)
+  call void @llvm.lifetime.start.p0(ptr nonnull %148)
   call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %148, i32 noundef 0, ptr nonnull %528, i64 1) #17
   %3868 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %3864, i8 noundef zeroext 0, ptr noundef nonnull %148)
   %3869 = getelementptr inbounds nuw i8, ptr %148, i64 16
@@ -9387,19 +9387,19 @@ _ZN4llvm15LegalizeRuleSet8lowerForESt16initializer_listISt4pairINS_3LLTES3_EE.ex
   br label %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listINS_3LLTEE.exit.i2118
 
 _ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listINS_3LLTEE.exit.i2118: ; preds = %3871, %3867
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %148)
+  call void @llvm.lifetime.end.p0(ptr nonnull %148)
   br label %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit2119
 
 _ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit2119: ; preds = %_ZN4llvm15LegalizeRuleSet8lowerForESt16initializer_listISt4pairINS_3LLTES3_EE.exit, %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listINS_3LLTEE.exit.i2118
   %.0.i2116 = phi ptr [ %3868, %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listINS_3LLTEE.exit.i2118 ], [ %3864, %_ZN4llvm15LegalizeRuleSet8lowerForESt16initializer_listISt4pairINS_3LLTES3_EE.exit ]
   %3873 = load i8, ptr %1114, align 2, !tbaa !295, !range !153, !noundef !154
   %3874 = trunc nuw i8 %3873 to i1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %529) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %529)
   store i64 274877906945, ptr %529, align 8, !tbaa !161
   br i1 %3874, label %3875, label %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit2123
 
 3875:                                             ; preds = %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit2119
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %147)
+  call void @llvm.lifetime.start.p0(ptr nonnull %147)
   call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %147, i32 noundef 0, ptr nonnull %529, i64 1) #17
   %3876 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %.0.i2116, i8 noundef zeroext 0, ptr noundef nonnull %147)
   %3877 = getelementptr inbounds nuw i8, ptr %147, i64 16
@@ -9412,19 +9412,19 @@ _ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit2119: ; p
   br label %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listINS_3LLTEE.exit.i2122
 
 _ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listINS_3LLTEE.exit.i2122: ; preds = %3879, %3875
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %147)
+  call void @llvm.lifetime.end.p0(ptr nonnull %147)
   br label %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit2123
 
 _ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit2123: ; preds = %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit2119, %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listINS_3LLTEE.exit.i2122
   %.0.i2120 = phi ptr [ %3876, %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listINS_3LLTEE.exit.i2122 ], [ %.0.i2116, %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit2119 ]
   %3881 = load i8, ptr %3532, align 1, !tbaa !331, !range !153, !noundef !154
   %3882 = trunc nuw i8 %3881 to i1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %530) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %530)
   store i64 68719476737, ptr %530, align 8, !tbaa !161
   br i1 %3882, label %3883, label %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit2127
 
 3883:                                             ; preds = %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit2123
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %146)
+  call void @llvm.lifetime.start.p0(ptr nonnull %146)
   call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %146, i32 noundef 0, ptr nonnull %530, i64 1) #17
   %3884 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %.0.i2120, i8 noundef zeroext 0, ptr noundef nonnull %146)
   %3885 = getelementptr inbounds nuw i8, ptr %146, i64 16
@@ -9437,14 +9437,14 @@ _ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit2123: ; p
   br label %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listINS_3LLTEE.exit.i2126
 
 _ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listINS_3LLTEE.exit.i2126: ; preds = %3887, %3883
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %146)
+  call void @llvm.lifetime.end.p0(ptr nonnull %146)
   br label %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit2127
 
 _ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit2127: ; preds = %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit2123, %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listINS_3LLTEE.exit.i2126
   %.0.i2124 = phi ptr [ %3884, %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listINS_3LLTEE.exit.i2126 ], [ %.0.i2120, %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit2123 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %531) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %531)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %531, ptr noundef nonnull align 8 dereferenceable(24) @constinit.4, i64 24, i1 false), !tbaa.struct !332
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %145)
+  call void @llvm.lifetime.start.p0(ptr nonnull %145)
   call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %145, i32 noundef 0, ptr nonnull %531, i64 3) #17
   %3889 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %.0.i2124, i8 noundef zeroext 6, ptr noundef nonnull %145)
   %3890 = getelementptr inbounds nuw i8, ptr %145, i64 16
@@ -9457,19 +9457,19 @@ _ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit2127: ; p
   br label %_ZN4llvm15LegalizeRuleSet8lowerForESt16initializer_listINS_3LLTEE.exit2130
 
 _ZN4llvm15LegalizeRuleSet8lowerForESt16initializer_listINS_3LLTEE.exit2130: ; preds = %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit2127, %3892
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %145)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %531) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %530) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %529) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %528) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %532) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %145)
+  call void @llvm.lifetime.end.p0(ptr nonnull %531)
+  call void @llvm.lifetime.end.p0(ptr nonnull %530)
+  call void @llvm.lifetime.end.p0(ptr nonnull %529)
+  call void @llvm.lifetime.end.p0(ptr nonnull %528)
+  call void @llvm.lifetime.start.p0(ptr nonnull %532)
   store i32 198, ptr %532, align 4, !tbaa !163
   %3894 = getelementptr inbounds nuw i8, ptr %532, i64 4
   store i32 199, ptr %3894, align 4, !tbaa !163
   %3895 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderESt16initializer_listIjE(ptr noundef nonnull align 8 dereferenceable(125504) %0, ptr nonnull %532, i64 2) #17
   %3896 = load i8, ptr %3515, align 8, !tbaa !330, !range !153, !noundef !154
   %3897 = trunc nuw i8 %3896 to i1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %533) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %533)
   %3898 = load i64, ptr %616, align 8, !tbaa !161
   store i64 %3898, ptr %533, align 8, !tbaa !161
   %3899 = getelementptr inbounds nuw i8, ptr %533, i64 8
@@ -9477,7 +9477,7 @@ _ZN4llvm15LegalizeRuleSet8lowerForESt16initializer_listINS_3LLTEE.exit2130: ; pr
   br i1 %3897, label %3900, label %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2134
 
 3900:                                             ; preds = %_ZN4llvm15LegalizeRuleSet8lowerForESt16initializer_listINS_3LLTEE.exit2130
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %144)
+  call void @llvm.lifetime.start.p0(ptr nonnull %144)
   call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %144, i32 noundef 0, i32 noundef 1, ptr nonnull %533, i64 1) #17
   %3901 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %3895, i8 noundef zeroext 0, ptr noundef nonnull %144)
   %3902 = getelementptr inbounds nuw i8, ptr %144, i64 16
@@ -9490,7 +9490,7 @@ _ZN4llvm15LegalizeRuleSet8lowerForESt16initializer_listINS_3LLTEE.exit2130: ; pr
   br label %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i2133
 
 _ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i2133: ; preds = %3904, %3900
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %144)
+  call void @llvm.lifetime.end.p0(ptr nonnull %144)
   %.pre3669 = load i64, ptr %616, align 8, !tbaa !161
   br label %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2134
 
@@ -9499,14 +9499,14 @@ _ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.e
   %.0.i2131 = phi ptr [ %3901, %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i2133 ], [ %3895, %_ZN4llvm15LegalizeRuleSet8lowerForESt16initializer_listINS_3LLTEE.exit2130 ]
   %3907 = load i8, ptr %1114, align 2, !tbaa !295, !range !153, !noundef !154
   %3908 = trunc nuw i8 %3907 to i1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %534) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %534)
   store i64 %3906, ptr %534, align 8, !tbaa !161
   %3909 = getelementptr inbounds nuw i8, ptr %534, i64 8
   store i64 274877906945, ptr %3909, align 8, !tbaa !161
   br i1 %3908, label %3910, label %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2138
 
 3910:                                             ; preds = %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2134
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %143)
+  call void @llvm.lifetime.start.p0(ptr nonnull %143)
   call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %143, i32 noundef 0, i32 noundef 1, ptr nonnull %534, i64 1) #17
   %3911 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %.0.i2131, i8 noundef zeroext 0, ptr noundef nonnull %143)
   %3912 = getelementptr inbounds nuw i8, ptr %143, i64 16
@@ -9519,7 +9519,7 @@ _ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.e
   br label %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i2137
 
 _ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i2137: ; preds = %3914, %3910
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %143)
+  call void @llvm.lifetime.end.p0(ptr nonnull %143)
   %.pre3670 = load i64, ptr %616, align 8, !tbaa !161
   br label %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2138
 
@@ -9528,14 +9528,14 @@ _ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.e
   %.0.i2135 = phi ptr [ %3911, %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i2137 ], [ %.0.i2131, %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2134 ]
   %3917 = load i8, ptr %3532, align 1, !tbaa !331, !range !153, !noundef !154
   %3918 = trunc nuw i8 %3917 to i1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %535) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %535)
   store i64 %3916, ptr %535, align 8, !tbaa !161
   %3919 = getelementptr inbounds nuw i8, ptr %535, i64 8
   store i64 68719476737, ptr %3919, align 8, !tbaa !161
   br i1 %3918, label %3920, label %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2142
 
 3920:                                             ; preds = %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2138
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %142)
+  call void @llvm.lifetime.start.p0(ptr nonnull %142)
   call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %142, i32 noundef 0, i32 noundef 1, ptr nonnull %535, i64 1) #17
   %3921 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %.0.i2135, i8 noundef zeroext 0, ptr noundef nonnull %142)
   %3922 = getelementptr inbounds nuw i8, ptr %142, i64 16
@@ -9548,7 +9548,7 @@ _ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.e
   br label %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i2141
 
 _ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i2141: ; preds = %3924, %3920
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %142)
+  call void @llvm.lifetime.end.p0(ptr nonnull %142)
   br label %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2142
 
 _ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2142: ; preds = %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2138, %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i2141
@@ -9558,7 +9558,7 @@ _ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.e
   br i1 %3927, label %3929, label %_ZN4llvm15LegalizeRuleSet9customForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2146.thread3745
 
 _ZN4llvm15LegalizeRuleSet9customForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2146.thread3745: ; preds = %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2142
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %536) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %536)
   store i64 137438953473, ptr %536, align 8, !tbaa !161
   %3928 = getelementptr inbounds nuw i8, ptr %536, i64 8
   store i64 137438953473, ptr %3928, align 8, !tbaa !161
@@ -9567,14 +9567,14 @@ _ZN4llvm15LegalizeRuleSet9customForEbSt16initializer_listISt4pairINS_3LLTES3_EE.
 3929:                                             ; preds = %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2142
   %3930 = load i8, ptr %3515, align 8, !tbaa !330, !range !153, !noundef !154
   %3931 = trunc nuw i8 %3930 to i1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %536) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %536)
   store i64 137438953473, ptr %536, align 8, !tbaa !161
   %3932 = getelementptr inbounds nuw i8, ptr %536, i64 8
   store i64 137438953473, ptr %3932, align 8, !tbaa !161
   br i1 %3931, label %3933, label %_ZN4llvm15LegalizeRuleSet9customForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2146.thread
 
 3933:                                             ; preds = %3929
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %141)
+  call void @llvm.lifetime.start.p0(ptr nonnull %141)
   call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %141, i32 noundef 0, i32 noundef 1, ptr nonnull %536, i64 1) #17
   %3934 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %.0.i2139, i8 noundef zeroext 8, ptr noundef nonnull %141)
   %3935 = getelementptr inbounds nuw i8, ptr %141, i64 16
@@ -9587,14 +9587,14 @@ _ZN4llvm15LegalizeRuleSet9customForEbSt16initializer_listISt4pairINS_3LLTES3_EE.
   br label %_ZN4llvm15LegalizeRuleSet9customForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2146
 
 _ZN4llvm15LegalizeRuleSet9customForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2146: ; preds = %3933, %3937
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %141)
+  call void @llvm.lifetime.end.p0(ptr nonnull %141)
   %.pre3671 = load i8, ptr %612, align 1, !tbaa !24, !range !153
   %3939 = trunc nuw i8 %.pre3671 to i1
   br i1 %3939, label %_ZN4llvm15LegalizeRuleSet9customForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2146.thread, label %_ZN4llvm15LegalizeRuleSet9customForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2150.thread3750
 
 _ZN4llvm15LegalizeRuleSet9customForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2150.thread3750: ; preds = %_ZN4llvm15LegalizeRuleSet9customForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2146, %_ZN4llvm15LegalizeRuleSet9customForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2146.thread3745
   %.0.i21433747 = phi ptr [ %.0.i2139, %_ZN4llvm15LegalizeRuleSet9customForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2146.thread3745 ], [ %3934, %_ZN4llvm15LegalizeRuleSet9customForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2146 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %537) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %537)
   store i64 137438953473, ptr %537, align 8, !tbaa !161
   %3940 = getelementptr inbounds nuw i8, ptr %537, i64 8
   store i64 274877906945, ptr %3940, align 8, !tbaa !161
@@ -9604,14 +9604,14 @@ _ZN4llvm15LegalizeRuleSet9customForEbSt16initializer_listISt4pairINS_3LLTES3_EE.
   %.0.i21433744 = phi ptr [ %3934, %_ZN4llvm15LegalizeRuleSet9customForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2146 ], [ %.0.i2139, %3929 ]
   %3941 = load i8, ptr %1114, align 2, !tbaa !295, !range !153, !noundef !154
   %3942 = trunc nuw i8 %3941 to i1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %537) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %537)
   store i64 137438953473, ptr %537, align 8, !tbaa !161
   %3943 = getelementptr inbounds nuw i8, ptr %537, i64 8
   store i64 274877906945, ptr %3943, align 8, !tbaa !161
   br i1 %3942, label %3944, label %_ZN4llvm15LegalizeRuleSet9customForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2150.thread
 
 3944:                                             ; preds = %_ZN4llvm15LegalizeRuleSet9customForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2146.thread
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %140)
+  call void @llvm.lifetime.start.p0(ptr nonnull %140)
   call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %140, i32 noundef 0, i32 noundef 1, ptr nonnull %537, i64 1) #17
   %3945 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %.0.i21433744, i8 noundef zeroext 8, ptr noundef nonnull %140)
   %3946 = getelementptr inbounds nuw i8, ptr %140, i64 16
@@ -9624,14 +9624,14 @@ _ZN4llvm15LegalizeRuleSet9customForEbSt16initializer_listISt4pairINS_3LLTES3_EE.
   br label %_ZN4llvm15LegalizeRuleSet9customForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2150
 
 _ZN4llvm15LegalizeRuleSet9customForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2150: ; preds = %3944, %3948
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %140)
+  call void @llvm.lifetime.end.p0(ptr nonnull %140)
   %.pre3672 = load i8, ptr %612, align 1, !tbaa !24, !range !153
   %3950 = trunc nuw i8 %.pre3672 to i1
   br i1 %3950, label %_ZN4llvm15LegalizeRuleSet9customForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2150.thread, label %.thread3508
 
 .thread3508:                                      ; preds = %_ZN4llvm15LegalizeRuleSet9customForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2150.thread3750, %_ZN4llvm15LegalizeRuleSet9customForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2150
   %.0.i21473752 = phi ptr [ %.0.i21433747, %_ZN4llvm15LegalizeRuleSet9customForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2150.thread3750 ], [ %3945, %_ZN4llvm15LegalizeRuleSet9customForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2150 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %538) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %538)
   store i64 137438953473, ptr %538, align 8, !tbaa !161
   %3951 = getelementptr inbounds nuw i8, ptr %538, i64 8
   store i64 68719476737, ptr %3951, align 8, !tbaa !161
@@ -9641,14 +9641,14 @@ _ZN4llvm15LegalizeRuleSet9customForEbSt16initializer_listISt4pairINS_3LLTES3_EE.
   %.0.i21473749 = phi ptr [ %3945, %_ZN4llvm15LegalizeRuleSet9customForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2150 ], [ %.0.i21433744, %_ZN4llvm15LegalizeRuleSet9customForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2146.thread ]
   %3952 = load i8, ptr %3532, align 1, !tbaa !331, !range !153, !noundef !154
   %3953 = trunc nuw i8 %3952 to i1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %538) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %538)
   store i64 137438953473, ptr %538, align 8, !tbaa !161
   %3954 = getelementptr inbounds nuw i8, ptr %538, i64 8
   store i64 68719476737, ptr %3954, align 8, !tbaa !161
   br i1 %3953, label %3955, label %_ZN4llvm15LegalizeRuleSet9customForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2154
 
 3955:                                             ; preds = %_ZN4llvm15LegalizeRuleSet9customForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2150.thread
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %139)
+  call void @llvm.lifetime.start.p0(ptr nonnull %139)
   call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %139, i32 noundef 0, i32 noundef 1, ptr nonnull %538, i64 1) #17
   %3956 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %.0.i21473749, i8 noundef zeroext 8, ptr noundef nonnull %139)
   %3957 = getelementptr inbounds nuw i8, ptr %139, i64 16
@@ -9661,13 +9661,13 @@ _ZN4llvm15LegalizeRuleSet9customForEbSt16initializer_listISt4pairINS_3LLTES3_EE.
   br label %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i2153
 
 _ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i2153: ; preds = %3959, %3955
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %139)
+  call void @llvm.lifetime.end.p0(ptr nonnull %139)
   br label %_ZN4llvm15LegalizeRuleSet9customForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2154
 
 _ZN4llvm15LegalizeRuleSet9customForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2154: ; preds = %.thread3508, %_ZN4llvm15LegalizeRuleSet9customForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2150.thread, %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i2153
   %.0.i2151 = phi ptr [ %3956, %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i2153 ], [ %.0.i21473749, %_ZN4llvm15LegalizeRuleSet9customForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2150.thread ], [ %.0.i21473752, %.thread3508 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %137)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %138)
+  call void @llvm.lifetime.start.p0(ptr nonnull %137)
+  call void @llvm.lifetime.start.p0(ptr nonnull %138)
   call void @_ZN4llvm18LegalityPredicates11sizeNotPow2Ej(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %137, i32 noundef 0) #17
   call void @_ZN4llvm17LegalizeMutations26widenScalarOrEltToNextPow2Ejj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.77") align 8 %138, i32 noundef 0, i32 noundef 0) #17
   %3961 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %.0.i2151, i8 noundef zeroext 2, ptr noundef nonnull %137, ptr noundef nonnull %138)
@@ -9691,11 +9691,11 @@ _ZNSt14_Function_baseD2Ev.exit.i2156:             ; preds = %3964, %_ZN4llvm15Le
   br label %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit2158
 
 _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit2158: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i2156, %3968
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %137)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %138)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %137)
+  call void @llvm.lifetime.end.p0(ptr nonnull %138)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 32, ptr %7, align 8
   %.sroa.2.0..sroa_idx.i3824 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i8 0, ptr %.sroa.2.0..sroa_idx.i3824, align 8
@@ -9724,10 +9724,10 @@ _ZNSt14_Function_baseD2Ev.exit.i3826:             ; preds = %3975, %_ZN4llvm15Le
   br label %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit3828
 
 _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit3828: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i3826, %3979
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %539) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %539)
   store i64 137438953473, ptr %539, align 8, !tbaa !161
   %3981 = getelementptr inbounds nuw i8, ptr %539, i64 8
   store i64 137438953473, ptr %3981, align 8, !tbaa !161
@@ -9743,7 +9743,7 @@ _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit3828: ; preds = %_ZNSt14_Funct
   store i64 274877906945, ptr %3986, align 8, !tbaa !161
   %3987 = getelementptr inbounds nuw i8, ptr %539, i64 56
   store i64 274877906945, ptr %3987, align 8, !tbaa !161
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %136)
+  call void @llvm.lifetime.start.p0(ptr nonnull %136)
   call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %136, i32 noundef 0, i32 noundef 1, ptr nonnull %539, i64 4) #17
   %3988 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %3972, i8 noundef zeroext 7, ptr noundef nonnull %136)
   %3989 = getelementptr inbounds nuw i8, ptr %136, i64 16
@@ -9756,10 +9756,10 @@ _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit3828: ; preds = %_ZNSt14_Funct
   br label %_ZN4llvm15LegalizeRuleSet10libcallForESt16initializer_listISt4pairINS_3LLTES3_EE.exit2161
 
 _ZN4llvm15LegalizeRuleSet10libcallForESt16initializer_listISt4pairINS_3LLTES3_EE.exit2161: ; preds = %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit3828, %3991
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %136)
+  call void @llvm.lifetime.end.p0(ptr nonnull %136)
   %3993 = load i8, ptr %612, align 1, !tbaa !24, !range !153, !noundef !154
   %3994 = trunc nuw i8 %3993 to i1
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %540) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %540)
   store i64 137438953473, ptr %540, align 8, !tbaa !161
   %3995 = getelementptr inbounds nuw i8, ptr %540, i64 8
   store i64 549755813889, ptr %3995, align 8, !tbaa !161
@@ -9770,11 +9770,11 @@ _ZN4llvm15LegalizeRuleSet10libcallForESt16initializer_listISt4pairINS_3LLTES3_EE
   br i1 %3994, label %3998, label %_ZN4llvm15LegalizeRuleSet10libcallForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2165.thread
 
 _ZN4llvm15LegalizeRuleSet10libcallForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2165.thread: ; preds = %_ZN4llvm15LegalizeRuleSet10libcallForESt16initializer_listISt4pairINS_3LLTES3_EE.exit2161
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %541) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %541)
   br label %_ZN4llvm15LegalizeRuleSet10libcallForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2169
 
 3998:                                             ; preds = %_ZN4llvm15LegalizeRuleSet10libcallForESt16initializer_listISt4pairINS_3LLTES3_EE.exit2161
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %135)
+  call void @llvm.lifetime.start.p0(ptr nonnull %135)
   call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %135, i32 noundef 0, i32 noundef 1, ptr nonnull %540, i64 2) #17
   %3999 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %3988, i8 noundef zeroext 7, ptr noundef nonnull %135)
   %4000 = getelementptr inbounds nuw i8, ptr %135, i64 16
@@ -9787,10 +9787,10 @@ _ZN4llvm15LegalizeRuleSet10libcallForEbSt16initializer_listISt4pairINS_3LLTES3_E
   br label %_ZN4llvm15LegalizeRuleSet10libcallForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2165
 
 _ZN4llvm15LegalizeRuleSet10libcallForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2165: ; preds = %3998, %4002
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %135)
+  call void @llvm.lifetime.end.p0(ptr nonnull %135)
   %.pre3673 = load i8, ptr %612, align 1, !tbaa !24, !range !153
   %4004 = trunc nuw i8 %.pre3673 to i1
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %541) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %541)
   store i64 549755813889, ptr %541, align 8, !tbaa !161
   %4005 = getelementptr inbounds nuw i8, ptr %541, i64 8
   store i64 137438953473, ptr %4005, align 8, !tbaa !161
@@ -9805,7 +9805,7 @@ _ZN4llvm15LegalizeRuleSet10libcallForEbSt16initializer_listISt4pairINS_3LLTES3_E
   br i1 %4004, label %4010, label %_ZN4llvm15LegalizeRuleSet10libcallForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2169
 
 4010:                                             ; preds = %_ZN4llvm15LegalizeRuleSet10libcallForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2165
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %134)
+  call void @llvm.lifetime.start.p0(ptr nonnull %134)
   call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %134, i32 noundef 0, i32 noundef 1, ptr nonnull %541, i64 3) #17
   %4011 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %3999, i8 noundef zeroext 7, ptr noundef nonnull %134)
   %4012 = getelementptr inbounds nuw i8, ptr %134, i64 16
@@ -9818,28 +9818,28 @@ _ZN4llvm15LegalizeRuleSet10libcallForEbSt16initializer_listISt4pairINS_3LLTES3_E
   br label %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i2168
 
 _ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i2168: ; preds = %4014, %4010
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %134)
+  call void @llvm.lifetime.end.p0(ptr nonnull %134)
   br label %_ZN4llvm15LegalizeRuleSet10libcallForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2169
 
 _ZN4llvm15LegalizeRuleSet10libcallForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2169: ; preds = %_ZN4llvm15LegalizeRuleSet10libcallForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2165.thread, %_ZN4llvm15LegalizeRuleSet10libcallForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2165, %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i2168
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %541) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %540) #17
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %539) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %538) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %537) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %536) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %535) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %534) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %533) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %532) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %542) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %541)
+  call void @llvm.lifetime.end.p0(ptr nonnull %540)
+  call void @llvm.lifetime.end.p0(ptr nonnull %539)
+  call void @llvm.lifetime.end.p0(ptr nonnull %538)
+  call void @llvm.lifetime.end.p0(ptr nonnull %537)
+  call void @llvm.lifetime.end.p0(ptr nonnull %536)
+  call void @llvm.lifetime.end.p0(ptr nonnull %535)
+  call void @llvm.lifetime.end.p0(ptr nonnull %534)
+  call void @llvm.lifetime.end.p0(ptr nonnull %533)
+  call void @llvm.lifetime.end.p0(ptr nonnull %532)
+  call void @llvm.lifetime.start.p0(ptr nonnull %542)
   store i32 200, ptr %542, align 4, !tbaa !163
   %4016 = getelementptr inbounds nuw i8, ptr %542, i64 4
   store i32 201, ptr %4016, align 4, !tbaa !163
   %4017 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderESt16initializer_listIjE(ptr noundef nonnull align 8 dereferenceable(125504) %0, ptr nonnull %542, i64 2) #17
   %4018 = load i8, ptr %3515, align 8, !tbaa !330, !range !153, !noundef !154
   %4019 = trunc nuw i8 %4018 to i1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %543) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %543)
   store i64 137438953473, ptr %543, align 8, !tbaa !161
   %4020 = getelementptr inbounds nuw i8, ptr %543, i64 8
   %4021 = load i64, ptr %616, align 8, !tbaa !161
@@ -9847,7 +9847,7 @@ _ZN4llvm15LegalizeRuleSet10libcallForEbSt16initializer_listISt4pairINS_3LLTES3_E
   br i1 %4019, label %4022, label %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2173
 
 4022:                                             ; preds = %_ZN4llvm15LegalizeRuleSet10libcallForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2169
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %133)
+  call void @llvm.lifetime.start.p0(ptr nonnull %133)
   call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %133, i32 noundef 0, i32 noundef 1, ptr nonnull %543, i64 1) #17
   %4023 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %4017, i8 noundef zeroext 0, ptr noundef nonnull %133)
   %4024 = getelementptr inbounds nuw i8, ptr %133, i64 16
@@ -9860,7 +9860,7 @@ _ZN4llvm15LegalizeRuleSet10libcallForEbSt16initializer_listISt4pairINS_3LLTES3_E
   br label %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i2172
 
 _ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i2172: ; preds = %4026, %4022
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %133)
+  call void @llvm.lifetime.end.p0(ptr nonnull %133)
   %.pre3674 = load i64, ptr %616, align 8, !tbaa !161
   br label %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2173
 
@@ -9869,14 +9869,14 @@ _ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.e
   %.0.i2170 = phi ptr [ %4023, %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i2172 ], [ %4017, %_ZN4llvm15LegalizeRuleSet10libcallForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2169 ]
   %4029 = load i8, ptr %1114, align 2, !tbaa !295, !range !153, !noundef !154
   %4030 = trunc nuw i8 %4029 to i1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %544) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %544)
   store i64 274877906945, ptr %544, align 8, !tbaa !161
   %4031 = getelementptr inbounds nuw i8, ptr %544, i64 8
   store i64 %4028, ptr %4031, align 8, !tbaa !161
   br i1 %4030, label %4032, label %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2177
 
 4032:                                             ; preds = %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2173
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %132)
+  call void @llvm.lifetime.start.p0(ptr nonnull %132)
   call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %132, i32 noundef 0, i32 noundef 1, ptr nonnull %544, i64 1) #17
   %4033 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %.0.i2170, i8 noundef zeroext 0, ptr noundef nonnull %132)
   %4034 = getelementptr inbounds nuw i8, ptr %132, i64 16
@@ -9889,7 +9889,7 @@ _ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.e
   br label %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i2176
 
 _ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i2176: ; preds = %4036, %4032
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %132)
+  call void @llvm.lifetime.end.p0(ptr nonnull %132)
   %.pre3675 = load i64, ptr %616, align 8, !tbaa !161
   br label %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2177
 
@@ -9898,14 +9898,14 @@ _ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.e
   %.0.i2174 = phi ptr [ %4033, %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i2176 ], [ %.0.i2170, %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2173 ]
   %4039 = load i8, ptr %3532, align 1, !tbaa !331, !range !153, !noundef !154
   %4040 = trunc nuw i8 %4039 to i1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %545) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %545)
   store i64 68719476737, ptr %545, align 8, !tbaa !161
   %4041 = getelementptr inbounds nuw i8, ptr %545, i64 8
   store i64 %4038, ptr %4041, align 8, !tbaa !161
   br i1 %4040, label %4042, label %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2181
 
 4042:                                             ; preds = %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2177
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %131)
+  call void @llvm.lifetime.start.p0(ptr nonnull %131)
   call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %131, i32 noundef 0, i32 noundef 1, ptr nonnull %545, i64 1) #17
   %4043 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %.0.i2174, i8 noundef zeroext 0, ptr noundef nonnull %131)
   %4044 = getelementptr inbounds nuw i8, ptr %131, i64 16
@@ -9918,13 +9918,13 @@ _ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.e
   br label %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i2180
 
 _ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i2180: ; preds = %4046, %4042
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %131)
+  call void @llvm.lifetime.end.p0(ptr nonnull %131)
   br label %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2181
 
 _ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2181: ; preds = %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2177, %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i2180
   %.0.i2178 = phi ptr [ %4043, %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i2180 ], [ %.0.i2174, %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2177 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %129)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %130)
+  call void @llvm.lifetime.start.p0(ptr nonnull %129)
+  call void @llvm.lifetime.start.p0(ptr nonnull %130)
   call void @_ZN4llvm18LegalityPredicates11sizeNotPow2Ej(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %129, i32 noundef 1) #17
   call void @_ZN4llvm17LegalizeMutations26widenScalarOrEltToNextPow2Ejj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.77") align 8 %130, i32 noundef 1, i32 noundef 0) #17
   %4048 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %.0.i2178, i8 noundef zeroext 2, ptr noundef nonnull %129, ptr noundef nonnull %130)
@@ -9948,8 +9948,8 @@ _ZNSt14_Function_baseD2Ev.exit.i2183:             ; preds = %4051, %_ZN4llvm15Le
   br label %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit2185
 
 _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit2185: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i2183, %4055
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %129)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %130)
+  call void @llvm.lifetime.end.p0(ptr nonnull %129)
+  call void @llvm.lifetime.end.p0(ptr nonnull %130)
   %4057 = ptrtoint ptr %1 to i64
   %4058 = getelementptr inbounds nuw i8, ptr %546, i64 16
   %4059 = getelementptr inbounds nuw i8, ptr %546, i64 24
@@ -9960,8 +9960,8 @@ _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit2185: ; preds = %_ZNSt14
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18RISCVLegalizerInfoC1ERKNS0_14RISCVSubtargetEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation", ptr %4058, align 8, !tbaa !164
   %.sroa.086.0.copyload = load i64, ptr %616, align 8, !tbaa !161
   call void @_ZN4llvm17LegalizeMutations8changeToEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function.77") align 8 %547, i32 noundef 1, i64 %.sroa.086.0.copyload) #17
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %127)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %128)
+  call void @llvm.lifetime.start.p0(ptr nonnull %127)
+  call void @llvm.lifetime.start.p0(ptr nonnull %128)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %127, i8 0, i64 32, i1 false)
   %4061 = load ptr, ptr %4058, align 8, !tbaa !164
   %.not.i.i.not.i.i2186 = icmp eq ptr %4061, null
@@ -10017,11 +10017,11 @@ _ZNSt14_Function_baseD2Ev.exit.i2191:             ; preds = %4080, %_ZNSt8functi
   br label %_ZN4llvm15LegalizeRuleSet13widenScalarIfESt8functionIFbRKNS_13LegalityQueryEEES1_IFSt4pairIjNS_3LLTEES4_EE.exit2193
 
 _ZN4llvm15LegalizeRuleSet13widenScalarIfESt8functionIFbRKNS_13LegalityQueryEEES1_IFSt4pairIjNS_3LLTEES4_EE.exit2193: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i2191, %4084
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %127)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %128)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %127)
+  call void @llvm.lifetime.end.p0(ptr nonnull %128)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 32, ptr %4, align 8
   %.sroa.2.0..sroa_idx.i3829 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i8 0, ptr %.sroa.2.0..sroa_idx.i3829, align 8
@@ -10050,10 +10050,10 @@ _ZNSt14_Function_baseD2Ev.exit.i3831:             ; preds = %4091, %_ZN4llvm15Le
   br label %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit3833
 
 _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit3833: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i3831, %4095
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %548) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %548)
   store i64 137438953473, ptr %548, align 8, !tbaa !161
   %4097 = getelementptr inbounds nuw i8, ptr %548, i64 8
   store i64 137438953473, ptr %4097, align 8, !tbaa !161
@@ -10069,7 +10069,7 @@ _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit3833: ; preds = %_ZNSt14_Funct
   store i64 274877906945, ptr %4102, align 8, !tbaa !161
   %4103 = getelementptr inbounds nuw i8, ptr %548, i64 56
   store i64 274877906945, ptr %4103, align 8, !tbaa !161
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %126)
+  call void @llvm.lifetime.start.p0(ptr nonnull %126)
   call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %126, i32 noundef 0, i32 noundef 1, ptr nonnull %548, i64 4) #17
   %4104 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %4088, i8 noundef zeroext 7, ptr noundef nonnull %126)
   %4105 = getelementptr inbounds nuw i8, ptr %126, i64 16
@@ -10082,10 +10082,10 @@ _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit3833: ; preds = %_ZNSt14_Funct
   br label %_ZN4llvm15LegalizeRuleSet10libcallForESt16initializer_listISt4pairINS_3LLTES3_EE.exit2196
 
 _ZN4llvm15LegalizeRuleSet10libcallForESt16initializer_listISt4pairINS_3LLTES3_EE.exit2196: ; preds = %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit3833, %4107
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %126)
+  call void @llvm.lifetime.end.p0(ptr nonnull %126)
   %4109 = load i8, ptr %612, align 1, !tbaa !24, !range !153, !noundef !154
   %4110 = trunc nuw i8 %4109 to i1
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %549) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %549)
   store i64 549755813889, ptr %549, align 8, !tbaa !161
   %4111 = getelementptr inbounds nuw i8, ptr %549, i64 8
   store i64 137438953473, ptr %4111, align 8, !tbaa !161
@@ -10096,11 +10096,11 @@ _ZN4llvm15LegalizeRuleSet10libcallForESt16initializer_listISt4pairINS_3LLTES3_EE
   br i1 %4110, label %4114, label %_ZN4llvm15LegalizeRuleSet10libcallForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2200.thread
 
 _ZN4llvm15LegalizeRuleSet10libcallForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2200.thread: ; preds = %_ZN4llvm15LegalizeRuleSet10libcallForESt16initializer_listISt4pairINS_3LLTES3_EE.exit2196
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %550) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %550)
   br label %_ZN4llvm15LegalizeRuleSet10libcallForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2204
 
 4114:                                             ; preds = %_ZN4llvm15LegalizeRuleSet10libcallForESt16initializer_listISt4pairINS_3LLTES3_EE.exit2196
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %125)
+  call void @llvm.lifetime.start.p0(ptr nonnull %125)
   call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %125, i32 noundef 0, i32 noundef 1, ptr nonnull %549, i64 2) #17
   %4115 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %4104, i8 noundef zeroext 7, ptr noundef nonnull %125)
   %4116 = getelementptr inbounds nuw i8, ptr %125, i64 16
@@ -10113,10 +10113,10 @@ _ZN4llvm15LegalizeRuleSet10libcallForEbSt16initializer_listISt4pairINS_3LLTES3_E
   br label %_ZN4llvm15LegalizeRuleSet10libcallForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2200
 
 _ZN4llvm15LegalizeRuleSet10libcallForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2200: ; preds = %4114, %4118
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %125)
+  call void @llvm.lifetime.end.p0(ptr nonnull %125)
   %.pre3676 = load i8, ptr %612, align 1, !tbaa !24, !range !153
   %4120 = trunc nuw i8 %.pre3676 to i1
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %550) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %550)
   store i64 137438953473, ptr %550, align 8, !tbaa !161
   %4121 = getelementptr inbounds nuw i8, ptr %550, i64 8
   store i64 549755813889, ptr %4121, align 8, !tbaa !161
@@ -10131,7 +10131,7 @@ _ZN4llvm15LegalizeRuleSet10libcallForEbSt16initializer_listISt4pairINS_3LLTES3_E
   br i1 %4120, label %4126, label %_ZN4llvm15LegalizeRuleSet10libcallForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2204
 
 4126:                                             ; preds = %_ZN4llvm15LegalizeRuleSet10libcallForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2200
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %124)
+  call void @llvm.lifetime.start.p0(ptr nonnull %124)
   call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %124, i32 noundef 0, i32 noundef 1, ptr nonnull %550, i64 3) #17
   %4127 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %4115, i8 noundef zeroext 7, ptr noundef nonnull %124)
   %4128 = getelementptr inbounds nuw i8, ptr %124, i64 16
@@ -10144,13 +10144,13 @@ _ZN4llvm15LegalizeRuleSet10libcallForEbSt16initializer_listISt4pairINS_3LLTES3_E
   br label %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i2203
 
 _ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i2203: ; preds = %4130, %4126
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %124)
+  call void @llvm.lifetime.end.p0(ptr nonnull %124)
   br label %_ZN4llvm15LegalizeRuleSet10libcallForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2204
 
 _ZN4llvm15LegalizeRuleSet10libcallForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2204: ; preds = %_ZN4llvm15LegalizeRuleSet10libcallForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2200.thread, %_ZN4llvm15LegalizeRuleSet10libcallForEbSt16initializer_listISt4pairINS_3LLTES3_EE.exit2200, %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listISt4pairINS_3LLTES5_EE.exit.i2203
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %550) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %549) #17
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %548) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %550)
+  call void @llvm.lifetime.end.p0(ptr nonnull %549)
+  call void @llvm.lifetime.end.p0(ptr nonnull %548)
   %4132 = load ptr, ptr %4068, align 8, !tbaa !164
   %.not.i2205 = icmp eq ptr %4132, null
   br i1 %.not.i2205, label %_ZNSt14_Function_baseD2Ev.exit2206, label %4133
@@ -10169,22 +10169,22 @@ _ZNSt14_Function_baseD2Ev.exit2206:               ; preds = %_ZN4llvm15LegalizeR
   br label %_ZNSt14_Function_baseD2Ev.exit2208
 
 _ZNSt14_Function_baseD2Ev.exit2208:               ; preds = %_ZNSt14_Function_baseD2Ev.exit2206, %4136
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %545) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %544) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %543) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %542) #17
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %551) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %545)
+  call void @llvm.lifetime.end.p0(ptr nonnull %544)
+  call void @llvm.lifetime.end.p0(ptr nonnull %543)
+  call void @llvm.lifetime.end.p0(ptr nonnull %542)
+  call void @llvm.lifetime.start.p0(ptr nonnull %551)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %551, ptr noundef nonnull align 4 dereferenceable(28) @constinit.5, i64 28, i1 false), !tbaa.struct !333
   %4138 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderESt16initializer_listIjE(ptr noundef nonnull align 8 dereferenceable(125504) %0, ptr nonnull %551, i64 7) #17
   %4139 = getelementptr inbounds nuw i8, ptr %1, i64 411
   %4140 = load i8, ptr %4139, align 1, !tbaa !334, !range !153, !noundef !154
   %4141 = trunc nuw i8 %4140 to i1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %552) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %552)
   store i64 137438953473, ptr %552, align 8, !tbaa !161
   br i1 %4141, label %4142, label %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit2216.thread3759
 
 4142:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit2208
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %123)
+  call void @llvm.lifetime.start.p0(ptr nonnull %123)
   call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %123, i32 noundef 0, ptr nonnull %552, i64 1) #17
   %4143 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %4138, i8 noundef zeroext 0, ptr noundef nonnull %123)
   %4144 = getelementptr inbounds nuw i8, ptr %123, i64 16
@@ -10197,26 +10197,26 @@ _ZNSt14_Function_baseD2Ev.exit2208:               ; preds = %_ZNSt14_Function_ba
   br label %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit2212
 
 _ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit2212: ; preds = %4142, %4146
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %123)
+  call void @llvm.lifetime.end.p0(ptr nonnull %123)
   %.pre3677 = load i8, ptr %4139, align 1, !tbaa !334, !range !153
   %4148 = trunc nuw i8 %.pre3677 to i1
   br i1 %4148, label %4149, label %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit2216.thread3759
 
 _ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit2216.thread3759: ; preds = %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit2212, %_ZNSt14_Function_baseD2Ev.exit2208
   %.0.i22093756 = phi ptr [ %4143, %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit2212 ], [ %4138, %_ZNSt14_Function_baseD2Ev.exit2208 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %553) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %553)
   store i64 274877906945, ptr %553, align 8, !tbaa !161
   br label %.thread3512
 
 4149:                                             ; preds = %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit2212
   %4150 = load i8, ptr %1114, align 2, !tbaa !295, !range !153, !noundef !154
   %4151 = trunc nuw i8 %4150 to i1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %553) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %553)
   store i64 274877906945, ptr %553, align 8, !tbaa !161
   br i1 %4151, label %4152, label %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit2216.thread
 
 4152:                                             ; preds = %4149
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %122)
+  call void @llvm.lifetime.start.p0(ptr nonnull %122)
   call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %122, i32 noundef 0, ptr nonnull %553, i64 1) #17
   %4153 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %4143, i8 noundef zeroext 0, ptr noundef nonnull %122)
   %4154 = getelementptr inbounds nuw i8, ptr %122, i64 16
@@ -10229,14 +10229,14 @@ _ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit2216.thre
   br label %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit2216
 
 _ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit2216: ; preds = %4152, %4156
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %122)
+  call void @llvm.lifetime.end.p0(ptr nonnull %122)
   %.pre3678 = load i8, ptr %4139, align 1, !tbaa !334, !range !153
   %4158 = trunc nuw i8 %.pre3678 to i1
   br i1 %4158, label %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit2216.thread, label %.thread3512
 
 .thread3512:                                      ; preds = %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit2216.thread3759, %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit2216
   %.0.i22133761 = phi ptr [ %.0.i22093756, %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit2216.thread3759 ], [ %4153, %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit2216 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %554) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %554)
   store i64 68719476737, ptr %554, align 8, !tbaa !161
   br label %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit2220
 
@@ -10244,12 +10244,12 @@ _ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit2216.thre
   %.0.i22133758 = phi ptr [ %4153, %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit2216 ], [ %4143, %4149 ]
   %4159 = load i8, ptr %3532, align 1, !tbaa !331, !range !153, !noundef !154
   %4160 = trunc nuw i8 %4159 to i1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %554) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %554)
   store i64 68719476737, ptr %554, align 8, !tbaa !161
   br i1 %4160, label %4161, label %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit2220
 
 4161:                                             ; preds = %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit2216.thread
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %121)
+  call void @llvm.lifetime.start.p0(ptr nonnull %121)
   call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %121, i32 noundef 0, ptr nonnull %554, i64 1) #17
   %4162 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %.0.i22133758, i8 noundef zeroext 0, ptr noundef nonnull %121)
   %4163 = getelementptr inbounds nuw i8, ptr %121, i64 16
@@ -10262,16 +10262,16 @@ _ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit2216.thre
   br label %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listINS_3LLTEE.exit.i2219
 
 _ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listINS_3LLTEE.exit.i2219: ; preds = %4165, %4161
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %121)
+  call void @llvm.lifetime.end.p0(ptr nonnull %121)
   br label %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit2220
 
 _ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit2220: ; preds = %.thread3512, %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit2216.thread, %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listINS_3LLTEE.exit.i2219
   %.0.i2217 = phi ptr [ %4162, %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listINS_3LLTEE.exit.i2219 ], [ %.0.i22133758, %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit2216.thread ], [ %.0.i22133761, %.thread3512 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %555) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %555)
   store i64 137438953473, ptr %555, align 8, !tbaa !161
   %4167 = getelementptr inbounds nuw i8, ptr %555, i64 8
   store i64 274877906945, ptr %4167, align 8, !tbaa !161
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %120)
+  call void @llvm.lifetime.start.p0(ptr nonnull %120)
   call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %120, i32 noundef 0, ptr nonnull %555, i64 2) #17
   %4168 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %.0.i2217, i8 noundef zeroext 7, ptr noundef nonnull %120)
   %4169 = getelementptr inbounds nuw i8, ptr %120, i64 16
@@ -10284,15 +10284,15 @@ _ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit2220: ; p
   br label %_ZN4llvm15LegalizeRuleSet10libcallForESt16initializer_listINS_3LLTEE.exit2223
 
 _ZN4llvm15LegalizeRuleSet10libcallForESt16initializer_listINS_3LLTEE.exit2223: ; preds = %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit2220, %4171
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %120)
+  call void @llvm.lifetime.end.p0(ptr nonnull %120)
   %4173 = load i8, ptr %612, align 1, !tbaa !24, !range !153, !noundef !154
   %4174 = trunc nuw i8 %4173 to i1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %556) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %556)
   store i64 549755813889, ptr %556, align 8, !tbaa !161
   br i1 %4174, label %4175, label %_ZN4llvm15LegalizeRuleSet10libcallForEbSt16initializer_listINS_3LLTEE.exit2227
 
 4175:                                             ; preds = %_ZN4llvm15LegalizeRuleSet10libcallForESt16initializer_listINS_3LLTEE.exit2223
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %119)
+  call void @llvm.lifetime.start.p0(ptr nonnull %119)
   call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %119, i32 noundef 0, ptr nonnull %556, i64 1) #17
   %4176 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %4168, i8 noundef zeroext 7, ptr noundef nonnull %119)
   %4177 = getelementptr inbounds nuw i8, ptr %119, i64 16
@@ -10305,29 +10305,29 @@ _ZN4llvm15LegalizeRuleSet10libcallForESt16initializer_listINS_3LLTEE.exit2223: ;
   br label %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listINS_3LLTEE.exit.i2226
 
 _ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listINS_3LLTEE.exit.i2226: ; preds = %4179, %4175
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %119)
+  call void @llvm.lifetime.end.p0(ptr nonnull %119)
   br label %_ZN4llvm15LegalizeRuleSet10libcallForEbSt16initializer_listINS_3LLTEE.exit2227
 
 _ZN4llvm15LegalizeRuleSet10libcallForEbSt16initializer_listINS_3LLTEE.exit2227: ; preds = %_ZN4llvm15LegalizeRuleSet10libcallForESt16initializer_listINS_3LLTEE.exit2223, %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listINS_3LLTEE.exit.i2226
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %556) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %555) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %554) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %553) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %552) #17
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %551) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %557) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %556)
+  call void @llvm.lifetime.end.p0(ptr nonnull %555)
+  call void @llvm.lifetime.end.p0(ptr nonnull %554)
+  call void @llvm.lifetime.end.p0(ptr nonnull %553)
+  call void @llvm.lifetime.end.p0(ptr nonnull %552)
+  call void @llvm.lifetime.end.p0(ptr nonnull %551)
+  call void @llvm.lifetime.start.p0(ptr nonnull %557)
   store i32 213, ptr %557, align 4, !tbaa !163
   %4181 = getelementptr inbounds nuw i8, ptr %557, i64 4
   store i32 212, ptr %4181, align 4, !tbaa !163
   %4182 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderESt16initializer_listIjE(ptr noundef nonnull align 8 dereferenceable(125504) %0, ptr nonnull %557, i64 2) #17
   %4183 = load i8, ptr %4139, align 1, !tbaa !334, !range !153, !noundef !154
   %4184 = trunc nuw i8 %4183 to i1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %558) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %558)
   store i64 137438953473, ptr %558, align 8, !tbaa !161
   br i1 %4184, label %4185, label %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit2235.thread3766
 
 4185:                                             ; preds = %_ZN4llvm15LegalizeRuleSet10libcallForEbSt16initializer_listINS_3LLTEE.exit2227
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %118)
+  call void @llvm.lifetime.start.p0(ptr nonnull %118)
   call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %118, i32 noundef 0, ptr nonnull %558, i64 1) #17
   %4186 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %4182, i8 noundef zeroext 0, ptr noundef nonnull %118)
   %4187 = getelementptr inbounds nuw i8, ptr %118, i64 16
@@ -10340,24 +10340,24 @@ _ZN4llvm15LegalizeRuleSet10libcallForEbSt16initializer_listINS_3LLTEE.exit2227: 
   br label %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit2231
 
 _ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit2231: ; preds = %4185, %4189
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %118)
+  call void @llvm.lifetime.end.p0(ptr nonnull %118)
   %.pre3679 = load i8, ptr %4139, align 1, !tbaa !334, !range !153
   %4191 = trunc nuw i8 %.pre3679 to i1
   br i1 %4191, label %4192, label %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit2235.thread3766
 
 _ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit2235.thread3766: ; preds = %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit2231, %_ZN4llvm15LegalizeRuleSet10libcallForEbSt16initializer_listINS_3LLTEE.exit2227
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %559) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %559)
   br label %.thread3515
 
 4192:                                             ; preds = %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit2231
   %4193 = load i8, ptr %1114, align 2, !tbaa !295, !range !153, !noundef !154
   %4194 = trunc nuw i8 %4193 to i1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %559) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %559)
   store i64 274877906945, ptr %559, align 8, !tbaa !161
   br i1 %4194, label %4195, label %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit2235.thread
 
 4195:                                             ; preds = %4192
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %117)
+  call void @llvm.lifetime.start.p0(ptr nonnull %117)
   call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %117, i32 noundef 0, ptr nonnull %559, i64 1) #17
   %4196 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %4186, i8 noundef zeroext 0, ptr noundef nonnull %117)
   %4197 = getelementptr inbounds nuw i8, ptr %117, i64 16
@@ -10370,25 +10370,25 @@ _ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit2235.thre
   br label %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit2235
 
 _ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit2235: ; preds = %4195, %4199
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %117)
+  call void @llvm.lifetime.end.p0(ptr nonnull %117)
   %.pre3680 = load i8, ptr %4139, align 1, !tbaa !334, !range !153
   %4201 = trunc nuw i8 %.pre3680 to i1
   br i1 %4201, label %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit2235.thread, label %.thread3515
 
 .thread3515:                                      ; preds = %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit2235.thread3766, %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit2235
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %560) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %560)
   br label %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit2239
 
 _ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit2235.thread: ; preds = %4192, %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit2235
   %.0.i22323765 = phi ptr [ %4196, %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit2235 ], [ %4186, %4192 ]
   %4202 = load i8, ptr %3532, align 1, !tbaa !331, !range !153, !noundef !154
   %4203 = trunc nuw i8 %4202 to i1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %560) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %560)
   store i64 68719476737, ptr %560, align 8, !tbaa !161
   br i1 %4203, label %4204, label %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit2239
 
 4204:                                             ; preds = %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit2235.thread
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %116)
+  call void @llvm.lifetime.start.p0(ptr nonnull %116)
   call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %116, i32 noundef 0, ptr nonnull %560, i64 1) #17
   %4205 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %.0.i22323765, i8 noundef zeroext 0, ptr noundef nonnull %116)
   %4206 = getelementptr inbounds nuw i8, ptr %116, i64 16
@@ -10401,22 +10401,22 @@ _ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit2235.thre
   br label %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listINS_3LLTEE.exit.i2238
 
 _ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listINS_3LLTEE.exit.i2238: ; preds = %4208, %4204
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %116)
+  call void @llvm.lifetime.end.p0(ptr nonnull %116)
   br label %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit2239
 
 _ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit2239: ; preds = %.thread3515, %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit2235.thread, %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listINS_3LLTEE.exit.i2238
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %560) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %559) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %558) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %557) #17
-  call void @llvm.lifetime.start.p0(i64 68, ptr nonnull %561) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %560)
+  call void @llvm.lifetime.end.p0(ptr nonnull %559)
+  call void @llvm.lifetime.end.p0(ptr nonnull %558)
+  call void @llvm.lifetime.end.p0(ptr nonnull %557)
+  call void @llvm.lifetime.start.p0(ptr nonnull %561)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(68) %561, ptr noundef nonnull align 4 dereferenceable(68) @constinit.6, i64 68, i1 false), !tbaa.struct !335
   %4210 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderESt16initializer_listIjE(ptr noundef nonnull align 8 dereferenceable(125504) %0, ptr nonnull %561, i64 17) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %562) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %562)
   store i64 137438953473, ptr %562, align 8, !tbaa !161
   %4211 = getelementptr inbounds nuw i8, ptr %562, i64 8
   store i64 274877906945, ptr %4211, align 8, !tbaa !161
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %115)
+  call void @llvm.lifetime.start.p0(ptr nonnull %115)
   call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %115, i32 noundef 0, ptr nonnull %562, i64 2) #17
   %4212 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %4210, i8 noundef zeroext 7, ptr noundef nonnull %115)
   %4213 = getelementptr inbounds nuw i8, ptr %115, i64 16
@@ -10429,15 +10429,15 @@ _ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit2239: ; p
   br label %_ZN4llvm15LegalizeRuleSet10libcallForESt16initializer_listINS_3LLTEE.exit2242
 
 _ZN4llvm15LegalizeRuleSet10libcallForESt16initializer_listINS_3LLTEE.exit2242: ; preds = %_ZN4llvm15LegalizeRuleSet8legalForEbSt16initializer_listINS_3LLTEE.exit2239, %4215
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %115)
+  call void @llvm.lifetime.end.p0(ptr nonnull %115)
   %4217 = load i8, ptr %612, align 1, !tbaa !24, !range !153, !noundef !154
   %4218 = trunc nuw i8 %4217 to i1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %563) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %563)
   store i64 549755813889, ptr %563, align 8, !tbaa !161
   br i1 %4218, label %4219, label %_ZN4llvm15LegalizeRuleSet10libcallForEbSt16initializer_listINS_3LLTEE.exit2246
 
 4219:                                             ; preds = %_ZN4llvm15LegalizeRuleSet10libcallForESt16initializer_listINS_3LLTEE.exit2242
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %114)
+  call void @llvm.lifetime.start.p0(ptr nonnull %114)
   call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %114, i32 noundef 0, ptr nonnull %563, i64 1) #17
   %4220 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %4212, i8 noundef zeroext 7, ptr noundef nonnull %114)
   %4221 = getelementptr inbounds nuw i8, ptr %114, i64 16
@@ -10450,19 +10450,19 @@ _ZN4llvm15LegalizeRuleSet10libcallForESt16initializer_listINS_3LLTEE.exit2242: ;
   br label %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listINS_3LLTEE.exit.i2245
 
 _ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listINS_3LLTEE.exit.i2245: ; preds = %4223, %4219
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %114)
+  call void @llvm.lifetime.end.p0(ptr nonnull %114)
   br label %_ZN4llvm15LegalizeRuleSet10libcallForEbSt16initializer_listINS_3LLTEE.exit2246
 
 _ZN4llvm15LegalizeRuleSet10libcallForEbSt16initializer_listINS_3LLTEE.exit2246: ; preds = %_ZN4llvm15LegalizeRuleSet10libcallForESt16initializer_listINS_3LLTEE.exit2242, %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listINS_3LLTEE.exit.i2245
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %563) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %562) #17
-  call void @llvm.lifetime.end.p0(i64 68, ptr nonnull %561) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %564) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %563)
+  call void @llvm.lifetime.end.p0(ptr nonnull %562)
+  call void @llvm.lifetime.end.p0(ptr nonnull %561)
+  call void @llvm.lifetime.start.p0(ptr nonnull %564)
   store i32 186, ptr %564, align 4, !tbaa !163
   %4225 = getelementptr inbounds nuw i8, ptr %564, i64 4
   store i32 193, ptr %4225, align 4, !tbaa !163
   %4226 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderESt16initializer_listIjE(ptr noundef nonnull align 8 dereferenceable(125504) %0, ptr nonnull %564, i64 2) #17
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %565) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %565)
   store i64 137438953473, ptr %565, align 8, !tbaa !161
   %4227 = getelementptr inbounds nuw i8, ptr %565, i64 8
   store i64 137438953473, ptr %4227, align 8, !tbaa !161
@@ -10470,7 +10470,7 @@ _ZN4llvm15LegalizeRuleSet10libcallForEbSt16initializer_listINS_3LLTEE.exit2246: 
   store i64 274877906945, ptr %4228, align 8, !tbaa !161
   %4229 = getelementptr inbounds nuw i8, ptr %565, i64 24
   store i64 137438953473, ptr %4229, align 8, !tbaa !161
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %113)
+  call void @llvm.lifetime.start.p0(ptr nonnull %113)
   call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %113, i32 noundef 0, i32 noundef 1, ptr nonnull %565, i64 2) #17
   %4230 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %4226, i8 noundef zeroext 7, ptr noundef nonnull %113)
   %4231 = getelementptr inbounds nuw i8, ptr %113, i64 16
@@ -10483,17 +10483,17 @@ _ZN4llvm15LegalizeRuleSet10libcallForEbSt16initializer_listINS_3LLTEE.exit2246: 
   br label %_ZN4llvm15LegalizeRuleSet10libcallForESt16initializer_listISt4pairINS_3LLTES3_EE.exit2249
 
 _ZN4llvm15LegalizeRuleSet10libcallForESt16initializer_listISt4pairINS_3LLTES3_EE.exit2249: ; preds = %_ZN4llvm15LegalizeRuleSet10libcallForEbSt16initializer_listINS_3LLTEE.exit2246, %4233
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %113)
+  call void @llvm.lifetime.end.p0(ptr nonnull %113)
   %4235 = load i8, ptr %612, align 1, !tbaa !24, !range !153, !noundef !154
   %4236 = trunc nuw i8 %4235 to i1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %566) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %566)
   store i64 549755813889, ptr %566, align 8, !tbaa !161
   %4237 = getelementptr inbounds nuw i8, ptr %566, i64 8
   store i64 137438953473, ptr %4237, align 8, !tbaa !161
   br i1 %4236, label %4238, label %_ZN4llvm15LegalizeRuleSet10libcallForEbSt16initializer_listINS_3LLTEE.exit2253
 
 4238:                                             ; preds = %_ZN4llvm15LegalizeRuleSet10libcallForESt16initializer_listISt4pairINS_3LLTES3_EE.exit2249
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %112)
+  call void @llvm.lifetime.start.p0(ptr nonnull %112)
   call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %112, i32 noundef 0, ptr nonnull %566, i64 2) #17
   %4239 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %4230, i8 noundef zeroext 7, ptr noundef nonnull %112)
   %4240 = getelementptr inbounds nuw i8, ptr %112, i64 16
@@ -10506,17 +10506,17 @@ _ZN4llvm15LegalizeRuleSet10libcallForESt16initializer_listISt4pairINS_3LLTES3_EE
   br label %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listINS_3LLTEE.exit.i2252
 
 _ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listINS_3LLTEE.exit.i2252: ; preds = %4242, %4238
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %112)
+  call void @llvm.lifetime.end.p0(ptr nonnull %112)
   br label %_ZN4llvm15LegalizeRuleSet10libcallForEbSt16initializer_listINS_3LLTEE.exit2253
 
 _ZN4llvm15LegalizeRuleSet10libcallForEbSt16initializer_listINS_3LLTEE.exit2253: ; preds = %_ZN4llvm15LegalizeRuleSet10libcallForESt16initializer_listISt4pairINS_3LLTES3_EE.exit2249, %_ZN4llvm15LegalizeRuleSet9actionForENS_15LegalizeActions14LegalizeActionESt16initializer_listINS_3LLTEE.exit.i2252
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %566) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %565) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %564) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %566)
+  call void @llvm.lifetime.end.p0(ptr nonnull %565)
+  call void @llvm.lifetime.end.p0(ptr nonnull %564)
   %4244 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(125504) %0, i32 noundef 135) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %567) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %567)
   store i64 %storemerge.i.i.i876, ptr %567, align 8, !tbaa !161
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %111)
+  call void @llvm.lifetime.start.p0(ptr nonnull %111)
   call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %111, i32 noundef 0, ptr nonnull %567, i64 1) #17
   %4245 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %4244, i8 noundef zeroext 8, ptr noundef nonnull %111)
   %4246 = getelementptr inbounds nuw i8, ptr %111, i64 16
@@ -10529,30 +10529,30 @@ _ZN4llvm15LegalizeRuleSet10libcallForEbSt16initializer_listINS_3LLTEE.exit2253: 
   br label %_ZN4llvm15LegalizeRuleSet9customForESt16initializer_listINS_3LLTEE.exit2256
 
 _ZN4llvm15LegalizeRuleSet9customForESt16initializer_listINS_3LLTEE.exit2256: ; preds = %_ZN4llvm15LegalizeRuleSet10libcallForEbSt16initializer_listINS_3LLTEE.exit2253, %4248
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %111)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %567) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %111)
+  call void @llvm.lifetime.end.p0(ptr nonnull %567)
   %4250 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(125504) %0, i32 noundef 136) #17
   %.sroa.044.0.copyload = load i64, ptr %616, align 8, !tbaa !161
   %4251 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE(ptr noundef nonnull align 8 dereferenceable(168) %4250, i32 noundef 0, i64 %.sroa.044.0.copyload)
   %4252 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet9maxScalarEjNS_3LLTE(ptr noundef nonnull align 8 dereferenceable(168) %4251, i32 noundef 0, i64 %.sroa.044.0.copyload)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %568) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %568)
   %4253 = load i64, ptr %616, align 8, !tbaa !161
   store i64 %4253, ptr %568, align 8, !tbaa !161
   %4254 = getelementptr inbounds nuw i8, ptr %568, i64 8
   store i64 %storemerge.i.i.i876, ptr %4254, align 8, !tbaa !161
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %569) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %569)
   store i64 %storemerge.i.i.i876, ptr %569, align 8, !tbaa !161
   %4255 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet25actionForCartesianProductENS_15LegalizeActions14LegalizeActionESt16initializer_listINS_3LLTEES5_(ptr noundef nonnull align 8 dereferenceable(168) %4252, i8 noundef zeroext 6, ptr nonnull %568, i64 2, ptr nonnull %569, i64 1)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %569) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %568) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %569)
+  call void @llvm.lifetime.end.p0(ptr nonnull %568)
   %4256 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(125504) %0, i32 noundef 231) #17
   %.sroa.038.0.copyload = load i64, ptr %616, align 8, !tbaa !161
   %4257 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE(ptr noundef nonnull align 8 dereferenceable(168) %4256, i32 noundef 0, i64 %.sroa.038.0.copyload)
   %4258 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet9maxScalarEjNS_3LLTE(ptr noundef nonnull align 8 dereferenceable(168) %4257, i32 noundef 0, i64 %.sroa.038.0.copyload)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %570) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %570)
   %4259 = load i64, ptr %616, align 8, !tbaa !161
   store i64 %4259, ptr %570, align 8, !tbaa !161
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %110)
+  call void @llvm.lifetime.start.p0(ptr nonnull %110)
   call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %110, i32 noundef 0, ptr nonnull %570, i64 1) #17
   %4260 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %4258, i8 noundef zeroext 8, ptr noundef nonnull %110)
   %4261 = getelementptr inbounds nuw i8, ptr %110, i64 16
@@ -10565,11 +10565,11 @@ _ZN4llvm15LegalizeRuleSet9customForESt16initializer_listINS_3LLTEE.exit2256: ; p
   br label %_ZN4llvm15LegalizeRuleSet9customForESt16initializer_listINS_3LLTEE.exit2259
 
 _ZN4llvm15LegalizeRuleSet9customForESt16initializer_listINS_3LLTEE.exit2259: ; preds = %_ZN4llvm15LegalizeRuleSet9customForESt16initializer_listINS_3LLTEE.exit2256, %4263
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %110)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %570) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %110)
+  call void @llvm.lifetime.end.p0(ptr nonnull %570)
   %4265 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(125504) %0, i32 noundef 237) #17
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %108)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %109)
+  call void @llvm.lifetime.start.p0(ptr nonnull %108)
+  call void @llvm.lifetime.start.p0(ptr nonnull %109)
   call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %108, i32 noundef 0, ptr nonnull %373, i64 22) #17, !noalias !336
   %4266 = getelementptr inbounds nuw i8, ptr %109, i64 24
   %4267 = getelementptr inbounds nuw i8, ptr %109, i64 16
@@ -10579,7 +10579,7 @@ _ZN4llvm15LegalizeRuleSet9customForESt16initializer_listINS_3LLTEE.exit2259: ; p
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL21typeIsLegalIntOrFPVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %4266, align 8, !tbaa !169, !noalias !336
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL21typeIsLegalIntOrFPVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation", ptr %4267, align 8, !tbaa !164, !noalias !336
   call void @llvm.experimental.noalias.scope.decl(metadata !339)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %47) #17, !noalias !339
+  call void @llvm.lifetime.start.p0(ptr nonnull %47), !noalias !339
   %4268 = getelementptr inbounds nuw i8, ptr %108, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %47, i8 0, i64 32, i1 false), !noalias !339
   %4269 = load ptr, ptr %4268, align 8, !tbaa !164, !noalias !339
@@ -10659,7 +10659,7 @@ _ZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E9_M_invokeERKSt9_Any_dataS3_, ptr %4299, align 8, !tbaa !169, !alias.scope !339
   %4300 = getelementptr inbounds nuw i8, ptr %572, i64 16
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %4300, align 8, !tbaa !164, !alias.scope !339
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %47) #17, !noalias !339
+  call void @llvm.lifetime.end.p0(ptr nonnull %47), !noalias !339
   br label %_ZNSt14_Function_baseD2Ev.exit.i2262
 
 4301:                                             ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i2883
@@ -10671,7 +10671,7 @@ _ZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E9_M_invokeERKSt9_Any_dataS3_, ptr %4303, align 8, !tbaa !169, !alias.scope !339
   %4304 = getelementptr inbounds nuw i8, ptr %572, i64 16
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %4304, align 8, !tbaa !164, !alias.scope !339
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %47) #17, !noalias !339
+  call void @llvm.lifetime.end.p0(ptr nonnull %47), !noalias !339
   %4305 = call noundef zeroext i1 %4287(ptr noundef nonnull align 8 dereferenceable(32) %109, ptr noundef nonnull align 8 dereferenceable(32) %109, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i2262
 
@@ -10687,12 +10687,12 @@ _ZNSt14_Function_baseD2Ev.exit.i2262:             ; preds = %_ZN4llvm18LegalityP
   br label %_ZL21typeIsLegalIntOrFPVecjSt16initializer_listIN4llvm3LLTEERKNS0_14RISCVSubtargetE.exit2264
 
 _ZL21typeIsLegalIntOrFPVecjSt16initializer_listIN4llvm3LLTEERKNS0_14RISCVSubtargetE.exit2264: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i2262, %4309
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %108)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %109)
+  call void @llvm.lifetime.end.p0(ptr nonnull %108)
+  call void @llvm.lifetime.end.p0(ptr nonnull %109)
   %.sroa.030.0.copyload = load i64, ptr %616, align 8, !tbaa !161
   call void @_ZN4llvm18LegalityPredicates6typeIsEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %573, i32 noundef 1, i64 %.sroa.030.0.copyload) #17
   call void @llvm.experimental.noalias.scope.decl(metadata !342)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %107) #17, !noalias !342
+  call void @llvm.lifetime.start.p0(ptr nonnull %107), !noalias !342
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %107, i8 0, i64 32, i1 false), !noalias !342
   %4311 = load ptr, ptr %4306, align 8, !tbaa !164, !noalias !342
   %.not.i.i.not.i.i2265 = icmp eq ptr %4311, null
@@ -10769,8 +10769,8 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2281: ; preds = %_ZNSt
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E9_M_invokeERKSt9_Any_dataS3_, ptr %4340, align 8, !tbaa !169, !alias.scope !342
   %4341 = getelementptr inbounds nuw i8, ptr %571, i64 16
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %4341, align 8, !tbaa !164, !alias.scope !342
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %107) #17, !noalias !342
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %106)
+  call void @llvm.lifetime.end.p0(ptr nonnull %107), !noalias !342
+  call void @llvm.lifetime.start.p0(ptr nonnull %106)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %106, i8 0, i64 32, i1 false)
   %4342 = getelementptr inbounds nuw i8, ptr %106, i64 24
   %4343 = getelementptr inbounds nuw i8, ptr %106, i64 16
@@ -10825,9 +10825,9 @@ _ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates3allISt8function
   br label %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit2284
 
 _ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit2284: ; preds = %_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates3allISt8functionIFbRKNS1_13LegalityQueryEEEEET_SA_SA_EUlS7_E_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit3853, %4365
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %106)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %104)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %105)
+  call void @llvm.lifetime.end.p0(ptr nonnull %106)
+  call void @llvm.lifetime.start.p0(ptr nonnull %104)
+  call void @llvm.lifetime.start.p0(ptr nonnull %105)
   call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %104, i32 noundef 0, ptr nonnull %372, i64 7) #17, !noalias !345
   %4367 = getelementptr inbounds nuw i8, ptr %105, i64 24
   %4368 = getelementptr inbounds nuw i8, ptr %105, i64 16
@@ -10837,7 +10837,7 @@ _ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit2284
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL18typeIsLegalBoolVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %4367, align 8, !tbaa !169, !noalias !345
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL18typeIsLegalBoolVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation", ptr %4368, align 8, !tbaa !164, !noalias !345
   call void @llvm.experimental.noalias.scope.decl(metadata !348)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %46) #17, !noalias !348
+  call void @llvm.lifetime.start.p0(ptr nonnull %46), !noalias !348
   %4369 = getelementptr inbounds nuw i8, ptr %104, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %46, i8 0, i64 32, i1 false), !noalias !348
   %4370 = load ptr, ptr %4369, align 8, !tbaa !164, !noalias !348
@@ -10917,7 +10917,7 @@ _ZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E9_M_invokeERKSt9_Any_dataS3_, ptr %4400, align 8, !tbaa !169, !alias.scope !348
   %4401 = getelementptr inbounds nuw i8, ptr %575, i64 16
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %4401, align 8, !tbaa !164, !alias.scope !348
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %46) #17, !noalias !348
+  call void @llvm.lifetime.end.p0(ptr nonnull %46), !noalias !348
   br label %_ZNSt14_Function_baseD2Ev.exit.i2287
 
 4402:                                             ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i2898
@@ -10929,7 +10929,7 @@ _ZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E9_M_invokeERKSt9_Any_dataS3_, ptr %4404, align 8, !tbaa !169, !alias.scope !348
   %4405 = getelementptr inbounds nuw i8, ptr %575, i64 16
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %4405, align 8, !tbaa !164, !alias.scope !348
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %46) #17, !noalias !348
+  call void @llvm.lifetime.end.p0(ptr nonnull %46), !noalias !348
   %4406 = call noundef zeroext i1 %4388(ptr noundef nonnull align 8 dereferenceable(32) %105, ptr noundef nonnull align 8 dereferenceable(32) %105, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i2287
 
@@ -10945,11 +10945,11 @@ _ZNSt14_Function_baseD2Ev.exit.i2287:             ; preds = %_ZN4llvm18LegalityP
   br label %_ZL18typeIsLegalBoolVecjSt16initializer_listIN4llvm3LLTEERKNS0_14RISCVSubtargetE.exit2289
 
 _ZL18typeIsLegalBoolVecjSt16initializer_listIN4llvm3LLTEERKNS0_14RISCVSubtargetE.exit2289: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i2287, %4410
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %104)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %105)
+  call void @llvm.lifetime.end.p0(ptr nonnull %104)
+  call void @llvm.lifetime.end.p0(ptr nonnull %105)
   call void @_ZN4llvm18LegalityPredicates6typeIsEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %576, i32 noundef 1, i64 4294967297) #17
   call void @llvm.experimental.noalias.scope.decl(metadata !351)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %103) #17, !noalias !351
+  call void @llvm.lifetime.start.p0(ptr nonnull %103), !noalias !351
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %103, i8 0, i64 32, i1 false), !noalias !351
   %4412 = load ptr, ptr %4407, align 8, !tbaa !164, !noalias !351
   %.not.i.i.not.i.i2290 = icmp eq ptr %4412, null
@@ -11026,8 +11026,8 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2306: ; preds = %_ZNSt
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E9_M_invokeERKSt9_Any_dataS3_, ptr %4441, align 8, !tbaa !169, !alias.scope !351
   %4442 = getelementptr inbounds nuw i8, ptr %574, i64 16
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %4442, align 8, !tbaa !164, !alias.scope !351
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %103) #17, !noalias !351
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %102)
+  call void @llvm.lifetime.end.p0(ptr nonnull %103), !noalias !351
+  call void @llvm.lifetime.start.p0(ptr nonnull %102)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %102, i8 0, i64 32, i1 false)
   %4443 = getelementptr inbounds nuw i8, ptr %102, i64 24
   %4444 = getelementptr inbounds nuw i8, ptr %102, i64 16
@@ -11082,7 +11082,7 @@ _ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates3allISt8function
   br label %_ZN4llvm15LegalizeRuleSet8customIfESt8functionIFbRKNS_13LegalityQueryEEE.exit2309
 
 _ZN4llvm15LegalizeRuleSet8customIfESt8functionIFbRKNS_13LegalityQueryEEE.exit2309: ; preds = %_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates3allISt8functionIFbRKNS1_13LegalityQueryEEEEET_SA_SA_EUlS7_E_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit3857, %4466
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %102)
+  call void @llvm.lifetime.end.p0(ptr nonnull %102)
   %4468 = load ptr, ptr %4442, align 8, !tbaa !164
   %.not.i2310 = icmp eq ptr %4468, null
   br i1 %.not.i2310, label %_ZNSt14_Function_baseD2Ev.exit2311, label %4469
@@ -11151,12 +11151,12 @@ _ZNSt14_Function_baseD2Ev.exit2321:               ; preds = %_ZNSt14_Function_ba
   br i1 %or.cond3536, label %4494, label %4562
 
 4494:                                             ; preds = %4488
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %579) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %579)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %579, ptr noundef nonnull align 8 dereferenceable(32) @constinit.8, i64 32, i1 false), !tbaa.struct !329
   call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %578, i32 noundef 0, ptr nonnull %579, i64 4) #17
   call void @_ZN4llvm18LegalityPredicates6typeIsEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %580, i32 noundef 1, i64 274877906945) #17
   call void @llvm.experimental.noalias.scope.decl(metadata !355)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %101) #17, !noalias !355
+  call void @llvm.lifetime.start.p0(ptr nonnull %101), !noalias !355
   %4495 = getelementptr inbounds nuw i8, ptr %578, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %101, i8 0, i64 32, i1 false), !noalias !355
   %4496 = load ptr, ptr %4495, align 8, !tbaa !164, !noalias !355
@@ -11235,8 +11235,8 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2338: ; preds = %_ZNSt
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E9_M_invokeERKSt9_Any_dataS3_, ptr %4526, align 8, !tbaa !169, !alias.scope !355
   %4527 = getelementptr inbounds nuw i8, ptr %577, i64 16
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %4527, align 8, !tbaa !164, !alias.scope !355
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %101) #17, !noalias !355
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %100)
+  call void @llvm.lifetime.end.p0(ptr nonnull %101), !noalias !355
+  call void @llvm.lifetime.start.p0(ptr nonnull %100)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %100, i8 0, i64 32, i1 false)
   %4528 = getelementptr inbounds nuw i8, ptr %100, i64 24
   %4529 = getelementptr inbounds nuw i8, ptr %100, i64 16
@@ -11291,7 +11291,7 @@ _ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates3allISt8function
   br label %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit2341
 
 _ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit2341: ; preds = %_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates3allISt8functionIFbRKNS1_13LegalityQueryEEEEET_SA_SA_EUlS7_E_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit3861, %4551
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %100)
+  call void @llvm.lifetime.end.p0(ptr nonnull %100)
   %4553 = load ptr, ptr %4527, align 8, !tbaa !164
   %.not.i2342 = icmp eq ptr %4553, null
   br i1 %.not.i2342, label %_ZNSt14_Function_baseD2Ev.exit2343, label %4554
@@ -11319,7 +11319,7 @@ _ZNSt14_Function_baseD2Ev.exit2345:               ; preds = %_ZNSt14_Function_ba
   br label %_ZNSt14_Function_baseD2Ev.exit2347
 
 _ZNSt14_Function_baseD2Ev.exit2347:               ; preds = %_ZNSt14_Function_baseD2Ev.exit2345, %4560
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %579) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %579)
   br label %4634
 
 4562:                                             ; preds = %4488
@@ -11329,12 +11329,12 @@ _ZNSt14_Function_baseD2Ev.exit2347:               ; preds = %_ZNSt14_Function_ba
   br i1 %4565, label %4566, label %4634
 
 4566:                                             ; preds = %4562
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %583) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %583)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %583, ptr noundef nonnull align 8 dereferenceable(32) @constinit.8, i64 32, i1 false), !tbaa.struct !329
   call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %582, i32 noundef 0, ptr nonnull %583, i64 4) #17
   call void @_ZN4llvm18LegalityPredicates6typeIsEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %584, i32 noundef 1, i64 274877906945) #17
   call void @llvm.experimental.noalias.scope.decl(metadata !358)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %99) #17, !noalias !358
+  call void @llvm.lifetime.start.p0(ptr nonnull %99), !noalias !358
   %4567 = getelementptr inbounds nuw i8, ptr %582, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %99, i8 0, i64 32, i1 false), !noalias !358
   %4568 = load ptr, ptr %4567, align 8, !tbaa !164, !noalias !358
@@ -11413,8 +11413,8 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2364: ; preds = %_ZNSt
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E9_M_invokeERKSt9_Any_dataS3_, ptr %4598, align 8, !tbaa !169, !alias.scope !358
   %4599 = getelementptr inbounds nuw i8, ptr %581, i64 16
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %4599, align 8, !tbaa !164, !alias.scope !358
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %99) #17, !noalias !358
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %98)
+  call void @llvm.lifetime.end.p0(ptr nonnull %99), !noalias !358
+  call void @llvm.lifetime.start.p0(ptr nonnull %98)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %98, i8 0, i64 32, i1 false)
   %4600 = getelementptr inbounds nuw i8, ptr %98, i64 24
   %4601 = getelementptr inbounds nuw i8, ptr %98, i64 16
@@ -11469,7 +11469,7 @@ _ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates3allISt8function
   br label %_ZN4llvm15LegalizeRuleSet8customIfESt8functionIFbRKNS_13LegalityQueryEEE.exit2367
 
 _ZN4llvm15LegalizeRuleSet8customIfESt8functionIFbRKNS_13LegalityQueryEEE.exit2367: ; preds = %_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates3allISt8functionIFbRKNS1_13LegalityQueryEEEEET_SA_SA_EUlS7_E_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit3865, %4623
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %98)
+  call void @llvm.lifetime.end.p0(ptr nonnull %98)
   %4625 = load ptr, ptr %4599, align 8, !tbaa !164
   %.not.i2368 = icmp eq ptr %4625, null
   br i1 %.not.i2368, label %_ZNSt14_Function_baseD2Ev.exit2369, label %4626
@@ -11497,22 +11497,22 @@ _ZNSt14_Function_baseD2Ev.exit2371:               ; preds = %_ZNSt14_Function_ba
   br label %_ZNSt14_Function_baseD2Ev.exit2373
 
 _ZNSt14_Function_baseD2Ev.exit2373:               ; preds = %_ZNSt14_Function_baseD2Ev.exit2371, %4632
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %583) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %583)
   br label %4634
 
 4634:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit2347, %_ZNSt14_Function_baseD2Ev.exit2373, %4562, %_ZNSt14_Function_baseD2Ev.exit2321
   %.sroa.020.0.copyload = load i64, ptr %616, align 8, !tbaa !161
   %4635 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE(ptr noundef nonnull align 8 dereferenceable(168) %4464, i32 noundef 1, i64 %.sroa.020.0.copyload)
   %4636 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet9maxScalarEjNS_3LLTE(ptr noundef nonnull align 8 dereferenceable(168) %4635, i32 noundef 1, i64 %.sroa.020.0.copyload)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %585) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %585)
   %4637 = getelementptr inbounds nuw i8, ptr %585, i64 16
   %4638 = getelementptr inbounds nuw i8, ptr %585, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %585, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18RISCVLegalizerInfoC1ERKNS0_14RISCVSubtargetEE3$_1E9_M_invokeERKSt9_Any_dataS3_", ptr %4638, align 8, !tbaa !169
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18RISCVLegalizerInfoC1ERKNS0_14RISCVSubtargetEE3$_1E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation", ptr %4637, align 8, !tbaa !164
   %4639 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(125504) %0, i32 noundef 233) #17
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %96)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %97)
+  call void @llvm.lifetime.start.p0(ptr nonnull %96)
+  call void @llvm.lifetime.start.p0(ptr nonnull %97)
   call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %96, i32 noundef 0, ptr nonnull %372, i64 7) #17, !noalias !361
   %4640 = getelementptr inbounds nuw i8, ptr %97, i64 24
   %4641 = getelementptr inbounds nuw i8, ptr %97, i64 16
@@ -11522,7 +11522,7 @@ _ZNSt14_Function_baseD2Ev.exit2373:               ; preds = %_ZNSt14_Function_ba
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL18typeIsLegalBoolVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %4640, align 8, !tbaa !169, !noalias !361
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL18typeIsLegalBoolVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation", ptr %4641, align 8, !tbaa !164, !noalias !361
   call void @llvm.experimental.noalias.scope.decl(metadata !364)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %45) #17, !noalias !364
+  call void @llvm.lifetime.start.p0(ptr nonnull %45), !noalias !364
   %4642 = getelementptr inbounds nuw i8, ptr %96, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %45, i8 0, i64 32, i1 false), !noalias !364
   %4643 = load ptr, ptr %4642, align 8, !tbaa !164, !noalias !364
@@ -11602,7 +11602,7 @@ _ZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E9_M_invokeERKSt9_Any_dataS3_, ptr %4673, align 8, !tbaa !169, !alias.scope !364
   %4674 = getelementptr inbounds nuw i8, ptr %587, i64 16
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %4674, align 8, !tbaa !164, !alias.scope !364
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %45) #17, !noalias !364
+  call void @llvm.lifetime.end.p0(ptr nonnull %45), !noalias !364
   br label %_ZNSt14_Function_baseD2Ev.exit.i2376
 
 4675:                                             ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i2913
@@ -11614,7 +11614,7 @@ _ZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E9_M_invokeERKSt9_Any_dataS3_, ptr %4677, align 8, !tbaa !169, !alias.scope !364
   %4678 = getelementptr inbounds nuw i8, ptr %587, i64 16
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %4678, align 8, !tbaa !164, !alias.scope !364
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %45) #17, !noalias !364
+  call void @llvm.lifetime.end.p0(ptr nonnull %45), !noalias !364
   %4679 = call noundef zeroext i1 %4661(ptr noundef nonnull align 8 dereferenceable(32) %97, ptr noundef nonnull align 8 dereferenceable(32) %97, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i2376
 
@@ -11629,10 +11629,10 @@ _ZNSt14_Function_baseD2Ev.exit.i2376:             ; preds = %_ZN4llvm18LegalityP
   br label %_ZL18typeIsLegalBoolVecjSt16initializer_listIN4llvm3LLTEERKNS0_14RISCVSubtargetE.exit2378
 
 _ZL18typeIsLegalBoolVecjSt16initializer_listIN4llvm3LLTEERKNS0_14RISCVSubtargetE.exit2378: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i2376, %4682
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %96)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %97)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %94)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %95)
+  call void @llvm.lifetime.end.p0(ptr nonnull %96)
+  call void @llvm.lifetime.end.p0(ptr nonnull %97)
+  call void @llvm.lifetime.start.p0(ptr nonnull %94)
+  call void @llvm.lifetime.start.p0(ptr nonnull %95)
   call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %94, i32 noundef 1, ptr nonnull %372, i64 7) #17, !noalias !367
   %4684 = getelementptr inbounds nuw i8, ptr %95, i64 24
   %4685 = getelementptr inbounds nuw i8, ptr %95, i64 16
@@ -11642,7 +11642,7 @@ _ZL18typeIsLegalBoolVecjSt16initializer_listIN4llvm3LLTEERKNS0_14RISCVSubtargetE
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL18typeIsLegalBoolVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %4684, align 8, !tbaa !169, !noalias !367
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL18typeIsLegalBoolVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation", ptr %4685, align 8, !tbaa !164, !noalias !367
   call void @llvm.experimental.noalias.scope.decl(metadata !370)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %44) #17, !noalias !370
+  call void @llvm.lifetime.start.p0(ptr nonnull %44), !noalias !370
   %4686 = getelementptr inbounds nuw i8, ptr %94, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %44, i8 0, i64 32, i1 false), !noalias !370
   %4687 = load ptr, ptr %4686, align 8, !tbaa !164, !noalias !370
@@ -11722,7 +11722,7 @@ _ZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E9_M_invokeERKSt9_Any_dataS3_, ptr %4717, align 8, !tbaa !169, !alias.scope !370
   %4718 = getelementptr inbounds nuw i8, ptr %588, i64 16
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %4718, align 8, !tbaa !164, !alias.scope !370
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %44) #17, !noalias !370
+  call void @llvm.lifetime.end.p0(ptr nonnull %44), !noalias !370
   br label %_ZNSt14_Function_baseD2Ev.exit.i2381
 
 4719:                                             ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i2928
@@ -11734,7 +11734,7 @@ _ZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E9_M_invokeERKSt9_Any_dataS3_, ptr %4721, align 8, !tbaa !169, !alias.scope !370
   %4722 = getelementptr inbounds nuw i8, ptr %588, i64 16
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %4722, align 8, !tbaa !164, !alias.scope !370
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %44) #17, !noalias !370
+  call void @llvm.lifetime.end.p0(ptr nonnull %44), !noalias !370
   %4723 = call noundef zeroext i1 %4705(ptr noundef nonnull align 8 dereferenceable(32) %95, ptr noundef nonnull align 8 dereferenceable(32) %95, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i2381
 
@@ -11749,8 +11749,8 @@ _ZNSt14_Function_baseD2Ev.exit.i2381:             ; preds = %_ZN4llvm18LegalityP
   br label %_ZL18typeIsLegalBoolVecjSt16initializer_listIN4llvm3LLTEERKNS0_14RISCVSubtargetE.exit2383
 
 _ZL18typeIsLegalBoolVecjSt16initializer_listIN4llvm3LLTEERKNS0_14RISCVSubtargetE.exit2383: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i2381, %4726
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %94)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %95)
+  call void @llvm.lifetime.end.p0(ptr nonnull %94)
+  call void @llvm.lifetime.end.p0(ptr nonnull %95)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %589, i8 0, i64 32, i1 false)
   %4728 = load ptr, ptr %4637, align 8, !tbaa !164
   %.not.i.i.not.i = icmp eq ptr %4728, null
@@ -11773,8 +11773,8 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit: ; preds = %_ZL18typeIs
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %590, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFSt4pairIjN4llvm3LLTEERKNS1_13LegalityQueryEEZNS1_18RISCVLegalizerInfoC1ERKNS1_14RISCVSubtargetEE3$_2E9_M_invokeERKSt9_Any_dataS6_", ptr %4736, align 8, !tbaa !326
   store ptr @"_ZNSt17_Function_handlerIFSt4pairIjN4llvm3LLTEERKNS1_13LegalityQueryEEZNS1_18RISCVLegalizerInfoC1ERKNS1_14RISCVSubtargetEE3$_2E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation", ptr %4735, align 8, !tbaa !164
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %92)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %93)
+  call void @llvm.lifetime.start.p0(ptr nonnull %92)
+  call void @llvm.lifetime.start.p0(ptr nonnull %93)
   %4737 = getelementptr inbounds nuw i8, ptr %586, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %92, i8 0, i64 32, i1 false)
   %4738 = load ptr, ptr %4737, align 8, !tbaa !164
@@ -11832,10 +11832,10 @@ _ZNSt14_Function_baseD2Ev.exit.i2389:             ; preds = %4755, %_ZNSt8functi
   br label %_ZN4llvm15LegalizeRuleSet9bitcastIfESt8functionIFbRKNS_13LegalityQueryEEES1_IFSt4pairIjNS_3LLTEES4_EE.exit
 
 _ZN4llvm15LegalizeRuleSet9bitcastIfESt8functionIFbRKNS_13LegalityQueryEEES1_IFSt4pairIjNS_3LLTEES4_EE.exit: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i2389, %4759
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %92)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %93)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %90)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %91)
+  call void @llvm.lifetime.end.p0(ptr nonnull %92)
+  call void @llvm.lifetime.end.p0(ptr nonnull %93)
+  call void @llvm.lifetime.start.p0(ptr nonnull %90)
+  call void @llvm.lifetime.start.p0(ptr nonnull %91)
   call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %90, i32 noundef 0, ptr nonnull %372, i64 7) #17, !noalias !373
   %4761 = getelementptr inbounds nuw i8, ptr %91, i64 24
   %4762 = getelementptr inbounds nuw i8, ptr %91, i64 16
@@ -11845,7 +11845,7 @@ _ZN4llvm15LegalizeRuleSet9bitcastIfESt8functionIFbRKNS_13LegalityQueryEEES1_IFSt
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL18typeIsLegalBoolVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %4761, align 8, !tbaa !169, !noalias !373
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL18typeIsLegalBoolVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation", ptr %4762, align 8, !tbaa !164, !noalias !373
   call void @llvm.experimental.noalias.scope.decl(metadata !376)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %43) #17, !noalias !376
+  call void @llvm.lifetime.start.p0(ptr nonnull %43), !noalias !376
   %4763 = getelementptr inbounds nuw i8, ptr %90, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %43, i8 0, i64 32, i1 false), !noalias !376
   %4764 = load ptr, ptr %4763, align 8, !tbaa !164, !noalias !376
@@ -11925,7 +11925,7 @@ _ZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E9_M_invokeERKSt9_Any_dataS3_, ptr %4794, align 8, !tbaa !169, !alias.scope !376
   %4795 = getelementptr inbounds nuw i8, ptr %593, i64 16
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %4795, align 8, !tbaa !164, !alias.scope !376
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %43) #17, !noalias !376
+  call void @llvm.lifetime.end.p0(ptr nonnull %43), !noalias !376
   br label %_ZNSt14_Function_baseD2Ev.exit.i2393
 
 4796:                                             ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i2943
@@ -11937,7 +11937,7 @@ _ZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E9_M_invokeERKSt9_Any_dataS3_, ptr %4798, align 8, !tbaa !169, !alias.scope !376
   %4799 = getelementptr inbounds nuw i8, ptr %593, i64 16
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %4799, align 8, !tbaa !164, !alias.scope !376
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %43) #17, !noalias !376
+  call void @llvm.lifetime.end.p0(ptr nonnull %43), !noalias !376
   %4800 = call noundef zeroext i1 %4782(ptr noundef nonnull align 8 dereferenceable(32) %91, ptr noundef nonnull align 8 dereferenceable(32) %91, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i2393
 
@@ -11953,10 +11953,10 @@ _ZNSt14_Function_baseD2Ev.exit.i2393:             ; preds = %_ZN4llvm18LegalityP
   br label %_ZL18typeIsLegalBoolVecjSt16initializer_listIN4llvm3LLTEERKNS0_14RISCVSubtargetE.exit2395
 
 _ZL18typeIsLegalBoolVecjSt16initializer_listIN4llvm3LLTEERKNS0_14RISCVSubtargetE.exit2395: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i2393, %4804
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %90)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %91)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %88)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %89)
+  call void @llvm.lifetime.end.p0(ptr nonnull %90)
+  call void @llvm.lifetime.end.p0(ptr nonnull %91)
+  call void @llvm.lifetime.start.p0(ptr nonnull %88)
+  call void @llvm.lifetime.start.p0(ptr nonnull %89)
   call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %88, i32 noundef 1, ptr nonnull %372, i64 7) #17, !noalias !379
   %4806 = getelementptr inbounds nuw i8, ptr %89, i64 24
   %4807 = getelementptr inbounds nuw i8, ptr %89, i64 16
@@ -11966,7 +11966,7 @@ _ZL18typeIsLegalBoolVecjSt16initializer_listIN4llvm3LLTEERKNS0_14RISCVSubtargetE
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL18typeIsLegalBoolVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %4806, align 8, !tbaa !169, !noalias !379
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL18typeIsLegalBoolVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation", ptr %4807, align 8, !tbaa !164, !noalias !379
   call void @llvm.experimental.noalias.scope.decl(metadata !382)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %42) #17, !noalias !382
+  call void @llvm.lifetime.start.p0(ptr nonnull %42), !noalias !382
   %4808 = getelementptr inbounds nuw i8, ptr %88, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %42, i8 0, i64 32, i1 false), !noalias !382
   %4809 = load ptr, ptr %4808, align 8, !tbaa !164, !noalias !382
@@ -12046,7 +12046,7 @@ _ZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E9_M_invokeERKSt9_Any_dataS3_, ptr %4839, align 8, !tbaa !169, !alias.scope !382
   %4840 = getelementptr inbounds nuw i8, ptr %594, i64 16
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %4840, align 8, !tbaa !164, !alias.scope !382
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %42) #17, !noalias !382
+  call void @llvm.lifetime.end.p0(ptr nonnull %42), !noalias !382
   br label %_ZNSt14_Function_baseD2Ev.exit.i2398
 
 4841:                                             ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i2958
@@ -12058,7 +12058,7 @@ _ZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E9_M_invokeERKSt9_Any_dataS3_, ptr %4843, align 8, !tbaa !169, !alias.scope !382
   %4844 = getelementptr inbounds nuw i8, ptr %594, i64 16
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %4844, align 8, !tbaa !164, !alias.scope !382
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %42) #17, !noalias !382
+  call void @llvm.lifetime.end.p0(ptr nonnull %42), !noalias !382
   %4845 = call noundef zeroext i1 %4827(ptr noundef nonnull align 8 dereferenceable(32) %89, ptr noundef nonnull align 8 dereferenceable(32) %89, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i2398
 
@@ -12074,10 +12074,10 @@ _ZNSt14_Function_baseD2Ev.exit.i2398:             ; preds = %_ZN4llvm18LegalityP
   br label %_ZL18typeIsLegalBoolVecjSt16initializer_listIN4llvm3LLTEERKNS0_14RISCVSubtargetE.exit2400
 
 _ZL18typeIsLegalBoolVecjSt16initializer_listIN4llvm3LLTEERKNS0_14RISCVSubtargetE.exit2400: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i2398, %4849
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %88)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %89)
+  call void @llvm.lifetime.end.p0(ptr nonnull %88)
+  call void @llvm.lifetime.end.p0(ptr nonnull %89)
   call void @llvm.experimental.noalias.scope.decl(metadata !385)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %87) #17, !noalias !385
+  call void @llvm.lifetime.start.p0(ptr nonnull %87), !noalias !385
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %87, i8 0, i64 32, i1 false), !noalias !385
   %4851 = load ptr, ptr %4801, align 8, !tbaa !164, !noalias !385
   %.not.i.i.not.i.i2401 = icmp eq ptr %4851, null
@@ -12152,9 +12152,9 @@ _ZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E9_M_invokeERKSt9_Any_dataS3_, ptr %4878, align 8, !tbaa !169, !alias.scope !385
   %4879 = getelementptr inbounds nuw i8, ptr %592, i64 16
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %4879, align 8, !tbaa !164, !alias.scope !385
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %87) #17, !noalias !385
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %85)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %86)
+  call void @llvm.lifetime.end.p0(ptr nonnull %87), !noalias !385
+  call void @llvm.lifetime.start.p0(ptr nonnull %85)
+  call void @llvm.lifetime.start.p0(ptr nonnull %86)
   call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %85, i32 noundef 0, ptr nonnull %373, i64 22) #17, !noalias !388
   %4880 = getelementptr inbounds nuw i8, ptr %86, i64 24
   %4881 = getelementptr inbounds nuw i8, ptr %86, i64 16
@@ -12164,7 +12164,7 @@ _ZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL21typeIsLegalIntOrFPVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %4880, align 8, !tbaa !169, !noalias !388
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL21typeIsLegalIntOrFPVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation", ptr %4881, align 8, !tbaa !164, !noalias !388
   call void @llvm.experimental.noalias.scope.decl(metadata !391)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %41) #17, !noalias !391
+  call void @llvm.lifetime.start.p0(ptr nonnull %41), !noalias !391
   %4882 = getelementptr inbounds nuw i8, ptr %85, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %41, i8 0, i64 32, i1 false), !noalias !391
   %4883 = load ptr, ptr %4882, align 8, !tbaa !164, !noalias !391
@@ -12244,7 +12244,7 @@ _ZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E9_M_invokeERKSt9_Any_dataS3_, ptr %4913, align 8, !tbaa !169, !alias.scope !391
   %4914 = getelementptr inbounds nuw i8, ptr %596, i64 16
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %4914, align 8, !tbaa !164, !alias.scope !391
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %41) #17, !noalias !391
+  call void @llvm.lifetime.end.p0(ptr nonnull %41), !noalias !391
   br label %_ZNSt14_Function_baseD2Ev.exit.i2418
 
 4915:                                             ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i2973
@@ -12256,7 +12256,7 @@ _ZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E9_M_invokeERKSt9_Any_dataS3_, ptr %4917, align 8, !tbaa !169, !alias.scope !391
   %4918 = getelementptr inbounds nuw i8, ptr %596, i64 16
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %4918, align 8, !tbaa !164, !alias.scope !391
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %41) #17, !noalias !391
+  call void @llvm.lifetime.end.p0(ptr nonnull %41), !noalias !391
   %4919 = call noundef zeroext i1 %4901(ptr noundef nonnull align 8 dereferenceable(32) %86, ptr noundef nonnull align 8 dereferenceable(32) %86, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i2418
 
@@ -12272,10 +12272,10 @@ _ZNSt14_Function_baseD2Ev.exit.i2418:             ; preds = %_ZN4llvm18LegalityP
   br label %_ZL21typeIsLegalIntOrFPVecjSt16initializer_listIN4llvm3LLTEERKNS0_14RISCVSubtargetE.exit2420
 
 _ZL21typeIsLegalIntOrFPVecjSt16initializer_listIN4llvm3LLTEERKNS0_14RISCVSubtargetE.exit2420: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i2418, %4923
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %85)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %86)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %83)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %84)
+  call void @llvm.lifetime.end.p0(ptr nonnull %85)
+  call void @llvm.lifetime.end.p0(ptr nonnull %86)
+  call void @llvm.lifetime.start.p0(ptr nonnull %83)
+  call void @llvm.lifetime.start.p0(ptr nonnull %84)
   call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %83, i32 noundef 1, ptr nonnull %373, i64 22) #17, !noalias !394
   %4925 = getelementptr inbounds nuw i8, ptr %84, i64 24
   %4926 = getelementptr inbounds nuw i8, ptr %84, i64 16
@@ -12285,7 +12285,7 @@ _ZL21typeIsLegalIntOrFPVecjSt16initializer_listIN4llvm3LLTEERKNS0_14RISCVSubtarg
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL21typeIsLegalIntOrFPVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %4925, align 8, !tbaa !169, !noalias !394
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL21typeIsLegalIntOrFPVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation", ptr %4926, align 8, !tbaa !164, !noalias !394
   call void @llvm.experimental.noalias.scope.decl(metadata !397)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %40) #17, !noalias !397
+  call void @llvm.lifetime.start.p0(ptr nonnull %40), !noalias !397
   %4927 = getelementptr inbounds nuw i8, ptr %83, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %40, i8 0, i64 32, i1 false), !noalias !397
   %4928 = load ptr, ptr %4927, align 8, !tbaa !164, !noalias !397
@@ -12365,7 +12365,7 @@ _ZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E9_M_invokeERKSt9_Any_dataS3_, ptr %4958, align 8, !tbaa !169, !alias.scope !397
   %4959 = getelementptr inbounds nuw i8, ptr %597, i64 16
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %4959, align 8, !tbaa !164, !alias.scope !397
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %40) #17, !noalias !397
+  call void @llvm.lifetime.end.p0(ptr nonnull %40), !noalias !397
   br label %_ZNSt14_Function_baseD2Ev.exit.i2423
 
 4960:                                             ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i2988
@@ -12377,7 +12377,7 @@ _ZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E9_M_invokeERKSt9_Any_dataS3_, ptr %4962, align 8, !tbaa !169, !alias.scope !397
   %4963 = getelementptr inbounds nuw i8, ptr %597, i64 16
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %4963, align 8, !tbaa !164, !alias.scope !397
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %40) #17, !noalias !397
+  call void @llvm.lifetime.end.p0(ptr nonnull %40), !noalias !397
   %4964 = call noundef zeroext i1 %4946(ptr noundef nonnull align 8 dereferenceable(32) %84, ptr noundef nonnull align 8 dereferenceable(32) %84, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i2423
 
@@ -12393,10 +12393,10 @@ _ZNSt14_Function_baseD2Ev.exit.i2423:             ; preds = %_ZN4llvm18LegalityP
   br label %_ZL21typeIsLegalIntOrFPVecjSt16initializer_listIN4llvm3LLTEERKNS0_14RISCVSubtargetE.exit2425
 
 _ZL21typeIsLegalIntOrFPVecjSt16initializer_listIN4llvm3LLTEERKNS0_14RISCVSubtargetE.exit2425: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i2423, %4968
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %83)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %84)
+  call void @llvm.lifetime.end.p0(ptr nonnull %83)
+  call void @llvm.lifetime.end.p0(ptr nonnull %84)
   call void @llvm.experimental.noalias.scope.decl(metadata !400)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %82) #17, !noalias !400
+  call void @llvm.lifetime.start.p0(ptr nonnull %82), !noalias !400
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %82, i8 0, i64 32, i1 false), !noalias !400
   %4970 = load ptr, ptr %4920, align 8, !tbaa !164, !noalias !400
   %.not.i.i.not.i.i2426 = icmp eq ptr %4970, null
@@ -12472,9 +12472,9 @@ _ZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_
   %4998 = getelementptr inbounds nuw i8, ptr %595, i64 16
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %4998, align 8, !tbaa !164, !alias.scope !400
   %.pre3708 = load ptr, ptr %4879, align 8, !tbaa !164, !noalias !403
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %82) #17, !noalias !400
+  call void @llvm.lifetime.end.p0(ptr nonnull %82), !noalias !400
   call void @llvm.experimental.noalias.scope.decl(metadata !403)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %81) #17, !noalias !403
+  call void @llvm.lifetime.start.p0(ptr nonnull %81), !noalias !403
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %81, i8 0, i64 32, i1 false), !noalias !403
   %.not.i.i.not.i.i2441 = icmp eq ptr %.pre3708, null
   br i1 %.not.i.i.not.i.i2441, label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2442.thread, label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2442
@@ -12557,8 +12557,8 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2457: ; preds = %_ZNSt
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3anyISt8functionIS4_EEET_S9_S9_EUlS3_E_E9_M_invokeERKSt9_Any_dataS3_, ptr %5028, align 8, !tbaa !169, !alias.scope !403
   %5029 = getelementptr inbounds nuw i8, ptr %591, i64 16
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3anyISt8functionIS4_EEET_S9_S9_EUlS3_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %5029, align 8, !tbaa !164, !alias.scope !403
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %81) #17, !noalias !403
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %80)
+  call void @llvm.lifetime.end.p0(ptr nonnull %81), !noalias !403
+  call void @llvm.lifetime.start.p0(ptr nonnull %80)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %80, i8 0, i64 32, i1 false)
   %5030 = getelementptr inbounds nuw i8, ptr %80, i64 24
   %5031 = getelementptr inbounds nuw i8, ptr %80, i64 16
@@ -12613,7 +12613,7 @@ _ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates3anyISt8function
   br label %_ZN4llvm15LegalizeRuleSet8customIfESt8functionIFbRKNS_13LegalityQueryEEE.exit2460
 
 _ZN4llvm15LegalizeRuleSet8customIfESt8functionIFbRKNS_13LegalityQueryEEE.exit2460: ; preds = %_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates3anyISt8functionIFbRKNS1_13LegalityQueryEEEEET_SA_SA_EUlS7_E_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit, %5053
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %80)
+  call void @llvm.lifetime.end.p0(ptr nonnull %80)
   %5055 = load ptr, ptr %5029, align 8, !tbaa !164
   %.not.i2461 = icmp eq ptr %5055, null
   br i1 %.not.i2461, label %_ZNSt14_Function_baseD2Ev.exit2462, label %5056
@@ -12724,8 +12724,8 @@ _ZNSt14_Function_baseD2Ev.exit2482:               ; preds = %_ZNSt14_Function_ba
 
 _ZNSt14_Function_baseD2Ev.exit2484:               ; preds = %_ZNSt14_Function_baseD2Ev.exit2482, %5090
   %5092 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(125504) %0, i32 noundef 232) #17
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %78)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %79)
+  call void @llvm.lifetime.start.p0(ptr nonnull %78)
+  call void @llvm.lifetime.start.p0(ptr nonnull %79)
   call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %78, i32 noundef 0, ptr nonnull %372, i64 7) #17, !noalias !406
   %5093 = getelementptr inbounds nuw i8, ptr %79, i64 24
   %5094 = getelementptr inbounds nuw i8, ptr %79, i64 16
@@ -12735,7 +12735,7 @@ _ZNSt14_Function_baseD2Ev.exit2484:               ; preds = %_ZNSt14_Function_ba
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL18typeIsLegalBoolVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %5093, align 8, !tbaa !169, !noalias !406
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL18typeIsLegalBoolVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation", ptr %5094, align 8, !tbaa !164, !noalias !406
   call void @llvm.experimental.noalias.scope.decl(metadata !409)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %39) #17, !noalias !409
+  call void @llvm.lifetime.start.p0(ptr nonnull %39), !noalias !409
   %5095 = getelementptr inbounds nuw i8, ptr %78, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %39, i8 0, i64 32, i1 false), !noalias !409
   %5096 = load ptr, ptr %5095, align 8, !tbaa !164, !noalias !409
@@ -12815,7 +12815,7 @@ _ZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E9_M_invokeERKSt9_Any_dataS3_, ptr %5126, align 8, !tbaa !169, !alias.scope !409
   %5127 = getelementptr inbounds nuw i8, ptr %598, i64 16
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %5127, align 8, !tbaa !164, !alias.scope !409
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %39) #17, !noalias !409
+  call void @llvm.lifetime.end.p0(ptr nonnull %39), !noalias !409
   br label %_ZNSt14_Function_baseD2Ev.exit.i2487
 
 5128:                                             ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i3003
@@ -12827,7 +12827,7 @@ _ZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E9_M_invokeERKSt9_Any_dataS3_, ptr %5130, align 8, !tbaa !169, !alias.scope !409
   %5131 = getelementptr inbounds nuw i8, ptr %598, i64 16
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %5131, align 8, !tbaa !164, !alias.scope !409
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %39) #17, !noalias !409
+  call void @llvm.lifetime.end.p0(ptr nonnull %39), !noalias !409
   %5132 = call noundef zeroext i1 %5114(ptr noundef nonnull align 8 dereferenceable(32) %79, ptr noundef nonnull align 8 dereferenceable(32) %79, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i2487
 
@@ -12843,10 +12843,10 @@ _ZNSt14_Function_baseD2Ev.exit.i2487:             ; preds = %_ZN4llvm18LegalityP
   br label %_ZL18typeIsLegalBoolVecjSt16initializer_listIN4llvm3LLTEERKNS0_14RISCVSubtargetE.exit2489
 
 _ZL18typeIsLegalBoolVecjSt16initializer_listIN4llvm3LLTEERKNS0_14RISCVSubtargetE.exit2489: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i2487, %5136
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %78)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %79)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %76)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %77)
+  call void @llvm.lifetime.end.p0(ptr nonnull %78)
+  call void @llvm.lifetime.end.p0(ptr nonnull %79)
+  call void @llvm.lifetime.start.p0(ptr nonnull %76)
+  call void @llvm.lifetime.start.p0(ptr nonnull %77)
   call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %76, i32 noundef 1, ptr nonnull %372, i64 7) #17, !noalias !412
   %5138 = getelementptr inbounds nuw i8, ptr %77, i64 24
   %5139 = getelementptr inbounds nuw i8, ptr %77, i64 16
@@ -12856,7 +12856,7 @@ _ZL18typeIsLegalBoolVecjSt16initializer_listIN4llvm3LLTEERKNS0_14RISCVSubtargetE
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL18typeIsLegalBoolVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %5138, align 8, !tbaa !169, !noalias !412
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL18typeIsLegalBoolVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation", ptr %5139, align 8, !tbaa !164, !noalias !412
   call void @llvm.experimental.noalias.scope.decl(metadata !415)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %38) #17, !noalias !415
+  call void @llvm.lifetime.start.p0(ptr nonnull %38), !noalias !415
   %5140 = getelementptr inbounds nuw i8, ptr %76, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %38, i8 0, i64 32, i1 false), !noalias !415
   %5141 = load ptr, ptr %5140, align 8, !tbaa !164, !noalias !415
@@ -12936,7 +12936,7 @@ _ZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E9_M_invokeERKSt9_Any_dataS3_, ptr %5171, align 8, !tbaa !169, !alias.scope !415
   %5172 = getelementptr inbounds nuw i8, ptr %599, i64 16
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %5172, align 8, !tbaa !164, !alias.scope !415
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %38) #17, !noalias !415
+  call void @llvm.lifetime.end.p0(ptr nonnull %38), !noalias !415
   br label %_ZNSt14_Function_baseD2Ev.exit.i2492
 
 5173:                                             ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i3018
@@ -12948,7 +12948,7 @@ _ZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E9_M_invokeERKSt9_Any_dataS3_, ptr %5175, align 8, !tbaa !169, !alias.scope !415
   %5176 = getelementptr inbounds nuw i8, ptr %599, i64 16
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %5176, align 8, !tbaa !164, !alias.scope !415
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %38) #17, !noalias !415
+  call void @llvm.lifetime.end.p0(ptr nonnull %38), !noalias !415
   %5177 = call noundef zeroext i1 %5159(ptr noundef nonnull align 8 dereferenceable(32) %77, ptr noundef nonnull align 8 dereferenceable(32) %77, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i2492
 
@@ -12964,9 +12964,9 @@ _ZNSt14_Function_baseD2Ev.exit.i2492:             ; preds = %_ZN4llvm18LegalityP
   br label %_ZL18typeIsLegalBoolVecjSt16initializer_listIN4llvm3LLTEERKNS0_14RISCVSubtargetE.exit2494
 
 _ZL18typeIsLegalBoolVecjSt16initializer_listIN4llvm3LLTEERKNS0_14RISCVSubtargetE.exit2494: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i2492, %5181
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %76)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %77)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %75) #17, !noalias !418
+  call void @llvm.lifetime.end.p0(ptr nonnull %76)
+  call void @llvm.lifetime.end.p0(ptr nonnull %77)
+  call void @llvm.lifetime.start.p0(ptr nonnull %75), !noalias !418
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %75, i8 0, i64 32, i1 false), !noalias !418
   %5183 = load ptr, ptr %5133, align 8, !tbaa !164, !noalias !418
   %.not.i.i.not.i.i2495 = icmp eq ptr %5183, null
@@ -13034,8 +13034,8 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2IZNS0_18LegalityPredicates3allIS5_E
   br label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2511
 
 _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2511: ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i2504, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2IZNS0_18LegalityPredicates3allIS5_EET_S9_S9_EUlS3_E_vEEOS9_.exit.i2506
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %75) #17, !noalias !418
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %74)
+  call void @llvm.lifetime.end.p0(ptr nonnull %75), !noalias !418
+  call void @llvm.lifetime.start.p0(ptr nonnull %74)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %74, i8 0, i64 32, i1 false)
   %5209 = getelementptr inbounds nuw i8, ptr %74, i64 24
   %5210 = getelementptr inbounds nuw i8, ptr %74, i64 16
@@ -13088,9 +13088,9 @@ _ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates3allISt8function
   br label %_ZN4llvm15LegalizeRuleSet8customIfESt8functionIFbRKNS_13LegalityQueryEEE.exit2514
 
 _ZN4llvm15LegalizeRuleSet8customIfESt8functionIFbRKNS_13LegalityQueryEEE.exit2514: ; preds = %_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates3allISt8functionIFbRKNS1_13LegalityQueryEEEEET_SA_SA_EUlS7_E_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit3872, %5230
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %74)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %72)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %73)
+  call void @llvm.lifetime.end.p0(ptr nonnull %74)
+  call void @llvm.lifetime.start.p0(ptr nonnull %72)
+  call void @llvm.lifetime.start.p0(ptr nonnull %73)
   call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %72, i32 noundef 0, ptr nonnull %373, i64 22) #17, !noalias !421
   %5232 = getelementptr inbounds nuw i8, ptr %73, i64 24
   %5233 = getelementptr inbounds nuw i8, ptr %73, i64 16
@@ -13100,7 +13100,7 @@ _ZN4llvm15LegalizeRuleSet8customIfESt8functionIFbRKNS_13LegalityQueryEEE.exit251
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL21typeIsLegalIntOrFPVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %5232, align 8, !tbaa !169, !noalias !421
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL21typeIsLegalIntOrFPVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation", ptr %5233, align 8, !tbaa !164, !noalias !421
   call void @llvm.experimental.noalias.scope.decl(metadata !424)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %37) #17, !noalias !424
+  call void @llvm.lifetime.start.p0(ptr nonnull %37), !noalias !424
   %5234 = getelementptr inbounds nuw i8, ptr %72, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %37, i8 0, i64 32, i1 false), !noalias !424
   %5235 = load ptr, ptr %5234, align 8, !tbaa !164, !noalias !424
@@ -13180,7 +13180,7 @@ _ZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E9_M_invokeERKSt9_Any_dataS3_, ptr %5265, align 8, !tbaa !169, !alias.scope !424
   %5266 = getelementptr inbounds nuw i8, ptr %600, i64 16
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %5266, align 8, !tbaa !164, !alias.scope !424
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %37) #17, !noalias !424
+  call void @llvm.lifetime.end.p0(ptr nonnull %37), !noalias !424
   br label %_ZNSt14_Function_baseD2Ev.exit.i2517
 
 5267:                                             ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i3033
@@ -13192,7 +13192,7 @@ _ZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E9_M_invokeERKSt9_Any_dataS3_, ptr %5269, align 8, !tbaa !169, !alias.scope !424
   %5270 = getelementptr inbounds nuw i8, ptr %600, i64 16
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %5270, align 8, !tbaa !164, !alias.scope !424
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %37) #17, !noalias !424
+  call void @llvm.lifetime.end.p0(ptr nonnull %37), !noalias !424
   %5271 = call noundef zeroext i1 %5253(ptr noundef nonnull align 8 dereferenceable(32) %73, ptr noundef nonnull align 8 dereferenceable(32) %73, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i2517
 
@@ -13208,10 +13208,10 @@ _ZNSt14_Function_baseD2Ev.exit.i2517:             ; preds = %_ZN4llvm18LegalityP
   br label %_ZL21typeIsLegalIntOrFPVecjSt16initializer_listIN4llvm3LLTEERKNS0_14RISCVSubtargetE.exit2519
 
 _ZL21typeIsLegalIntOrFPVecjSt16initializer_listIN4llvm3LLTEERKNS0_14RISCVSubtargetE.exit2519: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i2517, %5275
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %72)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %73)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %70)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %71)
+  call void @llvm.lifetime.end.p0(ptr nonnull %72)
+  call void @llvm.lifetime.end.p0(ptr nonnull %73)
+  call void @llvm.lifetime.start.p0(ptr nonnull %70)
+  call void @llvm.lifetime.start.p0(ptr nonnull %71)
   call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %70, i32 noundef 1, ptr nonnull %373, i64 22) #17, !noalias !427
   %5277 = getelementptr inbounds nuw i8, ptr %71, i64 24
   %5278 = getelementptr inbounds nuw i8, ptr %71, i64 16
@@ -13221,7 +13221,7 @@ _ZL21typeIsLegalIntOrFPVecjSt16initializer_listIN4llvm3LLTEERKNS0_14RISCVSubtarg
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL21typeIsLegalIntOrFPVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %5277, align 8, !tbaa !169, !noalias !427
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL21typeIsLegalIntOrFPVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation", ptr %5278, align 8, !tbaa !164, !noalias !427
   call void @llvm.experimental.noalias.scope.decl(metadata !430)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %36) #17, !noalias !430
+  call void @llvm.lifetime.start.p0(ptr nonnull %36), !noalias !430
   %5279 = getelementptr inbounds nuw i8, ptr %70, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %36, i8 0, i64 32, i1 false), !noalias !430
   %5280 = load ptr, ptr %5279, align 8, !tbaa !164, !noalias !430
@@ -13301,7 +13301,7 @@ _ZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E9_M_invokeERKSt9_Any_dataS3_, ptr %5310, align 8, !tbaa !169, !alias.scope !430
   %5311 = getelementptr inbounds nuw i8, ptr %601, i64 16
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %5311, align 8, !tbaa !164, !alias.scope !430
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %36) #17, !noalias !430
+  call void @llvm.lifetime.end.p0(ptr nonnull %36), !noalias !430
   br label %_ZNSt14_Function_baseD2Ev.exit.i2522
 
 5312:                                             ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i3048
@@ -13313,7 +13313,7 @@ _ZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E9_M_invokeERKSt9_Any_dataS3_, ptr %5314, align 8, !tbaa !169, !alias.scope !430
   %5315 = getelementptr inbounds nuw i8, ptr %601, i64 16
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %5315, align 8, !tbaa !164, !alias.scope !430
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %36) #17, !noalias !430
+  call void @llvm.lifetime.end.p0(ptr nonnull %36), !noalias !430
   %5316 = call noundef zeroext i1 %5298(ptr noundef nonnull align 8 dereferenceable(32) %71, ptr noundef nonnull align 8 dereferenceable(32) %71, i32 noundef 3) #17
   br label %_ZNSt14_Function_baseD2Ev.exit.i2522
 
@@ -13329,8 +13329,8 @@ _ZNSt14_Function_baseD2Ev.exit.i2522:             ; preds = %_ZN4llvm18LegalityP
   br label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i2532
 
 _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i2532: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i2522, %5320
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %70)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %71)
+  call void @llvm.lifetime.end.p0(ptr nonnull %70)
+  call void @llvm.lifetime.end.p0(ptr nonnull %71)
   %5322 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #18, !noalias !433
   %5323 = getelementptr inbounds nuw i8, ptr %5258, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5322, i8 0, i64 32, i1 false), !noalias !433
@@ -13435,7 +13435,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2IZNS0_18LegalityPredicates3allIS5_E
   br label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2541
 
 _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2541: ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i2534, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2IZNS0_18LegalityPredicates3allIS5_EET_S9_S9_EUlS3_E_vEEOS9_.exit.i2536
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %69)
+  call void @llvm.lifetime.start.p0(ptr nonnull %69)
   %5369 = getelementptr inbounds nuw i8, ptr %69, i64 8
   store i64 0, ptr %5369, align 8
   %5370 = getelementptr inbounds nuw i8, ptr %69, i64 24
@@ -13489,7 +13489,7 @@ _ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates3allISt8function
   br label %5393
 
 5393:                                             ; preds = %5391, %_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates3allISt8functionIFbRKNS1_13LegalityQueryEEEEET_SA_SA_EUlS7_E_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit3884
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %69)
+  call void @llvm.lifetime.end.p0(ptr nonnull %69)
   %5394 = getelementptr inbounds nuw i8, ptr %5362, i64 48
   %5395 = load ptr, ptr %5394, align 8, !tbaa !164
   %.not.i.i.i.i = icmp eq ptr %5395, null
@@ -13584,30 +13584,24 @@ _ZNSt14_Function_baseD2Ev.exit2556:               ; preds = %_ZNSt14_Function_ba
   br label %_ZNSt14_Function_baseD2Ev.exit2558
 
 _ZNSt14_Function_baseD2Ev.exit2558:               ; preds = %_ZNSt14_Function_baseD2Ev.exit2556, %5428
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %585) #17
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %374) #17
-  call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %373) #17
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %372) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %585)
+  call void @llvm.lifetime.end.p0(ptr nonnull %374)
+  call void @llvm.lifetime.end.p0(ptr nonnull %373)
+  call void @llvm.lifetime.end.p0(ptr nonnull %372)
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
-declare noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderESt16initializer_listIjE(ptr noundef nonnull align 8 dereferenceable(125504), ptr, i64) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderESt16initializer_listIjE(ptr noundef nonnull align 8 dereferenceable(125504), ptr, i64) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE(ptr noundef nonnull align 8 dereferenceable(168) %0, i32 noundef %1, i64 %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %"class.std::function", align 8
   %5 = alloca %"class.llvm::TypeSize", align 8
   %6 = alloca %"class.std::function.77", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = and i64 %2, -7
   %spec.select.i.i.i = icmp ne i64 %7, 0
   %8 = and i64 %2, 2
@@ -13671,14 +13665,14 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZNK4llvm3LLT13getS
   br label %_ZNSt14_Function_baseD2Ev.exit4
 
 _ZNSt14_Function_baseD2Ev.exit4:                  ; preds = %_ZNSt14_Function_baseD2Ev.exit, %32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %25
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_(ptr dead_on_unwind noalias writable sret(%"class.std::function") align 8 %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 comdat {
   %4 = alloca %class.anon.424, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   %6 = load ptr, ptr %5, align 8, !tbaa !164
@@ -13774,7 +13768,7 @@ _ZNSt14_Function_baseD2Ev.exit.i:                 ; preds = %_ZNSt8functionIFbRK
   br label %_ZZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_ENUlS5_E_D2Ev.exit
 
 _ZZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_ENUlS5_E_D2Ev.exit: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i, %43
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -13783,7 +13777,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(168) ptr @_ZN
   %4 = alloca %"class.std::function", align 8
   %5 = alloca %"class.llvm::TypeSize", align 8
   %6 = alloca %"class.std::function.77", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = and i64 %2, -7
   %spec.select.i.i.i = icmp ne i64 %7, 0
   %8 = and i64 %2, 2
@@ -13847,13 +13841,13 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZNK4llvm3LLT13getS
   br label %_ZNSt14_Function_baseD2Ev.exit4
 
 _ZNSt14_Function_baseD2Ev.exit4:                  ; preds = %_ZNSt14_Function_baseD2Ev.exit, %32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %25
 }
 
-declare noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(125504), i32 noundef) local_unnamed_addr #3
+declare noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(125504), i32 noundef) local_unnamed_addr #2
 
-declare void @_ZN4llvm18LegalityPredicates6typeIsEjNS_3LLTE(ptr dead_on_unwind writable sret(%"class.std::function") align 8, i32 noundef, i64) local_unnamed_addr #3
+declare void @_ZN4llvm18LegalityPredicates6typeIsEjNS_3LLTE(ptr dead_on_unwind writable sret(%"class.std::function") align 8, i32 noundef, i64) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet16scalarSameSizeAsEjj(ptr noundef nonnull align 8 dereferenceable(168) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 comdat align 2 {
@@ -13861,8 +13855,8 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(168) ptr @_ZN
   %5 = alloca %"class.std::function.77", align 8
   %6 = alloca %"class.std::function", align 8
   %7 = alloca %"class.std::function.77", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -13895,10 +13889,10 @@ _ZNSt14_Function_baseD2Ev.exit.i:                 ; preds = %14, %3
   br label %_ZN4llvm15LegalizeRuleSet15minScalarSameAsEjj.exit
 
 _ZN4llvm15LegalizeRuleSet15minScalarSameAsEjj.exit: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i, %17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -13927,8 +13921,8 @@ _ZNSt14_Function_baseD2Ev.exit.i9:                ; preds = %25, %_ZN4llvm15Lega
   br label %_ZN4llvm15LegalizeRuleSet15maxScalarSameAsEjj.exit
 
 _ZN4llvm15LegalizeRuleSet15maxScalarSameAsEjj.exit: ; preds = %_ZNSt14_Function_baseD2Ev.exit.i9, %28
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %22
 }
 
@@ -13942,7 +13936,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(168) ptr @_ZN
   call void @_ZN4llvm18LegalityPredicates23scalarOrEltNarrowerThanEjj(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %6, i32 noundef %1, i32 noundef %2) #17
   call void @_ZN4llvm18LegalityPredicates22scalarOrEltSizeNotPow2Ej(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %7, i32 noundef %1) #17
   call void @llvm.experimental.noalias.scope.decl(metadata !436)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #17, !noalias !436
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !436
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false), !noalias !436
   %10 = load ptr, ptr %9, align 8, !tbaa !164, !noalias !436
@@ -14023,7 +14017,7 @@ _ZN4llvm18LegalityPredicates3anyISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3anyISt8functionIS4_EEET_S9_S9_EUlS3_E_E9_M_invokeERKSt9_Any_dataS3_, ptr %41, align 8, !tbaa !169, !alias.scope !436
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3anyISt8functionIS4_EEET_S9_S9_EUlS3_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %42, align 8, !tbaa !164, !alias.scope !436
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #17, !noalias !436
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !436
   call void @_ZN4llvm17LegalizeMutations26widenScalarOrEltToNextPow2Ejj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.77") align 8 %8, i32 noundef %1, i32 noundef %2) #17
   %43 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEES3_IFSt4pairIjNS_3LLTEES6_EE(ptr noundef nonnull align 8 dereferenceable(168) %0, i8 noundef zeroext 2, ptr noundef nonnull %5, ptr noundef nonnull %8)
   %44 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -14066,9 +14060,9 @@ _ZNSt14_Function_baseD2Ev.exit10:                 ; preds = %_ZNSt14_Function_ba
   ret ptr %43
 }
 
-declare void @_ZN4llvm17LegalizeMutations8changeToEjNS_3LLTE(ptr dead_on_unwind writable sret(%"class.std::function.77") align 8, i32 noundef, i64) local_unnamed_addr #3
+declare void @_ZN4llvm17LegalizeMutations8changeToEjNS_3LLTE(ptr dead_on_unwind writable sret(%"class.std::function.77") align 8, i32 noundef, i64) local_unnamed_addr #2
 
-declare void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind writable sret(%"class.std::function") align 8, i32 noundef, ptr, i64) local_unnamed_addr #3
+declare void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind writable sret(%"class.std::function") align 8, i32 noundef, ptr, i64) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEJS7_EEET_S8_S8_DpT0_(ptr dead_on_unwind noalias writable sret(%"class.std::function") align 8 %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 comdat {
@@ -14119,7 +14113,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2: ; preds = %_ZNSt8func
   %29 = phi ptr [ null, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit ], [ %28, %22 ]
   %30 = phi ptr [ %19, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit ], [ %.pre, %22 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !439)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #17, !noalias !439
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !439
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false), !noalias !439
   %.not.i.i.not.i.i = icmp eq ptr %30, null
@@ -14203,7 +14197,7 @@ _ZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %63, align 8, !tbaa !164, !alias.scope !439
   %.phi.trans.insert13 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.pre14 = load ptr, ptr %.phi.trans.insert13, align 8, !tbaa !164
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #17, !noalias !439
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !439
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 32, i1 false)
   %.not.i.i.not.i3 = icmp eq ptr %.pre14, null
   br i1 %.not.i.i.not.i3, label %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit4, label %64
@@ -14262,9 +14256,9 @@ _ZNSt14_Function_baseD2Ev.exit10:                 ; preds = %_ZNSt14_Function_ba
   ret void
 }
 
-declare void @_ZN4llvm19LegacyLegalizerInfo13computeTablesEv(ptr noundef nonnull align 8 dereferenceable(82992)) local_unnamed_addr #3
+declare void @_ZN4llvm19LegacyLegalizerInfo13computeTablesEv(ptr noundef nonnull align 8 dereferenceable(82992)) local_unnamed_addr #2
 
-declare void @_ZNK4llvm13LegalizerInfo6verifyERKNS_11MCInstrInfoE(ptr noundef nonnull align 8 dereferenceable(125504), ptr noundef nonnull align 8 dereferenceable(44)) local_unnamed_addr #3
+declare void @_ZNK4llvm13LegalizerInfo6verifyERKNS_11MCInstrInfoE(ptr noundef nonnull align 8 dereferenceable(125504), ptr noundef nonnull align 8 dereferenceable(44)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZNK4llvm18RISCVLegalizerInfo17legalizeIntrinsicERNS_15LegalizerHelperERNS_12MachineInstrE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(70) %2) unnamed_addr #0 align 2 {
@@ -14322,15 +14316,15 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit: ; preds = %18, %33, %
   %44 = tail call noundef ptr @_ZN4llvm13getTypeForLLTENS_3LLTERNS_11LLVMContextE(i64 %.sroa.04.0.i, ptr noundef nonnull align 8 dereferenceable(8) %28) #17
   %45 = tail call i8 @_ZNK4llvm10DataLayout15getABITypeAlignEPNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(496) %26, ptr noundef %44) #17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %4, i8 0, i64 21, i1 false)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   %46 = call noundef ptr @_ZN4llvm15MachineFunction20getMachineMemOperandENS_18MachinePointerInfoENS_17MachineMemOperand5FlagsENS_3LLTENS_5AlignERKNS_9AAMDNodesEPKNS_6MDNodeEhNS_14AtomicOrderingESC_(ptr noundef nonnull align 8 dereferenceable(1065) %22, ptr noundef nonnull byval(%"struct.llvm::MachinePointerInfo") align 8 %4, i16 noundef zeroext 1, i64 %.sroa.04.0.i, i8 %45, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef null, i8 noundef zeroext 1, i32 noundef 0, i32 noundef 0) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #17
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 %.sroa.04.0.i, ptr %6, align 8, !tbaa !161
   %47 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 0, ptr %47, align 8, !tbaa !588
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %48 = load ptr, ptr %13, align 8, !tbaa !442
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 68
   %50 = load i32, ptr %49, align 4, !tbaa !161
@@ -14340,26 +14334,26 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit: ; preds = %18, %33, %
   %52 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder14buildLoadInstrEjRKNS_5DstOpERKNS_5SrcOpERNS_17MachineMemOperandE(ptr noundef nonnull align 8 dereferenceable(88) %19, i32 noundef 93, ptr noundef nonnull align 8 dereferenceable(20) %6, ptr noundef nonnull align 8 dereferenceable(20) %7, ptr noundef nonnull align 8 dereferenceable(80) %46) #17
   %53 = extractvalue { ptr, ptr } %52, 0
   %54 = extractvalue { ptr, ptr } %52, 1
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %8, i8 0, i64 21, i1 false)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 32, i1 false)
   %55 = call noundef ptr @_ZN4llvm15MachineFunction20getMachineMemOperandENS_18MachinePointerInfoENS_17MachineMemOperand5FlagsENS_3LLTENS_5AlignERKNS_9AAMDNodesEPKNS_6MDNodeEhNS_14AtomicOrderingESC_(ptr noundef nonnull align 8 dereferenceable(1065) %22, ptr noundef nonnull byval(%"struct.llvm::MachinePointerInfo") align 8 %8, i16 noundef zeroext 2, i64 %.sroa.04.0.i, i8 %45, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef null, i8 noundef zeroext 1, i32 noundef 0, i32 noundef 0) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #17
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %53, ptr %10, align 8, !tbaa !594
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %54, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !595
   %56 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i32 1, ptr %56, align 8, !tbaa !591
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 %31, ptr %11, align 8, !tbaa !163
   %57 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i32 0, ptr %57, align 8, !tbaa !591
   %58 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder10buildStoreERKNS_5SrcOpES3_RNS_17MachineMemOperandE(ptr noundef nonnull align 8 dereferenceable(88) %19, ptr noundef nonnull align 8 dereferenceable(20) %10, ptr noundef nonnull align 8 dereferenceable(20) %11, ptr noundef nonnull align 8 dereferenceable(80) %55) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @_ZN4llvm12MachineInstr15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(70) %2) #17
   br label %59
 
@@ -14367,20 +14361,20 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit: ; preds = %18, %33, %
   ret i1 %cond
 }
 
-declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm8Function10getContextEv(ptr noundef nonnull align 8 dereferenceable(136)) local_unnamed_addr #3
+declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm8Function10getContextEv(ptr noundef nonnull align 8 dereferenceable(136)) local_unnamed_addr #2
 
-declare i8 @_ZNK4llvm10DataLayout15getABITypeAlignEPNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(496), ptr noundef) local_unnamed_addr #3
+declare i8 @_ZNK4llvm10DataLayout15getABITypeAlignEPNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(496), ptr noundef) local_unnamed_addr #2
 
-declare noundef ptr @_ZN4llvm13getTypeForLLTENS_3LLTERNS_11LLVMContextE(i64, ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #3
+declare noundef ptr @_ZN4llvm13getTypeForLLTENS_3LLTERNS_11LLVMContextE(i64, ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #2
 
-declare noundef ptr @_ZN4llvm15MachineFunction20getMachineMemOperandENS_18MachinePointerInfoENS_17MachineMemOperand5FlagsENS_3LLTENS_5AlignERKNS_9AAMDNodesEPKNS_6MDNodeEhNS_14AtomicOrderingESC_(ptr noundef nonnull align 8 dereferenceable(1065), ptr noundef byval(%"struct.llvm::MachinePointerInfo") align 8, i16 noundef zeroext, i64, i8, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i8 noundef zeroext, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare noundef ptr @_ZN4llvm15MachineFunction20getMachineMemOperandENS_18MachinePointerInfoENS_17MachineMemOperand5FlagsENS_3LLTENS_5AlignERKNS_9AAMDNodesEPKNS_6MDNodeEhNS_14AtomicOrderingESC_(ptr noundef nonnull align 8 dereferenceable(1065), ptr noundef byval(%"struct.llvm::MachinePointerInfo") align 8, i16 noundef zeroext, i64, i8, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i8 noundef zeroext, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
-declare { ptr, ptr } @_ZN4llvm16MachineIRBuilder10buildStoreERKNS_5SrcOpES3_RNS_17MachineMemOperandE(ptr noundef nonnull align 8 dereferenceable(88), ptr noundef nonnull align 8 dereferenceable(20), ptr noundef nonnull align 8 dereferenceable(20), ptr noundef nonnull align 8 dereferenceable(80)) local_unnamed_addr #3
+declare { ptr, ptr } @_ZN4llvm16MachineIRBuilder10buildStoreERKNS_5SrcOpES3_RNS_17MachineMemOperandE(ptr noundef nonnull align 8 dereferenceable(88), ptr noundef nonnull align 8 dereferenceable(20), ptr noundef nonnull align 8 dereferenceable(20), ptr noundef nonnull align 8 dereferenceable(80)) local_unnamed_addr #2
 
-declare void @_ZN4llvm12MachineInstr15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(70)) local_unnamed_addr #3
+declare void @_ZN4llvm12MachineInstr15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(70)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZNK4llvm18RISCVLegalizerInfo15legalizeVAStartERNS_12MachineInstrERNS_16MachineIRBuilderE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, ptr noundef nonnull align 8 dereferenceable(88) %2) local_unnamed_addr #0 align 2 {
@@ -14421,21 +14415,21 @@ define dso_local noundef zeroext i1 @_ZNK4llvm18RISCVLegalizerInfo15legalizeVASt
 
 _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit: ; preds = %3, %22, %27
   %.sroa.04.0.i = phi i64 [ %32, %27 ], [ 0, %22 ], [ 0, %3 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %.sroa.04.0.i, ptr %4, align 8, !tbaa !161
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 0, ptr %33, align 8, !tbaa !588
   %34 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder15buildFrameIndexERKNS_5DstOpEi(ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef nonnull align 8 dereferenceable(20) %4, i32 noundef %14) #17
   %35 = extractvalue { ptr, ptr } %34, 0
   %36 = extractvalue { ptr, ptr } %34, 1
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #17
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %35, ptr %5, align 8, !tbaa !594
   %.sroa.415.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %36, ptr %.sroa.415.0..sroa_idx, align 8, !tbaa !595
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 1, ptr %37, align 8, !tbaa !591
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %38 = load ptr, ptr %17, align 8, !tbaa !442
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 4
   %40 = load i32, ptr %39, align 4, !tbaa !161
@@ -14465,13 +14459,13 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit: ; preds = %3, %22, %2
 _ZNK4llvm12MachineInstr11memoperandsEv.exit:      ; preds = %46, %48
   %52 = phi ptr [ %47, %46 ], [ %.pre, %48 ]
   %53 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder10buildStoreERKNS_5SrcOpES3_RNS_17MachineMemOperandE(ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef nonnull align 8 dereferenceable(20) %5, ptr noundef nonnull align 8 dereferenceable(20) %6, ptr noundef nonnull align 8 dereferenceable(80) %52) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN4llvm12MachineInstr15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(70) %1) #17
   ret i1 true
 }
 
-declare { ptr, ptr } @_ZN4llvm16MachineIRBuilder15buildFrameIndexERKNS_5DstOpEi(ptr noundef nonnull align 8 dereferenceable(88), ptr noundef nonnull align 8 dereferenceable(20), i32 noundef) local_unnamed_addr #3
+declare { ptr, ptr } @_ZN4llvm16MachineIRBuilder15buildFrameIndexERKNS_5DstOpEi(ptr noundef nonnull align 8 dereferenceable(88), ptr noundef nonnull align 8 dereferenceable(20), i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZNK4llvm18RISCVLegalizerInfo12legalizeBRJTERNS_12MachineInstrERNS_16MachineIRBuilderE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(125528) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, ptr noundef nonnull align 8 dereferenceable(88) %2) local_unnamed_addr #0 align 2 {
@@ -14555,7 +14549,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit66: ; preds = %_ZNK4llv
   br i1 %or.cond, label %64, label %_ZN4llvm13isPowerOf2_32Ej.exit.thread
 
 64:                                               ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit66
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 %.sroa.04.0.i65, ptr %8, align 8, !tbaa !161
   %65 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 0, ptr %65, align 8, !tbaa !588
@@ -14565,12 +14559,12 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit66: ; preds = %_ZNK4llv
   %69 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder13buildConstantERKNS_5DstOpEl(ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef nonnull align 8 dereferenceable(20) %8, i64 noundef %68) #17
   %70 = extractvalue { ptr, ptr } %69, 0
   %71 = extractvalue { ptr, ptr } %69, 1
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #17
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 %.sroa.04.0.i65, ptr %6, align 8
   %.sroa.4113.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 0, ptr %.sroa.4113.0..sroa_idx, align 8, !tbaa !648
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 %50, ptr %7, align 8
   %.sroa.4109.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 0, ptr %.sroa.4109.0..sroa_idx, align 8, !tbaa !649
@@ -14584,31 +14578,31 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit66: ; preds = %_ZNK4llv
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 32
   %75 = load ptr, ptr %74, align 8
   %76 = call { ptr, ptr } %75(ptr noundef nonnull align 8 dereferenceable(88) %2, i32 noundef 140, ptr nonnull %6, i64 1, ptr nonnull %7, i64 2, i64 0) #17
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %77 = extractvalue { ptr, ptr } %76, 1
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 32
   %79 = load ptr, ptr %78, align 8, !tbaa !442
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 4
   %81 = load i32, ptr %80, align 4, !tbaa !161
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 %.sroa.04.0.i, ptr %9, align 8, !tbaa !161
   %82 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i32 0, ptr %82, align 8, !tbaa !588
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 %36, ptr %10, align 8, !tbaa !163
   %83 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i32 0, ptr %83, align 8, !tbaa !591
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 %81, ptr %11, align 8, !tbaa !163
   %84 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i32 0, ptr %84, align 8, !tbaa !591
   %85 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder11buildPtrAddERKNS_5DstOpERKNS_5SrcOpES6_St8optionalIjE(ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef nonnull align 8 dereferenceable(20) %9, ptr noundef nonnull align 8 dereferenceable(20) %10, ptr noundef nonnull align 8 dereferenceable(20) %11, i64 0) #17
   %86 = extractvalue { ptr, ptr } %85, 0
   %87 = extractvalue { ptr, ptr } %85, 1
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @_ZN4llvm18MachinePointerInfo12getJumpTableERNS_15MachineFunctionE(ptr dead_on_unwind nonnull writable sret(%"struct.llvm::MachinePointerInfo") align 8 %12, ptr noundef nonnull align 8 dereferenceable(1065) %28) #17
   %88 = zext i32 %32 to i64
   %89 = call noundef nonnull align 8 dereferenceable(496) ptr @_ZNK4llvm15MachineFunction13getDataLayoutEv(ptr noundef nonnull align 8 dereferenceable(1065) %28) #17
@@ -14617,10 +14611,10 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit66: ; preds = %_ZNK4llv
   %92 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %91, i1 false)
   %93 = trunc nuw nsw i64 %92 to i8
   %94 = sub nsw i8 63, %93
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, i8 0, i64 32, i1 false)
   %95 = call noundef ptr @_ZN4llvm15MachineFunction20getMachineMemOperandENS_18MachinePointerInfoENS_17MachineMemOperand5FlagsENS_12LocationSizeENS_5AlignERKNS_9AAMDNodesEPKNS_6MDNodeEhNS_14AtomicOrderingESC_(ptr noundef nonnull align 8 dereferenceable(1065) %28, ptr noundef nonnull byval(%"struct.llvm::MachinePointerInfo") align 8 %12, i16 noundef zeroext 1, i64 %88, i8 %94, ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef null, i8 noundef zeroext 1, i32 noundef 0, i32 noundef 0) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %96 = load i32, ptr %30, align 8, !tbaa !650
   switch i32 %96, label %_ZN4llvm13isPowerOf2_32Ej.exit.thread [
     i32 3, label %97
@@ -14635,11 +14629,11 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit66: ; preds = %_ZNK4llv
   %101 = load i8, ptr %100, align 1, !tbaa !24, !range !153, !noundef !154
   %102 = trunc nuw i8 %101 to i1
   %103 = select i1 %102, i32 94, i32 93
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i64 %.sroa.04.0.i65, ptr %14, align 8, !tbaa !161
   %104 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i32 0, ptr %104, align 8, !tbaa !588
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store ptr %86, ptr %15, align 8, !tbaa !594
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %87, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !595
@@ -14648,17 +14642,17 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit66: ; preds = %_ZNK4llv
   %106 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder14buildLoadInstrEjRKNS_5DstOpERKNS_5SrcOpERNS_17MachineMemOperandE(ptr noundef nonnull align 8 dereferenceable(88) %2, i32 noundef %103, ptr noundef nonnull align 8 dereferenceable(20) %14, ptr noundef nonnull align 8 dereferenceable(20) %15, ptr noundef nonnull align 8 dereferenceable(80) %95) #17
   %107 = extractvalue { ptr, ptr } %106, 0
   %108 = extractvalue { ptr, ptr } %106, 1
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14) #17
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %16) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i64 %.sroa.04.0.i, ptr %16, align 8, !tbaa !161
   %109 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i32 0, ptr %109, align 8, !tbaa !588
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i32 %36, ptr %17, align 8, !tbaa !163
   %110 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i32 0, ptr %110, align 8, !tbaa !591
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %18) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store ptr %107, ptr %18, align 8, !tbaa !594
   %.sroa.480.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %108, ptr %.sroa.480.0..sroa_idx, align 8, !tbaa !595
@@ -14670,17 +14664,17 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit66: ; preds = %_ZNK4llv
   %115 = load ptr, ptr %114, align 8, !tbaa !442
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 4
   %117 = load i32, ptr %116, align 4, !tbaa !161
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %142
 
 118:                                              ; preds = %64
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %19) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store i64 %.sroa.04.0.i65, ptr %19, align 8, !tbaa !161
   %119 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store i32 0, ptr %119, align 8, !tbaa !588
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %20) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store ptr %86, ptr %20, align 8, !tbaa !594
   %.sroa.6.0..sroa_idx93 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr %87, ptr %.sroa.6.0..sroa_idx93, align 8, !tbaa !595
@@ -14689,13 +14683,13 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit66: ; preds = %_ZNK4llv
   %121 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder14buildLoadInstrEjRKNS_5DstOpERKNS_5SrcOpERNS_17MachineMemOperandE(ptr noundef nonnull align 8 dereferenceable(88) %2, i32 noundef 94, ptr noundef nonnull align 8 dereferenceable(20) %19, ptr noundef nonnull align 8 dereferenceable(20) %20, ptr noundef nonnull align 8 dereferenceable(80) %95) #17
   %122 = extractvalue { ptr, ptr } %121, 0
   %123 = extractvalue { ptr, ptr } %121, 1
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %20) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19) #17
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %.sroa.04.0.i, ptr %4, align 8
   %.sroa.470.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 0, ptr %.sroa.470.0..sroa_idx, align 8, !tbaa !648
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %122, ptr %5, align 8
   %.sroa.067.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %123, ptr %.sroa.067.sroa.4.0..sroa_idx, align 8, !tbaa !161
@@ -14705,8 +14699,8 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit66: ; preds = %_ZNK4llv
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 32
   %126 = load ptr, ptr %125, align 8
   %127 = call { ptr, ptr } %126(ptr noundef nonnull align 8 dereferenceable(88) %2, i32 noundef 81, ptr nonnull %4, i64 1, ptr nonnull %5, i64 1, i64 0) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %128 = extractvalue { ptr, ptr } %127, 1
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 32
   %130 = load ptr, ptr %129, align 8, !tbaa !442
@@ -14715,11 +14709,11 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit66: ; preds = %_ZNK4llv
   br label %142
 
 133:                                              ; preds = %64
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %21) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store i64 %.sroa.04.0.i, ptr %21, align 8, !tbaa !161
   %134 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store i32 0, ptr %134, align 8, !tbaa !588
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %22) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   store ptr %86, ptr %22, align 8, !tbaa !594
   %.sroa.6.0..sroa_idx95 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr %87, ptr %.sroa.6.0..sroa_idx95, align 8, !tbaa !595
@@ -14731,8 +14725,8 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit66: ; preds = %_ZNK4llv
   %139 = load ptr, ptr %138, align 8, !tbaa !442
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 4
   %141 = load i32, ptr %140, align 4, !tbaa !161
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %22) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %142
 
 142:                                              ; preds = %133, %118, %97
@@ -14746,21 +14740,21 @@ _ZN4llvm13isPowerOf2_32Ej.exit.thread:            ; preds = %_ZNK4llvm19MachineR
   ret i1 %.0
 }
 
-declare noundef i32 @_ZNK4llvm20MachineJumpTableInfo12getEntrySizeERKNS_10DataLayoutE(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(496)) local_unnamed_addr #3
+declare noundef i32 @_ZNK4llvm20MachineJumpTableInfo12getEntrySizeERKNS_10DataLayoutE(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(496)) local_unnamed_addr #2
 
-declare noundef nonnull align 8 dereferenceable(496) ptr @_ZNK4llvm15MachineFunction13getDataLayoutEv(ptr noundef nonnull align 8 dereferenceable(1065)) local_unnamed_addr #3
+declare noundef nonnull align 8 dereferenceable(496) ptr @_ZNK4llvm15MachineFunction13getDataLayoutEv(ptr noundef nonnull align 8 dereferenceable(1065)) local_unnamed_addr #2
 
-declare { ptr, ptr } @_ZN4llvm16MachineIRBuilder13buildConstantERKNS_5DstOpEl(ptr noundef nonnull align 8 dereferenceable(88), ptr noundef nonnull align 8 dereferenceable(20), i64 noundef) local_unnamed_addr #3
+declare { ptr, ptr } @_ZN4llvm16MachineIRBuilder13buildConstantERKNS_5DstOpEl(ptr noundef nonnull align 8 dereferenceable(88), ptr noundef nonnull align 8 dereferenceable(20), i64 noundef) local_unnamed_addr #2
 
-declare { ptr, ptr } @_ZN4llvm16MachineIRBuilder11buildPtrAddERKNS_5DstOpERKNS_5SrcOpES6_St8optionalIjE(ptr noundef nonnull align 8 dereferenceable(88), ptr noundef nonnull align 8 dereferenceable(20), ptr noundef nonnull align 8 dereferenceable(20), ptr noundef nonnull align 8 dereferenceable(20), i64) local_unnamed_addr #3
+declare { ptr, ptr } @_ZN4llvm16MachineIRBuilder11buildPtrAddERKNS_5DstOpERKNS_5SrcOpES6_St8optionalIjE(ptr noundef nonnull align 8 dereferenceable(88), ptr noundef nonnull align 8 dereferenceable(20), ptr noundef nonnull align 8 dereferenceable(20), ptr noundef nonnull align 8 dereferenceable(20), i64) local_unnamed_addr #2
 
-declare void @_ZN4llvm18MachinePointerInfo12getJumpTableERNS_15MachineFunctionE(ptr dead_on_unwind writable sret(%"struct.llvm::MachinePointerInfo") align 8, ptr noundef nonnull align 8 dereferenceable(1065)) local_unnamed_addr #3
+declare void @_ZN4llvm18MachinePointerInfo12getJumpTableERNS_15MachineFunctionE(ptr dead_on_unwind writable sret(%"struct.llvm::MachinePointerInfo") align 8, ptr noundef nonnull align 8 dereferenceable(1065)) local_unnamed_addr #2
 
-declare noundef i32 @_ZNK4llvm20MachineJumpTableInfo17getEntryAlignmentERKNS_10DataLayoutE(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(496)) local_unnamed_addr #3
+declare noundef i32 @_ZNK4llvm20MachineJumpTableInfo17getEntryAlignmentERKNS_10DataLayoutE(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(496)) local_unnamed_addr #2
 
-declare { ptr, ptr } @_ZN4llvm16MachineIRBuilder14buildLoadInstrEjRKNS_5DstOpERKNS_5SrcOpERNS_17MachineMemOperandE(ptr noundef nonnull align 8 dereferenceable(88), i32 noundef, ptr noundef nonnull align 8 dereferenceable(20), ptr noundef nonnull align 8 dereferenceable(20), ptr noundef nonnull align 8 dereferenceable(80)) local_unnamed_addr #3
+declare { ptr, ptr } @_ZN4llvm16MachineIRBuilder14buildLoadInstrEjRKNS_5DstOpERKNS_5SrcOpERNS_17MachineMemOperandE(ptr noundef nonnull align 8 dereferenceable(88), i32 noundef, ptr noundef nonnull align 8 dereferenceable(20), ptr noundef nonnull align 8 dereferenceable(20), ptr noundef nonnull align 8 dereferenceable(80)) local_unnamed_addr #2
 
-declare { ptr, ptr } @_ZN4llvm16MachineIRBuilder15buildBrIndirectENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(88), i32) local_unnamed_addr #3
+declare { ptr, ptr } @_ZN4llvm16MachineIRBuilder15buildBrIndirectENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(88), i32) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZNK4llvm18RISCVLegalizerInfo22shouldBeInConstantPoolERKNS_5APIntEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(125528) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
@@ -14801,7 +14795,7 @@ _ZNK4llvm5APInt12getSExtValueEv.exit:             ; preds = %11, %18
   br i1 %26, label %27, label %55
 
 27:                                               ; preds = %23
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %28 = load ptr, ptr %24, align 8, !tbaa !658
   call void @_ZN4llvm11RISCVMatInt15generateInstSeqElRKNS_15MCSubtargetInfoE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::SmallVector.347") align 8 %4, i64 noundef %.0.i, ptr noundef nonnull align 8 dereferenceable(304) %28) #17
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -14814,9 +14808,9 @@ _ZNK4llvm5APInt12getSExtValueEv.exit:             ; preds = %11, %18
   br i1 %brmerge, label %50, label %33
 
 33:                                               ; preds = %27
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #17
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %7) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %34 = load ptr, ptr %24, align 8, !tbaa !658
   call void @_ZN4llvm11RISCVMatInt21generateTwoRegInstSeqElRKNS_15MCSubtargetInfoERjS4_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::SmallVector.347") align 8 %7, i64 noundef %.0.i, ptr noundef nonnull align 8 dereferenceable(304) %34, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 4 dereferenceable(4) %6) #17
   %35 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -14845,9 +14839,9 @@ _ZNK4llvm5APInt12getSExtValueEv.exit:             ; preds = %11, %18
   br label %_ZN4llvm11SmallVectorINS_11RISCVMatInt4InstELj8EED2Ev.exit
 
 _ZN4llvm11SmallVectorINS_11RISCVMatInt4InstELj8EED2Ev.exit: ; preds = %44, %49
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %50
 
 50:                                               ; preds = %27, %_ZN4llvm11SmallVectorINS_11RISCVMatInt4InstELj8EED2Ev.exit
@@ -14862,7 +14856,7 @@ _ZN4llvm11SmallVectorINS_11RISCVMatInt4InstELj8EED2Ev.exit: ; preds = %44, %49
   br label %_ZN4llvm11SmallVectorINS_11RISCVMatInt4InstELj8EED2Ev.exit6
 
 _ZN4llvm11SmallVectorINS_11RISCVMatInt4InstELj8EED2Ev.exit6: ; preds = %50, %54
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %55
 
 55:                                               ; preds = %23, %_ZNK4llvm5APInt12getSExtValueEv.exit, %_ZN4llvm11SmallVectorINS_11RISCVMatInt4InstELj8EED2Ev.exit6
@@ -14870,13 +14864,13 @@ _ZN4llvm11SmallVectorINS_11RISCVMatInt4InstELj8EED2Ev.exit6: ; preds = %50, %54
   ret i1 %.0
 }
 
-declare noundef zeroext i1 @_ZNK4llvm14RISCVSubtarget27useConstantPoolForLargeIntsEv(ptr noundef nonnull align 8 dereferenceable(413544)) local_unnamed_addr #3
+declare noundef zeroext i1 @_ZNK4llvm14RISCVSubtarget27useConstantPoolForLargeIntsEv(ptr noundef nonnull align 8 dereferenceable(413544)) local_unnamed_addr #2
 
-declare void @_ZN4llvm11RISCVMatInt15generateInstSeqElRKNS_15MCSubtargetInfoE(ptr dead_on_unwind writable sret(%"class.llvm::SmallVector.347") align 8, i64 noundef, ptr noundef nonnull align 8 dereferenceable(304)) local_unnamed_addr #3
+declare void @_ZN4llvm11RISCVMatInt15generateInstSeqElRKNS_15MCSubtargetInfoE(ptr dead_on_unwind writable sret(%"class.llvm::SmallVector.347") align 8, i64 noundef, ptr noundef nonnull align 8 dereferenceable(304)) local_unnamed_addr #2
 
-declare noundef i32 @_ZNK4llvm14RISCVSubtarget19getMaxBuildIntsCostEv(ptr noundef nonnull align 8 dereferenceable(413544)) local_unnamed_addr #3
+declare noundef i32 @_ZNK4llvm14RISCVSubtarget19getMaxBuildIntsCostEv(ptr noundef nonnull align 8 dereferenceable(413544)) local_unnamed_addr #2
 
-declare void @_ZN4llvm11RISCVMatInt21generateTwoRegInstSeqElRKNS_15MCSubtargetInfoERjS4_(ptr dead_on_unwind writable sret(%"class.llvm::SmallVector.347") align 8, i64 noundef, ptr noundef nonnull align 8 dereferenceable(304), ptr noundef nonnull align 4 dereferenceable(4), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #3
+declare void @_ZN4llvm11RISCVMatInt21generateTwoRegInstSeqElRKNS_15MCSubtargetInfoERjS4_(ptr dead_on_unwind writable sret(%"class.llvm::SmallVector.347") align 8, i64 noundef, ptr noundef nonnull align 8 dereferenceable(304), ptr noundef nonnull align 4 dereferenceable(4), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZNK4llvm18RISCVLegalizerInfo14legalizeVScaleERNS_12MachineInstrERNS_16MachineIRBuilderE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(125528) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, ptr noundef nonnull align 8 dereferenceable(88) %2) local_unnamed_addr #0 align 2 {
@@ -14901,7 +14895,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm18RISCVLegalizerInfo14legalizeVSca
   %22 = alloca [1 x %"class.llvm::DstOp"], align 8
   %23 = alloca %"class.llvm::DstOp", align 8
   %24 = alloca %"class.llvm::DstOp", align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 125504
   %26 = load ptr, ptr %25, align 8, !tbaa !658
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 519
@@ -14950,7 +14944,7 @@ _ZN4llvm13isPowerOf2_64Em.exit:                   ; preds = %42
   br i1 %58, label %59, label %77
 
 59:                                               ; preds = %53
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %.sroa.030.0.copyload = load i64, ptr %14, align 8, !tbaa !161
   store i64 %.sroa.030.0.copyload, ptr %15, align 8, !tbaa !161
   %60 = getelementptr inbounds nuw i8, ptr %15, i64 16
@@ -14961,8 +14955,8 @@ _ZN4llvm13isPowerOf2_64Em.exit:                   ; preds = %42
   %64 = call { ptr, ptr } %63(ptr noundef nonnull align 8 dereferenceable(88) %2, i32 noundef 316, ptr nonnull %15, i64 1, ptr null, i64 0, i64 0) #17
   %65 = extractvalue { ptr, ptr } %64, 0
   %66 = extractvalue { ptr, ptr } %64, 1
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15) #17
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %16) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %.sroa.028.0.copyload = load i64, ptr %14, align 8, !tbaa !161
   store i64 %.sroa.028.0.copyload, ptr %16, align 8, !tbaa !161
   %67 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -14971,11 +14965,11 @@ _ZN4llvm13isPowerOf2_64Em.exit:                   ; preds = %42
   %69 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder13buildConstantERKNS_5DstOpEl(ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef nonnull align 8 dereferenceable(20) %16, i64 noundef %68) #17
   %70 = extractvalue { ptr, ptr } %69, 0
   %71 = extractvalue { ptr, ptr } %69, 1
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 %34, ptr %12, align 8
   %.sroa.4189.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i32 1, ptr %.sroa.4189.0..sroa_idx, align 8, !tbaa !648
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %13) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr %65, ptr %13, align 8
   %.sroa.0184.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %66, ptr %.sroa.0184.sroa.4.0..sroa_idx, align 8, !tbaa !161
@@ -14991,9 +14985,9 @@ _ZN4llvm13isPowerOf2_64Em.exit:                   ; preds = %42
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 32
   %75 = load ptr, ptr %74, align 8
   %76 = call { ptr, ptr } %75(ptr noundef nonnull align 8 dereferenceable(88) %2, i32 noundef 141, ptr nonnull %12, i64 1, ptr nonnull %13, i64 2, i64 0) #17
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %13) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %150
 
 77:                                               ; preds = %53
@@ -15001,7 +14995,7 @@ _ZN4llvm13isPowerOf2_64Em.exit:                   ; preds = %42
   br i1 %.not, label %96, label %78
 
 78:                                               ; preds = %77
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %.sroa.023.0.copyload = load i64, ptr %14, align 8, !tbaa !161
   store i64 %.sroa.023.0.copyload, ptr %17, align 8, !tbaa !161
   %79 = getelementptr inbounds nuw i8, ptr %17, i64 16
@@ -15012,8 +15006,8 @@ _ZN4llvm13isPowerOf2_64Em.exit:                   ; preds = %42
   %83 = call { ptr, ptr } %82(ptr noundef nonnull align 8 dereferenceable(88) %2, i32 noundef 316, ptr nonnull %17, i64 1, ptr null, i64 0, i64 0) #17
   %84 = extractvalue { ptr, ptr } %83, 0
   %85 = extractvalue { ptr, ptr } %83, 1
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17) #17
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %18) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %.sroa.021.0.copyload = load i64, ptr %14, align 8, !tbaa !161
   store i64 %.sroa.021.0.copyload, ptr %18, align 8, !tbaa !161
   %86 = getelementptr inbounds nuw i8, ptr %18, i64 16
@@ -15022,11 +15016,11 @@ _ZN4llvm13isPowerOf2_64Em.exit:                   ; preds = %42
   %88 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder13buildConstantERKNS_5DstOpEl(ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef nonnull align 8 dereferenceable(20) %18, i64 noundef %87) #17
   %89 = extractvalue { ptr, ptr } %88, 0
   %90 = extractvalue { ptr, ptr } %88, 1
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 %34, ptr %10, align 8
   %.sroa.4162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i32 1, ptr %.sroa.4162.0..sroa_idx, align 8, !tbaa !648
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %11) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %84, ptr %11, align 8
   %.sroa.0157.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %85, ptr %.sroa.0157.sroa.4.0..sroa_idx, align 8, !tbaa !161
@@ -15042,13 +15036,13 @@ _ZN4llvm13isPowerOf2_64Em.exit:                   ; preds = %42
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 32
   %94 = load ptr, ptr %93, align 8
   %95 = call { ptr, ptr } %94(ptr noundef nonnull align 8 dereferenceable(88) %2, i32 noundef 140, ptr nonnull %10, i64 1, ptr nonnull %11, i64 2, i64 0) #17
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %150
 
 96:                                               ; preds = %77
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %19) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store i32 %34, ptr %19, align 8, !tbaa !163
   %97 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store i32 1, ptr %97, align 8, !tbaa !588
@@ -15056,7 +15050,7 @@ _ZN4llvm13isPowerOf2_64Em.exit:                   ; preds = %42
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 32
   %100 = load ptr, ptr %99, align 8
   %101 = call { ptr, ptr } %100(ptr noundef nonnull align 8 dereferenceable(88) %2, i32 noundef 316, ptr nonnull %19, i64 1, ptr null, i64 0, i64 0) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %150
 
 102:                                              ; preds = %_ZN4llvm13isPowerOf2_64Em.exit
@@ -15065,7 +15059,7 @@ _ZN4llvm13isPowerOf2_64Em.exit:                   ; preds = %42
   br i1 %104, label %.thread, label %122
 
 .thread:                                          ; preds = %42, %102
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %20) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %.sroa.011.0.copyload = load i64, ptr %14, align 8, !tbaa !161
   store i64 %.sroa.011.0.copyload, ptr %20, align 8, !tbaa !161
   %105 = getelementptr inbounds nuw i8, ptr %20, i64 16
@@ -15076,8 +15070,8 @@ _ZN4llvm13isPowerOf2_64Em.exit:                   ; preds = %42
   %109 = call { ptr, ptr } %108(ptr noundef nonnull align 8 dereferenceable(88) %2, i32 noundef 316, ptr nonnull %20, i64 1, ptr null, i64 0, i64 0) #17
   %110 = extractvalue { ptr, ptr } %109, 0
   %111 = extractvalue { ptr, ptr } %109, 1
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %20) #17
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %21) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %.sroa.09.0.copyload = load i64, ptr %14, align 8, !tbaa !161
   store i64 %.sroa.09.0.copyload, ptr %21, align 8, !tbaa !161
   %112 = getelementptr inbounds nuw i8, ptr %21, i64 16
@@ -15086,11 +15080,11 @@ _ZN4llvm13isPowerOf2_64Em.exit:                   ; preds = %42
   %114 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder13buildConstantERKNS_5DstOpEl(ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef nonnull align 8 dereferenceable(20) %21, i64 noundef %113) #17
   %115 = extractvalue { ptr, ptr } %114, 0
   %116 = extractvalue { ptr, ptr } %114, 1
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 %34, ptr %8, align 8
   %.sroa.4126.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 1, ptr %.sroa.4126.0..sroa_idx, align 8, !tbaa !648
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %110, ptr %9, align 8
   %.sroa.0121.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %111, ptr %.sroa.0121.sroa.4.0..sroa_idx, align 8, !tbaa !161
@@ -15106,13 +15100,13 @@ _ZN4llvm13isPowerOf2_64Em.exit:                   ; preds = %42
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 32
   %120 = load ptr, ptr %119, align 8
   %121 = call { ptr, ptr } %120(ptr noundef nonnull align 8 dereferenceable(88) %2, i32 noundef 55, ptr nonnull %8, i64 1, ptr nonnull %9, i64 2, i64 0) #17
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %150
 
 122:                                              ; preds = %102
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %22) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %.sroa.05.0.copyload = load i64, ptr %14, align 8, !tbaa !161
   store i64 %.sroa.05.0.copyload, ptr %22, align 8, !tbaa !161
   %123 = getelementptr inbounds nuw i8, ptr %22, i64 16
@@ -15123,20 +15117,20 @@ _ZN4llvm13isPowerOf2_64Em.exit:                   ; preds = %42
   %127 = call { ptr, ptr } %126(ptr noundef nonnull align 8 dereferenceable(88) %2, i32 noundef 316, ptr nonnull %22, i64 1, ptr null, i64 0, i64 0) #17
   %128 = extractvalue { ptr, ptr } %127, 0
   %129 = extractvalue { ptr, ptr } %127, 1
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %22) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   %.sroa.04.0.copyload = load i64, ptr %14, align 8, !tbaa !161
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %23) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i64 %.sroa.04.0.copyload, ptr %23, align 8, !tbaa !161
   %130 = getelementptr inbounds nuw i8, ptr %23, i64 16
   store i32 0, ptr %130, align 8, !tbaa !588
   %131 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder13buildConstantERKNS_5DstOpEl(ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef nonnull align 8 dereferenceable(20) %23, i64 noundef 3) #17
   %132 = extractvalue { ptr, ptr } %131, 0
   %133 = extractvalue { ptr, ptr } %131, 1
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 %.sroa.04.0.copyload, ptr %6, align 8
   %.sroa.495.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 0, ptr %.sroa.495.0..sroa_idx, align 8, !tbaa !648
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %128, ptr %7, align 8
   %.sroa.090.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %129, ptr %.sroa.090.sroa.4.0..sroa_idx, align 8, !tbaa !161
@@ -15152,12 +15146,12 @@ _ZN4llvm13isPowerOf2_64Em.exit:                   ; preds = %42
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 32
   %137 = load ptr, ptr %136, align 8
   %138 = call { ptr, ptr } %137(ptr noundef nonnull align 8 dereferenceable(88) %2, i32 noundef 141, ptr nonnull %6, i64 1, ptr nonnull %7, i64 2, i64 0) #17
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %139 = extractvalue { ptr, ptr } %138, 0
   %140 = extractvalue { ptr, ptr } %138, 1
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %23) #17
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %24) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   %.sroa.01.0.copyload = load i64, ptr %14, align 8, !tbaa !161
   store i64 %.sroa.01.0.copyload, ptr %24, align 8, !tbaa !161
   %141 = getelementptr inbounds nuw i8, ptr %24, i64 16
@@ -15165,11 +15159,11 @@ _ZN4llvm13isPowerOf2_64Em.exit:                   ; preds = %42
   %142 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder13buildConstantERKNS_5DstOpEl(ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef nonnull align 8 dereferenceable(20) %24, i64 noundef %.0.i.i) #17
   %143 = extractvalue { ptr, ptr } %142, 0
   %144 = extractvalue { ptr, ptr } %142, 1
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 %34, ptr %4, align 8
   %.sroa.475.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 1, ptr %.sroa.475.0..sroa_idx, align 8, !tbaa !648
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %139, ptr %5, align 8
   %.sroa.070.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %140, ptr %.sroa.070.sroa.4.0..sroa_idx, align 8, !tbaa !161
@@ -15185,9 +15179,9 @@ _ZN4llvm13isPowerOf2_64Em.exit:                   ; preds = %42
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 32
   %148 = load ptr, ptr %147, align 8
   %149 = call { ptr, ptr } %148(ptr noundef nonnull align 8 dereferenceable(88) %2, i32 noundef 55, ptr nonnull %4, i64 1, ptr nonnull %5, i64 2, i64 0) #17
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %24) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %150
 
 150:                                              ; preds = %59, %96, %78, %.thread, %122
@@ -15195,11 +15189,11 @@ _ZN4llvm13isPowerOf2_64Em.exit:                   ; preds = %42
   br label %151
 
 151:                                              ; preds = %3, %150
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   ret i1 %41
 }
 
-declare void @_ZN4llvm3LLTC1ENS_3MVTE(ptr noundef nonnull align 8 dereferenceable(8), i16) unnamed_addr #3
+declare void @_ZN4llvm3LLTC1ENS_3MVTE(ptr noundef nonnull align 8 dereferenceable(8), i16) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZNK4llvm18RISCVLegalizerInfo11legalizeExtERNS_12MachineInstrERNS_16MachineIRBuilderE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, ptr noundef nonnull align 8 dereferenceable(88) %2) local_unnamed_addr #0 align 2 {
@@ -15272,12 +15266,12 @@ _ZNK4llvm3LLT14getElementTypeEv.exit:             ; preds = %40, %45
   %47 = phi i64 [ %38, %40 ], [ %46, %45 ]
   %.sroa.04.0.i37 = phi i64 [ %36, %40 ], [ %.sroa.04.0.i36, %45 ]
   %.sroa.0.0.i = phi i64 [ %storemerge.i.i.i.i, %40 ], [ %storemerge.i.i.i6.i, %45 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %.sroa.04.0.i37, ptr %4, align 8, !tbaa !161
   %48 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 0, ptr %48, align 8, !tbaa !588
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #17
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 %.sroa.0.0.i, ptr %6, align 8, !tbaa !161
   %49 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 0, ptr %49, align 8, !tbaa !588
@@ -15292,15 +15286,15 @@ _ZNK4llvm3LLT14getElementTypeEv.exit:             ; preds = %40, %45
   %54 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder16buildSplatVectorERKNS_5DstOpERKNS_5SrcOpE(ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef nonnull align 8 dereferenceable(20) %4, ptr noundef nonnull align 8 dereferenceable(20) %5) #17
   %55 = extractvalue { ptr, ptr } %54, 0
   %56 = extractvalue { ptr, ptr } %54, 1
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #17
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %.sroa.04.0.i37, ptr %7, align 8, !tbaa !161
   %57 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 0, ptr %57, align 8, !tbaa !588
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #17
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 %.sroa.0.0.i, ptr %9, align 8, !tbaa !161
   %58 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i32 0, ptr %58, align 8, !tbaa !588
@@ -15315,41 +15309,41 @@ _ZNK4llvm3LLT14getElementTypeEv.exit:             ; preds = %40, %45
   %63 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder16buildSplatVectorERKNS_5DstOpERKNS_5SrcOpE(ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef nonnull align 8 dereferenceable(20) %7, ptr noundef nonnull align 8 dereferenceable(20) %8) #17
   %64 = extractvalue { ptr, ptr } %63, 0
   %65 = extractvalue { ptr, ptr } %63, 1
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #17
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 %21, ptr %10, align 8, !tbaa !163
   %66 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i32 1, ptr %66, align 8, !tbaa !588
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 %23, ptr %11, align 8, !tbaa !163
   %67 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i32 0, ptr %67, align 8, !tbaa !591
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr %64, ptr %12, align 8, !tbaa !594
   %.sroa.426.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %65, ptr %.sroa.426.0..sroa_idx, align 8, !tbaa !595
   %68 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i32 1, ptr %68, align 8, !tbaa !591
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr %55, ptr %13, align 8, !tbaa !594
   %.sroa.430.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %56, ptr %.sroa.430.0..sroa_idx, align 8, !tbaa !595
   %69 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i32 1, ptr %69, align 8, !tbaa !591
   %70 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder11buildSelectERKNS_5DstOpERKNS_5SrcOpES6_S6_St8optionalIjE(ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef nonnull align 8 dereferenceable(20) %10, ptr noundef nonnull align 8 dereferenceable(20) %11, ptr noundef nonnull align 8 dereferenceable(20) %12, ptr noundef nonnull align 8 dereferenceable(20) %13, i64 0) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @_ZN4llvm12MachineInstr15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(70) %1) #17
   ret i1 true
 }
 
-declare { ptr, ptr } @_ZN4llvm16MachineIRBuilder16buildSplatVectorERKNS_5DstOpERKNS_5SrcOpE(ptr noundef nonnull align 8 dereferenceable(88), ptr noundef nonnull align 8 dereferenceable(20), ptr noundef nonnull align 8 dereferenceable(20)) local_unnamed_addr #3
+declare { ptr, ptr } @_ZN4llvm16MachineIRBuilder16buildSplatVectorERKNS_5DstOpERKNS_5SrcOpE(ptr noundef nonnull align 8 dereferenceable(88), ptr noundef nonnull align 8 dereferenceable(20), ptr noundef nonnull align 8 dereferenceable(20)) local_unnamed_addr #2
 
-declare { ptr, ptr } @_ZN4llvm16MachineIRBuilder11buildSelectERKNS_5DstOpERKNS_5SrcOpES6_S6_St8optionalIjE(ptr noundef nonnull align 8 dereferenceable(88), ptr noundef nonnull align 8 dereferenceable(20), ptr noundef nonnull align 8 dereferenceable(20), ptr noundef nonnull align 8 dereferenceable(20), ptr noundef nonnull align 8 dereferenceable(20), i64) local_unnamed_addr #3
+declare { ptr, ptr } @_ZN4llvm16MachineIRBuilder11buildSelectERKNS_5DstOpERKNS_5SrcOpES6_S6_St8optionalIjE(ptr noundef nonnull align 8 dereferenceable(88), ptr noundef nonnull align 8 dereferenceable(20), ptr noundef nonnull align 8 dereferenceable(20), ptr noundef nonnull align 8 dereferenceable(20), ptr noundef nonnull align 8 dereferenceable(20), i64) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZNK4llvm18RISCVLegalizerInfo17legalizeLoadStoreERNS_12MachineInstrERNS_15LegalizerHelperERNS_16MachineIRBuilderE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(125528) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %3) local_unnamed_addr #0 align 2 {
@@ -15458,11 +15452,11 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.thread: ; preds = %37,
   ret i1 %.0
 }
 
-declare { i16, ptr } @_ZN4llvm3EVT6getEVTEPNS_4TypeEb(ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare { i16, ptr } @_ZN4llvm3EVT6getEVTEPNS_4TypeEb(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
-declare noundef zeroext i1 @_ZNK4llvm18TargetLoweringBase30allowsMemoryAccessForAlignmentERNS_11LLVMContextERKNS_10DataLayoutENS_3EVTERKNS_17MachineMemOperandEPj(ptr noundef nonnull align 8 dereferenceable(412423), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(496), i16, ptr, ptr noundef nonnull align 8 dereferenceable(80), ptr noundef) local_unnamed_addr #3
+declare noundef zeroext i1 @_ZNK4llvm18TargetLoweringBase30allowsMemoryAccessForAlignmentERNS_11LLVMContextERKNS_10DataLayoutENS_3EVTERKNS_17MachineMemOperandEPj(ptr noundef nonnull align 8 dereferenceable(412423), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(496), i16, ptr, ptr noundef nonnull align 8 dereferenceable(80), ptr noundef) local_unnamed_addr #2
 
-declare noundef i32 @_ZN4llvm15LegalizerHelper7bitcastERNS_12MachineInstrEjNS_3LLTE(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(70), i32 noundef, i64) local_unnamed_addr #3
+declare noundef i32 @_ZN4llvm15LegalizerHelper7bitcastERNS_12MachineInstrEjNS_3LLTE(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(70), i32 noundef, i64) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZNK4llvm18RISCVLegalizerInfo19legalizeSplatVectorERNS_12MachineInstrERNS_16MachineIRBuilderE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(125528) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, ptr noundef nonnull align 8 dereferenceable(88) %2) local_unnamed_addr #0 align 2 {
@@ -15530,7 +15524,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm18RISCVLegalizerInfo19legalizeSpla
 
 _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit: ; preds = %3, %49, %54
   %.sroa.04.0.i = phi i64 [ %59, %54 ], [ 0, %49 ], [ 0, %3 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 125504
   %61 = load ptr, ptr %60, align 8, !tbaa !658
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 519
@@ -15538,7 +15532,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit: ; preds = %3, %49, %5
   %64 = trunc nuw i8 %63 to i1
   %65 = select i1 %64, i16 8, i16 7
   call void @_ZN4llvm3LLTC1ENS_3MVTE(ptr noundef nonnull align 8 dereferenceable(8) %20, i16 %65) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %21) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %66 = load i64, ptr %20, align 8
   %67 = and i64 %66, -7
   %spec.select.i.i.i = icmp ne i64 %67, 0
@@ -15580,7 +15574,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit:              ; preds = %73, %75
   store i8 %.sroa.3.0.i, ptr %.sroa.247.0..sroa_idx, align 8
   %83 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %21) #17
   %84 = icmp eq i64 %83, 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %22) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   br i1 %84, label %85, label %.critedge
 
 85:                                               ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit
@@ -15646,8 +15640,8 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit108:           ; preds = %99, %101
   store i8 %.sroa.3.0.i102, ptr %.sroa.243.0..sroa_idx, align 8
   %109 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %22) #17
   %110 = icmp eq i64 %109, 64
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br i1 %110, label %111, label %164
 
 111:                                              ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit108
@@ -15676,13 +15670,13 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit110: ; preds = %111, %1
   %126 = load ptr, ptr %125, align 8, !tbaa !478, !noalias !665
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 16
   %128 = load ptr, ptr %127, align 8, !tbaa !668, !noalias !665
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #17, !noalias !665
+  call void @llvm.lifetime.start.p0(ptr nonnull %18), !noalias !665
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 519
   %130 = load i8, ptr %129, align 1, !tbaa !24, !range !153, !noalias !665, !noundef !154
   %131 = trunc nuw i8 %130 to i1
   %132 = select i1 %131, i16 8, i16 7
   call void @_ZN4llvm3LLTC1ENS_3MVTE(ptr noundef nonnull align 8 dereferenceable(8) %18, i16 %132) #17, !noalias !665
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %19) #17, !noalias !665
+  call void @llvm.lifetime.start.p0(ptr nonnull %19), !noalias !665
   %.sroa.01.0.copyload.i = load i64, ptr %18, align 8, !tbaa !161, !noalias !665
   store i64 %.sroa.01.0.copyload.i, ptr %19, align 8, !tbaa !161, !noalias !665
   %133 = getelementptr inbounds nuw i8, ptr %19, i64 16
@@ -15690,12 +15684,12 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit110: ; preds = %111, %1
   %134 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder13buildConstantERKNS_5DstOpEl(ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef nonnull align 8 dereferenceable(20) %19, i64 noundef -1) #17, !noalias !665
   %135 = extractvalue { ptr, ptr } %134, 0
   %136 = extractvalue { ptr, ptr } %134, 1
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19) #17, !noalias !665
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %16) #17, !noalias !665
+  call void @llvm.lifetime.end.p0(ptr nonnull %19), !noalias !665
+  call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !665
   store i64 %.sroa.04.0.i109, ptr %16, align 8, !tbaa !161, !noalias !665
   %137 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i32 0, ptr %137, align 8, !tbaa !588, !noalias !665
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17) #17, !noalias !665
+  call void @llvm.lifetime.start.p0(ptr nonnull %17), !noalias !665
   store ptr %135, ptr %17, align 8, !noalias !665
   %.sroa.0.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %136, ptr %.sroa.0.sroa.4.0..sroa_idx.i, align 8, !tbaa !161, !noalias !665
@@ -15705,17 +15699,17 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit110: ; preds = %111, %1
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 32
   %140 = load ptr, ptr %139, align 8, !noalias !665
   %141 = call { ptr, ptr } %140(ptr noundef nonnull align 8 dereferenceable(88) %2, i32 noundef 325, ptr nonnull %16, i64 1, ptr nonnull %17, i64 1, i64 0) #17, !noalias !665
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17) #17, !noalias !665
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16) #17, !noalias !665
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #17, !noalias !665
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %23) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !665
+  call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !665
+  call void @llvm.lifetime.end.p0(ptr nonnull %18), !noalias !665
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i64 %.sroa.04.0.i, ptr %23, align 8, !tbaa !161
   %142 = getelementptr inbounds nuw i8, ptr %23, i64 16
   store i32 0, ptr %142, align 8, !tbaa !588
   %143 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder10buildUndefERKNS_5DstOpE(ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef nonnull align 8 dereferenceable(20) %23) #17
   %144 = extractvalue { ptr, ptr } %143, 0
   %145 = extractvalue { ptr, ptr } %143, 1
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %24) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   store i32 %47, ptr %24, align 8, !tbaa !163
   %146 = getelementptr inbounds nuw i8, ptr %24, i64 16
   store i32 0, ptr %146, align 8, !tbaa !591
@@ -15727,11 +15721,11 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit110: ; preds = %111, %1
   %152 = load i32, ptr %151, align 4, !tbaa !161
   %153 = getelementptr inbounds nuw i8, ptr %150, i64 36
   %154 = load i32, ptr %153, align 4, !tbaa !161
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i32 %45, ptr %14, align 8
   %.sroa.4189.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i32 1, ptr %.sroa.4189.0..sroa_idx, align 8, !tbaa !648
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %15) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store ptr %144, ptr %15, align 8
   %.sroa.4184.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %145, ptr %.sroa.4184.0..sroa_idx, align 8, !tbaa !161
@@ -15755,15 +15749,15 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit110: ; preds = %111, %1
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 32
   %162 = load ptr, ptr %161, align 8
   %163 = call { ptr, ptr } %162(ptr noundef nonnull align 8 dereferenceable(88) %2, i32 noundef 321, ptr nonnull %14, i64 1, ptr nonnull %15, i64 4, i64 0) #17
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %15) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %24) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %23) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %261
 
 .critedge:                                        ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %164
 
 164:                                              ; preds = %.critedge, %_ZNK4llvm3LLT13getSizeInBitsEv.exit108
@@ -15776,13 +15770,13 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit110: ; preds = %111, %1
   %169 = load ptr, ptr %168, align 8, !tbaa !478, !noalias !669
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 16
   %171 = load ptr, ptr %170, align 8, !tbaa !668, !noalias !669
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #17, !noalias !669
+  call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !669
   %172 = getelementptr inbounds nuw i8, ptr %171, i64 519
   %173 = load i8, ptr %172, align 1, !tbaa !24, !range !153, !noalias !669, !noundef !154
   %174 = trunc nuw i8 %173 to i1
   %175 = select i1 %174, i16 8, i16 7
   call void @_ZN4llvm3LLTC1ENS_3MVTE(ptr noundef nonnull align 8 dereferenceable(8) %12, i16 %175) #17, !noalias !669
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13) #17, !noalias !669
+  call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !669
   %.sroa.01.0.copyload.i111 = load i64, ptr %12, align 8, !tbaa !161, !noalias !669
   store i64 %.sroa.01.0.copyload.i111, ptr %13, align 8, !tbaa !161, !noalias !669
   %176 = getelementptr inbounds nuw i8, ptr %13, i64 16
@@ -15790,14 +15784,14 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit110: ; preds = %111, %1
   %177 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder13buildConstantERKNS_5DstOpEl(ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef nonnull align 8 dereferenceable(20) %13, i64 noundef -1) #17, !noalias !669
   %178 = extractvalue { ptr, ptr } %177, 0
   %179 = extractvalue { ptr, ptr } %177, 1
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13) #17, !noalias !669
+  call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !669
   %180 = and i64 %.sroa.04.0.i, 16776968
   %181 = or disjoint i64 %180, 4294967300
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #17, !noalias !669
+  call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !669
   store i64 %181, ptr %10, align 8, !tbaa !161, !noalias !669
   %182 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i32 0, ptr %182, align 8, !tbaa !588, !noalias !669
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #17, !noalias !669
+  call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !669
   store ptr %178, ptr %11, align 8, !noalias !669
   %.sroa.0.sroa.4.0..sroa_idx.i112 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %179, ptr %.sroa.0.sroa.4.0..sroa_idx.i112, align 8, !tbaa !161, !noalias !669
@@ -15807,14 +15801,14 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit110: ; preds = %111, %1
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 32
   %185 = load ptr, ptr %184, align 8, !noalias !669
   %186 = call { ptr, ptr } %185(ptr noundef nonnull align 8 dereferenceable(88) %2, i32 noundef 325, ptr nonnull %10, i64 1, ptr nonnull %11, i64 1, i64 0) #17, !noalias !669
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #17, !noalias !669
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #17, !noalias !669
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #17, !noalias !669
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %25) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !669
+  call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !669
+  call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !669
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i32 %45, ptr %25, align 8, !tbaa !163
   %187 = getelementptr inbounds nuw i8, ptr %25, i64 16
   store i32 1, ptr %187, align 8, !tbaa !588
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %26) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   store ptr %178, ptr %26, align 8, !tbaa !594
   %.sroa.4177.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 8
   store ptr %179, ptr %.sroa.4177.0..sroa_idx, align 8, !tbaa !595
@@ -15824,8 +15818,8 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit110: ; preds = %111, %1
   %190 = getelementptr inbounds nuw i8, ptr %189, i64 32
   %191 = load ptr, ptr %190, align 8
   %192 = call { ptr, ptr } %191(ptr noundef nonnull align 8 dereferenceable(88) %2, i32 noundef 325, ptr nonnull %25, i64 1, ptr nonnull %26, i64 1, i64 0) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %26) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %25) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %261
 
 193:                                              ; preds = %164
@@ -15837,13 +15831,13 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit110: ; preds = %111, %1
   %197 = load ptr, ptr %196, align 8, !tbaa !478, !noalias !672
   %198 = getelementptr inbounds nuw i8, ptr %197, i64 16
   %199 = load ptr, ptr %198, align 8, !tbaa !668, !noalias !672
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #17, !noalias !672
+  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !672
   %200 = getelementptr inbounds nuw i8, ptr %199, i64 519
   %201 = load i8, ptr %200, align 1, !tbaa !24, !range !153, !noalias !672, !noundef !154
   %202 = trunc nuw i8 %201 to i1
   %203 = select i1 %202, i16 8, i16 7
   call void @_ZN4llvm3LLTC1ENS_3MVTE(ptr noundef nonnull align 8 dereferenceable(8) %8, i16 %203) #17, !noalias !672
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #17, !noalias !672
+  call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !672
   %.sroa.01.0.copyload.i116 = load i64, ptr %8, align 8, !tbaa !161, !noalias !672
   store i64 %.sroa.01.0.copyload.i116, ptr %9, align 8, !tbaa !161, !noalias !672
   %204 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -15851,14 +15845,14 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit110: ; preds = %111, %1
   %205 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder13buildConstantERKNS_5DstOpEl(ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef nonnull align 8 dereferenceable(20) %9, i64 noundef -1) #17, !noalias !672
   %206 = extractvalue { ptr, ptr } %205, 0
   %207 = extractvalue { ptr, ptr } %205, 1
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #17, !noalias !672
+  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !672
   %208 = and i64 %.sroa.04.0.i, 16776968
   %209 = or disjoint i64 %208, 4294967300
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #17, !noalias !672
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !672
   store i64 %209, ptr %6, align 8, !tbaa !161, !noalias !672
   %210 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 0, ptr %210, align 8, !tbaa !588, !noalias !672
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #17, !noalias !672
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !672
   store ptr %206, ptr %7, align 8, !noalias !672
   %.sroa.0.sroa.4.0..sroa_idx.i117 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %207, ptr %.sroa.0.sroa.4.0..sroa_idx.i117, align 8, !tbaa !161, !noalias !672
@@ -15868,14 +15862,14 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit110: ; preds = %111, %1
   %212 = getelementptr inbounds nuw i8, ptr %211, i64 32
   %213 = load ptr, ptr %212, align 8, !noalias !672
   %214 = call { ptr, ptr } %213(ptr noundef nonnull align 8 dereferenceable(88) %2, i32 noundef 325, ptr nonnull %6, i64 1, ptr nonnull %7, i64 1, i64 0) #17, !noalias !672
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #17, !noalias !672
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #17, !noalias !672
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #17, !noalias !672
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %27) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !672
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !672
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !672
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   store i32 %45, ptr %27, align 8, !tbaa !163
   %215 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store i32 1, ptr %215, align 8, !tbaa !588
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %28) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   store ptr %206, ptr %28, align 8, !tbaa !594
   %.sroa.4164.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 8
   store ptr %207, ptr %.sroa.4164.0..sroa_idx, align 8, !tbaa !595
@@ -15885,8 +15879,8 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit110: ; preds = %111, %1
   %218 = getelementptr inbounds nuw i8, ptr %217, i64 32
   %219 = load ptr, ptr %218, align 8
   %220 = call { ptr, ptr } %219(ptr noundef nonnull align 8 dereferenceable(88) %2, i32 noundef 324, ptr nonnull %27, i64 1, ptr nonnull %28, i64 1, i64 0) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %28) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %27) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %261
 
 _ZNK4llvm3LLT17changeElementTypeES0_.exit:        ; preds = %193
@@ -15898,31 +15892,31 @@ _ZNK4llvm3LLT17changeElementTypeES0_.exit:        ; preds = %193
   %225 = and i64 %.sroa.04.0.i, 16776968
   %226 = or disjoint i64 %225, 34359738372
   %.sroa.03.0.i = select i1 %224, i64 %226, i64 34359738369
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %29) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   store i64 34359738369, ptr %29, align 8, !tbaa !161
   %227 = getelementptr inbounds nuw i8, ptr %29, i64 16
   store i32 0, ptr %227, align 8, !tbaa !588
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %30) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   store i32 %47, ptr %30, align 8, !tbaa !163
   %228 = getelementptr inbounds nuw i8, ptr %30, i64 16
   store i32 0, ptr %228, align 8, !tbaa !591
   %229 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder9buildZExtERKNS_5DstOpERKNS_5SrcOpESt8optionalIjE(ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef nonnull align 8 dereferenceable(20) %29, ptr noundef nonnull align 8 dereferenceable(20) %30, i64 0) #17
   %230 = extractvalue { ptr, ptr } %229, 0
   %231 = extractvalue { ptr, ptr } %229, 1
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %30) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %29) #17
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %31) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
   store i64 34359738369, ptr %31, align 8, !tbaa !161
   %232 = getelementptr inbounds nuw i8, ptr %31, i64 16
   store i32 0, ptr %232, align 8, !tbaa !588
   %233 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder13buildConstantERKNS_5DstOpEl(ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef nonnull align 8 dereferenceable(20) %31, i64 noundef 1) #17
   %234 = extractvalue { ptr, ptr } %233, 0
   %235 = extractvalue { ptr, ptr } %233, 1
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 34359738369, ptr %4, align 8
   %.sroa.4137.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 0, ptr %.sroa.4137.0..sroa_idx, align 8, !tbaa !648
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %230, ptr %5, align 8
   %.sroa.0132.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %231, ptr %.sroa.0132.sroa.4.0..sroa_idx, align 8, !tbaa !161
@@ -15938,16 +15932,16 @@ _ZNK4llvm3LLT17changeElementTypeES0_.exit:        ; preds = %193
   %238 = getelementptr inbounds nuw i8, ptr %237, i64 32
   %239 = load ptr, ptr %238, align 8
   %240 = call { ptr, ptr } %239(ptr noundef nonnull align 8 dereferenceable(88) %2, i32 noundef 62, ptr nonnull %4, i64 1, ptr nonnull %5, i64 2, i64 0) #17
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %241 = extractvalue { ptr, ptr } %240, 0
   %242 = extractvalue { ptr, ptr } %240, 1
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %31) #17
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %32) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
   store i64 %.sroa.03.0.i, ptr %32, align 8, !tbaa !161
   %243 = getelementptr inbounds nuw i8, ptr %32, i64 16
   store i32 0, ptr %243, align 8, !tbaa !588
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %33) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
   store ptr %241, ptr %33, align 8, !tbaa !594
   %.sroa.4140.0..sroa_idx = getelementptr inbounds nuw i8, ptr %33, i64 8
   store ptr %242, ptr %.sroa.4140.0..sroa_idx, align 8, !tbaa !595
@@ -15956,14 +15950,14 @@ _ZNK4llvm3LLT17changeElementTypeES0_.exit:        ; preds = %193
   %245 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder16buildSplatVectorERKNS_5DstOpERKNS_5SrcOpE(ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef nonnull align 8 dereferenceable(20) %32, ptr noundef nonnull align 8 dereferenceable(20) %33) #17
   %246 = extractvalue { ptr, ptr } %245, 0
   %247 = extractvalue { ptr, ptr } %245, 1
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %33) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %32) #17
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %34) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
   store i64 %.sroa.03.0.i, ptr %34, align 8, !tbaa !161
   %248 = getelementptr inbounds nuw i8, ptr %34, i64 16
   store i32 0, ptr %248, align 8, !tbaa !588
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %35) #17
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %36) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
   store i64 34359738369, ptr %36, align 8, !tbaa !161
   %249 = getelementptr inbounds nuw i8, ptr %36, i64 16
   store i32 0, ptr %249, align 8, !tbaa !588
@@ -15978,50 +15972,50 @@ _ZNK4llvm3LLT17changeElementTypeES0_.exit:        ; preds = %193
   %254 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder16buildSplatVectorERKNS_5DstOpERKNS_5SrcOpE(ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef nonnull align 8 dereferenceable(20) %34, ptr noundef nonnull align 8 dereferenceable(20) %35) #17
   %255 = extractvalue { ptr, ptr } %254, 0
   %256 = extractvalue { ptr, ptr } %254, 1
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %36) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %35) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %34) #17
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %37) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
   store i32 %45, ptr %37, align 8, !tbaa !163
   %257 = getelementptr inbounds nuw i8, ptr %37, i64 16
   store i32 1, ptr %257, align 8, !tbaa !588
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %38) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %38)
   store ptr %246, ptr %38, align 8, !tbaa !594
   %.sroa.4127.0..sroa_idx = getelementptr inbounds nuw i8, ptr %38, i64 8
   store ptr %247, ptr %.sroa.4127.0..sroa_idx, align 8, !tbaa !595
   %258 = getelementptr inbounds nuw i8, ptr %38, i64 16
   store i32 1, ptr %258, align 8, !tbaa !591
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %39) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %39)
   store ptr %255, ptr %39, align 8, !tbaa !594
   %.sroa.4125.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 8
   store ptr %256, ptr %.sroa.4125.0..sroa_idx, align 8, !tbaa !595
   %259 = getelementptr inbounds nuw i8, ptr %39, i64 16
   store i32 1, ptr %259, align 8, !tbaa !591
   %260 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder9buildICmpENS_7CmpInst9PredicateERKNS_5DstOpERKNS_5SrcOpES8_St8optionalIjE(ptr noundef nonnull align 8 dereferenceable(88) %2, i32 noundef 33, ptr noundef nonnull align 8 dereferenceable(20) %37, ptr noundef nonnull align 8 dereferenceable(20) %38, ptr noundef nonnull align 8 dereferenceable(20) %39, i64 0) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %39) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %38) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %37) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
   br label %261
 
 261:                                              ; preds = %167, %195, %_ZNK4llvm3LLT17changeElementTypeES0_.exit, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit110
   call void @_ZN4llvm12MachineInstr15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(70) %1) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   ret i1 true
 }
 
-declare noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9)) local_unnamed_addr #3
+declare noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9)) local_unnamed_addr #2
 
-declare { ptr, ptr } @_ZN4llvm16MachineIRBuilder10buildUndefERKNS_5DstOpE(ptr noundef nonnull align 8 dereferenceable(88), ptr noundef nonnull align 8 dereferenceable(20)) local_unnamed_addr #3
+declare { ptr, ptr } @_ZN4llvm16MachineIRBuilder10buildUndefERKNS_5DstOpE(ptr noundef nonnull align 8 dereferenceable(88), ptr noundef nonnull align 8 dereferenceable(20)) local_unnamed_addr #2
 
-declare noundef ptr @_ZNK4llvm19MachineRegisterInfo10getVRegDefENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(504), i32) local_unnamed_addr #3
+declare noundef ptr @_ZNK4llvm19MachineRegisterInfo10getVRegDefENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(504), i32) local_unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN4llvm23isAllOnesOrAllOnesSplatERKNS_12MachineInstrERKNS_19MachineRegisterInfoEb(ptr noundef nonnull align 8 dereferenceable(70), ptr noundef nonnull align 8 dereferenceable(504), i1 noundef zeroext) local_unnamed_addr #3
+declare noundef zeroext i1 @_ZN4llvm23isAllOnesOrAllOnesSplatERKNS_12MachineInstrERKNS_19MachineRegisterInfoEb(ptr noundef nonnull align 8 dereferenceable(70), ptr noundef nonnull align 8 dereferenceable(504), i1 noundef zeroext) local_unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN4llvm17isNullOrNullSplatERKNS_12MachineInstrERKNS_19MachineRegisterInfoEb(ptr noundef nonnull align 8 dereferenceable(70), ptr noundef nonnull align 8 dereferenceable(504), i1 noundef zeroext) local_unnamed_addr #3
+declare noundef zeroext i1 @_ZN4llvm17isNullOrNullSplatERKNS_12MachineInstrERKNS_19MachineRegisterInfoEb(ptr noundef nonnull align 8 dereferenceable(70), ptr noundef nonnull align 8 dereferenceable(504), i1 noundef zeroext) local_unnamed_addr #2
 
-declare { ptr, ptr } @_ZN4llvm16MachineIRBuilder9buildZExtERKNS_5DstOpERKNS_5SrcOpESt8optionalIjE(ptr noundef nonnull align 8 dereferenceable(88), ptr noundef nonnull align 8 dereferenceable(20), ptr noundef nonnull align 8 dereferenceable(20), i64) local_unnamed_addr #3
+declare { ptr, ptr } @_ZN4llvm16MachineIRBuilder9buildZExtERKNS_5DstOpERKNS_5SrcOpESt8optionalIjE(ptr noundef nonnull align 8 dereferenceable(88), ptr noundef nonnull align 8 dereferenceable(20), ptr noundef nonnull align 8 dereferenceable(20), i64) local_unnamed_addr #2
 
-declare { ptr, ptr } @_ZN4llvm16MachineIRBuilder9buildICmpENS_7CmpInst9PredicateERKNS_5DstOpERKNS_5SrcOpES8_St8optionalIjE(ptr noundef nonnull align 8 dereferenceable(88), i32 noundef, ptr noundef nonnull align 8 dereferenceable(20), ptr noundef nonnull align 8 dereferenceable(20), ptr noundef nonnull align 8 dereferenceable(20), i64) local_unnamed_addr #3
+declare { ptr, ptr } @_ZN4llvm16MachineIRBuilder9buildICmpENS_7CmpInst9PredicateERKNS_5DstOpERKNS_5SrcOpES8_St8optionalIjE(ptr noundef nonnull align 8 dereferenceable(88), i32 noundef, ptr noundef nonnull align 8 dereferenceable(20), ptr noundef nonnull align 8 dereferenceable(20), ptr noundef nonnull align 8 dereferenceable(20), i64) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZNK4llvm18RISCVLegalizerInfo24legalizeExtractSubvectorERNS_12MachineInstrERNS_16MachineIRBuilderE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(125528) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, ptr noundef nonnull align 8 dereferenceable(88) %2) local_unnamed_addr #0 align 2 {
@@ -16120,24 +16114,24 @@ _ZNK4llvm3LLT17changeElementTypeES0_.exit:        ; preds = %_ZNK4llvm19MachineR
   %71 = and i64 %.sroa.04.0.i, 16776968
   %72 = or disjoint i64 %71, 34359738372
   %.sroa.03.0.i89 = select i1 %.not, i64 34359738369, i64 %72
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 %.sroa.03.0.i, ptr %8, align 8, !tbaa !161
   %73 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 0, ptr %73, align 8, !tbaa !588
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 %34, ptr %9, align 8, !tbaa !163
   %74 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i32 0, ptr %74, align 8, !tbaa !591
   %75 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder9buildZExtERKNS_5DstOpERKNS_5SrcOpESt8optionalIjE(ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef nonnull align 8 dereferenceable(20) %8, ptr noundef nonnull align 8 dereferenceable(20) %9, i64 0) #17
   %76 = extractvalue { ptr, ptr } %75, 0
   %77 = extractvalue { ptr, ptr } %75, 1
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #17
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i64 %.sroa.03.0.i89, ptr %10, align 8, !tbaa !161
   %78 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i32 0, ptr %78, align 8, !tbaa !588
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %76, ptr %11, align 8, !tbaa !594
   %.sroa.4154.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %77, ptr %.sroa.4154.0..sroa_idx, align 8, !tbaa !595
@@ -16147,14 +16141,14 @@ _ZNK4llvm3LLT17changeElementTypeES0_.exit:        ; preds = %_ZNK4llvm19MachineR
   %81 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder21buildExtractSubvectorERKNS_5DstOpERKNS_5SrcOpEj(ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef nonnull align 8 dereferenceable(20) %10, ptr noundef nonnull align 8 dereferenceable(20) %11, i32 noundef %80) #17
   %82 = extractvalue { ptr, ptr } %81, 0
   %83 = extractvalue { ptr, ptr } %81, 1
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #17
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i64 %.sroa.03.0.i89, ptr %12, align 8, !tbaa !161
   %84 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i32 0, ptr %84, align 8, !tbaa !588
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13) #17
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i64 34359738369, ptr %14, align 8, !tbaa !161
   %85 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i32 0, ptr %85, align 8, !tbaa !588
@@ -16169,29 +16163,29 @@ _ZNK4llvm3LLT17changeElementTypeES0_.exit:        ; preds = %_ZNK4llvm19MachineR
   %90 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder16buildSplatVectorERKNS_5DstOpERKNS_5SrcOpE(ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef nonnull align 8 dereferenceable(20) %12, ptr noundef nonnull align 8 dereferenceable(20) %13) #17
   %91 = extractvalue { ptr, ptr } %90, 0
   %92 = extractvalue { ptr, ptr } %90, 1
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12) #17
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i32 %32, ptr %15, align 8, !tbaa !163
   %93 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i32 1, ptr %93, align 8, !tbaa !588
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %16) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store ptr %82, ptr %16, align 8, !tbaa !594
   %.sroa.4149.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %83, ptr %.sroa.4149.0..sroa_idx, align 8, !tbaa !595
   %94 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i32 1, ptr %94, align 8, !tbaa !591
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store ptr %91, ptr %17, align 8, !tbaa !594
   %.sroa.4147.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %92, ptr %.sroa.4147.0..sroa_idx, align 8, !tbaa !595
   %95 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i32 1, ptr %95, align 8, !tbaa !591
   %96 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder9buildICmpENS_7CmpInst9PredicateERKNS_5DstOpERKNS_5SrcOpES8_St8optionalIjE(ptr noundef nonnull align 8 dereferenceable(88) %2, i32 noundef 33, ptr noundef nonnull align 8 dereferenceable(20) %15, ptr noundef nonnull align 8 dereferenceable(20) %16, ptr noundef nonnull align 8 dereferenceable(20) %17, i64 0) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @_ZN4llvm12MachineInstr15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(70) %1) #17
   br label %203
 
@@ -16281,11 +16275,11 @@ _ZN4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmE9isKnownGTERKS3_S5_.exi
 
 136:                                              ; preds = %_ZN4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmE9isKnownGTERKS3_S5_.exit
   %137 = tail call fastcc i64 @_ZL10getLMUL1TyN4llvm3LLTE(i64 %.sroa.04.0.i85)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %18) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i64 %137, ptr %18, align 8, !tbaa !161
   %138 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store i32 0, ptr %138, align 8, !tbaa !588
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %19) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store i32 %34, ptr %19, align 8, !tbaa !163
   %139 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store i32 0, ptr %139, align 8, !tbaa !591
@@ -16297,21 +16291,21 @@ _ZN4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmE9isKnownGTERKS3_S5_.exi
   %145 = load ptr, ptr %144, align 8, !tbaa !442
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 4
   %147 = load i32, ptr %146, align 4, !tbaa !161
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %_ZN4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmE9isKnownGTERKS3_S5_.exit.thread
 
 _ZN4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmE9isKnownGTERKS3_S5_.exit.thread: ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit119, %136, %_ZN4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmE9isKnownGTERKS3_S5_.exit
   %.sroa.024.0 = phi i32 [ %147, %136 ], [ %34, %_ZN4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmE9isKnownGTERKS3_S5_.exit ], [ %34, %_ZNK4llvm3LLT13getSizeInBitsEv.exit119 ]
   %.sroa.025.0 = phi i64 [ %137, %136 ], [ %.sroa.04.0.i85, %_ZN4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmE9isKnownGTERKS3_S5_.exit ], [ %.sroa.04.0.i85, %_ZNK4llvm3LLT13getSizeInBitsEv.exit119 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %148 = load ptr, ptr %97, align 8, !tbaa !658
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 519
   %150 = load i8, ptr %149, align 1, !tbaa !24, !range !153, !noundef !154
   %151 = trunc nuw i8 %150 to i1
   %152 = select i1 %151, i16 8, i16 7
   call void @_ZN4llvm3LLTC1ENS_3MVTE(ptr noundef nonnull align 8 dereferenceable(8) %20, i16 %152) #17
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %21) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %.sroa.010.0.copyload = load i64, ptr %20, align 8, !tbaa !161
   store i64 %.sroa.010.0.copyload, ptr %21, align 8, !tbaa !161
   %153 = getelementptr inbounds nuw i8, ptr %21, i64 16
@@ -16319,18 +16313,18 @@ _ZN4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmE9isKnownGTERKS3_S5_.exi
   %154 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder11buildVScaleERKNS_5DstOpEj(ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef nonnull align 8 dereferenceable(20) %21, i32 noundef %.sroa.3.0.extract.trunc) #17
   %155 = extractvalue { ptr, ptr } %154, 0
   %156 = extractvalue { ptr, ptr } %154, 1
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %157 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %158 = load ptr, ptr %157, align 8, !tbaa !478, !noalias !675
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 16
   %160 = load ptr, ptr %159, align 8, !tbaa !668, !noalias !675
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #17, !noalias !675
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !675
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 519
   %162 = load i8, ptr %161, align 1, !tbaa !24, !range !153, !noalias !675, !noundef !154
   %163 = trunc nuw i8 %162 to i1
   %164 = select i1 %163, i16 8, i16 7
   call void @_ZN4llvm3LLTC1ENS_3MVTE(ptr noundef nonnull align 8 dereferenceable(8) %6, i16 %164) #17, !noalias !675
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #17, !noalias !675
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !675
   %.sroa.01.0.copyload.i = load i64, ptr %6, align 8, !tbaa !161, !noalias !675
   store i64 %.sroa.01.0.copyload.i, ptr %7, align 8, !tbaa !161, !noalias !675
   %165 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -16338,14 +16332,14 @@ _ZN4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmE9isKnownGTERKS3_S5_.exi
   %166 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder13buildConstantERKNS_5DstOpEl(ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef nonnull align 8 dereferenceable(20) %7, i64 noundef -1) #17, !noalias !675
   %167 = extractvalue { ptr, ptr } %166, 0
   %168 = extractvalue { ptr, ptr } %166, 1
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #17, !noalias !675
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !675
   %169 = and i64 %.sroa.04.0.i, 16776968
   %170 = or disjoint i64 %169, 4294967300
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #17, !noalias !675
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !675
   store i64 %170, ptr %4, align 8, !tbaa !161, !noalias !675
   %171 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 0, ptr %171, align 8, !tbaa !588, !noalias !675
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #17, !noalias !675
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !675
   store ptr %167, ptr %5, align 8, !noalias !675
   %.sroa.0.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %168, ptr %.sroa.0.sroa.4.0..sroa_idx.i, align 8, !tbaa !161, !noalias !675
@@ -16355,17 +16349,17 @@ _ZN4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmE9isKnownGTERKS3_S5_.exi
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 32
   %174 = load ptr, ptr %173, align 8, !noalias !675
   %175 = call { ptr, ptr } %174(ptr noundef nonnull align 8 dereferenceable(88) %2, i32 noundef 325, ptr nonnull %4, i64 1, ptr nonnull %5, i64 1, i64 0) #17, !noalias !675
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #17, !noalias !675
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #17, !noalias !675
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !675
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !675
   %176 = extractvalue { ptr, ptr } %175, 0
   %177 = extractvalue { ptr, ptr } %175, 1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #17, !noalias !675
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %22) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !675
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   store i64 %.sroa.025.0, ptr %22, align 8, !tbaa !161
   %178 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store i32 0, ptr %178, align 8, !tbaa !588
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %23) #17
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %24) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   store i64 %.sroa.025.0, ptr %24, align 8, !tbaa !161
   %179 = getelementptr inbounds nuw i8, ptr %24, i64 16
   store i32 0, ptr %179, align 8, !tbaa !588
@@ -16409,40 +16403,40 @@ _ZN4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmE9isKnownGTERKS3_S5_.exi
   %197 = call { ptr, ptr } %196(ptr noundef nonnull align 8 dereferenceable(88) %2, i32 noundef 327, ptr nonnull %22, i64 1, ptr nonnull %23, i64 6, i64 0) #17
   %198 = extractvalue { ptr, ptr } %197, 0
   %199 = extractvalue { ptr, ptr } %197, 1
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %24) #17
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %23) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %22) #17
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %25) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i32 %32, ptr %25, align 8, !tbaa !163
   %200 = getelementptr inbounds nuw i8, ptr %25, i64 16
   store i32 1, ptr %200, align 8, !tbaa !588
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %26) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   store ptr %198, ptr %26, align 8, !tbaa !594
   %.sroa.4129.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 8
   store ptr %199, ptr %.sroa.4129.0..sroa_idx, align 8, !tbaa !595
   %201 = getelementptr inbounds nuw i8, ptr %26, i64 16
   store i32 1, ptr %201, align 8, !tbaa !591
   %202 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder21buildExtractSubvectorERKNS_5DstOpERKNS_5SrcOpEj(ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef nonnull align 8 dereferenceable(20) %25, ptr noundef nonnull align 8 dereferenceable(20) %26, i32 noundef 0) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %26) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %25) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   call void @_ZN4llvm12MachineInstr15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(70) %1) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %203
 
 203:                                              ; preds = %_ZNK4llvm3LLT17changeElementTypeES0_.exit, %_ZNK4llvm3LLT14getElementTypeEv.exit.thread, %_ZN4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmE9isKnownGTERKS3_S5_.exit.thread, %3
   ret i1 true
 }
 
-declare { ptr, ptr } @_ZN4llvm16MachineIRBuilder21buildExtractSubvectorERKNS_5DstOpERKNS_5SrcOpEj(ptr noundef nonnull align 8 dereferenceable(88), ptr noundef nonnull align 8 dereferenceable(20), ptr noundef nonnull align 8 dereferenceable(20), i32 noundef) local_unnamed_addr #3
+declare { ptr, ptr } @_ZN4llvm16MachineIRBuilder21buildExtractSubvectorERKNS_5DstOpERKNS_5SrcOpEj(ptr noundef nonnull align 8 dereferenceable(88), ptr noundef nonnull align 8 dereferenceable(20), ptr noundef nonnull align 8 dereferenceable(20), i32 noundef) local_unnamed_addr #2
 
-declare i16 @_ZN4llvm12getMVTForLLTENS_3LLTE(i64) local_unnamed_addr #3
+declare i16 @_ZN4llvm12getMVTForLLTENS_3LLTE(i64) local_unnamed_addr #2
 
-declare i64 @_ZN4llvm19RISCVTargetLowering40decomposeSubvectorInsertExtractToSubRegsENS_3MVTES1_jPKNS_17RISCVRegisterInfoE(i16, i16, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i64 @_ZN4llvm19RISCVTargetLowering40decomposeSubvectorInsertExtractToSubRegsENS_3MVTES1_jPKNS_17RISCVRegisterInfoE(i16, i16, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc range(i64 8, 0) i64 @_ZL10getLMUL1TyN4llvm3LLTE(i64 %0) unnamed_addr #0 {
   %2 = alloca %"class.llvm::TypeSize", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = and i64 %0, 2
   %.not.i = icmp eq i64 %3, 0
   br i1 %.not.i, label %9, label %4
@@ -16577,11 +16571,11 @@ _ZN4llvm3LLT15scalable_vectorEjS0_.exit:          ; preds = %42, %43
   %56 = shl nuw nsw i64 %47, 8
   %57 = or disjoint i64 %storemerge.i.i.i.i16, %56
   %58 = or disjoint i64 %57, 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %58
 }
 
-declare { ptr, ptr } @_ZN4llvm16MachineIRBuilder11buildVScaleERKNS_5DstOpEj(ptr noundef nonnull align 8 dereferenceable(88), ptr noundef nonnull align 8 dereferenceable(20), i32 noundef) local_unnamed_addr #3
+declare { ptr, ptr } @_ZN4llvm16MachineIRBuilder11buildVScaleERKNS_5DstOpEj(ptr noundef nonnull align 8 dereferenceable(88), ptr noundef nonnull align 8 dereferenceable(20), i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZNK4llvm18RISCVLegalizerInfo23legalizeInsertSubvectorERNS_12MachineInstrERNS_15LegalizerHelperERNS_16MachineIRBuilderE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(125528) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(88) %3) local_unnamed_addr #0 align 2 {
@@ -16815,7 +16809,7 @@ _ZNK4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmE17isKnownMultipleOfERK
 
 146:                                              ; preds = %_ZNK4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmE17isKnownMultipleOfERKS3_.exit.thread, %_ZNK4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmE17isKnownMultipleOfERKS3_.exit
   %147 = phi i1 [ %142, %_ZNK4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmE17isKnownMultipleOfERKS3_.exit.thread ], [ %145, %_ZNK4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmE17isKnownMultipleOfERKS3_.exit ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %148 = load ptr, ptr %91, align 8, !tbaa !658
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 519
   %150 = load i8, ptr %149, align 1, !tbaa !24, !range !153, !noundef !154
@@ -16892,11 +16886,11 @@ _ZN4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmE9isKnownGTERKS3_S5_.exi
 
 181:                                              ; preds = %_ZN4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmE9isKnownGTERKS3_S5_.exit
   %182 = call fastcc i64 @_ZL10getLMUL1TyN4llvm3LLTE(i64 %.sroa.04.0.i)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i64 %182, ptr %12, align 8, !tbaa !161
   %183 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i32 0, ptr %183, align 8, !tbaa !588
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 %34, ptr %13, align 8, !tbaa !163
   %184 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i32 0, ptr %184, align 8, !tbaa !591
@@ -16906,19 +16900,19 @@ _ZN4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmE9isKnownGTERKS3_S5_.exi
   %188 = load ptr, ptr %187, align 8, !tbaa !442
   %189 = getelementptr inbounds nuw i8, ptr %188, i64 4
   %190 = load i32, ptr %189, align 4, !tbaa !161
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %_ZN4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmE9isKnownGTERKS3_S5_.exit.thread
 
 _ZN4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmE9isKnownGTERKS3_S5_.exit.thread: ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit201, %181, %_ZN4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmE9isKnownGTERKS3_S5_.exit
   %.sroa.0334.0 = phi i64 [ %182, %181 ], [ %.sroa.04.0.i, %_ZN4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmE9isKnownGTERKS3_S5_.exit ], [ %.sroa.04.0.i, %_ZNK4llvm3LLT13getSizeInBitsEv.exit201 ]
   %.sroa.061.0 = phi i32 [ %190, %181 ], [ %34, %_ZN4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmE9isKnownGTERKS3_S5_.exit ], [ %34, %_ZNK4llvm3LLT13getSizeInBitsEv.exit201 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i64 %.sroa.0334.0, ptr %14, align 8, !tbaa !161
   %191 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i32 0, ptr %191, align 8, !tbaa !588
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15) #17
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %16) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i64 %.sroa.0334.0, ptr %16, align 8, !tbaa !161
   %192 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i32 0, ptr %192, align 8, !tbaa !588
@@ -16930,28 +16924,28 @@ _ZN4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmE9isKnownGTERKS3_S5_.exi
   store ptr %195, ptr %.sroa.4320.0..sroa_idx, align 8, !tbaa !595
   %196 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i32 1, ptr %196, align 8, !tbaa !591
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i32 %36, ptr %17, align 8, !tbaa !163
   %197 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i32 0, ptr %197, align 8, !tbaa !591
   %198 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder20buildInsertSubvectorERKNS_5DstOpERKNS_5SrcOpES6_j(ptr noundef nonnull align 8 dereferenceable(88) %3, ptr noundef nonnull align 8 dereferenceable(20) %14, ptr noundef nonnull align 8 dereferenceable(20) %15, ptr noundef nonnull align 8 dereferenceable(20) %17, i32 noundef 0) #17
   %199 = extractvalue { ptr, ptr } %198, 0
   %200 = extractvalue { ptr, ptr } %198, 1
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %201 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %202 = load ptr, ptr %201, align 8, !tbaa !478, !noalias !678
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 16
   %204 = load ptr, ptr %203, align 8, !tbaa !668, !noalias !678
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #17, !noalias !678
+  call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !678
   %205 = getelementptr inbounds nuw i8, ptr %204, i64 519
   %206 = load i8, ptr %205, align 1, !tbaa !24, !range !153, !noalias !678, !noundef !154
   %207 = trunc nuw i8 %206 to i1
   %208 = select i1 %207, i16 8, i16 7
   call void @_ZN4llvm3LLTC1ENS_3MVTE(ptr noundef nonnull align 8 dereferenceable(8) %9, i16 %208) #17, !noalias !678
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #17, !noalias !678
+  call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !678
   %.sroa.01.0.copyload.i = load i64, ptr %9, align 8, !tbaa !161, !noalias !678
   store i64 %.sroa.01.0.copyload.i, ptr %10, align 8, !tbaa !161, !noalias !678
   %209 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -16959,14 +16953,14 @@ _ZN4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmE9isKnownGTERKS3_S5_.exi
   %210 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder13buildConstantERKNS_5DstOpEl(ptr noundef nonnull align 8 dereferenceable(88) %3, ptr noundef nonnull align 8 dereferenceable(20) %10, i64 noundef -1) #17, !noalias !678
   %211 = extractvalue { ptr, ptr } %210, 0
   %212 = extractvalue { ptr, ptr } %210, 1
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #17, !noalias !678
+  call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !678
   %213 = and i64 %.sroa.04.0.i, 16776968
   %214 = or disjoint i64 %213, 4294967300
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #17, !noalias !678
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !678
   store i64 %214, ptr %7, align 8, !tbaa !161, !noalias !678
   %215 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 0, ptr %215, align 8, !tbaa !588, !noalias !678
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #17, !noalias !678
+  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !678
   store ptr %211, ptr %8, align 8, !noalias !678
   %.sroa.0.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %212, ptr %.sroa.0.sroa.4.0..sroa_idx.i, align 8, !tbaa !161, !noalias !678
@@ -16976,12 +16970,12 @@ _ZN4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmE9isKnownGTERKS3_S5_.exi
   %217 = getelementptr inbounds nuw i8, ptr %216, i64 32
   %218 = load ptr, ptr %217, align 8, !noalias !678
   %219 = call { ptr, ptr } %218(ptr noundef nonnull align 8 dereferenceable(88) %3, i32 noundef 325, ptr nonnull %7, i64 1, ptr nonnull %8, i64 1, i64 0) #17, !noalias !678
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #17, !noalias !678
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #17, !noalias !678
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !678
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !678
   %220 = extractvalue { ptr, ptr } %219, 0
   %221 = extractvalue { ptr, ptr } %219, 1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #17, !noalias !678
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %18) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !678
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %.sroa.040.0.copyload = load i64, ptr %11, align 8, !tbaa !161
   store i64 %.sroa.040.0.copyload, ptr %18, align 8, !tbaa !161
   %222 = getelementptr inbounds nuw i8, ptr %18, i64 16
@@ -16992,7 +16986,7 @@ _ZN4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmE9isKnownGTERKS3_S5_.exi
   %224 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder11buildVScaleERKNS_5DstOpEj(ptr noundef nonnull align 8 dereferenceable(88) %3, ptr noundef nonnull align 8 dereferenceable(20) %18, i32 noundef %.sroa.0307.0.extract.trunc) #17
   %225 = extractvalue { ptr, ptr } %224, 0
   %226 = extractvalue { ptr, ptr } %224, 1
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br i1 %or.cond8.i174, label %227, label %229
 
 227:                                              ; preds = %_ZN4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmE9isKnownGTERKS3_S5_.exit.thread
@@ -17065,11 +17059,11 @@ _ZN4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmE9isKnownGTERKS3_S5_.exi
   br i1 %147, label %252, label %263
 
 252:                                              ; preds = %_ZN4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmE9isKnownGTERKS3_S5_.exit241.thread
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %19) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store i32 %.sroa.030.0, ptr %19, align 8, !tbaa !163
   %253 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store i32 1, ptr %253, align 8, !tbaa !588
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %20) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store i32 %.sroa.061.0, ptr %20, align 8, !tbaa !163
   %254 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store i32 0, ptr %254, align 8, !tbaa !591
@@ -17089,12 +17083,12 @@ _ZN4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmE9isKnownGTERKS3_S5_.exi
   %260 = getelementptr inbounds nuw i8, ptr %259, i64 32
   %261 = load ptr, ptr %260, align 8
   %262 = call { ptr, ptr } %261(ptr noundef nonnull align 8 dereferenceable(88) %3, i32 noundef 326, ptr nonnull %19, i64 1, ptr nonnull %20, i64 3, i64 0) #17
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %20) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %329
 
 263:                                              ; preds = %_ZN4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmE9isKnownGTERKS3_S5_.exit241.thread
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %21) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %.sroa.020.0.copyload = load i64, ptr %11, align 8, !tbaa !161
   store i64 %.sroa.020.0.copyload, ptr %21, align 8, !tbaa !161
   %264 = getelementptr inbounds nuw i8, ptr %21, i64 16
@@ -17102,13 +17096,13 @@ _ZN4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmE9isKnownGTERKS3_S5_.exi
   %265 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder11buildVScaleERKNS_5DstOpEj(ptr noundef nonnull align 8 dereferenceable(88) %3, ptr noundef nonnull align 8 dereferenceable(20) %21, i32 noundef %.sroa.4348.0.extract.trunc) #17
   %266 = extractvalue { ptr, ptr } %265, 0
   %267 = extractvalue { ptr, ptr } %265, 1
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %.sroa.017.0.copyload = load i64, ptr %11, align 8, !tbaa !161
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %.sroa.017.0.copyload, ptr %5, align 8
   %.sroa.4285.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 0, ptr %.sroa.4285.0..sroa_idx, align 8, !tbaa !648
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %266, ptr %6, align 8
   %.sroa.0280.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %267, ptr %.sroa.0280.sroa.4.0..sroa_idx, align 8, !tbaa !161
@@ -17124,8 +17118,8 @@ _ZN4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmE9isKnownGTERKS3_S5_.exi
   %270 = getelementptr inbounds nuw i8, ptr %269, i64 32
   %271 = load ptr, ptr %270, align 8
   %272 = call { ptr, ptr } %271(ptr noundef nonnull align 8 dereferenceable(88) %3, i32 noundef 53, ptr nonnull %5, i64 1, ptr nonnull %6, i64 2, i64 0) #17
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %273 = extractvalue { ptr, ptr } %272, 0
   %274 = extractvalue { ptr, ptr } %272, 1
   %275 = add nuw nsw i64 %.sroa.4348.0.extract.shift, %.sroa.0.0.insert.ext.i.i205
@@ -17191,11 +17185,11 @@ _ZNK4llvm14RISCVSubtarget12expandVScaleINS_12ElementCountEEET_S3_.exit262: ; pre
   %311 = icmp eq i64 %.sroa.03.sroa.4.0.i, %.sroa.03.sroa.4.0.i257
   %312 = select i1 %310, i1 %311, i1 false
   %spec.select = zext i1 %312 to i64
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %22) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   store i32 %.sroa.030.0, ptr %22, align 8, !tbaa !163
   %313 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store i32 1, ptr %313, align 8, !tbaa !588
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %23) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i32 %.sroa.061.0, ptr %23, align 8, !tbaa !163
   %314 = getelementptr inbounds nuw i8, ptr %23, i64 16
   store i32 0, ptr %314, align 8, !tbaa !591
@@ -17231,8 +17225,8 @@ _ZNK4llvm14RISCVSubtarget12expandVScaleINS_12ElementCountEEET_S3_.exit262: ; pre
   %326 = getelementptr inbounds nuw i8, ptr %325, i64 32
   %327 = load ptr, ptr %326, align 8
   %328 = call { ptr, ptr } %327(ptr noundef nonnull align 8 dereferenceable(88) %3, i32 noundef 328, ptr nonnull %22, i64 1, ptr nonnull %23, i64 6, i64 0) #17
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %23) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %22) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %329
 
 329:                                              ; preds = %_ZNK4llvm14RISCVSubtarget12expandVScaleINS_12ElementCountEEET_S3_.exit262, %252
@@ -17242,29 +17236,29 @@ _ZNK4llvm14RISCVSubtarget12expandVScaleINS_12ElementCountEEET_S3_.exit262: ; pre
 330:                                              ; preds = %329
   %.sroa.0305.0 = extractvalue { ptr, ptr } %.pn, 0
   %.sroa.6306.0 = extractvalue { ptr, ptr } %.pn, 1
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %24) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   store i32 %32, ptr %24, align 8, !tbaa !163
   %331 = getelementptr inbounds nuw i8, ptr %24, i64 16
   store i32 1, ptr %331, align 8, !tbaa !588
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %25) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i32 %34, ptr %25, align 8, !tbaa !163
   %332 = getelementptr inbounds nuw i8, ptr %25, i64 16
   store i32 0, ptr %332, align 8, !tbaa !591
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %26) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   store ptr %.sroa.0305.0, ptr %26, align 8, !tbaa !594
   %.sroa.6306.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 8
   store ptr %.sroa.6306.0, ptr %.sroa.6306.0..sroa_idx, align 8, !tbaa !595
   %333 = getelementptr inbounds nuw i8, ptr %26, i64 16
   store i32 1, ptr %333, align 8, !tbaa !591
   %334 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder20buildInsertSubvectorERKNS_5DstOpERKNS_5SrcOpES6_j(ptr noundef nonnull align 8 dereferenceable(88) %3, ptr noundef nonnull align 8 dereferenceable(20) %24, ptr noundef nonnull align 8 dereferenceable(20) %25, ptr noundef nonnull align 8 dereferenceable(20) %26, i32 noundef %153) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %26) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %25) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %24) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %335
 
 335:                                              ; preds = %330, %329
   call void @_ZN4llvm12MachineInstr15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(70) %1) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %336
 
 336:                                              ; preds = %335, %_ZNK4llvm7details23FixedOrScalableQuantityINS_8TypeSizeEmE17isKnownMultipleOfERKS3_.exit, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit146, %64, %90
@@ -17272,11 +17266,11 @@ _ZNK4llvm14RISCVSubtarget12expandVScaleINS_12ElementCountEEET_S3_.exit262: ; pre
   ret i1 %.0
 }
 
-declare noundef i32 @_ZN4llvm15LegalizerHelper11widenScalarERNS_12MachineInstrEjNS_3LLTE(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(70), i32 noundef, i64) local_unnamed_addr #3
+declare noundef i32 @_ZN4llvm15LegalizerHelper11widenScalarERNS_12MachineInstrEjNS_3LLTE(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(70), i32 noundef, i64) local_unnamed_addr #2
 
-declare { ptr, ptr } @_ZN4llvm16MachineIRBuilder20buildInsertSubvectorERKNS_5DstOpERKNS_5SrcOpES6_j(ptr noundef nonnull align 8 dereferenceable(88), ptr noundef nonnull align 8 dereferenceable(20), ptr noundef nonnull align 8 dereferenceable(20), ptr noundef nonnull align 8 dereferenceable(20), i32 noundef) local_unnamed_addr #3
+declare { ptr, ptr } @_ZN4llvm16MachineIRBuilder20buildInsertSubvectorERKNS_5DstOpERKNS_5SrcOpES6_j(ptr noundef nonnull align 8 dereferenceable(88), ptr noundef nonnull align 8 dereferenceable(20), ptr noundef nonnull align 8 dereferenceable(20), ptr noundef nonnull align 8 dereferenceable(20), i32 noundef) local_unnamed_addr #2
 
-declare i32 @_ZN4llvm19MachineRegisterInfo28createGenericVirtualRegisterENS_3LLTENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(504), i64, ptr, i64) local_unnamed_addr #3
+declare i32 @_ZN4llvm19MachineRegisterInfo28createGenericVirtualRegisterENS_3LLTENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(504), i64, ptr, i64) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZNK4llvm18RISCVLegalizerInfo14legalizeCustomERNS_15LegalizerHelperERNS_12MachineInstrERNS_20LostDebugLocObserverE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(125528) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(70) %2, ptr nonnull readnone align 1 captures(none) %3) unnamed_addr #0 align 2 {
@@ -17420,11 +17414,11 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit: ; preds =
   %74 = load ptr, ptr %73, align 8, !tbaa !682
   store ptr %74, ptr %63, align 8
   %.sroa.040.0.copyload = load i64, ptr %59, align 8, !tbaa !161
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %.sroa.040.0.copyload, ptr %7, align 8
   %.sroa.4220.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 0, ptr %.sroa.4220.0..sroa_idx, align 8, !tbaa !648
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 %60, ptr %8, align 8
   %.sroa.4216.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 0, ptr %.sroa.4216.0..sroa_idx, align 8, !tbaa !649
@@ -17436,17 +17430,17 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit: ; preds =
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 32
   %79 = load ptr, ptr %78, align 8
   %80 = call { ptr, ptr } %79(ptr noundef nonnull align 8 dereferenceable(88) %25, i32 noundef 138, ptr nonnull %7, i64 1, ptr nonnull %8, i64 2, i64 0) #17
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %81 = extractvalue { ptr, ptr } %80, 0
   %82 = extractvalue { ptr, ptr } %80, 1
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %83 = getelementptr inbounds nuw i8, ptr %62, i64 4
   %84 = load i32, ptr %83, align 4, !tbaa !161
   store i32 %84, ptr %9, align 8
   %85 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i32 1, ptr %85, align 8, !tbaa !588
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %81, ptr %10, align 8, !tbaa !594
   %.sroa.4223.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %82, ptr %.sroa.4223.0..sroa_idx, align 8, !tbaa !595
@@ -17456,8 +17450,8 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit: ; preds =
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 32
   %89 = load ptr, ptr %88, align 8
   %90 = call { ptr, ptr } %89(ptr noundef nonnull align 8 dereferenceable(88) %25, i32 noundef 132, ptr nonnull %9, i64 1, ptr nonnull %10, i64 1, i64 0) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @_ZN4llvm14MachineOperand6setRegENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(32) %62, i32 %60) #17
   %91 = load ptr, ptr %54, align 8, !tbaa !681
   %92 = load ptr, ptr %91, align 8, !tbaa !3
@@ -17493,7 +17487,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit: ; preds = %95, %101, 
   %.sroa.04.0.i = phi i64 [ %111, %106 ], [ 0, %101 ], [ 0, %95 ]
   %112 = getelementptr inbounds nuw i8, ptr %97, i64 80
   %113 = load i64, ptr %112, align 8, !tbaa !161
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %114 = and i64 %.sroa.04.0.i, -7
   %spec.select.i.i.i = icmp ne i64 %114, 0
   %115 = and i64 %.sroa.04.0.i, 2
@@ -17536,7 +17530,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit:              ; preds = %120, %122
   %131 = icmp eq i64 %130, 64
   %132 = icmp eq i64 %113, 32
   %133 = and i1 %132, %131
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br i1 %133, label %368, label %134
 
 134:                                              ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit
@@ -17559,7 +17553,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit:              ; preds = %120, %122
   br label %368
 
 144:                                              ; preds = %4, %4, %4
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %145 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %146 = load ptr, ptr %145, align 8, !tbaa !442
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 68
@@ -17587,7 +17581,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit:              ; preds = %120, %122
   br label %160
 
 160:                                              ; preds = %152, %156, %159
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %161 = load i16, ptr %28, align 4, !tbaa !662
   %162 = icmp eq i16 %161, 142
   %163 = icmp eq i16 %161, 141
@@ -17614,7 +17608,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit:              ; preds = %120, %122
   br label %368
 
 174:                                              ; preds = %144
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %175 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %176 = load ptr, ptr %175, align 8, !tbaa !681
   %177 = load ptr, ptr %176, align 8, !tbaa !3
@@ -17925,14 +17919,14 @@ _ZL15getRISCVWOpcodej.exit176:                    ; preds = %261, %273, %274, %2
   %284 = load ptr, ptr %270, align 8, !tbaa !688
   %285 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %284, i64 %.0.i175.neg
   tail call void @_ZN4llvm12MachineInstr7setDescERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(70) %2, ptr noundef nonnull align 8 dereferenceable(32) %285) #17
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 1, ptr %13, align 8, !alias.scope !689
   %286 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr null, ptr %286, align 8, !tbaa !692, !alias.scope !689
   %287 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 1, ptr %287, align 8, !tbaa !161, !alias.scope !689
   call void @_ZN4llvm12MachineInstr10addOperandERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(70) %2, ptr noundef nonnull align 8 dereferenceable(32) %13) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %288 = load ptr, ptr %262, align 8, !tbaa !681
   %289 = load ptr, ptr %288, align 8, !tbaa !3
   %290 = getelementptr inbounds nuw i8, ptr %289, i64 40
@@ -17947,22 +17941,22 @@ _ZL15getRISCVWOpcodej.exit176:                    ; preds = %261, %273, %274, %2
   %296 = load i32, ptr %295, align 4, !tbaa !161
   %297 = getelementptr inbounds nuw i8, ptr %294, i64 36
   %298 = load i32, ptr %297, align 4, !tbaa !161
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %14) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @_ZN4llvm16MachineIRBuilderC2ERNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(88) %14, ptr noundef nonnull align 8 dereferenceable(70) %2)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %299 = getelementptr inbounds nuw i8, ptr %294, i64 80
   %300 = load i64, ptr %299, align 8, !tbaa !161
   %301 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i32 10, ptr %301, align 8, !tbaa !659
   store i64 %300, ptr %15, align 8, !tbaa !161
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %16) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %302 = getelementptr inbounds nuw i8, ptr %0, i64 125520
   %.sroa.010.0.copyload = load i64, ptr %302, align 8, !tbaa !161
   store i64 %.sroa.010.0.copyload, ptr %16, align 8, !tbaa !161
   %303 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i32 0, ptr %303, align 8, !tbaa !588
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @_ZNK4llvm5APInt4rotrEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %18, ptr noundef nonnull align 8 dereferenceable(12) %15, i32 noundef 2) #17
   %304 = getelementptr inbounds nuw i8, ptr %0, i64 125512
   %305 = load i32, ptr %304, align 8, !tbaa !155
@@ -18000,10 +17994,10 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %292, %312, %315
   br label %_ZN4llvm5APIntD2Ev.exit177
 
 _ZN4llvm5APIntD2Ev.exit177:                       ; preds = %_ZN4llvm5APIntD2Ev.exit, %319, %322
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16) #17
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %19) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %.sroa.09.0.copyload = load i64, ptr %302, align 8, !tbaa !161
   store i64 %.sroa.09.0.copyload, ptr %19, align 8, !tbaa !161
   %323 = getelementptr inbounds nuw i8, ptr %19, i64 16
@@ -18011,27 +18005,27 @@ _ZN4llvm5APIntD2Ev.exit177:                       ; preds = %_ZN4llvm5APIntD2Ev.
   %324 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder13buildConstantERKNS_5DstOpEl(ptr noundef nonnull align 8 dereferenceable(88) %14, ptr noundef nonnull align 8 dereferenceable(20) %19, i64 noundef 0) #17
   %325 = extractvalue { ptr, ptr } %324, 0
   %326 = extractvalue { ptr, ptr } %324, 1
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19) #17
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %20) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %.sroa.06.0.copyload = load i64, ptr %302, align 8, !tbaa !161
   store i64 %.sroa.06.0.copyload, ptr %20, align 8, !tbaa !161
   %327 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store i32 0, ptr %327, align 8, !tbaa !588
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %21) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store i32 %298, ptr %21, align 8, !tbaa !163
   %328 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store i32 0, ptr %328, align 8, !tbaa !591
   %329 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder10buildInstrEjNS_8ArrayRefINS_5DstOpEEENS1_INS_5SrcOpEEESt8optionalIjE(ptr noundef nonnull align 8 dereferenceable(88) %14, i32 noundef 313, ptr nonnull %20, i64 1, ptr nonnull %21, i64 1, i64 0) #17
   %330 = extractvalue { ptr, ptr } %329, 0
   %331 = extractvalue { ptr, ptr } %329, 1
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %20) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   %.sroa.03.0.copyload = load i64, ptr %302, align 8, !tbaa !161
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %.sroa.03.0.copyload, ptr %5, align 8
   %.sroa.4185.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 0, ptr %.sroa.4185.0..sroa_idx, align 8, !tbaa !648
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %330, ptr %6, align 8
   %.sroa.0180.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %331, ptr %.sroa.0180.sroa.4.0..sroa_idx, align 8, !tbaa !161
@@ -18047,30 +18041,30 @@ _ZN4llvm5APIntD2Ev.exit177:                       ; preds = %_ZN4llvm5APIntD2Ev.
   %334 = getelementptr inbounds nuw i8, ptr %333, i64 32
   %335 = load ptr, ptr %334, align 8
   %336 = call { ptr, ptr } %335(ptr noundef nonnull align 8 dereferenceable(88) %14, i32 noundef 62, ptr nonnull %5, i64 1, ptr nonnull %6, i64 2, i64 0) #17
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %337 = extractvalue { ptr, ptr } %336, 0
   %338 = extractvalue { ptr, ptr } %336, 1
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %22) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   store i32 %296, ptr %22, align 8, !tbaa !163
   %339 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store i32 1, ptr %339, align 8, !tbaa !588
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %23) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store ptr %337, ptr %23, align 8, !tbaa !594
   %.sroa.4188.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 8
   store ptr %338, ptr %.sroa.4188.0..sroa_idx, align 8, !tbaa !595
   %340 = getelementptr inbounds nuw i8, ptr %23, i64 16
   store i32 1, ptr %340, align 8, !tbaa !591
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %24) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   store ptr %325, ptr %24, align 8, !tbaa !594
   %.sroa.4202.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 8
   store ptr %326, ptr %.sroa.4202.0..sroa_idx, align 8, !tbaa !595
   %341 = getelementptr inbounds nuw i8, ptr %24, i64 16
   store i32 1, ptr %341, align 8, !tbaa !591
   %342 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder9buildICmpENS_7CmpInst9PredicateERKNS_5DstOpERKNS_5SrcOpES8_St8optionalIjE(ptr noundef nonnull align 8 dereferenceable(88) %14, i32 noundef 33, ptr noundef nonnull align 8 dereferenceable(20) %22, ptr noundef nonnull align 8 dereferenceable(20) %23, ptr noundef nonnull align 8 dereferenceable(20) %24, i64 0) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %24) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %23) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %22) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @_ZN4llvm12MachineInstr15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(70) %2) #17
   %343 = load i32, ptr %301, align 8, !tbaa !659
   %344 = icmp ugt i32 %343, 64
@@ -18086,7 +18080,7 @@ _ZN4llvm5APIntD2Ev.exit177:                       ; preds = %_ZN4llvm5APIntD2Ev.
   br label %_ZN4llvm5APIntD2Ev.exit178
 
 _ZN4llvm5APIntD2Ev.exit178:                       ; preds = %_ZN4llvm5APIntD2Ev.exit177, %345, %348
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN4llvm16MachineIRBuilderE, i64 16), ptr %14, align 8, !tbaa !3
   %349 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %350 = load ptr, ptr %349, align 8, !tbaa !694
@@ -18098,7 +18092,7 @@ _ZN4llvm5APIntD2Ev.exit178:                       ; preds = %_ZN4llvm5APIntD2Ev.
   br label %_ZN4llvm16MachineIRBuilderD2Ev.exit
 
 _ZN4llvm16MachineIRBuilderD2Ev.exit:              ; preds = %_ZN4llvm5APIntD2Ev.exit178, %351
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %14) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %368
 
 352:                                              ; preds = %4
@@ -18138,23 +18132,23 @@ _ZN4llvm16MachineIRBuilderD2Ev.exit:              ; preds = %_ZN4llvm5APIntD2Ev.
   ret i1 %.0
 }
 
-declare noundef i32 @_ZN4llvm15LegalizerHelper16lowerAbsToMaxNegERNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(70)) local_unnamed_addr #3
+declare noundef i32 @_ZN4llvm15LegalizerHelper16lowerAbsToMaxNegERNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(70)) local_unnamed_addr #2
 
-declare noundef i32 @_ZN4llvm15LegalizerHelper13lowerConstantERNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(70)) local_unnamed_addr #3
+declare noundef i32 @_ZN4llvm15LegalizerHelper13lowerConstantERNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(70)) local_unnamed_addr #2
 
-declare void @_ZN4llvm15LegalizerHelper14widenScalarSrcERNS_12MachineInstrENS_3LLTEjj(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(70), i64, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare void @_ZN4llvm15LegalizerHelper14widenScalarSrcERNS_12MachineInstrENS_3LLTEjj(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(70), i64, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @_ZN4llvm14MachineOperand6setRegENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(32), i32) local_unnamed_addr #3
+declare void @_ZN4llvm14MachineOperand6setRegENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(32), i32) local_unnamed_addr #2
 
-declare noundef i32 @_ZN4llvm15LegalizerHelper5lowerERNS_12MachineInstrEjNS_3LLTE(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(70), i32 noundef, i64) local_unnamed_addr #3
+declare noundef i32 @_ZN4llvm15LegalizerHelper5lowerERNS_12MachineInstrEjNS_3LLTE(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(70), i32 noundef, i64) local_unnamed_addr #2
 
-declare void @_ZN4llvm34getIConstantVRegValWithLookThroughENS_8RegisterERKNS_19MachineRegisterInfoEb(ptr dead_on_unwind writable sret(%"class.std::optional.370") align 8, i32, ptr noundef nonnull align 8 dereferenceable(504), i1 noundef zeroext) local_unnamed_addr #3
+declare void @_ZN4llvm34getIConstantVRegValWithLookThroughENS_8RegisterERKNS_19MachineRegisterInfoEb(ptr dead_on_unwind writable sret(%"class.std::optional.370") align 8, i32, ptr noundef nonnull align 8 dereferenceable(504), i1 noundef zeroext) local_unnamed_addr #2
 
-declare void @_ZN4llvm15LegalizerHelper14widenScalarDstERNS_12MachineInstrENS_3LLTEjj(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(70), i64, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare void @_ZN4llvm15LegalizerHelper14widenScalarDstERNS_12MachineInstrENS_3LLTEjj(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(70), i64, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @_ZN4llvm12MachineInstr7setDescERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(70), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #3
+declare void @_ZN4llvm12MachineInstr7setDescERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(70), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
-declare void @_ZN4llvm12MachineInstr10addOperandERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(70), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #3
+declare void @_ZN4llvm12MachineInstr10addOperandERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(70), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm16MachineIRBuilderC2ERNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) unnamed_addr #0 comdat align 2 {
@@ -18285,13 +18279,13 @@ _ZN4llvm16MachineIRBuilder11setDebugLocERKNS_8DebugLocE.exit: ; preds = %_ZN4llv
   ret void
 }
 
-declare { ptr, ptr } @_ZN4llvm16MachineIRBuilder13buildConstantERKNS_5DstOpERKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(88), ptr noundef nonnull align 8 dereferenceable(20), ptr noundef nonnull align 8 dereferenceable(12)) local_unnamed_addr #3
+declare { ptr, ptr } @_ZN4llvm16MachineIRBuilder13buildConstantERKNS_5DstOpERKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(88), ptr noundef nonnull align 8 dereferenceable(20), ptr noundef nonnull align 8 dereferenceable(12)) local_unnamed_addr #2
 
-declare void @_ZNK4llvm5APInt4rotrEj(ptr dead_on_unwind writable sret(%"class.llvm::APInt") align 8, ptr noundef nonnull align 8 dereferenceable(12), i32 noundef) local_unnamed_addr #3
+declare void @_ZNK4llvm5APInt4rotrEj(ptr dead_on_unwind writable sret(%"class.llvm::APInt") align 8, ptr noundef nonnull align 8 dereferenceable(12), i32 noundef) local_unnamed_addr #2
 
-declare void @_ZNK4llvm5APInt4zextEj(ptr dead_on_unwind writable sret(%"class.llvm::APInt") align 8, ptr noundef nonnull align 8 dereferenceable(12), i32 noundef) local_unnamed_addr #3
+declare void @_ZNK4llvm5APInt4zextEj(ptr dead_on_unwind writable sret(%"class.llvm::APInt") align 8, ptr noundef nonnull align 8 dereferenceable(12), i32 noundef) local_unnamed_addr #2
 
-declare { ptr, ptr } @_ZN4llvm16MachineIRBuilder10buildInstrEjNS_8ArrayRefINS_5DstOpEEENS1_INS_5SrcOpEEESt8optionalIjE(ptr noundef nonnull align 8 dereferenceable(88), i32 noundef, ptr, i64, ptr, i64, i64) unnamed_addr #3
+declare { ptr, ptr } @_ZN4llvm16MachineIRBuilder10buildInstrEjNS_8ArrayRefINS_5DstOpEEENS1_INS_5SrcOpEEESt8optionalIjE(ptr noundef nonnull align 8 dereferenceable(88), i32 noundef, ptr, i64, ptr, i64, i64) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm13LegalizerInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(125504) %0) unnamed_addr #0 comdat align 2 {
@@ -18367,7 +18361,7 @@ _ZN4llvm15LegalizeRuleSetD2Ev.exit:               ; preds = %_ZN4llvm23SmallVect
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN4llvm18RISCVLegalizerInfoD0Ev(ptr noundef nonnull align 8 dereferenceable(125528) %0) unnamed_addr #5 comdat align 2 {
+define linkonce_odr hidden void @_ZN4llvm18RISCVLegalizerInfoD0Ev(ptr noundef nonnull align 8 dereferenceable(125528) %0) unnamed_addr #4 comdat align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN4llvm13LegalizerInfoE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 42512
   tail call void @_ZN4llvm19LegacyLegalizerInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(82992) %2) #17
@@ -18440,16 +18434,16 @@ _ZN4llvm13LegalizerInfoD2Ev.exit:                 ; preds = %_ZN4llvm15LegalizeR
   ret void
 }
 
-declare noundef i32 @_ZNK4llvm13LegalizerInfo31getExtOpcodeForWideningConstantENS_3LLTE(ptr noundef nonnull align 8 dereferenceable(125504), i64) unnamed_addr #3
+declare noundef i32 @_ZNK4llvm13LegalizerInfo31getExtOpcodeForWideningConstantENS_3LLTE(ptr noundef nonnull align 8 dereferenceable(125504), i64) unnamed_addr #2
 
-declare void @_ZN4llvm19LegacyLegalizerInfoC1Ev(ptr noundef nonnull align 8 dereferenceable(82992)) unnamed_addr #3
+declare void @_ZN4llvm19LegacyLegalizerInfoC1Ev(ptr noundef nonnull align 8 dereferenceable(82992)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %0, i8 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %"class.llvm::LegalizeRule", align 8
   %5 = alloca %"class.std::function", align 8
   %6 = alloca %"class.std::function.77", align 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   %8 = load ptr, ptr %7, align 8, !tbaa !164
@@ -18534,7 +18528,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZN4llvm12LegalizeR
   br label %_ZNSt14_Function_baseD2Ev.exit2
 
 _ZNSt14_Function_baseD2Ev.exit2:                  ; preds = %_ZNSt14_Function_baseD2Ev.exit, %40
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %0
 }
 
@@ -18628,7 +18622,7 @@ _ZN4llvm12LegalizeRuleC2ERKS0_.exit:              ; preds = %_ZNSt8functionIFbRK
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4llvm23SmallVectorTemplateBaseINS_12LegalizeRuleELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1) local_unnamed_addr #0 comdat align 2 {
   %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = call noundef ptr @_ZN4llvm15SmallVectorBaseIjE13mallocForGrowEPvmmRm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %4, i64 noundef %1, i64 noundef 72, ptr noundef nonnull align 8 dereferenceable(8) %3) #17
   %6 = load ptr, ptr %0, align 8, !tbaa !19
@@ -18750,17 +18744,17 @@ _ZN4llvm23SmallVectorTemplateBaseINS_12LegalizeRuleELb0EE21takeAllocationForGrow
   %50 = trunc i64 %47 to i32
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %50, ptr %51, align 4, !tbaa !21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-declare noundef ptr @_ZN4llvm15SmallVectorBaseIjE13mallocForGrowEPvmmRm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef, i64 noundef, ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #3
+declare noundef ptr @_ZN4llvm15SmallVectorBaseIjE13mallocForGrowEPvmmRm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef, i64 noundef, ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL21typeIsLegalIntOrFPVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E9_M_invokeERKSt9_Any_dataS3_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) #7 align 2 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL21typeIsLegalIntOrFPVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E9_M_invokeERKSt9_Any_dataS3_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) #6 align 2 {
   %.val = load ptr, ptr %0, align 8, !tbaa !711
   %3 = getelementptr inbounds nuw i8, ptr %.val, i64 452
   %4 = load i8, ptr %3, align 4, !tbaa !299, !range !153, !noundef !154
@@ -18808,7 +18802,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL21typeIsLegalIntOrFPVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #8 align 2 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL21typeIsLegalIntOrFPVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #7 align 2 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZL21typeIsLegalIntOrFPVecjSt16initializer_listIN4llvm3LLTEERKNS2_14RISCVSubtargetEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
@@ -18836,7 +18830,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(168) ptr @_ZN
   %5 = alloca %"class.llvm::LegalizeRule", align 8
   %6 = alloca %"class.std::function", align 8
   %7 = alloca %"class.std::function.77", align 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false)
   %9 = load ptr, ptr %8, align 8, !tbaa !164
@@ -18958,13 +18952,13 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZN4llvm12LegalizeR
   br label %_ZNSt14_Function_baseD2Ev.exit3
 
 _ZNSt14_Function_baseD2Ev.exit3:                  ; preds = %_ZNSt14_Function_baseD2Ev.exit, %61
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %0
 }
 
-declare void @_ZN4llvm18LegalityPredicates11sizeNotPow2Ej(ptr dead_on_unwind writable sret(%"class.std::function") align 8, i32 noundef) local_unnamed_addr #3
+declare void @_ZN4llvm18LegalityPredicates11sizeNotPow2Ej(ptr dead_on_unwind writable sret(%"class.std::function") align 8, i32 noundef) local_unnamed_addr #2
 
-declare void @_ZN4llvm17LegalizeMutations26widenScalarOrEltToNextPow2Ejj(ptr dead_on_unwind writable sret(%"class.std::function.77") align 8, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare void @_ZN4llvm17LegalizeMutations26widenScalarOrEltToNextPow2Ejj(ptr dead_on_unwind writable sret(%"class.std::function.77") align 8, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm15LegalizeRuleSet6alwaysERKNS_13LegalityQueryE(ptr noundef nonnull align 8 dereferenceable(40) %0) #0 comdat align 2 {
@@ -19002,12 +18996,12 @@ _ZNSt14_Function_base13_Base_managerIPFbRKN4llvm13LegalityQueryEEE10_M_managerER
   ret i1 false
 }
 
-declare void @_ZN4llvm18LegalityPredicates18scalarNarrowerThanEjj(ptr dead_on_unwind writable sret(%"class.std::function") align 8, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare void @_ZN4llvm18LegalityPredicates18scalarNarrowerThanEjj(ptr dead_on_unwind writable sret(%"class.std::function") align 8, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind writable sret(%"class.std::function") align 8, i32 noundef, i32 noundef, ptr, i64) local_unnamed_addr #3
+declare void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind writable sret(%"class.std::function") align 8, i32 noundef, i32 noundef, ptr, i64) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL18typeIsLegalBoolVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E9_M_invokeERKSt9_Any_dataS3_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) #7 align 2 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL18typeIsLegalBoolVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E9_M_invokeERKSt9_Any_dataS3_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) #6 align 2 {
   %.val = load ptr, ptr %0, align 8, !tbaa !716
   %3 = getelementptr inbounds nuw i8, ptr %.val, i64 452
   %4 = load i8, ptr %3, align 4, !tbaa !299, !range !153, !noundef !154
@@ -19038,7 +19032,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL18typeIsLegalBoolVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #8 align 2 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL18typeIsLegalBoolVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #7 align 2 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZL18typeIsLegalBoolVecjSt16initializer_listIN4llvm3LLTEERKNS2_14RISCVSubtargetEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
@@ -19061,9 +19055,9 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   ret i1 false
 }
 
-declare void @_ZN4llvm18LegalityPredicates15scalarWiderThanEjj(ptr dead_on_unwind writable sret(%"class.std::function") align 8, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare void @_ZN4llvm18LegalityPredicates15scalarWiderThanEjj(ptr dead_on_unwind writable sret(%"class.std::function") align 8, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @_ZN4llvm17LegalizeMutations19changeElementSizeToEjj(ptr dead_on_unwind writable sret(%"class.std::function.77") align 8, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare void @_ZN4llvm17LegalizeMutations19changeElementSizeToEjj(ptr dead_on_unwind writable sret(%"class.std::function.77") align 8, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_15LegalizeRuleSet15minScalarSameAsEjjEUlS3_E_E9_M_invokeERKSt9_Any_dataS3_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) #0 comdat align 2 {
@@ -19074,7 +19068,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt17_Function_handlerIFbRKN4ll
   %7 = load ptr, ptr %4, align 8, !tbaa !720
   %8 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %7, i64 %6
   %9 = load i64, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %11 = load i32, ptr %10, align 4, !tbaa !723
   %12 = zext i32 %11 to i64
@@ -19127,7 +19121,7 @@ _ZSt10__invoke_rIbRZN4llvm15LegalizeRuleSet15minScalarSameAsEjjEUlRKNS0_13Legali
   store i8 %.sroa.3.0.i.i.i.i, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
   %34 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %3) #17
   %35 = icmp ult i64 %34, %.0.in.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %35
 }
 
@@ -19165,7 +19159,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt17_Function_handlerIFbRKN4ll
   %7 = load ptr, ptr %4, align 8, !tbaa !720
   %8 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %7, i64 %6
   %9 = load i64, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %11 = load i32, ptr %10, align 4, !tbaa !726
   %12 = zext i32 %11 to i64
@@ -19218,7 +19212,7 @@ _ZSt10__invoke_rIbRZN4llvm15LegalizeRuleSet15maxScalarSameAsEjjEUlRKNS0_13Legali
   store i8 %.sroa.3.0.i.i.i.i, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
   %34 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %3) #17
   %35 = icmp ugt i64 %34, %.0.in.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %35
 }
 
@@ -19247,14 +19241,14 @@ _ZNSt14_Function_base13_Base_managerIZN4llvm15LegalizeRuleSet15maxScalarSameAsEj
   ret i1 false
 }
 
-declare void @_ZN4llvm18LegalityPredicates23scalarOrEltNarrowerThanEjj(ptr dead_on_unwind writable sret(%"class.std::function") align 8, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare void @_ZN4llvm18LegalityPredicates23scalarOrEltNarrowerThanEjj(ptr dead_on_unwind writable sret(%"class.std::function") align 8, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @_ZN4llvm18LegalityPredicates22scalarOrEltSizeNotPow2Ej(ptr dead_on_unwind writable sret(%"class.std::function") align 8, i32 noundef) local_unnamed_addr #3
+declare void @_ZN4llvm18LegalityPredicates22scalarOrEltSizeNotPow2Ej(ptr dead_on_unwind writable sret(%"class.std::function") align 8, i32 noundef) local_unnamed_addr #2
 
-declare void @_ZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS0_18TypePairAndMemDescEE(ptr dead_on_unwind writable sret(%"class.std::function") align 8, i32 noundef, i32 noundef, i32 noundef, ptr, i64) local_unnamed_addr #3
+declare void @_ZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS0_18TypePairAndMemDescEE(ptr dead_on_unwind writable sret(%"class.std::function") align 8, i32 noundef, i32 noundef, i32 noundef, ptr, i64) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL17typeIsLegalPtrVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E9_M_invokeERKSt9_Any_dataS3_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) #7 align 2 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL17typeIsLegalPtrVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E9_M_invokeERKSt9_Any_dataS3_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) #6 align 2 {
   %.val = load ptr, ptr %0, align 8, !tbaa !727
   %3 = getelementptr inbounds nuw i8, ptr %.val, i64 452
   %4 = load i8, ptr %3, align 4, !tbaa !299, !range !153, !noundef !154
@@ -19299,7 +19293,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL17typeIsLegalPtrVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #8 align 2 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL17typeIsLegalPtrVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #7 align 2 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZL17typeIsLegalPtrVecjSt16initializer_listIN4llvm3LLTEERKNS2_14RISCVSubtargetEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
@@ -19322,11 +19316,11 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   ret i1 false
 }
 
-declare void @_ZN4llvm18LegalityPredicates22memSizeNotByteSizePow2Ej(ptr dead_on_unwind writable sret(%"class.std::function") align 8, i32 noundef) local_unnamed_addr #3
+declare void @_ZN4llvm18LegalityPredicates22memSizeNotByteSizePow2Ej(ptr dead_on_unwind writable sret(%"class.std::function") align 8, i32 noundef) local_unnamed_addr #2
 
-declare void @_ZN4llvm18LegalityPredicates8isVectorEj(ptr dead_on_unwind writable sret(%"class.std::function") align 8, i32 noundef) local_unnamed_addr #3
+declare void @_ZN4llvm18LegalityPredicates8isVectorEj(ptr dead_on_unwind writable sret(%"class.std::function") align 8, i32 noundef) local_unnamed_addr #2
 
-declare void @_ZN4llvm17LegalizeMutations9scalarizeEj(ptr dead_on_unwind writable sret(%"class.std::function.77") align 8, i32 noundef) local_unnamed_addr #3
+declare void @_ZN4llvm17LegalizeMutations9scalarizeEj(ptr dead_on_unwind writable sret(%"class.std::function.77") align 8, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet25actionForCartesianProductENS_15LegalizeActions14LegalizeActionESt16initializer_listINS_3LLTEES5_(ptr noundef nonnull align 8 dereferenceable(168) %0, i8 noundef zeroext %1, ptr %2, i64 %3, ptr %4, i64 %5) local_unnamed_addr #0 comdat align 2 {
@@ -19337,7 +19331,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(168) ptr @_ZN
   call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %9, i32 noundef 0, ptr %2, i64 %3) #17
   call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %10, i32 noundef 1, ptr %4, i64 %5) #17
   call void @llvm.experimental.noalias.scope.decl(metadata !729)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #17, !noalias !729
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !729
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false), !noalias !729
   %12 = load ptr, ptr %11, align 8, !tbaa !164, !noalias !729
@@ -19418,7 +19412,7 @@ _ZN4llvm18LegalityPredicates3allISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E9_M_invokeERKSt9_Any_dataS3_, ptr %43, align 8, !tbaa !169, !alias.scope !729
   %44 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %44, align 8, !tbaa !164, !alias.scope !729
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #17, !noalias !729
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !729
   %45 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet8actionIfENS_15LegalizeActions14LegalizeActionESt8functionIFbRKNS_13LegalityQueryEEE(ptr noundef nonnull align 8 dereferenceable(168) %0, i8 noundef zeroext %1, ptr noundef nonnull %8)
   %46 = load ptr, ptr %44, align 8, !tbaa !164
   %.not.i = icmp eq ptr %46, null
@@ -19450,37 +19444,37 @@ _ZNSt14_Function_baseD2Ev.exit10:                 ; preds = %_ZNSt14_Function_ba
   ret ptr %45
 }
 
-declare noundef i32 @_ZNK4llvm12MachineInstr18getNumExplicitDefsEv(ptr noundef nonnull align 8 dereferenceable(70)) local_unnamed_addr #3
+declare noundef i32 @_ZNK4llvm12MachineInstr18getNumExplicitDefsEv(ptr noundef nonnull align 8 dereferenceable(70)) local_unnamed_addr #2
 
-declare noundef ptr @_ZNK4llvm12MachineInstr5getMFEv(ptr noundef nonnull align 8 dereferenceable(70)) local_unnamed_addr #3
+declare noundef ptr @_ZNK4llvm12MachineInstr5getMFEv(ptr noundef nonnull align 8 dereferenceable(70)) local_unnamed_addr #2
 
-declare noundef nonnull align 8 dereferenceable(496) ptr @_ZNK4llvm8Function13getDataLayoutEv(ptr noundef nonnull align 8 dereferenceable(136)) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #9
-
-declare noundef ptr @_ZN4llvm15MachineFunction20getMachineMemOperandENS_18MachinePointerInfoENS_17MachineMemOperand5FlagsENS_12LocationSizeENS_5AlignERKNS_9AAMDNodesEPKNS_6MDNodeEhNS_14AtomicOrderingESC_(ptr noundef nonnull align 8 dereferenceable(1065), ptr noundef byval(%"struct.llvm::MachinePointerInfo") align 8, i16 noundef zeroext, i64, i8, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i8 noundef zeroext, i32 noundef, i32 noundef) local_unnamed_addr #3
-
-declare noundef i32 @_ZNK4llvm14RISCVSubtarget25getMinRVVVectorSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(413544)) local_unnamed_addr #3
+declare noundef nonnull align 8 dereferenceable(496) ptr @_ZNK4llvm8Function13getDataLayoutEv(ptr noundef nonnull align 8 dereferenceable(136)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #9
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #8
 
-declare { ptr, ptr } @_ZN4llvm16MachineIRBuilder12buildUnmergeENS_3LLTERKNS_5SrcOpE(ptr noundef nonnull align 8 dereferenceable(88), i64, ptr noundef nonnull align 8 dereferenceable(20)) local_unnamed_addr #3
+declare noundef ptr @_ZN4llvm15MachineFunction20getMachineMemOperandENS_18MachinePointerInfoENS_17MachineMemOperand5FlagsENS_12LocationSizeENS_5AlignERKNS_9AAMDNodesEPKNS_6MDNodeEhNS_14AtomicOrderingESC_(ptr noundef nonnull align 8 dereferenceable(1065), ptr noundef byval(%"struct.llvm::MachinePointerInfo") align 8, i16 noundef zeroext, i64, i8, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i8 noundef zeroext, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare noundef zeroext i1 @_ZNK4llvm8Function14hasFnAttributeENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136), i32 noundef) local_unnamed_addr #3
+declare noundef i32 @_ZNK4llvm14RISCVSubtarget25getMinRVVVectorSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(413544)) local_unnamed_addr #2
 
-declare void @_ZN4llvm16MachineIRBuilder5setMFERNS_15MachineFunctionE(ptr noundef nonnull align 8 dereferenceable(88), ptr noundef nonnull align 8 dereferenceable(1065)) local_unnamed_addr #3
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.ctlz.i64(i64, i1 immarg) #8
 
-declare void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef, ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #3
+declare { ptr, ptr } @_ZN4llvm16MachineIRBuilder12buildUnmergeENS_3LLTERKNS_5SrcOpE(ptr noundef nonnull align 8 dereferenceable(88), i64, ptr noundef nonnull align 8 dereferenceable(20)) local_unnamed_addr #2
 
-declare noundef zeroext i1 @_ZN4llvm16MetadataTracking5trackEPvRNS_8MetadataENS_12PointerUnionIJPNS_15MetadataAsValueEPS2_PNS_14DebugValueUserEEEE(ptr noundef, ptr noundef nonnull align 4 dereferenceable(8), i64) local_unnamed_addr #3
+declare noundef zeroext i1 @_ZNK4llvm8Function14hasFnAttributeENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136), i32 noundef) local_unnamed_addr #2
+
+declare void @_ZN4llvm16MachineIRBuilder5setMFERNS_15MachineFunctionE(ptr noundef nonnull align 8 dereferenceable(88), ptr noundef nonnull align 8 dereferenceable(1065)) local_unnamed_addr #2
+
+declare void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef, ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #2
+
+declare noundef zeroext i1 @_ZN4llvm16MetadataTracking5trackEPvRNS_8MetadataENS_12PointerUnionIJPNS_15MetadataAsValueEPS2_PNS_14DebugValueUserEEEE(ptr noundef, ptr noundef nonnull align 4 dereferenceable(8), i64) local_unnamed_addr #2
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdaPv(ptr noundef) local_unnamed_addr #10
+declare void @_ZdaPv(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN4llvm19LegacyLegalizerInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(82992) %0) unnamed_addr #5 comdat align 2 {
+define linkonce_odr hidden void @_ZN4llvm19LegacyLegalizerInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(82992) %0) unnamed_addr #4 comdat align 2 {
   br label %2
 
 2:                                                ; preds = %2, %1
@@ -19845,9 +19839,9 @@ _ZNSt10_HashtableItSt4pairIKtN4llvm11SmallVectorISt6vectorIS0_ItNS2_21LegacyLega
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #10
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #9
 
-declare void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
+declare void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E9_M_invokeERKSt9_Any_dataS3_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) #0 comdat align 2 {
@@ -19908,10 +19902,10 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt17_Function_handlerIFbRKN4ll
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #11
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: noreturn
-declare void @_ZSt25__throw_bad_function_callv() local_unnamed_addr #12
+declare void @_ZSt25__throw_bad_function_callv() local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates3allISt8functionIFbRKNS1_13LegalityQueryEEEEET_SA_SA_EUlS7_E_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) local_unnamed_addr #0 comdat align 2 {
@@ -20174,10 +20168,10 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   %9 = load i64, ptr %8, align 8
   %10 = and i64 %9, 1
   %.not.i.i.i = icmp eq i64 %10, 0
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br i1 %.not.i.i.i, label %"_ZSt10__invoke_rIbRZN4llvm18RISCVLegalizerInfoC1ERKNS0_14RISCVSubtargetEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit", label %11
 
 11:                                               ; preds = %2
@@ -20369,15 +20363,15 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit63.i.i.i:      ; preds = %90, %88
 
 "_ZSt10__invoke_rIbRZN4llvm18RISCVLegalizerInfoC1ERKNS0_14RISCVSubtargetEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit": ; preds = %2, %11, %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i, %_ZNK4llvm3LLT13getSizeInBitsEv.exit33.i.i.i, %_ZNK4llvm3LLT13getSizeInBitsEv.exit48.i.i.i, %74, %_ZNK4llvm3LLT13getSizeInBitsEv.exit63.i.i.i
   %100 = phi i1 [ false, %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i ], [ false, %11 ], [ false, %2 ], [ true, %_ZNK4llvm3LLT13getSizeInBitsEv.exit48.i.i.i ], [ true, %_ZNK4llvm3LLT13getSizeInBitsEv.exit33.i.i.i ], [ false, %74 ], [ %99, %_ZNK4llvm3LLT13getSizeInBitsEv.exit63.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %100
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18RISCVLegalizerInfoC1ERKNS0_14RISCVSubtargetEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #8 align 2 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18RISCVLegalizerInfoC1ERKNS0_14RISCVSubtargetEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #7 align 2 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18RISCVLegalizerInfoC1ERKNS1_14RISCVSubtargetEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
@@ -20402,7 +20396,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18RISCVLegalizerInfoC1ERKNS0_14RISCVSubtargetEE3$_1E9_M_invokeERKSt9_Any_dataS3_"(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) #7 align 2 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18RISCVLegalizerInfoC1ERKNS0_14RISCVSubtargetEE3$_1E9_M_invokeERKSt9_Any_dataS3_"(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val = load ptr, ptr %3, align 8, !tbaa !720
   %.val.val = load i64, ptr %.val, align 8, !tbaa !161
@@ -20426,7 +20420,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18RISCVLegalizerInfoC1ERKNS0_14RISCVSubtargetEE3$_1E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #13 align 2 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18RISCVLegalizerInfoC1ERKNS0_14RISCVSubtargetEE3$_1E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #12 align 2 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18RISCVLegalizerInfoC1ERKNS1_14RISCVSubtargetEE3$_1E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit" [
     i32 1, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18RISCVLegalizerInfoC1ERKNS1_14RISCVSubtargetEE3$_1E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit.sink.split"
     i32 0, label %4
@@ -20445,7 +20439,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal { i32, i64 } @"_ZNSt17_Function_handlerIFSt4pairIjN4llvm3LLTEERKNS1_13LegalityQueryEEZNS1_18RISCVLegalizerInfoC1ERKNS1_14RISCVSubtargetEE3$_2E9_M_invokeERKSt9_Any_dataS6_"(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) #7 align 2 {
+define internal { i32, i64 } @"_ZNSt17_Function_handlerIFSt4pairIjN4llvm3LLTEERKNS1_13LegalityQueryEEZNS1_18RISCVLegalizerInfoC1ERKNS1_14RISCVSubtargetEE3$_2E9_M_invokeERKSt9_Any_dataS6_"(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val = load ptr, ptr %3, align 8, !tbaa !720
   %.val.val = load i64, ptr %.val, align 8
@@ -20459,7 +20453,7 @@ define internal { i32, i64 } @"_ZNSt17_Function_handlerIFSt4pairIjN4llvm3LLTEERK
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFSt4pairIjN4llvm3LLTEERKNS1_13LegalityQueryEEZNS1_18RISCVLegalizerInfoC1ERKNS1_14RISCVSubtargetEE3$_2E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #13 align 2 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFSt4pairIjN4llvm3LLTEERKNS1_13LegalityQueryEEZNS1_18RISCVLegalizerInfoC1ERKNS1_14RISCVSubtargetEE3$_2E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #12 align 2 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18RISCVLegalizerInfoC1ERKNS1_14RISCVSubtargetEE3$_2E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit" [
     i32 1, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18RISCVLegalizerInfoC1ERKNS1_14RISCVSubtargetEE3$_2E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit.sink.split"
     i32 0, label %4
@@ -20477,7 +20471,13 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFSt4pairIjN4llvm3L
   ret i1 false
 }
 
-declare noundef i32 @_ZNK4llvm14RISCVSubtarget25getMaxRVVVectorSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(413544)) local_unnamed_addr #3
+declare noundef i32 @_ZNK4llvm14RISCVSubtarget25getMaxRVVVectorSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(413544)) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #14
@@ -20492,19 +20492,19 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #15
 declare void @llvm.assume(i1 noundef) #16
 
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #15 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #16 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }

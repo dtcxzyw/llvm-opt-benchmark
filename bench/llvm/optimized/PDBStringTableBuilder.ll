@@ -132,13 +132,7 @@ _ZL18computeBucketCountj.exit:                    ; preds = %_ZSt7advanceIPKSt4p
   ret i32 %14
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
-
 declare noundef i32 @_ZNK4llvm8codeview26DebugStringTableSubsection4sizeEv(ptr noundef nonnull align 8 dereferenceable(68)) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef i32 @_ZNK4llvm3pdb21PDBStringTableBuilder23calculateSerializedSizeEv(ptr noundef nonnull align 8 dereferenceable(72) %0) local_unnamed_addr #1 align 2 {
@@ -179,7 +173,7 @@ define dso_local void @_ZN4llvm3pdb21PDBStringTableBuilder10setStringsERKNS_8cod
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(68) ptr @_ZN4llvm8codeview26DebugStringTableSubsectionaSERKS1_(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull align 8 dereferenceable(68) %1) local_unnamed_addr #5 comdat align 2 {
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(68) ptr @_ZN4llvm8codeview26DebugStringTableSubsectionaSERKS1_(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull align 8 dereferenceable(68) %1) local_unnamed_addr #4 comdat align 2 {
   %3 = alloca %"class.llvm::StringMap", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i32, ptr %4, align 8, !tbaa !15
@@ -393,7 +387,7 @@ _ZN4llvm9StringMapIjNS_15MallocAllocatorEED2Ev.exit: ; preds = %_ZN4llvm9StringM
 define dso_local void @_ZNK4llvm3pdb21PDBStringTableBuilder11writeHeaderERNS_18BinaryStreamWriterE(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(64) %2) local_unnamed_addr #1 align 2 {
 .critedge:
   %3 = alloca %"struct.llvm::pdb::PDBStringTableHeader", align 4
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.assume(i1 true) [ "align"(ptr %3, i64 1) ]
   store i32 -268505090, ptr %3, align 4
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -404,7 +398,7 @@ define dso_local void @_ZNK4llvm3pdb21PDBStringTableBuilder11writeHeaderERNS_18B
   call void @llvm.assume(i1 true) [ "align"(ptr %6, i64 1) ]
   store i32 %5, ptr %6, align 4
   call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr nonnull align 1 dereferenceable(12) %3, i64 12) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -442,7 +436,7 @@ _ZL18computeBucketCountj.exit:                    ; preds = %_ZSt7advanceIPKSt4p
   %14 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i, i64 4
   %15 = load i32, ptr %14, align 4, !tbaa !13
   %.fr = freeze i32 %15
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #13, !noalias !45
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !45
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %17 = load ptr, ptr %16, align 8, !tbaa !48, !noalias !45
   %18 = load ptr, ptr %17, align 8, !tbaa !60, !noalias !45
@@ -455,7 +449,7 @@ _ZL18computeBucketCountj.exit:                    ; preds = %_ZSt7advanceIPKSt4p
   call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 1) ]
   store i32 %spec.select.i.i.i, ptr %4, align 4, !noalias !45
   call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr nonnull %4, i64 4) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #13, !noalias !45
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !45
   %23 = load ptr, ptr %0, align 8, !tbaa !62
   %.not49 = icmp eq ptr %23, null
   br i1 %.not49, label %_ZN4llvm5ErrorD2Ev.exit, label %.critedge
@@ -647,7 +641,7 @@ define dso_local void @_ZNK4llvm3pdb21PDBStringTableBuilder13writeEpilogueERNS_1
 _ZN4llvm5ErrorD2Ev.exit:
   %3 = alloca [4 x i8], align 4
   %4 = tail call noundef i32 @_ZNK4llvm8codeview26DebugStringTableSubsection4sizeEv(ptr noundef nonnull align 8 dereferenceable(68) %1) #13
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #13, !noalias !77
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !77
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %6 = load ptr, ptr %5, align 8, !tbaa !48, !noalias !77
   %7 = load ptr, ptr %6, align 8, !tbaa !60, !noalias !77
@@ -660,7 +654,7 @@ _ZN4llvm5ErrorD2Ev.exit:
   call void @llvm.assume(i1 true) [ "align"(ptr %3, i64 1) ]
   store i32 %spec.select.i.i.i, ptr %3, align 4, !noalias !77
   call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr nonnull %3, i64 4) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #13, !noalias !77
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !77
   ret void
 }
 
@@ -678,7 +672,7 @@ define dso_local void @_ZNK4llvm3pdb21PDBStringTableBuilder6commitERNS_18BinaryS
   %13 = alloca %"struct.std::pair", align 8
   %14 = alloca %"class.std::tuple", align 8
   %15 = tail call noundef ptr @_ZN4llvm22timeTraceProfilerBeginENS_9StringRefES0_(ptr nonnull @.str, i64 20, ptr null, i64 0) #13
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm18BinaryStreamWriterE, i64 16), ptr %6, align 8, !tbaa !60
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 48
@@ -686,14 +680,14 @@ define dso_local void @_ZNK4llvm3pdb21PDBStringTableBuilder6commitERNS_18BinaryS
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %16, i8 0, i64 32, i1 false)
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 56
   store i64 0, ptr %18, align 8, !tbaa !81
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZNK4llvm18BinaryStreamWriter5splitEm(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair") align 8 %7, ptr noundef nonnull align 8 dereferenceable(64) %2, i64 noundef 12) #13
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %2, ptr %8, align 8, !tbaa !84, !alias.scope !86
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %6, ptr %19, align 8, !tbaa !84, !alias.scope !86
   %20 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt5tupleIJRN4llvm18BinaryStreamWriterES2_EEaSIS1_S1_EENSt9enable_ifIXcl12__assignableIT_T0_EEERS3_E4typeEOSt4pairIS6_S7_E(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(128) %7) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm18BinaryStreamWriterE, i64 16), ptr %21, align 8, !tbaa !60
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 80
@@ -797,8 +791,8 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i3.i: ; preds = %64,
   br label %_ZNSt4pairIN4llvm18BinaryStreamWriterES1_ED2Ev.exit
 
 _ZNSt4pairIN4llvm18BinaryStreamWriterES1_ED2Ev.exit: ; preds = %_ZN4llvm18BinaryStreamWriterD2Ev.exit.i, %52, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i3.i, %67
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7) #13
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5) #13, !noalias !94
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !94
   call void @llvm.assume(i1 true) [ "align"(ptr %5, i64 1) ]
   store i32 -268505090, ptr %5, align 4, !noalias !94
   %68 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -809,22 +803,22 @@ _ZNSt4pairIN4llvm18BinaryStreamWriterES1_ED2Ev.exit: ; preds = %_ZN4llvm18Binary
   call void @llvm.assume(i1 true) [ "align"(ptr %70, i64 1) ]
   store i32 %69, ptr %70, align 4, !noalias !94
   call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %6, ptr nonnull align 1 dereferenceable(12) %5, i64 12) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5) #13, !noalias !94
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !94
   %71 = load ptr, ptr %0, align 8, !tbaa !62
   %.not = icmp eq ptr %71, null
   br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit, label %.critedge
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %_ZNSt4pairIN4llvm18BinaryStreamWriterES1_ED2Ev.exit
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %9) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %72 = call noundef i32 @_ZNK4llvm8codeview26DebugStringTableSubsection23calculateSerializedSizeEv(ptr noundef nonnull align 8 dereferenceable(68) %1) #13
   %73 = zext i32 %72 to i64
   call void @_ZNK4llvm18BinaryStreamWriter5splitEm(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair") align 8 %9, ptr noundef nonnull align 8 dereferenceable(64) %2, i64 noundef %73) #13
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %2, ptr %10, align 8, !tbaa !84, !alias.scope !97
   %74 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %6, ptr %74, align 8, !tbaa !84, !alias.scope !97
   %75 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt5tupleIJRN4llvm18BinaryStreamWriterES2_EEaSIS1_S1_EENSt9enable_ifIXcl12__assignableIT_T0_EEERS3_E4typeEOSt4pairIS6_S7_E(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(128) %9) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %76 = getelementptr inbounds nuw i8, ptr %9, i64 64
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm18BinaryStreamWriterE, i64 16), ptr %76, align 8, !tbaa !60
   %77 = getelementptr inbounds nuw i8, ptr %9, i64 80
@@ -928,14 +922,14 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i3.i36: ; preds = %1
   br label %_ZNSt4pairIN4llvm18BinaryStreamWriterES1_ED2Ev.exit38
 
 _ZNSt4pairIN4llvm18BinaryStreamWriterES1_ED2Ev.exit38: ; preds = %_ZN4llvm18BinaryStreamWriterD2Ev.exit.i33, %107, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i3.i36, %122
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @_ZNK4llvm8codeview26DebugStringTableSubsection6commitERNS_18BinaryStreamWriterE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(64) %6) #13
   %123 = load ptr, ptr %0, align 8, !tbaa !62
   %.not68 = icmp eq ptr %123, null
   br i1 %.not68, label %_ZN4llvm5ErrorD2Ev.exit39, label %.critedge
 
 _ZN4llvm5ErrorD2Ev.exit39:                        ; preds = %_ZNSt4pairIN4llvm18BinaryStreamWriterES1_ED2Ev.exit38
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %11) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %124 = call noundef i32 @_ZNK4llvm8codeview26DebugStringTableSubsection4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %1) #13
   br label %_ZSt7advanceIPKSt4pairIjjElEvRT_T0_.exit.i.i.i.i.i
 
@@ -961,12 +955,12 @@ _ZNK4llvm3pdb21PDBStringTableBuilder22calculateHashTableSizeEv.exit: ; preds = %
   %136 = add i32 %135, 4
   %137 = zext i32 %136 to i64
   call void @_ZNK4llvm18BinaryStreamWriter5splitEm(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair") align 8 %11, ptr noundef nonnull align 8 dereferenceable(64) %2, i64 noundef %137) #13
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr %2, ptr %12, align 8, !tbaa !84, !alias.scope !100
   %138 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %6, ptr %138, align 8, !tbaa !84, !alias.scope !100
   %139 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt5tupleIJRN4llvm18BinaryStreamWriterES2_EEaSIS1_S1_EENSt9enable_ifIXcl12__assignableIT_T0_EEERS3_E4typeEOSt4pairIS6_S7_E(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(128) %11) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %140 = getelementptr inbounds nuw i8, ptr %11, i64 64
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm18BinaryStreamWriterE, i64 16), ptr %140, align 8, !tbaa !60
   %141 = getelementptr inbounds nuw i8, ptr %11, i64 80
@@ -1070,21 +1064,21 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i3.i47: ; preds = %1
   br label %_ZNSt4pairIN4llvm18BinaryStreamWriterES1_ED2Ev.exit49
 
 _ZNSt4pairIN4llvm18BinaryStreamWriterES1_ED2Ev.exit49: ; preds = %_ZN4llvm18BinaryStreamWriterD2Ev.exit.i44, %171, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i3.i47, %186
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @_ZNK4llvm3pdb21PDBStringTableBuilder14writeHashTableERNS_18BinaryStreamWriterE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(64) %6)
   %187 = load ptr, ptr %0, align 8, !tbaa !62
   %.not69 = icmp eq ptr %187, null
   br i1 %.not69, label %_ZN4llvm5ErrorD2Ev.exit50, label %.critedge
 
 _ZN4llvm5ErrorD2Ev.exit50:                        ; preds = %_ZNSt4pairIN4llvm18BinaryStreamWriterES1_ED2Ev.exit49
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %13) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @_ZNK4llvm18BinaryStreamWriter5splitEm(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair") align 8 %13, ptr noundef nonnull align 8 dereferenceable(64) %2, i64 noundef 4) #13
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr %2, ptr %14, align 8, !tbaa !84, !alias.scope !103
   %188 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %6, ptr %188, align 8, !tbaa !84, !alias.scope !103
   %189 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt5tupleIJRN4llvm18BinaryStreamWriterES2_EEaSIS1_S1_EENSt9enable_ifIXcl12__assignableIT_T0_EEERS3_E4typeEOSt4pairIS6_S7_E(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(128) %13) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %190 = getelementptr inbounds nuw i8, ptr %13, i64 64
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm18BinaryStreamWriterE, i64 16), ptr %190, align 8, !tbaa !60
   %191 = getelementptr inbounds nuw i8, ptr %13, i64 80
@@ -1188,9 +1182,9 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i3.i58: ; preds = %2
   br label %_ZNSt4pairIN4llvm18BinaryStreamWriterES1_ED2Ev.exit60
 
 _ZNSt4pairIN4llvm18BinaryStreamWriterES1_ED2Ev.exit60: ; preds = %_ZN4llvm18BinaryStreamWriterD2Ev.exit.i55, %221, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i3.i58, %236
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %13) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %237 = call noundef i32 @_ZNK4llvm8codeview26DebugStringTableSubsection4sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %1) #13, !noalias !106
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #13, !noalias !109
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !109
   %238 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %239 = load ptr, ptr %238, align 8, !tbaa !48, !noalias !109
   %240 = load ptr, ptr %239, align 8, !tbaa !60, !noalias !109
@@ -1203,7 +1197,7 @@ _ZNSt4pairIN4llvm18BinaryStreamWriterES1_ED2Ev.exit60: ; preds = %_ZN4llvm18Bina
   call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 1) ]
   store i32 %spec.select.i.i.i.i, ptr %4, align 4, !noalias !109
   call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %6, ptr nonnull %4, i64 4) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #13, !noalias !109
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !109
   br label %.critedge
 
 .critedge:                                        ; preds = %_ZNSt4pairIN4llvm18BinaryStreamWriterES1_ED2Ev.exit60, %_ZNSt4pairIN4llvm18BinaryStreamWriterES1_ED2Ev.exit49, %_ZNSt4pairIN4llvm18BinaryStreamWriterES1_ED2Ev.exit38, %_ZNSt4pairIN4llvm18BinaryStreamWriterES1_ED2Ev.exit
@@ -1258,7 +1252,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %264, %
   br label %_ZN4llvm18BinaryStreamWriterD2Ev.exit
 
 _ZN4llvm18BinaryStreamWriterD2Ev.exit:            ; preds = %.critedge, %252, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %267
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not.i = icmp eq ptr %15, null
   br i1 %.not.i, label %_ZN4llvm14TimeTraceScopeD2Ev.exit, label %268
 
@@ -1529,10 +1523,10 @@ declare noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef, i
 declare void @_ZN4llvm13StringMapImpl4initEj(ptr noundef nonnull align 8 dereferenceable(24), i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 declare noundef ptr @_ZN4llvm22timeTraceProfilerBeginENS_9StringRefES0_(ptr, i64, ptr, i64) local_unnamed_addr #3
 
@@ -1594,10 +1588,10 @@ _ZN4llvm18BinaryStreamWriterD2Ev.exit:            ; preds = %1, %9, %_ZN9__gnu_c
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #8
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress noinline nounwind uwtable
-define linkonce_odr hidden void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #9 comdat align 2 {
+define linkonce_odr hidden void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #8 comdat align 2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !60
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -1636,31 +1630,37 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv.ex
 declare void @_ZN4llvm20timeTraceProfilerEndEPNS_22TimeTraceProfilerEntryE(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #10
+declare void @llvm.assume(i1 noundef) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.bswap.i32(i32) #11
+declare i32 @llvm.bswap.i32(i32) #10
 
 declare void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8, ptr noundef nonnull align 8 dereferenceable(64), ptr, i64) local_unnamed_addr #3
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #12
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #11
 
 declare void @_ZN4llvm17BinaryStreamErrorC1ENS_17stream_error_codeE(ptr noundef nonnull align 8 dereferenceable(44), i32 noundef) unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress noinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #11 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress noinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #13 = { nounwind }
 attributes #14 = { builtin nounwind allocsize(0) }
 attributes #15 = { builtin nounwind }

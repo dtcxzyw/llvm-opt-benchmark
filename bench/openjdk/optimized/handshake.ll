@@ -933,10 +933,10 @@ _ZN18HandshakeOperation12do_handshakeEP10JavaThread.exit: ; preds = %108, %109, 
   %125 = getelementptr inbounds nuw i8, ptr %.012.i.i, i64 16
   %126 = tail call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 -1, ptr nonnull %125) #11, !srcloc !7
   store volatile ptr null, ptr %93, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %.012.i.i, ptr %3, align 8
   %127 = call noundef ptr @_ZN11FilterQueueIP18HandshakeOperationE3popIN14HandshakeState7MatchOpEEES1_RT_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %23) #11
   %128 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE50ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not31 = icmp eq ptr %128, null
@@ -983,7 +983,7 @@ define internal fastcc void @_ZL23check_handshake_timeoutlP18HandshakeOperationP
   br i1 %.not, label %72, label %11
 
 11:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %13 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %14 = load ptr, ptr %13, align 8
@@ -1326,7 +1326,7 @@ define hidden void @_ZN14HandshakeStateD2Ev(ptr noundef nonnull align 8 derefere
   br label %7
 
 7:                                                ; preds = %.lr.ph, %36
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %8 = load volatile ptr, ptr %3, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
   %9 = icmp ne ptr %8, null
@@ -1384,7 +1384,7 @@ _ZN9SpinYield4waitEv.exit.i:                      ; preds = %24, %21
   %.lcssa46 = getelementptr inbounds nuw i8, ptr %.132.i, i64 8
   %27 = load ptr, ptr %.lcssa46, align 8
   call void @_Z8FreeHeapPv(ptr noundef nonnull %.132.i) #11
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8
   %30 = load ptr, ptr %29, align 8
@@ -1872,19 +1872,19 @@ _ZN14HandshakeState29has_async_exception_operationEv.exit: ; preds = %_ZN11Filte
   br i1 %40, label %_ZN11FilterQueueIP18HandshakeOperationE4peekIFbS1_EEES1_RT_.exit.thread, label %_ZN11FilterQueueIP18HandshakeOperationE4peekIFbS1_EEES1_RT_.exit
 
 _ZN11FilterQueueIP18HandshakeOperationE4peekIFbS1_EEES1_RT_.exit.thread: ; preds = %27, %39
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8
   %41 = call noundef ptr @_ZN11FilterQueueIP18HandshakeOperationE3popIN14HandshakeState7MatchOpEEES1_RT_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %2)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %_ZN11MutexLockerD2Ev.exit
 
 _ZN11FilterQueueIP18HandshakeOperationE4peekIFbS1_EEES1_RT_.exit: ; preds = %39
   %42 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 8
   %43 = load ptr, ptr %42, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %43, ptr %2, align 8
   %44 = call noundef ptr @_ZN11FilterQueueIP18HandshakeOperationE3popIN14HandshakeState7MatchOpEEES1_RT_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %2)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %45 = icmp eq ptr %43, null
   br i1 %45, label %_ZN11MutexLockerD2Ev.exit, label %46
 
@@ -2298,10 +2298,10 @@ _ZN18HandshakeOperation7prepareEP10JavaThreadP6Thread.exit: ; preds = %75, %81, 
   br label %_ZN11MutexLockerD2Ev.exit
 
 123:                                              ; preds = %_ZN18HandshakeOperation7prepareEP10JavaThreadP6Thread.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %61, ptr %4, align 8
   %124 = call noundef ptr @_ZN11FilterQueueIP18HandshakeOperationE3popIN14HandshakeState7MatchOpEEES1_RT_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %125 = load ptr, ptr %0, align 8
   %126 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE50ELS1_158ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not6.i24 = icmp eq ptr %126, null
@@ -2390,10 +2390,10 @@ _ZN11MutexLockerD2Ev.exit.thread:                 ; preds = %_ZN14HandshakeState
 _ZN11MutexLockerD2Ev.exit:                        ; preds = %111, %108, %107
   %170 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %171 = call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 -1, ptr nonnull %170) #11, !srcloc !7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %61, ptr %5, align 8
   %172 = call noundef ptr @_ZN11FilterQueueIP18HandshakeOperationE3popIN14HandshakeState7MatchOpEEES1_RT_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #11
   call void @_ZN10HandleMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #11
   call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %13) #11
@@ -3778,10 +3778,10 @@ declare void @_ZN9SpinYield14yield_or_sleepEv(ptr noundef nonnull align 8 derefe
 declare i32 @llvm.smin.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #10

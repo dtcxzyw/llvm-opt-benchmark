@@ -81,18 +81,12 @@ define hidden void @_Z13luaC_validateP9lua_State(ptr noundef %0) local_unnamed_a
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZL11validategcoPvP8lua_PageP8GCObject(ptr readonly captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #2 {
+define internal noundef zeroext i1 @_ZL11validategcoPvP8lua_PageP8GCObject(ptr readonly captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #1 {
   ret i1 false
 }
 
-declare hidden void @_Z13luaM_visitgcoP9lua_StatePvPFbS1_P8lua_PageP8GCObjectE(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare hidden void @_Z13luaM_visitgcoP9lua_StatePvPFbS1_P8lua_PageP8GCObjectE(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_Z9luaC_dumpP9lua_StatePvPFPKcS0_hE(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
@@ -168,7 +162,7 @@ define hidden void @_Z9luaC_dumpP9lua_StatePvPFPKcS0_hE(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @_ZL7dumpgcoPvP8lua_PageP8GCObject(ptr noundef captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
@@ -1117,7 +1111,7 @@ define hidden void @_Z13luaC_enumheapP9lua_StatePvPFvS1_S1_hhmPKcEPFvS1_S1_S1_S3
   %5 = alloca %struct.EnumContext, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %0, ptr %5, align 8, !tbaa !114
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %1, ptr %8, align 8, !tbaa !116
@@ -1129,7 +1123,7 @@ define hidden void @_Z13luaC_enumheapP9lua_StatePvPFvS1_S1_hhmPKcEPFvS1_S1_S1_S3
   %12 = load ptr, ptr %11, align 8, !tbaa !19
   %13 = call noundef zeroext i1 @_ZL7enumgcoPvP8lua_PageP8GCObject(ptr noundef nonnull %5, ptr poison, ptr noundef %12)
   call void @_Z13luaM_visitgcoP9lua_StatePvPFbS1_P8lua_PageP8GCObjectE(ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull @_ZL7enumgcoPvP8lua_PageP8GCObject)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -1370,7 +1364,7 @@ define internal noundef zeroext i1 @_ZL7enumgcoPvP8lua_PageP8GCObject(ptr nounde
   br label %167
 
 140:                                              ; preds = %127
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %141 = load double, ptr %109, align 8, !tbaa !34
   %142 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 32, ptr noundef nonnull @.str.50, double noundef %141) #8
   %143 = load ptr, ptr %104, align 8, !tbaa !34
@@ -1385,11 +1379,11 @@ define internal noundef zeroext i1 @_ZL7enumgcoPvP8lua_PageP8GCObject(ptr nounde
   %.idx.i5.i82.i.i = select i1 %148, i64 16, i64 0
   %149 = getelementptr inbounds nuw i8, ptr %143, i64 %.idx.i5.i82.i.i
   call void %.val73.i.i(ptr noundef %.val72.i.i, ptr noundef nonnull %146, ptr noundef nonnull %149, ptr noundef nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %167
 
 150:                                              ; preds = %127
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %151 = load ptr, ptr %0, align 8, !tbaa !114
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 24
   %153 = load ptr, ptr %152, align 8, !tbaa !4
@@ -1411,7 +1405,7 @@ define internal noundef zeroext i1 @_ZL7enumgcoPvP8lua_PageP8GCObject(ptr nounde
   %.idx.i5.i84.i.i = select i1 %165, i64 16, i64 0
   %166 = getelementptr inbounds nuw i8, ptr %160, i64 %.idx.i5.i84.i.i
   call void %.val75.i.i(ptr noundef %.val74.i.i, ptr noundef nonnull %163, ptr noundef nonnull %166, ptr noundef nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %167
 
 167:                                              ; preds = %150, %140, %130, %124, %108, %.lr.ph.split.i.i
@@ -1510,7 +1504,7 @@ _ZL9enumedgesP11EnumContextP8GCObjectP10lua_TValuemPKc.exit.i.i: ; preds = %191,
 218:                                              ; preds = %203
   %219 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %220 = load ptr, ptr %219, align 8, !tbaa !34
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %221 = getelementptr inbounds nuw i8, ptr %220, i64 88
   %222 = load ptr, ptr %221, align 8, !tbaa !84
   %.not37.i.i = icmp eq ptr %222, null
@@ -1549,7 +1543,7 @@ _ZL9enumedgesP11EnumContextP8GCObjectP10lua_TValuemPKc.exit.i.i: ; preds = %191,
   %244 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %245 = load i8, ptr %244, align 2, !tbaa !34
   call void %.val46.i.i(ptr noundef %.val45.i.i, ptr noundef nonnull %243, i8 noundef zeroext %241, i8 noundef zeroext %245, i64 noundef range(i64 -130996502352, 130996502644) %238, ptr noundef nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %246
 
 246:                                              ; preds = %233, %206
@@ -1806,7 +1800,7 @@ _ZL9enumedgesP11EnumContextP8GCObjectP10lua_TValuemPKc.exit.i.i: ; preds = %191,
   br i1 %.not42.i61.i, label %.thread.i44.i, label %385
 
 385:                                              ; preds = %380
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %386 = getelementptr inbounds nuw i8, ptr %382, i64 96
   %387 = load ptr, ptr %386, align 8, !tbaa !64
   %.not45.i.i = icmp eq ptr %387, null
@@ -1827,7 +1821,7 @@ _ZL9enumedgesP11EnumContextP8GCObjectP10lua_TValuemPKc.exit.i.i: ; preds = %191,
   %.idx.i.i.i63.i = select i1 %393, i64 16, i64 0
   %394 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx.i.i.i63.i
   call void %.val47.pre.i.i(ptr noundef %.val.pre.i.i, ptr noundef nonnull %394, i8 noundef zeroext %.pre.i62.i, i8 noundef zeroext %.pre63.i.i, i64 noundef range(i64 -130996502352, 130996502644) %363, ptr noundef nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %399
 
 .thread.i44.i:                                    ; preds = %368, %380, %377, %375, %353
@@ -2113,20 +2107,26 @@ _ZL7enumobjP11EnumContextP8GCObject.exit:         ; preds = %534, %432, %276, %3
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #4
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
-declare hidden noundef ptr @_Z14luaF_findlocalPK5Protoii(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare hidden noundef ptr @_Z14luaF_findlocalPK5Protoii(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare hidden noundef ptr @_Z10luaT_gettmP8LuaTable3TMSP7TString(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare hidden noundef ptr @_Z10luaT_gettmP8LuaTable3TMSP7TString(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare noundef ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #5
+declare noundef ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #4
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 ; Function Attrs: nofree nounwind
 declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #6
@@ -2138,11 +2138,11 @@ declare i32 @llvm.umax.i32(i32, i32) #7
 declare i32 @llvm.smax.i32(i32, i32) #7
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nofree nounwind }
 attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { nounwind }

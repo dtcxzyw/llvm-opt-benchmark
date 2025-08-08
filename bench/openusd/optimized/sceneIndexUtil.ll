@@ -215,8 +215,8 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__29HdMakeEncapsulatingSceneInde
 
 .noexc4.i:                                        ; preds = %37
   %38 = tail call noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #18, !noalias !4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %22), !noalias !4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %23), !noalias !4
+  call void @llvm.lifetime.start.p0(ptr nonnull %22), !noalias !4
+  call void @llvm.lifetime.start.p0(ptr nonnull %23), !noalias !4
   store ptr null, ptr %22, align 8, !noalias !4
   %39 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store ptr null, ptr %39, align 8, !noalias !4
@@ -354,7 +354,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_16HdSceneIndexBase
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_EncapsulatingSceneIndexINS0_28_EncapsulatingSceneIndexBaseEE9_ObserverE, i64 16), ptr %92, align 8, !noalias !4
   %94 = getelementptr inbounds nuw i8, ptr %38, i64 152
   store ptr %38, ptr %94, align 8, !noalias !4
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %21), !noalias !4
+  call void @llvm.lifetime.start.p0(ptr nonnull %21), !noalias !4
   %95 = load ptr, ptr %76, align 8, !noalias !4
   %.not.i.i.i = icmp eq ptr %95, null
   br i1 %.not.i.i.i, label %96, label %101
@@ -376,7 +376,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_16HdSceneIndexBase
   unreachable
 
 101:                                              ; preds = %91
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %21), !noalias !4
+  call void @llvm.lifetime.end.p0(ptr nonnull %21), !noalias !4
   store ptr %92, ptr %23, align 8, !noalias !4
   %102 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store ptr null, ptr %102, align 8, !noalias !4
@@ -537,22 +537,22 @@ common.resume:                                    ; preds = %.body.i21, %_ZN32px
   br label %common.resume
 
 _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_12_GLOBAL__N_124_EncapsulatingSceneIndexINS1_28_EncapsulatingSceneIndexBaseEEEED2Ev.exit: ; preds = %145, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i19.i.i, %140
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %22), !noalias !4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %23), !noalias !4
+  call void @llvm.lifetime.end.p0(ptr nonnull %22), !noalias !4
+  call void @llvm.lifetime.end.p0(ptr nonnull %23), !noalias !4
   br label %476
 
 166:                                              ; preds = %37
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %13)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %14)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %15)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %18)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %19)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %167 = load atomic i32, ptr @_ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector10_isEnabledE acquire, align 4
   %168 = icmp eq i32 %167, 1
   br i1 %168, label %169, label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDataE.exit.i
@@ -825,7 +825,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i
   store ptr @.str.8, ptr %283, align 8
   %284 = getelementptr inbounds nuw i8, ptr %19, i64 32
   store i8 0, ptr %284, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %285 = load ptr, ptr %2, align 8
   %.not.i26.i = icmp eq ptr %285, null
   br i1 %.not.i26.i, label %286, label %291
@@ -847,7 +847,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i
   unreachable
 
 291:                                              ; preds = %._crit_edge.i
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase14GetDisplayNameB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %20, ptr noundef nonnull align 8 dereferenceable(120) %285)
           to label %292 unwind label %.loopexit.split-lp.i
 
@@ -1007,7 +1007,7 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS0_16HdSceneInd
   br label %_ZNSt13unordered_setIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS0_16HdSceneIndexBaseEEENS0_6TfHashESt8equal_toIS3_ESaIS3_EED2Ev.exit46.i
 
 _ZNSt13unordered_setIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS0_16HdSceneIndexBaseEEENS0_6TfHashESt8equal_toIS3_ESaIS3_EED2Ev.exit46.i: ; preds = %354, %_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS0_16HdSceneIndexBaseEEES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ENS0_6TfHashENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb1ELb1EEEE5clearEv.exit.i.i45.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   br i1 %168, label %357, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_132_ValidateInputScenesCanBeReachedERKSt6vectorINS_8TfRefPtrINS_16HdSceneIndexBaseEEESaIS4_EERKS4_.exit
 
 357:                                              ; preds = %_ZNSt13unordered_setIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS0_16HdSceneIndexBaseEEENS0_6TfHashESt8equal_toIS3_ESaIS3_EED2Ev.exit46.i
@@ -1038,7 +1038,7 @@ _ZNSt13unordered_setIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS0_16HdScene
 
 362:                                              ; preds = %.body.i17, %243
   %.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.i, %.body.i17 ], [ %244, %243 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br i1 %168, label %363, label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit47.i
 
 363:                                              ; preds = %362
@@ -1050,27 +1050,27 @@ _ZNSt13unordered_setIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS0_16HdScene
   br label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit47.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit47.i: ; preds = %363, %362
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %common.resume
 
 _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_132_ValidateInputScenesCanBeReachedERKSt6vectorINS_8TfRefPtrINS_16HdSceneIndexBaseEEESaIS4_EERKS4_.exit: ; preds = %_ZNSt13unordered_setIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS0_16HdSceneIndexBaseEEENS0_6TfHashESt8equal_toIS3_ESaIS3_EED2Ev.exit46.i, %357
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %15)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %18)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %19)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   %.val11 = load ptr, ptr %1, align 8
   %.val12 = load ptr, ptr %28, align 8
   %365 = call noalias noundef nonnull dereferenceable(184) ptr @_Znwm(i64 noundef 184) #18, !noalias !32
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !32
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !32
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !32
   %366 = ptrtoint ptr %.val12 to i64
   %367 = ptrtoint ptr %.val11 to i64
   %368 = sub i64 %366, %367
@@ -1167,7 +1167,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_16HdSceneIndexBa
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_EncapsulatingSceneIndexINS0_37_FilteringEncapsulatingSceneIndexBaseEE9_ObserverE, i64 16), ptr %400, align 8, !noalias !32
   %402 = getelementptr inbounds nuw i8, ptr %365, i64 176
   store ptr %365, ptr %402, align 8, !noalias !32
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4), !noalias !32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !32
   %403 = load ptr, ptr %384, align 8, !noalias !32
   %.not.i.i.i28 = icmp eq ptr %403, null
   br i1 %.not.i.i.i28, label %404, label %409
@@ -1189,7 +1189,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_16HdSceneIndexBa
   unreachable
 
 409:                                              ; preds = %399
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4), !noalias !32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !32
   store ptr %400, ptr %6, align 8, !noalias !32
   %410 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr null, ptr %410, align 8, !noalias !32
@@ -1351,8 +1351,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
   br label %common.resume
 
 _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_12_GLOBAL__N_124_EncapsulatingSceneIndexINS1_37_FilteringEncapsulatingSceneIndexBaseEEEED2Ev.exit: ; preds = %453, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i19.i.i41, %448
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !32
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !32
   br label %476
 
 476:                                              ; preds = %31, %32, %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_12_GLOBAL__N_124_EncapsulatingSceneIndexINS1_37_FilteringEncapsulatingSceneIndexBaseEEEED2Ev.exit, %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_12_GLOBAL__N_124_EncapsulatingSceneIndexINS1_28_EncapsulatingSceneIndexBaseEEEED2Ev.exit
@@ -1412,10 +1412,10 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_1
   %7 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfWeakPtr.37", align 8
   %8 = alloca %"class.std::vector", align 8
   %9 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfWeakPtr", align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %2, ptr %6, align 8
   %10 = call { ptr, i8 } @_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS0_16HdSceneIndexBaseEEES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ENS0_6TfHashENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_insert_uniqueIRKS3_SI_NS5_10_AllocNodeISaINS5_10_Hash_nodeIS3_Lb1EEEEEEEESt4pairINS5_14_Node_iteratorIS3_Lb1ELb1EEEbEOT_OT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.fca.1.extract = extractvalue { ptr, i8 } %10, 1
   %11 = trunc i8 %.fca.1.extract to i1
   br i1 %11, label %12, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_25HdFilteringSceneIndexBaseEED2Ev.exit
@@ -1426,10 +1426,10 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_1
   br i1 %.not.i.i.not, label %16, label %14
 
 14:                                               ; preds = %12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %3, ptr %5, align 8
   %15 = call { ptr, i8 } @_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS0_16HdSceneIndexBaseEEES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ENS0_6TfHashENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_insert_uniqueIRKS3_SI_NS5_10_AllocNodeISaINS5_10_Hash_nodeIS3_Lb1EEEEEEEESt4pairINS5_14_Node_iteratorIS3_Lb1ELb1EEEbEOT_OT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_25HdFilteringSceneIndexBaseEED2Ev.exit
 
 16:                                               ; preds = %12
@@ -1973,13 +1973,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
   br i1 %67, label %.body.sink.split, label %.body
 
 _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_16HdSceneIndexBaseEEC2IS1_EERKNS_8TfRefPtrIT_EEPNSt9enable_ifIXsr3std14is_convertibleIPS5_PS1_EE5valueEvE4typeE.exit: ; preds = %58, %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i, %51, %31
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %0, ptr %8, align 8
   %68 = invoke { ptr, i8 } @_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS0_16HdSceneIndexBaseEEES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ENS0_6TfHashENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_insert_uniqueIS3_S3_NS5_10_AllocNodeISaINS5_10_Hash_nodeIS3_Lb1EEEEEEEESt4pairINS5_14_Node_iteratorIS3_Lb1ELb1EEEbEOT_OT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(8) %8)
           to label %69 unwind label %79
 
 69:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_16HdSceneIndexBaseEEC2IS1_EERKNS_8TfRefPtrIT_EEPNSt9enable_ifIXsr3std14is_convertibleIPS5_PS1_EE5valueEvE4typeE.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %70 = load ptr, ptr %30, align 8
   %.not.i.i.i.i9 = icmp eq ptr %70, null
   br i1 %.not.i.i.i.i9, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_16HdSceneIndexBaseEED2Ev.exit, label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i10
@@ -3337,7 +3337,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_EncapsulatingSceneIndexINS
 define internal void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_EncapsulatingSceneIndexINS0_28_EncapsulatingSceneIndexBaseEE7GetPrimERKNS_7SdfPathE(ptr dead_on_unwind noalias writable sret(%"struct.pxrInternal_v0_24__pxrReserved__::HdSceneIndexPrim") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(160) %1, ptr noundef nonnull align 4 dereferenceable(8) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %7, label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEEptEv.exit
@@ -3356,7 +3356,7 @@ define internal void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_Enc
   unreachable
 
 _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEEptEv.exit: ; preds = %3
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %12 = load ptr, ptr %6, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
@@ -3368,7 +3368,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEEptEv.exit
 define internal void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_EncapsulatingSceneIndexINS0_28_EncapsulatingSceneIndexBaseEE17GetChildPrimPathsERKNS_7SdfPathE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.42") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(160) %1, ptr noundef nonnull align 4 dereferenceable(8) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %7, label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEEptEv.exit
@@ -3387,7 +3387,7 @@ define internal void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_Enc
   unreachable
 
 _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEEptEv.exit: ; preds = %3
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %12 = load ptr, ptr %6, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %14 = load ptr, ptr %13, align 8
@@ -3902,7 +3902,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_EncapsulatingSceneIndexINS
 define internal void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_EncapsulatingSceneIndexINS0_37_FilteringEncapsulatingSceneIndexBaseEE7GetPrimERKNS_7SdfPathE(ptr dead_on_unwind noalias writable sret(%"struct.pxrInternal_v0_24__pxrReserved__::HdSceneIndexPrim") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(184) %1, ptr noundef nonnull align 4 dereferenceable(8) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 152
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %7, label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEEptEv.exit
@@ -3921,7 +3921,7 @@ define internal void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_Enc
   unreachable
 
 _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEEptEv.exit: ; preds = %3
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %12 = load ptr, ptr %6, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
@@ -3933,7 +3933,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEEptEv.exit
 define internal void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_EncapsulatingSceneIndexINS0_37_FilteringEncapsulatingSceneIndexBaseEE17GetChildPrimPathsERKNS_7SdfPathE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.42") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(184) %1, ptr noundef nonnull align 4 dereferenceable(8) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 152
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %7, label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEEptEv.exit
@@ -3952,7 +3952,7 @@ define internal void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_Enc
   unreachable
 
 _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEEptEv.exit: ; preds = %3
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %12 = load ptr, ptr %6, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %14 = load ptr, ptr %13, align 8
@@ -4290,10 +4290,10 @@ define internal void @_GLOBAL__sub_I_sceneIndexUtil.cpp() #15 section ".text.sta
 declare i64 @llvm.bswap.i64(i64) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #17
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

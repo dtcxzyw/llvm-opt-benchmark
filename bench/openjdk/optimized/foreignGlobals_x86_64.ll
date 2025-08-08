@@ -1132,7 +1132,7 @@ define hidden void @_ZNK15ArgumentShuffle11pd_generateEP14MacroAssembler9VMStora
   %.sroa.1.0.extract.trunc.i26 = trunc nuw i64 %.sroa.1.0.extract.shift.i25 to i32
   %or.cond.i.i27 = icmp ult i64 %58, 137438953472
   %spec.select.i.i28 = select i1 %or.cond.i.i27, i32 %.sroa.1.0.extract.trunc.i26, i32 -1
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %.sroa.0.0.extract.trunc.i = trunc i64 %.sroa.2.0.copyload to i8
   %.sroa.39.0.extract.shift.i = lshr i64 %.sroa.2.0.copyload, 32
   %.sroa.39.0.extract.trunc.i = trunc nuw i64 %.sroa.39.0.extract.shift.i to i32
@@ -1173,7 +1173,7 @@ define hidden void @_ZNK15ArgumentShuffle11pd_generateEP14MacroAssembler9VMStora
   unreachable
 
 _ZL10move_reg64P14MacroAssembleri8Register9VMStorage.exit: ; preds = %60, %62
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %93
 
 66:                                               ; preds = %55
@@ -1181,7 +1181,7 @@ _ZL10move_reg64P14MacroAssembleri8Register9VMStorage.exit: ; preds = %60, %62
   %.sroa.1.0.extract.trunc.i30 = trunc nuw i64 %.sroa.1.0.extract.shift.i29 to i32
   %or.cond.i.i31 = icmp ult i64 %58, 137438953472
   %spec.select.i.i32 = select i1 %or.cond.i.i31, i32 %.sroa.1.0.extract.trunc.i30, i32 -1
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %.sroa.0.0.extract.trunc.i33 = trunc i64 %.sroa.2.0.copyload to i8
   switch i8 %.sroa.0.0.extract.trunc.i33, label %71 [
     i8 0, label %67
@@ -1228,7 +1228,7 @@ _ZL10move_reg64P14MacroAssembleri8Register9VMStorage.exit: ; preds = %60, %62
   unreachable
 
 _ZL8move_xmmP14MacroAssembleri11XMMRegister9VMStorage.exit: ; preds = %67, %68, %69
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %93
 
 73:                                               ; preds = %55
@@ -1246,10 +1246,10 @@ _ZL8move_xmmP14MacroAssembleri11XMMRegister9VMStorage.exit: ; preds = %67, %68, 
   store i32 0, ptr %25, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %13, ptr noundef nonnull align 8 dereferenceable(64) %12, i64 21, i1 false)
   call void %27(ptr noundef nonnull align 8 dereferenceable(40) %23, ptr noundef nonnull align 8 dereferenceable(40) %26) #10
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %.sroa.0.0.extract.trunc.i36 = trunc i64 %.sroa.2.0.copyload to i8
   %.sroa.424.0.extract.shift.i37 = lshr i64 %.sroa.2.0.copyload, 32
   %.sroa.424.0.extract.trunc.i38 = trunc nuw i64 %.sroa.424.0.extract.shift.i37 to i32
@@ -1313,10 +1313,10 @@ _ZL8move_xmmP14MacroAssembleri11XMMRegister9VMStorage.exit: ; preds = %67, %68, 
   unreachable
 
 _ZL12move_stack64P14MacroAssembler8Registeri7Address9VMStorage.exit: ; preds = %75, %79, %84
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %93
 
 91:                                               ; preds = %55
@@ -3282,10 +3282,10 @@ _ZN13GrowableArrayI11XMMRegisterE10deallocateEPS0_.exit: ; preds = %42, %39, %.p
 declare i32 @llvm.ctpop.i32(i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -73,7 +73,7 @@ define weak i64 @ruby_abi_version() local_unnamed_addr #0 {
 ; Function Attrs: nounwind sspstrong uwtable
 define void @ripper_compile_error(ptr noundef %0, ptr noundef %1, ...) local_unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = call i64 @rb_vsprintf(ptr noundef %1, ptr noundef nonnull %3) #5
   call void @llvm.va_end.p0(ptr nonnull %3)
@@ -92,29 +92,23 @@ rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %2
   %.lcssa.i = phi i64 [ %.pr.i, %2 ], [ %6, %.lr.ph.i ]
   %7 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %5, i64 noundef %.lcssa.i, i32 noundef 1, i64 noundef %4) #5
   call void @ripper_error(ptr noundef %0) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #1
+
+declare i64 @rb_vsprintf(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #2
+declare void @llvm.va_end.p0(ptr) #1
 
-declare i64 @rb_vsprintf(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i64 @rb_funcall(i64 noundef, i64 noundef, i32 noundef, ...) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #2
+declare i64 @ripper_value(ptr noundef) local_unnamed_addr #2
 
-declare i64 @rb_funcall(i64 noundef, i64 noundef, i32 noundef, ...) local_unnamed_addr #3
-
-declare i64 @ripper_value(ptr noundef) local_unnamed_addr #3
-
-declare void @ripper_error(ptr noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @ripper_error(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
 define void @Init_ripper() local_unnamed_addr #0 {
@@ -132,9 +126,9 @@ define void @Init_ripper() local_unnamed_addr #0 {
   ret void
 }
 
-declare void @ripper_init_eventids1() local_unnamed_addr #3
+declare void @ripper_init_eventids1() local_unnamed_addr #2
 
-declare void @ripper_init_eventids2() local_unnamed_addr #3
+declare void @ripper_init_eventids2() local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
 define void @InitVM_ripper() local_unnamed_addr #0 {
@@ -183,11 +177,11 @@ define void @InitVM_ripper() local_unnamed_addr #0 {
   ret void
 }
 
-declare i64 @rb_define_class(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i64 @rb_define_class(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @rb_define_const(i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @rb_define_const(i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @rb_define_alloc_func(i64 noundef, ptr noundef) local_unnamed_addr #3
+declare void @rb_define_alloc_func(i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @ripper_s_allocate(i64 noundef %0) #0 {
@@ -212,7 +206,7 @@ RTYPEDDATA_GET_DATA.exit:                         ; preds = %1, %8
   ret i64 %2
 }
 
-declare extern_weak void @rb_define_method(i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare extern_weak void @rb_define_method(i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i64 @ripper_initialize(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
@@ -220,9 +214,9 @@ define internal noundef i64 @ripper_initialize(i32 noundef %0, ptr noundef reado
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = alloca [3 x ptr], align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %8 = tail call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @parser_data_type) #5
   %9 = load ptr, ptr %8, align 8, !tbaa !18
   %10 = tail call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @parser_data_type) #5
@@ -393,9 +387,9 @@ rb_num2int_inline.exit:                           ; preds = %79, %81
 85:                                               ; preds = %RSTRING_PTR.exit, %rb_num2int_inline.exit
   %86 = phi i32 [ %84, %rb_num2int_inline.exit ], [ 0, %RSTRING_PTR.exit ]
   call void @rb_ruby_parser_ripper_initialize(ptr noundef %9, ptr noundef nonnull %.019, ptr noundef %.0, i64 noundef %69, ptr noundef %.sroa.2.0.i, i32 noundef %86) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 4
 }
 
@@ -439,11 +433,11 @@ ripper_parser_params.exit:                        ; preds = %1
   %19 = tail call i64 @rb_thread_current() #5
   tail call void @rb_ruby_parser_set_parsing_thread(ptr noundef %5, i64 noundef %19) #5
   %20 = tail call i64 @rb_ensure(ptr noundef nonnull @ripper_parse0, i64 noundef %0, ptr noundef nonnull @ripper_ensure, i64 noundef %0) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %2, ptr %3, align 8, !tbaa !22
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %3) #5, !srcloc !31
   %21 = load ptr, ptr %3, align 8, !tbaa !22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %22 = load volatile i64, ptr %21, align 8, !tbaa !6
   ret i64 %20
 }
@@ -661,7 +655,7 @@ define internal range(i64 0, 21) i64 @ripper_error_p(i64 noundef %0) #0 {
   ret i64 %5
 }
 
-declare extern_weak void @rb_define_singleton_method(i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare extern_weak void @rb_define_singleton_method(i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 1, 0) i64 @parser_dedent_string(i64 %0, i64 noundef %1, i64 noundef %2) #0 {
@@ -682,7 +676,7 @@ define internal range(i64 1, 0) i64 @parser_dedent_string(i64 %0, i64 noundef %1
   ret i64 %15
 }
 
-declare extern_weak void @rb_define_private_method(i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare extern_weak void @rb_define_private_method(i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @ripper_lex_state_name(i64 %0, i64 noundef %1) #0 {
@@ -705,19 +699,19 @@ rb_num2int_inline.exit:                           ; preds = %4, %6
   ret i64 %9
 }
 
-declare void @ripper_init_eventids1_table(i64 noundef) local_unnamed_addr #3
+declare void @ripper_init_eventids1_table(i64 noundef) local_unnamed_addr #2
 
-declare void @ripper_init_eventids2_table(i64 noundef) local_unnamed_addr #3
+declare void @ripper_init_eventids2_table(i64 noundef) local_unnamed_addr #2
 
-declare i64 @rb_intern2(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i64 @rb_intern2(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare i64 @rb_usascii_str_new_static(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i64 @rb_usascii_str_new_static(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare i64 @rb_data_typed_object_zalloc(i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
+declare i64 @rb_data_typed_object_zalloc(i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @rb_ruby_ripper_parser_allocate() local_unnamed_addr #3
+declare ptr @rb_ruby_ripper_parser_allocate() local_unnamed_addr #2
 
-declare void @rb_ruby_parser_set_value(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @rb_ruby_parser_set_value(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @ripper_parser_mark2(ptr noundef readonly captures(none) %0) #0 {
@@ -772,17 +766,17 @@ define internal i64 @ripper_parser_memsize2(ptr noundef readonly captures(none) 
   ret i64 %6
 }
 
-declare void @ripper_parser_mark(ptr noundef) local_unnamed_addr #3
+declare void @ripper_parser_mark(ptr noundef) local_unnamed_addr #2
 
-declare void @rb_gc_mark(i64 noundef) local_unnamed_addr #3
+declare void @rb_gc_mark(i64 noundef) local_unnamed_addr #2
 
-declare void @ripper_parser_free(ptr noundef) local_unnamed_addr #3
+declare void @ripper_parser_free(ptr noundef) local_unnamed_addr #2
 
-declare void @ruby_xfree(ptr noundef) local_unnamed_addr #3
+declare void @ruby_xfree(ptr noundef) local_unnamed_addr #2
 
-declare i64 @ripper_parser_memsize(ptr noundef) local_unnamed_addr #3
+declare i64 @ripper_parser_memsize(ptr noundef) local_unnamed_addr #2
 
-declare ptr @rb_check_typeddata(i64 noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @rb_check_typeddata(i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal ptr @ripper_lex_io_get(ptr noundef %0, ptr noundef %1, i32 %2) #0 {
@@ -800,7 +794,7 @@ define internal ptr @ripper_lex_io_get(ptr noundef %0, ptr noundef %1, i32 %2) #
   ret ptr %.0
 }
 
-declare i32 @rb_respond_to(i64 noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @rb_respond_to(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal ptr @ripper_lex_get_generic(ptr noundef %0, ptr noundef %1, i32 %2) #0 {
@@ -839,7 +833,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread:            ; preds = %8, %rbimpl_RB_TYPE_
   ret ptr %.0
 }
 
-declare i64 @rb_string_value(ptr noundef) local_unnamed_addr #3
+declare i64 @rb_string_value(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal ptr @ripper_lex_get_str(ptr noundef %0, ptr noundef %1, i32 %2) #0 {
@@ -847,49 +841,49 @@ define internal ptr @ripper_lex_get_str(ptr noundef %0, ptr noundef %1, i32 %2) 
   ret ptr %4
 }
 
-declare i64 @rb_enc_str_new_static(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
+declare i64 @rb_enc_str_new_static(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @rb_ruby_parser_enc(ptr noundef) local_unnamed_addr #3
+declare ptr @rb_ruby_parser_enc(ptr noundef) local_unnamed_addr #2
 
-declare void @rb_obj_freeze_inline(i64 noundef) local_unnamed_addr #3
+declare void @rb_obj_freeze_inline(i64 noundef) local_unnamed_addr #2
 
-declare ptr @rb_string_value_cstr(ptr noundef) local_unnamed_addr #3
+declare ptr @rb_string_value_cstr(ptr noundef) local_unnamed_addr #2
 
-declare i64 @rb_str_new_frozen(i64 noundef) local_unnamed_addr #3
+declare i64 @rb_str_new_frozen(i64 noundef) local_unnamed_addr #2
 
-declare void @rb_ruby_ripper_parser_initialize(ptr noundef) local_unnamed_addr #3
+declare void @rb_ruby_ripper_parser_initialize(ptr noundef) local_unnamed_addr #2
 
-declare void @rb_ruby_parser_ripper_initialize(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @rb_ruby_parser_ripper_initialize(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @rb_ruby_ripper_initialized_p(ptr noundef) local_unnamed_addr #3
-
-; Function Attrs: noreturn
-declare void @rb_raise(i64 noundef, ptr noundef, ...) local_unnamed_addr #4
+declare i32 @rb_ruby_ripper_initialized_p(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: noreturn
-declare void @rb_error_arity(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare void @rb_raise(i64 noundef, ptr noundef, ...) local_unnamed_addr #3
 
-declare i64 @rb_io_gets(i64 noundef) local_unnamed_addr #3
+; Function Attrs: noreturn
+declare void @rb_error_arity(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare ptr @rb_str_to_parser_string(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i64 @rb_io_gets(i64 noundef) local_unnamed_addr #2
 
-declare i64 @rb_funcallv_public(i64 noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @rb_str_to_parser_string(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare i64 @rb_obj_class(i64 noundef) local_unnamed_addr #3
+declare i64 @rb_funcallv_public(i64 noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @rb_parser_lex_get_str(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i64 @rb_obj_class(i64 noundef) local_unnamed_addr #2
 
-declare i64 @rb_fix2int(i64 noundef) local_unnamed_addr #3
+declare ptr @rb_parser_lex_get_str(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i64 @rb_num2int(i64 noundef) local_unnamed_addr #3
+declare i64 @rb_fix2int(i64 noundef) local_unnamed_addr #2
 
-declare i64 @rb_ruby_parser_parsing_thread(ptr noundef) local_unnamed_addr #3
+declare i64 @rb_num2int(i64 noundef) local_unnamed_addr #2
 
-declare i64 @rb_thread_current() local_unnamed_addr #3
+declare i64 @rb_ruby_parser_parsing_thread(ptr noundef) local_unnamed_addr #2
 
-declare void @rb_ruby_parser_set_parsing_thread(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i64 @rb_thread_current() local_unnamed_addr #2
 
-declare i64 @rb_ensure(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @rb_ruby_parser_set_parsing_thread(ptr noundef, i64 noundef) local_unnamed_addr #2
+
+declare i64 @rb_ensure(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @ripper_parse0(i64 noundef %0) #0 {
@@ -908,59 +902,65 @@ define internal noundef i64 @ripper_ensure(i64 noundef %0) #0 {
   ret i64 4
 }
 
-declare void @rb_ruby_ripper_parse0(ptr noundef) local_unnamed_addr #3
+declare void @rb_ruby_ripper_parse0(ptr noundef) local_unnamed_addr #2
 
-declare i64 @rb_ruby_parser_result(ptr noundef) local_unnamed_addr #3
+declare i64 @rb_ruby_parser_result(ptr noundef) local_unnamed_addr #2
 
-declare i64 @rb_ruby_ripper_column(ptr noundef) local_unnamed_addr #3
+declare i64 @rb_ruby_ripper_column(ptr noundef) local_unnamed_addr #2
 
-declare i64 @rb_int2big(i64 noundef) local_unnamed_addr #3
+declare i64 @rb_int2big(i64 noundef) local_unnamed_addr #2
 
-declare i64 @rb_ruby_parser_ruby_sourcefile_string(ptr noundef) local_unnamed_addr #3
+declare i64 @rb_ruby_parser_ruby_sourcefile_string(ptr noundef) local_unnamed_addr #2
 
-declare i32 @rb_ruby_parser_ruby_sourceline(ptr noundef) local_unnamed_addr #3
+declare i32 @rb_ruby_parser_ruby_sourceline(ptr noundef) local_unnamed_addr #2
 
-declare i32 @rb_ruby_parser_lex_state(ptr noundef) local_unnamed_addr #3
+declare i32 @rb_ruby_parser_lex_state(ptr noundef) local_unnamed_addr #2
 
-declare i64 @rb_ruby_ripper_token_len(ptr noundef) local_unnamed_addr #3
+declare i64 @rb_ruby_ripper_token_len(ptr noundef) local_unnamed_addr #2
 
-declare i64 @rb_str_new_parser_string(ptr noundef) local_unnamed_addr #3
+declare i64 @rb_str_new_parser_string(ptr noundef) local_unnamed_addr #2
 
-declare ptr @rb_ruby_ripper_lex_lastline(ptr noundef) local_unnamed_addr #3
+declare ptr @rb_ruby_ripper_lex_lastline(ptr noundef) local_unnamed_addr #2
 
-declare i64 @rb_str_subseq(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
+declare i64 @rb_str_subseq(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @rb_ruby_parser_end_seen_p(ptr noundef) local_unnamed_addr #3
+declare i32 @rb_ruby_parser_end_seen_p(ptr noundef) local_unnamed_addr #2
 
-declare i64 @rb_enc_from_encoding(ptr noundef) local_unnamed_addr #3
+declare i64 @rb_enc_from_encoding(ptr noundef) local_unnamed_addr #2
 
-declare ptr @rb_ruby_parser_encoding(ptr noundef) local_unnamed_addr #3
+declare ptr @rb_ruby_parser_encoding(ptr noundef) local_unnamed_addr #2
 
-declare i32 @rb_ruby_parser_get_yydebug(ptr noundef) local_unnamed_addr #3
+declare i32 @rb_ruby_parser_get_yydebug(ptr noundef) local_unnamed_addr #2
 
-declare i32 @rb_ruby_parser_set_yydebug(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @rb_ruby_parser_set_yydebug(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i64 @rb_ruby_parser_debug_output(ptr noundef) local_unnamed_addr #3
+declare i64 @rb_ruby_parser_debug_output(ptr noundef) local_unnamed_addr #2
 
-declare void @rb_ruby_parser_set_debug_output(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @rb_ruby_parser_set_debug_output(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @rb_ruby_parser_error_p(ptr noundef) local_unnamed_addr #3
+declare i32 @rb_ruby_parser_error_p(ptr noundef) local_unnamed_addr #2
 
-declare i64 @rb_num2uint(i64 noundef) local_unnamed_addr #3
+declare i64 @rb_num2uint(i64 noundef) local_unnamed_addr #2
 
-declare i32 @rb_ruby_ripper_dedent_string(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @rb_ruby_ripper_dedent_string(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i64 @rb_str_replace(i64 noundef, i64 noundef) local_unnamed_addr #3
+declare i64 @rb_str_replace(i64 noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @rb_parser_string_free(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @rb_parser_string_free(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i64 @rb_ruby_ripper_lex_state_name(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i64 @rb_ruby_ripper_lex_state_name(ptr noundef, i32 noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 attributes #0 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nounwind }
 attributes #6 = { noreturn nounwind }
 

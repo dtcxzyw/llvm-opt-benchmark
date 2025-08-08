@@ -27,8 +27,8 @@ define hidden void @zend_optimizer_compact_literals(ptr noundef captures(none) %
   %6 = alloca %struct._zval_struct, align 8
   %7 = alloca %struct._zval_struct, align 8
   %8 = alloca %struct._zend_array, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = load ptr, ptr %1, align 8, !tbaa !4
   %10 = load ptr, ptr %9, align 8, !tbaa !13
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 184
@@ -38,14 +38,14 @@ define hidden void @zend_optimizer_compact_literals(ptr noundef captures(none) %
 
 13:                                               ; preds = %2
   %14 = sext i32 %12 to i64
-  %15 = tail call { i64, i64 } asm "mulq $3\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,~{dirflag},~{fpsr},~{flags}"(i64 1, i64 range(i64 -2147483648, 2147483648) %14) #10, !srcloc !31
+  %15 = tail call { i64, i64 } asm "mulq $3\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,~{dirflag},~{fpsr},~{flags}"(i64 1, i64 range(i64 -2147483648, 2147483648) %14) #9, !srcloc !31
   %16 = extractvalue { i64, i64 } %15, 0
   %17 = extractvalue { i64, i64 } %15, 1
   %.not.i663.not = icmp eq i64 %17, 0
   br i1 %.not.i663.not, label %zend_arena_calloc.exit, label %18, !prof !32
 
 18:                                               ; preds = %13
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str, i64 noundef 1, i64 noundef range(i64 -2147483648, 2147483648) %14) #11
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str, i64 noundef 1, i64 noundef range(i64 -2147483648, 2147483648) %14) #10
   unreachable
 
 zend_arena_calloc.exit:                           ; preds = %13
@@ -69,7 +69,7 @@ zend_arena_calloc.exit:                           ; preds = %13
   %30 = ptrtoint ptr %9 to i64
   %31 = sub i64 %23, %30
   %..i = tail call i64 @llvm.umax.i64(i64 %29, i64 %31)
-  %32 = tail call noalias ptr @_emalloc(i64 noundef %..i) #12
+  %32 = tail call noalias ptr @_emalloc(i64 noundef %..i) #11
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 %20
   store ptr %34, ptr %32, align 8, !tbaa !13
@@ -429,7 +429,7 @@ zend_arena_alloc.exit:                            ; preds = %26, %28
 
 ._crit_edge:                                      ; preds = %223, %zend_arena_alloc.exit
   %226 = load i32, ptr %11, align 8, !tbaa !16
-  call void @_zend_hash_init(ptr noundef nonnull %8, i32 noundef %226, ptr noundef null, i1 noundef zeroext false) #9
+  call void @_zend_hash_init(ptr noundef nonnull %8, i32 noundef %226, ptr noundef null, i1 noundef zeroext false) #12
   %227 = load i32, ptr %11, align 8, !tbaa !16
   %228 = sext i32 %227 to i64
   %229 = shl nsw i64 %228, 2
@@ -455,7 +455,7 @@ zend_arena_alloc.exit:                            ; preds = %26, %28
   %243 = ptrtoint ptr %230 to i64
   %244 = sub i64 %236, %243
   %..i635 = call i64 @llvm.umax.i64(i64 %242, i64 %244)
-  %245 = call noalias ptr @_emalloc(i64 noundef %..i635) #12
+  %245 = call noalias ptr @_emalloc(i64 noundef %..i635) #11
   %246 = getelementptr inbounds nuw i8, ptr %245, i64 24
   %247 = getelementptr inbounds nuw i8, ptr %246, i64 %233
   store ptr %247, ptr %245, align 8, !tbaa !13
@@ -516,7 +516,7 @@ zend_arena_alloc.exit636:                         ; preds = %239, %241
 
 269:                                              ; preds = %264
   %270 = load ptr, ptr %260, align 8, !tbaa !41
-  call void @rc_dtor_func(ptr noundef %270) #9
+  call void @rc_dtor_func(ptr noundef %270) #12
   br label %zval_ptr_dtor_nogc.exit
 
 271:                                              ; preds = %255
@@ -628,7 +628,7 @@ zend_arena_alloc.exit636:                         ; preds = %239, %241
 
 315:                                              ; preds = %313
   %316 = load i64, ptr %260, align 8, !tbaa !41
-  %317 = call ptr @zend_hash_index_find(ptr noundef nonnull %8, i64 noundef %316) #9
+  %317 = call ptr @zend_hash_index_find(ptr noundef nonnull %8, i64 noundef %316) #12
   %.not626 = icmp eq ptr %317, null
   br i1 %.not626, label %322, label %318
 
@@ -648,7 +648,7 @@ zend_arena_alloc.exit636:                         ; preds = %239, %241
   %325 = load ptr, ptr %253, align 8, !tbaa !46
   %326 = getelementptr inbounds %struct._zval_struct, ptr %325, i64 %256
   %327 = load i64, ptr %326, align 8, !tbaa !41
-  %328 = call ptr @zend_hash_index_add_new(ptr noundef nonnull %8, i64 noundef %327, ptr noundef nonnull %7) #9
+  %328 = call ptr @zend_hash_index_add_new(ptr noundef nonnull %8, i64 noundef %327, ptr noundef nonnull %7) #12
   %.not627 = icmp eq i32 %.0568772, %.0571771
   br i1 %.not627, label %335, label %329
 
@@ -678,7 +678,7 @@ bias_key.exit:                                    ; preds = %313
   %344 = load i64, ptr %343, align 8, !tbaa !51
   %345 = and i64 %344, -8
   %346 = add i64 %345, 32
-  %347 = call noalias ptr @_emalloc(i64 noundef %346) #12
+  %347 = call noalias ptr @_emalloc(i64 noundef %346) #11
   store i32 1, ptr %347, align 4, !tbaa !47
   %348 = getelementptr inbounds nuw i8, ptr %347, i64 4
   store i32 22, ptr %348, align 4, !tbaa !41
@@ -693,10 +693,10 @@ bias_key.exit:                                    ; preds = %313
   %353 = load i8, ptr %257, align 1, !tbaa !42
   %354 = zext i8 %353 to i64
   %355 = add nuw nsw i64 %354, 99
-  %356 = call i64 @zend_string_hash_func(ptr noundef nonnull %347) #9
+  %356 = call i64 @zend_string_hash_func(ptr noundef nonnull %347) #12
   %357 = add i64 %355, %356
   store i64 %357, ptr %349, align 8, !tbaa !53
-  %358 = call ptr @zend_hash_find(ptr noundef nonnull %8, ptr noundef nonnull %347) #9
+  %358 = call ptr @zend_hash_find(ptr noundef nonnull %8, ptr noundef nonnull %347) #12
   %.not624 = icmp eq ptr %358, null
   br i1 %.not624, label %377, label %359
 
@@ -728,7 +728,7 @@ bias_key.exit:                                    ; preds = %313
 
 375:                                              ; preds = %370
   %376 = load ptr, ptr %367, align 8, !tbaa !41
-  call void @rc_dtor_func(ptr noundef %376) #9
+  call void @rc_dtor_func(ptr noundef %376) #12
   br label %zval_ptr_dtor_nogc.exit644
 
 377:                                              ; preds = %bias_key.exit
@@ -737,7 +737,7 @@ bias_key.exit:                                    ; preds = %313
   %379 = sext i32 %.0571771 to i64
   store i64 %379, ptr %7, align 8, !tbaa !41
   store i32 4, ptr %254, align 8, !tbaa !41
-  %380 = call ptr @zend_hash_add_new(ptr noundef nonnull %8, ptr noundef nonnull %347, ptr noundef nonnull %7) #9
+  %380 = call ptr @zend_hash_add_new(ptr noundef nonnull %8, ptr noundef nonnull %347, ptr noundef nonnull %7) #12
   %.not625 = icmp eq i32 %.0568772, %.0571771
   br i1 %.not625, label %395, label %381
 
@@ -782,13 +782,13 @@ zval_ptr_dtor_nogc.exit644:                       ; preds = %375, %370, %359, %3
   br i1 %403, label %404, label %zval_ptr_dtor_nogc.exit
 
 404:                                              ; preds = %399
-  call void @_efree(ptr noundef nonnull %347) #9
+  call void @_efree(ptr noundef nonnull %347) #12
   br label %zval_ptr_dtor_nogc.exit
 
 bias_key.exit668:                                 ; preds = %271
   %405 = icmp eq i8 %258, 1
   call void @llvm.assume(i1 %405)
-  %406 = call noalias ptr @_emalloc_40() #9
+  %406 = call noalias ptr @_emalloc_40() #12
   store i32 1, ptr %406, align 4, !tbaa !47
   %407 = getelementptr inbounds nuw i8, ptr %406, i64 4
   store i32 22, ptr %407, align 4, !tbaa !41
@@ -801,10 +801,10 @@ bias_key.exit668:                                 ; preds = %271
   store i64 %411, ptr %410, align 8
   %412 = getelementptr inbounds nuw i8, ptr %406, i64 32
   store i8 0, ptr %412, align 1, !tbaa !41
-  %413 = call i64 @zend_string_hash_func(ptr noundef nonnull %406) #9
+  %413 = call i64 @zend_string_hash_func(ptr noundef nonnull %406) #12
   %414 = add i64 %413, 200
   store i64 %414, ptr %408, align 8, !tbaa !53
-  %415 = call ptr @zend_hash_find(ptr noundef nonnull %8, ptr noundef nonnull %406) #9
+  %415 = call ptr @zend_hash_find(ptr noundef nonnull %8, ptr noundef nonnull %406) #12
   %.not622 = icmp eq ptr %415, null
   br i1 %.not622, label %420, label %416
 
@@ -821,7 +821,7 @@ bias_key.exit668:                                 ; preds = %271
   %422 = sext i32 %.0571771 to i64
   store i64 %422, ptr %7, align 8, !tbaa !41
   store i32 4, ptr %254, align 8, !tbaa !41
-  %423 = call ptr @zend_hash_add_new(ptr noundef nonnull %8, ptr noundef nonnull %406, ptr noundef nonnull %7) #9
+  %423 = call ptr @zend_hash_add_new(ptr noundef nonnull %8, ptr noundef nonnull %406, ptr noundef nonnull %7) #12
   %.not623 = icmp eq i32 %.0568772, %.0571771
   br i1 %.not623, label %430, label %424
 
@@ -856,7 +856,7 @@ bias_key.exit668:                                 ; preds = %271
   br i1 %439, label %440, label %zval_ptr_dtor_nogc.exit
 
 440:                                              ; preds = %435
-  call void @_efree(ptr noundef nonnull %406) #9
+  call void @_efree(ptr noundef nonnull %406) #12
   br label %zval_ptr_dtor_nogc.exit
 
 441:                                              ; preds = %271
@@ -890,7 +890,7 @@ bias_key.exit668:                                 ; preds = %271
   %458 = getelementptr inbounds nuw i8, ptr %457, i64 24
   %459 = getelementptr inbounds nuw i8, ptr %457, i64 16
   %460 = load i64, ptr %459, align 8, !tbaa !51
-  %461 = call ptr @zend_string_concat2(ptr noundef nonnull %453, i64 noundef %455, ptr noundef nonnull %458, i64 noundef %460) #9
+  %461 = call ptr @zend_string_concat2(ptr noundef nonnull %453, i64 noundef %455, ptr noundef nonnull %458, i64 noundef %460) #12
   br label %479
 
 462:                                              ; preds = %441
@@ -910,7 +910,7 @@ bias_key.exit668:                                 ; preds = %271
   %475 = getelementptr inbounds nuw i8, ptr %474, i64 24
   %476 = getelementptr inbounds nuw i8, ptr %474, i64 16
   %477 = load i64, ptr %476, align 8, !tbaa !51
-  %478 = call ptr @zend_string_concat3(ptr noundef nonnull %465, i64 noundef %467, ptr noundef nonnull %470, i64 noundef %472, ptr noundef nonnull %475, i64 noundef %477) #9
+  %478 = call ptr @zend_string_concat3(ptr noundef nonnull %465, i64 noundef %467, ptr noundef nonnull %470, i64 noundef %472, ptr noundef nonnull %475, i64 noundef %477) #12
   br label %479
 
 479:                                              ; preds = %462, %451
@@ -922,7 +922,7 @@ bias_key.exit668:                                 ; preds = %271
   br i1 %.not.i.i.i, label %483, label %bias_key.exit.i
 
 483:                                              ; preds = %479
-  %484 = call i64 @zend_string_hash_func(ptr noundef nonnull %.0.i669) #9
+  %484 = call i64 @zend_string_hash_func(ptr noundef nonnull %.0.i669) #12
   br label %bias_key.exit.i
 
 bias_key.exit.i:                                  ; preds = %483, %479
@@ -934,7 +934,7 @@ bias_key.exit.i:                                  ; preds = %483, %479
 
 create_str_cache_key.exit:                        ; preds = %443, %448, %bias_key.exit.i
   %.017.i = phi ptr [ %.0.i669, %bias_key.exit.i ], [ %444, %443 ], [ %444, %448 ]
-  %488 = call ptr @zend_hash_find(ptr noundef nonnull %8, ptr noundef nonnull %.017.i) #9
+  %488 = call ptr @zend_hash_find(ptr noundef nonnull %8, ptr noundef nonnull %.017.i) #12
   %.not619 = icmp eq ptr %488, null
   br i1 %.not619, label %529, label %489
 
@@ -955,7 +955,7 @@ create_str_cache_key.exit:                        ; preds = %443, %448, %bias_ke
   br i1 %497, label %498, label %zend_string_release_ex.exit658
 
 498:                                              ; preds = %493
-  call void @_efree(ptr noundef nonnull %.017.i) #9
+  call void @_efree(ptr noundef nonnull %.017.i) #12
   br label %zend_string_release_ex.exit658
 
 zend_string_release_ex.exit658:                   ; preds = %489, %493, %498
@@ -982,7 +982,7 @@ zend_string_release_ex.exit658:                   ; preds = %489, %493, %498
 
 511:                                              ; preds = %506
   %512 = load ptr, ptr %503, align 8, !tbaa !41
-  call void @rc_dtor_func(ptr noundef %512) #9
+  call void @rc_dtor_func(ptr noundef %512) #12
   br label %zval_ptr_dtor_nogc.exit647
 
 zval_ptr_dtor_nogc.exit647:                       ; preds = %zend_string_release_ex.exit658, %506, %511
@@ -1017,7 +1017,7 @@ zval_ptr_dtor_nogc.exit647:                       ; preds = %zend_string_release
 
 525:                                              ; preds = %520
   %526 = load ptr, ptr %517, align 8, !tbaa !41
-  call void @rc_dtor_func(ptr noundef %526) #9
+  call void @rc_dtor_func(ptr noundef %526) #12
   br label %zval_ptr_dtor_nogc.exit650
 
 zval_ptr_dtor_nogc.exit650:                       ; preds = %.lr.ph757, %520, %525
@@ -1031,7 +1031,7 @@ zval_ptr_dtor_nogc.exit650:                       ; preds = %.lr.ph757, %520, %5
   %531 = sext i32 %.0571771 to i64
   store i64 %531, ptr %7, align 8, !tbaa !41
   store i32 4, ptr %254, align 8, !tbaa !41
-  %532 = call ptr @zend_hash_add_new(ptr noundef nonnull %8, ptr noundef nonnull %.017.i, ptr noundef nonnull %7) #9
+  %532 = call ptr @zend_hash_add_new(ptr noundef nonnull %8, ptr noundef nonnull %.017.i, ptr noundef nonnull %7) #12
   %533 = getelementptr inbounds nuw i8, ptr %.017.i, i64 4
   %534 = load i32, ptr %533, align 4, !tbaa !41
   %535 = and i32 %534, 64
@@ -1048,7 +1048,7 @@ zval_ptr_dtor_nogc.exit650:                       ; preds = %.lr.ph757, %520, %5
   br i1 %540, label %541, label %zend_string_release_ex.exit660
 
 541:                                              ; preds = %536
-  call void @_efree(ptr noundef nonnull %.017.i) #9
+  call void @_efree(ptr noundef nonnull %.017.i) #12
   br label %zend_string_release_ex.exit660
 
 zend_string_release_ex.exit660:                   ; preds = %529, %536, %541
@@ -1151,7 +1151,7 @@ zend_string_release_ex.exit660._crit_edge:        ; preds = %zend_string_release
 
 585:                                              ; preds = %581
   %586 = load ptr, ptr %260, align 8, !tbaa !41
-  call void @rc_dtor_func(ptr noundef %586) #9
+  call void @rc_dtor_func(ptr noundef %586) #12
   br label %zval_ptr_dtor_nogc.exit653
 
 zval_ptr_dtor_nogc.exit653:                       ; preds = %585, %581, %578, %576
@@ -1205,7 +1205,7 @@ zval_ptr_dtor_nogc.exit:                          ; preds = %zval_ptr_dtor_nogc.
 
 ._crit_edge774:                                   ; preds = %zval_ptr_dtor_nogc.exit, %zend_arena_alloc.exit636
   %.0571.lcssa = phi i32 [ 0, %zend_arena_alloc.exit636 ], [ %.1572, %zval_ptr_dtor_nogc.exit ]
-  call void @zend_hash_clean(ptr noundef nonnull %8) #9
+  call void @zend_hash_clean(ptr noundef nonnull %8) #12
   store i32 %.0571.lcssa, ptr %11, align 8, !tbaa !16
   %604 = mul nsw i32 %.0571.lcssa, 6
   %605 = sext i32 %604 to i64
@@ -1230,7 +1230,7 @@ zval_ptr_dtor_nogc.exit:                          ; preds = %zval_ptr_dtor_nogc.
   %618 = ptrtoint ptr %607 to i64
   %619 = sub i64 %611, %618
   %..i639 = call i64 @llvm.umax.i64(i64 %617, i64 %619)
-  %620 = call noalias ptr @_emalloc(i64 noundef %..i639) #12
+  %620 = call noalias ptr @_emalloc(i64 noundef %..i639) #11
   %621 = getelementptr inbounds nuw i8, ptr %620, i64 24
   %622 = getelementptr inbounds nuw i8, ptr %621, i64 %606
   store ptr %622, ptr %620, align 8, !tbaa !13
@@ -1585,15 +1585,15 @@ type_num_classes.exit687.thread746:               ; preds = %733, %type_num_clas
   %772 = getelementptr inbounds nuw %struct._zval_struct, ptr %.val, i64 %771
   %773 = zext i32 %770 to i64
   %774 = getelementptr inbounds nuw %struct._zval_struct, ptr %.val, i64 %773
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %775 = load ptr, ptr %772, align 8, !tbaa !41
   %776 = load ptr, ptr %774, align 8, !tbaa !41
-  %777 = call ptr @zend_create_member_string(ptr noundef %775, ptr noundef %776) #9
-  %778 = call i64 @zend_string_hash_func(ptr noundef %777) #9
+  %777 = call ptr @zend_create_member_string(ptr noundef %775, ptr noundef %776) #12
+  %778 = call i64 @zend_string_hash_func(ptr noundef %777) #12
   %779 = getelementptr inbounds nuw i8, ptr %777, i64 8
   %780 = add i64 %778, 3
   store i64 %780, ptr %779, align 8, !tbaa !53
-  %781 = call ptr @zend_hash_find(ptr noundef nonnull %8, ptr noundef %777) #9
+  %781 = call ptr @zend_hash_find(ptr noundef nonnull %8, ptr noundef %777) #12
   %.not.i688 = icmp eq ptr %781, null
   br i1 %.not.i688, label %785, label %782
 
@@ -1607,7 +1607,7 @@ type_num_classes.exit687.thread746:               ; preds = %733, %type_num_clas
   %787 = add i32 %.0732776, 24
   store i64 %786, ptr %6, align 8, !tbaa !41
   store i32 4, ptr %642, align 8, !tbaa !41
-  %788 = call ptr @zend_hash_add(ptr noundef nonnull %8, ptr noundef nonnull %777, ptr noundef nonnull %6) #9
+  %788 = call ptr @zend_hash_add(ptr noundef nonnull %8, ptr noundef nonnull %777, ptr noundef nonnull %6) #12
   br label %789
 
 789:                                              ; preds = %785, %782
@@ -1629,11 +1629,11 @@ type_num_classes.exit687.thread746:               ; preds = %733, %type_num_clas
   br i1 %797, label %798, label %add_static_slot.exit
 
 798:                                              ; preds = %793
-  call void @_efree(ptr noundef nonnull %777) #9
+  call void @_efree(ptr noundef nonnull %777) #12
   br label %add_static_slot.exit
 
 add_static_slot.exit:                             ; preds = %789, %793, %798
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %799 = getelementptr inbounds nuw i8, ptr %.1777, i64 52
   store i32 %.0.i689, ptr %799, align 4, !tbaa !67
   br label %type_num_classes.exit.thread
@@ -1851,15 +1851,15 @@ add_static_slot.exit:                             ; preds = %789, %793, %798
   %918 = getelementptr inbounds nuw %struct._zval_struct, ptr %.val664, i64 %917
   %919 = zext i32 %916 to i64
   %920 = getelementptr inbounds nuw %struct._zval_struct, ptr %.val664, i64 %919
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %921 = load ptr, ptr %918, align 8, !tbaa !41
   %922 = load ptr, ptr %920, align 8, !tbaa !41
-  %923 = call ptr @zend_create_member_string(ptr noundef %921, ptr noundef %922) #9
-  %924 = call i64 @zend_string_hash_func(ptr noundef %923) #9
+  %923 = call ptr @zend_create_member_string(ptr noundef %921, ptr noundef %922) #12
+  %924 = call i64 @zend_string_hash_func(ptr noundef %923) #12
   %925 = getelementptr inbounds nuw i8, ptr %923, i64 8
   %926 = add i64 %924, 2
   store i64 %926, ptr %925, align 8, !tbaa !53
-  %927 = call ptr @zend_hash_find(ptr noundef nonnull %8, ptr noundef %923) #9
+  %927 = call ptr @zend_hash_find(ptr noundef nonnull %8, ptr noundef %923) #12
   %.not.i691 = icmp eq ptr %927, null
   br i1 %.not.i691, label %931, label %928
 
@@ -1873,7 +1873,7 @@ add_static_slot.exit:                             ; preds = %789, %793, %798
   %933 = add i32 %.0732776, 16
   store i64 %932, ptr %5, align 8, !tbaa !41
   store i32 4, ptr %641, align 8, !tbaa !41
-  %934 = call ptr @zend_hash_add(ptr noundef nonnull %8, ptr noundef nonnull %923, ptr noundef nonnull %5) #9
+  %934 = call ptr @zend_hash_add(ptr noundef nonnull %8, ptr noundef nonnull %923, ptr noundef nonnull %5) #12
   br label %935
 
 935:                                              ; preds = %931, %928
@@ -1895,11 +1895,11 @@ add_static_slot.exit:                             ; preds = %789, %793, %798
   br i1 %943, label %944, label %add_static_slot.exit694
 
 944:                                              ; preds = %939
-  call void @_efree(ptr noundef nonnull %923) #9
+  call void @_efree(ptr noundef nonnull %923) #12
   br label %add_static_slot.exit694
 
 add_static_slot.exit694:                          ; preds = %935, %939, %944
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %945 = getelementptr inbounds nuw i8, ptr %.1777, i64 16
   store i32 %.0.i692, ptr %945, align 8, !tbaa !41
   br label %type_num_classes.exit.thread
@@ -1993,15 +1993,15 @@ add_static_slot.exit694:                          ; preds = %935, %939, %944
   %995 = load i32, ptr %994, align 8, !tbaa !41
   %996 = zext i32 %995 to i64
   %997 = getelementptr inbounds nuw %struct._zval_struct, ptr %985, i64 %996
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %998 = load ptr, ptr %997, align 8, !tbaa !41
   %999 = load ptr, ptr %989, align 8, !tbaa !41
-  %1000 = call ptr @zend_create_member_string(ptr noundef %998, ptr noundef %999) #9
-  %1001 = call i64 @zend_string_hash_func(ptr noundef %1000) #9
+  %1000 = call ptr @zend_create_member_string(ptr noundef %998, ptr noundef %999) #12
+  %1001 = call i64 @zend_string_hash_func(ptr noundef %1000) #12
   %1002 = getelementptr inbounds nuw i8, ptr %1000, i64 8
   %1003 = add i64 %1001, 1
   store i64 %1003, ptr %1002, align 8, !tbaa !53
-  %1004 = call ptr @zend_hash_find(ptr noundef nonnull %8, ptr noundef %1000) #9
+  %1004 = call ptr @zend_hash_find(ptr noundef nonnull %8, ptr noundef %1000) #12
   %.not.i695 = icmp eq ptr %1004, null
   br i1 %.not.i695, label %1008, label %1005
 
@@ -2015,7 +2015,7 @@ add_static_slot.exit694:                          ; preds = %935, %939, %944
   %1010 = add i32 %.0732776, 16
   store i64 %1009, ptr %4, align 8, !tbaa !41
   store i32 4, ptr %640, align 8, !tbaa !41
-  %1011 = call ptr @zend_hash_add(ptr noundef nonnull %8, ptr noundef nonnull %1000, ptr noundef nonnull %4) #9
+  %1011 = call ptr @zend_hash_add(ptr noundef nonnull %8, ptr noundef nonnull %1000, ptr noundef nonnull %4) #12
   br label %1012
 
 1012:                                             ; preds = %1008, %1005
@@ -2037,11 +2037,11 @@ add_static_slot.exit694:                          ; preds = %935, %939, %944
   br i1 %1020, label %1021, label %add_static_slot.exit698
 
 1021:                                             ; preds = %1016
-  call void @_efree(ptr noundef nonnull %1000) #9
+  call void @_efree(ptr noundef nonnull %1000) #12
   br label %add_static_slot.exit698
 
 add_static_slot.exit698:                          ; preds = %1012, %1016, %1021
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %1022 = getelementptr inbounds nuw i8, ptr %.1777, i64 20
   store i32 %.0.i696, ptr %1022, align 4, !tbaa !67
   br label %type_num_classes.exit.thread
@@ -2068,15 +2068,15 @@ add_static_slot.exit698:                          ; preds = %1012, %1016, %1021
   %1034 = getelementptr inbounds nuw %struct._zval_struct, ptr %.val666, i64 %1033
   %1035 = zext i32 %1032 to i64
   %1036 = getelementptr inbounds nuw %struct._zval_struct, ptr %.val666, i64 %1035
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %1037 = load ptr, ptr %1034, align 8, !tbaa !41
   %1038 = load ptr, ptr %1036, align 8, !tbaa !41
-  %1039 = call ptr @zend_create_member_string(ptr noundef %1037, ptr noundef %1038) #9
-  %1040 = call i64 @zend_string_hash_func(ptr noundef %1039) #9
+  %1039 = call ptr @zend_create_member_string(ptr noundef %1037, ptr noundef %1038) #12
+  %1040 = call i64 @zend_string_hash_func(ptr noundef %1039) #12
   %1041 = getelementptr inbounds nuw i8, ptr %1039, i64 8
   %1042 = add i64 %1040, 3
   store i64 %1042, ptr %1041, align 8, !tbaa !53
-  %1043 = call ptr @zend_hash_find(ptr noundef nonnull %8, ptr noundef %1039) #9
+  %1043 = call ptr @zend_hash_find(ptr noundef nonnull %8, ptr noundef %1039) #12
   %.not.i699 = icmp eq ptr %1043, null
   br i1 %.not.i699, label %1047, label %1044
 
@@ -2090,7 +2090,7 @@ add_static_slot.exit698:                          ; preds = %1012, %1016, %1021
   %1049 = add i32 %.0732776, 24
   store i64 %1048, ptr %3, align 8, !tbaa !41
   store i32 4, ptr %639, align 8, !tbaa !41
-  %1050 = call ptr @zend_hash_add(ptr noundef nonnull %8, ptr noundef nonnull %1039, ptr noundef nonnull %3) #9
+  %1050 = call ptr @zend_hash_add(ptr noundef nonnull %8, ptr noundef nonnull %1039, ptr noundef nonnull %3) #12
   br label %1051
 
 1051:                                             ; preds = %1047, %1044
@@ -2112,11 +2112,11 @@ add_static_slot.exit698:                          ; preds = %1012, %1016, %1021
   br i1 %1059, label %1060, label %add_static_slot.exit702
 
 1060:                                             ; preds = %1055
-  call void @_efree(ptr noundef nonnull %1039) #9
+  call void @_efree(ptr noundef nonnull %1039) #12
   br label %add_static_slot.exit702
 
 add_static_slot.exit702:                          ; preds = %1051, %1055, %1060
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %1061 = getelementptr inbounds nuw i8, ptr %.1777, i64 20
   %1062 = load i32, ptr %1061, align 4, !tbaa !67
   %1063 = and i32 %1062, 3
@@ -2279,7 +2279,7 @@ type_num_classes.exit.thread:                     ; preds = %741, %727, %704, %6
   %.0732.lcssa = phi i32 [ %633, %zend_arena_alloc.exit640 ], [ %.1733, %type_num_classes.exit.thread ]
   %1148 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i32 %.0732.lcssa, ptr %1148, align 8, !tbaa !68
-  call void @zend_hash_destroy(ptr noundef nonnull %8) #9
+  call void @zend_hash_destroy(ptr noundef nonnull %8) #12
   %1149 = load ptr, ptr %1, align 8, !tbaa !36
   %1150 = getelementptr inbounds nuw i8, ptr %1149, i64 8
   %1151 = load ptr, ptr %1150, align 8, !tbaa !33
@@ -2292,7 +2292,7 @@ type_num_classes.exit.thread:                     ; preds = %741, %727, %704, %6
   %.0.i661783 = phi ptr [ %1154, %.critedge.i ], [ %1149, %._crit_edge779 ]
   %1153 = getelementptr inbounds nuw i8, ptr %.0.i661783, i64 16
   %1154 = load ptr, ptr %1153, align 8, !tbaa !35
-  call void @_efree(ptr noundef nonnull %.0.i661783) #9
+  call void @_efree(ptr noundef nonnull %.0.i661783) #12
   store ptr %1154, ptr %1, align 8, !tbaa !36
   %1155 = getelementptr inbounds nuw i8, ptr %1154, i64 8
   %1156 = load ptr, ptr %1155, align 8, !tbaa !33
@@ -2345,78 +2345,78 @@ zend_arena_release.exit:                          ; preds = %.critedge.i, %._cri
   br label %1160
 
 .loopexit:                                        ; preds = %1160, %2
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare void @_zend_hash_init(ptr noundef, i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare void @_zend_hash_init(ptr noundef, i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #4
+declare void @llvm.assume(i1 noundef) #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
-declare ptr @zend_hash_index_find(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @zend_hash_index_find(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @zend_hash_index_add_new(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @zend_hash_index_add_new(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @zend_hash_find(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @zend_hash_find(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @zend_hash_add_new(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @zend_hash_add_new(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @zend_hash_clean(ptr noundef) local_unnamed_addr #1
 
-declare void @zend_hash_clean(ptr noundef) local_unnamed_addr #2
-
-declare void @zend_hash_destroy(ptr noundef) local_unnamed_addr #2
+declare void @zend_hash_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare void @zend_error_noreturn(i32 noundef, ptr noundef, ...) local_unnamed_addr #6
+declare void @zend_error_noreturn(i32 noundef, ptr noundef, ...) local_unnamed_addr #5
 
-declare noalias ptr @_emalloc_40() local_unnamed_addr #2
+declare noalias ptr @_emalloc_40() local_unnamed_addr #1
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #7
+declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #6
 
-declare void @rc_dtor_func(ptr noundef) local_unnamed_addr #2
+declare void @rc_dtor_func(ptr noundef) local_unnamed_addr #1
 
-declare i64 @zend_string_hash_func(ptr noundef) local_unnamed_addr #2
+declare i64 @zend_string_hash_func(ptr noundef) local_unnamed_addr #1
 
-declare void @_efree(ptr noundef) local_unnamed_addr #2
+declare void @_efree(ptr noundef) local_unnamed_addr #1
 
-declare ptr @zend_string_concat2(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @zend_string_concat2(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare ptr @zend_string_concat3(ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @zend_string_concat3(ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare ptr @zend_create_member_string(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @zend_create_member_string(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @zend_hash_add(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @zend_hash_add(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #8
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nounwind }
-attributes #10 = { nounwind memory(read) }
-attributes #11 = { noreturn nounwind }
-attributes #12 = { nounwind allocsize(0) }
+attributes #9 = { nounwind memory(read) }
+attributes #10 = { noreturn nounwind }
+attributes #11 = { nounwind allocsize(0) }
+attributes #12 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -502,7 +502,7 @@ _Z20data_from_reloc_iterP13RelocIterator.exit:    ; preds = %2, %7, %9
 define hidden noundef ptr @_Z17CompiledIC_beforeP7nmethodPh(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %class.RelocIterator, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 -5
-  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = getelementptr inbounds i8, ptr %1, i64 -4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 112
   store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %6, align 8
@@ -554,7 +554,7 @@ define hidden noundef ptr @_Z17CompiledIC_beforeP7nmethodPh(ptr noundef %0, ptr 
 
 _Z13CompiledIC_atP7nmethodPh.exit:                ; preds = %20, %.sink.split.i.i
   %28 = call noundef ptr @_Z13CompiledIC_atP13RelocIterator(ptr noundef nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %28
 }
 
@@ -670,7 +670,7 @@ define hidden noundef ptr @_Z13CompiledIC_atP10Relocation(ptr noundef readonly c
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef ptr @_ZN9CodeCache9find_blobEPv(ptr noundef %6) #14
-  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 1
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 112
   store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %9, align 8
@@ -722,7 +722,7 @@ define hidden noundef ptr @_Z13CompiledIC_atP10Relocation(ptr noundef readonly c
 
 _Z13CompiledIC_atP7nmethodPh.exit:                ; preds = %23, %.sink.split.i.i
   %31 = call noundef ptr @_Z13CompiledIC_atP13RelocIterator(ptr noundef nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %31
 }
 
@@ -1903,10 +1903,10 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare void @llvm.assume(i1 noundef) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

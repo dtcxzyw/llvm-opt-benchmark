@@ -150,7 +150,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_apv_split_fragment(ptr nounde
 28:                                               ; preds = %.lr.ph, %65
   %.04599 = phi ptr [ %22, %.lr.ph ], [ %66, %65 ]
   %.04898 = phi i64 [ %21, %.lr.ph ], [ %67, %65 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %29 = icmp ult i64 %.04898, 8
   br i1 %29, label %30, label %32
 
@@ -196,29 +196,29 @@ define internal range(i32 -2147483648, 1) i32 @cbs_apv_split_fragment(ptr nounde
   %50 = getelementptr inbounds nuw i8, ptr %.017.i, i64 %49
   store ptr %50, ptr %25, align 8, !tbaa !25
   store i32 0, ptr %26, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %51 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %7, i32 noundef 8, ptr noundef nonnull @.str.8, ptr noundef null, ptr noundef nonnull %4, i32 noundef 0, i32 noundef 255) #7
   %52 = icmp sgt i32 %51, -1
   br i1 %52, label %53, label %.critedge.i
 
 53:                                               ; preds = %45
   %54 = load i32, ptr %4, align 4, !tbaa !27
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %55 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %7, i32 noundef 16, ptr noundef nonnull @.str.9, ptr noundef null, ptr noundef nonnull %5, i32 noundef 0, i32 noundef 65535) #7
   %56 = icmp sgt i32 %55, -1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %56, label %57, label %.thread
 
 57:                                               ; preds = %53
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %58 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %7, i32 noundef 8, ptr noundef nonnull @.str.10, ptr noundef null, ptr noundef nonnull %6, i32 noundef 0, i32 noundef 0) #7
   %59 = icmp sgt i32 %58, -1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %59, label %60, label %.thread
 
 .critedge.i:                                      ; preds = %45
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread
 
 60:                                               ; preds = %57
@@ -230,13 +230,13 @@ define internal range(i32 -2147483648, 1) i32 @cbs_apv_split_fragment(ptr nounde
 
 .thread:                                          ; preds = %60, %57, %53, %30, %36, %43, %.critedge.i
   %.147.ph = phi i32 [ -1094995529, %43 ], [ -1094995529, %36 ], [ -1094995529, %30 ], [ %51, %.critedge.i ], [ %63, %60 ], [ %58, %57 ], [ %55, %53 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.loopexit
 
 65:                                               ; preds = %60
   %66 = getelementptr inbounds nuw i8, ptr %39, i64 %41
   %67 = sub i64 %40, %41
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not62 = icmp eq i64 %67, 0
   br i1 %.not62, label %.loopexit, label %28
 
@@ -321,7 +321,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_apv_read_unit(ptr noundef %0,
   %69 = alloca i32, align 4
   %70 = alloca [2 x i32], align 4
   %71 = alloca %struct.GetBitContext, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %71) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %71)
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %73 = load ptr, ptr %72, align 8, !tbaa !29
   %74 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -369,11 +369,11 @@ define internal range(i32 -2147483648, 1) i32 @cbs_apv_read_unit(ptr noundef %0,
 91:                                               ; preds = %89, %89, %89, %89, %89
   %92 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %93 = load ptr, ptr %92, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %70)
+  call void @llvm.lifetime.start.p0(ptr nonnull %70)
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %95 = load ptr, ptr %94, align 8, !tbaa !34
   tail call void @ff_cbs_trace_header(ptr noundef %0, ptr noundef nonnull @.str.11) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %66) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %66)
   %96 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %71, i32 noundef 8, ptr noundef nonnull @.str.8, ptr noundef null, ptr noundef nonnull %66, i32 noundef 0, i32 noundef 255) #7
   %97 = icmp sgt i32 %96, -1
   br i1 %97, label %98, label %.critedge.i.i
@@ -382,14 +382,14 @@ define internal range(i32 -2147483648, 1) i32 @cbs_apv_read_unit(ptr noundef %0,
   %99 = load i32, ptr %66, align 4, !tbaa !27
   %100 = trunc i32 %99 to i8
   store i8 %100, ptr %93, align 2, !tbaa !35
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %66) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %67) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %66)
+  call void @llvm.lifetime.start.p0(ptr nonnull %67)
   %101 = call i32 @ff_cbs_read_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %71, i32 noundef 16, ptr noundef nonnull @.str.9, ptr noundef null, ptr noundef nonnull %67, i32 noundef 0, i32 noundef 65535) #7
   %102 = icmp sgt i32 %101, -1
   br i1 %102, label %104, label %103
 
 103:                                              ; preds = %98
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %67) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %67)
   br label %.thread
 
 104:                                              ; preds = %98
@@ -397,18 +397,18 @@ define internal range(i32 -2147483648, 1) i32 @cbs_apv_read_unit(ptr noundef %0,
   %106 = trunc i32 %105 to i16
   %107 = getelementptr inbounds nuw i8, ptr %93, i64 2
   store i16 %106, ptr %107, align 2, !tbaa !38
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %67) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %68) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %67)
+  call void @llvm.lifetime.start.p0(ptr nonnull %68)
   %108 = call i32 @ff_cbs_read_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %71, i32 noundef 8, ptr noundef nonnull @.str.10, ptr noundef null, ptr noundef nonnull %68, i32 noundef 0, i32 noundef 0) #7
   %109 = icmp sgt i32 %108, -1
   br i1 %109, label %110, label %cbs_apv_read_pbu_header.exit.thread57.i
 
 cbs_apv_read_pbu_header.exit.thread57.i:          ; preds = %104
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %68) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %68)
   br label %.thread
 
 .critedge.i.i:                                    ; preds = %91
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %66) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %66)
   br label %.thread
 
 110:                                              ; preds = %104
@@ -416,7 +416,7 @@ cbs_apv_read_pbu_header.exit.thread57.i:          ; preds = %104
   %112 = trunc i32 %111 to i8
   %113 = getelementptr inbounds nuw i8, ptr %93, i64 4
   store i8 %112, ptr %113, align 2, !tbaa !39
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %68) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %68)
   %114 = getelementptr inbounds nuw i8, ptr %93, i64 8
   %115 = load ptr, ptr %94, align 8, !tbaa !34
   %116 = call fastcc i32 @cbs_apv_read_frame_info(ptr noundef nonnull %0, ptr noundef nonnull %71, ptr noundef nonnull %114)
@@ -424,7 +424,7 @@ cbs_apv_read_pbu_header.exit.thread57.i:          ; preds = %104
   br i1 %117, label %.thread, label %118
 
 118:                                              ; preds = %110
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %58) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %58)
   %119 = call i32 @ff_cbs_read_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %71, i32 noundef 8, ptr noundef nonnull @.str.10, ptr noundef null, ptr noundef nonnull %58, i32 noundef 0, i32 noundef 0) #7
   %120 = icmp sgt i32 %119, -1
   br i1 %120, label %121, label %.critedge.i47.i
@@ -434,14 +434,14 @@ cbs_apv_read_pbu_header.exit.thread57.i:          ; preds = %104
   %123 = trunc i32 %122 to i8
   %124 = getelementptr inbounds nuw i8, ptr %93, i64 24
   store i8 %123, ptr %124, align 4, !tbaa !40
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %58) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %59) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %58)
+  call void @llvm.lifetime.start.p0(ptr nonnull %59)
   %125 = call i32 @ff_cbs_read_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %71, i32 noundef 1, ptr noundef nonnull @.str.13, ptr noundef null, ptr noundef nonnull %59, i32 noundef 0, i32 noundef 1) #7
   %126 = icmp sgt i32 %125, -1
   br i1 %126, label %128, label %127
 
 127:                                              ; preds = %121
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %59) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %59)
   br label %.thread
 
 128:                                              ; preds = %121
@@ -449,18 +449,18 @@ cbs_apv_read_pbu_header.exit.thread57.i:          ; preds = %104
   %130 = trunc i32 %129 to i8
   %131 = getelementptr inbounds nuw i8, ptr %93, i64 25
   store i8 %130, ptr %131, align 1, !tbaa !45
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %59) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %59)
   %.not.i.i = icmp eq i8 %130, 0
   br i1 %.not.i.i, label %160, label %132
 
 132:                                              ; preds = %128
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %60) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %60)
   %133 = call i32 @ff_cbs_read_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %71, i32 noundef 8, ptr noundef nonnull @.str.14, ptr noundef null, ptr noundef nonnull %60, i32 noundef 0, i32 noundef 255) #7
   %134 = icmp sgt i32 %133, -1
   br i1 %134, label %136, label %135
 
 135:                                              ; preds = %132
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %60) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %60)
   br label %.thread
 
 136:                                              ; preds = %132
@@ -468,14 +468,14 @@ cbs_apv_read_pbu_header.exit.thread57.i:          ; preds = %104
   %138 = trunc i32 %137 to i8
   %139 = getelementptr inbounds nuw i8, ptr %93, i64 26
   store i8 %138, ptr %139, align 2, !tbaa !46
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %60) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %61) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %60)
+  call void @llvm.lifetime.start.p0(ptr nonnull %61)
   %140 = call i32 @ff_cbs_read_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %71, i32 noundef 8, ptr noundef nonnull @.str.15, ptr noundef null, ptr noundef nonnull %61, i32 noundef 0, i32 noundef 255) #7
   %141 = icmp sgt i32 %140, -1
   br i1 %141, label %143, label %142
 
 142:                                              ; preds = %136
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %61) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %61)
   br label %.thread
 
 143:                                              ; preds = %136
@@ -483,14 +483,14 @@ cbs_apv_read_pbu_header.exit.thread57.i:          ; preds = %104
   %145 = trunc i32 %144 to i8
   %146 = getelementptr inbounds nuw i8, ptr %93, i64 27
   store i8 %145, ptr %146, align 1, !tbaa !47
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %61) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %62) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %61)
+  call void @llvm.lifetime.start.p0(ptr nonnull %62)
   %147 = call i32 @ff_cbs_read_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %71, i32 noundef 8, ptr noundef nonnull @.str.16, ptr noundef null, ptr noundef nonnull %62, i32 noundef 0, i32 noundef 255) #7
   %148 = icmp sgt i32 %147, -1
   br i1 %148, label %150, label %149
 
 149:                                              ; preds = %143
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %62) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %62)
   br label %.thread
 
 150:                                              ; preds = %143
@@ -498,8 +498,8 @@ cbs_apv_read_pbu_header.exit.thread57.i:          ; preds = %104
   %152 = trunc i32 %151 to i8
   %153 = getelementptr inbounds nuw i8, ptr %93, i64 28
   store i8 %152, ptr %153, align 4, !tbaa !48
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %62) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %63) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %62)
+  call void @llvm.lifetime.start.p0(ptr nonnull %63)
   %154 = call i32 @ff_cbs_read_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %71, i32 noundef 1, ptr noundef nonnull @.str.17, ptr noundef null, ptr noundef nonnull %63, i32 noundef 0, i32 noundef 1) #7
   %155 = icmp sgt i32 %154, -1
   br i1 %155, label %.thread136.i.i, label %159
@@ -509,11 +509,11 @@ cbs_apv_read_pbu_header.exit.thread57.i:          ; preds = %104
   %157 = trunc i32 %156 to i8
   %158 = getelementptr inbounds nuw i8, ptr %93, i64 29
   store i8 %157, ptr %158, align 1, !tbaa !49
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %63) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %63)
   br label %165
 
 159:                                              ; preds = %150
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %63) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %63)
   br label %.thread
 
 160:                                              ; preds = %128
@@ -552,13 +552,13 @@ switch.lookup:                                    ; preds = %165
   %switch.load = load i32, ptr %switch.gep, align 4
   %174 = getelementptr inbounds nuw i8, ptr %115, i64 4
   store i32 %switch.load, ptr %174, align 4, !tbaa !55
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %64) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %64)
   %175 = call i32 @ff_cbs_read_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %71, i32 noundef 1, ptr noundef nonnull @.str.18, ptr noundef null, ptr noundef nonnull %64, i32 noundef 0, i32 noundef 1) #7
   %176 = icmp sgt i32 %175, -1
   br i1 %176, label %178, label %177
 
 177:                                              ; preds = %switch.lookup
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %64) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %64)
   br label %.thread
 
 178:                                              ; preds = %switch.lookup
@@ -566,7 +566,7 @@ switch.lookup:                                    ; preds = %165
   %180 = trunc i32 %179 to i8
   %181 = getelementptr inbounds nuw i8, ptr %93, i64 30
   store i8 %180, ptr %181, align 2, !tbaa !56
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %64) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %64)
   %.not119.i.i = icmp eq i8 %180, 0
   br i1 %.not119.i.i, label %.preheader149.i.i, label %184
 
@@ -577,7 +577,7 @@ switch.lookup:                                    ; preds = %165
 
 184:                                              ; preds = %178
   %185 = getelementptr inbounds nuw i8, ptr %93, i64 31
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %57)
+  call void @llvm.lifetime.start.p0(ptr nonnull %57)
   %186 = load ptr, ptr %94, align 8, !tbaa !34
   %187 = getelementptr inbounds nuw i8, ptr %186, i64 4
   %188 = load i32, ptr %187, align 4, !tbaa !55
@@ -604,7 +604,7 @@ switch.lookup:                                    ; preds = %165
 
 195:                                              ; preds = %199, %.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %199 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %56) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %56)
   store i32 3, ptr %57, align 4, !tbaa !27
   store i32 %193, ptr %189, align 4, !tbaa !27
   %196 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
@@ -619,7 +619,7 @@ switch.lookup:                                    ; preds = %165
   %201 = trunc i32 %200 to i8
   %gep.i.i.i = getelementptr inbounds nuw [8 x [8 x i8]], ptr %invariant.gep.i.i.i, i64 0, i64 %indvars.iv.i.i.i
   store i8 %201, ptr %gep.i.i.i, align 1, !tbaa !19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %56) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %56)
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 8
   br i1 %exitcond.i.i.i, label %202, label %195, !llvm.loop !57
@@ -637,12 +637,12 @@ switch.lookup:                                    ; preds = %165
   br i1 %.not.i.i.i, label %.preheader42.i.i.i, label %cbs_apv_read_quantization_matrix.exit.thread.i.i, !llvm.loop !60
 
 cbs_apv_read_quantization_matrix.exit.thread.i.i: ; preds = %.thread39.i.i.i, %184
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %57)
+  call void @llvm.lifetime.end.p0(ptr nonnull %57)
   br label %.loopexit150.i.i
 
 cbs_apv_read_quantization_matrix.exit.i.i:        ; preds = %195
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %56) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %57)
+  call void @llvm.lifetime.end.p0(ptr nonnull %56)
+  call void @llvm.lifetime.end.p0(ptr nonnull %57)
   br label %.thread
 
 .preheader148.i.i:                                ; preds = %.preheader149.i.i, %.preheader148.i.i
@@ -659,7 +659,7 @@ cbs_apv_read_quantization_matrix.exit.i.i:        ; preds = %195
 
 .loopexit150.i.i:                                 ; preds = %.preheader148.i.i, %cbs_apv_read_quantization_matrix.exit.thread.i.i, %.preheader149.i.i
   %209 = getelementptr inbounds nuw i8, ptr %93, i64 288
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %55)
+  call void @llvm.lifetime.start.p0(ptr nonnull %55)
   %210 = load ptr, ptr %94, align 8, !tbaa !34
   %211 = getelementptr inbounds nuw i8, ptr %93, i64 12
   %212 = load i32, ptr %211, align 4, !tbaa !62
@@ -689,7 +689,7 @@ cbs_apv_read_quantization_matrix.exit.i.i:        ; preds = %195
 
 229:                                              ; preds = %226, %223
   %230 = phi i32 [ %228, %226 ], [ 8, %223 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %51) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %51)
   %231 = call i32 @ff_cbs_read_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %71, i32 noundef 20, ptr noundef nonnull @.str.32, ptr noundef null, ptr noundef nonnull %51, i32 noundef %224, i32 noundef 1048575) #7
   %232 = icmp sgt i32 %231, -1
   br i1 %232, label %233, label %.critedge.i.i.i
@@ -697,28 +697,28 @@ cbs_apv_read_quantization_matrix.exit.i.i:        ; preds = %195
 233:                                              ; preds = %229
   %234 = load i32, ptr %51, align 4, !tbaa !27
   store i32 %234, ptr %209, align 4, !tbaa !64
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %51) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %52) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %51)
+  call void @llvm.lifetime.start.p0(ptr nonnull %52)
   %235 = call i32 @ff_cbs_read_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %71, i32 noundef 20, ptr noundef nonnull @.str.33, ptr noundef null, ptr noundef nonnull %52, i32 noundef %230, i32 noundef 1048575) #7
   %236 = icmp sgt i32 %235, -1
   br i1 %236, label %238, label %237
 
 237:                                              ; preds = %233
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %52) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %52)
   br label %cbs_apv_read_tile_info.exit.thread.i.i
 
 238:                                              ; preds = %233
   %239 = load i32, ptr %52, align 4, !tbaa !27
   %240 = getelementptr inbounds nuw i8, ptr %93, i64 292
   store i32 %239, ptr %240, align 4, !tbaa !65
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %52) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %53) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %52)
+  call void @llvm.lifetime.start.p0(ptr nonnull %53)
   %241 = call i32 @ff_cbs_read_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %71, i32 noundef 1, ptr noundef nonnull @.str.34, ptr noundef null, ptr noundef nonnull %53, i32 noundef 0, i32 noundef 1) #7
   %242 = icmp sgt i32 %241, -1
   br i1 %242, label %244, label %243
 
 243:                                              ; preds = %238
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %53) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %53)
   br label %cbs_apv_read_tile_info.exit.thread.i.i
 
 244:                                              ; preds = %238
@@ -726,7 +726,7 @@ cbs_apv_read_quantization_matrix.exit.i.i:        ; preds = %195
   %246 = trunc i32 %245 to i8
   %247 = getelementptr inbounds nuw i8, ptr %93, i64 296
   store i8 %246, ptr %247, align 4, !tbaa !66
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %53) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %53)
   %248 = getelementptr inbounds nuw i8, ptr %210, i64 8
   call fastcc void @cbs_apv_derive_tile_info(ptr noundef nonnull %248, ptr noundef nonnull readonly %114)
   %249 = load i8, ptr %247, align 4, !tbaa !66
@@ -746,7 +746,7 @@ cbs_apv_read_quantization_matrix.exit.i.i:        ; preds = %195
 
 254:                                              ; preds = %258, %.lr.ph.i.i.i
   %indvars.iv.i122.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i123.i.i, %258 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %54) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %54)
   store i32 1, ptr %55, align 4, !tbaa !27
   %255 = trunc nuw nsw i64 %indvars.iv.i122.i.i to i32
   store i32 %255, ptr %252, align 4, !tbaa !27
@@ -755,14 +755,14 @@ cbs_apv_read_quantization_matrix.exit.i.i:        ; preds = %195
   br i1 %257, label %258, label %.thread66.i.i.i
 
 .thread66.i.i.i:                                  ; preds = %254
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %54) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %54)
   br label %cbs_apv_read_tile_info.exit.thread.i.i
 
 258:                                              ; preds = %254
   %259 = load i32, ptr %54, align 4, !tbaa !27
   %260 = getelementptr inbounds nuw [400 x i32], ptr %253, i64 0, i64 %indvars.iv.i122.i.i
   store i32 %259, ptr %260, align 4, !tbaa !27
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %54) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %54)
   %indvars.iv.next.i123.i.i = add nuw nsw i64 %indvars.iv.i122.i.i, 1
   %261 = load i16, ptr %250, align 2, !tbaa !67
   %262 = zext i16 %261 to i64
@@ -770,23 +770,23 @@ cbs_apv_read_quantization_matrix.exit.i.i:        ; preds = %195
   br i1 %.not57.i.i.i, label %254, label %.loopexit.i.i, !llvm.loop !68
 
 .critedge.i.i.i:                                  ; preds = %229
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %51) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %51)
   br label %cbs_apv_read_tile_info.exit.thread.i.i
 
 cbs_apv_read_tile_info.exit.thread.i.i:           ; preds = %.critedge.i.i.i, %.thread66.i.i.i, %243, %237
   %.148.i.ph.i.i = phi i32 [ %256, %.thread66.i.i.i ], [ %231, %.critedge.i.i.i ], [ %235, %237 ], [ %241, %243 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %55)
+  call void @llvm.lifetime.end.p0(ptr nonnull %55)
   br label %.thread
 
 .loopexit.i.i:                                    ; preds = %258, %.preheader.i121.i.i, %244
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %55)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %65) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %55)
+  call void @llvm.lifetime.start.p0(ptr nonnull %65)
   %263 = call i32 @ff_cbs_read_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %71, i32 noundef 8, ptr noundef nonnull @.str.19, ptr noundef null, ptr noundef nonnull %65, i32 noundef 0, i32 noundef 0) #7
   %264 = icmp sgt i32 %263, -1
   br i1 %264, label %266, label %265
 
 265:                                              ; preds = %.loopexit.i.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %65) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %65)
   br label %.thread
 
 266:                                              ; preds = %.loopexit.i.i
@@ -794,7 +794,7 @@ cbs_apv_read_tile_info.exit.thread.i.i:           ; preds = %.critedge.i.i.i, %.
   %268 = trunc i32 %267 to i8
   %269 = getelementptr inbounds nuw i8, ptr %93, i64 1900
   store i8 %268, ptr %269, align 4, !tbaa !69
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %65) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %65)
   br label %270
 
 270:                                              ; preds = %279, %266
@@ -818,19 +818,19 @@ cbs_apv_read_frame_header.exit.preheader.i:       ; preds = %270
   br label %282
 
 279:                                              ; preds = %270
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %50) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %50)
   %280 = call i32 @ff_cbs_read_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %71, i32 noundef 1, ptr noundef nonnull @.str.39, ptr noundef null, ptr noundef nonnull %50, i32 noundef 0, i32 noundef 0) #7
   %281 = icmp sgt i32 %280, -1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %50) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %50)
   br i1 %281, label %270, label %.thread, !llvm.loop !70
 
 .critedge.i47.i:                                  ; preds = %118
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %58) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %58)
   br label %.thread
 
 282:                                              ; preds = %cbs_apv_read_frame_header.exit.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %cbs_apv_read_frame_header.exit.i ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %69) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %69)
   store i32 1, ptr %70, align 4, !tbaa !27
   %283 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %283, ptr %274, align 4, !tbaa !27
@@ -839,23 +839,23 @@ cbs_apv_read_frame_header.exit.preheader.i:       ; preds = %270
   br i1 %285, label %286, label %.thread63.i
 
 .thread63.i:                                      ; preds = %282
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %69) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %69)
   br label %.thread
 
 286:                                              ; preds = %282
   %287 = load i32, ptr %69, align 4, !tbaa !27
   %288 = getelementptr inbounds nuw [400 x i32], ptr %275, i64 0, i64 %indvars.iv.i
   store i32 %287, ptr %288, align 4, !tbaa !27
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %69) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %69)
   %289 = getelementptr inbounds nuw [400 x %struct.APVRawTile], ptr %276, i64 0, i64 %indvars.iv.i
   %290 = load ptr, ptr %94, align 8, !tbaa !34
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %46)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %48)
+  call void @llvm.lifetime.start.p0(ptr nonnull %46)
+  call void @llvm.lifetime.start.p0(ptr nonnull %48)
   %291 = getelementptr inbounds nuw i8, ptr %290, i64 4
   %292 = load i32, ptr %291, align 4, !tbaa !55
   %293 = mul i32 %292, 5
   %294 = add i32 %293, 5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %43) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %43)
   %295 = and i32 %294, 65535
   %296 = call i32 @ff_cbs_read_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %71, i32 noundef 16, ptr noundef nonnull @.str.42, ptr noundef null, ptr noundef nonnull %43, i32 noundef %295, i32 noundef %295) #7
   %297 = icmp sgt i32 %296, -1
@@ -865,14 +865,14 @@ cbs_apv_read_frame_header.exit.preheader.i:       ; preds = %270
   %299 = load i32, ptr %43, align 4, !tbaa !27
   %300 = trunc i32 %299 to i16
   store i16 %300, ptr %289, align 4, !tbaa !71
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %43) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %44) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
+  call void @llvm.lifetime.start.p0(ptr nonnull %44)
   %301 = call i32 @ff_cbs_read_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %71, i32 noundef 16, ptr noundef nonnull @.str.43, ptr noundef null, ptr noundef nonnull %44, i32 noundef range(i32 -2147483648, 65535) %283, i32 noundef range(i32 -2147483648, 65535) %283) #7
   %302 = icmp sgt i32 %301, -1
   br i1 %302, label %304, label %303
 
 303:                                              ; preds = %298
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %44) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %44)
   br label %.thread67.i
 
 304:                                              ; preds = %298
@@ -880,7 +880,7 @@ cbs_apv_read_frame_header.exit.preheader.i:       ; preds = %270
   %306 = trunc i32 %305 to i16
   %307 = getelementptr inbounds nuw i8, ptr %289, i64 2
   store i16 %306, ptr %307, align 2, !tbaa !73
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %44) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %44)
   %308 = load i32, ptr %291, align 4, !tbaa !55
   %.not90.i.i.i = icmp sgt i32 %308, 0
   br i1 %.not90.i.i.i, label %.lr.ph.i.i50.i, label %._crit_edge97.i.i.i
@@ -895,7 +895,7 @@ cbs_apv_read_frame_header.exit.preheader.i:       ; preds = %270
 313:                                              ; preds = %317, %.lr.ph.i.i50.i
   %indvars.iv.i.i51.i = phi i64 [ 0, %.lr.ph.i.i50.i ], [ %indvars.iv.next.i.i52.i, %317 ]
   %.07191.i.i.i = phi i32 [ %311, %.lr.ph.i.i50.i ], [ %320, %317 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %45) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %45)
   store i32 1, ptr %46, align 4, !tbaa !27
   %314 = trunc nuw nsw i64 %indvars.iv.i.i51.i to i32
   store i32 %314, ptr %277, align 4, !tbaa !27
@@ -904,14 +904,14 @@ cbs_apv_read_frame_header.exit.preheader.i:       ; preds = %270
   br i1 %316, label %317, label %.thread82.i.i.i
 
 .thread82.i.i.i:                                  ; preds = %313
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %45) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
   br label %368
 
 317:                                              ; preds = %313
   %318 = load i32, ptr %45, align 4, !tbaa !27
   %319 = getelementptr inbounds nuw [4 x i32], ptr %312, i64 0, i64 %indvars.iv.i.i51.i
   store i32 %318, ptr %319, align 4, !tbaa !27
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %45) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
   %320 = sub i32 %.07191.i.i.i, %318
   %indvars.iv.next.i.i52.i = add nuw nsw i64 %indvars.iv.i.i51.i, 1
   %321 = load i32, ptr %291, align 4, !tbaa !55
@@ -933,7 +933,7 @@ cbs_apv_read_frame_header.exit.preheader.i:       ; preds = %270
 
 329:                                              ; preds = %333, %.lr.ph96.i.i.i
   %indvars.iv102.i.i.i = phi i64 [ 0, %.lr.ph96.i.i.i ], [ %indvars.iv.next103.i.i.i, %333 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %47) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %47)
   store i32 1, ptr %48, align 4, !tbaa !27
   %330 = trunc nuw nsw i64 %indvars.iv102.i.i.i to i32
   store i32 %330, ptr %278, align 4, !tbaa !27
@@ -942,7 +942,7 @@ cbs_apv_read_frame_header.exit.preheader.i:       ; preds = %270
   br i1 %332, label %333, label %.thread87.i.i.i
 
 .thread87.i.i.i:                                  ; preds = %329
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %47) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
   br label %368
 
 333:                                              ; preds = %329
@@ -950,7 +950,7 @@ cbs_apv_read_frame_header.exit.preheader.i:       ; preds = %270
   %335 = trunc i32 %334 to i8
   %336 = getelementptr inbounds nuw [4 x i8], ptr %328, i64 0, i64 %indvars.iv102.i.i.i
   store i8 %335, ptr %336, align 1, !tbaa !19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %47) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
   %indvars.iv.next103.i.i.i = add nuw nsw i64 %indvars.iv102.i.i.i, 1
   %337 = load i32, ptr %291, align 4, !tbaa !55
   %338 = sext i32 %337 to i64
@@ -958,17 +958,17 @@ cbs_apv_read_frame_header.exit.preheader.i:       ; preds = %270
   br i1 %.not76.i.i.i, label %329, label %._crit_edge97.i.i.i, !llvm.loop !75
 
 ._crit_edge97.i.i.i:                              ; preds = %333, %._crit_edge.i.i.i, %304
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %49) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %49)
   %339 = call i32 @ff_cbs_read_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %71, i32 noundef 8, ptr noundef nonnull @.str.10, ptr noundef null, ptr noundef nonnull %49, i32 noundef 0, i32 noundef 0) #7
   %340 = icmp sgt i32 %339, -1
   br i1 %340, label %cbs_apv_read_tile_header.exit.i.i, label %cbs_apv_read_tile_header.exit.thread24.i.i
 
 cbs_apv_read_tile_header.exit.thread24.i.i:       ; preds = %._crit_edge97.i.i.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %49) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %49)
   br label %368
 
 .critedge.i.i48.i:                                ; preds = %286
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %43) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
   br label %.thread67.i
 
 cbs_apv_read_tile_header.exit.i.i:                ; preds = %._crit_edge97.i.i.i
@@ -976,9 +976,9 @@ cbs_apv_read_tile_header.exit.i.i:                ; preds = %._crit_edge97.i.i.i
   %342 = trunc i32 %341 to i8
   %343 = getelementptr inbounds nuw i8, ptr %289, i64 24
   store i8 %342, ptr %343, align 4, !tbaa !76
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %49) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %46)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %48)
+  call void @llvm.lifetime.end.p0(ptr nonnull %49)
+  call void @llvm.lifetime.end.p0(ptr nonnull %46)
+  call void @llvm.lifetime.end.p0(ptr nonnull %48)
   %344 = load i32, ptr %291, align 4, !tbaa !55
   %345 = icmp sgt i32 %344, 0
   br i1 %345, label %.lr.ph.i.i, label %cbs_apv_read_frame_header.exit.i
@@ -1033,14 +1033,14 @@ cbs_apv_read_frame_header.exit.i:                 ; preds = %align_get_bits.exit
 
 .thread67.i:                                      ; preds = %.critedge.i.i48.i, %303
   %.0.ph.i.ph.i = phi i32 [ %301, %303 ], [ %296, %.critedge.i.i48.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %46)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %48)
+  call void @llvm.lifetime.end.p0(ptr nonnull %46)
+  call void @llvm.lifetime.end.p0(ptr nonnull %48)
   br label %.thread
 
 368:                                              ; preds = %cbs_apv_read_tile_header.exit.thread24.i.i, %.thread87.i.i.i, %.thread82.i.i.i
   %.0.ph.i.i = phi i32 [ %339, %cbs_apv_read_tile_header.exit.thread24.i.i ], [ %331, %.thread87.i.i.i ], [ %315, %.thread82.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %46)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %48)
+  call void @llvm.lifetime.end.p0(ptr nonnull %46)
+  call void @llvm.lifetime.end.p0(ptr nonnull %48)
   br label %.thread
 
 .thread65.loopexit.i:                             ; preds = %cbs_apv_read_frame_header.exit.i
@@ -1064,10 +1064,10 @@ cbs_apv_read_frame_header.exit.i:                 ; preds = %align_get_bits.exit
   br i1 %376, label %.lr.ph.i54.i, label %.loopexit
 
 .lr.ph.i54.i:                                     ; preds = %.thread65.i, %379
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %42) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %42)
   %377 = call i32 @ff_cbs_read_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %71, i32 noundef 8, ptr noundef nonnull @.str.53, ptr noundef null, ptr noundef nonnull %42, i32 noundef 255, i32 noundef 255) #7
   %378 = icmp sgt i32 %377, -1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %42) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
   br i1 %378, label %379, label %.thread
 
 379:                                              ; preds = %.lr.ph.i54.i
@@ -1088,11 +1088,11 @@ cbs_apv_read_frame_header.exit.i:                 ; preds = %align_get_bits.exit
 
 .thread:                                          ; preds = %279, %.lr.ph.i54.i, %265, %177, %159, %149, %142, %135, %127, %110, %.critedge.i47.i, %cbs_apv_read_quantization_matrix.exit.i.i, %cbs_apv_read_tile_info.exit.thread.i.i, %103, %.critedge.i.i, %.thread67.i, %.thread63.i, %cbs_apv_read_pbu_header.exit.thread57.i, %368
   %.040.i.ph = phi i32 [ %263, %265 ], [ %175, %177 ], [ %154, %159 ], [ %147, %149 ], [ %140, %142 ], [ %133, %135 ], [ %125, %127 ], [ %116, %110 ], [ %119, %.critedge.i47.i ], [ %197, %cbs_apv_read_quantization_matrix.exit.i.i ], [ %.148.i.ph.i.i, %cbs_apv_read_tile_info.exit.thread.i.i ], [ %101, %103 ], [ %96, %.critedge.i.i ], [ %.0.ph.i.ph.i, %.thread67.i ], [ %284, %.thread63.i ], [ %108, %cbs_apv_read_pbu_header.exit.thread57.i ], [ %.0.ph.i.i, %368 ], [ %377, %.lr.ph.i54.i ], [ %280, %279 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %70)
+  call void @llvm.lifetime.end.p0(ptr nonnull %70)
   br label %cbs_apv_read_filler.exit
 
 .loopexit:                                        ; preds = %379, %.thread65.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %70)
+  call void @llvm.lifetime.end.p0(ptr nonnull %70)
   %390 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %391 = load ptr, ptr %390, align 8, !tbaa !83
   %392 = call ptr @av_buffer_ref(ptr noundef %391) #7
@@ -1104,11 +1104,11 @@ cbs_apv_read_frame_header.exit.i:                 ; preds = %align_get_bits.exit
 394:                                              ; preds = %89
   %395 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %396 = load ptr, ptr %395, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %36)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %38)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %40)
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
+  call void @llvm.lifetime.start.p0(ptr nonnull %38)
+  call void @llvm.lifetime.start.p0(ptr nonnull %40)
   tail call void @ff_cbs_trace_header(ptr noundef %0, ptr noundef nonnull @.str.46) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %34) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
   %397 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %71, i32 noundef 16, ptr noundef nonnull @.str.47, ptr noundef null, ptr noundef nonnull %34, i32 noundef 1, i32 noundef 8) #7
   %398 = icmp sgt i32 %397, -1
   br i1 %398, label %399, label %.critedge.i
@@ -1117,7 +1117,7 @@ cbs_apv_read_frame_header.exit.i:                 ; preds = %align_get_bits.exit
   %400 = load i32, ptr %34, align 4, !tbaa !27
   %401 = trunc i32 %400 to i16
   store i16 %401, ptr %396, align 8, !tbaa !86
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %34) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
   %402 = and i32 %400, 65535
   %.not83.not.i = icmp eq i32 %402, 0
   br i1 %.not83.not.i, label %._crit_edge.i, label %.lr.ph.i38
@@ -1141,7 +1141,7 @@ cbs_apv_read_frame_header.exit.i:                 ; preds = %align_get_bits.exit
 
 413:                                              ; preds = %410, %.lr.ph.i38
   %indvars.iv.i39 = phi i64 [ 0, %.lr.ph.i38 ], [ %indvars.iv.next.i40, %410 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %35) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
   store i32 1, ptr %36, align 4, !tbaa !27
   %414 = trunc nuw nsw i64 %indvars.iv.i39 to i32
   store i32 %414, ptr %403, align 4, !tbaa !27
@@ -1150,7 +1150,7 @@ cbs_apv_read_frame_header.exit.i:                 ; preds = %align_get_bits.exit
   br i1 %416, label %418, label %417
 
 417:                                              ; preds = %413
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %35) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
   br label %cbs_apv_read_au_info.exit.thread
 
 418:                                              ; preds = %413
@@ -1158,8 +1158,8 @@ cbs_apv_read_frame_header.exit.i:                 ; preds = %align_get_bits.exit
   %420 = trunc i32 %419 to i8
   %421 = getelementptr inbounds nuw [8 x i8], ptr %404, i64 0, i64 %indvars.iv.i39
   store i8 %420, ptr %421, align 1, !tbaa !19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %35) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %37) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
   store i32 1, ptr %38, align 4, !tbaa !27
   store i32 %414, ptr %405, align 4, !tbaa !27
   %422 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %71, i32 noundef 8, ptr noundef nonnull @.str.49, ptr noundef nonnull %38, ptr noundef nonnull %37, i32 noundef 0, i32 noundef 255) #7
@@ -1167,7 +1167,7 @@ cbs_apv_read_frame_header.exit.i:                 ; preds = %align_get_bits.exit
   br i1 %423, label %425, label %424
 
 424:                                              ; preds = %418
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %37) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
   br label %cbs_apv_read_au_info.exit.thread
 
 425:                                              ; preds = %418
@@ -1175,8 +1175,8 @@ cbs_apv_read_frame_header.exit.i:                 ; preds = %align_get_bits.exit
   %427 = trunc i32 %426 to i8
   %428 = getelementptr inbounds nuw [8 x i8], ptr %406, i64 0, i64 %indvars.iv.i39
   store i8 %427, ptr %428, align 1, !tbaa !19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %37) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %39) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
+  call void @llvm.lifetime.start.p0(ptr nonnull %39)
   store i32 1, ptr %40, align 4, !tbaa !27
   store i32 %414, ptr %407, align 4, !tbaa !27
   %429 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %71, i32 noundef 8, ptr noundef nonnull @.str.50, ptr noundef nonnull %40, ptr noundef nonnull %39, i32 noundef 0, i32 noundef 0) #7
@@ -1184,7 +1184,7 @@ cbs_apv_read_frame_header.exit.i:                 ; preds = %align_get_bits.exit
   br i1 %430, label %432, label %431
 
 431:                                              ; preds = %425
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %39) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
   br label %cbs_apv_read_au_info.exit.thread
 
 432:                                              ; preds = %425
@@ -1192,34 +1192,34 @@ cbs_apv_read_frame_header.exit.i:                 ; preds = %align_get_bits.exit
   %434 = trunc i32 %433 to i8
   %435 = getelementptr inbounds nuw [8 x i8], ptr %408, i64 0, i64 %indvars.iv.i39
   store i8 %434, ptr %435, align 1, !tbaa !19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %39) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
   %436 = getelementptr inbounds nuw [8 x %struct.APVRawFrameInfo], ptr %409, i64 0, i64 %indvars.iv.i39
   %437 = call fastcc i32 @cbs_apv_read_frame_info(ptr noundef %0, ptr noundef nonnull %71, ptr noundef nonnull %436)
   %438 = icmp slt i32 %437, 0
   br i1 %438, label %cbs_apv_read_au_info.exit.thread, label %410
 
 ._crit_edge.i:                                    ; preds = %410, %399
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %41) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %41)
   %439 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %71, i32 noundef 8, ptr noundef nonnull @.str.19, ptr noundef null, ptr noundef nonnull %41, i32 noundef 0, i32 noundef 0) #7
   %440 = icmp sgt i32 %439, -1
   br i1 %440, label %cbs_apv_read_au_info.exit, label %cbs_apv_read_au_info.exit.thread68
 
 cbs_apv_read_au_info.exit.thread68:               ; preds = %._crit_edge.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %41) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %36)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %38)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %40)
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
   br label %cbs_apv_read_filler.exit
 
 .critedge.i:                                      ; preds = %394
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %34) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
   br label %cbs_apv_read_au_info.exit.thread
 
 cbs_apv_read_au_info.exit.thread:                 ; preds = %432, %.critedge.i, %417, %424, %431
   %.154.i.ph = phi i32 [ %429, %431 ], [ %422, %424 ], [ %415, %417 ], [ %397, %.critedge.i ], [ %437, %432 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %36)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %38)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %40)
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
   br label %cbs_apv_read_filler.exit
 
 cbs_apv_read_au_info.exit:                        ; preds = %._crit_edge.i
@@ -1227,17 +1227,17 @@ cbs_apv_read_au_info.exit:                        ; preds = %._crit_edge.i
   %442 = trunc i32 %441 to i8
   %443 = getelementptr inbounds nuw i8, ptr %396, i64 156
   store i8 %442, ptr %443, align 4, !tbaa !89
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %41) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %36)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %38)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %40)
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
   br label %cbs_apv_read_metadata.exit
 
 444:                                              ; preds = %89
   %445 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %446 = load ptr, ptr %445, align 8, !tbaa !33
   tail call void @ff_cbs_trace_header(ptr noundef %0, ptr noundef nonnull @.str.51) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %26) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   %447 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %71, i32 noundef 8, ptr noundef nonnull @.str.8, ptr noundef null, ptr noundef nonnull %26, i32 noundef 0, i32 noundef 255) #7
   %448 = icmp sgt i32 %447, -1
   br i1 %448, label %449, label %.critedge.i.i42
@@ -1246,14 +1246,14 @@ cbs_apv_read_au_info.exit:                        ; preds = %._crit_edge.i
   %450 = load i32, ptr %26, align 4, !tbaa !27
   %451 = trunc i32 %450 to i8
   store i8 %451, ptr %446, align 2, !tbaa !35
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %26) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %27) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   %452 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %71, i32 noundef 16, ptr noundef nonnull @.str.9, ptr noundef null, ptr noundef nonnull %27, i32 noundef 0, i32 noundef 65535) #7
   %453 = icmp sgt i32 %452, -1
   br i1 %453, label %455, label %454
 
 454:                                              ; preds = %449
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %27) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %cbs_apv_read_filler.exit
 
 455:                                              ; preds = %449
@@ -1261,18 +1261,18 @@ cbs_apv_read_au_info.exit:                        ; preds = %._crit_edge.i
   %457 = trunc i32 %456 to i16
   %458 = getelementptr inbounds nuw i8, ptr %446, i64 2
   store i16 %457, ptr %458, align 2, !tbaa !38
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %27) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %28) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   %459 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %71, i32 noundef 8, ptr noundef nonnull @.str.10, ptr noundef null, ptr noundef nonnull %28, i32 noundef 0, i32 noundef 0) #7
   %460 = icmp sgt i32 %459, -1
   br i1 %460, label %461, label %cbs_apv_read_pbu_header.exit.thread118.i
 
 cbs_apv_read_pbu_header.exit.thread118.i:         ; preds = %455
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %28) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %cbs_apv_read_filler.exit
 
 .critedge.i.i42:                                  ; preds = %444
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %26) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br label %cbs_apv_read_filler.exit
 
 461:                                              ; preds = %455
@@ -1280,8 +1280,8 @@ cbs_apv_read_pbu_header.exit.thread118.i:         ; preds = %455
   %463 = trunc i32 %462 to i8
   %464 = getelementptr inbounds nuw i8, ptr %446, i64 4
   store i8 %463, ptr %464, align 2, !tbaa !39
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %28) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %29) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   %465 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %71, i32 noundef 32, ptr noundef nonnull @.str.52, ptr noundef null, ptr noundef nonnull %29, i32 noundef 0, i32 noundef -1) #7
   %466 = icmp sgt i32 %465, -1
   br i1 %466, label %467, label %.critedge.i43
@@ -1290,7 +1290,7 @@ cbs_apv_read_pbu_header.exit.thread118.i:         ; preds = %455
   %468 = load i32, ptr %29, align 4, !tbaa !27
   %469 = getelementptr inbounds nuw i8, ptr %446, i64 8
   store i32 %468, ptr %469, align 8, !tbaa !90
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %29) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   %470 = getelementptr inbounds nuw i8, ptr %446, i64 16
   %471 = getelementptr inbounds nuw i8, ptr %446, i64 12
   %472 = getelementptr inbounds nuw i8, ptr %8, i64 4
@@ -1320,10 +1320,10 @@ cbs_apv_read_pbu_header.exit.thread118.i:         ; preds = %455
 
 .lr.ph.i60:                                       ; preds = %478, %490
   %.196200.i = phi i32 [ %493, %490 ], [ %.095209.i, %478 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %30) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   %488 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %71, i32 noundef 8, ptr noundef nonnull @.str.53, ptr noundef null, ptr noundef nonnull %30, i32 noundef 255, i32 noundef 255) #7
   %489 = icmp sgt i32 %488, -1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %30) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
   br i1 %489, label %490, label %cbs_apv_read_filler.exit
 
 490:                                              ; preds = %.lr.ph.i60
@@ -1345,11 +1345,11 @@ cbs_apv_read_pbu_header.exit.thread118.i:         ; preds = %455
 
 ._crit_edge.i45:                                  ; preds = %490, %478
   %.196.lcssa.i = phi i32 [ %.095209.i, %478 ], [ %493, %490 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %31) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
   %502 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %71, i32 noundef 8, ptr noundef nonnull @.str.54, ptr noundef null, ptr noundef nonnull %31, i32 noundef 0, i32 noundef 254) #7
   %503 = icmp sgt i32 %502, -1
   %504 = load i32, ptr %31, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %31) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
   br i1 %503, label %505, label %cbs_apv_read_filler.exit
 
 505:                                              ; preds = %._crit_edge.i45
@@ -1372,10 +1372,10 @@ cbs_apv_read_pbu_header.exit.thread118.i:         ; preds = %455
 
 .lr.ph206.i:                                      ; preds = %505, %519
   %.398204.in.i = phi i32 [ %.398204.i, %519 ], [ %.196.lcssa.i, %505 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %32) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
   %517 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %71, i32 noundef 8, ptr noundef nonnull @.str.53, ptr noundef null, ptr noundef nonnull %32, i32 noundef 255, i32 noundef 255) #7
   %518 = icmp sgt i32 %517, -1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %32) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
   br i1 %518, label %519, label %cbs_apv_read_filler.exit
 
 519:                                              ; preds = %.lr.ph206.i
@@ -1397,11 +1397,11 @@ cbs_apv_read_pbu_header.exit.thread118.i:         ; preds = %455
 
 ._crit_edge207.i:                                 ; preds = %519, %505
   %.398.in.lcssa.i = phi i32 [ %.196.lcssa.i, %505 ], [ %.398204.i, %519 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %33) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
   %530 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %71, i32 noundef 8, ptr noundef nonnull @.str.55, ptr noundef null, ptr noundef nonnull %33, i32 noundef 0, i32 noundef 254) #7
   %531 = icmp sgt i32 %530, -1
   %532 = load i32, ptr %33, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %33) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
   br i1 %531, label %533, label %cbs_apv_read_filler.exit
 
 533:                                              ; preds = %._crit_edge207.i
@@ -1432,9 +1432,9 @@ cbs_apv_read_pbu_header.exit.thread118.i:         ; preds = %455
 
 543:                                              ; preds = %540
   %544 = zext i32 %535 to i64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   call void @ff_cbs_trace_header(ptr noundef %0, ptr noundef nonnull @.str.57) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %22) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %545 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %71, i32 noundef 8, ptr noundef nonnull @.str.58, ptr noundef null, ptr noundef nonnull %22, i32 noundef 0, i32 noundef 255) #7
   %546 = icmp sgt i32 %545, -1
   br i1 %546, label %547, label %.critedge.i.i.i57
@@ -1445,18 +1445,18 @@ cbs_apv_read_pbu_header.exit.thread118.i:         ; preds = %455
   %550 = load i32, ptr %22, align 4, !tbaa !27
   %551 = trunc i32 %550 to i8
   store i8 %551, ptr %548, align 8, !tbaa !98
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   %552 = icmp eq i8 %551, -1
   br i1 %552, label %553, label %562
 
 553:                                              ; preds = %547
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %23) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   %554 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %71, i32 noundef 8, ptr noundef nonnull @.str.59, ptr noundef null, ptr noundef nonnull %23, i32 noundef 0, i32 noundef 255) #7
   %555 = icmp sgt i32 %554, -1
   br i1 %555, label %557, label %556
 
 556:                                              ; preds = %553
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %cbs_apv_read_metadata_itu_t_t35.exit.thread.i.i
 
 557:                                              ; preds = %553
@@ -1464,7 +1464,7 @@ cbs_apv_read_pbu_header.exit.thread118.i:         ; preds = %455
   %559 = trunc i32 %558 to i8
   %560 = getelementptr inbounds nuw i8, ptr %479, i64 9
   store i8 %559, ptr %560, align 1, !tbaa !100
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   %561 = add nsw i64 %544, -2
   br label %562
 
@@ -1489,7 +1489,7 @@ cbs_apv_read_pbu_header.exit.thread118.i:         ; preds = %455
 
 .lr.ph.i.i.i59:                                   ; preds = %566, %575
   %.054.i.i.i = phi i64 [ %580, %575 ], [ 0, %566 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %24) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   store i32 1, ptr %25, align 4, !tbaa !27
   %571 = trunc i64 %.054.i.i.i to i32
   store i32 %571, ptr %476, align 4, !tbaa !27
@@ -1498,7 +1498,7 @@ cbs_apv_read_pbu_header.exit.thread118.i:         ; preds = %455
   br i1 %573, label %575, label %574
 
 574:                                              ; preds = %.lr.ph.i.i.i59
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %cbs_apv_read_metadata_itu_t_t35.exit.thread.i.i
 
 575:                                              ; preds = %.lr.ph.i.i.i59
@@ -1507,36 +1507,36 @@ cbs_apv_read_pbu_header.exit.thread118.i:         ; preds = %455
   %578 = load ptr, ptr %569, align 8, !tbaa !106
   %579 = getelementptr inbounds nuw i8, ptr %578, i64 %.054.i.i.i
   store i8 %577, ptr %579, align 1, !tbaa !19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   %580 = add nuw i64 %.054.i.i.i, 1
   %581 = load i64, ptr %563, align 8, !tbaa !101
   %.not47.i.i.i = icmp ult i64 %580, %581
   br i1 %.not47.i.i.i, label %.lr.ph.i.i.i59, label %cbs_apv_read_metadata_itu_t_t35.exit.i.i, !llvm.loop !107
 
 .critedge.i.i.i57:                                ; preds = %543
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %cbs_apv_read_metadata_itu_t_t35.exit.thread.i.i
 
 cbs_apv_read_metadata_itu_t_t35.exit.thread.i.i:  ; preds = %562, %.critedge.i.i.i57, %574, %556
   %.141.i.ph.i.i = phi i32 [ %572, %574 ], [ %545, %.critedge.i.i.i57 ], [ %554, %556 ], [ -12, %562 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %cbs_apv_read_filler.exit
 
 cbs_apv_read_metadata_itu_t_t35.exit.i.i:         ; preds = %575, %566
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %.loopexit.i
 
 582:                                              ; preds = %540
   %583 = getelementptr inbounds nuw i8, ptr %479, i64 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @ff_cbs_trace_header(ptr noundef %0, ptr noundef nonnull @.str.61) #7
   %584 = getelementptr inbounds nuw i8, ptr %479, i64 14
   br label %585
 
 585:                                              ; preds = %597, %582
   %indvars.iv.i.i.i55 = phi i64 [ 0, %582 ], [ %indvars.iv.next.i.i.i56, %597 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i32 1, ptr %15, align 4, !tbaa !27
   %586 = trunc nuw nsw i64 %indvars.iv.i.i.i55 to i32
   store i32 %586, ptr %474, align 4, !tbaa !27
@@ -1545,7 +1545,7 @@ cbs_apv_read_metadata_itu_t_t35.exit.i.i:         ; preds = %575, %566
   br i1 %588, label %590, label %589
 
 589:                                              ; preds = %585
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %cbs_apv_read_metadata_mdcv.exit.thread.i.i
 
 590:                                              ; preds = %585
@@ -1553,8 +1553,8 @@ cbs_apv_read_metadata_itu_t_t35.exit.i.i:         ; preds = %575, %566
   %592 = trunc i32 %591 to i16
   %593 = getelementptr inbounds nuw [3 x i16], ptr %583, i64 0, i64 %indvars.iv.i.i.i55
   store i16 %592, ptr %593, align 2, !tbaa !108
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i32 1, ptr %17, align 4, !tbaa !27
   store i32 %586, ptr %475, align 4, !tbaa !27
   %594 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %71, i32 noundef 16, ptr noundef nonnull @.str.63, ptr noundef nonnull %17, ptr noundef nonnull %16, i32 noundef 0, i32 noundef 65535) #7
@@ -1562,7 +1562,7 @@ cbs_apv_read_metadata_itu_t_t35.exit.i.i:         ; preds = %575, %566
   br i1 %595, label %597, label %596
 
 596:                                              ; preds = %590
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %cbs_apv_read_metadata_mdcv.exit.thread.i.i
 
 597:                                              ; preds = %590
@@ -1570,19 +1570,19 @@ cbs_apv_read_metadata_itu_t_t35.exit.i.i:         ; preds = %575, %566
   %599 = trunc i32 %598 to i16
   %600 = getelementptr inbounds nuw [3 x i16], ptr %584, i64 0, i64 %indvars.iv.i.i.i55
   store i16 %599, ptr %600, align 2, !tbaa !108
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %indvars.iv.next.i.i.i56 = add nuw nsw i64 %indvars.iv.i.i.i55, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i56, 3
   br i1 %exitcond.not.i.i.i, label %601, label %585, !llvm.loop !109
 
 601:                                              ; preds = %597
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %602 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %71, i32 noundef 16, ptr noundef nonnull @.str.64, ptr noundef null, ptr noundef nonnull %18, i32 noundef 0, i32 noundef 65535) #7
   %603 = icmp sgt i32 %602, -1
   br i1 %603, label %605, label %604
 
 604:                                              ; preds = %601
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %cbs_apv_read_metadata_mdcv.exit.thread.i.i
 
 605:                                              ; preds = %601
@@ -1590,14 +1590,14 @@ cbs_apv_read_metadata_itu_t_t35.exit.i.i:         ; preds = %575, %566
   %607 = trunc i32 %606 to i16
   %608 = getelementptr inbounds nuw i8, ptr %479, i64 20
   store i16 %607, ptr %608, align 4, !tbaa !110
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %609 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %71, i32 noundef 16, ptr noundef nonnull @.str.65, ptr noundef null, ptr noundef nonnull %19, i32 noundef 0, i32 noundef 65535) #7
   %610 = icmp sgt i32 %609, -1
   br i1 %610, label %612, label %611
 
 611:                                              ; preds = %605
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %cbs_apv_read_metadata_mdcv.exit.thread.i.i
 
 612:                                              ; preds = %605
@@ -1605,50 +1605,50 @@ cbs_apv_read_metadata_itu_t_t35.exit.i.i:         ; preds = %575, %566
   %614 = trunc i32 %613 to i16
   %615 = getelementptr inbounds nuw i8, ptr %479, i64 22
   store i16 %614, ptr %615, align 2, !tbaa !112
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %616 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %71, i32 noundef 32, ptr noundef nonnull @.str.66, ptr noundef null, ptr noundef nonnull %20, i32 noundef 0, i32 noundef -1) #7
   %617 = icmp sgt i32 %616, -1
   br i1 %617, label %619, label %618
 
 618:                                              ; preds = %612
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %cbs_apv_read_metadata_mdcv.exit.thread.i.i
 
 619:                                              ; preds = %612
   %620 = load i32, ptr %20, align 4, !tbaa !27
   %621 = getelementptr inbounds nuw i8, ptr %479, i64 24
   store i32 %620, ptr %621, align 4, !tbaa !113
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %21) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %622 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %71, i32 noundef 32, ptr noundef nonnull @.str.67, ptr noundef null, ptr noundef nonnull %21, i32 noundef 0, i32 noundef -1) #7
   %623 = icmp sgt i32 %622, -1
   br i1 %623, label %cbs_apv_read_metadata_mdcv.exit.i.i, label %cbs_apv_read_metadata_mdcv.exit.thread54.i.i
 
 cbs_apv_read_metadata_mdcv.exit.thread54.i.i:     ; preds = %619
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %cbs_apv_read_filler.exit
 
 cbs_apv_read_metadata_mdcv.exit.thread.i.i:       ; preds = %618, %611, %604, %596, %589
   %.251.i.ph.i.i = phi i32 [ %602, %604 ], [ %609, %611 ], [ %616, %618 ], [ %587, %589 ], [ %594, %596 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %cbs_apv_read_filler.exit
 
 cbs_apv_read_metadata_mdcv.exit.i.i:              ; preds = %619
   %624 = load i32, ptr %21, align 4, !tbaa !27
   %625 = getelementptr inbounds nuw i8, ptr %479, i64 28
   store i32 %624, ptr %625, align 4, !tbaa !114
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %.loopexit.i
 
 626:                                              ; preds = %540
   call void @ff_cbs_trace_header(ptr noundef %0, ptr noundef nonnull @.str.68) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %627 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %71, i32 noundef 16, ptr noundef nonnull @.str.69, ptr noundef null, ptr noundef nonnull %12, i32 noundef 0, i32 noundef 65535) #7
   %628 = icmp sgt i32 %627, -1
   br i1 %628, label %629, label %cbs_apv_read_metadata_cll.exit.thread.i.i
@@ -1658,18 +1658,18 @@ cbs_apv_read_metadata_mdcv.exit.i.i:              ; preds = %619
   %631 = load i32, ptr %12, align 4, !tbaa !27
   %632 = trunc i32 %631 to i16
   store i16 %632, ptr %630, align 2, !tbaa !115
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %633 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %71, i32 noundef 16, ptr noundef nonnull @.str.70, ptr noundef null, ptr noundef nonnull %13, i32 noundef 0, i32 noundef 65535) #7
   %634 = icmp sgt i32 %633, -1
   br i1 %634, label %cbs_apv_read_metadata_cll.exit.i.i, label %cbs_apv_read_metadata_cll.exit.thread57.i.i
 
 cbs_apv_read_metadata_cll.exit.thread57.i.i:      ; preds = %629
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %cbs_apv_read_filler.exit
 
 cbs_apv_read_metadata_cll.exit.thread.i.i:        ; preds = %626
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %cbs_apv_read_filler.exit
 
 cbs_apv_read_metadata_cll.exit.i.i:               ; preds = %629
@@ -1677,7 +1677,7 @@ cbs_apv_read_metadata_cll.exit.i.i:               ; preds = %629
   %636 = trunc i32 %635 to i16
   %637 = getelementptr inbounds nuw i8, ptr %479, i64 10
   store i16 %636, ptr %637, align 2, !tbaa !117
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.loopexit.i
 
 638:                                              ; preds = %540
@@ -1693,23 +1693,23 @@ cbs_apv_read_metadata_cll.exit.i.i:               ; preds = %629
 
 .lr.ph.i43.i.i:                                   ; preds = %638, %640
   %.0132.i.i.i = phi i64 [ %641, %640 ], [ 0, %638 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %642 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %71, i32 noundef 8, ptr noundef nonnull @.str.53, ptr noundef null, ptr noundef nonnull %11, i32 noundef 255, i32 noundef 255) #7
   %643 = icmp sgt i32 %642, -1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br i1 %643, label %640, label %cbs_apv_read_filler.exit
 
 644:                                              ; preds = %540
   %645 = getelementptr inbounds nuw i8, ptr %479, i64 8
   %646 = zext i32 %535 to i64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @ff_cbs_trace_header(ptr noundef %0, ptr noundef nonnull @.str.72) #7
   br label %647
 
 647:                                              ; preds = %651, %644
   %indvars.iv.i46.i.i = phi i64 [ 0, %644 ], [ %indvars.iv.next.i47.i.i, %651 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 1, ptr %8, align 4, !tbaa !27
   %648 = trunc nuw nsw i64 %indvars.iv.i46.i.i to i32
   store i32 %648, ptr %472, align 4, !tbaa !27
@@ -1722,13 +1722,13 @@ cbs_apv_read_metadata_cll.exit.i.i:               ; preds = %629
   %653 = trunc i32 %652 to i8
   %654 = getelementptr inbounds nuw [16 x i8], ptr %645, i64 0, i64 %indvars.iv.i46.i.i
   store i8 %653, ptr %654, align 1, !tbaa !19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %indvars.iv.next.i47.i.i = add nuw nsw i64 %indvars.iv.i46.i.i, 1
   %exitcond.i.i.i47 = icmp eq i64 %indvars.iv.next.i47.i.i, 16
   br i1 %exitcond.i.i.i47, label %656, label %647, !llvm.loop !119
 
 655:                                              ; preds = %647
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %cbs_apv_read_metadata_user_defined.exit.thread.i.i
 
 656:                                              ; preds = %651
@@ -1752,7 +1752,7 @@ cbs_apv_read_metadata_cll.exit.i.i:               ; preds = %629
 
 .lr.ph.i49.i.i:                                   ; preds = %661, %670
   %.055.i.i.i = phi i64 [ %675, %670 ], [ 0, %661 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 1, ptr %10, align 4, !tbaa !27
   %666 = trunc i64 %.055.i.i.i to i32
   store i32 %666, ptr %473, align 4, !tbaa !27
@@ -1761,7 +1761,7 @@ cbs_apv_read_metadata_cll.exit.i.i:               ; preds = %629
   br i1 %668, label %670, label %669
 
 669:                                              ; preds = %.lr.ph.i49.i.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %cbs_apv_read_metadata_user_defined.exit.thread.i.i
 
 670:                                              ; preds = %.lr.ph.i49.i.i
@@ -1770,7 +1770,7 @@ cbs_apv_read_metadata_cll.exit.i.i:               ; preds = %629
   %673 = load ptr, ptr %664, align 8, !tbaa !123
   %674 = getelementptr inbounds nuw i8, ptr %673, i64 %.055.i.i.i
   store i8 %672, ptr %674, align 1, !tbaa !19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %675 = add nuw i64 %.055.i.i.i, 1
   %676 = load i64, ptr %658, align 8, !tbaa !120
   %.not43.i.i.i = icmp ult i64 %675, %676
@@ -1778,19 +1778,19 @@ cbs_apv_read_metadata_cll.exit.i.i:               ; preds = %629
 
 cbs_apv_read_metadata_user_defined.exit.thread.i.i: ; preds = %656, %669, %655
   %.339.i.ph.i.i = phi i32 [ %667, %669 ], [ %649, %655 ], [ -12, %656 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %cbs_apv_read_filler.exit
 
 cbs_apv_read_metadata_user_defined.exit.i.i:      ; preds = %670, %661
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.loopexit.i
 
 677:                                              ; preds = %540
   %678 = getelementptr inbounds nuw i8, ptr %479, i64 8
   %679 = zext i32 %535 to i64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @ff_cbs_trace_header(ptr noundef %0, ptr noundef nonnull @.str.75) #7
   %680 = getelementptr inbounds nuw i8, ptr %479, i64 24
   store i64 %679, ptr %680, align 8, !tbaa !125
@@ -1810,7 +1810,7 @@ cbs_apv_read_metadata_user_defined.exit.i.i:      ; preds = %670, %661
 
 .lr.ph.i51.i.i:                                   ; preds = %683, %691
   %.030.i.i.i = phi i64 [ %696, %691 ], [ 0, %683 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 1, ptr %6, align 4, !tbaa !27
   %687 = trunc i64 %.030.i.i.i to i32
   store i32 %687, ptr %477, align 4, !tbaa !27
@@ -1819,7 +1819,7 @@ cbs_apv_read_metadata_user_defined.exit.i.i:      ; preds = %670, %661
   br i1 %689, label %691, label %690
 
 690:                                              ; preds = %.lr.ph.i51.i.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %cbs_apv_read_metadata_undefined.exit.thread.i.i
 
 691:                                              ; preds = %.lr.ph.i51.i.i
@@ -1828,7 +1828,7 @@ cbs_apv_read_metadata_user_defined.exit.i.i:      ; preds = %670, %661
   %694 = load ptr, ptr %678, align 8, !tbaa !128
   %695 = getelementptr inbounds nuw i8, ptr %694, i64 %.030.i.i.i
   store i8 %693, ptr %695, align 1, !tbaa !19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %696 = add nuw i64 %.030.i.i.i, 1
   %697 = load i64, ptr %680, align 8, !tbaa !125
   %.not26.i.i.i = icmp ult i64 %696, %697
@@ -1836,11 +1836,11 @@ cbs_apv_read_metadata_user_defined.exit.i.i:      ; preds = %670, %661
 
 cbs_apv_read_metadata_undefined.exit.thread.i.i:  ; preds = %677, %690
   %.022.i.ph.i.i = phi i32 [ %688, %690 ], [ -12, %677 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %cbs_apv_read_filler.exit
 
 cbs_apv_read_metadata_undefined.exit.i.i:         ; preds = %691, %683
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %640, %cbs_apv_read_metadata_undefined.exit.i.i, %cbs_apv_read_metadata_user_defined.exit.i.i, %638, %cbs_apv_read_metadata_cll.exit.i.i, %cbs_apv_read_metadata_mdcv.exit.i.i, %cbs_apv_read_metadata_itu_t_t35.exit.i.i
@@ -1867,10 +1867,10 @@ cbs_apv_read_metadata_undefined.exit.i.i:         ; preds = %691, %683
   br i1 %708, label %.lr.ph.i.i52, label %cbs_apv_read_metadata.exit
 
 .lr.ph.i.i52:                                     ; preds = %.thread126.i, %711
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %709 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %71, i32 noundef 8, ptr noundef nonnull @.str.53, ptr noundef null, ptr noundef nonnull %4, i32 noundef 255, i32 noundef 255) #7
   %710 = icmp sgt i32 %709, -1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %710, label %711, label %cbs_apv_read_filler.exit
 
 711:                                              ; preds = %.lr.ph.i.i52
@@ -1890,7 +1890,7 @@ cbs_apv_read_metadata_undefined.exit.i.i:         ; preds = %691, %683
   br i1 %721, label %.lr.ph.i.i52, label %cbs_apv_read_metadata.exit, !llvm.loop !82
 
 .critedge.i43:                                    ; preds = %461
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %29) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   br label %cbs_apv_read_filler.exit
 
 722:                                              ; preds = %89
@@ -1903,10 +1903,10 @@ cbs_apv_read_metadata_undefined.exit.i.i:         ; preds = %691, %683
   br i1 %726, label %.lr.ph.i62, label %cbs_apv_read_metadata.exit
 
 .lr.ph.i62:                                       ; preds = %722, %729
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %727 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %71, i32 noundef 8, ptr noundef nonnull @.str.53, ptr noundef null, ptr noundef nonnull %3, i32 noundef 255, i32 noundef 255) #7
   %728 = icmp sgt i32 %727, -1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %728, label %729, label %cbs_apv_read_filler.exit
 
 729:                                              ; preds = %.lr.ph.i62
@@ -1930,7 +1930,7 @@ cbs_apv_read_metadata.exit:                       ; preds = %729, %711, %722, %.
 
 cbs_apv_read_filler.exit:                         ; preds = %.lr.ph.i62, %._crit_edge.i45, %._crit_edge207.i, %.lr.ph.i60, %.lr.ph206.i, %.lr.ph.i43.i.i, %.lr.ph.i.i52, %cbs_apv_read_metadata_itu_t_t35.exit.thread.i.i, %cbs_apv_read_metadata_mdcv.exit.thread.i.i, %cbs_apv_read_metadata_mdcv.exit.thread54.i.i, %cbs_apv_read_metadata_cll.exit.thread.i.i, %cbs_apv_read_metadata_cll.exit.thread57.i.i, %cbs_apv_read_metadata_user_defined.exit.thread.i.i, %cbs_apv_read_metadata_undefined.exit.thread.i.i, %538, %454, %.critedge.i.i42, %cbs_apv_read_pbu_header.exit.thread118.i, %.critedge.i43, %cbs_apv_read_au_info.exit.thread68, %cbs_apv_read_au_info.exit.thread, %.thread, %89, %86, %2, %.loopexit, %cbs_apv_read_metadata.exit
   %.0 = phi i32 [ 0, %cbs_apv_read_metadata.exit ], [ -12, %.loopexit ], [ -1094995529, %2 ], [ %87, %86 ], [ -38, %89 ], [ %.040.i.ph, %.thread ], [ %.154.i.ph, %cbs_apv_read_au_info.exit.thread ], [ %439, %cbs_apv_read_au_info.exit.thread68 ], [ %.141.i.ph.i.i, %cbs_apv_read_metadata_itu_t_t35.exit.thread.i.i ], [ %.251.i.ph.i.i, %cbs_apv_read_metadata_mdcv.exit.thread.i.i ], [ %622, %cbs_apv_read_metadata_mdcv.exit.thread54.i.i ], [ %627, %cbs_apv_read_metadata_cll.exit.thread.i.i ], [ %633, %cbs_apv_read_metadata_cll.exit.thread57.i.i ], [ %.339.i.ph.i.i, %cbs_apv_read_metadata_user_defined.exit.thread.i.i ], [ %.022.i.ph.i.i, %cbs_apv_read_metadata_undefined.exit.thread.i.i ], [ -1094995529, %538 ], [ %452, %454 ], [ %447, %.critedge.i.i42 ], [ %459, %cbs_apv_read_pbu_header.exit.thread118.i ], [ %465, %.critedge.i43 ], [ %709, %.lr.ph.i.i52 ], [ %642, %.lr.ph.i43.i.i ], [ %517, %.lr.ph206.i ], [ %488, %.lr.ph.i60 ], [ %530, %._crit_edge207.i ], [ %502, %._crit_edge.i45 ], [ %727, %.lr.ph.i62 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %71) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %71)
   ret i32 %.0
 }
 
@@ -1964,7 +1964,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_apv_write_unit(ptr noundef %0
 18:                                               ; preds = %3, %3, %3, %3, %3
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %20 = load ptr, ptr %19, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load ptr, ptr %21, align 8, !tbaa !34
   tail call void @ff_cbs_trace_header(ptr noundef %0, ptr noundef nonnull @.str.11) #7
@@ -2238,8 +2238,8 @@ cbs_apv_write_frame_header.exit.i:                ; preds = %139
   %164 = getelementptr inbounds nuw [400 x %struct.APVRawTile], ptr %151, i64 0, i64 %indvars.iv.i
   %165 = load i32, ptr %158, align 4, !tbaa !27
   %166 = load ptr, ptr %21, align 8, !tbaa !34
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 4
   %168 = load i32, ptr %167, align 4, !tbaa !55
   %169 = mul i32 %168, 5
@@ -2325,8 +2325,8 @@ cbs_apv_write_frame_header.exit.i:                ; preds = %139
 
 cbs_apv_write_tile_header.exit.thread.i.i:        ; preds = %176, %163, %188, %208
   %.1.i.ph.i.i = phi i32 [ %213, %208 ], [ %192, %188 ], [ %174, %163 ], [ %180, %176 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %cbs_apv_write_frame.exit.thread
 
 cbs_apv_write_tile_header.exit.i.i:               ; preds = %205, %._crit_edge.i.i.i, %182
@@ -2334,8 +2334,8 @@ cbs_apv_write_tile_header.exit.i.i:               ; preds = %205, %._crit_edge.i
   %216 = load i8, ptr %215, align 4, !tbaa !76
   %217 = zext i8 %216 to i32
   %218 = call i32 @ff_cbs_write_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 8, ptr noundef nonnull @.str.10, ptr noundef null, i32 noundef %217, i32 noundef 0, i32 noundef 0) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %219 = icmp slt i32 %218, 0
   br i1 %219, label %cbs_apv_write_frame.exit.thread, label %.preheader.i49.i
 
@@ -2406,19 +2406,19 @@ cbs_apv_write_tile.exit.i:                        ; preds = %237, %.preheader.i4
 
 cbs_apv_write_frame.exit.thread:                  ; preds = %cbs_apv_write_tile_header.exit.i.i, %157, %223, %.lr.ph.i53.i, %cbs_apv_write_pbu_header.exit.i, %cbs_apv_write_frame_header.exit.i, %18, %27, %.thread162.i.i, %122, %38, %43, %49, %100, %94, %88, %82, %59, %63, %69, %75, %switch.lookup, %133, %139, %cbs_apv_write_tile_header.exit.thread.i.i
   %.0.i.ph = phi i32 [ %.1.i.ph.i.i, %cbs_apv_write_tile_header.exit.thread.i.i ], [ %143, %139 ], [ -1094995529, %133 ], [ %116, %switch.lookup ], [ %79, %75 ], [ %73, %69 ], [ %67, %63 ], [ %61, %59 ], [ -1094995529, %82 ], [ -1094995529, %88 ], [ -1094995529, %94 ], [ -1094995529, %100 ], [ %53, %49 ], [ %47, %43 ], [ %41, %38 ], [ %124, %122 ], [ %137, %.thread162.i.i ], [ %31, %27 ], [ %25, %18 ], [ %145, %cbs_apv_write_frame_header.exit.i ], [ %36, %cbs_apv_write_pbu_header.exit.i ], [ %251, %.lr.ph.i53.i ], [ -28, %223 ], [ %218, %cbs_apv_write_tile_header.exit.i.i ], [ %161, %157 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %cbs_apv_write_filler.exit
 
 cbs_apv_write_frame.exit:                         ; preds = %247, %.thread60.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %cbs_apv_write_filler.exit.thread
 
 253:                                              ; preds = %3
   %254 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %255 = load ptr, ptr %254, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   tail call void @ff_cbs_trace_header(ptr noundef %0, ptr noundef nonnull @.str.46) #7
   %256 = load i16, ptr %255, align 8, !tbaa !86
   %257 = zext i16 %256 to i32
@@ -2488,9 +2488,9 @@ cbs_apv_write_frame.exit:                         ; preds = %247, %.thread60.i
 
 cbs_apv_write_au_info.exit.thread:                ; preds = %284, %278, %271, %290, %253
   %.1.i.ph = phi i32 [ %258, %253 ], [ %288, %284 ], [ %282, %278 ], [ %276, %271 ], [ %292, %290 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %cbs_apv_write_filler.exit
 
 cbs_apv_write_au_info.exit:                       ; preds = %268, %.preheader.i27
@@ -2498,16 +2498,16 @@ cbs_apv_write_au_info.exit:                       ; preds = %268, %.preheader.i2
   %295 = load i8, ptr %294, align 4, !tbaa !89
   %296 = zext i8 %295 to i32
   %297 = call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 8, ptr noundef nonnull @.str.19, ptr noundef null, i32 noundef %296, i32 noundef 0, i32 noundef 0) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %298 = icmp slt i32 %297, 0
   br i1 %298, label %cbs_apv_write_filler.exit, label %cbs_apv_write_filler.exit.thread
 
 299:                                              ; preds = %3
   %300 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %301 = load ptr, ptr %300, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   tail call void @ff_cbs_trace_header(ptr noundef %0, ptr noundef nonnull @.str.51) #7
   %302 = load i8, ptr %301, align 2, !tbaa !35
   %303 = zext i8 %302 to i32
@@ -2645,7 +2645,7 @@ cbs_apv_write_pbu_header.exit.i33:                ; preds = %306
   %373 = getelementptr inbounds nuw i8, ptr %344, i64 8
   %374 = load i32, ptr %355, align 4, !tbaa !95
   %375 = zext i32 %374 to i64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @ff_cbs_trace_header(ptr noundef %0, ptr noundef nonnull @.str.57) #7
   %376 = load i8, ptr %373, align 8, !tbaa !98
   %377 = zext i8 %376 to i32
@@ -2709,17 +2709,17 @@ cbs_apv_write_pbu_header.exit.i33:                ; preds = %306
 
 cbs_apv_write_metadata_itu_t_t35.exit.thread.i.i: ; preds = %384, %372, %.lr.ph.i.i.i47, %396
   %.1.i.ph.i.i45 = phi i32 [ -22, %396 ], [ %406, %.lr.ph.i.i.i47 ], [ %378, %372 ], [ %388, %384 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %cbs_apv_write_metadata_payload.exit.thread.i
 
 cbs_apv_write_metadata_itu_t_t35.exit.i.i:        ; preds = %398, %.preheader.i.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.loopexit.i
 
 408:                                              ; preds = %365
   %409 = getelementptr inbounds nuw i8, ptr %344, i64 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @ff_cbs_trace_header(ptr noundef %0, ptr noundef nonnull @.str.61) #7
   %410 = getelementptr inbounds nuw i8, ptr %344, i64 14
   br label %412
@@ -2776,16 +2776,16 @@ cbs_apv_write_metadata_itu_t_t35.exit.i.i:        ; preds = %398, %.preheader.i.
 
 cbs_apv_write_metadata_mdcv.exit.thread.i.i:      ; preds = %437, %431, %425, %419, %412
   %.2.i.ph.i.i = phi i32 [ %417, %412 ], [ %423, %419 ], [ %429, %425 ], [ %435, %431 ], [ %440, %437 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %cbs_apv_write_metadata_payload.exit.thread.i
 
 cbs_apv_write_metadata_mdcv.exit.i.i:             ; preds = %437
   %442 = getelementptr inbounds nuw i8, ptr %344, i64 28
   %443 = load i32, ptr %442, align 4, !tbaa !114
   %444 = call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef nonnull %2, i32 noundef 32, ptr noundef nonnull @.str.67, ptr noundef null, i32 noundef %443, i32 noundef 0, i32 noundef -1) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %445 = icmp slt i32 %444, 0
   br i1 %445, label %cbs_apv_write_metadata_payload.exit.thread.i, label %.loopexit.i
 
@@ -2828,8 +2828,8 @@ cbs_apv_write_metadata_cll.exit.i.i:              ; preds = %446
   %465 = getelementptr inbounds nuw i8, ptr %344, i64 8
   %466 = load i32, ptr %355, align 4, !tbaa !95
   %467 = zext i32 %466 to i64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @ff_cbs_trace_header(ptr noundef %0, ptr noundef nonnull @.str.72) #7
   br label %469
 
@@ -2888,20 +2888,20 @@ cbs_apv_write_metadata_cll.exit.i.i:              ; preds = %446
 
 cbs_apv_write_metadata_user_defined.exit.thread.i.i: ; preds = %469, %.lr.ph.i50.i.i, %481
   %.3.i.ph.i.i = phi i32 [ -22, %481 ], [ %491, %.lr.ph.i50.i.i ], [ %474, %469 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %cbs_apv_write_metadata_payload.exit.thread.i
 
 cbs_apv_write_metadata_user_defined.exit.i.i:     ; preds = %483, %.preheader.i49.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit.i
 
 493:                                              ; preds = %365
   %494 = getelementptr inbounds nuw i8, ptr %344, i64 8
   %495 = load i32, ptr %355, align 4, !tbaa !95
   %496 = zext i32 %495 to i64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @ff_cbs_trace_header(ptr noundef %0, ptr noundef nonnull @.str.75) #7
   %497 = getelementptr inbounds nuw i8, ptr %344, i64 24
   %498 = load i64, ptr %497, align 8, !tbaa !125
@@ -2939,11 +2939,11 @@ cbs_apv_write_metadata_user_defined.exit.i.i:     ; preds = %483, %.preheader.i4
 
 cbs_apv_write_metadata_undefined.exit.thread.i.i: ; preds = %.lr.ph.i53.i.i, %499
   %.0.i.ph.i.i = phi i32 [ -22, %499 ], [ %510, %.lr.ph.i53.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %cbs_apv_write_metadata_payload.exit.thread.i
 
 cbs_apv_write_metadata_undefined.exit.i.i:        ; preds = %502, %.preheader.i52.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit.i
 
 cbs_apv_write_metadata_payload.exit.thread.i:     ; preds = %cbs_apv_write_metadata_cll.exit.i.i, %446, %cbs_apv_write_metadata_mdcv.exit.i.i, %.lr.ph.i43.i.i, %cbs_apv_write_metadata_undefined.exit.thread.i.i, %cbs_apv_write_metadata_user_defined.exit.thread.i.i, %cbs_apv_write_metadata_mdcv.exit.thread.i.i, %cbs_apv_write_metadata_itu_t_t35.exit.thread.i.i
@@ -3025,11 +3025,11 @@ cbs_apv_write_metadata_payload.exit.thread.i:     ; preds = %cbs_apv_write_metad
 
 cbs_apv_write_metadata.exit.thread:               ; preds = %337, %._crit_edge213.i, %._crit_edge.i36, %.lr.ph.i48, %.lr.ph212.i, %.lr.ph.i.i40, %cbs_apv_write_pbu_header.exit.i33, %299, %306, %cbs_apv_write_metadata_payload.exit.thread.i
   %.0.i32.ph = phi i32 [ %.0.i.ph.i, %cbs_apv_write_metadata_payload.exit.thread.i ], [ %310, %306 ], [ %304, %299 ], [ %315, %cbs_apv_write_pbu_header.exit.i33 ], [ %545, %.lr.ph.i.i40 ], [ %358, %.lr.ph212.i ], [ %347, %.lr.ph.i48 ], [ %363, %._crit_edge213.i ], [ %352, %._crit_edge.i36 ], [ %339, %337 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %cbs_apv_write_filler.exit
 
 cbs_apv_write_metadata.exit:                      ; preds = %541, %.thread133.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %cbs_apv_write_filler.exit.thread
 
 547:                                              ; preds = %3
@@ -3217,28 +3217,22 @@ define internal void @cbs_apv_free_metadata(ptr readnone captures(none) %0, ptr 
   br i1 %18, label %9, label %._crit_edge, !llvm.loop !161
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: cold nofree noreturn nounwind
-declare void @abort() local_unnamed_addr #3
+declare void @abort() local_unnamed_addr #2
 
-declare void @av_buffer_unref(ptr noundef) local_unnamed_addr #2
+declare void @av_buffer_unref(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @ff_cbs_append_unit_data(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @ff_cbs_append_unit_data(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ff_cbs_read_unsigned(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @ff_cbs_read_unsigned(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ff_cbs_alloc_unit_content(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @ff_cbs_alloc_unit_content(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @av_buffer_ref(ptr noundef) local_unnamed_addr #1
 
-declare ptr @av_buffer_ref(ptr noundef) local_unnamed_addr #2
-
-declare void @ff_cbs_trace_header(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ff_cbs_trace_header(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -2147483648, 1) i32 @cbs_apv_read_frame_info(ptr noundef %0, ptr noundef nonnull %1, ptr noundef writeonly captures(none) %2) unnamed_addr #0 {
@@ -3252,7 +3246,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_apv_read_frame_info(pt
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %14 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 8, ptr noundef nonnull @.str.20, ptr noundef null, ptr noundef nonnull %4, i32 noundef 0, i32 noundef 255) #7
   %15 = icmp sgt i32 %14, -1
   br i1 %15, label %16, label %.critedge
@@ -3261,14 +3255,14 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_apv_read_frame_info(pt
   %17 = load i32, ptr %4, align 4, !tbaa !27
   %18 = trunc i32 %17 to i8
   store i8 %18, ptr %2, align 4, !tbaa !162
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %19 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 8, ptr noundef nonnull @.str.21, ptr noundef null, ptr noundef nonnull %5, i32 noundef 0, i32 noundef 255) #7
   %20 = icmp sgt i32 %19, -1
   br i1 %20, label %22, label %21
 
 21:                                               ; preds = %16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %84
 
 22:                                               ; preds = %16
@@ -3276,14 +3270,14 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_apv_read_frame_info(pt
   %24 = trunc i32 %23 to i8
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 1
   store i8 %24, ptr %25, align 1, !tbaa !163
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %26 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 3, ptr noundef nonnull @.str.22, ptr noundef null, ptr noundef nonnull %6, i32 noundef 0, i32 noundef 7) #7
   %27 = icmp sgt i32 %26, -1
   br i1 %27, label %29, label %28
 
 28:                                               ; preds = %22
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %84
 
 29:                                               ; preds = %22
@@ -3291,14 +3285,14 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_apv_read_frame_info(pt
   %31 = trunc i32 %30 to i8
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 2
   store i8 %31, ptr %32, align 2, !tbaa !164
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %33 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 5, ptr noundef nonnull @.str.23, ptr noundef null, ptr noundef nonnull %7, i32 noundef 0, i32 noundef 0) #7
   %34 = icmp sgt i32 %33, -1
   br i1 %34, label %36, label %35
 
 35:                                               ; preds = %29
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %84
 
 36:                                               ; preds = %29
@@ -3306,42 +3300,42 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_apv_read_frame_info(pt
   %38 = trunc i32 %37 to i8
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 3
   store i8 %38, ptr %39, align 1, !tbaa !165
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %40 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 24, ptr noundef nonnull @.str.24, ptr noundef null, ptr noundef nonnull %8, i32 noundef 0, i32 noundef 16777215) #7
   %41 = icmp sgt i32 %40, -1
   br i1 %41, label %43, label %42
 
 42:                                               ; preds = %36
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %84
 
 43:                                               ; preds = %36
   %44 = load i32, ptr %8, align 4, !tbaa !27
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %44, ptr %45, align 4, !tbaa !166
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %46 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 24, ptr noundef nonnull @.str.25, ptr noundef null, ptr noundef nonnull %9, i32 noundef 0, i32 noundef 16777215) #7
   %47 = icmp sgt i32 %46, -1
   br i1 %47, label %49, label %48
 
 48:                                               ; preds = %43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %84
 
 49:                                               ; preds = %43
   %50 = load i32, ptr %9, align 4, !tbaa !27
   %51 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %50, ptr %51, align 4, !tbaa !167
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %52 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 4, ptr noundef nonnull @.str.26, ptr noundef null, ptr noundef nonnull %10, i32 noundef 0, i32 noundef 4) #7
   %53 = icmp sgt i32 %52, -1
   br i1 %53, label %55, label %54
 
 54:                                               ; preds = %49
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %84
 
 55:                                               ; preds = %49
@@ -3349,7 +3343,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_apv_read_frame_info(pt
   %57 = trunc i32 %56 to i8
   %58 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i8 %57, ptr %58, align 4, !tbaa !168
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %59 = icmp eq i8 %57, 1
   br i1 %59, label %60, label %62
 
@@ -3359,13 +3353,13 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_apv_read_frame_info(pt
   br label %84
 
 62:                                               ; preds = %55
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %63 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 4, ptr noundef nonnull @.str.28, ptr noundef null, ptr noundef nonnull %11, i32 noundef 2, i32 noundef 8) #7
   %64 = icmp sgt i32 %63, -1
   br i1 %64, label %66, label %65
 
 65:                                               ; preds = %62
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %84
 
 66:                                               ; preds = %62
@@ -3373,14 +3367,14 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_apv_read_frame_info(pt
   %68 = trunc i32 %67 to i8
   %69 = getelementptr inbounds nuw i8, ptr %2, i64 13
   store i8 %68, ptr %69, align 1, !tbaa !169
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %70 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 8, ptr noundef nonnull @.str.29, ptr noundef null, ptr noundef nonnull %12, i32 noundef 0, i32 noundef 255) #7
   %71 = icmp sgt i32 %70, -1
   br i1 %71, label %73, label %72
 
 72:                                               ; preds = %66
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %84
 
 73:                                               ; preds = %66
@@ -3388,8 +3382,8 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_apv_read_frame_info(pt
   %75 = trunc i32 %74 to i8
   %76 = getelementptr inbounds nuw i8, ptr %2, i64 14
   store i8 %75, ptr %76, align 2, !tbaa !170
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %77 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 8, ptr noundef nonnull @.str.10, ptr noundef null, ptr noundef nonnull %13, i32 noundef 0, i32 noundef 0) #7
   %78 = icmp sgt i32 %77, -1
   br i1 %78, label %79, label %83
@@ -3403,11 +3397,11 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_apv_read_frame_info(pt
 
 83:                                               ; preds = %73, %79
   %spec.select = phi i32 [ 0, %79 ], [ %77, %73 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %84
 
 .critedge:                                        ; preds = %3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %84
 
 84:                                               ; preds = %72, %65, %54, %48, %42, %35, %28, %21, %83, %.critedge, %60
@@ -3518,9 +3512,9 @@ define internal fastcc void @cbs_apv_derive_tile_info(ptr noundef writeonly capt
   ret void
 }
 
-declare ptr @av_buffer_alloc(i64 noundef) local_unnamed_addr #2
+declare ptr @av_buffer_alloc(i64 noundef) local_unnamed_addr #1
 
-declare i32 @ff_cbs_write_unsigned(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ff_cbs_write_unsigned(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -2147483648, 1) i32 @cbs_apv_write_frame_info(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
@@ -3795,13 +3789,19 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_apv_write_byte_alignme
   ret i32 %.2
 }
 
-declare void @ff_copy_bits(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @ff_copy_bits(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.bswap.i32(i32) #6
@@ -3810,11 +3810,11 @@ declare i32 @llvm.bswap.i32(i32) #6
 declare i32 @llvm.smin.i32(i32, i32) #6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { cold nofree noreturn nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #1 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { cold nofree noreturn nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { nounwind }
 attributes #8 = { noreturn nounwind }

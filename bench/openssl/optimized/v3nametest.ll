@@ -224,18 +224,18 @@ make_cert.exit:                                   ; preds = %11, %15, %20
 
 .thread.i:                                        ; preds = %42, %35
   %.271.ph.i = phi i32 [ %.069140.i, %42 ], [ 1, %35 ]
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %check_message.exit.i
 
 .thread113.i:                                     ; preds = %42, %40
   %44 = phi ptr [ @.str.76, %42 ], [ @.str.77, %40 ]
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %47
 
 45:                                               ; preds = %40
   %46 = icmp ne i32 %36, 1
   %or.cond.i = select i1 %46, i1 true, i1 %30
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br i1 %or.cond.i, label %check_message.exit.i, label %47
 
 47:                                               ; preds = %45, %.thread113.i
@@ -263,7 +263,7 @@ make_cert.exit:                                   ; preds = %11, %15, %20
 check_message.exit.i:                             ; preds = %52, %56, %45, %.thread.i
   %.271111.i = phi i32 [ %.069140.i, %56 ], [ %.069140.i, %45 ], [ %.271.ph.i, %.thread.i ], [ %.069140.i, %52 ]
   %.0.i.i = phi i32 [ 0, %56 ], [ 1, %45 ], [ 1, %.thread.i ], [ 1, %52 ]
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %57 = call i32 @test_true(ptr noundef nonnull @.str.2, i32 noundef 307, ptr noundef nonnull @.str.68, i32 noundef %.0.i.i) #7
   %.not79.i = icmp eq i32 %57, 0
   %spec.select88.i = select i1 %.not79.i, i32 1, i32 %.271111.i
@@ -288,18 +288,18 @@ check_message.exit.i:                             ; preds = %52, %56, %45, %.thr
 
 .thread121.i:                                     ; preds = %64, %check_message.exit.i
   %.473.ph.i = phi i32 [ %spec.select88.i, %64 ], [ 1, %check_message.exit.i ]
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %check_message.exit102.i
 
 .thread126.i:                                     ; preds = %64, %62
   %66 = phi ptr [ @.str.76, %64 ], [ @.str.77, %62 ]
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %69
 
 67:                                               ; preds = %62
   %68 = icmp ne i32 %58, 1
   %or.cond5.i = select i1 %68, i1 true, i1 %30
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br i1 %or.cond5.i, label %check_message.exit102.i, label %69
 
 69:                                               ; preds = %67, %.thread126.i
@@ -327,7 +327,7 @@ check_message.exit.i:                             ; preds = %52, %56, %45, %.thr
 check_message.exit102.i:                          ; preds = %74, %78, %67, %.thread121.i
   %.473124.i = phi i32 [ %spec.select88.i, %78 ], [ %spec.select88.i, %67 ], [ %.473.ph.i, %.thread121.i ], [ %spec.select88.i, %74 ]
   %.0.i101.i = phi i32 [ 0, %78 ], [ 1, %67 ], [ 1, %.thread121.i ], [ 1, %74 ]
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %79 = call i32 @test_true(ptr noundef nonnull @.str.2, i32 noundef 323, ptr noundef nonnull @.str.71, i32 noundef %.0.i101.i) #7
   %.not82.i = icmp eq i32 %79, 0
   %80 = call i32 @X509_check_email(ptr noundef %.0.i, ptr noundef %33, i64 noundef %31, i32 noundef 0) #7
@@ -350,16 +350,16 @@ check_message.exit102.i:                          ; preds = %74, %78, %67, %.thr
   br i1 %.not84.i, label %.thread137.i, label %.thread134.i
 
 .thread137.i:                                     ; preds = %85
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %2) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   br label %.loopexit.i
 
 .thread134.i:                                     ; preds = %85, %83
   %86 = phi ptr [ @.str.76, %85 ], [ @.str.77, %83 ]
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %2) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   br label %87
 
 select.unfold131.i:                               ; preds = %83, %82
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %2) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   br i1 %or.cond9.i, label %.loopexit.i, label %87
 
 87:                                               ; preds = %select.unfold131.i, %.thread134.i
@@ -386,7 +386,7 @@ select.unfold131.i:                               ; preds = %83, %82
 
 .loopexit.i:                                      ; preds = %92, %96, %select.unfold131.i, %.thread137.i
   %.0.i106.i = phi i32 [ 0, %96 ], [ 1, %select.unfold131.i ], [ 1, %.thread137.i ], [ 1, %92 ]
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %97 = call i32 @test_true(ptr noundef nonnull @.str.2, i32 noundef 335, ptr noundef nonnull @.str.73, i32 noundef %.0.i106.i) #7
   %.not86.i = icmp eq i32 %97, 0
   %98 = select i1 %.not86.i, i1 true, i1 %.not82.i
@@ -436,7 +436,7 @@ define internal range(i32 0, 2) i32 @test_GENERAL_NAME_cmp() #0 {
 
 .preheader60:                                     ; preds = %5, %20
   %.04461 = phi i64 [ %21, %20 ], [ 0, %5 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %7 = getelementptr inbounds nuw [27 x %struct.gennamedata], ptr @gennames, i64 0, i64 %.04461
   store ptr %7, ptr %1, align 8, !tbaa !13
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
@@ -461,11 +461,11 @@ define internal range(i32 0, 2) i32 @test_GENERAL_NAME_cmp() #0 {
   br i1 %.not52, label %.thread, label %20
 
 .thread:                                          ; preds = %.preheader60, %17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %.split.split.preheader
 
 20:                                               ; preds = %17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %21 = add nuw nsw i64 %.04461, 1
   %exitcond.not = icmp eq i64 %21, 27
   br i1 %exitcond.not, label %.preheader, label %.preheader60, !llvm.loop !24
@@ -562,9 +562,6 @@ define internal range(i32 0, 2) i32 @test_GENERAL_NAME_cmp() #0 {
   ret i32 %.04279
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare void @test_info(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 declare i32 @test_ptr(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -572,9 +569,6 @@ declare i32 @test_ptr(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_
 declare i32 @test_true(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 declare void @X509_free(ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @set_cn1(ptr noundef %0, ptr noundef %1) #0 {
@@ -639,7 +633,7 @@ define internal range(i32 0, 2) i32 @set_altname_email(ptr noundef %0, ptr nound
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @set_cn(ptr noundef %0, ...) unnamed_addr #0 {
   %2 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.va_start.p0(ptr nonnull %2)
   %3 = call ptr @X509_NAME_new() #7
   %4 = icmp eq ptr %3, null
@@ -711,12 +705,12 @@ define internal range(i32 0, 2) i32 @set_cn(ptr noundef %0, ...) unnamed_addr #0
   %.011 = phi i32 [ 0, %1 ], [ %spec.select, %37 ], [ 0, %33 ]
   call void @X509_NAME_free(ptr noundef %3) #7
   call void @llvm.va_end.p0(ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.011
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #3
+declare void @llvm.va_start.p0(ptr) #2
 
 declare ptr @X509_NAME_new() local_unnamed_addr #1
 
@@ -727,12 +721,12 @@ declare i32 @X509_set_subject_name(ptr noundef, ptr noundef) local_unnamed_addr 
 declare void @X509_NAME_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #3
+declare void @llvm.va_end.p0(ptr) #2
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @set_altname(ptr noundef %0, ...) unnamed_addr #0 {
   %2 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.va_start.p0(ptr nonnull %2)
   %3 = call ptr @OPENSSL_sk_new_null() #7
   %4 = icmp eq ptr %3, null
@@ -832,7 +826,7 @@ define internal range(i32 0, 2) i32 @set_altname(ptr noundef %0, ...) unnamed_ad
   call void @GENERAL_NAME_free(ptr noundef %.022) #7
   call void @GENERAL_NAMES_free(ptr noundef %3) #7
   call void @llvm.va_end.p0(ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.020
 }
 
@@ -847,7 +841,7 @@ declare i32 @ASN1_STRING_set(ptr noundef, ptr noundef, i32 noundef) local_unname
 declare void @GENERAL_NAME_set0_value(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold nofree noreturn nounwind
-declare void @abort() local_unnamed_addr #4
+declare void @abort() local_unnamed_addr #3
 
 declare i32 @OPENSSL_sk_push(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -866,12 +860,12 @@ declare i32 @X509_set_version(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare i32 @OPENSSL_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare i32 @test_int_ge(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -880,7 +874,7 @@ declare i32 @X509_check_host(ptr noundef, ptr noundef, i64 noundef, i32 noundef,
 declare i32 @X509_check_email(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #5
+declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -889,7 +883,7 @@ declare i32 @BIO_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unna
 declare void @test_error(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 declare ptr @d2i_GENERAL_NAME(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -899,13 +893,19 @@ declare i32 @GENERAL_NAME_cmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare i32 @test_int_ne(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #4 = { cold nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #3 = { cold nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nounwind }
 attributes #8 = { nounwind willreturn memory(read) }
 attributes #9 = { noreturn nounwind }

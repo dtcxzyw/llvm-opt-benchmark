@@ -107,7 +107,7 @@ _ZNSt12_Vector_baseIN3igl3HitIdEESaIS2_EE13_M_deallocateEPS2_m.exit.i: ; preds =
   br label %_ZNSt6vectorIN3igl3HitIdEESaIS2_EE7reserveEm.exit
 
 _ZNSt6vectorIN3igl3HitIdEESaIS2_EE7reserveEm.exit: ; preds = %_ZNSt6vectorIN3igl3HitIdEESaIS2_EE5clearEv.exit, %_ZNSt12_Vector_baseIN3igl3HitIdEESaIS2_EE13_M_deallocateEPS2_m.exit.i
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %19 = call noundef zeroext i1 @_ZN3igl22ray_triangle_intersectIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEES3_NS2_IdLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKNS2_IiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS9_IT0_EERKNS9_IT1_EERKNS9_IT2_EEiRNS_3HitINSI_6ScalarEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %6)
   %.pre = load ptr, ptr %8, align 8, !tbaa !12
   br i1 %19, label %30, label %_ZNSt6vectorIN3igl3HitIdEESaIS2_EE9push_backERKS2_.exit
@@ -152,7 +152,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIdEESt6vectorIS4_SaIS4_EEEEZN
   br i1 %40, label %41, label %_ZNKSt6vectorIN3igl3HitIdEESaIS2_EE12_M_check_lenEmPKc.exit.i.i
 
 41:                                               ; preds = %35
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.4) #15
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.4) #14
   unreachable
 
 _ZNKSt6vectorIN3igl3HitIdEESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %35
@@ -193,17 +193,14 @@ _ZNSt6vectorIN3igl3HitIdEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__n
 
 _ZNSt6vectorIN3igl3HitIdEESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vectorIN3igl3HitIdEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, %32, %_ZNSt6vectorIN3igl3HitIdEESaIS2_EE7reserveEm.exit
   %55 = phi ptr [ %52, %_ZNSt6vectorIN3igl3HitIdEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %34, %32 ], [ %.pre, %_ZNSt6vectorIN3igl3HitIdEESaIS2_EE7reserveEm.exit ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %56 = load ptr, ptr %4, align 8, !tbaa !12
   %.not.i.i15 = icmp eq ptr %56, %55
   br i1 %.not.i.i15, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIdEESt6vectorIS4_SaIS4_EEEEZNS2_18ray_mesh_intersectIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEESD_NSC_IdLin1ELin1ELi0ELin1ELin1EEENSB_5BlockIKNSC_IiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEEbRKNSB_10MatrixBaseIT_EERKNSJ_IT0_EERKNSJ_IT1_EERKNSJ_IT2_EERS6_INS3_INSS_6ScalarEEESaIS11_EEEUlRKS4_S16_E_EvSK_SK_SO_.exit, label %20
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl22ray_triangle_intersectIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEES3_NS2_IdLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKNS2_IiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS9_IT0_EERKNS9_IT1_EERKNS9_IT2_EEiRNS_3HitINSI_6ScalarEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3, i32 noundef %4, ptr noundef nonnull align 8 dereferenceable(32) %5) local_unnamed_addr #2 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl22ray_triangle_intersectIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEES3_NS2_IdLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKNS2_IiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS9_IT0_EERKNS9_IT1_EERKNS9_IT2_EEiRNS_3HitINSI_6ScalarEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3, i32 noundef %4, ptr noundef nonnull align 8 dereferenceable(32) %5) local_unnamed_addr #1 comdat personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.Eigen::Matrix.75", align 16
   %8 = alloca %"class.Eigen::Matrix.75", align 16
   %9 = alloca %"class.Eigen::Matrix.78", align 8
@@ -212,21 +209,21 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl22ray_triangle_intersec
   %12 = alloca double, align 8
   %13 = alloca double, align 8
   %14 = alloca double, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %15 = load <2 x double>, ptr %0, align 1, !tbaa !18
   store <2 x double> %15, ptr %7, align 16, !tbaa !18
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load double, ptr %17, align 8, !tbaa !16
   store double %18, ptr %16, align 16, !tbaa !16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %19 = load <2 x double>, ptr %1, align 1, !tbaa !18
   store <2 x double> %19, ptr %8, align 16, !tbaa !18
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %22 = load double, ptr %21, align 8, !tbaa !16
   store double %22, ptr %20, align 16, !tbaa !16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %23 = sext i32 %4 to i64
   %24 = load ptr, ptr %3, align 8, !tbaa !19
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -250,7 +247,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl22ray_triangle_intersec
   %40 = getelementptr inbounds i8, ptr %32, i64 %.idx.i.i.i.i.i.i.i.i.i.i
   %41 = load double, ptr %40, align 8, !tbaa !16
   store double %41, ptr %39, align 8, !tbaa !16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %42 = load i64, ptr %27, align 8, !tbaa !35
   %43 = getelementptr i32, ptr %24, i64 %42
   %44 = getelementptr i32, ptr %43, i64 %23
@@ -267,7 +264,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl22ray_triangle_intersec
   %53 = getelementptr inbounds i8, ptr %47, i64 %.idx.i.i.i.i.i.i.i.i.i.i
   %54 = load double, ptr %53, align 8, !tbaa !16
   store double %54, ptr %52, align 8, !tbaa !16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %.idx = shl i64 %42, 3
   %55 = getelementptr i8, ptr %24, i64 %.idx
   %56 = getelementptr i32, ptr %55, i64 %23
@@ -284,9 +281,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl22ray_triangle_intersec
   %65 = getelementptr inbounds i8, ptr %59, i64 %.idx.i.i.i.i.i.i.i.i.i.i
   %66 = load double, ptr %65, align 8, !tbaa !16
   store double %66, ptr %64, align 8, !tbaa !16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %67 = call i32 @intersect_triangle1(ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14)
   %68 = icmp ne i32 %67, 0
   %69 = load double, ptr %12, align 8
@@ -315,19 +312,16 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl22ray_triangle_intersec
   br label %80
 
 80:                                               ; preds = %6, %71
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #14
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #14
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #14
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #14
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #14
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i1 %or.cond
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef zeroext i1 @_ZN3igl18ray_mesh_intersectIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEES3_NS2_IdLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKNS2_IiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS9_IT0_EERKNS9_IT1_EERKNS9_IT2_EERNS_3HitINSI_6ScalarEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 8 dereferenceable(32) %4) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
@@ -338,7 +332,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl18ray_mesh_intersectIN5Eige
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef zeroext i1 @_ZN3igl18ray_mesh_intersectIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEES3_NS2_IdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EERKNS6_IT1_EERKNS6_IT2_EERNS_3HitINSF_6ScalarEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 8 dereferenceable(32) %4) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
@@ -353,7 +347,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl18ray_mesh_intersectIN5Eige
   br label %34
 
 12:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   %13 = invoke noundef zeroext i1 @_ZN3igl18ray_mesh_intersectIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEES3_NS2_IdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EERKNS6_IT1_EERKNS6_IT2_EERSt6vectorINS_3HitINSF_6ScalarEEESaISQ_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 8 dereferenceable(24) %6)
           to label %14 unwind label %19
@@ -387,7 +381,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl18ray_mesh_intersectIN5Eige
   br label %_ZNSt6vectorIN3igl3HitIdEESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIN3igl3HitIdEESaIS2_EED2Ev.exit:      ; preds = %19, %22
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %20
 
 28:                                               ; preds = %14
@@ -403,7 +397,7 @@ _ZNSt6vectorIN3igl3HitIdEESaIS2_EED2Ev.exit:      ; preds = %19, %22
   br label %_ZNSt6vectorIN3igl3HitIdEESaIS2_EED2Ev.exit14
 
 _ZNSt6vectorIN3igl3HitIdEESaIS2_EED2Ev.exit14:    ; preds = %28, %29
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %34
 
 34:                                               ; preds = %_ZNSt6vectorIN3igl3HitIdEESaIS2_EED2Ev.exit14, %10
@@ -421,11 +415,11 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl22ray_triangle_intersec
   %12 = alloca double, align 8
   %13 = alloca double, align 8
   %14 = alloca double, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false), !tbaa.struct !37
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false), !tbaa.struct !37
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %15 = sext i32 %4 to i64
   %16 = load ptr, ptr %3, align 8, !tbaa !38
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -447,7 +441,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl22ray_triangle_intersec
   %30 = getelementptr inbounds i8, ptr %22, i64 %.idx.i.i.i.i.i.i.i.i.i.i
   %31 = load double, ptr %30, align 8, !tbaa !16
   store double %31, ptr %29, align 8, !tbaa !16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %32 = load i64, ptr %17, align 8, !tbaa !35
   %33 = getelementptr i32, ptr %18, i64 %32
   %34 = load i32, ptr %33, align 4, !tbaa !14
@@ -463,7 +457,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl22ray_triangle_intersec
   %42 = getelementptr inbounds i8, ptr %36, i64 %.idx.i.i.i.i.i.i.i.i.i.i
   %43 = load double, ptr %42, align 8, !tbaa !16
   store double %43, ptr %41, align 8, !tbaa !16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %.idx = shl i64 %32, 3
   %44 = getelementptr i8, ptr %18, i64 %.idx
   %45 = load i32, ptr %44, align 4, !tbaa !14
@@ -479,9 +473,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl22ray_triangle_intersec
   %53 = getelementptr inbounds i8, ptr %47, i64 %.idx.i.i.i.i.i.i.i.i.i.i
   %54 = load double, ptr %53, align 8, !tbaa !16
   store double %54, ptr %52, align 8, !tbaa !16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %55 = call i32 @intersect_triangle1(ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14)
   %56 = icmp ne i32 %55, 0
   %57 = load double, ptr %12, align 8
@@ -510,14 +504,14 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl22ray_triangle_intersec
   br label %68
 
 68:                                               ; preds = %6, %59
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #14
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #14
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #14
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #14
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #14
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i1 %or.cond
 }
 
@@ -542,7 +536,7 @@ _ZNSt6vectorIN3igl3HitIdEESaIS2_EE5clearEv.exit:  ; preds = %5, %_ZSt8_DestroyIP
   br i1 %13, label %14, label %15
 
 14:                                               ; preds = %_ZNSt6vectorIN3igl3HitIdEESaIS2_EE5clearEv.exit
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #15
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #14
   unreachable
 
 15:                                               ; preds = %_ZNSt6vectorIN3igl3HitIdEESaIS2_EE5clearEv.exit
@@ -624,7 +618,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIdEESt6vectorIS4_SaIS4_EEEEZN
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorIN3igl3HitIdEESaIS2_EE7reserveEm.exit, %_ZNSt6vectorIN3igl3HitIdEESaIS2_EE9push_backERKS2_.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNSt6vectorIN3igl3HitIdEESaIS2_EE9push_backERKS2_.exit ], [ 0, %_ZNSt6vectorIN3igl3HitIdEESaIS2_EE7reserveEm.exit ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %48 = trunc nuw nsw i64 %indvars.iv to i32
   %49 = call noundef zeroext i1 @_ZN3igl22ray_triangle_intersectIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEES3_NS2_IdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EERKNS6_IT1_EERKNS6_IT2_EEiRNS_3HitINSF_6ScalarEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3, i32 noundef %48, ptr noundef nonnull align 8 dereferenceable(32) %6)
   br i1 %49, label %50, label %_ZNSt6vectorIN3igl3HitIdEESaIS2_EE9push_backERKS2_.exit
@@ -651,7 +645,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIdEESt6vectorIS4_SaIS4_EEEEZN
   br i1 %61, label %62, label %_ZNKSt6vectorIN3igl3HitIdEESaIS2_EE12_M_check_lenEmPKc.exit.i.i
 
 62:                                               ; preds = %56
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.4) #15
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.4) #14
   unreachable
 
 _ZNKSt6vectorIN3igl3HitIdEESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %56
@@ -691,7 +685,7 @@ _ZNSt6vectorIN3igl3HitIdEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__n
   br label %_ZNSt6vectorIN3igl3HitIdEESaIS2_EE9push_backERKS2_.exit
 
 _ZNSt6vectorIN3igl3HitIdEESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vectorIN3igl3HitIdEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, %53, %.lr.ph
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %76 = load i64, ptr %11, align 8, !tbaa !35
   %77 = icmp sgt i64 %76, %indvars.iv.next
@@ -737,7 +731,7 @@ _ZNSt12_Vector_baseIN3igl3HitIfEESaIS2_EE13_M_deallocateEPS2_m.exit.i: ; preds =
   br label %_ZNSt6vectorIN3igl3HitIfEESaIS2_EE7reserveEm.exit
 
 _ZNSt6vectorIN3igl3HitIfEESaIS2_EE7reserveEm.exit: ; preds = %_ZNSt6vectorIN3igl3HitIfEESaIS2_EE5clearEv.exit, %_ZNSt12_Vector_baseIN3igl3HitIfEESaIS2_EE13_M_deallocateEPS2_m.exit.i
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %6) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %19 = call noundef zeroext i1 @_ZN3igl22ray_triangle_intersectIN5Eigen6MatrixIfLi1ELi3ELi1ELi1ELi3EEES3_NS2_IfLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKNS2_IiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS9_IT0_EERKNS9_IT1_EERKNS9_IT2_EEiRNS_3HitINSI_6ScalarEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(20) %6)
   %.pre = load ptr, ptr %8, align 8, !tbaa !49
   br i1 %19, label %30, label %_ZNSt6vectorIN3igl3HitIfEESaIS2_EE9push_backERKS2_.exit
@@ -782,7 +776,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4_EEEEZN
   br i1 %40, label %41, label %_ZNKSt6vectorIN3igl3HitIfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i
 
 41:                                               ; preds = %35
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.4) #15
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.4) #14
   unreachable
 
 _ZNKSt6vectorIN3igl3HitIfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %35
@@ -823,7 +817,7 @@ _ZNSt6vectorIN3igl3HitIfEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__n
 
 _ZNSt6vectorIN3igl3HitIfEESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vectorIN3igl3HitIfEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, %32, %_ZNSt6vectorIN3igl3HitIfEESaIS2_EE7reserveEm.exit
   %55 = phi ptr [ %52, %_ZNSt6vectorIN3igl3HitIfEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %34, %32 ], [ %.pre, %_ZNSt6vectorIN3igl3HitIfEESaIS2_EE7reserveEm.exit ]
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %56 = load ptr, ptr %4, align 8, !tbaa !49
   %.not.i.i15 = icmp eq ptr %56, %55
   br i1 %.not.i.i15, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4_EEEEZNS2_18ray_mesh_intersectIN5Eigen6MatrixIfLi1ELi3ELi1ELi1ELi3EEESD_NSC_IfLin1ELin1ELi0ELin1ELin1EEENSB_5BlockIKNSC_IiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEEbRKNSB_10MatrixBaseIT_EERKNSJ_IT0_EERKNSJ_IT1_EERKNSJ_IT2_EERS6_INS3_INSS_6ScalarEEESaIS11_EEEUlRKS4_S16_E_EvSK_SK_SO_.exit, label %20
@@ -839,7 +833,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl22ray_triangle_intersec
   %12 = alloca double, align 8
   %13 = alloca double, align 8
   %14 = alloca double, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %15 = load float, ptr %0, align 4, !tbaa !51
   %16 = fpext float %15 to double
   store double %16, ptr %7, align 8, !tbaa !16
@@ -853,7 +847,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl22ray_triangle_intersec
   %23 = load float, ptr %22, align 4, !tbaa !51
   %24 = fpext float %23 to double
   store double %24, ptr %21, align 8, !tbaa !16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %25 = load float, ptr %1, align 4, !tbaa !51
   %26 = fpext float %25 to double
   store double %26, ptr %8, align 8, !tbaa !16
@@ -867,7 +861,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl22ray_triangle_intersec
   %33 = load float, ptr %32, align 4, !tbaa !51
   %34 = fpext float %33 to double
   store double %34, ptr %31, align 8, !tbaa !16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %35 = sext i32 %4 to i64
   %36 = load ptr, ptr %3, align 8, !tbaa !19
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -894,7 +888,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl22ray_triangle_intersec
   %55 = load float, ptr %54, align 4, !tbaa !51
   %56 = fpext float %55 to double
   store double %56, ptr %53, align 8, !tbaa !16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %57 = load i64, ptr %39, align 8, !tbaa !35
   %58 = getelementptr i32, ptr %36, i64 %57
   %59 = getelementptr i32, ptr %58, i64 %35
@@ -914,7 +908,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl22ray_triangle_intersec
   %71 = load float, ptr %70, align 4, !tbaa !51
   %72 = fpext float %71 to double
   store double %72, ptr %69, align 8, !tbaa !16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %.idx = shl i64 %57, 3
   %73 = getelementptr i8, ptr %36, i64 %.idx
   %74 = getelementptr i32, ptr %73, i64 %35
@@ -934,9 +928,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl22ray_triangle_intersec
   %86 = load float, ptr %85, align 4, !tbaa !51
   %87 = fpext float %86 to double
   store double %87, ptr %84, align 8, !tbaa !16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %88 = call i32 @intersect_triangle1(ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14)
   %89 = icmp ne i32 %88, 0
   %90 = load double, ptr %12, align 8
@@ -962,14 +956,14 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl22ray_triangle_intersec
   br label %98
 
 98:                                               ; preds = %6, %92
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #14
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #14
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #14
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #14
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #14
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i1 %or.cond
 }
 
@@ -994,7 +988,7 @@ _ZNSt6vectorIN3igl3HitIfEESaIS2_EE5clearEv.exit:  ; preds = %5, %_ZSt8_DestroyIP
   br i1 %13, label %14, label %15
 
 14:                                               ; preds = %_ZNSt6vectorIN3igl3HitIfEESaIS2_EE5clearEv.exit
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #15
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #14
   unreachable
 
 15:                                               ; preds = %_ZNSt6vectorIN3igl3HitIfEESaIS2_EE5clearEv.exit
@@ -1076,7 +1070,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4_EEEEZN
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorIN3igl3HitIfEESaIS2_EE7reserveEm.exit, %_ZNSt6vectorIN3igl3HitIfEESaIS2_EE9push_backERKS2_.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNSt6vectorIN3igl3HitIfEESaIS2_EE9push_backERKS2_.exit ], [ 0, %_ZNSt6vectorIN3igl3HitIfEESaIS2_EE7reserveEm.exit ]
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %6) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %48 = trunc nuw nsw i64 %indvars.iv to i32
   %49 = call noundef zeroext i1 @_ZN3igl22ray_triangle_intersectIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEES3_NS2_IfLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EERKNS6_IT1_EERKNS6_IT2_EEiRNS_3HitINSF_6ScalarEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3, i32 noundef %48, ptr noundef nonnull align 4 dereferenceable(20) %6)
   br i1 %49, label %50, label %_ZNSt6vectorIN3igl3HitIfEESaIS2_EE9push_backERKS2_.exit
@@ -1103,7 +1097,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4_EEEEZN
   br i1 %61, label %62, label %_ZNKSt6vectorIN3igl3HitIfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i
 
 62:                                               ; preds = %56
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.4) #15
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.4) #14
   unreachable
 
 _ZNKSt6vectorIN3igl3HitIfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %56
@@ -1143,7 +1137,7 @@ _ZNSt6vectorIN3igl3HitIfEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__n
   br label %_ZNSt6vectorIN3igl3HitIfEESaIS2_EE9push_backERKS2_.exit
 
 _ZNSt6vectorIN3igl3HitIfEESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vectorIN3igl3HitIfEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, %53, %.lr.ph
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %76 = load i64, ptr %11, align 8, !tbaa !35
   %77 = icmp sgt i64 %76, %indvars.iv.next
@@ -1160,7 +1154,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl22ray_triangle_intersec
   %12 = alloca double, align 8
   %13 = alloca double, align 8
   %14 = alloca double, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %15 = load float, ptr %0, align 4, !tbaa !51
   %16 = fpext float %15 to double
   store double %16, ptr %7, align 8, !tbaa !16
@@ -1174,7 +1168,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl22ray_triangle_intersec
   %23 = load float, ptr %22, align 4, !tbaa !51
   %24 = fpext float %23 to double
   store double %24, ptr %21, align 8, !tbaa !16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %25 = load float, ptr %1, align 4, !tbaa !51
   %26 = fpext float %25 to double
   store double %26, ptr %8, align 8, !tbaa !16
@@ -1188,7 +1182,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl22ray_triangle_intersec
   %33 = load float, ptr %32, align 4, !tbaa !51
   %34 = fpext float %33 to double
   store double %34, ptr %31, align 8, !tbaa !16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %35 = sext i32 %4 to i64
   %36 = load ptr, ptr %3, align 8, !tbaa !38
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1213,7 +1207,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl22ray_triangle_intersec
   %53 = load float, ptr %52, align 4, !tbaa !51
   %54 = fpext float %53 to double
   store double %54, ptr %51, align 8, !tbaa !16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %55 = load i64, ptr %37, align 8, !tbaa !35
   %56 = getelementptr i32, ptr %38, i64 %55
   %57 = load i32, ptr %56, align 4, !tbaa !14
@@ -1232,7 +1226,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl22ray_triangle_intersec
   %68 = load float, ptr %67, align 4, !tbaa !51
   %69 = fpext float %68 to double
   store double %69, ptr %66, align 8, !tbaa !16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %.idx = shl i64 %55, 3
   %70 = getelementptr i8, ptr %38, i64 %.idx
   %71 = load i32, ptr %70, align 4, !tbaa !14
@@ -1251,9 +1245,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl22ray_triangle_intersec
   %82 = load float, ptr %81, align 4, !tbaa !51
   %83 = fpext float %82 to double
   store double %83, ptr %80, align 8, !tbaa !16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %84 = call i32 @intersect_triangle1(ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14)
   %85 = icmp ne i32 %84, 0
   %86 = load double, ptr %12, align 8
@@ -1279,14 +1273,14 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl22ray_triangle_intersec
   br label %94
 
 94:                                               ; preds = %6, %88
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #14
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #14
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #14
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #14
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #14
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i1 %or.cond
 }
 
@@ -1311,7 +1305,7 @@ _ZNSt6vectorIN3igl3HitIfEESaIS2_EE5clearEv.exit:  ; preds = %5, %_ZSt8_DestroyIP
   br i1 %13, label %14, label %15
 
 14:                                               ; preds = %_ZNSt6vectorIN3igl3HitIfEESaIS2_EE5clearEv.exit
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #15
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #14
   unreachable
 
 15:                                               ; preds = %_ZNSt6vectorIN3igl3HitIfEESaIS2_EE5clearEv.exit
@@ -1393,7 +1387,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4_EEEEZN
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorIN3igl3HitIfEESaIS2_EE7reserveEm.exit, %_ZNSt6vectorIN3igl3HitIfEESaIS2_EE9push_backERKS2_.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNSt6vectorIN3igl3HitIfEESaIS2_EE9push_backERKS2_.exit ], [ 0, %_ZNSt6vectorIN3igl3HitIfEESaIS2_EE7reserveEm.exit ]
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %6) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %48 = trunc nuw nsw i64 %indvars.iv to i32
   %49 = call noundef zeroext i1 @_ZN3igl22ray_triangle_intersectIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEES3_NS2_IfLin1ELi3ELi1ELin1ELi3EEENS2_IiLin1ELi3ELi1ELin1ELi3EEEEEbRKNS1_10MatrixBaseIT_EERKNS6_IT0_EERKNS6_IT1_EERKNS6_IT2_EEiRNS_3HitINSF_6ScalarEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3, i32 noundef %48, ptr noundef nonnull align 4 dereferenceable(20) %6)
   br i1 %49, label %50, label %_ZNSt6vectorIN3igl3HitIfEESaIS2_EE9push_backERKS2_.exit
@@ -1420,7 +1414,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4_EEEEZN
   br i1 %61, label %62, label %_ZNKSt6vectorIN3igl3HitIfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i
 
 62:                                               ; preds = %56
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.4) #15
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.4) #14
   unreachable
 
 _ZNKSt6vectorIN3igl3HitIfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %56
@@ -1460,7 +1454,7 @@ _ZNSt6vectorIN3igl3HitIfEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__n
   br label %_ZNSt6vectorIN3igl3HitIfEESaIS2_EE9push_backERKS2_.exit
 
 _ZNSt6vectorIN3igl3HitIfEESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vectorIN3igl3HitIfEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, %53, %.lr.ph
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %76 = load i64, ptr %11, align 8, !tbaa !64
   %77 = icmp sgt i64 %76, %indvars.iv.next
@@ -1477,7 +1471,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl22ray_triangle_intersec
   %12 = alloca double, align 8
   %13 = alloca double, align 8
   %14 = alloca double, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %15 = load float, ptr %0, align 4, !tbaa !51
   %16 = fpext float %15 to double
   store double %16, ptr %7, align 8, !tbaa !16
@@ -1491,7 +1485,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl22ray_triangle_intersec
   %23 = load float, ptr %22, align 4, !tbaa !51
   %24 = fpext float %23 to double
   store double %24, ptr %21, align 8, !tbaa !16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %25 = load float, ptr %1, align 4, !tbaa !51
   %26 = fpext float %25 to double
   store double %26, ptr %8, align 8, !tbaa !16
@@ -1505,7 +1499,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl22ray_triangle_intersec
   %33 = load float, ptr %32, align 4, !tbaa !51
   %34 = fpext float %33 to double
   store double %34, ptr %31, align 8, !tbaa !16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %35 = sext i32 %4 to i64
   %36 = load ptr, ptr %3, align 8, !tbaa !67
   %.idx.i.i.i = mul nsw i64 %35, 12
@@ -1528,7 +1522,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl22ray_triangle_intersec
   %50 = load float, ptr %49, align 4, !tbaa !51
   %51 = fpext float %50 to double
   store double %51, ptr %48, align 8, !tbaa !16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %52 = getelementptr i8, ptr %37, i64 4
   %53 = load i32, ptr %52, align 4, !tbaa !14
   %54 = sext i32 %53 to i64
@@ -1547,7 +1541,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl22ray_triangle_intersec
   %64 = load float, ptr %63, align 4, !tbaa !51
   %65 = fpext float %64 to double
   store double %65, ptr %62, align 8, !tbaa !16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %66 = getelementptr i8, ptr %37, i64 8
   %67 = load i32, ptr %66, align 4, !tbaa !14
   %68 = sext i32 %67 to i64
@@ -1566,9 +1560,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl22ray_triangle_intersec
   %78 = load float, ptr %77, align 4, !tbaa !51
   %79 = fpext float %78 to double
   store double %79, ptr %76, align 8, !tbaa !16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %80 = call i32 @intersect_triangle1(ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14)
   %81 = icmp ne i32 %80, 0
   %82 = load double, ptr %12, align 8
@@ -1594,31 +1588,31 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl22ray_triangle_intersec
   br label %90
 
 90:                                               ; preds = %6, %84
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #14
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #14
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #14
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #14
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #14
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i1 %or.cond
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #4
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #5
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #6
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr dso_local i32 @intersect_triangle1(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #7 comdat {
+define linkonce_odr dso_local i32 @intersect_triangle1(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #6 comdat {
   %9 = load double, ptr %3, align 8, !tbaa !16
   %10 = load double, ptr %2, align 8, !tbaa !16
   %11 = fsub double %9, %10
@@ -1776,7 +1770,7 @@ define linkonce_odr dso_local i32 @intersect_triangle1(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #8
+declare double @llvm.fmuladd.f64(double, double, double) #7
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIdEESt6vectorIS4_SaIS4_EEEElNS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEESF_NSE_IdLin1ELin1ELi0ELin1ELin1EEENSD_5BlockIKNSE_IiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEEbRKNSD_10MatrixBaseIT_EERKNSL_IT0_EERKNSL_IT1_EERKNSL_IT2_EERS6_INS3_INSU_6ScalarEEESaIS13_EEEUlRKS4_S18_E_EEEvSM_SM_SQ_SU_(ptr %0, ptr %1, i64 noundef %2) local_unnamed_addr #0 comdat {
@@ -1825,7 +1819,7 @@ define linkonce_odr dso_local void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal
 31:                                               ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIdEESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEESF_NSE_IdLin1ELin1ELi0ELin1ELin1EEENSD_5BlockIKNSE_IiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEEbRKNSD_10MatrixBaseIT_EERKNSL_IT0_EERKNSL_IT1_EERKNSL_IT2_EERS6_INS3_INSU_6ScalarEEESaIS13_EEEUlRKS4_S18_E_EEEvSM_SQ_SQ_SU_SY_.exit.i.i, %._crit_edge
   %.08.i.i = phi i64 [ %23, %._crit_edge ], [ %57, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIdEESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEESF_NSE_IdLin1ELin1ELi0ELin1ELin1EEENSD_5BlockIKNSE_IiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEEbRKNSD_10MatrixBaseIT_EERKNSL_IT0_EERKNSL_IT1_EERKNSL_IT2_EERS6_INS3_INSU_6ScalarEEESaIS13_EEEUlRKS4_S18_E_EEEvSM_SQ_SQ_SU_SY_.exit.i.i ]
   %32 = getelementptr inbounds %"struct.igl::Hit", ptr %0, i64 %.08.i.i
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.014.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.014.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.014.i.i, ptr noundef nonnull align 8 dereferenceable(24) %32, i64 24, i1 false)
   %.sroa.417.0..sroa.0.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %32, i64 24
   %.sroa.417.0.copyload.i.i = load double, ptr %.sroa.417.0..sroa.0.0..sroa_idx.i.i, align 8, !tbaa !16
@@ -1886,7 +1880,7 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIdEESt6vectorIS4_Sa
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %56, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.014.i.i, i64 24, i1 false)
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %56, i64 24
   store double %.sroa.417.0.copyload.i.i, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.014.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.014.i.i)
   %.not.i.i = icmp eq i64 %.08.i.i, 0
   %57 = add nsw i64 %.08.i.i, -1
   br i1 %.not.i.i, label %_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIdEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEESF_NSE_IdLin1ELin1ELi0ELin1ELin1EEENSD_5BlockIKNSE_IiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEEbRKNSD_10MatrixBaseIT_EERKNSL_IT0_EERKNSL_IT1_EERKNSL_IT2_EERS6_INS3_INSU_6ScalarEEESaIS13_EEEUlRKS4_S18_E_EEEvSM_SM_SM_SQ_.exit, label %31, !llvm.loop !78
@@ -1898,7 +1892,7 @@ _ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIdEESt6vectorIS4_Sa
 .lr.ph.i.i:                                       ; preds = %_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIdEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEESF_NSE_IdLin1ELin1ELi0ELin1ELin1EEENSD_5BlockIKNSE_IiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEEbRKNSD_10MatrixBaseIT_EERKNSL_IT0_EERKNSL_IT1_EERKNSL_IT2_EERS6_INS3_INSU_6ScalarEEESaIS13_EEEUlRKS4_S18_E_EEEvSM_SM_SM_SQ_.exit, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIdEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEESF_NSE_IdLin1ELin1ELi0ELin1ELin1EEENSD_5BlockIKNSE_IiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEEbRKNSD_10MatrixBaseIT_EERKNSL_IT0_EERKNSL_IT1_EERKNSL_IT2_EERS6_INS3_INSU_6ScalarEEESaIS13_EEEUlRKS4_S18_E_EEEvSM_SM_SM_RSQ_.exit.i.i
   %.sroa.0.05.i.i = phi ptr [ %59, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIdEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEESF_NSE_IdLin1ELin1ELi0ELin1ELin1EEENSD_5BlockIKNSE_IiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEEbRKNSD_10MatrixBaseIT_EERKNSL_IT0_EERKNSL_IT1_EERKNSL_IT2_EERS6_INS3_INSU_6ScalarEEESaIS13_EEEUlRKS4_S18_E_EEEvSM_SM_SM_RSQ_.exit.i.i ], [ %storemerge27.lcssa, %_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIdEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEESF_NSE_IdLin1ELin1ELi0ELin1ELin1EEENSD_5BlockIKNSE_IiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEEbRKNSD_10MatrixBaseIT_EERKNSL_IT0_EERKNSL_IT1_EERKNSL_IT2_EERS6_INS3_INSU_6ScalarEEESaIS13_EEEUlRKS4_S18_E_EEEvSM_SM_SM_SQ_.exit ]
   %59 = getelementptr inbounds i8, ptr %.sroa.0.05.i.i, i64 -32
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.06.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.06.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.06.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %59, i64 24, i1 false)
   %.sroa.49.0..sroa.0.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.05.i.i, i64 -8
   %.sroa.49.0.copyload.i.i.i = load double, ptr %.sroa.49.0..sroa.0.0..sroa_idx.i.i.i, align 8, !tbaa !16
@@ -1978,7 +1972,7 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIdEESt6vectorIS4_SaIS4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %94, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.06.i.i.i, i64 24, i1 false)
   %.sroa.4.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %94, i64 24
   store double %.sroa.49.0.copyload.i.i.i, ptr %.sroa.4.0..sroa_idx.i.i.i.i, align 8, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.06.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.06.i.i.i)
   %95 = icmp sgt i64 %61, 32
   br i1 %95, label %.lr.ph.i.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIdEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEESF_NSE_IdLin1ELin1ELi0ELin1ELin1EEENSD_5BlockIKNSE_IiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEEbRKNSD_10MatrixBaseIT_EERKNSL_IT0_EERKNSL_IT1_EERKNSL_IT2_EERS6_INS3_INSU_6ScalarEEESaIS13_EEEUlRKS4_S18_E_EEEvSM_SM_SM_SQ_.exit, !llvm.loop !79
 
@@ -2003,11 +1997,11 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIdEESt6vectorIS4_SaIS4
   br i1 %108, label %109, label %110
 
 109:                                              ; preds = %107
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false), !tbaa.struct !13
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %99, i64 32, i1 false), !tbaa.struct !13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %99, ptr noundef nonnull align 8 dereferenceable(32) %10, i64 32, i1 false), !tbaa.struct !13
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIdEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEESF_NSE_IdLin1ELin1ELi0ELin1ELin1EEENSD_5BlockIKNSE_IiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEEbRKNSD_10MatrixBaseIT_EERKNSL_IT0_EERKNSL_IT1_EERKNSL_IT2_EERS6_INS3_INSU_6ScalarEEESaIS13_EEEUlRKS4_S18_E_EEEvSM_SM_SM_SM_SQ_.exit.i.preheader
 
 110:                                              ; preds = %107
@@ -2015,19 +2009,19 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIdEESt6vectorIS4_SaIS4
   br i1 %111, label %112, label %113
 
 112:                                              ; preds = %110
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false), !tbaa.struct !13
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %100, i64 32, i1 false), !tbaa.struct !13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %100, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false), !tbaa.struct !13
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIdEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEESF_NSE_IdLin1ELin1ELi0ELin1ELin1EEENSD_5BlockIKNSE_IiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEEbRKNSD_10MatrixBaseIT_EERKNSL_IT0_EERKNSL_IT1_EERKNSL_IT2_EERS6_INS3_INSU_6ScalarEEESaIS13_EEEUlRKS4_S18_E_EEEvSM_SM_SM_SM_SQ_.exit.i.preheader
 
 113:                                              ; preds = %110
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false), !tbaa.struct !13
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %16, i64 32, i1 false), !tbaa.struct !13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false), !tbaa.struct !13
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIdEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEESF_NSE_IdLin1ELin1ELi0ELin1ELin1EEENSD_5BlockIKNSE_IiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEEbRKNSD_10MatrixBaseIT_EERKNSL_IT0_EERKNSL_IT1_EERKNSL_IT2_EERS6_INS3_INSU_6ScalarEEESaIS13_EEEUlRKS4_S18_E_EEEvSM_SM_SM_SM_SQ_.exit.i.preheader
 
 114:                                              ; preds = %.lr.ph49
@@ -2035,11 +2029,11 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIdEESt6vectorIS4_SaIS4
   br i1 %115, label %116, label %117
 
 116:                                              ; preds = %114
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false), !tbaa.struct !13
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %16, i64 32, i1 false), !tbaa.struct !13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false), !tbaa.struct !13
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIdEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEESF_NSE_IdLin1ELin1ELi0ELin1ELin1EEENSD_5BlockIKNSE_IiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEEbRKNSD_10MatrixBaseIT_EERKNSL_IT0_EERKNSL_IT1_EERKNSL_IT2_EERS6_INS3_INSU_6ScalarEEESaIS13_EEEUlRKS4_S18_E_EEEvSM_SM_SM_SM_SQ_.exit.i.preheader
 
 117:                                              ; preds = %114
@@ -2047,19 +2041,19 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIdEESt6vectorIS4_SaIS4
   br i1 %118, label %119, label %120
 
 119:                                              ; preds = %117
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false), !tbaa.struct !13
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %100, i64 32, i1 false), !tbaa.struct !13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %100, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false), !tbaa.struct !13
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIdEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEESF_NSE_IdLin1ELin1ELi0ELin1ELin1EEENSD_5BlockIKNSE_IiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEEbRKNSD_10MatrixBaseIT_EERKNSL_IT0_EERKNSL_IT1_EERKNSL_IT2_EERS6_INS3_INSU_6ScalarEEESaIS13_EEEUlRKS4_S18_E_EEEvSM_SM_SM_SM_SQ_.exit.i.preheader
 
 120:                                              ; preds = %117
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false), !tbaa.struct !13
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %99, i64 32, i1 false), !tbaa.struct !13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %99, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false), !tbaa.struct !13
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIdEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEESF_NSE_IdLin1ELin1ELi0ELin1ELin1EEENSD_5BlockIKNSE_IiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEEbRKNSD_10MatrixBaseIT_EERKNSL_IT0_EERKNSL_IT1_EERKNSL_IT2_EERS6_INS3_INSU_6ScalarEEESaIS13_EEEUlRKS4_S18_E_EEEvSM_SM_SM_SM_SQ_.exit.i.preheader
 
 _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIdEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEESF_NSE_IdLin1ELin1ELi0ELin1ELin1EEENSD_5BlockIKNSE_IiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEEbRKNSD_10MatrixBaseIT_EERKNSL_IT0_EERKNSL_IT1_EERKNSL_IT2_EERS6_INS3_INSU_6ScalarEEESaIS13_EEEUlRKS4_S18_E_EEEvSM_SM_SM_SM_SQ_.exit.i.preheader: ; preds = %120, %119, %116, %113, %112, %109
@@ -2092,11 +2086,11 @@ _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIdEESt6vec
   br i1 %131, label %132, label %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIdEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEESF_NSE_IdLin1ELin1ELi0ELin1ELin1EEENSD_5BlockIKNSE_IiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEEbRKNSD_10MatrixBaseIT_EERKNSL_IT0_EERKNSL_IT1_EERKNSL_IT2_EERS6_INS3_INSU_6ScalarEEESaIS13_EEEUlRKS4_S18_E_EEESM_SM_SM_SQ_.exit
 
 132:                                              ; preds = %130
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.010.1.i.i, i64 32, i1 false), !tbaa.struct !13
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.010.1.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.1.i.i, i64 32, i1 false), !tbaa.struct !13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.1.i.i, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false), !tbaa.struct !13
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIdEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEESF_NSE_IdLin1ELin1ELi0ELin1ELin1EEENSD_5BlockIKNSE_IiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEEbRKNSD_10MatrixBaseIT_EERKNSL_IT0_EERKNSL_IT1_EERKNSL_IT2_EERS6_INS3_INSU_6ScalarEEESaIS13_EEEUlRKS4_S18_E_EEEvSM_SM_SM_SM_SQ_.exit.i, !llvm.loop !82
 
 _ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIdEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEESF_NSE_IdLin1ELin1ELi0ELin1ELin1EEENSD_5BlockIKNSE_IiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEEbRKNSD_10MatrixBaseIT_EERKNSL_IT0_EERKNSL_IT1_EERKNSL_IT2_EERS6_INS3_INSU_6ScalarEEESaIS13_EEEUlRKS4_S18_E_EEESM_SM_SM_SQ_.exit: ; preds = %130
@@ -2140,7 +2134,7 @@ define linkonce_odr dso_local void @_ZSt22__final_insertion_sortIN9__gnu_cxx17__
   br i1 %14, label %15, label %20
 
 15:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.019.i.ptr, i64 32, i1 false), !tbaa.struct !13
   %16 = icmp samesign ugt i64 %.sroa.0.019.i.idx, 32
   br i1 %16, label %17, label %18, !prof !83
@@ -2156,11 +2150,11 @@ define linkonce_odr dso_local void @_ZSt22__final_insertion_sortIN9__gnu_cxx17__
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIdEESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i: ; preds = %18, %17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false), !tbaa.struct !13
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %27
 
 20:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.03.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.03.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.03.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.019.i.ptr, i64 24, i1 false), !tbaa.struct !13
   %21 = getelementptr inbounds nuw i8, ptr %.pn18.i, i64 24
   %22 = load double, ptr %21, align 8, !tbaa !74
@@ -2181,7 +2175,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIdEESt6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.06.0.lcssa.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.03.i.i, i64 24, i1 false), !tbaa.struct !13
   %.sroa.4.0..sroa_idx4.i.i = getelementptr inbounds nuw i8, ptr %.sroa.06.0.lcssa.i.i, i64 24
   store double %12, ptr %.sroa.4.0..sroa_idx4.i.i, align 8, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.03.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.03.i.i)
   br label %27
 
 27:                                               ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIdEESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEESF_NSE_IdLin1ELin1ELi0ELin1ELin1EEENSD_5BlockIKNSE_IiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEEbRKNSD_10MatrixBaseIT_EERKNSL_IT0_EERKNSL_IT1_EERKNSL_IT2_EERS6_INS3_INSU_6ScalarEEESaIS13_EEEUlRKS4_S18_E_EEEvSM_SQ_.exit.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIdEESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i
@@ -2196,7 +2190,7 @@ _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIdEESt6vectorIS4
 
 .lr.ph.i13:                                       ; preds = %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIdEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEESF_NSE_IdLin1ELin1ELi0ELin1ELin1EEENSD_5BlockIKNSE_IiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEEbRKNSD_10MatrixBaseIT_EERKNSL_IT0_EERKNSL_IT1_EERKNSL_IT2_EERS6_INS3_INSU_6ScalarEEESaIS13_EEEUlRKS4_S18_E_EEEvSM_SM_SQ_.exit, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIdEESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEESF_NSE_IdLin1ELin1ELi0ELin1ELin1EEENSD_5BlockIKNSE_IiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEEbRKNSD_10MatrixBaseIT_EERKNSL_IT0_EERKNSL_IT1_EERKNSL_IT2_EERS6_INS3_INSU_6ScalarEEESaIS13_EEEUlRKS4_S18_E_EEEvSM_SQ_.exit.i14
   %.sroa.0.07.i = phi ptr [ %35, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIdEESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEESF_NSE_IdLin1ELin1ELi0ELin1ELin1EEENSD_5BlockIKNSE_IiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEEbRKNSD_10MatrixBaseIT_EERKNSL_IT0_EERKNSL_IT1_EERKNSL_IT2_EERS6_INS3_INSU_6ScalarEEESaIS13_EEEUlRKS4_S18_E_EEEvSM_SQ_.exit.i14 ], [ %28, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIdEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEESF_NSE_IdLin1ELin1ELi0ELin1ELin1EEENSD_5BlockIKNSE_IiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEEbRKNSD_10MatrixBaseIT_EERKNSL_IT0_EERKNSL_IT1_EERKNSL_IT2_EERS6_INS3_INSU_6ScalarEEESaIS13_EEEUlRKS4_S18_E_EEEvSM_SM_SQ_.exit ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.03.i.i12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.03.i.i12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.03.i.i12, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.07.i, i64 24, i1 false), !tbaa.struct !13
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.sroa.0.07.i, i64 24
   %.sroa.4.0.copyload.i.i = load double, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !tbaa !16
@@ -2219,7 +2213,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIdEESt6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.06.0.lcssa.i.i15, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.03.i.i12, i64 24, i1 false), !tbaa.struct !13
   %.sroa.4.0..sroa_idx4.i.i16 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.lcssa.i.i15, i64 24
   store double %.sroa.4.0.copyload.i.i, ptr %.sroa.4.0..sroa_idx4.i.i16, align 8, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.03.i.i12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.03.i.i12)
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.0.07.i, i64 32
   %.not.i17 = icmp eq ptr %35, %1
   br i1 %.not.i17, label %_ZSt26__unguarded_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIdEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEESF_NSE_IdLin1ELin1ELi0ELin1ELin1EEENSD_5BlockIKNSE_IiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEEbRKNSD_10MatrixBaseIT_EERKNSL_IT0_EERKNSL_IT1_EERKNSL_IT2_EERS6_INS3_INSU_6ScalarEEESaIS13_EEEUlRKS4_S18_E_EEEvSM_SM_SQ_.exit, label %.lr.ph.i13, !llvm.loop !86
@@ -2247,7 +2241,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIdEESt6
   br i1 %43, label %44, label %57
 
 44:                                               ; preds = %39
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.019.i26, i64 32, i1 false), !tbaa.struct !13
   %45 = ptrtoint ptr %.sroa.0.019.i26 to i64
   %46 = sub i64 %45, %6
@@ -2273,11 +2267,11 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIdEESt6
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIdEESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i36: ; preds = %55, %53, %49
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false), !tbaa.struct !13
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %64
 
 57:                                               ; preds = %39
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.03.i.i21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.03.i.i21)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.03.i.i21, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.019.i26, i64 24, i1 false), !tbaa.struct !13
   %58 = getelementptr inbounds nuw i8, ptr %.pn18.i27, i64 24
   %59 = load double, ptr %58, align 8, !tbaa !74
@@ -2298,7 +2292,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIdEESt6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.06.0.lcssa.i.i29, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.03.i.i21, i64 24, i1 false), !tbaa.struct !13
   %.sroa.4.0..sroa_idx4.i.i30 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.lcssa.i.i29, i64 24
   store double %41, ptr %.sroa.4.0..sroa_idx4.i.i30, align 8, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.03.i.i21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.03.i.i21)
   br label %64
 
 64:                                               ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIdEESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEESF_NSE_IdLin1ELin1ELi0ELin1ELin1EEENSD_5BlockIKNSE_IiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEEbRKNSD_10MatrixBaseIT_EERKNSL_IT0_EERKNSL_IT1_EERKNSL_IT2_EERS6_INS3_INSU_6ScalarEEESaIS13_EEEUlRKS4_S18_E_EEEvSM_SQ_.exit.i28, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIdEESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i36
@@ -2311,7 +2305,7 @@ _ZSt26__unguarded_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIdEESt
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #8
+declare i64 @llvm.ctlz.i64(i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4_EEEElNS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIfLi1ELi3ELi1ELi1ELi3EEESF_NSE_IfLin1ELin1ELi0ELin1ELin1EEENSD_5BlockIKNSE_IiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEEbRKNSD_10MatrixBaseIT_EERKNSL_IT0_EERKNSL_IT1_EERKNSL_IT2_EERS6_INS3_INSU_6ScalarEEESaIS13_EEEUlRKS4_S18_E_EEEvSM_SM_SQ_SU_(ptr %0, ptr %1, i64 noundef %2) local_unnamed_addr #0 comdat {
@@ -2359,7 +2353,7 @@ define linkonce_odr dso_local void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal
 32:                                               ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIfLi1ELi3ELi1ELi1ELi3EEESF_NSE_IfLin1ELin1ELi0ELin1ELin1EEENSD_5BlockIKNSE_IiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEEbRKNSD_10MatrixBaseIT_EERKNSL_IT0_EERKNSL_IT1_EERKNSL_IT2_EERS6_INS3_INSU_6ScalarEEESaIS13_EEEUlRKS4_S18_E_EEEvSM_SQ_SQ_SU_SY_.exit.i.i, %21
   %.08.i.i = phi i64 [ %24, %21 ], [ %58, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIfLi1ELi3ELi1ELi1ELi3EEESF_NSE_IfLin1ELin1ELi0ELin1ELin1EEENSD_5BlockIKNSE_IiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEEbRKNSD_10MatrixBaseIT_EERKNSL_IT0_EERKNSL_IT1_EERKNSL_IT2_EERS6_INS3_INSU_6ScalarEEESaIS13_EEEUlRKS4_S18_E_EEEvSM_SQ_SQ_SU_SY_.exit.i.i ]
   %33 = getelementptr inbounds %"struct.igl::Hit.31", ptr %0, i64 %.08.i.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.014.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.014.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.014.i.i, ptr noundef nonnull align 4 dereferenceable(16) %33, i64 16, i1 false)
   %.sroa.417.0..sroa.0.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %33, i64 16
   %.sroa.417.0.copyload.i.i = load float, ptr %.sroa.417.0..sroa.0.0..sroa_idx.i.i, align 4, !tbaa !51
@@ -2420,7 +2414,7 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_Sa
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %57, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.014.i.i, i64 16, i1 false)
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %57, i64 16
   store float %.sroa.417.0.copyload.i.i, ptr %.sroa.4.0..sroa_idx.i.i.i, align 4, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.014.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.014.i.i)
   %.not.i.i = icmp eq i64 %.08.i.i, 0
   %58 = add nsw i64 %.08.i.i, -1
   br i1 %.not.i.i, label %.lr.ph.i.i, label %32, !llvm.loop !91
@@ -2428,7 +2422,7 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_Sa
 .lr.ph.i.i:                                       ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIfLi1ELi3ELi1ELi1ELi3EEESF_NSE_IfLin1ELin1ELi0ELin1ELin1EEENSD_5BlockIKNSE_IiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEEbRKNSD_10MatrixBaseIT_EERKNSL_IT0_EERKNSL_IT1_EERKNSL_IT2_EERS6_INS3_INSU_6ScalarEEESaIS13_EEEUlRKS4_S18_E_EEEvSM_SQ_SQ_SU_SY_.exit.i.i, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIfLi1ELi3ELi1ELi1ELi3EEESF_NSE_IfLin1ELin1ELi0ELin1ELin1EEENSD_5BlockIKNSE_IiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEEbRKNSD_10MatrixBaseIT_EERKNSL_IT0_EERKNSL_IT1_EERKNSL_IT2_EERS6_INS3_INSU_6ScalarEEESaIS13_EEEUlRKS4_S18_E_EEEvSM_SM_SM_RSQ_.exit.i.i
   %.sroa.0.05.i.i = phi ptr [ %59, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIfLi1ELi3ELi1ELi1ELi3EEESF_NSE_IfLin1ELin1ELi0ELin1ELin1EEENSD_5BlockIKNSE_IiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEEbRKNSD_10MatrixBaseIT_EERKNSL_IT0_EERKNSL_IT1_EERKNSL_IT2_EERS6_INS3_INSU_6ScalarEEESaIS13_EEEUlRKS4_S18_E_EEEvSM_SM_SM_RSQ_.exit.i.i ], [ %storemerge25, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIfLi1ELi3ELi1ELi1ELi3EEESF_NSE_IfLin1ELin1ELi0ELin1ELin1EEENSD_5BlockIKNSE_IiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEEbRKNSD_10MatrixBaseIT_EERKNSL_IT0_EERKNSL_IT1_EERKNSL_IT2_EERS6_INS3_INSU_6ScalarEEESaIS13_EEEUlRKS4_S18_E_EEEvSM_SQ_SQ_SU_SY_.exit.i.i ]
   %59 = getelementptr inbounds i8, ptr %.sroa.0.05.i.i, i64 -20
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.06.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.06.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.06.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %59, i64 16, i1 false)
   %.sroa.49.0..sroa.0.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.05.i.i, i64 -4
   %.sroa.49.0.copyload.i.i.i = load float, ptr %.sroa.49.0..sroa.0.0..sroa_idx.i.i.i, align 4, !tbaa !51
@@ -2508,7 +2502,7 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %94, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.06.i.i.i, i64 16, i1 false)
   %.sroa.4.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %94, i64 16
   store float %.sroa.49.0.copyload.i.i.i, ptr %.sroa.4.0..sroa_idx.i.i.i.i, align 4, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.06.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.06.i.i.i)
   %95 = icmp sgt i64 %61, 20
   br i1 %95, label %.lr.ph.i.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIfLi1ELi3ELi1ELi1ELi3EEESF_NSE_IfLin1ELin1ELi0ELin1ELin1EEENSD_5BlockIKNSE_IiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEEbRKNSD_10MatrixBaseIT_EERKNSL_IT0_EERKNSL_IT1_EERKNSL_IT2_EERS6_INS3_INSU_6ScalarEEESaIS13_EEEUlRKS4_S18_E_EEEvSM_SM_SM_SQ_.exit, !llvm.loop !92
 
@@ -2530,11 +2524,11 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4
   br i1 %108, label %109, label %110
 
 109:                                              ; preds = %107
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %10, ptr noundef nonnull align 4 dereferenceable(20) %0, i64 20, i1 false), !tbaa.struct !50
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %0, ptr noundef nonnull align 4 dereferenceable(20) %99, i64 20, i1 false), !tbaa.struct !50
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %99, ptr noundef nonnull align 4 dereferenceable(20) %10, i64 20, i1 false), !tbaa.struct !50
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIfLi1ELi3ELi1ELi1ELi3EEESF_NSE_IfLin1ELin1ELi0ELin1ELin1EEENSD_5BlockIKNSE_IiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEEbRKNSD_10MatrixBaseIT_EERKNSL_IT0_EERKNSL_IT1_EERKNSL_IT2_EERS6_INS3_INSU_6ScalarEEESaIS13_EEEUlRKS4_S18_E_EEEvSM_SM_SM_SM_SQ_.exit.i.preheader
 
 110:                                              ; preds = %107
@@ -2542,19 +2536,19 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4
   br i1 %111, label %112, label %113
 
 112:                                              ; preds = %110
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %9, ptr noundef nonnull align 4 dereferenceable(20) %0, i64 20, i1 false), !tbaa.struct !50
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %0, ptr noundef nonnull align 4 dereferenceable(20) %100, i64 20, i1 false), !tbaa.struct !50
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %100, ptr noundef nonnull align 4 dereferenceable(20) %9, i64 20, i1 false), !tbaa.struct !50
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIfLi1ELi3ELi1ELi1ELi3EEESF_NSE_IfLin1ELin1ELi0ELin1ELin1EEENSD_5BlockIKNSE_IiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEEbRKNSD_10MatrixBaseIT_EERKNSL_IT0_EERKNSL_IT1_EERKNSL_IT2_EERS6_INS3_INSU_6ScalarEEESaIS13_EEEUlRKS4_S18_E_EEEvSM_SM_SM_SM_SQ_.exit.i.preheader
 
 113:                                              ; preds = %110
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %8, ptr noundef nonnull align 4 dereferenceable(20) %0, i64 20, i1 false), !tbaa.struct !50
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %0, ptr noundef nonnull align 4 dereferenceable(20) %15, i64 20, i1 false), !tbaa.struct !50
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %15, ptr noundef nonnull align 4 dereferenceable(20) %8, i64 20, i1 false), !tbaa.struct !50
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIfLi1ELi3ELi1ELi1ELi3EEESF_NSE_IfLin1ELin1ELi0ELin1ELin1EEENSD_5BlockIKNSE_IiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEEbRKNSD_10MatrixBaseIT_EERKNSL_IT0_EERKNSL_IT1_EERKNSL_IT2_EERS6_INS3_INSU_6ScalarEEESaIS13_EEEUlRKS4_S18_E_EEEvSM_SM_SM_SM_SQ_.exit.i.preheader
 
 114:                                              ; preds = %96
@@ -2562,11 +2556,11 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4
   br i1 %115, label %116, label %117
 
 116:                                              ; preds = %114
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %7, ptr noundef nonnull align 4 dereferenceable(20) %0, i64 20, i1 false), !tbaa.struct !50
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %0, ptr noundef nonnull align 4 dereferenceable(20) %15, i64 20, i1 false), !tbaa.struct !50
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %15, ptr noundef nonnull align 4 dereferenceable(20) %7, i64 20, i1 false), !tbaa.struct !50
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIfLi1ELi3ELi1ELi1ELi3EEESF_NSE_IfLin1ELin1ELi0ELin1ELin1EEENSD_5BlockIKNSE_IiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEEbRKNSD_10MatrixBaseIT_EERKNSL_IT0_EERKNSL_IT1_EERKNSL_IT2_EERS6_INS3_INSU_6ScalarEEESaIS13_EEEUlRKS4_S18_E_EEEvSM_SM_SM_SM_SQ_.exit.i.preheader
 
 117:                                              ; preds = %114
@@ -2574,19 +2568,19 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4
   br i1 %118, label %119, label %120
 
 119:                                              ; preds = %117
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %6, ptr noundef nonnull align 4 dereferenceable(20) %0, i64 20, i1 false), !tbaa.struct !50
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %0, ptr noundef nonnull align 4 dereferenceable(20) %100, i64 20, i1 false), !tbaa.struct !50
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %100, ptr noundef nonnull align 4 dereferenceable(20) %6, i64 20, i1 false), !tbaa.struct !50
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIfLi1ELi3ELi1ELi1ELi3EEESF_NSE_IfLin1ELin1ELi0ELin1ELin1EEENSD_5BlockIKNSE_IiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEEbRKNSD_10MatrixBaseIT_EERKNSL_IT0_EERKNSL_IT1_EERKNSL_IT2_EERS6_INS3_INSU_6ScalarEEESaIS13_EEEUlRKS4_S18_E_EEEvSM_SM_SM_SM_SQ_.exit.i.preheader
 
 120:                                              ; preds = %117
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %5, ptr noundef nonnull align 4 dereferenceable(20) %0, i64 20, i1 false), !tbaa.struct !50
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %0, ptr noundef nonnull align 4 dereferenceable(20) %99, i64 20, i1 false), !tbaa.struct !50
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %99, ptr noundef nonnull align 4 dereferenceable(20) %5, i64 20, i1 false), !tbaa.struct !50
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIfLi1ELi3ELi1ELi1ELi3EEESF_NSE_IfLin1ELin1ELi0ELin1ELin1EEENSD_5BlockIKNSE_IiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEEbRKNSD_10MatrixBaseIT_EERKNSL_IT0_EERKNSL_IT1_EERKNSL_IT2_EERS6_INS3_INSU_6ScalarEEESaIS13_EEEUlRKS4_S18_E_EEEvSM_SM_SM_SM_SQ_.exit.i.preheader
 
 _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIfLi1ELi3ELi1ELi1ELi3EEESF_NSE_IfLin1ELin1ELi0ELin1ELin1EEENSD_5BlockIKNSE_IiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEEbRKNSD_10MatrixBaseIT_EERKNSL_IT0_EERKNSL_IT1_EERKNSL_IT2_EERS6_INS3_INSU_6ScalarEEESaIS13_EEEUlRKS4_S18_E_EEEvSM_SM_SM_SM_SQ_.exit.i.preheader: ; preds = %120, %119, %116, %113, %112, %109
@@ -2619,11 +2613,11 @@ _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vec
   br i1 %131, label %132, label %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIfLi1ELi3ELi1ELi1ELi3EEESF_NSE_IfLin1ELin1ELi0ELin1ELin1EEENSD_5BlockIKNSE_IiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEEbRKNSD_10MatrixBaseIT_EERKNSL_IT0_EERKNSL_IT1_EERKNSL_IT2_EERS6_INS3_INSU_6ScalarEEESaIS13_EEEUlRKS4_S18_E_EEESM_SM_SM_SQ_.exit
 
 132:                                              ; preds = %130
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %4, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.010.1.i.i, i64 20, i1 false), !tbaa.struct !50
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.010.1.i.i, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.0.1.i.i, i64 20, i1 false), !tbaa.struct !50
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.0.1.i.i, ptr noundef nonnull align 4 dereferenceable(20) %4, i64 20, i1 false), !tbaa.struct !50
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIfLi1ELi3ELi1ELi1ELi3EEESF_NSE_IfLin1ELin1ELi0ELin1ELin1EEENSD_5BlockIKNSE_IiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEEbRKNSD_10MatrixBaseIT_EERKNSL_IT0_EERKNSL_IT1_EERKNSL_IT2_EERS6_INS3_INSU_6ScalarEEESaIS13_EEEUlRKS4_S18_E_EEEvSM_SM_SM_SM_SQ_.exit.i, !llvm.loop !95
 
 _ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIfLi1ELi3ELi1ELi1ELi3EEESF_NSE_IfLin1ELin1ELi0ELin1ELin1EEENSD_5BlockIKNSE_IiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEEbRKNSD_10MatrixBaseIT_EERKNSL_IT0_EERKNSL_IT1_EERKNSL_IT2_EERS6_INS3_INSU_6ScalarEEESaIS13_EEEUlRKS4_S18_E_EEESM_SM_SM_SQ_.exit: ; preds = %130
@@ -2666,7 +2660,7 @@ define linkonce_odr dso_local void @_ZSt22__final_insertion_sortIN9__gnu_cxx17__
   br i1 %14, label %15, label %20
 
 15:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %4, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.0.019.i.ptr, i64 20, i1 false), !tbaa.struct !50
   %16 = icmp samesign ugt i64 %.sroa.0.019.i.idx, 20
   br i1 %16, label %17, label %18, !prof !83
@@ -2682,11 +2676,11 @@ define linkonce_odr dso_local void @_ZSt22__final_insertion_sortIN9__gnu_cxx17__
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i: ; preds = %18, %17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %0, ptr noundef nonnull align 4 dereferenceable(20) %4, i64 20, i1 false), !tbaa.struct !50
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %27
 
 20:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.03.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.03.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.03.i.i, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.0.019.i.ptr, i64 16, i1 false), !tbaa.struct !50
   %21 = getelementptr inbounds nuw i8, ptr %.pn18.i, i64 16
   %22 = load float, ptr %21, align 4, !tbaa !87
@@ -2707,7 +2701,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.06.0.lcssa.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.03.i.i, i64 16, i1 false), !tbaa.struct !50
   %.sroa.4.0..sroa_idx4.i.i = getelementptr inbounds nuw i8, ptr %.sroa.06.0.lcssa.i.i, i64 16
   store float %12, ptr %.sroa.4.0..sroa_idx4.i.i, align 4, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.03.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.03.i.i)
   br label %27
 
 27:                                               ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIfLi1ELi3ELi1ELi1ELi3EEESF_NSE_IfLin1ELin1ELi0ELin1ELin1EEENSD_5BlockIKNSE_IiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEEbRKNSD_10MatrixBaseIT_EERKNSL_IT0_EERKNSL_IT1_EERKNSL_IT2_EERS6_INS3_INSU_6ScalarEEESaIS13_EEEUlRKS4_S18_E_EEEvSM_SQ_.exit.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i
@@ -2722,7 +2716,7 @@ _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4
 
 .lr.ph.i13:                                       ; preds = %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIfLi1ELi3ELi1ELi1ELi3EEESF_NSE_IfLin1ELin1ELi0ELin1ELin1EEENSD_5BlockIKNSE_IiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEEbRKNSD_10MatrixBaseIT_EERKNSL_IT0_EERKNSL_IT1_EERKNSL_IT2_EERS6_INS3_INSU_6ScalarEEESaIS13_EEEUlRKS4_S18_E_EEEvSM_SM_SQ_.exit, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIfLi1ELi3ELi1ELi1ELi3EEESF_NSE_IfLin1ELin1ELi0ELin1ELin1EEENSD_5BlockIKNSE_IiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEEbRKNSD_10MatrixBaseIT_EERKNSL_IT0_EERKNSL_IT1_EERKNSL_IT2_EERS6_INS3_INSU_6ScalarEEESaIS13_EEEUlRKS4_S18_E_EEEvSM_SQ_.exit.i14
   %.sroa.0.07.i = phi ptr [ %35, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIfLi1ELi3ELi1ELi1ELi3EEESF_NSE_IfLin1ELin1ELi0ELin1ELin1EEENSD_5BlockIKNSE_IiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEEbRKNSD_10MatrixBaseIT_EERKNSL_IT0_EERKNSL_IT1_EERKNSL_IT2_EERS6_INS3_INSU_6ScalarEEESaIS13_EEEUlRKS4_S18_E_EEEvSM_SQ_.exit.i14 ], [ %28, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIfLi1ELi3ELi1ELi1ELi3EEESF_NSE_IfLin1ELin1ELi0ELin1ELin1EEENSD_5BlockIKNSE_IiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEEbRKNSD_10MatrixBaseIT_EERKNSL_IT0_EERKNSL_IT1_EERKNSL_IT2_EERS6_INS3_INSU_6ScalarEEESaIS13_EEEUlRKS4_S18_E_EEEvSM_SM_SQ_.exit ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.03.i.i12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.03.i.i12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.03.i.i12, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.0.07.i, i64 16, i1 false), !tbaa.struct !50
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.sroa.0.07.i, i64 16
   %.sroa.4.0.copyload.i.i = load float, ptr %.sroa.4.0..sroa_idx.i.i, align 4, !tbaa !51
@@ -2745,7 +2739,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.06.0.lcssa.i.i15, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.03.i.i12, i64 16, i1 false), !tbaa.struct !50
   %.sroa.4.0..sroa_idx4.i.i16 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.lcssa.i.i15, i64 16
   store float %.sroa.4.0.copyload.i.i, ptr %.sroa.4.0..sroa_idx4.i.i16, align 4, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.03.i.i12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.03.i.i12)
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.0.07.i, i64 20
   %.not.i17 = icmp eq ptr %35, %1
   br i1 %.not.i17, label %_ZSt26__unguarded_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIfLi1ELi3ELi1ELi1ELi3EEESF_NSE_IfLin1ELin1ELi0ELin1ELin1EEENSD_5BlockIKNSE_IiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEEbRKNSD_10MatrixBaseIT_EERKNSL_IT0_EERKNSL_IT1_EERKNSL_IT2_EERS6_INS3_INSU_6ScalarEEESaIS13_EEEUlRKS4_S18_E_EEEvSM_SM_SQ_.exit, label %.lr.ph.i13, !llvm.loop !99
@@ -2773,7 +2767,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6
   br i1 %43, label %44, label %55
 
 44:                                               ; preds = %39
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %3, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.0.019.i26, i64 20, i1 false), !tbaa.struct !50
   %45 = ptrtoint ptr %.sroa.0.019.i26 to i64
   %46 = sub i64 %45, %6
@@ -2799,11 +2793,11 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i36: ; preds = %53, %51, %48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %0, ptr noundef nonnull align 4 dereferenceable(20) %3, i64 20, i1 false), !tbaa.struct !50
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %62
 
 55:                                               ; preds = %39
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.03.i.i21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.03.i.i21)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.03.i.i21, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.0.019.i26, i64 16, i1 false), !tbaa.struct !50
   %56 = getelementptr inbounds nuw i8, ptr %.pn18.i27, i64 16
   %57 = load float, ptr %56, align 4, !tbaa !87
@@ -2824,7 +2818,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.06.0.lcssa.i.i29, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.03.i.i21, i64 16, i1 false), !tbaa.struct !50
   %.sroa.4.0..sroa_idx4.i.i30 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.lcssa.i.i29, i64 16
   store float %41, ptr %.sroa.4.0..sroa_idx4.i.i30, align 4, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.03.i.i21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.03.i.i21)
   br label %62
 
 62:                                               ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIfLi1ELi3ELi1ELi1ELi3EEESF_NSE_IfLin1ELin1ELi0ELin1ELin1EEENSD_5BlockIKNSE_IiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEEbRKNSD_10MatrixBaseIT_EERKNSL_IT0_EERKNSL_IT1_EERKNSL_IT2_EERS6_INS3_INSU_6ScalarEEESaIS13_EEEUlRKS4_S18_E_EEEvSM_SQ_.exit.i28, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i36
@@ -2882,7 +2876,7 @@ define linkonce_odr dso_local void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal
 32:                                               ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEESF_NSE_IfLin1ELin1ELi0ELin1ELin1EEENSE_IiLin1ELin1ELi0ELin1ELin1EEEEEbRKNSD_10MatrixBaseIT_EERKNSI_IT0_EERKNSI_IT1_EERKNSI_IT2_EERS6_INS3_INSR_6ScalarEEESaIS10_EEEUlRKS4_S15_E_EEEvSJ_SN_SN_SR_SV_.exit.i.i, %21
   %.08.i.i = phi i64 [ %24, %21 ], [ %58, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEESF_NSE_IfLin1ELin1ELi0ELin1ELin1EEENSE_IiLin1ELin1ELi0ELin1ELin1EEEEEbRKNSD_10MatrixBaseIT_EERKNSI_IT0_EERKNSI_IT1_EERKNSI_IT2_EERS6_INS3_INSR_6ScalarEEESaIS10_EEEUlRKS4_S15_E_EEEvSJ_SN_SN_SR_SV_.exit.i.i ]
   %33 = getelementptr inbounds %"struct.igl::Hit.31", ptr %0, i64 %.08.i.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.014.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.014.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.014.i.i, ptr noundef nonnull align 4 dereferenceable(16) %33, i64 16, i1 false)
   %.sroa.417.0..sroa.0.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %33, i64 16
   %.sroa.417.0.copyload.i.i = load float, ptr %.sroa.417.0..sroa.0.0..sroa_idx.i.i, align 4, !tbaa !51
@@ -2943,7 +2937,7 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_Sa
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %57, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.014.i.i, i64 16, i1 false)
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %57, i64 16
   store float %.sroa.417.0.copyload.i.i, ptr %.sroa.4.0..sroa_idx.i.i.i, align 4, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.014.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.014.i.i)
   %.not.i.i = icmp eq i64 %.08.i.i, 0
   %58 = add nsw i64 %.08.i.i, -1
   br i1 %.not.i.i, label %.lr.ph.i.i, label %32, !llvm.loop !102
@@ -2951,7 +2945,7 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_Sa
 .lr.ph.i.i:                                       ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEESF_NSE_IfLin1ELin1ELi0ELin1ELin1EEENSE_IiLin1ELin1ELi0ELin1ELin1EEEEEbRKNSD_10MatrixBaseIT_EERKNSI_IT0_EERKNSI_IT1_EERKNSI_IT2_EERS6_INS3_INSR_6ScalarEEESaIS10_EEEUlRKS4_S15_E_EEEvSJ_SN_SN_SR_SV_.exit.i.i, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEESF_NSE_IfLin1ELin1ELi0ELin1ELin1EEENSE_IiLin1ELin1ELi0ELin1ELin1EEEEEbRKNSD_10MatrixBaseIT_EERKNSI_IT0_EERKNSI_IT1_EERKNSI_IT2_EERS6_INS3_INSR_6ScalarEEESaIS10_EEEUlRKS4_S15_E_EEEvSJ_SJ_SJ_RSN_.exit.i.i
   %.sroa.0.05.i.i = phi ptr [ %59, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEESF_NSE_IfLin1ELin1ELi0ELin1ELin1EEENSE_IiLin1ELin1ELi0ELin1ELin1EEEEEbRKNSD_10MatrixBaseIT_EERKNSI_IT0_EERKNSI_IT1_EERKNSI_IT2_EERS6_INS3_INSR_6ScalarEEESaIS10_EEEUlRKS4_S15_E_EEEvSJ_SJ_SJ_RSN_.exit.i.i ], [ %storemerge25, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEESF_NSE_IfLin1ELin1ELi0ELin1ELin1EEENSE_IiLin1ELin1ELi0ELin1ELin1EEEEEbRKNSD_10MatrixBaseIT_EERKNSI_IT0_EERKNSI_IT1_EERKNSI_IT2_EERS6_INS3_INSR_6ScalarEEESaIS10_EEEUlRKS4_S15_E_EEEvSJ_SN_SN_SR_SV_.exit.i.i ]
   %59 = getelementptr inbounds i8, ptr %.sroa.0.05.i.i, i64 -20
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.06.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.06.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.06.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %59, i64 16, i1 false)
   %.sroa.49.0..sroa.0.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.05.i.i, i64 -4
   %.sroa.49.0.copyload.i.i.i = load float, ptr %.sroa.49.0..sroa.0.0..sroa_idx.i.i.i, align 4, !tbaa !51
@@ -3031,7 +3025,7 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %94, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.06.i.i.i, i64 16, i1 false)
   %.sroa.4.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %94, i64 16
   store float %.sroa.49.0.copyload.i.i.i, ptr %.sroa.4.0..sroa_idx.i.i.i.i, align 4, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.06.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.06.i.i.i)
   %95 = icmp sgt i64 %61, 20
   br i1 %95, label %.lr.ph.i.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEESF_NSE_IfLin1ELin1ELi0ELin1ELin1EEENSE_IiLin1ELin1ELi0ELin1ELin1EEEEEbRKNSD_10MatrixBaseIT_EERKNSI_IT0_EERKNSI_IT1_EERKNSI_IT2_EERS6_INS3_INSR_6ScalarEEESaIS10_EEEUlRKS4_S15_E_EEEvSJ_SJ_SJ_SN_.exit, !llvm.loop !103
 
@@ -3053,11 +3047,11 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4
   br i1 %108, label %109, label %110
 
 109:                                              ; preds = %107
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %10, ptr noundef nonnull align 4 dereferenceable(20) %0, i64 20, i1 false), !tbaa.struct !50
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %0, ptr noundef nonnull align 4 dereferenceable(20) %99, i64 20, i1 false), !tbaa.struct !50
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %99, ptr noundef nonnull align 4 dereferenceable(20) %10, i64 20, i1 false), !tbaa.struct !50
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEESF_NSE_IfLin1ELin1ELi0ELin1ELin1EEENSE_IiLin1ELin1ELi0ELin1ELin1EEEEEbRKNSD_10MatrixBaseIT_EERKNSI_IT0_EERKNSI_IT1_EERKNSI_IT2_EERS6_INS3_INSR_6ScalarEEESaIS10_EEEUlRKS4_S15_E_EEEvSJ_SJ_SJ_SJ_SN_.exit.i.preheader
 
 110:                                              ; preds = %107
@@ -3065,19 +3059,19 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4
   br i1 %111, label %112, label %113
 
 112:                                              ; preds = %110
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %9, ptr noundef nonnull align 4 dereferenceable(20) %0, i64 20, i1 false), !tbaa.struct !50
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %0, ptr noundef nonnull align 4 dereferenceable(20) %100, i64 20, i1 false), !tbaa.struct !50
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %100, ptr noundef nonnull align 4 dereferenceable(20) %9, i64 20, i1 false), !tbaa.struct !50
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEESF_NSE_IfLin1ELin1ELi0ELin1ELin1EEENSE_IiLin1ELin1ELi0ELin1ELin1EEEEEbRKNSD_10MatrixBaseIT_EERKNSI_IT0_EERKNSI_IT1_EERKNSI_IT2_EERS6_INS3_INSR_6ScalarEEESaIS10_EEEUlRKS4_S15_E_EEEvSJ_SJ_SJ_SJ_SN_.exit.i.preheader
 
 113:                                              ; preds = %110
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %8, ptr noundef nonnull align 4 dereferenceable(20) %0, i64 20, i1 false), !tbaa.struct !50
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %0, ptr noundef nonnull align 4 dereferenceable(20) %15, i64 20, i1 false), !tbaa.struct !50
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %15, ptr noundef nonnull align 4 dereferenceable(20) %8, i64 20, i1 false), !tbaa.struct !50
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEESF_NSE_IfLin1ELin1ELi0ELin1ELin1EEENSE_IiLin1ELin1ELi0ELin1ELin1EEEEEbRKNSD_10MatrixBaseIT_EERKNSI_IT0_EERKNSI_IT1_EERKNSI_IT2_EERS6_INS3_INSR_6ScalarEEESaIS10_EEEUlRKS4_S15_E_EEEvSJ_SJ_SJ_SJ_SN_.exit.i.preheader
 
 114:                                              ; preds = %96
@@ -3085,11 +3079,11 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4
   br i1 %115, label %116, label %117
 
 116:                                              ; preds = %114
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %7, ptr noundef nonnull align 4 dereferenceable(20) %0, i64 20, i1 false), !tbaa.struct !50
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %0, ptr noundef nonnull align 4 dereferenceable(20) %15, i64 20, i1 false), !tbaa.struct !50
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %15, ptr noundef nonnull align 4 dereferenceable(20) %7, i64 20, i1 false), !tbaa.struct !50
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEESF_NSE_IfLin1ELin1ELi0ELin1ELin1EEENSE_IiLin1ELin1ELi0ELin1ELin1EEEEEbRKNSD_10MatrixBaseIT_EERKNSI_IT0_EERKNSI_IT1_EERKNSI_IT2_EERS6_INS3_INSR_6ScalarEEESaIS10_EEEUlRKS4_S15_E_EEEvSJ_SJ_SJ_SJ_SN_.exit.i.preheader
 
 117:                                              ; preds = %114
@@ -3097,19 +3091,19 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4
   br i1 %118, label %119, label %120
 
 119:                                              ; preds = %117
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %6, ptr noundef nonnull align 4 dereferenceable(20) %0, i64 20, i1 false), !tbaa.struct !50
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %0, ptr noundef nonnull align 4 dereferenceable(20) %100, i64 20, i1 false), !tbaa.struct !50
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %100, ptr noundef nonnull align 4 dereferenceable(20) %6, i64 20, i1 false), !tbaa.struct !50
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEESF_NSE_IfLin1ELin1ELi0ELin1ELin1EEENSE_IiLin1ELin1ELi0ELin1ELin1EEEEEbRKNSD_10MatrixBaseIT_EERKNSI_IT0_EERKNSI_IT1_EERKNSI_IT2_EERS6_INS3_INSR_6ScalarEEESaIS10_EEEUlRKS4_S15_E_EEEvSJ_SJ_SJ_SJ_SN_.exit.i.preheader
 
 120:                                              ; preds = %117
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %5, ptr noundef nonnull align 4 dereferenceable(20) %0, i64 20, i1 false), !tbaa.struct !50
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %0, ptr noundef nonnull align 4 dereferenceable(20) %99, i64 20, i1 false), !tbaa.struct !50
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %99, ptr noundef nonnull align 4 dereferenceable(20) %5, i64 20, i1 false), !tbaa.struct !50
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEESF_NSE_IfLin1ELin1ELi0ELin1ELin1EEENSE_IiLin1ELin1ELi0ELin1ELin1EEEEEbRKNSD_10MatrixBaseIT_EERKNSI_IT0_EERKNSI_IT1_EERKNSI_IT2_EERS6_INS3_INSR_6ScalarEEESaIS10_EEEUlRKS4_S15_E_EEEvSJ_SJ_SJ_SJ_SN_.exit.i.preheader
 
 _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEESF_NSE_IfLin1ELin1ELi0ELin1ELin1EEENSE_IiLin1ELin1ELi0ELin1ELin1EEEEEbRKNSD_10MatrixBaseIT_EERKNSI_IT0_EERKNSI_IT1_EERKNSI_IT2_EERS6_INS3_INSR_6ScalarEEESaIS10_EEEUlRKS4_S15_E_EEEvSJ_SJ_SJ_SJ_SN_.exit.i.preheader: ; preds = %120, %119, %116, %113, %112, %109
@@ -3142,11 +3136,11 @@ _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vec
   br i1 %131, label %132, label %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEESF_NSE_IfLin1ELin1ELi0ELin1ELin1EEENSE_IiLin1ELin1ELi0ELin1ELin1EEEEEbRKNSD_10MatrixBaseIT_EERKNSI_IT0_EERKNSI_IT1_EERKNSI_IT2_EERS6_INS3_INSR_6ScalarEEESaIS10_EEEUlRKS4_S15_E_EEESJ_SJ_SJ_SN_.exit
 
 132:                                              ; preds = %130
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %4, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.010.1.i.i, i64 20, i1 false), !tbaa.struct !50
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.010.1.i.i, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.0.1.i.i, i64 20, i1 false), !tbaa.struct !50
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.0.1.i.i, ptr noundef nonnull align 4 dereferenceable(20) %4, i64 20, i1 false), !tbaa.struct !50
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEESF_NSE_IfLin1ELin1ELi0ELin1ELin1EEENSE_IiLin1ELin1ELi0ELin1ELin1EEEEEbRKNSD_10MatrixBaseIT_EERKNSI_IT0_EERKNSI_IT1_EERKNSI_IT2_EERS6_INS3_INSR_6ScalarEEESaIS10_EEEUlRKS4_S15_E_EEEvSJ_SJ_SJ_SJ_SN_.exit.i, !llvm.loop !106
 
 _ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEESF_NSE_IfLin1ELin1ELi0ELin1ELin1EEENSE_IiLin1ELin1ELi0ELin1ELin1EEEEEbRKNSD_10MatrixBaseIT_EERKNSI_IT0_EERKNSI_IT1_EERKNSI_IT2_EERS6_INS3_INSR_6ScalarEEESaIS10_EEEUlRKS4_S15_E_EEESJ_SJ_SJ_SN_.exit: ; preds = %130
@@ -3189,7 +3183,7 @@ define linkonce_odr dso_local void @_ZSt22__final_insertion_sortIN9__gnu_cxx17__
   br i1 %14, label %15, label %20
 
 15:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %4, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.0.019.i.ptr, i64 20, i1 false), !tbaa.struct !50
   %16 = icmp samesign ugt i64 %.sroa.0.019.i.idx, 20
   br i1 %16, label %17, label %18, !prof !83
@@ -3205,11 +3199,11 @@ define linkonce_odr dso_local void @_ZSt22__final_insertion_sortIN9__gnu_cxx17__
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i: ; preds = %18, %17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %0, ptr noundef nonnull align 4 dereferenceable(20) %4, i64 20, i1 false), !tbaa.struct !50
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %27
 
 20:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.03.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.03.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.03.i.i, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.0.019.i.ptr, i64 16, i1 false), !tbaa.struct !50
   %21 = getelementptr inbounds nuw i8, ptr %.pn18.i, i64 16
   %22 = load float, ptr %21, align 4, !tbaa !87
@@ -3230,7 +3224,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.06.0.lcssa.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.03.i.i, i64 16, i1 false), !tbaa.struct !50
   %.sroa.4.0..sroa_idx4.i.i = getelementptr inbounds nuw i8, ptr %.sroa.06.0.lcssa.i.i, i64 16
   store float %12, ptr %.sroa.4.0..sroa_idx4.i.i, align 4, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.03.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.03.i.i)
   br label %27
 
 27:                                               ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEESF_NSE_IfLin1ELin1ELi0ELin1ELin1EEENSE_IiLin1ELin1ELi0ELin1ELin1EEEEEbRKNSD_10MatrixBaseIT_EERKNSI_IT0_EERKNSI_IT1_EERKNSI_IT2_EERS6_INS3_INSR_6ScalarEEESaIS10_EEEUlRKS4_S15_E_EEEvSJ_SN_.exit.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i
@@ -3245,7 +3239,7 @@ _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4
 
 .lr.ph.i13:                                       ; preds = %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEESF_NSE_IfLin1ELin1ELi0ELin1ELin1EEENSE_IiLin1ELin1ELi0ELin1ELin1EEEEEbRKNSD_10MatrixBaseIT_EERKNSI_IT0_EERKNSI_IT1_EERKNSI_IT2_EERS6_INS3_INSR_6ScalarEEESaIS10_EEEUlRKS4_S15_E_EEEvSJ_SJ_SN_.exit, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEESF_NSE_IfLin1ELin1ELi0ELin1ELin1EEENSE_IiLin1ELin1ELi0ELin1ELin1EEEEEbRKNSD_10MatrixBaseIT_EERKNSI_IT0_EERKNSI_IT1_EERKNSI_IT2_EERS6_INS3_INSR_6ScalarEEESaIS10_EEEUlRKS4_S15_E_EEEvSJ_SN_.exit.i14
   %.sroa.0.07.i = phi ptr [ %35, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEESF_NSE_IfLin1ELin1ELi0ELin1ELin1EEENSE_IiLin1ELin1ELi0ELin1ELin1EEEEEbRKNSD_10MatrixBaseIT_EERKNSI_IT0_EERKNSI_IT1_EERKNSI_IT2_EERS6_INS3_INSR_6ScalarEEESaIS10_EEEUlRKS4_S15_E_EEEvSJ_SN_.exit.i14 ], [ %28, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEESF_NSE_IfLin1ELin1ELi0ELin1ELin1EEENSE_IiLin1ELin1ELi0ELin1ELin1EEEEEbRKNSD_10MatrixBaseIT_EERKNSI_IT0_EERKNSI_IT1_EERKNSI_IT2_EERS6_INS3_INSR_6ScalarEEESaIS10_EEEUlRKS4_S15_E_EEEvSJ_SJ_SN_.exit ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.03.i.i12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.03.i.i12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.03.i.i12, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.0.07.i, i64 16, i1 false), !tbaa.struct !50
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.sroa.0.07.i, i64 16
   %.sroa.4.0.copyload.i.i = load float, ptr %.sroa.4.0..sroa_idx.i.i, align 4, !tbaa !51
@@ -3268,7 +3262,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.06.0.lcssa.i.i15, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.03.i.i12, i64 16, i1 false), !tbaa.struct !50
   %.sroa.4.0..sroa_idx4.i.i16 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.lcssa.i.i15, i64 16
   store float %.sroa.4.0.copyload.i.i, ptr %.sroa.4.0..sroa_idx4.i.i16, align 4, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.03.i.i12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.03.i.i12)
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.0.07.i, i64 20
   %.not.i17 = icmp eq ptr %35, %1
   br i1 %.not.i17, label %_ZSt26__unguarded_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEESF_NSE_IfLin1ELin1ELi0ELin1ELin1EEENSE_IiLin1ELin1ELi0ELin1ELin1EEEEEbRKNSD_10MatrixBaseIT_EERKNSI_IT0_EERKNSI_IT1_EERKNSI_IT2_EERS6_INS3_INSR_6ScalarEEESaIS10_EEEUlRKS4_S15_E_EEEvSJ_SJ_SN_.exit, label %.lr.ph.i13, !llvm.loop !110
@@ -3296,7 +3290,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6
   br i1 %43, label %44, label %55
 
 44:                                               ; preds = %39
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %3, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.0.019.i26, i64 20, i1 false), !tbaa.struct !50
   %45 = ptrtoint ptr %.sroa.0.019.i26 to i64
   %46 = sub i64 %45, %6
@@ -3322,11 +3316,11 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i36: ; preds = %53, %51, %48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %0, ptr noundef nonnull align 4 dereferenceable(20) %3, i64 20, i1 false), !tbaa.struct !50
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %62
 
 55:                                               ; preds = %39
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.03.i.i21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.03.i.i21)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.03.i.i21, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.0.019.i26, i64 16, i1 false), !tbaa.struct !50
   %56 = getelementptr inbounds nuw i8, ptr %.pn18.i27, i64 16
   %57 = load float, ptr %56, align 4, !tbaa !87
@@ -3347,7 +3341,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.06.0.lcssa.i.i29, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.03.i.i21, i64 16, i1 false), !tbaa.struct !50
   %.sroa.4.0..sroa_idx4.i.i30 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.lcssa.i.i29, i64 16
   store float %41, ptr %.sroa.4.0..sroa_idx4.i.i30, align 4, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.03.i.i21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.03.i.i21)
   br label %62
 
 62:                                               ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEESF_NSE_IfLin1ELin1ELi0ELin1ELin1EEENSE_IiLin1ELin1ELi0ELin1ELin1EEEEEbRKNSD_10MatrixBaseIT_EERKNSI_IT0_EERKNSI_IT1_EERKNSI_IT2_EERS6_INS3_INSR_6ScalarEEESaIS10_EEEUlRKS4_S15_E_EEEvSJ_SN_.exit.i28, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i36
@@ -3405,7 +3399,7 @@ define linkonce_odr dso_local void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal
 32:                                               ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEESF_NSE_IfLin1ELi3ELi1ELin1ELi3EEENSE_IiLin1ELi3ELi1ELin1ELi3EEEEEbRKNSD_10MatrixBaseIT_EERKNSI_IT0_EERKNSI_IT1_EERKNSI_IT2_EERS6_INS3_INSR_6ScalarEEESaIS10_EEEUlRKS4_S15_E_EEEvSJ_SN_SN_SR_SV_.exit.i.i, %21
   %.08.i.i = phi i64 [ %24, %21 ], [ %58, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEESF_NSE_IfLin1ELi3ELi1ELin1ELi3EEENSE_IiLin1ELi3ELi1ELin1ELi3EEEEEbRKNSD_10MatrixBaseIT_EERKNSI_IT0_EERKNSI_IT1_EERKNSI_IT2_EERS6_INS3_INSR_6ScalarEEESaIS10_EEEUlRKS4_S15_E_EEEvSJ_SN_SN_SR_SV_.exit.i.i ]
   %33 = getelementptr inbounds %"struct.igl::Hit.31", ptr %0, i64 %.08.i.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.014.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.014.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.014.i.i, ptr noundef nonnull align 4 dereferenceable(16) %33, i64 16, i1 false)
   %.sroa.417.0..sroa.0.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %33, i64 16
   %.sroa.417.0.copyload.i.i = load float, ptr %.sroa.417.0..sroa.0.0..sroa_idx.i.i, align 4, !tbaa !51
@@ -3466,7 +3460,7 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_Sa
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %57, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.014.i.i, i64 16, i1 false)
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %57, i64 16
   store float %.sroa.417.0.copyload.i.i, ptr %.sroa.4.0..sroa_idx.i.i.i, align 4, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.014.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.014.i.i)
   %.not.i.i = icmp eq i64 %.08.i.i, 0
   %58 = add nsw i64 %.08.i.i, -1
   br i1 %.not.i.i, label %.lr.ph.i.i, label %32, !llvm.loop !113
@@ -3474,7 +3468,7 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_Sa
 .lr.ph.i.i:                                       ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEESF_NSE_IfLin1ELi3ELi1ELin1ELi3EEENSE_IiLin1ELi3ELi1ELin1ELi3EEEEEbRKNSD_10MatrixBaseIT_EERKNSI_IT0_EERKNSI_IT1_EERKNSI_IT2_EERS6_INS3_INSR_6ScalarEEESaIS10_EEEUlRKS4_S15_E_EEEvSJ_SN_SN_SR_SV_.exit.i.i, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEESF_NSE_IfLin1ELi3ELi1ELin1ELi3EEENSE_IiLin1ELi3ELi1ELin1ELi3EEEEEbRKNSD_10MatrixBaseIT_EERKNSI_IT0_EERKNSI_IT1_EERKNSI_IT2_EERS6_INS3_INSR_6ScalarEEESaIS10_EEEUlRKS4_S15_E_EEEvSJ_SJ_SJ_RSN_.exit.i.i
   %.sroa.0.05.i.i = phi ptr [ %59, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEESF_NSE_IfLin1ELi3ELi1ELin1ELi3EEENSE_IiLin1ELi3ELi1ELin1ELi3EEEEEbRKNSD_10MatrixBaseIT_EERKNSI_IT0_EERKNSI_IT1_EERKNSI_IT2_EERS6_INS3_INSR_6ScalarEEESaIS10_EEEUlRKS4_S15_E_EEEvSJ_SJ_SJ_RSN_.exit.i.i ], [ %storemerge25, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEESF_NSE_IfLin1ELi3ELi1ELin1ELi3EEENSE_IiLin1ELi3ELi1ELin1ELi3EEEEEbRKNSD_10MatrixBaseIT_EERKNSI_IT0_EERKNSI_IT1_EERKNSI_IT2_EERS6_INS3_INSR_6ScalarEEESaIS10_EEEUlRKS4_S15_E_EEEvSJ_SN_SN_SR_SV_.exit.i.i ]
   %59 = getelementptr inbounds i8, ptr %.sroa.0.05.i.i, i64 -20
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.06.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.06.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.06.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %59, i64 16, i1 false)
   %.sroa.49.0..sroa.0.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.05.i.i, i64 -4
   %.sroa.49.0.copyload.i.i.i = load float, ptr %.sroa.49.0..sroa.0.0..sroa_idx.i.i.i, align 4, !tbaa !51
@@ -3554,7 +3548,7 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %94, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.06.i.i.i, i64 16, i1 false)
   %.sroa.4.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %94, i64 16
   store float %.sroa.49.0.copyload.i.i.i, ptr %.sroa.4.0..sroa_idx.i.i.i.i, align 4, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.06.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.06.i.i.i)
   %95 = icmp sgt i64 %61, 20
   br i1 %95, label %.lr.ph.i.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEESF_NSE_IfLin1ELi3ELi1ELin1ELi3EEENSE_IiLin1ELi3ELi1ELin1ELi3EEEEEbRKNSD_10MatrixBaseIT_EERKNSI_IT0_EERKNSI_IT1_EERKNSI_IT2_EERS6_INS3_INSR_6ScalarEEESaIS10_EEEUlRKS4_S15_E_EEEvSJ_SJ_SJ_SN_.exit, !llvm.loop !114
 
@@ -3576,11 +3570,11 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4
   br i1 %108, label %109, label %110
 
 109:                                              ; preds = %107
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %10, ptr noundef nonnull align 4 dereferenceable(20) %0, i64 20, i1 false), !tbaa.struct !50
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %0, ptr noundef nonnull align 4 dereferenceable(20) %99, i64 20, i1 false), !tbaa.struct !50
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %99, ptr noundef nonnull align 4 dereferenceable(20) %10, i64 20, i1 false), !tbaa.struct !50
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEESF_NSE_IfLin1ELi3ELi1ELin1ELi3EEENSE_IiLin1ELi3ELi1ELin1ELi3EEEEEbRKNSD_10MatrixBaseIT_EERKNSI_IT0_EERKNSI_IT1_EERKNSI_IT2_EERS6_INS3_INSR_6ScalarEEESaIS10_EEEUlRKS4_S15_E_EEEvSJ_SJ_SJ_SJ_SN_.exit.i.preheader
 
 110:                                              ; preds = %107
@@ -3588,19 +3582,19 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4
   br i1 %111, label %112, label %113
 
 112:                                              ; preds = %110
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %9, ptr noundef nonnull align 4 dereferenceable(20) %0, i64 20, i1 false), !tbaa.struct !50
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %0, ptr noundef nonnull align 4 dereferenceable(20) %100, i64 20, i1 false), !tbaa.struct !50
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %100, ptr noundef nonnull align 4 dereferenceable(20) %9, i64 20, i1 false), !tbaa.struct !50
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEESF_NSE_IfLin1ELi3ELi1ELin1ELi3EEENSE_IiLin1ELi3ELi1ELin1ELi3EEEEEbRKNSD_10MatrixBaseIT_EERKNSI_IT0_EERKNSI_IT1_EERKNSI_IT2_EERS6_INS3_INSR_6ScalarEEESaIS10_EEEUlRKS4_S15_E_EEEvSJ_SJ_SJ_SJ_SN_.exit.i.preheader
 
 113:                                              ; preds = %110
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %8, ptr noundef nonnull align 4 dereferenceable(20) %0, i64 20, i1 false), !tbaa.struct !50
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %0, ptr noundef nonnull align 4 dereferenceable(20) %15, i64 20, i1 false), !tbaa.struct !50
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %15, ptr noundef nonnull align 4 dereferenceable(20) %8, i64 20, i1 false), !tbaa.struct !50
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEESF_NSE_IfLin1ELi3ELi1ELin1ELi3EEENSE_IiLin1ELi3ELi1ELin1ELi3EEEEEbRKNSD_10MatrixBaseIT_EERKNSI_IT0_EERKNSI_IT1_EERKNSI_IT2_EERS6_INS3_INSR_6ScalarEEESaIS10_EEEUlRKS4_S15_E_EEEvSJ_SJ_SJ_SJ_SN_.exit.i.preheader
 
 114:                                              ; preds = %96
@@ -3608,11 +3602,11 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4
   br i1 %115, label %116, label %117
 
 116:                                              ; preds = %114
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %7, ptr noundef nonnull align 4 dereferenceable(20) %0, i64 20, i1 false), !tbaa.struct !50
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %0, ptr noundef nonnull align 4 dereferenceable(20) %15, i64 20, i1 false), !tbaa.struct !50
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %15, ptr noundef nonnull align 4 dereferenceable(20) %7, i64 20, i1 false), !tbaa.struct !50
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEESF_NSE_IfLin1ELi3ELi1ELin1ELi3EEENSE_IiLin1ELi3ELi1ELin1ELi3EEEEEbRKNSD_10MatrixBaseIT_EERKNSI_IT0_EERKNSI_IT1_EERKNSI_IT2_EERS6_INS3_INSR_6ScalarEEESaIS10_EEEUlRKS4_S15_E_EEEvSJ_SJ_SJ_SJ_SN_.exit.i.preheader
 
 117:                                              ; preds = %114
@@ -3620,19 +3614,19 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4
   br i1 %118, label %119, label %120
 
 119:                                              ; preds = %117
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %6, ptr noundef nonnull align 4 dereferenceable(20) %0, i64 20, i1 false), !tbaa.struct !50
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %0, ptr noundef nonnull align 4 dereferenceable(20) %100, i64 20, i1 false), !tbaa.struct !50
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %100, ptr noundef nonnull align 4 dereferenceable(20) %6, i64 20, i1 false), !tbaa.struct !50
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEESF_NSE_IfLin1ELi3ELi1ELin1ELi3EEENSE_IiLin1ELi3ELi1ELin1ELi3EEEEEbRKNSD_10MatrixBaseIT_EERKNSI_IT0_EERKNSI_IT1_EERKNSI_IT2_EERS6_INS3_INSR_6ScalarEEESaIS10_EEEUlRKS4_S15_E_EEEvSJ_SJ_SJ_SJ_SN_.exit.i.preheader
 
 120:                                              ; preds = %117
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %5, ptr noundef nonnull align 4 dereferenceable(20) %0, i64 20, i1 false), !tbaa.struct !50
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %0, ptr noundef nonnull align 4 dereferenceable(20) %99, i64 20, i1 false), !tbaa.struct !50
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %99, ptr noundef nonnull align 4 dereferenceable(20) %5, i64 20, i1 false), !tbaa.struct !50
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEESF_NSE_IfLin1ELi3ELi1ELin1ELi3EEENSE_IiLin1ELi3ELi1ELin1ELi3EEEEEbRKNSD_10MatrixBaseIT_EERKNSI_IT0_EERKNSI_IT1_EERKNSI_IT2_EERS6_INS3_INSR_6ScalarEEESaIS10_EEEUlRKS4_S15_E_EEEvSJ_SJ_SJ_SJ_SN_.exit.i.preheader
 
 _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEESF_NSE_IfLin1ELi3ELi1ELin1ELi3EEENSE_IiLin1ELi3ELi1ELin1ELi3EEEEEbRKNSD_10MatrixBaseIT_EERKNSI_IT0_EERKNSI_IT1_EERKNSI_IT2_EERS6_INS3_INSR_6ScalarEEESaIS10_EEEUlRKS4_S15_E_EEEvSJ_SJ_SJ_SJ_SN_.exit.i.preheader: ; preds = %120, %119, %116, %113, %112, %109
@@ -3665,11 +3659,11 @@ _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vec
   br i1 %131, label %132, label %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEESF_NSE_IfLin1ELi3ELi1ELin1ELi3EEENSE_IiLin1ELi3ELi1ELin1ELi3EEEEEbRKNSD_10MatrixBaseIT_EERKNSI_IT0_EERKNSI_IT1_EERKNSI_IT2_EERS6_INS3_INSR_6ScalarEEESaIS10_EEEUlRKS4_S15_E_EEESJ_SJ_SJ_SN_.exit
 
 132:                                              ; preds = %130
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %4, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.010.1.i.i, i64 20, i1 false), !tbaa.struct !50
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.010.1.i.i, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.0.1.i.i, i64 20, i1 false), !tbaa.struct !50
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.0.1.i.i, ptr noundef nonnull align 4 dereferenceable(20) %4, i64 20, i1 false), !tbaa.struct !50
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEESF_NSE_IfLin1ELi3ELi1ELin1ELi3EEENSE_IiLin1ELi3ELi1ELin1ELi3EEEEEbRKNSD_10MatrixBaseIT_EERKNSI_IT0_EERKNSI_IT1_EERKNSI_IT2_EERS6_INS3_INSR_6ScalarEEESaIS10_EEEUlRKS4_S15_E_EEEvSJ_SJ_SJ_SJ_SN_.exit.i, !llvm.loop !117
 
 _ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEESF_NSE_IfLin1ELi3ELi1ELin1ELi3EEENSE_IiLin1ELi3ELi1ELin1ELi3EEEEEbRKNSD_10MatrixBaseIT_EERKNSI_IT0_EERKNSI_IT1_EERKNSI_IT2_EERS6_INS3_INSR_6ScalarEEESaIS10_EEEUlRKS4_S15_E_EEESJ_SJ_SJ_SN_.exit: ; preds = %130
@@ -3712,7 +3706,7 @@ define linkonce_odr dso_local void @_ZSt22__final_insertion_sortIN9__gnu_cxx17__
   br i1 %14, label %15, label %20
 
 15:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %4, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.0.019.i.ptr, i64 20, i1 false), !tbaa.struct !50
   %16 = icmp samesign ugt i64 %.sroa.0.019.i.idx, 20
   br i1 %16, label %17, label %18, !prof !83
@@ -3728,11 +3722,11 @@ define linkonce_odr dso_local void @_ZSt22__final_insertion_sortIN9__gnu_cxx17__
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i: ; preds = %18, %17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %0, ptr noundef nonnull align 4 dereferenceable(20) %4, i64 20, i1 false), !tbaa.struct !50
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %27
 
 20:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.03.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.03.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.03.i.i, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.0.019.i.ptr, i64 16, i1 false), !tbaa.struct !50
   %21 = getelementptr inbounds nuw i8, ptr %.pn18.i, i64 16
   %22 = load float, ptr %21, align 4, !tbaa !87
@@ -3753,7 +3747,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.06.0.lcssa.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.03.i.i, i64 16, i1 false), !tbaa.struct !50
   %.sroa.4.0..sroa_idx4.i.i = getelementptr inbounds nuw i8, ptr %.sroa.06.0.lcssa.i.i, i64 16
   store float %12, ptr %.sroa.4.0..sroa_idx4.i.i, align 4, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.03.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.03.i.i)
   br label %27
 
 27:                                               ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEESF_NSE_IfLin1ELi3ELi1ELin1ELi3EEENSE_IiLin1ELi3ELi1ELin1ELi3EEEEEbRKNSD_10MatrixBaseIT_EERKNSI_IT0_EERKNSI_IT1_EERKNSI_IT2_EERS6_INS3_INSR_6ScalarEEESaIS10_EEEUlRKS4_S15_E_EEEvSJ_SN_.exit.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i
@@ -3768,7 +3762,7 @@ _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4
 
 .lr.ph.i13:                                       ; preds = %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEESF_NSE_IfLin1ELi3ELi1ELin1ELi3EEENSE_IiLin1ELi3ELi1ELin1ELi3EEEEEbRKNSD_10MatrixBaseIT_EERKNSI_IT0_EERKNSI_IT1_EERKNSI_IT2_EERS6_INS3_INSR_6ScalarEEESaIS10_EEEUlRKS4_S15_E_EEEvSJ_SJ_SN_.exit, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEESF_NSE_IfLin1ELi3ELi1ELin1ELi3EEENSE_IiLin1ELi3ELi1ELin1ELi3EEEEEbRKNSD_10MatrixBaseIT_EERKNSI_IT0_EERKNSI_IT1_EERKNSI_IT2_EERS6_INS3_INSR_6ScalarEEESaIS10_EEEUlRKS4_S15_E_EEEvSJ_SN_.exit.i14
   %.sroa.0.07.i = phi ptr [ %35, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEESF_NSE_IfLin1ELi3ELi1ELin1ELi3EEENSE_IiLin1ELi3ELi1ELin1ELi3EEEEEbRKNSD_10MatrixBaseIT_EERKNSI_IT0_EERKNSI_IT1_EERKNSI_IT2_EERS6_INS3_INSR_6ScalarEEESaIS10_EEEUlRKS4_S15_E_EEEvSJ_SN_.exit.i14 ], [ %28, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEESF_NSE_IfLin1ELi3ELi1ELin1ELi3EEENSE_IiLin1ELi3ELi1ELin1ELi3EEEEEbRKNSD_10MatrixBaseIT_EERKNSI_IT0_EERKNSI_IT1_EERKNSI_IT2_EERS6_INS3_INSR_6ScalarEEESaIS10_EEEUlRKS4_S15_E_EEEvSJ_SJ_SN_.exit ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.03.i.i12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.03.i.i12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.03.i.i12, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.0.07.i, i64 16, i1 false), !tbaa.struct !50
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.sroa.0.07.i, i64 16
   %.sroa.4.0.copyload.i.i = load float, ptr %.sroa.4.0..sroa_idx.i.i, align 4, !tbaa !51
@@ -3791,7 +3785,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.06.0.lcssa.i.i15, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.03.i.i12, i64 16, i1 false), !tbaa.struct !50
   %.sroa.4.0..sroa_idx4.i.i16 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.lcssa.i.i15, i64 16
   store float %.sroa.4.0.copyload.i.i, ptr %.sroa.4.0..sroa_idx4.i.i16, align 4, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.03.i.i12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.03.i.i12)
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.0.07.i, i64 20
   %.not.i17 = icmp eq ptr %35, %1
   br i1 %.not.i17, label %_ZSt26__unguarded_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEESF_NSE_IfLin1ELi3ELi1ELin1ELi3EEENSE_IiLin1ELi3ELi1ELin1ELi3EEEEEbRKNSD_10MatrixBaseIT_EERKNSI_IT0_EERKNSI_IT1_EERKNSI_IT2_EERS6_INS3_INSR_6ScalarEEESaIS10_EEEUlRKS4_S15_E_EEEvSJ_SJ_SN_.exit, label %.lr.ph.i13, !llvm.loop !121
@@ -3819,7 +3813,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6
   br i1 %43, label %44, label %55
 
 44:                                               ; preds = %39
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %3, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.0.019.i26, i64 20, i1 false), !tbaa.struct !50
   %45 = ptrtoint ptr %.sroa.0.019.i26 to i64
   %46 = sub i64 %45, %6
@@ -3845,11 +3839,11 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i36: ; preds = %53, %51, %48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %0, ptr noundef nonnull align 4 dereferenceable(20) %3, i64 20, i1 false), !tbaa.struct !50
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %62
 
 55:                                               ; preds = %39
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.03.i.i21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.03.i.i21)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.03.i.i21, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.0.019.i26, i64 16, i1 false), !tbaa.struct !50
   %56 = getelementptr inbounds nuw i8, ptr %.pn18.i27, i64 16
   %57 = load float, ptr %56, align 4, !tbaa !87
@@ -3870,7 +3864,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.06.0.lcssa.i.i29, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.03.i.i21, i64 16, i1 false), !tbaa.struct !50
   %.sroa.4.0..sroa_idx4.i.i30 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.lcssa.i.i29, i64 16
   store float %41, ptr %.sroa.4.0..sroa_idx4.i.i30, align 4, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.03.i.i21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.03.i.i21)
   br label %62
 
 62:                                               ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEESF_NSE_IfLin1ELi3ELi1ELin1ELi3EEENSE_IiLin1ELi3ELi1ELin1ELi3EEEEEbRKNSD_10MatrixBaseIT_EERKNSI_IT0_EERKNSI_IT1_EERKNSI_IT2_EERS6_INS3_INSR_6ScalarEEESaIS10_EEEUlRKS4_S15_E_EEEvSJ_SN_.exit.i28, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIfEESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i36
@@ -3929,7 +3923,7 @@ define linkonce_odr dso_local void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal
 31:                                               ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIdEESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESF_NSE_IdLin1ELin1ELi0ELin1ELin1EEENSE_IiLin1ELin1ELi0ELin1ELin1EEEEEbRKNSD_10MatrixBaseIT_EERKNSI_IT0_EERKNSI_IT1_EERKNSI_IT2_EERS6_INS3_INSR_6ScalarEEESaIS10_EEEUlRKS4_S15_E_EEEvSJ_SN_SN_SR_SV_.exit.i.i, %._crit_edge
   %.08.i.i = phi i64 [ %23, %._crit_edge ], [ %57, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIdEESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESF_NSE_IdLin1ELin1ELi0ELin1ELin1EEENSE_IiLin1ELin1ELi0ELin1ELin1EEEEEbRKNSD_10MatrixBaseIT_EERKNSI_IT0_EERKNSI_IT1_EERKNSI_IT2_EERS6_INS3_INSR_6ScalarEEESaIS10_EEEUlRKS4_S15_E_EEEvSJ_SN_SN_SR_SV_.exit.i.i ]
   %32 = getelementptr inbounds %"struct.igl::Hit", ptr %0, i64 %.08.i.i
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.014.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.014.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.014.i.i, ptr noundef nonnull align 8 dereferenceable(24) %32, i64 24, i1 false)
   %.sroa.417.0..sroa.0.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %32, i64 24
   %.sroa.417.0.copyload.i.i = load double, ptr %.sroa.417.0..sroa.0.0..sroa_idx.i.i, align 8, !tbaa !16
@@ -3990,7 +3984,7 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIdEESt6vectorIS4_Sa
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %56, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.014.i.i, i64 24, i1 false)
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %56, i64 24
   store double %.sroa.417.0.copyload.i.i, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.014.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.014.i.i)
   %.not.i.i = icmp eq i64 %.08.i.i, 0
   %57 = add nsw i64 %.08.i.i, -1
   br i1 %.not.i.i, label %_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIdEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESF_NSE_IdLin1ELin1ELi0ELin1ELin1EEENSE_IiLin1ELin1ELi0ELin1ELin1EEEEEbRKNSD_10MatrixBaseIT_EERKNSI_IT0_EERKNSI_IT1_EERKNSI_IT2_EERS6_INS3_INSR_6ScalarEEESaIS10_EEEUlRKS4_S15_E_EEEvSJ_SJ_SJ_SN_.exit, label %31, !llvm.loop !125
@@ -4002,7 +3996,7 @@ _ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIdEESt6vectorIS4_Sa
 .lr.ph.i.i:                                       ; preds = %_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIdEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESF_NSE_IdLin1ELin1ELi0ELin1ELin1EEENSE_IiLin1ELin1ELi0ELin1ELin1EEEEEbRKNSD_10MatrixBaseIT_EERKNSI_IT0_EERKNSI_IT1_EERKNSI_IT2_EERS6_INS3_INSR_6ScalarEEESaIS10_EEEUlRKS4_S15_E_EEEvSJ_SJ_SJ_SN_.exit, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIdEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESF_NSE_IdLin1ELin1ELi0ELin1ELin1EEENSE_IiLin1ELin1ELi0ELin1ELin1EEEEEbRKNSD_10MatrixBaseIT_EERKNSI_IT0_EERKNSI_IT1_EERKNSI_IT2_EERS6_INS3_INSR_6ScalarEEESaIS10_EEEUlRKS4_S15_E_EEEvSJ_SJ_SJ_RSN_.exit.i.i
   %.sroa.0.05.i.i = phi ptr [ %59, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIdEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESF_NSE_IdLin1ELin1ELi0ELin1ELin1EEENSE_IiLin1ELin1ELi0ELin1ELin1EEEEEbRKNSD_10MatrixBaseIT_EERKNSI_IT0_EERKNSI_IT1_EERKNSI_IT2_EERS6_INS3_INSR_6ScalarEEESaIS10_EEEUlRKS4_S15_E_EEEvSJ_SJ_SJ_RSN_.exit.i.i ], [ %storemerge27.lcssa, %_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIdEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESF_NSE_IdLin1ELin1ELi0ELin1ELin1EEENSE_IiLin1ELin1ELi0ELin1ELin1EEEEEbRKNSD_10MatrixBaseIT_EERKNSI_IT0_EERKNSI_IT1_EERKNSI_IT2_EERS6_INS3_INSR_6ScalarEEESaIS10_EEEUlRKS4_S15_E_EEEvSJ_SJ_SJ_SN_.exit ]
   %59 = getelementptr inbounds i8, ptr %.sroa.0.05.i.i, i64 -32
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.06.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.06.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.06.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %59, i64 24, i1 false)
   %.sroa.49.0..sroa.0.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.05.i.i, i64 -8
   %.sroa.49.0.copyload.i.i.i = load double, ptr %.sroa.49.0..sroa.0.0..sroa_idx.i.i.i, align 8, !tbaa !16
@@ -4082,7 +4076,7 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIdEESt6vectorIS4_SaIS4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %94, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.06.i.i.i, i64 24, i1 false)
   %.sroa.4.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %94, i64 24
   store double %.sroa.49.0.copyload.i.i.i, ptr %.sroa.4.0..sroa_idx.i.i.i.i, align 8, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.06.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.06.i.i.i)
   %95 = icmp sgt i64 %61, 32
   br i1 %95, label %.lr.ph.i.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIdEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESF_NSE_IdLin1ELin1ELi0ELin1ELin1EEENSE_IiLin1ELin1ELi0ELin1ELin1EEEEEbRKNSD_10MatrixBaseIT_EERKNSI_IT0_EERKNSI_IT1_EERKNSI_IT2_EERS6_INS3_INSR_6ScalarEEESaIS10_EEEUlRKS4_S15_E_EEEvSJ_SJ_SJ_SN_.exit, !llvm.loop !126
 
@@ -4107,11 +4101,11 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIdEESt6vectorIS4_SaIS4
   br i1 %108, label %109, label %110
 
 109:                                              ; preds = %107
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false), !tbaa.struct !13
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %99, i64 32, i1 false), !tbaa.struct !13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %99, ptr noundef nonnull align 8 dereferenceable(32) %10, i64 32, i1 false), !tbaa.struct !13
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIdEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESF_NSE_IdLin1ELin1ELi0ELin1ELin1EEENSE_IiLin1ELin1ELi0ELin1ELin1EEEEEbRKNSD_10MatrixBaseIT_EERKNSI_IT0_EERKNSI_IT1_EERKNSI_IT2_EERS6_INS3_INSR_6ScalarEEESaIS10_EEEUlRKS4_S15_E_EEEvSJ_SJ_SJ_SJ_SN_.exit.i.preheader
 
 110:                                              ; preds = %107
@@ -4119,19 +4113,19 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIdEESt6vectorIS4_SaIS4
   br i1 %111, label %112, label %113
 
 112:                                              ; preds = %110
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false), !tbaa.struct !13
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %100, i64 32, i1 false), !tbaa.struct !13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %100, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false), !tbaa.struct !13
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIdEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESF_NSE_IdLin1ELin1ELi0ELin1ELin1EEENSE_IiLin1ELin1ELi0ELin1ELin1EEEEEbRKNSD_10MatrixBaseIT_EERKNSI_IT0_EERKNSI_IT1_EERKNSI_IT2_EERS6_INS3_INSR_6ScalarEEESaIS10_EEEUlRKS4_S15_E_EEEvSJ_SJ_SJ_SJ_SN_.exit.i.preheader
 
 113:                                              ; preds = %110
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false), !tbaa.struct !13
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %16, i64 32, i1 false), !tbaa.struct !13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false), !tbaa.struct !13
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIdEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESF_NSE_IdLin1ELin1ELi0ELin1ELin1EEENSE_IiLin1ELin1ELi0ELin1ELin1EEEEEbRKNSD_10MatrixBaseIT_EERKNSI_IT0_EERKNSI_IT1_EERKNSI_IT2_EERS6_INS3_INSR_6ScalarEEESaIS10_EEEUlRKS4_S15_E_EEEvSJ_SJ_SJ_SJ_SN_.exit.i.preheader
 
 114:                                              ; preds = %.lr.ph49
@@ -4139,11 +4133,11 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIdEESt6vectorIS4_SaIS4
   br i1 %115, label %116, label %117
 
 116:                                              ; preds = %114
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false), !tbaa.struct !13
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %16, i64 32, i1 false), !tbaa.struct !13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false), !tbaa.struct !13
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIdEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESF_NSE_IdLin1ELin1ELi0ELin1ELin1EEENSE_IiLin1ELin1ELi0ELin1ELin1EEEEEbRKNSD_10MatrixBaseIT_EERKNSI_IT0_EERKNSI_IT1_EERKNSI_IT2_EERS6_INS3_INSR_6ScalarEEESaIS10_EEEUlRKS4_S15_E_EEEvSJ_SJ_SJ_SJ_SN_.exit.i.preheader
 
 117:                                              ; preds = %114
@@ -4151,19 +4145,19 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIdEESt6vectorIS4_SaIS4
   br i1 %118, label %119, label %120
 
 119:                                              ; preds = %117
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false), !tbaa.struct !13
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %100, i64 32, i1 false), !tbaa.struct !13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %100, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false), !tbaa.struct !13
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIdEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESF_NSE_IdLin1ELin1ELi0ELin1ELin1EEENSE_IiLin1ELin1ELi0ELin1ELin1EEEEEbRKNSD_10MatrixBaseIT_EERKNSI_IT0_EERKNSI_IT1_EERKNSI_IT2_EERS6_INS3_INSR_6ScalarEEESaIS10_EEEUlRKS4_S15_E_EEEvSJ_SJ_SJ_SJ_SN_.exit.i.preheader
 
 120:                                              ; preds = %117
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false), !tbaa.struct !13
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %99, i64 32, i1 false), !tbaa.struct !13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %99, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false), !tbaa.struct !13
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIdEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESF_NSE_IdLin1ELin1ELi0ELin1ELin1EEENSE_IiLin1ELin1ELi0ELin1ELin1EEEEEbRKNSD_10MatrixBaseIT_EERKNSI_IT0_EERKNSI_IT1_EERKNSI_IT2_EERS6_INS3_INSR_6ScalarEEESaIS10_EEEUlRKS4_S15_E_EEEvSJ_SJ_SJ_SJ_SN_.exit.i.preheader
 
 _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIdEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESF_NSE_IdLin1ELin1ELi0ELin1ELin1EEENSE_IiLin1ELin1ELi0ELin1ELin1EEEEEbRKNSD_10MatrixBaseIT_EERKNSI_IT0_EERKNSI_IT1_EERKNSI_IT2_EERS6_INS3_INSR_6ScalarEEESaIS10_EEEUlRKS4_S15_E_EEEvSJ_SJ_SJ_SJ_SN_.exit.i.preheader: ; preds = %120, %119, %116, %113, %112, %109
@@ -4196,11 +4190,11 @@ _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIdEESt6vec
   br i1 %131, label %132, label %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIdEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESF_NSE_IdLin1ELin1ELi0ELin1ELin1EEENSE_IiLin1ELin1ELi0ELin1ELin1EEEEEbRKNSD_10MatrixBaseIT_EERKNSI_IT0_EERKNSI_IT1_EERKNSI_IT2_EERS6_INS3_INSR_6ScalarEEESaIS10_EEEUlRKS4_S15_E_EEESJ_SJ_SJ_SN_.exit
 
 132:                                              ; preds = %130
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.010.1.i.i, i64 32, i1 false), !tbaa.struct !13
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.010.1.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.1.i.i, i64 32, i1 false), !tbaa.struct !13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.1.i.i, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false), !tbaa.struct !13
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIdEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESF_NSE_IdLin1ELin1ELi0ELin1ELin1EEENSE_IiLin1ELin1ELi0ELin1ELin1EEEEEbRKNSD_10MatrixBaseIT_EERKNSI_IT0_EERKNSI_IT1_EERKNSI_IT2_EERS6_INS3_INSR_6ScalarEEESaIS10_EEEUlRKS4_S15_E_EEEvSJ_SJ_SJ_SJ_SN_.exit.i, !llvm.loop !129
 
 _ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIdEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESF_NSE_IdLin1ELin1ELi0ELin1ELin1EEENSE_IiLin1ELin1ELi0ELin1ELin1EEEEEbRKNSD_10MatrixBaseIT_EERKNSI_IT0_EERKNSI_IT1_EERKNSI_IT2_EERS6_INS3_INSR_6ScalarEEESaIS10_EEEUlRKS4_S15_E_EEESJ_SJ_SJ_SN_.exit: ; preds = %130
@@ -4244,7 +4238,7 @@ define linkonce_odr dso_local void @_ZSt22__final_insertion_sortIN9__gnu_cxx17__
   br i1 %14, label %15, label %20
 
 15:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.019.i.ptr, i64 32, i1 false), !tbaa.struct !13
   %16 = icmp samesign ugt i64 %.sroa.0.019.i.idx, 32
   br i1 %16, label %17, label %18, !prof !83
@@ -4260,11 +4254,11 @@ define linkonce_odr dso_local void @_ZSt22__final_insertion_sortIN9__gnu_cxx17__
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIdEESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i: ; preds = %18, %17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false), !tbaa.struct !13
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %27
 
 20:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.03.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.03.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.03.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.019.i.ptr, i64 24, i1 false), !tbaa.struct !13
   %21 = getelementptr inbounds nuw i8, ptr %.pn18.i, i64 24
   %22 = load double, ptr %21, align 8, !tbaa !74
@@ -4285,7 +4279,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIdEESt6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.06.0.lcssa.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.03.i.i, i64 24, i1 false), !tbaa.struct !13
   %.sroa.4.0..sroa_idx4.i.i = getelementptr inbounds nuw i8, ptr %.sroa.06.0.lcssa.i.i, i64 24
   store double %12, ptr %.sroa.4.0..sroa_idx4.i.i, align 8, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.03.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.03.i.i)
   br label %27
 
 27:                                               ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIdEESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESF_NSE_IdLin1ELin1ELi0ELin1ELin1EEENSE_IiLin1ELin1ELi0ELin1ELin1EEEEEbRKNSD_10MatrixBaseIT_EERKNSI_IT0_EERKNSI_IT1_EERKNSI_IT2_EERS6_INS3_INSR_6ScalarEEESaIS10_EEEUlRKS4_S15_E_EEEvSJ_SN_.exit.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIdEESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i
@@ -4300,7 +4294,7 @@ _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIdEESt6vectorIS4
 
 .lr.ph.i13:                                       ; preds = %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIdEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESF_NSE_IdLin1ELin1ELi0ELin1ELin1EEENSE_IiLin1ELin1ELi0ELin1ELin1EEEEEbRKNSD_10MatrixBaseIT_EERKNSI_IT0_EERKNSI_IT1_EERKNSI_IT2_EERS6_INS3_INSR_6ScalarEEESaIS10_EEEUlRKS4_S15_E_EEEvSJ_SJ_SN_.exit, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIdEESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESF_NSE_IdLin1ELin1ELi0ELin1ELin1EEENSE_IiLin1ELin1ELi0ELin1ELin1EEEEEbRKNSD_10MatrixBaseIT_EERKNSI_IT0_EERKNSI_IT1_EERKNSI_IT2_EERS6_INS3_INSR_6ScalarEEESaIS10_EEEUlRKS4_S15_E_EEEvSJ_SN_.exit.i14
   %.sroa.0.07.i = phi ptr [ %35, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIdEESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESF_NSE_IdLin1ELin1ELi0ELin1ELin1EEENSE_IiLin1ELin1ELi0ELin1ELin1EEEEEbRKNSD_10MatrixBaseIT_EERKNSI_IT0_EERKNSI_IT1_EERKNSI_IT2_EERS6_INS3_INSR_6ScalarEEESaIS10_EEEUlRKS4_S15_E_EEEvSJ_SN_.exit.i14 ], [ %28, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIdEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESF_NSE_IdLin1ELin1ELi0ELin1ELin1EEENSE_IiLin1ELin1ELi0ELin1ELin1EEEEEbRKNSD_10MatrixBaseIT_EERKNSI_IT0_EERKNSI_IT1_EERKNSI_IT2_EERS6_INS3_INSR_6ScalarEEESaIS10_EEEUlRKS4_S15_E_EEEvSJ_SJ_SN_.exit ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.03.i.i12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.03.i.i12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.03.i.i12, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.07.i, i64 24, i1 false), !tbaa.struct !13
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.sroa.0.07.i, i64 24
   %.sroa.4.0.copyload.i.i = load double, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !tbaa !16
@@ -4323,7 +4317,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIdEESt6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.06.0.lcssa.i.i15, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.03.i.i12, i64 24, i1 false), !tbaa.struct !13
   %.sroa.4.0..sroa_idx4.i.i16 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.lcssa.i.i15, i64 24
   store double %.sroa.4.0.copyload.i.i, ptr %.sroa.4.0..sroa_idx4.i.i16, align 8, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.03.i.i12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.03.i.i12)
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.0.07.i, i64 32
   %.not.i17 = icmp eq ptr %35, %1
   br i1 %.not.i17, label %_ZSt26__unguarded_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIdEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESF_NSE_IdLin1ELin1ELi0ELin1ELin1EEENSE_IiLin1ELin1ELi0ELin1ELin1EEEEEbRKNSD_10MatrixBaseIT_EERKNSI_IT0_EERKNSI_IT1_EERKNSI_IT2_EERS6_INS3_INSR_6ScalarEEESaIS10_EEEUlRKS4_S15_E_EEEvSJ_SJ_SN_.exit, label %.lr.ph.i13, !llvm.loop !132
@@ -4351,7 +4345,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIdEESt6
   br i1 %43, label %44, label %57
 
 44:                                               ; preds = %39
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.019.i26, i64 32, i1 false), !tbaa.struct !13
   %45 = ptrtoint ptr %.sroa.0.019.i26 to i64
   %46 = sub i64 %45, %6
@@ -4377,11 +4371,11 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIdEESt6
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIdEESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i36: ; preds = %55, %53, %49
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false), !tbaa.struct !13
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %64
 
 57:                                               ; preds = %39
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.03.i.i21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.03.i.i21)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.03.i.i21, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.019.i26, i64 24, i1 false), !tbaa.struct !13
   %58 = getelementptr inbounds nuw i8, ptr %.pn18.i27, i64 24
   %59 = load double, ptr %58, align 8, !tbaa !74
@@ -4402,7 +4396,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIdEESt6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.06.0.lcssa.i.i29, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.03.i.i21, i64 24, i1 false), !tbaa.struct !13
   %.sroa.4.0..sroa_idx4.i.i30 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.lcssa.i.i29, i64 24
   store double %41, ptr %.sroa.4.0..sroa_idx4.i.i30, align 8, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.03.i.i21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.03.i.i21)
   br label %64
 
 64:                                               ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIdEESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESF_NSE_IdLin1ELin1ELi0ELin1ELin1EEENSE_IiLin1ELin1ELi0ELin1ELin1EEEEEbRKNSD_10MatrixBaseIT_EERKNSI_IT0_EERKNSI_IT1_EERKNSI_IT2_EERS6_INS3_INSR_6ScalarEEESaIS10_EEEUlRKS4_S15_E_EEEvSJ_SN_.exit.i28, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIdEESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i36
@@ -4413,6 +4407,12 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIdEESt6
 _ZSt26__unguarded_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIdEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESF_NSE_IdLin1ELin1ELi0ELin1ELin1EEENSE_IiLin1ELin1ELi0ELin1ELin1EEEEEbRKNSD_10MatrixBaseIT_EERKNSI_IT0_EERKNSI_IT1_EERKNSI_IT2_EERS6_INS3_INSR_6ScalarEEESaIS10_EEEUlRKS4_S15_E_EEEvSJ_SJ_SN_.exit: ; preds = %64, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIdEESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESF_NSE_IdLin1ELin1ELi0ELin1ELin1EEENSE_IiLin1ELin1ELi0ELin1ELin1EEEEEbRKNSD_10MatrixBaseIT_EERKNSI_IT0_EERKNSI_IT1_EERKNSI_IT2_EERS6_INS3_INSR_6ScalarEEESaIS10_EEEUlRKS4_S15_E_EEEvSJ_SN_.exit.i14, %.preheader.i22, %36, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN3igl3HitIdEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_18ray_mesh_intersectIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESF_NSE_IdLin1ELin1ELi0ELin1ELin1EEENSE_IiLin1ELin1ELi0ELin1ELin1EEEEEbRKNSD_10MatrixBaseIT_EERKNSI_IT0_EERKNSI_IT1_EERKNSI_IT2_EERS6_INS3_INSR_6ScalarEEESaIS10_EEEUlRKS4_S15_E_EEEvSJ_SJ_SN_.exit
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #9
@@ -4427,21 +4427,20 @@ declare void @llvm.assume(i1 noundef) #10
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #1 = { mustprogress uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #10 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #12 = { builtin allocsize(0) }
 attributes #13 = { builtin nounwind }
-attributes #14 = { nounwind }
-attributes #15 = { noreturn }
+attributes #14 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

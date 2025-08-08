@@ -227,7 +227,7 @@ _ZL12printspecialPcim.exit:                       ; preds = %13, %19
 _ZL9schubfachim.exit:                             ; preds = %37, %149, %160
   %.sroa.0.0.i = phi i64 [ %38, %37 ], [ %172, %160 ], [ %158, %149 ]
   %.sroa.4.0.i = phi i32 [ 0, %37 ], [ %52, %160 ], [ %159, %149 ]
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %173 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %174 = icmp samesign ugt i64 %.sroa.0.0.i, 9999
   br i1 %174, label %.lr.ph.i, label %._crit_edge.i78
@@ -427,7 +427,7 @@ _ZL8printexpPci.exit:                             ; preds = %_Z8trimzeroPc.exit8
 
 _Z8trimzeroPc.exit:                               ; preds = %239, %220, %_ZL8printexpPci.exit, %243, %226
   %.1 = phi ptr [ %228, %226 ], [ %247, %243 ], [ %278, %_ZL8printexpPci.exit ], [ %.0.i80, %220 ], [ %.0.i81, %239 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %279
 
 279:                                              ; preds = %_Z8trimzeroPc.exit, %25, %_ZL12printspecialPcim.exit
@@ -435,27 +435,26 @@ _Z8trimzeroPc.exit:                               ; preds = %239, %220, %_ZL8pri
   ret ptr %.071
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #4
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

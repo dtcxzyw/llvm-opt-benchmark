@@ -101,24 +101,18 @@ define internal range(i32 0, 2) i32 @aead_chacha20_poly1305_open(ptr noundef rea
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
-declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
-declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @seal_impl(ptr noundef readonly captures(none) %0, ptr %.8.val, ptr noundef %1, ptr noundef writeonly captures(none) %2, i64 noundef %3, ptr noundef %4, ptr noundef %5, i64 noundef %6, ptr noundef %7, i64 noundef %8) unnamed_addr #1 {
@@ -146,16 +140,16 @@ define internal fastcc range(i32 0, 2) i32 @seal_impl(ptr noundef readonly captu
 
 22:                                               ; preds = %15
   tail call void @CRYPTO_chacha_20(ptr noundef %1, ptr noundef %5, i64 noundef %6, ptr noundef nonnull %.8.val, ptr noundef %4, i32 noundef 1) #8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %10, i8 0, i64 32, i1 false)
   call void @CRYPTO_chacha_20(ptr noundef nonnull %10, ptr noundef nonnull %10, i64 noundef 32, ptr noundef nonnull %.8.val, ptr noundef %4, i32 noundef 0) #8
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %11) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @CRYPTO_poly1305_init(ptr noundef nonnull %11, ptr noundef nonnull %10) #8
   call void %0(ptr noundef nonnull %11, ptr noundef %7, i64 noundef %8, ptr noundef %1, i64 noundef range(i64 -255, 274877906880) %6) #8, !callees !14
   call void @CRYPTO_poly1305_finish(ptr noundef nonnull %11, ptr noundef nonnull %12) #8
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %11) #8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 %6
   %24 = load i8, ptr %16, align 1, !tbaa !6
   %25 = zext i8 %24 to i64
@@ -164,7 +158,7 @@ define internal fastcc range(i32 0, 2) i32 @seal_impl(ptr noundef readonly captu
   %27 = zext i8 %26 to i64
   %28 = add nuw nsw i64 %6, %27
   store i64 %28, ptr %2, align 8, !tbaa !15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %29
 
 29:                                               ; preds = %22, %21, %14
@@ -198,7 +192,7 @@ poly1305_update_padded_16.exit:                   ; preds = %5, %9
   br label %poly1305_update_padded_16.exit10
 
 poly1305_update_padded_16.exit10:                 ; preds = %poly1305_update_padded_16.exit, %12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %14
 
 14:                                               ; preds = %14, %poly1305_update_padded_16.exit10
@@ -214,8 +208,8 @@ poly1305_update_padded_16.exit10:                 ; preds = %poly1305_update_pad
 
 poly1305_update_length.exit:                      ; preds = %14
   call void @CRYPTO_poly1305_update(ptr noundef %0, ptr noundef nonnull %7, i64 noundef 8) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br label %18
 
 18:                                               ; preds = %18, %poly1305_update_length.exit
@@ -231,20 +225,20 @@ poly1305_update_length.exit:                      ; preds = %14
 
 poly1305_update_length.exit15:                    ; preds = %18
   call void @CRYPTO_poly1305_update(ptr noundef %0, ptr noundef nonnull %6, i64 noundef 8) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
-declare void @CRYPTO_chacha_20(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @CRYPTO_chacha_20(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
-declare void @CRYPTO_poly1305_init(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @CRYPTO_poly1305_init(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @CRYPTO_poly1305_finish(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @CRYPTO_poly1305_finish(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @CRYPTO_poly1305_update(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @CRYPTO_poly1305_update(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @open_impl(ptr noundef readonly captures(none) %0, ptr %.8.val, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, i64 noundef %7) unnamed_addr #1 {
@@ -271,16 +265,16 @@ define internal fastcc range(i32 0, 2) i32 @open_impl(ptr noundef readonly captu
 
 20:                                               ; preds = %17
   %21 = sub nsw i64 %5, %14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %9, i8 0, i64 32, i1 false)
   call void @CRYPTO_chacha_20(ptr noundef nonnull %9, ptr noundef nonnull %9, i64 noundef 32, ptr noundef nonnull %.8.val, ptr noundef %3, i32 noundef 0) #8
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %10) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @CRYPTO_poly1305_init(ptr noundef nonnull %10, ptr noundef nonnull %9) #8
   call void %0(ptr noundef nonnull %10, ptr noundef %6, i64 noundef %7, ptr noundef %4, i64 noundef range(i64 -255, 274877906880) %21) #8, !callees !14
   call void @CRYPTO_poly1305_finish(ptr noundef nonnull %10, ptr noundef nonnull %11) #8
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %10) #8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 %21
   %23 = load i8, ptr %12, align 1, !tbaa !6
   %24 = zext i8 %23 to i64
@@ -299,7 +293,7 @@ define internal fastcc range(i32 0, 2) i32 @open_impl(ptr noundef readonly captu
 
 28:                                               ; preds = %27, %26
   %.1 = phi i32 [ 0, %26 ], [ 1, %27 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %29
 
 29:                                               ; preds = %28, %19, %16
@@ -307,7 +301,7 @@ define internal fastcc range(i32 0, 2) i32 @open_impl(ptr noundef readonly captu
   ret i32 %.0
 }
 
-declare i32 @CRYPTO_memcmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @CRYPTO_memcmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @aead_chacha20_poly1305_old_seal(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, i64 noundef %3, ptr noundef readonly captures(none) %4, i64 noundef %5, ptr noundef %6, i64 noundef %7, ptr noundef %8, i64 noundef %9) #1 {
@@ -320,7 +314,7 @@ define internal range(i32 0, 2) i32 @aead_chacha20_poly1305_old_seal(ptr noundef
   br label %18
 
 13:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %11) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 0, ptr %11, align 4
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %15 = load i64, ptr %4, align 1
@@ -328,7 +322,7 @@ define internal range(i32 0, 2) i32 @aead_chacha20_poly1305_old_seal(ptr noundef
   %16 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %16, align 8, !tbaa !10
   %17 = call fastcc i32 @seal_impl(ptr noundef nonnull @poly1305_update_old, ptr %.val, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef nonnull %11, ptr noundef %6, i64 noundef %7, ptr noundef %8, i64 noundef %9)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %11) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %18
 
 18:                                               ; preds = %13, %12
@@ -347,7 +341,7 @@ define internal range(i32 0, 2) i32 @aead_chacha20_poly1305_old_open(ptr noundef
   br label %18
 
 13:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %11) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 0, ptr %11, align 4
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %15 = load i64, ptr %4, align 1
@@ -355,7 +349,7 @@ define internal range(i32 0, 2) i32 @aead_chacha20_poly1305_old_open(ptr noundef
   %16 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %16, align 8, !tbaa !10
   %17 = call fastcc i32 @open_impl(ptr noundef nonnull @poly1305_update_old, ptr %.val, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %11, ptr noundef %6, i64 noundef %7, ptr noundef %8, i64 noundef %9)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %11) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %18
 
 18:                                               ; preds = %13, %12
@@ -368,7 +362,7 @@ define internal void @poly1305_update_old(ptr noundef %0, ptr noundef %1, i64 no
   %6 = alloca [8 x i8], align 1
   %7 = alloca [8 x i8], align 1
   tail call void @CRYPTO_poly1305_update(ptr noundef %0, ptr noundef %1, i64 noundef %2) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %8
 
 8:                                                ; preds = %8, %5
@@ -384,9 +378,9 @@ define internal void @poly1305_update_old(ptr noundef %0, ptr noundef %1, i64 no
 
 poly1305_update_length.exit:                      ; preds = %8
   call void @CRYPTO_poly1305_update(ptr noundef %0, ptr noundef nonnull %7, i64 noundef 8) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @CRYPTO_poly1305_update(ptr noundef %0, ptr noundef %3, i64 noundef %4) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br label %12
 
 12:                                               ; preds = %12, %poly1305_update_length.exit
@@ -402,18 +396,24 @@ poly1305_update_length.exit:                      ; preds = %8
 
 poly1305_update_length.exit13:                    ; preds = %12
   call void @CRYPTO_poly1305_update(ptr noundef %0, ptr noundef nonnull %6, i64 noundef 8) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
+
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nounwind }
 attributes #9 = { nounwind allocsize(0) }
 

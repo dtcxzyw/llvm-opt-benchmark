@@ -171,11 +171,11 @@ define i32 @evp_pkey_ctx_ctrl_to_param(ptr noundef %0, i32 noundef %1, i32 nound
   %7 = alloca %struct.translation_ctx_st, align 8
   %8 = alloca %struct.translation_st, align 8
   %9 = alloca [2 x %struct.ossl_param_st], align 16
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %7, i8 0, i64 144, i1 false)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %8, i8 0, i64 64, i1 false)
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %9, i8 0, i64 80, i1 false)
   %10 = icmp eq i32 %1, -1
   br i1 %10, label %11, label %14
@@ -287,17 +287,14 @@ define i32 @evp_pkey_ctx_ctrl_to_param(ptr noundef %0, i32 noundef %1, i32 nound
 
 cleanup_translation_ctx.exit:                     ; preds = %57, %.thread44, %29, %21
   %.030 = phi i32 [ -2, %21 ], [ -1, %29 ], [ %.1, %.thread44 ], [ %.1, %57 ]
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %9) #8
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #8
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.030
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @default_fixup_args(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) unnamed_addr #0 {
@@ -440,13 +437,13 @@ define internal i32 @default_fixup_args(i32 noundef %0, ptr noundef readonly cap
 69:                                               ; preds = %66
   %70 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %71 = load ptr, ptr %70, align 8, !tbaa !37
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %73 = load ptr, ptr %72, align 8, !tbaa !42
   %74 = getelementptr inbounds nuw i8, ptr %2, i64 28
   call void @OSSL_PARAM_construct_int(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %4, ptr noundef %73, ptr noundef nonnull %74) #8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %71, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !tbaa.struct !43
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread200
 
 75:                                               ; preds = %66
@@ -489,14 +486,14 @@ define internal i32 @default_fixup_args(i32 noundef %0, ptr noundef readonly cap
 97:                                               ; preds = %89
   %98 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %99 = load ptr, ptr %98, align 8, !tbaa !37
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %100 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %101 = load ptr, ptr %100, align 8, !tbaa !42
   %102 = load ptr, ptr %87, align 8, !tbaa !38
   %103 = load i64, ptr %85, align 8, !tbaa !48
   call void @OSSL_PARAM_construct_BN(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %5, ptr noundef %101, ptr noundef %102, i64 noundef %103) #8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %99, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false), !tbaa.struct !43
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread200
 
 104:                                              ; preds = %78
@@ -509,19 +506,19 @@ define internal i32 @default_fixup_args(i32 noundef %0, ptr noundef readonly cap
 106:                                              ; preds = %75
   %107 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %108 = load ptr, ptr %107, align 8, !tbaa !37
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %109 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %110 = load ptr, ptr %109, align 8, !tbaa !42
   %111 = getelementptr inbounds nuw i8, ptr %2, i64 28
   call void @OSSL_PARAM_construct_uint(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %6, ptr noundef %110, ptr noundef nonnull %111) #8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %108, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false), !tbaa.struct !43
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.thread200
 
 112:                                              ; preds = %66
   %113 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %114 = load ptr, ptr %113, align 8, !tbaa !37
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %115 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %116 = load ptr, ptr %115, align 8, !tbaa !42
   %117 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -531,13 +528,13 @@ define internal i32 @default_fixup_args(i32 noundef %0, ptr noundef readonly cap
   %121 = sext i32 %120 to i64
   call void @OSSL_PARAM_construct_utf8_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %7, ptr noundef %116, ptr noundef %118, i64 noundef %121) #8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %114, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 40, i1 false), !tbaa.struct !43
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread200
 
 122:                                              ; preds = %66
   %123 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %124 = load ptr, ptr %123, align 8, !tbaa !37
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %125 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %126 = load ptr, ptr %125, align 8, !tbaa !42
   %127 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -547,13 +544,13 @@ define internal i32 @default_fixup_args(i32 noundef %0, ptr noundef readonly cap
   %131 = sext i32 %130 to i64
   call void @OSSL_PARAM_construct_utf8_ptr(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %8, ptr noundef %126, ptr noundef %128, i64 noundef %131) #8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %124, ptr noundef nonnull align 8 dereferenceable(40) %8, i64 40, i1 false), !tbaa.struct !43
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.thread200
 
 132:                                              ; preds = %66
   %133 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %134 = load ptr, ptr %133, align 8, !tbaa !37
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %135 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %136 = load ptr, ptr %135, align 8, !tbaa !42
   %137 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -563,13 +560,13 @@ define internal i32 @default_fixup_args(i32 noundef %0, ptr noundef readonly cap
   %141 = sext i32 %140 to i64
   call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %9, ptr noundef %136, ptr noundef %138, i64 noundef %141) #8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %134, ptr noundef nonnull align 8 dereferenceable(40) %9, i64 40, i1 false), !tbaa.struct !43
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.thread200
 
 142:                                              ; preds = %66
   %143 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %144 = load ptr, ptr %143, align 8, !tbaa !37
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %145 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %146 = load ptr, ptr %145, align 8, !tbaa !42
   %147 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -579,7 +576,7 @@ define internal i32 @default_fixup_args(i32 noundef %0, ptr noundef readonly cap
   %151 = sext i32 %150 to i64
   call void @OSSL_PARAM_construct_octet_ptr(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %10, ptr noundef %146, ptr noundef %148, i64 noundef %151) #8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %144, ptr noundef nonnull align 8 dereferenceable(40) %10, i64 40, i1 false), !tbaa.struct !43
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.thread200
 
 152:                                              ; preds = %14
@@ -610,7 +607,7 @@ define internal i32 @default_fixup_args(i32 noundef %0, ptr noundef readonly cap
   %169 = load ptr, ptr %168, align 8, !tbaa !51
   %170 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %171 = load ptr, ptr %170, align 8, !tbaa !35
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 0, ptr %11, align 4, !tbaa !45
   %172 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %173 = load i32, ptr %172, align 8, !tbaa !29
@@ -676,7 +673,7 @@ define internal i32 @default_fixup_args(i32 noundef %0, ptr noundef readonly cap
 
 .thread:                                          ; preds = %174, %186, %197, %195
   %.1.ph = phi i32 [ 0, %195 ], [ -2, %197 ], [ -1, %186 ], [ 0, %174 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.thread200
 
 199:                                              ; preds = %187
@@ -689,7 +686,7 @@ define internal i32 @default_fixup_args(i32 noundef %0, ptr noundef readonly cap
   %205 = load i64, ptr %204, align 8, !tbaa !54
   %206 = getelementptr inbounds nuw i8, ptr %2, i64 136
   store i64 %205, ptr %206, align 8, !tbaa !48
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.thread200
 
 207:                                              ; preds = %14, %14
@@ -914,30 +911,27 @@ define internal i32 @default_fixup_args(i32 noundef %0, ptr noundef readonly cap
   ret i32 %.0157
 }
 
-declare void @ERR_new() local_unnamed_addr #3
+declare void @ERR_new() local_unnamed_addr #2
 
-declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
+declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare i32 @evp_pkey_ctx_get_params_strict(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @evp_pkey_ctx_get_params_strict(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @evp_pkey_ctx_set_params_strict(ptr noundef, ptr noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @evp_pkey_ctx_set_params_strict(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define i32 @evp_pkey_ctx_ctrl_str_to_param(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.translation_ctx_st, align 8
   %5 = alloca %struct.translation_st, align 8
   %6 = alloca [2 x %struct.ossl_param_st], align 16
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %4, i8 0, i64 144, i1 false)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %7, i8 0, i64 48, i1 false)
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %6, i8 0, i64 80, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %9 = load i32, ptr %8, align 4, !tbaa !3
@@ -1021,14 +1015,14 @@ define i32 @evp_pkey_ctx_ctrl_str_to_param(ptr noundef %0, ptr noundef %1, ptr n
   br label %cleanup_translation_ctx.exit
 
 cleanup_translation_ctx.exit:                     ; preds = %44, %47
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.125
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @evp_pkey_ctx_set_params_to_ctrl(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -1073,9 +1067,9 @@ define internal fastcc range(i32 0, 2) i32 @evp_pkey_ctx_setget_params_to_ctrl(p
 .lr.ph54:                                         ; preds = %.lr.ph, %22
   %25 = phi ptr [ %24, %22 ], [ %21, %.lr.ph ]
   %.0364853 = phi ptr [ %23, %22 ], [ %2, %.lr.ph ]
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %4, i8 0, i64 144, i1 false)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %20, i8 0, i64 48, i1 false)
   store i32 %1, ptr %5, align 8, !tbaa !28
   store i32 %1, ptr %10, align 8, !tbaa !29
@@ -1134,8 +1128,8 @@ define internal fastcc range(i32 0, 2) i32 @evp_pkey_ctx_setget_params_to_ctrl(p
   br label %cleanup_translation_ctx.exit
 
 cleanup_translation_ctx.exit:                     ; preds = %44, %49
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %47, label %.critedge, label %22
 
 .critedge.critedge:                               ; preds = %42
@@ -1148,8 +1142,8 @@ cleanup_translation_ctx.exit:                     ; preds = %44, %49
   br label %cleanup_translation_ctx.exit46
 
 cleanup_translation_ctx.exit46:                   ; preds = %.critedge.critedge, %51
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.critedge
 
 .critedge:                                        ; preds = %22, %cleanup_translation_ctx.exit, %.lr.ph, %3, %cleanup_translation_ctx.exit46
@@ -1183,9 +1177,9 @@ define i32 @evp_pkey_get_params_to_ctrl(ptr noundef %0, ptr noundef %1) local_un
 .lr.ph:                                           ; preds = %.lr.ph.i, %cleanup_translation_ctx.exit.i
   %11 = phi ptr [ %23, %cleanup_translation_ctx.exit.i ], [ %10, %.lr.ph.i ]
   %.02242.i4 = phi ptr [ %22, %cleanup_translation_ctx.exit.i ], [ %1, %.lr.ph.i ]
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, i8 0, i64 144, i1 false)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, i8 0, i64 64, i1 false)
   store i32 1, ptr %4, align 8, !tbaa !28
   store ptr %11, ptr %5, align 8, !tbaa !42
@@ -1216,16 +1210,16 @@ define i32 @evp_pkey_get_params_to_ctrl(ptr noundef %0, ptr noundef %1) local_un
   br label %cleanup_translation_ctx.exit.i
 
 cleanup_translation_ctx.exit.i:                   ; preds = %21, %18
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %22 = getelementptr inbounds nuw i8, ptr %.02242.i4, i64 40
   %23 = load ptr, ptr %22, align 8, !tbaa !60
   %.not28.i = icmp eq ptr %23, null
   br i1 %.not28.i, label %evp_pkey_setget_params_to_ctrl.exit, label %.lr.ph
 
 .critedge35.i:                                    ; preds = %13, %.lr.ph
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %evp_pkey_setget_params_to_ctrl.exit
 
 evp_pkey_setget_params_to_ctrl.exit:              ; preds = %cleanup_translation_ctx.exit.i, %.lr.ph.i, %2, %.critedge35.i
@@ -1309,60 +1303,60 @@ define internal fastcc range(i32 -2, 2) i32 @default_check(i32 noundef %0, ptr n
   ret i32 %.0
 }
 
-declare void @OSSL_PARAM_construct_int(ptr dead_on_unwind writable sret(%struct.ossl_param_st) align 8, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @OSSL_PARAM_construct_int(ptr dead_on_unwind writable sret(%struct.ossl_param_st) align 8, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
-declare i32 @BN_num_bits(ptr noundef) local_unnamed_addr #3
+declare i32 @BN_num_bits(ptr noundef) local_unnamed_addr #2
 
-declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @BN_bn2nativepad(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @BN_bn2nativepad(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @OSSL_PARAM_construct_BN(ptr dead_on_unwind writable sret(%struct.ossl_param_st) align 8, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @OSSL_PARAM_construct_BN(ptr dead_on_unwind writable sret(%struct.ossl_param_st) align 8, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @OSSL_PARAM_construct_uint(ptr dead_on_unwind writable sret(%struct.ossl_param_st) align 8, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @OSSL_PARAM_construct_uint(ptr dead_on_unwind writable sret(%struct.ossl_param_st) align 8, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @OSSL_PARAM_construct_utf8_string(ptr dead_on_unwind writable sret(%struct.ossl_param_st) align 8, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @OSSL_PARAM_construct_utf8_string(ptr dead_on_unwind writable sret(%struct.ossl_param_st) align 8, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @OSSL_PARAM_construct_utf8_ptr(ptr dead_on_unwind writable sret(%struct.ossl_param_st) align 8, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @OSSL_PARAM_construct_utf8_ptr(ptr dead_on_unwind writable sret(%struct.ossl_param_st) align 8, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind writable sret(%struct.ossl_param_st) align 8, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind writable sret(%struct.ossl_param_st) align 8, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @OSSL_PARAM_construct_octet_ptr(ptr dead_on_unwind writable sret(%struct.ossl_param_st) align 8, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @OSSL_PARAM_construct_octet_ptr(ptr dead_on_unwind writable sret(%struct.ossl_param_st) align 8, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare i64 @OPENSSL_strlcat(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i64 @OPENSSL_strlcat(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare ptr @EVP_PKEY_CTX_settable_params(ptr noundef) local_unnamed_addr #3
+declare ptr @EVP_PKEY_CTX_settable_params(ptr noundef) local_unnamed_addr #2
 
-declare i32 @OSSL_PARAM_allocate_from_text(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @OSSL_PARAM_allocate_from_text(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @OSSL_PARAM_get_int(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @OSSL_PARAM_get_int(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @OSSL_PARAM_get_BN(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @OSSL_PARAM_get_BN(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @OSSL_PARAM_get_uint(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @OSSL_PARAM_get_uint(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @OSSL_PARAM_get_utf8_string(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @OSSL_PARAM_get_utf8_string(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @OSSL_PARAM_get_octet_string(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @OSSL_PARAM_get_octet_string(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @OSSL_PARAM_get_octet_ptr(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @OSSL_PARAM_get_octet_ptr(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @OSSL_PARAM_set_int(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @OSSL_PARAM_set_int(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @OSSL_PARAM_set_BN(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @OSSL_PARAM_set_BN(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @OSSL_PARAM_set_uint(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @OSSL_PARAM_set_uint(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @OSSL_PARAM_set_utf8_string(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @OSSL_PARAM_set_utf8_string(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @OSSL_PARAM_set_octet_string(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @OSSL_PARAM_set_octet_string(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @OSSL_PARAM_set_octet_ptr(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @OSSL_PARAM_set_octet_ptr(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @lookup_translation(ptr noundef nonnull captures(none) %0, ptr noundef readonly captures(ret: address, provenance) %1, i64 noundef range(i64 41, 87) %2) unnamed_addr #0 {
@@ -1509,7 +1503,7 @@ define internal fastcc ptr @lookup_translation(ptr noundef nonnull captures(none
   ret ptr %.2
 }
 
-declare i32 @OPENSSL_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @OPENSSL_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -2147483648, 2) i32 @fix_distid_len(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) #0 {
@@ -2009,7 +2003,7 @@ define internal i32 @fix_ec_param_enc(i32 noundef %0, ptr noundef readonly captu
 ; Function Attrs: nounwind uwtable
 define internal i32 @fix_ec_paramgen_curve_nid(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !44
   %5 = tail call fastcc i32 @default_check(i32 noundef %0, ptr noundef %1)
   %6 = icmp slt i32 %5, 1
@@ -2063,7 +2057,7 @@ define internal i32 @fix_ec_paramgen_curve_nid(i32 noundef %0, ptr noundef reado
 
 29:                                               ; preds = %24, %20, %7, %3
   %.0 = phi i32 [ %5, %3 ], [ 0, %7 ], [ %21, %20 ], [ %21, %24 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -2237,13 +2231,13 @@ define internal i32 @fix_rsa_padding_mode(i32 noundef %0, ptr noundef readonly c
 17:                                               ; preds = %8
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %19 = load ptr, ptr %18, align 8, !tbaa !37
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %21 = load ptr, ptr %20, align 8, !tbaa !42
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 28
   call void @OSSL_PARAM_construct_int(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %4, ptr noundef %21, ptr noundef nonnull %22) #8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %19, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !tbaa.struct !43
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread74
 
 23:                                               ; preds = %7
@@ -2780,7 +2774,7 @@ fix_cipher_md.exit:                               ; preds = %3, %.critedge.threa
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @fix_group_ecx(i32 noundef %0, ptr readnone captures(none) %1, ptr noundef captures(none) %2) #0 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !44
   switch i32 %0, label %26 [
     i32 7, label %5
@@ -2830,7 +2824,7 @@ define internal range(i32 0, 2) i32 @fix_group_ecx(i32 noundef %0, ptr readnone 
 
 26:                                               ; preds = %3, %5, %24, %22, %9
   %.0 = phi i32 [ 1, %9 ], [ 0, %22 ], [ 1, %24 ], [ 0, %5 ], [ 0, %3 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -3000,42 +2994,42 @@ define internal fastcc i32 @fix_kdf_type(i32 noundef %0, ptr noundef readonly ca
   ret i32 %.052
 }
 
-declare ptr @OBJ_nid2sn(i32 noundef) local_unnamed_addr #3
+declare ptr @OBJ_nid2sn(i32 noundef) local_unnamed_addr #2
 
-declare ptr @EVP_MD_get0_name(ptr noundef) local_unnamed_addr #3
+declare ptr @EVP_MD_get0_name(ptr noundef) local_unnamed_addr #2
 
-declare ptr @evp_get_digestbyname_ex(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @evp_get_digestbyname_ex(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @OBJ_obj2txt(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @OBJ_obj2txt(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @OBJ_txt2obj(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @OBJ_txt2obj(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @ossl_dh_gen_type_id2name(i32 noundef) local_unnamed_addr #3
+declare ptr @ossl_dh_gen_type_id2name(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #6
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #5
 
-declare ptr @ossl_ffc_named_group_get_name(ptr noundef) local_unnamed_addr #3
+declare ptr @ossl_ffc_named_group_get_name(ptr noundef) local_unnamed_addr #2
 
-declare ptr @ossl_ffc_uid_to_dh_named_group(i32 noundef) local_unnamed_addr #3
+declare ptr @ossl_ffc_uid_to_dh_named_group(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
-declare i32 @OBJ_sn2nid(ptr noundef) local_unnamed_addr #3
+declare i32 @OBJ_sn2nid(ptr noundef) local_unnamed_addr #2
 
-declare i32 @BIO_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #3
+declare i32 @BIO_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #7
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #6
 
-declare ptr @EVP_CIPHER_get0_name(ptr noundef) local_unnamed_addr #3
+declare ptr @EVP_CIPHER_get0_name(ptr noundef) local_unnamed_addr #2
 
-declare ptr @evp_get_cipherbyname_ex(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @evp_get_cipherbyname_ex(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @OSSL_PARAM_get_utf8_string_ptr(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @OSSL_PARAM_get_utf8_string_ptr(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @EVP_PKEY_CTX_ctrl(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @EVP_PKEY_CTX_ctrl(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @get_payload_group_name(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) #0 {
@@ -3155,7 +3149,7 @@ define internal i32 @get_payload_public_key(i32 noundef %0, ptr noundef readonly
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %6 = load ptr, ptr %5, align 8, !tbaa !35
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !44
   store ptr null, ptr %5, align 8, !tbaa !35
   %7 = tail call i32 @EVP_PKEY_get_base_id(ptr noundef %6) #8
@@ -3245,7 +3239,7 @@ define internal i32 @get_payload_public_key(i32 noundef %0, ptr noundef readonly
 
 .critedge:                                        ; preds = %36, %30, %21, %8, %47, %46
   %.0 = phi i32 [ 0, %46 ], [ %48, %47 ], [ 0, %8 ], [ 0, %21 ], [ 0, %30 ], [ 0, %36 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -3679,7 +3673,7 @@ define internal i32 @get_rsa_payload_f3(i32 noundef %0, ptr noundef readonly cap
   %12 = load ptr, ptr %5, align 8, !tbaa !35
   %13 = tail call ptr @EVP_PKEY_get0_RSA(ptr noundef %12) #8
   %14 = tail call i32 @RSA_get_multi_prime_extra_count(ptr noundef %13) #8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.not7 = icmp eq i32 %14, 0
   br i1 %.not7, label %.thread, label %15
 
@@ -3689,12 +3683,12 @@ define internal i32 @get_rsa_payload_f3(i32 noundef %0, ptr noundef readonly cap
   br i1 %.not.i, label %.thread, label %17
 
 .thread:                                          ; preds = %15, %11
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %get_rsa_payload_factor.exit
 
 17:                                               ; preds = %15
   %18 = load ptr, ptr %4, align 16, !tbaa !82
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %19 = icmp eq ptr %18, null
   br i1 %19, label %get_rsa_payload_factor.exit, label %20
 
@@ -3735,7 +3729,7 @@ define internal i32 @get_rsa_payload_f4(i32 noundef %0, ptr noundef readonly cap
   %12 = load ptr, ptr %5, align 8, !tbaa !35
   %13 = tail call ptr @EVP_PKEY_get0_RSA(ptr noundef %12) #8
   %14 = tail call i32 @RSA_get_multi_prime_extra_count(ptr noundef %13) #8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %15 = icmp ugt i32 %14, 1
   br i1 %15, label %16, label %.thread
 
@@ -3745,13 +3739,13 @@ define internal i32 @get_rsa_payload_f4(i32 noundef %0, ptr noundef readonly cap
   br i1 %.not.i, label %.thread, label %18
 
 .thread:                                          ; preds = %16, %11
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %get_rsa_payload_factor.exit
 
 18:                                               ; preds = %16
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !82
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %21 = icmp eq ptr %20, null
   br i1 %21, label %get_rsa_payload_factor.exit, label %22
 
@@ -3792,7 +3786,7 @@ define internal i32 @get_rsa_payload_f5(i32 noundef %0, ptr noundef readonly cap
   %12 = load ptr, ptr %5, align 8, !tbaa !35
   %13 = tail call ptr @EVP_PKEY_get0_RSA(ptr noundef %12) #8
   %14 = tail call i32 @RSA_get_multi_prime_extra_count(ptr noundef %13) #8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %15 = icmp ugt i32 %14, 2
   br i1 %15, label %16, label %.thread
 
@@ -3802,13 +3796,13 @@ define internal i32 @get_rsa_payload_f5(i32 noundef %0, ptr noundef readonly cap
   br i1 %.not.i, label %.thread, label %18
 
 .thread:                                          ; preds = %16, %11
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %get_rsa_payload_factor.exit
 
 18:                                               ; preds = %16
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %20 = load ptr, ptr %19, align 16, !tbaa !82
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %21 = icmp eq ptr %20, null
   br i1 %21, label %get_rsa_payload_factor.exit, label %22
 
@@ -3849,7 +3843,7 @@ define internal i32 @get_rsa_payload_f6(i32 noundef %0, ptr noundef readonly cap
   %12 = load ptr, ptr %5, align 8, !tbaa !35
   %13 = tail call ptr @EVP_PKEY_get0_RSA(ptr noundef %12) #8
   %14 = tail call i32 @RSA_get_multi_prime_extra_count(ptr noundef %13) #8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %15 = icmp ugt i32 %14, 3
   br i1 %15, label %16, label %.thread
 
@@ -3859,13 +3853,13 @@ define internal i32 @get_rsa_payload_f6(i32 noundef %0, ptr noundef readonly cap
   br i1 %.not.i, label %.thread, label %18
 
 .thread:                                          ; preds = %16, %11
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %get_rsa_payload_factor.exit
 
 18:                                               ; preds = %16
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %20 = load ptr, ptr %19, align 8, !tbaa !82
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %21 = icmp eq ptr %20, null
   br i1 %21, label %get_rsa_payload_factor.exit, label %22
 
@@ -3906,7 +3900,7 @@ define internal i32 @get_rsa_payload_f7(i32 noundef %0, ptr noundef readonly cap
   %12 = load ptr, ptr %5, align 8, !tbaa !35
   %13 = tail call ptr @EVP_PKEY_get0_RSA(ptr noundef %12) #8
   %14 = tail call i32 @RSA_get_multi_prime_extra_count(ptr noundef %13) #8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %15 = icmp ugt i32 %14, 4
   br i1 %15, label %16, label %.thread
 
@@ -3916,13 +3910,13 @@ define internal i32 @get_rsa_payload_f7(i32 noundef %0, ptr noundef readonly cap
   br i1 %.not.i, label %.thread, label %18
 
 .thread:                                          ; preds = %16, %11
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %get_rsa_payload_factor.exit
 
 18:                                               ; preds = %16
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %20 = load ptr, ptr %19, align 16, !tbaa !82
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %21 = icmp eq ptr %20, null
   br i1 %21, label %get_rsa_payload_factor.exit, label %22
 
@@ -3963,7 +3957,7 @@ define internal i32 @get_rsa_payload_f8(i32 noundef %0, ptr noundef readonly cap
   %12 = load ptr, ptr %5, align 8, !tbaa !35
   %13 = tail call ptr @EVP_PKEY_get0_RSA(ptr noundef %12) #8
   %14 = tail call i32 @RSA_get_multi_prime_extra_count(ptr noundef %13) #8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %15 = icmp ugt i32 %14, 5
   br i1 %15, label %16, label %.thread
 
@@ -3973,13 +3967,13 @@ define internal i32 @get_rsa_payload_f8(i32 noundef %0, ptr noundef readonly cap
   br i1 %.not.i, label %.thread, label %18
 
 .thread:                                          ; preds = %16, %11
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %get_rsa_payload_factor.exit
 
 18:                                               ; preds = %16
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %20 = load ptr, ptr %19, align 8, !tbaa !82
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %21 = icmp eq ptr %20, null
   br i1 %21, label %get_rsa_payload_factor.exit, label %22
 
@@ -4020,7 +4014,7 @@ define internal i32 @get_rsa_payload_f9(i32 noundef %0, ptr noundef readonly cap
   %12 = load ptr, ptr %5, align 8, !tbaa !35
   %13 = tail call ptr @EVP_PKEY_get0_RSA(ptr noundef %12) #8
   %14 = tail call i32 @RSA_get_multi_prime_extra_count(ptr noundef %13) #8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %15 = icmp ugt i32 %14, 6
   br i1 %15, label %16, label %.thread
 
@@ -4030,13 +4024,13 @@ define internal i32 @get_rsa_payload_f9(i32 noundef %0, ptr noundef readonly cap
   br i1 %.not.i, label %.thread, label %18
 
 .thread:                                          ; preds = %16, %11
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %get_rsa_payload_factor.exit
 
 18:                                               ; preds = %16
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %20 = load ptr, ptr %19, align 16, !tbaa !82
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %21 = icmp eq ptr %20, null
   br i1 %21, label %get_rsa_payload_factor.exit, label %22
 
@@ -4077,7 +4071,7 @@ define internal i32 @get_rsa_payload_f10(i32 noundef %0, ptr noundef readonly ca
   %12 = load ptr, ptr %5, align 8, !tbaa !35
   %13 = tail call ptr @EVP_PKEY_get0_RSA(ptr noundef %12) #8
   %14 = tail call i32 @RSA_get_multi_prime_extra_count(ptr noundef %13) #8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %15 = icmp ugt i32 %14, 7
   br i1 %15, label %16, label %.thread
 
@@ -4087,13 +4081,13 @@ define internal i32 @get_rsa_payload_f10(i32 noundef %0, ptr noundef readonly ca
   br i1 %.not.i, label %.thread, label %18
 
 .thread:                                          ; preds = %16, %11
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %get_rsa_payload_factor.exit
 
 18:                                               ; preds = %16
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %20 = load ptr, ptr %19, align 8, !tbaa !82
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %21 = icmp eq ptr %20, null
   br i1 %21, label %get_rsa_payload_factor.exit, label %22
 
@@ -4213,8 +4207,8 @@ define internal i32 @get_rsa_payload_e3(i32 noundef %0, ptr noundef readonly cap
   %13 = load ptr, ptr %6, align 8, !tbaa !35
   %14 = tail call ptr @EVP_PKEY_get0_RSA(ptr noundef %13) #8
   %15 = tail call i32 @RSA_get_multi_prime_extra_count(ptr noundef %14) #8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not7 = icmp eq i32 %15, 0
   br i1 %.not7, label %.thread, label %16
 
@@ -4224,14 +4218,14 @@ define internal i32 @get_rsa_payload_e3(i32 noundef %0, ptr noundef readonly cap
   br i1 %.not.i, label %.thread, label %18
 
 .thread:                                          ; preds = %16, %12
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %get_rsa_payload_exponent.exit
 
 18:                                               ; preds = %16
   %19 = load ptr, ptr %4, align 16, !tbaa !82
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %20 = icmp eq ptr %19, null
   br i1 %20, label %get_rsa_payload_exponent.exit, label %21
 
@@ -4273,8 +4267,8 @@ define internal i32 @get_rsa_payload_e4(i32 noundef %0, ptr noundef readonly cap
   %13 = load ptr, ptr %6, align 8, !tbaa !35
   %14 = tail call ptr @EVP_PKEY_get0_RSA(ptr noundef %13) #8
   %15 = tail call i32 @RSA_get_multi_prime_extra_count(ptr noundef %14) #8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %16 = icmp ugt i32 %15, 1
   br i1 %16, label %17, label %.thread
 
@@ -4284,15 +4278,15 @@ define internal i32 @get_rsa_payload_e4(i32 noundef %0, ptr noundef readonly cap
   br i1 %.not.i, label %.thread, label %19
 
 .thread:                                          ; preds = %17, %12
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %get_rsa_payload_exponent.exit
 
 19:                                               ; preds = %17
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %21 = load ptr, ptr %20, align 8, !tbaa !82
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %22 = icmp eq ptr %21, null
   br i1 %22, label %get_rsa_payload_exponent.exit, label %23
 
@@ -4334,8 +4328,8 @@ define internal i32 @get_rsa_payload_e5(i32 noundef %0, ptr noundef readonly cap
   %13 = load ptr, ptr %6, align 8, !tbaa !35
   %14 = tail call ptr @EVP_PKEY_get0_RSA(ptr noundef %13) #8
   %15 = tail call i32 @RSA_get_multi_prime_extra_count(ptr noundef %14) #8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %16 = icmp ugt i32 %15, 2
   br i1 %16, label %17, label %.thread
 
@@ -4345,15 +4339,15 @@ define internal i32 @get_rsa_payload_e5(i32 noundef %0, ptr noundef readonly cap
   br i1 %.not.i, label %.thread, label %19
 
 .thread:                                          ; preds = %17, %12
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %get_rsa_payload_exponent.exit
 
 19:                                               ; preds = %17
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %21 = load ptr, ptr %20, align 16, !tbaa !82
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %22 = icmp eq ptr %21, null
   br i1 %22, label %get_rsa_payload_exponent.exit, label %23
 
@@ -4395,8 +4389,8 @@ define internal i32 @get_rsa_payload_e6(i32 noundef %0, ptr noundef readonly cap
   %13 = load ptr, ptr %6, align 8, !tbaa !35
   %14 = tail call ptr @EVP_PKEY_get0_RSA(ptr noundef %13) #8
   %15 = tail call i32 @RSA_get_multi_prime_extra_count(ptr noundef %14) #8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %16 = icmp ugt i32 %15, 3
   br i1 %16, label %17, label %.thread
 
@@ -4406,15 +4400,15 @@ define internal i32 @get_rsa_payload_e6(i32 noundef %0, ptr noundef readonly cap
   br i1 %.not.i, label %.thread, label %19
 
 .thread:                                          ; preds = %17, %12
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %get_rsa_payload_exponent.exit
 
 19:                                               ; preds = %17
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %21 = load ptr, ptr %20, align 8, !tbaa !82
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %22 = icmp eq ptr %21, null
   br i1 %22, label %get_rsa_payload_exponent.exit, label %23
 
@@ -4456,8 +4450,8 @@ define internal i32 @get_rsa_payload_e7(i32 noundef %0, ptr noundef readonly cap
   %13 = load ptr, ptr %6, align 8, !tbaa !35
   %14 = tail call ptr @EVP_PKEY_get0_RSA(ptr noundef %13) #8
   %15 = tail call i32 @RSA_get_multi_prime_extra_count(ptr noundef %14) #8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %16 = icmp ugt i32 %15, 4
   br i1 %16, label %17, label %.thread
 
@@ -4467,15 +4461,15 @@ define internal i32 @get_rsa_payload_e7(i32 noundef %0, ptr noundef readonly cap
   br i1 %.not.i, label %.thread, label %19
 
 .thread:                                          ; preds = %17, %12
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %get_rsa_payload_exponent.exit
 
 19:                                               ; preds = %17
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %21 = load ptr, ptr %20, align 16, !tbaa !82
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %22 = icmp eq ptr %21, null
   br i1 %22, label %get_rsa_payload_exponent.exit, label %23
 
@@ -4517,8 +4511,8 @@ define internal i32 @get_rsa_payload_e8(i32 noundef %0, ptr noundef readonly cap
   %13 = load ptr, ptr %6, align 8, !tbaa !35
   %14 = tail call ptr @EVP_PKEY_get0_RSA(ptr noundef %13) #8
   %15 = tail call i32 @RSA_get_multi_prime_extra_count(ptr noundef %14) #8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %16 = icmp ugt i32 %15, 5
   br i1 %16, label %17, label %.thread
 
@@ -4528,15 +4522,15 @@ define internal i32 @get_rsa_payload_e8(i32 noundef %0, ptr noundef readonly cap
   br i1 %.not.i, label %.thread, label %19
 
 .thread:                                          ; preds = %17, %12
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %get_rsa_payload_exponent.exit
 
 19:                                               ; preds = %17
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %21 = load ptr, ptr %20, align 8, !tbaa !82
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %22 = icmp eq ptr %21, null
   br i1 %22, label %get_rsa_payload_exponent.exit, label %23
 
@@ -4578,8 +4572,8 @@ define internal i32 @get_rsa_payload_e9(i32 noundef %0, ptr noundef readonly cap
   %13 = load ptr, ptr %6, align 8, !tbaa !35
   %14 = tail call ptr @EVP_PKEY_get0_RSA(ptr noundef %13) #8
   %15 = tail call i32 @RSA_get_multi_prime_extra_count(ptr noundef %14) #8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %16 = icmp ugt i32 %15, 6
   br i1 %16, label %17, label %.thread
 
@@ -4589,15 +4583,15 @@ define internal i32 @get_rsa_payload_e9(i32 noundef %0, ptr noundef readonly cap
   br i1 %.not.i, label %.thread, label %19
 
 .thread:                                          ; preds = %17, %12
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %get_rsa_payload_exponent.exit
 
 19:                                               ; preds = %17
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %21 = load ptr, ptr %20, align 16, !tbaa !82
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %22 = icmp eq ptr %21, null
   br i1 %22, label %get_rsa_payload_exponent.exit, label %23
 
@@ -4639,8 +4633,8 @@ define internal i32 @get_rsa_payload_e10(i32 noundef %0, ptr noundef readonly ca
   %13 = load ptr, ptr %6, align 8, !tbaa !35
   %14 = tail call ptr @EVP_PKEY_get0_RSA(ptr noundef %13) #8
   %15 = tail call i32 @RSA_get_multi_prime_extra_count(ptr noundef %14) #8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %16 = icmp ugt i32 %15, 7
   br i1 %16, label %17, label %.thread
 
@@ -4650,15 +4644,15 @@ define internal i32 @get_rsa_payload_e10(i32 noundef %0, ptr noundef readonly ca
   br i1 %.not.i, label %.thread, label %19
 
 .thread:                                          ; preds = %17, %12
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %get_rsa_payload_exponent.exit
 
 19:                                               ; preds = %17
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %21 = load ptr, ptr %20, align 8, !tbaa !82
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %22 = icmp eq ptr %21, null
   br i1 %22, label %get_rsa_payload_exponent.exit, label %23
 
@@ -4739,8 +4733,8 @@ define internal i32 @get_rsa_payload_c2(i32 noundef %0, ptr noundef readonly cap
   %13 = load ptr, ptr %6, align 8, !tbaa !35
   %14 = tail call ptr @EVP_PKEY_get0_RSA(ptr noundef %13) #8
   %15 = tail call i32 @RSA_get_multi_prime_extra_count(ptr noundef %14) #8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not7 = icmp eq i32 %15, 0
   br i1 %.not7, label %.thread, label %16
 
@@ -4750,14 +4744,14 @@ define internal i32 @get_rsa_payload_c2(i32 noundef %0, ptr noundef readonly cap
   br i1 %.not.i, label %.thread, label %18
 
 .thread:                                          ; preds = %16, %12
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %get_rsa_payload_coefficient.exit
 
 18:                                               ; preds = %16
   %19 = load ptr, ptr %5, align 16, !tbaa !82
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %20 = icmp eq ptr %19, null
   br i1 %20, label %get_rsa_payload_coefficient.exit, label %21
 
@@ -4799,8 +4793,8 @@ define internal i32 @get_rsa_payload_c3(i32 noundef %0, ptr noundef readonly cap
   %13 = load ptr, ptr %6, align 8, !tbaa !35
   %14 = tail call ptr @EVP_PKEY_get0_RSA(ptr noundef %13) #8
   %15 = tail call i32 @RSA_get_multi_prime_extra_count(ptr noundef %14) #8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %16 = icmp ugt i32 %15, 1
   br i1 %16, label %17, label %.thread
 
@@ -4810,15 +4804,15 @@ define internal i32 @get_rsa_payload_c3(i32 noundef %0, ptr noundef readonly cap
   br i1 %.not.i, label %.thread, label %19
 
 .thread:                                          ; preds = %17, %12
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %get_rsa_payload_coefficient.exit
 
 19:                                               ; preds = %17
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %21 = load ptr, ptr %20, align 8, !tbaa !82
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %22 = icmp eq ptr %21, null
   br i1 %22, label %get_rsa_payload_coefficient.exit, label %23
 
@@ -4860,8 +4854,8 @@ define internal i32 @get_rsa_payload_c4(i32 noundef %0, ptr noundef readonly cap
   %13 = load ptr, ptr %6, align 8, !tbaa !35
   %14 = tail call ptr @EVP_PKEY_get0_RSA(ptr noundef %13) #8
   %15 = tail call i32 @RSA_get_multi_prime_extra_count(ptr noundef %14) #8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %16 = icmp ugt i32 %15, 2
   br i1 %16, label %17, label %.thread
 
@@ -4871,15 +4865,15 @@ define internal i32 @get_rsa_payload_c4(i32 noundef %0, ptr noundef readonly cap
   br i1 %.not.i, label %.thread, label %19
 
 .thread:                                          ; preds = %17, %12
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %get_rsa_payload_coefficient.exit
 
 19:                                               ; preds = %17
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %21 = load ptr, ptr %20, align 16, !tbaa !82
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %22 = icmp eq ptr %21, null
   br i1 %22, label %get_rsa_payload_coefficient.exit, label %23
 
@@ -4921,8 +4915,8 @@ define internal i32 @get_rsa_payload_c5(i32 noundef %0, ptr noundef readonly cap
   %13 = load ptr, ptr %6, align 8, !tbaa !35
   %14 = tail call ptr @EVP_PKEY_get0_RSA(ptr noundef %13) #8
   %15 = tail call i32 @RSA_get_multi_prime_extra_count(ptr noundef %14) #8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %16 = icmp ugt i32 %15, 3
   br i1 %16, label %17, label %.thread
 
@@ -4932,15 +4926,15 @@ define internal i32 @get_rsa_payload_c5(i32 noundef %0, ptr noundef readonly cap
   br i1 %.not.i, label %.thread, label %19
 
 .thread:                                          ; preds = %17, %12
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %get_rsa_payload_coefficient.exit
 
 19:                                               ; preds = %17
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %21 = load ptr, ptr %20, align 8, !tbaa !82
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %22 = icmp eq ptr %21, null
   br i1 %22, label %get_rsa_payload_coefficient.exit, label %23
 
@@ -4982,8 +4976,8 @@ define internal i32 @get_rsa_payload_c6(i32 noundef %0, ptr noundef readonly cap
   %13 = load ptr, ptr %6, align 8, !tbaa !35
   %14 = tail call ptr @EVP_PKEY_get0_RSA(ptr noundef %13) #8
   %15 = tail call i32 @RSA_get_multi_prime_extra_count(ptr noundef %14) #8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %16 = icmp ugt i32 %15, 4
   br i1 %16, label %17, label %.thread
 
@@ -4993,15 +4987,15 @@ define internal i32 @get_rsa_payload_c6(i32 noundef %0, ptr noundef readonly cap
   br i1 %.not.i, label %.thread, label %19
 
 .thread:                                          ; preds = %17, %12
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %get_rsa_payload_coefficient.exit
 
 19:                                               ; preds = %17
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %21 = load ptr, ptr %20, align 16, !tbaa !82
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %22 = icmp eq ptr %21, null
   br i1 %22, label %get_rsa_payload_coefficient.exit, label %23
 
@@ -5043,8 +5037,8 @@ define internal i32 @get_rsa_payload_c7(i32 noundef %0, ptr noundef readonly cap
   %13 = load ptr, ptr %6, align 8, !tbaa !35
   %14 = tail call ptr @EVP_PKEY_get0_RSA(ptr noundef %13) #8
   %15 = tail call i32 @RSA_get_multi_prime_extra_count(ptr noundef %14) #8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %16 = icmp ugt i32 %15, 5
   br i1 %16, label %17, label %.thread
 
@@ -5054,15 +5048,15 @@ define internal i32 @get_rsa_payload_c7(i32 noundef %0, ptr noundef readonly cap
   br i1 %.not.i, label %.thread, label %19
 
 .thread:                                          ; preds = %17, %12
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %get_rsa_payload_coefficient.exit
 
 19:                                               ; preds = %17
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %21 = load ptr, ptr %20, align 8, !tbaa !82
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %22 = icmp eq ptr %21, null
   br i1 %22, label %get_rsa_payload_coefficient.exit, label %23
 
@@ -5104,8 +5098,8 @@ define internal i32 @get_rsa_payload_c8(i32 noundef %0, ptr noundef readonly cap
   %13 = load ptr, ptr %6, align 8, !tbaa !35
   %14 = tail call ptr @EVP_PKEY_get0_RSA(ptr noundef %13) #8
   %15 = tail call i32 @RSA_get_multi_prime_extra_count(ptr noundef %14) #8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %16 = icmp ugt i32 %15, 6
   br i1 %16, label %17, label %.thread
 
@@ -5115,15 +5109,15 @@ define internal i32 @get_rsa_payload_c8(i32 noundef %0, ptr noundef readonly cap
   br i1 %.not.i, label %.thread, label %19
 
 .thread:                                          ; preds = %17, %12
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %get_rsa_payload_coefficient.exit
 
 19:                                               ; preds = %17
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %21 = load ptr, ptr %20, align 16, !tbaa !82
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %22 = icmp eq ptr %21, null
   br i1 %22, label %get_rsa_payload_coefficient.exit, label %23
 
@@ -5165,8 +5159,8 @@ define internal i32 @get_rsa_payload_c9(i32 noundef %0, ptr noundef readonly cap
   %13 = load ptr, ptr %6, align 8, !tbaa !35
   %14 = tail call ptr @EVP_PKEY_get0_RSA(ptr noundef %13) #8
   %15 = tail call i32 @RSA_get_multi_prime_extra_count(ptr noundef %14) #8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %16 = icmp ugt i32 %15, 7
   br i1 %16, label %17, label %.thread
 
@@ -5176,15 +5170,15 @@ define internal i32 @get_rsa_payload_c9(i32 noundef %0, ptr noundef readonly cap
   br i1 %.not.i, label %.thread, label %19
 
 .thread:                                          ; preds = %17, %12
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %get_rsa_payload_coefficient.exit
 
 19:                                               ; preds = %17
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %21 = load ptr, ptr %20, align 8, !tbaa !82
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %22 = icmp eq ptr %21, null
   br i1 %22, label %get_rsa_payload_coefficient.exit, label %23
 
@@ -5252,92 +5246,98 @@ get_payload_int.exit:                             ; preds = %18, %13, %12, %11
   ret i32 %.0
 }
 
-declare i32 @EVP_PKEY_get_base_id(ptr noundef) local_unnamed_addr #3
+declare i32 @EVP_PKEY_get_base_id(ptr noundef) local_unnamed_addr #2
 
-declare ptr @EVP_PKEY_get0_DH(ptr noundef) local_unnamed_addr #3
+declare ptr @EVP_PKEY_get0_DH(ptr noundef) local_unnamed_addr #2
 
-declare i32 @DH_get_nid(ptr noundef) local_unnamed_addr #3
+declare i32 @DH_get_nid(ptr noundef) local_unnamed_addr #2
 
-declare ptr @EC_KEY_get0_group(ptr noundef) local_unnamed_addr #3
+declare ptr @EC_KEY_get0_group(ptr noundef) local_unnamed_addr #2
 
-declare ptr @EVP_PKEY_get0_EC_KEY(ptr noundef) local_unnamed_addr #3
+declare ptr @EVP_PKEY_get0_EC_KEY(ptr noundef) local_unnamed_addr #2
 
-declare i32 @EC_GROUP_get_curve_name(ptr noundef) local_unnamed_addr #3
+declare i32 @EC_GROUP_get_curve_name(ptr noundef) local_unnamed_addr #2
 
-declare ptr @OSSL_EC_curve_nid2name(i32 noundef) local_unnamed_addr #3
+declare ptr @OSSL_EC_curve_nid2name(i32 noundef) local_unnamed_addr #2
 
-declare ptr @DH_get0_priv_key(ptr noundef) local_unnamed_addr #3
+declare ptr @DH_get0_priv_key(ptr noundef) local_unnamed_addr #2
 
-declare ptr @EC_KEY_get0_private_key(ptr noundef) local_unnamed_addr #3
+declare ptr @EC_KEY_get0_private_key(ptr noundef) local_unnamed_addr #2
 
-declare i64 @ossl_dh_key2buf(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
+declare i64 @ossl_dh_key2buf(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @DH_get0_pub_key(ptr noundef) local_unnamed_addr #3
+declare ptr @DH_get0_pub_key(ptr noundef) local_unnamed_addr #2
 
-declare ptr @DSA_get0_pub_key(ptr noundef) local_unnamed_addr #3
+declare ptr @DSA_get0_pub_key(ptr noundef) local_unnamed_addr #2
 
-declare ptr @EVP_PKEY_get0_DSA(ptr noundef) local_unnamed_addr #3
+declare ptr @EVP_PKEY_get0_DSA(ptr noundef) local_unnamed_addr #2
 
-declare ptr @BN_CTX_new_ex(ptr noundef) local_unnamed_addr #3
+declare ptr @BN_CTX_new_ex(ptr noundef) local_unnamed_addr #2
 
-declare ptr @ossl_ec_key_get_libctx(ptr noundef) local_unnamed_addr #3
+declare ptr @ossl_ec_key_get_libctx(ptr noundef) local_unnamed_addr #2
 
-declare ptr @EC_KEY_get0_public_key(ptr noundef) local_unnamed_addr #3
+declare ptr @EC_KEY_get0_public_key(ptr noundef) local_unnamed_addr #2
 
-declare i64 @EC_POINT_point2buf(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i64 @EC_POINT_point2buf(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @BN_CTX_free(ptr noundef) local_unnamed_addr #3
+declare void @BN_CTX_free(ptr noundef) local_unnamed_addr #2
 
-declare ptr @BN_CTX_get(ptr noundef) local_unnamed_addr #3
+declare ptr @BN_CTX_get(ptr noundef) local_unnamed_addr #2
 
-declare i32 @EC_POINT_get_affine_coordinates(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @EC_POINT_get_affine_coordinates(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @DH_get0_p(ptr noundef) local_unnamed_addr #3
+declare ptr @DH_get0_p(ptr noundef) local_unnamed_addr #2
 
-declare ptr @DSA_get0_p(ptr noundef) local_unnamed_addr #3
+declare ptr @DSA_get0_p(ptr noundef) local_unnamed_addr #2
 
-declare ptr @DH_get0_g(ptr noundef) local_unnamed_addr #3
+declare ptr @DH_get0_g(ptr noundef) local_unnamed_addr #2
 
-declare ptr @DSA_get0_g(ptr noundef) local_unnamed_addr #3
+declare ptr @DSA_get0_g(ptr noundef) local_unnamed_addr #2
 
-declare ptr @DH_get0_q(ptr noundef) local_unnamed_addr #3
+declare ptr @DH_get0_q(ptr noundef) local_unnamed_addr #2
 
-declare ptr @DSA_get0_q(ptr noundef) local_unnamed_addr #3
+declare ptr @DSA_get0_q(ptr noundef) local_unnamed_addr #2
 
-declare ptr @RSA_get0_n(ptr noundef) local_unnamed_addr #3
+declare ptr @RSA_get0_n(ptr noundef) local_unnamed_addr #2
 
-declare ptr @EVP_PKEY_get0_RSA(ptr noundef) local_unnamed_addr #3
+declare ptr @EVP_PKEY_get0_RSA(ptr noundef) local_unnamed_addr #2
 
-declare ptr @RSA_get0_e(ptr noundef) local_unnamed_addr #3
+declare ptr @RSA_get0_e(ptr noundef) local_unnamed_addr #2
 
-declare ptr @RSA_get0_d(ptr noundef) local_unnamed_addr #3
+declare ptr @RSA_get0_d(ptr noundef) local_unnamed_addr #2
 
-declare ptr @RSA_get0_p(ptr noundef) local_unnamed_addr #3
+declare ptr @RSA_get0_p(ptr noundef) local_unnamed_addr #2
 
-declare ptr @RSA_get0_q(ptr noundef) local_unnamed_addr #3
+declare ptr @RSA_get0_q(ptr noundef) local_unnamed_addr #2
 
-declare i32 @RSA_get_multi_prime_extra_count(ptr noundef) local_unnamed_addr #3
+declare i32 @RSA_get_multi_prime_extra_count(ptr noundef) local_unnamed_addr #2
 
-declare i32 @RSA_get0_multi_prime_factors(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @RSA_get0_multi_prime_factors(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @RSA_get0_dmp1(ptr noundef) local_unnamed_addr #3
+declare ptr @RSA_get0_dmp1(ptr noundef) local_unnamed_addr #2
 
-declare ptr @RSA_get0_dmq1(ptr noundef) local_unnamed_addr #3
+declare ptr @RSA_get0_dmq1(ptr noundef) local_unnamed_addr #2
 
-declare i32 @RSA_get0_multi_prime_crt_params(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @RSA_get0_multi_prime_crt_params(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @RSA_get0_iqmp(ptr noundef) local_unnamed_addr #3
+declare ptr @RSA_get0_iqmp(ptr noundef) local_unnamed_addr #2
 
-declare i32 @EC_KEY_decoded_from_explicit_params(ptr noundef) local_unnamed_addr #3
+declare i32 @EC_KEY_decoded_from_explicit_params(ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nounwind }
 attributes #9 = { nounwind willreturn memory(read) }
 

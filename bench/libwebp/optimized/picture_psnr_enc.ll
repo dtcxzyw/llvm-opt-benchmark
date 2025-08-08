@@ -147,9 +147,6 @@ GetLogSSIM.exit:                                  ; preds = %69, %63, %59, %50
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nounwind uwtable
 define internal double @AccumulateSSE(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
   %7 = icmp sgt i32 %5, 0
@@ -327,7 +324,7 @@ define internal double @AccumulateSSIM(ptr noundef %0, i32 noundef %1, ptr nound
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal double @AccumulateLSIM(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #2 {
+define internal double @AccumulateLSIM(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #1 {
   %7 = icmp sgt i32 %5, 0
   %8 = icmp sgt i32 %4, 0
   %or.cond = and i1 %7, %8
@@ -433,22 +430,19 @@ define internal double @AccumulateLSIM(ptr noundef readonly captures(none) %0, i
   ret double %.044.lcssa
 }
 
-declare void @VP8SSIMDspInit() local_unnamed_addr #3
+declare void @VP8SSIMDspInit() local_unnamed_addr #2
 
-declare ptr @WebPSafeMalloc(i64 noundef, i64 noundef) local_unnamed_addr #3
+declare ptr @WebPSafeMalloc(i64 noundef, i64 noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare void @WebPSafeFree(ptr noundef) local_unnamed_addr #3
+declare void @WebPSafeFree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @WebPPictureDistortion(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca %struct.WebPPicture, align 8
   %6 = alloca %struct.WebPPicture, align 8
   %7 = alloca float, align 4
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %8 = icmp eq ptr %0, null
   %9 = icmp eq ptr %1, null
   %or.cond = or i1 %8, %9
@@ -528,7 +522,7 @@ define range(i32 0, 2) i32 @WebPPictureDistortion(ptr noundef %0, ptr noundef %1
   %indvars.iv = phi i64 [ 0, %42 ], [ %indvars.iv.next, %63 ]
   %.04568 = phi double [ 0.000000e+00, %42 ], [ %66, %63 ]
   %.04667 = phi double [ 0.000000e+00, %42 ], [ %67, %63 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %50 = load i32, ptr %43, align 8, !tbaa !38
   %51 = sext i32 %50 to i64
   %52 = shl nsw i64 %51, 2
@@ -545,7 +539,7 @@ define range(i32 0, 2) i32 @WebPPictureDistortion(ptr noundef %0, ptr noundef %1
   br i1 %.not57, label %62, label %63
 
 62:                                               ; preds = %49
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %90
 
 63:                                               ; preds = %49
@@ -553,7 +547,7 @@ define range(i32 0, 2) i32 @WebPPictureDistortion(ptr noundef %0, ptr noundef %1
   %65 = fpext float %64 to double
   %66 = fadd double %.04568, %65
   %67 = fadd double %.04667, %48
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %68, label %49, !llvm.loop !40
@@ -604,24 +598,30 @@ GetLogSSIM.exit:                                  ; preds = %82, %79, %75, %70
 
 91:                                               ; preds = %22, %24, %4, %10, %15, %90
   %.0 = phi i32 [ %.043, %90 ], [ 0, %15 ], [ 0, %10 ], [ 0, %4 ], [ 0, %24 ], [ 0, %22 ]
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
-declare i32 @WebPPictureView(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @WebPPictureView(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @WebPPictureYUVAToARGB(ptr noundef) local_unnamed_addr #3
+declare i32 @WebPPictureYUVAToARGB(ptr noundef) local_unnamed_addr #2
 
-declare void @WebPPictureFree(ptr noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @log10(double noundef) local_unnamed_addr #4
+declare void @WebPPictureFree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @log(double noundef) local_unnamed_addr #4
+declare double @log10(double noundef) local_unnamed_addr #3
 
-declare i32 @WebPPictureInitInternal(ptr noundef, i32 noundef) local_unnamed_addr #3
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
+declare double @log(double noundef) local_unnamed_addr #3
+
+declare i32 @WebPPictureInitInternal(ptr noundef, i32 noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #5
@@ -630,10 +630,10 @@ declare i32 @llvm.smin.i32(i32, i32) #5
 declare i32 @llvm.smax.i32(i32, i32) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nounwind }
 

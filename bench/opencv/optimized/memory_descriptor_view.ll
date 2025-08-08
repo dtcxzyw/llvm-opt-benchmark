@@ -476,9 +476,9 @@ define hidden void @_ZN3ade20MemoryDescriptorView8retargetERNS_16MemoryDescripto
 .lr.ph:                                           ; preds = %20, %_ZN3ade4util9make_spanILm6EEENS0_9DynMdSpanIXT_EEERKNS0_9DynMdSizeIXT_EEES7_.exit
   %.sroa.034.045 = phi ptr [ %50, %_ZN3ade4util9make_spanILm6EEENS0_9DynMdSpanIXT_EEERKNS0_9DynMdSizeIXT_EEES7_.exit ], [ %23, %20 ]
   %27 = load ptr, ptr %.sroa.034.045, align 8, !tbaa !56
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZNK3ade20MemoryDescriptorView4spanEv(ptr dead_on_unwind nonnull writable sret(%"struct.ade::util::DynMdSpan") align 8 %4, ptr noundef nonnull align 8 dereferenceable(96) %21)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.experimental.noalias.scope.decl(metadata !58)
   %28 = load i64, ptr %13, align 8, !tbaa !61, !noalias !58
   %.idx.i = shl nuw nsw i64 %28, 3
@@ -487,8 +487,8 @@ define hidden void @_ZN3ade20MemoryDescriptorView8retargetERNS_16MemoryDescripto
   br i1 %.not8.i.i, label %_ZNK3ade4util9DynMdSpanILm6EE4sizeEv.exit.thread, label %.lr.ph.i.i
 
 _ZNK3ade4util9DynMdSpanILm6EE4sizeEv.exit.thread: ; preds = %.lr.ph
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #26
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %6, i8 0, i64 56, i1 false)
   br label %_ZN3ade4util9make_spanILm6EEENS0_9DynMdSpanIXT_EEERKNS0_9DynMdSizeIXT_EEES7_.exit
 
@@ -503,8 +503,8 @@ _ZNK3ade4util9DynMdSpanILm6EE4sizeEv.exit.thread: ; preds = %.lr.ph
   br i1 %.not.i.i, label %_ZNK3ade4util9DynMdSpanILm6EE6originEv.exit, label %.lr.ph.i.i, !llvm.loop !64
 
 _ZNK3ade4util9DynMdSpanILm6EE6originEv.exit:      ; preds = %.lr.ph.i.i
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #26
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.experimental.noalias.scope.decl(metadata !65)
   br label %.lr.ph.i.i22
 
@@ -545,15 +545,15 @@ _ZNK3ade4util9DynMdSpanILm6EE4sizeEv.exit:        ; preds = %.lr.ph.i.i22
   br i1 %.not.i, label %_ZN3ade4util9make_spanILm6EEENS0_9DynMdSpanIXT_EEERKNS0_9DynMdSizeIXT_EEES7_.exit, label %.lr.ph.i
 
 _ZN3ade4util9make_spanILm6EEENS0_9DynMdSpanIXT_EEERKNS0_9DynMdSizeIXT_EEES7_.exit: ; preds = %.lr.ph.i, %_ZNK3ade4util9DynMdSpanILm6EE4sizeEv.exit.thread
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %46 = load ptr, ptr %0, align 8, !tbaa !19
   %47 = load ptr, ptr %27, align 8, !tbaa !31
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %49 = load ptr, ptr %48, align 8
   call void %49(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull align 8 dereferenceable(264) %46, ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(264) %1, ptr noundef nonnull align 8 dereferenceable(56) %6)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #26
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #26
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %50 = getelementptr inbounds nuw i8, ptr %.sroa.034.045, i64 8
   %.not43 = icmp eq ptr %50, %25
   br i1 %.not43, label %._crit_edge, label %.lr.ph
@@ -587,14 +587,8 @@ _ZN3ade4util9make_spanILm6EEENS0_9DynMdSpanIXT_EEERKNS0_9DynMdSizeIXT_EEES7_.exi
   br i1 %.not42, label %._crit_edge55, label %.lr.ph54
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
-
 ; Function Attrs: mustprogress nofree nosync nounwind uwtable
-define hidden void @_ZNK3ade20MemoryDescriptorView4spanEv(ptr dead_on_unwind noalias writable writeonly sret(%"struct.ade::util::DynMdSpan") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1) local_unnamed_addr #10 align 2 {
+define hidden void @_ZNK3ade20MemoryDescriptorView4spanEv(ptr dead_on_unwind noalias writable writeonly sret(%"struct.ade::util::DynMdSpan") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1) local_unnamed_addr #9 align 2 {
   %3 = alloca %"struct.ade::util::DynMdSize", align 8
   %4 = alloca %"struct.ade::util::DynMdSpan", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -604,8 +598,8 @@ define hidden void @_ZNK3ade20MemoryDescriptorView4spanEv(ptr dead_on_unwind noa
   br i1 %.not, label %29, label %8
 
 8:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #26
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZNK3ade20MemoryDescriptorView4spanEv(ptr dead_on_unwind nonnull writable sret(%"struct.ade::util::DynMdSpan") align 8 %4, ptr noundef nonnull align 8 dereferenceable(96) %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !73)
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -654,8 +648,8 @@ _ZNK3ade4util9DynMdSpanILm6EE6originEv.exit:      ; preds = %.lr.ph.i.i, %8
   br i1 %.not.i, label %_ZN3ade4utilplILm6EEENS0_9DynMdSpanIXT_EEERKS3_RKNS0_9DynMdSizeIXT_EEE.exit, label %.lr.ph.i
 
 _ZN3ade4utilplILm6EEENS0_9DynMdSpanIXT_EEERKS3_RKNS0_9DynMdSizeIXT_EEE.exit: ; preds = %.lr.ph.i, %_ZNK3ade4util9DynMdSpanILm6EE6originEv.exit
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #26
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %30
 
 29:                                               ; preds = %2
@@ -860,7 +854,7 @@ _ZN3ade20MemoryDescriptorView9Connector14removeListenerEPS0_PNS_29IMemoryDescrip
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @_ZNK3ade20MemoryDescriptorView4sizeEv(ptr dead_on_unwind noalias writable writeonly sret(%"struct.ade::util::DynMdSize") align 8 captures(none) initializes((24, 32)) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(96) %1) local_unnamed_addr #11 align 2 {
+define hidden void @_ZNK3ade20MemoryDescriptorView4sizeEv(ptr dead_on_unwind noalias writable writeonly sret(%"struct.ade::util::DynMdSize") align 8 captures(none) initializes((24, 32)) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(96) %1) local_unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !80)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -911,7 +905,7 @@ _ZNK3ade20MemoryDescriptorView13getDescriptorEv.exit: ; preds = %tailrecurse.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK3ade20MemoryDescriptorView13getDescriptorEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) local_unnamed_addr #12 align 2 {
+define hidden noundef ptr @_ZNK3ade20MemoryDescriptorView13getDescriptorEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) local_unnamed_addr #11 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !20
   %.not = icmp eq ptr %3, null
@@ -930,10 +924,10 @@ _ZN3ade20MemoryDescriptorView13getDescriptorEv.exit: ; preds = %tailrecurse.i, %
   ret ptr %.0
 }
 
-declare noundef i64 @_ZNK3ade16MemoryDescriptor11elementSizeEv(ptr noundef nonnull align 8 dereferenceable(264)) local_unnamed_addr #13
+declare noundef i64 @_ZNK3ade16MemoryDescriptor11elementSizeEv(ptr noundef nonnull align 8 dereferenceable(264)) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZN3ade20MemoryDescriptorView13getDescriptorEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) local_unnamed_addr #12 align 2 {
+define hidden noundef ptr @_ZN3ade20MemoryDescriptorView13getDescriptorEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) local_unnamed_addr #11 align 2 {
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %tailrecurse, %1
@@ -981,7 +975,7 @@ tailrecurse.i.i:                                  ; preds = %2, %tailrecurse.i.i
 _ZNK3ade20MemoryDescriptorView13getDescriptorEv.exit: ; preds = %tailrecurse.i.i, %2
   %.0.in.i = phi ptr [ %1, %2 ], [ %.tr.i.i, %tailrecurse.i.i ]
   %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZNK3ade16MemoryDescriptor15getExternalViewEv(ptr dead_on_unwind nonnull writable sret(%"struct.ade::util::DynMdView") align 8 %3, ptr noundef nonnull align 8 dereferenceable(264) %.0.i)
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %10 = load ptr, ptr %9, align 8, !tbaa !86
@@ -993,7 +987,7 @@ _ZNK3ade20MemoryDescriptorView13getDescriptorEv.exit: ; preds = %tailrecurse.i.i
   br label %40
 
 13:                                               ; preds = %_ZNK3ade20MemoryDescriptorView13getDescriptorEv.exit
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZNK3ade20MemoryDescriptorView4spanEv(ptr dead_on_unwind nonnull writable sret(%"struct.ade::util::DynMdSpan") align 8 %4, ptr noundef nonnull align 8 dereferenceable(96) %1)
   call void @llvm.experimental.noalias.scope.decl(metadata !88)
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -1042,15 +1036,15 @@ _ZNK3ade4util9DynMdViewILm6EvE5sliceERKNS0_9DynMdSpanILm6EEE.exit: ; preds = %.l
   store ptr %38, ptr %39, align 8, !tbaa !97, !alias.scope !88
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i64 %.0.lcssa.i, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !23, !alias.scope !88
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %40
 
 40:                                               ; preds = %_ZNK3ade4util9DynMdViewILm6EvE5sliceERKNS0_9DynMdSpanILm6EEE.exit, %12
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-declare void @_ZNK3ade16MemoryDescriptor15getExternalViewEv(ptr dead_on_unwind writable sret(%"struct.ade::util::DynMdView") align 8, ptr noundef nonnull align 8 dereferenceable(264)) local_unnamed_addr #13
+declare void @_ZNK3ade16MemoryDescriptor15getExternalViewEv(ptr dead_on_unwind writable sret(%"struct.ade::util::DynMdView") align 8, ptr noundef nonnull align 8 dereferenceable(264)) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
 define hidden ptr @_ZN3ade20MemoryDescriptorView6accessERKNS_4util9DynMdSpanILm6EEENS_16MemoryAccessTypeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1, i32 noundef %2) local_unnamed_addr #1 align 2 {
@@ -1068,9 +1062,9 @@ tailrecurse.i:                                    ; preds = %tailrecurse.i, %3
 
 _ZN3ade20MemoryDescriptorView13getDescriptorEv.exit: ; preds = %tailrecurse.i
   %9 = load ptr, ptr %.tr.i, align 8, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #26
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #26
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZNK3ade20MemoryDescriptorView4spanEv(ptr dead_on_unwind nonnull writable sret(%"struct.ade::util::DynMdSpan") align 8 %6, ptr noundef nonnull align 8 dereferenceable(96) %0)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !98)
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 48
@@ -1120,13 +1114,13 @@ _ZNK3ade4util9DynMdSpanILm6EE6originEv.exit:      ; preds = %.lr.ph.i.i, %_ZN3ad
 
 _ZN3ade4utilplILm6EEENS0_9DynMdSpanIXT_EEERKS3_RKNS0_9DynMdSizeIXT_EEE.exit: ; preds = %.lr.ph.i, %_ZNK3ade4util9DynMdSpanILm6EE6originEv.exit
   %30 = call ptr @_ZN3ade16MemoryDescriptor6accessERKNS_4util9DynMdSpanILm6EEENS_16MemoryAccessTypeE(ptr noundef nonnull align 8 dereferenceable(264) %9, ptr noundef nonnull align 8 dereferenceable(56) %4, i32 noundef %2)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #26
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #26
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %30
 }
 
-declare ptr @_ZN3ade16MemoryDescriptor6accessERKNS_4util9DynMdSpanILm6EEENS_16MemoryAccessTypeE(ptr noundef nonnull align 8 dereferenceable(264), ptr noundef nonnull align 8 dereferenceable(56), i32 noundef) local_unnamed_addr #13
+declare ptr @_ZN3ade16MemoryDescriptor6accessERKNS_4util9DynMdSpanILm6EEENS_16MemoryAccessTypeE(ptr noundef nonnull align 8 dereferenceable(264), ptr noundef nonnull align 8 dereferenceable(56), i32 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN3ade20MemoryDescriptorView6commitESt14_List_iteratorINS_14MemoryAccessor12SavedHandlesEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr %1) local_unnamed_addr #1 align 2 {
@@ -1145,10 +1139,10 @@ _ZN3ade20MemoryDescriptorView13getDescriptorEv.exit: ; preds = %tailrecurse.i
   ret void
 }
 
-declare void @_ZN3ade16MemoryDescriptor6commitESt14_List_iteratorINS_14MemoryAccessor12SavedHandlesEE(ptr noundef nonnull align 8 dereferenceable(264), ptr) local_unnamed_addr #13
+declare void @_ZN3ade16MemoryDescriptor6commitESt14_List_iteratorINS_14MemoryAccessor12SavedHandlesEE(ptr noundef nonnull align 8 dereferenceable(264), ptr) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN3adeeqEDnRKNS_20MemoryDescriptorViewE(ptr readnone captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1) local_unnamed_addr #12 {
+define hidden noundef zeroext i1 @_ZN3adeeqEDnRKNS_20MemoryDescriptorViewE(ptr readnone captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1) local_unnamed_addr #11 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !20
   %.not.i = icmp eq ptr %4, null
@@ -1169,7 +1163,7 @@ _ZNK3ade20MemoryDescriptorView13getDescriptorEv.exit: ; preds = %tailrecurse.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN3adeeqERKNS_20MemoryDescriptorViewEDn(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr readnone captures(none) %1) local_unnamed_addr #12 {
+define hidden noundef zeroext i1 @_ZN3adeeqERKNS_20MemoryDescriptorViewEDn(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr readnone captures(none) %1) local_unnamed_addr #11 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !20
   %.not.i = icmp eq ptr %4, null
@@ -1190,7 +1184,7 @@ _ZNK3ade20MemoryDescriptorView13getDescriptorEv.exit: ; preds = %tailrecurse.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN3adeneEDnRKNS_20MemoryDescriptorViewE(ptr readnone captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1) local_unnamed_addr #12 {
+define hidden noundef zeroext i1 @_ZN3adeneEDnRKNS_20MemoryDescriptorViewE(ptr readnone captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1) local_unnamed_addr #11 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !20
   %.not.i = icmp eq ptr %4, null
@@ -1211,7 +1205,7 @@ _ZNK3ade20MemoryDescriptorView13getDescriptorEv.exit: ; preds = %tailrecurse.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN3adeneERKNS_20MemoryDescriptorViewEDn(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr readnone captures(none) %1) local_unnamed_addr #12 {
+define hidden noundef zeroext i1 @_ZN3adeneERKNS_20MemoryDescriptorViewEDn(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr readnone captures(none) %1) local_unnamed_addr #11 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !20
   %.not.i = icmp eq ptr %4, null
@@ -1250,7 +1244,7 @@ tailrecurse.i.i.i:                                ; preds = %2, %tailrecurse.i.i
 _ZNK3ade20MemoryDescriptorView13getDescriptorEv.exit.i: ; preds = %tailrecurse.i.i.i, %2
   %.0.in.i.i = phi ptr [ %0, %2 ], [ %.tr.i.i.i, %tailrecurse.i.i.i ]
   %.0.i.i = load ptr, ptr %.0.in.i.i, align 8, !tbaa !19, !noalias !104
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3) #26, !noalias !104
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !104
   call void @_ZNK3ade16MemoryDescriptor15getExternalViewEv(ptr dead_on_unwind nonnull writable sret(%"struct.ade::util::DynMdView") align 8 %3, ptr noundef nonnull align 8 dereferenceable(264) %.0.i.i), !noalias !104
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %10 = load ptr, ptr %9, align 8, !tbaa !86, !noalias !104
@@ -1258,7 +1252,7 @@ _ZNK3ade20MemoryDescriptorView13getDescriptorEv.exit.i: ; preds = %tailrecurse.i
   br i1 %11, label %_ZNK3ade20MemoryDescriptorView15getExternalViewEv.exit, label %12
 
 12:                                               ; preds = %_ZNK3ade20MemoryDescriptorView13getDescriptorEv.exit.i
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #26, !noalias !104
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !104
   call void @_ZNK3ade20MemoryDescriptorView4spanEv(ptr dead_on_unwind nonnull writable sret(%"struct.ade::util::DynMdSpan") align 8 %4, ptr noundef nonnull readonly align 8 dereferenceable(96) %0), !noalias !104
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %14 = load i64, ptr %13, align 8, !tbaa !91, !noalias !107
@@ -1283,12 +1277,12 @@ _ZNK3ade4util9DynMdViewILm6EvE5sliceERKNS0_9DynMdSpanILm6EEE.exit.i: ; preds = %
   %.019.lcssa.i.i = phi i64 [ 0, %12 ], [ %21, %.lr.ph.i.i ]
   %23 = load ptr, ptr %9, align 8, !tbaa !86, !noalias !107
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 %.019.lcssa.i.i
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #26, !noalias !104
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !104
   br label %_ZNK3ade20MemoryDescriptorView15getExternalViewEv.exit
 
 _ZNK3ade20MemoryDescriptorView15getExternalViewEv.exit: ; preds = %_ZNK3ade20MemoryDescriptorView13getDescriptorEv.exit.i, %_ZNK3ade4util9DynMdViewILm6EvE5sliceERKNS0_9DynMdSpanILm6EEE.exit.i
   %.sroa.0.0.copyload = phi ptr [ %24, %_ZNK3ade4util9DynMdViewILm6EvE5sliceERKNS0_9DynMdSpanILm6EEE.exit.i ], [ null, %_ZNK3ade20MemoryDescriptorView13getDescriptorEv.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3) #26, !noalias !104
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !104
   %25 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 %1
   ret ptr %25
 }
@@ -1312,7 +1306,7 @@ tailrecurse.i.i.i:                                ; preds = %2, %tailrecurse.i.i
 _ZNK3ade20MemoryDescriptorView13getDescriptorEv.exit.i: ; preds = %tailrecurse.i.i.i, %2
   %.0.in.i.i = phi ptr [ %1, %2 ], [ %.tr.i.i.i, %tailrecurse.i.i.i ]
   %.0.i.i = load ptr, ptr %.0.in.i.i, align 8, !tbaa !19, !noalias !110
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3) #26, !noalias !110
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !110
   call void @_ZNK3ade16MemoryDescriptor15getExternalViewEv(ptr dead_on_unwind nonnull writable sret(%"struct.ade::util::DynMdView") align 8 %3, ptr noundef nonnull align 8 dereferenceable(264) %.0.i.i), !noalias !110
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %10 = load ptr, ptr %9, align 8, !tbaa !86, !noalias !110
@@ -1320,11 +1314,11 @@ _ZNK3ade20MemoryDescriptorView13getDescriptorEv.exit.i: ; preds = %tailrecurse.i
   br i1 %11, label %_ZNK3ade20MemoryDescriptorView15getExternalViewEv.exit.thread, label %12
 
 _ZNK3ade20MemoryDescriptorView15getExternalViewEv.exit.thread: ; preds = %_ZNK3ade20MemoryDescriptorView13getDescriptorEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3) #26, !noalias !110
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !110
   br label %_ZN3ade18copyFromViewMemoryEPvNS_4util9DynMdViewILm6EvEE.exit
 
 12:                                               ; preds = %_ZNK3ade20MemoryDescriptorView13getDescriptorEv.exit.i
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #26, !noalias !110
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !110
   call void @_ZNK3ade20MemoryDescriptorView4spanEv(ptr dead_on_unwind nonnull writable sret(%"struct.ade::util::DynMdSpan") align 8 %4, ptr noundef nonnull readonly align 8 dereferenceable(96) %1), !noalias !110
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %14 = load i64, ptr %13, align 8, !tbaa !91, !noalias !113
@@ -1360,8 +1354,8 @@ _ZNK3ade20MemoryDescriptorView15getExternalViewEv.exit: ; preds = %.lr.ph.i.i, %
   %.019.lcssa.i.i = phi i64 [ 0, %12 ], [ %24, %.lr.ph.i.i ]
   %.0.lcssa.i.i = phi i64 [ %17, %12 ], [ %31, %.lr.ph.i.i ]
   %33 = load ptr, ptr %9, align 8, !tbaa !86, !noalias !113
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #26, !noalias !110
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3) #26, !noalias !110
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !110
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !110
   %34 = icmp eq i64 %.0.lcssa.i.i, 0
   br i1 %34, label %_ZN3ade18copyFromViewMemoryEPvNS_4util9DynMdViewILm6EvEE.exit, label %_ZSt8__copy_nIPKcmPcET1_T_T0_S3_St26random_access_iterator_tag.exit.i.i.i.i
 
@@ -1375,7 +1369,7 @@ _ZN3ade18copyFromViewMemoryEPvNS_4util9DynMdViewILm6EvEE.exit: ; preds = %_ZNK3a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN3ade18copyFromViewMemoryEPvNS_4util9DynMdViewILm6EvEE(ptr noundef writeonly captures(none) %0, ptr noundef readonly byval(%"struct.ade::util::DynMdView") align 8 captures(none) %1) local_unnamed_addr #14 {
+define hidden void @_ZN3ade18copyFromViewMemoryEPvNS_4util9DynMdViewILm6EvEE(ptr noundef writeonly captures(none) %0, ptr noundef readonly byval(%"struct.ade::util::DynMdView") align 8 captures(none) %1) local_unnamed_addr #13 {
 _ZNK3ade4util9DynMdViewILm6EvE11sizeInBytesEv.exit:
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %3 = load i64, ptr %2, align 8, !tbaa !116
@@ -1412,7 +1406,7 @@ tailrecurse.i.i.i:                                ; preds = %2, %tailrecurse.i.i
 _ZNK3ade20MemoryDescriptorView13getDescriptorEv.exit.i: ; preds = %tailrecurse.i.i.i, %2
   %.0.in.i.i = phi ptr [ %1, %2 ], [ %.tr.i.i.i, %tailrecurse.i.i.i ]
   %.0.i.i = load ptr, ptr %.0.in.i.i, align 8, !tbaa !19, !noalias !117
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3) #26, !noalias !117
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !117
   call void @_ZNK3ade16MemoryDescriptor15getExternalViewEv(ptr dead_on_unwind nonnull writable sret(%"struct.ade::util::DynMdView") align 8 %3, ptr noundef nonnull align 8 dereferenceable(264) %.0.i.i), !noalias !117
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %11 = load ptr, ptr %10, align 8, !tbaa !86, !noalias !117
@@ -1424,7 +1418,7 @@ _ZNK3ade20MemoryDescriptorView13getDescriptorEv.exit.i: ; preds = %tailrecurse.i
   br label %_ZNK3ade20MemoryDescriptorView15getExternalViewEv.exit
 
 14:                                               ; preds = %_ZNK3ade20MemoryDescriptorView13getDescriptorEv.exit.i
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #26, !noalias !117
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !117
   call void @_ZNK3ade20MemoryDescriptorView4spanEv(ptr dead_on_unwind nonnull writable sret(%"struct.ade::util::DynMdSpan") align 8 %4, ptr noundef nonnull readonly align 8 dereferenceable(96) %1), !noalias !117
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %16 = load i64, ptr %15, align 8, !tbaa !91, !noalias !120
@@ -1472,11 +1466,11 @@ _ZNK3ade4util9DynMdViewILm6EvE5sliceERKNS0_9DynMdSpanILm6EEE.exit.i: ; preds = %
   store ptr %39, ptr %40, align 8
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 64
   store i64 %.0.lcssa.i.i, ptr %.sroa.4.0..sroa_idx.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #26, !noalias !117
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !117
   br label %_ZNK3ade20MemoryDescriptorView15getExternalViewEv.exit
 
 _ZNK3ade20MemoryDescriptorView15getExternalViewEv.exit: ; preds = %13, %_ZNK3ade4util9DynMdViewILm6EvE5sliceERKNS0_9DynMdSpanILm6EEE.exit.i
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3) #26, !noalias !117
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !117
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %42 = load i32, ptr %41, align 4
   %43 = sext i32 %42 to i64
@@ -1516,7 +1510,7 @@ _ZN3ade16copyToViewMemoryEPKvNS_4util9DynMdViewILm6EvEE.exit: ; preds = %_ZNK3ad
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN3ade16copyToViewMemoryEPKvNS_4util9DynMdViewILm6EvEE(ptr noundef readonly captures(none) %0, ptr noundef readonly byval(%"struct.ade::util::DynMdView") align 8 captures(none) %1) local_unnamed_addr #15 {
+define hidden void @_ZN3ade16copyToViewMemoryEPKvNS_4util9DynMdViewILm6EvEE(ptr noundef readonly captures(none) %0, ptr noundef readonly byval(%"struct.ade::util::DynMdView") align 8 captures(none) %1) local_unnamed_addr #14 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4, !tbaa !94
   %5 = sext i32 %4 to i64
@@ -1556,7 +1550,7 @@ _ZN3ade4util8raw_copyERKNS0_11MemoryRangeIKvEENS1_IvEE.exit: ; preds = %_ZNK3ade
 }
 
 ; Function Attrs: mustprogress noinline nounwind uwtable
-define linkonce_odr hidden void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #16 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !31
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -1593,7 +1587,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv.ex
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #17
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN3ade20MemoryDescriptorView9Connector8findDescEPS0_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -1703,7 +1697,7 @@ _ZN3ade4util7find_ifIRSt6vectorINS_20MemoryDescriptorView9Connector12ListenerDes
   br i1 %.not, label %_ZN3ade4util7find_ifIRSt6vectorINS_20MemoryDescriptorView9Connector12ListenerDescESaIS5_EENS4_15OwnerComparatorEEEDTclsr3stdE5beginclsr3stdE7declvalIT_EEEEOSA_OT0_.exit.thread, label %61
 
 _ZN3ade4util7find_ifIRSt6vectorINS_20MemoryDescriptorView9Connector12ListenerDescESaIS5_EENS4_15OwnerComparatorEEEDTclsr3stdE5beginclsr3stdE7declvalIT_EEEEOSA_OT0_.exit.thread: ; preds = %._crit_edge.i.i.i.i, %_ZN3ade4util7find_ifIRSt6vectorINS_20MemoryDescriptorView9Connector12ListenerDescESaIS5_EENS4_15OwnerComparatorEEEDTclsr3stdE5beginclsr3stdE7declvalIT_EEEEOSA_OT0_.exit
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %1, ptr %3, align 8, !tbaa !40
   %48 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1734,7 +1728,7 @@ _ZNSt6vectorIN3ade20MemoryDescriptorView9Connector12ListenerDescESaIS3_EE9push_b
   br label %_ZN3ade20MemoryDescriptorView9Connector12ListenerDescD2Ev.exit
 
 _ZN3ade20MemoryDescriptorView9Connector12ListenerDescD2Ev.exit: ; preds = %_ZNSt6vectorIN3ade20MemoryDescriptorView9Connector12ListenerDescESaIS3_EE9push_backEOS3_.exit.thread, %_ZNSt6vectorIN3ade20MemoryDescriptorView9Connector12ListenerDescESaIS3_EE9push_backEOS3_.exit, %54
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %55 = load ptr, ptr %5, align 8, !tbaa !38
   %56 = getelementptr inbounds i8, ptr %55, i64 -32
   br label %61
@@ -1751,7 +1745,7 @@ _ZN3ade20MemoryDescriptorView9Connector12ListenerDescD2Ev.exit: ; preds = %_ZNSt
   br label %_ZN3ade20MemoryDescriptorView9Connector12ListenerDescD2Ev.exit6
 
 _ZN3ade20MemoryDescriptorView9Connector12ListenerDescD2Ev.exit6: ; preds = %57, %60
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %58
 
 61:                                               ; preds = %_ZN3ade4util7find_ifIRSt6vectorINS_20MemoryDescriptorView9Connector12ListenerDescESaIS5_EENS4_15OwnerComparatorEEEDTclsr3stdE5beginclsr3stdE7declvalIT_EEEEOSA_OT0_.exit, %_ZN3ade20MemoryDescriptorView9Connector12ListenerDescD2Ev.exit
@@ -1760,7 +1754,7 @@ _ZN3ade20MemoryDescriptorView9Connector12ListenerDescD2Ev.exit6: ; preds = %57, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #18
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #17
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt6vectorIN3ade20MemoryDescriptorView9Connector12ListenerDescESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -1884,10 +1878,10 @@ _ZNSt12_Vector_baseIN3ade20MemoryDescriptorView9Connector12ListenerDescESaIS3_EE
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #19
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #18
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #20
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #2
@@ -1984,7 +1978,13 @@ _ZNKSt9type_infoeqERKS_.exit.thread8:             ; preds = %9, %_ZNKSt9type_inf
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #21
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #20
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #21
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #22
@@ -2007,19 +2007,19 @@ attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #6 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #7 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #8 = { cold nofree noreturn }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { mustprogress nofree nosync nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #13 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress noinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #17 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #19 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #20 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #21 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree nosync nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #12 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress noinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #16 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #18 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #19 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #20 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #21 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #22 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #23 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #24 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }

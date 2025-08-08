@@ -237,8 +237,8 @@ entry:
   %ref.tmp45 = alloca %"class.std::allocator", align 1
   %init_sz = alloca i64, align 8
   %val = alloca %"class.node::MaybeStackBuffer", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %cap_data.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %cap_header_data.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %cap_data.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %cap_header_data.i)
   store i32 537396514, ptr %cap_header_data.i, align 4
   %pid.i = getelementptr inbounds nuw i8, ptr %cap_header_data.i, i64 4
   %call.i = tail call i32 @getpid() #19
@@ -249,8 +249,8 @@ entry:
   %0 = load i32, ptr %permitted.i, align 4
   %cmp4.i = icmp eq i32 %0, 1024
   %retval.0.i = select i1 %cmp.not.i, i1 %cmp4.i, i1 false
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %cap_data.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %cap_header_data.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %cap_data.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %cap_header_data.i)
   br i1 %retval.0.i, label %lor.lhs.false, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
@@ -2473,9 +2473,9 @@ if.end.i127:                                      ; preds = %lor.lhs.false.i124
 _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit135: ; preds = %if.end.i127, %if.then.i132
   %retval.i118.sroa.0.0 = phi ptr [ %55, %if.then.i132 ], [ %56, %if.end.i127 ]
   %call79 = call noundef i32 @_ZNK2v86Uint325ValueEv(ptr noundef nonnull align 1 dereferenceable(1) %retval.i118.sroa.0.0) #19
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %pwd.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pp.i)
-  call void @llvm.lifetime.start.p0(i64 8192, ptr nonnull %buf.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %pwd.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %pp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i)
   %call.i = tail call ptr @__errno_location() #24
   store i32 0, ptr %call.i, align 4
   store ptr null, ptr %pp.i, align 8
@@ -2500,9 +2500,9 @@ if.then5.i:                                       ; preds = %if.end.i72
 
 _ZN4node11credentialsL11name_by_uidEj.exit:       ; preds = %if.then.i73, %if.end.i72, %if.then5.i
   %retval.0.i = phi ptr [ %call3.i, %if.then.i73 ], [ null, %if.then5.i ], [ null, %if.end.i72 ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %pwd.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pp.i)
-  call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %buf.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %pwd.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %pp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i)
   br label %if.end82
 
 if.else:                                          ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit153
@@ -3775,9 +3775,9 @@ if.else:                                          ; preds = %entry
   call void @_ZN4node9Utf8ValueC1EPN2v87IsolateENS1_5LocalINS1_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(1048) %name, ptr noundef %isolate, ptr nonnull %value.coerce) #19
   %buf_.i = getelementptr inbounds nuw i8, ptr %name, i64 16
   %0 = load ptr, ptr %buf_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %pwd.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pp.i)
-  call void @llvm.lifetime.start.p0(i64 8192, ptr nonnull %buf.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %pwd.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %pp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i)
   %call.i = tail call ptr @__errno_location() #24
   store i32 0, ptr %call.i, align 4
   store ptr null, ptr %pp.i, align 8
@@ -3795,9 +3795,9 @@ if.then.i:                                        ; preds = %if.else
 
 _ZN4node11credentialsL11gid_by_nameEPKc.exit:     ; preds = %if.else, %if.then.i
   %retval.0.i = phi i32 [ %2, %if.then.i ], [ -1, %if.else ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %pwd.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pp.i)
-  call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %buf.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %pwd.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %pp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i)
   %3 = load ptr, ptr %buf_.i, align 8
   %cmp.i.i.i.i = icmp ne ptr %3, null
   %buf_st_.i.i.i = getelementptr inbounds nuw i8, ptr %name, i64 24
@@ -3844,9 +3844,9 @@ if.else:                                          ; preds = %entry
   call void @_ZN4node9Utf8ValueC1EPN2v87IsolateENS1_5LocalINS1_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(1048) %name, ptr noundef %isolate, ptr nonnull %value.coerce) #19
   %buf_.i = getelementptr inbounds nuw i8, ptr %name, i64 16
   %0 = load ptr, ptr %buf_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %pwd.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pp.i)
-  call void @llvm.lifetime.start.p0(i64 8192, ptr nonnull %buf.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %pwd.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %pp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i)
   %call.i = tail call ptr @__errno_location() #24
   store i32 0, ptr %call.i, align 4
   store ptr null, ptr %pp.i, align 8
@@ -3864,9 +3864,9 @@ if.then.i:                                        ; preds = %if.else
 
 _ZN4node11credentialsL11uid_by_nameEPKc.exit:     ; preds = %if.else, %if.then.i
   %retval.0.i = phi i32 [ %2, %if.then.i ], [ -1, %if.else ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %pwd.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pp.i)
-  call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %buf.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %pwd.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %pp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i)
   %3 = load ptr, ptr %buf_.i, align 8
   %cmp.i.i.i.i = icmp ne ptr %3, null
   %buf_st_.i.i.i = getelementptr inbounds nuw i8, ptr %name, i64 24
@@ -4051,10 +4051,10 @@ entry:
 declare void @llvm.assume(i1 noundef) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #16

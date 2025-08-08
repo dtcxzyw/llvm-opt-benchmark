@@ -373,7 +373,7 @@ define hidden noundef zeroext i1 @_ZNK10__cxxabiv117__class_type_info9can_catchE
   unreachable
 
 16:                                               ; preds = %13
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %4) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %11, ptr %4, align 8, !tbaa !11
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr null, ptr %17, align 8, !tbaa !17
@@ -404,7 +404,7 @@ define hidden noundef zeroext i1 @_ZNK10__cxxabiv117__class_type_info9can_catchE
   br label %32
 
 32:                                               ; preds = %16, %30
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %4) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %33
 
 33:                                               ; preds = %32, %10, %3
@@ -412,11 +412,8 @@ define hidden noundef zeroext i1 @_ZNK10__cxxabiv117__class_type_info9can_catchE
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
-
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define dso_local ptr @__dynamic_cast(ptr %0, ptr %1, ptr %2, i64 %3) local_unnamed_addr #9 {
+define dso_local ptr @__dynamic_cast(ptr %0, ptr %1, ptr %2, i64 %3) local_unnamed_addr #8 {
   %5 = alloca %"struct.__cxxabiv1::__dynamic_cast_info", align 8
   %6 = alloca %"struct.__cxxabiv1::__dynamic_cast_info", align 8
   %7 = alloca %"struct.__cxxabiv1::__dynamic_cast_info", align 8
@@ -449,7 +446,7 @@ define dso_local ptr @__dynamic_cast(ptr %0, ptr %1, ptr %2, i64 %3) local_unnam
   br i1 %25, label %_ZN10__cxxabiv112_GLOBAL__N_119dyn_cast_to_derivedEPKvS2_PKNS_17__class_type_infoES5_ll.exit, label %26
 
 26:                                               ; preds = %24
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %7) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %2, ptr %7, align 8, !tbaa !11
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %0, ptr %27, align 8, !tbaa !17
@@ -479,7 +476,7 @@ define dso_local ptr @__dynamic_cast(ptr %0, ptr %1, ptr %2, i64 %3) local_unnam
   %41 = load i32, ptr %31, align 8, !tbaa !25
   %.not.i = icmp eq i32 %41, 1
   %.16.i = select i1 %.not.i, ptr %12, ptr null
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %7) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN10__cxxabiv112_GLOBAL__N_119dyn_cast_to_derivedEPKvS2_PKNS_17__class_type_infoES5_ll.exit
 
 42:                                               ; preds = %4
@@ -493,7 +490,7 @@ define dso_local ptr @__dynamic_cast(ptr %0, ptr %1, ptr %2, i64 %3) local_unnam
   br i1 %47, label %_ZN10__cxxabiv112_GLOBAL__N_121dyn_cast_try_downcastEPKvS2_PKNS_17__class_type_infoES5_l.exit.thread, label %48
 
 48:                                               ; preds = %44
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %6) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %14, ptr %6, align 8, !tbaa !11
   %49 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %46, ptr %49, align 8, !tbaa !17
@@ -522,11 +519,11 @@ define dso_local ptr @__dynamic_cast(ptr %0, ptr %1, ptr %2, i64 %3) local_unnam
   call void %62(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull %6, ptr noundef nonnull %12, ptr noundef nonnull %12, i32 noundef 1, i1 noundef zeroext false) #18
   %63 = load i32, ptr %53, align 8, !tbaa !25
   %.not.i15 = icmp eq i32 %63, 0
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %6) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %.not.i15, label %_ZN10__cxxabiv112_GLOBAL__N_121dyn_cast_try_downcastEPKvS2_PKNS_17__class_type_infoES5_l.exit.thread, label %_ZN10__cxxabiv112_GLOBAL__N_119dyn_cast_to_derivedEPKvS2_PKNS_17__class_type_infoES5_ll.exit
 
 _ZN10__cxxabiv112_GLOBAL__N_121dyn_cast_try_downcastEPKvS2_PKNS_17__class_type_infoES5_l.exit.thread: ; preds = %48, %44, %42
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %2, ptr %5, align 8, !tbaa !11
   %64 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %0, ptr %64, align 8, !tbaa !17
@@ -591,7 +588,7 @@ _ZN10__cxxabiv112_GLOBAL__N_121dyn_cast_try_downcastEPKvS2_PKNS_17__class_type_i
 
 _ZN10__cxxabiv112_GLOBAL__N_113dyn_cast_slowEPKvS2_PKNS_17__class_type_infoES5_S5_l.exit: ; preds = %_ZN10__cxxabiv112_GLOBAL__N_121dyn_cast_try_downcastEPKvS2_PKNS_17__class_type_infoES5_l.exit.thread, %78, %91, %98
   %.0.i18 = phi ptr [ %99, %98 ], [ null, %91 ], [ null, %_ZN10__cxxabiv112_GLOBAL__N_121dyn_cast_try_downcastEPKvS2_PKNS_17__class_type_infoES5_l.exit.thread ], [ %spec.select.i, %78 ]
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %5) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN10__cxxabiv112_GLOBAL__N_119dyn_cast_to_derivedEPKvS2_PKNS_17__class_type_infoES5_ll.exit
 
 _ZN10__cxxabiv112_GLOBAL__N_119dyn_cast_to_derivedEPKvS2_PKNS_17__class_type_infoES5_ll.exit: ; preds = %48, %26, %24, %22, %_ZN10__cxxabiv112_GLOBAL__N_113dyn_cast_slowEPKvS2_PKNS_17__class_type_infoES5_S5_l.exit
@@ -600,13 +597,10 @@ _ZN10__cxxabiv112_GLOBAL__N_119dyn_cast_to_derivedEPKvS2_PKNS_17__class_type_inf
 }
 
 ; Function Attrs: noreturn
-declare hidden void @__abort_message(ptr noundef, ...) local_unnamed_addr #10
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
+declare hidden void @__abort_message(ptr noundef, ...) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK10__cxxabiv117__class_type_info24process_found_base_classEPNS_19__dynamic_cast_infoEPvi(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #11 align 2 {
+define hidden void @_ZNK10__cxxabiv117__class_type_info24process_found_base_classEPNS_19__dynamic_cast_infoEPvi(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #10 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %6 = load i32, ptr %5, align 4, !tbaa !32
   %7 = icmp eq i32 %6, 0
@@ -662,7 +656,7 @@ define hidden void @_ZNK10__cxxabiv117__class_type_info24process_found_base_clas
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZNK10__cxxabiv117__class_type_info27has_unambiguous_public_baseEPNS_19__dynamic_cast_infoEPvi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #12 align 2 {
+define hidden void @_ZNK10__cxxabiv117__class_type_info27has_unambiguous_public_baseEPNS_19__dynamic_cast_infoEPvi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #11 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !18
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1041,7 +1035,7 @@ _ZNK10__cxxabiv117__class_type_info24process_found_base_classEPNS_19__dynamic_ca
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define hidden noundef zeroext i1 @_ZNK10__cxxabiv117__pbase_type_info9can_catchEPKNS_16__shim_type_infoERPv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(32) %0, ptr noundef readonly %1, ptr nonnull readnone align 8 captures(none) %2) unnamed_addr #13 align 2 {
+define hidden noundef zeroext i1 @_ZNK10__cxxabiv117__pbase_type_info9can_catchEPKNS_16__shim_type_infoERPv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(32) %0, ptr noundef readonly %1, ptr nonnull readnone align 8 captures(none) %2) unnamed_addr #12 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8, !tbaa !50
   %6 = and i32 %5, 24
@@ -1242,7 +1236,7 @@ _ZNK10__cxxabiv117__pbase_type_info9can_catchEPKNS_16__shim_type_infoERPv.exit.t
 81:                                               ; preds = %78
   %82 = icmp ne ptr %38, null
   %83 = zext i1 %82 to i8
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %4) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %79, ptr %4, align 8, !tbaa !11
   %84 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr null, ptr %84, align 8, !tbaa !17
@@ -1274,7 +1268,7 @@ _ZNK10__cxxabiv117__pbase_type_info9can_catchEPKNS_16__shim_type_infoERPv.exit.t
   br label %99
 
 99:                                               ; preds = %81, %97
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %4) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %100
 
 100:                                              ; preds = %_ZNK10__cxxabiv117__pbase_type_info9can_catchEPKNS_16__shim_type_infoERPv.exit.thread57, %37, %44, %48, %60, %73, %71, %99, %78, %75, %65, %67, %_ZNK10__cxxabiv117__pbase_type_info9can_catchEPKNS_16__shim_type_infoERPv.exit.thread, %29, %8
@@ -1283,7 +1277,7 @@ _ZNK10__cxxabiv117__pbase_type_info9can_catchEPKNS_16__shim_type_infoERPv.exit.t
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define hidden noundef zeroext i1 @_ZNK10__cxxabiv119__pointer_type_info16can_catch_nestedEPKNS_16__shim_type_infoE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef readonly %1) local_unnamed_addr #13 align 2 {
+define hidden noundef zeroext i1 @_ZNK10__cxxabiv119__pointer_type_info16can_catch_nestedEPKNS_16__shim_type_infoE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef readonly %1) local_unnamed_addr #12 align 2 {
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %26, %2
@@ -1344,7 +1338,7 @@ tailrecurse:                                      ; preds = %26, %2
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define hidden noundef zeroext i1 @_ZNK10__cxxabiv129__pointer_to_member_type_info16can_catch_nestedEPKNS_16__shim_type_infoE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef readonly %1) local_unnamed_addr #13 align 2 {
+define hidden noundef zeroext i1 @_ZNK10__cxxabiv129__pointer_to_member_type_info16can_catch_nestedEPKNS_16__shim_type_infoE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef readonly %1) local_unnamed_addr #12 align 2 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %.thread, label %4
 
@@ -1393,7 +1387,7 @@ define hidden noundef zeroext i1 @_ZNK10__cxxabiv129__pointer_to_member_type_inf
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite) uwtable
-define hidden noundef zeroext i1 @_ZNK10__cxxabiv129__pointer_to_member_type_info9can_catchEPKNS_16__shim_type_infoERPv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(40) %0, ptr noundef readonly %1, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %2) unnamed_addr #14 align 2 {
+define hidden noundef zeroext i1 @_ZNK10__cxxabiv129__pointer_to_member_type_info9can_catchEPKNS_16__shim_type_infoERPv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(40) %0, ptr noundef readonly %1, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %2) unnamed_addr #13 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !4
   %6 = icmp eq ptr %5, @_ZTSDn
@@ -1506,7 +1500,7 @@ _ZNK10__cxxabiv117__pbase_type_info9can_catchEPKNS_16__shim_type_infoERPv.exit.t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK10__cxxabiv117__class_type_info29process_static_type_above_dstEPNS_19__dynamic_cast_infoEPKvS4_i(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %0, ptr noundef captures(none) initializes((77, 78)) %1, ptr noundef %2, ptr noundef readnone captures(address) %3, i32 noundef %4) local_unnamed_addr #11 align 2 {
+define hidden void @_ZNK10__cxxabiv117__class_type_info29process_static_type_above_dstEPNS_19__dynamic_cast_infoEPKvS4_i(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %0, ptr noundef captures(none) initializes((77, 78)) %1, ptr noundef %2, ptr noundef readnone captures(address) %3, i32 noundef %4) local_unnamed_addr #10 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 77
   store i8 1, ptr %6, align 1, !tbaa !30
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1575,7 +1569,7 @@ define hidden void @_ZNK10__cxxabiv117__class_type_info29process_static_type_abo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK10__cxxabiv117__class_type_info29process_static_type_below_dstEPNS_19__dynamic_cast_infoEPKvi(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %0, ptr noundef captures(none) %1, ptr noundef readnone captures(address) %2, i32 noundef %3) local_unnamed_addr #11 align 2 {
+define hidden void @_ZNK10__cxxabiv117__class_type_info29process_static_type_below_dstEPNS_19__dynamic_cast_infoEPKvi(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %0, ptr noundef captures(none) %1, ptr noundef readnone captures(address) %2, i32 noundef %3) local_unnamed_addr #10 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !17
   %7 = icmp eq ptr %2, %6
@@ -2220,7 +2214,7 @@ _ZNK10__cxxabiv117__class_type_info29process_static_type_below_dstEPNS_19__dynam
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZNK10__cxxabiv117__class_type_info16search_below_dstEPNS_19__dynamic_cast_infoEPKvib(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4) unnamed_addr #15 align 2 {
+define hidden void @_ZNK10__cxxabiv117__class_type_info16search_below_dstEPNS_19__dynamic_cast_infoEPKvib(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4) unnamed_addr #14 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !18
   br i1 %4, label %14, label %8
@@ -2663,7 +2657,7 @@ _ZNK10__cxxabiv117__class_type_info29process_static_type_above_dstEPNS_19__dynam
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZNK10__cxxabiv117__class_type_info16search_above_dstEPNS_19__dynamic_cast_infoEPKvS4_ib(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef readnone captures(address) %3, i32 noundef %4, i1 noundef zeroext %5) unnamed_addr #15 align 2 {
+define hidden void @_ZNK10__cxxabiv117__class_type_info16search_above_dstEPNS_19__dynamic_cast_infoEPKvS4_ib(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef readnone captures(address) %3, i32 noundef %4, i1 noundef zeroext %5) unnamed_addr #14 align 2 {
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !18
   br i1 %5, label %15, label %9
@@ -2760,7 +2754,13 @@ _ZNK10__cxxabiv117__class_type_info29process_static_type_above_dstEPNS_19__dynam
 declare void @__cxa_pure_virtual() unnamed_addr
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #16
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #15
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #16
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #17
@@ -2773,15 +2773,15 @@ attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #5 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { mustprogress nofree nounwind willreturn memory(read) uwtable "min-legal-vector-width"="0" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree nounwind willreturn memory(read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nofree nounwind willreturn memory(read, argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nofree norecurse nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nounwind willreturn memory(read) uwtable "min-legal-vector-width"="0" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree nounwind willreturn memory(read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree nounwind willreturn memory(read, argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree norecurse nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #17 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #18 = { nounwind }
 attributes #19 = { noreturn nounwind }

@@ -207,12 +207,12 @@ define dso_local void @_ZN19BM_FlatArray_Memset4BodyEv() local_unnamed_addr #3 a
 define internal void @_ZL22CATCH2_INTERNAL_TEST_6v() #3 {
   %1 = alloca %struct.timespec, align 8
   %2 = alloca %struct.timespec, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = call i32 @clock_gettime(i32 noundef 2, ptr noundef nonnull %2) #16
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = load i64, ptr %2, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %7
 
 7:                                                ; preds = %7, %0
@@ -223,12 +223,12 @@ define internal void @_ZL22CATCH2_INTERNAL_TEST_6v() #3 {
   br i1 %exitcond.not.i, label %_ZN16BM_rcVector_Push3RunEv.exit, label %7, !llvm.loop !9
 
 _ZN16BM_rcVector_Push3RunEv.exit:                 ; preds = %7
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %9 = call i32 @clock_gettime(i32 noundef 2, ptr noundef nonnull %1) #16
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load i64, ptr %10, align 8
   %12 = load i64, ptr %1, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %reass.add.i = sub i64 %12, %6
   %reass.mul.i = mul i64 %reass.add.i, 1000000000
   %13 = sub i64 %11, %5
@@ -348,12 +348,12 @@ declare i32 @__gxx_personality_v0(...)
 define internal void @_ZL22CATCH2_INTERNAL_TEST_8v() #3 {
   %1 = alloca %struct.timespec, align 8
   %2 = alloca %struct.timespec, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = call i32 @clock_gettime(i32 noundef 2, ptr noundef nonnull %2) #16
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = load i64, ptr %2, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %7
 
 7:                                                ; preds = %7, %0
@@ -364,12 +364,12 @@ define internal void @_ZL22CATCH2_INTERNAL_TEST_8v() #3 {
   br i1 %exitcond.not.i, label %_ZN28BM_rcVector_PushPreallocated3RunEv.exit, label %7, !llvm.loop !12
 
 _ZN28BM_rcVector_PushPreallocated3RunEv.exit:     ; preds = %7
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %9 = call i32 @clock_gettime(i32 noundef 2, ptr noundef nonnull %1) #16
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load i64, ptr %10, align 8
   %12 = load i64, ptr %1, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %reass.add.i = sub i64 %12, %6
   %reass.mul.i = mul i64 %reass.add.i, 1000000000
   %13 = sub i64 %11, %5
@@ -568,12 +568,12 @@ _ZN12rcTempVectorIiED2Ev.exit1:                   ; preds = %11
 define internal void @_ZL23CATCH2_INTERNAL_TEST_12v() #3 {
   %1 = alloca %struct.timespec, align 8
   %2 = alloca %struct.timespec, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = call i32 @clock_gettime(i32 noundef 2, ptr noundef nonnull %2) #16
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = load i64, ptr %2, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %7
 
 7:                                                ; preds = %7, %0
@@ -584,12 +584,12 @@ define internal void @_ZL23CATCH2_INTERNAL_TEST_12v() #3 {
   br i1 %exitcond.not.i, label %_ZN25BM_rcVector_AssignIndices3RunEv.exit, label %7, !llvm.loop !14
 
 _ZN25BM_rcVector_AssignIndices3RunEv.exit:        ; preds = %7
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %9 = call i32 @clock_gettime(i32 noundef 2, ptr noundef nonnull %1) #16
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load i64, ptr %10, align 8
   %12 = load i64, ptr %1, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %reass.add.i = sub i64 %12, %6
   %reass.mul.i = mul i64 %reass.add.i, 1000000000
   %13 = sub i64 %11, %5
@@ -727,12 +727,12 @@ _ZN12rcTempVectorIiED2Ev.exit1:                   ; preds = %10
 define internal void @_ZL23CATCH2_INTERNAL_TEST_16v() #3 {
   %1 = alloca %struct.timespec, align 8
   %2 = alloca %struct.timespec, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = call i32 @clock_gettime(i32 noundef 2, ptr noundef nonnull %2) #16
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = load i64, ptr %2, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %7
 
 7:                                                ; preds = %7, %0
@@ -743,12 +743,12 @@ define internal void @_ZL23CATCH2_INTERNAL_TEST_16v() #3 {
   br i1 %exitcond.not.i, label %_ZN17BM_stdvector_Push3RunEv.exit, label %7, !llvm.loop !16
 
 _ZN17BM_stdvector_Push3RunEv.exit:                ; preds = %7
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %9 = call i32 @clock_gettime(i32 noundef 2, ptr noundef nonnull %1) #16
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load i64, ptr %10, align 8
   %12 = load i64, ptr %1, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %reass.add.i = sub i64 %12, %6
   %reass.mul.i = mul i64 %reass.add.i, 1000000000
   %13 = sub i64 %11, %5
@@ -872,12 +872,12 @@ _ZNSt6vectorIiSaIiEED2Ev.exit5:                   ; preds = %24, %26
 define internal void @_ZL23CATCH2_INTERNAL_TEST_18v() #3 {
   %1 = alloca %struct.timespec, align 8
   %2 = alloca %struct.timespec, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = call i32 @clock_gettime(i32 noundef 2, ptr noundef nonnull %2) #16
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = load i64, ptr %2, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %7
 
 7:                                                ; preds = %7, %0
@@ -888,12 +888,12 @@ define internal void @_ZL23CATCH2_INTERNAL_TEST_18v() #3 {
   br i1 %exitcond.not.i, label %_ZN29BM_stdvector_PushPreallocated3RunEv.exit, label %7, !llvm.loop !18
 
 _ZN29BM_stdvector_PushPreallocated3RunEv.exit:    ; preds = %7
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %9 = call i32 @clock_gettime(i32 noundef 2, ptr noundef nonnull %1) #16
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load i64, ptr %10, align 8
   %12 = load i64, ptr %1, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %reass.add.i = sub i64 %12, %6
   %reass.mul.i = mul i64 %reass.add.i, 1000000000
   %13 = sub i64 %11, %5
@@ -1096,12 +1096,12 @@ _ZNSt6vectorIiSaIiEED2Ev.exit2:                   ; preds = %7, %10
 define linkonce_odr dso_local void @_ZN17BM_FlatArray_Push3RunEv() local_unnamed_addr #3 comdat align 2 {
   %1 = alloca %struct.timespec, align 8
   %2 = alloca %struct.timespec, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = call i32 @clock_gettime(i32 noundef 2, ptr noundef nonnull %2) #16
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = load i64, ptr %2, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %7
 
 7:                                                ; preds = %0, %_ZN17BM_FlatArray_Push4BodyEv.exit
@@ -1144,12 +1144,12 @@ _ZN17BM_FlatArray_Push4BodyEv.exit:               ; preds = %18
   br i1 %exitcond.not, label %22, label %7, !llvm.loop !22
 
 22:                                               ; preds = %_ZN17BM_FlatArray_Push4BodyEv.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %23 = call i32 @clock_gettime(i32 noundef 2, ptr noundef nonnull %1) #16
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %25 = load i64, ptr %24, align 8
   %26 = load i64, ptr %1, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %reass.add = sub i64 %26, %6
   %reass.mul = mul i64 %reass.add, 1000000000
   %27 = sub i64 %25, %5
@@ -1167,12 +1167,12 @@ declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unna
 define linkonce_odr dso_local void @_ZN17BM_FlatArray_Fill3RunEv() local_unnamed_addr #3 comdat align 2 {
   %1 = alloca %struct.timespec, align 8
   %2 = alloca %struct.timespec, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = call i32 @clock_gettime(i32 noundef 2, ptr noundef nonnull %2) #16
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = load i64, ptr %2, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %7
 
 7:                                                ; preds = %0, %_ZN17BM_FlatArray_Fill4BodyEv.exit
@@ -1196,12 +1196,12 @@ _ZN17BM_FlatArray_Fill4BodyEv.exit:               ; preds = %9
   br i1 %exitcond.not, label %13, label %7, !llvm.loop !23
 
 13:                                               ; preds = %_ZN17BM_FlatArray_Fill4BodyEv.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %14 = call i32 @clock_gettime(i32 noundef 2, ptr noundef nonnull %1) #16
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load i64, ptr %15, align 8
   %17 = load i64, ptr %1, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %reass.add = sub i64 %17, %6
   %reass.mul = mul i64 %reass.add, 1000000000
   %18 = sub i64 %16, %5
@@ -1216,12 +1216,12 @@ _ZN17BM_FlatArray_Fill4BodyEv.exit:               ; preds = %9
 define linkonce_odr dso_local void @_ZN19BM_FlatArray_Memset3RunEv() local_unnamed_addr #3 comdat align 2 {
   %1 = alloca %struct.timespec, align 8
   %2 = alloca %struct.timespec, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = call i32 @clock_gettime(i32 noundef 2, ptr noundef nonnull %2) #16
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = load i64, ptr %2, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %7
 
 7:                                                ; preds = %0, %7
@@ -1235,12 +1235,12 @@ define linkonce_odr dso_local void @_ZN19BM_FlatArray_Memset3RunEv() local_unnam
   br i1 %exitcond.not, label %11, label %7, !llvm.loop !24
 
 11:                                               ; preds = %7
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %12 = call i32 @clock_gettime(i32 noundef 2, ptr noundef nonnull %1) #16
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load i64, ptr %13, align 8
   %15 = load i64, ptr %1, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %reass.add = sub i64 %15, %6
   %reass.mul = mul i64 %reass.add, 1000000000
   %16 = sub i64 %14, %5
@@ -1269,20 +1269,20 @@ define linkonce_odr dso_local void @_ZN18BM_rcVector_Assign3RunEv() local_unname
   %2 = alloca %class.rcTempVector, align 8
   %3 = alloca i32, align 4
   %4 = alloca %struct.timespec, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call i32 @clock_gettime(i32 noundef 2, ptr noundef nonnull %4) #16
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = load i64, ptr %6, align 8
   %8 = load i64, ptr %4, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
   br label %11
 
 11:                                               ; preds = %0, %_ZN18BM_rcVector_Assign4BodyEv.exit
   %.07 = phi i32 [ 0, %0 ], [ %24, %_ZN18BM_rcVector_Assign4BodyEv.exit ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   store i32 2, ptr %3, align 4
   store i64 0, ptr %2, align 8
@@ -1321,19 +1321,19 @@ _ZN12rcTempVectorIiED2Ev.exit1.i:                 ; preds = %18
   resume { ptr, i32 } %19
 
 _ZN18BM_rcVector_Assign4BodyEv.exit:              ; preds = %_ZN12rcVectorBaseIiL11rcAllocHint1EE6assignElRKi.exit.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %24 = add nuw nsw i32 %.07, 1
   %exitcond.not = icmp eq i32 %24, 100
   br i1 %exitcond.not, label %25, label %11, !llvm.loop !25
 
 25:                                               ; preds = %_ZN18BM_rcVector_Assign4BodyEv.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %26 = call i32 @clock_gettime(i32 noundef 2, ptr noundef nonnull %1) #16
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %28 = load i64, ptr %27, align 8
   %29 = load i64, ptr %1, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %reass.add = sub i64 %29, %8
   %reass.mul = mul i64 %reass.add, 1000000000
   %30 = sub i64 %28, %7
@@ -1350,19 +1350,19 @@ define linkonce_odr dso_local void @_ZN18BM_rcVector_Resize3RunEv() local_unname
   %2 = alloca %class.rcTempVector, align 8
   %3 = alloca i32, align 4
   %4 = alloca %struct.timespec, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call i32 @clock_gettime(i32 noundef 2, ptr noundef nonnull %4) #16
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = load i64, ptr %6, align 8
   %8 = load i64, ptr %4, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   br label %10
 
 10:                                               ; preds = %0, %_ZN18BM_rcVector_Resize4BodyEv.exit
   %.07 = phi i32 [ 0, %0 ], [ %23, %_ZN18BM_rcVector_Resize4BodyEv.exit ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   store i32 2, ptr %3, align 4
   invoke void @_ZN12rcVectorBaseIiL11rcAllocHint1EE11resize_implElPKi(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef 100000, ptr noundef nonnull align 4 dereferenceable(4) %3)
@@ -1400,19 +1400,19 @@ _ZN12rcTempVectorIiED2Ev.exit1.i:                 ; preds = %17
   resume { ptr, i32 } %18
 
 _ZN18BM_rcVector_Resize4BodyEv.exit:              ; preds = %_ZN12rcVectorBaseIiL11rcAllocHint1EE6resizeElRKi.exit.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %23 = add nuw nsw i32 %.07, 1
   %exitcond.not = icmp eq i32 %23, 100
   br i1 %exitcond.not, label %24, label %10, !llvm.loop !26
 
 24:                                               ; preds = %_ZN18BM_rcVector_Resize4BodyEv.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %25 = call i32 @clock_gettime(i32 noundef 2, ptr noundef nonnull %1) #16
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %27 = load i64, ptr %26, align 8
   %28 = load i64, ptr %1, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %reass.add = sub i64 %28, %8
   %reass.mul = mul i64 %reass.add, 1000000000
   %29 = sub i64 %27, %7
@@ -1427,12 +1427,12 @@ _ZN18BM_rcVector_Resize4BodyEv.exit:              ; preds = %_ZN12rcVectorBaseIi
 define linkonce_odr dso_local void @_ZN19BM_stdvector_Assign3RunEv() local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca %struct.timespec, align 8
   %2 = alloca %struct.timespec, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = call i32 @clock_gettime(i32 noundef 2, ptr noundef nonnull %2) #16
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = load i64, ptr %2, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %7
 
 7:                                                ; preds = %0, %_ZN19BM_stdvector_Assign4BodyEv.exit
@@ -1456,12 +1456,12 @@ _ZN19BM_stdvector_Assign4BodyEv.exit:             ; preds = %.lr.ph.i.i.i.i.i.i.
   br i1 %exitcond.not, label %11, label %7, !llvm.loop !27
 
 11:                                               ; preds = %_ZN19BM_stdvector_Assign4BodyEv.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %12 = call i32 @clock_gettime(i32 noundef 2, ptr noundef nonnull %1) #16
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load i64, ptr %13, align 8
   %15 = load i64, ptr %1, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %reass.add = sub i64 %15, %6
   %reass.mul = mul i64 %reass.add, 1000000000
   %16 = sub i64 %14, %5
@@ -1476,12 +1476,12 @@ _ZN19BM_stdvector_Assign4BodyEv.exit:             ; preds = %.lr.ph.i.i.i.i.i.i.
 define linkonce_odr dso_local void @_ZN26BM_stdvector_AssignIndices3RunEv() local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca %struct.timespec, align 8
   %2 = alloca %struct.timespec, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = call i32 @clock_gettime(i32 noundef 2, ptr noundef nonnull %2) #16
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = load i64, ptr %2, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %7
 
 7:                                                ; preds = %0, %_ZN26BM_stdvector_AssignIndices4BodyEv.exit
@@ -1506,12 +1506,12 @@ _ZN26BM_stdvector_AssignIndices4BodyEv.exit:      ; preds = %9
   br i1 %exitcond.not, label %13, label %7, !llvm.loop !28
 
 13:                                               ; preds = %_ZN26BM_stdvector_AssignIndices4BodyEv.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %14 = call i32 @clock_gettime(i32 noundef 2, ptr noundef nonnull %1) #16
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load i64, ptr %15, align 8
   %17 = load i64, ptr %1, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %reass.add = sub i64 %17, %6
   %reass.mul = mul i64 %reass.add, 1000000000
   %18 = sub i64 %16, %5
@@ -1528,18 +1528,18 @@ define linkonce_odr dso_local void @_ZN19BM_stdvector_Resize3RunEv() local_unnam
   %2 = alloca %"class.std::vector", align 8
   %3 = alloca i32, align 4
   %4 = alloca %struct.timespec, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call i32 @clock_gettime(i32 noundef 2, ptr noundef nonnull %4) #16
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = load i64, ptr %6, align 8
   %8 = load i64, ptr %4, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %9
 
 9:                                                ; preds = %0, %_ZN19BM_stdvector_Resize4BodyEv.exit
   %.07 = phi i32 [ 0, %0 ], [ %18, %_ZN19BM_stdvector_Resize4BodyEv.exit ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   store i32 2, ptr %3, align 4
   invoke void @_ZNSt6vectorIiSaIiEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPiS1_EEmRKi(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr null, i64 noundef 100000, ptr noundef nonnull align 4 dereferenceable(4) %3)
@@ -1571,19 +1571,19 @@ _ZNSt6vectorIiSaIiEED2Ev.exit2.i:                 ; preds = %17, %14
   resume { ptr, i32 } %15
 
 _ZN19BM_stdvector_Resize4BodyEv.exit:             ; preds = %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i, %13
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %18 = add nuw nsw i32 %.07, 1
   %exitcond.not = icmp eq i32 %18, 100
   br i1 %exitcond.not, label %19, label %9, !llvm.loop !29
 
 19:                                               ; preds = %_ZN19BM_stdvector_Resize4BodyEv.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %20 = call i32 @clock_gettime(i32 noundef 2, ptr noundef nonnull %1) #16
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %22 = load i64, ptr %21, align 8
   %23 = load i64, ptr %1, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %reass.add = sub i64 %23, %8
   %reass.mul = mul i64 %reass.add, 1000000000
   %24 = sub i64 %22, %7
@@ -1964,10 +1964,10 @@ define internal void @_GLOBAL__sub_I_Bench_rcVector.cpp() #12 section ".text.sta
   %50 = alloca %"struct.Catch::SourceLineInfo", align 8
   %51 = alloca %"struct.Catch::NameAndTags", align 8
   %52 = alloca %"class.Catch::StringRef", align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %49)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %50)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %51)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %52)
+  call void @llvm.lifetime.start.p0(ptr nonnull %49)
+  call void @llvm.lifetime.start.p0(ptr nonnull %50)
+  call void @llvm.lifetime.start.p0(ptr nonnull %51)
+  call void @llvm.lifetime.start.p0(ptr nonnull %52)
   call void @_ZN5Catch15makeTestInvokerEPFvvE(ptr dead_on_unwind nonnull writable sret(%"class.Catch::Detail::unique_ptr") align 8 %49, ptr noundef nonnull @_ZL22CATCH2_INTERNAL_TEST_0v)
   store ptr @.str, ptr %50, align 8
   %53 = getelementptr inbounds nuw i8, ptr %50, i64 8
@@ -1996,14 +1996,14 @@ define internal void @_GLOBAL__sub_I_Bench_rcVector.cpp() #12 section ".text.sta
   br label %__cxx_global_var_init.exit
 
 __cxx_global_var_init.exit:                       ; preds = %0, %60
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %49)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %50)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %51)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %52)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %45)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %46)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %47)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %48)
+  call void @llvm.lifetime.end.p0(ptr nonnull %49)
+  call void @llvm.lifetime.end.p0(ptr nonnull %50)
+  call void @llvm.lifetime.end.p0(ptr nonnull %51)
+  call void @llvm.lifetime.end.p0(ptr nonnull %52)
+  call void @llvm.lifetime.start.p0(ptr nonnull %45)
+  call void @llvm.lifetime.start.p0(ptr nonnull %46)
+  call void @llvm.lifetime.start.p0(ptr nonnull %47)
+  call void @llvm.lifetime.start.p0(ptr nonnull %48)
   call void @_ZN5Catch15makeTestInvokerEPFvvE(ptr dead_on_unwind nonnull writable sret(%"class.Catch::Detail::unique_ptr") align 8 %45, ptr noundef nonnull @_ZL22CATCH2_INTERNAL_TEST_2v)
   store ptr @.str, ptr %46, align 8
   %64 = getelementptr inbounds nuw i8, ptr %46, i64 8
@@ -2032,14 +2032,14 @@ __cxx_global_var_init.exit:                       ; preds = %0, %60
   br label %__cxx_global_var_init.2.exit
 
 __cxx_global_var_init.2.exit:                     ; preds = %__cxx_global_var_init.exit, %71
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %45)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %46)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %47)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %48)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %41)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %42)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %43)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %44)
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
+  call void @llvm.lifetime.end.p0(ptr nonnull %46)
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
+  call void @llvm.lifetime.end.p0(ptr nonnull %48)
+  call void @llvm.lifetime.start.p0(ptr nonnull %41)
+  call void @llvm.lifetime.start.p0(ptr nonnull %42)
+  call void @llvm.lifetime.start.p0(ptr nonnull %43)
+  call void @llvm.lifetime.start.p0(ptr nonnull %44)
   call void @_ZN5Catch15makeTestInvokerEPFvvE(ptr dead_on_unwind nonnull writable sret(%"class.Catch::Detail::unique_ptr") align 8 %41, ptr noundef nonnull @_ZL22CATCH2_INTERNAL_TEST_4v)
   store ptr @.str, ptr %42, align 8
   %75 = getelementptr inbounds nuw i8, ptr %42, i64 8
@@ -2068,14 +2068,14 @@ __cxx_global_var_init.2.exit:                     ; preds = %__cxx_global_var_in
   br label %__cxx_global_var_init.4.exit
 
 __cxx_global_var_init.4.exit:                     ; preds = %__cxx_global_var_init.2.exit, %82
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %41)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %42)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %43)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %44)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %37)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %38)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %39)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %40)
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
+  call void @llvm.lifetime.end.p0(ptr nonnull %44)
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
+  call void @llvm.lifetime.start.p0(ptr nonnull %38)
+  call void @llvm.lifetime.start.p0(ptr nonnull %39)
+  call void @llvm.lifetime.start.p0(ptr nonnull %40)
   call void @_ZN5Catch15makeTestInvokerEPFvvE(ptr dead_on_unwind nonnull writable sret(%"class.Catch::Detail::unique_ptr") align 8 %37, ptr noundef nonnull @_ZL22CATCH2_INTERNAL_TEST_6v)
   store ptr @.str, ptr %38, align 8
   %86 = getelementptr inbounds nuw i8, ptr %38, i64 8
@@ -2104,14 +2104,14 @@ __cxx_global_var_init.4.exit:                     ; preds = %__cxx_global_var_in
   br label %__cxx_global_var_init.6.exit
 
 __cxx_global_var_init.6.exit:                     ; preds = %__cxx_global_var_init.4.exit, %93
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %37)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %38)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %39)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %40)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %33)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %34)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %35)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %36)
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
   call void @_ZN5Catch15makeTestInvokerEPFvvE(ptr dead_on_unwind nonnull writable sret(%"class.Catch::Detail::unique_ptr") align 8 %33, ptr noundef nonnull @_ZL22CATCH2_INTERNAL_TEST_8v)
   store ptr @.str, ptr %34, align 8
   %97 = getelementptr inbounds nuw i8, ptr %34, i64 8
@@ -2140,14 +2140,14 @@ __cxx_global_var_init.6.exit:                     ; preds = %__cxx_global_var_in
   br label %__cxx_global_var_init.8.exit
 
 __cxx_global_var_init.8.exit:                     ; preds = %__cxx_global_var_init.6.exit, %104
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %33)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %34)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %35)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %36)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %29)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %30)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %31)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %32)
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
   call void @_ZN5Catch15makeTestInvokerEPFvvE(ptr dead_on_unwind nonnull writable sret(%"class.Catch::Detail::unique_ptr") align 8 %29, ptr noundef nonnull @_ZL23CATCH2_INTERNAL_TEST_10v)
   store ptr @.str, ptr %30, align 8
   %108 = getelementptr inbounds nuw i8, ptr %30, i64 8
@@ -2176,14 +2176,14 @@ __cxx_global_var_init.8.exit:                     ; preds = %__cxx_global_var_in
   br label %__cxx_global_var_init.10.exit
 
 __cxx_global_var_init.10.exit:                    ; preds = %__cxx_global_var_init.8.exit, %115
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %30)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %31)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %32)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %26)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %27)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   call void @_ZN5Catch15makeTestInvokerEPFvvE(ptr dead_on_unwind nonnull writable sret(%"class.Catch::Detail::unique_ptr") align 8 %25, ptr noundef nonnull @_ZL23CATCH2_INTERNAL_TEST_12v)
   store ptr @.str, ptr %26, align 8
   %119 = getelementptr inbounds nuw i8, ptr %26, i64 8
@@ -2212,14 +2212,14 @@ __cxx_global_var_init.10.exit:                    ; preds = %__cxx_global_var_in
   br label %__cxx_global_var_init.12.exit
 
 __cxx_global_var_init.12.exit:                    ; preds = %__cxx_global_var_init.10.exit, %126
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %26)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %27)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %28)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %22)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %23)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   call void @_ZN5Catch15makeTestInvokerEPFvvE(ptr dead_on_unwind nonnull writable sret(%"class.Catch::Detail::unique_ptr") align 8 %21, ptr noundef nonnull @_ZL23CATCH2_INTERNAL_TEST_14v)
   store ptr @.str, ptr %22, align 8
   %130 = getelementptr inbounds nuw i8, ptr %22, i64 8
@@ -2248,14 +2248,14 @@ __cxx_global_var_init.12.exit:                    ; preds = %__cxx_global_var_in
   br label %__cxx_global_var_init.14.exit
 
 __cxx_global_var_init.14.exit:                    ; preds = %__cxx_global_var_init.12.exit, %137
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %23)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %24)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %19)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   call void @_ZN5Catch15makeTestInvokerEPFvvE(ptr dead_on_unwind nonnull writable sret(%"class.Catch::Detail::unique_ptr") align 8 %17, ptr noundef nonnull @_ZL23CATCH2_INTERNAL_TEST_16v)
   store ptr @.str, ptr %18, align 8
   %141 = getelementptr inbounds nuw i8, ptr %18, i64 8
@@ -2284,14 +2284,14 @@ __cxx_global_var_init.14.exit:                    ; preds = %__cxx_global_var_in
   br label %__cxx_global_var_init.16.exit
 
 __cxx_global_var_init.16.exit:                    ; preds = %__cxx_global_var_init.14.exit, %148
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %19)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @_ZN5Catch15makeTestInvokerEPFvvE(ptr dead_on_unwind nonnull writable sret(%"class.Catch::Detail::unique_ptr") align 8 %13, ptr noundef nonnull @_ZL23CATCH2_INTERNAL_TEST_18v)
   store ptr @.str, ptr %14, align 8
   %152 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -2320,14 +2320,14 @@ __cxx_global_var_init.16.exit:                    ; preds = %__cxx_global_var_in
   br label %__cxx_global_var_init.18.exit
 
 __cxx_global_var_init.18.exit:                    ; preds = %__cxx_global_var_init.16.exit, %159
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @_ZN5Catch15makeTestInvokerEPFvvE(ptr dead_on_unwind nonnull writable sret(%"class.Catch::Detail::unique_ptr") align 8 %9, ptr noundef nonnull @_ZL23CATCH2_INTERNAL_TEST_20v)
   store ptr @.str, ptr %10, align 8
   %163 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -2356,14 +2356,14 @@ __cxx_global_var_init.18.exit:                    ; preds = %__cxx_global_var_in
   br label %__cxx_global_var_init.20.exit
 
 __cxx_global_var_init.20.exit:                    ; preds = %__cxx_global_var_init.18.exit, %170
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZN5Catch15makeTestInvokerEPFvvE(ptr dead_on_unwind nonnull writable sret(%"class.Catch::Detail::unique_ptr") align 8 %5, ptr noundef nonnull @_ZL23CATCH2_INTERNAL_TEST_22v)
   store ptr @.str, ptr %6, align 8
   %174 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -2392,14 +2392,14 @@ __cxx_global_var_init.20.exit:                    ; preds = %__cxx_global_var_in
   br label %__cxx_global_var_init.22.exit
 
 __cxx_global_var_init.22.exit:                    ; preds = %__cxx_global_var_init.20.exit, %181
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN5Catch15makeTestInvokerEPFvvE(ptr dead_on_unwind nonnull writable sret(%"class.Catch::Detail::unique_ptr") align 8 %1, ptr noundef nonnull @_ZL23CATCH2_INTERNAL_TEST_24v)
   store ptr @.str, ptr %2, align 8
   %185 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -2428,10 +2428,10 @@ __cxx_global_var_init.22.exit:                    ; preds = %__cxx_global_var_in
   br label %__cxx_global_var_init.24.exit
 
 __cxx_global_var_init.24.exit:                    ; preds = %__cxx_global_var_init.22.exit, %192
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -2448,10 +2448,10 @@ declare i64 @llvm.umax.i64(i64, i64) #14
 declare i64 @llvm.umin.i64(i64, i64) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

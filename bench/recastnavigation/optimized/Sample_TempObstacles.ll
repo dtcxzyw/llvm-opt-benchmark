@@ -1543,7 +1543,7 @@ define dso_local noundef i32 @_Z15hitTestObstaclePK11dtTileCachePKfS3_(ptr nound
 
 23:                                               ; preds = %17
   call void @_ZNK11dtTileCache17getObstacleBoundsEPK19dtTileCacheObstaclePfS3_(ptr noundef nonnull align 8 dereferenceable(912) %0, ptr noundef nonnull %19, ptr noundef nonnull %5, ptr noundef nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %24 = load float, ptr %2, align 4
   %25 = load float, ptr %1, align 4
   %26 = fsub float %24, %25
@@ -1619,11 +1619,11 @@ define dso_local noundef i32 @_Z15hitTestObstaclePK11dtTileCachePKfS3_(ptr nound
   br i1 %exitcond.i, label %72, label %33, !llvm.loop !17
 
 _ZL12isectSegAABBPKfS0_S0_S0_RfS1_.exit.thread:   ; preds = %50, %40, %46
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %75
 
 72:                                               ; preds = %69
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %73 = fcmp olt float %.222, %.027
   br i1 %73, label %74, label %75
 
@@ -4298,7 +4298,7 @@ define linkonce_odr dso_local void @_ZN22TempObstacleCreateTool11handleClickEPKf
   br label %_ZN20Sample_TempObstacles18removeTempObstacleEPKfS1_.exit
 
 16:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 232
   %18 = load ptr, ptr %17, align 8
   %.not.i4 = icmp eq ptr %18, null
@@ -4320,7 +4320,7 @@ define linkonce_odr dso_local void @_ZN22TempObstacleCreateTool11handleClickEPKf
   br label %_ZN20Sample_TempObstacles15addTempObstacleEPKf.exit
 
 _ZN20Sample_TempObstacles15addTempObstacleEPKf.exit: ; preds = %16, %19
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN20Sample_TempObstacles18removeTempObstacleEPKfS1_.exit
 
 _ZN20Sample_TempObstacles18removeTempObstacleEPKfS1_.exit: ; preds = %12, %9, %_ZN20Sample_TempObstacles15addTempObstacleEPKf.exit, %4
@@ -4448,10 +4448,10 @@ declare i32 @llvm.smin.i32(i32, i32) #13
 declare i64 @llvm.umax.i64(i64, i64) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #13

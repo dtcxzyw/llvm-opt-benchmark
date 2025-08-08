@@ -438,17 +438,11 @@ define hidden i32 @zend_jit_duplicate_exit_point(ptr noundef writeonly captures(
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: allocsize(1)
-declare ptr @_erealloc(ptr noundef, i64 noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @_erealloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @zend_jit_snapshot_handler(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #0 {
@@ -1430,7 +1424,7 @@ _add_trace_const.exit:                            ; preds = %._crit_edge.i, %.lo
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #4
+declare void @llvm.assume(i1 noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @zend_jit_trace_get_exit_addr(i32 noundef %0) unnamed_addr #0 {
@@ -1464,7 +1458,7 @@ define internal fastcc ptr @zend_jit_trace_get_exit_addr(i32 noundef %0) unnamed
 ; Function Attrs: nounwind uwtable
 define dso_local void @zend_jit_status(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct._zval_struct, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = tail call ptr @_zend_new_array_0() #35
   store ptr %3, ptr %2, align 8, !tbaa !50
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -1510,11 +1504,11 @@ define dso_local void @zend_jit_status(ptr noundef %0) local_unnamed_addr #0 {
   %.sink = phi i64 [ 0, %27 ], [ %26, %16 ]
   call void @add_assoc_long_ex(ptr noundef nonnull %2, ptr noundef nonnull @.str.6, i64 noundef 11, i64 noundef %.sink) #35
   call void @add_assoc_zval_ex(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 3, ptr noundef nonnull %2) #35
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
-declare ptr @_zend_new_array_0() #5
+declare ptr @_zend_new_array_0() #4
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zend_jit_check_funcs(ptr noundef readonly captures(none) %0, i1 zeroext %1) local_unnamed_addr #0 {
@@ -1635,7 +1629,7 @@ define hidden void @zend_jit_check_funcs(ptr noundef readonly captures(none) %0,
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @zend_real_jit_func(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext range(i8 0, 4) %3) unnamed_addr #0 {
   %5 = alloca %struct._zend_ssa, align 8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = load ptr, ptr @dasm_ptr, align 8, !tbaa !52
   %7 = load ptr, ptr %6, align 8, !tbaa !52
   %8 = load ptr, ptr @dasm_end, align 8, !tbaa !52
@@ -1900,7 +1894,7 @@ zend_jit_op_array_analyze2.exit:                  ; preds = %111, %118, %37
 
 139:                                              ; preds = %.sink.split, %4
   %.0 = phi i32 [ -1, %4 ], [ %.0.ph, %.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -1954,7 +1948,7 @@ define hidden void @zend_jit_hot_func(ptr noundef readonly captures(none) %0, pt
 
 zend_jit_unprotect.exit:                          ; preds = %15, %18, %22
   %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 416), align 8, !tbaa !155
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %3) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %3, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 416), align 8, !tbaa !155
   %29 = call i32 @__sigsetjmp(ptr noundef nonnull %3, i32 noundef 0) #41
   %.not19 = icmp eq i32 %29, 0
@@ -1989,7 +1983,7 @@ zend_jit_unprotect.exit:                          ; preds = %15, %18, %22
 
 40:                                               ; preds = %zend_jit_unprotect.exit, %._crit_edge
   store ptr %28, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 416), align 8, !tbaa !155
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %3) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %41 = load i64, ptr getelementptr inbounds nuw (i8, ptr @jit_globals, i64 24), align 8, !tbaa !145
   %42 = and i64 %41, 288
   %.not.i16 = icmp eq i64 %42, 0
@@ -2031,9 +2025,9 @@ zend_jit_protect.exit:                            ; preds = %40, %43, %47
   ret void
 }
 
-declare void @zend_shared_alloc_lock() local_unnamed_addr #5
+declare void @zend_shared_alloc_lock() local_unnamed_addr #4
 
-declare void @zend_accel_shared_protect(i1 noundef zeroext) local_unnamed_addr #5
+declare void @zend_accel_shared_protect(i1 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zend_jit_unprotect() local_unnamed_addr #0 {
@@ -2062,7 +2056,7 @@ define hidden void @zend_jit_unprotect() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind returns_twice
-declare i32 @__sigsetjmp(ptr noundef, i32 noundef) local_unnamed_addr #6
+declare i32 @__sigsetjmp(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zend_jit_protect() local_unnamed_addr #0 {
@@ -2090,10 +2084,10 @@ define hidden void @zend_jit_protect() local_unnamed_addr #0 {
   ret void
 }
 
-declare void @zend_shared_alloc_unlock() local_unnamed_addr #5
+declare void @zend_shared_alloc_unlock() local_unnamed_addr #4
 
 ; Function Attrs: noreturn
-declare void @_zend_bailout(ptr noundef, i32 noundef) local_unnamed_addr #7
+declare void @_zend_bailout(ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @zend_jit_blacklist_function(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -2239,7 +2233,7 @@ zend_jit_protect.exit:                            ; preds = %zend_jit_stop_persi
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -1, 1) i32 @zend_jit_trace_hot_root(ptr noundef initializes((0, 8)) %0, ptr noundef %1) #0 {
   %3 = alloca [1024 x %struct._zend_jit_trace_rec], align 16
-  call void @llvm.lifetime.start.p0(i64 16384, ptr nonnull %3) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8, !tbaa !148
   %6 = load i8, ptr %5, align 8, !tbaa !50
@@ -3052,14 +3046,14 @@ zend_jit_trace_is_bad_root.exit.thread:           ; preds = %359, %355, %zend_ji
 
 .loopexit:                                        ; preds = %415, %2, %.loopexit125, %433, %._crit_edge
   %.0 = phi i32 [ 0, %._crit_edge ], [ %.3, %433 ], [ %.3, %.loopexit125 ], [ 0, %2 ], [ 0, %415 ]
-  call void @llvm.lifetime.end.p0(i64 16384, ptr nonnull %3) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #8
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
-declare i32 @zend_jit_trace_execute(ptr noundef, ptr noundef, ptr noundef, i8 noundef zeroext, i32 noundef, i32 noundef) local_unnamed_addr #5
+declare i32 @zend_jit_trace_execute(ptr noundef, ptr noundef, ptr noundef, i8 noundef zeroext, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @zend_jit_dump_trace(ptr noundef nonnull readonly captures(none) %0, ptr noundef %1) unnamed_addr #0 {
@@ -3796,7 +3790,7 @@ zend_jit_trace_op_len.exit:                       ; preds = %224, %.preheader310
 define internal fastcc i32 @zend_jit_compile_root_trace(ptr noundef nonnull %0, ptr noundef captures(none) %1, i64 noundef %2) unnamed_addr #0 {
   %4 = alloca [512 x %struct._zend_jit_trace_exit_info], align 16
   %5 = alloca [1 x %struct.__jmp_buf_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 20480, ptr nonnull %4) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @zend_shared_alloc_lock() #35
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 %2
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -3815,7 +3809,7 @@ define internal fastcc i32 @zend_jit_compile_root_trace(ptr noundef nonnull %0, 
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 416), align 8, !tbaa !155
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %5) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %5, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 416), align 8, !tbaa !155
   %17 = call i32 @__sigsetjmp(ptr noundef nonnull %5, i32 noundef 0) #41
   %.not149 = icmp eq i32 %17, 0
@@ -4086,7 +4080,7 @@ zend_jit_unprotect.exit:                          ; preds = %22, %25, %29
   %143 = phi i1 [ false, %76 ], [ false, %78 ], [ true, %110 ], [ false, %136 ], [ false, %134 ], [ false, %142 ], [ false, %140 ], [ false, %.thread136 ], [ false, %90 ], [ false, %92 ], [ undef, %15 ]
   %.5 = phi i32 [ 25, %76 ], [ 25, %78 ], [ 9, %110 ], [ 28, %136 ], [ 28, %134 ], [ 24, %142 ], [ 24, %140 ], [ 25, %.thread136 ], [ 25, %90 ], [ 25, %92 ], [ undef, %15 ]
   store ptr %16, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 416), align 8, !tbaa !155
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %5) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %144 = load i64, ptr getelementptr inbounds nuw (i8, ptr @jit_globals, i64 24), align 8, !tbaa !145
   %145 = and i64 %144, 288
   %.not.i134 = icmp eq i64 %145, 0
@@ -4148,14 +4142,14 @@ zend_jit_protect.exit:                            ; preds = %.thread, %146, %150
 
 169:                                              ; preds = %.thread144, %168, %165, %161
   %.0143148 = phi i32 [ %.0.ph, %.thread144 ], [ 9, %168 ], [ 9, %165 ], [ %.5, %161 ]
-  call void @llvm.lifetime.end.p0(i64 20480, ptr nonnull %4) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0143148
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -1, 1) i32 @zend_jit_trace_hot_side(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [1024 x %struct._zend_jit_trace_rec], align 16
-  call void @llvm.lifetime.start.p0(i64 16384, ptr nonnull %4) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load ptr, ptr @zend_jit_traces, align 8, !tbaa !51
   %6 = load i32, ptr %5, align 8, !tbaa !179
   %7 = zext i32 %1 to i64
@@ -4596,7 +4590,7 @@ zend_jit_trace_exit_is_bad.exit.thread:           ; preds = %233, %231
 
 264:                                              ; preds = %259, %262, %3, %255
   %.0 = phi i32 [ %258, %255 ], [ 0, %3 ], [ %.2, %262 ], [ %.2, %259 ]
-  call void @llvm.lifetime.end.p0(i64 16384, ptr nonnull %4) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -4604,7 +4598,7 @@ zend_jit_trace_exit_is_bad.exit.thread:           ; preds = %233, %231
 define internal fastcc i32 @zend_jit_compile_side_trace(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca [512 x %struct._zend_jit_trace_exit_info], align 16
   %6 = alloca [1 x %struct.__jmp_buf_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 20480, ptr nonnull %5) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @zend_shared_alloc_lock() #35
   %7 = load ptr, ptr @zend_jit_traces, align 8, !tbaa !51
   %8 = zext i32 %1 to i64
@@ -4668,7 +4662,7 @@ define internal fastcc i32 @zend_jit_compile_side_trace(ptr noundef nonnull %0, 
 
 zend_jit_unprotect.exit:                          ; preds = %32, %35, %39
   %45 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 416), align 8, !tbaa !155
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %6) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %6, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 416), align 8, !tbaa !155
   %46 = call i32 @__sigsetjmp(ptr noundef nonnull %6, i32 noundef 0) #41
   %.not152 = icmp eq i32 %46, 0
@@ -4921,7 +4915,7 @@ zend_jit_unprotect.exit:                          ; preds = %32, %35, %39
   %165 = phi i1 [ undef, %164 ], [ false, %79 ], [ false, %81 ], [ true, %113 ], [ false, %157 ], [ false, %155 ], [ false, %163 ], [ false, %161 ], [ false, %.thread139 ], [ false, %93 ], [ false, %95 ]
   %.5 = phi i32 [ undef, %164 ], [ 25, %79 ], [ 25, %81 ], [ 9, %113 ], [ 28, %157 ], [ 28, %155 ], [ 24, %163 ], [ 24, %161 ], [ 25, %.thread139 ], [ 25, %93 ], [ 25, %95 ]
   store ptr %45, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 416), align 8, !tbaa !155
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %6) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %166 = load i64, ptr getelementptr inbounds nuw (i8, ptr @jit_globals, i64 24), align 8, !tbaa !145
   %167 = and i64 %166, 288
   %.not.i137 = icmp eq i64 %167, 0
@@ -4983,7 +4977,7 @@ zend_jit_protect.exit:                            ; preds = %.thread, %168, %172
 
 191:                                              ; preds = %.thread147, %190, %187, %183
   %.0146151 = phi i32 [ %.0.ph, %.thread147 ], [ 9, %190 ], [ 9, %187 ], [ %.5, %183 ]
-  call void @llvm.lifetime.end.p0(i64 20480, ptr nonnull %5) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0146151
 }
 
@@ -5042,14 +5036,14 @@ define internal fastcc void @zend_jit_blacklist_trace_exit(i32 noundef %0, i32 n
 
 zend_jit_unprotect.exit:                          ; preds = %20, %23, %27
   %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 416), align 8, !tbaa !155
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %7) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %7, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 416), align 8, !tbaa !155
   %34 = call i32 @__sigsetjmp(ptr noundef nonnull %7, i32 noundef 0) #41
   %.not20 = icmp eq i32 %34, 0
   br i1 %.not20, label %35, label %327
 
 35:                                               ; preds = %zend_jit_unprotect.exit
-  call void @llvm.lifetime.start.p0(i64 1000, ptr nonnull %6) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %36 = load ptr, ptr @zend_jit_traces, align 8, !tbaa !51
   %37 = getelementptr inbounds nuw %struct._zend_jit_trace_info, ptr %36, i64 %9
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 72
@@ -5106,7 +5100,7 @@ zend_jit_trace_exit_needs_deoptimization.exit.i:  ; preds = %55, %46
   br label %zend_jit_trace_exit_to_vm.exit
 
 .loopexit69.i:                                    ; preds = %59, %.lr.ph.i.i.i, %42, %35
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   call void @smart_str_erealloc(ptr noundef nonnull %5, i64 noundef 8) #35
   %63 = load ptr, ptr %5, align 8, !tbaa !262
@@ -5118,7 +5112,7 @@ zend_jit_trace_exit_needs_deoptimization.exit.i:  ; preds = %55, %46
   %68 = load ptr, ptr %5, align 8, !tbaa !262
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 16
   store i64 8, ptr %69, align 8, !tbaa !264
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %70 = getelementptr inbounds nuw i8, ptr %4, i64 31
   store i8 0, ptr %70, align 1, !tbaa !50
   br label %71
@@ -5161,7 +5155,7 @@ zend_jit_trace_exit_needs_deoptimization.exit.i:  ; preds = %55, %46
   %90 = load ptr, ptr %5, align 8, !tbaa !262
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 16
   store i64 %81, ptr %91, align 8, !tbaa !264
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %92 = load i64, ptr %91, align 8, !tbaa !264
   %93 = add i64 %92, 1
   %94 = load i64, ptr %82, align 8, !tbaa !266
@@ -5181,7 +5175,7 @@ smart_str_appendc_ex.exit.i.i:                    ; preds = %95, %85
   %99 = load ptr, ptr %5, align 8, !tbaa !262
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 16
   store i64 %93, ptr %100, align 8, !tbaa !264
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %101 = getelementptr inbounds nuw i8, ptr %3, i64 31
   store i8 0, ptr %101, align 1, !tbaa !50
   br label %102
@@ -5223,13 +5217,13 @@ zend_jit_trace_escape_name.exit.i:                ; preds = %114, %108
   %119 = load ptr, ptr %5, align 8, !tbaa !262
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 16
   store i64 %112, ptr %120, align 8, !tbaa !264
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %121 = getelementptr inbounds nuw i8, ptr %119, i64 24
   %122 = load i64, ptr %120, align 8, !tbaa !264
   %123 = getelementptr inbounds nuw [1 x i8], ptr %121, i64 0, i64 %122
   store i8 0, ptr %123, align 1, !tbaa !50
   %124 = load ptr, ptr %5, align 8, !tbaa !262
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %125 = load i32, ptr @zend_jit_vm_kind, align 4, !tbaa !57
   %126 = icmp eq i32 %125, 1
   %127 = select i1 %126, i32 0, i32 4096
@@ -5570,7 +5564,7 @@ zend_arena_release.exit.i:                        ; preds = %.critedge.i.i, %zen
 zend_jit_trace_exit_to_vm.exit:                   ; preds = %zend_jit_trace_exit_needs_deoptimization.exit.i, %zend_arena_release.exit.i
   %.pre25 = phi ptr [ %.pre25.pre, %zend_arena_release.exit.i ], [ %36, %zend_jit_trace_exit_needs_deoptimization.exit.i ]
   %.0.i = phi ptr [ %260, %zend_arena_release.exit.i ], [ %62, %zend_jit_trace_exit_needs_deoptimization.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 1000, ptr nonnull %6) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not15 = icmp eq ptr %.0.i, null
   br i1 %.not15, label %320, label %296
 
@@ -5622,7 +5616,7 @@ zend_jit_link_side_trace.exit:                    ; preds = %307, %309
 
 327:                                              ; preds = %zend_jit_unprotect.exit, %320
   store ptr %33, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 416), align 8, !tbaa !155
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %7) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %328 = load i64, ptr getelementptr inbounds nuw (i8, ptr @jit_globals, i64 24), align 8, !tbaa !145
   %329 = and i64 %328, 288
   %.not.i17 = icmp eq i64 %329, 0
@@ -6477,7 +6471,7 @@ zend_jit_trace_exit_is_hot.exit:                  ; preds = %443
   ret i32 %.0260
 }
 
-declare void @_efree(ptr noundef) #5
+declare void @_efree(ptr noundef) #4
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -1, 1) i32 @zend_jit_op_array(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -6627,7 +6621,7 @@ define hidden range(i32 -1, 1) i32 @zend_jit_op_array(ptr noundef %0, ptr nounde
   br label %zend_jit_setup_hot_trace_counters.exit
 
 74:                                               ; preds = %7
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %75 = load i64, ptr getelementptr inbounds nuw (i8, ptr @jit_globals, i64 80), align 8, !tbaa !281
   %.not.i = icmp eq i64 %75, 0
   %76 = load ptr, ptr @zend_jit_func_hot_counter_handler, align 8
@@ -6779,7 +6773,7 @@ zend_jit_setup_hot_counters_ex.exit.i:            ; preds = %148, %133
 
 zend_jit_setup_hot_counters.exit:                 ; preds = %74, %85, %zend_jit_setup_hot_counters_ex.exit.i
   %.0.i = phi i32 [ 0, %zend_jit_setup_hot_counters_ex.exit.i ], [ -1, %85 ], [ -1, %74 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %zend_jit_setup_hot_trace_counters.exit
 
 150:                                              ; preds = %7
@@ -6858,7 +6852,7 @@ zend_jit_trace_supported.exit.i:                  ; preds = %181, %.lr.ph.i65, %
   br i1 %.not67.i, label %239, label %191
 
 191:                                              ; preds = %._crit_edge.i68
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %192 = load ptr, ptr @zend_jit_loop_trace_counter_handler, align 8, !tbaa !52
   %193 = icmp ne ptr %192, null
   tail call void @llvm.assume(i1 %193)
@@ -6947,7 +6941,7 @@ zend_jit_build_cfg.exit.i:                        ; preds = %191
   br i1 %238, label %201, label %._crit_edge84.i
 
 ._crit_edge84.i:                                  ; preds = %235, %zend_jit_build_cfg.exit.i
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %239
 
 239:                                              ; preds = %._crit_edge84.i, %._crit_edge.i68
@@ -7010,7 +7004,7 @@ zend_jit_build_cfg.exit.i:                        ; preds = %191
   br label %zend_jit_setup_hot_trace_counters.exit
 
 .critedge77.i:                                    ; preds = %191
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %zend_jit_setup_hot_trace_counters.exit
 
 270:                                              ; preds = %7
@@ -7024,19 +7018,19 @@ zend_jit_setup_hot_trace_counters.exit:           ; preds = %.critedge77.i, %268
   ret i32 %.0
 }
 
-declare void @zend_error(i32 noundef, ptr noundef, ...) local_unnamed_addr #5
+declare void @zend_error(i32 noundef, ptr noundef, ...) local_unnamed_addr #4
 
-declare ptr @zend_shared_alloc(i64 noundef) local_unnamed_addr #5
+declare ptr @zend_shared_alloc(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
-declare void @zend_shared_alloc_register_xlat_entry(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare void @zend_shared_alloc_register_xlat_entry(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -1, 1) i32 @zend_jit_script(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct._zend_call_graph, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = load ptr, ptr @dasm_ptr, align 8, !tbaa !52
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.loopexit135, label %5
@@ -7522,13 +7516,13 @@ zend_arena_release.exit129:                       ; preds = %.critedge.i128, %.l
 
 .loopexit135:                                     ; preds = %.loopexit134, %172, %zend_arena_release.exit, %1, %5, %zend_arena_release.exit129
   %.0 = phi i32 [ -1, %zend_arena_release.exit129 ], [ -1, %5 ], [ -1, %1 ], [ 0, %zend_arena_release.exit ], [ 0, %172 ], [ 0, %.loopexit134 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
 
-declare void @zend_build_call_graph(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare void @zend_build_call_graph(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare void @zend_analyze_call_graph(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare void @zend_analyze_call_graph(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @zend_jit_op_array_analyze1(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
@@ -7600,16 +7594,16 @@ zend_jit_build_cfg.exit:                          ; preds = %3, %13, %16, %19, %
   ret i32 %.0
 }
 
-declare ptr @zend_build_call_map(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare ptr @zend_build_call_map(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare void @zend_init_func_return_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare void @zend_init_func_return_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare void @zend_dump_op_array(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare void @zend_dump_op_array(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @zend_jit(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._zend_jit_ctx, align 8
-  call void @llvm.lifetime.start.p0(i64 1000, ptr nonnull %4) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4, !tbaa !89
   %7 = and i32 %6, 4194304
@@ -20425,20 +20419,20 @@ zend_arena_release.exit2897:                      ; preds = %.critedge.i2896, %7
 
 7026:                                             ; preds = %zend_arena_release.exit, %748, %zend_arena_release.exit2887, %769, %zend_arena_release.exit2892, %zend_jit_free_ctx.exit, %zend_arena_release.exit2897, %zend_jit_free_ctx.exit3737, %39, %17, %27
   %.0 = phi i32 [ -1, %27 ], [ -1, %17 ], [ -1, %39 ], [ 0, %zend_arena_release.exit ], [ 0, %748 ], [ 0, %zend_arena_release.exit2887 ], [ 0, %769 ], [ 0, %zend_arena_release.exit2892 ], [ 0, %zend_jit_free_ctx.exit ], [ -1, %zend_arena_release.exit2897 ], [ -1, %zend_jit_free_ctx.exit3737 ]
-  call void @llvm.lifetime.end.p0(i64 1000, ptr nonnull %4) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
-declare ptr @zend_shared_alloc_get_xlat_entry(ptr noundef) local_unnamed_addr #5
+declare ptr @zend_shared_alloc_get_xlat_entry(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare i32 @mprotect(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #10
+declare i32 @mprotect(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #11
+declare ptr @__errno_location() local_unnamed_addr #10
 
 ; Function Attrs: nounwind
-declare ptr @strerror(i32 noundef) local_unnamed_addr #10
+declare ptr @strerror(i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -1, 1) i32 @zend_jit_config(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -20654,7 +20648,7 @@ thread-pre-split74:                               ; preds = %63
   br label %96
 
 86:                                               ; preds = %81, %73
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %88 = call i64 @strtoll(ptr noundef nonnull %87, ptr noundef nonnull %3, i32 noundef 10) #35
   %89 = load ptr, ptr %3, align 8, !tbaa !217
@@ -20670,11 +20664,11 @@ thread-pre-split74:                               ; preds = %63
 
 94:                                               ; preds = %92
   store i8 1, ptr @jit_globals, align 8, !tbaa !63
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %96
 
 95:                                               ; preds = %92, %86
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   tail call void (i32, ptr, ...) @zend_error(i32 noundef 2, ptr noundef nonnull @.str.35) #35
   store i8 0, ptr @jit_globals, align 8, !tbaa !63
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @jit_globals, i64 1), align 1, !tbaa !71
@@ -20685,13 +20679,13 @@ thread-pre-split74:                               ; preds = %63
   ret i32 %.042
 }
 
-declare i32 @zend_binary_strcasecmp(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
+declare i32 @zend_binary_strcasecmp(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare i64 @strtoll(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #12
+declare i64 @strtoll(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -1, 1) i32 @zend_jit_parse_config_num(i64 noundef %0) unnamed_addr #13 {
+define internal fastcc range(i32 -1, 1) i32 @zend_jit_parse_config_num(i64 noundef %0) unnamed_addr #12 {
   %2 = icmp eq i64 %0, 0
   br i1 %2, label %.sink.split, label %3
 
@@ -20774,7 +20768,7 @@ define hidden range(i32 -1, 1) i32 @zend_jit_debug_config(i64 noundef %0, i64 no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define hidden void @zend_jit_init() local_unnamed_addr #13 {
+define hidden void @zend_jit_init() local_unnamed_addr #12 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(848) @jit_globals, i8 0, i64 848, i1 false)
   ret void
 }
@@ -20841,14 +20835,14 @@ define hidden range(i32 -1, 1) i32 @zend_jit_check_support() local_unnamed_addr 
   ret i32 %.06
 }
 
-declare i32 @zend_vm_kind() local_unnamed_addr #5
+declare i32 @zend_vm_kind() local_unnamed_addr #4
 
-declare void @execute_ex(ptr noundef) #5
+declare void @execute_ex(ptr noundef) #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #14
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #13
 
-declare ptr @zend_get_user_opcode_handler(i8 noundef zeroext) local_unnamed_addr #5
+declare ptr @zend_get_user_opcode_handler(i8 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zend_jit_startup(ptr noundef %0, i64 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
@@ -21172,9 +21166,9 @@ zend_jit_protect.exit29:                          ; preds = %zend_jit_unprotect.
   ret void
 }
 
-declare ptr @zend_get_halt_op() local_unnamed_addr #5
+declare ptr @zend_get_halt_op() local_unnamed_addr #4
 
-declare i32 @zend_get_op_array_extension_handle(ptr noundef) local_unnamed_addr #5
+declare i32 @zend_get_op_array_extension_handle(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @zend_jit_setup(i1 noundef zeroext %0) unnamed_addr #0 {
@@ -21227,8 +21221,8 @@ define internal fastcc void @zend_jit_setup(i1 noundef zeroext %0) unnamed_addr 
   br label %25
 
 25:                                               ; preds = %23, %20
-  call void @llvm.lifetime.start.p0(i64 1000, ptr nonnull %4) #35
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %26 = load i32, ptr @zend_jit_vm_kind, align 4, !tbaa !57
   %27 = icmp eq i32 %26, 1
   %28 = select i1 %27, i32 0, i32 4096
@@ -21291,13 +21285,13 @@ zend_jit_free_ctx.exit.i:                         ; preds = %49, %48, %41, %37, 
 zend_jit_calc_trace_prologue_size.exit:           ; preds = %zend_jit_free_ctx.exit.i
   %52 = load i64, ptr %5, align 8, !tbaa !122
   store i64 %52, ptr @zend_jit_trace_prologue_size, align 8, !tbaa !122
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #35
-  call void @llvm.lifetime.end.p0(i64 1000, ptr nonnull %4) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %0, label %118, label %53
 
 53:                                               ; preds = %zend_jit_calc_trace_prologue_size.exit
-  call void @llvm.lifetime.start.p0(i64 1000, ptr nonnull %2) #35
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %54 = getelementptr inbounds nuw i8, ptr %2, i64 744
   %55 = getelementptr inbounds nuw i8, ptr %2, i64 816
   br label %56
@@ -21449,8 +21443,8 @@ zend_jit_free_ctx.exit24.i:                       ; preds = %116, %115, %108, %1
   br i1 %exitcond.not.i, label %zend_jit_setup_stubs.exit, label %56
 
 zend_jit_setup_stubs.exit:                        ; preds = %117
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #35
-  call void @llvm.lifetime.end.p0(i64 1000, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %118
 
 118:                                              ; preds = %zend_jit_setup_stubs.exit, %zend_jit_calc_trace_prologue_size.exit
@@ -21514,7 +21508,7 @@ zend_jit_trace_free_caches.exit:                  ; preds = %zend_jit_shutdown_i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define hidden void @zend_jit_activate() local_unnamed_addr #15 {
+define hidden void @zend_jit_activate() local_unnamed_addr #14 {
   store i64 0, ptr @zend_jit_profile_counter, align 8, !tbaa !122
   %1 = load i8, ptr getelementptr inbounds nuw (i8, ptr @jit_globals, i64 1), align 1, !tbaa !71, !range !69, !noundef !70
   %2 = trunc nuw i8 %1 to i1
@@ -21890,14 +21884,14 @@ define internal fastcc void @zend_jit_restart_preloaded_script(ptr noundef nonnu
   ret void
 }
 
-declare void @add_assoc_bool_ex(ptr noundef, ptr noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #5
+declare void @add_assoc_bool_ex(ptr noundef, ptr noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #4
 
-declare void @add_assoc_long_ex(ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #5
+declare void @add_assoc_long_ex(ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #4
 
-declare void @add_assoc_zval_ex(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #5
+declare void @add_assoc_zval_ex(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @zend_jit_cleanup_func_info(ptr noundef captures(none) %0) unnamed_addr #16 {
+define internal fastcc void @zend_jit_cleanup_func_info(ptr noundef captures(none) %0) unnamed_addr #15 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %3 = load i32, ptr @zend_func_info_rid, align 4, !tbaa !57
   %4 = sext i32 %3 to i64
@@ -21980,15 +21974,15 @@ define internal fastcc void @zend_jit_cleanup_func_info(ptr noundef captures(non
   ret void
 }
 
-declare void @zend_analyze_calls(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare void @zend_analyze_calls(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: noreturn
-declare void @zend_error_noreturn(i32 noundef, ptr noundef, ...) local_unnamed_addr #7
+declare void @zend_error_noreturn(i32 noundef, ptr noundef, ...) local_unnamed_addr #6
 
-declare noalias ptr @_emalloc_32() #5
+declare noalias ptr @_emalloc_32() #4
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #17
+declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #16
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @zend_jit_trace_allocate_exit_point(i32 noundef %0) unnamed_addr #0 {
@@ -22009,8 +22003,8 @@ define internal fastcc ptr @zend_jit_trace_allocate_exit_point(i32 noundef %0) u
 7:                                                ; preds = %.preheader, %17
   %8 = phi ptr [ %.pre12, %.preheader ], [ %16, %17 ]
   %9 = phi i32 [ %.pre11, %.preheader ], [ %25, %17 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #35
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %10 = load ptr, ptr @dasm_buf, align 8, !tbaa !52
   store ptr %10, ptr %3, align 8, !tbaa !373
   %11 = load ptr, ptr @dasm_end, align 8, !tbaa !52
@@ -22022,8 +22016,8 @@ define internal fastcc ptr @zend_jit_trace_allocate_exit_point(i32 noundef %0) u
   %15 = load ptr, ptr %6, align 8, !tbaa !376
   %16 = load ptr, ptr @dasm_ptr, align 8, !tbaa !52
   store ptr %15, ptr %16, align 8, !tbaa !52
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #35
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %.loopexit, label %17
 
@@ -22053,13 +22047,13 @@ define internal fastcc ptr @zend_jit_trace_allocate_exit_point(i32 noundef %0) u
   ret ptr %.0
 }
 
-declare ptr @ir_emit_exitgroup(i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare ptr @ir_emit_exitgroup(i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare void @zend_dump_ssa_var(ptr noundef, ptr noundef, i32 noundef, i8 noundef zeroext, i32 noundef, i32 noundef) local_unnamed_addr #5
+declare void @zend_dump_ssa_var(ptr noundef, ptr noundef, i32 noundef, i8 noundef zeroext, i32 noundef, i32 noundef) local_unnamed_addr #4
 
-declare void @zend_dump_op(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare void @zend_dump_op(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare ptr @zend_get_type_by_const(i32 noundef) local_unnamed_addr #5
+declare ptr @zend_get_type_by_const(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @zend_jit_trace(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
@@ -22075,14 +22069,14 @@ define internal fastcc ptr @zend_jit_trace(ptr noundef nonnull %0, i32 noundef %
   %13 = alloca i64, align 8
   %14 = alloca i64, align 8
   %15 = alloca %struct._zend_ssa_range, align 8
-  call void @llvm.lifetime.start.p0(i64 1000, ptr nonnull %7) #35
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4, !tbaa !57
-  call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %9) #35
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #35
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #35
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #35
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %.not6928 = icmp eq i32 %1, 0
   br i1 %.not6928, label %26, label %16
 
@@ -22117,7 +22111,7 @@ define internal fastcc ptr @zend_jit_trace(ptr noundef nonnull %0, i32 noundef %
   %38 = load ptr, ptr %37, align 8, !tbaa !50
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 24
   %40 = load i32, ptr %39, align 8, !tbaa !196
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   call void @smart_str_erealloc(ptr noundef nonnull %6, i64 noundef 6) #35
   %41 = load ptr, ptr %6, align 8, !tbaa !262
@@ -22132,7 +22126,7 @@ define internal fastcc ptr @zend_jit_trace(ptr noundef nonnull %0, i32 noundef %
   %48 = load ptr, ptr @zend_jit_traces, align 8, !tbaa !51
   %49 = load i32, ptr %48, align 8, !tbaa !179
   %50 = zext i32 %49 to i64
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %51 = getelementptr inbounds nuw i8, ptr %4, i64 31
   store i8 0, ptr %51, align 1, !tbaa !50
   br label %52
@@ -22175,7 +22169,7 @@ define internal fastcc ptr @zend_jit_trace(ptr noundef nonnull %0, i32 noundef %
   %71 = load ptr, ptr %6, align 8, !tbaa !262
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 16
   store i64 %62, ptr %72, align 8, !tbaa !264
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %73 = load i64, ptr %72, align 8, !tbaa !264
   %74 = add i64 %73, 1
   %75 = load i64, ptr %63, align 8, !tbaa !266
@@ -22361,7 +22355,7 @@ smart_str_appendc_ex.exit.i:                      ; preds = %155, %.thread.i
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 16
   store i64 %153, ptr %160, align 8, !tbaa !264
   %161 = zext i32 %40 to i64
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %162 = getelementptr inbounds nuw i8, ptr %5, i64 31
   store i8 0, ptr %162, align 1, !tbaa !50
   br label %163
@@ -22403,13 +22397,13 @@ zend_jit_trace_name.exit:                         ; preds = %169, %175
   %180 = load ptr, ptr %6, align 8, !tbaa !262
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 16
   store i64 %173, ptr %181, align 8, !tbaa !264
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %182 = getelementptr inbounds nuw i8, ptr %180, i64 24
   %183 = load i64, ptr %181, align 8, !tbaa !264
   %184 = getelementptr inbounds nuw [1 x i8], ptr %182, i64 0, i64 %183
   store i8 0, ptr %184, align 1, !tbaa !50
   %185 = load ptr, ptr %6, align 8, !tbaa !262
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %186 = load ptr, ptr @zend_jit_traces, align 8, !tbaa !51
   %187 = load i32, ptr %186, align 8, !tbaa !179
   %188 = zext i32 %1 to i64
@@ -47496,7 +47490,7 @@ zend_jit_dec_call_level.exit:                     ; preds = %15260, %15262
   br i1 %.not7783, label %.thread9545, label %15313
 
 15313:                                            ; preds = %.loopexit9756
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %15314 = getelementptr inbounds nuw i8, ptr %.06407, i64 20
   %15315 = load i32, ptr %15314, align 4, !tbaa !318
   %15316 = icmp sgt i32 %15315, -1
@@ -49441,7 +49435,7 @@ zend_jit_trace_op_len.exit:                       ; preds = %16141, %16506
   %.106417 = phi ptr [ %16514, %16513 ], [ %.76414, %.loopexit9746 ]
   %.116269 = phi i8 [ 0, %16513 ], [ %.26260, %.loopexit9746 ]
   %.76200 = phi ptr [ %spec.select7964, %16513 ], [ %.36196, %.loopexit9746 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %.thread9545
 
 16520:                                            ; preds = %2403
@@ -51708,18 +51702,18 @@ zend_arena_release.exit:                          ; preds = %.critedge.i, %._cri
   %.0.i.lcssa = phi ptr [ %17628, %._crit_edge9970 ], [ %17633, %.critedge.i ]
   store ptr %30, ptr %.0.i.lcssa, align 8, !tbaa !125
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @jit_globals, i64 176), i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #35
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #35
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #35
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #35
-  call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %9) #35
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #35
-  call void @llvm.lifetime.end.p0(i64 1000, ptr nonnull %7) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %.06185
 }
 
 ; Function Attrs: cold nounwind uwtable
-define internal fastcc void @zend_jit_dump_exit_info(ptr noundef readonly captures(none) %0) unnamed_addr #18 {
+define internal fastcc void @zend_jit_dump_exit_info(ptr noundef readonly captures(none) %0) unnamed_addr #17 {
   %2 = load ptr, ptr @stderr, align 8, !tbaa !153
   %3 = load i32, ptr %0, align 8, !tbaa !179
   %4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.168, i32 noundef %3) #40
@@ -52145,7 +52139,7 @@ define internal fastcc ptr @zend_jit_trace_build_tssa(ptr noundef nonnull %0, i3
   %16 = alloca ptr, align 8
   %17 = alloca ptr, align 8
   %18 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %.sroa.22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.22)
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !50
   %.not.i2552 = icmp eq ptr %20, null
@@ -54106,7 +54100,7 @@ zend_jit_var_may_alias.exit:                      ; preds = %zend_string_equals_
 
 1016:                                             ; preds = %1008
   %1017 = getelementptr inbounds nuw %struct._zend_arg_info, ptr %1007, i64 %indvars.iv326
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %1018 = call i32 @zend_fetch_arg_info_type(ptr noundef null, ptr noundef nonnull %1017, ptr noundef nonnull %15) #35
   %1019 = getelementptr inbounds nuw i8, ptr %1017, i64 16
   %1020 = load i32, ptr %1019, align 8, !tbaa !397
@@ -54123,7 +54117,7 @@ zend_jit_var_may_alias.exit:                      ; preds = %zend_string_equals_
   %1027 = load i8, ptr %1026, align 4
   %1028 = or i8 %1027, 2
   store i8 %1028, ptr %1026, align 4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %1071
 
 1029:                                             ; preds = %1008, %1006
@@ -56851,11 +56845,11 @@ _const_op_type.exit:                              ; preds = %2435, %2451, %2449,
   br i1 %.not2231, label %.thread30, label %2476
 
 2476:                                             ; preds = %2467
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %2477 = call i32 @zend_fetch_arg_info_type(ptr noundef null, ptr noundef nonnull %2472, ptr noundef nonnull %16) #35
   %2478 = and i32 %2477, %.01971
   %.not2232.not = icmp eq i32 %2478, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br i1 %.not2232.not, label %zend_jit_trace_add_op_guard.exit2629thread-pre-split, label %..thread30_crit_edge
 
 ..thread30_crit_edge:                             ; preds = %2476
@@ -57670,7 +57664,7 @@ zend_jit_var_may_alias.exit2478:                  ; preds = %zend_string_equals_
 
 2904:                                             ; preds = %2899, %zend_jit_var_may_alias.exit2478
   %2905 = load i32, ptr %2822, align 4, !tbaa !336
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %2906 = load ptr, ptr %788, align 8, !tbaa !225
   %2907 = sext i32 %2905 to i64
   %2908 = getelementptr inbounds %struct._zend_ssa_var, ptr %2906, i64 %2907
@@ -57712,7 +57706,7 @@ zend_jit_var_may_alias.exit2478:                  ; preds = %zend_string_equals_
   br label %zend_jit_trace_propagate_range.exit
 
 zend_jit_trace_propagate_range.exit:              ; preds = %2904, %2913, %2922
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %2935
 
 2935:                                             ; preds = %2899, %zend_jit_trace_propagate_range.exit, %2858
@@ -57799,7 +57793,7 @@ zend_jit_var_may_alias.exit2485:                  ; preds = %zend_string_equals_
 
 2985:                                             ; preds = %2980, %zend_jit_var_may_alias.exit2485
   %2986 = load i32, ptr %2936, align 4, !tbaa !342
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %2987 = load ptr, ptr %788, align 8, !tbaa !225
   %2988 = sext i32 %2986 to i64
   %2989 = getelementptr inbounds %struct._zend_ssa_var, ptr %2987, i64 %2988
@@ -57841,7 +57835,7 @@ zend_jit_var_may_alias.exit2485:                  ; preds = %zend_string_equals_
   br label %zend_jit_trace_propagate_range.exit2852
 
 zend_jit_trace_propagate_range.exit2852:          ; preds = %2985, %2994, %3003
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %3016
 
 3016:                                             ; preds = %2980, %zend_jit_trace_propagate_range.exit2852, %2935
@@ -57928,7 +57922,7 @@ zend_jit_var_may_alias.exit2492:                  ; preds = %zend_string_equals_
 
 3066:                                             ; preds = %3061, %zend_jit_var_may_alias.exit2492
   %3067 = load i32, ptr %3017, align 4, !tbaa !318
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %3068 = load ptr, ptr %788, align 8, !tbaa !225
   %3069 = sext i32 %3067 to i64
   %3070 = getelementptr inbounds %struct._zend_ssa_var, ptr %3068, i64 %3069
@@ -57970,7 +57964,7 @@ zend_jit_var_may_alias.exit2492:                  ; preds = %zend_string_equals_
   br label %zend_jit_trace_propagate_range.exit2853
 
 zend_jit_trace_propagate_range.exit2853:          ; preds = %3066, %3075, %3084
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %3097
 
 3097:                                             ; preds = %3061, %zend_jit_trace_propagate_range.exit2853, %3016
@@ -58067,7 +58061,7 @@ zend_jit_var_may_alias.exit2499:                  ; preds = %zend_string_equals_
 
 3153:                                             ; preds = %3148, %zend_jit_var_may_alias.exit2499
   %3154 = load i32, ptr %3104, align 4, !tbaa !336
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %3155 = load ptr, ptr %788, align 8, !tbaa !225
   %3156 = sext i32 %3154 to i64
   %3157 = getelementptr inbounds %struct._zend_ssa_var, ptr %3155, i64 %3156
@@ -58109,7 +58103,7 @@ zend_jit_var_may_alias.exit2499:                  ; preds = %zend_string_equals_
   br label %zend_jit_trace_propagate_range.exit2854
 
 zend_jit_trace_propagate_range.exit2854:          ; preds = %3153, %3162, %3171
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %3184
 
 3184:                                             ; preds = %3148, %zend_jit_trace_propagate_range.exit2854, %3103
@@ -58196,7 +58190,7 @@ zend_jit_var_may_alias.exit2506:                  ; preds = %zend_string_equals_
 
 3234:                                             ; preds = %3229, %zend_jit_var_may_alias.exit2506
   %3235 = load i32, ptr %3185, align 4, !tbaa !342
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %3236 = load ptr, ptr %788, align 8, !tbaa !225
   %3237 = sext i32 %3235 to i64
   %3238 = getelementptr inbounds %struct._zend_ssa_var, ptr %3236, i64 %3237
@@ -58238,7 +58232,7 @@ zend_jit_var_may_alias.exit2506:                  ; preds = %zend_string_equals_
   br label %zend_jit_trace_propagate_range.exit2855
 
 zend_jit_trace_propagate_range.exit2855:          ; preds = %3234, %3243, %3252
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %3265
 
 3265:                                             ; preds = %3229, %zend_jit_trace_propagate_range.exit2855, %3184
@@ -58325,7 +58319,7 @@ zend_jit_var_may_alias.exit2513:                  ; preds = %zend_string_equals_
 
 3315:                                             ; preds = %3310, %zend_jit_var_may_alias.exit2513
   %3316 = load i32, ptr %3266, align 4, !tbaa !318
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %3317 = load ptr, ptr %788, align 8, !tbaa !225
   %3318 = sext i32 %3316 to i64
   %3319 = getelementptr inbounds %struct._zend_ssa_var, ptr %3317, i64 %3318
@@ -58367,7 +58361,7 @@ zend_jit_var_may_alias.exit2513:                  ; preds = %zend_string_equals_
   br label %zend_jit_trace_propagate_range.exit2856
 
 zend_jit_trace_propagate_range.exit2856:          ; preds = %3315, %3324, %3333
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %3346
 
 3346:                                             ; preds = %3097, %3099, %3310, %zend_jit_trace_propagate_range.exit2856, %3265, %2837, %2839, %2857, %2853
@@ -58772,7 +58766,7 @@ zend_jit_var_may_alias.exit2520:                  ; preds = %zend_string_equals_
 
 3573:                                             ; preds = %3568, %zend_jit_var_may_alias.exit2520
   %3574 = load i32, ptr %3517, align 4, !tbaa !336
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %3575 = load ptr, ptr %788, align 8, !tbaa !225
   %3576 = sext i32 %3574 to i64
   %3577 = getelementptr inbounds %struct._zend_ssa_var, ptr %3575, i64 %3576
@@ -58814,7 +58808,7 @@ zend_jit_var_may_alias.exit2520:                  ; preds = %zend_string_equals_
   br label %zend_jit_trace_propagate_range.exit2857
 
 zend_jit_trace_propagate_range.exit2857:          ; preds = %3573, %3582, %3591
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %3604
 
 3604:                                             ; preds = %3568, %zend_jit_trace_propagate_range.exit2857, %3532
@@ -58896,7 +58890,7 @@ zend_jit_var_may_alias.exit2527:                  ; preds = %zend_string_equals_
 
 3649:                                             ; preds = %3644, %zend_jit_var_may_alias.exit2527
   %3650 = load i32, ptr %3605, align 4, !tbaa !342
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %3651 = load ptr, ptr %788, align 8, !tbaa !225
   %3652 = sext i32 %3650 to i64
   %3653 = getelementptr inbounds %struct._zend_ssa_var, ptr %3651, i64 %3652
@@ -58938,7 +58932,7 @@ zend_jit_var_may_alias.exit2527:                  ; preds = %zend_string_equals_
   br label %zend_jit_trace_propagate_range.exit2858
 
 zend_jit_trace_propagate_range.exit2858:          ; preds = %3649, %3658, %3667
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %3680
 
 3680:                                             ; preds = %3644, %zend_jit_trace_propagate_range.exit2858, %3604
@@ -59020,7 +59014,7 @@ zend_jit_var_may_alias.exit2534:                  ; preds = %zend_string_equals_
 
 3725:                                             ; preds = %3720, %zend_jit_var_may_alias.exit2534
   %3726 = load i32, ptr %3681, align 4, !tbaa !318
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %3727 = load ptr, ptr %788, align 8, !tbaa !225
   %3728 = sext i32 %3726 to i64
   %3729 = getelementptr inbounds %struct._zend_ssa_var, ptr %3727, i64 %3728
@@ -59062,7 +59056,7 @@ zend_jit_var_may_alias.exit2534:                  ; preds = %zend_string_equals_
   br label %zend_jit_trace_propagate_range.exit2859
 
 zend_jit_trace_propagate_range.exit2859:          ; preds = %3725, %3734, %3743
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %3756
 
 3756:                                             ; preds = %3680, %zend_jit_trace_propagate_range.exit2859, %3720, %3527, %3531
@@ -59384,7 +59378,7 @@ zend_jit_var_may_alias.exit2541:                  ; preds = %zend_string_equals_
 
 3922:                                             ; preds = %zend_jit_var_may_alias.exit2541
   %3923 = getelementptr inbounds nuw %struct._zend_arg_info, ptr %3921, i64 %indvars.iv337
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %3924 = call i32 @zend_fetch_arg_info_type(ptr noundef null, ptr noundef nonnull %3923, ptr noundef nonnull %17) #35
   %3925 = getelementptr inbounds nuw i8, ptr %3923, i64 16
   %3926 = load i32, ptr %3925, align 8, !tbaa !397
@@ -59401,7 +59395,7 @@ zend_jit_var_may_alias.exit2541:                  ; preds = %zend_string_equals_
   %3933 = load i8, ptr %3932, align 4
   %3934 = or i8 %3933, 2
   store i8 %3934, ptr %3932, align 4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %3977
 
 3935:                                             ; preds = %zend_jit_var_may_alias.exit2541
@@ -59952,7 +59946,7 @@ switch.edge:                                      ; preds = %4207
   br i1 %.not2190, label %.loopexit112, label %4216
 
 4216:                                             ; preds = %switch.edge
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %4217 = getelementptr inbounds nuw i8, ptr %4206, i64 40
   %4218 = load ptr, ptr %4217, align 8, !tbaa !50
   %4219 = getelementptr inbounds i8, ptr %4218, i64 -32
@@ -59963,7 +59957,7 @@ switch.edge:                                      ; preds = %4207
   %4224 = load i32, ptr %4223, align 8, !tbaa !331
   %4225 = and i32 %4224, %4220
   store i32 %4225, ptr %4223, align 8, !tbaa !331
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %.loopexit112
 
 .loopexit112.loopexit:                            ; preds = %3805
@@ -60344,7 +60338,7 @@ zend_jit_find_trace.exit:                         ; preds = %4426, %4414, %._cri
 
 .loopexit133:                                     ; preds = %737, %zend_jit_trace_call_frame.exit, %.loopexit, %4430, %zend_jit_find_trace.exit, %455, %271, %230
   %.0 = phi ptr [ null, %230 ], [ null, %271 ], [ %.0.i2386, %455 ], [ %.0.i2386, %zend_jit_find_trace.exit ], [ %.0.i2386, %4430 ], [ %.0.i2386, %.loopexit ], [ null, %zend_jit_trace_call_frame.exit ], [ null, %737 ]
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %.sroa.22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.22)
   ret ptr %.0
 }
 
@@ -63637,7 +63631,7 @@ zend_jit_store_var_if_necessary.exit:             ; preds = %1029, %1025, %1021,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @zend_may_overflow(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, ptr noundef nonnull readonly captures(none) %3) unnamed_addr #19 {
+define internal fastcc range(i32 0, 2) i32 @zend_may_overflow(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, ptr noundef nonnull readonly captures(none) %3) unnamed_addr #18 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %6 = load ptr, ptr %5, align 8, !tbaa !239
   %.not = icmp eq ptr %6, null
@@ -65932,10 +65926,10 @@ _ssa_op1_has_range.exit.thread:                   ; preds = %.thread560, %.threa
   ret i32 %.0
 }
 
-declare zeroext i1 @zend_may_throw(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare zeroext i1 @zend_may_throw(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @zend_jit_trace_next_is_send_result(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #20 {
+define internal fastcc noundef zeroext i1 @zend_jit_trace_next_is_send_result(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #19 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 31
   %5 = load i8, ptr %4, align 1, !tbaa !240
   %6 = icmp eq i8 %5, 2
@@ -66651,7 +66645,7 @@ jit_FREE_OP.exit27:                               ; preds = %jit_FREE_OP.exit, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @zend_jit_trace_cleanup_stack(ptr noundef nonnull readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef nonnull readonly captures(none) %4, ptr noundef readonly captures(none) %5) unnamed_addr #21 {
+define internal fastcc void @zend_jit_trace_cleanup_stack(ptr noundef nonnull readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef nonnull readonly captures(none) %4, ptr noundef readonly captures(none) %5) unnamed_addr #20 {
   %7 = load i32, ptr %3, align 4, !tbaa !325
   %8 = icmp sgt i32 %7, -1
   br i1 %8, label %9, label %zend_ssa_is_no_val_use.exit.thread
@@ -67101,7 +67095,7 @@ define internal fastcc void @zend_jit_concat(ptr noundef nonnull %0, ptr noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc noundef zeroext i1 @zend_jit_supported_binary_op(i8 noundef zeroext %0, i32 noundef %1, i32 noundef %2) unnamed_addr #22 {
+define internal fastcc noundef zeroext i1 @zend_jit_supported_binary_op(i8 noundef zeroext %0, i32 noundef %1, i32 noundef %2) unnamed_addr #21 {
   %4 = or i32 %2, %1
   %5 = and i32 %4, 1
   %or.cond = icmp eq i32 %5, 0
@@ -67858,11 +67852,11 @@ define internal fastcc range(i32 0, 2) i32 @zend_jit_assign_dim_op(ptr noundef n
   %19 = alloca i32, align 4
   store i32 %2, ptr %15, align 4, !tbaa !57
   store i32 %13, ptr %16, align 4, !tbaa !57
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i32 0, ptr %17, align 4, !tbaa !57
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i32 0, ptr %18, align 4, !tbaa !57
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 31
   %21 = load i8, ptr %20, align 1, !tbaa !240
   %22 = icmp eq i8 %21, 0
@@ -68628,9 +68622,9 @@ zend_jit_check_exception.exit:                    ; preds = %jit_EG_exception.ex
 
 .critedge247:                                     ; preds = %292, %168, %zend_jit_trace_get_exit_addr.exit, %jit_FREE_OP.exit274, %zend_jit_check_exception.exit
   %.7 = phi i32 [ 1, %zend_jit_check_exception.exit ], [ 1, %jit_FREE_OP.exit274 ], [ 0, %zend_jit_trace_get_exit_addr.exit ], [ 0, %168 ], [ 0, %292 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #35
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #35
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   ret i32 %.7
 }
 
@@ -74594,11 +74588,11 @@ define internal fastcc range(i32 0, 2) i32 @zend_jit_assign_dim(ptr noundef nonn
   %19 = alloca i32, align 4
   store i32 %2, ptr %15, align 4, !tbaa !57
   store i32 %13, ptr %16, align 4, !tbaa !57
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i32 0, ptr %17, align 4, !tbaa !57
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i32 0, ptr %18, align 4, !tbaa !57
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %20 = icmp ne i64 %9, %10
   %21 = icmp ne i64 %10, 0
   %or.cond = and i1 %20, %21
@@ -75099,13 +75093,13 @@ zend_jit_check_exception.exit:                    ; preds = %jit_EG_exception.ex
 
 .critedge:                                        ; preds = %zend_jit_trace_get_exit_addr.exit, %jit_FREE_OP.exit205, %zend_jit_check_exception.exit, %133, %.split
   %.0146 = phi i32 [ 0, %.split ], [ 0, %133 ], [ 1, %zend_jit_check_exception.exit ], [ 1, %jit_FREE_OP.exit205 ], [ 0, %zend_jit_trace_get_exit_addr.exit ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #35
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #35
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   ret i32 %.0146
 }
 
-declare zeroext i1 @zend_may_throw_ex(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
+declare zeroext i1 @zend_may_throw_ex(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @zend_jit_scalar_type_guard(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
@@ -76951,7 +76945,7 @@ jit_STUB_ADDR.exit:                               ; preds = %jit_set_Z_TYPE_INFO
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @zend_jit_trace_send_type(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i8 noundef zeroext %2) unnamed_addr #21 {
+define internal fastcc void @zend_jit_trace_send_type(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i8 noundef zeroext %2) unnamed_addr #20 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !384
@@ -81242,7 +81236,7 @@ jit_ADD_OFFSET.exit1074:                          ; preds = %1164, %1172
   br i1 %327, label %1204, label %.split
 
 .split:                                           ; preds = %1184
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %1185 = load i32, ptr %307, align 8, !tbaa !50
   %1186 = icmp ne i32 %1185, 0
   tail call void @llvm.assume(i1 %1186)
@@ -81292,7 +81286,7 @@ jit_FP.exit1080:                                  ; preds = %1197, %.preheader.i
   br i1 %1208, label %.split769, label %.thread1208
 
 .split769:                                        ; preds = %1204
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %1209 = load i32, ptr %307, align 8, !tbaa !50
   %1210 = icmp ne i32 %1209, 0
   tail call void @llvm.assume(i1 %1210)
@@ -81475,7 +81469,7 @@ jit_observer_fcall_begin.exit1092:                ; preds = %1287, %1298
   tail call void @_ir_IF_TRUE(ptr noundef nonnull %0, i32 noundef %.sroa.01178.0.extract.trunc) #35
   %1305 = tail call i32 @_ir_END_LIST(ptr noundef nonnull %0, i32 noundef %1304) #35
   tail call void @_ir_MERGE_LIST(ptr noundef nonnull %0, i32 noundef %1305) #35
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %1306
 
 1306:                                             ; preds = %.critedge887, %1182
@@ -81632,7 +81626,7 @@ switch.edge:                                      ; preds = %1356
   br label %.thread1216
 
 1395:                                             ; preds = %zend_jit_trace_get_exit_addr.exit1089
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.critedge891
 
 .thread1216:                                      ; preds = %1393, %1356, %442
@@ -81717,7 +81711,7 @@ jit_CONST_ADDR.exit1095:                          ; preds = %1405, %1413
   br i1 %.not851, label %1423, label %1469
 
 1423:                                             ; preds = %1417, %1422
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.not852 = icmp eq i32 %.373212281260, 0
   br i1 %.not852, label %1424, label %1442
 
@@ -81799,7 +81793,7 @@ jit_observer_fcall_begin.exit1102:                ; preds = %1450, %1461
   tail call void @_ir_IF_TRUE(ptr noundef nonnull %0, i32 noundef %.sroa.0.0.extract.trunc) #35
   %1468 = tail call i32 @_ir_END_LIST(ptr noundef nonnull %0, i32 noundef %1467) #35
   tail call void @_ir_MERGE_LIST(ptr noundef nonnull %0, i32 noundef %1468) #35
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %1469
 
 1469:                                             ; preds = %1417, %jit_observer_fcall_begin.exit1102, %1422
@@ -82676,8 +82670,8 @@ jit_CONST_ADDR.exit1165:                          ; preds = %1937, %1945
   br i1 %.not860, label %1952, label %1982
 
 1952:                                             ; preds = %1950
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #35
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %.not861 = icmp eq ptr %.071311831190, null
   br i1 %.not861, label %.thread1233, label %1953
 
@@ -82735,8 +82729,8 @@ jit_CONST_ADDR.exit1168:                          ; preds = %1970, %1978
   br label %1981
 
 1981:                                             ; preds = %jit_CONST_ADDR.exit1168, %1962
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #35
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %1982
 
 1982:                                             ; preds = %1981, %1950
@@ -89603,7 +89597,7 @@ jit_FP.exit16:                                    ; preds = %87, %.preheader.i11
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i32 @zend_ssa_cv_info(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) unnamed_addr #23 {
+define internal fastcc i32 @zend_ssa_cv_info(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) unnamed_addr #22 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %5 = load ptr, ptr %4, align 8, !tbaa !225
   %.not = icmp eq ptr %5, null
@@ -93305,9 +93299,9 @@ define internal fastcc range(i32 0, 2) i32 @zend_jit_fetch_dim_read(ptr noundef 
   %17 = load i8, ptr %16, align 4, !tbaa !90
   %.not = icmp eq i8 %17, 98
   %18 = select i1 %.not, i32 0, i32 64
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i32 0, ptr %14, align 4, !tbaa !57
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i32 0, ptr %15, align 4, !tbaa !57
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 29
   %20 = load i8, ptr %19, align 1, !tbaa !278
@@ -94678,8 +94672,8 @@ thread-pre-split.thread:                          ; preds = %.critedge466.thread
 
 .critedge:                                        ; preds = %jit_FREE_OP.exit526, %282, %328, %zend_jit_trace_get_exit_addr.exit490, %zend_jit_check_exception.exit, %select.unfold, %765, %thread-pre-split.thread, %zend_jit_trace_get_exit_addr.exit
   %.2 = phi i32 [ 0, %zend_jit_trace_get_exit_addr.exit ], [ 1, %thread-pre-split.thread ], [ 1, %765 ], [ 1, %select.unfold ], [ 1, %zend_jit_check_exception.exit ], [ 0, %zend_jit_trace_get_exit_addr.exit490 ], [ 0, %328 ], [ 0, %282 ], [ 1, %jit_FREE_OP.exit526 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #35
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   ret i32 %.2
 }
 
@@ -94691,13 +94685,13 @@ define internal fastcc range(i32 0, 2) i32 @zend_jit_fetch_dim(ptr noundef nonnu
   %13 = alloca i32, align 4
   %14 = alloca i32, align 4
   store i32 %2, ptr %10, align 4, !tbaa !57
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 0, ptr %11, align 4, !tbaa !57
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 0, ptr %12, align 4, !tbaa !57
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 0, ptr %13, align 4, !tbaa !57
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %16 = load i8, ptr %15, align 4, !tbaa !90
   %17 = icmp eq i8 %16, 87
@@ -95198,17 +95192,17 @@ zend_jit_check_exception.exit:                    ; preds = %jit_EG_exception.ex
 
 .critedge:                                        ; preds = %jit_FREE_OP.exit, %zend_jit_check_exception.exit, %97
   %.3 = phi i32 [ 0, %97 ], [ 1, %zend_jit_check_exception.exit ], [ 1, %jit_FREE_OP.exit ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #35
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #35
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #35
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i32 %.3
 }
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @zend_jit_isset_isempty_dim(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, i64 noundef %3, i1 noundef zeroext %4, i32 noundef %5, i64 noundef %6, ptr noundef readonly captures(address_is_null) %7, i8 noundef zeroext %8, i32 noundef range(i32 0, 2) %9, i8 noundef zeroext %10, i32 noundef %11, i32 noundef %12, ptr noundef %13) unnamed_addr #0 {
   %15 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i32 0, ptr %15, align 4, !tbaa !57
   %16 = alloca [40 x i8], align 16
   store i32 0, ptr %16, align 16, !tbaa !57
@@ -95929,7 +95923,7 @@ jit_set_Z_TYPE_INFO.exit265:                      ; preds = %362, %371
 
 .thread:                                          ; preds = %83, %89, %86, %374, %.thread276
   %.1 = phi i32 [ 1, %.thread276 ], [ 1, %374 ], [ 0, %83 ], [ 1, %89 ], [ 1, %86 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret i32 %.1
 }
 
@@ -111422,7 +111416,7 @@ jit_ADD_OFFSET.exit31:                            ; preds = %89, %97
   ret i32 %.019
 }
 
-declare zeroext i1 @zend_inference_propagate_range(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
+declare zeroext i1 @zend_inference_propagate_range(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @zend_jit_set_ip(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
@@ -111861,7 +111855,7 @@ define internal fastcc ptr @zend_jit_finish(ptr noundef nonnull %0) unnamed_addr
   %2 = alloca [32 x i8], align 16
   %3 = alloca %struct.smart_str, align 8
   %4 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load i64, ptr getelementptr inbounds nuw (i8, ptr @jit_globals, i64 24), align 8, !tbaa !145
   %6 = and i64 %5, 3875537201
   %.not = icmp eq i64 %6, 0
@@ -111889,7 +111883,7 @@ define internal fastcc ptr @zend_jit_finish(ptr noundef nonnull %0) unnamed_addr
 17:                                               ; preds = %7
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 720
   %19 = load ptr, ptr %18, align 8, !tbaa !268
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load ptr, ptr %20, align 8, !tbaa !214
@@ -112070,7 +112064,7 @@ smart_str_alloc.exit25.i:                         ; preds = %104, %95
   %111 = getelementptr inbounds nuw i8, ptr %19, i64 176
   %112 = load i32, ptr %111, align 8, !tbaa !297
   %113 = zext i32 %112 to i64
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %114 = getelementptr inbounds nuw i8, ptr %2, i64 31
   store i8 0, ptr %114, align 1, !tbaa !50
   br label %115
@@ -112112,7 +112106,7 @@ smart_str_alloc.exit25.i:                         ; preds = %104, %95
   %132 = load ptr, ptr %3, align 8, !tbaa !262
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 16
   store i64 %125, ptr %133, align 8, !tbaa !264
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.pre88.i = load i64, ptr %133, align 8, !tbaa !264
   br label %.sink.split.i
 
@@ -112172,7 +112166,7 @@ smart_str_0.exit.i:                               ; preds = %151, %137
 
 zend_jit_func_name.exit:                          ; preds = %134, %.sink.split.i
   %.0.i = phi ptr [ null, %134 ], [ %160, %.sink.split.i ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %zend_string_copy.exit
 
 zend_string_copy.exit:                            ; preds = %14, %10, %zend_jit_func_name.exit, %1
@@ -112620,12 +112614,12 @@ _zend_jit_fix_merges.exit:                        ; preds = %.loopexit94.i, %163
   br label %zend_string_release.exit
 
 zend_string_release.exit:                         ; preds = %360, %359, %352, %348, %.loopexit83
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %256
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @zend_jit_trace_setup_ret_counter(ptr noundef captures(none) %0, i64 noundef %1) unnamed_addr #20 {
+define internal fastcc void @zend_jit_trace_setup_ret_counter(ptr noundef captures(none) %0, i64 noundef %1) unnamed_addr #19 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr getelementptr inbounds nuw (i8, ptr @jit_globals, i64 88), align 8, !tbaa !412
   %.not = icmp eq i64 %4, 0
@@ -112817,7 +112811,7 @@ zend_jit_op_array_analyze2.exit:                  ; preds = %zend_jit_op_array_a
   br i1 %52, label %53, label %82
 
 53:                                               ; preds = %zend_jit_op_array_analyze2.exit
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %54 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 360), align 8, !tbaa !124
   %55 = load ptr, ptr %54, align 8, !tbaa !125
   call void @zend_build_cfg(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 360), ptr noundef nonnull %0, i32 noundef 1262485504, ptr noundef nonnull %2) #35
@@ -112880,7 +112874,7 @@ zend_jit_build_cfg.exit:                          ; preds = %53
 zend_arena_release.exit:                          ; preds = %.critedge.i, %72
   %.0.i.lcssa = phi ptr [ %73, %72 ], [ %78, %.critedge.i ]
   store ptr %55, ptr %.0.i.lcssa, align 8, !tbaa !125
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %82
 
 82:                                               ; preds = %zend_jit_op_array_analyze2.exit, %zend_arena_release.exit, %47, %50
@@ -113182,10 +113176,10 @@ zend_arena_alloc.exit:                            ; preds = %101, %103
   ret i32 %.0.lcssa
 }
 
-declare i32 @zend_ssa_rename_op(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @zend_ssa_rename_op(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define internal fastcc range(i32 0, 2) i32 @zend_jit_trace_copy_ssa_var_info(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4, ptr noundef %5) unnamed_addr #24 {
+define internal fastcc range(i32 0, 2) i32 @zend_jit_trace_copy_ssa_var_info(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4, ptr noundef %5) unnamed_addr #23 {
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %8 = load ptr, ptr %7, align 8, !tbaa !225
   %9 = sext i32 %4 to i64
@@ -113608,7 +113602,7 @@ zend_jit_trace_is_false_loop.exit.thread:         ; preds = %31, %40, %zend_jit_
   ret i32 %.0150
 }
 
-declare i32 @zend_fetch_arg_info_type(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @zend_fetch_arg_info_type(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @zend_jit_trace_copy_ssa_var_range(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, i32 noundef range(i32 0, -2147483648) %4) unnamed_addr #0 {
@@ -113690,7 +113684,7 @@ define internal fastcc void @zend_jit_trace_copy_ssa_var_range(ptr noundef %0, p
   br i1 %.not, label %65, label %98
 
 65:                                               ; preds = %44
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %66 = load ptr, ptr %7, align 8, !tbaa !225
   %67 = getelementptr inbounds nuw %struct._zend_ssa_var, ptr %66, i64 %9
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 40
@@ -113735,7 +113729,7 @@ define internal fastcc void @zend_jit_trace_copy_ssa_var_range(ptr noundef %0, p
   br label %zend_jit_trace_propagate_range.exit
 
 zend_jit_trace_propagate_range.exit:              ; preds = %65, %72, %81
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %98
 
 98:                                               ; preds = %zend_jit_trace_propagate_range.exit, %44
@@ -113808,7 +113802,7 @@ zend_jit_trace_propagate_range.exit:              ; preds = %65, %72, %81
   ret void
 }
 
-declare i32 @zend_update_type_info(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
+declare i32 @zend_update_type_info(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @zend_jit_trace_restrict_ssa_var_info(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) unnamed_addr #0 {
@@ -114008,7 +114002,7 @@ instanceof_function.exit99:                       ; preds = %68, %63, %instanceo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @is_checked_guard(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #19 {
+define internal fastcc range(i32 0, 2) i32 @is_checked_guard(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #18 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = load ptr, ptr %5, align 8, !tbaa !222
   %7 = zext i32 %3 to i64
@@ -114297,21 +114291,21 @@ define internal fastcc range(i32 0, 2) i32 @is_checked_guard(ptr noundef readonl
   ret i32 %.9
 }
 
-declare void @zend_build_cfg(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
+declare void @zend_build_cfg(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
-declare void @zend_cfg_build_predecessors(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare void @zend_cfg_build_predecessors(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare void @zend_cfg_compute_dominators_tree(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare void @zend_cfg_compute_dominators_tree(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare void @zend_cfg_identify_loops(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare void @zend_cfg_identify_loops(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare void @zend_dfg_add_use_def_op(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare void @zend_dfg_add_use_def_op(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare i32 @zend_array_type_info(ptr noundef) local_unnamed_addr #5
+declare i32 @zend_array_type_info(ptr noundef) local_unnamed_addr #4
 
-declare zeroext i1 @instanceof_function_slow(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare zeroext i1 @instanceof_function_slow(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare void @smart_str_erealloc(ptr noundef, i64 noundef) local_unnamed_addr #5
+declare void @smart_str_erealloc(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @zend_jit_init_ctx(ptr noundef nonnull %0, i32 noundef %1) unnamed_addr #0 {
@@ -114403,13 +114397,13 @@ define internal fastcc void @zend_jit_init_ctx(ptr noundef nonnull %0, i32 nound
   ret void
 }
 
-declare i32 @_ir_PARAM(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
+declare i32 @_ir_PARAM(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare i32 @_ir_RLOAD(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
+declare i32 @_ir_RLOAD(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
-declare void @ir_set_op(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
+declare void @ir_set_op(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
-declare void @_ir_STORE(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
+declare void @_ir_STORE(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @jit_CONST_ADDR(ptr noundef %0, i64 noundef %1) unnamed_addr #0 {
@@ -114448,9 +114442,9 @@ define internal fastcc i32 @jit_CONST_ADDR(ptr noundef %0, i64 noundef %1) unnam
   ret i32 %.0
 }
 
-declare i32 @ir_const_u32(ptr noundef, i32 noundef) local_unnamed_addr #5
+declare i32 @ir_const_u32(ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare void @ir_init(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
+declare void @ir_init(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal void @jit_SNAPSHOT(ptr noundef %0, i32 noundef %1) #0 {
@@ -114683,19 +114677,19 @@ zend_jit_trace_get_exit_addr.exit:                ; preds = %62, %64
   ret void
 }
 
-declare void @_zend_hash_init(ptr noundef, i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #5
+declare void @_zend_hash_init(ptr noundef, i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #4
 
-declare void @_ir_START(ptr noundef) local_unnamed_addr #5
+declare void @_ir_START(ptr noundef) local_unnamed_addr #4
 
-declare i32 @_ir_SNAPSHOT(ptr noundef, i32 noundef) local_unnamed_addr #5
+declare i32 @_ir_SNAPSHOT(ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare void @_ir_SNAPSHOT_SET_OP(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
+declare void @_ir_SNAPSHOT_SET_OP(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
-declare void @_ir_RSTORE(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
+declare void @_ir_RSTORE(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
-declare ptr @zend_hash_index_lookup(ptr noundef, i64 noundef) #5
+declare ptr @zend_hash_index_lookup(ptr noundef, i64 noundef) #4
 
-declare i32 @ir_unique_const_addr(ptr noundef, i64 noundef) local_unnamed_addr #5
+declare i32 @ir_unique_const_addr(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @zend_jit_opline_supports_reg(ptr noundef readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(address_is_null) %4) unnamed_addr #0 {
@@ -116258,7 +116252,7 @@ _ssa_op2_info.exit269.thread:                     ; preds = %327, %166, %169, %8
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: write) uwtable
-define internal fastcc void @zend_jit_trace_use_var(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef captures(none) %4, ptr noundef nonnull readonly captures(none) %5, ptr noundef readonly captures(none) %6, ptr noundef readonly captures(none) %7, ptr noundef readonly captures(none) %8) unnamed_addr #25 {
+define internal fastcc void @zend_jit_trace_use_var(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef captures(none) %4, ptr noundef nonnull readonly captures(none) %5, ptr noundef readonly captures(none) %6, ptr noundef readonly captures(none) %7, ptr noundef readonly captures(none) %8) unnamed_addr #24 {
   %10 = sext i32 %1 to i64
   %11 = getelementptr inbounds %struct._zend_jit_reg_var, ptr %4, i64 %10
   %12 = load i32, ptr %11, align 4, !tbaa !306
@@ -116418,10 +116412,10 @@ zend_ssa_is_no_val_use.exit.thread:               ; preds = %zend_ssa_is_no_val_
   ret void
 }
 
-declare void @zend_dump_var(ptr noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #5
+declare void @zend_dump_var(ptr noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc zeroext i1 @zend_ssa_is_last_use(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #23 {
+define internal fastcc zeroext i1 @zend_ssa_is_last_use(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #22 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %6 = load ptr, ptr %5, align 8, !tbaa !225
   %7 = sext i32 %2 to i64
@@ -116799,9 +116793,9 @@ switch.early.test.i:                              ; preds = %192
   ret i1 %.2
 }
 
-declare void @_ir_GUARD(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
+declare void @_ir_GUARD(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
-declare i32 @_ir_LOAD(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
+declare i32 @_ir_LOAD(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @jit_ADD_OFFSET(ptr noundef %0, i32 noundef %1, i64 noundef %2) unnamed_addr #0 {
@@ -116845,7 +116839,7 @@ jit_CONST_ADDR.exit:                              ; preds = %10, %18
   ret i32 %.0
 }
 
-declare i32 @ir_fold2(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
+declare i32 @ir_fold2(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @jit_Z_TYPE(ptr noundef %0, i64 noundef %1) unnamed_addr #0 {
@@ -116990,7 +116984,7 @@ jit_Z_TYPE_ref.exit:                              ; preds = %65, %73
   ret i32 %.016
 }
 
-declare i32 @ir_const_u8(ptr noundef, i8 noundef zeroext) local_unnamed_addr #5
+declare i32 @ir_const_u8(ptr noundef, i8 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @jit_Z_TYPE_ref(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
@@ -117169,7 +117163,7 @@ jit_ADD_OFFSET.exit:                              ; preds = %72, %64, %55, %jit_
   ret i32 %.013
 }
 
-declare void @_ir_GUARD_NOT(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
+declare void @_ir_GUARD_NOT(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @zend_jit_load_this(ptr noundef nonnull %0, i32 noundef %1) unnamed_addr #0 {
@@ -117435,7 +117429,7 @@ jit_ADD_OFFSET.exit24:                            ; preds = %86, %94
   ret void
 }
 
-declare i32 @ir_const_i64(ptr noundef, i64 noundef) local_unnamed_addr #5
+declare i32 @ir_const_i64(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @zend_jit_def_reg(ptr noundef %0, i64 noundef %1, i32 noundef %2) unnamed_addr #0 {
@@ -117879,11 +117873,11 @@ define internal fastcc void @jit_set_Z_TYPE_INFO(ptr noundef %0, i64 noundef %1,
   ret void
 }
 
-declare i32 @ir_binding_find(ptr noundef, i32 noundef) local_unnamed_addr #5
+declare i32 @ir_binding_find(ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare i32 @ir_emit2(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
+declare i32 @ir_emit2(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
-declare i32 @ir_bind(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
+declare i32 @ir_bind(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @jit_set_Z_TYPE_INFO_ex(ptr noundef %0, i64 noundef %1, i32 noundef %2) unnamed_addr #0 {
@@ -118053,7 +118047,7 @@ jit_ADD_OFFSET.exit:                              ; preds = %9, %17
   ret void
 }
 
-declare i32 @ir_const_double(ptr noundef, double noundef) local_unnamed_addr #5
+declare i32 @ir_const_double(ptr noundef, double noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @jit_set_Z_DVAL(ptr noundef %0, i64 noundef %1, i32 noundef %2) unnamed_addr #0 {
@@ -118218,17 +118212,17 @@ jit_Z_TYPE_FLAGS.exit:                            ; preds = %4, %jit_ADD_OFFSET.
   ret i32 %78
 }
 
-declare void @_ir_IF_FALSE(ptr noundef, i32 noundef) local_unnamed_addr #5
+declare void @_ir_IF_FALSE(ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare i32 @_ir_END(ptr noundef) local_unnamed_addr #5
+declare i32 @_ir_END(ptr noundef) local_unnamed_addr #4
 
-declare void @_ir_IF_TRUE(ptr noundef, i32 noundef) local_unnamed_addr #5
+declare void @_ir_IF_TRUE(ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare void @_ir_MERGE_2(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
+declare void @_ir_MERGE_2(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
-declare i32 @_ir_IF(ptr noundef, i32 noundef) local_unnamed_addr #5
+declare i32 @_ir_IF(ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare void @_ir_IF_FALSE_cold(ptr noundef, i32 noundef) local_unnamed_addr #5
+declare void @_ir_IF_FALSE_cold(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @jit_LOAD_IP_ADDR(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
@@ -118309,7 +118303,7 @@ jit_LOAD_IP.exit:                                 ; preds = %36, %.preheader.i.i
   ret void
 }
 
-declare void @_ir_IJMP(ptr noundef, i32 noundef) local_unnamed_addr #5
+declare void @_ir_IJMP(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @jit_LOAD_IP(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
@@ -119118,7 +119112,7 @@ jit_CONST_FUNC.exit:                              ; preds = %115, %126
   ret void
 }
 
-declare i32 @_ir_END_LIST(ptr noundef, i32 noundef) local_unnamed_addr #5
+declare i32 @_ir_END_LIST(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @jit_ZVAL_DTOR(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 {
@@ -119382,7 +119376,7 @@ define internal fastcc i32 @jit_if_Z_TYPE(ptr noundef %0, i64 noundef %1, i8 nou
   ret i32 %8
 }
 
-declare i32 @_ir_PHI_2(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
+declare i32 @_ir_PHI_2(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @jit_if_GC_MAY_NOT_LEAK(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
@@ -119525,7 +119519,7 @@ zend_jit_use_last_valid_opline.exit:              ; preds = %10, %6, %jit_CONST_
   ret void
 }
 
-declare i32 @_ir_CALL_1(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
+declare i32 @_ir_CALL_1(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @jit_CONST_FUNC(ptr noundef %0, i64 noundef %1) unnamed_addr #0 {
@@ -119569,11 +119563,11 @@ jit_CONST_FUNC_PROTO.exit:                        ; preds = %9, %20
   ret i32 %.0.i
 }
 
-declare void @gc_possible_root(ptr noundef) #5
+declare void @gc_possible_root(ptr noundef) #4
 
-declare void @_ir_MERGE_LIST(ptr noundef, i32 noundef) local_unnamed_addr #5
+declare void @_ir_MERGE_LIST(ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare void @zend_array_destroy(ptr noundef) #5
+declare void @zend_array_destroy(ptr noundef) #4
 
 ; Function Attrs: nounwind uwtable
 define internal void @zend_jit_array_free(ptr noundef %0) #0 {
@@ -119620,14 +119614,14 @@ define internal void @zend_jit_array_free(ptr noundef %0) #0 {
   ret void
 }
 
-declare void @zend_objects_store_del(ptr noundef) #5
+declare void @zend_objects_store_del(ptr noundef) #4
 
-declare void @rc_dtor_func(ptr noundef) #5
+declare void @rc_dtor_func(ptr noundef) #4
 
-declare void @gc_remove_from_buffer(ptr noundef) local_unnamed_addr #5
+declare void @gc_remove_from_buffer(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_zend_hash_iterators_remove(ptr noundef readnone captures(address) %0) unnamed_addr #26 {
+define internal fastcc void @_zend_hash_iterators_remove(ptr noundef readnone captures(address) %0) unnamed_addr #25 {
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1112), align 8, !tbaa !467
   %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1108), align 4, !tbaa !468
   %4 = zext i32 %3 to i64
@@ -119655,7 +119649,7 @@ define internal fastcc void @_zend_hash_iterators_remove(ptr noundef readnone ca
   ret void
 }
 
-declare void @_efree_56(ptr noundef) local_unnamed_addr #5
+declare void @_efree_56(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal void @zend_jit_free_trampoline_helper(ptr noundef %0) #0 {
@@ -119728,7 +119722,7 @@ zend_array_release.exit:                          ; preds = %28, %23, %19, %zend
   ret void
 }
 
-declare i32 @_ir_LOOP_BEGIN(ptr noundef, i32 noundef) local_unnamed_addr #5
+declare i32 @_ir_LOOP_BEGIN(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @zend_jit_spill_store(ptr noundef nonnull %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 {
@@ -119900,9 +119894,9 @@ jit_set_Z_TYPE_INFO.exit:                         ; preds = %jit_set_Z_TYPE_INFO
   ret void
 }
 
-declare i32 @ir_fold1(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
+declare i32 @ir_fold1(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
-declare void @_ir_IF_TRUE_cold(ptr noundef, i32 noundef) local_unnamed_addr #5
+declare void @_ir_IF_TRUE_cold(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @zend_jit_undefined_op_helper(i32 noundef %0) #0 {
@@ -119964,7 +119958,7 @@ jit_Z_TYPE_ref.exit:                              ; preds = %9, %17
 define internal void @zend_jit_pre_inc_typed_ref(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = load ptr, ptr %4, align 8, !tbaa !50
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i32, ptr %6, align 8, !tbaa !50
@@ -120044,7 +120038,7 @@ define internal void @zend_jit_pre_inc_typed_ref(ptr noundef %0, ptr noundef wri
   br label %42
 
 42:                                               ; preds = %34, %39, %33
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -120052,7 +120046,7 @@ define internal void @zend_jit_pre_inc_typed_ref(ptr noundef %0, ptr noundef wri
 define internal void @zend_jit_pre_dec_typed_ref(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = load ptr, ptr %4, align 8, !tbaa !50
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i32, ptr %6, align 8, !tbaa !50
@@ -120132,7 +120126,7 @@ define internal void @zend_jit_pre_dec_typed_ref(ptr noundef %0, ptr noundef wri
   br label %42
 
 42:                                               ; preds = %34, %39, %33
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -120268,7 +120262,7 @@ define internal void @zend_jit_post_dec_typed_ref(ptr noundef %0, ptr noundef ca
   ret void
 }
 
-declare i32 @_ir_CALL_2(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
+declare i32 @_ir_CALL_2(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal void @zend_jit_pre_inc(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 12)) %1) #0 {
@@ -120293,7 +120287,7 @@ define internal void @zend_jit_pre_inc(ptr noundef %0, ptr noundef writeonly cap
   ret void
 }
 
-declare i32 @increment_function(ptr noundef) #5
+declare i32 @increment_function(ptr noundef) #4
 
 ; Function Attrs: nounwind uwtable
 define internal void @zend_jit_pre_dec(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 12)) %1) #0 {
@@ -120318,12 +120312,12 @@ define internal void @zend_jit_pre_dec(ptr noundef %0, ptr noundef writeonly cap
   ret void
 }
 
-declare i32 @decrement_function(ptr noundef) #5
+declare i32 @decrement_function(ptr noundef) #4
 
-declare void @zend_error_unchecked(i32 noundef, ptr noundef, ...) local_unnamed_addr #5
+declare void @zend_error_unchecked(i32 noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc ptr @zend_jit_get_prop_not_accepting_double(ptr noundef readonly captures(address) %0) unnamed_addr #23 {
+define internal fastcc ptr @zend_jit_get_prop_not_accepting_double(ptr noundef readonly captures(address) %0) unnamed_addr #22 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -120389,12 +120383,12 @@ define internal fastcc void @zend_jit_throw_inc_ref_error(ptr noundef nonnull re
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !475
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #35
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %16 = call i32 @zend_unmangle_property_name_ex(ptr noundef %15, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef null) #35
   %17 = load ptr, ptr %3, align 8, !tbaa !217
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #35
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 24
   call void (ptr, ...) @zend_type_error(ptr noundef nonnull @.str.122, ptr noundef nonnull %13, ptr noundef %17, ptr noundef nonnull %18) #35
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 4
@@ -120429,15 +120423,15 @@ zend_string_release.exit:                         ; preds = %1, %22, %29, %30
   ret void
 }
 
-declare zeroext i1 @zend_verify_ref_assignable_zval(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #5
+declare zeroext i1 @zend_verify_ref_assignable_zval(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #4
 
-declare void @zval_ptr_dtor(ptr noundef) local_unnamed_addr #5
+declare void @zval_ptr_dtor(ptr noundef) local_unnamed_addr #4
 
-declare ptr @zend_type_to_string(ptr, i32) local_unnamed_addr #5
+declare ptr @zend_type_to_string(ptr, i32) local_unnamed_addr #4
 
-declare void @zend_type_error(ptr noundef, ...) local_unnamed_addr #5
+declare void @zend_type_error(ptr noundef, ...) local_unnamed_addr #4
 
-declare i32 @zend_unmangle_property_name_ex(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @zend_unmangle_property_name_ex(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @zend_jit_throw_dec_ref_error(ptr noundef nonnull readonly captures(none) %0) unnamed_addr #0 {
@@ -120455,12 +120449,12 @@ define internal fastcc void @zend_jit_throw_dec_ref_error(ptr noundef nonnull re
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !475
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #35
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %16 = call i32 @zend_unmangle_property_name_ex(ptr noundef %15, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef null) #35
   %17 = load ptr, ptr %3, align 8, !tbaa !217
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #35
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 24
   call void (ptr, ...) @zend_type_error(ptr noundef nonnull @.str.123, ptr noundef nonnull %13, ptr noundef %17, ptr noundef nonnull %18) #35
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 4
@@ -122394,21 +122388,21 @@ jit_set_Z_TYPE_INFO.exit32:                       ; preds = %jit_set_Z_TYPE_INFO
   ret void
 }
 
-declare i32 @bitwise_or_function(ptr noundef, ptr noundef, ptr noundef) #5
+declare i32 @bitwise_or_function(ptr noundef, ptr noundef, ptr noundef) #4
 
-declare i32 @bitwise_and_function(ptr noundef, ptr noundef, ptr noundef) #5
+declare i32 @bitwise_and_function(ptr noundef, ptr noundef, ptr noundef) #4
 
-declare i32 @bitwise_xor_function(ptr noundef, ptr noundef, ptr noundef) #5
+declare i32 @bitwise_xor_function(ptr noundef, ptr noundef, ptr noundef) #4
 
-declare i32 @shift_left_function(ptr noundef, ptr noundef, ptr noundef) #5
+declare i32 @shift_left_function(ptr noundef, ptr noundef, ptr noundef) #4
 
-declare i32 @shift_right_function(ptr noundef, ptr noundef, ptr noundef) #5
+declare i32 @shift_right_function(ptr noundef, ptr noundef, ptr noundef) #4
 
-declare i32 @mod_function(ptr noundef, ptr noundef, ptr noundef) #5
+declare i32 @mod_function(ptr noundef, ptr noundef, ptr noundef) #4
 
-declare i32 @_ir_CALL_3(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
+declare i32 @_ir_CALL_3(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
-declare i32 @_ir_PHI_N(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @_ir_PHI_N(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal void @zend_jit_unref_helper(ptr noundef captures(none) initializes((8, 12)) %0) #0 {
@@ -122449,7 +122443,7 @@ define internal void @zend_jit_unref_helper(ptr noundef captures(none) initializ
   ret void
 }
 
-declare void @_efree_32(ptr noundef) #5
+declare void @_efree_32(ptr noundef) #4
 
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @zend_jit_add_arrays_helper(ptr noundef %0, ptr noundef %1) #0 {
@@ -122458,11 +122452,11 @@ define internal noundef ptr @zend_jit_add_arrays_helper(ptr noundef %0, ptr noun
   ret ptr %3
 }
 
-declare ptr @zend_array_dup(ptr noundef) local_unnamed_addr #5
+declare ptr @zend_array_dup(ptr noundef) local_unnamed_addr #4
 
-declare void @zend_hash_merge(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #5
+declare void @zend_hash_merge(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #4
 
-declare void @zval_add_ref(ptr noundef) #5
+declare void @zval_add_ref(ptr noundef) #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @zend_jit_math_helper(ptr noundef nonnull %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3, i32 %4, i64 noundef %5, i32 noundef %6, i8 noundef zeroext %7, i32 %8, i64 noundef %9, i32 noundef %10, i32 noundef %11, i64 noundef %12, i32 noundef %13, i32 noundef %14, i32 noundef range(i32 0, 2) %15, i32 noundef %16) unnamed_addr #0 {
@@ -124376,15 +124370,15 @@ jit_set_Z_TYPE_INFO.exit:                         ; preds = %17, %.thread, %32, 
   ret void
 }
 
-declare i32 @add_function(ptr noundef, ptr noundef, ptr noundef) #5
+declare i32 @add_function(ptr noundef, ptr noundef, ptr noundef) #4
 
-declare i32 @sub_function(ptr noundef, ptr noundef, ptr noundef) #5
+declare i32 @sub_function(ptr noundef, ptr noundef, ptr noundef) #4
 
-declare i32 @mul_function(ptr noundef, ptr noundef, ptr noundef) #5
+declare i32 @mul_function(ptr noundef, ptr noundef, ptr noundef) #4
 
-declare i32 @div_function(ptr noundef, ptr noundef, ptr noundef) #5
+declare i32 @div_function(ptr noundef, ptr noundef, ptr noundef) #4
 
-declare void @_ir_MERGE_N(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
+declare void @_ir_MERGE_N(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @zend_jit_concat_helper(ptr noundef nonnull %0, ptr noundef %1, i8 noundef zeroext %2, i32 %3, i64 noundef %4, i32 noundef %5, i8 noundef zeroext %6, i32 %7, i64 noundef %8, i32 noundef %9, i64 noundef %10, i32 noundef %11) unnamed_addr #0 {
@@ -125089,16 +125083,16 @@ zend_string_alloc.exit:                           ; preds = %20, %34
   ret void
 }
 
-declare i32 @concat_function(ptr noundef, ptr noundef, ptr noundef) #5
+declare i32 @concat_function(ptr noundef, ptr noundef, ptr noundef) #4
 
-declare void @zend_throw_error(ptr noundef, ptr noundef, ...) #5
+declare void @zend_throw_error(ptr noundef, ptr noundef, ...) #4
 
-declare ptr @get_binary_op(i32 noundef) local_unnamed_addr #5
+declare ptr @get_binary_op(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal void @zend_jit_assign_op_to_typed_ref_tmp(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = alloca %struct._zval_struct, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = call i32 %2(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef %1) #35
   %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 512), align 8, !tbaa !221
@@ -125146,14 +125140,14 @@ define internal void @zend_jit_assign_op_to_typed_ref_tmp(ptr noundef %0, ptr no
   br label %zval_ptr_dtor_nogc.exit
 
 zval_ptr_dtor_nogc.exit:                          ; preds = %20, %23, %28
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @zend_jit_assign_op_to_typed_ref(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address) %2) #0 {
   %4 = alloca %struct._zval_struct, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = icmp eq ptr %2, @concat_function
   br i1 %5, label %6, label %13
 
@@ -125195,7 +125189,7 @@ define internal void @zend_jit_assign_op_to_typed_ref(ptr noundef %0, ptr nounde
   br label %29
 
 29:                                               ; preds = %23, %28, %10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -125706,11 +125700,11 @@ jit_STUB_FUNC_ADDR.exit:                          ; preds = %190, %193
   ret i64 %.0
 }
 
-declare i32 @zend_array_element_type(i32 noundef, i8 noundef zeroext, i32 noundef, i32 noundef) local_unnamed_addr #5
+declare i32 @zend_array_element_type(i32 noundef, i8 noundef zeroext, i32 noundef, i32 noundef) local_unnamed_addr #4
 
-declare ptr @zend_hash_next_index_insert(ptr noundef, ptr noundef) #5
+declare ptr @zend_hash_next_index_insert(ptr noundef, ptr noundef) #4
 
-declare i32 @_ir_CALL(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
+declare i32 @_ir_CALL(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @zend_jit_fetch_dimension_address_inner(ptr noundef nonnull %0, ptr noundef %1, i32 noundef range(i32 0, 7) %2, i32 noundef %3, i32 noundef %4, i64 noundef %5, ptr noundef readonly captures(address_is_null) %6, i8 noundef zeroext %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, i1 noundef zeroext %11, i32 noundef %12, ptr noundef nonnull %13, ptr noundef captures(none) %14, ptr noundef nonnull captures(none) %15, ptr noundef captures(none) %16) unnamed_addr #0 {
@@ -128557,7 +128551,7 @@ jit_CONST_ADDR.exit1016:                          ; preds = %1508, %1516
   ret i32 %.2
 }
 
-declare i32 @_ir_CALL_4(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
+declare i32 @_ir_CALL_4(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal void @zend_jit_assign_dim_op_helper(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #0 {
@@ -128573,8 +128567,8 @@ define internal void @zend_jit_assign_dim_op_helper(ptr noundef captures(none) %
 
 9:                                                ; preds = %4
   %10 = load ptr, ptr %0, align 8, !tbaa !50
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #35
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %11 = load i32, ptr %10, align 4, !tbaa !270
   %12 = add i32 %11, 1
   store i32 %12, ptr %10, align 4, !tbaa !270
@@ -128660,8 +128654,8 @@ define internal void @zend_jit_assign_dim_op_helper(ptr noundef captures(none) %
   br label %57
 
 57:                                               ; preds = %47, %56, %52
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #35
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %97
 
 58:                                               ; preds = %4
@@ -128829,15 +128823,15 @@ define internal ptr @zend_jit_zval_array_dup(ptr noundef captures(none) initiali
   ret ptr %12
 }
 
-declare zeroext i1 @zend_verify_ref_array_assignable(ptr noundef) local_unnamed_addr #5
+declare zeroext i1 @zend_verify_ref_array_assignable(ptr noundef) local_unnamed_addr #4
 
-declare void @zend_false_to_array_deprecated() local_unnamed_addr #5
+declare void @zend_false_to_array_deprecated() local_unnamed_addr #4
 
-declare ptr @_zend_hash_index_find(ptr noundef, i64 noundef) #5
+declare ptr @_zend_hash_index_find(ptr noundef, i64 noundef) #4
 
-declare ptr @zend_hash_index_find(ptr noundef, i64 noundef) #5
+declare ptr @zend_hash_index_find(ptr noundef, i64 noundef) #4
 
-declare void @zend_jit_undefined_long_key_ex(i64 noundef, ptr noundef) #5
+declare void @zend_jit_undefined_long_key_ex(i64 noundef, ptr noundef) #4
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @zend_jit_hash_index_lookup_rw_no_packed(ptr noundef %0, i64 noundef %1) #0 {
@@ -128876,12 +128870,12 @@ define internal ptr @zend_jit_hash_index_lookup_rw(ptr noundef %0, i64 noundef %
   ret ptr %.0
 }
 
-declare i32 @ir_const_char(ptr noundef, i8 noundef signext) local_unnamed_addr #5
+declare i32 @ir_const_char(ptr noundef, i8 noundef signext) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @zend_jit_symtable_find(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i8, ptr %4, align 1, !tbaa !50
   %6 = icmp sgt i8 %5, 57
@@ -128919,18 +128913,18 @@ define internal ptr @zend_jit_symtable_find(ptr noundef %0, ptr noundef %1) #0 {
 
 23:                                               ; preds = %21, %18
   %.0 = phi ptr [ %22, %21 ], [ %20, %18 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
-declare ptr @zend_hash_find(ptr noundef, ptr noundef) #5
+declare ptr @zend_hash_find(ptr noundef, ptr noundef) #4
 
-declare ptr @zend_hash_find_known_hash(ptr noundef, ptr noundef) #5
+declare ptr @zend_hash_find_known_hash(ptr noundef, ptr noundef) #4
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @zend_jit_symtable_lookup_rw(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i8, ptr %4, align 1, !tbaa !50
   %6 = icmp sgt i8 %5, 57
@@ -128979,7 +128973,7 @@ define internal ptr @zend_jit_symtable_lookup_rw(ptr noundef %0, ptr noundef %1)
 
 28:                                               ; preds = %24, %26, %18, %21
   %.020 = phi ptr [ %20, %18 ], [ %23, %21 ], [ %25, %24 ], [ %27, %26 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.020
 }
 
@@ -129001,7 +128995,7 @@ define internal ptr @zend_jit_hash_lookup_rw(ptr noundef %0, ptr noundef %1) #0 
 ; Function Attrs: nounwind uwtable
 define internal ptr @zend_jit_symtable_lookup_w(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i8, ptr %4, align 1, !tbaa !50
   %6 = icmp sgt i8 %5, 57
@@ -129039,16 +129033,16 @@ define internal ptr @zend_jit_symtable_lookup_w(ptr noundef %0, ptr noundef %1) 
 
 23:                                               ; preds = %21, %18
   %.0 = phi ptr [ %22, %21 ], [ %20, %18 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
-declare ptr @zend_hash_lookup(ptr noundef, ptr noundef) #5
+declare ptr @zend_hash_lookup(ptr noundef, ptr noundef) #4
 
 ; Function Attrs: nounwind uwtable
 define internal void @zend_jit_fetch_dim_r_helper(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) #0 {
   %4 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i8, ptr %5, align 8, !tbaa !50
   %7 = icmp eq i8 %6, 10
@@ -129569,14 +129563,14 @@ _zend_handle_numeric_str.exit.thread:             ; preds = %198, %197, %189, %_
   br label %undef_result_after_exception.exit
 
 undef_result_after_exception.exit:                ; preds = %182, %178, %171, %156, %160, %141, %153, %152, %115, %119, %100, %112, %111, %58, %62, %44, %56, %55, %270, %265, %223, %204
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @zend_jit_fetch_dim_isset_helper(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i8, ptr %4, align 8, !tbaa !50
   %6 = icmp eq i8 %5, 10
@@ -129894,14 +129888,14 @@ _zend_handle_numeric_str.exit.thread:             ; preds = %113, %112, %104, %_
 156:                                              ; preds = %138, %133, %145, %_zend_handle_numeric_str.exit.thread, %93, %76, %44, %153, %125, %100, %92, %75, %43
   %.045.shrunk = phi i1 [ false, %100 ], [ %155, %153 ], [ %127, %125 ], [ false, %43 ], [ false, %75 ], [ false, %92 ], [ false, %44 ], [ false, %76 ], [ false, %93 ], [ false, %_zend_handle_numeric_str.exit.thread ], [ false, %145 ], [ false, %133 ], [ false, %138 ]
   %.045 = zext i1 %.045.shrunk to i32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.045
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @zend_jit_fetch_dim_is_helper(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) #0 {
   %4 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i8, ptr %5, align 8, !tbaa !50
   %7 = icmp eq i8 %6, 10
@@ -130421,14 +130415,14 @@ _zend_handle_numeric_str.exit.thread:             ; preds = %204, %203, %195, %_
   br label %undef_result_after_exception.exit
 
 undef_result_after_exception.exit:                ; preds = %188, %184, %171, %156, %160, %141, %153, %152, %115, %119, %100, %112, %111, %58, %62, %44, %56, %55, %276, %271, %229, %210
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @zend_jit_fetch_dim_rw_helper(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i8, ptr %4, align 8, !tbaa !50
   %6 = icmp eq i8 %5, 10
@@ -130870,14 +130864,14 @@ _zend_handle_numeric_str.exit.thread:             ; preds = %192, %191, %183, %_
 
 undef_result_after_exception.exit:                ; preds = %176, %172, %165, %210, %217, %_zend_handle_numeric_str.exit.thread, %198, %150, %154, %135, %147, %146, %108, %112, %93, %105, %104, %zend_jit_undefined_op_helper_write.exit.thread, %59, %58, %220
   %.071 = phi ptr [ %222, %220 ], [ null, %58 ], [ null, %59 ], [ null, %zend_jit_undefined_op_helper_write.exit.thread ], [ null, %104 ], [ null, %105 ], [ null, %93 ], [ null, %112 ], [ null, %108 ], [ null, %146 ], [ null, %147 ], [ null, %135 ], [ null, %154 ], [ null, %150 ], [ %197, %_zend_handle_numeric_str.exit.thread ], [ %199, %198 ], [ %213, %210 ], [ %218, %217 ], [ null, %165 ], [ null, %172 ], [ null, %176 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.071
 }
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @zend_jit_fetch_dim_w_helper(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i8, ptr %4, align 8, !tbaa !50
   %6 = icmp eq i8 %5, 10
@@ -131372,7 +131366,7 @@ _zend_handle_numeric_str.exit.thread:             ; preds = %228, %227, %219, %_
 
 zval_ptr_dtor_nogc.exit95:                        ; preds = %180, %217, %212, %204, %72, %67, %60, %249, %243, %undef_result_after_exception.exit, %undef_result_after_exception.exit.thread, %200, %164, %168, %149, %161, %160, %122, %126, %107, %119, %118, %52, %56, %_zend_handle_numeric_str.exit.thread
   %.0 = phi ptr [ %233, %_zend_handle_numeric_str.exit.thread ], [ null, %56 ], [ null, %52 ], [ null, %118 ], [ null, %119 ], [ null, %107 ], [ null, %126 ], [ null, %122 ], [ null, %160 ], [ null, %161 ], [ null, %149 ], [ null, %168 ], [ null, %164 ], [ null, %200 ], [ null, %undef_result_after_exception.exit.thread ], [ null, %undef_result_after_exception.exit ], [ %246, %243 ], [ %250, %249 ], [ null, %60 ], [ null, %67 ], [ null, %72 ], [ null, %204 ], [ null, %212 ], [ null, %217 ], [ null, %180 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
@@ -131449,25 +131443,25 @@ jit_ADD_OFFSET.exit:                              ; preds = %29, %37
   ret i32 %43
 }
 
-declare ptr @zend_undefined_offset_write(ptr noundef, i64 noundef) local_unnamed_addr #5
+declare ptr @zend_undefined_offset_write(ptr noundef, i64 noundef) local_unnamed_addr #4
 
-declare zeroext i1 @_zend_handle_numeric_str_ex(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #5
+declare zeroext i1 @_zend_handle_numeric_str_ex(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
 
-declare ptr @zend_undefined_index_write(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare ptr @zend_undefined_index_write(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare void @zend_incompatible_double_to_long_error(double noundef) local_unnamed_addr #5
+declare void @zend_incompatible_double_to_long_error(double noundef) local_unnamed_addr #4
 
-declare void @zend_use_resource_as_offset(ptr noundef) local_unnamed_addr #5
+declare void @zend_use_resource_as_offset(ptr noundef) local_unnamed_addr #4
 
-declare void @zend_illegal_container_offset(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
+declare void @zend_illegal_container_offset(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare i64 @zend_dval_to_lval_slow(double noundef) local_unnamed_addr #5
+declare i64 @zend_dval_to_lval_slow(double noundef) local_unnamed_addr #4
 
 ; Function Attrs: noinline nounwind uwtable
-define internal fastcc i64 @zend_check_string_offset(ptr noundef %0, i32 noundef range(i32 0, 3) %1) unnamed_addr #27 {
+define internal fastcc i64 @zend_check_string_offset(ptr noundef %0, i32 noundef range(i32 0, 3) %1) unnamed_addr #26 {
   %3 = alloca i64, align 8
   %4 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %5
 
 5:                                                ; preds = %51, %2
@@ -131490,7 +131484,7 @@ define internal fastcc i64 @zend_check_string_offset(ptr noundef %0, i32 noundef
   br label %58
 
 10:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 0, ptr %4, align 1, !tbaa !349
   %11 = load ptr, ptr %.010, align 8, !tbaa !50
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
@@ -131537,7 +131531,7 @@ is_numeric_string_ex.exit.thread:                 ; preds = %10, %is_numeric_str
 
 35:                                               ; preds = %is_numeric_string_ex.exit.thread, %30
   %.1 = phi i64 [ %31, %30 ], [ 0, %is_numeric_string_ex.exit.thread ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %58
 
 36:                                               ; preds = %5
@@ -131576,17 +131570,17 @@ is_numeric_string_ex.exit.thread:                 ; preds = %10, %is_numeric_str
 
 58:                                               ; preds = %.loopexit, %54, %35, %8
   %.0 = phi i64 [ 0, %54 ], [ %9, %8 ], [ %.1, %35 ], [ %50, %.loopexit ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %.0
 }
 
-declare void @zend_wrong_string_offset_error() local_unnamed_addr #5
+declare void @zend_wrong_string_offset_error() local_unnamed_addr #4
 
-declare ptr @zend_hash_next_index_insert_new(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare ptr @zend_hash_next_index_insert_new(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare i64 @zval_get_long_func(ptr noundef, i1 noundef zeroext) local_unnamed_addr #5
+declare i64 @zval_get_long_func(ptr noundef, i1 noundef zeroext) local_unnamed_addr #4
 
-declare zeroext i8 @_is_numeric_string_ex(ptr noundef, i64 noundef, ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare zeroext i8 @_is_numeric_string_ex(ptr noundef, i64 noundef, ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @zend_get_known_property_info(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, ptr noundef readnone captures(address) %4) unnamed_addr #0 {
@@ -132014,7 +132008,7 @@ define internal void @zend_jit_inc_typed_prop(ptr noundef %0, ptr noundef %1) #0
 
 19:                                               ; preds = %14, %16, %2
   %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 512), align 8, !tbaa !221
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load i8, ptr %21, align 8, !tbaa !50
   %23 = icmp eq i8 %22, 10
@@ -132098,7 +132092,7 @@ define internal void @zend_jit_inc_typed_prop(ptr noundef %0, ptr noundef %1) #0
   br label %64
 
 64:                                               ; preds = %59, %60, %47, %48
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %verify_readonly_and_avis.exit
 
 verify_readonly_and_avis.exit:                    ; preds = %18, %13, %64
@@ -132145,7 +132139,7 @@ define internal void @zend_jit_dec_typed_prop(ptr noundef %0, ptr noundef %1) #0
 
 19:                                               ; preds = %14, %16, %2
   %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 512), align 8, !tbaa !221
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load i8, ptr %21, align 8, !tbaa !50
   %23 = icmp eq i8 %22, 10
@@ -132229,7 +132223,7 @@ define internal void @zend_jit_dec_typed_prop(ptr noundef %0, ptr noundef %1) #0
   br label %64
 
 64:                                               ; preds = %59, %60, %47, %48
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %verify_readonly_and_avis.exit
 
 verify_readonly_and_avis.exit:                    ; preds = %18, %13, %64
@@ -132692,8 +132686,8 @@ fast_long_increment_function.exit:                ; preds = %22
   br label %120
 
 48:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #35
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %49 = load i32, ptr %0, align 4, !tbaa !270
   %50 = add i32 %49, 1
   store i32 %50, ptr %0, align 4, !tbaa !270
@@ -132837,8 +132831,8 @@ zend_object_release.exit102:                      ; preds = %110, %111, %116
   br label %119
 
 119:                                              ; preds = %zend_object_release.exit102, %118, %zend_object_release.exit, %68
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #35
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %120
 
 120:                                              ; preds = %119, %16, %17, %39, %45, %38
@@ -132959,8 +132953,8 @@ fast_long_decrement_function.exit:                ; preds = %22
   br label %120
 
 48:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #35
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %49 = load i32, ptr %0, align 4, !tbaa !270
   %50 = add i32 %49, 1
   store i32 %50, ptr %0, align 4, !tbaa !270
@@ -133104,8 +133098,8 @@ zend_object_release.exit102:                      ; preds = %110, %111, %116
   br label %119
 
 119:                                              ; preds = %zend_object_release.exit102, %118, %zend_object_release.exit, %68
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #35
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %120
 
 120:                                              ; preds = %119, %16, %17, %39, %45, %38
@@ -133221,8 +133215,8 @@ fast_long_increment_function.exit:                ; preds = %21
   br label %.critedge100
 
 48:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #35
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %49 = load i32, ptr %0, align 4, !tbaa !270
   %50 = add i32 %49, 1
   store i32 %50, ptr %0, align 4, !tbaa !270
@@ -133356,8 +133350,8 @@ zend_object_release.exit101:                      ; preds = %106, %107, %112
   br label %115
 
 115:                                              ; preds = %zend_object_release.exit101, %114, %zend_object_release.exit
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #35
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.critedge100
 
 .critedge100:                                     ; preds = %115, %35, %16, %29, %25, %24, %fast_long_increment_function.exit, %46, %36
@@ -133473,8 +133467,8 @@ fast_long_decrement_function.exit:                ; preds = %21
   br label %.critedge100
 
 48:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #35
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %49 = load i32, ptr %0, align 4, !tbaa !270
   %50 = add i32 %49, 1
   store i32 %50, ptr %0, align 4, !tbaa !270
@@ -133608,15 +133602,15 @@ zend_object_release.exit101:                      ; preds = %106, %107, %112
   br label %115
 
 115:                                              ; preds = %zend_object_release.exit101, %114, %zend_object_release.exit
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #35
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.critedge100
 
 .critedge100:                                     ; preds = %115, %35, %16, %29, %25, %24, %fast_long_decrement_function.exit, %46, %36
   ret void
 }
 
-declare ptr @zend_zval_value_name(ptr noundef) local_unnamed_addr #5
+declare ptr @zend_zval_value_name(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_zend_jit_throw_inc_prop_error(ptr noundef readonly captures(none) %0) unnamed_addr #0 {
@@ -133634,12 +133628,12 @@ define internal fastcc void @_zend_jit_throw_inc_prop_error(ptr noundef readonly
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !475
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #35
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %16 = call i32 @zend_unmangle_property_name_ex(ptr noundef %15, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef null) #35
   %17 = load ptr, ptr %3, align 8, !tbaa !217
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #35
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 24
   call void (ptr, ...) @zend_type_error(ptr noundef nonnull @.str.134, ptr noundef nonnull %13, ptr noundef %17, ptr noundef nonnull %18) #35
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 4
@@ -133674,13 +133668,13 @@ zend_string_release.exit:                         ; preds = %1, %22, %29, %30
   ret void
 }
 
-declare zeroext i1 @zend_verify_property_type(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #5
+declare zeroext i1 @zend_verify_property_type(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #4
 
-declare void @zend_readonly_property_modification_error(ptr noundef) local_unnamed_addr #5
+declare void @zend_readonly_property_modification_error(ptr noundef) local_unnamed_addr #4
 
-declare zeroext i1 @zend_asymmetric_property_has_set_access(ptr noundef) #5
+declare zeroext i1 @zend_asymmetric_property_has_set_access(ptr noundef) #4
 
-declare void @zend_asymmetric_visibility_property_modification_error(ptr noundef, ptr noundef) #5
+declare void @zend_asymmetric_visibility_property_modification_error(ptr noundef, ptr noundef) #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_zend_jit_throw_dec_prop_error(ptr noundef readonly captures(none) %0) unnamed_addr #0 {
@@ -133698,12 +133692,12 @@ define internal fastcc void @_zend_jit_throw_dec_prop_error(ptr noundef readonly
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !475
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #35
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %16 = call i32 @zend_unmangle_property_name_ex(ptr noundef %15, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef null) #35
   %17 = load ptr, ptr %3, align 8, !tbaa !217
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #35
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 24
   call void (ptr, ...) @zend_type_error(ptr noundef nonnull @.str.135, ptr noundef nonnull %13, ptr noundef %17, ptr noundef nonnull %18) #35
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 4
@@ -133779,7 +133773,7 @@ define internal void @zend_jit_invalid_property_assign(ptr noundef %0, ptr nound
 define internal void @zend_jit_assign_op_to_typed_prop(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address) %3) #0 {
   %5 = alloca %struct._zval_struct, align 8
   %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 512), align 8, !tbaa !221
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %8 = load i32, ptr %7, align 4, !tbaa !429
   %9 = and i32 %8, 7296
@@ -133870,11 +133864,11 @@ define internal void @zend_jit_assign_op_to_typed_prop(ptr noundef %0, ptr nound
   br label %verify_readonly_and_avis.exit
 
 verify_readonly_and_avis.exit:                    ; preds = %21, %16, %45, %53, %35
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
-declare i32 @_ir_CALL_5(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
+declare i32 @_ir_CALL_5(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal void @zend_jit_assign_obj_op_helper(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(address) %4) #0 {
@@ -133930,11 +133924,11 @@ define internal void @zend_jit_assign_obj_op_helper(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: noinline nounwind uwtable
-define internal fastcc void @_zend_jit_assign_op_overloaded_property(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4) unnamed_addr #27 {
+define internal fastcc void @_zend_jit_assign_op_overloaded_property(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4) unnamed_addr #26 {
   %6 = alloca %struct._zval_struct, align 8
   %7 = alloca %struct._zval_struct, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #35
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr %0, align 4, !tbaa !270
   %9 = add i32 %8, 1
   store i32 %9, ptr %0, align 4, !tbaa !270
@@ -134017,8 +134011,8 @@ define internal fastcc void @_zend_jit_assign_op_overloaded_property(ptr noundef
   br label %zend_object_release.exit16
 
 zend_object_release.exit16:                       ; preds = %50, %45, %44, %27, %22, %21
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #35
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -134331,9 +134325,9 @@ define internal void @zend_jit_assign_to_typed_prop(ptr noundef %0, ptr noundef 
   %5 = alloca ptr, align 8
   %6 = alloca %struct._zval_struct, align 8
   %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 512), align 8, !tbaa !221
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !497
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %9 = load i8, ptr %8, align 8, !tbaa !50
   %10 = icmp eq i8 %9, 0
@@ -134599,8 +134593,8 @@ zend_assign_to_variable_ex.exit:                  ; preds = %84, %92
   br label %gc_check_possible_root.exit
 
 gc_check_possible_root.exit:                      ; preds = %140, %136, %130, %118, %125, %63, %64, %verify_readonly_and_avis.exit, %38
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #35
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -135877,12 +135871,12 @@ define internal void @zend_jit_assign_obj_helper(ptr noundef %0, ptr noundef %1,
   ret void
 }
 
-declare ptr @zend_assign_to_typed_ref_ex(ptr noundef, ptr noundef, i8 noundef zeroext, i1 noundef zeroext, ptr noundef) local_unnamed_addr #5
+declare ptr @zend_assign_to_typed_ref_ex(ptr noundef, ptr noundef, i8 noundef zeroext, i1 noundef zeroext, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @zend_jit_assign_const_to_typed_ref(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca %struct._zval_struct, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %0, ptr %3, align 8, !tbaa !50
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 778, ptr %4, align 8, !tbaa !50
@@ -135977,14 +135971,14 @@ gc_check_possible_root_no_ref.exit:               ; preds = %15
 
 zend_assign_to_variable.exit:                     ; preds = %42, %36, %35, %7, %gc_check_possible_root_no_ref.exit, %48
   %.1.i = phi ptr [ %16, %48 ], [ %16, %gc_check_possible_root_no_ref.exit ], [ %16, %42 ], [ %16, %36 ], [ %16, %35 ], [ %14, %7 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.1.i
 }
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @zend_jit_assign_tmp_to_typed_ref(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca %struct._zval_struct, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %0, ptr %3, align 8, !tbaa !50
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 778, ptr %4, align 8, !tbaa !50
@@ -136054,14 +136048,14 @@ gc_check_possible_root_no_ref.exit:               ; preds = %15
 
 zend_assign_to_variable.exit:                     ; preds = %36, %30, %29, %7, %gc_check_possible_root_no_ref.exit
   %.1.i = phi ptr [ %16, %gc_check_possible_root_no_ref.exit ], [ %16, %36 ], [ %16, %30 ], [ %16, %29 ], [ %14, %7 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.1.i
 }
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @zend_jit_assign_var_to_typed_ref(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca %struct._zval_struct, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %0, ptr %3, align 8, !tbaa !50
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 778, ptr %4, align 8, !tbaa !50
@@ -136216,7 +136210,7 @@ gc_check_possible_root_no_ref.exit:               ; preds = %15
 
 zend_assign_to_variable.exit:                     ; preds = %58, %52, %51, %7, %75, %76, %79, %.thread10
   %.1.i = phi ptr [ %16, %.thread10 ], [ %16, %79 ], [ %16, %76 ], [ %16, %75 ], [ %16, %58 ], [ %16, %52 ], [ %16, %51 ], [ %14, %7 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.1.i
 }
 
@@ -136242,7 +136236,7 @@ define internal ptr @zend_jit_assign_cv_to_typed_ref(ptr noundef %0, ptr noundef
 
 15:                                               ; preds = %7, %2
   %.07 = phi ptr [ @executor_globals, %7 ], [ %1, %2 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %0, ptr %3, align 8, !tbaa !50
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 778, ptr %16, align 8, !tbaa !50
@@ -136361,7 +136355,7 @@ gc_check_possible_root_no_ref.exit:               ; preds = %27
 
 zend_assign_to_variable.exit:                     ; preds = %61, %55, %54, %19, %68, %74
   %.1.i = phi ptr [ %28, %74 ], [ %28, %68 ], [ %28, %61 ], [ %28, %55 ], [ %28, %54 ], [ %26, %19 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.1.i
 }
 
@@ -136369,8 +136363,8 @@ zend_assign_to_variable.exit:                     ; preds = %61, %55, %54, %19, 
 define internal noundef ptr @zend_jit_assign_const_to_typed_ref2(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) initializes((0, 12)) %2) #0 {
   %4 = alloca %struct._zval_struct, align 8
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #35
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !497
   store ptr %0, ptr %4, align 8, !tbaa !50
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -136490,8 +136484,8 @@ zend_assign_to_variable_ex.exit.i:                ; preds = %23, %29, %9
   br label %zend_jit_assign_to_typed_ref2_helper.exit
 
 zend_jit_assign_to_typed_ref2_helper.exit:        ; preds = %60, %64, %54, %42, %49
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #35
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0.i.i
 }
 
@@ -136499,8 +136493,8 @@ zend_jit_assign_to_typed_ref2_helper.exit:        ; preds = %60, %64, %54, %42, 
 define internal ptr @zend_jit_assign_tmp_to_typed_ref2(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) initializes((0, 12)) %2) #0 {
   %4 = alloca %struct._zval_struct, align 8
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #35
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !497
   store ptr %0, ptr %4, align 8, !tbaa !50
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -136611,8 +136605,8 @@ zend_assign_to_variable_ex.exit.i:                ; preds = %23, %9
   br label %zend_jit_assign_to_typed_ref2_helper.exit
 
 zend_jit_assign_to_typed_ref2_helper.exit:        ; preds = %53, %57, %47, %35, %42
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #35
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0.i.i
 }
 
@@ -136620,8 +136614,8 @@ zend_jit_assign_to_typed_ref2_helper.exit:        ; preds = %53, %57, %47, %35, 
 define internal noundef ptr @zend_jit_assign_var_to_typed_ref2(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) initializes((0, 12)) %2) #0 {
   %4 = alloca %struct._zval_struct, align 8
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #35
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !497
   store ptr %0, ptr %4, align 8, !tbaa !50
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -136771,8 +136765,8 @@ zend_assign_to_variable_ex.exit.i:                ; preds = %40, %41, %44, %.thr
   br label %zend_jit_assign_to_typed_ref2_helper.exit
 
 zend_jit_assign_to_typed_ref2_helper.exit:        ; preds = %76, %80, %70, %58, %65
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #35
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0.i.i
 }
 
@@ -136799,8 +136793,8 @@ define internal noundef ptr @zend_jit_assign_cv_to_typed_ref2(ptr noundef %0, pt
 
 17:                                               ; preds = %9, %3
   %.08 = phi ptr [ @executor_globals, %9 ], [ %1, %3 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #35
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !497
   store ptr %0, ptr %4, align 8, !tbaa !50
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -136932,8 +136926,8 @@ zend_assign_to_variable_ex.exit.i:                ; preds = %42, %48, %21
   br label %zend_jit_assign_to_typed_ref2_helper.exit
 
 zend_jit_assign_to_typed_ref2_helper.exit:        ; preds = %79, %83, %73, %61, %68
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #35
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0.i.i
 }
 
@@ -137232,7 +137226,7 @@ jit_ADD_OFFSET.exit:                              ; preds = %132, %140
   ret void
 }
 
-declare ptr @zend_assign_to_typed_ref(ptr noundef, ptr noundef, i8 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #5
+declare ptr @zend_assign_to_typed_ref(ptr noundef, ptr noundef, i8 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @jit_ZVAL_COPY_CONST(ptr noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4) unnamed_addr #0 {
@@ -137992,7 +137986,7 @@ zend_gc_try_delref.exit:                          ; preds = %108, %103, %99
 }
 
 ; Function Attrs: noinline nounwind uwtable
-define internal fastcc void @zend_assign_to_string_offset(ptr noundef captures(none) %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) unnamed_addr #27 {
+define internal fastcc void @zend_assign_to_string_offset(ptr noundef captures(none) %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) unnamed_addr #26 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %7 = load i8, ptr %6, align 1, !tbaa !50
@@ -138369,10 +138363,10 @@ zend_string_extend.exit:                          ; preds = %140, %zend_string_a
   ret void
 }
 
-declare ptr @zval_try_get_string_func(ptr noundef) local_unnamed_addr #5
+declare ptr @zval_try_get_string_func(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: noinline nounwind uwtable
-define internal noundef ptr @zend_jit_init_func_run_time_cache_helper(ptr noundef returned captures(ret: address, provenance) %0) #27 {
+define internal noundef ptr @zend_jit_init_func_run_time_cache_helper(ptr noundef returned captures(ret: address, provenance) %0) #26 {
   %2 = load i8, ptr %0, align 8, !tbaa !213
   %3 = icmp eq i8 %2, 2
   br i1 %3, label %4, label %46
@@ -140527,7 +140521,7 @@ zend_jit_trace_op_len.exit:                       ; preds = %.lr.ph, %.lr.ph114,
 }
 
 ; Function Attrs: noinline nounwind uwtable
-define internal fastcc noundef ptr @_zend_jit_init_func_run_time_cache(ptr noundef returned captures(ret: address, provenance) %0) unnamed_addr #27 {
+define internal fastcc noundef ptr @_zend_jit_init_func_run_time_cache(ptr noundef returned captures(ret: address, provenance) %0) unnamed_addr #26 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load i32, ptr %2, align 8, !tbaa !500
   %4 = sext i32 %3 to i64
@@ -140612,7 +140606,7 @@ define internal ptr @zend_jit_extend_stack_helper(i32 noundef %0, ptr noundef %1
   ret ptr %4
 }
 
-declare ptr @zend_vm_stack_extend(i64 noundef) local_unnamed_addr #5
+declare ptr @zend_vm_stack_extend(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal void @zend_jit_only_vars_by_reference(ptr noundef captures(none) %0) #0 {
@@ -140635,11 +140629,11 @@ define internal void @zend_jit_only_vars_by_reference(ptr noundef captures(none)
   ret void
 }
 
-declare i32 @zend_handle_undef_args(ptr noundef) #5
+declare i32 @zend_handle_undef_args(ptr noundef) #4
 
-declare zeroext i1 @zend_accel_in_shm(ptr noundef) local_unnamed_addr #5
+declare zeroext i1 @zend_accel_in_shm(ptr noundef) local_unnamed_addr #4
 
-declare zeroext i1 @zend_jit_deprecated_helper(ptr noundef) #5
+declare zeroext i1 @zend_jit_deprecated_helper(ptr noundef) #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @skip_valid_arguments(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull readonly captures(none) %2) unnamed_addr #0 {
@@ -140778,17 +140772,17 @@ _ssa_op1_info.exit:                               ; preds = %60, %54, %67, %72, 
   ret i32 %.023.lcssa
 }
 
-declare void @zend_jit_copy_extra_args_helper(ptr noundef) #5
+declare void @zend_jit_copy_extra_args_helper(ptr noundef) #4
 
-declare void @zend_jit_copy_extra_args_helper_no_skip_recv(ptr noundef) #5
+declare void @zend_jit_copy_extra_args_helper_no_skip_recv(ptr noundef) #4
 
-declare i32 @ir_const_i32(ptr noundef, i32 noundef) local_unnamed_addr #5
+declare i32 @ir_const_i32(ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare void @_ir_PHI_SET_OP(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
+declare void @_ir_PHI_SET_OP(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
-declare void @_ir_MERGE_SET_OP(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
+declare void @_ir_MERGE_SET_OP(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
-declare i32 @_ir_LOOP_END(ptr noundef) local_unnamed_addr #5
+declare i32 @_ir_LOOP_END(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i64 @jit_observer_fcall_is_unobserved_start(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
@@ -141458,7 +141452,7 @@ jit_STUB_ADDR.exit30:                             ; preds = %50, %54
   ret void
 }
 
-declare void @_ir_RETURN(ptr noundef, i32 noundef) local_unnamed_addr #5
+declare void @_ir_RETURN(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_zend_jit_add_predecessor_ref(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
@@ -141584,7 +141578,7 @@ jit_IF_TRUE_FALSE_ex.exit:                        ; preds = %56, %57
   br i1 %69, label %._crit_edge.loopexit, label %.lr.ph
 }
 
-declare i32 @_ir_ALLOCA(ptr noundef, i32 noundef) local_unnamed_addr #5
+declare i32 @_ir_ALLOCA(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @jit_observer_fcall_end(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
@@ -141662,7 +141656,7 @@ jit_CONST_FUNC.exit:                              ; preds = %27, %38
   ret void
 }
 
-declare void @zend_fcall_interrupt(ptr noundef) #5
+declare void @zend_fcall_interrupt(ptr noundef) #4
 
 ; Function Attrs: nounwind uwtable
 define internal void @zend_jit_vm_stack_free_args_helper(ptr noundef readonly captures(none) %0) #0 {
@@ -141708,7 +141702,7 @@ zend_vm_stack_free_args.exit:                     ; preds = %zval_ptr_dtor_nogc.
   ret void
 }
 
-declare void @zend_free_extra_named_params(ptr noundef) #5
+declare void @zend_free_extra_named_params(ptr noundef) #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @jit_OBJ_RELEASE(ptr noundef nonnull %0, i32 noundef %1) unnamed_addr #0 {
@@ -141832,17 +141826,17 @@ zend_vm_stack_free_call_frame_ex.exit:            ; preds = %5, %14
   ret void
 }
 
-declare i32 @zend_get_func_info(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @zend_get_func_info(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare void @_ir_AFREE(ptr noundef, i32 noundef) local_unnamed_addr #5
+declare void @_ir_AFREE(ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare void @zend_observer_fcall_begin_prechecked(ptr noundef, ptr noundef) #5
+declare void @zend_observer_fcall_begin_prechecked(ptr noundef, ptr noundef) #4
 
-declare void @_ir_ENTRY(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
+declare void @_ir_ENTRY(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
-declare void @_ir_BEGIN(ptr noundef, i32 noundef) local_unnamed_addr #5
+declare void @_ir_BEGIN(ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare void @zend_observer_fcall_end_prechecked(ptr noundef, ptr noundef) #5
+declare void @zend_observer_fcall_end_prechecked(ptr noundef, ptr noundef) #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @zend_jit_cmp_long_double(ptr noundef nonnull %0, i8 %.28.val, i64 noundef %1, i64 noundef %2, i64 noundef %3, i8 noundef zeroext %4, i32 noundef %5, i32 noundef %6, ptr noundef %7) unnamed_addr #0 {
@@ -143010,7 +143004,7 @@ jit_CONST_ADDR.exit:                              ; preds = %66, %74
   ret i32 %79
 }
 
-declare i32 @zend_compare(ptr noundef, ptr noundef) #5
+declare i32 @zend_compare(ptr noundef, ptr noundef) #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef i32 @jit_IF_ex(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
@@ -143019,9 +143013,9 @@ define internal fastcc noundef i32 @jit_IF_ex(ptr noundef nonnull %0, i32 nounde
   ret i32 %4
 }
 
-declare zeroext i1 @zend_is_identical(ptr noundef, ptr noundef) #5
+declare zeroext i1 @zend_is_identical(ptr noundef, ptr noundef) #4
 
-declare ptr @zend_jit_check_constant(ptr noundef) #5
+declare ptr @zend_jit_check_constant(ptr noundef) #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_zend_jit_merge_smart_branch_inputs(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
@@ -143129,13 +143123,13 @@ define internal fastcc void @_zend_jit_merge_smart_branch_inputs(ptr noundef non
   ret void
 }
 
-declare zeroext i1 @zend_is_smart_branch(ptr noundef) local_unnamed_addr #5
+declare zeroext i1 @zend_is_smart_branch(ptr noundef) local_unnamed_addr #4
 
-declare void @zend_free_compiled_variables(ptr noundef) #5
+declare void @zend_free_compiled_variables(ptr noundef) #4
 
-declare i32 @zend_jit_leave_func_helper(ptr noundef) #5
+declare i32 @zend_jit_leave_func_helper(ptr noundef) #4
 
-declare zeroext i1 @zend_is_true(ptr noundef) #5
+declare zeroext i1 @zend_is_true(ptr noundef) #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @zend_jit_type_check_undef(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i1 noundef zeroext %6) unnamed_addr #0 {
@@ -143289,7 +143283,7 @@ define internal range(i32 1, 3) i32 @zend_jit_jmp_frameless_helper(ptr noundef r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @zend_jit_may_avoid_refcounting(ptr noundef readonly captures(none) %0, i32 noundef %1) unnamed_addr #19 {
+define internal fastcc noundef zeroext i1 @zend_jit_may_avoid_refcounting(ptr noundef readonly captures(none) %0, i32 noundef %1) unnamed_addr #18 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %4 = load i8, ptr %3, align 4, !tbaa !90
   switch i8 %4, label %48 [
@@ -145417,7 +145411,7 @@ zend_jit_fetch_obj_r_slow_ex.exit:                ; preds = %zend_string_equal_c
   ret ptr %.5
 }
 
-declare i32 @_ir_END_PHI_LIST(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
+declare i32 @_ir_END_PHI_LIST(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal void @zend_jit_fetch_obj_r_dynamic(ptr noundef %0, i64 noundef %1) #0 {
@@ -145968,7 +145962,7 @@ zend_string_equal_content.exit:                   ; preds = %46
   ret void
 }
 
-declare void @zend_readonly_property_indirect_modification_error(ptr noundef) #5
+declare void @zend_readonly_property_indirect_modification_error(ptr noundef) #4
 
 ; Function Attrs: nounwind uwtable
 define internal void @zend_jit_check_array_promotion(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
@@ -146017,12 +146011,12 @@ define internal void @zend_jit_check_array_promotion(ptr noundef %0, ptr noundef
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %37 = load ptr, ptr %36, align 8, !tbaa !475
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #35
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %38 = call i32 @zend_unmangle_property_name_ex(ptr noundef %37, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef null) #35
   %39 = load ptr, ptr %4, align 8, !tbaa !217
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #35
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %40 = getelementptr inbounds nuw i8, ptr %30, i64 24
   call void (ptr, ...) @zend_type_error(ptr noundef nonnull @.str.148, ptr noundef nonnull %35, ptr noundef %39, ptr noundef nonnull %40) #35
   %41 = getelementptr inbounds nuw i8, ptr %30, i64 4
@@ -146533,7 +146527,7 @@ zend_unwrap_reference.exit:                       ; preds = %71, %59, %54, %47, 
   ret void
 }
 
-declare i32 @_ir_PHI_LIST(ptr noundef, i32 noundef) local_unnamed_addr #5
+declare i32 @_ir_PHI_LIST(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal void @zend_jit_extract_helper(ptr noundef %0) #0 {
@@ -146570,12 +146564,12 @@ define internal void @zend_jit_extract_helper(ptr noundef %0) #0 {
   ret void
 }
 
-declare zeroext i1 @zend_string_equal_val(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare zeroext i1 @zend_string_equal_val(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare void @zend_ref_add_type_source(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare void @zend_ref_add_type_source(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: noinline nounwind uwtable
-define internal noundef zeroext i1 @zend_handle_fetch_obj_flags(ptr noundef writeonly captures(address_is_null) %0, ptr noundef captures(none) %1, ptr readnone captures(none) %2, ptr noundef %3, i32 noundef %4) #27 {
+define internal noundef zeroext i1 @zend_handle_fetch_obj_flags(ptr noundef writeonly captures(address_is_null) %0, ptr noundef captures(none) %1, ptr readnone captures(none) %2, ptr noundef %3, i32 noundef %4) #26 {
   %switch = icmp eq i32 %4, 2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i8, ptr %6, align 8, !tbaa !50
@@ -146690,7 +146684,7 @@ promotes_to_array.exit.thread:                    ; preds = %10, %19, %promotes_
 }
 
 ; Function Attrs: noinline nounwind uwtable
-define internal fastcc void @zend_throw_auto_init_in_prop_error(ptr noundef nonnull readonly captures(none) %0) unnamed_addr #27 {
+define internal fastcc void @zend_throw_auto_init_in_prop_error(ptr noundef nonnull readonly captures(none) %0) unnamed_addr #26 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -146705,12 +146699,12 @@ define internal fastcc void @zend_throw_auto_init_in_prop_error(ptr noundef nonn
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !475
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #35
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %16 = call i32 @zend_unmangle_property_name_ex(ptr noundef %15, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef null) #35
   %17 = load ptr, ptr %3, align 8, !tbaa !217
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #35
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 24
   call void (ptr, ...) @zend_type_error(ptr noundef nonnull @.str.150, ptr noundef nonnull @.str.149, ptr noundef nonnull %13, ptr noundef %17, ptr noundef nonnull %18) #35
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 4
@@ -146746,16 +146740,16 @@ zend_string_release.exit:                         ; preds = %1, %22, %29, %30
 }
 
 ; Function Attrs: noinline nounwind uwtable
-define internal fastcc void @zend_throw_access_uninit_prop_by_ref_error(ptr %.8.val, ptr %.32.val.8.val) unnamed_addr #27 {
+define internal fastcc void @zend_throw_access_uninit_prop_by_ref_error(ptr %.8.val, ptr %.32.val.8.val) unnamed_addr #26 {
   %1 = alloca ptr, align 8
   %2 = alloca ptr, align 8
   %3 = getelementptr inbounds nuw i8, ptr %.32.val.8.val, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #35
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %4 = call i32 @zend_unmangle_property_name_ex(ptr noundef %.8.val, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef null) #35
   %5 = load ptr, ptr %2, align 8, !tbaa !217
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #35
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.151, ptr noundef nonnull %3, ptr noundef %5) #35
   ret void
 }
@@ -146782,19 +146776,19 @@ define internal void @zend_jit_uninit_static_prop() #0 {
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !475
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #35
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %21 = call i32 @zend_unmangle_property_name_ex(ptr noundef %20, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef null) #35
   %22 = load ptr, ptr %2, align 8, !tbaa !217
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #35
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.152, ptr noundef nonnull %18, ptr noundef %22) #35
   ret void
 }
 
-declare ptr @zend_fetch_static_property(ptr noundef, i32 noundef) #5
+declare ptr @zend_fetch_static_property(ptr noundef, i32 noundef) #4
 
-declare ptr @zend_lookup_class_ex(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
+declare ptr @zend_lookup_class_ex(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @zend_jit_fetch_global_helper(ptr noundef %0, ptr noundef captures(none) %1) #0 {
@@ -146920,9 +146914,9 @@ zend_string_equal_content.exit.thread:            ; preds = %22, %zend_string_eq
   ret ptr %.046
 }
 
-declare ptr @zend_hash_add_new(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare ptr @zend_hash_add_new(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare void @zend_missing_arg_error(ptr noundef) #5
+declare void @zend_missing_arg_error(ptr noundef) #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @zend_jit_verify_arg_type(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
@@ -147226,19 +147220,19 @@ define internal noundef zeroext i1 @zend_jit_verify_arg_slow(ptr noundef %0, ptr
   ret i1 %12
 }
 
-declare zeroext i1 @zend_check_user_type_slow(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #5
+declare zeroext i1 @zend_check_user_type_slow(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #4
 
-declare void @zend_verify_arg_error(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
+declare void @zend_verify_arg_error(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
-declare i32 @zval_update_constant_ex(ptr noundef, ptr noundef) #5
+declare i32 @zval_update_constant_ex(ptr noundef, ptr noundef) #4
 
-declare void @zend_hash_iterator_del(i32 noundef) #5
+declare void @zend_hash_iterator_del(i32 noundef) #4
 
-declare i32 @_ir_SWITCH(ptr noundef, i32 noundef) local_unnamed_addr #5
+declare i32 @_ir_SWITCH(ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare void @_ir_CASE_VAL(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
+declare void @_ir_CASE_VAL(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
-declare void @_ir_CASE_DEFAULT(ptr noundef, i32 noundef) local_unnamed_addr #5
+declare void @_ir_CASE_DEFAULT(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal void @zend_jit_verify_return_slow(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
@@ -147270,9 +147264,9 @@ define internal void @zend_jit_verify_return_slow(ptr noundef %0, ptr noundef %1
   ret void
 }
 
-declare void @zend_verify_return_error(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare void @zend_verify_return_error(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare ptr @zend_jit_get_constant(ptr noundef, i32 noundef) #5
+declare ptr @zend_jit_get_constant(ptr noundef, i32 noundef) #4
 
 ; Function Attrs: nounwind uwtable
 define internal void @zend_jit_invalid_method_call_tmp(ptr noundef %0) #0 {
@@ -147740,14 +147734,14 @@ zend_vm_stack_push_call_frame_ex.exit:            ; preds = %26, %28
 }
 
 ; Function Attrs: noinline nounwind uwtable
-define internal fastcc void @zend_undefined_method(ptr %.8.val, ptr noundef %0) unnamed_addr #27 {
+define internal fastcc void @zend_undefined_method(ptr %.8.val, ptr noundef %0) unnamed_addr #26 {
   %2 = getelementptr inbounds nuw i8, ptr %.8.val, i64 24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.154, ptr noundef nonnull %2, ptr noundef nonnull %3) #35
   ret void
 }
 
-declare void @zend_init_func_run_time_cache(ptr noundef) local_unnamed_addr #5
+declare void @zend_init_func_run_time_cache(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @zend_jit_find_class_helper(ptr noundef readonly captures(none) %0) #0 {
@@ -148034,13 +148028,13 @@ zend_vm_stack_push_call_frame_ex.exit:            ; preds = %46, %36, %14
   ret ptr %.0
 }
 
-declare ptr @zend_fetch_class_by_name(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
+declare ptr @zend_fetch_class_by_name(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare ptr @zend_fetch_class(ptr noundef, i32 noundef) local_unnamed_addr #5
+declare ptr @zend_fetch_class(ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare ptr @zend_std_get_static_method(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare ptr @zend_std_get_static_method(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare void @zend_non_static_method_call(ptr noundef) local_unnamed_addr #5
+declare void @zend_non_static_method_call(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal noalias noundef ptr @zend_jit_rope_end(ptr noundef readonly captures(none) %0, i32 noundef %1) #0 {
@@ -148121,7 +148115,7 @@ zend_string_release_ex.exit:                      ; preds = %22, %33, %38
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @jit_frameless_observer(ptr noundef nonnull %0, i32 %.20.val) unnamed_addr #0 {
   %2 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = load ptr, ptr @zend_flf_functions, align 8, !tbaa !528
   %4 = zext i32 %.20.val to i64
   %5 = getelementptr inbounds nuw ptr, ptr %3, i64 %4
@@ -148199,11 +148193,11 @@ jit_FP.exit:                                      ; preds = %38, %.preheader.i, 
   %44 = tail call i32 @_ir_CALL_1(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %.0.i, i32 noundef %43) #35
   %45 = tail call i32 @_ir_END(ptr noundef nonnull %0) #35
   tail call void @_ir_IF_TRUE(ptr noundef nonnull %0, i32 noundef %.sroa.0.0.extract.trunc) #35
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %45
 }
 
-declare void @zend_frameless_observed_call(ptr noundef) #5
+declare void @zend_frameless_observed_call(ptr noundef) #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i1 @zend_jit_class_may_be_modified(ptr noundef readonly captures(none) %0, ptr noundef %1) unnamed_addr #0 {
@@ -148893,7 +148887,7 @@ _zend_jit_orig_opline_handler.exit:               ; preds = %91, %.preheader.i.i
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @zend_jit_ir_compile(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._ir_code_buffer, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load i64, ptr getelementptr inbounds nuw (i8, ptr @jit_globals, i64 24), align 8, !tbaa !145
   %6 = and i64 %5, 16777216
   %.not = icmp eq i64 %6, 0
@@ -149086,58 +149080,58 @@ define internal fastcc ptr @zend_jit_ir_compile(ptr noundef nonnull %0, ptr noun
   %100 = load ptr, ptr %97, align 8, !tbaa !376
   %101 = load ptr, ptr @dasm_ptr, align 8, !tbaa !52
   store ptr %100, ptr %101, align 8, !tbaa !52
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %99
 }
 
-declare i32 @ir_gdb_register(ptr noundef, ptr noundef, i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
+declare i32 @ir_gdb_register(ptr noundef, ptr noundef, i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
-declare void @ir_perf_map_register(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
+declare void @ir_perf_map_register(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
-declare i32 @ir_perf_jitdump_register(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
+declare i32 @ir_perf_jitdump_register(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
-declare i32 @ir_get_spill_slot_offset(ptr noundef, i32 noundef) local_unnamed_addr #5
+declare i32 @ir_get_spill_slot_offset(ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare void @ir_save(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
+declare void @ir_save(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
-declare void @ir_build_def_use_lists(ptr noundef) local_unnamed_addr #5
+declare void @ir_build_def_use_lists(ptr noundef) local_unnamed_addr #4
 
-declare i32 @ir_sccp(ptr noundef) local_unnamed_addr #5
+declare i32 @ir_sccp(ptr noundef) local_unnamed_addr #4
 
-declare i32 @ir_build_cfg(ptr noundef) local_unnamed_addr #5
+declare i32 @ir_build_cfg(ptr noundef) local_unnamed_addr #4
 
-declare i32 @ir_build_dominators_tree(ptr noundef) local_unnamed_addr #5
+declare i32 @ir_build_dominators_tree(ptr noundef) local_unnamed_addr #4
 
-declare i32 @ir_find_loops(ptr noundef) local_unnamed_addr #5
+declare i32 @ir_find_loops(ptr noundef) local_unnamed_addr #4
 
-declare i32 @ir_gcm(ptr noundef) local_unnamed_addr #5
+declare i32 @ir_gcm(ptr noundef) local_unnamed_addr #4
 
-declare i32 @ir_schedule(ptr noundef) local_unnamed_addr #5
+declare i32 @ir_schedule(ptr noundef) local_unnamed_addr #4
 
-declare i32 @ir_match(ptr noundef) local_unnamed_addr #5
+declare i32 @ir_match(ptr noundef) local_unnamed_addr #4
 
-declare i32 @ir_assign_virtual_registers(ptr noundef) local_unnamed_addr #5
+declare i32 @ir_assign_virtual_registers(ptr noundef) local_unnamed_addr #4
 
-declare i32 @ir_compute_live_ranges(ptr noundef) local_unnamed_addr #5
+declare i32 @ir_compute_live_ranges(ptr noundef) local_unnamed_addr #4
 
-declare i32 @ir_coalesce(ptr noundef) local_unnamed_addr #5
+declare i32 @ir_coalesce(ptr noundef) local_unnamed_addr #4
 
-declare i32 @ir_reg_alloc(ptr noundef) local_unnamed_addr #5
+declare i32 @ir_reg_alloc(ptr noundef) local_unnamed_addr #4
 
-declare void @ir_dump_live_ranges(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare void @ir_dump_live_ranges(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare i32 @ir_schedule_blocks(ptr noundef) local_unnamed_addr #5
+declare i32 @ir_schedule_blocks(ptr noundef) local_unnamed_addr #4
 
-declare void @ir_dump_codegen(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare void @ir_dump_codegen(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare ptr @ir_emit_code(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare ptr @ir_emit_code(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare void @zend_hash_destroy(ptr noundef) local_unnamed_addr #5
+declare void @zend_hash_destroy(ptr noundef) local_unnamed_addr #4
 
-declare void @ir_free(ptr noundef) local_unnamed_addr #5
+declare void @ir_free(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #28
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #27
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @zend_reg_name(i8 noundef signext %0) unnamed_addr #0 {
@@ -149148,9 +149142,9 @@ define internal fastcc ptr @zend_reg_name(i8 noundef signext %0) unnamed_addr #0
   ret ptr %5
 }
 
-declare ptr @ir_reg_name(i8 noundef signext, i32 noundef) local_unnamed_addr #5
+declare ptr @ir_reg_name(i8 noundef signext, i32 noundef) local_unnamed_addr #4
 
-declare zeroext i1 @ir_reg_is_int(i32 noundef) local_unnamed_addr #5
+declare zeroext i1 @ir_reg_is_int(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @zend_jit_link_side_trace(ptr noundef %0, i64 noundef range(i64 0, 4294967296) %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull %4) unnamed_addr #0 {
@@ -149182,19 +149176,19 @@ zend_jit_trace_get_exit_addr.exit:                ; preds = %9, %11
   ret void
 }
 
-declare i32 @ir_patch(ptr noundef, i64 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @ir_patch(ptr noundef, i64 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare ptr @zend_get_opcode_handler_func(ptr noundef) local_unnamed_addr #5
+declare ptr @zend_get_opcode_handler_func(ptr noundef) local_unnamed_addr #4
 
-declare i32 @zend_build_ssa(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @zend_build_ssa(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
-declare void @zend_ssa_compute_use_def_chains(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare void @zend_ssa_compute_use_def_chains(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare void @zend_ssa_find_false_dependencies(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare void @zend_ssa_find_false_dependencies(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare void @zend_ssa_find_sccs(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare void @zend_ssa_find_sccs(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare i32 @zend_ssa_inference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
+declare i32 @zend_ssa_inference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @zend_jit_compute_post_order(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull writeonly captures(none) %1) unnamed_addr #0 {
@@ -149731,7 +149725,7 @@ switch.edge205:                                   ; preds = %109, %109, %109, %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc noundef zeroext i1 @zend_jit_next_is_send_result(ptr noundef readonly captures(none) %0) unnamed_addr #29 {
+define internal fastcc noundef zeroext i1 @zend_jit_next_is_send_result(ptr noundef readonly captures(none) %0) unnamed_addr #28 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 31
   %3 = load i8, ptr %2, align 1, !tbaa !240
   %4 = icmp eq i8 %3, 2
@@ -151076,7 +151070,7 @@ zend_jit_var_supports_reg.exit.thread:            ; preds = %21, %zend_ssa_is_no
   ret i1 %.0
 }
 
-declare i32 @ir_emit1(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
+declare i32 @ir_emit1(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @zend_jit_case_start(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, i32 noundef range(i32 1, 0) %3) unnamed_addr #0 {
@@ -151280,14 +151274,14 @@ define internal fastcc void @zend_jit_case_start(ptr noundef nonnull %0, i32 nou
   ret void
 }
 
-declare i32 @ir_emit_N(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
+declare i32 @ir_emit_N(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
-declare void @_ir_TAILCALL(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
+declare void @_ir_TAILCALL(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
-declare void @_ir_TAILCALL_1(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
+declare void @_ir_TAILCALL_1(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: noinline nounwind uwtable
-define internal fastcc void @zend_jit_set_sp_adj_vm() unnamed_addr #27 {
+define internal fastcc void @zend_jit_set_sp_adj_vm() unnamed_addr #26 {
   %1 = load ptr, ptr @zend_touch_vm_stack_data, align 8, !tbaa !52
   store ptr @zend_jit_touch_vm_stack_data, ptr @zend_touch_vm_stack_data, align 8, !tbaa !52
   tail call void @execute_ex(ptr noundef null) #35
@@ -151295,14 +151289,14 @@ define internal fastcc void @zend_jit_set_sp_adj_vm() unnamed_addr #27 {
   ret void
 }
 
-declare i32 @ir_perf_jitdump_open() local_unnamed_addr #5
+declare i32 @ir_perf_jitdump_open() local_unnamed_addr #4
 
 declare dso_local void @__cpu_indicator_init() local_unnamed_addr
 
 ; Function Attrs: nounwind uwtable
 define internal void @zend_jit_touch_vm_stack_data(ptr readnone captures(none) %0) #0 {
   %2 = alloca %struct._zend_jit_unwind_arg, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false)
   %3 = call i32 @_Unwind_Backtrace(ptr noundef nonnull @zend_jit_unwind_cb, ptr noundef nonnull %2) #35
   %4 = load i32, ptr %2, align 8, !tbaa !538
@@ -151319,11 +151313,11 @@ define internal void @zend_jit_touch_vm_stack_data(ptr readnone captures(none) %
   br label %12
 
 12:                                               ; preds = %6, %1
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
-declare i32 @_Unwind_Backtrace(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @_Unwind_Backtrace(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 6) i32 @zend_jit_unwind_cb(ptr noundef %0, ptr noundef captures(none) %1) #0 {
@@ -151340,12 +151334,12 @@ define internal range(i32 0, 6) i32 @zend_jit_unwind_cb(ptr noundef %0, ptr noun
   ret i32 %.
 }
 
-declare i64 @_Unwind_GetCFA(ptr noundef) local_unnamed_addr #5
+declare i64 @_Unwind_GetCFA(ptr noundef) local_unnamed_addr #4
 
-declare void @_ir_UNREACHABLE(ptr noundef) local_unnamed_addr #5
+declare void @_ir_UNREACHABLE(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: noreturn
-declare void @zend_accel_error_noreturn(i32 noundef, ptr noundef, ...) local_unnamed_addr #7
+declare void @zend_accel_error_noreturn(i32 noundef, ptr noundef, ...) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @zend_jit_exception_handler_stub(ptr noundef %0) #0 {
@@ -155243,10 +155237,10 @@ jit_CONST_FUNC.exit:                              ; preds = %8, %19
 }
 
 ; Function Attrs: noreturn
-declare void @zend_timeout() #7
+declare void @zend_timeout() #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @zend_jit_exception_in_interrupt_handler_helper() #20 {
+define internal void @zend_jit_exception_in_interrupt_handler_helper() #19 {
   %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !471
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %18, label %2
@@ -155287,15 +155281,15 @@ define internal void @zend_jit_exception_in_interrupt_handler_helper() #20 {
   ret void
 }
 
-declare i32 @zend_jit_leave_nested_func_helper(i32 noundef, ptr noundef) #5
+declare i32 @zend_jit_leave_nested_func_helper(i32 noundef, ptr noundef) #4
 
-declare void @_ir_TAILCALL_2(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
+declare void @_ir_TAILCALL_2(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
-declare i32 @zend_jit_leave_top_func_helper(i32 noundef, ptr noundef) #5
+declare i32 @zend_jit_leave_top_func_helper(i32 noundef, ptr noundef) #4
 
-declare i32 @ir_proto_2(ptr noundef, i8 noundef zeroext, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
+declare i32 @ir_proto_2(ptr noundef, i8 noundef zeroext, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
-declare void @zend_cannot_pass_by_reference(i32 noundef) #5
+declare void @zend_cannot_pass_by_reference(i32 noundef) #4
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @zend_runtime_jit() #0 {
@@ -155350,7 +155344,7 @@ define internal noundef i32 @zend_runtime_jit() #0 {
 
 zend_jit_unprotect.exit:                          ; preds = %16, %19, %23
   %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 416), align 8, !tbaa !155
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %1) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store ptr %1, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 416), align 8, !tbaa !155
   %30 = call i32 @__sigsetjmp(ptr noundef nonnull %1, i32 noundef 0) #41
   %.not20 = icmp eq i32 %30, 0
@@ -155386,7 +155380,7 @@ zend_jit_unprotect.exit:                          ; preds = %16, %19, %23
 
 45:                                               ; preds = %zend_jit_unprotect.exit, %.loopexit
   store ptr %29, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 416), align 8, !tbaa !155
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %1) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %46 = load i64, ptr getelementptr inbounds nuw (i8, ptr @jit_globals, i64 24), align 8, !tbaa !145
   %47 = and i64 %46, 288
   %.not.i17 = icmp eq i64 %47, 0
@@ -155752,7 +155746,7 @@ jit_ADD_OFFSET.exit75:                            ; preds = %169, %177
   ret void
 }
 
-declare i32 @ir_const_i16(ptr noundef, i16 noundef signext) local_unnamed_addr #5
+declare i32 @ir_const_i16(ptr noundef, i16 noundef signext) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_zend_jit_hybrid_trace_counter_stub(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
@@ -156141,30 +156135,30 @@ jit_CONST_FUNC.exit92:                            ; preds = %200, %211
   ret void
 }
 
-declare i32 @_ir_EXITCALL(ptr noundef, i32 noundef) local_unnamed_addr #5
+declare i32 @_ir_EXITCALL(ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare void @zend_jit_undefined_long_key(ptr noundef) #5
+declare void @zend_jit_undefined_long_key(ptr noundef) #4
 
-declare void @zend_jit_undefined_string_key(ptr noundef) #5
+declare void @zend_jit_undefined_string_key(ptr noundef) #4
 
-declare i32 @zend_jit_profile_helper(ptr noundef) #5
+declare i32 @zend_jit_profile_helper(ptr noundef) #4
 
-declare i32 @zend_jit_func_counter_helper(ptr noundef) #5
+declare i32 @zend_jit_func_counter_helper(ptr noundef) #4
 
-declare i32 @zend_jit_loop_counter_helper(ptr noundef) #5
+declare i32 @zend_jit_loop_counter_helper(ptr noundef) #4
 
-declare i32 @zend_jit_func_trace_helper(ptr noundef) #5
+declare i32 @zend_jit_func_trace_helper(ptr noundef) #4
 
-declare i32 @zend_jit_ret_trace_helper(ptr noundef) #5
+declare i32 @zend_jit_ret_trace_helper(ptr noundef) #4
 
-declare i32 @zend_jit_loop_trace_helper(ptr noundef) #5
+declare i32 @zend_jit_loop_trace_helper(ptr noundef) #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #30
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #29
 
-declare i32 @ir_perf_jitdump_close() local_unnamed_addr #5
+declare i32 @ir_perf_jitdump_close() local_unnamed_addr #4
 
-declare void @ir_gdb_unregister_all() local_unnamed_addr #5
+declare void @ir_gdb_unregister_all() local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @zend_jit_restart_preloaded_op_array(ptr noundef %0) unnamed_addr #0 {
@@ -156233,7 +156227,7 @@ define internal fastcc void @zend_jit_restart_preloaded_op_array(ptr noundef %0)
   br i1 %.not13, label %zend_jit_restart_hot_trace_counters.exit, label %35
 
 35:                                               ; preds = %33
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #35
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %37 = load i32, ptr %36, align 8, !tbaa !175
   %.not.i15 = icmp eq i32 %37, 0
@@ -156334,7 +156328,7 @@ define internal fastcc void @zend_jit_restart_preloaded_op_array(ptr noundef %0)
   br i1 %exitcond.not.i.i, label %zend_jit_restart_hot_counters.exit, label %65
 
 zend_jit_restart_hot_counters.exit:               ; preds = %76, %._crit_edge.i, %60
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %zend_jit_restart_hot_trace_counters.exit
 
 zend_jit_restart_hot_trace_counters.exit:         ; preds = %27, %12, %33, %zend_jit_restart_hot_counters.exit
@@ -156362,6 +156356,12 @@ zend_jit_restart_hot_trace_counters.exit:         ; preds = %27, %12, %33, %zend
 .loopexit:                                        ; preds = %80, %zend_jit_restart_hot_trace_counters.exit, %1
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #30
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #30
 
 ; Function Attrs: nofree nounwind
 declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #31
@@ -156409,36 +156409,36 @@ declare i32 @llvm.usub.sat.i32(i32, i32) #32
 declare i32 @llvm.smax.i32(i32, i32) #32
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind returns_twice "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #10 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { nofree norecurse nosync nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { cold nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #22 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #23 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #24 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #25 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #26 = { nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #27 = { noinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #28 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #29 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #30 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind returns_twice "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #9 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nofree norecurse nosync nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { cold nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #22 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #23 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #24 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #25 = { nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #26 = { noinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #27 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #28 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #29 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #30 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #31 = { nofree nounwind }
 attributes #32 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #33 = { nocallback nofree nounwind willreturn memory(argmem: read) }

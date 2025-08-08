@@ -57,9 +57,6 @@ agsubrep.exit:                                    ; preds = %2
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nounwind uwtable
 define ptr @agsubrep(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(ret: address, provenance) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -84,12 +81,9 @@ define ptr @agsubrep(ptr noundef readonly captures(address) %0, ptr noundef read
   ret ptr %15
 }
 
-declare i32 @dtrestore(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @dtrestore(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @dtextract(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @dtextract(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @agnxtout(ptr noundef readonly captures(address) %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -489,14 +483,14 @@ agnxtin.exit44:                                   ; preds = %agsubrep.exit.threa
   ret ptr %.1
 }
 
-declare ptr @node_set_find(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @node_set_find(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @agidedge(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.Agedge_s, align 8
   %7 = alloca %struct.Agedge_s, align 8
   %8 = alloca %struct.Agedge_s, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp eq ptr %1, null
   %10 = icmp eq ptr %2, null
   %or.cond.i.i = or i1 %9, %10
@@ -539,18 +533,18 @@ agfindedge_by_id.exit:                            ; preds = %agsubrep.exit.threa
   %31 = load ptr, ptr %23, align 8, !tbaa !38
   %32 = call ptr @dtextract(ptr noundef %31) #11
   store ptr %32, ptr %25, align 8, !tbaa !39
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %33 = icmp eq ptr %30, null
   br i1 %33, label %.thread, label %.thread50
 
 34:                                               ; preds = %5
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %35 = tail call i32 @agisundirected(ptr noundef %0) #11
   %.not = icmp eq i32 %35, 0
   br i1 %.not, label %61, label %38
 
 .thread55:                                        ; preds = %agsubrep.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %36 = tail call i32 @agisundirected(ptr noundef nonnull %0) #11
   %.not56 = icmp eq i32 %36, 0
   br i1 %.not56, label %61, label %.thread57
@@ -561,11 +555,11 @@ agfindedge_by_id.exit:                            ; preds = %agsubrep.exit.threa
   br i1 %.not48, label %61, label %.thread57
 
 38:                                               ; preds = %34
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %agfindedge_by_id.exit39
 
 .thread57:                                        ; preds = %.thread, %.thread55
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 2, ptr %7, align 8
   %.sroa.2.0..sroa_idx.i.i34 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %3, ptr %.sroa.2.0..sroa_idx.i.i34, align 8, !tbaa !37
@@ -606,7 +600,7 @@ agsubrep.exit.i.i35:                              ; preds = %.thread57
 
 agfindedge_by_id.exit39:                          ; preds = %38, %agsubrep.exit.i.i35, %49
   %.0.i.i37 = phi ptr [ null, %38 ], [ %58, %49 ], [ null, %agsubrep.exit.i.i35 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %61
 
 61:                                               ; preds = %.thread55, %.thread, %agfindedge_by_id.exit39, %34
@@ -626,7 +620,7 @@ agfindedge_by_id.exit39:                          ; preds = %38, %agsubrep.exit.
   br i1 %.not31, label %.thread50, label %68
 
 68:                                               ; preds = %66
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br i1 %or.cond.i.i, label %agfindedge_by_id.exit46.thread, label %69
 
 69:                                               ; preds = %68
@@ -654,7 +648,7 @@ agsubrep.exit.i.i42:                              ; preds = %69
   br i1 %.not.i.i43, label %agfindedge_by_id.exit46.thread, label %agfindedge_by_id.exit46
 
 agfindedge_by_id.exit46.thread:                   ; preds = %68, %agsubrep.exit.i.i42
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.thread50
 
 agfindedge_by_id.exit46:                          ; preds = %agsubrep.exit.thread.i.i45, %agsubrep.exit.i.i42
@@ -670,7 +664,7 @@ agfindedge_by_id.exit46:                          ; preds = %agsubrep.exit.threa
   %89 = load ptr, ptr %81, align 8, !tbaa !38
   %90 = call ptr @dtextract(ptr noundef %89) #11
   store ptr %90, ptr %83, align 8, !tbaa !39
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not32 = icmp eq ptr %88, null
   br i1 %.not32, label %.thread50, label %91
 
@@ -683,7 +677,7 @@ agfindedge_by_id.exit46:                          ; preds = %agsubrep.exit.threa
   ret ptr %.1
 }
 
-declare i32 @agisundirected(ptr noundef) local_unnamed_addr #2
+declare i32 @agisundirected(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @ok_to_make_edge(ptr noundef %0, ptr noundef %1, ptr noundef captures(address) %2) unnamed_addr #0 {
@@ -693,7 +687,7 @@ define internal fastcc zeroext i1 @ok_to_make_edge(ptr noundef %0, ptr noundef %
   br i1 %.not, label %31, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = icmp eq ptr %1, null
   %8 = icmp eq ptr %2, null
   %or.cond.i = or i1 %7, %8
@@ -722,7 +716,7 @@ agsubrep.exit.i:                                  ; preds = %9
   br i1 %.not.i, label %agfindedge_by_key.exit.thread, label %agfindedge_by_key.exit
 
 agfindedge_by_key.exit.thread:                    ; preds = %6, %agsubrep.exit.i
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %31
 
 agfindedge_by_key.exit:                           ; preds = %agsubrep.exit.thread.i, %agsubrep.exit.i
@@ -738,7 +732,7 @@ agfindedge_by_key.exit:                           ; preds = %agsubrep.exit.threa
   %29 = load ptr, ptr %21, align 8, !tbaa !38
   %30 = call ptr @dtextract(ptr noundef %29) #11
   store ptr %30, ptr %23, align 8, !tbaa !39
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not10 = icmp eq ptr %28, null
   br i1 %.not10, label %31, label %36
 
@@ -756,7 +750,7 @@ agfindedge_by_key.exit:                           ; preds = %agsubrep.exit.threa
   ret i1 %.0
 }
 
-declare ptr @agroot(ptr noundef) local_unnamed_addr #2
+declare ptr @agroot(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @agedge(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
@@ -765,7 +759,7 @@ define ptr @agedge(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %
   %8 = alloca %struct.Agedge_s, align 8
   %9 = alloca %struct.Agedge_s, align 8
   %10 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %11 = call i32 @agmapnametoid(ptr noundef %0, i32 noundef 2, ptr noundef %3, ptr noundef nonnull %10, i1 noundef zeroext false) #11
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %12, label %.critedge
@@ -790,7 +784,7 @@ define ptr @agedge(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %
 18:                                               ; preds = %14, %15, %.critedge
   %.sroa.0.sroa.0.0 = phi i64 [ 2, %.critedge ], [ 0, %15 ], [ 0, %14 ]
   %.sroa.11.0 = phi i64 [ %17, %.critedge ], [ 0, %15 ], [ 0, %14 ]
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %19 = icmp eq ptr %1, null
   %20 = icmp eq ptr %2, null
   %or.cond.i = or i1 %19, %20
@@ -833,18 +827,18 @@ agfindedge_by_key.exit:                           ; preds = %agsubrep.exit.threa
   %41 = load ptr, ptr %33, align 8, !tbaa !38
   %42 = call ptr @dtextract(ptr noundef %41) #11
   store ptr %42, ptr %35, align 8, !tbaa !39
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %43 = icmp eq ptr %40, null
   br i1 %43, label %.thread, label %.thread124
 
 44:                                               ; preds = %18
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %45 = call i32 @agisundirected(ptr noundef %0) #11
   %.not89 = icmp eq i32 %45, 0
   br i1 %.not89, label %.thread121.thread, label %48
 
 .thread152:                                       ; preds = %agsubrep.exit.i
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %46 = call i32 @agisundirected(ptr noundef nonnull %0) #11
   %.not89153 = icmp eq i32 %46, 0
   br i1 %.not89153, label %.thread121, label %.thread154
@@ -855,11 +849,11 @@ agfindedge_by_key.exit:                           ; preds = %agsubrep.exit.threa
   br i1 %.not89119, label %.thread121, label %.thread154
 
 48:                                               ; preds = %44
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   br label %.thread128
 
 .thread154:                                       ; preds = %.thread, %.thread152
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 %.sroa.0.sroa.0.0, ptr %8, align 8
   %.sroa.2.0..sroa_idx.i97 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 %.sroa.11.0, ptr %.sroa.2.0..sroa_idx.i97, align 8, !tbaa !37
@@ -884,7 +878,7 @@ agsubrep.exit.i98:                                ; preds = %.thread154
   br i1 %.not.i99, label %.thread128, label %59
 
 .thread128:                                       ; preds = %agsubrep.exit.i98, %48
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.thread121
 
 59:                                               ; preds = %agsubrep.exit.thread.i101, %agsubrep.exit.i98
@@ -900,7 +894,7 @@ agsubrep.exit.i98:                                ; preds = %.thread154
   %69 = load ptr, ptr %61, align 8, !tbaa !38
   %70 = call ptr @dtextract(ptr noundef %69) #11
   store ptr %70, ptr %63, align 8, !tbaa !39
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.not90 = icmp eq ptr %68, null
   br i1 %.not90, label %.thread131, label %.thread124
 
@@ -914,7 +908,7 @@ agsubrep.exit.i98:                                ; preds = %.thread154
 
 .thread160:                                       ; preds = %.thread121.thread
   %71 = call ptr @agroot(ptr noundef %0) #11
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %agfindedge_by_key.exit109.thread
 
 .thread131:                                       ; preds = %59
@@ -923,12 +917,12 @@ agsubrep.exit.i98:                                ; preds = %.thread154
 
 .thread133:                                       ; preds = %.thread131
   %72 = call ptr @agroot(ptr noundef nonnull %0) #11
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %75
 
 73:                                               ; preds = %.thread121
   %74 = call ptr @agroot(ptr noundef %0) #11
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br i1 %or.cond.i, label %agfindedge_by_key.exit109.thread, label %75
 
 75:                                               ; preds = %.thread133, %73
@@ -957,7 +951,7 @@ agsubrep.exit.i105:                               ; preds = %75
   br i1 %.not.i106, label %agfindedge_by_key.exit109.thread, label %agfindedge_by_key.exit109
 
 agfindedge_by_key.exit109.thread:                 ; preds = %.thread160, %73, %agsubrep.exit.i105
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %99
 
 agfindedge_by_key.exit109:                        ; preds = %agsubrep.exit.thread.i108, %agsubrep.exit.i105
@@ -973,7 +967,7 @@ agfindedge_by_key.exit109:                        ; preds = %agsubrep.exit.threa
   %96 = load ptr, ptr %88, align 8, !tbaa !38
   %97 = call ptr @dtextract(ptr noundef %96) #11
   store ptr %97, ptr %90, align 8, !tbaa !39
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %98 = icmp eq ptr %95, null
   br i1 %98, label %99, label %.thread138
 
@@ -984,7 +978,7 @@ agfindedge_by_key.exit109:                        ; preds = %agsubrep.exit.threa
 
 101:                                              ; preds = %99
   %102 = call ptr @agroot(ptr noundef %0) #11
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br i1 %or.cond.i, label %.thread143, label %103
 
 103:                                              ; preds = %101
@@ -1012,7 +1006,7 @@ agsubrep.exit.i112:                               ; preds = %103
   br i1 %.not.i113, label %.thread143, label %114
 
 .thread143:                                       ; preds = %101, %agsubrep.exit.i112
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.thread150
 
 114:                                              ; preds = %agsubrep.exit.thread.i115, %agsubrep.exit.i112
@@ -1028,7 +1022,7 @@ agsubrep.exit.i112:                               ; preds = %103
   %124 = load ptr, ptr %116, align 8, !tbaa !38
   %125 = call ptr @dtextract(ptr noundef %124) #11
   store ptr %125, ptr %118, align 8, !tbaa !39
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not93 = icmp eq ptr %123, null
   br i1 %.not93, label %.thread150, label %.thread138
 
@@ -1100,15 +1094,15 @@ newedge.exit:                                     ; preds = %gv_alloc.exit.i, %1
 
 .thread124:                                       ; preds = %.thread121.thread, %.thread121, %.thread131, %agfindedge_by_key.exit, %.thread138, %59, %newedge.exit, %127, %.thread150, %.thread147
   %.1 = phi ptr [ %133, %newedge.exit ], [ null, %127 ], [ null, %.thread150 ], [ null, %.thread147 ], [ %.182141, %.thread138 ], [ %68, %59 ], [ %40, %agfindedge_by_key.exit ], [ null, %.thread131 ], [ null, %.thread121 ], [ null, %.thread121.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret ptr %.1
 }
 
-declare i32 @agmapnametoid(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare i32 @agmapnametoid(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare i32 @agisstrict(ptr noundef) local_unnamed_addr #2
+declare i32 @agisstrict(ptr noundef) local_unnamed_addr #1
 
-declare void @agregister(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @agregister(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @agdeledgeimage(ptr noundef readonly captures(address) %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
@@ -1221,7 +1215,7 @@ define range(i32 -1, 1) i32 @agdeledge(ptr noundef %0, ptr noundef %1) local_unn
   %18 = load i64, ptr %7, align 8
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %20 = load i64, ptr %19, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %21 = icmp eq ptr %13, null
   %22 = icmp eq ptr %17, null
   %or.cond.i = or i1 %21, %22
@@ -1252,7 +1246,7 @@ agsubrep.exit.i:                                  ; preds = %23
   br i1 %.not.i, label %agfindedge_by_key.exit.thread, label %agfindedge_by_key.exit
 
 agfindedge_by_key.exit.thread:                    ; preds = %2, %agsubrep.exit.i
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %63
 
 agfindedge_by_key.exit:                           ; preds = %agsubrep.exit.thread.i, %agsubrep.exit.i
@@ -1268,7 +1262,7 @@ agfindedge_by_key.exit:                           ; preds = %agsubrep.exit.threa
   %43 = load ptr, ptr %35, align 8, !tbaa !38
   %44 = call ptr @dtextract(ptr noundef %43) #11
   store ptr %44, ptr %37, align 8, !tbaa !39
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %45 = icmp eq ptr %42, null
   br i1 %45, label %63, label %46
 
@@ -1314,18 +1308,18 @@ agfindedge_by_key.exit:                           ; preds = %agsubrep.exit.threa
   ret i32 %.0
 }
 
-declare void @agedgeattr_delete(ptr noundef) local_unnamed_addr #2
+declare void @agedgeattr_delete(ptr noundef) local_unnamed_addr #1
 
-declare void @agmethod_delete(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @agmethod_delete(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @agrecclose(ptr noundef) local_unnamed_addr #2
+declare void @agrecclose(ptr noundef) local_unnamed_addr #1
 
-declare void @agfreeid(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
+declare void @agfreeid(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @agapply(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @agapply(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define ptr @agsubedge(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -1360,7 +1354,7 @@ define ptr @agsubedge(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unna
   %24 = load i64, ptr %1, align 8
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load i64, ptr %25, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %24, ptr %4, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %26, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !37
@@ -1401,7 +1395,7 @@ agsubrep.exit.i:                                  ; preds = %23
 
 agfindedge_by_key.exit:                           ; preds = %agsubrep.exit.i, %37
   %.0.i = phi ptr [ %46, %37 ], [ null, %agsubrep.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %49 = icmp eq ptr %.0.i, null
   %or.cond5 = select i1 %13, i1 %49, i1 false
   br i1 %or.cond5, label %.thread, label %50
@@ -1433,7 +1427,7 @@ agfindedge_by_key.exit:                           ; preds = %agsubrep.exit.i, %3
   ret ptr %.0
 }
 
-declare ptr @agsubnode(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @agsubnode(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @installedge(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
@@ -1472,7 +1466,7 @@ define internal fastcc void @installedge(ptr noundef %0, ptr noundef %1) unnamed
   %.040 = phi ptr [ %0, %.lr.ph ], [ %92, %agsubrep.exit36 ]
   %25 = load i64, ptr %1, align 8
   %26 = load i64, ptr %14, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br i1 %or.cond.i, label %agfindedge_by_key.exit.thread, label %27
 
 27:                                               ; preds = %24
@@ -1492,7 +1486,7 @@ agsubrep.exit.i:                                  ; preds = %27
   br i1 %.not.i, label %agfindedge_by_key.exit.thread, label %agfindedge_by_key.exit
 
 agfindedge_by_key.exit.thread:                    ; preds = %24, %agsubrep.exit.i
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %45
 
 agfindedge_by_key.exit:                           ; preds = %27, %agsubrep.exit.i
@@ -1508,7 +1502,7 @@ agfindedge_by_key.exit:                           ; preds = %27, %agsubrep.exit.
   %43 = load ptr, ptr %35, align 8, !tbaa !38
   %44 = call ptr @dtextract(ptr noundef %43) #11
   store ptr %44, ptr %37, align 8, !tbaa !39
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not35 = icmp eq ptr %42, null
   br i1 %.not35, label %45, label %agfindedge_by_key.exit._crit_edge
 
@@ -1582,7 +1576,7 @@ agfindedge_by_key.exit._crit_edge:                ; preds = %agsubrep.exit36, %a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 -1, 2) i32 @agedgeseqcmpf(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #4 {
+define internal range(i32 -1, 2) i32 @agedgeseqcmpf(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8, !tbaa !31
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -1623,7 +1617,7 @@ define internal range(i32 -1, 2) i32 @agedgeseqcmpf(ptr noundef readonly capture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 -1, 2) i32 @agedgeidcmpf(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #4 {
+define internal range(i32 -1, 2) i32 @agedgeidcmpf(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8, !tbaa !31
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -1672,7 +1666,7 @@ define internal range(i32 -1, 2) i32 @agedgeidcmpf(ptr noundef readonly captures
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @ageqedge(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @ageqedge(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #4 {
   %3 = load i32, ptr %0, align 8
   %4 = and i32 %3, 3
   %5 = icmp eq i32 %4, 2
@@ -1689,7 +1683,7 @@ define range(i32 0, 2) i32 @ageqedge(ptr noundef readonly captures(address) %0, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @agmkout(ptr noundef readonly captures(ret: address, provenance) %0) local_unnamed_addr #5 {
+define ptr @agmkout(ptr noundef readonly captures(ret: address, provenance) %0) local_unnamed_addr #4 {
   %2 = load i32, ptr %0, align 8
   %3 = and i32 %2, 3
   %4 = icmp eq i32 %3, 2
@@ -1699,7 +1693,7 @@ define ptr @agmkout(ptr noundef readonly captures(ret: address, provenance) %0) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @agmkin(ptr noundef readonly captures(ret: address, provenance) %0) local_unnamed_addr #5 {
+define ptr @agmkin(ptr noundef readonly captures(ret: address, provenance) %0) local_unnamed_addr #4 {
   %2 = load i32, ptr %0, align 8
   %3 = and i32 %2, 3
   %4 = icmp eq i32 %3, 3
@@ -1709,7 +1703,7 @@ define ptr @agmkin(ptr noundef readonly captures(ret: address, provenance) %0) l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @agtail(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
+define ptr @agtail(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = load i32, ptr %0, align 8
   %3 = and i32 %2, 3
   %4 = icmp eq i32 %3, 3
@@ -1721,7 +1715,7 @@ define ptr @agtail(ptr noundef readonly captures(none) %0) local_unnamed_addr #5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @aghead(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
+define ptr @aghead(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = load i32, ptr %0, align 8
   %3 = and i32 %2, 3
   %4 = icmp eq i32 %3, 2
@@ -1733,7 +1727,7 @@ define ptr @aghead(ptr noundef readonly captures(none) %0) local_unnamed_addr #5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define nonnull ptr @agopp(ptr noundef readonly captures(ret: address, provenance) %0) local_unnamed_addr #5 {
+define nonnull ptr @agopp(ptr noundef readonly captures(ret: address, provenance) %0) local_unnamed_addr #4 {
   %2 = load i32, ptr %0, align 8
   %3 = and i32 %2, 3
   %4 = icmp eq i32 %3, 3
@@ -1742,44 +1736,50 @@ define nonnull ptr @agopp(ptr noundef readonly captures(ret: address, provenance
   ret ptr %5
 }
 
-declare i64 @agnextseq(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i64 @agnextseq(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @agbindrec(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @agbindrec(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @agedgeattr_init(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @agedgeattr_init(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @agmethod_init(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @agmethod_init(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #6
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 ; Function Attrs: cold inlinehint nofree noreturn nounwind uwtable
-define internal fastcc void @graphviz_exit() unnamed_addr #7 {
+define internal fastcc void @graphviz_exit() unnamed_addr #6 {
   tail call void @exit(i32 noundef 1) #15
   unreachable
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #8
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #9
+declare void @exit(i32 noundef) local_unnamed_addr #8
 
-declare ptr @agparent(ptr noundef) local_unnamed_addr #2
+declare ptr @agparent(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { cold inlinehint nofree noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { cold inlinehint nofree noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #11 = { nounwind }
 attributes #12 = { nounwind allocsize(0,1) }

@@ -393,23 +393,17 @@ CalculateFrameShift.exit:                         ; preds = %.lr.ph.i, %LCM.exit
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @Pa_GetSampleSize(i64 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @PaUtil_SelectConverter(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @Pa_GetSampleSize(i64 noundef) local_unnamed_addr #2
+declare ptr @PaUtil_SelectZeroer(i64 noundef) local_unnamed_addr #1
 
-declare ptr @PaUtil_SelectConverter(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @PaUtil_AllocateZeroInitializedMemory(i64 noundef) local_unnamed_addr #1
 
-declare ptr @PaUtil_SelectZeroer(i64 noundef) local_unnamed_addr #2
+declare void @PaUtil_InitializeTriangularDitherState(ptr noundef) local_unnamed_addr #1
 
-declare ptr @PaUtil_AllocateZeroInitializedMemory(i64 noundef) local_unnamed_addr #2
-
-declare void @PaUtil_InitializeTriangularDitherState(ptr noundef) local_unnamed_addr #2
-
-declare void @PaUtil_FreeMemory(ptr noundef) local_unnamed_addr #2
+declare void @PaUtil_FreeMemory(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @PaUtil_TerminateBufferProcessor(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -477,7 +471,7 @@ define void @PaUtil_TerminateBufferProcessor(ptr noundef readonly captures(none)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @PaUtil_ResetBufferProcessor(ptr noundef captures(none) initializes((136, 144), (160, 168)) %0) local_unnamed_addr #3 {
+define void @PaUtil_ResetBufferProcessor(ptr noundef captures(none) initializes((136, 144), (160, 168)) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load i64, ptr %2, align 8, !tbaa !21
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -532,24 +526,24 @@ define void @PaUtil_ResetBufferProcessor(ptr noundef captures(none) initializes(
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @PaUtil_GetBufferProcessorInputLatencyFrames(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
+define i64 @PaUtil_GetBufferProcessorInputLatencyFrames(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load i64, ptr %2, align 8, !tbaa !21
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @PaUtil_GetBufferProcessorOutputLatencyFrames(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
+define i64 @PaUtil_GetBufferProcessorOutputLatencyFrames(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i64, ptr %2, align 8, !tbaa !22
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @PaUtil_SetInputFrameCount(ptr noundef captures(none) initializes((192, 200)) %0, i64 noundef %1) local_unnamed_addr #6 {
+define void @PaUtil_SetInputFrameCount(ptr noundef captures(none) initializes((192, 200)) %0, i64 noundef %1) local_unnamed_addr #5 {
   %3 = icmp eq i64 %1, 0
   br i1 %3, label %4, label %7
 
@@ -566,7 +560,7 @@ define void @PaUtil_SetInputFrameCount(ptr noundef captures(none) initializes((1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @PaUtil_SetNoInput(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
+define void @PaUtil_SetNoInput(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %3 = load ptr, ptr %2, align 8, !tbaa !34
   store ptr null, ptr %3, align 8, !tbaa !49
@@ -574,7 +568,7 @@ define void @PaUtil_SetNoInput(ptr noundef readonly captures(none) %0) local_unn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @PaUtil_SetInputChannel(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #3 {
+define void @PaUtil_SetInputChannel(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %6 = load ptr, ptr %5, align 8, !tbaa !34
   %7 = zext i32 %1 to i64
@@ -586,7 +580,7 @@ define void @PaUtil_SetInputChannel(ptr noundef readonly captures(none) %0, i32 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @PaUtil_SetInterleavedInputChannels(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #7 {
+define void @PaUtil_SetInterleavedInputChannels(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #6 {
   %5 = icmp eq i32 %3, 0
   br i1 %5, label %6, label %.lr.ph
 
@@ -626,7 +620,7 @@ define void @PaUtil_SetInterleavedInputChannels(ptr noundef readonly captures(no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @PaUtil_SetNonInterleavedInputChannel(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #3 {
+define void @PaUtil_SetNonInterleavedInputChannel(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %5 = load ptr, ptr %4, align 8, !tbaa !34
   %6 = zext i32 %1 to i64
@@ -638,14 +632,14 @@ define void @PaUtil_SetNonInterleavedInputChannel(ptr noundef readonly captures(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @PaUtil_Set2ndInputFrameCount(ptr noundef writeonly captures(none) initializes((200, 208)) %0, i64 noundef %1) local_unnamed_addr #8 {
+define void @PaUtil_Set2ndInputFrameCount(ptr noundef writeonly captures(none) initializes((200, 208)) %0, i64 noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store i64 %1, ptr %3, align 8, !tbaa !48
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @PaUtil_Set2ndInputChannel(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #3 {
+define void @PaUtil_Set2ndInputChannel(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %6 = load ptr, ptr %5, align 8, !tbaa !34
   %7 = zext i32 %1 to i64
@@ -657,7 +651,7 @@ define void @PaUtil_Set2ndInputChannel(ptr noundef readonly captures(none) %0, i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @PaUtil_Set2ndInterleavedInputChannels(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #7 {
+define void @PaUtil_Set2ndInterleavedInputChannels(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #6 {
   %5 = icmp eq i32 %3, 0
   br i1 %5, label %6, label %.lr.ph
 
@@ -697,7 +691,7 @@ define void @PaUtil_Set2ndInterleavedInputChannels(ptr noundef readonly captures
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @PaUtil_Set2ndNonInterleavedInputChannel(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #3 {
+define void @PaUtil_Set2ndNonInterleavedInputChannel(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %5 = load ptr, ptr %4, align 8, !tbaa !34
   %6 = zext i32 %1 to i64
@@ -709,7 +703,7 @@ define void @PaUtil_Set2ndNonInterleavedInputChannel(ptr noundef readonly captur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @PaUtil_SetOutputFrameCount(ptr noundef captures(none) initializes((232, 240)) %0, i64 noundef %1) local_unnamed_addr #6 {
+define void @PaUtil_SetOutputFrameCount(ptr noundef captures(none) initializes((232, 240)) %0, i64 noundef %1) local_unnamed_addr #5 {
   %3 = icmp eq i64 %1, 0
   br i1 %3, label %4, label %7
 
@@ -726,7 +720,7 @@ define void @PaUtil_SetOutputFrameCount(ptr noundef captures(none) initializes((
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @PaUtil_SetNoOutput(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
+define void @PaUtil_SetNoOutput(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %3 = load ptr, ptr %2, align 8, !tbaa !34
   store ptr null, ptr %3, align 8, !tbaa !49
@@ -734,7 +728,7 @@ define void @PaUtil_SetNoOutput(ptr noundef readonly captures(none) %0) local_un
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @PaUtil_SetOutputChannel(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #3 {
+define void @PaUtil_SetOutputChannel(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %6 = load ptr, ptr %5, align 8, !tbaa !34
   %7 = zext i32 %1 to i64
@@ -746,7 +740,7 @@ define void @PaUtil_SetOutputChannel(ptr noundef readonly captures(none) %0, i32
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @PaUtil_SetInterleavedOutputChannels(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #7 {
+define void @PaUtil_SetInterleavedOutputChannels(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #6 {
   %5 = icmp eq i32 %3, 0
   br i1 %5, label %6, label %.lr.ph
 
@@ -786,7 +780,7 @@ define void @PaUtil_SetInterleavedOutputChannels(ptr noundef readonly captures(n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @PaUtil_SetNonInterleavedOutputChannel(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #3 {
+define void @PaUtil_SetNonInterleavedOutputChannel(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %5 = load ptr, ptr %4, align 8, !tbaa !34
   %6 = zext i32 %1 to i64
@@ -798,14 +792,14 @@ define void @PaUtil_SetNonInterleavedOutputChannel(ptr noundef readonly captures
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @PaUtil_Set2ndOutputFrameCount(ptr noundef writeonly captures(none) initializes((240, 248)) %0, i64 noundef %1) local_unnamed_addr #8 {
+define void @PaUtil_Set2ndOutputFrameCount(ptr noundef writeonly captures(none) initializes((240, 248)) %0, i64 noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 240
   store i64 %1, ptr %3, align 8, !tbaa !48
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @PaUtil_Set2ndOutputChannel(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #3 {
+define void @PaUtil_Set2ndOutputChannel(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %6 = load ptr, ptr %5, align 8, !tbaa !34
   %7 = zext i32 %1 to i64
@@ -817,7 +811,7 @@ define void @PaUtil_Set2ndOutputChannel(ptr noundef readonly captures(none) %0, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @PaUtil_Set2ndInterleavedOutputChannels(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #7 {
+define void @PaUtil_Set2ndInterleavedOutputChannels(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #6 {
   %5 = icmp eq i32 %3, 0
   br i1 %5, label %6, label %.lr.ph
 
@@ -857,7 +851,7 @@ define void @PaUtil_Set2ndInterleavedOutputChannels(ptr noundef readonly capture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @PaUtil_Set2ndNonInterleavedOutputChannel(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #3 {
+define void @PaUtil_Set2ndNonInterleavedOutputChannel(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %5 = load ptr, ptr %4, align 8, !tbaa !34
   %6 = zext i32 %1 to i64
@@ -869,7 +863,7 @@ define void @PaUtil_Set2ndNonInterleavedOutputChannel(ptr noundef readonly captu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @PaUtil_BeginBufferProcessing(ptr noundef captures(none) initializes((168, 184), (200, 208), (240, 248)) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #6 {
+define void @PaUtil_BeginBufferProcessing(ptr noundef captures(none) initializes((168, 184), (200, 208), (240, 248)) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #5 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store ptr %1, ptr %4, align 8, !tbaa !56
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -898,7 +892,7 @@ define void @PaUtil_BeginBufferProcessing(ptr noundef captures(none) initializes
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #9
+declare double @llvm.fmuladd.f64(double, double, double) #8
 
 ; Function Attrs: nounwind uwtable
 define i64 @PaUtil_EndBufferProcessing(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
@@ -935,7 +929,7 @@ define i64 @PaUtil_EndBufferProcessing(ptr noundef %0, ptr noundef captures(none
 22:                                               ; preds = %30, %12
   %.092 = phi i64 [ %17, %12 ], [ %41, %30 ]
   %.091 = phi i64 [ 0, %12 ], [ %40, %30 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %23 = load ptr, ptr %18, align 8, !tbaa !34
   %24 = load ptr, ptr %23, align 8, !tbaa !49
   %.not110 = icmp eq ptr %24, null
@@ -976,7 +970,7 @@ define i64 @PaUtil_EndBufferProcessing(ptr noundef %0, ptr noundef captures(none
   store i64 %39, ptr %.088, align 8, !tbaa !48
   %40 = add i64 %35, %.091
   %41 = sub i64 %.092, %35
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not114 = icmp eq i64 %41, 0
   br i1 %.not114, label %.loopexit, label %22, !llvm.loop !61
 
@@ -2284,7 +2278,7 @@ thread-pre-split:                                 ; preds = %._crit_edge
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @PaUtil_IsBufferProcessorOutputEmpty(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @PaUtil_IsBufferProcessorOutputEmpty(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %3 = load i64, ptr %2, align 8, !tbaa !24
   %.not = icmp eq i64 %3, 0
@@ -2705,6 +2699,12 @@ define internal fastcc void @CopyTempOutputBuffersToHostOutputBuffers(ptr nounde
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #10
 
@@ -2712,15 +2712,15 @@ declare i64 @llvm.umax.i64(i64, i64) #10
 declare i64 @llvm.umin.i64(i64, i64) #10
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #11 = { nounwind }
 

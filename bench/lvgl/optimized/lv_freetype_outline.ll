@@ -25,11 +25,8 @@ define noundef ptr @lv_freetype_create_draw_data_outline(i32 noundef %0) local_u
   ret ptr %3
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal signext range(i8 -1, 2) i8 @freetype_glyph_outline_cmp_cb(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 {
+define internal signext range(i8 -1, 2) i8 @freetype_glyph_outline_cmp_cb(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #1 {
   %3 = load i32, ptr %0, align 8, !tbaa !3
   %4 = load i32, ptr %1, align 8, !tbaa !3
   %.0 = tail call i8 @llvm.ucmp.i8.i32(i32 %3, i32 %4)
@@ -83,9 +80,9 @@ define internal noundef zeroext i1 @freetype_glyph_outline_create_cb(ptr noundef
   br label %30
 
 30:                                               ; preds = %25, %23
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) @__const.outline_create.outline_funcs, i64 48, i1 false)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @lv_memset(ptr noundef nonnull %7, i8 noundef zeroext 0, i64 noundef 48) #9
   %31 = getelementptr inbounds nuw i8, ptr %13, i64 152
   %32 = load ptr, ptr %31, align 8, !tbaa !24
@@ -119,7 +116,7 @@ define internal noundef zeroext i1 @freetype_glyph_outline_create_cb(ptr noundef
   br i1 %.not.i.i, label %outline_create.exit.thread16, label %outline_send_event.exit.i
 
 outline_send_event.exit.i:                        ; preds = %._crit_edge.i
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @lv_memset(ptr noundef nonnull %5, i8 noundef zeroext 0, i64 noundef 56) #9
   %49 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 40, ptr %49, align 8, !tbaa !62
@@ -129,7 +126,7 @@ outline_send_event.exit.i:                        ; preds = %._crit_edge.i
   store ptr null, ptr %51, align 8, !tbaa !66
   %52 = load ptr, ptr %47, align 8, !tbaa !59
   call void %52(ptr noundef nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %53 = load ptr, ptr %7, align 8, !tbaa !67
   %.not66.i = icmp eq ptr %53, null
   br i1 %.not66.i, label %outline_create.exit.thread16, label %71
@@ -180,7 +177,7 @@ outline_send_event.exit.i:                        ; preds = %._crit_edge.i
   br i1 %.not60.i, label %82, label %75
 
 75:                                               ; preds = %71
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @lv_memset(ptr noundef nonnull %4, i8 noundef zeroext 0, i64 noundef 48) #9
   store ptr %53, ptr %4, align 8, !tbaa !67
   %76 = load ptr, ptr %47, align 8, !tbaa !59
@@ -188,7 +185,7 @@ outline_send_event.exit.i:                        ; preds = %._crit_edge.i
   br i1 %.not.i.i.i, label %outline_delete.exit.i, label %77
 
 77:                                               ; preds = %75
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @lv_memset(ptr noundef nonnull %3, i8 noundef zeroext 0, i64 noundef 56) #9
   %78 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 41, ptr %78, align 8, !tbaa !62
@@ -198,11 +195,11 @@ outline_send_event.exit.i:                        ; preds = %._crit_edge.i
   store ptr null, ptr %80, align 8, !tbaa !66
   %81 = load ptr, ptr %47, align 8, !tbaa !59
   call void %81(ptr noundef nonnull %3) #9
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %outline_delete.exit.i
 
 outline_delete.exit.i:                            ; preds = %77, %75
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %outline_create.exit.thread16
 
 82:                                               ; preds = %71
@@ -215,13 +212,13 @@ outline_delete.exit.i:                            ; preds = %77, %75
   br label %outline_create.exit.thread16
 
 outline_create.exit.thread16:                     ; preds = %outline_delete.exit.i, %84, %outline_send_event.exit.i, %._crit_edge.i
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %outline_create.exit.thread
 
 85:                                               ; preds = %82
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %53, ptr %86, align 8, !tbaa !71
   br label %outline_create.exit.thread
@@ -238,7 +235,7 @@ define internal void @freetype_glyph_outline_free_cb(ptr noundef readonly captur
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !71
   %7 = tail call ptr @lv_freetype_get_context() #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @lv_memset(ptr noundef nonnull %4, i8 noundef zeroext 0, i64 noundef 48) #9
   store ptr %6, ptr %4, align 8, !tbaa !67
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
@@ -247,7 +244,7 @@ define internal void @freetype_glyph_outline_free_cb(ptr noundef readonly captur
   br i1 %.not.i.i, label %outline_delete.exit, label %10
 
 10:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @lv_memset(ptr noundef nonnull %3, i8 noundef zeroext 0, i64 noundef 56) #9
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 41, ptr %11, align 8, !tbaa !62
@@ -257,26 +254,23 @@ define internal void @freetype_glyph_outline_free_cb(ptr noundef readonly captur
   store ptr null, ptr %13, align 8, !tbaa !66
   %14 = load ptr, ptr %8, align 8, !tbaa !59
   call void %14(ptr noundef nonnull %3) #9
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %outline_delete.exit
 
 outline_delete.exit:                              ; preds = %2, %10
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
-declare ptr @lv_cache_create(ptr noundef, i64 noundef, i64 noundef, ptr noundef byval(%struct._lv_cache_ops_t) align 8) local_unnamed_addr #4
+declare ptr @lv_cache_create(ptr noundef, i64 noundef, i64 noundef, ptr noundef byval(%struct._lv_cache_ops_t) align 8) local_unnamed_addr #3
 
-declare void @lv_cache_set_name(ptr noundef, ptr noundef) local_unnamed_addr #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @lv_cache_set_name(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @lv_freetype_set_cbs_outline_font(ptr noundef captures(address_is_null) %0) local_unnamed_addr #5 {
+define void @lv_freetype_set_cbs_outline_font(ptr noundef captures(address_is_null) %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -324,12 +318,12 @@ define internal ptr @freetype_get_glyph_bitmap_cb(ptr noundef captures(none) %0,
   %12 = load i32, ptr %11, align 8, !tbaa !68
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 96
   %14 = load ptr, ptr %13, align 8, !tbaa !16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %12, ptr %3, align 8, !tbaa !3
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %16 = load ptr, ptr %15, align 8, !tbaa !78
   %17 = call ptr @lv_cache_acquire_or_create(ptr noundef %16, ptr noundef nonnull %3, ptr noundef nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %18 = icmp eq ptr %17, null
   br i1 %18, label %25, label %19
 
@@ -387,10 +381,10 @@ define void @lv_freetype_outline_add_event(ptr noundef %0, i32 noundef %1, ptr n
   ret void
 }
 
-declare ptr @lv_freetype_get_context() local_unnamed_addr #4
+declare ptr @lv_freetype_get_context() local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, -63) i32 @lv_freetype_outline_get_scale(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
+define range(i32 0, -63) i32 @lv_freetype_outline_get_scale(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -427,7 +421,7 @@ define range(i32 0, -63) i32 @lv_freetype_outline_get_scale(ptr noundef readonly
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define zeroext i1 @lv_freetype_is_outline_font(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
+define zeroext i1 @lv_freetype_is_outline_font(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -452,18 +446,18 @@ define zeroext i1 @lv_freetype_is_outline_font(ptr noundef readonly captures(add
   ret i1 %.0
 }
 
-declare i32 @FT_Set_Pixel_Sizes(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @FT_Set_Pixel_Sizes(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @FT_Load_Glyph(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @FT_Load_Glyph(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @FT_Outline_Embolden(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @FT_Outline_Embolden(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @outline_move_to_cb(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) #0 {
   %3 = alloca %struct._lv_event_t, align 8
   %4 = alloca %struct._lv_freetype_outline_event_param_t, align 8
   %5 = tail call ptr @lv_freetype_get_context() #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @lv_memset(ptr noundef nonnull %4, i8 noundef zeroext 0, i64 noundef 48) #9
   store ptr %1, ptr %4, align 8, !tbaa !67
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -494,7 +488,7 @@ ft_vector_to_lv_vector.exit10.i:                  ; preds = %9, %2
   br i1 %.not.i11.i, label %outline_push_point.exit, label %19
 
 19:                                               ; preds = %ft_vector_to_lv_vector.exit10.i
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @lv_memset(ptr noundef nonnull %3, i8 noundef zeroext 0, i64 noundef 56) #9
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 36, ptr %20, align 8, !tbaa !62
@@ -504,11 +498,11 @@ ft_vector_to_lv_vector.exit10.i:                  ; preds = %9, %2
   store ptr null, ptr %22, align 8, !tbaa !66
   %23 = load ptr, ptr %17, align 8, !tbaa !59
   call void %23(ptr noundef nonnull %3) #9
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %outline_push_point.exit
 
 outline_push_point.exit:                          ; preds = %ft_vector_to_lv_vector.exit10.i, %19
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 0
 }
 
@@ -517,7 +511,7 @@ define internal noundef i32 @outline_line_to_cb(ptr noundef readonly captures(ad
   %3 = alloca %struct._lv_event_t, align 8
   %4 = alloca %struct._lv_freetype_outline_event_param_t, align 8
   %5 = tail call ptr @lv_freetype_get_context() #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @lv_memset(ptr noundef nonnull %4, i8 noundef zeroext 0, i64 noundef 48) #9
   store ptr %1, ptr %4, align 8, !tbaa !67
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -548,7 +542,7 @@ ft_vector_to_lv_vector.exit10.i:                  ; preds = %9, %2
   br i1 %.not.i11.i, label %outline_push_point.exit, label %19
 
 19:                                               ; preds = %ft_vector_to_lv_vector.exit10.i
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @lv_memset(ptr noundef nonnull %3, i8 noundef zeroext 0, i64 noundef 56) #9
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 36, ptr %20, align 8, !tbaa !62
@@ -558,11 +552,11 @@ ft_vector_to_lv_vector.exit10.i:                  ; preds = %9, %2
   store ptr null, ptr %22, align 8, !tbaa !66
   %23 = load ptr, ptr %17, align 8, !tbaa !59
   call void %23(ptr noundef nonnull %3) #9
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %outline_push_point.exit
 
 outline_push_point.exit:                          ; preds = %ft_vector_to_lv_vector.exit10.i, %19
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 0
 }
 
@@ -571,7 +565,7 @@ define internal noundef i32 @outline_conic_to_cb(ptr noundef readonly captures(a
   %4 = alloca %struct._lv_event_t, align 8
   %5 = alloca %struct._lv_freetype_outline_event_param_t, align 8
   %6 = tail call ptr @lv_freetype_get_context() #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @lv_memset(ptr noundef nonnull %5, i8 noundef zeroext 0, i64 noundef 48) #9
   store ptr %2, ptr %5, align 8, !tbaa !67
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -622,7 +616,7 @@ ft_vector_to_lv_vector.exit10.i:                  ; preds = %20, %ft_vector_to_l
   br i1 %.not.i11.i, label %outline_push_point.exit, label %30
 
 30:                                               ; preds = %ft_vector_to_lv_vector.exit10.i
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @lv_memset(ptr noundef nonnull %4, i8 noundef zeroext 0, i64 noundef 56) #9
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 36, ptr %31, align 8, !tbaa !62
@@ -632,11 +626,11 @@ ft_vector_to_lv_vector.exit10.i:                  ; preds = %20, %ft_vector_to_l
   store ptr null, ptr %33, align 8, !tbaa !66
   %34 = load ptr, ptr %28, align 8, !tbaa !59
   call void %34(ptr noundef nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %outline_push_point.exit
 
 outline_push_point.exit:                          ; preds = %ft_vector_to_lv_vector.exit10.i, %30
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 0
 }
 
@@ -645,7 +639,7 @@ define internal noundef i32 @outline_cubic_to_cb(ptr noundef readonly captures(a
   %5 = alloca %struct._lv_event_t, align 8
   %6 = alloca %struct._lv_freetype_outline_event_param_t, align 8
   %7 = tail call ptr @lv_freetype_get_context() #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @lv_memset(ptr noundef nonnull %6, i8 noundef zeroext 0, i64 noundef 48) #9
   store ptr %3, ptr %6, align 8, !tbaa !67
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -710,7 +704,7 @@ ft_vector_to_lv_vector.exit10.i:                  ; preds = %28, %ft_vector_to_l
   br i1 %.not.i11.i, label %outline_push_point.exit, label %38
 
 38:                                               ; preds = %ft_vector_to_lv_vector.exit10.i
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @lv_memset(ptr noundef nonnull %5, i8 noundef zeroext 0, i64 noundef 56) #9
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 36, ptr %39, align 8, !tbaa !62
@@ -720,21 +714,21 @@ ft_vector_to_lv_vector.exit10.i:                  ; preds = %28, %ft_vector_to_l
   store ptr null, ptr %41, align 8, !tbaa !66
   %42 = load ptr, ptr %36, align 8, !tbaa !59
   call void %42(ptr noundef nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %outline_push_point.exit
 
 outline_push_point.exit:                          ; preds = %ft_vector_to_lv_vector.exit10.i, %38
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 0
 }
 
-declare i32 @FT_Outline_Decompose(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @FT_Outline_Decompose(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @outline_delete(ptr noundef readonly captures(none) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca %struct._lv_event_t, align 8
   %4 = alloca %struct._lv_freetype_outline_event_param_t, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @lv_memset(ptr noundef nonnull %4, i8 noundef zeroext 0, i64 noundef 48) #9
   store ptr %1, ptr %4, align 8, !tbaa !67
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -743,7 +737,7 @@ define internal fastcc void @outline_delete(ptr noundef readonly captures(none) 
   br i1 %.not.i, label %outline_send_event.exit, label %7
 
 7:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @lv_memset(ptr noundef nonnull %3, i8 noundef zeroext 0, i64 noundef 56) #9
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 41, ptr %8, align 8, !tbaa !62
@@ -753,11 +747,11 @@ define internal fastcc void @outline_delete(ptr noundef readonly captures(none) 
   store ptr null, ptr %10, align 8, !tbaa !66
   %11 = load ptr, ptr %5, align 8, !tbaa !59
   call void %11(ptr noundef nonnull %3) #9
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %outline_send_event.exit
 
 outline_send_event.exit:                          ; preds = %2, %7
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -766,7 +760,7 @@ define internal fastcc range(i32 0, 2) i32 @outline_push_point(ptr noundef %0, i
   %6 = alloca %struct._lv_event_t, align 8
   %7 = alloca %struct._lv_freetype_outline_event_param_t, align 8
   %8 = tail call ptr @lv_freetype_get_context() #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @lv_memset(ptr noundef nonnull %7, i8 noundef zeroext 0, i64 noundef 48) #9
   store ptr %0, ptr %7, align 8, !tbaa !67
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -831,7 +825,7 @@ ft_vector_to_lv_vector.exit10:                    ; preds = %ft_vector_to_lv_vec
   br i1 %.not.i11, label %outline_send_event.exit, label %39
 
 39:                                               ; preds = %ft_vector_to_lv_vector.exit10
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @lv_memset(ptr noundef nonnull %6, i8 noundef zeroext 0, i64 noundef 56) #9
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 36, ptr %40, align 8, !tbaa !62
@@ -841,22 +835,28 @@ ft_vector_to_lv_vector.exit10:                    ; preds = %ft_vector_to_lv_vec
   store ptr null, ptr %42, align 8, !tbaa !66
   %43 = load ptr, ptr %37, align 8, !tbaa !59
   call void %43(ptr noundef nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %outline_send_event.exit
 
 outline_send_event.exit:                          ; preds = %ft_vector_to_lv_vector.exit10, %39
   %.0.i = phi i32 [ 1, %39 ], [ 0, %ft_vector_to_lv_vector.exit10 ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0.i
 }
 
-declare void @lv_memset(ptr noundef, i8 noundef zeroext, i64 noundef) local_unnamed_addr #4
+declare void @lv_memset(ptr noundef, i8 noundef zeroext, i64 noundef) local_unnamed_addr #3
 
-declare ptr @lv_cache_entry_get_data(ptr noundef) local_unnamed_addr #4
+declare ptr @lv_cache_entry_get_data(ptr noundef) local_unnamed_addr #3
 
-declare ptr @lv_cache_acquire_or_create(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @lv_cache_acquire_or_create(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @lv_cache_release(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @lv_cache_release(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
@@ -865,12 +865,12 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i32(i32, i32) #8
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #9 = { nounwind }

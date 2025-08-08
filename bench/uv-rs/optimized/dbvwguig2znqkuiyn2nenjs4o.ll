@@ -9,12 +9,12 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h242a32d6a7e4a3a7E(ptr noalias noundef nonnull readonly align 1 captures(none) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [8 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 0, ptr %3, align 8
   call void @"_ZN80_$LT$uv_platform_tags..platform_tag..PlatformTag$u20$as$u20$core..hash..Hash$GT$4hash17h2c5843925ef78edfE.llvm.13650873964992380408"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %3), !noalias !3
   %4 = load i64, ptr %3, align 8, !alias.scope !6, !noundef !9
   %5 = tail call noundef i64 @llvm.fshl.i64(i64 %4, i64 %4, i64 26)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %5
 }
 
@@ -744,7 +744,7 @@ define hidden void @"_ZN80_$LT$uv_platform_tags..platform_tag..PlatformTag$u20$a
 
 121:                                              ; preds = %100
   %122 = icmp samesign ugt i64 %95, 7
-  br i1 %122, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h0f2da22e165f9ea2E.exit.i.i.i", label %123
+  br i1 %122, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h0f2da22e165f9ea2E.exit64.i.i.i", label %123
 
 123:                                              ; preds = %121
   %.not.i.i.i = icmp samesign ult i64 %95, 2
@@ -767,11 +767,11 @@ define hidden void @"_ZN80_$LT$uv_platform_tags..platform_tag..PlatformTag$u20$a
   %138 = xor i64 %137, 1376283091369227076
   br label %_ZN4core4hash6Hasher9write_str17h01908a8da5f9c8a6E.exit
 
-"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h0f2da22e165f9ea2E.exit.i.i.i": ; preds = %121
-  %.sroa.027.0.copyload.i.i.i = load i32, ptr %97, align 1, !alias.scope !93, !noalias !94
+"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h0f2da22e165f9ea2E.exit64.i.i.i": ; preds = %121
   %139 = getelementptr i8, ptr %97, i64 %96
   %140 = getelementptr i8, ptr %139, i64 -4
   %.sroa.028.0.copyload.i.i.i = load i32, ptr %140, align 1, !alias.scope !93, !noalias !94
+  %.sroa.027.0.copyload.i.i.i = load i32, ptr %97, align 1, !alias.scope !93, !noalias !94
   %141 = zext i32 %.sroa.027.0.copyload.i.i.i to i64
   %142 = xor i64 %141, 2611923443488327891
   %143 = zext i32 %.sroa.028.0.copyload.i.i.i to i64
@@ -787,9 +787,9 @@ define hidden void @"_ZN80_$LT$uv_platform_tags..platform_tag..PlatformTag$u20$a
   %148 = xor i64 %.sroa.025.0.copyload.i.i.i, 1376283091369227076
   br label %_ZN4core4hash6Hasher9write_str17h01908a8da5f9c8a6E.exit
 
-_ZN4core4hash6Hasher9write_str17h01908a8da5f9c8a6E.exit: ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb69eb156f78ec503E.exit70.i.i.i", %123, %124, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h0f2da22e165f9ea2E.exit.i.i.i", %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb69eb156f78ec503E.exit86.i.i.i"
-  %.sroa.017.1.i.i.i = phi i64 [ %145, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb69eb156f78ec503E.exit86.i.i.i" ], [ %142, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h0f2da22e165f9ea2E.exit.i.i.i" ], [ %133, %124 ], [ 2611923443488327891, %123 ], [ %118, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb69eb156f78ec503E.exit70.i.i.i" ]
-  %.sroa.020.1.i.i.i = phi i64 [ %148, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb69eb156f78ec503E.exit86.i.i.i" ], [ %144, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h0f2da22e165f9ea2E.exit.i.i.i" ], [ %138, %124 ], [ 1376283091369227076, %123 ], [ %120, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb69eb156f78ec503E.exit70.i.i.i" ]
+_ZN4core4hash6Hasher9write_str17h01908a8da5f9c8a6E.exit: ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb69eb156f78ec503E.exit70.i.i.i", %123, %124, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h0f2da22e165f9ea2E.exit64.i.i.i", %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb69eb156f78ec503E.exit86.i.i.i"
+  %.sroa.017.1.i.i.i = phi i64 [ %145, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb69eb156f78ec503E.exit86.i.i.i" ], [ %142, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h0f2da22e165f9ea2E.exit64.i.i.i" ], [ %133, %124 ], [ 2611923443488327891, %123 ], [ %118, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb69eb156f78ec503E.exit70.i.i.i" ]
+  %.sroa.020.1.i.i.i = phi i64 [ %148, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb69eb156f78ec503E.exit86.i.i.i" ], [ %144, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h0f2da22e165f9ea2E.exit64.i.i.i" ], [ %138, %124 ], [ 1376283091369227076, %123 ], [ %120, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb69eb156f78ec503E.exit70.i.i.i" ]
   %149 = zext i64 %.sroa.017.1.i.i.i to i128
   %150 = zext i64 %.sroa.020.1.i.i.i to i128
   %151 = mul nuw i128 %150, %149
@@ -862,7 +862,7 @@ _ZN4core4hash6Hasher9write_str17h01908a8da5f9c8a6E.exit: ; preds = %"_ZN4core6re
 
 188:                                              ; preds = %167
   %189 = icmp samesign ugt i64 %162, 7
-  br i1 %189, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h0f2da22e165f9ea2E.exit.i.i.i15", label %190
+  br i1 %189, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h0f2da22e165f9ea2E.exit64.i.i.i15", label %190
 
 190:                                              ; preds = %188
   %.not.i.i.i14 = icmp samesign ult i64 %162, 2
@@ -885,14 +885,14 @@ _ZN4core4hash6Hasher9write_str17h01908a8da5f9c8a6E.exit: ; preds = %"_ZN4core6re
   %205 = xor i64 %204, 1376283091369227076
   br label %_ZN4core4hash6Hasher9write_str17h01908a8da5f9c8a6E.exit21
 
-"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h0f2da22e165f9ea2E.exit.i.i.i15": ; preds = %188
-  %.sroa.027.0.copyload.i.i.i16 = load i32, ptr %164, align 1, !alias.scope !109, !noalias !110
+"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h0f2da22e165f9ea2E.exit64.i.i.i15": ; preds = %188
   %206 = getelementptr i8, ptr %164, i64 %163
   %207 = getelementptr i8, ptr %206, i64 -4
-  %.sroa.028.0.copyload.i.i.i17 = load i32, ptr %207, align 1, !alias.scope !109, !noalias !110
-  %208 = zext i32 %.sroa.027.0.copyload.i.i.i16 to i64
+  %.sroa.028.0.copyload.i.i.i16 = load i32, ptr %207, align 1, !alias.scope !109, !noalias !110
+  %.sroa.027.0.copyload.i.i.i17 = load i32, ptr %164, align 1, !alias.scope !109, !noalias !110
+  %208 = zext i32 %.sroa.027.0.copyload.i.i.i17 to i64
   %209 = xor i64 %208, 2611923443488327891
-  %210 = zext i32 %.sroa.028.0.copyload.i.i.i17 to i64
+  %210 = zext i32 %.sroa.028.0.copyload.i.i.i16 to i64
   %211 = xor i64 %210, 1376283091369227076
   br label %_ZN4core4hash6Hasher9write_str17h01908a8da5f9c8a6E.exit21
 
@@ -905,9 +905,9 @@ _ZN4core4hash6Hasher9write_str17h01908a8da5f9c8a6E.exit: ; preds = %"_ZN4core6re
   %215 = xor i64 %.sroa.025.0.copyload.i.i.i20, 1376283091369227076
   br label %_ZN4core4hash6Hasher9write_str17h01908a8da5f9c8a6E.exit21
 
-_ZN4core4hash6Hasher9write_str17h01908a8da5f9c8a6E.exit21: ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb69eb156f78ec503E.exit70.i.i.i9", %190, %191, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h0f2da22e165f9ea2E.exit.i.i.i15", %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb69eb156f78ec503E.exit86.i.i.i18"
-  %.sroa.017.1.i.i.i12 = phi i64 [ %212, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb69eb156f78ec503E.exit86.i.i.i18" ], [ %209, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h0f2da22e165f9ea2E.exit.i.i.i15" ], [ %200, %191 ], [ 2611923443488327891, %190 ], [ %185, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb69eb156f78ec503E.exit70.i.i.i9" ]
-  %.sroa.020.1.i.i.i13 = phi i64 [ %215, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb69eb156f78ec503E.exit86.i.i.i18" ], [ %211, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h0f2da22e165f9ea2E.exit.i.i.i15" ], [ %205, %191 ], [ 1376283091369227076, %190 ], [ %187, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb69eb156f78ec503E.exit70.i.i.i9" ]
+_ZN4core4hash6Hasher9write_str17h01908a8da5f9c8a6E.exit21: ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb69eb156f78ec503E.exit70.i.i.i9", %190, %191, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h0f2da22e165f9ea2E.exit64.i.i.i15", %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb69eb156f78ec503E.exit86.i.i.i18"
+  %.sroa.017.1.i.i.i12 = phi i64 [ %212, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb69eb156f78ec503E.exit86.i.i.i18" ], [ %209, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h0f2da22e165f9ea2E.exit64.i.i.i15" ], [ %200, %191 ], [ 2611923443488327891, %190 ], [ %185, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb69eb156f78ec503E.exit70.i.i.i9" ]
+  %.sroa.020.1.i.i.i13 = phi i64 [ %215, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb69eb156f78ec503E.exit86.i.i.i18" ], [ %211, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h0f2da22e165f9ea2E.exit64.i.i.i15" ], [ %205, %191 ], [ 1376283091369227076, %190 ], [ %187, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb69eb156f78ec503E.exit70.i.i.i9" ]
   %216 = zext i64 %.sroa.017.1.i.i.i12 to i128
   %217 = zext i64 %.sroa.020.1.i.i.i13 to i128
   %218 = mul nuw i128 %217, %216
@@ -980,7 +980,7 @@ _ZN4core4hash6Hasher9write_str17h01908a8da5f9c8a6E.exit21: ; preds = %"_ZN4core6
 
 255:                                              ; preds = %234
   %256 = icmp samesign ugt i64 %229, 7
-  br i1 %256, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h0f2da22e165f9ea2E.exit.i.i.i36", label %257
+  br i1 %256, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h0f2da22e165f9ea2E.exit64.i.i.i36", label %257
 
 257:                                              ; preds = %255
   %.not.i.i.i35 = icmp samesign ult i64 %229, 2
@@ -1003,14 +1003,14 @@ _ZN4core4hash6Hasher9write_str17h01908a8da5f9c8a6E.exit21: ; preds = %"_ZN4core6
   %272 = xor i64 %271, 1376283091369227076
   br label %_ZN4core4hash6Hasher9write_str17h01908a8da5f9c8a6E.exit42
 
-"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h0f2da22e165f9ea2E.exit.i.i.i36": ; preds = %255
-  %.sroa.027.0.copyload.i.i.i37 = load i32, ptr %231, align 1, !alias.scope !125, !noalias !126
+"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h0f2da22e165f9ea2E.exit64.i.i.i36": ; preds = %255
   %273 = getelementptr i8, ptr %231, i64 %230
   %274 = getelementptr i8, ptr %273, i64 -4
-  %.sroa.028.0.copyload.i.i.i38 = load i32, ptr %274, align 1, !alias.scope !125, !noalias !126
-  %275 = zext i32 %.sroa.027.0.copyload.i.i.i37 to i64
+  %.sroa.028.0.copyload.i.i.i37 = load i32, ptr %274, align 1, !alias.scope !125, !noalias !126
+  %.sroa.027.0.copyload.i.i.i38 = load i32, ptr %231, align 1, !alias.scope !125, !noalias !126
+  %275 = zext i32 %.sroa.027.0.copyload.i.i.i38 to i64
   %276 = xor i64 %275, 2611923443488327891
-  %277 = zext i32 %.sroa.028.0.copyload.i.i.i38 to i64
+  %277 = zext i32 %.sroa.028.0.copyload.i.i.i37 to i64
   %278 = xor i64 %277, 1376283091369227076
   br label %_ZN4core4hash6Hasher9write_str17h01908a8da5f9c8a6E.exit42
 
@@ -1023,9 +1023,9 @@ _ZN4core4hash6Hasher9write_str17h01908a8da5f9c8a6E.exit21: ; preds = %"_ZN4core6
   %282 = xor i64 %.sroa.025.0.copyload.i.i.i41, 1376283091369227076
   br label %_ZN4core4hash6Hasher9write_str17h01908a8da5f9c8a6E.exit42
 
-_ZN4core4hash6Hasher9write_str17h01908a8da5f9c8a6E.exit42: ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb69eb156f78ec503E.exit70.i.i.i30", %257, %258, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h0f2da22e165f9ea2E.exit.i.i.i36", %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb69eb156f78ec503E.exit86.i.i.i39"
-  %.sroa.017.1.i.i.i33 = phi i64 [ %279, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb69eb156f78ec503E.exit86.i.i.i39" ], [ %276, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h0f2da22e165f9ea2E.exit.i.i.i36" ], [ %267, %258 ], [ 2611923443488327891, %257 ], [ %252, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb69eb156f78ec503E.exit70.i.i.i30" ]
-  %.sroa.020.1.i.i.i34 = phi i64 [ %282, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb69eb156f78ec503E.exit86.i.i.i39" ], [ %278, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h0f2da22e165f9ea2E.exit.i.i.i36" ], [ %272, %258 ], [ 1376283091369227076, %257 ], [ %254, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb69eb156f78ec503E.exit70.i.i.i30" ]
+_ZN4core4hash6Hasher9write_str17h01908a8da5f9c8a6E.exit42: ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb69eb156f78ec503E.exit70.i.i.i30", %257, %258, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h0f2da22e165f9ea2E.exit64.i.i.i36", %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb69eb156f78ec503E.exit86.i.i.i39"
+  %.sroa.017.1.i.i.i33 = phi i64 [ %279, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb69eb156f78ec503E.exit86.i.i.i39" ], [ %276, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h0f2da22e165f9ea2E.exit64.i.i.i36" ], [ %267, %258 ], [ 2611923443488327891, %257 ], [ %252, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb69eb156f78ec503E.exit70.i.i.i30" ]
+  %.sroa.020.1.i.i.i34 = phi i64 [ %282, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb69eb156f78ec503E.exit86.i.i.i39" ], [ %278, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h0f2da22e165f9ea2E.exit64.i.i.i36" ], [ %272, %258 ], [ 1376283091369227076, %257 ], [ %254, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb69eb156f78ec503E.exit70.i.i.i30" ]
   %283 = zext i64 %.sroa.017.1.i.i.i33 to i128
   %284 = zext i64 %.sroa.020.1.i.i.i34 to i128
   %285 = mul nuw i128 %284, %283
@@ -1098,7 +1098,7 @@ _ZN4core4hash6Hasher9write_str17h01908a8da5f9c8a6E.exit42: ; preds = %"_ZN4core6
 
 322:                                              ; preds = %301
   %323 = icmp samesign ugt i64 %296, 7
-  br i1 %323, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h0f2da22e165f9ea2E.exit.i.i.i57", label %324
+  br i1 %323, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h0f2da22e165f9ea2E.exit64.i.i.i57", label %324
 
 324:                                              ; preds = %322
   %.not.i.i.i56 = icmp samesign ult i64 %296, 2
@@ -1121,14 +1121,14 @@ _ZN4core4hash6Hasher9write_str17h01908a8da5f9c8a6E.exit42: ; preds = %"_ZN4core6
   %339 = xor i64 %338, 1376283091369227076
   br label %_ZN4core4hash6Hasher9write_str17h01908a8da5f9c8a6E.exit63
 
-"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h0f2da22e165f9ea2E.exit.i.i.i57": ; preds = %322
-  %.sroa.027.0.copyload.i.i.i58 = load i32, ptr %298, align 1, !alias.scope !141, !noalias !142
+"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h0f2da22e165f9ea2E.exit64.i.i.i57": ; preds = %322
   %340 = getelementptr i8, ptr %298, i64 %297
   %341 = getelementptr i8, ptr %340, i64 -4
-  %.sroa.028.0.copyload.i.i.i59 = load i32, ptr %341, align 1, !alias.scope !141, !noalias !142
-  %342 = zext i32 %.sroa.027.0.copyload.i.i.i58 to i64
+  %.sroa.028.0.copyload.i.i.i58 = load i32, ptr %341, align 1, !alias.scope !141, !noalias !142
+  %.sroa.027.0.copyload.i.i.i59 = load i32, ptr %298, align 1, !alias.scope !141, !noalias !142
+  %342 = zext i32 %.sroa.027.0.copyload.i.i.i59 to i64
   %343 = xor i64 %342, 2611923443488327891
-  %344 = zext i32 %.sroa.028.0.copyload.i.i.i59 to i64
+  %344 = zext i32 %.sroa.028.0.copyload.i.i.i58 to i64
   %345 = xor i64 %344, 1376283091369227076
   br label %_ZN4core4hash6Hasher9write_str17h01908a8da5f9c8a6E.exit63
 
@@ -1141,9 +1141,9 @@ _ZN4core4hash6Hasher9write_str17h01908a8da5f9c8a6E.exit42: ; preds = %"_ZN4core6
   %349 = xor i64 %.sroa.025.0.copyload.i.i.i62, 1376283091369227076
   br label %_ZN4core4hash6Hasher9write_str17h01908a8da5f9c8a6E.exit63
 
-_ZN4core4hash6Hasher9write_str17h01908a8da5f9c8a6E.exit63: ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb69eb156f78ec503E.exit70.i.i.i51", %324, %325, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h0f2da22e165f9ea2E.exit.i.i.i57", %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb69eb156f78ec503E.exit86.i.i.i60"
-  %.sroa.017.1.i.i.i54 = phi i64 [ %346, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb69eb156f78ec503E.exit86.i.i.i60" ], [ %343, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h0f2da22e165f9ea2E.exit.i.i.i57" ], [ %334, %325 ], [ 2611923443488327891, %324 ], [ %319, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb69eb156f78ec503E.exit70.i.i.i51" ]
-  %.sroa.020.1.i.i.i55 = phi i64 [ %349, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb69eb156f78ec503E.exit86.i.i.i60" ], [ %345, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h0f2da22e165f9ea2E.exit.i.i.i57" ], [ %339, %325 ], [ 1376283091369227076, %324 ], [ %321, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb69eb156f78ec503E.exit70.i.i.i51" ]
+_ZN4core4hash6Hasher9write_str17h01908a8da5f9c8a6E.exit63: ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb69eb156f78ec503E.exit70.i.i.i51", %324, %325, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h0f2da22e165f9ea2E.exit64.i.i.i57", %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb69eb156f78ec503E.exit86.i.i.i60"
+  %.sroa.017.1.i.i.i54 = phi i64 [ %346, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb69eb156f78ec503E.exit86.i.i.i60" ], [ %343, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h0f2da22e165f9ea2E.exit64.i.i.i57" ], [ %334, %325 ], [ 2611923443488327891, %324 ], [ %319, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb69eb156f78ec503E.exit70.i.i.i51" ]
+  %.sroa.020.1.i.i.i55 = phi i64 [ %349, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb69eb156f78ec503E.exit86.i.i.i60" ], [ %345, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h0f2da22e165f9ea2E.exit64.i.i.i57" ], [ %339, %325 ], [ 1376283091369227076, %324 ], [ %321, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb69eb156f78ec503E.exit70.i.i.i51" ]
   %350 = zext i64 %.sroa.017.1.i.i.i54 to i128
   %351 = zext i64 %.sroa.020.1.i.i.i55 to i128
   %352 = mul nuw i128 %351, %350
@@ -1216,7 +1216,7 @@ _ZN4core4hash6Hasher9write_str17h01908a8da5f9c8a6E.exit63: ; preds = %"_ZN4core6
 
 389:                                              ; preds = %368
   %390 = icmp samesign ugt i64 %363, 7
-  br i1 %390, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h0f2da22e165f9ea2E.exit.i.i.i78", label %391
+  br i1 %390, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h0f2da22e165f9ea2E.exit64.i.i.i78", label %391
 
 391:                                              ; preds = %389
   %.not.i.i.i77 = icmp samesign ult i64 %363, 2
@@ -1239,14 +1239,14 @@ _ZN4core4hash6Hasher9write_str17h01908a8da5f9c8a6E.exit63: ; preds = %"_ZN4core6
   %406 = xor i64 %405, 1376283091369227076
   br label %_ZN4core4hash6Hasher9write_str17h01908a8da5f9c8a6E.exit84
 
-"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h0f2da22e165f9ea2E.exit.i.i.i78": ; preds = %389
-  %.sroa.027.0.copyload.i.i.i79 = load i32, ptr %365, align 1, !alias.scope !157, !noalias !158
+"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h0f2da22e165f9ea2E.exit64.i.i.i78": ; preds = %389
   %407 = getelementptr i8, ptr %365, i64 %364
   %408 = getelementptr i8, ptr %407, i64 -4
-  %.sroa.028.0.copyload.i.i.i80 = load i32, ptr %408, align 1, !alias.scope !157, !noalias !158
-  %409 = zext i32 %.sroa.027.0.copyload.i.i.i79 to i64
+  %.sroa.028.0.copyload.i.i.i79 = load i32, ptr %408, align 1, !alias.scope !157, !noalias !158
+  %.sroa.027.0.copyload.i.i.i80 = load i32, ptr %365, align 1, !alias.scope !157, !noalias !158
+  %409 = zext i32 %.sroa.027.0.copyload.i.i.i80 to i64
   %410 = xor i64 %409, 2611923443488327891
-  %411 = zext i32 %.sroa.028.0.copyload.i.i.i80 to i64
+  %411 = zext i32 %.sroa.028.0.copyload.i.i.i79 to i64
   %412 = xor i64 %411, 1376283091369227076
   br label %_ZN4core4hash6Hasher9write_str17h01908a8da5f9c8a6E.exit84
 
@@ -1259,9 +1259,9 @@ _ZN4core4hash6Hasher9write_str17h01908a8da5f9c8a6E.exit63: ; preds = %"_ZN4core6
   %416 = xor i64 %.sroa.025.0.copyload.i.i.i83, 1376283091369227076
   br label %_ZN4core4hash6Hasher9write_str17h01908a8da5f9c8a6E.exit84
 
-_ZN4core4hash6Hasher9write_str17h01908a8da5f9c8a6E.exit84: ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb69eb156f78ec503E.exit70.i.i.i72", %391, %392, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h0f2da22e165f9ea2E.exit.i.i.i78", %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb69eb156f78ec503E.exit86.i.i.i81"
-  %.sroa.017.1.i.i.i75 = phi i64 [ %413, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb69eb156f78ec503E.exit86.i.i.i81" ], [ %410, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h0f2da22e165f9ea2E.exit.i.i.i78" ], [ %401, %392 ], [ 2611923443488327891, %391 ], [ %386, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb69eb156f78ec503E.exit70.i.i.i72" ]
-  %.sroa.020.1.i.i.i76 = phi i64 [ %416, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb69eb156f78ec503E.exit86.i.i.i81" ], [ %412, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h0f2da22e165f9ea2E.exit.i.i.i78" ], [ %406, %392 ], [ 1376283091369227076, %391 ], [ %388, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb69eb156f78ec503E.exit70.i.i.i72" ]
+_ZN4core4hash6Hasher9write_str17h01908a8da5f9c8a6E.exit84: ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb69eb156f78ec503E.exit70.i.i.i72", %391, %392, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h0f2da22e165f9ea2E.exit64.i.i.i78", %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb69eb156f78ec503E.exit86.i.i.i81"
+  %.sroa.017.1.i.i.i75 = phi i64 [ %413, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb69eb156f78ec503E.exit86.i.i.i81" ], [ %410, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h0f2da22e165f9ea2E.exit64.i.i.i78" ], [ %401, %392 ], [ 2611923443488327891, %391 ], [ %386, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb69eb156f78ec503E.exit70.i.i.i72" ]
+  %.sroa.020.1.i.i.i76 = phi i64 [ %416, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb69eb156f78ec503E.exit86.i.i.i81" ], [ %412, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h0f2da22e165f9ea2E.exit64.i.i.i78" ], [ %406, %392 ], [ 1376283091369227076, %391 ], [ %388, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb69eb156f78ec503E.exit70.i.i.i72" ]
   %417 = zext i64 %.sroa.017.1.i.i.i75 to i128
   %418 = zext i64 %.sroa.020.1.i.i.i76 to i128
   %419 = mul nuw i128 %418, %417
@@ -1334,7 +1334,7 @@ _ZN4core4hash6Hasher9write_str17h01908a8da5f9c8a6E.exit84: ; preds = %"_ZN4core6
 
 456:                                              ; preds = %435
   %457 = icmp samesign ugt i64 %430, 7
-  br i1 %457, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h0f2da22e165f9ea2E.exit.i.i.i99", label %458
+  br i1 %457, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h0f2da22e165f9ea2E.exit64.i.i.i99", label %458
 
 458:                                              ; preds = %456
   %.not.i.i.i98 = icmp samesign ult i64 %430, 2
@@ -1357,14 +1357,14 @@ _ZN4core4hash6Hasher9write_str17h01908a8da5f9c8a6E.exit84: ; preds = %"_ZN4core6
   %473 = xor i64 %472, 1376283091369227076
   br label %_ZN4core4hash6Hasher9write_str17h01908a8da5f9c8a6E.exit105
 
-"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h0f2da22e165f9ea2E.exit.i.i.i99": ; preds = %456
-  %.sroa.027.0.copyload.i.i.i100 = load i32, ptr %432, align 1, !alias.scope !173, !noalias !174
+"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h0f2da22e165f9ea2E.exit64.i.i.i99": ; preds = %456
   %474 = getelementptr i8, ptr %432, i64 %431
   %475 = getelementptr i8, ptr %474, i64 -4
-  %.sroa.028.0.copyload.i.i.i101 = load i32, ptr %475, align 1, !alias.scope !173, !noalias !174
-  %476 = zext i32 %.sroa.027.0.copyload.i.i.i100 to i64
+  %.sroa.028.0.copyload.i.i.i100 = load i32, ptr %475, align 1, !alias.scope !173, !noalias !174
+  %.sroa.027.0.copyload.i.i.i101 = load i32, ptr %432, align 1, !alias.scope !173, !noalias !174
+  %476 = zext i32 %.sroa.027.0.copyload.i.i.i101 to i64
   %477 = xor i64 %476, 2611923443488327891
-  %478 = zext i32 %.sroa.028.0.copyload.i.i.i101 to i64
+  %478 = zext i32 %.sroa.028.0.copyload.i.i.i100 to i64
   %479 = xor i64 %478, 1376283091369227076
   br label %_ZN4core4hash6Hasher9write_str17h01908a8da5f9c8a6E.exit105
 
@@ -1377,9 +1377,9 @@ _ZN4core4hash6Hasher9write_str17h01908a8da5f9c8a6E.exit84: ; preds = %"_ZN4core6
   %483 = xor i64 %.sroa.025.0.copyload.i.i.i104, 1376283091369227076
   br label %_ZN4core4hash6Hasher9write_str17h01908a8da5f9c8a6E.exit105
 
-_ZN4core4hash6Hasher9write_str17h01908a8da5f9c8a6E.exit105: ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb69eb156f78ec503E.exit70.i.i.i93", %458, %459, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h0f2da22e165f9ea2E.exit.i.i.i99", %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb69eb156f78ec503E.exit86.i.i.i102"
-  %.sroa.017.1.i.i.i96 = phi i64 [ %480, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb69eb156f78ec503E.exit86.i.i.i102" ], [ %477, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h0f2da22e165f9ea2E.exit.i.i.i99" ], [ %468, %459 ], [ 2611923443488327891, %458 ], [ %453, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb69eb156f78ec503E.exit70.i.i.i93" ]
-  %.sroa.020.1.i.i.i97 = phi i64 [ %483, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb69eb156f78ec503E.exit86.i.i.i102" ], [ %479, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h0f2da22e165f9ea2E.exit.i.i.i99" ], [ %473, %459 ], [ 1376283091369227076, %458 ], [ %455, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb69eb156f78ec503E.exit70.i.i.i93" ]
+_ZN4core4hash6Hasher9write_str17h01908a8da5f9c8a6E.exit105: ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb69eb156f78ec503E.exit70.i.i.i93", %458, %459, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h0f2da22e165f9ea2E.exit64.i.i.i99", %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb69eb156f78ec503E.exit86.i.i.i102"
+  %.sroa.017.1.i.i.i96 = phi i64 [ %480, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb69eb156f78ec503E.exit86.i.i.i102" ], [ %477, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h0f2da22e165f9ea2E.exit64.i.i.i99" ], [ %468, %459 ], [ 2611923443488327891, %458 ], [ %453, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb69eb156f78ec503E.exit70.i.i.i93" ]
+  %.sroa.020.1.i.i.i97 = phi i64 [ %483, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb69eb156f78ec503E.exit86.i.i.i102" ], [ %479, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h0f2da22e165f9ea2E.exit64.i.i.i99" ], [ %473, %459 ], [ 1376283091369227076, %458 ], [ %455, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb69eb156f78ec503E.exit70.i.i.i93" ]
   %484 = zext i64 %.sroa.017.1.i.i.i96 to i128
   %485 = zext i64 %.sroa.020.1.i.i.i97 to i128
   %486 = mul nuw i128 %485, %484
@@ -1452,7 +1452,7 @@ _ZN4core4hash6Hasher9write_str17h01908a8da5f9c8a6E.exit105: ; preds = %"_ZN4core
 
 523:                                              ; preds = %502
   %524 = icmp samesign ugt i64 %497, 7
-  br i1 %524, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h0f2da22e165f9ea2E.exit.i.i.i120", label %525
+  br i1 %524, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h0f2da22e165f9ea2E.exit64.i.i.i120", label %525
 
 525:                                              ; preds = %523
   %.not.i.i.i119 = icmp samesign ult i64 %497, 2
@@ -1475,14 +1475,14 @@ _ZN4core4hash6Hasher9write_str17h01908a8da5f9c8a6E.exit105: ; preds = %"_ZN4core
   %540 = xor i64 %539, 1376283091369227076
   br label %_ZN4core4hash6Hasher9write_str17h01908a8da5f9c8a6E.exit126
 
-"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h0f2da22e165f9ea2E.exit.i.i.i120": ; preds = %523
-  %.sroa.027.0.copyload.i.i.i121 = load i32, ptr %499, align 1, !alias.scope !189, !noalias !190
+"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h0f2da22e165f9ea2E.exit64.i.i.i120": ; preds = %523
   %541 = getelementptr i8, ptr %499, i64 %498
   %542 = getelementptr i8, ptr %541, i64 -4
-  %.sroa.028.0.copyload.i.i.i122 = load i32, ptr %542, align 1, !alias.scope !189, !noalias !190
-  %543 = zext i32 %.sroa.027.0.copyload.i.i.i121 to i64
+  %.sroa.028.0.copyload.i.i.i121 = load i32, ptr %542, align 1, !alias.scope !189, !noalias !190
+  %.sroa.027.0.copyload.i.i.i122 = load i32, ptr %499, align 1, !alias.scope !189, !noalias !190
+  %543 = zext i32 %.sroa.027.0.copyload.i.i.i122 to i64
   %544 = xor i64 %543, 2611923443488327891
-  %545 = zext i32 %.sroa.028.0.copyload.i.i.i122 to i64
+  %545 = zext i32 %.sroa.028.0.copyload.i.i.i121 to i64
   %546 = xor i64 %545, 1376283091369227076
   br label %_ZN4core4hash6Hasher9write_str17h01908a8da5f9c8a6E.exit126
 
@@ -1495,9 +1495,9 @@ _ZN4core4hash6Hasher9write_str17h01908a8da5f9c8a6E.exit105: ; preds = %"_ZN4core
   %550 = xor i64 %.sroa.025.0.copyload.i.i.i125, 1376283091369227076
   br label %_ZN4core4hash6Hasher9write_str17h01908a8da5f9c8a6E.exit126
 
-_ZN4core4hash6Hasher9write_str17h01908a8da5f9c8a6E.exit126: ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb69eb156f78ec503E.exit70.i.i.i114", %525, %526, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h0f2da22e165f9ea2E.exit.i.i.i120", %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb69eb156f78ec503E.exit86.i.i.i123"
-  %.sroa.017.1.i.i.i117 = phi i64 [ %547, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb69eb156f78ec503E.exit86.i.i.i123" ], [ %544, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h0f2da22e165f9ea2E.exit.i.i.i120" ], [ %535, %526 ], [ 2611923443488327891, %525 ], [ %520, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb69eb156f78ec503E.exit70.i.i.i114" ]
-  %.sroa.020.1.i.i.i118 = phi i64 [ %550, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb69eb156f78ec503E.exit86.i.i.i123" ], [ %546, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h0f2da22e165f9ea2E.exit.i.i.i120" ], [ %540, %526 ], [ 1376283091369227076, %525 ], [ %522, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb69eb156f78ec503E.exit70.i.i.i114" ]
+_ZN4core4hash6Hasher9write_str17h01908a8da5f9c8a6E.exit126: ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb69eb156f78ec503E.exit70.i.i.i114", %525, %526, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h0f2da22e165f9ea2E.exit64.i.i.i120", %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb69eb156f78ec503E.exit86.i.i.i123"
+  %.sroa.017.1.i.i.i117 = phi i64 [ %547, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb69eb156f78ec503E.exit86.i.i.i123" ], [ %544, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h0f2da22e165f9ea2E.exit64.i.i.i120" ], [ %535, %526 ], [ 2611923443488327891, %525 ], [ %520, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb69eb156f78ec503E.exit70.i.i.i114" ]
+  %.sroa.020.1.i.i.i118 = phi i64 [ %550, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb69eb156f78ec503E.exit86.i.i.i123" ], [ %546, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h0f2da22e165f9ea2E.exit64.i.i.i120" ], [ %540, %526 ], [ 1376283091369227076, %525 ], [ %522, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb69eb156f78ec503E.exit70.i.i.i114" ]
   %551 = zext i64 %.sroa.017.1.i.i.i117 to i128
   %552 = zext i64 %.sroa.020.1.i.i.i118 to i128
   %553 = mul nuw i128 %552, %551
@@ -1521,10 +1521,10 @@ declare noundef range(i32 0, 10) i32 @rust_eh_personality(i32 noundef, i32 nound
 declare i64 @llvm.fshl.i64(i64, i64, i64) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #11

@@ -32,13 +32,7 @@ define hidden i64 @roseDelayRebuildCallback(i64 noundef %0, i32 noundef %1, ptr 
   ret i64 %18
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare i64 @roseRunProgram(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef, i8 noundef zeroext) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i64 @roseRunProgram(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i64 -1, 1) i64 @roseHandleChainMatch(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 noundef %3, i64 noundef %4, i8 noundef signext %5) local_unnamed_addr #0 {
@@ -1250,9 +1244,9 @@ ensureQueueFlushed_i.exit.thread:                 ; preds = %ensureQueueFlushed_
   ret i64 %.0
 }
 
-declare signext i8 @nfaQueueInitState(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare signext i8 @nfaQueueInitState(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare signext i8 @nfaQueueExec(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare signext i8 @nfaQueueExec(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @roseAnchoredCallback(i64 noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
@@ -1300,7 +1294,7 @@ define hidden range(i32 0, 2) i32 @roseAnchoredCallback(i64 noundef %0, i64 noun
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 256
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 1
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %36 = icmp ugt i32 %32, 256
   br i1 %36, label %187, label %37
 
@@ -1735,7 +1729,7 @@ mmbit_mask_index.exit:                            ; preds = %202
   br label %199
 
 mmbit_sparse_iter_unset.exit:                     ; preds = %179, %246, %102, %mmbit_get_flat_block.exit.i, %147, %148, %156, %161, %166, %168, %173, %176, %187, %mmbit_get_flat_block.exit45.i, %70, %71, %79, %84, %89, %91, %96, %99
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %roseFlushLastByteHistory.exit
 
 roseFlushLastByteHistory.exit:                    ; preds = %18, %21, %mmbit_sparse_iter_unset.exit
@@ -1902,7 +1896,7 @@ anchored_it_begin.exit:                           ; preds = %20, %14, %3
   %98 = load i32, ptr %63, align 8
   %99 = load ptr, ptr %64, align 8
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 1
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %101 = icmp ugt i32 %98, 256
   br i1 %101, label %252, label %102
 
@@ -2336,7 +2330,7 @@ mmbit_mask_index.exit99:                          ; preds = %266
   br label %263
 
 mmbit_sparse_iter_unset.exit66:                   ; preds = %244, %310, %167, %mmbit_get_flat_block.exit.i, %212, %213, %221, %226, %231, %233, %238, %241, %252, %mmbit_get_flat_block.exit45.i, %135, %136, %144, %149, %154, %156, %161, %164
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %roseFlushLastByteHistory.exit.i
 
 roseFlushLastByteHistory.exit.i:                  ; preds = %mmbit_sparse_iter_unset.exit66, %89, %.lr.ph518
@@ -2929,7 +2923,7 @@ flushAnchoredLiterals.exit:                       ; preds = %bf64_iterate.exit10
   %666 = load i32, ptr %63, align 8
   %667 = load ptr, ptr %64, align 8
   %668 = getelementptr inbounds nuw i8, ptr %667, i64 1
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %669 = icmp ugt i32 %666, 256
   br i1 %669, label %820, label %670
 
@@ -3363,7 +3357,7 @@ mmbit_mask_index.exit.i:                          ; preds = %834
   br label %831
 
 mmbit_sparse_iter_unset.exit.i:                   ; preds = %812, %878, %735, %809, %806, %801, %799, %794, %789, %781, %780, %mmbit_get_flat_block.exit.i.i, %820, %732, %729, %724, %722, %717, %712, %704, %703, %mmbit_get_flat_block.exit45.i.i
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %roseFlushLastByteHistory.exit.i119
 
 roseFlushLastByteHistory.exit.i119:               ; preds = %mmbit_sparse_iter_unset.exit.i, %657, %655
@@ -3949,7 +3943,7 @@ playVictims.exit:                                 ; preds = %.critedge.backedge,
   %1228 = load i32, ptr %1206, align 8
   %1229 = load ptr, ptr %1207, align 8
   %1230 = getelementptr inbounds nuw i8, ptr %1229, i64 1
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %1231 = icmp ugt i32 %1228, 256
   br i1 %1231, label %1382, label %1232
 
@@ -4383,7 +4377,7 @@ mmbit_mask_index.exit:                            ; preds = %1396
   br label %1393
 
 mmbit_sparse_iter_unset.exit:                     ; preds = %1374, %1440, %1297, %mmbit_get_flat_block.exit.i75, %1342, %1343, %1351, %1356, %1361, %1363, %1368, %1371, %1382, %mmbit_get_flat_block.exit45.i79, %1265, %1266, %1274, %1279, %1284, %1286, %1291, %1294
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %roseFlushLastByteHistory.exit.i61
 
 roseFlushLastByteHistory.exit.i61:                ; preds = %mmbit_sparse_iter_unset.exit, %1219, %1214
@@ -5030,7 +5024,7 @@ flushQueuedLiterals.exit:                         ; preds = %13, %23, %24
   %47 = getelementptr inbounds nuw i8, ptr %2, i64 256
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 1
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %50 = icmp ugt i32 %46, 256
   br i1 %50, label %201, label %51
 
@@ -5465,7 +5459,7 @@ mmbit_mask_index.exit:                            ; preds = %216
   br label %213
 
 mmbit_sparse_iter_unset.exit:                     ; preds = %193, %260, %116, %mmbit_get_flat_block.exit.i, %161, %162, %170, %175, %180, %182, %187, %190, %201, %mmbit_get_flat_block.exit45.i, %84, %85, %93, %98, %103, %105, %110, %113
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %roseFlushLastByteHistory.exit.i
 
 roseFlushLastByteHistory.exit.i:                  ; preds = %mmbit_sparse_iter_unset.exit, %33, %30
@@ -5580,7 +5574,7 @@ flushQueuedLiterals.exit:                         ; preds = %13, %23, %24
   %47 = getelementptr inbounds nuw i8, ptr %2, i64 256
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 1
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %50 = icmp ugt i32 %46, 256
   br i1 %50, label %201, label %51
 
@@ -6015,7 +6009,7 @@ mmbit_mask_index.exit:                            ; preds = %216
   br label %213
 
 mmbit_sparse_iter_unset.exit:                     ; preds = %193, %260, %116, %mmbit_get_flat_block.exit.i, %161, %162, %170, %175, %180, %182, %187, %190, %201, %mmbit_get_flat_block.exit45.i, %84, %85, %93, %98, %103, %105, %110, %113
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %roseFlushLastByteHistory.exit.i
 
 roseFlushLastByteHistory.exit.i:                  ; preds = %mmbit_sparse_iter_unset.exit, %33, %30
@@ -6155,27 +6149,33 @@ define hidden range(i32 0, 2) i32 @roseReportAdaptor(i64 noundef %0, i64 noundef
   ret i32 %.016
 }
 
-declare i64 @roseRunProgram_l(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef, i8 noundef zeroext) local_unnamed_addr #2
+declare i64 @roseRunProgram_l(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #3
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #2
 
-declare i32 @roseNfaAdaptor(i64 noundef, i64 noundef, i32 noundef, ptr noundef) #2
+declare i32 @roseNfaAdaptor(i64 noundef, i64 noundef, i32 noundef, ptr noundef) #1
 
-declare signext i8 @nfaExpandState(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i8 noundef zeroext) local_unnamed_addr #2
+declare signext i8 @nfaExpandState(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i8 noundef zeroext) local_unnamed_addr #1
 
-declare i64 @roseCatchUpMPV_i(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare i64 @roseCatchUpMPV_i(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i64 @roseCatchUpAll(i64 noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.cttz.i64(i64, i1 immarg) #3
+declare i64 @roseCatchUpAll(i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctpop.i64(i64) #3
+declare i64 @llvm.cttz.i64(i64, i1 immarg) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.ctpop.i64(i64) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #5
@@ -6187,10 +6187,10 @@ declare i32 @llvm.umin.i32(i32, i32) #5
 declare i64 @llvm.umax.i64(i64, i64) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nounwind }
 attributes #7 = { nounwind memory(none) }

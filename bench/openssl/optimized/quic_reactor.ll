@@ -224,7 +224,7 @@ define i64 @ossl_quic_reactor_get_tick_deadline(ptr noundef readonly captures(no
 ; Function Attrs: nounwind uwtable
 define noundef i32 @ossl_quic_reactor_tick(ptr noundef initializes((32, 40)) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.quic_tick_result_st, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8, !tbaa !17
@@ -289,18 +289,12 @@ define noundef i32 @ossl_quic_reactor_tick(ptr noundef initializes((32, 40)) %0,
   br i1 %.not9.i, label %rtor_notify_other_threads.exit, label %38, !llvm.loop !30
 
 rtor_notify_other_threads.exit:                   ; preds = %38, %25, %2
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 1
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @ossl_quic_reactor_get0_notifier(ptr noundef readonly captures(ret: address, provenance) %0) local_unnamed_addr #4 {
@@ -355,7 +349,7 @@ define i32 @ossl_quic_reactor_block_until_pred(ptr noundef %0, ptr noundef reado
   br i1 %.not27, label %31, label %59
 
 31:                                               ; preds = %29
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   %32 = load ptr, ptr %14, align 8, !tbaa !17
   %33 = load ptr, ptr %15, align 8, !tbaa !18
@@ -409,7 +403,7 @@ define i32 @ossl_quic_reactor_block_until_pred(ptr noundef %0, ptr noundef reado
   br i1 %.not9.i.i, label %ossl_quic_reactor_tick.exit, label %.lr.ph.i.i, !llvm.loop !30
 
 ossl_quic_reactor_tick.exit:                      ; preds = %.lr.ph.i.i, %31, %46
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %59
 
 59:                                               ; preds = %29, %ossl_quic_reactor_tick.exit
@@ -462,7 +456,7 @@ poll_descriptor_to_fd.exit.i:                     ; preds = %73, %68
 
 poll_descriptor_to_fd.exit10.i:                   ; preds = %77, %poll_descriptor_to_fd.exit.i
   %.sink.i8.i = phi i32 [ -1, %poll_descriptor_to_fd.exit.i ], [ %78, %77 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   %80 = icmp eq i32 %.sink.i.i, %.sink.i8.i
   store i32 %.sink.i.i, ptr %5, align 16, !tbaa !33
@@ -574,7 +568,7 @@ poll_two_fds.exit.i:                              ; preds = %97, %116
   %.pre40 = phi i8 [ %.pre40.pre, %116 ], [ %62, %97 ]
   %.pre = phi i64 [ %118, %116 ], [ %69, %97 ]
   %.0.i11.i = phi i1 [ %117, %116 ], [ true, %97 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %poll_two_descriptors.exit
 
 poll_two_descriptors.exit:                        ; preds = %68, %73, %poll_descriptor_to_fd.exit.i, %77, %poll_two_fds.exit.i
@@ -685,9 +679,15 @@ declare i64 @ossl_time_now() local_unnamed_addr #2
 declare i32 @poll(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #8
+declare ptr @__errno_location() local_unnamed_addr #7
 
 declare void @ossl_crypto_mutex_lock(ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #9
@@ -698,9 +698,9 @@ attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "t
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #10 = { nounwind }
 attributes #11 = { nounwind willreturn memory(none) }

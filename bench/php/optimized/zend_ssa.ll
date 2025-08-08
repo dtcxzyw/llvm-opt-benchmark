@@ -714,7 +714,7 @@ define dso_local range(i32 -1, 1) i32 @zend_build_ssa(ptr noundef captures(none)
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !38
   %11 = load i32, ptr %4, align 8, !tbaa !46
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 92
   %13 = load i32, ptr %12, align 4, !tbaa !47
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 72
@@ -726,14 +726,14 @@ define dso_local range(i32 -1, 1) i32 @zend_build_ssa(ptr noundef captures(none)
 
 19:                                               ; preds = %5
   %20 = sext i32 %11 to i64
-  %21 = tail call { i64, i64 } asm "mulq $3\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,~{dirflag},~{fpsr},~{flags}"(i64 8, i64 range(i64 -2147483648, 4294967296) %20) #17, !srcloc !49
+  %21 = tail call { i64, i64 } asm "mulq $3\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,~{dirflag},~{fpsr},~{flags}"(i64 8, i64 range(i64 -2147483648, 4294967296) %20) #16, !srcloc !49
   %22 = extractvalue { i64, i64 } %21, 0
   %23 = extractvalue { i64, i64 } %21, 1
   %.not.i347.not = icmp eq i64 %23, 0
   br i1 %.not.i347.not, label %zend_arena_calloc.exit, label %24, !prof !50
 
 24:                                               ; preds = %19
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str.1, i64 noundef 8, i64 noundef range(i64 -2147483648, 4294967296) %20) #18
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str.1, i64 noundef 8, i64 noundef range(i64 -2147483648, 4294967296) %20) #17
   unreachable
 
 zend_arena_calloc.exit:                           ; preds = %19
@@ -759,7 +759,7 @@ zend_arena_calloc.exit:                           ; preds = %19
   %38 = ptrtoint ptr %25 to i64
   %39 = sub i64 %31, %38
   %..i357 = tail call i64 @llvm.umax.i64(i64 %37, i64 %39)
-  %40 = tail call noalias ptr @_emalloc(i64 noundef %..i357) #19
+  %40 = tail call noalias ptr @_emalloc(i64 noundef %..i357) #18
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 %28
   store ptr %42, ptr %40, align 8, !tbaa !53
@@ -796,7 +796,7 @@ zend_arena_alloc.exit358:                         ; preds = %34, %36
   br i1 %60, label %61, label %63, !prof !57
 
 61:                                               ; preds = %zend_arena_alloc.exit358
-  %62 = tail call noalias ptr @_emalloc(i64 noundef %59) #19
+  %62 = tail call noalias ptr @_emalloc(i64 noundef %59) #18
   br label %65
 
 63:                                               ; preds = %zend_arena_alloc.exit358
@@ -822,13 +822,13 @@ zend_arena_alloc.exit358:                         ; preds = %34, %36
   %76 = getelementptr inbounds nuw i64, ptr %74, i64 %71
   %77 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store ptr %76, ptr %77, align 8, !tbaa !68
-  call void @zend_build_dfg(ptr noundef nonnull %2, ptr noundef nonnull %4, ptr noundef nonnull %8, i32 noundef %3) #16
+  call void @zend_build_dfg(ptr noundef nonnull %2, ptr noundef nonnull %4, ptr noundef nonnull %8, i32 noundef %3) #19
   %78 = and i32 %3, 536870912
   %.not = icmp eq i32 %78, 0
   br i1 %.not, label %80, label %79
 
 79:                                               ; preds = %65
-  call void @zend_dump_dfg(ptr noundef nonnull %2, ptr noundef nonnull %4, ptr noundef nonnull %8) #16
+  call void @zend_dump_dfg(ptr noundef nonnull %2, ptr noundef nonnull %4, ptr noundef nonnull %8) #19
   br label %80
 
 80:                                               ; preds = %79, %65
@@ -975,9 +975,9 @@ zend_arena_alloc.exit358:                         ; preds = %34, %36
   br i1 %166, label %167, label %494
 
 167:                                              ; preds = %161
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 0, ptr %6, align 8, !tbaa !80
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 0, ptr %7, align 8, !tbaa !80
   %168 = getelementptr inbounds i8, ptr %101, i64 -35
   %169 = load i8, ptr %168, align 1, !tbaa !4
@@ -1673,8 +1673,8 @@ default.unreachable.i:                            ; preds = %291
   br label %.thread609.thread.i
 
 .thread609.thread.i:                              ; preds = %.thread609.thread.sink.split.i, %480, %479, %._crit_edge644.i, %444, %425, %408, %.thread609.i, %zend_add_will_overflow.exit554.i, %.thread591.i, %zend_add_will_overflow.exit.i, %240, %zend_sub_will_overflow.exit551.i, %205, %zend_sub_will_overflow.exit.i, %195
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.critedge.i
 
 494:                                              ; preds = %161, %157
@@ -2140,7 +2140,7 @@ _const_op_type.exit.i:                            ; preds = %668
   %742 = phi ptr [ %734, %730 ], [ %740, %735 ]
   %743 = getelementptr inbounds nuw i8, ptr %742, i64 16
   %744 = load ptr, ptr %743, align 8, !tbaa !10
-  %745 = call ptr @zend_optimizer_get_class_entry(ptr noundef %1, ptr noundef nonnull %2, ptr noundef %744) #16
+  %745 = call ptr @zend_optimizer_get_class_entry(ptr noundef %1, ptr noundef nonnull %2, ptr noundef %744) #19
   %.not498.not.i = icmp eq ptr %745, null
   br i1 %.not498.not.i, label %.critedge.i, label %746
 
@@ -2358,7 +2358,7 @@ zend_bitset_union_with_intersection.exit.us.us.us: ; preds = %811
   br i1 %819, label %820, label %.thread, !prof !57
 
 820:                                              ; preds = %.split.us
-  %821 = call noalias ptr @_emalloc(i64 noundef %818) #19
+  %821 = call noalias ptr @_emalloc(i64 noundef %818) #18
   %.not332 = icmp eq ptr %821, null
   br i1 %.not332, label %824, label %.preheader
 
@@ -2437,14 +2437,14 @@ zend_bitset_union_with_intersection.exit.us.us.us: ; preds = %811
   %853 = shl nsw i64 %849, 3
   %854 = add nsw i64 %853, 104
   %855 = add nsw i64 %854, %852
-  %856 = call { i64, i64 } asm "mulq $3\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,~{dirflag},~{fpsr},~{flags}"(i64 %855, i64 1) #17, !srcloc !49
+  %856 = call { i64, i64 } asm "mulq $3\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,~{dirflag},~{fpsr},~{flags}"(i64 %855, i64 1) #16, !srcloc !49
   %857 = extractvalue { i64, i64 } %856, 0
   %858 = extractvalue { i64, i64 } %856, 1
   %.not.i344.not = icmp eq i64 %858, 0
   br i1 %.not.i344.not, label %zend_arena_calloc.exit342, label %859, !prof !50
 
 859:                                              ; preds = %847
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str.1, i64 noundef %855, i64 noundef 1) #18
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str.1, i64 noundef %855, i64 noundef 1) #17
   unreachable
 
 zend_arena_calloc.exit342:                        ; preds = %847
@@ -2470,7 +2470,7 @@ zend_arena_calloc.exit342:                        ; preds = %847
   %873 = ptrtoint ptr %860 to i64
   %874 = sub i64 %866, %873
   %..i353 = call i64 @llvm.umax.i64(i64 %872, i64 %874)
-  %875 = call noalias ptr @_emalloc(i64 noundef %..i353) #19
+  %875 = call noalias ptr @_emalloc(i64 noundef %..i353) #18
   %876 = getelementptr inbounds nuw i8, ptr %875, i64 24
   %877 = getelementptr inbounds nuw i8, ptr %876, i64 %863
   store ptr %877, ptr %875, align 8, !tbaa !53
@@ -2547,21 +2547,21 @@ zend_bitset_empty.exit.thread:                    ; preds = %834, %zend_bitset_e
   br i1 %.not333, label %909, label %908
 
 908:                                              ; preds = %._crit_edge
-  call void @zend_dump_phi_placement(ptr noundef nonnull %2, ptr noundef nonnull %4) #16
+  call void @zend_dump_phi_placement(ptr noundef nonnull %2, ptr noundef nonnull %4) #19
   br label %909
 
 909:                                              ; preds = %908, %._crit_edge
   %910 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %911 = load i32, ptr %910, align 8, !tbaa !108
   %912 = zext i32 %911 to i64
-  %913 = call { i64, i64 } asm "mulq $3\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,~{dirflag},~{fpsr},~{flags}"(i64 36, i64 range(i64 -2147483648, 4294967296) %912) #17, !srcloc !49
+  %913 = call { i64, i64 } asm "mulq $3\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,~{dirflag},~{fpsr},~{flags}"(i64 36, i64 range(i64 -2147483648, 4294967296) %912) #16, !srcloc !49
   %914 = extractvalue { i64, i64 } %913, 0
   %915 = extractvalue { i64, i64 } %913, 1
   %.not.i.not = icmp eq i64 %915, 0
   br i1 %.not.i.not, label %zend_arena_calloc.exit343, label %916, !prof !50
 
 916:                                              ; preds = %909
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str.1, i64 noundef 36, i64 noundef range(i64 -2147483648, 4294967296) %912) #18
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str.1, i64 noundef 36, i64 noundef range(i64 -2147483648, 4294967296) %912) #17
   unreachable
 
 zend_arena_calloc.exit343:                        ; preds = %909
@@ -2587,7 +2587,7 @@ zend_arena_calloc.exit343:                        ; preds = %909
   %930 = ptrtoint ptr %917 to i64
   %931 = sub i64 %923, %930
   %..i = call i64 @llvm.umax.i64(i64 %929, i64 %931)
-  %932 = call noalias ptr @_emalloc(i64 noundef %..i) #19
+  %932 = call noalias ptr @_emalloc(i64 noundef %..i) #18
   %933 = getelementptr inbounds nuw i8, ptr %932, i64 24
   %934 = getelementptr inbounds nuw i8, ptr %933, i64 %920
   store ptr %934, ptr %932, align 8, !tbaa !53
@@ -2638,7 +2638,7 @@ zend_arena_alloc.exit:                            ; preds = %926, %928
   br i1 %819, label %952, label %953, !prof !57
 
 952:                                              ; preds = %._crit_edge430
-  call void @_efree(ptr noundef nonnull %823) #16
+  call void @_efree(ptr noundef nonnull %823) #19
   br label %953
 
 953:                                              ; preds = %._crit_edge430, %952
@@ -2647,34 +2647,28 @@ zend_arena_alloc.exit:                            ; preds = %926, %928
 .sink.split:                                      ; preds = %953, %824
   %.0313.ph = phi i32 [ -1, %824 ], [ 0, %953 ]
   %954 = load ptr, ptr %67, align 8, !tbaa !64
-  call void @_efree(ptr noundef %954) #16
+  call void @_efree(ptr noundef %954) #19
   br label %955
 
 955:                                              ; preds = %.sink.split, %953, %824, %5
   %.0313 = phi i32 [ -1, %5 ], [ -1, %824 ], [ 0, %953 ], [ %.0313.ph, %.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0313
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: allocsize(0)
-declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #3
+declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
-declare void @zend_build_dfg(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
+declare void @zend_build_dfg(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare void @zend_dump_dfg(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare void @zend_dump_dfg(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare void @_efree(ptr noundef) local_unnamed_addr #4
 
-declare void @_efree(ptr noundef) local_unnamed_addr #5
-
-declare void @zend_dump_phi_placement(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare void @zend_dump_phi_placement(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @zend_ssa_rename(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3, i32 noundef range(i32 0, -2147483648) %4) unnamed_addr #1 {
@@ -2705,7 +2699,7 @@ define internal fastcc void @zend_ssa_rename(ptr noundef readonly captures(none)
   br i1 %27, label %30, label %28, !prof !50
 
 28:                                               ; preds = %19
-  %29 = tail call noalias ptr @_emalloc(i64 noundef %26) #19
+  %29 = tail call noalias ptr @_emalloc(i64 noundef %26) #18
   br label %32
 
 30:                                               ; preds = %19
@@ -3788,7 +3782,7 @@ _zend_ssa_rename_op.exit:                         ; preds = %452, %.thread, %72
   br i1 %brmerge, label %614, label %613, !prof !117
 
 613:                                              ; preds = %._crit_edge335
-  call void @_efree(ptr noundef nonnull %.0240) #16
+  call void @_efree(ptr noundef nonnull %.0240) #19
   br label %614
 
 614:                                              ; preds = %613, %._crit_edge335
@@ -3806,14 +3800,14 @@ define dso_local void @zend_ssa_compute_use_def_chains(ptr noundef captures(none
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %8 = load i32, ptr %7, align 8, !tbaa !110
   %9 = sext i32 %8 to i64
-  %10 = tail call { i64, i64 } asm "mulq $3\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,~{dirflag},~{fpsr},~{flags}"(i64 48, i64 range(i64 -2147483648, 4294967296) %9) #17, !srcloc !49
+  %10 = tail call { i64, i64 } asm "mulq $3\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,~{dirflag},~{fpsr},~{flags}"(i64 48, i64 range(i64 -2147483648, 4294967296) %9) #16, !srcloc !49
   %11 = extractvalue { i64, i64 } %10, 0
   %12 = extractvalue { i64, i64 } %10, 1
   %.not.i206.not = icmp eq i64 %12, 0
   br i1 %.not.i206.not, label %zend_arena_calloc.exit, label %13, !prof !50
 
 13:                                               ; preds = %6
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str.1, i64 noundef 48, i64 noundef range(i64 -2147483648, 4294967296) %9) #18
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str.1, i64 noundef 48, i64 noundef range(i64 -2147483648, 4294967296) %9) #17
   unreachable
 
 zend_arena_calloc.exit:                           ; preds = %6
@@ -3839,7 +3833,7 @@ zend_arena_calloc.exit:                           ; preds = %6
   %27 = ptrtoint ptr %14 to i64
   %28 = sub i64 %20, %27
   %..i = tail call i64 @llvm.umax.i64(i64 %26, i64 %28)
-  %29 = tail call noalias ptr @_emalloc(i64 noundef %..i) #19
+  %29 = tail call noalias ptr @_emalloc(i64 noundef %..i) #18
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 %17
   store ptr %31, ptr %29, align 8, !tbaa !53
@@ -4385,10 +4379,10 @@ zend_string_equals_cstr.exit.thread:              ; preds = %zend_string_equals_
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #6
+declare void @llvm.assume(i1 noundef) #5
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define hidden void @zend_ssa_unlink_use_chain(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #7 {
+define hidden void @zend_ssa_unlink_use_chain(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #6 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8, !tbaa !118
   %6 = sext i32 %2 to i64
@@ -4531,7 +4525,7 @@ zend_ssa_next_use.exit65:                         ; preds = %72, %67
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @zend_ssa_replace_use_chain(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #8 {
+define hidden void @zend_ssa_replace_use_chain(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #7 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 8, !tbaa !118
   %7 = sext i32 %3 to i64
@@ -4616,7 +4610,7 @@ define hidden void @zend_ssa_replace_use_chain(ptr noundef readonly captures(non
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define hidden void @zend_ssa_remove_instr(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((8, 20), (28, 32)) %1, ptr noundef %2) local_unnamed_addr #7 {
+define hidden void @zend_ssa_remove_instr(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((8, 20), (28, 32)) %1, ptr noundef %2) local_unnamed_addr #6 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load i32, ptr %4, align 4, !tbaa !18
   %6 = icmp sgt i32 %5, -1
@@ -4722,7 +4716,7 @@ define hidden void @zend_ssa_remove_instr(ptr noundef readonly captures(none) %0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define hidden void @zend_ssa_remove_defs_of_instr(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #7 {
+define hidden void @zend_ssa_remove_defs_of_instr(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %4 = load i32, ptr %3, align 4, !tbaa !20
   %5 = icmp sgt i32 %4, -1
@@ -4814,7 +4808,7 @@ define hidden void @zend_ssa_remove_defs_of_instr(ptr noundef readonly captures(
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @zend_ssa_remove_uses_of_var(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #8 {
+define hidden void @zend_ssa_remove_uses_of_var(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8, !tbaa !118
   %5 = sext i32 %1 to i64
@@ -4983,7 +4977,7 @@ zend_ssa_next_use.exit.thread:                    ; preds = %53
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define hidden void @zend_ssa_remove_phi(ptr noundef readonly captures(none) %0, ptr noundef captures(address) %1) local_unnamed_addr #7 {
+define hidden void @zend_ssa_remove_phi(ptr noundef readonly captures(none) %0, ptr noundef captures(address) %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %4 = load i32, ptr %3, align 4, !tbaa !105
   %5 = icmp sgt i32 %4, -1
@@ -5240,7 +5234,7 @@ zend_ssa_remove_phi_from_block.exit:              ; preds = %.lr.ph.i, %zend_ssa
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define hidden void @zend_ssa_remove_predecessor(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #9 {
+define hidden void @zend_ssa_remove_predecessor(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #8 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !38
   %6 = sext i32 %2 to i64
@@ -5478,7 +5472,7 @@ zend_ssa_remove_phi_source.exit:                  ; preds = %105, %.critedge.i.i
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define hidden void @zend_ssa_rename_var_uses(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #9 {
+define hidden void @zend_ssa_rename_var_uses(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #8 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 8, !tbaa !118
   %7 = zext nneg i32 %1 to i64
@@ -5807,10 +5801,10 @@ zend_ssa_next_use_phi.exit:                       ; preds = %102, %107, %98
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #10
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define hidden void @zend_ssa_remove_block(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #9 {
+define hidden void @zend_ssa_remove_block(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #8 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !38
   %6 = sext i32 %2 to i64
@@ -5973,7 +5967,7 @@ zend_ssa_remove_defs_of_instr.exit:               ; preds = %69, %73
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define hidden void @zend_ssa_remove_block_from_cfg(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #9 {
+define hidden void @zend_ssa_remove_block_from_cfg(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !38
   %5 = sext i32 %1 to i64
@@ -6121,7 +6115,7 @@ define hidden void @zend_ssa_remove_block_from_cfg(ptr noundef readonly captures
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @propagate_phi_type_widening(ptr noundef readonly captures(none) %0, i32 noundef %1) unnamed_addr #11 {
+define internal fastcc void @propagate_phi_type_widening(ptr noundef readonly captures(none) %0, i32 noundef %1) unnamed_addr #10 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8, !tbaa !118
   %5 = sext i32 %1 to i64
@@ -6213,7 +6207,7 @@ zend_ssa_next_use_phi.exit:                       ; preds = %27, %.preheader, %3
 }
 
 ; Function Attrs: noreturn
-declare void @zend_error_noreturn(i32 noundef, ptr noundef, ...) local_unnamed_addr #12
+declare void @zend_error_noreturn(i32 noundef, ptr noundef, ...) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @add_pi(ptr noundef captures(none) %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, i32 noundef range(i32 -5, 268435451) %5) unnamed_addr #1 {
@@ -6331,14 +6325,14 @@ dominates.exit.i.i:                               ; preds = %.lr.ph.i.i.i, %62
   %81 = shl nsw i64 %77, 3
   %82 = add nsw i64 %81, 104
   %83 = add nsw i64 %82, %80
-  %84 = tail call { i64, i64 } asm "mulq $3\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,~{dirflag},~{fpsr},~{flags}"(i64 %83, i64 1) #17, !srcloc !49
+  %84 = tail call { i64, i64 } asm "mulq $3\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,~{dirflag},~{fpsr},~{flags}"(i64 %83, i64 1) #16, !srcloc !49
   %85 = extractvalue { i64, i64 } %84, 0
   %86 = extractvalue { i64, i64 } %84, 1
   %.not.i.not = icmp eq i64 %86, 0
   br i1 %.not.i.not, label %zend_arena_calloc.exit, label %87, !prof !50
 
 87:                                               ; preds = %.loopexit
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str.1, i64 noundef %83, i64 noundef 1) #18
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str.1, i64 noundef %83, i64 noundef 1) #17
   unreachable
 
 zend_arena_calloc.exit:                           ; preds = %.loopexit
@@ -6364,7 +6358,7 @@ zend_arena_calloc.exit:                           ; preds = %.loopexit
   %101 = ptrtoint ptr %88 to i64
   %102 = sub i64 %94, %101
   %..i = tail call i64 @llvm.umax.i64(i64 %100, i64 %102)
-  %103 = tail call noalias ptr @_emalloc(i64 noundef %..i) #19
+  %103 = tail call noalias ptr @_emalloc(i64 noundef %..i) #18
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 24
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 %91
   store ptr %105, ptr %103, align 8, !tbaa !53
@@ -6444,7 +6438,7 @@ needs_pi.exit:                                    ; preds = %dominates.exit.i.i,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -5, 268435451) i32 @find_adjusted_tmp_var(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address) %1, i32 noundef %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #13 {
+define internal fastcc range(i32 -5, 268435451) i32 @find_adjusted_tmp_var(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address) %1, i32 noundef %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #12 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %6 = load ptr, ptr %5, align 8, !tbaa !69
   %.not65 = icmp eq ptr %1, %6
@@ -6668,10 +6662,16 @@ define internal fastcc range(i32 -5, 268435451) i32 @find_adjusted_tmp_var(ptr n
   ret i32 %.052
 }
 
-declare ptr @zend_optimizer_get_class_entry(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare ptr @zend_optimizer_get_class_entry(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #14
@@ -6681,24 +6681,24 @@ declare i64 @llvm.umax.i64(i64, i64) #15
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #7 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #6 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #14 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #16 = { nounwind }
-attributes #17 = { nounwind memory(read) }
-attributes #18 = { noreturn nounwind }
-attributes #19 = { nounwind allocsize(0) }
+attributes #16 = { nounwind memory(read) }
+attributes #17 = { noreturn nounwind }
+attributes #18 = { nounwind allocsize(0) }
+attributes #19 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

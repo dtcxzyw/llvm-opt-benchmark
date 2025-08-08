@@ -33,11 +33,11 @@ define hidden noundef i32 @_crypto_sign_ed25519_detached(ptr noundef %0, ptr nou
   %9 = alloca [64 x i8], align 16
   %10 = alloca [64 x i8], align 16
   %11 = alloca %struct.ge25519_p3, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %7) #5
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #5
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #5
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10) #5
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %11) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %12 = call i32 @crypto_hash_sha512_init(ptr noundef nonnull %7) #5
   %.not.i = icmp eq i32 %5, 0
   br i1 %.not.i, label %_crypto_sign_ed25519_ref10_hinit.exit, label %13
@@ -89,16 +89,13 @@ _crypto_sign_ed25519_ref10_hinit.exit14:          ; preds = %_crypto_sign_ed2551
   br label %35
 
 35:                                               ; preds = %34, %_crypto_sign_ed25519_ref10_hinit.exit14
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %11) #5
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #5
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #5
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #5
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 0
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 declare i32 @crypto_hash_sha512(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -114,9 +111,6 @@ declare void @_sodium_sc25519_muladd(ptr noundef, ptr noundef, ptr noundef, ptr 
 
 declare void @sodium_memzero(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: nounwind ssp uwtable
 define dso_local noundef i32 @crypto_sign_ed25519_detached(ptr noundef nonnull %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef %2, i64 noundef %3, ptr noundef nonnull %4) local_unnamed_addr #0 {
   %6 = tail call i32 @_crypto_sign_ed25519_detached(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef nonnull %4, i32 noundef 0)
@@ -126,7 +120,7 @@ define dso_local noundef i32 @crypto_sign_ed25519_detached(ptr noundef nonnull %
 ; Function Attrs: nounwind ssp uwtable
 define dso_local range(i32 -1, 1) i32 @crypto_sign_ed25519(ptr noundef nonnull %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef %2, i64 noundef %3, ptr noundef nonnull %4) local_unnamed_addr #0 {
   %6 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr i8, ptr %0, i64 64
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 %7, ptr noundef nonnull align 1 %2, i64 noundef %3, i1 noundef false) #5
   %8 = call i32 @_crypto_sign_ed25519_detached(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull %7, i64 noundef %3, ptr noundef nonnull %4, i32 noundef 0)
@@ -157,9 +151,15 @@ define dso_local range(i32 -1, 1) i32 @crypto_sign_ed25519(ptr noundef nonnull %
 
 17:                                               ; preds = %14, %15, %12
   %.0 = phi i32 [ -1, %12 ], [ 0, %15 ], [ 0, %14 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3

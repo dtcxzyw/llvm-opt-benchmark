@@ -14,8 +14,8 @@ target triple = "x86_64-pc-linux-gnu"
 define ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %11, label %7
 
@@ -26,7 +26,7 @@ define ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %1, i32 nou
   br i1 %10, label %12, label %11
 
 11:                                               ; preds = %7, %4
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 162, ptr noundef nonnull @.str.2) #6
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 162, ptr noundef nonnull @.str.2) #5
   unreachable
 
 12:                                               ; preds = %7
@@ -34,7 +34,7 @@ define ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %1, i32 nou
   br i1 %13, label %14, label %15
 
 14:                                               ; preds = %12
-  tail call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #6
+  tail call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #5
   unreachable
 
 15:                                               ; preds = %12
@@ -103,35 +103,29 @@ tvb_new_with_subset.exit:                         ; preds = %26, %45
   %51 = getelementptr inbounds nuw i8, ptr %29, i64 24
   store ptr %50, ptr %51, align 8
   call void @tvb_add_to_chain(ptr noundef nonnull %0, ptr noundef %29)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %29
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+; Function Attrs: noreturn null_pointer_is_valid
+declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: noreturn null_pointer_is_valid
-declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #2
-
-; Function Attrs: noreturn null_pointer_is_valid
-declare void @except_throw(i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare void @except_throw(i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @tvb_check_offset_length(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @tvb_check_offset_length(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare void @tvb_add_to_chain(ptr noundef, ptr noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @tvb_add_to_chain(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %6
 
@@ -142,7 +136,7 @@ define ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %1, i32 noundef %2
   br i1 %9, label %11, label %10
 
 10:                                               ; preds = %6, %3
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 199, ptr noundef nonnull @.str.2) #6
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 199, ptr noundef nonnull @.str.2) #5
   unreachable
 
 11:                                               ; preds = %6
@@ -150,7 +144,7 @@ define ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %1, i32 noundef %2
   br i1 %12, label %13, label %14
 
 13:                                               ; preds = %11
-  tail call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #6
+  tail call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #5
   unreachable
 
 14:                                               ; preds = %11
@@ -169,7 +163,7 @@ define ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %1, i32 noundef %2
   br i1 %21, label %22, label %23
 
 22:                                               ; preds = %19
-  tail call void @except_throw(i64 noundef 1, i64 noundef 1, ptr noundef null) #6
+  tail call void @except_throw(i64 noundef 1, i64 noundef 1, ptr noundef null) #5
   unreachable
 
 23:                                               ; preds = %19
@@ -185,7 +179,7 @@ define ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %1, i32 noundef %2
   br i1 %27, label %28, label %29
 
 28:                                               ; preds = %24
-  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #6
+  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #5
   unreachable
 
 29:                                               ; preds = %24
@@ -236,20 +230,20 @@ tvb_new_with_subset.exit:                         ; preds = %31, %49
   %55 = getelementptr inbounds nuw i8, ptr %33, i64 24
   store ptr %54, ptr %55, align 8
   call void @tvb_add_to_chain(ptr noundef nonnull %0, ptr noundef %33)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %33
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @tvb_check_offset_length(ptr noundef %0, i32 noundef %1, i32 noundef -1, ptr noundef nonnull %3, ptr noundef nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4
@@ -258,7 +252,7 @@ define ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %1) local_unnam
   br i1 %8, label %9, label %10
 
 9:                                                ; preds = %2
-  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #6
+  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #5
   unreachable
 
 10:                                               ; preds = %2
@@ -305,8 +299,8 @@ tvb_new_with_subset.exit:                         ; preds = %10, %29
   %35 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store ptr %34, ptr %35, align 8
   call void @tvb_add_to_chain(ptr noundef %0, ptr noundef %13)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %13
 }
 
@@ -371,10 +365,10 @@ tvb_new_with_subset.exit:                         ; preds = %2, %22
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @tvb_new_real_data(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @tvb_new_real_data(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @tvb_new(ptr noundef) local_unnamed_addr #3
+declare ptr @tvb_new(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @subset_offset(ptr noundef readonly captures(none) %0, i32 noundef %1) #0 {
@@ -464,22 +458,28 @@ define internal ptr @subset_clone(ptr noundef readonly captures(none) %0, i32 no
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @tvb_offset_from_real_beginning_counter(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @tvb_offset_from_real_beginning_counter(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @tvb_get_ptr(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @tvb_get_ptr(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @tvb_memcpy(ptr noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
+declare ptr @tvb_memcpy(ptr noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @tvb_find_uint8(ptr noundef, i32 noundef, i32 noundef, i8 noundef zeroext) local_unnamed_addr #3
+declare i32 @tvb_find_uint8(ptr noundef, i32 noundef, i32 noundef, i8 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @tvb_ws_mempbrk_pattern_uint8(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @tvb_ws_mempbrk_pattern_uint8(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @tvb_clone_offset_len(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @tvb_clone_offset_len(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #4
@@ -488,12 +488,11 @@ declare i32 @llvm.umin.i32(i32, i32) #4
 declare i32 @llvm.smin.i32(i32, i32) #4
 
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { noreturn null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { noreturn null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nounwind }
-attributes #6 = { noreturn }
+attributes #5 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

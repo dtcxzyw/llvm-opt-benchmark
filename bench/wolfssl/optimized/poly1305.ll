@@ -49,14 +49,8 @@ define range(i32 -173, 1) i32 @wc_Poly1305SetKey(ptr noundef writeonly captures(
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -173, 1) i32 @wc_Poly1305Final(ptr noundef captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #2 {
+define range(i32 -173, 1) i32 @wc_Poly1305Final(ptr noundef captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #1 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -169,7 +163,7 @@ define range(i32 -173, 1) i32 @wc_Poly1305Final(ptr noundef captures(address_is_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -173, 1) i32 @wc_Poly1305Update(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #2 {
+define range(i32 -173, 1) i32 @wc_Poly1305Update(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %.critedge, label %5
 
@@ -274,7 +268,7 @@ define range(i32 -173, 1) i32 @wc_Poly1305Update(ptr noundef captures(address_is
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @poly1305_blocks(ptr noundef nonnull captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef range(i64 16, 4294967281) %2) unnamed_addr #2 {
+define internal fastcc void @poly1305_blocks(ptr noundef nonnull captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef range(i64 16, 4294967281) %2) unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %5 = load i8, ptr %4, align 8, !tbaa !9
   %.not = icmp eq i8 %5, 0
@@ -366,9 +360,9 @@ define internal fastcc void @poly1305_blocks(ptr noundef nonnull captures(none) 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -173, 1) i32 @wc_Poly1305_Pad(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #2 {
+define range(i32 -173, 1) i32 @wc_Poly1305_Pad(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = alloca [15 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = icmp eq ptr %0, null
   br i1 %4, label %wc_Poly1305Update.exit, label %5
 
@@ -462,17 +456,17 @@ define range(i32 -173, 1) i32 @wc_Poly1305_Pad(ptr noundef captures(address_is_n
 
 wc_Poly1305Update.exit:                           ; preds = %40, %30, %._crit_edge.i, %7, %5, %2
   %.0 = phi i32 [ -173, %2 ], [ 0, %5 ], [ 0, %7 ], [ 0, %._crit_edge.i ], [ 0, %30 ], [ 0, %40 ]
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -173, 1) i32 @wc_Poly1305_EncodeSizes(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
+define range(i32 -173, 1) i32 @wc_Poly1305_EncodeSizes(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = alloca [16 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = icmp eq ptr %0, null
   br i1 %5, label %wc_Poly1305Update.exit, label %6
 
@@ -529,14 +523,14 @@ define range(i32 -173, 1) i32 @wc_Poly1305_EncodeSizes(ptr noundef captures(addr
 
 wc_Poly1305Update.exit:                           ; preds = %.preheader.i, %21, %._crit_edge.i, %.thread10, %3
   %.0 = phi i32 [ -173, %3 ], [ 0, %.thread10 ], [ 0, %._crit_edge.i ], [ 0, %21 ], [ 0, %.preheader.i ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -173, 1) i32 @wc_Poly1305_EncodeSizes64(ptr noundef captures(address_is_null) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #2 {
+define range(i32 -173, 1) i32 @wc_Poly1305_EncodeSizes64(ptr noundef captures(address_is_null) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #1 {
   %4 = alloca [2 x i64], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = icmp eq ptr %0, null
   br i1 %5, label %wc_Poly1305Update.exit, label %6
 
@@ -591,12 +585,12 @@ define range(i32 -173, 1) i32 @wc_Poly1305_EncodeSizes64(ptr noundef captures(ad
 
 wc_Poly1305Update.exit:                           ; preds = %.preheader.i, %19, %._crit_edge.i, %.thread10, %3
   %.0 = phi i32 [ -173, %3 ], [ 0, %.thread10 ], [ 0, %._crit_edge.i ], [ 0, %19 ], [ 0, %.preheader.i ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -173, 1) i32 @wc_Poly1305_MAC(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef %4, ptr noundef writeonly captures(address_is_null) %5, i32 noundef %6) local_unnamed_addr #2 {
+define range(i32 -173, 1) i32 @wc_Poly1305_MAC(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef %4, ptr noundef writeonly captures(address_is_null) %5, i32 noundef %6) local_unnamed_addr #1 {
   %8 = alloca [16 x i8], align 16
   %9 = alloca [15 x i8], align 1
   %10 = alloca [15 x i8], align 1
@@ -703,7 +697,7 @@ define range(i32 -173, 1) i32 @wc_Poly1305_MAC(ptr noundef captures(address_is_n
   br label %57
 
 57:                                               ; preds = %55, %45, %._crit_edge.i
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %10, i8 0, i64 15, i1 false)
   %58 = sub nsw i32 0, %2
   %59 = and i32 %58, 15
@@ -787,7 +781,7 @@ define range(i32 -173, 1) i32 @wc_Poly1305_MAC(ptr noundef captures(address_is_n
   br label %wc_Poly1305_Pad.exit
 
 wc_Poly1305_Pad.exit:                             ; preds = %57, %._crit_edge.i.i, %79, %89
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %10) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %91
 
 91:                                               ; preds = %wc_Poly1305_Pad.exit, %15
@@ -796,7 +790,7 @@ wc_Poly1305_Pad.exit:                             ; preds = %57, %._crit_edge.i.
   br i1 %.not44, label %93, label %148
 
 93:                                               ; preds = %91
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %94 = icmp eq i32 %4, 0
   br i1 %94, label %130, label %95
 
@@ -885,8 +879,8 @@ wc_Poly1305_Pad.exit:                             ; preds = %57, %._crit_edge.i.
   br label %130
 
 130:                                              ; preds = %93, %95, %._crit_edge.i.i55, %118, %128
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %9) #6
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %131 = zext i32 %2 to i64
   store i64 %131, ptr %8, align 16, !tbaa !3
   %132 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -938,7 +932,7 @@ wc_Poly1305_Pad.exit:                             ; preds = %57, %._crit_edge.i.
   br label %146
 
 146:                                              ; preds = %.preheader.i.i76, %145, %.thread10.i, %._crit_edge.i.i73
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %147 = tail call i32 @wc_Poly1305Final(ptr noundef nonnull %0, ptr noundef nonnull %5)
   br label %148
 
@@ -946,6 +940,12 @@ wc_Poly1305_Pad.exit:                             ; preds = %57, %._crit_edge.i.
   %.0 = phi i32 [ %147, %146 ], [ -173, %7 ], [ -173, %16 ], [ %92, %91 ]
   ret i32 %.0
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.fshl.i64(i64, i64, i64) #4
@@ -957,12 +957,11 @@ declare i64 @llvm.umin.i64(i64, i64) #4
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #1 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

@@ -2214,12 +2214,6 @@ je_hpdata_age_heap_any.exit:                      ; preds = %1, %select.unfold
   ret ptr %.0.i.i8
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @je_hpdata_init(ptr noundef writeonly captures(none) initializes((0, 21), (32, 37), (96, 248)) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   store ptr %1, ptr %0, align 8, !tbaa !26
@@ -2245,7 +2239,7 @@ define hidden void @je_hpdata_init(ptr noundef writeonly captures(none) initiali
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden ptr @je_hpdata_reserve_alloc(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #5 {
+define hidden ptr @je_hpdata_reserve_alloc(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #4 {
   %3 = lshr i64 %1, 12
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   br label %5
@@ -2586,7 +2580,7 @@ fb_set_range.exit57:                              ; preds = %._crit_edge.i49, %f
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @je_hpdata_unreserve(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #5 {
+define hidden void @je_hpdata_unreserve(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #4 {
   %4 = ptrtoint ptr %1 to i64
   %.val21 = load ptr, ptr %0, align 8, !tbaa !26
   %5 = ptrtoint ptr %.val21 to i64
@@ -2732,12 +2726,12 @@ fb_ffs.exit:                                      ; preds = %.lr.ph.i28, %._crit
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden i64 @je_hpdata_purge_begin(ptr noundef readonly captures(none) %0, ptr noundef captures(none) initializes((0, 8), (80, 88)) %1) local_unnamed_addr #5 {
+define hidden i64 @je_hpdata_purge_begin(ptr noundef readonly captures(none) %0, ptr noundef captures(none) initializes((0, 8), (80, 88)) %1) local_unnamed_addr #4 {
   %3 = alloca [8 x i64], align 16
   store i64 0, ptr %1, align 8, !tbaa !38
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store i64 0, ptr %4, align 8, !tbaa !40
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %3, i8 0, i64 64, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 112
   br label %6
@@ -2936,12 +2930,12 @@ fb_assign_visitor.exit4.i:                        ; preds = %._crit_edge.i42
   %107 = sub i64 %104, %106
   %108 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %107, ptr %108, align 8, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %107
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden noundef zeroext i1 @je_hpdata_purge_next(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #5 {
+define hidden noundef zeroext i1 @je_hpdata_purge_next(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #4 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %6 = load i64, ptr %5, align 8, !tbaa !40
   %7 = icmp eq i64 %6, 512
@@ -3037,7 +3031,7 @@ fb_srange_iter.exit.thread:                       ; preds = %.lr.ph.i, %fb_find_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @je_hpdata_purge_end(ptr noundef captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #5 {
+define hidden void @je_hpdata_purge_end(ptr noundef captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %4
 
@@ -3096,16 +3090,22 @@ define hidden void @je_hpdata_dehugify(ptr noundef writeonly captures(none) init
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.cttz.i64(i64, i1 immarg) #6
+declare i64 @llvm.cttz.i64(i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #6
+declare i64 @llvm.ctlz.i64(i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctpop.i64(i64) #6
+declare i64 @llvm.ctpop.i64(i64) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #8
@@ -3117,12 +3117,11 @@ attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

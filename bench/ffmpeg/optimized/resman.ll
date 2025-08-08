@@ -130,9 +130,9 @@ get_resman_context.exit:                          ; preds = %1, %9
   br i1 %.not42, label %20, label %57
 
 20:                                               ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %21 = load i32, ptr %.sroa.5.sroa.6.0.copyload, align 4, !tbaa !16
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %2, i8 0, i64 112, i1 false)
   %22 = tail call noalias ptr @av_mallocz(i64 noundef 65535) #5
   %.not.i45 = icmp eq ptr %22, null
@@ -185,7 +185,7 @@ get_resman_context.exit:                          ; preds = %1, %9
   br label %43
 
 42:                                               ; preds = %26, %34, %23
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.1, i32 noundef %0) #5
   br label %.thread54
 
@@ -197,7 +197,7 @@ get_resman_context.exit:                          ; preds = %1, %9
   store i8 0, ptr %47, align 1, !tbaa !30
   %48 = call i32 @inflateEnd(ptr noundef nonnull %2) #5
   store ptr %22, ptr %3, align 8, !tbaa !20
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %49 = call i32 @av_dict_set(ptr noundef nonnull %17, ptr noundef nonnull %.sroa.5.sroa.4.0.copyload, ptr noundef nonnull %22, i32 noundef 0) #5
   %50 = icmp slt i32 %49, 0
   br i1 %50, label %51, label %52
@@ -219,11 +219,11 @@ get_resman_context.exit:                          ; preds = %1, %9
   br label %.thread54
 
 .thread54:                                        ; preds = %42, %51, %55
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %60
 
 56:                                               ; preds = %52
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %57
 
 57:                                               ; preds = %56, %15
@@ -242,14 +242,8 @@ get_resman_context.exit:                          ; preds = %1, %9
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
@@ -267,11 +261,17 @@ declare i32 @inflate(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 declare i32 @inflateEnd(ptr noundef) local_unnamed_addr #2
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

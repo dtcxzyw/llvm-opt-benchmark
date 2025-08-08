@@ -77,33 +77,33 @@ define internal noundef i32 @_ZL13buffer_createP9lua_State(ptr noundef %0) #0 {
 ; Function Attrs: mustprogress uwtable
 define internal noundef i32 @_ZL17buffer_fromstringP9lua_State(ptr noundef %0) #0 {
   %2 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 0, ptr %2, align 8, !tbaa !14
   %3 = call noundef ptr @_Z17luaL_checklstringP9lua_StateiPm(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %2)
   %4 = load i64, ptr %2, align 8, !tbaa !14
   %5 = call noundef ptr @_Z13lua_newbufferP9lua_Statem(ptr noundef %0, i64 noundef %4)
   %6 = load i64, ptr %2, align 8, !tbaa !14
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %5, ptr align 1 %3, i64 %6, i1 false)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 1
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef i32 @_ZL15buffer_tostringP9lua_State(ptr noundef %0) #0 {
   %2 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 0, ptr %2, align 8, !tbaa !14
   %3 = call noundef ptr @_Z16luaL_checkbufferP9lua_StateiPm(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %2)
   %4 = load i64, ptr %2, align 8, !tbaa !14
   call void @_Z15lua_pushlstringP9lua_StatePKcm(ptr noundef %0, ptr noundef %3, i64 noundef %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 1
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef i32 @_ZL18buffer_readintegerIaEiP9lua_State(ptr noundef %0) #0 {
   %2 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 0, ptr %2, align 8, !tbaa !14
   %3 = call noundef ptr @_Z16luaL_checkbufferP9lua_StateiPm(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %2)
   %4 = call noundef i32 @_Z17luaL_checkintegerP9lua_Statei(ptr noundef %0, i32 noundef 2)
@@ -122,14 +122,14 @@ define internal noundef i32 @_ZL18buffer_readintegerIaEiP9lua_State(ptr noundef 
   %.0.copyload = load i8, ptr %10, align 1
   %11 = sitofp i8 %.0.copyload to double
   call void @_Z14lua_pushnumberP9lua_Stated(ptr noundef %0, double noundef %11)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 1
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef i32 @_ZL18buffer_readintegerIhEiP9lua_State(ptr noundef %0) #0 {
   %2 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 0, ptr %2, align 8, !tbaa !14
   %3 = call noundef ptr @_Z16luaL_checkbufferP9lua_StateiPm(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %2)
   %4 = call noundef i32 @_Z17luaL_checkintegerP9lua_Statei(ptr noundef %0, i32 noundef 2)
@@ -148,14 +148,14 @@ define internal noundef i32 @_ZL18buffer_readintegerIhEiP9lua_State(ptr noundef 
   %.0.copyload = load i8, ptr %10, align 1
   %11 = uitofp i8 %.0.copyload to double
   call void @_Z14lua_pushnumberP9lua_Stated(ptr noundef %0, double noundef %11)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 1
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef i32 @_ZL18buffer_readintegerIsEiP9lua_State(ptr noundef %0) #0 {
   %2 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 0, ptr %2, align 8, !tbaa !14
   %3 = call noundef ptr @_Z16luaL_checkbufferP9lua_StateiPm(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %2)
   %4 = call noundef i32 @_Z17luaL_checkintegerP9lua_Statei(ptr noundef %0, i32 noundef 2)
@@ -175,14 +175,14 @@ define internal noundef i32 @_ZL18buffer_readintegerIsEiP9lua_State(ptr noundef 
   %.0.copyload = load i16, ptr %12, align 1
   %13 = sitofp i16 %.0.copyload to double
   call void @_Z14lua_pushnumberP9lua_Stated(ptr noundef %0, double noundef %13)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 1
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef i32 @_ZL18buffer_readintegerItEiP9lua_State(ptr noundef %0) #0 {
   %2 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 0, ptr %2, align 8, !tbaa !14
   %3 = call noundef ptr @_Z16luaL_checkbufferP9lua_StateiPm(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %2)
   %4 = call noundef i32 @_Z17luaL_checkintegerP9lua_Statei(ptr noundef %0, i32 noundef 2)
@@ -202,14 +202,14 @@ define internal noundef i32 @_ZL18buffer_readintegerItEiP9lua_State(ptr noundef 
   %.0.copyload = load i16, ptr %12, align 1
   %13 = uitofp i16 %.0.copyload to double
   call void @_Z14lua_pushnumberP9lua_Stated(ptr noundef %0, double noundef %13)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 1
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef i32 @_ZL18buffer_readintegerIiEiP9lua_State(ptr noundef %0) #0 {
   %2 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 0, ptr %2, align 8, !tbaa !14
   %3 = call noundef ptr @_Z16luaL_checkbufferP9lua_StateiPm(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %2)
   %4 = call noundef i32 @_Z17luaL_checkintegerP9lua_Statei(ptr noundef %0, i32 noundef 2)
@@ -229,14 +229,14 @@ define internal noundef i32 @_ZL18buffer_readintegerIiEiP9lua_State(ptr noundef 
   %.0.copyload = load i32, ptr %12, align 1
   %13 = sitofp i32 %.0.copyload to double
   call void @_Z14lua_pushnumberP9lua_Stated(ptr noundef %0, double noundef %13)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 1
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef i32 @_ZL18buffer_readintegerIjEiP9lua_State(ptr noundef %0) #0 {
   %2 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 0, ptr %2, align 8, !tbaa !14
   %3 = call noundef ptr @_Z16luaL_checkbufferP9lua_StateiPm(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %2)
   %4 = call noundef i32 @_Z17luaL_checkintegerP9lua_Statei(ptr noundef %0, i32 noundef 2)
@@ -256,14 +256,14 @@ define internal noundef i32 @_ZL18buffer_readintegerIjEiP9lua_State(ptr noundef 
   %.0.copyload = load i32, ptr %12, align 1
   %13 = uitofp i32 %.0.copyload to double
   call void @_Z14lua_pushnumberP9lua_Stated(ptr noundef %0, double noundef %13)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 1
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef i32 @_ZL13buffer_readfpIfjEiP9lua_State(ptr noundef %0) #0 {
   %2 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 0, ptr %2, align 8, !tbaa !14
   %3 = call noundef ptr @_Z16luaL_checkbufferP9lua_StateiPm(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %2)
   %4 = call noundef i32 @_Z17luaL_checkintegerP9lua_Statei(ptr noundef %0, i32 noundef 2)
@@ -283,14 +283,14 @@ define internal noundef i32 @_ZL13buffer_readfpIfjEiP9lua_State(ptr noundef %0) 
   %.0.copyload = load float, ptr %12, align 1
   %13 = fpext float %.0.copyload to double
   call void @_Z14lua_pushnumberP9lua_Stated(ptr noundef %0, double noundef %13)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 1
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef i32 @_ZL13buffer_readfpIdmEiP9lua_State(ptr noundef %0) #0 {
   %2 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 0, ptr %2, align 8, !tbaa !14
   %3 = call noundef ptr @_Z16luaL_checkbufferP9lua_StateiPm(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %2)
   %4 = call noundef i32 @_Z17luaL_checkintegerP9lua_Statei(ptr noundef %0, i32 noundef 2)
@@ -309,14 +309,14 @@ define internal noundef i32 @_ZL13buffer_readfpIdmEiP9lua_State(ptr noundef %0) 
   %12 = getelementptr inbounds i8, ptr %3, i64 %11
   %.0.copyload = load double, ptr %12, align 1
   call void @_Z14lua_pushnumberP9lua_Stated(ptr noundef %0, double noundef %.0.copyload)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 1
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef i32 @_ZL19buffer_writeintegerIaEiP9lua_State(ptr noundef %0) #0 {
   %2 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 0, ptr %2, align 8, !tbaa !14
   %3 = call noundef ptr @_Z16luaL_checkbufferP9lua_StateiPm(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %2)
   %4 = call noundef i32 @_Z17luaL_checkintegerP9lua_Statei(ptr noundef %0, i32 noundef 2)
@@ -335,14 +335,14 @@ define internal noundef i32 @_ZL19buffer_writeintegerIaEiP9lua_State(ptr noundef
   %11 = sext i32 %4 to i64
   %12 = getelementptr inbounds i8, ptr %3, i64 %11
   store i8 %10, ptr %12, align 1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 0
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef i32 @_ZL19buffer_writeintegerIhEiP9lua_State(ptr noundef %0) #0 {
   %2 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 0, ptr %2, align 8, !tbaa !14
   %3 = call noundef ptr @_Z16luaL_checkbufferP9lua_StateiPm(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %2)
   %4 = call noundef i32 @_Z17luaL_checkintegerP9lua_Statei(ptr noundef %0, i32 noundef 2)
@@ -361,14 +361,14 @@ define internal noundef i32 @_ZL19buffer_writeintegerIhEiP9lua_State(ptr noundef
   %11 = sext i32 %4 to i64
   %12 = getelementptr inbounds i8, ptr %3, i64 %11
   store i8 %10, ptr %12, align 1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 0
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef i32 @_ZL19buffer_writeintegerIsEiP9lua_State(ptr noundef %0) #0 {
   %2 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 0, ptr %2, align 8, !tbaa !14
   %3 = call noundef ptr @_Z16luaL_checkbufferP9lua_StateiPm(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %2)
   %4 = call noundef i32 @_Z17luaL_checkintegerP9lua_Statei(ptr noundef %0, i32 noundef 2)
@@ -388,14 +388,14 @@ define internal noundef i32 @_ZL19buffer_writeintegerIsEiP9lua_State(ptr noundef
   %13 = sext i32 %4 to i64
   %14 = getelementptr inbounds i8, ptr %3, i64 %13
   store i16 %12, ptr %14, align 1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 0
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef i32 @_ZL19buffer_writeintegerItEiP9lua_State(ptr noundef %0) #0 {
   %2 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 0, ptr %2, align 8, !tbaa !14
   %3 = call noundef ptr @_Z16luaL_checkbufferP9lua_StateiPm(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %2)
   %4 = call noundef i32 @_Z17luaL_checkintegerP9lua_Statei(ptr noundef %0, i32 noundef 2)
@@ -415,14 +415,14 @@ define internal noundef i32 @_ZL19buffer_writeintegerItEiP9lua_State(ptr noundef
   %13 = sext i32 %4 to i64
   %14 = getelementptr inbounds i8, ptr %3, i64 %13
   store i16 %12, ptr %14, align 1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 0
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef i32 @_ZL19buffer_writeintegerIiEiP9lua_State(ptr noundef %0) #0 {
   %2 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 0, ptr %2, align 8, !tbaa !14
   %3 = call noundef ptr @_Z16luaL_checkbufferP9lua_StateiPm(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %2)
   %4 = call noundef i32 @_Z17luaL_checkintegerP9lua_Statei(ptr noundef %0, i32 noundef 2)
@@ -441,14 +441,14 @@ define internal noundef i32 @_ZL19buffer_writeintegerIiEiP9lua_State(ptr noundef
   %12 = sext i32 %4 to i64
   %13 = getelementptr inbounds i8, ptr %3, i64 %12
   store i32 %5, ptr %13, align 1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 0
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef i32 @_ZL19buffer_writeintegerIjEiP9lua_State(ptr noundef %0) #0 {
   %2 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 0, ptr %2, align 8, !tbaa !14
   %3 = call noundef ptr @_Z16luaL_checkbufferP9lua_StateiPm(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %2)
   %4 = call noundef i32 @_Z17luaL_checkintegerP9lua_Statei(ptr noundef %0, i32 noundef 2)
@@ -467,14 +467,14 @@ define internal noundef i32 @_ZL19buffer_writeintegerIjEiP9lua_State(ptr noundef
   %12 = sext i32 %4 to i64
   %13 = getelementptr inbounds i8, ptr %3, i64 %12
   store i32 %5, ptr %13, align 1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 0
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef i32 @_ZL14buffer_writefpIfjEiP9lua_State(ptr noundef %0) #0 {
   %2 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 0, ptr %2, align 8, !tbaa !14
   %3 = call noundef ptr @_Z16luaL_checkbufferP9lua_StateiPm(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %2)
   %4 = call noundef i32 @_Z17luaL_checkintegerP9lua_Statei(ptr noundef %0, i32 noundef 2)
@@ -494,14 +494,14 @@ define internal noundef i32 @_ZL14buffer_writefpIfjEiP9lua_State(ptr noundef %0)
   %13 = sext i32 %4 to i64
   %14 = getelementptr inbounds i8, ptr %3, i64 %13
   store float %12, ptr %14, align 1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 0
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef i32 @_ZL14buffer_writefpIdmEiP9lua_State(ptr noundef %0) #0 {
   %2 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 0, ptr %2, align 8, !tbaa !14
   %3 = call noundef ptr @_Z16luaL_checkbufferP9lua_StateiPm(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %2)
   %4 = call noundef i32 @_Z17luaL_checkintegerP9lua_Statei(ptr noundef %0, i32 noundef 2)
@@ -520,14 +520,14 @@ define internal noundef i32 @_ZL14buffer_writefpIdmEiP9lua_State(ptr noundef %0)
   %12 = sext i32 %4 to i64
   %13 = getelementptr inbounds i8, ptr %3, i64 %12
   store double %5, ptr %13, align 1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 0
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef i32 @_ZL17buffer_readstringP9lua_State(ptr noundef %0) #0 {
   %2 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 0, ptr %2, align 8, !tbaa !14
   %3 = call noundef ptr @_Z16luaL_checkbufferP9lua_StateiPm(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %2)
   %4 = call noundef i32 @_Z17luaL_checkintegerP9lua_Statei(ptr noundef %0, i32 noundef 2)
@@ -555,7 +555,7 @@ define internal noundef i32 @_ZL17buffer_readstringP9lua_State(ptr noundef %0) #
   %16 = sext i32 %4 to i64
   %17 = getelementptr inbounds i8, ptr %3, i64 %16
   call void @_Z15lua_pushlstringP9lua_StatePKcm(ptr noundef %0, ptr noundef %17, i64 noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 1
 }
 
@@ -563,11 +563,11 @@ define internal noundef i32 @_ZL17buffer_readstringP9lua_State(ptr noundef %0) #
 define internal noundef i32 @_ZL18buffer_writestringP9lua_State(ptr noundef %0) #0 {
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 0, ptr %2, align 8, !tbaa !14
   %4 = call noundef ptr @_Z16luaL_checkbufferP9lua_StateiPm(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %2)
   %5 = call noundef i32 @_Z17luaL_checkintegerP9lua_Statei(ptr noundef %0, i32 noundef 2)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 0, ptr %3, align 8, !tbaa !14
   %6 = call noundef ptr @_Z17luaL_checklstringP9lua_StateiPm(ptr noundef %0, i32 noundef 3, ptr noundef nonnull %3)
   %7 = load i64, ptr %3, align 8, !tbaa !14
@@ -605,22 +605,22 @@ define internal noundef i32 @_ZL18buffer_writestringP9lua_State(ptr noundef %0) 
   %24 = sext i32 %5 to i64
   %25 = getelementptr inbounds i8, ptr %4, i64 %24
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %25, ptr align 1 %6, i64 %13, i1 false)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 0
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef i32 @_ZL10buffer_lenP9lua_State(ptr noundef %0) #0 {
   %2 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 0, ptr %2, align 8, !tbaa !14
   %3 = call noundef ptr @_Z16luaL_checkbufferP9lua_StateiPm(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %2)
   %4 = load i64, ptr %2, align 8, !tbaa !14
   %5 = trunc i64 %4 to i32
   %6 = uitofp i32 %5 to double
   call void @_Z14lua_pushnumberP9lua_Stated(ptr noundef %0, double noundef %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 1
 }
 
@@ -628,11 +628,11 @@ define internal noundef i32 @_ZL10buffer_lenP9lua_State(ptr noundef %0) #0 {
 define internal noundef i32 @_ZL11buffer_copyP9lua_State(ptr noundef %0) #0 {
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 0, ptr %2, align 8, !tbaa !14
   %4 = call noundef ptr @_Z16luaL_checkbufferP9lua_StateiPm(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %2)
   %5 = call noundef i32 @_Z17luaL_checkintegerP9lua_Statei(ptr noundef %0, i32 noundef 2)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 0, ptr %3, align 8, !tbaa !14
   %6 = call noundef ptr @_Z16luaL_checkbufferP9lua_StateiPm(ptr noundef %0, i32 noundef 3, ptr noundef nonnull %3)
   %7 = call noundef i32 @_Z15luaL_optintegerP9lua_Stateii(ptr noundef %0, i32 noundef 4, i32 noundef 0)
@@ -676,15 +676,15 @@ define internal noundef i32 @_ZL11buffer_copyP9lua_State(ptr noundef %0) #0 {
   %30 = sext i32 %7 to i64
   %31 = getelementptr inbounds i8, ptr %6, i64 %30
   call void @llvm.memmove.p0.p0.i64(ptr align 1 %29, ptr align 1 %31, i64 %16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 0
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef i32 @_ZL11buffer_fillP9lua_State(ptr noundef %0) #0 {
   %2 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 0, ptr %2, align 8, !tbaa !14
   %3 = call noundef ptr @_Z16luaL_checkbufferP9lua_StateiPm(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %2)
   %4 = call noundef i32 @_Z17luaL_checkintegerP9lua_Statei(ptr noundef %0, i32 noundef 2)
@@ -717,7 +717,7 @@ define internal noundef i32 @_ZL11buffer_fillP9lua_State(ptr noundef %0) #0 {
   %21 = getelementptr inbounds i8, ptr %3, i64 %20
   %22 = trunc i32 %5 to i8
   call void @llvm.memset.p0.i64(ptr align 1 %21, i8 %22, i64 %14, i1 false)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 0
 }
 
@@ -725,7 +725,7 @@ define internal noundef i32 @_ZL11buffer_fillP9lua_State(ptr noundef %0) #0 {
 define internal noundef i32 @_ZL15buffer_readbitsP9lua_State(ptr noundef %0) #0 {
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 0, ptr %2, align 8, !tbaa !14
   %4 = call noundef ptr @_Z16luaL_checkbufferP9lua_StateiPm(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %2)
   %5 = call noundef double @_Z16luaL_checknumberP9lua_Statei(ptr noundef %0, i32 noundef 2)
@@ -762,7 +762,7 @@ define internal noundef i32 @_ZL15buffer_readbitsP9lua_State(ptr noundef %0) #0 
   %21 = lshr i64 %6, 3
   %22 = add nuw nsw i64 %15, 7
   %23 = lshr i64 %22, 3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 0, ptr %3, align 8, !tbaa !14
   %24 = and i64 %21, 4294967295
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 %24
@@ -777,8 +777,8 @@ define internal noundef i32 @_ZL15buffer_readbitsP9lua_State(ptr noundef %0) #0 
   %31 = and i64 %30, %29
   %32 = trunc nuw i64 %31 to i32
   call void @_Z16lua_pushunsignedP9lua_Statej(ptr noundef %0, i32 noundef %32)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 1
 }
 
@@ -786,7 +786,7 @@ define internal noundef i32 @_ZL15buffer_readbitsP9lua_State(ptr noundef %0) #0 
 define internal noundef i32 @_ZL16buffer_writebitsP9lua_State(ptr noundef %0) #0 {
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 0, ptr %2, align 8, !tbaa !14
   %4 = call noundef ptr @_Z16luaL_checkbufferP9lua_StateiPm(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %2)
   %5 = call noundef double @_Z16luaL_checknumberP9lua_Statei(ptr noundef %0, i32 noundef 2)
@@ -824,7 +824,7 @@ define internal noundef i32 @_ZL16buffer_writebitsP9lua_State(ptr noundef %0) #0
   %22 = lshr i64 %6, 3
   %23 = add nuw nsw i64 %16, 7
   %24 = lshr i64 %23, 3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 0, ptr %3, align 8, !tbaa !14
   %25 = and i64 %22, 4294967295
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 %25
@@ -844,35 +844,29 @@ define internal noundef i32 @_ZL16buffer_writebitsP9lua_State(ptr noundef %0) #0
   %37 = or i64 %33, %36
   store i64 %37, ptr %3, align 8, !tbaa !14
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %26, ptr nonnull align 8 %3, i64 %28, i1 false)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 0
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 declare noundef i32 @_Z17luaL_checkintegerP9lua_Statei(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare void @_Z14luaL_argerrorLP9lua_StateiPKc(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @_Z14luaL_argerrorLP9lua_StateiPKc(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 declare noundef ptr @_Z13lua_newbufferP9lua_Statem(ptr noundef, i64 noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 declare noundef ptr @_Z17luaL_checklstringP9lua_StateiPm(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare noundef ptr @_Z16luaL_checkbufferP9lua_StateiPm(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 declare void @_Z15lua_pushlstringP9lua_StatePKcm(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare void @_Z11luaL_errorLP9lua_StatePKcz(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
+declare void @_Z11luaL_errorLP9lua_StatePKcz(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 declare void @_Z14lua_pushnumberP9lua_Stated(ptr noundef, double noundef) local_unnamed_addr #1
 
@@ -883,15 +877,15 @@ declare noundef double @_Z16luaL_checknumberP9lua_Statei(ptr noundef, i32 nounde
 declare noundef i32 @_Z15luaL_optintegerP9lua_Stateii(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare void @_Z16lua_pushunsignedP9lua_Statej(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define internal void @_GLOBAL__sub_I_lbuflib.cpp() #6 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_lbuflib.cpp() #5 section ".text.startup" {
   store i8 0, ptr @_ZN5FFlag21LuauBufferBitMethods2E, align 8, !tbaa !4
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5FFlag21LuauBufferBitMethods2E, i64 1), align 1, !tbaa !16
   store ptr @.str, ptr getelementptr inbounds nuw (i8, ptr @_ZN5FFlag21LuauBufferBitMethods2E, i64 8), align 8, !tbaa !17
@@ -901,15 +895,20 @@ define internal void @_GLOBAL__sub_I_lbuflib.cpp() #6 section ".text.startup" {
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
+
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { noreturn }
-attributes #8 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

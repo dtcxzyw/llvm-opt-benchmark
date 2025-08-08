@@ -39,14 +39,8 @@ define range(i32 -1, 2) i32 @uprv_uint32Comparator_77(ptr noundef readnone captu
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress uwtable
-define i32 @uprv_stableBinarySearch_77(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef %5) local_unnamed_addr #2 {
+define i32 @uprv_stableBinarySearch_77(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef %5) local_unnamed_addr #1 {
   %7 = icmp sgt i32 %1, 8
   br i1 %7, label %.lr.ph, label %.preheader
 
@@ -119,7 +113,7 @@ define i32 @uprv_stableBinarySearch_77(ptr noundef %0, i32 noundef %1, ptr nound
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @uprv_sortArray_77(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i8 noundef signext %5, ptr noundef captures(address_is_null) %6) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define void @uprv_sortArray_77(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i8 noundef signext %5, ptr noundef captures(address_is_null) %6) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.icu_77::MaybeStackArray.0", align 16
   %9 = alloca %"class.icu_77::MaybeStackArray", align 16
   %10 = icmp eq ptr %6, null
@@ -159,7 +153,7 @@ define void @uprv_sortArray_77(ptr noundef %0, i32 noundef %1, i32 noundef %2, p
   br i1 %or.cond9, label %28, label %94
 
 28:                                               ; preds = %23
-  call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %9) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %29 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %29, ptr %9, align 16, !tbaa !13
   %30 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -172,7 +166,7 @@ define void @uprv_sortArray_77(ptr noundef %0, i32 noundef %1, i32 noundef %2, p
 33:                                               ; preds = %28
   %34 = and i32 %26, -32
   %35 = zext i32 %34 to i64
-  %36 = invoke noalias ptr @uprv_malloc_77(i64 noundef %35) #11
+  %36 = invoke noalias ptr @uprv_malloc_77(i64 noundef %35) #10
           to label %.noexc.i unwind label %.loopexit.split-lp.loopexit.split-lp.i
 
 .noexc.i:                                         ; preds = %33
@@ -220,8 +214,8 @@ common.resume:                                    ; preds = %109, %.loopexit.spl
 
 .loopexit.split-lp.i:                             ; preds = %.loopexit.split-lp.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.i, %.loopexit.i
   %lpad.phi.i = phi { ptr, i32 } [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit16.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp17.i, %.loopexit.split-lp.loopexit.split-lp.i ]
-  call void @_ZN6icu_7715MaybeStackArrayI11max_align_tLi7EED2Ev(ptr noundef nonnull align 16 dereferenceable(240) %9) #10
-  call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %9) #10
+  call void @_ZN6icu_7715MaybeStackArrayI11max_align_tLi7EED2Ev(ptr noundef nonnull align 16 dereferenceable(240) %9) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %common.resume
 
 42:                                               ; preds = %_ZN6icu_7715MaybeStackArrayI11max_align_tLi7EE6resizeEii.exit.i, %28
@@ -352,11 +346,11 @@ _ZL15doInsertionSortPciiPFiPKvS1_S1_ES1_Pv.exit.i: ; preds = %87, %41
   unreachable
 
 _ZL13insertionSortPciiPFiPKvS1_S1_ES1_P10UErrorCode.exit: ; preds = %_ZL15doInsertionSortPciiPFiPKvS1_S1_ES1_Pv.exit.i, %89
-  call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %9) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %122
 
 94:                                               ; preds = %23
-  call void @llvm.lifetime.start.p0(i64 464, ptr nonnull %8) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %95 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %95, ptr %8, align 16, !tbaa !19
   %96 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -370,7 +364,7 @@ _ZL13insertionSortPciiPFiPKvS1_S1_ES1_P10UErrorCode.exit: ; preds = %_ZL15doInse
 100:                                              ; preds = %94
   %101 = zext nneg i32 %98 to i64
   %102 = shl nuw nsw i64 %101, 5
-  %103 = invoke noalias ptr @uprv_malloc_77(i64 noundef %102) #11
+  %103 = invoke noalias ptr @uprv_malloc_77(i64 noundef %102) #10
           to label %.noexc.i34 unwind label %109
 
 .noexc.i34:                                       ; preds = %100
@@ -400,8 +394,8 @@ _ZN6icu_7715MaybeStackArrayI11max_align_tLi14EE6resizeEii.exit.i: ; preds = %106
 109:                                              ; preds = %111, %106, %100
   %110 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6icu_7715MaybeStackArrayI11max_align_tLi14EED2Ev(ptr noundef nonnull align 16 dereferenceable(464) %8) #10
-  call void @llvm.lifetime.end.p0(i64 464, ptr nonnull %8) #10
+  call void @_ZN6icu_7715MaybeStackArrayI11max_align_tLi14EED2Ev(ptr noundef nonnull align 16 dereferenceable(464) %8) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %common.resume
 
 111:                                              ; preds = %_ZN6icu_7715MaybeStackArrayI11max_align_tLi14EE6resizeEii.exit.i, %94
@@ -429,7 +423,7 @@ _ZN6icu_7715MaybeStackArrayI11max_align_tLi14EE6resizeEii.exit.i: ; preds = %106
   unreachable
 
 _ZL9quickSortPciiPFiPKvS1_S1_ES1_P10UErrorCode.exit: ; preds = %115, %117
-  call void @llvm.lifetime.end.p0(i64 464, ptr nonnull %8) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %122
 
 122:                                              ; preds = %_ZL13insertionSortPciiPFiPKvS1_S1_ES1_P10UErrorCode.exit, %_ZL9quickSortPciiPFiPKvS1_S1_ES1_P10UErrorCode.exit, %21, %7, %11, %20
@@ -439,7 +433,7 @@ _ZL9quickSortPciiPFiPKvS1_S1_ES1_P10UErrorCode.exit: ; preds = %115, %117
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN6icu_7715MaybeStackArrayI11max_align_tLi7EED2Ev(ptr noundef nonnull align 16 dereferenceable(240) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN6icu_7715MaybeStackArrayI11max_align_tLi7EED2Ev(ptr noundef nonnull align 16 dereferenceable(240) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i8, ptr %2, align 4, !tbaa !17
   %.not.i = icmp eq i8 %3, 0
@@ -462,19 +456,19 @@ _ZN6icu_7715MaybeStackArrayI11max_align_tLi7EE12releaseArrayEv.exit: ; preds = %
 }
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @uprv_malloc_77(i64 noundef) local_unnamed_addr #4
+declare noalias ptr @uprv_malloc_77(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
-declare void @uprv_free_77(ptr noundef) local_unnamed_addr #6
+declare void @uprv_free_77(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: noinline noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #7 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #10
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #6 comdat {
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #11
   tail call void @_ZSt9terminatev() #12
   unreachable
 }
@@ -482,10 +476,10 @@ define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_un
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #8
+declare void @_ZSt9terminatev() local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL12subQuickSortPciiiPFiPKvS1_S1_ES1_PvS4_(ptr noundef %0, i32 noundef range(i32 -2147483648, 2147483646) %1, i32 noundef %2, i32 noundef range(i32 1, -2147483648) %3, ptr noundef nonnull %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) unnamed_addr #2 {
+define internal fastcc void @_ZL12subQuickSortPciiiPFiPKvS1_S1_ES1_PvS4_(ptr noundef %0, i32 noundef range(i32 -2147483648, 2147483646) %1, i32 noundef %2, i32 noundef range(i32 1, -2147483648) %3, ptr noundef nonnull %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) unnamed_addr #1 {
   %9 = zext nneg i32 %3 to i64
   %10 = zext nneg i32 %3 to i64
   br label %11
@@ -714,7 +708,7 @@ _ZL15doInsertionSortPciiPFiPKvS1_S1_ES1_Pv.exit:  ; preds = %109, %61, %13
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN6icu_7715MaybeStackArrayI11max_align_tLi14EED2Ev(ptr noundef nonnull align 16 dereferenceable(464) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN6icu_7715MaybeStackArrayI11max_align_tLi14EED2Ev(ptr noundef nonnull align 16 dereferenceable(464) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i8, ptr %2, align 4, !tbaa !22
   %.not.i = icmp eq i8 %3, 0
@@ -736,21 +730,27 @@ _ZN6icu_7715MaybeStackArrayI11max_align_tLi14EE12releaseArrayEv.exit: ; preds = 
   unreachable
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32, i32) #9
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { cold nofree noreturn }
+attributes #1 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { cold nofree noreturn }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nounwind }
-attributes #11 = { allocsize(0) }
+attributes #10 = { allocsize(0) }
+attributes #11 = { nounwind }
 attributes #12 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

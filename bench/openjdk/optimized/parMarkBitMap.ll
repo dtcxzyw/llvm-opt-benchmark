@@ -281,7 +281,7 @@ define hidden noundef zeroext i1 @_ZN13ParMarkBitMap10initializeE9MemRegion(ptr 
   %25 = load i64, ptr %24, align 8
   call void @_ZN2os16trace_page_sizesEPKcmmS1_mm(ptr noundef nonnull @.str, i64 noundef %10, i64 noundef %10, ptr noundef %23, i64 noundef %25, i64 noundef %22) #10
   %26 = load ptr, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %27 = load i32, ptr @_ZN10MemTracker15_tracking_levelE, align 4
   %28 = icmp sgt i32 %27, 1
   %29 = icmp ne ptr %26, null
@@ -295,7 +295,7 @@ define hidden noundef zeroext i1 @_ZN13ParMarkBitMap10initializeE9MemRegion(ptr 
   br label %_ZN10MemTracker26record_virtual_memory_typeEPv8MEMFLAGS.exit
 
 _ZN10MemTracker26record_virtual_memory_typeEPv8MEMFLAGS.exit: ; preds = %3, %30
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %31 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 56, i8 noundef zeroext 5, i32 noundef 0) #10
   call void @_ZN14PSVirtualSpaceC1E13ReservedSpacem(ptr noundef nonnull align 8 dereferenceable(49) %31, ptr noundef nonnull byval(%class.ReservedSpace) align 8 %5, i64 noundef %11) #10
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -706,7 +706,7 @@ _ZN16java_lang_String11is_instanceEP7oopDesc.exit: ; preds = %42, %52
   br i1 %or.cond18, label %_ZN16java_lang_String11is_instanceEP7oopDesc.exit.thread, label %57
 
 57:                                               ; preds = %_ZN16java_lang_String11is_instanceEP7oopDesc.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %58 = load volatile i64, ptr %14, align 8
   store i64 %58, ptr %3, align 8
   %59 = load i32, ptr @LockingMode, align 4
@@ -727,7 +727,7 @@ _ZN13psStringDedup22is_candidate_from_markEP7oopDesc.exit: ; preds = %57, %66
   %.0.in.in.i.i = trunc i64 %.0.in.in.in.i.i to i32
   %.0.in.i.i = lshr i32 %.0.in.in.i.i, 3
   %.0.i.i12 = and i32 %.0.in.i.i, 15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %68 = load i32, ptr @_ZN11StringDedup18_enabled_age_limitE, align 4
   %69 = icmp ult i32 %.0.i.i12, %68
   br i1 %69, label %70, label %_ZN16java_lang_String11is_instanceEP7oopDesc.exit.thread
@@ -1161,7 +1161,7 @@ _ZN16java_lang_String11is_instanceEP7oopDesc.exit: ; preds = %35, %45
   br i1 %or.cond, label %_ZN13psStringDedup22is_candidate_from_markEP7oopDesc.exit.thread, label %50
 
 50:                                               ; preds = %_ZN16java_lang_String11is_instanceEP7oopDesc.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %51 = load volatile i64, ptr %4, align 8
   store i64 %51, ptr %3, align 8
   %52 = load i32, ptr @LockingMode, align 4
@@ -1182,7 +1182,7 @@ _ZN13psStringDedup22is_candidate_from_markEP7oopDesc.exit: ; preds = %50, %59
   %.0.in.in.i.i = trunc i64 %.0.in.in.in.i.i to i32
   %.0.in.i.i = lshr i32 %.0.in.in.i.i, 3
   %.0.i.i13 = and i32 %.0.in.i.i, 15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %61 = load i32, ptr @_ZN11StringDedup18_enabled_age_limitE, align 4
   %62 = icmp ult i32 %.0.i.i13, %61
   br i1 %62, label %63, label %_ZN13psStringDedup22is_candidate_from_markEP7oopDesc.exit.thread
@@ -1479,9 +1479,9 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI27PCIterateMarkAndPu
   br i1 %35, label %23, label %_ZN16InstanceRefKlass15oop_oop_iterateI9narrowOop27PCIterateMarkAndPushClosureEEvP7oopDescPT0_.exit, !llvm.loop !17
 
 _ZN16InstanceRefKlass15oop_oop_iterateI9narrowOop27PCIterateMarkAndPushClosureEEvP7oopDescPT0_.exit: ; preds = %._crit_edge.i, %3
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_processingI9narrowOop27PCIterateMarkAndPushClosure14AlwaysContainsEEvP7oopDescPT0_RT1_(ptr noundef nonnull align 8 dereferenceable(464) %2, ptr noundef %1, ptr noundef nonnull %0, ptr noundef nonnull align 1 dereferenceable(1) %4)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -1543,9 +1543,9 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI27PCIterateMarkAndPu
   br i1 %35, label %23, label %_ZN16InstanceRefKlass15oop_oop_iterateIP7oopDesc27PCIterateMarkAndPushClosureEEvS2_PT0_.exit, !llvm.loop !19
 
 _ZN16InstanceRefKlass15oop_oop_iterateIP7oopDesc27PCIterateMarkAndPushClosureEEvS2_PT0_.exit: ; preds = %._crit_edge.i, %3
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_processingIP7oopDesc27PCIterateMarkAndPushClosure14AlwaysContainsEEvS2_PT0_RT1_(ptr noundef nonnull align 8 dereferenceable(464) %2, ptr noundef %1, ptr noundef nonnull %0, ptr noundef nonnull align 1 dereferenceable(1) %4)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -4268,10 +4268,10 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI27PCIterateMarkAndPu
 declare i64 @llvm.umax.i64(i64, i64) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

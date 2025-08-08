@@ -104,12 +104,6 @@ define dso_local i64 @SDLTest_RandomUint64() local_unnamed_addr #2 {
   ret i64 %.sroa.0.0.insert.insert
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
-
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @SDLTest_RandomSint64() local_unnamed_addr #2 {
   %1 = load i32, ptr @fuzzerInvocationCounter, align 4
@@ -179,7 +173,7 @@ define dso_local zeroext i8 @SDLTest_RandomUint8BoundaryValue(i8 noundef zeroext
   %4 = alloca [4 x i64], align 16
   %5 = zext i8 %0 to i64
   %6 = zext i8 %1 to i64
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %..i = tail call i64 @llvm.umin.i64(i64 %5, i64 %6)
   %.51.i = tail call i64 @llvm.umax.i64(i64 %5, i64 %6)
   br i1 %2, label %7, label %24
@@ -263,7 +257,7 @@ define dso_local zeroext i8 @SDLTest_RandomUint8BoundaryValue(i8 noundef zeroext
 
 SDLTest_GenerateUnsignedBoundaryValues.exit:      ; preds = %7, %34, %.thread.i
   %.043.i = phi i64 [ 0, %34 ], [ %44, %.thread.i ], [ %..i, %7 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %45 = trunc i64 %.043.i to i8
   ret i8 %45
 }
@@ -273,7 +267,7 @@ define dso_local zeroext i16 @SDLTest_RandomUint16BoundaryValue(i16 noundef zero
   %4 = alloca [4 x i64], align 16
   %5 = zext i16 %0 to i64
   %6 = zext i16 %1 to i64
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %..i = tail call i64 @llvm.umin.i64(i64 %5, i64 %6)
   %.51.i = tail call i64 @llvm.umax.i64(i64 %5, i64 %6)
   br i1 %2, label %7, label %24
@@ -357,7 +351,7 @@ define dso_local zeroext i16 @SDLTest_RandomUint16BoundaryValue(i16 noundef zero
 
 SDLTest_GenerateUnsignedBoundaryValues.exit:      ; preds = %7, %34, %.thread.i
   %.043.i = phi i64 [ 0, %34 ], [ %44, %.thread.i ], [ %..i, %7 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %45 = trunc i64 %.043.i to i16
   ret i16 %45
 }
@@ -367,7 +361,7 @@ define dso_local i32 @SDLTest_RandomUint32BoundaryValue(i32 noundef %0, i32 noun
   %4 = alloca [4 x i64], align 16
   %5 = zext i32 %0 to i64
   %6 = zext i32 %1 to i64
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %..i = tail call i64 @llvm.umin.i64(i64 %5, i64 %6)
   %.51.i = tail call i64 @llvm.umax.i64(i64 %5, i64 %6)
   br i1 %2, label %7, label %24
@@ -451,7 +445,7 @@ define dso_local i32 @SDLTest_RandomUint32BoundaryValue(i32 noundef %0, i32 noun
 
 SDLTest_GenerateUnsignedBoundaryValues.exit:      ; preds = %7, %34, %.thread.i
   %.043.i = phi i64 [ 0, %34 ], [ %44, %.thread.i ], [ %..i, %7 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %45 = trunc i64 %.043.i to i32
   ret i32 %45
 }
@@ -459,7 +453,7 @@ SDLTest_GenerateUnsignedBoundaryValues.exit:      ; preds = %7, %34, %.thread.i
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @SDLTest_RandomUint64BoundaryValue(i64 noundef %0, i64 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #2 {
   %4 = alloca [4 x i64], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %..i = tail call i64 @llvm.umin.i64(i64 %0, i64 %1)
   %.51.i = tail call i64 @llvm.umax.i64(i64 %0, i64 %1)
   br i1 %2, label %5, label %22
@@ -543,7 +537,7 @@ define dso_local i64 @SDLTest_RandomUint64BoundaryValue(i64 noundef %0, i64 noun
 
 SDLTest_GenerateUnsignedBoundaryValues.exit:      ; preds = %5, %32, %.thread.i
   %.043.i = phi i64 [ 0, %32 ], [ %42, %.thread.i ], [ %..i, %5 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %.043.i
 }
 
@@ -552,7 +546,7 @@ define dso_local signext i8 @SDLTest_RandomSint8BoundaryValue(i8 noundef signext
   %4 = alloca [4 x i64], align 16
   %5 = sext i8 %0 to i64
   %6 = sext i8 %1 to i64
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %..i = tail call i64 @llvm.smin.i64(i64 %5, i64 %6)
   %.53.i = tail call i64 @llvm.smax.i64(i64 %5, i64 %6)
   br i1 %2, label %7, label %24
@@ -634,7 +628,7 @@ define dso_local signext i8 @SDLTest_RandomSint8BoundaryValue(i8 noundef signext
 
 SDLTest_GenerateSignedBoundaryValues.exit:        ; preds = %7, %35, %.thread.i
   %.045.i = phi i64 [ -128, %35 ], [ %45, %.thread.i ], [ %..i, %7 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %46 = trunc i64 %.045.i to i8
   ret i8 %46
 }
@@ -644,7 +638,7 @@ define dso_local signext i16 @SDLTest_RandomSint16BoundaryValue(i16 noundef sign
   %4 = alloca [4 x i64], align 16
   %5 = sext i16 %0 to i64
   %6 = sext i16 %1 to i64
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %..i = tail call i64 @llvm.smin.i64(i64 %5, i64 %6)
   %.53.i = tail call i64 @llvm.smax.i64(i64 %5, i64 %6)
   br i1 %2, label %7, label %24
@@ -728,7 +722,7 @@ define dso_local signext i16 @SDLTest_RandomSint16BoundaryValue(i16 noundef sign
 
 SDLTest_GenerateSignedBoundaryValues.exit:        ; preds = %7, %36, %.thread.i
   %.045.i = phi i64 [ -32768, %36 ], [ %46, %.thread.i ], [ %..i, %7 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %47 = trunc i64 %.045.i to i16
   ret i16 %47
 }
@@ -738,7 +732,7 @@ define dso_local i32 @SDLTest_RandomSint32BoundaryValue(i32 noundef %0, i32 noun
   %4 = alloca [4 x i64], align 16
   %5 = sext i32 %0 to i64
   %6 = sext i32 %1 to i64
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %..i = tail call i64 @llvm.smin.i64(i64 %5, i64 %6)
   %.53.i = tail call i64 @llvm.smax.i64(i64 %5, i64 %6)
   br i1 %2, label %7, label %24
@@ -822,7 +816,7 @@ define dso_local i32 @SDLTest_RandomSint32BoundaryValue(i32 noundef %0, i32 noun
 
 SDLTest_GenerateSignedBoundaryValues.exit:        ; preds = %7, %36, %.thread.i
   %.045.i = phi i64 [ -2147483648, %36 ], [ %46, %.thread.i ], [ %..i, %7 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %47 = trunc i64 %.045.i to i32
   ret i32 %47
 }
@@ -830,7 +824,7 @@ SDLTest_GenerateSignedBoundaryValues.exit:        ; preds = %7, %36, %.thread.i
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @SDLTest_RandomSint64BoundaryValue(i64 noundef %0, i64 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #2 {
   %4 = alloca [4 x i64], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %..i = tail call i64 @llvm.smin.i64(i64 %0, i64 %1)
   %.53.i = tail call i64 @llvm.smax.i64(i64 %0, i64 %1)
   br i1 %2, label %5, label %22
@@ -914,7 +908,7 @@ define dso_local i64 @SDLTest_RandomSint64BoundaryValue(i64 noundef %0, i64 noun
 
 SDLTest_GenerateSignedBoundaryValues.exit:        ; preds = %5, %32, %.thread.i
   %.045.i = phi i64 [ -9223372036854775808, %32 ], [ %42, %.thread.i ], [ %..i, %5 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %.045.i
 }
 
@@ -1162,6 +1156,12 @@ define dso_local noalias ptr @SDLTest_RandomAsciiStringOfSize(i32 noundef %0) lo
 }
 
 declare noalias ptr @SDL_malloc(i64 noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #5

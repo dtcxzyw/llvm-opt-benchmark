@@ -30,7 +30,7 @@ define hidden void @_cmsAllocIntentsPluginChunk(ptr noundef captures(none) %0, p
 4:                                                ; preds = %2
   %5 = getelementptr i8, ptr %1, i64 96
   %.val = load ptr, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.02.i = load ptr, ptr %.val, align 8
   %.not3.i = icmp eq ptr %.02.i, null
   br i1 %.not3.i, label %._crit_edge.i, label %.lr.ph.i
@@ -78,7 +78,7 @@ define hidden void @_cmsAllocIntentsPluginChunk(ptr noundef captures(none) %0, p
   br label %DupPluginIntentsList.exit
 
 DupPluginIntentsList.exit:                        ; preds = %7, %._crit_edge.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %28
 
 23:                                               ; preds = %2
@@ -699,12 +699,12 @@ define internal fastcc range(i32 0, 2) i32 @ComputeConversion(i32 noundef range(
   br i1 %.not31, label %.loopexit, label %40
 
 40:                                               ; preds = %37
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %13)
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %14)
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %41 = fcmp oeq double %4, 1.000000e+00
   %42 = load double, ptr %16, align 8
   %43 = load double, ptr %17, align 8
@@ -791,33 +791,33 @@ define internal fastcc range(i32 0, 2) i32 @ComputeConversion(i32 noundef range(
   %86 = fsub double 1.000000e+00, %4
   %87 = fmul double %4, %74
   %88 = call double @llvm.fmuladd.f64(double %86, double %75, double %87)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %89 = call i32 @cmsWhitePointFromTemp(ptr noundef nonnull %9, double noundef %88) #7
   call void @cmsxyY2XYZ(ptr noundef nonnull %8, ptr noundef nonnull %9) #7
   %90 = call ptr @cmsD50_XYZ() #7
   %91 = call i32 @_cmsAdaptationMatrix(ptr noundef nonnull %15, ptr noundef null, ptr noundef nonnull %8, ptr noundef %90) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @_cmsMAT3per(ptr noundef nonnull %5, ptr noundef nonnull %13, ptr noundef nonnull %15) #7
   br label %ComputeAbsoluteIntent.exit.thread
 
 ComputeAbsoluteIntent.exit.thread:                ; preds = %84, %70, %85, %49
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %.preheader
 
 ComputeAbsoluteIntent.exit:                       ; preds = %68, %71, %73
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %.loopexit
 
 92:                                               ; preds = %7
@@ -966,7 +966,7 @@ define internal fastcc range(i32 0, 2) i32 @AddConversion(ptr noundef nonnull %0
   ]
 
 11:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_cmsMAT3identity(ptr noundef nonnull %9) #7
   br label %12
 
@@ -997,7 +997,7 @@ define internal fastcc range(i32 0, 2) i32 @AddConversion(ptr noundef nonnull %0
 
 IsEmptyLayer.exit:                                ; preds = %.preheader.i
   %24 = fcmp uge double %23, 2.000000e-03
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br i1 %24, label %25, label %106
 
 25:                                               ; preds = %IsEmptyLayer.exit
@@ -1009,7 +1009,7 @@ IsEmptyLayer.exit:                                ; preds = %.preheader.i
   br i1 %.not49, label %107, label %106
 
 30:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_cmsMAT3identity(ptr noundef nonnull %8) #7
   br label %31
 
@@ -1040,7 +1040,7 @@ IsEmptyLayer.exit:                                ; preds = %.preheader.i
 
 IsEmptyLayer.exit60:                              ; preds = %.preheader.i55
   %43 = fcmp uge double %42, 2.000000e-03
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %43, label %44, label %49
 
 44:                                               ; preds = %IsEmptyLayer.exit60
@@ -1074,7 +1074,7 @@ IsEmptyLayer.exit60:                              ; preds = %.preheader.i55
   br i1 %.not42, label %107, label %60
 
 60:                                               ; preds = %55
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_cmsMAT3identity(ptr noundef nonnull %7) #7
   br label %61
 
@@ -1105,7 +1105,7 @@ IsEmptyLayer.exit60:                              ; preds = %.preheader.i55
 
 IsEmptyLayer.exit70:                              ; preds = %.preheader.i65
   %73 = fcmp uge double %72, 2.000000e-03
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %73, label %74, label %106
 
 74:                                               ; preds = %IsEmptyLayer.exit70
@@ -1116,7 +1116,7 @@ IsEmptyLayer.exit70:                              ; preds = %.preheader.i65
   br i1 %.not44, label %107, label %106
 
 78:                                               ; preds = %54
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_cmsMAT3identity(ptr noundef nonnull %6) #7
   br label %79
 
@@ -1147,7 +1147,7 @@ IsEmptyLayer.exit70:                              ; preds = %.preheader.i65
 
 IsEmptyLayer.exit80:                              ; preds = %.preheader.i75
   %91 = fcmp uge double %90, 2.000000e-03
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %91, label %92, label %106
 
 92:                                               ; preds = %IsEmptyLayer.exit80
@@ -2046,10 +2046,10 @@ declare double @cmsDeltaE(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare double @llvm.floor.f64(double) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

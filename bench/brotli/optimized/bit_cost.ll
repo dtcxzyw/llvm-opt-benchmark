@@ -10,7 +10,7 @@ define hidden double @BrotliPopulationCostLiteral(ptr noundef readonly captures(
   %2 = alloca [5 x i64], align 16
   %3 = alloca [4 x i32], align 16
   %4 = alloca [18 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1024
   %6 = load i64, ptr %5, align 8, !tbaa !3
   %7 = icmp eq i64 %6, 0
@@ -76,7 +76,7 @@ define hidden double @BrotliPopulationCostLiteral(ptr noundef readonly captures(
   br label %173
 
 42:                                               ; preds = %17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %43
 
 43:                                               ; preds = %42, %43
@@ -144,11 +144,11 @@ define hidden double @BrotliPopulationCostLiteral(ptr noundef readonly captures(
   %78 = fadd double %72, %77
   %79 = uitofp i32 %69 to double
   %80 = fsub double %78, %79
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %173
 
 81:                                               ; preds = %17
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %4, i8 0, i64 72, i1 false)
   %82 = icmp ult i64 %6, 256
   br i1 %82, label %83, label %86
@@ -359,33 +359,27 @@ ShannonEntropy.exit:                              ; preds = %158, %FastLog2.exit
   %171 = fcmp olt double %.2.i, %.pre155
   %.0.i113 = select i1 %171, double %.pre155, double %.2.i
   %172 = fadd double %162, %.0.i113
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %173
 
 173:                                              ; preds = %17, %1, %ShannonEntropy.exit, %62, %21, %18
   %.087 = phi double [ %20, %18 ], [ %41, %21 ], [ %80, %62 ], [ %172, %ShannonEntropy.exit ], [ 1.200000e+01, %1 ], [ 1.200000e+01, %17 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret double %.087
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #3
+declare double @llvm.fmuladd.f64(double, double, double) #2
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: read, errnomem: write) uwtable
 define hidden double @BrotliPopulationCostCommand(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca [5 x i64], align 16
   %3 = alloca [4 x i32], align 16
   %4 = alloca [18 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2816
   %6 = load i64, ptr %5, align 8, !tbaa !22
   %7 = icmp eq i64 %6, 0
@@ -451,7 +445,7 @@ define hidden double @BrotliPopulationCostCommand(ptr noundef readonly captures(
   br label %178
 
 42:                                               ; preds = %17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %43
 
 43:                                               ; preds = %42, %43
@@ -519,11 +513,11 @@ define hidden double @BrotliPopulationCostCommand(ptr noundef readonly captures(
   %78 = fadd double %72, %77
   %79 = uitofp i32 %69 to double
   %80 = fsub double %78, %79
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %178
 
 81:                                               ; preds = %17
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %4, i8 0, i64 72, i1 false)
   %82 = icmp ult i64 %6, 256
   br i1 %82, label %83, label %86
@@ -746,12 +740,12 @@ ShannonEntropy.exit:                              ; preds = %163, %FastLog2.exit
   %176 = fcmp olt double %.2.i, %.pre155
   %.0.i113 = select i1 %176, double %.pre155, double %.2.i
   %177 = fadd double %167, %.0.i113
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %178
 
 178:                                              ; preds = %17, %1, %ShannonEntropy.exit, %62, %21, %18
   %.087 = phi double [ %20, %18 ], [ %41, %21 ], [ %80, %62 ], [ %177, %ShannonEntropy.exit ], [ 1.200000e+01, %1 ], [ 1.200000e+01, %17 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret double %.087
 }
 
@@ -760,7 +754,7 @@ define hidden double @BrotliPopulationCostDistance(ptr noundef readonly captures
   %2 = alloca [5 x i64], align 16
   %3 = alloca [4 x i32], align 16
   %4 = alloca [18 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2176
   %6 = load i64, ptr %5, align 8, !tbaa !31
   %7 = icmp eq i64 %6, 0
@@ -826,7 +820,7 @@ define hidden double @BrotliPopulationCostDistance(ptr noundef readonly captures
   br label %178
 
 42:                                               ; preds = %17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %43
 
 43:                                               ; preds = %42, %43
@@ -894,11 +888,11 @@ define hidden double @BrotliPopulationCostDistance(ptr noundef readonly captures
   %78 = fadd double %72, %77
   %79 = uitofp i32 %69 to double
   %80 = fsub double %78, %79
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %178
 
 81:                                               ; preds = %17
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %4, i8 0, i64 72, i1 false)
   %82 = icmp ult i64 %6, 256
   br i1 %82, label %83, label %86
@@ -1121,17 +1115,23 @@ ShannonEntropy.exit:                              ; preds = %163, %FastLog2.exit
   %176 = fcmp olt double %.2.i, %.pre155
   %.0.i113 = select i1 %176, double %.pre155, double %.2.i
   %177 = fadd double %167, %.0.i113
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %178
 
 178:                                              ; preds = %17, %1, %ShannonEntropy.exit, %62, %21, %18
   %.087 = phi double [ %20, %18 ], [ %41, %21 ], [ %80, %62 ], [ %177, %ShannonEntropy.exit ], [ 1.200000e+01, %1 ], [ 1.200000e+01, %17 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret double %.087
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @log2(double noundef) local_unnamed_addr #4
+declare double @log2(double noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #5
@@ -1143,10 +1143,10 @@ declare i32 @llvm.umax.i32(i32, i32) #5
 declare i64 @llvm.umax.i64(i64, i64) #5
 
 attributes #0 = { nofree norecurse nounwind memory(argmem: read, errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nounwind }
 

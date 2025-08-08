@@ -1064,15 +1064,9 @@ define internal range(i32 -1, 1) i32 @tokenizemodule_exec(ptr noundef %0) #0 {
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare ptr @PyType_FromModuleAndSpec(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare i32 @PyModule_AddType(ptr noundef, ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 declare ptr @PyModule_GetState(ptr noundef) local_unnamed_addr #1
 
@@ -1080,7 +1074,7 @@ declare ptr @PyModule_GetState(ptr noundef) local_unnamed_addr #1
 define internal ptr @tokenizeriter_new(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca [3 x ptr], align 16
   %5 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = getelementptr i8, ptr %1, i64 16
   %.val30 = load i64, ptr %6, align 8, !tbaa !12
   %.not = icmp eq ptr %2, null
@@ -1197,7 +1191,7 @@ define internal ptr @tokenizeriter_new(ptr noundef %0, ptr noundef %1, ptr nound
 
 tokenizeriter_new_impl.exit:                      ; preds = %58, %53, %50, %48, %41, %36, %28, %14, %9, %34, %27
   %.021 = phi ptr [ null, %14 ], [ null, %28 ], [ null, %34 ], [ null, %27 ], [ null, %9 ], [ null, %36 ], [ %39, %58 ], [ null, %41 ], [ null, %48 ], [ null, %50 ], [ null, %53 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.021
 }
 
@@ -1257,7 +1251,7 @@ declare ptr @PyObject_SelfIter(ptr noundef) #1
 ; Function Attrs: nounwind uwtable
 define internal ptr @tokenizeriter_next(ptr noundef captures(none) %0) #0 {
   %2 = alloca %struct.token, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_PyToken_Init(ptr noundef nonnull %2) #6
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !33
@@ -1846,7 +1840,7 @@ _tokenizer_error.exit:                            ; preds = %171, %168, %166, %1
 
 266:                                              ; preds = %_tokenizer_error.exit.thread, %265, %_tokenizer_error.exit
   %.073127 = phi ptr [ null, %_tokenizer_error.exit.thread ], [ %.073, %265 ], [ %.073, %_tokenizer_error.exit ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.073127
 }
 
@@ -1859,7 +1853,7 @@ declare void @_PyArg_BadArgument(ptr noundef, ptr noundef, ptr noundef, ptr noun
 declare ptr @PyUnicode_AsUTF8AndSize(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1903,6 +1897,12 @@ declare i64 @_PyPegen_byte_offset_to_character_offset_line(ptr noundef, i64 noun
 
 declare i64 @_PyPegen_byte_offset_to_character_offset_raw(ptr noundef, i64 noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #4
 
@@ -1911,8 +1911,8 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #6 = { nounwind }

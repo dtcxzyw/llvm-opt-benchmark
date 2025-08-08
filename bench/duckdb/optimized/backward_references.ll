@@ -12460,7 +12460,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit126.i334: ; preds = %7
   %.sroa.18404.7 = phi i64 [ %62, %99 ], [ 0, %95 ], [ 0, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit126.i334 ], [ 0, %65 ], [ 0, %.thread ]
   %.sroa.0395.7 = phi i64 [ %.2.i122.i335, %99 ], [ 0, %95 ], [ 0, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit126.i334 ], [ 0, %65 ], [ 0, %.thread ]
   %.0.i299.in = phi i8 [ %101, %99 ], [ %58, %95 ], [ %58, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit126.i334 ], [ %58, %65 ], [ %58, %.thread ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #6, !noalias !634
+  call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !634
   br label %103
 
 103:                                              ; preds = %102, %103
@@ -12609,7 +12609,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i318: ; preds = %131,
   br i1 %exitcond913.not, label %_ZN13duckdb_brotliL19FindLongestMatchH54EPNS_3H54EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit341, label %115, !llvm.loop !636
 
 _ZN13duckdb_brotliL19FindLongestMatchH54EPNS_3H54EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit341: ; preds = %167
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #6, !noalias !634
+  call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !634
   %169 = trunc i64 %.0827 to i32
   %170 = getelementptr inbounds nuw i32, ptr %38, i64 %113
   store i32 %169, ptr %170, align 4, !tbaa !40, !noalias !632
@@ -13267,7 +13267,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit126.i: ; preds = %440,
   %.sroa.12.5 = phi i64 [ %430, %468 ], [ 0, %464 ], [ 0, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit126.i ], [ 0, %433 ], [ 0, %413 ]
   %.sroa.0.5 = phi i64 [ %.2.i122.i, %468 ], [ %418, %464 ], [ %418, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit126.i ], [ %418, %433 ], [ %418, %413 ]
   %.0.i279.in = phi i8 [ %470, %468 ], [ %426, %464 ], [ %426, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit126.i ], [ %426, %433 ], [ %426, %413 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #6, !noalias !674
+  call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !674
   br label %472
 
 472:                                              ; preds = %471, %472
@@ -13416,7 +13416,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i291: ; preds = %500,
   br i1 %exitcond922.not, label %_ZN13duckdb_brotliL19FindLongestMatchH54EPNS_3H54EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit, label %484, !llvm.loop !636
 
 _ZN13duckdb_brotliL19FindLongestMatchH54EPNS_3H54EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit: ; preds = %536
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #6, !noalias !674
+  call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !674
   %538 = trunc i64 %419 to i32
   %539 = getelementptr inbounds nuw i32, ptr %38, i64 %482
   store i32 %538, ptr %539, align 4, !tbaa !40, !noalias !670
@@ -18625,7 +18625,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit126.i: ; preds = %62, 
   %.sroa.13.2 = phi i64 [ %53, %90 ], [ 0, %86 ], [ 0, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit126.i ], [ 0, %56 ], [ 0, %.thread ]
   %.sroa.0253.2 = phi i64 [ %.2.i122.i, %90 ], [ 0, %86 ], [ 0, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit126.i ], [ 0, %56 ], [ 0, %.thread ]
   %.0.i200.in = phi i8 [ %92, %90 ], [ %49, %86 ], [ %49, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit126.i ], [ %49, %56 ], [ %49, %.thread ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #6, !noalias !938
+  call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !938
   store i64 %51, ptr %13, align 16, !tbaa !29, !noalias !938
   %93 = add nuw nsw i64 %51, 8
   %94 = and i64 %93, 65535
@@ -18762,7 +18762,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i: ; preds = %116, %.
   br i1 %101, label %100, label %_ZN13duckdb_brotliL18FindLongestMatchH3EPNS_2H3EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit, !llvm.loop !939
 
 _ZN13duckdb_brotliL18FindLongestMatchH3EPNS_2H3EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit: ; preds = %152
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #6, !noalias !938
+  call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !938
   %153 = trunc i64 %.0438 to i32
   %154 = getelementptr inbounds nuw i32, ptr %36, i64 %98
   store i32 %153, ptr %154, align 4, !tbaa !40, !noalias !936
@@ -18897,7 +18897,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit126.i239: ; preds = %1
   %.sroa.7.0 = phi i64 [ %157, %210 ], [ 0, %206 ], [ 0, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit126.i239 ], [ 0, %175 ], [ 0, %159 ]
   %.sroa.0.0 = phi i64 [ %.2.i122.i240, %210 ], [ %164, %206 ], [ %164, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit126.i239 ], [ %164, %175 ], [ %164, %159 ]
   %.0.i204.in = phi i8 [ %212, %210 ], [ %170, %206 ], [ %170, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit126.i239 ], [ %170, %175 ], [ %170, %159 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #6, !noalias !949
+  call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !949
   store i64 %172, ptr %12, align 16, !tbaa !29, !noalias !949
   %213 = add nuw nsw i64 %172, 8
   %214 = and i64 %213, 65535
@@ -19034,7 +19034,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i223: ; preds = %236,
   br i1 %221, label %220, label %_ZN13duckdb_brotliL18FindLongestMatchH3EPNS_2H3EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit246, !llvm.loop !939
 
 _ZN13duckdb_brotliL18FindLongestMatchH3EPNS_2H3EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit246: ; preds = %272
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #6, !noalias !949
+  call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !949
   %273 = trunc i64 %165 to i32
   %274 = getelementptr inbounds nuw i32, ptr %36, i64 %218
   store i32 %273, ptr %274, align 4, !tbaa !40, !noalias !948
@@ -19665,7 +19665,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit136.i: ; preds = %101,
   %.sroa.14.2 = phi i64 [ %92, %129 ], [ 0, %125 ], [ 0, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit136.i ], [ 0, %95 ], [ 0, %81 ]
   %.sroa.0280.2 = phi i64 [ %.2.i132.i, %129 ], [ 0, %125 ], [ 0, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit136.i ], [ 0, %95 ], [ 0, %81 ]
   %.0.i200.in = phi i8 [ %131, %129 ], [ %88, %125 ], [ %88, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit136.i ], [ %88, %95 ], [ %88, %81 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14) #6, !noalias !977
+  call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !977
   br label %133
 
 133:                                              ; preds = %132, %133
@@ -19814,7 +19814,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i: ; preds = %161, %.
   br i1 %exitcond597.not, label %199, label %145, !llvm.loop !979
 
 199:                                              ; preds = %197
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14) #6, !noalias !977
+  call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !977
   %200 = icmp eq i64 %.sroa.23290.8, 2020
   br i1 %200, label %201, label %_ZN13duckdb_brotliL18FindLongestMatchH4EPNS_2H4EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit
 
@@ -20146,7 +20146,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit136.i264: ; preds = %3
   %.sroa.8.0 = phi i64 [ %302, %377 ], [ 0, %373 ], [ 0, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit136.i264 ], [ 0, %342 ], [ 0, %330 ]
   %.sroa.0.0 = phi i64 [ %.2.i132.i265, %377 ], [ %309, %373 ], [ %309, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit136.i264 ], [ %309, %342 ], [ %309, %330 ]
   %.0.i204.in = phi i8 [ %379, %377 ], [ %337, %373 ], [ %337, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit136.i264 ], [ %337, %342 ], [ %337, %330 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #6, !noalias !991
+  call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !991
   br label %381
 
 381:                                              ; preds = %380, %381
@@ -20295,7 +20295,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i248: ; preds = %409,
   br i1 %exitcond602.not, label %447, label %393, !llvm.loop !979
 
 447:                                              ; preds = %445
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #6, !noalias !991
+  call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !991
   %448 = icmp eq i64 %.sroa.12.6, 2020
   br i1 %448, label %449, label %_ZN13duckdb_brotliL18FindLongestMatchH4EPNS_2H4EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit271
 
@@ -29641,7 +29641,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit126.i: ; preds = %60, 
   %.sroa.13.2 = phi i64 [ %51, %88 ], [ 0, %84 ], [ 0, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit126.i ], [ 0, %54 ], [ 0, %.thread ]
   %.sroa.0253.2 = phi i64 [ %.2.i122.i, %88 ], [ 0, %84 ], [ 0, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit126.i ], [ 0, %54 ], [ 0, %.thread ]
   %.0.i200.in = phi i8 [ %90, %88 ], [ %47, %84 ], [ %47, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit126.i ], [ %47, %54 ], [ %47, %.thread ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #6, !noalias !1381
+  call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !1381
   br label %92
 
 92:                                               ; preds = %91, %92
@@ -29790,7 +29790,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i: ; preds = %120, %.
   br i1 %exitcond474.not, label %_ZN13duckdb_brotliL19FindLongestMatchH54EPNS_3H54EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit, label %104, !llvm.loop !636
 
 _ZN13duckdb_brotliL19FindLongestMatchH54EPNS_3H54EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit: ; preds = %156
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #6, !noalias !1381
+  call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !1381
   %158 = trunc i64 %.0438 to i32
   %159 = getelementptr inbounds nuw i32, ptr %36, i64 %102
   store i32 %158, ptr %159, align 4, !tbaa !40, !noalias !1379
@@ -29925,7 +29925,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit126.i239: ; preds = %1
   %.sroa.7.0 = phi i64 [ %162, %215 ], [ 0, %211 ], [ 0, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit126.i239 ], [ 0, %180 ], [ 0, %164 ]
   %.sroa.0.0 = phi i64 [ %.2.i122.i240, %215 ], [ %169, %211 ], [ %169, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit126.i239 ], [ %169, %180 ], [ %169, %164 ]
   %.0.i204.in = phi i8 [ %217, %215 ], [ %175, %211 ], [ %175, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit126.i239 ], [ %175, %180 ], [ %175, %164 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #6, !noalias !1391
+  call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !1391
   br label %219
 
 219:                                              ; preds = %218, %219
@@ -30074,7 +30074,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i223: ; preds = %247,
   br i1 %exitcond478.not, label %_ZN13duckdb_brotliL19FindLongestMatchH54EPNS_3H54EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit246, label %231, !llvm.loop !636
 
 _ZN13duckdb_brotliL19FindLongestMatchH54EPNS_3H54EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit246: ; preds = %283
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #6, !noalias !1391
+  call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !1391
   %285 = trunc i64 %170 to i32
   %286 = getelementptr inbounds nuw i32, ptr %36, i64 %229
   store i32 %285, ptr %286, align 4, !tbaa !40, !noalias !1390
@@ -30662,7 +30662,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit126.i.i: ; preds = %67
   %.sroa.15.2 = phi i64 [ %58, %95 ], [ 0, %91 ], [ 0, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit126.i.i ], [ 0, %61 ], [ 0, %.thread ]
   %.sroa.0278.2 = phi i64 [ %.2.i122.i.i, %95 ], [ 0, %91 ], [ 0, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit126.i.i ], [ 0, %61 ], [ 0, %.thread ]
   %.0.i21.i.in = phi i8 [ %97, %95 ], [ %54, %91 ], [ %54, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit126.i.i ], [ %54, %61 ], [ %54, %.thread ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #6, !noalias !1427
+  call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !1427
   store i64 %56, ptr %13, align 16, !tbaa !29, !noalias !1427
   %98 = add nuw nsw i64 %56, 8
   %99 = and i64 %98, 65535
@@ -30799,7 +30799,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i32.i: ; preds = %121
   br i1 %106, label %105, label %_ZN13duckdb_brotliL18FindLongestMatchH3EPNS_2H3EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.i, !llvm.loop !939
 
 _ZN13duckdb_brotliL18FindLongestMatchH3EPNS_2H3EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.i: ; preds = %157
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #6, !noalias !1427
+  call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !1427
   %158 = trunc i64 %.0545 to i32
   %159 = getelementptr inbounds nuw i32, ptr %36, i64 %103
   store i32 %158, ptr %159, align 4, !tbaa !40, !noalias !1424
@@ -31110,7 +31110,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit126.i.i260: ; preds = 
   %.sroa.9.0 = phi i64 [ %237, %290 ], [ 0, %286 ], [ 0, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit126.i.i260 ], [ 0, %255 ], [ 0, %239 ]
   %.sroa.0.0 = phi i64 [ %.2.i122.i.i261, %290 ], [ %244, %286 ], [ %244, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit126.i.i260 ], [ %244, %255 ], [ %244, %239 ]
   %.0.i21.i202.in = phi i8 [ %292, %290 ], [ %250, %286 ], [ %250, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit126.i.i260 ], [ %250, %255 ], [ %250, %239 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #6, !noalias !1457
+  call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !1457
   store i64 %252, ptr %12, align 16, !tbaa !29, !noalias !1457
   %293 = add nuw nsw i64 %252, 8
   %294 = and i64 %293, 65535
@@ -31247,7 +31247,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i32.i244: ; preds = %
   br i1 %301, label %300, label %_ZN13duckdb_brotliL18FindLongestMatchH3EPNS_2H3EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.i208, !llvm.loop !939
 
 _ZN13duckdb_brotliL18FindLongestMatchH3EPNS_2H3EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.i208: ; preds = %352
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #6, !noalias !1457
+  call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !1457
   %353 = trunc i64 %245 to i32
   %354 = getelementptr inbounds nuw i32, ptr %36, i64 %298
   store i32 %353, ptr %354, align 4, !tbaa !40, !noalias !1456
@@ -31998,7 +31998,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit126.i239: ; preds = %6
   %.sroa.15.2 = phi i64 [ %56, %93 ], [ 0, %89 ], [ 0, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit126.i239 ], [ 0, %59 ], [ 0, %.thread ]
   %.sroa.0298.2 = phi i64 [ %.2.i122.i240, %93 ], [ 0, %89 ], [ 0, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit126.i239 ], [ 0, %59 ], [ 0, %.thread ]
   %.0.i204.in = phi i8 [ %95, %93 ], [ %52, %89 ], [ %52, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit126.i239 ], [ %52, %59 ], [ %52, %.thread ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #6, !noalias !1498
+  call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !1498
   br label %97
 
 97:                                               ; preds = %96, %97
@@ -32147,7 +32147,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i223: ; preds = %125,
   br i1 %exitcond620.not, label %_ZN13duckdb_brotliL19FindLongestMatchH54EPNS_3H54EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit246, label %109, !llvm.loop !636
 
 _ZN13duckdb_brotliL19FindLongestMatchH54EPNS_3H54EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit246: ; preds = %161
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #6, !noalias !1498
+  call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !1498
   %163 = trunc i64 %.0565 to i32
   %164 = getelementptr inbounds nuw i32, ptr %36, i64 %107
   store i32 %163, ptr %164, align 4, !tbaa !40, !noalias !1496
@@ -32455,7 +32455,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit126.i: ; preds = %266,
   %.sroa.9.0 = phi i64 [ %256, %294 ], [ 0, %290 ], [ 0, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit126.i ], [ 0, %259 ], [ 0, %.preheader397 ]
   %.sroa.0.0 = phi i64 [ %.2.i122.i, %294 ], [ %246, %290 ], [ %246, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit126.i ], [ %246, %259 ], [ %246, %.preheader397 ]
   %.0.i200.in = phi i8 [ %296, %294 ], [ %252, %290 ], [ %252, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit126.i ], [ %252, %259 ], [ %252, %.preheader397 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #6, !noalias !1516
+  call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !1516
   br label %298
 
 298:                                              ; preds = %297, %298
@@ -32604,7 +32604,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i: ; preds = %326, %.
   br i1 %exitcond625.not, label %_ZN13duckdb_brotliL19FindLongestMatchH54EPNS_3H54EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit, label %310, !llvm.loop !636
 
 _ZN13duckdb_brotliL19FindLongestMatchH54EPNS_3H54EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit: ; preds = %362
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #6, !noalias !1516
+  call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !1516
   %364 = trunc i64 %247 to i32
   %365 = getelementptr inbounds nuw i32, ptr %36, i64 %308
   store i32 %364, ptr %365, align 4, !tbaa !40, !noalias !1512
@@ -35313,17 +35313,17 @@ _ZN13duckdb_brotliL13StoreRangeH65EPNS_3H65EPKhmmm.exit: ; preds = %1078, %1053,
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.cttz.i64(i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.cttz.i64(i64, i1 immarg) #3
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #3
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #4
@@ -35339,11 +35339,10 @@ declare i64 @llvm.usub.sat.i64(i64, i64) #4
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree noinline norecurse nosync nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #6 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

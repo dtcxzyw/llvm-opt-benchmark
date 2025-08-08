@@ -63,10 +63,10 @@ define hidden range(i32 -36, 1) i32 @mbedtls_camellia_setkey_enc(ptr noundef cap
   %5 = alloca [6 x [2 x i32]], align 16
   %6 = alloca [16 x i32], align 16
   %7 = alloca [20 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #12
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #12
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #12
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %4, i8 0, i64 64, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(272) %8, i8 0, i64 272, i1 false)
@@ -1014,26 +1014,20 @@ define hidden range(i32 -36, 1) i32 @mbedtls_camellia_setkey_enc(ptr noundef cap
 
 .loopexit:                                        ; preds = %701, %3
   %.0 = phi i32 [ -36, %3 ], [ 0, %701 ]
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #12
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #12
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #12
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
-
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.bswap.i32(i32) #6
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
+declare i32 @llvm.bswap.i32(i32) #5
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -36, 1) i32 @mbedtls_camellia_setkey_dec(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = alloca %struct.mbedtls_camellia_context, align 4
-  call void @llvm.lifetime.start.p0(i64 276, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(276) %4, i8 0, i64 276, i1 false)
   %5 = call i32 @mbedtls_camellia_setkey_enc(ptr noundef nonnull %4, ptr noundef %1, i32 noundef %2)
   %.not = icmp eq i32 %5, 0
@@ -1105,7 +1099,7 @@ define hidden range(i32 -36, 1) i32 @mbedtls_camellia_setkey_dec(ptr noundef wri
 
 46:                                               ; preds = %3, %35
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %4, i64 noundef 276) #12
-  call void @llvm.lifetime.end.p0(i64 276, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %5
 }
 
@@ -1645,7 +1639,7 @@ define hidden range(i32 -36, 1) i32 @mbedtls_camellia_crypt_ecb(ptr noundef read
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden range(i32 -38, 1) i32 @mbedtls_camellia_crypt_cbc(ptr noundef readonly captures(none) %0, i32 noundef %1, i64 noundef %2, ptr noundef captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef captures(none) %5) local_unnamed_addr #4 {
   %7 = alloca [16 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %or.cond = icmp ugt i32 %1, 1
   br i1 %or.cond, label %.loopexit, label %8
 
@@ -1719,12 +1713,12 @@ define hidden range(i32 -38, 1) i32 @mbedtls_camellia_crypt_cbc(ptr noundef read
 
 .loopexit:                                        ; preds = %.preheader46, %.lr.ph62, %.preheader47, %.preheader44, %8, %6
   %.033 = phi i32 [ -36, %6 ], [ -38, %8 ], [ 0, %.preheader44 ], [ 0, %.preheader47 ], [ 0, %.lr.ph62 ], [ 0, %.preheader46 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.033
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden range(i32 -36, 1) i32 @mbedtls_camellia_crypt_cfb128(ptr noundef readonly captures(none) %0, i32 noundef %1, i64 noundef %2, ptr noundef captures(none) %3, ptr noundef captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef writeonly captures(none) %6) local_unnamed_addr #4 {
@@ -1881,12 +1875,12 @@ define hidden range(i32 0, 2) i32 @mbedtls_camellia_self_test(i32 noundef %0) lo
   %7 = alloca [16 x i8], align 16
   %8 = alloca [16 x i8], align 16
   %9 = alloca %struct.mbedtls_camellia_context, align 4
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #12
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #12
-  call void @llvm.lifetime.start.p0(i64 276, ptr nonnull %9) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(276) %9, i8 0, i64 276, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   %.not98 = icmp eq i32 %0, 0
@@ -1927,7 +1921,7 @@ define hidden range(i32 0, 2) i32 @mbedtls_camellia_self_test(i32 noundef %0) lo
   %indvars.iv167 = phi i64 [ 1, %32 ], [ 0, %._crit_edge ]
   %30 = getelementptr inbounds nuw [2 x [32 x i8]], ptr %23, i64 0, i64 %indvars.iv167
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %4, ptr noundef nonnull align 16 dereferenceable(1) %30, i64 %26, i1 false)
-  call void @llvm.lifetime.start.p0(i64 276, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(276) %3, i8 0, i64 276, i1 false)
   %31 = call i32 @mbedtls_camellia_setkey_enc(ptr noundef nonnull %3, ptr noundef nonnull readonly %4, i32 noundef %.pre180)
   %.not.i.us = icmp eq i32 %31, 0
@@ -1996,7 +1990,7 @@ define hidden range(i32 0, 2) i32 @mbedtls_camellia_self_test(i32 noundef %0) lo
 
 mbedtls_camellia_setkey_dec.exit.us:              ; preds = %56, %.split.us
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %3, i64 noundef 276) #12
-  call void @llvm.lifetime.end.p0(i64 276, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %67 = getelementptr inbounds nuw [2 x [16 x i8]], ptr %28, i64 0, i64 %indvars.iv167
   %68 = getelementptr inbounds nuw [2 x [16 x i8]], ptr @camellia_test_ecb_plain, i64 0, i64 %indvars.iv167
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %6, ptr noundef nonnull align 16 dereferenceable(16) %68, i64 16, i1 false)
@@ -2086,7 +2080,7 @@ mbedtls_camellia_setkey_dec.exit.us:              ; preds = %56, %.split.us
   br i1 %99, label %102, label %.split84.preheader
 
 102:                                              ; preds = %93
-  call void @llvm.lifetime.start.p0(i64 276, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(276) %2, i8 0, i64 276, i1 false)
   %103 = call i32 @mbedtls_camellia_setkey_enc(ptr noundef nonnull %2, ptr noundef nonnull readonly %4, i32 noundef %101)
   %.not.i103 = icmp eq i32 %103, 0
@@ -2157,7 +2151,7 @@ mbedtls_camellia_setkey_dec.exit.us:              ; preds = %56, %.split.us
 
 .split82.us.preheader:                            ; preds = %127, %102
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %2, i64 noundef 276) #12
-  call void @llvm.lifetime.end.p0(i64 276, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %140 = getelementptr inbounds nuw [3 x [3 x [16 x i8]]], ptr @camellia_test_cbc_cipher, i64 0, i64 %94
   br label %.split82.us
 
@@ -2405,17 +2399,23 @@ mbedtls_camellia_crypt_ctr.exit129:               ; preds = %.loopexit.i121
 .loopexit:                                        ; preds = %220, %223, %217, %218, %194, %195, %.split158.us, %153, %.split151.us, %77
   %.0 = phi i32 [ 1, %77 ], [ 1, %.split151.us ], [ 1, %153 ], [ 1, %.split158.us ], [ 1, %195 ], [ 1, %194 ], [ 1, %218 ], [ 1, %217 ], [ 0, %223 ], [ 0, %220 ]
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %9, i64 noundef 276) #12
-  call void @llvm.lifetime.end.p0(i64 276, ptr nonnull %9) #12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #12
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #12
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #8
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #9
@@ -2434,10 +2434,10 @@ attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #10 = { nofree nounwind }
 attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: read) }

@@ -245,7 +245,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 define internal i32 @dissect_matter(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4
   %7 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %8 = icmp ult i32 %7, 8
@@ -384,7 +384,7 @@ define internal i32 @dissect_matter(ptr noundef %0, ptr noundef readonly capture
   br i1 %.not47.i, label %dissect_matter_payload.exit, label %89
 
 89:                                               ; preds = %87
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4
   %90 = load i32, ptr @hf_payload_secured_ext_length, align 4
   %91 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %63, i32 noundef %90, ptr noundef %64, i32 noundef %.1.i, i32 noundef 2, i32 noundef -2147483648, ptr noundef nonnull %5)
@@ -394,7 +394,7 @@ define internal i32 @dissect_matter(ptr noundef %0, ptr noundef readonly capture
   %95 = call ptr @proto_tree_add_item(ptr noundef %63, i32 noundef %93, ptr noundef %64, i32 noundef %92, i32 noundef %94, i32 noundef 0)
   %96 = load i32, ptr %5, align 4
   %97 = add i32 %96, %92
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %dissect_matter_payload.exit
 
 dissect_matter_payload.exit:                      ; preds = %87, %89
@@ -414,7 +414,7 @@ dissect_matter_payload.exit:                      ; preds = %87, %89
 
 107:                                              ; preds = %dissect_matter_payload.exit, %103, %4
   %.0 = phi i32 [ 0, %4 ], [ %102, %dissect_matter_payload.exit ], [ %.075, %103 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
@@ -443,9 +443,9 @@ define internal i32 @dissect_matter_tlv(ptr noundef %0, ptr noundef %1, ptr noun
   %15 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %14, ptr noundef %0, i32 noundef %.06482, i32 noundef 1, i32 noundef 0)
   %16 = load i32, ptr @ett_matter_tlv, align 4
   %17 = call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4
   %18 = load i32, ptr @hf_matter_tlv_elem_control, align 4
   %19 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %18, ptr noundef %0, i32 noundef %.06482, i32 noundef 1, i32 noundef 0)
@@ -548,16 +548,16 @@ define internal i32 @dissect_matter_tlv(ptr noundef %0, ptr noundef %1, ptr noun
 
 .thread:                                          ; preds = %.lr.ph, %69
   %.1.ph = phi i32 [ %9, %69 ], [ %26, %.lr.ph ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit
 
 72:                                               ; preds = %37, %39, %50, %65, %37, %37
   %.4 = phi i32 [ %49, %39 ], [ %64, %50 ], [ %.266, %37 ], [ %.266, %37 ], [ %.266, %37 ], [ %68, %65 ]
   %73 = sub i32 %.4, %.06482
   call void @proto_item_set_len(ptr noundef %15, i32 noundef %73)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %74 = icmp slt i32 %.4, %9
   br i1 %74, label %.lr.ph, label %.loopexit
 
@@ -572,17 +572,11 @@ declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) 
 ; Function Attrs: null_pointer_is_valid
 declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: null_pointer_is_valid
 declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
 declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_matter() local_unnamed_addr #0 {
@@ -642,10 +636,15 @@ declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #1
 ; Function Attrs: null_pointer_is_valid
 declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
+
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

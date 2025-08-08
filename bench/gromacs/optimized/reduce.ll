@@ -165,11 +165,11 @@ _Z18tMPI_Reduce_run_opPvPKvS1_P14tmpi_datatype_i7tMPI_OpP10tmpi_comm_.exit: ; pr
   %75 = getelementptr inbounds %struct.coll_sync, ptr %74, i64 %58, i32 2
   %76 = load ptr, ptr %75, align 8, !tbaa !38
   %77 = getelementptr inbounds %struct.tMPI_Event_t, ptr %76, i64 %37
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store volatile i32 1, ptr %9, align 4, !tbaa !44
   %.0..0..0..0..0..0..i = load volatile i32, ptr %9, align 4, !tbaa !44
   %78 = atomicrmw add ptr %77, i32 %.0..0..0..0..0..0..i seq_cst, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %101
 
 79:                                               ; preds = %51
@@ -190,11 +190,11 @@ _Z18tMPI_Reduce_run_opPvPKvS1_P14tmpi_datatype_i7tMPI_OpP10tmpi_comm_.exit: ; pr
   %86 = getelementptr inbounds %struct.coll_sync, ptr %84, i64 %85, i32 2
   %87 = load ptr, ptr %86, align 8, !tbaa !38
   %88 = getelementptr inbounds %struct.tMPI_Event_t, ptr %87, i64 %37
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store volatile i32 1, ptr %8, align 4, !tbaa !44
   %.0..0..0..0..0..0..i112 = load volatile i32, ptr %8, align 4, !tbaa !44
   %89 = atomicrmw add ptr %88, i32 %.0..0..0..0..0..0..i112 seq_cst, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %90 = load ptr, ptr %44, align 8, !tbaa !37
   %91 = getelementptr inbounds %struct.coll_sync, ptr %90, i64 %37, i32 2
   %92 = load ptr, ptr %91, align 8, !tbaa !38
@@ -321,10 +321,10 @@ define noundef i32 @_Z14tMPI_AllreducePKvPviP14tmpi_datatype_7tMPI_OpP10tmpi_com
 declare noundef i32 @_Z17tMPI_Barrier_waitP14tMPI_Barrier_t(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }

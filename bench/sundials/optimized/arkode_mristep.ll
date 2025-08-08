@@ -147,7 +147,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define ptr @MRIStepCreate(ptr noundef %0, ptr noundef %1, double noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = icmp eq ptr %0, null
   %9 = icmp eq ptr %1, null
   %or.cond = and i1 %8, %9
@@ -482,17 +482,14 @@ select.unfold:                                    ; preds = %157, %152
 
 mriStepInnerStepper_HasRequiredOps.exit:          ; preds = %157, %select.unfold, %151, %138, %131, %120, %117, %97, %50, %46, %mriStep_CheckNVector.exit.thread, %18, %16, %13, %10
   %.0 = phi ptr [ null, %10 ], [ null, %13 ], [ null, %16 ], [ null, %46 ], [ null, %50 ], [ null, %97 ], [ null, %120 ], [ null, %131 ], [ null, %138 ], [ null, %151 ], [ null, %select.unfold ], [ null, %117 ], [ null, %mriStep_CheckNVector.exit.thread ], [ null, %18 ], [ %44, %157 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare void @arkProcessError(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @arkProcessError(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @mriStep_CheckNVector(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @mriStep_CheckNVector(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -536,12 +533,12 @@ define range(i32 0, 2) i32 @mriStep_CheckNVector(ptr noundef readonly captures(n
   ret i32 %.0
 }
 
-declare ptr @arkCreate(ptr noundef) local_unnamed_addr #2
+declare ptr @arkCreate(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #4
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #3
 
-declare void @ARKodeFree(ptr noundef) local_unnamed_addr #2
+declare void @ARKodeFree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -21, 1) i32 @mriStep_AttachLinsol(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 %5, ptr noundef %6) #0 {
@@ -1493,7 +1490,7 @@ mriStepInnerStepper_SupportsRTolAdaptivity.exit:  ; preds = %394
 ; Function Attrs: nounwind uwtable
 define range(i32 -21, 1) i32 @mriStep_FullRHS(ptr noundef %0, double noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %8 = load ptr, ptr %7, align 8, !tbaa !71
   %9 = icmp eq ptr %8, null
@@ -1743,7 +1740,7 @@ mriStepInnerStepper_FullRhs.exit64:               ; preds = %18
 
 133:                                              ; preds = %mriStep_AccessStepMem.exit, %127, %57, %.thread, %40, %132, %108, %84, %66, %mriStepInnerStepper_FullRhs.exit.thread, %21, %17
   %.0 = phi i32 [ -8, %132 ], [ -8, %21 ], [ -8, %mriStepInnerStepper_FullRhs.exit.thread ], [ -8, %66 ], [ -8, %84 ], [ -8, %108 ], [ -8, %17 ], [ -21, %mriStep_AccessStepMem.exit ], [ 0, %40 ], [ 0, %.thread ], [ 0, %57 ], [ 0, %127 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
@@ -2661,18 +2658,18 @@ mriStepInnerStepper_Reset.exit315.thread414:      ; preds = %469, %453, %457, %m
   ret i32 %.0
 }
 
-declare i32 @mriStep_SetUserData(ptr noundef, ptr noundef) #2
+declare i32 @mriStep_SetUserData(ptr noundef, ptr noundef) #1
 
-declare i32 @mriStep_PrintAllStats(ptr noundef, ptr noundef, i32 noundef) #2
+declare i32 @mriStep_PrintAllStats(ptr noundef, ptr noundef, i32 noundef) #1
 
-declare i32 @mriStep_WriteParameters(ptr noundef, ptr noundef) #2
+declare i32 @mriStep_WriteParameters(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @mriStep_Resize(ptr noundef %0, ptr noundef %1, double %2, double %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %10 = load ptr, ptr %9, align 8, !tbaa !71
   %11 = icmp eq ptr %10, null
@@ -2883,8 +2880,8 @@ mriStepInnerStepper_Resize.exit:                  ; preds = %94
 
 105:                                              ; preds = %mriStep_AccessStepMem.exit, %mriStepInnerStepper_Resize.exit, %103, %79, %101, %88, %85, %72, %66, %60, %54, %35
   %.0 = phi i32 [ -20, %85 ], [ -20, %88 ], [ -20, %101 ], [ -20, %72 ], [ -20, %66 ], [ -20, %60 ], [ -20, %54 ], [ -20, %35 ], [ -21, %mriStep_AccessStepMem.exit ], [ %80, %79 ], [ 0, %103 ], [ 0, %mriStepInnerStepper_Resize.exit ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
 
@@ -2937,8 +2934,8 @@ mriStepInnerStepper_Reset.exit.thread15:          ; preds = %15, %mriStep_Access
 define void @mriStep_Free(ptr noundef %0) #0 {
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = icmp eq ptr %0, null
   br i1 %4, label %134, label %5
 
@@ -3189,8 +3186,8 @@ define void @mriStep_Free(ptr noundef %0) #0 {
   br label %134
 
 134:                                              ; preds = %5, %131, %1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -3389,7 +3386,7 @@ mriStepInnerStepper_PrintMem.exit:                ; preds = %141, %._crit_edge10
   ret void
 }
 
-declare i32 @mriStep_SetDefaults(ptr noundef) #2
+declare i32 @mriStep_SetDefaults(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -21, 1) i32 @mriStep_ComputeState(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
@@ -3413,51 +3410,51 @@ mriStep_AccessStepMem.exit:                       ; preds = %3
   ret i32 %.0
 }
 
-declare i32 @mriStep_SetOrder(ptr noundef, i32 noundef) #2
+declare i32 @mriStep_SetOrder(ptr noundef, i32 noundef) #1
 
-declare i32 @mriStep_SetNonlinearSolver(ptr noundef, ptr noundef) #2
+declare i32 @mriStep_SetNonlinearSolver(ptr noundef, ptr noundef) #1
 
-declare i32 @mriStep_SetLinear(ptr noundef, i32 noundef) #2
+declare i32 @mriStep_SetLinear(ptr noundef, i32 noundef) #1
 
-declare i32 @mriStep_SetNonlinear(ptr noundef) #2
+declare i32 @mriStep_SetNonlinear(ptr noundef) #1
 
-declare i32 @mriStep_SetNlsRhsFn(ptr noundef, ptr noundef) #2
+declare i32 @mriStep_SetNlsRhsFn(ptr noundef, ptr noundef) #1
 
-declare i32 @mriStep_SetDeduceImplicitRhs(ptr noundef, i32 noundef) #2
+declare i32 @mriStep_SetDeduceImplicitRhs(ptr noundef, i32 noundef) #1
 
-declare i32 @mriStep_SetNonlinCRDown(ptr noundef, double noundef) #2
+declare i32 @mriStep_SetNonlinCRDown(ptr noundef, double noundef) #1
 
-declare i32 @mriStep_SetNonlinRDiv(ptr noundef, double noundef) #2
+declare i32 @mriStep_SetNonlinRDiv(ptr noundef, double noundef) #1
 
-declare i32 @mriStep_SetDeltaGammaMax(ptr noundef, double noundef) #2
+declare i32 @mriStep_SetDeltaGammaMax(ptr noundef, double noundef) #1
 
-declare i32 @mriStep_SetLSetupFrequency(ptr noundef, i32 noundef) #2
+declare i32 @mriStep_SetLSetupFrequency(ptr noundef, i32 noundef) #1
 
-declare i32 @mriStep_SetPredictorMethod(ptr noundef, i32 noundef) #2
+declare i32 @mriStep_SetPredictorMethod(ptr noundef, i32 noundef) #1
 
-declare i32 @mriStep_SetMaxNonlinIters(ptr noundef, i32 noundef) #2
+declare i32 @mriStep_SetMaxNonlinIters(ptr noundef, i32 noundef) #1
 
-declare i32 @mriStep_SetNonlinConvCoef(ptr noundef, double noundef) #2
+declare i32 @mriStep_SetNonlinConvCoef(ptr noundef, double noundef) #1
 
-declare i32 @mriStep_SetStagePredictFn(ptr noundef, ptr noundef) #2
+declare i32 @mriStep_SetStagePredictFn(ptr noundef, ptr noundef) #1
 
-declare i32 @mriStep_GetNumRhsEvals(ptr noundef, i32 noundef, ptr noundef) #2
+declare i32 @mriStep_GetNumRhsEvals(ptr noundef, i32 noundef, ptr noundef) #1
 
-declare i32 @mriStep_GetNumLinSolvSetups(ptr noundef, ptr noundef) #2
+declare i32 @mriStep_GetNumLinSolvSetups(ptr noundef, ptr noundef) #1
 
-declare i32 @mriStep_GetCurrentGamma(ptr noundef, ptr noundef) #2
+declare i32 @mriStep_GetCurrentGamma(ptr noundef, ptr noundef) #1
 
-declare i32 @mriStep_SetAdaptController(ptr noundef, ptr noundef) #2
+declare i32 @mriStep_SetAdaptController(ptr noundef, ptr noundef) #1
 
-declare i32 @mriStep_GetEstLocalErrors(ptr noundef, ptr noundef) #2
+declare i32 @mriStep_GetEstLocalErrors(ptr noundef, ptr noundef) #1
 
-declare i32 @mriStep_GetNonlinearSystemData(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
+declare i32 @mriStep_GetNonlinearSystemData(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
-declare i32 @mriStep_GetNumNonlinSolvIters(ptr noundef, ptr noundef) #2
+declare i32 @mriStep_GetNumNonlinSolvIters(ptr noundef, ptr noundef) #1
 
-declare i32 @mriStep_GetNumNonlinSolvConvFails(ptr noundef, ptr noundef) #2
+declare i32 @mriStep_GetNumNonlinSolvConvFails(ptr noundef, ptr noundef) #1
 
-declare i32 @mriStep_GetNonlinSolvStats(ptr noundef, ptr noundef, ptr noundef) #2
+declare i32 @mriStep_GetNonlinSolvStats(ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -21, 1) i32 @mriStep_SetInnerForcing(ptr noundef %0, double noundef %1, double noundef %2, ptr noundef %3, i32 noundef %4) #0 {
@@ -3603,14 +3600,14 @@ mriStep_AccessStepMem.exit:                       ; preds = %5
   ret i32 %.0
 }
 
-declare ptr @SUNNonlinSol_Newton(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @SUNNonlinSol_Newton(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @ARKodeSetNonlinearSolver(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetNonlinearSolver(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @arkInit(ptr noundef, double noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @arkInit(ptr noundef, double noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 -22, 1) i32 @mriStepInnerStepper_HasRequiredOps(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
+define range(i32 -22, 1) i32 @mriStepInnerStepper_HasRequiredOps(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %9, label %3
 
@@ -3631,13 +3628,10 @@ define range(i32 -22, 1) i32 @mriStepInnerStepper_HasRequiredOps(ptr noundef rea
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nounwind uwtable
 define i32 @MRIStepReInit(ptr noundef %0, ptr noundef %1, ptr noundef %2, double noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = icmp eq ptr %0, null
   br i1 %7, label %8, label %9
 
@@ -3752,7 +3746,7 @@ mriStep_AccessARKODEStepMem.exit:                 ; preds = %9
 
 mriStep_AccessARKODEStepMem.exit.thread:          ; preds = %13, %8, %45, %44, %39, %36, %24, %21, %17
   %.0 = phi i32 [ -23, %17 ], [ -22, %21 ], [ -22, %24 ], [ %43, %44 ], [ 0, %45 ], [ -20, %39 ], [ -20, %36 ], [ -21, %8 ], [ -21, %13 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
@@ -3805,13 +3799,13 @@ define range(i32 -21, 1) i32 @mriStep_AccessStepMem(ptr noundef %0, ptr noundef 
   ret i32 %.0
 }
 
-declare void @N_VSpace(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @N_VSpace(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @arkResizeVecArray(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @arkResizeVecArray(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @arkResizeVec(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @arkResizeVec(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @SUNNonlinSolFree(ptr noundef) local_unnamed_addr #2
+declare i32 @SUNNonlinSolFree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -22, 1) i32 @mriStepInnerStepper_Resize(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
@@ -3862,26 +3856,26 @@ define i32 @mriStepInnerStepper_Reset(ptr noundef %0, double noundef %1, ptr nou
   ret i32 %.0
 }
 
-declare void @N_VLinearSum(double noundef, ptr noundef, double noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @N_VLinearSum(double noundef, ptr noundef, double noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @MRIStepCoupling_Space(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @MRIStepCoupling_Space(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @MRIStepCoupling_Free(ptr noundef) local_unnamed_addr #2
+declare void @MRIStepCoupling_Free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
-declare void @arkFreeVec(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @arkFreeVec(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @arkFreeVecArray(i32 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare void @arkFreeVecArray(i32 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #6
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
-declare void @MRIStepCoupling_Write(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @MRIStepCoupling_Write(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define void @mriStepInnerStepper_PrintMem(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(none) %1) local_unnamed_addr #7 {
+define void @mriStepInnerStepper_PrintMem(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(none) %1) local_unnamed_addr #6 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %9, label %4
 
@@ -3897,16 +3891,16 @@ define void @mriStepInnerStepper_PrintMem(ptr noundef readonly captures(address_
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #8
+declare double @llvm.fabs.f64(double) #7
 
-declare i32 @arkEwtSetSmallReal(ptr noundef, ptr noundef, ptr noundef) #2
+declare i32 @arkEwtSetSmallReal(ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -41, 1) i32 @mriStep_SetCoupling(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %5 = load ptr, ptr %4, align 8, !tbaa !71
   %6 = icmp eq ptr %5, null
@@ -4059,8 +4053,8 @@ switch.lookup56:                                  ; preds = %38
 
 69:                                               ; preds = %8, %50, %49, %.critedge, %7
   %.032 = phi i32 [ -21, %7 ], [ -22, %.critedge ], [ -41, %49 ], [ 0, %50 ], [ 0, %8 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.032
 }
 
@@ -6011,20 +6005,20 @@ mriStep_ApplyForcing.exit248:                     ; preds = %.lr.ph.i244, %411
   ret i32 %.0
 }
 
-declare i32 @mriStepCoupling_GetStageMap(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @mriStepCoupling_GetStageMap(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @mriStepCoupling_GetStageType(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @mriStepCoupling_GetStageType(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @arkAllocVecArray(i32 noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @arkAllocVecArray(i32 noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @arkAllocVec(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @arkAllocVec(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -22, 1) i32 @mriStepInnerStepper_AllocVecs(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = icmp eq ptr %0, null
   br i1 %6, label %mriStepInnerStepper_FreeVecs.exit, label %7
 
@@ -6201,14 +6195,14 @@ define range(i32 -22, 1) i32 @mriStepInnerStepper_AllocVecs(ptr noundef %0, i32 
 
 mriStepInnerStepper_FreeVecs.exit:                ; preds = %90, %88, %70, %67, %46, %43, %71, %75, %3
   %.0 = phi i32 [ -22, %3 ], [ 0, %75 ], [ 0, %71 ], [ -20, %43 ], [ -20, %46 ], [ -20, %67 ], [ -20, %70 ], [ -20, %88 ], [ -20, %90 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
-declare i32 @mriStep_NlsInit(ptr noundef) local_unnamed_addr #2
+declare i32 @mriStep_NlsInit(ptr noundef) local_unnamed_addr #1
 
-declare i32 @SUNAdaptController_GetType(ptr noundef) local_unnamed_addr #2
+declare i32 @SUNAdaptController_GetType(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -21, 1) i32 @mriStep_SlowRHS(ptr noundef %0, double noundef %1, ptr noundef %2, ptr noundef %3, i32 %4) local_unnamed_addr #0 {
@@ -6476,10 +6470,10 @@ define range(i32 -27, 1) i32 @mriStep_Hin(ptr noundef readonly captures(none) %0
   ret i32 %.0
 }
 
-declare i32 @arkHandleFailure(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @arkHandleFailure(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @mriStepInnerStepper_SupportsRTolAdaptivity(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @mriStepInnerStepper_SupportsRTolAdaptivity(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %17, label %3
 
@@ -6518,7 +6512,7 @@ define range(i32 0, 2) i32 @mriStepInnerStepper_SupportsRTolAdaptivity(ptr nound
 ; Function Attrs: nounwind uwtable
 define range(i32 -8, 1) i32 @mriStep_UpdateF0(ptr noundef %0, ptr noundef captures(none) %1, double noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   switch i32 %4, label %184 [
     i32 0, label %7
     i32 1, label %116
@@ -6838,7 +6832,7 @@ mriStep_ApplyForcing.exit107:                     ; preds = %.lr.ph.i103, %86
 
 185:                                              ; preds = %67, %mriStep_ApplyForcing.exit107, %83, %61, %151, %171, %167, %116, %184, %166, %133, %82, %27
   %.0 = phi i32 [ -8, %184 ], [ -8, %82 ], [ -8, %27 ], [ -8, %133 ], [ -8, %166 ], [ 0, %116 ], [ 0, %167 ], [ 0, %171 ], [ 0, %151 ], [ 0, %61 ], [ 0, %83 ], [ 0, %mriStep_ApplyForcing.exit107 ], [ 0, %67 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
@@ -6870,10 +6864,10 @@ define i32 @mriStepInnerStepper_FullRhs(ptr noundef %0, double noundef %1, ptr n
   ret i32 %.0
 }
 
-declare i32 @N_VLinearCombination(i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @N_VLinearCombination(i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @mriStep_ApplyForcing(ptr noundef readonly captures(none) %0, double noundef %1, double noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #9 {
+define void @mriStep_ApplyForcing(ptr noundef readonly captures(none) %0, double noundef %1, double noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #8 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 504
   %6 = load ptr, ptr %5, align 8, !tbaa !93
   %7 = load i32, ptr %3, align 4, !tbaa !119
@@ -6983,14 +6977,14 @@ define i32 @mriStepInnerStepper_SetRTol(ptr noundef %0, double noundef %1) local
   ret i32 %.0
 }
 
-declare void @N_VConst(double noundef, ptr noundef) local_unnamed_addr #2
+declare void @N_VConst(double noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @SUNNonlinSolSetup(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @SUNNonlinSolSetup(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @N_VScale(double noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @N_VScale(double noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #8
+declare double @llvm.fmuladd.f64(double, double, double) #7
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -28, 1) i32 @mriStep_ComputeInnerForcing(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, double noundef %3, double noundef %4) local_unnamed_addr #0 {
@@ -7721,7 +7715,7 @@ define noundef i32 @mriStep_StageDIRKFast(ptr noundef %0, ptr noundef readnone c
   ret i32 -41
 }
 
-declare double @N_VWrmsNorm(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare double @N_VWrmsNorm(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -21, -22) i32 @mriStep_Predict(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -7927,9 +7921,9 @@ define range(i32 -21, -22) i32 @mriStep_Predict(ptr noundef %0, i32 noundef %1, 
   ret i32 %.0
 }
 
-declare i32 @mriStep_Nls(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @mriStep_Nls(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @MRIStepCoupling_LoadTable(i32 noundef) local_unnamed_addr #2
+declare ptr @MRIStepCoupling_LoadTable(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @mriStepInnerStepper_Evolve(ptr noundef %0, double noundef %1, double noundef %2, ptr noundef %3) local_unnamed_addr #0 {
@@ -7987,7 +7981,7 @@ define i32 @mriStepInnerStepper_GetAccumulatedError(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 -41, 1) i32 @mriStep_RKCoeffs(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #10 {
+define range(i32 -41, 1) i32 @mriStep_RKCoeffs(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #9 {
   %6 = icmp slt i32 %1, 1
   br i1 %6, label %.loopexit72, label %7
 
@@ -8467,13 +8461,13 @@ define range(i32 -28, 1) i32 @mriStep_StageSetup(ptr noundef readonly captures(n
   ret i32 %.0
 }
 
-declare i32 @arkPredict_MaximumOrder(ptr noundef, double noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @arkPredict_MaximumOrder(ptr noundef, double noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @arkPredict_VariableOrder(ptr noundef, double noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @arkPredict_VariableOrder(ptr noundef, double noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @arkPredict_CutoffOrder(ptr noundef, double noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @arkPredict_CutoffOrder(ptr noundef, double noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @arkPredict_Bootstrap(ptr noundef, double noundef, double noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @arkPredict_Bootstrap(ptr noundef, double noundef, double noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -22, 1) i32 @MRIStepInnerStepper_Create(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
@@ -8516,7 +8510,7 @@ define range(i32 -22, 1) i32 @MRIStepInnerStepper_Create(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -22, 1) i32 @MRIStepInnerStepper_CreateFromSUNStepper(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
@@ -8608,7 +8602,7 @@ define range(i32 -22, 1) i32 @MRIStepInnerStepper_SetEvolveFn(ptr noundef readon
 define range(i32 -51, 1) i32 @mriStepInnerStepper_EvolveSUNStepper(ptr noundef captures(none) initializes((40, 44)) %0, double %1, double noundef %2, ptr noundef %3) #0 {
   %5 = alloca double, align 8
   %6 = load ptr, ptr %0, align 8, !tbaa !265
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load double, ptr %7, align 8, !tbaa !238
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -8649,7 +8643,7 @@ define range(i32 -51, 1) i32 @mriStepInnerStepper_EvolveSUNStepper(ptr noundef c
 
 28:                                               ; preds = %25, %22, %19, %4
   %.0 = phi i32 [ -51, %4 ], [ -51, %19 ], [ -51, %22 ], [ %., %25 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -9027,15 +9021,21 @@ define range(i32 -22, 1) i32 @MRIStepInnerStepper_GetForcingData(ptr noundef rea
   ret i32 %.0
 }
 
-declare i32 @SUNStepper_SetForcing(ptr noundef, double noundef, double noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @SUNStepper_SetForcing(ptr noundef, double noundef, double noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @SUNStepper_SetStopTime(ptr noundef, double noundef) local_unnamed_addr #2
+declare i32 @SUNStepper_SetStopTime(ptr noundef, double noundef) local_unnamed_addr #1
 
-declare i32 @SUNStepper_Evolve(ptr noundef, double noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @SUNStepper_Evolve(ptr noundef, double noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @SUNStepper_FullRhs(ptr noundef, double noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @SUNStepper_FullRhs(ptr noundef, double noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @SUNStepper_Reset(ptr noundef, double noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @SUNStepper_Reset(ptr noundef, double noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 ; Function Attrs: nofree nounwind
 declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #12
@@ -9056,17 +9056,17 @@ declare i32 @llvm.umin.i32(i32, i32) #13
 declare i32 @llvm.umax.i32(i32, i32) #13
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { nofree nounwind }
 attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #14 = { nounwind }

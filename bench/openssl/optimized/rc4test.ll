@@ -39,8 +39,8 @@ declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) 
 define internal i32 @test_rc4_encrypt(i32 noundef %0) #0 {
   %2 = alloca [512 x i8], align 16
   %3 = alloca %struct.rc4_key_st, align 4
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %2) #4
-  call void @llvm.lifetime.start.p0(i64 1032, ptr nonnull %3) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = sext i32 %0 to i64
   %5 = getelementptr inbounds [6 x [30 x i8]], ptr @keys, i64 0, i64 %4
   %6 = load i8, ptr %5, align 2, !tbaa !4
@@ -56,8 +56,8 @@ define internal i32 @test_rc4_encrypt(i32 noundef %0) #0 {
   %13 = add nuw nsw i64 %11, 1
   %14 = getelementptr inbounds [6 x [30 x i8]], ptr @output, i64 0, i64 %4
   %15 = call i32 @test_mem_eq(ptr noundef nonnull @.str.4, i32 noundef 72, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, ptr noundef nonnull %2, i64 noundef %13, ptr noundef nonnull %14, i64 noundef %13) #4
-  call void @llvm.lifetime.end.p0(i64 1032, ptr nonnull %3) #4
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %2) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %15
 }
 
@@ -65,8 +65,8 @@ define internal i32 @test_rc4_encrypt(i32 noundef %0) #0 {
 define internal i32 @test_rc4_end_processing(i32 noundef %0) #0 {
   %2 = alloca [512 x i8], align 16
   %3 = alloca %struct.rc4_key_st, align 4
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %2) #4
-  call void @llvm.lifetime.start.p0(i64 1032, ptr nonnull %3) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load i8, ptr getelementptr inbounds nuw (i8, ptr @keys, i64 90), align 2, !tbaa !4
   %5 = zext i8 %4 to i32
   call void @RC4_set_key(ptr noundef nonnull %3, i32 noundef %5, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @keys, i64 91)) #4
@@ -85,8 +85,8 @@ define internal i32 @test_rc4_end_processing(i32 noundef %0) #0 {
 
 12:                                               ; preds = %1, %8
   %.0 = phi i32 [ %11, %8 ], [ 0, %1 ]
-  call void @llvm.lifetime.end.p0(i64 1032, ptr nonnull %3) #4
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %2) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
 
@@ -94,8 +94,8 @@ define internal i32 @test_rc4_end_processing(i32 noundef %0) #0 {
 define internal i32 @test_rc4_multi_call(i32 noundef %0) #0 {
   %2 = alloca [512 x i8], align 16
   %3 = alloca %struct.rc4_key_st, align 4
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %2) #4
-  call void @llvm.lifetime.start.p0(i64 1032, ptr nonnull %3) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load i8, ptr getelementptr inbounds nuw (i8, ptr @keys, i64 90), align 2, !tbaa !4
   %5 = zext i8 %4 to i32
   call void @RC4_set_key(ptr noundef nonnull %3, i32 noundef %5, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @keys, i64 91)) #4
@@ -108,8 +108,8 @@ define internal i32 @test_rc4_multi_call(i32 noundef %0) #0 {
   %10 = getelementptr inbounds [512 x i8], ptr %2, i64 0, i64 %6
   call void @RC4(ptr noundef nonnull %3, i64 noundef %8, ptr noundef nonnull %9, ptr noundef nonnull %10) #4
   %11 = call i32 @test_mem_eq(ptr noundef nonnull @.str.4, i32 noundef 97, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.10, ptr noundef nonnull %2, i64 noundef 21, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @output, i64 90), i64 noundef 21) #4
-  call void @llvm.lifetime.end.p0(i64 1032, ptr nonnull %3) #4
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %2) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %11
 }
 
@@ -121,10 +121,10 @@ define internal i32 @test_rc_bulk() #0 {
   %2 = alloca [513 x i8], align 16
   %3 = alloca %struct.SHAstate_st, align 4
   %4 = alloca [20 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 1032, ptr nonnull %1) #4
-  call void @llvm.lifetime.start.p0(i64 513, ptr nonnull %2) #4
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3) #4
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load i8, ptr @keys, align 16, !tbaa !4
   %6 = zext i8 %5 to i32
   call void @RC4_set_key(ptr noundef nonnull %1, i32 noundef %6, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @keys, i64 91)) #4
@@ -143,27 +143,21 @@ define internal i32 @test_rc_bulk() #0 {
 11:                                               ; preds = %8
   %12 = call i32 @SHA1_Final(ptr noundef nonnull %4, ptr noundef nonnull %3) #4
   %13 = call i32 @test_mem_eq(ptr noundef nonnull @.str.4, i32 noundef 121, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, ptr noundef nonnull %4, i64 noundef 20, ptr noundef nonnull @test_rc_bulk.expected, i64 noundef 20) #4
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4) #4
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3) #4
-  call void @llvm.lifetime.end.p0(i64 513, ptr nonnull %2) #4
-  call void @llvm.lifetime.end.p0(i64 1032, ptr nonnull %1) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %13
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 declare void @RC4_set_key(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare void @RC4(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare i32 @test_mem_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 declare i32 @test_uchar_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #1
 
@@ -173,10 +167,16 @@ declare i32 @SHA1_Update(ptr noundef, ptr noundef, i64 noundef) local_unnamed_ad
 
 declare i32 @SHA1_Final(ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

@@ -1917,18 +1917,18 @@ define internal i32 @netlogon_dissect_VALIDATION_SAM_INFO(ptr noundef %0, i32 no
   %40 = load i32, ptr @hf_netlogon_group_rid, align 4
   %41 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %40, ptr noundef null)
   %42 = load i32, ptr @hf_netlogon_num_rids, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %43 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %41, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %42, ptr noundef nonnull %9)
   %44 = call i32 @dissect_ndr_pointer(ptr noundef %0, i32 noundef %43, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @netlogon_dissect_GROUP_MEMBERSHIP_ARRAY, i32 noundef 2, ptr noundef nonnull @.str.891, i32 noundef -1)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #15
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %45 = getelementptr inbounds nuw i8, ptr %4, i64 25
   %46 = load i8, ptr %45, align 1, !range !6, !noundef !7
   %47 = trunc nuw i8 %46 to i1
   br i1 %47, label %netlogon_dissect_USER_FLAGS.exit.thread, label %netlogon_dissect_USER_FLAGS.exit
 
 netlogon_dissect_USER_FLAGS.exit.thread:          ; preds = %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %netlogon_dissect_USER_SESSION_KEY.exit
 
 netlogon_dissect_USER_FLAGS.exit:                 ; preds = %6
@@ -1941,7 +1941,7 @@ netlogon_dissect_USER_FLAGS.exit:                 ; preds = %6
   %54 = call ptr @proto_tree_add_bitmask_value_with_flags(ptr noundef %3, ptr noundef %0, i32 noundef %49, i32 noundef %50, i32 noundef %51, ptr noundef nonnull @netlogon_dissect_USER_FLAGS.flags, i64 noundef %53, i32 noundef 1)
   %.val.pre = load i8, ptr %45, align 1, !range !6
   %55 = trunc nuw i8 %.val.pre to i1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %55, label %netlogon_dissect_USER_SESSION_KEY.exit, label %56
 
 56:                                               ; preds = %netlogon_dissect_USER_FLAGS.exit
@@ -1961,7 +1961,7 @@ netlogon_dissect_USER_SESSION_KEY.exit:           ; preds = %netlogon_dissect_US
   %66 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %64, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %65, ptr noundef null)
   %67 = load i32, ptr @hf_netlogon_dummy2_long, align 4
   %68 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %66, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %67, ptr noundef null)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %69 = load i8, ptr %45, align 1, !range !6, !noundef !7
   %70 = trunc nuw i8 %69 to i1
   br i1 %70, label %netlogon_dissect_USER_ACCOUNT_CONTROL.exit, label %71
@@ -1978,7 +1978,7 @@ netlogon_dissect_USER_SESSION_KEY.exit:           ; preds = %netlogon_dissect_US
 
 netlogon_dissect_USER_ACCOUNT_CONTROL.exit:       ; preds = %netlogon_dissect_USER_SESSION_KEY.exit, %71
   %.0.i193 = phi i32 [ %72, %71 ], [ %68, %netlogon_dissect_USER_SESSION_KEY.exit ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %79 = load i32, ptr @hf_netlogon_dummy4_long, align 4
   %80 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.0.i193, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %79, ptr noundef null)
   %81 = load i32, ptr @hf_netlogon_dummy5_long, align 4
@@ -2009,7 +2009,7 @@ declare i32 @dissect_ndr_nt_SID_AND_ATTRIBUTES_ARRAY(ptr noundef, i32 noundef, p
 define internal fastcc i32 @netlogon_dissect_DOMAIN_GROUP_MEMBERSHIPS(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) unnamed_addr #0 {
   %9 = alloca i32, align 4
   %10 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr null, ptr %10, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %14, label %11
@@ -2022,14 +2022,14 @@ define internal fastcc i32 @netlogon_dissect_DOMAIN_GROUP_MEMBERSHIPS(ptr nounde
 14:                                               ; preds = %11, %8
   %.0 = phi ptr [ %13, %11 ], [ null, %8 ]
   %15 = call i32 @dissect_ndr_nt_PSID(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0, ptr noundef %4, ptr noundef %5)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %16 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %15, ptr noundef %2, ptr noundef %.0, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef nonnull %9)
   %17 = call i32 @dissect_ndr_pointer(ptr noundef %0, i32 noundef %16, ptr noundef %2, ptr noundef %.0, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @netlogon_dissect_GROUP_MEMBERSHIP_ARRAY, i32 noundef 2, ptr noundef nonnull @.str.891, i32 noundef -1)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %18 = load ptr, ptr %10, align 8
   %19 = sub i32 %17, %1
   call void @proto_item_set_len(ptr noundef %18, i32 noundef %19)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %17
 }
 
@@ -2077,7 +2077,7 @@ define hidden i32 @netlogon_dissect_PAC_DEVICE_INFO(ptr noundef %0, i32 noundef 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %21 = load ptr, ptr %20, align 8
-  %22 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc0(ptr noundef %21, i64 noundef 32) #16
+  %22 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc0(ptr noundef %21, i64 noundef 32) #15
   %23 = load ptr, ptr %17, align 8
   store ptr %23, ptr %22, align 8
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
@@ -2092,17 +2092,17 @@ define hidden i32 @netlogon_dissect_PAC_DEVICE_INFO(ptr noundef %0, i32 noundef 
   %29 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %27, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %28, ptr noundef null)
   %30 = tail call i32 @dissect_ndr_nt_PSID_cb(ptr noundef %0, i32 noundef %29, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @device_sid_callback_fnct, ptr noundef %.052)
   %31 = load i32, ptr @hf_netlogon_accountdomaingroupcount, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %32 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %30, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %31, ptr noundef nonnull %9)
   %33 = call i32 @dissect_ndr_pointer(ptr noundef %0, i32 noundef %32, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @netlogon_dissect_GROUP_MEMBERSHIP_ARRAY, i32 noundef 2, ptr noundef nonnull @.str.3, i32 noundef -1)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %34 = load i32, ptr @hf_netlogon_num_sid, align 4
   %35 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %34, ptr noundef null)
   %36 = call i32 @dissect_ndr_pointer(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @dissect_ndr_nt_SID_AND_ATTRIBUTES_ARRAY, i32 noundef 2, ptr noundef nonnull @.str.4, i32 noundef -1)
   %37 = load i32, ptr @hf_netlogon_membership_domains_count, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %netlogon_dissect_DOMAINS_GROUP_MEMBERSHIPS.exit, label %38
 
@@ -2118,16 +2118,13 @@ netlogon_dissect_DOMAINS_GROUP_MEMBERSHIPS.exit:  ; preds = %25, %38
   %43 = load ptr, ptr %7, align 8
   %44 = sub i32 %42, %36
   call void @proto_item_set_len(ptr noundef %43, i32 noundef %44)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %42
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: null_pointer_is_valid allocsize(1)
-declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_ndr_nt_PSID_cb(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -2154,15 +2151,15 @@ define internal void @device_sid_callback_fnct(ptr readnone captures(none) %0, p
   br i1 %19, label %37, label %20
 
 20:                                               ; preds = %15
-  %21 = tail call i64 @strnlen(ptr noundef nonnull dereferenceable(1) %17, i64 noundef 64) #17
-  %22 = tail call ptr @memchr(ptr noundef nonnull %17, i32 noundef 32, i64 noundef %21) #17
+  %21 = tail call i64 @strnlen(ptr noundef nonnull dereferenceable(1) %17, i64 noundef 64) #16
+  %22 = tail call ptr @memchr(ptr noundef nonnull %17, i32 noundef 32, i64 noundef %21) #16
   %.not39 = icmp eq ptr %22, null
   %23 = ptrtoint ptr %22 to i64
   %24 = ptrtoint ptr %17 to i64
   %25 = sub i64 %23, %24
   %spec.select = tail call i64 @llvm.smin.i64(i64 %25, i64 %21)
   %.0 = select i1 %.not39, i64 %21, i64 %spec.select
-  %26 = tail call ptr @memchr(ptr noundef nonnull %17, i32 noundef 40, i64 noundef %.0) #17
+  %26 = tail call ptr @memchr(ptr noundef nonnull %17, i32 noundef 40, i64 noundef %.0) #16
   %.not40 = icmp eq ptr %26, null
   %27 = ptrtoint ptr %26 to i64
   %28 = sub i64 %27, %24
@@ -2184,19 +2181,16 @@ define internal void @device_sid_callback_fnct(ptr readnone captures(none) %0, p
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @netlogon_dissect_CLAIMS_SET_METADATA_BLOB(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca [4 x i8], align 4
   %10 = alloca %struct._dcerpc_call_value, align 8
   %11 = alloca %struct._dcerpc_info, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 16, ptr %9, align 4
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %10) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %10, i8 0, i64 104, i1 false)
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %11) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %11, i8 0, i64 136, i1 false)
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store i8 -1, ptr %12, align 8
@@ -2221,17 +2215,17 @@ define hidden i32 @netlogon_dissect_CLAIMS_SET_METADATA_BLOB(ptr noundef %0, i32
 
 23:                                               ; preds = %20, %17
   %.0 = phi i32 [ %1, %17 ], [ %22, %20 ]
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %11) #15
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %10) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
@@ -2388,7 +2382,7 @@ declare ptr @wmem_epan_scope() local_unnamed_addr #1
 declare ptr @wmem_file_scope() local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(read, inaccessiblemem: none) uwtable
-define internal i32 @netlogon_auth_hash(ptr noundef readonly captures(none) %0) #6 {
+define internal i32 @netlogon_auth_hash(ptr noundef readonly captures(none) %0) #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -2447,7 +2441,7 @@ add_address_to_hash.exit13:                       ; preds = %.lr.ph.i8, %add_add
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @netlogon_auth_equal(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #7 {
+define internal range(i32 0, 2) i32 @netlogon_auth_equal(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #6 {
   %3 = load i32, ptr %0, align 8
   %4 = load i32, ptr %1, align 8
   %5 = icmp eq i32 %3, %4
@@ -2514,7 +2508,7 @@ addresses_equal.exit:                             ; preds = %42, %35, %33, %14, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable
-define internal i32 @dcerpc_auth_schannel_key_hash(ptr noundef readonly captures(none) %0) #8 {
+define internal i32 @dcerpc_auth_schannel_key_hash(ptr noundef readonly captures(none) %0) #7 {
   %2 = load ptr, ptr %0, align 8
   %3 = ptrtoint ptr %2 to i64
   %4 = trunc i64 %3 to i32
@@ -2531,7 +2525,7 @@ define internal i32 @dcerpc_auth_schannel_key_hash(ptr noundef readonly captures
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @dcerpc_auth_schannel_key_equal(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #8 {
+define internal range(i32 0, 2) i32 @dcerpc_auth_schannel_key_equal(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #7 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = icmp eq ptr %3, %4
@@ -2607,10 +2601,10 @@ define internal i32 @netlogon_dissect_S4U_Transited_Service_name(ptr noundef %0,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare i64 @strnlen(ptr noundef captures(none), i64 noundef) local_unnamed_addr #9
+declare i64 @strnlen(ptr noundef captures(none), i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #9
+declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: null_pointer_is_valid
 declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
@@ -2624,7 +2618,7 @@ define internal i32 @netlogon_dissect_GROUP_MEMBERSHIP_ARRAY(ptr noundef %0, i32
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @netlogon_dissect_GROUP_MEMBERSHIP(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %11, label %8
@@ -2639,7 +2633,7 @@ define internal i32 @netlogon_dissect_GROUP_MEMBERSHIP(ptr noundef %0, i32 nound
   %12 = load i32, ptr @hf_netlogon_group_rid, align 4
   %13 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0, ptr noundef %4, ptr noundef %5, i32 noundef %12, ptr noundef null)
   %14 = call i32 @dissect_ndr_nt_SE_GROUP_ATTRIBUTES(ptr noundef %0, i32 noundef %13, ptr noundef %2, ptr noundef %.0, ptr noundef %4, ptr noundef %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %14
 }
 
@@ -2720,11 +2714,11 @@ define internal fastcc noundef i32 @netlogon_dissect_CLAIMS_SET_BUFFER(ptr nound
   %7 = alloca [4 x i8], align 4
   %8 = alloca %struct._dcerpc_call_value, align 8
   %9 = alloca %struct._dcerpc_info, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 16, ptr %7, align 4
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %8) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %8, i8 0, i64 104, i1 false)
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %9) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %9, i8 0, i64 136, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i8 -1, ptr %10, align 8
@@ -2790,9 +2784,9 @@ define internal fastcc noundef i32 @netlogon_dissect_CLAIMS_SET_BUFFER(ptr nound
 
 32:                                               ; preds = %6, %.thread3, %.thread
   %.042 = phi i32 [ %28, %.thread ], [ %29, %.thread3 ], [ %1, %6 ]
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %9) #15
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %8) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.042
 }
 
@@ -2849,7 +2843,7 @@ define internal i32 @netlogon_dissect_CLAIMS_ENTRY_ARRAY(ptr noundef %0, i32 nou
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @netlogon_dissect_CLAIMS_ENTRY_WRAPPER(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_netlogon_claim_id, align 4
   %9 = tail call i32 @dissect_ndr_str_pointer_item(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, ptr noundef nonnull @.str.798, i32 noundef %8, i32 noundef 0)
   %10 = load i32, ptr @hf_netlogon_claim_type, align 4
@@ -2912,7 +2906,7 @@ define internal i32 @netlogon_dissect_CLAIMS_ENTRY_WRAPPER(ptr noundef %0, i32 n
 
 43:                                               ; preds = %39, %35, %31, %27, %25
   %.1 = phi i32 [ %.0, %25 ], [ %30, %27 ], [ %34, %31 ], [ %38, %35 ], [ %42, %39 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.1
 }
 
@@ -3151,7 +3145,7 @@ dissect_dcerpc_8bytes.exit:                       ; preds = %26, %27
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @netlogon_dissect_netrserverreqchallenge_reply(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca %struct._netlogon_auth_key, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 28
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 32
@@ -3221,7 +3215,7 @@ define internal i32 @netlogon_dissect_netrserverreqchallenge_reply(ptr noundef %
 
 find_tmp_netlogon_auth_vars.exit:                 ; preds = %36, %30, %.lr.ph.i, %.thread22.i.find_tmp_netlogon_auth_vars.exit.loopexit_crit_edge, %6
   %.1.i = phi ptr [ null, %6 ], [ %.227.i, %.thread22.i.find_tmp_netlogon_auth_vars.exit.loopexit_crit_edge ], [ null, %.lr.ph.i ], [ %.01230.i16, %36 ], [ %.227.i, %30 ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %39 = load i32, ptr @hf_server_challenge, align 4
   %.val = load i8, ptr %5, align 1
   %40 = and i8 %.val, 16
@@ -3622,7 +3616,7 @@ define internal i32 @netlogon_dissect_dsrgetdcname_reply(ptr noundef %0, i32 nou
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @netlogon_dissect_netrlogondummyroutine1_rqst(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4
   %8 = load i32, ptr @hf_netlogon_logonsrv_handle, align 4
   %9 = tail call i32 @dissect_ndr_str_pointer_item(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.1135, i32 noundef %8, i32 noundef 0)
@@ -3653,7 +3647,7 @@ define internal i32 @netlogon_dissect_netrlogondummyroutine1_rqst(ptr noundef %0
   br label %24
 
 24:                                               ; preds = %.sink.split, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %14
 }
 
@@ -3915,7 +3909,7 @@ define internal i32 @netlogon_dissect_dsrgetdcnameex_rqst(ptr noundef %0, i32 no
   %12 = tail call i32 @dissect_ndr_pointer(ptr noundef %0, i32 noundef %11, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @dissect_nt_GUID, i32 noundef 2, ptr noundef nonnull @.str.1242, i32 noundef -1)
   %13 = load i32, ptr @hf_netlogon_site_name, align 4
   %14 = tail call i32 @dissect_ndr_str_pointer_item(ptr noundef %0, i32 noundef %12, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, ptr noundef nonnull @.str.254, i32 noundef %13, i32 noundef 0)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 25
   %16 = load i8, ptr %15, align 1, !range !6, !noundef !7
   %17 = trunc nuw i8 %16 to i1
@@ -3933,7 +3927,7 @@ define internal i32 @netlogon_dissect_dsrgetdcnameex_rqst(ptr noundef %0, i32 no
 
 netlogon_dissect_GET_DCNAME_REQUEST_FLAGS.exit:   ; preds = %6, %18
   %.0.i = phi i32 [ %19, %18 ], [ %14, %6 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0.i
 }
 
@@ -3999,7 +3993,7 @@ define internal noundef i32 @netlogon_dissect_netrserverpasswordset2_rqst(ptr no
   %17 = load i32, ptr @hf_netlogon_computer_name, align 4
   %18 = tail call i32 @dissect_ndr_str_pointer_item(ptr noundef %0, i32 noundef %16, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 1, ptr noundef nonnull @.str.252, i32 noundef %17, i32 noundef 0)
   %19 = tail call i32 @dissect_ndr_pointer(ptr noundef %0, i32 noundef %18, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @netlogon_dissect_AUTHENTICATOR, i32 noundef 1, ptr noundef nonnull @.str.1142, i32 noundef -1)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8
   tail call void @tvb_ensure_bytes_exist(ptr noundef %0, i32 noundef %19, i32 noundef 516)
   %.not.i = icmp eq ptr %3, null
@@ -4012,7 +4006,7 @@ define internal noundef i32 @netlogon_dissect_netrserverpasswordset2_rqst(ptr no
 
 23:                                               ; preds = %20, %6
   %.0173.i = phi ptr [ %22, %20 ], [ null, %6 ]
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 28
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 32
@@ -4077,7 +4071,7 @@ define internal noundef i32 @netlogon_dissect_netrserverpasswordset2_rqst(ptr no
 
 find_global_netlogon_auth_vars.exit.i:            ; preds = %.thread22.i.i, %51, %44, %23
   %.1.i.i = phi ptr [ null, %23 ], [ %.01329.i.i, %44 ], [ %.01329.i.i, %51 ], [ %.227.i.i, %.thread22.i.i ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %54 = add i32 %19, 512
   %55 = load i8, ptr %5, align 1
   %56 = and i8 %55, 16
@@ -4091,7 +4085,7 @@ find_global_netlogon_auth_vars.exit.i:            ; preds = %.thread22.i.i, %51,
   br i1 %or.cond196.i, label %139, label %62
 
 62:                                               ; preds = %find_global_netlogon_auth_vars.exit.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8
   %63 = load i32, ptr @hf_netlogon_blob, align 4
   %64 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %.0173.i, i32 noundef %63, ptr noundef %0, i32 noundef %19, i32 noundef 516, ptr noundef null, ptr noundef nonnull @.str.1279)
@@ -4200,7 +4194,7 @@ find_global_netlogon_auth_vars.exit.i:            ; preds = %.thread22.i.i, %51,
   call void @add_new_data_source(ptr noundef %2, ptr noundef nonnull %107, ptr noundef nonnull @.str.1286)
   %137 = load i32, ptr @hf_netlogon_blob, align 4
   %138 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %.0173.i, i32 noundef %137, ptr noundef nonnull %107, i32 noundef 0, i32 noundef 516, ptr noundef null, ptr noundef nonnull @.str.1287)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %162
 
 139:                                              ; preds = %find_global_netlogon_auth_vars.exit.i
@@ -4273,7 +4267,7 @@ select.unfold.i:                                  ; preds = %162
 
 184:                                              ; preds = %.thread.thread.i, %select.unfold.i
   %.2204.i = phi i32 [ %.1165.i, %select.unfold.i ], [ %179, %.thread.thread.i ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr null, ptr %10, align 8
   %.not194.i = icmp eq ptr %.0173.i, null
   br i1 %.not194.i, label %188, label %185
@@ -4291,7 +4285,7 @@ select.unfold.i:                                  ; preds = %162
   %192 = call i32 @dissect_ndr_uint32(ptr noundef %.1163.i, i32 noundef %190, ptr noundef %2, ptr noundef %.0.i, ptr noundef %4, ptr noundef %5, i32 noundef %191, ptr noundef null)
   %193 = load i32, ptr @hf_netlogon_password_version_present, align 4
   %194 = call i32 @dissect_ndr_uint32(ptr noundef %.1163.i, i32 noundef %192, ptr noundef %2, ptr noundef %.0.i, ptr noundef %4, ptr noundef %5, i32 noundef %193, ptr noundef null)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %195
 
 195:                                              ; preds = %188, %.thread.i
@@ -4314,12 +4308,12 @@ select.unfold.i:                                  ; preds = %162
   br label %netlogon_dissect_netr_CryptPassword.exit
 
 .critedge.i:                                      ; preds = %133, %106, %103, %99, %71, %66
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %netlogon_dissect_netr_CryptPassword.exit
 
 netlogon_dissect_netr_CryptPassword.exit:         ; preds = %195, %.critedge.i
   %211 = add i32 %19, 516
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %211
 }
 
@@ -4500,7 +4494,7 @@ define internal i32 @netlogon_dissect_netrlogonsamlogonex_rqst(ptr noundef %0, i
   %14 = tail call i32 @dissect_ndr_pointer(ptr noundef %0, i32 noundef %13, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @netlogon_dissect_LEVEL, i32 noundef 1, ptr noundef nonnull @.str.1144, i32 noundef -1)
   %15 = load i32, ptr @hf_netlogon_validation_level, align 4
   %16 = tail call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %14, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %15, ptr noundef null)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 25
   %18 = load i8, ptr %17, align 1, !range !6, !noundef !7
   %19 = trunc nuw i8 %18 to i1
@@ -4518,7 +4512,7 @@ define internal i32 @netlogon_dissect_netrlogonsamlogonex_rqst(ptr noundef %0, i
 
 netlogon_dissect_EXTRA_FLAGS.exit:                ; preds = %6, %20
   %.0.i = phi i32 [ %21, %20 ], [ %16, %6 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0.i
 }
 
@@ -4528,7 +4522,7 @@ define internal i32 @netlogon_dissect_netrlogonsamlogonex_reply(ptr noundef %0, 
   %8 = tail call i32 @dissect_ndr_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @netlogon_dissect_VALIDATION, i32 noundef 1, ptr noundef nonnull @.str.1161, i32 noundef -1)
   %9 = load i32, ptr @hf_netlogon_authoritative, align 4
   %10 = tail call i32 @dissect_ndr_uint8(ptr noundef %0, i32 noundef %8, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef null)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 25
   %12 = load i8, ptr %11, align 1, !range !6, !noundef !7
   %13 = trunc nuw i8 %12 to i1
@@ -4546,7 +4540,7 @@ define internal i32 @netlogon_dissect_netrlogonsamlogonex_reply(ptr noundef %0, 
 
 netlogon_dissect_EXTRA_FLAGS.exit:                ; preds = %6, %14
   %.0.i = phi i32 [ %15, %14 ], [ %10, %6 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %22 = load i32, ptr @hf_netlogon_rc, align 4
   %23 = call i32 @dissect_ntstatus(ptr noundef %0, i32 noundef %.0.i, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %22, ptr noundef null)
   ret i32 %23
@@ -4557,7 +4551,7 @@ define internal i32 @netlogon_dissect_dsrenumeratedomaintrusts_rqst(ptr noundef 
   %7 = alloca i32, align 4
   %8 = load i32, ptr @hf_netlogon_logonsrv_handle, align 4
   %9 = tail call i32 @dissect_ndr_str_pointer_item(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, ptr noundef nonnull @.str.1135, i32 noundef %8, i32 noundef 0)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 25
   %11 = load i8, ptr %10, align 1, !range !6, !noundef !7
   %12 = trunc nuw i8 %11 to i1
@@ -4575,7 +4569,7 @@ define internal i32 @netlogon_dissect_dsrenumeratedomaintrusts_rqst(ptr noundef 
 
 netlogon_dissect_DOMAIN_TRUST_FLAGS.exit:         ; preds = %6, %13
   %.0.i = phi i32 [ %14, %13 ], [ %9, %6 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0.i
 }
 
@@ -4636,7 +4630,7 @@ define internal i32 @netlogon_dissect_netrservertrustpasswordsget_reply(ptr noun
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @netlogon_dissect_dsrgetforesttrustinformation_rqst(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 25
   %9 = load i8, ptr %8, align 1, !range !6, !noundef !7
@@ -4659,7 +4653,7 @@ define internal i32 @netlogon_dissect_dsrgetforesttrustinformation_rqst(ptr noun
 
 23:                                               ; preds = %6, %11
   %.0 = phi i32 [ %16, %11 ], [ %1, %6 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
 
@@ -4674,7 +4668,7 @@ define internal i32 @netlogon_dissect_dsrgetforesttrustinformation_reply(ptr nou
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @netlogon_dissect_netrgetforesttrustinformation_rqst(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 25
   %9 = load i8, ptr %8, align 1, !range !6, !noundef !7
@@ -4698,7 +4692,7 @@ define internal i32 @netlogon_dissect_netrgetforesttrustinformation_rqst(ptr nou
 
 24:                                               ; preds = %6, %11
   %.0 = phi i32 [ %17, %11 ], [ %1, %6 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
 
@@ -4725,7 +4719,7 @@ define internal i32 @netlogon_dissect_netrlogonsamlogonflags_rqst(ptr noundef %0
   %16 = tail call i32 @dissect_ndr_pointer(ptr noundef %0, i32 noundef %15, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @netlogon_dissect_LEVEL, i32 noundef 1, ptr noundef nonnull @.str.1144, i32 noundef -1)
   %17 = load i32, ptr @hf_netlogon_validation_level, align 4
   %18 = tail call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %16, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %17, ptr noundef null)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 25
   %20 = load i8, ptr %19, align 1, !range !6, !noundef !7
   %21 = trunc nuw i8 %20 to i1
@@ -4743,7 +4737,7 @@ define internal i32 @netlogon_dissect_netrlogonsamlogonflags_rqst(ptr noundef %0
 
 netlogon_dissect_EXTRA_FLAGS.exit:                ; preds = %6, %22
   %.0.i = phi i32 [ %23, %22 ], [ %18, %6 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0.i
 }
 
@@ -4754,7 +4748,7 @@ define internal i32 @netlogon_dissect_netrlogonsamlogonflags_reply(ptr noundef %
   %9 = tail call i32 @dissect_ndr_pointer(ptr noundef %0, i32 noundef %8, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @netlogon_dissect_VALIDATION, i32 noundef 1, ptr noundef nonnull @.str.1161, i32 noundef -1)
   %10 = load i32, ptr @hf_netlogon_authoritative, align 4
   %11 = tail call i32 @dissect_ndr_uint8(ptr noundef %0, i32 noundef %9, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %10, ptr noundef null)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 25
   %13 = load i8, ptr %12, align 1, !range !6, !noundef !7
   %14 = trunc nuw i8 %13 to i1
@@ -4772,7 +4766,7 @@ define internal i32 @netlogon_dissect_netrlogonsamlogonflags_reply(ptr noundef %
 
 netlogon_dissect_EXTRA_FLAGS.exit:                ; preds = %6, %15
   %.0.i = phi i32 [ %16, %15 ], [ %11, %6 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %23 = load i32, ptr @hf_netlogon_rc, align 4
   %24 = call i32 @dissect_ntstatus(ptr noundef %0, i32 noundef %.0.i, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %23, ptr noundef null)
   ret i32 %24
@@ -4994,7 +4988,7 @@ define internal i32 @netlogon_dissect_netrserverauthenticatekerberos_reply(ptr n
   %21 = tail call i32 @dissect_dcerpc_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %3, ptr noundef %5, i32 noundef %20, ptr noundef null)
   %22 = load i32, ptr @hf_netlogon_rc, align 4
   %23 = tail call i32 @dissect_ntstatus(ptr noundef %0, i32 noundef %21, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %22, ptr noundef null)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 28
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 32
@@ -5028,7 +5022,7 @@ define internal i32 @netlogon_dissect_netrserverauthenticatekerberos_reply(ptr n
   br i1 %.not28.i, label %find_tmp_netlogon_auth_vars.exit.thread, label %.lr.ph.i
 
 find_tmp_netlogon_auth_vars.exit.thread:          ; preds = %6
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %66
 
 .lr.ph.i:                                         ; preds = %6
@@ -5040,7 +5034,7 @@ find_tmp_netlogon_auth_vars.exit.thread:          ; preds = %6
   br i1 %.not16.i41, label %.lr.ph, label %find_tmp_netlogon_auth_vars.exit.thread47
 
 find_tmp_netlogon_auth_vars.exit.thread47:        ; preds = %.lr.ph.i
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %66
 
 46:                                               ; preds = %.thread22.i
@@ -5061,7 +5055,7 @@ find_tmp_netlogon_auth_vars.exit.thread47:        ; preds = %.lr.ph.i
   br i1 %.not17.not.i, label %.thread22.i, label %find_tmp_netlogon_auth_vars.exit.thread36
 
 find_tmp_netlogon_auth_vars.exit.thread36:        ; preds = %52
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %55
 
 .thread22.i:                                      ; preds = %52, %.lr.ph
@@ -5075,7 +5069,7 @@ find_tmp_netlogon_auth_vars.exit.thread36:        ; preds = %52
   br label %find_tmp_netlogon_auth_vars.exit, !llvm.loop !10
 
 find_tmp_netlogon_auth_vars.exit:                 ; preds = %46, %.thread22.i.find_tmp_netlogon_auth_vars.exit_crit_edge
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not33 = icmp eq ptr %.227.i, null
   br i1 %.not33, label %66, label %55
 
@@ -5206,7 +5200,7 @@ netlogon_dissect_CREDENTIAL.exit:                 ; preds = %6
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @netlogon_dissect_LEVEL(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i16, align 2
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i16 0, ptr %7, align 2
   %8 = load i32, ptr @hf_netlogon_level16, align 4
   %9 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, ptr noundef nonnull %7)
@@ -5265,7 +5259,7 @@ define internal i32 @netlogon_dissect_LEVEL(ptr noundef %0, i32 noundef %1, ptr 
 
 33:                                               ; preds = %31, %29, %27, %25, %23, %21, %19, %17, %6
   %.1 = phi i32 [ %.0, %6 ], [ %18, %17 ], [ %20, %19 ], [ %22, %21 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ]
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.1
 }
 
@@ -5292,7 +5286,7 @@ define internal i32 @netlogon_dissect_INTERACTIVE_INFO(ptr noundef %0, i32 nound
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = tail call fastcc i32 @netlogon_dissect_LOGON_IDENTITY_INFO(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef null)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 25
   %11 = load i8, ptr %10, align 1, !range !6, !noundef !7
@@ -5300,8 +5294,8 @@ define internal i32 @netlogon_dissect_INTERACTIVE_INFO(ptr noundef %0, i32 nound
   br i1 %12, label %netlogon_dissect_LM_OWF_PASSWORD.exit.thread, label %13
 
 netlogon_dissect_LM_OWF_PASSWORD.exit.thread:     ; preds = %6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %netlogon_dissect_NT_OWF_PASSWORD.exit
 
 13:                                               ; preds = %6
@@ -5320,8 +5314,8 @@ netlogon_dissect_LM_OWF_PASSWORD.exit:            ; preds = %13, %14
   %19 = add i32 %9, 16
   %.pre = load i8, ptr %10, align 1, !range !6
   %20 = trunc nuw i8 %.pre to i1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
   br i1 %20, label %netlogon_dissect_NT_OWF_PASSWORD.exit, label %21
 
@@ -5343,7 +5337,7 @@ netlogon_dissect_LM_OWF_PASSWORD.exit:            ; preds = %13, %14
 
 netlogon_dissect_NT_OWF_PASSWORD.exit:            ; preds = %netlogon_dissect_LM_OWF_PASSWORD.exit.thread, %netlogon_dissect_LM_OWF_PASSWORD.exit, %25
   %.011.i20 = phi i32 [ %28, %25 ], [ %19, %netlogon_dissect_LM_OWF_PASSWORD.exit ], [ %9, %netlogon_dissect_LM_OWF_PASSWORD.exit.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.011.i20
 }
 
@@ -5357,7 +5351,7 @@ define internal i32 @netlogon_dissect_NETWORK_INFO(ptr noundef %0, i32 noundef %
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call noalias dereferenceable_or_null(264) ptr @wmem_alloc0(ptr noundef %12, i64 noundef 264) #16
+  %13 = tail call noalias dereferenceable_or_null(264) ptr @wmem_alloc0(ptr noundef %12, i64 noundef 264) #15
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 56
   store i32 3, ptr %14, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 60
@@ -5427,7 +5421,7 @@ define internal i32 @netlogon_dissect_SERVICE_INFO(ptr noundef %0, i32 noundef %
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = tail call fastcc i32 @netlogon_dissect_LOGON_IDENTITY_INFO(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef null)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 25
   %11 = load i8, ptr %10, align 1, !range !6, !noundef !7
@@ -5435,8 +5429,8 @@ define internal i32 @netlogon_dissect_SERVICE_INFO(ptr noundef %0, i32 noundef %
   br i1 %12, label %netlogon_dissect_LM_OWF_PASSWORD.exit.thread, label %13
 
 netlogon_dissect_LM_OWF_PASSWORD.exit.thread:     ; preds = %6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %netlogon_dissect_NT_OWF_PASSWORD.exit
 
 13:                                               ; preds = %6
@@ -5455,8 +5449,8 @@ netlogon_dissect_LM_OWF_PASSWORD.exit:            ; preds = %13, %14
   %19 = add i32 %9, 16
   %.pre = load i8, ptr %10, align 1, !range !6
   %20 = trunc nuw i8 %.pre to i1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
   br i1 %20, label %netlogon_dissect_NT_OWF_PASSWORD.exit, label %21
 
@@ -5478,7 +5472,7 @@ netlogon_dissect_LM_OWF_PASSWORD.exit:            ; preds = %13, %14
 
 netlogon_dissect_NT_OWF_PASSWORD.exit:            ; preds = %netlogon_dissect_LM_OWF_PASSWORD.exit.thread, %netlogon_dissect_LM_OWF_PASSWORD.exit, %25
   %.011.i20 = phi i32 [ %28, %25 ], [ %19, %netlogon_dissect_LM_OWF_PASSWORD.exit ], [ %9, %netlogon_dissect_LM_OWF_PASSWORD.exit.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.011.i20
 }
 
@@ -5496,7 +5490,7 @@ define internal i32 @netlogon_dissect_GENERIC_INFO(ptr noundef %0, i32 noundef %
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @netlogon_dissect_TICKET_INFO(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 25
   %9 = load i8, ptr %8, align 1, !range !6, !noundef !7
@@ -5521,7 +5515,7 @@ define internal i32 @netlogon_dissect_TICKET_INFO(ptr noundef %0, i32 noundef %1
 
 25:                                               ; preds = %6, %11
   %.0 = phi i32 [ %24, %11 ], [ %1, %6 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
 
@@ -5531,7 +5525,7 @@ define internal fastcc i32 @netlogon_dissect_LOGON_IDENTITY_INFO(ptr noundef %0,
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr null, ptr %11, align 8
   %.not = icmp eq ptr %6, null
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 104
@@ -5548,7 +5542,7 @@ define internal fastcc i32 @netlogon_dissect_LOGON_IDENTITY_INFO(ptr noundef %0,
 18:                                               ; preds = %15, %7
   %.0 = phi ptr [ %17, %15 ], [ null, %7 ]
   %19 = load i32, ptr @hf_netlogon_logon_dom, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr null, ptr %10, align 8
   br i1 %.not, label %20, label %22
 
@@ -5567,21 +5561,21 @@ define internal fastcc i32 @netlogon_dissect_LOGON_IDENTITY_INFO(ptr noundef %0,
 
 dissect_ndr_wstr_LOGON_IDENTITY_INFO.exit:        ; preds = %20, %22
   %.0.i = phi i32 [ %21, %20 ], [ %27, %22 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %28 = load i32, ptr @hf_netlogon_param_ctrl, align 4
   %29 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.0.i, ptr noundef %2, ptr noundef %.0, ptr noundef %4, ptr noundef %5, i32 noundef %28, ptr noundef null)
   %30 = load i32, ptr @hf_netlogon_logon_id, align 4
   %31 = call i32 @dissect_ndr_duint32(ptr noundef %0, i32 noundef %29, ptr noundef %2, ptr noundef %.0, ptr noundef %4, ptr noundef %5, i32 noundef %30, ptr noundef null)
   %32 = load i32, ptr @hf_netlogon_acct_name, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8
   br i1 %.not, label %33, label %37
 
 33:                                               ; preds = %dissect_ndr_wstr_LOGON_IDENTITY_INFO.exit
   %34 = call i32 @dissect_ndr_counted_string(ptr noundef %0, i32 noundef %31, ptr noundef %2, ptr noundef %.0, ptr noundef %4, ptr noundef %5, i32 noundef %32, i32 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %35 = load i32, ptr @hf_netlogon_workstation, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8
   %36 = call i32 @dissect_ndr_counted_string(ptr noundef %0, i32 noundef %34, ptr noundef %2, ptr noundef %.0, ptr noundef %4, ptr noundef %5, i32 noundef %35, i32 noundef 0)
   br label %dissect_ndr_wstr_LOGON_IDENTITY_INFO.exit53
@@ -5593,9 +5587,9 @@ dissect_ndr_wstr_LOGON_IDENTITY_INFO.exit:        ; preds = %20, %22
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 160
   store i32 536870915, ptr %41, align 8
   %42 = call i32 @dissect_ndr_counted_string_cb(ptr noundef %0, i32 noundef %31, ptr noundef %2, ptr noundef %40, ptr noundef %4, ptr noundef %5, i32 noundef %32, ptr noundef nonnull @cb_wstr_LOGON_IDENTITY_INFO, ptr noundef nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %43 = load i32, ptr @hf_netlogon_workstation, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8
   %44 = load i32, ptr @ett_wstr_LOGON_IDENTITY_INFO_string, align 4
   %45 = call ptr @proto_registrar_get_name(i32 noundef %43)
@@ -5607,18 +5601,18 @@ dissect_ndr_wstr_LOGON_IDENTITY_INFO.exit:        ; preds = %20, %22
 
 dissect_ndr_wstr_LOGON_IDENTITY_INFO.exit53:      ; preds = %33, %37
   %.0.i52 = phi i32 [ %36, %33 ], [ %48, %37 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %49 = load ptr, ptr %11, align 8
   %50 = sub i32 %.0.i52, %1
   call void @proto_item_set_len(ptr noundef %49, i32 noundef %50)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i32 %.0.i52
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @netlogon_dissect_LM_OWF_PASSWORD(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr noundef readonly captures(none) %4, ptr readnone captures(none) %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 25
   %9 = load i8, ptr %8, align 1, !range !6, !noundef !7
@@ -5643,14 +5637,14 @@ define internal noundef i32 @netlogon_dissect_LM_OWF_PASSWORD(ptr noundef %0, i3
 
 19:                                               ; preds = %6, %15
   %.011 = phi i32 [ %18, %15 ], [ %1, %6 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.011
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @netlogon_dissect_NT_OWF_PASSWORD(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr noundef readonly captures(none) %4, ptr readnone captures(none) %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 25
   %9 = load i8, ptr %8, align 1, !range !6, !noundef !7
@@ -5675,7 +5669,7 @@ define internal noundef i32 @netlogon_dissect_NT_OWF_PASSWORD(ptr noundef %0, i3
 
 19:                                               ; preds = %6, %15
   %.011 = phi i32 [ %18, %15 ], [ %1, %6 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.011
 }
 
@@ -5777,8 +5771,8 @@ define internal fastcc i32 @dissect_ndr_lm_nt_hash_helper(ptr noundef %0, i32 no
   %11 = load i32, ptr @ett_LM_OWF_PASSWORD, align 4
   %12 = tail call ptr @proto_registrar_get_name(i32 noundef %6)
   %13 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef 0, i32 noundef %11, ptr noundef null, ptr noundef %12)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %9) #15
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %10) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 25
   %15 = load i8, ptr %14, align 1, !range !6, !noundef !7
   %16 = trunc nuw i8 %15 to i1
@@ -5796,8 +5790,8 @@ define internal fastcc i32 @dissect_ndr_lm_nt_hash_helper(ptr noundef %0, i32 no
 
 dissect_ndr_lm_nt_hash_cb.exit:                   ; preds = %8, %17
   %.0.i = phi i32 [ %22, %17 ], [ %1, %8 ]
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %10) #15
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %9) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0.i
 }
 
@@ -5959,7 +5953,7 @@ declare i32 @dissect_kerberos_main(ptr noundef, ptr noundef, ptr noundef, i1 nou
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @netlogon_dissect_VALIDATION(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i16, align 2
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i16 0, ptr %7, align 2
   %8 = load i32, ptr @hf_netlogon_validation_level, align 4
   %9 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, ptr noundef nonnull %7)
@@ -6013,7 +6007,7 @@ define internal i32 @netlogon_dissect_VALIDATION(ptr noundef %0, i32 noundef %1,
 
 31:                                               ; preds = %29, %27, %25, %23, %21, %19, %17, %6
   %.1 = phi i32 [ %.0, %6 ], [ %18, %17 ], [ %20, %19 ], [ %22, %21 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ]
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.1
 }
 
@@ -6073,7 +6067,7 @@ define internal i32 @netlogon_dissect_VALIDATION_SAM_INFO4(ptr noundef %0, i32 n
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @netlogon_dissect_VALIDATION_TICKET_LOGON(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 25
   %9 = load i8, ptr %8, align 1, !range !6, !noundef !7
@@ -6105,7 +6099,7 @@ define internal i32 @netlogon_dissect_VALIDATION_TICKET_LOGON(ptr noundef %0, i3
 
 32:                                               ; preds = %6, %11
   %.0 = phi i32 [ %31, %11 ], [ %1, %6 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
 
@@ -6132,9 +6126,9 @@ declare i32 @dissect_ndr_wchar_cvstring(ptr noundef, i32 noundef, ptr noundef, p
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc ptr @create_global_netlogon_auth_vars(ptr noundef readonly captures(none) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca %struct._netlogon_auth_key, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = tail call ptr @wmem_file_scope()
-  %5 = tail call noalias dereferenceable_or_null(400) ptr @wmem_alloc0(ptr noundef %4, i64 noundef 400) #16
+  %5 = tail call noalias dereferenceable_or_null(400) ptr @wmem_alloc0(ptr noundef %4, i64 noundef 400) #15
   %6 = tail call ptr @wmem_file_scope()
   %7 = tail call noalias ptr @wmem_strdup(ptr noundef %6, ptr noundef %1)
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 376
@@ -6272,7 +6266,7 @@ define internal fastcc ptr @create_global_netlogon_auth_vars(ptr noundef readonl
   br i1 %.not83, label %73, label %74
 
 73:                                               ; preds = %70
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.1176, i32 noundef 7, ptr noundef nonnull @.str.1177, i64 noundef 3712, ptr noundef nonnull @__func__.create_global_netlogon_auth_vars, ptr noundef nonnull @.str.1178, ptr noundef nonnull @.str.1179) #18
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.1176, i32 noundef 7, ptr noundef nonnull @.str.1177, i64 noundef 3712, ptr noundef nonnull @__func__.create_global_netlogon_auth_vars, ptr noundef nonnull @.str.1178, ptr noundef nonnull @.str.1179) #17
   unreachable
 
 74:                                               ; preds = %70, %.lr.ph
@@ -6288,7 +6282,7 @@ define internal fastcc ptr @create_global_netlogon_auth_vars(ptr noundef readonl
   br i1 %81, label %._crit_edge, label %82
 
 82:                                               ; preds = %78
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.1176, i32 noundef 7, ptr noundef nonnull @.str.1177, i64 noundef 3716, ptr noundef nonnull @__func__.create_global_netlogon_auth_vars, ptr noundef nonnull @.str.1178, ptr noundef nonnull @.str.1180) #18
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.1176, i32 noundef 7, ptr noundef nonnull @.str.1177, i64 noundef 3716, ptr noundef nonnull @__func__.create_global_netlogon_auth_vars, ptr noundef nonnull @.str.1178, ptr noundef nonnull @.str.1180) #17
   unreachable
 
 83:                                               ; preds = %74
@@ -6300,7 +6294,7 @@ define internal fastcc ptr @create_global_netlogon_auth_vars(ptr noundef readonl
   br i1 %88, label %90, label %89
 
 89:                                               ; preds = %83
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.1176, i32 noundef 7, ptr noundef nonnull @.str.1177, i64 noundef 3720, ptr noundef nonnull @__func__.create_global_netlogon_auth_vars, ptr noundef nonnull @.str.1178, ptr noundef nonnull @.str.1181) #18
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.1176, i32 noundef 7, ptr noundef nonnull @.str.1177, i64 noundef 3720, ptr noundef nonnull @__func__.create_global_netlogon_auth_vars, ptr noundef nonnull @.str.1178, ptr noundef nonnull @.str.1181) #17
   unreachable
 
 90:                                               ; preds = %83
@@ -6310,7 +6304,7 @@ define internal fastcc ptr @create_global_netlogon_auth_vars(ptr noundef readonl
   br i1 %93, label %.lr.ph, label %94, !llvm.loop !13
 
 94:                                               ; preds = %90
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.1176, i32 noundef 7, ptr noundef nonnull @.str.1177, i64 noundef 3722, ptr noundef nonnull @__func__.create_global_netlogon_auth_vars, ptr noundef nonnull @.str.1178, ptr noundef nonnull @.str.1182) #18
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.1176, i32 noundef 7, ptr noundef nonnull @.str.1177, i64 noundef 3722, ptr noundef nonnull @__func__.create_global_netlogon_auth_vars, ptr noundef nonnull @.str.1178, ptr noundef nonnull @.str.1182) #17
   unreachable
 
 ._crit_edge:                                      ; preds = %78, %.loopexit
@@ -6319,7 +6313,7 @@ define internal fastcc ptr @create_global_netlogon_auth_vars(ptr noundef readonl
 
 95:                                               ; preds = %._crit_edge
   %96 = call ptr @wmem_file_scope()
-  %97 = call dereferenceable_or_null(48) ptr @wmem_memdup(ptr noundef %96, ptr noundef nonnull %3, i64 noundef 48) #19
+  %97 = call dereferenceable_or_null(48) ptr @wmem_memdup(ptr noundef %96, ptr noundef nonnull %3, i64 noundef 48) #18
   %98 = call ptr @wmem_file_scope()
   %99 = load i32, ptr %3, align 8
   %100 = load i32, ptr %28, align 4
@@ -6331,7 +6325,7 @@ define internal fastcc ptr @create_global_netlogon_auth_vars(ptr noundef readonl
 
 103:                                              ; preds = %95
   %104 = sext i32 %100 to i64
-  %105 = call ptr @wmem_memdup(ptr noundef %98, ptr noundef %101, i64 noundef %104) #19
+  %105 = call ptr @wmem_memdup(ptr noundef %98, ptr noundef %101, i64 noundef %104) #18
   %106 = getelementptr inbounds nuw i8, ptr %97, i64 16
   store ptr %105, ptr %106, align 8
   %107 = getelementptr inbounds nuw i8, ptr %97, i64 8
@@ -6353,7 +6347,7 @@ copy_address_wmem.exit:                           ; preds = %95, %103
 
 115:                                              ; preds = %copy_address_wmem.exit
   %116 = sext i32 %112 to i64
-  %117 = call ptr @wmem_memdup(ptr noundef %109, ptr noundef %113, i64 noundef %116) #19
+  %117 = call ptr @wmem_memdup(ptr noundef %109, ptr noundef %113, i64 noundef %116) #18
   %118 = getelementptr inbounds nuw i8, ptr %97, i64 40
   store ptr %117, ptr %118, align 8
   %119 = getelementptr inbounds nuw i8, ptr %97, i64 32
@@ -6378,7 +6372,7 @@ copy_address_wmem.exit85:                         ; preds = %copy_address_wmem.e
 
 127:                                              ; preds = %._crit_edge, %124, %38
   %.0 = phi ptr [ %.068, %38 ], [ %5, %124 ], [ %5, %._crit_edge ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
@@ -6392,10 +6386,10 @@ declare ptr @wmem_map_lookup(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @wmem_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn null_pointer_is_valid
-declare void @ws_log_fatal_full(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #10
+declare void @ws_log_fatal_full(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #9
 
 ; Function Attrs: null_pointer_is_valid allocsize(2)
-declare ptr @wmem_memdup(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #11
+declare ptr @wmem_memdup(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: null_pointer_is_valid
 declare ptr @wmem_map_remove(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -6489,7 +6483,7 @@ dissect_dcerpc_8bytes.exit:                       ; preds = %31, %33
   %.2 = phi i32 [ %54, %52 ], [ %.1, %44 ]
   %56 = load i32, ptr @hf_netlogon_rc, align 4
   %57 = tail call i32 @dissect_ntstatus(ptr noundef %0, i32 noundef %.2, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %56, ptr noundef null)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %58 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %59 = getelementptr inbounds nuw i8, ptr %8, i64 28
   %60 = getelementptr inbounds nuw i8, ptr %8, i64 32
@@ -6523,7 +6517,7 @@ dissect_dcerpc_8bytes.exit:                       ; preds = %31, %33
   br i1 %.not28.i, label %find_tmp_netlogon_auth_vars.exit.thread, label %.lr.ph.i
 
 find_tmp_netlogon_auth_vars.exit.thread:          ; preds = %55
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %249
 
 .lr.ph.i:                                         ; preds = %55
@@ -6535,7 +6529,7 @@ find_tmp_netlogon_auth_vars.exit.thread:          ; preds = %55
   br i1 %.not16.i170, label %.lr.ph, label %find_tmp_netlogon_auth_vars.exit.thread230
 
 find_tmp_netlogon_auth_vars.exit.thread230:       ; preds = %.lr.ph.i
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %249
 
 80:                                               ; preds = %.thread22.i
@@ -6556,7 +6550,7 @@ find_tmp_netlogon_auth_vars.exit.thread230:       ; preds = %.lr.ph.i
   br i1 %.not17.not.i, label %.thread22.i, label %find_tmp_netlogon_auth_vars.exit.thread139
 
 find_tmp_netlogon_auth_vars.exit.thread139:       ; preds = %86
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %89
 
 .thread22.i:                                      ; preds = %86, %.lr.ph
@@ -6570,16 +6564,16 @@ find_tmp_netlogon_auth_vars.exit.thread139:       ; preds = %86
   br label %find_tmp_netlogon_auth_vars.exit, !llvm.loop !10
 
 find_tmp_netlogon_auth_vars.exit:                 ; preds = %80, %.thread22.i.find_tmp_netlogon_auth_vars.exit_crit_edge
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.not122 = icmp eq ptr %.227.i, null
   br i1 %.not122, label %249, label %89
 
 89:                                               ; preds = %find_tmp_netlogon_auth_vars.exit.thread139, %find_tmp_netlogon_auth_vars.exit
   %.1.i142 = phi ptr [ %.01230.i171, %find_tmp_netlogon_auth_vars.exit.thread139 ], [ %.227.i, %find_tmp_netlogon_auth_vars.exit ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8
-  call void @llvm.lifetime.start.p0(i64 273, ptr nonnull %10) #15
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %90 = getelementptr inbounds nuw i8, ptr %.1.i142, i64 344
   store i32 %.0100, ptr %90, align 8
   %91 = getelementptr inbounds nuw i8, ptr %.1.i142, i64 369
@@ -6592,10 +6586,10 @@ find_tmp_netlogon_auth_vars.exit:                 ; preds = %80, %.thread22.i.fi
   br i1 %.not123, label %136, label %96
 
 96:                                               ; preds = %89
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %12, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %97 = load i64, ptr %.1.i142, align 1
   store i64 %97, ptr %12, align 16
   %98 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -6619,11 +6613,11 @@ find_tmp_netlogon_auth_vars.exit:                 ; preds = %80, %.thread22.i.fi
   br i1 %.not127, label %104, label %135
 
 104:                                              ; preds = %.lr.ph174
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store ptr null, ptr %15, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %16, i8 0, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %11, ptr noundef nonnull align 16 dereferenceable(16) %13, i64 noundef 16, i1 noundef false) #15
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %11, ptr noundef nonnull align 16 dereferenceable(16) %13, i64 noundef 16, i1 noundef false) #19
   %105 = call i32 @gcry_cipher_open(ptr noundef nonnull %15, i32 noundef 7, i32 noundef 12, i32 noundef 0)
   %.not128 = icmp eq i32 %105, 0
   br i1 %.not128, label %109, label %106
@@ -6686,13 +6680,13 @@ find_tmp_netlogon_auth_vars.exit:                 ; preds = %80, %.thread22.i.fi
 
 .thread:                                          ; preds = %130, %106, %112, %119, %126
   %.2112.ph = phi i32 [ 0, %126 ], [ 0, %119 ], [ 0, %112 ], [ 0, %106 ], [ 1, %130 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %.loopexit
 
 134:                                              ; preds = %130
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %135
 
 135:                                              ; preds = %134, %.lr.ph174
@@ -6703,9 +6697,9 @@ find_tmp_netlogon_auth_vars.exit:                 ; preds = %80, %.thread22.i.fi
 .loopexit:                                        ; preds = %135, %96, %.thread
   %.1111 = phi i32 [ %.2112.ph, %.thread ], [ 0, %96 ], [ 0, %135 ]
   %.1102 = phi ptr [ %102, %.thread ], [ null, %96 ], [ %102, %135 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #15
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %177
 
 136:                                              ; preds = %89
@@ -6714,14 +6708,14 @@ find_tmp_netlogon_auth_vars.exit:                 ; preds = %80, %.thread22.i.fi
   br i1 %.not124, label %159, label %138
 
 138:                                              ; preds = %136
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i32 0, ptr %17, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %18, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store i64 0, ptr %20, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %139 = call i32 @gcry_md_open(ptr noundef nonnull %19, i32 noundef 1, i32 noundef 0)
   %.not125 = icmp eq i32 %139, 0
   br i1 %.not125, label %140, label %148
@@ -6736,7 +6730,7 @@ find_tmp_netlogon_auth_vars.exit:                 ; preds = %80, %.thread22.i.fi
   call void @gcry_md_write(ptr noundef %143, ptr noundef nonnull %144, i64 noundef 8)
   %145 = load ptr, ptr %19, align 8
   %146 = call ptr @gcry_md_read(ptr noundef %145, i32 noundef 0)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %18, ptr noundef align 1 dereferenceable(16) %146, i64 noundef 16, i1 noundef false) #15
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %18, ptr noundef align 1 dereferenceable(16) %146, i64 noundef 16, i1 noundef false) #19
   %147 = load ptr, ptr %19, align 8
   call void @gcry_md_close(ptr noundef %147)
   br label %148
@@ -6775,11 +6769,11 @@ find_tmp_netlogon_auth_vars.exit:                 ; preds = %80, %.thread22.i.fi
 ._crit_edge:                                      ; preds = %158, %155, %148
   %.5115 = phi i32 [ 0, %148 ], [ 1, %155 ], [ 0, %158 ]
   %.4 = phi ptr [ null, %148 ], [ %153, %155 ], [ %153, %158 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %177
 
 159:                                              ; preds = %136
@@ -6788,7 +6782,7 @@ find_tmp_netlogon_auth_vars.exit:                 ; preds = %80, %.thread22.i.fi
   %162 = getelementptr inbounds nuw i8, ptr %.1.i142, i64 8
   %163 = load i64, ptr %162, align 8
   %164 = add i64 %163, %160
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %165 = and i64 %164, 4294967295
   %166 = add i64 %163, %161
   %167 = and i64 %166, -4294967296
@@ -6809,10 +6803,10 @@ find_tmp_netlogon_auth_vars.exit:                 ; preds = %80, %.thread22.i.fi
 
 171:                                              ; preds = %.lr.ph185, %170
   %indvars.iv225 = phi i64 [ 0, %.lr.ph185 ], [ %indvars.iv.next226, %170 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i64 0, ptr %23, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24) #15
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %11, i8 noundef 0, i64 noundef 16, i1 noundef false) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %11, i8 noundef 0, i64 noundef 16, i1 noundef false) #19
   %172 = load ptr, ptr %9, align 8
   %173 = getelementptr %struct._md4_pass, ptr %172, i64 %indvars.iv225
   call void @crypt_des_ecb(ptr noundef nonnull %23, ptr noundef nonnull %22, ptr noundef %173)
@@ -6822,14 +6816,14 @@ find_tmp_netlogon_auth_vars.exit:                 ; preds = %80, %.thread22.i.fi
   call void @crypt_des_ecb(ptr noundef nonnull %24, ptr noundef nonnull %23, ptr noundef nonnull %169)
   %175 = load i64, ptr %24, align 8
   %176 = icmp eq i64 %175, %32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br i1 %176, label %._crit_edge186, label %170
 
 ._crit_edge186:                                   ; preds = %170, %171, %159
   %.7 = phi i32 [ 0, %159 ], [ 1, %171 ], [ 0, %170 ]
   %.6 = phi ptr [ null, %159 ], [ %173, %171 ], [ %173, %170 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %177
 
 177:                                              ; preds = %._crit_edge, %._crit_edge186, %.loopexit
@@ -6846,7 +6840,7 @@ find_tmp_netlogon_auth_vars.exit:                 ; preds = %80, %.thread22.i.fi
   %181 = getelementptr inbounds nuw i8, ptr %.1.i142, i64 292
   store i32 %180, ptr %181, align 4
   %182 = getelementptr inbounds nuw i8, ptr %.1.i142, i64 296
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %182, ptr noundef nonnull align 16 dereferenceable(16) %11, i64 noundef 16, i1 noundef false) #15
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %182, ptr noundef nonnull align 16 dereferenceable(16) %11, i64 noundef 16, i1 noundef false) #19
   %183 = call ptr @proto_tree_get_parent(ptr noundef %3)
   %184 = getelementptr inbounds nuw i8, ptr %.2103, i64 16
   %185 = load i8, ptr %.2103, align 1
@@ -6914,13 +6908,13 @@ find_tmp_netlogon_auth_vars.exit:                 ; preds = %80, %.thread22.i.fi
 
 246:                                              ; preds = %177
   %247 = getelementptr inbounds nuw i8, ptr %.1.i142, i64 296
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %247, i8 noundef 0, i64 noundef 16, i1 noundef false) #15
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %247, i8 noundef 0, i64 noundef 16, i1 noundef false) #19
   br label %248
 
 248:                                              ; preds = %246, %178
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #15
-  call void @llvm.lifetime.end.p0(i64 273, ptr nonnull %10) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %249
 
 249:                                              ; preds = %find_tmp_netlogon_auth_vars.exit.thread230, %find_tmp_netlogon_auth_vars.exit.thread, %248, %find_tmp_netlogon_auth_vars.exit
@@ -7031,9 +7025,9 @@ define internal i32 @netlogon_dissect_DELTA_ENUM(ptr noundef %0, i32 noundef %1,
   %10 = alloca i16, align 2
   %11 = alloca ptr, align 8
   %12 = alloca i16, align 2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr null, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %12) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %16, label %13
 
@@ -7051,9 +7045,9 @@ define internal i32 @netlogon_dissect_DELTA_ENUM(ptr noundef %0, i32 noundef %1,
   %21 = zext i16 %20 to i32
   %22 = call ptr @val_to_str(i32 noundef %21, ptr noundef nonnull @delta_type_vals, ptr noundef nonnull @.str.1200)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %19, ptr noundef nonnull @.str.1199, ptr noundef %22)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %10) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i16 0, ptr %10, align 2
   %.not.i = icmp eq ptr %.0, null
   br i1 %.not.i, label %26, label %23
@@ -7206,11 +7200,11 @@ netlogon_dissect_DELTA_ID_UNION.exit:             ; preds = %26, %36, %39, %42, 
   %94 = load ptr, ptr %9, align 8
   %95 = sub i32 %.1.i, %18
   call void @proto_item_set_len(ptr noundef %94, i32 noundef %95)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %10) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %8) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i16 0, ptr %8, align 2
   br i1 %.not.i, label %99, label %96
 
@@ -7323,13 +7317,13 @@ netlogon_dissect_DELTA_UNION.exit:                ; preds = %99, %108, %110, %11
   %143 = load ptr, ptr %7, align 8
   %144 = sub i32 %.1.i29, %.1.i
   call void @proto_item_set_len(ptr noundef %143, i32 noundef %144)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %8) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %145 = load ptr, ptr %11, align 8
   %146 = sub i32 %.1.i29, %1
   call void @proto_item_set_len(ptr noundef %145, i32 noundef %146)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %12) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i32 %.1.i29
 }
 
@@ -7386,7 +7380,7 @@ define internal i32 @netlogon_dissect_DELTA_GROUP(ptr noundef %0, i32 noundef %1
   %7 = alloca ptr, align 8
   %8 = load i32, ptr @hf_netlogon_group_name, align 4
   %9 = tail call i32 @dissect_ndr_counted_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 3)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %netlogon_dissect_GROUP_MEMBERSHIP.exit, label %10
@@ -7401,7 +7395,7 @@ netlogon_dissect_GROUP_MEMBERSHIP.exit:           ; preds = %6, %10
   %13 = load i32, ptr @hf_netlogon_group_rid, align 4
   %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %9, ptr noundef %2, ptr noundef %.0.i, ptr noundef %4, ptr noundef %5, i32 noundef %13, ptr noundef null)
   %15 = call i32 @dissect_ndr_nt_SE_GROUP_ATTRIBUTES(ptr noundef %0, i32 noundef %14, ptr noundef %2, ptr noundef %.0.i, ptr noundef %4, ptr noundef %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %16 = load i32, ptr @hf_netlogon_group_desc, align 4
   %17 = call i32 @dissect_ndr_counted_string(ptr noundef %0, i32 noundef %15, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %16, i32 noundef 0)
   %18 = load i32, ptr @hf_netlogon_security_information, align 4
@@ -7488,7 +7482,7 @@ define internal i32 @netlogon_dissect_DELTA_USER(ptr noundef %0, i32 noundef %1,
   %38 = load i32, ptr @hf_netlogon_acct_expiry_time, align 4
   %39 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %38)
   %40 = tail call i32 @dissect_ndr_nt_acct_ctrl(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 25
   %42 = load i8, ptr %41, align 1, !range !6, !noundef !7
@@ -7496,8 +7490,8 @@ define internal i32 @netlogon_dissect_DELTA_USER(ptr noundef %0, i32 noundef %1,
   br i1 %43, label %netlogon_dissect_LM_OWF_PASSWORD.exit.thread, label %44
 
 netlogon_dissect_LM_OWF_PASSWORD.exit.thread:     ; preds = %6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %netlogon_dissect_NT_OWF_PASSWORD.exit
 
 44:                                               ; preds = %6
@@ -7516,8 +7510,8 @@ netlogon_dissect_LM_OWF_PASSWORD.exit:            ; preds = %44, %45
   %50 = add i32 %40, 16
   %.pre = load i8, ptr %41, align 1, !range !6
   %51 = trunc nuw i8 %.pre to i1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
   br i1 %51, label %netlogon_dissect_NT_OWF_PASSWORD.exit, label %52
 
@@ -7539,7 +7533,7 @@ netlogon_dissect_LM_OWF_PASSWORD.exit:            ; preds = %44, %45
 
 netlogon_dissect_NT_OWF_PASSWORD.exit:            ; preds = %netlogon_dissect_LM_OWF_PASSWORD.exit.thread, %netlogon_dissect_LM_OWF_PASSWORD.exit, %56
   %.011.i224 = phi i32 [ %59, %56 ], [ %50, %netlogon_dissect_LM_OWF_PASSWORD.exit ], [ %40, %netlogon_dissect_LM_OWF_PASSWORD.exit.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %60 = load i32, ptr @hf_netlogon_nt_pwd_present, align 4
   %61 = call i32 @dissect_ndr_uint8(ptr noundef %0, i32 noundef %.011.i224, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %60, ptr noundef null)
   %62 = load i32, ptr @hf_netlogon_lm_pwd_present, align 4
@@ -7810,7 +7804,7 @@ declare i32 @dissect_ndr_nt_acct_ctrl(ptr noundef, i32 noundef, ptr noundef, ptr
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @netlogon_dissect_SENSITIVE_DATA(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 25
   %9 = load i8, ptr %8, align 1, !range !6, !noundef !7
   %10 = trunc nuw i8 %9 to i1
@@ -7828,7 +7822,7 @@ define internal i32 @netlogon_dissect_SENSITIVE_DATA(ptr noundef %0, i32 noundef
 
 19:                                               ; preds = %6, %11
   %.0 = phi i32 [ %18, %11 ], [ %1, %6 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
 
@@ -7870,7 +7864,7 @@ define internal i32 @netlogon_dissect_EVENT_AUDIT_OPTIONS_ARRAY(ptr noundef %0, 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @netlogon_dissect_QUOTA_LIMITS(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %11, label %8
@@ -7897,7 +7891,7 @@ define internal fastcc i32 @netlogon_dissect_QUOTA_LIMITS(ptr noundef %0, i32 no
   %24 = load ptr, ptr %7, align 8
   %25 = sub i32 %23, %1
   call void @proto_item_set_len(ptr noundef %24, i32 noundef %25)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %23
 }
 
@@ -7950,7 +7944,7 @@ define internal i32 @netlogon_dissect_PRIV_NAME(ptr noundef %0, i32 noundef %1, 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @netlogon_dissect_CIPHER_VALUE(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, i32 noundef %7) unnamed_addr #0 {
   %9 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %13, label %10
@@ -7970,14 +7964,14 @@ define internal fastcc i32 @netlogon_dissect_CIPHER_VALUE(ptr noundef %0, i32 no
   %19 = load ptr, ptr %9, align 8
   %20 = sub i32 %18, %1
   call void @proto_item_set_len(ptr noundef %19, i32 noundef %20)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %18
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @netlogon_dissect_CIPHER_VALUE_DATA(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 25
   %9 = load i8, ptr %8, align 1, !range !6, !noundef !7
   %10 = trunc nuw i8 %9 to i1
@@ -7999,7 +7993,7 @@ define internal i32 @netlogon_dissect_CIPHER_VALUE_DATA(ptr noundef %0, i32 noun
 
 23:                                               ; preds = %6, %11
   %.0 = phi i32 [ %22, %11 ], [ %1, %6 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
 
@@ -8034,7 +8028,7 @@ define internal i32 @netlogon_dissect_UAS_INFO_0(ptr noundef %0, i32 noundef %1,
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @netlogon_dissect_CONTROL_QUERY_INFORMATION(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4
   %8 = load i32, ptr @hf_netlogon_level, align 4
   %9 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, ptr noundef nonnull %7)
@@ -8068,7 +8062,7 @@ define internal i32 @netlogon_dissect_CONTROL_QUERY_INFORMATION(ptr noundef %0, 
 
 23:                                               ; preds = %21, %19, %17, %6
   %.1 = phi i32 [ %.0, %6 ], [ %18, %17 ], [ %20, %19 ], [ %22, %21 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.1
 }
 
@@ -8119,7 +8113,7 @@ define internal i32 @netlogon_dissect_NETLOGON_INFO_3(ptr noundef %0, i32 nounde
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @netlogon_dissect_CONTROL_DATA_INFORMATION(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4
   %8 = load i32, ptr @hf_netlogon_level, align 4
   %9 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, ptr noundef nonnull %7)
@@ -8162,14 +8156,14 @@ define internal i32 @netlogon_dissect_CONTROL_DATA_INFORMATION(ptr noundef %0, i
 
 29:                                               ; preds = %26, %23, %20, %17, %6
   %.1 = phi i32 [ %.0, %6 ], [ %19, %17 ], [ %22, %20 ], [ %25, %23 ], [ %28, %26 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.1
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @netlogon_dissect_UNICODE_MULTI(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %11, label %8
@@ -8188,7 +8182,7 @@ define internal i32 @netlogon_dissect_UNICODE_MULTI(ptr noundef %0, i32 noundef 
   %16 = load ptr, ptr %7, align 8
   %17 = sub i32 %15, %1
   call void @proto_item_set_len(ptr noundef %16, i32 noundef %17)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %15
 }
 
@@ -8212,7 +8206,7 @@ declare i32 @dissect_nt_GUID(ptr noundef, i32 noundef, ptr noundef, ptr noundef,
 define internal i32 @netlogon_dissect_DOMAIN_CONTROLLER_INFO(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %12, label %9
@@ -8235,7 +8229,7 @@ define internal i32 @netlogon_dissect_DOMAIN_CONTROLLER_INFO(ptr noundef %0, i32
   %21 = call i32 @dissect_ndr_str_pointer_item(ptr noundef %0, i32 noundef %19, ptr noundef %2, ptr noundef %.0, ptr noundef %4, ptr noundef %5, i32 noundef 2, ptr noundef nonnull @.str.1245, i32 noundef %20, i32 noundef 0)
   %22 = load i32, ptr @hf_netlogon_dns_forest_name, align 4
   %23 = call i32 @dissect_ndr_str_pointer_item(ptr noundef %0, i32 noundef %21, ptr noundef %2, ptr noundef %.0, ptr noundef %4, ptr noundef %5, i32 noundef 2, ptr noundef nonnull @.str.509, i32 noundef %22, i32 noundef 0)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 25
   %25 = load i8, ptr %24, align 1, !range !6, !noundef !7
   %26 = trunc nuw i8 %25 to i1
@@ -8259,7 +8253,7 @@ define internal i32 @netlogon_dissect_DOMAIN_CONTROLLER_INFO(ptr noundef %0, i32
 
 netlogon_dissect_DC_FLAGS.exit:                   ; preds = %12, %27, %37
   %.0.i = phi i32 [ %23, %12 ], [ %28, %37 ], [ %28, %27 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %38 = load i32, ptr @hf_netlogon_dc_site_name, align 4
   %39 = call i32 @dissect_ndr_str_pointer_item(ptr noundef %0, i32 noundef %.0.i, ptr noundef %2, ptr noundef %.0, ptr noundef %4, ptr noundef %5, i32 noundef 2, ptr noundef nonnull @.str.1246, i32 noundef %38, i32 noundef 0)
   %40 = load i32, ptr @hf_netlogon_client_site_name, align 4
@@ -8267,7 +8261,7 @@ netlogon_dissect_DC_FLAGS.exit:                   ; preds = %12, %27, %37
   %42 = load ptr, ptr %8, align 8
   %43 = sub i32 %41, %1
   call void @proto_item_set_len(ptr noundef %42, i32 noundef %43)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %41
 }
 
@@ -8277,9 +8271,9 @@ define internal i32 @netlogon_dissect_Capabilities(ptr noundef %0, i32 noundef %
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %11
@@ -8311,7 +8305,7 @@ define internal i32 @netlogon_dissect_Capabilities(ptr noundef %0, i32 noundef %
   ]
 
 25:                                               ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %26 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.042, ptr noundef %4, ptr noundef %5, i32 noundef -1, ptr noundef nonnull %9)
   %27 = load i32, ptr %9, align 4
   %28 = load i32, ptr @hf_netlogon_neg_flags, align 4
@@ -8324,11 +8318,11 @@ define internal i32 @netlogon_dissect_Capabilities(ptr noundef %0, i32 noundef %
   call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %33, ptr noundef nonnull @.str.1253)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.041, ptr noundef nonnull @.str.1254)
   %34 = add i32 %.0, 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %45
 
 35:                                               ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %36 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.042, ptr noundef %4, ptr noundef %5, i32 noundef -1, ptr noundef nonnull %10)
   %37 = load i32, ptr %10, align 4
   %38 = load i32, ptr @hf_netlogon_neg_flags, align 4
@@ -8341,7 +8335,7 @@ define internal i32 @netlogon_dissect_Capabilities(ptr noundef %0, i32 noundef %
   call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %43, ptr noundef nonnull @.str.1256)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.041, ptr noundef nonnull @.str.1257)
   %44 = add i32 %.0, 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %45
 
 45:                                               ; preds = %35, %25, %15
@@ -8349,8 +8343,8 @@ define internal i32 @netlogon_dissect_Capabilities(ptr noundef %0, i32 noundef %
   %46 = load ptr, ptr %7, align 8
   %47 = sub i32 %.1, %1
   call void @proto_item_set_len(ptr noundef %46, i32 noundef %47)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.1
 }
 
@@ -8385,7 +8379,7 @@ define internal i32 @netlogon_dissect_BYTE_16_array(ptr noundef %0, i32 noundef 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @netlogon_dissect_WORKSTATION_BUFFER(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 96
@@ -8446,7 +8440,7 @@ define internal i32 @netlogon_dissect_WORKSTATION_BUFFER(ptr noundef %0, i32 nou
 
 40:                                               ; preds = %36, %38
   %.2 = phi i32 [ %.1, %36 ], [ %39, %38 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.2
 }
 
@@ -8454,9 +8448,9 @@ define internal i32 @netlogon_dissect_WORKSTATION_BUFFER(ptr noundef %0, i32 nou
 define internal i32 @netlogon_dissect_WORKSTATION_INFO(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 25
   %10 = load i8, ptr %9, align 1, !range !6, !noundef !7
   %11 = trunc nuw i8 %10 to i1
@@ -8480,8 +8474,8 @@ define internal i32 @netlogon_dissect_WORKSTATION_INFO(ptr noundef %0, i32 nound
 
 netlogon_dissect_LSA_POLICY_INFO.exit:            ; preds = %6, %16
   %.019.i = phi i32 [ %19, %16 ], [ %1, %6 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %20 = load i32, ptr @hf_netlogon_workstation_fqdn, align 4
   %21 = call i32 @dissect_ndr_str_pointer_item(ptr noundef %0, i32 noundef %.019.i, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, ptr noundef nonnull @.str.283, i32 noundef %20, i32 noundef 0)
   %22 = load i32, ptr @hf_netlogon_workstation_site_name, align 4
@@ -8517,9 +8511,9 @@ netlogon_dissect_LSA_POLICY_INFO.exit:            ; preds = %6, %16
 define internal i32 @netlogon_dissect_LSA_POLICY_INFO(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 25
   %10 = load i8, ptr %9, align 1, !range !6, !noundef !7
   %11 = trunc nuw i8 %10 to i1
@@ -8543,15 +8537,15 @@ define internal i32 @netlogon_dissect_LSA_POLICY_INFO(ptr noundef %0, i32 nounde
 
 20:                                               ; preds = %6, %16
   %.019 = phi i32 [ %19, %16 ], [ %1, %6 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.019
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @netlogon_dissect_BLOB_array(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 25
   %9 = load i8, ptr %8, align 1, !range !6, !noundef !7
   %10 = trunc nuw i8 %9 to i1
@@ -8569,14 +8563,14 @@ define internal i32 @netlogon_dissect_BLOB_array(ptr noundef %0, i32 noundef %1,
 
 19:                                               ; preds = %6, %11
   %.0 = phi i32 [ %18, %11 ], [ %1, %6 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @netlogon_dissect_DOMAIN_INFORMATION(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 96
@@ -8642,7 +8636,7 @@ define internal i32 @netlogon_dissect_DOMAIN_INFORMATION(ptr noundef %0, i32 nou
 
 42:                                               ; preds = %40, %38, %36
   %.2 = phi i32 [ %.1, %36 ], [ %39, %38 ], [ %41, %40 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.2
 }
 
@@ -8654,9 +8648,9 @@ define internal i32 @netlogon_dissect_DOMAIN_INFO(ptr noundef %0, i32 noundef %1
   %10 = load i32, ptr @hf_netlogon_num_trusts, align 4
   %11 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %9, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %10, ptr noundef null)
   %12 = tail call i32 @dissect_ndr_pointer(ptr noundef %0, i32 noundef %11, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @netlogon_dissect_DOMAIN_TRUST_INFO, i32 noundef 2, ptr noundef nonnull @.str.1274, i32 noundef -1)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 25
   %14 = load i8, ptr %13, align 1, !range !6, !noundef !7
   %15 = trunc nuw i8 %14 to i1
@@ -8680,8 +8674,8 @@ define internal i32 @netlogon_dissect_DOMAIN_INFO(ptr noundef %0, i32 noundef %1
 
 netlogon_dissect_LSA_POLICY_INFO.exit:            ; preds = %6, %20
   %.019.i = phi i32 [ %23, %20 ], [ %12, %6 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %24 = load i32, ptr @hf_netlogon_ad_client_dns_name, align 4
   %25 = call i32 @dissect_ndr_counted_string(ptr noundef %0, i32 noundef %.019.i, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %24, i32 noundef 0)
   %26 = load i32, ptr @hf_netlogon_dummy_string2, align 4
@@ -8707,7 +8701,7 @@ define internal i32 @netlogon_dissect_ONE_DOMAIN_INFO(ptr noundef %0, i32 nounde
   %8 = alloca i16, align 2
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr null, ptr %10, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %14, label %11
@@ -8730,9 +8724,9 @@ define internal i32 @netlogon_dissect_ONE_DOMAIN_INFO(ptr noundef %0, i32 nounde
   %23 = load i32, ptr @hf_dns_domain_info_sid, align 4
   %24 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.0, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @DomainInfo_sid_, i32 noundef 2, ptr noundef nonnull @.str.1276, i32 noundef %23)
   %25 = load i32, ptr @hf_netlogon_trust_extension, align 4
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %7) #15
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %8) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %26 = load i32, ptr @ett_nt_counted_longs_as_string, align 4
   %27 = call ptr @proto_registrar_get_name(i32 noundef %25)
   %28 = call ptr @proto_tree_add_subtree(ptr noundef %.0, ptr noundef %0, i32 noundef %24, i32 noundef 0, i32 noundef %26, ptr noundef nonnull %9, ptr noundef %27)
@@ -8753,9 +8747,9 @@ define internal i32 @netlogon_dissect_ONE_DOMAIN_INFO(ptr noundef %0, i32 nounde
 
 dissect_ndr_ulongs_as_counted_string.exit:        ; preds = %14, %32
   %.031.i = phi i32 [ %37, %32 ], [ %24, %14 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #15
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %8) #15
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %38 = load i32, ptr @hf_netlogon_dummy_string2, align 4
   %39 = call i32 @dissect_ndr_counted_string(ptr noundef %0, i32 noundef %.031.i, ptr noundef %2, ptr noundef %.0, ptr noundef %4, ptr noundef %5, i32 noundef %38, i32 noundef 0)
   %40 = load i32, ptr @hf_netlogon_dummy_string3, align 4
@@ -8773,7 +8767,7 @@ dissect_ndr_ulongs_as_counted_string.exit:        ; preds = %14, %32
   %52 = load ptr, ptr %10, align 8
   %53 = sub i32 %51, %1
   call void @proto_item_set_len(ptr noundef %52, i32 noundef %53)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %51
 }
 
@@ -8808,8 +8802,8 @@ define internal i32 @dissect_ndr_trust_extension(ptr noundef %0, i32 noundef %1,
   %8 = alloca i32, align 4
   %9 = alloca i64, align 8
   %10 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 25
   %12 = load i8, ptr %11, align 1, !range !6, !noundef !7
   %13 = trunc nuw i8 %12 to i1
@@ -8828,7 +8822,7 @@ define internal i32 @dissect_ndr_trust_extension(ptr noundef %0, i32 noundef %1,
   br i1 %22, label %23, label %48
 
 23:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %24 = load i8, ptr %11, align 1, !range !6, !noundef !7
   %25 = trunc nuw i8 %24 to i1
   br i1 %25, label %netlogon_dissect_DOMAIN_TRUST_FLAGS.exit, label %26
@@ -8845,12 +8839,12 @@ define internal i32 @dissect_ndr_trust_extension(ptr noundef %0, i32 noundef %1,
 
 netlogon_dissect_DOMAIN_TRUST_FLAGS.exit:         ; preds = %23, %26
   %.0.i = phi i32 [ %27, %26 ], [ %20, %23 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %34 = load i32, ptr @hf_netlogon_trust_parent_index, align 4
   %35 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.0.i, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %34, ptr noundef null)
   %36 = load i32, ptr @hf_netlogon_trust_type, align 4
   %37 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %36, ptr noundef null)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %38 = load i8, ptr %11, align 1, !range !6, !noundef !7
   %39 = trunc nuw i8 %38 to i1
   br i1 %39, label %netlogon_dissect_DOMAIN_TRUST_ATTRIBS.exit, label %40
@@ -8867,13 +8861,13 @@ netlogon_dissect_DOMAIN_TRUST_FLAGS.exit:         ; preds = %23, %26
 
 netlogon_dissect_DOMAIN_TRUST_ATTRIBS.exit:       ; preds = %netlogon_dissect_DOMAIN_TRUST_FLAGS.exit, %40
   %.0.i46 = phi i32 [ %41, %40 ], [ %37, %netlogon_dissect_DOMAIN_TRUST_FLAGS.exit ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %48
 
 48:                                               ; preds = %14, %netlogon_dissect_DOMAIN_TRUST_ATTRIBS.exit, %6
   %.0 = phi i32 [ %1, %6 ], [ %.0.i46, %netlogon_dissect_DOMAIN_TRUST_ATTRIBS.exit ], [ %20, %14 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0
 }
 
@@ -8883,7 +8877,7 @@ declare i32 @dissect_ndr_uint3264(ptr noundef, i32 noundef, ptr noundef, ptr nou
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @netlogon_dissect_DOMAIN_TRUST_ATTRIBS(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 25
   %9 = load i8, ptr %8, align 1, !range !6, !noundef !7
   %10 = trunc nuw i8 %9 to i1
@@ -8901,7 +8895,7 @@ define internal i32 @netlogon_dissect_DOMAIN_TRUST_ATTRIBS(ptr noundef %0, i32 n
 
 19:                                               ; preds = %6, %11
   %.0 = phi i32 [ %12, %11 ], [ %1, %6 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
 
@@ -8924,9 +8918,9 @@ define internal fastcc i32 @prepare_session_key_cipher(ptr noundef nonnull %0, p
   br i1 %.not, label %31, label %9
 
 9:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   %10 = call i32 @gcry_cipher_open(ptr noundef nonnull %4, i32 noundef 7, i32 noundef 12, i32 noundef 0)
   %.not.i = icmp eq i32 %10, 0
@@ -8974,8 +8968,8 @@ define internal fastcc i32 @prepare_session_key_cipher(ptr noundef nonnull %0, p
 
 prepare_session_key_cipher_aes.exit:              ; preds = %11, %17, %25, %29
   %.0.i = phi i32 [ %10, %11 ], [ %16, %17 ], [ %24, %25 ], [ 0, %29 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %48
 
 31:                                               ; preds = %2
@@ -8984,7 +8978,7 @@ prepare_session_key_cipher_aes.exit:              ; preds = %11, %17, %25, %29
   br i1 %.not7, label %48, label %33
 
 33:                                               ; preds = %31
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8
   %34 = call i32 @gcry_cipher_open(ptr noundef nonnull %3, i32 noundef 301, i32 noundef 4, i32 noundef 0)
   %.not.i8 = icmp eq i32 %34, 0
@@ -9018,7 +9012,7 @@ prepare_session_key_cipher_aes.exit:              ; preds = %11, %17, %25, %29
 
 prepare_session_key_cipher_strong.exit:           ; preds = %35, %42, %46
   %.0.i9 = phi i32 [ %34, %35 ], [ %41, %42 ], [ 0, %46 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %48
 
 48:                                               ; preds = %31, %prepare_session_key_cipher_strong.exit, %prepare_session_key_cipher_aes.exit
@@ -9048,7 +9042,7 @@ define internal i32 @netlogon_dissect_opaque_buffer(ptr noundef %0, i32 noundef 
 define internal noundef i32 @netlogon_dissect_opaque_buffer_block(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca %struct._netlogon_auth_key, align 8
   %9 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %11 = load i32, ptr %10, align 8
@@ -9057,7 +9051,7 @@ define internal noundef i32 @netlogon_dissect_opaque_buffer_block(ptr noundef %0
   br i1 %13, label %96, label %14
 
 14:                                               ; preds = %7
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 28
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 32
@@ -9091,7 +9085,7 @@ define internal noundef i32 @netlogon_dissect_opaque_buffer_block(ptr noundef %0
   br i1 %.not28.i, label %find_global_netlogon_auth_vars.exit.thread, label %.lr.ph.i
 
 find_global_netlogon_auth_vars.exit.thread:       ; preds = %14
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %46
 
 .lr.ph.i:                                         ; preds = %14
@@ -9126,7 +9120,7 @@ find_global_netlogon_auth_vars.exit.thread:       ; preds = %14
 
 find_global_netlogon_auth_vars.exit:              ; preds = %35, %42, %.thread22.i
   %.1.i = phi ptr [ %.01329.i, %35 ], [ %.01329.i, %42 ], [ %.227.i, %.thread22.i ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %45 = icmp eq ptr %.1.i, null
   br i1 %45, label %46, label %49
 
@@ -9212,7 +9206,7 @@ find_global_netlogon_auth_vars.exit:              ; preds = %35, %42, %.thread22
 
 96:                                               ; preds = %68, %7, %92, %90, %65, %61, %51, %46
   %97 = add i32 %2, %1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %97
 }
 
@@ -9225,7 +9219,7 @@ define internal i32 @netlogon_dissect_TYPE_50_ptr(ptr noundef %0, i32 noundef %1
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @netlogon_dissect_TYPE_50(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %11, label %8
@@ -9244,7 +9238,7 @@ define internal i32 @netlogon_dissect_TYPE_50(ptr noundef %0, i32 noundef %1, pt
   %16 = load ptr, ptr %7, align 8
   %17 = sub i32 %15, %1
   call void @proto_item_set_len(ptr noundef %16, i32 noundef %17)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %15
 }
 
@@ -9272,7 +9266,7 @@ define internal i32 @netlogon_dissect_DS_DOMAIN_TRUSTS(ptr noundef %0, i32 nound
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %13, label %10
 
@@ -9287,7 +9281,7 @@ define internal i32 @netlogon_dissect_DS_DOMAIN_TRUSTS(ptr noundef %0, i32 nound
   %15 = tail call i32 @dissect_ndr_str_pointer_item(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0, ptr noundef %4, ptr noundef %5, i32 noundef 2, ptr noundef nonnull @.str.1305, i32 noundef %14, i32 noundef 0)
   %16 = load i32, ptr @hf_netlogon_dns_domain_name, align 4
   %17 = tail call i32 @dissect_ndr_str_pointer_item(ptr noundef %0, i32 noundef %15, ptr noundef %2, ptr noundef %.0, ptr noundef %4, ptr noundef %5, i32 noundef 2, ptr noundef nonnull @.str.295, i32 noundef %16, i32 noundef 0)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 25
   %19 = load i8, ptr %18, align 1, !range !6, !noundef !7
   %20 = trunc nuw i8 %19 to i1
@@ -9305,12 +9299,12 @@ define internal i32 @netlogon_dissect_DS_DOMAIN_TRUSTS(ptr noundef %0, i32 nound
 
 netlogon_dissect_DOMAIN_TRUST_FLAGS.exit:         ; preds = %13, %21
   %.0.i = phi i32 [ %22, %21 ], [ %17, %13 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %29 = load i32, ptr @hf_netlogon_trust_parent_index, align 4
   %30 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.0.i, ptr noundef %2, ptr noundef %.0, ptr noundef %4, ptr noundef %5, i32 noundef %29, ptr noundef nonnull %9)
   %31 = load i32, ptr @hf_netlogon_trust_type, align 4
   %32 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %30, ptr noundef %2, ptr noundef %.0, ptr noundef %4, ptr noundef %5, i32 noundef %31, ptr noundef nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %33 = load i8, ptr %18, align 1, !range !6, !noundef !7
   %34 = trunc nuw i8 %33 to i1
   br i1 %34, label %netlogon_dissect_DOMAIN_TRUST_ATTRIBS.exit, label %35
@@ -9327,12 +9321,12 @@ netlogon_dissect_DOMAIN_TRUST_FLAGS.exit:         ; preds = %13, %21
 
 netlogon_dissect_DOMAIN_TRUST_ATTRIBS.exit:       ; preds = %netlogon_dissect_DOMAIN_TRUST_FLAGS.exit, %35
   %.0.i57 = phi i32 [ %36, %35 ], [ %32, %netlogon_dissect_DOMAIN_TRUST_FLAGS.exit ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %43 = call i32 @dissect_ndr_nt_PSID(ptr noundef %0, i32 noundef %.0.i57, ptr noundef %2, ptr noundef %.0, ptr noundef %4, ptr noundef %5)
   %44 = call i32 @dissect_nt_GUID(ptr noundef %0, i32 noundef %43, ptr noundef %2, ptr noundef %.0, ptr noundef %4, ptr noundef %5)
   %45 = sub i32 %44, %1
   call void @proto_item_set_len(ptr noundef null, i32 noundef %45)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %44
 }
 
@@ -9345,7 +9339,7 @@ define internal i32 @netlogon_dissect_TYPE_52_ptr(ptr noundef %0, i32 noundef %1
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @netlogon_dissect_TYPE_52(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %11, label %8
@@ -9366,7 +9360,7 @@ define internal i32 @netlogon_dissect_TYPE_52(ptr noundef %0, i32 noundef %1, pt
   %18 = load ptr, ptr %7, align 8
   %19 = sub i32 %17, %1
   call void @proto_item_set_len(ptr noundef %18, i32 noundef %19)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %17
 }
 
@@ -9430,7 +9424,7 @@ declare i32 @lsarpc_dissect_struct_lsa_ForestTrustInformation(ptr noundef, i32 n
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @netlogon_dissect_NL_GENERIC_RPC_DATA(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 25
   %9 = load i8, ptr %8, align 1, !range !6, !noundef !7
@@ -9458,7 +9452,7 @@ define internal i32 @netlogon_dissect_NL_GENERIC_RPC_DATA(ptr noundef %0, i32 no
 
 22:                                               ; preds = %6, %15
   %.031 = phi i32 [ %21, %15 ], [ %1, %6 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.031
 }
 
@@ -9512,7 +9506,7 @@ define internal i32 @netlogon_dissect_NL_GENERIC_RPC_DATA_STRING(ptr noundef %0,
 }
 
 ; Function Attrs: nofree null_pointer_is_valid
-declare i32 @__snprintf_chk(ptr noundef, i64 noundef, i32 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #12
+declare i32 @__snprintf_chk(ptr noundef, i64 noundef, i32 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #11
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_secchan_nl_auth_message(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4, ptr noundef %5) #0 {
@@ -9524,10 +9518,10 @@ define internal i32 @dissect_secchan_nl_auth_message(ptr noundef %0, i32 noundef
   %12 = alloca ptr, align 8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %14 = load ptr, ptr %13, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %18, label %15
 
@@ -9584,7 +9578,7 @@ define internal i32 @dissect_secchan_nl_auth_message(ptr noundef %0, i32 noundef
   br i1 %.not81, label %55, label %47
 
 47:                                               ; preds = %44
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %48 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %49 = load ptr, ptr %48, align 8
   %50 = call i32 @dissect_mscldap_string(ptr noundef %49, ptr noundef %0, i32 noundef %.1, i32 noundef 255, ptr noundef nonnull %10)
@@ -9592,7 +9586,7 @@ define internal i32 @dissect_secchan_nl_auth_message(ptr noundef %0, i32 noundef
   %52 = sub i32 %50, %.1
   %53 = load ptr, ptr %10, align 8
   %54 = call ptr @proto_tree_add_string(ptr noundef %.074, i32 noundef %51, ptr noundef %0, i32 noundef %.1, i32 noundef %52, ptr noundef %53)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %.pre86 = load i64, ptr %9, align 8
   br label %55
 
@@ -9604,7 +9598,7 @@ define internal i32 @dissect_secchan_nl_auth_message(ptr noundef %0, i32 noundef
   br i1 %.not82, label %66, label %58
 
 58:                                               ; preds = %55
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %59 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %60 = load ptr, ptr %59, align 8
   %61 = call i32 @dissect_mscldap_string(ptr noundef %60, ptr noundef %0, i32 noundef %.2, i32 noundef 255, ptr noundef nonnull %11)
@@ -9612,7 +9606,7 @@ define internal i32 @dissect_secchan_nl_auth_message(ptr noundef %0, i32 noundef
   %63 = sub i32 %61, %.2
   %64 = load ptr, ptr %11, align 8
   %65 = call ptr @proto_tree_add_string(ptr noundef %.074, i32 noundef %62, ptr noundef %0, i32 noundef %.2, i32 noundef %63, ptr noundef %64)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %.pre87 = load i64, ptr %9, align 8
   br label %66
 
@@ -9624,7 +9618,7 @@ define internal i32 @dissect_secchan_nl_auth_message(ptr noundef %0, i32 noundef
   br i1 %.not83, label %77, label %69
 
 69:                                               ; preds = %66
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %70 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %71 = load ptr, ptr %70, align 8
   %72 = call i32 @dissect_mscldap_string(ptr noundef %71, ptr noundef %0, i32 noundef %.3, i32 noundef 255, ptr noundef nonnull %12)
@@ -9632,7 +9626,7 @@ define internal i32 @dissect_secchan_nl_auth_message(ptr noundef %0, i32 noundef
   %74 = sub i32 %72, %.3
   %75 = load ptr, ptr %12, align 8
   %76 = call ptr @proto_tree_add_string(ptr noundef %.074, i32 noundef %73, ptr noundef %0, i32 noundef %.3, i32 noundef %74, ptr noundef %75)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %77
 
 77:                                               ; preds = %69, %66
@@ -9678,9 +9672,9 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br label %101
 
 101:                                              ; preds = %switch.hole_check, %77, %83, %switch.lookup
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.4
 }
 
@@ -9725,7 +9719,7 @@ declare i32 @dissect_mscldap_string(ptr noundef, ptr noundef, i32 noundef, i32 n
 define internal fastcc ptr @find_or_create_schannel_netlogon_auth_vars(ptr noundef %0, ptr noundef readonly captures(none) %1, i8 noundef zeroext range(i8 0, 2) %2) unnamed_addr #0 {
   %4 = alloca %struct._netlogon_auth_key, align 8
   %5 = alloca %struct._dcerpc_auth_schannel_key, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = tail call ptr @find_or_create_conversation(ptr noundef %0)
   store ptr %6, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -9743,7 +9737,7 @@ define internal fastcc ptr @find_or_create_schannel_netlogon_auth_vars(ptr nound
   br i1 %.not, label %15, label %67
 
 15:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.not.i.i = icmp eq i8 %2, 0
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 28
@@ -9784,7 +9778,7 @@ define internal fastcc ptr @find_or_create_schannel_netlogon_auth_vars(ptr nound
   br i1 %.not28.i, label %find_global_netlogon_auth_vars.exit.thread, label %.lr.ph.i
 
 find_global_netlogon_auth_vars.exit.thread:       ; preds = %15
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %67
 
 .lr.ph.i:                                         ; preds = %15
@@ -9819,19 +9813,19 @@ find_global_netlogon_auth_vars.exit.thread:       ; preds = %15
 
 find_global_netlogon_auth_vars.exit:              ; preds = %36, %43, %.thread22.i
   %.1.i = phi ptr [ %.01329.i, %36 ], [ %.01329.i, %43 ], [ %.227.i, %.thread22.i ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %46 = icmp eq ptr %.1.i, null
   br i1 %46, label %67, label %47
 
 47:                                               ; preds = %find_global_netlogon_auth_vars.exit
   %48 = call ptr @wmem_file_scope()
-  %49 = call dereferenceable_or_null(24) ptr @wmem_memdup(ptr noundef %48, ptr noundef nonnull %5, i64 noundef 24) #19
+  %49 = call dereferenceable_or_null(24) ptr @wmem_memdup(ptr noundef %48, ptr noundef nonnull %5, i64 noundef 24) #18
   %50 = icmp eq ptr %49, null
   br i1 %50, label %67, label %51
 
 51:                                               ; preds = %47
   %52 = call ptr @wmem_file_scope()
-  %53 = call dereferenceable_or_null(400) ptr @wmem_memdup(ptr noundef %52, ptr noundef nonnull %.1.i, i64 noundef 400) #19
+  %53 = call dereferenceable_or_null(400) ptr @wmem_memdup(ptr noundef %52, ptr noundef nonnull %.1.i, i64 noundef 400) #18
   %54 = icmp eq ptr %53, null
   br i1 %54, label %67, label %55
 
@@ -9856,7 +9850,7 @@ find_global_netlogon_auth_vars.exit:              ; preds = %36, %43, %.thread22
 
 67:                                               ; preds = %find_global_netlogon_auth_vars.exit.thread, %55, %51, %47, %find_global_netlogon_auth_vars.exit, %3, %62
   %.0 = phi ptr [ %53, %62 ], [ %14, %3 ], [ null, %find_global_netlogon_auth_vars.exit ], [ null, %47 ], [ null, %51 ], [ null, %55 ], [ null, %find_global_netlogon_auth_vars.exit.thread ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }
 
@@ -10010,11 +10004,11 @@ dissect_dcerpc_8bytes.exit70:                     ; preds = %67, %69
   br i1 %.not.i71, label %114, label %84
 
 84:                                               ; preds = %78
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i64 %.076, ptr %15, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store ptr null, ptr %16, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i64 %.075, ptr %17, align 16
   %85 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i64 %.075, ptr %85, align 8
@@ -10078,21 +10072,21 @@ dissect_dcerpc_8bytes.exit70:                     ; preds = %67, %69
 
 uncrypt_sequence_aes.exit.i:                      ; preds = %111, %107, %100, %93, %87
   %.0.i.i = phi i64 [ 0, %87 ], [ 0, %93 ], [ 0, %100 ], [ 0, %107 ], [ %113, %111 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %uncrypt_sequence.exit
 
 114:                                              ; preds = %78
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i64 %.075, ptr %9, align 8
   store i64 %.076, ptr %10, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 0, ptr %11, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #15
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %115 = call i32 @ws_hmac_buffer(i32 noundef 1, ptr noundef nonnull %12, ptr noundef nonnull %11, i64 noundef 4, ptr noundef nonnull %82, i64 noundef 16)
   %.not.i9.i = icmp eq i32 %115, 0
   br i1 %.not.i9.i, label %116, label %uncrypt_sequence_md5.exit.i
@@ -10126,12 +10120,12 @@ uncrypt_sequence_aes.exit.i:                      ; preds = %111, %107, %100, %9
 
 uncrypt_sequence_md5.exit.i:                      ; preds = %126, %118, %116, %114
   %.0.i10.i = phi i64 [ 0, %114 ], [ 0, %116 ], [ %.pre.i.i, %126 ], [ %.076, %118 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %uncrypt_sequence.exit
 
 uncrypt_sequence.exit:                            ; preds = %uncrypt_sequence_aes.exit.i, %uncrypt_sequence_md5.exit.i
@@ -10143,9 +10137,9 @@ uncrypt_sequence.exit:                            ; preds = %uncrypt_sequence_ae
 129:                                              ; preds = %uncrypt_sequence.exit, %77
   %130 = getelementptr inbounds nuw i8, ptr %75, i64 296
   %131 = getelementptr inbounds nuw i8, ptr %75, i64 312
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %131, i8 noundef 0, i64 noundef 16, i1 noundef false) #15
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %131, i8 noundef 0, i64 noundef 16, i1 noundef false) #19
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(16) %130, ptr noundef nonnull dereferenceable(16) %8, i64 16)
   %.not.i72 = icmp eq i32 %bcmp.i, 0
   br i1 %.not.i72, label %137, label %.preheader.i
@@ -10162,13 +10156,13 @@ uncrypt_sequence.exit:                            ; preds = %uncrypt_sequence_ae
   br i1 %exitcond.not.i, label %.thread, label %.preheader.i, !llvm.loop !18
 
 .thread:                                          ; preds = %.preheader.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %136 = getelementptr inbounds nuw i8, ptr %75, i64 369
   store i8 1, ptr %136, align 1
   br label %139
 
 137:                                              ; preds = %129
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %75, i64 369
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !range !6
   %138 = trunc nuw i8 %.pre to i1
@@ -10221,7 +10215,7 @@ define internal fastcc ptr @dissect_packet_data(ptr noundef %0, ptr noundef %1, 
   br i1 %18, label %19, label %95
 
 19:                                               ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %20 = getelementptr inbounds nuw i8, ptr %13, i64 360
   %21 = load i64, ptr %20, align 8
   store i64 %21, ptr %12, align 8
@@ -10237,11 +10231,11 @@ define internal fastcc ptr @dissect_packet_data(ptr noundef %0, ptr noundef %1, 
   br i1 %.not.i, label %53, label %28
 
 28:                                               ; preds = %24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr null, ptr %10, align 8
   %29 = getelementptr inbounds nuw i8, ptr %13, i64 352
   %30 = load i64, ptr %29, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i64 %30, ptr %11, align 16
   %31 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 %30, ptr %31, align 8
@@ -10290,22 +10284,22 @@ define internal fastcc ptr @dissect_packet_data(ptr noundef %0, ptr noundef %1, 
 
 prepare_decryption_cipher.exit.thread:            ; preds = %33, %39, %47, %51
   %.04 = phi ptr [ %52, %51 ], [ null, %47 ], [ null, %39 ], [ null, %33 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %82
 
 53:                                               ; preds = %24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %54 = getelementptr inbounds nuw i8, ptr %13, i64 352
   %55 = load i64, ptr %54, align 8
   store i64 %55, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   %56 = getelementptr inbounds nuw i8, ptr %13, i64 312
   %57 = call i32 @ws_hmac_buffer(i32 noundef 1, ptr noundef nonnull %8, ptr noundef nonnull %6, i64 noundef 4, ptr noundef nonnull %56, i64 noundef 16)
@@ -10356,20 +10350,20 @@ prepare_decryption_cipher.exit.thread:            ; preds = %33, %39, %47, %51
 
 prepare_decryption_cipher.exit:                   ; preds = %71
   %78 = load ptr, ptr %5, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %82
 
 79:                                               ; preds = %58, %63, %68, %74
   %.0.i.i.ph = phi i32 [ %73, %74 ], [ %67, %68 ], [ %62, %63 ], [ %57, %58 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %80 = call ptr @gcry_strsource(i32 noundef %.0.i.i.ph)
   %81 = call ptr @gcry_strerror(i32 noundef %.0.i.i.ph)
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1176, i32 noundef 5, ptr noundef nonnull @.str.1177, i64 noundef 10171, ptr noundef nonnull @__func__.dissect_packet_data, ptr noundef nonnull @.str.1327, ptr noundef %80, ptr noundef %81)
@@ -10399,7 +10393,7 @@ prepare_decryption_cipher.exit:                   ; preds = %71
 
 .sink.split:                                      ; preds = %79, %19, %92
   %.0.ph = phi ptr [ %94, %92 ], [ null, %19 ], [ null, %79 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %95
 
 95:                                               ; preds = %.sink.split, %15, %4
@@ -10413,6 +10407,12 @@ declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) local_unnam
 ; Function Attrs: null_pointer_is_valid
 declare i32 @gcry_cipher_ctl(ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #13
 
@@ -10424,24 +10424,24 @@ declare i64 @llvm.smin.i64(i64, i64) #14
 
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { noreturn null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { null_pointer_is_valid allocsize(2) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nofree null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { noreturn null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { null_pointer_is_valid allocsize(2) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nofree null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #15 = { nounwind }
-attributes #16 = { allocsize(1) }
-attributes #17 = { nounwind willreturn memory(read) }
-attributes #18 = { noreturn }
-attributes #19 = { allocsize(2) }
+attributes #15 = { allocsize(1) }
+attributes #16 = { nounwind willreturn memory(read) }
+attributes #17 = { noreturn }
+attributes #18 = { allocsize(2) }
+attributes #19 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

@@ -106,9 +106,6 @@ define ptr @X509_ATTRIBUTE_create(i32 noundef %0, i32 noundef %1, ptr noundef %2
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 declare ptr @OBJ_nid2obj(i32 noundef) local_unnamed_addr #2
 
 declare ptr @ASN1_TYPE_new() local_unnamed_addr #2
@@ -119,16 +116,13 @@ declare void @ASN1_TYPE_set(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 
 declare void @ASN1_TYPE_free(ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
-
 ; Function Attrs: nounwind uwtable
 define i32 @ossl_print_attribute_value(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = alloca [80 x i8], align 16
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr %2, align 8, !tbaa !11
   switch i32 %8, label %175 [
     i32 1, label %9
@@ -242,7 +236,7 @@ define i32 @ossl_print_attribute_value(ptr noundef %0, i32 noundef %1, ptr nound
 66:                                               ; preds = %63
   %67 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %68 = load ptr, ptr %67, align 8, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %69 = call i32 @OBJ_obj2txt(ptr noundef nonnull %5, i32 noundef 80, ptr noundef %68, i32 noundef 1) #4
   %70 = icmp slt i32 %69, 1
   br i1 %70, label %print_oid.exit, label %71
@@ -269,7 +263,7 @@ define i32 @ossl_print_attribute_value(ptr noundef %0, i32 noundef %1, ptr nound
 
 print_oid.exit:                                   ; preds = %66, %78
   %.0.i = phi i32 [ %81, %78 ], [ 0, %66 ]
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %179
 
 82:                                               ; preds = %4, %4, %4
@@ -412,8 +406,8 @@ print_oid.exit:                                   ; preds = %66, %78
 
 179:                                              ; preds = %63, %49, %39, %20, %175, %166, %157, %148, %139, %129, %119, %116, %114, %100, %91, %82, %print_oid.exit, %59, %52, %42, %33, %28, %16, %12
   %.077 = phi i32 [ %178, %175 ], [ %15, %12 ], [ %19, %16 ], [ %32, %28 ], [ %38, %33 ], [ %48, %42 ], [ %58, %52 ], [ %62, %59 ], [ %.0.i, %print_oid.exit ], [ %90, %82 ], [ %99, %91 ], [ %103, %100 ], [ %128, %119 ], [ 0, %114 ], [ %spec.select, %116 ], [ %138, %129 ], [ %147, %139 ], [ %156, %148 ], [ %165, %157 ], [ %174, %166 ], [ 0, %20 ], [ 0, %39 ], [ 0, %49 ], [ 0, %63 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.077
 }
 
@@ -442,6 +436,12 @@ declare i32 @OBJ_obj2txt(ptr noundef, i32 noundef, ptr noundef, i32 noundef) loc
 declare ptr @OBJ_nid2ln(i32 noundef) local_unnamed_addr #2
 
 declare i32 @OBJ_obj2nid(ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

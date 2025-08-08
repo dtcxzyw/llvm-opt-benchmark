@@ -129,7 +129,7 @@ define internal fastcc void @_ZN4perf12noprotection19NoProtectionSession16wrap_p
   %5 = load ptr, ptr %1, align 8, !nonnull !3, !align !6, !noundef !3
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !nonnull !3, !align !7, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %5, ptr %3, align 8, !noalias !8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %7, ptr %8, align 8, !noalias !8
@@ -165,12 +165,12 @@ define internal fastcc void @_ZN4perf12noprotection19NoProtectionSession16wrap_p
   store ptr %5, ptr %10, align 8
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %7, ptr %18, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %20 = load ptr, ptr %19, align 8, !nonnull !3, !align !6, !noundef !3
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %22 = load ptr, ptr %21, align 8, !nonnull !3, !align !7, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %20, ptr %4, align 8, !noalias !12
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %22, ptr %23, align 8, !noalias !12
@@ -202,7 +202,7 @@ define internal fastcc void @_ZN4perf12noprotection19NoProtectionSession16wrap_p
   store ptr %20, ptr %25, align 8
   %33 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store ptr %22, ptr %33, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store ptr %10, ptr %0, align 8
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @anon.77655493826c1de21724ca71a87edaab.8, ptr %34, align 8
@@ -278,7 +278,7 @@ define { ptr, ptr } @"_ZN88_$LT$perf..noprotection..NoProtectionSession$u20$as$u
 define void @"_ZN88_$LT$perf..noprotection..NoProtectionSession$u20$as$u20$quinn_proto..crypto..Session$GT$12early_crypto17h86fcd99408db9585E"(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [16 x i8], align 8
   %4 = alloca [32 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load ptr, ptr %1, align 8, !nonnull !3, !align !6, !noundef !3
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !nonnull !3, !align !7, !noundef !3
@@ -290,7 +290,7 @@ define void @"_ZN88_$LT$perf..noprotection..NoProtectionSession$u20$as$u20$quinn
   br i1 %.not, label %11, label %13
 
 11:                                               ; preds = %2
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store ptr null, ptr %0, align 8
   br label %12
 
@@ -308,8 +308,8 @@ define void @"_ZN88_$LT$perf..noprotection..NoProtectionSession$u20$as$u20$quinn
   %.sroa.66.0.copyload = load ptr, ptr %.sroa.66.0..sroa_idx, align 8, !nonnull !3, !noundef !3
   %.sroa.77.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 24
   %.sroa.77.0.copyload = load ptr, ptr %.sroa.77.0..sroa_idx, align 8, !nonnull !3, !noundef !3
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %.sroa.66.0.copyload, ptr %3, align 8, !noalias !15
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %.sroa.77.0.copyload, ptr %14, align 8, !noalias !15
@@ -341,7 +341,7 @@ define void @"_ZN88_$LT$perf..noprotection..NoProtectionSession$u20$as$u20$quinn
   store ptr %.sroa.66.0.copyload, ptr %16, align 8
   %24 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %.sroa.77.0.copyload, ptr %24, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr %10, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.55.0.copyload, ptr %.sroa.4.0..sroa_idx, align 8
@@ -412,7 +412,7 @@ define void @"_ZN88_$LT$perf..noprotection..NoProtectionSession$u20$as$u20$quinn
   %6 = alloca [64 x i8], align 8
   %7 = alloca [64 x i8], align 8
   %8 = alloca [64 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = load ptr, ptr %1, align 8, !nonnull !3, !align !6, !noundef !3
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8, !nonnull !3, !align !7, !noundef !3
@@ -425,17 +425,17 @@ define void @"_ZN88_$LT$perf..noprotection..NoProtectionSession$u20$as$u20$quinn
 
 15:                                               ; preds = %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(64) %8, i64 64, i1 false)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 32
   invoke fastcc void @_ZN4perf12noprotection19NoProtectionSession16wrap_packet_keys17he79438e18fe18088E(ptr noalias noundef align 8 captures(none) dereferenceable(32) %4, ptr noalias noundef align 8 captures(none) dereferenceable(32) %16)
           to label %21 unwind label %19
 
 17:                                               ; preds = %3
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   store ptr null, ptr %0, align 8
   br label %18
 
@@ -452,10 +452,10 @@ define void @"_ZN88_$LT$perf..noprotection..NoProtectionSession$u20$as$u20$quinn
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %6, i64 64, i1 false)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %18
 
 23:                                               ; preds = %19
@@ -472,7 +472,7 @@ define void @"_ZN88_$LT$perf..noprotection..NoProtectionSession$u20$as$u20$quinn
 define void @"_ZN88_$LT$perf..noprotection..NoProtectionSession$u20$as$u20$quinn_proto..crypto..Session$GT$14next_1rtt_keys17h95d9eb88e5d32e2dE"(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #0 {
   %3 = alloca [32 x i8], align 8
   %4 = alloca [32 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load ptr, ptr %1, align 8, !nonnull !3, !align !6, !noundef !3
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !nonnull !3, !align !7, !noundef !3
@@ -485,12 +485,12 @@ define void @"_ZN88_$LT$perf..noprotection..NoProtectionSession$u20$as$u20$quinn
 
 11:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call fastcc void @_ZN4perf12noprotection19NoProtectionSession16wrap_packet_keys17he79438e18fe18088E(ptr noalias noundef align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef align 8 captures(none) dereferenceable(32) %3)
   br label %13
 
 12:                                               ; preds = %2
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store ptr null, ptr %0, align 8
   br label %13
 
@@ -526,7 +526,7 @@ define void @"_ZN98_$LT$perf..noprotection..NoProtectionClientConfig$u20$as$u20$
   %8 = alloca [32 x i8], align 8
   %9 = alloca [8 x i8], align 8
   store ptr %1, ptr %9, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = load ptr, ptr %10, align 8, !nonnull !3, !noundef !3
   %12 = atomicrmw add ptr %11, i64 1 monotonic, align 8
@@ -576,7 +576,7 @@ define void @"_ZN98_$LT$perf..noprotection..NoProtectionClientConfig$u20$as$u20$
   %.sroa.718.0.copyload = load ptr, ptr %.sroa.718.0..sroa_idx, align 8
   %.sroa.819.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 24
   %.sroa.819.0.copyload = load i64, ptr %.sroa.819.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   store i16 %24, ptr %0, align 8
   %.sroa.322.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.617.0.copyload, ptr %.sroa.322.0..sroa_idx, align 8
@@ -593,8 +593,8 @@ define void @"_ZN98_$LT$perf..noprotection..NoProtectionClientConfig$u20$as$u20$
   %30 = load ptr, ptr %29, align 8, !nonnull !3, !align !6, !noundef !3
   %31 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %32 = load ptr, ptr %31, align 8, !nonnull !3, !align !7, !noundef !3
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %30, ptr %7, align 8, !noalias !31
   %33 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %32, ptr %33, align 8, !noalias !31
@@ -630,7 +630,7 @@ define void @"_ZN98_$LT$perf..noprotection..NoProtectionClientConfig$u20$as$u20$
   store ptr %30, ptr %35, align 8
   %43 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr %32, ptr %43, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %35, ptr %44, align 8
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -716,7 +716,7 @@ define { ptr, ptr } @"_ZN98_$LT$perf..noprotection..NoProtectionServerConfig$u20
 20:                                               ; preds = %10
   %21 = extractvalue { ptr, ptr } %12, 0
   %22 = extractvalue { ptr, ptr } %12, 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %21, ptr %4, align 8, !noalias !46
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %22, ptr %23, align 8, !noalias !46
@@ -752,7 +752,7 @@ define { ptr, ptr } @"_ZN98_$LT$perf..noprotection..NoProtectionServerConfig$u20
   store ptr %21, ptr %25, align 8
   %33 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store ptr %22, ptr %33, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %34 = atomicrmw sub ptr %0, i64 1 release, align 8, !noalias !49
   %35 = icmp eq i64 %34, 1
   br i1 %35, label %36, label %"_ZN4core3ptr89drop_in_place$LT$alloc..sync..Arc$LT$perf..noprotection..NoProtectionServerConfig$GT$$GT$17h5ea689f8b90100c6E.exit3"
@@ -785,7 +785,7 @@ define void @"_ZN92_$LT$perf..noprotection..NoProtectionPacketKey$u20$as$u20$qui
   br i1 %.not, label %8, label %13, !prof !11
 
 8:                                                ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr @anon.77655493826c1de21724ca71a87edaab.11, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 1, ptr %9, align 8
@@ -810,7 +810,7 @@ define void @"_ZN92_$LT$perf..noprotection..NoProtectionPacketKey$u20$as$u20$qui
   br i1 %.not4, label %21, label %26, !prof !11
 
 21:                                               ; preds = %13
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr @anon.77655493826c1de21724ca71a87edaab.11, ptr %6, align 8
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 1, ptr %22, align 8
@@ -944,10 +944,10 @@ declare { ptr, ptr } @"_ZN99_$LT$quinn_proto..crypto..rustls..QuicServerConfig$u
 declare hidden void @"_ZN74_$LT$$u5b$T$u5d$$u20$as$u20$core..slice..specialize..SpecFill$LT$T$GT$$GT$9spec_fill17hdeec7c5c1362e0c2E"(ptr noalias noundef nonnull align 1, i64 noundef, i8 noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #12

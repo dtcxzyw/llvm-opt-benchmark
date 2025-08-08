@@ -75,8 +75,8 @@ target triple = "x86_64-pc-linux-gnu"
 define i32 @LSRKStepSetSTSMethod(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call i32 @lsrkStep_AccessARKODEStepMem(ptr noundef %0, ptr noundef nonnull @__func__.LSRKStepSetSTSMethod, ptr noundef nonnull %3, ptr noundef nonnull %4) #8
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %40
@@ -155,31 +155,25 @@ define i32 @LSRKStepSetSTSMethod(ptr noundef %0, i32 noundef %1) local_unnamed_a
 
 40:                                               ; preds = %2, %37, %35
   %.0 = phi i32 [ -22, %35 ], [ 0, %37 ], [ %5, %2 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @lsrkStep_AccessARKODEStepMem(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @lsrkStep_AccessARKODEStepMem(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @lsrkStep_TakeStepRKC(ptr noundef, ptr noundef, ptr noundef) #1
 
-declare i32 @lsrkStep_TakeStepRKC(ptr noundef, ptr noundef, ptr noundef) #2
+declare i32 @lsrkStep_TakeStepRKL(ptr noundef, ptr noundef, ptr noundef) #1
 
-declare i32 @lsrkStep_TakeStepRKL(ptr noundef, ptr noundef, ptr noundef) #2
-
-declare void @arkProcessError(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @arkProcessError(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @LSRKStepSetSSPMethod(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call i32 @lsrkStep_AccessARKODEStepMem(ptr noundef %0, ptr noundef nonnull @__func__.LSRKStepSetSSPMethod, ptr noundef nonnull %3, ptr noundef nonnull %4) #8
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %53
@@ -281,16 +275,16 @@ define i32 @LSRKStepSetSSPMethod(ptr noundef %0, i32 noundef %1) local_unnamed_a
 
 53:                                               ; preds = %2, %50, %48
   %.0 = phi i32 [ -22, %48 ], [ 0, %50 ], [ %5, %2 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
-declare i32 @lsrkStep_TakeStepSSPs2(ptr noundef, ptr noundef, ptr noundef) #2
+declare i32 @lsrkStep_TakeStepSSPs2(ptr noundef, ptr noundef, ptr noundef) #1
 
-declare i32 @lsrkStep_TakeStepSSPs3(ptr noundef, ptr noundef, ptr noundef) #2
+declare i32 @lsrkStep_TakeStepSSPs3(ptr noundef, ptr noundef, ptr noundef) #1
 
-declare i32 @lsrkStep_TakeStepSSP104(ptr noundef, ptr noundef, ptr noundef) #2
+declare i32 @lsrkStep_TakeStepSSP104(ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @LSRKStepSetSTSMethodByName(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
@@ -303,8 +297,8 @@ define i32 @LSRKStepSetSTSMethodByName(ptr noundef %0, ptr noundef readonly capt
   br i1 %8, label %9, label %25
 
 9:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %10 = call i32 @lsrkStep_AccessARKODEStepMem(ptr noundef %0, ptr noundef nonnull @__func__.LSRKStepSetSTSMethod, ptr noundef nonnull %5, ptr noundef nonnull %6) #8
   %.not.i = icmp eq i32 %10, 0
   br i1 %.not.i, label %11, label %LSRKStepSetSTSMethod.exit
@@ -335,8 +329,8 @@ define i32 @LSRKStepSetSTSMethodByName(ptr noundef %0, ptr noundef readonly capt
   br label %LSRKStepSetSTSMethod.exit
 
 LSRKStepSetSTSMethod.exit:                        ; preds = %9, %11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %55
 
 25:                                               ; preds = %2
@@ -345,8 +339,8 @@ LSRKStepSetSTSMethod.exit:                        ; preds = %9, %11
   br i1 %27, label %28, label %44
 
 28:                                               ; preds = %25
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %29 = call i32 @lsrkStep_AccessARKODEStepMem(ptr noundef %0, ptr noundef nonnull @__func__.LSRKStepSetSTSMethod, ptr noundef nonnull %3, ptr noundef nonnull %4) #8
   %.not.i7 = icmp eq i32 %29, 0
   br i1 %.not.i7, label %30, label %LSRKStepSetSTSMethod.exit9
@@ -377,8 +371,8 @@ LSRKStepSetSTSMethod.exit:                        ; preds = %9, %11
   br label %LSRKStepSetSTSMethod.exit9
 
 LSRKStepSetSTSMethod.exit9:                       ; preds = %28, %30
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %55
 
 44:                                               ; preds = %25
@@ -410,7 +404,7 @@ LSRKStepSetSTSMethod.exit9:                       ; preds = %28, %30
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define i32 @LSRKStepSetSSPMethodByName(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
@@ -439,8 +433,8 @@ define i32 @LSRKStepSetSSPMethodByName(ptr noundef %0, ptr noundef readonly capt
   br i1 %17, label %18, label %34
 
 18:                                               ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %19 = call i32 @lsrkStep_AccessARKODEStepMem(ptr noundef %0, ptr noundef nonnull @__func__.LSRKStepSetSSPMethod, ptr noundef nonnull %7, ptr noundef nonnull %8) #8
   %.not.i = icmp eq i32 %19, 0
   br i1 %.not.i, label %20, label %LSRKStepSetSSPMethod.exit
@@ -471,8 +465,8 @@ define i32 @LSRKStepSetSSPMethodByName(ptr noundef %0, ptr noundef readonly capt
   br label %LSRKStepSetSSPMethod.exit
 
 LSRKStepSetSSPMethod.exit:                        ; preds = %18, %20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %73
 
 34:                                               ; preds = %15
@@ -481,8 +475,8 @@ LSRKStepSetSSPMethod.exit:                        ; preds = %18, %20
   br i1 %36, label %37, label %53
 
 37:                                               ; preds = %34
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %38 = call i32 @lsrkStep_AccessARKODEStepMem(ptr noundef %0, ptr noundef nonnull @__func__.LSRKStepSetSSPMethod, ptr noundef nonnull %5, ptr noundef nonnull %6) #8
   %.not.i8 = icmp eq i32 %38, 0
   br i1 %.not.i8, label %39, label %LSRKStepSetSSPMethod.exit10
@@ -513,8 +507,8 @@ LSRKStepSetSSPMethod.exit:                        ; preds = %18, %20
   br label %LSRKStepSetSSPMethod.exit10
 
 LSRKStepSetSSPMethod.exit10:                      ; preds = %37, %39
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %73
 
 53:                                               ; preds = %34
@@ -523,8 +517,8 @@ LSRKStepSetSSPMethod.exit10:                      ; preds = %37, %39
   br i1 %55, label %56, label %72
 
 56:                                               ; preds = %53
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %57 = call i32 @lsrkStep_AccessARKODEStepMem(ptr noundef %0, ptr noundef nonnull @__func__.LSRKStepSetSSPMethod, ptr noundef nonnull %3, ptr noundef nonnull %4) #8
   %.not.i11 = icmp eq i32 %57, 0
   br i1 %.not.i11, label %58, label %LSRKStepSetSSPMethod.exit13
@@ -555,8 +549,8 @@ LSRKStepSetSSPMethod.exit10:                      ; preds = %37, %39
   br label %LSRKStepSetSSPMethod.exit13
 
 LSRKStepSetSSPMethod.exit13:                      ; preds = %56, %58
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %73
 
 72:                                               ; preds = %53
@@ -572,8 +566,8 @@ LSRKStepSetSSPMethod.exit13:                      ; preds = %56, %58
 define i32 @LSRKStepSetDomEigFn(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call i32 @lsrkStep_AccessARKODEStepMem(ptr noundef %0, ptr noundef nonnull @__func__.LSRKStepSetDomEigFn, ptr noundef nonnull %3, ptr noundef nonnull %4) #8
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %12
@@ -596,8 +590,8 @@ define i32 @LSRKStepSetDomEigFn(ptr noundef %0, ptr noundef %1) local_unnamed_ad
 
 12:                                               ; preds = %2, %10, %9
   %.0 = phi i32 [ 0, %9 ], [ -22, %10 ], [ %5, %2 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
@@ -605,8 +599,8 @@ define i32 @LSRKStepSetDomEigFn(ptr noundef %0, ptr noundef %1) local_unnamed_ad
 define i32 @LSRKStepSetDomEigFrequency(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call i32 @lsrkStep_AccessARKODEStepMem(ptr noundef %0, ptr noundef nonnull @__func__.LSRKStepSetDomEigFrequency, ptr noundef nonnull %3, ptr noundef nonnull %4) #8
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %20
@@ -644,8 +638,8 @@ define i32 @LSRKStepSetDomEigFrequency(ptr noundef %0, i64 noundef %1) local_unn
   br label %20
 
 20:                                               ; preds = %13, %16, %2
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %5
 }
 
@@ -653,8 +647,8 @@ define i32 @LSRKStepSetDomEigFrequency(ptr noundef %0, i64 noundef %1) local_unn
 define i32 @LSRKStepSetMaxNumStages(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call i32 @lsrkStep_AccessARKODEStepMem(ptr noundef %0, ptr noundef nonnull @__func__.LSRKStepSetMaxNumStages, ptr noundef nonnull %3, ptr noundef nonnull %4) #8
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %.sink.split, label %9
@@ -668,8 +662,8 @@ define i32 @LSRKStepSetMaxNumStages(ptr noundef %0, i32 noundef %1) local_unname
   br label %9
 
 9:                                                ; preds = %.sink.split, %2
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %5
 }
 
@@ -677,8 +671,8 @@ define i32 @LSRKStepSetMaxNumStages(ptr noundef %0, i32 noundef %1) local_unname
 define i32 @LSRKStepSetDomEigSafetyFactor(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call i32 @lsrkStep_AccessARKODEStepMem(ptr noundef %0, ptr noundef nonnull @__func__.LSRKStepSetDomEigSafetyFactor, ptr noundef nonnull %3, ptr noundef nonnull %4) #8
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %.sink.split, label %9
@@ -692,8 +686,8 @@ define i32 @LSRKStepSetDomEigSafetyFactor(ptr noundef %0, double noundef %1) loc
   br label %9
 
 9:                                                ; preds = %.sink.split, %2
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %5
 }
 
@@ -701,8 +695,8 @@ define i32 @LSRKStepSetDomEigSafetyFactor(ptr noundef %0, double noundef %1) loc
 define i32 @LSRKStepSetNumSSPStages(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call i32 @lsrkStep_AccessARKODEStepMem(ptr noundef %0, ptr noundef nonnull @__func__.LSRKStepSetNumSSPStages, ptr noundef nonnull %3, ptr noundef nonnull %4) #8
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %50
@@ -816,19 +810,19 @@ define i32 @LSRKStepSetNumSSPStages(ptr noundef %0, i32 noundef %1) local_unname
 
 50:                                               ; preds = %17, %19, %21, %2, %48, %46, %44, %36, %28, %23, %10
   %.0 = phi i32 [ -22, %23 ], [ -22, %46 ], [ -22, %28 ], [ 0, %48 ], [ -22, %36 ], [ -22, %44 ], [ -22, %10 ], [ %5, %2 ], [ 0, %21 ], [ 0, %19 ], [ 0, %17 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
-declare i32 @lsrkStep_TakeStepSSP43(ptr noundef, ptr noundef, ptr noundef) #2
+declare i32 @lsrkStep_TakeStepSSP43(ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @LSRKStepGetNumDomEigUpdates(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call i32 @lsrkStep_AccessARKODEStepMem(ptr noundef %0, ptr noundef nonnull @__func__.LSRKStepGetNumDomEigUpdates, ptr noundef nonnull %3, ptr noundef nonnull %4) #8
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %14
@@ -851,8 +845,8 @@ define i32 @LSRKStepGetNumDomEigUpdates(ptr noundef %0, ptr noundef writeonly ca
 
 14:                                               ; preds = %2, %10, %8
   %.0 = phi i32 [ -22, %8 ], [ 0, %10 ], [ %5, %2 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
@@ -860,8 +854,8 @@ define i32 @LSRKStepGetNumDomEigUpdates(ptr noundef %0, ptr noundef writeonly ca
 define i32 @LSRKStepGetMaxNumStages(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call i32 @lsrkStep_AccessARKODEStepMem(ptr noundef %0, ptr noundef nonnull @__func__.LSRKStepGetMaxNumStages, ptr noundef nonnull %3, ptr noundef nonnull %4) #8
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %14
@@ -884,15 +878,15 @@ define i32 @LSRKStepGetMaxNumStages(ptr noundef %0, ptr noundef writeonly captur
 
 14:                                               ; preds = %2, %10, %8
   %.0 = phi i32 [ -22, %8 ], [ 0, %10 ], [ %5, %2 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @lsrkStep_SetDefaults(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = call i32 @lsrkStep_AccessStepMem(ptr noundef %0, ptr noundef nonnull @__func__.lsrkStep_SetDefaults, ptr noundef nonnull %2) #8
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %34
@@ -956,20 +950,20 @@ define i32 @lsrkStep_SetDefaults(ptr noundef %0) local_unnamed_addr #0 {
 
 34:                                               ; preds = %1, %32, %31, %24
   %.0 = phi i32 [ -20, %24 ], [ -20, %31 ], [ 0, %32 ], [ %3, %1 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
 
-declare i32 @lsrkStep_AccessStepMem(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @lsrkStep_AccessStepMem(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @SUNAdaptController_Destroy(ptr noundef) local_unnamed_addr #2
+declare i32 @SUNAdaptController_Destroy(ptr noundef) local_unnamed_addr #1
 
-declare ptr @SUNAdaptController_PID(ptr noundef) local_unnamed_addr #2
+declare ptr @SUNAdaptController_PID(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @lsrkStep_PrintAllStats(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call i32 @lsrkStep_AccessStepMem(ptr noundef %0, ptr noundef nonnull @__func__.lsrkStep_PrintAllStats, ptr noundef nonnull %4) #8
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %78
@@ -1077,17 +1071,17 @@ define i32 @lsrkStep_PrintAllStats(ptr noundef %0, ptr noundef captures(none) %1
 
 78:                                               ; preds = %19, %11, %29, %53, %3, %77, %27
   %.0 = phi i32 [ -22, %27 ], [ -22, %77 ], [ %5, %3 ], [ 0, %53 ], [ 0, %29 ], [ 0, %11 ], [ 0, %19 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define i32 @lsrkStep_WriteParameters(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 @lsrkStep_AccessStepMem(ptr noundef %0, ptr noundef nonnull @__func__.lsrkStep_WriteParameters, ptr noundef nonnull %3) #8
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %58
@@ -1183,14 +1177,14 @@ define i32 @lsrkStep_WriteParameters(ptr noundef %0, ptr noundef captures(none) 
 
 58:                                               ; preds = %2, %57, %56, %19
   %.0 = phi i32 [ -22, %19 ], [ -22, %56 ], [ 0, %57 ], [ %4, %2 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @lsrkStep_GetNumRhsEvals(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !19
   %5 = call i32 @lsrkStep_AccessStepMem(ptr noundef %0, ptr noundef nonnull @__func__.lsrkStep_GetNumRhsEvals, ptr noundef nonnull %4) #8
   %.not = icmp eq i32 %5, 0
@@ -1221,14 +1215,14 @@ define i32 @lsrkStep_GetNumRhsEvals(ptr noundef %0, i32 noundef %1, ptr noundef 
 
 16:                                               ; preds = %3, %12, %11, %8
   %.0 = phi i32 [ -22, %8 ], [ -22, %11 ], [ 0, %12 ], [ %5, %3 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @lsrkStep_GetEstLocalErrors(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 @lsrkStep_AccessStepMem(ptr noundef %0, ptr noundef nonnull @__func__.lsrkStep_GetEstLocalErrors, ptr noundef nonnull %3) #8
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %11
@@ -1247,11 +1241,17 @@ define i32 @lsrkStep_GetEstLocalErrors(ptr noundef %0, ptr noundef %1) local_unn
 
 11:                                               ; preds = %5, %2, %8
   %.0 = phi i32 [ 0, %8 ], [ %4, %2 ], [ -48, %5 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
-declare void @N_VScale(double noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @N_VScale(double noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nofree nounwind
 declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #5
@@ -1266,10 +1266,10 @@ declare double @llvm.sqrt.f64(double) #6
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nofree nounwind }
 attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }

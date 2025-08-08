@@ -45,7 +45,7 @@ _ZL22fastCaseFoldingDjbHashN4llvm9StringRefEj.exit.thread: ; preds = %.lr.ph.i
   br i1 %20, label %_ZL22fastCaseFoldingDjbHashN4llvm9StringRefEj.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZL22fastCaseFoldingDjbHashN4llvm9StringRefEj.exit.thread
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %24 = getelementptr inbounds nuw i8, ptr %10, i64 4
@@ -55,10 +55,10 @@ _ZL22fastCaseFoldingDjbHashN4llvm9StringRefEj.exit.thread: ; preds = %.lr.ph.i
   %.0925 = phi i32 [ %2, %.lr.ph ], [ %.0.lcssa.i, %_ZN4llvm7djbHashENS_9StringRefEj.exit ]
   %.sroa.418.024 = phi i64 [ %1, %.lr.ph ], [ %33, %_ZN4llvm7djbHashENS_9StringRefEj.exit ]
   %.sroa.016.023 = phi ptr [ %0, %.lr.ph ], [ %32, %_ZN4llvm7djbHashENS_9StringRefEj.exit ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %.sroa.016.023, ptr %8, align 8, !tbaa !6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %7, ptr %9, align 8, !tbaa !9
   %26 = getelementptr inbounds nuw i8, ptr %.sroa.016.023, i64 %.sroa.418.024
   %27 = call noundef i32 @_ZN4llvm18ConvertUTF8toUTF32EPPKhS1_PPjS3_NS_15ConversionFlagsE(ptr noundef nonnull %8, ptr noundef nonnull %26, ptr noundef nonnull %9, ptr noundef nonnull %22, i32 noundef 1) #4
@@ -70,9 +70,9 @@ _ZL22fastCaseFoldingDjbHashN4llvm9StringRefEj.exit.thread: ; preds = %.lr.ph.i
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.016.023, i64 %.sroa.speculated4.i.i.i
   %33 = sub i64 %.sroa.418.024, %.sroa.speculated4.i.i.i
   %34 = load i32, ptr %7, align 4, !tbaa !11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %35 = and i32 %34, -2
   %or.cond.i11 = icmp eq i32 %35, 304
   br i1 %or.cond.i11, label %_ZL13foldCharDwarfj.exit, label %36
@@ -83,17 +83,17 @@ _ZL22fastCaseFoldingDjbHashN4llvm9StringRefEj.exit.thread: ; preds = %.lr.ph.i
 
 _ZL13foldCharDwarfj.exit:                         ; preds = %25, %36
   %.0.i = phi i32 [ %37, %36 ], [ 105, %25 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 %.0.i, ptr %4, align 4, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %4, ptr %5, align 8, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %10, ptr %6, align 8, !tbaa !6
   %38 = call noundef i32 @_ZN4llvm18ConvertUTF32toUTF8EPPKjS1_PPhS3_NS_15ConversionFlagsE(ptr noundef nonnull %5, ptr noundef nonnull %23, ptr noundef nonnull %6, ptr noundef nonnull %24, i32 noundef 0) #4
   %39 = load ptr, ptr %6, align 8, !tbaa !6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not11.i = icmp eq ptr %39, %10
   br i1 %.not11.i, label %_ZN4llvm7djbHashENS_9StringRefEj.exit, label %.lr.ph.i12
 
@@ -114,7 +114,7 @@ _ZN4llvm7djbHashENS_9StringRefEj.exit:            ; preds = %.lr.ph.i12, %_ZL13f
   br i1 %45, label %._crit_edge, label %25, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %_ZN4llvm7djbHashENS_9StringRefEj.exit
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %_ZL22fastCaseFoldingDjbHashN4llvm9StringRefEj.exit
 
 _ZL22fastCaseFoldingDjbHashN4llvm9StringRefEj.exit: ; preds = %3, %_ZL22fastCaseFoldingDjbHashN4llvm9StringRefEj.exit.thread, %._crit_edge
@@ -122,24 +122,24 @@ _ZL22fastCaseFoldingDjbHashN4llvm9StringRefEj.exit: ; preds = %3, %_ZL22fastCase
   ret i32 %.1
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare noundef i32 @_ZN4llvm3sys7unicode14foldCharSimpleEi(i32 noundef) local_unnamed_addr #1
+
+declare noundef i32 @_ZN4llvm18ConvertUTF8toUTF32EPPKhS1_PPjS3_NS_15ConversionFlagsE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+
+declare noundef i32 @_ZN4llvm18ConvertUTF32toUTF8EPPKjS1_PPhS3_NS_15ConversionFlagsE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
 
-declare noundef i32 @_ZN4llvm3sys7unicode14foldCharSimpleEi(i32 noundef) local_unnamed_addr #2
-
-declare noundef i32 @_ZN4llvm18ConvertUTF8toUTF32EPPKhS1_PPjS3_NS_15ConversionFlagsE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
-
-declare noundef i32 @_ZN4llvm18ConvertUTF32toUTF8EPPKjS1_PPhS3_NS_15ConversionFlagsE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #3
 
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #4 = { nounwind }
 

@@ -27,12 +27,9 @@ define void @lv_svg_decoder_init() local_unnamed_addr #0 {
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @lv_image_decoder_create() local_unnamed_addr #1
 
-declare ptr @lv_image_decoder_create() local_unnamed_addr #2
-
-declare void @lv_image_decoder_set_info_cb(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @lv_image_decoder_set_info_cb(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @svg_decoder_info(ptr noundef writeonly captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2) #0 {
@@ -56,7 +53,7 @@ define internal range(i32 0, 2) i32 @svg_decoder_info(ptr noundef writeonly capt
   br i1 %.not, label %15, label %valid_svg_data.exit75.thread
 
 15:                                               ; preds = %12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %16 = tail call ptr @lv_zalloc(i64 noundef 256) #4
   %.not71 = icmp eq ptr %16, null
   br i1 %.not71, label %.preheader, label %17
@@ -135,7 +132,7 @@ valid_svg_data.exit:                              ; preds = %.thread, %36
   br i1 %48, label %49, label %57
 
 49:                                               ; preds = %39
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %50 = getelementptr inbounds nuw i8, ptr %45, i64 560
   %51 = load ptr, ptr %50, align 8, !tbaa !48
   call void %51(ptr noundef nonnull %45, ptr noundef nonnull %5) #4
@@ -143,7 +140,7 @@ valid_svg_data.exit:                              ; preds = %.thread, %36
   %53 = add i32 %52, 65535
   %54 = call i32 @lv_area_get_height(ptr noundef nonnull %5) #4
   %55 = add nsw i32 %54, -1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %56 = and i32 %53, 65535
   br label %57
 
@@ -158,7 +155,7 @@ valid_svg_data.exit:                              ; preds = %.thread, %36
   %.160 = phi i32 [ %.261, %57 ], [ 130, %valid_svg_data.exit ]
   %.156 = phi i32 [ %.257, %57 ], [ 130, %valid_svg_data.exit ]
   call void @lv_free(ptr noundef nonnull %16) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %valid_svg_data.exit75.thread84
 
 58:                                               ; preds = %8
@@ -209,7 +206,7 @@ valid_svg_data.exit75.thread84:                   ; preds = %70, %.thread80, %va
 
 .critedge:                                        ; preds = %27, %26, %20, %17
   call void @lv_free(ptr noundef nonnull %16) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %valid_svg_data.exit75.thread
 
 valid_svg_data.exit75.thread:                     ; preds = %58, %73, %3, %valid_svg_data.exit75.thread84, %valid_svg_data.exit75, %12, %.critedge
@@ -217,7 +214,7 @@ valid_svg_data.exit75.thread:                     ; preds = %58, %73, %3, %valid
   ret i32 %.3
 }
 
-declare void @lv_image_decoder_set_open_cb(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @lv_image_decoder_set_open_cb(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @svg_decoder_open(ptr noundef %0, ptr noundef captures(none) %1) #0 {
@@ -241,17 +238,17 @@ define internal range(i32 0, 2) i32 @svg_decoder_open(ptr noundef %0, ptr nounde
   br i1 %14, label %15, label %.critedge
 
 15:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %16 = call i32 @lv_fs_open(ptr noundef nonnull %3, ptr noundef %11, i32 noundef 2) #4
   %.not.i = icmp eq i32 %16, 0
   br i1 %.not.i, label %17, label %alloc_file.exit.thread
 
 alloc_file.exit.thread:                           ; preds = %15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #4
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.critedge
 
 17:                                               ; preds = %15
@@ -294,16 +291,16 @@ alloc_file.exit.thread:                           ; preds = %15
 
 alloc_file.exit.thread53:                         ; preds = %17, %19, %21, %23, %36
   %37 = call i32 @lv_fs_close(ptr noundef nonnull %3) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #4
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.critedge
 
 alloc_file.exit:                                  ; preds = %32
   %38 = call i32 @lv_fs_close(ptr noundef nonnull %3) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #4
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %46
 
 39:                                               ; preds = %2
@@ -358,7 +355,7 @@ alloc_file.exit:                                  ; preds = %32
   br i1 %68, label %69, label %.critedge
 
 69:                                               ; preds = %67
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %70 = load i32, ptr %7, align 8, !tbaa !9
   %71 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 %70, ptr %71, align 8, !tbaa !63
@@ -377,13 +374,13 @@ alloc_file.exit:                                  ; preds = %32
 
 .thread:                                          ; preds = %69
   call void @lv_draw_buf_destroy(ptr noundef nonnull %53) #4
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.critedge
 
 80:                                               ; preds = %69
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 112
   store ptr %79, ptr %81, align 8, !tbaa !68
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.critedge
 
 .critedge:                                        ; preds = %52, %67, %80, %.thread, %alloc_file.exit.thread53, %alloc_file.exit.thread, %9, %2
@@ -391,7 +388,7 @@ alloc_file.exit:                                  ; preds = %32
   ret i32 %.1
 }
 
-declare void @lv_image_decoder_set_close_cb(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @lv_image_decoder_set_close_cb(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @svg_decoder_close(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
@@ -413,9 +410,6 @@ define internal void @svg_decoder_close(ptr readnone captures(none) %0, ptr noun
 11:                                               ; preds = %8, %6
   ret void
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define void @lv_svg_decoder_deinit() local_unnamed_addr #0 {
@@ -440,33 +434,33 @@ define void @lv_svg_decoder_deinit() local_unnamed_addr #0 {
   ret void
 }
 
-declare ptr @lv_image_decoder_get_next(ptr noundef) local_unnamed_addr #2
+declare ptr @lv_image_decoder_get_next(ptr noundef) local_unnamed_addr #1
 
-declare void @lv_image_decoder_delete(ptr noundef) local_unnamed_addr #2
+declare void @lv_image_decoder_delete(ptr noundef) local_unnamed_addr #1
 
-declare i32 @lv_strcmp(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @lv_strcmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_fs_get_ext(ptr noundef) local_unnamed_addr #2
+declare ptr @lv_fs_get_ext(ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_zalloc(i64 noundef) local_unnamed_addr #2
+declare ptr @lv_zalloc(i64 noundef) local_unnamed_addr #1
 
-declare i32 @lv_fs_read(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @lv_fs_read(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @lv_free(ptr noundef) local_unnamed_addr #2
+declare void @lv_free(ptr noundef) local_unnamed_addr #1
 
-declare i32 @lv_strncmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @lv_strncmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare ptr @lv_svg_load_data(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @lv_svg_load_data(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @lv_svg_render_create(ptr noundef) local_unnamed_addr #2
+declare ptr @lv_svg_render_create(ptr noundef) local_unnamed_addr #1
 
-declare i32 @lv_area_get_width(ptr noundef) local_unnamed_addr #2
+declare i32 @lv_area_get_width(ptr noundef) local_unnamed_addr #1
 
-declare i32 @lv_area_get_height(ptr noundef) local_unnamed_addr #2
+declare i32 @lv_area_get_height(ptr noundef) local_unnamed_addr #1
 
-declare void @lv_svg_render_delete(ptr noundef) local_unnamed_addr #2
+declare void @lv_svg_render_delete(ptr noundef) local_unnamed_addr #1
 
-declare void @lv_svg_node_delete(ptr noundef) local_unnamed_addr #2
+declare void @lv_svg_node_delete(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @svg_draw(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(none) %4) #0 {
@@ -476,7 +470,7 @@ define internal void @svg_draw(ptr noundef %0, ptr noundef readonly captures(non
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %10 = load ptr, ptr %9, align 8, !tbaa !56
   %11 = tail call ptr @lv_vector_dsc_create(ptr noundef %0) #4
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %6) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @lv_matrix_identity(ptr noundef nonnull %6) #4
   %12 = load i32, ptr %2, align 4, !tbaa !71
   %13 = sitofp i32 %12 to float
@@ -561,50 +555,50 @@ define internal void @svg_draw(ptr noundef %0, ptr noundef readonly captures(non
   call void @lv_draw_svg_render(ptr noundef nonnull %11, ptr noundef %10) #4
   call void @lv_draw_vector(ptr noundef nonnull %11) #4
   call void @lv_vector_dsc_delete(ptr noundef nonnull %11) #4
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
-declare i32 @lv_memcmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @lv_memcmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare ptr @lv_vector_dsc_create(ptr noundef) local_unnamed_addr #2
+declare ptr @lv_vector_dsc_create(ptr noundef) local_unnamed_addr #1
 
-declare void @lv_matrix_identity(ptr noundef) local_unnamed_addr #2
+declare void @lv_matrix_identity(ptr noundef) local_unnamed_addr #1
 
-declare void @lv_matrix_translate(ptr noundef, float noundef, float noundef) local_unnamed_addr #2
+declare void @lv_matrix_translate(ptr noundef, float noundef, float noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
-declare void @lv_matrix_rotate(ptr noundef, float noundef) local_unnamed_addr #2
+declare void @lv_matrix_rotate(ptr noundef, float noundef) local_unnamed_addr #1
 
-declare void @lv_matrix_scale(ptr noundef, float noundef, float noundef) local_unnamed_addr #2
+declare void @lv_matrix_scale(ptr noundef, float noundef, float noundef) local_unnamed_addr #1
 
-declare void @lv_vector_dsc_set_transform(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @lv_vector_dsc_set_transform(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @lv_draw_svg_render(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @lv_draw_svg_render(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @lv_draw_vector(ptr noundef) local_unnamed_addr #2
+declare void @lv_draw_vector(ptr noundef) local_unnamed_addr #1
 
-declare void @lv_vector_dsc_delete(ptr noundef) local_unnamed_addr #2
+declare void @lv_vector_dsc_delete(ptr noundef) local_unnamed_addr #1
 
-declare i32 @lv_svg_render_get_size(ptr noundef) local_unnamed_addr #2
+declare i32 @lv_svg_render_get_size(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @lv_image_cache_is_enabled() local_unnamed_addr #2
+declare zeroext i1 @lv_image_cache_is_enabled() local_unnamed_addr #1
 
-declare ptr @lv_image_decoder_add_to_cache(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @lv_image_decoder_add_to_cache(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @lv_draw_buf_destroy(ptr noundef) local_unnamed_addr #2
+declare void @lv_draw_buf_destroy(ptr noundef) local_unnamed_addr #1
 
-declare i32 @lv_fs_open(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @lv_fs_open(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @lv_fs_seek(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @lv_fs_seek(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @lv_fs_tell(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @lv_fs_tell(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_malloc(i64 noundef) local_unnamed_addr #2
+declare ptr @lv_malloc(i64 noundef) local_unnamed_addr #1
 
-declare i32 @lv_fs_close(ptr noundef) local_unnamed_addr #2
+declare i32 @lv_fs_close(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @svg_draw_buf_free(ptr noundef %0) #0 {
@@ -612,10 +606,16 @@ define internal void @svg_draw_buf_free(ptr noundef %0) #0 {
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

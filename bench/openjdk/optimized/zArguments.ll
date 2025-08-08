@@ -85,10 +85,10 @@ define hidden void @_ZN10ZArguments31initialize_heap_flags_and_sizesEv() local_u
   %8 = load i64, ptr @MaxHeapSize, align 8
   %9 = mul i64 %8, 90
   %10 = udiv i64 %9, 100
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store i64 %10, ptr %1, align 8
   %11 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 1194, i32 noundef 6, ptr noundef nonnull %1, i32 noundef 5) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %12
 
 12:                                               ; preds = %7, %5, %3, %0
@@ -156,10 +156,10 @@ thread-pre-split:                                 ; preds = %0
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %26
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 %.0, ptr %4, align 4
   %30 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 1078, i32 noundef 2, ptr noundef nonnull %4, i32 noundef 5) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %37
 
 31:                                               ; preds = %26
@@ -167,10 +167,10 @@ thread-pre-split:                                 ; preds = %0
   %33 = fmul double %32, 9.000000e-01
   %34 = fptoui double %33 to i32
   %35 = tail call noundef i32 @llvm.umax.i32(i32 %34, i32 1)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %35, ptr %3, align 4
   %36 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 1078, i32 noundef 2, ptr noundef nonnull %3, i32 noundef 5) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %37
 
 37:                                               ; preds = %29, %31, %24
@@ -183,10 +183,10 @@ thread-pre-split:                                 ; preds = %0
   br i1 %41, label %42, label %44
 
 42:                                               ; preds = %39
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %.0, ptr %2, align 4
   %43 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 1079, i32 noundef 2, ptr noundef nonnull %2, i32 noundef 5) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %50
 
 44:                                               ; preds = %39
@@ -194,10 +194,10 @@ thread-pre-split:                                 ; preds = %0
   %46 = load i32, ptr @ZYoungGCThreads, align 4
   %47 = sub i32 %45, %46
   %48 = call noundef i32 @llvm.umax.i32(i32 %47, i32 1)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store i32 %48, ptr %1, align 4
   %49 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 1079, i32 noundef 2, ptr noundef nonnull %1, i32 noundef 5) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %50
 
 50:                                               ; preds = %42, %44, %37
@@ -296,10 +296,10 @@ define hidden void @_ZN10ZArguments10initializeEv() local_unnamed_addr #1 align 
 
 21:                                               ; preds = %19
   %22 = load double, ptr @ZCollectionInterval, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store double %22, ptr %3, align 8
   %23 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 1075, i32 noundef 7, ptr noundef nonnull %3, i32 noundef 5) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %24
 
 24:                                               ; preds = %21, %19, %17
@@ -324,10 +324,10 @@ define hidden void @_ZN10ZArguments10initializeEv() local_unnamed_addr #1 align 
 
 33:                                               ; preds = %31
   %34 = load i32, ptr @ZTenuringThreshold, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %34, ptr %2, align 4
   %35 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 1204, i32 noundef 2, ptr noundef nonnull %2, i32 noundef 5) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %36
 
 36:                                               ; preds = %31, %33
@@ -340,10 +340,10 @@ define hidden void @_ZN10ZArguments10initializeEv() local_unnamed_addr #1 align 
   br i1 %40, label %41, label %43
 
 41:                                               ; preds = %39
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store i8 1, ptr %1, align 1
   %42 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 1097, i32 noundef 0, ptr noundef nonnull %1, i32 noundef 5) #8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %43
 
 43:                                               ; preds = %36, %39, %41, %27
@@ -559,10 +559,10 @@ declare noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEn
 declare i32 @llvm.umax.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -151,7 +151,7 @@ GetMaxWriteAttempts.exit:                         ; preds = %1
   store i8 64, ptr %26, align 1
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 63
   store i8 64, ptr %27, align 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8
   %28 = load ptr, ptr %4, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 84
@@ -257,7 +257,7 @@ CalculateControllerType.exit22.i:                 ; preds = %66, %62, %.thread.i
   br i1 %exitcond.not.i, label %BReadDeviceInfo.exit, label %73, !llvm.loop !5
 
 BReadDeviceInfo.exit:                             ; preds = %73, %32, %CalculateControllerType.exit.i, %53
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %79
 
 79:                                               ; preds = %BReadDeviceInfo.exit, %GetMaxWriteAttempts.exit
@@ -279,7 +279,7 @@ BReadDeviceInfo.exit:                             ; preds = %73, %32, %Calculate
   br label %UpdateDeviceIdentity.exit
 
 90:                                               ; preds = %79
-  call void @llvm.lifetime.start.p0(i64 18, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %91 = getelementptr inbounds nuw i8, ptr %80, i64 32
   %92 = load i32, ptr %91, align 8
   switch i32 %92, label %.critedge.i [
@@ -390,7 +390,7 @@ BReadDeviceInfo.exit:                             ; preds = %73, %32, %Calculate
   %131 = zext i8 %130 to i32
   %132 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf_REAL(ptr noundef nonnull %2, i64 noundef 18, ptr noundef nonnull @.str.16, i32 noundef %116, i32 noundef %119, i32 noundef %122, i32 noundef %125, i32 noundef %128, i32 noundef %131) #9
   call void @HIDAPI_SetDeviceSerial(ptr noundef nonnull %0, ptr noundef nonnull %2) #9
-  call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %UpdateDeviceIdentity.exit
 
 .sink.split.i:                                    ; preds = %109, %108, %106
@@ -404,7 +404,7 @@ BReadDeviceInfo.exit:                             ; preds = %73, %32, %Calculate
   br label %134
 
 134:                                              ; preds = %.sink.split.i, %106, %103
-  call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %UpdateDeviceIdentity.exit
 
 UpdateDeviceIdentity.exit:                        ; preds = %84, %88, %.critedge.i, %134
@@ -456,7 +456,7 @@ define internal void @HIDAPI_DriverSwitch_SetDevicePlayerIndex(ptr noundef reado
   br i1 %13, label %UpdateSlotLED.exit, label %14
 
 14:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 0, ptr %4, align 1
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 18
   %16 = load i8, ptr %15, align 2, !range !3, !noundef !4
@@ -474,7 +474,7 @@ define internal void @HIDAPI_DriverSwitch_SetDevicePlayerIndex(ptr noundef reado
 
 23:                                               ; preds = %19, %14
   %24 = call fastcc zeroext i1 @WriteSubcommand(ptr noundef nonnull %6, i32 noundef 48, ptr noundef nonnull %4, i8 noundef zeroext 1, ptr noundef null)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %UpdateSlotLED.exit
 
 UpdateSlotLED.exit:                               ; preds = %23, %9, %3
@@ -2353,7 +2353,7 @@ ApplyStickCalibration.exit314.i:                  ; preds = %1007, %1003
   br i1 %or.cond.i, label %1057, label %.thread.i
 
 1057:                                             ; preds = %1047
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %21) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %1058 = load i16, ptr %84, align 2
   %1059 = sitofp i16 %1058 to float
   %1060 = fneg float %1059
@@ -2413,8 +2413,8 @@ ApplyStickCalibration.exit314.i:                  ; preds = %1007, %1003
 
 SendSensorUpdate.exit.i:                          ; preds = %.thread31.sink.split.i.i, %1080, %1077, %1072, %1071, %1057
   call void @SDL_SendJoystickSensor(i64 noundef %548, ptr noundef nonnull %.0, i32 noundef 2, i64 noundef %1050, ptr noundef nonnull %21, i32 noundef 3) #9
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %21) #9
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %20) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %1085 = load i16, ptr %83, align 2
   %1086 = sitofp i16 %1085 to float
   %1087 = fneg float %1086
@@ -2483,8 +2483,8 @@ SendSensorUpdate.exit.i:                          ; preds = %.thread31.sink.spli
 
 SendSensorUpdate.exit321.i:                       ; preds = %.thread31.sink.split.i318.i, %1114, %1108, %1103, %1099, %SendSensorUpdate.exit.i
   call void @SDL_SendJoystickSensor(i64 noundef %548, ptr noundef nonnull %.0, i32 noundef 1, i64 noundef %1050, ptr noundef nonnull %20, i32 noundef 3) #9
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %20) #9
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %19) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %1119 = load i16, ptr %100, align 2
   %1120 = sitofp i16 %1119 to float
   %1121 = fneg float %1120
@@ -2553,8 +2553,8 @@ SendSensorUpdate.exit321.i:                       ; preds = %.thread31.sink.spli
 
 SendSensorUpdate.exit327.i:                       ; preds = %.thread31.sink.split.i324.i, %1148, %1142, %1137, %1133, %SendSensorUpdate.exit321.i
   call void @SDL_SendJoystickSensor(i64 noundef %548, ptr noundef nonnull %.0, i32 noundef 2, i64 noundef %1051, ptr noundef nonnull %19, i32 noundef 3) #9
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %19) #9
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %18) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %1153 = load i16, ptr %99, align 2
   %1154 = sitofp i16 %1153 to float
   %1155 = fneg float %1154
@@ -2623,8 +2623,8 @@ SendSensorUpdate.exit327.i:                       ; preds = %.thread31.sink.spli
 
 SendSensorUpdate.exit333.i:                       ; preds = %.thread31.sink.split.i330.i, %1182, %1176, %1171, %1167, %SendSensorUpdate.exit327.i
   call void @SDL_SendJoystickSensor(i64 noundef %548, ptr noundef nonnull %.0, i32 noundef 1, i64 noundef %1051, ptr noundef nonnull %18, i32 noundef 3) #9
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18) #9
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %17) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %1187 = load i16, ptr %109, align 2
   %1188 = sitofp i16 %1187 to float
   %1189 = fneg float %1188
@@ -2693,8 +2693,8 @@ SendSensorUpdate.exit333.i:                       ; preds = %.thread31.sink.spli
 
 SendSensorUpdate.exit339.i:                       ; preds = %.thread31.sink.split.i336.i, %1216, %1210, %1205, %1201, %SendSensorUpdate.exit333.i
   call void @SDL_SendJoystickSensor(i64 noundef %548, ptr noundef nonnull %.0, i32 noundef 2, i64 noundef %1052, ptr noundef nonnull %17, i32 noundef 3) #9
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17) #9
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %16) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %1221 = load i16, ptr %75, align 2
   %1222 = sitofp i16 %1221 to float
   %1223 = fneg float %1222
@@ -2763,7 +2763,7 @@ SendSensorUpdate.exit339.i:                       ; preds = %.thread31.sink.spli
 
 1255:                                             ; preds = %.thread31.sink.split.i342.i, %1250, %1244, %1239, %1235, %SendSensorUpdate.exit339.i
   call void @SDL_SendJoystickSensor(i64 noundef %548, ptr noundef nonnull %.0, i32 noundef 1, i64 noundef %1052, ptr noundef nonnull %16, i32 noundef 3) #9
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %16) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %.pre423.i = load ptr, ptr %23, align 8
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.pre423.i, i64 160
   %.pre424.i = load ptr, ptr %.phi.trans.insert.i, align 8
@@ -2780,7 +2780,7 @@ thread-pre-split.i:                               ; preds = %1255
   br i1 %1258, label %SendSensorUpdate.exit351.i, label %.thread431.i
 
 SendSensorUpdate.exit351.i:                       ; preds = %.thread.i
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %15) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %1259 = load i16, ptr %84, align 2
   %1260 = sitofp i16 %1259 to float
   %1261 = fneg float %1260
@@ -2799,8 +2799,8 @@ SendSensorUpdate.exit351.i:                       ; preds = %.thread.i
   store float %1270, ptr %116, align 4
   store float %1271, ptr %117, align 4
   call void @SDL_SendJoystickSensor(i64 noundef %548, ptr noundef nonnull %.0, i32 noundef 4, i64 noundef %1050, ptr noundef nonnull %15, i32 noundef 3) #9
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #9
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %14) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %1272 = load i16, ptr %83, align 2
   %1273 = sitofp i16 %1272 to float
   %1274 = fneg float %1273
@@ -2869,8 +2869,8 @@ SendSensorUpdate.exit351.i:                       ; preds = %.thread.i
 
 SendSensorUpdate.exit357.i:                       ; preds = %.thread31.sink.split.i354.i, %1301, %1295, %1290, %1286, %SendSensorUpdate.exit351.i
   call void @SDL_SendJoystickSensor(i64 noundef %548, ptr noundef nonnull %.0, i32 noundef 3, i64 noundef %1050, ptr noundef nonnull %14, i32 noundef 3) #9
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %14) #9
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %13) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %1306 = load i16, ptr %100, align 2
   %1307 = sitofp i16 %1306 to float
   %1308 = fneg float %1307
@@ -2939,8 +2939,8 @@ SendSensorUpdate.exit357.i:                       ; preds = %.thread31.sink.spli
 
 SendSensorUpdate.exit363.i:                       ; preds = %.thread31.sink.split.i360.i, %1335, %1329, %1324, %1320, %SendSensorUpdate.exit357.i
   call void @SDL_SendJoystickSensor(i64 noundef %548, ptr noundef nonnull %.0, i32 noundef 4, i64 noundef %1051, ptr noundef nonnull %13, i32 noundef 3) #9
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %13) #9
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %12) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %1340 = load i16, ptr %99, align 2
   %1341 = sitofp i16 %1340 to float
   %1342 = fneg float %1341
@@ -3009,8 +3009,8 @@ SendSensorUpdate.exit363.i:                       ; preds = %.thread31.sink.spli
 
 SendSensorUpdate.exit369.i:                       ; preds = %.thread31.sink.split.i366.i, %1369, %1363, %1358, %1354, %SendSensorUpdate.exit363.i
   call void @SDL_SendJoystickSensor(i64 noundef %548, ptr noundef nonnull %.0, i32 noundef 3, i64 noundef %1051, ptr noundef nonnull %12, i32 noundef 3) #9
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %12) #9
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %11) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %1374 = load i16, ptr %109, align 2
   %1375 = sitofp i16 %1374 to float
   %1376 = fneg float %1375
@@ -3079,8 +3079,8 @@ SendSensorUpdate.exit369.i:                       ; preds = %.thread31.sink.spli
 
 SendSensorUpdate.exit375.i:                       ; preds = %.thread31.sink.split.i372.i, %1403, %1397, %1392, %1388, %SendSensorUpdate.exit369.i
   call void @SDL_SendJoystickSensor(i64 noundef %548, ptr noundef nonnull %.0, i32 noundef 4, i64 noundef %1052, ptr noundef nonnull %11, i32 noundef 3) #9
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %11) #9
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %10) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %1408 = load i16, ptr %75, align 2
   %1409 = sitofp i16 %1408 to float
   %1410 = fneg float %1409
@@ -3149,7 +3149,7 @@ SendSensorUpdate.exit375.i:                       ; preds = %.thread31.sink.spli
 
 1442:                                             ; preds = %.thread31.sink.split.i378.i, %1437, %1431, %1426, %1422, %SendSensorUpdate.exit375.i
   call void @SDL_SendJoystickSensor(i64 noundef %548, ptr noundef nonnull %.0, i32 noundef 3, i64 noundef %1052, ptr noundef nonnull %10, i32 noundef 3) #9
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %10) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %.pre425.i = load ptr, ptr %23, align 8
   %.phi.trans.insert426.i = getelementptr inbounds nuw i8, ptr %.pre425.i, i64 160
   %.pre427.i = load ptr, ptr %.phi.trans.insert426.i, align 8
@@ -3166,7 +3166,7 @@ SendSensorUpdate.exit375.i:                       ; preds = %.thread31.sink.spli
   br i1 %1445, label %SendSensorUpdate.exit387.i, label %HandleFullControllerState.exit
 
 SendSensorUpdate.exit387.i:                       ; preds = %.thread431.i
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %9) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %1446 = load i16, ptr %84, align 2
   %1447 = sitofp i16 %1446 to float
   %1448 = fneg float %1447
@@ -3185,8 +3185,8 @@ SendSensorUpdate.exit387.i:                       ; preds = %.thread431.i
   %1458 = fmul float %1452, %1457
   store float %1458, ptr %128, align 4
   call void @SDL_SendJoystickSensor(i64 noundef %548, ptr noundef nonnull %.0, i32 noundef 6, i64 noundef %1050, ptr noundef nonnull %9, i32 noundef 3) #9
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %9) #9
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %1459 = load i16, ptr %83, align 2
   %1460 = sitofp i16 %1459 to float
   %1461 = fneg float %1460
@@ -3255,8 +3255,8 @@ SendSensorUpdate.exit387.i:                       ; preds = %.thread431.i
 
 SendSensorUpdate.exit393.i:                       ; preds = %.thread31.sink.split.i390.i, %1488, %1482, %1477, %1473, %SendSensorUpdate.exit387.i
   call void @SDL_SendJoystickSensor(i64 noundef %548, ptr noundef nonnull %.0, i32 noundef 5, i64 noundef %1050, ptr noundef nonnull %8, i32 noundef 3) #9
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8) #9
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %7) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %1493 = load i16, ptr %100, align 2
   %1494 = sitofp i16 %1493 to float
   %1495 = fneg float %1494
@@ -3325,8 +3325,8 @@ SendSensorUpdate.exit393.i:                       ; preds = %.thread31.sink.spli
 
 SendSensorUpdate.exit399.i:                       ; preds = %.thread31.sink.split.i396.i, %1522, %1516, %1511, %1507, %SendSensorUpdate.exit393.i
   call void @SDL_SendJoystickSensor(i64 noundef %548, ptr noundef nonnull %.0, i32 noundef 6, i64 noundef %1051, ptr noundef nonnull %7, i32 noundef 3) #9
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %1527 = load i16, ptr %99, align 2
   %1528 = sitofp i16 %1527 to float
   %1529 = fneg float %1528
@@ -3395,8 +3395,8 @@ SendSensorUpdate.exit399.i:                       ; preds = %.thread31.sink.spli
 
 SendSensorUpdate.exit405.i:                       ; preds = %.thread31.sink.split.i402.i, %1556, %1550, %1545, %1541, %SendSensorUpdate.exit399.i
   call void @SDL_SendJoystickSensor(i64 noundef %548, ptr noundef nonnull %.0, i32 noundef 5, i64 noundef %1051, ptr noundef nonnull %6, i32 noundef 3) #9
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %1561 = load i16, ptr %109, align 2
   %1562 = sitofp i16 %1561 to float
   %1563 = fneg float %1562
@@ -3465,8 +3465,8 @@ SendSensorUpdate.exit405.i:                       ; preds = %.thread31.sink.spli
 
 SendSensorUpdate.exit411.i:                       ; preds = %.thread31.sink.split.i408.i, %1590, %1584, %1579, %1575, %SendSensorUpdate.exit405.i
   call void @SDL_SendJoystickSensor(i64 noundef %548, ptr noundef nonnull %.0, i32 noundef 6, i64 noundef %1052, ptr noundef nonnull %5, i32 noundef 3) #9
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5) #9
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %1595 = load i16, ptr %75, align 2
   %1596 = sitofp i16 %1595 to float
   %1597 = fneg float %1596
@@ -3535,7 +3535,7 @@ SendSensorUpdate.exit411.i:                       ; preds = %.thread31.sink.spli
 
 SendSensorUpdate.exit417.i:                       ; preds = %.thread31.sink.split.i414.i, %1624, %1618, %1613, %1609, %SendSensorUpdate.exit411.i
   call void @SDL_SendJoystickSensor(i64 noundef %548, ptr noundef nonnull %.0, i32 noundef 5, i64 noundef %1052, ptr noundef nonnull %4, i32 noundef 3) #9
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %HandleFullControllerState.exit
 
 1629:                                             ; preds = %1033
@@ -3564,10 +3564,10 @@ SendSensorUpdate.exit417.i:                       ; preds = %.thread31.sink.spli
   br label %1644
 
 1644:                                             ; preds = %1641, %1636
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 1, ptr %3, align 1
   %1645 = call fastcc noundef zeroext i1 @WriteSubcommand(ptr noundef nonnull %23, i32 noundef 64, ptr noundef nonnull %3, i8 noundef zeroext 1, ptr noundef null)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %1646 = load i8, ptr %1638, align 1, !range !3, !noundef !4
   %1647 = trunc nuw i8 %1646 to i1
   br i1 %1647, label %1648, label %1651
@@ -3734,7 +3734,7 @@ ReadInput.exit.thread:                            ; preds = %34
   store i8 %1726, ptr %1722, align 4
   %1727 = call i64 @SDL_GetTicks_REAL() #9
   store i64 %1727, ptr %1717, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %1728 = load ptr, ptr %23, align 8
   %1729 = getelementptr inbounds nuw i8, ptr %1728, i64 84
   %1730 = load i8, ptr %1729, align 4, !range !3, !noundef !4
@@ -3766,7 +3766,7 @@ ReadInput.exit.thread:                            ; preds = %34
   br label %WriteRumble.exit
 
 WriteRumble.exit:                                 ; preds = %1738, %1742, %1744
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %HIDAPI_DriverSwitch_SendPendingRumble.exit
 
 HIDAPI_DriverSwitch_SendPendingRumble.exit:       ; preds = %ReadInput.exit.thread, %1710, %1706, %1699, %1690, %WriteRumble.exit, %1716, %1712, %ReadInput.exit
@@ -3936,11 +3936,11 @@ GetInitialInputMode.exit:                         ; preds = %22, %25, %30, %37, 
 
 .lr.ph.split.us.i.i:                              ; preds = %87, %.lr.ph.i.i
   %.02016.us.i.i = phi i32 [ %88, %87 ], [ 1, %.lr.ph.i.i ]
-  call void @llvm.lifetime.start.p0(i64 49, ptr nonnull %14) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(47) %67, i8 0, i64 47, i1 false)
   store i8 -128, ptr %14, align 1
   store i8 4, ptr %65, align 1
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %13) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %68 = load ptr, ptr %16, align 8
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 84
   %70 = load i8, ptr %69, align 4, !range !3, !noundef !4
@@ -3964,8 +3964,8 @@ GetInitialInputMode.exit:                         ; preds = %22, %25, %30, %37, 
   br i1 %77, label %78, label %WritePacket.exit.thread.us.i.i
 
 WritePacket.exit.thread.us.i.i:                   ; preds = %76
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13) #9
-  call void @llvm.lifetime.end.p0(i64 49, ptr nonnull %14) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %87
 
 78:                                               ; preds = %76
@@ -3984,8 +3984,8 @@ WritePacket.exit.thread.us.i.i:                   ; preds = %76
 WritePacket.exit.us.i.i:                          ; preds = %82, %78
   %.0.in.i.us.i.i = phi i32 [ %86, %82 ], [ %81, %78 ]
   %.0.i.us.i.i = icmp sgt i32 %.0.in.i.us.i.i, -1
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13) #9
-  call void @llvm.lifetime.end.p0(i64 49, ptr nonnull %14) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br i1 %.0.i.us.i.i, label %BTrySetupUSB.exit, label %87
 
 87:                                               ; preds = %WritePacket.exit.us.i.i, %WritePacket.exit.thread.us.i.i
@@ -3999,12 +3999,12 @@ WritePacket.exit.us.i.i:                          ; preds = %82, %78
   br label %501
 
 BTrySetupUSB.exit:                                ; preds = %WritePacket.exit.us.i.i, %GetInitialInputMode.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr null, ptr %10, align 8
-  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %11) #9
-  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %12) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 32784, ptr %11, align 4
   %91 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i8 22, ptr %91, align 4
@@ -4291,10 +4291,10 @@ BTrySetupUSB.exit:                                ; preds = %WritePacket.exit.us
   store i16 -16384, ptr %280, align 4
   %281 = getelementptr inbounds nuw i8, ptr %16, i64 330
   store i16 16383, ptr %281, align 2
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %12) #9
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %11) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %282 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %283 = load i32, ptr %282, align 8
   %.off = add i32 %283, -7
@@ -4326,17 +4326,17 @@ BTrySetupUSB.exit:                                ; preds = %WritePacket.exit.us
   br i1 %271, label %.preheader117.i, label %.preheader116.i, !llvm.loop !14
 
 .loopexit69:                                      ; preds = %102, %95, %BTrySetupUSB.exit
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %12) #9
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %11) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %301 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.19) #9
   br label %501
 
 302:                                              ; preds = %.preheader116.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 24608, ptr %8, align 4
   %303 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i8 24, ptr %303, align 4
@@ -4482,17 +4482,17 @@ LoadIMUCalibration.exit:                          ; preds = %373, %406
   %.sink.i = phi float [ 0x3F5404DA40000000, %406 ], [ %405, %373 ]
   %412 = getelementptr inbounds nuw i8, ptr %16, i64 352
   store float %.sink.i, ptr %412, align 4
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %413 = getelementptr inbounds nuw i8, ptr %16, i64 152
   store i8 1, ptr %413, align 8
   br label %414
 
 414:                                              ; preds = %.preheader116.i, %LoadIMUCalibration.exit
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 1, ptr %6, align 1
   %415 = call fastcc noundef zeroext i1 @WriteSubcommand(ptr noundef nonnull %16, i32 noundef 72, ptr noundef nonnull %6, i8 noundef zeroext 1, ptr noundef null)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %416 = call zeroext i1 @SDL_AddHintCallback_REAL(ptr noundef nonnull @.str.20, ptr noundef nonnull @SDL_EnhancedReportsChanged, ptr noundef nonnull %16) #9
   %417 = load i8, ptr %55, align 4, !range !3, !noundef !4
   %418 = trunc nuw i8 %417 to i1
@@ -4512,11 +4512,11 @@ LoadIMUCalibration.exit:                          ; preds = %373, %406
 
 .lr.ph.split.us.i:                                ; preds = %444, %.lr.ph.i61
   %.02016.us.i = phi i32 [ %445, %444 ], [ 1, %.lr.ph.i61 ]
-  call void @llvm.lifetime.start.p0(i64 49, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(47) %424, i8 0, i64 47, i1 false)
   store i8 -128, ptr %5, align 1
   store i8 4, ptr %422, align 1
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %425 = load ptr, ptr %16, align 8
   %426 = getelementptr inbounds nuw i8, ptr %425, i64 84
   %427 = load i8, ptr %426, align 4, !range !3, !noundef !4
@@ -4540,8 +4540,8 @@ LoadIMUCalibration.exit:                          ; preds = %373, %406
   br i1 %434, label %435, label %WritePacket.exit.thread.us.i
 
 WritePacket.exit.thread.us.i:                     ; preds = %433
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 49, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %444
 
 435:                                              ; preds = %433
@@ -4560,8 +4560,8 @@ WritePacket.exit.thread.us.i:                     ; preds = %433
 WritePacket.exit.us.i:                            ; preds = %439, %435
   %.0.in.i.us.i = phi i32 [ %443, %439 ], [ %438, %435 ]
   %.0.i.us.i = icmp sgt i32 %.0.in.i.us.i, -1
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 49, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.0.i.us.i, label %WriteProprietary.exit, label %444
 
 444:                                              ; preds = %WritePacket.exit.us.i, %WritePacket.exit.thread.us.i
@@ -4649,7 +4649,7 @@ AlwaysUsesLabels.exit:                            ; preds = %470, %471
   br i1 %479, label %UpdateSlotLED.exit, label %480
 
 480:                                              ; preds = %AlwaysUsesLabels.exit
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 0, ptr %3, align 1
   br i1 %475, label %481, label %488
 
@@ -4667,7 +4667,7 @@ AlwaysUsesLabels.exit:                            ; preds = %470, %471
 
 488:                                              ; preds = %484, %481, %480
   %489 = call fastcc zeroext i1 @WriteSubcommand(ptr noundef nonnull %16, i32 noundef 48, ptr noundef nonnull %3, i8 noundef zeroext 1, ptr noundef null)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %UpdateSlotLED.exit
 
 UpdateSlotLED.exit:                               ; preds = %AlwaysUsesLabels.exit, %488
@@ -4915,7 +4915,7 @@ define internal zeroext i1 @HIDAPI_DriverSwitch_SendJoystickEffect(ptr noundef r
   %26 = tail call i64 @SDL_GetTicks_REAL() #9
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 136
   store i64 %26, ptr %27, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %28 = load ptr, ptr %7, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 84
   %30 = load i8, ptr %29, align 4, !range !3, !noundef !4
@@ -4941,7 +4941,7 @@ define internal zeroext i1 @HIDAPI_DriverSwitch_SendJoystickEffect(ptr noundef r
   br i1 %43, label %44, label %WriteRumble.exit.thread
 
 WriteRumble.exit.thread:                          ; preds = %42
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %HasHomeLED.exit.thread
 
 44:                                               ; preds = %42
@@ -4953,7 +4953,7 @@ WriteRumble.exit.thread:                          ; preds = %42
 WriteRumble.exit:                                 ; preds = %38, %44
   %.0.in.i.i = phi i32 [ %41, %38 ], [ %47, %44 ]
   %.0.i.i = icmp sgt i32 %.0.in.i.i, -1
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.0.i.i, label %48, label %HasHomeLED.exit.thread
 
 48:                                               ; preds = %WriteRumble.exit
@@ -5150,7 +5150,7 @@ UpdateEnhancedModeOnApplicationUsage.exit:        ; preds = %3, %12
 
 GetSensorInputMode.exit.i:                        ; preds = %.thread.fold.split.i.i, %.thread15.i.i, %47, %41, %32, %31, %31
   %.0.i = phi i8 [ %.val.i, %32 ], [ 48, %31 ], [ 48, %31 ], [ %spec.select.i.i, %.thread15.i.i ], [ 48, %41 ], [ 48, %47 ], [ %.0.i4.i, %.thread.fold.split.i.i ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 %.0.i, ptr %5, align 1
   %57 = getelementptr inbounds nuw i8, ptr %8, i64 37
   %58 = load i8, ptr %57, align 1
@@ -5163,11 +5163,11 @@ GetSensorInputMode.exit.i:                        ; preds = %.thread.fold.split.
   br label %UpdateInputMode.exit
 
 UpdateInputMode.exit:                             ; preds = %GetSensorInputMode.exit.i, %60
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 %6, ptr %4, align 1
   %62 = call fastcc noundef zeroext i1 @WriteSubcommand(ptr noundef nonnull %8, i32 noundef 64, ptr noundef nonnull %4, i8 noundef zeroext 1, ptr noundef null)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %63
 
 63:                                               ; preds = %UpdateInputMode.exit, %21
@@ -5194,7 +5194,7 @@ define internal void @HIDAPI_DriverSwitch_CloseJoystick(ptr noundef readonly cap
   ]
 
 12:                                               ; preds = %9, %9
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 63, ptr %3, align 1
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 37
   %14 = load i8, ptr %13, align 1
@@ -5207,7 +5207,7 @@ define internal void @HIDAPI_DriverSwitch_CloseJoystick(ptr noundef readonly cap
   br label %SetInputMode.exit
 
 SetInputMode.exit:                                ; preds = %12, %16
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %18
 
 18:                                               ; preds = %9, %SetInputMode.exit, %2
@@ -5305,7 +5305,7 @@ GetMaxWriteAttempts.exit.i:                       ; preds = %30, %26
   br i1 %34, label %35, label %53
 
 35:                                               ; preds = %GetMaxWriteAttempts.exit.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr null, ptr %11, align 8
   %36 = call fastcc zeroext i1 @WriteSubcommand(ptr noundef nonnull %20, i32 noundef 2, ptr noundef null, i8 noundef zeroext 0, ptr noundef nonnull %11)
   br i1 %36, label %37, label %CalculateControllerType.exit.i
@@ -5343,7 +5343,7 @@ GetMaxWriteAttempts.exit.i:                       ; preds = %30, %26
 
 CalculateControllerType.exit.i:                   ; preds = %49, %45, %.thread.i.i, %37, %35
   %.2.i = phi i32 [ 0, %35 ], [ 0, %45 ], [ %..i.i, %49 ], [ %spec.select.i.i, %.thread.i.i ], [ %41, %37 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %ReadJoyConControllerType.exit
 
 53:                                               ; preds = %GetMaxWriteAttempts.exit.i
@@ -5477,11 +5477,8 @@ declare zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef, i1 noundef zeroext) loc
 
 declare i32 @SDL_strncmp_REAL(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
-
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @SDL_calloc_REAL(i64 noundef, i64 noundef) local_unnamed_addr #5
+declare noalias ptr @SDL_calloc_REAL(i64 noundef, i64 noundef) local_unnamed_addr #4
 
 declare zeroext i1 @SDL_IsJoystickNintendoSwitchProInputOnly(i16 noundef zeroext, i16 noundef zeroext) local_unnamed_addr #3
 
@@ -5490,9 +5487,6 @@ declare zeroext i1 @HIDAPI_HasConnectedUSBDevice(ptr noundef) local_unnamed_addr
 declare void @HIDAPI_DisconnectBluetoothDevice(ptr noundef) local_unnamed_addr #3
 
 declare zeroext i1 @HIDAPI_JoystickConnected(ptr noundef, ptr noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i1 @WriteSubcommand(ptr noundef %0, i32 noundef range(i32 0, 256) %1, ptr noundef readonly captures(address_is_null) %2, i8 noundef zeroext %3, ptr noundef writeonly captures(address_is_null) %4) unnamed_addr #0 {
@@ -5523,7 +5517,7 @@ define internal fastcc noundef zeroext i1 @WriteSubcommand(ptr noundef %0, i32 n
 
 .lr.ph:                                           ; preds = %5, %ReadSubcommandReply.exit
   %.02130 = phi i32 [ %81, %ReadSubcommandReply.exit ], [ 1, %5 ]
-  call void @llvm.lifetime.start.p0(i64 49, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(38) %25, i8 0, i64 38, i1 false)
   store i8 1, ptr %7, align 1
   %27 = load i8, ptr %10, align 4
@@ -5541,7 +5535,7 @@ ConstructSubcommand.exit:                         ; preds = %.lr.ph, %29
   %30 = add i8 %27, 1
   %31 = and i8 %30, 15
   store i8 %31, ptr %10, align 4
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %32 = load ptr, ptr %0, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 84
   %34 = load i8, ptr %33, align 4, !range !3, !noundef !4
@@ -5572,7 +5566,7 @@ ConstructSubcommand.exit:                         ; preds = %.lr.ph, %29
   br i1 %46, label %47, label %WritePacket.exit.thread
 
 WritePacket.exit.thread:                          ; preds = %45
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %ReadSubcommandReply.exit
 
 47:                                               ; preds = %45
@@ -5584,7 +5578,7 @@ WritePacket.exit.thread:                          ; preds = %45
 WritePacket.exit:                                 ; preds = %40, %47
   %.0.in.i = phi i32 [ %44, %40 ], [ %50, %47 ]
   %.0.i = icmp sgt i32 %.0.in.i, -1
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %.0.i, label %51, label %ReadSubcommandReply.exit
 
 51:                                               ; preds = %WritePacket.exit
@@ -5654,7 +5648,7 @@ ReadInput.exit.i:                                 ; preds = %59
   br i1 %.not12.i, label %.thread20.i, label %ReadSubcommandReply.exit.thread
 
 ReadSubcommandReply.exit.thread:                  ; preds = %78
-  call void @llvm.lifetime.end.p0(i64 49, ptr nonnull %7) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.critedge
 
 .thread.i:                                        ; preds = %ReadInput.exit.i, %54
@@ -5667,7 +5661,7 @@ ReadSubcommandReply.exit.thread:                  ; preds = %78
   br i1 %.not13.i, label %54, label %ReadSubcommandReply.exit, !llvm.loop !15
 
 ReadSubcommandReply.exit:                         ; preds = %.thread20.i, %ReadInput.exit.i, %WritePacket.exit.thread, %WritePacket.exit
-  call void @llvm.lifetime.end.p0(i64 49, ptr nonnull %7) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %81 = add nuw nsw i32 %.02130, 1
   %82 = load i32, ptr %8, align 4
   %.not.not.not = icmp slt i32 %.02130, %82
@@ -5688,7 +5682,7 @@ ReadSubcommandReply.exit:                         ; preds = %.thread20.i, %ReadI
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i1 @WriteProprietary(ptr noundef %0, i32 noundef range(i32 1, 5) %1, i1 noundef zeroext %2) unnamed_addr #0 {
@@ -5713,11 +5707,11 @@ define internal fastcc noundef zeroext i1 @WriteProprietary(ptr noundef %0, i32 
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %36
   %.02016.us = phi i32 [ %37, %36 ], [ 1, %.lr.ph ]
-  call void @llvm.lifetime.start.p0(i64 49, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(47) %16, i8 0, i64 47, i1 false)
   store i8 -128, ptr %5, align 1
   store i8 %8, ptr %9, align 1
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %17 = load ptr, ptr %0, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 84
   %19 = load i8, ptr %18, align 4, !range !3, !noundef !4
@@ -5741,8 +5735,8 @@ define internal fastcc noundef zeroext i1 @WriteProprietary(ptr noundef %0, i32 
   br i1 %26, label %27, label %WritePacket.exit.thread.us
 
 WritePacket.exit.thread.us:                       ; preds = %25
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 49, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %36
 
 27:                                               ; preds = %25
@@ -5761,8 +5755,8 @@ WritePacket.exit.thread.us:                       ; preds = %25
 WritePacket.exit.us:                              ; preds = %31, %27
   %.0.in.i.us = phi i32 [ %35, %31 ], [ %30, %27 ]
   %.0.i.us = icmp sgt i32 %.0.in.i.us, -1
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 49, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.0.i.us, label %.loopexit, label %36
 
 36:                                               ; preds = %WritePacket.exit.thread.us, %WritePacket.exit.us
@@ -5773,11 +5767,11 @@ WritePacket.exit.us:                              ; preds = %31, %27
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %ReadProprietaryReply.exit.thread9
   %.02016 = phi i32 [ %87, %ReadProprietaryReply.exit.thread9 ], [ 1, %.lr.ph ]
-  call void @llvm.lifetime.start.p0(i64 49, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(47) %16, i8 0, i64 47, i1 false)
   store i8 -128, ptr %5, align 1
   store i8 %8, ptr %9, align 1
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %39 = load ptr, ptr %0, align 8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 84
   %41 = load i8, ptr %40, align 4, !range !3, !noundef !4
@@ -5808,7 +5802,7 @@ WritePacket.exit.us:                              ; preds = %31, %27
   br i1 %53, label %54, label %WritePacket.exit.thread
 
 WritePacket.exit.thread:                          ; preds = %52
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %ReadProprietaryReply.exit.thread9
 
 54:                                               ; preds = %52
@@ -5820,7 +5814,7 @@ WritePacket.exit.thread:                          ; preds = %52
 WritePacket.exit:                                 ; preds = %47, %54
   %.0.in.i = phi i32 [ %51, %47 ], [ %57, %54 ]
   %.0.i = icmp sgt i32 %.0.in.i, -1
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.0.i, label %58, label %ReadProprietaryReply.exit.thread9
 
 58:                                               ; preds = %WritePacket.exit
@@ -5885,7 +5879,7 @@ ReadInput.exit.i:                                 ; preds = %66
   br i1 %84, label %ReadProprietaryReply.exit.thread11, label %85
 
 ReadProprietaryReply.exit.thread11:               ; preds = %81
-  call void @llvm.lifetime.end.p0(i64 49, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit
 
 .thread.i:                                        ; preds = %ReadInput.exit.i, %61
@@ -5898,7 +5892,7 @@ ReadProprietaryReply.exit.thread11:               ; preds = %81
   br i1 %.not7.i, label %61, label %ReadProprietaryReply.exit.thread9, !llvm.loop !17
 
 ReadProprietaryReply.exit.thread9:                ; preds = %ReadInput.exit.i, %85, %WritePacket.exit, %WritePacket.exit.thread
-  call void @llvm.lifetime.end.p0(i64 49, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %87 = add nuw nsw i32 %.02016, 1
   %88 = load i32, ptr %6, align 4
   %.not = icmp slt i32 %.02016, %88
@@ -5910,7 +5904,7 @@ ReadProprietaryReply.exit.thread9:                ; preds = %ReadInput.exit.i, %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 declare i32 @SDL_hid_write_REAL(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
@@ -6052,7 +6046,7 @@ default.unreachable7:                             ; preds = %2
 
 GetSensorInputMode.exit.i:                        ; preds = %.thread.fold.split.i.i, %.thread15.i.i, %31, %25, %16, %15, %15
   %.0.i = phi i8 [ %.val.i, %16 ], [ 48, %15 ], [ 48, %15 ], [ %spec.select.i.i, %.thread15.i.i ], [ 48, %25 ], [ 48, %31 ], [ %.0.i4.i, %.thread.fold.split.i.i ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 %.0.i, ptr %3, align 1
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 37
   %42 = load i8, ptr %41, align 1
@@ -6065,7 +6059,7 @@ GetSensorInputMode.exit.i:                        ; preds = %.thread.fold.split.
   br label %UpdateInputMode.exit
 
 UpdateInputMode.exit:                             ; preds = %GetSensorInputMode.exit.i, %44
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -6256,7 +6250,7 @@ EncodeRumble.exit28:                              ; preds = %EncodeRumbleLowAmpl
   %46 = tail call i64 @SDL_GetTicks_REAL() #9
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i64 %46, ptr %47, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %48 = load ptr, ptr %0, align 8
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 84
   %50 = load i8, ptr %49, align 4, !range !3, !noundef !4
@@ -6282,7 +6276,7 @@ EncodeRumble.exit28:                              ; preds = %EncodeRumbleLowAmpl
   br i1 %63, label %64, label %WriteRumble.exit.thread
 
 WriteRumble.exit.thread:                          ; preds = %62
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %68
 
 64:                                               ; preds = %62
@@ -6294,7 +6288,7 @@ WriteRumble.exit.thread:                          ; preds = %62
 WriteRumble.exit:                                 ; preds = %58, %64
   %.0.in.i.i = phi i32 [ %61, %58 ], [ %67, %64 ]
   %.0.i.i = icmp sgt i32 %.0.in.i.i, -1
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.0.i.i, label %70, label %68
 
 68:                                               ; preds = %WriteRumble.exit.thread, %WriteRumble.exit
@@ -6364,7 +6358,7 @@ define internal void @SDL_EnhancedReportsChanged(ptr noundef initializes((48, 52
 
 GetSensorInputMode.exit.i.i:                      ; preds = %.thread15.i.i.i, %21, %20, %20
   %.0.i.i = phi i8 [ %.val.i.i, %21 ], [ 48, %20 ], [ 48, %20 ], [ %spec.select.i.i.i, %.thread15.i.i.i ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 %.0.i.i, ptr %5, align 1
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 37
   %27 = load i8, ptr %26, align 1
@@ -6377,7 +6371,7 @@ GetSensorInputMode.exit.i.i:                      ; preds = %.thread15.i.i.i, %2
   br label %SetEnhancedReportHint.exit
 
 SetEnhancedReportHint.exit:                       ; preds = %GetSensorInputMode.exit.i.i, %29
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %31
 
 31:                                               ; preds = %12, %SetEnhancedReportHint.exit, %9
@@ -6402,7 +6396,7 @@ define internal void @SDL_HomeLEDHintChanged(ptr noundef %0, ptr readnone captur
 
 10:                                               ; preds = %8
   %11 = tail call zeroext i1 @SDL_GetStringBoolean(ptr noundef nonnull %3, i1 noundef zeroext true) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br i1 %11, label %.thread17, label %SetHomeLED.exit
 
 12:                                               ; preds = %8
@@ -6411,7 +6405,7 @@ define internal void @SDL_HomeLEDHintChanged(ptr noundef %0, ptr readnone captur
   %15 = fptosi double %14 to i32
   %spec.store.select = tail call i32 @llvm.smin.i32(i32 %15, i32 255)
   %16 = trunc i32 %spec.store.select to i8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not.i = icmp eq i8 %16, 0
   br i1 %.not.i, label %SetHomeLED.exit, label %17
 
@@ -6445,7 +6439,7 @@ SetHomeLED.exit:                                  ; preds = %10, %12, %19, %.thr
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 3
   store i8 0, ptr %30, align 1
   %31 = call fastcc noundef zeroext i1 @WriteSubcommand(ptr noundef %0, i32 noundef 56, ptr noundef nonnull %5, i8 noundef zeroext 4, ptr noundef null)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %32
 
 32:                                               ; preds = %SetHomeLED.exit, %6, %4
@@ -6472,7 +6466,7 @@ define internal void @SDL_PlayerLEDHintChanged(ptr noundef %0, ptr readnone capt
   br i1 %13, label %UpdateSlotLED.exit, label %14
 
 14:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 0, ptr %5, align 1
   br i1 %6, label %15, label %23
 
@@ -6491,7 +6485,7 @@ define internal void @SDL_PlayerLEDHintChanged(ptr noundef %0, ptr readnone capt
 
 23:                                               ; preds = %19, %15, %14
   %24 = call fastcc zeroext i1 @WriteSubcommand(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull %5, i8 noundef zeroext 1, ptr noundef null)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %UpdateSlotLED.exit
 
 UpdateSlotLED.exit:                               ; preds = %10, %23
@@ -6521,6 +6515,12 @@ declare void @SDL_free_REAL(ptr noundef) local_unnamed_addr #3
 
 declare i32 @SDL_strcmp_REAL(ptr noundef, ptr noundef) local_unnamed_addr #3
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #8
 
@@ -6531,10 +6531,10 @@ attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-mat
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #9 = { nounwind }
 attributes #10 = { nounwind allocsize(0,1) }

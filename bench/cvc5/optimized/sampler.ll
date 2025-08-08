@@ -76,7 +76,7 @@ define hidden void @_ZN4cvc58internal7Sampler13pickBvUniformEj(ptr dead_on_unwin
 
 _ZN4cvc58internal6Random9getRandomEv.exit:        ; preds = %2, %7
   %8 = tail call noundef nonnull align 8 dereferenceable(16) ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZZN4cvc58internal6Random9getRandomEvE9s_current)
-  call void @llvm.lifetime.start.p0(i64 392, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %3)
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -86,7 +86,7 @@ _ZN4cvc58internal6Random9getRandomEv.exit:        ; preds = %2, %7
   br label %34
 
 ._crit_edge:                                      ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit, %_ZN4cvc58internal6Random9getRandomEv.exit
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.experimental.noalias.scope.decl(metadata !4)
   call void @llvm.experimental.noalias.scope.decl(metadata !7)
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -130,7 +130,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i: ; preds = %24
   %30 = load i64, ptr %10, align 8, !tbaa !20, !alias.scope !16
   %31 = add i64 %30, 1
-  call void @_ZdlPvm(ptr noundef %26, i64 noundef %31) #16
+  call void @_ZdlPvm(ptr noundef %26, i64 noundef %31) #15
   br label %.body
 
 32:                                               ; preds = %._crit_edge
@@ -176,11 +176,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %41
   %46 = load i64, ptr %10, align 8, !tbaa !20
   %47 = add i64 %46, 1
-  call void @_ZdlPvm(ptr noundef %42, i64 noundef %47) #16
+  call void @_ZdlPvm(ptr noundef %42, i64 noundef %47) #15
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %48 = load ptr, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, align 8
   store ptr %48, ptr %3, align 8, !tbaa !29
   %49 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), align 8
@@ -209,13 +209,13 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %63 = load i64, ptr %58, align 8, !tbaa !20
   %64 = add i64 %63, 1
-  call void @_ZdlPvm(ptr noundef %57, i64 noundef %64) #16
+  call void @_ZdlPvm(ptr noundef %57, i64 noundef %64) #15
   br label %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
 
 _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i
   store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %55, align 8, !tbaa !29
   %65 = getelementptr inbounds nuw i8, ptr %3, i64 80
-  call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %65) #15
+  call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %65) #16
   %66 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 16), align 8
   store ptr %66, ptr %3, align 8, !tbaa !29
   %67 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
@@ -226,8 +226,8 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
   %71 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 0, ptr %71, align 8, !tbaa !31
   %72 = getelementptr inbounds nuw i8, ptr %3, i64 128
-  call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %72) #15
-  call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %3) #15
+  call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %72) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 73:                                               ; preds = %_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv.exit
@@ -246,46 +246,40 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i11: ; preds = %73
   %79 = load i64, ptr %10, align 8, !tbaa !20
   %80 = add i64 %79, 1
-  call void @_ZdlPvm(ptr noundef %75, i64 noundef %80) #16
+  call void @_ZdlPvm(ptr noundef %75, i64 noundef %80) #15
   br label %.body
 
 .body:                                            ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i11, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i12, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
   %.pn = phi { ptr, i32 } [ %25, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i ], [ %25, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i ], [ %74, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i12 ], [ %74, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i11 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %81
 
 81:                                               ; preds = %.body, %39
   %.pn9 = phi { ptr, i32 } [ %40, %39 ], [ %.pn, %.body ]
-  call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %3) #15
-  call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %3) #15
+  call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn9
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: mustprogress uwtable
 declare void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128)) unnamed_addr #3 align 2
 
 ; Function Attrs: inlinehint mustprogress uwtable
-declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #5
+declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #4
 
 declare noundef zeroext i1 @_ZN4cvc58internal6Random12pickWithProbEd(ptr noundef nonnull align 8 dereferenceable(16), double noundef) local_unnamed_addr #0
 
 declare i32 @__gxx_personality_v0(...)
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
-
 declare void @_ZN4cvc58internal9BitVectorC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(32), i32 noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128)) unnamed_addr #6 align 2
+declare void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128)) unnamed_addr #5 align 2
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN4cvc58internal7Sampler13pickFpUniformEjj(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::FloatingPoint") align 8 %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cvc5::internal::BitVector", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = add i32 %2, %1
   call void @_ZN4cvc58internal7Sampler13pickBvUniformEj(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::BitVector") align 8 %4, i32 noundef %5)
   invoke void @_ZN4cvc58internal13FloatingPointC1EjjRKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %4)
@@ -304,7 +298,7 @@ define hidden void @_ZN4cvc58internal7Sampler13pickFpUniformEjj(ptr dead_on_unwi
   unreachable
 
 _ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %6
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
 11:                                               ; preds = %3
@@ -322,7 +316,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %6
   unreachable
 
 _ZN4cvc58internal9BitVectorD2Ev.exit5:            ; preds = %11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %12
 }
 
@@ -381,28 +375,28 @@ define hidden void @_ZN4cvc58internal7Sampler12pickFpBiasedEjj(ptr dead_on_unwin
 
 _ZN4cvc58internal6Random9getRandomEv.exit:        ; preds = %3, %46
   %47 = tail call noundef nonnull align 8 dereferenceable(16) ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZZN4cvc58internal6Random9getRandomEvE9s_current)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 1, ptr %4, align 8, !tbaa !33
   %48 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %48) #15
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #15
+  call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %48) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   invoke void @_ZN4cvc58internal9BitVectorC2Ejj(ptr noundef nonnull align 8 dereferenceable(24) %5, i32 noundef 1, i32 noundef 1)
           to label %49 unwind label %59
 
 49:                                               ; preds = %_ZN4cvc58internal6Random9getRandomEv.exit
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 1, ptr %6, align 8, !tbaa !33
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %50) #15
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #15
+  call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %50) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 %1, ptr %7, align 8, !tbaa !33
   %51 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %51) #15
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #15
+  call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %51) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %52 = add i32 %2, -1
   store i32 %52, ptr %8, align 8, !tbaa !33
   %53 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %53) #15
+  call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %53) #16
   %54 = invoke noundef zeroext i1 @_ZN4cvc58internal6Random12pickWithProbEd(ptr noundef nonnull align 8 dereferenceable(16) %47, double noundef 2.000000e-01)
           to label %55 unwind label %61
 
@@ -453,7 +447,7 @@ _ZN4cvc58internal6Random9getRandomEv.exit:        ; preds = %3, %46
           to label %_ZN4cvc58internal9BitVectoraSERKS1_.exit unwind label %63
 
 _ZN4cvc58internal9BitVectoraSERKS1_.exit:         ; preds = %65
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   invoke void @_ZN4cvc58internal9BitVector6mkOnesEj(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::BitVector") align 8 %9, i32 noundef %1)
           to label %69 unwind label %83
 
@@ -476,8 +470,8 @@ _ZN4cvc58internal9BitVectoraSERKS1_.exit142:      ; preds = %69
   unreachable
 
 _ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %_ZN4cvc58internal9BitVectoraSERKS1_.exit142
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #15
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   invoke void @_ZN4cvc58internal9BitVector6mkOnesEj(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::BitVector") align 8 %10, i32 noundef %52)
           to label %76 unwind label %90
 
@@ -500,7 +494,7 @@ _ZN4cvc58internal9BitVectoraSERKS1_.exit143:      ; preds = %76
   unreachable
 
 _ZN4cvc58internal9BitVectorD2Ev.exit144:          ; preds = %_ZN4cvc58internal9BitVectoraSERKS1_.exit143
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %_ZN4cvc58internal9BitVectoraSERKS1_.exit151
 
 83:                                               ; preds = %_ZN4cvc58internal9BitVectoraSERKS1_.exit
@@ -523,7 +517,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit144:          ; preds = %_ZN4cvc58internal9B
 
 _ZN4cvc58internal9BitVectorD2Ev.exit145:          ; preds = %85, %83
   %.pn127 = phi { ptr, i32 } [ %84, %83 ], [ %86, %85 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %584
 
 90:                                               ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit
@@ -546,7 +540,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit145:          ; preds = %85, %83
 
 _ZN4cvc58internal9BitVectorD2Ev.exit146:          ; preds = %92, %90
   %.pn129 = phi { ptr, i32 } [ %91, %90 ], [ %93, %92 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %584
 
 97:                                               ; preds = %58
@@ -557,7 +551,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit146:          ; preds = %92, %90
           to label %_ZN4cvc58internal9BitVectoraSERKS1_.exit147 unwind label %63
 
 _ZN4cvc58internal9BitVectoraSERKS1_.exit147:      ; preds = %97, %58
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   invoke void @_ZN4cvc58internal9BitVector6mkOnesEj(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::BitVector") align 8 %11, i32 noundef %1)
           to label %101 unwind label %108
 
@@ -580,7 +574,7 @@ _ZN4cvc58internal9BitVectoraSERKS1_.exit148:      ; preds = %101
   unreachable
 
 _ZN4cvc58internal9BitVectorD2Ev.exit149:          ; preds = %_ZN4cvc58internal9BitVectoraSERKS1_.exit148
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_ZN4cvc58internal9BitVectoraSERKS1_.exit151
 
 108:                                              ; preds = %_ZN4cvc58internal9BitVectoraSERKS1_.exit147
@@ -603,7 +597,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit149:          ; preds = %_ZN4cvc58internal9B
 
 _ZN4cvc58internal9BitVectorD2Ev.exit150:          ; preds = %110, %108
   %.pn125 = phi { ptr, i32 } [ %109, %108 ], [ %111, %110 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %584
 
 115:                                              ; preds = %58
@@ -621,7 +615,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit150:          ; preds = %110, %108
           to label %_ZN4cvc58internal9BitVectoraSERKS1_.exit152 unwind label %63
 
 _ZN4cvc58internal9BitVectoraSERKS1_.exit152:      ; preds = %119, %58
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   invoke void @_ZN4cvc58internal9BitVector6mkOnesEj(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::BitVector") align 8 %12, i32 noundef %52)
           to label %123 unwind label %130
 
@@ -644,7 +638,7 @@ _ZN4cvc58internal9BitVectoraSERKS1_.exit153:      ; preds = %123
   unreachable
 
 _ZN4cvc58internal9BitVectorD2Ev.exit154:          ; preds = %_ZN4cvc58internal9BitVectoraSERKS1_.exit153
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %_ZN4cvc58internal9BitVectoraSERKS1_.exit151
 
 130:                                              ; preds = %_ZN4cvc58internal9BitVectoraSERKS1_.exit152
@@ -667,7 +661,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit154:          ; preds = %_ZN4cvc58internal9B
 
 _ZN4cvc58internal9BitVectorD2Ev.exit155:          ; preds = %132, %130
   %.pn123 = phi { ptr, i32 } [ %131, %130 ], [ %133, %132 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %584
 
 137:                                              ; preds = %58
@@ -678,7 +672,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit155:          ; preds = %132, %130
           to label %_ZN4cvc58internal9BitVectoraSERKS1_.exit156 unwind label %63
 
 _ZN4cvc58internal9BitVectoraSERKS1_.exit156:      ; preds = %137, %58
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   invoke void @_ZN4cvc58internal9BitVectorC2Ejj(ptr noundef nonnull align 8 dereferenceable(24) %13, i32 noundef %52, i32 noundef 1)
           to label %141 unwind label %148
 
@@ -701,7 +695,7 @@ _ZN4cvc58internal9BitVectoraSERKS1_.exit157:      ; preds = %141
   unreachable
 
 _ZN4cvc58internal9BitVectorD2Ev.exit158:          ; preds = %_ZN4cvc58internal9BitVectoraSERKS1_.exit157
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %_ZN4cvc58internal9BitVectoraSERKS1_.exit151
 
 148:                                              ; preds = %_ZN4cvc58internal9BitVectoraSERKS1_.exit156
@@ -724,7 +718,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit158:          ; preds = %_ZN4cvc58internal9B
 
 _ZN4cvc58internal9BitVectorD2Ev.exit159:          ; preds = %150, %148
   %.pn121 = phi { ptr, i32 } [ %149, %148 ], [ %151, %150 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %584
 
 155:                                              ; preds = %58
@@ -735,13 +729,13 @@ _ZN4cvc58internal9BitVectorD2Ev.exit159:          ; preds = %150, %148
           to label %_ZN4cvc58internal9BitVectoraSERKS1_.exit160 unwind label %63
 
 _ZN4cvc58internal9BitVectoraSERKS1_.exit160:      ; preds = %155, %58
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14) #15
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   invoke void @_ZN4cvc58internal9BitVector6mkOnesEj(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::BitVector") align 8 %15, i32 noundef %1)
           to label %159 unwind label %183
 
 159:                                              ; preds = %_ZN4cvc58internal9BitVectoraSERKS1_.exit160
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %16) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   invoke void @_ZN4cvc58internal9BitVectorC2Ejj(ptr noundef nonnull align 8 dereferenceable(24) %16, i32 noundef %1, i32 noundef 1)
           to label %160 unwind label %185
 
@@ -780,7 +774,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit162:          ; preds = %_ZN4cvc58internal9B
   unreachable
 
 _ZN4cvc58internal9BitVectorD2Ev.exit163:          ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit162
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %172 = getelementptr inbounds nuw i8, ptr %15, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %172)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit164 unwind label %173
@@ -793,9 +787,9 @@ _ZN4cvc58internal9BitVectorD2Ev.exit163:          ; preds = %_ZN4cvc58internal9B
   unreachable
 
 _ZN4cvc58internal9BitVectorD2Ev.exit164:          ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit163
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15) #15
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14) #15
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   invoke void @_ZN4cvc58internal9BitVector6mkOnesEj(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::BitVector") align 8 %17, i32 noundef %52)
           to label %176 unwind label %202
 
@@ -818,7 +812,7 @@ _ZN4cvc58internal9BitVectoraSERKS1_.exit165:      ; preds = %176
   unreachable
 
 _ZN4cvc58internal9BitVectorD2Ev.exit166:          ; preds = %_ZN4cvc58internal9BitVectoraSERKS1_.exit165
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %_ZN4cvc58internal9BitVectoraSERKS1_.exit151
 
 183:                                              ; preds = %_ZN4cvc58internal9BitVectoraSERKS1_.exit160
@@ -864,7 +858,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit167:          ; preds = %189, %187
 
 _ZN4cvc58internal9BitVectorD2Ev.exit168:          ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit167, %185
   %.pn115.pn = phi { ptr, i32 } [ %186, %185 ], [ %.pn115, %_ZN4cvc58internal9BitVectorD2Ev.exit167 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %198 = getelementptr inbounds nuw i8, ptr %15, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %198)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit169 unwind label %199
@@ -878,8 +872,8 @@ _ZN4cvc58internal9BitVectorD2Ev.exit168:          ; preds = %_ZN4cvc58internal9B
 
 _ZN4cvc58internal9BitVectorD2Ev.exit169:          ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit168, %183
   %.pn115.pn.pn = phi { ptr, i32 } [ %184, %183 ], [ %.pn115.pn, %_ZN4cvc58internal9BitVectorD2Ev.exit168 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15) #15
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %584
 
 202:                                              ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit164
@@ -902,7 +896,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit169:          ; preds = %_ZN4cvc58internal9B
 
 _ZN4cvc58internal9BitVectorD2Ev.exit170:          ; preds = %204, %202
   %.pn119 = phi { ptr, i32 } [ %203, %202 ], [ %205, %204 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %584
 
 209:                                              ; preds = %58
@@ -913,7 +907,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit170:          ; preds = %204, %202
           to label %_ZN4cvc58internal9BitVectoraSERKS1_.exit171 unwind label %63
 
 _ZN4cvc58internal9BitVectoraSERKS1_.exit171:      ; preds = %209, %58
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %18) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   invoke void @_ZN4cvc58internal9BitVectorC2Ejj(ptr noundef nonnull align 8 dereferenceable(24) %18, i32 noundef %1, i32 noundef 1)
           to label %213 unwind label %220
 
@@ -936,7 +930,7 @@ _ZN4cvc58internal9BitVectoraSERKS1_.exit172:      ; preds = %213
   unreachable
 
 _ZN4cvc58internal9BitVectorD2Ev.exit173:          ; preds = %_ZN4cvc58internal9BitVectoraSERKS1_.exit172
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %_ZN4cvc58internal9BitVectoraSERKS1_.exit151
 
 220:                                              ; preds = %_ZN4cvc58internal9BitVectoraSERKS1_.exit171
@@ -959,11 +953,11 @@ _ZN4cvc58internal9BitVectorD2Ev.exit173:          ; preds = %_ZN4cvc58internal9B
 
 _ZN4cvc58internal9BitVectorD2Ev.exit174:          ; preds = %222, %220
   %.pn113 = phi { ptr, i32 } [ %221, %220 ], [ %223, %222 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %584
 
 227:                                              ; preds = %58
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %19) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   invoke void @_ZN4cvc58internal11FatalStreamC1EPKcS3_i(ptr noundef nonnull align 1 dereferenceable(1) %19, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN4cvc58internal7Sampler12pickFpBiasedEjj, ptr noundef nonnull @.str.2, i32 noundef 111)
           to label %228 unwind label %233
 
@@ -982,7 +976,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit174:          ; preds = %222, %220
 233:                                              ; preds = %227
   %234 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %19) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %584
 
 235:                                              ; preds = %230, %228
@@ -1025,8 +1019,8 @@ _ZN4cvc58internal9BitVectoraSERKS1_.exit175:      ; preds = %240, %239
   br label %584
 
 248:                                              ; preds = %245
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %20) #15
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %21) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %249 = add i32 %1, -1
   invoke void @_ZN4cvc58internal7Sampler13pickBvUniformEj(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::BitVector") align 8 %21, i32 noundef %249)
           to label %250 unwind label %269
@@ -1066,9 +1060,9 @@ _ZN4cvc58internal9BitVectorD2Ev.exit177:          ; preds = %_ZN4cvc58internal9B
   unreachable
 
 _ZN4cvc58internal9BitVectorD2Ev.exit178:          ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit177
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21) #15
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %20) #15
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %22) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   invoke void @_ZN4cvc58internal9BitVector6mkOnesEj(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::BitVector") align 8 %22, i32 noundef %52)
           to label %262 unwind label %282
 
@@ -1091,7 +1085,7 @@ _ZN4cvc58internal9BitVectoraSERKS1_.exit179:      ; preds = %262
   unreachable
 
 _ZN4cvc58internal9BitVectorD2Ev.exit180:          ; preds = %_ZN4cvc58internal9BitVectoraSERKS1_.exit179
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %22) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %_ZN4cvc58internal9BitVectoraSERKS1_.exit151
 
 269:                                              ; preds = %248
@@ -1132,8 +1126,8 @@ _ZN4cvc58internal9BitVectorD2Ev.exit181:          ; preds = %273, %271
 
 _ZN4cvc58internal9BitVectorD2Ev.exit182:          ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit181, %269
   %.pn106.pn = phi { ptr, i32 } [ %270, %269 ], [ %.pn106, %_ZN4cvc58internal9BitVectorD2Ev.exit181 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21) #15
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %20) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %584
 
 282:                                              ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit178
@@ -1156,12 +1150,12 @@ _ZN4cvc58internal9BitVectorD2Ev.exit182:          ; preds = %_ZN4cvc58internal9B
 
 _ZN4cvc58internal9BitVectorD2Ev.exit183:          ; preds = %284, %282
   %.pn109 = phi { ptr, i32 } [ %283, %282 ], [ %285, %284 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %22) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %584
 
 289:                                              ; preds = %245
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %23) #15
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %24) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   %290 = add i32 %1, -1
   invoke void @_ZN4cvc58internal7Sampler13pickBvUniformEj(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::BitVector") align 8 %24, i32 noundef %290)
           to label %291 unwind label %303
@@ -1201,8 +1195,8 @@ _ZN4cvc58internal9BitVectorD2Ev.exit185:          ; preds = %_ZN4cvc58internal9B
   unreachable
 
 _ZN4cvc58internal9BitVectorD2Ev.exit186:          ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit185
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %24) #15
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %23) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %_ZN4cvc58internal9BitVectoraSERKS1_.exit151
 
 303:                                              ; preds = %289
@@ -1243,14 +1237,14 @@ _ZN4cvc58internal9BitVectorD2Ev.exit187:          ; preds = %307, %305
 
 _ZN4cvc58internal9BitVectorD2Ev.exit188:          ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit187, %303
   %.pn103.pn = phi { ptr, i32 } [ %304, %303 ], [ %.pn103, %_ZN4cvc58internal9BitVectorD2Ev.exit187 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %24) #15
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %23) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %584
 
 316:                                              ; preds = %245
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %25) #15
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %26) #15
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %27) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   %317 = add i32 %1, -2
   invoke void @_ZN4cvc58internal7Sampler13pickBvUniformEj(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::BitVector") align 8 %27, i32 noundef %317)
           to label %318 unwind label %342
@@ -1306,10 +1300,10 @@ _ZN4cvc58internal9BitVectorD2Ev.exit191:          ; preds = %_ZN4cvc58internal9B
   unreachable
 
 _ZN4cvc58internal9BitVectorD2Ev.exit192:          ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit191
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %27) #15
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %26) #15
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %25) #15
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %28) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   invoke void @_ZN4cvc58internal9BitVector6mkOnesEj(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::BitVector") align 8 %28, i32 noundef %52)
           to label %335 unwind label %361
 
@@ -1332,7 +1326,7 @@ _ZN4cvc58internal9BitVectoraSERKS1_.exit193:      ; preds = %335
   unreachable
 
 _ZN4cvc58internal9BitVectorD2Ev.exit194:          ; preds = %_ZN4cvc58internal9BitVectoraSERKS1_.exit193
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %28) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %_ZN4cvc58internal9BitVectoraSERKS1_.exit151
 
 342:                                              ; preds = %316
@@ -1391,9 +1385,9 @@ _ZN4cvc58internal9BitVectorD2Ev.exit196:          ; preds = %_ZN4cvc58internal9B
 
 _ZN4cvc58internal9BitVectorD2Ev.exit197:          ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit196, %342
   %.pn97.pn.pn = phi { ptr, i32 } [ %343, %342 ], [ %.pn97.pn, %_ZN4cvc58internal9BitVectorD2Ev.exit196 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %27) #15
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %26) #15
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %25) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %584
 
 361:                                              ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit192
@@ -1416,12 +1410,12 @@ _ZN4cvc58internal9BitVectorD2Ev.exit197:          ; preds = %_ZN4cvc58internal9B
 
 _ZN4cvc58internal9BitVectorD2Ev.exit198:          ; preds = %363, %361
   %.pn101 = phi { ptr, i32 } [ %362, %361 ], [ %364, %363 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %28) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %584
 
 368:                                              ; preds = %245
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %29) #15
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %30) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   %369 = add i32 %1, -1
   invoke void @_ZN4cvc58internal7Sampler13pickBvUniformEj(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::BitVector") align 8 %30, i32 noundef %369)
           to label %370 unwind label %389
@@ -1461,9 +1455,9 @@ _ZN4cvc58internal9BitVectorD2Ev.exit200:          ; preds = %_ZN4cvc58internal9B
   unreachable
 
 _ZN4cvc58internal9BitVectorD2Ev.exit201:          ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit200
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %30) #15
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %29) #15
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %31) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
   invoke void @_ZN4cvc58internal7Sampler13pickBvUniformEj(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::BitVector") align 8 %31, i32 noundef %52)
           to label %382 unwind label %402
 
@@ -1486,7 +1480,7 @@ _ZN4cvc58internal9BitVectoraSERKS1_.exit202:      ; preds = %382
   unreachable
 
 _ZN4cvc58internal9BitVectorD2Ev.exit203:          ; preds = %_ZN4cvc58internal9BitVectoraSERKS1_.exit202
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %31) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
   br label %_ZN4cvc58internal9BitVectoraSERKS1_.exit151
 
 389:                                              ; preds = %368
@@ -1527,8 +1521,8 @@ _ZN4cvc58internal9BitVectorD2Ev.exit204:          ; preds = %393, %391
 
 _ZN4cvc58internal9BitVectorD2Ev.exit205:          ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit204, %389
   %.pn92.pn = phi { ptr, i32 } [ %390, %389 ], [ %.pn92, %_ZN4cvc58internal9BitVectorD2Ev.exit204 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %30) #15
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %29) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   br label %584
 
 402:                                              ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit201
@@ -1551,13 +1545,13 @@ _ZN4cvc58internal9BitVectorD2Ev.exit205:          ; preds = %_ZN4cvc58internal9B
 
 _ZN4cvc58internal9BitVectorD2Ev.exit206:          ; preds = %404, %402
   %.pn95 = phi { ptr, i32 } [ %403, %402 ], [ %405, %404 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %31) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
   br label %584
 
 409:                                              ; preds = %245
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %32) #15
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %33) #15
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %34) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
   %410 = add i32 %1, -2
   invoke void @_ZN4cvc58internal7Sampler13pickBvUniformEj(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::BitVector") align 8 %34, i32 noundef %410)
           to label %411 unwind label %435
@@ -1613,10 +1607,10 @@ _ZN4cvc58internal9BitVectorD2Ev.exit209:          ; preds = %_ZN4cvc58internal9B
   unreachable
 
 _ZN4cvc58internal9BitVectorD2Ev.exit210:          ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit209
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %34) #15
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %33) #15
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %32) #15
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %35) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
   invoke void @_ZN4cvc58internal7Sampler13pickBvUniformEj(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::BitVector") align 8 %35, i32 noundef %52)
           to label %428 unwind label %454
 
@@ -1639,7 +1633,7 @@ _ZN4cvc58internal9BitVectoraSERKS1_.exit211:      ; preds = %428
   unreachable
 
 _ZN4cvc58internal9BitVectorD2Ev.exit212:          ; preds = %_ZN4cvc58internal9BitVectoraSERKS1_.exit211
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %35) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
   br label %_ZN4cvc58internal9BitVectoraSERKS1_.exit151
 
 435:                                              ; preds = %409
@@ -1698,9 +1692,9 @@ _ZN4cvc58internal9BitVectorD2Ev.exit214:          ; preds = %_ZN4cvc58internal9B
 
 _ZN4cvc58internal9BitVectorD2Ev.exit215:          ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit214, %435
   %.pn86.pn.pn = phi { ptr, i32 } [ %436, %435 ], [ %.pn86.pn, %_ZN4cvc58internal9BitVectorD2Ev.exit214 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %34) #15
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %33) #15
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %32) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
   br label %584
 
 454:                                              ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit210
@@ -1723,7 +1717,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit215:          ; preds = %_ZN4cvc58internal9B
 
 _ZN4cvc58internal9BitVectorD2Ev.exit216:          ; preds = %456, %454
   %.pn90 = phi { ptr, i32 } [ %455, %454 ], [ %457, %456 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %35) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
   br label %584
 
 461:                                              ; preds = %245
@@ -1733,21 +1727,21 @@ _ZN4cvc58internal9BitVectorD2Ev.exit216:          ; preds = %456, %454
           to label %465 unwind label %498
 
 465:                                              ; preds = %461
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %36) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
   %466 = trunc i64 %464 to i32
   invoke void @_ZN4cvc58internal7Sampler13pickBvUniformEj(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::BitVector") align 8 %36, i32 noundef %466)
           to label %467 unwind label %500
 
 467:                                              ; preds = %465
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %37) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
   %468 = xor i32 %466, -1
   %469 = add i32 %1, %468
   invoke void @_ZN4cvc58internal7Sampler13pickBvUniformEj(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::BitVector") align 8 %37, i32 noundef %469)
           to label %470 unwind label %502
 
 470:                                              ; preds = %467
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %38) #15
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %39) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %38)
+  call void @llvm.lifetime.start.p0(ptr nonnull %39)
   invoke void @_ZNK4cvc58internal9BitVector6concatERKS1_(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::BitVector") align 8 %39, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %36)
           to label %471 unwind label %504
 
@@ -1786,9 +1780,9 @@ _ZN4cvc58internal9BitVectorD2Ev.exit218:          ; preds = %_ZN4cvc58internal9B
   unreachable
 
 _ZN4cvc58internal9BitVectorD2Ev.exit219:          ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit218
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %39) #15
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %38) #15
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %40) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
+  call void @llvm.lifetime.start.p0(ptr nonnull %40)
   invoke void @_ZN4cvc58internal7Sampler13pickBvUniformEj(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::BitVector") align 8 %40, i32 noundef %52)
           to label %483 unwind label %517
 
@@ -1811,7 +1805,7 @@ _ZN4cvc58internal9BitVectoraSERKS1_.exit220:      ; preds = %483
   unreachable
 
 _ZN4cvc58internal9BitVectorD2Ev.exit221:          ; preds = %_ZN4cvc58internal9BitVectoraSERKS1_.exit220
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %40) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
   %490 = getelementptr inbounds nuw i8, ptr %37, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %490)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit222 unwind label %491
@@ -1824,7 +1818,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit221:          ; preds = %_ZN4cvc58internal9B
   unreachable
 
 _ZN4cvc58internal9BitVectorD2Ev.exit222:          ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit221
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %37) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
   %494 = getelementptr inbounds nuw i8, ptr %36, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %494)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit223 unwind label %495
@@ -1837,7 +1831,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit222:          ; preds = %_ZN4cvc58internal9B
   unreachable
 
 _ZN4cvc58internal9BitVectorD2Ev.exit223:          ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit222
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %36) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
   br label %_ZN4cvc58internal9BitVectoraSERKS1_.exit151
 
 498:                                              ; preds = %461
@@ -1893,8 +1887,8 @@ _ZN4cvc58internal9BitVectorD2Ev.exit224:          ; preds = %508, %506
 
 _ZN4cvc58internal9BitVectorD2Ev.exit225:          ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit224, %504
   %.pn.pn = phi { ptr, i32 } [ %505, %504 ], [ %.pn, %_ZN4cvc58internal9BitVectorD2Ev.exit224 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %39) #15
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %38) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
   br label %524
 
 517:                                              ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit219
@@ -1917,7 +1911,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit225:          ; preds = %_ZN4cvc58internal9B
 
 _ZN4cvc58internal9BitVectorD2Ev.exit226:          ; preds = %519, %517
   %.pn80 = phi { ptr, i32 } [ %518, %517 ], [ %520, %519 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %40) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
   br label %524
 
 524:                                              ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit226, %_ZN4cvc58internal9BitVectorD2Ev.exit225
@@ -1935,7 +1929,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit226:          ; preds = %519, %517
 
 _ZN4cvc58internal9BitVectorD2Ev.exit227:          ; preds = %524, %502
   %.pn80.pn.pn = phi { ptr, i32 } [ %503, %502 ], [ %.pn80.pn, %524 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %37) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
   %529 = getelementptr inbounds nuw i8, ptr %36, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %529)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit228 unwind label %530
@@ -1949,11 +1943,11 @@ _ZN4cvc58internal9BitVectorD2Ev.exit227:          ; preds = %524, %502
 
 _ZN4cvc58internal9BitVectorD2Ev.exit228:          ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit227, %500
   %.pn80.pn.pn.pn = phi { ptr, i32 } [ %501, %500 ], [ %.pn80.pn.pn, %_ZN4cvc58internal9BitVectorD2Ev.exit227 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %36) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
   br label %584
 
 533:                                              ; preds = %245
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %41) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %41)
   invoke void @_ZN4cvc58internal11FatalStreamC1EPKcS3_i(ptr noundef nonnull align 1 dereferenceable(1) %41, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN4cvc58internal7Sampler12pickFpBiasedEjj, ptr noundef nonnull @.str.2, i32 noundef 168)
           to label %534 unwind label %539
 
@@ -1972,7 +1966,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit228:          ; preds = %_ZN4cvc58internal9B
 539:                                              ; preds = %533
   %540 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %41) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
   br label %584
 
 541:                                              ; preds = %536, %534
@@ -1982,8 +1976,8 @@ _ZN4cvc58internal9BitVectorD2Ev.exit228:          ; preds = %_ZN4cvc58internal9B
   unreachable
 
 _ZN4cvc58internal9BitVectoraSERKS1_.exit151:      ; preds = %115, %_ZN4cvc58internal9BitVectorD2Ev.exit180, %_ZN4cvc58internal9BitVectorD2Ev.exit186, %_ZN4cvc58internal9BitVectorD2Ev.exit194, %_ZN4cvc58internal9BitVectorD2Ev.exit203, %_ZN4cvc58internal9BitVectorD2Ev.exit212, %_ZN4cvc58internal9BitVectorD2Ev.exit223, %58, %_ZN4cvc58internal9BitVectorD2Ev.exit144, %_ZN4cvc58internal9BitVectorD2Ev.exit149, %_ZN4cvc58internal9BitVectorD2Ev.exit154, %_ZN4cvc58internal9BitVectorD2Ev.exit158, %_ZN4cvc58internal9BitVectorD2Ev.exit166, %_ZN4cvc58internal9BitVectorD2Ev.exit173
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %42) #15
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %43) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %42)
+  call void @llvm.lifetime.start.p0(ptr nonnull %43)
   invoke void @_ZNK4cvc58internal9BitVector6concatERKS1_(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::BitVector") align 8 %43, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8)
           to label %543 unwind label %570
 
@@ -2004,7 +1998,7 @@ _ZN4cvc58internal9BitVectoraSERKS1_.exit151:      ; preds = %115, %_ZN4cvc58inte
   unreachable
 
 _ZN4cvc58internal9BitVectorD2Ev.exit229:          ; preds = %544
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %43) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
   invoke void @_ZN4cvc58internal13FloatingPointC1EjjRKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %42)
           to label %549 unwind label %578
 
@@ -2021,7 +2015,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit229:          ; preds = %544
   unreachable
 
 _ZN4cvc58internal9BitVectorD2Ev.exit230:          ; preds = %549
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %42) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %53)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit231 unwind label %554
 
@@ -2033,7 +2027,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit230:          ; preds = %549
   unreachable
 
 _ZN4cvc58internal9BitVectorD2Ev.exit231:          ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit230
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %51)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit232 unwind label %557
 
@@ -2045,7 +2039,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit231:          ; preds = %_ZN4cvc58internal9B
   unreachable
 
 _ZN4cvc58internal9BitVectorD2Ev.exit232:          ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit231
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %50)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit233 unwind label %560
 
@@ -2057,7 +2051,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit232:          ; preds = %_ZN4cvc58internal9B
   unreachable
 
 _ZN4cvc58internal9BitVectorD2Ev.exit233:          ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit232
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %563 = getelementptr inbounds nuw i8, ptr %5, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %563)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit234 unwind label %564
@@ -2070,7 +2064,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit233:          ; preds = %_ZN4cvc58internal9B
   unreachable
 
 _ZN4cvc58internal9BitVectorD2Ev.exit234:          ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit233
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %48)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit235 unwind label %567
 
@@ -2082,7 +2076,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit234:          ; preds = %_ZN4cvc58internal9B
   unreachable
 
 _ZN4cvc58internal9BitVectorD2Ev.exit235:          ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit234
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
 570:                                              ; preds = %_ZN4cvc58internal9BitVectoraSERKS1_.exit151
@@ -2106,7 +2100,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit235:          ; preds = %_ZN4cvc58internal9B
 
 _ZN4cvc58internal9BitVectorD2Ev.exit236:          ; preds = %572, %570
   %.pn131 = phi { ptr, i32 } [ %571, %570 ], [ %573, %572 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %43) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
   br label %_ZN4cvc58internal9BitVectorD2Ev.exit237
 
 578:                                              ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit229
@@ -2125,7 +2119,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit236:          ; preds = %572, %570
 
 _ZN4cvc58internal9BitVectorD2Ev.exit237:          ; preds = %578, %_ZN4cvc58internal9BitVectorD2Ev.exit236
   %.pn133 = phi { ptr, i32 } [ %.pn131, %_ZN4cvc58internal9BitVectorD2Ev.exit236 ], [ %579, %578 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %42) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
   br label %584
 
 584:                                              ; preds = %246, %_ZN4cvc58internal9BitVectorD2Ev.exit182, %_ZN4cvc58internal9BitVectorD2Ev.exit183, %_ZN4cvc58internal9BitVectorD2Ev.exit188, %_ZN4cvc58internal9BitVectorD2Ev.exit197, %_ZN4cvc58internal9BitVectorD2Ev.exit198, %_ZN4cvc58internal9BitVectorD2Ev.exit205, %_ZN4cvc58internal9BitVectorD2Ev.exit206, %_ZN4cvc58internal9BitVectorD2Ev.exit215, %_ZN4cvc58internal9BitVectorD2Ev.exit216, %539, %_ZN4cvc58internal9BitVectorD2Ev.exit228, %498, %63, %_ZN4cvc58internal9BitVectorD2Ev.exit145, %_ZN4cvc58internal9BitVectorD2Ev.exit146, %_ZN4cvc58internal9BitVectorD2Ev.exit150, %_ZN4cvc58internal9BitVectorD2Ev.exit155, %_ZN4cvc58internal9BitVectorD2Ev.exit159, %_ZN4cvc58internal9BitVectorD2Ev.exit169, %_ZN4cvc58internal9BitVectorD2Ev.exit170, %_ZN4cvc58internal9BitVectorD2Ev.exit174, %233, %_ZN4cvc58internal9BitVectorD2Ev.exit237, %61
@@ -2141,7 +2135,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit237:          ; preds = %578, %_ZN4cvc58inte
   unreachable
 
 _ZN4cvc58internal9BitVectorD2Ev.exit238:          ; preds = %584
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %51)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit239 unwind label %588
 
@@ -2153,7 +2147,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit238:          ; preds = %584
   unreachable
 
 _ZN4cvc58internal9BitVectorD2Ev.exit239:          ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit238
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %50)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit240 unwind label %591
 
@@ -2165,7 +2159,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit239:          ; preds = %_ZN4cvc58internal9B
   unreachable
 
 _ZN4cvc58internal9BitVectorD2Ev.exit240:          ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit239
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %594 = getelementptr inbounds nuw i8, ptr %5, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %594)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit241 unwind label %595
@@ -2179,7 +2173,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit240:          ; preds = %_ZN4cvc58internal9B
 
 _ZN4cvc58internal9BitVectorD2Ev.exit241:          ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit240, %59
   %.pn135.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %60, %59 ], [ %.pn135.pn, %_ZN4cvc58internal9BitVectorD2Ev.exit240 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %48)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit242 unwind label %598
 
@@ -2191,7 +2185,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit241:          ; preds = %_ZN4cvc58internal9B
   unreachable
 
 _ZN4cvc58internal9BitVectorD2Ev.exit242:          ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit241
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn135.pn.pn.pn.pn.pn
 }
 
@@ -2203,7 +2197,7 @@ _ZN4cvc58internal7IntegerC2Ej.exit:
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = zext i32 %2 to i64
   tail call void @__gmpz_init_set_ui(ptr noundef nonnull align 8 dereferenceable(16) %4, i64 noundef %5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   invoke void @_ZNK4cvc58internal7Integer9modByPow2Ej(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::Integer") align 8 %3, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef %1)
           to label %6 unwind label %12
 
@@ -2223,7 +2217,7 @@ _ZN4cvc58internal7IntegerC2Ej.exit:
   unreachable
 
 _ZN4cvc58internal7IntegerD2Ev.exit:               ; preds = %8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 12:                                               ; preds = %_ZN4cvc58internal7IntegerC2Ej.exit
@@ -2246,7 +2240,7 @@ _ZN4cvc58internal7IntegerD2Ev.exit:               ; preds = %8
 
 _ZN4cvc58internal7IntegerD2Ev.exit7:              ; preds = %14, %12
   %.pn = phi { ptr, i32 } [ %13, %12 ], [ %15, %14 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZN4cvc58internal7IntegerD2Ev.exit8 unwind label %19
 
@@ -2272,20 +2266,20 @@ declare void @_ZN4cvc58internal11FatalStreamC1EPKcS3_i(ptr noundef nonnull align
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internal11FatalStream6streamEv(ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #0
 
 ; Function Attrs: noreturn nounwind
-declare void @_ZN4cvc58internal11FatalStreamD1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #7
+declare void @_ZN4cvc58internal11FatalStreamD1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #6
 
 declare void @_ZNK4cvc58internal9BitVector6concatERKS1_(ptr dead_on_unwind writable sret(%"class.cvc5::internal::BitVector") align 8, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 declare void @_ZN4cvc58internal6RandomC1Em(ptr noundef nonnull align 8 dereferenceable(16), i64 noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #8
+declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #7
 
 declare void @__gmpz_clear(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: noinline noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #9 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #15
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #8 comdat {
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #16
   tail call void @_ZSt9terminatev() #17
   unreachable
 }
@@ -2293,7 +2287,7 @@ define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_un
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #10
+declare void @_ZSt9terminatev() local_unnamed_addr #9
 
 ; Function Attrs: nounwind
 declare void @__gmpz_init(ptr noundef) local_unnamed_addr #1
@@ -2305,7 +2299,7 @@ declare void @_ZNK4cvc58internal7Integer9modByPow2Ej(ptr dead_on_unwind writable
 declare noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal7IntegeraSERKS1_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #11
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #10
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) local_unnamed_addr #0
 
@@ -2320,11 +2314,17 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_sampler.cpp() #12 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_sampler.cpp() #11 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #15
+  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #16
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #13
@@ -2336,19 +2336,19 @@ attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "t
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind }
 attributes #3 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { cold nofree noreturn }
-attributes #11 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { cold nofree noreturn }
+attributes #10 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #13 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #14 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #15 = { nounwind }
-attributes #16 = { builtin nounwind }
+attributes #15 = { builtin nounwind }
+attributes #16 = { nounwind }
 attributes #17 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

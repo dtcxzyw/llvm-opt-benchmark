@@ -1759,7 +1759,7 @@ define hidden { ptr, i64 } @_ZNK24VTransformLoadVectorNode5applyERK13VLoopAnalyz
   %.030 = phi ptr [ %15, %.lr.ph ], [ %109, %.loopexit ]
   %58 = load ptr, ptr %1, align 8
   call void @_ZN8VPointerC2EP7MemNodeRK5VLoopP10Node_Stackb(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull %.030, ptr noundef nonnull align 8 dereferenceable(56) %58, ptr noundef null, i1 noundef zeroext false) #9
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %59 = load i32, ptr %6, align 8
   %60 = icmp sgt i32 %59, 0
   br i1 %60, label %.lr.ph.i, label %.loopexit
@@ -1836,11 +1836,11 @@ _ZNK8VPointer9not_equalERKS_.exit.i:              ; preds = %93, %83
   br i1 %105, label %.lr.ph.i, label %.loopexit, !llvm.loop !15
 
 _ZNK8VPointer28overlap_possible_with_any_inERK13GrowableArrayIP4NodeE.exit.thread: ; preds = %.lr.ph.i, %66, %70, %75, %79, %93
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit27
 
 .loopexit:                                        ; preds = %_ZNK8VPointer9not_equalERKS_.exit.i, %57
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %106 = getelementptr inbounds nuw i8, ptr %.030, i64 8
   %107 = load ptr, ptr %106, align 8
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 8
@@ -2311,10 +2311,10 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare void @llvm.assume(i1 noundef) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

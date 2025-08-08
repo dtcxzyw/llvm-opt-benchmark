@@ -1260,7 +1260,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__42UsdUtilsConditionalAbortDiag
   br i1 %40, label %_ZNKSt9type_infoeqERKS_.exit.thread.i.i.i, label %41
 
 41:                                               ; preds = %35
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.not.i.i.i.i = icmp eq ptr %39, null
   br i1 %.not.i.i.i.i, label %_ZNKSt3any4typeEv.exit.i.i.i, label %42
 
@@ -1281,7 +1281,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__42UsdUtilsConditionalAbortDiag
 
 _ZNKSt3any4typeEv.exit.i.i.i:                     ; preds = %43, %41
   %.0.i.i.i.i = phi ptr [ %44, %43 ], [ @_ZTIv, %41 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %48 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
   %49 = load ptr, ptr %48, align 8
   %50 = icmp eq ptr %49, @_ZTSN32pxrInternal_v0_24__pxrReserved__7TfErrorE
@@ -1495,7 +1495,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__42UsdUtilsConditionalAbortDiag
   br i1 %10, label %_ZNKSt9type_infoeqERKS_.exit.thread.i.i.i, label %11
 
 11:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.not.i.i.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i.i.i, label %_ZNKSt3any4typeEv.exit.i.i.i, label %12
 
@@ -1516,7 +1516,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__42UsdUtilsConditionalAbortDiag
 
 _ZNKSt3any4typeEv.exit.i.i.i:                     ; preds = %13, %11
   %.0.i.i.i.i = phi ptr [ %14, %13 ], [ @_ZTIv, %11 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %18 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, @_ZTSN32pxrInternal_v0_24__pxrReserved__8TfStatusE
@@ -1652,7 +1652,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__42UsdUtilsConditionalAbortDiag
   br i1 %40, label %_ZNKSt9type_infoeqERKS_.exit.thread.i.i.i, label %41
 
 41:                                               ; preds = %35
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.not.i.i.i.i = icmp eq ptr %39, null
   br i1 %.not.i.i.i.i, label %_ZNKSt3any4typeEv.exit.i.i.i, label %42
 
@@ -1673,7 +1673,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__42UsdUtilsConditionalAbortDiag
 
 _ZNKSt3any4typeEv.exit.i.i.i:                     ; preds = %43, %41
   %.0.i.i.i.i = phi ptr [ %44, %43 ], [ @_ZTIv, %41 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %48 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
   %49 = load ptr, ptr %48, align 8
   %50 = icmp eq ptr %49, @_ZTSN32pxrInternal_v0_24__pxrReserved__9TfWarningE
@@ -2178,7 +2178,7 @@ define linkonce_odr void @_ZNSt3any17_Manager_externalIN32pxrInternal_v0_24__pxr
 17:                                               ; preds = %.noexc
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 120
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 120
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 128
   store ptr null, ptr %20, align 8
   %21 = load ptr, ptr %19, align 8
@@ -2211,7 +2211,7 @@ define linkonce_odr void @_ZNSt3any17_Manager_externalIN32pxrInternal_v0_24__pxr
   br label %.body
 
 29:                                               ; preds = %23, %22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %30 = getelementptr inbounds nuw i8, ptr %10, i64 136
   %31 = getelementptr inbounds nuw i8, ptr %6, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %30, ptr noundef nonnull align 8 dereferenceable(9) %31, i64 9, i1 false)
@@ -2367,7 +2367,7 @@ define linkonce_odr void @_ZNSt3any17_Manager_externalIN32pxrInternal_v0_24__pxr
 17:                                               ; preds = %.noexc
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 120
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 120
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 128
   store ptr null, ptr %20, align 8
   %21 = load ptr, ptr %19, align 8
@@ -2400,7 +2400,7 @@ define linkonce_odr void @_ZNSt3any17_Manager_externalIN32pxrInternal_v0_24__pxr
   br label %.body
 
 29:                                               ; preds = %23, %22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %30 = getelementptr inbounds nuw i8, ptr %10, i64 136
   %31 = getelementptr inbounds nuw i8, ptr %6, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %30, ptr noundef nonnull align 8 dereferenceable(9) %31, i64 9, i1 false)
@@ -2553,7 +2553,7 @@ define linkonce_odr void @_ZNSt3any17_Manager_externalIN32pxrInternal_v0_24__pxr
 17:                                               ; preds = %.noexc
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 120
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 120
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 128
   store ptr null, ptr %20, align 8
   %21 = load ptr, ptr %19, align 8
@@ -2586,7 +2586,7 @@ define linkonce_odr void @_ZNSt3any17_Manager_externalIN32pxrInternal_v0_24__pxr
   br label %.body
 
 29:                                               ; preds = %23, %22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %30 = getelementptr inbounds nuw i8, ptr %10, i64 136
   %31 = getelementptr inbounds nuw i8, ptr %6, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %30, ptr noundef nonnull align 8 dereferenceable(9) %31, i64 9, i1 false)
@@ -2717,10 +2717,10 @@ declare i64 @llvm.umin.i64(i64, i64) #16
 declare void @llvm.assume(i1 noundef) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #18
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #18
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #18
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

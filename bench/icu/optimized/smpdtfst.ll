@@ -35,7 +35,7 @@ define void @_ZN6icu_7726SimpleDateFormatStaticSetsC2ER10UErrorCode(ptr noundef 
   br i1 %.not, label %.thread, label %12
 
 12:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr @.str, ptr %4, align 8, !tbaa !3
   invoke void @_ZN6icu_7713UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %3, i8 noundef signext 1, ptr noundef nonnull %4, i32 noundef 20)
           to label %13 unwind label %31
@@ -53,7 +53,7 @@ define void @_ZN6icu_7726SimpleDateFormatStaticSetsC2ER10UErrorCode(ptr noundef 
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %3) #6
   %14 = load ptr, ptr %4, align 8, !tbaa !3
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %14) #6, !srcloc !12
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.critedge59
 
 .critedge59:                                      ; preds = %.thread, %.critedge58
@@ -62,7 +62,7 @@ define void @_ZN6icu_7726SimpleDateFormatStaticSetsC2ER10UErrorCode(ptr noundef 
   br i1 %.not52, label %.thread73, label %16
 
 16:                                               ; preds = %.critedge59
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr @.str.1, ptr %6, align 8, !tbaa !3
   invoke void @_ZN6icu_7713UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 noundef signext 1, ptr noundef nonnull %6, i32 noundef 19)
           to label %17 unwind label %37
@@ -80,7 +80,7 @@ define void @_ZN6icu_7726SimpleDateFormatStaticSetsC2ER10UErrorCode(ptr noundef 
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #6
   %18 = load ptr, ptr %6, align 8, !tbaa !3
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %18) #6, !srcloc !12
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.critedge64
 
 .critedge64:                                      ; preds = %.thread73, %.critedge63
@@ -89,7 +89,7 @@ define void @_ZN6icu_7726SimpleDateFormatStaticSetsC2ER10UErrorCode(ptr noundef 
   br i1 %.not56, label %.critedge69.thread, label %20
 
 20:                                               ; preds = %.critedge64
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr @.str.2, ptr %8, align 8, !tbaa !3
   invoke void @_ZN6icu_7713UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %7, i8 noundef signext 1, ptr noundef nonnull %8, i32 noundef 14)
           to label %21 unwind label %43
@@ -110,7 +110,7 @@ define void @_ZN6icu_7726SimpleDateFormatStaticSetsC2ER10UErrorCode(ptr noundef 
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #6
   %25 = load ptr, ptr %8, align 8, !tbaa !3
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %25) #6, !srcloc !12
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.pre = load ptr, ptr %10, align 8
   %26 = icmp eq ptr %.pre, null
   %27 = load ptr, ptr %0, align 8, !tbaa !9
@@ -136,7 +136,7 @@ define void @_ZN6icu_7726SimpleDateFormatStaticSetsC2ER10UErrorCode(ptr noundef 
   %.pn = phi { ptr, i32 } [ %34, %33 ], [ %32, %31 ]
   %36 = load ptr, ptr %4, align 8, !tbaa !3
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %36) #6, !srcloc !12
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %68
 
 37:                                               ; preds = %16
@@ -154,7 +154,7 @@ define void @_ZN6icu_7726SimpleDateFormatStaticSetsC2ER10UErrorCode(ptr noundef 
   %.pn50 = phi { ptr, i32 } [ %40, %39 ], [ %38, %37 ]
   %42 = load ptr, ptr %6, align 8, !tbaa !3
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %42) #6, !srcloc !12
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %68
 
 43:                                               ; preds = %20
@@ -172,7 +172,7 @@ define void @_ZN6icu_7726SimpleDateFormatStaticSetsC2ER10UErrorCode(ptr noundef 
   %.pn53 = phi { ptr, i32 } [ %46, %45 ], [ %44, %43 ]
   %48 = load ptr, ptr %8, align 8, !tbaa !3
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %48) #6, !srcloc !12
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %68
 
 49:                                               ; preds = %.critedge69
@@ -233,31 +233,25 @@ define void @_ZN6icu_7726SimpleDateFormatStaticSetsC2ER10UErrorCode(ptr noundef 
 ; Function Attrs: nounwind
 declare noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare i32 @__gxx_personality_v0(...)
 
-declare void @_ZN6icu_7713UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64), i8 noundef signext, ptr noundef, i32 noundef) unnamed_addr #3
+declare void @_ZN6icu_7713UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64), i8 noundef signext, ptr noundef, i32 noundef) unnamed_addr #2
 
-declare void @_ZN6icu_7710UnicodeSetC1ERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(200), ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #3
+declare void @_ZN6icu_7710UnicodeSetC1ERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(200), ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #2
 
 ; Function Attrs: nounwind
 declare void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: nounwind
 declare void @_ZN6icu_777UMemorydlEPv(ptr noundef) local_unnamed_addr #1
 
-declare noundef ptr @_ZN6icu_7710UnicodeSet6freezeEv(ptr noundef nonnull align 8 dereferenceable(200)) local_unnamed_addr #3
+declare noundef ptr @_ZN6icu_7710UnicodeSet6freezeEv(ptr noundef nonnull align 8 dereferenceable(200)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
 declare void @_ZN6icu_7710UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7726SimpleDateFormatStaticSetsD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0) unnamed_addr #4 align 2 {
+define void @_ZN6icu_7726SimpleDateFormatStaticSetsD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !9
   %3 = icmp eq ptr %2, null
   br i1 %3, label %5, label %4
@@ -297,7 +291,7 @@ define void @_ZN6icu_7726SimpleDateFormatStaticSetsD2Ev(ptr noundef nonnull alig
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef signext i8 @_ZN6icu_7726SimpleDateFormatStaticSets7cleanupEv() local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef signext i8 @_ZN6icu_7726SimpleDateFormatStaticSets7cleanupEv() local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %1 = load ptr, ptr @_ZN6icu_7711gStaticSetsE, align 8, !tbaa !17
   %2 = icmp eq ptr %1, null
   br i1 %2, label %4, label %3
@@ -316,7 +310,7 @@ define noundef signext i8 @_ZN6icu_7726SimpleDateFormatStaticSets7cleanupEv() lo
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZN6icu_7726SimpleDateFormatStaticSets13getIgnorablesE16UDateFormatField(i32 noundef %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 4, !tbaa !15
   %3 = load atomic i32, ptr @_ZN6icu_7735gSimpleDateFormatStaticSetsInitOnceE acquire, align 4
   %.not11.i = icmp eq i32 %3, 2
@@ -403,18 +397,18 @@ _ZN6icu_77L17smpdtfmt_initSetsER10UErrorCode.exit: ; preds = %10, %11
 
 _ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit.thread: ; preds = %15, %_ZN6icu_77L17smpdtfmt_initSetsER10UErrorCode.exit, %27, %23, %20
   %.0 = phi ptr [ %30, %27 ], [ %22, %20 ], [ %26, %23 ], [ null, %_ZN6icu_77L17smpdtfmt_initSetsER10UErrorCode.exit ], [ null, %15 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0
 }
 
-declare noundef signext i8 @_ZN6icu_7720umtx_initImplPreInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #3
+declare noundef signext i8 @_ZN6icu_7720umtx_initImplPreInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #2
 
-declare void @_ZN6icu_7721umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #3
+declare void @_ZN6icu_7721umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #2
 
-declare void @ucln_i18n_registerCleanup_77(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @ucln_i18n_registerCleanup_77(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef signext i8 @_ZN6icu_77L16smpdtfmt_cleanupEv() #4 personality ptr @__gxx_personality_v0 {
+define internal noundef signext i8 @_ZN6icu_77L16smpdtfmt_cleanupEv() #3 personality ptr @__gxx_personality_v0 {
   %1 = load ptr, ptr @_ZN6icu_7711gStaticSetsE, align 8, !tbaa !17
   %2 = icmp eq ptr %1, null
   br i1 %2, label %_ZN6icu_7726SimpleDateFormatStaticSets7cleanupEv.exit, label %3
@@ -430,14 +424,20 @@ _ZN6icu_7726SimpleDateFormatStaticSets7cleanupEv.exit: ; preds = %0, %3
   ret i8 1
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #6 = { nounwind }
 

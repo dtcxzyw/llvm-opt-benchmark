@@ -191,7 +191,7 @@ define internal zeroext i1 @heapam_index_fetch_tuple(ptr noundef captures(none) 
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @heapam_fetch_row_version(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef initializes((84, 90)) %3) #2 {
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 84
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %7, ptr noundef nonnull align 2 dereferenceable(6) %1, i64 6, i1 false)
@@ -208,7 +208,7 @@ define internal noundef zeroext i1 @heapam_fetch_row_version(ptr noundef %0, ptr
   br label %15
 
 15:                                               ; preds = %4, %9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %8
 }
 
@@ -262,7 +262,7 @@ declare i32 @heap_index_delete_tuples(ptr noundef, ptr noundef) #1
 ; Function Attrs: nounwind uwtable
 define internal void @heapam_tuple_insert(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) #2 {
   %6 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 1, ptr %6, align 1
   %7 = call ptr @ExecFetchSlotHeapTuple(ptr noundef %1, i1 noundef zeroext true, ptr noundef nonnull %6) #11
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -284,14 +284,14 @@ define internal void @heapam_tuple_insert(ptr noundef %0, ptr noundef %1, i32 no
   br label %17
 
 17:                                               ; preds = %16, %5
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @heapam_tuple_insert_speculative(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5) #2 {
   %7 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 1, ptr %7, align 1
   %8 = call ptr @ExecFetchSlotHeapTuple(ptr noundef %1, i1 noundef zeroext true, ptr noundef nonnull %7) #11
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -325,14 +325,14 @@ define internal void @heapam_tuple_insert_speculative(ptr noundef %0, ptr nounde
   br label %27
 
 27:                                               ; preds = %26, %6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @heapam_tuple_complete_speculative(ptr noundef %0, ptr noundef %1, i32 %2, i1 noundef zeroext %3) #2 {
   %5 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 1, ptr %5, align 1
   %6 = call ptr @ExecFetchSlotHeapTuple(ptr noundef %1, i1 noundef zeroext true, ptr noundef nonnull %5) #11
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -356,7 +356,7 @@ define internal void @heapam_tuple_complete_speculative(ptr noundef %0, ptr noun
   br label %14
 
 14:                                               ; preds = %13, %10
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -371,7 +371,7 @@ define internal i32 @heapam_tuple_delete(ptr noundef %0, ptr noundef %1, i32 nou
 ; Function Attrs: nounwind uwtable
 define internal i32 @heapam_tuple_update(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, ptr noundef %5, i1 noundef zeroext %6, ptr noundef %7, ptr noundef %8, ptr noundef %9) #2 {
   %11 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i8 1, ptr %11, align 1
   %12 = call ptr @ExecFetchSlotHeapTuple(ptr noundef %2, i1 noundef zeroext true, ptr noundef nonnull %11) #11
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -401,7 +401,7 @@ define internal i32 @heapam_tuple_update(ptr noundef %0, ptr noundef %1, ptr nou
   br label %25
 
 25:                                               ; preds = %24, %21
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i32 %17
 }
 
@@ -409,7 +409,7 @@ define internal i32 @heapam_tuple_update(ptr noundef %0, ptr noundef %1, ptr nou
 define internal i32 @heapam_tuple_lock(ptr noundef %0, ptr noundef captures(none) %1, ptr readnone captures(none) %2, ptr noundef initializes((84, 90)) %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i8 noundef zeroext %7, ptr noundef initializes((16, 17)) %8) #2 {
   %10 = alloca i32, align 4
   %11 = alloca %struct.SnapshotData, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %13 = zext i8 %7 to i32
   %14 = and i32 %13, 1
@@ -438,7 +438,7 @@ define internal i32 @heapam_tuple_lock(ptr noundef %0, ptr noundef captures(none
   br i1 %27, label %.loopexit, label %28
 
 28:                                               ; preds = %.lr.ph
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %11) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %1, ptr noundef nonnull align 4 dereferenceable(6) %8, i64 6, i1 false)
   %29 = load i32, ptr %19, align 4
   store i8 1, ptr %16, align 4
@@ -641,13 +641,13 @@ HeapTupleHeaderGetUpdateXid.exit:                 ; preds = %114, %116
 
 .thread:                                          ; preds = %95, %73, %.thread.sink.split
   %.1.ph = phi i32 [ %.1.ph.ph, %.thread.sink.split ], [ 6, %73 ], [ 4, %95 ]
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %11) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.loopexit
 
 120:                                              ; preds = %86, %88
   %121 = load i32, ptr %10, align 4
   call void @ReleaseBuffer(i32 noundef %121) #11
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %11) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %17, ptr noundef nonnull align 2 dereferenceable(6) %1, i64 6, i1 false)
   %122 = call i32 @heap_lock_tuple(ptr noundef %0, ptr noundef nonnull %12, i32 noundef %4, i32 noundef %5, i32 noundef %6, i1 noundef zeroext %15, ptr noundef nonnull %10, ptr noundef nonnull %8) #11
   %.not124 = icmp eq i32 %122, 3
@@ -667,7 +667,7 @@ HeapTupleHeaderGetUpdateXid.exit:                 ; preds = %114, %116
 
 .loopexit:                                        ; preds = %.lr.ph, %.thread, %.split122
   %.2 = phi i32 [ %.us-phi, %.split122 ], [ %.1.ph, %.thread ], [ 4, %.lr.ph ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.2
 }
 
@@ -842,9 +842,9 @@ define internal void @heapam_relation_copy_for_cluster(ptr noundef %0, ptr nound
   br i1 %31, label %38, label %32
 
 32:                                               ; preds = %30
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i64 8589934593, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i64 2, ptr %12, align 16
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %34 = load i32, ptr %33, align 8
@@ -854,8 +854,8 @@ define internal void @heapam_relation_copy_for_cluster(ptr noundef %0, ptr nound
   call void @pgstat_progress_update_multi_param(i32 noundef 2, ptr noundef nonnull %11, ptr noundef nonnull %12) #11
   %37 = call ptr @index_beginscan(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull @SnapshotAnyData, i32 noundef 0, i32 noundef 0) #11
   call void @index_rescan(ptr noundef %37, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 0) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %47
 
 38:                                               ; preds = %.thread, %30
@@ -1106,9 +1106,9 @@ HeapTupleHeaderGetUpdateXid.exit:                 ; preds = %129, %131
   br label %57
 
 160:                                              ; preds = %.critedge
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i64 17179869187, ptr %13, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %.val = load ptr, ptr %15, align 8
   %.val119 = load ptr, ptr %17, align 8
   call void @heap_deform_tuple(ptr noundef %100, ptr noundef %.val, ptr noundef %23, ptr noundef %24) #11
@@ -1151,8 +1151,8 @@ reform_and_rewrite_tuple.exit:                    ; preds = %171, %160
   store i64 %177, ptr %14, align 16
   store i64 %177, ptr %56, align 8
   call void @pgstat_progress_update_multi_param(i32 noundef 2, ptr noundef nonnull %13, ptr noundef nonnull %14) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.backedge
 
 178:                                              ; preds = %61
@@ -1470,9 +1470,9 @@ define internal double @heapam_index_build_range_scan(ptr noundef %0, ptr nounde
   %14 = alloca [32 x i8], align 16
   %15 = alloca [291 x i16], align 16
   %16 = alloca %struct.ItemPointerData, align 2
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %13) #11
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14) #11
-  call void @llvm.lifetime.start.p0(i64 582, ptr nonnull %15) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %17 = tail call zeroext i1 @IsSystemRelation(ptr noundef %0) #11
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 160
   %19 = load i8, ptr %18, align 8, !range !4, !noundef !5
@@ -1925,7 +1925,7 @@ HeapTupleIsHotUpdated.exit178.thread:             ; preds = %185, %189
   br i1 %.not166, label %231, label %226
 
 226:                                              ; preds = %222
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %227 = load ptr, ptr %80, align 8
   %228 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %227, ptr @CurrentMemoryContext, align 8
@@ -1933,7 +1933,7 @@ HeapTupleIsHotUpdated.exit178.thread:             ; preds = %185, %189
   %230 = call i64 %229(ptr noundef nonnull %38, ptr noundef nonnull %33, ptr noundef nonnull %12) #11
   store ptr %228, ptr @CurrentMemoryContext, align 8
   %.not200 = icmp eq i64 %230, 0
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br i1 %.not200, label %277, label %231, !llvm.loop !12
 
 231:                                              ; preds = %226, %222
@@ -1946,7 +1946,7 @@ HeapTupleIsHotUpdated.exit178.thread:             ; preds = %185, %189
   br i1 %234, label %235, label %275
 
 235:                                              ; preds = %231
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %16) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %236 = getelementptr inbounds nuw i8, ptr %85, i64 4
   %237 = getelementptr i8, ptr %85, i64 8
   %.val = load i16, ptr %237, align 2
@@ -2019,7 +2019,7 @@ BufferGetPage.exit182:                            ; preds = %247, %253
   store i16 %.val172201, ptr %82, align 2
   store i16 %261, ptr %83, align 2
   call void %8(ptr noundef %1, ptr noundef nonnull %16, ptr noundef nonnull %13, ptr noundef nonnull %14, i1 noundef zeroext %.1141, ptr noundef %9) #11
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %16) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %277
 
 275:                                              ; preds = %231
@@ -2069,9 +2069,9 @@ BufferGetPage.exit182:                            ; preds = %247, %253
   store ptr null, ptr %293, align 8
   %294 = getelementptr inbounds nuw i8, ptr %2, i64 104
   store ptr null, ptr %294, align 8
-  call void @llvm.lifetime.end.p0(i64 582, ptr nonnull %15) #11
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14) #11
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %13) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret double %.0130.lcssa
 }
 
@@ -2086,11 +2086,11 @@ define internal void @heapam_index_validate_scan(ptr noundef %0, ptr noundef %1,
   %12 = alloca %struct.ItemPointerData, align 2
   %13 = alloca i64, align 8
   %14 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %7) #11
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #11
-  call void @llvm.lifetime.start.p0(i64 582, ptr nonnull %9) #11
-  call void @llvm.lifetime.start.p0(i64 291, ptr nonnull %10) #11
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %11) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %15 = tail call ptr @CreateExecutorState() #11
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 264
   %17 = load ptr, ptr %16, align 8
@@ -2145,7 +2145,7 @@ define internal void @heapam_index_validate_scan(ptr noundef %0, ptr noundef %1,
   %.072108 = phi i1 [ false, %.lr.ph111 ], [ %.17395, %153 ]
   %.074107 = phi ptr [ null, %.lr.ph111 ], [ %.17598, %153 ]
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 4
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %12) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %51 = load volatile i32, ptr @InterruptPending, align 4
   %.not80 = icmp eq i32 %51, 0
   br i1 %.not80, label %53, label %52, !prof !9
@@ -2267,8 +2267,8 @@ BufferGetPage.exit:                               ; preds = %65, %71
   br i1 %109, label %110, label %.critedge
 
 110:                                              ; preds = %107
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #11
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %14) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %.175.val91 = load i16, ptr %.175103, align 2
   %111 = getelementptr i8, ptr %.175103, i64 2
   %.175.val92 = load i16, ptr %111, align 2
@@ -2289,8 +2289,8 @@ BufferGetPage.exit:                               ; preds = %65, %71
   br label %122
 
 .critedge85:                                      ; preds = %.lr.ph
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #11
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %14) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   br label %122
 
 122:                                              ; preds = %.critedge85, %110, %117
@@ -2308,8 +2308,8 @@ BufferGetPage.exit:                               ; preds = %65, %71
   %131 = trunc i64 %127 to i16
   store i16 %131, ptr %42, align 2
   store i16 %128, ptr %43, align 2
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %14) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.lr.ph
 
 .critedge:                                        ; preds = %107
@@ -2318,8 +2318,8 @@ BufferGetPage.exit:                               ; preds = %65, %71
   br i1 %133, label %.critedge86, label %153
 
 .critedge86.loopexit:                             ; preds = %122
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %14) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.critedge86
 
 .critedge86:                                      ; preds = %.critedge86.loopexit, %106, %.critedge
@@ -2339,7 +2339,7 @@ BufferGetPage.exit:                               ; preds = %65, %71
   br i1 %.not84, label %147, label %142
 
 142:                                              ; preds = %139
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %143 = load ptr, ptr %44, align 8
   %144 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %143, ptr @CurrentMemoryContext, align 8
@@ -2347,7 +2347,7 @@ BufferGetPage.exit:                               ; preds = %65, %71
   %146 = call i64 %145(ptr noundef nonnull %28, ptr noundef nonnull %21, ptr noundef nonnull %6) #11
   store ptr %144, ptr @CurrentMemoryContext, align 8
   %.not93 = icmp eq i64 %146, 0
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %.not93, label %153, label %147, !llvm.loop !13
 
 147:                                              ; preds = %142, %139
@@ -2363,7 +2363,7 @@ BufferGetPage.exit:                               ; preds = %65, %71
 153:                                              ; preds = %.critedge, %.critedge86, %147, %142
   %.17598 = phi ptr [ %.175103, %.critedge ], [ %.17599, %.critedge86 ], [ %.17599, %147 ], [ %.17599, %142 ]
   %.17395 = phi i1 [ false, %.critedge ], [ %.17396, %.critedge86 ], [ %.17396, %147 ], [ %.17396, %142 ]
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %12) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %154 = call ptr @heap_getnext(ptr noundef %33, i32 noundef 1) #11
   %.not79 = icmp eq ptr %154, null
   br i1 %.not79, label %._crit_edge, label %48
@@ -2381,11 +2381,11 @@ BufferGetPage.exit:                               ; preds = %65, %71
   store ptr null, ptr %160, align 8
   %161 = getelementptr inbounds nuw i8, ptr %2, i64 104
   store ptr null, ptr %161, align 8
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %11) #11
-  call void @llvm.lifetime.end.p0(i64 291, ptr nonnull %10) #11
-  call void @llvm.lifetime.end.p0(i64 582, ptr nonnull %9) #11
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #11
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
@@ -2631,8 +2631,8 @@ define internal noundef zeroext i1 @heapam_scan_bitmap_next_block(ptr noundef in
   %.07898 = phi i32 [ 0, %.lr.ph99 ], [ %.1, %70 ]
   %62 = getelementptr inbounds nuw [0 x i16], ptr %54, i64 0, i64 %indvars.iv108
   %63 = load i16, ptr %62, align 2
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %6) #11
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i16 %56, ptr %6, align 2
   store i16 %57, ptr %58, align 2
   store i16 %63, ptr %59, align 2
@@ -2650,8 +2650,8 @@ define internal noundef zeroext i1 @heapam_scan_bitmap_next_block(ptr noundef in
 
 70:                                               ; preds = %66, %61
   %.1 = phi i32 [ %67, %66 ], [ %.07898, %61 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #11
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 1
   %71 = load i32, ptr %51, align 4
   %72 = sext i32 %71 to i64
@@ -2710,7 +2710,7 @@ BufferGetPage.exit:                               ; preds = %76, %82
 106:                                              ; preds = %.lr.ph, %135
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %135 ]
   %.396 = phi i32 [ 0, %.lr.ph ], [ %.4, %135 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %107 = add nsw i64 %indvars.iv, -1
   %108 = getelementptr inbounds [0 x %struct.ItemIdData], ptr %94, i64 0, i64 %107
   %109 = load i32, ptr %108, align 4
@@ -2766,7 +2766,7 @@ HeapTupleHeaderGetXmin.exit:                      ; preds = %122, %131
 
 135:                                              ; preds = %106, %133
   %.4 = phi i32 [ %.5, %133 ], [ %.396, %106 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond, label %.loopexit, label %106, !llvm.loop !17
@@ -3342,13 +3342,7 @@ SampleHeapTupleVisible.exit.thread:               ; preds = %128
   ret i1 %177
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
-
 declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 declare void @ReleaseBuffer(i32 noundef) local_unnamed_addr #1
 
@@ -3363,7 +3357,7 @@ declare void @LockBuffer(i32 noundef, i32 noundef) local_unnamed_addr #1
 declare zeroext i1 @heap_hot_search_buffer(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare ptr @ExecStoreBufferHeapTuple(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -3390,7 +3384,7 @@ declare i32 @heap_lock_tuple(ptr noundef, ptr noundef, i32 noundef, i32 noundef,
 declare zeroext i1 @ItemPointerEquals(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #7
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #6
 
 declare zeroext i1 @errstart(i32 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -3519,7 +3513,7 @@ declare void @FreeExecutorState(ptr noundef) local_unnamed_addr #1
 declare ptr @MakeSingleTupleTableSlot(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 declare i32 @ItemPointerCompare(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -3551,6 +3545,12 @@ declare i32 @ReadBufferExtended(ptr noundef, i32 noundef, i32 noundef, i32 nound
 
 declare void @heap_prepare_pagescan(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #9
 
@@ -3562,10 +3562,10 @@ attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "t
 attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #11 = { nounwind }

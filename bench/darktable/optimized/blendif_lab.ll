@@ -95,7 +95,7 @@ define void @dt_develop_blendif_lab_make_mask(ptr noundef readonly captures(none
   br i1 %exitcond189.not, label %.loopexit, label %.lr.ph171
 
 63:                                               ; preds = %57
-  tail call void @dt_iop_image_mul_const(ptr noundef %5, float noundef %51, i64 noundef %44, i64 noundef %45, i64 noundef 1) #8
+  tail call void @dt_iop_image_mul_const(ptr noundef %5, float noundef %51, i64 noundef %44, i64 noundef %45, i64 noundef 1) #7
   br label %.loopexit
 
 64:                                               ; preds = %54
@@ -109,26 +109,26 @@ define void @dt_develop_blendif_lab_make_mask(ptr noundef readonly captures(none
   br i1 %.not142, label %68, label %67
 
 67:                                               ; preds = %66
-  tail call void @dt_iop_image_fill(ptr noundef %5, float noundef %51, i64 noundef %44, i64 noundef %45, i64 noundef 1) #8
+  tail call void @dt_iop_image_fill(ptr noundef %5, float noundef %51, i64 noundef %44, i64 noundef %45, i64 noundef 1) #7
   br label %.loopexit
 
 68:                                               ; preds = %66
-  tail call void @dt_iop_image_fill(ptr noundef %5, float noundef 0.000000e+00, i64 noundef %44, i64 noundef %45, i64 noundef 1) #8
+  tail call void @dt_iop_image_fill(ptr noundef %5, float noundef 0.000000e+00, i64 noundef %44, i64 noundef %45, i64 noundef 1) #7
   br label %.loopexit
 
 69:                                               ; preds = %64
-  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %12) #8
-  call void @dt_develop_blendif_process_parameters(ptr noundef nonnull %12, ptr noundef nonnull %14) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @dt_develop_blendif_process_parameters(ptr noundef nonnull %12, ptr noundef nonnull %14) #7
   %70 = shl i64 %46, 2
-  %71 = call ptr @dt_alloc_aligned(i64 noundef %70) #8
+  %71 = call ptr @dt_alloc_aligned(i64 noundef %70) #7
   call void @llvm.assume(i1 true) [ "align"(ptr %71, i64 64) ]
   %.not143.not = icmp eq ptr %71, null
   br i1 %.not143.not, label %.critedge, label %72
 
 72:                                               ; preds = %69
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %9)
   %73 = load i32, ptr %9, align 4
   %74 = and i32 %73, 32768
@@ -137,9 +137,9 @@ define void @dt_develop_blendif_lab_make_mask(ptr noundef readonly captures(none
   %76 = or i32 %75, 32768
   store i32 %76, ptr %11, align 4
   call void @llvm.x86.sse.ldmxcsr(ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %.not172 = icmp eq i64 %46, 0
   br i1 %.not172, label %.preheader156, label %.lr.ph
 
@@ -270,42 +270,36 @@ define void @dt_develop_blendif_lab_make_mask(ptr noundef readonly captures(none
   br i1 %exitcond188.not, label %.loopexit148, label %.lr.ph169
 
 .loopexit148:                                     ; preds = %.lr.ph163, %.lr.ph165, %.lr.ph167, %.lr.ph169, %.preheader153, %.preheader151, %.preheader149, %.preheader147
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %7)
   %131 = load i32, ptr %7, align 4
   %132 = and i32 %131, -32769
   %133 = or disjoint i32 %132, %74
   store i32 %133, ptr %8, align 4
   call void @llvm.x86.sse.ldmxcsr(ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
-  call void @free(ptr noundef nonnull %71) #8
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %12) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @free(ptr noundef nonnull %71) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.loopexit
 
 .critedge:                                        ; preds = %69
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %12) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph171, %.preheader, %.loopexit148, %.critedge, %68, %67, %63, %6
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare void @dt_iop_image_mul_const(ptr noundef, float noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @dt_iop_image_fill(ptr noundef, float noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @dt_iop_image_mul_const(ptr noundef, float noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
-
-declare void @dt_iop_image_fill(ptr noundef, float noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
-
-declare void @dt_develop_blendif_process_parameters(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @dt_develop_blendif_process_parameters(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal fastcc void @_blendif_combine_channels(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef nonnull captures(none) %1, i64 noundef range(i64 -2147483648, 2147483648) %2, i32 noundef %3, ptr noalias noundef nonnull readonly captures(none) %4) unnamed_addr #3 {
+define internal fastcc void @_blendif_combine_channels(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef nonnull captures(none) %1, i64 noundef range(i64 -2147483648, 2147483648) %2, i32 noundef %3, ptr noalias noundef nonnull readonly captures(none) %4) unnamed_addr #2 {
   %6 = and i32 %3, 1
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %_blendif_lab_l.exit, label %7
@@ -815,7 +809,7 @@ _blendif_lch.exit:                                ; preds = %_blendif_compute_fa
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define void @dt_develop_blendif_lab_blend(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noalias noundef %5, i32 noundef %6) local_unnamed_addr #0 {
@@ -861,7 +855,7 @@ define void @dt_develop_blendif_lab_blend(ptr noundef readonly captures(none) %0
 
 42:                                               ; preds = %22
   %43 = getelementptr inbounds nuw i8, ptr %19, i64 324
-  %44 = tail call ptr @dt_ioppr_get_pipe_work_profile_info(ptr noundef nonnull %38) #8
+  %44 = tail call ptr @dt_ioppr_get_pipe_work_profile_info(ptr noundef nonnull %38) #7
   %45 = sext i32 %36 to i64
   %.not182 = icmp eq i32 %36, 0
   br i1 %.not182, label %.._crit_edge_crit_edge, label %.lr.ph
@@ -1337,17 +1331,17 @@ _display_channel.exit:                            ; preds = %dt_Lab_2_LCH.exit16
   %.0130171 = phi i64 [ 0, %.lr.ph172 ], [ %434, %dt_ioppr_rgb_matrix_to_lab.exit ]
   %311 = shl i64 %indvar, 4
   %scevgep = getelementptr nuw i8, ptr %2, i64 %311
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %16, ptr noundef nonnull align 4 dereferenceable(16) %scevgep, i64 16, i1 false), !tbaa !36
   %312 = getelementptr inbounds nuw float, ptr %2, i64 %.0130171
   %313 = getelementptr inbounds nuw i8, ptr %312, i64 12
   %314 = load float, ptr %313, align 4, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %15, i8 0, i64 16, i1 false)
   br i1 %.not.i.i, label %373, label %315
 
 315:                                              ; preds = %310
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   br label %316
 
 316:                                              ; preds = %353, %315
@@ -1431,7 +1425,7 @@ dt_ioppr_apply_trc.exit.i.i:                      ; preds = %353
   br i1 %exitcond.not.i9.i.i, label %dt_apply_transposed_color_matrix.exit.i.i, label %359
 
 dt_apply_transposed_color_matrix.exit.i.i:        ; preds = %359
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %dt_ioppr_rgb_matrix_to_xyz.exit.i
 
 373:                                              ; preds = %310
@@ -1460,11 +1454,11 @@ dt_apply_transposed_color_matrix.exit.i.i:        ; preds = %359
   br i1 %exitcond.not.i11.i.i, label %dt_ioppr_rgb_matrix_to_xyz.exit.i, label %377
 
 dt_ioppr_rgb_matrix_to_xyz.exit.i:                ; preds = %377, %dt_apply_transposed_color_matrix.exit.i.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   br label %396
 
 391:                                              ; preds = %lab_f.exit.i.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %392 = load float, ptr %78, align 4, !tbaa !36
   store float %392, ptr %12, align 16, !tbaa !36
   %393 = load float, ptr %11, align 16, !tbaa !36
@@ -1473,7 +1467,7 @@ dt_ioppr_rgb_matrix_to_xyz.exit.i:                ; preds = %377, %dt_apply_tran
   store float %394, ptr %80, align 8, !tbaa !36
   %395 = load float, ptr %83, align 4, !tbaa !36
   store float %395, ptr %82, align 4, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store float 0.000000e+00, ptr %13, align 16, !tbaa !36
   store float %392, ptr %84, align 4, !tbaa !36
   store float %392, ptr %85, align 8, !tbaa !36
@@ -1538,12 +1532,12 @@ lab_f.exit.i.i:                                   ; preds = %414, %403
   br i1 %exitcond16.not.i.i, label %dt_ioppr_rgb_matrix_to_lab.exit, label %420
 
 dt_ioppr_rgb_matrix_to_lab.exit:                  ; preds = %420
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   store float %314, ptr %313, align 4, !tbaa !36
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %434 = add nuw i64 %.0130171, 4
   %indvar.next = add nuw nsw i64 %indvar, 1
   %exitcond202.not = icmp eq i64 %indvar, %88
@@ -1551,7 +1545,7 @@ dt_ioppr_rgb_matrix_to_lab.exit:                  ; preds = %420
 
 435:                                              ; preds = %.lr.ph174, %dt_XYZ_to_Lab.exit
   %.0132173 = phi i64 [ 0, %.lr.ph174 ], [ %501, %dt_XYZ_to_Lab.exit ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %436 = getelementptr inbounds nuw float, ptr %2, i64 %.0132173
   %437 = getelementptr inbounds nuw i8, ptr %436, i64 12
   %438 = load float, ptr %437, align 4, !tbaa !36
@@ -1582,11 +1576,11 @@ dt_ioppr_rgb_matrix_to_lab.exit:                  ; preds = %420
   br i1 %exitcond.not.i.i148, label %dt_Rec709_to_XYZ_D50.exit, label %444
 
 dt_Rec709_to_XYZ_D50.exit:                        ; preds = %444
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   br label %463
 
 458:                                              ; preds = %lab_f.exit.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %459 = load float, ptr %89, align 4, !tbaa !36
   store float %459, ptr %9, align 16, !tbaa !36
   %460 = load float, ptr %8, align 16, !tbaa !36
@@ -1595,7 +1589,7 @@ dt_Rec709_to_XYZ_D50.exit:                        ; preds = %444
   store float %461, ptr %91, align 8, !tbaa !36
   %462 = load float, ptr %94, align 4, !tbaa !36
   store float %462, ptr %93, align 4, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store float 0.000000e+00, ptr %10, align 16, !tbaa !36
   store float %459, ptr %95, align 4, !tbaa !36
   store float %459, ptr %96, align 8, !tbaa !36
@@ -1660,11 +1654,11 @@ lab_f.exit.i:                                     ; preds = %481, %470
   br i1 %exitcond16.not.i, label %dt_XYZ_to_Lab.exit, label %487
 
 dt_XYZ_to_Lab.exit:                               ; preds = %487
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   store float %438, ptr %437, align 4, !tbaa !36
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %501 = add nuw i64 %.0132173, 4
   %502 = icmp ult i64 %501, %60
   br i1 %502, label %435, label %.loopexit152
@@ -1721,7 +1715,7 @@ _choose_blend_func.exit:                          ; preds = %503, %switch.lookup
   %.idx142 = shl i64 %520, 4
   %523 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx142
   %524 = getelementptr inbounds nuw float, ptr %5, i64 %521
-  tail call void %.0.i(ptr noundef %522, ptr noundef %523, ptr noundef %522, ptr noundef %524, i64 noundef %512, ptr noundef nonnull @dt_develop_blendif_lab_blend.min, ptr noundef nonnull @dt_develop_blendif_lab_blend.max) #8
+  tail call void %.0.i(ptr noundef %522, ptr noundef %523, ptr noundef %522, ptr noundef %524, i64 noundef %512, ptr noundef nonnull @dt_develop_blendif_lab_blend.min, ptr noundef nonnull @dt_develop_blendif_lab_blend.max) #7
   %525 = add nuw i64 %.0133175, 1
   %exitcond203.not = icmp eq i64 %525, %508
   br i1 %exitcond203.not, label %.loopexit152, label %517
@@ -1737,7 +1731,7 @@ _choose_blend_func.exit:                          ; preds = %503, %switch.lookup
   %.idx140 = shl i64 %530, 4
   %532 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx140
   %533 = getelementptr inbounds nuw float, ptr %5, i64 %530
-  tail call void %.0.i(ptr noundef %531, ptr noundef %532, ptr noundef %532, ptr noundef %533, i64 noundef %516, ptr noundef nonnull @dt_develop_blendif_lab_blend.min, ptr noundef nonnull @dt_develop_blendif_lab_blend.max) #8
+  tail call void %.0.i(ptr noundef %531, ptr noundef %532, ptr noundef %532, ptr noundef %533, i64 noundef %516, ptr noundef nonnull @dt_develop_blendif_lab_blend.min, ptr noundef nonnull @dt_develop_blendif_lab_blend.max) #7
   %534 = add nuw i64 %.0134177, 1
   %exitcond204.not = icmp eq i64 %534, %508
   br i1 %exitcond204.not, label %.loopexit152, label %526
@@ -1793,45 +1787,45 @@ _copy_mask.exit.loopexit:                         ; preds = %.lr.ph.i150
   ret void
 }
 
-declare ptr @dt_ioppr_get_pipe_work_profile_info(ptr noundef) local_unnamed_addr #2
+declare ptr @dt_ioppr_get_pipe_work_profile_info(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.maxnum.f32(float, float) #5
+declare float @llvm.maxnum.f32(float, float) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.minnum.f32(float, float) #5
+declare float @llvm.minnum.f32(float, float) #4
 
-declare ptr @dt_alloc_aligned(i64 noundef) local_unnamed_addr #2
+declare ptr @dt_alloc_aligned(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #6
+declare void @llvm.assume(i1 noundef) #5
 
 ; Function Attrs: nounwind memory(argmem: write)
-declare void @llvm.x86.sse.stmxcsr(ptr) #7
+declare void @llvm.x86.sse.stmxcsr(ptr) #6
 
 ; Function Attrs: nounwind
-declare void @llvm.x86.sse.ldmxcsr(ptr) #8
+declare void @llvm.x86.sse.ldmxcsr(ptr) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.atan2.f32(float, float) #5
+declare float @llvm.atan2.f32(float, float) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fabs.f32(float) #5
+declare float @llvm.fabs.f32(float) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare float @hypotf(float noundef, float noundef) local_unnamed_addr #9
+declare float @hypotf(float noundef, float noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.exp2.f32(float) #5
+declare float @llvm.exp2.f32(float) #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.pow.f32(float, float) #5
+declare float @llvm.pow.f32(float, float) #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_blend_lighten(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noalias noundef readonly captures(none) %3, i64 noundef %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6) unnamed_addr #11 {
+define internal void @_blend_lighten(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noalias noundef readonly captures(none) %3, i64 noundef %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6) unnamed_addr #10 {
   %8 = alloca [4 x float], align 16
   %9 = alloca [4 x float], align 16
   %.not = icmp eq i64 %4, 0
@@ -1856,8 +1850,8 @@ define internal void @_blend_lighten(ptr noundef readonly captures(none) %0, ptr
   %.02228 = phi i64 [ 0, %.lr.ph ], [ %85, %_blend_Lab_rescale.exit ]
   %19 = getelementptr inbounds nuw float, ptr %3, i64 %.029
   %20 = load float, ptr %19, align 4, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %21 = getelementptr inbounds nuw float, ptr %0, i64 %.02228
   br label %22
 
@@ -1949,8 +1943,8 @@ _blend_Lab_scale.exit25:                          ; preds = %31
 _blend_Lab_rescale.exit:                          ; preds = %75
   %83 = getelementptr inbounds nuw i8, ptr %74, i64 12
   store float %20, ptr %83, align 4, !tbaa !36
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %84 = add nuw i64 %.029, 1
   %85 = add i64 %.02228, 4
   %exitcond.not = icmp eq i64 %84, %4
@@ -1958,7 +1952,7 @@ _blend_Lab_rescale.exit:                          ; preds = %75
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_blend_darken(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noalias noundef readonly captures(none) %3, i64 noundef %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6) unnamed_addr #11 {
+define internal void @_blend_darken(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noalias noundef readonly captures(none) %3, i64 noundef %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6) unnamed_addr #10 {
   %8 = alloca [4 x float], align 16
   %9 = alloca [4 x float], align 16
   %.not = icmp eq i64 %4, 0
@@ -1983,8 +1977,8 @@ define internal void @_blend_darken(ptr noundef readonly captures(none) %0, ptr 
   %.02228 = phi i64 [ 0, %.lr.ph ], [ %85, %_blend_Lab_rescale.exit ]
   %19 = getelementptr inbounds nuw float, ptr %3, i64 %.029
   %20 = load float, ptr %19, align 4, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %21 = getelementptr inbounds nuw float, ptr %0, i64 %.02228
   br label %22
 
@@ -2076,8 +2070,8 @@ _blend_Lab_scale.exit25:                          ; preds = %31
 _blend_Lab_rescale.exit:                          ; preds = %75
   %83 = getelementptr inbounds nuw i8, ptr %74, i64 12
   store float %20, ptr %83, align 4, !tbaa !36
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %84 = add nuw i64 %.029, 1
   %85 = add i64 %.02228, 4
   %exitcond.not = icmp eq i64 %84, %4
@@ -2085,7 +2079,7 @@ _blend_Lab_rescale.exit:                          ; preds = %75
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_blend_multiply(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noalias noundef readonly captures(none) %3, i64 noundef %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6) unnamed_addr #11 {
+define internal void @_blend_multiply(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noalias noundef readonly captures(none) %3, i64 noundef %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6) unnamed_addr #10 {
   %8 = alloca [4 x float], align 16
   %9 = alloca [4 x float], align 16
   %.not = icmp eq i64 %4, 0
@@ -2110,8 +2104,8 @@ define internal void @_blend_multiply(ptr noundef readonly captures(none) %0, pt
   %.02834 = phi i64 [ 0, %.lr.ph ], [ %82, %_blend_Lab_rescale.exit ]
   %19 = getelementptr inbounds nuw float, ptr %3, i64 %.035
   %20 = load float, ptr %19, align 4, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %21 = getelementptr inbounds nuw float, ptr %0, i64 %.02834
   br label %22
 
@@ -2202,8 +2196,8 @@ _blend_Lab_scale.exit31:                          ; preds = %31
 _blend_Lab_rescale.exit:                          ; preds = %72
   %80 = getelementptr inbounds nuw i8, ptr %71, i64 12
   store float %20, ptr %80, align 4, !tbaa !36
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %81 = add nuw i64 %.035, 1
   %82 = add i64 %.02834, 4
   %exitcond.not = icmp eq i64 %81, %4
@@ -2211,7 +2205,7 @@ _blend_Lab_rescale.exit:                          ; preds = %72
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_blend_average(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noalias noundef readonly captures(none) %3, i64 noundef %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6) unnamed_addr #11 {
+define internal void @_blend_average(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noalias noundef readonly captures(none) %3, i64 noundef %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6) unnamed_addr #10 {
   %8 = alloca [4 x float], align 16
   %9 = alloca [4 x float], align 16
   %.not = icmp eq i64 %4, 0
@@ -2225,8 +2219,8 @@ define internal void @_blend_average(ptr noundef readonly captures(none) %0, ptr
   %10 = shl i64 %.02633, 2
   %11 = getelementptr inbounds nuw float, ptr %3, i64 %.02633
   %12 = load float, ptr %11, align 4, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %13 = getelementptr inbounds nuw float, ptr %0, i64 %10
   br label %14
 
@@ -2280,8 +2274,8 @@ _blend_Lab_scale.exit:                            ; preds = %14
 _blend_Lab_rescale.exit:                          ; preds = %33
   %41 = getelementptr inbounds nuw i8, ptr %32, i64 12
   store float %12, ptr %41, align 4, !tbaa !36
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %42 = add nuw i64 %.02633, 1
   %exitcond34.not = icmp eq i64 %42, %4
   br i1 %exitcond34.not, label %._crit_edge, label %.lr.ph
@@ -2310,7 +2304,7 @@ _blend_Lab_scale.exit29:                          ; preds = %23, %_blend_Lab_sca
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_blend_add(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noalias noundef readonly captures(none) %3, i64 noundef %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6) unnamed_addr #11 {
+define internal void @_blend_add(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noalias noundef readonly captures(none) %3, i64 noundef %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6) unnamed_addr #10 {
   %8 = alloca [4 x float], align 16
   %9 = alloca [4 x float], align 16
   %.not = icmp eq i64 %4, 0
@@ -2324,8 +2318,8 @@ define internal void @_blend_add(ptr noundef readonly captures(none) %0, ptr nou
   %10 = shl i64 %.02633, 2
   %11 = getelementptr inbounds nuw float, ptr %3, i64 %.02633
   %12 = load float, ptr %11, align 4, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %13 = getelementptr inbounds nuw float, ptr %0, i64 %10
   br label %14
 
@@ -2379,8 +2373,8 @@ _blend_Lab_scale.exit:                            ; preds = %14
 _blend_Lab_rescale.exit:                          ; preds = %33
   %41 = getelementptr inbounds nuw i8, ptr %32, i64 12
   store float %12, ptr %41, align 4, !tbaa !36
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %42 = add nuw i64 %.02633, 1
   %exitcond34.not = icmp eq i64 %42, %4
   br i1 %exitcond34.not, label %._crit_edge, label %.lr.ph
@@ -2406,7 +2400,7 @@ _blend_Lab_scale.exit29:                          ; preds = %23, %_blend_Lab_sca
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_blend_subtract(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noalias noundef readonly captures(none) %3, i64 noundef %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6) unnamed_addr #11 {
+define internal void @_blend_subtract(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noalias noundef readonly captures(none) %3, i64 noundef %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6) unnamed_addr #10 {
   %8 = alloca [4 x float], align 16
   %9 = alloca [4 x float], align 16
   %.not = icmp eq i64 %4, 0
@@ -2420,8 +2414,8 @@ define internal void @_blend_subtract(ptr noundef readonly captures(none) %0, pt
   %10 = shl i64 %.03037, 2
   %11 = getelementptr inbounds nuw float, ptr %3, i64 %.03037
   %12 = load float, ptr %11, align 4, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %13 = getelementptr inbounds nuw float, ptr %0, i64 %10
   br label %14
 
@@ -2475,8 +2469,8 @@ _blend_Lab_scale.exit:                            ; preds = %14
 _blend_Lab_rescale.exit:                          ; preds = %33
   %41 = getelementptr inbounds nuw i8, ptr %32, i64 12
   store float %12, ptr %41, align 4, !tbaa !36
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %42 = add nuw i64 %.03037, 1
   %exitcond38.not = icmp eq i64 %42, %4
   br i1 %exitcond38.not, label %._crit_edge, label %.lr.ph
@@ -2505,7 +2499,7 @@ _blend_Lab_scale.exit33:                          ; preds = %23, %_blend_Lab_sca
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_blend_difference(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noalias noundef readonly captures(none) %3, i64 noundef %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6) unnamed_addr #11 {
+define internal void @_blend_difference(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noalias noundef readonly captures(none) %3, i64 noundef %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6) unnamed_addr #10 {
   %8 = alloca [4 x float], align 16
   %9 = alloca [4 x float], align 16
   %.not = icmp eq i64 %4, 0
@@ -2519,8 +2513,8 @@ define internal void @_blend_difference(ptr noundef readonly captures(none) %0, 
   %.03745 = phi i64 [ %42, %_blend_Lab_rescale.exit ], [ 0, %7 ]
   %10 = getelementptr inbounds nuw float, ptr %3, i64 %.046
   %11 = load float, ptr %10, align 4, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %12 = getelementptr inbounds nuw float, ptr %0, i64 %.03745
   br label %13
 
@@ -2574,8 +2568,8 @@ _blend_Lab_scale.exit:                            ; preds = %13
 _blend_Lab_rescale.exit:                          ; preds = %32
   %40 = getelementptr inbounds nuw i8, ptr %31, i64 12
   store float %11, ptr %40, align 4, !tbaa !36
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %41 = add nuw i64 %.046, 1
   %42 = add i64 %.03745, 4
   %exitcond47.not = icmp eq i64 %41, %4
@@ -2614,7 +2608,7 @@ _blend_Lab_scale.exit41:                          ; preds = %22, %_blend_Lab_sca
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_blend_difference2(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noalias noundef readonly captures(none) %3, i64 noundef %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6) unnamed_addr #11 {
+define internal void @_blend_difference2(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noalias noundef readonly captures(none) %3, i64 noundef %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6) unnamed_addr #10 {
   %8 = alloca [4 x float], align 16
   %9 = alloca [4 x float], align 16
   %.not = icmp eq i64 %4, 0
@@ -2633,8 +2627,8 @@ define internal void @_blend_difference2(ptr noundef readonly captures(none) %0,
   %.02835 = phi i64 [ 0, %.lr.ph ], [ %58, %_blend_Lab_rescale.exit ]
   %13 = getelementptr inbounds nuw float, ptr %3, i64 %.02736
   %14 = load float, ptr %13, align 4, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %15 = getelementptr inbounds nuw float, ptr %0, i64 %.02835
   br label %16
 
@@ -2704,8 +2698,8 @@ _blend_Lab_scale.exit:                            ; preds = %16
 _blend_Lab_rescale.exit:                          ; preds = %48
   %56 = getelementptr inbounds nuw i8, ptr %47, i64 12
   store float %14, ptr %56, align 4, !tbaa !36
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %57 = add nuw i64 %.02736, 1
   %58 = add i64 %.02835, 4
   %exitcond37.not = icmp eq i64 %57, %4
@@ -2732,7 +2726,7 @@ _blend_Lab_scale.exit31:                          ; preds = %25, %_blend_Lab_sca
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_blend_screen(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noalias noundef readonly captures(none) %3, i64 noundef %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6) unnamed_addr #11 {
+define internal void @_blend_screen(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noalias noundef readonly captures(none) %3, i64 noundef %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6) unnamed_addr #10 {
   %8 = alloca [4 x float], align 16
   %9 = alloca [4 x float], align 16
   %.not = icmp eq i64 %4, 0
@@ -2757,8 +2751,8 @@ define internal void @_blend_screen(ptr noundef readonly captures(none) %0, ptr 
   %.04046 = phi i64 [ 0, %.lr.ph ], [ %99, %_blend_Lab_rescale.exit ]
   %19 = getelementptr inbounds nuw float, ptr %3, i64 %.047
   %20 = load float, ptr %19, align 4, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %21 = getelementptr inbounds nuw float, ptr %0, i64 %.04046
   br label %22
 
@@ -2864,8 +2858,8 @@ _blend_Lab_scale.exit43:                          ; preds = %31
 _blend_Lab_rescale.exit:                          ; preds = %89
   %97 = getelementptr inbounds nuw i8, ptr %88, i64 12
   store float %20, ptr %97, align 4, !tbaa !36
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %98 = add nuw i64 %.047, 1
   %99 = add i64 %.04046, 4
   %exitcond.not = icmp eq i64 %98, %4
@@ -2873,7 +2867,7 @@ _blend_Lab_rescale.exit:                          ; preds = %89
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_blend_overlay(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noalias noundef readonly captures(none) %3, i64 noundef %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6) unnamed_addr #11 {
+define internal void @_blend_overlay(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noalias noundef readonly captures(none) %3, i64 noundef %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6) unnamed_addr #10 {
   %8 = alloca [4 x float], align 16
   %9 = alloca [4 x float], align 16
   %.not = icmp eq i64 %4, 0
@@ -2898,8 +2892,8 @@ define internal void @_blend_overlay(ptr noundef readonly captures(none) %0, ptr
   %.05159 = phi i64 [ 0, %.lr.ph ], [ %109, %_blend_Lab_rescale.exit ]
   %19 = getelementptr inbounds nuw float, ptr %3, i64 %.060
   %20 = load float, ptr %19, align 4, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %21 = getelementptr inbounds nuw float, ptr %0, i64 %.05159
   br label %22
 
@@ -3021,8 +3015,8 @@ _blend_Lab_scale.exit56:                          ; preds = %31
 _blend_Lab_rescale.exit:                          ; preds = %99
   %107 = getelementptr inbounds nuw i8, ptr %98, i64 12
   store float %20, ptr %107, align 4, !tbaa !36
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %108 = add nuw i64 %.060, 1
   %109 = add i64 %.05159, 4
   %exitcond.not = icmp eq i64 %108, %4
@@ -3030,7 +3024,7 @@ _blend_Lab_rescale.exit:                          ; preds = %99
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_blend_softlight(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noalias noundef readonly captures(none) %3, i64 noundef %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6) unnamed_addr #11 {
+define internal void @_blend_softlight(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noalias noundef readonly captures(none) %3, i64 noundef %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6) unnamed_addr #10 {
   %8 = alloca [4 x float], align 16
   %9 = alloca [4 x float], align 16
   %.not = icmp eq i64 %4, 0
@@ -3055,8 +3049,8 @@ define internal void @_blend_softlight(ptr noundef readonly captures(none) %0, p
   %.04958 = phi i64 [ 0, %.lr.ph ], [ %107, %_blend_Lab_rescale.exit ]
   %19 = getelementptr inbounds nuw float, ptr %3, i64 %.059
   %20 = load float, ptr %19, align 4, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %21 = getelementptr inbounds nuw float, ptr %0, i64 %.04958
   br label %22
 
@@ -3176,8 +3170,8 @@ _blend_Lab_scale.exit55:                          ; preds = %31
 _blend_Lab_rescale.exit:                          ; preds = %97
   %105 = getelementptr inbounds nuw i8, ptr %96, i64 12
   store float %20, ptr %105, align 4, !tbaa !36
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %106 = add nuw i64 %.059, 1
   %107 = add i64 %.04958, 4
   %exitcond.not = icmp eq i64 %106, %4
@@ -3185,7 +3179,7 @@ _blend_Lab_rescale.exit:                          ; preds = %97
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_blend_hardlight(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noalias noundef readonly captures(none) %3, i64 noundef %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6) unnamed_addr #11 {
+define internal void @_blend_hardlight(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noalias noundef readonly captures(none) %3, i64 noundef %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6) unnamed_addr #10 {
   %8 = alloca [4 x float], align 16
   %9 = alloca [4 x float], align 16
   %.not = icmp eq i64 %4, 0
@@ -3210,8 +3204,8 @@ define internal void @_blend_hardlight(ptr noundef readonly captures(none) %0, p
   %.05159 = phi i64 [ 0, %.lr.ph ], [ %109, %_blend_Lab_rescale.exit ]
   %19 = getelementptr inbounds nuw float, ptr %3, i64 %.060
   %20 = load float, ptr %19, align 4, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %21 = getelementptr inbounds nuw float, ptr %0, i64 %.05159
   br label %22
 
@@ -3333,8 +3327,8 @@ _blend_Lab_scale.exit56:                          ; preds = %31
 _blend_Lab_rescale.exit:                          ; preds = %99
   %107 = getelementptr inbounds nuw i8, ptr %98, i64 12
   store float %20, ptr %107, align 4, !tbaa !36
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %108 = add nuw i64 %.060, 1
   %109 = add i64 %.05159, 4
   %exitcond.not = icmp eq i64 %108, %4
@@ -3342,7 +3336,7 @@ _blend_Lab_rescale.exit:                          ; preds = %99
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_blend_vividlight(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noalias noundef readonly captures(none) %3, i64 noundef %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6) unnamed_addr #11 {
+define internal void @_blend_vividlight(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noalias noundef readonly captures(none) %3, i64 noundef %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6) unnamed_addr #10 {
   %8 = alloca [4 x float], align 16
   %9 = alloca [4 x float], align 16
   %.not = icmp eq i64 %4, 0
@@ -3367,8 +3361,8 @@ define internal void @_blend_vividlight(ptr noundef readonly captures(none) %0, 
   %.05462 = phi i64 [ 0, %.lr.ph ], [ %112, %_blend_Lab_rescale.exit ]
   %19 = getelementptr inbounds nuw float, ptr %3, i64 %.063
   %20 = load float, ptr %19, align 4, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %21 = getelementptr inbounds nuw float, ptr %0, i64 %.05462
   br label %22
 
@@ -3497,8 +3491,8 @@ _blend_Lab_scale.exit59:                          ; preds = %31
 _blend_Lab_rescale.exit:                          ; preds = %102
   %110 = getelementptr inbounds nuw i8, ptr %101, i64 12
   store float %20, ptr %110, align 4, !tbaa !36
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %111 = add nuw i64 %.063, 1
   %112 = add i64 %.05462, 4
   %exitcond.not = icmp eq i64 %111, %4
@@ -3506,7 +3500,7 @@ _blend_Lab_rescale.exit:                          ; preds = %102
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_blend_linearlight(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noalias noundef readonly captures(none) %3, i64 noundef %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6) unnamed_addr #11 {
+define internal void @_blend_linearlight(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noalias noundef readonly captures(none) %3, i64 noundef %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6) unnamed_addr #10 {
   %8 = alloca [4 x float], align 16
   %9 = alloca [4 x float], align 16
   %.not = icmp eq i64 %4, 0
@@ -3531,8 +3525,8 @@ define internal void @_blend_linearlight(ptr noundef readonly captures(none) %0,
   %.04248 = phi i64 [ 0, %.lr.ph ], [ %98, %_blend_Lab_rescale.exit ]
   %19 = getelementptr inbounds nuw float, ptr %3, i64 %.049
   %20 = load float, ptr %19, align 4, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %21 = getelementptr inbounds nuw float, ptr %0, i64 %.04248
   br label %22
 
@@ -3637,8 +3631,8 @@ _blend_Lab_scale.exit45:                          ; preds = %31
 _blend_Lab_rescale.exit:                          ; preds = %88
   %96 = getelementptr inbounds nuw i8, ptr %87, i64 12
   store float %20, ptr %96, align 4, !tbaa !36
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %97 = add nuw i64 %.049, 1
   %98 = add i64 %.04248, 4
   %exitcond.not = icmp eq i64 %97, %4
@@ -3646,7 +3640,7 @@ _blend_Lab_rescale.exit:                          ; preds = %88
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_blend_pinlight(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noalias noundef readonly captures(none) %3, i64 noundef %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6) unnamed_addr #11 {
+define internal void @_blend_pinlight(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noalias noundef readonly captures(none) %3, i64 noundef %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6) unnamed_addr #10 {
   %8 = alloca [4 x float], align 16
   %9 = alloca [4 x float], align 16
   %.not = icmp eq i64 %4, 0
@@ -3671,8 +3665,8 @@ define internal void @_blend_pinlight(ptr noundef readonly captures(none) %0, pt
   %.04250 = phi i64 [ 0, %.lr.ph ], [ %91, %_blend_Lab_rescale.exit ]
   %19 = getelementptr inbounds nuw float, ptr %3, i64 %.051
   %20 = load float, ptr %19, align 4, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %21 = getelementptr inbounds nuw float, ptr %0, i64 %.04250
   br label %22
 
@@ -3776,8 +3770,8 @@ _blend_Lab_scale.exit47:                          ; preds = %31
 _blend_Lab_rescale.exit:                          ; preds = %81
   %89 = getelementptr inbounds nuw i8, ptr %80, i64 12
   store float %20, ptr %89, align 4, !tbaa !36
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %90 = add nuw i64 %.051, 1
   %91 = add i64 %.04250, 4
   %exitcond.not = icmp eq i64 %90, %4
@@ -3785,7 +3779,7 @@ _blend_Lab_rescale.exit:                          ; preds = %81
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_blend_lightness(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noalias noundef readonly captures(none) %3, i64 noundef %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6) unnamed_addr #11 {
+define internal void @_blend_lightness(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noalias noundef readonly captures(none) %3, i64 noundef %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6) unnamed_addr #10 {
   %8 = alloca [4 x float], align 16
   %9 = alloca [4 x float], align 16
   %.not = icmp eq i64 %4, 0
@@ -3810,8 +3804,8 @@ define internal void @_blend_lightness(ptr noundef readonly captures(none) %0, p
   %.02228 = phi i64 [ 0, %.lr.ph ], [ %69, %_blend_Lab_rescale.exit ]
   %19 = getelementptr inbounds nuw float, ptr %3, i64 %.029
   %20 = load float, ptr %19, align 4, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %21 = getelementptr inbounds nuw float, ptr %0, i64 %.02228
   br label %22
 
@@ -3887,8 +3881,8 @@ _blend_Lab_scale.exit25:                          ; preds = %31
 _blend_Lab_rescale.exit:                          ; preds = %59
   %67 = getelementptr inbounds nuw i8, ptr %58, i64 12
   store float %20, ptr %67, align 4, !tbaa !36
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %68 = add nuw i64 %.029, 1
   %69 = add i64 %.02228, 4
   %exitcond.not = icmp eq i64 %68, %4
@@ -3896,7 +3890,7 @@ _blend_Lab_rescale.exit:                          ; preds = %59
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_blend_chromaticity(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noalias noundef readonly captures(none) %3, i64 noundef %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6) unnamed_addr #11 {
+define internal void @_blend_chromaticity(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noalias noundef readonly captures(none) %3, i64 noundef %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6) unnamed_addr #10 {
   %8 = alloca [4 x float], align 16
   %9 = alloca [4 x float], align 16
   %.not = icmp eq i64 %4, 0
@@ -3917,8 +3911,8 @@ define internal void @_blend_chromaticity(ptr noundef readonly captures(none) %0
   %.02241 = phi i64 [ 0, %.lr.ph ], [ %97, %_blend_Lab_rescale.exit ]
   %15 = getelementptr inbounds nuw float, ptr %3, i64 %.042
   %16 = load float, ptr %15, align 4, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %17 = getelementptr inbounds nuw float, ptr %0, i64 %.02241
   br label %18
 
@@ -4054,8 +4048,8 @@ _CLAMP_XYZ.exit34:                                ; preds = %76
 _blend_Lab_rescale.exit:                          ; preds = %87
   %95 = getelementptr inbounds nuw i8, ptr %86, i64 12
   store float %16, ptr %95, align 4, !tbaa !36
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %96 = add nuw i64 %.042, 1
   %97 = add i64 %.02241, 4
   %exitcond.not = icmp eq i64 %96, %4
@@ -4063,7 +4057,7 @@ _blend_Lab_rescale.exit:                          ; preds = %87
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_blend_hue(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noalias noundef readonly captures(none) %3, i64 noundef %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6) unnamed_addr #11 {
+define internal void @_blend_hue(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noalias noundef readonly captures(none) %3, i64 noundef %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6) unnamed_addr #10 {
   %8 = alloca [4 x float], align 16
   %9 = alloca [4 x float], align 16
   %.not = icmp eq i64 %4, 0
@@ -4084,8 +4078,8 @@ define internal void @_blend_hue(ptr noundef readonly captures(none) %0, ptr nou
   %.02750 = phi i64 [ 0, %.lr.ph ], [ %114, %_blend_Lab_rescale.exit ]
   %15 = getelementptr inbounds nuw float, ptr %3, i64 %.051
   %16 = load float, ptr %15, align 4, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %17 = getelementptr inbounds nuw float, ptr %0, i64 %.02750
   br label %18
 
@@ -4246,8 +4240,8 @@ _CLAMP_XYZ.exit40:                                ; preds = %93
 _blend_Lab_rescale.exit:                          ; preds = %104
   %112 = getelementptr inbounds nuw i8, ptr %103, i64 12
   store float %16, ptr %112, align 4, !tbaa !36
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %113 = add nuw i64 %.051, 1
   %114 = add i64 %.02750, 4
   %exitcond.not = icmp eq i64 %113, %4
@@ -4255,7 +4249,7 @@ _blend_Lab_rescale.exit:                          ; preds = %104
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_blend_color(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noalias noundef readonly captures(none) %3, i64 noundef %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6) unnamed_addr #11 {
+define internal void @_blend_color(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noalias noundef readonly captures(none) %3, i64 noundef %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6) unnamed_addr #10 {
   %8 = alloca [4 x float], align 16
   %9 = alloca [4 x float], align 16
   %.not = icmp eq i64 %4, 0
@@ -4276,8 +4270,8 @@ define internal void @_blend_color(ptr noundef readonly captures(none) %0, ptr n
   %.02952 = phi i64 [ 0, %.lr.ph ], [ %118, %_blend_Lab_rescale.exit ]
   %15 = getelementptr inbounds nuw float, ptr %3, i64 %.053
   %16 = load float, ptr %15, align 4, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %17 = getelementptr inbounds nuw float, ptr %0, i64 %.02952
   br label %18
 
@@ -4442,8 +4436,8 @@ _CLAMP_XYZ.exit42:                                ; preds = %97
 _blend_Lab_rescale.exit:                          ; preds = %108
   %116 = getelementptr inbounds nuw i8, ptr %107, i64 12
   store float %16, ptr %116, align 4, !tbaa !36
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %117 = add nuw i64 %.053, 1
   %118 = add i64 %.02952, 4
   %exitcond.not = icmp eq i64 %117, %4
@@ -4451,7 +4445,7 @@ _blend_Lab_rescale.exit:                          ; preds = %108
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_blend_normal_bounded(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noalias noundef readonly captures(none) %3, i64 noundef %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6) unnamed_addr #11 {
+define internal void @_blend_normal_bounded(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noalias noundef readonly captures(none) %3, i64 noundef %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6) unnamed_addr #10 {
   %8 = alloca [4 x float], align 16
   %9 = alloca [4 x float], align 16
   %.not = icmp eq i64 %4, 0
@@ -4465,8 +4459,8 @@ define internal void @_blend_normal_bounded(ptr noundef readonly captures(none) 
   %10 = shl i64 %.02532, 2
   %11 = getelementptr inbounds nuw float, ptr %3, i64 %.02532
   %12 = load float, ptr %11, align 4, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %13 = getelementptr inbounds nuw float, ptr %0, i64 %10
   br label %14
 
@@ -4520,8 +4514,8 @@ _blend_Lab_scale.exit:                            ; preds = %14
 _blend_Lab_rescale.exit:                          ; preds = %33
   %41 = getelementptr inbounds nuw i8, ptr %32, i64 12
   store float %12, ptr %41, align 4, !tbaa !36
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %42 = add nuw i64 %.02532, 1
   %exitcond33.not = icmp eq i64 %42, %4
   br i1 %exitcond33.not, label %._crit_edge, label %.lr.ph
@@ -4548,7 +4542,7 @@ _blend_Lab_scale.exit28:                          ; preds = %23, %_blend_Lab_sca
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_blend_coloradjust(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noalias noundef readonly captures(none) %3, i64 noundef %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6) unnamed_addr #11 {
+define internal void @_blend_coloradjust(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noalias noundef readonly captures(none) %3, i64 noundef %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6) unnamed_addr #10 {
   %8 = alloca [4 x float], align 16
   %9 = alloca [4 x float], align 16
   %.not = icmp eq i64 %4, 0
@@ -4569,8 +4563,8 @@ define internal void @_blend_coloradjust(ptr noundef readonly captures(none) %0,
   %.02952 = phi i64 [ 0, %.lr.ph ], [ %117, %_blend_Lab_rescale.exit ]
   %15 = getelementptr inbounds nuw float, ptr %3, i64 %.053
   %16 = load float, ptr %15, align 4, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %17 = getelementptr inbounds nuw float, ptr %0, i64 %.02952
   br label %18
 
@@ -4733,8 +4727,8 @@ _CLAMP_XYZ.exit42:                                ; preds = %96
 _blend_Lab_rescale.exit:                          ; preds = %107
   %115 = getelementptr inbounds nuw i8, ptr %106, i64 12
   store float %16, ptr %115, align 4, !tbaa !36
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %116 = add nuw i64 %.053, 1
   %117 = add i64 %.02952, 4
   %exitcond.not = icmp eq i64 %116, %4
@@ -4742,7 +4736,7 @@ _blend_Lab_rescale.exit:                          ; preds = %107
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_blend_Lab_lightness(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noalias noundef readonly captures(none) %3, i64 noundef %4, ptr readnone captures(none) %5, ptr readnone captures(none) %6) unnamed_addr #11 {
+define internal void @_blend_Lab_lightness(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noalias noundef readonly captures(none) %3, i64 noundef %4, ptr readnone captures(none) %5, ptr readnone captures(none) %6) unnamed_addr #10 {
   %8 = alloca [4 x float], align 16
   %9 = alloca [4 x float], align 16
   %.not = icmp eq i64 %4, 0
@@ -4763,8 +4757,8 @@ define internal void @_blend_Lab_lightness(ptr noundef readonly captures(none) %
   %.01622 = phi i64 [ 0, %.lr.ph ], [ %53, %_blend_Lab_rescale.exit ]
   %15 = getelementptr inbounds nuw float, ptr %3, i64 %.023
   %16 = load float, ptr %15, align 4, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %17 = getelementptr inbounds nuw float, ptr %0, i64 %.01622
   br label %18
 
@@ -4828,8 +4822,8 @@ _blend_Lab_scale.exit19:                          ; preds = %27
 _blend_Lab_rescale.exit:                          ; preds = %43
   %51 = getelementptr inbounds nuw i8, ptr %42, i64 12
   store float %16, ptr %51, align 4, !tbaa !36
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %52 = add nuw i64 %.023, 1
   %53 = add i64 %.01622, 4
   %exitcond.not = icmp eq i64 %52, %4
@@ -4837,7 +4831,7 @@ _blend_Lab_rescale.exit:                          ; preds = %43
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_blend_Lab_a(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noalias noundef readonly captures(none) %3, i64 noundef %4, ptr readnone captures(none) %5, ptr readnone captures(none) %6) unnamed_addr #11 {
+define internal void @_blend_Lab_a(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noalias noundef readonly captures(none) %3, i64 noundef %4, ptr readnone captures(none) %5, ptr readnone captures(none) %6) unnamed_addr #10 {
   %8 = alloca [4 x float], align 16
   %9 = alloca [4 x float], align 16
   %.not = icmp eq i64 %4, 0
@@ -4858,8 +4852,8 @@ define internal void @_blend_Lab_a(ptr noundef readonly captures(none) %0, ptr n
   %.01622 = phi i64 [ 0, %.lr.ph ], [ %53, %_blend_Lab_rescale.exit ]
   %15 = getelementptr inbounds nuw float, ptr %3, i64 %.023
   %16 = load float, ptr %15, align 4, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %17 = getelementptr inbounds nuw float, ptr %0, i64 %.01622
   br label %18
 
@@ -4923,8 +4917,8 @@ _blend_Lab_scale.exit19:                          ; preds = %27
 _blend_Lab_rescale.exit:                          ; preds = %43
   %51 = getelementptr inbounds nuw i8, ptr %42, i64 12
   store float %16, ptr %51, align 4, !tbaa !36
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %52 = add nuw i64 %.023, 1
   %53 = add i64 %.01622, 4
   %exitcond.not = icmp eq i64 %52, %4
@@ -4932,7 +4926,7 @@ _blend_Lab_rescale.exit:                          ; preds = %43
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_blend_Lab_b(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noalias noundef readonly captures(none) %3, i64 noundef %4, ptr readnone captures(none) %5, ptr readnone captures(none) %6) unnamed_addr #11 {
+define internal void @_blend_Lab_b(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noalias noundef readonly captures(none) %3, i64 noundef %4, ptr readnone captures(none) %5, ptr readnone captures(none) %6) unnamed_addr #10 {
   %8 = alloca [4 x float], align 16
   %9 = alloca [4 x float], align 16
   %.not = icmp eq i64 %4, 0
@@ -4953,8 +4947,8 @@ define internal void @_blend_Lab_b(ptr noundef readonly captures(none) %0, ptr n
   %.01622 = phi i64 [ 0, %.lr.ph ], [ %53, %_blend_Lab_rescale.exit ]
   %15 = getelementptr inbounds nuw float, ptr %3, i64 %.023
   %16 = load float, ptr %15, align 4, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %17 = getelementptr inbounds nuw float, ptr %0, i64 %.01622
   br label %18
 
@@ -5018,8 +5012,8 @@ _blend_Lab_scale.exit19:                          ; preds = %27
 _blend_Lab_rescale.exit:                          ; preds = %43
   %51 = getelementptr inbounds nuw i8, ptr %42, i64 12
   store float %16, ptr %51, align 4, !tbaa !36
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %52 = add nuw i64 %.023, 1
   %53 = add i64 %.01622, 4
   %exitcond.not = icmp eq i64 %52, %4
@@ -5027,7 +5021,7 @@ _blend_Lab_rescale.exit:                          ; preds = %43
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_blend_Lab_color(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noalias noundef readonly captures(none) %3, i64 noundef %4, ptr readnone captures(none) %5, ptr readnone captures(none) %6) unnamed_addr #11 {
+define internal void @_blend_Lab_color(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noalias noundef readonly captures(none) %3, i64 noundef %4, ptr readnone captures(none) %5, ptr readnone captures(none) %6) unnamed_addr #10 {
   %8 = alloca [4 x float], align 16
   %9 = alloca [4 x float], align 16
   %.not = icmp eq i64 %4, 0
@@ -5048,8 +5042,8 @@ define internal void @_blend_Lab_color(ptr noundef readonly captures(none) %0, p
   %.01824 = phi i64 [ 0, %.lr.ph ], [ %58, %_blend_Lab_rescale.exit ]
   %15 = getelementptr inbounds nuw float, ptr %3, i64 %.025
   %16 = load float, ptr %15, align 4, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %17 = getelementptr inbounds nuw float, ptr %0, i64 %.01824
   br label %18
 
@@ -5118,8 +5112,8 @@ _blend_Lab_scale.exit21:                          ; preds = %27
 _blend_Lab_rescale.exit:                          ; preds = %48
   %56 = getelementptr inbounds nuw i8, ptr %47, i64 12
   store float %16, ptr %56, align 4, !tbaa !36
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %57 = add nuw i64 %.025, 1
   %58 = add i64 %.01824, 4
   %exitcond.not = icmp eq i64 %57, %4
@@ -5127,7 +5121,7 @@ _blend_Lab_rescale.exit:                          ; preds = %48
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_blend_normal_unbounded(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noalias noundef readonly captures(none) %3, i64 noundef %4, ptr readnone captures(none) %5, ptr readnone captures(none) %6) unnamed_addr #11 {
+define internal void @_blend_normal_unbounded(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noalias noundef readonly captures(none) %3, i64 noundef %4, ptr readnone captures(none) %5, ptr readnone captures(none) %6) unnamed_addr #10 {
   %8 = alloca [4 x float], align 16
   %9 = alloca [4 x float], align 16
   %.not = icmp eq i64 %4, 0
@@ -5141,8 +5135,8 @@ define internal void @_blend_normal_unbounded(ptr noundef readonly captures(none
   %10 = shl i64 %.02128, 2
   %11 = getelementptr inbounds nuw float, ptr %3, i64 %.02128
   %12 = load float, ptr %11, align 4, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %13 = getelementptr inbounds nuw float, ptr %0, i64 %10
   br label %14
 
@@ -5196,8 +5190,8 @@ _blend_Lab_scale.exit:                            ; preds = %14
 _blend_Lab_rescale.exit:                          ; preds = %33
   %41 = getelementptr inbounds nuw i8, ptr %32, i64 12
   store float %12, ptr %41, align 4, !tbaa !36
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %42 = add nuw i64 %.02128, 1
   %exitcond29.not = icmp eq i64 %42, %4
   br i1 %exitcond29.not, label %._crit_edge, label %.lr.ph
@@ -5218,30 +5212,36 @@ _blend_Lab_scale.exit24:                          ; preds = %23, %_blend_Lab_sca
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #12
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.cos.f32(float) #5
+declare float @llvm.cos.f32(float) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.sin.f32(float) #5
+declare float @llvm.sin.f32(float) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #13
 
 attributes #0 = { nounwind uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
-attributes #3 = { nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
-attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #7 = { nounwind memory(argmem: write) }
-attributes #8 = { nounwind }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #11 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
-attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #1 = { "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #2 = { nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #6 = { nounwind memory(argmem: write) }
+attributes #7 = { nounwind }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #10 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #13 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #14 = { nounwind willreturn memory(none) }
 

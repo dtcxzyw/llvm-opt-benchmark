@@ -58,11 +58,11 @@ define hidden i32 @VP8EncAnalyze(ptr noundef %0) local_unnamed_addr #0 {
   %31 = icmp sgt i32 %27, 1
   %32 = select i1 %30, i1 %31, i1 false
   %33 = tail call ptr @WebPGetWorkerInterface() #6
-  call void @llvm.lifetime.start.p0(i64 4936, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br i1 %32, label %34, label %92
 
 34:                                               ; preds = %.critedge
-  call void @llvm.lifetime.start.p0(i64 4936, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %35 = tail call ptr @WebPGetWorkerInterface() #6
   %36 = load ptr, ptr %35, align 8, !tbaa !32
   call void %36(ptr noundef nonnull %7) #6
@@ -164,7 +164,7 @@ MergeJobs.exit:                                   ; preds = %.preheader
 
 91:                                               ; preds = %.thread, %MergeJobs.exit, %62
   %.04362 = phi i32 [ 0, %.thread ], [ 1, %MergeJobs.exit ], [ 0, %62 ]
-  call void @llvm.lifetime.end.p0(i64 4936, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %109
 
 92:                                               ; preds = %.critedge
@@ -205,7 +205,7 @@ MergeJobs.exit:                                   ; preds = %.preheader
   br i1 %.not49, label %.thread63, label %115
 
 .thread63:                                        ; preds = %109
-  call void @llvm.lifetime.end.p0(i64 4936, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %113 = load ptr, ptr %112, align 8, !tbaa !52
   %114 = call i32 @WebPEncodingSetError(ptr noundef %113, i32 noundef 1) #6
@@ -226,10 +226,10 @@ MergeJobs.exit:                                   ; preds = %.preheader
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %126 = load i32, ptr %125, align 8, !tbaa !27
   %spec.select.i = call i32 @llvm.smin.i32(i32 %126, i32 4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #6
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br label %127
 
 127:                                              ; preds = %131, %115
@@ -525,7 +525,7 @@ MergeJobs.exit:                                   ; preds = %.preheader
 
 260:                                              ; preds = %.loopexit.us.i.i, %.preheader62.us.i.i
   %indvars.iv76.i.i = phi i64 [ 1, %.preheader62.us.i.i ], [ %indvars.iv.next77.i.i, %.loopexit.us.i.i ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %261 = load ptr, ptr %249, align 8, !tbaa !62
   %262 = add nuw nsw i64 %indvars.iv76.i.i, %259
@@ -627,7 +627,7 @@ MergeJobs.exit:                                   ; preds = %.preheader
   %.054.us.i.i = phi i8 [ %337, %336 ], [ %266, %335 ]
   %338 = getelementptr inbounds nuw i8, ptr %243, i64 %262
   store i8 %.054.us.i.i, ptr %338, align 1, !tbaa !68
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next77.i.i = add nuw nsw i64 %indvars.iv76.i.i, 1
   %exitcond79.not.i.i = icmp eq i64 %indvars.iv.next77.i.i, %wide.trip.count.i.i
   br i1 %exitcond79.not.i.i, label %._crit_edge.us.i.i, label %260, !llvm.loop !69
@@ -729,11 +729,11 @@ SmoothSegmentMap.exit.i:                          ; preds = %._crit_edge70.i.i, 
   br i1 %exitcond56.not.i.i, label %.loopexit, label %361, !llvm.loop !79
 
 .loopexit:                                        ; preds = %361, %.loopexit.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %4) #6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #6
-  call void @llvm.lifetime.end.p0(i64 4936, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %406
 
 .critedge52:                                      ; preds = %16
@@ -789,15 +789,9 @@ ResetAllMBInfo.exit:                              ; preds = %384, %.critedge52
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @WebPGetWorkerInterface() local_unnamed_addr #1
 
-declare ptr @WebPGetWorkerInterface() local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare i32 @WebPEncodingSetError(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @WebPEncodingSetError(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @DoSegmentsJob(ptr noundef captures(none) %0, ptr noundef %1) #0 {
@@ -811,7 +805,7 @@ define internal i32 @DoSegmentsJob(ptr noundef captures(none) %0, ptr noundef %1
   br i1 %.not, label %9, label %114
 
 9:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 63, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %10 = ptrtoint ptr %7 to i64
   %11 = add i64 %10, 31
   %12 = and i64 %11, -32
@@ -844,7 +838,7 @@ define internal i32 @DoSegmentsJob(ptr noundef captures(none) %0, ptr noundef %1
   %31 = load ptr, ptr %30, align 8, !tbaa !3
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 4
   %33 = load float, ptr %32, align 4, !tbaa !83
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br label %34
 
 34:                                               ; preds = %34, %29
@@ -887,14 +881,14 @@ define internal i32 @DoSegmentsJob(ptr noundef captures(none) %0, ptr noundef %1
   br label %FastMBAnalyze.exit.i
 
 55:                                               ; preds = %46
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   call void @VP8SetIntra4Mode(ptr noundef nonnull %1, ptr noundef nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %FastMBAnalyze.exit.i
 
 FastMBAnalyze.exit.i:                             ; preds = %55, %54
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %75
 
 56:                                               ; preds = %24
@@ -906,7 +900,7 @@ FastMBAnalyze.exit.i:                             ; preds = %55, %54
   %indvars.iv.i18.i = phi i64 [ 0, %56 ], [ 1, %GetAlpha.exit.i.i ]
   %.01219.i.i = phi i32 [ 0, %56 ], [ %spec.select16.i.i, %GetAlpha.exit.i.i ]
   %.01318.i.i = phi i32 [ -1, %56 ], [ %spec.select.i.i, %GetAlpha.exit.i.i ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !88
   store i32 1, ptr %18, align 4, !tbaa !90
   %59 = load ptr, ptr @VP8CollectHistogram, align 8, !tbaa !84
@@ -933,7 +927,7 @@ GetAlpha.exit.i.i:                                ; preds = %67, %57
   %spec.select.i.i = call i32 @llvm.smax.i32(i32 %70, i32 %.01318.i.i)
   %72 = trunc nuw nsw i64 %indvars.iv.i18.i to i32
   %spec.select16.i.i = select i1 %71, i32 %72, i32 %.01219.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %58, label %57, label %MBAnalyzeBestIntra16Mode.exit.i, !llvm.loop !94
 
 MBAnalyzeBestIntra16Mode.exit.i:                  ; preds = %GetAlpha.exit.i.i
@@ -953,7 +947,7 @@ MBAnalyzeBestIntra16Mode.exit.i:                  ; preds = %GetAlpha.exit.i.i
   %.026.i.i = phi i32 [ -1, %75 ], [ %spec.select.i23.i, %GetAlpha.exit.i22.i ]
   %.01724.i.i = phi i32 [ 0, %75 ], [ %.118.i.i, %GetAlpha.exit.i22.i ]
   %.01923.i20.i = phi i32 [ 0, %75 ], [ %.120.i.i, %GetAlpha.exit.i22.i ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !tbaa !88
   store i32 1, ptr %21, align 4, !tbaa !90
   %78 = load ptr, ptr @VP8CollectHistogram, align 8, !tbaa !84
@@ -983,7 +977,7 @@ GetAlpha.exit.i22.i:                              ; preds = %87, %76
   %92 = trunc nuw nsw i64 %indvars.iv.i19.i to i32
   %.120.i.i = select i1 %or.cond.i.i, i32 %92, i32 %.01923.i20.i
   %.118.i.i = select i1 %or.cond.i.i, i32 %90, i32 %.01724.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %77, label %76, label %MBAnalyze.exit, !llvm.loop !95
 
 MBAnalyze.exit:                                   ; preds = %GetAlpha.exit.i22.i
@@ -1020,7 +1014,7 @@ MBAnalyze.exit:                                   ; preds = %GetAlpha.exit.i22.i
   br i1 %.not14, label %.critedge, label %24, !llvm.loop !97
 
 .critedge:                                        ; preds = %MBAnalyze.exit, %112
-  call void @llvm.lifetime.end.p0(i64 63, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %114
 
 114:                                              ; preds = %.critedge, %2
@@ -1028,45 +1022,51 @@ MBAnalyze.exit:                                   ; preds = %GetAlpha.exit.i22.i
   ret i32 %.0
 }
 
-declare void @VP8IteratorInit(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @VP8IteratorInit(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @VP8IteratorSetRow(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @VP8IteratorSetRow(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @VP8IteratorSetCountDown(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @VP8IteratorSetCountDown(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
-declare i32 @VP8IteratorIsDone(ptr noundef) local_unnamed_addr #2
+declare i32 @VP8IteratorIsDone(ptr noundef) local_unnamed_addr #1
 
-declare void @VP8IteratorImport(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @VP8IteratorImport(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @VP8IteratorProgress(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @VP8IteratorProgress(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @VP8IteratorNext(ptr noundef) local_unnamed_addr #2
+declare i32 @VP8IteratorNext(ptr noundef) local_unnamed_addr #1
 
-declare void @VP8SetIntra16Mode(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @VP8SetIntra16Mode(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @VP8SetSkip(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @VP8SetSkip(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @VP8SetSegment(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @VP8SetSegment(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @VP8SetIntra4Mode(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @VP8SetIntra4Mode(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @VP8MakeLuma16Preds(ptr noundef) local_unnamed_addr #2
+declare void @VP8MakeLuma16Preds(ptr noundef) local_unnamed_addr #1
 
-declare void @VP8MakeChroma8Preds(ptr noundef) local_unnamed_addr #2
+declare void @VP8MakeChroma8Preds(ptr noundef) local_unnamed_addr #1
 
-declare void @VP8SetIntraUVMode(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @VP8SetIntraUVMode(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #4
+declare i32 @llvm.abs.i32(i32, i1 immarg) #3
 
-declare ptr @WebPSafeMalloc(i64 noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @WebPSafeMalloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @WebPSafeFree(ptr noundef) local_unnamed_addr #2
+declare void @WebPSafeFree(ptr noundef) local_unnamed_addr #1
 
-declare i32 @WebPReportProgress(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @WebPReportProgress(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #5
@@ -1078,10 +1078,10 @@ declare i32 @llvm.smax.i32(i32, i32) #5
 declare i32 @llvm.umin.i32(i32, i32) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nounwind }
 

@@ -69,9 +69,6 @@ define hidden void @proto_reg_handoff_icap() local_unnamed_addr #0 {
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: null_pointer_is_valid
 declare ptr @find_dissector_add_dependency(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -81,7 +78,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_icap(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %7, i32 noundef 35, ptr noundef nonnull @.str.13)
@@ -91,7 +88,7 @@ define internal i32 @dissect_icap(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %10, label %11, label %31
 
 11:                                               ; preds = %4
-  %12 = call i32 @strncmp(ptr noundef readonly %9, ptr noundef nonnull dereferenceable(6) @.str.18, i64 noundef 5) #5
+  %12 = call i32 @strncmp(ptr noundef readonly %9, ptr noundef nonnull dereferenceable(6) @.str.18, i64 noundef 5) #4
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %is_icap_message.exit, label %14
 
@@ -100,7 +97,7 @@ define internal i32 @dissect_icap(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %15, label %16, label %31
 
 16:                                               ; preds = %14
-  %17 = call i32 @strncmp(ptr noundef readonly %9, ptr noundef nonnull dereferenceable(8) @.str.19, i64 noundef 7) #5
+  %17 = call i32 @strncmp(ptr noundef readonly %9, ptr noundef nonnull dereferenceable(8) @.str.19, i64 noundef 7) #4
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %is_icap_message.exit, label %19
 
@@ -109,12 +106,12 @@ define internal i32 @dissect_icap(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %.not.i, label %31, label %20
 
 20:                                               ; preds = %19
-  %21 = call i32 @strncmp(ptr noundef readonly %9, ptr noundef nonnull dereferenceable(9) @.str.20, i64 noundef 8) #5
+  %21 = call i32 @strncmp(ptr noundef readonly %9, ptr noundef nonnull dereferenceable(9) @.str.20, i64 noundef 8) #4
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %is_icap_message.exit, label %23
 
 23:                                               ; preds = %20
-  %24 = call i32 @strncmp(ptr noundef readonly %9, ptr noundef nonnull dereferenceable(9) @.str.21, i64 noundef 8) #5
+  %24 = call i32 @strncmp(ptr noundef readonly %9, ptr noundef nonnull dereferenceable(9) @.str.21, i64 noundef 8) #4
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %is_icap_message.exit, label %31
 
@@ -163,7 +160,7 @@ is_icap_message.exit:                             ; preds = %23, %20, %16, %11
   br i1 %47, label %48, label %is_icap_message.exit84
 
 48:                                               ; preds = %42
-  %49 = call i32 @strncmp(ptr noundef readonly %44, ptr noundef nonnull dereferenceable(6) @.str.18, i64 noundef 5) #5
+  %49 = call i32 @strncmp(ptr noundef readonly %44, ptr noundef nonnull dereferenceable(6) @.str.18, i64 noundef 5) #4
   %50 = icmp eq i32 %49, 0
   br i1 %50, label %51, label %53
 
@@ -176,7 +173,7 @@ is_icap_message.exit:                             ; preds = %23, %20, %16, %11
   br i1 %54, label %55, label %.preheader
 
 55:                                               ; preds = %53
-  %56 = call i32 @strncmp(ptr noundef readonly %44, ptr noundef nonnull dereferenceable(8) @.str.19, i64 noundef 7) #5
+  %56 = call i32 @strncmp(ptr noundef readonly %44, ptr noundef nonnull dereferenceable(8) @.str.19, i64 noundef 7) #4
   %57 = icmp eq i32 %56, 0
   br i1 %57, label %58, label %60
 
@@ -189,7 +186,7 @@ is_icap_message.exit:                             ; preds = %23, %20, %16, %11
   br i1 %cond, label %.preheader, label %61
 
 61:                                               ; preds = %60
-  %62 = call i32 @strncmp(ptr noundef readonly %44, ptr noundef nonnull dereferenceable(9) @.str.20, i64 noundef 8) #5
+  %62 = call i32 @strncmp(ptr noundef readonly %44, ptr noundef nonnull dereferenceable(9) @.str.20, i64 noundef 8) #4
   %63 = icmp eq i32 %62, 0
   br i1 %63, label %64, label %66
 
@@ -198,7 +195,7 @@ is_icap_message.exit:                             ; preds = %23, %20, %16, %11
   br i1 %65, label %.thread15.sink.split.i82, label %is_icap_message.exit84.thread
 
 66:                                               ; preds = %61
-  %67 = call i32 @strncmp(ptr noundef readonly %44, ptr noundef nonnull dereferenceable(9) @.str.21, i64 noundef 8) #5
+  %67 = call i32 @strncmp(ptr noundef readonly %44, ptr noundef nonnull dereferenceable(9) @.str.21, i64 noundef 8) #4
   %68 = icmp eq i32 %67, 0
   br i1 %68, label %69, label %.preheader
 
@@ -348,7 +345,7 @@ proto_item_set_hidden.exit:                       ; preds = %proto_item_set_hidd
 
 121:                                              ; preds = %117, %proto_item_set_hidden.exit
   %122 = call i32 @tvb_captured_length(ptr noundef %0)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %122
 }
 
@@ -357,9 +354,6 @@ declare void @dissector_add_uint_with_preference(ptr noundef, i32 noundef, ptr n
 
 ; Function Attrs: null_pointer_is_valid
 declare void @ssl_dissector_add(i32 noundef, ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
@@ -404,14 +398,19 @@ declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) 
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #3
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind }
-attributes #5 = { nounwind willreturn memory(read) }
+attributes #2 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

@@ -29,7 +29,7 @@ declare i32 @pthread_once(ptr noundef, ptr noundef) local_unnamed_addr #1
 define internal void @msmp4_vc1_vlcs_init() #0 {
 .preheader:
   %0 = alloca %struct.VLCInitState, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %0) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %0)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) @__const.msmp4_vc1_vlcs_init.state, i64 16, i1 false)
   %1 = getelementptr inbounds nuw [2 x [2 x [120 x [2 x i32]]]], ptr @ff_msmp4_dc_tables, i64 0, i64 0
   %2 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr @ff_msmp4_dc_vlc, i64 0, i64 0
@@ -46,27 +46,27 @@ define internal void @msmp4_vc1_vlcs_init() #0 {
   %10 = call ptr @ff_vlc_init_tables_sparse(ptr noundef nonnull %0, i32 noundef 9, i32 noundef 120, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ff_msmp4_dc_tables, i64 2884), i32 noundef 8, i32 noundef 4, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ff_msmp4_dc_tables, i64 2880), i32 noundef 8, i32 noundef 4, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 0) #4
   store ptr %10, ptr getelementptr inbounds nuw (i8, ptr @ff_msmp4_dc_vlc, i64 24), align 8, !tbaa !4
   call void @ff_vlc_init_table_sparse(ptr noundef nonnull @ff_msmp4_mb_i_vlc, i32 noundef 536, i32 noundef 9, i32 noundef 64, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ff_msmp4_mb_i_table, i64 2), i32 noundef 4, i32 noundef 2, ptr noundef nonnull @ff_msmp4_mb_i_table, i32 noundef 4, i32 noundef 2, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 0) #4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %0) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %0)
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare void @ff_vlc_init_table_sparse(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 declare ptr @ff_vlc_init_tables_sparse(ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
+
 attributes #0 = { cold nounwind optsize uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

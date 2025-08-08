@@ -68,7 +68,7 @@ define hidden ptr @hb_ot_name_list_names(ptr noundef %0, ptr noundef writeonly c
 ; Function Attrs: mustprogress uwtable
 define hidden i32 @hb_ot_name_get_utf8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %8 = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZNK16hb_lazy_loader_tIN2OT18name_accelerator_tE21hb_face_lazy_loader_tIS1_Lj8EE9hb_face_tLj8ES1_E10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %7)
   %.not.i = icmp eq ptr %2, null
@@ -271,14 +271,14 @@ _ZN9hb_utf8_t10encode_lenEj.exit.i.i:             ; preds = %101, %_ZN9hb_utf8_t
 
 _ZL18hb_ot_name_get_utfI9hb_utf8_tEjP9hb_face_tjPK18hb_language_impl_tPjPNT_11codepoint_tE.exit: ; preds = %_ZN9hb_utf8_t10encode_lenEj.exit.i.i, %54, %101, %112, %116
   %.0.i = phi i32 [ %55, %54 ], [ 0, %116 ], [ 0, %112 ], [ %105, %101 ], [ %110, %_ZN9hb_utf8_t10encode_lenEj.exit.i.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0.i
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden i32 @hb_ot_name_get_utf16(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %8 = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZNK16hb_lazy_loader_tIN2OT18name_accelerator_tE21hb_face_lazy_loader_tIS1_Lj8EE9hb_face_tLj8ES1_E10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %7)
   %.not.i = icmp eq ptr %2, null
@@ -443,14 +443,14 @@ _ZN2OT22hb_ot_name_convert_utfI10hb_ascii_t13hb_utf16_xe_tItEEEj10hb_array_tIKcE
 
 _ZL18hb_ot_name_get_utfI13hb_utf16_xe_tItEEjP9hb_face_tjPK18hb_language_impl_tPjPNT_11codepoint_tE.exit: ; preds = %54, %_ZN2OT22hb_ot_name_convert_utfI10hb_ascii_t13hb_utf16_xe_tItEEEj10hb_array_tIKcEPjPNT0_11codepoint_tE.exit.i, %93, %97
   %.0.i = phi i32 [ %55, %54 ], [ %.0.lcssa.i.i, %_ZN2OT22hb_ot_name_convert_utfI10hb_ascii_t13hb_utf16_xe_tItEEEj10hb_array_tIKcEPjPNT0_11codepoint_tE.exit.i ], [ 0, %97 ], [ 0, %93 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0.i
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden i32 @hb_ot_name_get_utf32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %8 = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZNK16hb_lazy_loader_tIN2OT18name_accelerator_tE21hb_face_lazy_loader_tIS1_Lj8EE9hb_face_tLj8ES1_E10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %7)
   %.not.i = icmp eq ptr %2, null
@@ -615,7 +615,7 @@ _ZN2OT22hb_ot_name_convert_utfI10hb_ascii_t13hb_utf32_xe_tIjLb1EEEEj10hb_array_t
 
 _ZL18hb_ot_name_get_utfI13hb_utf32_xe_tIjLb1EEEjP9hb_face_tjPK18hb_language_impl_tPjPNT_11codepoint_tE.exit: ; preds = %54, %_ZN2OT22hb_ot_name_convert_utfI10hb_ascii_t13hb_utf32_xe_tIjLb1EEEEj10hb_array_tIKcEPjPNT0_11codepoint_tE.exit.i, %92, %96
   %.0.i = phi i32 [ %55, %54 ], [ %.0.lcssa.i.i, %_ZN2OT22hb_ot_name_convert_utfI10hb_ascii_t13hb_utf32_xe_tIjLb1EEEEj10hb_array_tIKcEPjPNT0_11codepoint_tE.exit.i ], [ 0, %96 ], [ 0, %92 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0.i
 }
 
@@ -3476,10 +3476,10 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #12
 declare i32 @llvm.usub.sat.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #14

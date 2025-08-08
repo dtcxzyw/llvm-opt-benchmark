@@ -171,7 +171,7 @@ define internal i32 @evc_read_packet(ptr noundef %0, ptr noundef %1) #1 {
   br label %8
 
 8:                                                ; preds = %38, %2
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %9 = load ptr, ptr %6, align 8, !tbaa !58
   %10 = call i32 @avio_feof(ptr noundef %9) #5
   %.not52 = icmp eq i32 %10, 0
@@ -232,7 +232,7 @@ switch.early.test:                                ; preds = %34
   ]
 
 38:                                               ; preds = %switch.early.test
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %8, !llvm.loop !59
 
 .loopexit.sink.split:                             ; preds = %switch.early.test, %30
@@ -243,7 +243,7 @@ switch.early.test:                                ; preds = %34
 
 .loopexit:                                        ; preds = %switch.early.test, %34, %29, %22, %20, %19, %15, %11, %.loopexit.sink.split
   %.2 = phi i32 [ %.2.ph, %.loopexit.sink.split ], [ %13, %11 ], [ %17, %15 ], [ -1094995529, %19 ], [ -1094995529, %20 ], [ %27, %22 ], [ -1094995529, %29 ], [ %.fr, %34 ], [ %.fr, %switch.early.test ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.2
 }
 
@@ -257,12 +257,6 @@ define internal noundef i32 @evc_read_close(ptr noundef readonly captures(none) 
 }
 
 declare ptr @av_default_item_name(ptr noundef) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 declare ptr @av_bsf_get_by_name(ptr noundef) local_unnamed_addr #2
 
@@ -293,6 +287,12 @@ declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_a
 declare i32 @av_bsf_receive_packet(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 declare void @av_bsf_free(ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.bswap.i32(i32) #4

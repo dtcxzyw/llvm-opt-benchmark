@@ -48,11 +48,11 @@ define void @_ZN6google8protobuf5Arena4InitEv(ptr noundef nonnull align 8 derefe
 
 14:                                               ; preds = %11
   %15 = icmp ult i64 %13, 32
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br i1 %15, label %16, label %21
 
 16:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZN6google8protobuf8internal10LogMessageC1ENS0_8LogLevelEPKci(ptr noundef nonnull align 8 dereferenceable(56) %2, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 66)
   %17 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.1)
           to label %18 unwind label %37
@@ -66,13 +66,13 @@ define void @_ZN6google8protobuf5Arena4InitEv(ptr noundef nonnull align 8 derefe
           to label %22 unwind label %39
 
 21:                                               ; preds = %14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.critedge21
 
 22:                                               ; preds = %20
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #13
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.pre = load ptr, ptr %9, align 8, !tbaa !17
   %.pre22 = load i64, ptr %12, align 8, !tbaa !18
   %.pre23 = load i64, ptr %0, align 8, !tbaa !4
@@ -120,13 +120,13 @@ _ZN6google8protobuf5Arena16AddBlockInternalEPNS1_5BlockE.exit: ; preds = %.crite
 39:                                               ; preds = %20
   %40 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %41
 
 41:                                               ; preds = %37, %39
   %.pn = phi { ptr, i32 } [ %40, %39 ], [ %38, %37 ]
   call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #13
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %.pn
 
 42:                                               ; preds = %_ZN6google8protobuf5Arena16AddBlockInternalEPNS1_5BlockE.exit, %11, %1
@@ -146,25 +146,19 @@ _ZN6google8protobuf5Arena16AddBlockInternalEPNS1_5BlockE.exit: ; preds = %.crite
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare void @_ZN6google8protobuf8internal10LogMessageC1ENS0_8LogLevelEPKci(ptr noundef nonnull align 8 dereferenceable(56), i32 noundef, ptr noundef, i32 noundef) unnamed_addr #1
 
-declare void @_ZN6google8protobuf8internal10LogMessageC1ENS0_8LogLevelEPKci(ptr noundef nonnull align 8 dereferenceable(56), i32 noundef, ptr noundef, i32 noundef) unnamed_addr #2
-
-declare noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef) local_unnamed_addr #2
+declare noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef) local_unnamed_addr #1
 
 declare i32 @__gxx_personality_v0(...)
 
-declare void @_ZN6google8protobuf8internal11LogFinisheraSERNS1_10LogMessageE(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @_ZN6google8protobuf8internal11LogFinisheraSERNS1_10LogMessageE(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56)) unnamed_addr #3
+declare void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6google8protobuf5Arena16AddBlockInternalEPNS1_5BlockE(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef initializes((8, 16)) %1) local_unnamed_addr #4 align 2 {
+define void @_ZN6google8protobuf5Arena16AddBlockInternalEPNS1_5BlockE(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef initializes((8, 16)) %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load volatile i64, ptr %3, align 8, !tbaa !27
   %5 = inttoptr i64 %4 to ptr
@@ -191,7 +185,7 @@ define void @_ZN6google8protobuf5Arena16AddBlockInternalEPNS1_5BlockE(ptr nounde
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6google8protobuf5ArenaD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6google8protobuf5ArenaD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = invoke noundef i64 @_ZN6google8protobuf5Arena13ResetInternalEv(ptr noundef nonnull align 8 dereferenceable(136) %0)
           to label %3 unwind label %11
 
@@ -342,7 +336,7 @@ _ZN6google8protobuf5Arena10FreeBlocksEv.exit:     ; preds = %._crit_edge.i, %36,
 }
 
 ; Function Attrs: noinline noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #5 comdat {
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #4 comdat {
   %2 = tail call ptr @__cxa_begin_catch(ptr %0) #13
   tail call void @_ZSt9terminatev() #14
   unreachable
@@ -351,13 +345,13 @@ define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_un
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #6
+declare void @_ZSt9terminatev() local_unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN6google8protobuf8internal5MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #3
+declare void @_ZN6google8protobuf8internal5MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #2
 
 ; Function Attrs: mustprogress noinline uwtable
-define noundef i64 @_ZN6google8protobuf5Arena5ResetEv(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 8)) %0) local_unnamed_addr #7 align 2 {
+define noundef i64 @_ZN6google8protobuf5Arena5ResetEv(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 8)) %0) local_unnamed_addr #6 align 2 {
   %2 = tail call noundef i64 asm sideeffect "lock; xaddq $0,$1", "=r,=*m,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @_ZN6google8protobuf5Arena23lifecycle_id_generator_E, i64 1, ptr nonnull elementtype(i64) @_ZN6google8protobuf5Arena23lifecycle_id_generator_E) #13, !srcloc !3
   store i64 %2, ptr %0, align 8, !tbaa !4
   %3 = tail call noundef i64 @_ZN6google8protobuf5Arena13ResetInternalEv(ptr noundef nonnull align 8 dereferenceable(136) %0)
@@ -863,7 +857,7 @@ _ZN6google8protobuf5Arena8AddBlockEPNS1_5BlockE.exit: ; preds = %_ZN6google8prot
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef ptr @_ZN6google8protobuf5Arena14AllocFromBlockEPNS1_5BlockEm(ptr noundef captures(ret: address, provenance) %0, i64 noundef %1) local_unnamed_addr #8 align 2 {
+define noundef ptr @_ZN6google8protobuf5Arena14AllocFromBlockEPNS1_5BlockEm(ptr noundef captures(ret: address, provenance) %0, i64 noundef %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8, !tbaa !22
   %5 = add i64 %4, %1
@@ -873,7 +867,7 @@ define noundef ptr @_ZN6google8protobuf5Arena14AllocFromBlockEPNS1_5BlockEm(ptr 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZN6google8protobuf5Arena9FindBlockEPv(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #4 align 2 {
+define noundef ptr @_ZN6google8protobuf5Arena9FindBlockEPv(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load volatile i64, ptr %3, align 8, !tbaa !27
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !48
@@ -899,7 +893,7 @@ define noundef ptr @_ZN6google8protobuf5Arena9FindBlockEPv(ptr noundef nonnull a
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define noundef i64 @_ZNK6google8protobuf5Arena14SpaceAllocatedEv(ptr noundef nonnull align 8 dereferenceable(136) %0) local_unnamed_addr #9 align 2 {
+define noundef i64 @_ZNK6google8protobuf5Arena14SpaceAllocatedEv(ptr noundef nonnull align 8 dereferenceable(136) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load volatile i64, ptr %2, align 8, !tbaa !27
   %.not6 = icmp eq i64 %3, 0
@@ -926,7 +920,7 @@ define noundef i64 @_ZNK6google8protobuf5Arena14SpaceAllocatedEv(ptr noundef non
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define noundef i64 @_ZNK6google8protobuf5Arena9SpaceUsedEv(ptr noundef nonnull align 8 dereferenceable(136) %0) local_unnamed_addr #9 align 2 {
+define noundef i64 @_ZNK6google8protobuf5Arena9SpaceUsedEv(ptr noundef nonnull align 8 dereferenceable(136) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load volatile i64, ptr %2, align 8, !tbaa !27
   %.not6 = icmp eq i64 %3, 0
@@ -954,7 +948,7 @@ define noundef i64 @_ZNK6google8protobuf5Arena9SpaceUsedEv(ptr noundef nonnull a
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define { i64, i64 } @_ZNK6google8protobuf5Arena21SpaceAllocatedAndUsedEv(ptr noundef nonnull align 8 dereferenceable(136) %0) local_unnamed_addr #9 align 2 {
+define { i64, i64 } @_ZNK6google8protobuf5Arena21SpaceAllocatedAndUsedEv(ptr noundef nonnull align 8 dereferenceable(136) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load volatile i64, ptr %2, align 8, !tbaa !27
   %.not10 = icmp eq i64 %3, 0
@@ -989,11 +983,17 @@ define { i64, i64 } @_ZNK6google8protobuf5Arena21SpaceAllocatedAndUsedEv(ptr nou
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #10
+declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #9
 
-declare void @_ZN6google8protobuf8internal5Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #2
+declare void @_ZN6google8protobuf8internal5Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #1
 
-declare void @_ZN6google8protobuf8internal5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #2
+declare void @_ZN6google8protobuf8internal5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
@@ -1002,16 +1002,16 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare i64 @llvm.umin.i64(i64, i64) #12
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { cold nofree noreturn }
-attributes #7 = { mustprogress noinline uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree noinline norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { cold nofree noreturn }
+attributes #6 = { mustprogress noinline uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree noinline norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #13 = { nounwind }

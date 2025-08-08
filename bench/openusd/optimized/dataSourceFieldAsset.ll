@@ -490,7 +490,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i: ; preds = %16, %
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimC2ERKS0_.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimC2ERKS0_.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i, %34, %39
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %44 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__18UsdVolOpenVDBAsset16_GetStaticTfTypeEv()
           to label %.noexc unwind label %123
 
@@ -559,7 +559,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimC2ERKS0_.exit: ; preds = %_ZN32pxrI
 
 64:                                               ; preds = %52, %47, %62, %60, %.noexc9
   %.0.i = phi ptr [ @_ZZN32pxrInternal_v0_24__pxrReserved__L21_GetUsdAttributeNamesENS_7UsdPrimEE5empty, %62 ], [ @_ZZN32pxrInternal_v0_24__pxrReserved__L21_GetUsdAttributeNamesENS_7UsdPrimEE5empty, %60 ], [ @_ZZN32pxrInternal_v0_24__pxrReserved__L21_GetUsdAttributeNamesENS_7UsdPrimEE5empty, %.noexc9 ], [ @_ZZN32pxrInternal_v0_24__pxrReserved__L27_GetStaticUsdAttributeNamesINS_18UsdVolOpenVDBAssetEEERKSt6vectorINS_7TfTokenESaIS3_EEvE6result, %47 ], [ @_ZZN32pxrInternal_v0_24__pxrReserved__L27_GetStaticUsdAttributeNamesINS_18UsdVolField3DAssetEEERKSt6vectorINS_7TfTokenESaIS3_EEvE6result, %52 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %65 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %66 = load ptr, ptr %65, align 8
   %67 = load ptr, ptr %.0.i, align 8
@@ -3394,10 +3394,10 @@ declare i64 @llvm.umax.i64(i64, i64) #14
 declare i64 @llvm.umin.i64(i64, i64) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #16

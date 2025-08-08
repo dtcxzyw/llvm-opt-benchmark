@@ -132,13 +132,13 @@ define void @Java_sun_awt_X11_XRobotPeer_setup(ptr noundef %0, ptr noundef readn
   br label %62
 
 62:                                               ; preds = %48, %58
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %63 = load ptr, ptr @awt_display, align 8
   %64 = call i32 @XQueryExtension(ptr noundef %63, ptr noundef nonnull @.str.2, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #8
   %.not.i = icmp eq i32 %64, 0
@@ -168,23 +168,23 @@ define void @Java_sun_awt_X11_XRobotPeer_setup(ptr noundef %0, ptr noundef readn
   br label %isXTestAvailable.exit
 
 isXTestAvailable.exit:                            ; preds = %73, %75
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %78
 
 .thread59:                                        ; preds = %65, %62, %73
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @JNU_ThrowByName(ptr noundef nonnull %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #8
   br label %78
 
@@ -315,10 +315,10 @@ define void @Java_sun_awt_X11_XRobotPeer_getRGBPixelsImpl(ptr noundef %0, ptr no
 
 52:                                               ; preds = %47
   %53 = load ptr, ptr @awt_display, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %54 = load ptr, ptr @compositeQueryExtension, align 8
   %55 = icmp eq ptr %54, null
   %56 = load ptr, ptr @compositeQueryVersion, align 8
@@ -335,10 +335,10 @@ define void @Java_sun_awt_X11_XRobotPeer_getRGBPixelsImpl(ptr noundef %0, ptr no
   br i1 %.not3.i, label %hasXCompositeOverlayExtension.exit.thread, label %hasXCompositeOverlayExtension.exit
 
 hasXCompositeOverlayExtension.exit.thread:        ; preds = %60, %52
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %78
 
 hasXCompositeOverlayExtension.exit:               ; preds = %60
@@ -351,21 +351,21 @@ hasXCompositeOverlayExtension.exit:               ; preds = %60
   %66 = load i32, ptr %14, align 4
   %67 = icmp slt i32 %66, 3
   %or.cond.i.not = select i1 %65, i1 %67, i1 false
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br i1 %or.cond.i.not, label %78, label %68
 
 68:                                               ; preds = %hasXCompositeOverlayExtension.exit
   %69 = load ptr, ptr @awt_display, align 8
   %70 = load i32, ptr %49, align 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %71 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 25, ptr noundef nonnull @.str.3, i32 noundef %70) #8
   %72 = call i64 @XInternAtom(ptr noundef %69, ptr noundef nonnull %10, i32 noundef 0) #8
   %73 = call i64 @XGetSelectionOwner(ptr noundef %69, i64 noundef %72) #8
   %.not171 = icmp eq i64 %73, 0
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br i1 %.not171, label %78, label %74
 
 74:                                               ; preds = %68
@@ -1363,10 +1363,10 @@ declare i32 @dlclose(ptr noundef) local_unnamed_addr #5
 declare i32 @llvm.smax.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #6

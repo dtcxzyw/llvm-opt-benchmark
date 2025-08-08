@@ -47,17 +47,11 @@ define hidden noundef ptr @X509_LOOKUP_new(ptr noundef %0) local_unnamed_addr #0
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden void @X509_LOOKUP_free(ptr noundef %0) local_unnamed_addr #0 {
@@ -323,11 +317,11 @@ define hidden noundef ptr @X509_STORE_new() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
-declare void @CRYPTO_MUTEX_init(ptr noundef) local_unnamed_addr #5
+declare void @CRYPTO_MUTEX_init(ptr noundef) local_unnamed_addr #4
 
-declare ptr @sk_new(ptr noundef) local_unnamed_addr #5
+declare ptr @sk_new(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @x509_object_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
@@ -366,15 +360,15 @@ define internal i32 @x509_object_cmp(ptr noundef readonly captures(none) %0, ptr
   ret i32 %.010
 }
 
-declare ptr @sk_new_null() local_unnamed_addr #5
+declare ptr @sk_new_null() local_unnamed_addr #4
 
-declare ptr @X509_VERIFY_PARAM_new() local_unnamed_addr #5
+declare ptr @X509_VERIFY_PARAM_new() local_unnamed_addr #4
 
-declare void @CRYPTO_MUTEX_cleanup(ptr noundef) local_unnamed_addr #5
+declare void @CRYPTO_MUTEX_cleanup(ptr noundef) local_unnamed_addr #4
 
-declare void @X509_VERIFY_PARAM_free(ptr noundef) local_unnamed_addr #5
+declare void @X509_VERIFY_PARAM_free(ptr noundef) local_unnamed_addr #4
 
-declare void @sk_free(ptr noundef) local_unnamed_addr #5
+declare void @sk_free(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define hidden void @X509_STORE_up_ref(ptr noundef %0) local_unnamed_addr #0 {
@@ -383,7 +377,7 @@ define hidden void @X509_STORE_up_ref(ptr noundef %0) local_unnamed_addr #0 {
   ret void
 }
 
-declare void @CRYPTO_refcount_inc(ptr noundef) local_unnamed_addr #5
+declare void @CRYPTO_refcount_inc(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define hidden void @X509_STORE_free(ptr noundef %0) local_unnamed_addr #0 {
@@ -465,13 +459,13 @@ X509_LOOKUP_free.exit:                            ; preds = %.lr.ph, %X509_LOOKU
   ret void
 }
 
-declare i32 @CRYPTO_refcount_dec_and_test_zero(ptr noundef) local_unnamed_addr #5
+declare i32 @CRYPTO_refcount_dec_and_test_zero(ptr noundef) local_unnamed_addr #4
 
-declare i64 @sk_num(ptr noundef) local_unnamed_addr #5
+declare i64 @sk_num(ptr noundef) local_unnamed_addr #4
 
-declare ptr @sk_value(ptr noundef, i64 noundef) local_unnamed_addr #5
+declare ptr @sk_value(ptr noundef, i64 noundef) local_unnamed_addr #4
 
-declare void @sk_pop_free(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare void @sk_pop_free(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal void @cleanup(ptr noundef captures(address_is_null) %0) #0 {
@@ -582,7 +576,7 @@ X509_LOOKUP_new.exit.thread:                      ; preds = %.lr.ph, %X509_LOOKU
   ret ptr %.0
 }
 
-declare i64 @sk_push(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i64 @sk_push(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -2147483648, 2) i32 @X509_STORE_get_by_subject(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
@@ -594,16 +588,16 @@ define hidden range(i32 -2147483648, 2) i32 @X509_STORE_get_by_subject(ptr nound
   %10 = alloca i64, align 8
   %11 = alloca %struct.x509_object_st, align 8
   %12 = load ptr, ptr %0, align 8, !tbaa !45
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   tail call void @CRYPTO_MUTEX_lock_write(ptr noundef nonnull %13) #10
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !27
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #10
-  call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %6) #10
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %7) #10
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %8) #10
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %9) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 %1, ptr %5, align 8, !tbaa !38
   switch i32 %1, label %X509_OBJECT_idx_by_subject.exit.thread.i [
     i32 1, label %16
@@ -627,27 +621,27 @@ define hidden range(i32 -2147483648, 2) i32 @X509_STORE_get_by_subject(ptr nound
   br label %22
 
 22:                                               ; preds = %19, %16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %23 = call i32 @sk_find(ptr noundef %15, ptr noundef nonnull %10, ptr noundef nonnull %5) #10
   %.not.i.i.i = icmp eq i32 %23, 0
   %24 = load i64, ptr %10, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br i1 %.not.i.i.i, label %X509_OBJECT_idx_by_subject.exit.thread.i, label %X509_OBJECT_idx_by_subject.exit.i
 
 X509_OBJECT_idx_by_subject.exit.thread.i:         ; preds = %22, %4
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %9) #10
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %8) #10
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %7) #10
-  call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %6) #10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %X509_OBJECT_retrieve_by_subject.exit
 
 X509_OBJECT_idx_by_subject.exit.i:                ; preds = %22
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %9) #10
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %8) #10
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %7) #10
-  call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %6) #10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %25 = and i64 %24, 4294967295
   %26 = icmp eq i64 %25, 4294967295
   br i1 %26, label %X509_OBJECT_retrieve_by_subject.exit, label %27
@@ -754,11 +748,11 @@ X509_LOOKUP_by_subject.exit:                      ; preds = %50
 
 X509_OBJECT_up_ref_count.exit:                    ; preds = %68, %66, %61, %._crit_edge, %55
   %.0 = phi i32 [ %53, %55 ], [ 0, %._crit_edge ], [ 1, %61 ], [ 1, %66 ], [ 1, %68 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i32 %.0
 }
 
-declare void @CRYPTO_MUTEX_lock_write(ptr noundef) local_unnamed_addr #5
+declare void @CRYPTO_MUTEX_lock_write(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @X509_OBJECT_retrieve_by_subject(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -768,11 +762,11 @@ define hidden ptr @X509_OBJECT_retrieve_by_subject(ptr noundef %0, i32 noundef %
   %7 = alloca %struct.X509_crl_st, align 8
   %8 = alloca %struct.X509_crl_info_st, align 8
   %9 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10
-  call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %5) #10
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %6) #10
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %7) #10
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %8) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 %1, ptr %4, align 8, !tbaa !38
   switch i32 %1, label %X509_OBJECT_idx_by_subject.exit.thread [
     i32 1, label %10
@@ -796,27 +790,27 @@ define hidden ptr @X509_OBJECT_retrieve_by_subject(ptr noundef %0, i32 noundef %
   br label %16
 
 16:                                               ; preds = %13, %10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %17 = call i32 @sk_find(ptr noundef %0, ptr noundef nonnull %9, ptr noundef nonnull %4) #10
   %.not.i.i = icmp eq i32 %17, 0
   %18 = load i64, ptr %9, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br i1 %.not.i.i, label %X509_OBJECT_idx_by_subject.exit.thread, label %X509_OBJECT_idx_by_subject.exit
 
 X509_OBJECT_idx_by_subject.exit.thread:           ; preds = %3, %16
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #10
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %7) #10
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %6) #10
-  call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %5) #10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %24
 
 X509_OBJECT_idx_by_subject.exit:                  ; preds = %16
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #10
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %7) #10
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %6) #10
-  call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %5) #10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %19 = and i64 %18, 4294967295
   %20 = icmp eq i64 %19, 4294967295
   br i1 %20, label %24, label %21
@@ -832,7 +826,7 @@ X509_OBJECT_idx_by_subject.exit:                  ; preds = %16
   ret ptr %.0
 }
 
-declare void @CRYPTO_MUTEX_unlock(ptr noundef) local_unnamed_addr #5
+declare void @CRYPTO_MUTEX_unlock(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define hidden void @X509_OBJECT_up_ref_count(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -922,12 +916,12 @@ X509_OBJECT_free_contents.exit:                   ; preds = %14, %16, %18
   ret i32 %.015
 }
 
-declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
+declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @X509_OBJECT_retrieve_match(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 @sk_find(ptr noundef %0, ptr noundef nonnull %3, ptr noundef %1) #10
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %x509_object_cmp.exit.thread25, label %5
@@ -1020,7 +1014,7 @@ x509_object_cmp.exit.thread:                      ; preds = %18, %thread-pre-spl
 
 x509_object_cmp.exit.thread25:                    ; preds = %x509_object_cmp.exit, %40, %30, %35, %x509_object_cmp.exit.thread, %14, %10, %2, %8
   %.07 = phi ptr [ %9, %8 ], [ null, %2 ], [ null, %10 ], [ null, %x509_object_cmp.exit ], [ null, %40 ], [ %15, %30 ], [ %15, %35 ], [ %15, %x509_object_cmp.exit.thread ], [ null, %14 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.07
 }
 
@@ -1112,13 +1106,13 @@ X509_OBJECT_free_contents.exit:                   ; preds = %13, %15, %17
   ret i32 %.015
 }
 
-declare ptr @X509_up_ref(ptr noundef) local_unnamed_addr #5
+declare ptr @X509_up_ref(ptr noundef) local_unnamed_addr #4
 
-declare void @X509_CRL_up_ref(ptr noundef) local_unnamed_addr #5
+declare void @X509_CRL_up_ref(ptr noundef) local_unnamed_addr #4
 
-declare void @X509_free(ptr noundef) #5
+declare void @X509_free(ptr noundef) #4
 
-declare void @X509_CRL_free(ptr noundef) #5
+declare void @X509_CRL_free(ptr noundef) #4
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @X509_OBJECT_idx_by_subject(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -1128,11 +1122,11 @@ define hidden i32 @X509_OBJECT_idx_by_subject(ptr noundef %0, i32 noundef %1, pt
   %7 = alloca %struct.X509_crl_st, align 8
   %8 = alloca %struct.X509_crl_info_st, align 8
   %9 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10
-  call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %5) #10
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %6) #10
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %7) #10
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %8) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 %1, ptr %4, align 8, !tbaa !38
   switch i32 %1, label %x509_object_idx_cnt.exit [
     i32 1, label %10
@@ -1156,22 +1150,22 @@ define hidden i32 @X509_OBJECT_idx_by_subject(ptr noundef %0, i32 noundef %1, pt
   br label %16
 
 16:                                               ; preds = %13, %10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %17 = call i32 @sk_find(ptr noundef %0, ptr noundef nonnull %9, ptr noundef nonnull %4) #10
   %.not.i = icmp eq i32 %17, 0
   %18 = load i64, ptr %9, align 8
   %19 = trunc i64 %18 to i32
   %.1.i = select i1 %.not.i, i32 -1, i32 %19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %x509_object_idx_cnt.exit
 
 x509_object_idx_cnt.exit:                         ; preds = %3, %16
   %.013.i = phi i32 [ %.1.i, %16 ], [ -1, %3 ]
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #10
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %7) #10
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %6) #10
-  call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %5) #10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.013.i
 }
 
@@ -1183,11 +1177,11 @@ define internal fastcc i32 @x509_object_idx_cnt(ptr noundef %0, i32 noundef %1, 
   %8 = alloca %struct.X509_crl_st, align 8
   %9 = alloca %struct.X509_crl_info_st, align 8
   %10 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #10
-  call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %6) #10
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %7) #10
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %8) #10
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %9) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 %1, ptr %5, align 8, !tbaa !38
   switch i32 %1, label %51 [
     i32 1, label %11
@@ -1211,7 +1205,7 @@ define internal fastcc i32 @x509_object_idx_cnt(ptr noundef %0, i32 noundef %1, 
   br label %17
 
 17:                                               ; preds = %14, %11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %18 = call i32 @sk_find(ptr noundef %0, ptr noundef nonnull %10, ptr noundef nonnull %5) #10
   %.not = icmp eq i32 %18, 0
   br i1 %.not, label %50, label %19
@@ -1286,16 +1280,16 @@ x509_object_cmp.exit.thread20:                    ; preds = %x509_object_cmp.exi
 
 50:                                               ; preds = %17, %x509_object_cmp.exit.thread20
   %.1 = phi i32 [ %49, %x509_object_cmp.exit.thread20 ], [ -1, %17 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %51
 
 51:                                               ; preds = %4, %50
   %.013 = phi i32 [ %.1, %50 ], [ -1, %4 ]
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %9) #10
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %8) #10
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %7) #10
-  call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %6) #10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.013
 }
 
@@ -1303,7 +1297,7 @@ x509_object_cmp.exit.thread20:                    ; preds = %x509_object_cmp.exi
 define hidden ptr @X509_STORE_get1_certs(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca %struct.x509_object_st, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = tail call ptr @sk_new_null() #10
   %6 = icmp eq ptr %5, null
   br i1 %6, label %57, label %7
@@ -1320,7 +1314,7 @@ define hidden ptr @X509_STORE_get1_certs(ptr noundef captures(none) %0, ptr noun
   br i1 %14, label %15, label %38
 
 15:                                               ; preds = %7
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %16 = load ptr, ptr %0, align 8, !tbaa !45
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   call void @CRYPTO_MUTEX_unlock(ptr noundef nonnull %17) #10
@@ -1365,7 +1359,7 @@ X509_OBJECT_free_contents.exit:                   ; preds = %19, %21, %24
   br label %.critedge
 
 37:                                               ; preds = %X509_OBJECT_free_contents.exit
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %38
 
 38:                                               ; preds = %37, %7
@@ -1414,12 +1408,12 @@ X509_OBJECT_free_contents.exit:                   ; preds = %19, %21, %24
 
 .critedge:                                        ; preds = %15, %34
   call void @sk_free(ptr noundef nonnull %5) #10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %57
 
 57:                                               ; preds = %.critedge, %2, %._crit_edge, %50
   %.029 = phi ptr [ null, %50 ], [ %5, %._crit_edge ], [ null, %2 ], [ null, %.critedge ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.029
 }
 
@@ -1427,8 +1421,8 @@ X509_OBJECT_free_contents.exit:                   ; preds = %19, %21, %24
 define hidden ptr @X509_STORE_get1_crls(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca %struct.x509_object_st, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call ptr @sk_new_null() #10
   %6 = icmp eq ptr %5, null
   br i1 %6, label %45, label %7
@@ -1524,16 +1518,16 @@ X509_OBJECT_free_contents.exit:                   ; preds = %10, %12, %15
 
 45:                                               ; preds = %2, %._crit_edge, %38, %28, %9
   %.0 = phi ptr [ null, %28 ], [ null, %38 ], [ %5, %._crit_edge ], [ null, %9 ], [ null, %2 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
-declare i32 @sk_find(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @sk_find(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare i32 @X509_cmp(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @X509_cmp(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare i32 @X509_CRL_match(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @X509_CRL_match(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -1, 2) i32 @X509_STORE_CTX_get1_issuer(ptr noundef writeonly captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -1542,7 +1536,7 @@ define hidden range(i32 -1, 2) i32 @X509_STORE_CTX_get1_issuer(ptr noundef write
   %6 = alloca %struct.x509_cinf_st, align 8
   %7 = alloca i64, align 8
   %8 = alloca %struct.x509_object_st, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call ptr @X509_get_issuer_name(ptr noundef %2) #10
   %10 = call i32 @X509_STORE_get_by_subject(ptr noundef %1, i32 noundef 1, ptr noundef %9, ptr noundef nonnull %8)
   switch i32 %10, label %19 [
@@ -1628,23 +1622,23 @@ X509_OBJECT_free_contents.exit43:                 ; preds = %34, %36, %37
   %40 = load ptr, ptr %1, align 8, !tbaa !45
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %42 = load ptr, ptr %41, align 8, !tbaa !27
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10
-  call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %5) #10
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 1, ptr %4, align 8, !tbaa !38
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %5, ptr %43, align 8, !tbaa !40
   store ptr %6, ptr %5, align 8, !tbaa !55
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store ptr %9, ptr %44, align 8, !tbaa !67
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %45 = call i32 @sk_find(ptr noundef %42, ptr noundef nonnull %7, ptr noundef nonnull %4) #10
   %.not.i.i = icmp eq i32 %45, 0
   %46 = load i64, ptr %7, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #10
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %6) #10
-  call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %5) #10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %47 = and i64 %46, 4294967295
   %.not3744 = icmp eq i64 %47, 4294967295
   %.not37 = select i1 %.not.i.i, i1 true, i1 %.not3744
@@ -1709,15 +1703,15 @@ X509_OBJECT_free_contents.exit43:                 ; preds = %34, %36, %37
 
 X509_OBJECT_free_contents.exit42:                 ; preds = %24, %21, %19, %3, %.loopexit, %33, %X509_OBJECT_free_contents.exit
   %.033 = phi i32 [ -1, %X509_OBJECT_free_contents.exit ], [ 1, %33 ], [ %.032, %.loopexit ], [ %10, %3 ], [ -1, %19 ], [ -1, %21 ], [ -1, %24 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.033
 }
 
-declare ptr @X509_get_issuer_name(ptr noundef) local_unnamed_addr #5
+declare ptr @X509_get_issuer_name(ptr noundef) local_unnamed_addr #4
 
-declare i32 @X509_NAME_cmp(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @X509_NAME_cmp(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare ptr @X509_get_subject_name(ptr noundef) local_unnamed_addr #5
+declare ptr @X509_get_subject_name(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @X509_STORE_set_flags(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
@@ -1727,7 +1721,7 @@ define hidden i32 @X509_STORE_set_flags(ptr noundef readonly captures(none) %0, 
   ret i32 %5
 }
 
-declare i32 @X509_VERIFY_PARAM_set_flags(ptr noundef, i64 noundef) local_unnamed_addr #5
+declare i32 @X509_VERIFY_PARAM_set_flags(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @X509_STORE_set_depth(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -1737,7 +1731,7 @@ define hidden noundef i32 @X509_STORE_set_depth(ptr noundef readonly captures(no
   ret i32 1
 }
 
-declare void @X509_VERIFY_PARAM_set_depth(ptr noundef, i32 noundef) local_unnamed_addr #5
+declare void @X509_VERIFY_PARAM_set_depth(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @X509_STORE_set_purpose(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -1747,7 +1741,7 @@ define hidden i32 @X509_STORE_set_purpose(ptr noundef readonly captures(none) %0
   ret i32 %5
 }
 
-declare i32 @X509_VERIFY_PARAM_set_purpose(ptr noundef, i32 noundef) local_unnamed_addr #5
+declare i32 @X509_VERIFY_PARAM_set_purpose(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @X509_STORE_set_trust(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -1757,7 +1751,7 @@ define hidden i32 @X509_STORE_set_trust(ptr noundef readonly captures(none) %0, 
   ret i32 %5
 }
 
-declare i32 @X509_VERIFY_PARAM_set_trust(ptr noundef, i32 noundef) local_unnamed_addr #5
+declare i32 @X509_VERIFY_PARAM_set_trust(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @X509_STORE_set1_param(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -1767,43 +1761,49 @@ define hidden i32 @X509_STORE_set1_param(ptr noundef readonly captures(none) %0,
   ret i32 %5
 }
 
-declare i32 @X509_VERIFY_PARAM_set1(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @X509_VERIFY_PARAM_set1(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @X509_STORE_set_verify_cb(ptr noundef writeonly captures(none) initializes((96, 104)) %0, ptr noundef %1) local_unnamed_addr #6 {
+define hidden void @X509_STORE_set_verify_cb(ptr noundef writeonly captures(none) initializes((96, 104)) %0, ptr noundef %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %1, ptr %3, align 8, !tbaa !94
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @X509_STORE_set_lookup_crls_cb(ptr noundef writeonly captures(none) initializes((160, 168)) %0, ptr noundef %1) local_unnamed_addr #6 {
+define hidden void @X509_STORE_set_lookup_crls_cb(ptr noundef writeonly captures(none) initializes((160, 168)) %0, ptr noundef %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store ptr %1, ptr %3, align 8, !tbaa !95
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @X509_STORE_CTX_get0_store(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
+define hidden ptr @X509_STORE_CTX_get0_store(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = load ptr, ptr %0, align 8, !tbaa !45
   ret ptr %2
 }
 
-declare i32 @X509_subject_name_cmp(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @X509_subject_name_cmp(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare i32 @X509_CRL_cmp(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @X509_CRL_cmp(ptr noundef, ptr noundef) local_unnamed_addr #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #8
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
 attributes #9 = { nounwind allocsize(0) }
 attributes #10 = { nounwind }

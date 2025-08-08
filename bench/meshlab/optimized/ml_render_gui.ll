@@ -934,7 +934,7 @@ define linkonce_odr void @_ZN5QListIP17MLRenderingActionE6appendERKS1_(ptr nound
   br i1 %6, label %7, label %50
 
 7:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 2147483647, ptr %3, align 4
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -1018,7 +1018,7 @@ _ZN5QListIP17MLRenderingActionE18detach_helper_growEii.exit: ; preds = %_ZN5QLis
   %46 = load i32, ptr %3, align 4
   %47 = sext i32 %46 to i64
   %48 = getelementptr inbounds ptr, ptr %45, i64 %47
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %49 = load ptr, ptr %1, align 8
   store ptr %49, ptr %48, align 8
   br label %61
@@ -2341,7 +2341,7 @@ define linkonce_odr void @_ZN5QListIP7QActionE6appendERKS1_(ptr noundef nonnull 
   br i1 %6, label %7, label %50
 
 7:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 2147483647, ptr %3, align 4
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -2425,7 +2425,7 @@ _ZN5QListIP7QActionE18detach_helper_growEii.exit: ; preds = %_ZN5QListIP7QAction
   %46 = load i32, ptr %3, align 4
   %47 = sext i32 %46 to i64
   %48 = getelementptr inbounds ptr, ptr %45, i64 %47
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %49 = load ptr, ptr %1, align 8
   store ptr %49, ptr %48, align 8
   br label %61
@@ -4414,7 +4414,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN5QListIP1
 
 18:                                               ; preds = %15
   %19 = sub nsw i32 %6, %8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 2147483647, ptr %3, align 4
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %21 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -4499,7 +4499,7 @@ _ZN5QListIP17MLRenderingActionE18detach_helper_growEii.exit: ; preds = %_ZN5QLis
   %59 = load i32, ptr %3, align 4
   %60 = sext i32 %59 to i64
   %61 = getelementptr inbounds ptr, ptr %58, i64 %60
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %64
 
 62:                                               ; preds = %15
@@ -4838,7 +4838,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN5QListIP7
 
 18:                                               ; preds = %15
   %19 = sub nsw i32 %6, %8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 2147483647, ptr %3, align 4
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %21 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -4923,7 +4923,7 @@ _ZN5QListIP7QActionE18detach_helper_growEii.exit: ; preds = %_ZN5QListIP7QAction
   %59 = load i32, ptr %3, align 4
   %60 = sext i32 %59 to i64
   %61 = getelementptr inbounds ptr, ptr %58, i64 %60
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %64
 
 62:                                               ; preds = %15
@@ -12772,7 +12772,7 @@ define void @_ZN22MLRenderingColorPickerC2EiP40MLRenderingUserDefinedGeneralColo
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV22MLRenderingColorPicker, i64 472), ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %2, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %8 = icmp eq ptr %2, null
   br i1 %8, label %10, label %9
 
@@ -12789,7 +12789,7 @@ define void @_ZN22MLRenderingColorPickerC2EiP40MLRenderingUserDefinedGeneralColo
   br label %10
 
 10:                                               ; preds = %.noexc4, %4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
 11:                                               ; preds = %.noexc, %9
@@ -12831,7 +12831,7 @@ define void @_ZN22MLRenderingColorPickerC2EP40MLRenderingUserDefinedGeneralColor
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV22MLRenderingColorPicker, i64 472), ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %1, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = icmp eq ptr %1, null
   br i1 %7, label %9, label %8
 
@@ -12848,7 +12848,7 @@ define void @_ZN22MLRenderingColorPickerC2EP40MLRenderingUserDefinedGeneralColor
   br label %9
 
 9:                                                ; preds = %.noexc4, %3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
 10:                                               ; preds = %.noexc, %8
@@ -15440,7 +15440,7 @@ define linkonce_odr void @_ZN5QListIP23MLRenderingGlobalActionE6appendERKS1_(ptr
   br i1 %6, label %7, label %50
 
 7:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 2147483647, ptr %3, align 4
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -15524,7 +15524,7 @@ _ZN5QListIP23MLRenderingGlobalActionE18detach_helper_growEii.exit: ; preds = %_Z
   %46 = load i32, ptr %3, align 4
   %47 = sext i32 %46 to i64
   %48 = getelementptr inbounds ptr, ptr %45, i64 %47
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %49 = load ptr, ptr %1, align 8
   store ptr %49, ptr %48, align 8
   br label %61
@@ -15793,10 +15793,10 @@ define internal void @_GLOBAL__sub_I_ml_render_gui.cpp() #18 section ".text.star
 declare void @llvm.experimental.noalias.scope.decl(metadata) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #20
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #20
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #21

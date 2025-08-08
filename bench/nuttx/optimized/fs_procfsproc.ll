@@ -216,8 +216,8 @@ define internal i64 @proc_read(ptr noundef captures(none) %0, ptr noundef %1, i6
 23:                                               ; preds = %18
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %25 = load i32, ptr %24, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 %25, ptr %10, align 4
   %26 = getelementptr inbounds nuw i8, ptr %16, i64 976
   %27 = getelementptr inbounds nuw i8, ptr %13, i64 20
@@ -337,14 +337,14 @@ define internal i64 @proc_read(ptr noundef captures(none) %0, ptr noundef %1, i6
 
 proc_status.exit:                                 ; preds = %23, %31, %52, %58, %65, %75, %88, %101
   %.0.i = phi i64 [ %111, %101 ], [ %30, %23 ], [ %43, %31 ], [ %57, %52 ], [ %64, %58 ], [ %74, %65 ], [ %87, %75 ], [ %100, %88 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %279
 
 112:                                              ; preds = %18
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %114 = load i32, ptr %113, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 %114, ptr %9, align 4
   %115 = getelementptr inbounds nuw i8, ptr %16, i64 976
   %116 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %115) #15
@@ -370,13 +370,13 @@ proc_status.exit:                                 ; preds = %23, %31, %52, %58, 
 
 proc_cmdline.exit:                                ; preds = %112, %119
   %.0.i43 = phi i64 [ %130, %119 ], [ %118, %112 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %279
 
 131:                                              ; preds = %18
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %133 = load i32, ptr %132, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 %133, ptr %8, align 4
   %134 = getelementptr inbounds nuw i8, ptr %13, i64 20
   %135 = getelementptr inbounds nuw i8, ptr %16, i64 112
@@ -412,7 +412,7 @@ proc_cmdline.exit:                                ; preds = %112, %119
 
 proc_stack.exit:                                  ; preds = %131, %140, %149
   %.0.i45 = phi i64 [ %157, %149 ], [ %139, %131 ], [ %148, %140 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %279
 
 158:                                              ; preds = %18
@@ -420,7 +420,7 @@ proc_stack.exit:                                  ; preds = %131, %140, %149
   %160 = load i32, ptr %159, align 4
   %161 = getelementptr i8, ptr %16, i64 16
   %.val = load ptr, ptr %161, align 16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 %160, ptr %7, align 4
   %162 = getelementptr inbounds nuw i8, ptr %13, i64 20
   %163 = getelementptr inbounds nuw i8, ptr %.val, i64 8
@@ -526,7 +526,7 @@ proc_stack.exit:                                  ; preds = %131, %140, %149
 
 proc_groupstatus.exit:                            ; preds = %209, %158, %168, %177, %187, %197, %._crit_edge.i
   %.0109.i = phi i64 [ %226, %._crit_edge.i ], [ %167, %158 ], [ %176, %168 ], [ %186, %177 ], [ %196, %187 ], [ %203, %197 ], [ %216, %209 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %279
 
 227:                                              ; preds = %18
@@ -534,8 +534,8 @@ proc_groupstatus.exit:                            ; preds = %209, %158, %168, %1
   %229 = load i32, ptr %228, align 4
   %230 = getelementptr i8, ptr %16, i64 16
   %.val40 = load ptr, ptr %230, align 16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 %229, ptr %5, align 4
   %231 = getelementptr inbounds nuw i8, ptr %.val40, i64 928
   %232 = tail call i32 @files_countlist(ptr noundef nonnull %231) #15
@@ -606,8 +606,8 @@ proc_groupstatus.exit:                            ; preds = %209, %158, %168, %1
 
 proc_groupfd.exit:                                ; preds = %250, %266, %227, %234
   %.044.i = phi i64 [ 0, %227 ], [ %238, %234 ], [ %.1.i, %266 ], [ %263, %250 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %279
 
 268:                                              ; preds = %18
@@ -615,7 +615,7 @@ proc_groupfd.exit:                                ; preds = %250, %266, %227, %2
   %270 = load i32, ptr %269, align 4
   %271 = getelementptr i8, ptr %16, i64 16
   %.val41 = load ptr, ptr %271, align 16
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %13, ptr %4, align 8
   %272 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %1, ptr %272, align 8
@@ -629,7 +629,7 @@ proc_groupfd.exit:                                ; preds = %250, %266, %227, %2
   store i64 0, ptr %276, align 8
   %277 = call i32 @env_foreach(ptr noundef %.val41, ptr noundef nonnull @proc_groupenv_callback, ptr noundef nonnull %4) #15
   %278 = load i64, ptr %276, align 8
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %279
 
 279:                                              ; preds = %268, %proc_groupfd.exit, %proc_groupstatus.exit, %proc_stack.exit, %proc_cmdline.exit, %proc_status.exit
@@ -1099,10 +1099,10 @@ declare i64 @strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }

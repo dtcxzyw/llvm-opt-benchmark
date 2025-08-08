@@ -36,17 +36,11 @@ define nonnull ptr @lv_font_manager_create(i32 noundef %0) local_unnamed_addr #0
   ret ptr %3
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @lv_malloc_zeroed(i64 noundef) local_unnamed_addr #1
 
-declare ptr @lv_malloc_zeroed(i64 noundef) local_unnamed_addr #2
+declare void @lv_ll_init(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_ll_init(ptr noundef, i32 noundef) local_unnamed_addr #2
-
-declare ptr @lv_font_manager_recycle_create(i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @lv_font_manager_recycle_create(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define noundef zeroext i1 @lv_font_manager_delete(ptr noundef %0) local_unnamed_addr #0 {
@@ -133,15 +127,15 @@ lv_font_manager_check_resource.exit:              ; preds = %.lr.ph27.i, %.loope
   ret i1 %.not18
 }
 
-declare void @lv_font_manager_recycle_delete(ptr noundef) local_unnamed_addr #2
+declare void @lv_font_manager_recycle_delete(ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_ll_get_head(ptr noundef) local_unnamed_addr #2
+declare ptr @lv_ll_get_head(ptr noundef) local_unnamed_addr #1
 
-declare void @lv_free(ptr noundef) local_unnamed_addr #2
+declare void @lv_free(ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_ll_get_next(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @lv_ll_get_next(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @lv_ll_clear(ptr noundef) local_unnamed_addr #2
+declare void @lv_ll_clear(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @lv_font_manager_add_path(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -359,9 +353,9 @@ define noundef zeroext i1 @lv_font_manager_remove_path(ptr noundef %0, ptr nound
   ret i1 %.not18
 }
 
-declare i32 @lv_strcmp(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @lv_strcmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @lv_ll_remove(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @lv_ll_remove(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @lv_font_manager_create_font(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2, i32 noundef %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
@@ -382,7 +376,7 @@ define ptr @lv_font_manager_create_font(ptr noundef %0, ptr noundef %1, i16 noun
   br label %.preheader20
 
 10:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @lv_memset(ptr noundef nonnull %8, i8 noundef zeroext 0, i64 noundef 24) #5
   store ptr %1, ptr %8, align 8, !tbaa !25
   %11 = zext i16 %2 to i32
@@ -399,9 +393,9 @@ define ptr @lv_font_manager_create_font(ptr noundef %0, ptr noundef %1, i16 noun
 
 17:                                               ; preds = %10
   %18 = load ptr, ptr %8, align 8, !tbaa !25
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %6, i8 0, i64 32, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %8, i64 24, i1 false), !tbaa.struct !30
   store ptr %6, ptr %7, align 8, !tbaa !25
   br label %19
@@ -464,8 +458,8 @@ strncpy_until.exit.i:                             ; preds = %21, %.critedge.i.i
   br i1 %cond.i, label %19, label %lv_font_manager_create_font_family.exit
 
 lv_font_manager_create_font_family.exit:          ; preds = %29
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #5
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %34
 
 32:                                               ; preds = %10
@@ -493,11 +487,11 @@ lv_font_manager_create_font_family.exit:          ; preds = %29
   br label %.loopexit
 
 .loopexit:                                        ; preds = %35, %40
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret ptr %.013
 }
 
-declare ptr @lv_strchr(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @lv_strchr(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @lv_font_manager_create_font_single(ptr noundef nonnull %0, ptr noundef nonnull %1) unnamed_addr #0 {
@@ -732,41 +726,47 @@ lv_font_manager_reset_freetype_font.exit:         ; preds = %lv_font_manager_res
   ret void
 }
 
-declare void @lv_memset(ptr noundef, i8 noundef zeroext, i64 noundef) local_unnamed_addr #2
+declare void @lv_memset(ptr noundef, i8 noundef zeroext, i64 noundef) local_unnamed_addr #1
 
-declare ptr @lv_ll_ins_head(ptr noundef) local_unnamed_addr #2
+declare ptr @lv_ll_ins_head(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
-declare ptr @lv_strncpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @lv_strncpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @lv_freetype_info_is_equal(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @lv_freetype_info_is_equal(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_font_manager_recycle_get_reuse(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @lv_font_manager_recycle_get_reuse(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_freetype_font_create(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @lv_freetype_font_create(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_font_manager_recycle_set_reuse(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @lv_font_manager_recycle_set_reuse(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
-declare ptr @lv_ll_ins_tail(ptr noundef) local_unnamed_addr #2
+declare ptr @lv_ll_ins_tail(ptr noundef) local_unnamed_addr #1
 
-declare i64 @lv_strlen(ptr noundef) local_unnamed_addr #2
+declare i64 @lv_strlen(ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_malloc(i64 noundef) local_unnamed_addr #2
+declare ptr @lv_malloc(i64 noundef) local_unnamed_addr #1
 
-declare ptr @lv_memcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @lv_memcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @lv_ll_get_len(ptr noundef) local_unnamed_addr #2
+declare i32 @lv_ll_get_len(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

@@ -12,7 +12,7 @@ define void @_ZN15pme_spline_workC2Ei(ptr noundef nonnull writeonly align 16 cap
 .preheader34.preheader:
   %2 = alloca [8 x float], align 32
   %.ptr28 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = icmp slt i32 %1, 9
   br i1 %3, label %.preheader.lr.ph, label %._crit_edge
 
@@ -57,15 +57,15 @@ define void @_ZN15pme_spline_workC2Ei(ptr noundef nonnull writeonly align 16 cap
   br i1 %exitcond41.not, label %._crit_edge, label %.preheader, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %13, %.preheader34.preheader
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #2
@@ -73,7 +73,6 @@ declare i32 @llvm.smax.i32(i32, i32) #2
 attributes #0 = { mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

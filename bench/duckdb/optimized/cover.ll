@@ -67,14 +67,8 @@ define noundef i64 @_ZN11duckdb_zstd9COVER_sumEPKmj(ptr noundef readonly capture
   ret i64 %.06.lcssa
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_ZN11duckdb_zstd23COVER_warnOnSmallCorpusEmmi(i64 noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
+define void @_ZN11duckdb_zstd23COVER_warnOnSmallCorpusEmmi(i64 noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = uitofp i64 %1 to double
   %5 = uitofp i64 %0 to double
   %6 = fdiv double %4, %5
@@ -97,13 +91,13 @@ define void @_ZN11duckdb_zstd23COVER_warnOnSmallCorpusEmmi(i64 noundef %0, i64 n
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #3
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i64 @_ZN11duckdb_zstd19COVER_computeEpochsEjjjj(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #4 {
+define i64 @_ZN11duckdb_zstd19COVER_computeEpochsEjjjj(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 {
   %5 = mul i32 %2, 10
   %6 = udiv i32 %0, %2
   %7 = icmp ugt i32 %3, %6
@@ -135,11 +129,11 @@ define i64 @_ZN11duckdb_zstd19COVER_computeEpochsEjjjj(i32 noundef %0, i32 nound
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN11duckdb_zstd27ZDICT_trainFromBuffer_coverEPvmPKvPKmjNS_20ZDICT_cover_params_tE(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef byval(%"struct.duckdb_zstd::ZDICT_cover_params_t") align 8 captures(none) initializes((16, 24)) %5) local_unnamed_addr #5 {
+define noundef i64 @_ZN11duckdb_zstd27ZDICT_trainFromBuffer_coverEPvmPKvPKmjNS_20ZDICT_cover_params_tE(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef byval(%"struct.duckdb_zstd::ZDICT_cover_params_t") align 8 captures(none) initializes((16, 24)) %5) local_unnamed_addr #4 {
   %7 = alloca %"struct.duckdb_zstd::COVER_ctx_t", align 8
   %8 = alloca %"struct.duckdb_zstd::COVER_map_s", align 8
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %7) #25
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store double 1.000000e+00, ptr %9, align 8, !tbaa !12
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -165,7 +159,7 @@ define noundef i64 @_ZN11duckdb_zstd27ZDICT_trainFromBuffer_coverEPvmPKvPKmjNS_2
 
 22:                                               ; preds = %20
   %23 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %24 = tail call i64 @fwrite(ptr nonnull @.str.1, i64 27, i64 1, ptr %23) #26
+  %24 = tail call i64 @fwrite(ptr nonnull @.str.1, i64 27, i64 1, ptr %23) #25
   %25 = load ptr, ptr @stderr, align 8, !tbaa !9
   %26 = tail call i32 @fflush(ptr noundef %25)
   br label %_ZN11duckdb_zstdL17COVER_ctx_destroyEPNS_11COVER_ctx_tE.exit
@@ -180,7 +174,7 @@ _ZN11duckdb_zstdL21COVER_checkParametersENS_20ZDICT_cover_params_tEm.exit: ; pre
 
 30:                                               ; preds = %28
   %31 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %32 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 40, i64 1, ptr %31) #26
+  %32 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 40, i64 1, ptr %31) #25
   %33 = load ptr, ptr @stderr, align 8, !tbaa !9
   %34 = tail call i32 @fflush(ptr noundef %33)
   br label %_ZN11duckdb_zstdL17COVER_ctx_destroyEPNS_11COVER_ctx_tE.exit
@@ -242,7 +236,7 @@ _ZN11duckdb_zstd23COVER_warnOnSmallCorpusEmmi.exit: ; preds = %47, %56
   store i32 %71, ptr %72, align 8, !tbaa !28
   %73 = zext i32 %69 to i64
   %74 = shl nuw nsw i64 %73, 3
-  %75 = call noalias ptr @malloc(i64 noundef %74) #27
+  %75 = call noalias ptr @malloc(i64 noundef %74) #26
   store ptr %75, ptr %8, align 8, !tbaa !29
   %.not.i = icmp eq ptr %75, null
   br i1 %.not.i, label %76, label %100
@@ -254,7 +248,7 @@ _ZN11duckdb_zstd23COVER_warnOnSmallCorpusEmmi.exit: ; preds = %47, %56
 
 79:                                               ; preds = %76
   %80 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %81 = call i64 @fwrite(ptr nonnull @.str.4, i64 43, i64 1, ptr %80) #26
+  %81 = call i64 @fwrite(ptr nonnull @.str.4, i64 43, i64 1, ptr %80) #25
   %82 = load ptr, ptr @stderr, align 8, !tbaa !9
   %83 = call i32 @fflush(ptr noundef %82)
   br label %84
@@ -266,7 +260,7 @@ _ZN11duckdb_zstd23COVER_warnOnSmallCorpusEmmi.exit: ; preds = %47, %56
   br i1 %.not.i32, label %88, label %87
 
 87:                                               ; preds = %84
-  call void @free(ptr noundef nonnull %86) #25
+  call void @free(ptr noundef nonnull %86) #27
   store ptr null, ptr %85, align 8, !tbaa !30
   br label %88
 
@@ -277,7 +271,7 @@ _ZN11duckdb_zstd23COVER_warnOnSmallCorpusEmmi.exit: ; preds = %47, %56
   br i1 %.not17.i, label %92, label %91
 
 91:                                               ; preds = %88
-  call void @free(ptr noundef nonnull %90) #25
+  call void @free(ptr noundef nonnull %90) #27
   store ptr null, ptr %89, align 8, !tbaa !31
   br label %92
 
@@ -288,7 +282,7 @@ _ZN11duckdb_zstd23COVER_warnOnSmallCorpusEmmi.exit: ; preds = %47, %56
   br i1 %.not18.i, label %96, label %95
 
 95:                                               ; preds = %92
-  call void @free(ptr noundef nonnull %94) #25
+  call void @free(ptr noundef nonnull %94) #27
   store ptr null, ptr %93, align 8, !tbaa !32
   br label %96
 
@@ -299,7 +293,7 @@ _ZN11duckdb_zstd23COVER_warnOnSmallCorpusEmmi.exit: ; preds = %47, %56
   br i1 %.not19.i, label %_ZN11duckdb_zstdL17COVER_ctx_destroyEPNS_11COVER_ctx_tE.exit, label %99
 
 99:                                               ; preds = %96
-  call void @free(ptr noundef nonnull %98) #25
+  call void @free(ptr noundef nonnull %98) #27
   br label %_ZN11duckdb_zstdL17COVER_ctx_destroyEPNS_11COVER_ctx_tE.exit
 
 100:                                              ; preds = %_ZN11duckdb_zstd23COVER_warnOnSmallCorpusEmmi.exit
@@ -310,7 +304,7 @@ _ZN11duckdb_zstd23COVER_warnOnSmallCorpusEmmi.exit: ; preds = %47, %56
 
 103:                                              ; preds = %100
   %104 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %105 = call i64 @fwrite(ptr nonnull @.str.5, i64 20, i64 1, ptr %104) #26
+  %105 = call i64 @fwrite(ptr nonnull @.str.5, i64 20, i64 1, ptr %104) #25
   %106 = load ptr, ptr @stderr, align 8, !tbaa !9
   %107 = call i32 @fflush(ptr noundef %106)
   br label %108
@@ -343,7 +337,7 @@ _ZN11duckdb_zstd23COVER_warnOnSmallCorpusEmmi.exit: ; preds = %47, %56
   br i1 %.not.i33, label %128, label %127
 
 127:                                              ; preds = %124
-  call void @free(ptr noundef nonnull %126) #25
+  call void @free(ptr noundef nonnull %126) #27
   store ptr null, ptr %125, align 8, !tbaa !30
   br label %128
 
@@ -353,7 +347,7 @@ _ZN11duckdb_zstd23COVER_warnOnSmallCorpusEmmi.exit: ; preds = %47, %56
   br i1 %.not17.i34, label %131, label %130
 
 130:                                              ; preds = %128
-  call void @free(ptr noundef nonnull %129) #25
+  call void @free(ptr noundef nonnull %129) #27
   store ptr null, ptr %109, align 8, !tbaa !31
   br label %131
 
@@ -364,7 +358,7 @@ _ZN11duckdb_zstd23COVER_warnOnSmallCorpusEmmi.exit: ; preds = %47, %56
   br i1 %.not18.i35, label %135, label %134
 
 134:                                              ; preds = %131
-  call void @free(ptr noundef nonnull %133) #25
+  call void @free(ptr noundef nonnull %133) #27
   store ptr null, ptr %132, align 8, !tbaa !32
   br label %135
 
@@ -375,25 +369,25 @@ _ZN11duckdb_zstd23COVER_warnOnSmallCorpusEmmi.exit: ; preds = %47, %56
   br i1 %.not19.i36, label %_ZN11duckdb_zstdL17COVER_map_destroyEPNS_11COVER_map_sE.exit, label %138
 
 138:                                              ; preds = %135
-  call void @free(ptr noundef nonnull %137) #25
+  call void @free(ptr noundef nonnull %137) #27
   br label %_ZN11duckdb_zstdL17COVER_map_destroyEPNS_11COVER_map_sE.exit
 
 _ZN11duckdb_zstdL17COVER_map_destroyEPNS_11COVER_map_sE.exit: ; preds = %135, %138
-  call void @free(ptr noundef nonnull %75) #25
+  call void @free(ptr noundef nonnull %75) #27
   br label %_ZN11duckdb_zstdL17COVER_ctx_destroyEPNS_11COVER_ctx_tE.exit
 
 _ZN11duckdb_zstdL17COVER_ctx_destroyEPNS_11COVER_ctx_tE.exit: ; preds = %99, %96, %37, %39, %28, %30, %20, %22, %44, %_ZN11duckdb_zstdL17COVER_map_destroyEPNS_11COVER_map_sE.exit
   %.0 = phi i64 [ %114, %_ZN11duckdb_zstdL17COVER_map_destroyEPNS_11COVER_map_sE.exit ], [ %45, %44 ], [ -42, %22 ], [ -42, %20 ], [ -72, %30 ], [ -72, %28 ], [ -70, %39 ], [ -70, %37 ], [ -64, %96 ], [ -64, %99 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #25
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %7) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i64 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i64 -72, 1) i64 @_ZN11duckdb_zstdL14COVER_ctx_initEPNS_11COVER_ctx_tEPKvPKmjjd(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 1, 0) %3, i32 noundef %4, double noundef %5) unnamed_addr #5 {
+define internal fastcc noundef range(i64 -72, 1) i64 @_ZN11duckdb_zstdL14COVER_ctx_initEPNS_11COVER_ctx_tEPKvPKmjjd(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 1, 0) %3, i32 noundef %4, double noundef %5) unnamed_addr #4 {
   %wide.trip.count.i = zext i32 %3 to i64
   br label %.lr.ph.i
 
@@ -553,16 +547,16 @@ _ZN11duckdb_zstd9COVER_sumEPKmj.exit107:          ; preds = %.lr.ph.i111, %.loop
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 %84, ptr %85, align 8, !tbaa !19
   %86 = shl i64 %84, 2
-  %87 = tail call noalias ptr @malloc(i64 noundef %86) #27
+  %87 = tail call noalias ptr @malloc(i64 noundef %86) #26
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %87, ptr %88, align 8, !tbaa !30
-  %89 = tail call noalias ptr @malloc(i64 noundef %86) #27
+  %89 = tail call noalias ptr @malloc(i64 noundef %86) #26
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %89, ptr %90, align 8, !tbaa !32
   %91 = add i32 %3, 1
   %92 = zext i32 %91 to i64
   %93 = shl nuw nsw i64 %92, 3
-  %94 = tail call noalias ptr @malloc(i64 noundef %93) #27
+  %94 = tail call noalias ptr @malloc(i64 noundef %93) #26
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %94, ptr %95, align 8, !tbaa !33
   %.not = icmp eq ptr %87, null
@@ -581,7 +575,7 @@ _ZN11duckdb_zstd9COVER_sumEPKmj.exit107:          ; preds = %.lr.ph.i111, %.loop
 
 100:                                              ; preds = %97
   %101 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %102 = tail call i64 @fwrite(ptr nonnull @.str.21, i64 35, i64 1, ptr %101) #26
+  %102 = tail call i64 @fwrite(ptr nonnull @.str.21, i64 35, i64 1, ptr %101) #25
   %103 = load ptr, ptr @stderr, align 8, !tbaa !9
   %104 = tail call i32 @fflush(ptr noundef %103)
   %.pre131 = load ptr, ptr %88, align 8, !tbaa !30
@@ -593,7 +587,7 @@ _ZN11duckdb_zstd9COVER_sumEPKmj.exit107:          ; preds = %.lr.ph.i111, %.loop
   br i1 %.not.i118, label %108, label %107
 
 107:                                              ; preds = %105
-  tail call void @free(ptr noundef nonnull %106) #25
+  tail call void @free(ptr noundef nonnull %106) #27
   store ptr null, ptr %88, align 8, !tbaa !30
   br label %108
 
@@ -604,7 +598,7 @@ _ZN11duckdb_zstd9COVER_sumEPKmj.exit107:          ; preds = %.lr.ph.i111, %.loop
   br i1 %.not17.i, label %112, label %111
 
 111:                                              ; preds = %108
-  tail call void @free(ptr noundef nonnull %110) #25
+  tail call void @free(ptr noundef nonnull %110) #27
   store ptr null, ptr %109, align 8, !tbaa !31
   br label %112
 
@@ -614,7 +608,7 @@ _ZN11duckdb_zstd9COVER_sumEPKmj.exit107:          ; preds = %.lr.ph.i111, %.loop
   br i1 %.not18.i, label %115, label %114
 
 114:                                              ; preds = %112
-  tail call void @free(ptr noundef nonnull %113) #25
+  tail call void @free(ptr noundef nonnull %113) #27
   store ptr null, ptr %90, align 8, !tbaa !32
   br label %115
 
@@ -624,7 +618,7 @@ _ZN11duckdb_zstd9COVER_sumEPKmj.exit107:          ; preds = %.lr.ph.i111, %.loop
   br i1 %.not19.i, label %_ZN11duckdb_zstdL17COVER_ctx_destroyEPNS_11COVER_ctx_tE.exit, label %117
 
 117:                                              ; preds = %115
-  tail call void @free(ptr noundef nonnull %116) #25
+  tail call void @free(ptr noundef nonnull %116) #27
   store ptr null, ptr %95, align 8, !tbaa !33
   br label %_ZN11duckdb_zstdL17COVER_ctx_destroyEPNS_11COVER_ctx_tE.exit
 
@@ -658,7 +652,7 @@ _ZN11duckdb_zstd9COVER_sumEPKmj.exit107:          ; preds = %.lr.ph.i111, %.loop
 
 131:                                              ; preds = %128
   %132 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %133 = tail call i64 @fwrite(ptr nonnull @.str.22, i64 34, i64 1, ptr %132) #26
+  %133 = tail call i64 @fwrite(ptr nonnull @.str.22, i64 34, i64 1, ptr %132) #25
   %134 = load ptr, ptr @stderr, align 8, !tbaa !9
   %135 = tail call i32 @fflush(ptr noundef %134)
   %.pre = load i64, ptr %85, align 8, !tbaa !19
@@ -693,7 +687,7 @@ _ZN11duckdb_zstd9COVER_sumEPKmj.exit107:          ; preds = %.lr.ph.i111, %.loop
 
 148:                                              ; preds = %._crit_edge
   %149 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %150 = tail call i64 @fwrite(ptr nonnull @.str.23, i64 22, i64 1, ptr %149) #26
+  %150 = tail call i64 @fwrite(ptr nonnull @.str.23, i64 22, i64 1, ptr %149) #25
   %151 = load ptr, ptr @stderr, align 8, !tbaa !9
   %152 = tail call i32 @fflush(ptr noundef %151)
   br label %153
@@ -821,7 +815,7 @@ _ZN11duckdb_zstdL17COVER_ctx_destroyEPNS_11COVER_ctx_tE.exit: ; preds = %117, %1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef i64 @_ZN11duckdb_zstdL21COVER_buildDictionaryEPKNS_11COVER_ctx_tEPjPNS_11COVER_map_sEPvmNS_20ZDICT_cover_params_tE(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef writeonly captures(none) %3, i64 noundef %4, ptr noundef readonly byval(%"struct.duckdb_zstd::ZDICT_cover_params_t") align 8 captures(none) %5) unnamed_addr #7 {
+define internal fastcc noundef i64 @_ZN11duckdb_zstdL21COVER_buildDictionaryEPKNS_11COVER_ctx_tEPjPNS_11COVER_map_sEPvmNS_20ZDICT_cover_params_tE(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef writeonly captures(none) %3, i64 noundef %4, ptr noundef readonly byval(%"struct.duckdb_zstd::ZDICT_cover_params_t") align 8 captures(none) %5) unnamed_addr #6 {
   %7 = trunc i64 %4 to i32
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = load i64, ptr %8, align 8, !tbaa !19
@@ -1191,7 +1185,7 @@ _ZN11duckdb_zstdL19COVER_selectSegmentEPKNS_11COVER_ctx_tEPjPNS_11COVER_map_sEjj
   br i1 %193, label %194, label %.thread
 
 194:                                              ; preds = %187
-  %195 = tail call i64 @clock() #25
+  %195 = tail call i64 @clock() #27
   %196 = load i64, ptr @_ZL6g_time, align 8, !tbaa !3
   %197 = sub nsw i64 %195, %196
   %198 = icmp sgt i64 %197, 150000
@@ -1201,7 +1195,7 @@ _ZN11duckdb_zstdL19COVER_selectSegmentEPKNS_11COVER_ctx_tEPjPNS_11COVER_map_sEjj
   br i1 %or.cond, label %201, label %.thread
 
 201:                                              ; preds = %194
-  %202 = tail call i64 @clock() #25
+  %202 = tail call i64 @clock() #27
   store i64 %202, ptr @_ZL6g_time, align 8, !tbaa !3
   %203 = load ptr, ptr @stderr, align 8, !tbaa !9
   %204 = sub i64 %4, %188
@@ -1243,10 +1237,10 @@ _ZN11duckdb_zstdL19COVER_selectSegmentEPKNS_11COVER_ctx_tEPjPNS_11COVER_map_sEjj
   ret i64 %.045.lcssa
 }
 
-declare noundef i64 @_ZN11duckdb_zstd24ZDICT_finalizeDictionaryEPvmPKvmS2_PKmjNS_14ZDICT_params_tE(ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef byval(%"struct.duckdb_zstd::ZDICT_params_t") align 8) local_unnamed_addr #8
+declare noundef i64 @_ZN11duckdb_zstd24ZDICT_finalizeDictionaryEPvmPKvmS2_PKmjNS_14ZDICT_params_tE(ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef byval(%"struct.duckdb_zstd::ZDICT_params_t") align 8) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN11duckdb_zstd30COVER_checkTotalCompressedSizeENS_20ZDICT_cover_params_tEPKmPKhPmmmPhm(ptr noundef readonly byval(%"struct.duckdb_zstd::ZDICT_cover_params_t") align 8 captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readonly captures(none) %3, i64 noundef %4, i64 noundef %5, ptr noundef %6, i64 noundef %7) local_unnamed_addr #5 {
+define noundef i64 @_ZN11duckdb_zstd30COVER_checkTotalCompressedSizeENS_20ZDICT_cover_params_tEPKmPKhPmmmPhm(ptr noundef readonly byval(%"struct.duckdb_zstd::ZDICT_cover_params_t") align 8 captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readonly captures(none) %3, i64 noundef %4, i64 noundef %5, ptr noundef %6, i64 noundef %7) local_unnamed_addr #4 {
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load double, ptr %9, align 8, !tbaa !12
   %11 = fcmp olt double %10, 1.000000e+00
@@ -1267,7 +1261,7 @@ define noundef i64 @_ZN11duckdb_zstd30COVER_checkTotalCompressedSizeENS_20ZDICT_
 ._crit_edge:                                      ; preds = %.lr.ph, %8
   %.045.lcssa = phi i64 [ 0, %8 ], [ %..045, %.lr.ph ]
   %17 = tail call noundef i64 @_ZN11duckdb_zstd18ZSTD_compressBoundEm(i64 noundef %.045.lcssa)
-  %18 = tail call noalias ptr @malloc(i64 noundef %17) #27
+  %18 = tail call noalias ptr @malloc(i64 noundef %17) #26
   %19 = tail call noundef ptr @_ZN11duckdb_zstd15ZSTD_createCCtxEv()
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %21 = load i32, ptr %20, align 8, !tbaa !60
@@ -1306,33 +1300,33 @@ define noundef i64 @_ZN11duckdb_zstd30COVER_checkTotalCompressedSizeENS_20ZDICT_
   br i1 %23, label %39, label %38
 
 38:                                               ; preds = %.loopexit
-  tail call void @free(ptr noundef nonnull %18) #25
+  tail call void @free(ptr noundef nonnull %18) #27
   br label %39
 
 39:                                               ; preds = %.loopexit, %38
   ret i64 %.047
 }
 
-declare noundef i64 @_ZN11duckdb_zstd18ZSTD_compressBoundEm(i64 noundef) local_unnamed_addr #8
+declare noundef i64 @_ZN11duckdb_zstd18ZSTD_compressBoundEm(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #9
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #8
 
-declare noundef ptr @_ZN11duckdb_zstd15ZSTD_createCCtxEv() local_unnamed_addr #8
+declare noundef ptr @_ZN11duckdb_zstd15ZSTD_createCCtxEv() local_unnamed_addr #7
 
-declare noundef ptr @_ZN11duckdb_zstd16ZSTD_createCDictEPKvmi(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #8
+declare noundef ptr @_ZN11duckdb_zstd16ZSTD_createCDictEPKvmi(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #7
 
-declare noundef i64 @_ZN11duckdb_zstd24ZSTD_compress_usingCDictEPNS_11ZSTD_CCtx_sEPvmPKvmPKNS_12ZSTD_CDict_sE(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #8
+declare noundef i64 @_ZN11duckdb_zstd24ZSTD_compress_usingCDictEPNS_11ZSTD_CCtx_sEPvmPKvmPKNS_12ZSTD_CDict_sE(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #7
 
-declare noundef i64 @_ZN11duckdb_zstd13ZSTD_freeCCtxEPNS_11ZSTD_CCtx_sE(ptr noundef) local_unnamed_addr #8
+declare noundef i64 @_ZN11duckdb_zstd13ZSTD_freeCCtxEPNS_11ZSTD_CCtx_sE(ptr noundef) local_unnamed_addr #7
 
-declare noundef i64 @_ZN11duckdb_zstd14ZSTD_freeCDictEPNS_12ZSTD_CDict_sE(ptr noundef) local_unnamed_addr #8
+declare noundef i64 @_ZN11duckdb_zstd14ZSTD_freeCDictEPNS_12ZSTD_CDict_sE(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #10
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN11duckdb_zstd15COVER_best_initEPNS_12COVER_best_sE(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #11 {
+define void @_ZN11duckdb_zstd15COVER_best_initEPNS_12COVER_best_sE(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #10 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %7, label %3
 
@@ -1350,7 +1344,7 @@ define void @_ZN11duckdb_zstd15COVER_best_initEPNS_12COVER_best_sE(ptr noundef w
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define void @_ZN11duckdb_zstd15COVER_best_waitEPNS_12COVER_best_sE(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
@@ -1369,7 +1363,7 @@ define void @_ZN11duckdb_zstd15COVER_best_waitEPNS_12COVER_best_sE(ptr noundef r
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @_ZN11duckdb_zstd18COVER_best_destroyEPNS_12COVER_best_sE(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #13 {
+define void @_ZN11duckdb_zstd18COVER_best_destroyEPNS_12COVER_best_sE(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #12 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %_ZN11duckdb_zstd15COVER_best_waitEPNS_12COVER_best_sE.exit
 
@@ -1384,7 +1378,7 @@ _ZN11duckdb_zstd15COVER_best_waitEPNS_12COVER_best_sE.exit: ; preds = %1
   br i1 %.not5, label %7, label %6
 
 6:                                                ; preds = %_ZN11duckdb_zstd15COVER_best_waitEPNS_12COVER_best_sE.exit
-  tail call void @free(ptr noundef nonnull %5) #25
+  tail call void @free(ptr noundef nonnull %5) #27
   br label %7
 
 7:                                                ; preds = %_ZN11duckdb_zstd15COVER_best_waitEPNS_12COVER_best_sE.exit, %6, %1
@@ -1392,7 +1386,7 @@ _ZN11duckdb_zstd15COVER_best_waitEPNS_12COVER_best_sE.exit: ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN11duckdb_zstd16COVER_best_startEPNS_12COVER_best_sE(ptr noundef captures(address_is_null) %0) local_unnamed_addr #14 {
+define void @_ZN11duckdb_zstd16COVER_best_startEPNS_12COVER_best_sE(ptr noundef captures(address_is_null) %0) local_unnamed_addr #13 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %2
 
@@ -1408,7 +1402,7 @@ define void @_ZN11duckdb_zstd16COVER_best_startEPNS_12COVER_best_sE(ptr noundef 
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @_ZN11duckdb_zstd17COVER_best_finishEPNS_12COVER_best_sENS_20ZDICT_cover_params_tENS_19COVER_dictSelectionE(ptr noundef captures(address_is_null) %0, ptr noundef readonly byval(%"struct.duckdb_zstd::ZDICT_cover_params_t") align 8 captures(none) %1, ptr noundef readonly byval(%"struct.duckdb_zstd::COVER_dictSelection") align 8 captures(none) %2) local_unnamed_addr #13 {
+define void @_ZN11duckdb_zstd17COVER_best_finishEPNS_12COVER_best_sENS_20ZDICT_cover_params_tENS_19COVER_dictSelectionE(ptr noundef captures(address_is_null) %0, ptr noundef readonly byval(%"struct.duckdb_zstd::ZDICT_cover_params_t") align 8 captures(none) %1, ptr noundef readonly byval(%"struct.duckdb_zstd::COVER_dictSelection") align 8 captures(none) %2) local_unnamed_addr #12 {
   %4 = load ptr, ptr %2, align 8, !tbaa !66
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %6 = load i64, ptr %5, align 8, !tbaa !68
@@ -1440,11 +1434,11 @@ define void @_ZN11duckdb_zstd17COVER_best_finishEPNS_12COVER_best_sENS_20ZDICT_c
   br i1 %22, label %23, label %27
 
 23:                                               ; preds = %19
-  tail call void @free(ptr noundef nonnull %18) #25
+  tail call void @free(ptr noundef nonnull %18) #27
   br label %.thread
 
 .thread:                                          ; preds = %16, %23
-  %24 = tail call noalias ptr @malloc(i64 noundef %8) #27
+  %24 = tail call noalias ptr @malloc(i64 noundef %8) #26
   store ptr %24, ptr %17, align 8, !tbaa !65
   %.not31 = icmp eq ptr %24, null
   br i1 %.not31, label %25, label %27
@@ -1474,7 +1468,7 @@ define void @_ZN11duckdb_zstd17COVER_best_finishEPNS_12COVER_best_sENS_20ZDICT_c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN11duckdb_zstd24COVER_dictSelectionErrorEm(ptr dead_on_unwind noalias writable writeonly sret(%"struct.duckdb_zstd::COVER_dictSelection") align 8 captures(none) initializes((0, 24)) %0, i64 noundef %1) local_unnamed_addr #11 {
+define void @_ZN11duckdb_zstd24COVER_dictSelectionErrorEm(ptr dead_on_unwind noalias writable writeonly sret(%"struct.duckdb_zstd::COVER_dictSelection") align 8 captures(none) initializes((0, 24)) %0, i64 noundef %1) local_unnamed_addr #10 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   store i64 %1, ptr %3, align 8, !tbaa !68, !alias.scope !73
@@ -1494,17 +1488,17 @@ define noundef range(i32 0, 2) i32 @_ZN11duckdb_zstd26COVER_dictSelectionIsError
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @_ZN11duckdb_zstd23COVER_dictSelectionFreeENS_19COVER_dictSelectionE(ptr noundef readonly byval(%"struct.duckdb_zstd::COVER_dictSelection") align 8 captures(none) %0) local_unnamed_addr #13 {
+define void @_ZN11duckdb_zstd23COVER_dictSelectionFreeENS_19COVER_dictSelectionE(ptr noundef readonly byval(%"struct.duckdb_zstd::COVER_dictSelection") align 8 captures(none) %0) local_unnamed_addr #12 {
   %2 = load ptr, ptr %0, align 8, !tbaa !66
-  tail call void @free(ptr noundef %2) #25
+  tail call void @free(ptr noundef %2) #27
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11duckdb_zstd16COVER_selectDictEPhmmPKhPKmjmmNS_20ZDICT_cover_params_tEPmm(ptr dead_on_unwind noalias writable writeonly sret(%"struct.duckdb_zstd::COVER_dictSelection") align 8 captures(none) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i64 noundef %7, i64 noundef %8, ptr noundef readonly byval(%"struct.duckdb_zstd::ZDICT_cover_params_t") align 8 captures(none) %9, ptr noundef readonly captures(none) %10, i64 %11) local_unnamed_addr #5 {
+define void @_ZN11duckdb_zstd16COVER_selectDictEPhmmPKhPKmjmmNS_20ZDICT_cover_params_tEPmm(ptr dead_on_unwind noalias writable writeonly sret(%"struct.duckdb_zstd::COVER_dictSelection") align 8 captures(none) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i64 noundef %7, i64 noundef %8, ptr noundef readonly byval(%"struct.duckdb_zstd::ZDICT_cover_params_t") align 8 captures(none) %9, ptr noundef readonly captures(none) %10, i64 %11) local_unnamed_addr #4 {
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 %3
-  %14 = tail call noalias ptr @malloc(i64 noundef %2) #27
-  %15 = tail call noalias ptr @malloc(i64 noundef %2) #27
+  %14 = tail call noalias ptr @malloc(i64 noundef %2) #26
+  %15 = tail call noalias ptr @malloc(i64 noundef %2) #26
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 28
   %17 = load i32, ptr %16, align 4, !tbaa !76
   %18 = uitofp i32 %17 to double
@@ -1516,8 +1510,8 @@ define void @_ZN11duckdb_zstd16COVER_selectDictEPhmmPKhPKmjmmNS_20ZDICT_cover_pa
   br i1 %or.cond, label %25, label %23
 
 23:                                               ; preds = %12
-  tail call void @free(ptr noundef %14) #25
-  tail call void @free(ptr noundef %15) #25
+  tail call void @free(ptr noundef %14) #27
+  tail call void @free(ptr noundef %15) #27
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false), !alias.scope !77
   store i64 %3, ptr %24, align 8, !tbaa !68, !alias.scope !80
@@ -1532,8 +1526,8 @@ define void @_ZN11duckdb_zstd16COVER_selectDictEPhmmPKhPKmjmmNS_20ZDICT_cover_pa
   br i1 %.not, label %31, label %29
 
 29:                                               ; preds = %25
-  tail call void @free(ptr noundef nonnull %14) #25
-  tail call void @free(ptr noundef nonnull %15) #25
+  tail call void @free(ptr noundef nonnull %14) #27
+  tail call void @free(ptr noundef nonnull %15) #27
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false), !alias.scope !83
   store i64 %27, ptr %30, align 8, !tbaa !68, !alias.scope !86
@@ -1545,8 +1539,8 @@ define void @_ZN11duckdb_zstd16COVER_selectDictEPhmmPKhPKmjmmNS_20ZDICT_cover_pa
   br i1 %33, label %36, label %34
 
 34:                                               ; preds = %31
-  tail call void @free(ptr noundef nonnull %14) #25
-  tail call void @free(ptr noundef nonnull %15) #25
+  tail call void @free(ptr noundef nonnull %14) #27
+  tail call void @free(ptr noundef nonnull %15) #27
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false), !alias.scope !89
   store i64 %32, ptr %35, align 8, !tbaa !68, !alias.scope !92
@@ -1568,7 +1562,7 @@ define void @_ZN11duckdb_zstd16COVER_selectDictEPhmmPKhPKmjmmNS_20ZDICT_cover_pa
   br label %46
 
 43:                                               ; preds = %36
-  tail call void @free(ptr noundef nonnull %15) #25
+  tail call void @free(ptr noundef nonnull %15) #27
   store ptr %14, ptr %0, align 8, !tbaa !66, !alias.scope !96
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %27, ptr %44, align 8, !tbaa !69, !alias.scope !96
@@ -1587,8 +1581,8 @@ define void @_ZN11duckdb_zstd16COVER_selectDictEPhmmPKhPKmjmmNS_20ZDICT_cover_pa
   br i1 %.not86, label %53, label %51
 
 51:                                               ; preds = %46
-  tail call void @free(ptr noundef %14) #25
-  tail call void @free(ptr noundef nonnull %15) #25
+  tail call void @free(ptr noundef %14) #27
+  tail call void @free(ptr noundef nonnull %15) #27
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false), !alias.scope !99
   store i64 %49, ptr %52, align 8, !tbaa !68, !alias.scope !102
@@ -1600,8 +1594,8 @@ define void @_ZN11duckdb_zstd16COVER_selectDictEPhmmPKhPKmjmmNS_20ZDICT_cover_pa
   br i1 %55, label %58, label %56
 
 56:                                               ; preds = %53
-  tail call void @free(ptr noundef %14) #25
-  tail call void @free(ptr noundef nonnull %15) #25
+  tail call void @free(ptr noundef %14) #27
+  tail call void @free(ptr noundef nonnull %15) #27
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false), !alias.scope !105
   store i64 %54, ptr %57, align 8, !tbaa !68, !alias.scope !108
@@ -1613,7 +1607,7 @@ define void @_ZN11duckdb_zstd16COVER_selectDictEPhmmPKhPKmjmmNS_20ZDICT_cover_pa
   br i1 %60, label %64, label %61
 
 61:                                               ; preds = %58
-  tail call void @free(ptr noundef %14) #25
+  tail call void @free(ptr noundef %14) #27
   store ptr %15, ptr %0, align 8, !tbaa !66, !alias.scope !111
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %49, ptr %62, align 8, !tbaa !69, !alias.scope !111
@@ -1627,7 +1621,7 @@ define void @_ZN11duckdb_zstd16COVER_selectDictEPhmmPKhPKmjmmNS_20ZDICT_cover_pa
   br i1 %66, label %46, label %._crit_edge, !llvm.loop !114
 
 ._crit_edge:                                      ; preds = %64, %.preheader
-  tail call void @free(ptr noundef nonnull %15) #25
+  tail call void @free(ptr noundef nonnull %15) #27
   store ptr %14, ptr %0, align 8, !tbaa !66, !alias.scope !115
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %27, ptr %67, align 8, !tbaa !69, !alias.scope !115
@@ -1639,10 +1633,10 @@ define void @_ZN11duckdb_zstd16COVER_selectDictEPhmmPKhPKmjmmNS_20ZDICT_cover_pa
   ret void
 }
 
-declare noundef i32 @_ZN11duckdb_zstd13ZDICT_isErrorEm(i64 noundef) local_unnamed_addr #8
+declare noundef i32 @_ZN11duckdb_zstd13ZDICT_isErrorEm(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN11duckdb_zstd35ZDICT_optimizeTrainFromBuffer_coverEPvmPKvPKmjPNS_20ZDICT_cover_params_tE(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef captures(none) %5) local_unnamed_addr #5 {
+define noundef i64 @_ZN11duckdb_zstd35ZDICT_optimizeTrainFromBuffer_coverEPvmPKvPKmjPNS_20ZDICT_cover_params_tE(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef captures(none) %5) local_unnamed_addr #4 {
   %7 = alloca %"struct.duckdb_zstd::COVER_best_s", align 8
   %8 = alloca %"struct.duckdb_zstd::COVER_ctx_t", align 8
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 12
@@ -1676,7 +1670,7 @@ define noundef i64 @_ZN11duckdb_zstd35ZDICT_optimizeTrainFromBuffer_coverEPvmPKv
   %34 = shl nuw nsw i32 %32, %33
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 36
   %36 = load i32, ptr %35, align 4, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %37 = fcmp ogt double %14, 1.000000e+00
   br i1 %37, label %38, label %45
 
@@ -1686,7 +1680,7 @@ define noundef i64 @_ZN11duckdb_zstd35ZDICT_optimizeTrainFromBuffer_coverEPvmPKv
 
 40:                                               ; preds = %38
   %41 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %42 = tail call i64 @fwrite(ptr nonnull @.str.7, i64 21, i64 1, ptr %41) #26
+  %42 = tail call i64 @fwrite(ptr nonnull @.str.7, i64 21, i64 1, ptr %41) #25
   %43 = load ptr, ptr @stderr, align 8, !tbaa !9
   %44 = tail call i32 @fflush(ptr noundef %43)
   br label %240
@@ -1703,7 +1697,7 @@ define noundef i64 @_ZN11duckdb_zstd35ZDICT_optimizeTrainFromBuffer_coverEPvmPKv
 
 50:                                               ; preds = %48
   %51 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %52 = tail call i64 @fwrite(ptr nonnull @.str.7, i64 21, i64 1, ptr %51) #26
+  %52 = tail call i64 @fwrite(ptr nonnull @.str.7, i64 21, i64 1, ptr %51) #25
   %53 = load ptr, ptr @stderr, align 8, !tbaa !9
   %54 = tail call i32 @fflush(ptr noundef %53)
   br label %240
@@ -1719,7 +1713,7 @@ define noundef i64 @_ZN11duckdb_zstd35ZDICT_optimizeTrainFromBuffer_coverEPvmPKv
 
 60:                                               ; preds = %57
   %61 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %62 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 40, i64 1, ptr %61) #26
+  %62 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 40, i64 1, ptr %61) #25
   %63 = load ptr, ptr @stderr, align 8, !tbaa !9
   %64 = tail call i32 @fflush(ptr noundef %63)
   br label %240
@@ -1792,7 +1786,7 @@ define noundef i64 @_ZN11duckdb_zstd35ZDICT_optimizeTrainFromBuffer_coverEPvmPKv
   %.0113198 = phi i32 [ 1, %.lr.ph200 ], [ %.3116.ph, %218 ]
   %.0117197 = phi i32 [ %18, %.lr.ph200 ], [ %219, %218 ]
   %.not146196 = phi i1 [ true, %.lr.ph200 ], [ false, %218 ]
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %8) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   br i1 %92, label %103, label %108
 
 103:                                              ; preds = %102
@@ -1812,7 +1806,7 @@ define noundef i64 @_ZN11duckdb_zstd35ZDICT_optimizeTrainFromBuffer_coverEPvmPKv
 
 112:                                              ; preds = %111
   %113 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %114 = call i64 @fwrite(ptr nonnull @.str.10, i64 29, i64 1, ptr %113) #26
+  %114 = call i64 @fwrite(ptr nonnull @.str.10, i64 29, i64 1, ptr %113) #25
   %115 = load ptr, ptr @stderr, align 8, !tbaa !9
   %116 = call i32 @fflush(ptr noundef %115)
   br label %117
@@ -1827,7 +1821,7 @@ define noundef i64 @_ZN11duckdb_zstd35ZDICT_optimizeTrainFromBuffer_coverEPvmPKv
   br i1 %.not5.i, label %_ZN11duckdb_zstdL17COVER_ctx_destroyEPNS_11COVER_ctx_tE.exit160, label %121
 
 121:                                              ; preds = %117
-  call void @free(ptr noundef nonnull %120) #25
+  call void @free(ptr noundef nonnull %120) #27
   br label %_ZN11duckdb_zstdL17COVER_ctx_destroyEPNS_11COVER_ctx_tE.exit160
 
 122:                                              ; preds = %108
@@ -1856,7 +1850,7 @@ define noundef i64 @_ZN11duckdb_zstd35ZDICT_optimizeTrainFromBuffer_coverEPvmPKv
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %204
   %.2115194 = phi i32 [ %.3116.ph, %204 ], [ %.0113198, %.lr.ph.preheader ]
   %.0118193 = phi i32 [ %205, %204 ], [ %22, %.lr.ph.preheader ]
-  %135 = call noalias dereferenceable_or_null(72) ptr @malloc(i64 noundef 72) #27
+  %135 = call noalias dereferenceable_or_null(72) ptr @malloc(i64 noundef 72) #26
   br i1 %92, label %136, label %141
 
 136:                                              ; preds = %.lr.ph
@@ -1875,7 +1869,7 @@ define noundef i64 @_ZN11duckdb_zstd35ZDICT_optimizeTrainFromBuffer_coverEPvmPKv
 
 143:                                              ; preds = %142
   %144 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %145 = call i64 @fwrite(ptr nonnull @.str.12, i64 30, i64 1, ptr %144) #26
+  %145 = call i64 @fwrite(ptr nonnull @.str.12, i64 30, i64 1, ptr %144) #25
   %146 = load ptr, ptr @stderr, align 8, !tbaa !9
   %147 = call i32 @fflush(ptr noundef %146)
   br label %148
@@ -1890,7 +1884,7 @@ define noundef i64 @_ZN11duckdb_zstd35ZDICT_optimizeTrainFromBuffer_coverEPvmPKv
   br i1 %.not5.i152, label %_ZN11duckdb_zstd18COVER_best_destroyEPNS_12COVER_best_sE.exit153, label %152
 
 152:                                              ; preds = %148
-  call void @free(ptr noundef nonnull %151) #25
+  call void @free(ptr noundef nonnull %151) #27
   br label %_ZN11duckdb_zstd18COVER_best_destroyEPNS_12COVER_best_sE.exit153
 
 _ZN11duckdb_zstd18COVER_best_destroyEPNS_12COVER_best_sE.exit153: ; preds = %148, %152
@@ -1899,7 +1893,7 @@ _ZN11duckdb_zstd18COVER_best_destroyEPNS_12COVER_best_sE.exit153: ; preds = %148
   br i1 %.not.i, label %155, label %154
 
 154:                                              ; preds = %_ZN11duckdb_zstd18COVER_best_destroyEPNS_12COVER_best_sE.exit153
-  call void @free(ptr noundef nonnull %153) #25
+  call void @free(ptr noundef nonnull %153) #27
   store ptr null, ptr %98, align 8, !tbaa !30
   br label %155
 
@@ -1909,7 +1903,7 @@ _ZN11duckdb_zstd18COVER_best_destroyEPNS_12COVER_best_sE.exit153: ; preds = %148
   br i1 %.not17.i, label %158, label %157
 
 157:                                              ; preds = %155
-  call void @free(ptr noundef nonnull %156) #25
+  call void @free(ptr noundef nonnull %156) #27
   store ptr null, ptr %99, align 8, !tbaa !31
   br label %158
 
@@ -1919,7 +1913,7 @@ _ZN11duckdb_zstd18COVER_best_destroyEPNS_12COVER_best_sE.exit153: ; preds = %148
   br i1 %.not18.i, label %161, label %160
 
 160:                                              ; preds = %158
-  call void @free(ptr noundef nonnull %159) #25
+  call void @free(ptr noundef nonnull %159) #27
   store ptr null, ptr %100, align 8, !tbaa !32
   br label %161
 
@@ -1929,7 +1923,7 @@ _ZN11duckdb_zstd18COVER_best_destroyEPNS_12COVER_best_sE.exit153: ; preds = %148
   br i1 %.not19.i, label %_ZN11duckdb_zstdL17COVER_ctx_destroyEPNS_11COVER_ctx_tE.exit160, label %163
 
 163:                                              ; preds = %161
-  call void @free(ptr noundef nonnull %162) #25
+  call void @free(ptr noundef nonnull %162) #27
   store ptr null, ptr %101, align 8, !tbaa !33
   br label %_ZN11duckdb_zstdL17COVER_ctx_destroyEPNS_11COVER_ctx_tE.exit160
 
@@ -1965,13 +1959,13 @@ _ZN11duckdb_zstdL21COVER_checkParametersENS_20ZDICT_cover_params_tEm.exit.thread
 
 178:                                              ; preds = %_ZN11duckdb_zstdL21COVER_checkParametersENS_20ZDICT_cover_params_tEm.exit.thread
   %179 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %180 = call i64 @fwrite(ptr nonnull @.str.1, i64 27, i64 1, ptr %179) #26
+  %180 = call i64 @fwrite(ptr nonnull @.str.1, i64 27, i64 1, ptr %179) #25
   %181 = load ptr, ptr @stderr, align 8, !tbaa !9
   %182 = call i32 @fflush(ptr noundef %181)
   br label %183
 
 183:                                              ; preds = %178, %_ZN11duckdb_zstdL21COVER_checkParametersENS_20ZDICT_cover_params_tEm.exit.thread
-  call void @free(ptr noundef nonnull %135) #25
+  call void @free(ptr noundef nonnull %135) #27
   br label %204
 
 _ZN11duckdb_zstdL21COVER_checkParametersENS_20ZDICT_cover_params_tEm.exit: ; preds = %164
@@ -1992,7 +1986,7 @@ _ZN11duckdb_zstdL21COVER_checkParametersENS_20ZDICT_cover_params_tEm.exit: ; pre
   br i1 %85, label %189, label %202
 
 189:                                              ; preds = %188
-  %190 = call i64 @clock() #25
+  %190 = call i64 @clock() #27
   %191 = load i64, ptr @_ZL6g_time, align 8, !tbaa !3
   %192 = sub nsw i64 %190, %191
   %193 = icmp sgt i64 %192, 150000
@@ -2000,7 +1994,7 @@ _ZN11duckdb_zstdL21COVER_checkParametersENS_20ZDICT_cover_params_tEm.exit: ; pre
   br i1 %or.cond4, label %194, label %202
 
 194:                                              ; preds = %189
-  %195 = call i64 @clock() #25
+  %195 = call i64 @clock() #27
   store i64 %195, ptr @_ZL6g_time, align 8, !tbaa !3
   %196 = load ptr, ptr @stderr, align 8, !tbaa !9
   %197 = mul i32 %.2115194, 100
@@ -2029,7 +2023,7 @@ _ZN11duckdb_zstdL21COVER_checkParametersENS_20ZDICT_cover_params_tEm.exit: ; pre
   br i1 %.not.i156, label %209, label %208
 
 208:                                              ; preds = %._crit_edge
-  call void @free(ptr noundef nonnull %207) #25
+  call void @free(ptr noundef nonnull %207) #27
   store ptr null, ptr %98, align 8, !tbaa !30
   br label %209
 
@@ -2039,7 +2033,7 @@ _ZN11duckdb_zstdL21COVER_checkParametersENS_20ZDICT_cover_params_tEm.exit: ; pre
   br i1 %.not17.i157, label %212, label %211
 
 211:                                              ; preds = %209
-  call void @free(ptr noundef nonnull %210) #25
+  call void @free(ptr noundef nonnull %210) #27
   store ptr null, ptr %99, align 8, !tbaa !31
   br label %212
 
@@ -2049,7 +2043,7 @@ _ZN11duckdb_zstdL21COVER_checkParametersENS_20ZDICT_cover_params_tEm.exit: ; pre
   br i1 %.not18.i158, label %215, label %214
 
 214:                                              ; preds = %212
-  call void @free(ptr noundef nonnull %213) #25
+  call void @free(ptr noundef nonnull %213) #27
   store ptr null, ptr %100, align 8, !tbaa !32
   br label %215
 
@@ -2059,17 +2053,17 @@ _ZN11duckdb_zstdL21COVER_checkParametersENS_20ZDICT_cover_params_tEm.exit: ; pre
   br i1 %.not19.i159, label %218, label %217
 
 217:                                              ; preds = %215
-  call void @free(ptr noundef nonnull %216) #25
+  call void @free(ptr noundef nonnull %216) #27
   br label %218
 
 _ZN11duckdb_zstdL17COVER_ctx_destroyEPNS_11COVER_ctx_tE.exit160: ; preds = %161, %163, %117, %121
   %.3 = phi i64 [ %109, %121 ], [ %109, %117 ], [ -64, %163 ], [ -64, %161 ]
   call void @_ZN11duckdb_zstd9POOL_freeEPNS_10POOL_ctx_sE(ptr noundef %.0125)
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %8) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %240
 
 218:                                              ; preds = %215, %217
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %8) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %219 = add i32 %.0117197, 2
   %.not143 = icmp ugt i32 %219, %19
   br i1 %.not143, label %._crit_edge201, label %102, !llvm.loop !132
@@ -2101,7 +2095,7 @@ _ZN11duckdb_zstdL17COVER_ctx_destroyEPNS_11COVER_ctx_tE.exit160: ; preds = %161,
   br i1 %.not5.i163, label %_ZN11duckdb_zstd18COVER_best_destroyEPNS_12COVER_best_sE.exit164, label %234
 
 234:                                              ; preds = %230
-  call void @free(ptr noundef nonnull %233) #25
+  call void @free(ptr noundef nonnull %233) #27
   br label %_ZN11duckdb_zstd18COVER_best_destroyEPNS_12COVER_best_sE.exit164
 
 _ZN11duckdb_zstd18COVER_best_destroyEPNS_12COVER_best_sE.exit164: ; preds = %230, %234
@@ -2120,7 +2114,7 @@ _ZN11duckdb_zstd18COVER_best_destroyEPNS_12COVER_best_sE.exit164: ; preds = %230
   br i1 %.not5.i167, label %_ZN11duckdb_zstd18COVER_best_destroyEPNS_12COVER_best_sE.exit168, label %239
 
 239:                                              ; preds = %235
-  call void @free(ptr noundef nonnull %237) #25
+  call void @free(ptr noundef nonnull %237) #27
   br label %_ZN11duckdb_zstd18COVER_best_destroyEPNS_12COVER_best_sE.exit168
 
 _ZN11duckdb_zstd18COVER_best_destroyEPNS_12COVER_best_sE.exit168: ; preds = %235, %239
@@ -2129,18 +2123,18 @@ _ZN11duckdb_zstd18COVER_best_destroyEPNS_12COVER_best_sE.exit168: ; preds = %235
 
 240:                                              ; preds = %_ZN11duckdb_zstdL17COVER_ctx_destroyEPNS_11COVER_ctx_tE.exit160, %_ZN11duckdb_zstd18COVER_best_destroyEPNS_12COVER_best_sE.exit164, %_ZN11duckdb_zstd18COVER_best_destroyEPNS_12COVER_best_sE.exit168, %77, %67, %70, %57, %60, %48, %50, %38, %40
   %.0 = phi i64 [ %.3, %_ZN11duckdb_zstdL17COVER_ctx_destroyEPNS_11COVER_ctx_tE.exit160 ], [ -42, %40 ], [ -42, %38 ], [ -42, %50 ], [ -42, %48 ], [ -72, %60 ], [ -72, %57 ], [ -70, %70 ], [ -70, %67 ], [ -64, %77 ], [ %228, %_ZN11duckdb_zstd18COVER_best_destroyEPNS_12COVER_best_sE.exit164 ], [ %227, %_ZN11duckdb_zstd18COVER_best_destroyEPNS_12COVER_best_sE.exit168 ]
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %7) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i64 %.0
 }
 
-declare noundef ptr @_ZN11duckdb_zstd11POOL_createEmm(i64 noundef, i64 noundef) local_unnamed_addr #8
+declare noundef ptr @_ZN11duckdb_zstd11POOL_createEmm(i64 noundef, i64 noundef) local_unnamed_addr #7
 
-declare void @_ZN11duckdb_zstd9POOL_freeEPNS_10POOL_ctx_sE(ptr noundef) local_unnamed_addr #8
+declare void @_ZN11duckdb_zstd9POOL_freeEPNS_10POOL_ctx_sE(ptr noundef) local_unnamed_addr #7
 
-declare void @_ZN11duckdb_zstd8POOL_addEPNS_10POOL_ctx_sEPFvPvES2_(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
+declare void @_ZN11duckdb_zstd8POOL_addEPNS_10POOL_ctx_sEPFvPvES2_(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN11duckdb_zstdL19COVER_tryParametersEPv(ptr noundef captures(none) %0) #5 {
+define internal void @_ZN11duckdb_zstdL19COVER_tryParametersEPv(ptr noundef captures(none) %0) #4 {
   %.sroa.8 = alloca { i32, i32, double, i32, i32, %"struct.duckdb_zstd::ZDICT_params_t" }, align 8
   %2 = alloca %"struct.duckdb_zstd::COVER_map_s", align 8
   %3 = alloca %"struct.duckdb_zstd::ZDICT_cover_params_t", align 8
@@ -2155,12 +2149,12 @@ define internal void @_ZN11duckdb_zstdL19COVER_tryParametersEPv(ptr noundef capt
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.8, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.8.0..sroa_idx, i64 40, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8, !tbaa !124
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #25
-  %10 = tail call noalias ptr @malloc(i64 noundef %9) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  %10 = tail call noalias ptr @malloc(i64 noundef %9) #26
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %12 = load i64, ptr %11, align 8, !tbaa !19
   %13 = shl i64 %12, 2
-  %14 = tail call noalias ptr @malloc(i64 noundef %13) #27
+  %14 = tail call noalias ptr @malloc(i64 noundef %13) #26
   %15 = add i32 %.sroa.0.0.copyload, 1
   %16 = sub i32 %15, %.sroa.7.0.copyload
   %17 = tail call noundef range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %16, i1 true)
@@ -2176,7 +2170,7 @@ define internal void @_ZN11duckdb_zstdL19COVER_tryParametersEPv(ptr noundef capt
   store i32 %23, ptr %24, align 8, !tbaa !28
   %25 = zext i32 %21 to i64
   %26 = shl nuw nsw i64 %25, 3
-  %27 = tail call noalias ptr @malloc(i64 noundef %26) #27
+  %27 = tail call noalias ptr @malloc(i64 noundef %26) #26
   store ptr %27, ptr %2, align 8, !tbaa !29
   %.not.i = icmp eq ptr %27, null
   br i1 %.not.i, label %28, label %34
@@ -2188,7 +2182,7 @@ define internal void @_ZN11duckdb_zstdL19COVER_tryParametersEPv(ptr noundef capt
 
 31:                                               ; preds = %28
   %32 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %33 = tail call i64 @fwrite(ptr nonnull @.str.4, i64 43, i64 1, ptr %32) #26
+  %33 = tail call i64 @fwrite(ptr nonnull @.str.4, i64 43, i64 1, ptr %32) #25
   br label %.sink.split
 
 34:                                               ; preds = %1
@@ -2205,7 +2199,7 @@ define internal void @_ZN11duckdb_zstdL19COVER_tryParametersEPv(ptr noundef capt
 
 40:                                               ; preds = %37
   %41 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %42 = tail call i64 @fwrite(ptr nonnull @.str.25, i64 42, i64 1, ptr %41) #26
+  %42 = tail call i64 @fwrite(ptr nonnull @.str.25, i64 42, i64 1, ptr %41) #25
   br label %.sink.split
 
 43:                                               ; preds = %34
@@ -2218,7 +2212,7 @@ define internal void @_ZN11duckdb_zstdL19COVER_tryParametersEPv(ptr noundef capt
   %.sroa.8.0..sroa_idx24 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.8.0..sroa_idx24, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.8.0..sroa_idx, i64 40, i1 false)
   %46 = call fastcc noundef i64 @_ZN11duckdb_zstdL21COVER_buildDictionaryEPKNS_11COVER_ctx_tEPjPNS_11COVER_map_sEPvmNS_20ZDICT_cover_params_tE(ptr noundef nonnull %6, ptr noundef nonnull %14, ptr noundef %2, ptr noundef nonnull %10, i64 noundef %9, ptr noundef nonnull byval(%"struct.duckdb_zstd::ZDICT_cover_params_t") align 8 %3)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %47 = getelementptr inbounds nuw i8, ptr %10, i64 %46
   %48 = sub i64 %9, %46
   %49 = load ptr, ptr %6, align 8, !tbaa !34
@@ -2242,7 +2236,7 @@ define internal void @_ZN11duckdb_zstdL19COVER_tryParametersEPv(ptr noundef capt
   %.sroa.7.0.copyload58 = load i64, ptr %.sroa.7.0..sroa_idx57, align 8, !tbaa !3
   %.sroa.863.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.sroa.863.0.copyload = load i64, ptr %.sroa.863.0..sroa_idx, align 8, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %59 = icmp ugt i64 %.sroa.863.0.copyload, -120
   %.not.i47 = icmp eq ptr %.sroa.054.0.copyload, null
   %60 = select i1 %59, i1 true, i1 %.not.i47
@@ -2253,7 +2247,7 @@ define internal void @_ZN11duckdb_zstdL19COVER_tryParametersEPv(ptr noundef capt
 
 63:                                               ; preds = %43
   %64 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %65 = tail call i64 @fwrite(ptr nonnull @.str.26, i64 28, i64 1, ptr %64) #26
+  %65 = tail call i64 @fwrite(ptr nonnull @.str.26, i64 28, i64 1, ptr %64) #25
   br label %.sink.split
 
 .sink.split:                                      ; preds = %31, %40, %63
@@ -2268,7 +2262,7 @@ define internal void @_ZN11duckdb_zstdL19COVER_tryParametersEPv(ptr noundef capt
   %.sroa.863.0 = phi i64 [ -1, %28 ], [ %.sroa.863.0.copyload, %43 ], [ -1, %37 ], [ %.sroa.863.0.ph, %.sink.split ]
   %.sroa.7.0 = phi i64 [ 0, %28 ], [ %.sroa.7.0.copyload58, %43 ], [ 0, %37 ], [ %.sroa.7.0.ph, %.sink.split ]
   %.sroa.054.0 = phi ptr [ null, %28 ], [ %.sroa.054.0.copyload, %43 ], [ null, %37 ], [ %.sroa.054.0.ph, %.sink.split ]
-  tail call void @free(ptr noundef %10) #25
+  tail call void @free(ptr noundef %10) #27
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %70 = load ptr, ptr %69, align 8, !tbaa !123
   %.not.i48 = icmp eq ptr %70, null
@@ -2297,11 +2291,11 @@ define internal void @_ZN11duckdb_zstdL19COVER_tryParametersEPv(ptr noundef capt
   br i1 %84, label %85, label %89
 
 85:                                               ; preds = %81
-  tail call void @free(ptr noundef nonnull %80) #25
+  tail call void @free(ptr noundef nonnull %80) #27
   br label %.thread.i
 
 .thread.i:                                        ; preds = %85, %78
-  %86 = tail call noalias ptr @malloc(i64 noundef %.sroa.7.0) #27
+  %86 = tail call noalias ptr @malloc(i64 noundef %.sroa.7.0) #26
   store ptr %86, ptr %79, align 8, !tbaa !65
   %.not31.i = icmp eq ptr %86, null
   br i1 %.not31.i, label %87, label %89
@@ -2331,28 +2325,28 @@ define internal void @_ZN11duckdb_zstdL19COVER_tryParametersEPv(ptr noundef capt
   br label %_ZN11duckdb_zstd17COVER_best_finishEPNS_12COVER_best_sENS_20ZDICT_cover_params_tENS_19COVER_dictSelectionE.exit
 
 _ZN11duckdb_zstd17COVER_best_finishEPNS_12COVER_best_sENS_20ZDICT_cover_params_tENS_19COVER_dictSelectionE.exit: ; preds = %68, %71, %87, %89, %91
-  tail call void @free(ptr noundef nonnull %0) #25
+  tail call void @free(ptr noundef nonnull %0) #27
   br i1 %.not.i, label %_ZN11duckdb_zstdL17COVER_map_destroyEPNS_11COVER_map_sE.exit, label %94
 
 94:                                               ; preds = %_ZN11duckdb_zstd17COVER_best_finishEPNS_12COVER_best_sENS_20ZDICT_cover_params_tENS_19COVER_dictSelectionE.exit
-  tail call void @free(ptr noundef nonnull %27) #25
+  tail call void @free(ptr noundef nonnull %27) #27
   br label %_ZN11duckdb_zstdL17COVER_map_destroyEPNS_11COVER_map_sE.exit
 
 _ZN11duckdb_zstdL17COVER_map_destroyEPNS_11COVER_map_sE.exit: ; preds = %_ZN11duckdb_zstd17COVER_best_finishEPNS_12COVER_best_sENS_20ZDICT_cover_params_tENS_19COVER_dictSelectionE.exit, %94
-  tail call void @free(ptr noundef %.sroa.054.0) #25
-  tail call void @free(ptr noundef %14) #25
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #25
+  tail call void @free(ptr noundef %.sroa.054.0) #27
+  tail call void @free(ptr noundef %14) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
 ; Function Attrs: nounwind
-declare i64 @clock() local_unnamed_addr #15
+declare i64 @clock() local_unnamed_addr #14
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #16
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef range(i32 -1, 2) i32 @_ZN11duckdb_zstdL17COVER_strict_cmp8EPKvS1_(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1) #17 {
+define internal noundef range(i32 -1, 2) i32 @_ZN11duckdb_zstdL17COVER_strict_cmp8EPKvS1_(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1) #16 {
   %3 = load ptr, ptr @_ZN11duckdb_zstdL10g_coverCtxE, align 8, !tbaa !42
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %5 = load i32, ptr %4, align 8, !tbaa !39
@@ -2382,7 +2376,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZN11duckdb_zstdL17COVER_strict_cm
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef i32 @_ZN11duckdb_zstdL16COVER_strict_cmpEPKvS1_(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1) #18 {
+define internal noundef i32 @_ZN11duckdb_zstdL16COVER_strict_cmpEPKvS1_(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1) #17 {
   %3 = load ptr, ptr @_ZN11duckdb_zstdL10g_coverCtxE, align 8, !tbaa !42
   %4 = load i32, ptr %0, align 4, !tbaa !18
   %5 = load i32, ptr %1, align 4, !tbaa !18
@@ -2403,7 +2397,7 @@ define internal noundef i32 @_ZN11duckdb_zstdL16COVER_strict_cmpEPKvS1_(ptr noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef range(i32 -1, 2) i32 @_ZN11duckdb_zstdL10COVER_cmp8EPNS_11COVER_ctx_tEPKvS3_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) unnamed_addr #17 {
+define internal noundef range(i32 -1, 2) i32 @_ZN11duckdb_zstdL10COVER_cmp8EPNS_11COVER_ctx_tEPKvS3_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) unnamed_addr #16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = load i32, ptr %4, align 8, !tbaa !39
   %6 = icmp eq i32 %5, 8
@@ -2428,7 +2422,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZN11duckdb_zstdL10COVER_cmp8EPNS_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef i32 @_ZN11duckdb_zstdL9COVER_cmpEPNS_11COVER_ctx_tEPKvS3_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) unnamed_addr #18 {
+define internal noundef i32 @_ZN11duckdb_zstdL9COVER_cmpEPNS_11COVER_ctx_tEPKvS3_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) unnamed_addr #17 {
   %4 = load i32, ptr %1, align 4, !tbaa !18
   %5 = load i32, ptr %2, align 4, !tbaa !18
   %6 = load ptr, ptr %0, align 8, !tbaa !34
@@ -2444,10 +2438,16 @@ define internal noundef i32 @_ZN11duckdb_zstdL9COVER_cmpEPNS_11COVER_ctx_tEPKvS3
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #19
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #20
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #19
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #20
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #21
@@ -2474,33 +2474,33 @@ declare i64 @llvm.umin.i64(i64, i64) #21
 declare void @llvm.assume(i1 noundef) #23
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #13 = { mustprogress nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #1 = { mustprogress nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #12 = { mustprogress nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #20 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #21 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #22 = { nofree nounwind }
 attributes #23 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #24 = { cold nounwind }
-attributes #25 = { nounwind }
-attributes #26 = { cold }
-attributes #27 = { nounwind allocsize(0) }
+attributes #25 = { cold }
+attributes #26 = { nounwind allocsize(0) }
+attributes #27 = { nounwind }
 attributes #28 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2}

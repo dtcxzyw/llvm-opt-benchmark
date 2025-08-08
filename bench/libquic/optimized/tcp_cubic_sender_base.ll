@@ -87,7 +87,7 @@ define void @_ZN3net18TcpCubicSenderBase13SetFromConfigERKNS_10QuicConfigENS_11P
   br i1 %15, label %16, label %.critedge.thread
 
 16:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZNK3net10QuicConfig25ReceivedConnectionOptionsEv(ptr dead_on_unwind nonnull writable sret(%"class.std::vector") align 8 %4, ptr noundef nonnull align 8 dereferenceable(600) %1)
   %17 = invoke noundef zeroext i1 @_ZN3net15ContainsQuicTagERKSt6vectorIjSaIjEEj(ptr noundef nonnull align 8 dereferenceable(24) %4, i32 noundef 858806089)
           to label %18 unwind label %25
@@ -98,11 +98,11 @@ define void @_ZN3net18TcpCubicSenderBase13SetFromConfigERKNS_10QuicConfigENS_11P
   br i1 %.not.i.i.i, label %.critedge, label %20
 
 20:                                               ; preds = %18
-  call void @_ZdlPv(ptr noundef nonnull %19) #16
+  call void @_ZdlPv(ptr noundef nonnull %19) #15
   br label %.critedge
 
 .critedge:                                        ; preds = %20, %18
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %17, label %21, label %.critedge.thread
 
 21:                                               ; preds = %.critedge
@@ -120,11 +120,11 @@ define void @_ZN3net18TcpCubicSenderBase13SetFromConfigERKNS_10QuicConfigENS_11P
   br i1 %.not.i.i.i93, label %_ZNSt6vectorIjSaIjEED2Ev.exit94, label %28
 
 28:                                               ; preds = %25
-  call void @_ZdlPv(ptr noundef nonnull %27) #16
+  call void @_ZdlPv(ptr noundef nonnull %27) #15
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit94
 
 _ZNSt6vectorIjSaIjEED2Ev.exit94:                  ; preds = %25, %28
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %136
 
 .critedge.thread:                                 ; preds = %14, %21, %.critedge
@@ -132,7 +132,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit94:                  ; preds = %25, %28
   br i1 %29, label %30, label %.critedge78.thread
 
 30:                                               ; preds = %.critedge.thread
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZNK3net10QuicConfig25ReceivedConnectionOptionsEv(ptr dead_on_unwind nonnull writable sret(%"class.std::vector") align 8 %5, ptr noundef nonnull align 8 dereferenceable(600) %1)
   %31 = invoke noundef zeroext i1 @_ZN3net15ContainsQuicTagERKSt6vectorIjSaIjEEj(ptr noundef nonnull align 8 dereferenceable(24) %5, i32 noundef 808539977)
           to label %32 unwind label %39
@@ -143,11 +143,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit94:                  ; preds = %25, %28
   br i1 %.not.i.i.i95, label %.critedge78, label %34
 
 34:                                               ; preds = %32
-  call void @_ZdlPv(ptr noundef nonnull %33) #16
+  call void @_ZdlPv(ptr noundef nonnull %33) #15
   br label %.critedge78
 
 .critedge78:                                      ; preds = %34, %32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %31, label %35, label %.critedge78.thread
 
 35:                                               ; preds = %.critedge78
@@ -165,11 +165,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit94:                  ; preds = %25, %28
   br i1 %.not.i.i.i97, label %_ZNSt6vectorIjSaIjEED2Ev.exit98, label %42
 
 42:                                               ; preds = %39
-  call void @_ZdlPv(ptr noundef nonnull %41) #16
+  call void @_ZdlPv(ptr noundef nonnull %41) #15
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit98
 
 _ZNSt6vectorIjSaIjEED2Ev.exit98:                  ; preds = %39, %42
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %136
 
 .critedge78.thread:                               ; preds = %.critedge.thread, %35, %.critedge78
@@ -177,7 +177,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit98:                  ; preds = %39, %42
   br i1 %43, label %44, label %.critedge80.thread
 
 44:                                               ; preds = %.critedge78.thread
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZNK3net10QuicConfig25ReceivedConnectionOptionsEv(ptr dead_on_unwind nonnull writable sret(%"class.std::vector") align 8 %6, ptr noundef nonnull align 8 dereferenceable(600) %1)
   %45 = invoke noundef zeroext i1 @_ZN3net15ContainsQuicTagERKSt6vectorIjSaIjEEj(ptr noundef nonnull align 8 dereferenceable(24) %6, i32 noundef 808605513)
           to label %46 unwind label %53
@@ -188,11 +188,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit98:                  ; preds = %39, %42
   br i1 %.not.i.i.i99, label %.critedge80, label %48
 
 48:                                               ; preds = %46
-  call void @_ZdlPv(ptr noundef nonnull %47) #16
+  call void @_ZdlPv(ptr noundef nonnull %47) #15
   br label %.critedge80
 
 .critedge80:                                      ; preds = %48, %46
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %45, label %49, label %.critedge80.thread
 
 49:                                               ; preds = %.critedge80
@@ -210,11 +210,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit98:                  ; preds = %39, %42
   br i1 %.not.i.i.i101, label %_ZNSt6vectorIjSaIjEED2Ev.exit102, label %56
 
 56:                                               ; preds = %53
-  call void @_ZdlPv(ptr noundef nonnull %55) #16
+  call void @_ZdlPv(ptr noundef nonnull %55) #15
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit102
 
 _ZNSt6vectorIjSaIjEED2Ev.exit102:                 ; preds = %53, %56
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %136
 
 .critedge80.thread:                               ; preds = %.critedge78.thread, %49, %.critedge80
@@ -222,7 +222,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit102:                 ; preds = %53, %56
   br i1 %57, label %58, label %.critedge82.thread
 
 58:                                               ; preds = %.critedge80.thread
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZNK3net10QuicConfig25ReceivedConnectionOptionsEv(ptr dead_on_unwind nonnull writable sret(%"class.std::vector") align 8 %7, ptr noundef nonnull align 8 dereferenceable(600) %1)
   %59 = invoke noundef zeroext i1 @_ZN3net15ContainsQuicTagERKSt6vectorIjSaIjEEj(ptr noundef nonnull align 8 dereferenceable(24) %7, i32 noundef 808802121)
           to label %60 unwind label %67
@@ -233,11 +233,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit102:                 ; preds = %53, %56
   br i1 %.not.i.i.i103, label %.critedge82, label %62
 
 62:                                               ; preds = %60
-  call void @_ZdlPv(ptr noundef nonnull %61) #16
+  call void @_ZdlPv(ptr noundef nonnull %61) #15
   br label %.critedge82
 
 .critedge82:                                      ; preds = %62, %60
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %59, label %63, label %.critedge82.thread
 
 63:                                               ; preds = %.critedge82
@@ -255,11 +255,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit102:                 ; preds = %53, %56
   br i1 %.not.i.i.i105, label %_ZNSt6vectorIjSaIjEED2Ev.exit106, label %70
 
 70:                                               ; preds = %67
-  call void @_ZdlPv(ptr noundef nonnull %69) #16
+  call void @_ZdlPv(ptr noundef nonnull %69) #15
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit106
 
 _ZNSt6vectorIjSaIjEED2Ev.exit106:                 ; preds = %67, %70
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %136
 
 .critedge82.thread:                               ; preds = %.critedge80.thread, %63, %.critedge82
@@ -267,7 +267,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit106:                 ; preds = %67, %70
   br i1 %71, label %72, label %.critedge84.thread
 
 72:                                               ; preds = %.critedge82.thread
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZNK3net10QuicConfig25ReceivedConnectionOptionsEv(ptr dead_on_unwind nonnull writable sret(%"class.std::vector") align 8 %8, ptr noundef nonnull align 8 dereferenceable(600) %1)
   %73 = invoke noundef zeroext i1 @_ZN3net15ContainsQuicTagERKSt6vectorIjSaIjEEj(ptr noundef nonnull align 8 dereferenceable(24) %8, i32 noundef 827214157)
           to label %74 unwind label %81
@@ -278,11 +278,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit106:                 ; preds = %67, %70
   br i1 %.not.i.i.i107, label %.critedge84, label %76
 
 76:                                               ; preds = %74
-  call void @_ZdlPv(ptr noundef nonnull %75) #16
+  call void @_ZdlPv(ptr noundef nonnull %75) #15
   br label %.critedge84
 
 .critedge84:                                      ; preds = %76, %74
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %73, label %77, label %.critedge84.thread
 
 77:                                               ; preds = %.critedge84
@@ -300,11 +300,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit106:                 ; preds = %67, %70
   br i1 %.not.i.i.i109, label %_ZNSt6vectorIjSaIjEED2Ev.exit110, label %84
 
 84:                                               ; preds = %81
-  call void @_ZdlPv(ptr noundef nonnull %83) #16
+  call void @_ZdlPv(ptr noundef nonnull %83) #15
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit110
 
 _ZNSt6vectorIjSaIjEED2Ev.exit110:                 ; preds = %81, %84
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %136
 
 .critedge84.thread:                               ; preds = %.critedge82.thread, %77, %.critedge84
@@ -312,7 +312,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit110:                 ; preds = %81, %84
   br i1 %85, label %86, label %.critedge86.thread
 
 86:                                               ; preds = %.critedge84.thread
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZNK3net10QuicConfig25ReceivedConnectionOptionsEv(ptr dead_on_unwind nonnull writable sret(%"class.std::vector") align 8 %9, ptr noundef nonnull align 8 dereferenceable(600) %1)
   %87 = invoke noundef zeroext i1 @_ZN3net15ContainsQuicTagERKSt6vectorIjSaIjEEj(ptr noundef nonnull align 8 dereferenceable(24) %9, i32 noundef 877545805)
           to label %88 unwind label %96
@@ -323,11 +323,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit110:                 ; preds = %81, %84
   br i1 %.not.i.i.i111, label %.critedge86, label %90
 
 90:                                               ; preds = %88
-  call void @_ZdlPv(ptr noundef nonnull %89) #16
+  call void @_ZdlPv(ptr noundef nonnull %89) #15
   br label %.critedge86
 
 .critedge86:                                      ; preds = %90, %88
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br i1 %87, label %91, label %.critedge86.thread
 
 91:                                               ; preds = %.critedge86
@@ -347,11 +347,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit110:                 ; preds = %81, %84
   br i1 %.not.i.i.i113, label %_ZNSt6vectorIjSaIjEED2Ev.exit114, label %99
 
 99:                                               ; preds = %96
-  call void @_ZdlPv(ptr noundef nonnull %98) #16
+  call void @_ZdlPv(ptr noundef nonnull %98) #15
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit114
 
 _ZNSt6vectorIjSaIjEED2Ev.exit114:                 ; preds = %96, %99
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %136
 
 .critedge86.thread:                               ; preds = %.critedge84.thread, %91, %.critedge86
@@ -359,7 +359,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit114:                 ; preds = %96, %99
   br i1 %100, label %101, label %.critedge88.thread
 
 101:                                              ; preds = %.critedge86.thread
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZNK3net10QuicConfig25ReceivedConnectionOptionsEv(ptr dead_on_unwind nonnull writable sret(%"class.std::vector") align 8 %10, ptr noundef nonnull align 8 dereferenceable(600) %1)
   %102 = invoke noundef zeroext i1 @_ZN3net15ContainsQuicTagERKSt6vectorIjSaIjEEj(ptr noundef nonnull align 8 dereferenceable(24) %10, i32 noundef 1380733779)
           to label %103 unwind label %108
@@ -370,11 +370,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit114:                 ; preds = %96, %99
   br i1 %.not.i.i.i115, label %.critedge88, label %105
 
 105:                                              ; preds = %103
-  call void @_ZdlPv(ptr noundef nonnull %104) #16
+  call void @_ZdlPv(ptr noundef nonnull %104) #15
   br label %.critedge88
 
 .critedge88:                                      ; preds = %105, %103
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br i1 %102, label %106, label %.critedge88.thread
 
 106:                                              ; preds = %.critedge88
@@ -390,11 +390,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit114:                 ; preds = %96, %99
   br i1 %.not.i.i.i117, label %_ZNSt6vectorIjSaIjEED2Ev.exit118, label %111
 
 111:                                              ; preds = %108
-  call void @_ZdlPv(ptr noundef nonnull %110) #16
+  call void @_ZdlPv(ptr noundef nonnull %110) #15
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit118
 
 _ZNSt6vectorIjSaIjEED2Ev.exit118:                 ; preds = %108, %111
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %136
 
 .critedge88.thread:                               ; preds = %.critedge86.thread, %106, %.critedge88
@@ -402,7 +402,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit118:                 ; preds = %108, %111
   br i1 %112, label %113, label %.critedge90.thread
 
 113:                                              ; preds = %.critedge88.thread
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @_ZNK3net10QuicConfig25ReceivedConnectionOptionsEv(ptr dead_on_unwind nonnull writable sret(%"class.std::vector") align 8 %11, ptr noundef nonnull align 8 dereferenceable(600) %1)
   %114 = invoke noundef zeroext i1 @_ZN3net15ContainsQuicTagERKSt6vectorIjSaIjEEj(ptr noundef nonnull align 8 dereferenceable(24) %11, i32 noundef 1381126222)
           to label %115 unwind label %120
@@ -413,11 +413,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit118:                 ; preds = %108, %111
   br i1 %.not.i.i.i119, label %.critedge90, label %117
 
 117:                                              ; preds = %115
-  call void @_ZdlPv(ptr noundef nonnull %116) #16
+  call void @_ZdlPv(ptr noundef nonnull %116) #15
   br label %.critedge90
 
 .critedge90:                                      ; preds = %117, %115
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br i1 %114, label %118, label %.critedge90.thread
 
 118:                                              ; preds = %.critedge90
@@ -433,11 +433,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit118:                 ; preds = %108, %111
   br i1 %.not.i.i.i121, label %_ZNSt6vectorIjSaIjEED2Ev.exit122, label %123
 
 123:                                              ; preds = %120
-  call void @_ZdlPv(ptr noundef nonnull %122) #16
+  call void @_ZdlPv(ptr noundef nonnull %122) #15
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit122
 
 _ZNSt6vectorIjSaIjEED2Ev.exit122:                 ; preds = %120, %123
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %136
 
 .critedge90.thread:                               ; preds = %.critedge88.thread, %118, %.critedge90
@@ -445,7 +445,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit122:                 ; preds = %120, %123
   br i1 %124, label %125, label %.critedge92.thread
 
 125:                                              ; preds = %.critedge90.thread
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @_ZNK3net10QuicConfig25ReceivedConnectionOptionsEv(ptr dead_on_unwind nonnull writable sret(%"class.std::vector") align 8 %12, ptr noundef nonnull align 8 dereferenceable(600) %1)
   %126 = invoke noundef zeroext i1 @_ZN3net15ContainsQuicTagERKSt6vectorIjSaIjEEj(ptr noundef nonnull align 8 dereferenceable(24) %12, i32 noundef 1163149650)
           to label %127 unwind label %132
@@ -456,11 +456,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit122:                 ; preds = %120, %123
   br i1 %.not.i.i.i123, label %.critedge92, label %129
 
 129:                                              ; preds = %127
-  call void @_ZdlPv(ptr noundef nonnull %128) #16
+  call void @_ZdlPv(ptr noundef nonnull %128) #15
   br label %.critedge92
 
 .critedge92:                                      ; preds = %129, %127
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br i1 %126, label %130, label %.critedge92.thread
 
 130:                                              ; preds = %.critedge92
@@ -476,11 +476,11 @@ _ZNSt6vectorIjSaIjEED2Ev.exit122:                 ; preds = %120, %123
   br i1 %.not.i.i.i125, label %_ZNSt6vectorIjSaIjEED2Ev.exit126, label %135
 
 135:                                              ; preds = %132
-  call void @_ZdlPv(ptr noundef nonnull %134) #16
+  call void @_ZdlPv(ptr noundef nonnull %134) #15
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit126
 
 _ZNSt6vectorIjSaIjEED2Ev.exit126:                 ; preds = %132, %135
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %136
 
 .critedge92.thread:                               ; preds = %.critedge90.thread, %.critedge92, %130, %3
@@ -495,13 +495,7 @@ declare noundef zeroext i1 @_ZNK3net10QuicConfig28HasReceivedConnectionOptionsEv
 
 declare noundef zeroext i1 @_ZN3net15ContainsQuicTagERKSt6vectorIjSaIjEEj(ptr noundef nonnull align 8 dereferenceable(24), i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
-
 declare void @_ZNK3net10QuicConfig25ReceivedConnectionOptionsEv(ptr dead_on_unwind writable sret(%"class.std::vector") align 8, ptr noundef nonnull align 8 dereferenceable(600)) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3net18TcpCubicSenderBase21ResumeConnectionStateERKNS_23CachedNetworkParametersEb(ptr noundef nonnull align 8 dereferenceable(141) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
@@ -526,10 +520,10 @@ define void @_ZN3net18TcpCubicSenderBase21ResumeConnectionStateERKNS_23CachedNet
 declare i64 @_ZN3net13QuicBandwidth18FromBytesPerSecondEl(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3net18TcpCubicSenderBase25SetNumEmulatedConnectionsEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(141) initializes((108, 112)) %0, i32 noundef %1) unnamed_addr #7 align 2 {
+define void @_ZN3net18TcpCubicSenderBase25SetNumEmulatedConnectionsEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(141) initializes((108, 112)) %0, i32 noundef %1) unnamed_addr #6 align 2 {
   %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %1, i32 1)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 108
   store i32 %.sroa.speculated, ptr %3, align 4, !tbaa !23
@@ -537,7 +531,7 @@ define void @_ZN3net18TcpCubicSenderBase25SetNumEmulatedConnectionsEi(ptr nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef float @_ZNK3net18TcpCubicSenderBase8RenoBetaEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(141) %0) local_unnamed_addr #8 align 2 {
+define noundef float @_ZNK3net18TcpCubicSenderBase8RenoBetaEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(141) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %3 = load i32, ptr %2, align 4, !tbaa !23
   %4 = add i32 %3, -1
@@ -877,13 +871,13 @@ define i64 @_ZNK3net18TcpCubicSenderBase10PacingRateEm(ptr noundef nonnull align
   br i1 %26, label %27, label %32
 
 27:                                               ; preds = %21
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %28 = sitofp i64 %17 to float
   %29 = fmul float %28, 7.500000e-01
-  %30 = tail call noundef i64 @llroundf(float noundef %29) #15, !tbaa !58
+  %30 = tail call noundef i64 @llroundf(float noundef %29) #16, !tbaa !58
   call void @_ZN3net13QuicBandwidthC1El(ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef %30)
   %31 = load i64, ptr %4, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %53
 
 32:                                               ; preds = %21, %12
@@ -909,13 +903,13 @@ define i64 @_ZNK3net18TcpCubicSenderBase10PacingRateEm(ptr noundef nonnull align
 
 47:                                               ; preds = %37, %41, %32
   %48 = phi float [ 2.000000e+00, %32 ], [ 1.250000e+00, %37 ], [ %46, %41 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %49 = sitofp i64 %17 to float
   %50 = fmul float %48, %49
-  %51 = tail call noundef i64 @llroundf(float noundef %50) #15, !tbaa !58
+  %51 = tail call noundef i64 @llroundf(float noundef %50) #16, !tbaa !58
   call void @_ZN3net13QuicBandwidthC1El(ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef %51)
   %52 = load i64, ptr %3, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %53
 
 53:                                               ; preds = %47, %27
@@ -956,7 +950,7 @@ define i64 @_ZNK3net18TcpCubicSenderBase17BandwidthEstimateEv(ptr noundef nonnul
 declare i64 @_ZN3net13QuicBandwidth4ZeroEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define { i64, i64 } @_ZNK3net18TcpCubicSenderBase19RetransmissionDelayEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(141) %0) unnamed_addr #9 align 2 {
+define { i64, i64 } @_ZNK3net18TcpCubicSenderBase19RetransmissionDelayEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(141) %0) unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8, !tbaa !6
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 40
@@ -1019,7 +1013,7 @@ define noundef zeroext i1 @_ZNK3net18TcpCubicSenderBase13IsCwndLimitedEm(ptr nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK3net18TcpCubicSenderBase10InRecoveryEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(141) %0) unnamed_addr #8 align 2 {
+define noundef zeroext i1 @_ZNK3net18TcpCubicSenderBase10InRecoveryEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(141) %0) unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load i64, ptr %2, align 8, !tbaa !46
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -1055,11 +1049,11 @@ define void @_ZN3net18TcpCubicSenderBase21OnConnectionMigrationEv(ptr noundef no
   %2 = alloca %"class.net::PrrSender", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN3net15HybridSlowStart7RestartEv(ptr noundef nonnull align 8 dereferenceable(48) %3)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZN3net9PrrSenderC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false), !tbaa.struct !60
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 137
   store i8 0, ptr %6, align 1, !tbaa !61
@@ -1068,7 +1062,7 @@ define void @_ZN3net18TcpCubicSenderBase21OnConnectionMigrationEv(ptr noundef no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZNK3net18TcpCubicSenderBase13GetDebugStateB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 8 captures(none) %1) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK3net18TcpCubicSenderBase13GetDebugStateB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 8 captures(none) %1) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 ._crit_edge.i.i:
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %2, ptr %0, align 8, !tbaa !62
@@ -1088,10 +1082,16 @@ declare void @__cxa_pure_virtual() unnamed_addr
 declare void @_ZN3net13QuicBandwidthC1El(ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare i64 @llroundf(float noundef) local_unnamed_addr #10
+declare i64 @llroundf(float noundef) local_unnamed_addr #9
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #11
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
@@ -1107,18 +1107,18 @@ attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "t
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #14 = { noreturn nounwind }
-attributes #15 = { nounwind }
-attributes #16 = { builtin nounwind }
+attributes #15 = { builtin nounwind }
+attributes #16 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

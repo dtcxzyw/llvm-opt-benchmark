@@ -724,7 +724,7 @@ _ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit47.i.us: ; preds 
   br i1 %spec.select.i46.i.us, label %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread.i55.us, label %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit47.thread58.i.us
 
 _ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit47.thread58.i.us: ; preds = %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit47.i.us, %144
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %149 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel5twixt10BlockerMap4map_E, i64 8), align 8
   %150 = urem i64 %451, %149
   %151 = load ptr, ptr @_ZN10open_spiel5twixt10BlockerMap4map_E, align 8
@@ -937,7 +937,7 @@ _ZNSt10_HashtableI4LinkSt4pairIKS0_St3setIS0_St4lessIS0_ESaIS0_EEESaIS8_ENSt8__d
 
 _ZNSt8__detail9_Map_baseI4LinkSt4pairIKS1_St3setIS1_St4lessIS1_ESaIS1_EEESaIS9_ENS_10_Select1stESt8equal_toIS1_EN10open_spiel5twixt16LinkHashFunctionENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS3_.exit107.us: ; preds = %_ZNKSt8__detail15_Hashtable_baseI4LinkSt4pairIKS1_St3setIS1_St4lessIS1_ESaIS1_EEENS_10_Select1stESt8equal_toIS1_EN10open_spiel5twixt16LinkHashFunctionENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS3_mRKNS_16_Hash_node_valueIS9_Lb1EEE.exit.i.i.i106.us, %_ZNSt10_HashtableI4LinkSt4pairIKS0_St3setIS0_St4lessIS0_ESaIS0_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS0_EN10open_spiel5twixt16LinkHashFunctionENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNSA_10_Hash_nodeIS8_Lb1EEEm.exit118.us
   %.pn22.i104.us = phi ptr [ %178, %_ZNSt10_HashtableI4LinkSt4pairIKS0_St3setIS0_St4lessIS0_ESaIS0_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS0_EN10open_spiel5twixt16LinkHashFunctionENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNSA_10_Hash_nodeIS8_Lb1EEEm.exit118.us ], [ %158, %_ZNKSt8__detail15_Hashtable_baseI4LinkSt4pairIKS1_St3setIS1_St4lessIS1_ESaIS1_EEENS_10_Select1stESt8equal_toIS1_EN10open_spiel5twixt16LinkHashFunctionENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS3_mRKNS_16_Hash_node_valueIS9_Lb1EEE.exit.i.i.i106.us ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %241 = getelementptr inbounds nuw i8, ptr %.pn22.i104.us, i64 40
   %242 = getelementptr inbounds nuw i8, ptr %.pn22.i104.us, i64 32
   %.02328.i.i62.us = load ptr, ptr %241, align 8
@@ -1078,7 +1078,7 @@ _ZNSt8_Rb_treeI4LinkS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE16_M_insert_uniqueIR
   %295 = load i32, ptr %130, align 4
   %296 = add nsw i32 %295, 4
   %297 = srem i32 %296, 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %298 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel5twixt10BlockerMap4map_E, i64 8), align 8
   %299 = urem i64 %451, %298
   %300 = load ptr, ptr @_ZN10open_spiel5twixt10BlockerMap4map_E, align 8
@@ -1291,7 +1291,7 @@ _ZNSt10_HashtableI4LinkSt4pairIKS0_St3setIS0_St4lessIS0_ESaIS0_EEESaIS8_ENSt8__d
 
 _ZNSt8__detail9_Map_baseI4LinkSt4pairIKS1_St3setIS1_St4lessIS1_ESaIS1_EEESaIS9_ENS_10_Select1stESt8equal_toIS1_EN10open_spiel5twixt16LinkHashFunctionENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS3_.exit.us: ; preds = %_ZNKSt8__detail15_Hashtable_baseI4LinkSt4pairIKS1_St3setIS1_St4lessIS1_ESaIS1_EEENS_10_Select1stESt8equal_toIS1_EN10open_spiel5twixt16LinkHashFunctionENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS3_mRKNS_16_Hash_node_valueIS9_Lb1EEE.exit.i.i.i.us, %_ZNSt10_HashtableI4LinkSt4pairIKS0_St3setIS0_St4lessIS0_ESaIS0_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS0_EN10open_spiel5twixt16LinkHashFunctionENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNSA_10_Hash_nodeIS8_Lb1EEEm.exit.us
   %.pn22.i.us = phi ptr [ %327, %_ZNSt10_HashtableI4LinkSt4pairIKS0_St3setIS0_St4lessIS0_ESaIS0_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS0_EN10open_spiel5twixt16LinkHashFunctionENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNSA_10_Hash_nodeIS8_Lb1EEEm.exit.us ], [ %307, %_ZNKSt8__detail15_Hashtable_baseI4LinkSt4pairIKS1_St3setIS1_St4lessIS1_ESaIS1_EEENS_10_Select1stESt8equal_toIS1_EN10open_spiel5twixt16LinkHashFunctionENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS3_mRKNS_16_Hash_node_valueIS9_Lb1EEE.exit.i.i.i.us ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %390 = getelementptr inbounds nuw i8, ptr %.pn22.i.us, i64 40
   %391 = getelementptr inbounds nuw i8, ptr %.pn22.i.us, i64 32
   %.02328.i.i.us = load ptr, ptr %390, align 8
@@ -2270,29 +2270,29 @@ _ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit47: ; preds = %45
   br i1 %spec.select.i46, label %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread, label %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit47.thread58
 
 _ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit47.thread58: ; preds = %45, %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit47
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 %1, ptr %7, align 8
   store i32 %2, ptr %.sroa.23.0..sroa_idx.i, align 8
   store i64 %.sroa.0.0.insert.insert.i, ptr %8, align 8
   store i32 %32, ptr %.sroa.2.0..sroa_idx.i, align 8
   %50 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZNSt8__detail9_Map_baseI4LinkSt4pairIKS1_St3setIS1_St4lessIS1_ESaIS1_EEESaIS9_ENS_10_Select1stESt8equal_toIS1_EN10open_spiel5twixt16LinkHashFunctionENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS3_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN10open_spiel5twixt10BlockerMap4map_E, ptr noundef nonnull align 4 dereferenceable(12) %7)
   %51 = call { ptr, i8 } @_ZNSt8_Rb_treeI4LinkS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE16_M_insert_uniqueIRKS0_EESt4pairISt17_Rb_tree_iteratorIS0_EbEOT_(ptr noundef nonnull align 8 dereferenceable(48) %50, ptr noundef nonnull align 4 dereferenceable(12) %8)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %52 = load i32, ptr %31, align 4
   %53 = add nsw i32 %52, 4
   %54 = srem i32 %53, 8
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 %1, ptr %5, align 8
   store i32 %2, ptr %.sroa.23.0..sroa_idx.i48, align 8
   store i64 %.sroa.0.0.insert.insert.i40, ptr %6, align 8
   store i32 %54, ptr %.sroa.2.0..sroa_idx.i49, align 8
   %55 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZNSt8__detail9_Map_baseI4LinkSt4pairIKS1_St3setIS1_St4lessIS1_ESaIS1_EEESaIS9_ENS_10_Select1stESt8equal_toIS1_EN10open_spiel5twixt16LinkHashFunctionENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS3_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN10open_spiel5twixt10BlockerMap4map_E, ptr noundef nonnull align 4 dereferenceable(12) %5)
   %56 = call { ptr, i8 } @_ZNSt8_Rb_treeI4LinkS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE16_M_insert_uniqueIRKS0_EESt4pairISt17_Rb_tree_iteratorIS0_EbEOT_(ptr noundef nonnull align 8 dereferenceable(48) %55, ptr noundef nonnull align 4 dereferenceable(12) %6)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread
 
 _ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread: ; preds = %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread57, %42, %14, %21, %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit, %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit47.thread58, %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit47
@@ -5698,12 +5698,12 @@ _ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread78: ; pred
   br i1 %48, label %49, label %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread
 
 49:                                               ; preds = %_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread78
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %2, ptr %5, align 8
   %50 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %50, ptr %.sroa.2.0..sroa_idx.i, align 8
   %51 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZNSt8__detail9_Map_baseI4LinkSt4pairIKS1_St3setIS1_St4lessIS1_ESaIS1_EEESaIS9_ENS_10_Select1stESt8equal_toIS1_EN10open_spiel5twixt16LinkHashFunctionENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS3_(ptr noundef nonnull align 1 dereferenceable(1) @_ZN10open_spiel5twixt10BlockerMap4map_E, ptr noundef nonnull align 4 dereferenceable(12) %5)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 24
   %53 = load ptr, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %51, i64 8
@@ -5878,7 +5878,7 @@ _ZNSt3setIPN10open_spiel5twixt4CellESt4lessIS3_ESaIS3_EED2Ev.exit: ; preds = %._
   br i1 %.not.i.i63, label %_ZNSt3setIPN10open_spiel5twixt4CellESt4lessIS3_ESaIS3_EEC2ERKS7_.exit71, label %138
 
 138:                                              ; preds = %132
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %8, ptr %4, align 8
   %139 = invoke noundef ptr @_ZNSt8_Rb_treeIPN10open_spiel5twixt4CellES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE7_M_copyILb0ENS9_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS3_ESE_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull %.pre86, ptr noundef nonnull %133, ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %.noexc.i.i64 unwind label %125
@@ -5905,7 +5905,7 @@ _ZNSt8_Rb_treeIPN10open_spiel5twixt4CellES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_E
   store ptr %.0.i.i7.i.i.i.i68, ptr %136, align 8
   %146 = load i64, ptr %111, align 8
   store i64 %146, ptr %137, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store ptr %139, ptr %134, align 8
   br label %_ZNSt3setIPN10open_spiel5twixt4CellESt4lessIS3_ESaIS3_EEC2ERKS7_.exit71
 
@@ -6102,7 +6102,7 @@ _ZNSt3setIPN10open_spiel5twixt4CellESt4lessIS3_ESaIS3_EE4findERKS3_.exit.thread:
   br i1 %.not.i.i, label %_ZNSt3setIPN10open_spiel5twixt4CellESt4lessIS3_ESaIS3_EEC2ERKS7_.exit, label %71
 
 71:                                               ; preds = %69
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %7, ptr %6, align 8
   %72 = call noundef ptr @_ZNSt8_Rb_treeIPN10open_spiel5twixt4CellES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE7_M_copyILb0ENS9_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS3_ESE_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull %70, ptr noundef nonnull %37, ptr noundef nonnull align 8 dereferenceable(8) %6)
   br label %.noexc.i.i
@@ -6129,7 +6129,7 @@ _ZNSt8_Rb_treeIPN10open_spiel5twixt4CellES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_E
   store ptr %.0.i.i7.i.i.i.i, ptr %40, align 8
   %79 = load i64, ptr %42, align 8
   store i64 %79, ptr %41, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store ptr %72, ptr %38, align 8
   br label %_ZNSt3setIPN10open_spiel5twixt4CellESt4lessIS3_ESaIS3_EEC2ERKS7_.exit
 
@@ -8224,7 +8224,7 @@ define internal void @_GLOBAL__sub_I_twixtboard.cc() #16 section ".text.startup"
   %1 = alloca [8 x %"struct.open_spiel::twixt::LinkDescriptor"], align 8
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #22
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store i32 1, ptr %1, align 8
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 2, ptr %3, align 4
@@ -8499,7 +8499,7 @@ _ZN10open_spiel5twixt14LinkDescriptorD2Ev.exit91.i: ; preds = %120, %115
 
 __cxx_global_var_init.1.exit:                     ; preds = %_ZN10open_spiel5twixt14LinkDescriptorD2Ev.exit.i
   %127 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorIN10open_spiel5twixt14LinkDescriptorESaIS2_EED2Ev, ptr nonnull @_ZN10open_spiel5twixtL20kLinkDescriptorTableE, ptr nonnull @__dso_handle) #22
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel5twixt10BlockerMap4map_E, i64 32), align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel5twixt10BlockerMap4map_E, i64 48), ptr @_ZN10open_spiel5twixt10BlockerMap4map_E, align 8
   store i64 1, ptr getelementptr inbounds nuw (i8, ptr @_ZN10open_spiel5twixt10BlockerMap4map_E, i64 8), align 8
@@ -8523,10 +8523,10 @@ declare i64 @llvm.umax.i64(i64, i64) #18
 declare i64 @llvm.umin.i64(i64, i64) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #19
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #19
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #19
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

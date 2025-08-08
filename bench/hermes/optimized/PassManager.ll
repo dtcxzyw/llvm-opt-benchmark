@@ -160,13 +160,13 @@ entry:
   %call.val = load ptr, ptr %2, align 8
   %3 = getelementptr i8, ptr %1, i64 24
   %call.val1 = load i64, ptr %3, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %4 = load i8, ptr %dumpBefore, align 8
   %tobool.i = trunc i8 %4 to i1
   br i1 %tobool.i, label %_ZN6hermes12_GLOBAL__N_110shouldDumpERKNS_35CodeGenerationSettings_DumpSettingsERKNS_4PassE.exit.thread, label %_ZN6hermes12_GLOBAL__N_110shouldDumpERKNS_35CodeGenerationSettings_DumpSettingsERKNS_4PassE.exit
 
 _ZN6hermes12_GLOBAL__N_110shouldDumpERKNS_35CodeGenerationSettings_DumpSettingsERKNS_4PassE.exit.thread: ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   br label %if.then
 
 _ZN6hermes12_GLOBAL__N_110shouldDumpERKNS_35CodeGenerationSettings_DumpSettingsERKNS_4PassE.exit: ; preds = %entry
@@ -174,10 +174,10 @@ _ZN6hermes12_GLOBAL__N_110shouldDumpERKNS_35CodeGenerationSettings_DumpSettingsE
   store ptr %call.val, ptr %ref.tmp.i, align 8
   %5 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   store i64 %call.val1, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %TheBucket.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %TheBucket.i.i.i)
   %call.i.i.i = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_13SmallDenseMapINS_9StringRefENS_6detail13DenseSetEmptyELj4ENS_12DenseMapInfoIS2_EENS3_12DenseSetPairIS2_EEEES2_S4_S6_S8_E15LookupBucketForIS2_EEbRKT_RPKS8_(ptr noundef nonnull align 8 dereferenceable(72) %passes.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(8) %TheBucket.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %TheBucket.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %TheBucket.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   br i1 %call.i.i.i, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %_ZN6hermes12_GLOBAL__N_110shouldDumpERKNS_35CodeGenerationSettings_DumpSettingsERKNS_4PassE.exit
@@ -188,13 +188,13 @@ lor.lhs.false:                                    ; preds = %_ZN6hermes12_GLOBAL
   %call4.val = load ptr, ptr %8, align 8
   %9 = getelementptr i8, ptr %7, i64 24
   %call4.val2 = load i64, ptr %9, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i4)
   %10 = load i8, ptr %dumpAfter, align 8
   %tobool.i5 = trunc i8 %10 to i1
   br i1 %tobool.i5, label %_ZN6hermes12_GLOBAL__N_110shouldDumpERKNS_35CodeGenerationSettings_DumpSettingsERKNS_4PassE.exit9.thread, label %_ZN6hermes12_GLOBAL__N_110shouldDumpERKNS_35CodeGenerationSettings_DumpSettingsERKNS_4PassE.exit9
 
 _ZN6hermes12_GLOBAL__N_110shouldDumpERKNS_35CodeGenerationSettings_DumpSettingsERKNS_4PassE.exit9.thread: ; preds = %lor.lhs.false
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i4)
   br label %if.then
 
 _ZN6hermes12_GLOBAL__N_110shouldDumpERKNS_35CodeGenerationSettings_DumpSettingsERKNS_4PassE.exit9: ; preds = %lor.lhs.false
@@ -202,10 +202,10 @@ _ZN6hermes12_GLOBAL__N_110shouldDumpERKNS_35CodeGenerationSettings_DumpSettingsE
   store ptr %call4.val, ptr %ref.tmp.i4, align 8
   %11 = getelementptr inbounds nuw i8, ptr %ref.tmp.i4, i64 8
   store i64 %call4.val2, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %TheBucket.i.i.i3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %TheBucket.i.i.i3)
   %call.i.i.i8 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_13SmallDenseMapINS_9StringRefENS_6detail13DenseSetEmptyELj4ENS_12DenseMapInfoIS2_EENS3_12DenseSetPairIS2_EEEES2_S4_S6_S8_E15LookupBucketForIS2_EEbRKT_RPKS8_(ptr noundef nonnull align 8 dereferenceable(72) %passes.i7, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i4, ptr noundef nonnull align 8 dereferenceable(8) %TheBucket.i.i.i3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %TheBucket.i.i.i3)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %TheBucket.i.i.i3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i4)
   br i1 %call.i.i.i8, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZN6hermes12_GLOBAL__N_110shouldDumpERKNS_35CodeGenerationSettings_DumpSettingsERKNS_4PassE.exit9.thread, %_ZN6hermes12_GLOBAL__N_110shouldDumpERKNS_35CodeGenerationSettings_DumpSettingsERKNS_4PassE.exit.thread, %_ZN6hermes12_GLOBAL__N_110shouldDumpERKNS_35CodeGenerationSettings_DumpSettingsERKNS_4PassE.exit9, %_ZN6hermes12_GLOBAL__N_110shouldDumpERKNS_35CodeGenerationSettings_DumpSettingsERKNS_4PassE.exit
@@ -751,13 +751,13 @@ entry:
   %call.val = load ptr, ptr %1, align 8
   %2 = getelementptr i8, ptr %0, i64 24
   %call.val4 = load i64, ptr %2, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %3 = load i8, ptr %settings, align 8
   %tobool.i = trunc i8 %3 to i1
   br i1 %tobool.i, label %_ZN6hermes12_GLOBAL__N_110shouldDumpERKNS_35CodeGenerationSettings_DumpSettingsERKNS_4PassE.exit.thread, label %_ZN6hermes12_GLOBAL__N_110shouldDumpERKNS_35CodeGenerationSettings_DumpSettingsERKNS_4PassE.exit
 
 _ZN6hermes12_GLOBAL__N_110shouldDumpERKNS_35CodeGenerationSettings_DumpSettingsERKNS_4PassE.exit.thread: ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   br label %if.then
 
 _ZN6hermes12_GLOBAL__N_110shouldDumpERKNS_35CodeGenerationSettings_DumpSettingsERKNS_4PassE.exit: ; preds = %entry
@@ -765,10 +765,10 @@ _ZN6hermes12_GLOBAL__N_110shouldDumpERKNS_35CodeGenerationSettings_DumpSettingsE
   store ptr %call.val, ptr %ref.tmp.i, align 8
   %4 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   store i64 %call.val4, ptr %4, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %TheBucket.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %TheBucket.i.i.i)
   %call.i.i.i = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_13SmallDenseMapINS_9StringRefENS_6detail13DenseSetEmptyELj4ENS_12DenseMapInfoIS2_EENS3_12DenseSetPairIS2_EEEES2_S4_S6_S8_E15LookupBucketForIS2_EEbRKT_RPKS8_(ptr noundef nonnull align 8 dereferenceable(72) %passes.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(8) %TheBucket.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %TheBucket.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %TheBucket.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   br i1 %call.i.i.i, label %if.then, label %if.end26
 
 if.then:                                          ; preds = %_ZN6hermes12_GLOBAL__N_110shouldDumpERKNS_35CodeGenerationSettings_DumpSettingsERKNS_4PassE.exit.thread, %_ZN6hermes12_GLOBAL__N_110shouldDumpERKNS_35CodeGenerationSettings_DumpSettingsERKNS_4PassE.exit
@@ -933,9 +933,9 @@ for.body:                                         ; preds = %if.else, %for.inc
 _ZN6hermes12_GLOBAL__N_118shouldDumpFunctionERKNS_22CodeGenerationSettingsEPNS_8FunctionE.exit: ; preds = %for.body
   %originalOrInferredName_.i.i = getelementptr inbounds nuw i8, ptr %__begin4.sroa.0.058, i64 176
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %originalOrInferredName_.i.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %TheBucket.i.i.i50)
+  call void @llvm.lifetime.start.p0(ptr nonnull %TheBucket.i.i.i50)
   %call.i.i.i53 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_13SmallDenseMapINS_9StringRefENS_6detail13DenseSetEmptyELj4ENS_12DenseMapInfoIS2_EENS3_12DenseSetPairIS2_EEEES2_S4_S6_S8_E15LookupBucketForIS2_EEbRKT_RPKS8_(ptr noundef nonnull align 8 dereferenceable(72) %functionsToDump.i, ptr noundef nonnull align 8 dereferenceable(16) %retval.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(8) %TheBucket.i.i.i50)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %TheBucket.i.i.i50)
+  call void @llvm.lifetime.end.p0(ptr nonnull %TheBucket.i.i.i50)
   br i1 %call.i.i.i53, label %if.then22, label %for.inc
 
 if.then22:                                        ; preds = %for.body, %_ZN6hermes12_GLOBAL__N_118shouldDumpFunctionERKNS_22CodeGenerationSettingsEPNS_8FunctionE.exit
@@ -1032,13 +1032,13 @@ entry:
   %call.val = load ptr, ptr %1, align 8
   %2 = getelementptr i8, ptr %0, i64 24
   %call.val2 = load i64, ptr %2, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %3 = load i8, ptr %dumpSettings, align 8
   %tobool.i = trunc i8 %3 to i1
   br i1 %tobool.i, label %_ZN6hermes12_GLOBAL__N_110shouldDumpERKNS_35CodeGenerationSettings_DumpSettingsERKNS_4PassE.exit.thread, label %_ZN6hermes12_GLOBAL__N_110shouldDumpERKNS_35CodeGenerationSettings_DumpSettingsERKNS_4PassE.exit
 
 _ZN6hermes12_GLOBAL__N_110shouldDumpERKNS_35CodeGenerationSettings_DumpSettingsERKNS_4PassE.exit.thread: ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   br label %if.then
 
 _ZN6hermes12_GLOBAL__N_110shouldDumpERKNS_35CodeGenerationSettings_DumpSettingsERKNS_4PassE.exit: ; preds = %entry
@@ -1046,10 +1046,10 @@ _ZN6hermes12_GLOBAL__N_110shouldDumpERKNS_35CodeGenerationSettings_DumpSettingsE
   store ptr %call.val, ptr %ref.tmp.i, align 8
   %4 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   store i64 %call.val2, ptr %4, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %TheBucket.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %TheBucket.i.i.i)
   %call.i.i.i = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_13SmallDenseMapINS_9StringRefENS_6detail13DenseSetEmptyELj4ENS_12DenseMapInfoIS2_EENS3_12DenseSetPairIS2_EEEES2_S4_S6_S8_E15LookupBucketForIS2_EEbRKT_RPKS8_(ptr noundef nonnull align 8 dereferenceable(72) %passes.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(8) %TheBucket.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %TheBucket.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %TheBucket.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   br i1 %call.i.i.i, label %if.then, label %if.end15
 
 if.then:                                          ; preds = %_ZN6hermes12_GLOBAL__N_110shouldDumpERKNS_35CodeGenerationSettings_DumpSettingsERKNS_4PassE.exit.thread, %_ZN6hermes12_GLOBAL__N_110shouldDumpERKNS_35CodeGenerationSettings_DumpSettingsERKNS_4PassE.exit
@@ -1063,9 +1063,9 @@ if.then:                                          ; preds = %_ZN6hermes12_GLOBAL
 _ZN6hermes12_GLOBAL__N_118shouldDumpFunctionERKNS_22CodeGenerationSettingsEPNS_8FunctionE.exit: ; preds = %if.then
   %originalOrInferredName_.i.i = getelementptr inbounds nuw i8, ptr %F, i64 176
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %originalOrInferredName_.i.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %TheBucket.i.i.i3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %TheBucket.i.i.i3)
   %call.i.i.i5 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_13SmallDenseMapINS_9StringRefENS_6detail13DenseSetEmptyELj4ENS_12DenseMapInfoIS2_EENS3_12DenseSetPairIS2_EEEES2_S4_S6_S8_E15LookupBucketForIS2_EEbRKT_RPKS8_(ptr noundef nonnull align 8 dereferenceable(72) %functionsToDump.i, ptr noundef nonnull align 8 dereferenceable(16) %retval.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(8) %TheBucket.i.i.i3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %TheBucket.i.i.i3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %TheBucket.i.i.i3)
   br i1 %call.i.i.i5, label %if.then4, label %if.end15
 
 if.then4:                                         ; preds = %if.then, %_ZN6hermes12_GLOBAL__N_118shouldDumpFunctionERKNS_22CodeGenerationSettingsEPNS_8FunctionE.exit
@@ -1221,10 +1221,10 @@ declare void @llvm.assume(i1 noundef) #9
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #12

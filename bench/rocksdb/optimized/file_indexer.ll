@@ -37,12 +37,6 @@ $_ZNSt6vectorIN7rocksdb11FileIndexer10IndexLevelESaIS2_EE17_M_default_appendEm =
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare ptr @llvm.invariant.start.p0(i64 immarg, ptr captures(none)) #0
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #0
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #0
-
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt6vectorIN7rocksdb5SliceESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !4
@@ -847,8 +841,8 @@ define void @_ZN7rocksdb11FileIndexer11CalculateLBERKSt6vectorIPNS_12FileMetaDat
   %50 = load ptr, ptr %2, align 8, !tbaa !48
   %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %49
   %52 = load ptr, ptr %51, align 8, !tbaa !58
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr %48, ptr %13, align 8, !tbaa !58
   store ptr %52, ptr %14, align 8, !tbaa !58
   %53 = load ptr, ptr %36, align 8, !tbaa !54
@@ -862,15 +856,15 @@ define void @_ZN7rocksdb11FileIndexer11CalculateLBERKSt6vectorIPNS_12FileMetaDat
 _ZNKSt8functionIFiPKN7rocksdb12FileMetaDataES3_EEclES3_S3_.exit: ; preds = %44
   %55 = load ptr, ptr %37, align 8, !tbaa !51
   %56 = call noundef i32 %55(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %14)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %57 = icmp eq i32 %56, 0
   br i1 %57, label %58, label %64
 
 58:                                               ; preds = %_ZNKSt8functionIFiPKN7rocksdb12FileMetaDataES3_EEclES3_S3_.exit
   %59 = getelementptr inbounds %"struct.rocksdb::FileIndexer::IndexUnit", ptr %32, i64 %45
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr %59, ptr %11, align 8, !tbaa !60
   store i32 %.02738, ptr %12, align 4, !tbaa !30
   %60 = load ptr, ptr %38, align 8, !tbaa !54
@@ -884,8 +878,8 @@ _ZNKSt8functionIFiPKN7rocksdb12FileMetaDataES3_EEclES3_S3_.exit: ; preds = %44
 _ZNKSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEEclES3_i.exit: ; preds = %58
   %62 = load ptr, ptr %39, align 8, !tbaa !55
   call void %62(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 4 dereferenceable(4) %12)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %63 = add nsw i32 %.039, 1
   br label %74
 
@@ -899,8 +893,8 @@ _ZNKSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEEclES3_i.exit: ; preds = %
 
 68:                                               ; preds = %64
   %69 = getelementptr inbounds %"struct.rocksdb::FileIndexer::IndexUnit", ptr %32, i64 %45
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %69, ptr %9, align 8, !tbaa !60
   store i32 %.02738, ptr %10, align 4, !tbaa !30
   %70 = load ptr, ptr %38, align 8, !tbaa !54
@@ -914,8 +908,8 @@ _ZNKSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEEclES3_i.exit: ; preds = %
 _ZNKSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEEclES3_i.exit32: ; preds = %68
   %72 = load ptr, ptr %39, align 8, !tbaa !55
   call void %72(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 4 dereferenceable(4) %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %73 = add nsw i32 %.039, 1
   br label %74
 
@@ -930,8 +924,8 @@ _ZNKSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEEclES3_i.exit32: ; preds =
 78:                                               ; preds = %.lr.ph41, %_ZNKSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEEclES3_i.exit34
   %indvars.iv = phi i64 [ %43, %.lr.ph41 ], [ %indvars.iv.next, %_ZNKSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEEclES3_i.exit34 ]
   %79 = getelementptr inbounds %"struct.rocksdb::FileIndexer::IndexUnit", ptr %32, i64 %indvars.iv
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %79, ptr %7, align 8, !tbaa !60
   store i32 %30, ptr %8, align 4, !tbaa !30
   %80 = load ptr, ptr %41, align 8, !tbaa !54
@@ -945,8 +939,8 @@ _ZNKSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEEclES3_i.exit32: ; preds =
 _ZNKSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEEclES3_i.exit34: ; preds = %78
   %82 = load ptr, ptr %42, align 8, !tbaa !55
   call void %82(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 4 dereferenceable(4) %8)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %78, !llvm.loop !62
@@ -1021,8 +1015,8 @@ define void @_ZN7rocksdb11FileIndexer11CalculateRBERKSt6vectorIPNS_12FileMetaDat
   %52 = load ptr, ptr %2, align 8, !tbaa !48
   %53 = getelementptr inbounds nuw ptr, ptr %52, i64 %51
   %54 = load ptr, ptr %53, align 8, !tbaa !58
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr %50, ptr %13, align 8, !tbaa !58
   store ptr %54, ptr %14, align 8, !tbaa !58
   %55 = load ptr, ptr %38, align 8, !tbaa !54
@@ -1036,15 +1030,15 @@ define void @_ZN7rocksdb11FileIndexer11CalculateRBERKSt6vectorIPNS_12FileMetaDat
 _ZNKSt8functionIFiPKN7rocksdb12FileMetaDataES3_EEclES3_S3_.exit: ; preds = %46
   %57 = load ptr, ptr %39, align 8, !tbaa !51
   %58 = call noundef i32 %57(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %14)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %59 = icmp eq i32 %58, 0
   br i1 %59, label %60, label %66
 
 60:                                               ; preds = %_ZNKSt8functionIFiPKN7rocksdb12FileMetaDataES3_EEclES3_S3_.exit
   %61 = getelementptr inbounds nuw %"struct.rocksdb::FileIndexer::IndexUnit", ptr %33, i64 %47
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr %61, ptr %11, align 8, !tbaa !60
   store i32 %.02536, ptr %12, align 4, !tbaa !30
   %62 = load ptr, ptr %40, align 8, !tbaa !54
@@ -1058,8 +1052,8 @@ _ZNKSt8functionIFiPKN7rocksdb12FileMetaDataES3_EEclES3_S3_.exit: ; preds = %46
 _ZNKSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEEclES3_i.exit: ; preds = %60
   %64 = load ptr, ptr %41, align 8, !tbaa !55
   call void %64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 4 dereferenceable(4) %12)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %65 = add nsw i32 %.037, -1
   br label %76
 
@@ -1073,8 +1067,8 @@ _ZNKSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEEclES3_i.exit: ; preds = %
 
 70:                                               ; preds = %66
   %71 = getelementptr inbounds nuw %"struct.rocksdb::FileIndexer::IndexUnit", ptr %33, i64 %47
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %71, ptr %9, align 8, !tbaa !60
   store i32 %.02536, ptr %10, align 4, !tbaa !30
   %72 = load ptr, ptr %40, align 8, !tbaa !54
@@ -1088,8 +1082,8 @@ _ZNKSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEEclES3_i.exit: ; preds = %
 _ZNKSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEEclES3_i.exit30: ; preds = %70
   %74 = load ptr, ptr %41, align 8, !tbaa !55
   call void %74(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 4 dereferenceable(4) %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %75 = add nsw i32 %.037, -1
   br label %76
 
@@ -1104,8 +1098,8 @@ _ZNKSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEEclES3_i.exit30: ; preds =
 80:                                               ; preds = %.lr.ph39, %_ZNKSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEEclES3_i.exit32
   %indvars.iv = phi i64 [ %45, %.lr.ph39 ], [ %indvars.iv.next, %_ZNKSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEEclES3_i.exit32 ]
   %81 = getelementptr inbounds nuw %"struct.rocksdb::FileIndexer::IndexUnit", ptr %33, i64 %indvars.iv
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %81, ptr %7, align 8, !tbaa !60
   store i32 -1, ptr %8, align 4, !tbaa !30
   %82 = load ptr, ptr %43, align 8, !tbaa !54
@@ -1119,8 +1113,8 @@ _ZNKSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEEclES3_i.exit30: ; preds =
 _ZNKSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEEclES3_i.exit32: ; preds = %80
   %84 = load ptr, ptr %44, align 8, !tbaa !55
   call void %84(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 4 dereferenceable(4) %8)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %85 = icmp sgt i64 %indvars.iv, 0
   br i1 %85, label %80, label %._crit_edge, !llvm.loop !64
@@ -1256,12 +1250,12 @@ define internal noundef i32 @"_ZNSt17_Function_handlerIFiPKN7rocksdb12FileMetaDa
   %.val4.val = load ptr, ptr %9, align 8, !tbaa !75
   %10 = getelementptr i8, ptr %.val4, i64 80
   %.val4.val6 = load i64, ptr %10, align 8, !tbaa !79
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %11 = add i64 %.val3.val5, -8
   store ptr %.val3.val, ptr %4, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %11, ptr %12, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %13 = add i64 %.val4.val6, -8
   store ptr %.val4.val, ptr %5, align 8
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -1270,8 +1264,8 @@ define internal noundef i32 @"_ZNSt17_Function_handlerIFiPKN7rocksdb12FileMetaDa
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 232
   %17 = load ptr, ptr %16, align 8
   %18 = call noundef i32 %17(ptr noundef nonnull align 8 dereferenceable(48) %.val.val, ptr noundef nonnull align 8 dereferenceable(16) %4, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(16) %5, i1 noundef zeroext true)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #23
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %18
 }
 
@@ -1344,12 +1338,12 @@ define internal noundef i32 @"_ZNSt17_Function_handlerIFiPKN7rocksdb12FileMetaDa
   %.val4.val = load ptr, ptr %9, align 8, !tbaa !75
   %10 = getelementptr i8, ptr %.val4, i64 80
   %.val4.val6 = load i64, ptr %10, align 8, !tbaa !79
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %11 = add i64 %.val3.val5, -8
   store ptr %.val3.val, ptr %4, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %11, ptr %12, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %13 = add i64 %.val4.val6, -8
   store ptr %.val4.val, ptr %5, align 8
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -1358,8 +1352,8 @@ define internal noundef i32 @"_ZNSt17_Function_handlerIFiPKN7rocksdb12FileMetaDa
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 232
   %17 = load ptr, ptr %16, align 8
   %18 = call noundef i32 %17(ptr noundef nonnull align 8 dereferenceable(48) %.val.val, ptr noundef nonnull align 8 dereferenceable(16) %4, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(16) %5, i1 noundef zeroext true)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #23
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %18
 }
 
@@ -1433,12 +1427,12 @@ define internal noundef i32 @"_ZNSt17_Function_handlerIFiPKN7rocksdb12FileMetaDa
   %.val4.val = load ptr, ptr %9, align 8, !tbaa !75
   %10 = getelementptr i8, ptr %.val4, i64 48
   %.val4.val6 = load i64, ptr %10, align 8, !tbaa !79
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %11 = add i64 %.val3.val5, -8
   store ptr %.val3.val, ptr %4, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %11, ptr %12, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %13 = add i64 %.val4.val6, -8
   store ptr %.val4.val, ptr %5, align 8
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -1447,8 +1441,8 @@ define internal noundef i32 @"_ZNSt17_Function_handlerIFiPKN7rocksdb12FileMetaDa
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 232
   %17 = load ptr, ptr %16, align 8
   %18 = call noundef i32 %17(ptr noundef nonnull align 8 dereferenceable(48) %.val.val, ptr noundef nonnull align 8 dereferenceable(16) %4, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(16) %5, i1 noundef zeroext true)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #23
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %18
 }
 
@@ -1522,12 +1516,12 @@ define internal noundef i32 @"_ZNSt17_Function_handlerIFiPKN7rocksdb12FileMetaDa
   %.val4.val = load ptr, ptr %9, align 8, !tbaa !75
   %10 = getelementptr i8, ptr %.val4, i64 48
   %.val4.val6 = load i64, ptr %10, align 8, !tbaa !79
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %11 = add i64 %.val3.val5, -8
   store ptr %.val3.val, ptr %4, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %11, ptr %12, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %13 = add i64 %.val4.val6, -8
   store ptr %.val4.val, ptr %5, align 8
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -1536,8 +1530,8 @@ define internal noundef i32 @"_ZNSt17_Function_handlerIFiPKN7rocksdb12FileMetaDa
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 232
   %17 = load ptr, ptr %16, align 8
   %18 = call noundef i32 %17(ptr noundef nonnull align 8 dereferenceable(48) %.val.val, ptr noundef nonnull align 8 dereferenceable(16) %4, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(16) %5, i1 noundef zeroext true)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #23
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %18
 }
 
@@ -1605,6 +1599,12 @@ define internal void @_GLOBAL__sub_I_file_indexer.cc() #17 section ".text.startu
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorIN7rocksdb5SliceESaIS1_EED2Ev, ptr nonnull @_ZN7rocksdbL18empty_operand_listE, ptr nonnull @__dso_handle) #23
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #0
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #0
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #18

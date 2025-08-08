@@ -119,7 +119,7 @@ define hidden void @_ZN19ruff_python_literal6format13FieldNamePart10parse_part17
   ]
 
 50:                                               ; preds = %"_ZN108_$LT$core..iter..adapters..peekable..Peekable$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5eb48703ff384754E.exit.thread"
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !31
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !31
   store i64 0, ptr %5, align 8, !noalias !31
   %.sroa.410.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %.sroa.410.0..sroa_idx.i, align 8, !noalias !31
@@ -143,13 +143,13 @@ define hidden void @_ZN19ruff_python_literal6format13FieldNamePart10parse_part17
           to label %112 unwind label %110, !noalias !42
 
 55:                                               ; preds = %"_ZN108_$LT$core..iter..adapters..peekable..Peekable$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5eb48703ff384754E.exit.thread"
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !31
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !31
   store i64 0, ptr %7, align 8, !noalias !31
   %.sroa.413.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %.sroa.413.0..sroa_idx.i, align 8, !noalias !31
   %.sroa.514.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 0, ptr %.sroa.514.0..sroa_idx.i, align 8, !noalias !31
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6), !noalias !31
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !31
   store ptr %1, ptr %6, align 8, !noalias !31
   %56 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sink.i.sroa.gep.i.i = getelementptr inbounds nuw i8, ptr %4, i64 1
@@ -173,7 +173,7 @@ define hidden void @_ZN19ruff_python_literal6format13FieldNamePart10parse_part17
   br i1 %62, label %94, label %63
 
 63:                                               ; preds = %61
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4), !noalias !49
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !49
   store i32 0, ptr %4, align 4, !noalias !49
   %64 = icmp samesign ult i32 %59, 2048
   br i1 %64, label %87, label %65
@@ -229,7 +229,7 @@ _ZN4core4char7methods15encode_utf8_raw17h110904658798e68fE.exit.i.i: ; preds = %
           to label %.noexc.i unwind label %53, !noalias !42
 
 .noexc.i:                                         ; preds = %_ZN4core4char7methods15encode_utf8_raw17h110904658798e68fE.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4), !noalias !49
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !49
   br label %_ZN5alloc6string6String4push17h444d5a6351d622eeE.exit.i
 
 94:                                               ; preds = %61
@@ -256,7 +256,7 @@ _ZN5alloc6string6String4push17h444d5a6351d622eeE.exit.i: ; preds = %"_ZN5alloc3v
   br label %57
 
 103:                                              ; preds = %60
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !31
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !31
   %104 = load i64, ptr %.sroa.514.0..sroa_idx.i, align 8, !noalias !31, !noundef !4
   %105 = icmp sgt i64 %104, -1
   call void @llvm.assume(i1 %105)
@@ -279,7 +279,7 @@ _ZN5alloc6string6String4push17h444d5a6351d622eeE.exit.i: ; preds = %"_ZN5alloc3v
   %.sroa.10.sroa.10.sroa.0.2 = phi i56 [ undef, %107 ], [ %.sroa.10.sroa.10.0.extract.trunc22, %108 ]
   %.sroa.10.sroa.0.2 = phi i8 [ 5, %107 ], [ %.sroa.10.sroa.0.0.extract.trunc18, %108 ]
   %.sroa.0.2 = phi i64 [ 3, %107 ], [ 0, %108 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !31
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !31
   br label %"_ZN19ruff_python_literal6format13FieldNamePart10parse_part28_$u7b$$u7b$closure$u7d$$u7d$17he44fe67aeeb72a35E.exit"
 
 110:                                              ; preds = %149, %53
@@ -368,7 +368,7 @@ _ZN5alloc6string6String4push17h444d5a6351d622eeE.exit.i: ; preds = %"_ZN5alloc3v
 
 "_ZN108_$LT$core..iter..adapters..peekable..Peekable$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5eb48703ff384754E.exit.thread.i": ; preds = %_ZN5alloc6string6String4push17h444d5a6351d622eeE.exit29.i, %"_ZN108_$LT$core..iter..adapters..peekable..Peekable$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5eb48703ff384754E.exit.i", %50
   call void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hc483a8d0bb0116fbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5), !noalias !31
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !31
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !31
   br label %"_ZN19ruff_python_literal6format13FieldNamePart10parse_part28_$u7b$$u7b$closure$u7d$$u7d$17he44fe67aeeb72a35E.exit.thread"
 
 152:                                              ; preds = %"_ZN108_$LT$core..iter..adapters..peekable..Peekable$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5eb48703ff384754E.exit.i"
@@ -384,7 +384,7 @@ _ZN5alloc6string6String4push17h444d5a6351d622eeE.exit.i: ; preds = %"_ZN5alloc3v
   br i1 %157, label %189, label %158
 
 158:                                              ; preds = %156
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3), !noalias !73
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !73
   store i32 0, ptr %3, align 4, !noalias !73
   %159 = icmp samesign ult i32 %.sroa.0.0.i.i, 2048
   br i1 %159, label %182, label %160
@@ -440,7 +440,7 @@ _ZN4core4char7methods15encode_utf8_raw17h110904658798e68fE.exit.i23.i: ; preds =
           to label %.noexc27.i unwind label %149, !noalias !31
 
 .noexc27.i:                                       ; preds = %_ZN4core4char7methods15encode_utf8_raw17h110904658798e68fE.exit.i23.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3), !noalias !73
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !73
   br label %_ZN5alloc6string6String4push17h444d5a6351d622eeE.exit29.i
 
 189:                                              ; preds = %156
@@ -577,7 +577,7 @@ _ZN5alloc6string6String4push17h444d5a6351d622eeE.exit29.i: ; preds = %"_ZN5alloc
   %.sroa.10.sroa.10.sroa.0.0 = phi i56 [ %.sroa.10.sroa.10.sroa.0.1, %235 ], [ %.sroa.10.sroa.10.0.extract.trunc20, %.loopexit.i ]
   %.sroa.10.sroa.0.0 = phi i8 [ %.sroa.10.sroa.0.1, %235 ], [ %.sroa.10.sroa.0.0.extract.trunc17, %.loopexit.i ]
   %.sroa.0.0 = phi i64 [ %.sroa.0.1, %235 ], [ 2, %.loopexit.i ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !31
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !31
   br label %"_ZN19ruff_python_literal6format13FieldNamePart10parse_part28_$u7b$$u7b$closure$u7d$$u7d$17he44fe67aeeb72a35E.exit"
 
 "_ZN19ruff_python_literal6format13FieldNamePart10parse_part28_$u7b$$u7b$closure$u7d$$u7d$17he44fe67aeeb72a35E.exit": ; preds = %109, %236
@@ -643,10 +643,10 @@ declare hidden void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17
 declare void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #8

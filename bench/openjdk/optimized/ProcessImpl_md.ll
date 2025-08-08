@@ -98,7 +98,7 @@ xmalloc.exit.i:                                   ; preds = %countOccurrences.ex
   %32 = getelementptr i8, ptr %31, i64 8
   store ptr null, ptr %32, align 8
   store ptr %18, ptr @parentPathv, align 8
-  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %34 = call i32 @sigemptyset(ptr noundef nonnull %33) #13
@@ -113,7 +113,7 @@ xmalloc.exit.i:                                   ; preds = %countOccurrences.ex
   br label %setSIGCHLDHandler.exit
 
 setSIGCHLDHandler.exit:                           ; preds = %29, %38
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %39
 
 39:                                               ; preds = %effectivePathv.exit.thread, %setSIGCHLDHandler.exit
@@ -659,11 +659,11 @@ define internal fastcc i32 @startChild(ptr noundef %0, ptr noundef nonnull %1, p
   br label %forkChild.exit
 
 18:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %20 = load i32, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 36
@@ -1037,11 +1037,11 @@ copystrings.exit114.i:                            ; preds = %.lr.ph.i106.i, %152
 
 spawnChild.exit:                                  ; preds = %102, %xmalloc.exit.thread.i, %148, %166, %176, %177
   %.0.i = phi i32 [ -1, %166 ], [ -1, %176 ], [ %180, %177 ], [ -1, %148 ], [ -1, %102 ], [ -1, %xmalloc.exit.thread.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %forkChild.exit
 
 forkChild.exit:                                   ; preds = %16, %13, %3, %spawnChild.exit, %11
@@ -1161,10 +1161,10 @@ declare i32 @magicNumber(...) local_unnamed_addr #2
 declare i64 @writeFully(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12

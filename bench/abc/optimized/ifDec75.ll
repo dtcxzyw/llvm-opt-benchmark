@@ -68,7 +68,7 @@ define i32 @Dau_DsdCheckDecExist_rec(ptr noundef %0, ptr noundef %1, ptr noundef
   ]
 
 26:                                               ; preds = %25, %25
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   %27 = ptrtoint ptr %.lcssa78 to i64
   %28 = ptrtoint ptr %0 to i64
@@ -146,11 +146,11 @@ define i32 @Dau_DsdCheckDecExist_rec(ptr noundef %0, ptr noundef %1, ptr noundef
 
 ._crit_edge101:                                   ; preds = %._crit_edge97.us, %26, %._crit_edge91
   %.166.lcssa = phi i32 [ %37, %._crit_edge91 ], [ 0, %26 ], [ %.2.us, %._crit_edge97.us ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %78
 
 59:                                               ; preds = %25, %25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %60 = ptrtoint ptr %.lcssa78 to i64
   %61 = ptrtoint ptr %0 to i64
   %62 = sub i64 %60, %61
@@ -187,7 +187,7 @@ define i32 @Dau_DsdCheckDecExist_rec(ptr noundef %0, ptr noundef %1, ptr noundef
   %.062.lcssa = phi i32 [ 0, %.._crit_edge_crit_edge ], [ %69, %.lr.ph ]
   %76 = shl nuw i32 1, %75
   %77 = or i32 %76, %.062.lcssa
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %78
 
 78:                                               ; preds = %25, %._crit_edge, %._crit_edge101, %22
@@ -195,21 +195,15 @@ define i32 @Dau_DsdCheckDecExist_rec(ptr noundef %0, ptr noundef %1, ptr noundef
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @Dau_DsdCheckDecExist(ptr noundef %0) local_unnamed_addr #3 {
+define i32 @Dau_DsdCheckDecExist(ptr noundef %0) local_unnamed_addr #2 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
   store ptr %0, ptr %2, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !tbaa !11
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %5 = load i8, ptr %4, align 1, !tbaa !8
@@ -223,11 +217,11 @@ define i32 @Dau_DsdCheckDecExist(ptr noundef %0) local_unnamed_addr #3 {
 
 10:                                               ; preds = %1, %7
   %.0 = phi i32 [ %9, %7 ], [ 0, %1 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
-declare ptr @Dau_DsdComputeMatches(ptr noundef) local_unnamed_addr #4
+declare ptr @Dau_DsdComputeMatches(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define i32 @Dau_DsdCheckDecAndExist_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
@@ -288,7 +282,7 @@ define i32 @Dau_DsdCheckDecAndExist_rec(ptr noundef %0, ptr noundef %1, ptr noun
   ]
 
 26:                                               ; preds = %25
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   %27 = ptrtoint ptr %.lcssa97 to i64
   %28 = ptrtoint ptr %0 to i64
@@ -401,11 +395,11 @@ define i32 @Dau_DsdCheckDecAndExist_rec(ptr noundef %0, ptr noundef %1, ptr noun
 
 .loopexit:                                        ; preds = %.lr.ph127, %26, %.preheader, %._crit_edge111
   %.176 = phi i32 [ %37, %._crit_edge111 ], [ %.2.lcssa, %.preheader ], [ 0, %26 ], [ %68, %.lr.ph127 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %86
 
 70:                                               ; preds = %25, %25, %25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %71 = ptrtoint ptr %.lcssa97 to i64
   %72 = ptrtoint ptr %0 to i64
   %73 = sub i64 %71, %72
@@ -435,7 +429,7 @@ define i32 @Dau_DsdCheckDecAndExist_rec(ptr noundef %0, ptr noundef %1, ptr noun
 
 ._crit_edge:                                      ; preds = %.lr.ph, %70
   %.073.lcssa = phi i32 [ 0, %70 ], [ %80, %.lr.ph ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %86
 
 86:                                               ; preds = %25, %._crit_edge, %.loopexit, %22
@@ -444,11 +438,11 @@ define i32 @Dau_DsdCheckDecAndExist_rec(ptr noundef %0, ptr noundef %1, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Dau_DsdCheckDecAndExist(ptr noundef %0) local_unnamed_addr #3 {
+define i32 @Dau_DsdCheckDecAndExist(ptr noundef %0) local_unnamed_addr #2 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
   store ptr %0, ptr %2, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !tbaa !11
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %5 = load i8, ptr %4, align 1, !tbaa !8
@@ -462,12 +456,12 @@ define i32 @Dau_DsdCheckDecAndExist(ptr noundef %0) local_unnamed_addr #3 {
 
 10:                                               ; preds = %1, %7
   %.0 = phi i32 [ %9, %7 ], [ 1, %1 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @If_CutPerformCheck75__(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #3 {
+define i32 @If_CutPerformCheck75__(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #2 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
@@ -484,7 +478,7 @@ define i32 @If_CutPerformCheck75__(ptr noundef %0, ptr noundef %1, i32 noundef %
   %19 = alloca [2 x i64], align 16
   %20 = alloca [2 x i64], align 16
   %21 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 1000, ptr nonnull %18) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %22 = load i32, ptr @If_CutPerformCheck75__.Counter, align 4, !tbaa !11
   %23 = add nsw i32 %22, 1
   store i32 %23, ptr @If_CutPerformCheck75__.Counter, align 4, !tbaa !11
@@ -515,9 +509,9 @@ define i32 @If_CutPerformCheck75__(ptr noundef %0, ptr noundef %1, i32 noundef %
   br i1 %32, label %154, label %33
 
 33:                                               ; preds = %31
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store ptr %18, ptr %16, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i32 0, ptr %17, align 4, !tbaa !11
   %34 = getelementptr inbounds nuw i8, ptr %18, i64 1
   %35 = load i8, ptr %34, align 1, !tbaa !8
@@ -533,21 +527,21 @@ define i32 @If_CutPerformCheck75__(ptr noundef %0, ptr noundef %1, i32 noundef %
 
 Dau_DsdCheckDecAndExist.exit:                     ; preds = %33, %37
   %.0.i = phi i32 [ %.lobit, %37 ], [ 0, %33 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %154
 
 41:                                               ; preds = %29
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %19) #6
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %20) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %21) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %42 = icmp slt i32 %30, 5
   br i1 %42, label %43, label %55
 
 43:                                               ; preds = %41
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr %18, ptr %14, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i32 0, ptr %15, align 4, !tbaa !11
   %44 = getelementptr inbounds nuw i8, ptr %18, i64 1
   %45 = load i8, ptr %44, align 1, !tbaa !8
@@ -555,40 +549,40 @@ Dau_DsdCheckDecAndExist.exit:                     ; preds = %33, %37
   br i1 %46, label %.thread, label %Dau_DsdCheckDecExist.exit
 
 .thread:                                          ; preds = %43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   br label %Dau_DsdCheckDecAndExist.exit46.thread
 
 Dau_DsdCheckDecExist.exit:                        ; preds = %43
   %47 = call ptr @Dau_DsdComputeMatches(ptr noundef nonnull %18) #6
   %48 = call i32 @Dau_DsdCheckDecExist_rec(ptr noundef nonnull %18, ptr noundef nonnull %14, ptr noundef %47, ptr noundef nonnull %15)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %49 = and i32 %48, 16
   %.not39 = icmp eq i32 %49, 0
   br i1 %.not39, label %50, label %.loopexit
 
 50:                                               ; preds = %Dau_DsdCheckDecExist.exit
   %.pr = load i8, ptr %44, align 1, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr %18, ptr %12, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 0, ptr %13, align 4, !tbaa !11
   %51 = icmp eq i8 %.pr, 0
   br i1 %51, label %Dau_DsdCheckDecAndExist.exit46.thread, label %Dau_DsdCheckDecAndExist.exit46
 
 Dau_DsdCheckDecAndExist.exit46.thread:            ; preds = %50, %.thread
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %55
 
 Dau_DsdCheckDecAndExist.exit46:                   ; preds = %50
   %52 = call ptr @Dau_DsdComputeMatches(ptr noundef nonnull %18) #6
   %53 = call i32 @Dau_DsdCheckDecAndExist_rec(ptr noundef nonnull %18, ptr noundef nonnull %12, ptr noundef %52, ptr noundef nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %54 = and i32 %53, 24
   %.not40 = icmp eq i32 %54, 0
   br i1 %.not40, label %55, label %.loopexit
@@ -701,24 +695,24 @@ Abc_TtSupportSize.exit:                           ; preds = %.preheader.us.i.i.p
   br i1 %105, label %139, label %106
 
 106:                                              ; preds = %102
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %18, ptr %10, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 0, ptr %11, align 4, !tbaa !11
   %107 = load i8, ptr %57, align 1, !tbaa !8
   %108 = icmp eq i8 %107, 0
   br i1 %108, label %Dau_DsdCheckDecExist.exit51.thread, label %Dau_DsdCheckDecExist.exit51
 
 Dau_DsdCheckDecExist.exit51.thread:               ; preds = %106
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %139
 
 Dau_DsdCheckDecExist.exit51:                      ; preds = %106
   %109 = call ptr @Dau_DsdComputeMatches(ptr noundef nonnull %18) #6
   %110 = call i32 @Dau_DsdCheckDecExist_rec(ptr noundef nonnull %18, ptr noundef nonnull %10, ptr noundef %109, ptr noundef nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %111 = and i32 %110, 24
   %.not42 = icmp eq i32 %111, 0
   br i1 %.not42, label %139, label %.loopexit
@@ -778,24 +772,24 @@ Abc_TtSupportSize.exit68:                         ; preds = %.preheader.us.i.i63
   br i1 %132, label %139, label %133
 
 133:                                              ; preds = %129
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %18, ptr %8, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4, !tbaa !11
   %134 = load i8, ptr %57, align 1, !tbaa !8
   %135 = icmp eq i8 %134, 0
   br i1 %135, label %Dau_DsdCheckDecExist.exit70.thread, label %Dau_DsdCheckDecExist.exit70
 
 Dau_DsdCheckDecExist.exit70.thread:               ; preds = %133
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %139
 
 Dau_DsdCheckDecExist.exit70:                      ; preds = %133
   %136 = call ptr @Dau_DsdComputeMatches(ptr noundef nonnull %18) #6
   %137 = call i32 @Dau_DsdCheckDecExist_rec(ptr noundef nonnull %18, ptr noundef nonnull %8, ptr noundef %136, ptr noundef nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %138 = and i32 %137, 24
   %.not41 = icmp eq i32 %138, 0
   br i1 %.not41, label %139, label %.loopexit
@@ -807,9 +801,9 @@ Dau_DsdCheckDecExist.exit70:                      ; preds = %133
 
 .loopexit:                                        ; preds = %139, %Dau_DsdCheckDecExist.exit70, %Dau_DsdCheckDecExist.exit51, %Dau_DsdCheckDecAndExist.exit46, %Dau_DsdCheckDecExist.exit
   %.1 = phi i32 [ 1, %Dau_DsdCheckDecExist.exit ], [ 1, %Dau_DsdCheckDecAndExist.exit46 ], [ 0, %139 ], [ 1, %Dau_DsdCheckDecExist.exit70 ], [ 1, %Dau_DsdCheckDecExist.exit51 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21) #6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20) #6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %154
 
 140:                                              ; preds = %29
@@ -817,9 +811,9 @@ Dau_DsdCheckDecExist.exit70:                      ; preds = %133
   br i1 %141, label %142, label %152
 
 142:                                              ; preds = %140
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %18, ptr %6, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4, !tbaa !11
   %143 = getelementptr inbounds nuw i8, ptr %18, i64 1
   %144 = load i8, ptr %143, align 1, !tbaa !8
@@ -827,15 +821,15 @@ Dau_DsdCheckDecExist.exit70:                      ; preds = %133
   br i1 %145, label %Dau_DsdCheckDecExist.exit72.thread, label %Dau_DsdCheckDecExist.exit72
 
 Dau_DsdCheckDecExist.exit72.thread:               ; preds = %142
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %149
 
 Dau_DsdCheckDecExist.exit72:                      ; preds = %142
   %146 = call ptr @Dau_DsdComputeMatches(ptr noundef nonnull %18) #6
   %147 = call i32 @Dau_DsdCheckDecExist_rec(ptr noundef nonnull %18, ptr noundef nonnull %6, ptr noundef %146, ptr noundef nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %148 = and i32 %147, 24
   %.not37 = icmp eq i32 %148, 0
   br i1 %.not37, label %149, label %154
@@ -852,25 +846,25 @@ Dau_DsdCheckDecExist.exit72:                      ; preds = %142
 
 154:                                              ; preds = %29, %149, %Dau_DsdCheckDecExist.exit72, %Dau_DsdCheckDecAndExist.exit, %31, %27, %5, %152, %.loopexit
   %.035 = phi i32 [ %.1, %.loopexit ], [ %153, %152 ], [ 1, %5 ], [ 1, %27 ], [ 0, %31 ], [ %.0.i, %Dau_DsdCheckDecAndExist.exit ], [ 1, %Dau_DsdCheckDecExist.exit72 ], [ 1, %149 ], [ 0, %29 ]
-  call void @llvm.lifetime.end.p0(i64 1000, ptr nonnull %18) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   ret i32 %.035
 }
 
-declare i32 @If_CutPerformCheck16(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @If_CutPerformCheck16(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @Dau_DsdDecompose(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @Dau_DsdDecompose(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @If_Dec7MinimumBase(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare void @If_Dec7MinimumBase(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @If_CutPerformCheck07(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @If_CutPerformCheck07(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @If_CutPerformCheck75(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @If_CutPerformCheck75(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #2 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca [4 x i64], align 16
   %9 = alloca [1000 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %10 = load i64, ptr %1, align 8, !tbaa !25
   store i64 %10, ptr %8, align 16, !tbaa !25
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -1193,15 +1187,15 @@ Abc_TtMinimumBase.exit:                           ; preds = %80, %.lr.ph61.i.i, 
   br i1 %or.cond, label %140, label %152
 
 140:                                              ; preds = %135
-  call void @llvm.lifetime.start.p0(i64 1000, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %141 = call i32 @Dau_DsdDecompose(ptr noundef nonnull %8, i32 noundef 8, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %9) #6
   %142 = icmp sgt i32 %141, 4
   br i1 %142, label %151, label %143
 
 143:                                              ; preds = %140
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %9, ptr %6, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4, !tbaa !11
   %144 = getelementptr inbounds nuw i8, ptr %9, i64 1
   %145 = load i8, ptr %144, align 1, !tbaa !8
@@ -1217,13 +1211,13 @@ Abc_TtMinimumBase.exit:                           ; preds = %80, %.lr.ph61.i.i, 
 
 Dau_DsdCheckDecAndExist.exit:                     ; preds = %143, %147
   %.0.i = phi i32 [ %.lobit, %147 ], [ 0, %143 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %151
 
 151:                                              ; preds = %Dau_DsdCheckDecAndExist.exit, %140
   %.1 = phi i32 [ 0, %140 ], [ %.0.i, %Dau_DsdCheckDecAndExist.exit ]
-  call void @llvm.lifetime.end.p0(i64 1000, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %Abc_TtMinimumBase.exit.thread
 
 152:                                              ; preds = %135, %131
@@ -1239,22 +1233,28 @@ Dau_DsdCheckDecAndExist.exit:                     ; preds = %143, %147
 
 Abc_TtMinimumBase.exit.thread:                    ; preds = %.lr.ph.split.i, %24, %154, %152, %129, %Abc_TtMinimumBase.exit, %151
   %.0 = phi i32 [ %.1, %151 ], [ 1, %Abc_TtMinimumBase.exit ], [ 1, %129 ], [ 1, %152 ], [ %.24, %154 ], [ 1, %24 ], [ 1, %.lr.ph.split.i ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
 
-declare i32 @If_CutPerformCheck45(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @If_CutPerformCheck45(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @If_CutPerformCheck54(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @If_CutPerformCheck54(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #5
 
 attributes #0 = { nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #3 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nounwind }
 

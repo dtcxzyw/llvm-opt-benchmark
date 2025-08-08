@@ -59,8 +59,8 @@ define dso_local void @RelationInitLockInfo(ptr noundef captures(none) initializ
 define dso_local void @LockRelationOid(i32 noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = alloca %struct.LOCKTAG, align 4
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call zeroext i1 @IsSharedRelation(i32 noundef %0) #8
   %6 = load i32, ptr @MyDatabaseId, align 4
   %.0.i = select i1 %5, i32 0, i32 %6
@@ -86,29 +86,23 @@ define dso_local void @LockRelationOid(i32 noundef %0, i32 noundef %1) local_unn
   br label %15
 
 15:                                               ; preds = %13, %2
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+declare i32 @LockAcquireExtended(ptr noundef, i32 noundef, i1 noundef zeroext, i1 noundef zeroext, i1 noundef zeroext, ptr noundef) local_unnamed_addr #2
 
-declare i32 @LockAcquireExtended(ptr noundef, i32 noundef, i1 noundef zeroext, i1 noundef zeroext, i1 noundef zeroext, ptr noundef) local_unnamed_addr #3
+declare void @AcceptInvalidationMessages() local_unnamed_addr #2
 
-declare void @AcceptInvalidationMessages() local_unnamed_addr #3
-
-declare void @MarkLockClear(ptr noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare void @MarkLockClear(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef zeroext i1 @ConditionalLockRelationOid(i32 noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = alloca %struct.LOCKTAG, align 4
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call zeroext i1 @IsSharedRelation(i32 noundef %0) #8
   %6 = load i32, ptr @MyDatabaseId, align 4
   %.0.i = select i1 %5, i32 0, i32 %6
@@ -137,8 +131,8 @@ define dso_local noundef zeroext i1 @ConditionalLockRelationOid(i32 noundef %0, 
 
 15:                                               ; preds = %2, %2, %13
   %16 = icmp ne i32 %12, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %16
 }
 
@@ -146,8 +140,8 @@ define dso_local noundef zeroext i1 @ConditionalLockRelationOid(i32 noundef %0, 
 define dso_local void @LockRelationId(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = alloca %struct.LOCKTAG, align 4
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
   store i32 %6, ptr %3, align 4
@@ -173,15 +167,15 @@ define dso_local void @LockRelationId(ptr noundef readonly captures(none) %0, i3
   br label %16
 
 16:                                               ; preds = %14, %2
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @UnlockRelationId(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = alloca %struct.LOCKTAG, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   store i32 %5, ptr %3, align 4
@@ -197,16 +191,16 @@ define dso_local void @UnlockRelationId(ptr noundef readonly captures(none) %0, 
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 15
   store i8 1, ptr %11, align 1
   %12 = call zeroext i1 @LockRelease(ptr noundef nonnull %3, i32 noundef %1, i1 noundef zeroext false) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-declare zeroext i1 @LockRelease(ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare zeroext i1 @LockRelease(ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @UnlockRelationOid(i32 noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = alloca %struct.LOCKTAG, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = tail call zeroext i1 @IsSharedRelation(i32 noundef %0) #8
   %5 = load i32, ptr @MyDatabaseId, align 4
   %.0.i = select i1 %4, i32 0, i32 %5
@@ -222,7 +216,7 @@ define dso_local void @UnlockRelationOid(i32 noundef %0, i32 noundef %1) local_u
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 15
   store i8 1, ptr %10, align 1
   %11 = call zeroext i1 @LockRelease(ptr noundef nonnull %3, i32 noundef %1, i1 noundef zeroext false) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -230,8 +224,8 @@ define dso_local void @UnlockRelationOid(i32 noundef %0, i32 noundef %1) local_u
 define dso_local void @LockRelation(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = alloca %struct.LOCKTAG, align 4
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %7 = load i32, ptr %6, align 4
@@ -258,8 +252,8 @@ define dso_local void @LockRelation(ptr noundef readonly captures(none) %0, i32 
   br label %17
 
 17:                                               ; preds = %15, %2
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -267,8 +261,8 @@ define dso_local void @LockRelation(ptr noundef readonly captures(none) %0, i32 
 define dso_local noundef zeroext i1 @ConditionalLockRelation(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = alloca %struct.LOCKTAG, align 4
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %7 = load i32, ptr %6, align 4
@@ -298,15 +292,15 @@ define dso_local noundef zeroext i1 @ConditionalLockRelation(ptr noundef readonl
 
 17:                                               ; preds = %2, %2, %15
   %18 = icmp ne i32 %14, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %18
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @UnlockRelation(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = alloca %struct.LOCKTAG, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %6 = load i32, ptr %5, align 4
@@ -323,14 +317,14 @@ define dso_local void @UnlockRelation(ptr noundef readonly captures(none) %0, i3
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 15
   store i8 1, ptr %12, align 1
   %13 = call zeroext i1 @LockRelease(ptr noundef nonnull %3, i32 noundef %1, i1 noundef zeroext false) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @CheckRelationLockedByMe(ptr noundef readonly captures(none) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #1 {
   %4 = alloca %struct.LOCKTAG, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %7 = load i32, ptr %6, align 4
@@ -347,16 +341,16 @@ define dso_local zeroext i1 @CheckRelationLockedByMe(ptr noundef readonly captur
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 15
   store i8 1, ptr %13, align 1
   %14 = call zeroext i1 @LockHeldByMe(ptr noundef nonnull %4, i32 noundef %1, i1 noundef zeroext %2) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %14
 }
 
-declare zeroext i1 @LockHeldByMe(ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare zeroext i1 @LockHeldByMe(ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @CheckRelationOidLockedByMe(i32 noundef %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #1 {
   %4 = alloca %struct.LOCKTAG, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call zeroext i1 @IsSharedRelation(i32 noundef %0) #8
   %6 = load i32, ptr @MyDatabaseId, align 4
   %.0.i = select i1 %5, i32 0, i32 %6
@@ -372,14 +366,14 @@ define dso_local zeroext i1 @CheckRelationOidLockedByMe(i32 noundef %0, i32 noun
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 15
   store i8 1, ptr %11, align 1
   %12 = call zeroext i1 @LockHeldByMe(ptr noundef nonnull %4, i32 noundef %1, i1 noundef zeroext %2) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %12
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @LockHasWaitersRelation(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = alloca %struct.LOCKTAG, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %6 = load i32, ptr %5, align 4
@@ -396,16 +390,16 @@ define dso_local zeroext i1 @LockHasWaitersRelation(ptr noundef readonly capture
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 15
   store i8 1, ptr %12, align 1
   %13 = call zeroext i1 @LockHasWaiters(ptr noundef nonnull %3, i32 noundef %1, i1 noundef zeroext false) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %13
 }
 
-declare zeroext i1 @LockHasWaiters(ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare zeroext i1 @LockHasWaiters(ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @LockRelationIdForSession(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = alloca %struct.LOCKTAG, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   store i32 %5, ptr %3, align 4
@@ -421,16 +415,16 @@ define dso_local void @LockRelationIdForSession(ptr noundef readonly captures(no
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 15
   store i8 1, ptr %11, align 1
   %12 = call i32 @LockAcquire(ptr noundef nonnull %3, i32 noundef %1, i1 noundef zeroext true, i1 noundef zeroext false) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-declare i32 @LockAcquire(ptr noundef, i32 noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #3
+declare i32 @LockAcquire(ptr noundef, i32 noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @UnlockRelationIdForSession(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = alloca %struct.LOCKTAG, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   store i32 %5, ptr %3, align 4
@@ -446,14 +440,14 @@ define dso_local void @UnlockRelationIdForSession(ptr noundef readonly captures(
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 15
   store i8 1, ptr %11, align 1
   %12 = call zeroext i1 @LockRelease(ptr noundef nonnull %3, i32 noundef %1, i1 noundef zeroext true) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @LockRelationForExtension(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = alloca %struct.LOCKTAG, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %6 = load i32, ptr %5, align 4
@@ -470,14 +464,14 @@ define dso_local void @LockRelationForExtension(ptr noundef readonly captures(no
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 15
   store i8 1, ptr %12, align 1
   %13 = call i32 @LockAcquire(ptr noundef nonnull %3, i32 noundef %1, i1 noundef zeroext false, i1 noundef zeroext false) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @ConditionalLockRelationForExtension(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = alloca %struct.LOCKTAG, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %6 = load i32, ptr %5, align 4
@@ -495,14 +489,14 @@ define dso_local zeroext i1 @ConditionalLockRelationForExtension(ptr noundef rea
   store i8 1, ptr %12, align 1
   %13 = call i32 @LockAcquire(ptr noundef nonnull %3, i32 noundef %1, i1 noundef zeroext false, i1 noundef zeroext true) #8
   %14 = icmp ne i32 %13, 0
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %14
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @RelationExtensionLockWaiterCount(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = alloca %struct.LOCKTAG, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = load i32, ptr %4, align 4
@@ -519,16 +513,16 @@ define dso_local i32 @RelationExtensionLockWaiterCount(ptr noundef readonly capt
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 15
   store i8 1, ptr %11, align 1
   %12 = call i32 @LockWaiterCount(ptr noundef nonnull %2) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %12
 }
 
-declare i32 @LockWaiterCount(ptr noundef) local_unnamed_addr #3
+declare i32 @LockWaiterCount(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @UnlockRelationForExtension(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = alloca %struct.LOCKTAG, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %6 = load i32, ptr %5, align 4
@@ -545,14 +539,14 @@ define dso_local void @UnlockRelationForExtension(ptr noundef readonly captures(
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 15
   store i8 1, ptr %12, align 1
   %13 = call zeroext i1 @LockRelease(ptr noundef nonnull %3, i32 noundef %1, i1 noundef zeroext false) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @LockDatabaseFrozenIds(i32 noundef %0) local_unnamed_addr #1 {
   %2 = alloca %struct.LOCKTAG, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = load i32, ptr @MyDatabaseId, align 4
   store i32 %3, ptr %2, align 4
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -566,14 +560,14 @@ define dso_local void @LockDatabaseFrozenIds(i32 noundef %0) local_unnamed_addr 
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 15
   store i8 1, ptr %8, align 1
   %9 = call i32 @LockAcquire(ptr noundef nonnull %2, i32 noundef %0, i1 noundef zeroext false, i1 noundef zeroext false) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @LockPage(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = alloca %struct.LOCKTAG, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %7 = load i32, ptr %6, align 4
@@ -590,14 +584,14 @@ define dso_local void @LockPage(ptr noundef readonly captures(none) %0, i32 noun
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 15
   store i8 1, ptr %13, align 1
   %14 = call i32 @LockAcquire(ptr noundef nonnull %4, i32 noundef %2, i1 noundef zeroext false, i1 noundef zeroext false) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @ConditionalLockPage(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = alloca %struct.LOCKTAG, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %7 = load i32, ptr %6, align 4
@@ -615,14 +609,14 @@ define dso_local zeroext i1 @ConditionalLockPage(ptr noundef readonly captures(n
   store i8 1, ptr %13, align 1
   %14 = call i32 @LockAcquire(ptr noundef nonnull %4, i32 noundef %2, i1 noundef zeroext false, i1 noundef zeroext true) #8
   %15 = icmp ne i32 %14, 0
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %15
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @UnlockPage(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = alloca %struct.LOCKTAG, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %7 = load i32, ptr %6, align 4
@@ -639,14 +633,14 @@ define dso_local void @UnlockPage(ptr noundef readonly captures(none) %0, i32 no
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 15
   store i8 1, ptr %13, align 1
   %14 = call zeroext i1 @LockRelease(ptr noundef nonnull %4, i32 noundef %2, i1 noundef zeroext false) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @LockTuple(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = alloca %struct.LOCKTAG, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %7 = load i32, ptr %6, align 4
@@ -672,14 +666,14 @@ define dso_local void @LockTuple(ptr noundef readonly captures(none) %0, ptr nou
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 15
   store i8 1, ptr %19, align 1
   %20 = call i32 @LockAcquire(ptr noundef nonnull %4, i32 noundef %2, i1 noundef zeroext false, i1 noundef zeroext false) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @ConditionalLockTuple(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = alloca %struct.LOCKTAG, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %7 = load i32, ptr %6, align 4
@@ -706,14 +700,14 @@ define dso_local zeroext i1 @ConditionalLockTuple(ptr noundef readonly captures(
   store i8 1, ptr %19, align 1
   %20 = call i32 @LockAcquire(ptr noundef nonnull %4, i32 noundef %2, i1 noundef zeroext false, i1 noundef zeroext true) #8
   %21 = icmp ne i32 %20, 0
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %21
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @UnlockTuple(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = alloca %struct.LOCKTAG, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %7 = load i32, ptr %6, align 4
@@ -739,14 +733,14 @@ define dso_local void @UnlockTuple(ptr noundef readonly captures(none) %0, ptr n
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 15
   store i8 1, ptr %19, align 1
   %20 = call zeroext i1 @LockRelease(ptr noundef nonnull %4, i32 noundef %2, i1 noundef zeroext false) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @XactLockTableInsert(i32 noundef %0) local_unnamed_addr #1 {
   %2 = alloca %struct.LOCKTAG, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %0, ptr %2, align 4
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %3, align 4
@@ -759,14 +753,14 @@ define dso_local void @XactLockTableInsert(i32 noundef %0) local_unnamed_addr #1
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 15
   store i8 1, ptr %7, align 1
   %8 = call i32 @LockAcquire(ptr noundef nonnull %2, i32 noundef 7, i1 noundef zeroext false, i1 noundef zeroext false) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @XactLockTableDelete(i32 noundef %0) local_unnamed_addr #1 {
   %2 = alloca %struct.LOCKTAG, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %0, ptr %2, align 4
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %3, align 4
@@ -779,7 +773,7 @@ define dso_local void @XactLockTableDelete(i32 noundef %0) local_unnamed_addr #1
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 15
   store i8 1, ptr %7, align 1
   %8 = call zeroext i1 @LockRelease(ptr noundef nonnull %2, i32 noundef 7, i1 noundef zeroext false) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -788,9 +782,9 @@ define dso_local void @XactLockTableWait(i32 noundef %0, ptr noundef %1, ptr nou
   %5 = alloca %struct.LOCKTAG, align 4
   %6 = alloca %struct.XactLockTableWaitInfo, align 8
   %7 = alloca %struct.ErrorContextCallback, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %14, label %8
 
@@ -851,9 +845,9 @@ define dso_local void @XactLockTableWait(i32 noundef %0, ptr noundef %1, ptr nou
   br label %31
 
 31:                                               ; preds = %29, %28
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -911,16 +905,16 @@ ItemPointerIsValid.exit.thread:                   ; preds = %3, %1, %ItemPointer
   ret void
 }
 
-declare zeroext i1 @TransactionIdIsInProgress(i32 noundef) local_unnamed_addr #3
+declare zeroext i1 @TransactionIdIsInProgress(i32 noundef) local_unnamed_addr #2
 
-declare void @pg_usleep(i64 noundef) local_unnamed_addr #3
+declare void @pg_usleep(i64 noundef) local_unnamed_addr #2
 
-declare i32 @SubTransGetTopmostTransaction(i32 noundef) local_unnamed_addr #3
+declare i32 @SubTransGetTopmostTransaction(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef zeroext i1 @ConditionalXactLockTableWait(i32 noundef %0) local_unnamed_addr #1 {
   %2 = alloca %struct.LOCKTAG, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 12
@@ -968,14 +962,14 @@ define dso_local noundef zeroext i1 @ConditionalXactLockTableWait(i32 noundef %0
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %1
   %.lcssa = phi i1 [ false, %1 ], [ %.lcssa.ph, %._crit_edge.loopexit ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %.lcssa
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @SpeculativeInsertionLockAcquire(i32 noundef %0) local_unnamed_addr #1 {
   %2 = alloca %struct.LOCKTAG, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = load i32, ptr @speculativeInsertionToken, align 4
   %4 = add i32 %3, 1
   %spec.store.select = tail call i32 @llvm.umax.i32(i32 %4, i32 1)
@@ -993,14 +987,14 @@ define dso_local i32 @SpeculativeInsertionLockAcquire(i32 noundef %0) local_unna
   store i8 1, ptr %9, align 1
   %10 = call i32 @LockAcquire(ptr noundef nonnull %2, i32 noundef 7, i1 noundef zeroext false, i1 noundef zeroext false) #8
   %11 = load i32, ptr @speculativeInsertionToken, align 4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %11
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @SpeculativeInsertionLockRelease(i32 noundef %0) local_unnamed_addr #1 {
   %2 = alloca %struct.LOCKTAG, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %0, ptr %2, align 4
   %3 = load i32, ptr @speculativeInsertionToken, align 4
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -1014,14 +1008,14 @@ define dso_local void @SpeculativeInsertionLockRelease(i32 noundef %0) local_unn
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 15
   store i8 1, ptr %8, align 1
   %9 = call zeroext i1 @LockRelease(ptr noundef nonnull %2, i32 noundef 7, i1 noundef zeroext false) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @SpeculativeInsertionWait(i32 noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = alloca %struct.LOCKTAG, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %0, ptr %3, align 4
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %1, ptr %4, align 4
@@ -1035,7 +1029,7 @@ define dso_local void @SpeculativeInsertionWait(i32 noundef %0, i32 noundef %1) 
   store i8 1, ptr %8, align 1
   %9 = call i32 @LockAcquire(ptr noundef nonnull %3, i32 noundef 5, i1 noundef zeroext false, i1 noundef zeroext false) #8
   %10 = call zeroext i1 @LockRelease(ptr noundef nonnull %3, i32 noundef 5, i1 noundef zeroext false) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -1064,12 +1058,12 @@ define dso_local void @WaitForLockersMultiple(ptr noundef readonly captures(addr
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw %union.ListCell, ptr %11, i64 %indvars.iv75
   %13 = load ptr, ptr %12, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %14 = call ptr @GetLockConflicts(ptr noundef %13, i32 noundef %1, ptr noundef nonnull %4) #8
   %15 = call ptr @lappend(ptr noundef %.051.us, ptr noundef %14) #8
   %16 = load i32, ptr %4, align 4
   %.137.us = add i32 %16, %.03650.us
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
   %17 = load i32, ptr %8, align 4
   %18 = sext i32 %17 to i64
@@ -1082,10 +1076,10 @@ define dso_local void @WaitForLockersMultiple(ptr noundef readonly captures(addr
   %19 = load ptr, ptr %10, align 8
   %20 = getelementptr inbounds nuw %union.ListCell, ptr %19, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %22 = tail call ptr @GetLockConflicts(ptr noundef %21, i32 noundef %1, ptr noundef null) #8
   %23 = tail call ptr @lappend(ptr noundef %.051, ptr noundef %22) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %24 = load i32, ptr %8, align 4
   %25 = sext i32 %24 to i64
@@ -1207,13 +1201,13 @@ define dso_local void @WaitForLockersMultiple(ptr noundef readonly captures(addr
 
 .critedge47.thread108:                            ; preds = %26, %.thread103, %.critedge47
   %.0.lcssa8794110 = phi ptr [ %.0.lcssa8794, %.critedge47 ], [ null, %.thread103 ], [ null, %26 ]
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %5, ptr noundef nonnull align 4 dereferenceable(12) @__const.WaitForLockersMultiple.index, i64 12, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   call void @pgstat_progress_update_multi_param(i32 noundef 3, ptr noundef nonnull %5, ptr noundef nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.critedge47.thread
 
 .critedge47.thread:                               ; preds = %.critedge, %.lr.ph63.split.split, %.thread95, %.critedge47.thread108, %.critedge47
@@ -1226,24 +1220,24 @@ define dso_local void @WaitForLockersMultiple(ptr noundef readonly captures(addr
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
-declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @GetLockConflicts(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @GetLockConflicts(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @pgstat_progress_update_param(i32 noundef, i64 noundef) local_unnamed_addr #3
+declare void @pgstat_progress_update_param(i32 noundef, i64 noundef) local_unnamed_addr #2
 
-declare ptr @ProcNumberGetProc(i32 noundef) local_unnamed_addr #3
+declare ptr @ProcNumberGetProc(i32 noundef) local_unnamed_addr #2
 
-declare zeroext i1 @VirtualXactLock(i64, i1 noundef zeroext) local_unnamed_addr #3
+declare zeroext i1 @VirtualXactLock(i64, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
-declare void @pgstat_progress_update_multi_param(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @pgstat_progress_update_multi_param(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @list_free_deep(ptr noundef) local_unnamed_addr #3
+declare void @list_free_deep(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @WaitForLockers(i64 %0, i64 %1, i32 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #1 {
@@ -1257,14 +1251,14 @@ define dso_local void @WaitForLockers(i64 %0, i64 %1, i32 noundef %2, i1 noundef
   ret void
 }
 
-declare ptr @list_make1_impl(i32 noundef, ptr) local_unnamed_addr #3
+declare ptr @list_make1_impl(i32 noundef, ptr) local_unnamed_addr #2
 
-declare void @list_free(ptr noundef) local_unnamed_addr #3
+declare void @list_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @LockDatabaseObject(i32 noundef %0, i32 noundef %1, i16 noundef zeroext %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = alloca %struct.LOCKTAG, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = load i32, ptr @MyDatabaseId, align 4
   store i32 %6, ptr %5, align 4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -1279,7 +1273,7 @@ define dso_local void @LockDatabaseObject(i32 noundef %0, i32 noundef %1, i16 no
   store i8 1, ptr %11, align 1
   %12 = call i32 @LockAcquire(ptr noundef nonnull %5, i32 noundef %3, i1 noundef zeroext false, i1 noundef zeroext false) #8
   call void @AcceptInvalidationMessages() #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -1287,8 +1281,8 @@ define dso_local void @LockDatabaseObject(i32 noundef %0, i32 noundef %1, i16 no
 define dso_local noundef zeroext i1 @ConditionalLockDatabaseObject(i32 noundef %0, i32 noundef %1, i16 noundef zeroext %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = alloca %struct.LOCKTAG, align 4
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @MyDatabaseId, align 4
   store i32 %7, ptr %5, align 4
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -1315,15 +1309,15 @@ define dso_local noundef zeroext i1 @ConditionalLockDatabaseObject(i32 noundef %
 
 16:                                               ; preds = %4, %4, %14
   %17 = icmp ne i32 %13, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %17
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @UnlockDatabaseObject(i32 noundef %0, i32 noundef %1, i16 noundef zeroext %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = alloca %struct.LOCKTAG, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = load i32, ptr @MyDatabaseId, align 4
   store i32 %6, ptr %5, align 4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -1337,14 +1331,14 @@ define dso_local void @UnlockDatabaseObject(i32 noundef %0, i32 noundef %1, i16 
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 15
   store i8 1, ptr %11, align 1
   %12 = call zeroext i1 @LockRelease(ptr noundef nonnull %5, i32 noundef %3, i1 noundef zeroext false) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @LockSharedObject(i32 noundef %0, i32 noundef %1, i16 noundef zeroext %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = alloca %struct.LOCKTAG, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %0, ptr %6, align 4
@@ -1358,7 +1352,7 @@ define dso_local void @LockSharedObject(i32 noundef %0, i32 noundef %1, i16 noun
   store i8 1, ptr %10, align 1
   %11 = call i32 @LockAcquire(ptr noundef nonnull %5, i32 noundef %3, i1 noundef zeroext false, i1 noundef zeroext false) #8
   call void @AcceptInvalidationMessages() #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -1366,8 +1360,8 @@ define dso_local void @LockSharedObject(i32 noundef %0, i32 noundef %1, i16 noun
 define dso_local noundef zeroext i1 @ConditionalLockSharedObject(i32 noundef %0, i32 noundef %1, i16 noundef zeroext %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = alloca %struct.LOCKTAG, align 4
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %5, align 4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %0, ptr %7, align 4
@@ -1393,15 +1387,15 @@ define dso_local noundef zeroext i1 @ConditionalLockSharedObject(i32 noundef %0,
 
 15:                                               ; preds = %4, %4, %13
   %16 = icmp ne i32 %12, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %16
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @UnlockSharedObject(i32 noundef %0, i32 noundef %1, i16 noundef zeroext %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = alloca %struct.LOCKTAG, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %0, ptr %6, align 4
@@ -1414,14 +1408,14 @@ define dso_local void @UnlockSharedObject(i32 noundef %0, i32 noundef %1, i16 no
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 15
   store i8 1, ptr %10, align 1
   %11 = call zeroext i1 @LockRelease(ptr noundef nonnull %5, i32 noundef %3, i1 noundef zeroext false) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @LockSharedObjectForSession(i32 noundef %0, i32 noundef %1, i16 noundef zeroext %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = alloca %struct.LOCKTAG, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %0, ptr %6, align 4
@@ -1434,14 +1428,14 @@ define dso_local void @LockSharedObjectForSession(i32 noundef %0, i32 noundef %1
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 15
   store i8 1, ptr %10, align 1
   %11 = call i32 @LockAcquire(ptr noundef nonnull %5, i32 noundef %3, i1 noundef zeroext true, i1 noundef zeroext false) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @UnlockSharedObjectForSession(i32 noundef %0, i32 noundef %1, i16 noundef zeroext %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = alloca %struct.LOCKTAG, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %0, ptr %6, align 4
@@ -1454,14 +1448,14 @@ define dso_local void @UnlockSharedObjectForSession(i32 noundef %0, i32 noundef 
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 15
   store i8 1, ptr %10, align 1
   %11 = call zeroext i1 @LockRelease(ptr noundef nonnull %5, i32 noundef %3, i1 noundef zeroext true) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @LockApplyTransactionForSession(i32 noundef %0, i32 noundef %1, i16 noundef zeroext %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = alloca %struct.LOCKTAG, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = load i32, ptr @MyDatabaseId, align 4
   store i32 %6, ptr %5, align 4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -1475,14 +1469,14 @@ define dso_local void @LockApplyTransactionForSession(i32 noundef %0, i32 nounde
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 15
   store i8 1, ptr %11, align 1
   %12 = call i32 @LockAcquire(ptr noundef nonnull %5, i32 noundef %3, i1 noundef zeroext true, i1 noundef zeroext false) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @UnlockApplyTransactionForSession(i32 noundef %0, i32 noundef %1, i16 noundef zeroext %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = alloca %struct.LOCKTAG, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = load i32, ptr @MyDatabaseId, align 4
   store i32 %6, ptr %5, align 4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -1496,7 +1490,7 @@ define dso_local void @UnlockApplyTransactionForSession(i32 noundef %0, i32 noun
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 15
   store i8 1, ptr %11, align 1
   %12 = call zeroext i1 @LockRelease(ptr noundef nonnull %5, i32 noundef %3, i1 noundef zeroext true) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -1626,10 +1620,10 @@ define dso_local void @DescribeLockTag(ptr noundef %0, ptr noundef readonly capt
   ret void
 }
 
-declare void @appendStringInfo(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
+declare void @appendStringInfo(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local ptr @GetLockNameFromTagType(i16 noundef zeroext %0) local_unnamed_addr #6 {
+define dso_local ptr @GetLockNameFromTagType(i16 noundef zeroext %0) local_unnamed_addr #5 {
   %2 = icmp ugt i16 %0, 11
   br i1 %2, label %7, label %3
 
@@ -1644,22 +1638,28 @@ define dso_local ptr @GetLockNameFromTagType(i16 noundef zeroext %0) local_unnam
   ret ptr %.0
 }
 
-declare zeroext i1 @IsSharedRelation(i32 noundef) local_unnamed_addr #3
+declare zeroext i1 @IsSharedRelation(i32 noundef) local_unnamed_addr #2
 
-declare i32 @set_errcontext_domain(ptr noundef) local_unnamed_addr #3
+declare i32 @set_errcontext_domain(ptr noundef) local_unnamed_addr #2
 
-declare i32 @errcontext_msg(ptr noundef, ...) local_unnamed_addr #3
+declare i32 @errcontext_msg(ptr noundef, ...) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #7
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { nounwind }
 

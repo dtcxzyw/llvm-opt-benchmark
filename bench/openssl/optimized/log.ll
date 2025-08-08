@@ -34,7 +34,7 @@ define void @trace_log_message(i32 noundef %0, ptr noundef %1, i32 noundef %2, p
   %5 = alloca [80 x i8], align 16
   %6 = alloca [1 x %struct.__va_list_tag], align 16
   %7 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.va_start.p0(ptr nonnull %6)
   %8 = icmp sgt i32 %0, -1
   br i1 %8, label %9, label %15
@@ -46,13 +46,13 @@ define void @trace_log_message(i32 noundef %0, ptr noundef %1, i32 noundef %2, p
 
 11:                                               ; preds = %9
   %12 = call ptr @OSSL_trace_begin(i32 noundef %0) #5
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.va_copy.p0(ptr nonnull %7, ptr nonnull %6)
   %13 = call i32 @BIO_vprintf(ptr noundef %12, ptr noundef %3, ptr noundef nonnull %7) #5
   call void @llvm.va_end.p0(ptr nonnull %7)
   %14 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %12, ptr noundef nonnull @.str.1) #5
   call void @OSSL_trace_end(i32 noundef %0, ptr noundef %12) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %15
 
 15:                                               ; preds = %11, %9, %4
@@ -61,7 +61,7 @@ define void @trace_log_message(i32 noundef %0, ptr noundef %1, i32 noundef %2, p
   br i1 %17, label %30, label %18
 
 18:                                               ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %19 = call ptr @BIO_f_prefix() #5
   %20 = call ptr @BIO_new(ptr noundef %19) #5
   %21 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %5, i64 noundef 80, ptr noundef nonnull @.str.2, ptr noundef %1) #5
@@ -73,12 +73,12 @@ define void @trace_log_message(i32 noundef %0, ptr noundef %1, i32 noundef %2, p
   %27 = call i64 @BIO_ctrl(ptr noundef %24, i32 noundef 11, i64 noundef 0, ptr noundef null) #5
   %28 = call ptr @BIO_pop(ptr noundef %20) #5
   %29 = call i32 @BIO_free(ptr noundef %20) #5
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %30
 
 30:                                               ; preds = %15, %18
   call void @llvm.va_end.p0(ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -88,50 +88,50 @@ define range(i32 0, 9) i32 @log_get_verbosity() local_unnamed_addr #1 {
   ret i32 %1
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #2
+
+declare i32 @OSSL_trace_enabled(i32 noundef) local_unnamed_addr #3
+
+declare ptr @OSSL_trace_begin(i32 noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_copy.p0(ptr, ptr) #2
+
+declare i32 @BIO_vprintf(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #2
+
+declare i32 @BIO_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
+
+declare void @OSSL_trace_end(i32 noundef, ptr noundef) local_unnamed_addr #3
+
+declare ptr @BIO_new(ptr noundef) local_unnamed_addr #3
+
+declare ptr @BIO_f_prefix() local_unnamed_addr #3
+
+declare i32 @BIO_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #3
+
+declare i64 @BIO_ctrl(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
+
+declare ptr @BIO_push(ptr noundef, ptr noundef) local_unnamed_addr #3
+
+declare ptr @BIO_pop(ptr noundef) local_unnamed_addr #3
+
+declare i32 @BIO_free(ptr noundef) local_unnamed_addr #3
+
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #3
-
-declare i32 @OSSL_trace_enabled(i32 noundef) local_unnamed_addr #4
-
-declare ptr @OSSL_trace_begin(i32 noundef) local_unnamed_addr #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_copy.p0(ptr, ptr) #3
-
-declare i32 @BIO_vprintf(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #3
-
-declare i32 @BIO_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
-
-declare void @OSSL_trace_end(i32 noundef, ptr noundef) local_unnamed_addr #4
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
-declare ptr @BIO_new(ptr noundef) local_unnamed_addr #4
-
-declare ptr @BIO_f_prefix() local_unnamed_addr #4
-
-declare i32 @BIO_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #4
-
-declare i64 @BIO_ctrl(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
-
-declare ptr @BIO_push(ptr noundef, ptr noundef) local_unnamed_addr #4
-
-declare ptr @BIO_pop(ptr noundef) local_unnamed_addr #4
-
-declare i32 @BIO_free(ptr noundef) local_unnamed_addr #4
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

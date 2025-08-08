@@ -1164,13 +1164,7 @@ Ver_ParseStop.exit:                               ; preds = %Vec_IntFree.exit.i,
   ret ptr %432
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare void @Hop_ManStop(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @Hop_ManStop(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @Ver_ParsePrintErrorMessage(ptr noundef initializes((76, 80)) %0) local_unnamed_addr #0 {
@@ -1214,9 +1208,9 @@ Ver_ParseFreeData.exit:                           ; preds = %18, %21
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
-declare i32 @Ver_StreamGetLineNumber(ptr noundef) local_unnamed_addr #2
+declare i32 @Ver_StreamGetLineNumber(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @Ver_ParseFindOrCreateNetwork(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -1244,13 +1238,13 @@ define ptr @Ver_ParseFindOrCreateNetwork(ptr noundef readonly captures(none) %0,
   ret ptr %.0
 }
 
-declare ptr @Abc_DesFindModelByName(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @Abc_DesFindModelByName(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @Abc_NtkAlloc(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @Abc_NtkAlloc(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @Extra_UtilStrsav(ptr noundef) local_unnamed_addr #2
+declare ptr @Extra_UtilStrsav(ptr noundef) local_unnamed_addr #1
 
-declare i32 @Abc_DesAddModel(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @Abc_DesAddModel(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @Ver_ParseFindNet(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -1283,12 +1277,12 @@ define ptr @Ver_ParseFindNet(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   ret ptr %.0
 }
 
-declare ptr @Abc_NtkFindNet(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @Abc_NtkFindNet(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) #3
 
-declare ptr @Abc_NtkFindOrCreateNet(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @Abc_NtkFindOrCreateNet(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @Ver_ParseConvertNetwork(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -1411,12 +1405,12 @@ Ver_ParsePrintErrorMessage.exit:                  ; preds = %65, %62, %35, %32, 
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
+declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @Ver_ParseLookupSuffix(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 -1, ptr %3, align 4, !tbaa !37
   store i32 -1, ptr %2, align 4, !tbaa !37
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -1439,11 +1433,11 @@ define noundef i32 @Ver_ParseLookupSuffix(ptr noundef readonly captures(none) %0
   br label %16
 
 16:                                               ; preds = %9, %4, %11
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 1
 }
 
-declare i32 @st__lookup(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @st__lookup(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @Ver_ParseInsertsSuffix(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
@@ -1477,11 +1471,11 @@ define noundef i32 @Ver_ParseInsertsSuffix(ptr noundef captures(none) %0, ptr no
   ret i32 1
 }
 
-declare ptr @st__init_table(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @st__init_table(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @st__strhash(ptr noundef, i32 noundef) #2
+declare i32 @st__strhash(ptr noundef, i32 noundef) #1
 
-declare i32 @st__insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @st__insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @Ver_ParseSignalPrefix(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
@@ -1769,7 +1763,7 @@ Ver_ParsePrintErrorMessage.exit:                  ; preds = %62, %59, %31, %28, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @Ver_ParseConstant(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
@@ -2080,7 +2074,7 @@ Ver_ParsePrintErrorMessage.exit:                  ; preds = %145, %52, %79, %76,
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind willreturn uwtable
-define internal fastcc void @Vec_PtrPush(ptr noundef captures(none) %0, ptr noundef %1) unnamed_addr #5 {
+define internal fastcc void @Vec_PtrPush(ptr noundef captures(none) %0, ptr noundef %1) unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4, !tbaa !20
   %5 = load i32, ptr %0, align 8, !tbaa !22
@@ -2196,18 +2190,18 @@ define i32 @Ver_FindGateInput(ptr noundef %0, ptr noundef readonly captures(none
   ret i32 %.015
 }
 
-declare ptr @Mio_GateReadPins(ptr noundef) local_unnamed_addr #2
+declare ptr @Mio_GateReadPins(ptr noundef) local_unnamed_addr #1
 
-declare ptr @Mio_PinReadName(ptr noundef) local_unnamed_addr #2
+declare ptr @Mio_PinReadName(ptr noundef) local_unnamed_addr #1
 
-declare ptr @Mio_PinReadNext(ptr noundef) local_unnamed_addr #2
+declare ptr @Mio_PinReadNext(ptr noundef) local_unnamed_addr #1
 
-declare ptr @Mio_GateReadOutName(ptr noundef) local_unnamed_addr #2
+declare ptr @Mio_GateReadOutName(ptr noundef) local_unnamed_addr #1
 
-declare ptr @Mio_GateReadTwin(ptr noundef) local_unnamed_addr #2
+declare ptr @Mio_GateReadTwin(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @Ver_ParseFreeBundle(ptr noundef captures(none) %0) local_unnamed_addr #6 {
+define void @Ver_ParseFreeBundle(ptr noundef captures(none) %0) local_unnamed_addr #5 {
   %2 = load ptr, ptr %0, align 8, !tbaa !81
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %4, label %3
@@ -2236,7 +2230,7 @@ Vec_PtrFree.exit:                                 ; preds = %4, %9
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 3) i32 @Ver_ParseConnectDefBoxes(ptr noundef %0) local_unnamed_addr #0 {
@@ -3042,7 +3036,7 @@ Ver_ParseFreeBundle.exit384.i:                    ; preds = %188, %183
   br i1 %335, label %.thread406.i, label %341
 
 .thread406.i:                                     ; preds = %313, %333, %.critedge30.i, %321, %.critedge28.thread.i
-  call void @llvm.lifetime.start.p0(i64 1000, ptr nonnull %2) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %336 = call ptr @Abc_NtkCreateObj(ptr noundef %35, i32 noundef 5) #20
   %337 = getelementptr i8, ptr %336, i64 16
   %.val370.i = load i32, ptr %337, align 8, !tbaa !119
@@ -3050,7 +3044,7 @@ Ver_ParseFreeBundle.exit384.i:                    ; preds = %188, %183
   %339 = call ptr @Abc_NtkFindOrCreateNet(ptr noundef %35, ptr noundef nonnull %2) #20
   call void @Abc_ObjAddFanin(ptr noundef %336, ptr noundef nonnull %21) #20
   call void @Abc_ObjAddFanin(ptr noundef %339, ptr noundef %336) #20
-  call void @llvm.lifetime.end.p0(i64 1000, ptr nonnull %2) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %340 = add nsw i32 %.6286469.i, 1
   br label %.critedge32.i
 
@@ -3576,7 +3570,7 @@ Ver_NtkIsDefined.exit.thread:                     ; preds = %40, %Vec_PtrPush.ex
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Ver_ParseReportUndefBoxes(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 {
+define void @Ver_ParseReportUndefBoxes(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8, !tbaa !33
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -3780,7 +3774,7 @@ Ver_NtkIsDefined.exit74.thread:                   ; preds = %.lr.ph93, %Ver_NtkI
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #3
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @Ver_ParseCheckNondrivenNets(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -3909,10 +3903,10 @@ define range(i32 0, 2) i32 @Ver_ParseCheckNondrivenNets(ptr noundef readonly cap
   ret i32 %.033
 }
 
-declare ptr @Abc_ObjName(ptr noundef) local_unnamed_addr #2
+declare ptr @Abc_ObjName(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @Ver_ParseFormalNetsAreDriven(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #9 {
+define range(i32 0, 2) i32 @Ver_ParseFormalNetsAreDriven(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %4 = load ptr, ptr %3, align 8, !tbaa !72
   %5 = getelementptr i8, ptr %4, i64 4
@@ -4009,7 +4003,7 @@ define range(i32 0, 2) i32 @Ver_ParseFormalNetsAreDriven(ptr noundef readonly ca
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(read, inaccessiblemem: none) uwtable
-define ptr @Ver_ParseGetNondrivenBundle(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #9 {
+define ptr @Ver_ParseGetNondrivenBundle(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %4 = load ptr, ptr %3, align 8, !tbaa !72
   %5 = getelementptr i8, ptr %4, i64 4
@@ -4167,7 +4161,7 @@ Ver_ParseFormalNetsAreDriven.exit.us.us:          ; preds = %55, %26
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @Ver_ParseDriveFormal(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca [200 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %4) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !78
   %7 = getelementptr i8, ptr %6, i64 4
@@ -4425,16 +4419,16 @@ Ver_ParseFreeBundle.exit:                         ; preds = %101, %105
 
 Ver_ParsePrintErrorMessage.exit:                  ; preds = %91, %88, %115, %.critedge2
   %.070 = phi i32 [ 1, %.critedge2 ], [ 1, %115 ], [ 0, %88 ], [ 0, %91 ]
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %4) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.070
 }
 
-declare void @Abc_ObjAddFanin(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @Abc_ObjAddFanin(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @Ver_ParseDriveInputs(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca [200 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %3) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr i8, ptr %1, i64 4
   %.val113160 = load i32, ptr %4, align 4, !tbaa !20
   %5 = icmp sgt i32 %.val113160, 0
@@ -4772,12 +4766,12 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge12, %142
 
 .critedge:                                        ; preds = %.critedge10, %2, %54, %51
   %.0102 = phi i32 [ 0, %51 ], [ 0, %54 ], [ 1, %2 ], [ 1, %.critedge10 ]
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %3) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0102
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, -2147483648) i32 @Ver_ParseMaxBoxSize(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 {
+define range(i32 0, -2147483648) i32 @Ver_ParseMaxBoxSize(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
   %2 = getelementptr i8, ptr %0, i64 4
   %.val19 = load i32, ptr %2, align 4, !tbaa !20
   %3 = icmp sgt i32 %.val19, 0
@@ -4835,7 +4829,7 @@ define range(i32 0, -2147483648) i32 @Ver_ParseMaxBoxSize(ptr noundef readonly c
 ; Function Attrs: nounwind uwtable
 define void @Ver_ParsePrintLog(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca [1000 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 1000, ptr nonnull %2) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   %5 = tail call ptr @Extra_FileNameGeneric(ptr noundef %4) #20
@@ -5318,46 +5312,46 @@ Ver_NtkIsDefined.exit231:                         ; preds = %177
 .critedge16:                                      ; preds = %.critedge18, %147, %145, %.critedge8
   %212 = tail call i32 @fclose(ptr noundef %9)
   %213 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.35, ptr noundef nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 1000, ptr nonnull %2) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
-declare ptr @Extra_FileNameGeneric(ptr noundef) local_unnamed_addr #2
+declare ptr @Extra_FileNameGeneric(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #3
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #3
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #11
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #10
 
-declare ptr @Ver_StreamAlloc(ptr noundef) local_unnamed_addr #2
+declare ptr @Ver_StreamAlloc(ptr noundef) local_unnamed_addr #1
 
-declare ptr @Abc_DesCreate(ptr noundef) local_unnamed_addr #2
+declare ptr @Abc_DesCreate(ptr noundef) local_unnamed_addr #1
 
-declare ptr @Abc_FrameReadLibGen(...) local_unnamed_addr #2
+declare ptr @Abc_FrameReadLibGen(...) local_unnamed_addr #1
 
-declare void @Extra_ProgressBarStop(ptr noundef) local_unnamed_addr #2
+declare void @Extra_ProgressBarStop(ptr noundef) local_unnamed_addr #1
 
-declare void @Ver_StreamFree(ptr noundef) local_unnamed_addr #2
+declare void @Ver_StreamFree(ptr noundef) local_unnamed_addr #1
 
-declare ptr @Extra_ProgressBarStart(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @Extra_ProgressBarStart(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @Ver_StreamGetFileSize(ptr noundef) local_unnamed_addr #2
+declare i32 @Ver_StreamGetFileSize(ptr noundef) local_unnamed_addr #1
 
-declare ptr @Ver_ParseGetName(ptr noundef) local_unnamed_addr #2
+declare ptr @Ver_ParseGetName(ptr noundef) local_unnamed_addr #1
 
-declare void @Abc_NtkFinalizeRead(ptr noundef) local_unnamed_addr #2
+declare void @Abc_NtkFinalizeRead(ptr noundef) local_unnamed_addr #1
 
-declare i32 @Abc_NtkCheckRead(ptr noundef) local_unnamed_addr #2
+declare i32 @Abc_NtkCheckRead(ptr noundef) local_unnamed_addr #1
 
-declare signext i8 @Ver_StreamPopChar(ptr noundef) local_unnamed_addr #2
+declare signext i8 @Ver_StreamPopChar(ptr noundef) local_unnamed_addr #1
 
-declare i32 @Ver_ParseSkipComments(ptr noundef) local_unnamed_addr #2
+declare i32 @Ver_ParseSkipComments(ptr noundef) local_unnamed_addr #1
 
-declare i32 @Ver_StreamGetCurPosition(ptr noundef) local_unnamed_addr #2
+declare i32 @Ver_StreamGetCurPosition(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @Ver_ParseSignal(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 1, 6) %2) unnamed_addr #0 {
@@ -5367,10 +5361,10 @@ define internal fastcc range(i32 0, 2) i32 @Ver_ParseSignal(ptr noundef %0, ptr 
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 1000, ptr nonnull %4) #20
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #20
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #20
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 -1, ptr %7, align 4, !tbaa !37
   store i32 -1, ptr %6, align 4, !tbaa !37
   %10 = tail call ptr @Ver_ParseGetName(ptr noundef %0) #20
@@ -5640,10 +5634,10 @@ Ver_ParseInsertsSuffix.exit.split.split.split:    ; preds = %Ver_ParseInsertsSuf
 
 Ver_ParsePrintErrorMessage.exit:                  ; preds = %.backedge, %31, %.loopexit, %3, %119, %116
   %.049 = phi i32 [ 0, %116 ], [ 0, %119 ], [ 0, %3 ], [ 0, %.backedge ], [ 0, %31 ], [ 1, %.loopexit ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #20
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #20
-  call void @llvm.lifetime.end.p0(i64 1000, ptr nonnull %4) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.049
 }
 
@@ -6255,8 +6249,8 @@ define internal fastcc range(i32 0, 2) i32 @Ver_ParseAssign(ptr noundef %0, ptr 
   %3 = alloca i32, align 4
   %4 = alloca [1000 x i8], align 16
   %5 = alloca [2000 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 1000, ptr nonnull %4) #20
-  call void @llvm.lifetime.start.p0(i64 2000, ptr nonnull %5) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8, !tbaa !17
   %8 = load i32, ptr %0, align 8, !tbaa !38
@@ -6303,7 +6297,7 @@ sub_1:                                            ; preds = %sub_0
   br i1 %27, label %Ver_ParsePrintErrorMessage.exit, label %sub_0
 
 .tail.thread:                                     ; preds = %sub_1, %sub_0, %.tail
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %28 = load ptr, ptr %12, align 8, !tbaa !92
   %29 = icmp eq ptr %28, null
   br i1 %29, label %Ver_ParseLookupSuffix.exit, label %30
@@ -6323,7 +6317,7 @@ sub_1:                                            ; preds = %sub_0
 Ver_ParseLookupSuffix.exit:                       ; preds = %.tail.thread, %30, %32
   %.0284 = phi i32 [ -1, %.tail.thread ], [ -1, %30 ], [ %35, %32 ]
   %.0 = phi i32 [ -1, %.tail.thread ], [ -1, %30 ], [ %36, %32 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %37 = icmp sgt i32 %.0284, %.0
   %38 = sub nsw i32 %.0284, %.0
   %.in = call i32 @llvm.abs.i32(i32 %38, i1 true)
@@ -7005,8 +6999,8 @@ Ver_ParseFindNet.exit256.thread300:               ; preds = %298, %296, %292, %V
 
 Ver_ParsePrintErrorMessage.exit:                  ; preds = %.backedge, %55, %63, %134, %.loopexit, %.preheader313, %325, %322, %108, %105, %2, %275, %242, %Ver_ParseFindNet.exit241.thread, %139, %132, %Ver_ParseFindNet.exit233.thread, %70, %61, %53
   %.0152 = phi i32 [ 0, %53 ], [ 0, %70 ], [ 0, %61 ], [ 0, %Ver_ParseFindNet.exit233.thread ], [ 0, %132 ], [ 0, %139 ], [ 0, %Ver_ParseFindNet.exit241.thread ], [ 0, %242 ], [ 0, %275 ], [ 0, %2 ], [ 0, %105 ], [ 0, %108 ], [ 0, %322 ], [ 0, %325 ], [ 0, %.preheader313 ], [ 0, %.backedge ], [ 0, %55 ], [ 0, %63 ], [ 0, %134 ], [ 1, %.loopexit ]
-  call void @llvm.lifetime.end.p0(i64 2000, ptr nonnull %5) #20
-  call void @llvm.lifetime.end.p0(i64 1000, ptr nonnull %4) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0152
 }
 
@@ -7592,7 +7586,7 @@ Ver_ParsePrintErrorMessage.exit:                  ; preds = %13, %140, %72, %70,
   ret i32 %.0
 }
 
-declare ptr @Mio_LibraryReadGateByName(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @Mio_LibraryReadGateByName(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @Ver_ParseGate(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2) unnamed_addr #0 {
@@ -8035,11 +8029,11 @@ define internal fastcc range(i32 0, 2) i32 @Ver_ParseBox(ptr noundef %0, ptr nou
   %6 = alloca [1000 x i8], align 16
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 1000, ptr nonnull %6) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #20
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %11 = tail call ptr @Ver_ParseGetName(ptr noundef %0) #20
   %12 = icmp eq ptr %11, null
   br i1 %12, label %Ver_ParsePrintErrorMessage.exit, label %13
@@ -8435,7 +8429,7 @@ Vec_PtrPush.exit250:                              ; preds = %.Vec_PtrGrow.exit11
   br label %219
 
 207:                                              ; preds = %203, %197
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 -1, ptr %8, align 4, !tbaa !37
   store i32 -1, ptr %7, align 4, !tbaa !37
   %208 = load ptr, ptr %46, align 8, !tbaa !92
@@ -8459,7 +8453,7 @@ Vec_PtrPush.exit250:                              ; preds = %.Vec_PtrGrow.exit11
 Ver_ParseLookupSuffix.exit:                       ; preds = %207, %210, %212
   %217 = phi i32 [ -1, %207 ], [ -1, %210 ], [ %216, %212 ]
   %218 = phi i32 [ -1, %207 ], [ -1, %210 ], [ %215, %212 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %219
 
 219:                                              ; preds = %Ver_ParseLookupSuffix.exit, %205
@@ -8874,7 +8868,7 @@ Ver_ParseFindNet.exit299:                         ; preds = %396, %398, %400
   br i1 %403, label %Ver_ParseFindNet.exit299.thread, label %Ver_ParseFindNet.exit299.thread335
 
 Ver_ParseFindNet.exit299.thread:                  ; preds = %400, %Ver_ParseFindNet.exit299
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 -1, ptr %8, align 4, !tbaa !37
   store i32 -1, ptr %7, align 4, !tbaa !37
   %404 = load ptr, ptr %46, align 8, !tbaa !92
@@ -8893,11 +8887,11 @@ Ver_ParseLookupSuffix.exit301.thread:             ; preds = %406
   store i32 %410, ptr %7, align 4, !tbaa !37
   %411 = and i32 %408, 255
   store i32 %411, ptr %8, align 4, !tbaa !37
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %427
 
 Ver_ParseLookupSuffix.exit301:                    ; preds = %Ver_ParseFindNet.exit299.thread, %406
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %412 = call i32 @Ver_ParseSignalSuffix(ptr noundef nonnull %0, ptr noundef nonnull %355, ptr noundef nonnull %7, ptr noundef nonnull %8)
   %413 = load i32, ptr %7, align 4, !tbaa !37
   %414 = icmp eq i32 %413, -1
@@ -9187,9 +9181,9 @@ Vec_PtrPush.exit323:                              ; preds = %.Vec_PtrGrow.exit11
 
 Ver_ParsePrintErrorMessage.exit:                  ; preds = %354, %91, %123, %108, %311, %308, %160, %157, %38, %35, %533, %3, %536, %527, %519, %445, %423, %350, %239, %97, %87
   %.0190 = phi i32 [ 0, %87 ], [ 0, %97 ], [ 0, %519 ], [ 0, %536 ], [ 0, %527 ], [ 0, %350 ], [ 0, %239 ], [ 0, %423 ], [ 0, %445 ], [ 0, %3 ], [ 1, %533 ], [ 0, %35 ], [ 0, %38 ], [ 0, %157 ], [ 0, %160 ], [ 0, %308 ], [ 0, %311 ], [ 0, %108 ], [ 0, %123 ], [ 0, %91 ], [ 0, %354 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #20
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #20
-  call void @llvm.lifetime.end.p0(i64 1000, ptr nonnull %6) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0190
 }
 
@@ -9197,8 +9191,8 @@ Ver_ParsePrintErrorMessage.exit:                  ; preds = %354, %91, %123, %10
 define internal fastcc void @Ver_ParseRemoveSuffixTable(ptr noundef captures(none) %0) unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #20
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8, !tbaa !92
   %6 = icmp eq ptr %5, null
@@ -9233,22 +9227,22 @@ define internal fastcc void @Ver_ParseRemoveSuffixTable(ptr noundef captures(non
   br i1 %.not, label %._crit_edge, label %.critedge, !llvm.loop !185
 
 15:                                               ; preds = %1, %._crit_edge
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
-declare void @Extra_ProgressBarUpdate_int(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @Extra_ProgressBarUpdate_int(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @Ver_StreamMove(ptr noundef) local_unnamed_addr #2
+declare void @Ver_StreamMove(ptr noundef) local_unnamed_addr #1
 
-declare ptr @Hop_CreateAnd(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @Hop_CreateAnd(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @Hop_CreateOr(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @Hop_CreateOr(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @Hop_CreateExor(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @Hop_CreateExor(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @Abc_NtkCreateObj(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @Abc_NtkCreateObj(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @Ver_ParseCreateLatch(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #0 {
@@ -9266,35 +9260,35 @@ define internal fastcc noundef ptr @Ver_ParseCreateLatch(ptr noundef %0, ptr nou
   ret ptr %5
 }
 
-declare ptr @Abc_ObjAssignName(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @Abc_ObjAssignName(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #12
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #11
 
-declare ptr @Abc_NtkCreateNodeBuf(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @Abc_NtkCreateNodeBuf(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @Ver_StreamGetWord(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @Ver_StreamGetWord(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @Mio_LibraryReadConst0(ptr noundef) local_unnamed_addr #2
+declare ptr @Mio_LibraryReadConst0(ptr noundef) local_unnamed_addr #1
 
-declare ptr @Mio_LibraryReadConst1(ptr noundef) local_unnamed_addr #2
+declare ptr @Mio_LibraryReadConst1(ptr noundef) local_unnamed_addr #1
 
-declare ptr @Mio_LibraryReadBuf(ptr noundef) local_unnamed_addr #2
+declare ptr @Mio_LibraryReadBuf(ptr noundef) local_unnamed_addr #1
 
-declare ptr @Ver_FormulaReduction(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @Ver_FormulaReduction(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @Ver_FormulaParser(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @Ver_FormulaParser(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @Ver_StreamSkipToChars(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @Ver_StreamSkipToChars(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @Abc_NtkCreateNodeInv(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @Abc_NtkCreateNodeInv(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @Mio_GateReadPinNum(ptr noundef) local_unnamed_addr #2
+declare i32 @Mio_GateReadPinNum(ptr noundef) local_unnamed_addr #1
 
-declare ptr @Mio_GateReadName(ptr noundef) local_unnamed_addr #2
+declare ptr @Mio_GateReadName(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: inlinehint mustprogress nounwind willreturn uwtable
-define internal fastcc void @Vec_IntPush(ptr noundef captures(none) %0, i32 noundef %1) unnamed_addr #5 {
+define internal fastcc void @Vec_IntPush(ptr noundef captures(none) %0, i32 noundef %1) unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4, !tbaa !26
   %5 = load i32, ptr %0, align 8, !tbaa !29
@@ -9365,25 +9359,31 @@ Vec_IntGrow.exit10:                               ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #13
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #12
 
-declare signext i8 @Ver_StreamScanChar(ptr noundef) local_unnamed_addr #2
+declare signext i8 @Ver_StreamScanChar(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #3
 
-declare ptr @st__init_gen(ptr noundef) local_unnamed_addr #2
+declare ptr @st__init_gen(ptr noundef) local_unnamed_addr #1
 
-declare i32 @st__gen(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @st__gen(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @st__free_gen(ptr noundef) local_unnamed_addr #2
+declare void @st__free_gen(ptr noundef) local_unnamed_addr #1
 
-declare void @st__free_table(ptr noundef) local_unnamed_addr #2
+declare void @st__free_table(ptr noundef) local_unnamed_addr #1
 
-declare void @Abc_DesFree(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @Abc_DesFree(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #14
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #13
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #15
@@ -9410,20 +9410,20 @@ declare i32 @llvm.smax.i32(i32, i32) #18
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #19
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { inlinehint mustprogress nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nofree norecurse nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { inlinehint mustprogress nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree norecurse nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #15 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #16 = { nofree nounwind }
 attributes #17 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }

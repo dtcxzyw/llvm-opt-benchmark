@@ -192,13 +192,13 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L17_Tf_RegistryAdd17E
 define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction17EPNS_6TfTypeEPv(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::Tf_BaseTypeInfos", align 8
   %4 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::Tf_TypeCastFunctions", align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr @_ZTIN32pxrInternal_v0_24__pxrReserved__16UsdAPISchemaBaseE, ptr %3, align 8
   store ptr @_ZN32pxrInternal_v0_24__pxrReserved__15Tf_CastToParentINS_13UsdLuxListAPIENS_16UsdAPISchemaBaseEEEPvS3_b, ptr %4, align 8
   %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__6TfType11_DefineImplERKSt9type_infoPPS2_PPFPvS6_bEmmbb(ptr noundef nonnull align 8 dereferenceable(16) @_ZTIN32pxrInternal_v0_24__pxrReserved__13UsdLuxListAPIE, ptr noundef nonnull %3, ptr noundef nonnull %4, i64 noundef 1, i64 noundef 32, i1 noundef zeroext false, i1 noundef zeroext false)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -2074,7 +2074,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_16UsdLuxTokensTypeENS_27
   %169 = load ptr, ptr %12, align 8
   %170 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %171 = load ptr, ptr %170, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %2, ptr %6, align 8
   %.not6.i.i = icmp eq ptr %169, %171
   br i1 %.not6.i.i, label %.loopexit129, label %.lr.ph.i.i
@@ -2094,7 +2094,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_16UsdLuxTokensTypeENS_27
   br i1 %.not.i.i42, label %.loopexit129, label %173, !llvm.loop !11
 
 .loopexit129:                                     ; preds = %.noexc43, %168
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %176 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__12UsdLuxTokensE seq_cst, align 8
   %177 = inttoptr i64 %176 to ptr
   %.not.i.i44 = icmp eq i64 %176, 0
@@ -2472,14 +2472,14 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7GetPathEv.exit64: ; preds = %_Z
 _ZN32pxrInternal_v0_24__pxrReserved__aaERKNS_24Usd_PrimFlagsConjunctionENS_8Usd_TermE.exit: ; preds = %349, %336, %334, %282
   %spec.select = select i1 %18, i64 101, i64 97
   %spec.select128 = select i1 %18, i64 8261, i64 8257
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %spec.select, ptr %5, align 8, !noalias !16
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %spec.select128, ptr %.sroa.6.0..sroa_idx.i, align 8, !noalias !16
   %.sroa.8.0..sroa_idx.i87 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 0, ptr %.sroa.8.0..sroa_idx.i87, align 8, !noalias !16
   call void @_ZNK32pxrInternal_v0_24__pxrReserved__7UsdPrim17_MakeSiblingRangeERKNS_22Usd_PrimFlagsPredicateE(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::UsdPrimSiblingRange") align 8 %14, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(17) %5)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.experimental.noalias.scope.decl(metadata !19)
   %355 = load ptr, ptr %14, align 8, !noalias !19
   store ptr %355, ptr %15, align 8, !alias.scope !19
@@ -2713,7 +2713,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__22UsdPrimSiblingIteratorD2Ev.exit.i: ; pred
   br label %.body96
 
 _ZNK32pxrInternal_v0_24__pxrReserved__22UsdPrimSiblingIteratorneERKS0_.exit.thread: ; preds = %409, %413, %403, %407, %_ZNK32pxrInternal_v0_24__pxrReserved__22UsdPrimSiblingIteratorneERKS0_.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !25
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !25
   store ptr %405, ptr %4, align 8, !noalias !28
   %.not.i.i.i.i.i95 = icmp eq ptr %405, null
   br i1 %.not.i.i.i.i.i95, label %_ZN32pxrInternal_v0_24__pxrReserved__18Usd_PrimDataHandleC2EPKNS_12Usd_PrimDataE.exit.i.i, label %495
@@ -2750,7 +2750,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimC2ERKNS_18Usd_PrimDataHandleERKNS_7
   br label %.body96
 
 505:                                              ; preds = %502, %499, %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimC2ERKNS_18Usd_PrimDataHandleERKNS_7SdfPathE.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !25
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !25
   invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L9_TraverseERKNS_7UsdPrimENS_13UsdLuxListAPI11ComputeModeEPSt3setINS_7SdfPathESt4lessIS6_ESaIS6_EE(ptr noundef nonnull align 8 dereferenceable(32) %17, i32 noundef %1, ptr noundef %2)
           to label %506 unwind label %557
 
@@ -7572,10 +7572,10 @@ define internal void @_GLOBAL__sub_I_listAPI.cpp() #5 section ".text.startup" {
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #16

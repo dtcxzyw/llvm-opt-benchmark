@@ -4472,7 +4472,7 @@ if.else289:                                       ; preds = %if.then286
   br label %return
 
 if.end293:                                        ; preds = %if.end284
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %buffer.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buffer.i)
   %55 = add i16 %conv275, 6
   %or.cond.i = icmp ult i16 %55, 18
   %cmp625.i = icmp sgt i32 %i249.0.in193, 0
@@ -4570,7 +4570,7 @@ if.end56.i:                                       ; preds = %while.body.i
 
 _ZNK2EA4StdC10ScanfLocal11DoubleValue8ToDoubleEv.exit: ; preds = %for.end.i, %if.end56.i
   %retval.0.i = phi double [ %mul.i, %for.end.i ], [ %call.i, %if.end56.i ]
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %buffer.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buffer.i)
   %cmp295 = fcmp ogt double %retval.0.i, 0x7FEFFFFFFFFFFFFF
   br i1 %cmp295, label %if.end303.sink.split, label %if.else297
 
@@ -5851,7 +5851,7 @@ if.else289:                                       ; preds = %if.then286
   br label %return
 
 if.end293:                                        ; preds = %if.end284
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %buffer.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buffer.i)
   %44 = add i16 %conv275, 6
   %or.cond.i = icmp ult i16 %44, 18
   %cmp625.i = icmp sgt i32 %i249.0.in208, 0
@@ -5949,7 +5949,7 @@ if.end56.i:                                       ; preds = %while.body.i
 
 _ZNK2EA4StdC10ScanfLocal11DoubleValue8ToDoubleEv.exit: ; preds = %for.end.i, %if.end56.i
   %retval.0.i = phi double [ %mul.i, %for.end.i ], [ %call.i, %if.end56.i ]
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %buffer.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buffer.i)
   %cmp295 = fcmp ogt double %retval.0.i, 0x7FEFFFFFFFFFFFFF
   br i1 %cmp295, label %if.end303.sink.split, label %if.else297
 
@@ -7198,7 +7198,7 @@ if.else274:                                       ; preds = %if.then271
   br label %return
 
 if.end278:                                        ; preds = %if.end269
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %buffer.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buffer.i)
   %39 = add i16 %conv260, 6
   %or.cond.i = icmp ult i16 %39, 18
   %cmp625.i = icmp sgt i32 %i234.0.in214, 0
@@ -7296,7 +7296,7 @@ if.end56.i:                                       ; preds = %while.body.i
 
 _ZNK2EA4StdC10ScanfLocal11DoubleValue8ToDoubleEv.exit: ; preds = %for.end.i, %if.end56.i
   %retval.0.i = phi double [ %mul.i, %for.end.i ], [ %call.i, %if.end56.i ]
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %buffer.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buffer.i)
   %cmp280 = fcmp ogt double %retval.0.i, 0x7FEFFFFFFFFFFFFF
   br i1 %cmp280, label %if.end288.sink.split, label %if.else282
 
@@ -7324,10 +7324,10 @@ return:                                           ; preds = %38, %if.else256, %i
 declare i1 @llvm.is.fpclass.f64(double, i32 immarg) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -381,16 +381,10 @@ benchmark_static_init.exit:                       ; preds = %0, %1
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare i32 @wolfCrypt_Init() local_unnamed_addr #2
+declare i32 @wolfCrypt_Init() local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @benchmark_free() local_unnamed_addr #0 {
@@ -406,7 +400,7 @@ define dso_local i32 @benchmark_free() local_unnamed_addr #0 {
   ret i32 %1
 }
 
-declare i32 @wolfCrypt_Cleanup() local_unnamed_addr #2
+declare i32 @wolfCrypt_Cleanup() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @benchmark_test(ptr readnone captures(none) %0) local_unnamed_addr #0 {
@@ -963,10 +957,10 @@ define dso_local i32 @benchmark_test(ptr readnone captures(none) %0) local_unnam
   br i1 %.not149.i, label %.thread25.i, label %204
 
 204:                                              ; preds = %.thread92.i, %201
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %7, i8 11, i64 16, i1 false)
   call fastcc void @bench_hmac(i32 noundef 3, ptr noundef %7, i32 noundef 16, ptr noundef nonnull @.str.64)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.b97.pr.i = load i1, ptr @bench_all, align 4
   br i1 %.b97.pr.i, label %..thread25_crit_edge.i, label %207
 
@@ -981,10 +975,10 @@ define dso_local i32 @benchmark_test(ptr readnone captures(none) %0) local_unnam
   br i1 %.not150.i, label %.thread94.i, label %207
 
 207:                                              ; preds = %.thread25.i, %204
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %6) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %6, i8 11, i64 20, i1 false)
   call fastcc void @bench_hmac(i32 noundef 4, ptr noundef %6, i32 noundef 20, ptr noundef nonnull @.str.65)
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.b96.pre.i = load i1, ptr @bench_all, align 4
   br i1 %.b96.pre.i, label %..thread94.i_crit_edge, label %210
 
@@ -999,10 +993,10 @@ define dso_local i32 @benchmark_test(ptr readnone captures(none) %0) local_unnam
   br i1 %.not151.i, label %.thread27.i, label %210
 
 210:                                              ; preds = %.thread94.i, %207
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(28) %5, i8 11, i64 28, i1 false)
   call fastcc void @bench_hmac(i32 noundef 5, ptr noundef %5, i32 noundef 28, ptr noundef nonnull @.str.66)
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.b95.pr.i = load i1, ptr @bench_all, align 4
   br i1 %.b95.pr.i, label %..thread27_crit_edge.i, label %213
 
@@ -1017,10 +1011,10 @@ define dso_local i32 @benchmark_test(ptr readnone captures(none) %0) local_unnam
   br i1 %.not152.i, label %.thread96.i, label %213
 
 213:                                              ; preds = %.thread27.i, %210
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, i8 11, i64 32, i1 false)
   call fastcc void @bench_hmac(i32 noundef 6, ptr noundef %4, i32 noundef 32, ptr noundef nonnull @.str.67)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.b94.pre.i = load i1, ptr @bench_all, align 4
   br i1 %.b94.pre.i, label %..thread96.i_crit_edge, label %216
 
@@ -1035,10 +1029,10 @@ define dso_local i32 @benchmark_test(ptr readnone captures(none) %0) local_unnam
   br i1 %.not153.i, label %.thread29.i, label %216
 
 216:                                              ; preds = %.thread96.i, %213
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %3, i8 11, i64 48, i1 false)
   call fastcc void @bench_hmac(i32 noundef 7, ptr noundef %3, i32 noundef 48, ptr noundef nonnull @.str.68)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.b93.pr.i = load i1, ptr @bench_all, align 4
   br i1 %.b93.pr.i, label %..thread29_crit_edge.i, label %219
 
@@ -1053,10 +1047,10 @@ define dso_local i32 @benchmark_test(ptr readnone captures(none) %0) local_unnam
   br i1 %.not154.i, label %.thread98.i, label %219
 
 219:                                              ; preds = %.thread29.i, %216
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %2, i8 11, i64 64, i1 false)
   call fastcc void @bench_hmac(i32 noundef 8, ptr noundef %2, i32 noundef 64, ptr noundef nonnull @.str.69)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.b92.pre.i = load i1, ptr @bench_all, align 4
   br i1 %.b92.pre.i, label %..thread98.i_crit_edge, label %222
 
@@ -1248,7 +1242,7 @@ define dso_local void @bench_rng() local_unnamed_addr #0 {
   %1 = alloca %struct.timespec, align 8
   %2 = alloca %struct.timespec, align 8
   %3 = alloca %struct.WC_RNG, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 @wc_InitRng_ex(ptr noundef nonnull %3, ptr noundef null, i32 noundef -2) #16
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %6, label %8
@@ -1258,7 +1252,7 @@ define dso_local void @bench_rng() local_unnamed_addr #0 {
   br label %73
 
 8:                                                ; preds = %0
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %9 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %2) #16
   %10 = icmp slt i32 %9, 0
   br i1 %10, label %11, label %bench_stats_start.exit
@@ -1280,7 +1274,7 @@ bench_stats_start.exit:                           ; preds = %8
   %21 = sitofp i64 %20 to double
   %22 = fdiv double %21, 1.000000e+09
   %23 = fadd double %22, %18
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %24 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
   %25 = extractvalue { i32, i32 } %24, 0
   %26 = extractvalue { i32, i32 } %24, 1
@@ -1344,7 +1338,7 @@ bench_stats_start.exit:                           ; preds = %8
 ._crit_edge41:                                    ; preds = %._crit_edge, %34
   %.1.lcssa = phi i32 [ %.018, %34 ], [ %.2.lcssa, %._crit_edge ]
   %.017.lcssa = phi i32 [ 0, %34 ], [ %52, %._crit_edge ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %54 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %1) #16
   %55 = icmp slt i32 %54, 0
   br i1 %55, label %56, label %bench_stats_check.exit
@@ -1366,7 +1360,7 @@ bench_stats_check.exit:                           ; preds = %._crit_edge41
   %66 = sitofp i64 %65 to double
   %67 = fdiv double %66, 1.000000e+09
   %68 = fadd double %67, %64
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %69 = fsub double %68, %23
   %70 = fcmp uge double %69, 1.000000e+00
   br i1 %70, label %.loopexit, label %34, !llvm.loop !24
@@ -1380,22 +1374,22 @@ bench_stats_check.exit:                           ; preds = %._crit_edge41
   br label %73
 
 73:                                               ; preds = %.loopexit, %6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-declare i32 @wc_InitRng_ex(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_InitRng_ex(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #4
+declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #3
 
-declare i32 @wc_RNG_GenerateBlock(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_RNG_GenerateBlock(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @bench_stats_sym_finish(ptr noundef %0, i32 noundef %1, i32 noundef %2, double noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca %struct.timespec, align 8
   %7 = alloca [150 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 150, ptr nonnull %7) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @lng_index, align 4, !tbaa !4
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds [2 x [4 x ptr]], ptr @bench_result_words1, i64 0, i64 %9
@@ -1411,7 +1405,7 @@ define internal fastcc void @bench_stats_sym_finish(ptr noundef %0, i32 noundef 
   %19 = sub i64 %14, %18
   %20 = add i64 %19, %16
   store i64 %20, ptr %17, align 8, !tbaa !21
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %21 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %6) #16
   %22 = icmp slt i32 %21, 0
   br i1 %22, label %23, label %current_time.exit
@@ -1434,7 +1428,7 @@ current_time.exit:                                ; preds = %5
   %34 = sitofp i64 %33 to double
   %35 = fdiv double %34, 1.000000e+09
   %36 = fadd double %35, %31
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %37 = fsub double %36, %3
   %38 = uitofp i32 %2 to double
   %39 = fmul double %29, %38
@@ -1558,11 +1552,11 @@ get_blocktype.exit:                               ; preds = %.sink.split.i31, %5
 103:                                              ; preds = %101, %98
   %104 = load ptr, ptr @stdout, align 8, !tbaa !14
   %105 = call i32 @fflush(ptr noundef %104)
-  call void @llvm.lifetime.end.p0(i64 150, ptr nonnull %7) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
-declare i32 @wc_FreeRng(ptr noundef) local_unnamed_addr #2
+declare i32 @wc_FreeRng(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @bench_aescbc(i32 noundef %0) local_unnamed_addr #0 {
@@ -1592,7 +1586,7 @@ define internal fastcc void @bench_aescbc_internal(ptr noundef %0, i32 noundef r
   %11 = load ptr, ptr %10, align 8, !tbaa !8
   %12 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
   %13 = load ptr, ptr %12, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 848, ptr nonnull %9) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(848) %9, i8 0, i64 848, i1 false)
   %14 = call i32 @wc_AesInit(ptr noundef nonnull %9, ptr noundef null, i32 noundef -2) #16
   %.not41 = icmp eq i32 %14, 0
@@ -1612,7 +1606,7 @@ define internal fastcc void @bench_aescbc_internal(ptr noundef %0, i32 noundef r
   br label %.critedge50
 
 21:                                               ; preds = %17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %22 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %8) #16
   %23 = icmp slt i32 %22, 0
   br i1 %23, label %24, label %bench_stats_start.exit
@@ -1634,7 +1628,7 @@ bench_stats_start.exit:                           ; preds = %21
   %34 = sitofp i64 %33 to double
   %35 = fdiv double %34, 1.000000e+09
   %36 = fadd double %35, %31
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %37 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
   %38 = extractvalue { i32, i32 } %37, 0
   %39 = extractvalue { i32, i32 } %37, 1
@@ -1675,7 +1669,7 @@ bench_async_handle.exit:                          ; preds = %.lr.ph
 .critedge44._crit_edge:                           ; preds = %bench_async_handle.exit, %46
   %.073.lcssa = phi i32 [ 0, %46 ], [ %53, %bench_async_handle.exit ]
   %.1.lcssa = phi i32 [ %.0, %46 ], [ %50, %bench_async_handle.exit ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %56 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %7) #16
   %57 = icmp slt i32 %56, 0
   br i1 %57, label %58, label %bench_stats_check.exit
@@ -1697,7 +1691,7 @@ bench_stats_check.exit:                           ; preds = %.critedge44._crit_e
   %68 = sitofp i64 %67 to double
   %69 = fdiv double %68, 1.000000e+09
   %70 = fadd double %69, %66
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %71 = fsub double %70, %36
   %72 = fcmp uge double %71, 1.000000e+00
   br i1 %72, label %73, label %46, !llvm.loop !25
@@ -1714,7 +1708,7 @@ bench_stats_check.exit:                           ; preds = %.critedge44._crit_e
   br label %.critedge50
 
 .critedge46:                                      ; preds = %73
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %78 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %6) #16
   %79 = icmp slt i32 %78, 0
   br i1 %79, label %80, label %bench_stats_start.exit52
@@ -1736,7 +1730,7 @@ bench_stats_start.exit52:                         ; preds = %.critedge46
   %90 = sitofp i64 %89 to double
   %91 = fdiv double %90, 1.000000e+09
   %92 = fadd double %91, %87
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %93 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
   %94 = extractvalue { i32, i32 } %93, 0
   %95 = extractvalue { i32, i32 } %93, 1
@@ -1771,7 +1765,7 @@ bench_async_handle.exit54:                        ; preds = %.lr.ph107
 .critedge48._crit_edge:                           ; preds = %bench_async_handle.exit54, %101
   %.174.lcssa = phi i32 [ 0, %101 ], [ %107, %bench_async_handle.exit54 ]
   %.4.lcssa = phi i32 [ %.3, %101 ], [ %105, %bench_async_handle.exit54 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %110 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %5) #16
   %111 = icmp slt i32 %110, 0
   br i1 %111, label %112, label %bench_stats_check.exit55
@@ -1793,7 +1787,7 @@ bench_stats_check.exit55:                         ; preds = %.critedge48._crit_e
   %122 = sitofp i64 %121 to double
   %123 = fdiv double %122, 1.000000e+09
   %124 = fadd double %123, %120
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %125 = fsub double %124, %92
   %126 = fcmp uge double %125, 1.000000e+00
   br i1 %126, label %bench_async_handle.exit54.thread, label %101, !llvm.loop !26
@@ -1807,7 +1801,7 @@ bench_async_handle.exit54.thread:                 ; preds = %bench_stats_check.e
 
 .critedge50:                                      ; preds = %.thread, %bench_async_handle.exit54.thread, %76, %19, %15
   call void @wc_AesFree(ptr noundef nonnull %9) #16
-  call void @llvm.lifetime.end.p0(i64 848, ptr nonnull %9) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }
 
@@ -1859,10 +1853,10 @@ define internal fastcc void @bench_aesgcm_internal(ptr noundef %0, i32 noundef r
   %10 = alloca [1 x [1 x %struct.Aes]], align 16
   %11 = alloca [13 x i8], align 1
   %12 = alloca [16 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 848, ptr nonnull %9) #16
-  call void @llvm.lifetime.start.p0(i64 848, ptr nonnull %10) #16
-  call void @llvm.lifetime.start.p0(i64 13, ptr nonnull %11) #16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(848) %9, i8 0, i64 848, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(848) %10, i8 0, i64 848, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %11, i8 0, i64 13, i1 false)
@@ -1889,7 +1883,7 @@ define internal fastcc void @bench_aesgcm_internal(ptr noundef %0, i32 noundef r
   br label %148
 
 21:                                               ; preds = %17, %16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %22 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %8) #16
   %23 = icmp slt i32 %22, 0
   br i1 %23, label %24, label %bench_stats_start.exit
@@ -1911,7 +1905,7 @@ bench_stats_start.exit:                           ; preds = %21
   %34 = sitofp i64 %33 to double
   %35 = fdiv double %34, 1.000000e+09
   %36 = fadd double %35, %31
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %37 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
   %38 = extractvalue { i32, i32 } %37, 0
   %39 = extractvalue { i32, i32 } %37, 1
@@ -1966,7 +1960,7 @@ bench_async_handle.exit74:                        ; preds = %bench_async_handle.
 .critedge61._crit_edge:                           ; preds = %.critedge61, %48
   %.0102.lcssa = phi i32 [ 0, %48 ], [ %51, %.critedge61 ]
   %.3.lcssa = phi i32 [ %.2, %48 ], [ %62, %.critedge61 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %64 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %7) #16
   %65 = icmp slt i32 %64, 0
   br i1 %65, label %66, label %bench_stats_check.exit
@@ -1988,7 +1982,7 @@ bench_stats_check.exit:                           ; preds = %.critedge61._crit_e
   %76 = sitofp i64 %75 to double
   %77 = fdiv double %76, 1.000000e+09
   %78 = fadd double %77, %74
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %79 = fsub double %78, %36
   %80 = fcmp uge double %79, 1.000000e+00
   br i1 %80, label %.critedge63, label %48, !llvm.loop !27
@@ -2020,7 +2014,7 @@ bench_stats_check.exit:                           ; preds = %.critedge61._crit_e
   br label %148
 
 90:                                               ; preds = %86, %85
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %91 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %6) #16
   %92 = icmp slt i32 %91, 0
   br i1 %92, label %93, label %bench_stats_start.exit75
@@ -2042,7 +2036,7 @@ bench_stats_start.exit75:                         ; preds = %90
   %103 = sitofp i64 %102 to double
   %104 = fdiv double %103, 1.000000e+09
   %105 = fadd double %104, %100
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %106 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
   %107 = extractvalue { i32, i32 } %106, 0
   %108 = extractvalue { i32, i32 } %106, 1
@@ -2094,7 +2088,7 @@ bench_async_handle.exit79:                        ; preds = %bench_async_handle.
 .critedge65._crit_edge:                           ; preds = %.critedge65, %114
   %.2104.lcssa = phi i32 [ 0, %114 ], [ %117, %.critedge65 ]
   %.7.lcssa = phi i32 [ %.6, %114 ], [ %128, %.critedge65 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %130 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %5) #16
   %131 = icmp slt i32 %130, 0
   br i1 %131, label %132, label %bench_stats_check.exit80
@@ -2116,7 +2110,7 @@ bench_stats_check.exit80:                         ; preds = %.critedge65._crit_e
   %142 = sitofp i64 %141 to double
   %143 = fdiv double %142, 1.000000e+09
   %144 = fadd double %143, %140
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %145 = fsub double %144, %105
   %146 = fcmp uge double %145, 1.000000e+00
   br i1 %146, label %bench_async_handle.exit77.thread, label %114, !llvm.loop !28
@@ -2140,10 +2134,10 @@ bench_async_handle.exit77.thread:                 ; preds = %bench_stats_check.e
 .critedge67:                                      ; preds = %150, %148
   call void @wc_AesFree(ptr noundef nonnull %10) #16
   call void @wc_AesFree(ptr noundef nonnull %9) #16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #16
-  call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %11) #16
-  call void @llvm.lifetime.end.p0(i64 848, ptr nonnull %10) #16
-  call void @llvm.lifetime.end.p0(i64 848, ptr nonnull %9) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }
 
@@ -2153,8 +2147,8 @@ define dso_local void @bench_gmac(i32 %0) local_unnamed_addr #0 {
   %3 = alloca %struct.timespec, align 8
   %4 = alloca %struct.Gmac, align 16
   %5 = alloca [16 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 848, ptr nonnull %4) #16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
   %7 = load ptr, ptr %6, align 8, !tbaa !8
   %8 = load i32, ptr @bench_size, align 4, !tbaa !4
@@ -2166,7 +2160,7 @@ define dso_local void @bench_gmac(i32 %0) local_unnamed_addr #0 {
   %11 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_key)
   %12 = load ptr, ptr %11, align 8, !tbaa !8
   %13 = call i32 @wc_GmacSetKey(ptr noundef nonnull %4, ptr noundef %12, i32 noundef 16) #16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %14 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %3) #16
   %15 = icmp slt i32 %14, 0
   br i1 %15, label %16, label %bench_stats_start.exit
@@ -2188,7 +2182,7 @@ bench_stats_start.exit:                           ; preds = %1
   %26 = sitofp i64 %25 to double
   %27 = fdiv double %26, 1.000000e+09
   %28 = fadd double %27, %23
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %29 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
   %30 = extractvalue { i32, i32 } %29, 0
   %31 = extractvalue { i32, i32 } %29, 1
@@ -2208,7 +2202,7 @@ bench_stats_start.exit:                           ; preds = %1
   %41 = load ptr, ptr %6, align 8, !tbaa !8
   %42 = load i32, ptr @bench_size, align 4, !tbaa !4
   %43 = call i32 @wc_GmacUpdate(ptr noundef nonnull %4, ptr noundef %40, i32 noundef 12, ptr noundef %41, i32 noundef %42, ptr noundef nonnull %5, i32 noundef 16) #16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %44 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %2) #16
   %45 = icmp slt i32 %44, 0
   br i1 %45, label %46, label %bench_stats_check.exit
@@ -2230,7 +2224,7 @@ bench_stats_check.exit:                           ; preds = %39
   %56 = sitofp i64 %55 to double
   %57 = fdiv double %56, 1.000000e+09
   %58 = fadd double %57, %54
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %59 = fsub double %58, %28
   %60 = fcmp uge double %59, 1.000000e+00
   br i1 %60, label %61, label %39, !llvm.loop !29
@@ -2239,21 +2233,21 @@ bench_stats_check.exit:                           ; preds = %39
   call void @wc_AesFree(ptr noundef nonnull %4) #16
   %62 = load i32, ptr @bench_size, align 4, !tbaa !4
   call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.31, i32 noundef %52, i32 noundef %62, double noundef %28, i32 noundef %43)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #16
-  call void @llvm.lifetime.end.p0(i64 848, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
-declare i32 @wc_AesInit(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_AesInit(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @wc_GmacSetKey(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_GmacSetKey(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @wc_GmacUpdate(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_GmacUpdate(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @wc_AesFree(ptr noundef) local_unnamed_addr #2
+declare void @wc_AesFree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @bench_poly1305() local_unnamed_addr #0 {
@@ -2263,8 +2257,8 @@ define dso_local void @bench_poly1305() local_unnamed_addr #0 {
   %4 = alloca %struct.timespec, align 8
   %5 = alloca %struct.Poly1305, align 8
   %6 = alloca [16 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %5) #16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.b = load i1, ptr @digest_stream, align 4
   br i1 %.b, label %69, label %7
 
@@ -2280,7 +2274,7 @@ define dso_local void @bench_poly1305() local_unnamed_addr #0 {
   br label %132
 
 13:                                               ; preds = %7
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %14 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %4) #16
   %15 = icmp slt i32 %14, 0
   br i1 %15, label %16, label %bench_stats_start.exit
@@ -2302,7 +2296,7 @@ bench_stats_start.exit:                           ; preds = %13
   %26 = sitofp i64 %25 to double
   %27 = fdiv double %26, 1.000000e+09
   %28 = fadd double %27, %23
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %29 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
   %30 = extractvalue { i32, i32 } %29, 0
   %31 = extractvalue { i32, i32 } %29, 1
@@ -2345,7 +2339,7 @@ bench_stats_start.exit:                           ; preds = %13
   %.052 = phi i32 [ %.057, %45 ], [ 0, %39 ], [ %48, %47 ]
   %.2 = phi i32 [ %44, %45 ], [ %.015, %39 ], [ 0, %47 ]
   %51 = call i32 @wc_Poly1305Final(ptr noundef nonnull %5, ptr noundef nonnull %6) #16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %52 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %3) #16
   %53 = icmp slt i32 %52, 0
   br i1 %53, label %54, label %bench_stats_check.exit
@@ -2367,13 +2361,13 @@ bench_stats_check.exit:                           ; preds = %.loopexit40
   %64 = sitofp i64 %63 to double
   %65 = fdiv double %64, 1.000000e+09
   %66 = fadd double %65, %62
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %67 = fsub double %66, %28
   %68 = fcmp uge double %67, 1.000000e+00
   br i1 %68, label %.loopexit39, label %39, !llvm.loop !31
 
 69:                                               ; preds = %0
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %70 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %2) #16
   %71 = icmp slt i32 %70, 0
   br i1 %71, label %72, label %bench_stats_start.exit29
@@ -2395,7 +2389,7 @@ bench_stats_start.exit29:                         ; preds = %69
   %82 = sitofp i64 %81 to double
   %83 = fdiv double %82, 1.000000e+09
   %84 = fadd double %83, %79
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %85 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
   %86 = extractvalue { i32, i32 } %85, 0
   %87 = extractvalue { i32, i32 } %85, 1
@@ -2449,7 +2443,7 @@ bench_stats_start.exit29:                         ; preds = %69
 .loopexit:                                        ; preds = %109, %96, %107
   %.144 = phi i32 [ %.159, %107 ], [ 0, %96 ], [ %111, %109 ]
   %.6 = phi i32 [ %106, %107 ], [ %.4, %96 ], [ 0, %109 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %114 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %1) #16
   %115 = icmp slt i32 %114, 0
   br i1 %115, label %116, label %bench_stats_check.exit30
@@ -2471,7 +2465,7 @@ bench_stats_check.exit30:                         ; preds = %.loopexit
   %126 = sitofp i64 %125 to double
   %127 = fdiv double %126, 1.000000e+09
   %128 = fadd double %127, %124
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %129 = fsub double %128, %84
   %130 = fcmp uge double %129, 1.000000e+00
   br i1 %130, label %.loopexit39, label %96, !llvm.loop !33
@@ -2485,16 +2479,16 @@ bench_stats_check.exit30:                         ; preds = %.loopexit
   br label %132
 
 132:                                              ; preds = %.loopexit39, %101, %11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #16
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
-declare i32 @wc_Poly1305SetKey(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_Poly1305SetKey(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @wc_Poly1305Update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_Poly1305Update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @wc_Poly1305Final(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @wc_Poly1305Final(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @bench_chacha() local_unnamed_addr #0 {
@@ -2503,7 +2497,7 @@ define dso_local void @bench_chacha() local_unnamed_addr #0 {
   %3 = alloca %struct.timespec, align 8
   %4 = alloca %struct.timespec, align 8
   %5 = alloca [1 x %struct.ChaCha], align 16
-  call void @llvm.lifetime.start.p0(i64 68, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(68) %5, i8 0, i64 68, i1 false)
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_key)
   %7 = load ptr, ptr %6, align 8, !tbaa !8
@@ -2523,7 +2517,7 @@ define dso_local void @bench_chacha() local_unnamed_addr #0 {
   br label %140
 
 16:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %17 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %4) #16
   %18 = icmp slt i32 %17, 0
   br i1 %18, label %19, label %bench_stats_start.exit
@@ -2545,7 +2539,7 @@ bench_stats_start.exit:                           ; preds = %16
   %29 = sitofp i64 %28 to double
   %30 = fdiv double %29, 1.000000e+09
   %31 = fadd double %30, %26
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %32 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
   %33 = extractvalue { i32, i32 } %32, 0
   %34 = extractvalue { i32, i32 } %32, 1
@@ -2587,7 +2581,7 @@ bench_stats_start.exit:                           ; preds = %16
 
 ._crit_edge41:                                    ; preds = %53, %43
   %.0.lcssa = phi i32 [ 0, %43 ], [ %54, %53 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %57 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %3) #16
   %58 = icmp slt i32 %57, 0
   br i1 %58, label %59, label %bench_stats_check.exit
@@ -2609,13 +2603,13 @@ bench_stats_check.exit:                           ; preds = %._crit_edge41
   %69 = sitofp i64 %68 to double
   %70 = fdiv double %69, 1.000000e+09
   %71 = fadd double %70, %67
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %72 = fsub double %71, %31
   %73 = fcmp uge double %72, 1.000000e+00
   br i1 %73, label %.loopexit, label %43, !llvm.loop !35
 
 74:                                               ; preds = %0
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %75 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %2) #16
   %76 = icmp slt i32 %75, 0
   br i1 %76, label %77, label %bench_stats_start.exit19
@@ -2637,7 +2631,7 @@ bench_stats_start.exit19:                         ; preds = %74
   %87 = sitofp i64 %86 to double
   %88 = fdiv double %87, 1.000000e+09
   %89 = fadd double %88, %84
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %90 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
   %91 = extractvalue { i32, i32 } %90, 0
   %92 = extractvalue { i32, i32 } %90, 1
@@ -2690,7 +2684,7 @@ bench_stats_start.exit19:                         ; preds = %74
 
 ._crit_edge:                                      ; preds = %118, %102
   %.1.lcssa = phi i32 [ 0, %102 ], [ %119, %118 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %122 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %1) #16
   %123 = icmp slt i32 %122, 0
   br i1 %123, label %124, label %bench_stats_check.exit20
@@ -2712,7 +2706,7 @@ bench_stats_check.exit20:                         ; preds = %._crit_edge
   %134 = sitofp i64 %133 to double
   %135 = fdiv double %134, 1.000000e+09
   %136 = fadd double %135, %132
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %137 = fsub double %136, %89
   %138 = fcmp uge double %137, 1.000000e+00
   br i1 %138, label %.loopexit, label %102, !llvm.loop !37
@@ -2725,15 +2719,15 @@ bench_stats_check.exit20:                         ; preds = %._crit_edge
   br label %140
 
 140:                                              ; preds = %14, %51, %108, %116, %.loopexit
-  call void @llvm.lifetime.end.p0(i64 68, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
-declare i32 @wc_Chacha_SetKey(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_Chacha_SetKey(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @wc_Chacha_SetIV(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_Chacha_SetIV(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @wc_Chacha_Process(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_Chacha_Process(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @bench_chacha20_poly1305_aead() local_unnamed_addr #0 {
@@ -2741,11 +2735,11 @@ define dso_local void @bench_chacha20_poly1305_aead() local_unnamed_addr #0 {
   %2 = alloca %struct.timespec, align 8
   %3 = alloca [13 x i8], align 1
   %4 = alloca [16 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 13, ptr nonnull %3) #16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %3, i8 0, i64 13, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %5 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %2) #16
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %7, label %bench_stats_start.exit
@@ -2767,7 +2761,7 @@ bench_stats_start.exit:                           ; preds = %0
   %17 = sitofp i64 %16 to double
   %18 = fdiv double %17, 1.000000e+09
   %19 = fadd double %18, %14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %20 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
   %21 = extractvalue { i32, i32 } %20, 0
   %22 = extractvalue { i32, i32 } %20, 1
@@ -2816,7 +2810,7 @@ bench_stats_start.exit:                           ; preds = %0
 ._crit_edge:                                      ; preds = %46, %33
   %.1.lcssa = phi i32 [ %.06, %33 ], [ %42, %46 ]
   %.0.lcssa = phi i32 [ 0, %33 ], [ %47, %46 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %50 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %1) #16
   %51 = icmp slt i32 %50, 0
   br i1 %51, label %52, label %bench_stats_check.exit
@@ -2838,7 +2832,7 @@ bench_stats_check.exit:                           ; preds = %._crit_edge
   %62 = sitofp i64 %61 to double
   %63 = fdiv double %62, 1.000000e+09
   %64 = fadd double %63, %60
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %65 = fsub double %64, %19
   %66 = fcmp uge double %65, 1.000000e+00
   br i1 %66, label %67, label %33, !llvm.loop !39
@@ -2849,12 +2843,12 @@ bench_stats_check.exit:                           ; preds = %._crit_edge
   br label %69
 
 69:                                               ; preds = %67, %44
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #16
-  call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-declare i32 @wc_ChaCha20Poly1305_Encrypt(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @wc_ChaCha20Poly1305_Encrypt(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @bench_md5(i32 %0) local_unnamed_addr #0 {
@@ -2864,8 +2858,8 @@ define dso_local void @bench_md5(i32 %0) local_unnamed_addr #0 {
   %5 = alloca %struct.timespec, align 8
   %6 = alloca [1 x [1 x %struct.wc_Md5]], align 16
   %7 = alloca [1 x [16 x i8]], align 16
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %6) #16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(104) %6, i8 0, i64 104, i1 false)
   %.b = load i1, ptr @digest_stream, align 4
   br i1 %.b, label %67, label %8
@@ -2880,7 +2874,7 @@ define dso_local void @bench_md5(i32 %0) local_unnamed_addr #0 {
   br label %127
 
 .critedge:                                        ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %12 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %5) #16
   %13 = icmp slt i32 %12, 0
   br i1 %13, label %14, label %bench_stats_start.exit
@@ -2902,7 +2896,7 @@ bench_stats_start.exit:                           ; preds = %.critedge
   %24 = sitofp i64 %23 to double
   %25 = fdiv double %24, 1.000000e+09
   %26 = fadd double %25, %21
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %27 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
   %28 = extractvalue { i32, i32 } %27, 0
   %29 = extractvalue { i32, i32 } %27, 1
@@ -2944,7 +2938,7 @@ bench_async_handle.exit:                          ; preds = %.lr.ph
   br i1 %49, label %50, label %bench_async_handle.exit.thread
 
 50:                                               ; preds = %.critedge24
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %51 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %4) #16
   %52 = icmp slt i32 %51, 0
   br i1 %52, label %53, label %bench_stats_check.exit
@@ -2965,13 +2959,13 @@ bench_stats_check.exit:                           ; preds = %50
   %62 = sitofp i64 %61 to double
   %63 = fdiv double %62, 1.000000e+09
   %64 = fadd double %63, %60
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %65 = fsub double %64, %26
   %66 = fcmp uge double %65, 1.000000e+00
   br i1 %66, label %bench_async_handle.exit.thread, label %37, !llvm.loop !40
 
 67:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %68 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %3) #16
   %69 = icmp slt i32 %68, 0
   br i1 %69, label %70, label %bench_stats_start.exit28
@@ -2993,7 +2987,7 @@ bench_stats_start.exit28:                         ; preds = %67
   %80 = sitofp i64 %79 to double
   %81 = fdiv double %80, 1.000000e+09
   %82 = fadd double %81, %77
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %83 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
   %84 = extractvalue { i32, i32 } %83, 0
   %85 = extractvalue { i32, i32 } %83, 1
@@ -3039,7 +3033,7 @@ bench_stats_start.exit28:                         ; preds = %67
 
 ._crit_edge:                                      ; preds = %105, %93
   %storemerge.lcssa = phi i32 [ 0, %93 ], [ %106, %105 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %109 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %2) #16
   %110 = icmp slt i32 %109, 0
   br i1 %110, label %111, label %bench_stats_check.exit29
@@ -3061,7 +3055,7 @@ bench_stats_check.exit29:                         ; preds = %._crit_edge
   %121 = sitofp i64 %120 to double
   %122 = fdiv double %121, 1.000000e+09
   %123 = fadd double %122, %119
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %124 = fsub double %123, %82
   %125 = fcmp uge double %124, 1.000000e+00
   br i1 %125, label %bench_async_handle.exit.thread, label %93, !llvm.loop !42
@@ -3075,16 +3069,16 @@ bench_async_handle.exit.thread:                   ; preds = %.critedge24, %bench
   br label %127
 
 127:                                              ; preds = %bench_async_handle.exit.thread, %10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #16
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
-declare i32 @wc_InitMd5_ex(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_InitMd5_ex(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @wc_Md5Update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_Md5Update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @wc_Md5Final(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @wc_Md5Final(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @bench_sha(i32 %0) local_unnamed_addr #0 {
@@ -3094,8 +3088,8 @@ define dso_local void @bench_sha(i32 %0) local_unnamed_addr #0 {
   %5 = alloca %struct.timespec, align 8
   %6 = alloca [1 x [1 x %struct.wc_Sha]], align 16
   %7 = alloca [1 x [20 x i8]], align 16
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %6) #16
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %7) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(104) %6, i8 0, i64 104, i1 false)
   %.b = load i1, ptr @digest_stream, align 4
   br i1 %.b, label %67, label %8
@@ -3110,7 +3104,7 @@ define dso_local void @bench_sha(i32 %0) local_unnamed_addr #0 {
   br label %.critedge31
 
 .critedge:                                        ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %12 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %5) #16
   %13 = icmp slt i32 %12, 0
   br i1 %13, label %14, label %bench_stats_start.exit
@@ -3132,7 +3126,7 @@ bench_stats_start.exit:                           ; preds = %.critedge
   %24 = sitofp i64 %23 to double
   %25 = fdiv double %24, 1.000000e+09
   %26 = fadd double %25, %21
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %27 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
   %28 = extractvalue { i32, i32 } %27, 0
   %29 = extractvalue { i32, i32 } %27, 1
@@ -3174,7 +3168,7 @@ bench_async_handle.exit:                          ; preds = %.lr.ph
   br i1 %49, label %50, label %bench_async_handle.exit.thread
 
 50:                                               ; preds = %.critedge29
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %51 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %4) #16
   %52 = icmp slt i32 %51, 0
   br i1 %52, label %53, label %bench_stats_check.exit
@@ -3195,13 +3189,13 @@ bench_stats_check.exit:                           ; preds = %50
   %62 = sitofp i64 %61 to double
   %63 = fdiv double %62, 1.000000e+09
   %64 = fadd double %63, %60
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %65 = fsub double %64, %26
   %66 = fcmp uge double %65, 1.000000e+00
   br i1 %66, label %bench_async_handle.exit.thread, label %37, !llvm.loop !43
 
 67:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %68 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %3) #16
   %69 = icmp slt i32 %68, 0
   br i1 %69, label %70, label %bench_stats_start.exit35
@@ -3223,7 +3217,7 @@ bench_stats_start.exit35:                         ; preds = %67
   %80 = sitofp i64 %79 to double
   %81 = fdiv double %80, 1.000000e+09
   %82 = fadd double %81, %77
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %83 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
   %84 = extractvalue { i32, i32 } %83, 0
   %85 = extractvalue { i32, i32 } %83, 1
@@ -3269,7 +3263,7 @@ bench_stats_start.exit35:                         ; preds = %67
 
 ._crit_edge:                                      ; preds = %105, %93
   %storemerge.lcssa = phi i32 [ 0, %93 ], [ %106, %105 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %109 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %2) #16
   %110 = icmp slt i32 %109, 0
   br i1 %110, label %111, label %bench_stats_check.exit36
@@ -3291,7 +3285,7 @@ bench_stats_check.exit36:                         ; preds = %._crit_edge
   %121 = sitofp i64 %120 to double
   %122 = fdiv double %121, 1.000000e+09
   %123 = fadd double %122, %119
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %124 = fsub double %123, %82
   %125 = fcmp uge double %124, 1.000000e+00
   br i1 %125, label %bench_async_handle.exit.thread, label %93, !llvm.loop !45
@@ -3306,18 +3300,18 @@ bench_async_handle.exit.thread:                   ; preds = %.critedge29, %bench
 
 .critedge31:                                      ; preds = %bench_async_handle.exit.thread, %10
   call void @wc_ShaFree(ptr noundef nonnull %6) #16
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %7) #16
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
-declare i32 @wc_InitSha_ex(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_InitSha_ex(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @wc_ShaUpdate(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_ShaUpdate(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @wc_ShaFinal(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @wc_ShaFinal(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @wc_ShaFree(ptr noundef) local_unnamed_addr #2
+declare void @wc_ShaFree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @bench_sha224(i32 %0) local_unnamed_addr #0 {
@@ -3327,8 +3321,8 @@ define dso_local void @bench_sha224(i32 %0) local_unnamed_addr #0 {
   %5 = alloca %struct.timespec, align 8
   %6 = alloca [1 x [1 x %struct.wc_Sha256]], align 16
   %7 = alloca [1 x [28 x i8]], align 16
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #16
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %7) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %6, i8 0, i64 128, i1 false)
   %.b = load i1, ptr @digest_stream, align 4
   br i1 %.b, label %67, label %8
@@ -3343,7 +3337,7 @@ define dso_local void @bench_sha224(i32 %0) local_unnamed_addr #0 {
   br label %.critedge31
 
 .critedge:                                        ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %12 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %5) #16
   %13 = icmp slt i32 %12, 0
   br i1 %13, label %14, label %bench_stats_start.exit
@@ -3365,7 +3359,7 @@ bench_stats_start.exit:                           ; preds = %.critedge
   %24 = sitofp i64 %23 to double
   %25 = fdiv double %24, 1.000000e+09
   %26 = fadd double %25, %21
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %27 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
   %28 = extractvalue { i32, i32 } %27, 0
   %29 = extractvalue { i32, i32 } %27, 1
@@ -3407,7 +3401,7 @@ bench_async_handle.exit:                          ; preds = %.lr.ph
   br i1 %49, label %50, label %bench_async_handle.exit.thread
 
 50:                                               ; preds = %.critedge29
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %51 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %4) #16
   %52 = icmp slt i32 %51, 0
   br i1 %52, label %53, label %bench_stats_check.exit
@@ -3428,13 +3422,13 @@ bench_stats_check.exit:                           ; preds = %50
   %62 = sitofp i64 %61 to double
   %63 = fdiv double %62, 1.000000e+09
   %64 = fadd double %63, %60
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %65 = fsub double %64, %26
   %66 = fcmp uge double %65, 1.000000e+00
   br i1 %66, label %bench_async_handle.exit.thread, label %37, !llvm.loop !46
 
 67:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %68 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %3) #16
   %69 = icmp slt i32 %68, 0
   br i1 %69, label %70, label %bench_stats_start.exit35
@@ -3456,7 +3450,7 @@ bench_stats_start.exit35:                         ; preds = %67
   %80 = sitofp i64 %79 to double
   %81 = fdiv double %80, 1.000000e+09
   %82 = fadd double %81, %77
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %83 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
   %84 = extractvalue { i32, i32 } %83, 0
   %85 = extractvalue { i32, i32 } %83, 1
@@ -3502,7 +3496,7 @@ bench_stats_start.exit35:                         ; preds = %67
 
 ._crit_edge:                                      ; preds = %105, %93
   %storemerge.lcssa = phi i32 [ 0, %93 ], [ %106, %105 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %109 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %2) #16
   %110 = icmp slt i32 %109, 0
   br i1 %110, label %111, label %bench_stats_check.exit36
@@ -3524,7 +3518,7 @@ bench_stats_check.exit36:                         ; preds = %._crit_edge
   %121 = sitofp i64 %120 to double
   %122 = fdiv double %121, 1.000000e+09
   %123 = fadd double %122, %119
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %124 = fsub double %123, %82
   %125 = fcmp uge double %124, 1.000000e+00
   br i1 %125, label %bench_async_handle.exit.thread, label %93, !llvm.loop !48
@@ -3539,18 +3533,18 @@ bench_async_handle.exit.thread:                   ; preds = %.critedge29, %bench
 
 .critedge31:                                      ; preds = %bench_async_handle.exit.thread, %10
   call void @wc_Sha224Free(ptr noundef nonnull %6) #16
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %7) #16
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
-declare i32 @wc_InitSha224_ex(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_InitSha224_ex(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @wc_Sha224Update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_Sha224Update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @wc_Sha224Final(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @wc_Sha224Final(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @wc_Sha224Free(ptr noundef) local_unnamed_addr #2
+declare void @wc_Sha224Free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @bench_sha256(i32 %0) local_unnamed_addr #0 {
@@ -3560,8 +3554,8 @@ define dso_local void @bench_sha256(i32 %0) local_unnamed_addr #0 {
   %5 = alloca %struct.timespec, align 8
   %6 = alloca [1 x [1 x %struct.wc_Sha256]], align 16
   %7 = alloca [1 x [32 x i8]], align 16
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %6, i8 0, i64 128, i1 false)
   %.b = load i1, ptr @digest_stream, align 4
   br i1 %.b, label %67, label %8
@@ -3576,7 +3570,7 @@ define dso_local void @bench_sha256(i32 %0) local_unnamed_addr #0 {
   br label %.critedge31
 
 .critedge:                                        ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %12 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %5) #16
   %13 = icmp slt i32 %12, 0
   br i1 %13, label %14, label %bench_stats_start.exit
@@ -3598,7 +3592,7 @@ bench_stats_start.exit:                           ; preds = %.critedge
   %24 = sitofp i64 %23 to double
   %25 = fdiv double %24, 1.000000e+09
   %26 = fadd double %25, %21
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %27 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
   %28 = extractvalue { i32, i32 } %27, 0
   %29 = extractvalue { i32, i32 } %27, 1
@@ -3640,7 +3634,7 @@ bench_async_handle.exit:                          ; preds = %.lr.ph
   br i1 %49, label %50, label %bench_async_handle.exit.thread
 
 50:                                               ; preds = %.critedge29
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %51 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %4) #16
   %52 = icmp slt i32 %51, 0
   br i1 %52, label %53, label %bench_stats_check.exit
@@ -3661,13 +3655,13 @@ bench_stats_check.exit:                           ; preds = %50
   %62 = sitofp i64 %61 to double
   %63 = fdiv double %62, 1.000000e+09
   %64 = fadd double %63, %60
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %65 = fsub double %64, %26
   %66 = fcmp uge double %65, 1.000000e+00
   br i1 %66, label %bench_async_handle.exit.thread, label %37, !llvm.loop !49
 
 67:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %68 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %3) #16
   %69 = icmp slt i32 %68, 0
   br i1 %69, label %70, label %bench_stats_start.exit35
@@ -3689,7 +3683,7 @@ bench_stats_start.exit35:                         ; preds = %67
   %80 = sitofp i64 %79 to double
   %81 = fdiv double %80, 1.000000e+09
   %82 = fadd double %81, %77
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %83 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
   %84 = extractvalue { i32, i32 } %83, 0
   %85 = extractvalue { i32, i32 } %83, 1
@@ -3735,7 +3729,7 @@ bench_stats_start.exit35:                         ; preds = %67
 
 ._crit_edge:                                      ; preds = %105, %93
   %storemerge.lcssa = phi i32 [ 0, %93 ], [ %106, %105 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %109 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %2) #16
   %110 = icmp slt i32 %109, 0
   br i1 %110, label %111, label %bench_stats_check.exit36
@@ -3757,7 +3751,7 @@ bench_stats_check.exit36:                         ; preds = %._crit_edge
   %121 = sitofp i64 %120 to double
   %122 = fdiv double %121, 1.000000e+09
   %123 = fadd double %122, %119
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %124 = fsub double %123, %82
   %125 = fcmp uge double %124, 1.000000e+00
   br i1 %125, label %bench_async_handle.exit.thread, label %93, !llvm.loop !51
@@ -3772,18 +3766,18 @@ bench_async_handle.exit.thread:                   ; preds = %.critedge29, %bench
 
 .critedge31:                                      ; preds = %bench_async_handle.exit.thread, %10
   call void @wc_Sha256Free(ptr noundef nonnull %6) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #16
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
-declare i32 @wc_InitSha256_ex(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_InitSha256_ex(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @wc_Sha256Update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_Sha256Update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @wc_Sha256Final(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @wc_Sha256Final(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @wc_Sha256Free(ptr noundef) local_unnamed_addr #2
+declare void @wc_Sha256Free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @bench_sha384(i32 %0) local_unnamed_addr #0 {
@@ -3793,8 +3787,8 @@ define dso_local void @bench_sha384(i32 %0) local_unnamed_addr #0 {
   %5 = alloca %struct.timespec, align 8
   %6 = alloca [1 x [1 x %struct.wc_Sha512]], align 16
   %7 = alloca [1 x [48 x i8]], align 16
-  call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %6) #16
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(224) %6, i8 0, i64 224, i1 false)
   %.b = load i1, ptr @digest_stream, align 4
   br i1 %.b, label %67, label %8
@@ -3809,7 +3803,7 @@ define dso_local void @bench_sha384(i32 %0) local_unnamed_addr #0 {
   br label %.critedge31
 
 .critedge:                                        ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %12 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %5) #16
   %13 = icmp slt i32 %12, 0
   br i1 %13, label %14, label %bench_stats_start.exit
@@ -3831,7 +3825,7 @@ bench_stats_start.exit:                           ; preds = %.critedge
   %24 = sitofp i64 %23 to double
   %25 = fdiv double %24, 1.000000e+09
   %26 = fadd double %25, %21
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %27 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
   %28 = extractvalue { i32, i32 } %27, 0
   %29 = extractvalue { i32, i32 } %27, 1
@@ -3873,7 +3867,7 @@ bench_async_handle.exit:                          ; preds = %.lr.ph
   br i1 %49, label %50, label %bench_async_handle.exit.thread
 
 50:                                               ; preds = %.critedge29
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %51 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %4) #16
   %52 = icmp slt i32 %51, 0
   br i1 %52, label %53, label %bench_stats_check.exit
@@ -3894,13 +3888,13 @@ bench_stats_check.exit:                           ; preds = %50
   %62 = sitofp i64 %61 to double
   %63 = fdiv double %62, 1.000000e+09
   %64 = fadd double %63, %60
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %65 = fsub double %64, %26
   %66 = fcmp uge double %65, 1.000000e+00
   br i1 %66, label %bench_async_handle.exit.thread, label %37, !llvm.loop !52
 
 67:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %68 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %3) #16
   %69 = icmp slt i32 %68, 0
   br i1 %69, label %70, label %bench_stats_start.exit35
@@ -3922,7 +3916,7 @@ bench_stats_start.exit35:                         ; preds = %67
   %80 = sitofp i64 %79 to double
   %81 = fdiv double %80, 1.000000e+09
   %82 = fadd double %81, %77
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %83 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
   %84 = extractvalue { i32, i32 } %83, 0
   %85 = extractvalue { i32, i32 } %83, 1
@@ -3968,7 +3962,7 @@ bench_stats_start.exit35:                         ; preds = %67
 
 ._crit_edge:                                      ; preds = %105, %93
   %storemerge.lcssa = phi i32 [ 0, %93 ], [ %106, %105 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %109 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %2) #16
   %110 = icmp slt i32 %109, 0
   br i1 %110, label %111, label %bench_stats_check.exit36
@@ -3990,7 +3984,7 @@ bench_stats_check.exit36:                         ; preds = %._crit_edge
   %121 = sitofp i64 %120 to double
   %122 = fdiv double %121, 1.000000e+09
   %123 = fadd double %122, %119
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %124 = fsub double %123, %82
   %125 = fcmp uge double %124, 1.000000e+00
   br i1 %125, label %bench_async_handle.exit.thread, label %93, !llvm.loop !54
@@ -4005,18 +3999,18 @@ bench_async_handle.exit.thread:                   ; preds = %.critedge29, %bench
 
 .critedge31:                                      ; preds = %bench_async_handle.exit.thread, %10
   call void @wc_Sha384Free(ptr noundef nonnull %6) #16
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #16
-  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
-declare i32 @wc_InitSha384_ex(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_InitSha384_ex(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @wc_Sha384Update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_Sha384Update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @wc_Sha384Final(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @wc_Sha384Final(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @wc_Sha384Free(ptr noundef) local_unnamed_addr #2
+declare void @wc_Sha384Free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @bench_sha512(i32 %0) local_unnamed_addr #0 {
@@ -4026,8 +4020,8 @@ define dso_local void @bench_sha512(i32 %0) local_unnamed_addr #0 {
   %5 = alloca %struct.timespec, align 8
   %6 = alloca [1 x [1 x %struct.wc_Sha512]], align 16
   %7 = alloca [1 x [64 x i8]], align 16
-  call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %6) #16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(224) %6, i8 0, i64 224, i1 false)
   %.b = load i1, ptr @digest_stream, align 4
   br i1 %.b, label %67, label %8
@@ -4042,7 +4036,7 @@ define dso_local void @bench_sha512(i32 %0) local_unnamed_addr #0 {
   br label %.critedge31
 
 .critedge:                                        ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %12 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %5) #16
   %13 = icmp slt i32 %12, 0
   br i1 %13, label %14, label %bench_stats_start.exit
@@ -4064,7 +4058,7 @@ bench_stats_start.exit:                           ; preds = %.critedge
   %24 = sitofp i64 %23 to double
   %25 = fdiv double %24, 1.000000e+09
   %26 = fadd double %25, %21
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %27 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
   %28 = extractvalue { i32, i32 } %27, 0
   %29 = extractvalue { i32, i32 } %27, 1
@@ -4106,7 +4100,7 @@ bench_async_handle.exit:                          ; preds = %.lr.ph
   br i1 %49, label %50, label %bench_async_handle.exit.thread
 
 50:                                               ; preds = %.critedge29
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %51 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %4) #16
   %52 = icmp slt i32 %51, 0
   br i1 %52, label %53, label %bench_stats_check.exit
@@ -4127,13 +4121,13 @@ bench_stats_check.exit:                           ; preds = %50
   %62 = sitofp i64 %61 to double
   %63 = fdiv double %62, 1.000000e+09
   %64 = fadd double %63, %60
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %65 = fsub double %64, %26
   %66 = fcmp uge double %65, 1.000000e+00
   br i1 %66, label %bench_async_handle.exit.thread, label %37, !llvm.loop !55
 
 67:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %68 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %3) #16
   %69 = icmp slt i32 %68, 0
   br i1 %69, label %70, label %bench_stats_start.exit35
@@ -4155,7 +4149,7 @@ bench_stats_start.exit35:                         ; preds = %67
   %80 = sitofp i64 %79 to double
   %81 = fdiv double %80, 1.000000e+09
   %82 = fadd double %81, %77
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %83 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
   %84 = extractvalue { i32, i32 } %83, 0
   %85 = extractvalue { i32, i32 } %83, 1
@@ -4201,7 +4195,7 @@ bench_stats_start.exit35:                         ; preds = %67
 
 ._crit_edge:                                      ; preds = %105, %93
   %storemerge.lcssa = phi i32 [ 0, %93 ], [ %106, %105 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %109 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %2) #16
   %110 = icmp slt i32 %109, 0
   br i1 %110, label %111, label %bench_stats_check.exit36
@@ -4223,7 +4217,7 @@ bench_stats_check.exit36:                         ; preds = %._crit_edge
   %121 = sitofp i64 %120 to double
   %122 = fdiv double %121, 1.000000e+09
   %123 = fadd double %122, %119
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %124 = fsub double %123, %82
   %125 = fcmp uge double %124, 1.000000e+00
   br i1 %125, label %bench_async_handle.exit.thread, label %93, !llvm.loop !57
@@ -4238,18 +4232,18 @@ bench_async_handle.exit.thread:                   ; preds = %.critedge29, %bench
 
 .critedge31:                                      ; preds = %bench_async_handle.exit.thread, %10
   call void @wc_Sha512Free(ptr noundef nonnull %6) #16
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #16
-  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
-declare i32 @wc_InitSha512_ex(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_InitSha512_ex(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @wc_Sha512Update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_Sha512Update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @wc_Sha512Final(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @wc_Sha512Final(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @wc_Sha512Free(ptr noundef) local_unnamed_addr #2
+declare void @wc_Sha512Free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @bench_sha512_224(i32 %0) local_unnamed_addr #0 {
@@ -4259,8 +4253,8 @@ define dso_local void @bench_sha512_224(i32 %0) local_unnamed_addr #0 {
   %5 = alloca %struct.timespec, align 8
   %6 = alloca [1 x [1 x %struct.wc_Sha512]], align 16
   %7 = alloca [1 x [28 x i8]], align 16
-  call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %6) #16
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %7) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(224) %6, i8 0, i64 224, i1 false)
   %.b = load i1, ptr @digest_stream, align 4
   br i1 %.b, label %67, label %8
@@ -4275,7 +4269,7 @@ define dso_local void @bench_sha512_224(i32 %0) local_unnamed_addr #0 {
   br label %.critedge31
 
 .critedge:                                        ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %12 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %5) #16
   %13 = icmp slt i32 %12, 0
   br i1 %13, label %14, label %bench_stats_start.exit
@@ -4297,7 +4291,7 @@ bench_stats_start.exit:                           ; preds = %.critedge
   %24 = sitofp i64 %23 to double
   %25 = fdiv double %24, 1.000000e+09
   %26 = fadd double %25, %21
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %27 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
   %28 = extractvalue { i32, i32 } %27, 0
   %29 = extractvalue { i32, i32 } %27, 1
@@ -4339,7 +4333,7 @@ bench_async_handle.exit:                          ; preds = %.lr.ph
   br i1 %49, label %50, label %bench_async_handle.exit.thread
 
 50:                                               ; preds = %.critedge29
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %51 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %4) #16
   %52 = icmp slt i32 %51, 0
   br i1 %52, label %53, label %bench_stats_check.exit
@@ -4360,13 +4354,13 @@ bench_stats_check.exit:                           ; preds = %50
   %62 = sitofp i64 %61 to double
   %63 = fdiv double %62, 1.000000e+09
   %64 = fadd double %63, %60
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %65 = fsub double %64, %26
   %66 = fcmp uge double %65, 1.000000e+00
   br i1 %66, label %bench_async_handle.exit.thread, label %37, !llvm.loop !58
 
 67:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %68 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %3) #16
   %69 = icmp slt i32 %68, 0
   br i1 %69, label %70, label %bench_stats_start.exit35
@@ -4388,7 +4382,7 @@ bench_stats_start.exit35:                         ; preds = %67
   %80 = sitofp i64 %79 to double
   %81 = fdiv double %80, 1.000000e+09
   %82 = fadd double %81, %77
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %83 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
   %84 = extractvalue { i32, i32 } %83, 0
   %85 = extractvalue { i32, i32 } %83, 1
@@ -4434,7 +4428,7 @@ bench_stats_start.exit35:                         ; preds = %67
 
 ._crit_edge:                                      ; preds = %105, %93
   %storemerge.lcssa = phi i32 [ 0, %93 ], [ %106, %105 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %109 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %2) #16
   %110 = icmp slt i32 %109, 0
   br i1 %110, label %111, label %bench_stats_check.exit36
@@ -4456,7 +4450,7 @@ bench_stats_check.exit36:                         ; preds = %._crit_edge
   %121 = sitofp i64 %120 to double
   %122 = fdiv double %121, 1.000000e+09
   %123 = fadd double %122, %119
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %124 = fsub double %123, %82
   %125 = fcmp uge double %124, 1.000000e+00
   br i1 %125, label %bench_async_handle.exit.thread, label %93, !llvm.loop !60
@@ -4471,18 +4465,18 @@ bench_async_handle.exit.thread:                   ; preds = %.critedge29, %bench
 
 .critedge31:                                      ; preds = %bench_async_handle.exit.thread, %10
   call void @wc_Sha512_224Free(ptr noundef nonnull %6) #16
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %7) #16
-  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
-declare i32 @wc_InitSha512_224_ex(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_InitSha512_224_ex(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @wc_Sha512_224Update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_Sha512_224Update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @wc_Sha512_224Final(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @wc_Sha512_224Final(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @wc_Sha512_224Free(ptr noundef) local_unnamed_addr #2
+declare void @wc_Sha512_224Free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @bench_sha512_256(i32 %0) local_unnamed_addr #0 {
@@ -4492,8 +4486,8 @@ define dso_local void @bench_sha512_256(i32 %0) local_unnamed_addr #0 {
   %5 = alloca %struct.timespec, align 8
   %6 = alloca [1 x [1 x %struct.wc_Sha512]], align 16
   %7 = alloca [1 x [32 x i8]], align 16
-  call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %6) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(224) %6, i8 0, i64 224, i1 false)
   %.b = load i1, ptr @digest_stream, align 4
   br i1 %.b, label %67, label %8
@@ -4508,7 +4502,7 @@ define dso_local void @bench_sha512_256(i32 %0) local_unnamed_addr #0 {
   br label %.critedge31
 
 .critedge:                                        ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %12 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %5) #16
   %13 = icmp slt i32 %12, 0
   br i1 %13, label %14, label %bench_stats_start.exit
@@ -4530,7 +4524,7 @@ bench_stats_start.exit:                           ; preds = %.critedge
   %24 = sitofp i64 %23 to double
   %25 = fdiv double %24, 1.000000e+09
   %26 = fadd double %25, %21
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %27 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
   %28 = extractvalue { i32, i32 } %27, 0
   %29 = extractvalue { i32, i32 } %27, 1
@@ -4572,7 +4566,7 @@ bench_async_handle.exit:                          ; preds = %.lr.ph
   br i1 %49, label %50, label %bench_async_handle.exit.thread
 
 50:                                               ; preds = %.critedge29
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %51 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %4) #16
   %52 = icmp slt i32 %51, 0
   br i1 %52, label %53, label %bench_stats_check.exit
@@ -4593,13 +4587,13 @@ bench_stats_check.exit:                           ; preds = %50
   %62 = sitofp i64 %61 to double
   %63 = fdiv double %62, 1.000000e+09
   %64 = fadd double %63, %60
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %65 = fsub double %64, %26
   %66 = fcmp uge double %65, 1.000000e+00
   br i1 %66, label %bench_async_handle.exit.thread, label %37, !llvm.loop !61
 
 67:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %68 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %3) #16
   %69 = icmp slt i32 %68, 0
   br i1 %69, label %70, label %bench_stats_start.exit35
@@ -4621,7 +4615,7 @@ bench_stats_start.exit35:                         ; preds = %67
   %80 = sitofp i64 %79 to double
   %81 = fdiv double %80, 1.000000e+09
   %82 = fadd double %81, %77
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %83 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
   %84 = extractvalue { i32, i32 } %83, 0
   %85 = extractvalue { i32, i32 } %83, 1
@@ -4667,7 +4661,7 @@ bench_stats_start.exit35:                         ; preds = %67
 
 ._crit_edge:                                      ; preds = %105, %93
   %storemerge.lcssa = phi i32 [ 0, %93 ], [ %106, %105 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %109 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %2) #16
   %110 = icmp slt i32 %109, 0
   br i1 %110, label %111, label %bench_stats_check.exit36
@@ -4689,7 +4683,7 @@ bench_stats_check.exit36:                         ; preds = %._crit_edge
   %121 = sitofp i64 %120 to double
   %122 = fdiv double %121, 1.000000e+09
   %123 = fadd double %122, %119
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %124 = fsub double %123, %82
   %125 = fcmp uge double %124, 1.000000e+00
   br i1 %125, label %bench_async_handle.exit.thread, label %93, !llvm.loop !63
@@ -4704,18 +4698,18 @@ bench_async_handle.exit.thread:                   ; preds = %.critedge29, %bench
 
 .critedge31:                                      ; preds = %bench_async_handle.exit.thread, %10
   call void @wc_Sha512_256Free(ptr noundef nonnull %6) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #16
-  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
-declare i32 @wc_InitSha512_256_ex(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_InitSha512_256_ex(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @wc_Sha512_256Update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_Sha512_256Update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @wc_Sha512_256Final(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @wc_Sha512_256Final(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @wc_Sha512_256Free(ptr noundef) local_unnamed_addr #2
+declare void @wc_Sha512_256Free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @bench_sha3_224(i32 %0) local_unnamed_addr #0 {
@@ -4725,8 +4719,8 @@ define dso_local void @bench_sha3_224(i32 %0) local_unnamed_addr #0 {
   %5 = alloca %struct.timespec, align 8
   %6 = alloca [1 x [1 x %struct.wc_Sha3]], align 16
   %7 = alloca [1 x [28 x i8]], align 16
-  call void @llvm.lifetime.start.p0(i64 416, ptr nonnull %6) #16
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %7) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(416) %6, i8 0, i64 416, i1 false)
   %.b = load i1, ptr @digest_stream, align 4
   br i1 %.b, label %67, label %8
@@ -4741,7 +4735,7 @@ define dso_local void @bench_sha3_224(i32 %0) local_unnamed_addr #0 {
   br label %.critedge31
 
 .critedge:                                        ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %12 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %5) #16
   %13 = icmp slt i32 %12, 0
   br i1 %13, label %14, label %bench_stats_start.exit
@@ -4763,7 +4757,7 @@ bench_stats_start.exit:                           ; preds = %.critedge
   %24 = sitofp i64 %23 to double
   %25 = fdiv double %24, 1.000000e+09
   %26 = fadd double %25, %21
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %27 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
   %28 = extractvalue { i32, i32 } %27, 0
   %29 = extractvalue { i32, i32 } %27, 1
@@ -4805,7 +4799,7 @@ bench_async_handle.exit:                          ; preds = %.lr.ph
   br i1 %49, label %50, label %bench_async_handle.exit.thread
 
 50:                                               ; preds = %.critedge29
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %51 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %4) #16
   %52 = icmp slt i32 %51, 0
   br i1 %52, label %53, label %bench_stats_check.exit
@@ -4826,13 +4820,13 @@ bench_stats_check.exit:                           ; preds = %50
   %62 = sitofp i64 %61 to double
   %63 = fdiv double %62, 1.000000e+09
   %64 = fadd double %63, %60
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %65 = fsub double %64, %26
   %66 = fcmp uge double %65, 1.000000e+00
   br i1 %66, label %bench_async_handle.exit.thread, label %37, !llvm.loop !64
 
 67:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %68 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %3) #16
   %69 = icmp slt i32 %68, 0
   br i1 %69, label %70, label %bench_stats_start.exit35
@@ -4854,7 +4848,7 @@ bench_stats_start.exit35:                         ; preds = %67
   %80 = sitofp i64 %79 to double
   %81 = fdiv double %80, 1.000000e+09
   %82 = fadd double %81, %77
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %83 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
   %84 = extractvalue { i32, i32 } %83, 0
   %85 = extractvalue { i32, i32 } %83, 1
@@ -4900,7 +4894,7 @@ bench_stats_start.exit35:                         ; preds = %67
 
 ._crit_edge:                                      ; preds = %105, %93
   %storemerge.lcssa = phi i32 [ 0, %93 ], [ %106, %105 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %109 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %2) #16
   %110 = icmp slt i32 %109, 0
   br i1 %110, label %111, label %bench_stats_check.exit36
@@ -4922,7 +4916,7 @@ bench_stats_check.exit36:                         ; preds = %._crit_edge
   %121 = sitofp i64 %120 to double
   %122 = fdiv double %121, 1.000000e+09
   %123 = fadd double %122, %119
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %124 = fsub double %123, %82
   %125 = fcmp uge double %124, 1.000000e+00
   br i1 %125, label %bench_async_handle.exit.thread, label %93, !llvm.loop !66
@@ -4937,18 +4931,18 @@ bench_async_handle.exit.thread:                   ; preds = %.critedge29, %bench
 
 .critedge31:                                      ; preds = %bench_async_handle.exit.thread, %10
   call void @wc_Sha3_224_Free(ptr noundef nonnull %6) #16
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %7) #16
-  call void @llvm.lifetime.end.p0(i64 416, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
-declare i32 @wc_InitSha3_224(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_InitSha3_224(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @wc_Sha3_224_Update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_Sha3_224_Update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @wc_Sha3_224_Final(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @wc_Sha3_224_Final(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @wc_Sha3_224_Free(ptr noundef) local_unnamed_addr #2
+declare void @wc_Sha3_224_Free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @bench_sha3_256(i32 %0) local_unnamed_addr #0 {
@@ -4958,8 +4952,8 @@ define dso_local void @bench_sha3_256(i32 %0) local_unnamed_addr #0 {
   %5 = alloca %struct.timespec, align 8
   %6 = alloca [1 x [1 x %struct.wc_Sha3]], align 16
   %7 = alloca [1 x [32 x i8]], align 16
-  call void @llvm.lifetime.start.p0(i64 416, ptr nonnull %6) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(416) %6, i8 0, i64 416, i1 false)
   %.b = load i1, ptr @digest_stream, align 4
   br i1 %.b, label %67, label %8
@@ -4974,7 +4968,7 @@ define dso_local void @bench_sha3_256(i32 %0) local_unnamed_addr #0 {
   br label %.critedge31
 
 .critedge:                                        ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %12 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %5) #16
   %13 = icmp slt i32 %12, 0
   br i1 %13, label %14, label %bench_stats_start.exit
@@ -4996,7 +4990,7 @@ bench_stats_start.exit:                           ; preds = %.critedge
   %24 = sitofp i64 %23 to double
   %25 = fdiv double %24, 1.000000e+09
   %26 = fadd double %25, %21
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %27 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
   %28 = extractvalue { i32, i32 } %27, 0
   %29 = extractvalue { i32, i32 } %27, 1
@@ -5038,7 +5032,7 @@ bench_async_handle.exit:                          ; preds = %.lr.ph
   br i1 %49, label %50, label %bench_async_handle.exit.thread
 
 50:                                               ; preds = %.critedge29
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %51 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %4) #16
   %52 = icmp slt i32 %51, 0
   br i1 %52, label %53, label %bench_stats_check.exit
@@ -5059,13 +5053,13 @@ bench_stats_check.exit:                           ; preds = %50
   %62 = sitofp i64 %61 to double
   %63 = fdiv double %62, 1.000000e+09
   %64 = fadd double %63, %60
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %65 = fsub double %64, %26
   %66 = fcmp uge double %65, 1.000000e+00
   br i1 %66, label %bench_async_handle.exit.thread, label %37, !llvm.loop !67
 
 67:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %68 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %3) #16
   %69 = icmp slt i32 %68, 0
   br i1 %69, label %70, label %bench_stats_start.exit35
@@ -5087,7 +5081,7 @@ bench_stats_start.exit35:                         ; preds = %67
   %80 = sitofp i64 %79 to double
   %81 = fdiv double %80, 1.000000e+09
   %82 = fadd double %81, %77
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %83 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
   %84 = extractvalue { i32, i32 } %83, 0
   %85 = extractvalue { i32, i32 } %83, 1
@@ -5133,7 +5127,7 @@ bench_stats_start.exit35:                         ; preds = %67
 
 ._crit_edge:                                      ; preds = %105, %93
   %storemerge.lcssa = phi i32 [ 0, %93 ], [ %106, %105 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %109 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %2) #16
   %110 = icmp slt i32 %109, 0
   br i1 %110, label %111, label %bench_stats_check.exit36
@@ -5155,7 +5149,7 @@ bench_stats_check.exit36:                         ; preds = %._crit_edge
   %121 = sitofp i64 %120 to double
   %122 = fdiv double %121, 1.000000e+09
   %123 = fadd double %122, %119
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %124 = fsub double %123, %82
   %125 = fcmp uge double %124, 1.000000e+00
   br i1 %125, label %bench_async_handle.exit.thread, label %93, !llvm.loop !69
@@ -5170,18 +5164,18 @@ bench_async_handle.exit.thread:                   ; preds = %.critedge29, %bench
 
 .critedge31:                                      ; preds = %bench_async_handle.exit.thread, %10
   call void @wc_Sha3_256_Free(ptr noundef nonnull %6) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #16
-  call void @llvm.lifetime.end.p0(i64 416, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
-declare i32 @wc_InitSha3_256(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_InitSha3_256(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @wc_Sha3_256_Update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_Sha3_256_Update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @wc_Sha3_256_Final(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @wc_Sha3_256_Final(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @wc_Sha3_256_Free(ptr noundef) local_unnamed_addr #2
+declare void @wc_Sha3_256_Free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @bench_sha3_384(i32 %0) local_unnamed_addr #0 {
@@ -5191,8 +5185,8 @@ define dso_local void @bench_sha3_384(i32 %0) local_unnamed_addr #0 {
   %5 = alloca %struct.timespec, align 8
   %6 = alloca [1 x [1 x %struct.wc_Sha3]], align 16
   %7 = alloca [1 x [48 x i8]], align 16
-  call void @llvm.lifetime.start.p0(i64 416, ptr nonnull %6) #16
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(416) %6, i8 0, i64 416, i1 false)
   %.b = load i1, ptr @digest_stream, align 4
   br i1 %.b, label %67, label %8
@@ -5207,7 +5201,7 @@ define dso_local void @bench_sha3_384(i32 %0) local_unnamed_addr #0 {
   br label %.critedge31
 
 .critedge:                                        ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %12 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %5) #16
   %13 = icmp slt i32 %12, 0
   br i1 %13, label %14, label %bench_stats_start.exit
@@ -5229,7 +5223,7 @@ bench_stats_start.exit:                           ; preds = %.critedge
   %24 = sitofp i64 %23 to double
   %25 = fdiv double %24, 1.000000e+09
   %26 = fadd double %25, %21
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %27 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
   %28 = extractvalue { i32, i32 } %27, 0
   %29 = extractvalue { i32, i32 } %27, 1
@@ -5271,7 +5265,7 @@ bench_async_handle.exit:                          ; preds = %.lr.ph
   br i1 %49, label %50, label %bench_async_handle.exit.thread
 
 50:                                               ; preds = %.critedge29
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %51 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %4) #16
   %52 = icmp slt i32 %51, 0
   br i1 %52, label %53, label %bench_stats_check.exit
@@ -5292,13 +5286,13 @@ bench_stats_check.exit:                           ; preds = %50
   %62 = sitofp i64 %61 to double
   %63 = fdiv double %62, 1.000000e+09
   %64 = fadd double %63, %60
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %65 = fsub double %64, %26
   %66 = fcmp uge double %65, 1.000000e+00
   br i1 %66, label %bench_async_handle.exit.thread, label %37, !llvm.loop !70
 
 67:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %68 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %3) #16
   %69 = icmp slt i32 %68, 0
   br i1 %69, label %70, label %bench_stats_start.exit35
@@ -5320,7 +5314,7 @@ bench_stats_start.exit35:                         ; preds = %67
   %80 = sitofp i64 %79 to double
   %81 = fdiv double %80, 1.000000e+09
   %82 = fadd double %81, %77
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %83 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
   %84 = extractvalue { i32, i32 } %83, 0
   %85 = extractvalue { i32, i32 } %83, 1
@@ -5366,7 +5360,7 @@ bench_stats_start.exit35:                         ; preds = %67
 
 ._crit_edge:                                      ; preds = %105, %93
   %storemerge.lcssa = phi i32 [ 0, %93 ], [ %106, %105 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %109 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %2) #16
   %110 = icmp slt i32 %109, 0
   br i1 %110, label %111, label %bench_stats_check.exit36
@@ -5388,7 +5382,7 @@ bench_stats_check.exit36:                         ; preds = %._crit_edge
   %121 = sitofp i64 %120 to double
   %122 = fdiv double %121, 1.000000e+09
   %123 = fadd double %122, %119
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %124 = fsub double %123, %82
   %125 = fcmp uge double %124, 1.000000e+00
   br i1 %125, label %bench_async_handle.exit.thread, label %93, !llvm.loop !72
@@ -5403,18 +5397,18 @@ bench_async_handle.exit.thread:                   ; preds = %.critedge29, %bench
 
 .critedge31:                                      ; preds = %bench_async_handle.exit.thread, %10
   call void @wc_Sha3_384_Free(ptr noundef nonnull %6) #16
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #16
-  call void @llvm.lifetime.end.p0(i64 416, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
-declare i32 @wc_InitSha3_384(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_InitSha3_384(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @wc_Sha3_384_Update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_Sha3_384_Update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @wc_Sha3_384_Final(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @wc_Sha3_384_Final(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @wc_Sha3_384_Free(ptr noundef) local_unnamed_addr #2
+declare void @wc_Sha3_384_Free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @bench_sha3_512(i32 %0) local_unnamed_addr #0 {
@@ -5424,8 +5418,8 @@ define dso_local void @bench_sha3_512(i32 %0) local_unnamed_addr #0 {
   %5 = alloca %struct.timespec, align 8
   %6 = alloca [1 x [1 x %struct.wc_Sha3]], align 16
   %7 = alloca [1 x [64 x i8]], align 16
-  call void @llvm.lifetime.start.p0(i64 416, ptr nonnull %6) #16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(416) %6, i8 0, i64 416, i1 false)
   %.b = load i1, ptr @digest_stream, align 4
   br i1 %.b, label %67, label %8
@@ -5440,7 +5434,7 @@ define dso_local void @bench_sha3_512(i32 %0) local_unnamed_addr #0 {
   br label %.critedge31
 
 .critedge:                                        ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %12 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %5) #16
   %13 = icmp slt i32 %12, 0
   br i1 %13, label %14, label %bench_stats_start.exit
@@ -5462,7 +5456,7 @@ bench_stats_start.exit:                           ; preds = %.critedge
   %24 = sitofp i64 %23 to double
   %25 = fdiv double %24, 1.000000e+09
   %26 = fadd double %25, %21
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %27 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
   %28 = extractvalue { i32, i32 } %27, 0
   %29 = extractvalue { i32, i32 } %27, 1
@@ -5504,7 +5498,7 @@ bench_async_handle.exit:                          ; preds = %.lr.ph
   br i1 %49, label %50, label %bench_async_handle.exit.thread
 
 50:                                               ; preds = %.critedge29
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %51 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %4) #16
   %52 = icmp slt i32 %51, 0
   br i1 %52, label %53, label %bench_stats_check.exit
@@ -5525,13 +5519,13 @@ bench_stats_check.exit:                           ; preds = %50
   %62 = sitofp i64 %61 to double
   %63 = fdiv double %62, 1.000000e+09
   %64 = fadd double %63, %60
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %65 = fsub double %64, %26
   %66 = fcmp uge double %65, 1.000000e+00
   br i1 %66, label %bench_async_handle.exit.thread, label %37, !llvm.loop !73
 
 67:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %68 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %3) #16
   %69 = icmp slt i32 %68, 0
   br i1 %69, label %70, label %bench_stats_start.exit35
@@ -5553,7 +5547,7 @@ bench_stats_start.exit35:                         ; preds = %67
   %80 = sitofp i64 %79 to double
   %81 = fdiv double %80, 1.000000e+09
   %82 = fadd double %81, %77
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %83 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
   %84 = extractvalue { i32, i32 } %83, 0
   %85 = extractvalue { i32, i32 } %83, 1
@@ -5599,7 +5593,7 @@ bench_stats_start.exit35:                         ; preds = %67
 
 ._crit_edge:                                      ; preds = %105, %93
   %storemerge.lcssa = phi i32 [ 0, %93 ], [ %106, %105 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %109 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %2) #16
   %110 = icmp slt i32 %109, 0
   br i1 %110, label %111, label %bench_stats_check.exit36
@@ -5621,7 +5615,7 @@ bench_stats_check.exit36:                         ; preds = %._crit_edge
   %121 = sitofp i64 %120 to double
   %122 = fdiv double %121, 1.000000e+09
   %123 = fadd double %122, %119
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %124 = fsub double %123, %82
   %125 = fcmp uge double %124, 1.000000e+00
   br i1 %125, label %bench_async_handle.exit.thread, label %93, !llvm.loop !75
@@ -5636,31 +5630,31 @@ bench_async_handle.exit.thread:                   ; preds = %.critedge29, %bench
 
 .critedge31:                                      ; preds = %bench_async_handle.exit.thread, %10
   call void @wc_Sha3_512_Free(ptr noundef nonnull %6) #16
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #16
-  call void @llvm.lifetime.end.p0(i64 416, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
-declare i32 @wc_InitSha3_512(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_InitSha3_512(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @wc_Sha3_512_Update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_Sha3_512_Update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @wc_Sha3_512_Final(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @wc_Sha3_512_Final(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @wc_Sha3_512_Free(ptr noundef) local_unnamed_addr #2
+declare void @wc_Sha3_512_Free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @bench_hmac_md5(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca [16 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %2, i8 11, i64 16, i1 false)
   call fastcc void @bench_hmac(i32 noundef 3, ptr noundef %2, i32 noundef 16, ptr noundef nonnull @.str.64)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @bench_hmac(i32 noundef range(i32 3, 9) %0, ptr noundef nonnull %1, i32 noundef range(i32 16, 65) %2, ptr noundef %3) unnamed_addr #0 {
@@ -5671,8 +5665,8 @@ define internal fastcc void @bench_hmac(i32 noundef range(i32 3, 9) %0, ptr noun
   %7 = alloca %struct.timespec, align 8
   %8 = alloca [1 x [1 x %struct.Hmac]], align 16
   %9 = alloca [1 x [64 x i8]], align 16
-  call void @llvm.lifetime.start.p0(i64 784, ptr nonnull %8) #16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(784) %8, i8 0, i64 784, i1 false)
   %10 = call i32 @wc_HmacInit(ptr noundef nonnull %8, ptr noundef null, i32 noundef -2) #16
   %.not36 = icmp eq i32 %10, 0
@@ -5696,7 +5690,7 @@ define internal fastcc void @bench_hmac(i32 noundef range(i32 3, 9) %0, ptr noun
   br i1 %.b, label %74, label %18
 
 18:                                               ; preds = %17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %19 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %7) #16
   %20 = icmp slt i32 %19, 0
   br i1 %20, label %21, label %bench_stats_start.exit
@@ -5718,7 +5712,7 @@ bench_stats_start.exit:                           ; preds = %18
   %31 = sitofp i64 %30 to double
   %32 = fdiv double %31, 1.000000e+09
   %33 = fadd double %32, %28
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %34 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
   %35 = extractvalue { i32, i32 } %34, 0
   %36 = extractvalue { i32, i32 } %34, 1
@@ -5760,7 +5754,7 @@ bench_async_handle.exit:                          ; preds = %.lr.ph
   br i1 %56, label %57, label %bench_async_handle.exit.thread
 
 57:                                               ; preds = %.critedge41
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %58 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %6) #16
   %59 = icmp slt i32 %58, 0
   br i1 %59, label %60, label %bench_stats_check.exit
@@ -5781,13 +5775,13 @@ bench_stats_check.exit:                           ; preds = %57
   %69 = sitofp i64 %68 to double
   %70 = fdiv double %69, 1.000000e+09
   %71 = fadd double %70, %67
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %72 = fsub double %71, %33
   %73 = fcmp uge double %72, 1.000000e+00
   br i1 %73, label %bench_async_handle.exit.thread, label %44, !llvm.loop !76
 
 74:                                               ; preds = %17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %75 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %5) #16
   %76 = icmp slt i32 %75, 0
   br i1 %76, label %77, label %bench_stats_start.exit51
@@ -5809,7 +5803,7 @@ bench_stats_start.exit51:                         ; preds = %74
   %87 = sitofp i64 %86 to double
   %88 = fdiv double %87, 1.000000e+09
   %89 = fadd double %88, %84
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %90 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
   %91 = extractvalue { i32, i32 } %90, 0
   %92 = extractvalue { i32, i32 } %90, 1
@@ -5852,7 +5846,7 @@ bench_async_handle.exit55:                        ; preds = %107
 .critedge43._crit_edge:                           ; preds = %bench_async_handle.exit55, %100
   %.281.lcssa = phi i32 [ %.180, %100 ], [ %108, %bench_async_handle.exit55 ]
   %.2.lcssa = phi i32 [ 0, %100 ], [ %110, %bench_async_handle.exit55 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %113 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %4) #16
   %114 = icmp slt i32 %113, 0
   br i1 %114, label %115, label %bench_stats_check.exit56
@@ -5874,7 +5868,7 @@ bench_stats_check.exit56:                         ; preds = %.critedge43._crit_e
   %125 = sitofp i64 %124 to double
   %126 = fdiv double %125, 1.000000e+09
   %127 = fadd double %126, %123
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %128 = fsub double %127, %89
   %129 = fcmp uge double %128, 1.000000e+00
   br i1 %129, label %bench_async_handle.exit.thread, label %100, !llvm.loop !77
@@ -5889,58 +5883,58 @@ bench_async_handle.exit.thread:                   ; preds = %.critedge41, %bench
 
 .critedge45:                                      ; preds = %bench_async_handle.exit.thread, %15, %11
   call void @wc_HmacFree(ptr noundef nonnull %8) #16
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #16
-  call void @llvm.lifetime.end.p0(i64 784, ptr nonnull %8) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @bench_hmac_sha(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca [20 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %2, i8 11, i64 20, i1 false)
   call fastcc void @bench_hmac(i32 noundef 4, ptr noundef %2, i32 noundef 20, ptr noundef nonnull @.str.65)
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @bench_hmac_sha224(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca [28 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %2) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(28) %2, i8 11, i64 28, i1 false)
   call fastcc void @bench_hmac(i32 noundef 5, ptr noundef %2, i32 noundef 28, ptr noundef nonnull @.str.66)
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %2) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @bench_hmac_sha256(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %2, i8 11, i64 32, i1 false)
   call fastcc void @bench_hmac(i32 noundef 6, ptr noundef %2, i32 noundef 32, ptr noundef nonnull @.str.67)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @bench_hmac_sha384(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca [48 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %2, i8 11, i64 48, i1 false)
   call fastcc void @bench_hmac(i32 noundef 7, ptr noundef %2, i32 noundef 48, ptr noundef nonnull @.str.68)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @bench_hmac_sha512(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca [64 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %2, i8 11, i64 64, i1 false)
   call fastcc void @bench_hmac(i32 noundef 8, ptr noundef %2, i32 noundef 64, ptr noundef nonnull @.str.69)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -5950,10 +5944,10 @@ define dso_local void @bench_pbkdf2() local_unnamed_addr #0 {
   %2 = alloca %struct.timespec, align 8
   %3 = alloca [32 x i8], align 16
   %4 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, ptr noundef nonnull align 16 dereferenceable(32) @__const.bench_pbkdf2.salt32, i64 32, i1 false)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %5 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %2) #16
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %7, label %bench_stats_start.exit
@@ -5975,7 +5969,7 @@ bench_stats_start.exit:                           ; preds = %0
   %17 = sitofp i64 %16 to double
   %18 = fdiv double %17, 1.000000e+09
   %19 = fadd double %18, %14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %20 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
   %21 = extractvalue { i32, i32 } %20, 0
   %22 = extractvalue { i32, i32 } %20, 1
@@ -5991,7 +5985,7 @@ bench_stats_start.exit:                           ; preds = %0
 29:                                               ; preds = %bench_stats_check.exit, %bench_stats_start.exit
   %.0 = phi i32 [ 0, %bench_stats_start.exit ], [ %39, %bench_stats_check.exit ]
   %30 = call i32 @wc_PBKDF2(ptr noundef nonnull %4, ptr noundef nonnull @.str.70, i32 noundef 32, ptr noundef nonnull %3, i32 noundef 32, i32 noundef 1000, i32 noundef 32, i32 noundef 6) #16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %31 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %1) #16
   %32 = icmp slt i32 %31, 0
   br i1 %32, label %33, label %bench_stats_check.exit
@@ -6013,22 +6007,22 @@ bench_stats_check.exit:                           ; preds = %29
   %43 = sitofp i64 %42 to double
   %44 = fdiv double %43, 1.000000e+09
   %45 = fadd double %44, %41
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %46 = fsub double %45, %19
   %47 = fcmp uge double %46, 1.000000e+00
   br i1 %47, label %48, label %29, !llvm.loop !78
 
 48:                                               ; preds = %bench_stats_check.exit
   call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.71, i32 noundef %39, i32 noundef 32, double noundef %19, i32 noundef %30)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-declare i32 @wc_PBKDF2(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_PBKDF2(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @bench_rsa(i32 %0) local_unnamed_addr #0 {
@@ -6044,8 +6038,8 @@ define dso_local void @bench_rsa(i32 %0) local_unnamed_addr #0 {
   %9 = alloca [25 x i8], align 16
   %10 = alloca [1 x [1 x %struct.RsaKey]], align 16
   %11 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8368, ptr nonnull %10) #16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(8368) %10, i8 0, i64 8368, i1 false)
   %12 = call i32 @wc_InitRsaKey_ex(ptr noundef nonnull %10, ptr noundef null, i32 noundef -2) #16
   %13 = icmp slt i32 %12, 0
@@ -6071,7 +6065,7 @@ define dso_local void @bench_rsa(i32 %0) local_unnamed_addr #0 {
   %22 = load i32, ptr @lng_index, align 4, !tbaa !4
   %23 = sext i32 %22 to i64
   %24 = getelementptr inbounds [2 x [15 x ptr]], ptr @bench_desc_words, i64 0, i64 %23
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %9) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %25 = call ptr @wolfSSL_Malloc(i64 noundef 2048) #16
   %26 = icmp eq ptr %25, null
   br i1 %26, label %.critedge124.thread.i, label %27, !llvm.loop !79
@@ -6091,7 +6085,7 @@ define dso_local void @bench_rsa(i32 %0) local_unnamed_addr #0 {
   br i1 %.b.i, label %130, label %31
 
 31:                                               ; preds = %.critedge.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %32 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %8) #16
   %33 = icmp slt i32 %32, 0
   br i1 %33, label %34, label %bench_stats_start.exit.i
@@ -6113,7 +6107,7 @@ bench_stats_start.exit.i:                         ; preds = %31
   %44 = sitofp i64 %43 to double
   %45 = fdiv double %44, 1.000000e+09
   %46 = fadd double %45, %41
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %47 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
   %48 = extractvalue { i32, i32 } %47, 0
   %49 = extractvalue { i32, i32 } %47, 1
@@ -6147,7 +6141,7 @@ bench_async_handle.exit.i:                        ; preds = %57
   br i1 %exitcond.not.i, label %62, label %57
 
 62:                                               ; preds = %bench_async_handle.exit.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %63 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %7) #16
   %64 = icmp slt i32 %63, 0
   br i1 %64, label %65, label %bench_stats_check.exit.i
@@ -6169,7 +6163,7 @@ bench_stats_check.exit.i:                         ; preds = %62
   %75 = sitofp i64 %74 to double
   %76 = fdiv double %75, 1.000000e+09
   %77 = fadd double %76, %73
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %78 = fsub double %77, %46
   %79 = fcmp uge double %78, 1.000000e+00
   br i1 %79, label %80, label %56, !llvm.loop !80
@@ -6177,7 +6171,7 @@ bench_stats_check.exit.i:                         ; preds = %62
 80:                                               ; preds = %bench_stats_check.exit.i
   %81 = load ptr, ptr %24, align 8, !tbaa !8
   call fastcc void @bench_stats_asym_finish(ptr noundef nonnull @.str.136, i32 noundef 2048, ptr noundef %81, i32 noundef %71, double noundef %46, i32 noundef %58)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %82 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %6) #16
   %83 = icmp slt i32 %82, 0
   br i1 %83, label %84, label %bench_stats_start.exit130.i
@@ -6199,7 +6193,7 @@ bench_stats_start.exit130.i:                      ; preds = %80
   %94 = sitofp i64 %93 to double
   %95 = fdiv double %94, 1.000000e+09
   %96 = fadd double %95, %91
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %97 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
   %98 = extractvalue { i32, i32 } %97, 0
   %99 = extractvalue { i32, i32 } %97, 1
@@ -6227,7 +6221,7 @@ bench_async_handle.exit132.i:                     ; preds = %106
   br i1 %exitcond326.not.i, label %110, label %106
 
 110:                                              ; preds = %bench_async_handle.exit132.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %111 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %5) #16
   %112 = icmp slt i32 %111, 0
   br i1 %112, label %113, label %bench_stats_check.exit133.i
@@ -6249,7 +6243,7 @@ bench_stats_check.exit133.i:                      ; preds = %110
   %123 = sitofp i64 %122 to double
   %124 = fdiv double %123, 1.000000e+09
   %125 = fadd double %124, %121
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %126 = fsub double %125, %96
   %127 = fcmp uge double %126, 1.000000e+00
   br i1 %127, label %bench_async_handle.exit132.thread.i, label %105, !llvm.loop !81
@@ -6262,7 +6256,7 @@ bench_async_handle.exit132.thread.i:              ; preds = %bench_stats_check.e
   br label %.critedge124.thread235.thread.i
 
 130:                                              ; preds = %.critedge.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %131 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %4) #16
   %132 = icmp slt i32 %131, 0
   br i1 %132, label %133, label %bench_stats_start.exit134.i
@@ -6284,7 +6278,7 @@ bench_stats_start.exit134.i:                      ; preds = %130
   %143 = sitofp i64 %142 to double
   %144 = fdiv double %143, 1.000000e+09
   %145 = fadd double %144, %140
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %146 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
   %147 = extractvalue { i32, i32 } %146, 0
   %148 = extractvalue { i32, i32 } %146, 1
@@ -6319,7 +6313,7 @@ bench_async_handle.exit136.i:                     ; preds = %156
   br i1 %exitcond327.not.i, label %162, label %156
 
 162:                                              ; preds = %bench_async_handle.exit136.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %163 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %3) #16
   %164 = icmp slt i32 %163, 0
   br i1 %164, label %165, label %bench_stats_check.exit137.i
@@ -6341,7 +6335,7 @@ bench_stats_check.exit137.i:                      ; preds = %162
   %175 = sitofp i64 %174 to double
   %176 = fdiv double %175, 1.000000e+09
   %177 = fadd double %176, %173
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %178 = fsub double %177, %145
   %179 = fcmp uge double %178, 1.000000e+00
   br i1 %179, label %180, label %155, !llvm.loop !82
@@ -6350,7 +6344,7 @@ bench_stats_check.exit137.i:                      ; preds = %162
   %181 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %182 = load ptr, ptr %181, align 8, !tbaa !8
   call fastcc void @bench_stats_asym_finish(ptr noundef nonnull @.str.136, i32 noundef 2048, ptr noundef %182, i32 noundef %171, double noundef %145, i32 noundef %157)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %183 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %2) #16
   %184 = icmp slt i32 %183, 0
   br i1 %184, label %185, label %bench_stats_start.exit138.i
@@ -6372,7 +6366,7 @@ bench_stats_start.exit138.i:                      ; preds = %180
   %195 = sitofp i64 %194 to double
   %196 = fdiv double %195, 1.000000e+09
   %197 = fadd double %196, %192
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %198 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
   %199 = extractvalue { i32, i32 } %198, 0
   %200 = extractvalue { i32, i32 } %198, 1
@@ -6400,7 +6394,7 @@ bench_async_handle.exit140.i:                     ; preds = %207
   br i1 %exitcond328.not.i, label %211, label %207
 
 211:                                              ; preds = %bench_async_handle.exit140.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %212 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %1) #16
   %213 = icmp slt i32 %212, 0
   br i1 %213, label %214, label %bench_stats_check.exit141.i
@@ -6422,7 +6416,7 @@ bench_stats_check.exit141.i:                      ; preds = %211
   %224 = sitofp i64 %223 to double
   %225 = fdiv double %224, 1.000000e+09
   %226 = fadd double %225, %222
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %227 = fsub double %226, %197
   %228 = fcmp uge double %227, 1.000000e+00
   br i1 %228, label %bench_async_handle.exit140.thread.i, label %206, !llvm.loop !83
@@ -6445,23 +6439,23 @@ bench_async_handle.exit140.thread.i:              ; preds = %bench_stats_check.e
   br label %bench_rsa_helper.exit
 
 bench_rsa_helper.exit:                            ; preds = %.critedge124.thread.i, %.thread251.i, %.critedge124.thread235.thread.i
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %9) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.critedge19
 
 .critedge19:                                      ; preds = %bench_rsa_helper.exit, %14, %.critedge, %19
   %232 = call i32 @wc_FreeRsaKey(ptr noundef nonnull %10) #16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #16
-  call void @llvm.lifetime.end.p0(i64 8368, ptr nonnull %10) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 }
 
-declare i32 @wc_InitRsaKey_ex(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_InitRsaKey_ex(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @wc_RsaSetRNG(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @wc_RsaSetRNG(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @wc_RsaPrivateKeyDecode(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_RsaPrivateKeyDecode(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @wc_FreeRsaKey(ptr noundef) local_unnamed_addr #2
+declare i32 @wc_FreeRsaKey(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @bench_dh(i32 %0) local_unnamed_addr #0 {
@@ -6481,23 +6475,23 @@ define dso_local void @bench_dh(i32 %0) local_unnamed_addr #0 {
   %15 = alloca [1 x [384 x i8]], align 16
   %16 = alloca [1 x [48 x i8]], align 16
   %17 = alloca [48 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 3136, ptr nonnull %6) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %18 = load i32, ptr @lng_index, align 4, !tbaa !4
   %19 = sext i32 %18 to i64
   %20 = getelementptr inbounds [2 x [15 x ptr]], ptr @bench_desc_words, i64 0, i64 %19
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 384, ptr %10, align 4, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 48, ptr %11, align 4, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #16
-  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %13) #16
-  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %14) #16
-  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %15) #16
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %16) #16
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %17) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(384) %13, i8 0, i64 384, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(384) %15, i8 0, i64 384, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %16, i8 0, i64 48, i1 false)
@@ -6551,7 +6545,7 @@ define dso_local void @bench_dh(i32 %0) local_unnamed_addr #0 {
   br label %.critedge58
 
 .thread:                                          ; preds = %27, %37
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %40 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %5) #16
   %41 = icmp slt i32 %40, 0
   br i1 %41, label %42, label %bench_stats_start.exit
@@ -6573,7 +6567,7 @@ bench_stats_start.exit:                           ; preds = %.thread
   %52 = sitofp i64 %51 to double
   %53 = fdiv double %52, 1.000000e+09
   %54 = fadd double %53, %49
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %55 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
   %56 = extractvalue { i32, i32 } %55, 0
   %57 = extractvalue { i32, i32 } %55, 1
@@ -6602,7 +6596,7 @@ bench_stats_start.exit:                           ; preds = %.thread
   br label %.critedge58
 
 .critedge54:                                      ; preds = %65
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %70 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %4) #16
   %71 = icmp slt i32 %70, 0
   br i1 %71, label %72, label %bench_stats_check.exit
@@ -6624,7 +6618,7 @@ bench_stats_check.exit:                           ; preds = %.critedge54
   %82 = sitofp i64 %81 to double
   %83 = fdiv double %82, 1.000000e+09
   %84 = fadd double %83, %80
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %85 = fsub double %84, %54
   %86 = fcmp uge double %85, 1.000000e+00
   br i1 %86, label %87, label %65, !llvm.loop !89
@@ -6634,7 +6628,7 @@ bench_stats_check.exit:                           ; preds = %.critedge54
   %89 = load ptr, ptr %88, align 8, !tbaa !8
   call fastcc void @bench_stats_asym_finish(ptr noundef nonnull @.str.74, i32 noundef 2048, ptr noundef %89, i32 noundef %78, double noundef %54, i32 noundef %66)
   %90 = call i32 @wc_DhGenerateKeyPair(ptr noundef nonnull %6, ptr noundef nonnull %63, ptr noundef nonnull %17, ptr noundef nonnull %11, ptr noundef nonnull %14, ptr noundef nonnull %10) #16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %91 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %3) #16
   %92 = icmp slt i32 %91, 0
   br i1 %92, label %93, label %bench_stats_start.exit60
@@ -6656,7 +6650,7 @@ bench_stats_start.exit60:                         ; preds = %87
   %103 = sitofp i64 %102 to double
   %104 = fdiv double %103, 1.000000e+09
   %105 = fadd double %104, %100
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %106 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
   %107 = extractvalue { i32, i32 } %106, 0
   %108 = extractvalue { i32, i32 } %106, 1
@@ -6686,7 +6680,7 @@ bench_async_handle.exit62:                        ; preds = %115
   br i1 %exitcond.not, label %121, label %115
 
 121:                                              ; preds = %bench_async_handle.exit62
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %122 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %2) #16
   %123 = icmp slt i32 %122, 0
   br i1 %123, label %124, label %bench_stats_check.exit63
@@ -6708,7 +6702,7 @@ bench_stats_check.exit63:                         ; preds = %121
   %134 = sitofp i64 %133 to double
   %135 = fdiv double %134, 1.000000e+09
   %136 = fadd double %135, %132
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %137 = fsub double %136, %105
   %138 = fcmp uge double %137, 1.000000e+00
   br i1 %138, label %.critedge58, label %114, !llvm.loop !90
@@ -6721,30 +6715,30 @@ bench_stats_check.exit63:                         ; preds = %121
   %140 = load ptr, ptr %139, align 8, !tbaa !8
   call fastcc void @bench_stats_asym_finish(ptr noundef nonnull @.str.74, i32 noundef 2048, ptr noundef %140, i32 noundef %.088, double noundef %.082, i32 noundef %.083)
   %141 = call i32 @wc_FreeDhKey(ptr noundef nonnull %6) #16
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %17) #16
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %16) #16
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %15) #16
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %14) #16
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %13) #16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #16
-  call void @llvm.lifetime.end.p0(i64 3136, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
-declare ptr @wc_Dh_ffdhe2048_Get() local_unnamed_addr #2
+declare ptr @wc_Dh_ffdhe2048_Get() local_unnamed_addr #1
 
-declare i32 @wc_InitDhKey_ex(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_InitDhKey_ex(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @wc_DhKeyDecode(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_DhKeyDecode(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @wc_DhSetKey(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_DhSetKey(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @wc_DhGenerateKeyPair(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @wc_DhGenerateKeyPair(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @bench_stats_asym_finish(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, double noundef %4, i32 noundef %5) unnamed_addr #0 {
@@ -6753,9 +6747,9 @@ define internal fastcc void @bench_stats_asym_finish(ptr noundef %0, i32 noundef
   %9 = load i32, ptr @lng_index, align 4, !tbaa !4
   %10 = sext i32 %9 to i64
   %11 = getelementptr inbounds [2 x [5 x ptr]], ptr @bench_result_words2, i64 0, i64 %10
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %8) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %8, i8 0, i64 256, i1 false)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %12 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %7) #16
   %13 = icmp slt i32 %12, 0
   br i1 %13, label %14, label %current_time.exit.i
@@ -6777,7 +6771,7 @@ current_time.exit.i:                              ; preds = %6
   %24 = sitofp i64 %23 to double
   %25 = fdiv double %24, 1.000000e+09
   %26 = fadd double %25, %21
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %27 = fsub double %26, %4
   %28 = icmp sgt i32 %3, 0
   %29 = uitofp nneg i32 %3 to double
@@ -6830,13 +6824,13 @@ current_time.exit.i:                              ; preds = %6
 bench_stats_asym_finish_ex.exit:                  ; preds = %50, %53
   %55 = load ptr, ptr @stdout, align 8, !tbaa !14
   %56 = call i32 @fflush(ptr noundef %55)
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %8) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
 
-declare i32 @wc_DhAgree(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_DhAgree(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @wc_FreeDhKey(ptr noundef) local_unnamed_addr #2
+declare i32 @wc_FreeDhKey(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @bench_ecc_curve(i32 noundef %0) local_unnamed_addr #0 {
@@ -6878,12 +6872,12 @@ define dso_local void @bench_eccMakeKey(i32 %0, i32 noundef %1) local_unnamed_ad
   %4 = alloca %struct.timespec, align 8
   %5 = alloca [1 x [1 x %struct.ecc_key]], align 16
   %6 = alloca [24 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 4208, ptr nonnull %5) #16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @lng_index, align 4, !tbaa !4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4208) %5, i8 0, i64 4208, i1 false)
   %8 = tail call i32 @wc_ecc_get_curve_size_from_id(i32 noundef %1) #16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %9 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %4) #16
   %10 = icmp slt i32 %9, 0
   br i1 %10, label %11, label %bench_stats_start.exit
@@ -6905,7 +6899,7 @@ bench_stats_start.exit:                           ; preds = %2
   %21 = sitofp i64 %20 to double
   %22 = fdiv double %21, 1.000000e+09
   %23 = fadd double %22, %18
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %24 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
   %25 = extractvalue { i32, i32 } %24, 0
   %26 = extractvalue { i32, i32 } %24, 1
@@ -6941,7 +6935,7 @@ bench_async_handle.exit:                          ; preds = %39
   br i1 %exitcond.not, label %43, label %35
 
 43:                                               ; preds = %bench_async_handle.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %44 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %3) #16
   %45 = icmp slt i32 %44, 0
   br i1 %45, label %46, label %bench_stats_check.exit
@@ -6963,7 +6957,7 @@ bench_stats_check.exit:                           ; preds = %43
   %56 = sitofp i64 %55 to double
   %57 = fdiv double %56, 1.000000e+09
   %58 = fadd double %57, %54
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %59 = fsub double %58, %23
   %60 = fcmp uge double %59, 1.000000e+00
   br i1 %60, label %.critedge19, label %34, !llvm.loop !91
@@ -6979,8 +6973,8 @@ bench_stats_check.exit:                           ; preds = %43
   %66 = load ptr, ptr %65, align 8, !tbaa !8
   call fastcc void @bench_stats_asym_finish(ptr noundef nonnull %6, i32 noundef %64, ptr noundef %66, i32 noundef %.128, double noundef %23, i32 noundef %.2)
   %67 = call i32 @wc_ecc_free(ptr noundef nonnull %5) #16
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #16
-  call void @llvm.lifetime.end.p0(i64 4208, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -7001,17 +6995,17 @@ define dso_local void @bench_ecc(i32 %0, i32 noundef %1) local_unnamed_addr #0 {
   %13 = alloca [1 x [66 x i8]], align 16
   %14 = alloca [1 x [141 x i8]], align 16
   %15 = alloca [1 x [66 x i8]], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #16
-  call void @llvm.lifetime.start.p0(i64 4208, ptr nonnull %9) #16
-  call void @llvm.lifetime.start.p0(i64 4208, ptr nonnull %10) #16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %16 = load i32, ptr @lng_index, align 4, !tbaa !4
   %17 = sext i32 %16 to i64
   %18 = getelementptr inbounds [2 x [15 x ptr]], ptr @bench_desc_words, i64 0, i64 %17
-  call void @llvm.lifetime.start.p0(i64 66, ptr nonnull %13) #16
-  call void @llvm.lifetime.start.p0(i64 141, ptr nonnull %14) #16
-  call void @llvm.lifetime.start.p0(i64 66, ptr nonnull %15) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(141) %14, i8 0, i64 141, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(66) %15, i8 0, i64 66, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(66) %13, i8 0, i64 66, i1 false)
@@ -7040,7 +7034,7 @@ define dso_local void @bench_ecc(i32 %0, i32 noundef %1) local_unnamed_addr #0 {
 
 .critedge75:                                      ; preds = %29
   %32 = call i32 @wc_ecc_set_rng(ptr noundef nonnull %9, ptr noundef nonnull %23) #16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %33 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %7) #16
   %34 = icmp slt i32 %33, 0
   br i1 %34, label %35, label %bench_stats_start.exit
@@ -7062,7 +7056,7 @@ bench_stats_start.exit:                           ; preds = %.critedge75
   %45 = sitofp i64 %44 to double
   %46 = fdiv double %45, 1.000000e+09
   %47 = fadd double %46, %42
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %48 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
   %49 = extractvalue { i32, i32 } %48, 0
   %50 = extractvalue { i32, i32 } %48, 1
@@ -7092,7 +7086,7 @@ bench_async_handle.exit:                          ; preds = %58
   br i1 %exitcond.not, label %62, label %58
 
 62:                                               ; preds = %bench_async_handle.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %63 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %6) #16
   %64 = icmp slt i32 %63, 0
   br i1 %64, label %65, label %bench_stats_check.exit
@@ -7114,7 +7108,7 @@ bench_stats_check.exit:                           ; preds = %62
   %75 = sitofp i64 %74 to double
   %76 = fdiv double %75, 1.000000e+09
   %77 = fadd double %76, %73
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %78 = fsub double %77, %47
   %79 = fcmp uge double %78, 1.000000e+00
   br i1 %79, label %bench_async_handle.exit.thread, label %57, !llvm.loop !92
@@ -7148,7 +7142,7 @@ bench_async_handle.exit.thread:                   ; preds = %bench_stats_check.e
   br i1 %exitcond198.not, label %.critedge79, label %.lr.ph, !llvm.loop !94
 
 .critedge79:                                      ; preds = %.lr.ph, %.preheader
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %89 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %5) #16
   %90 = icmp slt i32 %89, 0
   br i1 %90, label %91, label %bench_stats_start.exit90
@@ -7170,7 +7164,7 @@ bench_stats_start.exit90:                         ; preds = %.critedge79
   %101 = sitofp i64 %100 to double
   %102 = fdiv double %101, 1.000000e+09
   %103 = fadd double %102, %98
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %104 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
   %105 = extractvalue { i32, i32 } %104, 0
   %106 = extractvalue { i32, i32 } %104, 1
@@ -7208,7 +7202,7 @@ bench_async_handle.exit92:                        ; preds = %118
   br i1 %exitcond199.not, label %122, label %114
 
 122:                                              ; preds = %bench_async_handle.exit92
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %123 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %4) #16
   %124 = icmp slt i32 %123, 0
   br i1 %124, label %125, label %bench_stats_check.exit93
@@ -7230,7 +7224,7 @@ bench_stats_check.exit93:                         ; preds = %122
   %135 = sitofp i64 %134 to double
   %136 = fdiv double %135, 1.000000e+09
   %137 = fadd double %136, %133
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %138 = fsub double %137, %103
   %139 = fcmp uge double %138, 1.000000e+00
   br i1 %139, label %bench_async_handle.exit92.thread, label %113, !llvm.loop !100
@@ -7246,7 +7240,7 @@ bench_async_handle.exit92.thread:                 ; preds = %bench_stats_check.e
   br i1 %144, label %.critedge85, label %145
 
 145:                                              ; preds = %bench_async_handle.exit92.thread
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %146 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %3) #16
   %147 = icmp slt i32 %146, 0
   br i1 %147, label %148, label %bench_stats_start.exit94
@@ -7268,7 +7262,7 @@ bench_stats_start.exit94:                         ; preds = %145
   %158 = sitofp i64 %157 to double
   %159 = fdiv double %158, 1.000000e+09
   %160 = fadd double %159, %155
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %161 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
   %162 = extractvalue { i32, i32 } %161, 0
   %163 = extractvalue { i32, i32 } %161, 1
@@ -7306,7 +7300,7 @@ bench_async_handle.exit96:                        ; preds = %174
   br i1 %exitcond200.not, label %179, label %170
 
 179:                                              ; preds = %bench_async_handle.exit96
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %180 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %2) #16
   %181 = icmp slt i32 %180, 0
   br i1 %181, label %182, label %bench_stats_check.exit97
@@ -7328,7 +7322,7 @@ bench_stats_check.exit97:                         ; preds = %179
   %192 = sitofp i64 %191 to double
   %193 = fdiv double %192, 1.000000e+09
   %194 = fadd double %193, %190
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %195 = fsub double %194, %160
   %196 = fcmp uge double %195, 1.000000e+00
   br i1 %196, label %bench_async_handle.exit96.thread, label %169, !llvm.loop !101
@@ -7345,42 +7339,42 @@ bench_async_handle.exit96.thread:                 ; preds = %bench_stats_check.e
 .critedge85:                                      ; preds = %bench_async_handle.exit92.thread, %bench_async_handle.exit.thread, %29, %26, %22, %.critedge, %bench_async_handle.exit96.thread
   %201 = call i32 @wc_ecc_free(ptr noundef nonnull %9) #16
   %202 = call i32 @wc_ecc_free(ptr noundef nonnull %10) #16
-  call void @llvm.lifetime.end.p0(i64 66, ptr nonnull %15) #16
-  call void @llvm.lifetime.end.p0(i64 141, ptr nonnull %14) #16
-  call void @llvm.lifetime.end.p0(i64 66, ptr nonnull %13) #16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #16
-  call void @llvm.lifetime.end.p0(i64 4208, ptr nonnull %10) #16
-  call void @llvm.lifetime.end.p0(i64 4208, ptr nonnull %9) #16
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
 
-declare i32 @wc_ecc_get_curve_size_from_id(i32 noundef) local_unnamed_addr #2
+declare i32 @wc_ecc_get_curve_size_from_id(i32 noundef) local_unnamed_addr #1
 
-declare i32 @wc_ecc_free(ptr noundef) local_unnamed_addr #2
+declare i32 @wc_ecc_free(ptr noundef) local_unnamed_addr #1
 
-declare i32 @wc_ecc_init_ex(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_ecc_init_ex(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @wc_ecc_make_key_ex(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_ecc_make_key_ex(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #3
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
-declare ptr @wc_ecc_get_name(i32 noundef) local_unnamed_addr #2
+declare ptr @wc_ecc_get_name(i32 noundef) local_unnamed_addr #1
 
-declare i32 @wc_ecc_set_rng(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @wc_ecc_set_rng(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @wc_ecc_shared_secret(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @wc_ecc_shared_secret(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @wc_ecc_sign_hash(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @wc_ecc_sign_hash(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @wc_ecc_verify_hash(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @wc_ecc_verify_hash(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local double @current_time(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.timespec, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %2) #16
   %4 = icmp slt i32 %3, 0
   br i1 %4, label %5, label %11
@@ -7402,24 +7396,24 @@ define dso_local double @current_time(i32 noundef %0) local_unnamed_addr #0 {
   %16 = sitofp i64 %15 to double
   %17 = fdiv double %16, 1.000000e+09
   %18 = fadd double %17, %13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret double %18
 }
 
 ; Function Attrs: nounwind
-declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #8
+declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #9
+declare ptr @__errno_location() local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #3
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: noreturn
-declare void @_exit(i32 noundef) local_unnamed_addr #10
+declare void @_exit(i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define dso_local void @benchmark_configure(i32 noundef %0) local_unnamed_addr #11 {
+define dso_local void @benchmark_configure(i32 noundef %0) local_unnamed_addr #10 {
   %.not = icmp eq i32 %0, 0
   br i1 %.not, label %7, label %2
 
@@ -7884,7 +7878,7 @@ sub_1:                                            ; preds = %sub_0
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @Usage() unnamed_addr #12 {
+define internal fastcc void @Usage() unnamed_addr #11 {
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
   %1 = load i32, ptr @lng_index, align 4, !tbaa !4
   %2 = sext i32 %1 to i64
@@ -8158,60 +8152,66 @@ print_alg.exit68:                                 ; preds = %112, %119
   ret void
 }
 
-declare ptr @wolfSSL_Malloc(i64 noundef) local_unnamed_addr #2
+declare ptr @wolfSSL_Malloc(i64 noundef) local_unnamed_addr #1
 
-declare void @wolfSSL_Free(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #3
+declare void @wolfSSL_Free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fseek(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #3
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #3
+declare noundef i32 @fseek(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @ftell(ptr noundef captures(none)) local_unnamed_addr #3
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #3
+declare noundef i64 @ftell(ptr noundef captures(none)) local_unnamed_addr #2
 
-declare i32 @wc_AesSetKey(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+; Function Attrs: nofree nounwind
+declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
-declare i32 @wc_AesCbcEncrypt(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_AesSetKey(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @wc_AesCbcDecrypt(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_AesCbcEncrypt(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @wc_AesGcmSetKey(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_AesCbcDecrypt(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @wc_AesGcmEncrypt(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_AesGcmSetKey(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @wc_AesGcmDecrypt(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_AesGcmEncrypt(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @wc_HmacInit(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_AesGcmDecrypt(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @wc_HmacSetKey(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_HmacInit(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @wc_HmacUpdate(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_HmacSetKey(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @wc_HmacFinal(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @wc_HmacUpdate(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @wc_HmacFree(ptr noundef) local_unnamed_addr #2
+declare i32 @wc_HmacFinal(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @wc_RsaPublicEncrypt(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @wc_HmacFree(ptr noundef) local_unnamed_addr #1
 
-declare i32 @wc_RsaPrivateDecrypt(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @wc_RsaPublicEncrypt(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @wc_RsaSSL_Sign(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @wc_RsaPrivateDecrypt(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @wc_RsaSSL_Verify(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @wc_RsaSSL_Sign(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare i32 @wc_RsaSSL_Verify(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #13
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #12
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #14
@@ -8226,19 +8226,19 @@ declare i64 @llvm.umin.i64(i64, i64) #15
 declare i32 @llvm.smax.i32(i32, i32) #15
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #14 = { nofree nounwind }
 attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #16 = { nounwind }

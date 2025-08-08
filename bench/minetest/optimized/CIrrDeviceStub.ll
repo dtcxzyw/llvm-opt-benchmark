@@ -233,7 +233,7 @@ if.end:                                           ; preds = %if.else, %if.then
   store ptr %27, ptr @_ZN3irr2os7Printer6LoggerE, align 8, !tbaa !40
   %call19 = tail call noundef ptr @_ZN3irr2io16createFileSystemEv() #18
   store ptr %call19, ptr %FileSystem, align 8, !tbaa !50
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %s) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %s)
   %28 = getelementptr inbounds nuw i8, ptr %s, i64 16
   store ptr %28, ptr %s, align 8, !tbaa !30
   %_M_string_length.i.i.i.i = getelementptr inbounds nuw i8, ptr %s, i64 8
@@ -310,7 +310,7 @@ if.then.i.i.i32:                                  ; preds = %_ZN3irr4core6string
   br label %_ZN3irr4core6stringIcED2Ev.exit
 
 _ZN3irr4core6stringIcED2Ev.exit:                  ; preds = %if.then.i.i.i32, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %s) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %s)
   ret void
 }
 
@@ -325,9 +325,6 @@ declare void @_ZN3irr7CLogger11setReceiverEPNS_14IEventReceiverE(ptr noundef non
 declare void @_ZN3irr7CLoggerC1EPNS_14IEventReceiverE(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef) unnamed_addr #3
 
 declare noundef ptr @_ZN3irr2io16createFileSystemEv() local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 declare void @_ZN3irr2os7Printer3logEPKcNS_10ELOG_LEVELE(ptr noundef, i32 noundef) local_unnamed_addr #3
 
@@ -344,7 +341,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %w) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %w)
   %1 = getelementptr inbounds nuw i8, ptr %w, i64 16
   store ptr %1, ptr %w, align 8, !tbaa !30
   %_M_string_length.i.i.i.i = getelementptr inbounds nuw i8, ptr %w, i64 8
@@ -461,15 +458,12 @@ if.then.i.i.i:                                    ; preds = %_ZN3irr4core6string
   br label %_ZN3irr4core6stringIcED2Ev.exit
 
 _ZN3irr4core6stringIcED2Ev.exit:                  ; preds = %if.then.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %w) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %w)
   br label %return
 
 return:                                           ; preds = %_ZN3irr4core6stringIcED2Ev.exit, %entry
   ret i1 %tobool.not
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3irr14CIrrDeviceStubD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(233) initializes((0, 8)) %this, ptr noundef readonly captures(none) %vtt) unnamed_addr #0 align 2 {
@@ -752,31 +746,31 @@ _ZN3irr27SIrrlichtCreationParametersD2Ev.exit:    ; preds = %if.then.i.i.i.i, %_
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZN3irr14CIrrDeviceStubD1Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #5 align 2 {
+define void @_ZN3irr14CIrrDeviceStubD1Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @llvm.trap() #21
   unreachable
 }
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #6
+declare void @llvm.trap() #5
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZTv0_n24_N3irr14CIrrDeviceStubD1Ev(ptr readonly captures(none) %this) unnamed_addr #7 align 2 {
+define void @_ZTv0_n24_N3irr14CIrrDeviceStubD1Ev(ptr readonly captures(none) %this) unnamed_addr #6 align 2 {
 entry:
   tail call void @llvm.trap() #21
   unreachable
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZN3irr14CIrrDeviceStubD0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #5 align 2 {
+define void @_ZN3irr14CIrrDeviceStubD0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @llvm.trap() #21
   unreachable
 }
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZTv0_n24_N3irr14CIrrDeviceStubD0Ev(ptr readonly captures(none) %this) unnamed_addr #7 align 2 {
+define void @_ZTv0_n24_N3irr14CIrrDeviceStubD0Ev(ptr readonly captures(none) %this) unnamed_addr #6 align 2 {
 entry:
   tail call void @llvm.trap() #21
   unreachable
@@ -814,7 +808,7 @@ declare noundef ptr @_ZN3irr3gui20createGUIEnvironmentEPNS_2io11IFileSystemEPNS_
 declare noundef ptr @_ZN3irr5scene18createSceneManagerEPNS_5video12IVideoDriverEPNS_3gui14ICursorControlE(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZN3irr14CIrrDeviceStub14getVideoDriverEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(233) %this) unnamed_addr #8 align 2 {
+define noundef ptr @_ZN3irr14CIrrDeviceStub14getVideoDriverEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(233) %this) unnamed_addr #7 align 2 {
 entry:
   %VideoDriver = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %VideoDriver, align 8, !tbaa !54
@@ -822,7 +816,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZN3irr14CIrrDeviceStub13getFileSystemEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(233) %this) unnamed_addr #8 align 2 {
+define noundef ptr @_ZN3irr14CIrrDeviceStub13getFileSystemEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(233) %this) unnamed_addr #7 align 2 {
 entry:
   %FileSystem = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load ptr, ptr %FileSystem, align 8, !tbaa !50
@@ -830,7 +824,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZN3irr14CIrrDeviceStub17getGUIEnvironmentEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(233) %this) unnamed_addr #8 align 2 {
+define noundef ptr @_ZN3irr14CIrrDeviceStub17getGUIEnvironmentEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(233) %this) unnamed_addr #7 align 2 {
 entry:
   %GUIEnvironment = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %GUIEnvironment, align 8, !tbaa !52
@@ -838,7 +832,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZN3irr14CIrrDeviceStub15getSceneManagerEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(233) %this) unnamed_addr #8 align 2 {
+define noundef ptr @_ZN3irr14CIrrDeviceStub15getSceneManagerEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(233) %this) unnamed_addr #7 align 2 {
 entry:
   %SceneManager = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %SceneManager, align 8, !tbaa !53
@@ -846,7 +840,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZN3irr14CIrrDeviceStub8getTimerEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(233) %this) unnamed_addr #8 align 2 {
+define noundef ptr @_ZN3irr14CIrrDeviceStub8getTimerEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(233) %this) unnamed_addr #7 align 2 {
 entry:
   %Timer = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %Timer, align 8, !tbaa !47
@@ -854,19 +848,19 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i1 @_ZN3irr14CIrrDeviceStub13setWindowIconEPKNS_5video6IImageE(ptr nonnull readnone align 8 captures(none) %this, ptr readnone captures(none) %img) unnamed_addr #9 align 2 {
+define noundef zeroext i1 @_ZN3irr14CIrrDeviceStub13setWindowIconEPKNS_5video6IImageE(ptr nonnull readnone align 8 captures(none) %this, ptr readnone captures(none) %img) unnamed_addr #8 align 2 {
 entry:
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK3irr14CIrrDeviceStub10getVersionEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #9 align 2 {
+define noundef nonnull ptr @_ZNK3irr14CIrrDeviceStub10getVersionEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #8 align 2 {
 entry:
   ret ptr @.str.1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZN3irr14CIrrDeviceStub16getCursorControlEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(233) %this) unnamed_addr #8 align 2 {
+define noundef ptr @_ZN3irr14CIrrDeviceStub16getCursorControlEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(233) %this) unnamed_addr #7 align 2 {
 entry:
   %CursorControl = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %CursorControl, align 8, !tbaa !56
@@ -874,7 +868,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZN3irr14CIrrDeviceStub17getContextManagerEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(233) %this) unnamed_addr #8 align 2 {
+define noundef ptr @_ZN3irr14CIrrDeviceStub17getContextManagerEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(233) %this) unnamed_addr #7 align 2 {
 entry:
   %ContextManager = getelementptr inbounds nuw i8, ptr %this, i64 112
   %0 = load ptr, ptr %ContextManager, align 8, !tbaa !28
@@ -882,7 +876,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #10
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef range(i32 1, 4) i32 @_ZN3irr14CIrrDeviceStub21checkSuccessiveClicksEiiNS_18EMOUSE_INPUT_EVENTE(ptr noundef nonnull align 8 dereferenceable(233) %this, i32 noundef %mouseX, i32 noundef %mouseY, i32 noundef %inputEvent) unnamed_addr #0 align 2 {
@@ -1031,7 +1025,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZN3irr14CIrrDeviceStub16getEventReceiverEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(233) %this) unnamed_addr #8 align 2 {
+define noundef ptr @_ZN3irr14CIrrDeviceStub16getEventReceiverEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(233) %this) unnamed_addr #7 align 2 {
 entry:
   %UserReceiver = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %UserReceiver, align 8, !tbaa !21
@@ -1039,7 +1033,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZN3irr14CIrrDeviceStub9getLoggerEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(233) %this) unnamed_addr #8 align 2 {
+define noundef ptr @_ZN3irr14CIrrDeviceStub9getLoggerEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(233) %this) unnamed_addr #7 align 2 {
 entry:
   %Logger = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %Logger, align 8, !tbaa !48
@@ -1047,7 +1041,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZN3irr14CIrrDeviceStub13getOSOperatorEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(233) %this) unnamed_addr #8 align 2 {
+define noundef ptr @_ZN3irr14CIrrDeviceStub13getOSOperatorEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(233) %this) unnamed_addr #7 align 2 {
 entry:
   %Operator = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %Operator, align 8, !tbaa !57
@@ -1102,13 +1096,13 @@ if.end9:                                          ; preds = %delete.notnull.i, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i1 @_ZNK3irr14CIrrDeviceStub17isWindowMaximizedEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #9 align 2 {
+define noundef zeroext i1 @_ZNK3irr14CIrrDeviceStub17isWindowMaximizedEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #8 align 2 {
 entry:
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK3irr14CIrrDeviceStub12isFullscreenEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(233) %this) unnamed_addr #8 align 2 {
+define noundef zeroext i1 @_ZNK3irr14CIrrDeviceStub12isFullscreenEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(233) %this) unnamed_addr #7 align 2 {
 entry:
   %Fullscreen = getelementptr inbounds nuw i8, ptr %this, i64 146
   %0 = load i8, ptr %Fullscreen, align 2, !tbaa !64, !range !36, !noundef !37
@@ -1117,91 +1111,91 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZNK3irr14CIrrDeviceStub14getColorFormatEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #9 align 2 {
+define noundef i32 @_ZNK3irr14CIrrDeviceStub14getColorFormatEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #8 align 2 {
 entry:
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i1 @_ZN3irr14CIrrDeviceStub17activateJoysticksERNS_4core5arrayINS_13SJoystickInfoEEE(ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 1 captures(none) %joystickInfo) unnamed_addr #9 align 2 {
+define noundef zeroext i1 @_ZN3irr14CIrrDeviceStub17activateJoysticksERNS_4core5arrayINS_13SJoystickInfoEEE(ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 1 captures(none) %joystickInfo) unnamed_addr #8 align 2 {
 entry:
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i1 @_ZN3irr14CIrrDeviceStub21activateAccelerometerEf(ptr nonnull readnone align 8 captures(none) %this, float %updateInterval) unnamed_addr #9 align 2 {
+define noundef zeroext i1 @_ZN3irr14CIrrDeviceStub21activateAccelerometerEf(ptr nonnull readnone align 8 captures(none) %this, float %updateInterval) unnamed_addr #8 align 2 {
 entry:
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i1 @_ZN3irr14CIrrDeviceStub23deactivateAccelerometerEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #9 align 2 {
+define noundef zeroext i1 @_ZN3irr14CIrrDeviceStub23deactivateAccelerometerEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #8 align 2 {
 entry:
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i1 @_ZN3irr14CIrrDeviceStub21isAccelerometerActiveEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #9 align 2 {
+define noundef zeroext i1 @_ZN3irr14CIrrDeviceStub21isAccelerometerActiveEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #8 align 2 {
 entry:
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i1 @_ZN3irr14CIrrDeviceStub24isAccelerometerAvailableEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #9 align 2 {
+define noundef zeroext i1 @_ZN3irr14CIrrDeviceStub24isAccelerometerAvailableEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #8 align 2 {
 entry:
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i1 @_ZN3irr14CIrrDeviceStub17activateGyroscopeEf(ptr nonnull readnone align 8 captures(none) %this, float %updateInterval) unnamed_addr #9 align 2 {
+define noundef zeroext i1 @_ZN3irr14CIrrDeviceStub17activateGyroscopeEf(ptr nonnull readnone align 8 captures(none) %this, float %updateInterval) unnamed_addr #8 align 2 {
 entry:
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i1 @_ZN3irr14CIrrDeviceStub19deactivateGyroscopeEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #9 align 2 {
+define noundef zeroext i1 @_ZN3irr14CIrrDeviceStub19deactivateGyroscopeEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #8 align 2 {
 entry:
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i1 @_ZN3irr14CIrrDeviceStub17isGyroscopeActiveEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #9 align 2 {
+define noundef zeroext i1 @_ZN3irr14CIrrDeviceStub17isGyroscopeActiveEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #8 align 2 {
 entry:
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i1 @_ZN3irr14CIrrDeviceStub20isGyroscopeAvailableEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #9 align 2 {
+define noundef zeroext i1 @_ZN3irr14CIrrDeviceStub20isGyroscopeAvailableEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #8 align 2 {
 entry:
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i1 @_ZN3irr14CIrrDeviceStub20activateDeviceMotionEf(ptr nonnull readnone align 8 captures(none) %this, float %updateInterval) unnamed_addr #9 align 2 {
+define noundef zeroext i1 @_ZN3irr14CIrrDeviceStub20activateDeviceMotionEf(ptr nonnull readnone align 8 captures(none) %this, float %updateInterval) unnamed_addr #8 align 2 {
 entry:
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i1 @_ZN3irr14CIrrDeviceStub22deactivateDeviceMotionEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #9 align 2 {
+define noundef zeroext i1 @_ZN3irr14CIrrDeviceStub22deactivateDeviceMotionEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #8 align 2 {
 entry:
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i1 @_ZN3irr14CIrrDeviceStub20isDeviceMotionActiveEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #9 align 2 {
+define noundef zeroext i1 @_ZN3irr14CIrrDeviceStub20isDeviceMotionActiveEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #8 align 2 {
 entry:
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i1 @_ZN3irr14CIrrDeviceStub23isDeviceMotionAvailableEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #9 align 2 {
+define noundef zeroext i1 @_ZN3irr14CIrrDeviceStub23isDeviceMotionAvailableEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #8 align 2 {
 entry:
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3irr14CIrrDeviceStub18setDoubleClickTimeEj(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(233) initializes((88, 92)) %this, i32 noundef %timeMs) unnamed_addr #11 align 2 {
+define void @_ZN3irr14CIrrDeviceStub18setDoubleClickTimeEj(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(233) initializes((88, 92)) %this, i32 noundef %timeMs) unnamed_addr #10 align 2 {
 entry:
   %MouseMultiClicks = getelementptr inbounds nuw i8, ptr %this, i64 88
   store i32 %timeMs, ptr %MouseMultiClicks, align 8, !tbaa !59
@@ -1209,7 +1203,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK3irr14CIrrDeviceStub18getDoubleClickTimeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(233) %this) unnamed_addr #8 align 2 {
+define noundef i32 @_ZNK3irr14CIrrDeviceStub18getDoubleClickTimeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(233) %this) unnamed_addr #7 align 2 {
 entry:
   %MouseMultiClicks = getelementptr inbounds nuw i8, ptr %this, i64 88
   %0 = load i32, ptr %MouseMultiClicks, align 8, !tbaa !59
@@ -1217,13 +1211,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN3irr14CIrrDeviceStub19clearSystemMessagesEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #9 align 2 {
+define void @_ZN3irr14CIrrDeviceStub19clearSystemMessagesEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #8 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef float @_ZNK3irr14CIrrDeviceStub17getDisplayDensityEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #9 align 2 {
+define noundef float @_ZNK3irr14CIrrDeviceStub17getDisplayDensityEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #8 align 2 {
 entry:
   ret float 0.000000e+00
 }
@@ -1265,28 +1259,28 @@ entry:
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3irr14IrrlichtDeviceD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZN3irr14IrrlichtDeviceD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #11 comdat align 2 {
 entry:
   tail call void @llvm.trap() #21
   unreachable
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3irr14IrrlichtDeviceD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZN3irr14IrrlichtDeviceD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #11 comdat align 2 {
 entry:
   tail call void @llvm.trap() #21
   unreachable
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3irr14IrrlichtDeviceD1Ev(ptr noundef %this) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3irr14IrrlichtDeviceD1Ev(ptr noundef %this) unnamed_addr #12 comdat align 2 {
 entry:
   tail call void @llvm.trap() #21
   unreachable
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3irr14IrrlichtDeviceD0Ev(ptr noundef %this) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3irr14IrrlichtDeviceD0Ev(ptr noundef %this) unnamed_addr #12 comdat align 2 {
 entry:
   tail call void @llvm.trap() #21
   unreachable
@@ -1366,26 +1360,26 @@ entry:
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3irr6CTimerD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZN3irr6CTimerD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #11 comdat align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3irr6CTimerD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZN3irr6CTimerD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #11 comdat align 2 {
 entry:
   tail call void @_ZdlPv(ptr noundef nonnull %this) #22
   ret void
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3irr6CTimerD1Ev(ptr noundef %this) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3irr6CTimerD1Ev(ptr noundef %this) unnamed_addr #12 comdat align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3irr6CTimerD0Ev(ptr noundef %this) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3irr6CTimerD0Ev(ptr noundef %this) unnamed_addr #12 comdat align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
@@ -1396,7 +1390,7 @@ entry:
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #14
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #13
 
 declare noundef i32 @_ZN3irr2os5Timer11getRealTimeEv() local_unnamed_addr #3
 
@@ -1417,39 +1411,45 @@ declare noundef zeroext i1 @_ZN3irr2os5Timer9isStoppedEv() local_unnamed_addr #3
 declare void @_ZN3irr2os5Timer4tickEv() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #10
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i8 noundef signext) local_unnamed_addr #3
 
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #15
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #16
+declare void @llvm.assume(i1 noundef) #15
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #17
+declare i32 @llvm.abs.i32(i32, i1 immarg) #16
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #17
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #17
 
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #2 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #7 = { cold noreturn nounwind memory(inaccessiblemem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #17 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #6 = { cold noreturn nounwind memory(inaccessiblemem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #16 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #17 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #18 = { nounwind }
 attributes #19 = { builtin nounwind allocsize(0) }
 attributes #20 = { nounwind willreturn memory(read) }

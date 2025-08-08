@@ -78,9 +78,6 @@ define dso_local noundef ptr @ExecInitIncrementalSort(ptr noundef %0, ptr nounde
   ret ptr %4
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @ExecIncrementalSort(ptr noundef %0) #0 {
   %2 = alloca %struct.TuplesortInstrumentation, align 8
@@ -386,7 +383,7 @@ ExecProcNode.exit:                                ; preds = %157, %159
   %181 = sext i32 %180 to i64
   %182 = getelementptr inbounds [0 x %struct.IncrementalSortInfo], ptr %179, i64 0, i64 %181
   %183 = load ptr, ptr %15, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %184 = load i64, ptr %182, align 8
   %185 = add i64 %184, 1
   store i64 %185, ptr %182, align 8
@@ -436,13 +433,13 @@ instrumentSortedGroup.exit:                       ; preds = %178, %188, %197, %1
   %210 = load i32, ptr %209, align 8
   %211 = or i32 %210, %208
   store i32 %211, ptr %209, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %243
 
 212:                                              ; preds = %174, %171
   %213 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %214 = load ptr, ptr %15, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %215 = load i64, ptr %213, align 8
   %216 = add i64 %215, 1
   store i64 %216, ptr %213, align 8
@@ -492,7 +489,7 @@ instrumentSortedGroup.exit194:                    ; preds = %212, %219, %228, %2
   %241 = load i32, ptr %240, align 8
   %242 = or i32 %241, %239
   store i32 %242, ptr %240, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %243
 
 243:                                              ; preds = %instrumentSortedGroup.exit, %instrumentSortedGroup.exit194, %167
@@ -756,7 +753,7 @@ ExecProcNode.exit196:                             ; preds = %338, %340
   %376 = getelementptr i8, ptr %368, i64 56
   %377 = getelementptr i8, ptr %376, i64 %.idx
   %378 = load ptr, ptr %337, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %379 = load i64, ptr %377, align 8
   %380 = add i64 %379, 1
   store i64 %380, ptr %377, align 8
@@ -806,13 +803,13 @@ instrumentSortedGroup.exit197:                    ; preds = %373, %383, %392, %3
   %405 = load i32, ptr %404, align 8
   %406 = or i32 %405, %403
   store i32 %406, ptr %404, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %438
 
 407:                                              ; preds = %369, %366
   %408 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %409 = load ptr, ptr %337, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %410 = load i64, ptr %408, align 8
   %411 = add i64 %410, 1
   store i64 %411, ptr %408, align 8
@@ -862,7 +859,7 @@ instrumentSortedGroup.exit198:                    ; preds = %407, %414, %423, %4
   %436 = load i32, ptr %435, align 8
   %437 = or i32 %436, %434
   store i32 %437, ptr %435, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %438
 
 438:                                              ; preds = %instrumentSortedGroup.exit197, %instrumentSortedGroup.exit198, %362
@@ -907,18 +904,15 @@ instrumentSortedGroup.exit198:                    ; preds = %407, %414, %423, %4
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @ExecInitNode(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @ExecInitNode(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @ExecCreateScanSlotFromOuterPlan(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ExecCreateScanSlotFromOuterPlan(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ExecInitResultTupleSlotTL(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ExecInitResultTupleSlotTL(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @MakeSingleTupleTableSlot(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @MakeSingleTupleTableSlot(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare ptr @ExecGetResultType(ptr noundef) local_unnamed_addr #2
+declare ptr @ExecGetResultType(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExecEndIncrementalSort(ptr noundef captures(none) %0) local_unnamed_addr #0 {
@@ -956,11 +950,11 @@ define dso_local void @ExecEndIncrementalSort(ptr noundef captures(none) %0) loc
   ret void
 }
 
-declare void @ExecDropSingleTupleTableSlot(ptr noundef) local_unnamed_addr #2
+declare void @ExecDropSingleTupleTableSlot(ptr noundef) local_unnamed_addr #1
 
-declare void @tuplesort_end(ptr noundef) local_unnamed_addr #2
+declare void @tuplesort_end(ptr noundef) local_unnamed_addr #1
 
-declare void @ExecEndNode(ptr noundef) local_unnamed_addr #2
+declare void @ExecEndNode(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExecReScanIncrementalSort(ptr noundef captures(none) initializes((240, 241), (248, 260), (264, 272)) %0) local_unnamed_addr #0 {
@@ -1042,9 +1036,9 @@ define dso_local void @ExecReScanIncrementalSort(ptr noundef captures(none) init
   ret void
 }
 
-declare void @tuplesort_reset(ptr noundef) local_unnamed_addr #2
+declare void @tuplesort_reset(ptr noundef) local_unnamed_addr #1
 
-declare void @ExecReScan(ptr noundef) local_unnamed_addr #2
+declare void @ExecReScan(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExecIncrementalSortEstimate(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
@@ -1079,9 +1073,9 @@ define dso_local void @ExecIncrementalSortEstimate(ptr noundef readonly captures
   ret void
 }
 
-declare i64 @mul_size(i64 noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @mul_size(i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare i64 @add_size(i64 noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @add_size(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExecIncrementalSortInitializeDSM(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
@@ -1123,12 +1117,12 @@ define dso_local void @ExecIncrementalSortInitializeDSM(ptr noundef captures(non
   ret void
 }
 
-declare ptr @shm_toc_allocate(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @shm_toc_allocate(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
-declare void @shm_toc_insert(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare void @shm_toc_insert(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExecIncrementalSortInitializeWorker(ptr noundef captures(none) initializes((408, 409), (416, 424)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
@@ -1147,7 +1141,7 @@ define dso_local void @ExecIncrementalSortInitializeWorker(ptr noundef captures(
   ret void
 }
 
-declare ptr @shm_toc_lookup(ptr noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare ptr @shm_toc_lookup(ptr noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExecIncrementalSortRetrieveInstrumentation(ptr noundef captures(none) %0) local_unnamed_addr #0 {
@@ -1171,16 +1165,16 @@ define dso_local void @ExecIncrementalSortRetrieveInstrumentation(ptr noundef ca
   ret void
 }
 
-declare ptr @palloc(i64 noundef) local_unnamed_addr #2
+declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
-declare ptr @palloc0(i64 noundef) local_unnamed_addr #2
+declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
 
-declare void @ProcessInterrupts() local_unnamed_addr #2
+declare void @ProcessInterrupts() local_unnamed_addr #1
 
-declare zeroext i1 @tuplesort_gettupleslot(ptr noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @tuplesort_gettupleslot(ptr noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @switchToPresortedPrefixMode(ptr noundef captures(none) %0) unnamed_addr #0 {
@@ -1395,7 +1389,7 @@ define internal fastcc void @switchToPresortedPrefixMode(ptr noundef captures(no
   %140 = getelementptr i8, ptr %132, i64 56
   %141 = getelementptr i8, ptr %140, i64 %.idx
   %142 = load ptr, ptr %13, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %143 = load i64, ptr %141, align 8
   %144 = add i64 %143, 1
   store i64 %144, ptr %141, align 8
@@ -1445,13 +1439,13 @@ instrumentSortedGroup.exit:                       ; preds = %137, %147, %156, %1
   %169 = load i32, ptr %168, align 8
   %170 = or i32 %169, %167
   store i32 %170, ptr %168, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %202
 
 171:                                              ; preds = %133, %130
   %172 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %173 = load ptr, ptr %13, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %174 = load i64, ptr %172, align 8
   %175 = add i64 %174, 1
   store i64 %175, ptr %172, align 8
@@ -1501,7 +1495,7 @@ instrumentSortedGroup.exit81:                     ; preds = %171, %178, %187, %1
   %200 = load i32, ptr %199, align 8
   %201 = or i32 %200, %198
   store i32 %201, ptr %199, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %202
 
 202:                                              ; preds = %instrumentSortedGroup.exit, %instrumentSortedGroup.exit81, %126
@@ -1528,18 +1522,18 @@ instrumentSortedGroup.exit81:                     ; preds = %171, %178, %187, %1
   ret void
 }
 
-declare ptr @tuplesort_begin_heap(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @tuplesort_begin_heap(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @tuplesort_set_bound(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @tuplesort_set_bound(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @tuplesort_puttupleslot(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @tuplesort_puttupleslot(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @tuplesort_performsort(ptr noundef) local_unnamed_addr #2
+declare void @tuplesort_performsort(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @instrumentSortedGroup(ptr noundef captures(none) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.TuplesortInstrumentation, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load i64, ptr %0, align 8
   %5 = add i64 %4, 1
   store i64 %5, ptr %0, align 8
@@ -1589,7 +1583,7 @@ define internal fastcc void @instrumentSortedGroup(ptr noundef captures(none) %0
   %31 = load i32, ptr %30, align 8
   %32 = or i32 %31, %29
   store i32 %32, ptr %30, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -1706,24 +1700,30 @@ select.unfold:                                    ; preds = %66, %38
   ret i1 %.lcssa34
 }
 
-declare zeroext i1 @tuplesort_used_bound(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @tuplesort_used_bound(ptr noundef) local_unnamed_addr #1
 
-declare i32 @get_equality_op_for_ordering_op(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @get_equality_op_for_ordering_op(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #5
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #4
 
-declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @get_opcode(i32 noundef) local_unnamed_addr #2
+declare i32 @get_opcode(i32 noundef) local_unnamed_addr #1
 
-declare void @fmgr_info_cxt(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @fmgr_info_cxt(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @tuplesort_get_stats(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @tuplesort_get_stats(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @slot_getsomeattrs_int(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @slot_getsomeattrs_int(ptr noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #6
@@ -1732,11 +1732,11 @@ declare void @llvm.assume(i1 noundef) #6
 declare i64 @llvm.smin.i64(i64, i64) #7
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { nounwind }

@@ -246,7 +246,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__19TraceEventContainer5emptyEv.exit17: ; pr
   br i1 %18, label %19, label %28
 
 19:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__19TraceEventContainer5emptyEv.exit17
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN32pxrInternal_v0_24__pxrReserved__19TraceEventContainerC1EOS0_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %20 = load ptr, ptr %0, align 8
   %21 = load ptr, ptr %3, align 8
@@ -263,7 +263,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__19TraceEventContainer5emptyEv.exit17: ; pr
   store ptr %27, ptr %12, align 8
   store ptr %26, ptr %25, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__19TraceEventContainerD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %64
 
 28:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__19TraceEventContainer5emptyEv.exit17
@@ -408,10 +408,10 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__19TraceEventContainer5_NodeD2E
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

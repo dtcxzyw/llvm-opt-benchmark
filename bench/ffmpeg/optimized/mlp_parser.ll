@@ -306,8 +306,8 @@ define internal i32 @mlp_parse(ptr noundef captures(none) initializes((232, 236)
   br label %199
 
 151:                                              ; preds = %116
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #4
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %10) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %152 = shl i32 %114, 3
   %153 = add i32 %152, -32
   %or.cond.i = icmp ult i32 %153, 2147483135
@@ -380,14 +380,14 @@ define internal i32 @mlp_parse(ptr noundef captures(none) initializes((232, 236)
   %193 = load i32, ptr %192, align 8, !tbaa !68
   %194 = getelementptr inbounds nuw i8, ptr %11, i64 56
   store i32 %193, ptr %194, align 8, !tbaa !30
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %10) #4
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %.pre132 = load i32, ptr %8, align 4, !tbaa !9
   br label %196
 
 195:                                              ; preds = %151
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %10) #4
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %199
 
 196:                                              ; preds = %.thread113, %._crit_edge123
@@ -411,9 +411,6 @@ declare void @ff_parse_close(ptr noundef) #2
 
 declare void @ff_mlp_init_crc() local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 declare i32 @ff_combine_frame(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
@@ -425,7 +422,10 @@ declare void @av_channel_layout_uninit(ptr noundef) local_unnamed_addr #2
 declare i32 @av_channel_layout_from_mask(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { cold nounwind optsize uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

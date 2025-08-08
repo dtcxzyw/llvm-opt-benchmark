@@ -25,7 +25,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define void @_ZN6base646engine15general_purpose14GeneralPurpose3new17h640681ee2bc48660E(ptr noalias noundef writeonly sret({ { i8, i8, i8 }, [64 x i8], [256 x i8] }) align 1 captures(none) dereferenceable(323) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(64) %1, i24 %2) unnamed_addr #0 {
   %4 = alloca [256 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %4, i8 -1, i64 256, i1 false), !alias.scope !4, !noalias !7
@@ -49,7 +49,7 @@ _ZN6base646engine15general_purpose12decode_table17h6ca45a74b044c174E.exit: ; pre
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 67
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %13, ptr noundef nonnull align 1 dereferenceable(256) %4, i64 256, i1 false)
   store i24 %2, ptr %0, align 1
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -1281,27 +1281,27 @@ define noundef i24 @_ZN6base646engine15general_purpose20GeneralPurposeConfig3new
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define range(i24 0, -65278) i24 @_ZN6base646engine15general_purpose20GeneralPurposeConfig19with_encode_padding17h7fbcf9bb40e669f2E(i24 %0, i1 noundef zeroext %1) unnamed_addr #2 {
-  %.sroa.23.0.insert.insert = and i24 %0, -65280
-  %.sroa.02.0.insert.ext = zext i1 %1 to i24
-  %.sroa.02.0.insert.insert = or disjoint i24 %.sroa.23.0.insert.insert, %.sroa.02.0.insert.ext
-  ret i24 %.sroa.02.0.insert.insert
+  %.sroa.22.0.insert.insert = and i24 %0, -65280
+  %.sroa.01.0.insert.ext = zext i1 %1 to i24
+  %.sroa.01.0.insert.insert = or disjoint i24 %.sroa.22.0.insert.insert, %.sroa.01.0.insert.ext
+  ret i24 %.sroa.01.0.insert.insert
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define range(i24 0, -65024) i24 @_ZN6base646engine15general_purpose20GeneralPurposeConfig31with_decode_allow_trailing_bits17h27e47288d598f1feE(i24 %0, i1 noundef zeroext %1) unnamed_addr #2 {
-  %.sroa.24.0.insert.shift = select i1 %1, i24 256, i24 0
+  %.sroa.23.0.insert.shift = select i1 %1, i24 256, i24 0
   %3 = and i24 %0, -65535
-  %.sroa.03.0.insert.insert = or disjoint i24 %.sroa.24.0.insert.shift, %3
-  ret i24 %.sroa.03.0.insert.insert
+  %.sroa.02.0.insert.insert = or disjoint i24 %.sroa.23.0.insert.shift, %3
+  ret i24 %.sroa.02.0.insert.insert
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define range(i24 0, -65024) i24 @_ZN6base646engine15general_purpose20GeneralPurposeConfig24with_decode_padding_mode17h4ece7f156cfd6b88E(i24 %0, i8 noundef %1) unnamed_addr #2 {
-  %.sroa.34.0.insert.ext = zext i8 %1 to i24
-  %.sroa.34.0.insert.shift = shl nuw i24 %.sroa.34.0.insert.ext, 16
+  %.sroa.33.0.insert.ext = zext i8 %1 to i24
+  %.sroa.33.0.insert.shift = shl nuw i24 %.sroa.33.0.insert.ext, 16
   %3 = and i24 %0, 257
-  %.sroa.02.0.insert.insert = or disjoint i24 %.sroa.34.0.insert.shift, %3
-  ret i24 %.sroa.02.0.insert.insert
+  %.sroa.01.0.insert.insert = or disjoint i24 %.sroa.33.0.insert.shift, %3
+  ret i24 %.sroa.01.0.insert.insert
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -1347,10 +1347,10 @@ declare i64 @llvm.usub.sat.i64(i64, i64) #8
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.fshl.i8(i8, i8, i8) #11

@@ -259,7 +259,7 @@ define dso_local void @gencontext_begin_module(ptr noundef %0) local_unnamed_add
   %125 = call ptr @LLVMFunctionType(ptr noundef %124, ptr noundef null, i32 noundef 0, i32 noundef 0) #6
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 240
   store ptr %125, ptr %126, align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %127 = load ptr, ptr %19, align 8
   %128 = call ptr @LLVMStructCreateNamed(ptr noundef %127, ptr noundef nonnull @.str.9) #6
   %129 = load ptr, ptr %97, align 8
@@ -281,10 +281,10 @@ define dso_local void @gencontext_begin_module(ptr noundef %0) local_unnamed_add
   %139 = call ptr @LLVMArrayType(ptr noundef %131, i32 noundef 0) #6
   store ptr %139, ptr %138, align 16
   call void @LLVMStructSetBody(ptr noundef %128, ptr noundef nonnull %3, i32 noundef 7, i32 noundef 0) #6
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store ptr %128, ptr %140, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %141 = load ptr, ptr %19, align 8
   %142 = call ptr @LLVMStructCreateNamed(ptr noundef %141, ptr noundef nonnull @.str.10) #6
   %143 = load ptr, ptr %105, align 8
@@ -296,7 +296,7 @@ define dso_local void @gencontext_begin_module(ptr noundef %0) local_unnamed_add
   %147 = load ptr, ptr %102, align 8
   store ptr %147, ptr %146, align 16
   call void @LLVMStructSetBody(ptr noundef %142, ptr noundef nonnull %2, i32 noundef 3, i32 noundef 0) #6
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %148 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store ptr %142, ptr %148, align 8
   %149 = load ptr, ptr %12, align 8
@@ -533,10 +533,10 @@ declare ptr @LLVMArrayType(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @LLVMStructSetBody(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5

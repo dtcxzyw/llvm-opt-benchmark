@@ -205,22 +205,16 @@ define internal i32 @vaapi_encode_h265_close(ptr noundef %0) #0 {
 
 declare ptr @av_default_item_name(ptr noundef) #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 declare i32 @ff_vaapi_encode_init(ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: cold nounwind optsize uwtable
 define internal range(i32 -542398533, 1) i32 @vaapi_encode_h265_get_encoder_caps(ptr noundef %0) #0 {
   %2 = alloca %struct._VAConfigAttrib, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 50, ptr %2, align 4, !tbaa !77
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1312
   %6 = load ptr, ptr %5, align 8, !tbaa !79
@@ -275,7 +269,7 @@ define internal range(i32 -542398533, 1) i32 @vaapi_encode_h265_get_encoder_caps
   %35 = shl nuw nsw i32 8, %34
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 1988
   store i32 %35, ptr %36, align 4, !tbaa !88
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 1984
   br label %._crit_edge
 
@@ -283,7 +277,7 @@ define internal range(i32 -542398533, 1) i32 @vaapi_encode_h265_get_encoder_caps
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.87) #9
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 1984
   %.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !87
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.not64 = icmp eq i32 %.pre, 0
   br i1 %.not64, label %40, label %._crit_edge
 
@@ -339,7 +333,7 @@ define internal range(i32 -542398533, 1) i32 @vaapi_encode_h265_get_encoder_caps
 .critedge:                                        ; preds = %20, %1
   %.str.86.sink = phi ptr [ @.str.84, %1 ], [ @.str.86, %20 ]
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull %.str.86.sink) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %70
 
 70:                                               ; preds = %.critedge, %42
@@ -440,7 +434,7 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_encode_h265_configure(ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -2147483648, 1) i32 @vaapi_encode_h265_init_sequence_params(ptr noundef %0) #3 {
+define internal range(i32 -2147483648, 1) i32 @vaapi_encode_h265_init_sequence_params(ptr noundef %0) #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2024
@@ -936,7 +930,7 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_encode_h265_init_sequence_p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -2147483648, 1) i32 @vaapi_encode_h265_init_picture_params(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #3 {
+define internal range(i32 -2147483648, 1) i32 @vaapi_encode_h265_init_picture_params(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 {
   %3 = alloca i64, align 8
   %.sroa.417 = alloca [4 x i32], align 4
   %.sroa.44 = alloca [4 x i32], align 4
@@ -1261,7 +1255,7 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_encode_h265_init_picture_pa
   br i1 %.not199, label %197, label %179
 
 179:                                              ; preds = %176
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %180 = getelementptr inbounds nuw i8, ptr %5, i64 7965736
   tail call void @av_freep(ptr noundef nonnull %180) #9
   %181 = getelementptr inbounds nuw i8, ptr %1, i64 96
@@ -1291,7 +1285,7 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_encode_h265_init_picture_pa
   br label %196
 
 196:                                              ; preds = %185, %187
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %197
 
 197:                                              ; preds = %196, %176
@@ -1466,7 +1460,7 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_encode_h265_init_picture_pa
   unreachable
 
 .critedge:                                        ; preds = %179
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %274
 
 274:                                              ; preds = %261, %264, %267, %270, %.critedge
@@ -1475,7 +1469,7 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_encode_h265_init_picture_pa
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @vaapi_encode_h265_init_slice_params(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(none) %2) #3 {
+define internal noundef i32 @vaapi_encode_h265_init_slice_params(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(none) %2) #2 {
   %4 = alloca [16 x i32], align 16
   %5 = alloca [16 x i32], align 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1569,8 +1563,8 @@ define internal noundef i32 @vaapi_encode_h265_init_slice_params(ptr noundef %0,
   br label %206
 
 60:                                               ; preds = %40
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #9
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %61 = getelementptr inbounds nuw i8, ptr %7, i64 7953896
   store i8 0, ptr %61, align 4, !tbaa !257
   %62 = getelementptr inbounds nuw i8, ptr %7, i64 7953898
@@ -1911,8 +1905,8 @@ define internal noundef i32 @vaapi_encode_h265_init_slice_params(ptr noundef %0,
   %198 = load i8, ptr %197, align 1, !tbaa !165
   %199 = getelementptr inbounds nuw i8, ptr %7, i64 7954173
   store i8 %198, ptr %199, align 1, !tbaa !253
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.pr = load i32, ptr %50, align 8, !tbaa !189
   %200 = getelementptr inbounds nuw i8, ptr %7, i64 7928411
   %201 = load i8, ptr %200, align 1, !tbaa !124
@@ -2162,7 +2156,7 @@ define internal noundef i32 @vaapi_encode_h265_init_slice_params(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -2147483648, 1) i32 @vaapi_encode_h265_write_sequence_header(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef captures(none) %2) #3 {
+define internal range(i32 -2147483648, 1) i32 @vaapi_encode_h265_write_sequence_header(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef captures(none) %2) #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 7965752
@@ -2275,7 +2269,7 @@ vaapi_encode_h265_write_access_unit.exit:         ; preds = %55, %54, %44, %vaap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -2147483648, 1) i32 @vaapi_encode_h265_write_slice_header(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef captures(none) %4) #3 {
+define internal range(i32 -2147483648, 1) i32 @vaapi_encode_h265_write_slice_header(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef captures(none) %4) #2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8, !tbaa !4
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 7965752
@@ -2360,7 +2354,7 @@ vaapi_encode_h265_write_access_unit.exit:         ; preds = %43, %42, %32, %vaap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -2147483648, 1) i32 @vaapi_encode_h265_write_extra_header(ptr noundef %0, ptr readnone captures(none) %1, i32 %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef captures(none) %5) #3 {
+define internal range(i32 -2147483648, 1) i32 @vaapi_encode_h265_write_extra_header(ptr noundef %0, ptr readnone captures(none) %1, i32 %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef captures(none) %5) #2 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8, !tbaa !4
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 7965752
@@ -2499,23 +2493,23 @@ declare i32 @vaGetConfigAttributes(ptr noundef, i32 noundef, i32 noundef, ptr no
 declare i32 @ff_cbs_init(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #4
+declare float @llvm.fmuladd.f32(float, float, float) #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare i32 @ff_hw_base_encode_init_params_h265(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: cold nofree noreturn nounwind
-declare void @abort() local_unnamed_addr #7
+declare void @abort() local_unnamed_addr #6
 
 declare ptr @av_frame_get_side_data(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.lrint.i64.f64(double) #4
+declare i64 @llvm.lrint.i64.f64(double) #3
 
 declare void @av_freep(ptr noundef) local_unnamed_addr #1
 
@@ -2535,6 +2529,12 @@ declare void @ff_cbs_close(ptr noundef) local_unnamed_addr #1
 
 declare i32 @ff_vaapi_encode_close(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #8
 
@@ -2552,12 +2552,12 @@ declare i32 @llvm.umax.i32(i32, i32) #8
 
 attributes #0 = { cold nounwind optsize uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { cold nofree noreturn nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { cold nofree noreturn nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #9 = { nounwind }
 attributes #10 = { noreturn nounwind }

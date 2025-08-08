@@ -153,8 +153,8 @@ invoke.cont7:                                     ; preds = %invoke.cont5
           to label %invoke.cont9 unwind label %lpad
 
 invoke.cont9:                                     ; preds = %invoke.cont7
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %tempValue.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %baseReturn.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %tempValue.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %baseReturn.i)
   %mValue.i.i = getelementptr inbounds nuw i8, ptr %tempValue.i, i64 16
   store i32 3, ptr %mValue.i.i, align 8
   %ref.tmp11.sroa.2691.0.mValue.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %tempValue.i, i64 24
@@ -183,8 +183,8 @@ if.then.i:                                        ; preds = %.noexc
   br label %invoke.cont17
 
 invoke.cont17:                                    ; preds = %if.then.i, %.noexc
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %tempValue.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %baseReturn.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %tempValue.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %baseReturn.i)
   %call20 = invoke noundef zeroext i1 @_ZNK5eastl8list_mapIjmNS_4lessIjEENS_9allocatorEE8validateEv(ptr noundef nonnull align 8 dereferenceable(64) %testMap)
           to label %invoke.cont19 unwind label %lpad
 
@@ -193,8 +193,8 @@ invoke.cont19:                                    ; preds = %invoke.cont17
           to label %invoke.cont21 unwind label %lpad
 
 invoke.cont21:                                    ; preds = %invoke.cont19
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %tempValue.i10)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %baseReturn.i11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %tempValue.i10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %baseReturn.i11)
   %mValue.i.i12 = getelementptr inbounds nuw i8, ptr %tempValue.i10, i64 16
   store i32 4, ptr %mValue.i.i12, align 8
   %ref.tmp23.sroa.2690.0.mValue.i.i12.sroa_idx = getelementptr inbounds nuw i8, ptr %tempValue.i10, i64 24
@@ -222,8 +222,8 @@ if.then.i15:                                      ; preds = %.noexc19
   br label %invoke.cont29
 
 invoke.cont29:                                    ; preds = %if.then.i15, %.noexc19
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %tempValue.i10)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %baseReturn.i11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %tempValue.i10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %baseReturn.i11)
   %call32 = invoke noundef zeroext i1 @_ZNK5eastl8list_mapIjmNS_4lessIjEENS_9allocatorEE8validateEv(ptr noundef nonnull align 8 dereferenceable(64) %testMap)
           to label %invoke.cont31 unwind label %lpad
 
@@ -232,8 +232,8 @@ invoke.cont31:                                    ; preds = %invoke.cont29
           to label %invoke.cont33 unwind label %lpad
 
 invoke.cont33:                                    ; preds = %invoke.cont31
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %tempValue.i24)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %baseReturn.i25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %tempValue.i24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %baseReturn.i25)
   %mValue.i.i26 = getelementptr inbounds nuw i8, ptr %tempValue.i24, i64 16
   store i32 2, ptr %mValue.i.i26, align 8
   %ref.tmp35.sroa.2689.0.mValue.i.i26.sroa_idx = getelementptr inbounds nuw i8, ptr %tempValue.i24, i64 24
@@ -261,8 +261,8 @@ if.then.i29:                                      ; preds = %.noexc34
   br label %invoke.cont41
 
 invoke.cont41:                                    ; preds = %if.then.i29, %.noexc34
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %tempValue.i24)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %baseReturn.i25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %tempValue.i24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %baseReturn.i25)
   %call44 = invoke noundef zeroext i1 @_ZNK5eastl8list_mapIjmNS_4lessIjEENS_9allocatorEE8validateEv(ptr noundef nonnull align 8 dereferenceable(64) %testMap)
           to label %invoke.cont43 unwind label %lpad
 
@@ -271,8 +271,8 @@ invoke.cont43:                                    ; preds = %invoke.cont41
           to label %invoke.cont45 unwind label %lpad
 
 invoke.cont45:                                    ; preds = %invoke.cont43
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %tempValue.i40)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %baseReturn.i41)
+  call void @llvm.lifetime.start.p0(ptr nonnull %tempValue.i40)
+  call void @llvm.lifetime.start.p0(ptr nonnull %baseReturn.i41)
   %mValue.i.i42 = getelementptr inbounds nuw i8, ptr %tempValue.i40, i64 16
   store i32 6, ptr %mValue.i.i42, align 8
   %ref.tmp47.sroa.2688.0.mValue.i.i42.sroa_idx = getelementptr inbounds nuw i8, ptr %tempValue.i40, i64 24
@@ -301,8 +301,8 @@ if.then.i45:                                      ; preds = %.noexc50
   br label %invoke.cont53
 
 invoke.cont53:                                    ; preds = %if.then.i45, %.noexc50
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %tempValue.i40)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %baseReturn.i41)
+  call void @llvm.lifetime.end.p0(ptr nonnull %tempValue.i40)
+  call void @llvm.lifetime.end.p0(ptr nonnull %baseReturn.i41)
   %call56 = invoke noundef zeroext i1 @_ZNK5eastl8list_mapIjmNS_4lessIjEENS_9allocatorEE8validateEv(ptr noundef nonnull align 8 dereferenceable(64) %testMap)
           to label %invoke.cont55 unwind label %lpad
 
@@ -612,8 +612,8 @@ invoke.cont152:                                   ; preds = %invoke.cont150
           to label %invoke.cont158 unwind label %lpad
 
 invoke.cont158:                                   ; preds = %invoke.cont152
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %tempValue.i148)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %baseReturn.i149)
+  call void @llvm.lifetime.start.p0(ptr nonnull %tempValue.i148)
+  call void @llvm.lifetime.start.p0(ptr nonnull %baseReturn.i149)
   %mValue.i.i150 = getelementptr inbounds nuw i8, ptr %tempValue.i148, i64 16
   store i32 10, ptr %mValue.i.i150, align 8
   %ref.tmp160.sroa.2687.0.mValue.i.i150.sroa_idx = getelementptr inbounds nuw i8, ptr %tempValue.i148, i64 24
@@ -641,8 +641,8 @@ if.then.i153:                                     ; preds = %.noexc158
   br label %invoke.cont166
 
 invoke.cont166:                                   ; preds = %if.then.i153, %.noexc158
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %tempValue.i148)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %baseReturn.i149)
+  call void @llvm.lifetime.end.p0(ptr nonnull %tempValue.i148)
+  call void @llvm.lifetime.end.p0(ptr nonnull %baseReturn.i149)
   %call169 = invoke noundef zeroext i1 @_ZNK5eastl8list_mapIjmNS_4lessIjEENS_9allocatorEE8validateEv(ptr noundef nonnull align 8 dereferenceable(64) %testMap)
           to label %invoke.cont168 unwind label %lpad
 
@@ -651,8 +651,8 @@ invoke.cont168:                                   ; preds = %invoke.cont166
           to label %invoke.cont170 unwind label %lpad
 
 invoke.cont170:                                   ; preds = %invoke.cont168
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %tempValue.i164)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %baseReturn.i165)
+  call void @llvm.lifetime.start.p0(ptr nonnull %tempValue.i164)
+  call void @llvm.lifetime.start.p0(ptr nonnull %baseReturn.i165)
   %mValue.i.i166 = getelementptr inbounds nuw i8, ptr %tempValue.i164, i64 16
   store i32 8, ptr %mValue.i.i166, align 8
   %ref.tmp172.sroa.2686.0.mValue.i.i166.sroa_idx = getelementptr inbounds nuw i8, ptr %tempValue.i164, i64 24
@@ -681,8 +681,8 @@ if.then.i169:                                     ; preds = %.noexc174
   br label %invoke.cont178
 
 invoke.cont178:                                   ; preds = %if.then.i169, %.noexc174
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %tempValue.i164)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %baseReturn.i165)
+  call void @llvm.lifetime.end.p0(ptr nonnull %tempValue.i164)
+  call void @llvm.lifetime.end.p0(ptr nonnull %baseReturn.i165)
   %call181 = invoke noundef zeroext i1 @_ZNK5eastl8list_mapIjmNS_4lessIjEENS_9allocatorEE8validateEv(ptr noundef nonnull align 8 dereferenceable(64) %testMap)
           to label %invoke.cont180 unwind label %lpad
 
@@ -691,8 +691,8 @@ invoke.cont180:                                   ; preds = %invoke.cont178
           to label %invoke.cont182 unwind label %lpad
 
 invoke.cont182:                                   ; preds = %invoke.cont180
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %tempValue.i.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %baseReturn.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %tempValue.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %baseReturn.i.i)
   %mValue.i.i.i176 = getelementptr inbounds nuw i8, ptr %tempValue.i.i, i64 16
   store i32 7, ptr %mValue.i.i.i176, align 8
   %ref.tmp.sroa.22.0.mValue.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %tempValue.i.i, i64 24
@@ -720,8 +720,8 @@ if.then.i.i:                                      ; preds = %.noexc179
   br label %invoke.cont186
 
 invoke.cont186:                                   ; preds = %if.then.i.i, %.noexc179
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %tempValue.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %baseReturn.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %tempValue.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %baseReturn.i.i)
   %call189 = invoke noundef zeroext i1 @_ZNK5eastl8list_mapIjmNS_4lessIjEENS_9allocatorEE8validateEv(ptr noundef nonnull align 8 dereferenceable(64) %testMap)
           to label %invoke.cont188 unwind label %lpad
 
@@ -730,8 +730,8 @@ invoke.cont188:                                   ; preds = %invoke.cont186
           to label %invoke.cont190 unwind label %lpad
 
 invoke.cont190:                                   ; preds = %invoke.cont188
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %tempValue.i.i180)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %baseReturn.i.i181)
+  call void @llvm.lifetime.start.p0(ptr nonnull %tempValue.i.i180)
+  call void @llvm.lifetime.start.p0(ptr nonnull %baseReturn.i.i181)
   %mValue.i.i.i182 = getelementptr inbounds nuw i8, ptr %tempValue.i.i180, i64 16
   store i32 9, ptr %mValue.i.i.i182, align 8
   %ref.tmp.sroa.22.0.mValue.i.i.sroa_idx.i183 = getelementptr inbounds nuw i8, ptr %tempValue.i.i180, i64 24
@@ -760,8 +760,8 @@ if.then.i.i186:                                   ; preds = %.noexc190
   br label %invoke.cont194
 
 invoke.cont194:                                   ; preds = %if.then.i.i186, %.noexc190
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %tempValue.i.i180)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %baseReturn.i.i181)
+  call void @llvm.lifetime.end.p0(ptr nonnull %tempValue.i.i180)
+  call void @llvm.lifetime.end.p0(ptr nonnull %baseReturn.i.i181)
   %call197 = invoke noundef zeroext i1 @_ZNK5eastl8list_mapIjmNS_4lessIjEENS_9allocatorEE8validateEv(ptr noundef nonnull align 8 dereferenceable(64) %testMap)
           to label %invoke.cont196 unwind label %lpad
 
@@ -770,8 +770,8 @@ invoke.cont196:                                   ; preds = %invoke.cont194
           to label %invoke.cont198 unwind label %lpad
 
 invoke.cont198:                                   ; preds = %invoke.cont196
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %tempValue.i.i191)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %baseReturn.i.i192)
+  call void @llvm.lifetime.start.p0(ptr nonnull %tempValue.i.i191)
+  call void @llvm.lifetime.start.p0(ptr nonnull %baseReturn.i.i192)
   %mValue.i.i.i193 = getelementptr inbounds nuw i8, ptr %tempValue.i.i191, i64 16
   store i32 11, ptr %mValue.i.i.i193, align 8
   %ref.tmp.sroa.22.0.mValue.i.i.sroa_idx.i194 = getelementptr inbounds nuw i8, ptr %tempValue.i.i191, i64 24
@@ -799,8 +799,8 @@ if.then.i.i197:                                   ; preds = %.noexc202
   br label %invoke.cont202
 
 invoke.cont202:                                   ; preds = %if.then.i.i197, %.noexc202
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %tempValue.i.i191)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %baseReturn.i.i192)
+  call void @llvm.lifetime.end.p0(ptr nonnull %tempValue.i.i191)
+  call void @llvm.lifetime.end.p0(ptr nonnull %baseReturn.i.i192)
   %call205 = invoke noundef zeroext i1 @_ZNK5eastl8list_mapIjmNS_4lessIjEENS_9allocatorEE8validateEv(ptr noundef nonnull align 8 dereferenceable(64) %testMap)
           to label %invoke.cont204 unwind label %lpad
 
@@ -1849,7 +1849,7 @@ _ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit: ; preds = %invoke.cont395, %i
           to label %invoke.cont399 unwind label %lpad387.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont399:                                   ; preds = %_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %baseIter.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %baseIter.i)
   invoke void @_ZN5eastl6rbtreeINS_12basic_stringIcNS_9allocatorEEENS_13list_map_dataINS_4pairIKS3_jEEEENS_4lessIS3_EES2_NS_15use_value_firstIS8_EELb1ELb1EE7find_asIA6_cNS9_IvEEEENS_15rbtree_iteratorIS8_PS8_RS8_EERKT_T0_(ptr nonnull sret(%"struct.eastl::rbtree_iterator.20") align 8 %baseIter.i, ptr noundef nonnull align 8 dereferenceable(64) %testStringMap, ptr noundef nonnull align 1 dereferenceable(6) @.str.28)
           to label %invoke.cont403 unwind label %lpad387.loopexit.split-lp.loopexit.split-lp
 
@@ -1857,7 +1857,7 @@ invoke.cont403:                                   ; preds = %invoke.cont399
   %206 = load ptr, ptr %baseIter.i, align 8, !noalias !115
   %cmp.i.not.i648 = icmp ne ptr %206, %testStringMap
   %mValue.i.i650 = getelementptr inbounds nuw i8, ptr %206, i64 32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %baseIter.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %baseIter.i)
   %cmp.i654841 = icmp ne ptr %mValue.i.i650, %mNode2.i641
   %cmp.i654 = select i1 %cmp.i.not.i648, i1 %cmp.i654841, i1 false
   %call408 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp.i654, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.1, i32 noundef 203, ptr noundef nonnull @.str.31)
@@ -1904,7 +1904,7 @@ invoke.cont414:                                   ; preds = %_ZN5eastleqIcNS_9al
           to label %invoke.cont419 unwind label %lpad387.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont419:                                   ; preds = %invoke.cont414
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %baseIter.i659)
+  call void @llvm.lifetime.start.p0(ptr nonnull %baseIter.i659)
   invoke void @_ZN5eastl6rbtreeINS_12basic_stringIcNS_9allocatorEEENS_13list_map_dataINS_4pairIKS3_jEEEENS_4lessIS3_EES2_NS_15use_value_firstIS8_EELb1ELb1EE7find_asIA12_cNS9_IvEEEENS_15rbtree_iteratorIS8_PS8_RS8_EERKT_T0_(ptr nonnull sret(%"struct.eastl::rbtree_iterator.20") align 8 %baseIter.i659, ptr noundef nonnull align 8 dereferenceable(64) %testStringMap, ptr noundef nonnull align 1 dereferenceable(12) @.str.34)
           to label %invoke.cont423 unwind label %lpad387.loopexit.split-lp.loopexit.split-lp
 
@@ -1912,7 +1912,7 @@ invoke.cont423:                                   ; preds = %invoke.cont419
   %212 = load ptr, ptr %baseIter.i659, align 8, !noalias !118
   %cmp.i.not.i660 = icmp eq ptr %212, %testStringMap
   %mValue.i.i662 = getelementptr inbounds nuw i8, ptr %212, i64 32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %baseIter.i659)
+  call void @llvm.lifetime.end.p0(ptr nonnull %baseIter.i659)
   %cmp.i666775 = icmp eq ptr %mValue.i.i662, %mNode2.i641
   %cmp.i666 = select i1 %cmp.i.not.i660, i1 true, i1 %cmp.i666775
   %call428 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp.i666, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.1, i32 noundef 208, ptr noundef nonnull @.str.35)
@@ -1934,13 +1934,13 @@ while.body.i:                                     ; preds = %if.end.i, %if.end9.
   %node.018.i = phi ptr [ %node.0.i, %if.end9.i ], [ %node.015.i, %if.end.i ]
   %nodeCount.017.i = phi i64 [ %inc.i, %if.end9.i ], [ 0, %if.end.i ]
   %mValue.i669 = getelementptr inbounds nuw i8, ptr %node.018.i, i64 16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i)
   invoke void @_ZN5eastl6rbtreeINS_12basic_stringIcNS_9allocatorEEENS_13list_map_dataINS_4pairIKS3_jEEEENS_4lessIS3_EES2_NS_15use_value_firstIS8_EELb1ELb1EE4findERS6_(ptr nonnull sret(%"struct.eastl::rbtree_iterator.20") align 8 %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(64) %testStringMap, ptr noundef nonnull align 8 dereferenceable(24) %mValue.i669)
           to label %.noexc673 unwind label %lpad387.loopexit.split-lp.loopexit
 
 .noexc673:                                        ; preds = %while.body.i
   %213 = load ptr, ptr %ref.tmp.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i)
   %cmp.i.i = icmp eq ptr %213, %testStringMap
   br i1 %cmp.i.i, label %invoke.cont429, label %if.end9.i
 
@@ -1965,13 +1965,13 @@ while.body19.i:                                   ; preds = %if.end14.i, %if.end
   %node.122.i = phi ptr [ %node.1.i, %if.end31.i ], [ %node.119.i, %if.end14.i ]
   %nodeCount.121.i = phi i64 [ %inc33.i, %if.end31.i ], [ 0, %if.end14.i ]
   %mValue22.i = getelementptr inbounds nuw i8, ptr %node.122.i, i64 16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i9.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i9.i)
   invoke void @_ZN5eastl6rbtreeINS_12basic_stringIcNS_9allocatorEEENS_13list_map_dataINS_4pairIKS3_jEEEENS_4lessIS3_EES2_NS_15use_value_firstIS8_EELb1ELb1EE4findERS6_(ptr nonnull sret(%"struct.eastl::rbtree_iterator.20") align 8 %ref.tmp.i9.i, ptr noundef nonnull align 8 dereferenceable(64) %testStringMap, ptr noundef nonnull align 8 dereferenceable(24) %mValue22.i)
           to label %.noexc674 unwind label %lpad387.loopexit
 
 .noexc674:                                        ; preds = %while.body19.i
   %215 = load ptr, ptr %ref.tmp.i9.i, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i9.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i9.i)
   %cmp.i10.i = icmp eq ptr %215, %testStringMap
   br i1 %cmp.i10.i, label %invoke.cont429, label %if.end31.i
 
@@ -3959,10 +3959,10 @@ declare i64 @llvm.smin.i64(i64, i64) #10
 declare void @llvm.experimental.noalias.scope.decl(metadata) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i64 @strlen(ptr captures(none)) local_unnamed_addr #9

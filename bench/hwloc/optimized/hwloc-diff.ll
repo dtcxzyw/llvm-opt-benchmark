@@ -53,19 +53,19 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef readonly captures(no
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #11
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load ptr, ptr %1, align 8, !tbaa !9
-  %9 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %8, i32 noundef 47) #12
+  %9 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %8, i32 noundef 47) #11
   %.not = icmp eq ptr %9, null
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 1
   %.082 = select i1 %.not, ptr %8, ptr %10
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %12 = tail call i32 @hwloc_get_api_version() #11
+  %12 = tail call i32 @hwloc_get_api_version() #12
   %.mask.i = and i32 %12, -65536
   %.not.i = icmp eq i32 %.mask.i, 196608
   br i1 %.not.i, label %hwloc_utils_check_api_version.exit, label %13
@@ -77,12 +77,12 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef readonly captures(no
   unreachable
 
 hwloc_utils_check_api_version.exit:               ; preds = %2
-  %16 = tail call ptr @getenv(ptr noundef nonnull @.str.6) #11
+  %16 = tail call ptr @getenv(ptr noundef nonnull @.str.6) #12
   %.not88 = icmp eq ptr %16, null
   br i1 %.not88, label %17, label %19
 
 17:                                               ; preds = %hwloc_utils_check_api_version.exit
-  %18 = tail call i32 @putenv(ptr noundef nonnull @.str.7) #11
+  %18 = tail call i32 @putenv(ptr noundef nonnull @.str.7) #12
   br label %19
 
 19:                                               ; preds = %17, %hwloc_utils_check_api_version.exit
@@ -106,7 +106,7 @@ hwloc_utils_check_api_version.exit:               ; preds = %2
   %27 = phi ptr [ %24, %.lr.ph ], [ %20, %.lr.ph.preheader ]
   %.081123184 = phi ptr [ %23, %.lr.ph ], [ %11, %.lr.ph.preheader ]
   %.080.in124183 = phi i32 [ %34, %.lr.ph ], [ %0, %.lr.ph.preheader ]
-  %28 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull dereferenceable(10) @.str.8) #12
+  %28 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull dereferenceable(10) @.str.8) #11
   %.not99 = icmp eq i32 %28, 0
   br i1 %.not99, label %29, label %35
 
@@ -126,7 +126,7 @@ hwloc_utils_check_api_version.exit:               ; preds = %2
   br i1 %.not89, label %.critedge.thread, label %.lr.ph, !llvm.loop !14
 
 35:                                               ; preds = %.lr.ph185
-  %36 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull dereferenceable(10) @.str.9) #12
+  %36 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull dereferenceable(10) @.str.9) #11
   %.not100 = icmp eq i32 %36, 0
   br i1 %.not100, label %37, label %sub_1
 
@@ -148,7 +148,7 @@ sub_1:                                            ; preds = %35
   br i1 %43, label %45, label %.tail.thread
 
 .tail.thread:                                     ; preds = %sub_1, %.tail
-  %44 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull dereferenceable(7) @.str.13) #12
+  %44 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull dereferenceable(7) @.str.13) #11
   %.not102 = icmp eq i32 %44, 0
   br i1 %.not102, label %45, label %47
 
@@ -199,13 +199,13 @@ sub_1:                                            ; preds = %35
 61:                                               ; preds = %55, %58
   %.079 = phi ptr [ %60, %58 ], [ null, %55 ]
   %.078 = phi ptr [ %60, %58 ], [ @.str.15, %55 ]
-  %62 = call i32 @hwloc_topology_init(ptr noundef nonnull %3) #11
+  %62 = call i32 @hwloc_topology_init(ptr noundef nonnull %3) #12
   %63 = load ptr, ptr %3, align 8, !tbaa !16
-  %64 = call i32 @hwloc_topology_set_all_types_filter(ptr noundef %63, i32 noundef 0) #11
+  %64 = call i32 @hwloc_topology_set_all_types_filter(ptr noundef %63, i32 noundef 0) #12
   %65 = load ptr, ptr %3, align 8, !tbaa !16
-  %66 = call i32 @hwloc_topology_set_flags(ptr noundef %65, i64 noundef 9) #11
+  %66 = call i32 @hwloc_topology_set_flags(ptr noundef %65, i64 noundef 9) #12
   %67 = load ptr, ptr %3, align 8, !tbaa !16
-  %68 = call i32 @hwloc_topology_set_xml(ptr noundef %67, ptr noundef nonnull %.lcssa170) #11
+  %68 = call i32 @hwloc_topology_set_xml(ptr noundef %67, ptr noundef nonnull %.lcssa170) #12
   %69 = icmp slt i32 %68, 0
   br i1 %69, label %70, label %73
 
@@ -216,7 +216,7 @@ sub_1:                                            ; preds = %35
 
 73:                                               ; preds = %61
   %74 = load ptr, ptr %3, align 8, !tbaa !16
-  %75 = call i32 @hwloc_topology_load(ptr noundef %74) #11
+  %75 = call i32 @hwloc_topology_load(ptr noundef %74) #12
   %76 = icmp slt i32 %75, 0
   br i1 %76, label %77, label %80
 
@@ -226,13 +226,13 @@ sub_1:                                            ; preds = %35
   br label %154
 
 80:                                               ; preds = %73
-  %81 = call i32 @hwloc_topology_init(ptr noundef nonnull %4) #11
+  %81 = call i32 @hwloc_topology_init(ptr noundef nonnull %4) #12
   %82 = load ptr, ptr %4, align 8, !tbaa !16
-  %83 = call i32 @hwloc_topology_set_all_types_filter(ptr noundef %82, i32 noundef 0) #11
+  %83 = call i32 @hwloc_topology_set_all_types_filter(ptr noundef %82, i32 noundef 0) #12
   %84 = load ptr, ptr %4, align 8, !tbaa !16
-  %85 = call i32 @hwloc_topology_set_flags(ptr noundef %84, i64 noundef 9) #11
+  %85 = call i32 @hwloc_topology_set_flags(ptr noundef %84, i64 noundef 9) #12
   %86 = load ptr, ptr %4, align 8, !tbaa !16
-  %87 = call i32 @hwloc_topology_set_xml(ptr noundef %86, ptr noundef %57) #11
+  %87 = call i32 @hwloc_topology_set_xml(ptr noundef %86, ptr noundef %57) #12
   %88 = icmp slt i32 %87, 0
   br i1 %88, label %89, label %91
 
@@ -242,7 +242,7 @@ sub_1:                                            ; preds = %35
 
 91:                                               ; preds = %80
   %92 = load ptr, ptr %4, align 8, !tbaa !16
-  %93 = call i32 @hwloc_topology_load(ptr noundef %92) #11
+  %93 = call i32 @hwloc_topology_load(ptr noundef %92) #12
   %94 = icmp slt i32 %93, 0
   br i1 %94, label %95, label %97
 
@@ -255,7 +255,7 @@ sub_1:                                            ; preds = %35
   br i1 %.not91, label %98, label %101
 
 98:                                               ; preds = %97
-  %99 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %.lcssa170, i32 noundef 47) #12
+  %99 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %.lcssa170, i32 noundef 47) #11
   %.not92 = icmp eq ptr %99, null
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 1
   %spec.select105 = select i1 %.not92, ptr %.lcssa170, ptr %100
@@ -265,7 +265,7 @@ sub_1:                                            ; preds = %35
   %.177 = phi ptr [ %.076125.lcssa, %97 ], [ %spec.select105, %98 ]
   %102 = load ptr, ptr %3, align 8, !tbaa !16
   %103 = load ptr, ptr %4, align 8, !tbaa !16
-  %104 = call i32 @hwloc_topology_diff_build(ptr noundef %102, ptr noundef %103, i64 noundef 0, ptr noundef nonnull %5) #11
+  %104 = call i32 @hwloc_topology_diff_build(ptr noundef %102, ptr noundef %103, i64 noundef 0, ptr noundef nonnull %5) #12
   %105 = icmp slt i32 %104, 0
   br i1 %105, label %108, label %.preheader
 
@@ -283,7 +283,7 @@ sub_1:                                            ; preds = %35
   %109 = load ptr, ptr @stderr, align 8, !tbaa !11
   %110 = tail call ptr @__errno_location() #16
   %111 = load i32, ptr %110, align 4, !tbaa !18
-  %112 = call ptr @strerror(i32 noundef %111) #11
+  %112 = call ptr @strerror(i32 noundef %111) #12
   br label %151
 
 .lr.ph131:                                        ; preds = %.preheader, %.lr.ph131
@@ -331,11 +331,11 @@ sub_1:                                            ; preds = %35
   br i1 %.not97, label %131, label %129
 
 129:                                              ; preds = %127
-  %130 = call i32 @hwloc_topology_diff_export_xml(ptr noundef %128, ptr noundef nonnull %.177, ptr noundef nonnull %.079) #11
+  %130 = call i32 @hwloc_topology_diff_export_xml(ptr noundef %128, ptr noundef nonnull %.177, ptr noundef nonnull %.079) #12
   br label %136
 
 131:                                              ; preds = %127
-  %132 = call i32 @hwloc_topology_diff_export_xmlbuffer(ptr noundef %128, ptr noundef nonnull %.177, ptr noundef nonnull %6, ptr noundef nonnull %7) #11
+  %132 = call i32 @hwloc_topology_diff_export_xmlbuffer(ptr noundef %128, ptr noundef nonnull %.177, ptr noundef nonnull %6, ptr noundef nonnull %7) #12
   %.not98 = icmp eq i32 %132, 0
   br i1 %.not98, label %.thread109, label %136
 
@@ -344,7 +344,7 @@ sub_1:                                            ; preds = %35
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) %133)
   %134 = load ptr, ptr %3, align 8, !tbaa !16
   %135 = load ptr, ptr %6, align 8, !tbaa !9
-  call void @hwloc_free_xmlbuffer(ptr noundef %134, ptr noundef %135) #11
+  call void @hwloc_free_xmlbuffer(ptr noundef %134, ptr noundef %135) #12
   br label %146
 
 136:                                              ; preds = %131, %129
@@ -359,21 +359,21 @@ sub_1:                                            ; preds = %35
 
 141:                                              ; preds = %124, %.thread107
   %142 = load ptr, ptr %5, align 8, !tbaa !4
-  %143 = call i32 @hwloc_topology_diff_destroy(ptr noundef %142) #11
+  %143 = call i32 @hwloc_topology_diff_destroy(ptr noundef %142) #12
   %144 = load ptr, ptr %4, align 8, !tbaa !16
-  call void @hwloc_topology_destroy(ptr noundef %144) #11
+  call void @hwloc_topology_destroy(ptr noundef %144) #12
   %145 = load ptr, ptr %3, align 8, !tbaa !16
-  call void @hwloc_topology_destroy(ptr noundef %145) #11
+  call void @hwloc_topology_destroy(ptr noundef %145) #12
   call void @exit(i32 noundef 1) #14
   unreachable
 
 146:                                              ; preds = %138, %136, %.thread109
   %147 = load ptr, ptr %5, align 8, !tbaa !4
-  %148 = call i32 @hwloc_topology_diff_destroy(ptr noundef %147) #11
+  %148 = call i32 @hwloc_topology_diff_destroy(ptr noundef %147) #12
   %149 = load ptr, ptr %4, align 8, !tbaa !16
-  call void @hwloc_topology_destroy(ptr noundef %149) #11
+  call void @hwloc_topology_destroy(ptr noundef %149) #12
   %150 = load ptr, ptr %3, align 8, !tbaa !16
-  call void @hwloc_topology_destroy(ptr noundef %150) #11
+  call void @hwloc_topology_destroy(ptr noundef %150) #12
   call void @exit(i32 noundef 0) #15
   unreachable
 
@@ -383,66 +383,66 @@ sub_1:                                            ; preds = %35
   %.sink = phi ptr [ %109, %108 ], [ %96, %95 ], [ %90, %89 ]
   %152 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.sink, ptr noundef nonnull %.str.20.sink, ptr noundef %.sink169) #13
   %153 = load ptr, ptr %4, align 8, !tbaa !16
-  call void @hwloc_topology_destroy(ptr noundef %153) #11
+  call void @hwloc_topology_destroy(ptr noundef %153) #12
   br label %154
 
 154:                                              ; preds = %151, %77, %70
   %155 = load ptr, ptr %3, align 8, !tbaa !16
-  call void @hwloc_topology_destroy(ptr noundef %155) #11
+  call void @hwloc_topology_destroy(ptr noundef %155) #12
   call void @exit(i32 noundef 1) #14
   unreachable
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #5
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare i32 @putenv(ptr noundef) local_unnamed_addr #6
+declare i32 @putenv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #7
+declare void @exit(i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
-declare i32 @hwloc_topology_init(ptr noundef) local_unnamed_addr #8
+declare i32 @hwloc_topology_init(ptr noundef) local_unnamed_addr #7
 
-declare i32 @hwloc_topology_set_all_types_filter(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare i32 @hwloc_topology_set_all_types_filter(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare i32 @hwloc_topology_set_flags(ptr noundef, i64 noundef) local_unnamed_addr #8
+declare i32 @hwloc_topology_set_flags(ptr noundef, i64 noundef) local_unnamed_addr #7
 
-declare i32 @hwloc_topology_set_xml(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare i32 @hwloc_topology_set_xml(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare i32 @hwloc_topology_load(ptr noundef) local_unnamed_addr #8
+declare i32 @hwloc_topology_load(ptr noundef) local_unnamed_addr #7
 
-declare i32 @hwloc_topology_diff_build(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #8
+declare i32 @hwloc_topology_diff_build(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind
-declare ptr @strerror(i32 noundef) local_unnamed_addr #6
+declare ptr @strerror(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #9
+declare ptr @__errno_location() local_unnamed_addr #8
 
-declare i32 @hwloc_topology_diff_export_xml(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
+declare i32 @hwloc_topology_diff_export_xml(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare i32 @hwloc_topology_diff_export_xmlbuffer(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
+declare i32 @hwloc_topology_diff_export_xmlbuffer(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare void @hwloc_free_xmlbuffer(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare void @hwloc_free_xmlbuffer(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare i32 @hwloc_topology_diff_destroy(ptr noundef) local_unnamed_addr #8
+declare i32 @hwloc_topology_diff_destroy(ptr noundef) local_unnamed_addr #7
 
-declare void @hwloc_topology_destroy(ptr noundef) local_unnamed_addr #8
+declare void @hwloc_topology_destroy(ptr noundef) local_unnamed_addr #7
 
-declare i32 @hwloc_get_api_version() local_unnamed_addr #8
+declare i32 @hwloc_get_api_version() local_unnamed_addr #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 
 ; Function Attrs: nofree nounwind
 declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #10
@@ -453,16 +453,16 @@ declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_add
 attributes #0 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree nounwind memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree nounwind memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nofree nounwind }
-attributes #11 = { nounwind }
-attributes #12 = { nounwind willreturn memory(read) }
+attributes #11 = { nounwind willreturn memory(read) }
+attributes #12 = { nounwind }
 attributes #13 = { cold nounwind }
 attributes #14 = { cold noreturn nounwind }
 attributes #15 = { noreturn nounwind }

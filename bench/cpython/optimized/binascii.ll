@@ -231,7 +231,7 @@ binascii_clear.exit:                              ; preds = %Py_DECREF.exit.i, %
 ; Function Attrs: nounwind uwtable
 define internal ptr @binascii_a2b_uu(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca %struct.Py_buffer, align 8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %3, i8 0, i64 80, i1 false)
   %4 = call fastcc i32 @ascii_buffer_converter(ptr noundef %1, ptr noundef %3)
   %.not = icmp eq i32 %4, 0
@@ -392,7 +392,7 @@ binascii_a2b_uu_impl.exit:                        ; preds = %.backedge.i, %Py_DE
   br label %63
 
 63:                                               ; preds = %62, %binascii_a2b_uu_impl.exit
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
@@ -401,7 +401,7 @@ define internal ptr @binascii_b2a_uu(ptr noundef %0, ptr noundef %1, i64 noundef
   %5 = alloca %struct._PyBytesWriter, align 8
   %6 = alloca [2 x ptr], align 16
   %7 = alloca %struct.Py_buffer, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %10, label %8
 
@@ -413,7 +413,7 @@ define internal ptr @binascii_b2a_uu(ptr noundef %0, ptr noundef %1, i64 noundef
 10:                                               ; preds = %4, %8
   %11 = phi i64 [ %.val, %8 ], [ 0, %4 ]
   %12 = add i64 %11, %2
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %7, i8 0, i64 80, i1 false)
   %13 = icmp eq i64 %2, 1
   %14 = icmp ne ptr %1, null
@@ -446,7 +446,7 @@ define internal ptr @binascii_b2a_uu(ptr noundef %0, ptr noundef %1, i64 noundef
 
 27:                                               ; preds = %22, %21
   %.0 = phi i32 [ %25, %22 ], [ 0, %21 ]
-  call void @llvm.lifetime.start.p0(i64 552, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_PyBytesWriter_Init(ptr noundef nonnull %5) #5
   %28 = load ptr, ptr %7, align 8, !tbaa !12
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -590,7 +590,7 @@ define internal ptr @binascii_b2a_uu(ptr noundef %0, ptr noundef %1, i64 noundef
 
 binascii_b2a_uu_impl.exit:                        ; preds = %32, %35, %37, %._crit_edge59.i
   %.0.i = phi ptr [ null, %35 ], [ %92, %._crit_edge59.i ], [ null, %32 ], [ null, %37 ]
-  call void @llvm.lifetime.end.p0(i64 552, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %93
 
 93:                                               ; preds = %22, %.thread, %16, %binascii_b2a_uu_impl.exit
@@ -605,8 +605,8 @@ binascii_b2a_uu_impl.exit:                        ; preds = %32, %35, %37, %._cr
   br label %97
 
 97:                                               ; preds = %96, %93
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #5
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.023
 }
 
@@ -615,7 +615,7 @@ define internal ptr @binascii_a2b_base64(ptr noundef %0, ptr noundef %1, i64 nou
   %5 = alloca %struct._PyBytesWriter, align 8
   %6 = alloca [2 x ptr], align 16
   %7 = alloca %struct.Py_buffer, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %10, label %8
 
@@ -627,7 +627,7 @@ define internal ptr @binascii_a2b_base64(ptr noundef %0, ptr noundef %1, i64 nou
 10:                                               ; preds = %4, %8
   %11 = phi i64 [ %.val, %8 ], [ 0, %4 ]
   %12 = add i64 %11, %2
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %7, i8 0, i64 80, i1 false)
   %13 = icmp eq i64 %2, 1
   %14 = icmp ne ptr %1, null
@@ -666,7 +666,7 @@ define internal ptr @binascii_a2b_base64(ptr noundef %0, ptr noundef %1, i64 nou
   %29 = add i64 %.val33, 3
   %30 = lshr i64 %29, 2
   %31 = mul nuw i64 %30, 3
-  call void @llvm.lifetime.start.p0(i64 552, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_PyBytesWriter_Init(ptr noundef nonnull %5) #5
   %32 = call ptr @_PyBytesWriter_Alloc(ptr noundef nonnull %5, i64 noundef %31) #5
   %33 = icmp eq ptr %32, null
@@ -946,7 +946,7 @@ define internal ptr @binascii_a2b_base64(ptr noundef %0, ptr noundef %1, i64 nou
 
 binascii_a2b_base64_impl.exit:                    ; preds = %27, %.thread15.i, %._crit_edge.thread.i
   %.080.i = phi ptr [ null, %27 ], [ null, %.thread15.i ], [ %144, %._crit_edge.thread.i ]
-  call void @llvm.lifetime.end.p0(i64 552, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %145
 
 145:                                              ; preds = %22, %.thread, %16, %binascii_a2b_base64_impl.exit
@@ -961,8 +961,8 @@ binascii_a2b_base64_impl.exit:                    ; preds = %27, %.thread15.i, %
   br label %149
 
 149:                                              ; preds = %148, %145
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #5
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.023
 }
 
@@ -971,7 +971,7 @@ define internal ptr @binascii_b2a_base64(ptr noundef %0, ptr noundef %1, i64 nou
   %5 = alloca %struct._PyBytesWriter, align 8
   %6 = alloca [2 x ptr], align 16
   %7 = alloca %struct.Py_buffer, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %10, label %8
 
@@ -983,7 +983,7 @@ define internal ptr @binascii_b2a_base64(ptr noundef %0, ptr noundef %1, i64 nou
 10:                                               ; preds = %4, %8
   %11 = phi i64 [ %.val, %8 ], [ 0, %4 ]
   %12 = add i64 %11, %2
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %7, i8 0, i64 80, i1 false)
   %13 = icmp eq i64 %2, 1
   %14 = icmp ne ptr %1, null
@@ -1019,7 +1019,7 @@ define internal ptr @binascii_b2a_base64(ptr noundef %0, ptr noundef %1, i64 nou
   %.val32 = load ptr, ptr %7, align 8, !tbaa !12
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %.val33 = load i64, ptr %28, align 8, !tbaa !18
-  call void @llvm.lifetime.start.p0(i64 552, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_PyBytesWriter_Init(ptr noundef nonnull %5) #5
   %29 = icmp sgt i64 %.val33, 4611686018427387902
   br i1 %29, label %30, label %35
@@ -1131,7 +1131,7 @@ define internal ptr @binascii_b2a_base64(ptr noundef %0, ptr noundef %1, i64 nou
 
 binascii_b2a_base64_impl.exit:                    ; preds = %30, %33, %35, %76
   %.0.i = phi ptr [ null, %33 ], [ %77, %76 ], [ null, %30 ], [ null, %35 ]
-  call void @llvm.lifetime.end.p0(i64 552, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %78
 
 78:                                               ; preds = %22, %.thread, %16, %binascii_b2a_base64_impl.exit
@@ -1146,15 +1146,15 @@ binascii_b2a_base64_impl.exit:                    ; preds = %30, %33, %35, %76
   br label %82
 
 82:                                               ; preds = %81, %78
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #5
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.023
 }
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @binascii_a2b_hex(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca %struct.Py_buffer, align 8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %3, i8 0, i64 80, i1 false)
   %4 = call fastcc i32 @ascii_buffer_converter(ptr noundef %1, ptr noundef %3)
   %.not = icmp eq i32 %4, 0
@@ -1179,7 +1179,7 @@ define internal ptr @binascii_a2b_hex(ptr noundef %0, ptr noundef %1) #0 {
   br label %12
 
 12:                                               ; preds = %11, %8
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
@@ -1187,7 +1187,7 @@ define internal ptr @binascii_a2b_hex(ptr noundef %0, ptr noundef %1) #0 {
 define internal ptr @binascii_b2a_hex(ptr readnone captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
   %5 = alloca [3 x ptr], align 16
   %6 = alloca %struct.Py_buffer, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %9, label %7
 
@@ -1199,7 +1199,7 @@ define internal ptr @binascii_b2a_hex(ptr readnone captures(none) %0, ptr nounde
 9:                                                ; preds = %4, %7
   %10 = phi i64 [ %.val, %7 ], [ 0, %4 ]
   %11 = add i64 %10, %2
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %6, i8 0, i64 80, i1 false)
   %12 = add i64 %2, -1
   %13 = icmp ult i64 %12, 3
@@ -1265,8 +1265,8 @@ define internal ptr @binascii_b2a_hex(ptr readnone captures(none) %0, ptr nounde
   br label %39
 
 39:                                               ; preds = %38, %35
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.028
 }
 
@@ -1274,7 +1274,7 @@ define internal ptr @binascii_b2a_hex(ptr readnone captures(none) %0, ptr nounde
 define internal ptr @binascii_hexlify(ptr readnone captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
   %5 = alloca [3 x ptr], align 16
   %6 = alloca %struct.Py_buffer, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %9, label %7
 
@@ -1286,7 +1286,7 @@ define internal ptr @binascii_hexlify(ptr readnone captures(none) %0, ptr nounde
 9:                                                ; preds = %4, %7
   %10 = phi i64 [ %.val, %7 ], [ 0, %4 ]
   %11 = add i64 %10, %2
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %6, i8 0, i64 80, i1 false)
   %12 = add i64 %2, -1
   %13 = icmp ult i64 %12, 3
@@ -1352,15 +1352,15 @@ define internal ptr @binascii_hexlify(ptr readnone captures(none) %0, ptr nounde
   br label %39
 
 39:                                               ; preds = %38, %35
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.028
 }
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @binascii_unhexlify(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca %struct.Py_buffer, align 8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %3, i8 0, i64 80, i1 false)
   %4 = call fastcc i32 @ascii_buffer_converter(ptr noundef %1, ptr noundef %3)
   %.not = icmp eq i32 %4, 0
@@ -1385,14 +1385,14 @@ define internal ptr @binascii_unhexlify(ptr noundef %0, ptr noundef %1) #0 {
   br label %12
 
 12:                                               ; preds = %11, %8
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @binascii_crc_hqx(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %4 = alloca %struct.Py_buffer, align 8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %4, i8 0, i64 80, i1 false)
   %or.cond = icmp eq i64 %2, 2
   br i1 %or.cond, label %7, label %5
@@ -1500,14 +1500,14 @@ define internal ptr @binascii_crc_hqx(ptr readnone captures(none) %0, ptr nounde
   br label %56
 
 56:                                               ; preds = %55, %52
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @binascii_crc32(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %4 = alloca %struct.Py_buffer, align 8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %4, i8 0, i64 80, i1 false)
   %5 = add i64 %2, -1
   %or.cond = icmp ult i64 %5, 2
@@ -1609,7 +1609,7 @@ binascii_crc32_impl.exit:                         ; preds = %._crit_edge.i, %36
   br label %50
 
 50:                                               ; preds = %49, %46
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
 
@@ -1617,7 +1617,7 @@ binascii_crc32_impl.exit:                         ; preds = %._crit_edge.i, %36
 define internal ptr @binascii_a2b_qp(ptr readnone captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
   %5 = alloca [2 x ptr], align 16
   %6 = alloca %struct.Py_buffer, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %9, label %7
 
@@ -1629,7 +1629,7 @@ define internal ptr @binascii_a2b_qp(ptr readnone captures(none) %0, ptr noundef
 9:                                                ; preds = %4, %7
   %10 = phi i64 [ %.val, %7 ], [ 0, %4 ]
   %11 = add i64 %10, %2
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %6, i8 0, i64 80, i1 false)
   %12 = add i64 %2, -1
   %13 = icmp ult i64 %12, 2
@@ -1844,8 +1844,8 @@ binascii_a2b_qp_impl.exit:                        ; preds = %._crit_edge.i, %32,
   br label %93
 
 93:                                               ; preds = %92, %binascii_a2b_qp_impl.exit
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.023
 }
 
@@ -1853,7 +1853,7 @@ binascii_a2b_qp_impl.exit:                        ; preds = %._crit_edge.i, %32,
 define internal ptr @binascii_b2a_qp(ptr readnone captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
   %5 = alloca [4 x ptr], align 16
   %6 = alloca %struct.Py_buffer, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %9, label %7
 
@@ -1866,7 +1866,7 @@ define internal ptr @binascii_b2a_qp(ptr readnone captures(none) %0, ptr noundef
   %10 = phi i64 [ %.val, %7 ], [ 0, %4 ]
   %11 = add i64 %10, %2
   %12 = add i64 %11, -1
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %6, i8 0, i64 80, i1 false)
   %13 = add i64 %2, -1
   %14 = icmp ult i64 %13, 4
@@ -2435,16 +2435,13 @@ binascii_b2a_qp_impl.exit:                        ; preds = %._crit_edge14.i, %1
   br label %250
 
 250:                                              ; preds = %249, %binascii_b2a_qp_impl.exit
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.037
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 131073) i32 @ascii_buffer_converter(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
@@ -2520,9 +2517,6 @@ _PyUnicode_DATA.exit:                             ; preds = %16, %17
 }
 
 declare void @PyBuffer_Release(ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -2655,7 +2649,7 @@ declare ptr @PyErr_NoMemory() local_unnamed_addr #1
 declare void @PyMem_Free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #4
+declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @binascii_exec(ptr noundef %0) #0 {
@@ -2688,11 +2682,17 @@ declare ptr @PyErr_NewException(ptr noundef, ptr noundef, ptr noundef) local_unn
 
 declare i32 @PyModule_AddObjectRef(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nounwind }
 attributes #6 = { nounwind willreturn memory(read) }
 

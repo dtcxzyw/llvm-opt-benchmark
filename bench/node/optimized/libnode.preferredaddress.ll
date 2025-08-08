@@ -169,7 +169,7 @@ entry:
   %paddr_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %paddr_, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5)
-  call void @llvm.lifetime.start.p0(i64 1056, ptr nonnull %address.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %address.i)
   %ipv4_present.i = getelementptr inbounds nuw i8, ptr %0, i64 56
   %1 = load i8, ptr %ipv4_present.i, align 8, !noalias !5
   %tobool.not.i = icmp eq i8 %1, 0
@@ -204,7 +204,7 @@ _ZN4node4quic12_GLOBAL__N_116get_address_infoILi2EEESt8optionalIKNS0_16Preferred
   %.sink.i = phi i8 [ 1, %if.end6.i ], [ 0, %entry ]
   %_M_engaged.i.i.i.i3.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 1056
   store i8 %.sink.i, ptr %_M_engaged.i.i.i.i3.i, align 8, !alias.scope !5
-  call void @llvm.lifetime.end.p0(i64 1056, ptr nonnull %address.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %address.i)
   ret void
 }
 
@@ -215,7 +215,7 @@ entry:
   %paddr_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %paddr_, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8)
-  call void @llvm.lifetime.start.p0(i64 1056, ptr nonnull %address.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %address.i)
   %ipv6_present.i = getelementptr inbounds nuw i8, ptr %0, i64 57
   %1 = load i8, ptr %ipv6_present.i, align 1, !noalias !8
   %tobool.not.i = icmp eq i8 %1, 0
@@ -250,7 +250,7 @@ _ZN4node4quic12_GLOBAL__N_116get_address_infoILi10EEESt8optionalIKNS0_16Preferre
   %.sink.i = phi i8 [ 1, %if.end6.i ], [ 0, %entry ]
   %_M_engaged.i.i.i.i3.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 1056
   store i8 %.sink.i, ptr %_M_engaged.i.i.i.i3.i, align 8, !alias.scope !8
-  call void @llvm.lifetime.end.p0(i64 1056, ptr nonnull %address.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %address.i)
   ret void
 }
 
@@ -260,8 +260,8 @@ entry:
   %hints.i = alloca %struct.addrinfo, align 8
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %req = alloca %struct.uv_getaddrinfo_s, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %hints.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %hints.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %0 = getelementptr inbounds nuw i8, ptr %hints.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   store i32 1028, ptr %hints.i, align 8
@@ -281,8 +281,8 @@ entry:
 
 _ZN4node4quic12_GLOBAL__N_17resolveERKNS0_16PreferredAddress11AddressInfoEP16uv_getaddrinfo_s.exit.thread: ; preds = %entry
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #16
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %hints.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %hints.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   br label %if.then.i
 
 _ZN4node4quic12_GLOBAL__N_17resolveERKNS0_16PreferredAddress11AddressInfoEP16uv_getaddrinfo_s.exit: ; preds = %entry
@@ -290,8 +290,8 @@ _ZN4node4quic12_GLOBAL__N_17resolveERKNS0_16PreferredAddress11AddressInfoEP16uv_
   %3 = load ptr, ptr %addrinfo.i, align 8
   %cmp2.i.not = icmp eq ptr %3, null
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #16
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %hints.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %hints.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   br i1 %cmp2.i.not, label %if.then.i, label %if.then
 
 if.then:                                          ; preds = %_ZN4node4quic12_GLOBAL__N_17resolveERKNS0_16PreferredAddress11AddressInfoEP16uv_getaddrinfo_s.exit
@@ -787,8 +787,8 @@ sw.bb12:                                          ; preds = %while.cond, %while.
   br label %sw.epilog
 
 sw.bb15:                                          ; preds = %while.cond
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %ret.i.i), !noalias !19
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i), !noalias !19
+  call void @llvm.lifetime.start.p0(ptr nonnull %ret.i.i), !noalias !19
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i), !noalias !19
   %2 = load i32, ptr %arg, align 4, !noalias !22
   %conv.i.i = zext i32 %2 to i64
   %add.ptr1.i.i = getelementptr inbounds nuw i8, ptr %ret.i.i, i64 11
@@ -815,14 +815,14 @@ _ZN4node12ToBaseStringILj3EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %incdec.ptr.i.i, i64 %call.i.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp16, ptr noundef nonnull %incdec.ptr.i.i, ptr noundef nonnull %add.ptr.i.i.i)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #16
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %ret.i.i), !noalias !19
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i), !noalias !19
+  call void @llvm.lifetime.end.p0(ptr nonnull %ret.i.i), !noalias !19
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i), !noalias !19
   %call17 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ret, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp16) #16
   br label %sw.epilog
 
 sw.bb18:                                          ; preds = %while.cond
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %ret.i.i15), !noalias !26
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i16), !noalias !26
+  call void @llvm.lifetime.start.p0(ptr nonnull %ret.i.i15), !noalias !26
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i16), !noalias !26
   %4 = load i32, ptr %arg, align 4, !noalias !29
   %conv.i.i17 = zext i32 %4 to i64
   %add.ptr1.i.i18 = getelementptr inbounds nuw i8, ptr %ret.i.i15, i64 11
@@ -849,14 +849,14 @@ _ZN4node12ToBaseStringILj4EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   %add.ptr.i.i.i28 = getelementptr inbounds i8, ptr %incdec.ptr.i.i23, i64 %call.i.i.i.i27
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp19, ptr noundef nonnull %incdec.ptr.i.i23, ptr noundef nonnull %add.ptr.i.i.i28)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i16) #16
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %ret.i.i15), !noalias !26
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i16), !noalias !26
+  call void @llvm.lifetime.end.p0(ptr nonnull %ret.i.i15), !noalias !26
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i16), !noalias !26
   %call20 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ret, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp19) #16
   br label %sw.epilog
 
 sw.bb21:                                          ; preds = %while.cond
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %ret.i.i29), !noalias !33
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i30), !noalias !33
+  call void @llvm.lifetime.start.p0(ptr nonnull %ret.i.i29), !noalias !33
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i30), !noalias !33
   %6 = load i32, ptr %arg, align 4, !noalias !36
   %conv.i.i31 = zext i32 %6 to i64
   %add.ptr1.i.i32 = getelementptr inbounds nuw i8, ptr %ret.i.i29, i64 11
@@ -883,8 +883,8 @@ _ZN4node12ToBaseStringILj4EjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   %add.ptr.i.i.i43 = getelementptr inbounds i8, ptr %incdec.ptr.i.i38, i64 %call.i.i.i.i42
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp23, ptr noundef nonnull %incdec.ptr.i.i38, ptr noundef nonnull %add.ptr.i.i.i43)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i30) #16
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %ret.i.i29), !noalias !33
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i30), !noalias !33
+  call void @llvm.lifetime.end.p0(ptr nonnull %ret.i.i29), !noalias !33
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i30), !noalias !33
   call void @_ZN4node7ToUpperERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp22, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp23)
   %call24 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ret, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp22) #16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp22) #16
@@ -1278,10 +1278,10 @@ declare i32 @llvm.abs.i32(i32, i1 immarg) #13
 declare void @llvm.experimental.noalias.scope.decl(metadata) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

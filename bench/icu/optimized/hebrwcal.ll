@@ -132,7 +132,7 @@ define void @_ZN6icu_7714HebrewCalendar3addE19UCalendarDateFieldsiR10UErrorCode(
 9:                                                ; preds = %8, %8
   %10 = tail call noundef i32 @_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192) %0, i32 noundef 2, ptr noundef nonnull align 4 dereferenceable(4) %3)
   %11 = sext i32 %10 to i64
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %12 = tail call noundef i32 @_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192) %0, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %3)
   store i32 %12, ptr %5, align 4, !tbaa !9
   %13 = icmp sgt i32 %2, 0
@@ -276,7 +276,7 @@ define void @_ZN6icu_7714HebrewCalendar3addE19UCalendarDateFieldsiR10UErrorCode(
   br label %76
 
 76:                                               ; preds = %.loopexit, %53, %24
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %78
 
 77:                                               ; preds = %8
@@ -286,9 +286,6 @@ define void @_ZN6icu_7714HebrewCalendar3addE19UCalendarDateFieldsiR10UErrorCode(
 78:                                               ; preds = %4, %76, %77
   ret void
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 declare noundef i32 @_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192), i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #1
 
@@ -308,9 +305,6 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7714HebrewCalendar10isLeapYear
 }
 
 declare void @_ZN6icu_778Calendar3setE19UCalendarDateFieldsi(ptr noundef nonnull align 8 dereferenceable(192), i32 noundef, i32 noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 declare void @_ZN6icu_778Calendar3addE19UCalendarDateFieldsiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192), i32 noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #1
 
@@ -798,7 +792,7 @@ _ZN6icu_7712_GLOBAL__N_110daysInYearEiR10UErrorCode.exit.i: ; preds = %.preheade
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #6
+declare double @llvm.fmuladd.f64(double, double, double) #5
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc noundef i32 @_ZN6icu_7712_GLOBAL__N_111startOfYearEiR10UErrorCode(i32 noundef %0, ptr noundef nonnull align 4 dereferenceable(4) %1) unnamed_addr #0 {
@@ -1128,17 +1122,17 @@ define internal fastcc void @_ZN6icu_7712_GLOBAL__N_130initializeSystemDefaultCe
   %1 = alloca i32, align 4
   %2 = alloca %"class.icu_77::HebrewCalendar", align 8
   %3 = alloca %"class.icu_77::Locale", align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store i32 0, ptr %1, align 4, !tbaa !6
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %2) #8
-  call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN6icu_776LocaleC1EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(217) %3, ptr noundef nonnull @.str.2, ptr noundef null, ptr noundef null, ptr noundef null)
   invoke void @_ZN6icu_7714HebrewCalendarC1ERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef nonnull align 8 dereferenceable(217) %3, ptr noundef nonnull align 4 dereferenceable(4) %1)
           to label %4 unwind label %7
 
 4:                                                ; preds = %0
   call void @_ZN6icu_776LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %3) #8
-  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %5 = load i32, ptr %1, align 4, !tbaa !6
   %6 = icmp slt i32 %5, 1
   br i1 %6, label %9, label %18
@@ -1147,7 +1141,7 @@ define internal fastcc void @_ZN6icu_7712_GLOBAL__N_130initializeSystemDefaultCe
   %8 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_776LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %3) #8
-  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %21
 
 9:                                                ; preds = %4
@@ -1182,8 +1176,8 @@ _ZNK6icu_778Calendar7getTimeER10UErrorCode.exit:  ; preds = %_ZN6icu_7714HebrewC
 
 18:                                               ; preds = %4, %17
   call void @_ZN6icu_7714HebrewCalendarD1Ev(ptr noundef nonnull align 8 dereferenceable(192) %2) #8
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %2) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 
 19:                                               ; preds = %_ZN6icu_7714HebrewCalendar3addE19UCalendarDateFieldsiR10UErrorCode.exit, %14, %11, %_ZNK6icu_778Calendar7getTimeER10UErrorCode.exit, %9
@@ -1194,8 +1188,8 @@ _ZNK6icu_778Calendar7getTimeER10UErrorCode.exit:  ; preds = %_ZN6icu_7714HebrewC
 
 21:                                               ; preds = %19, %7
   %.pn = phi { ptr, i32 } [ %20, %19 ], [ %8, %7 ]
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %2) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   resume { ptr, i32 } %.pn
 }
 
@@ -1310,10 +1304,10 @@ define void @_ZN6icu_7714HebrewCalendar20setTemporalMonthCodeEPKcR10UErrorCode(p
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZNK6icu_7714HebrewCalendar16internalGetMonthER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) unnamed_addr #0 align 2 {
@@ -1328,7 +1322,7 @@ define noundef i32 @_ZNK6icu_7714HebrewCalendar16internalGetMonthER10UErrorCode(
   br i1 %8, label %9, label %30
 
 9:                                                ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %11 = load i32, ptr %10, align 4, !tbaa !9
   store i32 %11, ptr %3, align 4, !tbaa !9
@@ -1354,14 +1348,14 @@ define noundef i32 @_ZNK6icu_7714HebrewCalendar16internalGetMonthER10UErrorCode(
 
 .thread:                                          ; preds = %9, %18
   %.1.ph = phi i32 [ %11, %18 ], [ 0, %9 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %32
 
 27:                                               ; preds = %18
   %28 = call signext i8 @uprv_add32_overflow_77(i32 noundef %11, i32 noundef 1, ptr noundef nonnull %3)
   %.not12.not = icmp eq i8 %28, 0
   %29 = load i32, ptr %3, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not12.not, label %32, label %30
 
 30:                                               ; preds = %27, %6
@@ -1495,14 +1489,20 @@ declare void @_ZN6icu_778Calendar15setTimeInMillisEdR10UErrorCode(ptr noundef no
 
 declare noundef double @_ZNK6icu_778Calendar15getTimeInMillisER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
+
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nounwind }
 attributes #9 = { nounwind willreturn memory(read) }
 

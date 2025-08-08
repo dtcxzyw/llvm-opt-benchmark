@@ -240,7 +240,7 @@ entry:
   %agg.tmp.sroa.0.0.copyload.i = load <2 x float>, ptr %val.i, align 8, !tbaa.struct !7
   %agg.tmp.sroa.2.0.val.sroa_idx.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %agg.tmp.sroa.2.0.copyload.i = load float, ptr %agg.tmp.sroa.2.0.val.sroa_idx.i, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %buf.i.i.i) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i.i)
   %p.sroa.0.0.vec.extract.i.i.i.i = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i, i64 0
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i.i.i, float noundef %p.sroa.0.0.vec.extract.i.i.i.i)
   %arrayidx1.i.i.i.i = getelementptr inbounds nuw i8, ptr %buf.i.i.i, i64 4
@@ -249,12 +249,12 @@ entry:
   %arrayidx2.i.i.i.i = getelementptr inbounds nuw i8, ptr %buf.i.i.i, i64 8
   call void @_Z8writeF32Phf(ptr noundef nonnull %arrayidx2.i.i.i.i, float noundef %agg.tmp.sroa.2.0.copyload.i)
   %call.i.i.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i.i.i, i64 noundef 12)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %buf.i.i.i) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i.i)
   %val.i4 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %agg.tmp.sroa.0.0.copyload.i5 = load <2 x float>, ptr %val.i4, align 8, !tbaa.struct !7
   %agg.tmp.sroa.2.0.val.sroa_idx.i6 = getelementptr inbounds nuw i8, ptr %this, i64 40
   %agg.tmp.sroa.2.0.copyload.i7 = load float, ptr %agg.tmp.sroa.2.0.val.sroa_idx.i6, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %buf.i.i.i3) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i.i3)
   %p.sroa.0.0.vec.extract.i.i.i.i8 = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i5, i64 0
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i.i.i3, float noundef %p.sroa.0.0.vec.extract.i.i.i.i8)
   %arrayidx1.i.i.i.i9 = getelementptr inbounds nuw i8, ptr %buf.i.i.i3, i64 4
@@ -263,7 +263,7 @@ entry:
   %arrayidx2.i.i.i.i11 = getelementptr inbounds nuw i8, ptr %buf.i.i.i3, i64 8
   call void @_Z8writeF32Phf(ptr noundef nonnull %arrayidx2.i.i.i.i11, float noundef %agg.tmp.sroa.2.0.copyload.i7)
   %call.i.i.i12 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i.i.i3, i64 noundef 12)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %buf.i.i.i3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i.i3)
   ret void
 }
 
@@ -275,7 +275,7 @@ entry:
   %agg.tmp.sroa.0.0.copyload = load <2 x float>, ptr %val, align 8, !tbaa.struct !7
   %agg.tmp.sroa.2.0.val.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 16
   %agg.tmp.sroa.2.0.copyload = load float, ptr %agg.tmp.sroa.2.0.val.sroa_idx, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %buf.i.i) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i)
   %p.sroa.0.0.vec.extract.i.i.i = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload, i64 0
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i.i, float noundef %p.sroa.0.0.vec.extract.i.i.i)
   %arrayidx1.i.i.i = getelementptr inbounds nuw i8, ptr %buf.i.i, i64 4
@@ -284,7 +284,7 @@ entry:
   %arrayidx2.i.i.i = getelementptr inbounds nuw i8, ptr %buf.i.i, i64 8
   call void @_Z8writeF32Phf(ptr noundef nonnull %arrayidx2.i.i.i, float noundef %agg.tmp.sroa.2.0.copyload)
   %call.i.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i.i, i64 noundef 12)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %buf.i.i) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i)
   ret void
 }
 
@@ -294,7 +294,7 @@ entry:
   %buf.i.i.i3 = alloca [12 x i8], align 1
   %buf.i.i.i = alloca [12 x i8], align 1
   %val.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %buf.i.i.i) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %buf.i.i.i, i8 0, i64 12, i1 false)
   %call.i.i.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i.i.i, i64 noundef 12)
   %call.i.i.i.i = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %buf.i.i.i)
@@ -304,12 +304,12 @@ entry:
   %retval.sroa.0.4.vec.insert.i.i.i.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i.i.i, float %call2.i.i.i.i, i64 1
   %arrayidx3.i.i.i.i = getelementptr inbounds nuw i8, ptr %buf.i.i.i, i64 8
   %call4.i.i.i.i = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %arrayidx3.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %buf.i.i.i) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i.i)
   store <2 x float> %retval.sroa.0.4.vec.insert.i.i.i.i, ptr %val.i, align 8, !tbaa.struct !7
   %ref.tmp.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store float %call4.i.i.i.i, ptr %ref.tmp.sroa.4.0..sroa_idx.i.i, align 8, !tbaa !8
   %val.i4 = getelementptr inbounds nuw i8, ptr %this, i64 32
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %buf.i.i.i3) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i.i3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %buf.i.i.i3, i8 0, i64 12, i1 false)
   %call.i.i.i5 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i.i.i3, i64 noundef 12)
   %call.i.i.i.i6 = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %buf.i.i.i3)
@@ -319,7 +319,7 @@ entry:
   %retval.sroa.0.4.vec.insert.i.i.i.i10 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i.i.i7, float %call2.i.i.i.i9, i64 1
   %arrayidx3.i.i.i.i11 = getelementptr inbounds nuw i8, ptr %buf.i.i.i3, i64 8
   %call4.i.i.i.i12 = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %arrayidx3.i.i.i.i11)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %buf.i.i.i3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i.i3)
   store <2 x float> %retval.sroa.0.4.vec.insert.i.i.i.i10, ptr %val.i4, align 8, !tbaa.struct !7
   %ref.tmp.sroa.4.0..sroa_idx.i.i13 = getelementptr inbounds nuw i8, ptr %this, i64 40
   store float %call4.i.i.i.i12, ptr %ref.tmp.sroa.4.0..sroa_idx.i.i13, align 8, !tbaa !8
@@ -331,7 +331,7 @@ define linkonce_odr dso_local void @_ZN18ParticleParamTypes9ParameterIN3irr4core
 entry:
   %buf.i.i = alloca [12 x i8], align 1
   %val = getelementptr inbounds nuw i8, ptr %this, i64 8
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %buf.i.i) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %buf.i.i, i8 0, i64 12, i1 false)
   %call.i.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i.i, i64 noundef 12)
   %call.i.i.i = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %buf.i.i)
@@ -341,7 +341,7 @@ entry:
   %retval.sroa.0.4.vec.insert.i.i.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i.i, float %call2.i.i.i, i64 1
   %arrayidx3.i.i.i = getelementptr inbounds nuw i8, ptr %buf.i.i, i64 8
   %call4.i.i.i = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %arrayidx3.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %buf.i.i) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i)
   store <2 x float> %retval.sroa.0.4.vec.insert.i.i.i, ptr %val, align 8, !tbaa.struct !7
   %ref.tmp.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store float %call4.i.i.i, ptr %ref.tmp.sroa.4.0..sroa_idx.i, align 8, !tbaa !8
@@ -358,7 +358,7 @@ entry:
   %agg.tmp.sroa.0.0.copyload.i = load <2 x float>, ptr %val.i, align 8, !tbaa.struct !7
   %agg.tmp.sroa.2.0.val.sroa_idx.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %agg.tmp.sroa.2.0.copyload.i = load float, ptr %agg.tmp.sroa.2.0.val.sroa_idx.i, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %buf.i.i.i) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i.i)
   %p.sroa.0.0.vec.extract.i.i.i.i = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i, i64 0
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i.i.i, float noundef %p.sroa.0.0.vec.extract.i.i.i.i)
   %arrayidx1.i.i.i.i = getelementptr inbounds nuw i8, ptr %buf.i.i.i, i64 4
@@ -367,12 +367,12 @@ entry:
   %arrayidx2.i.i.i.i = getelementptr inbounds nuw i8, ptr %buf.i.i.i, i64 8
   call void @_Z8writeF32Phf(ptr noundef nonnull %arrayidx2.i.i.i.i, float noundef %agg.tmp.sroa.2.0.copyload.i)
   %call.i.i.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i.i.i, i64 noundef 12)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %buf.i.i.i) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i.i)
   %val.i5 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %agg.tmp.sroa.0.0.copyload.i6 = load <2 x float>, ptr %val.i5, align 8, !tbaa.struct !7
   %agg.tmp.sroa.2.0.val.sroa_idx.i7 = getelementptr inbounds nuw i8, ptr %this, i64 40
   %agg.tmp.sroa.2.0.copyload.i8 = load float, ptr %agg.tmp.sroa.2.0.val.sroa_idx.i7, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %buf.i.i.i4) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i.i4)
   %p.sroa.0.0.vec.extract.i.i.i.i9 = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i6, i64 0
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i.i.i4, float noundef %p.sroa.0.0.vec.extract.i.i.i.i9)
   %arrayidx1.i.i.i.i10 = getelementptr inbounds nuw i8, ptr %buf.i.i.i4, i64 4
@@ -381,13 +381,13 @@ entry:
   %arrayidx2.i.i.i.i12 = getelementptr inbounds nuw i8, ptr %buf.i.i.i4, i64 8
   call void @_Z8writeF32Phf(ptr noundef nonnull %arrayidx2.i.i.i.i12, float noundef %agg.tmp.sroa.2.0.copyload.i8)
   %call.i.i.i13 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i.i.i4, i64 noundef 12)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %buf.i.i.i4) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i.i4)
   %bias = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load float, ptr %bias, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i)
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i, float noundef %0)
   %call.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i, i64 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i)
   ret void
 }
 
@@ -398,7 +398,7 @@ entry:
   %buf.i.i.i4 = alloca [12 x i8], align 1
   %buf.i.i.i = alloca [12 x i8], align 1
   %val.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %buf.i.i.i) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %buf.i.i.i, i8 0, i64 12, i1 false)
   %call.i.i.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i.i.i, i64 noundef 12)
   %call.i.i.i.i = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %buf.i.i.i)
@@ -408,12 +408,12 @@ entry:
   %retval.sroa.0.4.vec.insert.i.i.i.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i.i.i, float %call2.i.i.i.i, i64 1
   %arrayidx3.i.i.i.i = getelementptr inbounds nuw i8, ptr %buf.i.i.i, i64 8
   %call4.i.i.i.i = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %arrayidx3.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %buf.i.i.i) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i.i)
   store <2 x float> %retval.sroa.0.4.vec.insert.i.i.i.i, ptr %val.i, align 8, !tbaa.struct !7
   %ref.tmp.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store float %call4.i.i.i.i, ptr %ref.tmp.sroa.4.0..sroa_idx.i.i, align 8, !tbaa !8
   %val.i5 = getelementptr inbounds nuw i8, ptr %this, i64 32
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %buf.i.i.i4) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i.i4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %buf.i.i.i4, i8 0, i64 12, i1 false)
   %call.i.i.i6 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i.i.i4, i64 noundef 12)
   %call.i.i.i.i7 = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %buf.i.i.i4)
@@ -423,15 +423,15 @@ entry:
   %retval.sroa.0.4.vec.insert.i.i.i.i11 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i.i.i8, float %call2.i.i.i.i10, i64 1
   %arrayidx3.i.i.i.i12 = getelementptr inbounds nuw i8, ptr %buf.i.i.i4, i64 8
   %call4.i.i.i.i13 = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %arrayidx3.i.i.i.i12)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %buf.i.i.i4) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i.i4)
   store <2 x float> %retval.sroa.0.4.vec.insert.i.i.i.i11, ptr %val.i5, align 8, !tbaa.struct !7
   %ref.tmp.sroa.4.0..sroa_idx.i.i14 = getelementptr inbounds nuw i8, ptr %this, i64 40
   store float %call4.i.i.i.i13, ptr %ref.tmp.sroa.4.0..sroa_idx.i.i14, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i)
   store i32 0, ptr %buf.i, align 4
   %call.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i, i64 noundef 4)
   %call2.i = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %buf.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i)
   %bias = getelementptr inbounds nuw i8, ptr %this, i64 48
   store float %call2.i, ptr %bias, align 8, !tbaa !11
   ret void
@@ -500,9 +500,6 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
-
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local { <2 x float>, float } @_ZNK18ParticleParamTypes9ParameterIN3irr4core8vector3dIfEELm3EE11interpolateEfRKS5_(ptr noundef nonnull align 8 dereferenceable(20) %this, float noundef %fac, ptr noundef nonnull align 8 dereferenceable(20) %against) unnamed_addr #4 comdat align 2 {
 entry:
@@ -536,10 +533,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZNK18ParticleParamTypes15RangedParameterINS_15VectorParameterIN3irr4core8vector3dIfEELm3EEEE10pickWithinEv(ptr dead_on_unwind noalias writable sret(%"struct.ParticleParamTypes::VectorParameter") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(52) %this) local_unnamed_addr #4 comdat align 2 {
@@ -611,133 +605,133 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr dso_local void @_ZNK18ParticleParamTypes15RangedParameterINS_9ParameterIfLm1EEEE15legacySerializeERSo(ptr noundef nonnull align 8 dereferenceable(36) %this, ptr noundef nonnull align 8 dereferenceable(8) %os) local_unnamed_addr #7 comdat align 2 {
+define weak_odr dso_local void @_ZNK18ParticleParamTypes15RangedParameterINS_9ParameterIfLm1EEEE15legacySerializeERSo(ptr noundef nonnull align 8 dereferenceable(36) %this, ptr noundef nonnull align 8 dereferenceable(8) %os) local_unnamed_addr #6 comdat align 2 {
 entry:
   %buf.i.i.i3 = alloca [4 x i8], align 1
   %buf.i.i.i = alloca [4 x i8], align 1
   %val.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load float, ptr %val.i, align 8, !tbaa !16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i.i.i) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i.i)
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i.i.i, float noundef %0)
   %call.i.i.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i.i.i, i64 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i.i.i) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i.i)
   %val.i4 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load float, ptr %val.i4, align 8, !tbaa !16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i.i.i3) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i.i3)
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i.i.i3, float noundef %1)
   %call.i.i.i5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i.i.i3, i64 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i.i.i3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i.i3)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZNK18ParticleParamTypes9ParameterIfLm1EE9serializeERSo(ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef nonnull align 8 dereferenceable(8) %os) unnamed_addr #7 comdat align 2 {
+define linkonce_odr dso_local void @_ZNK18ParticleParamTypes9ParameterIfLm1EE9serializeERSo(ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef nonnull align 8 dereferenceable(8) %os) unnamed_addr #6 comdat align 2 {
 entry:
   %buf.i.i = alloca [4 x i8], align 1
   %val = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load float, ptr %val, align 8, !tbaa !16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i.i) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i)
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i.i, float noundef %0)
   %call.i.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i.i, i64 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i.i) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr dso_local void @_ZN18ParticleParamTypes15RangedParameterINS_9ParameterIfLm1EEEE17legacyDeSerializeERSi(ptr noundef nonnull align 8 dereferenceable(36) %this, ptr noundef nonnull align 8 dereferenceable(16) %is) local_unnamed_addr #7 comdat align 2 {
+define weak_odr dso_local void @_ZN18ParticleParamTypes15RangedParameterINS_9ParameterIfLm1EEEE17legacyDeSerializeERSi(ptr noundef nonnull align 8 dereferenceable(36) %this, ptr noundef nonnull align 8 dereferenceable(16) %is) local_unnamed_addr #6 comdat align 2 {
 entry:
   %buf.i.i.i3 = alloca [4 x i8], align 4
   %buf.i.i.i = alloca [4 x i8], align 4
   %val.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i.i.i) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i.i)
   store i32 0, ptr %buf.i.i.i, align 4
   %call.i.i.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i.i.i, i64 noundef 4)
   %call2.i.i.i = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %buf.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i.i.i) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i.i)
   store float %call2.i.i.i, ptr %val.i, align 8, !tbaa !8
   %val.i4 = getelementptr inbounds nuw i8, ptr %this, i64 24
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i.i.i3) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i.i3)
   store i32 0, ptr %buf.i.i.i3, align 4
   %call.i.i.i5 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i.i.i3, i64 noundef 4)
   %call2.i.i.i6 = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %buf.i.i.i3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i.i.i3) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i.i3)
   store float %call2.i.i.i6, ptr %val.i4, align 8, !tbaa !8
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN18ParticleParamTypes9ParameterIfLm1EE11deSerializeERSi(ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef nonnull align 8 dereferenceable(16) %is) unnamed_addr #7 comdat align 2 {
+define linkonce_odr dso_local void @_ZN18ParticleParamTypes9ParameterIfLm1EE11deSerializeERSi(ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef nonnull align 8 dereferenceable(16) %is) unnamed_addr #6 comdat align 2 {
 entry:
   %buf.i.i = alloca [4 x i8], align 4
   %val = getelementptr inbounds nuw i8, ptr %this, i64 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i.i) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i)
   store i32 0, ptr %buf.i.i, align 4
   %call.i.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i.i, i64 noundef 4)
   %call2.i.i = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %buf.i.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i.i) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i)
   store float %call2.i.i, ptr %val, align 8, !tbaa !8
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr dso_local void @_ZNK18ParticleParamTypes15RangedParameterINS_9ParameterIfLm1EEEE9serializeERSo(ptr noundef nonnull align 8 dereferenceable(36) %this, ptr noundef nonnull align 8 dereferenceable(8) %os) local_unnamed_addr #7 comdat align 2 {
+define weak_odr dso_local void @_ZNK18ParticleParamTypes15RangedParameterINS_9ParameterIfLm1EEEE9serializeERSo(ptr noundef nonnull align 8 dereferenceable(36) %this, ptr noundef nonnull align 8 dereferenceable(8) %os) local_unnamed_addr #6 comdat align 2 {
 entry:
   %buf.i = alloca [4 x i8], align 1
   %buf.i.i.i4 = alloca [4 x i8], align 1
   %buf.i.i.i = alloca [4 x i8], align 1
   %val.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load float, ptr %val.i, align 8, !tbaa !16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i.i.i) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i.i)
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i.i.i, float noundef %0)
   %call.i.i.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i.i.i, i64 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i.i.i) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i.i)
   %val.i5 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load float, ptr %val.i5, align 8, !tbaa !16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i.i.i4) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i.i4)
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i.i.i4, float noundef %1)
   %call.i.i.i6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i.i.i4, i64 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i.i.i4) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i.i4)
   %bias = getelementptr inbounds nuw i8, ptr %this, i64 32
   %2 = load float, ptr %bias, align 8, !tbaa !18
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i)
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i, float noundef %2)
   %call.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i, i64 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr dso_local void @_ZN18ParticleParamTypes15RangedParameterINS_9ParameterIfLm1EEEE11deSerializeERSi(ptr noundef nonnull align 8 dereferenceable(36) %this, ptr noundef nonnull align 8 dereferenceable(16) %is) local_unnamed_addr #7 comdat align 2 {
+define weak_odr dso_local void @_ZN18ParticleParamTypes15RangedParameterINS_9ParameterIfLm1EEEE11deSerializeERSi(ptr noundef nonnull align 8 dereferenceable(36) %this, ptr noundef nonnull align 8 dereferenceable(16) %is) local_unnamed_addr #6 comdat align 2 {
 entry:
   %buf.i = alloca [4 x i8], align 4
   %buf.i.i.i4 = alloca [4 x i8], align 4
   %buf.i.i.i = alloca [4 x i8], align 4
   %val.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i.i.i) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i.i)
   store i32 0, ptr %buf.i.i.i, align 4
   %call.i.i.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i.i.i, i64 noundef 4)
   %call2.i.i.i = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %buf.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i.i.i) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i.i)
   store float %call2.i.i.i, ptr %val.i, align 8, !tbaa !8
   %val.i5 = getelementptr inbounds nuw i8, ptr %this, i64 24
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i.i.i4) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i.i4)
   store i32 0, ptr %buf.i.i.i4, align 4
   %call.i.i.i6 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i.i.i4, i64 noundef 4)
   %call2.i.i.i7 = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %buf.i.i.i4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i.i.i4) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i.i4)
   store float %call2.i.i.i7, ptr %val.i5, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i)
   store i32 0, ptr %buf.i, align 4
   %call.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i, i64 noundef 4)
   %call2.i = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %buf.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i)
   %bias = getelementptr inbounds nuw i8, ptr %this, i64 32
   store float %call2.i, ptr %bias, align 8, !tbaa !18
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr dso_local void @_ZNK18ParticleParamTypes15RangedParameterINS_9ParameterIfLm1EEEE11interpolateEfS3_(ptr dead_on_unwind noalias writable sret(%"struct.ParticleParamTypes::RangedParameter.2") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(36) %this, float noundef %fac, ptr noundef %against) local_unnamed_addr #7 comdat align 2 {
+define weak_odr dso_local void @_ZNK18ParticleParamTypes15RangedParameterINS_9ParameterIfLm1EEEE11interpolateEfS3_(ptr dead_on_unwind noalias writable sret(%"struct.ParticleParamTypes::RangedParameter.2") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(36) %this, float noundef %fac, ptr noundef %against) local_unnamed_addr #6 comdat align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 16), ptr %agg.result, align 8, !tbaa !4
   %val.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
@@ -766,7 +760,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef float @_ZNK18ParticleParamTypes9ParameterIfLm1EE11interpolateEfRKS1_(ptr noundef nonnull align 8 dereferenceable(12) %this, float noundef %fac, ptr noundef nonnull align 8 dereferenceable(12) %against) unnamed_addr #7 comdat align 2 {
+define linkonce_odr dso_local noundef float @_ZNK18ParticleParamTypes9ParameterIfLm1EE11interpolateEfRKS1_(ptr noundef nonnull align 8 dereferenceable(12) %this, float noundef %fac, ptr noundef nonnull align 8 dereferenceable(12) %against) unnamed_addr #6 comdat align 2 {
 entry:
   %val = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load float, ptr %val, align 8, !tbaa !16
@@ -778,7 +772,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr dso_local void @_ZNK18ParticleParamTypes15RangedParameterINS_9ParameterIfLm1EEEE10pickWithinEv(ptr dead_on_unwind noalias writable sret(%"struct.ParticleParamTypes::Parameter.0") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(36) %this) local_unnamed_addr #7 comdat align 2 {
+define weak_odr dso_local void @_ZNK18ParticleParamTypes15RangedParameterINS_9ParameterIfLm1EEEE10pickWithinEv(ptr dead_on_unwind noalias writable sret(%"struct.ParticleParamTypes::Parameter.0") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(36) %this) local_unnamed_addr #6 comdat align 2 {
 entry:
   %bias = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load float, ptr %bias, align 8, !tbaa !18
@@ -914,7 +908,7 @@ if.end35:                                         ; preds = %if.else32, %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #8
+declare float @llvm.fmuladd.f32(float, float, float) #7
 
 declare noundef float @_Z12myrand_rangeff(float noundef, float noundef) local_unnamed_addr #0
 
@@ -948,43 +942,43 @@ entry:
   %buf.i6 = alloca [2 x i8], align 2
   %buf.i = alloca [1 x i8], align 1
   %0 = load i8, ptr %this, align 8, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %buf.i) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i)
   store i8 %0, ptr %buf.i, align 1, !tbaa !30
   %call.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i, i64 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %buf.i) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i)
   %reps = getelementptr inbounds nuw i8, ptr %this, i64 2
   %1 = load i16, ptr %reps, align 2, !tbaa !27
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %buf.i6) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i6)
   %rev.i.i.i = call noundef i16 @llvm.bswap.i16(i16 %1)
   store i16 %rev.i.i.i, ptr %buf.i6, align 2
   %call.i7 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i6, i64 noundef 2)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %buf.i6) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i6)
   %beginning = getelementptr inbounds nuw i8, ptr %this, i64 4
   %2 = load float, ptr %beginning, align 4, !tbaa !28
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i8) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i8)
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i8, float noundef %2)
   %call.i9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i8, i64 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i8) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i8)
   %val.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %agg.tmp.sroa.0.0.copyload.i = load <2 x float>, ptr %val.i, align 8, !tbaa.struct !29
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buf.i.i.i) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i.i)
   %p.sroa.0.0.vec.extract.i.i.i.i = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i, i64 0
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i.i.i, float noundef %p.sroa.0.0.vec.extract.i.i.i.i)
   %arrayidx1.i.i.i.i = getelementptr inbounds nuw i8, ptr %buf.i.i.i, i64 4
   %p.sroa.0.4.vec.extract.i.i.i.i = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i, i64 1
   call void @_Z8writeF32Phf(ptr noundef nonnull %arrayidx1.i.i.i.i, float noundef %p.sroa.0.4.vec.extract.i.i.i.i)
   %call.i.i.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i.i.i, i64 noundef 8)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf.i.i.i) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i.i)
   %val.i11 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %agg.tmp.sroa.0.0.copyload.i12 = load <2 x float>, ptr %val.i11, align 8, !tbaa.struct !29
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buf.i.i.i10) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i.i10)
   %p.sroa.0.0.vec.extract.i.i.i.i13 = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i12, i64 0
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i.i.i10, float noundef %p.sroa.0.0.vec.extract.i.i.i.i13)
   %arrayidx1.i.i.i.i14 = getelementptr inbounds nuw i8, ptr %buf.i.i.i10, i64 4
   %p.sroa.0.4.vec.extract.i.i.i.i15 = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i12, i64 1
   call void @_Z8writeF32Phf(ptr noundef nonnull %arrayidx1.i.i.i.i14, float noundef %p.sroa.0.4.vec.extract.i.i.i.i15)
   %call.i.i.i16 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i.i.i10, i64 noundef 8)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf.i.i.i10) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i.i10)
   ret void
 }
 
@@ -994,14 +988,14 @@ entry:
   %buf.i.i = alloca [8 x i8], align 1
   %val = getelementptr inbounds nuw i8, ptr %this, i64 8
   %agg.tmp.sroa.0.0.copyload = load <2 x float>, ptr %val, align 8, !tbaa.struct !29
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buf.i.i) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i)
   %p.sroa.0.0.vec.extract.i.i.i = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload, i64 0
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i.i, float noundef %p.sroa.0.0.vec.extract.i.i.i)
   %arrayidx1.i.i.i = getelementptr inbounds nuw i8, ptr %buf.i.i, i64 4
   %p.sroa.0.4.vec.extract.i.i.i = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload, i64 1
   call void @_Z8writeF32Phf(ptr noundef nonnull %arrayidx1.i.i.i, float noundef %p.sroa.0.4.vec.extract.i.i.i)
   %call.i.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i.i, i64 noundef 8)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf.i.i) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i)
   ret void
 }
 
@@ -1013,31 +1007,31 @@ entry:
   %buf.i12 = alloca [4 x i8], align 4
   %buf.i10 = alloca [2 x i8], align 2
   %buf.i = alloca [1 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %buf.i) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i)
   store i8 0, ptr %buf.i, align 1
   %call.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i, i64 noundef 1)
   %0 = load i8, ptr %buf.i, align 1, !tbaa !30
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %buf.i) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i)
   %cmp = icmp ugt i8 %0, 3
   %spec.select = select i1 %cmp, i8 0, i8 %0
   store i8 %spec.select, ptr %this, align 8, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %buf.i10) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i10)
   store i16 0, ptr %buf.i10, align 2
   %call.i11 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i10, i64 noundef 2)
   %val.0.copyload.i.i = load i16, ptr %buf.i10, align 2
   %rev.i.i.i = call noundef i16 @llvm.bswap.i16(i16 %val.0.copyload.i.i)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %buf.i10) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i10)
   %reps = getelementptr inbounds nuw i8, ptr %this, i64 2
   store i16 %rev.i.i.i, ptr %reps, align 2, !tbaa !27
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i12) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i12)
   store i32 0, ptr %buf.i12, align 4
   %call.i13 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i12, i64 noundef 4)
   %call2.i = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %buf.i12)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i12) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i12)
   %beginning = getelementptr inbounds nuw i8, ptr %this, i64 4
   store float %call2.i, ptr %beginning, align 4, !tbaa !28
   %val.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buf.i.i.i) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i.i)
   store i64 0, ptr %buf.i.i.i, align 8
   %call.i.i.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i.i.i, i64 noundef 8)
   %call.i.i.i.i = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %buf.i.i.i)
@@ -1045,10 +1039,10 @@ entry:
   %arrayidx1.i.i.i.i = getelementptr inbounds nuw i8, ptr %buf.i.i.i, i64 4
   %call2.i.i.i.i = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %arrayidx1.i.i.i.i)
   %retval.sroa.0.4.vec.insert.i.i.i.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i.i.i, float %call2.i.i.i.i, i64 1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf.i.i.i) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i.i)
   store <2 x float> %retval.sroa.0.4.vec.insert.i.i.i.i, ptr %val.i, align 8, !tbaa.struct !29
   %val.i15 = getelementptr inbounds nuw i8, ptr %this, i64 32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buf.i.i.i14) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i.i14)
   store i64 0, ptr %buf.i.i.i14, align 8
   %call.i.i.i16 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i.i.i14, i64 noundef 8)
   %call.i.i.i.i17 = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %buf.i.i.i14)
@@ -1056,7 +1050,7 @@ entry:
   %arrayidx1.i.i.i.i19 = getelementptr inbounds nuw i8, ptr %buf.i.i.i14, i64 4
   %call2.i.i.i.i20 = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %arrayidx1.i.i.i.i19)
   %retval.sroa.0.4.vec.insert.i.i.i.i21 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i.i.i18, float %call2.i.i.i.i20, i64 1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf.i.i.i14) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i.i14)
   store <2 x float> %retval.sroa.0.4.vec.insert.i.i.i.i21, ptr %val.i15, align 8, !tbaa.struct !29
   ret void
 }
@@ -1066,7 +1060,7 @@ define linkonce_odr dso_local void @_ZN18ParticleParamTypes9ParameterIN3irr4core
 entry:
   %buf.i.i = alloca [8 x i8], align 8
   %val = getelementptr inbounds nuw i8, ptr %this, i64 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buf.i.i) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i)
   store i64 0, ptr %buf.i.i, align 8
   %call.i.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i.i, i64 noundef 8)
   %call.i.i.i = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %buf.i.i)
@@ -1074,7 +1068,7 @@ entry:
   %arrayidx1.i.i.i = getelementptr inbounds nuw i8, ptr %buf.i.i, i64 4
   %call2.i.i.i = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %arrayidx1.i.i.i)
   %retval.sroa.0.4.vec.insert.i.i.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i.i, float %call2.i.i.i, i64 1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf.i.i) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i)
   store <2 x float> %retval.sroa.0.4.vec.insert.i.i.i, ptr %val, align 8, !tbaa.struct !29
   ret void
 }
@@ -1209,28 +1203,28 @@ entry:
   %buf.i6 = alloca [2 x i8], align 2
   %buf.i = alloca [1 x i8], align 1
   %0 = load i8, ptr %this, align 8, !tbaa !31
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %buf.i) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i)
   store i8 %0, ptr %buf.i, align 1, !tbaa !30
   %call.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i, i64 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %buf.i) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i)
   %reps = getelementptr inbounds nuw i8, ptr %this, i64 2
   %1 = load i16, ptr %reps, align 2, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %buf.i6) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i6)
   %rev.i.i.i = call noundef i16 @llvm.bswap.i16(i16 %1)
   store i16 %rev.i.i.i, ptr %buf.i6, align 2
   %call.i7 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i6, i64 noundef 2)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %buf.i6) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i6)
   %beginning = getelementptr inbounds nuw i8, ptr %this, i64 4
   %2 = load float, ptr %beginning, align 4, !tbaa !34
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i8) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i8)
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i8, float noundef %2)
   %call.i9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i8, i64 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i8) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i8)
   %val.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %agg.tmp.sroa.0.0.copyload.i = load <2 x float>, ptr %val.i, align 8, !tbaa.struct !7
   %agg.tmp.sroa.2.0.val.sroa_idx.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %agg.tmp.sroa.2.0.copyload.i = load float, ptr %agg.tmp.sroa.2.0.val.sroa_idx.i, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %buf.i.i.i) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i.i)
   %p.sroa.0.0.vec.extract.i.i.i.i = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i, i64 0
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i.i.i, float noundef %p.sroa.0.0.vec.extract.i.i.i.i)
   %arrayidx1.i.i.i.i = getelementptr inbounds nuw i8, ptr %buf.i.i.i, i64 4
@@ -1239,12 +1233,12 @@ entry:
   %arrayidx2.i.i.i.i = getelementptr inbounds nuw i8, ptr %buf.i.i.i, i64 8
   call void @_Z8writeF32Phf(ptr noundef nonnull %arrayidx2.i.i.i.i, float noundef %agg.tmp.sroa.2.0.copyload.i)
   %call.i.i.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i.i.i, i64 noundef 12)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %buf.i.i.i) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i.i)
   %val.i11 = getelementptr inbounds nuw i8, ptr %this, i64 40
   %agg.tmp.sroa.0.0.copyload.i12 = load <2 x float>, ptr %val.i11, align 8, !tbaa.struct !7
   %agg.tmp.sroa.2.0.val.sroa_idx.i13 = getelementptr inbounds nuw i8, ptr %this, i64 48
   %agg.tmp.sroa.2.0.copyload.i14 = load float, ptr %agg.tmp.sroa.2.0.val.sroa_idx.i13, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %buf.i.i.i10) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i.i10)
   %p.sroa.0.0.vec.extract.i.i.i.i15 = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i12, i64 0
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i.i.i10, float noundef %p.sroa.0.0.vec.extract.i.i.i.i15)
   %arrayidx1.i.i.i.i16 = getelementptr inbounds nuw i8, ptr %buf.i.i.i10, i64 4
@@ -1253,7 +1247,7 @@ entry:
   %arrayidx2.i.i.i.i18 = getelementptr inbounds nuw i8, ptr %buf.i.i.i10, i64 8
   call void @_Z8writeF32Phf(ptr noundef nonnull %arrayidx2.i.i.i.i18, float noundef %agg.tmp.sroa.2.0.copyload.i14)
   %call.i.i.i19 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i.i.i10, i64 noundef 12)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %buf.i.i.i10) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i.i10)
   ret void
 }
 
@@ -1265,31 +1259,31 @@ entry:
   %buf.i12 = alloca [4 x i8], align 4
   %buf.i10 = alloca [2 x i8], align 2
   %buf.i = alloca [1 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %buf.i) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i)
   store i8 0, ptr %buf.i, align 1
   %call.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i, i64 noundef 1)
   %0 = load i8, ptr %buf.i, align 1, !tbaa !30
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %buf.i) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i)
   %cmp = icmp ugt i8 %0, 3
   %spec.select = select i1 %cmp, i8 0, i8 %0
   store i8 %spec.select, ptr %this, align 8, !tbaa !31
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %buf.i10) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i10)
   store i16 0, ptr %buf.i10, align 2
   %call.i11 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i10, i64 noundef 2)
   %val.0.copyload.i.i = load i16, ptr %buf.i10, align 2
   %rev.i.i.i = call noundef i16 @llvm.bswap.i16(i16 %val.0.copyload.i.i)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %buf.i10) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i10)
   %reps = getelementptr inbounds nuw i8, ptr %this, i64 2
   store i16 %rev.i.i.i, ptr %reps, align 2, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i12) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i12)
   store i32 0, ptr %buf.i12, align 4
   %call.i13 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i12, i64 noundef 4)
   %call2.i = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %buf.i12)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i12) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i12)
   %beginning = getelementptr inbounds nuw i8, ptr %this, i64 4
   store float %call2.i, ptr %beginning, align 4, !tbaa !34
   %val.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %buf.i.i.i) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %buf.i.i.i, i8 0, i64 12, i1 false)
   %call.i.i.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i.i.i, i64 noundef 12)
   %call.i.i.i.i = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %buf.i.i.i)
@@ -1299,12 +1293,12 @@ entry:
   %retval.sroa.0.4.vec.insert.i.i.i.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i.i.i, float %call2.i.i.i.i, i64 1
   %arrayidx3.i.i.i.i = getelementptr inbounds nuw i8, ptr %buf.i.i.i, i64 8
   %call4.i.i.i.i = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %arrayidx3.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %buf.i.i.i) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i.i)
   store <2 x float> %retval.sroa.0.4.vec.insert.i.i.i.i, ptr %val.i, align 8, !tbaa.struct !7
   %ref.tmp.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store float %call4.i.i.i.i, ptr %ref.tmp.sroa.4.0..sroa_idx.i.i, align 8, !tbaa !8
   %val.i15 = getelementptr inbounds nuw i8, ptr %this, i64 40
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %buf.i.i.i14) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i.i14)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %buf.i.i.i14, i8 0, i64 12, i1 false)
   %call.i.i.i16 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i.i.i14, i64 noundef 12)
   %call.i.i.i.i17 = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %buf.i.i.i14)
@@ -1314,7 +1308,7 @@ entry:
   %retval.sroa.0.4.vec.insert.i.i.i.i21 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i.i.i18, float %call2.i.i.i.i20, i64 1
   %arrayidx3.i.i.i.i22 = getelementptr inbounds nuw i8, ptr %buf.i.i.i14, i64 8
   %call4.i.i.i.i23 = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %arrayidx3.i.i.i.i22)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %buf.i.i.i14) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i.i14)
   store <2 x float> %retval.sroa.0.4.vec.insert.i.i.i.i21, ptr %val.i15, align 8, !tbaa.struct !7
   %ref.tmp.sroa.4.0..sroa_idx.i.i24 = getelementptr inbounds nuw i8, ptr %this, i64 48
   store float %call4.i.i.i.i23, ptr %ref.tmp.sroa.4.0..sroa_idx.i.i24, align 8, !tbaa !8
@@ -1345,7 +1339,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr dso_local void @_ZNK18ParticleParamTypes16TweenedParameterINS_9ParameterIfLm1EEEE5blendEf(ptr dead_on_unwind noalias writable sret(%"struct.ParticleParamTypes::Parameter.0") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %this, float noundef %fac) local_unnamed_addr #7 comdat align 2 {
+define weak_odr dso_local void @_ZNK18ParticleParamTypes16TweenedParameterINS_9ParameterIfLm1EEEE5blendEf(ptr dead_on_unwind noalias writable sret(%"struct.ParticleParamTypes::Parameter.0") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %this, float noundef %fac) local_unnamed_addr #6 comdat align 2 {
 entry:
   %beginning = getelementptr inbounds nuw i8, ptr %this, i64 4
   %0 = load float, ptr %beginning, align 4, !tbaa !38
@@ -1423,7 +1417,7 @@ if.end35:                                         ; preds = %if.else32, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr dso_local void @_ZNK18ParticleParamTypes16TweenedParameterINS_9ParameterIfLm1EEEE9serializeERSo(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(8) %os) local_unnamed_addr #7 comdat align 2 {
+define weak_odr dso_local void @_ZNK18ParticleParamTypes16TweenedParameterINS_9ParameterIfLm1EEEE9serializeERSo(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(8) %os) local_unnamed_addr #6 comdat align 2 {
 entry:
   %buf.i.i.i10 = alloca [4 x i8], align 1
   %buf.i.i.i = alloca [4 x i8], align 1
@@ -1431,82 +1425,82 @@ entry:
   %buf.i6 = alloca [2 x i8], align 2
   %buf.i = alloca [1 x i8], align 1
   %0 = load i8, ptr %this, align 8, !tbaa !35
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %buf.i) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i)
   store i8 %0, ptr %buf.i, align 1, !tbaa !30
   %call.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i, i64 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %buf.i) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i)
   %reps = getelementptr inbounds nuw i8, ptr %this, i64 2
   %1 = load i16, ptr %reps, align 2, !tbaa !37
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %buf.i6) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i6)
   %rev.i.i.i = call noundef i16 @llvm.bswap.i16(i16 %1)
   store i16 %rev.i.i.i, ptr %buf.i6, align 2
   %call.i7 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i6, i64 noundef 2)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %buf.i6) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i6)
   %beginning = getelementptr inbounds nuw i8, ptr %this, i64 4
   %2 = load float, ptr %beginning, align 4, !tbaa !38
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i8) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i8)
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i8, float noundef %2)
   %call.i9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i8, i64 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i8) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i8)
   %val.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %3 = load float, ptr %val.i, align 8, !tbaa !16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i.i.i) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i.i)
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i.i.i, float noundef %3)
   %call.i.i.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i.i.i, i64 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i.i.i) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i.i)
   %val.i11 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %4 = load float, ptr %val.i11, align 8, !tbaa !16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i.i.i10) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i.i10)
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i.i.i10, float noundef %4)
   %call.i.i.i12 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i.i.i10, i64 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i.i.i10) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i.i10)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr dso_local void @_ZN18ParticleParamTypes16TweenedParameterINS_9ParameterIfLm1EEEE11deSerializeERSi(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(16) %is) local_unnamed_addr #7 comdat align 2 {
+define weak_odr dso_local void @_ZN18ParticleParamTypes16TweenedParameterINS_9ParameterIfLm1EEEE11deSerializeERSi(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(16) %is) local_unnamed_addr #6 comdat align 2 {
 entry:
   %buf.i.i.i14 = alloca [4 x i8], align 4
   %buf.i.i.i = alloca [4 x i8], align 4
   %buf.i12 = alloca [4 x i8], align 4
   %buf.i10 = alloca [2 x i8], align 2
   %buf.i = alloca [1 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %buf.i) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i)
   store i8 0, ptr %buf.i, align 1
   %call.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i, i64 noundef 1)
   %0 = load i8, ptr %buf.i, align 1, !tbaa !30
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %buf.i) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i)
   %cmp = icmp ugt i8 %0, 3
   %spec.select = select i1 %cmp, i8 0, i8 %0
   store i8 %spec.select, ptr %this, align 8, !tbaa !35
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %buf.i10) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i10)
   store i16 0, ptr %buf.i10, align 2
   %call.i11 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i10, i64 noundef 2)
   %val.0.copyload.i.i = load i16, ptr %buf.i10, align 2
   %rev.i.i.i = call noundef i16 @llvm.bswap.i16(i16 %val.0.copyload.i.i)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %buf.i10) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i10)
   %reps = getelementptr inbounds nuw i8, ptr %this, i64 2
   store i16 %rev.i.i.i, ptr %reps, align 2, !tbaa !37
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i12) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i12)
   store i32 0, ptr %buf.i12, align 4
   %call.i13 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i12, i64 noundef 4)
   %call2.i = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %buf.i12)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i12) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i12)
   %beginning = getelementptr inbounds nuw i8, ptr %this, i64 4
   store float %call2.i, ptr %beginning, align 4, !tbaa !38
   %val.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i.i.i) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i.i)
   store i32 0, ptr %buf.i.i.i, align 4
   %call.i.i.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i.i.i, i64 noundef 4)
   %call2.i.i.i = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %buf.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i.i.i) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i.i)
   store float %call2.i.i.i, ptr %val.i, align 8, !tbaa !8
   %val.i15 = getelementptr inbounds nuw i8, ptr %this, i64 32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i.i.i14) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i.i14)
   store i32 0, ptr %buf.i.i.i14, align 4
   %call.i.i.i16 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i.i.i14, i64 noundef 4)
   %call2.i.i.i17 = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %buf.i.i.i14)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i.i.i14) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i.i14)
   store float %call2.i.i.i17, ptr %val.i15, align 8, !tbaa !8
   ret void
 }
@@ -1694,28 +1688,28 @@ entry:
   %buf.i6 = alloca [2 x i8], align 2
   %buf.i = alloca [1 x i8], align 1
   %0 = load i8, ptr %this, align 8, !tbaa !39
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %buf.i) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i)
   store i8 %0, ptr %buf.i, align 1, !tbaa !30
   %call.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i, i64 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %buf.i) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i)
   %reps = getelementptr inbounds nuw i8, ptr %this, i64 2
   %1 = load i16, ptr %reps, align 2, !tbaa !41
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %buf.i6) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i6)
   %rev.i.i.i = call noundef i16 @llvm.bswap.i16(i16 %1)
   store i16 %rev.i.i.i, ptr %buf.i6, align 2
   %call.i7 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i6, i64 noundef 2)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %buf.i6) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i6)
   %beginning = getelementptr inbounds nuw i8, ptr %this, i64 4
   %2 = load float, ptr %beginning, align 4, !tbaa !42
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i8) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i8)
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i8, float noundef %2)
   %call.i9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i8, i64 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i8) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i8)
   %val.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %agg.tmp.sroa.0.0.copyload.i.i = load <2 x float>, ptr %val.i.i, align 8, !tbaa.struct !7
   %agg.tmp.sroa.2.0.val.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %agg.tmp.sroa.2.0.copyload.i.i = load float, ptr %agg.tmp.sroa.2.0.val.sroa_idx.i.i, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %buf.i.i.i.i) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i.i.i)
   %p.sroa.0.0.vec.extract.i.i.i.i.i = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i.i, i64 0
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i.i.i.i, float noundef %p.sroa.0.0.vec.extract.i.i.i.i.i)
   %arrayidx1.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %buf.i.i.i.i, i64 4
@@ -1724,12 +1718,12 @@ entry:
   %arrayidx2.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %buf.i.i.i.i, i64 8
   call void @_Z8writeF32Phf(ptr noundef nonnull %arrayidx2.i.i.i.i.i, float noundef %agg.tmp.sroa.2.0.copyload.i.i)
   %call.i.i.i.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i.i.i.i, i64 noundef 12)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %buf.i.i.i.i) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i.i.i)
   %val.i5.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %agg.tmp.sroa.0.0.copyload.i6.i = load <2 x float>, ptr %val.i5.i, align 8, !tbaa.struct !7
   %agg.tmp.sroa.2.0.val.sroa_idx.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %agg.tmp.sroa.2.0.copyload.i8.i = load float, ptr %agg.tmp.sroa.2.0.val.sroa_idx.i7.i, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %buf.i.i.i4.i) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i.i4.i)
   %p.sroa.0.0.vec.extract.i.i.i.i9.i = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i6.i, i64 0
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i.i.i4.i, float noundef %p.sroa.0.0.vec.extract.i.i.i.i9.i)
   %arrayidx1.i.i.i.i10.i = getelementptr inbounds nuw i8, ptr %buf.i.i.i4.i, i64 4
@@ -1738,18 +1732,18 @@ entry:
   %arrayidx2.i.i.i.i12.i = getelementptr inbounds nuw i8, ptr %buf.i.i.i4.i, i64 8
   call void @_Z8writeF32Phf(ptr noundef nonnull %arrayidx2.i.i.i.i12.i, float noundef %agg.tmp.sroa.2.0.copyload.i8.i)
   %call.i.i.i13.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i.i.i4.i, i64 noundef 12)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %buf.i.i.i4.i) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i.i4.i)
   %bias.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %3 = load float, ptr %bias.i, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i.i) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i)
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i.i, float noundef %3)
   %call.i.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i.i, i64 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i.i) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i)
   %val.i.i13 = getelementptr inbounds nuw i8, ptr %this, i64 72
   %agg.tmp.sroa.0.0.copyload.i.i14 = load <2 x float>, ptr %val.i.i13, align 8, !tbaa.struct !7
   %agg.tmp.sroa.2.0.val.sroa_idx.i.i15 = getelementptr inbounds nuw i8, ptr %this, i64 80
   %agg.tmp.sroa.2.0.copyload.i.i16 = load float, ptr %agg.tmp.sroa.2.0.val.sroa_idx.i.i15, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %buf.i.i.i.i12) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i.i.i12)
   %p.sroa.0.0.vec.extract.i.i.i.i.i17 = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i.i14, i64 0
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i.i.i.i12, float noundef %p.sroa.0.0.vec.extract.i.i.i.i.i17)
   %arrayidx1.i.i.i.i.i18 = getelementptr inbounds nuw i8, ptr %buf.i.i.i.i12, i64 4
@@ -1758,12 +1752,12 @@ entry:
   %arrayidx2.i.i.i.i.i20 = getelementptr inbounds nuw i8, ptr %buf.i.i.i.i12, i64 8
   call void @_Z8writeF32Phf(ptr noundef nonnull %arrayidx2.i.i.i.i.i20, float noundef %agg.tmp.sroa.2.0.copyload.i.i16)
   %call.i.i.i.i21 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i.i.i.i12, i64 noundef 12)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %buf.i.i.i.i12) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i.i.i12)
   %val.i5.i22 = getelementptr inbounds nuw i8, ptr %this, i64 96
   %agg.tmp.sroa.0.0.copyload.i6.i23 = load <2 x float>, ptr %val.i5.i22, align 8, !tbaa.struct !7
   %agg.tmp.sroa.2.0.val.sroa_idx.i7.i24 = getelementptr inbounds nuw i8, ptr %this, i64 104
   %agg.tmp.sroa.2.0.copyload.i8.i25 = load float, ptr %agg.tmp.sroa.2.0.val.sroa_idx.i7.i24, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %buf.i.i.i4.i11) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i.i4.i11)
   %p.sroa.0.0.vec.extract.i.i.i.i9.i26 = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i6.i23, i64 0
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i.i.i4.i11, float noundef %p.sroa.0.0.vec.extract.i.i.i.i9.i26)
   %arrayidx1.i.i.i.i10.i27 = getelementptr inbounds nuw i8, ptr %buf.i.i.i4.i11, i64 4
@@ -1772,43 +1766,43 @@ entry:
   %arrayidx2.i.i.i.i12.i29 = getelementptr inbounds nuw i8, ptr %buf.i.i.i4.i11, i64 8
   call void @_Z8writeF32Phf(ptr noundef nonnull %arrayidx2.i.i.i.i12.i29, float noundef %agg.tmp.sroa.2.0.copyload.i8.i25)
   %call.i.i.i13.i30 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i.i.i4.i11, i64 noundef 12)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %buf.i.i.i4.i11) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i.i4.i11)
   %bias.i31 = getelementptr inbounds nuw i8, ptr %this, i64 112
   %4 = load float, ptr %bias.i31, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i.i10) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i10)
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i.i10, float noundef %4)
   %call.i.i32 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i.i10, i64 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i.i10) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i10)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr dso_local void @_ZN18ParticleParamTypes16TweenedParameterINS_15RangedParameterINS_15VectorParameterIN3irr4core8vector3dIfEELm3EEEEEE11deSerializeERSi(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef nonnull align 8 dereferenceable(16) %is) local_unnamed_addr #7 comdat align 2 {
+define weak_odr dso_local void @_ZN18ParticleParamTypes16TweenedParameterINS_15RangedParameterINS_15VectorParameterIN3irr4core8vector3dIfEELm3EEEEEE11deSerializeERSi(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef nonnull align 8 dereferenceable(16) %is) local_unnamed_addr #6 comdat align 2 {
 entry:
   %buf.i12 = alloca [4 x i8], align 4
   %buf.i10 = alloca [2 x i8], align 2
   %buf.i = alloca [1 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %buf.i) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i)
   store i8 0, ptr %buf.i, align 1
   %call.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i, i64 noundef 1)
   %0 = load i8, ptr %buf.i, align 1, !tbaa !30
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %buf.i) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i)
   %cmp = icmp ugt i8 %0, 3
   %spec.select = select i1 %cmp, i8 0, i8 %0
   store i8 %spec.select, ptr %this, align 8, !tbaa !39
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %buf.i10) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i10)
   store i16 0, ptr %buf.i10, align 2
   %call.i11 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i10, i64 noundef 2)
   %val.0.copyload.i.i = load i16, ptr %buf.i10, align 2
   %rev.i.i.i = call noundef i16 @llvm.bswap.i16(i16 %val.0.copyload.i.i)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %buf.i10) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i10)
   %reps = getelementptr inbounds nuw i8, ptr %this, i64 2
   store i16 %rev.i.i.i, ptr %reps, align 2, !tbaa !41
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i12) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i12)
   store i32 0, ptr %buf.i12, align 4
   %call.i13 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i12, i64 noundef 4)
   %call2.i = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %buf.i12)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i12) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i12)
   %beginning = getelementptr inbounds nuw i8, ptr %this, i64 4
   store float %call2.i, ptr %beginning, align 4, !tbaa !42
   %start = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -1862,7 +1856,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr dso_local void @_ZNK18ParticleParamTypes16TweenedParameterINS_15RangedParameterINS_9ParameterIfLm1EEEEEE5blendEf(ptr dead_on_unwind noalias writable sret(%"struct.ParticleParamTypes::RangedParameter.2") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %this, float noundef %fac) local_unnamed_addr #7 comdat align 2 {
+define weak_odr dso_local void @_ZNK18ParticleParamTypes16TweenedParameterINS_15RangedParameterINS_9ParameterIfLm1EEEEEE5blendEf(ptr dead_on_unwind noalias writable sret(%"struct.ParticleParamTypes::RangedParameter.2") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %this, float noundef %fac) local_unnamed_addr #6 comdat align 2 {
 entry:
   %beginning = getelementptr inbounds nuw i8, ptr %this, i64 4
   %0 = load float, ptr %beginning, align 4, !tbaa !49
@@ -1955,7 +1949,7 @@ if.end35:                                         ; preds = %if.else32, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr dso_local void @_ZNK18ParticleParamTypes16TweenedParameterINS_15RangedParameterINS_9ParameterIfLm1EEEEEE9serializeERSo(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(8) %os) local_unnamed_addr #7 comdat align 2 {
+define weak_odr dso_local void @_ZNK18ParticleParamTypes16TweenedParameterINS_15RangedParameterINS_9ParameterIfLm1EEEEEE9serializeERSo(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(8) %os) local_unnamed_addr #6 comdat align 2 {
 entry:
   %buf.i.i10 = alloca [4 x i8], align 1
   %buf.i.i.i4.i11 = alloca [4 x i8], align 1
@@ -1967,64 +1961,64 @@ entry:
   %buf.i6 = alloca [2 x i8], align 2
   %buf.i = alloca [1 x i8], align 1
   %0 = load i8, ptr %this, align 8, !tbaa !46
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %buf.i) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i)
   store i8 %0, ptr %buf.i, align 1, !tbaa !30
   %call.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i, i64 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %buf.i) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i)
   %reps = getelementptr inbounds nuw i8, ptr %this, i64 2
   %1 = load i16, ptr %reps, align 2, !tbaa !48
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %buf.i6) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i6)
   %rev.i.i.i = call noundef i16 @llvm.bswap.i16(i16 %1)
   store i16 %rev.i.i.i, ptr %buf.i6, align 2
   %call.i7 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i6, i64 noundef 2)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %buf.i6) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i6)
   %beginning = getelementptr inbounds nuw i8, ptr %this, i64 4
   %2 = load float, ptr %beginning, align 4, !tbaa !49
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i8) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i8)
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i8, float noundef %2)
   %call.i9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i8, i64 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i8) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i8)
   %val.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %3 = load float, ptr %val.i.i, align 8, !tbaa !16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i.i.i.i) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i.i.i)
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i.i.i.i, float noundef %3)
   %call.i.i.i.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i.i.i.i, i64 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i.i.i.i) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i.i.i)
   %val.i5.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %4 = load float, ptr %val.i5.i, align 8, !tbaa !16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i.i.i4.i) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i.i4.i)
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i.i.i4.i, float noundef %4)
   %call.i.i.i6.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i.i.i4.i, i64 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i.i.i4.i) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i.i4.i)
   %bias.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %5 = load float, ptr %bias.i, align 8, !tbaa !18
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i.i) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i)
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i.i, float noundef %5)
   %call.i.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i.i, i64 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i.i) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i)
   %val.i.i13 = getelementptr inbounds nuw i8, ptr %this, i64 56
   %6 = load float, ptr %val.i.i13, align 8, !tbaa !16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i.i.i.i12) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i.i.i12)
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i.i.i.i12, float noundef %6)
   %call.i.i.i.i14 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i.i.i.i12, i64 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i.i.i.i12) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i.i.i12)
   %val.i5.i15 = getelementptr inbounds nuw i8, ptr %this, i64 72
   %7 = load float, ptr %val.i5.i15, align 8, !tbaa !16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i.i.i4.i11) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i.i4.i11)
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i.i.i4.i11, float noundef %7)
   %call.i.i.i6.i16 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i.i.i4.i11, i64 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i.i.i4.i11) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i.i4.i11)
   %bias.i17 = getelementptr inbounds nuw i8, ptr %this, i64 80
   %8 = load float, ptr %bias.i17, align 8, !tbaa !18
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i.i10) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i10)
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i.i10, float noundef %8)
   %call.i.i18 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i.i10, i64 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i.i10) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i10)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr dso_local void @_ZN18ParticleParamTypes16TweenedParameterINS_15RangedParameterINS_9ParameterIfLm1EEEEEE11deSerializeERSi(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(16) %is) local_unnamed_addr #7 comdat align 2 {
+define weak_odr dso_local void @_ZN18ParticleParamTypes16TweenedParameterINS_15RangedParameterINS_9ParameterIfLm1EEEEEE11deSerializeERSi(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(16) %is) local_unnamed_addr #6 comdat align 2 {
 entry:
   %buf.i.i14 = alloca [4 x i8], align 4
   %buf.i.i.i4.i15 = alloca [4 x i8], align 4
@@ -2035,76 +2029,76 @@ entry:
   %buf.i12 = alloca [4 x i8], align 4
   %buf.i10 = alloca [2 x i8], align 2
   %buf.i = alloca [1 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %buf.i) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i)
   store i8 0, ptr %buf.i, align 1
   %call.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i, i64 noundef 1)
   %0 = load i8, ptr %buf.i, align 1, !tbaa !30
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %buf.i) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i)
   %cmp = icmp ugt i8 %0, 3
   %spec.select = select i1 %cmp, i8 0, i8 %0
   store i8 %spec.select, ptr %this, align 8, !tbaa !46
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %buf.i10) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i10)
   store i16 0, ptr %buf.i10, align 2
   %call.i11 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i10, i64 noundef 2)
   %val.0.copyload.i.i = load i16, ptr %buf.i10, align 2
   %rev.i.i.i = call noundef i16 @llvm.bswap.i16(i16 %val.0.copyload.i.i)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %buf.i10) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i10)
   %reps = getelementptr inbounds nuw i8, ptr %this, i64 2
   store i16 %rev.i.i.i, ptr %reps, align 2, !tbaa !48
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i12) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i12)
   store i32 0, ptr %buf.i12, align 4
   %call.i13 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i12, i64 noundef 4)
   %call2.i = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %buf.i12)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i12) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i12)
   %beginning = getelementptr inbounds nuw i8, ptr %this, i64 4
   store float %call2.i, ptr %beginning, align 4, !tbaa !49
   %val.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i.i.i.i) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i.i.i)
   store i32 0, ptr %buf.i.i.i.i, align 4
   %call.i.i.i.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i.i.i.i, i64 noundef 4)
   %call2.i.i.i.i = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %buf.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i.i.i.i) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i.i.i)
   store float %call2.i.i.i.i, ptr %val.i.i, align 8, !tbaa !8
   %val.i5.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i.i.i4.i) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i.i4.i)
   store i32 0, ptr %buf.i.i.i4.i, align 4
   %call.i.i.i6.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i.i.i4.i, i64 noundef 4)
   %call2.i.i.i7.i = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %buf.i.i.i4.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i.i.i4.i) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i.i4.i)
   store float %call2.i.i.i7.i, ptr %val.i5.i, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i.i) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i)
   store i32 0, ptr %buf.i.i, align 4
   %call.i.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i.i, i64 noundef 4)
   %call2.i.i = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %buf.i.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i.i) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i)
   %bias.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store float %call2.i.i, ptr %bias.i, align 8, !tbaa !18
   %val.i.i17 = getelementptr inbounds nuw i8, ptr %this, i64 56
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i.i.i.i16) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i.i.i16)
   store i32 0, ptr %buf.i.i.i.i16, align 4
   %call.i.i.i.i18 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i.i.i.i16, i64 noundef 4)
   %call2.i.i.i.i19 = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %buf.i.i.i.i16)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i.i.i.i16) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i.i.i16)
   store float %call2.i.i.i.i19, ptr %val.i.i17, align 8, !tbaa !8
   %val.i5.i20 = getelementptr inbounds nuw i8, ptr %this, i64 72
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i.i.i4.i15) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i.i4.i15)
   store i32 0, ptr %buf.i.i.i4.i15, align 4
   %call.i.i.i6.i21 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i.i.i4.i15, i64 noundef 4)
   %call2.i.i.i7.i22 = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %buf.i.i.i4.i15)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i.i.i4.i15) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i.i4.i15)
   store float %call2.i.i.i7.i22, ptr %val.i5.i20, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i.i14) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i14)
   store i32 0, ptr %buf.i.i14, align 4
   %call.i.i23 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i.i14, i64 noundef 4)
   %call2.i.i24 = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %buf.i.i14)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i.i14) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i14)
   %bias.i25 = getelementptr inbounds nuw i8, ptr %this, i64 80
   store float %call2.i.i24, ptr %bias.i25, align 8, !tbaa !18
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local <2 x float> @_ZN18ParticleParamTypes18pickParameterValueEPfN3irr4core8vector2dIfEES4_(ptr noundef readonly captures(none) %f, <2 x float> %a.coerce, <2 x float> %b.coerce) local_unnamed_addr #9 {
+define dso_local <2 x float> @_ZN18ParticleParamTypes18pickParameterValueEPfN3irr4core8vector2dIfEES4_(ptr noundef readonly captures(none) %f, <2 x float> %a.coerce, <2 x float> %b.coerce) local_unnamed_addr #8 {
 entry:
   %0 = load <2 x float>, ptr %f, align 4, !tbaa !8
   %1 = fsub nsz <2 x float> %b.coerce, %a.coerce
@@ -2113,7 +2107,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local { <2 x float>, float } @_ZN18ParticleParamTypes18pickParameterValueEPfN3irr4core8vector3dIfEES4_(ptr noundef readonly captures(none) %f, <2 x float> %a.coerce0, float %a.coerce1, <2 x float> %b.coerce0, float %b.coerce1) local_unnamed_addr #9 {
+define dso_local { <2 x float>, float } @_ZN18ParticleParamTypes18pickParameterValueEPfN3irr4core8vector3dIfEES4_(ptr noundef readonly captures(none) %f, <2 x float> %a.coerce0, float %a.coerce1, <2 x float> %b.coerce0, float %b.coerce1) local_unnamed_addr #8 {
 entry:
   %0 = load <2 x float>, ptr %f, align 4, !tbaa !8
   %1 = fsub nsz <2 x float> %b.coerce0, %a.coerce0
@@ -2128,7 +2122,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local <2 x float> @_ZN18ParticleParamTypes25interpolateParameterValueEfN3irr4core8vector2dIfEES3_(float noundef %fac, <2 x float> %a.coerce, <2 x float> %b.coerce) local_unnamed_addr #10 {
+define dso_local <2 x float> @_ZN18ParticleParamTypes25interpolateParameterValueEfN3irr4core8vector2dIfEES3_(float noundef %fac, <2 x float> %a.coerce, <2 x float> %b.coerce) local_unnamed_addr #9 {
 entry:
   %conv = fpext float %fac to double
   %sub.i = fsub nsz double 1.000000e+00, %conv
@@ -2145,7 +2139,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local { <2 x float>, float } @_ZN18ParticleParamTypes25interpolateParameterValueEfN3irr4core8vector3dIfEES3_(float noundef %fac, <2 x float> %a.coerce0, float %a.coerce1, <2 x float> %b.coerce0, float %b.coerce1) local_unnamed_addr #10 {
+define dso_local { <2 x float>, float } @_ZN18ParticleParamTypes25interpolateParameterValueEfN3irr4core8vector3dIfEES3_(float noundef %fac, <2 x float> %a.coerce0, float %a.coerce1, <2 x float> %b.coerce0, float %b.coerce1) local_unnamed_addr #9 {
 entry:
   %conv = fpext float %fac to double
   %sub.i = fsub nsz double 1.000000e+00, %conv
@@ -2169,31 +2163,31 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN18ParticleParamTypes23serializeParameterValueERSoh(ptr noundef nonnull align 8 dereferenceable(8) %os, i8 noundef zeroext %v) local_unnamed_addr #7 {
+define dso_local void @_ZN18ParticleParamTypes23serializeParameterValueERSoh(ptr noundef nonnull align 8 dereferenceable(8) %os, i8 noundef zeroext %v) local_unnamed_addr #6 {
 entry:
   %buf.i = alloca [1 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %buf.i) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i)
   store i8 %v, ptr %buf.i, align 1, !tbaa !30
   %call.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i, i64 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %buf.i) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN18ParticleParamTypes25deSerializeParameterValueERSiRh(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) initializes((0, 1)) %v) local_unnamed_addr #7 {
+define dso_local void @_ZN18ParticleParamTypes25deSerializeParameterValueERSiRh(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) initializes((0, 1)) %v) local_unnamed_addr #6 {
 entry:
   %buf.i = alloca [1 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %buf.i) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i)
   store i8 0, ptr %buf.i, align 1
   %call.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i, i64 noundef 1)
   %0 = load i8, ptr %buf.i, align 1, !tbaa !30
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %buf.i) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i)
   store i8 %0, ptr %v, align 1, !tbaa !30
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef zeroext i8 @_ZN18ParticleParamTypes25interpolateParameterValueEfhh(float noundef %fac, i8 noundef zeroext %a, i8 noundef zeroext %b) local_unnamed_addr #11 {
+define dso_local noundef zeroext i8 @_ZN18ParticleParamTypes25interpolateParameterValueEfhh(float noundef %fac, i8 noundef zeroext %a, i8 noundef zeroext %b) local_unnamed_addr #10 {
 entry:
   %conv.i = zext i8 %a to i32
   %conv1.i = uitofp i8 %a to float
@@ -2206,7 +2200,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i8 @_ZN18ParticleParamTypes18pickParameterValueEPfhh(ptr noundef readonly captures(none) %f, i8 noundef zeroext %a, i8 noundef zeroext %b) local_unnamed_addr #12 {
+define dso_local noundef zeroext i8 @_ZN18ParticleParamTypes18pickParameterValueEPfhh(ptr noundef readonly captures(none) %f, i8 noundef zeroext %a, i8 noundef zeroext %b) local_unnamed_addr #11 {
 entry:
   %0 = load float, ptr %f, align 4, !tbaa !8
   %conv.i = zext i8 %a to i32
@@ -2220,31 +2214,31 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN18ParticleParamTypes23serializeParameterValueERSoa(ptr noundef nonnull align 8 dereferenceable(8) %os, i8 noundef signext %v) local_unnamed_addr #7 {
+define dso_local void @_ZN18ParticleParamTypes23serializeParameterValueERSoa(ptr noundef nonnull align 8 dereferenceable(8) %os, i8 noundef signext %v) local_unnamed_addr #6 {
 entry:
   %buf.i = alloca [1 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %buf.i) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i)
   store i8 %v, ptr %buf.i, align 1, !tbaa !30
   %call.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i, i64 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %buf.i) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN18ParticleParamTypes25deSerializeParameterValueERSiRa(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) initializes((0, 1)) %v) local_unnamed_addr #7 {
+define dso_local void @_ZN18ParticleParamTypes25deSerializeParameterValueERSiRa(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) initializes((0, 1)) %v) local_unnamed_addr #6 {
 entry:
   %buf.i = alloca [1 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %buf.i) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i)
   store i8 0, ptr %buf.i, align 1
   %call.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i, i64 noundef 1)
   %0 = load i8, ptr %buf.i, align 1, !tbaa !30
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %buf.i) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i)
   store i8 %0, ptr %v, align 1, !tbaa !30
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef signext i8 @_ZN18ParticleParamTypes25interpolateParameterValueEfaa(float noundef %fac, i8 noundef signext %a, i8 noundef signext %b) local_unnamed_addr #11 {
+define dso_local noundef signext i8 @_ZN18ParticleParamTypes25interpolateParameterValueEfaa(float noundef %fac, i8 noundef signext %a, i8 noundef signext %b) local_unnamed_addr #10 {
 entry:
   %conv.i = sext i8 %a to i32
   %conv1.i = sitofp i8 %a to float
@@ -2257,7 +2251,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef signext i8 @_ZN18ParticleParamTypes18pickParameterValueEPfaa(ptr noundef readonly captures(none) %f, i8 noundef signext %a, i8 noundef signext %b) local_unnamed_addr #12 {
+define dso_local noundef signext i8 @_ZN18ParticleParamTypes18pickParameterValueEPfaa(ptr noundef readonly captures(none) %f, i8 noundef signext %a, i8 noundef signext %b) local_unnamed_addr #11 {
 entry:
   %0 = load float, ptr %f, align 4, !tbaa !8
   %conv.i = sext i8 %a to i32
@@ -2271,33 +2265,33 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN18ParticleParamTypes23serializeParameterValueERSot(ptr noundef nonnull align 8 dereferenceable(8) %os, i16 noundef zeroext %v) local_unnamed_addr #7 {
+define dso_local void @_ZN18ParticleParamTypes23serializeParameterValueERSot(ptr noundef nonnull align 8 dereferenceable(8) %os, i16 noundef zeroext %v) local_unnamed_addr #6 {
 entry:
   %buf.i = alloca [2 x i8], align 2
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %buf.i) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i)
   %rev.i.i.i = tail call noundef i16 @llvm.bswap.i16(i16 %v)
   store i16 %rev.i.i.i, ptr %buf.i, align 2
   %call.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i, i64 noundef 2)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %buf.i) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN18ParticleParamTypes25deSerializeParameterValueERSiRt(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull writeonly align 2 captures(none) dereferenceable(2) initializes((0, 2)) %v) local_unnamed_addr #7 {
+define dso_local void @_ZN18ParticleParamTypes25deSerializeParameterValueERSiRt(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull writeonly align 2 captures(none) dereferenceable(2) initializes((0, 2)) %v) local_unnamed_addr #6 {
 entry:
   %buf.i = alloca [2 x i8], align 2
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %buf.i) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i)
   store i16 0, ptr %buf.i, align 2
   %call.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i, i64 noundef 2)
   %val.0.copyload.i.i = load i16, ptr %buf.i, align 2
   %rev.i.i.i = call noundef i16 @llvm.bswap.i16(i16 %val.0.copyload.i.i)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %buf.i) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i)
   store i16 %rev.i.i.i, ptr %v, align 2, !tbaa !53
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef zeroext i16 @_ZN18ParticleParamTypes25interpolateParameterValueEftt(float noundef %fac, i16 noundef zeroext %a, i16 noundef zeroext %b) local_unnamed_addr #11 {
+define dso_local noundef zeroext i16 @_ZN18ParticleParamTypes25interpolateParameterValueEftt(float noundef %fac, i16 noundef zeroext %a, i16 noundef zeroext %b) local_unnamed_addr #10 {
 entry:
   %conv.i = zext i16 %a to i32
   %conv1.i = uitofp i16 %a to float
@@ -2310,7 +2304,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i16 @_ZN18ParticleParamTypes18pickParameterValueEPftt(ptr noundef readonly captures(none) %f, i16 noundef zeroext %a, i16 noundef zeroext %b) local_unnamed_addr #12 {
+define dso_local noundef zeroext i16 @_ZN18ParticleParamTypes18pickParameterValueEPftt(ptr noundef readonly captures(none) %f, i16 noundef zeroext %a, i16 noundef zeroext %b) local_unnamed_addr #11 {
 entry:
   %0 = load float, ptr %f, align 4, !tbaa !8
   %conv.i = zext i16 %a to i32
@@ -2324,33 +2318,33 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN18ParticleParamTypes23serializeParameterValueERSos(ptr noundef nonnull align 8 dereferenceable(8) %os, i16 noundef signext %v) local_unnamed_addr #7 {
+define dso_local void @_ZN18ParticleParamTypes23serializeParameterValueERSos(ptr noundef nonnull align 8 dereferenceable(8) %os, i16 noundef signext %v) local_unnamed_addr #6 {
 entry:
   %buf.i = alloca [2 x i8], align 2
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %buf.i) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i)
   %rev.i.i.i.i = tail call noundef i16 @llvm.bswap.i16(i16 %v)
   store i16 %rev.i.i.i.i, ptr %buf.i, align 2
   %call.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i, i64 noundef 2)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %buf.i) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN18ParticleParamTypes25deSerializeParameterValueERSiRs(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull writeonly align 2 captures(none) dereferenceable(2) initializes((0, 2)) %v) local_unnamed_addr #7 {
+define dso_local void @_ZN18ParticleParamTypes25deSerializeParameterValueERSiRs(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull writeonly align 2 captures(none) dereferenceable(2) initializes((0, 2)) %v) local_unnamed_addr #6 {
 entry:
   %buf.i = alloca [2 x i8], align 2
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %buf.i) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i)
   store i16 0, ptr %buf.i, align 2
   %call.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i, i64 noundef 2)
   %val.0.copyload.i.i.i = load i16, ptr %buf.i, align 2
   %rev.i.i.i.i = call noundef i16 @llvm.bswap.i16(i16 %val.0.copyload.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %buf.i) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i)
   store i16 %rev.i.i.i.i, ptr %v, align 2, !tbaa !53
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef signext i16 @_ZN18ParticleParamTypes25interpolateParameterValueEfss(float noundef %fac, i16 noundef signext %a, i16 noundef signext %b) local_unnamed_addr #11 {
+define dso_local noundef signext i16 @_ZN18ParticleParamTypes25interpolateParameterValueEfss(float noundef %fac, i16 noundef signext %a, i16 noundef signext %b) local_unnamed_addr #10 {
 entry:
   %conv.i = sext i16 %a to i32
   %conv1.i = sitofp i16 %a to float
@@ -2363,7 +2357,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef signext i16 @_ZN18ParticleParamTypes18pickParameterValueEPfss(ptr noundef readonly captures(none) %f, i16 noundef signext %a, i16 noundef signext %b) local_unnamed_addr #12 {
+define dso_local noundef signext i16 @_ZN18ParticleParamTypes18pickParameterValueEPfss(ptr noundef readonly captures(none) %f, i16 noundef signext %a, i16 noundef signext %b) local_unnamed_addr #11 {
 entry:
   %0 = load float, ptr %f, align 4, !tbaa !8
   %conv.i = sext i16 %a to i32
@@ -2377,33 +2371,33 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN18ParticleParamTypes23serializeParameterValueERSoj(ptr noundef nonnull align 8 dereferenceable(8) %os, i32 noundef %v) local_unnamed_addr #7 {
+define dso_local void @_ZN18ParticleParamTypes23serializeParameterValueERSoj(ptr noundef nonnull align 8 dereferenceable(8) %os, i32 noundef %v) local_unnamed_addr #6 {
 entry:
   %buf.i = alloca [4 x i8], align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i)
   %or7.i.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %v)
   store i32 %or7.i.i.i, ptr %buf.i, align 4
   %call.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i, i64 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN18ParticleParamTypes25deSerializeParameterValueERSiRj(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %v) local_unnamed_addr #7 {
+define dso_local void @_ZN18ParticleParamTypes25deSerializeParameterValueERSiRj(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %v) local_unnamed_addr #6 {
 entry:
   %buf.i = alloca [4 x i8], align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i)
   store i32 0, ptr %buf.i, align 4
   %call.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i, i64 noundef 4)
   %val.0.copyload.i.i = load i32, ptr %buf.i, align 4
   %or7.i.i.i = call noundef i32 @llvm.bswap.i32(i32 %val.0.copyload.i.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i)
   store i32 %or7.i.i.i, ptr %v, align 4, !tbaa !54
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_ZN18ParticleParamTypes25interpolateParameterValueEfjj(float noundef %fac, i32 noundef %a, i32 noundef %b) local_unnamed_addr #11 {
+define dso_local noundef i32 @_ZN18ParticleParamTypes25interpolateParameterValueEfjj(float noundef %fac, i32 noundef %a, i32 noundef %b) local_unnamed_addr #10 {
 entry:
   %conv.i = uitofp i32 %a to float
   %sub.i = sub i32 %b, %a
@@ -2414,7 +2408,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @_ZN18ParticleParamTypes18pickParameterValueEPfjj(ptr noundef readonly captures(none) %f, i32 noundef %a, i32 noundef %b) local_unnamed_addr #12 {
+define dso_local noundef i32 @_ZN18ParticleParamTypes18pickParameterValueEPfjj(ptr noundef readonly captures(none) %f, i32 noundef %a, i32 noundef %b) local_unnamed_addr #11 {
 entry:
   %0 = load float, ptr %f, align 4, !tbaa !8
   %conv.i = uitofp i32 %a to float
@@ -2426,33 +2420,33 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN18ParticleParamTypes23serializeParameterValueERSoi(ptr noundef nonnull align 8 dereferenceable(8) %os, i32 noundef %v) local_unnamed_addr #7 {
+define dso_local void @_ZN18ParticleParamTypes23serializeParameterValueERSoi(ptr noundef nonnull align 8 dereferenceable(8) %os, i32 noundef %v) local_unnamed_addr #6 {
 entry:
   %buf.i = alloca [4 x i8], align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i)
   %or7.i.i.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %v)
   store i32 %or7.i.i.i.i, ptr %buf.i, align 4
   %call.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i, i64 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN18ParticleParamTypes25deSerializeParameterValueERSiRi(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %v) local_unnamed_addr #7 {
+define dso_local void @_ZN18ParticleParamTypes25deSerializeParameterValueERSiRi(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %v) local_unnamed_addr #6 {
 entry:
   %buf.i = alloca [4 x i8], align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i)
   store i32 0, ptr %buf.i, align 4
   %call.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i, i64 noundef 4)
   %val.0.copyload.i.i.i = load i32, ptr %buf.i, align 4
   %or7.i.i.i.i = call noundef i32 @llvm.bswap.i32(i32 %val.0.copyload.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i)
   store i32 %or7.i.i.i.i, ptr %v, align 4, !tbaa !54
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_ZN18ParticleParamTypes25interpolateParameterValueEfii(float noundef %fac, i32 noundef %a, i32 noundef %b) local_unnamed_addr #11 {
+define dso_local noundef i32 @_ZN18ParticleParamTypes25interpolateParameterValueEfii(float noundef %fac, i32 noundef %a, i32 noundef %b) local_unnamed_addr #10 {
 entry:
   %conv.i = sitofp i32 %a to float
   %sub.i = sub nsw i32 %b, %a
@@ -2463,7 +2457,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @_ZN18ParticleParamTypes18pickParameterValueEPfii(ptr noundef readonly captures(none) %f, i32 noundef %a, i32 noundef %b) local_unnamed_addr #12 {
+define dso_local noundef i32 @_ZN18ParticleParamTypes18pickParameterValueEPfii(ptr noundef readonly captures(none) %f, i32 noundef %a, i32 noundef %b) local_unnamed_addr #11 {
 entry:
   %0 = load float, ptr %f, align 4, !tbaa !8
   %conv.i = sitofp i32 %a to float
@@ -2475,31 +2469,31 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN18ParticleParamTypes23serializeParameterValueERSof(ptr noundef nonnull align 8 dereferenceable(8) %os, float noundef %v) local_unnamed_addr #7 {
+define dso_local void @_ZN18ParticleParamTypes23serializeParameterValueERSof(ptr noundef nonnull align 8 dereferenceable(8) %os, float noundef %v) local_unnamed_addr #6 {
 entry:
   %buf.i = alloca [4 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i)
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i, float noundef %v)
   %call.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i, i64 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN18ParticleParamTypes25deSerializeParameterValueERSiRf(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %v) local_unnamed_addr #7 {
+define dso_local void @_ZN18ParticleParamTypes25deSerializeParameterValueERSiRf(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %v) local_unnamed_addr #6 {
 entry:
   %buf.i = alloca [4 x i8], align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i)
   store i32 0, ptr %buf.i, align 4
   %call.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i, i64 noundef 4)
   %call2.i = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %buf.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i)
   store float %call2.i, ptr %v, align 4, !tbaa !8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef float @_ZN18ParticleParamTypes25interpolateParameterValueEfff(float noundef %fac, float noundef %a, float noundef %b) local_unnamed_addr #11 {
+define dso_local noundef float @_ZN18ParticleParamTypes25interpolateParameterValueEfff(float noundef %fac, float noundef %a, float noundef %b) local_unnamed_addr #10 {
 entry:
   %sub.i = fsub nsz float %b, %a
   %0 = tail call nsz noundef float @llvm.fmuladd.f32(float %sub.i, float %fac, float %a)
@@ -2507,7 +2501,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef float @_ZN18ParticleParamTypes18pickParameterValueEPfff(ptr noundef readonly captures(none) %f, float noundef %a, float noundef %b) local_unnamed_addr #12 {
+define dso_local noundef float @_ZN18ParticleParamTypes18pickParameterValueEPfff(ptr noundef readonly captures(none) %f, float noundef %a, float noundef %b) local_unnamed_addr #11 {
 entry:
   %0 = load float, ptr %f, align 4, !tbaa !8
   %sub.i = fsub nsz float %b, %a
@@ -2519,14 +2513,14 @@ entry:
 define dso_local void @_ZN18ParticleParamTypes23serializeParameterValueERSoN3irr4core8vector2dIfEE(ptr noundef nonnull align 8 dereferenceable(8) %os, <2 x float> %v.coerce) local_unnamed_addr #4 {
 entry:
   %buf.i = alloca [8 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buf.i) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i)
   %p.sroa.0.0.vec.extract.i.i = extractelement <2 x float> %v.coerce, i64 0
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i, float noundef %p.sroa.0.0.vec.extract.i.i)
   %arrayidx1.i.i = getelementptr inbounds nuw i8, ptr %buf.i, i64 4
   %p.sroa.0.4.vec.extract.i.i = extractelement <2 x float> %v.coerce, i64 1
   call void @_Z8writeF32Phf(ptr noundef nonnull %arrayidx1.i.i, float noundef %p.sroa.0.4.vec.extract.i.i)
   %call.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i, i64 noundef 8)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf.i) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i)
   ret void
 }
 
@@ -2534,7 +2528,7 @@ entry:
 define dso_local void @_ZN18ParticleParamTypes25deSerializeParameterValueERSiRN3irr4core8vector2dIfEE(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(8) initializes((0, 8)) %v) local_unnamed_addr #4 {
 entry:
   %buf.i = alloca [8 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buf.i) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i)
   store i64 0, ptr %buf.i, align 8
   %call.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i, i64 noundef 8)
   %call.i.i = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %buf.i)
@@ -2542,7 +2536,7 @@ entry:
   %arrayidx1.i.i = getelementptr inbounds nuw i8, ptr %buf.i, i64 4
   %call2.i.i = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %arrayidx1.i.i)
   %retval.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i, float %call2.i.i, i64 1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf.i) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i)
   store <2 x float> %retval.sroa.0.4.vec.insert.i.i, ptr %v, align 4, !tbaa.struct !29
   ret void
 }
@@ -2551,7 +2545,7 @@ entry:
 define dso_local void @_ZN18ParticleParamTypes23serializeParameterValueERSoN3irr4core8vector3dIfEE(ptr noundef nonnull align 8 dereferenceable(8) %os, <2 x float> %v.coerce0, float %v.coerce1) local_unnamed_addr #4 {
 entry:
   %buf.i = alloca [12 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %buf.i) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i)
   %p.sroa.0.0.vec.extract.i.i = extractelement <2 x float> %v.coerce0, i64 0
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i, float noundef %p.sroa.0.0.vec.extract.i.i)
   %arrayidx1.i.i = getelementptr inbounds nuw i8, ptr %buf.i, i64 4
@@ -2560,7 +2554,7 @@ entry:
   %arrayidx2.i.i = getelementptr inbounds nuw i8, ptr %buf.i, i64 8
   call void @_Z8writeF32Phf(ptr noundef nonnull %arrayidx2.i.i, float noundef %v.coerce1)
   %call.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i, i64 noundef 12)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %buf.i) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i)
   ret void
 }
 
@@ -2568,7 +2562,7 @@ entry:
 define dso_local void @_ZN18ParticleParamTypes25deSerializeParameterValueERSiRN3irr4core8vector3dIfEE(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(12) initializes((0, 12)) %v) local_unnamed_addr #4 {
 entry:
   %buf.i = alloca [12 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %buf.i) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %buf.i, i8 0, i64 12, i1 false)
   %call.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i, i64 noundef 12)
   %call.i.i = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %buf.i)
@@ -2578,7 +2572,7 @@ entry:
   %retval.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i, float %call2.i.i, i64 1
   %arrayidx3.i.i = getelementptr inbounds nuw i8, ptr %buf.i, i64 8
   %call4.i.i = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %arrayidx3.i.i)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %buf.i) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i)
   store <2 x float> %retval.sroa.0.4.vec.insert.i.i, ptr %v, align 4, !tbaa.struct !7
   %ref.tmp.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %v, i64 8
   store float %call4.i.i, ptr %ref.tmp.sroa.4.0..sroa_idx, align 4, !tbaa !8
@@ -2605,84 +2599,84 @@ entry:
   %1 = load i8, ptr %blendmode, align 1, !tbaa !64
   %shl = shl i8 %1, 1
   %or7 = or disjoint i8 %shl, %0
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %buf.i.i) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i)
   store i8 %or7, ptr %buf.i.i, align 1, !tbaa !30
   %call.i.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i.i, i64 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %buf.i.i) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i)
   %alpha = getelementptr inbounds nuw i8, ptr %this, i64 24
   %2 = load i8, ptr %alpha, align 8, !tbaa !35
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %buf.i.i25) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i25)
   store i8 %2, ptr %buf.i.i25, align 1, !tbaa !30
   %call.i.i26 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i.i25, i64 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %buf.i.i25) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i25)
   %reps.i = getelementptr inbounds nuw i8, ptr %this, i64 26
   %3 = load i16, ptr %reps.i, align 2, !tbaa !37
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %buf.i6.i) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i6.i)
   %rev.i.i.i.i = call noundef i16 @llvm.bswap.i16(i16 %3)
   store i16 %rev.i.i.i.i, ptr %buf.i6.i, align 2
   %call.i7.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i6.i, i64 noundef 2)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %buf.i6.i) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i6.i)
   %beginning.i = getelementptr inbounds nuw i8, ptr %this, i64 28
   %4 = load float, ptr %beginning.i, align 4, !tbaa !38
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i8.i) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i8.i)
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i8.i, float noundef %4)
   %call.i9.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i8.i, i64 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i8.i) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i8.i)
   %val.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %5 = load float, ptr %val.i.i, align 8, !tbaa !16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i.i.i.i) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i.i.i)
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i.i.i.i, float noundef %5)
   %call.i.i.i.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i.i.i.i, i64 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i.i.i.i) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i.i.i)
   %val.i11.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %6 = load float, ptr %val.i11.i, align 8, !tbaa !16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i.i.i10.i) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i.i10.i)
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i.i.i10.i, float noundef %6)
   %call.i.i.i12.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i.i.i10.i, i64 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i.i.i10.i) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i.i10.i)
   %scale = getelementptr inbounds nuw i8, ptr %this, i64 64
   %7 = load i8, ptr %scale, align 8, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %buf.i.i31) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i31)
   store i8 %7, ptr %buf.i.i31, align 1, !tbaa !30
   %call.i.i32 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i.i31, i64 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %buf.i.i31) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i31)
   %reps.i33 = getelementptr inbounds nuw i8, ptr %this, i64 66
   %8 = load i16, ptr %reps.i33, align 2, !tbaa !27
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %buf.i6.i30) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i6.i30)
   %rev.i.i.i.i34 = call noundef i16 @llvm.bswap.i16(i16 %8)
   store i16 %rev.i.i.i.i34, ptr %buf.i6.i30, align 2
   %call.i7.i35 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i6.i30, i64 noundef 2)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %buf.i6.i30) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i6.i30)
   %beginning.i36 = getelementptr inbounds nuw i8, ptr %this, i64 68
   %9 = load float, ptr %beginning.i36, align 4, !tbaa !28
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i8.i29) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i8.i29)
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i8.i29, float noundef %9)
   %call.i9.i37 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i8.i29, i64 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i8.i29) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i8.i29)
   %val.i.i38 = getelementptr inbounds nuw i8, ptr %this, i64 80
   %agg.tmp.sroa.0.0.copyload.i.i = load <2 x float>, ptr %val.i.i38, align 8, !tbaa.struct !29
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buf.i.i.i.i28) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i.i.i28)
   %p.sroa.0.0.vec.extract.i.i.i.i.i = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i.i, i64 0
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i.i.i.i28, float noundef %p.sroa.0.0.vec.extract.i.i.i.i.i)
   %arrayidx1.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %buf.i.i.i.i28, i64 4
   %p.sroa.0.4.vec.extract.i.i.i.i.i = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i.i, i64 1
   call void @_Z8writeF32Phf(ptr noundef nonnull %arrayidx1.i.i.i.i.i, float noundef %p.sroa.0.4.vec.extract.i.i.i.i.i)
   %call.i.i.i.i39 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i.i.i.i28, i64 noundef 8)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf.i.i.i.i28) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i.i.i28)
   %val.i11.i40 = getelementptr inbounds nuw i8, ptr %this, i64 96
   %agg.tmp.sroa.0.0.copyload.i12.i = load <2 x float>, ptr %val.i11.i40, align 8, !tbaa.struct !29
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buf.i.i.i10.i27) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i.i10.i27)
   %p.sroa.0.0.vec.extract.i.i.i.i13.i = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i12.i, i64 0
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i.i.i10.i27, float noundef %p.sroa.0.0.vec.extract.i.i.i.i13.i)
   %arrayidx1.i.i.i.i14.i = getelementptr inbounds nuw i8, ptr %buf.i.i.i10.i27, i64 4
   %p.sroa.0.4.vec.extract.i.i.i.i15.i = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i12.i, i64 1
   call void @_Z8writeF32Phf(ptr noundef nonnull %arrayidx1.i.i.i.i14.i, float noundef %p.sroa.0.4.vec.extract.i.i.i.i15.i)
   %call.i.i.i16.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i.i.i10.i27, i64 noundef 8)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf.i.i.i10.i27) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i.i10.i27)
   br i1 %newPropertiesOnly, label %if.end13, label %if.then11
 
 if.then11:                                        ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp)
   %string = getelementptr inbounds nuw i8, ptr %this, i64 104
   %10 = load ptr, ptr %string, align 8, !tbaa !65
   %_M_string_length.i.i = getelementptr inbounds nuw i8, ptr %this, i64 112
@@ -2707,11 +2701,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 if.then.i.i:                                      ; preds = %invoke.cont
-  call void @_ZdlPv(ptr noundef %14) #27
+  call void @_ZdlPv(ptr noundef %14) #26
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.then.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
   br label %if.end13
 
 lpad:                                             ; preds = %if.then11
@@ -2729,11 +2723,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit48
 
 if.then.i.i44:                                    ; preds = %lpad
-  call void @_ZdlPv(ptr noundef %18) #27
+  call void @_ZdlPv(ptr noundef %18) #26
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit48
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit48: ; preds = %if.then.i.i44, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i45
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
   resume { ptr, i32 } %17
 
 if.end13:                                         ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %entry
@@ -2757,15 +2751,15 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZNK19TileAnimationParams9serializeERSot(ptr noundef nonnull align 4 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(8), i16 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN21ServerParticleTexture11deSerializeERSitb(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 2)) %this, ptr noundef nonnull align 8 dereferenceable(16) %is, i16 noundef zeroext %protocol_ver, i1 noundef zeroext %newPropertiesOnly) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN21ServerParticleTexture11deSerializeERSitb(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 2)) %this, ptr noundef nonnull align 8 dereferenceable(16) %is, i16 noundef zeroext %protocol_ver, i1 noundef zeroext %newPropertiesOnly) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %buf.i.i = alloca [1 x i8], align 1
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %buf.i.i) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i)
   store i8 0, ptr %buf.i.i, align 1
   %call.i.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i.i, i64 noundef 1)
   %0 = load i8, ptr %buf.i.i, align 1, !tbaa !30
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %buf.i.i) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i)
   %1 = and i8 %0, 1
   store i8 %1, ptr %this, align 8, !tbaa !56
   %2 = lshr i8 %0, 1
@@ -2779,7 +2773,7 @@ entry:
   br i1 %newPropertiesOnly, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp)
   call void @_Z19deSerializeString32B5cxx11RSi(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %is)
   %string = getelementptr inbounds nuw i8, ptr %this, i64 104
   %4 = load ptr, ptr %string, align 8, !tbaa !65
@@ -2883,11 +2877,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 if.then.i.i:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit
-  call void @_ZdlPv(ptr noundef %22) #27
+  call void @_ZdlPv(ptr noundef %22) #26
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.then.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
   br label %if.end
 
 if.end:                                           ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %entry
@@ -2936,7 +2930,7 @@ entry:
   %agg.tmp.sroa.0.0.copyload = load <2 x float>, ptr %pos, align 4, !tbaa.struct !7
   %agg.tmp.sroa.2.0.pos.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 180
   %agg.tmp.sroa.2.0.copyload = load float, ptr %agg.tmp.sroa.2.0.pos.sroa_idx, align 4, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %buf.i) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i)
   %p.sroa.0.0.vec.extract.i.i = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload, i64 0
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i, float noundef %p.sroa.0.0.vec.extract.i.i)
   %arrayidx1.i.i = getelementptr inbounds nuw i8, ptr %buf.i, i64 4
@@ -2945,12 +2939,12 @@ entry:
   %arrayidx2.i.i = getelementptr inbounds nuw i8, ptr %buf.i, i64 8
   call void @_Z8writeF32Phf(ptr noundef nonnull %arrayidx2.i.i, float noundef %agg.tmp.sroa.2.0.copyload)
   %call.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i, i64 noundef 12)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %buf.i) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i)
   %vel = getelementptr inbounds nuw i8, ptr %this, i64 184
   %agg.tmp2.sroa.0.0.copyload = load <2 x float>, ptr %vel, align 8, !tbaa.struct !7
   %agg.tmp2.sroa.2.0.vel.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 192
   %agg.tmp2.sroa.2.0.copyload = load float, ptr %agg.tmp2.sroa.2.0.vel.sroa_idx, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %buf.i32) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i32)
   %p.sroa.0.0.vec.extract.i.i33 = extractelement <2 x float> %agg.tmp2.sroa.0.0.copyload, i64 0
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i32, float noundef %p.sroa.0.0.vec.extract.i.i33)
   %arrayidx1.i.i34 = getelementptr inbounds nuw i8, ptr %buf.i32, i64 4
@@ -2959,12 +2953,12 @@ entry:
   %arrayidx2.i.i36 = getelementptr inbounds nuw i8, ptr %buf.i32, i64 8
   call void @_Z8writeF32Phf(ptr noundef nonnull %arrayidx2.i.i36, float noundef %agg.tmp2.sroa.2.0.copyload)
   %call.i37 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i32, i64 noundef 12)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %buf.i32) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i32)
   %acc = getelementptr inbounds nuw i8, ptr %this, i64 196
   %agg.tmp3.sroa.0.0.copyload = load <2 x float>, ptr %acc, align 4, !tbaa.struct !7
   %agg.tmp3.sroa.2.0.acc.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 204
   %agg.tmp3.sroa.2.0.copyload = load float, ptr %agg.tmp3.sroa.2.0.acc.sroa_idx, align 4, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %buf.i38) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i38)
   %p.sroa.0.0.vec.extract.i.i39 = extractelement <2 x float> %agg.tmp3.sroa.0.0.copyload, i64 0
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i38, float noundef %p.sroa.0.0.vec.extract.i.i39)
   %arrayidx1.i.i40 = getelementptr inbounds nuw i8, ptr %buf.i38, i64 4
@@ -2973,25 +2967,25 @@ entry:
   %arrayidx2.i.i42 = getelementptr inbounds nuw i8, ptr %buf.i38, i64 8
   call void @_Z8writeF32Phf(ptr noundef nonnull %arrayidx2.i.i42, float noundef %agg.tmp3.sroa.2.0.copyload)
   %call.i43 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i38, i64 noundef 12)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %buf.i38) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i38)
   %expirationtime = getelementptr inbounds nuw i8, ptr %this, i64 224
   %0 = load float, ptr %expirationtime, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i44) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i44)
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i44, float noundef %0)
   %call.i45 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i44, i64 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i44) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i44)
   %size = getelementptr inbounds nuw i8, ptr %this, i64 220
   %1 = load float, ptr %size, align 4, !tbaa !77
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i46) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i46)
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i46, float noundef %1)
   %call.i47 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i46, i64 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i46) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i46)
   %2 = load i8, ptr %this, align 8, !tbaa !78, !range !62, !noundef !63
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %buf.i48) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i48)
   store i8 %2, ptr %buf.i48, align 1, !tbaa !30
   %call.i49 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i48, i64 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %buf.i48) #26
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i48)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp)
   %string = getelementptr inbounds nuw i8, ptr %this, i64 112
   %3 = load ptr, ptr %string, align 8, !tbaa !65
   %_M_string_length.i.i = getelementptr inbounds nuw i8, ptr %this, i64 120
@@ -3016,61 +3010,61 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 if.then.i.i:                                      ; preds = %invoke.cont
-  call void @_ZdlPv(ptr noundef %7) #27
+  call void @_ZdlPv(ptr noundef %7) #26
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.then.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
   %vertical = getelementptr inbounds nuw i8, ptr %this, i64 3
   %10 = load i8, ptr %vertical, align 1, !tbaa !79, !range !62, !noundef !63
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %buf.i52) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i52)
   store i8 %10, ptr %buf.i52, align 1, !tbaa !30
   %call.i53 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i52, i64 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %buf.i52) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i52)
   %collision_removal = getelementptr inbounds nuw i8, ptr %this, i64 1
   %11 = load i8, ptr %collision_removal, align 1, !tbaa !80, !range !62, !noundef !63
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %buf.i54) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i54)
   store i8 %11, ptr %buf.i54, align 1, !tbaa !30
   %call.i55 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i54, i64 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %buf.i54) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i54)
   %animation = getelementptr inbounds nuw i8, ptr %this, i64 144
   call void @_ZNK19TileAnimationParams9serializeERSot(ptr noundef nonnull align 4 dereferenceable(16) %animation, ptr noundef nonnull align 8 dereferenceable(8) %os, i16 noundef zeroext %protocol_ver)
   %glow = getelementptr inbounds nuw i8, ptr %this, i64 160
   %12 = load i8, ptr %glow, align 8, !tbaa !81
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %buf.i56) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i56)
   store i8 %12, ptr %buf.i56, align 1, !tbaa !30
   %call.i57 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i56, i64 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %buf.i56) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i56)
   %object_collision = getelementptr inbounds nuw i8, ptr %this, i64 2
   %13 = load i8, ptr %object_collision, align 2, !tbaa !82, !range !62, !noundef !63
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %buf.i58) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i58)
   store i8 %13, ptr %buf.i58, align 1, !tbaa !30
   %call.i59 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i58, i64 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %buf.i58) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i58)
   %node = getelementptr inbounds nuw i8, ptr %this, i64 164
   %14 = load i16, ptr %node, align 4, !tbaa !83
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %buf.i60) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i60)
   %rev.i.i.i = call noundef i16 @llvm.bswap.i16(i16 %14)
   store i16 %rev.i.i.i, ptr %buf.i60, align 2
   %call.i61 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i60, i64 noundef 2)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %buf.i60) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i60)
   %param2 = getelementptr inbounds nuw i8, ptr %this, i64 167
   %15 = load i8, ptr %param2, align 1, !tbaa !84
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %buf.i62) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i62)
   store i8 %15, ptr %buf.i62, align 1, !tbaa !30
   %call.i63 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i62, i64 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %buf.i62) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i62)
   %node_tile = getelementptr inbounds nuw i8, ptr %this, i64 168
   %16 = load i8, ptr %node_tile, align 8, !tbaa !85
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %buf.i64) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i64)
   store i8 %16, ptr %buf.i64, align 1, !tbaa !30
   %call.i65 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i64, i64 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %buf.i64) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i64)
   %drag = getelementptr inbounds nuw i8, ptr %this, i64 208
   %agg.tmp13.sroa.0.0.copyload = load <2 x float>, ptr %drag, align 8, !tbaa.struct !7
   %agg.tmp13.sroa.2.0.drag.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 216
   %agg.tmp13.sroa.2.0.copyload = load float, ptr %agg.tmp13.sroa.2.0.drag.sroa_idx, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %buf.i66) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i66)
   %p.sroa.0.0.vec.extract.i.i67 = extractelement <2 x float> %agg.tmp13.sroa.0.0.copyload, i64 0
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i66, float noundef %p.sroa.0.0.vec.extract.i.i67)
   %arrayidx1.i.i68 = getelementptr inbounds nuw i8, ptr %buf.i66, i64 4
@@ -3079,12 +3073,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
   %arrayidx2.i.i70 = getelementptr inbounds nuw i8, ptr %buf.i66, i64 8
   call void @_Z8writeF32Phf(ptr noundef nonnull %arrayidx2.i.i70, float noundef %agg.tmp13.sroa.2.0.copyload)
   %call.i71 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i66, i64 noundef 12)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %buf.i66) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i66)
   %val.i.i = getelementptr inbounds nuw i8, ptr %this, i64 280
   %agg.tmp.sroa.0.0.copyload.i.i = load <2 x float>, ptr %val.i.i, align 8, !tbaa.struct !7
   %agg.tmp.sroa.2.0.val.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %this, i64 288
   %agg.tmp.sroa.2.0.copyload.i.i = load float, ptr %agg.tmp.sroa.2.0.val.sroa_idx.i.i, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %buf.i.i.i.i) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i.i.i)
   %p.sroa.0.0.vec.extract.i.i.i.i.i = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i.i, i64 0
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i.i.i.i, float noundef %p.sroa.0.0.vec.extract.i.i.i.i.i)
   %arrayidx1.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %buf.i.i.i.i, i64 4
@@ -3093,12 +3087,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
   %arrayidx2.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %buf.i.i.i.i, i64 8
   call void @_Z8writeF32Phf(ptr noundef nonnull %arrayidx2.i.i.i.i.i, float noundef %agg.tmp.sroa.2.0.copyload.i.i)
   %call.i.i.i.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i.i.i.i, i64 noundef 12)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %buf.i.i.i.i) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i.i.i)
   %val.i5.i = getelementptr inbounds nuw i8, ptr %this, i64 304
   %agg.tmp.sroa.0.0.copyload.i6.i = load <2 x float>, ptr %val.i5.i, align 8, !tbaa.struct !7
   %agg.tmp.sroa.2.0.val.sroa_idx.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 312
   %agg.tmp.sroa.2.0.copyload.i8.i = load float, ptr %agg.tmp.sroa.2.0.val.sroa_idx.i7.i, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %buf.i.i.i4.i) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i.i4.i)
   %p.sroa.0.0.vec.extract.i.i.i.i9.i = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i6.i, i64 0
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i.i.i4.i, float noundef %p.sroa.0.0.vec.extract.i.i.i.i9.i)
   %arrayidx1.i.i.i.i10.i = getelementptr inbounds nuw i8, ptr %buf.i.i.i4.i, i64 4
@@ -3107,31 +3101,31 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
   %arrayidx2.i.i.i.i12.i = getelementptr inbounds nuw i8, ptr %buf.i.i.i4.i, i64 8
   call void @_Z8writeF32Phf(ptr noundef nonnull %arrayidx2.i.i.i.i12.i, float noundef %agg.tmp.sroa.2.0.copyload.i8.i)
   %call.i.i.i13.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i.i.i4.i, i64 noundef 12)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %buf.i.i.i4.i) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i.i4.i)
   %bias.i = getelementptr inbounds nuw i8, ptr %this, i64 320
   %17 = load float, ptr %bias.i, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i.i) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i)
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i.i, float noundef %17)
   %call.i.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i.i, i64 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i.i) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i)
   %val.i.i75 = getelementptr inbounds nuw i8, ptr %this, i64 240
   %18 = load float, ptr %val.i.i75, align 8, !tbaa !16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i.i.i.i74) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i.i.i74)
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i.i.i.i74, float noundef %18)
   %call.i.i.i.i76 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i.i.i.i74, i64 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i.i.i.i74) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i.i.i74)
   %val.i5.i77 = getelementptr inbounds nuw i8, ptr %this, i64 256
   %19 = load float, ptr %val.i5.i77, align 8, !tbaa !16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i.i.i4.i73) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i.i4.i73)
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i.i.i4.i73, float noundef %19)
   %call.i.i.i6.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i.i.i4.i73, i64 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i.i.i4.i73) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i.i4.i73)
   %bias.i78 = getelementptr inbounds nuw i8, ptr %this, i64 264
   %20 = load float, ptr %bias.i78, align 8, !tbaa !18
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i.i72) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i72)
   call void @_Z8writeF32Phf(ptr noundef nonnull %buf.i.i72, float noundef %20)
   %call.i.i79 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %buf.i.i72, i64 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i.i72) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i72)
   ret void
 
 lpad:                                             ; preds = %entry
@@ -3149,11 +3143,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit85
 
 if.then.i.i81:                                    ; preds = %lpad
-  call void @_ZdlPv(ptr noundef %22) #27
+  call void @_ZdlPv(ptr noundef %22) #26
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit85
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit85: ; preds = %if.then.i.i81, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i82
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
   resume { ptr, i32 } %21
 }
 
@@ -3178,7 +3172,7 @@ entry:
   %buf.i47 = alloca [12 x i8], align 1
   %buf.i = alloca [12 x i8], align 1
   %ref.tmp11 = alloca %"class.std::__cxx11::basic_string", align 8
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %buf.i) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %buf.i, i8 0, i64 12, i1 false)
   %call.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i, i64 noundef 12)
   %call.i.i = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %buf.i)
@@ -3188,12 +3182,12 @@ entry:
   %retval.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i, float %call2.i.i, i64 1
   %arrayidx3.i.i = getelementptr inbounds nuw i8, ptr %buf.i, i64 8
   %call4.i.i = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %arrayidx3.i.i)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %buf.i) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i)
   %pos = getelementptr inbounds nuw i8, ptr %this, i64 172
   store <2 x float> %retval.sroa.0.4.vec.insert.i.i, ptr %pos, align 4, !tbaa.struct !7
   %ref.tmp.sroa.4.0.pos.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 180
   store float %call4.i.i, ptr %ref.tmp.sroa.4.0.pos.sroa_idx, align 4, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %buf.i47) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i47)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %buf.i47, i8 0, i64 12, i1 false)
   %call.i48 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i47, i64 noundef 12)
   %call.i.i49 = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %buf.i47)
@@ -3203,12 +3197,12 @@ entry:
   %retval.sroa.0.4.vec.insert.i.i53 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i50, float %call2.i.i52, i64 1
   %arrayidx3.i.i54 = getelementptr inbounds nuw i8, ptr %buf.i47, i64 8
   %call4.i.i55 = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %arrayidx3.i.i54)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %buf.i47) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i47)
   %vel = getelementptr inbounds nuw i8, ptr %this, i64 184
   store <2 x float> %retval.sroa.0.4.vec.insert.i.i53, ptr %vel, align 8, !tbaa.struct !7
   %ref.tmp2.sroa.4.0.vel.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 192
   store float %call4.i.i55, ptr %ref.tmp2.sroa.4.0.vel.sroa_idx, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %buf.i58) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i58)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %buf.i58, i8 0, i64 12, i1 false)
   %call.i59 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i58, i64 noundef 12)
   %call.i.i60 = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %buf.i58)
@@ -3218,34 +3212,34 @@ entry:
   %retval.sroa.0.4.vec.insert.i.i64 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i61, float %call2.i.i63, i64 1
   %arrayidx3.i.i65 = getelementptr inbounds nuw i8, ptr %buf.i58, i64 8
   %call4.i.i66 = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %arrayidx3.i.i65)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %buf.i58) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i58)
   %acc = getelementptr inbounds nuw i8, ptr %this, i64 196
   store <2 x float> %retval.sroa.0.4.vec.insert.i.i64, ptr %acc, align 4, !tbaa.struct !7
   %ref.tmp5.sroa.4.0.acc.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 204
   store float %call4.i.i66, ptr %ref.tmp5.sroa.4.0.acc.sroa_idx, align 4, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i69) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i69)
   store i32 0, ptr %buf.i69, align 4
   %call.i70 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i69, i64 noundef 4)
   %call2.i = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %buf.i69)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i69) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i69)
   %expirationtime = getelementptr inbounds nuw i8, ptr %this, i64 224
   store float %call2.i, ptr %expirationtime, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i71) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i71)
   store i32 0, ptr %buf.i71, align 4
   %call.i72 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i71, i64 noundef 4)
   %call2.i73 = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %buf.i71)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i71) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i71)
   %size = getelementptr inbounds nuw i8, ptr %this, i64 220
   store float %call2.i73, ptr %size, align 4, !tbaa !77
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %buf.i74) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i74)
   store i8 0, ptr %buf.i74, align 1
   %call.i75 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i74, i64 noundef 1)
   %0 = load i8, ptr %buf.i74, align 1, !tbaa !30
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %buf.i74) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i74)
   %tobool = icmp ne i8 %0, 0
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %this, align 8, !tbaa !78
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp11) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11)
   call void @_Z19deSerializeString32B5cxx11RSi(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp11, ptr noundef nonnull align 8 dereferenceable(16) %is)
   %string = getelementptr inbounds nuw i8, ptr %this, i64 112
   %1 = load ptr, ptr %string, align 8, !tbaa !65
@@ -3349,52 +3343,52 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 if.then.i.i:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit
-  call void @_ZdlPv(ptr noundef %19) #27
+  call void @_ZdlPv(ptr noundef %19) #26
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.then.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp11) #26
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %buf.i76) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i76)
   store i8 0, ptr %buf.i76, align 1
   %call.i77 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i76, i64 noundef 1)
   %22 = load i8, ptr %buf.i76, align 1, !tbaa !30
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %buf.i76) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i76)
   %tobool14 = icmp ne i8 %22, 0
   %vertical = getelementptr inbounds nuw i8, ptr %this, i64 3
   %frombool15 = zext i1 %tobool14 to i8
   store i8 %frombool15, ptr %vertical, align 1, !tbaa !79
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %buf.i78) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i78)
   store i8 0, ptr %buf.i78, align 1
   %call.i79 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i78, i64 noundef 1)
   %23 = load i8, ptr %buf.i78, align 1, !tbaa !30
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %buf.i78) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i78)
   %tobool17 = icmp ne i8 %23, 0
   %collision_removal = getelementptr inbounds nuw i8, ptr %this, i64 1
   %frombool18 = zext i1 %tobool17 to i8
   store i8 %frombool18, ptr %collision_removal, align 1, !tbaa !80
   %animation = getelementptr inbounds nuw i8, ptr %this, i64 144
   call void @_ZN19TileAnimationParams11deSerializeERSit(ptr noundef nonnull align 4 dereferenceable(16) %animation, ptr noundef nonnull align 8 dereferenceable(16) %is, i16 noundef zeroext %protocol_ver)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %buf.i80) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i80)
   store i8 0, ptr %buf.i80, align 1
   %call.i81 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i80, i64 noundef 1)
   %24 = load i8, ptr %buf.i80, align 1, !tbaa !30
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %buf.i80) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i80)
   %glow = getelementptr inbounds nuw i8, ptr %this, i64 160
   store i8 %24, ptr %glow, align 8, !tbaa !81
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %buf.i82) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i82)
   store i8 0, ptr %buf.i82, align 1
   %call.i83 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i82, i64 noundef 1)
   %25 = load i8, ptr %buf.i82, align 1, !tbaa !30
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %buf.i82) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i82)
   %tobool21 = icmp ne i8 %25, 0
   %object_collision = getelementptr inbounds nuw i8, ptr %this, i64 2
   %frombool22 = zext i1 %tobool21 to i8
   store i8 %frombool22, ptr %object_collision, align 2, !tbaa !82
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %buf.i.i) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i)
   store i16 0, ptr %buf.i.i, align 2
   %call.i.i84 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i.i, i64 noundef 2)
   %val.0.copyload.i.i.i = load i16, ptr %buf.i.i, align 2
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %buf.i.i) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i)
   %vtable.i = load ptr, ptr %is, align 8, !tbaa !4
   %vbase.offset.ptr.i = getelementptr i8, ptr %vtable.i, i64 -24
   %vbase.offset.i = load i64, ptr %vbase.offset.ptr.i, align 8
@@ -3409,21 +3403,21 @@ if.end:                                           ; preds = %_ZNSt7__cxx1112basi
   %node = getelementptr inbounds nuw i8, ptr %this, i64 164
   %rev.i.i.i.i = call noundef i16 @llvm.bswap.i16(i16 %val.0.copyload.i.i.i)
   store i16 %rev.i.i.i.i, ptr %node, align 4, !tbaa !53
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %buf.i87) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i87)
   store i8 0, ptr %buf.i87, align 1
   %call.i88 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i87, i64 noundef 1)
   %27 = load i8, ptr %buf.i87, align 1, !tbaa !30
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %buf.i87) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i87)
   %param2 = getelementptr inbounds nuw i8, ptr %this, i64 167
   store i8 %27, ptr %param2, align 1, !tbaa !84
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %buf.i89) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i89)
   store i8 0, ptr %buf.i89, align 1
   %call.i90 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i89, i64 noundef 1)
   %28 = load i8, ptr %buf.i89, align 1, !tbaa !30
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %buf.i89) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i89)
   %node_tile = getelementptr inbounds nuw i8, ptr %this, i64 168
   store i8 %28, ptr %node_tile, align 8, !tbaa !85
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %buf.i.i91) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i91)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %buf.i.i91, i8 0, i64 12, i1 false)
   %call.i.i92 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i.i91, i64 noundef 12)
   %call.i.i.i = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %buf.i.i91)
@@ -3431,7 +3425,7 @@ if.end:                                           ; preds = %_ZNSt7__cxx1112basi
   %call2.i.i.i = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %arrayidx1.i.i.i)
   %arrayidx3.i.i.i = getelementptr inbounds nuw i8, ptr %buf.i.i91, i64 8
   %call4.i.i.i = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %arrayidx3.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %buf.i.i91) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i91)
   %vtable.i93 = load ptr, ptr %is, align 8, !tbaa !4
   %vbase.offset.ptr.i94 = getelementptr i8, ptr %vtable.i93, i64 -24
   %vbase.offset.i95 = load i64, ptr %vbase.offset.ptr.i94, align 8
@@ -3452,24 +3446,24 @@ if.end29:                                         ; preds = %if.end
   %jitter = getelementptr inbounds nuw i8, ptr %this, i64 272
   call void @_ZN18ParticleParamTypes15RangedParameterINS_15VectorParameterIN3irr4core8vector3dIfEELm3EEEE11deSerializeERSi(ptr noundef nonnull align 8 dereferenceable(52) %jitter, ptr noundef nonnull align 8 dereferenceable(16) %is)
   %val.i.i = getelementptr inbounds nuw i8, ptr %this, i64 240
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i.i.i.i) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i.i.i)
   store i32 0, ptr %buf.i.i.i.i, align 4
   %call.i.i.i.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i.i.i.i, i64 noundef 4)
   %call2.i.i.i.i = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %buf.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i.i.i.i) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i.i.i)
   store float %call2.i.i.i.i, ptr %val.i.i, align 8, !tbaa !8
   %val.i5.i = getelementptr inbounds nuw i8, ptr %this, i64 256
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i.i.i4.i) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i.i4.i)
   store i32 0, ptr %buf.i.i.i4.i, align 4
   %call.i.i.i6.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i.i.i4.i, i64 noundef 4)
   %call2.i.i.i7.i = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %buf.i.i.i4.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i.i.i4.i) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i.i4.i)
   store float %call2.i.i.i7.i, ptr %val.i5.i, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i.i101) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i101)
   store i32 0, ptr %buf.i.i101, align 4
   %call.i.i102 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %buf.i.i101, i64 noundef 4)
   %call2.i.i103 = call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %buf.i.i101)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i.i101) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i101)
   %bias.i = getelementptr inbounds nuw i8, ptr %this, i64 264
   store float %call2.i.i103, ptr %bias.i, align 8, !tbaa !18
   br label %return
@@ -3479,7 +3473,7 @@ return:                                           ; preds = %if.end29, %if.end, 
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local void @_Z8writeF32Phf(ptr noundef %data, float noundef %i) local_unnamed_addr #13 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_Z8writeF32Phf(ptr noundef %data, float noundef %i) local_unnamed_addr #12 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp4 = alloca %"class.std::allocator", align 1
@@ -3508,9 +3502,9 @@ sw.bb2:                                           ; preds = %tailrecurse
   br label %tailrecurse
 
 sw.epilog:                                        ; preds = %tailrecurse
-  %exception = tail call ptr @__cxa_allocate_exception(i64 40) #26
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #26
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp4) #26
+  %exception = tail call ptr @__cxa_allocate_exception(i64 40) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp4)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4)
           to label %invoke.cont unwind label %cleanup.action
 
@@ -3535,20 +3529,20 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %ehcleanup.thread
 
 if.then.i.i:                                      ; preds = %lpad5
-  call void @_ZdlPv(ptr noundef %3) #27
+  call void @_ZdlPv(ptr noundef %3) #26
   br label %ehcleanup.thread
 
 ehcleanup.thread:                                 ; preds = %if.then.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp4) #26
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
   br label %eh.resume
 
 cleanup.action:                                   ; preds = %sw.epilog
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp4) #26
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #26
-  call void @__cxa_free_exception(ptr %exception) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
+  call void @__cxa_free_exception(ptr %exception) #27
   br label %eh.resume
 
 return:                                           ; preds = %sw.bb1, %sw.bb
@@ -3574,7 +3568,7 @@ declare noundef i32 @_Z25getFloatSerializationTypev() local_unnamed_addr #0
 declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %__s, ptr noundef nonnull align 1 dereferenceable(1) %__a) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %__s, ptr noundef nonnull align 1 dereferenceable(1) %__a) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i = alloca i64, align 8
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -3587,8 +3581,8 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %call.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %__s) #26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i) #26
+  %call.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %__s) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %__dnew.i)
   store i64 %call.i, ptr %__dnew.i, align 8, !tbaa !95
   %cmp.i = icmp ugt i64 %call.i, 15
   br i1 %cmp.i, label %if.then.i, label %if.end.i
@@ -3623,7 +3617,7 @@ invoke.cont5:                                     ; preds = %if.end.i.i.i.i, %if
   %5 = load ptr, ptr %this, align 8, !tbaa !65
   %arrayidx.i.i = getelementptr inbounds i8, ptr %5, i64 %4
   store i8 0, ptr %arrayidx.i.i, align 1, !tbaa !30
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %__dnew.i)
   ret void
 }
 
@@ -3638,7 +3632,7 @@ entry:
   %1 = load ptr, ptr %s, align 8, !tbaa !65
   %_M_string_length.i.i.i = getelementptr inbounds nuw i8, ptr %s, i64 8
   %2 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !70
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i.i) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %__dnew.i.i.i)
   store i64 %2, ptr %__dnew.i.i.i, align 8, !tbaa !95
   %cmp.i.i.i = icmp ugt i64 %2, 15
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
@@ -3683,7 +3677,7 @@ _ZN13BaseExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   %9 = load ptr, ptr %m_s.i, align 8, !tbaa !65
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 %8
   store i8 0, ptr %arrayidx.i.i.i.i, align 1, !tbaa !30
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i.i) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %__dnew.i.i.i)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18SerializationError, i64 16), ptr %this, align 8, !tbaa !4
   ret void
 }
@@ -3706,30 +3700,30 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 if.then.i.i:                                      ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef %0) #27
+  tail call void @_ZdlPv(ptr noundef %0) #26
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.then.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #26
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #27
   ret void
 }
 
 ; Function Attrs: cold noreturn
-declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #14
+declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #13
 
 declare void @__cxa_free_exception(ptr) local_unnamed_addr
 
 ; Function Attrs: noreturn
-declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #15
+declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #16
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #15
 
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #17 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #26
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #16 comdat {
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #27
   tail call void @_ZSt9terminatev() #29
   unreachable
 }
@@ -3737,13 +3731,13 @@ define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_un
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #18
+declare void @_ZSt9terminatev() local_unnamed_addr #17
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #19
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #18
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN18SerializationErrorD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #20 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN18SerializationErrorD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #19 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13BaseException, i64 16), ptr %this, align 8, !tbaa !4
   %m_s.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -3760,12 +3754,12 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZN13BaseExceptionD2Ev.exit
 
 if.then.i.i.i:                                    ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef %0) #27
+  tail call void @_ZdlPv(ptr noundef %0) #26
   br label %_ZN13BaseExceptionD2Ev.exit
 
 _ZN13BaseExceptionD2Ev.exit:                      ; preds = %if.then.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #26
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #27
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #27
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #26
   ret void
 }
 
@@ -3795,12 +3789,12 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZN13BaseExceptionD2Ev.exit
 
 if.then.i.i.i:                                    ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef %0) #27
+  tail call void @_ZdlPv(ptr noundef %0) #26
   br label %_ZN13BaseExceptionD2Ev.exit
 
 _ZN13BaseExceptionD2Ev.exit:                      ; preds = %if.then.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #26
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #27
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #27
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #26
   ret void
 }
 
@@ -3808,12 +3802,12 @@ _ZN13BaseExceptionD2Ev.exit:                      ; preds = %if.then.i.i.i, %_ZN
 declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #21
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #20
 
 declare noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef float @_Z7readF32PKh(ptr noundef %data) local_unnamed_addr #13 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef float @_Z7readF32PKh(ptr noundef %data) local_unnamed_addr #12 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp6 = alloca %"class.std::allocator", align 1
@@ -3845,9 +3839,9 @@ sw.bb3:                                           ; preds = %tailrecurse
   br label %tailrecurse
 
 sw.epilog:                                        ; preds = %tailrecurse
-  %exception = tail call ptr @__cxa_allocate_exception(i64 40) #26
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #26
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp6) #26
+  %exception = tail call ptr @__cxa_allocate_exception(i64 40) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp6)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6)
           to label %invoke.cont unwind label %cleanup.action
 
@@ -3872,20 +3866,20 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %ehcleanup.thread
 
 if.then.i.i:                                      ; preds = %lpad7
-  call void @_ZdlPv(ptr noundef %3) #27
+  call void @_ZdlPv(ptr noundef %3) #26
   br label %ehcleanup.thread
 
 ehcleanup.thread:                                 ; preds = %if.then.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp6) #26
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
   br label %cleanup.done
 
 cleanup.action:                                   ; preds = %sw.epilog
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp6) #26
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #26
-  call void @__cxa_free_exception(ptr %exception) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
+  call void @__cxa_free_exception(ptr %exception) #27
   br label %cleanup.done
 
 cleanup.done:                                     ; preds = %cleanup.action, %ehcleanup.thread
@@ -3903,41 +3897,47 @@ unreachable:                                      ; preds = %invoke.cont
 declare noundef float @_Z12u32Tof32Slowj(i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.pow.f32(float, float) #8
+declare float @llvm.pow.f32(float, float) #7
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #8
+declare double @llvm.fmuladd.f64(double, double, double) #7
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_particles.cpp() #22 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_particles.cpp() #21 section ".text.startup" {
 entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #26
+  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #27
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #23
+declare void @llvm.assume(i1 noundef) #22
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.bswap.i32(i32) #8
+declare i32 @llvm.bswap.i32(i32) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.bswap.i16(i16) #8
+declare i16 @llvm.bswap.i16(i16) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #24
+declare void @llvm.experimental.noalias.scope.decl(metadata) #23
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x double> @llvm.fmuladd.v2f64(<2 x double>, <2 x double>, <2 x double>) #8
+declare <2 x double> @llvm.fmuladd.v2f64(<2 x double>, <2 x double>, <2 x double>) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x float> @llvm.pow.v2f32(<2 x float>, <2 x float>) #8
+declare <2 x float> @llvm.pow.v2f32(<2 x float>, <2 x float>) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x float> @llvm.fmuladd.v2f32(<2 x float>, <2 x float>, <2 x float>) #8
+declare <2 x float> @llvm.fmuladd.v2f32(<2 x float>, <2 x float>, <2 x float>) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #24
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fabs.f32(float) #25
@@ -3947,29 +3947,29 @@ attributes #1 = { nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="
 attributes #2 = { nofree nounwind }
 attributes #3 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress uwtable "min-legal-vector-width"="64" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { mustprogress uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="64" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="64" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { cold noreturn }
-attributes #15 = { noreturn "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { noreturn nounwind uwtable "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { cold nofree noreturn }
-attributes #19 = { nobuiltin nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #22 = { uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #23 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #24 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { mustprogress uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="64" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="64" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { cold noreturn }
+attributes #14 = { noreturn "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { noreturn nounwind uwtable "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { cold nofree noreturn }
+attributes #18 = { nobuiltin nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #21 = { uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #22 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #23 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #24 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #25 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #26 = { nounwind }
-attributes #27 = { builtin nounwind }
+attributes #26 = { builtin nounwind }
+attributes #27 = { nounwind }
 attributes #28 = { noreturn }
 attributes #29 = { noreturn nounwind }
 

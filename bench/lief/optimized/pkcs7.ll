@@ -32,14 +32,14 @@ define hidden i32 @mbedtls_pkcs7_parse_der(ptr noundef %0, ptr noundef readonly 
   %9 = alloca %struct.mbedtls_asn1_buf, align 8
   %10 = alloca ptr, align 8
   %11 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i64 0, ptr %11, align 8, !tbaa !3
   %12 = icmp eq ptr %0, null
   br i1 %12, label %.thread69, label %13
 
 13:                                               ; preds = %3
-  %14 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %2) #10
+  %14 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %2) #9
   store ptr %14, ptr %10, align 8, !tbaa !7
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %14, ptr %15, align 8, !tbaa !10
@@ -51,7 +51,7 @@ define hidden i32 @mbedtls_pkcs7_parse_der(ptr noundef %0, ptr noundef readonly 
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %18, align 8, !tbaa !31
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 %2
-  %20 = call i32 @mbedtls_asn1_get_tag(ptr noundef nonnull %10, ptr noundef nonnull %19, ptr noundef nonnull %11, i32 noundef 48) #9
+  %20 = call i32 @mbedtls_asn1_get_tag(ptr noundef nonnull %10, ptr noundef nonnull %19, ptr noundef nonnull %11, i32 noundef 48) #10
   %.not = icmp eq i32 %20, 0
   br i1 %.not, label %23, label %21
 
@@ -69,7 +69,7 @@ define hidden i32 @mbedtls_pkcs7_parse_der(ptr noundef %0, ptr noundef readonly 
   br i1 %.not36, label %29, label %.thread66
 
 29:                                               ; preds = %23
-  %30 = call i32 @mbedtls_asn1_get_tag(ptr noundef nonnull %10, ptr noundef nonnull %19, ptr noundef nonnull %11, i32 noundef 6) #9
+  %30 = call i32 @mbedtls_asn1_get_tag(ptr noundef nonnull %10, ptr noundef nonnull %19, ptr noundef nonnull %11, i32 noundef 6) #10
   switch i32 %30, label %110 [
     i32 0, label %33
     i32 -98, label %31
@@ -138,15 +138,15 @@ define hidden i32 @mbedtls_pkcs7_parse_der(ptr noundef %0, ptr noundef readonly 
   %51 = phi i64 [ %48, %46 ], [ %2, %31 ]
   %52 = phi ptr [ %47, %46 ], [ %32, %31 ]
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %52, ptr %5, align 8, !tbaa !7
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 %51
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 0, ptr %7, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #9
-  %55 = call i32 @mbedtls_asn1_get_tag(ptr noundef nonnull %5, ptr noundef %54, ptr noundef nonnull %7, i32 noundef 48) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  %55 = call i32 @mbedtls_asn1_get_tag(ptr noundef nonnull %5, ptr noundef %54, ptr noundef nonnull %7, i32 noundef 48) #10
   %.not.i = icmp eq i32 %55, 0
   br i1 %.not.i, label %58, label %56
 
@@ -162,7 +162,7 @@ define hidden i32 @mbedtls_pkcs7_parse_der(ptr noundef %0, ptr noundef readonly 
   br i1 %.not52.i, label %62, label %pkcs7_get_signed_data.exit.thread
 
 62:                                               ; preds = %58
-  %63 = call i32 @mbedtls_asn1_get_int(ptr noundef nonnull %5, ptr noundef %54, ptr noundef nonnull %53) #9
+  %63 = call i32 @mbedtls_asn1_get_int(ptr noundef nonnull %5, ptr noundef %54, ptr noundef nonnull %53) #10
   %.not.i.i = icmp eq i32 %63, 0
   %64 = add nsw i32 %63, -21504
   %spec.select9.i.i = select i1 %.not.i.i, i32 0, i32 %64
@@ -174,9 +174,9 @@ define hidden i32 @mbedtls_pkcs7_parse_der(ptr noundef %0, ptr noundef readonly 
 
 66:                                               ; preds = %62
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8, !tbaa !3
-  %68 = call i32 @mbedtls_asn1_get_tag(ptr noundef nonnull %5, ptr noundef %54, ptr noundef nonnull %4, i32 noundef 49) #9
+  %68 = call i32 @mbedtls_asn1_get_tag(ptr noundef nonnull %5, ptr noundef %54, ptr noundef nonnull %4, i32 noundef 49) #10
   %.not.i63.i = icmp eq i32 %68, 0
   br i1 %.not.i63.i, label %69, label %pkcs7_get_digest_algorithm_set.exit.i
 
@@ -184,30 +184,30 @@ define hidden i32 @mbedtls_pkcs7_parse_der(ptr noundef %0, ptr noundef readonly 
   %70 = load ptr, ptr %5, align 8, !tbaa !7
   %71 = load i64, ptr %4, align 8, !tbaa !3
   %72 = getelementptr inbounds nuw i8, ptr %70, i64 %71
-  %73 = call i32 @mbedtls_asn1_get_alg_null(ptr noundef nonnull %5, ptr noundef %72, ptr noundef nonnull %67) #9
+  %73 = call i32 @mbedtls_asn1_get_alg_null(ptr noundef nonnull %5, ptr noundef %72, ptr noundef nonnull %67) #10
   %.not14.i.i = icmp eq i32 %73, 0
   br i1 %.not14.i.i, label %74, label %pkcs7_get_digest_algorithm_set.exit.i
 
 74:                                               ; preds = %69
   %75 = load ptr, ptr %5, align 8, !tbaa !7
   %.not15.i.i = icmp eq ptr %75, %72
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.not15.i.i, label %pkcs7_get_digest_algorithm_set.exit.thread.i, label %pkcs7_get_signed_data.exit.thread
 
 pkcs7_get_digest_algorithm_set.exit.i:            ; preds = %69, %66
   %.0.i.in.i = phi i32 [ %68, %66 ], [ %73, %69 ]
   %.0.i.i = add nsw i32 %.0.i.in.i, -21760
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not54.i = icmp eq i32 %.0.i.i, 0
   br i1 %.not54.i, label %pkcs7_get_digest_algorithm_set.exit.thread.i, label %pkcs7_get_signed_data.exit
 
 pkcs7_get_digest_algorithm_set.exit.thread.i:     ; preds = %pkcs7_get_digest_algorithm_set.exit.i, %74
-  %76 = call i32 @mbedtls_oid_get_md_alg(ptr noundef nonnull %67, ptr noundef nonnull %8) #9
+  %76 = call i32 @mbedtls_oid_get_md_alg(ptr noundef nonnull %67, ptr noundef nonnull %8) #10
   %.not55.i = icmp eq i32 %76, 0
   br i1 %.not55.i, label %77, label %pkcs7_get_signed_data.exit.thread
 
 77:                                               ; preds = %pkcs7_get_digest_algorithm_set.exit.thread.i
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
   %78 = call fastcc i32 @pkcs7_get_content_info_type(ptr noundef %5, ptr noundef %54, ptr noundef %6, ptr noundef %9)
   %.not56.i = icmp eq i32 %78, 0
@@ -233,7 +233,7 @@ pkcs7_get_digest_algorithm_set.exit.thread.i:     ; preds = %pkcs7_get_digest_al
   br i1 %.not59.i, label %96, label %88
 
 88:                                               ; preds = %85
-  %89 = call i32 @mbedtls_asn1_get_tag(ptr noundef nonnull %5, ptr noundef %87, ptr noundef nonnull %7, i32 noundef 160) #9
+  %89 = call i32 @mbedtls_asn1_get_tag(ptr noundef nonnull %5, ptr noundef %87, ptr noundef nonnull %7, i32 noundef 160) #10
   %.not61.i = icmp eq i32 %89, 0
   br i1 %.not61.i, label %92, label %90
 
@@ -251,7 +251,7 @@ pkcs7_get_digest_algorithm_set.exit.thread.i:     ; preds = %pkcs7_get_digest_al
 
 96:                                               ; preds = %85
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  call void @mbedtls_x509_crt_init(ptr noundef nonnull %97) #9
+  call void @mbedtls_x509_crt_init(ptr noundef nonnull %97) #10
   %98 = call fastcc i32 @pkcs7_get_certificates(ptr noundef %5, ptr noundef %54, ptr noundef %97)
   %99 = icmp slt i32 %98, 0
   br i1 %99, label %109, label %100
@@ -276,24 +276,24 @@ pkcs7_get_digest_algorithm_set.exit.thread.i:     ; preds = %pkcs7_get_digest_al
 
 109:                                              ; preds = %106, %100, %96, %92, %90, %82, %79, %77
   %.1.i = phi i32 [ %91, %90 ], [ %78, %77 ], [ -21632, %82 ], [ -21632, %79 ], [ %98, %96 ], [ %104, %100 ], [ %..i, %106 ], [ %spec.select.i, %92 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %pkcs7_get_signed_data.exit
 
 pkcs7_get_signed_data.exit.thread:                ; preds = %pkcs7_get_digest_algorithm_set.exit.thread.i, %58, %74
   %.0.i.ph = phi i32 [ -21376, %74 ], [ -21350, %58 ], [ -21760, %pkcs7_get_digest_algorithm_set.exit.thread.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread66
 
 pkcs7_get_signed_data.exit:                       ; preds = %56, %62, %pkcs7_get_digest_algorithm_set.exit.i, %109
   %.0.i = phi i32 [ %57, %56 ], [ %.1.i, %109 ], [ %spec.select.i.i, %62 ], [ %.0.i.i, %pkcs7_get_digest_algorithm_set.exit.i ]
   %.0.i.fr = freeze i32 %.0.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not58 = icmp eq i32 %.0.i.fr, 0
   br i1 %.not58, label %.thread69, label %110
 
@@ -309,25 +309,22 @@ pkcs7_get_signed_data.exit:                       ; preds = %56, %62, %pkcs7_get
 
 .thread69:                                        ; preds = %pkcs7_get_signed_data.exit, %110, %.thread66, %3
   %.025 = phi i32 [ -22272, %3 ], [ %.068, %.thread66 ], [ %.0, %110 ], [ 2, %pkcs7_get_signed_data.exit ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.025
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #4
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
-declare i32 @mbedtls_asn1_get_tag(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #6
+declare i32 @mbedtls_asn1_get_tag(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -2147483648, 2147462016) i32 @pkcs7_get_next_content_len(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2) unnamed_addr #2 {
-  %4 = tail call i32 @mbedtls_asn1_get_tag(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef 160) #9
+  %4 = tail call i32 @mbedtls_asn1_get_tag(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef 160) #10
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %7, label %5
 
@@ -362,11 +359,11 @@ define hidden void @mbedtls_pkcs7_free(ptr noundef %0) local_unnamed_addr #2 {
   br i1 %6, label %22, label %7
 
 7:                                                ; preds = %3
-  tail call void @free(ptr noundef nonnull %5) #9
+  tail call void @free(ptr noundef nonnull %5) #10
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  tail call void @mbedtls_x509_crt_free(ptr noundef nonnull %8) #9
+  tail call void @mbedtls_x509_crt_free(ptr noundef nonnull %8) #10
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 816
-  tail call void @mbedtls_x509_crl_free(ptr noundef nonnull %9) #9
+  tail call void @mbedtls_x509_crl_free(ptr noundef nonnull %9) #10
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1432
   %11 = load ptr, ptr %10, align 8, !tbaa !38
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 1320
@@ -378,7 +375,7 @@ define hidden void @mbedtls_pkcs7_free(ptr noundef %0) local_unnamed_addr #2 {
   %.09.i = phi ptr [ %15, %.lr.ph.i ], [ %13, %7 ]
   %14 = getelementptr inbounds nuw i8, ptr %.09.i, i64 48
   %15 = load ptr, ptr %14, align 8, !tbaa !40
-  tail call void @free(ptr noundef nonnull %.09.i) #9
+  tail call void @free(ptr noundef nonnull %.09.i) #10
   %.not.i = icmp eq ptr %15, null
   br i1 %.not.i, label %pkcs7_free_signer_info.exit, label %.lr.ph.i, !llvm.loop !41
 
@@ -400,12 +397,12 @@ pkcs7_free_signer_info.exit:                      ; preds = %.lr.ph.i, %7
   %.09.i17 = phi ptr [ %21, %.lr.ph.i16 ], [ %19, %.lr.ph ]
   %20 = getelementptr inbounds nuw i8, ptr %.09.i17, i64 48
   %21 = load ptr, ptr %20, align 8, !tbaa !40
-  tail call void @free(ptr noundef nonnull %.09.i17) #9
+  tail call void @free(ptr noundef nonnull %.09.i17) #10
   %.not.i18 = icmp eq ptr %21, null
   br i1 %.not.i18, label %pkcs7_free_signer_info.exit19, label %.lr.ph.i16, !llvm.loop !41
 
 pkcs7_free_signer_info.exit19:                    ; preds = %.lr.ph.i16, %.lr.ph
-  tail call void @free(ptr noundef nonnull %.021) #9
+  tail call void @free(ptr noundef nonnull %.021) #10
   %.not = icmp eq ptr %17, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !44
 
@@ -416,9 +413,6 @@ pkcs7_free_signer_info.exit19:                    ; preds = %.lr.ph.i16, %.lr.ph
 22:                                               ; preds = %1, %3, %._crit_edge
   ret void
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_pkcs7_signed_data_verify(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #2 {
@@ -438,10 +432,10 @@ define hidden i32 @mbedtls_pkcs7_signed_data_verify(ptr noundef %0, ptr noundef 
 define internal fastcc i32 @mbedtls_pkcs7_data_or_hash_verify(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i64 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #2 {
   %6 = alloca %struct.mbedtls_pk_context, align 8
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 360
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false), !tbaa.struct !45
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 1232
   %10 = load i32, ptr %9, align 8, !tbaa !48
   %11 = icmp eq i32 %10, 0
@@ -449,32 +443,32 @@ define internal fastcc i32 @mbedtls_pkcs7_data_or_hash_verify(ptr noundef %0, pt
 
 12:                                               ; preds = %5
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 312
-  %14 = tail call i32 @mbedtls_x509_time_is_past(ptr noundef nonnull %13) #9
+  %14 = tail call i32 @mbedtls_x509_time_is_past(ptr noundef nonnull %13) #10
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %15, label %52
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 288
-  %17 = tail call i32 @mbedtls_x509_time_is_future(ptr noundef nonnull %16) #9
+  %17 = tail call i32 @mbedtls_x509_time_is_future(ptr noundef nonnull %16) #10
   %.not41 = icmp eq i32 %17, 0
   br i1 %.not41, label %18, label %52
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %20 = call i32 @mbedtls_oid_get_md_alg(ptr noundef nonnull %19, ptr noundef nonnull %7) #9
+  %20 = call i32 @mbedtls_oid_get_md_alg(ptr noundef nonnull %19, ptr noundef nonnull %7) #10
   %.not42 = icmp eq i32 %20, 0
   br i1 %.not42, label %21, label %52
 
 21:                                               ; preds = %18
   %22 = load i32, ptr %7, align 4, !tbaa !32
-  %23 = call ptr @mbedtls_md_info_from_type(i32 noundef %22) #9
+  %23 = call ptr @mbedtls_md_info_from_type(i32 noundef %22) #10
   %24 = icmp eq ptr %23, null
   br i1 %24, label %52, label %25
 
 25:                                               ; preds = %21
-  %26 = call zeroext i8 @mbedtls_md_get_size(ptr noundef nonnull %23) #9
+  %26 = call zeroext i8 @mbedtls_md_get_size(ptr noundef nonnull %23) #10
   %27 = zext i8 %26 to i64
-  %28 = call noalias ptr @calloc(i64 noundef %27, i64 noundef 1) #10
+  %28 = call noalias ptr @calloc(i64 noundef %27, i64 noundef 1) #9
   %29 = icmp eq ptr %28, null
   br i1 %29, label %52, label %30
 
@@ -483,7 +477,7 @@ define internal fastcc i32 @mbedtls_pkcs7_data_or_hash_verify(ptr noundef %0, pt
   br i1 %.not43, label %34, label %31
 
 31:                                               ; preds = %30
-  %32 = call zeroext i8 @mbedtls_md_get_size(ptr noundef nonnull %23) #9
+  %32 = call zeroext i8 @mbedtls_md_get_size(ptr noundef nonnull %23) #10
   %33 = zext i8 %32 to i64
   %.not44 = icmp eq i64 %3, %33
   br i1 %.not44, label %.critedge, label %.sink.split
@@ -493,7 +487,7 @@ define internal fastcc i32 @mbedtls_pkcs7_data_or_hash_verify(ptr noundef %0, pt
   br label %37
 
 34:                                               ; preds = %30
-  %35 = call i32 @mbedtls_md(ptr noundef nonnull %23, ptr noundef nonnull %2, i64 noundef %3, ptr noundef nonnull %28) #9
+  %35 = call i32 @mbedtls_md(ptr noundef nonnull %23, ptr noundef nonnull %2, i64 noundef %3, ptr noundef nonnull %28) #10
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %37, label %.sink.split
 
@@ -504,13 +498,13 @@ define internal fastcc i32 @mbedtls_pkcs7_data_or_hash_verify(ptr noundef %0, pt
 39:                                               ; preds = %37, %49
   %.049 = phi ptr [ %38, %37 ], [ %51, %49 ]
   %40 = load i32, ptr %7, align 4, !tbaa !32
-  %41 = call zeroext i8 @mbedtls_md_get_size(ptr noundef nonnull %23) #9
+  %41 = call zeroext i8 @mbedtls_md_get_size(ptr noundef nonnull %23) #10
   %42 = zext i8 %41 to i64
   %43 = getelementptr inbounds nuw i8, ptr %.049, i64 184
   %44 = load ptr, ptr %43, align 8, !tbaa !49
   %45 = getelementptr inbounds nuw i8, ptr %.049, i64 176
   %46 = load i64, ptr %45, align 8, !tbaa !50
-  %47 = call i32 @mbedtls_pk_verify(ptr noundef nonnull %6, i32 noundef %40, ptr noundef nonnull %28, i64 noundef %42, ptr noundef %44, i64 noundef %46) #9
+  %47 = call i32 @mbedtls_pk_verify(ptr noundef nonnull %6, i32 noundef %40, ptr noundef nonnull %28, i64 noundef %42, ptr noundef %44, i64 noundef %46) #10
   %48 = icmp eq i32 %47, 0
   br i1 %48, label %.sink.split, label %49
 
@@ -522,13 +516,13 @@ define internal fastcc i32 @mbedtls_pkcs7_data_or_hash_verify(ptr noundef %0, pt
 
 .sink.split:                                      ; preds = %49, %39, %34, %31
   %.032.ph = phi i32 [ -22528, %31 ], [ -22528, %34 ], [ %47, %39 ], [ %47, %49 ]
-  call void @free(ptr noundef %28) #9
+  call void @free(ptr noundef %28) #10
   br label %52
 
 52:                                               ; preds = %.sink.split, %25, %21, %18, %12, %15, %5
   %.032 = phi i32 [ -21888, %5 ], [ -22656, %15 ], [ -22656, %12 ], [ %20, %18 ], [ -22528, %21 ], [ -22400, %25 ], [ %.032.ph, %.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.032
 }
 
@@ -547,21 +541,21 @@ define hidden i32 @mbedtls_pkcs7_signed_hash_verify(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
-declare void @mbedtls_x509_crt_free(ptr noundef) local_unnamed_addr #6
+declare void @mbedtls_x509_crt_free(ptr noundef) local_unnamed_addr #5
 
-declare void @mbedtls_x509_crl_free(ptr noundef) local_unnamed_addr #6
+declare void @mbedtls_x509_crl_free(ptr noundef) local_unnamed_addr #5
 
-declare i32 @mbedtls_oid_get_md_alg(ptr noundef, ptr noundef) local_unnamed_addr #6
+declare i32 @mbedtls_oid_get_md_alg(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -2147483648, 2147462016) i32 @pkcs7_get_content_info_type(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull writeonly captures(none) %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #2 {
   %5 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8, !tbaa !3
   %6 = load ptr, ptr %0, align 8, !tbaa !7
-  %7 = call i32 @mbedtls_asn1_get_tag(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %5, i32 noundef 48) #9
+  %7 = call i32 @mbedtls_asn1_get_tag(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %5, i32 noundef 48) #10
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %10, label %8
 
@@ -575,7 +569,7 @@ define internal fastcc range(i32 -2147483648, 2147462016) i32 @pkcs7_get_content
   %12 = load i64, ptr %5, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 %12
   store ptr %13, ptr %2, align 8, !tbaa !7
-  %14 = call i32 @mbedtls_asn1_get_tag(ptr noundef nonnull %0, ptr noundef %13, ptr noundef nonnull %5, i32 noundef 6) #9
+  %14 = call i32 @mbedtls_asn1_get_tag(ptr noundef nonnull %0, ptr noundef %13, ptr noundef nonnull %5, i32 noundef 6) #10
   %.not23 = icmp eq i32 %14, 0
   br i1 %.not23, label %17, label %15
 
@@ -598,21 +592,21 @@ define internal fastcc range(i32 -2147483648, 2147462016) i32 @pkcs7_get_content
 
 23:                                               ; preds = %17, %15, %8
   %.0 = phi i32 [ %9, %8 ], [ %16, %15 ], [ 0, %17 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
-declare void @mbedtls_x509_crt_init(ptr noundef) local_unnamed_addr #6
+declare void @mbedtls_x509_crt_init(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -2147483648, 2147462400) i32 @pkcs7_get_certificates(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2) unnamed_addr #2 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8, !tbaa !3
-  %6 = call i32 @mbedtls_asn1_get_tag(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %4, i32 noundef 160) #9
+  %6 = call i32 @mbedtls_asn1_get_tag(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %4, i32 noundef 160) #10
   switch i32 %6, label %7 [
     i32 -98, label %25
     i32 0, label %9
@@ -626,7 +620,7 @@ define internal fastcc range(i32 -2147483648, 2147462400) i32 @pkcs7_get_certifi
   %10 = load ptr, ptr %0, align 8, !tbaa !7
   %11 = load i64, ptr %4, align 8, !tbaa !3
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 %11
-  %13 = call i32 @mbedtls_asn1_get_tag(ptr noundef nonnull %0, ptr noundef %12, ptr noundef nonnull %5, i32 noundef 48) #9
+  %13 = call i32 @mbedtls_asn1_get_tag(ptr noundef nonnull %0, ptr noundef %12, ptr noundef nonnull %5, i32 noundef 48) #10
   %.not21 = icmp eq i32 %13, 0
   br i1 %.not21, label %16, label %14
 
@@ -643,7 +637,7 @@ define internal fastcc range(i32 -2147483648, 2147462400) i32 @pkcs7_get_certifi
 
 20:                                               ; preds = %16
   %21 = load i64, ptr %4, align 8, !tbaa !3
-  %22 = call i32 @mbedtls_x509_crt_parse_der(ptr noundef nonnull %2, ptr noundef %10, i64 noundef %21) #9
+  %22 = call i32 @mbedtls_x509_crt_parse_der(ptr noundef nonnull %2, ptr noundef %10, i64 noundef %21) #10
   %23 = icmp slt i32 %22, 0
   br i1 %23, label %25, label %24
 
@@ -653,17 +647,17 @@ define internal fastcc range(i32 -2147483648, 2147462400) i32 @pkcs7_get_certifi
 
 25:                                               ; preds = %20, %16, %3, %24, %14, %7
   %.0 = phi i32 [ %8, %7 ], [ %15, %14 ], [ 1, %24 ], [ 0, %3 ], [ -21376, %16 ], [ -21888, %20 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @pkcs7_get_signers_info_set(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull readonly captures(none) %3) unnamed_addr #2 {
   %5 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8, !tbaa !3
-  %6 = call i32 @mbedtls_asn1_get_tag(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %5, i32 noundef 49) #9
+  %6 = call i32 @mbedtls_asn1_get_tag(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %5, i32 noundef 49) #10
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %9, label %7
 
@@ -691,7 +685,7 @@ define internal fastcc i32 @pkcs7_get_signers_info_set(ptr noundef nonnull %0, p
 .lr.ph:                                           ; preds = %.preheader, %21
   %.03875 = phi ptr [ %17, %21 ], [ %2, %.preheader ]
   %.04174 = phi i32 [ %23, %21 ], [ 1, %.preheader ]
-  %17 = call noalias dereferenceable_or_null(200) ptr @calloc(i64 noundef 1, i64 noundef 200) #10
+  %17 = call noalias dereferenceable_or_null(200) ptr @calloc(i64 noundef 1, i64 noundef 200) #9
   %.not53 = icmp eq ptr %17, null
   br i1 %.not53, label %.loopexit68, label %18
 
@@ -701,7 +695,7 @@ define internal fastcc i32 @pkcs7_get_signers_info_set(ptr noundef nonnull %0, p
   br i1 %.not54, label %21, label %20
 
 20:                                               ; preds = %18
-  call void @free(ptr noundef nonnull %17) #9
+  call void @free(ptr noundef nonnull %17) #10
   br label %.loopexit68
 
 21:                                               ; preds = %18
@@ -723,7 +717,7 @@ define internal fastcc i32 @pkcs7_get_signers_info_set(ptr noundef nonnull %0, p
   %.09.i = phi ptr [ %28, %.lr.ph.i ], [ %26, %.loopexit68 ]
   %27 = getelementptr inbounds nuw i8, ptr %.09.i, i64 48
   %28 = load ptr, ptr %27, align 8, !tbaa !40
-  call void @free(ptr noundef nonnull %.09.i) #9
+  call void @free(ptr noundef nonnull %.09.i) #10
   %.not.i = icmp eq ptr %28, null
   br i1 %.not.i, label %pkcs7_free_signer_info.exit, label %.lr.ph.i, !llvm.loop !41
 
@@ -747,12 +741,12 @@ pkcs7_free_signer_info.exit:                      ; preds = %.lr.ph.i, %.loopexi
   %.09.i59 = phi ptr [ %36, %.lr.ph.i58 ], [ %34, %.lr.ph78 ]
   %35 = getelementptr inbounds nuw i8, ptr %.09.i59, i64 48
   %36 = load ptr, ptr %35, align 8, !tbaa !40
-  call void @free(ptr noundef nonnull %.09.i59) #9
+  call void @free(ptr noundef nonnull %.09.i59) #10
   %.not.i60 = icmp eq ptr %36, null
   br i1 %.not.i60, label %pkcs7_free_signer_info.exit61, label %.lr.ph.i58, !llvm.loop !41
 
 pkcs7_free_signer_info.exit61:                    ; preds = %.lr.ph.i58, %.lr.ph78
-  call void @free(ptr noundef nonnull %.077) #9
+  call void @free(ptr noundef nonnull %.077) #10
   %.not55 = icmp eq ptr %32, null
   br i1 %.not55, label %._crit_edge, label %.lr.ph78, !llvm.loop !53
 
@@ -762,22 +756,22 @@ pkcs7_free_signer_info.exit61:                    ; preds = %.lr.ph.i58, %.lr.ph
 
 .loopexit:                                        ; preds = %21, %.preheader, %._crit_edge, %12, %9, %7
   %.037 = phi i32 [ %8, %7 ], [ 0, %9 ], [ %15, %12 ], [ %.043.ph, %._crit_edge ], [ 1, %.preheader ], [ %23, %21 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.037
 }
 
-declare i32 @mbedtls_asn1_get_int(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
+declare i32 @mbedtls_asn1_get_int(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
-declare i32 @mbedtls_asn1_get_alg_null(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
+declare i32 @mbedtls_asn1_get_alg_null(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
-declare i32 @mbedtls_x509_crt_parse_der(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #6
+declare i32 @mbedtls_x509_crt_parse_der(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -2147483648, 2147461504) i32 @pkcs7_get_signer_info(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull readonly captures(none) %3) unnamed_addr #2 {
   %5 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8, !tbaa !3
-  %6 = call i32 @mbedtls_asn1_get_tag(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %5, i32 noundef 48) #9
+  %6 = call i32 @mbedtls_asn1_get_tag(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %5, i32 noundef 48) #10
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %.thread
 
@@ -785,7 +779,7 @@ define internal fastcc range(i32 -2147483648, 2147461504) i32 @pkcs7_get_signer_
   %8 = load ptr, ptr %0, align 8, !tbaa !7
   %9 = load i64, ptr %5, align 8, !tbaa !3
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 %9
-  %11 = call i32 @mbedtls_asn1_get_int(ptr noundef nonnull %0, ptr noundef %10, ptr noundef nonnull %2) #9
+  %11 = call i32 @mbedtls_asn1_get_int(ptr noundef nonnull %0, ptr noundef %10, ptr noundef nonnull %2) #10
   %.not.i = icmp eq i32 %11, 0
   %12 = load i32, ptr %2, align 4, !tbaa !32
   %.not8.i = icmp eq i32 %12, 1
@@ -795,7 +789,7 @@ define internal fastcc range(i32 -2147483648, 2147461504) i32 @pkcs7_get_signer_
   br i1 %.not71, label %13, label %.thread
 
 13:                                               ; preds = %7
-  %14 = call i32 @mbedtls_asn1_get_tag(ptr noundef nonnull %0, ptr noundef %10, ptr noundef nonnull %5, i32 noundef 48) #9
+  %14 = call i32 @mbedtls_asn1_get_tag(ptr noundef nonnull %0, ptr noundef %10, ptr noundef nonnull %5, i32 noundef 48) #10
   %.not72 = icmp eq i32 %14, 0
   br i1 %.not72, label %15, label %.thread
 
@@ -805,7 +799,7 @@ define internal fastcc range(i32 -2147483648, 2147461504) i32 @pkcs7_get_signer_
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 112
   store ptr %16, ptr %19, align 8, !tbaa !54
-  %20 = call i32 @mbedtls_asn1_get_tag(ptr noundef nonnull %0, ptr noundef %18, ptr noundef nonnull %5, i32 noundef 48) #9
+  %20 = call i32 @mbedtls_asn1_get_tag(ptr noundef nonnull %0, ptr noundef %18, ptr noundef nonnull %5, i32 noundef 48) #10
   %.not73 = icmp eq i32 %20, 0
   br i1 %.not73, label %21, label %.thread
 
@@ -814,7 +808,7 @@ define internal fastcc range(i32 -2147483648, 2147461504) i32 @pkcs7_get_signer_
   %23 = load i64, ptr %5, align 8, !tbaa !3
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %26 = call i32 @mbedtls_x509_get_name(ptr noundef nonnull %0, ptr noundef %24, ptr noundef nonnull %25) #9
+  %26 = call i32 @mbedtls_x509_get_name(ptr noundef nonnull %0, ptr noundef %24, ptr noundef nonnull %25) #10
   %.not74 = icmp eq i32 %26, 0
   br i1 %.not74, label %27, label %.thread
 
@@ -827,7 +821,7 @@ define internal fastcc range(i32 -2147483648, 2147461504) i32 @pkcs7_get_signer_
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 104
   store i64 %32, ptr %33, align 8, !tbaa !55
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %35 = call i32 @mbedtls_x509_get_serial(ptr noundef nonnull %0, ptr noundef %18, ptr noundef nonnull %34) #9
+  %35 = call i32 @mbedtls_x509_get_serial(ptr noundef nonnull %0, ptr noundef %18, ptr noundef nonnull %34) #10
   %.not75 = icmp eq i32 %35, 0
   br i1 %.not75, label %36, label %.thread
 
@@ -838,7 +832,7 @@ define internal fastcc range(i32 -2147483648, 2147461504) i32 @pkcs7_get_signer_
 
 38:                                               ; preds = %36
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 120
-  %40 = call i32 @mbedtls_asn1_get_alg_null(ptr noundef nonnull %0, ptr noundef %10, ptr noundef nonnull %39) #9
+  %40 = call i32 @mbedtls_asn1_get_alg_null(ptr noundef nonnull %0, ptr noundef %10, ptr noundef nonnull %39) #10
   switch i32 %40, label %.thread [
     i32 21760, label %41
     i32 0, label %41
@@ -869,7 +863,7 @@ define internal fastcc range(i32 -2147483648, 2147461504) i32 @pkcs7_get_signer_
 
 54:                                               ; preds = %49
   %55 = getelementptr inbounds nuw i8, ptr %2, i64 144
-  %56 = call i32 @mbedtls_asn1_get_alg_null(ptr noundef nonnull %0, ptr noundef %10, ptr noundef nonnull %55) #9
+  %56 = call i32 @mbedtls_asn1_get_alg_null(ptr noundef nonnull %0, ptr noundef %10, ptr noundef nonnull %55) #10
   switch i32 %56, label %.thread [
     i32 21760, label %57
     i32 0, label %57
@@ -897,7 +891,7 @@ define internal fastcc range(i32 -2147483648, 2147461504) i32 @pkcs7_get_signer_
   %.09.i = phi ptr [ %65, %.lr.ph.i ], [ %63, %.thread ]
   %64 = getelementptr inbounds nuw i8, ptr %.09.i, i64 48
   %65 = load ptr, ptr %64, align 8, !tbaa !40
-  call void @free(ptr noundef nonnull %.09.i) #9
+  call void @free(ptr noundef nonnull %.09.i) #10
   %.not.i89 = icmp eq ptr %65, null
   br i1 %.not.i89, label %pkcs7_free_signer_info.exit, label %.lr.ph.i, !llvm.loop !41
 
@@ -908,20 +902,20 @@ pkcs7_free_signer_info.exit:                      ; preds = %.lr.ph.i, %.thread
 
 67:                                               ; preds = %60, %pkcs7_free_signer_info.exit
   %.1 = phi i32 [ %66, %pkcs7_free_signer_info.exit ], [ 0, %60 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.1
 }
 
-declare i32 @mbedtls_x509_get_name(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
+declare i32 @mbedtls_x509_get_name(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
-declare i32 @mbedtls_x509_get_serial(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
+declare i32 @mbedtls_x509_get_serial(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @pkcs7_get_signature(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull writeonly captures(none) %2) unnamed_addr #2 {
   %4 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8, !tbaa !3
-  %5 = call i32 @mbedtls_asn1_get_tag(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %4, i32 noundef 4) #9
+  %5 = call i32 @mbedtls_asn1_get_tag(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %4, i32 noundef 4) #10
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %12
 
@@ -938,21 +932,27 @@ define internal fastcc i32 @pkcs7_get_signature(ptr noundef nonnull %0, ptr noun
   br label %12
 
 12:                                               ; preds = %3, %6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %5
 }
 
-declare i32 @mbedtls_x509_time_is_past(ptr noundef) local_unnamed_addr #6
+declare i32 @mbedtls_x509_time_is_past(ptr noundef) local_unnamed_addr #5
 
-declare i32 @mbedtls_x509_time_is_future(ptr noundef) local_unnamed_addr #6
+declare i32 @mbedtls_x509_time_is_future(ptr noundef) local_unnamed_addr #5
 
-declare ptr @mbedtls_md_info_from_type(i32 noundef) local_unnamed_addr #6
+declare ptr @mbedtls_md_info_from_type(i32 noundef) local_unnamed_addr #5
 
-declare zeroext i8 @mbedtls_md_get_size(ptr noundef) local_unnamed_addr #6
+declare zeroext i8 @mbedtls_md_get_size(ptr noundef) local_unnamed_addr #5
 
-declare i32 @mbedtls_md(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #6
+declare i32 @mbedtls_md(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #5
 
-declare i32 @mbedtls_pk_verify(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #6
+declare i32 @mbedtls_pk_verify(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #8
@@ -960,14 +960,14 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #9 = { nounwind }
-attributes #10 = { nounwind allocsize(0,1) }
+attributes #9 = { nounwind allocsize(0,1) }
+attributes #10 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

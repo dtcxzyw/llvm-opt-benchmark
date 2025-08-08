@@ -640,8 +640,8 @@ define hidden void @_ZN15ZStackWatermark21start_processing_implEPv(ptr noundef n
 
 _ZN15ZStackWatermark18save_old_watermarkEv.exit:  ; preds = %2, %.loopexit.i
   %35 = phi i64 [ %8, %2 ], [ %.pre7, %.loopexit.i ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV32ZStackWatermarkProcessOopClosure, i64 16), ptr %3, align 8
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %37 = icmp eq ptr %1, null
@@ -674,8 +674,8 @@ _ZN15ZStackWatermark18save_old_watermarkEv.exit:  ; preds = %2, %.loopexit.i
 
 _ZN15ZStackWatermark12process_headEPv.exit:       ; preds = %_ZN15ZStackWatermark18save_old_watermarkEv.exit, %51
   %52 = phi ptr [ %48, %_ZN15ZStackWatermark18save_old_watermarkEv.exit ], [ %.pre8, %51 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %53 = load i64, ptr @ZPointerLoadBadMask, align 8
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 48
   store i64 %53, ptr %54, align 8
@@ -1157,10 +1157,10 @@ declare void @_Z8FreeHeapPv(ptr noundef) local_unnamed_addr #4
 declare noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11

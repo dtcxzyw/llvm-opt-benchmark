@@ -165,7 +165,7 @@ if.end34:                                         ; preds = %if.end26
   %15 = icmp eq ptr %call.i, null
   %sub.ptr.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 -16
   %16 = select i1 %15, ptr null, ptr %sub.ptr.i.i.i
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %scopeDesc_.i.i = getelementptr inbounds nuw i8, ptr %16, i64 72
   %17 = load ptr, ptr %scopeDesc_.i.i, align 8
   %Size.i.i = getelementptr inbounds nuw i8, ptr %17, i64 160
@@ -274,15 +274,15 @@ cleanup.i:                                        ; preds = %for.inc43.i, %sw.bb
 
 if.then.i.i.i:                                    ; preds = %cleanup.i
   call void @free(ptr noundef %34) #11
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   br i1 %cmp23.not25.i, label %do.end, label %for.inc
 
 _ZN6hermesL12canBeInlinedEPNS_8FunctionES1_.exit.thread: ; preds = %for.body.i, %if.end34, %for.end.i
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   br label %for.inc
 
 _ZN6hermesL12canBeInlinedEPNS_8FunctionES1_.exit: ; preds = %cleanup.i
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   br i1 %cmp23.not25.i, label %do.end, label %for.inc
 
 do.end:                                           ; preds = %if.then.i.i.i, %_ZN6hermesL12canBeInlinedEPNS_8FunctionES1_.exit
@@ -307,12 +307,12 @@ while.body:                                       ; preds = %do.end, %while.body
 
 while.end:                                        ; preds = %while.body, %do.end
   call void @_ZN6hermes9IRBuilder22setInsertionPointAfterEPNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(40) %builder, ptr noundef nonnull %12) #11
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %operandMap.i)
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %translatedOperands.i)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %phis.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp22.i)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %order.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp61.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %operandMap.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %translatedOperands.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %phis.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp22.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %order.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp61.i)
   %call.i27 = call noundef ptr @_ZN6hermes9IRBuilder17getInsertionBlockEv(ptr noundef nonnull align 8 dereferenceable(40) %builder) #11
   %Parent.i.i = getelementptr inbounds nuw i8, ptr %call.i27, i64 72
   %38 = load ptr, ptr %Parent.i.i, align 8
@@ -3090,12 +3090,12 @@ if.then.i.i413.i:                                 ; preds = %_ZN4llvh11SmallVect
 _ZN6hermesL14inlineFunctionERNS_9IRBuilderEPNS_8FunctionEPNS_8CallInstEPNS_10BasicBlockE.exit: ; preds = %_ZN4llvh11SmallVectorIPN6hermes7PhiInstELj4EED2Ev.exit.i, %if.then.i.i413.i
   %343 = load ptr, ptr %operandMap.i, align 8
   call void @_ZdlPv(ptr noundef %343) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %operandMap.i)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %translatedOperands.i)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %phis.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp22.i)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %order.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp61.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %operandMap.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %translatedOperands.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %phis.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp22.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %order.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp61.i)
   %add.ptr53 = getelementptr inbounds nuw i8, ptr %12, i64 16
   call void @_ZN6hermes5Value18replaceAllUsesWithEPS0_(ptr noundef nonnull align 8 dereferenceable(40) %add.ptr53, ptr noundef %cond191.i) #11
   call void @_ZN6hermes11Instruction15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(132) %12) #11
@@ -4654,10 +4654,10 @@ declare void @llvm.assume(i1 noundef) #8
 declare i32 @llvm.umax.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

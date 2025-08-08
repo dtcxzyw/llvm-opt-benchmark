@@ -233,12 +233,6 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit: ; preds 
   ret i64 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
-
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN6google8protobuf8internal23SerializeMessageNoTableEPKNS0_11MessageLiteEPNS0_2io17CodedOutputStreamE(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -255,10 +249,10 @@ define hidden void @_ZN6google8protobuf8internal23SerializeMessageNoTableEPKNS0_
 define hidden void @_ZN6google8protobuf8internal23SerializeMessageNoTableEPKNS0_11MessageLiteEPNS1_11ArrayOutputE(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.google::protobuf::io::ArrayOutputStream", align 8
   %4 = alloca %"class.google::protobuf::io::CodedOutputStream", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = load ptr, ptr %1, align 8, !tbaa !22
   call void @_ZN6google8protobuf2io17ArrayOutputStreamC1EPvii(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %5, i32 noundef 2147483647, i32 noundef -1)
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN6google8protobuf2io17CodedOutputStreamC2EPNS1_20ZeroCopyOutputStreamEb(ptr noundef nonnull align 8 dereferenceable(80) %4, ptr noundef nonnull %3, i1 noundef zeroext true)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i8, ptr %6, align 8, !tbaa !24, !range !25, !noundef !26
@@ -287,16 +281,16 @@ define hidden void @_ZN6google8protobuf8internal23SerializeMessageNoTableEPKNS0_
   %23 = getelementptr inbounds i8, ptr %21, i64 %22
   store ptr %23, ptr %1, align 8, !tbaa !22
   call void @_ZN6google8protobuf2io17CodedOutputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %4) #14
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #14
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 24:                                               ; preds = %15, %2
   %25 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6google8protobuf2io17CodedOutputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %4) #14
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #14
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %25
 }
 
@@ -4812,7 +4806,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi21EE9SerializeINS0_2io17CodedOu
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 2008:                                             ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN6google8protobuf8internal10LogMessageC1ENS0_8LogLevelEPKci(ptr noundef nonnull align 8 dereferenceable(56) %5, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 565)
   %2009 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull @.str.2)
           to label %2010 unwind label %2013
@@ -4822,7 +4816,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi21EE9SerializeINS0_2io17CodedOu
           to label %2012 unwind label %2013
 
 2012:                                             ; preds = %2010
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   invoke void @_ZN6google8protobuf8internal11LogFinisheraSERNS1_10LogMessageE(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(56) %2011)
           to label %_ZN6google8protobuf8internal23SerializeNotImplementedEi.exit unwind label %2015
 
@@ -4834,19 +4828,19 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi21EE9SerializeINS0_2io17CodedOu
 2015:                                             ; preds = %2012
   %2016 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %2017
 
 2017:                                             ; preds = %2015, %2013
   %.pn.i = phi { ptr, i32 } [ %2016, %2015 ], [ %2014, %2013 ]
   call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #14
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn.i
 
 _ZN6google8protobuf8internal23SerializeNotImplementedEi.exit: ; preds = %2012
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #14
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 _ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit: ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i806, %_ZN6google8protobuf8internal11SerializeToILi16ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit.i, %_ZN6google8protobuf8internal11SerializeToILi15ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit.i, %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i680, %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit887, %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit853, %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i643, %_ZN6google8protobuf8internal11SerializeToILi8ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit.i, %_ZN6google8protobuf8internal11SerializeToILi7ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit.i, %_ZN6google8protobuf8internal11SerializeToILi6ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit.i, %_ZN6google8protobuf8internal11SerializeToILi2ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit.i, %_ZN6google8protobuf8internal11SerializeToILi1ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit.i, %.preheader912, %.preheader, %1931, %1737, %1590, %1390, %921, %771, %624, %477, %246, %99, %_ZN6google8protobuf8internal19SingularFieldHelperILi1EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit, %_ZN6google8protobuf8internal19SingularFieldHelperILi1EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit424, %137, %_ZN6google8protobuf8internal16OneOfFieldHelperILi1EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit, %_ZN6google8protobuf8internal19SingularFieldHelperILi2EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit, %_ZN6google8protobuf8internal19SingularFieldHelperILi2EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit458, %284, %_ZN6google8protobuf8internal16OneOfFieldHelperILi2EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit, %332, %336, %337, %338, %349, %360, %364, %365, %366, %377, %388, %392, %393, %394, %405, %_ZN6google8protobuf8internal19SingularFieldHelperILi6EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit, %_ZN6google8protobuf8internal19SingularFieldHelperILi6EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit503, %515, %_ZN6google8protobuf8internal16OneOfFieldHelperILi6EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit, %_ZN6google8protobuf8internal19SingularFieldHelperILi7EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit, %_ZN6google8protobuf8internal19SingularFieldHelperILi7EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit548, %662, %_ZN6google8protobuf8internal16OneOfFieldHelperILi7EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit, %_ZN6google8protobuf8internal19SingularFieldHelperILi8EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit, %_ZN6google8protobuf8internal19SingularFieldHelperILi8EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit593, %809, %_ZN6google8protobuf8internal16OneOfFieldHelperILi8EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit, %_ZN6google8protobuf8internal19SingularFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit, %_ZN6google8protobuf8internal19SingularFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit634, %957, %_ZN6google8protobuf8internal16OneOfFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit, %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit, %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit835, %1194, %1205, %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit871, %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit879, %1304, %1315, %_ZN6google8protobuf8internal19SingularFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit662, %_ZN6google8protobuf8internal19SingularFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit671, %1426, %_ZN6google8protobuf8internal16OneOfFieldHelperILi12EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit, %1473, %1477, %1478, %1479, %1490, %1501, %1505, %1506, %1507, %1518, %_ZN6google8protobuf8internal19SingularFieldHelperILi15EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit, %_ZN6google8protobuf8internal19SingularFieldHelperILi15EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit711, %1628, %_ZN6google8protobuf8internal16OneOfFieldHelperILi15EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit, %_ZN6google8protobuf8internal19SingularFieldHelperILi16EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit, %_ZN6google8protobuf8internal19SingularFieldHelperILi16EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit756, %1775, %_ZN6google8protobuf8internal16OneOfFieldHelperILi16EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit, %1823, %1827, %1828, %1829, %1840, %1851, %1855, %1856, %1857, %1868, %_ZN6google8protobuf8internal19SingularFieldHelperILi21EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit, %_ZN6google8protobuf8internal19SingularFieldHelperILi21EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit797, %1967, %_ZN6google8protobuf8internal16OneOfFieldHelperILi21EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit, %2001, %_ZN6google8protobuf8internal23SerializeNotImplementedEi.exit, %1968, %1903, %1869, %1858, %1852, %1841, %1830, %1824, %1813, %1776, %1705, %1666, %1629, %1558, %1519, %1508, %1502, %1491, %1480, %1474, %1463, %1427, %1354, %1316, %1305, %1243, %1206, %1195, %1065, %994, %958, %885, %847, %810, %739, %700, %663, %592, %553, %516, %445, %406, %395, %389, %378, %367, %361, %350, %339, %333, %322, %285, %214, %175, %138, %67, %28
@@ -4874,7 +4868,7 @@ define hidden noundef ptr @_ZN6google8protobuf8internal24SerializeInternalToArra
   %9 = alloca %"class.google::protobuf::io::ArrayOutputStream", align 8
   %10 = alloca %"class.google::protobuf::io::CodedOutputStream", align 8
   %11 = zext i1 %3 to i8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %4, ptr %8, align 8, !tbaa !22
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i8 %11, ptr %12, align 8, !tbaa !24
@@ -4890,7 +4884,7 @@ define hidden noundef ptr @_ZN6google8protobuf8internal24SerializeInternalToArra
 
 ._crit_edge:                                      ; preds = %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit, %5
   %17 = load ptr, ptr %8, align 8, !tbaa !22
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret ptr %17
 
 18:                                               ; preds = %.lr.ph1229, %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
@@ -11904,10 +11898,10 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi21EE9SerializeINS1_11ArrayOutpu
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 3311:                                             ; preds = %18
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %3312 = load ptr, ptr %8, align 8, !tbaa !22
   call void @_ZN6google8protobuf2io17ArrayOutputStreamC1EPvii(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef %3312, i32 noundef 2147483647, i32 noundef -1)
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %10) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   invoke void @_ZN6google8protobuf2io17CodedOutputStreamC2EPNS1_20ZeroCopyOutputStreamEb(ptr noundef nonnull align 8 dereferenceable(80) %10, ptr noundef nonnull %9, i1 noundef zeroext true)
           to label %3313 unwind label %3330
 
@@ -11937,8 +11931,8 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi21EE9SerializeINS1_11ArrayOutpu
   %3329 = getelementptr inbounds i8, ptr %3327, i64 %3328
   store ptr %3329, ptr %8, align 8, !tbaa !22
   call void @_ZN6google8protobuf2io17CodedOutputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %10) #14
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %10) #14
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 3330:                                             ; preds = %3311
@@ -11958,13 +11952,13 @@ common.resume:                                    ; preds = %3344, %3334
 
 3334:                                             ; preds = %3332, %3330
   %.pn = phi { ptr, i32 } [ %3333, %3332 ], [ %3331, %3330 ]
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %10) #14
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %common.resume
 
 3335:                                             ; preds = %18
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN6google8protobuf8internal10LogMessageC1ENS0_8LogLevelEPKci(ptr noundef nonnull align 8 dereferenceable(56) %6, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 565)
   %3336 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull @.str.2)
           to label %3337 unwind label %3340
@@ -11974,7 +11968,7 @@ common.resume:                                    ; preds = %3344, %3334
           to label %3339 unwind label %3340
 
 3339:                                             ; preds = %3337
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   invoke void @_ZN6google8protobuf8internal11LogFinisheraSERNS1_10LogMessageE(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 8 dereferenceable(56) %3338)
           to label %_ZN6google8protobuf8internal23SerializeNotImplementedEi.exit unwind label %3342
 
@@ -11986,19 +11980,19 @@ common.resume:                                    ; preds = %3344, %3334
 3342:                                             ; preds = %3339
   %3343 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %3344
 
 3344:                                             ; preds = %3342, %3340
   %.pn.i = phi { ptr, i32 } [ %3343, %3342 ], [ %3341, %3340 ]
   call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #14
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %common.resume
 
 _ZN6google8protobuf8internal23SerializeNotImplementedEi.exit: ; preds = %3339
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #14
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 _ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit: ; preds = %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i998, %_ZN6google8protobuf8internal11SerializeToILi18ENS1_11ArrayOutputEEEvPKvPT0_.exit.i, %_ZN6google8protobuf8internal11SerializeToILi17ENS1_11ArrayOutputEEEvPKvPT0_.exit.i, %2749, %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i879, %2572, %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i842, %_ZN6google8protobuf8internal11SerializeToILi14ENS1_11ArrayOutputEEEvPKvPT0_.exit.i, %_ZN6google8protobuf8internal11SerializeToILi13ENS1_11ArrayOutputEEEvPKvPT0_.exit.i, %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i735, %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit1062, %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit1036, %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i709, %1447, %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i672, %1270, %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i635, %1093, %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i598, %_ZN6google8protobuf8internal11SerializeToILi5ENS1_11ArrayOutputEEEvPKvPT0_.exit.i, %_ZN6google8protobuf8internal11SerializeToILi4ENS1_11ArrayOutputEEEvPKvPT0_.exit.i, %_ZN6google8protobuf8internal11SerializeToILi3ENS1_11ArrayOutputEEEvPKvPT0_.exit.i, %351, %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i455, %174, %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i, %.preheader1095, %.preheader, %3245, %3085, %2886, %_ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit.i890, %2703, %2671, %_ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit.i853, %2526, %2494, %2337, %2148, %1988, %1557, %_ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit.i683, %1401, %1369, %_ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit.i646, %1224, %1192, %_ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit.i609, %1047, %1015, %858, %669, %482, %_ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit.i466, %305, %273, %_ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit.i, %128, %96, %_ZN6google8protobuf8internal19SingularFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit, %_ZN6google8protobuf8internal19SingularFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit425, %_ZN6google8protobuf8internal16OneOfFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit, %_ZN6google8protobuf8internal19SingularFieldHelperILi2EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit, %_ZN6google8protobuf8internal19SingularFieldHelperILi2EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit448, %_ZN6google8protobuf8internal16OneOfFieldHelperILi2EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit, %_ZN6google8protobuf8internal19SingularFieldHelperILi3EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit, %_ZN6google8protobuf8internal19SingularFieldHelperILi3EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit489, %530, %_ZN6google8protobuf8internal16OneOfFieldHelperILi3EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit, %_ZN6google8protobuf8internal19SingularFieldHelperILi4EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit, %_ZN6google8protobuf8internal19SingularFieldHelperILi4EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit529, %717, %_ZN6google8protobuf8internal16OneOfFieldHelperILi4EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit, %_ZN6google8protobuf8internal19SingularFieldHelperILi5EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit, %_ZN6google8protobuf8internal19SingularFieldHelperILi5EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit566, %907, %_ZN6google8protobuf8internal16OneOfFieldHelperILi5EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit, %_ZN6google8protobuf8internal19SingularFieldHelperILi6EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit, %_ZN6google8protobuf8internal19SingularFieldHelperILi6EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit591, %_ZN6google8protobuf8internal16OneOfFieldHelperILi6EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit, %_ZN6google8protobuf8internal19SingularFieldHelperILi7EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit, %_ZN6google8protobuf8internal19SingularFieldHelperILi7EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit628, %_ZN6google8protobuf8internal16OneOfFieldHelperILi7EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit, %_ZN6google8protobuf8internal19SingularFieldHelperILi8EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit, %_ZN6google8protobuf8internal19SingularFieldHelperILi8EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit665, %_ZN6google8protobuf8internal16OneOfFieldHelperILi8EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit, %_ZN6google8protobuf8internal19SingularFieldHelperILi9EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit, %_ZN6google8protobuf8internal19SingularFieldHelperILi9EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit702, %1591, %_ZN6google8protobuf8internal16OneOfFieldHelperILi9EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit, %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit, %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit1022, %1805, %1816, %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit1050, %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit1056, %1906, %1917, %_ZN6google8protobuf8internal19SingularFieldHelperILi9EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit722, %_ZN6google8protobuf8internal19SingularFieldHelperILi9EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit728, %2022, %_ZN6google8protobuf8internal16OneOfFieldHelperILi12EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit, %_ZN6google8protobuf8internal19SingularFieldHelperILi13EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit, %_ZN6google8protobuf8internal19SingularFieldHelperILi13EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit761, %2196, %_ZN6google8protobuf8internal16OneOfFieldHelperILi13EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit, %_ZN6google8protobuf8internal19SingularFieldHelperILi14EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit, %_ZN6google8protobuf8internal19SingularFieldHelperILi14EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit802, %2386, %_ZN6google8protobuf8internal16OneOfFieldHelperILi14EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit, %_ZN6google8protobuf8internal19SingularFieldHelperILi15EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit, %_ZN6google8protobuf8internal19SingularFieldHelperILi15EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit835, %_ZN6google8protobuf8internal16OneOfFieldHelperILi15EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit, %_ZN6google8protobuf8internal19SingularFieldHelperILi16EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit, %_ZN6google8protobuf8internal19SingularFieldHelperILi16EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit872, %_ZN6google8protobuf8internal16OneOfFieldHelperILi16EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit, %_ZN6google8protobuf8internal19SingularFieldHelperILi17EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit, %_ZN6google8protobuf8internal19SingularFieldHelperILi17EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit917, %2937, %_ZN6google8protobuf8internal16OneOfFieldHelperILi17EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit, %_ZN6google8protobuf8internal19SingularFieldHelperILi18EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit, %_ZN6google8protobuf8internal19SingularFieldHelperILi18EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit958, %3136, %_ZN6google8protobuf8internal16OneOfFieldHelperILi18EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit, %_ZN6google8protobuf8internal19SingularFieldHelperILi21EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit, %_ZN6google8protobuf8internal19SingularFieldHelperILi21EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit991, %3279, %_ZN6google8protobuf8internal16OneOfFieldHelperILi21EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit, %3324, %_ZN6google8protobuf8internal23SerializeNotImplementedEi.exit, %3280, %3219, %3187, %3137, %3040, %2988, %2938, %2841, %2789, %2758, %2645, %2612, %2581, %2468, %2435, %2387, %2294, %2244, %2197, %2106, %2057, %2023, %1954, %1918, %1907, %1851, %1817, %1806, %1690, %1626, %1592, %1523, %1487, %1456, %1343, %1310, %1279, %1166, %1133, %1102, %989, %956, %908, %815, %765, %718, %627, %578, %531, %440, %391, %360, %247, %214, %183, %70, %37
@@ -12011,7 +12005,7 @@ _ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOut
 define hidden void @_ZN6google8protobuf8internal23SerializeNotImplementedEi(i32 noundef %0) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.google::protobuf::internal::LogMessage", align 8
   %3 = alloca %"class.google::protobuf::internal::LogFinisher", align 1
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZN6google8protobuf8internal10LogMessageC1ENS0_8LogLevelEPKci(ptr noundef nonnull align 8 dereferenceable(56) %2, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 565)
   %4 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.2)
           to label %5 unwind label %9
@@ -12021,14 +12015,14 @@ define hidden void @_ZN6google8protobuf8internal23SerializeNotImplementedEi(i32 
           to label %7 unwind label %9
 
 7:                                                ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   invoke void @_ZN6google8protobuf8internal11LogFinisheraSERNS1_10LogMessageE(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 8 dereferenceable(56) %6)
           to label %8 unwind label %11
 
 8:                                                ; preds = %7
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #14
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 9:                                                ; preds = %5, %1
@@ -12039,13 +12033,13 @@ define hidden void @_ZN6google8protobuf8internal23SerializeNotImplementedEi(i32 
 11:                                               ; preds = %7
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %13
 
 13:                                               ; preds = %11, %9
   %.pn = phi { ptr, i32 } [ %12, %11 ], [ %10, %9 ]
   call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #14
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %.pn
 }
 
@@ -12061,7 +12055,7 @@ declare void @_ZN6google8protobuf8internal11LogFinisheraSERNS1_10LogMessageE(ptr
 declare void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZN6google8protobuf8internal13FieldMetadata13CalculateTypeEiNS2_14FieldTypeClassE(i32 noundef %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
+define hidden noundef i32 @_ZN6google8protobuf8internal13FieldMetadata13CalculateTypeEiNS2_14FieldTypeClassE(i32 noundef %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
   %3 = add nsw i32 %0, -1
   %4 = mul nsw i32 %1, 21
   %5 = add nsw i32 %3, %4
@@ -12069,7 +12063,7 @@ define hidden noundef i32 @_ZN6google8protobuf8internal13FieldMetadata13Calculat
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN6google8protobuf8internal6IsNullILi9EEEbPKv(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 {
+define hidden noundef zeroext i1 @_ZN6google8protobuf8internal6IsNullILi9EEEbPKv(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = load ptr, ptr %0, align 8, !tbaa !70
   %3 = ptrtoint ptr %2 to i64
   %4 = and i64 %3, -2
@@ -12081,7 +12075,7 @@ define hidden noundef zeroext i1 @_ZN6google8protobuf8internal6IsNullILi9EEEbPKv
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN6google8protobuf8internal6IsNullILi12EEEbPKv(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 {
+define hidden noundef zeroext i1 @_ZN6google8protobuf8internal6IsNullILi12EEEbPKv(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = load ptr, ptr %0, align 8, !tbaa !70
   %3 = ptrtoint ptr %2 to i64
   %4 = and i64 %3, -2
@@ -12093,21 +12087,21 @@ define hidden noundef zeroext i1 @_ZN6google8protobuf8internal6IsNullILi12EEEbPK
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZN6google8protobuf8internal6IsNullILi10EEEbPKv(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
+define hidden noundef zeroext i1 @_ZN6google8protobuf8internal6IsNullILi10EEEbPKv(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 {
   %2 = load ptr, ptr %0, align 8, !tbaa !75
   %3 = icmp eq ptr %2, null
   ret i1 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZN6google8protobuf8internal6IsNullILi11EEEbPKv(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
+define hidden noundef zeroext i1 @_ZN6google8protobuf8internal6IsNullILi11EEEbPKv(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 {
   %2 = load ptr, ptr %0, align 8, !tbaa !75
   %3 = icmp eq ptr %2, null
   ret i1 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZN6google8protobuf8internal6IsNullILi21EEEbPKv(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
+define hidden noundef zeroext i1 @_ZN6google8protobuf8internal6IsNullILi21EEEbPKv(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8, !tbaa !13
   %4 = icmp eq i64 %3, 0
@@ -14245,7 +14239,7 @@ _ZN6google8protobuf8internal11SerializeToILi8ENS0_2io17CodedOutputStreamEEEvPKvP
 define linkonce_odr hidden void @_ZN6google8protobuf8internal17PackedFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.google::protobuf::internal::LogMessage", align 8
   %5 = alloca %"class.google::protobuf::internal::LogFinisher", align 1
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN6google8protobuf8internal10LogMessageC1ENS0_8LogLevelEPKci(ptr noundef nonnull align 8 dereferenceable(56) %4, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 528)
   %6 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull @.str.2)
           to label %7 unwind label %19
@@ -14267,14 +14261,14 @@ define linkonce_odr hidden void @_ZN6google8protobuf8internal17PackedFieldHelper
           to label %17 unwind label %19
 
 17:                                               ; preds = %13
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   invoke void @_ZN6google8protobuf8internal11LogFinisheraSERNS1_10LogMessageE(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 8 dereferenceable(56) %16)
           to label %18 unwind label %21
 
 18:                                               ; preds = %17
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #14
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
 19:                                               ; preds = %13, %11, %7, %3
@@ -14285,13 +14279,13 @@ define linkonce_odr hidden void @_ZN6google8protobuf8internal17PackedFieldHelper
 21:                                               ; preds = %17
   %22 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %23
 
 23:                                               ; preds = %21, %19
   %.pn = phi { ptr, i32 } [ %22, %21 ], [ %20, %19 ]
   call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #14
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn
 }
 
@@ -17255,7 +17249,7 @@ _ZN6google8protobuf8internal11SerializeToILi5ENS1_11ArrayOutputEEEvPKvPT0_.exit:
 define linkonce_odr hidden void @_ZN6google8protobuf8internal17PackedFieldHelperILi9EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.google::protobuf::internal::LogMessage", align 8
   %5 = alloca %"class.google::protobuf::internal::LogFinisher", align 1
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN6google8protobuf8internal10LogMessageC1ENS0_8LogLevelEPKci(ptr noundef nonnull align 8 dereferenceable(56) %4, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 528)
   %6 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull @.str.2)
           to label %7 unwind label %19
@@ -17277,14 +17271,14 @@ define linkonce_odr hidden void @_ZN6google8protobuf8internal17PackedFieldHelper
           to label %17 unwind label %19
 
 17:                                               ; preds = %13
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   invoke void @_ZN6google8protobuf8internal11LogFinisheraSERNS1_10LogMessageE(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 8 dereferenceable(56) %16)
           to label %18 unwind label %21
 
 18:                                               ; preds = %17
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #14
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
 19:                                               ; preds = %13, %11, %7, %3
@@ -17295,13 +17289,13 @@ define linkonce_odr hidden void @_ZN6google8protobuf8internal17PackedFieldHelper
 21:                                               ; preds = %17
   %22 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %23
 
 23:                                               ; preds = %21, %19
   %.pn = phi { ptr, i32 } [ %22, %21 ], [ %20, %19 ]
   call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #14
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn
 }
 
@@ -18444,10 +18438,10 @@ declare noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet22_InternalSeria
 declare noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream16WriteRawFallbackEPKviPh(ptr noundef nonnull align 8 dereferenceable(59), ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #11
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #10
 
 declare noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59), ptr noundef) local_unnamed_addr #0
 
@@ -18837,7 +18831,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf8internal19arena_delete_obje
 }
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__I_000102() #12 section ".text.startup" personality ptr @__gxx_personality_v0 {
+define internal void @_GLOBAL__I_000102() #11 section ".text.startup" personality ptr @__gxx_personality_v0 {
   %1 = load atomic i8, ptr @_ZGVZN6google8protobuf8internal24InitProtobufDefaultsSlowEvE9is_inited acquire, align 8
   %2 = icmp eq i8 %1, 0
   br i1 %2, label %3, label %__cxx_global_var_init.1.exit, !prof !14
@@ -18870,11 +18864,17 @@ __cxx_global_var_init.1.exit:                     ; preds = %0, %3, %6
 }
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_generated_message_util.cc() #12 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_generated_message_util.cc() #11 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #14
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #13
@@ -18885,13 +18885,13 @@ attributes #2 = { nofree nounwind }
 attributes #3 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read, inaccessiblemem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #12 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #11 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #13 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #14 = { nounwind }
 attributes #15 = { builtin nounwind }

@@ -656,7 +656,7 @@ _ZNSt6vectorIS_ISt4pairIldESaIS1_EESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i: ; 
           to label %207 unwind label %.loopexit228
 
 207:                                              ; preds = %201
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 %206, ptr %7, align 4, !noalias !10
   %208 = load ptr, ptr %196, align 8, !noalias !10
   %.not.i.i149 = icmp eq ptr %208, null
@@ -675,7 +675,7 @@ _ZNSt6vectorIS_ISt4pairIldESaIS1_EESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i: ; 
           to label %212 unwind label %.loopexit232
 
 212:                                              ; preds = %210
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %213 = getelementptr inbounds nuw %"class.std::vector.24", ptr %202, i64 %indvars.iv290
   %214 = load ptr, ptr %213, align 8
   %215 = getelementptr inbounds nuw i8, ptr %213, i64 8
@@ -1111,7 +1111,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit171:                 ; preds = %.loopexit228, %.loo
           to label %_ZNK10open_spiel5State22InformationStateStringB5cxx11Ev.exit unwind label %101
 
 _ZNK10open_spiel5State22InformationStateStringB5cxx11Ev.exit: ; preds = %.noexc172
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 %359, ptr %6, align 4, !noalias !19
   %368 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %369 = load ptr, ptr %368, align 8, !noalias !19
@@ -1132,7 +1132,7 @@ _ZNK10open_spiel5State22InformationStateStringB5cxx11Ev.exit: ; preds = %.noexc1
           to label %374 unwind label %382
 
 374:                                              ; preds = %371
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %32) #22
   %375 = load ptr, ptr %31, align 8
   %376 = getelementptr inbounds nuw i8, ptr %31, i64 8
@@ -1970,7 +1970,7 @@ _ZNSt6vectorIS_ISt4pairIldESaIS1_EESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i: ; 
 195:                                              ; preds = %.lr.ph239, %194
   %196 = phi ptr [ %186, %.lr.ph239 ], [ %219, %194 ]
   %indvars.iv270 = phi i64 [ 0, %.lr.ph239 ], [ %indvars.iv.next271, %194 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %197 = trunc nuw nsw i64 %indvars.iv270 to i32
   store i32 %197, ptr %7, align 4, !noalias !31
   %198 = load ptr, ptr %190, align 8, !noalias !31
@@ -1990,7 +1990,7 @@ _ZNSt6vectorIS_ISt4pairIldESaIS1_EESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i: ; 
           to label %202 unwind label %.loopexit220
 
 202:                                              ; preds = %200
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %203 = getelementptr inbounds nuw %"class.std::vector.24", ptr %196, i64 %indvars.iv270
   %204 = load ptr, ptr %203, align 8
   %205 = getelementptr inbounds nuw i8, ptr %203, i64 8
@@ -2396,7 +2396,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit165:                 ; preds = %.loopexit220, %.loo
           to label %349 unwind label %95
 
 349:                                              ; preds = %345
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 %348, ptr %6, align 4, !noalias !36
   %350 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %351 = load ptr, ptr %350, align 8, !noalias !36
@@ -2417,7 +2417,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit165:                 ; preds = %.loopexit220, %.loo
           to label %356 unwind label %95
 
 356:                                              ; preds = %353
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %357 = load ptr, ptr %30, align 8
   %358 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %359 = load ptr, ptr %358, align 8
@@ -4853,10 +4853,10 @@ define internal void @_GLOBAL__sub_I_expected_returns.cc() #15 section ".text.st
 declare void @llvm.experimental.noalias.scope.decl(metadata) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #18

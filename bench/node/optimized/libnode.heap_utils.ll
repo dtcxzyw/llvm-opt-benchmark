@@ -891,7 +891,7 @@ if.end:                                           ; preds = %entry
   store ptr %req, ptr %req_.i, align 8
   %status_.i = getelementptr inbounds nuw i8, ptr %stream, i64 24
   store i32 0, ptr %status_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp12, ptr noundef nonnull align 8 dereferenceable(32) %options, i64 32, i1 false)
   %1 = getelementptr i8, ptr %env, i64 88
   %env.val = load ptr, ptr %1, align 8
@@ -899,7 +899,7 @@ if.end:                                           ; preds = %entry
   %call2.i = call noundef ptr @_ZN2v812HeapProfiler16TakeHeapSnapshotERKNS0_19HeapSnapshotOptionsE(ptr noundef nonnull align 1 dereferenceable(1) %call1.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp12) #22
   call void @_ZNK2v812HeapSnapshot9SerializeEPNS_12OutputStreamENS0_19SerializationFormatE(ptr noundef nonnull align 1 dereferenceable(1) %call2.i, ptr noundef nonnull %stream, i32 noundef 0) #22
   call void @_ZN2v812HeapSnapshot6DeleteEv(ptr noundef nonnull align 1 dereferenceable(1) %call2.i) #22
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp12)
   %stream.val = load i32, ptr %status_.i, align 8
   %cmp3 = icmp slt i32 %stream.val, 0
   br i1 %cmp3, label %if.then4, label %if.end7
@@ -2026,10 +2026,10 @@ _ZN4node4heap13JSGraphJSNodeC2EPN2v87IsolateENS2_5LocalINS2_5ValueEEE.exit: ; pr
 
 if.end:                                           ; preds = %_ZN4node4heap13JSGraphJSNodeC2EPN2v87IsolateENS2_5LocalINS2_5ValueEEE.exit
   store ptr %call, ptr %ref.tmp16, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__node_gen.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__node_gen.i.i)
   store ptr %engine_nodes_, ptr %__node_gen.i.i, align 8
   %call3.i.i.i = call { ptr, i8 } @_ZNSt10_HashtableIPN4node4heap13JSGraphJSNodeES3_SaIS3_ENSt8__detail9_IdentityENS2_5EqualENS2_4HashENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_insert_uniqueIS3_S3_NS5_10_AllocNodeISaINS5_10_Hash_nodeIS3_Lb1EEEEEEEESt4pairINS5_14_Node_iteratorIS3_Lb1ELb1EEEbEOT_OT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(56) %engine_nodes_, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp16, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp16, ptr noundef nonnull align 8 dereferenceable(8) %__node_gen.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__node_gen.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__node_gen.i.i)
   store ptr %call, ptr %agg.tmp19, align 8
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 8
@@ -3901,7 +3901,7 @@ entry:
   br i1 %cmp.i.i.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i.i)
   %call.i.i = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #25
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 16), ptr %call.i.i, align 8
   %retainer_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
@@ -3973,7 +3973,7 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit16.i.i: ; preds = %_ZNK4node13Memory
   br label %_ZN4node13MemoryTracker18TrackFieldWithSizeEPKcmS2_.exit
 
 _ZN4node13MemoryTracker18TrackFieldWithSizeEPKcmS2_.exit: ; preds = %_ZNSt10unique_ptrIN2v813EmbedderGraph4NodeESt14default_deleteIS2_EED2Ev.exit.i.i, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i.i, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread.i.i, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit16.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i.i)
   br label %if.end
 
 if.end:                                           ; preds = %_ZN4node13MemoryTracker18TrackFieldWithSizeEPKcmS2_.exit, %entry
@@ -4448,7 +4448,7 @@ _ZN4node4heap12_GLOBAL__N_118HeapSnapshotStreamD0Ev.exit: ; preds = %entry, %if.
 define internal void @_ZThn120_N4node4heap12_GLOBAL__N_118HeapSnapshotStream11EndOfStreamEv(ptr noundef captures(none) %this) unnamed_addr #16 align 2 {
 entry:
   %ref.tmp.i = alloca %struct.uv_buf_t, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %call.i = tail call { ptr, i64 } @uv_buf_init(ptr noundef null, i32 noundef 0) #22
   %0 = extractvalue { ptr, i64 } %call.i, 0
   store ptr %0, ptr %ref.tmp.i, align 8
@@ -4472,7 +4472,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br label %_ZN4node4heap12_GLOBAL__N_118HeapSnapshotStream11EndOfStreamEv.exit
 
 _ZN4node4heap12_GLOBAL__N_118HeapSnapshotStream11EndOfStreamEv.exit: ; preds = %entry, %if.then.i.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   ret void
 }
 
@@ -4486,7 +4486,7 @@ entry:
 define internal noundef i32 @_ZThn120_N4node4heap12_GLOBAL__N_118HeapSnapshotStream15WriteAsciiChunkEPci(ptr noundef captures(none) %this, ptr noundef readonly captures(none) %data, i32 noundef %size) unnamed_addr #16 align 2 {
 entry:
   %buf.i = alloca %struct.uv_buf_t, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %buf.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i)
   %cmp.not12.i = icmp eq i32 %size, 0
   br i1 %cmp.not12.i, label %_ZN4node4heap12_GLOBAL__N_118HeapSnapshotStream15WriteAsciiChunkEPci.exit, label %while.body.lr.ph.i
 
@@ -4554,7 +4554,7 @@ while.body.i:                                     ; preds = %while.body.lr.ph.i,
   br i1 %cmp.not.i, label %_ZN4node4heap12_GLOBAL__N_118HeapSnapshotStream15WriteAsciiChunkEPci.exit, label %while.body.i, !llvm.loop !43
 
 _ZN4node4heap12_GLOBAL__N_118HeapSnapshotStream15WriteAsciiChunkEPci.exit: ; preds = %while.body.i, %while.body.us.i, %entry
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %buf.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i)
   ret i32 0
 }
 
@@ -4653,10 +4653,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #18
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #18
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #19

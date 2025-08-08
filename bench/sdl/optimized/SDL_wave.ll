@@ -103,7 +103,7 @@ define hidden noundef zeroext i1 @SDL_LoadWAV_IO_REAL(ptr noundef %0, i1 noundef
   %9 = alloca i32, align 4
   %10 = alloca i8, align 1
   %11 = alloca %struct.WaveFile, align 8
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %11) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %13, label %12
 
@@ -251,8 +251,8 @@ WaveGetFactChunkHint.exit:                        ; preds = %60, %63, %66, %69, 
   %.0.i34 = phi i32 [ 0, %72 ], [ 1, %60 ], [ 2, %63 ], [ 3, %66 ], [ 4, %69 ]
   %73 = getelementptr inbounds nuw i8, ptr %11, i64 112
   store i32 %.0.i34, ptr %73, align 8
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %.sroa.8.i)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.10.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.10.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.8.i, i8 0, i64 28, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.10.i, i8 0, i64 24, i1 false)
   %74 = tail call ptr @SDL_GetHint_REAL(ptr noundef nonnull @.str.18) #8
@@ -260,12 +260,12 @@ WaveGetFactChunkHint.exit:                        ; preds = %60, %63, %66, %69, 
   br i1 %.not.i35, label %79, label %75
 
 75:                                               ; preds = %WaveGetFactChunkHint.exit
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %76 = call i32 (ptr, ptr, ...) @SDL_sscanf_REAL(ptr noundef nonnull %74, ptr noundef nonnull @.str.19, ptr noundef nonnull %8) #8
   %77 = icmp eq i32 %76, 1
   %78 = load i32, ptr %8, align 4
   %spec.select.i = select i1 %77, i32 %78, i32 10000
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %79
 
 79:                                               ; preds = %75, %WaveGetFactChunkHint.exit
@@ -276,12 +276,12 @@ WaveGetFactChunkHint.exit:                        ; preds = %60, %63, %66, %69, 
 
 82:                                               ; preds = %79
   %83 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.20) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.10.i)
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %.sroa.8.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8.i)
   br i1 %83, label %315, label %313
 
 WaveFreeChunkData.exit.i.i:                       ; preds = %79
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %84 = icmp samesign ugt i64 %80, 9223372036854775799
   br i1 %84, label %89, label %85
 
@@ -296,10 +296,10 @@ WaveFreeChunkData.exit.i.i:                       ; preds = %79
   br i1 %.not20.i.i, label %91, label %89
 
 89:                                               ; preds = %87, %85, %WaveFreeChunkData.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %90 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.10.i)
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %.sroa.8.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8.i)
   br i1 %90, label %315, label %313
 
 91:                                               ; preds = %87
@@ -307,14 +307,14 @@ WaveFreeChunkData.exit.i.i:                       ; preds = %79
   %93 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %94 = load i32, ptr %93, align 4
   %95 = add nuw nsw i64 %80, 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   switch i32 %92, label %102 [
     i32 1179011410, label %96
     i32 1163280727, label %104
   ]
 
 96:                                               ; preds = %91
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %97 = call zeroext i1 @SDL_ReadU32LE_REAL(ptr noundef nonnull %0, ptr noundef nonnull %9) #8
   br i1 %97, label %98, label %.thread.i
 
@@ -326,19 +326,19 @@ WaveFreeChunkData.exit.i.i:                       ; preds = %79
 .thread.i:                                        ; preds = %98, %96
   %.str.23.sink.i = phi ptr [ @.str.22, %96 ], [ @.str.23, %98 ]
   %100 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull %.str.23.sink.i) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.10.i)
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %.sroa.8.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8.i)
   br i1 %100, label %315, label %313
 
 101:                                              ; preds = %98
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %104
 
 102:                                              ; preds = %91
   %103 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.24) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.10.i)
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %.sroa.8.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8.i)
   br i1 %103, label %315, label %313
 
 104:                                              ; preds = %101, %91
@@ -407,12 +407,12 @@ WaveFreeChunkData.exit.i.i:                       ; preds = %79
 
 137:                                              ; preds = %131
   %138 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.25, i32 noundef %.0135.i) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.10.i)
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %.sroa.8.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8.i)
   br i1 %138, label %315, label %313
 
 139:                                              ; preds = %131
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %140 = load ptr, ptr %126, align 8
   %.not.i.i159.i = icmp eq ptr %140, null
   br i1 %.not.i.i159.i, label %WaveFreeChunkData.exit.i163.i, label %141
@@ -450,15 +450,15 @@ WaveFreeChunkData.exit.i163.i:                    ; preds = %141, %139
   br i1 %.not20.i169.i, label %158, label %153
 
 153:                                              ; preds = %151, %147, %WaveFreeChunkData.exit.i163.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %154 = load i32, ptr %58, align 4
   %155 = icmp eq i32 %154, 1
   br i1 %155, label %156, label %.loopexit.i
 
 156:                                              ; preds = %153
   %157 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.26) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.10.i)
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %.sroa.8.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8.i)
   br i1 %157, label %315, label %313
 
 158:                                              ; preds = %151
@@ -468,7 +468,7 @@ WaveFreeChunkData.exit.i163.i:                    ; preds = %141, %139
   store i32 %160, ptr %118, align 4
   %161 = add nsw i64 %spec.select.i166.i, 8
   store i64 %161, ptr %106, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   switch i32 %159, label %185 [
     i32 544501094, label %162
     i32 1635017060, label %169
@@ -485,8 +485,8 @@ WaveFreeChunkData.exit.i163.i:                    ; preds = %141, %139
 
 166:                                              ; preds = %164
   %167 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.28) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.10.i)
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %.sroa.8.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8.i)
   br i1 %167, label %315, label %313
 
 168:                                              ; preds = %164
@@ -550,8 +550,8 @@ WaveFreeChunkData.exit.i163.i:                    ; preds = %141, %139
 
 194:                                              ; preds = %188
   %195 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.29) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.10.i)
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %.sroa.8.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8.i)
   br i1 %195, label %315, label %313
 
 196:                                              ; preds = %185
@@ -604,8 +604,8 @@ WaveFreeChunkData.exit.i163.i:                    ; preds = %141, %139
 
 .loopexit.thread.i:                               ; preds = %.loopexit.i, %117
   %218 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.30) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.10.i)
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %.sroa.8.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8.i)
   br i1 %218, label %315, label %313
 
 219:                                              ; preds = %.loopexit.i
@@ -614,8 +614,8 @@ WaveFreeChunkData.exit.i163.i:                    ; preds = %141, %139
 
 220:                                              ; preds = %219
   %221 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.31) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.10.i)
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %.sroa.8.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8.i)
   br i1 %221, label %315, label %313
 
 222:                                              ; preds = %219
@@ -633,7 +633,7 @@ WaveFreeChunkData.exit.i163.i:                    ; preds = %141, %139
   br i1 %or.cond158.i, label %237, label %229
 
 229:                                              ; preds = %227
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %230 = add i64 %226, -1
   %231 = icmp slt i64 %230, 0
   br i1 %231, label %WaveLoad.exit, label %232
@@ -648,7 +648,7 @@ WaveFreeChunkData.exit.i163.i:                    ; preds = %141, %139
   br i1 %235, label %236, label %WaveLoad.exit
 
 236:                                              ; preds = %234
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %237
 
 237:                                              ; preds = %236, %227, %222, %.thread275.i
@@ -696,14 +696,14 @@ WaveReadPartialChunkData.exit.i:                  ; preds = %245
 
 252:                                              ; preds = %245, %243
   %253 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.33) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.10.i)
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %.sroa.8.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8.i)
   br i1 %253, label %315, label %313
 
 .critedge.i:                                      ; preds = %WaveReadPartialChunkData.exit.i, %WaveFreeChunkData.exit.i172.i
   %254 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.34) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.10.i)
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %.sroa.8.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8.i)
   br i1 %254, label %315, label %313
 
 255:                                              ; preds = %WaveReadPartialChunkData.exit.i
@@ -712,8 +712,8 @@ WaveReadPartialChunkData.exit.i:                  ; preds = %245
 
 257:                                              ; preds = %255
   %258 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.33) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.10.i)
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %.sroa.8.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8.i)
   br i1 %258, label %315, label %313
 
 259:                                              ; preds = %255
@@ -765,8 +765,8 @@ WaveFreeChunkData.exit.i:                         ; preds = %266, %264
 
 276:                                              ; preds = %274
   %277 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.36) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.10.i)
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %.sroa.8.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8.i)
   br i1 %277, label %315, label %313
 
 278:                                              ; preds = %274, %271
@@ -833,14 +833,14 @@ WaveFreeChunkData.exit.i:                         ; preds = %266, %264
 
 307:                                              ; preds = %300
   %308 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.37, i32 noundef %303) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.10.i)
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %.sroa.8.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8.i)
   br i1 %308, label %315, label %313
 
 309:                                              ; preds = %289
   %310 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.38) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.10.i)
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %.sroa.8.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8.i)
   br i1 %310, label %315, label %313
 
 switch.lookup:                                    ; preds = %300
@@ -854,21 +854,21 @@ WaveLoad.exit.thread41:                           ; preds = %switch.lookup, %289
   store i32 %.sink.i, ptr %2, align 4
   %.0138..i = select i1 %.0137.i, i64 %.0138.i, i64 %238
   store i64 %.0138..i, ptr %106, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.10.i)
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %.sroa.8.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8.i)
   br label %315
 
 WaveLoad.exit.thread:                             ; preds = %259, %261, %267, %281, %283, %285, %287
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.10.i)
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %.sroa.8.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8.i)
   br label %313
 
 WaveLoad.exit:                                    ; preds = %229, %232, %234
   %.str.32.sink.i = phi ptr [ @.str.32, %232 ], [ @.str.32, %229 ], [ @.str.29, %234 ]
   %312 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull %.str.32.sink.i) #8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.10.i)
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %.sroa.8.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8.i)
   br i1 %312, label %315, label %313
 
 313:                                              ; preds = %.thread.i, %102, %166, %194, %307, %309, %276, %257, %.critedge.i, %252, %220, %.loopexit.thread.i, %156, %137, %89, %82, %WaveLoad.exit.thread, %WaveLoad.exit
@@ -915,26 +915,20 @@ WaveFreeChunkData.exit:                           ; preds = %320, %323
 
 330:                                              ; preds = %.thread, %328, %327
   %.045 = phi i1 [ false, %.thread ], [ %.0, %328 ], [ %.0, %327 ]
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %11) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i1 %.045
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
-declare zeroext i1 @SDL_SetError_REAL(ptr noundef, ...) local_unnamed_addr #3
+declare zeroext i1 @SDL_SetError_REAL(ptr noundef, ...) local_unnamed_addr #2
 
-declare void @SDL_free_REAL(ptr noundef) local_unnamed_addr #3
+declare void @SDL_free_REAL(ptr noundef) local_unnamed_addr #2
 
-declare i64 @SDL_SeekIO_REAL(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
+declare i64 @SDL_SeekIO_REAL(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
-declare zeroext i1 @SDL_CloseIO_REAL(ptr noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare zeroext i1 @SDL_CloseIO_REAL(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef zeroext i1 @SDL_LoadWAV_REAL(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
@@ -975,22 +969,22 @@ define hidden noundef zeroext i1 @SDL_LoadWAV_REAL(ptr noundef %0, ptr noundef w
   ret i1 %.0
 }
 
-declare ptr @SDL_IOFromFile_REAL(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @SDL_IOFromFile_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @SDL_GetHint_REAL(ptr noundef) local_unnamed_addr #3
+declare ptr @SDL_GetHint_REAL(ptr noundef) local_unnamed_addr #2
 
-declare i32 @SDL_strcmp_REAL(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @SDL_strcmp_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @SDL_sscanf_REAL(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
+declare i32 @SDL_sscanf_REAL(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare i64 @SDL_TellIO_REAL(ptr noundef) local_unnamed_addr #3
+declare i64 @SDL_TellIO_REAL(ptr noundef) local_unnamed_addr #2
 
-declare zeroext i1 @SDL_ReadU32LE_REAL(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @SDL_ReadU32LE_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
-declare zeroext i1 @SDL_ReadU8_REAL(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @SDL_ReadU8_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @WaveReadFormat(ptr noundef nonnull %0) unnamed_addr #0 {
@@ -1749,7 +1743,7 @@ SafeMult.exit79:                                  ; preds = %43
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @MS_ADPCM_Decode(ptr noundef nonnull captures(none) %0, ptr noundef nonnull writeonly captures(none) %1, ptr noundef nonnull writeonly captures(none) %2) unnamed_addr #0 {
   %4 = alloca [2 x %struct.MS_ADPCM_ChannelState], align 2
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(12) %4, i8 0, i64 12, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8
@@ -2056,7 +2050,7 @@ MS_ADPCM_DecodeBlockHeader.exit:                  ; preds = %63
 
 169:                                              ; preds = %41, %10, %.loopexit108, %155, %92, %57, %39, %SafeMult.exit, %16
   %.0 = phi i1 [ true, %16 ], [ %35, %SafeMult.exit ], [ %40, %39 ], [ %58, %57 ], [ %156, %155 ], [ true, %.loopexit108 ], [ false, %92 ], [ false, %10 ], [ false, %41 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
 }
 
@@ -2371,13 +2365,13 @@ IMA_ADPCM_DecodeBlockData.exit:                   ; preds = %._crit_edge.us.i, %
   ret i1 %.0
 }
 
-declare i64 @SDL_ReadIO_REAL(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i64 @SDL_ReadIO_REAL(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare noalias ptr @SDL_malloc_REAL(i64 noundef) local_unnamed_addr #3
+declare noalias ptr @SDL_malloc_REAL(i64 noundef) local_unnamed_addr #2
 
-declare ptr @SDL_IOFromConstMem_REAL(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare ptr @SDL_IOFromConstMem_REAL(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare zeroext i1 @SDL_ReadU16LE_REAL(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @SDL_ReadU16LE_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i16 @WaveGetFormatGUIDEncoding(ptr noundef nonnull %0) unnamed_addr #0 {
@@ -2406,7 +2400,7 @@ define internal fastcc zeroext i16 @WaveGetFormatGUIDEncoding(ptr noundef nonnul
   ret i16 %.05
 }
 
-declare i32 @SDL_memcmp_REAL(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @SDL_memcmp_REAL(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @PCM_Init(ptr noundef nonnull captures(none) %0, i64 noundef range(i64 0, 4294967296) %1) unnamed_addr #0 {
@@ -3145,10 +3139,16 @@ WaveAdjustToFactValue.exit:                       ; preds = %thread-pre-split, %
 }
 
 ; Function Attrs: allocsize(1)
-declare ptr @SDL_realloc_REAL(ptr noundef, i64 noundef) local_unnamed_addr #5
+declare ptr @SDL_realloc_REAL(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @SDL_calloc_REAL(i64 noundef, i64 noundef) local_unnamed_addr #6
+declare noalias ptr @SDL_calloc_REAL(i64 noundef, i64 noundef) local_unnamed_addr #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #7
@@ -3178,12 +3178,12 @@ declare i32 @llvm.smax.i32(i32, i32) #7
 declare i8 @llvm.umin.i8(i8, i8) #7
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { nounwind }
 attributes #9 = { nounwind allocsize(1) }

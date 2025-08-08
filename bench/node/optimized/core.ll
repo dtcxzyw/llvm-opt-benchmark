@@ -498,11 +498,11 @@ while.body:                                       ; preds = %land.rhs
 land.end14.thread:                                ; preds = %while.body
   %8 = load ptr, ptr %idle_handles, align 8
   %cmp.i41 = icmp eq ptr %idle_handles, %8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %pq.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %pq.i)
   br label %uv__run_pending.exit
 
 uv__queue_move.exit.i:                            ; preds = %while.body
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %pq.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %pq.i)
   %9 = load ptr, ptr %prev.i4.i.i, align 8
   store ptr %9, ptr %prev1.i.i.i, align 8
   store ptr %pq.i, ptr %9, align 8
@@ -536,7 +536,7 @@ while.body.i:                                     ; preds = %uv__queue_move.exit
 
 uv__run_pending.exit:                             ; preds = %while.body.i, %land.end14.thread, %uv__queue_move.exit.i
   %17 = phi i1 [ %cmp.i41, %land.end14.thread ], [ false, %uv__queue_move.exit.i ], [ false, %while.body.i ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %pq.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %pq.i)
   call void @uv__run_idle(ptr noundef nonnull %loop) #23
   call void @uv__run_prepare(ptr noundef nonnull %loop) #23
   %or.cond1 = select i1 %cmp15, i1 %17, i1 false
@@ -600,7 +600,7 @@ land.rhs23:                                       ; preds = %do.body, %uv__run_p
   br i1 %cmp.i53.not, label %for.end, label %for.body
 
 for.body:                                         ; preds = %land.rhs23
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %pq.i55)
+  call void @llvm.lifetime.start.p0(ptr nonnull %pq.i55)
   %28 = load ptr, ptr %prev.i4.i.i, align 8
   store ptr %28, ptr %prev1.i.i.i60, align 8
   store ptr %pq.i55, ptr %28, align 8
@@ -633,7 +633,7 @@ while.body.i64:                                   ; preds = %for.body, %while.bo
   br i1 %cmp.i.not.i68, label %uv__run_pending.exit69, label %while.body.i64
 
 uv__run_pending.exit69:                           ; preds = %while.body.i64, %for.body
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %pq.i55)
+  call void @llvm.lifetime.end.p0(ptr nonnull %pq.i55)
   %inc29 = add nuw nsw i32 %r.299, 1
   %exitcond.not = icmp eq i32 %inc29, 8
   br i1 %exitcond.not, label %for.end, label %land.rhs23
@@ -843,7 +843,7 @@ if.then9:                                         ; preds = %if.end6
   br label %return
 
 if.end12:                                         ; preds = %if.end6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %set.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %set.addr.i)
   store i32 1, ptr %set.addr.i, align 4
   br label %do.body.i
 
@@ -859,7 +859,7 @@ do.body.i.uv__nonblock_ioctl.exit_crit_edge:      ; preds = %do.body.i
   br label %uv__nonblock_ioctl.exit
 
 uv__nonblock_ioctl.exit.thread:                   ; preds = %do.body.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %set.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %set.addr.i)
   br label %do.body.i12.preheader
 
 land.rhs.i:                                       ; preds = %do.body.i
@@ -869,7 +869,7 @@ land.rhs.i:                                       ; preds = %do.body.i
 
 uv__nonblock_ioctl.exit:                          ; preds = %land.rhs.i, %do.body.i.uv__nonblock_ioctl.exit_crit_edge
   %3 = phi i32 [ %.pre, %do.body.i.uv__nonblock_ioctl.exit_crit_edge ], [ %2, %land.rhs.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %set.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %set.addr.i)
   %cmp14 = icmp eq i32 %3, 0
   br i1 %cmp14, label %do.body.i12.preheader, label %if.then18
 
@@ -3108,10 +3108,10 @@ declare i32 @llvm.abs.i32(i32, i1 immarg) #21
 declare i64 @llvm.smax.i64(i64, i64) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #22
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #22
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #21

@@ -916,7 +916,7 @@ _ZNK5Block8get_nodeEj.exit:                       ; preds = %135, %139
   br i1 %147, label %148, label %257
 
 148:                                              ; preds = %_ZNK5Block8get_nodeEj.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %149 = getelementptr inbounds nuw i8, ptr %143, i64 24
   %150 = load i32, ptr %149, align 8
   %.not.i = icmp eq i32 %150, 3
@@ -942,7 +942,7 @@ _ZNK5Block8get_nodeEj.exit:                       ; preds = %135, %139
   br i1 %.not12.i, label %165, label %_ZL13is_allocationPK4Node.exit.thread
 
 165:                                              ; preds = %160
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8
   store i64 0, ptr %3, align 8
   %166 = call noundef ptr @_ZNK8MachNode17get_base_and_dispERlRPK7TypePtr(ptr noundef nonnull align 8 dereferenceable(64) %155, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %2) #15
@@ -1057,12 +1057,12 @@ thread-pre-split.i:                               ; preds = %181, %.thread-pre-s
   br i1 %or.cond.i20.i, label %227, label %.preheader.i, !llvm.loop !6
 
 _ZL19get_base_and_offsetPK8MachNodeRl.exit.thread: ; preds = %.preheader.i, %165, %165, %195, %thread-pre-split.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %_ZL13is_allocationPK4Node.exit.thread
 
 227:                                              ; preds = %224, %199
   %228 = phi i32 [ %216, %224 ], [ %201, %199 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %229 = and i32 %228, 3
   %230 = icmp eq i32 %229, 2
   br i1 %230, label %231, label %_ZL13is_allocationPK4Node.exit.thread
@@ -1082,13 +1082,13 @@ _ZL19get_base_and_offsetPK8MachNodeRl.exit.thread: ; preds = %.preheader.i, %165
   br i1 %.not13.i, label %_ZL13is_allocationPK4Node.exit, label %_ZL13is_allocationPK4Node.exit.thread
 
 _ZL13is_allocationPK4Node.exit.thread:            ; preds = %148, %151, %160, %231, %227, %235, %_ZL19get_base_and_offsetPK8MachNodeRl.exit.thread
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %348
 
 _ZL13is_allocationPK4Node.exit:                   ; preds = %235
   %240 = load i64, ptr %3, align 8
   %241 = icmp eq i64 %240, 440
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %241, label %242, label %348
 
 242:                                              ; preds = %_ZL13is_allocationPK4Node.exit
@@ -2272,7 +2272,7 @@ _ZL11block_indexPK5BlockPK4Node.exit:             ; preds = %_ZNK5Block8get_node
   br i1 %100, label %_ZL19block_has_safepointPK5Blockjj.exit, label %.preheader124, !llvm.loop !14
 
 101:                                              ; preds = %58
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8
   store i64 0, ptr %6, align 8
   %102 = call noundef ptr @_ZNK8MachNode17get_base_and_dispERlRPK7TypePtr(ptr noundef nonnull align 8 dereferenceable(64) %61, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %4) #15
@@ -2387,11 +2387,11 @@ thread-pre-split.i:                               ; preds = %117, %.thread-pre-s
   br i1 %or.cond.i20.i, label %163, label %.preheader.i, !llvm.loop !6
 
 _ZL19get_base_and_offsetPK8MachNodeRl.exit.thread: ; preds = %.preheader.i, %101, %101, %131, %thread-pre-split.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZL19block_has_safepointPK5Blockjj.exit
 
 163:                                              ; preds = %160, %135
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %164 = load i64, ptr %5, align 8
   %165 = add i64 %164, 1999999999
   %166 = icmp ult i64 %165, -2
@@ -3246,10 +3246,10 @@ declare i32 @llvm.ctpop.i32(i32) #12
 declare void @llvm.assume(i1 noundef) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

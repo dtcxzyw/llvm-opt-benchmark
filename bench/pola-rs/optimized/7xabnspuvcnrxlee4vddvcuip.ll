@@ -241,7 +241,7 @@ _ZN12polars_arrow5array5Array10null_count17h22f7217f4f66d7f5E.exit.thread: ; pre
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %17 = load i64, ptr %16, align 8, !noundef !6
   %18 = getelementptr inbounds nuw i32, ptr %15, i64 %17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %15, ptr %3, align 8
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %18, ptr %19, align 8
@@ -260,11 +260,11 @@ _ZN12polars_arrow5array5Array10null_count17h22f7217f4f66d7f5E.exit.thread: ; pre
 _ZN4core4iter6traits8iterator8Iterator6reduce17h517b1334e4bc010aE.exit: ; preds = %_ZN12polars_arrow5array5Array10null_count17h22f7217f4f66d7f5E.exit.thread, %23
   %.sroa.3.0.i = phi i32 [ %27, %23 ], [ undef, %_ZN12polars_arrow5array5Array10null_count17h22f7217f4f66d7f5E.exit.thread ]
   %.sroa.0.0.i6 = phi i32 [ 1, %23 ], [ 0, %_ZN12polars_arrow5array5Array10null_count17h22f7217f4f66d7f5E.exit.thread ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %66
 
 28:                                               ; preds = %_ZN12polars_arrow5array5Array10null_count17h22f7217f4f66d7f5E.exit
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %30 = load ptr, ptr %29, align 8, !noundef !6
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -272,7 +272,7 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17h517b1334e4bc010aE.exit: ; preds 
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %34 = load ptr, ptr %33, align 8, !noundef !6
   %.not = icmp eq ptr %34, null
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !22)
   br i1 %.not, label %39, label %35
 
@@ -318,7 +318,7 @@ _ZN12polars_arrow6bitmap8iterator11TrueIdxIter3new17h270456437e9058b7E.exit: ; p
   store i64 %32, ptr %51, align 8
   %52 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %52, ptr noundef nonnull align 8 dereferenceable(64) %4, i64 64, i1 false)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %53 = call fastcc { i32, i32 } @"_ZN116_$LT$polars_arrow..array..iterator..NonNullValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4bffcdb600342cceE"(ptr noalias noundef nonnull align 8 dereferenceable(80) %5)
   %54 = extractvalue { i32, i32 } %53, 0
   %55 = trunc i32 %54 to i1
@@ -326,7 +326,7 @@ _ZN12polars_arrow6bitmap8iterator11TrueIdxIter3new17h270456437e9058b7E.exit: ; p
 
 56:                                               ; preds = %_ZN12polars_arrow6bitmap8iterator11TrueIdxIter3new17h270456437e9058b7E.exit
   %57 = extractvalue { i32, i32 } %53, 1
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %2), !noalias !26
+  call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !26
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef nonnull align 8 dereferenceable(80) %5, i64 80, i1 false)
   %58 = call fastcc { i32, i32 } @"_ZN116_$LT$polars_arrow..array..iterator..NonNullValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4bffcdb600342cceE"(ptr noalias noundef nonnull align 8 dereferenceable(80) %2), !noalias !26
   %59 = extractvalue { i32, i32 } %58, 0
@@ -345,13 +345,13 @@ _ZN12polars_arrow6bitmap8iterator11TrueIdxIter3new17h270456437e9058b7E.exit: ; p
 
 _ZN4core4iter6traits8iterator8Iterator4fold17h6f013558fd2f5656E.exit.i: ; preds = %.lr.ph.i.i, %56
   %.sroa.0.0.lcssa.i.i = phi i32 [ %57, %56 ], [ %.sroa.0.0.i.sroa.speculated.i.i.i, %.lr.ph.i.i ]
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2), !noalias !26
+  call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !26
   br label %_ZN4core4iter6traits8iterator8Iterator6reduce17h9a89b8b78fdbfddbE.exit
 
 _ZN4core4iter6traits8iterator8Iterator6reduce17h9a89b8b78fdbfddbE.exit: ; preds = %_ZN12polars_arrow6bitmap8iterator11TrueIdxIter3new17h270456437e9058b7E.exit, %_ZN4core4iter6traits8iterator8Iterator4fold17h6f013558fd2f5656E.exit.i
   %.sroa.3.0.i8 = phi i32 [ %.sroa.0.0.lcssa.i.i, %_ZN4core4iter6traits8iterator8Iterator4fold17h6f013558fd2f5656E.exit.i ], [ undef, %_ZN12polars_arrow6bitmap8iterator11TrueIdxIter3new17h270456437e9058b7E.exit ]
   %.sroa.0.0.i9 = phi i32 [ 1, %_ZN4core4iter6traits8iterator8Iterator4fold17h6f013558fd2f5656E.exit.i ], [ 0, %_ZN12polars_arrow6bitmap8iterator11TrueIdxIter3new17h270456437e9058b7E.exit ]
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %66
 
 66:                                               ; preds = %_ZN4core4iter6traits8iterator8Iterator6reduce17h9a89b8b78fdbfddbE.exit, %_ZN4core4iter6traits8iterator8Iterator6reduce17h517b1334e4bc010aE.exit
@@ -424,10 +424,10 @@ declare hidden { i32, i32 } @"_ZN104_$LT$core..iter..adapters..copied..Copied$LT
 declare hidden noundef i32 @"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h35768d8aae598695E"(ptr noundef nonnull, ptr noundef, i32 noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nounwind nonlazybind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #9

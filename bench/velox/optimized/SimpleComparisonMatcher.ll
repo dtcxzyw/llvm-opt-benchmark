@@ -1175,7 +1175,7 @@ if.end47:                                         ; preds = %lor.lhs.false
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_next_resize.i.i.i, i8 0, i64 16, i1 false)
   %type_.i = getelementptr inbounds nuw i8, ptr %118, i64 8
   %name_.i393 = getelementptr inbounds nuw i8, ptr %119, i64 48
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__a.i)
   store ptr null, ptr %ref.tmp52, align 8, !alias.scope !39
   %_M_refcount.i.i.i394 = getelementptr inbounds nuw i8, ptr %ref.tmp52, i64 8
   invoke void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN8facebook5velox4core20FieldAccessTypedExprESaIvEJRKSt10shared_ptrIKNS5_4TypeEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i394, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp52, ptr nonnull %__a.i, ptr noundef nonnull align 8 dereferenceable(16) %type_.i, ptr noundef nonnull align 8 dereferenceable(32) %name_.i393)
@@ -1183,7 +1183,7 @@ if.end47:                                         ; preds = %lor.lhs.false
 
 invoke.cont59:                                    ; preds = %if.end47
   %name_.i = getelementptr inbounds nuw i8, ptr %118, i64 48
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__a.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__a.i)
   %call.i.i395 = invoke { ptr, i8 } @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIKN8facebook5velox4core10ITypedExprEEESaISF_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSH_18_Mod_range_hashingENSH_20_Default_ranged_hashENSH_20_Prime_rehash_policyENSH_17_Hashtable_traitsILb1ELb0ELb1EEEE10_M_emplaceIJRS7_S8_INSB_20FieldAccessTypedExprEEEEES6_INSH_14_Node_iteratorISF_Lb0ELb1EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(56) %inputMapping, ptr noundef nonnull align 8 dereferenceable(32) %name_.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp52)
           to label %invoke.cont61 unwind label %lpad60
 
@@ -3103,7 +3103,7 @@ call5.i.i.i5.i.i.i.i.noexc:                       ; preds = %invoke.cont
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !47
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions9prestosql12_GLOBAL__N_117ComparisonMatcherESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i13, align 8, !noalias !47
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i13, i64 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp.i.i.i.i.i.i.i), !noalias !47
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i.i.i.i.i.i.i), !noalias !47
   %12 = load ptr, ptr %ref.tmp1, align 8, !noalias !47
   store ptr %12, ptr %agg.tmp.i.i.i.i.i.i.i, align 8, !noalias !47
   %_M_finish.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i.i.i.i.i.i, i64 8
@@ -3144,7 +3144,7 @@ lpad.i.i.i.i.i.i.i:                               ; preds = %call5.i.i.i5.i.i.i.
   br label %lpad4.body
 
 _ZNSt6vectorISt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17MatcherEESaIS7_EED2Ev.exit: ; preds = %.noexc.i.i.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp.i.i.i.i.i.i.i), !noalias !47
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i.i.i.i.i.i.i), !noalias !47
   store ptr %_M_impl.i.i.i.i.i.i, ptr %agg.result, align 8
   %_M_refcount.i.i14 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %call5.i.i.i5.i.i.i.i13, ptr %_M_refcount.i.i14, align 8
@@ -3603,7 +3603,7 @@ cond.true:                                        ; preds = %land.rhs.i, %_ZSteq
   br label %cond.end
 
 cond.false:                                       ; preds = %entry, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %prefix), !noalias !50
   %call.i.i = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull @.str.3)
           to label %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.exit.i unwind label %lpad.i.i, !noalias !50
@@ -3672,7 +3672,7 @@ lpad.i:                                           ; preds = %cond.false.i, %cond
 
 _ZN8facebook5velox9functions9prestosql12_GLOBAL__N_16invertERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_.exit: ; preds = %.noexc.i, %.noexc9.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #18
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   br label %cond.end
 
 cond.end:                                         ; preds = %_ZN8facebook5velox9functions9prestosql12_GLOBAL__N_16invertERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_.exit, %cond.true
@@ -5168,13 +5168,13 @@ if.then:                                          ; preds = %if.then.i, %if.then
   br i1 %tobool.i, label %if.then3, label %cleanup
 
 if.then3:                                         ; preds = %if.then
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__node_gen.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__node_gen.i.i)
   store ptr %inputs, ptr %__node_gen.i.i, align 8
   %call3.i.i.i4 = invoke { ptr, i8 } @_ZNSt10_HashtableISt10shared_ptrIKN8facebook5velox4core20FieldAccessTypedExprEES6_SaIS6_ENSt8__detail9_IdentityESt8equal_toIS6_ESt4hashIS6_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb1ELb1EEEE16_M_insert_uniqueIRKS6_SM_NS8_10_AllocNodeISaINS8_10_Hash_nodeIS6_Lb0EEEEEEEESt4pairINS8_14_Node_iteratorIS6_Lb1ELb0EEEbEOT_OT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(56) %inputs, ptr noundef nonnull align 8 dereferenceable(16) %field, ptr noundef nonnull align 8 dereferenceable(16) %field, ptr noundef nonnull align 8 dereferenceable(8) %__node_gen.i.i)
           to label %_ZNSt13unordered_setISt10shared_ptrIKN8facebook5velox4core20FieldAccessTypedExprEESt4hashIS6_ESt8equal_toIS6_ESaIS6_EE6insertERKS6_.exit unwind label %lpad
 
 _ZNSt13unordered_setISt10shared_ptrIKN8facebook5velox4core20FieldAccessTypedExprEESt4hashIS6_ESt8equal_toIS6_ESaIS6_EE6insertERKS6_.exit: ; preds = %if.then3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__node_gen.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__node_gen.i.i)
   br label %cleanup
 
 lpad:                                             ; preds = %if.then3
@@ -6076,8 +6076,8 @@ entry:
   %_M_weak_count.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3, i64 12
   store i32 1, ptr %_M_weak_count.i.i, align 4
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox4core20FieldAccessTypedExprESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp3.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp3.i.i.i)
   %0 = load ptr, ptr %__args, align 8
   store ptr %0, ptr %agg.tmp.i.i.i, align 8
   %_M_refcount.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i.i, i64 8
@@ -6130,8 +6130,8 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox4core20Fie
   %isInputColumn_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3, i64 96
   store i8 1, ptr %isInputColumn_.i.i.i.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3.i.i.i) #18
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp3.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp3.i.i.i)
   store ptr %call5.i.i.i3, ptr %this, align 8
   store ptr %_M_impl.i.i, ptr %__p, align 8
   ret void
@@ -6872,10 +6872,10 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #16

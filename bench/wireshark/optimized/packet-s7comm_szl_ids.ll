@@ -3193,7 +3193,7 @@ s7comm_decode_szl_id_xy00.exit:                   ; preds = %113
   br label %.thread
 
 229:                                              ; preds = %113, %113, %113, %113
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %24) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   %230 = load i32, ptr @hf_s7comm_szl_001c_000x_index, align 4
   %231 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %118, i32 noundef %230, ptr noundef %0, i32 noundef %.1232, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %24)
   %232 = add i32 %.1232, 2
@@ -3296,7 +3296,7 @@ s7comm_decode_szl_id_xy00.exit:                   ; preds = %113
 
 s7comm_decode_szl_id_xy1c_idx_000x.exit:          ; preds = %235, %241, %247, %250, %256, %262, %265, %268, %280, %289, %292
   %.0.i222 = add i32 %.1232, 34
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %.thread
 
 295:                                              ; preds = %113
@@ -3493,7 +3493,7 @@ s7comm_decode_szl_id_xy91_idx_0000.exit:          ; preds = %349, %349, %364, %3
 386:                                              ; preds = %385, %384, %383, %382, %381, %380, %379, %378
   %.0.i223 = phi ptr [ @.str.1851, %385 ], [ @.str.1845, %379 ], [ @.str.1846, %380 ], [ @.str.1847, %381 ], [ @.str.1848, %382 ], [ @.str.1849, %383 ], [ @.str.1850, %384 ], [ @.str.1844, %378 ]
   %387 = load i32, ptr @hf_s7comm_szl_0092_0xxx_status_0, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %23) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   %388 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %118, i32 noundef %387, ptr noundef %0, i32 noundef %.1232, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %23)
   %389 = load i32, ptr %23, align 4
   %.not.i.i = icmp eq i32 %389, 0
@@ -3534,9 +3534,9 @@ s7comm_decode_szl_id_xy91_idx_0000.exit:          ; preds = %349, %349, %364, %3
 
 add_station_byte_with_bitinfo.exit.i:             ; preds = %400, %386
   %403 = add i32 %.1232, 1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   %404 = load i32, ptr @hf_s7comm_szl_0092_0xxx_status_1, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %22) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %405 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %118, i32 noundef %404, ptr noundef %0, i32 noundef %403, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %22)
   %406 = load i32, ptr %22, align 4
   %.not.i65.i = icmp eq i32 %406, 0
@@ -3573,9 +3573,9 @@ add_station_byte_with_bitinfo.exit.i:             ; preds = %400, %386
 
 add_station_byte_with_bitinfo.exit71.i:           ; preds = %417, %add_station_byte_with_bitinfo.exit.i
   %421 = add i32 %.1232, 2
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   %422 = load i32, ptr @hf_s7comm_szl_0092_0xxx_status_2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %21) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %423 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %118, i32 noundef %422, ptr noundef %0, i32 noundef %421, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %21)
   %424 = load i32, ptr %21, align 4
   %.not.i72.i = icmp eq i32 %424, 0
@@ -3612,9 +3612,9 @@ add_station_byte_with_bitinfo.exit71.i:           ; preds = %417, %add_station_b
 
 add_station_byte_with_bitinfo.exit78.i:           ; preds = %435, %add_station_byte_with_bitinfo.exit71.i
   %439 = add i32 %.1232, 3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %440 = load i32, ptr @hf_s7comm_szl_0092_0xxx_status_3, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %441 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %118, i32 noundef %440, ptr noundef %0, i32 noundef %439, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %20)
   %442 = load i32, ptr %20, align 4
   %.not.i79.i = icmp eq i32 %442, 0
@@ -3651,9 +3651,9 @@ add_station_byte_with_bitinfo.exit78.i:           ; preds = %435, %add_station_b
 
 add_station_byte_with_bitinfo.exit85.i:           ; preds = %453, %add_station_byte_with_bitinfo.exit78.i
   %457 = add i32 %.1232, 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   %458 = load i32, ptr @hf_s7comm_szl_0092_0xxx_status_4, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %459 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %118, i32 noundef %458, ptr noundef %0, i32 noundef %457, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %19)
   %460 = load i32, ptr %19, align 4
   %.not.i86.i = icmp eq i32 %460, 0
@@ -3690,9 +3690,9 @@ add_station_byte_with_bitinfo.exit85.i:           ; preds = %453, %add_station_b
 
 add_station_byte_with_bitinfo.exit92.i:           ; preds = %471, %add_station_byte_with_bitinfo.exit85.i
   %475 = add i32 %.1232, 5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %476 = load i32, ptr @hf_s7comm_szl_0092_0xxx_status_5, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %477 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %118, i32 noundef %476, ptr noundef %0, i32 noundef %475, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %18)
   %478 = load i32, ptr %18, align 4
   %.not.i93.i = icmp eq i32 %478, 0
@@ -3729,9 +3729,9 @@ add_station_byte_with_bitinfo.exit92.i:           ; preds = %471, %add_station_b
 
 add_station_byte_with_bitinfo.exit99.i:           ; preds = %489, %add_station_byte_with_bitinfo.exit92.i
   %493 = add i32 %.1232, 6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %494 = load i32, ptr @hf_s7comm_szl_0092_0xxx_status_6, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %495 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %118, i32 noundef %494, ptr noundef %0, i32 noundef %493, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %17)
   %496 = load i32, ptr %17, align 4
   %.not.i100.i = icmp eq i32 %496, 0
@@ -3768,9 +3768,9 @@ add_station_byte_with_bitinfo.exit99.i:           ; preds = %489, %add_station_b
 
 add_station_byte_with_bitinfo.exit106.i:          ; preds = %507, %add_station_byte_with_bitinfo.exit99.i
   %511 = add i32 %.1232, 7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %512 = load i32, ptr @hf_s7comm_szl_0092_0xxx_status_7, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %513 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %118, i32 noundef %512, ptr noundef %0, i32 noundef %511, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %16)
   %514 = load i32, ptr %16, align 4
   %.not.i107.i = icmp eq i32 %514, 0
@@ -3807,9 +3807,9 @@ add_station_byte_with_bitinfo.exit106.i:          ; preds = %507, %add_station_b
 
 add_station_byte_with_bitinfo.exit113.i:          ; preds = %525, %add_station_byte_with_bitinfo.exit106.i
   %529 = add i32 %.1232, 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %530 = load i32, ptr @hf_s7comm_szl_0092_0xxx_status_8, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %531 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %118, i32 noundef %530, ptr noundef %0, i32 noundef %529, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %15)
   %532 = load i32, ptr %15, align 4
   %.not.i114.i = icmp eq i32 %532, 0
@@ -3846,9 +3846,9 @@ add_station_byte_with_bitinfo.exit113.i:          ; preds = %525, %add_station_b
 
 add_station_byte_with_bitinfo.exit120.i:          ; preds = %543, %add_station_byte_with_bitinfo.exit113.i
   %547 = add i32 %.1232, 9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %548 = load i32, ptr @hf_s7comm_szl_0092_0xxx_status_9, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %549 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %118, i32 noundef %548, ptr noundef %0, i32 noundef %547, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %14)
   %550 = load i32, ptr %14, align 4
   %.not.i121.i = icmp eq i32 %550, 0
@@ -3885,9 +3885,9 @@ add_station_byte_with_bitinfo.exit120.i:          ; preds = %543, %add_station_b
 
 add_station_byte_with_bitinfo.exit127.i:          ; preds = %561, %add_station_byte_with_bitinfo.exit120.i
   %565 = add i32 %.1232, 10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %566 = load i32, ptr @hf_s7comm_szl_0092_0xxx_status_10, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %567 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %118, i32 noundef %566, ptr noundef %0, i32 noundef %565, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %13)
   %568 = load i32, ptr %13, align 4
   %.not.i128.i = icmp eq i32 %568, 0
@@ -3924,9 +3924,9 @@ add_station_byte_with_bitinfo.exit127.i:          ; preds = %561, %add_station_b
 
 add_station_byte_with_bitinfo.exit134.i:          ; preds = %579, %add_station_byte_with_bitinfo.exit127.i
   %583 = add i32 %.1232, 11
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %584 = load i32, ptr @hf_s7comm_szl_0092_0xxx_status_11, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %585 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %118, i32 noundef %584, ptr noundef %0, i32 noundef %583, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %12)
   %586 = load i32, ptr %12, align 4
   %.not.i135.i = icmp eq i32 %586, 0
@@ -3963,9 +3963,9 @@ add_station_byte_with_bitinfo.exit134.i:          ; preds = %579, %add_station_b
 
 add_station_byte_with_bitinfo.exit141.i:          ; preds = %597, %add_station_byte_with_bitinfo.exit134.i
   %601 = add i32 %.1232, 12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %602 = load i32, ptr @hf_s7comm_szl_0092_0xxx_status_12, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %603 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %118, i32 noundef %602, ptr noundef %0, i32 noundef %601, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %11)
   %604 = load i32, ptr %11, align 4
   %.not.i142.i = icmp eq i32 %604, 0
@@ -4002,9 +4002,9 @@ add_station_byte_with_bitinfo.exit141.i:          ; preds = %597, %add_station_b
 
 add_station_byte_with_bitinfo.exit148.i:          ; preds = %615, %add_station_byte_with_bitinfo.exit141.i
   %619 = add i32 %.1232, 13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %620 = load i32, ptr @hf_s7comm_szl_0092_0xxx_status_13, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %621 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %118, i32 noundef %620, ptr noundef %0, i32 noundef %619, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %10)
   %622 = load i32, ptr %10, align 4
   %.not.i149.i = icmp eq i32 %622, 0
@@ -4041,9 +4041,9 @@ add_station_byte_with_bitinfo.exit148.i:          ; preds = %615, %add_station_b
 
 add_station_byte_with_bitinfo.exit155.i:          ; preds = %633, %add_station_byte_with_bitinfo.exit148.i
   %637 = add i32 %.1232, 14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %638 = load i32, ptr @hf_s7comm_szl_0092_0xxx_status_14, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %639 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %118, i32 noundef %638, ptr noundef %0, i32 noundef %637, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %9)
   %640 = load i32, ptr %9, align 4
   %.not.i156.i = icmp eq i32 %640, 0
@@ -4080,9 +4080,9 @@ add_station_byte_with_bitinfo.exit155.i:          ; preds = %633, %add_station_b
 
 add_station_byte_with_bitinfo.exit162.i:          ; preds = %651, %add_station_byte_with_bitinfo.exit155.i
   %655 = add i32 %.1232, 15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %656 = load i32, ptr @hf_s7comm_szl_0092_0xxx_status_15, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %657 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %118, i32 noundef %656, ptr noundef %0, i32 noundef %655, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %8)
   %658 = load i32, ptr %8, align 4
   %.not.i163.i = icmp eq i32 %658, 0
@@ -4119,7 +4119,7 @@ add_station_byte_with_bitinfo.exit162.i:          ; preds = %651, %add_station_b
 
 s7comm_decode_szl_id_xy92_idx_xxxx.exit:          ; preds = %669, %add_station_byte_with_bitinfo.exit162.i
   %673 = add i32 %.1232, 16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.thread
 
 674:                                              ; preds = %113, %113, %113, %113, %113
@@ -4305,9 +4305,6 @@ s7comm_decode_szl_id_0x94_idx_xxxx.exit:          ; preds = %.loopexit.i, %674
   %.0206 = phi i32 [ %34, %s7comm_get_szl_id_index_description_text.exit.thread ], [ %94, %101 ], [ %6, %793 ], [ %6, %7 ], [ %94, %.preheader ], [ %.3, %.thread ]
   ret i32 %.0206
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -5300,9 +5297,6 @@ define internal fastcc noundef i32 @s7comm_decode_szl_id_0132_idx_000c(ptr nound
 ; Function Attrs: null_pointer_is_valid
 declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: null_pointer_is_valid
 declare ptr @_try_val_to_str_ext_init(i32 noundef, ptr noundef) #1
 
@@ -5318,6 +5312,12 @@ declare void @proto_item_set_text(ptr noundef, ptr noundef, ...) local_unnamed_a
 ; Function Attrs: null_pointer_is_valid
 declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #3
 
@@ -5325,7 +5325,6 @@ attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-widt
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

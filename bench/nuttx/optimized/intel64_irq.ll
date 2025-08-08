@@ -75,8 +75,8 @@ define void @up_irqinitialize() local_unnamed_addr #0 {
   %1 = alloca %struct.idt_ptr_s, align 2
   %.sroa.0.i = alloca i16, align 2
   %.sroa.3.i = alloca i48, align 8
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %.sroa.0.i)
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %.sroa.3.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.3.i)
   store i16 103, ptr %.sroa.0.i, align 2
   %2 = load ptr, ptr @g_ist64, align 8
   %3 = ptrtoint ptr %2 to i64
@@ -108,8 +108,8 @@ define void @up_irqinitialize() local_unnamed_addr #0 {
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 44
   store volatile i64 %20, ptr %21, align 1
   tail call void asm sideeffect "mov $$0x30, %ax; ltr %ax", "~{memory},~{rax},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !9
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %.sroa.0.i)
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %.sroa.3.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.3.i)
   tail call void asm sideeffect "\09outb $0,$1\0A", "{ax},{dx}N,~{dirflag},~{fpsr},~{flags}"(i8 17, i16 32) #4, !srcloc !10
   tail call void asm sideeffect "\09outb $0,$1\0A", "{ax},{dx}N,~{dirflag},~{fpsr},~{flags}"(i8 17, i16 160) #4, !srcloc !10
   tail call void asm sideeffect "\09outb $0,$1\0A", "{ax},{dx}N,~{dirflag},~{fpsr},~{flags}"(i8 32, i16 33) #4, !srcloc !10
@@ -718,12 +718,12 @@ up_ioapic_init.exit:                              ; preds = %.lr.ph.i, %up_apic_
   store i16 8, ptr getelementptr inbounds nuw (i8, ptr @g_idt_entries, i64 754), align 2
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @g_idt_entries, i64 764), align 4
   store i8 -114, ptr getelementptr inbounds nuw (i8, ptr @g_idt_entries, i64 757), align 1
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store i16 767, ptr %1, align 2
   %242 = getelementptr inbounds nuw i8, ptr %1, i64 2
   store i64 ptrtoint (ptr @g_idt_entries to i64), ptr %242, align 2
   call void asm sideeffect "lidt $0", "*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(%struct.idt_ptr_s) %1) #4, !srcloc !15
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !16
   ret void
 }
@@ -868,10 +868,10 @@ declare void @vector_irq14() #2
 declare void @vector_irq15() #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

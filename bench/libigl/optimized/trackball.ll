@@ -22,9 +22,9 @@ define weak_odr dso_local void @_ZN3igl9trackballIdEEvddT_PKS1_ddddPS1_(double n
   %10 = alloca [4 x double], align 16
   %11 = alloca [4 x double], align 16
   %12 = alloca [4 x double], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @_ZN3igl9trackballIdEEvddT_ddddPS1_(double noundef %0, double noundef %1, double noundef %2, double noundef %4, double noundef %5, double noundef %6, double noundef %7, ptr noundef nonnull %10)
   %13 = load double, ptr %3, align 8, !tbaa !4
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -79,14 +79,11 @@ define weak_odr dso_local void @_ZN3igl9trackballIdEEvddT_PKS1_ddddPS1_(double n
   store double %36, ptr %39, align 8, !tbaa !4
   %40 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store double %37, ptr %40, align 8, !tbaa !4
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN3igl9trackballIdEEvddT_ddddPS1_(double noundef %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, double noundef %5, double noundef %6, ptr noundef %7) local_unnamed_addr #0 comdat {
@@ -136,7 +133,7 @@ define linkonce_odr dso_local void @_ZN3igl9trackballIdEEvddT_ddddPS1_(double no
   br i1 %or.cond, label %49, label %80
 
 49:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %50 = fdiv double %24, %sqrt70
   store double %50, ptr %9, align 16, !tbaa !4
   %51 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -145,7 +142,7 @@ define linkonce_odr dso_local void @_ZN3igl9trackballIdEEvddT_ddddPS1_(double no
   %53 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %54 = fdiv double 1.000000e+00, %sqrt70
   store double %54, ptr %53, align 16, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %55 = fdiv double %35, %sqrt
   store double %55, ptr %10, align 16, !tbaa !4
   %56 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -154,7 +151,7 @@ define linkonce_odr dso_local void @_ZN3igl9trackballIdEEvddT_ddddPS1_(double no
   %58 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %59 = fdiv double 1.000000e+00, %sqrt
   store double %59, ptr %58, align 16, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @_ZN3igl5crossEPKdS1_Pd(ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11)
   %60 = call noundef double @_ZN3igl3dotEPKdS1_(ptr noundef nonnull %11, ptr noundef nonnull %11)
   %61 = call double @sqrt(double noundef %60) #6, !tbaa !8
@@ -172,7 +169,7 @@ define linkonce_odr dso_local void @_ZN3igl9trackballIdEEvddT_ddddPS1_(double no
 
 69:                                               ; preds = %65, %49
   %.0 = phi double [ %68, %65 ], [ %63, %49 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @_ZN3igl18axis_angle_to_quatIdEEvPKT_S1_PS1_(ptr noundef nonnull %11, double noundef %.0, ptr noundef nonnull %12)
   %70 = load double, ptr %12, align 16, !tbaa !4
   store double %70, ptr %7, align 8, !tbaa !4
@@ -188,10 +185,10 @@ define linkonce_odr dso_local void @_ZN3igl9trackballIdEEvddT_ddddPS1_(double no
   %78 = load double, ptr %77, align 8, !tbaa !4
   %79 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store double %78, ptr %79, align 8, !tbaa !4
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #6
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #6
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #6
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %80
 
 80:                                               ; preds = %69, %8
@@ -199,27 +196,24 @@ define linkonce_odr dso_local void @_ZN3igl9trackballIdEEvddT_ddddPS1_(double no
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @sqrt(double noundef) local_unnamed_addr #2
+declare double @sqrt(double noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #3
+declare double @llvm.fmuladd.f64(double, double, double) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #3
+declare double @llvm.fabs.f64(double) #2
 
-declare void @_ZN3igl9quat_multIdEEvPKT_S3_PS1_(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @_ZN3igl9quat_multIdEEvPKT_S3_PS1_(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN3igl9trackballIfEEvddT_PKS1_ddddPS1_(double noundef %0, double noundef %1, float noundef %2, ptr noundef %3, double noundef %4, double noundef %5, double noundef %6, double noundef %7, ptr noundef %8) local_unnamed_addr #0 comdat {
   %10 = alloca [4 x double], align 16
   %11 = alloca [4 x double], align 16
   %12 = alloca [4 x double], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %13 = fpext float %2 to double
   call void @_ZN3igl9trackballIdEEvddT_ddddPS1_(double noundef %0, double noundef %1, double noundef %13, double noundef %4, double noundef %5, double noundef %6, double noundef %7, ptr noundef nonnull %10)
   %14 = load float, ptr %3, align 4, !tbaa !10
@@ -284,14 +278,14 @@ define weak_odr dso_local void @_ZN3igl9trackballIfEEvddT_PKS1_ddddPS1_(double n
   store float %.sink32, ptr %45, align 4, !tbaa !10
   %46 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store float %.sink, ptr %46, align 4, !tbaa !10
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #3
+declare float @llvm.fmuladd.f32(float, float, float) #2
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN3igl9trackballIffEEvdddRKN5Eigen10QuaternionIT_Li0EEEddddRNS2_IT0_Li0EEE(double noundef %0, double noundef %1, double noundef %2, ptr noundef nonnull align 16 dereferenceable(16) %3, double noundef %4, double noundef %5, double noundef %6, double noundef %7, ptr noundef nonnull align 16 dereferenceable(16) %8) local_unnamed_addr #0 comdat {
@@ -299,9 +293,9 @@ define weak_odr dso_local void @_ZN3igl9trackballIffEEvdddRKN5Eigen10QuaternionI
   %11 = alloca [4 x double], align 16
   %12 = alloca [4 x double], align 16
   %13 = fptrunc double %2 to float
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %14 = fpext float %13 to double
   call void @_ZN3igl9trackballIdEEvddT_ddddPS1_(double noundef %0, double noundef %1, double noundef %14, double noundef %4, double noundef %5, double noundef %6, double noundef %7, ptr noundef nonnull %10)
   %15 = load float, ptr %3, align 16, !tbaa !10
@@ -366,9 +360,9 @@ _ZN3igl9trackballIfEEvddT_PKS1_ddddPS1_.exit:     ; preds = %9, %29
   store float %.sink32.i, ptr %45, align 8, !tbaa !10
   %46 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store float %.sink.i, ptr %46, align 4, !tbaa !10
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 }
 
@@ -377,9 +371,9 @@ define weak_odr dso_local void @_ZN3igl9trackballIddEEvdddRKN5Eigen10QuaternionI
   %10 = alloca [4 x double], align 16
   %11 = alloca [4 x double], align 16
   %12 = alloca [4 x double], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @_ZN3igl9trackballIdEEvddT_ddddPS1_(double noundef %0, double noundef %1, double noundef %2, double noundef %4, double noundef %5, double noundef %6, double noundef %7, ptr noundef nonnull %10)
   %13 = load double, ptr %3, align 16, !tbaa !4
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -434,29 +428,35 @@ _ZN3igl9trackballIdEEvddT_PKS1_ddddPS1_.exit:     ; preds = %9, %26
   store double %35, ptr %38, align 16, !tbaa !4
   %39 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store double %36, ptr %39, align 8, !tbaa !4
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 }
 
-declare void @_ZN3igl5crossEPKdS1_Pd(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @_ZN3igl5crossEPKdS1_Pd(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare noundef double @_ZN3igl3dotEPKdS1_(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare noundef double @_ZN3igl3dotEPKdS1_(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @atan2(double noundef, double noundef) local_unnamed_addr #2
+declare double @atan2(double noundef, double noundef) local_unnamed_addr #1
 
-declare void @_ZN3igl18axis_angle_to_quatIdEEvPKT_S1_PS1_(ptr noundef, double noundef, ptr noundef) local_unnamed_addr #4
+declare void @_ZN3igl18axis_angle_to_quatIdEEvPKT_S1_PS1_(ptr noundef, double noundef, ptr noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.sqrt.f64(double) #5
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nounwind }
 

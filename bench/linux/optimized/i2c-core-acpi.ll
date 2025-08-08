@@ -62,19 +62,13 @@ define dso_local noundef zeroext i1 @i2c_acpi_get_i2c_resource(ptr noundef %0, p
   ret i1 %12
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @i2c_acpi_client_count(ptr noundef %0) #2 align 16 {
+define dso_local i32 @i2c_acpi_client_count(ptr noundef %0) #1 align 16 {
   %2 = alloca i32, align 4
   %3 = alloca %struct.list_head, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %3, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %3, ptr %4, align 8
@@ -89,16 +83,16 @@ define dso_local i32 @i2c_acpi_client_count(ptr noundef %0) #2 align 16 {
 
 9:                                                ; preds = %7, %1
   %10 = phi i32 [ %8, %7 ], [ %5, %1 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %10
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @acpi_dev_get_resources(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare dso_local i32 @acpi_dev_get_resources(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
 define internal noundef i32 @i2c_acpi_resource_count(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #0 align 16 {
@@ -123,10 +117,10 @@ define internal noundef i32 @i2c_acpi_resource_count(ptr noundef readonly captur
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @acpi_dev_free_resource_list(ptr noundef) local_unnamed_addr #4
+declare dso_local void @acpi_dev_free_resource_list(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @i2c_acpi_get_irq(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #2 align 16 {
+define dso_local i32 @i2c_acpi_get_irq(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #1 align 16 {
   %3 = alloca %struct.list_head, align 8
   %4 = alloca %struct.i2c_acpi_irq_context, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 664
@@ -134,8 +128,8 @@ define dso_local i32 @i2c_acpi_get_irq(ptr noundef readonly captures(none) %0, p
   %7 = tail call zeroext i1 @is_acpi_device_node(ptr noundef %6) #9
   %8 = getelementptr i8, ptr %6, i64 -16
   %9 = select i1 %7, ptr %8, ptr null
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 -2, ptr %4, align 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 0, ptr %10, align 4
@@ -165,18 +159,18 @@ define dso_local i32 @i2c_acpi_get_irq(ptr noundef readonly captures(none) %0, p
 
 .thread:                                          ; preds = %14, %21, %17, %2
   %23 = phi i32 [ %12, %2 ], [ %15, %17 ], [ %15, %21 ], [ -6, %14 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %23
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local zeroext i1 @is_acpi_device_node(ptr noundef) local_unnamed_addr #4
+declare dso_local zeroext i1 @is_acpi_device_node(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @i2c_acpi_add_irq_resource(ptr noundef %0, ptr noundef captures(none) %1) #2 align 16 {
+define internal noundef i32 @i2c_acpi_add_irq_resource(ptr noundef %0, ptr noundef captures(none) %1) #1 align 16 {
   %3 = alloca %struct.resource, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load i32, ptr %1, align 4
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %16, label %6
@@ -199,12 +193,12 @@ define internal noundef i32 @i2c_acpi_add_irq_resource(ptr noundef %0, ptr nound
   br label %16
 
 16:                                               ; preds = %8, %6, %2
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @i2c_acpi_register_devices(ptr noundef %0) local_unnamed_addr #2 align 16 {
+define dso_local void @i2c_acpi_register_devices(ptr noundef %0) local_unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 744
   %4 = load ptr, ptr %3, align 8
@@ -244,13 +238,13 @@ define dso_local void @i2c_acpi_register_devices(ptr noundef %0) local_unnamed_a
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @acpi_walk_namespace(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare dso_local i32 @acpi_walk_namespace(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @i2c_acpi_add_device(ptr noundef %0, i32 %1, ptr noundef %2, ptr readnone captures(none) %3) #2 align 16 {
+define internal noundef i32 @i2c_acpi_add_device(ptr noundef %0, i32 %1, ptr noundef %2, ptr readnone captures(none) %3) #1 align 16 {
   %5 = alloca %struct.i2c_board_info, align 8
   %6 = tail call ptr @acpi_fetch_acpi_dev(ptr noundef %0) #9
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = icmp eq ptr %6, null
   br i1 %7, label %23, label %8
 
@@ -280,22 +274,22 @@ define internal noundef i32 @i2c_acpi_add_device(ptr noundef %0, i32 %1, ptr nou
   br label %23
 
 23:                                               ; preds = %20, %11, %8, %4
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 0
 }
 
 ; Function Attrs: cold null_pointer_is_valid
-declare dso_local void @_dev_warn(ptr noundef, ptr noundef, ...) local_unnamed_addr #5
+declare dso_local void @_dev_warn(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @acpi_dev_clear_dependencies(ptr noundef) local_unnamed_addr #4
+declare dso_local void @acpi_dev_clear_dependencies(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @i2c_acpi_find_bus_speed(ptr noundef %0) #2 align 16 {
+define dso_local i32 @i2c_acpi_find_bus_speed(ptr noundef %0) #1 align 16 {
   %2 = alloca %struct.i2c_acpi_lookup, align 8
   %3 = alloca %struct.i2c_board_info, align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2) #9
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 632
   %5 = load ptr, ptr %4, align 8
   %6 = tail call zeroext i1 @is_acpi_device_node(ptr noundef %5) #9
@@ -357,13 +351,13 @@ define dso_local i32 @i2c_acpi_find_bus_speed(ptr noundef %0) #2 align 16 {
 
 36:                                               ; preds = %30, %32, %33, %24, %1
   %37 = phi i32 [ 0, %24 ], [ 0, %1 ], [ %35, %33 ], [ %.pre, %32 ], [ %27, %30 ]
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #9
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %37
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @i2c_acpi_lookup_speed(ptr noundef %0, i32 %1, ptr noundef %2, ptr readnone captures(none) %3) #2 align 16 {
+define internal noundef i32 @i2c_acpi_lookup_speed(ptr noundef %0, i32 %1, ptr noundef %2, ptr readnone captures(none) %3) #1 align 16 {
   %5 = alloca %struct.list_head, align 8
   %6 = tail call ptr @acpi_fetch_acpi_dev(ptr noundef %0) #9
   %7 = icmp eq ptr %6, null
@@ -371,7 +365,7 @@ define internal noundef i32 @i2c_acpi_lookup_speed(ptr noundef %0, i32 %1, ptr n
 
 8:                                                ; preds = %4
   %9 = load ptr, ptr %2, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = tail call i32 @acpi_bus_get_status(ptr noundef nonnull %6) #9
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %i2c_acpi_do_lookup.exit.thread
@@ -406,11 +400,11 @@ define internal noundef i32 @i2c_acpi_lookup_speed(ptr noundef %0, i32 %1, ptr n
   br i1 %27, label %i2c_acpi_do_lookup.exit.thread, label %28
 
 i2c_acpi_do_lookup.exit.thread:                   ; preds = %8, %12, %14, %17, %24
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %46
 
 28:                                               ; preds = %24
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -445,7 +439,7 @@ i2c_acpi_do_lookup.exit.thread:                   ; preds = %8, %12, %14, %17, %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @i2c_acpi_find_adapter_by_handle(ptr noundef %0) #2 align 16 {
+define dso_local ptr @i2c_acpi_find_adapter_by_handle(ptr noundef %0) #1 align 16 {
   %2 = tail call ptr @bus_find_device(ptr noundef nonnull @i2c_bus_type, ptr noundef null, ptr noundef %0, ptr noundef nonnull @device_match_acpi_handle) #9
   %3 = icmp eq ptr %2, null
   br i1 %3, label %8, label %4
@@ -465,24 +459,24 @@ define dso_local ptr @i2c_acpi_find_adapter_by_handle(ptr noundef %0) #2 align 1
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local ptr @bus_find_device(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare dso_local ptr @bus_find_device(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @device_match_acpi_handle(ptr noundef, ptr noundef) #4
+declare dso_local i32 @device_match_acpi_handle(ptr noundef, ptr noundef) #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local ptr @i2c_verify_adapter(ptr noundef) local_unnamed_addr #4
+declare dso_local ptr @i2c_verify_adapter(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @put_device(ptr noundef) local_unnamed_addr #4
+declare dso_local void @put_device(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @i2c_acpi_notify(ptr readnone captures(none) %0, i64 noundef %1, ptr noundef %2) #2 align 16 {
+define internal noundef i32 @i2c_acpi_notify(ptr readnone captures(none) %0, i64 noundef %1, ptr noundef %2) #1 align 16 {
   %4 = alloca %struct.i2c_board_info, align 8
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %4, i8 0, i64 80, i1 false), !annotation !7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   switch i64 %1, label %.thread [
     i64 0, label %6
     i64 1, label %30
@@ -556,17 +550,17 @@ define internal noundef i32 @i2c_acpi_notify(ptr readnone captures(none) %0, i64
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %9, %37, %32, %30, %6, %3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @i2c_acpi_new_device_by_fwnode(ptr noundef %0, i32 noundef %1, ptr noundef %2) #2 align 16 {
+define dso_local ptr @i2c_acpi_new_device_by_fwnode(ptr noundef %0, i32 noundef %1, ptr noundef %2) #1 align 16 {
   %4 = alloca %struct.i2c_acpi_lookup, align 8
   %5 = alloca %struct.list_head, align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #9
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %5, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %5, ptr %6, align 8
@@ -624,13 +618,13 @@ define dso_local ptr @i2c_acpi_new_device_by_fwnode(ptr noundef %0, i32 noundef 
 
 .thread:                                          ; preds = %34, %26, %35, %22, %19, %3
   %37 = phi ptr [ %21, %19 ], [ %36, %35 ], [ inttoptr (i64 -19 to ptr), %3 ], [ inttoptr (i64 -99 to ptr), %22 ], [ inttoptr (i64 -517 to ptr), %26 ], [ inttoptr (i64 -517 to ptr), %34 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %37
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @i2c_acpi_fill_info(ptr noundef readonly captures(none) %0, ptr noundef %1) #2 align 16 {
+define internal noundef i32 @i2c_acpi_fill_info(ptr noundef readonly captures(none) %0, ptr noundef %1) #1 align 16 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 22
   %5 = load i16, ptr %4, align 2
@@ -697,10 +691,10 @@ define internal noundef i32 @i2c_acpi_fill_info(ptr noundef readonly captures(no
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local ptr @i2c_new_client_device(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare dso_local ptr @i2c_new_client_device(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local zeroext i1 @i2c_acpi_waive_d0_probe(ptr noundef readonly captures(none) %0) #2 align 16 {
+define dso_local zeroext i1 @i2c_acpi_waive_d0_probe(ptr noundef readonly captures(none) %0) #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 632
@@ -731,7 +725,7 @@ define dso_local zeroext i1 @i2c_acpi_waive_d0_probe(ptr noundef readonly captur
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -19, 1) i32 @i2c_acpi_install_space_handler(ptr noundef %0) local_unnamed_addr #2 align 16 {
+define dso_local noundef range(i32 -19, 1) i32 @i2c_acpi_install_space_handler(ptr noundef %0) local_unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %4 = load ptr, ptr %3, align 8
@@ -786,20 +780,20 @@ define dso_local noundef range(i32 -19, 1) i32 @i2c_acpi_install_space_handler(p
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @acpi_bus_attach_private_data(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare dso_local i32 @acpi_bus_attach_private_data(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @kfree(ptr noundef) local_unnamed_addr #4
+declare dso_local void @kfree(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @acpi_install_address_space_handler(ptr noundef, i8 noundef zeroext, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare dso_local i32 @acpi_install_address_space_handler(ptr noundef, i8 noundef zeroext, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @i2c_acpi_space_handler(i32 noundef %0, i64 noundef %1, i32 %2, ptr noundef %3, ptr noundef readonly captures(none) %4, ptr readnone captures(none) %5) #2 align 16 {
+define internal i32 @i2c_acpi_space_handler(i32 noundef %0, i64 noundef %1, i32 %2, ptr noundef %3, ptr noundef readonly captures(none) %4, ptr readnone captures(none) %5) #1 align 16 {
   %7 = alloca ptr, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %9 = load ptr, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8, !annotation !7
   %10 = lshr i32 %0, 16
   %11 = and i32 %0, 1
@@ -986,20 +980,20 @@ define internal i32 @i2c_acpi_space_handler(i32 noundef %0, i64 noundef %1, i32 
 
 115:                                              ; preds = %.critedge, %6
   %116 = phi i32 [ %113, %.critedge ], [ %15, %6 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %116
 }
 
 ; Function Attrs: cold null_pointer_is_valid
-declare dso_local void @_dev_err(ptr noundef, ptr noundef, ...) local_unnamed_addr #5
+declare dso_local void @_dev_err(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @acpi_bus_detach_private_data(ptr noundef) local_unnamed_addr #4
+declare dso_local void @acpi_bus_detach_private_data(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @i2c_acpi_remove_space_handler(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 align 16 {
+define dso_local void @i2c_acpi_remove_space_handler(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 align 16 {
   %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -1037,31 +1031,31 @@ define dso_local void @i2c_acpi_remove_space_handler(ptr noundef readonly captur
   br label %.thread
 
 .thread:                                          ; preds = %6, %23, %13, %1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @acpi_remove_address_space_handler(ptr noundef, i8 noundef zeroext, ptr noundef) local_unnamed_addr #4
+declare dso_local i32 @acpi_remove_address_space_handler(ptr noundef, i8 noundef zeroext, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @acpi_bus_get_private_data(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare dso_local i32 @acpi_bus_get_private_data(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local zeroext i1 @acpi_dev_resource_interrupt(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare dso_local zeroext i1 @acpi_dev_resource_interrupt(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @i2c_dev_irq_from_resources(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare dso_local i32 @i2c_dev_irq_from_resources(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local ptr @acpi_fetch_acpi_dev(ptr noundef) local_unnamed_addr #4
+declare dso_local ptr @acpi_fetch_acpi_dev(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -22, 1) i32 @i2c_acpi_get_info(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) unnamed_addr #2 align 16 {
+define internal fastcc range(i32 -22, 1) i32 @i2c_acpi_get_info(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) unnamed_addr #1 align 16 {
   %5 = alloca %struct.list_head, align 8
   %6 = alloca %struct.list_head, align 8
   %7 = alloca %struct.i2c_acpi_lookup, align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %8, i8 0, i64 48, i1 false)
   store ptr %1, ptr %7, align 8
@@ -1071,7 +1065,7 @@ define internal fastcc range(i32 -22, 1) i32 @i2c_acpi_get_info(ptr noundef %0, 
   br i1 %10, label %.split, label %29
 
 .split:                                           ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %11 = tail call i32 @acpi_bus_get_status(ptr noundef null) #9
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %13, label %i2c_acpi_do_lookup.exit
@@ -1106,7 +1100,7 @@ define internal fastcc range(i32 -22, 1) i32 @i2c_acpi_get_info(ptr noundef %0, 
 
 i2c_acpi_do_lookup.exit:                          ; preds = %.split, %13, %15, %18, %23
   %28 = phi i32 [ -22, %.split ], [ -19, %13 ], [ -19, %15 ], [ -22, %18 ], [ %27, %23 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %54
 
 29:                                               ; preds = %4
@@ -1117,7 +1111,7 @@ i2c_acpi_do_lookup.exit:                          ; preds = %.split, %13, %15, %
   br i1 %33, label %102, label %.split1
 
 .split1:                                          ; preds = %29
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %34 = tail call i32 @acpi_bus_get_status(ptr noundef nonnull %0) #9
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %36, label %i2c_acpi_do_lookup.exit6
@@ -1154,7 +1148,7 @@ i2c_acpi_do_lookup.exit:                          ; preds = %.split, %13, %15, %
 
 i2c_acpi_do_lookup.exit6:                         ; preds = %.split1, %36, %38, %41, %48
   %53 = phi i32 [ -22, %.split1 ], [ -19, %36 ], [ -19, %38 ], [ -22, %41 ], [ %52, %48 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %54
 
 54:                                               ; preds = %i2c_acpi_do_lookup.exit6, %i2c_acpi_do_lookup.exit
@@ -1237,70 +1231,70 @@ i2c_acpi_do_lookup.exit6:                         ; preds = %.split1, %36, %38, 
 
 102:                                              ; preds = %100, %81, %78, %73, %68, %54, %29
   %103 = phi i32 [ 0, %100 ], [ %phi.call, %54 ], [ -19, %68 ], [ -19, %78 ], [ -19, %81 ], [ -19, %73 ], [ -22, %29 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %103
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @acpi_bus_get_status(ptr noundef) local_unnamed_addr #4
+declare dso_local i32 @acpi_bus_get_status(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @acpi_set_modalias(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+declare dso_local void @acpi_set_modalias(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local zeroext i1 @acpi_dev_ready_for_enumeration(ptr noundef) local_unnamed_addr #4
+declare dso_local zeroext i1 @acpi_dev_ready_for_enumeration(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @acpi_match_device_ids(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare dso_local i32 @acpi_match_device_ids(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @i2c_unregister_device(ptr noundef) local_unnamed_addr #4
+declare dso_local void @i2c_unregister_device(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local ptr @i2c_find_device_by_fwnode(ptr noundef) local_unnamed_addr #4
+declare dso_local ptr @i2c_find_device_by_fwnode(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @acpi_get_handle(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare dso_local i32 @acpi_get_handle(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid allocsize(2)
-declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #6
+declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: null_pointer_is_valid allocsize(0)
-declare dso_local noalias ptr @__kmalloc(i64 noundef, i32 noundef) local_unnamed_addr #7
+declare dso_local noalias ptr @__kmalloc(i64 noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @acpi_buffer_to_resource(ptr noundef, i16 noundef zeroext, ptr noundef) local_unnamed_addr #4
+declare dso_local i32 @acpi_buffer_to_resource(ptr noundef, i16 noundef zeroext, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @i2c_smbus_read_byte(ptr noundef) local_unnamed_addr #4
+declare dso_local i32 @i2c_smbus_read_byte(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @i2c_smbus_write_byte(ptr noundef, i8 noundef zeroext) local_unnamed_addr #4
+declare dso_local i32 @i2c_smbus_write_byte(ptr noundef, i8 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @i2c_smbus_read_byte_data(ptr noundef, i8 noundef zeroext) local_unnamed_addr #4
+declare dso_local i32 @i2c_smbus_read_byte_data(ptr noundef, i8 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @i2c_smbus_write_byte_data(ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #4
+declare dso_local i32 @i2c_smbus_write_byte_data(ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @i2c_smbus_read_word_data(ptr noundef, i8 noundef zeroext) local_unnamed_addr #4
+declare dso_local i32 @i2c_smbus_read_word_data(ptr noundef, i8 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @i2c_smbus_write_word_data(ptr noundef, i8 noundef zeroext, i16 noundef zeroext) local_unnamed_addr #4
+declare dso_local i32 @i2c_smbus_write_word_data(ptr noundef, i8 noundef zeroext, i16 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @i2c_smbus_read_block_data(ptr noundef, i8 noundef zeroext, ptr noundef) local_unnamed_addr #4
+declare dso_local i32 @i2c_smbus_read_block_data(ptr noundef, i8 noundef zeroext, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @i2c_smbus_write_block_data(ptr noundef, i8 noundef zeroext, i8 noundef zeroext, ptr noundef) local_unnamed_addr #4
+declare dso_local i32 @i2c_smbus_write_block_data(ptr noundef, i8 noundef zeroext, i8 noundef zeroext, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -2147483648, 5) i32 @acpi_gsb_i2c_read_bytes(ptr noundef nonnull readonly captures(none) %0, i8 noundef zeroext %1, ptr noundef writeonly captures(none) %2, i8 noundef zeroext %3) unnamed_addr #2 align 16 {
+define internal fastcc range(i32 -2147483648, 5) i32 @acpi_gsb_i2c_read_bytes(ptr noundef nonnull readonly captures(none) %0, i8 noundef zeroext %1, ptr noundef writeonly captures(none) %2, i8 noundef zeroext %3) unnamed_addr #1 align 16 {
   %5 = alloca i8, align 1
   %6 = alloca [2 x %struct.i2c_msg], align 16
   store i8 %1, ptr %5, align 1
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = zext i8 %3 to i64
   %8 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %7, i32 noundef 3520) #12
   %9 = icmp eq ptr %8, null
@@ -1364,14 +1358,14 @@ define internal fastcc range(i32 -2147483648, 5) i32 @acpi_gsb_i2c_read_bytes(pt
 
 42:                                               ; preds = %40, %4
   %43 = phi i32 [ %41, %40 ], [ 4, %4 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %43
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -2147483648, 5) i32 @acpi_gsb_i2c_write_bytes(ptr noundef nonnull readonly captures(none) %0, i8 noundef zeroext %1, ptr noundef readonly captures(none) %2, i8 noundef zeroext %3) unnamed_addr #2 align 16 {
+define internal fastcc range(i32 -2147483648, 5) i32 @acpi_gsb_i2c_write_bytes(ptr noundef nonnull readonly captures(none) %0, i8 noundef zeroext %1, ptr noundef readonly captures(none) %2, i8 noundef zeroext %3) unnamed_addr #1 align 16 {
   %5 = alloca [1 x %struct.i2c_msg], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = zext i8 %3 to i32
   %7 = add nuw nsw i32 %6, 1
   %8 = zext nneg i32 %7 to i64
@@ -1416,25 +1410,31 @@ define internal fastcc range(i32 -2147483648, 5) i32 @acpi_gsb_i2c_write_bytes(p
 
 31:                                               ; preds = %28, %25, %4
   %32 = phi i32 [ %23, %25 ], [ %30, %28 ], [ 4, %4 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %32
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @i2c_transfer(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare dso_local i32 @i2c_transfer(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 attributes #0 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #5 = { cold null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #6 = { null_pointer_is_valid allocsize(2) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #7 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #1 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #4 = { cold null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #5 = { null_pointer_is_valid allocsize(2) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #6 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nounwind }
 attributes #10 = { cold nounwind }
 attributes #11 = { nounwind allocsize(2) }

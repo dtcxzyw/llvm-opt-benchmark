@@ -37,16 +37,10 @@ define dso_local noundef i32 @blake2s_init_param(ptr noundef captures(none) init
   ret i32 0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local range(i32 -1, 1) i32 @blake2s_init(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = alloca [1 x %struct.blake2s_param__], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = add i64 %1, -33
   %or.cond = icmp ult i64 %4, -32
   br i1 %or.cond, label %21, label %5
@@ -87,18 +81,18 @@ blake2s_init_param.exit:                          ; preds = %12
 
 21:                                               ; preds = %2, %blake2s_init_param.exit
   %.0 = phi i32 [ 0, %blake2s_init_param.exit ], [ -1, %2 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @blake2s_init_key(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2, i64 noundef %3) local_unnamed_addr #3 {
+define dso_local range(i32 -1, 1) i32 @blake2s_init_key(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2, i64 noundef %3) local_unnamed_addr #2 {
   %5 = alloca [1 x %struct.blake2s_param__], align 16
   %6 = alloca [64 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = add i64 %1, -33
   %or.cond = icmp ult i64 %7, -32
   br i1 %or.cond, label %33, label %8
@@ -143,7 +137,7 @@ define dso_local range(i32 -1, 1) i32 @blake2s_init_key(ptr noundef captures(non
 blake2s_update.exit:                              ; preds = %20
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i64 %1, ptr %28, align 8, !tbaa !13
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %6, i8 0, i64 64, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %6, ptr nonnull align 1 %2, i64 %3, i1 false)
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -152,17 +146,17 @@ blake2s_update.exit:                              ; preds = %20
   store i64 64, ptr %29, align 8, !tbaa !19
   %31 = load volatile ptr, ptr @secure_zero_memory.memset_v, align 8, !tbaa !20
   %32 = call ptr %31(ptr noundef nonnull %6, i32 noundef 0, i64 noundef 64) #7
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %33
 
 33:                                               ; preds = %8, %4, %blake2s_update.exit
   %.0 = phi i32 [ 0, %blake2s_update.exit ], [ -1, %4 ], [ -1, %8 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local noundef i32 @blake2s_update(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
@@ -234,7 +228,7 @@ define dso_local noundef i32 @blake2s_update(ptr noundef captures(none) %0, ptr 
 define internal fastcc void @blake2s_compress(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
 .preheader.preheader:
   %2 = alloca [16 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %.sroa.0.0.copyload = load i32, ptr %1, align 1
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.sroa.10.0.copyload = load i32, ptr %.sroa.10.0..sroa_idx, align 1
@@ -1465,14 +1459,14 @@ define internal fastcc void @blake2s_compress(ptr noundef captures(none) %0, ptr
   br i1 %exitcond.not, label %1173, label %1162, !llvm.loop !23
 
 1173:                                             ; preds = %1162
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @blake2s_final(ptr noundef captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #3 {
+define dso_local range(i32 -1, 1) i32 @blake2s_final(ptr noundef captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #2 {
   %4 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = icmp eq ptr %1, null
   br i1 %5, label %33, label %6
 
@@ -1527,18 +1521,18 @@ blake2s_set_lastblock.exit:                       ; preds = %12, %26
 
 33:                                               ; preds = %10, %3, %6, %blake2s_set_lastblock.exit
   %.019 = phi i32 [ 0, %blake2s_set_lastblock.exit ], [ -1, %6 ], [ -1, %3 ], [ -1, %10 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.019
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @blake2s(ptr noundef writeonly captures(address_is_null) %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4, i64 noundef %5) local_unnamed_addr #3 {
+define dso_local range(i32 -1, 1) i32 @blake2s(ptr noundef writeonly captures(address_is_null) %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4, i64 noundef %5) local_unnamed_addr #2 {
   %7 = alloca [32 x i8], align 16
   %8 = alloca [1 x %struct.blake2s_param__], align 16
   %9 = alloca [1 x %struct.blake2s_param__], align 16
   %10 = alloca [64 x i8], align 16
   %11 = alloca [1 x %struct.blake2s_state__], align 16
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %11) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %12 = icmp eq ptr %2, null
   %13 = icmp ne i64 %3, 0
   %or.cond = and i1 %12, %13
@@ -1561,11 +1555,11 @@ define dso_local range(i32 -1, 1) i32 @blake2s(ptr noundef writeonly captures(ad
   br i1 %17, label %21, label %47
 
 21:                                               ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   br i1 %16, label %blake2s_init_key.exit.thread, label %22
 
 blake2s_init_key.exit.thread:                     ; preds = %21
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %120
 
 22:                                               ; preds = %21
@@ -1601,7 +1595,7 @@ blake2s_init_key.exit.thread:                     ; preds = %21
 blake2s_init_key.exit:                            ; preds = %30
   %38 = getelementptr inbounds nuw i8, ptr %11, i64 120
   store i64 %1, ptr %38, align 8, !tbaa !13
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %39 = icmp ugt i64 %5, 63
   %40 = sub nuw nsw i64 64, %5
   %41 = select i1 %39, i64 0, i64 %40
@@ -1614,12 +1608,12 @@ blake2s_init_key.exit:                            ; preds = %30
   store i64 64, ptr %43, align 16, !tbaa !19
   %45 = load volatile ptr, ptr @secure_zero_memory.memset_v, align 8, !tbaa !20
   %46 = call ptr %45(ptr noundef nonnull %10, i32 noundef 0, i64 noundef 64) #7
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #7
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %63
 
 47:                                               ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %48 = trunc nuw nsw i64 %1 to i8
   store i8 %48, ptr %8, align 16, !tbaa !10
   %49 = getelementptr inbounds nuw i8, ptr %8, i64 1
@@ -1651,7 +1645,7 @@ blake2s_init_key.exit:                            ; preds = %30
 blake2s_init.exit:                                ; preds = %54
   %62 = getelementptr inbounds nuw i8, ptr %11, i64 120
   store i64 %1, ptr %62, align 8, !tbaa !13
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %63
 
 63:                                               ; preds = %blake2s_init.exit, %blake2s_init_key.exit
@@ -1660,7 +1654,7 @@ blake2s_init.exit:                                ; preds = %54
   br i1 %.not.i, label %.thread, label %65
 
 .thread:                                          ; preds = %63
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %98
 
 65:                                               ; preds = %63
@@ -1720,7 +1714,7 @@ blake2s_init.exit:                                ; preds = %54
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %11, i64 120
   %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !13
   %97 = icmp ult i64 %1, %.pre
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br i1 %97, label %blake2s_final.exit, label %98
 
 98:                                               ; preds = %.thread, %.loopexit
@@ -1766,27 +1760,33 @@ blake2s_set_lastblock.exit.i:                     ; preds = %113, %101
   br label %blake2s_final.exit
 
 blake2s_final.exit:                               ; preds = %.loopexit, %98, %blake2s_set_lastblock.exit.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %120
 
 120:                                              ; preds = %blake2s_init_key.exit.thread, %15, %6, %blake2s_final.exit
   %.0 = phi i32 [ 0, %blake2s_final.exit ], [ -1, %6 ], [ -1, %15 ], [ -1, %blake2s_init_key.exit.thread ]
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %11) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @memset(ptr noundef writeonly, i32 noundef, i64 noundef) #5
+declare ptr @memset(ptr noundef writeonly, i32 noundef, i64 noundef) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #6
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #3 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { nounwind }
 

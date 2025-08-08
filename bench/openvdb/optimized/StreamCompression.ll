@@ -436,14 +436,14 @@ entry:
   %_openvdb_throw_msg54 = alloca %"class.std::__cxx11::basic_string", align 8
   %_openvdb_throw_os55 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp78 = alloca %"class.std::__cxx11::basic_string", align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %bytes.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %_1.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %_2.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %bytes.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %_1.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %_2.i)
   call void @blosc_cbuffer_sizes(ptr noundef %compressedBuffer, ptr noundef nonnull %bytes.i, ptr noundef nonnull %_1.i, ptr noundef nonnull %_2.i)
   %0 = load i64, ptr %bytes.i, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %bytes.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %_1.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %_2.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %bytes.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %_1.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %_2.i)
   %cmp = icmp ugt i64 %bufferBytes, 2147483631
   br i1 %cmp, label %if.then, label %if.end
 
@@ -749,14 +749,14 @@ entry:
   %bytes.i = alloca i64, align 8
   %_1.i = alloca i64, align 8
   %_2.i = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %bytes.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %_1.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %_2.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %bytes.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %_1.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %_2.i)
   call void @blosc_cbuffer_sizes(ptr noundef %buffer, ptr noundef nonnull %bytes.i, ptr noundef nonnull %_1.i, ptr noundef nonnull %_2.i)
   %0 = load i64, ptr %bytes.i, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %bytes.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %_1.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %_2.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %bytes.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %_1.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %_2.i)
   %add = add i64 %0, 16
   %cmp = icmp ugt i64 %add, 2147483631
   %spec.select = select i1 %cmp, i64 1, i64 %add
@@ -895,17 +895,17 @@ invoke.cont30:                                    ; preds = %invoke.cont26
   br i1 %cmp, label %if.then33, label %if.else
 
 if.then33:                                        ; preds = %invoke.cont30
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %bytes.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %_1.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %_2.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %bytes.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %_1.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %_2.i.i)
   invoke void @blosc_cbuffer_sizes(ptr noundef nonnull %call10, ptr noundef nonnull %bytes.i.i, ptr noundef nonnull %_1.i.i, ptr noundef nonnull %_2.i.i)
           to label %.noexc unwind label %lpad21
 
 .noexc:                                           ; preds = %if.then33
   %10 = load i64, ptr %bytes.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %bytes.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %_1.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %_2.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %bytes.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %_1.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %_2.i.i)
   %add.i = shl i64 %10, 1
   %mData.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call3.i17 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %add.i) #21
@@ -1537,17 +1537,17 @@ invoke.cont61:                                    ; preds = %invoke.cont45
   br i1 %cmp66, label %if.then67, label %if.else69
 
 if.then67:                                        ; preds = %invoke.cont61
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %bytes.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %_1.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %_2.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %bytes.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %_1.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %_2.i.i)
   invoke void @blosc_cbuffer_sizes(ptr noundef nonnull %call46, ptr noundef nonnull %bytes.i.i, ptr noundef nonnull %_1.i.i, ptr noundef nonnull %_2.i.i)
           to label %.noexc unwind label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit
 
 .noexc:                                           ; preds = %if.then67
   %61 = load i64, ptr %bytes.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %bytes.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %_1.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %_2.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %bytes.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %_1.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %_2.i.i)
   %add.i = shl i64 %61, 1
   %mData.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call3.i84 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %add.i) #21
@@ -1791,14 +1791,14 @@ entry:
   %_1.i = alloca i64, align 8
   %_2.i = alloca i64, align 8
   %0 = load ptr, ptr %temp, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %bytes.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %_1.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %_2.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %bytes.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %_1.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %_2.i)
   call void @blosc_cbuffer_sizes(ptr noundef %0, ptr noundef nonnull %bytes.i, ptr noundef nonnull %_1.i, ptr noundef nonnull %_2.i)
   %1 = load i64, ptr %bytes.i, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %bytes.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %_1.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %_2.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %bytes.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %_1.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %_2.i)
   %add = shl i64 %1, 1
   %mData = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call3 = call noalias noundef nonnull ptr @_Znam(i64 noundef %add) #21
@@ -2230,8 +2230,8 @@ _ZNSt10shared_ptrIN7openvdb5v11_011compression4PageEED2Ev.exit: ; preds = %if.en
   %14 = load ptr, ptr %mPage, align 8
   %mIs = getelementptr inbounds nuw i8, ptr %this, i64 8
   %15 = load ptr, ptr %mIs, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %compressedSize.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %uncompressedSize.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %compressedSize.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %uncompressedSize.i)
   %call.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull %compressedSize.i, i64 noundef 4)
   %16 = load i32, ptr %compressedSize.i, align 4
   %cmp.i = icmp sgt i32 %16, 0
@@ -2258,8 +2258,8 @@ _ZN7openvdb5v11_011compression4Page10readHeaderERSi.exit: ; preds = %if.then.i, 
   %20 = load ptr, ptr %14, align 8
   %uncompressedBytes.i = getelementptr inbounds nuw i8, ptr %20, i64 48
   store i64 %conv4.i, ptr %uncompressedBytes.i, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %compressedSize.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %uncompressedSize.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %compressedSize.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %uncompressedSize.i)
   %21 = load ptr, ptr %mPage, align 8
   %22 = load ptr, ptr %21, align 8
   %uncompressedBytes.i5 = getelementptr inbounds nuw i8, ptr %22, i64 48
@@ -2500,7 +2500,7 @@ _ZN7openvdb5v11_011compression17PagedOutputStream6resizeEm.exit: ; preds = %if.e
   br i1 %tobool, label %if.then2, label %if.else
 
 if.then2:                                         ; preds = %_ZN7openvdb5v11_011compression17PagedOutputStream6resizeEm.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %compressedBytes.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %compressedBytes.i)
   %add.i.i = or disjoint i64 %size, 128
   %spec.select.i.i = select i1 %or.cond.i, i64 %add.i.i, i64 %size
   %add2.i.i = add i64 %spec.select.i.i, 16
@@ -2519,7 +2519,7 @@ _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit.i.i: ; preds = %if.then2
 _ZN7openvdb5v11_011compression19bloscCompressedSizeEPKcm.exit: ; preds = %if.then2
   %7 = load i64, ptr %compressedBytes.i, align 8, !noalias !13
   tail call void @_ZdaPv(ptr noundef nonnull %call5.i.i) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %compressedBytes.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %compressedBytes.i)
   store i64 %7, ptr %compressedBytes, align 8
   br label %if.end4
 
@@ -3058,10 +3058,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #20
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #20
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #20
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

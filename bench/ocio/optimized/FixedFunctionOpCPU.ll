@@ -946,14 +946,8 @@ _ZN19OpenColorIO_v2_5dev13CalcHueWeightEffff.exit.thread: ; preds = %9, %58, %64
   br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !16
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fmuladd.f32(float, float, float) #6
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN19OpenColorIO_v2_5dev26Renderer_ACES_RedMod03_InvC2ERSt10shared_ptrIKNS_19FixedFunctionOpDataEE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(20) initializes((0, 20)) %0, ptr nonnull readnone align 8 captures(none) %1) unnamed_addr #4 align 2 {
@@ -2099,7 +2093,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev31Renderer_ACES_OutputTransform20C2E
   %40 = getelementptr inbounds nuw i8, ptr %16, i64 64
   %41 = load double, ptr %40, align 8, !tbaa !42
   %42 = fptrunc double %41 to float
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %43 = fpext float %21 to double
   %44 = fpext float %24 to double
   %45 = fpext float %27 to double
@@ -2123,32 +2117,32 @@ define hidden void @_ZN19OpenColorIO_v2_5dev31Renderer_ACES_OutputTransform20C2E
   %57 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store double %49, ptr %56, align 8, !tbaa !42
   store double %50, ptr %57, align 8, !tbaa !42
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %4) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN19OpenColorIO_v2_5dev5ACES214init_JMhParamsERKNS_9PrimariesE(ptr dead_on_unwind nonnull writable sret(%"struct.OpenColorIO_v2_5dev::ACES2::JMhParams") align 4 %4, ptr noundef nonnull align 8 dereferenceable(64) @_ZN19OpenColorIO_v2_5dev8ACES_AP09primariesE)
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %58, ptr noundef nonnull align 4 dereferenceable(112) %4, i64 112, i1 false), !tbaa.struct !93
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %4) #28
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %5) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN19OpenColorIO_v2_5dev5ACES214init_JMhParamsERKNS_9PrimariesE(ptr dead_on_unwind nonnull writable sret(%"struct.OpenColorIO_v2_5dev::ACES2::JMhParams") align 4 %5, ptr noundef nonnull align 8 dereferenceable(64) %3)
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 124
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %59, ptr noundef nonnull align 4 dereferenceable(112) %5, i64 112, i1 false), !tbaa.struct !93
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %5) #28
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN19OpenColorIO_v2_5dev5ACES220init_ToneScaleParamsEf(ptr dead_on_unwind nonnull writable sret(%"struct.OpenColorIO_v2_5dev::ACES2::ToneScaleParams") align 4 %6, float noundef %18)
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 236
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %60, ptr noundef nonnull align 4 dereferenceable(32) %6, i64 32, i1 false), !tbaa.struct !95
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #28
-  call void @llvm.lifetime.start.p0(i64 1472, ptr nonnull %7) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN19OpenColorIO_v2_5dev5ACES225init_ChromaCompressParamsEf(ptr dead_on_unwind nonnull writable sret(%"struct.OpenColorIO_v2_5dev::ACES2::ChromaCompressParams") align 4 %7, float noundef %18)
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 268
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1472) %61, ptr noundef nonnull align 4 dereferenceable(1472) %7, i64 1472, i1 false), !tbaa.struct !96
-  call void @llvm.lifetime.end.p0(i64 1472, ptr nonnull %7) #28
-  call void @llvm.lifetime.start.p0(i64 7260, ptr nonnull %8) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZN19OpenColorIO_v2_5dev5ACES224init_GamutCompressParamsEfRKNS_9PrimariesE(ptr dead_on_unwind nonnull writable sret(%"struct.OpenColorIO_v2_5dev::ACES2::GamutCompressParams") align 4 %8, float noundef %18, ptr noundef nonnull align 8 dereferenceable(64) %3)
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 1740
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(7260) %62, ptr noundef nonnull align 4 dereferenceable(7260) %8, i64 7260, i1 false), !tbaa.struct !97
-  call void @llvm.lifetime.end.p0(i64 7260, ptr nonnull %8) #28
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -2211,7 +2205,7 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev31Renderer_ACES_OutputTransform203f
   %.031 = phi ptr [ %1, %.lr.ph ], [ %32, %17 ]
   %.02730 = phi ptr [ %2, %.lr.ph ], [ %33, %17 ]
   %.02829 = phi i64 [ 0, %.lr.ph ], [ %34, %17 ]
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %18 = load float, ptr %.031, align 4, !tbaa !13
   store float %18, ptr %5, align 4, !tbaa !13
   %19 = getelementptr inbounds nuw i8, ptr %.031, i64 4
@@ -2220,19 +2214,19 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev31Renderer_ACES_OutputTransform203f
   %21 = getelementptr inbounds nuw i8, ptr %.031, i64 8
   %22 = load float, ptr %21, align 4, !tbaa !13
   store float %22, ptr %11, align 4, !tbaa !13
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %23 = call { <2 x float>, float } @_ZN19OpenColorIO_v2_5dev5ACES210RGB_to_JMhERKSt5arrayIfLm3EERKNS0_9JMhParamsE(ptr noundef nonnull align 4 dereferenceable(12) %5, ptr noundef nonnull align 4 dereferenceable(112) %12)
   %.fca.0.extract9 = extractvalue { <2 x float>, float } %23, 0
   %.fca.1.extract10 = extractvalue { <2 x float>, float } %23, 1
   store <2 x float> %.fca.0.extract9, ptr %6, align 8
   store float %.fca.1.extract10, ptr %.sroa.212.0..sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %7) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %24 = call { <2 x float>, float } @_ZN19OpenColorIO_v2_5dev5ACES229tonescale_chroma_compress_fwdERKSt5arrayIfLm3EERKNS0_9JMhParamsERKNS0_15ToneScaleParamsERKNS0_20ChromaCompressParamsE(ptr noundef nonnull align 4 dereferenceable(12) %6, ptr noundef nonnull align 4 dereferenceable(112) %12, ptr noundef nonnull align 4 dereferenceable(32) %13, ptr noundef nonnull align 4 dereferenceable(1472) %14)
   %.fca.0.extract5 = extractvalue { <2 x float>, float } %24, 0
   %.fca.1.extract6 = extractvalue { <2 x float>, float } %24, 1
   store <2 x float> %.fca.0.extract5, ptr %7, align 8
   store float %.fca.1.extract6, ptr %.sroa.28.0..sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %8) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %25 = call { <2 x float>, float } @_ZN19OpenColorIO_v2_5dev5ACES218gamut_compress_fwdERKSt5arrayIfLm3EERKNS0_19GamutCompressParamsE(ptr noundef nonnull align 4 dereferenceable(12) %7, ptr noundef nonnull align 4 dereferenceable(7260) %15)
   %.fca.0.extract1 = extractvalue { <2 x float>, float } %25, 0
   %.fca.1.extract2 = extractvalue { <2 x float>, float } %25, 1
@@ -2254,10 +2248,10 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev31Renderer_ACES_OutputTransform203f
   store float %30, ptr %31, align 4, !tbaa !13
   %32 = getelementptr inbounds nuw i8, ptr %.031, i64 16
   %33 = getelementptr inbounds nuw i8, ptr %.02730, i64 16
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8) #28
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7) #28
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6) #28
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %34 = add nuw nsw i64 %.02829, 1
   %exitcond.not = icmp eq i64 %34, %3
   br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !100
@@ -2292,7 +2286,7 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev31Renderer_ACES_OutputTransform203i
   %.031 = phi ptr [ %1, %.lr.ph ], [ %32, %17 ]
   %.02730 = phi ptr [ %2, %.lr.ph ], [ %33, %17 ]
   %.02829 = phi i64 [ 0, %.lr.ph ], [ %34, %17 ]
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %18 = load float, ptr %.031, align 4, !tbaa !13
   store float %18, ptr %5, align 4, !tbaa !13
   %19 = getelementptr inbounds nuw i8, ptr %.031, i64 4
@@ -2301,19 +2295,19 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev31Renderer_ACES_OutputTransform203i
   %21 = getelementptr inbounds nuw i8, ptr %.031, i64 8
   %22 = load float, ptr %21, align 4, !tbaa !13
   store float %22, ptr %11, align 4, !tbaa !13
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %23 = call { <2 x float>, float } @_ZN19OpenColorIO_v2_5dev5ACES210RGB_to_JMhERKSt5arrayIfLm3EERKNS0_9JMhParamsE(ptr noundef nonnull align 4 dereferenceable(12) %5, ptr noundef nonnull align 4 dereferenceable(112) %12)
   %.fca.0.extract9 = extractvalue { <2 x float>, float } %23, 0
   %.fca.1.extract10 = extractvalue { <2 x float>, float } %23, 1
   store <2 x float> %.fca.0.extract9, ptr %6, align 8
   store float %.fca.1.extract10, ptr %.sroa.212.0..sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %7) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %24 = call { <2 x float>, float } @_ZN19OpenColorIO_v2_5dev5ACES218gamut_compress_invERKSt5arrayIfLm3EERKNS0_19GamutCompressParamsE(ptr noundef nonnull align 4 dereferenceable(12) %6, ptr noundef nonnull align 4 dereferenceable(7260) %13)
   %.fca.0.extract5 = extractvalue { <2 x float>, float } %24, 0
   %.fca.1.extract6 = extractvalue { <2 x float>, float } %24, 1
   store <2 x float> %.fca.0.extract5, ptr %7, align 8
   store float %.fca.1.extract6, ptr %.sroa.28.0..sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %8) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %25 = call { <2 x float>, float } @_ZN19OpenColorIO_v2_5dev5ACES229tonescale_chroma_compress_invERKSt5arrayIfLm3EERKNS0_9JMhParamsERKNS0_15ToneScaleParamsERKNS0_20ChromaCompressParamsE(ptr noundef nonnull align 4 dereferenceable(12) %7, ptr noundef nonnull align 4 dereferenceable(112) %14, ptr noundef nonnull align 4 dereferenceable(32) %15, ptr noundef nonnull align 4 dereferenceable(1472) %16)
   %.fca.0.extract1 = extractvalue { <2 x float>, float } %25, 0
   %.fca.1.extract2 = extractvalue { <2 x float>, float } %25, 1
@@ -2335,10 +2329,10 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev31Renderer_ACES_OutputTransform203i
   store float %30, ptr %31, align 4, !tbaa !13
   %32 = getelementptr inbounds nuw i8, ptr %.031, i64 16
   %33 = getelementptr inbounds nuw i8, ptr %.02730, i64 16
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8) #28
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7) #28
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6) #28
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %34 = add nuw nsw i64 %.02829, 1
   %exitcond.not = icmp eq i64 %34, %3
   br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !101
@@ -2393,7 +2387,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev27Renderer_ACES_RGB_TO_JMh_20C2ERSt1
   %33 = getelementptr inbounds nuw i8, ptr %12, i64 56
   %34 = load double, ptr %33, align 8, !tbaa !42
   %35 = fptrunc double %34 to float
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %36 = fpext float %14 to double
   %37 = fpext float %17 to double
   %38 = fpext float %20 to double
@@ -2417,12 +2411,12 @@ define hidden void @_ZN19OpenColorIO_v2_5dev27Renderer_ACES_RGB_TO_JMh_20C2ERSt1
   %50 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store double %42, ptr %49, align 8, !tbaa !42
   store double %43, ptr %50, align 8, !tbaa !42
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %4) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN19OpenColorIO_v2_5dev5ACES214init_JMhParamsERKNS_9PrimariesE(ptr dead_on_unwind nonnull writable sret(%"struct.OpenColorIO_v2_5dev::ACES2::JMhParams") align 4 %4, ptr noundef nonnull align 8 dereferenceable(64) %3)
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %51, ptr noundef nonnull align 4 dereferenceable(112) %4, i64 112, i1 false), !tbaa.struct !93
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %4) #28
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -2449,7 +2443,7 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev27Renderer_ACES_RGB_TO_JMh_205apply
   %.019.i = phi ptr [ %1, %.lr.ph.i ], [ %27, %15 ]
   %.01518.i = phi ptr [ %2, %.lr.ph.i ], [ %28, %15 ]
   %.01617.i = phi i64 [ 0, %.lr.ph.i ], [ %29, %15 ]
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %16 = load float, ptr %.019.i, align 4, !tbaa !13
   store float %16, ptr %6, align 4, !tbaa !13
   %17 = getelementptr inbounds nuw i8, ptr %.019.i, i64 4
@@ -2461,7 +2455,7 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev27Renderer_ACES_RGB_TO_JMh_205apply
   %21 = call { <2 x float>, float } @_ZN19OpenColorIO_v2_5dev5ACES210RGB_to_JMhERKSt5arrayIfLm3EERKNS0_9JMhParamsE(ptr noundef nonnull align 4 dereferenceable(12) %6, ptr noundef nonnull align 4 dereferenceable(112) %14)
   %.fca.0.extract.i = extractvalue { <2 x float>, float } %21, 0
   %.fca.1.extract.i = extractvalue { <2 x float>, float } %21, 1
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.sroa.0.0.vec.extract.i = extractelement <2 x float> %.fca.0.extract.i, i64 0
   store float %.sroa.0.0.vec.extract.i, ptr %.01518.i, align 4, !tbaa !13
   %.sroa.0.4.vec.extract.i = extractelement <2 x float> %.fca.0.extract.i, i64 1
@@ -2492,7 +2486,7 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev27Renderer_ACES_RGB_TO_JMh_205apply
   %.019.i7 = phi ptr [ %1, %.lr.ph.i6 ], [ %46, %34 ]
   %.01518.i8 = phi ptr [ %2, %.lr.ph.i6 ], [ %47, %34 ]
   %.01617.i9 = phi i64 [ 0, %.lr.ph.i6 ], [ %48, %34 ]
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %35 = load float, ptr %.019.i7, align 4, !tbaa !13
   store float %35, ptr %5, align 4, !tbaa !13
   %36 = getelementptr inbounds nuw i8, ptr %.019.i7, i64 4
@@ -2504,7 +2498,7 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev27Renderer_ACES_RGB_TO_JMh_205apply
   %40 = call { <2 x float>, float } @_ZN19OpenColorIO_v2_5dev5ACES210JMh_to_RGBERKSt5arrayIfLm3EERKNS0_9JMhParamsE(ptr noundef nonnull align 4 dereferenceable(12) %5, ptr noundef nonnull align 4 dereferenceable(112) %33)
   %.fca.0.extract.i10 = extractvalue { <2 x float>, float } %40, 0
   %.fca.1.extract.i11 = extractvalue { <2 x float>, float } %40, 1
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.sroa.0.0.vec.extract.i12 = extractelement <2 x float> %.fca.0.extract.i10, i64 0
   store float %.sroa.0.0.vec.extract.i12, ptr %.01518.i8, align 4, !tbaa !13
   %.sroa.0.4.vec.extract.i13 = extractelement <2 x float> %.fca.0.extract.i10, i64 1
@@ -2545,7 +2539,7 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev27Renderer_ACES_RGB_TO_JMh_203fwdEP
   %.019 = phi ptr [ %1, %.lr.ph ], [ %22, %10 ]
   %.01518 = phi ptr [ %2, %.lr.ph ], [ %23, %10 ]
   %.01617 = phi i64 [ 0, %.lr.ph ], [ %24, %10 ]
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %11 = load float, ptr %.019, align 4, !tbaa !13
   store float %11, ptr %5, align 4, !tbaa !13
   %12 = getelementptr inbounds nuw i8, ptr %.019, i64 4
@@ -2557,7 +2551,7 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev27Renderer_ACES_RGB_TO_JMh_203fwdEP
   %16 = call { <2 x float>, float } @_ZN19OpenColorIO_v2_5dev5ACES210RGB_to_JMhERKSt5arrayIfLm3EERKNS0_9JMhParamsE(ptr noundef nonnull align 4 dereferenceable(12) %5, ptr noundef nonnull align 4 dereferenceable(112) %9)
   %.fca.0.extract = extractvalue { <2 x float>, float } %16, 0
   %.fca.1.extract = extractvalue { <2 x float>, float } %16, 1
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.sroa.0.0.vec.extract = extractelement <2 x float> %.fca.0.extract, i64 0
   store float %.sroa.0.0.vec.extract, ptr %.01518, align 4, !tbaa !13
   %.sroa.0.4.vec.extract = extractelement <2 x float> %.fca.0.extract, i64 1
@@ -2595,7 +2589,7 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev27Renderer_ACES_RGB_TO_JMh_203invEP
   %.019 = phi ptr [ %1, %.lr.ph ], [ %22, %10 ]
   %.01518 = phi ptr [ %2, %.lr.ph ], [ %23, %10 ]
   %.01617 = phi i64 [ 0, %.lr.ph ], [ %24, %10 ]
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %11 = load float, ptr %.019, align 4, !tbaa !13
   store float %11, ptr %5, align 4, !tbaa !13
   %12 = getelementptr inbounds nuw i8, ptr %.019, i64 4
@@ -2607,7 +2601,7 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev27Renderer_ACES_RGB_TO_JMh_203invEP
   %16 = call { <2 x float>, float } @_ZN19OpenColorIO_v2_5dev5ACES210JMh_to_RGBERKSt5arrayIfLm3EERKNS0_9JMhParamsE(ptr noundef nonnull align 4 dereferenceable(12) %5, ptr noundef nonnull align 4 dereferenceable(112) %9)
   %.fca.0.extract = extractvalue { <2 x float>, float } %16, 0
   %.fca.1.extract = extractvalue { <2 x float>, float } %16, 1
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.sroa.0.0.vec.extract = extractelement <2 x float> %.fca.0.extract, i64 0
   store float %.sroa.0.0.vec.extract, ptr %.01518, align 4, !tbaa !13
   %.sroa.0.4.vec.extract = extractelement <2 x float> %.fca.0.extract, i64 1
@@ -2643,21 +2637,21 @@ define hidden void @_ZN19OpenColorIO_v2_5dev35Renderer_ACES_TONESCALE_COMPRESS_2
   %13 = load ptr, ptr %12, align 8, !tbaa !39
   %14 = load double, ptr %13, align 8, !tbaa !42
   %15 = fptrunc double %14 to float
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %3) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN19OpenColorIO_v2_5dev5ACES214init_JMhParamsERKNS_9PrimariesE(ptr dead_on_unwind nonnull writable sret(%"struct.OpenColorIO_v2_5dev::ACES2::JMhParams") align 4 %3, ptr noundef nonnull align 8 dereferenceable(64) @_ZN19OpenColorIO_v2_5dev8ACES_AP09primariesE)
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %16, ptr noundef nonnull align 4 dereferenceable(112) %3, i64 112, i1 false), !tbaa.struct !93
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %3) #28
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN19OpenColorIO_v2_5dev5ACES220init_ToneScaleParamsEf(ptr dead_on_unwind nonnull writable sret(%"struct.OpenColorIO_v2_5dev::ACES2::ToneScaleParams") align 4 %4, float noundef %15)
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 124
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %17, ptr noundef nonnull align 4 dereferenceable(32) %4, i64 32, i1 false), !tbaa.struct !95
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #28
-  call void @llvm.lifetime.start.p0(i64 1472, ptr nonnull %5) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN19OpenColorIO_v2_5dev5ACES225init_ChromaCompressParamsEf(ptr dead_on_unwind nonnull writable sret(%"struct.OpenColorIO_v2_5dev::ACES2::ChromaCompressParams") align 4 %5, float noundef %15)
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 156
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1472) %18, ptr noundef nonnull align 4 dereferenceable(1472) %5, i64 1472, i1 false), !tbaa.struct !96
-  call void @llvm.lifetime.end.p0(i64 1472, ptr nonnull %5) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -2686,7 +2680,7 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev35Renderer_ACES_TONESCALE_COMPRESS_
   %.019.i = phi ptr [ %1, %.lr.ph.i ], [ %29, %17 ]
   %.01518.i = phi ptr [ %2, %.lr.ph.i ], [ %30, %17 ]
   %.01617.i = phi i64 [ 0, %.lr.ph.i ], [ %31, %17 ]
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %18 = load float, ptr %.019.i, align 4, !tbaa !13
   store float %18, ptr %6, align 4, !tbaa !13
   %19 = getelementptr inbounds nuw i8, ptr %.019.i, i64 4
@@ -2698,7 +2692,7 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev35Renderer_ACES_TONESCALE_COMPRESS_
   %23 = call { <2 x float>, float } @_ZN19OpenColorIO_v2_5dev5ACES229tonescale_chroma_compress_fwdERKSt5arrayIfLm3EERKNS0_9JMhParamsERKNS0_15ToneScaleParamsERKNS0_20ChromaCompressParamsE(ptr noundef nonnull align 4 dereferenceable(12) %6, ptr noundef nonnull align 4 dereferenceable(112) %14, ptr noundef nonnull align 4 dereferenceable(32) %15, ptr noundef nonnull align 4 dereferenceable(1472) %16)
   %.fca.0.extract.i = extractvalue { <2 x float>, float } %23, 0
   %.fca.1.extract.i = extractvalue { <2 x float>, float } %23, 1
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.sroa.0.0.vec.extract.i = extractelement <2 x float> %.fca.0.extract.i, i64 0
   store float %.sroa.0.0.vec.extract.i, ptr %.01518.i, align 4, !tbaa !13
   %.sroa.0.4.vec.extract.i = extractelement <2 x float> %.fca.0.extract.i, i64 1
@@ -2731,7 +2725,7 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev35Renderer_ACES_TONESCALE_COMPRESS_
   %.019.i7 = phi ptr [ %1, %.lr.ph.i6 ], [ %50, %38 ]
   %.01518.i8 = phi ptr [ %2, %.lr.ph.i6 ], [ %51, %38 ]
   %.01617.i9 = phi i64 [ 0, %.lr.ph.i6 ], [ %52, %38 ]
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %39 = load float, ptr %.019.i7, align 4, !tbaa !13
   store float %39, ptr %5, align 4, !tbaa !13
   %40 = getelementptr inbounds nuw i8, ptr %.019.i7, i64 4
@@ -2743,7 +2737,7 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev35Renderer_ACES_TONESCALE_COMPRESS_
   %44 = call { <2 x float>, float } @_ZN19OpenColorIO_v2_5dev5ACES229tonescale_chroma_compress_invERKSt5arrayIfLm3EERKNS0_9JMhParamsERKNS0_15ToneScaleParamsERKNS0_20ChromaCompressParamsE(ptr noundef nonnull align 4 dereferenceable(12) %5, ptr noundef nonnull align 4 dereferenceable(112) %35, ptr noundef nonnull align 4 dereferenceable(32) %36, ptr noundef nonnull align 4 dereferenceable(1472) %37)
   %.fca.0.extract.i10 = extractvalue { <2 x float>, float } %44, 0
   %.fca.1.extract.i11 = extractvalue { <2 x float>, float } %44, 1
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.sroa.0.0.vec.extract.i12 = extractelement <2 x float> %.fca.0.extract.i10, i64 0
   store float %.sroa.0.0.vec.extract.i12, ptr %.01518.i8, align 4, !tbaa !13
   %.sroa.0.4.vec.extract.i13 = extractelement <2 x float> %.fca.0.extract.i10, i64 1
@@ -2786,7 +2780,7 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev35Renderer_ACES_TONESCALE_COMPRESS_
   %.019 = phi ptr [ %1, %.lr.ph ], [ %24, %12 ]
   %.01518 = phi ptr [ %2, %.lr.ph ], [ %25, %12 ]
   %.01617 = phi i64 [ 0, %.lr.ph ], [ %26, %12 ]
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %13 = load float, ptr %.019, align 4, !tbaa !13
   store float %13, ptr %5, align 4, !tbaa !13
   %14 = getelementptr inbounds nuw i8, ptr %.019, i64 4
@@ -2798,7 +2792,7 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev35Renderer_ACES_TONESCALE_COMPRESS_
   %18 = call { <2 x float>, float } @_ZN19OpenColorIO_v2_5dev5ACES229tonescale_chroma_compress_fwdERKSt5arrayIfLm3EERKNS0_9JMhParamsERKNS0_15ToneScaleParamsERKNS0_20ChromaCompressParamsE(ptr noundef nonnull align 4 dereferenceable(12) %5, ptr noundef nonnull align 4 dereferenceable(112) %9, ptr noundef nonnull align 4 dereferenceable(32) %10, ptr noundef nonnull align 4 dereferenceable(1472) %11)
   %.fca.0.extract = extractvalue { <2 x float>, float } %18, 0
   %.fca.1.extract = extractvalue { <2 x float>, float } %18, 1
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.sroa.0.0.vec.extract = extractelement <2 x float> %.fca.0.extract, i64 0
   store float %.sroa.0.0.vec.extract, ptr %.01518, align 4, !tbaa !13
   %.sroa.0.4.vec.extract = extractelement <2 x float> %.fca.0.extract, i64 1
@@ -2838,7 +2832,7 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev35Renderer_ACES_TONESCALE_COMPRESS_
   %.019 = phi ptr [ %1, %.lr.ph ], [ %24, %12 ]
   %.01518 = phi ptr [ %2, %.lr.ph ], [ %25, %12 ]
   %.01617 = phi i64 [ 0, %.lr.ph ], [ %26, %12 ]
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %13 = load float, ptr %.019, align 4, !tbaa !13
   store float %13, ptr %5, align 4, !tbaa !13
   %14 = getelementptr inbounds nuw i8, ptr %.019, i64 4
@@ -2850,7 +2844,7 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev35Renderer_ACES_TONESCALE_COMPRESS_
   %18 = call { <2 x float>, float } @_ZN19OpenColorIO_v2_5dev5ACES229tonescale_chroma_compress_invERKSt5arrayIfLm3EERKNS0_9JMhParamsERKNS0_15ToneScaleParamsERKNS0_20ChromaCompressParamsE(ptr noundef nonnull align 4 dereferenceable(12) %5, ptr noundef nonnull align 4 dereferenceable(112) %9, ptr noundef nonnull align 4 dereferenceable(32) %10, ptr noundef nonnull align 4 dereferenceable(1472) %11)
   %.fca.0.extract = extractvalue { <2 x float>, float } %18, 0
   %.fca.1.extract = extractvalue { <2 x float>, float } %18, 1
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.sroa.0.0.vec.extract = extractelement <2 x float> %.fca.0.extract, i64 0
   store float %.sroa.0.0.vec.extract, ptr %.01518, align 4, !tbaa !13
   %.sroa.0.4.vec.extract = extractelement <2 x float> %.fca.0.extract, i64 1
@@ -2908,7 +2902,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev31Renderer_ACES_GAMUT_COMPRESS_20C2E
   %35 = getelementptr inbounds nuw i8, ptr %12, i64 64
   %36 = load double, ptr %35, align 8, !tbaa !42
   %37 = fptrunc double %36 to float
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %38 = fpext float %16 to double
   %39 = fpext float %19 to double
   %40 = fpext float %22 to double
@@ -2933,12 +2927,12 @@ define hidden void @_ZN19OpenColorIO_v2_5dev31Renderer_ACES_GAMUT_COMPRESS_20C2E
   store double %44, ptr %51, align 8, !tbaa !42
   store double %45, ptr %52, align 8, !tbaa !42
   %53 = fptrunc double %13 to float
-  call void @llvm.lifetime.start.p0(i64 7260, ptr nonnull %4) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN19OpenColorIO_v2_5dev5ACES224init_GamutCompressParamsEfRKNS_9PrimariesE(ptr dead_on_unwind nonnull writable sret(%"struct.OpenColorIO_v2_5dev::ACES2::GamutCompressParams") align 4 %4, float noundef %53, ptr noundef nonnull align 8 dereferenceable(64) %3)
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(7260) %54, ptr noundef nonnull align 4 dereferenceable(7260) %4, i64 7260, i1 false), !tbaa.struct !97
-  call void @llvm.lifetime.end.p0(i64 7260, ptr nonnull %4) #28
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -2965,7 +2959,7 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev31Renderer_ACES_GAMUT_COMPRESS_205a
   %.019.i = phi ptr [ %1, %.lr.ph.i ], [ %27, %15 ]
   %.01518.i = phi ptr [ %2, %.lr.ph.i ], [ %28, %15 ]
   %.01617.i = phi i64 [ 0, %.lr.ph.i ], [ %29, %15 ]
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %16 = load float, ptr %.019.i, align 4, !tbaa !13
   store float %16, ptr %6, align 4, !tbaa !13
   %17 = getelementptr inbounds nuw i8, ptr %.019.i, i64 4
@@ -2977,7 +2971,7 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev31Renderer_ACES_GAMUT_COMPRESS_205a
   %21 = call { <2 x float>, float } @_ZN19OpenColorIO_v2_5dev5ACES218gamut_compress_fwdERKSt5arrayIfLm3EERKNS0_19GamutCompressParamsE(ptr noundef nonnull align 4 dereferenceable(12) %6, ptr noundef nonnull align 4 dereferenceable(7260) %14)
   %.fca.0.extract.i = extractvalue { <2 x float>, float } %21, 0
   %.fca.1.extract.i = extractvalue { <2 x float>, float } %21, 1
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.sroa.0.0.vec.extract.i = extractelement <2 x float> %.fca.0.extract.i, i64 0
   store float %.sroa.0.0.vec.extract.i, ptr %.01518.i, align 4, !tbaa !13
   %.sroa.0.4.vec.extract.i = extractelement <2 x float> %.fca.0.extract.i, i64 1
@@ -3008,7 +3002,7 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev31Renderer_ACES_GAMUT_COMPRESS_205a
   %.019.i7 = phi ptr [ %1, %.lr.ph.i6 ], [ %46, %34 ]
   %.01518.i8 = phi ptr [ %2, %.lr.ph.i6 ], [ %47, %34 ]
   %.01617.i9 = phi i64 [ 0, %.lr.ph.i6 ], [ %48, %34 ]
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %35 = load float, ptr %.019.i7, align 4, !tbaa !13
   store float %35, ptr %5, align 4, !tbaa !13
   %36 = getelementptr inbounds nuw i8, ptr %.019.i7, i64 4
@@ -3020,7 +3014,7 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev31Renderer_ACES_GAMUT_COMPRESS_205a
   %40 = call { <2 x float>, float } @_ZN19OpenColorIO_v2_5dev5ACES218gamut_compress_invERKSt5arrayIfLm3EERKNS0_19GamutCompressParamsE(ptr noundef nonnull align 4 dereferenceable(12) %5, ptr noundef nonnull align 4 dereferenceable(7260) %33)
   %.fca.0.extract.i10 = extractvalue { <2 x float>, float } %40, 0
   %.fca.1.extract.i11 = extractvalue { <2 x float>, float } %40, 1
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.sroa.0.0.vec.extract.i12 = extractelement <2 x float> %.fca.0.extract.i10, i64 0
   store float %.sroa.0.0.vec.extract.i12, ptr %.01518.i8, align 4, !tbaa !13
   %.sroa.0.4.vec.extract.i13 = extractelement <2 x float> %.fca.0.extract.i10, i64 1
@@ -3061,7 +3055,7 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev31Renderer_ACES_GAMUT_COMPRESS_203f
   %.019 = phi ptr [ %1, %.lr.ph ], [ %22, %10 ]
   %.01518 = phi ptr [ %2, %.lr.ph ], [ %23, %10 ]
   %.01617 = phi i64 [ 0, %.lr.ph ], [ %24, %10 ]
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %11 = load float, ptr %.019, align 4, !tbaa !13
   store float %11, ptr %5, align 4, !tbaa !13
   %12 = getelementptr inbounds nuw i8, ptr %.019, i64 4
@@ -3073,7 +3067,7 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev31Renderer_ACES_GAMUT_COMPRESS_203f
   %16 = call { <2 x float>, float } @_ZN19OpenColorIO_v2_5dev5ACES218gamut_compress_fwdERKSt5arrayIfLm3EERKNS0_19GamutCompressParamsE(ptr noundef nonnull align 4 dereferenceable(12) %5, ptr noundef nonnull align 4 dereferenceable(7260) %9)
   %.fca.0.extract = extractvalue { <2 x float>, float } %16, 0
   %.fca.1.extract = extractvalue { <2 x float>, float } %16, 1
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.sroa.0.0.vec.extract = extractelement <2 x float> %.fca.0.extract, i64 0
   store float %.sroa.0.0.vec.extract, ptr %.01518, align 4, !tbaa !13
   %.sroa.0.4.vec.extract = extractelement <2 x float> %.fca.0.extract, i64 1
@@ -3111,7 +3105,7 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev31Renderer_ACES_GAMUT_COMPRESS_203i
   %.019 = phi ptr [ %1, %.lr.ph ], [ %22, %10 ]
   %.01518 = phi ptr [ %2, %.lr.ph ], [ %23, %10 ]
   %.01617 = phi i64 [ 0, %.lr.ph ], [ %24, %10 ]
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %11 = load float, ptr %.019, align 4, !tbaa !13
   store float %11, ptr %5, align 4, !tbaa !13
   %12 = getelementptr inbounds nuw i8, ptr %.019, i64 4
@@ -3123,7 +3117,7 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev31Renderer_ACES_GAMUT_COMPRESS_203i
   %16 = call { <2 x float>, float } @_ZN19OpenColorIO_v2_5dev5ACES218gamut_compress_invERKSt5arrayIfLm3EERKNS0_19GamutCompressParamsE(ptr noundef nonnull align 4 dereferenceable(12) %5, ptr noundef nonnull align 4 dereferenceable(7260) %9)
   %.fca.0.extract = extractvalue { <2 x float>, float } %16, 0
   %.fca.1.extract = extractvalue { <2 x float>, float } %16, 1
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.sroa.0.0.vec.extract = extractelement <2 x float> %.fca.0.extract, i64 0
   store float %.sroa.0.0.vec.extract, ptr %.01518, align 4, !tbaa !13
   %.sroa.0.4.vec.extract = extractelement <2 x float> %.fca.0.extract, i64 1
@@ -4861,19 +4855,19 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev31Renderer_ACES_OutputTransform20ELN9_
   br label %408
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev27Renderer_ACES_RGB_TO_JMh_20ELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %3, %3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !231)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #28, !noalias !231
+  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !231
   store ptr null, ptr %9, align 8, !tbaa !234, !alias.scope !231
   %217 = getelementptr inbounds nuw i8, ptr %9, i64 8
   call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN19OpenColorIO_v2_5dev27Renderer_ACES_RGB_TO_JMh_20ESaIvEJRSt10shared_ptrIKNS4_19FixedFunctionOpDataEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %217, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr nonnull %8, ptr noundef nonnull align 8 dereferenceable(16) %1)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #28, !noalias !231
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !231
   %218 = load ptr, ptr %9, align 8, !tbaa !234
   store ptr %218, ptr %0, align 8, !tbaa !191
   %219 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %220 = load ptr, ptr %217, align 8, !tbaa !194
   store ptr %220, ptr %219, align 8, !tbaa !194
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %408
 
 221:                                              ; preds = %3, %3
@@ -4893,23 +4887,23 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev27Renderer_ACES_RGB_TO_JMh_20ELN9__gnu
   %230 = load ptr, ptr %229, align 8, !tbaa !39
   %231 = load double, ptr %230, align 8, !tbaa !42
   %232 = fptrunc double %231 to float
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %4) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   invoke void @_ZN19OpenColorIO_v2_5dev5ACES214init_JMhParamsERKNS_9PrimariesE(ptr dead_on_unwind nonnull writable sret(%"struct.OpenColorIO_v2_5dev::ACES2::JMhParams") align 4 %4, ptr noundef nonnull align 8 dereferenceable(64) @_ZN19OpenColorIO_v2_5dev8ACES_AP09primariesE)
           to label %.noexc.i unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev35Renderer_ACES_TONESCALE_COMPRESS_20ESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i
 
 .noexc.i:                                         ; preds = %221
   %233 = getelementptr inbounds nuw i8, ptr %222, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %233, ptr noundef nonnull align 4 dereferenceable(112) %4, i64 112, i1 false), !tbaa.struct !93
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %4) #28
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   invoke void @_ZN19OpenColorIO_v2_5dev5ACES220init_ToneScaleParamsEf(ptr dead_on_unwind nonnull writable sret(%"struct.OpenColorIO_v2_5dev::ACES2::ToneScaleParams") align 4 %5, float noundef %232)
           to label %.noexc9.i unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev35Renderer_ACES_TONESCALE_COMPRESS_20ESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i
 
 .noexc9.i:                                        ; preds = %.noexc.i
   %234 = getelementptr inbounds nuw i8, ptr %222, i64 140
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %234, ptr noundef nonnull align 4 dereferenceable(32) %5, i64 32, i1 false), !tbaa.struct !95
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #28
-  call void @llvm.lifetime.start.p0(i64 1472, ptr nonnull %6) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   invoke void @_ZN19OpenColorIO_v2_5dev5ACES225init_ChromaCompressParamsEf(ptr dead_on_unwind nonnull writable sret(%"struct.OpenColorIO_v2_5dev::ACES2::ChromaCompressParams") align 4 %6, float noundef %232)
           to label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev35Renderer_ACES_TONESCALE_COMPRESS_20ELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev35Renderer_ACES_TONESCALE_COMPRESS_20ESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i
 
@@ -4922,26 +4916,26 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev35Re
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev35Renderer_ACES_TONESCALE_COMPRESS_20ELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %.noexc9.i
   %236 = getelementptr inbounds nuw i8, ptr %222, i64 172
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1472) %236, ptr noundef nonnull align 4 dereferenceable(1472) %6, i64 1472, i1 false), !tbaa.struct !96
-  call void @llvm.lifetime.end.p0(i64 1472, ptr nonnull %6) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store ptr %225, ptr %0, align 8, !tbaa !191
   %237 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %222, ptr %237, align 8, !tbaa !194
   br label %408
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev31Renderer_ACES_GAMUT_COMPRESS_20ELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %3, %3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !237)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #28, !noalias !237
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !237
   store ptr null, ptr %10, align 8, !tbaa !240, !alias.scope !237
   %238 = getelementptr inbounds nuw i8, ptr %10, i64 8
   call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN19OpenColorIO_v2_5dev31Renderer_ACES_GAMUT_COMPRESS_20ESaIvEJRSt10shared_ptrIKNS4_19FixedFunctionOpDataEEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %238, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr nonnull %7, ptr noundef nonnull align 8 dereferenceable(16) %1)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #28, !noalias !237
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !237
   %239 = load ptr, ptr %10, align 8, !tbaa !240
   store ptr %239, ptr %0, align 8, !tbaa !191
   %240 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %241 = load ptr, ptr %238, align 8, !tbaa !194
   store ptr %241, ptr %240, align 8, !tbaa !194
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %408
 
 242:                                              ; preds = %3, %3
@@ -5095,7 +5089,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev19Renderer_LUV_TO_XYZELN9__gnu_cxx12_L
   br i1 %2, label %303, label %309
 
 303:                                              ; preds = %301
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %304 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %305 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30, !noalias !270
   %306 = getelementptr inbounds nuw i8, ptr %305, i64 8
@@ -5110,11 +5104,11 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev19Renderer_LUV_TO_XYZELN9__gnu_cxx12_L
   store ptr %305, ptr %302, align 8, !tbaa !194
   store ptr null, ptr %11, align 8, !tbaa !273
   call void @_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev22Renderer_LIN_TO_PQ_SSEILb1EEELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #28
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %408
 
 309:                                              ; preds = %301
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %310 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %311 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30, !noalias !276
   %312 = getelementptr inbounds nuw i8, ptr %311, i64 8
@@ -5129,7 +5123,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev19Renderer_LUV_TO_XYZELN9__gnu_cxx12_L
   store ptr %311, ptr %302, align 8, !tbaa !194
   store ptr null, ptr %12, align 8, !tbaa !279
   call void @_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev18Renderer_LIN_TO_PQIfEELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #28
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %408
 
 315:                                              ; preds = %3
@@ -5137,7 +5131,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev19Renderer_LUV_TO_XYZELN9__gnu_cxx12_L
   br i1 %2, label %317, label %323
 
 317:                                              ; preds = %315
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %318 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %319 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30, !noalias !282
   %320 = getelementptr inbounds nuw i8, ptr %319, i64 8
@@ -5152,11 +5146,11 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev19Renderer_LUV_TO_XYZELN9__gnu_cxx12_L
   store ptr %319, ptr %316, align 8, !tbaa !194
   store ptr null, ptr %13, align 8, !tbaa !285
   call void @_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev22Renderer_PQ_TO_LIN_SSEILb1EEELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #28
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %408
 
 323:                                              ; preds = %315
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %324 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %325 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30, !noalias !288
   %326 = getelementptr inbounds nuw i8, ptr %325, i64 8
@@ -5171,7 +5165,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev19Renderer_LUV_TO_XYZELN9__gnu_cxx12_L
   store ptr %325, ptr %316, align 8, !tbaa !194
   store ptr null, ptr %14, align 8, !tbaa !291
   call void @_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev18Renderer_PQ_TO_LINIfEELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #28
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %408
 
 329:                                              ; preds = %3
@@ -6382,7 +6376,7 @@ _ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev27
   %38 = getelementptr inbounds nuw i8, ptr %17, i64 56
   %39 = load double, ptr %38, align 8, !tbaa !42
   %40 = fptrunc double %39 to float
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %41 = fpext float %19 to double
   %42 = fpext float %22 to double
   %43 = fpext float %25 to double
@@ -6406,15 +6400,15 @@ _ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev27
   %55 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store double %47, ptr %54, align 8, !tbaa !42
   store double %48, ptr %55, align 8, !tbaa !42
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %5) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   invoke void @_ZN19OpenColorIO_v2_5dev5ACES214init_JMhParamsERKNS_9PrimariesE(ptr dead_on_unwind nonnull writable sret(%"struct.OpenColorIO_v2_5dev::ACES2::JMhParams") align 4 %5, ptr noundef nonnull align 8 dereferenceable(64) %4)
           to label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev27Renderer_ACES_RGB_TO_JMh_20ESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev27Renderer_ACES_RGB_TO_JMh_20ESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev27Renderer_ACES_RGB_TO_JMh_20ESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit: ; preds = %_ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev27Renderer_ACES_RGB_TO_JMh_20ESaIvELN9__gnu_cxx12_Lock_policyE2EEEESt15__allocated_ptrIT_ERS9_.exit
   %56 = getelementptr inbounds nuw i8, ptr %6, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %56, ptr noundef nonnull align 4 dereferenceable(112) %5, i64 112, i1 false), !tbaa.struct !93
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %5) #28
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store ptr %6, ptr %0, align 8, !tbaa !194
   store ptr %9, ptr %1, align 8, !tbaa !305
   ret void
@@ -6579,7 +6573,7 @@ _ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev31
   %40 = getelementptr inbounds nuw i8, ptr %17, i64 64
   %41 = load double, ptr %40, align 8, !tbaa !42
   %42 = fptrunc double %41 to float
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %43 = fpext float %21 to double
   %44 = fpext float %24 to double
   %45 = fpext float %27 to double
@@ -6604,15 +6598,15 @@ _ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev31
   store double %49, ptr %56, align 8, !tbaa !42
   store double %50, ptr %57, align 8, !tbaa !42
   %58 = fptrunc double %18 to float
-  call void @llvm.lifetime.start.p0(i64 7260, ptr nonnull %5) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   invoke void @_ZN19OpenColorIO_v2_5dev5ACES224init_GamutCompressParamsEfRKNS_9PrimariesE(ptr dead_on_unwind nonnull writable sret(%"struct.OpenColorIO_v2_5dev::ACES2::GamutCompressParams") align 4 %5, float noundef %58, ptr noundef nonnull align 8 dereferenceable(64) %4)
           to label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev31Renderer_ACES_GAMUT_COMPRESS_20ESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev31Renderer_ACES_GAMUT_COMPRESS_20ESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev31Renderer_ACES_GAMUT_COMPRESS_20ESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit: ; preds = %_ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev31Renderer_ACES_GAMUT_COMPRESS_20ESaIvELN9__gnu_cxx12_Lock_policyE2EEEESt15__allocated_ptrIT_ERS9_.exit
   %59 = getelementptr inbounds nuw i8, ptr %6, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(7260) %59, ptr noundef nonnull align 4 dereferenceable(7260) %5, i64 7260, i1 false), !tbaa.struct !97
-  call void @llvm.lifetime.end.p0(i64 7260, ptr nonnull %5) #28
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store ptr %6, ptr %0, align 8, !tbaa !194
   store ptr %9, ptr %1, align 8, !tbaa !306
   ret void
@@ -7972,6 +7966,12 @@ define internal void @_GLOBAL__sub_I_FixedFunctionOpCPU.cpp() #25 section ".text
   %6 = tail call ptr @llvm.invariant.start.p0(i64 64, ptr nonnull @_ZN19OpenColorIO_v2_5dev5ACES25CAM16L9primariesE)
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #26

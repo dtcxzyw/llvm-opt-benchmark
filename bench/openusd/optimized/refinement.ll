@@ -731,7 +731,7 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal10Refinement28populateParentToChildMappingEv.
   %73 = load ptr, ptr %56, align 8
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
   store i32 %72, ptr %74, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %84, %_ZN10OpenSubdiv6v3_6_03Vtr8internal10Refinement28populateParentToChildMappingEv.exit
@@ -761,7 +761,7 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal10Refinement28populateChildToParentMappingEv.
   call void @_ZN10OpenSubdiv6v3_6_03Vtr8internal10Refinement25populateFaceParentVectorsEPA4_KNS3_8ChildTagE(ptr noundef nonnull align 8 dereferenceable(504) %0, ptr noundef nonnull %3)
   call void @_ZN10OpenSubdiv6v3_6_03Vtr8internal10Refinement25populateEdgeParentVectorsEPA4_KNS3_8ChildTagE(ptr noundef nonnull align 8 dereferenceable(504) %0, ptr noundef nonnull %3)
   call void @_ZN10OpenSubdiv6v3_6_03Vtr8internal10Refinement27populateVertexParentVectorsEPA4_KNS3_8ChildTagE(ptr noundef nonnull align 8 dereferenceable(504) %0, ptr noundef nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZN10OpenSubdiv6v3_6_03Vtr8internal10Refinement22populateFaceTagVectorsEv(ptr noundef nonnull readonly align 8 dereferenceable(504) %0)
   call void @_ZN10OpenSubdiv6v3_6_03Vtr8internal10Refinement22populateEdgeTagVectorsEv(ptr noundef nonnull readonly align 8 dereferenceable(504) %0)
   call void @_ZN10OpenSubdiv6v3_6_03Vtr8internal10Refinement24populateVertexTagVectorsEv(ptr noundef nonnull readonly align 8 dereferenceable(504) %0)
@@ -6270,10 +6270,10 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #19
 declare i32 @llvm.smax.i32(i32, i32) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #20
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #20
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #20
 
 attributes #0 = { cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -59,12 +59,6 @@ define void @_Z13blake2sp_initP14blake2sp_state(ptr noundef captures(none) initi
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN16Blake2ThreadData6UpdateEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -329,12 +323,12 @@ _ZN16Blake2ThreadData6UpdateEv.exit.loopexit.us.us: ; preds = %.thread.i.i.us.us
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @_Z14blake2sp_finalP14blake2sp_statePh(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca [8 x [32 x i8]], align 16
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 3104
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2592
   br label %10
@@ -424,7 +418,7 @@ _ZL14blake2s_updateP13blake2s_statePKhm.exit:     ; preds = %.thread.i, %10
 
 50:                                               ; preds = %.thread.i27
   tail call fastcc void @_ZL13blake2s_finalP13blake2s_statePh(ptr noundef nonnull %6, ptr noundef %1)
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 .split:                                           ; preds = %.preheader, %.thread.i27
@@ -575,8 +569,8 @@ define internal fastcc void @_ZL16blake2s_compressP13blake2s_statePKh(ptr nounde
 .preheader42:
   %2 = alloca [16 x i32], align 16
   %3 = alloca [16 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #5
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %2, ptr noundef nonnull align 4 dereferenceable(64) %1, i64 64, i1 false), !tbaa !12
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %5 = load ptr, ptr %4, align 8, !tbaa !11
@@ -855,8 +849,8 @@ define internal fastcc void @_ZL16blake2s_compressP13blake2s_statePKh(ptr nounde
   br i1 %exitcond.not, label %.preheader, label %36, !llvm.loop !36
 
 245:                                              ; preds = %246
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #5
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 246:                                              ; preds = %.preheader, %246
@@ -876,6 +870,12 @@ define internal fastcc void @_ZL16blake2s_compressP13blake2s_statePKh(ptr nounde
   br i1 %exitcond93.not, label %245, label %246, !llvm.loop !37
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #4
 
@@ -884,10 +884,9 @@ declare i32 @llvm.fshl.i32(i32, i32, i32) #4
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

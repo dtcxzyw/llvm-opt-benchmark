@@ -23,7 +23,7 @@ define void @lv_draw_sw_blend_color_to_argb8888(ptr noundef readonly captures(no
   %12 = load i32, ptr %11, align 8, !tbaa !15
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load i32, ptr %13, align 8, !tbaa !16
-  call void @llvm.lifetime.start.p0(i64 14, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @lv_memset(ptr noundef nonnull %2, i8 noundef zeroext 0, i64 noundef 4) #5
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 4
   call void @lv_memset(ptr noundef nonnull %15, i8 noundef zeroext 0, i64 noundef 4) #5
@@ -582,19 +582,13 @@ lv_color_32_32_mix.exit219.us:                    ; preds = %216, %._crit_edge.i
   br i1 %exitcond295.not, label %.loopexit, label %.preheader234.us, !llvm.loop !39
 
 .loopexit:                                        ; preds = %._crit_edge.us, %._crit_edge.us244, %._crit_edge.us268, %._crit_edge.us282, %._crit_edge.us276, %.preheader234.lr.ph, %.preheader232.lr.ph, %.preheader230.lr.ph, %.preheader229.lr.ph.split, %167, %117, %64, %22
-  call void @llvm.lifetime.end.p0(i64 14, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @lv_color_to_u32(i24) local_unnamed_addr #1
 
-declare i32 @lv_color_to_u32(i24) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare i32 @lv_color_to_32(i24, i8 noundef zeroext) local_unnamed_addr #2
+declare i32 @lv_color_to_32(i24, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @lv_draw_sw_blend_image_to_argb8888(ptr noundef readonly %0) local_unnamed_addr #0 {
@@ -634,7 +628,7 @@ define void @lv_draw_sw_blend_image_to_argb8888(ptr noundef readonly %0) local_u
   %24 = load ptr, ptr %23, align 8, !tbaa !49
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %26 = load i32, ptr %25, align 8, !tbaa !50
-  call void @llvm.lifetime.start.p0(i64 14, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @lv_memset(ptr noundef nonnull %6, i8 noundef zeroext 0, i64 noundef 4) #5
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 4
   call void @lv_memset(ptr noundef nonnull %27, i8 noundef zeroext 0, i64 noundef 4) #5
@@ -1375,7 +1369,7 @@ lv_color_32_32_mix.exit212.us.i:                  ; preds = %350, %._crit_edge.i
   br i1 %exitcond354.not.i, label %rgb565_image_blend.exit, label %.preheader285.us.i, !llvm.loop !63
 
 rgb565_image_blend.exit:                          ; preds = %._crit_edge.us.i, %._crit_edge.us304.i, %._crit_edge.us310.i, %._crit_edge.us331.i, %.preheader292.i, %.preheader291.lr.ph.i, %.preheader284.i, %.preheader.lr.ph.i, %.preheader289.i, %.preheader288.lr.ph.i, %.preheader286.i, %.preheader285.lr.ph.i
-  call void @llvm.lifetime.end.p0(i64 14, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %l8_image_blend.exit
 
 356:                                              ; preds = %1
@@ -1404,7 +1398,7 @@ rgb565_image_blend.exit:                          ; preds = %._crit_edge.us.i, %
   %373 = load ptr, ptr %372, align 8, !tbaa !49
   %374 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %375 = load i32, ptr %374, align 8, !tbaa !50
-  call void @llvm.lifetime.start.p0(i64 14, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @lv_memset(ptr noundef nonnull %5, i8 noundef zeroext 0, i64 noundef 4) #5
   %376 = getelementptr inbounds nuw i8, ptr %5, i64 4
   call void @lv_memset(ptr noundef nonnull %376, i8 noundef zeroext 0, i64 noundef 4) #5
@@ -2232,7 +2226,7 @@ lv_color_32_32_mix.exit284.us.i:                  ; preds = %719, %._crit_edge.i
   br i1 %exitcond387.not.i, label %argb8888_image_blend.exit, label %.preheader337.us.i, !llvm.loop !73
 
 argb8888_image_blend.exit:                        ; preds = %._crit_edge.us.i23, %._crit_edge.us353.i, %._crit_edge.us359.i, %._crit_edge.us364.i, %._crit_edge.us369.i, %.preheader341.i, %.preheader340.lr.ph.i, %.preheader330.i, %.preheader.lr.ph.i26, %.preheader332.i, %.preheader331.lr.ph.i, %.preheader335.i, %.preheader334.lr.ph.i, %667, %.preheader337.lr.ph.i
-  call void @llvm.lifetime.end.p0(i64 14, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %l8_image_blend.exit
 
 725:                                              ; preds = %1
@@ -2578,7 +2572,7 @@ lv_color_8_32_mix.exit170.us.i:                   ; preds = %.sink.split.i168.us
   br i1 %exitcond243.not.i, label %l8_image_blend.exit, label %.preheader181.us.i, !llvm.loop !82
 
 906:                                              ; preds = %725
-  call void @llvm.lifetime.start.p0(i64 14, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @lv_memset(ptr noundef nonnull %4, i8 noundef zeroext 0, i64 noundef 4) #5
   %907 = getelementptr inbounds nuw i8, ptr %4, i64 4
   call void @lv_memset(ptr noundef nonnull %907, i8 noundef zeroext 0, i64 noundef 4) #5
@@ -2812,7 +2806,7 @@ blend_non_normal_pixel.exit.us.i82:               ; preds = %lv_color_32_32_mix.
   br i1 %exitcond235.not.i, label %._crit_edge191.i, label %.preheader184.us.i, !llvm.loop !84
 
 ._crit_edge191.i:                                 ; preds = %._crit_edge.us.i85, %.preheader184.lr.ph.i, %906
-  call void @llvm.lifetime.end.p0(i64 14, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %l8_image_blend.exit
 
 1018:                                             ; preds = %1
@@ -3236,7 +3230,7 @@ lv_color_8_32_mix.exit174.us.i:                   ; preds = %.sink.split.i172.us
   br i1 %exitcond242.not.i155, label %l8_image_blend.exit, label %.preheader185.us.i, !llvm.loop !95
 
 1248:                                             ; preds = %1018
-  call void @llvm.lifetime.start.p0(i64 14, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @lv_memset(ptr noundef nonnull %3, i8 noundef zeroext 0, i64 noundef 4) #5
   %1249 = getelementptr inbounds nuw i8, ptr %3, i64 4
   call void @lv_memset(ptr noundef nonnull %1249, i8 noundef zeroext 0, i64 noundef 4) #5
@@ -3477,7 +3471,7 @@ blend_non_normal_pixel.exit.us.i137:              ; preds = %lv_color_32_32_mix.
   br i1 %exitcond234.not.i, label %._crit_edge195.i, label %.preheader188.us.i, !llvm.loop !97
 
 ._crit_edge195.i:                                 ; preds = %._crit_edge.us.i140, %.preheader188.lr.ph.i, %1248
-  call void @llvm.lifetime.end.p0(i64 14, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %l8_image_blend.exit
 
 1366:                                             ; preds = %1
@@ -3849,7 +3843,7 @@ lv_color_8_32_mix.exit172.us.i:                   ; preds = %.sink.split.i170.us
   br i1 %exitcond245.not.i, label %l8_image_blend.exit, label %.preheader183.us.i, !llvm.loop !105
 
 1571:                                             ; preds = %1366
-  call void @llvm.lifetime.start.p0(i64 14, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @lv_memset(ptr noundef nonnull %2, i8 noundef zeroext 0, i64 noundef 4) #5
   %1572 = getelementptr inbounds nuw i8, ptr %2, i64 4
   call void @lv_memset(ptr noundef nonnull %1572, i8 noundef zeroext 0, i64 noundef 4) #5
@@ -4092,7 +4086,7 @@ blend_non_normal_pixel.exit.us.i202:              ; preds = %lv_color_32_32_mix.
   br i1 %exitcond237.not.i, label %._crit_edge193.i, label %.preheader186.us.i, !llvm.loop !107
 
 ._crit_edge193.i:                                 ; preds = %._crit_edge.us.i205, %.preheader186.lr.ph.i, %1571
-  call void @llvm.lifetime.end.p0(i64 14, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %l8_image_blend.exit
 
 l8_image_blend.exit:                              ; preds = %._crit_edge.us200.i, %._crit_edge.us207.i, %._crit_edge.us217.i, %._crit_edge.us223.i, %._crit_edge.us202.i, %._crit_edge.us209.i, %._crit_edge.us215.i157, %._crit_edge.us221.i166, %._crit_edge.us198.i, %._crit_edge.us205.i, %._crit_edge.us215.i, %._crit_edge.us221.i, %._crit_edge193.i, %.preheader183.lr.ph.i, %1512, %.preheader180.lr.ph.i, %.preheader181.i, %.preheader177.lr.ph.i, %.preheader178.i218, %.preheader.lr.ph.i221, %.preheader176.i220, %._crit_edge195.i, %.preheader185.lr.ph.i, %1194, %.preheader182.lr.ph.i, %.preheader183.i, %.preheader179.lr.ph.i, %.preheader180.i, %.preheader.lr.ph.i159, %.preheader178.i, %._crit_edge191.i, %.preheader181.lr.ph.i, %854, %.preheader178.lr.ph.i, %.preheader179.i, %.preheader175.lr.ph.i, %.preheader176.i, %.preheader.lr.ph.i98, %.preheader174.i, %1, %argb8888_image_blend.exit, %357, %356, %rgb565_image_blend.exit
@@ -4120,7 +4114,7 @@ define internal fastcc void @rgb888_image_blend(ptr noundef readonly captures(no
   %18 = load ptr, ptr %17, align 8, !tbaa !49
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %20 = load i32, ptr %19, align 8, !tbaa !50
-  call void @llvm.lifetime.start.p0(i64 14, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @lv_memset(ptr noundef nonnull %3, i8 noundef zeroext 0, i64 noundef 4) #5
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 4
   call void @lv_memset(ptr noundef nonnull %21, i8 noundef zeroext 0, i64 noundef 4) #5
@@ -4925,17 +4919,23 @@ lv_color_32_32_mix.exit306.us:                    ; preds = %349, %._crit_edge.i
   br i1 %exitcond522.not, label %.loopexit, label %.preheader.us, !llvm.loop !119
 
 .loopexit:                                        ; preds = %._crit_edge.us, %._crit_edge.us433, %169, %.preheader358, %164, %.preheader357.lr.ph, %.preheader353.lr.ph, %.preheader.lr.ph, %.preheader360.lr.ph, %.preheader361, %.loopexit352
-  call void @llvm.lifetime.end.p0(i64 14, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-declare ptr @lv_memcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @lv_memcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @lv_color_mix32(i32, i32) local_unnamed_addr #2
+declare i32 @lv_color_mix32(i32, i32) local_unnamed_addr #1
 
-declare zeroext i1 @lv_color32_eq(i32, i32) local_unnamed_addr #2
+declare zeroext i1 @lv_color32_eq(i32, i32) local_unnamed_addr #1
 
-declare void @lv_memset(ptr noundef, i8 noundef zeroext, i64 noundef) local_unnamed_addr #2
+declare void @lv_memset(ptr noundef, i8 noundef zeroext, i64 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #3
@@ -4947,8 +4947,8 @@ declare i32 @llvm.umin.i32(i32, i32) #3
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #5 = { nounwind }

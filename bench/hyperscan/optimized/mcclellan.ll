@@ -595,12 +595,6 @@ nfaExecMcClellan8_Bi.exit:                        ; preds = %60, %114, %205, %19
   ret i8 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nounwind uwtable
 define hidden signext range(i8 0, 2) i8 @nfaExecMcClellan8_Q(ptr noundef %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
@@ -621,7 +615,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecMcClellan8_Q(ptr noundef %0, ptr
   %19 = load i8, ptr %18, align 1
   %20 = and i8 %19, 1
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %23 = load ptr, ptr %22, align 8
   %24 = load i8, ptr %23, align 1
@@ -856,12 +850,12 @@ define hidden signext range(i8 0, 2) i8 @nfaExecMcClellan8_Q(ptr noundef %0, ptr
 
 nfaExecMcClellan8_Q2i.exit:                       ; preds = %.thread34, %36, %134, %107, %98, %62, %79
   %.2.i = phi i8 [ 0, %62 ], [ 1, %79 ], [ %140, %134 ], [ 1, %107 ], [ 0, %98 ], [ 0, %36 ], [ 0, %.thread34 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i8 %.2.i
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden signext range(i8 0, 2) i8 @nfaExecMcClellan16_B(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef %5) local_unnamed_addr #2 {
+define hidden signext range(i8 0, 2) i8 @nfaExecMcClellan16_B(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef %5) local_unnamed_addr #1 {
   %7 = alloca <2 x i64>, align 16
   %8 = alloca <2 x i64>, align 16
   %9 = alloca <2 x i64>, align 16
@@ -990,7 +984,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecMcClellan16_B(ptr noundef %0, i6
   %95 = sub i16 %88, %.8578
   %96 = zext i16 %.8578 to i64
   %97 = getelementptr inbounds nuw i8, ptr %89, i64 %96
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %98 = icmp eq i16 %.8578, 0
   br i1 %98, label %99, label %101
 
@@ -1054,22 +1048,22 @@ define hidden signext range(i8 0, 2) i8 @nfaExecMcClellan16_B(ptr noundef %0, i6
   %130 = tail call i16 @llvm.umin.i16(i16 %.0101.i154.lcssa, i16 16)
   %131 = zext nneg i16 %130 to i32
   %132 = tail call i32 @llvm.umin.i32(i32 %.099.i155.lcssa, i32 16)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store <2 x i64> zeroinitializer, ptr %11, align 16
   %133 = zext nneg i16 %130 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %11, ptr nonnull align 1 %.0104.i153.lcssa, i64 %133, i1 false)
   %.0..0..0..0..i24171510131335 = load <16 x i8>, ptr %11, align 16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %134 = zext nneg i32 %132 to i64
   %.not889 = icmp eq i32 %.099.i155.lcssa, 0
   br i1 %.not889, label %._crit_edge820, label %.lr.ph819
 
 ._crit_edge820:                                   ; preds = %.lr.ph819, %._crit_edge
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store <2 x i64> zeroinitializer, ptr %12, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %12, ptr nonnull align 16 %16, i64 %134, i1 false)
   %.0..0..0..0..i24071610141336 = load <16 x i8>, ptr %12, align 16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %135 = icmp eq <16 x i8> %.0..0..0..0..i24171510131335, %.0..0..0..0..i24071610141336
   %136 = bitcast <16 x i1> %135 to i16
   %137 = zext i16 %136 to i32
@@ -1144,7 +1138,7 @@ doWide16.exit176:                                 ; preds = %174, %150
   %.3590 = phi ptr [ %175, %174 ], [ %157, %150 ]
   %.11581 = phi i16 [ 0, %174 ], [ %156, %150 ]
   %.0.i167 = phi i16 [ %.in120.i166, %174 ], [ %.sroa.0359.0, %150 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %219
 
 176:                                              ; preds = %72
@@ -1470,7 +1464,7 @@ doNormal16.exit94:                                ; preds = %doSherman16.exit213
   %360 = sub i16 %353, %.5575
   %361 = zext i16 %.5575 to i64
   %362 = getelementptr inbounds nuw i8, ptr %354, i64 %361
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %363 = icmp eq i16 %.5575, 0
   br i1 %363, label %364, label %366
 
@@ -1534,22 +1528,22 @@ doNormal16.exit94:                                ; preds = %doSherman16.exit213
   %395 = tail call i16 @llvm.umin.i16(i16 %.0101.i178.lcssa, i16 16)
   %396 = zext nneg i16 %395 to i32
   %397 = tail call i32 @llvm.umin.i32(i32 %.099.i179.lcssa, i32 16)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store <2 x i64> zeroinitializer, ptr %13, align 16
   %398 = zext nneg i16 %395 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %13, ptr nonnull align 1 %.0104.i177.lcssa, i64 %398, i1 false)
   %.0..0..0..0..i23971910161337 = load <16 x i8>, ptr %13, align 16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %399 = zext nneg i32 %397 to i64
   %.not890 = icmp eq i32 %.099.i179.lcssa, 0
   br i1 %.not890, label %._crit_edge837, label %.lr.ph836
 
 ._crit_edge837:                                   ; preds = %.lr.ph836, %._crit_edge829
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store <2 x i64> zeroinitializer, ptr %14, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %14, ptr nonnull align 16 %15, i64 %399, i1 false)
   %.0..0..0..0..i72010171338 = load <16 x i8>, ptr %14, align 16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %400 = icmp eq <16 x i8> %.0..0..0..0..i23971910161337, %.0..0..0..0..i72010171338
   %401 = bitcast <16 x i1> %400 to i16
   %402 = zext i16 %401 to i32
@@ -1624,7 +1618,7 @@ doWide16.exit200:                                 ; preds = %439, %415
   %.3586 = phi ptr [ %440, %439 ], [ %422, %415 ]
   %.12582 = phi i16 [ 0, %439 ], [ %421, %415 ]
   %.0.i191 = phi i16 [ %.in120.i190, %439 ], [ %.sroa.0.0, %415 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %484
 
 441:                                              ; preds = %337
@@ -2002,7 +1996,7 @@ mcclellanExec16_i.exit48:                         ; preds = %53, %289, %292, %30
   %652 = sub i16 %645, %.8
   %653 = zext i16 %.8 to i64
   %654 = getelementptr inbounds nuw i8, ptr %646, i64 %653
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %655 = icmp eq i16 %.8, 0
   br i1 %655, label %656, label %658
 
@@ -2066,22 +2060,22 @@ mcclellanExec16_i.exit48:                         ; preds = %53, %289, %292, %30
   %687 = tail call i16 @llvm.umin.i16(i16 %.0101.i.lcssa, i16 16)
   %688 = zext nneg i16 %687 to i32
   %689 = tail call i32 @llvm.umin.i32(i32 %.099.i.lcssa, i32 16)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store <2 x i64> zeroinitializer, ptr %7, align 16
   %690 = zext nneg i16 %687 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %7, ptr nonnull align 1 %.0104.i.lcssa, i64 %690, i1 false)
   %.0..0..0..0..i24572310201339 = load <16 x i8>, ptr %7, align 16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %691 = zext nneg i32 %689 to i64
   %.not891 = icmp eq i32 %.099.i.lcssa, 0
   br i1 %.not891, label %._crit_edge859, label %.lr.ph858
 
 ._crit_edge859:                                   ; preds = %.lr.ph858, %._crit_edge851
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store <2 x i64> zeroinitializer, ptr %8, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %8, ptr nonnull align 16 %18, i64 %691, i1 false)
   %.0..0..0..0..i24472410211340 = load <16 x i8>, ptr %8, align 16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %692 = icmp eq <16 x i8> %.0..0..0..0..i24572310201339, %.0..0..0..0..i24472410211340
   %693 = bitcast <16 x i1> %692 to i16
   %694 = zext i16 %693 to i32
@@ -2156,7 +2150,7 @@ doWide16.exit:                                    ; preds = %731, %707
   %.3598 = phi ptr [ %732, %731 ], [ %714, %707 ]
   %.11 = phi i16 [ 0, %731 ], [ %713, %707 ]
   %.0.i126 = phi i16 [ %.in120.i, %731 ], [ %.sroa.0483.0, %707 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %776
 
 733:                                              ; preds = %629
@@ -2532,7 +2526,7 @@ doNormal16.exit122:                               ; preds = %doSherman16.exit, %
   %941 = sub i16 %934, %.5561
   %942 = zext i16 %.5561 to i64
   %943 = getelementptr inbounds nuw i8, ptr %935, i64 %942
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %944 = icmp eq i16 %.5561, 0
   br i1 %944, label %945, label %947
 
@@ -2596,22 +2590,22 @@ doNormal16.exit122:                               ; preds = %doSherman16.exit, %
   %976 = tail call i16 @llvm.umin.i16(i16 %.0101.i130.lcssa, i16 16)
   %977 = zext nneg i16 %976 to i32
   %978 = tail call i32 @llvm.umin.i32(i32 %.099.i131.lcssa, i32 16)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store <2 x i64> zeroinitializer, ptr %9, align 16
   %979 = zext nneg i16 %976 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %9, ptr nonnull align 1 %.0104.i129.lcssa, i64 %979, i1 false)
   %.0..0..0..0..i24372810241341 = load <16 x i8>, ptr %9, align 16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %980 = zext nneg i32 %978 to i64
   %.not892 = icmp eq i32 %.099.i131.lcssa, 0
   br i1 %.not892, label %._crit_edge879, label %.lr.ph878
 
 ._crit_edge879:                                   ; preds = %.lr.ph878, %._crit_edge871
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store <2 x i64> zeroinitializer, ptr %10, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %10, ptr nonnull align 16 %17, i64 %980, i1 false)
   %.0..0..0..0..i24272910251342 = load <16 x i8>, ptr %10, align 16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %981 = icmp eq <16 x i8> %.0..0..0..0..i24372810241341, %.0..0..0..0..i24272910251342
   %982 = bitcast <16 x i1> %981 to i16
   %983 = zext i16 %982 to i32
@@ -2686,7 +2680,7 @@ doWide16.exit152:                                 ; preds = %1020, %996
   %.3594 = phi ptr [ %1021, %1020 ], [ %1003, %996 ]
   %.12 = phi i16 [ 0, %1020 ], [ %1002, %996 ]
   %.0.i143 = phi i16 [ %.in120.i142, %1020 ], [ %.sroa.0416.0, %996 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %1065
 
 1022:                                             ; preds = %918
@@ -3029,7 +3023,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecMcClellan16_Q(ptr noundef %0, pt
   %19 = load i8, ptr %18, align 1
   %20 = and i8 %19, 1
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %23 = load ptr, ptr %22, align 8
   %24 = load i16, ptr %23, align 2
@@ -3260,7 +3254,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecMcClellan16_Q(ptr noundef %0, pt
 
 nfaExecMcClellan16_Q2i.exit:                      ; preds = %.thread34, %36, %131, %108, %99, %62, %79
   %.2.i = phi i8 [ 0, %62 ], [ 1, %79 ], [ %137, %131 ], [ 1, %108 ], [ 0, %99 ], [ 0, %36 ], [ 0, %.thread34 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i8 %.2.i
 }
 
@@ -3438,7 +3432,7 @@ doComplexReport.exit:                             ; preds = %.lr.ph, %doComplexR
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden signext range(i8 0, 2) i8 @nfaExecMcClellan8_inAccept(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #3 {
+define hidden signext range(i8 0, 2) i8 @nfaExecMcClellan8_inAccept(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = load i8, ptr %5, align 1
@@ -3491,7 +3485,7 @@ mcclellanHasAccept.exit:                          ; preds = %.lr.ph.i, %25, %18,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden signext range(i8 0, 2) i8 @nfaExecMcClellan8_inAnyAccept(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 {
+define hidden signext range(i8 0, 2) i8 @nfaExecMcClellan8_inAnyAccept(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = load i8, ptr %4, align 1
@@ -3504,7 +3498,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecMcClellan8_inAnyAccept(ptr nound
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden signext range(i8 0, 2) i8 @nfaExecMcClellan16_inAccept(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #3 {
+define hidden signext range(i8 0, 2) i8 @nfaExecMcClellan16_inAccept(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %6 = load ptr, ptr %5, align 8
@@ -3562,7 +3556,7 @@ mcclellanHasAccept.exit:                          ; preds = %.lr.ph.i, %27, %21,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden signext range(i8 0, 2) i8 @nfaExecMcClellan16_inAnyAccept(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 {
+define hidden signext range(i8 0, 2) i8 @nfaExecMcClellan16_inAnyAccept(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = load i16, ptr %4, align 2
@@ -3614,7 +3608,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecMcClellan8_Q2(ptr noundef %0, pt
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 97
   %20 = load i8, ptr %19, align 1
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %23 = load ptr, ptr %22, align 8
   %24 = load i8, ptr %23, align 1
@@ -3750,7 +3744,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecMcClellan8_Q2(ptr noundef %0, pt
   %92 = icmp slt i64 %.0100.i, 0
   %93 = tail call i64 @llvm.smin.i64(i64 %91, i64 0)
   %.092.i = select i1 %92, i64 %93, i64 %91
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %94 = getelementptr inbounds i8, ptr %.094.i, i64 %.0100.i
   %95 = sub nsw i64 %.092.i, %.0100.i
   %96 = call fastcc signext i8 @mcclellanExec8_i_sam(ptr noundef nonnull %21, ptr noundef nonnull %4, ptr noundef %94, i64 noundef %95, ptr noundef nonnull %5)
@@ -3862,17 +3856,17 @@ define hidden signext range(i8 0, 3) i8 @nfaExecMcClellan8_Q2(ptr noundef %0, pt
 
 .thread:                                          ; preds = %99, %118, %145
   %.5.i.ph = phi i8 [ %151, %145 ], [ 1, %118 ], [ 2, %99 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %nfaExecMcClellan8_Q2i.exit
 
 155:                                              ; preds = %153, %127
   %156 = phi i32 [ %154, %153 ], [ %98, %127 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %85
 
 nfaExecMcClellan8_Q2i.exit:                       ; preds = %.thread39, %37, %.thread, %63, %80
   %.2.i = phi i8 [ 0, %63 ], [ 1, %80 ], [ %.5.i.ph, %.thread ], [ 0, %37 ], [ 0, %.thread39 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i8 %.2.i
 }
 
@@ -3896,7 +3890,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecMcClellan16_Q2(ptr noundef %0, p
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 97
   %20 = load i8, ptr %19, align 1
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %23 = load ptr, ptr %22, align 8
   %24 = load i16, ptr %23, align 2
@@ -4032,7 +4026,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecMcClellan16_Q2(ptr noundef %0, p
   %92 = icmp slt i64 %.0101.i, 0
   %93 = tail call i64 @llvm.smin.i64(i64 %91, i64 0)
   %.093.i = select i1 %92, i64 %93, i64 %91
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %94 = load ptr, ptr %22, align 8
   %95 = getelementptr inbounds i8, ptr %.095.i, i64 %.0101.i
   %96 = sub nsw i64 %.093.i, %.0101.i
@@ -4140,17 +4134,17 @@ define hidden signext range(i8 0, 3) i8 @nfaExecMcClellan16_Q2(ptr noundef %0, p
 
 .thread:                                          ; preds = %100, %119, %142
   %.5.i.ph = phi i8 [ %148, %142 ], [ 1, %119 ], [ 2, %100 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %nfaExecMcClellan16_Q2i.exit
 
 152:                                              ; preds = %150, %128
   %153 = phi i32 [ %151, %150 ], [ %99, %128 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %85
 
 nfaExecMcClellan16_Q2i.exit:                      ; preds = %.thread39, %37, %.thread, %63, %80
   %.2.i = phi i8 [ 0, %63 ], [ 1, %80 ], [ %.5.i.ph, %.thread ], [ 0, %37 ], [ 0, %.thread39 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i8 %.2.i
 }
 
@@ -4173,7 +4167,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecMcClellan8_QR(ptr noundef %0, pt
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 97
   %19 = load i8, ptr %18, align 1
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %22 = load ptr, ptr %21, align 8
   %23 = load i8, ptr %22, align 1
@@ -4373,7 +4367,7 @@ nfaExecMcClellan8_Q2i.exit:                       ; preds = %91
   store i32 %126, ptr %65, align 8
   %.not108.i = icmp ne i32 %122, 0
   %127 = zext i1 %.not108.i to i8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.not108.i, label %128, label %nfaExecMcClellan8_inAccept.exit
 
 128:                                              ; preds = %nfaExecMcClellan8_Q2i.exit
@@ -4421,7 +4415,7 @@ nfaExecMcClellan8_Q2i.exit:                       ; preds = %91
   br i1 %150, label %nfaExecMcClellan8_inAccept.exit, label %147
 
 nfaExecMcClellan8_inAccept.exit.sink.split:       ; preds = %62, %36, %.thread47, %nfaExecMcClellan8_Q2i.exit.thread35
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %nfaExecMcClellan8_inAccept.exit
 
 nfaExecMcClellan8_inAccept.exit:                  ; preds = %147, %.lr.ph.i.i, %nfaExecMcClellan8_inAccept.exit.sink.split, %141, %135, %128, %nfaExecMcClellan8_Q2i.exit
@@ -4448,7 +4442,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecMcClellan16_QR(ptr noundef %0, p
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 97
   %19 = load i8, ptr %18, align 1
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %22 = load ptr, ptr %21, align 8
   %23 = load i16, ptr %22, align 2
@@ -4635,7 +4629,7 @@ nfaExecMcClellan16_Q2i.exit:                      ; preds = %94
   store i32 %114, ptr %65, align 8
   %.not109.i = icmp ne i32 %110, 0
   %115 = zext i1 %.not109.i to i8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.not109.i, label %116, label %nfaExecMcClellan16_inAccept.exit
 
 116:                                              ; preds = %nfaExecMcClellan16_Q2i.exit
@@ -4688,7 +4682,7 @@ nfaExecMcClellan16_Q2i.exit:                      ; preds = %94
   br i1 %140, label %nfaExecMcClellan16_inAccept.exit, label %137
 
 nfaExecMcClellan16_inAccept.exit.sink.split:      ; preds = %62, %36, %.thread46, %nfaExecMcClellan16_Q2i.exit.thread35
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %nfaExecMcClellan16_inAccept.exit
 
 nfaExecMcClellan16_inAccept.exit:                 ; preds = %137, %.lr.ph.i.i, %nfaExecMcClellan16_inAccept.exit.sink.split, %131, %125, %122, %nfaExecMcClellan16_Q2i.exit
@@ -4697,7 +4691,7 @@ nfaExecMcClellan16_inAccept.exit:                 ; preds = %137, %.lr.ph.i.i, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden signext range(i8 0, 2) i8 @nfaExecMcClellan8_initCompressedState(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2, i8 noundef zeroext %3) local_unnamed_addr #5 {
+define hidden signext range(i8 0, 2) i8 @nfaExecMcClellan8_initCompressedState(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2, i8 noundef zeroext %3) local_unnamed_addr #4 {
   %.not = icmp eq i64 %1, 0
   %.in.in.v = select i1 %.not, i64 72, i64 74
   %.in.in = getelementptr inbounds nuw i8, ptr %0, i64 %.in.in.v
@@ -4716,7 +4710,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecMcClellan8_initCompressedState(p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden signext range(i8 0, 2) i8 @nfaExecMcClellan16_initCompressedState(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2, i8 noundef zeroext %3) local_unnamed_addr #5 {
+define hidden signext range(i8 0, 2) i8 @nfaExecMcClellan16_initCompressedState(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2, i8 noundef zeroext %3) local_unnamed_addr #4 {
   %.not = icmp eq i64 %1, 0
   %.in.in.v = select i1 %.not, i64 72, i64 74
   %.in.in = getelementptr inbounds nuw i8, ptr %0, i64 %.in.in.v
@@ -5269,7 +5263,7 @@ mcclellanExec8_i.exit:                            ; preds = %47, %70, %86, %124,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @nfaExecMcClellan16_SimpStream(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, i8 noundef signext %3, i64 noundef %4, i64 noundef %5, ptr noundef readonly captures(none) %6, ptr noundef %7) local_unnamed_addr #2 {
+define hidden void @nfaExecMcClellan16_SimpStream(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, i8 noundef signext %3, i64 noundef %4, i64 noundef %5, ptr noundef readonly captures(none) %6, ptr noundef %7) local_unnamed_addr #1 {
   %9 = alloca <2 x i64>, align 16
   %10 = alloca <2 x i64>, align 16
   %11 = alloca <2 x i64>, align 16
@@ -5430,7 +5424,7 @@ define hidden void @nfaExecMcClellan16_SimpStream(ptr noundef %0, ptr noundef ca
   %110 = sub i16 %103, %.11
   %111 = zext i16 %.11 to i64
   %112 = getelementptr inbounds nuw i8, ptr %104, i64 %111
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %20) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %113 = icmp eq i16 %.11, 0
   br i1 %113, label %114, label %116
 
@@ -5494,22 +5488,22 @@ define hidden void @nfaExecMcClellan16_SimpStream(ptr noundef %0, ptr noundef ca
   %145 = tail call i16 @llvm.umin.i16(i16 %.0101.i.lcssa, i16 16)
   %146 = zext nneg i16 %145 to i32
   %147 = tail call i32 @llvm.umin.i32(i32 %.099.i.lcssa, i32 16)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store <2 x i64> zeroinitializer, ptr %9, align 16
   %148 = zext nneg i16 %145 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %9, ptr nonnull align 1 %.0104.i.lcssa, i64 %148, i1 false)
   %.0..0..0..0..i2496899691292 = load <16 x i8>, ptr %9, align 16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %149 = zext nneg i32 %147 to i64
   %.not855 = icmp eq i32 %.099.i.lcssa, 0
   br i1 %.not855, label %._crit_edge796, label %.lr.ph795
 
 ._crit_edge796:                                   ; preds = %.lr.ph795, %._crit_edge
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store <2 x i64> zeroinitializer, ptr %10, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %10, ptr nonnull align 16 %20, i64 %149, i1 false)
   %.0..0..0..0..i2486909701293 = load <16 x i8>, ptr %10, align 16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %150 = icmp eq <16 x i8> %.0..0..0..0..i2496899691292, %.0..0..0..0..i2486909701293
   %151 = bitcast <16 x i1> %150 to i16
   %152 = zext i16 %151 to i32
@@ -5596,7 +5590,7 @@ doWide16.exit:                                    ; preds = %187, %189
   %.3598 = phi ptr [ %178, %187 ], [ %190, %189 ]
   %.12 = phi i16 [ 0, %187 ], [ %174, %189 ]
   %.0.i127 = phi i16 [ %.in120.i, %187 ], [ %.sroa.0480.0, %189 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %234
 
 191:                                              ; preds = %84
@@ -5932,7 +5926,7 @@ doNormal16.exit122:                               ; preds = %doSherman16.exit, %
   %379 = sub i16 %372, %.13
   %380 = zext i16 %.13 to i64
   %381 = getelementptr inbounds nuw i8, ptr %373, i64 %380
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %19) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %382 = icmp eq i16 %.13, 0
   br i1 %382, label %383, label %385
 
@@ -5996,22 +5990,22 @@ doNormal16.exit122:                               ; preds = %doSherman16.exit, %
   %414 = tail call i16 @llvm.umin.i16(i16 %.0101.i132.lcssa, i16 16)
   %415 = zext nneg i16 %414 to i32
   %416 = tail call i32 @llvm.umin.i32(i32 %.099.i133.lcssa, i32 16)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store <2 x i64> zeroinitializer, ptr %11, align 16
   %417 = zext nneg i16 %414 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %11, ptr nonnull align 1 %.0104.i131.lcssa, i64 %417, i1 false)
   %.0..0..0..0..i2476939721294 = load <16 x i8>, ptr %11, align 16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %418 = zext nneg i32 %416 to i64
   %.not856 = icmp eq i32 %.099.i133.lcssa, 0
   br i1 %.not856, label %._crit_edge813, label %.lr.ph812
 
 ._crit_edge813:                                   ; preds = %.lr.ph812, %._crit_edge805
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store <2 x i64> zeroinitializer, ptr %12, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %12, ptr nonnull align 16 %19, i64 %418, i1 false)
   %.0..0..0..0..i2466949731295 = load <16 x i8>, ptr %12, align 16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %419 = icmp eq <16 x i8> %.0..0..0..0..i2476939721294, %.0..0..0..0..i2466949731295
   %420 = bitcast <16 x i1> %419 to i16
   %421 = zext i16 %420 to i32
@@ -6098,7 +6092,7 @@ doWide16.exit154:                                 ; preds = %456, %458
   %.3594 = phi ptr [ %447, %456 ], [ %459, %458 ]
   %.14 = phi i16 [ 0, %456 ], [ %443, %458 ]
   %.0.i145 = phi i16 [ %.in120.i144, %456 ], [ %.sroa.0413.0, %458 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %503
 
 460:                                              ; preds = %353
@@ -6433,7 +6427,7 @@ doNormal16.exit108:                               ; preds = %doSherman16.exit212
   %650 = sub i16 %643, %.11579
   %651 = zext i16 %.11579 to i64
   %652 = getelementptr inbounds nuw i8, ptr %644, i64 %651
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %653 = icmp eq i16 %.11579, 0
   br i1 %653, label %654, label %656
 
@@ -6497,22 +6491,22 @@ doNormal16.exit108:                               ; preds = %doSherman16.exit212
   %685 = tail call i16 @llvm.umin.i16(i16 %.0101.i157.lcssa, i16 16)
   %686 = zext nneg i16 %685 to i32
   %687 = tail call i32 @llvm.umin.i32(i32 %.099.i158.lcssa, i32 16)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store <2 x i64> zeroinitializer, ptr %13, align 16
   %688 = zext nneg i16 %685 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %13, ptr nonnull align 1 %.0104.i156.lcssa, i64 %688, i1 false)
   %.0..0..0..0..i2456989761296 = load <16 x i8>, ptr %13, align 16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %689 = zext nneg i32 %687 to i64
   %.not857 = icmp eq i32 %.099.i158.lcssa, 0
   br i1 %.not857, label %._crit_edge830, label %.lr.ph829
 
 ._crit_edge830:                                   ; preds = %.lr.ph829, %._crit_edge822
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store <2 x i64> zeroinitializer, ptr %14, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %14, ptr nonnull align 16 %18, i64 %689, i1 false)
   %.0..0..0..0..i2446999771297 = load <16 x i8>, ptr %14, align 16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %690 = icmp eq <16 x i8> %.0..0..0..0..i2456989761296, %.0..0..0..0..i2446999771297
   %691 = bitcast <16 x i1> %690 to i16
   %692 = zext i16 %691 to i32
@@ -6599,7 +6593,7 @@ doWide16.exit179:                                 ; preds = %727, %729
   %.3590 = phi ptr [ %718, %727 ], [ %730, %729 ]
   %.12580 = phi i16 [ 0, %727 ], [ %714, %729 ]
   %.0.i170 = phi i16 [ %.in120.i169, %727 ], [ %.sroa.0356.0, %729 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %774
 
 731:                                              ; preds = %624
@@ -6985,7 +6979,7 @@ doNormal16.exit94:                                ; preds = %doSherman16.exit217
   %943 = sub i16 %936, %.13581
   %944 = zext i16 %.13581 to i64
   %945 = getelementptr inbounds nuw i8, ptr %937, i64 %944
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %946 = icmp eq i16 %.13581, 0
   br i1 %946, label %947, label %949
 
@@ -7049,22 +7043,22 @@ doNormal16.exit94:                                ; preds = %doSherman16.exit217
   %978 = tail call i16 @llvm.umin.i16(i16 %.0101.i182.lcssa, i16 16)
   %979 = zext nneg i16 %978 to i32
   %980 = tail call i32 @llvm.umin.i32(i32 %.099.i183.lcssa, i32 16)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store <2 x i64> zeroinitializer, ptr %15, align 16
   %981 = zext nneg i16 %978 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %15, ptr nonnull align 1 %.0104.i181.lcssa, i64 %981, i1 false)
   %.0..0..0..0..i2437049801298 = load <16 x i8>, ptr %15, align 16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %982 = zext nneg i32 %980 to i64
   %.not858 = icmp eq i32 %.099.i183.lcssa, 0
   br i1 %.not858, label %._crit_edge850, label %.lr.ph849
 
 ._crit_edge850:                                   ; preds = %.lr.ph849, %._crit_edge842
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store <2 x i64> zeroinitializer, ptr %16, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %16, ptr nonnull align 16 %17, i64 %982, i1 false)
   %.0..0..0..0..i7059811299 = load <16 x i8>, ptr %16, align 16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %983 = icmp eq <16 x i8> %.0..0..0..0..i2437049801298, %.0..0..0..0..i7059811299
   %984 = bitcast <16 x i1> %983 to i16
   %985 = zext i16 %984 to i32
@@ -7151,7 +7145,7 @@ doWide16.exit204:                                 ; preds = %1020, %1022
   %.3586 = phi ptr [ %1011, %1020 ], [ %1023, %1022 ]
   %.14582 = phi i16 [ 0, %1020 ], [ %1007, %1022 ]
   %.0.i195 = phi i16 [ %.in120.i194, %1020 ], [ %.sroa.0.0, %1022 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %1067
 
 1024:                                             ; preds = %917
@@ -7537,7 +7531,7 @@ mcclellanCheckEOD.exit:                           ; preds = %.lr.ph, %29, %23, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef signext i8 @nfaExecMcClellan8_queueInitState(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #6 {
+define hidden noundef signext i8 @nfaExecMcClellan8_queueInitState(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   store i8 0, ptr %4, align 1
@@ -7545,7 +7539,7 @@ define hidden noundef signext i8 @nfaExecMcClellan8_queueInitState(ptr noundef r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef signext i8 @nfaExecMcClellan16_queueInitState(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #6 {
+define hidden noundef signext i8 @nfaExecMcClellan16_queueInitState(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   store i16 0, ptr %4, align 2
@@ -7565,7 +7559,7 @@ define hidden noundef signext i8 @nfaExecMcClellan16_queueInitState(ptr noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef signext i8 @nfaExecMcClellan8_queueCompressState(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #7 {
+define hidden noundef signext i8 @nfaExecMcClellan8_queueCompressState(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #6 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -7576,14 +7570,14 @@ define hidden noundef signext i8 @nfaExecMcClellan8_queueCompressState(ptr nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef signext i8 @nfaExecMcClellan8_expandState(ptr noundef readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 1)) %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i8 noundef zeroext %4) local_unnamed_addr #5 {
+define hidden noundef signext i8 @nfaExecMcClellan8_expandState(ptr noundef readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 1)) %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i8 noundef zeroext %4) local_unnamed_addr #4 {
   %6 = load i8, ptr %2, align 1
   store i8 %6, ptr %1, align 1
   ret i8 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef signext i8 @nfaExecMcClellan16_queueCompressState(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #7 {
+define hidden noundef signext i8 @nfaExecMcClellan16_queueCompressState(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #6 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -7607,7 +7601,7 @@ define hidden noundef signext i8 @nfaExecMcClellan16_queueCompressState(ptr noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef signext i8 @nfaExecMcClellan16_expandState(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 2)) %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i8 noundef zeroext %4) local_unnamed_addr #5 {
+define hidden noundef signext i8 @nfaExecMcClellan16_expandState(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 2)) %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i8 noundef zeroext %4) local_unnamed_addr #4 {
   %6 = load i16, ptr %2, align 1
   store i16 %6, ptr %1, align 2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 99
@@ -7627,7 +7621,7 @@ define hidden noundef signext i8 @nfaExecMcClellan16_expandState(ptr noundef rea
 }
 
 ; Function Attrs: noinline nounwind uwtable
-define internal fastcc signext range(i8 0, 2) i8 @mcclellanExec8_i_cb(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef readonly captures(none) %5, ptr noundef %6, i8 noundef signext range(i8 0, 2) %7) unnamed_addr #8 {
+define internal fastcc signext range(i8 0, 2) i8 @mcclellanExec8_i_cb(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef readonly captures(none) %5, ptr noundef %6, i8 noundef signext range(i8 0, 2) %7) unnamed_addr #7 {
   %.not.i = icmp eq i64 %3, 0
   br i1 %.not.i, label %mcclellanExec8_i.exit, label %9
 
@@ -8077,7 +8071,7 @@ mcclellanExec8_i.exit:                            ; preds = %107, %80, %75, %70,
 }
 
 ; Function Attrs: noinline nounwind uwtable
-define internal fastcc signext range(i8 1, 3) i8 @mcclellanExec8_i_sam(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef %2, i64 noundef %3, ptr noundef nonnull writeonly captures(none) %4) unnamed_addr #8 {
+define internal fastcc signext range(i8 1, 3) i8 @mcclellanExec8_i_sam(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef %2, i64 noundef %3, ptr noundef nonnull writeonly captures(none) %4) unnamed_addr #7 {
   %.not.i = icmp eq i64 %3, 0
   br i1 %.not.i, label %mcclellanExec8_i.exit, label %6
 
@@ -8267,7 +8261,7 @@ mcclellanExec8_i.exit:                            ; preds = %5, %48, %.thread20,
 }
 
 ; Function Attrs: noinline nounwind uwtable
-define internal fastcc noundef signext i8 @mcclellanExec8_i_nm(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef %2, i64 noundef %3) unnamed_addr #8 {
+define internal fastcc noundef signext i8 @mcclellanExec8_i_nm(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef %2, i64 noundef %3) unnamed_addr #7 {
   %.not.i = icmp eq i64 %3, 0
   br i1 %.not.i, label %mcclellanExec8_i.exit, label %5
 
@@ -8428,7 +8422,7 @@ mcclellanExec8_i.exit:                            ; preds = %4, %doNormal8.exit.
 }
 
 ; Function Attrs: noinline nounwind uwtable
-define internal fastcc signext range(i8 0, 2) i8 @mcclellanExec16_i_cb(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef captures(address_is_null) %2, ptr noundef %3, i64 noundef %4, i64 noundef %5, ptr noundef readonly captures(none) %6, ptr noundef %7, i8 noundef signext range(i8 0, 2) %8) unnamed_addr #9 {
+define internal fastcc signext range(i8 0, 2) i8 @mcclellanExec16_i_cb(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef captures(address_is_null) %2, ptr noundef %3, i64 noundef %4, i64 noundef %5, ptr noundef readonly captures(none) %6, ptr noundef %7, i8 noundef signext range(i8 0, 2) %8) unnamed_addr #8 {
   %10 = alloca <2 x i64>, align 16
   %11 = alloca <2 x i64>, align 16
   %12 = alloca <2 x i64>, align 16
@@ -8557,7 +8551,7 @@ define internal fastcc signext range(i8 0, 2) i8 @mcclellanExec16_i_cb(ptr nound
   %88 = sub i16 %81, %.3158
   %89 = zext i16 %.3158 to i64
   %90 = getelementptr inbounds nuw i8, ptr %82, i64 %89
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %91 = icmp eq i16 %.3158, 0
   br i1 %91, label %92, label %94
 
@@ -8621,22 +8615,22 @@ define internal fastcc signext range(i8 0, 2) i8 @mcclellanExec16_i_cb(ptr nound
   %123 = tail call i16 @llvm.umin.i16(i16 %.0101.i.lcssa, i16 16)
   %124 = zext nneg i16 %123 to i32
   %125 = tail call i32 @llvm.umin.i32(i32 %.099.i.lcssa, i32 16)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store <2 x i64> zeroinitializer, ptr %10, align 16
   %126 = zext nneg i16 %123 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %10, ptr nonnull align 1 %.0104.i.lcssa, i64 %126, i1 false)
   %.0..0..0..0..i91220374553 = load <16 x i8>, ptr %10, align 16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %127 = zext nneg i32 %125 to i64
   %.not = icmp eq i32 %.099.i.lcssa, 0
   br i1 %.not, label %._crit_edge285, label %.lr.ph284
 
 ._crit_edge285:                                   ; preds = %.lr.ph284, %._crit_edge
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store <2 x i64> zeroinitializer, ptr %11, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %11, ptr nonnull align 16 %15, i64 %127, i1 false)
   %.0..0..0..0..i90221375554 = load <16 x i8>, ptr %11, align 16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %128 = icmp eq <16 x i8> %.0..0..0..0..i91220374553, %.0..0..0..0..i90221375554
   %129 = bitcast <16 x i1> %128 to i16
   %130 = zext i16 %129 to i32
@@ -8723,7 +8717,7 @@ doWide16.exit:                                    ; preds = %165, %167
   %.1167 = phi ptr [ %156, %165 ], [ %168, %167 ]
   %.4159 = phi i16 [ 0, %165 ], [ %152, %167 ]
   %.0.i43 = phi i16 [ %.in120.i, %165 ], [ %.sroa.088.0, %167 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %212
 
 169:                                              ; preds = %62
@@ -9121,7 +9115,7 @@ doNormal16.exit37:                                ; preds = %doSherman16.exit, %
   %388 = sub i16 %381, %.10
   %389 = zext i16 %.10 to i64
   %390 = getelementptr inbounds nuw i8, ptr %382, i64 %389
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %391 = icmp eq i16 %.10, 0
   br i1 %391, label %392, label %394
 
@@ -9185,22 +9179,22 @@ doNormal16.exit37:                                ; preds = %doSherman16.exit, %
   %423 = tail call i16 @llvm.umin.i16(i16 %.0101.i48.lcssa, i16 16)
   %424 = zext nneg i16 %423 to i32
   %425 = tail call i32 @llvm.umin.i32(i32 %.099.i49.lcssa, i32 16)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store <2 x i64> zeroinitializer, ptr %12, align 16
   %426 = zext nneg i16 %423 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %12, ptr nonnull align 1 %.0104.i47.lcssa, i64 %426, i1 false)
   %.0..0..0..0..i89225377555 = load <16 x i8>, ptr %12, align 16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %427 = zext nneg i32 %425 to i64
   %.not312 = icmp eq i32 %.099.i49.lcssa, 0
   br i1 %.not312, label %._crit_edge305, label %.lr.ph304
 
 ._crit_edge305:                                   ; preds = %.lr.ph304, %._crit_edge297
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store <2 x i64> zeroinitializer, ptr %13, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %13, ptr nonnull align 16 %14, i64 %427, i1 false)
   %.0..0..0..0..i226378556 = load <16 x i8>, ptr %13, align 16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %428 = icmp eq <16 x i8> %.0..0..0..0..i89225377555, %.0..0..0..0..i226378556
   %429 = bitcast <16 x i1> %428 to i16
   %430 = zext i16 %429 to i32
@@ -9287,7 +9281,7 @@ doWide16.exit70:                                  ; preds = %465, %467
   %.1163 = phi ptr [ %456, %465 ], [ %468, %467 ]
   %.11 = phi i16 [ 0, %465 ], [ %452, %467 ]
   %.0.i61 = phi i16 [ %.in120.i60, %465 ], [ %.sroa.0.0, %467 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %512
 
 469:                                              ; preds = %362
@@ -9570,7 +9564,7 @@ mcclellanExec16_i.exit:                           ; preds = %300, %285, %278, %3
 }
 
 ; Function Attrs: noinline nounwind uwtable
-define internal fastcc signext range(i8 1, 3) i8 @mcclellanExec16_i_sam(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef captures(address_is_null) %2, ptr noundef %3, i64 noundef %4, ptr noundef nonnull writeonly captures(none) %5) unnamed_addr #9 {
+define internal fastcc signext range(i8 1, 3) i8 @mcclellanExec16_i_sam(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef captures(address_is_null) %2, ptr noundef %3, i64 noundef %4, ptr noundef nonnull writeonly captures(none) %5) unnamed_addr #8 {
   %7 = alloca <2 x i64>, align 16
   %8 = alloca <2 x i64>, align 16
   %9 = alloca <2 x i64>, align 16
@@ -9694,7 +9688,7 @@ define internal fastcc signext range(i8 1, 3) i8 @mcclellanExec16_i_sam(ptr noun
   %84 = sub i16 %77, %.3142
   %85 = zext i16 %.3142 to i64
   %86 = getelementptr inbounds nuw i8, ptr %78, i64 %85
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %87 = icmp eq i16 %.3142, 0
   br i1 %87, label %88, label %90
 
@@ -9758,22 +9752,22 @@ define internal fastcc signext range(i8 1, 3) i8 @mcclellanExec16_i_sam(ptr noun
   %119 = tail call i16 @llvm.umin.i16(i16 %.0101.i.lcssa, i16 16)
   %120 = zext nneg i16 %119 to i32
   %121 = tail call i32 @llvm.umin.i32(i32 %.099.i.lcssa, i32 16)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store <2 x i64> zeroinitializer, ptr %7, align 16
   %122 = zext nneg i16 %119 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %7, ptr nonnull align 1 %.0104.i.lcssa, i64 %122, i1 false)
   %.0..0..0..0..i9018828869 = load <16 x i8>, ptr %7, align 16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %123 = zext nneg i32 %121 to i64
   %.not = icmp eq i32 %.099.i.lcssa, 0
   br i1 %.not, label %._crit_edge232, label %.lr.ph231
 
 ._crit_edge232:                                   ; preds = %.lr.ph231, %._crit_edge
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store <2 x i64> zeroinitializer, ptr %8, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %8, ptr nonnull align 16 %12, i64 %123, i1 false)
   %.0..0..0..0..i8918928970 = load <16 x i8>, ptr %8, align 16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %124 = icmp eq <16 x i8> %.0..0..0..0..i9018828869, %.0..0..0..0..i8918928970
   %125 = bitcast <16 x i1> %124 to i16
   %126 = zext i16 %125 to i32
@@ -9860,7 +9854,7 @@ doWide16.exit:                                    ; preds = %161, %163
   %.1149 = phi ptr [ %152, %161 ], [ %164, %163 ]
   %.4143 = phi i16 [ 0, %161 ], [ %148, %163 ]
   %.0.i42 = phi i16 [ %.in120.i, %161 ], [ %.sroa.084.0, %163 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %208
 
 165:                                              ; preds = %58
@@ -10185,7 +10179,7 @@ doSherman16.exit:                                 ; preds = %.thread165, %254, %
   %349 = sub i16 %342, %.10
   %350 = zext i16 %.10 to i64
   %351 = getelementptr inbounds nuw i8, ptr %343, i64 %350
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %352 = icmp eq i16 %.10, 0
   br i1 %352, label %353, label %355
 
@@ -10249,22 +10243,22 @@ doSherman16.exit:                                 ; preds = %.thread165, %254, %
   %384 = tail call i16 @llvm.umin.i16(i16 %.0101.i47.lcssa, i16 16)
   %385 = zext nneg i16 %384 to i32
   %386 = tail call i32 @llvm.umin.i32(i32 %.099.i48.lcssa, i32 16)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store <2 x i64> zeroinitializer, ptr %9, align 16
   %387 = zext nneg i16 %384 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %9, ptr nonnull align 1 %.0104.i46.lcssa, i64 %387, i1 false)
   %.0..0..0..0..i8819229171 = load <16 x i8>, ptr %9, align 16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %388 = zext nneg i32 %386 to i64
   %.not251 = icmp eq i32 %.099.i48.lcssa, 0
   br i1 %.not251, label %._crit_edge249, label %.lr.ph248
 
 ._crit_edge249:                                   ; preds = %.lr.ph248, %._crit_edge241
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store <2 x i64> zeroinitializer, ptr %10, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %10, ptr nonnull align 16 %11, i64 %388, i1 false)
   %.0..0..0..0..i19329272 = load <16 x i8>, ptr %10, align 16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %389 = icmp eq <16 x i8> %.0..0..0..0..i8819229171, %.0..0..0..0..i19329272
   %390 = bitcast <16 x i1> %389 to i16
   %391 = zext i16 %390 to i32
@@ -10351,7 +10345,7 @@ doWide16.exit69:                                  ; preds = %426, %428
   %.1145 = phi ptr [ %417, %426 ], [ %429, %428 ]
   %.11 = phi i16 [ 0, %426 ], [ %413, %428 ]
   %.0.i60 = phi i16 [ %.in120.i59, %426 ], [ %.sroa.0.0, %428 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %473
 
 430:                                              ; preds = %323
@@ -10577,7 +10571,7 @@ mcclellanExec16_i.exit:                           ; preds = %.loopexit319, %537,
 }
 
 ; Function Attrs: noinline nounwind uwtable
-define internal fastcc noundef signext i8 @mcclellanExec16_i_nm(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef captures(address_is_null) %2, ptr noundef %3, i64 noundef %4) unnamed_addr #9 {
+define internal fastcc noundef signext i8 @mcclellanExec16_i_nm(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef captures(address_is_null) %2, ptr noundef %3, i64 noundef %4) unnamed_addr #8 {
   %6 = alloca <2 x i64>, align 16
   %7 = alloca <2 x i64>, align 16
   %8 = alloca <2 x i64>, align 16
@@ -10694,7 +10688,7 @@ define internal fastcc noundef signext i8 @mcclellanExec16_i_nm(ptr noundef %0, 
   %78 = sub i16 %71, %.3122
   %79 = zext i16 %.3122 to i64
   %80 = getelementptr inbounds nuw i8, ptr %72, i64 %79
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %81 = icmp eq i16 %.3122, 0
   br i1 %81, label %82, label %84
 
@@ -10758,22 +10752,22 @@ define internal fastcc noundef signext i8 @mcclellanExec16_i_nm(ptr noundef %0, 
   %113 = tail call i16 @llvm.umin.i16(i16 %.0101.i.lcssa, i16 16)
   %114 = zext nneg i16 %113 to i32
   %115 = tail call i32 @llvm.umin.i32(i32 %.099.i.lcssa, i32 16)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store <2 x i64> zeroinitializer, ptr %6, align 16
   %116 = zext nneg i16 %113 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %6, ptr nonnull align 1 %.0104.i.lcssa, i64 %116, i1 false)
   %.0..0..0..0..i8516126551 = load <16 x i8>, ptr %6, align 16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %117 = zext nneg i32 %115 to i64
   %.not = icmp eq i32 %.099.i.lcssa, 0
   br i1 %.not, label %._crit_edge197, label %.lr.ph196
 
 ._crit_edge197:                                   ; preds = %.lr.ph196, %._crit_edge
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store <2 x i64> zeroinitializer, ptr %7, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %7, ptr nonnull align 16 %11, i64 %117, i1 false)
   %.0..0..0..0..i8416226652 = load <16 x i8>, ptr %7, align 16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %118 = icmp eq <16 x i8> %.0..0..0..0..i8516126551, %.0..0..0..0..i8416226652
   %119 = bitcast <16 x i1> %118 to i16
   %120 = zext i16 %119 to i32
@@ -10860,7 +10854,7 @@ doWide16.exit:                                    ; preds = %155, %157
   %.1129 = phi ptr [ %146, %155 ], [ %158, %157 ]
   %.4123 = phi i16 [ 0, %155 ], [ %142, %157 ]
   %.0.i37 = phi i16 [ %.in120.i, %155 ], [ %.sroa.073.0203, %157 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %202
 
 159:                                              ; preds = %.lr.ph206
@@ -11173,7 +11167,7 @@ doNormalWide16.exit16:                            ; preds = %202, %doSherman16.e
   %343 = sub i16 %336, %.9
   %344 = zext i16 %.9 to i64
   %345 = getelementptr inbounds nuw i8, ptr %337, i64 %344
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %346 = icmp eq i16 %.9, 0
   br i1 %346, label %347, label %349
 
@@ -11237,22 +11231,22 @@ doNormalWide16.exit16:                            ; preds = %202, %doSherman16.e
   %378 = tail call i16 @llvm.umin.i16(i16 %.0101.i42.lcssa, i16 16)
   %379 = zext nneg i16 %378 to i32
   %380 = tail call i32 @llvm.umin.i32(i32 %.099.i43.lcssa, i32 16)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store <2 x i64> zeroinitializer, ptr %8, align 16
   %381 = zext nneg i16 %378 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %8, ptr nonnull align 1 %.0104.i41.lcssa, i64 %381, i1 false)
   %.0..0..0..0..i8316526853 = load <16 x i8>, ptr %8, align 16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %382 = zext nneg i32 %380 to i64
   %.not234 = icmp eq i32 %.099.i43.lcssa, 0
   br i1 %.not234, label %._crit_edge232, label %.lr.ph231
 
 ._crit_edge232:                                   ; preds = %.lr.ph231, %._crit_edge224
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store <2 x i64> zeroinitializer, ptr %9, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %9, ptr nonnull align 16 %10, i64 %382, i1 false)
   %.0..0..0..0..i16626954 = load <16 x i8>, ptr %9, align 16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %383 = icmp eq <16 x i8> %.0..0..0..0..i8316526853, %.0..0..0..0..i16626954
   %384 = bitcast <16 x i1> %383 to i16
   %385 = zext i16 %384 to i32
@@ -11339,7 +11333,7 @@ doWide16.exit64:                                  ; preds = %420, %422
   %.1125 = phi ptr [ %411, %420 ], [ %423, %422 ]
   %.10 = phi i16 [ 0, %420 ], [ %407, %422 ]
   %.0.i55 = phi i16 [ %.in120.i54, %420 ], [ %.sroa.0.0, %422 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %467
 
 424:                                              ; preds = %317
@@ -11544,16 +11538,22 @@ mcclellanExec16_i.exit:                           ; preds = %5, %.loopexit
   ret i8 1
 }
 
-declare ptr @run_accel(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #10
+declare ptr @run_accel(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #11
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #10
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #12
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #13
+declare void @llvm.assume(i1 noundef) #12
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #14
@@ -11565,19 +11565,19 @@ declare i32 @llvm.umin.i32(i32, i32) #14
 declare i16 @llvm.umin.i16(i16, i16) #14
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
-attributes #3 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
-attributes #8 = { noinline nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
-attributes #9 = { noinline nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
-attributes #10 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
-attributes #11 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
+attributes #2 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
+attributes #7 = { noinline nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
+attributes #8 = { noinline nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
+attributes #9 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #15 = { nounwind }
 

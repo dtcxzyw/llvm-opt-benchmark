@@ -131,21 +131,15 @@ define void @dec_free(ptr noundef %0) local_unnamed_addr #0 {
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare void @avcodec_free_context(ptr noundef) local_unnamed_addr #1
 
-declare void @avcodec_free_context(ptr noundef) local_unnamed_addr #2
+declare void @av_frame_free(ptr noundef) local_unnamed_addr #1
 
-declare void @av_frame_free(ptr noundef) local_unnamed_addr #2
+declare void @av_packet_free(ptr noundef) local_unnamed_addr #1
 
-declare void @av_packet_free(ptr noundef) local_unnamed_addr #2
+declare void @av_dict_free(ptr noundef) local_unnamed_addr #1
 
-declare void @av_dict_free(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare void @av_freep(ptr noundef) local_unnamed_addr #2
+declare void @av_freep(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -2147483648, 1) i32 @dec_request_view(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
@@ -318,18 +312,18 @@ define range(i32 -2147483648, 1) i32 @dec_request_view(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
-declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare i32 @grow_array(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @grow_array(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @sch_add_dec_output(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @sch_add_dec_output(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @dec_init(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %0, align 8, !tbaa !4
   %7 = load i32, ptr %3, align 8, !tbaa !38
   %8 = lshr i32 %7, 4
@@ -368,14 +362,14 @@ multiview_check_manual.exit:                      ; preds = %11, %15
 
 23:                                               ; preds = %5, %22, %19
   %.0 = phi i32 [ %17, %22 ], [ %21, %19 ], [ %9, %5 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -2147483648, 1) i32 @dec_alloc(ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %0, align 8, !tbaa !41
   %5 = tail call noalias ptr @av_mallocz(i64 noundef 312) #13
   store ptr %5, ptr %4, align 8, !tbaa !41
@@ -432,7 +426,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @dec_alloc(ptr noundef nonn
 
 25:                                               ; preds = %24, %23, %3, %20
   %.0 = phi i32 [ 0, %20 ], [ -12, %3 ], [ -12, %24 ], [ %18, %23 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -581,7 +575,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @dec_open(ptr noundef initi
 76:                                               ; preds = %74, %64
   %77 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %78 = load ptr, ptr %77, align 8, !tbaa !91
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not.i = icmp eq ptr %78, null
   br i1 %.not.i, label %100, label %79
 
@@ -820,19 +814,19 @@ define internal fastcc range(i32 -2147483648, 1) i32 @dec_open(ptr noundef initi
   br i1 %.not82.i, label %hw_device_setup_for_decode.exit.thread148, label %hw_device_setup_for_decode.exit.thread
 
 hw_device_setup_for_decode.exit.thread:           ; preds = %123, %.split.us.i.thread, %82, %126, %162, %113
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %174
 
 hw_device_setup_for_decode.exit.thread148:        ; preds = %95, %162
   %.060.i.ph = phi i32 [ -22, %95 ], [ -12, %162 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %172
 
 hw_device_setup_for_decode.exit:                  ; preds = %.thread.i
   %169 = call ptr @av_hwdevice_get_type_name(i32 noundef %.158.ph.i) #13
   %170 = load ptr, ptr %10, align 8, !tbaa !68
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.71, ptr noundef %169, ptr noundef %170) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %171 = icmp slt i32 %.1.ph.i, 0
   br i1 %171, label %172, label %174
 
@@ -1021,8 +1015,8 @@ clone_side_data.exit:                             ; preds = %46, %.lr.ph.i145, %
 define range(i32 -2147483648, 1) i32 @dec_create(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = call fastcc i32 @dec_alloc(ptr noundef %4, ptr noundef %2, i32 noundef 0)
   %7 = icmp slt i32 %6, 0
   br i1 %7, label %.critedge, label %8
@@ -1155,26 +1149,26 @@ define range(i32 -2147483648, 1) i32 @dec_create(ptr noundef readonly captures(n
 
 .critedge:                                        ; preds = %68, %72, %81, %61, %56, %50, %3, %49, %40, %26, %15
   %.0 = phi i32 [ %13, %15 ], [ -22, %26 ], [ -22, %40 ], [ -1128613112, %81 ], [ -22, %49 ], [ %6, %3 ], [ %54, %50 ], [ %59, %56 ], [ %66, %61 ], [ 0, %72 ], [ 0, %68 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #4
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #3
 
-declare i32 @enc_loopback(ptr noundef) local_unnamed_addr #2
+declare i32 @enc_loopback(ptr noundef) local_unnamed_addr #1
 
-declare i32 @sch_connect(ptr noundef, i64, i32, i64, i32) local_unnamed_addr #2
+declare i32 @sch_connect(ptr noundef, i64, i32, i64, i32) local_unnamed_addr #1
 
-declare i32 @av_dict_copy(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @av_dict_copy(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @avcodec_find_decoder_by_name(ptr noundef) local_unnamed_addr #2
+declare ptr @avcodec_find_decoder_by_name(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -2147483648, 1) i32 @dec_filter_add(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef writeonly captures(none) initializes((16, 24)) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #0 {
   %6 = alloca [16 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 204
   %8 = load i32, ptr %7, align 4, !tbaa !46
   %9 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 16, ptr noundef nonnull @.str.6, i32 noundef %8) #13
@@ -1190,22 +1184,22 @@ define range(i32 -2147483648, 1) i32 @dec_filter_add(ptr noundef %0, ptr noundef
 
 14:                                               ; preds = %5, %12
   %.0 = phi i32 [ %13, %12 ], [ -12, %5 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #5
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
-declare noalias ptr @av_strdup(ptr noundef) local_unnamed_addr #2
+declare noalias ptr @av_strdup(ptr noundef) local_unnamed_addr #1
 
-declare noalias ptr @av_mallocz(i64 noundef) local_unnamed_addr #2
+declare noalias ptr @av_mallocz(i64 noundef) local_unnamed_addr #1
 
-declare ptr @av_frame_alloc() local_unnamed_addr #2
+declare ptr @av_frame_alloc() local_unnamed_addr #1
 
-declare ptr @av_packet_alloc() local_unnamed_addr #2
+declare ptr @av_packet_alloc() local_unnamed_addr #1
 
-declare i32 @sch_add_dec(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @sch_add_dec(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -2147483648, 1) i32 @decoder_thread(ptr noundef %0) #0 {
@@ -1231,7 +1225,7 @@ define internal range(i32 -2147483648, 1) i32 @decoder_thread(ptr noundef %0) #0
   %21 = alloca %struct.DecThreadContext, align 8
   %22 = alloca [64 x i8], align 1
   %23 = alloca [64 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %21) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i64 0, ptr %24, align 8
   %25 = tail call ptr @av_frame_alloc() #13
@@ -1254,7 +1248,7 @@ dec_thread_init.exit.thread:                      ; preds = %1, %26
   br label %.thread121
 
 dec_thread_init.exit:                             ; preds = %26
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %20) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %20, ptr noundef nonnull align 16 dereferenceable(16) @__const.dec_thread_set_name.name, i64 16, i1 false)
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 204
   %31 = load i32, ptr %30, align 4, !tbaa !46
@@ -1290,7 +1284,7 @@ dec_thread_init.exit:                             ; preds = %26
 
 dec_thread_set_name.exit:                         ; preds = %40, %43
   %48 = call i32 (i32, ...) @prctl(i32 noundef 15, ptr noundef nonnull %20) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %51 = getelementptr inbounds nuw i8, ptr %18, i64 32
@@ -1398,8 +1392,8 @@ dec_thread_set_name.exit:                         ; preds = %40, %43
 .thread110:                                       ; preds = %..thread110_crit_edge, %.thread102
   %109 = phi ptr [ %.pre, %..thread110_crit_edge ], [ %89, %.thread102 ]
   %110 = phi i1 [ %107, %..thread110_crit_edge ], [ true, %.thread102 ]
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %18) #13
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %19) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %111 = getelementptr inbounds nuw i8, ptr %109, i64 88
   %112 = load ptr, ptr %111, align 8, !tbaa !191
   %.not.i88 = icmp eq ptr %112, null
@@ -1451,8 +1445,8 @@ dec_thread_set_name.exit:                         ; preds = %40, %43
 
 dec_standalone_open.exit.thread:                  ; preds = %.thread110, %113, %133
   %.0.i89.ph = phi i32 [ -1128613112, %133 ], [ -558323010, %113 ], [ -558323010, %.thread110 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %18) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %.thread121
 
 dec_standalone_open.exit:                         ; preds = %118, %122
@@ -1460,8 +1454,8 @@ dec_standalone_open.exit:                         ; preds = %118, %122
   %136 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %19, i64 noundef 16, ptr noundef nonnull @.str.6, i32 noundef %135) #13
   store ptr %19, ptr %56, align 8, !tbaa !69
   %137 = call fastcc i32 @dec_open(ptr noundef nonnull %0, ptr noundef nonnull %53, ptr noundef nonnull %18, ptr noundef null)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19) #13
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %18) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %138 = icmp slt i32 %137, 0
   br i1 %138, label %.thread121, label %139
 
@@ -1476,8 +1470,8 @@ dec_standalone_open.exit:                         ; preds = %118, %122
   %.not8298106117 = phi i1 [ true, %.thread102 ], [ true, %.thread208 ], [ %.not82101, %99 ], [ true, %139 ]
   %142 = phi ptr [ %89, %.thread102 ], [ %103, %.thread208 ], [ null, %99 ], [ %spec.select244, %139 ]
   %143 = load ptr, ptr %21, align 8, !tbaa !182
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %16)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %144 = getelementptr inbounds nuw i8, ptr %141, i64 12
   %145 = load i32, ptr %144, align 4, !tbaa !113
   %146 = call ptr @av_get_media_type_string(i32 noundef %145) #13
@@ -1486,11 +1480,11 @@ dec_standalone_open.exit:                         ; preds = %118, %122
   br i1 %148, label %149, label %317
 
 149:                                              ; preds = %.thread114
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %15)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr null, ptr %12, align 8, !tbaa !202
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #13
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %.not.i.i = icmp eq ptr %142, null
   br i1 %.not.i.i, label %.critedge43.i.i, label %150
 
@@ -1559,14 +1553,14 @@ dec_standalone_open.exit:                         ; preds = %118, %122
   %189 = load ptr, ptr %75, align 8, !tbaa !73
   call void @av_frame_unref(ptr noundef %189) #13
   %190 = load ptr, ptr %75, align 8, !tbaa !73
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %191 = call noalias ptr @av_mallocz(i64 noundef 32) #13
   store ptr %191, ptr %3, align 8, !tbaa !212
   %.not13.i = icmp eq ptr %191, null
   br i1 %.not13.i, label %subtitle_wrap_frame.exit.thread, label %192
 
 192:                                              ; preds = %188
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %193 = load i16, ptr %177, align 8, !tbaa !214
   store i16 %193, ptr %2, align 8, !tbaa !214
   store i16 0, ptr %76, align 2
@@ -1726,12 +1720,12 @@ dec_standalone_open.exit:                         ; preds = %118, %122
   br label %.thread15.i
 
 .thread15.i:                                      ; preds = %.loopexit.i.i, %200
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %subtitle_wrap_frame.exit.thread
 
 .loopexit.i:                                      ; preds = %269, %.preheader.i.i, %192
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %191, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false), !tbaa.struct !232
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %273 = call ptr @av_buffer_create(ptr noundef nonnull %191, i64 noundef 32, ptr noundef nonnull @subtitle_free, ptr noundef null, i32 noundef 0) #13
   %.not14.i93 = icmp eq ptr %273, null
   br i1 %.not14.i93, label %274, label %275
@@ -1742,13 +1736,13 @@ dec_standalone_open.exit:                         ; preds = %118, %122
 
 subtitle_wrap_frame.exit.thread:                  ; preds = %188, %.thread15.i, %274
   call void @av_freep(ptr noundef nonnull %3) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %transcode_subtitles.exit.i
 
 275:                                              ; preds = %.loopexit.i
   %276 = getelementptr inbounds nuw i8, ptr %190, i64 184
   store ptr %273, ptr %276, align 8, !tbaa !206
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %277 = load ptr, ptr %75, align 8, !tbaa !73
   %278 = getelementptr inbounds nuw i8, ptr %277, i64 184
   %279 = load ptr, ptr %278, align 8, !tbaa !206
@@ -1798,7 +1792,7 @@ subtitle_wrap_frame.exit.thread:                  ; preds = %188, %.thread15.i, 
   %300 = load i64, ptr %72, align 8, !tbaa !237
   %301 = add i64 %300, 1
   store i64 %301, ptr %72, align 8, !tbaa !237
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %302 = call ptr @av_memdup(ptr noundef nonnull %13, i64 noundef 32) #13
   store ptr %302, ptr %11, align 8, !tbaa !212
   %.not12.i.i.i = icmp eq ptr %302, null
@@ -1816,14 +1810,14 @@ subtitle_wrap_frame.exit.thread:                  ; preds = %188, %.thread15.i, 
   br label %306
 
 306:                                              ; preds = %305, %299
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @avsubtitle_free(ptr noundef nonnull %13) #13
   br label %transcode_subtitles.exit.i
 
 307:                                              ; preds = %303
   %308 = getelementptr inbounds nuw i8, ptr %143, i64 184
   store ptr %304, ptr %308, align 8, !tbaa !206
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %309 = load ptr, ptr %41, align 8, !tbaa !75
   %310 = getelementptr inbounds nuw i8, ptr %309, i64 112
   %311 = load i32, ptr %310, align 8, !tbaa !122
@@ -1838,10 +1832,10 @@ subtitle_wrap_frame.exit.thread:                  ; preds = %188, %.thread15.i, 
 
 transcode_subtitles.exit.i:                       ; preds = %subtitle_wrap_frame.exit.thread, %307, %306, %297, %289, %.critedge43.i.i, %275, %185, %182, %175, %166, %153
   %.0.i.i = phi i32 [ %165, %153 ], [ %294, %289 ], [ -12, %306 ], [ %316, %307 ], [ %298, %297 ], [ -12, %.critedge43.i.i ], [ %283, %275 ], [ 0, %185 ], [ 0, %182 ], [ 0, %175 ], [ 0, %166 ], [ -12, %subtitle_wrap_frame.exit.thread ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #13
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #13
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %packet_decode.exit
 
 317:                                              ; preds = %.thread114
@@ -2156,12 +2150,12 @@ audio_ts_process.exit.i:                          ; preds = %.sink.split.i.i, %4
   br label %600
 
 464:                                              ; preds = %389
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %465 = load i32, ptr %57, align 8, !tbaa !52
   %466 = and i32 %465, 8
   %.not.i127.i = icmp eq i32 %466, 0
@@ -2184,7 +2178,7 @@ audio_ts_process.exit.i:                          ; preds = %.sink.split.i.i, %4
   %475 = load ptr, ptr %41, align 8, !tbaa !75
   %476 = getelementptr inbounds nuw i8, ptr %475, i64 48
   %477 = load ptr, ptr %476, align 8, !tbaa !76
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %478 = getelementptr inbounds nuw i8, ptr %477, i64 124
   %479 = load i32, ptr %478, align 4, !tbaa !67
   %480 = icmp eq i32 %471, %479
@@ -2197,7 +2191,7 @@ audio_ts_process.exit.i:                          ; preds = %.sink.split.i.i, %4
   br i1 %.not.i.i132.i, label %hwaccel_retrieve_data.exit.thread73.i.i, label %483
 
 hwaccel_retrieve_data.exit.thread73.i.i:          ; preds = %481
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %599
 
 483:                                              ; preds = %481
@@ -2223,7 +2217,7 @@ hwaccel_retrieve_data.exit.thread73.i.i:          ; preds = %481
 hwaccel_retrieve_data.exit.thread76.i.i:          ; preds = %491, %487
   %.014.ph.i.ph.i.i = phi i32 [ %489, %491 ], [ %485, %487 ]
   call void @av_frame_free(ptr noundef nonnull %4) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %599
 
 hwaccel_retrieve_data.exit.i.i:                   ; preds = %488
@@ -2233,7 +2227,7 @@ hwaccel_retrieve_data.exit.i.i:                   ; preds = %488
   br label %.sink.split.i133.i
 
 .sink.split.i133.i:                               ; preds = %hwaccel_retrieve_data.exit.i.i, %474
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %492
 
 492:                                              ; preds = %.sink.split.i133.i, %470
@@ -2486,22 +2480,22 @@ av_ts_make_string.exit70.i.i:                     ; preds = %577, %576
   %597 = ptrtoint ptr %596 to i64
   %598 = trunc i64 %597 to i32
   %.2.i = select i1 %.not64.i.i, i32 1, i32 %598
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %600
 
 599:                                              ; preds = %595, %hwaccel_retrieve_data.exit.thread76.i.i, %hwaccel_retrieve_data.exit.thread73.i.i
   %.2.i.ph.i = phi i32 [ %.014.ph.i.ph.i.i, %hwaccel_retrieve_data.exit.thread76.i.i ], [ -12, %hwaccel_retrieve_data.exit.thread73.i.i ], [ %593, %595 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 8, ptr noundef nonnull @.str.33) #13
   br label %packet_decode.exit
 
@@ -2559,8 +2553,8 @@ av_ts_make_string.exit70.i.i:                     ; preds = %577, %576
 
 packet_decode.exit:                               ; preds = %select.unfold.i, %372, %382, %612, %transcode_subtitles.exit.i, %319, %.critedge.i, %338, %339, %343, %368, %388, %599, %622
   %.0.i90 = phi i32 [ %.0.i.i, %transcode_subtitles.exit.i ], [ -558323010, %338 ], [ 0, %319 ], [ -541478725, %339 ], [ %333, %343 ], [ -12, %.critedge.i ], [ 0, %368 ], [ -12, %388 ], [ %.2.i.ph.i, %599 ], [ %624, %622 ], [ %614, %612 ], [ -1094995529, %382 ], [ %366, %372 ], [ %366, %select.unfold.i ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %16)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %625 = load ptr, ptr %28, align 8, !tbaa !184
   call void @av_packet_unref(ptr noundef %625) #13
   %626 = load ptr, ptr %21, align 8, !tbaa !182
@@ -2703,65 +2697,65 @@ packet_decode.exit:                               ; preds = %select.unfold.i, %3
   %690 = getelementptr inbounds nuw i8, ptr %21, i64 8
   call void @av_packet_free(ptr noundef nonnull %690) #13
   call void @av_frame_free(ptr noundef nonnull %21) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   ret i32 %.062
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal nonnull ptr @dec_item_name(ptr noundef readnone captures(ret: address, provenance) %0) #6 {
+define internal nonnull ptr @dec_item_name(ptr noundef readnone captures(ret: address, provenance) %0) #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 216
   ret ptr %2
 }
 
-declare i32 @sch_dec_receive(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @sch_dec_receive(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @av_packet_unref(ptr noundef) local_unnamed_addr #2
+declare void @av_packet_unref(ptr noundef) local_unnamed_addr #1
 
-declare void @av_frame_unref(ptr noundef) local_unnamed_addr #2
+declare void @av_frame_unref(ptr noundef) local_unnamed_addr #1
 
-declare void @avcodec_flush_buffers(ptr noundef) local_unnamed_addr #2
+declare void @avcodec_flush_buffers(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
-declare i32 @sch_dec_send(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @sch_dec_send(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i64 @av_strlcatf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare i64 @av_strlcatf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare i64 @av_strlcat(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @av_strlcat(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare i32 @prctl(i32 noundef, ...) local_unnamed_addr #8
+declare i32 @prctl(i32 noundef, ...) local_unnamed_addr #7
 
-declare ptr @avcodec_find_decoder(i32 noundef) local_unnamed_addr #2
+declare ptr @avcodec_find_decoder(i32 noundef) local_unnamed_addr #1
 
-declare ptr @avcodec_descriptor_get(i32 noundef) local_unnamed_addr #2
+declare ptr @avcodec_descriptor_get(i32 noundef) local_unnamed_addr #1
 
-declare ptr @av_get_media_type_string(i32 noundef) local_unnamed_addr #2
+declare ptr @av_get_media_type_string(i32 noundef) local_unnamed_addr #1
 
-declare ptr @packet_data(ptr noundef) local_unnamed_addr #2
+declare ptr @packet_data(ptr noundef) local_unnamed_addr #1
 
-declare i64 @av_gettime_relative() local_unnamed_addr #2
+declare i64 @av_gettime_relative() local_unnamed_addr #1
 
-declare i32 @avcodec_send_packet(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @avcodec_send_packet(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @update_benchmark(ptr noundef, ...) local_unnamed_addr #2
+declare void @update_benchmark(ptr noundef, ...) local_unnamed_addr #1
 
-declare i32 @avcodec_receive_frame(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @avcodec_receive_frame(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold nofree noreturn nounwind
-declare void @abort() local_unnamed_addr #9
+declare void @abort() local_unnamed_addr #8
 
-declare ptr @frame_data(ptr noundef) local_unnamed_addr #2
+declare ptr @frame_data(ptr noundef) local_unnamed_addr #1
 
-declare i32 @av_frame_ref(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @av_frame_ref(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i64 @av_rescale_q(i64 noundef, i64, i64) local_unnamed_addr #10
+declare i64 @av_rescale_q(i64 noundef, i64, i64) local_unnamed_addr #9
 
-declare i32 @avcodec_decode_subtitle2(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @avcodec_decode_subtitle2(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @avsubtitle_free(ptr noundef) local_unnamed_addr #2
+declare void @avsubtitle_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @process_subtitle(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
@@ -2864,9 +2858,9 @@ define internal fastcc i32 @process_subtitle(ptr noundef %0, ptr noundef %1) unn
   ret i32 %.1
 }
 
-declare ptr @av_memdup(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @av_memdup(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare ptr @av_buffer_create(ptr noundef, i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @av_buffer_create(ptr noundef, i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @subtitle_free(ptr readnone captures(none) %0, ptr noundef %1) #0 {
@@ -2875,44 +2869,44 @@ define internal void @subtitle_free(ptr readnone captures(none) %0, ptr noundef 
   ret void
 }
 
-declare noalias ptr @av_calloc(i64 noundef, i64 noundef) local_unnamed_addr #2
+declare noalias ptr @av_calloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @av_free(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i64 @av_rescale(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #10
-
-declare void @av_frame_move_ref(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @av_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i64 @av_rescale_q_rnd(i64 noundef, i64, i64, i32 noundef) local_unnamed_addr #10
+declare i64 @av_rescale(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #9
 
-declare i64 @av_rescale_delta(i64, i64 noundef, i64, i32 noundef, ptr noundef, i64) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i64 @av_gcd(i64 noundef, i64 noundef) local_unnamed_addr #10
-
-declare i32 @av_frame_apply_cropping(ptr noundef, i32 noundef) local_unnamed_addr #2
-
-declare i32 @av_hwframe_transfer_data(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
-
-declare i32 @av_frame_copy_props(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @av_frame_move_ref(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i64 @av_mul_q(i64, i64) local_unnamed_addr #10
+declare i64 @av_rescale_q_rnd(i64 noundef, i64, i64, i32 noundef) local_unnamed_addr #9
 
-declare ptr @av_ts_make_time_string2(ptr noundef, i64 noundef, i64) local_unnamed_addr #2
+declare i64 @av_rescale_delta(i64, i64 noundef, i64, i32 noundef, ptr noundef, i64) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
+declare i64 @av_gcd(i64 noundef, i64 noundef) local_unnamed_addr #9
+
+declare i32 @av_frame_apply_cropping(ptr noundef, i32 noundef) local_unnamed_addr #1
+
+declare i32 @av_hwframe_transfer_data(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+
+declare i32 @av_frame_copy_props(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
+declare i64 @av_mul_q(i64, i64) local_unnamed_addr #9
+
+declare ptr @av_ts_make_time_string2(ptr noundef, i64 noundef, i64) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #11
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #10
 
-declare i32 @av_strerror(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @av_strerror(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare ptr @av_dict_get(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @av_dict_get(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @avcodec_alloc_context3(ptr noundef) local_unnamed_addr #2
+declare ptr @avcodec_alloc_context3(ptr noundef) local_unnamed_addr #1
 
-declare i32 @avcodec_parameters_to_context(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @avcodec_parameters_to_context(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @get_format(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
@@ -2924,12 +2918,12 @@ define internal i32 @get_format(ptr noundef %0, ptr noundef readonly captures(no
   %8 = alloca [64 x i8], align 1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = load ptr, ptr %9, align 8, !tbaa !76
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !267
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !267
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !267
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 272
   %12 = load i32, ptr %11, align 8, !tbaa !29
@@ -2965,10 +2959,10 @@ multiview_setup.exit.thread:                      ; preds = %22
   %28 = load ptr, ptr %27, align 8, !tbaa !185
   %29 = load ptr, ptr %28, align 8, !tbaa !68
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %10, i32 noundef 16, ptr noundef nonnull @.str.57, ptr noundef %29) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %189
 
 30:                                               ; preds = %22
@@ -2977,7 +2971,7 @@ multiview_setup.exit.thread:                      ; preds = %22
   br i1 %.not141.i, label %58, label %32
 
 32:                                               ; preds = %30
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %33 = icmp ugt i32 %31, 31
   br i1 %33, label %34, label %35
 
@@ -3024,12 +3018,12 @@ multiview_setup.exit.thread:                      ; preds = %22
 
 .thread.i:                                        ; preds = %52, %49, %38, %35, %34
   %.0115.ph.i = phi i32 [ -12, %49 ], [ %40, %38 ], [ -12, %35 ], [ -38, %34 ], [ %54, %52 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %multiview_setup.exit
 
 56:                                               ; preds = %52, %45, %42
   %57 = phi ptr [ %51, %52 ], [ null, %42 ], [ null, %45 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %66
 
 58:                                               ; preds = %30
@@ -3323,10 +3317,10 @@ select.unfold178.i:                               ; preds = %154, %146, %.thread
   br label %multiview_setup.exit
 
 multiview_setup.exit.thread77:                    ; preds = %2, %18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.preheader48
 
 multiview_setup.exit:                             ; preds = %99, %.thread166.i, %.thread172.i, %182, %.thread.i, %58, %66, %._crit_edge.thread.i, %161, %165, %179
@@ -3334,10 +3328,10 @@ multiview_setup.exit:                             ; preds = %99, %.thread166.i, 
   call void @av_freep(ptr noundef nonnull %4) #13
   call void @av_freep(ptr noundef nonnull %5) #13
   call void @av_freep(ptr noundef nonnull %6) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %184 = icmp slt i32 %.2117.i, 0
   br i1 %184, label %189, label %.preheader48
 
@@ -3488,49 +3482,55 @@ define internal i32 @get_buffer(ptr noundef %0, ptr noundef %1, i32 noundef %2) 
   ret i32 %30
 }
 
-declare i32 @av_dict_set(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @av_dict_set(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @av_opt_set_dict2(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @av_opt_set_dict2(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @check_avoptions(ptr noundef) local_unnamed_addr #2
+declare i32 @check_avoptions(ptr noundef) local_unnamed_addr #1
 
-declare i32 @avcodec_open2(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @avcodec_open2(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @av_channel_layout_copy(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @av_channel_layout_copy(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @av_frame_side_data_free(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @av_frame_side_data_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @av_pix_fmt_desc_get(i32 noundef) local_unnamed_addr #2
+declare ptr @av_pix_fmt_desc_get(i32 noundef) local_unnamed_addr #1
 
-declare ptr @avcodec_get_hw_config(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @avcodec_get_hw_config(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @av_opt_get_array_size(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @av_opt_get_array_size(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @av_opt_get_array(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @av_opt_get_array(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @av_stereo3d_view_name(i32 noundef) local_unnamed_addr #2
+declare ptr @av_stereo3d_view_name(i32 noundef) local_unnamed_addr #1
 
-declare ptr @av_malloc_array(i64 noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @av_malloc_array(i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @av_opt_set(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @av_opt_set(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @av_opt_set_array(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @av_opt_set_array(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @av_frame_get_side_data(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @av_frame_get_side_data(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @avcodec_default_get_buffer2(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @avcodec_default_get_buffer2(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @hw_device_get_by_name(ptr noundef) local_unnamed_addr #2
+declare ptr @hw_device_get_by_name(ptr noundef) local_unnamed_addr #1
 
-declare i32 @hw_device_init_from_type(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @hw_device_init_from_type(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @av_hwdevice_get_type_name(i32 noundef) local_unnamed_addr #2
+declare ptr @av_hwdevice_get_type_name(i32 noundef) local_unnamed_addr #1
 
-declare ptr @hw_device_get_by_type(i32 noundef) local_unnamed_addr #2
+declare ptr @hw_device_get_by_type(i32 noundef) local_unnamed_addr #1
 
-declare ptr @av_buffer_ref(ptr noundef) local_unnamed_addr #2
+declare ptr @av_buffer_ref(ptr noundef) local_unnamed_addr #1
 
-declare i32 @av_frame_side_data_clone(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @av_frame_side_data_clone(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.fshl.i64(i64, i64, i64) #12
@@ -3545,17 +3545,17 @@ declare i32 @llvm.smax.i32(i32, i32) #12
 declare i64 @llvm.smax.i64(i64, i64) #12
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { cold nofree noreturn nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #1 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { cold nofree noreturn nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #13 = { nounwind }
 attributes #14 = { nounwind willreturn memory(none) }

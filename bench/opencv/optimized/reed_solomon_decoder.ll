@@ -399,7 +399,7 @@ _ZN5zxing8ArrayRefIiEC2Ei.exit.thread:            ; preds = %_ZNSt6vectorIiSaIiE
 
 _ZN5zxing8ArrayRefIiED2Ev.exit109:                ; preds = %108, %113, %118
   store ptr null, ptr %105, align 8, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %122 = load ptr, ptr %0, align 8, !tbaa !14
   invoke void @_ZN5zxing9GenericGF13buildMonomialEiiRNS_12ErrorHandlerE(ptr dead_on_unwind nonnull writable sret(%"class.zxing::Ref.0") align 8 %7, ptr noundef nonnull align 8 dereferenceable(92) %122, i32 noundef %2, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(48) %3)
           to label %123 unwind label %156
@@ -421,7 +421,7 @@ _ZN5zxing8ArrayRefIiED2Ev.exit109:                ; preds = %108, %113, %118
   br i1 %.not75, label %171, label %131
 
 131:                                              ; preds = %130, %123
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   invoke void @_ZN5zxing12ErrorHandlerC1EPKc(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull @.str)
           to label %132 unwind label %160
 
@@ -449,7 +449,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %_ZN5zxing12ErrorHandlerD2Ev.exit
 
 _ZN5zxing12ErrorHandlerD2Ev.exit:                 ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %465
 
 142:                                              ; preds = %100
@@ -524,11 +524,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZN5zxing12ErrorHandlerD2Ev.exit114:              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i112, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i113, %160
   %.pn91 = phi { ptr, i32 } [ %161, %160 ], [ %163, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i113 ], [ %163, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i112 ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %538
 
 171:                                              ; preds = %130
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %172 = load ptr, ptr %7, align 8, !tbaa !31
   %.not.i.i115 = icmp eq ptr %172, null
   br i1 %.not.i.i115, label %_ZN5zxing3RefINS_13GenericGFPolyEEC2ERKS2_.exit117, label %173
@@ -678,7 +678,7 @@ _ZN5zxing3RefINS_13GenericGFPolyEEC2ERKS2_.exit126: ; preds = %229, %231
   br label %_ZN5zxing3RefINS_13GenericGFPolyEEC2ERKS2_.exit128
 
 _ZN5zxing3RefINS_13GenericGFPolyEEC2ERKS2_.exit128: ; preds = %_ZN5zxing3RefINS_13GenericGFPolyEEC2ERKS2_.exit126, %237
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   br i1 %.not.i.i125, label %_ZN5zxing3RefINS_13GenericGFPolyEEC2ERKS2_.exit130, label %241
 
 241:                                              ; preds = %_ZN5zxing3RefINS_13GenericGFPolyEEC2ERKS2_.exit128
@@ -753,7 +753,7 @@ _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit132:   ; preds = %245, %246, %251
   br label %509
 
 270:                                              ; preds = %259
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   br i1 %.not.i.i127, label %_ZN5zxing3RefINS_13GenericGFPolyEEC2ERKS2_.exit136, label %271
 
 271:                                              ; preds = %270
@@ -938,7 +938,7 @@ _ZN5zxing8ArrayRefIiED2Ev.exit144:                ; preds = %321, %323, %328
   br i1 %.not81, label %388, label %365
 
 365:                                              ; preds = %364, %350
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %17) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   invoke void @_ZN5zxing12ErrorHandlerC1EPKc(ptr noundef nonnull align 8 dereferenceable(48) %17, ptr noundef nonnull @.str.1)
           to label %366 unwind label %377
 
@@ -966,7 +966,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %_ZN5zxing12ErrorHandlerD2Ev.exit149
 
 _ZN5zxing12ErrorHandlerD2Ev.exit149:              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i148, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i147
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %17) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %.loopexit
 
 375:                                              ; preds = %388, %359, %340
@@ -1002,7 +1002,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZN5zxing12ErrorHandlerD2Ev.exit152:              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i150, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i151, %377
   %.pn82 = phi { ptr, i32 } [ %378, %377 ], [ %380, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i151 ], [ %380, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i150 ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %17) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %498
 
 388:                                              ; preds = %364
@@ -1058,7 +1058,7 @@ _ZN5zxing12ErrorHandlerD2Ev.exit152:              ; preds = %_ZNKSt7__cxx1112bas
   br label %_ZN5zxing8ArrayRefIiED2Ev.exit154
 
 _ZN5zxing8ArrayRefIiED2Ev.exit154:                ; preds = %.loopexit, %413, %418
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %422
 
 422:                                              ; preds = %._crit_edge215, %_ZN5zxing8ArrayRefIiED2Ev.exit154
@@ -1083,7 +1083,7 @@ _ZN5zxing8ArrayRefIiED2Ev.exit154:                ; preds = %.loopexit, %413, %4
   br label %_ZN5zxing8ArrayRefIiED2Ev.exit156
 
 _ZN5zxing8ArrayRefIiED2Ev.exit156:                ; preds = %422, %424, %429
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br i1 %.not.i.i127, label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit158, label %433
 
 433:                                              ; preds = %_ZN5zxing8ArrayRefIiED2Ev.exit156
@@ -1163,7 +1163,7 @@ _ZSt8_DestroyIPN5zxing3RefINS0_13GenericGFPolyEEES3_EvT_S5_RSaIT0_E.exit.i: ; pr
   br label %_ZNSt6vectorIN5zxing3RefINS0_13GenericGFPolyEEESaIS3_EED2Ev.exit
 
 _ZNSt6vectorIN5zxing3RefINS0_13GenericGFPolyEEESaIS3_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN5zxing3RefINS0_13GenericGFPolyEEES3_EvT_S5_RSaIT0_E.exit.i, %464
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %465
 
 465:                                              ; preds = %_ZNSt6vectorIN5zxing3RefINS0_13GenericGFPolyEEESaIS3_EED2Ev.exit, %_ZN5zxing12ErrorHandlerD2Ev.exit
@@ -1188,7 +1188,7 @@ _ZNSt6vectorIN5zxing3RefINS0_13GenericGFPolyEEESaIS3_EED2Ev.exit: ; preds = %_ZS
   br label %476
 
 476:                                              ; preds = %472, %467, %465
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %477 = load i32, ptr %109, align 8, !tbaa !17
   %478 = add i32 %477, -1
   store i32 %478, ptr %109, align 8, !tbaa !17
@@ -1265,7 +1265,7 @@ _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit146.sink.split: ; preds = %337, %505
 
 _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit146:   ; preds = %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit146.sink.split, %500, %498, %332, %_ZN5zxing8ArrayRefIiED2Ev.exit144
   %.pn82.pn.pn.pn = phi { ptr, i32 } [ %322, %_ZN5zxing8ArrayRefIiED2Ev.exit144 ], [ %322, %332 ], [ %.pn82.pn.pn, %498 ], [ %.pn82.pn.pn, %500 ], [ %.pn82.pn.pn.pn.ph, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit146.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %509
 
 509:                                              ; preds = %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit146, %268
@@ -1297,7 +1297,7 @@ _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit134.sink.split: ; preds = %267, %516
 
 _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit134:   ; preds = %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit134.sink.split, %511, %509, %262, %260
   %.pn82.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %261, %260 ], [ %261, %262 ], [ %.pn82.pn.pn.pn.pn, %509 ], [ %.pn82.pn.pn.pn.pn, %511 ], [ %.pn82.pn.pn.pn.pn.pn.ph, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit134.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br i1 %.not.i.i127, label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit175, label %520
 
 520:                                              ; preds = %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit134
@@ -1342,7 +1342,7 @@ _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit177:   ; preds = %534, %529, %_ZN5zxi
 
 _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit124:   ; preds = %223, %218, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit122, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit177
   %.pn82.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn82.pn.pn.pn.pn.pn.pn, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit177 ], [ %206, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit122 ], [ %206, %218 ], [ %206, %223 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %538
 
 538:                                              ; preds = %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit124, %_ZN5zxing12ErrorHandlerD2Ev.exit114, %158
@@ -1369,7 +1369,7 @@ _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit124:   ; preds = %223, %218, %_ZN5zxi
 
 549:                                              ; preds = %156, %538, %540, %545
   %.pn91.pn.pn = phi { ptr, i32 } [ %157, %156 ], [ %.pn91.pn, %538 ], [ %.pn91.pn, %540 ], [ %.pn91.pn, %545 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %550 = load i32, ptr %109, align 8, !tbaa !17
   %551 = add i32 %550, -1
   store i32 %551, ptr %109, align 8, !tbaa !17
@@ -1421,11 +1421,8 @@ _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit185:   ; preds = %567, %.body, %_ZN5z
   resume { ptr, i32 } %.pn96.pn.pn.pn
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
-
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #6
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #5
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -1461,16 +1458,13 @@ _ZN5zxing7Counted7releaseEv.exit:                 ; preds = %9, %4, %1
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 
 declare noundef i32 @_ZN5zxing13GenericGFPoly10evaluateAtEi(ptr noundef nonnull align 8 dereferenceable(48), i32 noundef) local_unnamed_addr #0
 
 declare noundef i32 @_ZN5zxing9GenericGF3expEi(ptr noundef nonnull align 8 dereferenceable(92), i32 noundef) local_unnamed_addr #0
 
 declare noundef i32 @_ZN5zxing9GenericGF16getGeneratorBaseEv(ptr noundef nonnull align 8 dereferenceable(92)) local_unnamed_addr #0
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 declare void @_ZN5zxing9GenericGF13buildMonomialEiiRNS_12ErrorHandlerE(ptr dead_on_unwind writable sret(%"class.zxing::Ref.0") align 8, ptr noundef nonnull align 8 dereferenceable(92), i32 noundef, i32 noundef, ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #0
 
@@ -1497,7 +1491,7 @@ define hidden void @_ZN5zxing18ReedSolomonDecoder21runEuclideanAlgorithmENS_3Ref
   %21 = alloca %"class.zxing::ErrorHandler", align 8
   %22 = alloca %"class.zxing::Ref.0", align 8
   %23 = alloca %"class.zxing::Ref.0", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %24 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #14
   store ptr %24, ptr %7, align 8, !tbaa !34
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
@@ -1645,13 +1639,13 @@ _ZN5zxing3RefINS_13GenericGFPolyEEC2ERKS2_.exit109: ; preds = %_ZN5zxing3RefINS_
   br label %_ZN5zxing3RefINS_13GenericGFPolyEEC2ERKS2_.exit111
 
 _ZN5zxing3RefINS_13GenericGFPolyEEC2ERKS2_.exit111: ; preds = %_ZN5zxing3RefINS_13GenericGFPolyEEC2ERKS2_.exit109, %87
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %91 = load ptr, ptr %1, align 8, !tbaa !14
   invoke void @_ZN5zxing9GenericGF7getZeroEv(ptr dead_on_unwind nonnull writable sret(%"class.zxing::Ref.0") align 8 %8, ptr noundef nonnull align 8 dereferenceable(92) %91)
           to label %92 unwind label %166
 
 92:                                               ; preds = %_ZN5zxing3RefINS_13GenericGFPolyEEC2ERKS2_.exit111
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %93 = load ptr, ptr %1, align 8, !tbaa !14
   invoke void @_ZN5zxing9GenericGF6getOneEv(ptr dead_on_unwind nonnull writable sret(%"class.zxing::Ref.0") align 8 %9, ptr noundef nonnull align 8 dereferenceable(92) %93)
           to label %.preheader unwind label %168
@@ -1758,7 +1752,7 @@ _ZN5zxing3RefINS_13GenericGFPolyEEaSERKS2_.exit121: ; preds = %125, %127, %132
   br i1 %136, label %138, label %185
 
 138:                                              ; preds = %137
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   invoke void @_ZN5zxing12ErrorHandlerC1EPKc(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef nonnull @.str.2)
           to label %139 unwind label %174
 
@@ -1786,7 +1780,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %_ZN5zxing12ErrorHandlerD2Ev.exit
 
 _ZN5zxing12ErrorHandlerD2Ev.exit:                 ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   br i1 %.not.i.i114, label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit123, label %148
 
@@ -1873,7 +1867,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZN5zxing12ErrorHandlerD2Ev.exit128:              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i126, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i127, %174
   %.pn88 = phi { ptr, i32 } [ %175, %174 ], [ %177, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i127 ], [ %177, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i126 ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %530
 
 185:                                              ; preds = %137
@@ -1902,7 +1896,7 @@ _ZN5zxing12ErrorHandlerD2Ev.exit128:              ; preds = %_ZNKSt7__cxx1112bas
   br label %_ZN5zxing3RefINS_13GenericGFPolyEEaSERKS2_.exit131
 
 _ZN5zxing3RefINS_13GenericGFPolyEEaSERKS2_.exit131: ; preds = %190, %194
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %198 = load ptr, ptr %1, align 8, !tbaa !14
   invoke void @_ZN5zxing9GenericGF7getZeroEv(ptr dead_on_unwind nonnull writable sret(%"class.zxing::Ref.0") align 8 %11, ptr noundef nonnull align 8 dereferenceable(92) %198)
           to label %199 unwind label %212
@@ -1994,7 +1988,7 @@ _ZN5zxing3RefINS_13GenericGFPolyEEaSERKS2_.exit131: ; preds = %190, %194
           to label %235 unwind label %319
 
 235:                                              ; preds = %233
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %236 = load ptr, ptr %11, align 8, !tbaa !31
   %237 = load ptr, ptr %1, align 8, !tbaa !14
   invoke void @_ZN5zxing9GenericGF13buildMonomialEiiRNS_12ErrorHandlerE(ptr dead_on_unwind nonnull writable sret(%"class.zxing::Ref.0") align 8 %13, ptr noundef nonnull align 8 dereferenceable(92) %237, i32 noundef %228, i32 noundef %234, ptr noundef nonnull align 8 dereferenceable(48) %5)
@@ -2082,8 +2076,8 @@ _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit136:   ; preds = %_ZN5zxing3RefINS_13
   br label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit138
 
 _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit138:   ; preds = %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit136, %267, %272
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   invoke void @_ZN5zxing13GenericGFPoly18multiplyByMonomialEiiRNS_12ErrorHandlerE(ptr dead_on_unwind nonnull writable sret(%"class.zxing::Ref.0") align 8 %15, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0244.0, i32 noundef %228, i32 noundef %234, ptr noundef nonnull align 8 dereferenceable(48) %5)
           to label %276 unwind label %335
 
@@ -2163,7 +2157,7 @@ _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit143:   ; preds = %_ZN5zxing3RefINS_13
   br label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit145
 
 _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit145:   ; preds = %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit143, %303, %308
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %312 = load ptr, ptr %5, align 8, !tbaa !3
   %313 = getelementptr inbounds nuw i8, ptr %312, i64 16
   %314 = load ptr, ptr %313, align 8
@@ -2215,7 +2209,7 @@ _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit145:   ; preds = %_ZN5zxing3RefINS_13
 
 _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit147:   ; preds = %331, %326, %323, %321
   %.pn77 = phi { ptr, i32 } [ %322, %321 ], [ %324, %323 ], [ %324, %326 ], [ %324, %331 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %519
 
 335:                                              ; preds = %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit138
@@ -2248,11 +2242,11 @@ _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit147:   ; preds = %331, %326, %323, %3
 
 _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit149:   ; preds = %345, %340, %337, %335
   %.pn79 = phi { ptr, i32 } [ %336, %335 ], [ %338, %337 ], [ %338, %340 ], [ %338, %345 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %519
 
 .critedge:                                        ; preds = %219, %222
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %349 = load ptr, ptr %11, align 8, !tbaa !31
   %350 = load ptr, ptr %8, align 8, !tbaa !31
   %.not.i.i150 = icmp eq ptr %350, null
@@ -2327,7 +2321,7 @@ _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit153:   ; preds = %355, %357, %362
   br label %508
 
 382:                                              ; preds = %370
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %383 = load ptr, ptr %16, align 8, !tbaa !31
   br i1 %.not.i.i114, label %_ZN5zxing3RefINS_13GenericGFPolyEEC2ERKS2_.exit157, label %384
 
@@ -2421,7 +2415,7 @@ _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit162:   ; preds = %_ZN5zxing3RefINS_13
   br label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit164
 
 _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit164:   ; preds = %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit162, %416, %421
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %425 = load ptr, ptr %5, align 8, !tbaa !3
   %426 = getelementptr inbounds nuw i8, ptr %425, i64 16
   %427 = load ptr, ptr %426, align 8
@@ -2456,7 +2450,7 @@ _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit164:   ; preds = %_ZN5zxing3RefINS_13
   br label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit166
 
 _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit166:   ; preds = %430, %433, %438
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %508
 
 442:                                              ; preds = %429
@@ -2472,7 +2466,7 @@ _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit166:   ; preds = %430, %433, %438
   br i1 %.not72, label %469, label %447
 
 447:                                              ; preds = %446
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %20) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   invoke void @_ZN5zxing12ErrorHandlerC1EPKc(ptr noundef nonnull align 8 dereferenceable(48) %20, ptr noundef nonnull @.str.3)
           to label %448 unwind label %458
 
@@ -2500,7 +2494,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %_ZN5zxing12ErrorHandlerD2Ev.exit169
 
 _ZN5zxing12ErrorHandlerD2Ev.exit169:              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i168, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i167
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %20) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %.critedge103
 
 458:                                              ; preds = %447
@@ -2531,7 +2525,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZN5zxing12ErrorHandlerD2Ev.exit172:              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i170, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i171, %458
   %.pn73 = phi { ptr, i32 } [ %459, %458 ], [ %461, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i171 ], [ %461, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i170 ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %20) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %508
 
 469:                                              ; preds = %446
@@ -2556,7 +2550,7 @@ _ZN5zxing12ErrorHandlerD2Ev.exit172:              ; preds = %_ZNKSt7__cxx1112bas
   br label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit174
 
 _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit174:   ; preds = %469, %471, %476
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %480 = load ptr, ptr %11, align 8, !tbaa !31
   %.not.i175 = icmp eq ptr %480, null
   br i1 %.not.i175, label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit176, label %481
@@ -2578,7 +2572,7 @@ _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit174:   ; preds = %469, %471, %476
   br label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit176
 
 _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit176:   ; preds = %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit174, %481, %486
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br i1 %.not.i.i114, label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit178, label %490
 
 490:                                              ; preds = %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit176
@@ -2648,7 +2642,7 @@ _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit155.sink.split: ; preds = %379, %515
 
 _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit155:   ; preds = %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit155.sink.split, %510, %508, %374, %371
   %.pn73.pn.pn = phi { ptr, i32 } [ %372, %371 ], [ %372, %374 ], [ %.pn73.pn, %508 ], [ %.pn73.pn, %510 ], [ %.pn73.pn.pn.ph, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit155.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %519
 
 519:                                              ; preds = %.loopexit, %.loopexit.split-lp, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit155, %319, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit147, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit149, %317, %214
@@ -2677,7 +2671,7 @@ _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit155:   ; preds = %_ZN5zxing3RefINS_13
 _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit184:   ; preds = %526, %521, %519, %212
   %.sroa.0244.6 = phi ptr [ %.sroa.0258.0, %212 ], [ %.sroa.0244.7, %519 ], [ %.sroa.0244.7, %521 ], [ %.sroa.0244.7, %526 ]
   %.pn81.pn.pn.pn.pn = phi { ptr, i32 } [ %213, %212 ], [ %.pn81.pn.pn.pn, %519 ], [ %.pn81.pn.pn.pn, %521 ], [ %.pn81.pn.pn.pn, %526 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %530
 
 530:                                              ; preds = %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit184, %_ZN5zxing12ErrorHandlerD2Ev.exit128, %172
@@ -2730,7 +2724,7 @@ _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit186:   ; preds = %530, %531, %536
   br i1 %553, label %554, label %578
 
 554:                                              ; preds = %552
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %21) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   invoke void @_ZN5zxing12ErrorHandlerC1EPKc(ptr noundef nonnull align 8 dereferenceable(48) %21, ptr noundef nonnull @.str.4)
           to label %555 unwind label %567
 
@@ -2758,7 +2752,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %_ZN5zxing12ErrorHandlerD2Ev.exit191
 
 _ZN5zxing12ErrorHandlerD2Ev.exit191:              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i190, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i189
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %21) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   br label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit125
 
@@ -2795,7 +2789,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZN5zxing12ErrorHandlerD2Ev.exit194:              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i192, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i193, %567
   %.pn65 = phi { ptr, i32 } [ %568, %567 ], [ %570, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i193 ], [ %570, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i192 ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %21) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit188
 
 578:                                              ; preds = %552
@@ -2804,13 +2798,13 @@ _ZN5zxing12ErrorHandlerD2Ev.exit194:              ; preds = %_ZNKSt7__cxx1112bas
           to label %581 unwind label %590
 
 581:                                              ; preds = %578
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %582 = load ptr, ptr %9, align 8, !tbaa !31
   invoke void @_ZN5zxing13GenericGFPoly8multiplyEiRNS_12ErrorHandlerE(ptr dead_on_unwind nonnull writable sret(%"class.zxing::Ref.0") align 8 %22, ptr noundef nonnull align 8 dereferenceable(48) %582, i32 noundef %580, ptr noundef nonnull align 8 dereferenceable(48) %5)
           to label %583 unwind label %592
 
 583:                                              ; preds = %581
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   invoke void @_ZN5zxing13GenericGFPoly8multiplyEiRNS_12ErrorHandlerE(ptr dead_on_unwind nonnull writable sret(%"class.zxing::Ref.0") align 8 %23, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0244.0, i32 noundef %580, ptr noundef nonnull align 8 dereferenceable(48) %5)
           to label %584 unwind label %594
 
@@ -2901,7 +2895,7 @@ _ZN5zxing12ErrorHandlerD2Ev.exit194:              ; preds = %_ZNKSt7__cxx1112bas
   br label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit198
 
 _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit198:   ; preds = %617, %619, %624
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   %628 = load ptr, ptr %22, align 8, !tbaa !31
   %.not.i199 = icmp eq ptr %628, null
   br i1 %.not.i199, label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit200, label %629
@@ -2923,12 +2917,12 @@ _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit198:   ; preds = %617, %619, %624
   br label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit200
 
 _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit200:   ; preds = %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit198, %629, %634
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit125
 
 _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit196:   ; preds = %604, %599, %596, %594
   %.pn = phi { ptr, i32 } [ %595, %594 ], [ %597, %596 ], [ %597, %599 ], [ %597, %604 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   %638 = load ptr, ptr %22, align 8, !tbaa !31
   %.not.i201 = icmp eq ptr %638, null
   br i1 %.not.i201, label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit202, label %639
@@ -2951,7 +2945,7 @@ _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit196:   ; preds = %604, %599, %596, %5
 
 _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit202:   ; preds = %644, %639, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit196, %592
   %.pn.pn = phi { ptr, i32 } [ %593, %592 ], [ %.pn, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit196 ], [ %.pn, %639 ], [ %.pn, %644 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit188
 
 .critedge101:                                     ; preds = %211, %316
@@ -2978,7 +2972,7 @@ _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit202:   ; preds = %644, %639, %_ZN5zxi
   br label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit204
 
 _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit204:   ; preds = %.critedge101, %649, %654
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br i1 %.not.i.i114, label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit206, label %658
 
 658:                                              ; preds = %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit204
@@ -3039,7 +3033,7 @@ _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit206:   ; preds = %_ZN5zxing3RefINS_13
   br label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit210
 
 _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit210:   ; preds = %.critedge103, %677, %682
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %686 = load ptr, ptr %11, align 8, !tbaa !31
   %.not.i211 = icmp eq ptr %686, null
   br i1 %.not.i211, label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit212, label %687
@@ -3061,7 +3055,7 @@ _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit210:   ; preds = %.critedge103, %677,
   br label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit212
 
 _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit212:   ; preds = %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit210, %687, %692
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br i1 %.not.i.i114, label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit214, label %696
 
 696:                                              ; preds = %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit212
@@ -3123,7 +3117,7 @@ _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit125:   ; preds = %710, %705, %_ZN5zxi
   br label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit218
 
 _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit218:   ; preds = %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit125, %715, %720
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %724 = load ptr, ptr %8, align 8, !tbaa !31
   %.not.i219 = icmp eq ptr %724, null
   br i1 %.not.i219, label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit220, label %725
@@ -3145,7 +3139,7 @@ _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit218:   ; preds = %_ZN5zxing3RefINS_13
   br label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit220
 
 _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit220:   ; preds = %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit218, %725, %730
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.not.i221 = icmp eq ptr %.sroa.0244.10, null
   br i1 %.not.i221, label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit222, label %734
 
@@ -3227,7 +3221,7 @@ _ZSt8_DestroyIPN5zxing3RefINS0_13GenericGFPolyEEES3_EvT_S5_RSaIT0_E.exit.i: ; pr
   br label %_ZNSt6vectorIN5zxing3RefINS0_13GenericGFPolyEEESaIS3_EED2Ev.exit
 
 _ZNSt6vectorIN5zxing3RefINS0_13GenericGFPolyEEESaIS3_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN5zxing3RefINS0_13GenericGFPolyEEES3_EvT_S5_RSaIT0_E.exit.i, %765
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 
 _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit188:   ; preds = %545, %540, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit186, %565, %_ZN5zxing12ErrorHandlerD2Ev.exit194, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit202, %590, %170
@@ -3258,7 +3252,7 @@ _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit226:   ; preds = %772, %767, %_ZN5zxi
   %.sroa.0258.2 = phi ptr [ %81, %168 ], [ %.sroa.0258.3, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit188 ], [ %.sroa.0258.3, %767 ], [ %.sroa.0258.3, %772 ]
   %.sroa.0244.2 = phi ptr [ %86, %168 ], [ %.sroa.0244.3, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit188 ], [ %.sroa.0244.3, %767 ], [ %.sroa.0244.3, %772 ]
   %.pn88.pn.pn.pn = phi { ptr, i32 } [ %169, %168 ], [ %.pn88.pn.pn, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit188 ], [ %.pn88.pn.pn, %767 ], [ %.pn88.pn.pn, %772 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %776 = load ptr, ptr %8, align 8, !tbaa !31
   %.not.i227 = icmp eq ptr %776, null
   br i1 %.not.i227, label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit228, label %777
@@ -3283,7 +3277,7 @@ _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit228:   ; preds = %782, %777, %_ZN5zxi
   %.sroa.0258.1 = phi ptr [ %81, %166 ], [ %.sroa.0258.2, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit226 ], [ %.sroa.0258.2, %777 ], [ %.sroa.0258.2, %782 ]
   %.sroa.0244.1 = phi ptr [ %86, %166 ], [ %.sroa.0244.2, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit226 ], [ %.sroa.0244.2, %777 ], [ %.sroa.0244.2, %782 ]
   %.pn88.pn.pn.pn.pn = phi { ptr, i32 } [ %167, %166 ], [ %.pn88.pn.pn.pn, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit226 ], [ %.pn88.pn.pn.pn, %777 ], [ %.pn88.pn.pn.pn, %782 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.not.i229 = icmp eq ptr %.sroa.0244.1, null
   br i1 %.not.i229, label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit230, label %786
 
@@ -3326,7 +3320,7 @@ _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit230:   ; preds = %_ZN5zxing3RefINS_13
 _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit232:   ; preds = %800, %795, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit230, %79
   %.pn88.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %80, %79 ], [ %.pn88.pn.pn.pn.pn, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit230 ], [ %.pn88.pn.pn.pn.pn, %795 ], [ %.pn88.pn.pn.pn.pn, %800 ]
   call void @_ZNSt6vectorIN5zxing3RefINS0_13GenericGFPolyEEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #13
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   resume { ptr, i32 } %.pn88.pn.pn.pn.pn.pn
 }
 
@@ -3504,7 +3498,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %35
   br i1 %.not26, label %_ZN5zxing8ArrayRefIiEC2ERKS1_.exit, label %78
 
 78:                                               ; preds = %77, %52
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   invoke void @_ZN5zxing12ErrorHandlerC1EPKc(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull @.str.5)
           to label %79 unwind label %94
 
@@ -3532,7 +3526,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %_ZN5zxing12ErrorHandlerD2Ev.exit
 
 _ZN5zxing12ErrorHandlerD2Ev.exit:                 ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %89, align 8, !tbaa !17
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5zxing8ArrayRefIiEE, i64 16), ptr %0, align 8, !tbaa !3
@@ -3575,7 +3569,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZN5zxing12ErrorHandlerD2Ev.exit37:               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i35, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i36, %94
   %.pn = phi { ptr, i32 } [ %95, %94 ], [ %97, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i36 ], [ %97, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i35 ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %116
 
 _ZN5zxing8ArrayRefIiEC2ERKS1_.exit:               ; preds = %77
@@ -3970,7 +3964,7 @@ declare void @_ZN5zxing9GenericGF6getOneEv(ptr dead_on_unwind writable sret(%"cl
 declare noundef zeroext i1 @_ZN5zxing13GenericGFPoly6isZeroEv(ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 declare noundef i32 @_ZN5zxing13GenericGFPoly14getCoefficientEi(ptr noundef nonnull align 8 dereferenceable(48), i32 noundef) local_unnamed_addr #0
 
@@ -4018,7 +4012,7 @@ _ZN5zxing8ArrayRefIiED2Ev.exit:                   ; preds = %1, %4, %9
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #9
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5zxing5ArrayIiED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -4054,11 +4048,17 @@ _ZN5zxing5ArrayIiED2Ev.exit:                      ; preds = %1, %4
 }
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_reed_solomon_decoder.cpp() #10 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_reed_solomon_decoder.cpp() #9 section ".text.startup" {
   tail call void @_ZN5zxing12ErrorHandlerC1Ev(ptr noundef nonnull align 8 dereferenceable(48) @_ZN5zxingL15gf_err_handler_E)
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5zxing12ErrorHandlerD2Ev, ptr nonnull @_ZN5zxingL15gf_err_handler_E, ptr nonnull @__dso_handle) #13
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #11
@@ -4068,12 +4068,12 @@ attributes #1 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no
 attributes #2 = { nofree nounwind }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #7 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #10 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #5 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #6 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #9 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #12 = { builtin nounwind }
 attributes #13 = { nounwind }

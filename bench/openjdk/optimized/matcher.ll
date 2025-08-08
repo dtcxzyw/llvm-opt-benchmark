@@ -3387,8 +3387,8 @@ define hidden void @_ZN7Matcher19Fixup_Save_On_EntryEv(ptr noundef nonnull align
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %38, ptr noundef nonnull readonly align 8 dereferenceable(96) %20, i64 96, i1 false)
   %39 = getelementptr inbounds nuw i8, ptr %35, i64 288
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %39, ptr noundef nonnull align 8 dereferenceable(96) @_ZN7Matcher16c_frame_ptr_maskE, i64 96, i1 false)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr @all_VMRegs, ptr %2, align 8
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @all_VMRegs, ptr %40, align 8
@@ -3410,8 +3410,8 @@ define hidden void @_ZN7Matcher19Fixup_Save_On_EntryEv(ptr noundef nonnull align
   br i1 %.not4.i.i, label %_ZN7Matcher13find_receiverEv.exit.thread, label %49
 
 _ZN7Matcher13find_receiverEv.exit.thread:         ; preds = %47
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %76
 
 49:                                               ; preds = %47
@@ -3422,8 +3422,8 @@ _ZN7Matcher13find_receiverEv.exit.thread:         ; preds = %47
 
 _ZN7Matcher13find_receiverEv.exit:                ; preds = %45, %49
   %.0.i.i = phi i32 [ %46, %45 ], [ %52, %49 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %53 = icmp sgt i32 %.0.i.i, -1
   br i1 %53, label %54, label %76
 
@@ -13051,10 +13051,10 @@ declare i32 @llvm.smax.i32(i32, i32) #13
 declare i32 @llvm.ctpop.i32(i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

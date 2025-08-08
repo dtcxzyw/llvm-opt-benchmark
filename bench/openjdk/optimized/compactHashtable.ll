@@ -856,7 +856,7 @@ define hidden noundef zeroext i1 @_ZN17HashtableTextDump12skip_newlineEv(ptr nou
   br label %25
 
 .thread:                                          ; preds = %1, %6
-  call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %15 = load i32, ptr %14, align 4
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -869,7 +869,7 @@ define hidden noundef zeroext i1 @_ZN17HashtableTextDump12skip_newlineEv(ptr nou
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %24 = load ptr, ptr %23, align 8
   call void @_Z29vm_exit_during_initializationPKcS0_(ptr noundef nonnull %2, ptr noundef %24) #14
-  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %25
 
 25:                                               ; preds = %12, %.thread, %10
@@ -896,7 +896,7 @@ define hidden noundef i32 @_ZN17HashtableTextDump4skipEc(ptr noundef nonnull ali
   br i1 %13, label %14, label %_ZN17HashtableTextDump12corrupted_ifEbPKc.exit
 
 14:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %16 = load i32, ptr %15, align 4
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -908,7 +908,7 @@ define hidden noundef i32 @_ZN17HashtableTextDump4skipEc(ptr noundef nonnull ali
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %24 = load ptr, ptr %23, align 8
   call void @_Z29vm_exit_during_initializationPKcS0_(ptr noundef nonnull %4, ptr noundef %24) #14
-  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.pre = load ptr, ptr %7, align 8
   br label %_ZN17HashtableTextDump12corrupted_ifEbPKc.exit
 
@@ -921,7 +921,7 @@ _ZN17HashtableTextDump12corrupted_ifEbPKc.exit:   ; preds = %2, %14
   br i1 %.not, label %_ZN17HashtableTextDump12corrupted_ifEbPKc.exit1, label %28
 
 28:                                               ; preds = %_ZN17HashtableTextDump12corrupted_ifEbPKc.exit
-  call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %30 = load i32, ptr %29, align 4
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -934,7 +934,7 @@ _ZN17HashtableTextDump12corrupted_ifEbPKc.exit:   ; preds = %2, %14
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %39 = load ptr, ptr %38, align 8
   call void @_Z29vm_exit_during_initializationPKcS0_(ptr noundef nonnull %3, ptr noundef %39) #14
-  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN17HashtableTextDump12corrupted_ifEbPKc.exit1
 
 _ZN17HashtableTextDump12corrupted_ifEbPKc.exit1:  ; preds = %_ZN17HashtableTextDump12corrupted_ifEbPKc.exit, %28
@@ -963,7 +963,7 @@ define hidden void @_ZN17HashtableTextDump9skip_pastEc(ptr noundef nonnull align
   br i1 %16, label %17, label %_ZN17HashtableTextDump12corrupted_ifEbPKc.exit
 
 17:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %18 = load i32, ptr %6, align 4
   %19 = load ptr, ptr %7, align 8
   %20 = ptrtoint ptr %19 to i64
@@ -972,7 +972,7 @@ define hidden void @_ZN17HashtableTextDump9skip_pastEc(ptr noundef nonnull align
   %23 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %3, i64 noundef 100, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.20, i32 noundef %18, i32 noundef %22) #14
   %24 = load ptr, ptr %8, align 8
   call void @_Z29vm_exit_during_initializationPKcS0_(ptr noundef nonnull %3, ptr noundef %24) #14
-  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.pre1 = load ptr, ptr %5, align 8
   br label %_ZN17HashtableTextDump12corrupted_ifEbPKc.exit
 
@@ -1006,7 +1006,7 @@ define hidden void @_ZN17HashtableTextDump13check_versionEPKc(ptr noundef nonnul
   br i1 %15, label %16, label %_ZN17HashtableTextDump12corrupted_ifEbPKc.exit
 
 16:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %18 = load i32, ptr %17, align 4
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1018,7 +1018,7 @@ define hidden void @_ZN17HashtableTextDump13check_versionEPKc(ptr noundef nonnul
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %26 = load ptr, ptr %25, align 8
   call void @_Z29vm_exit_during_initializationPKcS0_(ptr noundef nonnull %4, ptr noundef %26) #14
-  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.pre = load ptr, ptr %9, align 8
   br label %_ZN17HashtableTextDump12corrupted_ifEbPKc.exit
 
@@ -1064,7 +1064,7 @@ _ZN17HashtableTextDump12corrupted_ifEbPKc.exit:   ; preds = %2, %16
   br label %_ZN17HashtableTextDump12skip_newlineEv.exit
 
 .thread.i:                                        ; preds = %37, %33
-  call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %46 = load i32, ptr %45, align 4
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1077,7 +1077,7 @@ _ZN17HashtableTextDump12corrupted_ifEbPKc.exit:   ; preds = %2, %16
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %55 = load ptr, ptr %54, align 8
   call void @_Z29vm_exit_during_initializationPKcS0_(ptr noundef nonnull %3, ptr noundef %55) #14
-  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN17HashtableTextDump12skip_newlineEv.exit
 
 _ZN17HashtableTextDump12skip_newlineEv.exit:      ; preds = %41, %43, %.thread.i
@@ -1144,7 +1144,7 @@ define hidden void @_ZN17HashtableTextDump16scan_prefix_typeEv(ptr noundef nonnu
   br label %_ZN17HashtableTextDump12skip_newlineEv.exit
 
 .thread.i:                                        ; preds = %16, %12
-  call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %25 = load i32, ptr %24, align 4
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1157,7 +1157,7 @@ define hidden void @_ZN17HashtableTextDump16scan_prefix_typeEv(ptr noundef nonnu
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %34 = load ptr, ptr %33, align 8
   call void @_Z29vm_exit_during_initializationPKcS0_(ptr noundef nonnull %2, ptr noundef %34) #14
-  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %_ZN17HashtableTextDump12skip_newlineEv.exit
 
 _ZN17HashtableTextDump12skip_newlineEv.exit:      ; preds = %20, %22, %.thread.i
@@ -1197,7 +1197,7 @@ define hidden noundef i32 @_ZN17HashtableTextDump11scan_prefixEPi(ptr noundef no
   br label %48
 
 16:                                               ; preds = %11
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4
   call void @_ZN17HashtableTextDump7get_numEcPi(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 noundef signext 58, ptr noundef nonnull %5)
   %17 = load ptr, ptr %6, align 8
@@ -1206,7 +1206,7 @@ define hidden noundef i32 @_ZN17HashtableTextDump11scan_prefixEPi(ptr noundef no
   br i1 %.not.i, label %_ZN17HashtableTextDump18scan_string_prefixEv.exit, label %19
 
 19:                                               ; preds = %16
-  call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %21 = load i32, ptr %20, align 4
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1219,7 +1219,7 @@ define hidden noundef i32 @_ZN17HashtableTextDump11scan_prefixEPi(ptr noundef no
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %30 = load ptr, ptr %29, align 8
   call void @_Z29vm_exit_during_initializationPKcS0_(ptr noundef nonnull %4, ptr noundef %30) #14
-  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.pre.i = load ptr, ptr %6, align 8
   br label %_ZN17HashtableTextDump18scan_string_prefixEv.exit
 
@@ -1228,7 +1228,7 @@ _ZN17HashtableTextDump18scan_string_prefixEv.exit: ; preds = %16, %19
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 1
   store ptr %32, ptr %6, align 8
   %33 = load i32, ptr %5, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store i32 %33, ptr %1, align 4
   br label %48
 
@@ -1236,7 +1236,7 @@ _ZN17HashtableTextDump18scan_string_prefixEv.exit: ; preds = %16, %19
   %35 = load ptr, ptr @tty, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %35, ptr noundef nonnull @.str.24) #14
   %36 = load ptr, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %38 = load i32, ptr %37, align 4
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1249,7 +1249,7 @@ _ZN17HashtableTextDump18scan_string_prefixEv.exit: ; preds = %16, %19
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %47 = load ptr, ptr %46, align 8
   call void @_Z29vm_exit_during_initializationPKcS0_(ptr noundef nonnull %3, ptr noundef %47) #14
-  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %48
 
 48:                                               ; preds = %34, %_ZN17HashtableTextDump18scan_string_prefixEv.exit, %14
@@ -1283,7 +1283,7 @@ define hidden noundef i32 @_ZN17HashtableTextDump18scan_symbol_prefixEv(ptr noun
   br i1 %.not, label %26, label %14
 
 14:                                               ; preds = %11
-  call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %16 = load i32, ptr %15, align 4
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1296,7 +1296,7 @@ define hidden noundef i32 @_ZN17HashtableTextDump18scan_symbol_prefixEv(ptr noun
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %25 = load ptr, ptr %24, align 8
   call void @_Z29vm_exit_during_initializationPKcS0_(ptr noundef nonnull %2, ptr noundef %25) #14
-  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.pre = load ptr, ptr %5, align 8
   br label %26
 
@@ -1321,7 +1321,7 @@ define hidden noundef i32 @_ZN17HashtableTextDump18scan_string_prefixEv(ptr noun
   br i1 %.not, label %19, label %7
 
 7:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %9 = load i32, ptr %8, align 4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1334,7 +1334,7 @@ define hidden noundef i32 @_ZN17HashtableTextDump18scan_string_prefixEv(ptr noun
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = load ptr, ptr %17, align 8
   call void @_Z29vm_exit_during_initializationPKcS0_(ptr noundef nonnull %2, ptr noundef %18) #14
-  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.pre = load ptr, ptr %4, align 8
   br label %19
 
@@ -1384,7 +1384,7 @@ define linkonce_odr hidden void @_ZN17HashtableTextDump7get_numEcPi(ptr noundef 
 
 24:                                               ; preds = %18
   %25 = load ptr, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %26 = load i32, ptr %11, align 4
   %27 = load ptr, ptr %12, align 8
   %28 = ptrtoint ptr %25 to i64
@@ -1394,7 +1394,7 @@ define linkonce_odr hidden void @_ZN17HashtableTextDump7get_numEcPi(ptr noundef 
   %32 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %5, i64 noundef 100, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.38, i32 noundef %26, i32 noundef %31) #14
   %33 = load ptr, ptr %13, align 8
   call void @_Z29vm_exit_during_initializationPKcS0_(ptr noundef nonnull %5, ptr noundef %33) #14
-  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %48
 
 34:                                               ; preds = %14
@@ -1409,7 +1409,7 @@ define linkonce_odr hidden void @_ZN17HashtableTextDump7get_numEcPi(ptr noundef 
 
 38:                                               ; preds = %34
   %39 = load ptr, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %40 = load i32, ptr %11, align 4
   %41 = load ptr, ptr %12, align 8
   %42 = ptrtoint ptr %39 to i64
@@ -1419,7 +1419,7 @@ define linkonce_odr hidden void @_ZN17HashtableTextDump7get_numEcPi(ptr noundef 
   %46 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %4, i64 noundef 100, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.39, i32 noundef %40, i32 noundef %45) #14
   %47 = load ptr, ptr %13, align 8
   call void @_Z29vm_exit_during_initializationPKcS0_(ptr noundef nonnull %4, ptr noundef %47) #14
-  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %48
 
 48:                                               ; preds = %18, %24, %38
@@ -1451,7 +1451,7 @@ define hidden noundef range(i32 -2147483648, 2147483600) i32 @_ZN17HashtableText
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8
-  call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %13 = load i32, ptr %12, align 4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1464,7 +1464,7 @@ define hidden noundef range(i32 -2147483648, 2147483600) i32 @_ZN17HashtableText
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %22 = load ptr, ptr %21, align 8
   call void @_Z29vm_exit_during_initializationPKcS0_(ptr noundef nonnull %5, ptr noundef %22) #14
-  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN17HashtableTextDump12corrupted_ifEbPKc.exit
 
 _ZN17HashtableTextDump12corrupted_ifEbPKc.exit:   ; preds = %4, %9
@@ -1556,7 +1556,7 @@ define hidden void @_ZN17HashtableTextDump8get_utf8EPci(ptr noundef nonnull alig
 
 27:                                               ; preds = %24
   %28 = load ptr, ptr %9, align 8
-  call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %29 = load i32, ptr %16, align 4
   %30 = load ptr, ptr %17, align 8
   %31 = ptrtoint ptr %28 to i64
@@ -1566,7 +1566,7 @@ define hidden void @_ZN17HashtableTextDump8get_utf8EPci(ptr noundef nonnull alig
   %35 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %8, i64 noundef 100, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.20, i32 noundef %29, i32 noundef %34) #14
   %36 = load ptr, ptr %18, align 8
   call void @_Z29vm_exit_during_initializationPKcS0_(ptr noundef nonnull %8, ptr noundef %36) #14
-  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZN17HashtableTextDump12corrupted_ifEbPKc.exit
 
 _ZN17HashtableTextDump12corrupted_ifEbPKc.exit:   ; preds = %24, %27
@@ -1587,7 +1587,7 @@ _ZN17HashtableTextDump12corrupted_ifEbPKc.exit:   ; preds = %24, %27
 
 42:                                               ; preds = %39
   %43 = load ptr, ptr %9, align 8
-  call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %44 = load i32, ptr %16, align 4
   %45 = load ptr, ptr %17, align 8
   %46 = ptrtoint ptr %43 to i64
@@ -1597,7 +1597,7 @@ _ZN17HashtableTextDump12corrupted_ifEbPKc.exit:   ; preds = %24, %27
   %50 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %7, i64 noundef 100, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.20, i32 noundef %44, i32 noundef %49) #14
   %51 = load ptr, ptr %18, align 8
   call void @_Z29vm_exit_during_initializationPKcS0_(ptr noundef nonnull %7, ptr noundef %51) #14
-  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %42, %39
@@ -1663,7 +1663,7 @@ _ZN17HashtableTextDump8unescapeEPKcS1_i.exit:     ; preds = %switch.lookup
 
 70:                                               ; preds = %_ZN17HashtableTextDump12corrupted_ifEbPKc.exit
   %71 = load ptr, ptr %9, align 8
-  call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %72 = load i32, ptr %16, align 4
   %73 = load ptr, ptr %17, align 8
   %74 = ptrtoint ptr %71 to i64
@@ -1673,7 +1673,7 @@ _ZN17HashtableTextDump8unescapeEPKcS1_i.exit:     ; preds = %switch.lookup
   %78 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %6, i64 noundef 100, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.29, i32 noundef %72, i32 noundef %77) #14
   %79 = load ptr, ptr %18, align 8
   call void @_Z29vm_exit_during_initializationPKcS0_(ptr noundef nonnull %6, ptr noundef %79) #14
-  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %80
 
 80:                                               ; preds = %21, %70, %68, %66, %64, %62, %_ZN17HashtableTextDump8unescapeEPKcS1_i.exit
@@ -1692,7 +1692,7 @@ _ZN17HashtableTextDump8unescapeEPKcS1_i.exit:     ; preds = %switch.lookup
 
 85:                                               ; preds = %._crit_edge
   %86 = load ptr, ptr %9, align 8
-  call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %88 = load i32, ptr %87, align 4
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1705,7 +1705,7 @@ _ZN17HashtableTextDump8unescapeEPKcS1_i.exit:     ; preds = %switch.lookup
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %97 = load ptr, ptr %96, align 8
   call void @_Z29vm_exit_during_initializationPKcS0_(ptr noundef nonnull %5, ptr noundef %97) #14
-  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN17HashtableTextDump12corrupted_ifEbPKc.exit29
 
 _ZN17HashtableTextDump12corrupted_ifEbPKc.exit29: ; preds = %._crit_edge, %85
@@ -1733,7 +1733,7 @@ _ZN17HashtableTextDump12corrupted_ifEbPKc.exit29: ; preds = %._crit_edge, %85
   br label %_ZN17HashtableTextDump12skip_newlineEv.exit
 
 .thread.i:                                        ; preds = %99, %_ZN17HashtableTextDump12corrupted_ifEbPKc.exit29
-  call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %108 = load i32, ptr %107, align 4
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1746,7 +1746,7 @@ _ZN17HashtableTextDump12corrupted_ifEbPKc.exit29: ; preds = %._crit_edge, %85
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %117 = load ptr, ptr %116, align 8
   call void @_Z29vm_exit_during_initializationPKcS0_(ptr noundef nonnull %4, ptr noundef %117) #14
-  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN17HashtableTextDump12skip_newlineEv.exit
 
 _ZN17HashtableTextDump12skip_newlineEv.exit:      ; preds = %103, %105, %.thread.i
@@ -2071,10 +2071,10 @@ declare i32 @llvm.ctpop.i32(i32) #11
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

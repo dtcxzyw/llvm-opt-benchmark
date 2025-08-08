@@ -1867,7 +1867,7 @@ define internal void @__cxx_global_var_init.55() #0 section ".text.startup" comd
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4Luau6toJsonB5cxx11EPNS_7AstNodeE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef %1) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.Luau::AstJsonEncoder", align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 496) (i8, ptr @_ZTVN4Luau14AstJsonEncoderE, i64 16), ptr %3, align 8, !tbaa !8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %4, i8 0, i64 25, i1 false)
@@ -1952,19 +1952,16 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br label %_ZN4Luau14AstJsonEncoderD2Ev.exit
 
 _ZN4Luau14AstJsonEncoderD2Ev.exit:                ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i, %24
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 30:                                               ; preds = %11, %_ZN4Luau14AstJsonEncoderC2Ev.exit
   %31 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4Luau14AstJsonEncoderD2Ev(ptr noundef nonnull align 8 dereferenceable(33) %3) #20
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %common.resume
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -2025,14 +2022,11 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4Luau6toJsonB5cxx11EPNS_7AstNodeERKSt6vectorINS_7CommentESaIS3_EE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.Luau::AstJsonEncoder", align 8
   %5 = alloca %"class.std::vector.3", align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr getelementptr inbounds nuw inrange(-16, 496) (i8, ptr @_ZTVN4Luau14AstJsonEncoderE, i64 16), ptr %4, align 8, !tbaa !8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %6, i8 0, i64 25, i1 false)
@@ -2203,7 +2197,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br label %_ZN4Luau14AstJsonEncoderD2Ev.exit
 
 _ZN4Luau14AstJsonEncoderD2Ev.exit:                ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i, %53
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
 59:                                               ; preds = %_ZN4Luau14AstJsonEncoder8writeRawESt17basic_string_viewIcSt11char_traitsIcEE.exit8, %_ZNSt6vectorIN4Luau7CommentESaIS1_EED2Ev.exit, %_ZNSt16allocator_traitsISaIN4Luau7CommentEEE8allocateERS2_m.exit.i.i.i.i, %.noexc.i.i, %13, %_ZN4Luau14AstJsonEncoderC2Ev.exit, %_ZN4Luau14AstJsonEncoder8writeRawESt17basic_string_viewIcSt11char_traitsIcEE.exit
@@ -2229,7 +2223,7 @@ _ZN4Luau14AstJsonEncoderD2Ev.exit:                ; preds = %_ZSt8_DestroyIPNSt7
 _ZNSt6vectorIN4Luau7CommentESaIS1_EED2Ev.exit14:  ; preds = %64, %61, %59
   %.pn = phi { ptr, i32 } [ %60, %59 ], [ %62, %61 ], [ %62, %64 ]
   call void @_ZN4Luau14AstJsonEncoderD2Ev(ptr noundef nonnull align 8 dereferenceable(33) %4) #20
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %common.resume
 }
 
@@ -2253,7 +2247,7 @@ define linkonce_odr dso_local void @_ZN4Luau14AstJsonEncoder13writeCommentsESt6v
 9:                                                ; preds = %.lr.ph, %14
   %.024 = phi i1 [ false, %.lr.ph ], [ true, %14 ]
   %.sroa.019.023 = phi ptr [ %4, %.lr.ph ], [ %15, %14 ]
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %3, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.019.023, i64 20, i1 false), !tbaa.struct !32
   br i1 %.024, label %10, label %11
 
@@ -2300,7 +2294,7 @@ _ZN4Luau14AstJsonEncoder9writeTypeESt17basic_string_viewIcSt11char_traitsIcEE.ex
   call void @_ZN4Luau14AstJsonEncoder5writeINS_8LocationEEEvSt17basic_string_viewIcSt11char_traitsIcEERKT_(ptr noundef nonnull align 8 dereferenceable(33) %0, i64 8, ptr nonnull @.str.70, ptr noundef nonnull align 4 dereferenceable(16) %8)
   store i8 %12, ptr %7, align 8, !tbaa !37
   call void @_ZN4Luau14AstJsonEncoder11appendChunkESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(33) %0, i64 1, ptr nonnull @.str.61)
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %15 = getelementptr inbounds nuw i8, ptr %.sroa.019.023, i64 20
   %.not = icmp eq ptr %15, %6
   br i1 %.not, label %._crit_edge, label %9
@@ -2464,15 +2458,15 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau10AstVisitor5visitEPNS
 define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14AstJsonEncoder5visitEPNS_12AstExprGroupE(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca %class.anon, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %1, ptr %3, align 8, !tbaa !50
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %0, ptr %4, align 8, !tbaa !52
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %3, ptr %5, align 8, !tbaa !57
   call void @_ZN4Luau14AstJsonEncoder9writeNodeIZNS0_5writeEPNS_12AstExprGroupEEUlvE_EEvPNS_7AstNodeESt17basic_string_viewIcSt11char_traitsIcEEOT_(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef %1, i64 12, ptr nonnull @.str.59, ptr noundef nonnull align 8 dereferenceable(16) %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 false
 }
 
@@ -2497,15 +2491,15 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14AstJsonEncoder5visit
 define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14AstJsonEncoder5visitEPNS_19AstExprConstantBoolE(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca %class.anon.39, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %1, ptr %3, align 8, !tbaa !58
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %0, ptr %4, align 8, !tbaa !60
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %3, ptr %5, align 8, !tbaa !63
   call void @_ZN4Luau14AstJsonEncoder9writeNodeIZNS0_5writeEPNS_19AstExprConstantBoolEEUlvE_EEvPNS_7AstNodeESt17basic_string_viewIcSt11char_traitsIcEEOT_(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef %1, i64 19, ptr nonnull @.str.74, ptr noundef nonnull align 8 dereferenceable(16) %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 false
 }
 
@@ -2513,15 +2507,15 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14AstJsonEncoder5visit
 define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14AstJsonEncoder5visitEPNS_21AstExprConstantNumberE(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca %class.anon.40, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %1, ptr %3, align 8, !tbaa !64
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %0, ptr %4, align 8, !tbaa !66
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %3, ptr %5, align 8, !tbaa !69
   call void @_ZN4Luau14AstJsonEncoder9writeNodeIZNS0_5writeEPNS_21AstExprConstantNumberEEUlvE_EEvPNS_7AstNodeESt17basic_string_viewIcSt11char_traitsIcEEOT_(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef %1, i64 21, ptr nonnull @.str.78, ptr noundef nonnull align 8 dereferenceable(16) %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 false
 }
 
@@ -2529,15 +2523,15 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14AstJsonEncoder5visit
 define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14AstJsonEncoder5visitEPNS_21AstExprConstantStringE(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca %class.anon.41, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %1, ptr %3, align 8, !tbaa !70
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %0, ptr %4, align 8, !tbaa !72
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %3, ptr %5, align 8, !tbaa !75
   call void @_ZN4Luau14AstJsonEncoder9writeNodeIZNS0_5writeEPNS_21AstExprConstantStringEEUlvE_EEvPNS_7AstNodeESt17basic_string_viewIcSt11char_traitsIcEEOT_(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef %1, i64 21, ptr nonnull @.str.83, ptr noundef nonnull align 8 dereferenceable(16) %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 false
 }
 
@@ -2545,15 +2539,15 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14AstJsonEncoder5visit
 define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14AstJsonEncoder5visitEPNS_12AstExprLocalE(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca %class.anon.42, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %1, ptr %3, align 8, !tbaa !76
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %0, ptr %4, align 8, !tbaa !78
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %3, ptr %5, align 8, !tbaa !81
   call void @_ZN4Luau14AstJsonEncoder9writeNodeIZNS0_5writeEPNS_12AstExprLocalEEUlvE_EEvPNS_7AstNodeESt17basic_string_viewIcSt11char_traitsIcEEOT_(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef %1, i64 12, ptr nonnull @.str.84, ptr noundef nonnull align 8 dereferenceable(16) %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 false
 }
 
@@ -2561,15 +2555,15 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14AstJsonEncoder5visit
 define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14AstJsonEncoder5visitEPNS_13AstExprGlobalE(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca %class.anon.43, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %1, ptr %3, align 8, !tbaa !82
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %0, ptr %4, align 8, !tbaa !84
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %3, ptr %5, align 8, !tbaa !87
   call void @_ZN4Luau14AstJsonEncoder9writeNodeIZNS0_5writeEPNS_13AstExprGlobalEEUlvE_EEvPNS_7AstNodeESt17basic_string_viewIcSt11char_traitsIcEEOT_(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef %1, i64 13, ptr nonnull @.str.91, ptr noundef nonnull align 8 dereferenceable(16) %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 false
 }
 
@@ -2594,9 +2588,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14AstJsonEncoder5visit
 define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14AstJsonEncoder5visitEPNS_11AstExprCallE(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca %class.anon.46, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %1, ptr %3, align 8, !tbaa !88
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %0, ptr %4, align 8, !tbaa !90
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %3, ptr %5, align 8, !tbaa !93
@@ -2613,8 +2607,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14AstJsonEncoder5visit
   call void @_ZZN4Luau14AstJsonEncoder5writeEPNS_11AstExprCallEENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(16) %4)
   store i8 %7, ptr %6, align 8, !tbaa !37
   call void @_ZN4Luau14AstJsonEncoder11appendChunkESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(33) %0, i64 1, ptr nonnull @.str.61)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 false
 }
 
@@ -2622,9 +2616,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14AstJsonEncoder5visit
 define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14AstJsonEncoder5visitEPNS_16AstExprIndexNameE(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca %class.anon.47, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %1, ptr %3, align 8, !tbaa !94
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %0, ptr %4, align 8, !tbaa !96
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %3, ptr %5, align 8, !tbaa !99
@@ -2641,8 +2635,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14AstJsonEncoder5visit
   call void @_ZZN4Luau14AstJsonEncoder5writeEPNS_16AstExprIndexNameEENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(16) %4)
   store i8 %7, ptr %6, align 8, !tbaa !37
   call void @_ZN4Luau14AstJsonEncoder11appendChunkESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(33) %0, i64 1, ptr nonnull @.str.61)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 false
 }
 
@@ -2650,9 +2644,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14AstJsonEncoder5visit
 define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14AstJsonEncoder5visitEPNS_16AstExprIndexExprE(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca %class.anon.48, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %1, ptr %3, align 8, !tbaa !100
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %0, ptr %4, align 8, !tbaa !102
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %3, ptr %5, align 8, !tbaa !105
@@ -2669,8 +2663,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14AstJsonEncoder5visit
   call void @_ZZN4Luau14AstJsonEncoder5writeEPNS_16AstExprIndexExprEENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(16) %4)
   store i8 %7, ptr %6, align 8, !tbaa !37
   call void @_ZN4Luau14AstJsonEncoder11appendChunkESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(33) %0, i64 1, ptr nonnull @.str.61)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 false
 }
 
@@ -2678,9 +2672,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14AstJsonEncoder5visit
 define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14AstJsonEncoder5visitEPNS_15AstExprFunctionE(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca %class.anon.49, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %1, ptr %3, align 8, !tbaa !106
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %0, ptr %4, align 8, !tbaa !108
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %3, ptr %5, align 8, !tbaa !111
@@ -2697,8 +2691,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14AstJsonEncoder5visit
   call void @_ZZN4Luau14AstJsonEncoder5writeEPNS_15AstExprFunctionEENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(16) %4)
   store i8 %7, ptr %6, align 8, !tbaa !37
   call void @_ZN4Luau14AstJsonEncoder11appendChunkESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(33) %0, i64 1, ptr nonnull @.str.61)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 false
 }
 
@@ -2725,15 +2719,15 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14AstJsonEncoder5visit
 define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14AstJsonEncoder5visitEPNS_12AstExprUnaryE(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca %class.anon.53, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %1, ptr %3, align 8, !tbaa !112
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %0, ptr %4, align 8, !tbaa !114
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %3, ptr %5, align 8, !tbaa !117
   call void @_ZN4Luau14AstJsonEncoder9writeNodeIZNS0_5writeEPNS_12AstExprUnaryEEUlvE_EEvPNS_7AstNodeESt17basic_string_viewIcSt11char_traitsIcEEOT_(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef %1, i64 12, ptr nonnull @.str.134, ptr noundef nonnull align 8 dereferenceable(16) %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 false
 }
 
@@ -2741,9 +2735,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14AstJsonEncoder5visit
 define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14AstJsonEncoder5visitEPNS_13AstExprBinaryE(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca %class.anon.54, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %1, ptr %3, align 8, !tbaa !118
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %0, ptr %4, align 8, !tbaa !120
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %3, ptr %5, align 8, !tbaa !123
@@ -2760,8 +2754,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14AstJsonEncoder5visit
   call void @_ZZN4Luau14AstJsonEncoder5writeEPNS_13AstExprBinaryEENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(16) %4)
   store i8 %7, ptr %6, align 8, !tbaa !37
   call void @_ZN4Luau14AstJsonEncoder11appendChunkESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(33) %0, i64 1, ptr nonnull @.str.61)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 false
 }
 
@@ -2769,9 +2763,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14AstJsonEncoder5visit
 define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14AstJsonEncoder5visitEPNS_20AstExprTypeAssertionE(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca %class.anon.55, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %1, ptr %3, align 8, !tbaa !124
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %0, ptr %4, align 8, !tbaa !126
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %3, ptr %5, align 8, !tbaa !129
@@ -2788,8 +2782,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14AstJsonEncoder5visit
   call void @_ZZN4Luau14AstJsonEncoder5writeEPNS_20AstExprTypeAssertionEENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(16) %4)
   store i8 %7, ptr %6, align 8, !tbaa !37
   call void @_ZN4Luau14AstJsonEncoder11appendChunkESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(33) %0, i64 1, ptr nonnull @.str.61)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 false
 }
 
@@ -2797,9 +2791,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14AstJsonEncoder5visit
 define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14AstJsonEncoder5visitEPNS_13AstExprIfElseE(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca %class.anon.56, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %1, ptr %3, align 8, !tbaa !130
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %0, ptr %4, align 8, !tbaa !132
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %3, ptr %5, align 8, !tbaa !135
@@ -2816,8 +2810,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14AstJsonEncoder5visit
   call void @_ZZN4Luau14AstJsonEncoder5writeEPNS_13AstExprIfElseEENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(16) %4)
   store i8 %7, ptr %6, align 8, !tbaa !37
   call void @_ZN4Luau14AstJsonEncoder11appendChunkESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(33) %0, i64 1, ptr nonnull @.str.61)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 false
 }
 
@@ -2825,15 +2819,15 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14AstJsonEncoder5visit
 define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14AstJsonEncoder5visitEPNS_19AstExprInterpStringE(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca %class.anon.57, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %1, ptr %3, align 8, !tbaa !136
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %0, ptr %4, align 8, !tbaa !138
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %3, ptr %5, align 8, !tbaa !141
   call void @_ZN4Luau14AstJsonEncoder9writeNodeIZNS0_5writeEPNS_19AstExprInterpStringEEUlvE_EEvPNS_7AstNodeESt17basic_string_viewIcSt11char_traitsIcEEOT_(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef %1, i64 19, ptr nonnull @.str.165, ptr noundef nonnull align 8 dereferenceable(16) %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 false
 }
 
@@ -2841,15 +2835,15 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14AstJsonEncoder5visit
 define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14AstJsonEncoder5visitEPNS_12AstExprErrorE(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca %class.anon.58, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %1, ptr %3, align 8, !tbaa !142
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %0, ptr %4, align 8, !tbaa !144
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %3, ptr %5, align 8, !tbaa !147
   call void @_ZN4Luau14AstJsonEncoder9writeNodeIZNS0_5writeEPNS_12AstExprErrorEEUlvE_EEvPNS_7AstNodeESt17basic_string_viewIcSt11char_traitsIcEEOT_(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef %1, i64 12, ptr nonnull @.str.168, ptr noundef nonnull align 8 dereferenceable(16) %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 false
 }
 
@@ -2866,9 +2860,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau10AstVisitor5visitEPNS
 define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14AstJsonEncoder5visitEPNS_12AstStatBlockE(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca %class.anon.51, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %1, ptr %3, align 8, !tbaa !148
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %0, ptr %4, align 8, !tbaa !150
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %3, ptr %5, align 8, !tbaa !153
@@ -2885,8 +2879,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14AstJsonEncoder5visit
   call void @_ZZN4Luau14AstJsonEncoder5writeEPNS_12AstStatBlockEENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(16) %4)
   store i8 %7, ptr %6, align 8, !tbaa !37
   call void @_ZN4Luau14AstJsonEncoder11appendChunkESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(33) %0, i64 1, ptr nonnull @.str.61)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 false
 }
 
@@ -2894,9 +2888,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14AstJsonEncoder5visit
 define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14AstJsonEncoder5visitEPNS_9AstStatIfE(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca %class.anon.59, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %1, ptr %3, align 8, !tbaa !154
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %0, ptr %4, align 8, !tbaa !156
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %3, ptr %5, align 8, !tbaa !159
@@ -2913,8 +2907,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14AstJsonEncoder5visit
   call void @_ZZN4Luau14AstJsonEncoder5writeEPNS_9AstStatIfEENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(16) %4)
   store i8 %7, ptr %6, align 8, !tbaa !37
   call void @_ZN4Luau14AstJsonEncoder11appendChunkESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(33) %0, i64 1, ptr nonnull @.str.61)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 false
 }
 
@@ -2922,9 +2916,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14AstJsonEncoder5visit
 define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14AstJsonEncoder5visitEPNS_12AstStatWhileE(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca %class.anon.60, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %1, ptr %3, align 8, !tbaa !160
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %0, ptr %4, align 8, !tbaa !162
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %3, ptr %5, align 8, !tbaa !165
@@ -2941,8 +2935,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14AstJsonEncoder5visit
   call void @_ZZN4Luau14AstJsonEncoder5writeEPNS_12AstStatWhileEENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(16) %4)
   store i8 %7, ptr %6, align 8, !tbaa !37
   call void @_ZN4Luau14AstJsonEncoder11appendChunkESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(33) %0, i64 1, ptr nonnull @.str.61)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 false
 }
 
@@ -2950,15 +2944,15 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14AstJsonEncoder5visit
 define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14AstJsonEncoder5visitEPNS_13AstStatRepeatE(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca %class.anon.61, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %1, ptr %3, align 8, !tbaa !166
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %0, ptr %4, align 8, !tbaa !168
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %3, ptr %5, align 8, !tbaa !171
   call void @_ZN4Luau14AstJsonEncoder9writeNodeIZNS0_5writeEPNS_13AstStatRepeatEEUlvE_EEvPNS_7AstNodeESt17basic_string_viewIcSt11char_traitsIcEEOT_(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef %1, i64 13, ptr nonnull @.str.175, ptr noundef nonnull align 8 dereferenceable(16) %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 false
 }
 
@@ -3019,15 +3013,15 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14AstJsonEncoder5visit
 define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14AstJsonEncoder5visitEPNS_11AstStatExprE(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca %class.anon.67, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %1, ptr %3, align 8, !tbaa !172
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %0, ptr %4, align 8, !tbaa !174
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %3, ptr %5, align 8, !tbaa !177
   call void @_ZN4Luau14AstJsonEncoder9writeNodeIZNS0_5writeEPNS_11AstStatExprEEUlvE_EEvPNS_7AstNodeESt17basic_string_viewIcSt11char_traitsIcEEOT_(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef %1, i64 11, ptr nonnull @.str.180, ptr noundef nonnull align 8 dereferenceable(16) %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 false
 }
 
@@ -3035,15 +3029,15 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14AstJsonEncoder5visit
 define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14AstJsonEncoder5visitEPNS_12AstStatLocalE(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca %class.anon.68, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %1, ptr %3, align 8, !tbaa !178
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %0, ptr %4, align 8, !tbaa !180
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %3, ptr %5, align 8, !tbaa !183
   call void @_ZN4Luau14AstJsonEncoder9writeNodeIZNS0_5writeEPNS_12AstStatLocalEEUlvE_EEvPNS_7AstNodeESt17basic_string_viewIcSt11char_traitsIcEEOT_(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef %1, i64 12, ptr nonnull @.str.181, ptr noundef nonnull align 8 dereferenceable(16) %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 false
 }
 
@@ -3051,9 +3045,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14AstJsonEncoder5visit
 define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14AstJsonEncoder5visitEPNS_10AstStatForE(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca %class.anon.69, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %1, ptr %3, align 8, !tbaa !184
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %0, ptr %4, align 8, !tbaa !186
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %3, ptr %5, align 8, !tbaa !189
@@ -3070,8 +3064,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14AstJsonEncoder5visit
   call void @_ZZN4Luau14AstJsonEncoder5writeEPNS_10AstStatForEENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(16) %4)
   store i8 %7, ptr %6, align 8, !tbaa !37
   call void @_ZN4Luau14AstJsonEncoder11appendChunkESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(33) %0, i64 1, ptr nonnull @.str.61)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 false
 }
 
@@ -3079,9 +3073,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14AstJsonEncoder5visit
 define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14AstJsonEncoder5visitEPNS_12AstStatForInE(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca %class.anon.70, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %1, ptr %3, align 8, !tbaa !190
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %0, ptr %4, align 8, !tbaa !192
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %3, ptr %5, align 8, !tbaa !195
@@ -3098,8 +3092,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14AstJsonEncoder5visit
   call void @_ZZN4Luau14AstJsonEncoder5writeEPNS_12AstStatForInEENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(16) %4)
   store i8 %7, ptr %6, align 8, !tbaa !37
   call void @_ZN4Luau14AstJsonEncoder11appendChunkESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(33) %0, i64 1, ptr nonnull @.str.61)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 false
 }
 
@@ -3107,15 +3101,15 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14AstJsonEncoder5visit
 define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14AstJsonEncoder5visitEPNS_13AstStatAssignE(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca %class.anon.71, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %1, ptr %3, align 8, !tbaa !196
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %0, ptr %4, align 8, !tbaa !198
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %3, ptr %5, align 8, !tbaa !201
   call void @_ZN4Luau14AstJsonEncoder9writeNodeIZNS0_5writeEPNS_13AstStatAssignEEUlvE_EEvPNS_7AstNodeESt17basic_string_viewIcSt11char_traitsIcEEOT_(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef %1, i64 13, ptr nonnull @.str.191, ptr noundef nonnull align 8 dereferenceable(16) %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 false
 }
 
@@ -3123,9 +3117,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14AstJsonEncoder5visit
 define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14AstJsonEncoder5visitEPNS_21AstStatCompoundAssignE(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca %class.anon.72, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %1, ptr %3, align 8, !tbaa !202
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %0, ptr %4, align 8, !tbaa !204
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %3, ptr %5, align 8, !tbaa !207
@@ -3142,8 +3136,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14AstJsonEncoder5visit
   call void @_ZZN4Luau14AstJsonEncoder5writeEPNS_21AstStatCompoundAssignEENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(16) %4)
   store i8 %7, ptr %6, align 8, !tbaa !37
   call void @_ZN4Luau14AstJsonEncoder11appendChunkESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(33) %0, i64 1, ptr nonnull @.str.61)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 false
 }
 
@@ -3151,15 +3145,15 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14AstJsonEncoder5visit
 define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14AstJsonEncoder5visitEPNS_15AstStatFunctionE(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca %class.anon.73, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %1, ptr %3, align 8, !tbaa !208
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %0, ptr %4, align 8, !tbaa !210
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %3, ptr %5, align 8, !tbaa !213
   call void @_ZN4Luau14AstJsonEncoder9writeNodeIZNS0_5writeEPNS_15AstStatFunctionEEUlvE_EEvPNS_7AstNodeESt17basic_string_viewIcSt11char_traitsIcEEOT_(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef %1, i64 15, ptr nonnull @.str.193, ptr noundef nonnull align 8 dereferenceable(16) %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 false
 }
 
@@ -3167,15 +3161,15 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14AstJsonEncoder5visit
 define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14AstJsonEncoder5visitEPNS_20AstStatLocalFunctionE(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca %class.anon.74, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %1, ptr %3, align 8, !tbaa !214
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %0, ptr %4, align 8, !tbaa !216
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %3, ptr %5, align 8, !tbaa !219
   call void @_ZN4Luau14AstJsonEncoder9writeNodeIZNS0_5writeEPNS_20AstStatLocalFunctionEEUlvE_EEvPNS_7AstNodeESt17basic_string_viewIcSt11char_traitsIcEEOT_(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef %1, i64 20, ptr nonnull @.str.194, ptr noundef nonnull align 8 dereferenceable(16) %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 false
 }
 
@@ -3183,9 +3177,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14AstJsonEncoder5visit
 define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14AstJsonEncoder5visitEPNS_16AstStatTypeAliasE(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca %class.anon.75, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %1, ptr %3, align 8, !tbaa !220
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %0, ptr %4, align 8, !tbaa !222
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %3, ptr %5, align 8, !tbaa !225
@@ -3202,8 +3196,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14AstJsonEncoder5visit
   call void @_ZZN4Luau14AstJsonEncoder5writeEPNS_16AstStatTypeAliasEENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(16) %4)
   store i8 %7, ptr %6, align 8, !tbaa !37
   call void @_ZN4Luau14AstJsonEncoder11appendChunkESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(33) %0, i64 1, ptr nonnull @.str.61)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 false
 }
 
@@ -3211,9 +3205,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14AstJsonEncoder5visit
 define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14AstJsonEncoder5visitEPNS_22AstStatDeclareFunctionE(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca %class.anon.76, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %1, ptr %3, align 8, !tbaa !226
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %0, ptr %4, align 8, !tbaa !228
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %3, ptr %5, align 8, !tbaa !231
@@ -3230,8 +3224,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14AstJsonEncoder5visit
   call void @_ZZN4Luau14AstJsonEncoder5writeEPNS_22AstStatDeclareFunctionEENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(16) %4)
   store i8 %7, ptr %6, align 8, !tbaa !37
   call void @_ZN4Luau14AstJsonEncoder11appendChunkESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(33) %0, i64 1, ptr nonnull @.str.61)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 false
 }
 
@@ -3239,9 +3233,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14AstJsonEncoder5visit
 define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14AstJsonEncoder5visitEPNS_20AstStatDeclareGlobalE(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca %class.anon.77, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %1, ptr %3, align 8, !tbaa !232
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %0, ptr %4, align 8, !tbaa !234
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %3, ptr %5, align 8, !tbaa !237
@@ -3258,8 +3252,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14AstJsonEncoder5visit
   call void @_ZZN4Luau14AstJsonEncoder5writeEPNS_20AstStatDeclareGlobalEENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(16) %4)
   store i8 %7, ptr %6, align 8, !tbaa !37
   call void @_ZN4Luau14AstJsonEncoder11appendChunkESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(33) %0, i64 1, ptr nonnull @.str.61)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 false
 }
 
@@ -3267,9 +3261,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14AstJsonEncoder5visit
 define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14AstJsonEncoder5visitEPNS_19AstStatDeclareClassE(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca %class.anon.78, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %1, ptr %3, align 8, !tbaa !238
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %0, ptr %4, align 8, !tbaa !240
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %3, ptr %5, align 8, !tbaa !243
@@ -3286,8 +3280,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14AstJsonEncoder5visit
   call void @_ZZN4Luau14AstJsonEncoder5writeEPNS_19AstStatDeclareClassEENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(16) %4)
   store i8 %7, ptr %6, align 8, !tbaa !37
   call void @_ZN4Luau14AstJsonEncoder11appendChunkESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(33) %0, i64 1, ptr nonnull @.str.61)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 false
 }
 
@@ -3295,15 +3289,15 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14AstJsonEncoder5visit
 define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14AstJsonEncoder5visitEPNS_12AstStatErrorE(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca %class.anon.79, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %1, ptr %3, align 8, !tbaa !244
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %0, ptr %4, align 8, !tbaa !246
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %3, ptr %5, align 8, !tbaa !249
   call void @_ZN4Luau14AstJsonEncoder9writeNodeIZNS0_5writeEPNS_12AstStatErrorEEUlvE_EEvPNS_7AstNodeESt17basic_string_viewIcSt11char_traitsIcEEOT_(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef %1, i64 12, ptr nonnull @.str.211, ptr noundef nonnull align 8 dereferenceable(16) %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 false
 }
 
@@ -3316,9 +3310,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau10AstVisitor5visitEPNS
 define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14AstJsonEncoder5visitEPNS_16AstTypeReferenceE(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca %class.anon.80, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %1, ptr %3, align 8, !tbaa !250
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %3, ptr %4, align 8, !tbaa !252
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %0, ptr %5, align 8, !tbaa !254
@@ -3335,8 +3329,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14AstJsonEncoder5visit
   call void @_ZZN4Luau14AstJsonEncoder5writeEPNS_16AstTypeReferenceEENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(16) %4)
   store i8 %7, ptr %6, align 8, !tbaa !37
   call void @_ZN4Luau14AstJsonEncoder11appendChunkESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(33) %0, i64 1, ptr nonnull @.str.61)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 false
 }
 
@@ -3344,15 +3338,15 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14AstJsonEncoder5visit
 define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14AstJsonEncoder5visitEPNS_12AstTypeTableE(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca %class.anon.81, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %1, ptr %3, align 8, !tbaa !256
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %0, ptr %4, align 8, !tbaa !258
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %3, ptr %5, align 8, !tbaa !261
   call void @_ZN4Luau14AstJsonEncoder9writeNodeIZNS0_5writeEPNS_12AstTypeTableEEUlvE_EEvPNS_7AstNodeESt17basic_string_viewIcSt11char_traitsIcEEOT_(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef %1, i64 12, ptr nonnull @.str.217, ptr noundef nonnull align 8 dereferenceable(16) %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 false
 }
 
@@ -3360,9 +3354,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14AstJsonEncoder5visit
 define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14AstJsonEncoder5visitEPNS_15AstTypeFunctionE(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca %class.anon.82, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %1, ptr %3, align 8, !tbaa !262
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %0, ptr %4, align 8, !tbaa !264
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %3, ptr %5, align 8, !tbaa !267
@@ -3379,8 +3373,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14AstJsonEncoder5visit
   call void @_ZZN4Luau14AstJsonEncoder5writeEPNS_15AstTypeFunctionEENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(16) %4)
   store i8 %7, ptr %6, align 8, !tbaa !37
   call void @_ZN4Luau14AstJsonEncoder11appendChunkESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(33) %0, i64 1, ptr nonnull @.str.61)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 false
 }
 
@@ -3388,15 +3382,15 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14AstJsonEncoder5visit
 define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14AstJsonEncoder5visitEPNS_13AstTypeTypeofE(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca %class.anon.91, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %1, ptr %3, align 8, !tbaa !268
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %0, ptr %4, align 8, !tbaa !270
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %3, ptr %5, align 8, !tbaa !273
   call void @_ZN4Luau14AstJsonEncoder9writeNodeIZNS0_5writeEPNS_13AstTypeTypeofEEUlvE_EEvPNS_7AstNodeESt17basic_string_viewIcSt11char_traitsIcEEOT_(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef %1, i64 13, ptr nonnull @.str.224, ptr noundef nonnull align 8 dereferenceable(16) %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 false
 }
 
@@ -3443,12 +3437,12 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14AstJsonEncoder5visit
   %3 = alloca ptr, align 8
   %4 = alloca %class.anon.94, align 8
   store ptr %1, ptr %3, align 8, !tbaa !274
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %0, ptr %4, align 8, !tbaa !276
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %3, ptr %5, align 8, !tbaa !279
   call void @_ZN4Luau14AstJsonEncoder9writeNodeIZNS0_5visitEPNS_20AstTypeSingletonBoolEEUlvE_EEvPNS_7AstNodeESt17basic_string_viewIcSt11char_traitsIcEEOT_(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef %1, i64 20, ptr nonnull @.str.227, ptr noundef nonnull align 8 dereferenceable(16) %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 false
 }
 
@@ -3457,12 +3451,12 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14AstJsonEncoder5visit
   %3 = alloca ptr, align 8
   %4 = alloca %class.anon.95, align 8
   store ptr %1, ptr %3, align 8, !tbaa !280
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %0, ptr %4, align 8, !tbaa !282
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %3, ptr %5, align 8, !tbaa !285
   call void @_ZN4Luau14AstJsonEncoder9writeNodeIZNS0_5visitEPNS_22AstTypeSingletonStringEEUlvE_EEvPNS_7AstNodeESt17basic_string_viewIcSt11char_traitsIcEEOT_(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef %1, i64 22, ptr nonnull @.str.228, ptr noundef nonnull align 8 dereferenceable(16) %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 false
 }
 
@@ -3471,12 +3465,12 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14AstJsonEncoder5visit
   %3 = alloca ptr, align 8
   %4 = alloca %class.anon.96, align 8
   store ptr %1, ptr %3, align 8, !tbaa !286
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %0, ptr %4, align 8, !tbaa !288
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %3, ptr %5, align 8, !tbaa !291
   call void @_ZN4Luau14AstJsonEncoder9writeNodeIZNS0_5visitEPNS_12AstTypeGroupEEUlvE_EEvPNS_7AstNodeESt17basic_string_viewIcSt11char_traitsIcEEOT_(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef %1, i64 12, ptr nonnull @.str.229, ptr noundef nonnull align 8 dereferenceable(16) %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 false
 }
 
@@ -3484,15 +3478,15 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14AstJsonEncoder5visit
 define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14AstJsonEncoder5visitEPNS_12AstTypeErrorE(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca %class.anon.97, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %1, ptr %3, align 8, !tbaa !292
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %0, ptr %4, align 8, !tbaa !294
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %3, ptr %5, align 8, !tbaa !297
   call void @_ZN4Luau14AstJsonEncoder9writeNodeIZNS0_5writeEPNS_12AstTypeErrorEEUlvE_EEvPNS_7AstNodeESt17basic_string_viewIcSt11char_traitsIcEEOT_(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef %1, i64 12, ptr nonnull @.str.231, ptr noundef nonnull align 8 dereferenceable(16) %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 false
 }
 
@@ -3508,15 +3502,15 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14AstJsonEncoder5visit
 define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14AstJsonEncoder5visitEPNS_19AstTypePackExplicitE(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca %class.anon.98, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %1, ptr %3, align 8, !tbaa !298
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %0, ptr %4, align 8, !tbaa !300
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %3, ptr %5, align 8, !tbaa !303
   call void @_ZN4Luau14AstJsonEncoder9writeNodeIZNS0_5writeEPNS_19AstTypePackExplicitEEUlvE_EEvPNS_7AstNodeESt17basic_string_viewIcSt11char_traitsIcEEOT_(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef %1, i64 19, ptr nonnull @.str.232, ptr noundef nonnull align 8 dereferenceable(16) %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 false
 }
 
@@ -3524,15 +3518,15 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14AstJsonEncoder5visit
 define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14AstJsonEncoder5visitEPNS_19AstTypePackVariadicE(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca %class.anon.99, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %1, ptr %3, align 8, !tbaa !304
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %0, ptr %4, align 8, !tbaa !306
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %3, ptr %5, align 8, !tbaa !309
   call void @_ZN4Luau14AstJsonEncoder9writeNodeIZNS0_5writeEPNS_19AstTypePackVariadicEEUlvE_EEvPNS_7AstNodeESt17basic_string_viewIcSt11char_traitsIcEEOT_(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef %1, i64 19, ptr nonnull @.str.234, ptr noundef nonnull align 8 dereferenceable(16) %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 false
 }
 
@@ -3540,15 +3534,15 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14AstJsonEncoder5visit
 define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau14AstJsonEncoder5visitEPNS_18AstTypePackGenericE(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca %class.anon.100, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %1, ptr %3, align 8, !tbaa !310
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %0, ptr %4, align 8, !tbaa !312
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %3, ptr %5, align 8, !tbaa !315
   call void @_ZN4Luau14AstJsonEncoder9writeNodeIZNS0_5writeEPNS_18AstTypePackGenericEEUlvE_EEvPNS_7AstNodeESt17basic_string_viewIcSt11char_traitsIcEEOT_(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef %1, i64 18, ptr nonnull @.str.236, ptr noundef nonnull align 8 dereferenceable(16) %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 false
 }
 
@@ -3810,7 +3804,7 @@ define linkonce_odr dso_local void @_ZN4Luau14AstJsonEncoder11writeStringESt17ba
   br i1 %15, label %16, label %33
 
 16:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void (ptr, ptr, ...) @_ZN4Luau6formatB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull @.str.68, i32 noundef %11)
   %17 = load ptr, ptr %5, align 8, !tbaa !16
   %18 = load i64, ptr %7, align 8, !tbaa !21
@@ -3835,7 +3829,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %34
 
 25:                                               ; preds = %16
@@ -3858,14 +3852,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i15
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit17
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit17: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i16, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i15
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %26
 
 33:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 %10, ptr %4, align 1, !tbaa !22
   call void @_ZN4Luau14AstJsonEncoder11appendChunkESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(33) %0, i64 1, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %34
 
 34:                                               ; preds = %13, %33, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %12
@@ -3914,7 +3908,7 @@ define linkonce_odr dso_local void @_ZN4Luau14AstJsonEncoder5writeINS_8LocationE
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN4Luau14AstJsonEncoder5writeEj(ptr noundef nonnull align 8 dereferenceable(33) %0, i32 noundef %1) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !335)
   %4 = icmp ult i32 %1, 10
   br i1 %4, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i, label %.lr.ph.i.i
@@ -4052,7 +4046,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 71:                                               ; preds = %_ZNSt7__cxx119to_stringEj.exit
@@ -4075,7 +4069,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i3:
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i4, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i3
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %72
 }
 
@@ -4202,11 +4196,11 @@ _ZSt10fpclassifyd.exit:                           ; preds = %5
   br label %16
 
 select.unfold:                                    ; preds = %7, %2
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %14 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 32, ptr noundef nonnull @.str.82, double noundef %1) #20
   %15 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #20
   call void @_ZN4Luau14AstJsonEncoder11appendChunkESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(33) %0, i64 %15, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %16
 
 16:                                               ; preds = %12, %13, %select.unfold, %_ZSt10fpclassifyd.exit
@@ -4587,10 +4581,10 @@ _ZN4Luau14AstJsonEncoder5writeIcEEvSt17basic_string_viewIcSt11char_traitsIcEERKT
   tail call void @_ZN4Luau14AstJsonEncoder11appendChunkESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(33) %3, i64 2, ptr nonnull @.str.104)
   tail call void @_ZN4Luau14AstJsonEncoder11appendChunkESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(33) %3, i64 2, ptr nonnull @.str.65)
   %32 = load i8, ptr %31, align 1, !tbaa !22
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i8 %32, ptr %2, align 1, !tbaa !22
   call void @_ZN4Luau14AstJsonEncoder11writeStringESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(33) %3, i64 1, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -5010,9 +5004,9 @@ define linkonce_odr dso_local void @_ZN4Luau14AstJsonEncoder5writeIPNS_12AstStat
   tail call void @_ZN4Luau14AstJsonEncoder11appendChunkESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(33) %0, i64 %1, ptr %2)
   tail call void @_ZN4Luau14AstJsonEncoder11appendChunkESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(33) %0, i64 2, ptr nonnull @.str.65)
   %12 = load ptr, ptr %3, align 8, !tbaa !148
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %12, ptr %5, align 8, !tbaa !148
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %0, ptr %6, align 8, !tbaa !150
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %5, ptr %13, align 8, !tbaa !153
@@ -5028,8 +5022,8 @@ define linkonce_odr dso_local void @_ZN4Luau14AstJsonEncoder5writeIPNS_12AstStat
   call void @_ZZN4Luau14AstJsonEncoder5writeEPNS_12AstStatBlockEENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(16) %6)
   store i8 %14, ptr %7, align 8, !tbaa !37
   call void @_ZN4Luau14AstJsonEncoder11appendChunkESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(33) %0, i64 1, ptr nonnull @.str.61)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -5262,7 +5256,7 @@ _ZN4Luau14AstJsonEncoder5writeEb.exit:            ; preds = %9, %10
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN4Luau14AstJsonEncoder5writeEm(ptr noundef nonnull align 8 dereferenceable(33) %0, i64 noundef %1) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !414)
   %4 = icmp ult i64 %1, 10
   br i1 %4, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i, label %.lr.ph.i.i
@@ -5386,7 +5380,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 64:                                               ; preds = %_ZNSt7__cxx119to_stringEm.exit
@@ -5409,7 +5403,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i3:
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i4, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i3
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %65
 }
 
@@ -6719,9 +6713,9 @@ define linkonce_odr dso_local void @_ZN4Luau14AstJsonEncoder5writeIPNS_15AstExpr
   tail call void @_ZN4Luau14AstJsonEncoder11appendChunkESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(33) %0, i64 %1, ptr %2)
   tail call void @_ZN4Luau14AstJsonEncoder11appendChunkESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(33) %0, i64 2, ptr nonnull @.str.65)
   %12 = load ptr, ptr %3, align 8, !tbaa !106
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %12, ptr %5, align 8, !tbaa !106
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %0, ptr %6, align 8, !tbaa !108
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %5, ptr %13, align 8, !tbaa !111
@@ -6737,8 +6731,8 @@ define linkonce_odr dso_local void @_ZN4Luau14AstJsonEncoder5writeIPNS_15AstExpr
   call void @_ZZN4Luau14AstJsonEncoder5writeEPNS_15AstExprFunctionEENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(16) %6)
   store i8 %14, ptr %7, align 8, !tbaa !37
   call void @_ZN4Luau14AstJsonEncoder11appendChunkESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(33) %0, i64 1, ptr nonnull @.str.61)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -8372,7 +8366,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(32) ptr @_
   unreachable
 
 12:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %.sroa.0.0.copyload.i.i.i, ptr %3, align 8, !tbaa !347
   %13 = icmp ugt i64 %.sroa.0.0.copyload.i.i.i, 15
   br i1 %13, label %.noexc.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i
@@ -8407,7 +8401,7 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
   %22 = load ptr, ptr %5, align 8, !tbaa !16
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 %20
   store i8 0, ptr %23, align 1, !tbaa !22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %24 = load ptr, ptr %4, align 8, !tbaa !15
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 32
   store ptr %25, ptr %4, align 8, !tbaa !15
@@ -8478,7 +8472,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   unreachable
 
 28:                                               ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %.sroa.0.0.copyload.i.i.i, ptr %4, align 8, !tbaa !347
   %29 = icmp ugt i64 %.sroa.0.0.copyload.i.i.i, 15
   br i1 %29, label %.noexc.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i
@@ -8516,7 +8510,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %39 = load ptr, ptr %24, align 8, !tbaa !16
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 %37
   store i8 0, ptr %40, align 1, !tbaa !22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not10.i.i.i = icmp eq ptr %7, %1
   br i1 %.not10.i.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, label %.lr.ph.i.i.i
 
@@ -8673,6 +8667,12 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #15
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #16

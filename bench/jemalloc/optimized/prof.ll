@@ -54,19 +54,13 @@ define hidden void @je_prof_malloc_sample_object(ptr noundef readnone captures(n
   unreachable
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define hidden ptr @je_prof_sample_hook_get() local_unnamed_addr #2 {
+define hidden ptr @je_prof_sample_hook_get() local_unnamed_addr #1 {
 atomic_load_p.exit:
   %0 = load atomic i64, ptr @prof_sample_hook.0 acquire, align 8
   %.0.i = inttoptr i64 %0 to ptr
   ret ptr %.0.i
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nofree norecurse noreturn nosync nounwind willreturn memory(none) uwtable
 define hidden void @je_prof_free_sampled_object(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 {
@@ -74,7 +68,7 @@ define hidden void @je_prof_free_sampled_object(ptr noundef readnone captures(no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define hidden ptr @je_prof_sample_free_hook_get() local_unnamed_addr #2 {
+define hidden ptr @je_prof_sample_free_hook_get() local_unnamed_addr #1 {
 atomic_load_p.exit:
   %0 = load atomic i64, ptr @prof_sample_free_hook.0 acquire, align 8
   %.0.i = inttoptr i64 %0 to ptr
@@ -82,7 +76,7 @@ atomic_load_p.exit:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noalias noundef ptr @je_prof_tctx_create(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
+define hidden noalias noundef ptr @je_prof_tctx_create(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr i8, ptr %0, i64 888
   %.val = load i8, ptr %2, align 8, !tbaa !4
   %3 = icmp ult i8 %.val, 3
@@ -130,7 +124,7 @@ define hidden void @je_prof_gdump(ptr noundef readnone captures(none) %0) local_
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @je_prof_tdata_init(ptr noundef %0) local_unnamed_addr #4 {
+define hidden ptr @je_prof_tdata_init(ptr noundef %0) local_unnamed_addr #3 {
   %2 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @next_thr_uid_mtx, i64 72)) #10
   %.not.i.i = icmp eq i32 %2, 0
   br i1 %.not.i.i, label %malloc_mutex_trylock_final.exit.i.i, label %3
@@ -200,10 +194,10 @@ je_prof_thread_active_init_get.exit:              ; preds = %16, %20
   ret ptr %26
 }
 
-declare ptr @je_prof_tdata_init_impl(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #5
+declare ptr @je_prof_tdata_init_impl(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i1 @je_prof_thread_active_init_get(ptr noundef %0) local_unnamed_addr #4 {
+define hidden zeroext i1 @je_prof_thread_active_init_get(ptr noundef %0) local_unnamed_addr #3 {
   %2 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prof_thread_active_init_mtx, i64 72)) #10
   %.not.i = icmp eq i32 %2, 0
   br i1 %.not.i, label %malloc_mutex_trylock_final.exit.i, label %3
@@ -240,7 +234,7 @@ malloc_mutex_lock.exit:                           ; preds = %4, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @je_prof_tdata_reinit(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 {
+define hidden ptr @je_prof_tdata_reinit(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = alloca [16 x i8], align 16
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !22
@@ -250,22 +244,22 @@ define hidden ptr @je_prof_tdata_reinit(ptr noundef %0, ptr noundef %1) local_un
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 116
   %10 = load i8, ptr %9, align 4, !tbaa !30, !range !20, !noundef !21
   %11 = trunc nuw i8 %10 to i1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %13 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %12, i64 noundef 16) #10
   call void @je_prof_tdata_detach(ptr noundef %0, ptr noundef %1) #10
   %14 = call ptr @je_prof_tdata_init_impl(ptr noundef %0, i64 noundef %5, i64 noundef %8, ptr noundef nonnull %3, i1 noundef zeroext %11) #10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %14
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #6
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #5
 
-declare void @je_prof_tdata_detach(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare void @je_prof_tdata_detach(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @je_prof_tdata_cleanup(ptr noundef readnone captures(none) %0) local_unnamed_addr #7 {
+define hidden void @je_prof_tdata_cleanup(ptr noundef readnone captures(none) %0) local_unnamed_addr #6 {
   ret void
 }
 
@@ -285,7 +279,7 @@ define hidden noalias noundef nonnull ptr @je_prof_thread_name_get(ptr noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @je_prof_thread_name_set(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 {
+define hidden i32 @je_prof_thread_name_set(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = load i8, ptr @je_opt_prof_sys_thread_name, align 1, !tbaa !18, !range !20, !noundef !21
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %7, label %5
@@ -299,7 +293,7 @@ define hidden i32 @je_prof_thread_name_set(ptr noundef %0, ptr noundef %1) local
   ret i32 %.0
 }
 
-declare i32 @je_prof_thread_name_set_impl(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @je_prof_thread_name_set_impl(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse noreturn nosync nounwind willreturn memory(none) uwtable
 define hidden noundef zeroext i1 @je_prof_thread_active_get(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
@@ -312,7 +306,7 @@ define hidden noundef zeroext i1 @je_prof_thread_active_set(ptr noundef readnone
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i1 @je_prof_thread_active_init_set(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #4 {
+define hidden zeroext i1 @je_prof_thread_active_init_set(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #3 {
   %3 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prof_thread_active_init_mtx, i64 72)) #10
   %.not.i = icmp eq i32 %3, 0
   br i1 %.not.i, label %malloc_mutex_trylock_final.exit.i, label %4
@@ -351,7 +345,7 @@ malloc_mutex_lock.exit:                           ; preds = %5, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i1 @je_prof_gdump_get(ptr noundef %0) local_unnamed_addr #4 {
+define hidden zeroext i1 @je_prof_gdump_get(ptr noundef %0) local_unnamed_addr #3 {
   %2 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prof_gdump_mtx, i64 72)) #10
   %.not.i = icmp eq i32 %2, 0
   br i1 %.not.i, label %malloc_mutex_trylock_final.exit.i, label %3
@@ -388,7 +382,7 @@ malloc_mutex_lock.exit:                           ; preds = %4, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i1 @je_prof_gdump_set(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #4 {
+define hidden zeroext i1 @je_prof_gdump_set(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #3 {
   %3 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prof_gdump_mtx, i64 72)) #10
   %.not.i = icmp eq i32 %3, 0
   br i1 %.not.i, label %malloc_mutex_trylock_final.exit.i, label %4
@@ -427,7 +421,7 @@ malloc_mutex_lock.exit:                           ; preds = %5, %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define hidden void @je_prof_backtrace_hook_set(ptr noundef %0) local_unnamed_addr #2 {
+define hidden void @je_prof_backtrace_hook_set(ptr noundef %0) local_unnamed_addr #1 {
 atomic_store_p.exit:
   %1 = ptrtoint ptr %0 to i64
   store atomic i64 %1, ptr @prof_backtrace_hook.0 release, align 8
@@ -435,7 +429,7 @@ atomic_store_p.exit:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define hidden ptr @je_prof_backtrace_hook_get() local_unnamed_addr #2 {
+define hidden ptr @je_prof_backtrace_hook_get() local_unnamed_addr #1 {
 atomic_load_p.exit:
   %0 = load atomic i64, ptr @prof_backtrace_hook.0 acquire, align 8
   %.0.i = inttoptr i64 %0 to ptr
@@ -443,7 +437,7 @@ atomic_load_p.exit:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define hidden void @je_prof_dump_hook_set(ptr noundef %0) local_unnamed_addr #2 {
+define hidden void @je_prof_dump_hook_set(ptr noundef %0) local_unnamed_addr #1 {
 atomic_store_p.exit:
   %1 = ptrtoint ptr %0 to i64
   store atomic i64 %1, ptr @prof_dump_hook.0 release, align 8
@@ -451,7 +445,7 @@ atomic_store_p.exit:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define hidden ptr @je_prof_dump_hook_get() local_unnamed_addr #2 {
+define hidden ptr @je_prof_dump_hook_get() local_unnamed_addr #1 {
 atomic_load_p.exit:
   %0 = load atomic i64, ptr @prof_dump_hook.0 acquire, align 8
   %.0.i = inttoptr i64 %0 to ptr
@@ -459,7 +453,7 @@ atomic_load_p.exit:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define hidden void @je_prof_sample_hook_set(ptr noundef %0) local_unnamed_addr #2 {
+define hidden void @je_prof_sample_hook_set(ptr noundef %0) local_unnamed_addr #1 {
 atomic_store_p.exit:
   %1 = ptrtoint ptr %0 to i64
   store atomic i64 %1, ptr @prof_sample_hook.0 release, align 8
@@ -467,7 +461,7 @@ atomic_store_p.exit:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define hidden void @je_prof_sample_free_hook_set(ptr noundef %0) local_unnamed_addr #2 {
+define hidden void @je_prof_sample_free_hook_set(ptr noundef %0) local_unnamed_addr #1 {
 atomic_store_p.exit:
   %1 = ptrtoint ptr %0 to i64
   store atomic i64 %1, ptr @prof_sample_free_hook.0 release, align 8
@@ -490,45 +484,51 @@ define hidden noundef zeroext i1 @je_prof_boot2(ptr noundef readnone captures(no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @je_prof_prefork0(ptr noundef readnone captures(none) %0) local_unnamed_addr #7 {
+define hidden void @je_prof_prefork0(ptr noundef readnone captures(none) %0) local_unnamed_addr #6 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @je_prof_prefork1(ptr noundef readnone captures(none) %0) local_unnamed_addr #7 {
+define hidden void @je_prof_prefork1(ptr noundef readnone captures(none) %0) local_unnamed_addr #6 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @je_prof_postfork_parent(ptr noundef readnone captures(none) %0) local_unnamed_addr #7 {
+define hidden void @je_prof_postfork_parent(ptr noundef readnone captures(none) %0) local_unnamed_addr #6 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @je_prof_postfork_child(ptr noundef readnone captures(none) %0) local_unnamed_addr #7 {
+define hidden void @je_prof_postfork_child(ptr noundef readnone captures(none) %0) local_unnamed_addr #6 {
   ret void
 }
 
-declare void @je_malloc_mutex_lock_slow(ptr noundef) local_unnamed_addr #5
+declare void @je_malloc_mutex_lock_slow(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_trylock(ptr noundef) local_unnamed_addr #8
+declare i32 @pthread_mutex_trylock(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #8
+declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #9
 
 attributes #0 = { mustprogress nofree norecurse noreturn nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #10 = { nounwind }
 

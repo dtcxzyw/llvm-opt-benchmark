@@ -46,7 +46,7 @@ define ptr @ossl_policy_cache_set(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %99, label %10
 
 10:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %11 = load ptr, ptr %3, align 8, !tbaa !12
   %.not.i = icmp eq ptr %11, null
   br i1 %.not.i, label %12, label %policy_cache_new.exit
@@ -263,7 +263,7 @@ policy_cache_set_int.exit.i:                      ; preds = %88, %86, %81, %79, 
   br label %policy_cache_new.exit
 
 policy_cache_new.exit:                            ; preds = %10, %12, %41, %policy_cache_create.exit.thread.i, %96
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %97 = load ptr, ptr %7, align 8, !tbaa !40
   %98 = call i32 @CRYPTO_THREAD_unlock(ptr noundef %97) #4
   %.pre = load ptr, ptr %3, align 8, !tbaa !12
@@ -281,7 +281,7 @@ declare i32 @CRYPTO_THREAD_unlock(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define ptr @ossl_policy_cache_find_data(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.X509_POLICY_DATA_st, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %1, ptr %4, align 8, !tbaa !47
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -289,15 +289,9 @@ define ptr @ossl_policy_cache_find_data(ptr noundef readonly captures(none) %0, 
   %7 = call i32 @OPENSSL_sk_find(ptr noundef %6, ptr noundef nonnull %3) #4
   %8 = load ptr, ptr %5, align 8, !tbaa !11
   %9 = call ptr @OPENSSL_sk_value(ptr noundef %8, i32 noundef %7) #4
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %9
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 declare void @OPENSSL_sk_pop_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -350,6 +344,12 @@ declare i32 @OPENSSL_sk_push(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @OPENSSL_sk_sort(ptr noundef) local_unnamed_addr #1
 
 declare i32 @OPENSSL_sk_find(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3

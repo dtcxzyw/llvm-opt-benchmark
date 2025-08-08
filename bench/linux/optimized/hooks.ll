@@ -246,7 +246,7 @@ module asm ".previous\09\09\09\09\09"
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal noundef i32 @enforcing_setup(ptr noundef %0) #0 section ".init.text" align 16 {
   %2 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 0, ptr %2, align 8, !annotation !5
   %3 = call i32 @kstrtoull(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %2) #24
   %4 = icmp eq i32 %3, 0
@@ -260,14 +260,14 @@ define internal noundef i32 @enforcing_setup(ptr noundef %0) #0 section ".init.t
   br label %9
 
 9:                                                ; preds = %5, %1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 1
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal noundef i32 @selinux_enabled_setup(ptr noundef %0) #0 section ".init.text" align 16 {
   %2 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 0, ptr %2, align 8, !annotation !5
   %3 = call i32 @kstrtoull(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %2) #24
   %4 = icmp eq i32 %3, 0
@@ -281,14 +281,14 @@ define internal noundef i32 @selinux_enabled_setup(ptr noundef %0) #0 section ".
   br label %9
 
 9:                                                ; preds = %5, %1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 1
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal noundef i32 @checkreqprot_setup(ptr noundef %0) #0 section ".init.text" align 16 {
   %2 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 0, ptr %2, align 8, !annotation !5
   %3 = call i32 @kstrtoull(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %2) #24
   %4 = icmp eq i32 %3, 0
@@ -302,7 +302,7 @@ define internal noundef i32 @checkreqprot_setup(ptr noundef %0) #0 section ".ini
   br label %10
 
 10:                                               ; preds = %8, %1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 1
 }
 
@@ -403,17 +403,11 @@ define internal noundef i32 @selinux_nf_ip_init() #0 section ".init.text" align 
   ret i32 0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
-
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @kstrtoull(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: cold null_pointer_is_valid
-declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #4
+declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @selinux_set_mnt_opts(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2, ptr noundef captures(address_is_null) %3) #1 align 16 {
@@ -983,7 +977,7 @@ may_context_mount_inode_relabel.exit37:           ; preds = %.thread39
 declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
+declare dso_local i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @security_fs_use(ptr noundef) local_unnamed_addr #2
@@ -1052,7 +1046,7 @@ define internal fastcc i32 @sb_finish_set_opts(ptr noundef %0) unnamed_addr #1 a
   br i1 %14, label %15, label %57
 
 15:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 4, !annotation !5
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 2
   %17 = load i16, ptr %16, align 2
@@ -1112,12 +1106,12 @@ define internal fastcc i32 @sb_finish_set_opts(ptr noundef %0) unnamed_addr #1 a
   br label %.thread
 
 .thread:                                          ; preds = %49, %26
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %57
 
 55:                                               ; preds = %43, %40
   %56 = phi i32 [ %28, %40 ], [ -95, %43 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %124
 
 57:                                               ; preds = %.thread, %1
@@ -1268,7 +1262,7 @@ define internal fastcc i32 @inode_doinit_with_dentry(ptr noundef %0, ptr noundef
   %8 = sext i32 %7 to i64
   %9 = getelementptr i8, ptr %5, i64 %8
   %10 = select i1 %6, ptr null, ptr %9, !prof !10
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 34
   %12 = load i8, ptr %11, align 2
@@ -1553,7 +1547,7 @@ define internal fastcc i32 @inode_doinit_with_dentry(ptr noundef %0, ptr noundef
 
 153:                                              ; preds = %151, %2
   %154 = phi i32 [ 0, %2 ], [ %152, %151 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %154
 }
 
@@ -1570,7 +1564,7 @@ declare dso_local i64 @__vfs_getxattr(ptr noundef, ptr noundef, ptr noundef, ptr
 declare dso_local i32 @security_genfs_sid(ptr noundef, ptr noundef, i16 noundef zeroext, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal fastcc noundef zeroext range(i16 7, 15) i16 @inode_mode_to_security_class(i16 noundef zeroext %0) unnamed_addr #6 align 16 {
+define internal fastcc noundef zeroext range(i16 7, 15) i16 @inode_mode_to_security_class(i16 noundef zeroext %0) unnamed_addr #5 align 16 {
   %2 = zext i16 %0 to i32
   %3 = add nsw i32 %2, -4096
   %4 = lshr i32 %3, 12
@@ -1790,10 +1784,10 @@ declare dso_local i32 @security_context_to_sid_default(ptr noundef, i32 noundef,
 declare dso_local i32 @___ratelimit(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid allocsize(2)
-declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #7
+declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: null_pointer_is_valid allocsize(0)
-declare dso_local noalias ptr @__kmalloc(i64 noundef, i32 noundef) local_unnamed_addr #8
+declare dso_local noalias ptr @__kmalloc(i64 noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i64 @__get_free_pages(i32 noundef, i32 noundef) local_unnamed_addr #2
@@ -1811,7 +1805,7 @@ declare dso_local void @_raw_spin_lock(ptr noundef) local_unnamed_addr #2 sectio
 declare dso_local void @_raw_spin_unlock(ptr noundef) local_unnamed_addr #2 section ".spinlock.text"
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @selinux_avc_init() local_unnamed_addr #2
@@ -1820,7 +1814,7 @@ declare dso_local void @selinux_avc_init() local_unnamed_addr #2
 declare dso_local void @__mutex_init(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: cold null_pointer_is_valid
-declare dso_local void @avc_init() local_unnamed_addr #4 section ".init.text"
+declare dso_local void @avc_init() local_unnamed_addr #3 section ".init.text"
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @avtab_cache_init() local_unnamed_addr #2
@@ -1854,7 +1848,7 @@ define internal noundef i32 @selinux_netcache_avc_callback(i32 noundef %0) #1 al
 }
 
 ; Function Attrs: cold noreturn null_pointer_is_valid
-declare dso_local void @panic(ptr noundef, ...) local_unnamed_addr #10
+declare dso_local void @panic(ptr noundef, ...) local_unnamed_addr #9
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @selinux_lsm_notifier_avc_callback(i32 noundef %0) #1 align 16 {
@@ -1967,7 +1961,7 @@ define internal i32 @selinux_binder_transfer_file(ptr readnone captures(none) %0
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 152
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 160
   %19 = load ptr, ptr %18, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false), !annotation !5
   store i8 1, ptr %4, align 8
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -2056,7 +2050,7 @@ define internal i32 @selinux_binder_transfer_file(ptr readnone captures(none) %0
 
 80:                                               ; preds = %76, %26, %23
   %81 = phi i32 [ %79, %76 ], [ %24, %23 ], [ 0, %26 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %81
 }
 
@@ -2182,9 +2176,9 @@ define internal i32 @selinux_capable(ptr noundef readonly captures(none) %0, ptr
   %5 = alloca %struct.common_audit_data, align 8
   %6 = alloca %struct.av_decision, align 4
   %7 = icmp eq ptr %1, @init_user_ns
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false), !annotation !5
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %6) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %6, i8 0, i64 20, i1 false), !annotation !5
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %9 = load ptr, ptr %8, align 8
@@ -2263,8 +2257,8 @@ define internal i32 @selinux_capable(ptr noundef readonly captures(none) %0, ptr
 
 48:                                               ; preds = %.thread2, %.thread
   %49 = phi i32 [ %27, %.thread2 ], [ %46, %.thread ]
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %6) #24
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %49
 }
 
@@ -2331,7 +2325,7 @@ define internal i32 @selinux_quota_on(ptr noundef %0) #1 align 16 {
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load ptr, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false), !annotation !5
   store i8 10, ptr %2, align 8
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -2389,7 +2383,7 @@ define internal i32 @selinux_quota_on(ptr noundef %0) #1 align 16 {
 
 50:                                               ; preds = %31, %26
   %51 = phi i32 [ %49, %31 ], [ 0, %26 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %51
 }
 
@@ -2439,7 +2433,7 @@ define internal range(i32 0, 2) i32 @selinux_vm_enough_memory(ptr readnone captu
   %5 = inttoptr i64 %4 to ptr
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1784
   %7 = load ptr, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %3, i8 0, i64 20, i1 false), !annotation !5
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 128
   %9 = load ptr, ptr %8, align 8
@@ -2449,7 +2443,7 @@ define internal range(i32 0, 2) i32 @selinux_vm_enough_memory(ptr readnone captu
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %14 = load i32, ptr %13, align 4
   %15 = call i32 @avc_has_perm_noaudit(i32 noundef %14, i32 noundef %14, i16 noundef zeroext 5, i32 noundef 2097152, i32 noundef 0, ptr noundef nonnull %3) #24
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %16 = icmp eq i32 %15, 0
   %17 = zext i1 %16 to i32
   ret i32 %17
@@ -2468,7 +2462,7 @@ define internal i32 @selinux_netlink_send(ptr noundef %0, ptr noundef readonly c
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load i16, ptr %12, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %14 = icmp ugt i32 %7, 15
   br i1 %14, label %15, label %.loopexit
 
@@ -2505,9 +2499,9 @@ define internal i32 @selinux_netlink_send(ptr noundef %0, ptr noundef readonly c
 34:                                               ; preds = %30
   %35 = load i32, ptr %5, align 4
   %36 = load ptr, ptr %10, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false), !annotation !5
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 56, i1 false), !annotation !5
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load i32, ptr %37, align 8
@@ -2522,8 +2516,8 @@ define internal i32 @selinux_netlink_send(ptr noundef %0, ptr noundef readonly c
   br i1 %44, label %.thread, label %45
 
 .thread:                                          ; preds = %34, %40
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #24
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %83
 
 45:                                               ; preds = %40
@@ -2547,8 +2541,8 @@ define internal i32 @selinux_netlink_send(ptr noundef %0, ptr noundef readonly c
   %58 = getelementptr inbounds nuw i8, ptr %36, i64 24
   %59 = load i16, ptr %58, align 8
   %60 = call i32 @avc_has_perm(i32 noundef %56, i32 noundef %57, i16 noundef zeroext %59, i32 noundef %35, ptr noundef nonnull %3) #24
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #24
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %61 = icmp eq i32 %60, 0
   br i1 %61, label %83, label %.loopexit
 
@@ -2595,14 +2589,14 @@ define internal i32 @selinux_netlink_send(ptr noundef %0, ptr noundef readonly c
 
 .loopexit:                                        ; preds = %83, %80, %45, %30, %23, %2
   %93 = phi i32 [ 0, %2 ], [ 0, %83 ], [ %33, %30 ], [ -22, %80 ], [ %60, %45 ], [ 0, %23 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %93
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @selinux_bprm_creds_for_exec(ptr noundef captures(none) %0) #1 align 16 {
   %2 = alloca %struct.common_audit_data, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 168
@@ -2879,7 +2873,7 @@ define internal i32 @selinux_bprm_creds_for_exec(ptr noundef captures(none) %0) 
 
 180:                                              ; preds = %82, %179, %159, %147, %136, %133, %128, %88, %52
   %181 = phi i32 [ 0, %179 ], [ 0, %52 ], [ %92, %88 ], [ %131, %128 ], [ %134, %133 ], [ %140, %136 ], [ -1, %147 ], [ -1, %159 ], [ %87, %82 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %181
 }
 
@@ -2919,7 +2913,7 @@ define internal void @selinux_bprm_committing_creds(ptr noundef readonly capture
 26:                                               ; preds = %21
   %27 = getelementptr i8, ptr %24, i64 -8
   %28 = load ptr, ptr %27, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false), !annotation !5
   store i8 12, ptr %2, align 8
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -2952,7 +2946,7 @@ define internal void @selinux_bprm_committing_creds(ptr noundef readonly capture
   %53 = load i16, ptr %52, align 8
   %54 = call i32 @avc_has_perm(i32 noundef %42, i32 noundef %51, i16 noundef zeroext %53, i32 noundef 6, ptr noundef nonnull %2) #24
   %55 = icmp eq i32 %54, 0
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @_raw_spin_unlock(ptr noundef nonnull %22) #24
   call void @tty_kref_put(ptr noundef nonnull %19) #24
   br i1 %55, label %59, label %56
@@ -2967,7 +2961,7 @@ define internal void @selinux_bprm_committing_creds(ptr noundef readonly capture
   br label %59
 
 58:                                               ; preds = %26
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   tail call void @_raw_spin_unlock(ptr noundef nonnull %22) #24
   tail call void @tty_kref_put(ptr noundef nonnull %19) #24
   br label %59
@@ -3441,7 +3435,7 @@ define internal i32 @selinux_sb_kern_mount(ptr noundef readonly captures(none) %
   %4 = inttoptr i64 %3 to ptr
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1784
   %6 = load ptr, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false), !annotation !5
   store i8 10, ptr %2, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -3462,7 +3456,7 @@ define internal i32 @selinux_sb_kern_mount(ptr noundef readonly captures(none) %
   %21 = getelementptr i8, ptr %18, i64 %20
   %22 = load i32, ptr %21, align 8
   %23 = call i32 @avc_has_perm(i32 noundef %16, i32 noundef %22, i16 noundef zeroext 6, i32 noundef 1, ptr noundef nonnull %2) #24
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %23
 }
 
@@ -3617,7 +3611,7 @@ define internal i32 @selinux_sb_statfs(ptr noundef readonly captures(none) %0) #
   %4 = inttoptr i64 %3 to ptr
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1784
   %6 = load ptr, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false), !annotation !5
   store i8 10, ptr %2, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -3640,7 +3634,7 @@ define internal i32 @selinux_sb_statfs(ptr noundef readonly captures(none) %0) #
   %23 = getelementptr i8, ptr %20, i64 %22
   %24 = load i32, ptr %23, align 8
   %25 = call i32 @avc_has_perm(i32 noundef %18, i32 noundef %24, i16 noundef zeroext 6, i32 noundef 8, ptr noundef nonnull %2) #24
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %25
 }
 
@@ -3679,7 +3673,7 @@ define internal i32 @selinux_mount(ptr readnone captures(none) %0, ptr noundef r
 32:                                               ; preds = %5
   %33 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %34 = load ptr, ptr %33, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false), !annotation !5
   store i8 1, ptr %6, align 8
   %35 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -3737,7 +3731,7 @@ define internal i32 @selinux_mount(ptr readnone captures(none) %0, ptr noundef r
 
 76:                                               ; preds = %57, %52
   %77 = phi i32 [ %75, %57 ], [ 0, %52 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %78
 
 78:                                               ; preds = %76, %15
@@ -4189,7 +4183,7 @@ define internal i32 @selinux_move_mount(ptr readnone captures(none) %0, ptr noun
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %11 = load ptr, ptr %10, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false), !annotation !5
   store i8 1, ptr %3, align 8
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -4247,14 +4241,14 @@ define internal i32 @selinux_move_mount(ptr readnone captures(none) %0, ptr noun
 
 53:                                               ; preds = %34, %29
   %54 = phi i32 [ %52, %34 ], [ 0, %29 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %54
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @selinux_dentry_init_security(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef %4, ptr noundef %5) #1 align 16 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 1784
@@ -4395,14 +4389,14 @@ selinux_determine_inode_label.exit:               ; preds = %57, %64, %72
 
 93:                                               ; preds = %90, %selinux_determine_inode_label.exit
   %94 = phi i32 [ %92, %90 ], [ %85, %selinux_determine_inode_label.exit ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %94
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @selinux_dentry_create_files_as(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4) #1 align 16 {
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %8 = load ptr, ptr %7, align 8
   %9 = load i32, ptr @selinux_blob_sizes, align 4
@@ -4537,7 +4531,7 @@ selinux_determine_inode_label.exit.thread:        ; preds = %48, %42, %selinux_d
 
 86:                                               ; preds = %selinux_determine_inode_label.exit.thread, %selinux_determine_inode_label.exit
   %87 = phi i32 [ 0, %selinux_determine_inode_label.exit.thread ], [ %79, %selinux_determine_inode_label.exit ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %87
 }
 
@@ -4618,10 +4612,10 @@ define internal i32 @selinux_inode_init_security(ptr noundef readonly captures(n
 
 24:                                               ; preds = %19, %5
   %25 = phi ptr [ %23, %19 ], [ null, %5 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #24
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4, !annotation !5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8, !annotation !5
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %27 = load ptr, ptr %26, align 8
@@ -4829,9 +4823,9 @@ selinux_determine_inode_label.exit._crit_edge:    ; preds = %selinux_determine_i
 
 137:                                              ; preds = %131, %127, %125, %121, %118, %selinux_determine_inode_label.exit
   %138 = phi i32 [ %90, %selinux_determine_inode_label.exit ], [ -95, %121 ], [ -95, %118 ], [ %129, %127 ], [ 0, %131 ], [ 0, %125 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #24
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #24
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %138
 }
 
@@ -4847,7 +4841,7 @@ define internal i32 @selinux_inode_init_security_anon(ptr noundef readonly captu
   %11 = load i32, ptr @selinux_blob_sizes, align 4
   %12 = sext i32 %11 to i64
   %13 = getelementptr i8, ptr %10, i64 %12
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %14 = load volatile i8, ptr getelementptr inbounds nuw (i8, ptr @selinux_state, i64 1), align 1, !range !7, !noundef !8
   %15 = icmp eq i8 %14, 0
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #24, !srcloc !9
@@ -4928,7 +4922,7 @@ define internal i32 @selinux_inode_init_security_anon(ptr noundef readonly captu
 
 65:                                               ; preds = %40, %55, %42, %3
   %66 = phi i32 [ %64, %55 ], [ -13, %40 ], [ 0, %3 ], [ %47, %42 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %66
 }
 
@@ -5009,7 +5003,7 @@ define internal i32 @selinux_inode_mknod(ptr noundef %0, ptr noundef %1, i16 nou
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @selinux_inode_rename(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #1 align 16 {
   %5 = alloca %struct.common_audit_data, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false), !annotation !5
   %6 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %7 = inttoptr i64 %6 to ptr
@@ -5211,7 +5205,7 @@ define internal i32 @selinux_inode_rename(ptr noundef %0, ptr noundef %1, ptr no
 
 157:                                              ; preds = %156, %139, %107, %102, %92, %80
   %158 = phi i32 [ 0, %156 ], [ %90, %80 ], [ %97, %92 ], [ %105, %102 ], [ %114, %107 ], [ %154, %139 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %158
 }
 
@@ -5224,7 +5218,7 @@ define internal i32 @selinux_inode_readlink(ptr noundef %0) #1 align 16 {
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load ptr, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false), !annotation !5
   store i8 10, ptr %2, align 8
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -5282,7 +5276,7 @@ define internal i32 @selinux_inode_readlink(ptr noundef %0) #1 align 16 {
 
 50:                                               ; preds = %31, %26
   %51 = phi i32 [ %49, %31 ], [ 0, %26 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %51
 }
 
@@ -5293,7 +5287,7 @@ define internal i32 @selinux_inode_follow_link(ptr noundef %0, ptr noundef %1, i
   %6 = inttoptr i64 %5 to ptr
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1784
   %8 = load ptr, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false), !annotation !5
   store i8 10, ptr %4, align 8
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -5367,7 +5361,7 @@ define internal i32 @selinux_inode_follow_link(ptr noundef %0, ptr noundef %1, i
 
 53:                                               ; preds = %.thread2, %.thread3
   %54 = phi i32 [ %46, %.thread3 ], [ %52, %.thread2 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %54
 }
 
@@ -5380,7 +5374,7 @@ define internal i32 @selinux_inode_permission(ptr noundef %0, i32 noundef %1) #1
   %7 = load ptr, ptr %6, align 8
   %8 = and i32 %1, 128
   %9 = icmp ne i32 %8, 0
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %10 = and i32 %1, 15
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %.thread7, label %12
@@ -5539,7 +5533,7 @@ define internal i32 @selinux_inode_permission(ptr noundef %0, i32 noundef %1) #1
 
 .thread7:                                         ; preds = %93, %113, %109, %.thread8, %12, %2
   %117 = phi i32 [ %82, %.thread8 ], [ 0, %2 ], [ 0, %12 ], [ %88, %109 ], [ %116, %113 ], [ %88, %93 ]
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %117
 }
 
@@ -5570,7 +5564,7 @@ define internal i32 @selinux_inode_setattr(ptr noundef %0, ptr noundef readonly 
   br i1 %20, label %65, label %21
 
 21:                                               ; preds = %17
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false), !annotation !5
   store i8 10, ptr %4, align 8
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -5628,7 +5622,7 @@ define internal i32 @selinux_inode_setattr(ptr noundef %0, ptr noundef readonly 
 
 63:                                               ; preds = %44, %39
   %64 = phi i32 [ %62, %44 ], [ 0, %39 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %123
 
 65:                                               ; preds = %17
@@ -5650,7 +5644,7 @@ define internal i32 @selinux_inode_setattr(ptr noundef %0, ptr noundef readonly 
 
 78:                                               ; preds = %68, %65
   %79 = phi i32 [ 4, %65 ], [ %77, %68 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false), !annotation !5
   store i8 10, ptr %3, align 8
   %80 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -5708,7 +5702,7 @@ define internal i32 @selinux_inode_setattr(ptr noundef %0, ptr noundef readonly 
 
 121:                                              ; preds = %102, %97
   %122 = phi i32 [ %120, %102 ], [ 0, %97 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %123
 
 123:                                              ; preds = %121, %63, %14
@@ -5727,7 +5721,7 @@ define internal i32 @selinux_inode_getattr(ptr noundef readonly captures(none) %
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %10 = load ptr, ptr %9, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false), !annotation !5
   store i8 1, ptr %2, align 8
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -5785,7 +5779,7 @@ define internal i32 @selinux_inode_getattr(ptr noundef readonly captures(none) %
 
 52:                                               ; preds = %33, %28
   %53 = phi i32 [ %51, %33 ], [ 0, %28 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %53
 }
 
@@ -5796,9 +5790,9 @@ define internal i32 @selinux_inode_setxattr(ptr noundef %0, ptr noundef %1, ptr 
   %9 = alloca i32, align 4
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %11 = load ptr, ptr %10, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 0, i64 32, i1 false), !annotation !5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4, !annotation !5
   %12 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %13 = inttoptr i64 %12 to ptr
@@ -5823,7 +5817,7 @@ define internal i32 @selinux_inode_setxattr(ptr noundef %0, ptr noundef %1, ptr 
 28:                                               ; preds = %25
   %29 = load ptr, ptr %14, align 8
   %30 = load ptr, ptr %10, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false), !annotation !5
   store i8 10, ptr %7, align 8
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -5881,7 +5875,7 @@ define internal i32 @selinux_inode_setxattr(ptr noundef %0, ptr noundef %1, ptr 
 
 72:                                               ; preds = %53, %48
   %73 = phi i32 [ %71, %53 ], [ 0, %48 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %168
 
 74:                                               ; preds = %6
@@ -6025,8 +6019,8 @@ define internal i32 @selinux_inode_setxattr(ptr noundef %0, ptr noundef %1, ptr 
 
 168:                                              ; preds = %164, %158, %153, %150, %147, %141, %114, %93, %81, %77, %72, %25
   %169 = phi i32 [ %73, %72 ], [ %167, %164 ], [ %80, %77 ], [ %26, %25 ], [ -95, %81 ], [ -1, %93 ], [ %125, %114 ], [ -22, %141 ], [ -22, %147 ], [ %151, %150 ], [ %156, %153 ], [ %162, %158 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #24
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %169
 }
 
@@ -6035,7 +6029,7 @@ define internal void @selinux_inode_post_setxattr(ptr noundef %0, ptr noundef re
   %6 = alloca i32, align 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load ptr, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %9 = tail call i32 @strcmp(ptr noundef %1, ptr noundef nonnull dereferenceable(17) @.str.21) #24
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %68
@@ -6141,7 +6135,7 @@ define internal void @selinux_inode_post_setxattr(ptr noundef %0, ptr noundef re
   br label %68
 
 68:                                               ; preds = %62, %18, %11, %5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -6154,7 +6148,7 @@ define internal i32 @selinux_inode_getxattr(ptr noundef %0, ptr readnone capture
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %9 = load ptr, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false), !annotation !5
   store i8 10, ptr %3, align 8
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -6212,7 +6206,7 @@ define internal i32 @selinux_inode_getxattr(ptr noundef %0, ptr readnone capture
 
 51:                                               ; preds = %32, %27
   %52 = phi i32 [ %50, %32 ], [ 0, %27 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %52
 }
 
@@ -6225,7 +6219,7 @@ define internal i32 @selinux_inode_listxattr(ptr noundef %0) #1 align 16 {
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load ptr, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false), !annotation !5
   store i8 10, ptr %2, align 8
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -6283,7 +6277,7 @@ define internal i32 @selinux_inode_listxattr(ptr noundef %0) #1 align 16 {
 
 50:                                               ; preds = %31, %26
   %51 = phi i32 [ %49, %31 ], [ 0, %26 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %51
 }
 
@@ -6306,7 +6300,7 @@ define internal i32 @selinux_inode_removexattr(ptr noundef %0, ptr noundef %1, p
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %16 = load ptr, ptr %15, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false), !annotation !5
   store i8 10, ptr %4, align 8
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -6364,7 +6358,7 @@ define internal i32 @selinux_inode_removexattr(ptr noundef %0, ptr noundef %1, p
 
 58:                                               ; preds = %39, %34
   %59 = phi i32 [ %57, %39 ], [ 0, %34 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %64
 
 60:                                               ; preds = %3
@@ -6388,7 +6382,7 @@ define internal i32 @selinux_inode_set_acl(ptr readnone captures(none) %0, ptr n
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %11 = load ptr, ptr %10, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false), !annotation !5
   store i8 10, ptr %5, align 8
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -6446,7 +6440,7 @@ define internal i32 @selinux_inode_set_acl(ptr readnone captures(none) %0, ptr n
 
 53:                                               ; preds = %34, %29
   %54 = phi i32 [ %52, %34 ], [ 0, %29 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %54
 }
 
@@ -6459,7 +6453,7 @@ define internal i32 @selinux_inode_get_acl(ptr readnone captures(none) %0, ptr n
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %10 = load ptr, ptr %9, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false), !annotation !5
   store i8 10, ptr %4, align 8
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -6517,7 +6511,7 @@ define internal i32 @selinux_inode_get_acl(ptr readnone captures(none) %0, ptr n
 
 52:                                               ; preds = %33, %28
   %53 = phi i32 [ %51, %33 ], [ 0, %28 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %53
 }
 
@@ -6530,7 +6524,7 @@ define internal i32 @selinux_inode_remove_acl(ptr readnone captures(none) %0, pt
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %10 = load ptr, ptr %9, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false), !annotation !5
   store i8 10, ptr %4, align 8
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -6588,7 +6582,7 @@ define internal i32 @selinux_inode_remove_acl(ptr readnone captures(none) %0, pt
 
 52:                                               ; preds = %33, %28
   %53 = phi i32 [ %51, %33 ], [ 0, %28 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %53
 }
 
@@ -6597,8 +6591,8 @@ define internal i32 @selinux_inode_getsecurity(ptr readnone captures(none) %0, p
   %6 = alloca %struct.av_decision, align 4
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8
   %9 = load volatile i8, ptr getelementptr inbounds nuw (i8, ptr @selinux_state, i64 1), align 1, !range !7, !noundef !8
   %10 = icmp eq i8 %9, 0
@@ -6651,7 +6645,7 @@ define internal i32 @selinux_inode_getsecurity(ptr readnone captures(none) %0, p
   br i1 %43, label %44, label %58
 
 44:                                               ; preds = %31
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %6) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %6, i8 0, i64 20, i1 false), !annotation !5
   %45 = getelementptr inbounds nuw i8, ptr %41, i64 128
   %46 = load ptr, ptr %45, align 8
@@ -6662,7 +6656,7 @@ define internal i32 @selinux_inode_getsecurity(ptr readnone captures(none) %0, p
   %51 = load i32, ptr %50, align 4
   %52 = call i32 @avc_has_perm_noaudit(i32 noundef %51, i32 noundef %51, i16 noundef zeroext 54, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %6) #24
   %53 = icmp eq i32 %52, 0
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %6) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %53, label %54, label %58
 
 54:                                               ; preds = %44
@@ -6697,8 +6691,8 @@ define internal i32 @selinux_inode_getsecurity(ptr readnone captures(none) %0, p
 
 70:                                               ; preds = %69, %68, %62, %11, %5
   %71 = phi i32 [ -95, %11 ], [ -95, %5 ], [ %63, %62 ], [ %66, %69 ], [ %66, %68 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #24
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %71
 }
 
@@ -6712,7 +6706,7 @@ define internal i32 @selinux_inode_setsecurity(ptr noundef readonly captures(non
   %11 = sext i32 %10 to i64
   %12 = getelementptr i8, ptr %8, i64 %11
   %13 = select i1 %9, ptr null, ptr %12, !prof !10
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %14 = tail call i32 @strcmp(ptr noundef %1, ptr noundef nonnull dereferenceable(8) @.str) #24
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %54
@@ -6792,7 +6786,7 @@ define internal i32 @selinux_inode_setsecurity(ptr noundef readonly captures(non
 
 54:                                               ; preds = %48, %32, %28, %16, %5
   %55 = phi i32 [ 0, %48 ], [ -95, %5 ], [ -95, %16 ], [ -13, %28 ], [ %34, %32 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %55
 }
 
@@ -6819,7 +6813,7 @@ define internal noundef range(i32 0, 18) i32 @selinux_inode_listsecurity(ptr rea
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal void @selinux_inode_getsecid(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) #11 align 16 {
+define internal void @selinux_inode_getsecid(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) #10 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -6873,7 +6867,7 @@ define internal noundef range(i32 -12, 1) i32 @selinux_inode_copy_up(ptr noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal range(i32 -95, 2) i32 @selinux_inode_copy_up_xattr(ptr noundef readonly captures(none) %0) #12 align 16 {
+define internal range(i32 -95, 2) i32 @selinux_inode_copy_up_xattr(ptr noundef readonly captures(none) %0) #11 align 16 {
   %2 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(17) @.str.21) #24
   %3 = icmp eq i32 %2, 0
   %4 = select i1 %3, i32 1, i32 -95
@@ -6884,7 +6878,7 @@ define internal range(i32 -95, 2) i32 @selinux_inode_copy_up_xattr(ptr noundef r
 define internal i32 @selinux_path_notify(ptr noundef readonly captures(none) %0, i64 noundef %1, i32 noundef %2) #1 align 16 {
   %4 = alloca %struct.common_audit_data, align 8
   %5 = alloca %struct.common_audit_data, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false), !annotation !5
   store i8 1, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -6942,7 +6936,7 @@ define internal i32 @selinux_path_notify(ptr noundef readonly captures(none) %0,
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 48
   %49 = load ptr, ptr %48, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false), !annotation !5
   store i8 1, ptr %4, align 8
   %50 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -7000,12 +6994,12 @@ define internal i32 @selinux_path_notify(ptr noundef readonly captures(none) %0,
 
 91:                                               ; preds = %72, %67
   %92 = phi i32 [ %90, %72 ], [ 0, %67 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %93
 
 93:                                               ; preds = %91, %7, %3
   %94 = phi i32 [ %92, %91 ], [ %29, %7 ], [ -22, %3 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %94
 }
 
@@ -7025,10 +7019,10 @@ define internal i32 @selinux_kernfs_init_security(ptr noundef %0, ptr noundef %1
   %14 = load i32, ptr @selinux_blob_sizes, align 4
   %15 = sext i32 %14 to i64
   %16 = getelementptr i8, ptr %13, i64 %15
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #24
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #24
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %17 = tail call i32 @kernfs_xattr_get(ptr noundef %0, ptr noundef nonnull @.str.21, ptr noundef null, i64 noundef 0) #24
   %18 = icmp eq i32 %17, -61
   br i1 %18, label %62, label %19
@@ -7072,7 +7066,7 @@ define internal i32 @selinux_kernfs_init_security(ptr noundef %0, ptr noundef %1
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 114
   %38 = load i16, ptr %37, align 2
   %39 = call fastcc zeroext i16 @inode_mode_to_security_class(i16 noundef zeroext %38), !range !26
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -7084,7 +7078,7 @@ define internal i32 @selinux_kernfs_init_security(ptr noundef %0, ptr noundef %1
   %46 = load i32, ptr %3, align 4
   %47 = call i32 @security_transition_sid(i32 noundef %45, i32 noundef %46, i16 noundef zeroext %39, ptr noundef nonnull %7, ptr noundef nonnull %4) #24
   %48 = icmp eq i32 %47, 0
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %48, label %._crit_edge, label %62
 
 ._crit_edge:                                      ; preds = %36
@@ -7113,10 +7107,10 @@ define internal i32 @selinux_kernfs_init_security(ptr noundef %0, ptr noundef %1
 
 62:                                               ; preds = %59, %49, %36, %28, %21, %19, %2
   %63 = phi i32 [ %47, %36 ], [ 0, %2 ], [ %17, %19 ], [ -12, %21 ], [ %29, %28 ], [ %51, %49 ], [ %61, %59 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #24
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #24
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #24
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %63
 }
 
@@ -7248,7 +7242,7 @@ define internal i32 @selinux_file_permission(ptr noundef %0, i32 noundef %1) #1 
   %101 = load i32, ptr getelementptr inbounds nuw (i8, ptr @selinux_blob_sizes, i64 4), align 4
   %102 = sext i32 %101 to i64
   %103 = getelementptr i8, ptr %100, i64 %102
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false), !annotation !5
   %104 = getelementptr inbounds nuw i8, ptr %61, i64 128
   %105 = load ptr, ptr %104, align 8
@@ -7303,7 +7297,7 @@ define internal i32 @selinux_file_permission(ptr noundef %0, i32 noundef %1) #1 
 
 143:                                              ; preds = %124, %119, %117, %114
   %144 = phi i32 [ %115, %114 ], [ 0, %117 ], [ %142, %124 ], [ 0, %119 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %145
 
 145:                                              ; preds = %143, %55, %2
@@ -7312,7 +7306,7 @@ define internal i32 @selinux_file_permission(ptr noundef %0, i32 noundef %1) #1 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define internal noundef i32 @selinux_file_alloc_security(ptr noundef readonly captures(none) %0) #13 align 16 {
+define internal noundef i32 @selinux_file_alloc_security(ptr noundef readonly captures(none) %0) #12 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @selinux_blob_sizes, i64 4), align 4
@@ -7371,7 +7365,7 @@ define internal i32 @selinux_file_ioctl(ptr noundef %0, i32 noundef %1, i64 %2) 
   %18 = getelementptr i8, ptr %15, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %20 = load ptr, ptr %19, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 0, i64 32, i1 false), !annotation !5
   %21 = getelementptr inbounds nuw i8, ptr %12, i64 128
   %22 = load ptr, ptr %21, align 8
@@ -7422,7 +7416,7 @@ define internal i32 @selinux_file_ioctl(ptr noundef %0, i32 noundef %1, i64 %2) 
 
 58:                                               ; preds = %39, %34, %31
   %59 = phi i32 [ %32, %31 ], [ %57, %39 ], [ 0, %34 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %166
 
 60:                                               ; preds = %3, %3
@@ -7433,7 +7427,7 @@ define internal i32 @selinux_file_ioctl(ptr noundef %0, i32 noundef %1, i64 %2) 
   %65 = getelementptr i8, ptr %62, i64 %64
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %67 = load ptr, ptr %66, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false), !annotation !5
   %68 = getelementptr inbounds nuw i8, ptr %12, i64 128
   %69 = load ptr, ptr %68, align 8
@@ -7484,7 +7478,7 @@ define internal i32 @selinux_file_ioctl(ptr noundef %0, i32 noundef %1, i64 %2) 
 
 105:                                              ; preds = %86, %81, %78
   %106 = phi i32 [ %79, %78 ], [ %104, %86 ], [ 0, %81 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %166
 
 107:                                              ; preds = %3, %3
@@ -7493,7 +7487,7 @@ define internal i32 @selinux_file_ioctl(ptr noundef %0, i32 noundef %1, i64 %2) 
   %110 = load i32, ptr getelementptr inbounds nuw (i8, ptr @selinux_blob_sizes, i64 4), align 4
   %111 = sext i32 %110 to i64
   %112 = getelementptr i8, ptr %109, i64 %111
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false), !annotation !5
   %113 = getelementptr inbounds nuw i8, ptr %12, i64 128
   %114 = load ptr, ptr %113, align 8
@@ -7519,14 +7513,14 @@ define internal i32 @selinux_file_ioctl(ptr noundef %0, i32 noundef %1, i64 %2) 
 
 127:                                              ; preds = %126, %123
   %128 = phi i32 [ %124, %123 ], [ 0, %126 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %166
 
 129:                                              ; preds = %3, %3
   %.sink13.sroa.gep = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false), !annotation !5
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %5, i8 0, i64 20, i1 false), !annotation !5
   %130 = getelementptr inbounds nuw i8, ptr %12, i64 128
   %131 = load ptr, ptr %130, align 8
@@ -7569,8 +7563,8 @@ define internal i32 @selinux_file_ioctl(ptr noundef %0, i32 noundef %1, i64 %2) 
 
 153:                                              ; preds = %.thread, %.thread11
   %154 = phi i32 [ %138, %.thread11 ], [ %.fr, %.thread ]
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5) #24
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %166
 
 155:                                              ; preds = %3, %3
@@ -7627,7 +7621,7 @@ define internal i32 @selinux_file_ioctl_compat(ptr noundef %0, i32 noundef %1, i
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @selinux_mmap_file(ptr noundef %0, i64 %1, i64 noundef %2, i64 noundef %3) #1 align 16 {
   %5 = alloca %struct.common_audit_data, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false), !annotation !5
   %6 = icmp eq ptr %0, null
   br i1 %6, label %.split, label %25
@@ -7703,7 +7697,7 @@ define internal i32 @selinux_mmap_file(ptr noundef %0, i64 %1, i64 noundef %2, i
 
 file_map_prot_check.exit:                         ; preds = %13, %.split, %.split1, %34
   %62 = phi i32 [ %56, %34 ], [ %61, %.split1 ], [ %24, %13 ], [ 0, %.split ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %62
 }
 
@@ -7828,7 +7822,7 @@ define internal i32 @selinux_file_mprotect(ptr noundef %0, i64 %1, i64 noundef %
   %69 = getelementptr i8, ptr %66, i64 %68
   %70 = getelementptr inbounds nuw i8, ptr %60, i64 168
   %71 = load ptr, ptr %70, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false), !annotation !5
   %72 = load ptr, ptr %9, align 8
   %73 = load i32, ptr @selinux_blob_sizes, align 4
@@ -7878,7 +7872,7 @@ define internal i32 @selinux_file_mprotect(ptr noundef %0, i64 %1, i64 noundef %
 
 108:                                              ; preds = %89, %84, %81
   %109 = phi i32 [ %82, %81 ], [ %107, %89 ], [ 0, %84 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %110
 
 110:                                              ; preds = %108, %56, %39
@@ -7915,7 +7909,7 @@ define internal i32 @selinux_file_lock(ptr noundef %0, i32 %1) #1 align 16 {
   %12 = getelementptr i8, ptr %9, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %14 = load ptr, ptr %13, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false), !annotation !5
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 128
   %16 = load ptr, ptr %15, align 8
@@ -7966,7 +7960,7 @@ define internal i32 @selinux_file_lock(ptr noundef %0, i32 %1) #1 align 16 {
 
 52:                                               ; preds = %33, %28, %25
   %53 = phi i32 [ %26, %25 ], [ %51, %33 ], [ 0, %28 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %53
 }
 
@@ -8013,7 +8007,7 @@ define internal i32 @selinux_file_fcntl(ptr noundef %0, i32 noundef %1, i64 noun
   %24 = getelementptr i8, ptr %21, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %26 = load ptr, ptr %25, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false), !annotation !5
   %27 = getelementptr inbounds nuw i8, ptr %10, i64 128
   %28 = load ptr, ptr %27, align 8
@@ -8064,7 +8058,7 @@ define internal i32 @selinux_file_fcntl(ptr noundef %0, i32 noundef %1, i64 noun
 
 64:                                               ; preds = %45, %40, %37
   %65 = phi i32 [ %38, %37 ], [ %63, %45 ], [ 0, %40 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %135
 
 66:                                               ; preds = %11, %3, %3, %3, %3, %3, %3
@@ -8073,7 +8067,7 @@ define internal i32 @selinux_file_fcntl(ptr noundef %0, i32 noundef %1, i64 noun
   %69 = load i32, ptr getelementptr inbounds nuw (i8, ptr @selinux_blob_sizes, i64 4), align 4
   %70 = sext i32 %69 to i64
   %71 = getelementptr i8, ptr %68, i64 %70
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false), !annotation !5
   %72 = getelementptr inbounds nuw i8, ptr %10, i64 128
   %73 = load ptr, ptr %72, align 8
@@ -8099,7 +8093,7 @@ define internal i32 @selinux_file_fcntl(ptr noundef %0, i32 noundef %1, i64 noun
 
 86:                                               ; preds = %85, %82
   %87 = phi i32 [ %83, %82 ], [ 0, %85 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %135
 
 88:                                               ; preds = %3, %3, %3, %3, %3, %3
@@ -8110,7 +8104,7 @@ define internal i32 @selinux_file_fcntl(ptr noundef %0, i32 noundef %1, i64 noun
   %93 = getelementptr i8, ptr %90, i64 %92
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %95 = load ptr, ptr %94, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false), !annotation !5
   %96 = getelementptr inbounds nuw i8, ptr %10, i64 128
   %97 = load ptr, ptr %96, align 8
@@ -8161,7 +8155,7 @@ define internal i32 @selinux_file_fcntl(ptr noundef %0, i32 noundef %1, i64 noun
 
 133:                                              ; preds = %114, %109, %106
   %134 = phi i32 [ %107, %106 ], [ %132, %114 ], [ 0, %109 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %135
 
 135:                                              ; preds = %133, %86, %64, %3
@@ -8170,7 +8164,7 @@ define internal i32 @selinux_file_fcntl(ptr noundef %0, i32 noundef %1, i64 noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define internal void @selinux_file_set_fowner(ptr noundef readonly captures(none) %0) #13 align 16 {
+define internal void @selinux_file_set_fowner(ptr noundef readonly captures(none) %0) #12 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @selinux_blob_sizes, i64 4), align 4
@@ -8273,7 +8267,7 @@ define internal i32 @selinux_file_receive(ptr noundef %0) #1 align 16 {
   %29 = getelementptr i8, ptr %26, i64 %28
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %31 = load ptr, ptr %30, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false), !annotation !5
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %33 = load ptr, ptr %32, align 8
@@ -8324,7 +8318,7 @@ define internal i32 @selinux_file_receive(ptr noundef %0) #1 align 16 {
 
 69:                                               ; preds = %50, %45, %42
   %70 = phi i32 [ %43, %42 ], [ %68, %50 ], [ 0, %45 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %70
 }
 
@@ -8420,7 +8414,7 @@ define internal i32 @selinux_file_open(ptr noundef %0) #1 align 16 {
 
 69:                                               ; preds = %61, %55
   %70 = phi i32 [ %57, %55 ], [ %68, %61 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false), !annotation !5
   store i8 12, ptr %2, align 8
   %71 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -8455,7 +8449,7 @@ define internal i32 @selinux_file_open(ptr noundef %0) #1 align 16 {
 
 96:                                               ; preds = %76, %69
   %97 = phi i32 [ %95, %76 ], [ 0, %69 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %97
 }
 
@@ -8477,7 +8471,7 @@ define internal i32 @selinux_task_alloc(ptr readnone captures(none) %0, i64 %1) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
-define internal noundef i32 @selinux_cred_prepare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 %2) #14 align 16 {
+define internal noundef i32 @selinux_cred_prepare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 %2) #13 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %5 = load ptr, ptr %4, align 8
   %6 = load i32, ptr @selinux_blob_sizes, align 4
@@ -8491,7 +8485,7 @@ define internal noundef i32 @selinux_cred_prepare(ptr noundef readonly captures(
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
-define internal void @selinux_cred_transfer(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #14 align 16 {
+define internal void @selinux_cred_transfer(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #13 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr @selinux_blob_sizes, align 4
@@ -8505,7 +8499,7 @@ define internal void @selinux_cred_transfer(ptr noundef readonly captures(none) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal void @selinux_cred_getsecid(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) #11 align 16 {
+define internal void @selinux_cred_getsecid(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) #10 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr @selinux_blob_sizes, align 4
@@ -8617,7 +8611,7 @@ define internal i32 @selinux_kernel_create_files_as(ptr noundef readonly capture
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @selinux_kernel_module_request(ptr noundef %0) #1 align 16 {
   %2 = alloca %struct.common_audit_data, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false), !annotation !5
   store i8 8, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -8634,7 +8628,7 @@ define internal i32 @selinux_kernel_module_request(ptr noundef %0) #1 align 16 {
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %14 = load i32, ptr %13, align 4
   %15 = call i32 @avc_has_perm(i32 noundef %14, i32 noundef 1, i16 noundef zeroext 4, i32 noundef 16, ptr noundef nonnull %2) #24
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %15
 }
 
@@ -8670,7 +8664,7 @@ define internal i32 @selinux_kernel_read_file(ptr noundef %0, i32 noundef %1, i1
   br i1 %5, label %6, label %63
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false), !annotation !5
   %7 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %8 = inttoptr i64 %7 to ptr
@@ -8749,7 +8743,7 @@ define internal i32 @selinux_kernel_read_file(ptr noundef %0, i32 noundef %1, i1
 
 selinux_kernel_module_from_file.exit:             ; preds = %19, %30, %52
   %62 = phi i32 [ %20, %19 ], [ %61, %52 ], [ %31, %30 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %63
 
 63:                                               ; preds = %selinux_kernel_module_from_file.exit, %3
@@ -8842,7 +8836,7 @@ define internal i32 @selinux_task_getsid(ptr noundef %0) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal void @selinux_current_getsecid_subj(ptr noundef writeonly captures(none) initializes((0, 4)) %0) #15 align 16 {
+define internal void @selinux_current_getsecid_subj(ptr noundef writeonly captures(none) initializes((0, 4)) %0) #14 align 16 {
   %2 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %3 = inttoptr i64 %2 to ptr
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1784
@@ -9274,7 +9268,7 @@ define internal i32 @selinux_ipc_permission(ptr noundef readonly captures(none) 
   %12 = select i1 %9, i32 0, i32 128
   %13 = or disjoint i32 %12, 256
   %14 = select i1 %11, i32 %12, i32 %13
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false), !annotation !5
   %15 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %16 = inttoptr i64 %15 to ptr
@@ -9301,7 +9295,7 @@ define internal i32 @selinux_ipc_permission(ptr noundef readonly captures(none) 
   %35 = load i32, ptr %34, align 4
   %36 = load i16, ptr %30, align 4
   %37 = call i32 @avc_has_perm(i32 noundef %25, i32 noundef %35, i16 noundef zeroext %36, i32 noundef %14, ptr noundef nonnull %3) #24
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %38
 
 38:                                               ; preds = %7, %2
@@ -9310,7 +9304,7 @@ define internal i32 @selinux_ipc_permission(ptr noundef readonly captures(none) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal void @selinux_ipc_getsecid(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) #11 align 16 {
+define internal void @selinux_ipc_getsecid(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) #10 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 16
   %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @selinux_blob_sizes, i64 16), align 4
@@ -9325,7 +9319,7 @@ define internal void @selinux_ipc_getsecid(ptr noundef readonly captures(none) %
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @selinux_msg_queue_associate(ptr noundef readonly captures(none) %0, i32 %1) #1 align 16 {
   %3 = alloca %struct.common_audit_data, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false), !annotation !5
   %4 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %5 = inttoptr i64 %4 to ptr
@@ -9351,7 +9345,7 @@ define internal i32 @selinux_msg_queue_associate(ptr noundef readonly captures(n
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %24 = load i32, ptr %23, align 4
   %25 = call i32 @avc_has_perm(i32 noundef %14, i32 noundef %24, i16 noundef zeroext 28, i32 noundef 64, ptr noundef nonnull %3) #24
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %25
 }
 
@@ -9391,7 +9385,7 @@ define internal i32 @selinux_msg_queue_msgctl(ptr noundef readonly captures(none
 
 19:                                               ; preds = %18, %17, %2, %2, %2
   %20 = phi i32 [ 2, %18 ], [ 8, %17 ], [ 68, %2 ], [ 68, %2 ], [ 68, %2 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false), !annotation !5
   %21 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %22 = inttoptr i64 %21 to ptr
@@ -9418,7 +9412,7 @@ define internal i32 @selinux_msg_queue_msgctl(ptr noundef readonly captures(none
   %41 = load i32, ptr %40, align 4
   %42 = load i16, ptr %36, align 4
   %43 = call i32 @avc_has_perm(i32 noundef %31, i32 noundef %41, i16 noundef zeroext %42, i32 noundef %20, ptr noundef nonnull %3) #24
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %44
 
 44:                                               ; preds = %19, %4, %2
@@ -9429,7 +9423,7 @@ define internal i32 @selinux_msg_queue_msgctl(ptr noundef readonly captures(none
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @selinux_msg_queue_msgsnd(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 %2) #1 align 16 {
   %4 = alloca %struct.common_audit_data, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false), !annotation !5
   %5 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %6 = inttoptr i64 %5 to ptr
@@ -9489,14 +9483,14 @@ define internal i32 @selinux_msg_queue_msgsnd(ptr noundef readonly captures(none
 
 .thread:                                          ; preds = %33, %45, %41, %28
   %49 = phi i32 [ %31, %28 ], [ %43, %41 ], [ %48, %45 ], [ %39, %33 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %49
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @selinux_msg_queue_msgrcv(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i64 %3, i32 %4) #1 align 16 {
   %6 = alloca %struct.common_audit_data, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false), !annotation !5
   tail call void @__rcu_read_lock() #24
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 1776
@@ -9537,14 +9531,14 @@ define internal i32 @selinux_msg_queue_msgrcv(ptr noundef readonly captures(none
 
 36:                                               ; preds = %31, %5
   %37 = phi i32 [ %29, %5 ], [ %35, %31 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %37
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @selinux_shm_associate(ptr noundef readonly captures(none) %0, i32 %1) #1 align 16 {
   %3 = alloca %struct.common_audit_data, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false), !annotation !5
   %4 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %5 = inttoptr i64 %4 to ptr
@@ -9570,7 +9564,7 @@ define internal i32 @selinux_shm_associate(ptr noundef readonly captures(none) %
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %24 = load i32, ptr %23, align 4
   %25 = call i32 @avc_has_perm(i32 noundef %14, i32 noundef %24, i16 noundef zeroext 29, i32 noundef 64, ptr noundef nonnull %3) #24
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %25
 }
 
@@ -9615,7 +9609,7 @@ define internal i32 @selinux_shm_shmctl(ptr noundef readonly captures(none) %0, 
 
 20:                                               ; preds = %19, %18, %17, %2, %2, %2
   %21 = phi i32 [ 2, %19 ], [ 512, %18 ], [ 8, %17 ], [ 68, %2 ], [ 68, %2 ], [ 68, %2 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false), !annotation !5
   %22 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %23 = inttoptr i64 %22 to ptr
@@ -9642,7 +9636,7 @@ define internal i32 @selinux_shm_shmctl(ptr noundef readonly captures(none) %0, 
   %42 = load i32, ptr %41, align 4
   %43 = load i16, ptr %37, align 4
   %44 = call i32 @avc_has_perm(i32 noundef %32, i32 noundef %42, i16 noundef zeroext %43, i32 noundef %21, ptr noundef nonnull %3) #24
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %45
 
 45:                                               ; preds = %20, %4, %2
@@ -9656,7 +9650,7 @@ define internal i32 @selinux_shm_shmat(ptr noundef readonly captures(none) %0, p
   %5 = and i32 %2, 4096
   %6 = icmp eq i32 %5, 0
   %7 = select i1 %6, i32 48, i32 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false), !annotation !5
   %8 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %9 = inttoptr i64 %8 to ptr
@@ -9683,14 +9677,14 @@ define internal i32 @selinux_shm_shmat(ptr noundef readonly captures(none) %0, p
   %28 = load i32, ptr %27, align 4
   %29 = load i16, ptr %23, align 4
   %30 = call i32 @avc_has_perm(i32 noundef %18, i32 noundef %28, i16 noundef zeroext %29, i32 noundef %7, ptr noundef nonnull %4) #24
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %30
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @selinux_sem_associate(ptr noundef readonly captures(none) %0, i32 %1) #1 align 16 {
   %3 = alloca %struct.common_audit_data, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false), !annotation !5
   %4 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %5 = inttoptr i64 %4 to ptr
@@ -9716,7 +9710,7 @@ define internal i32 @selinux_sem_associate(ptr noundef readonly captures(none) %
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %24 = load i32, ptr %23, align 4
   %25 = call i32 @avc_has_perm(i32 noundef %14, i32 noundef %24, i16 noundef zeroext 26, i32 noundef 64, ptr noundef nonnull %3) #24
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %25
 }
 
@@ -9772,7 +9766,7 @@ define internal i32 @selinux_sem_semctl(ptr noundef readonly captures(none) %0, 
 
 22:                                               ; preds = %21, %20, %19, %18, %17, %2, %2, %2
   %23 = phi i32 [ 68, %21 ], [ 8, %20 ], [ 2, %19 ], [ 32, %18 ], [ 16, %17 ], [ 4, %2 ], [ 4, %2 ], [ 4, %2 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false), !annotation !5
   %24 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %25 = inttoptr i64 %24 to ptr
@@ -9799,7 +9793,7 @@ define internal i32 @selinux_sem_semctl(ptr noundef readonly captures(none) %0, 
   %44 = load i32, ptr %43, align 4
   %45 = load i16, ptr %39, align 4
   %46 = call i32 @avc_has_perm(i32 noundef %34, i32 noundef %44, i16 noundef zeroext %45, i32 noundef %23, ptr noundef nonnull %3) #24
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %47
 
 47:                                               ; preds = %22, %4, %2
@@ -9812,7 +9806,7 @@ define internal i32 @selinux_sem_semop(ptr noundef readonly captures(none) %0, p
   %5 = alloca %struct.common_audit_data, align 8
   %6 = icmp eq i32 %3, 0
   %7 = select i1 %6, i32 16, i32 48
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false), !annotation !5
   %8 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %9 = inttoptr i64 %8 to ptr
@@ -9839,7 +9833,7 @@ define internal i32 @selinux_sem_semop(ptr noundef readonly captures(none) %0, p
   %28 = load i32, ptr %27, align 4
   %29 = load i16, ptr %23, align 4
   %30 = call i32 @avc_has_perm(i32 noundef %18, i32 noundef %28, i16 noundef zeroext %29, i32 noundef %7, ptr noundef nonnull %5) #24
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
@@ -9859,7 +9853,7 @@ define internal void @selinux_d_instantiate(ptr noundef %0, ptr noundef %1) #1 a
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i32 1, 0) i32 @selinux_getselfattr(i32 noundef %0, ptr noundef %1, ptr noundef %2, i32 %3) #1 align 16 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8
   %6 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %7 = inttoptr i64 %6 to ptr
@@ -9878,7 +9872,7 @@ define internal range(i32 1, 0) i32 @selinux_getselfattr(i32 noundef %0, ptr nou
 
 16:                                               ; preds = %10, %4
   %17 = phi i32 [ %15, %10 ], [ %8, %4 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %17
 }
 
@@ -9932,7 +9926,7 @@ define internal i32 @selinux_setprocattr(ptr noundef %0, ptr noundef %1, i64 nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal range(i32 0, 2) i32 @selinux_ismaclabel(ptr noundef readonly captures(none) %0) #12 align 16 {
+define internal range(i32 0, 2) i32 @selinux_ismaclabel(ptr noundef readonly captures(none) %0) #11 align 16 {
   %2 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(8) @.str) #24
   %3 = icmp eq i32 %2, 0
   %4 = zext i1 %3 to i32
@@ -9994,9 +9988,9 @@ define internal i32 @selinux_socket_unix_stream_connect(ptr noundef readonly cap
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 640
   %11 = load ptr, ptr %10, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false), !annotation !5
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false), !annotation !5
   store i8 2, ptr %4, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -10031,8 +10025,8 @@ define internal i32 @selinux_socket_unix_stream_connect(ptr noundef readonly cap
 
 32:                                               ; preds = %29, %22, %3
   %33 = phi i32 [ 0, %29 ], [ %20, %3 ], [ %27, %22 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #24
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %33
 }
 
@@ -10048,9 +10042,9 @@ define internal i32 @selinux_socket_unix_may_send(ptr noundef readonly captures(
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 640
   %12 = load ptr, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false), !annotation !5
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 56, i1 false), !annotation !5
   store i8 2, ptr %3, align 8
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -10064,8 +10058,8 @@ define internal i32 @selinux_socket_unix_may_send(ptr noundef readonly captures(
   %19 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %20 = load i16, ptr %19, align 8
   %21 = call i32 @avc_has_perm(i32 noundef %16, i32 noundef %18, i16 noundef zeroext %20, i32 noundef 524288, ptr noundef nonnull %3) #24
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #24
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %21
 }
 
@@ -10081,7 +10075,7 @@ define internal i32 @selinux_socket_create(i32 noundef %0, i32 noundef %1, i32 n
   %12 = load i32, ptr @selinux_blob_sizes, align 4
   %13 = sext i32 %12 to i64
   %14 = getelementptr i8, ptr %11, i64 %13
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %15 = icmp eq i32 %3, 0
   br i1 %15, label %16, label %31
 
@@ -10117,7 +10111,7 @@ define internal i32 @selinux_socket_create(i32 noundef %0, i32 noundef %1, i32 n
 
 31:                                               ; preds = %26, %21, %4
   %32 = phi i32 [ %30, %26 ], [ 0, %4 ], [ %24, %21 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %32
 }
 
@@ -10141,7 +10135,7 @@ define internal i32 @selinux_socket_post_create(ptr noundef readonly captures(no
   %21 = getelementptr i8, ptr %17, i64 %20
   %22 = select i1 %18, ptr null, ptr %21, !prof !10
   %23 = tail call fastcc zeroext i16 @socket_type_to_security_class(i32 noundef %1, i32 noundef %2, i32 noundef %3), !range !27
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 1, ptr %6, align 4
   %24 = icmp eq i32 %4, 0
   br i1 %24, label %25, label %34
@@ -10203,12 +10197,12 @@ define internal i32 @selinux_socket_post_create(ptr noundef readonly captures(no
 
 54:                                               ; preds = %50, %34, %29
   %55 = phi i32 [ %32, %29 ], [ %53, %50 ], [ 0, %34 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %55
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
-define internal noundef i32 @selinux_socket_socketpair(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #14 align 16 {
+define internal noundef i32 @selinux_socket_socketpair(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #13 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 640
@@ -10239,9 +10233,9 @@ define internal i32 @selinux_socket_bind(ptr noundef readonly captures(none) %0,
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 640
   %12 = load ptr, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false), !annotation !5
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false), !annotation !5
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load i32, ptr %13, align 8
@@ -10256,8 +10250,8 @@ define internal i32 @selinux_socket_bind(ptr noundef readonly captures(none) %0,
   br i1 %20, label %.thread, label %21
 
 .thread:                                          ; preds = %3, %16
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #24
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %40
 
 21:                                               ; preds = %16
@@ -10283,8 +10277,8 @@ define internal i32 @selinux_socket_bind(ptr noundef readonly captures(none) %0,
   %36 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %37 = load i16, ptr %36, align 8
   %38 = call i32 @avc_has_perm(i32 noundef %35, i32 noundef %14, i16 noundef zeroext %37, i32 noundef 2048, ptr noundef nonnull %4) #24
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #24
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %40, label %127
 
@@ -10298,11 +10292,11 @@ define internal i32 @selinux_socket_bind(ptr noundef readonly captures(none) %0,
   ]
 
 44:                                               ; preds = %40, %40
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false), !annotation !5
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 56, i1 false)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4, !annotation !5
   %45 = icmp ult i32 %2, 2
   br i1 %45, label %.thread12, label %46
@@ -10428,22 +10422,22 @@ define internal i32 @selinux_socket_bind(ptr noundef readonly captures(none) %0,
   br label %.thread9
 
 .thread12:                                        ; preds = %44, %48, %59, %53
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #24
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7) #24
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %127
 
 .thread9:                                         ; preds = %117, %95, %89, %102
   %.ph14 = phi i32 [ %104, %102 ], [ %100, %95 ], [ %93, %89 ], [ %121, %117 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #24
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7) #24
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %127
 
 122:                                              ; preds = %46, %55, %53
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #24
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7) #24
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %123 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %124 = load i16, ptr %123, align 8
   %125 = icmp eq i16 %124, 60
@@ -10480,9 +10474,9 @@ define internal i32 @selinux_socket_listen(ptr noundef readonly captures(none) %
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 640
   %8 = load ptr, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false), !annotation !5
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 56, i1 false), !annotation !5
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load i32, ptr %9, align 8
@@ -10523,8 +10517,8 @@ define internal i32 @selinux_socket_listen(ptr noundef readonly captures(none) %
 
 35:                                               ; preds = %17, %12, %2
   %36 = phi i32 [ %34, %17 ], [ 0, %2 ], [ 0, %12 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #24
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %36
 }
 
@@ -10536,9 +10530,9 @@ define internal i32 @selinux_socket_accept(ptr noundef readonly captures(none) %
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 640
   %8 = load ptr, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false), !annotation !5
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 56, i1 false), !annotation !5
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load i32, ptr %9, align 8
@@ -10553,8 +10547,8 @@ define internal i32 @selinux_socket_accept(ptr noundef readonly captures(none) %
   br i1 %16, label %.thread, label %17
 
 .thread:                                          ; preds = %2, %12
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #24
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %36
 
 17:                                               ; preds = %12
@@ -10580,8 +10574,8 @@ define internal i32 @selinux_socket_accept(ptr noundef readonly captures(none) %
   %32 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %33 = load i16, ptr %32, align 8
   %34 = call i32 @avc_has_perm(i32 noundef %31, i32 noundef %10, i16 noundef zeroext %33, i32 noundef 16384, ptr noundef nonnull %3) #24
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #24
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %36, label %59
 
@@ -10628,9 +10622,9 @@ define internal i32 @selinux_socket_sendmsg(ptr noundef readonly captures(none) 
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 640
   %9 = load ptr, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false), !annotation !5
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false), !annotation !5
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load i32, ptr %10, align 8
@@ -10671,8 +10665,8 @@ define internal i32 @selinux_socket_sendmsg(ptr noundef readonly captures(none) 
 
 36:                                               ; preds = %18, %13, %3
   %37 = phi i32 [ %35, %18 ], [ 0, %3 ], [ 0, %13 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #24
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %37
 }
 
@@ -10684,9 +10678,9 @@ define internal i32 @selinux_socket_recvmsg(ptr noundef readonly captures(none) 
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 640
   %10 = load ptr, ptr %9, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false), !annotation !5
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %6, i8 0, i64 56, i1 false), !annotation !5
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load i32, ptr %11, align 8
@@ -10727,8 +10721,8 @@ define internal i32 @selinux_socket_recvmsg(ptr noundef readonly captures(none) 
 
 37:                                               ; preds = %19, %14, %4
   %38 = phi i32 [ %36, %19 ], [ 0, %4 ], [ 0, %14 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #24
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %38
 }
 
@@ -10740,9 +10734,9 @@ define internal i32 @selinux_socket_getsockname(ptr noundef readonly captures(no
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 640
   %7 = load ptr, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false), !annotation !5
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false), !annotation !5
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load i32, ptr %8, align 8
@@ -10783,8 +10777,8 @@ define internal i32 @selinux_socket_getsockname(ptr noundef readonly captures(no
 
 34:                                               ; preds = %16, %11, %1
   %35 = phi i32 [ %33, %16 ], [ 0, %1 ], [ 0, %11 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3) #24
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %35
 }
 
@@ -10796,9 +10790,9 @@ define internal i32 @selinux_socket_getpeername(ptr noundef readonly captures(no
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 640
   %7 = load ptr, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false), !annotation !5
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false), !annotation !5
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load i32, ptr %8, align 8
@@ -10839,8 +10833,8 @@ define internal i32 @selinux_socket_getpeername(ptr noundef readonly captures(no
 
 34:                                               ; preds = %16, %11, %1
   %35 = phi i32 [ %33, %16 ], [ 0, %1 ], [ 0, %11 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3) #24
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %35
 }
 
@@ -10852,9 +10846,9 @@ define internal i32 @selinux_socket_getsockopt(ptr noundef readonly captures(non
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 640
   %9 = load ptr, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false), !annotation !5
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false), !annotation !5
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load i32, ptr %10, align 8
@@ -10895,8 +10889,8 @@ define internal i32 @selinux_socket_getsockopt(ptr noundef readonly captures(non
 
 36:                                               ; preds = %18, %13, %3
   %37 = phi i32 [ %35, %18 ], [ 0, %3 ], [ 0, %13 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #24
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %37
 }
 
@@ -10908,9 +10902,9 @@ define internal i32 @selinux_socket_setsockopt(ptr noundef %0, i32 noundef %1, i
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 640
   %9 = load ptr, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false), !annotation !5
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false), !annotation !5
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load i32, ptr %10, align 8
@@ -10925,8 +10919,8 @@ define internal i32 @selinux_socket_setsockopt(ptr noundef %0, i32 noundef %1, i
   br i1 %17, label %.thread, label %18
 
 .thread:                                          ; preds = %3, %13
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #24
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %37
 
 18:                                               ; preds = %13
@@ -10952,8 +10946,8 @@ define internal i32 @selinux_socket_setsockopt(ptr noundef %0, i32 noundef %1, i
   %33 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %34 = load i16, ptr %33, align 8
   %35 = call i32 @avc_has_perm(i32 noundef %32, i32 noundef %11, i16 noundef zeroext %34, i32 noundef 65536, ptr noundef nonnull %4) #24
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #24
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %37, label %39
 
@@ -10974,9 +10968,9 @@ define internal i32 @selinux_socket_shutdown(ptr noundef readonly captures(none)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 640
   %8 = load ptr, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false), !annotation !5
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 56, i1 false), !annotation !5
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load i32, ptr %9, align 8
@@ -11017,8 +11011,8 @@ define internal i32 @selinux_socket_shutdown(ptr noundef readonly captures(none)
 
 35:                                               ; preds = %17, %12, %2
   %36 = phi i32 [ %34, %17 ], [ 0, %2 ], [ 0, %12 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #24
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %36
 }
 
@@ -11039,9 +11033,9 @@ define internal i32 @selinux_socket_sock_rcv_skb(ptr noundef readonly captures(n
   %15 = load i16, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %17 = load i32, ptr %16, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #24
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %9) #24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %18 = and i16 %15, -9
   %19 = icmp eq i16 %18, 2
   br i1 %19, label %20, label %107
@@ -11067,11 +11061,11 @@ define internal i32 @selinux_socket_sock_rcv_skb(ptr noundef readonly captures(n
   br i1 %30, label %31, label %54
 
 31:                                               ; preds = %27
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false), !annotation !5
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %6, i8 0, i64 56, i1 false), !annotation !5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %33 = load i32, ptr %32, align 8
   store i8 2, ptr %5, align 8
@@ -11109,9 +11103,9 @@ define internal i32 @selinux_socket_sock_rcv_skb(ptr noundef readonly captures(n
 
 52:                                               ; preds = %50, %45, %31
   %53 = phi i32 [ %37, %31 ], [ %48, %45 ], [ %51, %50 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #24
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #24
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %107
 
 54:                                               ; preds = %27
@@ -11156,11 +11150,11 @@ define internal i32 @selinux_socket_sock_rcv_skb(ptr noundef readonly captures(n
   br i1 %68, label %77, label %102
 
 77:                                               ; preds = %76
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 0, ptr %11, align 4, !annotation !5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !annotation !5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !annotation !5
   %78 = call i32 @selinux_netlbl_skbuff_getsid(ptr noundef %1, i16 noundef zeroext %28, ptr noundef nonnull %4, ptr noundef nonnull %3) #24
   %79 = icmp eq i32 %78, 0
@@ -11178,13 +11172,13 @@ define internal i32 @selinux_socket_sock_rcv_skb(ptr noundef readonly captures(n
   br label %.thread6
 
 .thread6:                                         ; preds = %85, %77
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #24
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.thread9
 
 87:                                               ; preds = %80
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #24
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %89 = load ptr, ptr %88, align 8
   %90 = load i32, ptr %69, align 8
@@ -11207,11 +11201,11 @@ define internal i32 @selinux_socket_sock_rcv_skb(ptr noundef readonly captures(n
 
 .thread9:                                         ; preds = %99, %.thread6
   %.ph8 = phi i32 [ -13, %.thread6 ], [ %100, %99 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %107
 
 101:                                              ; preds = %95
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %102
 
 102:                                              ; preds = %101, %76
@@ -11225,9 +11219,9 @@ define internal i32 @selinux_socket_sock_rcv_skb(ptr noundef readonly captures(n
 
 107:                                              ; preds = %.thread9, %103, %102, %.thread, %64, %52, %2
   %108 = phi i32 [ %53, %52 ], [ 0, %2 ], [ 0, %64 ], [ %74, %.thread ], [ 0, %102 ], [ %106, %103 ], [ %.ph8, %.thread9 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #24
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9) #24
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %108
 }
 
@@ -11235,9 +11229,9 @@ define internal i32 @selinux_socket_sock_rcv_skb(ptr noundef readonly captures(n
 define internal i32 @selinux_socket_getpeersec_stream(ptr noundef readonly captures(none) %0, ptr %1, i8 %2, ptr %3, i8 %4, i32 noundef %5) #1 align 16 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 640
@@ -11321,8 +11315,8 @@ define internal i32 @selinux_socket_getpeersec_stream(ptr noundef readonly captu
 
 .thread:                                          ; preds = %6, %50, %19, %15
   %53 = phi i32 [ %51, %50 ], [ -92, %15 ], [ %20, %19 ], [ -92, %6 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %53
 }
 
@@ -11331,7 +11325,7 @@ define internal range(i32 -22, 1) i32 @selinux_socket_getpeersec_dgram(ptr nound
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4
   %7 = icmp eq ptr %1, null
   br i1 %7, label %11, label %8
@@ -11375,9 +11369,9 @@ define internal range(i32 -22, 1) i32 @selinux_socket_getpeersec_dgram(ptr nound
 
 .thread3:                                         ; preds = %8, %13, %29
   %30 = phi i16 [ %18, %29 ], [ 10, %13 ], [ 2, %8 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !annotation !5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4, !annotation !5
   %31 = call i32 @selinux_netlbl_skbuff_getsid(ptr noundef nonnull %1, i16 noundef zeroext %30, ptr noundef nonnull %5, ptr noundef nonnull %4) #24
   %32 = icmp eq i32 %31, 0
@@ -11395,8 +11389,8 @@ define internal range(i32 -22, 1) i32 @selinux_socket_getpeersec_dgram(ptr nound
   br label %40
 
 40:                                               ; preds = %38, %33, %.thread3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #24
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %41
 
 .thread:                                          ; preds = %29, %11
@@ -11416,7 +11410,7 @@ define internal range(i32 -22, 1) i32 @selinux_socket_getpeersec_dgram(ptr nound
 
 45:                                               ; preds = %41, %44
   %46 = phi i32 [ -22, %44 ], [ 0, %41 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %46
 }
 
@@ -11453,7 +11447,7 @@ define internal void @selinux_sk_clone_security(ptr noundef readonly captures(no
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal void @selinux_sk_getsecid(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) #11 align 16 {
+define internal void @selinux_sk_getsecid(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) #10 align 16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %9, label %4
 
@@ -11471,7 +11465,7 @@ define internal void @selinux_sk_getsecid(ptr noundef readonly captures(address_
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
-define internal void @selinux_sock_graft(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #14 align 16 {
+define internal void @selinux_sock_graft(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #13 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -11511,7 +11505,7 @@ define internal i32 @selinux_sctp_assoc_request(ptr noundef %0, ptr noundef %1) 
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 640
   %7 = load ptr, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = load volatile i8, ptr getelementptr inbounds nuw (i8, ptr @selinux_state, i64 4), align 4, !range !7, !noundef !8
   %9 = icmp eq i8 %8, 0
   br i1 %9, label %26, label %10
@@ -11552,7 +11546,7 @@ define internal i32 @selinux_sctp_assoc_request(ptr noundef %0, ptr noundef %1) 
 
 26:                                               ; preds = %22, %19, %10, %2
   %27 = phi i32 [ %25, %22 ], [ 0, %2 ], [ %11, %10 ], [ %20, %19 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %27
 }
 
@@ -11765,13 +11759,13 @@ define internal i32 @selinux_inet_conn_request(ptr noundef readonly captures(non
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr %11, align 8
   %13 = trunc i32 %12 to i16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4, !annotation !5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4, !annotation !5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !annotation !5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4, !annotation !5
   %14 = call i32 @selinux_netlbl_skbuff_getsid(ptr noundef %1, i16 noundef zeroext %13, ptr noundef nonnull %5, ptr noundef nonnull %4) #24
   %15 = icmp eq i32 %14, 0
@@ -11789,13 +11783,13 @@ define internal i32 @selinux_inet_conn_request(ptr noundef readonly captures(non
   br label %.thread
 
 .thread:                                          ; preds = %21, %3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #24
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %37
 
 23:                                               ; preds = %16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #24
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %24 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %25 = load i32, ptr %24, align 8
   %26 = load i32, ptr %7, align 4
@@ -11828,8 +11822,8 @@ define internal i32 @selinux_inet_conn_request(ptr noundef readonly captures(non
 
 37:                                               ; preds = %.thread, %31, %28
   %38 = phi i32 [ %36, %31 ], [ %29, %28 ], [ -13, %.thread ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #24
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %38
 }
 
@@ -11873,9 +11867,9 @@ define internal void @selinux_inet_conn_established(ptr noundef readonly capture
 
 15:                                               ; preds = %10, %2
   %16 = phi i16 [ %6, %2 ], [ %14, %10 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !annotation !5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !annotation !5
   %17 = call i32 @selinux_netlbl_skbuff_getsid(ptr noundef %1, i16 noundef zeroext %16, ptr noundef nonnull %4, ptr noundef nonnull %3) #24
   %18 = icmp eq i32 %17, 0
@@ -11894,8 +11888,8 @@ define internal void @selinux_inet_conn_established(ptr noundef readonly capture
   br label %27
 
 27:                                               ; preds = %25, %19, %15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #24
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -11929,7 +11923,7 @@ define internal void @selinux_secmark_refcount_dec() #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal void @selinux_req_classify_flow(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((20, 24)) %1) #16 align 16 {
+define internal void @selinux_req_classify_flow(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((20, 24)) %1) #15 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 20
@@ -11979,7 +11973,7 @@ define internal i32 @selinux_tun_dev_attach_queue(ptr noundef readonly captures(
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(write, argmem: readwrite, inaccessiblemem: none)
-define internal noundef i32 @selinux_tun_dev_attach(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #17 align 16 {
+define internal noundef i32 @selinux_tun_dev_attach(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #16 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr %1, align 4
@@ -12093,9 +12087,9 @@ define internal i32 @selinux_key_getsecurity(ptr noundef readonly captures(none)
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %6 = load ptr, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !annotation !5
   %7 = load i32, ptr %6, align 4
   %8 = call i32 @security_sid_to_context(i32 noundef %7, ptr noundef nonnull %3, ptr noundef nonnull %4) #24
@@ -12104,8 +12098,8 @@ define internal i32 @selinux_key_getsecurity(ptr noundef readonly captures(none)
   %11 = select i1 %9, i32 %10, i32 %8
   %12 = load ptr, ptr %3, align 8
   store ptr %12, ptr %1, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %11
 }
 
@@ -12258,7 +12252,7 @@ define internal i32 @selinux_uring_cmd(ptr noundef readonly captures(none) %0) #
   %10 = sext i32 %9 to i64
   %11 = getelementptr i8, ptr %7, i64 %10
   %12 = select i1 %8, ptr null, ptr %11, !prof !10
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false), !annotation !5
   store i8 12, ptr %2, align 8
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -12277,7 +12271,7 @@ define internal i32 @selinux_uring_cmd(ptr noundef readonly captures(none) %0) #
   %25 = getelementptr inbounds nuw i8, ptr %12, i64 28
   %26 = load i32, ptr %25, align 4
   %27 = call i32 @avc_has_perm(i32 noundef %24, i32 noundef %26, i16 noundef zeroext 96, i32 noundef 4, ptr noundef nonnull %2) #24
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %27
 }
 
@@ -12368,7 +12362,7 @@ define internal noundef range(i32 -12, 1) i32 @selinux_fs_context_dup(ptr nounde
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @selinux_fs_context_parse_param(ptr noundef %0, ptr noundef %1) #1 align 16 {
   %3 = alloca %struct.fs_parse_result, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %5 = call i32 @__fs_parse(ptr noundef nonnull %4, ptr noundef nonnull @selinux_fs_parameters, ptr noundef %1, ptr noundef nonnull %3) #24
@@ -12384,7 +12378,7 @@ define internal i32 @selinux_fs_context_parse_param(ptr noundef %0, ptr noundef 
 
 12:                                               ; preds = %7, %2
   %13 = phi i32 [ %11, %7 ], [ %5, %2 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %13
 }
 
@@ -12581,7 +12575,7 @@ define internal i32 @selinux_sb_eat_lsm_opts(ptr noundef %0, ptr noundef capture
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
-define internal noundef i32 @selinux_msg_msg_alloc_security(ptr noundef readonly captures(none) %0) #14 align 16 {
+define internal noundef i32 @selinux_msg_msg_alloc_security(ptr noundef readonly captures(none) %0) #13 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @selinux_blob_sizes, i64 20), align 4
@@ -12594,7 +12588,7 @@ define internal noundef i32 @selinux_msg_msg_alloc_security(ptr noundef readonly
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @selinux_msg_queue_alloc_security(ptr noundef readonly captures(none) %0) #1 align 16 {
   %2 = alloca %struct.common_audit_data, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false), !annotation !5
   %3 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %4 = inttoptr i64 %3 to ptr
@@ -12629,14 +12623,14 @@ define internal i32 @selinux_msg_queue_alloc_security(ptr noundef readonly captu
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %29, ptr %30, align 8
   %31 = call i32 @avc_has_perm(i32 noundef %13, i32 noundef %26, i16 noundef zeroext 28, i32 noundef 1, ptr noundef nonnull %2) #24
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %31
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @selinux_shm_alloc_security(ptr noundef readonly captures(none) %0) #1 align 16 {
   %2 = alloca %struct.common_audit_data, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false), !annotation !5
   %3 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %4 = inttoptr i64 %3 to ptr
@@ -12671,7 +12665,7 @@ define internal i32 @selinux_shm_alloc_security(ptr noundef readonly captures(no
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %29, ptr %30, align 8
   %31 = call i32 @avc_has_perm(i32 noundef %13, i32 noundef %26, i16 noundef zeroext 29, i32 noundef 1, ptr noundef nonnull %2) #24
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %31
 }
 
@@ -12739,7 +12733,7 @@ define internal noundef i32 @selinux_inode_alloc_security(ptr noundef %0) #1 ali
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @selinux_sem_alloc_security(ptr noundef readonly captures(none) %0) #1 align 16 {
   %2 = alloca %struct.common_audit_data, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false), !annotation !5
   %3 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %4 = inttoptr i64 %3 to ptr
@@ -12774,7 +12768,7 @@ define internal i32 @selinux_sem_alloc_security(ptr noundef readonly captures(no
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %29, ptr %30, align 8
   %31 = call i32 @avc_has_perm(i32 noundef %13, i32 noundef %26, i16 noundef zeroext 26, i32 noundef 1, ptr noundef nonnull %2) #24
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %31
 }
 
@@ -12933,7 +12927,7 @@ define internal noundef range(i32 -12, 1) i32 @selinux_perf_event_alloc(ptr noun
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #18
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #17
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @__SCT__might_resched() local_unnamed_addr #2
@@ -13049,7 +13043,7 @@ define internal noundef i32 @match_file(ptr noundef readonly captures(none) %0, 
   %27 = getelementptr i8, ptr %24, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %29 = load ptr, ptr %28, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false), !annotation !5
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %31 = load ptr, ptr %30, align 8
@@ -13071,7 +13065,7 @@ define internal noundef i32 @match_file(ptr noundef readonly captures(none) %0, 
   br i1 %42, label %44, label %.thread3
 
 .thread3:                                         ; preds = %40
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %43 = add i32 %2, 1
   br label %71
 
@@ -13083,7 +13077,7 @@ define internal noundef i32 @match_file(ptr noundef readonly captures(none) %0, 
   br i1 %48, label %49, label %.thread, !prof !15
 
 .thread:                                          ; preds = %44
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %70
 
 49:                                               ; preds = %44
@@ -13107,7 +13101,7 @@ define internal noundef i32 @match_file(ptr noundef readonly captures(none) %0, 
   %67 = call i32 @avc_has_perm(i32 noundef %55, i32 noundef %64, i16 noundef zeroext %66, i32 noundef %22, ptr noundef nonnull %4) #24
   %.fr = freeze i32 %67
   %68 = icmp eq i32 %.fr, 0
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %69 = add i32 %2, 1
   br i1 %68, label %70, label %71
 
@@ -13165,9 +13159,9 @@ declare dso_local void @seq_puts(ptr noundef, ptr noundef) local_unnamed_addr #2
 define internal fastcc i32 @show_sid(ptr noundef %0, i32 noundef %1) unnamed_addr #1 align 16 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !annotation !5
   %5 = call i32 @security_sid_to_context(i32 noundef %1, ptr noundef nonnull %3, ptr noundef nonnull %4) #24
   %6 = icmp eq i32 %5, 0
@@ -13197,8 +13191,8 @@ define internal fastcc i32 @show_sid(ptr noundef %0, i32 noundef %1) unnamed_add
 17:                                               ; preds = %14, %11, %2
   %18 = load ptr, ptr %3, align 8
   call void @kfree(ptr noundef %18) #24
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %5
 }
 
@@ -13206,13 +13200,13 @@ define internal fastcc i32 @show_sid(ptr noundef %0, i32 noundef %1) unnamed_add
 declare dso_local i32 @security_sid_to_context(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #5
+declare dso_local ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @seq_escape_mem(ptr noundef, ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
+declare dso_local i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @security_sid_to_context_force(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -13230,8 +13224,8 @@ define internal fastcc i32 @may_create(ptr noundef %0, ptr noundef %1, i16 nound
   %12 = load i32, ptr @selinux_blob_sizes, align 4
   %13 = sext i32 %12 to i64
   %14 = getelementptr i8, ptr %11, i64 %13
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #24
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %16 = load ptr, ptr %15, align 8
   %17 = load i32, ptr getelementptr inbounds nuw (i8, ptr @selinux_blob_sizes, i64 8), align 4
@@ -13378,15 +13372,15 @@ selinux_determine_inode_label.exit._crit_edge:    ; preds = %selinux_determine_i
 
 114:                                              ; preds = %110, %106, %selinux_determine_inode_label.exit, %31
   %115 = phi i32 [ %113, %110 ], [ %50, %31 ], [ %104, %selinux_determine_inode_label.exit ], [ %108, %106 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #24
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %115
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @may_link(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 3) %2) unnamed_addr #1 align 16 {
   %4 = alloca %struct.common_audit_data, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false), !annotation !5
   %5 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %6 = inttoptr i64 %5 to ptr
@@ -13497,14 +13491,14 @@ default.unreachable1:                             ; preds = %69
 
 79:                                               ; preds = %72, %55
   %80 = phi i32 [ %78, %72 ], [ %67, %55 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %80
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @audit_inode_permission(ptr noundef %0, i32 noundef range(i32 0, 268435464) %1, i32 noundef range(i32 1, 268435464) %2, i32 noundef range(i32 0, 268435464) %3, i32 noundef %4) unnamed_addr #1 align 16 {
   %6 = alloca %struct.common_audit_data, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false), !annotation !5
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = load ptr, ptr %7, align 8
@@ -13532,7 +13526,7 @@ define internal fastcc i32 @audit_inode_permission(ptr noundef %0, i32 noundef r
   %28 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %29 = load i16, ptr %28, align 8
   %30 = call i32 @slow_avc_audit(i32 noundef %25, i32 noundef %27, i16 noundef zeroext %29, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull %6) #24
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %30
 }
 
@@ -13560,9 +13554,9 @@ define internal fastcc zeroext i1 @has_cap_mac_admin() unnamed_addr #1 align 16 
 
 9:                                                ; preds = %0
   %.sink1.sroa.gep = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %1) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 0, i64 32, i1 false), !annotation !5
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %2, i8 0, i64 20, i1 false), !annotation !5
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %11 = load ptr, ptr %10, align 8
@@ -13605,8 +13599,8 @@ define internal fastcc zeroext i1 @has_cap_mac_admin() unnamed_addr #1 align 16 
 
 35:                                               ; preds = %33, %.thread
   %36 = phi i1 [ %34, %33 ], [ false, %.thread ]
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2) #24
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %37
 
 37:                                               ; preds = %35, %0
@@ -13645,7 +13639,7 @@ declare dso_local ptr @prepare_creds() local_unnamed_addr #2
 declare dso_local i32 @kernfs_xattr_get(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(read)
-declare dso_local i64 @hashlen_string(ptr noundef, ptr noundef) local_unnamed_addr #19
+declare dso_local i64 @hashlen_string(ptr noundef, ptr noundef) local_unnamed_addr #18
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @kernfs_xattr_set(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
@@ -13657,7 +13651,7 @@ declare dso_local i32 @avc_policy_seqno() local_unnamed_addr #2
 define internal fastcc i32 @ioctl_has_perm(ptr readonly captures(none) %.128.val, ptr noundef readonly captures(none) %0, i16 noundef zeroext %1) unnamed_addr #1 align 16 {
   %3 = alloca %struct.common_audit_data, align 8
   %4 = alloca %struct.lsm_ioctlop_audit, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false), !annotation !5
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %6 = load ptr, ptr %5, align 8
@@ -13666,7 +13660,7 @@ define internal fastcc i32 @ioctl_has_perm(ptr readonly captures(none) %.128.val
   %9 = getelementptr i8, ptr %6, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %11 = load ptr, ptr %10, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %12, align 8, !annotation !5
   %13 = load i32, ptr @selinux_blob_sizes, align 4
@@ -13740,8 +13734,8 @@ define internal fastcc i32 @ioctl_has_perm(ptr readonly captures(none) %.128.val
 
 63:                                               ; preds = %51, %29, %26
   %64 = phi i32 [ 0, %29 ], [ %27, %26 ], [ %62, %51 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #24
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %64
 }
 
@@ -13826,7 +13820,7 @@ define internal fastcc i32 @file_map_prot_check(ptr noundef %0, i64 noundef %1, 
   %52 = getelementptr i8, ptr %49, i64 %51
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %54 = load ptr, ptr %53, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false), !annotation !5
   store i8 12, ptr %4, align 8
   %55 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -13870,7 +13864,7 @@ define internal fastcc i32 @file_map_prot_check(ptr noundef %0, i64 noundef %1, 
 
 85:                                               ; preds = %66, %61, %58
   %86 = phi i32 [ %59, %58 ], [ %84, %66 ], [ 0, %61 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %87
 
 87:                                               ; preds = %.thread, %85, %39, %36
@@ -13884,7 +13878,7 @@ declare dso_local i32 @vma_is_stack_for_current(ptr noundef) local_unnamed_addr 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @selinux_lsm_getattr(i32 noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 align 16 {
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !annotation !5
   tail call void @__rcu_read_lock() #24
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 1776
@@ -13964,7 +13958,7 @@ define internal fastcc i32 @selinux_lsm_getattr(i32 noundef %0, ptr noundef %1, 
 
 49:                                               ; preds = %47, %42, %38
   %50 = phi i32 [ %48, %47 ], [ 0, %38 ], [ %46, %42 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %50
 }
 
@@ -13985,7 +13979,7 @@ define internal fastcc i32 @selinux_lsm_setattr(i64 noundef range(i64 -214748364
   %13 = getelementptr i8, ptr %10, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %15 = load i32, ptr %14, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4
   switch i64 %0, label %.thread [
     i64 101, label %20
@@ -14187,7 +14181,7 @@ define internal fastcc i32 @selinux_lsm_setattr(i64 noundef range(i64 -214748364
 
 .thread:                                          ; preds = %3, %117, %114, %60, %57, %52, %44, %20
   %119 = phi i32 [ %116, %114 ], [ %118, %117 ], [ %22, %20 ], [ -22, %44 ], [ -22, %52 ], [ %58, %57 ], [ -12, %60 ], [ -95, %3 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %119
 }
 
@@ -14210,7 +14204,7 @@ declare dso_local i32 @__vfs_setxattr_noperm(ptr noundef, ptr noundef, ptr nound
 declare dso_local i32 @security_sid_mls_copy(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn memory(readwrite, argmem: none)
-define internal fastcc noundef zeroext range(i16 15, 94) i16 @socket_type_to_security_class(i32 noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #20 align 16 {
+define internal fastcc noundef zeroext range(i16 15, 94) i16 @socket_type_to_security_class(i32 noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #19 align 16 {
   %4 = load volatile i8, ptr getelementptr inbounds nuw (i8, ptr @selinux_state, i64 4), align 4, !range !7, !noundef !8
   %5 = icmp ne i8 %4, 0
   switch i32 %0, label %45 [
@@ -14484,7 +14478,7 @@ define internal fastcc noundef zeroext range(i16 15, 94) i16 @socket_type_to_sec
 declare dso_local i32 @selinux_netlbl_socket_post_create(ptr noundef, i16 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.bswap.i16(i16) #21
+declare i16 @llvm.bswap.i16(i16) #20
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @sel_netport_sid(i8 noundef zeroext, i16 noundef zeroext, ptr noundef) local_unnamed_addr #2
@@ -14501,9 +14495,9 @@ define internal fastcc i32 @selinux_socket_connect_helper(ptr %.24.val, ptr noun
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds nuw i8, ptr %.24.val, i64 640
   %9 = load ptr, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false), !annotation !5
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 56, i1 false), !annotation !5
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load i32, ptr %10, align 8
@@ -14518,8 +14512,8 @@ define internal fastcc i32 @selinux_socket_connect_helper(ptr %.24.val, ptr noun
   br i1 %17, label %.thread, label %18
 
 .thread:                                          ; preds = %2, %13
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #24
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %37
 
 18:                                               ; preds = %13
@@ -14545,8 +14539,8 @@ define internal fastcc i32 @selinux_socket_connect_helper(ptr %.24.val, ptr noun
   %33 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %34 = load i16, ptr %33, align 8
   %35 = call i32 @avc_has_perm(i32 noundef %32, i32 noundef %11, i16 noundef zeroext %34, i32 noundef 4096, ptr noundef nonnull %3) #24
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #24
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %37, label %76
 
@@ -14569,11 +14563,11 @@ define internal fastcc i32 @selinux_socket_connect_helper(ptr %.24.val, ptr noun
   ]
 
 45:                                               ; preds = %42, %42, %42
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false), !annotation !5
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %6, i8 0, i64 56, i1 false)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4, !annotation !5
   switch i16 %40, label %50 [
     i16 2, label %46
@@ -14617,9 +14611,9 @@ define internal fastcc i32 @selinux_socket_connect_helper(ptr %.24.val, ptr noun
 
 .thread2:                                         ; preds = %46, %48, %50, %53
   %.ph = phi i32 [ %60, %53 ], [ %52, %50 ], [ -22, %48 ], [ -22, %46 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #24
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #24
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %76
 
 65:                                               ; preds = %62, %64
@@ -14636,9 +14630,9 @@ define internal fastcc i32 @selinux_socket_connect_helper(ptr %.24.val, ptr noun
   %72 = load i32, ptr %7, align 4
   %73 = call i32 @avc_has_perm(i32 noundef %71, i32 noundef %72, i16 noundef zeroext %63, i32 noundef %66, ptr noundef nonnull %5) #24
   %74 = icmp eq i32 %73, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #24
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #24
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %74, label %75, label %76
 
 75:                                               ; preds = %65, %42
@@ -14677,7 +14671,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @selinux_parse_skb(ptr noun
   ]
 
 20:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %12) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %12, i8 0, i64 20, i1 false), !annotation !5
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %22 = load ptr, ptr %21, align 8
@@ -14753,7 +14747,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @selinux_parse_skb(ptr noun
   ]
 
 67:                                               ; preds = %._crit_edge
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %13) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %13, i8 0, i64 20, i1 false), !annotation !5
   %68 = getelementptr inbounds nuw i8, ptr %50, i64 6
   %69 = load i16, ptr %68, align 2
@@ -14800,11 +14794,11 @@ define internal fastcc noundef range(i32 -22, 1) i32 @selinux_parse_skb(ptr noun
   br label %.thread16
 
 .thread16:                                        ; preds = %81, %79, %.thread17, %84, %67
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %13) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %157
 
 97:                                               ; preds = %._crit_edge
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i64 0, ptr %14, align 8, !annotation !5
   %98 = getelementptr inbounds nuw i8, ptr %50, i64 6
   %99 = load i16, ptr %98, align 2
@@ -14851,11 +14845,11 @@ define internal fastcc noundef range(i32 -22, 1) i32 @selinux_parse_skb(ptr noun
   br label %.thread20
 
 .thread20:                                        ; preds = %111, %109, %.thread21, %114, %97
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %157
 
 127:                                              ; preds = %._crit_edge
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %15) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(12) %15, i8 0, i64 12, i1 false), !annotation !5
   %128 = getelementptr inbounds nuw i8, ptr %50, i64 6
   %129 = load i16, ptr %128, align 2
@@ -14902,15 +14896,15 @@ define internal fastcc noundef range(i32 -22, 1) i32 @selinux_parse_skb(ptr noun
   br label %.thread24
 
 .thread24:                                        ; preds = %141, %139, %.thread25, %144, %127
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %157
 
 .thread:                                          ; preds = %42, %40, %.thread13, %45
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %12) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %288
 
 157:                                              ; preds = %._crit_edge, %.thread24, %.thread20, %.thread16
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %12) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %158 = icmp eq i32 %3, 0
   %159 = load ptr, ptr %16, align 8
   br i1 %158, label %162, label %160
@@ -14924,10 +14918,10 @@ define internal fastcc noundef range(i32 -22, 1) i32 @selinux_parse_skb(ptr noun
   br label %290
 
 164:                                              ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #24
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %7, i8 0, i64 40, i1 false), !annotation !5
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %8) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i16 0, ptr %8, align 2, !annotation !5
   %165 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %166 = load ptr, ptr %165, align 8
@@ -15005,7 +14999,7 @@ thread-pre-split:                                 ; preds = %206, %208
   ]
 
 209:                                              ; preds = %thread-pre-split
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %9) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %9, i8 0, i64 20, i1 false), !annotation !5
   %210 = load i32, ptr %177, align 8
   %211 = load i32, ptr %179, align 4
@@ -15044,11 +15038,11 @@ thread-pre-split:                                 ; preds = %206, %208
   br label %.thread34
 
 .thread34:                                        ; preds = %217, %215, %.thread35, %220
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %9) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %281
 
 233:                                              ; preds = %thread-pre-split
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i64 0, ptr %10, align 8, !annotation !5
   %234 = load i32, ptr %177, align 8
   %235 = load i32, ptr %179, align 4
@@ -15087,11 +15081,11 @@ thread-pre-split:                                 ; preds = %206, %208
   br label %.thread38
 
 .thread38:                                        ; preds = %241, %239, %.thread39, %244
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %281
 
 257:                                              ; preds = %thread-pre-split
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %11) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(12) %11, i8 0, i64 12, i1 false), !annotation !5
   %258 = load i32, ptr %177, align 8
   %259 = load i32, ptr %179, align 4
@@ -15130,19 +15124,19 @@ thread-pre-split:                                 ; preds = %206, %208
   br label %.thread42
 
 .thread42:                                        ; preds = %265, %263, %.thread43, %268
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %11) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %281
 
 .thread30:                                        ; preds = %186, %184, %189
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %8) #24
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #24
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %288
 
 281:                                              ; preds = %.thread31, %thread-pre-split, %.thread42, %.thread38, %.thread34
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %8) #24
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #24
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %282 = icmp eq i32 %3, 0
   %283 = load ptr, ptr %16, align 8
   br i1 %282, label %286, label %284
@@ -15177,9 +15171,9 @@ thread-pre-split:                                 ; preds = %206, %208
 define internal fastcc i32 @selinux_inet_sys_rcv_skb(ptr noundef %0, i32 noundef %1, ptr noundef %2, i16 noundef zeroext %3, i32 noundef %4, ptr noundef %5) unnamed_addr #1 align 16 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4, !annotation !5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4, !annotation !5
   %9 = call i32 @sel_netif_sid(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %7) #24
   %10 = icmp eq i32 %9, 0
@@ -15203,8 +15197,8 @@ define internal fastcc i32 @selinux_inet_sys_rcv_skb(ptr noundef %0, i32 noundef
 
 21:                                               ; preds = %18, %15, %11, %6
   %22 = phi i32 [ %20, %18 ], [ %9, %6 ], [ %13, %11 ], [ %16, %15 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #24
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %22
 }
 
@@ -15253,8 +15247,8 @@ define internal fastcc i32 @selinux_sctp_process_new_assoc(ptr noundef %0, ptr n
   %10 = load i16, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 640
   %12 = load ptr, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #24
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %13 = icmp eq i16 %10, 10
   br i1 %13, label %14, label %19
 
@@ -15281,9 +15275,9 @@ define internal fastcc i32 @selinux_sctp_process_new_assoc(ptr noundef %0, ptr n
 26:                                               ; preds = %23, %19
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 2092
   store i32 0, ptr %27, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !annotation !5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !annotation !5
   %28 = call i32 @selinux_netlbl_skbuff_getsid(ptr noundef %1, i16 noundef zeroext %20, ptr noundef nonnull %4, ptr noundef nonnull %3) #24
   %29 = icmp eq i32 %28, 0
@@ -15301,13 +15295,13 @@ define internal fastcc i32 @selinux_sctp_process_new_assoc(ptr noundef %0, ptr n
   br label %.thread
 
 .thread:                                          ; preds = %35, %26
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #24
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %67
 
 37:                                               ; preds = %30
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #24
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %38 = load i32, ptr %27, align 4
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %42, label %44
@@ -15363,8 +15357,8 @@ define internal fastcc i32 @selinux_sctp_process_new_assoc(ptr noundef %0, ptr n
 
 67:                                               ; preds = %.thread, %66, %57
   %68 = phi i32 [ 0, %66 ], [ %64, %57 ], [ -13, %.thread ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #24
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %68
 }
 
@@ -15384,7 +15378,7 @@ declare dso_local i32 @selinux_netlbl_inet_conn_request(ptr noundef, i16 noundef
 declare dso_local void @selinux_netlbl_inet_csk_clone(ptr noundef, i16 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid allocsize(1)
-declare dso_local ptr @kmemdup(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #22
+declare dso_local ptr @kmemdup(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #21
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @selinux_add_opt(i32 noundef range(i32 0, -1) %0, ptr noundef %1, ptr noundef captures(none) %2) unnamed_addr #1 align 16 {
@@ -15499,7 +15493,7 @@ declare dso_local i32 @security_context_str_to_sid(ptr noundef, ptr noundef, i32
 declare dso_local ptr @kmemdup_nul(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #18
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #17
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @sel_netif_flush() local_unnamed_addr #2
@@ -15553,24 +15547,24 @@ define internal range(i32 0, 7274497) i32 @selinux_ip_postroute(ptr readnone cap
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
   %17 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 0, ptr %11, align 4, !annotation !5
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, i8 0, i64 32, i1 false), !annotation !5
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %13) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %13, i8 0, i64 56, i1 false), !annotation !5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr null, ptr %14, align 8, !annotation !5
   %18 = load volatile i8, ptr getelementptr inbounds nuw (i8, ptr @selinux_state, i64 2), align 2, !range !7, !noundef !8
   %19 = icmp eq i8 %18, 0
   br i1 %19, label %20, label %62
 
 20:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 0, i64 32, i1 false), !annotation !5
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %9) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %9, i8 0, i64 56, i1 false), !annotation !5
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
@@ -15635,9 +15629,9 @@ define internal range(i32 0, 7274497) i32 @selinux_ip_postroute(ptr readnone cap
 
 .thread:                                          ; preds = %20, %60, %53, %.thread6, %28
   %61 = phi i32 [ 1, %60 ], [ 1, %28 ], [ 0, %.thread6 ], [ 7274496, %53 ], [ 1, %20 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #24
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9) #24
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %220
 
 62:                                               ; preds = %3
@@ -15728,9 +15722,9 @@ define internal range(i32 0, 7274497) i32 @selinux_ip_postroute(ptr readnone cap
   br i1 %118, label %130, label %119
 
 119:                                              ; preds = %115
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4, !annotation !5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4, !annotation !5
   %120 = call i32 @selinux_netlbl_skbuff_getsid(ptr noundef %1, i16 noundef zeroext %113, ptr noundef nonnull %7, ptr noundef nonnull %6) #24
   %121 = icmp eq i32 %120, 0
@@ -15748,8 +15742,8 @@ define internal range(i32 0, 7274497) i32 @selinux_ip_postroute(ptr readnone cap
   br label %219
 
 129:                                              ; preds = %122
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #24
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %179
 
 130:                                              ; preds = %115
@@ -15768,13 +15762,13 @@ define internal range(i32 0, 7274497) i32 @selinux_ip_postroute(ptr readnone cap
   br i1 %139, label %174, label %140
 
 140:                                              ; preds = %131
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i32 0, ptr %15, align 4, !annotation !5
   %141 = getelementptr inbounds nuw i8, ptr %88, i64 640
   %142 = load ptr, ptr %141, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !annotation !5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4, !annotation !5
   %143 = call i32 @selinux_netlbl_skbuff_getsid(ptr noundef %1, i16 noundef zeroext %132, ptr noundef nonnull %5, ptr noundef nonnull %4) #24
   %144 = icmp eq i32 %143, 0
@@ -15792,8 +15786,8 @@ define internal range(i32 0, 7274497) i32 @selinux_ip_postroute(ptr readnone cap
   br label %168
 
 152:                                              ; preds = %145
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #24
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %153 = load i32, ptr %15, align 4
   %154 = icmp eq i32 %153, 0
   br i1 %154, label %155, label %169
@@ -15822,17 +15816,17 @@ define internal range(i32 0, 7274497) i32 @selinux_ip_postroute(ptr readnone cap
   %166 = getelementptr inbounds nuw i8, ptr %142, i64 16
   %167 = load i32, ptr %166, align 8
   store i32 %167, ptr %11, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %179
 
 168:                                              ; preds = %150, %140
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #24
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread11
 
 .thread11:                                        ; preds = %156, %161, %155, %168
   %.ph = phi i32 [ 0, %168 ], [ 7274496, %155 ], [ 1, %161 ], [ 1, %156 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %220
 
 169:                                              ; preds = %152
@@ -15840,7 +15834,7 @@ define internal range(i32 0, 7274497) i32 @selinux_ip_postroute(ptr readnone cap
   %171 = load i32, ptr %170, align 8
   %172 = call i32 @security_sid_mls_copy(i32 noundef %171, i32 noundef %153, ptr noundef nonnull %11) #24
   %173 = icmp eq i32 %172, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br i1 %173, label %179, label %220
 
 174:                                              ; preds = %131
@@ -15885,9 +15879,9 @@ define internal range(i32 0, 7274497) i32 @selinux_ip_postroute(ptr readnone cap
   br i1 %76, label %199, label %218
 
 199:                                              ; preds = %198
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i32 0, ptr %16, align 4, !annotation !5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i32 0, ptr %17, align 4, !annotation !5
   %200 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %201 = load ptr, ptr %200, align 8
@@ -15910,8 +15904,8 @@ define internal range(i32 0, 7274497) i32 @selinux_ip_postroute(ptr readnone cap
 
 .thread15:                                        ; preds = %199, %204, %209
   %.ph14 = phi i32 [ 0, %209 ], [ 7274496, %204 ], [ 0, %199 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #24
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %220
 
 213:                                              ; preds = %209
@@ -15919,24 +15913,24 @@ define internal range(i32 0, 7274497) i32 @selinux_ip_postroute(ptr readnone cap
   %215 = load i32, ptr %17, align 4
   %216 = call i32 @avc_has_perm(i32 noundef %214, i32 noundef %215, i16 noundef zeroext 19, i32 noundef 2, ptr noundef nonnull %12) #24
   %217 = icmp eq i32 %216, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #24
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br i1 %217, label %218, label %220
 
 218:                                              ; preds = %213, %198
   br label %220
 
 219:                                              ; preds = %127, %119
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #24
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %220
 
 220:                                              ; preds = %.thread15, %.thread11, %219, %218, %213, %192, %179, %169, %100, %98, %72, %.thread
   %221 = phi i32 [ 1, %218 ], [ 7274496, %213 ], [ 0, %169 ], [ %61, %.thread ], [ 1, %72 ], [ 1, %100 ], [ 1, %98 ], [ 0, %179 ], [ 7274496, %192 ], [ 0, %219 ], [ %.ph, %.thread11 ], [ %.ph14, %.thread15 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #24
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %13) #24
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #24
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i32 %221
 }
 
@@ -15950,10 +15944,10 @@ define internal noundef range(i32 0, 2) i32 @selinux_ip_forward(ptr readnone cap
   %9 = alloca i32, align 4
   %10 = alloca %struct.common_audit_data, align 8
   %11 = alloca %struct.lsm_network_audit, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #24
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #24
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #24
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %11) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %12 = load volatile i8, ptr getelementptr inbounds nuw (i8, ptr @selinux_state, i64 2), align 2, !range !7, !noundef !8
   %13 = icmp eq i8 %12, 0
   br i1 %13, label %88, label %14
@@ -15988,9 +15982,9 @@ define internal noundef range(i32 0, 2) i32 @selinux_ip_forward(ptr readnone cap
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %30 = load i8, ptr %29, align 1
   %31 = zext i8 %30 to i16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4, !annotation !5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4, !annotation !5
   %32 = call i32 @selinux_netlbl_skbuff_getsid(ptr noundef %1, i16 noundef zeroext %31, ptr noundef nonnull %7, ptr noundef nonnull %6) #24
   %33 = icmp eq i32 %32, 0
@@ -16009,8 +16003,8 @@ define internal noundef range(i32 0, 2) i32 @selinux_ip_forward(ptr readnone cap
 
 41:                                               ; preds = %34
   store ptr null, ptr %8, align 8, !annotation !5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #24
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 216
@@ -16035,9 +16029,9 @@ define internal noundef range(i32 0, 2) i32 @selinux_ip_forward(ptr readnone cap
   %54 = load ptr, ptr %53, align 8
   %55 = load ptr, ptr %8, align 8
   %56 = load i32, ptr %9, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !annotation !5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4, !annotation !5
   %57 = call i32 @sel_netif_sid(ptr noundef %54, i32 noundef %45, ptr noundef nonnull %4) #24
   %58 = icmp eq i32 %57, 0
@@ -16056,15 +16050,15 @@ define internal noundef range(i32 0, 2) i32 @selinux_ip_forward(ptr readnone cap
 
 .thread4:                                         ; preds = %52, %59, %63
   %.ph = phi i32 [ %64, %63 ], [ %61, %59 ], [ %57, %52 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #24
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %70
 
 66:                                               ; preds = %63
   %67 = load i32, ptr %5, align 4
   %68 = call i32 @avc_has_perm(i32 noundef %56, i32 noundef %67, i16 noundef zeroext 19, i32 noundef 1, ptr noundef nonnull %10) #24
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #24
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %69 = icmp eq i32 %68, 0
   br i1 %69, label %72, label %70
 
@@ -16099,16 +16093,16 @@ define internal noundef range(i32 0, 2) i32 @selinux_ip_forward(ptr readnone cap
   br label %88
 
 87:                                               ; preds = %39, %.thread
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #24
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %88
 
 88:                                               ; preds = %87, %86, %82, %73, %70, %41, %24, %3
   %89 = phi i32 [ 1, %86 ], [ 0, %70 ], [ 1, %3 ], [ 1, %24 ], [ 0, %41 ], [ 0, %73 ], [ 0, %82 ], [ 0, %87 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %11) #24
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #24
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %89
 }
 
@@ -16162,41 +16156,47 @@ declare dso_local i32 @selinux_netlbl_skbuff_setsid(ptr noundef, i16 noundef zer
 declare dso_local void @nf_unregister_net_hooks(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #21
+declare i64 @llvm.umin.i64(i64, i64) #20
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #21
+declare i32 @llvm.umax.i32(i32, i32) #20
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #23
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #22
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #21
+declare i32 @llvm.smin.i32(i32, i32) #20
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #23
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #23
 
 attributes #0 = { cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { cold null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #6 = { fn_ret_thunk_extern inlinehint mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #7 = { null_pointer_is_valid allocsize(2) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #8 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #10 = { cold noreturn null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #11 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #12 = { fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn memory(argmem: read) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #13 = { fn_ret_thunk_extern nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #14 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #15 = { fn_ret_thunk_extern nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #16 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #17 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(write, argmem: readwrite, inaccessiblemem: none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #19 = { mustprogress nofree nounwind null_pointer_is_valid willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #20 = { fn_ret_thunk_extern inlinehint mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn memory(readwrite, argmem: none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #21 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #22 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #23 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) }
+attributes #3 = { cold null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #5 = { fn_ret_thunk_extern inlinehint mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #6 = { null_pointer_is_valid allocsize(2) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #7 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #9 = { cold noreturn null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #10 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #11 = { fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn memory(argmem: read) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #12 = { fn_ret_thunk_extern nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #13 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #14 = { fn_ret_thunk_extern nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #15 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #16 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(write, argmem: readwrite, inaccessiblemem: none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #18 = { mustprogress nofree nounwind null_pointer_is_valid willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #19 = { fn_ret_thunk_extern inlinehint mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn memory(readwrite, argmem: none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #20 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #21 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #22 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) }
+attributes #23 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #24 = { nounwind }
 attributes #25 = { cold nounwind }
 attributes #26 = { nounwind memory(none) }

@@ -146,7 +146,7 @@ define hidden noundef i32 @"_ZN116_$LT$rand..distributions..uniform..UniformInt$
   %28 = add nsw i64 %20, -256
   store i64 %28, ptr %19, align 8, !alias.scope !45, !noalias !46
   tail call void @_ZN11rand_chacha4guts11refill_wide17h69395fd006362b8bE(ptr noalias noundef nonnull align 16 dereferenceable(80) %17, i32 noundef 6, ptr noalias noundef nonnull align 16 dereferenceable(352) %12), !noalias !34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !47
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !47
   store ptr %12, ptr %5, align 8, !noalias !47
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %13, ptr %29, align 8, !noalias !47
@@ -158,7 +158,7 @@ define hidden noundef i32 @"_ZN116_$LT$rand..distributions..uniform..UniformInt$
   br i1 %32, label %"_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17hc593e279563901fbE.llvm.6624592575629554789.exit.i.i.i.i.i", label %30
 
 "_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17hc593e279563901fbE.llvm.6624592575629554789.exit.i.i.i.i.i": ; preds = %30
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !47
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !47
   br label %_ZN4rand3rng3Rng3gen17he959e7819c120ab6E.exit
 
 33:                                               ; preds = %22, %16
@@ -212,7 +212,7 @@ _ZN4rand3rng3Rng3gen17he959e7819c120ab6E.exit:    ; preds = %11, %"_ZN84_$LT$ran
   %61 = add nsw i64 %54, -256
   store i64 %61, ptr %45, align 8, !alias.scope !65, !noalias !66
   call void @_ZN11rand_chacha4guts11refill_wide17h69395fd006362b8bE(ptr noalias noundef nonnull align 16 dereferenceable(80) %44, i32 noundef 6, ptr noalias noundef nonnull align 16 dereferenceable(352) %42), !noalias !54
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !67
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !67
   store ptr %42, ptr %4, align 8, !noalias !67
   store ptr %43, ptr %47, align 8, !noalias !67
   br label %62
@@ -223,7 +223,7 @@ _ZN4rand3rng3Rng3gen17he959e7819c120ab6E.exit:    ; preds = %11, %"_ZN84_$LT$ran
   br i1 %64, label %"_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17hc593e279563901fbE.llvm.6624592575629554789.exit.i.i.i.i.i7", label %62
 
 "_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17hc593e279563901fbE.llvm.6624592575629554789.exit.i.i.i.i.i7": ; preds = %62
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !67
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !67
   br label %_ZN4rand3rng3Rng3gen17he959e7819c120ab6E.exit8
 
 65:                                               ; preds = %56, %52
@@ -397,7 +397,7 @@ define internal fastcc noundef i64 @_ZN4rand3rng3Rng3gen17hae4b1cf3b659ebc0E(ptr
   %27 = add nsw i64 %19, -256
   store i64 %27, ptr %18, align 8, !alias.scope !97, !noalias !98
   tail call void @_ZN11rand_chacha4guts11refill_wide17h69395fd006362b8bE(ptr noalias noundef nonnull align 16 dereferenceable(80) %16, i32 noundef 6, ptr noalias noundef nonnull align 16 dereferenceable(352) %4), !noalias !83
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2), !noalias !99
+  call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !99
   store ptr %4, ptr %2, align 8, !noalias !99
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %5, ptr %28, align 8, !noalias !99
@@ -409,7 +409,7 @@ define internal fastcc noundef i64 @_ZN4rand3rng3Rng3gen17hae4b1cf3b659ebc0E(ptr
   br i1 %31, label %"_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17hc593e279563901fbE.llvm.6624592575629554789.exit.i.i.i.i", label %29
 
 "_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17hc593e279563901fbE.llvm.6624592575629554789.exit.i.i.i.i": ; preds = %29
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2), !noalias !99
+  call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !99
   br label %"_ZN9rand_core5block17BlockRng$LT$R$GT$16generate_and_set17h7007e02cbaf90c5aE.exit.i.i"
 
 32:                                               ; preds = %21, %13
@@ -446,7 +446,7 @@ define internal fastcc noundef i64 @_ZN4rand3rng3Rng3gen17hae4b1cf3b659ebc0E(ptr
   %50 = add nsw i64 %42, -256
   store i64 %50, ptr %41, align 8, !alias.scope !112, !noalias !113
   tail call void @_ZN11rand_chacha4guts11refill_wide17h69395fd006362b8bE(ptr noalias noundef nonnull align 16 dereferenceable(80) %39, i32 noundef 6, ptr noalias noundef nonnull align 16 dereferenceable(352) %4), !noalias !83
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1), !noalias !114
+  call void @llvm.lifetime.start.p0(ptr nonnull %1), !noalias !114
   store ptr %4, ptr %1, align 8, !noalias !114
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %5, ptr %51, align 8, !noalias !114
@@ -458,7 +458,7 @@ define internal fastcc noundef i64 @_ZN4rand3rng3Rng3gen17hae4b1cf3b659ebc0E(ptr
   br i1 %54, label %"_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17hc593e279563901fbE.llvm.6624592575629554789.exit.i.i8.i.i", label %52
 
 "_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17hc593e279563901fbE.llvm.6624592575629554789.exit.i.i8.i.i": ; preds = %52
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1), !noalias !114
+  call void @llvm.lifetime.end.p0(ptr nonnull %1), !noalias !114
   br label %"_ZN9rand_core5block17BlockRng$LT$R$GT$16generate_and_set17h7007e02cbaf90c5aE.exit9.i.i"
 
 55:                                               ; preds = %44, %38
@@ -548,12 +548,6 @@ declare i32 @llvm.ctlz.i32(i32, i1 immarg) #6
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.ctlz.i64(i64, i1 immarg) #6
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
-
 ; Function Attrs: nonlazybind uwtable
 declare noundef i64 @_ZN4rand4rngs7adapter9reseeding4fork16get_fork_counter17hb08b1d3a8082207bE() unnamed_addr #3
 
@@ -565,6 +559,12 @@ declare void @_ZN11rand_chacha4guts11refill_wide17h69395fd006362b8bE(ptr noalias
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 declare hidden noundef align 4 dereferenceable_or_null(4) ptr @"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h87f39777cdce5624E.llvm.6624592575629554789"(ptr noalias noundef align 8 dereferenceable(16)) unnamed_addr #0
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #8

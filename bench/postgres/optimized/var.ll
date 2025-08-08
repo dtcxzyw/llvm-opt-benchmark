@@ -27,7 +27,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @pull_varnos(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.pull_varnos_context, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %0, ptr %4, align 8
@@ -35,14 +35,11 @@ define dso_local ptr @pull_varnos(ptr noundef %0, ptr noundef %1) local_unnamed_
   store i32 0, ptr %5, align 8
   %6 = call zeroext i1 @query_or_expression_tree_walker_impl(ptr noundef %1, ptr noundef nonnull @pull_varnos_walker, ptr noundef nonnull %3, i32 noundef 0) #6
   %7 = load ptr, ptr %3, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %7
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare zeroext i1 @query_or_expression_tree_walker_impl(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @query_or_expression_tree_walker_impl(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @pull_varnos_walker(ptr noundef %0, ptr noundef %1) #0 {
@@ -208,13 +205,10 @@ define internal zeroext i1 @pull_varnos_walker(ptr noundef %0, ptr noundef %1) #
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @pull_varnos_of_level(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.pull_varnos_context, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %0, ptr %5, align 8
@@ -222,14 +216,14 @@ define dso_local ptr @pull_varnos_of_level(ptr noundef %0, ptr noundef %1, i32 n
   store i32 %2, ptr %6, align 8
   %7 = call zeroext i1 @query_or_expression_tree_walker_impl(ptr noundef %1, ptr noundef nonnull @pull_varnos_walker, ptr noundef nonnull %4, i32 noundef 0) #6
   %8 = load ptr, ptr %4, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %8
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @pull_varattnos(ptr noundef %0, i32 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca %struct.pull_varattnos_context, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load ptr, ptr %2, align 8
   store ptr %5, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -270,7 +264,7 @@ define dso_local void @pull_varattnos(ptr noundef %0, i32 noundef %1, ptr nounde
 pull_varattnos_walker.exit:                       ; preds = %3, %11, %15, %19, %25
   %27 = phi ptr [ %5, %3 ], [ %5, %11 ], [ %5, %15 ], [ %24, %19 ], [ %.pre, %25 ]
   store ptr %27, ptr %2, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -320,13 +314,13 @@ define internal zeroext i1 @pull_varattnos_walker(ptr noundef %0, ptr noundef %1
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @pull_vars_of_level(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.pull_vars_context, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %1, ptr %4, align 8
   %5 = call zeroext i1 @query_or_expression_tree_walker_impl(ptr noundef %0, ptr noundef nonnull @pull_vars_walker, ptr noundef nonnull %3, i32 noundef 0) #6
   %6 = load ptr, ptr %3, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %6
 }
 
@@ -462,10 +456,10 @@ define internal zeroext i1 @contain_var_clause_walker(ptr noundef %0, ptr nounde
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @contain_vars_of_level(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %1, ptr %3, align 4
   %4 = call zeroext i1 @query_or_expression_tree_walker_impl(ptr noundef %0, ptr noundef nonnull @contain_vars_of_level_walker, ptr noundef nonnull %3, i32 noundef 0) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %4
 }
 
@@ -608,13 +602,13 @@ define internal zeroext i1 @contain_vars_returning_old_or_new_walker(ptr noundef
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @locate_var_of_level(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.locate_var_of_level_context, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 -1, ptr %3, align 4
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %1, ptr %4, align 4
   %5 = call zeroext i1 @query_or_expression_tree_walker_impl(ptr noundef %0, ptr noundef nonnull @locate_var_of_level_walker, ptr noundef nonnull %3, i32 noundef 0) #6
   %6 = load i32, ptr %3, align 4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %6
 }
 
@@ -672,13 +666,13 @@ define internal zeroext i1 @locate_var_of_level_walker(ptr noundef %0, ptr nound
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @pull_var_clause(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.pull_var_clause_context, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %1, ptr %4, align 8
   %5 = call zeroext i1 @pull_var_clause_walker(ptr noundef %0, ptr noundef nonnull %3)
   %6 = load ptr, ptr %3, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %6
 }
 
@@ -867,7 +861,7 @@ define internal zeroext i1 @pull_var_clause_walker(ptr noundef %0, ptr noundef %
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @flatten_join_alias_vars(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.flatten_join_alias_vars_context, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %0, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %1, ptr %5, align 8
@@ -880,7 +874,7 @@ define dso_local ptr @flatten_join_alias_vars(ptr noundef %0, ptr noundef %1, pt
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 21
   store i8 %8, ptr %10, align 1
   %11 = call ptr @flatten_join_alias_vars_mutator(ptr noundef %2, ptr noundef nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %11
 }
 
@@ -1182,7 +1176,7 @@ alias_relid_set.exit:                             ; preds = %153, %129
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @flatten_group_exprs(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.flatten_join_alias_vars_context, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %0, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %1, ptr %5, align 8
@@ -1195,7 +1189,7 @@ define dso_local ptr @flatten_group_exprs(ptr noundef %0, ptr noundef %1, ptr no
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 21
   store i8 %8, ptr %10, align 1
   %11 = call ptr @flatten_group_exprs_mutator(ptr noundef %2, ptr noundef nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %11
 }
 
@@ -1303,7 +1297,7 @@ define internal ptr @flatten_group_exprs_mutator(ptr noundef %0, ptr noundef %1)
 
 64:                                               ; preds = %60
   %65 = load i32, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8
   %66 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %58, ptr %66, align 8
@@ -1311,7 +1305,7 @@ define internal ptr @flatten_group_exprs_mutator(ptr noundef %0, ptr noundef %1)
   store i32 %65, ptr %67, align 8
   %68 = call zeroext i1 @query_or_expression_tree_walker_impl(ptr noundef nonnull %36, ptr noundef nonnull @pull_varnos_walker, ptr noundef nonnull %3, i32 noundef 0) #6
   %69 = load ptr, ptr %3, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %70 = icmp eq ptr %69, null
   br i1 %70, label %74, label %71
 
@@ -1403,32 +1397,32 @@ common.ret78:                                     ; preds = %78, %76, %74, %71, 
   br label %common.ret78
 }
 
-declare ptr @bms_add_member(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @bms_add_member(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @bms_add_members(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @bms_add_members(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @bms_equal(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @bms_equal(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @bms_difference(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @bms_difference(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @bms_join(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @bms_join(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @query_tree_walker_impl(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @query_tree_walker_impl(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @expression_tree_walker_impl(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @expression_tree_walker_impl(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @copyObjectImpl(ptr noundef) local_unnamed_addr #2
+declare ptr @copyObjectImpl(ptr noundef) local_unnamed_addr #1
 
-declare void @IncrementVarSublevelsUp(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @IncrementVarSublevelsUp(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @add_nullingrels_if_needed(ptr noundef %0, ptr noundef %1, ptr noundef nonnull readonly captures(none) %2) unnamed_addr #0 {
@@ -1453,7 +1447,7 @@ define internal fastcc ptr @add_nullingrels_if_needed(ptr noundef %0, ptr nounde
 12:                                               ; preds = %11
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %14 = load i32, ptr %13, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %0, ptr %15, align 8
@@ -1461,7 +1455,7 @@ define internal fastcc ptr @add_nullingrels_if_needed(ptr noundef %0, ptr nounde
   store i32 %14, ptr %16, align 8
   %17 = call zeroext i1 @query_or_expression_tree_walker_impl(ptr noundef %1, ptr noundef nonnull @pull_varnos_walker, ptr noundef nonnull %4, i32 noundef 0) #6
   %18 = load ptr, ptr %4, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %19 = icmp eq ptr %18, null
   br i1 %19, label %20, label %32
 
@@ -1509,16 +1503,16 @@ define internal fastcc ptr @add_nullingrels_if_needed(ptr noundef %0, ptr nounde
   ret ptr %.026
 }
 
-declare zeroext i1 @checkExprHasSubLink(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @checkExprHasSubLink(ptr noundef) local_unnamed_addr #1
 
-declare ptr @expression_tree_mutator_impl(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @expression_tree_mutator_impl(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @query_tree_mutator_impl(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @query_tree_mutator_impl(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @palloc0(i64 noundef) local_unnamed_addr #2
+declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @is_standard_join_alias_expression(ptr noundef readonly captures(address_is_null) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #4 {
+define internal fastcc noundef zeroext i1 @is_standard_join_alias_expression(ptr noundef readonly captures(address_is_null) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #3 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.critedge, label %.lr.ph
 
@@ -1717,32 +1711,38 @@ tailrecurse.backedge:                             ; preds = %16, %20, %22, %24
   ret void
 }
 
-declare ptr @get_relids_for_join(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @get_relids_for_join(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @bms_del_member(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @bms_del_member(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @make_placeholder_expr(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @make_placeholder_expr(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @bms_copy(ptr noundef) local_unnamed_addr #2
+declare ptr @bms_copy(ptr noundef) local_unnamed_addr #1
 
-declare i32 @bms_next_member(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @bms_next_member(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @add_nulling_relids(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @add_nulling_relids(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @contain_volatile_functions(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @contain_volatile_functions(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @expression_returns_set(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @expression_returns_set(ptr noundef) local_unnamed_addr #1
 
-declare ptr @get_relids_in_jointree(ptr noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #2
+declare ptr @get_relids_in_jointree(ptr noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #6 = { nounwind }
 attributes #7 = { cold nounwind }

@@ -1253,7 +1253,7 @@ sw.bb55.i:                                        ; preds = %while.body
   br i1 %tobool57.not.i, label %if.else.i, label %if.then58.i
 
 if.then58.i:                                      ; preds = %sw.bb55.i
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %bracket.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %bracket.i)
   store ptr %bracket.i, ptr %p, align 8
   store ptr %add.ptr.i550, ptr %end, align 8
   store i8 94, ptr %bracket.i, align 1
@@ -1263,7 +1263,7 @@ if.then58.i:                                      ; preds = %sw.bb55.i
   call fastcc void @p_bracket(ptr noundef nonnull %p)
   store ptr %incdec.ptr.i, ptr %p, align 8
   store ptr %6, ptr %end, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %bracket.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %bracket.i)
   br label %sw.epilog.i
 
 if.else.i:                                        ; preds = %sw.bb55.i
@@ -2859,7 +2859,7 @@ sw.bb.i:                                          ; preds = %if.end.i26
   br i1 %tobool8.not.i, label %if.else.i, label %if.then9.i
 
 if.then9.i:                                       ; preds = %sw.bb.i
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %bracket.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %bracket.i)
   store ptr %bracket.i, ptr %p, align 8
   store ptr %add.ptr.i413, ptr %end, align 8
   store i8 94, ptr %bracket.i, align 1
@@ -2869,7 +2869,7 @@ if.then9.i:                                       ; preds = %sw.bb.i
   call fastcc void @p_bracket(ptr noundef nonnull %p)
   store ptr %30, ptr %p, align 8
   store ptr %29, ptr %end, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %bracket.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %bracket.i)
   br label %sw.epilog.i
 
 if.else.i:                                        ; preds = %sw.bb.i
@@ -5721,7 +5721,7 @@ othercase.exit:                                   ; preds = %if.then.i, %if.else
   br i1 %cmp.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %othercase.exit
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %bracket.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %bracket.i)
   %6 = load ptr, ptr %p, align 8
   %end.i = getelementptr inbounds nuw i8, ptr %p, i64 8
   %7 = load ptr, ptr %end.i, align 8
@@ -5736,7 +5736,7 @@ if.then:                                          ; preds = %othercase.exit
   call fastcc void @p_bracket(ptr noundef nonnull %p) #21
   store ptr %6, ptr %p, align 8
   store ptr %7, ptr %end.i, align 8
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %bracket.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %bracket.i)
   br label %if.end22
 
 if.else:                                          ; preds = %entry.if.else_crit_edge, %othercase.exit, %land.lhs.true
@@ -6853,10 +6853,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #14

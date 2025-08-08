@@ -32,13 +32,7 @@ define ptr @WebPNewInternal(i32 noundef %0) local_unnamed_addr #0 {
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare ptr @WebPSafeMalloc(i64 noundef, i64 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @WebPSafeMalloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @WebPMuxDelete(ptr noundef %0) local_unnamed_addr #0 {
@@ -77,7 +71,7 @@ MuxRelease.exit:                                  ; preds = %.lr.ph.i.i, %2
   ret void
 }
 
-declare void @WebPSafeFree(ptr noundef) local_unnamed_addr #2
+declare void @WebPSafeFree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @WebPMuxSetChunk(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
@@ -146,12 +140,12 @@ MuxDeleteAllNamedData.exit.thread:                ; preds = %15, %15, %15, %4, %
   ret i32 %.0
 }
 
-declare i32 @ChunkGetTagFromFourCC(ptr noundef) local_unnamed_addr #2
+declare i32 @ChunkGetTagFromFourCC(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @MuxSet(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca %struct.WebPChunk, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = tail call i32 @ChunkGetIndexFromTag(i32 noundef %1) #7
   call void @ChunkInit(ptr noundef nonnull %5) #7
   switch i32 %6, label %44 [
@@ -236,14 +230,14 @@ define internal fastcc i32 @MuxSet(ptr noundef nonnull %0, i32 noundef %1, ptr n
 
 44:                                               ; preds = %.sink.split, %4, %37, %40, %31, %34, %25, %28, %19, %22, %13, %16, %7, %10
   %.0 = phi i32 [ 1, %10 ], [ %8, %7 ], [ 1, %16 ], [ %14, %13 ], [ 1, %22 ], [ %20, %19 ], [ 1, %28 ], [ %26, %25 ], [ 1, %34 ], [ %32, %31 ], [ 1, %40 ], [ %38, %37 ], [ 0, %4 ], [ %.0.ph, %.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @WebPMuxSetImage(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.WebPMuxImage, align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = icmp eq ptr %0, null
   %6 = icmp eq ptr %1, null
   %or.cond = or i1 %5, %6
@@ -290,11 +284,11 @@ DeleteAllImages.exit:                             ; preds = %.lr.ph.i, %14
 
 23:                                               ; preds = %19, %3, %7, %10, %21
   %.013 = phi i32 [ %.0, %21 ], [ -1, %10 ], [ -1, %7 ], [ -1, %3 ], [ 1, %19 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.013
 }
 
-declare void @MuxImageInit(ptr noundef) local_unnamed_addr #2
+declare void @MuxImageInit(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @SetAlphaAndImageChunks(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %2) unnamed_addr #0 {
@@ -302,8 +296,8 @@ define internal fastcc i32 @SetAlphaAndImageChunks(ptr noundef nonnull %0, i32 n
   %5 = alloca %struct.WebPChunk, align 8
   %6 = alloca %struct.WebPData, align 8
   %7 = alloca %struct.WebPData, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #7
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8, !tbaa !14
@@ -363,7 +357,7 @@ GetImageData.exit:                                ; preds = %13, %.thread.i
 
 33:                                               ; preds = %GetImageData.exit
   %34 = load i32, ptr getelementptr inbounds nuw (i8, ptr @kChunks, i64 48), align 16, !tbaa !29
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @ChunkInit(ptr noundef nonnull %5) #7
   %35 = call i32 @ChunkAssignData(ptr noundef nonnull %5, ptr noundef nonnull %7, i32 noundef %1, i32 noundef %34) #7
   %.not.i21 = icmp eq i32 %35, 1
@@ -376,17 +370,17 @@ GetImageData.exit:                                ; preds = %13, %.thread.i
   br i1 %.not10.i, label %AddDataToChunkList.exit.thread, label %AddDataToChunkList.exit
 
 AddDataToChunkList.exit.thread:                   ; preds = %36
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %40
 
 AddDataToChunkList.exit:                          ; preds = %33, %36
   %.0.i = phi i32 [ %35, %33 ], [ %38, %36 ]
   %39 = call ptr @ChunkRelease(ptr noundef nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %49
 
 40:                                               ; preds = %AddDataToChunkList.exit.thread, %GetImageData.exit
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @ChunkInit(ptr noundef nonnull %4) #7
   %41 = call i32 @ChunkAssignData(ptr noundef nonnull %4, ptr noundef nonnull %6, i32 noundef %1, i32 noundef %spec.select) #7
   %.not.i22 = icmp eq i32 %41, 1
@@ -401,11 +395,11 @@ AddDataToChunkList.exit:                          ; preds = %33, %36
 AddDataToChunkList.exit26:                        ; preds = %40, %42
   %.0.i23 = phi i32 [ %41, %40 ], [ %44, %42 ]
   %45 = call ptr @ChunkRelease(ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %49
 
 46:                                               ; preds = %42
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %47 = call i32 @MuxImageFinalize(ptr noundef nonnull %2) #7
   %.not20 = icmp eq i32 %47, 0
   %48 = select i1 %.not20, i32 -1, i32 1
@@ -413,21 +407,21 @@ AddDataToChunkList.exit26:                        ; preds = %40, %42
 
 49:                                               ; preds = %14, %AddDataToChunkList.exit26, %AddDataToChunkList.exit, %46
   %.0 = phi i32 [ %48, %46 ], [ %.0.i, %AddDataToChunkList.exit ], [ %.0.i23, %AddDataToChunkList.exit26 ], [ -2, %14 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
-declare i32 @MuxImagePush(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @MuxImagePush(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @MuxImageRelease(ptr noundef) local_unnamed_addr #2
+declare ptr @MuxImageRelease(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @WebPMuxPushFrame(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.WebPMuxImage, align 8
   %5 = alloca %struct.WebPData, align 8
   %6 = alloca %struct.WebPMuxFrameInfo, align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = icmp eq ptr %0, null
   %8 = icmp eq ptr %1, null
   %or.cond = or i1 %7, %8
@@ -474,9 +468,9 @@ define i32 @WebPMuxPushFrame(ptr noundef %0, ptr noundef %1, i32 noundef %2) loc
   br i1 %.not54, label %29, label %57
 
 29:                                               ; preds = %27
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %30 = load i32, ptr getelementptr inbounds nuw (i8, ptr @kChunks, i64 36), align 4, !tbaa !29
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false), !tbaa.struct !36
   %31 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %32 = load i32, ptr %31, align 8, !tbaa !39
@@ -521,13 +515,13 @@ define i32 @WebPMuxPushFrame(ptr noundef %0, ptr noundef %1, i32 noundef %2) loc
 
 .thread:                                          ; preds = %29, %46, %52
   %.140.ph = phi i32 [ %53, %52 ], [ %51, %46 ], [ -1, %29 ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %57
 
 55:                                               ; preds = %52
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %56 = call i32 @MuxImagePush(ptr noundef nonnull %4, ptr noundef nonnull %0) #7
   %.not58 = icmp eq i32 %56, 1
   br i1 %.not58, label %.thread76, label %57
@@ -539,14 +533,14 @@ define i32 @WebPMuxPushFrame(ptr noundef %0, ptr noundef %1, i32 noundef %2) loc
 
 .thread76:                                        ; preds = %21, %55, %12, %15, %9, %3, %23, %57
   %.0 = phi i32 [ %.039, %57 ], [ -1, %23 ], [ -1, %3 ], [ -1, %9 ], [ -1, %15 ], [ -1, %12 ], [ 1, %55 ], [ -1, %21 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
-declare i32 @ChunkGetIdFromTag(i32 noundef) local_unnamed_addr #2
+declare i32 @ChunkGetIdFromTag(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -3, 2) i32 @CreateFrameData(i32 noundef %0, i32 noundef %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #0 {
@@ -625,7 +619,7 @@ define internal fastcc range(i32 -3, 2) i32 @CreateFrameData(i32 noundef %0, i32
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @AddDataToChunkList(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca %struct.WebPChunk, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @ChunkInit(ptr noundef nonnull %5) #7
   %6 = call i32 @ChunkAssignData(ptr noundef nonnull %5, ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2) #7
   %.not = icmp eq i32 %6, 1
@@ -643,7 +637,7 @@ define internal fastcc i32 @AddDataToChunkList(ptr noundef nonnull %0, i32 nound
 
 11:                                               ; preds = %7, %9
   %.07 = phi i32 [ %.0, %9 ], [ 1, %7 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.07
 }
 
@@ -651,8 +645,8 @@ define internal fastcc i32 @AddDataToChunkList(ptr noundef nonnull %0, i32 nound
 define i32 @WebPMuxSetAnimationParams(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca [6 x i8], align 4
   %4 = alloca %struct.WebPData, align 8
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %3) #7
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %3, ptr %4, align 8, !tbaa !10
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 6, ptr %5, align 8, !tbaa !14
@@ -717,8 +711,8 @@ MuxDeleteAllNamedData.exit.thread21:              ; preds = %24, %14
 
 MuxDeleteAllNamedData.exit.thread:                ; preds = %11, %11, %11, %8, %2, %MuxDeleteAllNamedData.exit.thread21
   %.0 = phi i32 [ %30, %MuxDeleteAllNamedData.exit.thread21 ], [ -1, %2 ], [ -1, %8 ], [ -1, %11 ], [ -1, %11 ], [ -1, %11 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
@@ -864,7 +858,7 @@ define i32 @WebPMuxDeleteFrame(ptr noundef %0, i32 noundef %1) local_unnamed_add
   ret i32 %.0
 }
 
-declare i32 @MuxImageDeleteNth(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @MuxImageDeleteNth(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @WebPMuxAssemble(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
@@ -882,8 +876,8 @@ define i32 @WebPMuxAssemble(ptr noundef %0, ptr noundef writeonly captures(addre
   br i1 %10, label %250, label %11
 
 11:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @kChunks, i64 40), align 8, !tbaa !52
   %13 = call i32 @WebPMuxNumChunks(ptr noundef nonnull %0, i32 noundef %12, ptr noundef nonnull %5) #7
   %.not.i = icmp eq i32 %13, 1
@@ -895,7 +889,7 @@ define i32 @WebPMuxAssemble(ptr noundef %0, ptr noundef writeonly captures(addre
   br i1 %16, label %17, label %44
 
 17:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8, !tbaa !3
   %18 = call i32 @MuxImageGetNth(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull %7) #7
   %.not22.i = icmp eq i32 %18, 1
@@ -941,7 +935,7 @@ define i32 @WebPMuxAssemble(ptr noundef %0, ptr noundef writeonly captures(addre
   br label %43
 
 43:                                               ; preds = %40, %34, %30, %19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %44
 
 44:                                               ; preds = %43, %14
@@ -1024,20 +1018,20 @@ MuxDeleteAllNamedData.exit.i:                     ; preds = %.lr.ph.i.i.i._crit_
   br i1 %.not25.not.i, label %MuxCleanup.exit.thread, label %.loopexit
 
 .critedge.i:                                      ; preds = %17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %MuxCleanup.exit.thread
 
 MuxCleanup.exit.thread:                           ; preds = %11, %.critedge.i, %44, %MuxDeleteAllNamedData.exit.i, %55, %52, %52, %52
   %.018.i.ph = phi i32 [ -1, %52 ], [ -1, %52 ], [ -1, %52 ], [ 0, %55 ], [ 0, %MuxDeleteAllNamedData.exit.i ], [ %46, %44 ], [ %18, %.critedge.i ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %250
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i._crit_edge.thread, %.thread.i, %MuxDeleteAllNamedData.exit.i, %47
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #7
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %3) #7
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %3, ptr %4, align 8, !tbaa !10
   %69 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 10, ptr %69, align 8, !tbaa !14
@@ -1263,13 +1257,13 @@ MuxDeleteAllNamedData.exit.thread81.i:            ; preds = %93, %83
   br i1 %183, label %CreateVP8XChunk.exit.thread64, label %CreateVP8XChunk.exit
 
 CreateVP8XChunk.exit.thread64:                    ; preds = %180
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %198
 
 CreateVP8XChunk.exit.thread:                      ; preds = %.lr.ph.i.i, %76, %72, %.loopexit, %.loopexit.i, %163, %174, %172, %80, %80, %80
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %250
 
 CreateVP8XChunk.exit:                             ; preds = %178, %180
@@ -1294,8 +1288,8 @@ CreateVP8XChunk.exit:                             ; preds = %178, %180
   %196 = getelementptr inbounds nuw i8, ptr %3, i64 9
   store i8 %195, ptr %196, align 1, !tbaa !38
   %197 = call fastcc i32 @MuxSet(ptr noundef nonnull %0, i32 noundef %81, ptr noundef %4, i32 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not49 = icmp eq i32 %197, 1
   br i1 %.not49, label %198, label %250
 
@@ -1393,53 +1387,59 @@ ImageListEmit.exit:                               ; preds = %.lr.ph.i57, %228
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
-declare i64 @ChunkListDiskSize(ptr noundef) local_unnamed_addr #2
+declare i64 @ChunkListDiskSize(ptr noundef) local_unnamed_addr #1
 
-declare ptr @MuxEmitRiffHeader(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @MuxEmitRiffHeader(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare ptr @ChunkListEmit(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @ChunkListEmit(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @MuxValidate(ptr noundef) local_unnamed_addr #2
+declare i32 @MuxValidate(ptr noundef) local_unnamed_addr #1
 
-declare void @ChunkListDelete(ptr noundef) local_unnamed_addr #2
+declare void @ChunkListDelete(ptr noundef) local_unnamed_addr #1
 
-declare ptr @MuxGetChunkListFromId(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @MuxGetChunkListFromId(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @ChunkDelete(ptr noundef) local_unnamed_addr #2
+declare ptr @ChunkDelete(ptr noundef) local_unnamed_addr #1
 
-declare i32 @ChunkGetIndexFromTag(i32 noundef) local_unnamed_addr #2
+declare i32 @ChunkGetIndexFromTag(i32 noundef) local_unnamed_addr #1
 
-declare void @ChunkInit(ptr noundef) local_unnamed_addr #2
+declare void @ChunkInit(ptr noundef) local_unnamed_addr #1
 
-declare i32 @ChunkAssignData(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ChunkAssignData(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @ChunkSetHead(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ChunkSetHead(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @ChunkRelease(ptr noundef) local_unnamed_addr #2
+declare ptr @ChunkRelease(ptr noundef) local_unnamed_addr #1
 
-declare ptr @MuxImageDelete(ptr noundef) local_unnamed_addr #2
+declare ptr @MuxImageDelete(ptr noundef) local_unnamed_addr #1
 
-declare i32 @MuxImageFinalize(ptr noundef) local_unnamed_addr #2
+declare i32 @MuxImageFinalize(ptr noundef) local_unnamed_addr #1
 
-declare i32 @VP8LCheckSignature(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @VP8LCheckSignature(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare ptr @WebPMuxCreateInternal(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @WebPMuxCreateInternal(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @WebPFree(ptr noundef) local_unnamed_addr #2
+declare void @WebPFree(ptr noundef) local_unnamed_addr #1
 
-declare i32 @WebPMuxNumChunks(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @WebPMuxNumChunks(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @MuxImageGetNth(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @MuxImageGetNth(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @MuxImageCount(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @MuxImageCount(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @MuxHasAlpha(ptr noundef) local_unnamed_addr #2
+declare i32 @MuxHasAlpha(ptr noundef) local_unnamed_addr #1
 
-declare i64 @MuxImageDiskSize(ptr noundef) local_unnamed_addr #2
+declare i64 @MuxImageDiskSize(ptr noundef) local_unnamed_addr #1
 
-declare ptr @MuxImageEmit(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @MuxImageEmit(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare { i32, i1 } @llvm.umul.with.overflow.i32(i32, i32) #5
@@ -1451,10 +1451,10 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 declare i32 @llvm.smax.i32(i32, i32) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #7 = { nounwind }

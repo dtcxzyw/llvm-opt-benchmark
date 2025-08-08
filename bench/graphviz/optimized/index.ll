@@ -21,14 +21,8 @@ define noalias noundef ptr @RTreeNewLeafList(ptr noundef %0) local_unnamed_addr 
   ret ptr %2
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable
 define noundef ptr @RTreeLeafListAdd(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -55,7 +49,7 @@ RTreeNewLeafList.exit:                            ; preds = %3, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define void @RTreeLeafListFree(ptr noundef captures(none) %0) local_unnamed_addr #3 {
+define void @RTreeLeafListFree(ptr noundef captures(none) %0) local_unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !10
   %.not6 = icmp eq ptr %2, null
   br i1 %.not6, label %._crit_edge, label %.lr.ph
@@ -75,10 +69,10 @@ define void @RTreeLeafListFree(ptr noundef captures(none) %0) local_unnamed_addr
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @RTreeOpen() local_unnamed_addr #3 {
+define noalias noundef ptr @RTreeOpen() local_unnamed_addr #2 {
   %1 = tail call noalias dereferenceable_or_null(2168) ptr @calloc(i64 noundef 1, i64 noundef 2168) #7
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %5, label %2
@@ -95,17 +89,17 @@ define noalias noundef ptr @RTreeOpen() local_unnamed_addr #3 {
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @RTreeNewIndex() local_unnamed_addr #3 {
+define ptr @RTreeNewIndex() local_unnamed_addr #2 {
   %1 = tail call ptr @RTreeNewNode() #8
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 0, ptr %2, align 4, !tbaa !13
   ret ptr %1
 }
 
-declare ptr @RTreeNewNode() local_unnamed_addr #5
+declare ptr @RTreeNewNode() local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @RTreeClose(ptr noundef captures(none) %0) local_unnamed_addr #3 {
+define noundef i32 @RTreeClose(ptr noundef captures(none) %0) local_unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !16
   tail call fastcc void @RTreeClose2(ptr noundef %2)
   %3 = load ptr, ptr %0, align 8, !tbaa !16
@@ -115,7 +109,7 @@ define noundef i32 @RTreeClose(ptr noundef captures(none) %0) local_unnamed_addr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @RTreeClose2(ptr noundef %0) unnamed_addr #3 {
+define internal fastcc void @RTreeClose2(ptr noundef %0) unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4, !tbaa !13
   %4 = icmp sgt i32 %3, 0
@@ -168,7 +162,7 @@ define internal fastcc void @RTreeClose2(ptr noundef %0) unnamed_addr #3 {
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @RTreeSearch(ptr noundef readnone captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 {
+define ptr @RTreeSearch(ptr noundef readnone captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4, !tbaa !13
   %6 = icmp sgt i32 %5, 0
@@ -248,15 +242,15 @@ RTreeLeafListAdd.exit:                            ; preds = %25, %27
   ret ptr %.3
 }
 
-declare zeroext i1 @Overlap(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare zeroext i1 @Overlap(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @RTreeInsert(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(none) %3, i32 noundef %4) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @RTreeInsert(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(none) %3, i32 noundef %4) local_unnamed_addr #2 {
   %6 = alloca ptr, align 8
   %7 = alloca %struct.Branch, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !29
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load ptr, ptr %3, align 8, !tbaa !29
   %9 = call fastcc i32 @RTreeInsert2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %8, ptr noundef %6, i32 noundef %4)
   %.not = icmp eq i32 %9, 0
@@ -294,17 +288,17 @@ define range(i32 0, 2) i32 @RTreeInsert(ptr noundef %0, ptr noundef %1, ptr noun
 
 29:                                               ; preds = %10, %5
   %.0 = phi i32 [ 1, %10 ], [ 0, %5 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @RTreeInsert2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %5) unnamed_addr #3 {
+define internal fastcc i32 @RTreeInsert2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %5) unnamed_addr #2 {
   %7 = alloca %struct.Branch, align 8
   %8 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8, !tbaa !29
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %10 = load i32, ptr %9, align 4, !tbaa !13
@@ -364,31 +358,37 @@ define internal fastcc i32 @RTreeInsert2(ptr noundef %0, ptr noundef %1, ptr nou
 
 40:                                               ; preds = %35, %20, %24, %37
   %.1 = phi i32 [ %39, %37 ], [ %34, %24 ], [ 0, %20 ], [ 0, %35 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.1
 }
 
-declare { i64, i64 } @NodeCover(ptr noundef) local_unnamed_addr #5
+declare { i64, i64 } @NodeCover(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
-declare i32 @AddBranch(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @AddBranch(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare void @DisconBranch(ptr noundef, i32 noundef) local_unnamed_addr #5
+declare void @DisconBranch(ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare i32 @PickBranch(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @PickBranch(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare { i64, i64 } @CombineRect(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare { i64, i64 } @CombineRect(ptr noundef, ptr noundef) local_unnamed_addr #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 attributes #0 = { mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nounwind allocsize(0,1) }
 attributes #8 = { nounwind }
 

@@ -113,8 +113,8 @@ define internal i32 @dissect_form_urlencoded(ptr noundef %0, ptr noundef readonl
 
 32:                                               ; preds = %.lr.ph, %61
   %.05984 = phi i32 [ 0, %.lr.ph ], [ %73, %61 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %33 = tail call i32 @tvb_find_uint8(ptr noundef %0, i32 noundef %.05984, i32 noundef -1, i8 noundef zeroext 38)
   %34 = icmp eq i32 %33, -1
   br i1 %34, label %35, label %37
@@ -137,14 +137,14 @@ define internal i32 @dissect_form_urlencoded(ptr noundef %0, ptr noundef readonl
 45:                                               ; preds = %37
   %46 = load ptr, ptr %31, align 8
   %47 = load ptr, ptr %5, align 8
-  %48 = tail call i64 @strlen(ptr noundef %47) #6
+  %48 = tail call i64 @strlen(ptr noundef %47) #5
   %49 = trunc i64 %48 to i32
   %50 = tail call ptr @get_utf_8_string(ptr noundef %46, ptr noundef %47, i32 noundef %49)
   %51 = load i32, ptr @hf_form_key, align 4
   %52 = sub i32 %43, %.05984
   %53 = tail call ptr @proto_tree_add_string(ptr noundef %40, i32 noundef %51, ptr noundef %0, i32 noundef %.05984, i32 noundef %52, ptr noundef %50)
   %54 = load ptr, ptr %31, align 8
-  %55 = tail call i64 @strlen(ptr noundef %47) #6
+  %55 = tail call i64 @strlen(ptr noundef %47) #5
   %56 = tail call ptr @format_text(ptr noundef %54, ptr noundef %47, i64 noundef %55)
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %40, ptr noundef nonnull @.str.15, ptr noundef %56)
   %57 = add nuw i32 %43, 1
@@ -154,26 +154,26 @@ define internal i32 @dissect_form_urlencoded(ptr noundef %0, ptr noundef readonl
   br i1 %60, label %.thread80, label %61
 
 .thread80:                                        ; preds = %37, %45
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit
 
 61:                                               ; preds = %45
   %62 = load ptr, ptr %31, align 8
   %63 = load ptr, ptr %6, align 8
-  %64 = tail call i64 @strlen(ptr noundef %63) #6
+  %64 = tail call i64 @strlen(ptr noundef %63) #5
   %65 = trunc i64 %64 to i32
   %66 = tail call ptr @get_utf_8_string(ptr noundef %62, ptr noundef %63, i32 noundef %65)
   %67 = load i32, ptr @hf_form_value, align 4
   %68 = sub i32 %59, %57
   %69 = tail call ptr @proto_tree_add_string(ptr noundef %40, i32 noundef %67, ptr noundef %0, i32 noundef %57, i32 noundef %68, ptr noundef %66)
   %70 = load ptr, ptr %31, align 8
-  %71 = tail call i64 @strlen(ptr noundef %63) #6
+  %71 = tail call i64 @strlen(ptr noundef %63) #5
   %72 = tail call ptr @format_text(ptr noundef %70, ptr noundef %63, i64 noundef %71)
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %40, ptr noundef nonnull @.str.16, ptr noundef %72)
   %73 = add nuw i32 %59, 1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %74 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %73)
   %75 = icmp sgt i32 %74, 0
   br i1 %75, label %32, label %.loopexit
@@ -201,9 +201,6 @@ define hidden void @proto_reg_handoff_http_urlencoded() local_unnamed_addr #0 {
 
 ; Function Attrs: null_pointer_is_valid
 declare void @dissector_add_string(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare void @col_append_sep_fstr(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
@@ -235,7 +232,7 @@ declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @get_form_key_value(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %3)
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %.lr.ph, label %.loopexit77
@@ -294,7 +291,7 @@ define internal fastcc i32 @get_form_key_value(ptr noundef %0, ptr noundef %1, p
   %.170 = phi i32 [ %13, %11 ], [ 0, %5 ], [ %32, %31 ], [ %16, %14 ]
   %36 = add i32 %.170, 1
   %37 = sext i32 %36 to i64
-  %38 = call noalias ptr @wmem_alloc(ptr noundef %0, i64 noundef %37) #7
+  %38 = call noalias ptr @wmem_alloc(ptr noundef %0, i64 noundef %37) #6
   store ptr %38, ptr %2, align 8
   %39 = sext i32 %.170 to i64
   %40 = getelementptr i8, ptr %38, i64 %39
@@ -356,7 +353,7 @@ define internal fastcc i32 @get_form_key_value(ptr noundef %0, ptr noundef %1, p
 
 .loopexit:                                        ; preds = %26, %21, %18, %51, %67, %.loopexit77, %46
   %.0 = phi i32 [ %50, %46 ], [ %3, %.loopexit77 ], [ %42, %51 ], [ %71, %67 ], [ -1, %18 ], [ -1, %21 ], [ -1, %26 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
@@ -364,16 +361,13 @@ define internal fastcc i32 @get_form_key_value(ptr noundef %0, ptr noundef %1, p
 declare ptr @get_utf_8_string(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
 declare ptr @format_text(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
@@ -388,19 +382,24 @@ declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #
 declare i32 @ws_xton(i8 noundef signext) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid allocsize(1)
-declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
 declare ptr @tvb_memcpy(ptr noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
+
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind }
-attributes #6 = { nounwind willreturn memory(read) }
-attributes #7 = { allocsize(1) }
+attributes #2 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { nounwind willreturn memory(read) }
+attributes #6 = { allocsize(1) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

@@ -103,7 +103,7 @@ _ZL8TestSHA2v.exit.thread:                        ; preds = %25, %_ZL8TestSHA2v.
 
 32:                                               ; preds = %_ZL8TestSHA2v.exit
   %33 = tail call ptr @EVP_sha1()
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %1) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %1, i8 0, i64 10, i1 false)
   %34 = call i32 @PKCS5_PBKDF2_HMAC(ptr noundef nonnull @.str.15, i64 noundef 8, ptr noundef nonnull @_ZZL18TestZeroIterationsvE5kSalt, i64 noundef 4, i32 noundef 1, ptr noundef %33, i64 noundef 10, ptr noundef nonnull %1)
   %.not.i = icmp eq i32 %34, 0
@@ -128,13 +128,13 @@ _ZL8TestSHA2v.exit.thread:                        ; preds = %25, %_ZL8TestSHA2v.
   br label %_ZL18TestZeroIterationsv.exit.thread
 
 _ZL18TestZeroIterationsv.exit.thread:             ; preds = %35, %42
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %1) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %47
 
 _ZL18TestZeroIterationsv.exit:                    ; preds = %38
   %45 = load i8, ptr %1, align 1, !tbaa !11
   %46 = icmp eq i8 %45, %39
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %1) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br i1 %46, label %50, label %47
 
 47:                                               ; preds = %_ZL18TestZeroIterationsv.exit.thread, %_ZL18TestZeroIterationsv.exit
@@ -159,13 +159,10 @@ declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly ca
 
 declare void @ERR_free_strings() local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 ; Function Attrs: mustprogress norecurse uwtable
 define internal fastcc noundef zeroext i1 @_ZL10TestPBKDF2PKvmS0_mjPK9env_md_stmPKh(ptr noundef %0, i64 noundef range(i64 0, 25) %1, ptr noundef %2, i64 noundef range(i64 0, 37) %3, i32 noundef range(i32 1, 4097) %4, ptr noundef %5, i64 noundef range(i64 16, 65) %6, ptr noundef nonnull readonly captures(none) %7) unnamed_addr #0 {
   %9 = alloca [64 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = call i32 @PKCS5_PBKDF2_HMAC(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, ptr noundef %5, i64 noundef %6, ptr noundef nonnull %9)
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %15
@@ -195,7 +192,7 @@ define internal fastcc noundef zeroext i1 @_ZL10TestPBKDF2PKvmS0_mjPK9env_md_stm
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 %.04.i
   %24 = load i8, ptr %23, align 1, !tbaa !11
   %25 = zext i8 %24 to i32
-  %26 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef nonnull @.str.14, i32 noundef %25) #9
+  %26 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef nonnull @.str.14, i32 noundef %25) #8
   %27 = add nuw nsw i64 %.04.i, 1
   %exitcond.not.i = icmp eq i64 %27, %6
   br i1 %exitcond.not.i, label %_ZL12PrintDataHexPKvm.exit, label %21, !llvm.loop !12
@@ -211,7 +208,7 @@ _ZL12PrintDataHexPKvm.exit:                       ; preds = %21
   %32 = getelementptr inbounds nuw i8, ptr %9, i64 %.04.i15
   %33 = load i8, ptr %32, align 1, !tbaa !11
   %34 = zext i8 %33 to i32
-  %35 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %31, ptr noundef nonnull @.str.14, i32 noundef %34) #9
+  %35 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %31, ptr noundef nonnull @.str.14, i32 noundef %34) #8
   %36 = add nuw nsw i64 %.04.i15, 1
   %exitcond.not.i16 = icmp eq i64 %36, %6
   br i1 %exitcond.not.i16, label %_ZL12PrintDataHexPKvm.exit17, label %30, !llvm.loop !12
@@ -223,14 +220,11 @@ _ZL12PrintDataHexPKvm.exit17:                     ; preds = %30
 
 38:                                               ; preds = %15, %_ZL12PrintDataHexPKvm.exit17, %11
   %.0 = phi i1 [ false, %_ZL12PrintDataHexPKvm.exit17 ], [ false, %11 ], [ true, %15 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i1 %.0
 }
 
 declare ptr @EVP_sha1() local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 declare i32 @PKCS5_PBKDF2_HMAC(ptr noundef, i64 noundef, ptr noundef, i64 noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -241,7 +235,13 @@ declare ptr @EVP_sha256() local_unnamed_addr #1
 declare ptr @EVP_sha512() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nofree nounwind
 declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #5
@@ -258,13 +258,12 @@ declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unname
 attributes #0 = { mustprogress norecurse uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nofree nounwind }
 attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #7 = { cold }
-attributes #8 = { nounwind }
-attributes #9 = { cold nounwind }
+attributes #8 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

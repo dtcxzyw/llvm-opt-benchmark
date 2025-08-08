@@ -214,23 +214,23 @@ define internal range(i32 0, 2) i32 @dissect_krb4(ptr noundef %0, ptr noundef re
 dissect_krb4_kdc_request.exit:                    ; preds = %51, %52
   %.0.i = phi i32 [ 10, %52 ], [ 2, %51 ]
   %55 = load i32, ptr @hf_krb4_name, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %56 = call ptr @proto_tree_add_item_ret_length(ptr noundef %26, i32 noundef %55, ptr noundef %0, i32 noundef %.0.i, i32 noundef -1, i32 noundef 0, ptr noundef nonnull %16)
   %57 = load i32, ptr %16, align 4
   %58 = add i32 %57, %.0.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %59 = load i32, ptr @hf_krb4_instance, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %60 = call ptr @proto_tree_add_item_ret_length(ptr noundef %26, i32 noundef %59, ptr noundef %0, i32 noundef %58, i32 noundef -1, i32 noundef 0, ptr noundef nonnull %15)
   %61 = load i32, ptr %15, align 4
   %62 = add i32 %61, %58
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %63 = load i32, ptr @hf_krb4_realm, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %64 = call ptr @proto_tree_add_item_ret_length(ptr noundef %26, i32 noundef %63, ptr noundef %0, i32 noundef %62, i32 noundef -1, i32 noundef 0, ptr noundef nonnull %14)
   %65 = load i32, ptr %14, align 4
   %66 = add i32 %65, %62
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %67 = load i32, ptr @hf_krb4_time_sec, align 4
   %68 = or disjoint i32 %50, 18
   %69 = call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %67, ptr noundef %0, i32 noundef %66, i32 noundef 4, i32 noundef %68)
@@ -242,37 +242,37 @@ dissect_krb4_kdc_request.exit:                    ; preds = %51, %52
   %75 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %26, i32 noundef %72, ptr noundef %0, i32 noundef %70, i32 noundef 1, i32 noundef %73, ptr noundef nonnull @.str.74, i32 noundef %73, i32 noundef %74)
   %76 = add i32 %66, 5
   %77 = load i32, ptr @hf_krb4_s_name, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %78 = call ptr @proto_tree_add_item_ret_length(ptr noundef %26, i32 noundef %77, ptr noundef %0, i32 noundef %76, i32 noundef -1, i32 noundef 0, ptr noundef nonnull %13)
   %79 = load i32, ptr %13, align 4
   %80 = add i32 %79, %76
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %81 = load i32, ptr @hf_krb4_s_instance, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %82 = call ptr @proto_tree_add_item_ret_length(ptr noundef %26, i32 noundef %81, ptr noundef %0, i32 noundef %80, i32 noundef -1, i32 noundef 0, ptr noundef nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %151
 
 83:                                               ; preds = %22
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %84 = load i32, ptr @hf_krb4_name, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %85 = call ptr @proto_tree_add_item_ret_length(ptr noundef %26, i32 noundef %84, ptr noundef %0, i32 noundef 2, i32 noundef -1, i32 noundef 0, ptr noundef nonnull %10)
   %86 = load i32, ptr %10, align 4
   %87 = add i32 %86, 2
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %88 = load i32, ptr @hf_krb4_instance, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %89 = call ptr @proto_tree_add_item_ret_length(ptr noundef %26, i32 noundef %88, ptr noundef %0, i32 noundef %87, i32 noundef -1, i32 noundef 0, ptr noundef nonnull %9)
   %90 = load i32, ptr %9, align 4
   %91 = add i32 %90, %87
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %92 = load i32, ptr @hf_krb4_realm, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %93 = call ptr @proto_tree_add_item_ret_length(ptr noundef %26, i32 noundef %92, ptr noundef %0, i32 noundef %91, i32 noundef -1, i32 noundef 0, ptr noundef nonnull %8)
   %94 = load i32, ptr %8, align 4
   %95 = add i32 %94, %91
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %96 = load i32, ptr @hf_krb4_time_sec, align 4
   %97 = or disjoint i32 %50, 18
   %98 = call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %96, ptr noundef %0, i32 noundef %95, i32 noundef 4, i32 noundef %97)
@@ -289,18 +289,18 @@ dissect_krb4_kdc_request.exit:                    ; preds = %51, %52
   %109 = load i32, ptr @hf_krb4_encrypted_blob, align 4
   %110 = load i32, ptr %11, align 4
   %111 = call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %109, ptr noundef %0, i32 noundef %108, i32 noundef %110, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %151
 
 112:                                              ; preds = %22
   %113 = load i32, ptr @hf_krb4_kvno, align 4
   %114 = tail call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %113, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
   %115 = load i32, ptr @hf_krb4_realm, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %116 = call ptr @proto_tree_add_item_ret_length(ptr noundef %26, i32 noundef %115, ptr noundef %0, i32 noundef 3, i32 noundef -1, i32 noundef 0, ptr noundef nonnull %7)
   %117 = load i32, ptr %7, align 4
   %118 = add i32 %117, 3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %119 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %118)
   %120 = load i32, ptr @hf_krb4_ticket_length, align 4
   %121 = call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %120, ptr noundef %0, i32 noundef %118, i32 noundef 1, i32 noundef 0)
@@ -328,15 +328,15 @@ dissect_krb4_kdc_request.exit:                    ; preds = %51, %52
   %143 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %26, i32 noundef %140, ptr noundef %0, i32 noundef %138, i32 noundef 1, i32 noundef %141, ptr noundef nonnull @.str.74, i32 noundef %141, i32 noundef %142)
   %144 = add i32 %134, 5
   %145 = load i32, ptr @hf_krb4_s_name, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %146 = call ptr @proto_tree_add_item_ret_length(ptr noundef %26, i32 noundef %145, ptr noundef %0, i32 noundef %144, i32 noundef -1, i32 noundef 0, ptr noundef nonnull %6)
   %147 = load i32, ptr %6, align 4
   %148 = add i32 %147, %144
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %149 = load i32, ptr @hf_krb4_s_instance, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %150 = call ptr @proto_tree_add_item_ret_length(ptr noundef %26, i32 noundef %149, ptr noundef %0, i32 noundef %148, i32 noundef -1, i32 noundef 0, ptr noundef nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %151
 
 151:                                              ; preds = %22, %dissect_krb4_kdc_request.exit, %83, %112, %18, %4
@@ -360,9 +360,6 @@ define hidden void @proto_reg_handoff_krb4() local_unnamed_addr #0 {
 ; Function Attrs: null_pointer_is_valid
 declare void @dissector_add_uint_with_preference(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: null_pointer_is_valid
 declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -377,9 +374,6 @@ declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_a
 
 ; Function Attrs: null_pointer_is_valid
 declare void @col_clear(ptr noundef, i32 noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
@@ -399,10 +393,15 @@ declare ptr @proto_tree_add_item_ret_length(ptr noundef, i32 noundef, ptr nounde
 ; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
+
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

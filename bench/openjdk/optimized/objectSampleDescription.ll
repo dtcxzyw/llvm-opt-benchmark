@@ -379,7 +379,7 @@ _ZN24ObjectDescriptionBuilder10write_textEPKc.exit: ; preds = %2, %.critedge.thr
 define hidden void @_ZN23ObjectSampleDescription9write_intEi(ptr noundef nonnull align 8 captures(none) dereferenceable(128) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = alloca [20 x i8], align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %3, i64 noundef 20, ptr noundef nonnull @.str, i32 noundef %1) #10
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %7 = load i64, ptr %6, align 8
@@ -430,7 +430,7 @@ define hidden void @_ZN23ObjectSampleDescription9write_intEi(ptr noundef nonnull
   br label %_ZN24ObjectDescriptionBuilder9write_intEi.exit
 
 _ZN24ObjectDescriptionBuilder9write_intEi.exit:   ; preds = %2, %.critedge.thread.i.i
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -686,7 +686,7 @@ _ZN23ObjectSampleDescription10write_textEPKc.exit.i: ; preds = %96, %.critedge.i
 _ZNK7oopDesc4is_aEP5Klass.exit11.thread32:        ; preds = %_ZNK7oopDesc4is_aEP5Klass.exit11._ZNK7oopDesc4is_aEP5Klass.exit11.thread32_crit_edge, %78
   %118 = phi i8 [ %.pre40, %_ZNK7oopDesc4is_aEP5Klass.exit11._ZNK7oopDesc4is_aEP5Klass.exit11.thread32_crit_edge ], [ %55, %78 ]
   %119 = phi ptr [ %.pre41, %_ZNK7oopDesc4is_aEP5Klass.exit11._ZNK7oopDesc4is_aEP5Klass.exit11.thread32_crit_edge ], [ %56, %78 ]
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %120 = getelementptr inbounds nuw i8, ptr %3, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(22) %120, i8 0, i64 22, i1 false)
   %121 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -727,7 +727,7 @@ _ZNK7oopDesc5klassEv.exit.i12:                    ; preds = %134, %124
 
 _ZN23ObjectSampleDescription13read_int_sizeEPi.exit.thread: ; preds = %139, %_ZNK7oopDesc5klassEv.exit.i12
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %121) #10
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN23ObjectSampleDescription23write_thread_group_nameEv.exit
 
 143:                                              ; preds = %139
@@ -740,7 +740,7 @@ _ZN23ObjectSampleDescription13read_int_sizeEPi.exit.thread: ; preds = %139, %_ZN
   %148 = inttoptr i64 %147 to ptr
   %149 = load i32, ptr %148, align 4
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %121) #10
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %150 = icmp sgt i32 %149, -1
   br i1 %150, label %151, label %_ZN23ObjectSampleDescription23write_thread_group_nameEv.exit
 
@@ -790,7 +790,7 @@ _ZN23ObjectSampleDescription13read_int_sizeEPi.exit.thread: ; preds = %139, %_ZN
   br label %_ZN23ObjectSampleDescription10write_textEPKc.exit.i20
 
 _ZN23ObjectSampleDescription10write_textEPKc.exit.i20: ; preds = %.critedge.thread.i.i.i, %151
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %170 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %2, i64 noundef 20, ptr noundef nonnull @.str, i32 noundef %149) #10
   %171 = load i64, ptr %153, align 8
   %172 = icmp eq i64 %171, 98
@@ -840,7 +840,7 @@ _ZN23ObjectSampleDescription10write_textEPKc.exit.i20: ; preds = %.critedge.thre
   br label %_ZN23ObjectSampleDescription9write_intEi.exit.i
 
 _ZN23ObjectSampleDescription9write_intEi.exit.i:  ; preds = %.critedge.thread.i.i.i.i, %_ZN23ObjectSampleDescription10write_textEPKc.exit.i20
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %_ZN23ObjectSampleDescription23write_thread_group_nameEv.exit
 
 _ZN23ObjectSampleDescription23write_thread_group_nameEv.exit: ; preds = %_ZN23ObjectSampleDescription9write_intEi.exit.i, %143, %_ZN23ObjectSampleDescription13read_int_sizeEPi.exit.thread, %.critedge.thread.i.i8.i, %_ZN23ObjectSampleDescription10write_textEPKc.exit.i, %82, %_ZNK7oopDesc4is_aEP5Klass.exit11.thread, %_ZNK7oopDesc4is_aEP5Klass.exit6.thread, %_ZNK7oopDesc4is_aEP5Klass.exit.thread
@@ -1355,7 +1355,7 @@ define hidden void @_ZN23ObjectSampleDescription10write_sizeEi(ptr noundef nonnu
   br label %_ZN23ObjectSampleDescription10write_textEPKc.exit
 
 _ZN23ObjectSampleDescription10write_textEPKc.exit: ; preds = %5, %.critedge.thread.i.i
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %24 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %3, i64 noundef 20, ptr noundef nonnull @.str, i32 noundef %1) #10
   %25 = load i64, ptr %7, align 8
   %26 = icmp eq i64 %25, 98
@@ -1405,7 +1405,7 @@ _ZN23ObjectSampleDescription10write_textEPKc.exit: ; preds = %5, %.critedge.thre
   br label %_ZN23ObjectSampleDescription9write_intEi.exit
 
 _ZN23ObjectSampleDescription9write_intEi.exit:    ; preds = %_ZN23ObjectSampleDescription10write_textEPKc.exit, %.critedge.thread.i.i.i
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %43
 
 43:                                               ; preds = %_ZN23ObjectSampleDescription9write_intEi.exit, %2
@@ -1527,10 +1527,10 @@ declare noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef, i64 noundef) local_
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

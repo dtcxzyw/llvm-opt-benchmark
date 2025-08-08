@@ -540,7 +540,7 @@ define linkonce_odr void @_ZN5QListIP7QActionE6appendERKS1_(ptr noundef nonnull 
   br i1 %6, label %7, label %50
 
 7:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 2147483647, ptr %3, align 4
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -624,7 +624,7 @@ _ZN5QListIP7QActionE18detach_helper_growEii.exit: ; preds = %_ZN5QListIP7QAction
   %46 = load i32, ptr %3, align 4
   %47 = sext i32 %46 to i64
   %48 = getelementptr inbounds ptr, ptr %45, i64 %47
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %49 = load ptr, ptr %1, align 8
   store ptr %49, ptr %48, align 8
   br label %61
@@ -1268,7 +1268,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCo
   unreachable
 
 _ZN5QListIP7QActionED2Ev.exit:                    ; preds = %274, %_ZN9QtPrivate8RefCount5derefEv.exit.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %282 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %283 = load ptr, ptr %282, align 8
   %284 = getelementptr inbounds nuw i8, ptr %283, i64 16
@@ -1312,7 +1312,7 @@ _ZN5QListIP7QActionED2Ev.exit:                    ; preds = %274, %_ZN9QtPrivate
   %.neg.i = add i32 %.neg, %.sroa.23.8.extract.trunc.i
   %300 = add i32 %.sroa.01.0.extract.trunc.i, %.sroa.0.0.extract.trunc.i
   %301 = sub i32 %.neg.i, %300
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %301, ptr %3, align 4
   %302 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %297, ptr %302, align 4
@@ -1320,11 +1320,11 @@ _ZN5QListIP7QActionED2Ev.exit:                    ; preds = %274, %_ZN9QtPrivate
           to label %.noexc62 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc62:                                         ; preds = %.noexc61
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN10SearchMenu21alignToParentGeometryEv.exit
 
 _ZN10SearchMenu21alignToParentGeometryEv.exit:    ; preds = %_ZN5QListIP7QActionED2Ev.exit, %.noexc62
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.pre106 = load ptr, ptr %6, align 8
   br label %305
 
@@ -1479,12 +1479,12 @@ define void @_ZN10SearchMenu21alignToParentGeometryEv(ptr noundef nonnull align 
   %22 = add i32 %.sroa.01.0.extract.trunc, %.sroa.0.0.extract.trunc
   %23 = sub i32 %21, %22
   %24 = call noundef i32 @_ZNK7QWidget1yEv(ptr noundef nonnull align 8 dereferenceable(48) %0)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %23, ptr %2, align 4
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %24, ptr %25, align 4
   call void @_ZN7QWidget4moveERK6QPoint(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %26
 
 26:                                               ; preds = %8, %1
@@ -2061,7 +2061,7 @@ _ZN5QListIP7QActionED2Ev.exit:                    ; preds = %40, %_ZN9QtPrivate8
           to label %_ZN7QWidget8setFocusEv.exit unwind label %61
 
 _ZN7QWidget8setFocusEv.exit:                      ; preds = %48
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %51 = load ptr, ptr %49, align 8
   invoke void @_ZNK9QLineEdit4textEv(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %3, ptr noundef nonnull align 8 dereferenceable(48) %51)
           to label %.noexc unwind label %61
@@ -2100,7 +2100,7 @@ _ZN7QStringD2Ev.exit.i:                           ; preds = %_ZN9QtPrivate8RefCo
           to label %_ZN10SearchMenu20selectTextIfNotEmptyEv.exit unwind label %61
 
 _ZN10SearchMenu20selectTextIfNotEmptyEv.exit:     ; preds = %59, %_ZN7QStringD2Ev.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %65
 
 61:                                               ; preds = %59, %_ZN7QWidget8setFocusEv.exit, %48, %65, %37, %10
@@ -2252,7 +2252,7 @@ define void @_ZN10SearchMenu18onAboutToShowEventEv(ptr noundef nonnull align 8 d
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
   tail call void @_ZN7QWidget8setFocusEN2Qt11FocusReasonE(ptr noundef nonnull align 8 dereferenceable(48) %6, i32 noundef 7)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = load ptr, ptr %5, align 8
   call void @_ZNK9QLineEdit4textEv(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %4, ptr noundef nonnull align 8 dereferenceable(48) %7)
   %8 = load ptr, ptr %4, align 8
@@ -2288,8 +2288,8 @@ _ZN7QStringD2Ev.exit.i:                           ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN10SearchMenu20selectTextIfNotEmptyEv.exit
 
 _ZN10SearchMenu20selectTextIfNotEmptyEv.exit:     ; preds = %_ZN7QStringD2Ev.exit.i, %15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
@@ -2321,16 +2321,16 @@ _ZN10SearchMenu20selectTextIfNotEmptyEv.exit:     ; preds = %_ZN7QStringD2Ev.exi
   %34 = add i32 %.sroa.01.0.extract.trunc.i, %.sroa.0.0.extract.trunc.i
   %35 = sub i32 %.neg.i, %34
   %36 = call noundef i32 @_ZNK7QWidget1yEv(ptr noundef nonnull align 8 dereferenceable(72) %0)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %35, ptr %2, align 4
   %37 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %36, ptr %37, align 4
   call void @_ZN7QWidget4moveERK6QPoint(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 4 dereferenceable(8) %2)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %_ZN10SearchMenu21alignToParentGeometryEv.exit
 
 _ZN10SearchMenu21alignToParentGeometryEv.exit:    ; preds = %_ZN10SearchMenu20selectTextIfNotEmptyEv.exit, %21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -2353,7 +2353,7 @@ define void @_ZN10SearchMenu11resizeEventEP12QResizeEvent(ptr noundef nonnull al
 
 11:                                               ; preds = %7, %2
   tail call void @_ZN7QWidget11resizeEventEP12QResizeEvent(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
@@ -2385,16 +2385,16 @@ define void @_ZN10SearchMenu11resizeEventEP12QResizeEvent(ptr noundef nonnull al
   %29 = add i32 %.sroa.01.0.extract.trunc.i, %.sroa.0.0.extract.trunc.i
   %30 = sub i32 %.neg.i, %29
   %31 = call noundef i32 @_ZNK7QWidget1yEv(ptr noundef nonnull align 8 dereferenceable(72) %0)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %30, ptr %3, align 4
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %31, ptr %32, align 4
   call void @_ZN7QWidget4moveERK6QPoint(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 4 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN10SearchMenu21alignToParentGeometryEv.exit
 
 _ZN10SearchMenu21alignToParentGeometryEv.exit:    ; preds = %11, %16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -2847,10 +2847,10 @@ declare void @_ZN15QAbstractSlider17setSliderPositionEi(ptr noundef nonnull alig
 declare void @_ZN11QProxyStyleD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #11

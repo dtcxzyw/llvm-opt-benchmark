@@ -980,16 +980,16 @@ define hidden noundef zeroext i1 @_ZN11StringDedup5Table7Resizer4stepEv(ptr noun
   %42 = load i64, ptr @_ZN11StringDedup5Table18_number_of_bucketsE, align 8
   %43 = urem i64 %41, %42
   %44 = getelementptr inbounds nuw %"class.StringDedup::Table::Bucket", ptr %40, i64 %43
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %36, ptr %2, align 8
   store i32 %25, ptr %3, align 4
   tail call void @_ZN11StringDedup5Table6Bucket14expand_if_fullEv(ptr noundef nonnull align 8 dereferenceable(32) %44)
   %45 = call noundef i32 @_ZN26GrowableArrayWithAllocatorIj18GrowableArrayCHeapIjL8MEMFLAGS25EEE6appendERKj(ptr noundef nonnull align 8 dereferenceable(32) %44, ptr noundef nonnull align 4 dereferenceable(4) %3)
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %47 = call noundef i32 @_ZN26GrowableArrayWithAllocatorI10WeakHandle18GrowableArrayCHeapIS0_L8MEMFLAGS25EEE6appendERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %46, ptr noundef nonnull align 8 dereferenceable(8) %2)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %48 = load i64, ptr @_ZN11StringDedup5Table18_number_of_entriesE, align 8
   %49 = add i64 %48, 1
   store i64 %49, ptr @_ZN11StringDedup5Table18_number_of_entriesE, align 8
@@ -1032,16 +1032,16 @@ define hidden void @_ZN11StringDedup5Table3addE10WeakHandlej(ptr %0, i32 noundef
   %7 = load i64, ptr @_ZN11StringDedup5Table18_number_of_bucketsE, align 8
   %8 = urem i64 %6, %7
   %9 = getelementptr inbounds nuw %"class.StringDedup::Table::Bucket", ptr %5, i64 %8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %0, ptr %3, align 8
   store i32 %1, ptr %4, align 4
   tail call void @_ZN11StringDedup5Table6Bucket14expand_if_fullEv(ptr noundef nonnull align 8 dereferenceable(32) %9)
   %10 = call noundef i32 @_ZN26GrowableArrayWithAllocatorIj18GrowableArrayCHeapIjL8MEMFLAGS25EEE6appendERKj(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 4 dereferenceable(4) %4)
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %12 = call noundef i32 @_ZN26GrowableArrayWithAllocatorI10WeakHandle18GrowableArrayCHeapIS0_L8MEMFLAGS25EEE6appendERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %13 = load i64, ptr @_ZN11StringDedup5Table18_number_of_entriesE, align 8
   %14 = add i64 %13, 1
   store i64 %14, ptr @_ZN11StringDedup5Table18_number_of_entriesE, align 8
@@ -1288,7 +1288,7 @@ define hidden void @_ZN11StringDedup5Table12free_bucketsEPNS0_6BucketEm(ptr noun
   %.04 = phi i64 [ %4, %_ZN11StringDedup5Table6BucketD2Ev.exit ], [ %1, %2 ]
   %4 = add i64 %.04, -1
   %5 = getelementptr inbounds %"class.StringDedup::Table::Bucket", ptr %0, i64 %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load i32, ptr %6, align 4
   %8 = icmp eq i32 %7, 0
@@ -1358,7 +1358,7 @@ _ZN18GrowableArrayCHeapI10WeakHandleL8MEMFLAGS25EED2Ev.exit.i: ; preds = %24, %.
   br label %_ZN11StringDedup5Table6BucketD2Ev.exit
 
 _ZN11StringDedup5Table6BucketD2Ev.exit:           ; preds = %_ZN18GrowableArrayCHeapI10WeakHandleL8MEMFLAGS25EED2Ev.exit.i, %30
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
@@ -1552,16 +1552,16 @@ define hidden void @_ZN11StringDedup5Table7installEP16typeArrayOopDescj(ptr noun
   %10 = load i64, ptr @_ZN11StringDedup5Table18_number_of_bucketsE, align 8
   %11 = urem i64 %9, %10
   %12 = getelementptr inbounds nuw %"class.StringDedup::Table::Bucket", ptr %8, i64 %11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %7, ptr %3, align 8
   store i32 %1, ptr %4, align 4
   call void @_ZN11StringDedup5Table6Bucket14expand_if_fullEv(ptr noundef nonnull align 8 dereferenceable(32) %12)
   %13 = call noundef i32 @_ZN26GrowableArrayWithAllocatorIj18GrowableArrayCHeapIjL8MEMFLAGS25EEE6appendERKj(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 4 dereferenceable(4) %4)
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %15 = call noundef i32 @_ZN26GrowableArrayWithAllocatorI10WeakHandle18GrowableArrayCHeapIS0_L8MEMFLAGS25EEE6appendERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %16 = load i64, ptr @_ZN11StringDedup5Table18_number_of_entriesE, align 8
   %17 = add i64 %16, 1
   store i64 %17, ptr @_ZN11StringDedup5Table18_number_of_entriesE, align 8
@@ -6501,10 +6501,10 @@ declare i32 @llvm.ctpop.i32(i32) #11
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

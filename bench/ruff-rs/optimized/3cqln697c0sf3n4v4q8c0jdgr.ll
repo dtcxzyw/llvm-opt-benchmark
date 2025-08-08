@@ -86,7 +86,7 @@ define internal fastcc noundef nonnull align 1 dereferenceable(1) ptr @"_ZN4core
   ret ptr %0
 
 .critedge:                                        ; preds = %"_ZN4core4cell4once17OnceCell$LT$T$GT$11get_or_init28_$u7b$$u7b$closure$u7d$$u7d$17hb19017cbb160c3f6E.exit"
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr @anon.baedaa1fd6b5851fb744993775c64ab5.6, ptr %4, align 8
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 1, ptr %30, align 8
@@ -116,7 +116,7 @@ declare hidden noundef i64 @"_ZN56_$LT$$BP$const$u20$T$u20$as$u20$memchr..ext..P
 declare noundef range(i8 0, 3) i8 @"_ZN81_$LT$ruff_source_file..newlines..LineEnding$u20$as$u20$core..default..Default$GT$7default17h377e302feee6b6f6E"() unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #6

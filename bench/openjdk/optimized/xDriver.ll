@@ -424,10 +424,10 @@ _ZN12XMessagePortI14XDriverRequestE10send_asyncERKS0_.exit: ; preds = %7, %12
 
 15:                                               ; preds = %2
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 1072
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 1, ptr %3, align 1
   call void @_ZN12XMessagePortIbE9send_syncERKb(ptr noundef nonnull align 8 dereferenceable(144) %16, ptr noundef nonnull align 1 dereferenceable(1) %3)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %29
 
 17:                                               ; preds = %2
@@ -635,7 +635,7 @@ _ZN13MonitorLocker4waitEl.exit.i.i:               ; preds = %.lr.ph.i.i
 
 _ZN15XRendezvousPort4waitEv.exit:                 ; preds = %.critedge.thread.i.i, %44
   call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(144) %16) #12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %53 = load i8, ptr %4, align 8
   %54 = trunc i8 %53 to i1
   br i1 %54, label %55, label %_ZN10XStatTimerD2Ev.exit
@@ -654,7 +654,7 @@ _ZN15XRendezvousPort4waitEv.exit:                 ; preds = %.critedge.thread.i.
   br label %_ZN10XStatTimerD2Ev.exit
 
 _ZN10XStatTimerD2Ev.exit:                         ; preds = %_ZN15XRendezvousPort4waitEv.exit, %55
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   store ptr null, ptr %5, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTV13VM_XOperation, i64 16), ptr %3, align 8
   %63 = call noundef i32 @_ZN4GCId7currentEv() #12
@@ -706,7 +706,7 @@ _ZN10XStatTimerC2ERK10XStatPhase.exit:            ; preds = %1, %13
   %16 = load ptr, ptr @_ZN5XHeap5_heapE, align 8
   call void @_ZN5XHeap4markEb(ptr noundef nonnull align 64 dereferenceable(4088) %16, i1 noundef zeroext true) #12
   call void @_ZN11XBreakpoint27at_before_marking_completedEv() #12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %17 = load i8, ptr %3, align 8
   %18 = trunc i8 %17 to i1
   br i1 %18, label %19, label %_ZN10XStatTimerD2Ev.exit
@@ -726,7 +726,7 @@ _ZN10XStatTimerC2ERK10XStatPhase.exit:            ; preds = %1, %13
   br label %_ZN10XStatTimerD2Ev.exit
 
 _ZN10XStatTimerD2Ev.exit:                         ; preds = %_ZN10XStatTimerC2ERK10XStatPhase.exit, %19
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -837,7 +837,7 @@ _ZN13MonitorLocker4waitEl.exit.i.i:               ; preds = %.lr.ph.i.i
 
 _ZN15XRendezvousPort4waitEv.exit:                 ; preds = %.critedge.thread.i.i, %44
   call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(144) %16) #12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %53 = load i8, ptr %4, align 8
   %54 = trunc i8 %53 to i1
   br i1 %54, label %55, label %_ZN10XStatTimerD2Ev.exit
@@ -856,7 +856,7 @@ _ZN15XRendezvousPort4waitEv.exit:                 ; preds = %.critedge.thread.i.
   br label %_ZN10XStatTimerD2Ev.exit
 
 _ZN10XStatTimerD2Ev.exit:                         ; preds = %_ZN15XRendezvousPort4waitEv.exit, %55
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   store ptr null, ptr %5, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTV13VM_XOperation, i64 16), ptr %3, align 8
   %63 = call noundef i32 @_ZN4GCId7currentEv() #12
@@ -906,7 +906,7 @@ define hidden void @_ZN7XDriver24concurrent_mark_continueEv(ptr noundef nonnull 
 _ZN10XStatTimerC2ERK10XStatPhase.exit:            ; preds = %1, %13
   %16 = load ptr, ptr @_ZN5XHeap5_heapE, align 8
   call void @_ZN5XHeap4markEb(ptr noundef nonnull align 64 dereferenceable(4088) %16, i1 noundef zeroext false) #12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %17 = load i8, ptr %3, align 8
   %18 = trunc i8 %17 to i1
   br i1 %18, label %19, label %_ZN10XStatTimerD2Ev.exit
@@ -926,7 +926,7 @@ _ZN10XStatTimerC2ERK10XStatPhase.exit:            ; preds = %1, %13
   br label %_ZN10XStatTimerD2Ev.exit
 
 _ZN10XStatTimerD2Ev.exit:                         ; preds = %_ZN10XStatTimerC2ERK10XStatPhase.exit, %19
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -959,7 +959,7 @@ define hidden void @_ZN7XDriver20concurrent_mark_freeEv(ptr noundef nonnull read
 _ZN10XStatTimerC2ERK10XStatPhase.exit:            ; preds = %1, %13
   %16 = load ptr, ptr @_ZN5XHeap5_heapE, align 8
   call void @_ZN5XHeap9mark_freeEv(ptr noundef nonnull align 64 dereferenceable(4088) %16) #12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %17 = load i8, ptr %3, align 8
   %18 = trunc i8 %17 to i1
   br i1 %18, label %19, label %_ZN10XStatTimerD2Ev.exit
@@ -979,7 +979,7 @@ _ZN10XStatTimerC2ERK10XStatPhase.exit:            ; preds = %1, %13
   br label %_ZN10XStatTimerD2Ev.exit
 
 _ZN10XStatTimerD2Ev.exit:                         ; preds = %_ZN10XStatTimerC2ERK10XStatPhase.exit, %19
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -1015,7 +1015,7 @@ _ZN10XStatTimerC2ERK10XStatPhase.exit:            ; preds = %1, %13
   call void @_ZN11XBreakpoint37at_after_reference_processing_startedEv() #12
   %16 = load ptr, ptr @_ZN5XHeap5_heapE, align 8
   call void @_ZN5XHeap29process_non_strong_referencesEv(ptr noundef nonnull align 64 dereferenceable(4088) %16) #12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %17 = load i8, ptr %3, align 8
   %18 = trunc i8 %17 to i1
   br i1 %18, label %19, label %_ZN10XStatTimerD2Ev.exit
@@ -1035,7 +1035,7 @@ _ZN10XStatTimerC2ERK10XStatPhase.exit:            ; preds = %1, %13
   br label %_ZN10XStatTimerD2Ev.exit
 
 _ZN10XStatTimerD2Ev.exit:                         ; preds = %_ZN10XStatTimerC2ERK10XStatPhase.exit, %19
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -1072,7 +1072,7 @@ define hidden void @_ZN7XDriver31concurrent_reset_relocation_setEv(ptr noundef n
 _ZN10XStatTimerC2ERK10XStatPhase.exit:            ; preds = %1, %13
   %16 = load ptr, ptr @_ZN5XHeap5_heapE, align 8
   call void @_ZN5XHeap20reset_relocation_setEv(ptr noundef nonnull align 64 dereferenceable(4088) %16) #12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %17 = load i8, ptr %3, align 8
   %18 = trunc i8 %17 to i1
   br i1 %18, label %19, label %_ZN10XStatTimerD2Ev.exit
@@ -1092,7 +1092,7 @@ _ZN10XStatTimerC2ERK10XStatPhase.exit:            ; preds = %1, %13
   br label %_ZN10XStatTimerD2Ev.exit
 
 _ZN10XStatTimerD2Ev.exit:                         ; preds = %_ZN10XStatTimerC2ERK10XStatPhase.exit, %19
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -1150,7 +1150,7 @@ define hidden void @_ZN7XDriver32concurrent_select_relocation_setEv(ptr noundef 
 _ZN10XStatTimerC2ERK10XStatPhase.exit:            ; preds = %1, %13
   %16 = load ptr, ptr @_ZN5XHeap5_heapE, align 8
   call void @_ZN5XHeap21select_relocation_setEv(ptr noundef nonnull align 64 dereferenceable(4088) %16) #12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %17 = load i8, ptr %3, align 8
   %18 = trunc i8 %17 to i1
   br i1 %18, label %19, label %_ZN10XStatTimerD2Ev.exit
@@ -1170,7 +1170,7 @@ _ZN10XStatTimerC2ERK10XStatPhase.exit:            ; preds = %1, %13
   br label %_ZN10XStatTimerD2Ev.exit
 
 _ZN10XStatTimerD2Ev.exit:                         ; preds = %_ZN10XStatTimerC2ERK10XStatPhase.exit, %19
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -1277,7 +1277,7 @@ _ZN13MonitorLocker4waitEl.exit.i.i:               ; preds = %.lr.ph.i.i
 
 _ZN15XRendezvousPort4waitEv.exit:                 ; preds = %.critedge.thread.i.i, %44
   call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(144) %16) #12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %53 = load i8, ptr %4, align 8
   %54 = trunc i8 %53 to i1
   br i1 %54, label %55, label %_ZN10XStatTimerD2Ev.exit
@@ -1296,7 +1296,7 @@ _ZN15XRendezvousPort4waitEv.exit:                 ; preds = %.critedge.thread.i.
   br label %_ZN10XStatTimerD2Ev.exit
 
 _ZN10XStatTimerD2Ev.exit:                         ; preds = %_ZN15XRendezvousPort4waitEv.exit, %55
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   store ptr null, ptr %5, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTV13VM_XOperation, i64 16), ptr %3, align 8
   %63 = call noundef i32 @_ZN4GCId7currentEv() #12
@@ -1346,7 +1346,7 @@ define hidden void @_ZN7XDriver19concurrent_relocateEv(ptr nonnull readnone alig
 _ZN10XStatTimerC2ERK10XStatPhase.exit:            ; preds = %1, %13
   %16 = load ptr, ptr @_ZN5XHeap5_heapE, align 8
   call void @_ZN5XHeap8relocateEv(ptr noundef nonnull align 64 dereferenceable(4088) %16) #12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %17 = load i8, ptr %3, align 8
   %18 = trunc i8 %17 to i1
   br i1 %18, label %19, label %_ZN10XStatTimerD2Ev.exit
@@ -1366,7 +1366,7 @@ _ZN10XStatTimerC2ERK10XStatPhase.exit:            ; preds = %1, %13
   br label %_ZN10XStatTimerD2Ev.exit
 
 _ZN10XStatTimerD2Ev.exit:                         ; preds = %_ZN10XStatTimerC2ERK10XStatPhase.exit, %19
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -1413,7 +1413,7 @@ define hidden void @_ZN7XDriver2gcERK14XDriverRequest(ptr noundef nonnull align 
   br i1 %23, label %45, label %24
 
 24:                                               ; preds = %22
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %25 = load i32, ptr %17, align 4
   %.not.i.i = icmp eq i32 %25, 0
   %26 = zext i1 %.not.i.i to i8
@@ -1435,7 +1435,7 @@ define hidden void @_ZN7XDriver2gcERK14XDriverRequest(ptr noundef nonnull align 
 _ZN10XStatTimerC2ERK10XStatPhase.exit.i:          ; preds = %30, %24
   %33 = load ptr, ptr @_ZN5XHeap5_heapE, align 8
   call void @_ZN5XHeap4markEb(ptr noundef nonnull align 64 dereferenceable(4088) %33, i1 noundef zeroext false) #12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %34 = load i8, ptr %13, align 8
   %35 = trunc i8 %34 to i1
   br i1 %35, label %36, label %_ZN7XDriver24concurrent_mark_continueEv.exit
@@ -1454,13 +1454,13 @@ _ZN10XStatTimerC2ERK10XStatPhase.exit.i:          ; preds = %30, %24
   br label %_ZN7XDriver24concurrent_mark_continueEv.exit
 
 _ZN7XDriver24concurrent_mark_continueEv.exit:     ; preds = %_ZN10XStatTimerC2ERK10XStatPhase.exit.i, %36
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %44 = call noundef zeroext i1 @_ZNK18ConcurrentGCThread16should_terminateEv(ptr noundef nonnull align 8 dereferenceable(918) %0) #12
   br i1 %44, label %.loopexit, label %22, !llvm.loop !8
 
 45:                                               ; preds = %22
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %46 = load i32, ptr %17, align 4
   %.not.i.i2 = icmp eq i32 %46, 0
   %47 = zext i1 %.not.i.i2 to i8
@@ -1485,7 +1485,7 @@ _ZN7XDriver24concurrent_mark_continueEv.exit:     ; preds = %_ZN10XStatTimerC2ER
 _ZN10XStatTimerC2ERK10XStatPhase.exit.i3:         ; preds = %54, %45
   %57 = load ptr, ptr @_ZN5XHeap5_heapE, align 8
   call void @_ZN5XHeap9mark_freeEv(ptr noundef nonnull align 64 dereferenceable(4088) %57) #12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %58 = load i8, ptr %11, align 8
   %59 = trunc i8 %58 to i1
   br i1 %59, label %60, label %_ZN7XDriver20concurrent_mark_freeEv.exit
@@ -1505,13 +1505,13 @@ _ZN10XStatTimerC2ERK10XStatPhase.exit.i3:         ; preds = %54, %45
   br label %_ZN7XDriver20concurrent_mark_freeEv.exit
 
 _ZN7XDriver20concurrent_mark_freeEv.exit:         ; preds = %_ZN10XStatTimerC2ERK10XStatPhase.exit.i3, %60
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %69 = call noundef zeroext i1 @_ZNK18ConcurrentGCThread16should_terminateEv(ptr noundef nonnull align 8 dereferenceable(918) %0) #12
   br i1 %69, label %.loopexit, label %70
 
 70:                                               ; preds = %_ZN7XDriver20concurrent_mark_freeEv.exit
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %71 = load i32, ptr %17, align 4
   %.not.i.i4 = icmp eq i32 %71, 0
   %72 = zext i1 %.not.i.i4 to i8
@@ -1537,7 +1537,7 @@ _ZN10XStatTimerC2ERK10XStatPhase.exit.i5:         ; preds = %79, %70
   call void @_ZN11XBreakpoint37at_after_reference_processing_startedEv() #12
   %82 = load ptr, ptr @_ZN5XHeap5_heapE, align 8
   call void @_ZN5XHeap29process_non_strong_referencesEv(ptr noundef nonnull align 64 dereferenceable(4088) %82) #12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %83 = load i8, ptr %9, align 8
   %84 = trunc i8 %83 to i1
   br i1 %84, label %85, label %_ZN7XDriver40concurrent_process_non_strong_referencesEv.exit
@@ -1557,13 +1557,13 @@ _ZN10XStatTimerC2ERK10XStatPhase.exit.i5:         ; preds = %79, %70
   br label %_ZN7XDriver40concurrent_process_non_strong_referencesEv.exit
 
 _ZN7XDriver40concurrent_process_non_strong_referencesEv.exit: ; preds = %_ZN10XStatTimerC2ERK10XStatPhase.exit.i5, %85
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %94 = call noundef zeroext i1 @_ZNK18ConcurrentGCThread16should_terminateEv(ptr noundef nonnull align 8 dereferenceable(918) %0) #12
   br i1 %94, label %.loopexit, label %95
 
 95:                                               ; preds = %_ZN7XDriver40concurrent_process_non_strong_referencesEv.exit
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %96 = load i32, ptr %17, align 4
   %.not.i.i6 = icmp eq i32 %96, 0
   %97 = zext i1 %.not.i.i6 to i8
@@ -1588,7 +1588,7 @@ _ZN7XDriver40concurrent_process_non_strong_referencesEv.exit: ; preds = %_ZN10XS
 _ZN10XStatTimerC2ERK10XStatPhase.exit.i7:         ; preds = %104, %95
   %107 = load ptr, ptr @_ZN5XHeap5_heapE, align 8
   call void @_ZN5XHeap20reset_relocation_setEv(ptr noundef nonnull align 64 dereferenceable(4088) %107) #12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %108 = load i8, ptr %7, align 8
   %109 = trunc i8 %108 to i1
   br i1 %109, label %110, label %_ZN7XDriver31concurrent_reset_relocation_setEv.exit
@@ -1608,13 +1608,13 @@ _ZN10XStatTimerC2ERK10XStatPhase.exit.i7:         ; preds = %104, %95
   br label %_ZN7XDriver31concurrent_reset_relocation_setEv.exit
 
 _ZN7XDriver31concurrent_reset_relocation_setEv.exit: ; preds = %_ZN10XStatTimerC2ERK10XStatPhase.exit.i7, %110
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %119 = call noundef zeroext i1 @_ZNK18ConcurrentGCThread16should_terminateEv(ptr noundef nonnull align 8 dereferenceable(918) %0) #12
   br i1 %119, label %.loopexit, label %120
 
 120:                                              ; preds = %_ZN7XDriver31concurrent_reset_relocation_setEv.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %121 = load i8, ptr @ZVerifyRoots, align 1
   %122 = trunc i8 %121 to i1
   %123 = load i8, ptr @ZVerifyObjects, align 1
@@ -1630,8 +1630,8 @@ _ZN7XDriver31concurrent_reset_relocation_setEv.exit: ; preds = %_ZN10XStatTimerC
   br label %_ZN7XDriver12pause_verifyEv.exit
 
 _ZN7XDriver12pause_verifyEv.exit:                 ; preds = %120, %125
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %127 = load i32, ptr %17, align 4
   %.not.i.i8 = icmp eq i32 %127, 0
   %128 = zext i1 %.not.i.i8 to i8
@@ -1656,7 +1656,7 @@ _ZN7XDriver12pause_verifyEv.exit:                 ; preds = %120, %125
 _ZN10XStatTimerC2ERK10XStatPhase.exit.i9:         ; preds = %135, %_ZN7XDriver12pause_verifyEv.exit
   %138 = load ptr, ptr @_ZN5XHeap5_heapE, align 8
   call void @_ZN5XHeap21select_relocation_setEv(ptr noundef nonnull align 64 dereferenceable(4088) %138) #12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %139 = load i8, ptr %4, align 8
   %140 = trunc i8 %139 to i1
   br i1 %140, label %141, label %_ZN7XDriver32concurrent_select_relocation_setEv.exit
@@ -1676,8 +1676,8 @@ _ZN10XStatTimerC2ERK10XStatPhase.exit.i9:         ; preds = %135, %_ZN7XDriver12
   br label %_ZN7XDriver32concurrent_select_relocation_setEv.exit
 
 _ZN7XDriver32concurrent_select_relocation_setEv.exit: ; preds = %_ZN10XStatTimerC2ERK10XStatPhase.exit.i9, %141
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %150 = call noundef zeroext i1 @_ZNK18ConcurrentGCThread16should_terminateEv(ptr noundef nonnull align 8 dereferenceable(918) %0) #12
   br i1 %150, label %.loopexit, label %151
 
@@ -1789,7 +1789,7 @@ define linkonce_odr hidden void @_ZN14XDriverGCScopeD2Ev(ptr noundef nonnull ali
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @_ZN23TraceMemoryManagerStatsD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #12
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %11 = load i8, ptr %10, align 8
   %12 = trunc i8 %11 to i1
   br i1 %12, label %13, label %_ZN10XStatTimerD2Ev.exit
@@ -1811,7 +1811,7 @@ define linkonce_odr hidden void @_ZN14XDriverGCScopeD2Ev(ptr noundef nonnull ali
   br label %_ZN10XStatTimerD2Ev.exit
 
 _ZN10XStatTimerD2Ev.exit:                         ; preds = %1, %13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -2616,7 +2616,7 @@ _ZN10XStatTimerC2ERK10XStatPhase.exit:            ; preds = %1, %14
   %24 = load ptr, ptr @_ZN5XHeap5_heapE, align 8
   call void @_ZN5XHeap10mark_startEv(ptr noundef nonnull align 64 dereferenceable(4088) %24) #12
   call void @_ZN26XServiceabilityPauseTracerD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %4) #12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %25 = load i8, ptr %3, align 8
   %26 = trunc i8 %25 to i1
   br i1 %26, label %27, label %_ZN10XStatTimerD2Ev.exit
@@ -2636,7 +2636,7 @@ _ZN10XStatTimerC2ERK10XStatPhase.exit:            ; preds = %1, %14
   br label %_ZN10XStatTimerD2Ev.exit
 
 _ZN10XStatTimerD2Ev.exit:                         ; preds = %_ZN10XStatTimerC2ERK10XStatPhase.exit, %27
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 true
 }
 
@@ -2811,7 +2811,7 @@ _ZN10XStatTimerC2ERK10XStatPhase.exit:            ; preds = %1, %14
   %17 = load ptr, ptr @_ZN5XHeap5_heapE, align 8
   %18 = call noundef zeroext i1 @_ZN5XHeap8mark_endEv(ptr noundef nonnull align 64 dereferenceable(4088) %17) #12
   call void @_ZN26XServiceabilityPauseTracerD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %4) #12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %19 = load i8, ptr %3, align 8
   %20 = trunc i8 %19 to i1
   br i1 %20, label %21, label %_ZN10XStatTimerD2Ev.exit
@@ -2831,7 +2831,7 @@ _ZN10XStatTimerC2ERK10XStatPhase.exit:            ; preds = %1, %14
   br label %_ZN10XStatTimerD2Ev.exit
 
 _ZN10XStatTimerD2Ev.exit:                         ; preds = %_ZN10XStatTimerC2ERK10XStatPhase.exit, %21
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %18
 }
 
@@ -2879,7 +2879,7 @@ _ZN10XStatTimerC2ERK10XStatPhase.exit:            ; preds = %1, %14
   %17 = load ptr, ptr @_ZN5XHeap5_heapE, align 8
   call void @_ZN5XHeap14relocate_startEv(ptr noundef nonnull align 64 dereferenceable(4088) %17) #12
   call void @_ZN26XServiceabilityPauseTracerD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %4) #12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %18 = load i8, ptr %3, align 8
   %19 = trunc i8 %18 to i1
   br i1 %19, label %20, label %_ZN10XStatTimerD2Ev.exit
@@ -2899,7 +2899,7 @@ _ZN10XStatTimerC2ERK10XStatPhase.exit:            ; preds = %1, %14
   br label %_ZN10XStatTimerD2Ev.exit
 
 _ZN10XStatTimerD2Ev.exit:                         ; preds = %_ZN10XStatTimerC2ERK10XStatPhase.exit, %20
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 true
 }
 
@@ -2927,10 +2927,10 @@ define internal void @_GLOBAL__sub_I_xDriver.cpp() #7 section ".text.startup" {
 declare i32 @llvm.umax.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

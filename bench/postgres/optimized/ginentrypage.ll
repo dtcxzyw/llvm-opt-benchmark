@@ -29,8 +29,8 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local ptr @GinFormTuple(ptr noundef readonly captures(none) %0, i16 noundef zeroext %1, i64 noundef %2, i8 noundef signext %3, ptr noundef readonly captures(address_is_null) %4, i64 noundef %5, i32 noundef %6, i1 noundef zeroext %7) local_unnamed_addr #0 {
   %9 = alloca [2 x i64], align 16
   %10 = alloca [2 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #11
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %10) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load i8, ptr %11, align 8, !range !4, !noundef !5
   %13 = trunc nuw i8 %12 to i1
@@ -172,37 +172,31 @@ define dso_local ptr @GinFormTuple(ptr noundef readonly captures(none) %0, i16 n
 
 90:                                               ; preds = %81, %82, %60
   %.0 = phi ptr [ null, %60 ], [ %.052, %82 ], [ %.052, %81 ]
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %10) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare ptr @index_form_tuple(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @index_form_tuple(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @errcode(i32 noundef) local_unnamed_addr #2
+declare i32 @errcode(i32 noundef) local_unnamed_addr #1
 
-declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #1
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @pfree(ptr noundef) local_unnamed_addr #2
+declare void @pfree(ptr noundef) local_unnamed_addr #1
 
-declare ptr @repalloc(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @repalloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @ginReadTuple(ptr noundef readnone captures(none) %0, i16 noundef zeroext %1, ptr noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
@@ -220,7 +214,7 @@ define dso_local ptr @ginReadTuple(ptr noundef readnone captures(none) %0, i16 n
   %13 = getelementptr i8, ptr %2, i64 4
   %.val20 = load i16, ptr %13, align 2
   %14 = zext i16 %.val20 to i32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not = icmp sgt i32 %8, -1
   br i1 %.not, label %25, label %15
 
@@ -256,15 +250,15 @@ define dso_local ptr @ginReadTuple(ptr noundef readnone captures(none) %0, i16 n
 29:                                               ; preds = %23, %16, %25
   %.0 = phi ptr [ %17, %16 ], [ %24, %23 ], [ %28, %25 ]
   store i32 %14, ptr %3, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }
 
-declare ptr @ginPostingListDecode(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @ginPostingListDecode(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 
-declare ptr @palloc(i64 noundef) local_unnamed_addr #2
+declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ginEntryFillRoot(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4, ptr noundef readonly captures(none) %5) #0 {
@@ -457,10 +451,10 @@ GinFormInteriorTuple.exit26:                      ; preds = %87, %101
   ret void
 }
 
-declare zeroext i16 @PageAddItemExtended(ptr noundef, ptr noundef, i64 noundef, i16 noundef zeroext, i32 noundef) local_unnamed_addr #2
+declare zeroext i16 @PageAddItemExtended(ptr noundef, ptr noundef, i64 noundef, i16 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @ginPrepareEntryScan(ptr noundef writeonly captures(none) initializes((0, 128)) %0, i16 noundef zeroext %1, i64 noundef %2, i8 noundef signext %3, ptr noundef %4) local_unnamed_addr #6 {
+define dso_local void @ginPrepareEntryScan(ptr noundef writeonly captures(none) initializes((0, 128)) %0, i16 noundef zeroext %1, i64 noundef %2, i8 noundef signext %3, ptr noundef %4) local_unnamed_addr #5 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %0, i8 0, i64 128, i1 false)
   %6 = load ptr, ptr %4, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -592,7 +586,7 @@ BufferGetPage.exit:                               ; preds = %7, %13
   br i1 %61, label %.thread, label %62
 
 62:                                               ; preds = %52, %56
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %63 = zext i16 %54 to i64
   %64 = add nsw i64 %63, -1
   %65 = getelementptr inbounds [0 x %struct.ItemIdData], ptr %47, i64 0, i64 %64
@@ -610,7 +604,7 @@ BufferGetPage.exit:                               ; preds = %7, %13
   %76 = load i8, ptr %51, align 8
   %77 = load i8, ptr %3, align 1
   %78 = call i32 @ginCompareAttEntries(ptr noundef %73, i16 noundef zeroext %74, i64 noundef %75, i8 noundef signext %76, i16 noundef zeroext %70, i64 noundef %72, i8 noundef signext %77) #11
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not = icmp eq i32 %78, 0
   br i1 %.not, label %.thread74, label %.thread
 
@@ -662,7 +656,7 @@ BufferGetPage.exit:                               ; preds = %7, %13
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @entryGetLeftMostPage(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #7 {
+define internal i32 @entryGetLeftMostPage(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #6 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.val4 = load i32, ptr %3, align 4
   %4 = and i32 %.val4, 32767
@@ -681,7 +675,7 @@ define internal i32 @entryGetLeftMostPage(ptr readnone captures(none) %0, ptr no
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @entryIsMoveRight(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i16, ptr %4, align 4
   %6 = zext i16 %5 to i64
@@ -725,7 +719,7 @@ define internal zeroext i1 @entryIsMoveRight(ptr noundef readonly captures(none)
 
 39:                                               ; preds = %10, %2
   %.0 = phi i1 [ false, %2 ], [ %38, %10 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
 
@@ -801,7 +795,7 @@ BufferGetPage.exit:                               ; preds = %7, %13
   %narrow = sub nuw i16 %.03849, %.03550
   %44 = lshr i16 %narrow, 1
   %45 = add i16 %44, %.03550
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %46 = zext i16 %45 to i64
   %47 = add nsw i64 %46, -1
   %48 = getelementptr inbounds [0 x %struct.ItemIdData], ptr %38, i64 0, i64 %47
@@ -825,7 +819,7 @@ BufferGetPage.exit:                               ; preds = %7, %13
 .thread:                                          ; preds = %43
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i16 %45, ptr %62, align 8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %68
 
 63:                                               ; preds = %43
@@ -833,7 +827,7 @@ BufferGetPage.exit:                               ; preds = %7, %13
   %65 = add i16 %45, 1
   %.240 = select i1 %64, i16 %.03849, i16 %45
   %.237 = select i1 %64, i16 %65, i16 %.03550
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %66 = icmp ugt i16 %.240, %.237
   br i1 %66, label %43, label %._crit_edge, !llvm.loop !6
 
@@ -849,7 +843,7 @@ BufferGetPage.exit:                               ; preds = %7, %13
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal zeroext i16 @entryFindChildPtr(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i16 noundef zeroext %3) #8 {
+define internal zeroext i16 @entryFindChildPtr(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i16 noundef zeroext %3) #7 {
   %5 = getelementptr i8, ptr %1, i64 12
   %.val43 = load i16, ptr %5, align 4
   %6 = icmp ult i16 %.val43, 25
@@ -1040,7 +1034,7 @@ BufferGetPage.exit101.i:                          ; preds = %60, %50
   %.val99.i = load i16, ptr %71, align 2
   %72 = and i16 %.val99.i, -256
   %73 = zext i16 %72 to i64
-  call void @llvm.lifetime.start.p0(i64 16384, ptr nonnull %9) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %.val98.i = load i8, ptr %25, align 8, !range !4, !noundef !5
   %74 = trunc nuw i8 %.val98.i to i1
   br i1 %74, label %75, label %76
@@ -1238,7 +1232,7 @@ entryPreparePage.exit.i:                          ; preds = %86, %76
 entrySplitPage.exit:                              ; preds = %179
   store ptr %69, ptr %6, align 8
   store ptr %70, ptr %7, align 8
-  call void @llvm.lifetime.end.p0(i64 16384, ptr nonnull %9) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %185
 
 185:                                              ; preds = %entryIsEnoughSpace.exit, %entrySplitPage.exit
@@ -1492,27 +1486,33 @@ GinFormInteriorTuple.exit:                        ; preds = %41, %55
   ret ptr %30
 }
 
-declare zeroext i16 @gintuple_get_attrnum(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i16 @gintuple_get_attrnum(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i64 @gintuple_get_key(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i64 @gintuple_get_key(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @ginCompareAttEntries(ptr noundef, i16 noundef zeroext, i64 noundef, i8 noundef signext, i16 noundef zeroext, i64 noundef, i8 noundef signext) local_unnamed_addr #2
+declare i32 @ginCompareAttEntries(ptr noundef, i16 noundef zeroext, i64 noundef, i8 noundef signext, i16 noundef zeroext, i64 noundef, i8 noundef signext) local_unnamed_addr #1
 
-declare i64 @PageGetFreeSpace(ptr noundef) local_unnamed_addr #2
+declare i64 @PageGetFreeSpace(ptr noundef) local_unnamed_addr #1
 
-declare ptr @PageGetTempPageCopy(ptr noundef) local_unnamed_addr #2
+declare ptr @PageGetTempPageCopy(ptr noundef) local_unnamed_addr #1
 
-declare void @GinInitPage(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
+declare void @GinInitPage(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @PageIndexTupleDelete(ptr noundef, i16 noundef zeroext) local_unnamed_addr #2
+declare void @PageIndexTupleDelete(ptr noundef, i16 noundef zeroext) local_unnamed_addr #1
 
-declare void @MarkBufferDirty(i32 noundef) local_unnamed_addr #2
+declare void @MarkBufferDirty(i32 noundef) local_unnamed_addr #1
 
-declare void @XLogRegisterBuffer(i8 noundef zeroext, i32 noundef, i8 noundef zeroext) local_unnamed_addr #2
+declare void @XLogRegisterBuffer(i8 noundef zeroext, i32 noundef, i8 noundef zeroext) local_unnamed_addr #1
 
-declare void @XLogRegisterBufData(i8 noundef zeroext, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @XLogRegisterBufData(i8 noundef zeroext, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @BufferGetBlockNumber(i32 noundef) local_unnamed_addr #2
+declare i32 @BufferGetBlockNumber(i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #9
@@ -1521,14 +1521,14 @@ declare void @llvm.assume(i1 noundef) #9
 declare i32 @llvm.umax.i32(i32, i32) #10
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #11 = { nounwind }

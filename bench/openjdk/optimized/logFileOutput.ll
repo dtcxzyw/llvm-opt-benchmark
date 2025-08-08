@@ -540,7 +540,7 @@ define hidden noundef zeroext i1 @_ZN13LogFileOutput10set_optionEPKcS1_P12output
   br i1 %10, label %11, label %25
 
 11:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %12 = call i64 @strtoull(ptr noundef %2, ptr noundef nonnull %5, i32 noundef 10) #13
   %13 = load i8, ptr %2, align 1
   %14 = sext i8 %13 to i32
@@ -556,11 +556,11 @@ define hidden noundef zeroext i1 @_ZN13LogFileOutput10set_optionEPKcS1_P12output
   br i1 %.not.i, label %_ZL11parse_valuePKc.exit, label %_ZL11parse_valuePKc.exit.thread
 
 _ZL11parse_valuePKc.exit.thread:                  ; preds = %11, %15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %20
 
 _ZL11parse_valuePKc.exit:                         ; preds = %15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %19 = icmp ugt i64 %12, 1000
   br i1 %19, label %20, label %21
 
@@ -630,7 +630,7 @@ define hidden noundef zeroext i1 @_ZN13LogFileOutput10initializeEPKcP12outputStr
 
 16:                                               ; preds = %9
   %17 = load ptr, ptr %10, align 8
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %18 = call noundef i32 @_ZN2os4statEPKcP4stat(ptr noundef %17, ptr noundef nonnull %7) #13
   %.not.i = icmp eq i32 %18, 0
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 24
@@ -638,7 +638,7 @@ define hidden noundef zeroext i1 @_ZN13LogFileOutput10initializeEPKcP12outputStr
   %21 = and i32 %20, 61440
   %22 = icmp eq i32 %21, 4096
   %.0.i = select i1 %.not.i, i1 %22, i1 false
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %.0.i, label %23, label %25
 
 23:                                               ; preds = %16
@@ -696,7 +696,7 @@ define hidden noundef zeroext i1 @_ZN13LogFileOutput10initializeEPKcP12outputStr
 
 51:                                               ; preds = %48
   %52 = load ptr, ptr %10, align 8
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %53 = call noundef i32 @_ZN2os4statEPKcP4stat(ptr noundef %52, ptr noundef nonnull %6) #13
   %.not.i13 = icmp eq i32 %53, 0
   %54 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -704,7 +704,7 @@ define hidden noundef zeroext i1 @_ZN13LogFileOutput10initializeEPKcP12outputStr
   %56 = and i32 %55, 61440
   %57 = icmp eq i32 %56, 32768
   %.0.i14 = select i1 %.not.i13, i1 %57, i1 false
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %58 = load ptr, ptr %10, align 8
   br i1 %.0.i14, label %60, label %59
 
@@ -738,14 +738,14 @@ define hidden noundef zeroext i1 @_ZN13LogFileOutput10initializeEPKcP12outputStr
   br i1 %73, label %74, label %80
 
 74:                                               ; preds = %71
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %75 = call noundef i32 @_ZN2os4statEPKcP4stat(ptr noundef %68, ptr noundef nonnull %5) #13
   %.not.i.i = icmp eq i32 %75, 0
   %76 = load i32, ptr %70, align 8
   %77 = and i32 %76, 61440
   %78 = icmp eq i32 %77, 32768
   %.0.i.i = select i1 %.not.i.i, i1 %78, i1 false
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.0.i.i, label %80, label %79
 
 79:                                               ; preds = %74
@@ -827,7 +827,7 @@ _ZL16next_file_numberPKcjjP12outputStream.exit:   ; preds = %80, %88, %60, %79
 
 115:                                              ; preds = %112
   %116 = load ptr, ptr %10, align 8
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %117 = call noundef i32 @_ZN2os4statEPKcP4stat(ptr noundef %116, ptr noundef nonnull %4) #13
   %.not.i16 = icmp eq i32 %117, 0
   %118 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -835,7 +835,7 @@ _ZL16next_file_numberPKcjjP12outputStream.exit:   ; preds = %80, %88, %60, %79
   %120 = and i32 %119, 61440
   %121 = icmp eq i32 %120, 32768
   %.0.i17 = select i1 %.not.i16, i1 %121, i1 false
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.0.i17, label %122, label %129
 
 122:                                              ; preds = %115
@@ -1278,10 +1278,10 @@ declare void @_ZN9LogTagSet6vwriteEN8LogLevel4typeEPKcP13__va_list_tag(ptr nound
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

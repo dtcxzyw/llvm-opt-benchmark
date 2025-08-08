@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 define hidden i32 @_sodium_argon2_ctx(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.Argon2_instance_t, align 8
   %4 = tail call i32 @_sodium_argon2_validate_inputs(ptr noundef %0) #9
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %34
 
@@ -74,28 +74,22 @@ define hidden i32 @_sodium_argon2_ctx(ptr noundef %0, i32 noundef %1) local_unna
 
 34:                                               ; preds = %7, %5, %2, %._crit_edge
   %.028 = phi i32 [ 0, %._crit_edge ], [ %4, %2 ], [ -26, %5 ], [ %29, %7 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.028
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @_sodium_argon2_validate_inputs(ptr noundef) local_unnamed_addr #1
 
-declare i32 @_sodium_argon2_validate_inputs(ptr noundef) local_unnamed_addr #2
+declare i32 @_sodium_argon2_initialize(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @_sodium_argon2_initialize(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @_sodium_argon2_fill_memory_blocks(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @_sodium_argon2_fill_memory_blocks(ptr noundef, i32 noundef) local_unnamed_addr #2
-
-declare void @_sodium_argon2_finalize(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @_sodium_argon2_finalize(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind ssp uwtable
 define hidden i32 @_sodium_argon2_hash(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6, ptr noundef %7, i64 noundef %8, ptr noundef %9, i64 noundef %10, i32 noundef %11) local_unnamed_addr #0 {
   %13 = alloca %struct.Argon2_Context, align 8
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %13) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %15, label %14
 
@@ -195,21 +189,21 @@ define hidden i32 @_sodium_argon2_hash(i32 noundef %0, i32 noundef %1, i32 nound
 
 52:                                               ; preds = %.sink.split, %21, %19, %17, %15
   %.0 = phi i32 [ -5, %15 ], [ -3, %17 ], [ -7, %19 ], [ -22, %21 ], [ %.0.ph, %.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %13) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret i32 %.0
 }
 
-declare void @randombytes_buf(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @randombytes_buf(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 
-declare void @sodium_memzero(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @sodium_memzero(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
-declare i32 @_sodium_argon2_encode_string(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @_sodium_argon2_encode_string(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind ssp uwtable
 define hidden i32 @_sodium_argon2i_hash_encoded(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef %8, i64 noundef %9) local_unnamed_addr #0 {
@@ -238,7 +232,7 @@ define hidden i32 @_sodium_argon2id_hash_raw(i32 noundef %0, i32 noundef %1, i32
 ; Function Attrs: nounwind ssp uwtable
 define hidden i32 @_sodium_argon2_verify(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.Argon2_Context, align 8
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %6, i8 0, i64 88, i1 false)
   %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #11
@@ -338,16 +332,16 @@ define hidden i32 @_sodium_argon2_verify(ptr noundef %0, ptr noundef %1, i64 nou
 
 55:                                               ; preds = %4, %53, %28, %25, %22
   %.0 = phi i32 [ %27, %28 ], [ %.024, %53 ], [ -22, %25 ], [ -22, %22 ], [ -34, %4 ]
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
-declare i32 @_sodium_argon2_decode_string(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @_sodium_argon2_decode_string(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @sodium_memcmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @sodium_memcmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind ssp uwtable
 define hidden i32 @_sodium_argon2i_verify(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
@@ -361,6 +355,12 @@ define hidden i32 @_sodium_argon2id_verify(ptr noundef %0, ptr noundef %1, i64 n
   ret i32 %4
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #6
 
@@ -371,11 +371,11 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 attributes #0 = { nounwind ssp uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }

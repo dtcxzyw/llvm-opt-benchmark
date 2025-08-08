@@ -495,9 +495,9 @@ define hidden noundef zeroext i1 @_ZN11OpenImageIO6v3_1_07bmp_pvt20DibInformatio
   br i1 %241, label %.thread47, label %275
 
 242:                                              ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i16 0, ptr %3, align 2, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i16 0, ptr %4, align 2, !tbaa !11
   %243 = load ptr, ptr %1, align 8, !tbaa !3
   %244 = getelementptr inbounds nuw i8, ptr %243, i64 56
@@ -533,8 +533,8 @@ define hidden noundef zeroext i1 @_ZN11OpenImageIO6v3_1_07bmp_pvt20DibInformatio
   br i1 %267, label %268, label %.thread49
 
 .thread49:                                        ; preds = %261, %254, %248, %242
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %275
 
 268:                                              ; preds = %261
@@ -546,8 +546,8 @@ define hidden noundef zeroext i1 @_ZN11OpenImageIO6v3_1_07bmp_pvt20DibInformatio
   %273 = zext i16 %272 to i32
   %274 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %273, ptr %274, align 4, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.thread47
 
 .thread47:                                        ; preds = %111, %120, %268, %10, %212, %235
@@ -557,12 +557,6 @@ define hidden noundef zeroext i1 @_ZN11OpenImageIO6v3_1_07bmp_pvt20DibInformatio
   %.038 = phi i1 [ true, %.thread47 ], [ false, %2 ], [ false, %75 ], [ false, %68 ], [ false, %61 ], [ false, %54 ], [ false, %47 ], [ false, %40 ], [ false, %33 ], [ false, %26 ], [ false, %19 ], [ false, %12 ], [ false, %104 ], [ false, %97 ], [ false, %90 ], [ false, %113 ], [ false, %205 ], [ false, %198 ], [ false, %191 ], [ false, %184 ], [ false, %177 ], [ false, %170 ], [ false, %163 ], [ false, %156 ], [ false, %149 ], [ false, %142 ], [ false, %135 ], [ false, %128 ], [ false, %121 ], [ false, %235 ], [ false, %228 ], [ false, %221 ], [ false, %214 ], [ false, %.thread49 ]
   ret i1 %.038
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZN11OpenImageIO6v3_1_07bmp_pvt20DibInformationHeader12write_headerEPNS0_10Filesystem7IOProxyE(ptr noundef nonnull align 4 dereferenceable(124) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
@@ -718,17 +712,23 @@ define hidden void @_ZN11OpenImageIO6v3_1_07bmp_pvt20DibInformationHeader11swap_
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.bswap.i16(i16) #7
+declare i16 @llvm.bswap.i16(i16) #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.bswap.i32(i32) #7
+declare i32 @llvm.bswap.i32(i32) #6
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_bmp_pvt.cpp() #8 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_bmp_pvt.cpp() #7 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #9
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -736,9 +736,9 @@ attributes #2 = { nofree nounwind }
 attributes #3 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

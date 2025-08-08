@@ -107,8 +107,8 @@ define internal range(i32 -2147483648, 1) i32 @jpeg_parse_packet(ptr noundef %0,
   br i1 %55, label %56, label %462
 
 56:                                               ; preds = %54
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %10) #6
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %11) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %57 = zext i8 %32 to i32
   %58 = icmp slt i8 %32, 0
   br i1 %58, label %59, label %112
@@ -1007,8 +1007,8 @@ jpeg_create_huffman_table.exit182.i:              ; preds = %bytestream2_put_byt
 
 .thread174:                                       ; preds = %114, %create_default_qtables.exit, %107, %100, %75, %61
   %.2.ph = phi i32 [ -1094995529, %61 ], [ -1094995529, %75 ], [ -1094995529, %100 ], [ -1094995529, %107 ], [ %135, %create_default_qtables.exit ], [ -1094995529, %114 ]
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %11) #6
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %10) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %489
 
 456:                                              ; preds = %454, %449, %444, %439, %434, %429, %424, %419, %414, %409, %404, %399, %394, %389, %384, %379, %372, %367, %362, %357, %351, %346, %341, %334, %327, %322, %317, %312, %307, %jpeg_create_huffman_table.exit182.i
@@ -1020,8 +1020,8 @@ jpeg_create_huffman_table.exit182.i:              ; preds = %bytestream2_put_byt
   store i32 %459, ptr %460, align 4, !tbaa !18
   %461 = load ptr, ptr %1, align 8, !tbaa !19
   call void @avio_write(ptr noundef %461, ptr noundef nonnull %11, i32 noundef %459) #6
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %11) #6
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %10) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %462
 
 462:                                              ; preds = %456, %54
@@ -1069,7 +1069,7 @@ jpeg_create_huffman_table.exit182.i:              ; preds = %bytestream2_put_byt
   br i1 %.not162, label %489, label %481
 
 481:                                              ; preds = %478
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %12) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i16 -9729, ptr %12, align 2
   %482 = load ptr, ptr %1, align 8, !tbaa !19
   call void @avio_write(ptr noundef %482, ptr noundef nonnull %12, i32 noundef 2) #6
@@ -1085,7 +1085,7 @@ jpeg_create_huffman_table.exit182.i:              ; preds = %bytestream2_put_byt
 
 488:                                              ; preds = %481, %487
   %.4 = phi i32 [ %485, %487 ], [ 0, %481 ]
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %12) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %489
 
 489:                                              ; preds = %.thread174, %478, %488, %477, %469, %464, %52, %42, %14
@@ -1095,18 +1095,12 @@ jpeg_create_huffman_table.exit182.i:              ; preds = %bytestream2_put_byt
 
 declare void @ffio_free_dyn_buf(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 declare void @avpriv_report_missing_feature(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare i32 @avio_open_dyn_buf(ptr noundef) local_unnamed_addr #1
 
@@ -1115,6 +1109,12 @@ declare void @avio_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_ad
 declare i32 @ff_rtp_finalize_packet(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 declare i64 @avio_seek(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #4
@@ -1130,8 +1130,8 @@ declare i64 @llvm.smin.i64(i64, i64) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nounwind }

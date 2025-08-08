@@ -108,7 +108,7 @@ declare dso_local void @free_ipcs(ptr noundef, ptr noundef, ptr noundef) local_u
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @freeary(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = alloca %struct.wake_q_head, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr inttoptr (i64 1 to ptr), ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %3, ptr %4, align 8
@@ -493,7 +493,7 @@ define internal void @freeary(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %206 = sub i32 %205, %203
   store i32 %206, ptr %204, align 8
   call void @ipc_rcu_putref(ptr noundef %1, ptr noundef nonnull @sem_rcu_free) #12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -636,7 +636,7 @@ define internal noundef i32 @sysvipc_sem_proc_show(ptr noundef %0, ptr noundef %
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i64 -2147483648, 2147483648) i64 @ksys_semget(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = alloca %struct.ipc_params, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #14, !srcloc !23
   %7 = inttoptr i64 %6 to ptr
@@ -666,12 +666,9 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @ksys_semget(i32 noundef
 
 22:                                               ; preds = %17, %13, %3
   %23 = phi i64 [ %21, %17 ], [ -22, %13 ], [ -22, %3 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %23
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @newary(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 align 16 {
@@ -852,7 +849,7 @@ define internal i32 @newary(ptr noundef %0, ptr noundef readonly captures(none) 
 declare dso_local i32 @security_sem_associate(ptr noundef, i32 noundef) #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal range(i32 -22, 1) i32 @sem_more_checks(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #5 align 16 {
+define internal range(i32 -22, 1) i32 @sem_more_checks(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #4 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 184
@@ -863,13 +860,10 @@ define internal range(i32 -22, 1) i32 @sem_more_checks(ptr noundef readonly capt
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @ipcget(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_semget(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
@@ -883,7 +877,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_semget(ptr no
   %9 = trunc i64 %4 to i32
   %10 = trunc i64 %6 to i32
   %11 = trunc i64 %8 to i32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %13 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #14, !srcloc !23
   %14 = inttoptr i64 %13 to ptr
@@ -913,7 +907,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_semget(ptr no
 
 29:                                               ; preds = %24, %20, %1
   %30 = phi i64 [ %28, %24 ], [ -22, %20 ], [ -22, %1 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %30
 }
 
@@ -929,7 +923,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_semget(ptr n
   %9 = trunc i64 %4 to i32
   %10 = trunc i64 %6 to i32
   %11 = trunc i64 %8 to i32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %13 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #14, !srcloc !23
   %14 = inttoptr i64 %13 to ptr
@@ -959,7 +953,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_semget(ptr n
 
 29:                                               ; preds = %24, %20, %1
   %30 = phi i64 [ %28, %24 ], [ -22, %20 ], [ -22, %1 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %30
 }
 
@@ -984,7 +978,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_semctl(i
   %7 = trunc i64 %1 to i32
   %8 = trunc i64 %2 to i32
   %9 = inttoptr i64 %3 to ptr
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = icmp slt i32 %6, 0
   br i1 %10, label %44, label %11
 
@@ -1057,7 +1051,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_semctl(i
 
 44:                                               ; preds = %41, %38, %34, %31, %26, %24, %18, %11, %4
   %45 = phi i64 [ %43, %41 ], [ %37, %34 ], [ %33, %31 ], [ %25, %24 ], [ %30, %26 ], [ %20, %18 ], [ -22, %4 ], [ -14, %38 ], [ -22, %11 ]
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %45
 }
 
@@ -1112,7 +1106,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @compat_ksys_semct
   %8 = alloca %struct.semid64_ds, align 8
   %9 = zext i32 %3 to i64
   %10 = inttoptr i64 %9 to ptr
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %8) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %8, i8 0, i64 104, i1 false), !annotation !24
   %11 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #14, !srcloc !23
   %12 = inttoptr i64 %11 to ptr
@@ -1162,7 +1156,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @compat_ksys_semct
   br i1 %29, label %31, label %42
 
 31:                                               ; preds = %28
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %6, i8 0, i64 64, i1 false)
   call void @to_compat_ipc64_perm(ptr noundef nonnull %6, ptr noundef nonnull %8) #12
   %32 = load i64, ptr %30, align 8
@@ -1178,11 +1172,11 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @compat_ksys_semct
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 52
   store i32 %39, ptr %40, align 4
   %41 = call i64 @_copy_to_user(ptr noundef %10, ptr noundef nonnull %6, i64 noundef 64) #12
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %55
 
 42:                                               ; preds = %28
-  call void @llvm.lifetime.start.p0(i64 44, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %7, i8 0, i64 44, i1 false)
   call void @to_compat_ipc_perm(ptr noundef nonnull %7, ptr noundef nonnull %8) #12
   %43 = load i64, ptr %30, align 8
@@ -1200,7 +1194,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @compat_ksys_semct
   %53 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store i16 %52, ptr %53, align 4
   %54 = call i64 @_copy_to_user(ptr noundef %10, ptr noundef nonnull %7, i64 noundef 44) #12
-  call void @llvm.lifetime.end.p0(i64 44, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %55
 
 55:                                               ; preds = %42, %31
@@ -1245,7 +1239,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @compat_ksys_semct
 
 79:                                               ; preds = %76, %73, %64, %61, %55, %26, %20, %18, %5
   %80 = phi i64 [ %78, %76 ], [ %66, %64 ], [ %63, %61 ], [ %27, %26 ], [ %60, %55 ], [ %22, %20 ], [ -22, %5 ], [ -14, %73 ], [ -22, %18 ]
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %8) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i64 %80
 }
 
@@ -1274,8 +1268,8 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__do_semtimedop(i32 nou
   %6 = alloca %struct.sem_queue, align 8
   %7 = alloca i64, align 8
   %8 = alloca %struct.wake_q_head, align 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6) #12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %9 = icmp eq i32 %2, 0
   %10 = icmp slt i32 %0, 0
   %11 = or i1 %10, %9
@@ -1646,7 +1640,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__do_semtimedop(i32 nou
   br i1 %213, label %214, label %229
 
 214:                                              ; preds = %199
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr inttoptr (i64 1 to ptr), ptr %8, align 8
   %215 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %8, ptr %215, align 8
@@ -1682,7 +1676,7 @@ set_semotime.exit:                                ; preds = %220, %222
   call fastcc void @sem_unlock(ptr noundef %167, i32 noundef %189)
   call void @__rcu_read_unlock() #12
   call void @wake_up_q(ptr noundef nonnull %8) #12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %316
 
 229:                                              ; preds = %199
@@ -1858,8 +1852,8 @@ set_semotime.exit:                                ; preds = %220, %222
 
 319:                                              ; preds = %316, %21, %18, %12, %5
   %320 = phi i64 [ %318, %316 ], [ -22, %5 ], [ -7, %12 ], [ -22, %21 ], [ -22, %18 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #12
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i64 %320
 }
 
@@ -1876,7 +1870,7 @@ declare dso_local i32 @ipcperms(ptr noundef, ptr noundef, i16 noundef signext) l
 declare dso_local i32 @security_sem_semop(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc range(i32 -1, 65536) i32 @sem_lock(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef range(i32 1, 0) %2) unnamed_addr #7 align 16 {
+define internal fastcc range(i32 -1, 65536) i32 @sem_lock(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef range(i32 1, 0) %2) unnamed_addr #6 align 16 {
   %4 = icmp eq i32 %2, 1
   br i1 %4, label %21, label %5
 
@@ -2315,7 +2309,7 @@ do_smart_wakeup_zero.exit.thread:                 ; preds = %7
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @sem_unlock(ptr noundef %0, i32 noundef range(i32 -1, 65536) %1) unnamed_addr #7 align 16 {
+define internal fastcc void @sem_unlock(ptr noundef %0, i32 noundef range(i32 -1, 65536) %1) unnamed_addr #6 align 16 {
   %3 = icmp eq i32 %1, -1
   br i1 %3, label %4, label %36
 
@@ -2398,7 +2392,7 @@ define internal fastcc void @sem_unlock(ptr noundef %0, i32 noundef range(i32 -1
 declare dso_local void @wake_up_q(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid memory(write, argmem: readwrite, inaccessiblemem: readwrite)
-define internal fastcc void @merge_queues(ptr noundef %0) unnamed_addr #8 align 16 {
+define internal fastcc void @merge_queues(ptr noundef %0) unnamed_addr #7 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
@@ -2454,7 +2448,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @ksys_semtimedop(i32 nou
   br i1 %6, label %14, label %7
 
 7:                                                ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !24
   %8 = call i32 @get_timespec64(ptr noundef nonnull %5, ptr noundef nonnull %3) #12
   %9 = icmp eq i32 %8, 0
@@ -2466,7 +2460,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @ksys_semtimedop(i32 nou
 
 12:                                               ; preds = %10, %7
   %13 = phi i64 [ %11, %10 ], [ -14, %7 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %16
 
 14:                                               ; preds = %4
@@ -2484,7 +2478,7 @@ declare dso_local i32 @get_timespec64(ptr noundef, ptr noundef) local_unnamed_ad
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc range(i64 -2147483648, 2147483648) i64 @do_semtimedop(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3) unnamed_addr #0 align 16 {
   %5 = alloca [64 x %struct.sembuf], align 16
-  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(384) %5, i8 0, i64 384, i1 false), !annotation !24
   %6 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #14, !srcloc !23
   %7 = inttoptr i64 %6 to ptr
@@ -2547,7 +2541,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @do_semtimedop(i32
 
 39:                                               ; preds = %36, %33, %19, %15, %4
   %40 = phi i64 [ -7, %4 ], [ -22, %15 ], [ -12, %19 ], [ %37, %36 ], [ %34, %33 ]
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %40
 }
 
@@ -2570,7 +2564,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_semtimedop(pt
 
 15:                                               ; preds = %1
   %16 = inttoptr i64 %10 to ptr
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !24
   %17 = call i32 @get_timespec64(ptr noundef nonnull %2, ptr noundef nonnull %16) #12
   %18 = icmp eq i32 %17, 0
@@ -2582,7 +2576,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_semtimedop(pt
 
 21:                                               ; preds = %19, %15
   %22 = phi i64 [ %20, %19 ], [ -14, %15 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %25
 
 23:                                               ; preds = %1
@@ -2615,7 +2609,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_semtimedop(p
 
 17:                                               ; preds = %1
   %18 = inttoptr i64 %12 to ptr
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !24
   %19 = call i32 @get_timespec64(ptr noundef nonnull %2, ptr noundef nonnull %18) #12
   %20 = icmp eq i32 %19, 0
@@ -2627,7 +2621,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_semtimedop(p
 
 23:                                               ; preds = %21, %17
   %24 = phi i64 [ %22, %21 ], [ -14, %17 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %27
 
 25:                                               ; preds = %1
@@ -2646,7 +2640,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @compat_ksys_semtimedop(
   br i1 %6, label %14, label %7
 
 7:                                                ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !24
   %8 = call i32 @get_old_timespec32(ptr noundef nonnull %5, ptr noundef nonnull %3) #12
   %9 = icmp eq i32 %8, 0
@@ -2658,7 +2652,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @compat_ksys_semtimedop(
 
 12:                                               ; preds = %10, %7
   %13 = phi i64 [ %11, %10 ], [ -14, %7 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %16
 
 14:                                               ; preds = %4
@@ -2692,7 +2686,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_semtimedop_ti
 
 15:                                               ; preds = %1
   %16 = inttoptr i64 %10 to ptr
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !24
   %17 = call i32 @get_old_timespec32(ptr noundef nonnull %2, ptr noundef nonnull %16) #12
   %18 = icmp eq i32 %17, 0
@@ -2704,7 +2698,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_semtimedop_ti
 
 21:                                               ; preds = %19, %15
   %22 = phi i64 [ %20, %19 ], [ -14, %15 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %25
 
 23:                                               ; preds = %1
@@ -2737,7 +2731,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_semtimedop_t
 
 17:                                               ; preds = %1
   %18 = inttoptr i64 %12 to ptr
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !24
   %19 = call i32 @get_old_timespec32(ptr noundef nonnull %2, ptr noundef nonnull %18) #12
   %20 = icmp eq i32 %19, 0
@@ -2749,7 +2743,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_semtimedop_t
 
 23:                                               ; preds = %21, %17
   %24 = phi i64 [ %22, %21 ], [ -14, %17 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %27
 
 25:                                               ; preds = %1
@@ -2879,7 +2873,7 @@ define dso_local void @exit_sem(ptr noundef captures(none) %0) local_unnamed_add
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 1872
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr inttoptr (i64 1 to ptr), ptr %2, align 8
   store ptr %2, ptr %13, align 8
   %17 = call i32 @__SCT__cond_resched() #12
@@ -2892,7 +2886,7 @@ define dso_local void @exit_sem(ptr noundef captures(none) %0) local_unnamed_add
   call void @_raw_spin_lock(ptr noundef nonnull %15) #12
   call void @_raw_spin_unlock(ptr noundef nonnull %15) #12
   call void @__rcu_read_unlock() #12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @kfree(ptr noundef nonnull %4) #12
   br label %.thread
 
@@ -3338,8 +3332,8 @@ define dso_local void @exit_sem(ptr noundef captures(none) %0) local_unnamed_add
   br label %244
 
 244:                                              ; preds = %.thread35, %.thread30, %.thread27, %31, %24
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr inttoptr (i64 1 to ptr), ptr %2, align 8
   store ptr %2, ptr %13, align 8
   %245 = call i32 @__SCT__cond_resched() #12
@@ -3353,7 +3347,7 @@ define dso_local void @exit_sem(ptr noundef captures(none) %0) local_unnamed_add
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @ipc_update_pid(ptr noundef captures(none) %0, ptr noundef %1) unnamed_addr #7 align 16 {
+define internal fastcc void @ipc_update_pid(ptr noundef captures(none) %0, ptr noundef %1) unnamed_addr #6 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = icmp eq ptr %3, %1
   br i1 %4, label %17, label %5
@@ -3417,7 +3411,7 @@ define internal void @sem_rcu_free(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: null_pointer_is_valid allocsize(0)
-declare dso_local noalias ptr @kvmalloc_node(i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #9
+declare dso_local noalias ptr @kvmalloc_node(i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @security_sem_free(ptr noundef) local_unnamed_addr #1
@@ -3431,7 +3425,7 @@ declare dso_local void @ipc_rmid(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @semctl_info(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 align 16 {
   %4 = alloca %struct.seminfo, align 4
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call i32 @security_sem_semctl(ptr noundef null, i32 noundef %1) #12
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %48
@@ -3508,7 +3502,7 @@ define internal fastcc i32 @semctl_info(ptr noundef %0, i32 noundef %1, ptr noun
 
 48:                                               ; preds = %46, %42, %3
   %49 = phi i32 [ %47, %46 ], [ %5, %3 ], [ -14, %42 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %49
 }
 
@@ -3643,9 +3637,9 @@ define internal fastcc i32 @semctl_stat(ptr noundef %0, i32 noundef range(i32 0,
 define internal fastcc i32 @semctl_main(ptr noundef %0, i32 noundef range(i32 0, -2147483648) %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 align 16 {
   %6 = alloca [256 x i16], align 16
   %7 = alloca %struct.wake_q_head, align 8
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %6, i8 0, i64 512, i1 false), !annotation !24
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr inttoptr (i64 1 to ptr), ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %7, ptr %8, align 8
@@ -4087,15 +4081,15 @@ define internal fastcc i32 @semctl_main(ptr noundef %0, i32 noundef range(i32 0,
 
 229:                                              ; preds = %.thread31, %78, %228, %.thread24, %11
   %230 = phi i32 [ %13, %11 ], [ -12, %78 ], [ %226, %228 ], [ %226, %.thread24 ], [ -12, %.thread31 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #12
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %230
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @semctl_setval(ptr noundef %0, i32 noundef range(i32 0, -2147483648) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 align 16 {
   %5 = alloca %struct.wake_q_head, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr inttoptr (i64 1 to ptr), ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %5, ptr %6, align 8
@@ -4213,7 +4207,7 @@ define internal fastcc i32 @semctl_setval(ptr noundef %0, i32 noundef range(i32 
 
 66:                                               ; preds = %.loopexit, %34, %28, %24, %20, %11, %4
   %67 = phi i32 [ %13, %11 ], [ -22, %20 ], [ -13, %24 ], [ -13, %28 ], [ 0, %.loopexit ], [ -43, %34 ], [ -34, %4 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %67
 }
 
@@ -4418,7 +4412,7 @@ declare dso_local void @__audit_ipc_obj(ptr noundef) local_unnamed_addr #1
 declare dso_local zeroext i1 @ipc_rcu_getref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @sem_lock_and_putref(ptr noundef %0) unnamed_addr #7 align 16 {
+define internal fastcc void @sem_lock_and_putref(ptr noundef %0) unnamed_addr #6 align 16 {
   tail call void @_raw_spin_lock(ptr noundef %0) #12
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %3 = load i32, ptr %2, align 64
@@ -5189,7 +5183,7 @@ define internal fastcc range(i32 0, 2) i32 @wake_const_ops(ptr noundef captures(
 }
 
 ; Function Attrs: null_pointer_is_valid allocsize(2)
-declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #10
+declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @refcount_warn_saturate(ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -5210,29 +5204,35 @@ declare dso_local void @put_pid(ptr noundef) local_unnamed_addr #1
 declare dso_local void @seq_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #11
+declare i32 @llvm.smax.i32(i32, i32) #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #11
+declare i64 @llvm.smax.i64(i64, i64) #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.uadd.sat.i64(i64, i64) #11
+declare i64 @llvm.uadd.sat.i64(i64, i64) #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #11
+declare i32 @llvm.umin.i32(i32, i32) #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 attributes #0 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #2 = { cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #3 = { cold null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #8 = { fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid memory(write, argmem: readwrite, inaccessiblemem: readwrite) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #9 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #10 = { null_pointer_is_valid allocsize(2) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #7 = { fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid memory(write, argmem: readwrite, inaccessiblemem: readwrite) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #8 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #9 = { null_pointer_is_valid allocsize(2) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { nounwind }
 attributes #13 = { cold nounwind }
 attributes #14 = { nounwind memory(none) }

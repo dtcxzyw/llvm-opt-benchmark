@@ -327,7 +327,7 @@ entry:
   ]
 
 cond.false.i:                                     ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %comb.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %comb.i.i)
   call void @_ZN4absl12lts_2023080212log_internal21CheckOpMessageBuilderC1EPKc(ptr noundef nonnull align 8 dereferenceable(376) %comb.i.i, ptr noundef nonnull @.str)
   invoke void @_ZN4absl12lts_2023080212log_internal22MakeCheckOpValueStringERSoh(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i, i8 noundef zeroext 14)
           to label %invoke.cont1.i.i unwind label %lpad.i.i
@@ -357,7 +357,7 @@ lpad.i.i:                                         ; preds = %invoke.cont4.i.i, %
 
 _ZN4absl12lts_2023080212log_internal12Check_NEImplIhN6google8protobuf8internal14WireFormatLite9FieldTypeEEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit: ; preds = %invoke.cont4.i.i
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(376) %comb.i.i) #30
-  call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %comb.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %comb.i.i)
   %tobool.not = icmp eq ptr %call6.i.i, null
   br i1 %tobool.not, label %while.end39, label %while.body
 
@@ -371,7 +371,7 @@ while.body:                                       ; preds = %_ZN4absl12lts_20230
 
 cond.false.i11:                                   ; preds = %entry
   %conv2.i12 = zext nneg i8 %type to i64
-  call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %comb.i.i7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %comb.i.i7)
   call void @_ZN4absl12lts_2023080212log_internal21CheckOpMessageBuilderC1EPKc(ptr noundef nonnull align 8 dereferenceable(376) %comb.i.i7, ptr noundef nonnull @.str.2)
   invoke void @_ZN4absl12lts_2023080212log_internal22MakeCheckOpValueStringERSoh(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i7, i8 noundef zeroext %type)
           to label %invoke.cont1.i.i14 unwind label %lpad.i.i13
@@ -395,7 +395,7 @@ lpad.i.i13:                                       ; preds = %invoke.cont4.i.i18,
 
 _ZN4absl12lts_2023080212log_internal12Check_NEImplIhN6google8protobuf8internal14WireFormatLite9FieldTypeEEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit21: ; preds = %invoke.cont4.i.i18
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(376) %comb.i.i7) #30
-  call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %comb.i.i7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %comb.i.i7)
   %tobool15.not = icmp eq ptr %call6.i.i19, null
   br i1 %tobool15.not, label %while.end39, label %while.body16
 
@@ -409,7 +409,7 @@ while.body16:                                     ; preds = %_ZN4absl12lts_20230
 
 cond.false.i26:                                   ; preds = %entry
   %conv2.i27 = zext nneg i8 %type to i64
-  call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %comb.i.i22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %comb.i.i22)
   call void @_ZN4absl12lts_2023080212log_internal21CheckOpMessageBuilderC1EPKc(ptr noundef nonnull align 8 dereferenceable(376) %comb.i.i22, ptr noundef nonnull @.str.3)
   invoke void @_ZN4absl12lts_2023080212log_internal22MakeCheckOpValueStringERSoh(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i22, i8 noundef zeroext %type)
           to label %invoke.cont1.i.i29 unwind label %lpad.i.i28
@@ -433,7 +433,7 @@ lpad.i.i28:                                       ; preds = %invoke.cont4.i.i33,
 
 _ZN4absl12lts_2023080212log_internal12Check_NEImplIhN6google8protobuf8internal14WireFormatLite9FieldTypeEEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit36: ; preds = %invoke.cont4.i.i33
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(376) %comb.i.i22) #30
-  call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %comb.i.i22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %comb.i.i22)
   %tobool31.not = icmp eq ptr %call6.i.i34, null
   br i1 %tobool31.not, label %while.end39, label %while.body32
 
@@ -624,9 +624,9 @@ land.lhs.true.i.i.i.i.i.i.i.i.i:                  ; preds = %if.then13.i.i.i.i.i
   br i1 %cmp4.not.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %land.lhs.true.i.i.i.i.i.i.i.i.i
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %tmp.i.i.i.i.i.i.i.i.i.i), !noalias !21
+  call void @llvm.lifetime.start.p0(ptr nonnull %tmp.i.i.i.i.i.i.i.i.i.i), !noalias !21
   call void @_ZN4absl12lts_2023080218container_internal24DropDeletesWithoutResizeERNS1_12CommonFieldsERKNS1_15PolicyFunctionsEPv(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN6google8protobuf8internal13ExtensionInfoEEENS6_12_GLOBAL__N_115ExtensionHasherENS9_11ExtensionEqESaIS7_EE18GetPolicyFunctionsEvE5value, ptr noundef nonnull %tmp.i.i.i.i.i.i.i.i.i.i), !noalias !21
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %tmp.i.i.i.i.i.i.i.i.i.i), !noalias !21
+  call void @llvm.lifetime.end.p0(ptr nonnull %tmp.i.i.i.i.i.i.i.i.i.i), !noalias !21
   br label %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN6google8protobuf8internal13ExtensionInfoEEENS6_12_GLOBAL__N_115ExtensionHasherENS9_11ExtensionEqESaIS7_EE28rehash_and_grow_if_necessaryEv.exit.i.i.i.i.i.i.i.i
 
 if.else.i.i.i.i.i.i.i.i.i:                        ; preds = %land.lhs.true.i.i.i.i.i.i.i.i.i, %if.then13.i.i.i.i.i.i.i.i
@@ -661,13 +661,13 @@ invoke.cont15:                                    ; preds = %invoke.cont13
 
 invoke.cont17:                                    ; preds = %invoke.cont15
   %22 = load i32, ptr %3, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %v.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %v.addr.i)
   store i32 %22, ptr %v.addr.i, align 4
   %call.i4 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2023080212log_internal10LogMessagelsIiTnNSt9enable_ifIXntsr16strings_internal16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKS5_(ptr noundef nonnull align 8 dereferenceable(16) %call16, ptr noundef nonnull align 4 dereferenceable(4) %v.addr.i)
           to label %invoke.cont19 unwind label %lpad14
 
 invoke.cont19:                                    ; preds = %invoke.cont17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %v.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %v.addr.i)
   %call22 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2023080212log_internal10LogMessagelsILi2EEERS2_RAT__Kc(ptr noundef nonnull align 8 dereferenceable(16) %call.i4, ptr noundef nonnull align 1 dereferenceable(2) @.str.17)
           to label %invoke.cont21 unwind label %lpad14
 
@@ -738,7 +738,7 @@ entry:
   br i1 %cmp.i, label %while.end, label %cond.false.i
 
 cond.false.i:                                     ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %comb.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %comb.i.i)
   call void @_ZN4absl12lts_2023080212log_internal21CheckOpMessageBuilderC1EPKc(ptr noundef nonnull align 8 dereferenceable(376) %comb.i.i, ptr noundef nonnull @.str.4)
   invoke void @_ZN4absl12lts_2023080212log_internal22MakeCheckOpValueStringERSoh(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i, i8 noundef zeroext %type)
           to label %invoke.cont1.i.i unwind label %lpad.i.i
@@ -763,7 +763,7 @@ lpad.i.i:                                         ; preds = %invoke.cont4.i.i, %
 
 _ZN4absl12lts_2023080212log_internal12Check_EQImplIhN6google8protobuf8internal14WireFormatLite9FieldTypeEEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit: ; preds = %invoke.cont4.i.i
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(376) %comb.i.i) #30
-  call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %comb.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %comb.i.i)
   %tobool.not = icmp eq ptr %call6.i.i, null
   br i1 %tobool.not, label %while.end, label %while.body
 
@@ -4487,7 +4487,7 @@ if.else18:                                        ; preds = %if.else14
 
 if.end23:                                         ; preds = %if.else14, %if.else18, %if.then8, %delete.notnull, %if.then11
   %ret.0 = phi ptr [ %call9, %if.then11 ], [ %call9, %delete.notnull ], [ %call9, %if.then8 ], [ %call.i10, %if.else18 ], [ %6, %if.else14 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %key.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %key.addr.i)
   store i32 %number, ptr %key.addr.i, align 4
   %flat_size_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 10
   %10 = load i16, ptr %flat_size_.i.i, align 2
@@ -4551,7 +4551,7 @@ _ZSt4copyIPN6google8protobuf8internal12ExtensionSet8KeyValueES5_ET0_T_S7_S6_.exi
   br label %_ZN6google8protobuf8internal12ExtensionSet5EraseEi.exit
 
 _ZN6google8protobuf8internal12ExtensionSet5EraseEi.exit: ; preds = %if.then.i, %_ZSt11lower_boundIPN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S7_S7_RKT0_T1_.exit.i, %land.lhs.true.i, %_ZSt4copyIPN6google8protobuf8internal12ExtensionSet8KeyValueES5_ET0_T_S7_S6_.exit.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %key.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %key.addr.i)
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6google8protobuf8internal12ExtensionSet5EraseEi.exit
@@ -4672,7 +4672,7 @@ if.else14:                                        ; preds = %while.end7
 
 if.end15:                                         ; preds = %if.then8, %delete.notnull, %if.then11, %if.else14
   %ret.0 = phi ptr [ %call9, %if.then11 ], [ %call9, %delete.notnull ], [ %call9, %if.then8 ], [ %6, %if.else14 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %key.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %key.addr.i)
   store i32 %number, ptr %key.addr.i, align 4
   %flat_size_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 10
   %7 = load i16, ptr %flat_size_.i.i, align 2
@@ -4736,7 +4736,7 @@ _ZSt4copyIPN6google8protobuf8internal12ExtensionSet8KeyValueES5_ET0_T_S7_S6_.exi
   br label %_ZN6google8protobuf8internal12ExtensionSet5EraseEi.exit
 
 _ZN6google8protobuf8internal12ExtensionSet5EraseEi.exit: ; preds = %if.then.i, %_ZSt11lower_boundIPN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S7_S7_RKT0_T1_.exit.i, %land.lhs.true.i, %_ZSt4copyIPN6google8protobuf8internal12ExtensionSet8KeyValueES5_ET0_T_S7_S6_.exit.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %key.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %key.addr.i)
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6google8protobuf8internal12ExtensionSet5EraseEi.exit
@@ -6105,16 +6105,16 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %4 = load i32, ptr %it.031, align 4
   store i32 %4, ptr %ref.tmp20, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %second.i, ptr noundef nonnull align 8 dereferenceable(24) %second, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i27)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i27)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp3.i)
   store i32 %4, ptr %ref.tmp3.i, align 4
   call void @_ZN4absl12lts_2023080218container_internal5btreeINS1_10map_paramsIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS8_EELi256ELb0EEEE18insert_hint_uniqueIiJSD_EEESB_INS1_14btree_iteratorINS1_10btree_nodeISF_EERSD_PSD_EEbESN_RKT_DpOT0_(ptr nonnull sret(%"struct.std::pair.47") align 8 %ref.tmp.i27, ptr noundef nonnull align 8 dereferenceable(24) %call.sink4.i.i, ptr %hint.sroa.0.0, i32 %hint.sroa.3.0, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp3.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp20)
   %retval.sroa.0.0.copyload.i = load ptr, ptr %ref.tmp.i27, align 8
   %retval.sroa.2.0.copyload.i = load i32, ptr %retval.sroa.2.0.first.sroa_idx.i, align 8
   %.fca.0.insert.i = insertvalue { ptr, i32 } poison, ptr %retval.sroa.0.0.copyload.i, 0
   %.fca.1.insert.i = insertvalue { ptr, i32 } %.fca.0.insert.i, i32 %retval.sroa.2.0.copyload.i, 1
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i27)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp3.i)
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %it.031, i64 32
   %cmp18.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp18.not, label %for.end, label %for.body, !llvm.loop !59
@@ -7552,7 +7552,7 @@ if.then24:                                        ; preds = %if.then22
   br label %if.end25
 
 if.end25:                                         ; preds = %if.then24, %if.then22
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %key.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %key.addr.i)
   store i32 %number, ptr %key.addr.i, align 4
   %flat_size_.i.i41 = getelementptr inbounds nuw i8, ptr %other, i64 10
   %4 = load i16, ptr %flat_size_.i.i41, align 2
@@ -7616,7 +7616,7 @@ _ZSt4copyIPN6google8protobuf8internal12ExtensionSet8KeyValueES5_ET0_T_S7_S6_.exi
   br label %_ZN6google8protobuf8internal12ExtensionSet5EraseEi.exit
 
 _ZN6google8protobuf8internal12ExtensionSet5EraseEi.exit: ; preds = %if.then.i, %_ZSt11lower_boundIPN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S7_S7_RKT0_T1_.exit.i, %land.lhs.true.i, %_ZSt4copyIPN6google8protobuf8internal12ExtensionSet8KeyValueES5_ET0_T_S7_S6_.exit.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %key.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %key.addr.i)
   br label %if.end31
 
 if.else26:                                        ; preds = %if.else
@@ -7629,7 +7629,7 @@ if.then28:                                        ; preds = %if.else26
   br label %if.end29
 
 if.end29:                                         ; preds = %if.then28, %if.else26
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %key.addr.i42)
+  call void @llvm.lifetime.start.p0(ptr nonnull %key.addr.i42)
   store i32 %number, ptr %key.addr.i42, align 4
   %flat_size_.i.i43 = getelementptr inbounds nuw i8, ptr %this, i64 10
   %10 = load i16, ptr %flat_size_.i.i43, align 2
@@ -7693,7 +7693,7 @@ _ZSt4copyIPN6google8protobuf8internal12ExtensionSet8KeyValueES5_ET0_T_S7_S6_.exi
   br label %_ZN6google8protobuf8internal12ExtensionSet5EraseEi.exit82
 
 _ZN6google8protobuf8internal12ExtensionSet5EraseEi.exit82: ; preds = %if.then.i80, %_ZSt11lower_boundIPN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S7_S7_RKT0_T1_.exit.i66, %land.lhs.true.i69, %_ZSt4copyIPN6google8protobuf8internal12ExtensionSet8KeyValueES5_ET0_T_S7_S6_.exit.i78
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %key.addr.i42)
+  call void @llvm.lifetime.end.p0(ptr nonnull %key.addr.i42)
   br label %if.end31
 
 if.end31:                                         ; preds = %_ZN6google8protobuf8internal12ExtensionSet5EraseEi.exit, %_ZN6google8protobuf8internal12ExtensionSet5EraseEi.exit82, %if.end5, %entry, %invoke.cont20, %if.then4
@@ -7722,11 +7722,11 @@ while.end:                                        ; preds = %if.end
   br i1 %or.cond, label %if.then9, label %if.else
 
 if.then9:                                         ; preds = %while.end
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %__tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %call.i, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call.i, ptr noundef nonnull align 8 dereferenceable(24) %call.i16, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call.i16, ptr noundef nonnull align 8 dereferenceable(24) %__tmp.i, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %__tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.i)
   br label %if.end19
 
 if.else:                                          ; preds = %while.end
@@ -7737,7 +7737,7 @@ if.then11:                                        ; preds = %if.else
   %call13 = tail call { ptr, i8 } @_ZN6google8protobuf8internal12ExtensionSet6InsertEi(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number)
   %0 = extractvalue { ptr, i8 } %call13, 0
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %call.i16, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %key.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %key.addr.i)
   store i32 %number, ptr %key.addr.i, align 4
   %flat_size_.i.i = getelementptr inbounds nuw i8, ptr %other, i64 10
   %1 = load i16, ptr %flat_size_.i.i, align 2
@@ -7801,14 +7801,14 @@ _ZSt4copyIPN6google8protobuf8internal12ExtensionSet8KeyValueES5_ET0_T_S7_S6_.exi
   br label %_ZN6google8protobuf8internal12ExtensionSet5EraseEi.exit
 
 _ZN6google8protobuf8internal12ExtensionSet5EraseEi.exit: ; preds = %if.then.i, %_ZSt11lower_boundIPN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S7_S7_RKT0_T1_.exit.i, %land.lhs.true.i, %_ZSt4copyIPN6google8protobuf8internal12ExtensionSet8KeyValueES5_ET0_T_S7_S6_.exit.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %key.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %key.addr.i)
   br label %if.end19
 
 if.else14:                                        ; preds = %if.else
   %call16 = tail call { ptr, i8 } @_ZN6google8protobuf8internal12ExtensionSet6InsertEi(ptr noundef nonnull align 8 dereferenceable(24) %other, i32 noundef %number)
   %7 = extractvalue { ptr, i8 } %call16, 0
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %call.i, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %key.addr.i17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %key.addr.i17)
   store i32 %number, ptr %key.addr.i17, align 4
   %flat_size_.i.i18 = getelementptr inbounds nuw i8, ptr %this, i64 10
   %8 = load i16, ptr %flat_size_.i.i18, align 2
@@ -7872,7 +7872,7 @@ _ZSt4copyIPN6google8protobuf8internal12ExtensionSet8KeyValueES5_ET0_T_S7_S6_.exi
   br label %_ZN6google8protobuf8internal12ExtensionSet5EraseEi.exit57
 
 _ZN6google8protobuf8internal12ExtensionSet5EraseEi.exit57: ; preds = %if.then.i55, %_ZSt11lower_boundIPN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S7_S7_RKT0_T1_.exit.i41, %land.lhs.true.i44, %_ZSt4copyIPN6google8protobuf8internal12ExtensionSet8KeyValueES5_ET0_T_S7_S6_.exit.i53
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %key.addr.i17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %key.addr.i17)
   br label %if.end19
 
 if.end19:                                         ; preds = %_ZN6google8protobuf8internal12ExtensionSet5EraseEi.exit, %_ZN6google8protobuf8internal12ExtensionSet5EraseEi.exit57, %if.end, %entry, %if.then9
@@ -8678,8 +8678,8 @@ if.then14:                                        ; preds = %if.end11
   br label %return
 
 if.end18:                                         ; preds = %if.end11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %finder.i)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %extension_info.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %finder.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %extension_info.i)
   store ptr %extendee, ptr %finder.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %extension_info.i, i8 0, i64 48, i1 false)
   %call.i.i = call noundef zeroext i1 @_ZN6google8protobuf8internal24GeneratedExtensionFinder4FindEiPNS1_13ExtensionInfoE(ptr noundef nonnull align 8 dereferenceable(8) %finder.i, i32 noundef %number, ptr noundef nonnull %extension_info.i)
@@ -8714,8 +8714,8 @@ _ZNK6google8protobuf8internal12ExtensionSet32FindExtensionInfoFromFieldNumberINS
 
 _ZNK6google8protobuf8internal12ExtensionSet26GetPrototypeForLazyMessageEPKNS0_11MessageLiteEi.exit: ; preds = %if.end18, %_ZNK6google8protobuf8internal12ExtensionSet32FindExtensionInfoFromFieldNumberINS1_24GeneratedExtensionFinderEEEbiiPT_PNS1_13ExtensionInfoEPb.exit.thread.i, %_ZNK6google8protobuf8internal12ExtensionSet32FindExtensionInfoFromFieldNumberINS1_24GeneratedExtensionFinderEEEbiiPT_PNS1_13ExtensionInfoEPb.exit.i
   %25 = phi ptr [ %22, %_ZNK6google8protobuf8internal12ExtensionSet32FindExtensionInfoFromFieldNumberINS1_24GeneratedExtensionFinderEEEbiiPT_PNS1_13ExtensionInfoEPb.exit.thread.i ], [ null, %if.end18 ], [ %spec.select.i, %_ZNK6google8protobuf8internal12ExtensionSet32FindExtensionInfoFromFieldNumberINS1_24GeneratedExtensionFinderEEEbiiPT_PNS1_13ExtensionInfoEPb.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %finder.i)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %extension_info.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %finder.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %extension_info.i)
   %26 = load ptr, ptr %this, align 8
   %vtable28 = load ptr, ptr %26, align 8
   %vfn29 = getelementptr inbounds nuw i8, ptr %vtable28, i64 72
@@ -8984,7 +8984,7 @@ sw.bb89:                                          ; preds = %if.then
   %30 = load ptr, ptr %29, align 8
   %arg = getelementptr inbounds nuw i8, ptr %extension, i64 24
   %31 = load ptr, ptr %arg, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %agg.tmp1.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp1.i)
   store ptr %call94, ptr %agg.tmp1.i, align 8
   %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i = getelementptr inbounds nuw i8, ptr %agg.tmp1.i, i64 8
   store ptr %30, ptr %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i, align 8
@@ -8995,7 +8995,7 @@ sw.bb89:                                          ; preds = %if.then
   %agg.tmp.sroa.5.0.agg.tmp1.sroa_idx.i = getelementptr inbounds nuw i8, ptr %agg.tmp1.i, i64 32
   store i32 %number, ptr %agg.tmp.sroa.5.0.agg.tmp1.sroa_idx.i, align 8
   %call.i.i = tail call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream16ReadPackedVarintIZNS1_19PackedEnumParserArgINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKcPvSC_PNS1_12ParseContextEPFbPKviESH_PNS1_16InternalMetadataEiEUliE_ZNS2_16ReadPackedVarintISM_EESC_SC_T_EUliE_EESC_SC_SO_T0_(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef %ptr, ptr noundef nonnull byval(%class.anon.109) align 8 %agg.tmp1.i)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp1.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp1.i)
   br label %return
 
 sw.bb96:                                          ; preds = %if.then, %if.then, %if.then, %if.then
@@ -10224,13 +10224,13 @@ if.end:                                           ; preds = %invoke.cont2
 
 if.then12:                                        ; preds = %if.end
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %extension, i8 0, i64 48, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %finder.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %finder.i)
   store ptr %extendee, ptr %finder.i, align 8
   %call.i.i = call noundef zeroext i1 @_ZN6google8protobuf8internal24GeneratedExtensionFinder4FindEiPNS1_13ExtensionInfoE(ptr noundef nonnull align 8 dereferenceable(8) %finder.i, i32 noundef %add.lcssa.sink.i, ptr noundef nonnull %extension)
   br i1 %call.i.i, label %if.end.i.i27, label %invoke.cont15.thread105
 
 invoke.cont15.thread105:                          ; preds = %if.then12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %finder.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %finder.i)
   br label %if.then17
 
 if.end.i.i27:                                     ; preds = %if.then12
@@ -10246,12 +10246,12 @@ if.end.i.i27:                                     ; preds = %if.then12
   br i1 %or.cond6.i.i, label %invoke.cont15.thread, label %invoke.cont15
 
 invoke.cont15.thread:                             ; preds = %if.end.i.i27
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %finder.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %finder.i)
   br label %if.else22
 
 invoke.cont15:                                    ; preds = %if.end.i.i27
   %cmp7.i.i = icmp eq i32 %15, 2
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %finder.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %finder.i)
   br i1 %cmp7.i.i, label %if.else22, label %if.then17
 
 if.then17:                                        ; preds = %invoke.cont15.thread105, %invoke.cont15
@@ -15505,8 +15505,8 @@ _ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit: ; pred
   br i1 %bf.cast13.not, label %if.else, label %if.then14
 
 if.then14:                                        ; preds = %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %finder.i)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %extension_info.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %finder.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %extension_info.i)
   store ptr %extendee, ptr %finder.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %extension_info.i, i8 0, i64 48, i1 false)
   %call.i.i = call noundef zeroext i1 @_ZN6google8protobuf8internal24GeneratedExtensionFinder4FindEiPNS1_13ExtensionInfoE(ptr noundef nonnull align 8 dereferenceable(8) %finder.i, i32 noundef %number, ptr noundef nonnull %extension_info.i)
@@ -15541,8 +15541,8 @@ _ZNK6google8protobuf8internal12ExtensionSet32FindExtensionInfoFromFieldNumberINS
 
 _ZNK6google8protobuf8internal12ExtensionSet26GetPrototypeForLazyMessageEPKNS0_11MessageLiteEi.exit: ; preds = %if.then14, %_ZNK6google8protobuf8internal12ExtensionSet32FindExtensionInfoFromFieldNumberINS1_24GeneratedExtensionFinderEEEbiiPT_PNS1_13ExtensionInfoEPb.exit.thread.i, %_ZNK6google8protobuf8internal12ExtensionSet32FindExtensionInfoFromFieldNumberINS1_24GeneratedExtensionFinderEEEbiiPT_PNS1_13ExtensionInfoEPb.exit.i
   %14 = phi ptr [ %11, %_ZNK6google8protobuf8internal12ExtensionSet32FindExtensionInfoFromFieldNumberINS1_24GeneratedExtensionFinderEEEbiiPT_PNS1_13ExtensionInfoEPb.exit.thread.i ], [ null, %if.then14 ], [ %spec.select.i, %_ZNK6google8protobuf8internal12ExtensionSet32FindExtensionInfoFromFieldNumberINS1_24GeneratedExtensionFinderEEEbiiPT_PNS1_13ExtensionInfoEPb.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %finder.i)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %extension_info.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %finder.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %extension_info.i)
   %15 = load ptr, ptr %this, align 8
   %vtable = load ptr, ptr %15, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 144
@@ -16076,7 +16076,7 @@ entry:
   %capacity_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load i64, ptr %capacity_.i, align 8
   store i64 %new_capacity, ptr %capacity_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i)
   %sub.i.i.i.i = add i64 %new_capacity, 31
   %mul.i.i.i = mul i64 %new_capacity, 48
   %add.i.i.i = add i64 %sub.i.i.i.i, %mul.i.i.i
@@ -16118,7 +16118,7 @@ _ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicy
   %sub.i.i20.i.i = sub i64 %new_capacity, %4
   store i64 %sub.i.i20.i.i, ptr %call5.i.i2.i.i1.i, align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp.i) #30
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i)
   %this.val14 = load ptr, ptr %0, align 8
   %cmp.not22 = icmp eq i64 %1, 0
   br i1 %cmp.not22, label %if.end23, label %for.body
@@ -17821,7 +17821,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %chunk_size.094 = phi i32 [ %chunk_size.090, %while.body.lr.ph ], [ %chunk_size.0, %if.end58 ]
   %size.093 = phi i32 [ %retval.0.i71, %while.body.lr.ph ], [ %sub46, %if.end58 ]
   %ptr.addr.092 = phi ptr [ %storemerge.i70, %while.body.lr.ph ], [ %add.ptr60, %if.end58 ]
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %agg.tmp19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp19)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp19, ptr noundef nonnull align 8 dereferenceable(40) %add, i64 40, i1 false)
   %cmp9.i = icmp ult ptr %ptr.addr.092, %4
   br i1 %cmp9.i, label %while.body.i, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_19PackedEnumParserArgINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKcPvSB_PNS1_12ParseContextEPFbPKviESG_PNS1_16InternalMetadataEiEUliE_EESB_SB_SB_T_.exit
@@ -17846,7 +17846,7 @@ _ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i: ; preds = %while.
   br i1 %cmp1.i, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_19PackedEnumParserArgINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKcPvSB_PNS1_12ParseContextEPFbPKviESG_PNS1_16InternalMetadataEiEUliE_EESB_SB_SB_T_.exit.thread, label %if.end.i21
 
 _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_19PackedEnumParserArgINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKcPvSB_PNS1_12ParseContextEPFbPKviESG_PNS1_16InternalMetadataEiEUliE_EESB_SB_SB_T_.exit.thread: ; preds = %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp19)
   br label %return
 
 if.end.i21:                                       ; preds = %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i
@@ -17858,12 +17858,12 @@ if.end.i21:                                       ; preds = %_ZN6google8protobuf
   br i1 %cmp.i23, label %while.body.i, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_19PackedEnumParserArgINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKcPvSB_PNS1_12ParseContextEPFbPKviESG_PNS1_16InternalMetadataEiEUliE_EESB_SB_SB_T_.exit.thread74, !llvm.loop !186
 
 _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_19PackedEnumParserArgINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKcPvSB_PNS1_12ParseContextEPFbPKviESG_PNS1_16InternalMetadataEiEUliE_EESB_SB_SB_T_.exit.thread74: ; preds = %if.end.i21
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp19)
   %.pre = load ptr, ptr %buffer_end_, align 8
   br label %if.end6
 
 _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_19PackedEnumParserArgINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKcPvSB_PNS1_12ParseContextEPFbPKviESG_PNS1_16InternalMetadataEiEUliE_EESB_SB_SB_T_.exit: ; preds = %while.body
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp19)
   br label %if.end6
 
 if.end6:                                          ; preds = %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_19PackedEnumParserArgINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKcPvSB_PNS1_12ParseContextEPFbPKviESG_PNS1_16InternalMetadataEiEUliE_EESB_SB_SB_T_.exit, %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_19PackedEnumParserArgINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKcPvSB_PNS1_12ParseContextEPFbPKviESG_PNS1_16InternalMetadataEiEUliE_EESB_SB_SB_T_.exit.thread74
@@ -17884,7 +17884,7 @@ while.end:                                        ; preds = %if.end6
   %sext18 = shl i64 %sub.ptr.sub10, 32
   %idx.ext30 = ashr exact i64 %sext18, 32
   %add.ptr31 = getelementptr inbounds i8, ptr %buf, i64 %idx.ext30
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %agg.tmp3226)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp3226)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp3226, ptr noundef nonnull align 8 dereferenceable(40) %add, i64 40, i1 false)
   %cmp9.i27 = icmp slt i64 %idx.ext30, %idx.ext
   br i1 %cmp9.i27, label %while.body.i29, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_19PackedEnumParserArgINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKcPvSB_PNS1_12ParseContextEPFbPKviESG_PNS1_16InternalMetadataEiEUliE_EESB_SB_SB_T_.exit44
@@ -17909,7 +17909,7 @@ _ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i32: ; preds = %whil
   br i1 %cmp1.i35, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_19PackedEnumParserArgINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKcPvSB_PNS1_12ParseContextEPFbPKviESG_PNS1_16InternalMetadataEiEUliE_EESB_SB_SB_T_.exit44.thread, label %if.end.i36
 
 _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_19PackedEnumParserArgINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKcPvSB_PNS1_12ParseContextEPFbPKviESG_PNS1_16InternalMetadataEiEUliE_EESB_SB_SB_T_.exit44.thread: ; preds = %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i32
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp3226)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp3226)
   br label %return
 
 if.end.i36:                                       ; preds = %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i32, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread.i41
@@ -17922,7 +17922,7 @@ if.end.i36:                                       ; preds = %_ZN6google8protobuf
 
 _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_19PackedEnumParserArgINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKcPvSB_PNS1_12ParseContextEPFbPKviESG_PNS1_16InternalMetadataEiEUliE_EESB_SB_SB_T_.exit44: ; preds = %if.end.i36, %while.end
   %retval.0.i28 = phi ptr [ %add.ptr31, %while.end ], [ %retval.0.i8.i37, %if.end.i36 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp3226)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp3226)
   %cmp35.not = icmp eq ptr %retval.0.i28, %add.ptr
   br i1 %cmp35.not, label %if.end37, label %return
 
@@ -17961,7 +17961,7 @@ while.end66:                                      ; preds = %if.end58, %if.end
   %size.0.lcssa = phi i32 [ %retval.0.i71, %if.end ], [ %sub46, %if.end58 ]
   %idx.ext68 = sext i32 %size.0.lcssa to i64
   %add.ptr69 = getelementptr inbounds i8, ptr %ptr.addr.0.lcssa, i64 %idx.ext68
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %agg.tmp7045)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp7045)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp7045, ptr noundef nonnull align 8 dereferenceable(40) %add, i64 40, i1 false)
   %cmp9.i46 = icmp sgt i32 %size.0.lcssa, 0
   br i1 %cmp9.i46, label %while.body.i48, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_19PackedEnumParserArgINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKcPvSB_PNS1_12ParseContextEPFbPKviESG_PNS1_16InternalMetadataEiEUliE_EESB_SB_SB_T_.exit63
@@ -17995,7 +17995,7 @@ if.end.i55:                                       ; preds = %_ZN6google8protobuf
 
 _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_19PackedEnumParserArgINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKcPvSB_PNS1_12ParseContextEPFbPKviESG_PNS1_16InternalMetadataEiEUliE_EESB_SB_SB_T_.exit63: ; preds = %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i51, %if.end.i55, %while.end66
   %retval.0.i47 = phi ptr [ %ptr.addr.0.lcssa, %while.end66 ], [ null, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i51 ], [ %retval.0.i8.i56, %if.end.i55 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp7045)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp7045)
   %cmp72 = icmp eq ptr %add.ptr69, %retval.0.i47
   %cond = select i1 %cmp72, ptr %retval.0.i47, ptr null
   br label %return
@@ -20715,10 +20715,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #28
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #28
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #28
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #28
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #29

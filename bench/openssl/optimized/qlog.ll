@@ -155,17 +155,14 @@ define ptr @ossl_qlog_new(ptr noundef readonly captures(none) %0) local_unnamed_
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
-declare noalias ptr @CRYPTO_strdup(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare noalias ptr @CRYPTO_strdup(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @ossl_json_init(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ossl_json_init(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal i64 @default_now(ptr readnone captures(none) %0) #0 {
@@ -173,10 +170,7 @@ define internal i64 @default_now(ptr readnone captures(none) %0) #0 {
   ret i64 %2
 }
 
-declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @ossl_qlog_new_from_env(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
@@ -314,14 +308,14 @@ ossl_qlog_set_sink_filename.exit.thread:          ; preds = %49, %63, %._crit_ed
   ret ptr %.0
 }
 
-declare ptr @ossl_safe_getenv(ptr noundef) local_unnamed_addr #2
+declare ptr @ossl_safe_getenv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
-declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @BIO_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare i32 @BIO_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ossl_qlog_set_sink_filename(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -883,9 +877,9 @@ define void @ossl_qlog_free(ptr noundef %0) local_unnamed_addr #0 {
   ret void
 }
 
-declare i32 @ossl_json_flush_cleanup(ptr noundef) local_unnamed_addr #2
+declare i32 @ossl_json_flush_cleanup(ptr noundef) local_unnamed_addr #1
 
-declare void @BIO_free_all(ptr noundef) local_unnamed_addr #2
+declare void @BIO_free_all(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ossl_qlog_set_sink_bio(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -922,7 +916,7 @@ define i32 @ossl_qlog_flush(ptr noundef %0) local_unnamed_addr #0 {
   ret i32 %.0
 }
 
-declare i32 @ossl_json_set0_sink(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ossl_json_set0_sink(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ossl_qlog_set_sink_file(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -949,14 +943,14 @@ ossl_qlog_set_sink_bio.exit:                      ; preds = %5
   ret i32 %.0
 }
 
-declare ptr @BIO_new_fp(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @BIO_new_fp(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @BIO_new_file(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @BIO_new_file(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @ossl_json_flush(ptr noundef) local_unnamed_addr #2
+declare i32 @ossl_json_flush(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @ossl_qlog_set_event_type_enabled(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @ossl_qlog_set_event_type_enabled(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 {
   %4 = icmp eq ptr %0, null
   %5 = icmp ugt i32 %1, 7
   %or.cond = or i1 %4, %5
@@ -991,7 +985,7 @@ bit_set.exit:                                     ; preds = %10, %13
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @ossl_qlog_enabled(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @ossl_qlog_enabled(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %16, label %4
 
@@ -1145,7 +1139,7 @@ write_str_once.exit51.i.i:                        ; preds = %50, %write_str_once
   tail call void @ossl_json_object_end(ptr noundef nonnull %34) #11
   tail call void @ossl_json_key(ptr noundef nonnull %34, ptr noundef nonnull @.str.31) #11
   tail call void @ossl_json_object_begin(ptr noundef nonnull %34) #11
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %62 = load ptr, ptr %61, align 8, !tbaa !33
   %.not48.i.i = icmp eq ptr %62, null
@@ -1168,7 +1162,7 @@ write_str_once.exit51.i.i:                        ; preds = %50, %write_str_once
   call void @ossl_json_str(ptr noundef nonnull %34, ptr noundef nonnull %71) #11
   call void @ossl_json_key(ptr noundef nonnull %34, ptr noundef nonnull @.str.14) #11
   call void @ossl_json_str(ptr noundef nonnull %34, ptr noundef nonnull %.0.i.i) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @ossl_json_object_end(ptr noundef nonnull %34) #11
   call void @ossl_json_object_end(ptr noundef nonnull %34) #11
   call void @ossl_json_object_end(ptr noundef nonnull %34) #11
@@ -1257,9 +1251,9 @@ define void @ossl_qlog_group_begin(ptr noundef %0, ptr noundef %1) local_unnamed
   ret void
 }
 
-declare void @ossl_json_key(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ossl_json_key(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ossl_json_object_begin(ptr noundef) local_unnamed_addr #2
+declare void @ossl_json_object_begin(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @ossl_qlog_group_end(ptr noundef %0) local_unnamed_addr #0 {
@@ -1268,7 +1262,7 @@ define void @ossl_qlog_group_end(ptr noundef %0) local_unnamed_addr #0 {
   ret void
 }
 
-declare void @ossl_json_object_end(ptr noundef) local_unnamed_addr #2
+declare void @ossl_json_object_end(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @ossl_qlog_array_begin(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -1286,7 +1280,7 @@ define void @ossl_qlog_array_begin(ptr noundef %0, ptr noundef %1) local_unnamed
   ret void
 }
 
-declare void @ossl_json_array_begin(ptr noundef) local_unnamed_addr #2
+declare void @ossl_json_array_begin(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @ossl_qlog_array_end(ptr noundef %0) local_unnamed_addr #0 {
@@ -1295,10 +1289,10 @@ define void @ossl_qlog_array_end(ptr noundef %0) local_unnamed_addr #0 {
   ret void
 }
 
-declare void @ossl_json_array_end(ptr noundef) local_unnamed_addr #2
+declare void @ossl_json_array_end(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ossl_qlog_override_time(ptr noundef writeonly captures(none) initializes((136, 144)) %0, i64 %1) local_unnamed_addr #7 {
+define void @ossl_qlog_override_time(ptr noundef writeonly captures(none) initializes((136, 144)) %0, i64 %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i64 %1, ptr %3, align 8, !tbaa !43
   ret void
@@ -1320,7 +1314,7 @@ define void @ossl_qlog_str(ptr noundef %0, ptr noundef %1, ptr noundef %2) local
   ret void
 }
 
-declare void @ossl_json_str(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ossl_json_str(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @ossl_qlog_str_len(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
@@ -1338,7 +1332,7 @@ define void @ossl_qlog_str_len(ptr noundef %0, ptr noundef %1, ptr noundef %2, i
   ret void
 }
 
-declare void @ossl_json_str_len(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @ossl_json_str_len(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @ossl_qlog_u64(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
@@ -1356,7 +1350,7 @@ define void @ossl_qlog_u64(ptr noundef %0, ptr noundef %1, i64 noundef %2) local
   ret void
 }
 
-declare void @ossl_json_u64(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @ossl_json_u64(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @ossl_qlog_i64(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
@@ -1374,7 +1368,7 @@ define void @ossl_qlog_i64(ptr noundef %0, ptr noundef %1, i64 noundef %2) local
   ret void
 }
 
-declare void @ossl_json_i64(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @ossl_json_i64(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @ossl_qlog_bool(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -1392,7 +1386,7 @@ define void @ossl_qlog_bool(ptr noundef %0, ptr noundef %1, i32 noundef %2) loca
   ret void
 }
 
-declare void @ossl_json_bool(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @ossl_json_bool(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @ossl_qlog_bin(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
@@ -1410,18 +1404,24 @@ define void @ossl_qlog_bin(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 n
   ret void
 }
 
-declare void @ossl_json_str_hex(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @ossl_json_str_hex(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i64 @ossl_time_now() local_unnamed_addr #2
+declare i64 @ossl_time_now() local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare i32 @getpid() local_unnamed_addr #8
+declare i32 @getpid() local_unnamed_addr #7
 
-declare ptr @OpenSSL_version(i32 noundef) local_unnamed_addr #2
+declare ptr @OpenSSL_version(i32 noundef) local_unnamed_addr #1
 
-declare i32 @ossl_ctype_check(i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ossl_ctype_check(i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @ossl_isdigit(i32 noundef) local_unnamed_addr #2
+declare i32 @ossl_isdigit(i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #9
@@ -1430,14 +1430,14 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 declare i64 @llvm.usub.sat.i64(i64, i64) #10
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #11 = { nounwind }

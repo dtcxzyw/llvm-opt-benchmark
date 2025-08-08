@@ -282,7 +282,7 @@ invoke.cont14:                                    ; preds = %invoke.cont12
           to label %invoke.cont16 unwind label %terminate.lpad
 
 invoke.cont16:                                    ; preds = %invoke.cont14
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   invoke void @_ZN4quic8toStringB5cxx11ERKNS_9QuicErrorE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(48) %error)
           to label %.noexc unwind label %terminate.lpad
 
@@ -298,7 +298,7 @@ lpad.i:                                           ; preds = %.noexc
 
 cleanup.action:                                   ; preds = %.noexc
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp6) #17
   br label %cleanup.done
 
@@ -392,8 +392,8 @@ invoke.cont91:                                    ; preds = %invoke.cont89
 
 _ZN4quic13QuicErrorCodeC2ERKS0_.exit.i:           ; preds = %invoke.cont91
   %9 = load i64, ptr %error, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i18)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i)
   store i64 %9, ptr %agg.tmp.i, align 8
   %type_5.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i, i64 8
   store i32 1, ptr %type_5.i.i, align 8
@@ -412,8 +412,8 @@ lpad1.i:                                          ; preds = %.noexc20
 
 invoke.cont98:                                    ; preds = %.noexc20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i18) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i18)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i)
   %call101 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call94, ptr noundef nonnull @.str.6)
           to label %invoke.cont100 unwind label %terminate.lpad
 
@@ -452,8 +452,8 @@ invoke.cont136:                                   ; preds = %invoke.cont134
 
 _ZN4quic13QuicErrorCodeC2ERKS0_.exit.i31:         ; preds = %invoke.cont136
   %13 = load i64, ptr %error, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i27)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i28)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i27)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i28)
   store i64 %13, ptr %agg.tmp.i28, align 8
   %type_5.i.i32 = getelementptr inbounds nuw i8, ptr %agg.tmp.i28, i64 8
   store i32 2, ptr %type_5.i.i32, align 8
@@ -472,8 +472,8 @@ lpad1.i34:                                        ; preds = %.noexc36
 
 invoke.cont143:                                   ; preds = %.noexc36
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i27) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i27)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i28)
   %call146 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call139, ptr noundef nonnull @.str.6)
           to label %invoke.cont145 unwind label %terminate.lpad
 
@@ -665,7 +665,7 @@ invoke.cont50:                                    ; preds = %if.then49
           to label %cleanup.cont unwind label %terminate.lpad
 
 if.then.i:                                        ; preds = %invoke.cont44, %if.end5, %invoke.cont36
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %ref.tmp6.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp6.i.i.i)
   %eof.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = load i8, ptr %eof.i.i.i, align 8
   %tobool.i.i.i13 = trunc i8 %15 to i1
@@ -736,7 +736,7 @@ lpad.i.body.i.i:                                  ; preds = %lpad.i.i.i, %lpad.i
   unreachable
 
 "_ZN5folly6detail14ScopeGuardImplIZN8proxygen22HQStreamDispatcherBase15onDataAvailableEmRKNS_5RangeISt15_Deque_iteratorIN4quic12StreamBufferERKS7_PS8_EEEE3$_0Lb1EE7executeEv.exit.i": ; preds = %call14.i.noexc.i.i, %if.then.i
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp6.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp6.i.i.i)
   br label %cleanup.cont
 
 cleanup.cont:                                     ; preds = %invoke.cont44, %"_ZN5folly6detail14ScopeGuardImplIZN8proxygen22HQStreamDispatcherBase15onDataAvailableEmRKNS_5RangeISt15_Deque_iteratorIN4quic12StreamBufferERKS7_PS8_EEEE3$_0Lb1EE7executeEv.exit.i", %invoke.cont50, %if.end, %entry
@@ -1720,10 +1720,10 @@ __cxx_global_var_init.1.exit:                     ; preds = %__cxx_global_var_in
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #16
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

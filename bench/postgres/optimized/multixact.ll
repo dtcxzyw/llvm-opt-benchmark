@@ -101,7 +101,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @MultiXactIdCreate(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca [2 x %struct.MultiXactMember], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 %0, ptr %5, align 16
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %1, ptr %6, align 4
@@ -110,19 +110,16 @@ define dso_local i32 @MultiXactIdCreate(i32 noundef %0, i32 noundef %1, i32 noun
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 %3, ptr %8, align 4
   %9 = call i32 @MultiXactIdCreateFromMembers(i32 noundef 2, ptr noundef nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @MultiXactIdCreateFromMembers(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca %struct.xl_multixact_create, align 4
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = sext i32 %0 to i64
   tail call void @pg_qsort(ptr noundef %1, i64 noundef %6, i64 noundef 8, ptr noundef nonnull @mxactMemberComparator) #13
   %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @MXactCache, i64 8), align 8
@@ -369,12 +366,12 @@ mXactCacheGetBySet.exit:                          ; preds = %15, %dlist_push_hea
   %122 = getelementptr inbounds nuw i8, ptr %MultiXactOffsetCtlData.val.val.i.i, i64 %121
   %123 = tail call zeroext i1 @LWLockAcquire(ptr noundef %122, i32 noundef 0) #13
   %124 = tail call i32 @SimpleLruZeroPage(ptr noundef nonnull @MultiXactOffsetCtlData, i64 noundef %117) #13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %117, ptr %4, align 8
   tail call void @XLogBeginInsert() #13
   call void @XLogRegisterData(ptr noundef nonnull %4, i32 noundef 8) #13
   %125 = call i64 @XLogInsert(i8 noundef zeroext 6, i8 noundef zeroext 0) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @LWLockRelease(ptr noundef %122) #13
   %.pre.i = load ptr, ptr @MultiXactState, align 8
   br label %ExtendMultiXactOffset.exit.i
@@ -537,12 +534,12 @@ MultiXactOffsetWouldWrap.exit55.i:                ; preds = %.thread64.i
   %211 = getelementptr inbounds nuw i8, ptr %MultiXactMemberCtlData.val.val.i.i, i64 %210
   %212 = call zeroext i1 @LWLockAcquire(ptr noundef %211, i32 noundef 0) #13
   %213 = call i32 @SimpleLruZeroPage(ptr noundef nonnull @MultiXactMemberCtlData, i64 noundef %206) #13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %206, ptr %3, align 8
   call void @XLogBeginInsert() #13
   call void @XLogRegisterData(ptr noundef nonnull %3, i32 noundef 8) #13
   %214 = call i64 @XLogInsert(i8 noundef zeroext 6, i8 noundef zeroext 16) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @LWLockRelease(ptr noundef %211) #13
   br label %215
 
@@ -600,18 +597,15 @@ GetNewMultiXactId.exit:                           ; preds = %221, %198
 
 241:                                              ; preds = %mXactCacheGetBySet.exit, %GetNewMultiXactId.exit
   %.025 = phi i32 [ %.046.i, %GetNewMultiXactId.exit ], [ %30, %mXactCacheGetBySet.exit ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.025
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @MultiXactIdExpand(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca %struct.MultiXactMember, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = call i32 @GetMultiXactIdMembers(i32 noundef %0, ptr noundef nonnull %4, i1 noundef zeroext false, i1 noundef zeroext false)
   %7 = icmp slt i32 %6, 0
   br i1 %7, label %8, label %.preheader
@@ -626,12 +620,12 @@ define dso_local i32 @MultiXactIdExpand(i32 noundef %0, i32 noundef %1, i32 noun
   br label %11
 
 8:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 %1, ptr %5, align 4
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %2, ptr %9, align 4
   %10 = call i32 @MultiXactIdCreateFromMembers(i32 noundef 1, ptr noundef nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %50
 
 11:                                               ; preds = %.lr.ph, %20
@@ -720,7 +714,7 @@ define dso_local i32 @MultiXactIdExpand(i32 noundef %0, i32 noundef %1, i32 noun
 
 50:                                               ; preds = %._crit_edge45, %19, %8
   %.038 = phi i32 [ %10, %8 ], [ %0, %19 ], [ %49, %._crit_edge45 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.038
 }
 
@@ -1144,18 +1138,18 @@ MultiXactIdSetOldestVisible.exit:                 ; preds = %mXactCacheGetById.e
   ret i32 %.0
 }
 
-declare void @pfree(ptr noundef) local_unnamed_addr #2
+declare void @pfree(ptr noundef) local_unnamed_addr #1
 
-declare ptr @palloc(i64 noundef) local_unnamed_addr #2
+declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @TransactionIdIsInProgress(i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @TransactionIdIsInProgress(i32 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @TransactionIdDidCommit(i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @TransactionIdDidCommit(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef zeroext i1 @MultiXactIdIsRunning(i32 noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 @GetMultiXactIdMembers(i32 noundef %0, ptr noundef nonnull %3, i1 noundef zeroext false, i1 noundef zeroext %1)
   %5 = icmp slt i32 %4, 1
   br i1 %5, label %15, label %.preheader13
@@ -1194,11 +1188,11 @@ define dso_local noundef zeroext i1 @MultiXactIdIsRunning(i32 noundef %0, i1 nou
 
 15:                                               ; preds = %.sink.split, %2
   %.011 = phi i1 [ false, %2 ], [ %.011.ph, %.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.011
 }
 
-declare zeroext i1 @TransactionIdIsCurrentTransactionId(i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @TransactionIdIsCurrentTransactionId(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @MultiXactIdSetOldestMember() local_unnamed_addr #0 {
@@ -1231,9 +1225,9 @@ define dso_local void @MultiXactIdSetOldestMember() local_unnamed_addr #0 {
   ret void
 }
 
-declare zeroext i1 @LWLockAcquire(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @LWLockAcquire(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @LWLockRelease(ptr noundef) local_unnamed_addr #2
+declare void @LWLockRelease(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 1, 0) i32 @ReadNextMultiXactId() local_unnamed_addr #0 {
@@ -1285,16 +1279,16 @@ define dso_local void @ReadMultiXactIdRange(ptr noundef captures(none) initializ
 }
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare zeroext i1 @errstart(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @errstart(i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @mxid_to_string(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca %struct.StringInfoData, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load ptr, ptr @mxid_to_string.str, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %7, label %6
@@ -1364,17 +1358,17 @@ switch.lookup18:                                  ; preds = %.lr.ph
   %29 = load ptr, ptr %4, align 8
   call void @pfree(ptr noundef %29) #13
   %30 = load ptr, ptr @mxid_to_string.str, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %30
 }
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @XLogBeginInsert() local_unnamed_addr #2
+declare void @XLogBeginInsert() local_unnamed_addr #1
 
-declare void @XLogRegisterData(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @XLogRegisterData(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i64 @XLogInsert(i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #2
+declare i64 @XLogInsert(i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @RecordNewMultiXact(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) unnamed_addr #0 {
@@ -1588,34 +1582,34 @@ dclist_push_head.exit:                            ; preds = %9, %20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef zeroext i1 @MultiXactIdPrecedes(i32 noundef %0, i32 noundef %1) local_unnamed_addr #4 {
+define dso_local noundef zeroext i1 @MultiXactIdPrecedes(i32 noundef %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = sub i32 %0, %1
   %4 = icmp slt i32 %3, 0
   ret i1 %4
 }
 
-declare i32 @errcode(i32 noundef) local_unnamed_addr #2
+declare i32 @errcode(i32 noundef) local_unnamed_addr #1
 
-declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #1
 
-declare i32 @SimpleLruReadPage(ptr noundef, i64 noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #2
+declare i32 @SimpleLruReadPage(ptr noundef, i64 noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
-declare void @ProcessInterrupts() local_unnamed_addr #2
+declare void @ProcessInterrupts() local_unnamed_addr #1
 
-declare void @ConditionVariableSleep(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @ConditionVariableSleep(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @ConditionVariableCancelSleep() local_unnamed_addr #2
+declare zeroext i1 @ConditionVariableCancelSleep() local_unnamed_addr #1
 
-declare void @initStringInfo(ptr noundef) local_unnamed_addr #2
+declare void @initStringInfo(ptr noundef) local_unnamed_addr #1
 
-declare void @appendStringInfo(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @appendStringInfo(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare void @appendStringInfoChar(ptr noundef, i8 noundef signext) local_unnamed_addr #2
+declare void @appendStringInfoChar(ptr noundef, i8 noundef signext) local_unnamed_addr #1
 
-declare ptr @MemoryContextStrdup(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @MemoryContextStrdup(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
-define dso_local void @AtEOXact_MultiXact() local_unnamed_addr #5 {
+define dso_local void @AtEOXact_MultiXact() local_unnamed_addr #4 {
   %1 = load ptr, ptr @OldestMemberMXactId, align 8
   %2 = load i32, ptr @MyProcNumber, align 4
   %3 = sext i32 %2 to i64
@@ -1636,7 +1630,7 @@ define dso_local void @AtEOXact_MultiXact() local_unnamed_addr #5 {
 ; Function Attrs: nounwind uwtable
 define dso_local void @AtPrepare_MultiXact() local_unnamed_addr #0 {
   %1 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %2 = load ptr, ptr @OldestMemberMXactId, align 8
   %3 = load i32, ptr @MyProcNumber, align 4
   %4 = sext i32 %3 to i64
@@ -1651,11 +1645,11 @@ define dso_local void @AtPrepare_MultiXact() local_unnamed_addr #0 {
   br label %8
 
 8:                                                ; preds = %7, %0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }
 
-declare void @RegisterTwoPhaseRecord(i8 noundef zeroext, i16 noundef zeroext, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @RegisterTwoPhaseRecord(i8 noundef zeroext, i16 noundef zeroext, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @PostPrepare_MultiXact(i32 noundef %0) local_unnamed_addr #0 {
@@ -1699,7 +1693,7 @@ define dso_local void @PostPrepare_MultiXact(i32 noundef %0) local_unnamed_addr 
   ret void
 }
 
-declare i32 @TwoPhaseGetDummyProcNumber(i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare i32 @TwoPhaseGetDummyProcNumber(i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @multixact_twophase_recover(i32 noundef %0, i16 noundef zeroext %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
@@ -1749,16 +1743,16 @@ define dso_local i64 @MultiXactShmemSize() local_unnamed_addr #0 {
   ret i64 %12
 }
 
-declare i64 @add_size(i64 noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @add_size(i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare i64 @mul_size(i64 noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @mul_size(i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare i64 @SimpleLruShmemSize(i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i64 @SimpleLruShmemSize(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @MultiXactShmemInit() local_unnamed_addr #0 {
   %1 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %1) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store ptr @MultiXactOffsetPagePrecedes, ptr getelementptr inbounds nuw (i8, ptr @MultiXactOffsetCtlData, i64 16), align 8
   store ptr @MultiXactMemberPagePrecedes, ptr getelementptr inbounds nuw (i8, ptr @MultiXactMemberCtlData, i64 16), align 8
   %2 = load i32, ptr @multixact_offset_buffers, align 4
@@ -1832,12 +1826,12 @@ define dso_local void @MultiXactShmemInit() local_unnamed_addr #0 {
   %42 = sext i32 %41 to i64
   %43 = getelementptr inbounds i32, ptr %38, i64 %42
   store ptr %43, ptr @OldestVisibleMXactId, align 8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %1) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal zeroext i1 @MultiXactOffsetPagePrecedes(i64 noundef %0, i64 noundef %1) #4 {
+define internal zeroext i1 @MultiXactOffsetPagePrecedes(i64 noundef %0, i64 noundef %1) #3 {
   %.tr = trunc i64 %0 to i32
   %3 = shl i32 %.tr, 11
   %.tr8 = trunc i64 %1 to i32
@@ -1851,7 +1845,7 @@ define internal zeroext i1 @MultiXactOffsetPagePrecedes(i64 noundef %0, i64 noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal zeroext i1 @MultiXactMemberPagePrecedes(i64 noundef %0, i64 noundef %1) #4 {
+define internal zeroext i1 @MultiXactMemberPagePrecedes(i64 noundef %0, i64 noundef %1) #3 {
   %3 = trunc i64 %0 to i32
   %4 = mul i32 %3, 1636
   %5 = trunc i64 %1 to i32
@@ -1864,14 +1858,14 @@ define internal zeroext i1 @MultiXactMemberPagePrecedes(i64 noundef %0, i64 noun
   ret i1 %10
 }
 
-declare void @SimpleLruInit(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare void @SimpleLruInit(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare ptr @ShmemInitStruct(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @ShmemInitStruct(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
-declare void @ConditionVariableInit(ptr noundef) local_unnamed_addr #2
+declare void @ConditionVariableInit(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @check_multixact_offset_buffers(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -1879,7 +1873,7 @@ define dso_local zeroext i1 @check_multixact_offset_buffers(ptr noundef %0, ptr 
   ret i1 %4
 }
 
-declare zeroext i1 @check_slru_buffers(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @check_slru_buffers(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @check_multixact_member_buffers(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -1906,10 +1900,10 @@ define dso_local void @BootStrapMultiXact() local_unnamed_addr #0 {
   ret void
 }
 
-declare void @SimpleLruWritePage(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @SimpleLruWritePage(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define dso_local void @StartupMultiXact() local_unnamed_addr #7 {
+define dso_local void @StartupMultiXact() local_unnamed_addr #6 {
   %1 = load ptr, ptr @MultiXactState, align 8
   %2 = load i32, ptr %1, align 4
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -2369,7 +2363,7 @@ define dso_local void @CheckPointMultiXact() local_unnamed_addr #0 {
   ret void
 }
 
-declare void @SimpleLruWriteAll(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare void @SimpleLruWriteAll(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @MultiXactSetNextMXact(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -2418,15 +2412,15 @@ MaybeExtendOffsetSlru.exit:                       ; preds = %12, %24
   ret void
 }
 
-declare void @SendPostmasterSignal(i32 noundef) local_unnamed_addr #2
+declare void @SendPostmasterSignal(i32 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @IsTransactionState() local_unnamed_addr #2
+declare zeroext i1 @IsTransactionState() local_unnamed_addr #1
 
-declare ptr @get_database_name(i32 noundef) local_unnamed_addr #2
+declare ptr @get_database_name(i32 noundef) local_unnamed_addr #1
 
-declare i32 @errmsg_plural(ptr noundef, ptr noundef, i64 noundef, ...) local_unnamed_addr #2
+declare i32 @errmsg_plural(ptr noundef, ptr noundef, i64 noundef, ...) local_unnamed_addr #1
 
-declare i32 @errhint(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errhint(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @MultiXactAdvanceNextMXact(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -2583,7 +2577,7 @@ ReadMultiXactCounts.exit:                         ; preds = %0, %23, %31, %21
 define dso_local void @TruncateMultiXact(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.xl_multixact_truncate, align 4
   %4 = alloca %struct.mxtruncinfo, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load ptr, ptr @MainLWLockArray, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 5248
   %7 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %6, i32 noundef 0) #13
@@ -2767,7 +2761,7 @@ find_multixact_start.exit31:                      ; preds = %63
   %108 = load i32, ptr %107, align 8
   %109 = or i32 %108, 1
   store i32 %109, ptr %107, align 8
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %1, ptr %3, align 4
   %110 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %16, ptr %110, align 4
@@ -2781,7 +2775,7 @@ find_multixact_start.exit31:                      ; preds = %63
   call void @XLogRegisterData(ptr noundef nonnull %3, i32 noundef 20) #13
   %114 = call i64 @XLogInsert(i8 noundef zeroext 6, i8 noundef zeroext 48) #13
   call void @XLogFlush(i64 noundef %114) #13
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %115 = load ptr, ptr @MainLWLockArray, align 8
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 1664
   %117 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %116, i32 noundef 0) #13
@@ -2839,18 +2833,18 @@ PerformMembersTruncation.exit:                    ; preds = %127, %103
   br label %143
 
 143:                                              ; preds = %PerformMembersTruncation.exit, %86, %58, %30, %21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef zeroext i1 @MultiXactIdPrecedesOrEquals(i32 noundef %0, i32 noundef %1) local_unnamed_addr #4 {
+define dso_local noundef zeroext i1 @MultiXactIdPrecedesOrEquals(i32 noundef %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = sub i32 %0, %1
   %4 = icmp slt i32 %3, 1
   ret i1 %4
 }
 
-declare zeroext i1 @SlruScanDirectory(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SlruScanDirectory(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @SlruScanDirCbFindEarliest(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, i64 noundef %2, ptr noundef captures(none) %3) #0 {
@@ -3099,11 +3093,11 @@ PerformMembersTruncation.exit:                    ; preds = %95, %87
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
-declare zeroext i1 @TransactionIdPrecedes(i32 noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @TransactionIdPrecedes(i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @AdvanceNextFullTransactionIdPastXid(i32 noundef) local_unnamed_addr #2
+declare void @AdvanceNextFullTransactionIdPastXid(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @pg_get_multixact_members(ptr noundef %0) local_unnamed_addr #0 {
@@ -3131,7 +3125,7 @@ define dso_local i64 @pg_get_multixact_members(ptr noundef %0) local_unnamed_add
   br i1 %16, label %17, label %36
 
 17:                                               ; preds = %12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %18 = tail call ptr @init_MultiFuncCall(ptr noundef nonnull %0) #13
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %20 = load ptr, ptr %19, align 8
@@ -3164,7 +3158,7 @@ define dso_local i64 @pg_get_multixact_members(ptr noundef %0) local_unnamed_add
   %35 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store ptr %22, ptr %35, align 8
   store ptr %21, ptr @CurrentMemoryContext, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %36
 
 36:                                               ; preds = %30, %12
@@ -3179,7 +3173,7 @@ define dso_local i64 @pg_get_multixact_members(ptr noundef %0) local_unnamed_add
   br i1 %44, label %45, label %75
 
 45:                                               ; preds = %36
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %46 = load ptr, ptr %39, align 8
   %47 = sext i32 %41 to i64
   %48 = getelementptr inbounds %struct.MultiXactMember, ptr %46, i64 %47
@@ -3225,7 +3219,7 @@ switch.lookup:                                    ; preds = %45
   %73 = getelementptr i8, ptr %64, i64 16
   %.val = load ptr, ptr %73, align 8
   %74 = call i64 @HeapTupleHeaderGetDatum(ptr noundef %.val) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %80
 
 75:                                               ; preds = %36
@@ -3243,19 +3237,19 @@ switch.lookup:                                    ; preds = %45
   ret i64 %.0
 }
 
-declare ptr @init_MultiFuncCall(ptr noundef) local_unnamed_addr #2
+declare ptr @init_MultiFuncCall(ptr noundef) local_unnamed_addr #1
 
-declare i32 @get_call_result_type(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @get_call_result_type(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @TupleDescGetAttInMetadata(ptr noundef) local_unnamed_addr #2
+declare ptr @TupleDescGetAttInMetadata(ptr noundef) local_unnamed_addr #1
 
-declare ptr @per_MultiFuncCall(ptr noundef) local_unnamed_addr #2
+declare ptr @per_MultiFuncCall(ptr noundef) local_unnamed_addr #1
 
-declare ptr @psprintf(ptr noundef, ...) local_unnamed_addr #2
+declare ptr @psprintf(ptr noundef, ...) local_unnamed_addr #1
 
-declare ptr @BuildTupleFromCStrings(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @BuildTupleFromCStrings(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @end_MultiFuncCall(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @end_MultiFuncCall(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @multixactoffsetssyncfiletag(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -3263,7 +3257,7 @@ define dso_local i32 @multixactoffsetssyncfiletag(ptr noundef %0, ptr noundef %1
   ret i32 %3
 }
 
-declare i32 @SlruSyncFileTag(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @SlruSyncFileTag(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @multixactmemberssyncfiletag(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -3271,16 +3265,16 @@ define dso_local i32 @multixactmemberssyncfiletag(ptr noundef %0, ptr noundef %1
   ret i32 %3
 }
 
-declare void @ConditionVariableBroadcast(ptr noundef) local_unnamed_addr #2
+declare void @ConditionVariableBroadcast(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @RecoveryInProgress() local_unnamed_addr #2
+declare zeroext i1 @RecoveryInProgress() local_unnamed_addr #1
 
-declare i32 @errdetail_plural(ptr noundef, ptr noundef, i64 noundef, ...) local_unnamed_addr #2
+declare i32 @errdetail_plural(ptr noundef, ptr noundef, i64 noundef, ...) local_unnamed_addr #1
 
-declare void @pg_qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare void @pg_qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @mxactMemberComparator(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #9 {
+define internal range(i32 -1, 2) i32 @mxactMemberComparator(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #8 {
   %.sroa.03.0.copyload = load i32, ptr %0, align 4
   %.sroa.55.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.sroa.55.0.copyload = load i32, ptr %.sroa.55.0..sroa_idx, align 4
@@ -3308,23 +3302,29 @@ define internal range(i32 -1, 2) i32 @mxactMemberComparator(ptr noundef readonly
   ret i32 %.0
 }
 
-declare ptr @AllocSetContextCreateInternal(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @AllocSetContextCreateInternal(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare ptr @MemoryContextAlloc(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @MemoryContextAlloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @SimpleLruZeroPage(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @SimpleLruZeroPage(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SimpleLruDoesPhysicalPageExist(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare zeroext i1 @SimpleLruDoesPhysicalPageExist(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @SimpleLruReadPage_ReadOnly(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @SimpleLruReadPage_ReadOnly(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @SlruDeleteSegment(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @SlruDeleteSegment(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @SimpleLruTruncate(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @SimpleLruTruncate(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @XLogFlush(i64 noundef) local_unnamed_addr #2
+declare void @XLogFlush(i64 noundef) local_unnamed_addr #1
 
-declare i64 @HeapTupleHeaderGetDatum(ptr noundef) local_unnamed_addr #2
+declare i64 @HeapTupleHeaderGetDatum(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #10
@@ -3345,15 +3345,15 @@ declare i32 @llvm.smax.i32(i32, i32) #11
 declare i64 @llvm.umax.i64(i64, i64) #11
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { nofree norecurse nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { nofree norecurse nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: read) }

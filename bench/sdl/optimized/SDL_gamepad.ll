@@ -499,7 +499,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden void @SDL_PrivateGamepadAdded(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca %union.SDL_Event, align 8
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %.b1 = load i1, ptr @SDL_gamepads_initialized, align 1
   br i1 %.b1, label %3, label %7
 
@@ -513,24 +513,18 @@ define hidden void @SDL_PrivateGamepadAdded(i32 noundef %0) local_unnamed_addr #
   br label %7
 
 7:                                                ; preds = %1, %3
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare zeroext i1 @SDL_PushEvent_REAL(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare zeroext i1 @SDL_PushEvent_REAL(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @SDL_PrivateGamepadRemoved(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca %union.SDL_Event, align 8
   %3 = alloca %union.SDL_Event, align 8
   %4 = alloca %union.SDL_Event, align 8
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   tail call void @SDL_AssertJoysticksLocked() #10
   %.b5 = load i1, ptr @SDL_gamepads_initialized, align 1
   br i1 %.b5, label %.preheader, label %55
@@ -569,7 +563,7 @@ define hidden void @SDL_PrivateGamepadRemoved(i32 noundef %0) local_unnamed_addr
   br i1 %20, label %21, label %38
 
 21:                                               ; preds = %19
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @SDL_AssertJoysticksLocked() #10
   store i32 1618, ptr %3, align 8
   %22 = icmp eq i32 %.015.i, 5
@@ -608,7 +602,7 @@ define hidden void @SDL_PrivateGamepadRemoved(i32 noundef %0) local_unnamed_addr
   br label %SDL_SendGamepadButton.exit.i
 
 SDL_SendGamepadButton.exit.i:                     ; preds = %33, %.critedge.i.i, %30
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %38
 
 38:                                               ; preds = %SDL_SendGamepadButton.exit.i, %19
@@ -628,7 +622,7 @@ SDL_SendGamepadButton.exit.i:                     ; preds = %33, %.critedge.i.i,
   br i1 %43, label %44, label %SDL_SendGamepadAxis.exit.i
 
 44:                                               ; preds = %42
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 1616, ptr %2, align 8
   store i64 %9, ptr %15, align 8
   %45 = load ptr, ptr %.010, align 8
@@ -638,7 +632,7 @@ SDL_SendGamepadButton.exit.i:                     ; preds = %33, %.critedge.i.i,
   store i8 %47, ptr %17, align 4
   store i16 0, ptr %18, align 8
   %48 = call zeroext i1 @SDL_PushEvent_REAL(ptr noundef nonnull %2) #10
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %SDL_SendGamepadAxis.exit.i
 
 SDL_SendGamepadAxis.exit.i:                       ; preds = %44, %42, %40
@@ -662,11 +656,11 @@ RecenterGamepad.exit:                             ; preds = %50, %SDL_SendGamepa
   br label %55
 
 55:                                               ; preds = %1, %RecenterGamepad.exit
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
-declare void @SDL_AssertJoysticksLocked() local_unnamed_addr #2
+declare void @SDL_AssertJoysticksLocked() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @SDL_GamepadSensorWatcher(i64 noundef %0, i32 noundef %1, i64 noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
@@ -692,7 +686,7 @@ define hidden void @SDL_GamepadSensorWatcher(i64 noundef %0, i32 noundef %1, i64
   br i1 %14, label %15, label %29
 
 15:                                               ; preds = %11
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @SDL_AssertJoysticksLocked() #10
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 272
   br label %17
@@ -725,7 +719,7 @@ define hidden void @SDL_GamepadSensorWatcher(i64 noundef %0, i32 noundef %1, i64
 AdjustSensorOrientation.exit:                     ; preds = %27
   %28 = load ptr, ptr %.028, align 8
   call void @SDL_SendJoystickSensor(i64 noundef %0, ptr noundef %28, i32 noundef 1, i64 noundef %2, ptr noundef nonnull %6, i32 noundef 3) #10
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.pre = load ptr, ptr %.028, align 8
   br label %29
 
@@ -743,7 +737,7 @@ AdjustSensorOrientation.exit:                     ; preds = %27
   br i1 %36, label %37, label %51
 
 37:                                               ; preds = %33
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @SDL_AssertJoysticksLocked() #10
   %38 = getelementptr inbounds nuw i8, ptr %30, i64 272
   br label %39
@@ -776,7 +770,7 @@ AdjustSensorOrientation.exit:                     ; preds = %27
 AdjustSensorOrientation.exit25:                   ; preds = %49
   %50 = load ptr, ptr %.028, align 8
   call void @SDL_SendJoystickSensor(i64 noundef %0, ptr noundef %50, i32 noundef 2, i64 noundef %2, ptr noundef nonnull %7, i32 noundef 3) #10
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %51
 
 51:                                               ; preds = %29, %33, %AdjustSensorOrientation.exit25
@@ -790,11 +784,11 @@ AdjustSensorOrientation.exit25:                   ; preds = %49
   ret void
 }
 
-declare void @SDL_LockJoysticks_REAL() local_unnamed_addr #2
+declare void @SDL_LockJoysticks_REAL() local_unnamed_addr #1
 
-declare void @SDL_SendJoystickSensor(i64 noundef, ptr noundef, i32 noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @SDL_SendJoystickSensor(i64 noundef, ptr noundef, i32 noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @SDL_UnlockJoysticks_REAL() local_unnamed_addr #2
+declare void @SDL_UnlockJoysticks_REAL() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 12) i32 @SDL_GetGamepadTypeFromString_REAL(ptr noundef %0) local_unnamed_addr #0 {
@@ -839,10 +833,10 @@ define hidden range(i32 0, 12) i32 @SDL_GetGamepadTypeFromString_REAL(ptr nounde
   ret i32 %.011
 }
 
-declare i32 @SDL_strcasecmp_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @SDL_strcasecmp_REAL(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden ptr @SDL_GetGamepadStringForType_REAL(i32 noundef %0) local_unnamed_addr #3 {
+define hidden ptr @SDL_GetGamepadStringForType_REAL(i32 noundef %0) local_unnamed_addr #2 {
   %2 = add i32 %0, -1
   %or.cond = icmp ult i32 %2, 11
   br i1 %or.cond, label %3, label %7
@@ -902,7 +896,7 @@ define hidden range(i32 -1, 6) i32 @SDL_GetGamepadAxisFromString_REAL(ptr nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden ptr @SDL_GetGamepadStringForAxis_REAL(i32 noundef %0) local_unnamed_addr #3 {
+define hidden ptr @SDL_GetGamepadStringForAxis_REAL(i32 noundef %0) local_unnamed_addr #2 {
   %or.cond = icmp ult i32 %0, 6
   br i1 %or.cond, label %2, label %6
 
@@ -950,7 +944,7 @@ SDL_PrivateGetGamepadButtonFromString.exit:       ; preds = %11, %1, %2, %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden ptr @SDL_GetGamepadStringForButton_REAL(i32 noundef %0) local_unnamed_addr #3 {
+define hidden ptr @SDL_GetGamepadStringForButton_REAL(i32 noundef %0) local_unnamed_addr #2 {
   %or.cond = icmp ult i32 %0, 26
   br i1 %or.cond, label %2, label %6
 
@@ -970,8 +964,8 @@ define hidden i32 @SDL_AddGamepadMappingsFromIO_REAL(ptr noundef %0, i1 noundef 
   %3 = alloca [64 x i8], align 16
   %4 = alloca i64, align 8
   %5 = tail call ptr @SDL_GetPlatform_REAL() #10
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = call ptr @SDL_LoadFile_IO_REAL(ptr noundef %0, ptr noundef nonnull %4, i1 noundef zeroext %1) #10
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %7, label %9
@@ -1057,22 +1051,22 @@ define hidden i32 @SDL_AddGamepadMappingsFromIO_REAL(ptr noundef %0, i1 noundef 
 
 42:                                               ; preds = %._crit_edge, %7
   %.0 = phi i32 [ %.027.lcssa, %._crit_edge ], [ -1, %7 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
-declare ptr @SDL_GetPlatform_REAL() local_unnamed_addr #2
+declare ptr @SDL_GetPlatform_REAL() local_unnamed_addr #1
 
-declare ptr @SDL_LoadFile_IO_REAL(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare ptr @SDL_LoadFile_IO_REAL(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_SetError_REAL(ptr noundef, ...) local_unnamed_addr #2
+declare zeroext i1 @SDL_SetError_REAL(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @PushMappingChangeTracking() unnamed_addr #0 {
   %1 = alloca i8, align 1
   %2 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   tail call void @SDL_AssertJoysticksLocked() #10
   %3 = load ptr, ptr @s_mappingChangeTracker, align 8
   %.not = icmp eq ptr %3, null
@@ -1134,9 +1128,9 @@ define internal fastcc void @PushMappingChangeTracking() unnamed_addr #0 {
   br i1 %.not.i13, label %SDL_PrivateGetGamepadMappingForNameAndGUID.exit, label %33
 
 33:                                               ; preds = %31
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %34 = call fastcc ptr @SDL_PrivateAddMappingForGUID(i64 %26, i64 %27, ptr noundef nonnull @.str.450, ptr noundef nonnull %1, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %SDL_PrivateGetGamepadMappingForNameAndGUID.exit
 
 SDL_PrivateGetGamepadMappingForNameAndGUID.exit:  ; preds = %.lr.ph, %31, %33
@@ -1154,19 +1148,19 @@ SDL_PrivateGetGamepadMappingForNameAndGUID.exit:  ; preds = %.lr.ph, %31, %33
   br i1 %40, label %.lr.ph, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %SDL_PrivateGetGamepadMappingForNameAndGUID.exit, %14, %11, %7, %4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
-declare ptr @SDL_strchr_REAL(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @SDL_strchr_REAL(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @SDL_strstr_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @SDL_strstr_REAL(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i64 @SDL_strlen_REAL(ptr noundef) local_unnamed_addr #2
+declare i64 @SDL_strlen_REAL(ptr noundef) local_unnamed_addr #1
 
-declare i64 @SDL_strlcpy_REAL(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @SDL_strlcpy_REAL(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @SDL_strncasecmp_REAL(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @SDL_strncasecmp_REAL(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -1, 2) i32 @SDL_AddGamepadMapping_REAL(ptr noundef %0) local_unnamed_addr #0 {
@@ -1265,7 +1259,7 @@ SDL_GetGamepadFromID_REAL.exit:                   ; preds = %.lr.ph.i, %25, %20
   %39 = zext i32 %21 to i64
   %40 = inttoptr i64 %39 to ptr
   %41 = call zeroext i1 @SDL_InsertIntoHashTable(ptr noundef %38, ptr noundef nonnull %40, ptr noundef nonnull inttoptr (i64 1 to ptr), i1 noundef zeroext true) #10
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %.b1.i = load i1, ptr @SDL_gamepads_initialized, align 1
   br i1 %.b1.i, label %42, label %SDL_PrivateGamepadAdded.exit
 
@@ -1277,7 +1271,7 @@ SDL_GetGamepadFromID_REAL.exit:                   ; preds = %.lr.ph.i, %25, %20
   br label %SDL_PrivateGamepadAdded.exit
 
 SDL_PrivateGamepadAdded.exit:                     ; preds = %37, %42
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %HasMappingChangeTracking.exit.thread
 
 44:                                               ; preds = %33
@@ -1329,7 +1323,7 @@ HasMappingChangeTracking.exit:                    ; preds = %58, %52
   br label %63
 
 63:                                               ; preds = %62, %HasMappingChangeTracking.exit
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %.b1.i45 = load i1, ptr @SDL_gamepads_initialized, align 1
   br i1 %.b1.i45, label %64, label %SDL_PrivateGamepadRemapped.exit
 
@@ -1345,7 +1339,7 @@ HasMappingChangeTracking.exit:                    ; preds = %58, %52
   br label %SDL_PrivateGamepadRemapped.exit
 
 SDL_PrivateGamepadRemapped.exit:                  ; preds = %63, %64, %66
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %HasMappingChangeTracking.exit.thread
 
 HasMappingChangeTracking.exit.thread:             ; preds = %57, %53, %47, %SDL_PrivateGamepadRemapped.exit, %SDL_PrivateGamepadAdded.exit
@@ -1372,7 +1366,7 @@ HasMappingChangeTracking.exit.thread:             ; preds = %57, %53, %47, %SDL_
   ret void
 }
 
-declare void @SDL_free_REAL(ptr noundef) local_unnamed_addr #2
+declare void @SDL_free_REAL(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @SDL_AddGamepadMappingsFromFile_REAL(ptr noundef %0) local_unnamed_addr #0 {
@@ -1381,7 +1375,7 @@ define hidden i32 @SDL_AddGamepadMappingsFromFile_REAL(ptr noundef %0) local_unn
   ret i32 %3
 }
 
-declare ptr @SDL_IOFromFile_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @SDL_IOFromFile_REAL(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef zeroext i1 @SDL_ReloadGamepadMappings_REAL() local_unnamed_addr #0 {
@@ -1472,7 +1466,7 @@ define hidden void @SDL_QuitGamepadMappings() local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define hidden noundef zeroext i1 @SDL_InitGamepadMappings() local_unnamed_addr #0 {
   %1 = alloca [1024 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   tail call void @SDL_AssertJoysticksLocked() #10
   tail call fastcc void @PushMappingChangeTracking()
   br label %2
@@ -1552,7 +1546,7 @@ SDL_LoadGamepadHints.exit:                        ; preds = %SDL_GetGamepadMappi
   call void @SDL_LoadVIDPIDList(ptr noundef nonnull @SDL_allowed_gamepads) #10
   call void @SDL_LoadVIDPIDList(ptr noundef nonnull @SDL_ignored_gamepads) #10
   call fastcc void @PopMappingChangeTracking()
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i1 true
 }
 
@@ -1563,11 +1557,11 @@ define internal fastcc range(i32 -1, 2) i32 @SDL_PrivateAddGamepadMapping(ptr no
   %5 = alloca i16, align 2
   %6 = alloca i8, align 1
   %7 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4) #10
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5) #10
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 0, ptr %6, align 1
   tail call void @SDL_AssertJoysticksLocked() #10
   %.not = icmp eq ptr %0, null
@@ -1639,7 +1633,7 @@ define internal fastcc range(i32 -1, 2) i32 @SDL_PrivateAddGamepadMapping(ptr no
   br i1 %.not88, label %118, label %40
 
 40:                                               ; preds = %38
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %41 = call i64 @SDL_strlen_REAL(ptr noundef nonnull @.str.73) #10
   %42 = getelementptr inbounds nuw i8, ptr %39, i64 %41
   %43 = load i8, ptr %42, align 1
@@ -1812,12 +1806,12 @@ SDL_ConvertMappingToPositionalAXBY.exit.thread.sink.split: ; preds = %110, %83
 SDL_ConvertMappingToPositionalAXBY.exit.thread:   ; preds = %SDL_ConvertMappingToPositionalAXBY.exit.thread.sink.split, %111, %110, %83, %87, %68
   %.168.ph = phi ptr [ null, %87 ], [ null, %68 ], [ %72, %83 ], [ %91, %110 ], [ null, %111 ], [ %.168.ph.ph, %SDL_ConvertMappingToPositionalAXBY.exit.thread.sink.split ]
   %.2.ph = phi ptr [ %.059, %87 ], [ %.059, %68 ], [ %72, %83 ], [ %91, %110 ], [ %.059, %111 ], [ %.168.ph.ph, %SDL_ConvertMappingToPositionalAXBY.exit.thread.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %118
 
 117:                                              ; preds = %111, %69, %88
   %.164 = phi i32 [ 0, %111 ], [ -1, %69 ], [ -1, %88 ]
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %127
 
 118:                                              ; preds = %38, %SDL_ConvertMappingToPositionalAXBY.exit.thread
@@ -1856,10 +1850,10 @@ SDL_ConvertMappingToPositionalAXBY.exit.thread:   ; preds = %SDL_ConvertMappingT
 
 129:                                              ; preds = %127, %18, %8
   %.058 = phi i32 [ %.366, %127 ], [ -1, %18 ], [ -1, %8 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #10
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5) #10
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.058
 }
 
@@ -2016,15 +2010,15 @@ define hidden ptr @SDL_GetGamepadMappings_REAL(ptr noundef writeonly captures(ad
   ret ptr %.05689
 }
 
-declare i32 @SDL_memcmp_REAL(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @SDL_memcmp_REAL(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @SDL_calloc_REAL(i64 noundef, i64 noundef) local_unnamed_addr #4
+declare noalias ptr @SDL_calloc_REAL(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @CreateMappingString(ptr noundef readonly captures(none) %0, i64 %1, i64 %2) unnamed_addr #0 {
   %4 = alloca [33 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 33, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   tail call void @SDL_AssertJoysticksLocked() #10
   call void @SDL_GUIDToString_REAL(i64 %1, i64 %2, ptr noundef nonnull %4, i32 noundef 33) #10
   %5 = call i64 @SDL_strlen_REAL(ptr noundef nonnull %4) #10
@@ -2108,11 +2102,11 @@ define internal fastcc ptr @CreateMappingString(ptr noundef readonly captures(no
   br label %55
 
 55:                                               ; preds = %49, %54, %51, %31
-  call void @llvm.lifetime.end.p0(i64 33, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %32
 }
 
-declare noalias ptr @SDL_malloc_REAL(i64 noundef) local_unnamed_addr #2
+declare noalias ptr @SDL_malloc_REAL(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @SDL_GetGamepadMappingForGUID_REAL(i64 %0, i64 %1) local_unnamed_addr #0 {
@@ -2166,10 +2160,10 @@ define internal fastcc ptr @SDL_PrivateGetGamepadMappingForGUID(i64 %0, i64 %1, 
 
 19:                                               ; preds = %17
   %.sroa.8.8.extract.shift.i = lshr i64 %.fr, 56
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #10
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %9) #10
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %10) #10
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %11) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %20 = call i64 @SDL_strlcpy_REAL(ptr noundef nonnull %9, ptr noundef nonnull @.str.83, i64 noundef 1024) #10
   call void @SDL_GetJoystickGUIDInfo_REAL(i64 %0, i64 %.fr, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef null, ptr noundef null) #10
   %21 = load i16, ptr %10, align 2
@@ -2399,10 +2393,10 @@ switch.early.test.i:                              ; preds = %33
 
 SDL_CreateMappingForHIDAPIGamepad.exit:           ; preds = %19, %117
   %.0.i = phi ptr [ %118, %117 ], [ null, %19 ]
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %11) #10
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %10) #10
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %9) #10
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %134
 
 119:                                              ; preds = %17
@@ -2410,13 +2404,13 @@ SDL_CreateMappingForHIDAPIGamepad.exit:           ; preds = %19, %117
   br i1 %120, label %121, label %125
 
 121:                                              ; preds = %119
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #10
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %122 = call i64 @SDL_strlcpy_REAL(ptr noundef nonnull %7, ptr noundef nonnull @.str.83, i64 noundef 1024) #10
   %123 = call i64 @SDL_strlcat_REAL(ptr noundef nonnull %7, ptr noundef nonnull @.str.113, i64 noundef 1024) #10
   %124 = call fastcc ptr @SDL_PrivateAddMappingForGUID(i64 %0, i64 %.fr, ptr noundef nonnull %7, ptr noundef nonnull %6, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %7) #10
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %134
 
 125:                                              ; preds = %119
@@ -2424,8 +2418,8 @@ SDL_CreateMappingForHIDAPIGamepad.exit:           ; preds = %19, %117
   br i1 %126, label %127, label %132
 
 127:                                              ; preds = %125
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #10
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.sroa.4.8.extract.shift.mask.i = and i64 %.fr, -72057594037927936
   %.not.i = icmp eq i64 %.sroa.4.8.extract.shift.mask.i, 72057594037927936
   br i1 %.not.i, label %128, label %SDL_CreateMappingForWGIGamepad.exit
@@ -2438,8 +2432,8 @@ SDL_CreateMappingForHIDAPIGamepad.exit:           ; preds = %19, %117
 
 SDL_CreateMappingForWGIGamepad.exit:              ; preds = %127, %128
   %.0.i31 = phi ptr [ %131, %128 ], [ null, %127 ]
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %5) #10
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %134
 
 132:                                              ; preds = %125
@@ -2483,14 +2477,14 @@ define hidden ptr @SDL_GetGamepadMapping_REAL(ptr noundef %0) local_unnamed_addr
   ret ptr %.0
 }
 
-declare zeroext i1 @SDL_ObjectValid(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_ObjectValid(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_IsJoystickValid(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_IsJoystickValid(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @SDL_SetGamepadMapping_REAL(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.SDL_GUID, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = tail call { i64, i64 } @SDL_GetJoystickGUIDForID_REAL(i32 noundef %0) #10
   %5 = extractvalue { i64, i64 } %4, 0
   store i64 %5, ptr %3, align 8
@@ -2518,11 +2512,11 @@ define hidden zeroext i1 @SDL_SetGamepadMapping_REAL(i32 noundef %0, ptr noundef
 
 16:                                               ; preds = %12, %10
   %.04 = phi i1 [ %11, %10 ], [ %.not5, %12 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.04
 }
 
-declare { i64, i64 } @SDL_GetJoystickGUIDForID_REAL(i32 noundef) local_unnamed_addr #2
+declare { i64, i64 } @SDL_GetJoystickGUIDForID_REAL(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @SDL_PrivateAddMappingForGUID(i64 %0, i64 %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3, i32 noundef range(i32 0, 3) %4) unnamed_addr #0 {
@@ -2532,7 +2526,7 @@ define internal fastcc ptr @SDL_PrivateAddMappingForGUID(i64 %0, i64 %1, ptr nou
   store i64 %0, ptr %6, align 8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %1, ptr %9, align 8
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   tail call void @SDL_AssertJoysticksLocked() #10
   %10 = tail call ptr @SDL_strchr_REAL(ptr noundef %2, i32 noundef 44) #10
   %.not.i = icmp eq ptr %10, null
@@ -2623,7 +2617,7 @@ SDL_PrivateGetGamepadMappingFromMappingString.exit.thread: ; preds = %25, %21
   br i1 %.not82, label %67, label %46
 
 46:                                               ; preds = %44
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %47 = call ptr @SDL_strstr_REAL(ptr noundef nonnull %33, ptr noundef nonnull @.str.82) #10
   %.not85 = icmp eq ptr %47, null
   br i1 %.not85, label %51, label %48
@@ -2665,7 +2659,7 @@ SDL_PrivateGetGamepadMappingFromMappingString.exit.thread: ; preds = %25, %21
 
 66:                                               ; preds = %64, %59
   %.063 = phi ptr [ %65, %64 ], [ %33, %59 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %74
 
 67:                                               ; preds = %44
@@ -2812,11 +2806,11 @@ AddMappingChangeTracking.exit:                    ; preds = %99, %89, %116, %117
 
 118:                                              ; preds = %AddMappingChangeTracking.exit, %104, %SDL_PrivateGetGamepadMappingFromMappingString.exit.thread, %19
   %.062 = phi ptr [ %.066, %AddMappingChangeTracking.exit ], [ null, %104 ], [ null, %SDL_PrivateGetGamepadMappingFromMappingString.exit.thread ], [ null, %19 ]
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %.062
 }
 
-declare void @SDL_LoadVIDPIDList(ptr noundef) local_unnamed_addr #2
+declare void @SDL_LoadVIDPIDList(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef zeroext i1 @SDL_InitGamepads() local_unnamed_addr #0 {
@@ -2846,7 +2840,7 @@ define hidden noundef zeroext i1 @SDL_InitGamepads() local_unnamed_addr #0 {
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
   %12 = load i32, ptr %11, align 4
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %.b1.i = load i1, ptr @SDL_gamepads_initialized, align 1
   br i1 %.b1.i, label %13, label %SDL_PrivateGamepadAdded.exit
 
@@ -2858,7 +2852,7 @@ define hidden noundef zeroext i1 @SDL_InitGamepads() local_unnamed_addr #0 {
   br label %SDL_PrivateGamepadAdded.exit
 
 SDL_PrivateGamepadAdded.exit:                     ; preds = %10, %13
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %15
 
 15:                                               ; preds = %7, %SDL_PrivateGamepadAdded.exit
@@ -2876,7 +2870,7 @@ SDL_PrivateGamepadAdded.exit:                     ; preds = %10, %13
   ret i1 true
 }
 
-declare zeroext i1 @SDL_AddEventWatch_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_AddEventWatch_REAL(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @SDL_GamepadEventWatcher(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
@@ -3058,7 +3052,7 @@ HasSameOutput.exit.thread.i:                      ; preds = %HasSameOutput.exit.
   br i1 %91, label %92, label %HandleJoystickAxis.exit
 
 92:                                               ; preds = %89
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %8) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 1616, ptr %8, align 8
   %93 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 %20, ptr %93, align 8
@@ -3072,7 +3066,7 @@ HasSameOutput.exit.thread.i:                      ; preds = %HasSameOutput.exit.
   %99 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i16 %.0.i, ptr %99, align 8
   %100 = call zeroext i1 @SDL_PushEvent_REAL(ptr noundef nonnull %8) #10
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %8) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %HandleJoystickAxis.exit
 
 101:                                              ; preds = %.thread87.i
@@ -3088,7 +3082,7 @@ HasSameOutput.exit.thread.i:                      ; preds = %HasSameOutput.exit.
   %110 = getelementptr inbounds nuw i8, ptr %.1.i, i64 20
   %111 = load i32, ptr %110, align 4
   %112 = zext i1 %.063.in.i to i8
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   tail call void @SDL_AssertJoysticksLocked() #10
   %113 = icmp eq i32 %111, -1
   br i1 %113, label %SDL_SendGamepadButton.exit.i, label %114
@@ -3148,7 +3142,7 @@ HasSameOutput.exit.thread.i:                      ; preds = %HasSameOutput.exit.
   br label %SDL_SendGamepadButton.exit.i
 
 SDL_SendGamepadButton.exit.i:                     ; preds = %133, %.critedge.i.i, %130, %119, %101
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %HandleJoystickAxis.exit
 
 HandleJoystickAxis.exit:                          ; preds = %65, %89, %92, %SDL_SendGamepadButton.exit.i
@@ -3233,7 +3227,7 @@ HandleJoystickAxis.exit:                          ; preds = %65, %89, %92, %SDL_
 
 184:                                              ; preds = %179
   %185 = trunc i32 %180 to i16
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 1616, ptr %6, align 8
   %186 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %155, ptr %186, align 8
@@ -3247,13 +3241,13 @@ HandleJoystickAxis.exit:                          ; preds = %65, %89, %92, %SDL_
   %192 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i16 %185, ptr %192, align 8
   %193 = call zeroext i1 @SDL_PushEvent_REAL(ptr noundef nonnull %6) #10
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %HandleJoystickButton.exit
 
 194:                                              ; preds = %175
   %195 = getelementptr inbounds nuw i8, ptr %168, i64 20
   %196 = load i32, ptr %195, align 4
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   tail call void @SDL_AssertJoysticksLocked() #10
   %197 = icmp eq i32 %196, -1
   br i1 %197, label %SDL_SendGamepadButton.exit.i41, label %198
@@ -3313,7 +3307,7 @@ HandleJoystickAxis.exit:                          ; preds = %65, %89, %92, %SDL_
   br label %SDL_SendGamepadButton.exit.i41
 
 SDL_SendGamepadButton.exit.i41:                   ; preds = %217, %.critedge.i.i40, %214, %203, %194
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %HandleJoystickButton.exit
 
 SDL_SendGamepadAxis.exit.i:                       ; preds = %171, %167
@@ -3423,7 +3417,7 @@ SDL_SendGamepadAxis.exit.i:                       ; preds = %171, %167
 
 288:                                              ; preds = %284
   %289 = trunc i32 %286 to i16
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 1616, ptr %4, align 8
   store i64 %237, ptr %259, align 8
   %290 = load ptr, ptr %.265, align 8
@@ -3433,11 +3427,11 @@ SDL_SendGamepadAxis.exit.i:                       ; preds = %171, %167
   store i8 %292, ptr %261, align 4
   store i16 %289, ptr %262, align 8
   %293 = call zeroext i1 @SDL_PushEvent_REAL(ptr noundef nonnull %4) #10
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %SDL_SendGamepadAxis.exit.i45
 
 294:                                              ; preds = %278
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @SDL_AssertJoysticksLocked() #10
   %295 = icmp eq i32 %283, -1
   br i1 %295, label %SDL_SendGamepadButton.exit.i50, label %296
@@ -3472,7 +3466,7 @@ SDL_SendGamepadAxis.exit.i:                       ; preds = %171, %167
   br label %SDL_SendGamepadButton.exit.i50
 
 SDL_SendGamepadButton.exit.i50:                   ; preds = %305, %.critedge.i.i49, %298, %294
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %SDL_SendGamepadAxis.exit.i45
 
 310:                                              ; preds = %276
@@ -3531,7 +3525,7 @@ HandleJoystickHat.exit:                           ; preds = %235, %._crit_edge.l
   br i1 %327, label %328, label %322
 
 328:                                              ; preds = %324
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %9) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 1626, ptr %9, align 8
   %329 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %330 = load i64, ptr %329, align 8
@@ -3540,20 +3534,20 @@ HandleJoystickHat.exit:                           ; preds = %235, %._crit_edge.l
   %332 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i32 %321, ptr %332, align 8
   %333 = call zeroext i1 @SDL_PushEvent_REAL(ptr noundef nonnull %9) #10
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %9) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %HandleJoystickButton.exit
 
 HandleJoystickButton.exit:                        ; preds = %322, %316, %226, %SDL_SendGamepadAxis.exit.i, %144, %.preheader, %228, %146, %11, %SDL_SendGamepadButton.exit.i41, %184, %179, %153, %2, %318, %328, %HandleJoystickHat.exit, %HandleJoystickAxis.exit
   ret i1 true
 }
 
-declare ptr @SDL_GetJoysticks_REAL(ptr noundef) local_unnamed_addr #2
+declare ptr @SDL_GetJoysticks_REAL(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @SDL_IsGamepad_REAL(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   tail call void @SDL_LockJoysticks_REAL() #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = load ptr, ptr @s_gamepadInstanceIDs, align 8
   %4 = zext i32 %0 to i64
   %5 = inttoptr i64 %4 to ptr
@@ -3586,7 +3580,7 @@ define hidden zeroext i1 @SDL_IsGamepad_REAL(i32 noundef %0) local_unnamed_addr 
 
 20:                                               ; preds = %15, %7
   %.0 = phi i1 [ %9, %7 ], [ %.not, %15 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @SDL_UnlockJoysticks_REAL() #10
   ret i1 %.0
 }
@@ -3594,7 +3588,7 @@ define hidden zeroext i1 @SDL_IsGamepad_REAL(i32 noundef %0) local_unnamed_addr 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @SDL_HasGamepad_REAL() local_unnamed_addr #0 {
   %1 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store i32 0, ptr %1, align 4
   %2 = call ptr @SDL_GetJoysticks_REAL(ptr noundef nonnull %1) #10
   %.not = icmp eq ptr %2, null
@@ -3626,14 +3620,14 @@ define hidden zeroext i1 @SDL_HasGamepad_REAL() local_unnamed_addr #0 {
 
 11:                                               ; preds = %._crit_edge, %0
   %.010 = phi i1 [ %.1.lcssa, %._crit_edge ], [ false, %0 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i1 %.010
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @SDL_GetGamepads_REAL(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 4
   %3 = call ptr @SDL_GetJoysticks_REAL(ptr noundef nonnull %2) #10
   %.not = icmp eq ptr %3, null
@@ -3684,12 +3678,12 @@ define hidden ptr @SDL_GetGamepads_REAL(ptr noundef writeonly captures(address_i
   br label %21
 
 21:                                               ; preds = %20, %.loopexit
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @SDL_GetGamepadNameForID_REAL(i32 noundef %0) local_unnamed_addr #0 {
@@ -3745,9 +3739,9 @@ define internal fastcc ptr @SDL_PrivateGetGamepadMapping(i32 noundef %0, i1 noun
   br i1 %.not.i, label %SDL_PrivateGetGamepadMappingForNameAndGUID.exit, label %17
 
 17:                                               ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %18 = call fastcc ptr @SDL_PrivateAddMappingForGUID(i64 %10, i64 %11, ptr noundef nonnull @.str.450, ptr noundef nonnull %6, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %SDL_PrivateGetGamepadMappingForNameAndGUID.exit
 
 SDL_PrivateGetGamepadMappingForNameAndGUID.exit:  ; preds = %2, %15, %17
@@ -3757,15 +3751,15 @@ SDL_PrivateGetGamepadMappingForNameAndGUID.exit:  ; preds = %2, %15, %17
   br i1 %or.cond, label %20, label %63
 
 20:                                               ; preds = %SDL_PrivateGetGamepadMappingForNameAndGUID.exit
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(256) %7, i8 0, i64 256, i1 false)
   %21 = call zeroext i1 @SDL_PrivateJoystickGetAutoGamepadMapping(i32 noundef %0, ptr noundef nonnull %7) #10
   br i1 %21, label %22, label %62
 
 22:                                               ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #10
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #10
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %23 = call i64 @SDL_strlcpy_REAL(ptr noundef nonnull %4, ptr noundef %8, i64 noundef 128) #10
   br label %24
 
@@ -3851,14 +3845,14 @@ SDL_PrivateGenerateAutomaticGamepadMapping.exit:  ; preds = %24
   %60 = getelementptr inbounds nuw i8, ptr %7, i64 248
   call fastcc void @SDL_PrivateAppendToMappingString(ptr noundef %5, ptr noundef nonnull @.str.22, ptr noundef %60)
   %61 = call fastcc ptr @SDL_PrivateAddMappingForGUID(i64 %10, i64 %11, ptr noundef nonnull %5, ptr noundef nonnull %3, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %5) #10
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #10
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %62
 
 62:                                               ; preds = %SDL_PrivateGenerateAutomaticGamepadMapping.exit, %20
   %.1 = phi ptr [ %61, %SDL_PrivateGenerateAutomaticGamepadMapping.exit ], [ null, %20 ]
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %63
 
 63:                                               ; preds = %62, %SDL_PrivateGetGamepadMappingForNameAndGUID.exit
@@ -3869,11 +3863,11 @@ SDL_PrivateGenerateAutomaticGamepadMapping.exit:  ; preds = %24
   ret ptr %spec.select
 }
 
-declare i32 @SDL_strcmp_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @SDL_strcmp_REAL(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @SDL_GetJoystickNameForID_REAL(i32 noundef) local_unnamed_addr #2
+declare ptr @SDL_GetJoystickNameForID_REAL(i32 noundef) local_unnamed_addr #1
 
-declare ptr @SDL_GetPersistentString(ptr noundef) local_unnamed_addr #2
+declare ptr @SDL_GetPersistentString(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @SDL_GetGamepadPathForID_REAL(i32 noundef %0) local_unnamed_addr #0 {
@@ -3881,7 +3875,7 @@ define hidden ptr @SDL_GetGamepadPathForID_REAL(i32 noundef %0) local_unnamed_ad
   ret ptr %2
 }
 
-declare ptr @SDL_GetJoystickPathForID_REAL(i32 noundef) local_unnamed_addr #2
+declare ptr @SDL_GetJoystickPathForID_REAL(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @SDL_GetGamepadPlayerIndexForID_REAL(i32 noundef %0) local_unnamed_addr #0 {
@@ -3889,7 +3883,7 @@ define hidden i32 @SDL_GetGamepadPlayerIndexForID_REAL(i32 noundef %0) local_unn
   ret i32 %2
 }
 
-declare i32 @SDL_GetJoystickPlayerIndexForID_REAL(i32 noundef) local_unnamed_addr #2
+declare i32 @SDL_GetJoystickPlayerIndexForID_REAL(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden { i64, i64 } @SDL_GetGamepadGUIDForID_REAL(i32 noundef %0) local_unnamed_addr #0 {
@@ -3903,7 +3897,7 @@ define hidden zeroext i16 @SDL_GetGamepadVendorForID_REAL(i32 noundef %0) local_
   ret i16 %2
 }
 
-declare zeroext i16 @SDL_GetJoystickVendorForID_REAL(i32 noundef) local_unnamed_addr #2
+declare zeroext i16 @SDL_GetJoystickVendorForID_REAL(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i16 @SDL_GetGamepadProductForID_REAL(i32 noundef %0) local_unnamed_addr #0 {
@@ -3911,7 +3905,7 @@ define hidden zeroext i16 @SDL_GetGamepadProductForID_REAL(i32 noundef %0) local
   ret i16 %2
 }
 
-declare zeroext i16 @SDL_GetJoystickProductForID_REAL(i32 noundef) local_unnamed_addr #2
+declare zeroext i16 @SDL_GetJoystickProductForID_REAL(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i16 @SDL_GetGamepadProductVersionForID_REAL(i32 noundef %0) local_unnamed_addr #0 {
@@ -3919,7 +3913,7 @@ define hidden zeroext i16 @SDL_GetGamepadProductVersionForID_REAL(i32 noundef %0
   ret i16 %2
 }
 
-declare zeroext i16 @SDL_GetJoystickProductVersionForID_REAL(i32 noundef) local_unnamed_addr #2
+declare zeroext i16 @SDL_GetJoystickProductVersionForID_REAL(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @SDL_GetGamepadTypeForID_REAL(i32 noundef %0) local_unnamed_addr #0 {
@@ -4042,15 +4036,15 @@ define hidden i32 @SDL_GetRealGamepadTypeForID_REAL(i32 noundef %0) local_unname
   ret i32 %.0
 }
 
-declare ptr @SDL_GetJoystickVirtualGamepadInfoForID(i32 noundef) local_unnamed_addr #2
+declare ptr @SDL_GetJoystickVirtualGamepadInfoForID(i32 noundef) local_unnamed_addr #1
 
-declare i32 @SDL_GetGamepadTypeFromGUID(i64, i64, ptr noundef) local_unnamed_addr #2
+declare i32 @SDL_GetGamepadTypeFromGUID(i64, i64, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @SDL_GetGamepadMappingForID_REAL(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca [33 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8
   tail call void @SDL_LockJoysticks_REAL() #10
   %4 = tail call fastcc ptr @SDL_PrivateGetGamepadMapping(i32 noundef %0, i1 noundef zeroext true)
@@ -4058,7 +4052,7 @@ define hidden ptr @SDL_GetGamepadMappingForID_REAL(i32 noundef %0) local_unnamed
   br i1 %.not, label %14, label %5
 
 5:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 33, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = tail call { i64, i64 } @SDL_GetJoystickGUIDForID_REAL(i32 noundef %0) #10
   %7 = extractvalue { i64, i64 } %6, 0
   %8 = extractvalue { i64, i64 } %6, 1
@@ -4068,19 +4062,19 @@ define hidden ptr @SDL_GetGamepadMappingForID_REAL(i32 noundef %0) local_unnamed
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = call i32 (ptr, ptr, ...) @SDL_asprintf_REAL(ptr noundef nonnull %2, ptr noundef nonnull @.str.10, ptr noundef nonnull %3, ptr noundef %10, ptr noundef %12) #10
-  call void @llvm.lifetime.end.p0(i64 33, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %14
 
 14:                                               ; preds = %5, %1
   call void @SDL_UnlockJoysticks_REAL() #10
   %15 = load ptr, ptr %2, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %15
 }
 
-declare void @SDL_GUIDToString_REAL(i64, i64, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @SDL_GUIDToString_REAL(i64, i64, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @SDL_asprintf_REAL(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare i32 @SDL_asprintf_REAL(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @SDL_IsGamepadNameAndGUID(ptr noundef %0, i64 %1, i64 %2) local_unnamed_addr #0 {
@@ -4104,9 +4098,9 @@ define hidden zeroext i1 @SDL_IsGamepadNameAndGUID(ptr noundef %0, i64 %1, i64 %
   br i1 %.not.i, label %SDL_PrivateGetGamepadMappingForNameAndGUID.exit, label %12
 
 12:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %13 = call fastcc ptr @SDL_PrivateAddMappingForGUID(i64 %1, i64 %2, ptr noundef nonnull @.str.450, ptr noundef nonnull %4, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %SDL_PrivateGetGamepadMappingForNameAndGUID.exit
 
 SDL_PrivateGetGamepadMappingForNameAndGUID.exit:  ; preds = %6, %10, %12
@@ -4120,15 +4114,15 @@ SDL_PrivateGetGamepadMappingForNameAndGUID.exit:  ; preds = %6, %10, %12
   ret i1 %.0
 }
 
-declare zeroext i1 @SDL_FindInHashTable(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_FindInHashTable(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @SDL_CreateHashTable(i32 noundef, i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @SDL_CreateHashTable(i32 noundef, i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @SDL_HashID(ptr noundef, ptr noundef) #2
+declare i32 @SDL_HashID(ptr noundef, ptr noundef) #1
 
-declare zeroext i1 @SDL_KeyMatchID(ptr noundef, ptr noundef, ptr noundef) #2
+declare zeroext i1 @SDL_KeyMatchID(ptr noundef, ptr noundef, ptr noundef) #1
 
-declare zeroext i1 @SDL_InsertIntoHashTable(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare zeroext i1 @SDL_InsertIntoHashTable(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @SDL_ShouldIgnoreGamepad(i16 noundef zeroext %0, i16 noundef zeroext %1, i16 noundef zeroext %2, ptr noundef %3) local_unnamed_addr #0 {
@@ -4198,15 +4192,15 @@ define hidden zeroext i1 @SDL_ShouldIgnoreGamepad(i16 noundef zeroext %0, i16 no
   ret i1 %.0
 }
 
-declare zeroext i1 @SDL_endswith(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_endswith(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @SDL_strncmp_REAL(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @SDL_strncmp_REAL(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_IsJoystickSteamVirtualGamepad(i16 noundef zeroext, i16 noundef zeroext, i16 noundef zeroext) local_unnamed_addr #2
+declare zeroext i1 @SDL_IsJoystickSteamVirtualGamepad(i16 noundef zeroext, i16 noundef zeroext, i16 noundef zeroext) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_VIDPIDInList(i16 noundef zeroext, i16 noundef zeroext, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_VIDPIDInList(i16 noundef zeroext, i16 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef ptr @SDL_OpenGamepad_REAL(i32 noundef %0) local_unnamed_addr #0 {
@@ -4322,11 +4316,11 @@ define hidden noundef ptr @SDL_OpenGamepad_REAL(i32 noundef %0) local_unnamed_ad
   ret ptr %.035
 }
 
-declare void @SDL_SetObjectValid(ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare void @SDL_SetObjectValid(ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare ptr @SDL_OpenJoystick_REAL(i32 noundef) local_unnamed_addr #2
+declare ptr @SDL_OpenJoystick_REAL(i32 noundef) local_unnamed_addr #1
 
-declare void @SDL_CloseJoystick_REAL(ptr noundef) local_unnamed_addr #2
+declare void @SDL_CloseJoystick_REAL(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @SDL_PrivateLoadButtonMapping(ptr noundef nonnull captures(none) initializes((16, 28), (32, 44)) %0, ptr noundef %1) unnamed_addr #0 {
@@ -4618,8 +4612,8 @@ switch.lookup:                                    ; preds = %119
 SDL_UpdateGamepadFaceStyle.exit:                  ; preds = %102, %110, %117, %.thread33.sink.split.i
   %123 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %124 = load ptr, ptr %123, align 8
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #10
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %3, i8 0, i64 20, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %4, i8 0, i64 128, i1 false)
   %.not29.i = icmp eq ptr %124, null
@@ -4702,8 +4696,8 @@ SDL_UpdateGamepadFaceStyle.exit:                  ; preds = %102, %110, %117, %.
   br label %SDL_PrivateParseGamepadConfigString.exit
 
 SDL_PrivateParseGamepadConfigString.exit:         ; preds = %SDL_UpdateGamepadFaceStyle.exit, %130, %139, %.critedge.i, %151
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #10
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %152 = load i64, ptr %1, align 8
   %153 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %154 = load i64, ptr %153, align 8
@@ -4901,7 +4895,7 @@ define hidden void @SDL_UpdateGamepads_REAL() local_unnamed_addr #0 {
   ret void
 }
 
-declare void @SDL_UpdateJoysticks_REAL() local_unnamed_addr #2
+declare void @SDL_UpdateJoysticks_REAL() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef zeroext i1 @SDL_GamepadHasAxis_REAL(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -5129,11 +5123,11 @@ define hidden signext i16 @SDL_GetGamepadAxis_REAL(ptr noundef %0, i32 noundef %
   ret i16 %.1
 }
 
-declare signext i16 @SDL_GetJoystickAxis_REAL(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare signext i16 @SDL_GetJoystickAxis_REAL(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_GetJoystickButton_REAL(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_GetJoystickButton_REAL(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare zeroext i8 @SDL_GetJoystickHat_REAL(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i8 @SDL_GetJoystickHat_REAL(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef zeroext i1 @SDL_GamepadHasButton_REAL(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -5310,7 +5304,7 @@ define hidden zeroext i1 @SDL_GetGamepadButton_REAL(ptr noundef %0, i32 noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden range(i32 0, 9) i32 @SDL_GetGamepadButtonLabelForType_REAL(i32 noundef %0, i32 noundef %1) local_unnamed_addr #3 {
+define hidden range(i32 0, 9) i32 @SDL_GetGamepadButtonLabelForType_REAL(i32 noundef %0, i32 noundef %1) local_unnamed_addr #2 {
   switch i32 %0, label %3 [
     i32 4, label %SDL_GetGamepadFaceStyleForGamepadType.exit
     i32 5, label %SDL_GetGamepadFaceStyleForGamepadType.exit
@@ -5877,9 +5871,9 @@ SDL_GetGamepadJoystick_REAL.exit:                 ; preds = %6
   ret i1 %.5
 }
 
-declare ptr @SDL_OpenSensor_REAL(i32 noundef) local_unnamed_addr #2
+declare ptr @SDL_OpenSensor_REAL(i32 noundef) local_unnamed_addr #1
 
-declare void @SDL_CloseSensor_REAL(ptr noundef) local_unnamed_addr #2
+declare void @SDL_CloseSensor_REAL(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @SDL_GamepadSensorEnabled_REAL(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -6065,7 +6059,7 @@ SDL_GetGamepadJoystick_REAL.exit:                 ; preds = %6
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @SDL_GetGamepadID_REAL(ptr noundef %0) local_unnamed_addr #0 {
@@ -6098,7 +6092,7 @@ SDL_GetGamepadJoystick_REAL.exit:                 ; preds = %3
   ret i32 %.0
 }
 
-declare i32 @SDL_GetJoystickID_REAL(ptr noundef) local_unnamed_addr #2
+declare i32 @SDL_GetJoystickID_REAL(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @SDL_GetGamepadProperties_REAL(ptr noundef %0) local_unnamed_addr #0 {
@@ -6126,7 +6120,7 @@ define hidden i32 @SDL_GetGamepadProperties_REAL(ptr noundef %0) local_unnamed_a
   ret i32 %.0
 }
 
-declare i32 @SDL_GetJoystickProperties_REAL(ptr noundef) local_unnamed_addr #2
+declare i32 @SDL_GetJoystickProperties_REAL(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @SDL_GetGamepadName_REAL(ptr noundef %0) local_unnamed_addr #0 {
@@ -6172,7 +6166,7 @@ define hidden ptr @SDL_GetGamepadName_REAL(ptr noundef %0) local_unnamed_addr #0
   ret ptr %.08
 }
 
-declare ptr @SDL_GetJoystickName_REAL(ptr noundef) local_unnamed_addr #2
+declare ptr @SDL_GetJoystickName_REAL(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @SDL_GetGamepadPath_REAL(ptr noundef %0) local_unnamed_addr #0 {
@@ -6205,7 +6199,7 @@ SDL_GetGamepadJoystick_REAL.exit:                 ; preds = %3
   ret ptr %.0
 }
 
-declare ptr @SDL_GetJoystickPath_REAL(ptr noundef) local_unnamed_addr #2
+declare ptr @SDL_GetJoystickPath_REAL(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @SDL_GetGamepadType_REAL(ptr noundef %0) local_unnamed_addr #0 {
@@ -6274,7 +6268,7 @@ SDL_GetGamepadJoystick_REAL.exit:                 ; preds = %3
   ret i32 %.0
 }
 
-declare { i64, i64 } @SDL_GetJoystickGUID_REAL(ptr noundef) local_unnamed_addr #2
+declare { i64, i64 } @SDL_GetJoystickGUID_REAL(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @SDL_GetGamepadPlayerIndex_REAL(ptr noundef %0) local_unnamed_addr #0 {
@@ -6307,7 +6301,7 @@ SDL_GetGamepadJoystick_REAL.exit:                 ; preds = %3
   ret i32 %.0
 }
 
-declare i32 @SDL_GetJoystickPlayerIndex_REAL(ptr noundef) local_unnamed_addr #2
+declare i32 @SDL_GetJoystickPlayerIndex_REAL(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @SDL_SetGamepadPlayerIndex_REAL(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -6340,7 +6334,7 @@ SDL_GetGamepadJoystick_REAL.exit:                 ; preds = %4
   ret i1 %.0
 }
 
-declare zeroext i1 @SDL_SetJoystickPlayerIndex_REAL(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_SetJoystickPlayerIndex_REAL(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i16 @SDL_GetGamepadVendor_REAL(ptr noundef %0) local_unnamed_addr #0 {
@@ -6373,7 +6367,7 @@ SDL_GetGamepadJoystick_REAL.exit:                 ; preds = %3
   ret i16 %.0
 }
 
-declare zeroext i16 @SDL_GetJoystickVendor_REAL(ptr noundef) local_unnamed_addr #2
+declare zeroext i16 @SDL_GetJoystickVendor_REAL(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i16 @SDL_GetGamepadProduct_REAL(ptr noundef %0) local_unnamed_addr #0 {
@@ -6406,7 +6400,7 @@ SDL_GetGamepadJoystick_REAL.exit:                 ; preds = %3
   ret i16 %.0
 }
 
-declare zeroext i16 @SDL_GetJoystickProduct_REAL(ptr noundef) local_unnamed_addr #2
+declare zeroext i16 @SDL_GetJoystickProduct_REAL(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i16 @SDL_GetGamepadProductVersion_REAL(ptr noundef %0) local_unnamed_addr #0 {
@@ -6439,7 +6433,7 @@ SDL_GetGamepadJoystick_REAL.exit:                 ; preds = %3
   ret i16 %.0
 }
 
-declare zeroext i16 @SDL_GetJoystickProductVersion_REAL(ptr noundef) local_unnamed_addr #2
+declare zeroext i16 @SDL_GetJoystickProductVersion_REAL(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i16 @SDL_GetGamepadFirmwareVersion_REAL(ptr noundef %0) local_unnamed_addr #0 {
@@ -6472,7 +6466,7 @@ SDL_GetGamepadJoystick_REAL.exit:                 ; preds = %3
   ret i16 %.0
 }
 
-declare zeroext i16 @SDL_GetJoystickFirmwareVersion_REAL(ptr noundef) local_unnamed_addr #2
+declare zeroext i16 @SDL_GetJoystickFirmwareVersion_REAL(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @SDL_GetGamepadSerial_REAL(ptr noundef %0) local_unnamed_addr #0 {
@@ -6505,7 +6499,7 @@ SDL_GetGamepadJoystick_REAL.exit:                 ; preds = %3
   ret ptr %.0
 }
 
-declare ptr @SDL_GetJoystickSerial_REAL(ptr noundef) local_unnamed_addr #2
+declare ptr @SDL_GetJoystickSerial_REAL(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden i64 @SDL_GetGamepadSteamHandle_REAL(ptr noundef %0) local_unnamed_addr #0 {
@@ -6565,7 +6559,7 @@ SDL_GetGamepadJoystick_REAL.exit:                 ; preds = %3
   ret i32 %.0
 }
 
-declare i32 @SDL_GetJoystickConnectionState_REAL(ptr noundef) local_unnamed_addr #2
+declare i32 @SDL_GetJoystickConnectionState_REAL(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @SDL_GetGamepadPowerInfo_REAL(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -6609,7 +6603,7 @@ SDL_GetGamepadJoystick_REAL.exit:                 ; preds = %7, %9
   ret i32 %.0
 }
 
-declare i32 @SDL_GetJoystickPowerInfo_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @SDL_GetJoystickPowerInfo_REAL(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @SDL_GamepadConnected_REAL(ptr noundef %0) local_unnamed_addr #0 {
@@ -6642,7 +6636,7 @@ SDL_GetGamepadJoystick_REAL.exit:                 ; preds = %3
   ret i1 %.0
 }
 
-declare zeroext i1 @SDL_JoystickConnected_REAL(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_JoystickConnected_REAL(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef ptr @SDL_GetGamepadFromID_REAL(i32 noundef %0) local_unnamed_addr #0 {
@@ -6708,7 +6702,7 @@ SDL_GetGamepadFromID_REAL.exit:                   ; preds = %.lr.ph.i, %8, %3
   ret ptr %.0
 }
 
-declare ptr @SDL_GetJoystickFromPlayerIndex_REAL(i32 noundef) local_unnamed_addr #2
+declare ptr @SDL_GetJoystickFromPlayerIndex_REAL(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @SDL_GetGamepadBindings_REAL(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
@@ -6821,7 +6815,7 @@ SDL_GetGamepadJoystick_REAL.exit:                 ; preds = %6
   ret i1 %.0
 }
 
-declare zeroext i1 @SDL_RumbleJoystick_REAL(ptr noundef, i16 noundef zeroext, i16 noundef zeroext, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_RumbleJoystick_REAL(ptr noundef, i16 noundef zeroext, i16 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @SDL_RumbleGamepadTriggers_REAL(ptr noundef %0, i16 noundef zeroext %1, i16 noundef zeroext %2, i32 noundef %3) local_unnamed_addr #0 {
@@ -6854,7 +6848,7 @@ SDL_GetGamepadJoystick_REAL.exit:                 ; preds = %6
   ret i1 %.0
 }
 
-declare zeroext i1 @SDL_RumbleJoystickTriggers_REAL(ptr noundef, i16 noundef zeroext, i16 noundef zeroext, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_RumbleJoystickTriggers_REAL(ptr noundef, i16 noundef zeroext, i16 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @SDL_SetGamepadLED_REAL(ptr noundef %0, i8 noundef zeroext %1, i8 noundef zeroext %2, i8 noundef zeroext %3) local_unnamed_addr #0 {
@@ -6887,7 +6881,7 @@ SDL_GetGamepadJoystick_REAL.exit:                 ; preds = %6
   ret i1 %.0
 }
 
-declare zeroext i1 @SDL_SetJoystickLED_REAL(ptr noundef, i8 noundef zeroext, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #2
+declare zeroext i1 @SDL_SetJoystickLED_REAL(ptr noundef, i8 noundef zeroext, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @SDL_SendGamepadEffect_REAL(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -6920,7 +6914,7 @@ SDL_GetGamepadJoystick_REAL.exit:                 ; preds = %5
   ret i1 %.0
 }
 
-declare zeroext i1 @SDL_SendJoystickEffect_REAL(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_SendJoystickEffect_REAL(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @SDL_CloseGamepad_REAL(ptr noundef %0) local_unnamed_addr #0 {
@@ -7034,11 +7028,11 @@ define hidden void @SDL_QuitGamepads() local_unnamed_addr #0 {
   ret void
 }
 
-declare void @SDL_RemoveEventWatch_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @SDL_RemoveEventWatch_REAL(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @SDL_FreeVIDPIDList(ptr noundef) local_unnamed_addr #2
+declare void @SDL_FreeVIDPIDList(ptr noundef) local_unnamed_addr #1
 
-declare void @SDL_DestroyHashTable(ptr noundef) local_unnamed_addr #2
+declare void @SDL_DestroyHashTable(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @SDL_SetGamepadEventsEnabled_REAL(i1 noundef zeroext %0) local_unnamed_addr #0 {
@@ -7057,7 +7051,7 @@ define hidden void @SDL_SetGamepadEventsEnabled_REAL(i1 noundef zeroext %0) loca
   ret void
 }
 
-declare void @SDL_SetEventEnabled_REAL(i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare void @SDL_SetEventEnabled_REAL(i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @SDL_GamepadEventsEnabled_REAL() local_unnamed_addr #0 {
@@ -7077,7 +7071,7 @@ define hidden zeroext i1 @SDL_GamepadEventsEnabled_REAL() local_unnamed_addr #0 
   ret i1 %4
 }
 
-declare zeroext i1 @SDL_EventEnabled_REAL(i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_EventEnabled_REAL(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @SDL_GamepadHandleDelayedGuideButton(ptr noundef readnone captures(address) %0) local_unnamed_addr #0 {
@@ -7094,7 +7088,7 @@ define hidden void @SDL_GamepadHandleDelayedGuideButton(ptr noundef readnone cap
   br i1 %4, label %5, label %31
 
 5:                                                ; preds = %.lr.ph
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   tail call void @SDL_AssertJoysticksLocked() #10
   store i32 1618, ptr %2, align 8
   %6 = tail call i64 @SDL_GetTicks_REAL() #10
@@ -7130,7 +7124,7 @@ define hidden void @SDL_GamepadHandleDelayedGuideButton(ptr noundef readnone cap
   br label %SDL_SendGamepadButton.exit
 
 SDL_SendGamepadButton.exit:                       ; preds = %13, %14, %16
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %24 = load ptr, ptr %.011, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 312
   %26 = load i64, ptr %25, align 8
@@ -7154,37 +7148,37 @@ SDL_SendGamepadButton.exit:                       ; preds = %13, %14, %16
   ret void
 }
 
-declare i64 @SDL_GetTicksNS_REAL() local_unnamed_addr #2
+declare i64 @SDL_GetTicksNS_REAL() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noalias noundef ptr @SDL_GetGamepadAppleSFSymbolsNameForButton_REAL(ptr noundef readnone captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
+define hidden noalias noundef ptr @SDL_GetGamepadAppleSFSymbolsNameForButton_REAL(ptr noundef readnone captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
   ret ptr null
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noalias noundef ptr @SDL_GetGamepadAppleSFSymbolsNameForAxis_REAL(ptr noundef readnone captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
+define hidden noalias noundef ptr @SDL_GetGamepadAppleSFSymbolsNameForAxis_REAL(ptr noundef readnone captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
   ret ptr null
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #6
+declare float @llvm.fmuladd.f32(float, float, float) #5
 
-declare zeroext i1 @SDL_IsJoystickBeingAdded() local_unnamed_addr #2
+declare zeroext i1 @SDL_IsJoystickBeingAdded() local_unnamed_addr #1
 
 ; Function Attrs: allocsize(1)
-declare ptr @SDL_realloc_REAL(ptr noundef, i64 noundef) local_unnamed_addr #7
+declare ptr @SDL_realloc_REAL(ptr noundef, i64 noundef) local_unnamed_addr #6
 
-declare { i64, i64 } @SDL_StringToGUID_REAL(ptr noundef) local_unnamed_addr #2
+declare { i64, i64 } @SDL_StringToGUID_REAL(ptr noundef) local_unnamed_addr #1
 
-declare void @SDL_GetJoystickGUIDInfo_REAL(i64, i64, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @SDL_GetJoystickGUIDInfo_REAL(i64, i64, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_IsJoystickGameCube(i16 noundef zeroext, i16 noundef zeroext) local_unnamed_addr #2
+declare zeroext i1 @SDL_IsJoystickGameCube(i16 noundef zeroext, i16 noundef zeroext) local_unnamed_addr #1
 
-declare i32 @SDL_atoi_REAL(ptr noundef) local_unnamed_addr #2
+declare i32 @SDL_atoi_REAL(ptr noundef) local_unnamed_addr #1
 
-declare i32 @SDL_snprintf_REAL(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare i32 @SDL_snprintf_REAL(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare i64 @SDL_strlcat_REAL(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @SDL_strlcat_REAL(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @SDL_PrivateMatchGamepadMappingForGUID(i64 %0, i64 %1, i1 noundef zeroext %2, i1 noundef zeroext %3) unnamed_addr #0 {
@@ -7194,7 +7188,7 @@ define internal fastcc ptr @SDL_PrivateMatchGamepadMappingForGUID(i64 %0, i64 %1
   store i64 %0, ptr %5, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %1, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i16 0, ptr %6, align 2
   tail call void @SDL_AssertJoysticksLocked() #10
   call void @SDL_GetJoystickGUIDInfo_REAL(i64 %0, i64 %1, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %6) #10
@@ -7215,7 +7209,7 @@ define internal fastcc ptr @SDL_PrivateMatchGamepadMappingForGUID(i64 %0, i64 %1
 .lr.ph.split.us:                                  ; preds = %9, %.thread.us
   %.01847.us = phi ptr [ %.018.us, %.thread.us ], [ %.01844, %9 ]
   %.02246.us = phi ptr [ %.12335.us, %.thread.us ], [ null, %9 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %10 = call i32 @SDL_memcmp_REAL(ptr noundef nonnull %.01847.us, ptr noundef nonnull @s_zeroGUID, i64 noundef 16) #10
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %.thread.us, label %12
@@ -7254,7 +7248,7 @@ define internal fastcc ptr @SDL_PrivateMatchGamepadMappingForGUID(i64 %0, i64 %1
 
 .thread.us:                                       ; preds = %.lr.ph.split.us, %12, %19, %27
   %.12335.us = phi ptr [ %.02246.us, %19 ], [ %spec.select.us, %27 ], [ %.02246.us, %12 ], [ %.02246.us, %.lr.ph.split.us ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %28 = getelementptr inbounds nuw i8, ptr %.01847.us, i64 40
   %.018.us = load ptr, ptr %28, align 8
   %.not.us = icmp eq ptr %.018.us, null
@@ -7266,7 +7260,7 @@ define internal fastcc ptr @SDL_PrivateMatchGamepadMappingForGUID(i64 %0, i64 %1
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %.thread.us58
   %.01847.us50 = phi ptr [ %.018.us60, %.thread.us58 ], [ %.0184474, %.lr.ph.split ]
   %.02246.us51 = phi ptr [ %.12335.us59, %.thread.us58 ], [ null, %.lr.ph.split ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %29 = call i32 @SDL_memcmp_REAL(ptr noundef nonnull %.01847.us50, ptr noundef nonnull @s_zeroGUID, i64 noundef 16) #10
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %.thread.us58, label %31
@@ -7300,7 +7294,7 @@ define internal fastcc ptr @SDL_PrivateMatchGamepadMappingForGUID(i64 %0, i64 %1
 
 .thread.us58:                                     ; preds = %.lr.ph.split.split.us, %31, %38, %43
   %.12335.us59 = phi ptr [ %.02246.us51, %38 ], [ %spec.select.us56, %43 ], [ %.02246.us51, %31 ], [ %.02246.us51, %.lr.ph.split.split.us ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %44 = getelementptr inbounds nuw i8, ptr %.01847.us50, i64 40
   %.018.us60 = load ptr, ptr %44, align 8
   %.not.us61 = icmp eq ptr %.018.us60, null
@@ -7309,7 +7303,7 @@ define internal fastcc ptr @SDL_PrivateMatchGamepadMappingForGUID(i64 %0, i64 %1
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %.thread
   %.01847 = phi ptr [ %.018, %.thread ], [ %.0184474, %.lr.ph.split ]
   %.02246 = phi ptr [ %.12335, %.thread ], [ null, %.lr.ph.split ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %45 = call i32 @SDL_memcmp_REAL(ptr noundef nonnull %.01847, ptr noundef nonnull @s_zeroGUID, i64 noundef 16) #10
   %46 = icmp eq i32 %45, 0
   br i1 %46, label %.thread, label %47
@@ -7348,12 +7342,12 @@ define internal fastcc ptr @SDL_PrivateMatchGamepadMappingForGUID(i64 %0, i64 %1
 
 .thread38:                                        ; preds = %38, %59, %54, %19, %24
   %.us-phi = phi ptr [ null, %24 ], [ %.01847.us, %19 ], [ null, %59 ], [ %.01847, %54 ], [ %.01847.us50, %38 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.loopexit
 
 .thread:                                          ; preds = %61, %54, %47, %.lr.ph.split.split
   %.12335 = phi ptr [ %.02246, %.lr.ph.split.split ], [ %.02246, %47 ], [ %.02246, %54 ], [ %spec.select, %61 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %62 = getelementptr inbounds nuw i8, ptr %.01847, i64 40
   %.018 = load ptr, ptr %62, align 8
   %.not = icmp eq ptr %.018, null
@@ -7361,55 +7355,55 @@ define internal fastcc ptr @SDL_PrivateMatchGamepadMappingForGUID(i64 %0, i64 %1
 
 .loopexit:                                        ; preds = %.thread.us58, %.thread, %.thread.us, %.thread73, %9, %.thread38
   %.5 = phi ptr [ %.us-phi, %.thread38 ], [ null, %9 ], [ null, %.thread73 ], [ %.12335.us, %.thread.us ], [ %.12335, %.thread ], [ %.12335.us59, %.thread.us58 ]
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.5
 }
 
-declare zeroext i1 @SDL_JoystickGUIDUsesVersion(i64, i64) local_unnamed_addr #2
+declare zeroext i1 @SDL_JoystickGUIDUsesVersion(i64, i64) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_IsJoystickHIDAPI(i64, i64) local_unnamed_addr #2
+declare zeroext i1 @SDL_IsJoystickHIDAPI(i64, i64) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_IsJoystickRAWINPUT(i64, i64) local_unnamed_addr #2
+declare zeroext i1 @SDL_IsJoystickRAWINPUT(i64, i64) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_IsJoystickWGI(i64, i64) local_unnamed_addr #2
+declare zeroext i1 @SDL_IsJoystickWGI(i64, i64) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_IsJoystickVIRTUAL(i64, i64) local_unnamed_addr #2
+declare zeroext i1 @SDL_IsJoystickVIRTUAL(i64, i64) local_unnamed_addr #1
 
-declare void @SDL_SetJoystickGUIDCRC(ptr noundef, i16 noundef zeroext) local_unnamed_addr #2
+declare void @SDL_SetJoystickGUIDCRC(ptr noundef, i16 noundef zeroext) local_unnamed_addr #1
 
-declare void @SDL_SetJoystickGUIDVersion(ptr noundef, i16 noundef zeroext) local_unnamed_addr #2
+declare void @SDL_SetJoystickGUIDVersion(ptr noundef, i16 noundef zeroext) local_unnamed_addr #1
 
-declare i64 @SDL_strtol_REAL(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i64 @SDL_strtol_REAL(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_IsJoystickWheel(i16 noundef zeroext, i16 noundef zeroext) local_unnamed_addr #2
+declare zeroext i1 @SDL_IsJoystickWheel(i16 noundef zeroext, i16 noundef zeroext) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_IsJoystickSteamController(i16 noundef zeroext, i16 noundef zeroext) local_unnamed_addr #2
+declare zeroext i1 @SDL_IsJoystickSteamController(i16 noundef zeroext, i16 noundef zeroext) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_IsJoystickNintendoSwitchPro(i16 noundef zeroext, i16 noundef zeroext) local_unnamed_addr #2
+declare zeroext i1 @SDL_IsJoystickNintendoSwitchPro(i16 noundef zeroext, i16 noundef zeroext) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_IsJoystickNintendoSwitchProInputOnly(i16 noundef zeroext, i16 noundef zeroext) local_unnamed_addr #2
+declare zeroext i1 @SDL_IsJoystickNintendoSwitchProInputOnly(i16 noundef zeroext, i16 noundef zeroext) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_IsJoystickNintendoSwitchJoyConPair(i16 noundef zeroext, i16 noundef zeroext) local_unnamed_addr #2
+declare zeroext i1 @SDL_IsJoystickNintendoSwitchJoyConPair(i16 noundef zeroext, i16 noundef zeroext) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_IsJoystickAmazonLunaController(i16 noundef zeroext, i16 noundef zeroext) local_unnamed_addr #2
+declare zeroext i1 @SDL_IsJoystickAmazonLunaController(i16 noundef zeroext, i16 noundef zeroext) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_IsJoystickGoogleStadiaController(i16 noundef zeroext, i16 noundef zeroext) local_unnamed_addr #2
+declare zeroext i1 @SDL_IsJoystickGoogleStadiaController(i16 noundef zeroext, i16 noundef zeroext) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_IsJoystickNVIDIASHIELDController(i16 noundef zeroext, i16 noundef zeroext) local_unnamed_addr #2
+declare zeroext i1 @SDL_IsJoystickNVIDIASHIELDController(i16 noundef zeroext, i16 noundef zeroext) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_IsJoystickHoriSteamController(i16 noundef zeroext, i16 noundef zeroext) local_unnamed_addr #2
+declare zeroext i1 @SDL_IsJoystickHoriSteamController(i16 noundef zeroext, i16 noundef zeroext) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_IsJoystickDualSenseEdge(i16 noundef zeroext, i16 noundef zeroext) local_unnamed_addr #2
+declare zeroext i1 @SDL_IsJoystickDualSenseEdge(i16 noundef zeroext, i16 noundef zeroext) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_IsJoystickXboxOneElite(i16 noundef zeroext, i16 noundef zeroext) local_unnamed_addr #2
+declare zeroext i1 @SDL_IsJoystickXboxOneElite(i16 noundef zeroext, i16 noundef zeroext) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_IsJoystickXboxSeriesX(i16 noundef zeroext, i16 noundef zeroext) local_unnamed_addr #2
+declare zeroext i1 @SDL_IsJoystickXboxSeriesX(i16 noundef zeroext, i16 noundef zeroext) local_unnamed_addr #1
 
-declare i32 @SDL_isspace_REAL(i32 noundef) local_unnamed_addr #2
+declare i32 @SDL_isspace_REAL(i32 noundef) local_unnamed_addr #1
 
-declare noalias ptr @SDL_strdup_REAL(ptr noundef) local_unnamed_addr #2
+declare noalias ptr @SDL_strdup_REAL(ptr noundef) local_unnamed_addr #1
 
-declare ptr @SDL_GetHint_REAL(ptr noundef) local_unnamed_addr #2
+declare ptr @SDL_GetHint_REAL(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @ResetOutput(i64 noundef %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
@@ -7428,7 +7422,7 @@ define internal fastcc void @ResetOutput(i64 noundef %0, ptr noundef nonnull rea
   br i1 %12, label %13, label %SDL_SendGamepadAxis.exit
 
 13:                                               ; preds = %11
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 1616, ptr %5, align 8
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %0, ptr %14, align 8
@@ -7442,11 +7436,11 @@ define internal fastcc void @ResetOutput(i64 noundef %0, ptr noundef nonnull rea
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i16 0, ptr %20, align 8
   %21 = call zeroext i1 @SDL_PushEvent_REAL(ptr noundef nonnull %5) #10
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %SDL_SendGamepadAxis.exit
 
 22:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   tail call void @SDL_AssertJoysticksLocked() #10
   %23 = icmp eq i32 %10, -1
   br i1 %23, label %SDL_SendGamepadButton.exit, label %24
@@ -7494,7 +7488,7 @@ define internal fastcc void @ResetOutput(i64 noundef %0, ptr noundef nonnull rea
   br label %SDL_SendGamepadButton.exit
 
 SDL_SendGamepadButton.exit:                       ; preds = %22, %34, %.critedge.i, %37
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %SDL_SendGamepadAxis.exit
 
 SDL_SendGamepadAxis.exit:                         ; preds = %13, %11, %SDL_SendGamepadButton.exit
@@ -7502,14 +7496,14 @@ SDL_SendGamepadAxis.exit:                         ; preds = %13, %11, %SDL_SendG
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
-declare zeroext i1 @SDL_PrivateJoystickGetAutoGamepadMapping(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_PrivateJoystickGetAutoGamepadMapping(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @SDL_PrivateAppendToMappingString(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull readonly captures(none) %2) unnamed_addr #0 {
   %4 = alloca [16 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load i32, ptr %2, align 4
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %45, label %7
@@ -7571,14 +7565,14 @@ define internal fastcc void @SDL_PrivateAppendToMappingString(ptr noundef nonnul
   br label %45
 
 45:                                               ; preds = %3, %42
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @SDL_PrivateParseGamepadElement(ptr noundef nonnull captures(none) %0, ptr noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = alloca %struct.SDL_GamepadBinding, align 4
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   tail call void @SDL_AssertJoysticksLocked() #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   %5 = load i8, ptr %1, align 1
@@ -7920,26 +7914,32 @@ thread-pre-split:                                 ; preds = %72
   br label %.thread
 
 .thread:                                          ; preds = %130, %9, %99, %102, %107, %111, %55, %143, %141
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
-declare i32 @SDL_isdigit_REAL(i32 noundef) local_unnamed_addr #2
+declare i32 @SDL_isdigit_REAL(i32 noundef) local_unnamed_addr #1
 
-declare i64 @SDL_GetTicks_REAL() local_unnamed_addr #2
+declare i64 @SDL_GetTicks_REAL() local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #9
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #10 = { nounwind }
 attributes #11 = { nounwind allocsize(0,1) }

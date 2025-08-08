@@ -174,9 +174,6 @@ ossl_x509_crl_set0_libctx.exit:                   ; preds = %8, %4, %2, %11
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ossl_x509_crl_set0_libctx(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
@@ -205,9 +202,6 @@ define range(i32 0, 2) i32 @ossl_x509_crl_set0_libctx(ptr noundef captures(addre
   %.0 = phi i32 [ 1, %11 ], [ 0, %8 ]
   ret i32 %.0
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @X509_CRL_add0_revoked(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #1 {
@@ -323,7 +317,7 @@ declare ptr @X509_get0_serialNumber(ptr noundef) local_unnamed_addr #2
 declare ptr @X509_get_issuer_name(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define void @X509_CRL_set_default_method(ptr noundef %0) local_unnamed_addr #4 {
+define void @X509_CRL_set_default_method(ptr noundef %0) local_unnamed_addr #3 {
   %2 = icmp eq ptr %0, null
   %int_crl_meth. = select i1 %2, ptr @int_crl_meth, ptr %0
   store ptr %int_crl_meth., ptr @default_crl_method, align 8, !tbaa !36
@@ -376,14 +370,14 @@ define void @X509_CRL_METHOD_free(ptr noundef %0) local_unnamed_addr #1 {
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @X509_CRL_set_meth_data(ptr noundef writeonly captures(none) initializes((216, 224)) %0, ptr noundef %1) local_unnamed_addr #5 {
+define void @X509_CRL_set_meth_data(ptr noundef writeonly captures(none) initializes((216, 224)) %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store ptr %1, ptr %3, align 8, !tbaa !40
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @X509_CRL_get_meth_data(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
+define ptr @X509_CRL_get_meth_data(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %3 = load ptr, ptr %2, align 8, !tbaa !40
   ret ptr %3
@@ -432,7 +426,7 @@ define internal range(i32 0, 2) i32 @crl_cb(i32 noundef %0, ptr noundef readonly
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = load ptr, ptr %1, align 8, !tbaa !41
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   switch i32 %0, label %ossl_x509_crl_set0_libctx.exit [
     i32 4, label %8
     i32 1, label %26
@@ -739,7 +733,7 @@ setup_idp.exit:                                   ; preds = %80, %.thread.i
   br i1 %166, label %149, label %.loopexit122, !llvm.loop !64
 
 .loopexit122:                                     ; preds = %163, %143, %160
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %167 = call ptr @X509_CRL_get_REVOKED(ptr noundef %7) #9
   %168 = call i32 @OPENSSL_sk_num(ptr noundef %167) #9
   %169 = icmp sgt i32 %168, 0
@@ -851,7 +845,7 @@ setup_idp.exit:                                   ; preds = %80, %.thread.i
 
 crl_set_issuers.exit:                             ; preds = %185, %182
   call void @GENERAL_NAMES_free(ptr noundef nonnull %174) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %ossl_x509_crl_set0_libctx.exit
 
 .loopexit.sink.split:                             ; preds = %188, %172
@@ -861,7 +855,7 @@ crl_set_issuers.exit:                             ; preds = %185, %182
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.i, %.loopexit.sink.split, %.loopexit122
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %226 = getelementptr inbounds nuw i8, ptr %7, i64 208
   %227 = load ptr, ptr %226, align 8, !tbaa !32
   %228 = getelementptr inbounds nuw i8, ptr %227, i64 8
@@ -946,7 +940,7 @@ crl_set_issuers.exit:                             ; preds = %185, %182
 
 ossl_x509_crl_set0_libctx.exit:                   ; preds = %267, %4, %26, %233, %245, %258, %261, %crl_set_issuers.exit, %243, %230, %13
   %.0 = phi i32 [ 0, %13 ], [ 0, %crl_set_issuers.exit ], [ 0, %230 ], [ 0, %243 ], [ 1, %261 ], [ 1, %258 ], [ 1, %245 ], [ 1, %233 ], [ 1, %26 ], [ 1, %4 ], [ %spec.select, %267 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
@@ -995,7 +989,7 @@ declare i32 @ASN1_STRING_cmp(ptr noundef, ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 3) i32 @def_crl_lookup(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef %2, ptr noundef %3) #1 {
   %5 = alloca %struct.x509_revoked_st, align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load ptr, ptr %6, align 8, !tbaa !73
   %8 = icmp eq ptr %7, null
@@ -1155,7 +1149,7 @@ crl_revoked_issuer_match.exit.thread:             ; preds = %68, %58, %crl_revok
 
 .loopexit:                                        ; preds = %.lr.ph.split, %crl_revoked_issuer_match.exit.thread, %.lr.ph.split.us, %crl_revoked_issuer_match.exit.thread.us, %23, %75, %19, %11, %4
   %.0 = phi i32 [ 0, %4 ], [ 0, %11 ], [ 0, %19 ], [ %., %75 ], [ 0, %23 ], [ 0, %crl_revoked_issuer_match.exit.thread.us ], [ 0, %.lr.ph.split.us ], [ 0, %crl_revoked_issuer_match.exit.thread ], [ 0, %.lr.ph.split ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -1180,7 +1174,7 @@ declare void @OPENSSL_sk_sort(ptr noundef) local_unnamed_addr #2
 declare i32 @CRYPTO_THREAD_unlock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare i32 @OPENSSL_sk_find(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -1190,17 +1184,23 @@ declare i32 @X509_NAME_cmp(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 declare i32 @ASN1_item_verify_ex(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #9 = { nounwind }
 

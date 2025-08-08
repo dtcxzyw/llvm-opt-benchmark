@@ -43,7 +43,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrLoweringA64C2ERNS1_18AssemblyBuil
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %4, ptr %9, align 8, !tbaa !13
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 2, ptr %6, align 1, !tbaa !43
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 1
   store i8 122, ptr %11, align 1, !tbaa !43
@@ -60,7 +60,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrLoweringA64C2ERNS1_18AssemblyBuil
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 7
   store i8 -3, ptr %17, align 1, !tbaa !43
   call void @_ZN4Luau7CodeGen3A6413IrRegAllocA64C1ERNS0_10IrFunctionEPNS0_13LoweringStatsESt16initializer_listISt4pairINS1_11RegisterA64ES9_EE(ptr noundef nonnull align 8 dereferenceable(325) %10, ptr noundef nonnull align 8 dereferenceable(624) %3, ptr noundef %4, ptr nonnull %6, i64 4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 360
   invoke void @_ZN4Luau7CodeGen23IrValueLocationTrackingC1ERNS0_10IrFunctionE(ptr noundef nonnull align 8 dereferenceable(1056) %18, ptr noundef nonnull align 8 dereferenceable(624) %3)
           to label %19 unwind label %26
@@ -145,19 +145,13 @@ _ZN4Luau7CodeGen3A6413IrRegAllocA64D2Ev.exit:     ; preds = %_ZNSt6vectorIN4Luau
   resume { ptr, i32 } %.pn.pn
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare void @_ZN4Luau7CodeGen3A6413IrRegAllocA64C1ERNS0_10IrFunctionEPNS0_13LoweringStatsESt16initializer_listISt4pairINS1_11RegisterA64ES9_EE(ptr noundef nonnull align 8 dereferenceable(325), ptr noundef nonnull align 8 dereferenceable(624), ptr noundef, ptr, i64) unnamed_addr #1
 
-declare void @_ZN4Luau7CodeGen3A6413IrRegAllocA64C1ERNS0_10IrFunctionEPNS0_13LoweringStatsESt16initializer_listISt4pairINS1_11RegisterA64ES9_EE(ptr noundef nonnull align 8 dereferenceable(325), ptr noundef nonnull align 8 dereferenceable(624), ptr noundef, ptr, i64) unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare void @_ZN4Luau7CodeGen23IrValueLocationTrackingC1ERNS0_10IrFunctionE(ptr noundef nonnull align 8 dereferenceable(1056), ptr noundef nonnull align 8 dereferenceable(624)) unnamed_addr #2
+declare void @_ZN4Luau7CodeGen23IrValueLocationTrackingC1ERNS0_10IrFunctionE(ptr noundef nonnull align 8 dereferenceable(1056), ptr noundef nonnull align 8 dereferenceable(624)) unnamed_addr #1
 
 declare i32 @__gxx_personality_v0(...)
 
-declare void @_ZN4Luau7CodeGen23IrValueLocationTracking17setRestoreCallackEPvPFvS2_RNS0_6IrInstEE(ptr noundef nonnull align 8 dereferenceable(1056), ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @_ZN4Luau7CodeGen23IrValueLocationTracking17setRestoreCallackEPvPFvS2_RNS0_6IrInstEE(ptr noundef nonnull align 8 dereferenceable(1056), ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4Luau7CodeGen3A6413IrLoweringA649lowerInstERNS0_6IrInstEjRKNS0_7IrBlockE(ptr noundef nonnull align 8 dereferenceable(1497) %0, ptr noundef nonnull align 4 dereferenceable(43) %1, i32 noundef %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(32) %3) local_unnamed_addr #0 align 2 {
@@ -522,14 +516,14 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrLoweringA649lowerInstERNS0_6IrIns
 
 169:                                              ; preds = %4
   %170 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %171 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %172 = load i32, ptr %171, align 4, !tbaa !43
   store i32 %172, ptr %5, align 4, !tbaa !43
   %173 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %170, i8 noundef zeroext 2, i32 noundef %2, ptr nonnull %5, i64 1)
   %174 = getelementptr inbounds nuw i8, ptr %1, i64 39
   store i8 %173, ptr %174, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %175 = load ptr, ptr %0, align 8, !tbaa !63
   %.sroa.01944.0.copyload = load i32, ptr %171, align 4, !tbaa !43
   %176 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01944.0.copyload)
@@ -596,14 +590,14 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrLoweringA649lowerInstERNS0_6IrIns
 
 211:                                              ; preds = %4
   %212 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %213 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %214 = load i32, ptr %213, align 4, !tbaa !43
   store i32 %214, ptr %6, align 4, !tbaa !43
   %215 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %212, i8 noundef zeroext 2, i32 noundef %2, ptr nonnull %6, i64 1)
   %216 = getelementptr inbounds nuw i8, ptr %1, i64 39
   store i8 %215, ptr %216, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %217 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %212, i8 noundef zeroext 2)
   %218 = and i8 %217, -8
   %219 = or disjoint i8 %218, 1
@@ -666,14 +660,14 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrLoweringA649lowerInstERNS0_6IrIns
 
 245:                                              ; preds = %4
   %246 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %247 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %248 = load i32, ptr %247, align 4, !tbaa !43
   store i32 %248, ptr %7, align 4, !tbaa !43
   %249 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %246, i8 noundef zeroext 2, i32 noundef %2, ptr nonnull %7, i64 1)
   %250 = getelementptr inbounds nuw i8, ptr %1, i64 39
   store i8 %249, ptr %250, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %251 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %246, i8 noundef zeroext 1)
   %252 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %246, i8 noundef zeroext 1)
   %253 = and i8 %252, -8
@@ -718,14 +712,14 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrLoweringA649lowerInstERNS0_6IrIns
 
 273:                                              ; preds = %4
   %274 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %275 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %276 = load i32, ptr %275, align 4, !tbaa !43
   store i32 %276, ptr %8, align 4, !tbaa !43
   %277 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %274, i8 noundef zeroext 2, i32 noundef %2, ptr nonnull %8, i64 1)
   %278 = getelementptr inbounds nuw i8, ptr %1, i64 39
   store i8 %277, ptr %278, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %279 = load i32, ptr %275, align 4
   %280 = and i32 %279, 15
   %281 = icmp eq i32 %280, 1
@@ -1107,7 +1101,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrLoweringA649lowerInstERNS0_6IrIns
 
 518:                                              ; preds = %4
   %519 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %520 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %521 = load i32, ptr %520, align 4, !tbaa !43
   store i32 %521, ptr %9, align 4, !tbaa !43
@@ -1118,7 +1112,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrLoweringA649lowerInstERNS0_6IrIns
   %525 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %519, i8 noundef zeroext 1, i32 noundef %2, ptr nonnull %9, i64 2)
   %526 = getelementptr inbounds nuw i8, ptr %1, i64 39
   store i8 %525, ptr %526, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %527 = load i32, ptr %523, align 4
   %528 = and i32 %527, 15
   %529 = icmp eq i32 %528, 2
@@ -1196,7 +1190,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrLoweringA649lowerInstERNS0_6IrIns
 
 580:                                              ; preds = %4
   %581 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %582 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %583 = load i32, ptr %582, align 4, !tbaa !43
   store i32 %583, ptr %10, align 4, !tbaa !43
@@ -1207,7 +1201,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrLoweringA649lowerInstERNS0_6IrIns
   %587 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %581, i8 noundef zeroext 1, i32 noundef %2, ptr nonnull %10, i64 2)
   %588 = getelementptr inbounds nuw i8, ptr %1, i64 39
   store i8 %587, ptr %588, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %589 = load i32, ptr %585, align 4
   %590 = and i32 %589, 15
   %591 = icmp eq i32 %590, 2
@@ -1253,7 +1247,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrLoweringA649lowerInstERNS0_6IrIns
 
 617:                                              ; preds = %4
   %618 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %619 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %620 = load i32, ptr %619, align 4, !tbaa !43
   store i32 %620, ptr %11, align 4, !tbaa !43
@@ -1264,7 +1258,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrLoweringA649lowerInstERNS0_6IrIns
   %624 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %618, i8 noundef zeroext 4, i32 noundef %2, ptr nonnull %11, i64 2)
   %625 = getelementptr inbounds nuw i8, ptr %1, i64 39
   store i8 %624, ptr %625, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %.sroa.01682.0.copyload = load i32, ptr %619, align 4, !tbaa !43
   %626 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01682.0.copyload)
   %.sroa.01680.0.copyload = load i32, ptr %622, align 4, !tbaa !43
@@ -1276,7 +1270,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrLoweringA649lowerInstERNS0_6IrIns
 
 629:                                              ; preds = %4
   %630 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %631 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %632 = load i32, ptr %631, align 4, !tbaa !43
   store i32 %632, ptr %12, align 4, !tbaa !43
@@ -1287,7 +1281,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrLoweringA649lowerInstERNS0_6IrIns
   %636 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %630, i8 noundef zeroext 4, i32 noundef %2, ptr nonnull %12, i64 2)
   %637 = getelementptr inbounds nuw i8, ptr %1, i64 39
   store i8 %636, ptr %637, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %.sroa.01672.0.copyload = load i32, ptr %631, align 4, !tbaa !43
   %638 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01672.0.copyload)
   %.sroa.01670.0.copyload = load i32, ptr %634, align 4, !tbaa !43
@@ -1299,7 +1293,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrLoweringA649lowerInstERNS0_6IrIns
 
 641:                                              ; preds = %4
   %642 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %643 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %644 = load i32, ptr %643, align 4, !tbaa !43
   store i32 %644, ptr %13, align 4, !tbaa !43
@@ -1310,7 +1304,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrLoweringA649lowerInstERNS0_6IrIns
   %648 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %642, i8 noundef zeroext 4, i32 noundef %2, ptr nonnull %13, i64 2)
   %649 = getelementptr inbounds nuw i8, ptr %1, i64 39
   store i8 %648, ptr %649, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %.sroa.01662.0.copyload = load i32, ptr %643, align 4, !tbaa !43
   %650 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01662.0.copyload)
   %.sroa.01660.0.copyload = load i32, ptr %646, align 4, !tbaa !43
@@ -1322,7 +1316,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrLoweringA649lowerInstERNS0_6IrIns
 
 653:                                              ; preds = %4
   %654 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %655 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %656 = load i32, ptr %655, align 4, !tbaa !43
   store i32 %656, ptr %14, align 4, !tbaa !43
@@ -1333,7 +1327,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrLoweringA649lowerInstERNS0_6IrIns
   %660 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %654, i8 noundef zeroext 4, i32 noundef %2, ptr nonnull %14, i64 2)
   %661 = getelementptr inbounds nuw i8, ptr %1, i64 39
   store i8 %660, ptr %661, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %.sroa.01652.0.copyload = load i32, ptr %655, align 4, !tbaa !43
   %662 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01652.0.copyload)
   %.sroa.01650.0.copyload = load i32, ptr %658, align 4, !tbaa !43
@@ -1345,7 +1339,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrLoweringA649lowerInstERNS0_6IrIns
 
 665:                                              ; preds = %4
   %666 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %667 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %668 = load i32, ptr %667, align 4, !tbaa !43
   store i32 %668, ptr %15, align 4, !tbaa !43
@@ -1356,7 +1350,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrLoweringA649lowerInstERNS0_6IrIns
   %672 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %666, i8 noundef zeroext 4, i32 noundef %2, ptr nonnull %15, i64 2)
   %673 = getelementptr inbounds nuw i8, ptr %1, i64 39
   store i8 %672, ptr %673, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %.sroa.01642.0.copyload = load i32, ptr %667, align 4, !tbaa !43
   %674 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01642.0.copyload)
   %.sroa.01640.0.copyload = load i32, ptr %670, align 4, !tbaa !43
@@ -1396,7 +1390,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrLoweringA649lowerInstERNS0_6IrIns
 
 690:                                              ; preds = %4
   %691 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %692 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %693 = load i32, ptr %692, align 4, !tbaa !43
   store i32 %693, ptr %16, align 4, !tbaa !43
@@ -1407,7 +1401,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrLoweringA649lowerInstERNS0_6IrIns
   %697 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %691, i8 noundef zeroext 4, i32 noundef %2, ptr nonnull %16, i64 2)
   %698 = getelementptr inbounds nuw i8, ptr %1, i64 39
   store i8 %697, ptr %698, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %.sroa.01611.0.copyload = load i32, ptr %692, align 4, !tbaa !43
   %699 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01611.0.copyload)
   %.sroa.01608.0.copyload = load i32, ptr %695, align 4, !tbaa !43
@@ -1421,7 +1415,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrLoweringA649lowerInstERNS0_6IrIns
 
 703:                                              ; preds = %4
   %704 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %705 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %706 = load i32, ptr %705, align 4, !tbaa !43
   store i32 %706, ptr %17, align 4, !tbaa !43
@@ -1432,7 +1426,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrLoweringA649lowerInstERNS0_6IrIns
   %710 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %704, i8 noundef zeroext 4, i32 noundef %2, ptr nonnull %17, i64 2)
   %711 = getelementptr inbounds nuw i8, ptr %1, i64 39
   store i8 %710, ptr %711, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %.sroa.01597.0.copyload = load i32, ptr %705, align 4, !tbaa !43
   %712 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01597.0.copyload)
   %.sroa.01594.0.copyload = load i32, ptr %708, align 4, !tbaa !43
@@ -1446,14 +1440,14 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrLoweringA649lowerInstERNS0_6IrIns
 
 716:                                              ; preds = %4
   %717 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %718 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %719 = load i32, ptr %718, align 4, !tbaa !43
   store i32 %719, ptr %18, align 4, !tbaa !43
   %720 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %717, i8 noundef zeroext 4, i32 noundef %2, ptr nonnull %18, i64 1)
   %721 = getelementptr inbounds nuw i8, ptr %1, i64 39
   store i8 %720, ptr %721, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %.sroa.01584.0.copyload = load i32, ptr %718, align 4, !tbaa !43
   %722 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01584.0.copyload)
   %723 = load ptr, ptr %0, align 8, !tbaa !63
@@ -1463,14 +1457,14 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrLoweringA649lowerInstERNS0_6IrIns
 
 724:                                              ; preds = %4
   %725 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %726 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %727 = load i32, ptr %726, align 4, !tbaa !43
   store i32 %727, ptr %19, align 4, !tbaa !43
   %728 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %725, i8 noundef zeroext 4, i32 noundef %2, ptr nonnull %19, i64 1)
   %729 = getelementptr inbounds nuw i8, ptr %1, i64 39
   store i8 %728, ptr %729, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %.sroa.01577.0.copyload = load i32, ptr %726, align 4, !tbaa !43
   %730 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01577.0.copyload)
   %731 = load ptr, ptr %0, align 8, !tbaa !63
@@ -1480,14 +1474,14 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrLoweringA649lowerInstERNS0_6IrIns
 
 732:                                              ; preds = %4
   %733 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %734 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %735 = load i32, ptr %734, align 4, !tbaa !43
   store i32 %735, ptr %20, align 4, !tbaa !43
   %736 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %733, i8 noundef zeroext 4, i32 noundef %2, ptr nonnull %20, i64 1)
   %737 = getelementptr inbounds nuw i8, ptr %1, i64 39
   store i8 %736, ptr %737, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   %.sroa.01570.0.copyload = load i32, ptr %734, align 4, !tbaa !43
   %738 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01570.0.copyload)
   %739 = load ptr, ptr %0, align 8, !tbaa !63
@@ -1497,14 +1491,14 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrLoweringA649lowerInstERNS0_6IrIns
 
 740:                                              ; preds = %4
   %741 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %21) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %742 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %743 = load i32, ptr %742, align 4, !tbaa !43
   store i32 %743, ptr %21, align 4, !tbaa !43
   %744 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %741, i8 noundef zeroext 4, i32 noundef %2, ptr nonnull %21, i64 1)
   %745 = getelementptr inbounds nuw i8, ptr %1, i64 39
   store i8 %744, ptr %745, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %.sroa.01563.0.copyload = load i32, ptr %742, align 4, !tbaa !43
   %746 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01563.0.copyload)
   %747 = load ptr, ptr %0, align 8, !tbaa !63
@@ -1514,14 +1508,14 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrLoweringA649lowerInstERNS0_6IrIns
 
 748:                                              ; preds = %4
   %749 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %22) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %750 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %751 = load i32, ptr %750, align 4, !tbaa !43
   store i32 %751, ptr %22, align 4, !tbaa !43
   %752 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %749, i8 noundef zeroext 4, i32 noundef %2, ptr nonnull %22, i64 1)
   %753 = getelementptr inbounds nuw i8, ptr %1, i64 39
   store i8 %752, ptr %753, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   %.sroa.01556.0.copyload = load i32, ptr %750, align 4, !tbaa !43
   %754 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01556.0.copyload)
   %755 = load ptr, ptr %0, align 8, !tbaa !63
@@ -1531,14 +1525,14 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrLoweringA649lowerInstERNS0_6IrIns
 
 756:                                              ; preds = %4
   %757 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %23) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   %758 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %759 = load i32, ptr %758, align 4, !tbaa !43
   store i32 %759, ptr %23, align 4, !tbaa !43
   %760 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %757, i8 noundef zeroext 4, i32 noundef %2, ptr nonnull %23, i64 1)
   %761 = getelementptr inbounds nuw i8, ptr %1, i64 39
   store i8 %760, ptr %761, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   %.sroa.01549.0.copyload = load i32, ptr %758, align 4, !tbaa !43
   %762 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01549.0.copyload)
   %763 = load ptr, ptr %0, align 8, !tbaa !63
@@ -1548,14 +1542,14 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrLoweringA649lowerInstERNS0_6IrIns
 
 764:                                              ; preds = %4
   %765 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %24) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   %766 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %767 = load i32, ptr %766, align 4, !tbaa !43
   store i32 %767, ptr %24, align 4, !tbaa !43
   %768 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %765, i8 noundef zeroext 4, i32 noundef %2, ptr nonnull %24, i64 1)
   %769 = getelementptr inbounds nuw i8, ptr %1, i64 39
   store i8 %768, ptr %769, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   %.sroa.01542.0.copyload = load i32, ptr %766, align 4, !tbaa !43
   %770 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01542.0.copyload)
   %771 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %765, i8 noundef zeroext 4)
@@ -1578,7 +1572,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrLoweringA649lowerInstERNS0_6IrIns
 
 779:                                              ; preds = %4
   %780 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %25) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   %781 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %782 = load i32, ptr %781, align 4, !tbaa !43
   store i32 %782, ptr %25, align 4, !tbaa !43
@@ -1597,7 +1591,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrLoweringA649lowerInstERNS0_6IrIns
   %792 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %780, i8 noundef zeroext 4, i32 noundef %2, ptr nonnull %25, i64 4)
   %793 = getelementptr inbounds nuw i8, ptr %1, i64 39
   store i8 %792, ptr %793, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %25) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   %.sroa.01521.0.copyload = load i32, ptr %781, align 4, !tbaa !43
   %794 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01521.0.copyload)
   %.sroa.01519.0.copyload = load i32, ptr %784, align 4, !tbaa !43
@@ -1615,7 +1609,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrLoweringA649lowerInstERNS0_6IrIns
 
 800:                                              ; preds = %4
   %801 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   %802 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %803 = load i32, ptr %802, align 4, !tbaa !43
   store i32 %803, ptr %26, align 4, !tbaa !43
@@ -1626,7 +1620,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrLoweringA649lowerInstERNS0_6IrIns
   %807 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %801, i8 noundef zeroext 5, i32 noundef %2, ptr nonnull %26, i64 2)
   %808 = getelementptr inbounds nuw i8, ptr %1, i64 39
   store i8 %807, ptr %808, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   %809 = load ptr, ptr %0, align 8, !tbaa !63
   %.sroa.01504.0.copyload = load i32, ptr %802, align 4, !tbaa !43
   %810 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01504.0.copyload)
@@ -1637,7 +1631,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrLoweringA649lowerInstERNS0_6IrIns
 
 812:                                              ; preds = %4
   %813 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   %814 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %815 = load i32, ptr %814, align 4, !tbaa !43
   store i32 %815, ptr %27, align 4, !tbaa !43
@@ -1648,7 +1642,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrLoweringA649lowerInstERNS0_6IrIns
   %819 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %813, i8 noundef zeroext 5, i32 noundef %2, ptr nonnull %27, i64 2)
   %820 = getelementptr inbounds nuw i8, ptr %1, i64 39
   store i8 %819, ptr %820, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   %821 = load ptr, ptr %0, align 8, !tbaa !63
   %.sroa.01496.0.copyload = load i32, ptr %814, align 4, !tbaa !43
   %822 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01496.0.copyload)
@@ -1659,7 +1653,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrLoweringA649lowerInstERNS0_6IrIns
 
 824:                                              ; preds = %4
   %825 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   %826 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %827 = load i32, ptr %826, align 4, !tbaa !43
   store i32 %827, ptr %28, align 4, !tbaa !43
@@ -1670,7 +1664,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrLoweringA649lowerInstERNS0_6IrIns
   %831 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %825, i8 noundef zeroext 5, i32 noundef %2, ptr nonnull %28, i64 2)
   %832 = getelementptr inbounds nuw i8, ptr %1, i64 39
   store i8 %831, ptr %832, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   %833 = load ptr, ptr %0, align 8, !tbaa !63
   %.sroa.01488.0.copyload = load i32, ptr %826, align 4, !tbaa !43
   %834 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01488.0.copyload)
@@ -1681,7 +1675,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrLoweringA649lowerInstERNS0_6IrIns
 
 836:                                              ; preds = %4
   %837 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %29) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   %838 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %839 = load i32, ptr %838, align 4, !tbaa !43
   store i32 %839, ptr %29, align 4, !tbaa !43
@@ -1692,7 +1686,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrLoweringA649lowerInstERNS0_6IrIns
   %843 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %837, i8 noundef zeroext 5, i32 noundef %2, ptr nonnull %29, i64 2)
   %844 = getelementptr inbounds nuw i8, ptr %1, i64 39
   store i8 %843, ptr %844, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   %845 = load ptr, ptr %0, align 8, !tbaa !63
   %.sroa.01480.0.copyload = load i32, ptr %838, align 4, !tbaa !43
   %846 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01480.0.copyload)
@@ -1703,14 +1697,14 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrLoweringA649lowerInstERNS0_6IrIns
 
 848:                                              ; preds = %4
   %849 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %30) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   %850 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %851 = load i32, ptr %850, align 4, !tbaa !43
   store i32 %851, ptr %30, align 4, !tbaa !43
   %852 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %849, i8 noundef zeroext 5, i32 noundef %2, ptr nonnull %30, i64 1)
   %853 = getelementptr inbounds nuw i8, ptr %1, i64 39
   store i8 %852, ptr %853, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %30) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
   %854 = load ptr, ptr %0, align 8, !tbaa !63
   %.sroa.01472.0.copyload = load i32, ptr %850, align 4, !tbaa !43
   %855 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01472.0.copyload)
@@ -1749,7 +1743,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrLoweringA649lowerInstERNS0_6IrIns
 
 874:                                              ; preds = %4
   %875 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %31) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
   %876 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %877 = load i32, ptr %876, align 4, !tbaa !43
   store i32 %877, ptr %31, align 4, !tbaa !43
@@ -1760,7 +1754,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrLoweringA649lowerInstERNS0_6IrIns
   %881 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %875, i8 noundef zeroext 1, i32 noundef %2, ptr nonnull %31, i64 2)
   %882 = getelementptr inbounds nuw i8, ptr %1, i64 39
   store i8 %881, ptr %882, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %31) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
   %883 = load i32, ptr %876, align 4
   %884 = and i32 %883, 15
   %885 = icmp eq i32 %884, 2
@@ -1774,11 +1768,11 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrLoweringA649lowerInstERNS0_6IrIns
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 889:                                              ; preds = %874
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %32) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
   store i32 0, ptr %32, align 4, !tbaa !68
   %890 = getelementptr inbounds nuw i8, ptr %32, i64 4
   store i32 -1, ptr %890, align 4, !tbaa !70
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %33) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
   store i32 0, ptr %33, align 4, !tbaa !68
   %891 = getelementptr inbounds nuw i8, ptr %33, i64 4
   store i32 -1, ptr %891, align 4, !tbaa !70
@@ -1823,8 +1817,8 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrLoweringA649lowerInstERNS0_6IrIns
   call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644csetENS1_11RegisterA64ENS1_12ConditionA64E(ptr noundef nonnull align 8 dereferenceable(176) %915, i8 %.sroa.01431.0.copyload, i32 noundef 11)
   %916 = load ptr, ptr %0, align 8, !tbaa !63
   call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648setLabelERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %916, ptr noundef nonnull align 4 dereferenceable(8) %33)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %33) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 917:                                              ; preds = %4
@@ -1887,7 +1881,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrLoweringA649lowerInstERNS0_6IrIns
   ]
 
 945:                                              ; preds = %941, %941
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %34) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
   store i32 0, ptr %34, align 4, !tbaa !68
   %946 = getelementptr inbounds nuw i8, ptr %34, i64 4
   store i32 -1, ptr %946, align 4, !tbaa !70
@@ -1896,7 +1890,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrLoweringA649lowerInstERNS0_6IrIns
   call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %947, ptr noundef nonnull align 4 dereferenceable(8) %948)
   %.sroa.01408.0.copyload = load i32, ptr %942, align 4, !tbaa !43
   call void @_ZN4Luau7CodeGen3A6413IrLoweringA6419finalizeTargetLabelENS0_4IrOpERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01408.0.copyload, ptr noundef nonnull align 4 dereferenceable(8) %34)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %34) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 949:                                              ; preds = %941
@@ -2503,7 +2497,7 @@ _ZN4Luau7CodeGen3A6414getConditionFPENS0_11IrConditionE.exit: ; preds = %1310, %
   %1340 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %.sroa.01299.0.copyload = load i32, ptr %1340, align 4, !tbaa !43
   %1341 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01299.0.copyload)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %35) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
   store i32 0, ptr %35, align 4, !tbaa !68
   %1342 = getelementptr inbounds nuw i8, ptr %35, i64 4
   store i32 -1, ptr %1342, align 4, !tbaa !70
@@ -2564,7 +2558,7 @@ _ZN4Luau7CodeGen3A6414getConditionFPENS0_11IrConditionE.exit: ; preds = %1310, %
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit2978
 
 _ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit2978: ; preds = %1335, %1379
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %35) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 1382:                                             ; preds = %4
@@ -2573,10 +2567,10 @@ _ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit2
   %1384 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01288.0.copyload)
   %1385 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %1386 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %36) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
   store i8 %1384, ptr %36, align 1, !tbaa !43
   %1387 = call noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr noundef nonnull align 8 dereferenceable(325) %1385, ptr noundef nonnull align 8 dereferenceable(176) %1386, i32 noundef %2, ptr nonnull %36, i64 1)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %36) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
   %1388 = load ptr, ptr %0, align 8, !tbaa !63
   call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %1388, i8 2, i8 %1384)
   %1389 = load ptr, ptr %0, align 8, !tbaa !63
@@ -2613,12 +2607,12 @@ _ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit2
   %1405 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %1406 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %1405, i8 noundef zeroext 1)
   %1407 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %37) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
   store i8 %1402, ptr %37, align 1, !tbaa !43
   %1408 = getelementptr inbounds nuw i8, ptr %37, i64 1
   store i8 %1404, ptr %1408, align 1, !tbaa !43
   %1409 = call noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr noundef nonnull align 8 dereferenceable(325) %1405, ptr noundef nonnull align 8 dereferenceable(176) %1407, i32 noundef %2, ptr nonnull %37, i64 2)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %37) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
   %.not3648 = icmp eq i8 %1404, 9
   %1410 = load ptr, ptr %0, align 8, !tbaa !63
   br i1 %.not3648, label %1411, label %1413
@@ -2689,10 +2683,10 @@ _ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit2
   %1450 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01234.0.copyload)
   %1451 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %1452 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %38) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %38)
   store i8 %1450, ptr %38, align 1, !tbaa !43
   %1453 = call noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr noundef nonnull align 8 dereferenceable(325) %1451, ptr noundef nonnull align 8 dereferenceable(176) %1452, i32 noundef %2, ptr nonnull %38, i64 1)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %38) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
   %1454 = load ptr, ptr %0, align 8, !tbaa !63
   call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %1454, i8 10, i8 %1450)
   %1455 = load ptr, ptr %0, align 8, !tbaa !63
@@ -2806,10 +2800,10 @@ _ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit2
   %1523 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %1522, i64 %1521, i32 7
   tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bENS1_12ConditionA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %1518, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(8) %1523)
   %1524 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %39) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %39)
   store i8 %1494, ptr %39, align 1, !tbaa !43
   %1525 = call noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr noundef nonnull align 8 dereferenceable(325) %1493, ptr noundef nonnull align 8 dereferenceable(176) %1524, i32 noundef %2, ptr nonnull %39, i64 1)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %39) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
   %1526 = load ptr, ptr %0, align 8, !tbaa !63
   call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %1526, i8 2, i8 %1494)
   %1527 = load ptr, ptr %0, align 8, !tbaa !63
@@ -2979,7 +2973,7 @@ _ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit2
 
 1635:                                             ; preds = %1621
   %1636 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %1614, i8 noundef zeroext 2)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %40) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %40)
   store float %1630, ptr %40, align 16, !tbaa !96
   %1637 = getelementptr inbounds nuw i8, ptr %40, i64 4
   store float %1630, ptr %1637, align 4, !tbaa !96
@@ -2995,7 +2989,7 @@ _ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit2
   %.sroa.23483.0.insert.shift = shl nuw nsw i64 %.sroa.23483.0.insert.ext, 8
   %.sroa.03482.0.insert.insert = or disjoint i64 %.sroa.23483.0.insert.shift, 16384001
   call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %1641, i8 %.sroa.01129.0.copyload, i64 %.sroa.03482.0.insert.insert)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %40) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 1642:                                             ; preds = %1613
@@ -3012,14 +3006,14 @@ _ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit2
 
 1649:                                             ; preds = %4
   %1650 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %41) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %41)
   %1651 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %1652 = load i32, ptr %1651, align 4, !tbaa !43
   store i32 %1652, ptr %41, align 4, !tbaa !43
   %1653 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %1650, i8 noundef zeroext 5, i32 noundef %2, ptr nonnull %41, i64 1)
   %1654 = getelementptr inbounds nuw i8, ptr %1, i64 39
   store i8 %1653, ptr %1654, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %41) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
   %.sroa.01113.0.copyload = load i32, ptr %1651, align 4, !tbaa !43
   %1655 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.01113.0.copyload)
   %1656 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %1650, i8 noundef zeroext 1)
@@ -3141,10 +3135,10 @@ _ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit2
   %1729 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %1730 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %1729, i8 noundef zeroext 5)
   %1731 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %42) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %42)
   store i8 %1730, ptr %42, align 1, !tbaa !43
   %1732 = call noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr noundef nonnull align 8 dereferenceable(325) %1729, ptr noundef nonnull align 8 dereferenceable(176) %1731, i32 noundef %2, ptr nonnull %42, i64 1)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %42) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
   %1733 = load ptr, ptr %0, align 8, !tbaa !63
   call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %1733, i8 2, i8 -102)
   %1734 = load ptr, ptr %0, align 8, !tbaa !63
@@ -3433,7 +3427,7 @@ switch.lookup3687:                                ; preds = %1854
   br label %1914
 
 1901:                                             ; preds = %1885
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %43) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %43)
   %1902 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store i64 0, ptr %1902, align 8
   %1903 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3450,7 +3444,7 @@ switch.lookup3687:                                ; preds = %1854
   store i32 3, ptr %1912, align 4, !tbaa !99
   %1913 = load ptr, ptr %0, align 8, !tbaa !63
   call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643adrENS1_11RegisterA64EPKvm(ptr noundef nonnull align 8 dereferenceable(176) %1913, i8 18, ptr noundef nonnull %43, i64 noundef 16)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %43) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
   br label %1914
 
 1914:                                             ; preds = %1885, %1901, %1897
@@ -3496,7 +3490,7 @@ switch.lookup3687:                                ; preds = %1854
   br label %1951
 
 1938:                                             ; preds = %1922
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %44) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %44)
   %1939 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store i64 0, ptr %1939, align 8
   %1940 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3513,7 +3507,7 @@ switch.lookup3687:                                ; preds = %1854
   store i32 3, ptr %1949, align 4, !tbaa !99
   %1950 = load ptr, ptr %0, align 8, !tbaa !63
   call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643adrENS1_11RegisterA64EPKvm(ptr noundef nonnull align 8 dereferenceable(176) %1950, i8 18, ptr noundef nonnull %44, i64 noundef 16)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %44) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %44)
   br label %1951
 
 1951:                                             ; preds = %1922, %1938, %1934
@@ -3622,7 +3616,7 @@ switch.lookup3687:                                ; preds = %1854
   %2022 = and i16 %2021, -16
   %2023 = add i16 %2022, 32
   tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11RegisterA64ES3_t(ptr noundef nonnull align 8 dereferenceable(176) %2019, i8 %2016, i8 -70, i16 noundef zeroext %2023)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %45) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %45)
   store i32 0, ptr %45, align 4, !tbaa !68
   %2024 = getelementptr inbounds nuw i8, ptr %45, i64 4
   store i32 -1, ptr %2024, align 4, !tbaa !70
@@ -3653,7 +3647,7 @@ switch.lookup3687:                                ; preds = %1854
   %.sroa.43317.0.insert.shift = shl nuw i64 %.sroa.43317.0.insert.ext, 32
   %.sroa.03313.0.insert.insert = or disjoint i64 %.sroa.43317.0.insert.shift, 16435713
   call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643strENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %2032, i8 %2017, i64 %.sroa.03313.0.insert.insert)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %45) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 2035:                                             ; preds = %4
@@ -3695,7 +3689,7 @@ switch.lookup3687:                                ; preds = %1854
   br i1 %2052, label %.thread3675, label %2055
 
 .thread3675:                                      ; preds = %2035
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %46) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %46)
   store i32 0, ptr %46, align 4, !tbaa !68
   %2053 = getelementptr inbounds nuw i8, ptr %46, i64 4
   store i32 -1, ptr %2053, align 4, !tbaa !70
@@ -3719,7 +3713,7 @@ switch.lookup3687:                                ; preds = %1854
   %.pre3663 = load i32, ptr %2049, align 4
   %.pre3670 = and i32 %.pre3663, 15
   %2066 = icmp eq i32 %.pre3670, 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %46) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %46)
   store i32 0, ptr %46, align 4, !tbaa !68
   %2067 = getelementptr inbounds nuw i8, ptr %46, i64 4
   store i32 -1, ptr %2067, align 4, !tbaa !70
@@ -3745,10 +3739,10 @@ switch.lookup3687:                                ; preds = %1854
   %2081 = phi i32 [ %2078, %2069 ], [ -1, %2065 ], [ -1, %.thread3675 ]
   call fastcc void @_ZN4Luau7CodeGen3A64L28checkObjectBarrierConditionsERNS1_18AssemblyBuilderA64ENS1_11RegisterA64ES4_NS0_4IrOpEiRNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2080, i8 %2037, i8 %2038, i32 %.sroa.0858.0.copyload3678, i32 noundef %2081, ptr noundef nonnull align 4 dereferenceable(8) %46)
   %2082 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %47) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %47)
   store i8 %2037, ptr %47, align 1, !tbaa !43
   %2083 = call noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr noundef nonnull align 8 dereferenceable(325) %2036, ptr noundef nonnull align 8 dereferenceable(176) %2082, i32 noundef %2, ptr nonnull %47, i64 1)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %47) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
   %2084 = load ptr, ptr %0, align 8, !tbaa !63
   call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %2084, i8 10, i8 %2037)
   %2085 = load ptr, ptr %0, align 8, !tbaa !63
@@ -3768,11 +3762,11 @@ switch.lookup3687:                                ; preds = %1854
   call void @_ZN4Luau7CodeGen3A6413IrRegAllocA647restoreERNS1_18AssemblyBuilderA64Em(ptr noundef nonnull align 8 dereferenceable(325) %2036, ptr noundef nonnull align 8 dereferenceable(176) %2090, i64 noundef %2083)
   %2091 = load ptr, ptr %0, align 8, !tbaa !63
   call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648setLabelERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2091, ptr noundef nonnull align 4 dereferenceable(8) %46)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %46) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %46)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 2092:                                             ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %48) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %48)
   store i32 0, ptr %48, align 4, !tbaa !68
   %2093 = getelementptr inbounds nuw i8, ptr %48, i64 4
   store i32 -1, ptr %2093, align 4, !tbaa !70
@@ -3818,18 +3812,18 @@ switch.lookup3687:                                ; preds = %1854
 2120:                                             ; preds = %2110, %2109
   %.sroa.0834.0.copyload = load i32, ptr %2094, align 4, !tbaa !43
   call void @_ZN4Luau7CodeGen3A6413IrLoweringA6419finalizeTargetLabelENS0_4IrOpERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0834.0.copyload, ptr noundef nonnull align 4 dereferenceable(8) %48)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %48) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %48)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 2121:                                             ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %49) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %49)
   store i32 0, ptr %49, align 4, !tbaa !68
   %2122 = getelementptr inbounds nuw i8, ptr %49, i64 4
   store i32 -1, ptr %2122, align 4, !tbaa !70
   %2123 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %.sroa.0830.0.copyload = load i32, ptr %2123, align 4, !tbaa !43
   %2124 = call noundef nonnull align 4 dereferenceable(8) ptr @_ZN4Luau7CodeGen3A6413IrLoweringA6414getTargetLabelENS0_4IrOpERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0830.0.copyload, ptr noundef nonnull align 4 dereferenceable(8) %49)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %50) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %50)
   store i32 0, ptr %50, align 4, !tbaa !68
   %2125 = getelementptr inbounds nuw i8, ptr %50, i64 4
   store i32 -1, ptr %2125, align 4, !tbaa !70
@@ -3895,12 +3889,12 @@ switch.lookup3687:                                ; preds = %1854
 2159:                                             ; preds = %2157, %2154
   %.sroa.0822.0.copyload = load i32, ptr %2123, align 4, !tbaa !43
   call void @_ZN4Luau7CodeGen3A6413IrLoweringA6419finalizeTargetLabelENS0_4IrOpERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0822.0.copyload, ptr noundef nonnull align 4 dereferenceable(8) %49)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %50) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %49) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %50)
+  call void @llvm.lifetime.end.p0(ptr nonnull %49)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 2160:                                             ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %51) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %51)
   store i32 0, ptr %51, align 4, !tbaa !68
   %2161 = getelementptr inbounds nuw i8, ptr %51, i64 4
   store i32 -1, ptr %2161, align 4, !tbaa !70
@@ -3921,11 +3915,11 @@ switch.lookup3687:                                ; preds = %1854
   call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644cbnzENS1_11RegisterA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2167, i8 %2163, ptr noundef nonnull align 4 dereferenceable(8) %2169)
   %.sroa.0814.0.copyload = load i32, ptr %2168, align 4, !tbaa !43
   call void @_ZN4Luau7CodeGen3A6413IrLoweringA6419finalizeTargetLabelENS0_4IrOpERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0814.0.copyload, ptr noundef nonnull align 4 dereferenceable(8) %51)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %51) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %51)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 2170:                                             ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %52) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %52)
   store i32 0, ptr %52, align 4, !tbaa !68
   %2171 = getelementptr inbounds nuw i8, ptr %52, i64 4
   store i32 -1, ptr %2171, align 4, !tbaa !70
@@ -3946,11 +3940,11 @@ switch.lookup3687:                                ; preds = %1854
   call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644cbnzENS1_11RegisterA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2177, i8 %2173, ptr noundef nonnull align 4 dereferenceable(8) %2179)
   %.sroa.0806.0.copyload = load i32, ptr %2178, align 4, !tbaa !43
   call void @_ZN4Luau7CodeGen3A6413IrLoweringA6419finalizeTargetLabelENS0_4IrOpERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0806.0.copyload, ptr noundef nonnull align 4 dereferenceable(8) %52)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %52) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %52)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 2180:                                             ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %53) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %53)
   store i32 0, ptr %53, align 4, !tbaa !68
   %2181 = getelementptr inbounds nuw i8, ptr %53, i64 4
   store i32 -1, ptr %2181, align 4, !tbaa !70
@@ -3972,11 +3966,11 @@ switch.lookup3687:                                ; preds = %1854
   call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643cbzENS1_11RegisterA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2188, i8 %2185, ptr noundef nonnull align 4 dereferenceable(8) %2190)
   %.sroa.0793.0.copyload = load i32, ptr %2189, align 4, !tbaa !43
   call void @_ZN4Luau7CodeGen3A6413IrLoweringA6419finalizeTargetLabelENS0_4IrOpERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0793.0.copyload, ptr noundef nonnull align 4 dereferenceable(8) %53)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %53) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %53)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 2191:                                             ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %54) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %54)
   store i32 0, ptr %54, align 4, !tbaa !68
   %2192 = getelementptr inbounds nuw i8, ptr %54, i64 4
   store i32 -1, ptr %2192, align 4, !tbaa !70
@@ -4059,11 +4053,11 @@ switch.lookup3687:                                ; preds = %1854
 2237:                                             ; preds = %2191, %2221, %2225, %2217, %2203
   %.sroa.0765.0.copyload = load i32, ptr %2193, align 4, !tbaa !43
   call void @_ZN4Luau7CodeGen3A6413IrLoweringA6419finalizeTargetLabelENS0_4IrOpERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0765.0.copyload, ptr noundef nonnull align 4 dereferenceable(8) %54)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %54) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %54)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 2238:                                             ; preds = %4, %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %55) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %55)
   store i32 0, ptr %55, align 4, !tbaa !68
   %2239 = getelementptr inbounds nuw i8, ptr %55, i64 4
   store i32 -1, ptr %2239, align 4, !tbaa !70
@@ -4161,11 +4155,11 @@ switch.lookup3687:                                ; preds = %1854
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit2979
 
 _ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit2979: ; preds = %2288, %2276, %2291, %2293
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %55) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %55)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 2295:                                             ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %56) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %56)
   store i32 0, ptr %56, align 4, !tbaa !68
   %2296 = getelementptr inbounds nuw i8, ptr %56, i64 4
   store i32 -1, ptr %2296, align 4, !tbaa !70
@@ -4188,11 +4182,11 @@ _ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit2
   call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644cbnzENS1_11RegisterA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2303, i8 %2298, ptr noundef nonnull align 4 dereferenceable(8) %2305)
   %.sroa.0717.0.copyload = load i32, ptr %2304, align 4, !tbaa !43
   call void @_ZN4Luau7CodeGen3A6413IrLoweringA6419finalizeTargetLabelENS0_4IrOpERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0717.0.copyload, ptr noundef nonnull align 4 dereferenceable(8) %56)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %56) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %56)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 2306:                                             ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %57) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %57)
   store i32 0, ptr %57, align 4, !tbaa !68
   %2307 = getelementptr inbounds nuw i8, ptr %57, i64 4
   store i32 -1, ptr %2307, align 4, !tbaa !70
@@ -4213,7 +4207,7 @@ _ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit2
   call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643cbzENS1_11RegisterA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2313, i8 %2309, ptr noundef nonnull align 4 dereferenceable(8) %2315)
   %.sroa.0709.0.copyload = load i32, ptr %2314, align 4, !tbaa !43
   call void @_ZN4Luau7CodeGen3A6413IrLoweringA6419finalizeTargetLabelENS0_4IrOpERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0709.0.copyload, ptr noundef nonnull align 4 dereferenceable(8) %57)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %57) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %57)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 2316:                                             ; preds = %4
@@ -4227,7 +4221,7 @@ _ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit2
   %2323 = load ptr, ptr %2320, align 8, !tbaa !65
   %2324 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %2323, i64 %2322, i32 1
   %2325 = load i32, ptr %2324, align 8, !tbaa !43
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %58) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %58)
   store i32 0, ptr %58, align 4, !tbaa !68
   %2326 = getelementptr inbounds nuw i8, ptr %58, i64 4
   store i32 -1, ptr %2326, align 4, !tbaa !70
@@ -4323,11 +4317,11 @@ _ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit2
 2376:                                             ; preds = %2363, %2371, %2367, %2316, %2339, %2343
   %.sroa.0663.0.copyload = load i32, ptr %2327, align 4, !tbaa !43
   call void @_ZN4Luau7CodeGen3A6413IrLoweringA6419finalizeTargetLabelENS0_4IrOpERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0663.0.copyload, ptr noundef nonnull align 4 dereferenceable(8) %58)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %58) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %58)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 2377:                                             ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %59) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %59)
   store i32 0, ptr %59, align 4, !tbaa !68
   %2378 = getelementptr inbounds nuw i8, ptr %59, i64 4
   store i32 -1, ptr %2378, align 4, !tbaa !70
@@ -4361,14 +4355,14 @@ _ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit2
   call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bENS1_12ConditionA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2397, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(8) %2380)
   %.sroa.0654.0.copyload = load i32, ptr %2379, align 4, !tbaa !43
   call void @_ZN4Luau7CodeGen3A6413IrLoweringA6419finalizeTargetLabelENS0_4IrOpERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0654.0.copyload, ptr noundef nonnull align 4 dereferenceable(8) %59)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %59) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %59)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 2398:                                             ; preds = %4
   %2399 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %2400 = load ptr, ptr %0, align 8, !tbaa !63
   %2401 = tail call noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr noundef nonnull align 8 dereferenceable(325) %2399, ptr noundef nonnull align 8 dereferenceable(176) %2400, i32 noundef %2, ptr null, i64 0)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %60) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %60)
   store i32 0, ptr %60, align 8, !tbaa !68
   %2402 = getelementptr inbounds nuw i8, ptr %60, i64 4
   store i32 -1, ptr %2402, align 4, !tbaa !70
@@ -4379,7 +4373,7 @@ _ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit2
   %2405 = load ptr, ptr %0, align 8, !tbaa !63
   %2406 = call i64 @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648setLabelEv(ptr noundef nonnull align 8 dereferenceable(176) %2405)
   %2407 = getelementptr inbounds nuw i8, ptr %0, i64 1416
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %61) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %61)
   %2408 = load i64, ptr %60, align 8
   store i64 %2408, ptr %61, align 8
   %2409 = getelementptr inbounds nuw i8, ptr %61, i64 8
@@ -4397,15 +4391,15 @@ _ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit2
   %2419 = getelementptr inbounds nuw i8, ptr %61, i64 12
   store i64 %2406, ptr %2419, align 4
   call void @_ZNSt6vectorIN4Luau7CodeGen3A6413IrLoweringA6416InterruptHandlerESaIS4_EE9push_backEOS4_(ptr noundef nonnull align 8 dereferenceable(24) %2407, ptr noundef nonnull align 4 dereferenceable(20) %61)
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %61) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %60) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %61)
+  call void @llvm.lifetime.end.p0(ptr nonnull %60)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 2420:                                             ; preds = %4
   %2421 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %2422 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %2421, i8 noundef zeroext 2)
   %2423 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %2421, i8 noundef zeroext 2)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %62) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %62)
   store i32 0, ptr %62, align 4, !tbaa !68
   %2424 = getelementptr inbounds nuw i8, ptr %62, i64 4
   store i32 -1, ptr %2424, align 4, !tbaa !70
@@ -4431,13 +4425,13 @@ _ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit2
   call void @_ZN4Luau7CodeGen3A6413IrRegAllocA647restoreERNS1_18AssemblyBuilderA64Em(ptr noundef nonnull align 8 dereferenceable(325) %2421, ptr noundef nonnull align 8 dereferenceable(176) %2435, i64 noundef %2429)
   %2436 = load ptr, ptr %0, align 8, !tbaa !63
   call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648setLabelERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2436, ptr noundef nonnull align 4 dereferenceable(8) %62)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %62) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %62)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 2437:                                             ; preds = %4
   %2438 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %2439 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %2438, i8 noundef zeroext 2)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %63) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %63)
   store i32 0, ptr %63, align 4, !tbaa !68
   %2440 = getelementptr inbounds nuw i8, ptr %63, i64 4
   store i32 -1, ptr %2440, align 4, !tbaa !70
@@ -4471,10 +4465,10 @@ _ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit2
   %.sroa.0625.0.copyload = load i32, ptr %2442, align 4, !tbaa !43
   %2461 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0625.0.copyload)
   %2462 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %64) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %64)
   store i8 %2461, ptr %64, align 1, !tbaa !43
   %2463 = call noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr noundef nonnull align 8 dereferenceable(325) %2438, ptr noundef nonnull align 8 dereferenceable(176) %2462, i32 noundef %2, ptr nonnull %64, i64 1)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %64) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %64)
   %2464 = load ptr, ptr %0, align 8, !tbaa !63
   call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %2464, i8 10, i8 %2461)
   %2465 = load ptr, ptr %0, align 8, !tbaa !63
@@ -4494,11 +4488,11 @@ _ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit2
   call void @_ZN4Luau7CodeGen3A6413IrRegAllocA647restoreERNS1_18AssemblyBuilderA64Em(ptr noundef nonnull align 8 dereferenceable(325) %2438, ptr noundef nonnull align 8 dereferenceable(176) %2470, i64 noundef %2463)
   %2471 = load ptr, ptr %0, align 8, !tbaa !63
   call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648setLabelERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2471, ptr noundef nonnull align 4 dereferenceable(8) %63)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %63) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %63)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 2472:                                             ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %65) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %65)
   store i32 0, ptr %65, align 4, !tbaa !68
   %2473 = getelementptr inbounds nuw i8, ptr %65, i64 4
   store i32 -1, ptr %2473, align 4, !tbaa !70
@@ -4517,10 +4511,10 @@ _ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit2
   %.sroa.0604.0.copyload = load i32, ptr %2477, align 4, !tbaa !43
   %2480 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0604.0.copyload)
   %2481 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %66) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %66)
   store i8 %2480, ptr %66, align 1, !tbaa !43
   %2482 = call noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr noundef nonnull align 8 dereferenceable(325) %2474, ptr noundef nonnull align 8 dereferenceable(176) %2481, i32 noundef %2, ptr nonnull %66, i64 1)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %66) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %66)
   %2483 = load ptr, ptr %0, align 8, !tbaa !63
   call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %2483, i8 10, i8 %2480)
   %2484 = load ptr, ptr %0, align 8, !tbaa !63
@@ -4535,13 +4529,13 @@ _ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit2
   call void @_ZN4Luau7CodeGen3A6413IrRegAllocA647restoreERNS1_18AssemblyBuilderA64Em(ptr noundef nonnull align 8 dereferenceable(325) %2474, ptr noundef nonnull align 8 dereferenceable(176) %2488, i64 noundef %2482)
   %2489 = load ptr, ptr %0, align 8, !tbaa !63
   call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648setLabelERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2489, ptr noundef nonnull align 4 dereferenceable(8) %65)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %65) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %65)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 2490:                                             ; preds = %4
   %2491 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %2492 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %2491, i8 noundef zeroext 2)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %67) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %67)
   store i32 0, ptr %67, align 4, !tbaa !68
   %2493 = getelementptr inbounds nuw i8, ptr %67, i64 4
   store i32 -1, ptr %2493, align 4, !tbaa !70
@@ -4577,10 +4571,10 @@ _ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit2
   %.sroa.0582.0.copyload = load i32, ptr %2497, align 4, !tbaa !43
   %2515 = call i64 @_ZN4Luau7CodeGen3A6413IrLoweringA648tempAddrENS0_4IrOpEi(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0582.0.copyload, i32 noundef 0)
   %2516 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %68) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %68)
   store i8 %2514, ptr %68, align 1, !tbaa !43
   %2517 = call noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr noundef nonnull align 8 dereferenceable(325) %2491, ptr noundef nonnull align 8 dereferenceable(176) %2516, i32 noundef %2, ptr nonnull %68, i64 1)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %68) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %68)
   %2518 = load ptr, ptr %0, align 8, !tbaa !63
   call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %2518, i8 10, i8 %2514)
   %2519 = load ptr, ptr %0, align 8, !tbaa !63
@@ -4595,7 +4589,7 @@ _ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit2
   call void @_ZN4Luau7CodeGen3A6413IrRegAllocA647restoreERNS1_18AssemblyBuilderA64Em(ptr noundef nonnull align 8 dereferenceable(325) %2491, ptr noundef nonnull align 8 dereferenceable(176) %2523, i64 noundef %2517)
   %2524 = load ptr, ptr %0, align 8, !tbaa !63
   call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648setLabelERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2524, ptr noundef nonnull align 4 dereferenceable(8) %67)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %67) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %67)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 2525:                                             ; preds = %4
@@ -4626,7 +4620,7 @@ _ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit2
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 2543:                                             ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %69) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %69)
   store i32 0, ptr %69, align 4, !tbaa !68
   %2544 = getelementptr inbounds nuw i8, ptr %69, i64 4
   store i32 -1, ptr %2544, align 4, !tbaa !70
@@ -4653,10 +4647,10 @@ _ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit2
   %2556 = load ptr, ptr %0, align 8, !tbaa !63
   call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bENS1_12ConditionA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2556, i32 noundef 8, ptr noundef nonnull align 4 dereferenceable(8) %69)
   %2557 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %70) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %70)
   store i8 %2547, ptr %70, align 1, !tbaa !43
   %2558 = call noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr noundef nonnull align 8 dereferenceable(325) %2545, ptr noundef nonnull align 8 dereferenceable(176) %2557, i32 noundef %2, ptr nonnull %70, i64 1)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %70) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %70)
   %2559 = load ptr, ptr %0, align 8, !tbaa !63
   call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %2559, i8 10, i8 %2547)
   %2560 = load ptr, ptr %0, align 8, !tbaa !63
@@ -4669,7 +4663,7 @@ _ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit2
   call void @_ZN4Luau7CodeGen3A6413IrRegAllocA647restoreERNS1_18AssemblyBuilderA64Em(ptr noundef nonnull align 8 dereferenceable(325) %2545, ptr noundef nonnull align 8 dereferenceable(176) %2563, i64 noundef %2558)
   %2564 = load ptr, ptr %0, align 8, !tbaa !63
   call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648setLabelERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2564, ptr noundef nonnull align 4 dereferenceable(8) %69)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %69) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %69)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 2565:                                             ; preds = %4
@@ -4923,11 +4917,11 @@ _ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit2
   br label %2720
 
 2720:                                             ; preds = %2715, %2714
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %71) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %71)
   store i32 0, ptr %71, align 4, !tbaa !68
   %2721 = getelementptr inbounds nuw i8, ptr %71, i64 4
   store i32 -1, ptr %2721, align 4, !tbaa !70
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %72) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %72)
   store i32 0, ptr %72, align 4, !tbaa !68
   %2722 = getelementptr inbounds nuw i8, ptr %72, i64 4
   store i32 -1, ptr %2722, align 4, !tbaa !70
@@ -4969,8 +4963,8 @@ _ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit2
   %2744 = load ptr, ptr %2743, align 8, !tbaa !103
   %2745 = getelementptr inbounds nuw i8, ptr %2744, i64 32
   call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2742, ptr noundef nonnull align 4 dereferenceable(8) %2745)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %72) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %71) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %72)
+  call void @llvm.lifetime.end.p0(ptr nonnull %71)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 2746:                                             ; preds = %4
@@ -5399,10 +5393,10 @@ _ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit2
   %3041 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0356.0.copyload)
   %3042 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3043 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %73) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %73)
   store i8 %3041, ptr %73, align 1, !tbaa !43
   %3044 = call noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr noundef nonnull align 8 dereferenceable(325) %3042, ptr noundef nonnull align 8 dereferenceable(176) %3043, i32 noundef %2, ptr nonnull %73, i64 1)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %73) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %73)
   %3045 = load ptr, ptr %0, align 8, !tbaa !63
   call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %3045, i8 18, i8 %3041)
   %3046 = load ptr, ptr %0, align 8, !tbaa !63
@@ -5503,7 +5497,7 @@ _ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit2
 
 3115:                                             ; preds = %4
   %3116 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %74) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %74)
   %3117 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %3118 = load i32, ptr %3117, align 4, !tbaa !43
   store i32 %3118, ptr %74, align 4, !tbaa !43
@@ -5514,7 +5508,7 @@ _ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit2
   %3122 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %3116, i8 noundef zeroext 1, i32 noundef %2, ptr nonnull %74, i64 2)
   %3123 = getelementptr inbounds nuw i8, ptr %1, i64 39
   store i8 %3122, ptr %3123, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %74) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %74)
   %3124 = load i32, ptr %3117, align 4
   %3125 = and i32 %3124, 15
   %3126 = icmp eq i32 %3125, 4
@@ -5566,7 +5560,7 @@ _ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit2
 
 3155:                                             ; preds = %4
   %3156 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %75) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %75)
   %3157 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %3158 = load i32, ptr %3157, align 4, !tbaa !43
   store i32 %3158, ptr %75, align 4, !tbaa !43
@@ -5577,7 +5571,7 @@ _ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit2
   %3162 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %3156, i8 noundef zeroext 1, i32 noundef %2, ptr nonnull %75, i64 2)
   %3163 = getelementptr inbounds nuw i8, ptr %1, i64 39
   store i8 %3162, ptr %3163, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %75) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %75)
   %3164 = load i32, ptr %3157, align 4
   %3165 = and i32 %3164, 15
   %3166 = icmp eq i32 %3165, 4
@@ -5629,7 +5623,7 @@ _ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit2
 
 3195:                                             ; preds = %4
   %3196 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %76) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %76)
   %3197 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %3198 = load i32, ptr %3197, align 4, !tbaa !43
   store i32 %3198, ptr %76, align 4, !tbaa !43
@@ -5640,7 +5634,7 @@ _ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit2
   %3202 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %3196, i8 noundef zeroext 1, i32 noundef %2, ptr nonnull %76, i64 2)
   %3203 = getelementptr inbounds nuw i8, ptr %1, i64 39
   store i8 %3202, ptr %3203, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %76) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %76)
   %3204 = load i32, ptr %3197, align 4
   %3205 = and i32 %3204, 15
   %3206 = icmp eq i32 %3205, 4
@@ -5692,14 +5686,14 @@ _ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit2
 
 3235:                                             ; preds = %4
   %3236 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %77) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %77)
   %3237 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %3238 = load i32, ptr %3237, align 4, !tbaa !43
   store i32 %3238, ptr %77, align 4, !tbaa !43
   %3239 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %3236, i8 noundef zeroext 1, i32 noundef %2, ptr nonnull %77, i64 1)
   %3240 = getelementptr inbounds nuw i8, ptr %1, i64 39
   store i8 %3239, ptr %3240, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %77) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %77)
   %.sroa.0283.0.copyload = load i32, ptr %3237, align 4, !tbaa !43
   %3241 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA648tempUintENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0283.0.copyload)
   %3242 = load ptr, ptr %0, align 8, !tbaa !63
@@ -5709,7 +5703,7 @@ _ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit2
 
 3243:                                             ; preds = %4
   %3244 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %78) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %78)
   %3245 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %3246 = load i32, ptr %3245, align 4, !tbaa !43
   store i32 %3246, ptr %78, align 4, !tbaa !43
@@ -5720,7 +5714,7 @@ _ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit2
   %3250 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %3244, i8 noundef zeroext 1, i32 noundef %2, ptr nonnull %78, i64 2)
   %3251 = getelementptr inbounds nuw i8, ptr %1, i64 39
   store i8 %3250, ptr %3251, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %78) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %78)
   %3252 = load i32, ptr %3245, align 4
   %3253 = and i32 %3252, 15
   %3254 = icmp eq i32 %3253, 4
@@ -5760,7 +5754,7 @@ _ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit2
 
 3276:                                             ; preds = %4
   %3277 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %79) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %79)
   %3278 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %3279 = load i32, ptr %3278, align 4, !tbaa !43
   store i32 %3279, ptr %79, align 4, !tbaa !43
@@ -5771,7 +5765,7 @@ _ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit2
   %3283 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %3277, i8 noundef zeroext 1, i32 noundef %2, ptr nonnull %79, i64 2)
   %3284 = getelementptr inbounds nuw i8, ptr %1, i64 39
   store i8 %3283, ptr %3284, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %79) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %79)
   %3285 = load i32, ptr %3278, align 4
   %3286 = and i32 %3285, 15
   %3287 = icmp eq i32 %3286, 4
@@ -5811,7 +5805,7 @@ _ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit2
 
 3309:                                             ; preds = %4
   %3310 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %80) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %80)
   %3311 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %3312 = load i32, ptr %3311, align 4, !tbaa !43
   store i32 %3312, ptr %80, align 4, !tbaa !43
@@ -5822,7 +5816,7 @@ _ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit2
   %3316 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %3310, i8 noundef zeroext 1, i32 noundef %2, ptr nonnull %80, i64 2)
   %3317 = getelementptr inbounds nuw i8, ptr %1, i64 39
   store i8 %3316, ptr %3317, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %80) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %80)
   %3318 = load i32, ptr %3311, align 4
   %3319 = and i32 %3318, 15
   %3320 = icmp eq i32 %3319, 4
@@ -5874,12 +5868,12 @@ _ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit2
   br i1 %or.cond3686, label %3352, label %._crit_edge3658
 
 3352:                                             ; preds = %3342
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %81) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %81)
   store i32 %3344, ptr %81, align 4, !tbaa !43
   %3353 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %3351, i8 noundef zeroext 1, i32 noundef %2, ptr nonnull %81, i64 1)
   %3354 = getelementptr inbounds nuw i8, ptr %1, i64 39
   store i8 %3353, ptr %3354, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %81) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %81)
   %3355 = load ptr, ptr %0, align 8, !tbaa !63
   %.sroa.0233.0.copyload = load i32, ptr %3343, align 4, !tbaa !43
   %3356 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0233.0.copyload)
@@ -5899,13 +5893,13 @@ _ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit2
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
 
 ._crit_edge3658:                                  ; preds = %3342
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %82) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %82)
   %3368 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %3348, ptr %82, align 4, !tbaa !43
   %3369 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %3351, i8 noundef zeroext 1, i32 noundef %2, ptr nonnull %82, i64 1)
   %3370 = getelementptr inbounds nuw i8, ptr %1, i64 39
   store i8 %3369, ptr %3370, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %82) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %82)
   %.sroa.0227.0.copyload = load i32, ptr %3343, align 4, !tbaa !43
   %3371 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA648tempUintENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0227.0.copyload)
   %.sroa.0225.0.copyload = load i32, ptr %3368, align 4, !tbaa !43
@@ -5920,7 +5914,7 @@ _ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit2
 
 3375:                                             ; preds = %4
   %3376 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %83) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %83)
   %3377 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %3378 = load i32, ptr %3377, align 4, !tbaa !43
   store i32 %3378, ptr %83, align 4, !tbaa !43
@@ -5931,7 +5925,7 @@ _ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit2
   %3382 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %3376, i8 noundef zeroext 1, i32 noundef %2, ptr nonnull %83, i64 2)
   %3383 = getelementptr inbounds nuw i8, ptr %1, i64 39
   store i8 %3382, ptr %3383, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %83) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %83)
   %3384 = load i32, ptr %3377, align 4
   %3385 = and i32 %3384, 15
   %3386 = icmp eq i32 %3385, 4
@@ -5971,14 +5965,14 @@ _ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit2
 
 3408:                                             ; preds = %4
   %3409 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %84) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %84)
   %3410 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %3411 = load i32, ptr %3410, align 4, !tbaa !43
   store i32 %3411, ptr %84, align 4, !tbaa !43
   %3412 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %3409, i8 noundef zeroext 1, i32 noundef %2, ptr nonnull %84, i64 1)
   %3413 = getelementptr inbounds nuw i8, ptr %1, i64 39
   store i8 %3412, ptr %3413, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %84) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %84)
   %.sroa.0201.0.copyload = load i32, ptr %3410, align 4, !tbaa !43
   %3414 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA648tempUintENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0201.0.copyload)
   %3415 = load ptr, ptr %0, align 8, !tbaa !63
@@ -5988,14 +5982,14 @@ _ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit2
 
 3416:                                             ; preds = %4
   %3417 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %85) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %85)
   %3418 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %3419 = load i32, ptr %3418, align 4, !tbaa !43
   store i32 %3419, ptr %85, align 4, !tbaa !43
   %3420 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %3417, i8 noundef zeroext 1, i32 noundef %2, ptr nonnull %85, i64 1)
   %3421 = getelementptr inbounds nuw i8, ptr %1, i64 39
   store i8 %3420, ptr %3421, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %85) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %85)
   %.sroa.0194.0.copyload = load i32, ptr %3418, align 4, !tbaa !43
   %3422 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA648tempUintENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0194.0.copyload)
   %3423 = load ptr, ptr %0, align 8, !tbaa !63
@@ -6008,14 +6002,14 @@ _ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit2
 
 3425:                                             ; preds = %4
   %3426 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %86) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %86)
   %3427 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %3428 = load i32, ptr %3427, align 4, !tbaa !43
   store i32 %3428, ptr %86, align 4, !tbaa !43
   %3429 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %3426, i8 noundef zeroext 1, i32 noundef %2, ptr nonnull %86, i64 1)
   %3430 = getelementptr inbounds nuw i8, ptr %1, i64 39
   store i8 %3429, ptr %3430, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %86) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %86)
   %.sroa.0185.0.copyload = load i32, ptr %3427, align 4, !tbaa !43
   %3431 = call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA648tempUintENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0185.0.copyload)
   %3432 = load ptr, ptr %0, align 8, !tbaa !63
@@ -6070,12 +6064,12 @@ _ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit2
   %3464 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3465 = tail call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325) %3464, i8 noundef zeroext 4)
   %3466 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %87) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %87)
   store i8 %3462, ptr %87, align 1, !tbaa !43
   %3467 = getelementptr inbounds nuw i8, ptr %87, i64 1
   store i8 %3463, ptr %3467, align 1, !tbaa !43
   %3468 = call noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr noundef nonnull align 8 dereferenceable(325) %3464, ptr noundef nonnull align 8 dereferenceable(176) %3466, i32 noundef %2, ptr nonnull %87, i64 2)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %87) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %87)
   %.not = icmp eq i8 %3463, 4
   %3469 = load ptr, ptr %0, align 8, !tbaa !63
   br i1 %.not, label %3480, label %3478
@@ -6086,12 +6080,12 @@ _ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit2
   %3471 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA647tempIntENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0169.0.copyload)
   %3472 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3473 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %87) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %87)
   store i8 %3470, ptr %87, align 1, !tbaa !43
   %3474 = getelementptr inbounds nuw i8, ptr %87, i64 1
   store i8 %3471, ptr %3474, align 1, !tbaa !43
   %3475 = call noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr noundef nonnull align 8 dereferenceable(325) %3472, ptr noundef nonnull align 8 dereferenceable(176) %3473, i32 noundef %2, ptr nonnull %87, i64 2)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %87) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %87)
   %3476 = load ptr, ptr %0, align 8, !tbaa !63
   call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fmovENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %3476, i8 4, i8 %3470)
   %3477 = load ptr, ptr %0, align 8, !tbaa !63
@@ -6118,10 +6112,10 @@ _ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit2
   %3485 = tail call i8 @_ZN4Luau7CodeGen3A6413IrLoweringA6410tempDoubleENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %.sroa.0147.0.copyload)
   %3486 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3487 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %88) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %88)
   store i8 %3485, ptr %88, align 1, !tbaa !43
   %3488 = call noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr noundef nonnull align 8 dereferenceable(325) %3486, ptr noundef nonnull align 8 dereferenceable(176) %3487, i32 noundef %2, ptr nonnull %88, i64 1)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %88) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %88)
   %3489 = load ptr, ptr %0, align 8, !tbaa !63
   call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fmovENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176) %3489, i8 4, i8 %3485)
   br label %3490
@@ -6238,14 +6232,14 @@ _ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit2
 
 3556:                                             ; preds = %4
   %3557 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %89) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %89)
   %3558 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %3559 = load i32, ptr %3558, align 4, !tbaa !43
   store i32 %3559, ptr %89, align 4, !tbaa !43
   %3560 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %3557, i8 noundef zeroext 1, i32 noundef %2, ptr nonnull %89, i64 1)
   %3561 = getelementptr inbounds nuw i8, ptr %1, i64 39
   store i8 %3560, ptr %3561, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %89) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %89)
   %3562 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.sroa.0102.0.copyload = load i32, ptr %3562, align 4, !tbaa !43
   %.sroa.0101.0.copyload = load i32, ptr %3558, align 4, !tbaa !43
@@ -6276,14 +6270,14 @@ _ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit2
 
 3580:                                             ; preds = %4
   %3581 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %90) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %90)
   %3582 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %3583 = load i32, ptr %3582, align 4, !tbaa !43
   store i32 %3583, ptr %90, align 4, !tbaa !43
   %3584 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %3581, i8 noundef zeroext 1, i32 noundef %2, ptr nonnull %90, i64 1)
   %3585 = getelementptr inbounds nuw i8, ptr %1, i64 39
   store i8 %3584, ptr %3585, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %90) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %90)
   %3586 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.sroa.093.0.copyload = load i32, ptr %3586, align 4, !tbaa !43
   %.sroa.092.0.copyload = load i32, ptr %3582, align 4, !tbaa !43
@@ -6346,14 +6340,14 @@ _ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit2
 
 3626:                                             ; preds = %4
   %3627 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %91) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %91)
   %3628 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %3629 = load i32, ptr %3628, align 4, !tbaa !43
   store i32 %3629, ptr %91, align 4, !tbaa !43
   %3630 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %3627, i8 noundef zeroext 1, i32 noundef %2, ptr nonnull %91, i64 1)
   %3631 = getelementptr inbounds nuw i8, ptr %1, i64 39
   store i8 %3630, ptr %3631, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %91) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %91)
   %3632 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.sroa.076.0.copyload = load i32, ptr %3632, align 4, !tbaa !43
   %.sroa.075.0.copyload = load i32, ptr %3628, align 4, !tbaa !43
@@ -6384,14 +6378,14 @@ _ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit2
 
 3650:                                             ; preds = %4
   %3651 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %92) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %92)
   %3652 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %3653 = load i32, ptr %3652, align 4, !tbaa !43
   store i32 %3653, ptr %92, align 4, !tbaa !43
   %3654 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %3651, i8 noundef zeroext 1, i32 noundef %2, ptr nonnull %92, i64 1)
   %3655 = getelementptr inbounds nuw i8, ptr %1, i64 39
   store i8 %3654, ptr %3655, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %92) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %92)
   %3656 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.sroa.067.0.copyload = load i32, ptr %3656, align 4, !tbaa !43
   %.sroa.066.0.copyload = load i32, ptr %3652, align 4, !tbaa !43
@@ -6454,14 +6448,14 @@ _ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit2
 
 3696:                                             ; preds = %4
   %3697 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %93) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %93)
   %3698 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %3699 = load i32, ptr %3698, align 4, !tbaa !43
   store i32 %3699, ptr %93, align 4, !tbaa !43
   %3700 = call i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325) %3697, i8 noundef zeroext 1, i32 noundef %2, ptr nonnull %93, i64 1)
   %3701 = getelementptr inbounds nuw i8, ptr %1, i64 39
   store i8 %3700, ptr %3701, align 1, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %93) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %93)
   %3702 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.sroa.051.0.copyload = load i32, ptr %3702, align 4, !tbaa !43
   %.sroa.050.0.copyload = load i32, ptr %3698, align 4, !tbaa !43
@@ -6670,12 +6664,12 @@ _ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit:
   ret void
 }
 
-declare void @_ZN4Luau7CodeGen23IrValueLocationTracking18beforeInstLoweringERNS0_6IrInstE(ptr noundef nonnull align 8 dereferenceable(1056), ptr noundef nonnull align 4 dereferenceable(43)) local_unnamed_addr #2
+declare void @_ZN4Luau7CodeGen23IrValueLocationTracking18beforeInstLoweringERNS0_6IrInstE(ptr noundef nonnull align 8 dereferenceable(1056), ptr noundef nonnull align 4 dereferenceable(43)) local_unnamed_addr #1
 
-declare i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA648allocRegENS1_7KindA64Ej(ptr noundef nonnull align 8 dereferenceable(325), i8 noundef zeroext, i32 noundef) local_unnamed_addr #2
+declare i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA648allocRegENS1_7KindA64Ej(ptr noundef nonnull align 8 dereferenceable(325), i8 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress uwtable
 define dso_local range(i64 16384001, -4278190080) i64 @_ZN4Luau7CodeGen3A6413IrLoweringA648tempAddrENS0_4IrOpEi(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
@@ -6754,10 +6748,10 @@ _ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit: ; preds = %31, %35
   ret i64 %.sroa.0.0.insert.insert
 }
 
-declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176), i8, i64) local_unnamed_addr #2
+declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176), i8, i64) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_ZNK4Luau7CodeGen3A6413IrLoweringA645intOpENS0_4IrOpE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1497) %0, i32 %1) local_unnamed_addr #4 align 2 {
+define dso_local noundef i32 @_ZNK4Luau7CodeGen3A6413IrLoweringA645intOpENS0_4IrOpE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1497) %0, i32 %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !64
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -6769,9 +6763,9 @@ define dso_local noundef i32 @_ZNK4Luau7CodeGen3A6413IrLoweringA645intOpENS0_4Ir
   ret i32 %10
 }
 
-declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fcvtENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176), i8, i8) local_unnamed_addr #2
+declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fcvtENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176), i8, i8) local_unnamed_addr #1
 
-declare i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325), i8 noundef zeroext, i32 noundef, ptr, i64) local_unnamed_addr #2
+declare i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr noundef nonnull align 8 dereferenceable(325), i8 noundef zeroext, i32 noundef, ptr, i64) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define dso_local i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %1) local_unnamed_addr #0 align 2 {
@@ -6805,16 +6799,16 @@ define dso_local i8 @_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE(ptr no
   ret i8 %.sroa.06.0.copyload
 }
 
-declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11RegisterA64ES3_S3_i(ptr noundef nonnull align 8 dereferenceable(176), i8, i8, i8, i32 noundef) local_unnamed_addr #2
+declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11RegisterA64ES3_S3_i(ptr noundef nonnull align 8 dereferenceable(176), i8, i8, i8, i32 noundef) local_unnamed_addr #1
 
-declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11RegisterA64ES3_t(ptr noundef nonnull align 8 dereferenceable(176), i8, i8, i16 noundef zeroext) local_unnamed_addr #2
+declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11RegisterA64ES3_t(ptr noundef nonnull align 8 dereferenceable(176), i8, i8, i16 noundef zeroext) local_unnamed_addr #1
 
-declare i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325), i8 noundef zeroext) local_unnamed_addr #2
+declare i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E(ptr noundef nonnull align 8 dereferenceable(325), i8 noundef zeroext) local_unnamed_addr #1
 
-declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64Ei(ptr noundef nonnull align 8 dereferenceable(176), i8, i32 noundef) local_unnamed_addr #2
+declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64Ei(ptr noundef nonnull align 8 dereferenceable(176), i8, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_ZNK4Luau7CodeGen3A6413IrLoweringA646uintOpENS0_4IrOpE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1497) %0, i32 %1) local_unnamed_addr #4 align 2 {
+define dso_local noundef i32 @_ZNK4Luau7CodeGen3A6413IrLoweringA646uintOpENS0_4IrOpE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1497) %0, i32 %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !64
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -6826,16 +6820,16 @@ define dso_local noundef i32 @_ZNK4Luau7CodeGen3A6413IrLoweringA646uintOpENS0_4I
   ret i32 %10
 }
 
-declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644ldrbENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176), i8, i64) local_unnamed_addr #2
+declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644ldrbENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176), i8, i64) local_unnamed_addr #1
 
-declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644and_ENS1_11RegisterA64ES3_S3_i(ptr noundef nonnull align 8 dereferenceable(176), i8, i8, i8, i32 noundef) local_unnamed_addr #2
+declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644and_ENS1_11RegisterA64ES3_S3_i(ptr noundef nonnull align 8 dereferenceable(176), i8, i8, i8, i32 noundef) local_unnamed_addr #1
 
-declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643lslENS1_11RegisterA64ES3_S3_(ptr noundef nonnull align 8 dereferenceable(176), i8, i8, i8) local_unnamed_addr #2
+declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643lslENS1_11RegisterA64ES3_S3_(ptr noundef nonnull align 8 dereferenceable(176), i8, i8, i8) local_unnamed_addr #1
 
-declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643bicENS1_11RegisterA64ES3_S3_i(ptr noundef nonnull align 8 dereferenceable(176), i8, i8, i8, i32 noundef) local_unnamed_addr #2
+declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643bicENS1_11RegisterA64ES3_S3_i(ptr noundef nonnull align 8 dereferenceable(176), i8, i8, i8, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i8 @_ZNK4Luau7CodeGen3A6413IrLoweringA645tagOpENS0_4IrOpE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1497) %0, i32 %1) local_unnamed_addr #4 align 2 {
+define dso_local noundef zeroext i8 @_ZNK4Luau7CodeGen3A6413IrLoweringA645tagOpENS0_4IrOpE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1497) %0, i32 %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !64
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -6847,10 +6841,10 @@ define dso_local noundef zeroext i8 @_ZNK4Luau7CodeGen3A6413IrLoweringA645tagOpE
   ret i8 %10
 }
 
-declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643strENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176), i8, i64) local_unnamed_addr #2
+declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643strENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176), i8, i64) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef double @_ZNK4Luau7CodeGen3A6413IrLoweringA648doubleOpENS0_4IrOpE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1497) %0, i32 %1) local_unnamed_addr #4 align 2 {
+define dso_local noundef double @_ZNK4Luau7CodeGen3A6413IrLoweringA648doubleOpENS0_4IrOpE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1497) %0, i32 %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !64
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -7026,66 +7020,66 @@ _ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit: ; preds = %15, %19
   ret i8 %.sroa.07.0
 }
 
-declare noundef zeroext i1 @_ZN4Luau7CodeGen5isGCOEh(i8 noundef zeroext) local_unnamed_addr #2
+declare noundef zeroext i1 @_ZN4Luau7CodeGen5isGCOEh(i8 noundef zeroext) local_unnamed_addr #1
 
-declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643subENS1_11RegisterA64ES3_t(ptr noundef nonnull align 8 dereferenceable(176), i8, i8, i16 noundef zeroext) local_unnamed_addr #2
+declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643subENS1_11RegisterA64ES3_t(ptr noundef nonnull align 8 dereferenceable(176), i8, i8, i16 noundef zeroext) local_unnamed_addr #1
 
-declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643subENS1_11RegisterA64ES3_S3_i(ptr noundef nonnull align 8 dereferenceable(176), i8, i8, i8, i32 noundef) local_unnamed_addr #2
+declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643subENS1_11RegisterA64ES3_S3_i(ptr noundef nonnull align 8 dereferenceable(176), i8, i8, i8, i32 noundef) local_unnamed_addr #1
 
-declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644faddENS1_11RegisterA64ES3_S3_(ptr noundef nonnull align 8 dereferenceable(176), i8, i8, i8) local_unnamed_addr #2
+declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644faddENS1_11RegisterA64ES3_S3_(ptr noundef nonnull align 8 dereferenceable(176), i8, i8, i8) local_unnamed_addr #1
 
-declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fsubENS1_11RegisterA64ES3_S3_(ptr noundef nonnull align 8 dereferenceable(176), i8, i8, i8) local_unnamed_addr #2
+declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fsubENS1_11RegisterA64ES3_S3_(ptr noundef nonnull align 8 dereferenceable(176), i8, i8, i8) local_unnamed_addr #1
 
-declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fmulENS1_11RegisterA64ES3_S3_(ptr noundef nonnull align 8 dereferenceable(176), i8, i8, i8) local_unnamed_addr #2
+declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fmulENS1_11RegisterA64ES3_S3_(ptr noundef nonnull align 8 dereferenceable(176), i8, i8, i8) local_unnamed_addr #1
 
-declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fdivENS1_11RegisterA64ES3_S3_(ptr noundef nonnull align 8 dereferenceable(176), i8, i8, i8) local_unnamed_addr #2
+declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fdivENS1_11RegisterA64ES3_S3_(ptr noundef nonnull align 8 dereferenceable(176), i8, i8, i8) local_unnamed_addr #1
 
-declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA646frintmENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176), i8, i8) local_unnamed_addr #2
+declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA646frintmENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176), i8, i8) local_unnamed_addr #1
 
-declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fcmpENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176), i8, i8) local_unnamed_addr #2
+declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fcmpENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176), i8, i8) local_unnamed_addr #1
 
-declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA645fcselENS1_11RegisterA64ES3_S3_NS1_12ConditionA64E(ptr noundef nonnull align 8 dereferenceable(176), i8, i8, i8, i32 noundef) local_unnamed_addr #2
+declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA645fcselENS1_11RegisterA64ES3_S3_NS1_12ConditionA64E(ptr noundef nonnull align 8 dereferenceable(176), i8, i8, i8, i32 noundef) local_unnamed_addr #1
 
-declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fnegENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176), i8, i8) local_unnamed_addr #2
+declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fnegENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176), i8, i8) local_unnamed_addr #1
 
-declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA646frintpENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176), i8, i8) local_unnamed_addr #2
+declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA646frintpENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176), i8, i8) local_unnamed_addr #1
 
-declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA646frintaENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176), i8, i8) local_unnamed_addr #2
+declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA646frintaENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176), i8, i8) local_unnamed_addr #1
 
-declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA645fsqrtENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176), i8, i8) local_unnamed_addr #2
+declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA645fsqrtENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176), i8, i8) local_unnamed_addr #1
 
-declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fabsENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176), i8, i8) local_unnamed_addr #2
+declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fabsENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176), i8, i8) local_unnamed_addr #1
 
-declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA645fcmpzENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176), i8) local_unnamed_addr #2
+declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA645fcmpzENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176), i8) local_unnamed_addr #1
 
-declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fmovENS1_11RegisterA64Ed(ptr noundef nonnull align 8 dereferenceable(176), i8, double noundef) local_unnamed_addr #2
+declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fmovENS1_11RegisterA64Ed(ptr noundef nonnull align 8 dereferenceable(176), i8, double noundef) local_unnamed_addr #1
 
-declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA645faddpENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176), i8, i8) local_unnamed_addr #2
+declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA645faddpENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176), i8, i8) local_unnamed_addr #1
 
-declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA646dup_4sENS1_11RegisterA64ES3_h(ptr noundef nonnull align 8 dereferenceable(176), i8, i8, i8 noundef zeroext) local_unnamed_addr #2
+declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA646dup_4sENS1_11RegisterA64ES3_h(ptr noundef nonnull align 8 dereferenceable(176), i8, i8, i8 noundef zeroext) local_unnamed_addr #1
 
-declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643eorENS1_11RegisterA64ES3_j(ptr noundef nonnull align 8 dereferenceable(176), i8, i8, i32 noundef) local_unnamed_addr #2
+declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643eorENS1_11RegisterA64ES3_j(ptr noundef nonnull align 8 dereferenceable(176), i8, i8, i32 noundef) local_unnamed_addr #1
 
-declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643cmpENS1_11RegisterA64Et(ptr noundef nonnull align 8 dereferenceable(176), i8, i16 noundef zeroext) local_unnamed_addr #2
+declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643cmpENS1_11RegisterA64Et(ptr noundef nonnull align 8 dereferenceable(176), i8, i16 noundef zeroext) local_unnamed_addr #1
 
-declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bENS1_12ConditionA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176), i32 noundef, ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #2
+declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bENS1_12ConditionA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176), i32 noundef, ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #1
 
-declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176), ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #2
+declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176), ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #1
 
-declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648setLabelERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176), ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #2
+declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648setLabelERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176), ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #1
 
-declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644csetENS1_11RegisterA64ENS1_12ConditionA64E(ptr noundef nonnull align 8 dereferenceable(176), i8, i32 noundef) local_unnamed_addr #2
+declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644csetENS1_11RegisterA64ENS1_12ConditionA64E(ptr noundef nonnull align 8 dereferenceable(176), i8, i32 noundef) local_unnamed_addr #1
 
-declare noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr noundef nonnull align 8 dereferenceable(325), ptr noundef nonnull align 8 dereferenceable(176), i32 noundef, ptr, i64) local_unnamed_addr #2
+declare noundef i64 @_ZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EE(ptr noundef nonnull align 8 dereferenceable(325), ptr noundef nonnull align 8 dereferenceable(176), i32 noundef, ptr, i64) local_unnamed_addr #1
 
-declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176), i8, i8) local_unnamed_addr #2
+declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176), i8, i8) local_unnamed_addr #1
 
-declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643blrENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176), i8) local_unnamed_addr #2
+declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643blrENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176), i8) local_unnamed_addr #1
 
-declare i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA647takeRegENS1_11RegisterA64Ej(ptr noundef nonnull align 8 dereferenceable(325), i8, i32 noundef) local_unnamed_addr #2
+declare i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA647takeRegENS1_11RegisterA64Ej(ptr noundef nonnull align 8 dereferenceable(325), i8, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef nonnull align 4 dereferenceable(8) ptr @_ZN4Luau7CodeGen3A6413IrLoweringA6414getTargetLabelENS0_4IrOpERNS0_5LabelE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1497) %0, i32 %1, ptr noundef nonnull readnone align 4 captures(ret: address, provenance) dereferenceable(8) %2) local_unnamed_addr #4 align 2 {
+define dso_local noundef nonnull align 4 dereferenceable(8) ptr @_ZN4Luau7CodeGen3A6413IrLoweringA6414getTargetLabelENS0_4IrOpERNS0_5LabelE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1497) %0, i32 %1, ptr noundef nonnull readnone align 4 captures(ret: address, provenance) dereferenceable(8) %2) local_unnamed_addr #3 align 2 {
   %4 = and i32 %1, 15
   switch i32 %4, label %44 [
     i32 1, label %_ZN4Luau12DenseHashMapIjjSt4hashIjESt8equal_toIjEE4findERKj.exit.thread
@@ -7178,7 +7172,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrLoweringA6419finalizeTargetLabelE
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr %0, align 8, !tbaa !63
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !68
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 -1, ptr %8, align 4, !tbaa !70
@@ -7186,7 +7180,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrLoweringA6419finalizeTargetLabelE
   call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648setLabelERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %7, ptr noundef nonnull align 4 dereferenceable(8) %2)
   call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643udfEv(ptr noundef nonnull align 8 dereferenceable(176) %7)
   call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648setLabelERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %7, ptr noundef nonnull align 4 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZNSt6vectorIN4Luau7CodeGen3A6413IrLoweringA6411ExitHandlerESaIS4_EE9push_backEOS4_.exit
 
 9:                                                ; preds = %3
@@ -7404,7 +7398,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef nonnull align 4 dereferenceable(32) ptr @_ZNK4Luau7CodeGen3A6413IrLoweringA647blockOpENS0_4IrOpE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1497) %0, i32 %1) local_unnamed_addr #4 align 2 {
+define dso_local noundef nonnull align 4 dereferenceable(32) ptr @_ZNK4Luau7CodeGen3A6413IrLoweringA647blockOpENS0_4IrOpE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1497) %0, i32 %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !64
   %5 = lshr i32 %1, 4
@@ -7414,10 +7408,10 @@ define dso_local noundef nonnull align 4 dereferenceable(32) ptr @_ZNK4Luau7Code
   ret ptr %8
 }
 
-declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643cbzENS1_11RegisterA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176), i8, ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #2
+declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643cbzENS1_11RegisterA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176), i8, ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef nonnull align 4 dereferenceable(8) ptr @_ZNK4Luau7CodeGen3A6413IrLoweringA647labelOpENS0_4IrOpE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1497) %0, i32 %1) local_unnamed_addr #4 align 2 {
+define dso_local noundef nonnull align 4 dereferenceable(8) ptr @_ZNK4Luau7CodeGen3A6413IrLoweringA647labelOpENS0_4IrOpE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1497) %0, i32 %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !64
   %5 = lshr i32 %1, 4
@@ -7427,15 +7421,15 @@ define dso_local noundef nonnull align 4 dereferenceable(8) ptr @_ZNK4Luau7CodeG
   ret ptr %8
 }
 
-declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644cbnzENS1_11RegisterA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176), i8, ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #2
+declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644cbnzENS1_11RegisterA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176), i8, ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
-declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643cmpENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176), i8, i8) local_unnamed_addr #2
+declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643cmpENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176), i8, i8) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZN4Luau7CodeGen3A6413IrLoweringA6418isFallthroughBlockERKNS0_7IrBlockES5_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(1497) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(32) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(32) %2) local_unnamed_addr #6 align 2 {
+define dso_local noundef zeroext i1 @_ZN4Luau7CodeGen3A6413IrLoweringA6418isFallthroughBlockERKNS0_7IrBlockES5_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(1497) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(32) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(32) %2) local_unnamed_addr #5 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4, !tbaa !74
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -7445,7 +7439,7 @@ define dso_local noundef zeroext i1 @_ZN4Luau7CodeGen3A6413IrLoweringA6418isFall
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i32 @_ZN4Luau7CodeGen3A6415getConditionIntENS0_11IrConditionE(i8 noundef zeroext %0) local_unnamed_addr #7 comdat {
+define linkonce_odr dso_local noundef i32 @_ZN4Luau7CodeGen3A6415getConditionIntENS0_11IrConditionE(i8 noundef zeroext %0) local_unnamed_addr #6 comdat {
   %2 = icmp ult i8 %0, 14
   br i1 %2, label %switch.lookup, label %4
 
@@ -7460,21 +7454,21 @@ switch.lookup:                                    ; preds = %1
   ret i32 %.0
 }
 
-declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA647fjcvtzsENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176), i8, i8) local_unnamed_addr #2
+declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA647fjcvtzsENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176), i8, i8) local_unnamed_addr #1
 
-declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA646fcvtzsENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176), i8, i8) local_unnamed_addr #2
+declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA646fcvtzsENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176), i8, i8) local_unnamed_addr #1
 
-declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA645scvtfENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176), i8, i8) local_unnamed_addr #2
+declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA645scvtfENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176), i8, i8) local_unnamed_addr #1
 
-declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643tstENS1_11RegisterA64Ej(ptr noundef nonnull align 8 dereferenceable(176), i8, i32 noundef) local_unnamed_addr #2
+declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643tstENS1_11RegisterA64Ej(ptr noundef nonnull align 8 dereferenceable(176), i8, i32 noundef) local_unnamed_addr #1
 
-declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA645ucvtfENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176), i8, i8) local_unnamed_addr #2
+declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA645ucvtfENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176), i8, i8) local_unnamed_addr #1
 
-declare noundef zeroext i1 @_ZN4Luau7CodeGen3A6418AssemblyBuilderA6415isFmovSupportedEd(double noundef) local_unnamed_addr #2
+declare noundef zeroext i1 @_ZN4Luau7CodeGen3A6418AssemblyBuilderA6415isFmovSupportedEd(double noundef) local_unnamed_addr #1
 
-declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643adrENS1_11RegisterA64EPKvm(ptr noundef nonnull align 8 dereferenceable(176), i8, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643adrENS1_11RegisterA64EPKvm(ptr noundef nonnull align 8 dereferenceable(176), i8, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA646ins_4sENS1_11RegisterA64ES3_h(ptr noundef nonnull align 8 dereferenceable(176), i8, i8, i8 noundef zeroext) local_unnamed_addr #2
+declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA646ins_4sENS1_11RegisterA64ES3_h(ptr noundef nonnull align 8 dereferenceable(176), i8, i8, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc noundef zeroext i1 @_ZN4Luau7CodeGen3A64L11emitBuiltinERNS1_18AssemblyBuilderA64ERNS0_10IrFunctionERNS1_13IrRegAllocA64Eiiii(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull align 8 dereferenceable(325) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
@@ -7578,7 +7572,7 @@ define internal fastcc void @_ZN4Luau7CodeGen3A64L13emitAddOffsetERNS1_18Assembl
   ret void
 }
 
-declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643lsrENS1_11RegisterA64ES3_h(ptr noundef nonnull align 8 dereferenceable(176), i8, i8, i8 noundef zeroext) local_unnamed_addr #2
+declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643lsrENS1_11RegisterA64ES3_h(ptr noundef nonnull align 8 dereferenceable(176), i8, i8, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZN4Luau7CodeGen3A64L28checkObjectBarrierConditionsERNS1_18AssemblyBuilderA64ENS1_11RegisterA64ES4_NS0_4IrOpEiRNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %0, i8 %1, i8 %2, i32 %3, i32 noundef range(i32 -1, 256) %4, ptr noundef nonnull align 4 dereferenceable(8) %5) unnamed_addr #0 {
@@ -7690,16 +7684,16 @@ _ZN4Luau7CodeGen3A64L13emitAddOffsetERNS1_18AssemblyBuilderA64ENS1_11RegisterA64
   ret void
 }
 
-declare void @_ZN4Luau7CodeGen3A6413IrRegAllocA647restoreERNS1_18AssemblyBuilderA64Em(ptr noundef nonnull align 8 dereferenceable(325), ptr noundef nonnull align 8 dereferenceable(176), i64 noundef) local_unnamed_addr #2
+declare void @_ZN4Luau7CodeGen3A6413IrRegAllocA647restoreERNS1_18AssemblyBuilderA64Em(ptr noundef nonnull align 8 dereferenceable(325), ptr noundef nonnull align 8 dereferenceable(176), i64 noundef) local_unnamed_addr #1
 
-declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldpENS1_11RegisterA64ES3_NS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176), i8, i8, i64) local_unnamed_addr #2
+declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldpENS1_11RegisterA64ES3_NS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176), i8, i8, i64) local_unnamed_addr #1
 
-declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644ubfxENS1_11RegisterA64ES3_hh(ptr noundef nonnull align 8 dereferenceable(176), i8, i8, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #2
+declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644ubfxENS1_11RegisterA64ES3_hh(ptr noundef nonnull align 8 dereferenceable(176), i8, i8, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZN4Luau7CodeGen3A64L9emitAbortERNS1_18AssemblyBuilderA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull align 4 dereferenceable(8) %1) unnamed_addr #0 {
   %3 = alloca %"struct.Luau::CodeGen::Label", align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !tbaa !68
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 -1, ptr %4, align 4, !tbaa !70
@@ -7707,11 +7701,11 @@ define internal fastcc void @_ZN4Luau7CodeGen3A64L9emitAbortERNS1_18AssemblyBuil
   call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648setLabelERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull align 4 dereferenceable(8) %1)
   call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643udfEv(ptr noundef nonnull align 8 dereferenceable(176) %0)
   call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648setLabelERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull align 4 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-declare i64 @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648setLabelEv(ptr noundef nonnull align 8 dereferenceable(176)) local_unnamed_addr #2
+declare i64 @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648setLabelEv(ptr noundef nonnull align 8 dereferenceable(176)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt6vectorIN4Luau7CodeGen3A6413IrLoweringA6416InterruptHandlerESaIS4_EE9push_backEOS4_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 4 dereferenceable(20) %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -7787,7 +7781,7 @@ _ZNSt6vectorIN4Luau7CodeGen3A6413IrLoweringA6416InterruptHandlerESaIS4_EE12empla
   ret void
 }
 
-declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643tbzENS1_11RegisterA64EhRNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176), i8, i8 noundef zeroext, ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #2
+declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643tbzENS1_11RegisterA64EhRNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176), i8, i8 noundef zeroext, ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZN4Luau7CodeGen3A64L12emitFallbackERNS1_18AssemblyBuilderA64Eii(ptr noundef nonnull align 8 dereferenceable(176) %0, i32 noundef range(i32 480, 561) %1, i32 noundef %2) unnamed_addr #0 {
@@ -7820,11 +7814,11 @@ _ZN4Luau7CodeGen3A64L13emitAddOffsetERNS1_18AssemblyBuilderA64ENS1_11RegisterA64
   ret void
 }
 
-declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644cselENS1_11RegisterA64ES3_S3_NS1_12ConditionA64E(ptr noundef nonnull align 8 dereferenceable(176), i8, i8, i8, i32 noundef) local_unnamed_addr #2
+declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644cselENS1_11RegisterA64ES3_S3_NS1_12ConditionA64E(ptr noundef nonnull align 8 dereferenceable(176), i8, i8, i8, i32 noundef) local_unnamed_addr #1
 
-declare noundef zeroext i1 @_ZN4Luau7CodeGen3A6418AssemblyBuilderA6415isMaskSupportedEj(i32 noundef) local_unnamed_addr #2
+declare noundef zeroext i1 @_ZN4Luau7CodeGen3A6418AssemblyBuilderA6415isMaskSupportedEj(i32 noundef) local_unnamed_addr #1
 
-declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644and_ENS1_11RegisterA64ES3_j(ptr noundef nonnull align 8 dereferenceable(176), i8, i8, i32 noundef) local_unnamed_addr #2
+declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644and_ENS1_11RegisterA64ES3_j(ptr noundef nonnull align 8 dereferenceable(176), i8, i8, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define dso_local i8 @_ZN4Luau7CodeGen3A6413IrLoweringA648tempUintENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %1) local_unnamed_addr #0 align 2 {
@@ -7884,36 +7878,36 @@ _ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit: ; preds = %15, %19
   ret i8 %.sroa.07.0
 }
 
-declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643eorENS1_11RegisterA64ES3_S3_i(ptr noundef nonnull align 8 dereferenceable(176), i8, i8, i8, i32 noundef) local_unnamed_addr #2
+declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643eorENS1_11RegisterA64ES3_S3_i(ptr noundef nonnull align 8 dereferenceable(176), i8, i8, i8, i32 noundef) local_unnamed_addr #1
 
-declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643orrENS1_11RegisterA64ES3_j(ptr noundef nonnull align 8 dereferenceable(176), i8, i8, i32 noundef) local_unnamed_addr #2
+declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643orrENS1_11RegisterA64ES3_j(ptr noundef nonnull align 8 dereferenceable(176), i8, i8, i32 noundef) local_unnamed_addr #1
 
-declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643orrENS1_11RegisterA64ES3_S3_i(ptr noundef nonnull align 8 dereferenceable(176), i8, i8, i8, i32 noundef) local_unnamed_addr #2
+declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643orrENS1_11RegisterA64ES3_S3_i(ptr noundef nonnull align 8 dereferenceable(176), i8, i8, i8, i32 noundef) local_unnamed_addr #1
 
-declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644mvn_ENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176), i8, i8) local_unnamed_addr #2
+declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644mvn_ENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176), i8, i8) local_unnamed_addr #1
 
-declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643lslENS1_11RegisterA64ES3_h(ptr noundef nonnull align 8 dereferenceable(176), i8, i8, i8 noundef zeroext) local_unnamed_addr #2
+declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643lslENS1_11RegisterA64ES3_h(ptr noundef nonnull align 8 dereferenceable(176), i8, i8, i8 noundef zeroext) local_unnamed_addr #1
 
-declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643lsrENS1_11RegisterA64ES3_S3_(ptr noundef nonnull align 8 dereferenceable(176), i8, i8, i8) local_unnamed_addr #2
+declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643lsrENS1_11RegisterA64ES3_S3_(ptr noundef nonnull align 8 dereferenceable(176), i8, i8, i8) local_unnamed_addr #1
 
-declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643asrENS1_11RegisterA64ES3_h(ptr noundef nonnull align 8 dereferenceable(176), i8, i8, i8 noundef zeroext) local_unnamed_addr #2
+declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643asrENS1_11RegisterA64ES3_h(ptr noundef nonnull align 8 dereferenceable(176), i8, i8, i8 noundef zeroext) local_unnamed_addr #1
 
-declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643asrENS1_11RegisterA64ES3_S3_(ptr noundef nonnull align 8 dereferenceable(176), i8, i8, i8) local_unnamed_addr #2
+declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643asrENS1_11RegisterA64ES3_S3_(ptr noundef nonnull align 8 dereferenceable(176), i8, i8, i8) local_unnamed_addr #1
 
-declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643rorENS1_11RegisterA64ES3_h(ptr noundef nonnull align 8 dereferenceable(176), i8, i8, i8 noundef zeroext) local_unnamed_addr #2
+declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643rorENS1_11RegisterA64ES3_h(ptr noundef nonnull align 8 dereferenceable(176), i8, i8, i8 noundef zeroext) local_unnamed_addr #1
 
-declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643negENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176), i8, i8) local_unnamed_addr #2
+declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643negENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176), i8, i8) local_unnamed_addr #1
 
-declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643rorENS1_11RegisterA64ES3_S3_(ptr noundef nonnull align 8 dereferenceable(176), i8, i8, i8) local_unnamed_addr #2
+declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643rorENS1_11RegisterA64ES3_S3_(ptr noundef nonnull align 8 dereferenceable(176), i8, i8, i8) local_unnamed_addr #1
 
-declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643clzENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176), i8, i8) local_unnamed_addr #2
+declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643clzENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176), i8, i8) local_unnamed_addr #1
 
-declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644rbitENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176), i8, i8) local_unnamed_addr #2
+declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644rbitENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176), i8, i8) local_unnamed_addr #1
 
-declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643revENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176), i8, i8) local_unnamed_addr #2
+declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643revENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176), i8, i8) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local { i8, i64 } @_ZNK4Luau7CodeGen3A6413IrLoweringA647constOpENS0_4IrOpE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1497) %0, i32 %1) local_unnamed_addr #4 align 2 {
+define dso_local { i8, i64 } @_ZNK4Luau7CodeGen3A6413IrLoweringA647constOpENS0_4IrOpE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1497) %0, i32 %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !64
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -7929,11 +7923,11 @@ define dso_local { i8, i64 } @_ZNK4Luau7CodeGen3A6413IrLoweringA647constOpENS0_4
   ret { i8, i64 } %.fca.1.insert
 }
 
-declare noundef zeroext i8 @_ZN4Luau7CodeGen15getCmdValueKindENS0_5IrCmdE(i8 noundef zeroext) local_unnamed_addr #2
+declare noundef zeroext i8 @_ZN4Luau7CodeGen15getCmdValueKindENS0_5IrCmdE(i8 noundef zeroext) local_unnamed_addr #1
 
-declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fmovENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176), i8, i8) local_unnamed_addr #2
+declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fmovENS1_11RegisterA64ES3_(ptr noundef nonnull align 8 dereferenceable(176), i8, i8) local_unnamed_addr #1
 
-declare noundef i32 @_ZN4Luau7CodeGen22getNativeContextOffsetEi(i32 noundef) local_unnamed_addr #2
+declare noundef i32 @_ZN4Luau7CodeGen22getNativeContextOffsetEi(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define dso_local range(i64 16384001, -4278190080) i64 @_ZN4Luau7CodeGen3A6413IrLoweringA6414tempAddrBufferENS0_4IrOpES3_h(ptr noundef nonnull align 8 dereferenceable(1497) %0, i32 %1, i32 %2, i8 noundef zeroext %3) local_unnamed_addr #0 align 2 {
@@ -8142,21 +8136,21 @@ _ZN4Luau7CodeGen3A64L13emitAddOffsetERNS1_18AssemblyBuilderA64ENS1_11RegisterA64
   ret i64 %.sroa.0.0.insert.insert
 }
 
-declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA645ldrsbENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176), i8, i64) local_unnamed_addr #2
+declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA645ldrsbENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176), i8, i64) local_unnamed_addr #1
 
-declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644strbENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176), i8, i64) local_unnamed_addr #2
+declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644strbENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176), i8, i64) local_unnamed_addr #1
 
-declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA645ldrshENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176), i8, i64) local_unnamed_addr #2
+declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA645ldrshENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176), i8, i64) local_unnamed_addr #1
 
-declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644ldrhENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176), i8, i64) local_unnamed_addr #2
+declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644ldrhENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176), i8, i64) local_unnamed_addr #1
 
-declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644strhENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176), i8, i64) local_unnamed_addr #2
+declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644strhENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176), i8, i64) local_unnamed_addr #1
 
-declare void @_ZN4Luau7CodeGen23IrValueLocationTracking17afterInstLoweringERNS0_6IrInstEj(ptr noundef nonnull align 8 dereferenceable(1056), ptr noundef nonnull align 4 dereferenceable(43), i32 noundef) local_unnamed_addr #2
+declare void @_ZN4Luau7CodeGen23IrValueLocationTracking17afterInstLoweringERNS0_6IrInstEj(ptr noundef nonnull align 8 dereferenceable(1056), ptr noundef nonnull align 4 dereferenceable(43), i32 noundef) local_unnamed_addr #1
 
-declare void @_ZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEj(ptr noundef nonnull align 8 dereferenceable(325), ptr noundef nonnull align 4 dereferenceable(43), i32 noundef) local_unnamed_addr #2
+declare void @_ZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEj(ptr noundef nonnull align 8 dereferenceable(325), ptr noundef nonnull align 4 dereferenceable(43), i32 noundef) local_unnamed_addr #1
 
-declare void @_ZN4Luau7CodeGen3A6413IrRegAllocA6412freeTempRegsEv(ptr noundef nonnull align 8 dereferenceable(325)) local_unnamed_addr #2
+declare void @_ZN4Luau7CodeGen3A6413IrRegAllocA6412freeTempRegsEv(ptr noundef nonnull align 8 dereferenceable(325)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4Luau7CodeGen3A6413IrLoweringA6411finishBlockERKNS0_7IrBlockES5_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1497) %0, ptr noundef nonnull readnone align 4 captures(none) dereferenceable(32) %1, ptr noundef nonnull align 4 dereferenceable(32) %2) local_unnamed_addr #0 align 2 {
@@ -8184,7 +8178,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrLoweringA6411finishBlockERKNS0_7I
   ret void
 }
 
-declare { ptr, ptr } @_ZN4Luau7CodeGen12predecessorsERKNS0_7CfgInfoEj(ptr noundef nonnull align 8 dereferenceable(304), i32 noundef) local_unnamed_addr #2
+declare { ptr, ptr } @_ZN4Luau7CodeGen12predecessorsERKNS0_7CfgInfoEj(ptr noundef nonnull align 8 dereferenceable(304), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4Luau7CodeGen3A6413IrLoweringA6414finishFunctionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1497) %0) local_unnamed_addr #0 align 2 {
@@ -8307,12 +8301,12 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrLoweringA6414finishFunctionEv(ptr
   ret void
 }
 
-declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA649logAppendEPKcz(ptr noundef nonnull align 8 dereferenceable(176), ptr noundef, ...) local_unnamed_addr #2
+declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA649logAppendEPKcz(ptr noundef nonnull align 8 dereferenceable(176), ptr noundef, ...) local_unnamed_addr #1
 
-declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643adrENS1_11RegisterA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176), i8, ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #2
+declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643adrENS1_11RegisterA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176), i8, ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK4Luau7CodeGen3A6413IrLoweringA648hasErrorEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1497) %0) local_unnamed_addr #6 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4Luau7CodeGen3A6413IrLoweringA648hasErrorEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1497) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1496
   %3 = load i8, ptr %2, align 8, !tbaa !45, !range !97, !noundef !98
   %4 = trunc nuw i8 %3 to i1
@@ -8323,16 +8317,16 @@ define dso_local noundef zeroext i1 @_ZNK4Luau7CodeGen3A6413IrLoweringA648hasErr
   ret i1 %8
 }
 
-declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644movzENS1_11RegisterA64Eti(ptr noundef nonnull align 8 dereferenceable(176), i8, i16 noundef zeroext, i32 noundef) local_unnamed_addr #2
+declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644movzENS1_11RegisterA64Eti(ptr noundef nonnull align 8 dereferenceable(176), i8, i16 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
-declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644movkENS1_11RegisterA64Eti(ptr noundef nonnull align 8 dereferenceable(176), i8, i16 noundef zeroext, i32 noundef) local_unnamed_addr #2
+declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644movkENS1_11RegisterA64Eti(ptr noundef nonnull align 8 dereferenceable(176), i8, i16 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
-declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643adrENS1_11RegisterA64Ed(ptr noundef nonnull align 8 dereferenceable(176), i8, double noundef) local_unnamed_addr #2
+declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643adrENS1_11RegisterA64Ed(ptr noundef nonnull align 8 dereferenceable(176), i8, double noundef) local_unnamed_addr #1
 
-declare void @_ZN4Luau7CodeGen3A6413IrRegAllocA6410restoreRegERNS1_18AssemblyBuilderA64ERNS0_6IrInstE(ptr noundef nonnull align 8 dereferenceable(325), ptr noundef nonnull align 8 dereferenceable(176), ptr noundef nonnull align 4 dereferenceable(43)) local_unnamed_addr #2
+declare void @_ZN4Luau7CodeGen3A6413IrRegAllocA6410restoreRegERNS1_18AssemblyBuilderA64ERNS0_6IrInstE(ptr noundef nonnull align 8 dereferenceable(325), ptr noundef nonnull align 8 dereferenceable(176), ptr noundef nonnull align 4 dereferenceable(43)) local_unnamed_addr #1
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal void @"_ZZN4Luau7CodeGen3A6413IrLoweringA64C1ERNS1_18AssemblyBuilderA64ERNS0_13ModuleHelpersERNS0_10IrFunctionEPNS0_13LoweringStatsEEN3$_08__invokeEPvRNS0_6IrInstE"(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(43) %1) #8 align 2 {
+define internal void @"_ZZN4Luau7CodeGen3A6413IrLoweringA64C1ERNS1_18AssemblyBuilderA64ERNS0_13ModuleHelpersERNS0_10IrFunctionEPNS0_13LoweringStatsEEN3$_08__invokeEPvRNS0_6IrInstE"(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(43) %1) #7 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %0, align 8, !tbaa !63
   tail call void @_ZN4Luau7CodeGen3A6413IrRegAllocA6410restoreRegERNS1_18AssemblyBuilderA64ERNS0_6IrInstE(ptr noundef nonnull align 8 dereferenceable(325) %3, ptr noundef nonnull align 8 dereferenceable(176) %4, ptr noundef nonnull align 4 dereferenceable(43) %1)
@@ -8340,18 +8334,18 @@ define internal void @"_ZZN4Luau7CodeGen3A6413IrLoweringA64C1ERNS1_18AssemblyBui
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #9
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #8
 
-declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643udfEv(ptr noundef nonnull align 8 dereferenceable(176)) local_unnamed_addr #2
+declare void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643udfEv(ptr noundef nonnull align 8 dereferenceable(176)) local_unnamed_addr #1
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #10
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #11
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN4Luau6detail14DenseHashTableIjSt4pairIjjES2_IKjjENS0_16ItemInterfaceMapIjjEESt4hashIjESt8equal_toIjEE6rehashEv(ptr noundef nonnull align 8 dereferenceable(30) %0) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -8473,6 +8467,12 @@ _ZN4Luau6detail14DenseHashTableIjSt4pairIjjES2_IKjjENS0_16ItemInterfaceMapIjjEES
   br label %17
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #12
 
@@ -8483,17 +8483,17 @@ declare i64 @llvm.umax.i64(i64, i64) #13
 declare i64 @llvm.umin.i64(i64, i64) #13
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #14 = { nounwind }

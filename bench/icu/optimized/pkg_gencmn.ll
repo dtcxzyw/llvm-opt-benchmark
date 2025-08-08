@@ -55,16 +55,16 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress uwtable
 define void @createCommonDataFile(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef %5, ptr noundef %6, i32 noundef %7, i8 noundef signext %8, i8 noundef signext %9, ptr noundef %10) local_unnamed_addr #0 {
   %12 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 0, ptr %12, align 4, !tbaa !3
-  %13 = tail call noalias dereferenceable_or_null(512) ptr @uprv_malloc_77(i64 noundef 512) #14
+  %13 = tail call noalias dereferenceable_or_null(512) ptr @uprv_malloc_77(i64 noundef 512) #13
   %14 = icmp eq ptr %13, null
   br i1 %14, label %15, label %18
 
 15:                                               ; preds = %11
   %16 = load ptr, ptr @stderr, align 8, !tbaa !7
-  %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str, i32 noundef 512) #15
-  tail call void @exit(i32 noundef 7) #16
+  %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str, i32 noundef 512) #14
+  tail call void @exit(i32 noundef 7) #15
   unreachable
 
 18:                                               ; preds = %11
@@ -98,8 +98,8 @@ define void @createCommonDataFile(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 32:                                               ; preds = %29
   %33 = load ptr, ptr @stderr, align 8, !tbaa !7
-  %34 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %33, ptr noundef nonnull @.str.5, ptr noundef nonnull %6) #15
-  tail call void @exit(i32 noundef 4) #16
+  %34 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %33, ptr noundef nonnull @.str.5, ptr noundef nonnull %6) #14
+  tail call void @exit(i32 noundef 4) #15
   unreachable
 
 35:                                               ; preds = %29, %27
@@ -184,7 +184,7 @@ define void @createCommonDataFile(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %60 = load ptr, ptr @_ZL5files, align 8, !tbaa !15
   %61 = zext i32 %59 to i64
   %62 = shl nuw nsw i64 %61, 5
-  %63 = tail call ptr @uprv_realloc_77(ptr noundef %60, i64 noundef %62) #17
+  %63 = tail call ptr @uprv_realloc_77(ptr noundef %60, i64 noundef %62) #16
   store ptr %63, ptr @_ZL5files, align 8, !tbaa !15
   %64 = icmp eq ptr %63, null
   br i1 %64, label %65, label %71
@@ -194,8 +194,8 @@ define void @createCommonDataFile(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %67 = load i32, ptr @_ZL7fileMax, align 4, !tbaa !10
   %68 = shl i32 %67, 5
   %69 = load i32, ptr @_ZL9fileCount, align 4, !tbaa !10
-  %70 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %66, ptr noundef nonnull @.str.30, i32 noundef %68, i32 noundef %69) #15
-  tail call void @exit(i32 noundef 7) #16
+  %70 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %66, ptr noundef nonnull @.str.30, i32 noundef %68, i32 noundef %69) #14
+  tail call void @exit(i32 noundef 7) #15
   unreachable
 
 71:                                               ; preds = %58, %53
@@ -208,31 +208,31 @@ define void @createCommonDataFile(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 74:                                               ; preds = %72
   %75 = load ptr, ptr @stderr, align 8, !tbaa !7
-  %76 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %75, ptr noundef nonnull @.str.31, i32 noundef 47, ptr noundef %54) #15
-  tail call void @exit(i32 noundef 1) #16
+  %76 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %75, ptr noundef nonnull @.str.31, i32 noundef 47, ptr noundef %54) #14
+  tail call void @exit(i32 noundef 1) #15
   unreachable
 
 77:                                               ; preds = %72
-  %78 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %54) #18
+  %78 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %54) #17
   %79 = add i64 %78, 2
-  %80 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %spec.store.select1) #18
+  %80 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %spec.store.select1) #17
   %81 = add i64 %79, %80
   %sext.i.i = shl i64 %81, 32
   %82 = ashr exact i64 %sext.i.i, 32
-  %83 = tail call noalias ptr @uprv_malloc_77(i64 noundef %82) #14
-  %84 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %83, ptr noundef nonnull readonly dereferenceable(1) %spec.store.select1) #13
+  %83 = tail call noalias ptr @uprv_malloc_77(i64 noundef %82) #13
+  %84 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %83, ptr noundef nonnull readonly dereferenceable(1) %spec.store.select1) #18
   %strlen.i.i = tail call i64 @strlen(ptr nonnull dereferenceable(1) %83)
   %endptr.i.i = getelementptr inbounds i8, ptr %83, i64 %strlen.i.i
   store i16 47, ptr %endptr.i.i, align 1
-  %85 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %83) #18
+  %85 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %83) #17
   %sext14.i.i = shl i64 %85, 32
   %86 = ashr exact i64 %sext14.i.i, 32
   %87 = getelementptr inbounds i8, ptr %83, i64 %86
   store i8 0, ptr %87, align 1, !tbaa !12
-  %88 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %83, ptr noundef nonnull readonly dereferenceable(1) %54) #13
-  %89 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %54) #18
+  %88 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %83, ptr noundef nonnull readonly dereferenceable(1) %54) #18
+  %89 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %54) #17
   %90 = add i64 %89, 1
-  %91 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %spec.store.select) #18
+  %91 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %spec.store.select) #17
   %92 = add i64 %90, %91
   %93 = trunc i64 %92 to i32
   %94 = add i32 %93, 1
@@ -244,18 +244,18 @@ define void @createCommonDataFile(ptr noundef %0, ptr noundef %1, ptr noundef %2
 98:                                               ; preds = %77
   %99 = load ptr, ptr @stderr, align 8, !tbaa !7
   %100 = tail call i64 @fwrite(ptr nonnull @.str.35, i64 22, i64 1, ptr %99) #19
-  tail call void @exit(i32 noundef 7) #16
+  tail call void @exit(i32 noundef 7) #15
   unreachable
 
 _ZL11allocStringj.exit.i:                         ; preds = %77
   %101 = zext nneg i32 %95 to i64
   %102 = getelementptr inbounds nuw i8, ptr @_ZL11stringStore, i64 %101
   store i32 %96, ptr @_ZL9stringTop, align 4, !tbaa !10
-  %103 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %102, ptr noundef nonnull readonly dereferenceable(1) %spec.store.select) #13
+  %103 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %102, ptr noundef nonnull readonly dereferenceable(1) %spec.store.select) #18
   %strlen.i = tail call i64 @strlen(ptr nonnull dereferenceable(1) %102)
   %endptr.i = getelementptr inbounds i8, ptr %102, i64 %strlen.i
   store i16 47, ptr %endptr.i, align 1
-  %104 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %102, ptr noundef nonnull dereferenceable(1) %54) #13
+  %104 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %102, ptr noundef nonnull dereferenceable(1) %54) #18
   %105 = load ptr, ptr @_ZL5files, align 8, !tbaa !15
   %106 = load i32, ptr @_ZL9fileCount, align 4, !tbaa !10
   %107 = zext i32 %106 to i64
@@ -274,8 +274,8 @@ _ZL11allocStringj.exit.i:                         ; preds = %77
 
 115:                                              ; preds = %_ZL11allocStringj.exit.i
   %116 = load ptr, ptr @stderr, align 8, !tbaa !7
-  %117 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %116, ptr noundef nonnull @.str.16, ptr noundef nonnull %83) #15
-  tail call void @exit(i32 noundef 4) #16
+  %117 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %116, ptr noundef nonnull @.str.16, ptr noundef nonnull %83) #14
+  tail call void @exit(i32 noundef 4) #15
   unreachable
 
 118:                                              ; preds = %_ZL11allocStringj.exit.i
@@ -288,8 +288,8 @@ _ZL11allocStringj.exit.i:                         ; preds = %77
 
 123:                                              ; preds = %118
   %124 = load ptr, ptr @stderr, align 8, !tbaa !7
-  %125 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %124, ptr noundef nonnull @.str.33, ptr noundef nonnull %83) #15
-  tail call void @exit(i32 noundef 4) #16
+  %125 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %124, ptr noundef nonnull @.str.33, ptr noundef nonnull %83) #14
+  tail call void @exit(i32 noundef 4) #15
   unreachable
 
 126:                                              ; preds = %118
@@ -318,9 +318,9 @@ _ZL11allocStringj.exit.i:                         ; preds = %77
   br label %172
 
 138:                                              ; preds = %71
-  %139 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %54) #18
+  %139 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %54) #17
   %140 = add i64 %139, 1
-  %141 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %spec.store.select) #18
+  %141 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %spec.store.select) #17
   %142 = add i64 %140, %141
   %143 = trunc i64 %142 to i32
   %144 = add i32 %143, 1
@@ -332,18 +332,18 @@ _ZL11allocStringj.exit.i:                         ; preds = %77
 148:                                              ; preds = %138
   %149 = load ptr, ptr @stderr, align 8, !tbaa !7
   %150 = tail call i64 @fwrite(ptr nonnull @.str.35, i64 22, i64 1, ptr %149) #19
-  tail call void @exit(i32 noundef 7) #16
+  tail call void @exit(i32 noundef 7) #15
   unreachable
 
 _ZL11allocStringj.exit69.i:                       ; preds = %138
   %151 = zext nneg i32 %145 to i64
   %152 = getelementptr inbounds nuw i8, ptr @_ZL11stringStore, i64 %151
   store i32 %146, ptr @_ZL9stringTop, align 4, !tbaa !10
-  %153 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %152, ptr noundef nonnull readonly dereferenceable(1) %spec.store.select) #13
+  %153 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %152, ptr noundef nonnull readonly dereferenceable(1) %spec.store.select) #18
   %strlen65.i = tail call i64 @strlen(ptr nonnull dereferenceable(1) %152)
   %endptr66.i = getelementptr inbounds i8, ptr %152, i64 %strlen65.i
   store i16 47, ptr %endptr66.i, align 1
-  %154 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %152, ptr noundef nonnull dereferenceable(1) %54) #13
+  %154 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %152, ptr noundef nonnull dereferenceable(1) %54) #18
   %155 = load ptr, ptr @_ZL5files, align 8, !tbaa !15
   %156 = load i32, ptr @_ZL9fileCount, align 4, !tbaa !10
   %157 = zext i32 %156 to i64
@@ -356,7 +356,7 @@ _ZL11allocStringj.exit69.i:                       ; preds = %138
 161:                                              ; preds = %_ZL11allocStringj.exit69.i
   %162 = load ptr, ptr @stderr, align 8, !tbaa !7
   %163 = tail call i64 @fwrite(ptr nonnull @.str.35, i64 22, i64 1, ptr %162) #19
-  tail call void @exit(i32 noundef 7) #16
+  tail call void @exit(i32 noundef 7) #15
   unreachable
 
 _ZL11allocStringj.exit70.i:                       ; preds = %_ZL11allocStringj.exit69.i
@@ -415,7 +415,7 @@ _ZL11allocStringj.exit70.i:                       ; preds = %_ZL11allocStringj.e
 181:                                              ; preds = %178
   %182 = load ptr, ptr @stderr, align 8, !tbaa !7
   %183 = select i1 %26, ptr @.str.9, ptr %6
-  %184 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %182, ptr noundef nonnull @.str.8, ptr noundef nonnull %183) #15
+  %184 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %182, ptr noundef nonnull @.str.8, ptr noundef nonnull %183) #14
   br label %375
 
 185:                                              ; preds = %178
@@ -472,7 +472,7 @@ _ZL11allocStringj.exit70.i:                       ; preds = %_ZL11allocStringj.e
 214:                                              ; preds = %._crit_edge233
   %215 = load ptr, ptr @stderr, align 8, !tbaa !7
   %216 = call ptr @u_errorName_77(i32 noundef %212)
-  %217 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %215, ptr noundef nonnull @.str.11, ptr noundef %.0, ptr noundef nonnull %spec.store.select, ptr noundef nonnull %spec.store.select2, ptr noundef %216) #15
+  %217 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %215, ptr noundef nonnull @.str.11, ptr noundef %.0, ptr noundef nonnull %spec.store.select, ptr noundef nonnull %spec.store.select2, ptr noundef %216) #14
   %218 = load i32, ptr %12, align 4, !tbaa !3
   call void @exit(i32 noundef %218) #20
   unreachable
@@ -585,8 +585,8 @@ _ZL11allocStringj.exit70.i:                       ; preds = %_ZL11allocStringj.e
   %273 = load ptr, ptr @_ZL5files, align 8, !tbaa !15
   %274 = getelementptr inbounds nuw %struct.File, ptr %273, i64 %.pre292
   %275 = load ptr, ptr %274, align 8, !tbaa !20
-  %276 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %272, ptr noundef nonnull @.str.16, ptr noundef %275) #15
-  call void @exit(i32 noundef 4) #16
+  %276 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %272, ptr noundef nonnull @.str.16, ptr noundef %275) #14
+  call void @exit(i32 noundef 4) #15
   unreachable
 
 .lr.ph241:                                        ; preds = %.preheader, %.lr.ph241
@@ -615,8 +615,8 @@ _ZL11allocStringj.exit70.i:                       ; preds = %_ZL11allocStringj.e
   %289 = zext i32 %284 to i64
   %290 = icmp eq i32 %284, 1
   %291 = select i1 %290, ptr @.str.13, ptr @.str.14
-  %292 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %286, ptr noundef nonnull @.str.17, ptr noundef %287, i64 noundef %288, i64 noundef %289, ptr noundef nonnull %291) #15
-  call void @exit(i32 noundef 4) #16
+  %292 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %286, ptr noundef nonnull @.str.17, ptr noundef %287, i64 noundef %288, i64 noundef %289, ptr noundef nonnull %291) #14
+  call void @exit(i32 noundef 4) #15
   unreachable
 
 ._crit_edge248:                                   ; preds = %247, %._crit_edge239.thread, %._crit_edge239
@@ -639,14 +639,14 @@ _ZL11allocStringj.exit70.i:                       ; preds = %_ZL11allocStringj.e
 300:                                              ; preds = %296
   %301 = load ptr, ptr @stderr, align 8, !tbaa !7
   %302 = call ptr @u_errorName_77(i32 noundef %298)
-  %303 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %301, ptr noundef nonnull @.str.18, ptr noundef %302) #15
+  %303 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %301, ptr noundef nonnull @.str.18, ptr noundef %302) #14
   %304 = load i32, ptr %12, align 4, !tbaa !3
   call void @exit(i32 noundef %304) #20
   unreachable
 
 305:                                              ; preds = %185
-  %306 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) @_ZZ20createCommonDataFileE6buffer, ptr noundef nonnull dereferenceable(1) %.0) #13
-  %307 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) @_ZZ20createCommonDataFileE6buffer) #18
+  %306 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) @_ZZ20createCommonDataFileE6buffer, ptr noundef nonnull dereferenceable(1) %.0) #18
+  %307 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) @_ZZ20createCommonDataFileE6buffer) #17
   %308 = getelementptr inbounds nuw i8, ptr @_ZZ20createCommonDataFileE6buffer, i64 %307
   %.not197 = icmp eq i64 %307, 0
   br i1 %.not197, label %314, label %309
@@ -664,30 +664,30 @@ _ZL11allocStringj.exit70.i:                       ; preds = %_ZL11allocStringj.e
 
 314:                                              ; preds = %312, %309, %305
   %.5164 = phi ptr [ %313, %312 ], [ %308, %309 ], [ %308, %305 ]
-  %315 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.5164, ptr noundef nonnull dereferenceable(1) %spec.store.select) #13
+  %315 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.5164, ptr noundef nonnull dereferenceable(1) %spec.store.select) #18
   %316 = load i8, ptr %spec.store.select2, align 1, !tbaa !12
   %.not199 = icmp eq i8 %316, 0
   br i1 %.not199, label %322, label %317
 
 317:                                              ; preds = %314
-  %318 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.5164) #18
+  %318 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.5164) #17
   %319 = getelementptr inbounds nuw i8, ptr %.5164, i64 %318
   %320 = getelementptr inbounds nuw i8, ptr %319, i64 1
   store i8 95, ptr %319, align 1, !tbaa !12
-  %321 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %320, ptr noundef nonnull dereferenceable(1) %spec.store.select2) #13
+  %321 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %320, ptr noundef nonnull dereferenceable(1) %spec.store.select2) #18
   br label %322
 
 322:                                              ; preds = %317, %314
   %.6 = phi ptr [ %320, %317 ], [ %.5164, %314 ]
-  %323 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.6) #18
+  %323 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.6) #17
   %324 = getelementptr inbounds nuw i8, ptr %.6, i64 %323
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %324, ptr noundef nonnull align 1 dereferenceable(3) @.str.19, i64 3, i1 false) #13
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %324, ptr noundef nonnull align 1 dereferenceable(3) @.str.19, i64 3, i1 false) #18
   %325 = tail call ptr @T_FileStream_open(ptr noundef nonnull @_ZZ20createCommonDataFileE6buffer, ptr noundef nonnull @.str.20)
   %.not200 = icmp eq ptr %10, null
   br i1 %.not200, label %328, label %326
 
 326:                                              ; preds = %322
-  %327 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) @_ZZ20createCommonDataFileE6buffer) #13
+  %327 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) @_ZZ20createCommonDataFileE6buffer) #18
   br label %328
 
 328:                                              ; preds = %326, %322
@@ -696,17 +696,17 @@ _ZL11allocStringj.exit70.i:                       ; preds = %_ZL11allocStringj.e
 
 330:                                              ; preds = %328
   %331 = load ptr, ptr @stderr, align 8, !tbaa !7
-  %332 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %331, ptr noundef nonnull @.str.21, ptr noundef nonnull @_ZZ20createCommonDataFileE6buffer) #15
-  tail call void @exit(i32 noundef 4) #16
+  %332 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %331, ptr noundef nonnull @.str.21, ptr noundef nonnull @_ZZ20createCommonDataFileE6buffer) #14
+  tail call void @exit(i32 noundef 4) #15
   unreachable
 
 333:                                              ; preds = %328
   %334 = load i32, ptr @_ZL9fileCount, align 4, !tbaa !10
-  %335 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @_ZZ20createCommonDataFileE6buffer, i64 noundef 4096, ptr noundef nonnull @.str.22, ptr noundef nonnull %spec.store.select, ptr noundef nonnull %spec.store.select2, i32 noundef %334) #13
+  %335 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @_ZZ20createCommonDataFileE6buffer, i64 noundef 4096, ptr noundef nonnull @.str.22, ptr noundef nonnull %spec.store.select, ptr noundef nonnull %spec.store.select2, i32 noundef %334) #18
   %336 = tail call i32 @T_FileStream_writeLine(ptr noundef nonnull %325, ptr noundef nonnull @_ZZ20createCommonDataFileE6buffer)
   %337 = load ptr, ptr @_ZL5files, align 8, !tbaa !15
   %338 = load ptr, ptr %337, align 8, !tbaa !20
-  %339 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @_ZZ20createCommonDataFileE6buffer, i64 noundef 4096, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.13, ptr noundef %338) #13
+  %339 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @_ZZ20createCommonDataFileE6buffer, i64 noundef 4096, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.13, ptr noundef %338) #18
   %340 = tail call i32 @T_FileStream_writeLine(ptr noundef nonnull %325, ptr noundef nonnull @_ZZ20createCommonDataFileE6buffer)
   %341 = load i32, ptr @_ZL9fileCount, align 4, !tbaa !10
   %342 = icmp ugt i32 %341, 1
@@ -717,7 +717,7 @@ _ZL11allocStringj.exit70.i:                       ; preds = %_ZL11allocStringj.e
   %343 = load ptr, ptr @_ZL5files, align 8, !tbaa !15
   %344 = getelementptr inbounds nuw %struct.File, ptr %343, i64 %indvars.iv
   %345 = load ptr, ptr %344, align 8, !tbaa !20
-  %346 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @_ZZ20createCommonDataFileE6buffer, i64 noundef 4096, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.13, ptr noundef %345) #13
+  %346 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @_ZZ20createCommonDataFileE6buffer, i64 noundef 4096, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.13, ptr noundef %345) #18
   %347 = tail call i32 @T_FileStream_writeLine(ptr noundef nonnull %325, ptr noundef nonnull @_ZZ20createCommonDataFileE6buffer)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %348 = load i32, ptr @_ZL9fileCount, align 4, !tbaa !10
@@ -729,13 +729,13 @@ _ZL11allocStringj.exit70.i:                       ; preds = %_ZL11allocStringj.e
   %351 = tail call i32 @T_FileStream_writeLine(ptr noundef nonnull %325, ptr noundef nonnull @.str.25)
   %352 = load i32, ptr @_ZL9fileCount, align 4, !tbaa !10
   %353 = zext i32 %352 to i64
-  %354 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @_ZZ20createCommonDataFileE6buffer, i64 noundef 4096, ptr noundef nonnull @.str.26, i64 noundef 8, i64 noundef %353, ptr noundef %2, i64 noundef 20, i32 noundef 0, i32 noundef 0, i32 noundef 2, i64 noundef %353) #13
+  %354 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @_ZZ20createCommonDataFileE6buffer, i64 noundef 4096, ptr noundef nonnull @.str.26, i64 noundef 8, i64 noundef %353, ptr noundef %2, i64 noundef 20, i32 noundef 0, i32 noundef 0, i32 noundef 2, i64 noundef %353) #18
   %355 = tail call i32 @T_FileStream_writeLine(ptr noundef nonnull %325, ptr noundef nonnull @_ZZ20createCommonDataFileE6buffer)
   %356 = load ptr, ptr @_ZL5files, align 8, !tbaa !15
   %357 = getelementptr inbounds nuw i8, ptr %356, i64 8
   %358 = load ptr, ptr %357, align 8, !tbaa !16
   %359 = load ptr, ptr %356, align 8, !tbaa !20
-  %360 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @_ZZ20createCommonDataFileE6buffer, i64 noundef 4096, ptr noundef nonnull @.str.27, ptr noundef %358, ptr noundef nonnull @.str.13, ptr noundef %359) #13
+  %360 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @_ZZ20createCommonDataFileE6buffer, i64 noundef 4096, ptr noundef nonnull @.str.27, ptr noundef %358, ptr noundef nonnull @.str.13, ptr noundef %359) #18
   %361 = tail call i32 @T_FileStream_writeLine(ptr noundef nonnull %325, ptr noundef nonnull @_ZZ20createCommonDataFileE6buffer)
   %362 = load i32, ptr @_ZL9fileCount, align 4, !tbaa !10
   %363 = icmp ugt i32 %362, 1
@@ -748,7 +748,7 @@ _ZL11allocStringj.exit70.i:                       ; preds = %_ZL11allocStringj.e
   %366 = getelementptr inbounds nuw i8, ptr %365, i64 8
   %367 = load ptr, ptr %366, align 8, !tbaa !16
   %368 = load ptr, ptr %365, align 8, !tbaa !20
-  %369 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @_ZZ20createCommonDataFileE6buffer, i64 noundef 4096, ptr noundef nonnull @.str.28, ptr noundef %367, ptr noundef nonnull @.str.13, ptr noundef %368) #13
+  %369 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @_ZZ20createCommonDataFileE6buffer, i64 noundef 4096, ptr noundef nonnull @.str.28, ptr noundef %367, ptr noundef nonnull @.str.13, ptr noundef %368) #18
   %370 = tail call i32 @T_FileStream_writeLine(ptr noundef nonnull %325, ptr noundef nonnull @_ZZ20createCommonDataFileE6buffer)
   %indvars.iv.next278 = add nuw nsw i64 %indvars.iv277, 1
   %371 = load i32, ptr @_ZL9fileCount, align 4, !tbaa !10
@@ -763,96 +763,96 @@ _ZL11allocStringj.exit70.i:                       ; preds = %_ZL11allocStringj.e
   br label %375
 
 375:                                              ; preds = %._crit_edge227, %296, %181
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: allocsize(0)
-declare noalias ptr @uprv_malloc_77(i64 noundef) local_unnamed_addr #2
+declare noalias ptr @uprv_malloc_77(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: nofree noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #4
+declare void @exit(i32 noundef) local_unnamed_addr #3
 
-declare ptr @u_getDataDirectory_77() local_unnamed_addr #5
+declare ptr @u_getDataDirectory_77() local_unnamed_addr #4
 
-declare ptr @T_FileStream_stdin() local_unnamed_addr #5
+declare ptr @T_FileStream_stdin() local_unnamed_addr #4
 
-declare ptr @T_FileStream_open(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare ptr @T_FileStream_open(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #3
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
-declare ptr @T_FileStream_readLine(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
+declare ptr @T_FileStream_readLine(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare ptr @getLongPathname(ptr noundef) local_unnamed_addr #5
+declare ptr @getLongPathname(ptr noundef) local_unnamed_addr #4
 
-declare void @uprv_free_77(ptr noundef) local_unnamed_addr #5
+declare void @uprv_free_77(ptr noundef) local_unnamed_addr #4
 
-declare void @T_FileStream_close(ptr noundef) local_unnamed_addr #5
+declare void @T_FileStream_close(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #6
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef i32 @_ZL12compareFilesPKvS0_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #7 {
+define internal noundef i32 @_ZL12compareFilesPKvS0_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !16
-  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %6) #18
+  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %6) #17
   ret i32 %7
 }
 
-declare ptr @udata_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare ptr @udata_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare ptr @u_errorName_77(i32 noundef) local_unnamed_addr #5
+declare ptr @u_errorName_77(i32 noundef) local_unnamed_addr #4
 
-declare void @udata_write32(ptr noundef, i32 noundef) local_unnamed_addr #5
+declare void @udata_write32(ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare void @udata_writeString(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
+declare void @udata_writeString(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare void @udata_writePadding(ptr noundef, i32 noundef) local_unnamed_addr #5
+declare void @udata_writePadding(ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare i32 @T_FileStream_read(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
+declare i32 @T_FileStream_read(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare void @udata_writeBlock(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
+declare void @udata_writeBlock(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare i32 @udata_finish(ptr noundef, ptr noundef) local_unnamed_addr #5
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @udata_finish(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #8
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #3
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
-declare i32 @T_FileStream_writeLine(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @T_FileStream_writeLine(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: allocsize(1)
-declare ptr @uprv_realloc_77(ptr noundef, i64 noundef) local_unnamed_addr #10
+declare ptr @uprv_realloc_77(ptr noundef, i64 noundef) local_unnamed_addr #9
 
-declare signext i8 @uprv_pathIsAbsolute_77(ptr noundef) local_unnamed_addr #5
+declare signext i8 @uprv_pathIsAbsolute_77(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcat(ptr noalias noundef returned, ptr noalias noundef readonly captures(none)) local_unnamed_addr #8
+declare ptr @strcat(ptr noalias noundef returned, ptr noalias noundef readonly captures(none)) local_unnamed_addr #7
 
-declare i32 @T_FileStream_size(ptr noundef) local_unnamed_addr #5
+declare i32 @T_FileStream_size(ptr noundef) local_unnamed_addr #4
 
-declare i32 @T_FileStream_error(ptr noundef) local_unnamed_addr #5
+declare i32 @T_FileStream_error(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #9
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
@@ -861,24 +861,24 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #12
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { nofree nounwind }
-attributes #13 = { nounwind }
-attributes #14 = { allocsize(0) }
-attributes #15 = { cold nounwind }
-attributes #16 = { cold noreturn nounwind }
-attributes #17 = { allocsize(1) }
-attributes #18 = { nounwind willreturn memory(read) }
+attributes #13 = { allocsize(0) }
+attributes #14 = { cold nounwind }
+attributes #15 = { cold noreturn nounwind }
+attributes #16 = { allocsize(1) }
+attributes #17 = { nounwind willreturn memory(read) }
+attributes #18 = { nounwind }
 attributes #19 = { cold }
 attributes #20 = { noreturn nounwind }
 

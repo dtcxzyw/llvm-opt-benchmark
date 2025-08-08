@@ -213,9 +213,6 @@ _ZL27ucnv_getSharedConverterDataPKc.exit.thread:  ; preds = %14, %_ZL27ucnv_getS
   ret ptr %.018
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress uwtable
 define internal fastcc noundef ptr @_ZL23createConverterFromFileP18UConverterLoadArgsP10UErrorCode(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr %1, align 4, !tbaa !13
@@ -328,7 +325,7 @@ _ZL24ucnv_data_unFlattenCloneP18UConverterLoadArgsP11UDataMemoryP10UErrorCode.ex
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZL23ucnv_shareConverterDataP20UConverterSharedData(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 4, !tbaa !13
   %3 = load ptr, ptr @_ZL21SHARED_DATA_HASHTABLE, align 8, !tbaa !3
   %4 = icmp eq ptr %3, null
@@ -360,12 +357,9 @@ define internal fastcc void @_ZL23ucnv_shareConverterDataP20UConverterSharedData
   br label %19
 
 19:                                               ; preds = %5, %12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress uwtable
 define void @ucnv_unload_77(ptr noundef %0) local_unnamed_addr #0 {
@@ -519,11 +513,11 @@ define ptr @ucnv_loadSharedData_77(ptr noundef %0, ptr noundef %1, ptr noundef %
   %7 = alloca %struct.UConverterLoadArgs, align 8
   %8 = alloca i32, align 4
   %9 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %6) #11
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #11
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4, !tbaa !13
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 1, ptr %9, align 1, !tbaa !19
   %10 = load i32, ptr %3, align 4, !tbaa !13
   %11 = icmp slt i32 %10, 1
@@ -684,7 +678,7 @@ define ptr @ucnv_loadSharedData_77(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 71:                                               ; preds = %67, %70
   %72 = phi ptr [ %68, %67 ], [ %.pre, %70 ]
-  call void @llvm.lifetime.start.p0(i64 60, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %73 = call ptr @ucnv_io_stripASCIIForCompare_77(ptr noundef nonnull %5, ptr noundef %72)
   br label %74
 
@@ -695,7 +689,7 @@ define ptr @ucnv_loadSharedData_77(ptr noundef %0, ptr noundef %1, ptr noundef %
   %76 = zext nneg i32 %75 to i64
   %77 = getelementptr inbounds nuw [34 x %struct.anon], ptr @_ZL11cnvNameType, i64 0, i64 %76
   %78 = load ptr, ptr %77, align 16, !tbaa !49
-  %79 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %78) #12
+  %79 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %78) #11
   %80 = icmp slt i32 %79, 0
   br i1 %80, label %82, label %81
 
@@ -712,7 +706,7 @@ define ptr @ucnv_loadSharedData_77(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %85, label %_ZL26getAlgorithmicTypeFromNamePKc.exit.thread, label %74, !llvm.loop !51
 
 _ZL26getAlgorithmicTypeFromNamePKc.exit.thread:   ; preds = %82
-  call void @llvm.lifetime.end.p0(i64 60, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %93
 
 _ZL26getAlgorithmicTypeFromNamePKc.exit:          ; preds = %81
@@ -721,7 +715,7 @@ _ZL26getAlgorithmicTypeFromNamePKc.exit:          ; preds = %81
   %88 = sext i32 %87 to i64
   %89 = getelementptr inbounds [34 x ptr], ptr @_ZL13converterData, i64 0, i64 %88
   %90 = load ptr, ptr %89, align 8, !tbaa !33
-  call void @llvm.lifetime.end.p0(i64 60, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %91 = shl nuw i64 1, %88
   %92 = and i64 %91, 515
   %.not = icmp eq i64 %92, 0
@@ -794,18 +788,18 @@ ucnv_load_77.exit:                                ; preds = %93, %100, %_ZL27ucn
 
 121:                                              ; preds = %ucnv_load_77.exit, %_ZL26getAlgorithmicTypeFromNamePKc.exit, %54, %4, %53, %19, %15
   %.0 = phi ptr [ null, %15 ], [ @_UTF8Data_77, %19 ], [ @_UTF8Data_77, %53 ], [ null, %4 ], [ null, %54 ], [ %90, %_ZL26getAlgorithmicTypeFromNamePKc.exit ], [ %spec.select, %ucnv_load_77.exit ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #11
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #11
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #11
-  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZL21parseConverterOptionsPKcP20UConverterNamePiecesP18UConverterLoadArgsP10UErrorCode(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull writeonly captures(none) initializes((12, 16), (24, 40)) %2, ptr noundef writeonly captures(none) %3) unnamed_addr #4 {
+define internal fastcc void @_ZL21parseConverterOptionsPKcP20UConverterNamePiecesP18UConverterLoadArgsP10UErrorCode(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull writeonly captures(none) initializes((12, 16), (24, 40)) %2, ptr noundef writeonly captures(none) %3) unnamed_addr #3 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %0, ptr %5, align 8, !tbaa !20
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 60
@@ -862,7 +856,7 @@ define internal fastcc void @_ZL21parseConverterOptionsPKcP20UConverterNamePiece
 
 23:                                               ; preds = %.loopexit64, %21
   %.2 = phi ptr [ %22, %21 ], [ %.156, %.loopexit64 ]
-  %24 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.2, ptr noundef nonnull dereferenceable(8) @.str.12, i64 noundef 7) #12
+  %24 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.2, ptr noundef nonnull dereferenceable(8) @.str.12, i64 noundef 7) #11
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %26, label %38
 
@@ -912,7 +906,7 @@ define internal fastcc void @_ZL21parseConverterOptionsPKcP20UConverterNamePiece
   br label %.loopexit64, !llvm.loop !57
 
 38:                                               ; preds = %23
-  %39 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.2, ptr noundef nonnull dereferenceable(9) @.str.13, i64 noundef 8) #12
+  %39 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.2, ptr noundef nonnull dereferenceable(9) @.str.13, i64 noundef 8) #11
   %40 = icmp eq i32 %39, 0
   br i1 %40, label %41, label %58
 
@@ -946,7 +940,7 @@ define internal fastcc void @_ZL21parseConverterOptionsPKcP20UConverterNamePiece
   br label %.loopexit64.backedge
 
 58:                                               ; preds = %38
-  %59 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.2, ptr noundef nonnull dereferenceable(9) @.str.14, i64 noundef 8) #12
+  %59 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.2, ptr noundef nonnull dereferenceable(9) @.str.14, i64 noundef 8) #11
   %60 = icmp eq i32 %59, 0
   br i1 %60, label %61, label %.preheader
 
@@ -977,8 +971,8 @@ declare ptr @ucnv_io_getConverterName_77(ptr noundef, ptr noundef, ptr noundef) 
 define noundef ptr @ucnv_createConverter_77(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.UConverterNamePieces, align 4
   %5 = alloca %struct.UConverterLoadArgs, align 8
-  call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %4) #11
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false)
   store i32 40, ptr %5, align 8
   %6 = load i32, ptr %2, align 4, !tbaa !13
@@ -997,8 +991,8 @@ define noundef ptr @ucnv_createConverter_77(ptr noundef %0, ptr noundef %1, ptr 
 
 14:                                               ; preds = %8, %13
   %.0 = phi ptr [ null, %13 ], [ %10, %8 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
 
@@ -1220,9 +1214,9 @@ define signext range(i8 0, 2) i8 @ucnv_canCreateConverter_77(ptr noundef %0, ptr
   %3 = alloca %struct.UConverter, align 8
   %4 = alloca %struct.UConverterNamePieces, align 4
   %5 = alloca %struct.UConverterLoadArgs, align 8
-  call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %3) #11
-  call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %4) #11
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false)
   store i32 40, ptr %5, align 8
   %6 = load i32, ptr %1, align 4, !tbaa !13
@@ -1296,16 +1290,16 @@ ucnv_unloadSharedDataIfReady_77.exit:             ; preds = %ucnv_unload_77.exit
   %34 = load i32, ptr %1, align 4, !tbaa !13
   %35 = icmp slt i32 %34, 1
   %36 = zext i1 %35 to i8
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %4) #11
-  call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i8 %36
 }
 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @ucnv_createAlgorithmicConverter_77(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.UConverterLoadArgs, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, i8 0, i64 24, i1 false)
   store i32 40, ptr %6, align 8
   %or.cond = icmp ugt i32 %1, 33
@@ -1346,7 +1340,7 @@ define noundef ptr @ucnv_createAlgorithmicConverter_77(ptr noundef %0, i32 nound
 
 23:                                               ; preds = %18, %17, %7
   %.0 = phi ptr [ null, %7 ], [ null, %17 ], [ %22, %18 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0
 }
 
@@ -1354,8 +1348,8 @@ define noundef ptr @ucnv_createAlgorithmicConverter_77(ptr noundef %0, i32 nound
 define noundef ptr @ucnv_createConverterFromPackage_77(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.UConverterNamePieces, align 4
   %5 = alloca %struct.UConverterLoadArgs, align 8
-  call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %4) #11
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false)
   store i32 40, ptr %5, align 8
@@ -1396,27 +1390,27 @@ define noundef ptr @ucnv_createConverterFromPackage_77(ptr noundef %0, ptr nound
 
 25:                                               ; preds = %20, %14, %9, %3, %24
   %.0 = phi ptr [ null, %24 ], [ null, %3 ], [ null, %9 ], [ null, %14 ], [ %21, %20 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
 
 declare void @ucnv_close_77(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @uprv_malloc_77(i64 noundef) local_unnamed_addr #5
+declare noalias ptr @uprv_malloc_77(i64 noundef) local_unnamed_addr #4
 
 declare void @UCNV_TO_U_CALLBACK_SUBSTITUTE_77(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) #1
 
 declare void @UCNV_FROM_U_CALLBACK_SUBSTITUTE_77(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress uwtable
 define i32 @ucnv_flushCache_77() local_unnamed_addr #0 {
   %1 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   tail call void @u_flushDefaultConverter_77()
   %2 = load ptr, ptr @_ZL21SHARED_DATA_HASHTABLE, align 8, !tbaa !3
   %3 = icmp eq ptr %2, null
@@ -1506,7 +1500,7 @@ _ZL30ucnv_deleteSharedConverterDataP20UConverterSharedData.exit: ; preds = %31, 
 
 38:                                               ; preds = %0, %._crit_edge.thread
   %.011 = phi i32 [ %.113.lcssa22, %._crit_edge.thread ], [ 0, %0 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.011
 }
 
@@ -1566,11 +1560,11 @@ define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL26haveAvailableConv
   br label %_ZL27initAvailableConvertersListR10UErrorCode.exit
 
 ucnv_loadSharedData_77.exit.i:                    ; preds = %17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !13
-  call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %5) #11
-  call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %2) #11
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 24, i1 false)
   store i32 40, ptr %3, align 8
   %.057.sroa.gep.i.i = getelementptr inbounds nuw i8, ptr %2, i64 60
@@ -1586,8 +1580,8 @@ ucnv_loadSharedData_77.exit.i:                    ; preds = %17
   %23 = load i32, ptr %4, align 4, !tbaa !13
   %24 = icmp sgt i32 %23, 0
   %spec.select.i = select i1 %24, ptr null, ptr %22
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #11
-  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @ucnv_close_77(ptr noundef %spec.select.i)
   store i16 0, ptr @_ZL24gAvailableConverterCount, align 2, !tbaa !8
   %25 = icmp sgt i32 %14, 0
@@ -1595,8 +1589,8 @@ ucnv_loadSharedData_77.exit.i:                    ; preds = %17
 
 ._crit_edge.i:                                    ; preds = %34, %ucnv_loadSharedData_77.exit.i
   call void @uenum_close_77(ptr noundef %13)
-  call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.pre = load i32, ptr %0, align 4, !tbaa !13
   br label %_ZL27initAvailableConvertersListR10UErrorCode.exit
 
@@ -1673,12 +1667,12 @@ define ptr @ucnv_bld_getAvailableConverter_77(i16 noundef zeroext %0, ptr nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @ucnv_getDefaultName_77() local_unnamed_addr #7 {
+define noundef nonnull ptr @ucnv_getDefaultName_77() local_unnamed_addr #6 {
   ret ptr @.str
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @ucnv_setDefaultName_77(ptr noundef readnone captures(none) %0) local_unnamed_addr #7 {
+define void @ucnv_setDefaultName_77(ptr noundef readnone captures(none) %0) local_unnamed_addr #6 {
   ret void
 }
 
@@ -1805,7 +1799,7 @@ define i32 @ucnv_swap_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nou
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %84 = load ptr, ptr %83, align 8, !tbaa !89
   %85 = getelementptr inbounds nuw i8, ptr %51, i64 4
-  %86 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %85) #12
+  %86 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %85) #11
   %87 = trunc i64 %86 to i32
   %88 = getelementptr inbounds nuw i8, ptr %53, i64 4
   %89 = tail call noundef i32 %84(ptr noundef nonnull %0, ptr noundef nonnull %85, i32 noundef %87, ptr noundef nonnull %88, ptr noundef nonnull %4)
@@ -2050,7 +2044,7 @@ switch.early.test:                                ; preds = %169
   %210 = getelementptr inbounds nuw i8, ptr %spec.select422, i64 %208
   %211 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %212 = load ptr, ptr %211, align 8, !tbaa !89
-  %213 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %209) #12
+  %213 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %209) #11
   %214 = trunc i64 %213 to i32
   %215 = tail call noundef i32 %212(ptr noundef nonnull %0, ptr noundef nonnull %209, i32 noundef %214, ptr noundef %210, ptr noundef nonnull %4)
   br label %275
@@ -2256,7 +2250,7 @@ declare i32 @udata_swapDataHeader_77(ptr noundef, ptr noundef, i32 noundef, ptr 
 declare void @udata_printError_77(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 declare i32 @udata_readInt32_77(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -2271,7 +2265,7 @@ declare i32 @__gxx_personality_v0(...)
 declare ptr @udata_openChoice_77(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef signext range(i8 0, 2) i8 @_ZL15isCnvAcceptablePvPKcS1_PK9UDataInfo(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef readonly captures(none) %3) #9 {
+define internal noundef signext range(i8 0, 2) i8 @_ZL15isCnvAcceptablePvPKcS1_PK9UDataInfo(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef readonly captures(none) %3) #8 {
   %5 = load i16, ptr %3, align 2, !tbaa !102
   %6 = icmp ugt i16 %5, 19
   br i1 %6, label %7, label %40
@@ -2347,12 +2341,12 @@ declare zeroext i16 @ucnv_io_countKnownConverters_77(ptr noundef) local_unnamed_
 declare ptr @uhash_put_77(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #8
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #7
 
 declare ptr @ucnv_io_stripASCIIForCompare_77(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 declare noundef signext i8 @_ZN6icu_7720umtx_initImplPreInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #1
 
@@ -2366,19 +2360,24 @@ declare ptr @uenum_next_77(ptr noundef, ptr noundef, ptr noundef) local_unnamed_
 
 declare void @uenum_close_77(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
+
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { mustprogress nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { mustprogress nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { allocsize(0) }
-attributes #11 = { nounwind }
-attributes #12 = { nounwind willreturn memory(read) }
+attributes #11 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

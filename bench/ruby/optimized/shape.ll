@@ -61,9 +61,6 @@ define dso_local void @rb_shape_each_shape(ptr noundef readonly captures(none) %
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden ptr @rb_shape_get_shape_by_id(i32 noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @rb_shape_tree_ptr, align 8, !tbaa !7
@@ -72,9 +69,6 @@ define hidden ptr @rb_shape_get_shape_by_id(i32 noundef %0) local_unnamed_addr #
   %5 = getelementptr %struct.rb_shape, ptr %3, i64 %4
   ret ptr %5
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden ptr @rb_shape_get_parent(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -108,7 +102,7 @@ define hidden i32 @rb_shape_get_shape_id(i64 noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
-define dso_local i64 @rb_shape_depth(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
+define dso_local i64 @rb_shape_depth(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %3 = load i32, ptr %2, align 4, !tbaa !20
   %.not4 = icmp eq i32 %3, -1
@@ -157,7 +151,7 @@ rb_shape_get_shape_id.exit:                       ; preds = %1, %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define hidden range(i32 0, 2) i32 @rb_shape_frozen_shape_p(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @rb_shape_frozen_shape_p(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i8, ptr %2, align 8, !tbaa !27
   %4 = icmp eq i8 %3, 2
@@ -175,7 +169,7 @@ define hidden noundef zeroext i1 @rb_shape_transition_shape_remove_ivar(i64 noun
   br i1 %9, label %70, label %10, !prof !28
 
 10:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !29
   %11 = call fastcc ptr @remove_shape_recursive(ptr noundef nonnull %2, i64 noundef %1, ptr noundef %5)
   %.not = icmp eq ptr %11, null
@@ -214,11 +208,11 @@ define hidden noundef zeroext i1 @rb_shape_transition_shape_remove_ivar(i64 noun
   br label %ROBJECT_IVPTR.exit
 
 29:                                               ; preds = %16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %30 = call i32 @rb_gen_ivtbl_get(i64 noundef %0, i64 noundef %1, ptr noundef nonnull %6) #15
   %31 = load ptr, ptr %6, align 8, !tbaa !38
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %ROBJECT_IVPTR.exit
 
 ROBJECT_IVPTR.exit:                               ; preds = %27, %24, %29, %21
@@ -284,7 +278,7 @@ ruby_nonempty_memcpy.exit:                        ; preds = %ROBJECT_IVPTR.exit3
 
 69:                                               ; preds = %10, %60, %12
   %.1 = phi i1 [ false, %12 ], [ true, %60 ], [ true, %10 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %70
 
 70:                                               ; preds = %4, %69
@@ -336,13 +330,13 @@ define internal fastcc ptr @remove_shape_recursive(ptr noundef %0, i64 noundef %
   br i1 %30, label %37, label %31, !prof !28
 
 31:                                               ; preds = %27
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %33 = load i64, ptr %32, align 8, !tbaa !42
   %34 = load i8, ptr %9, align 8, !tbaa !27
   %35 = zext i8 %34 to i32
   %36 = call fastcc ptr @get_next_shape_internal(ptr noundef nonnull %26, i64 noundef %33, i32 noundef %35, ptr noundef %4, i1 noundef zeroext true)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %37
 
 37:                                               ; preds = %31, %27, %21, %3, %16
@@ -350,13 +344,13 @@ define internal fastcc ptr @remove_shape_recursive(ptr noundef %0, i64 noundef %
   ret ptr %.0
 }
 
-declare i32 @rb_gen_ivtbl_get(i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @rb_gen_ivtbl_get(i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
 
-declare i64 @rb_obj_embedded_size(i32 noundef) local_unnamed_addr #5
+declare i64 @rb_obj_embedded_size(i32 noundef) local_unnamed_addr #4
 
-declare i64 @rb_gc_obj_slot_size(i64 noundef) local_unnamed_addr #5
+declare i64 @rb_gc_obj_slot_size(i64 noundef) local_unnamed_addr #4
 
-declare void @ruby_xfree(ptr noundef) local_unnamed_addr #5
+declare void @ruby_xfree(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden void @rb_shape_set_shape(i64 noundef %0, ptr noundef %1) local_unnamed_addr #1 {
@@ -422,10 +416,10 @@ rb_shape_obj_too_complex.exit.thread:             ; preds = %rb_shape_get_shape.
   br label %34
 
 31:                                               ; preds = %rb_shape_obj_too_complex.exit.thread
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %32 = load i64, ptr @id_frozen, align 8, !tbaa !41
   %33 = call fastcc ptr @get_next_shape_internal(ptr noundef %25, i64 noundef %32, i32 noundef 2, ptr noundef %2, i1 noundef zeroext true)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %34
 
 34:                                               ; preds = %rb_shape_get_shape.exit.thread, %29, %31, %rb_shape_get_shape.exit, %rb_shape_obj_too_complex.exit
@@ -458,7 +452,7 @@ define internal fastcc ptr @get_next_shape_internal(ptr noundef %0, i64 noundef 
   %6 = alloca i32, align 4
   %7 = alloca i64, align 8
   store i8 0, ptr %3, align 1, !tbaa !43
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %8 = load ptr, ptr @ruby_single_main_ractor, align 8, !tbaa !44
   %.not.i.i = icmp eq ptr %8, null
   br i1 %.not.i.i, label %9, label %rb_vm_lock_enter.exit
@@ -487,12 +481,12 @@ rb_vm_lock_enter.exit:                            ; preds = %5, %9
   br i1 %19, label %.thread39, label %.thread
 
 20:                                               ; preds = %11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %21 = call i32 @rb_id_table_lookup(ptr noundef nonnull %10, i64 noundef %1, ptr noundef nonnull %7) #15
   %.not31 = icmp eq i32 %21, 0
   %22 = load i64, ptr %7, align 8
   %23 = inttoptr i64 %22 to ptr
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not32 = icmp eq i64 %22, 0
   %or.cond = select i1 %.not31, i1 true, i1 %.not32
   br i1 %or.cond, label %.thread, label %.thread39
@@ -632,16 +626,16 @@ rb_shape_alloc_new_child.exit:                    ; preds = %rb_shape_alloc.exit
   br label %rb_vm_lock_leave.exit
 
 rb_vm_lock_leave.exit:                            ; preds = %.thread39, %89
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.3
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden ptr @rb_shape_get_next_iv_shape(ptr noundef %0, i64 noundef %1) local_unnamed_addr #1 {
   %3 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call fastcc ptr @get_next_shape_internal(ptr noundef %0, i64 noundef %1, i32 noundef 1, ptr noundef %3, i1 noundef zeroext true)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %4
 }
 
@@ -652,7 +646,7 @@ define hidden ptr @rb_shape_get_next(ptr noundef %0, i64 noundef %1, i64 noundef
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal fastcc ptr @shape_get_next(ptr noundef %0, i64 noundef %1, i64 noundef %2, i1 noundef zeroext %3) unnamed_addr #6 {
+define internal fastcc ptr @shape_get_next(ptr noundef %0, i64 noundef %1, i64 noundef %2, i1 noundef zeroext %3) unnamed_addr #5 {
   %5 = alloca i8, align 1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i8, ptr %6, align 8, !tbaa !27
@@ -676,7 +670,7 @@ define internal fastcc ptr @shape_get_next(ptr noundef %0, i64 noundef %1, i64 n
 
 20:                                               ; preds = %14, %9
   %.019 = phi i1 [ %19, %14 ], [ true, %9 ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %21 = call fastcc ptr @get_next_shape_internal(ptr noundef nonnull %0, i64 noundef %2, i32 noundef 1, ptr noundef %5, i1 noundef zeroext %.019)
   %22 = load i64, ptr %10, align 8, !tbaa !24
   %23 = and i64 %22, 31
@@ -724,7 +718,7 @@ define internal fastcc ptr @shape_get_next(ptr noundef %0, i64 noundef %1, i64 n
   br label %48
 
 48:                                               ; preds = %34, %43, %46, %41, %37, %20
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %49
 
 49:                                               ; preds = %4, %48
@@ -757,7 +751,7 @@ define hidden ptr @rb_shape_get_next_no_warnings(ptr noundef %0, i64 noundef %1,
 
 19:                                               ; preds = %13, %8
   %.019.i = phi i1 [ %18, %13 ], [ true, %8 ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %20 = call fastcc ptr @get_next_shape_internal(ptr noundef nonnull %0, i64 noundef %2, i32 noundef 1, ptr noundef %4, i1 noundef zeroext %.019.i)
   %21 = load i64, ptr %9, align 8, !tbaa !24
   %22 = and i64 %21, 31
@@ -791,7 +785,7 @@ define hidden ptr @rb_shape_get_next_no_warnings(ptr noundef %0, i64 noundef %1,
   br label %40
 
 40:                                               ; preds = %36, %33, %19
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %shape_get_next.exit
 
 shape_get_next.exit:                              ; preds = %3, %40
@@ -1232,10 +1226,10 @@ shape_get_iv_index.exit:                          ; preds = %tailrecurse.backedg
   ret i1 %.0
 }
 
-declare zeroext i1 @rb_shape_set_shape_id(i64 noundef, i32 noundef) local_unnamed_addr #5
+declare zeroext i1 @rb_shape_set_shape_id(i64 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define hidden noundef i32 @rb_shape_id_offset() local_unnamed_addr #7 {
+define hidden noundef i32 @rb_shape_id_offset() local_unnamed_addr #6 {
   ret i32 4
 }
 
@@ -1316,10 +1310,10 @@ thread-pre-split:                                 ; preds = %8
   ret ptr %.0
 }
 
-declare i32 @rb_id_table_lookup(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @rb_id_table_lookup(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: cold noreturn
-declare void @rb_bug(ptr noundef, ...) local_unnamed_addr #8
+declare void @rb_bug(ptr noundef, ...) local_unnamed_addr #7
 
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden ptr @rb_shape_rebuild_shape(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
@@ -1364,9 +1358,9 @@ thread-pre-split:                                 ; preds = %8
 26:                                               ; preds = %24
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %28 = load i64, ptr %27, align 8, !tbaa !42
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %29 = call fastcc ptr @get_next_shape_internal(ptr noundef %.0, i64 noundef %28, i32 noundef 1, ptr noundef %3, i1 noundef zeroext true)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %31
 
 30:                                               ; preds = %24
@@ -1399,7 +1393,7 @@ define dso_local i64 @rb_shape_edges_count(ptr noundef readonly captures(none) %
   ret i64 %.0
 }
 
-declare i64 @rb_id_table_size(ptr noundef) local_unnamed_addr #5
+declare i64 @rb_id_table_size(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @rb_shape_memsize(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
@@ -1421,7 +1415,7 @@ define dso_local i64 @rb_shape_memsize(ptr noundef readonly captures(none) %0) l
   ret i64 %.0
 }
 
-declare i64 @rb_id_table_memsize(ptr noundef) local_unnamed_addr #5
+declare i64 @rb_id_table_memsize(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden void @Init_default_shapes() local_unnamed_addr #1 {
@@ -1514,7 +1508,7 @@ rb_shape_alloc_with_parent_id.exit:               ; preds = %28
   %44 = load ptr, ptr @rb_shape_tree_ptr, align 8, !tbaa !7
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store ptr %37, ptr %45, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %1) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %46 = load i64, ptr @id_frozen, align 8, !tbaa !41
   %47 = call fastcc ptr @get_next_shape_internal(ptr noundef nonnull %37, i64 noundef %46, i32 noundef 2, ptr noundef %1, i1 noundef zeroext true)
   %48 = load ptr, ptr @rb_shape_tree_ptr, align 8, !tbaa !7
@@ -1546,7 +1540,7 @@ rb_shape_alloc_with_parent_id.exit22:             ; preds = %rb_shape_alloc_with
   br i1 %.not2124, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %rb_shape_alloc_with_parent_id.exit23, %rb_shape_alloc_with_parent_id.exit22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %1) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 
 .lr.ph:                                           ; preds = %rb_shape_alloc_with_parent_id.exit22, %rb_shape_alloc_with_parent_id.exit23
@@ -1599,37 +1593,37 @@ rb_shape_alloc_with_parent_id.exit23:             ; preds = %.lr.ph
 }
 
 ; Function Attrs: allocsize(0,1)
-declare noalias nonnull ptr @ruby_xcalloc(i64 noundef, i64 noundef) local_unnamed_addr #9
+declare noalias nonnull ptr @ruby_xcalloc(i64 noundef, i64 noundef) local_unnamed_addr #8
 
-declare i64 @rb_size_mul_or_raise(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #5
+declare i64 @rb_size_mul_or_raise(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare ptr @mmap(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #10
+declare ptr @mmap(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #9
 
-declare void @ruby_annotate_mmap(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #5
+declare void @ruby_annotate_mmap(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: cold noreturn
-declare void @rb_memerror() local_unnamed_addr #8
+declare void @rb_memerror() local_unnamed_addr #7
 
-declare i64 @rb_make_internal_id() local_unnamed_addr #5
+declare i64 @rb_make_internal_id() local_unnamed_addr #4
 
-declare ptr @rb_gc_heap_sizes() local_unnamed_addr #5
+declare ptr @rb_gc_heap_sizes() local_unnamed_addr #4
 
-declare ptr @rb_id_table_create(i64 noundef) local_unnamed_addr #5
+declare ptr @rb_id_table_create(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define hidden void @Init_shape() local_unnamed_addr #7 {
+define hidden void @Init_shape() local_unnamed_addr #6 {
   ret void
 }
 
-declare i32 @rb_id_table_insert(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #5
+declare i32 @rb_id_table_insert(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #4
 
-declare void @rb_vm_lock_enter_body(ptr noundef) local_unnamed_addr #5
+declare void @rb_vm_lock_enter_body(ptr noundef) local_unnamed_addr #4
 
-declare i64 @rb_malloc_grow_capa(i64 noundef, i64 noundef) local_unnamed_addr #5
+declare i64 @rb_malloc_grow_capa(i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc ptr @redblack_cache_ancestors(ptr noundef %0) unnamed_addr #11 {
+define internal fastcc ptr @redblack_cache_ancestors(ptr noundef %0) unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8, !tbaa !55
   %.not = icmp eq ptr %3, null
@@ -1684,7 +1678,7 @@ redblack_insert.exit:                             ; preds = %25, %redblack_red_p
 }
 
 ; Function Attrs: nofree nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef ptr @redblack_insert_aux(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0, i64 noundef %1, ptr noundef %2) unnamed_addr #11 {
+define internal fastcc noundef ptr @redblack_insert_aux(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0, i64 noundef %1, ptr noundef %2) unnamed_addr #10 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %22
 
@@ -2287,16 +2281,22 @@ redblack_new.exit:                                ; preds = %redblack_new.exit.s
   ret ptr %.022
 }
 
-declare void @rb_vm_lock_leave_body(ptr noundef) local_unnamed_addr #5
+declare void @rb_vm_lock_leave_body(ptr noundef) local_unnamed_addr #4
 
-declare i64 @rb_obj_class(i64 noundef) local_unnamed_addr #5
+declare i64 @rb_obj_class(i64 noundef) local_unnamed_addr #4
 
-declare zeroext i1 @rb_warning_category_enabled_p(i32 noundef) local_unnamed_addr #5
+declare zeroext i1 @rb_warning_category_enabled_p(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: cold
-declare void @rb_category_warn(i32 noundef, ptr noundef, ...) local_unnamed_addr #12
+declare void @rb_category_warn(i32 noundef, ptr noundef, ...) local_unnamed_addr #11
 
-declare i64 @rb_class_path(i64 noundef) local_unnamed_addr #5
+declare i64 @rb_class_path(i64 noundef) local_unnamed_addr #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
@@ -2309,17 +2309,17 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { inlinehint nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { cold noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nofree nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { inlinehint nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { cold noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nofree nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #14 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #15 = { nounwind }

@@ -1921,10 +1921,10 @@ while.body:                                       ; preds = %entry, %if.end
   br i1 %cmp1, label %if.then, label %if.end
 
 if.then:                                          ; preds = %while.body
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__comp.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__comp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__comp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__comp.i.i)
   call void @_ZSt11__make_heapIPSt4pairIjjEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_RT0_(ptr noundef %__first, ptr noundef %__last.addr.016, ptr noundef nonnull align 1 dereferenceable(1) %__comp.i.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__comp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__comp.i.i)
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %if.then, %while.body.i.i
@@ -1937,7 +1937,7 @@ while.body.i.i:                                   ; preds = %if.then, %while.bod
   br i1 %cmp.i4.i, label %while.body.i.i, label %_ZSt14__partial_sortIPSt4pairIjjEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_S6_T0_.exit, !llvm.loop !31
 
 _ZSt14__partial_sortIPSt4pairIjjEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_S6_T0_.exit: ; preds = %while.body.i.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__comp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__comp.i)
   br label %while.end
 
 if.end:                                           ; preds = %while.body
@@ -2826,10 +2826,10 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %cmp1, label %if.then, label %if.end
 
 if.then:                                          ; preds = %while.body
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__comp.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__comp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__comp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__comp.i.i)
   call void @_ZSt11__make_heapIPN6hermes20ExceptionHandlerInfoEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_RT0_(ptr noundef %__first, ptr noundef %__last.addr.019, ptr noundef nonnull align 1 dereferenceable(1) %__comp.i.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__comp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__comp.i.i)
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %if.then, %while.body.i.i
@@ -2842,7 +2842,7 @@ while.body.i.i:                                   ; preds = %if.then, %while.bod
   br i1 %cmp.i4.i, label %while.body.i.i, label %_ZSt14__partial_sortIPN6hermes20ExceptionHandlerInfoEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_S6_T0_.exit, !llvm.loop !43
 
 _ZSt14__partial_sortIPN6hermes20ExceptionHandlerInfoEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_S6_T0_.exit: ; preds = %while.body.i.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__comp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__comp.i)
   br label %while.end
 
 if.end:                                           ; preds = %while.body
@@ -2908,11 +2908,11 @@ while.end8.i.i:                                   ; preds = %land.rhs.i.i16.i.i,
   br i1 %cmp.i.i, label %if.end.i.i, label %_ZSt27__unguarded_partition_pivotIPN6hermes20ExceptionHandlerInfoEN9__gnu_cxx5__ops15_Iter_less_iterEET_S6_S6_T0_.exit
 
 if.end.i.i:                                       ; preds = %while.end8.i.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %__tmp.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %__first.addr.1.i.i, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %__first.addr.1.i.i, ptr noundef nonnull align 4 dereferenceable(16) %__last.addr.1.i.i, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %__last.addr.1.i.i, ptr noundef nonnull align 4 dereferenceable(16) %__tmp.i.i.i.i, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.i.i.i.i)
   %incdec.ptr9.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.1.i.i, i64 16
   br label %while.body.i.i10, !llvm.loop !46
 
@@ -2940,7 +2940,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__val.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__val.i)
   %depth2.i.i.i = getelementptr inbounds nuw i8, ptr %__first, i64 12
   %scevgep = getelementptr i8, ptr %__first, i64 16
   br label %for.body.i
@@ -3012,7 +3012,7 @@ for.inc.i:                                        ; preds = %_ZSt25__unguarded_l
 
 _ZSt16__insertion_sortIPN6hermes20ExceptionHandlerInfoEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_.exit: ; preds = %for.inc.i
   %add.ptr = getelementptr inbounds nuw i8, ptr %__first, i64 256
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__val.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__val.i)
   %cmp.not3.i = icmp eq ptr %add.ptr, %__last
   br i1 %cmp.not3.i, label %if.end, label %for.body.i7
 
@@ -3057,7 +3057,7 @@ _ZSt25__unguarded_linear_insertIPN6hermes20ExceptionHandlerInfoEN9__gnu_cxx5__op
   br i1 %cmp.not.i, label %if.end, label %for.body.i7, !llvm.loop !50
 
 if.else:                                          ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__val.i22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__val.i22)
   %cmp.i = icmp eq ptr %__first, %__last
   br i1 %cmp.i, label %_ZSt16__insertion_sortIPN6hermes20ExceptionHandlerInfoEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_.exit61, label %for.cond.preheader.i
 
@@ -3141,7 +3141,7 @@ for.inc.i46:                                      ; preds = %_ZSt25__unguarded_l
   br i1 %cmp1.not.i48, label %_ZSt16__insertion_sortIPN6hermes20ExceptionHandlerInfoEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_.exit61, label %for.body.i26, !llvm.loop !49
 
 _ZSt16__insertion_sortIPN6hermes20ExceptionHandlerInfoEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_.exit61: ; preds = %for.inc.i46, %if.else, %for.cond.preheader.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__val.i22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__val.i22)
   br label %if.end
 
 if.end:                                           ; preds = %_ZSt25__unguarded_linear_insertIPN6hermes20ExceptionHandlerInfoEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i16, %_ZSt16__insertion_sortIPN6hermes20ExceptionHandlerInfoEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_.exit, %_ZSt16__insertion_sortIPN6hermes20ExceptionHandlerInfoEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_.exit61
@@ -3548,11 +3548,11 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN6hermes20ExceptionHandlerInfoES5_EEbT_
   br i1 %cmp7.i.i25, label %if.then2, label %if.else
 
 if.then2:                                         ; preds = %if.then, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN6hermes20ExceptionHandlerInfoES5_EEbT_T0_.exit26
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %__tmp.i.i, ptr noundef nonnull align 4 dereferenceable(16) %__result, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %__result, ptr noundef nonnull align 4 dereferenceable(16) %__b, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %__b, ptr noundef nonnull align 4 dereferenceable(16) %__tmp.i.i, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.i.i)
   br label %if.end16
 
 if.else:                                          ; preds = %lor.rhs.i.i22, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN6hermes20ExceptionHandlerInfoES5_EEbT_T0_.exit26
@@ -3570,19 +3570,19 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN6hermes20ExceptionHandlerInfoES5_EEbT_
   br i1 %cmp7.i.i33, label %if.then4, label %if.else5
 
 if.then4:                                         ; preds = %if.else, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN6hermes20ExceptionHandlerInfoES5_EEbT_T0_.exit34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.i.i35)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.i.i35)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %__tmp.i.i35, ptr noundef nonnull align 4 dereferenceable(16) %__result, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %__result, ptr noundef nonnull align 4 dereferenceable(16) %__c, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %__c, ptr noundef nonnull align 4 dereferenceable(16) %__tmp.i.i35, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.i.i35)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.i.i35)
   br label %if.end16
 
 if.else5:                                         ; preds = %lor.rhs.i.i30, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN6hermes20ExceptionHandlerInfoES5_EEbT_T0_.exit34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.i.i36)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.i.i36)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %__tmp.i.i36, ptr noundef nonnull align 4 dereferenceable(16) %__result, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %__result, ptr noundef nonnull align 4 dereferenceable(16) %__a, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %__a, ptr noundef nonnull align 4 dereferenceable(16) %__tmp.i.i36, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.i.i36)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.i.i36)
   br label %if.end16
 
 if.else7:                                         ; preds = %lor.rhs.i.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN6hermes20ExceptionHandlerInfoES5_EEbT_T0_.exit
@@ -3602,11 +3602,11 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN6hermes20ExceptionHandlerInfoES5_EEbT_
   br i1 %cmp7.i.i43, label %if.then9, label %if.else10
 
 if.then9:                                         ; preds = %if.else7, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN6hermes20ExceptionHandlerInfoES5_EEbT_T0_.exit44
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.i.i45)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.i.i45)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %__tmp.i.i45, ptr noundef nonnull align 4 dereferenceable(16) %__result, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %__result, ptr noundef nonnull align 4 dereferenceable(16) %__a, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %__a, ptr noundef nonnull align 4 dereferenceable(16) %__tmp.i.i45, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.i.i45)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.i.i45)
   br label %if.end16
 
 if.else10:                                        ; preds = %lor.rhs.i.i40, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN6hermes20ExceptionHandlerInfoES5_EEbT_T0_.exit44
@@ -3624,19 +3624,19 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN6hermes20ExceptionHandlerInfoES5_EEbT_
   br i1 %cmp7.i.i52, label %if.then12, label %if.else13
 
 if.then12:                                        ; preds = %if.else10, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN6hermes20ExceptionHandlerInfoES5_EEbT_T0_.exit53
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.i.i54)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.i.i54)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %__tmp.i.i54, ptr noundef nonnull align 4 dereferenceable(16) %__result, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %__result, ptr noundef nonnull align 4 dereferenceable(16) %__c, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %__c, ptr noundef nonnull align 4 dereferenceable(16) %__tmp.i.i54, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.i.i54)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.i.i54)
   br label %if.end16
 
 if.else13:                                        ; preds = %lor.rhs.i.i49, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN6hermes20ExceptionHandlerInfoES5_EEbT_T0_.exit53
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.i.i55)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.i.i55)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %__tmp.i.i55, ptr noundef nonnull align 4 dereferenceable(16) %__result, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %__result, ptr noundef nonnull align 4 dereferenceable(16) %__b, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %__b, ptr noundef nonnull align 4 dereferenceable(16) %__tmp.i.i55, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.i.i55)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.i.i55)
   br label %if.end16
 
 if.end16:                                         ; preds = %if.then9, %if.else13, %if.then12, %if.then2, %if.else5, %if.then4
@@ -3650,10 +3650,10 @@ declare void @llvm.assume(i1 noundef) #8
 declare i32 @llvm.umax.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

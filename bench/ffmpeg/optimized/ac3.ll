@@ -95,16 +95,10 @@ define void @ff_ac3_bit_alloc_calc_psd(ptr noundef readonly captures(none) %0, i
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define range(i32 -1094995529, 1) i32 @ff_ac3_bit_alloc_calc_mask(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(none) %8, ptr noundef readonly captures(none) %9, ptr noundef readonly captures(none) %10, ptr noundef captures(none) %11) local_unnamed_addr #0 {
   %13 = alloca [50 x i16], align 16
-  call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %13) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %14 = icmp slt i32 %3, 1
   br i1 %14, label %.critedge, label %15
 
@@ -511,9 +505,15 @@ calc_lowcomp.exit:                                ; preds = %.calc_lowcomp.exit_
 
 .critedge:                                        ; preds = %._crit_edge243, %.lr.ph247, %202, %.preheader, %194, %._crit_edge, %12
   %.0171 = phi i32 [ -1094995529, %12 ], [ 0, %._crit_edge ], [ -1, %194 ], [ 0, %.preheader ], [ 0, %._crit_edge243 ], [ -1, %.lr.ph247 ], [ -1, %202 ]
-  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %13) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret i32 %.0171
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #2
@@ -530,7 +530,6 @@ declare i32 @llvm.usub.sat.i32(i32, i32) #2
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

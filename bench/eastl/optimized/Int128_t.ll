@@ -1557,13 +1557,13 @@ if.end119:                                        ; preds = %if.then116, %for.bo
   %add.i.i136 = phi i64 [ %add.i.i, %if.then116 ], [ %add.i.i137140, %for.body112 ]
   store i64 0, ptr %mPart1.i.i87, align 8
   store i64 10, ptr %ref.tmp120, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   call void @_ZN2EA4StdCmlERKNS0_8int128_tES3_(ptr nonnull sret(%"class.EA::StdC::int128_t") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %multiplier, ptr noundef nonnull readonly align 8 dereferenceable(16) %ref.tmp120)
   %20 = load i64, ptr %mPart1.i.i.i, align 8
   store i64 %20, ptr %mPart1.i.i83, align 8
   %21 = load i64, ptr %ref.tmp.i, align 8
   store i64 %21, ptr %multiplier, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %cmp111 = icmp ugt ptr %incdec.ptr113, %p.1
   br i1 %cmp111, label %for.body112, label %if.end181, !llvm.loop !10
 
@@ -1959,13 +1959,13 @@ if.end112:                                        ; preds = %if.then109, %for.bo
   %add.i.i168 = phi i64 [ %add.i.i, %if.then109 ], [ %add.i.i169172, %for.body106 ]
   store i64 0, ptr %mPart1.i.i102, align 8
   store i64 10, ptr %ref.tmp113, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   call void @_ZN2EA4StdCmlERKNS0_8int128_tES3_(ptr nonnull sret(%"class.EA::StdC::int128_t") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %multiplier, ptr noundef nonnull readonly align 8 dereferenceable(16) %ref.tmp113)
   %27 = load i64, ptr %mPart1.i.i.i, align 8
   store i64 %27, ptr %mPart1.i.i98207, align 8
   %28 = load i64, ptr %ref.tmp.i, align 8
   store i64 %28, ptr %multiplier, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %cmp105 = icmp ugt ptr %incdec.ptr107, %p.1
   br i1 %cmp105, label %for.body106, label %if.end178, !llvm.loop !17
 
@@ -2677,11 +2677,11 @@ entry:
   %remainder.i = alloca %"class.EA::StdC::int128_t", align 8
   %ref.tmp = alloca %"class.EA::StdC::int128_t", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !20)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %remainder.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %remainder.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %remainder.i, i8 0, i64 16, i1 false), !noalias !20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i8 0, i64 16, i1 false), !alias.scope !20
   call void @_ZNK2EA4StdC8int128_t7ModulusERKS1_RS1_S4_(ptr noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %value, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %remainder.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %remainder.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %remainder.i)
   %mPart1.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   %0 = load i64, ptr %mPart1.i.i, align 8
   %mPart12.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -2697,11 +2697,11 @@ entry:
   %quotient.i = alloca %"class.EA::StdC::int128_t", align 8
   %ref.tmp = alloca %"class.EA::StdC::int128_t", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !23)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %quotient.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %quotient.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i8 0, i64 16, i1 false), !alias.scope !23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %quotient.i, i8 0, i64 16, i1 false), !noalias !23
   call void @_ZNK2EA4StdC8int128_t7ModulusERKS1_RS1_S4_(ptr noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %value, ptr noundef nonnull align 8 dereferenceable(16) %quotient.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %quotient.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %quotient.i)
   %mPart1.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   %0 = load i64, ptr %mPart1.i.i, align 8
   %mPart12.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -3603,11 +3603,11 @@ if.end.i.i:                                       ; preds = %if.end.i.i.lr.ph, %
 
 while.body:                                       ; preds = %if.end.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %quotient.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %quotient.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %remainder, i8 0, i64 16, i1 false), !alias.scope !28
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %quotient.i, i8 0, i64 16, i1 false), !noalias !28
   call void @_ZNK2EA4StdC8int128_t7ModulusERKS1_RS1_S4_(ptr noundef nonnull readonly align 8 dereferenceable(16) %value, ptr noundef nonnull readonly align 8 dereferenceable(16) %ten, ptr noundef nonnull align 8 dereferenceable(16) %quotient.i, ptr noundef nonnull align 8 dereferenceable(16) %remainder)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %quotient.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %quotient.i)
   %19 = load i64, ptr %remainder, align 8
   %20 = trunc i64 %19 to i8
   %conv = add i8 %20, 48
@@ -3615,18 +3615,18 @@ while.body:                                       ; preds = %if.end.i.i
   store i8 %conv, ptr %pValue.addr.7105, align 1
   store i64 0, ptr %mPart1.i.i61, align 8
   store i64 10, ptr %ref.tmp, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !31)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %remainder.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %remainder.i.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %remainder.i.i, i8 0, i64 16, i1 false), !noalias !31
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i8 0, i64 16, i1 false), !alias.scope !31
   call void @_ZNK2EA4StdC8int128_t7ModulusERKS1_RS1_S4_(ptr noundef nonnull readonly align 8 dereferenceable(16) %value, ptr noundef nonnull readonly align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %remainder.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %remainder.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %remainder.i.i)
   %21 = load i64, ptr %mPart1.i.i.i62, align 8
   store i64 %21, ptr %mPart12.i.i, align 8
   %22 = load i64, ptr %ref.tmp.i, align 8
   store i64 %22, ptr %value, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %23 = icmp slt i64 %21, 0
   br i1 %23, label %while.end, label %if.end.i.i, !llvm.loop !34
 
@@ -6587,10 +6587,10 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #14
 declare double @llvm.fabs.f64(double) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fabs.f32(float) #15

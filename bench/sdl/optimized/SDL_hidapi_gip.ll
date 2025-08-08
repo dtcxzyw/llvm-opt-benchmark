@@ -286,7 +286,7 @@ GIP_HandleQuirks.exit:                            ; preds = %71, %62
   %spec.store.select30.i.i.i = select i1 %.not27.i.i.i, i8 2, i8 %97
   store i8 %spec.store.select30.i.i.i, ptr %95, align 8
   %spec.select.i.i.i = tail call i8 @llvm.umax.i8(i8 %96, i8 1)
-  call void @llvm.lifetime.start.p0(i64 2054, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2054) %2, i8 0, i64 2054, i1 false)
   store i8 4, ptr %2, align 16
   %98 = getelementptr inbounds nuw i8, ptr %2, i64 1
@@ -297,7 +297,7 @@ GIP_HandleQuirks.exit:                            ; preds = %71, %62
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 128
   %102 = load ptr, ptr %101, align 8
   %103 = call i32 @SDL_hid_write_REAL(ptr noundef %102, ptr noundef nonnull %2, i64 noundef 4) #10
-  call void @llvm.lifetime.end.p0(i64 2054, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %GIP_EnsureMetadata.exit
 
 104:                                              ; preds = %82
@@ -343,7 +343,7 @@ define internal zeroext i1 @HIDAPI_DriverGIP_UpdateDevice(ptr noundef %0) #0 {
   %8 = alloca [64 x i8], align 16
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %10 = load ptr, ptr %9, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 20
   %13 = load ptr, ptr %11, align 8
@@ -608,7 +608,7 @@ GIP_FragmentFailed.exit.i:                        ; preds = %123, %112
   %.val.val.i.i = load ptr, ptr %131, align 8
   %132 = and i8 %37, 32
   %133 = or disjoint i8 %52, 32
-  call void @llvm.lifetime.start.p0(i64 2054, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2054) %7, i8 0, i64 2054, i1 false)
   store i8 1, ptr %7, align 16
   store i8 %133, ptr %21, align 1
@@ -619,7 +619,7 @@ GIP_FragmentFailed.exit.i:                        ; preds = %123, %112
   store i32 %126, ptr %.sroa.6.0..sroa_idx.i.i.i, align 1
   store i16 %130, ptr %.sroa.10.0..sroa_idx.i.i.i, align 1
   %134 = call i32 @SDL_hid_write_REAL(ptr noundef %.val.val.i.i, ptr noundef nonnull %7, i64 noundef 13) #10
-  call void @llvm.lifetime.end.p0(i64 2054, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %GIP_ReceivePacket.exit
 
 135:                                              ; preds = %111
@@ -678,7 +678,7 @@ GIP_DecodeLength.exit129.i:                       ; preds = %149, %.split.loop.e
   %.val.val.i = load ptr, ptr %162, align 8
   %163 = and i8 %37, 32
   %164 = or disjoint i8 %52, 32
-  call void @llvm.lifetime.start.p0(i64 2054, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2054) %6, i8 0, i64 2054, i1 false)
   store i8 1, ptr %6, align 16
   store i8 %164, ptr %24, align 1
@@ -689,7 +689,7 @@ GIP_DecodeLength.exit129.i:                       ; preds = %149, %.split.loop.e
   store i32 %157, ptr %.sroa.6.0..sroa_idx.i.i, align 1
   store i16 %161, ptr %.sroa.10.0..sroa_idx.i.i, align 1
   %165 = call i32 @SDL_hid_write_REAL(ptr noundef %.val.val.i, ptr noundef nonnull %6, i64 noundef 13) #10
-  call void @llvm.lifetime.end.p0(i64 2054, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %GIP_ReceivePacket.exit
 
 166:                                              ; preds = %GIP_DecodeLength.exit129.i
@@ -736,7 +736,7 @@ GIP_FragmentFailed.exit:                          ; preds = %172, %182
   %.val.val.i60 = load ptr, ptr %188, align 8
   %189 = and i8 %37, 32
   %190 = or disjoint i8 %52, 32
-  call void @llvm.lifetime.start.p0(i64 2054, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2054) %2, i8 0, i64 2054, i1 false)
   store i8 1, ptr %2, align 16
   store i8 %190, ptr %27, align 1
@@ -747,7 +747,7 @@ GIP_FragmentFailed.exit:                          ; preds = %172, %182
   store i32 %184, ptr %.sroa.6.0..sroa_idx.i.i63, align 1
   store i16 %187, ptr %.sroa.10.0..sroa_idx.i.i64, align 1
   %191 = call i32 @SDL_hid_write_REAL(ptr noundef %.val.val.i60, ptr noundef nonnull %2, i64 noundef 13) #10
-  call void @llvm.lifetime.end.p0(i64 2054, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %GIP_ReceivePacket.exit
 
 192:                                              ; preds = %166
@@ -829,7 +829,7 @@ GIP_FragmentFailed.exit:                          ; preds = %172, %182
   %.val105.val.i = load ptr, ptr %228, align 8
   %229 = and i8 %37, 32
   %230 = or disjoint i8 %52, 32
-  call void @llvm.lifetime.start.p0(i64 2054, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2054) %5, i8 0, i64 2054, i1 false)
   store i8 1, ptr %5, align 16
   store i8 %230, ptr %30, align 1
@@ -840,7 +840,7 @@ GIP_FragmentFailed.exit:                          ; preds = %172, %182
   store i32 %227, ptr %.sroa.6.0..sroa_idx.i132.i, align 1
   store i16 %.2145.i, ptr %.sroa.10.0..sroa_idx.i133.i, align 1
   %231 = call i32 @SDL_hid_write_REAL(ptr noundef %.val105.val.i, ptr noundef nonnull %5, i64 noundef 13) #10
-  call void @llvm.lifetime.end.p0(i64 2054, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %GIP_ReceivePacket.exit
 
 GIP_ReceivePacket.exit:                           ; preds = %33, %GIP_DecodeLength.exit119.i, %97, %100, %GIP_FragmentFailed.exit.i, %156, %GIP_FragmentFailed.exit, %208, %217, %218, %224, %226
@@ -943,7 +943,7 @@ GIP_ReceivePacket.exit:                           ; preds = %33, %GIP_DecodeLeng
   %spec.store.select30.i.i = select i1 %.not27.i.i, i8 2, i8 %285
   store i8 %spec.store.select30.i.i, ptr %283, align 8
   %spec.select.i.i = call i8 @llvm.umax.i8(i8 %284, i8 1)
-  call void @llvm.lifetime.start.p0(i64 2054, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2054) %4, i8 0, i64 2054, i1 false)
   store i8 4, ptr %4, align 16
   store i8 %282, ptr %245, align 1
@@ -952,7 +952,7 @@ GIP_ReceivePacket.exit:                           ; preds = %33, %GIP_DecodeLeng
   %287 = getelementptr inbounds nuw i8, ptr %286, i64 128
   %288 = load ptr, ptr %287, align 8
   %289 = call i32 @SDL_hid_write_REAL(ptr noundef %288, ptr noundef nonnull %4, i64 noundef 4) #10
-  call void @llvm.lifetime.end.p0(i64 2054, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread
 
 290:                                              ; preds = %263, %272
@@ -972,7 +972,7 @@ GIP_ReceivePacket.exit:                           ; preds = %33, %GIP_DecodeLeng
   %spec.store.select30.i.i.i = select i1 %.not27.i.i.i, i8 2, i8 %300
   store i8 %spec.store.select30.i.i.i, ptr %298, align 8
   %spec.select.i.i.i = call i8 @llvm.umax.i8(i8 %299, i8 1)
-  call void @llvm.lifetime.start.p0(i64 2054, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2054) %3, i8 0, i64 2054, i1 false)
   store i8 5, ptr %3, align 16
   store i8 %297, ptr %248, align 1
@@ -983,7 +983,7 @@ GIP_ReceivePacket.exit:                           ; preds = %33, %GIP_DecodeLeng
   %302 = getelementptr inbounds nuw i8, ptr %301, i64 128
   %303 = load ptr, ptr %302, align 8
   %304 = call i32 @SDL_hid_write_REAL(ptr noundef %303, ptr noundef nonnull %3, i64 noundef 5) #10
-  call void @llvm.lifetime.end.p0(i64 2054, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.thread
 
 305:                                              ; preds = %290
@@ -1031,7 +1031,7 @@ GIP_ReceivePacket.exit:                           ; preds = %33, %GIP_DecodeLeng
 
 .loopexit:                                        ; preds = %320, %311, %309
   %321 = icmp eq i32 %.lcssa76, 0
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i1 %321
 }
 
@@ -1416,7 +1416,7 @@ HIDAPI_DriverGIP_FindAttachment.exit:             ; preds = %12
   %spec.store.select32.i.i = select i1 %.not.i.i, i8 2, i8 %29
   store i8 %spec.store.select32.i.i, ptr %27, align 4
   %spec.select33.i.i = tail call i8 @llvm.umax.i8(i8 %28, i8 1)
-  call void @llvm.lifetime.start.p0(i64 2054, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2054) %6, i8 0, i64 2054, i1 false)
   store i8 14, ptr %6, align 16
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 2
@@ -1435,14 +1435,14 @@ HIDAPI_DriverGIP_FindAttachment.exit:             ; preds = %12
   br i1 %32, label %GIP_SendVendorMessage.exit, label %GIP_SendVendorMessage.exit.thread
 
 GIP_SendVendorMessage.exit.thread:                ; preds = %25
-  call void @llvm.lifetime.end.p0(i64 2054, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %36
 
 GIP_SendVendorMessage.exit:                       ; preds = %25
   %33 = load ptr, ptr %26, align 8
   %34 = call i32 @SDL_HIDAPI_SendRumbleWithCallbackAndUnlock(ptr noundef %33, ptr noundef nonnull %6, i32 noundef 9, ptr noundef null, ptr noundef null) #10
   %35 = icmp eq i32 %34, 9
-  call void @llvm.lifetime.end.p0(i64 2054, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %35, label %38, label %36
 
 36:                                               ; preds = %GIP_SendVendorMessage.exit.thread, %GIP_SendVendorMessage.exit
@@ -1528,16 +1528,10 @@ declare void @SDL_RemoveHintCallback_REAL(ptr noundef, ptr noundef, ptr noundef)
 
 declare zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef, i1 noundef zeroext) local_unnamed_addr #4
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
-
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @SDL_calloc_REAL(i64 noundef, i64 noundef) local_unnamed_addr #6
+declare noalias ptr @SDL_calloc_REAL(i64 noundef, i64 noundef) local_unnamed_addr #5
 
 declare i64 @SDL_GetTicks_REAL() local_unnamed_addr #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @GIP_SetMetadataDefaults(ptr noundef %0) unnamed_addr #0 {
@@ -1680,7 +1674,7 @@ GIP_HandleQuirks.exit:                            ; preds = %80, %71
   %spec.store.select30.i.i.i = select i1 %.not27.i.i.i, i8 2, i8 %92
   store i8 %spec.store.select30.i.i.i, ptr %90, align 8
   %spec.select.i.i.i = tail call i8 @llvm.umax.i8(i8 %91, i8 1)
-  call void @llvm.lifetime.start.p0(i64 2054, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2054) %2, i8 0, i64 2054, i1 false)
   store i8 12, ptr %2, align 16
   %93 = getelementptr inbounds nuw i8, ptr %2, i64 1
@@ -1697,7 +1691,7 @@ GIP_HandleQuirks.exit:                            ; preds = %80, %71
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 128
   %99 = load ptr, ptr %98, align 8
   %100 = call i32 @SDL_hid_write_REAL(ptr noundef %99, ptr noundef nonnull %2, i64 noundef 9) #10
-  call void @llvm.lifetime.end.p0(i64 2054, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.pre = load ptr, ptr %0, align 8
   br label %101
 
@@ -1723,12 +1717,12 @@ GIP_HandleQuirks.exit:                            ; preds = %80, %71
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 declare void @SDL_LogWarn_REAL(i32 noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 declare zeroext i1 @SDL_HIDAPI_LockRumble() local_unnamed_addr #4
 
@@ -1769,7 +1763,7 @@ define internal fastcc zeroext i1 @GIP_SendInitSequence(ptr noundef %0) unnamed_
   %spec.store.select30.i.i = select i1 %.not27.i.i, i8 2, i8 %19
   store i8 %spec.store.select30.i.i, ptr %17, align 8
   %spec.select.i.i = tail call i8 @llvm.umax.i8(i8 %18, i8 1)
-  call void @llvm.lifetime.start.p0(i64 2054, ptr nonnull %8) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2038) %20, i8 0, i64 2038, i1 false)
   store i8 5, ptr %8, align 16
@@ -1786,7 +1780,7 @@ define internal fastcc zeroext i1 @GIP_SendInitSequence(ptr noundef %0) unnamed_
   %27 = load ptr, ptr %26, align 8
   %28 = call i32 @SDL_hid_write_REAL(ptr noundef %27, ptr noundef nonnull %8, i64 noundef 19) #10
   %29 = icmp eq i32 %28, 19
-  call void @llvm.lifetime.end.p0(i64 2054, ptr nonnull %8) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %29, label %30, label %GIP_EnableEliteButtons.exit.thread
 
 30:                                               ; preds = %12
@@ -1816,7 +1810,7 @@ define internal fastcc zeroext i1 @GIP_SendInitSequence(ptr noundef %0) unnamed_
   %spec.store.select32.i.i.i = select i1 %.not.i.i.i, i8 2, i8 %45
   store i8 %spec.store.select32.i.i.i, ptr %43, align 4
   %spec.select33.i.i.i = call i8 @llvm.umax.i8(i8 %44, i8 1)
-  call void @llvm.lifetime.start.p0(i64 2054, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2054) %7, i8 0, i64 2054, i1 false)
   store i8 77, ptr %7, align 16
   %46 = getelementptr inbounds nuw i8, ptr %7, i64 2
@@ -1829,14 +1823,14 @@ define internal fastcc zeroext i1 @GIP_SendInitSequence(ptr noundef %0) unnamed_
   br i1 %49, label %GIP_SendVendorMessage.exit.i, label %GIP_SendVendorMessage.exit.thread.i
 
 GIP_SendVendorMessage.exit.thread.i:              ; preds = %41
-  call void @llvm.lifetime.end.p0(i64 2054, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %GIP_EnableEliteButtons.exit.thread
 
 GIP_SendVendorMessage.exit.i:                     ; preds = %41
   %50 = load ptr, ptr %42, align 8
   %51 = call i32 @SDL_HIDAPI_SendRumbleWithCallbackAndUnlock(ptr noundef %50, ptr noundef nonnull %7, i32 noundef 6, ptr noundef null, ptr noundef null) #10
   %52 = icmp eq i32 %51, 6
-  call void @llvm.lifetime.end.p0(i64 2054, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %52, label %GIP_EnableEliteButtons.exit, label %GIP_EnableEliteButtons.exit.thread
 
 GIP_EnableEliteButtons.exit:                      ; preds = %GIP_SendVendorMessage.exit.i, %37, %34, %1
@@ -1851,7 +1845,7 @@ GIP_EnableEliteButtons.exit:                      ; preds = %GIP_SendVendorMessa
   %spec.store.select30.i.i.i = select i1 %.not27.i.i.i, i8 2, i8 %59
   store i8 %spec.store.select30.i.i.i, ptr %57, align 8
   %spec.select.i.i.i = call i8 @llvm.umax.i8(i8 %58, i8 1)
-  call void @llvm.lifetime.start.p0(i64 2054, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2054) %6, i8 0, i64 2054, i1 false)
   store i8 5, ptr %6, align 16
   %60 = getelementptr inbounds nuw i8, ptr %6, i64 1
@@ -1865,7 +1859,7 @@ GIP_EnableEliteButtons.exit:                      ; preds = %GIP_SendVendorMessa
   %65 = load ptr, ptr %64, align 8
   %66 = call i32 @SDL_hid_write_REAL(ptr noundef %65, ptr noundef nonnull %6, i64 noundef 5) #10
   %67 = icmp eq i32 %66, 5
-  call void @llvm.lifetime.end.p0(i64 2054, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %67, label %68, label %GIP_EnableEliteButtons.exit.thread
 
 68:                                               ; preds = %GIP_EnableEliteButtons.exit
@@ -1887,7 +1881,7 @@ GIP_SendGuideButtonLED.exit:                      ; preds = %68
   %spec.store.select30.i.i.i29 = select i1 %.not27.i.i.i28, i8 2, i8 %77
   store i8 %spec.store.select30.i.i.i29, ptr %57, align 8
   %spec.select.i.i.i30 = call i8 @llvm.umax.i8(i8 %76, i8 1)
-  call void @llvm.lifetime.start.p0(i64 2054, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2054) %5, i8 0, i64 2054, i1 false)
   store i8 10, ptr %5, align 16
   %78 = getelementptr inbounds nuw i8, ptr %5, i64 1
@@ -1905,7 +1899,7 @@ GIP_SendGuideButtonLED.exit:                      ; preds = %68
   %83 = load ptr, ptr %82, align 8
   %84 = call i32 @SDL_hid_write_REAL(ptr noundef %83, ptr noundef nonnull %5, i64 noundef 7) #10
   %85 = icmp eq i32 %84, 7
-  call void @llvm.lifetime.end.p0(i64 2054, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %85, label %GIP_SendGuideButtonLED.exit.GIP_SendGuideButtonLED.exit.thread_crit_edge, label %GIP_EnableEliteButtons.exit.thread
 
 GIP_SendGuideButtonLED.exit.GIP_SendGuideButtonLED.exit.thread_crit_edge: ; preds = %GIP_SendGuideButtonLED.exit
@@ -1935,7 +1929,7 @@ GIP_SendGuideButtonLED.exit.thread:               ; preds = %GIP_SendGuideButton
   %spec.store.select.i.i = select i1 %.not26.i.i, i8 2, i8 %97
   store i8 %spec.store.select.i.i, ptr %95, align 1
   %spec.select.i.i33 = call i8 @llvm.umax.i8(i8 %96, i8 1)
-  call void @llvm.lifetime.start.p0(i64 2054, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2054) %4, i8 0, i64 2054, i1 false)
   store i8 6, ptr %4, align 16
   %98 = getelementptr inbounds nuw i8, ptr %4, i64 1
@@ -1950,7 +1944,7 @@ GIP_SendGuideButtonLED.exit.thread:               ; preds = %GIP_SendGuideButton
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 128
   %104 = load ptr, ptr %103, align 8
   %105 = call i32 @SDL_hid_write_REAL(ptr noundef %104, ptr noundef nonnull %4, i64 noundef 6) #10
-  call void @llvm.lifetime.end.p0(i64 2054, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %106
 
 106:                                              ; preds = %91, %88, %GIP_SendGuideButtonLED.exit.thread
@@ -1993,7 +1987,7 @@ GIP_SupportsVendorMessage.exit.thread51:          ; preds = %117
   %spec.store.select32.i.i = select i1 %.not.i.i, i8 2, i8 %124
   store i8 %spec.store.select32.i.i, ptr %122, align 4
   %spec.select33.i.i = call i8 @llvm.umax.i8(i8 %123, i8 1)
-  call void @llvm.lifetime.start.p0(i64 2054, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2054) %3, i8 0, i64 2054, i1 false)
   store i8 10, ptr %3, align 16
   %125 = getelementptr inbounds nuw i8, ptr %3, i64 2
@@ -2011,7 +2005,7 @@ GIP_SupportsVendorMessage.exit.thread51:          ; preds = %117
   br label %GIP_SupportsVendorMessage.exit.thread
 
 GIP_SupportsVendorMessage.exit.thread:            ; preds = %129, %GIP_SupportsVendorMessage.exit.thread51
-  call void @llvm.lifetime.end.p0(i64 2054, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.pr.pre = load i8, ptr %107, align 8
   %.pre69 = zext i8 %.pr.pre to i64
   %132 = icmp eq i8 %.pr.pre, 0
@@ -2050,7 +2044,7 @@ GIP_SupportsVendorMessage.exit42.thread54:        ; preds = %139
   %spec.store.select32.i.i44 = select i1 %.not.i.i43, i8 2, i8 %146
   store i8 %spec.store.select32.i.i44, ptr %144, align 4
   %spec.select33.i.i45 = call i8 @llvm.umax.i8(i8 %145, i8 1)
-  call void @llvm.lifetime.start.p0(i64 2054, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %147 = getelementptr inbounds nuw i8, ptr %2, i64 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2054) %2, i8 0, i64 2054, i1 false)
   store i8 %spec.select33.i.i45, ptr %147, align 2
@@ -2063,7 +2057,7 @@ GIP_SupportsVendorMessage.exit42.thread54:        ; preds = %139
   br label %GIP_SendVendorMessage.exit47
 
 GIP_SendVendorMessage.exit47:                     ; preds = %GIP_SupportsVendorMessage.exit42.thread54, %149
-  call void @llvm.lifetime.end.p0(i64 2054, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %GIP_SupportsVendorMessage.exit42.thread
 
 GIP_SupportsVendorMessage.exit42.thread:          ; preds = %134, %139, %106, %GIP_SupportsVendorMessage.exit.thread, %GIP_SendVendorMessage.exit47
@@ -2177,7 +2171,7 @@ thread-pre-split.thread:                          ; preds = %6, %9, %12, %17
   %32 = load ptr, ptr %0, align 8
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load i8, ptr %33, align 8
-  call void @llvm.lifetime.start.p0(i64 2054, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2054) %2, i8 0, i64 2054, i1 false)
   store i8 9, ptr %2, align 16
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 1
@@ -2202,14 +2196,14 @@ thread-pre-split.thread:                          ; preds = %6, %9, %12, %17
   br i1 %37, label %GIP_SendRawMessage.exit, label %GIP_SendRawMessage.exit.thread
 
 GIP_SendRawMessage.exit.thread:                   ; preds = %23
-  call void @llvm.lifetime.end.p0(i64 2054, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %41
 
 GIP_SendRawMessage.exit:                          ; preds = %23
   %38 = load ptr, ptr %32, align 8
   %39 = call i32 @SDL_HIDAPI_SendRumbleWithCallbackAndUnlock(ptr noundef %38, ptr noundef nonnull %2, i32 noundef 13, ptr noundef nonnull @HIDAPI_DriverGIP_RumbleSent, ptr noundef nonnull %0) #10
   %40 = icmp eq i32 %39, 13
-  call void @llvm.lifetime.end.p0(i64 2054, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %40, label %43, label %41
 
 41:                                               ; preds = %GIP_SendRawMessage.exit.thread, %GIP_SendRawMessage.exit
@@ -2421,7 +2415,7 @@ thread-pre-split.i:                               ; preds = %14, %17, %30, %21
   %spec.store.select30.i.i.i.i = select i1 %.not27.i.i.i.i, i8 2, i8 %115
   store i8 %spec.store.select30.i.i.i.i, ptr %113, align 8
   %spec.select.i.i.i.i = tail call i8 @llvm.umax.i8(i8 %114, i8 1)
-  call void @llvm.lifetime.start.p0(i64 2054, ptr nonnull %12) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2054) %12, i8 0, i64 2054, i1 false)
   store i8 4, ptr %12, align 16
   %116 = getelementptr inbounds nuw i8, ptr %12, i64 1
@@ -2433,7 +2427,7 @@ thread-pre-split.i:                               ; preds = %14, %17, %30, %21
   %120 = load ptr, ptr %119, align 8
   %121 = call i32 @SDL_hid_write_REAL(ptr noundef %120, ptr noundef nonnull %12, i64 noundef 4) #10
   %122 = icmp eq i32 %121, 4
-  call void @llvm.lifetime.end.p0(i64 2054, ptr nonnull %12) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %GIP_HandleSystemMessage.exit
 
 123:                                              ; preds = %107
@@ -2493,7 +2487,7 @@ thread-pre-split.i:                               ; preds = %14, %17, %30, %21
   %spec.store.select30.i.i.i.i.i = select i1 %.not27.i.i.i.i.i, i8 2, i8 %152
   store i8 %spec.store.select30.i.i.i.i.i, ptr %150, align 8
   %spec.select.i.i.i.i.i = tail call i8 @llvm.umax.i8(i8 %151, i8 1)
-  call void @llvm.lifetime.start.p0(i64 2054, ptr nonnull %11) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2054) %11, i8 0, i64 2054, i1 false)
   store i8 4, ptr %11, align 16
   %153 = getelementptr inbounds nuw i8, ptr %11, i64 1
@@ -2504,7 +2498,7 @@ thread-pre-split.i:                               ; preds = %14, %17, %30, %21
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 128
   %157 = load ptr, ptr %156, align 8
   %158 = call i32 @SDL_hid_write_REAL(ptr noundef %157, ptr noundef nonnull %11, i64 noundef 4) #10
-  call void @llvm.lifetime.end.p0(i64 2054, ptr nonnull %11) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %GIP_HandleSystemMessage.exit
 
 159:                                              ; preds = %136
@@ -2580,7 +2574,7 @@ thread-pre-split.i:                               ; preds = %14, %17, %30, %21
   %spec.store.select30.i.i.i.i63.i = select i1 %.not27.i.i.i.i62.i, i8 2, i8 %198
   store i8 %spec.store.select30.i.i.i.i63.i, ptr %196, align 8
   %spec.select.i.i.i.i64.i = tail call i8 @llvm.umax.i8(i8 %197, i8 1)
-  call void @llvm.lifetime.start.p0(i64 2054, ptr nonnull %10) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2054) %10, i8 0, i64 2054, i1 false)
   store i8 4, ptr %10, align 16
   %199 = getelementptr inbounds nuw i8, ptr %10, i64 1
@@ -2591,7 +2585,7 @@ thread-pre-split.i:                               ; preds = %14, %17, %30, %21
   %202 = getelementptr inbounds nuw i8, ptr %201, i64 128
   %203 = load ptr, ptr %202, align 8
   %204 = call i32 @SDL_hid_write_REAL(ptr noundef %203, ptr noundef nonnull %10, i64 noundef 4) #10
-  call void @llvm.lifetime.end.p0(i64 2054, ptr nonnull %10) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %GIP_HandleSystemMessage.exit
 
 205:                                              ; preds = %182
@@ -2599,7 +2593,7 @@ thread-pre-split.i:                               ; preds = %14, %17, %30, %21
   br label %GIP_HandleSystemMessage.exit
 
 206:                                              ; preds = %43
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %9) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %9, i8 0, i64 136, i1 false)
   %207 = icmp slt i32 %2, 16
   br i1 %207, label %GIP_HandleCommandMetadataRespose.exit.i, label %208
@@ -3379,7 +3373,7 @@ GIP_HandleQuirks.exit.i.i:                        ; preds = %627, %618
 
 GIP_HandleCommandMetadataRespose.exit.i:          ; preds = %GIP_HandleQuirks.exit.i.i, %GIP_ParseDeviceMetadata.exit.thread.i.i.i, %218, %208, %206
   %.0.i66.i = phi i1 [ %631, %GIP_HandleQuirks.exit.i.i ], [ false, %GIP_ParseDeviceMetadata.exit.thread.i.i.i ], [ false, %206 ], [ false, %208 ], [ false, %218 ]
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %9) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %GIP_HandleSystemMessage.exit
 
 632:                                              ; preds = %43
@@ -3514,7 +3508,7 @@ GIP_HandleCommandMetadataRespose.exit.i:          ; preds = %GIP_HandleQuirks.ex
   %spec.store.select32.i.i.i.i.i = select i1 %.not.i.i.i.i.i, i8 2, i8 %710
   store i8 %spec.store.select32.i.i.i.i.i, ptr %708, align 4
   %spec.select33.i.i.i.i.i = tail call i8 @llvm.umax.i8(i8 %709, i8 1)
-  call void @llvm.lifetime.start.p0(i64 2054, ptr nonnull %8) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2054) %8, i8 0, i64 2054, i1 false)
   store i8 77, ptr %8, align 16
   %711 = getelementptr inbounds nuw i8, ptr %8, i64 2
@@ -3527,14 +3521,14 @@ GIP_HandleCommandMetadataRespose.exit.i:          ; preds = %GIP_HandleQuirks.ex
   br i1 %714, label %GIP_SendVendorMessage.exit.i.i.i, label %GIP_SendVendorMessage.exit.thread.i.i.i
 
 GIP_SendVendorMessage.exit.thread.i.i.i:          ; preds = %.thread3.i.i
-  call void @llvm.lifetime.end.p0(i64 2054, ptr nonnull %8) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %GIP_HandleSystemMessage.exit
 
 GIP_SendVendorMessage.exit.i.i.i:                 ; preds = %.thread3.i.i
   %715 = load ptr, ptr %688, align 8
   %716 = call i32 @SDL_HIDAPI_SendRumbleWithCallbackAndUnlock(ptr noundef %715, ptr noundef nonnull %8, i32 noundef 6, ptr noundef null, ptr noundef null) #10
   %717 = icmp eq i32 %716, 6
-  call void @llvm.lifetime.end.p0(i64 2054, ptr nonnull %8) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %717, label %718, label %GIP_HandleSystemMessage.exit
 
 718:                                              ; preds = %GIP_SendVendorMessage.exit.i.i.i, %706
@@ -3603,7 +3597,7 @@ GIP_SendVendorMessage.exit.i.i.i:                 ; preds = %.thread3.i.i
   br i1 %749, label %750, label %760
 
 750:                                              ; preds = %747
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4
   %751 = getelementptr inbounds nuw i8, ptr %0, i64 316
   %752 = load i32, ptr %751, align 4
@@ -3634,7 +3628,7 @@ GIP_SendVendorMessage.exit.i.i.i:                 ; preds = %.thread3.i.i
   %.sink1.i.i = phi i32 [ %752, %757 ], [ 339, %756 ], [ 353, %755 ], [ 338, %754 ], [ 352, %753 ], [ 8364, %750 ]
   %759 = call ptr @SDL_UCS4ToUTF8_REAL(i32 noundef %.sink1.i.i, ptr noundef nonnull %6) #10
   call void @SDL_SendKeyboardText(ptr noundef nonnull %6) #10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %760
 
 760:                                              ; preds = %758, %747
@@ -3694,13 +3688,13 @@ GIP_SendVendorMessage.exit.i.i.i:                 ; preds = %.thread3.i.i
   br i1 %or.cond3.i.i, label %791, label %793
 
 791:                                              ; preds = %787
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %792 = trunc nuw nsw i32 %789 to i8
   store i8 %792, ptr %7, align 1
   %.ptr.i.i = getelementptr inbounds nuw i8, ptr %7, i64 1
   store i8 0, ptr %.ptr.i.i, align 1
   call void @SDL_SendKeyboardText(ptr noundef nonnull %7) #10
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %793
 
 793:                                              ; preds = %791, %787, %775
@@ -3757,7 +3751,7 @@ GIP_SendVendorMessage.exit.i.i.i:                 ; preds = %.thread3.i.i
   br label %GIP_HandleSystemMessage.exit
 
 821:                                              ; preds = %43
-  call void @llvm.lifetime.start.p0(i64 33, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(33) %5, i8 0, i64 33, i1 false)
   %822 = icmp slt i32 %2, 2
   br i1 %822, label %GIP_HandleCommandExtended.exit.i, label %823
@@ -3793,7 +3787,7 @@ GIP_SendVendorMessage.exit.i.i.i:                 ; preds = %.thread3.i.i
 
 GIP_HandleCommandExtended.exit.i:                 ; preds = %837, %830, %825, %821
   %.0.i82.i = phi i1 [ true, %830 ], [ false, %837 ], [ false, %821 ], [ true, %825 ]
-  call void @llvm.lifetime.end.p0(i64 33, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %GIP_HandleSystemMessage.exit
 
 839:                                              ; preds = %43
@@ -3942,7 +3936,7 @@ GIP_HandleCommandExtended.exit.i:                 ; preds = %837, %830, %825, %8
   %spec.store.select30.i.i.i.i43 = select i1 %.not27.i.i.i.i42, i8 2, i8 %928
   store i8 %spec.store.select30.i.i.i.i43, ptr %926, align 8
   %spec.select.i.i.i.i44 = tail call i8 @llvm.umax.i8(i8 %927, i8 1)
-  call void @llvm.lifetime.start.p0(i64 2054, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2054) %4, i8 0, i64 2054, i1 false)
   store i8 4, ptr %4, align 16
   %929 = getelementptr inbounds nuw i8, ptr %4, i64 1
@@ -3953,7 +3947,7 @@ GIP_HandleCommandExtended.exit.i:                 ; preds = %837, %830, %825, %8
   %932 = getelementptr inbounds nuw i8, ptr %931, i64 128
   %933 = load ptr, ptr %932, align 8
   %934 = call i32 @SDL_hid_write_REAL(ptr noundef %933, ptr noundef nonnull %4, i64 noundef 4) #10
-  call void @llvm.lifetime.end.p0(i64 2054, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %GIP_EnsureMetadata.exit.i
 
 935:                                              ; preds = %912
@@ -4571,6 +4565,12 @@ declare void @SDL_AssertJoysticksLocked() local_unnamed_addr #4
 
 declare void @SDL_RemoveKeyboard(i32 noundef, i1 noundef zeroext) local_unnamed_addr #4
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #9
 
@@ -4591,10 +4591,10 @@ attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #10 = { nounwind }
 attributes #11 = { nounwind allocsize(0,1) }

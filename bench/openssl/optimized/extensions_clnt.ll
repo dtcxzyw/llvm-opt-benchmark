@@ -319,10 +319,10 @@ define range(i32 0, 3) i32 @tls_construct_ctos_ec_pt_formats(ptr noundef %0, ptr
   %7 = alloca i64, align 8
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #10
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #10
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = call i32 @ssl_get_min_max_version(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef null) #10
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %.sink.split
@@ -367,15 +367,12 @@ define range(i32 0, 3) i32 @tls_construct_ctos_ec_pt_formats(ptr noundef %0, ptr
 
 25:                                               ; preds = %.sink.split, %23, %11
   %.0 = phi i32 [ 2, %11 ], [ 1, %23 ], [ 0, %.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 declare i32 @ssl_get_min_max_version(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -383,9 +380,9 @@ declare i32 @ssl_get_min_max_version(ptr noundef, ptr noundef, ptr noundef, ptr 
 define internal fastcc range(i32 0, 2) i32 @use_ecc(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !83
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %7 = load i32, ptr %6, align 8, !tbaa !84
   %8 = icmp eq i32 %7, 768
@@ -457,15 +454,12 @@ define internal fastcc range(i32 0, 2) i32 @use_ecc(ptr noundef %0, i32 noundef 
 
 .loopexit:                                        ; preds = %31, %.critedge, %.thread.thread, %.critedge46, %3
   %.0 = phi i32 [ 0, %3 ], [ 0, %.critedge46 ], [ 0, %.thread.thread ], [ 1, %31 ], [ 0, %.critedge ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
 declare void @tls1_get_formatlist(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 3) i32 @tls_construct_ctos_supported_groups(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readnone captures(none) %3, i64 noundef %4) local_unnamed_addr #0 {
@@ -474,12 +468,12 @@ define range(i32 0, 3) i32 @tls_construct_ctos_supported_groups(ptr noundef %0, 
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !83
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 0, ptr %7, align 8, !tbaa !82
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #10
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %11 = call i32 @ssl_get_min_max_version(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef null) #10
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %13, label %12
@@ -550,7 +544,7 @@ define range(i32 0, 3) i32 @tls_construct_ctos_supported_groups(ptr noundef %0, 
   %38 = load ptr, ptr %6, align 8, !tbaa !83
   %39 = getelementptr inbounds nuw i16, ptr %38, i64 %.03860
   %40 = load i16, ptr %39, align 2, !tbaa !91
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %41 = load i32, ptr %8, align 4, !tbaa !80
   %42 = load i32, ptr %9, align 4, !tbaa !80
   %43 = call i32 @tls_valid_group(ptr noundef %0, i16 noundef zeroext %40, i32 noundef %41, i32 noundef %42, i32 noundef 0, ptr noundef nonnull %10) #10
@@ -572,7 +566,7 @@ define range(i32 0, 3) i32 @tls_construct_ctos_supported_groups(ptr noundef %0, 
   call void @ERR_new() #10
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 258, ptr noundef nonnull @__func__.tls_construct_ctos_supported_groups) #10
   call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef %0, i32 noundef 80, i32 noundef 786691, ptr noundef null) #10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %72
 
 49:                                               ; preds = %46
@@ -589,7 +583,7 @@ define range(i32 0, 3) i32 @tls_construct_ctos_supported_groups(ptr noundef %0, 
 56:                                               ; preds = %.lr.ph, %44, %49
   %.244 = phi i64 [ %spec.select, %49 ], [ %.04258, %44 ], [ %.04258, %.lr.ph ]
   %.241 = phi i64 [ %55, %49 ], [ %.03959, %44 ], [ %.03959, %.lr.ph ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %57 = add nuw i64 %.03860, 1
   %58 = load i64, ptr %7, align 8, !tbaa !82
   %59 = icmp ult i64 %57, %58
@@ -640,10 +634,10 @@ define range(i32 0, 3) i32 @tls_construct_ctos_supported_groups(ptr noundef %0, 
 
 72:                                               ; preds = %68, %66, %67, %.critedge, %17, %71, %37, %12
   %.0 = phi i32 [ 0, %12 ], [ 0, %71 ], [ 0, %37 ], [ 2, %17 ], [ 0, %.critedge ], [ 0, %67 ], [ 0, %66 ], [ 1, %68 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
@@ -771,12 +765,12 @@ declare i32 @tls_use_ticket(ptr noundef) local_unnamed_addr #1
 declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 3) i32 @tls_construct_ctos_sig_algs(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readnone captures(none) %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8, !tbaa !69
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 216
@@ -839,7 +833,7 @@ define range(i32 0, 3) i32 @tls_construct_ctos_sig_algs(ptr noundef %0, ptr noun
 
 .thread:                                          ; preds = %16, %33, %18, %35
   %.0 = phi i32 [ 0, %35 ], [ 2, %18 ], [ 1, %33 ], [ 2, %16 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
@@ -895,7 +889,7 @@ define range(i32 0, 3) i32 @tls_construct_ctos_status_request(ptr noundef %0, pt
 
 .lr.ph:                                           ; preds = %.preheader, %33
   %.03758 = phi i32 [ %34, %33 ], [ 0, %.preheader ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %24 = load ptr, ptr %19, align 8, !tbaa !107
   %25 = call ptr @OPENSSL_sk_value(ptr noundef %24, i32 noundef %.03758) #10
   %26 = call i32 @i2d_OCSP_RESPID(ptr noundef %25, ptr noundef null) #10
@@ -917,11 +911,11 @@ define range(i32 0, 3) i32 @tls_construct_ctos_status_request(ptr noundef %0, pt
   call void @ERR_new() #10
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 383, ptr noundef nonnull @__func__.tls_construct_ctos_status_request) #10
   call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef 786691, ptr noundef null) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %60
 
 33:                                               ; preds = %31
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %34 = add nuw nsw i32 %.03758, 1
   %35 = load ptr, ptr %19, align 8, !tbaa !107
   %36 = call i32 @OPENSSL_sk_num(ptr noundef %35) #10
@@ -951,7 +945,7 @@ define range(i32 0, 3) i32 @tls_construct_ctos_status_request(ptr noundef %0, pt
   br i1 %.not49, label %55, label %45
 
 45:                                               ; preds = %42
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %46 = call i32 @i2d_X509_EXTENSIONS(ptr noundef nonnull %44, ptr noundef null) #10
   %47 = icmp slt i32 %46, 0
   br i1 %47, label %.critedge57, label %48
@@ -969,7 +963,7 @@ define range(i32 0, 3) i32 @tls_construct_ctos_status_request(ptr noundef %0, pt
   br i1 %.not51, label %54, label %.critedge57
 
 54:                                               ; preds = %51
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %55
 
 55:                                               ; preds = %54, %42
@@ -993,7 +987,7 @@ define range(i32 0, 3) i32 @tls_construct_ctos_status_request(ptr noundef %0, pt
   call void @ERR_new() #10
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink, ptr noundef nonnull @__func__.tls_construct_ctos_status_request) #10
   call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef 786691, ptr noundef null) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %60
 
 60:                                               ; preds = %57, %.critedge57, %.critedge, %8, %5, %59, %41, %23
@@ -1279,8 +1273,8 @@ define range(i32 0, 3) i32 @tls_construct_ctos_ems(ptr noundef %0, ptr noundef %
 define range(i32 0, 3) i32 @tls_construct_ctos_supported_versions(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readnone captures(none) %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #10
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = call i32 @ssl_get_min_max_version(ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef null) #10
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %9, label %.sink.split
@@ -1348,8 +1342,8 @@ define range(i32 0, 3) i32 @tls_construct_ctos_supported_versions(ptr noundef %0
 
 29:                                               ; preds = %.sink.split, %27, %9
   %.0 = phi i32 [ 2, %9 ], [ 1, %27 ], [ 0, %.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
@@ -1417,9 +1411,9 @@ define range(i32 0, 2) i32 @tls_construct_ctos_psk_kex_modes(ptr noundef %0, ptr
 define range(i32 0, 2) i32 @tls_construct_ctos_key_share(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readnone captures(none) %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 0, ptr %6, align 8, !tbaa !82
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8, !tbaa !83
   %8 = tail call i32 @WPACKET_put_bytes__(ptr noundef %1, i64 noundef 51, i64 noundef 2) #10
   %.not = icmp eq i32 %8, 0
@@ -1594,8 +1588,8 @@ thread-pre-split.thread:                          ; preds = %17, %thread-pre-spl
 
 .loopexit49:                                      ; preds = %47, %70, %78, %27, %80, %.split.us, %23, %13
   %.035 = phi i32 [ 0, %23 ], [ 0, %80 ], [ 0, %.split.us ], [ 0, %13 ], [ 0, %27 ], [ 1, %78 ], [ 0, %70 ], [ 0, %47 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.035
 }
 
@@ -1604,7 +1598,7 @@ declare void @tls1_get_requested_keyshare_groups(ptr noundef, ptr noundef, ptr n
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @add_key_share(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 1, 65536) %2, i64 noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !81
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 776
   %7 = load ptr, ptr %6, align 8, !tbaa !144
@@ -1700,7 +1694,7 @@ define internal fastcc range(i32 0, 2) i32 @add_key_share(ptr noundef %0, ptr no
 
 47:                                               ; preds = %15, %45, %32, %14
   %.0 = phi i32 [ 0, %45 ], [ 1, %32 ], [ 0, %14 ], [ 0, %15 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -1763,12 +1757,12 @@ define range(i32 0, 3) i32 @tls_construct_ctos_early_data(ptr noundef %0, ptr no
   %9 = alloca ptr, align 8
   %10 = alloca [512 x i8], align 16
   %11 = alloca [2 x i8], align 2
-  call void @llvm.lifetime.start.p0(i64 257, ptr nonnull %6) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8, !tbaa !81
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 0, ptr %8, align 8, !tbaa !82
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8, !tbaa !150
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %13 = load ptr, ptr %12, align 8, !tbaa !151
@@ -1817,7 +1811,7 @@ define range(i32 0, 3) i32 @tls_construct_ctos_early_data(ptr noundef %0, ptr no
   br i1 %.not82, label %.thread111, label %30
 
 30:                                               ; preds = %.thread
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %10) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(257) %6, i8 0, i64 257, i1 false)
   %31 = call i32 %29(ptr noundef %13, ptr noundef null, ptr noundef nonnull %6, i32 noundef 256, ptr noundef nonnull %10, i32 noundef 512) #10
   %32 = zext i32 %31 to i64
@@ -1835,7 +1829,7 @@ define range(i32 0, 3) i32 @tls_construct_ctos_early_data(ptr noundef %0, ptr no
   br i1 %.not83, label %57, label %36
 
 36:                                               ; preds = %35
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %11) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i16 275, ptr %11, align 2
   %37 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #11
   store i64 %37, ptr %8, align 8, !tbaa !82
@@ -1892,15 +1886,15 @@ define range(i32 0, 3) i32 @tls_construct_ctos_early_data(ptr noundef %0, ptr no
 
 56:                                               ; preds = %52
   call void @OPENSSL_cleanse(ptr noundef nonnull %10, i64 noundef %32) #10
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %11) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %57
 
 .critedge:                                        ; preds = %55, %43, %39
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %11) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.critedge102
 
 57:                                               ; preds = %35, %56
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %10) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.thread111
 
 .thread111:                                       ; preds = %25, %57, %.thread
@@ -2099,15 +2093,15 @@ PACKET_buf_init.exit.backedge:                    ; preds = %PACKET_equal.exit, 
   br label %.critedge106
 
 .critedge102:                                     ; preds = %.critedge, %34
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %10) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.critedge106
 
 .critedge106:                                     ; preds = %.critedge104, %119, %.critedge102, %138, %137, %111, %103, %88, %68, %27
   %.066 = phi i32 [ 0, %27 ], [ 0, %68 ], [ 2, %88 ], [ 0, %103 ], [ 0, %111 ], [ 1, %138 ], [ 0, %137 ], [ 0, %.critedge102 ], [ 0, %119 ], [ 0, %.critedge104 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #10
-  call void @llvm.lifetime.end.p0(i64 257, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.066
 }
 
@@ -2116,7 +2110,7 @@ declare ptr @ssl_handshake_md(ptr noundef) local_unnamed_addr #1
 declare void @SSL_SESSION_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare ptr @SSL_CIPHER_find(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -2139,8 +2133,8 @@ declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) loca
 define range(i32 0, 3) i32 @tls_construct_ctos_padding(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readnone captures(none) %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 2480
   %9 = load i64, ptr %8, align 8, !tbaa !134
   %10 = and i64 %9, 16
@@ -2238,8 +2232,8 @@ define range(i32 0, 3) i32 @tls_construct_ctos_padding(ptr noundef %0, ptr nound
 
 .critedge:                                        ; preds = %.critedge32, %53, %32, %5, %52, %14
   %.0 = phi i32 [ 0, %52 ], [ 0, %14 ], [ 2, %5 ], [ 0, %32 ], [ 1, %53 ], [ 1, %.critedge32 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
@@ -2255,11 +2249,11 @@ define range(i32 0, 3) i32 @tls_construct_ctos_psk(ptr noundef initializes((2872
   %7 = alloca i64, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8, !tbaa !81
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8, !tbaa !81
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !110
@@ -2607,10 +2601,10 @@ define range(i32 0, 3) i32 @tls_construct_ctos_psk(ptr noundef initializes((2872
 
 167:                                              ; preds = %162, %155, %65, %5, %20, %166, %149, %122, %111, %99, %91, %87, %83, %37
   %.0 = phi i32 [ 0, %37 ], [ 0, %83 ], [ 0, %87 ], [ 0, %91 ], [ 1, %166 ], [ 0, %149 ], [ 0, %122 ], [ 0, %111 ], [ 0, %99 ], [ 2, %20 ], [ 2, %5 ], [ 2, %65 ], [ 0, %155 ], [ 0, %162 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
@@ -3183,8 +3177,8 @@ declare i32 @custom_ext_parse(ptr noundef, i32 noundef, i32 noundef, ptr noundef
 define range(i32 0, 2) i32 @tls_parse_stoc_npn(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readnone captures(none) %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #10
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !110
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 608
@@ -3291,8 +3285,8 @@ ssl_next_proto_validate.exit:                     ; preds = %23
 
 59:                                               ; preds = %ssl_next_proto_validate.exit.thread, %13, %53, %51, %43, %21
   %.0 = phi i32 [ 0, %21 ], [ 0, %43 ], [ 0, %51 ], [ 1, %53 ], [ 1, %13 ], [ 0, %ssl_next_proto_validate.exit.thread ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
@@ -3623,7 +3617,7 @@ PACKET_get_net_2.exit.thread:                     ; preds = %19, %5, %29, %PACKE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @tls_parse_stoc_etm(ptr noundef captures(none) %0, ptr noundef readnone captures(none) %1, i32 noundef %2, ptr noundef readnone captures(none) %3, i64 noundef %4) local_unnamed_addr #6 {
+define noundef i32 @tls_parse_stoc_etm(ptr noundef captures(none) %0, ptr noundef readnone captures(none) %1, i32 noundef %2, ptr noundef readnone captures(none) %3, i64 noundef %4) local_unnamed_addr #5 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 2480
   %7 = load i64, ptr %6, align 8, !tbaa !134
   %8 = and i64 %7, 524288
@@ -3659,7 +3653,7 @@ define noundef i32 @tls_parse_stoc_etm(ptr noundef captures(none) %0, ptr nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @tls_parse_stoc_ems(ptr noundef captures(none) %0, ptr noundef readnone captures(none) %1, i32 noundef %2, ptr noundef readnone captures(none) %3, i64 noundef %4) local_unnamed_addr #7 {
+define noundef i32 @tls_parse_stoc_ems(ptr noundef captures(none) %0, ptr noundef readnone captures(none) %1, i32 noundef %2, ptr noundef readnone captures(none) %3, i64 noundef %4) local_unnamed_addr #6 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 2480
   %7 = load i64, ptr %6, align 8, !tbaa !134
   %8 = and i64 %7, 1
@@ -3813,9 +3807,9 @@ define range(i32 0, 2) i32 @tls_parse_stoc_key_share(ptr noundef %0, ptr noundef
   br label %75
 
 34:                                               ; preds = %19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !83
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.not105 = icmp eq i64 %29, 0
   br i1 %.not105, label %.preheader136, label %38
 
@@ -3932,8 +3926,8 @@ define range(i32 0, 2) i32 @tls_parse_stoc_key_share(ptr noundef %0, ptr noundef
 
 74:                                               ; preds = %._crit_edge146, %.loopexit, %46, %38
   %.1 = phi i32 [ 0, %38 ], [ 0, %46 ], [ 0, %.loopexit ], [ 1, %._crit_edge146 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %147
 
 75:                                               ; preds = %.lr.ph148, %87
@@ -4647,6 +4641,12 @@ declare i64 @EVP_PKEY_get1_encoded_public_key(ptr noundef, ptr noundef) local_un
 
 declare i32 @CRYPTO_memcmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare { i32, i1 } @llvm.umul.with.overflow.i32(i32, i32) #8
 
@@ -4662,11 +4662,11 @@ declare i32 @llvm.usub.sat.i32(i32, i32) #8
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #10 = { nounwind }

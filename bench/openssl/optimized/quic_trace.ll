@@ -115,7 +115,7 @@ define range(i32 0, 2) i32 @ossl_quic_trace(i32 noundef %0, i32 noundef %1, i32 
   %14 = alloca i64, align 8
   %15 = alloca %struct.PACKET, align 8
   %16 = alloca %struct.quic_pkt_hdr_st, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   switch i32 %2, label %PACKET_buf_init.exit63.thread [
     i32 512, label %17
     i32 513, label %21
@@ -132,7 +132,7 @@ define range(i32 0, 2) i32 @ossl_quic_trace(i32 noundef %0, i32 noundef %1, i32 
   br label %PACKET_buf_init.exit63.thread
 
 21:                                               ; preds = %7
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %16) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %22 = icmp slt i64 %4, 0
   br i1 %22, label %.critedge, label %23
 
@@ -322,7 +322,7 @@ put_token.exit:                                   ; preds = %.lr.ph.i.i59, %95
   br label %122
 
 122:                                              ; preds = %._crit_edge, %103, %103
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %16) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %PACKET_buf_init.exit63.thread
 
 123:                                              ; preds = %7, %7, %7
@@ -337,7 +337,7 @@ put_token.exit:                                   ; preds = %.lr.ph.i.i59, %95
   store ptr %3, ptr %15, align 8, !tbaa !3
   %129 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i64 %4, ptr %129, align 8, !tbaa !10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %130 = call i32 @ossl_quic_wire_peek_frame_header(ptr noundef nonnull %15, ptr noundef nonnull %14, ptr noundef null) #3
   %.not.i = icmp eq i32 %130, 0
   br i1 %.not.i, label %291, label %131
@@ -395,8 +395,8 @@ put_token.exit:                                   ; preds = %.lr.ph.i.i59, %95
   %142 = icmp eq i64 %141, 3
   %.str.28..str.29.i = select i1 %142, ptr @.str.28, ptr @.str.29
   %143 = call i32 @BIO_puts(ptr noundef %6, ptr noundef nonnull %.str.28..str.29.i) #3
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %12) #3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i64 0, ptr %13, align 8, !tbaa !23
   %144 = call i32 @ossl_quic_wire_peek_frame_ack_num_ranges(ptr noundef nonnull %15, ptr noundef nonnull %13) #3
   %145 = icmp eq i32 %144, 0
@@ -465,20 +465,20 @@ put_token.exit:                                   ; preds = %.lr.ph.i.i59, %95
   br i1 %193, label %.lr.ph.i.i66, label %frame_ack.exit.thread98.i, !llvm.loop !32
 
 frame_ack.exit.thread.i:                          ; preds = %148, %139
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #3
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %12) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %291
 
 frame_ack.exit.thread98.i:                        ; preds = %.lr.ph.i.i66, %156
   call void @CRYPTO_free(ptr noundef nonnull %150, ptr noundef nonnull @.str.51, i32 noundef 123) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #3
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %12) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %288
 
 frame_ack.exit.i:                                 ; preds = %152
   call void @CRYPTO_free(ptr noundef nonnull %150, ptr noundef nonnull @.str.51, i32 noundef 123) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #3
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %12) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %291
 
 194:                                              ; preds = %131
@@ -506,7 +506,7 @@ frame_ack.exit.i:                                 ; preds = %152
   br i1 %.not80.i, label %291, label %288
 
 switch.lookup75:                                  ; preds = %131, %131, %131, %131, %131, %131, %131, %131
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %206 = call i32 @BIO_puts(ptr noundef %6, ptr noundef nonnull @.str.64) #3
   %switch.tableidx76 = add nsw i64 %132, -8
   %switch.gep77 = getelementptr inbounds [8 x ptr], ptr @switch.table.ossl_quic_trace.2, i64 0, i64 %switch.tableidx76
@@ -539,11 +539,11 @@ switch.lookup75:                                  ; preds = %131, %131, %131, %1
   br label %frame_stream.exit.i
 
 frame_stream.exit.thread.i:                       ; preds = %switch.lookup75
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %291
 
 frame_stream.exit.i:                              ; preds = %222, %218
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %288
 
 224:                                              ; preds = %131
@@ -564,20 +564,20 @@ frame_stream.exit.i:                              ; preds = %222, %218
   %233 = icmp eq i64 %232, 18
   %.str.37..str.38.i = select i1 %233, ptr @.str.37, ptr @.str.38
   %234 = call i32 @BIO_puts(ptr noundef %6, ptr noundef nonnull %.str.37..str.38.i) #3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i64 0, ptr %10, align 8, !tbaa !23
   %235 = call i32 @ossl_quic_wire_decode_frame_max_streams(ptr noundef nonnull %15, ptr noundef nonnull %10) #3
   %.not.i89.i = icmp eq i32 %235, 0
   br i1 %.not.i89.i, label %frame_max_streams.exit.thread.i, label %frame_max_streams.exit.i
 
 frame_max_streams.exit.thread.i:                  ; preds = %230
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %291
 
 frame_max_streams.exit.i:                         ; preds = %230
   %236 = load i64, ptr %10, align 8, !tbaa !23
   %237 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %6, ptr noundef nonnull @.str.75, i64 noundef %236) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %288
 
 238:                                              ; preds = %131
@@ -598,20 +598,20 @@ frame_max_streams.exit.i:                         ; preds = %230
   %247 = icmp eq i64 %246, 22
   %.str.37..str.38110.i = select i1 %247, ptr @.str.37, ptr @.str.38
   %248 = call i32 @BIO_puts(ptr noundef %6, ptr noundef nonnull %.str.37..str.38110.i) #3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 0, ptr %9, align 8, !tbaa !23
   %249 = call i32 @ossl_quic_wire_decode_frame_streams_blocked(ptr noundef nonnull %15, ptr noundef nonnull %9) #3
   %.not.i91.i = icmp eq i32 %249, 0
   br i1 %.not.i91.i, label %frame_streams_blocked.exit.thread.i, label %frame_streams_blocked.exit.i
 
 frame_streams_blocked.exit.thread.i:              ; preds = %244
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %291
 
 frame_streams_blocked.exit.i:                     ; preds = %244
   %250 = load i64, ptr %9, align 8, !tbaa !23
   %251 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %6, ptr noundef nonnull @.str.73, i64 noundef %250) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %288
 
 252:                                              ; preds = %131
@@ -644,13 +644,13 @@ frame_streams_blocked.exit.i:                     ; preds = %244
   %267 = icmp eq i64 %266, 29
   %.str.47..str.48.i = select i1 %267, ptr @.str.47, ptr @.str.48
   %268 = call i32 @BIO_puts(ptr noundef %6, ptr noundef nonnull %.str.47..str.48.i) #3
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %269 = call i32 @ossl_quic_wire_decode_frame_conn_close(ptr noundef nonnull %15, ptr noundef nonnull %8) #3
   %.not.i93.i = icmp eq i32 %269, 0
   br i1 %.not.i93.i, label %frame_conn_closed.exit.thread.i, label %270
 
 frame_conn_closed.exit.thread.i:                  ; preds = %264
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %291
 
 270:                                              ; preds = %264
@@ -677,7 +677,7 @@ frame_conn_closed.exit.thread.i:                  ; preds = %264
 
 frame_conn_closed.exit.i:                         ; preds = %.lr.ph.i.i.i, %270
   %284 = call i32 @BIO_puts(ptr noundef %6, ptr noundef nonnull @.str.7) #3
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %288
 
 285:                                              ; preds = %131
@@ -696,50 +696,44 @@ frame_conn_closed.exit.i:                         ; preds = %.lr.ph.i.i.i, %270
   br label %trace_frame_data.exit
 
 trace_frame_data.exit:                            ; preds = %288, %289
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %PACKET_buf_init.exit63.thread
 
 291:                                              ; preds = %128, %133, %frame_ack.exit.i, %194, %197, %200, %203, %224, %227, %238, %241, %252, %255, %258, %261, %285, %131, %frame_ack.exit.thread.i, %frame_stream.exit.thread.i, %frame_max_streams.exit.thread.i, %frame_streams_blocked.exit.thread.i, %frame_conn_closed.exit.thread.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %292 = call i32 @BIO_puts(ptr noundef %6, ptr noundef nonnull @.str.14) #3
   br label %PACKET_buf_init.exit63.thread
 
 .critedge:                                        ; preds = %21, %23
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %16) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %PACKET_buf_init.exit63.thread
 
 PACKET_buf_init.exit63.thread:                    ; preds = %123, %trace_frame_data.exit, %17, %122, %7, %.critedge, %291
   %.1 = phi i32 [ 0, %291 ], [ 0, %.critedge ], [ 0, %7 ], [ 1, %122 ], [ 1, %trace_frame_data.exit ], [ 1, %17 ], [ 0, %123 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret i32 %.1
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @BIO_puts(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @BIO_puts(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @BIO_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare i32 @BIO_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare ptr @ossl_quic_conn_get_channel(ptr noundef) local_unnamed_addr #1
 
-declare ptr @ossl_quic_conn_get_channel(ptr noundef) local_unnamed_addr #2
+declare i64 @ossl_quic_channel_get_short_header_conn_id_len(ptr noundef) local_unnamed_addr #1
 
-declare i64 @ossl_quic_channel_get_short_header_conn_id_len(ptr noundef) local_unnamed_addr #2
+declare i32 @ossl_quic_wire_decode_pkt_hdr(ptr noundef, i64 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @ossl_quic_wire_decode_pkt_hdr(ptr noundef, i64 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ossl_quic_wire_peek_frame_header(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @ossl_quic_wire_decode_frame_ping(ptr noundef) local_unnamed_addr #1
 
-declare i32 @ossl_quic_wire_peek_frame_header(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare i32 @ossl_quic_wire_decode_frame_ping(ptr noundef) local_unnamed_addr #2
-
-declare i64 @ossl_quic_wire_decode_padding(ptr noundef) local_unnamed_addr #2
+declare i64 @ossl_quic_wire_decode_padding(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @frame_reset_stream(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca %struct.ossl_quic_frame_reset_stream_st, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 @ossl_quic_wire_decode_frame_reset_stream(ptr noundef nonnull %1, ptr noundef nonnull %3) #3
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %14, label %5
@@ -757,14 +751,14 @@ define internal fastcc range(i32 0, 2) i32 @frame_reset_stream(ptr noundef %0, p
 
 14:                                               ; preds = %2, %5
   %.0 = phi i32 [ 1, %5 ], [ 0, %2 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @frame_stop_sending(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca %struct.ossl_quic_frame_stop_sending_st, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 @ossl_quic_wire_decode_frame_stop_sending(ptr noundef nonnull %1, ptr noundef nonnull %3) #3
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %11, label %5
@@ -779,14 +773,14 @@ define internal fastcc range(i32 0, 2) i32 @frame_stop_sending(ptr noundef %0, p
 
 11:                                               ; preds = %2, %5
   %.0 = phi i32 [ 1, %5 ], [ 0, %2 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @frame_crypto(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca %struct.ossl_quic_frame_crypto_st, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 @ossl_quic_wire_decode_frame_crypto(ptr noundef nonnull %1, i32 noundef 1, ptr noundef nonnull %3) #3
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %11, label %5
@@ -801,7 +795,7 @@ define internal fastcc range(i32 0, 2) i32 @frame_crypto(ptr noundef %0, ptr nou
 
 11:                                               ; preds = %2, %5
   %.0 = phi i32 [ 1, %5 ], [ 0, %2 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
@@ -809,8 +803,8 @@ define internal fastcc range(i32 0, 2) i32 @frame_crypto(ptr noundef %0, ptr nou
 define internal fastcc range(i32 0, 2) i32 @frame_new_token(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call i32 @ossl_quic_wire_decode_frame_new_token(ptr noundef nonnull %1, ptr noundef nonnull %3, ptr noundef nonnull %4) #3
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %19, label %6
@@ -842,15 +836,15 @@ put_token.exit:                                   ; preds = %.lr.ph.i.i, %11
 
 19:                                               ; preds = %2, %put_token.exit
   %.0 = phi i32 [ 1, %put_token.exit ], [ 0, %2 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @frame_max_data(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 0, ptr %3, align 8, !tbaa !23
   %4 = call i32 @ossl_quic_wire_decode_frame_max_data(ptr noundef nonnull %1, ptr noundef nonnull %3) #3
   %.not = icmp eq i32 %4, 0
@@ -863,7 +857,7 @@ define internal fastcc range(i32 0, 2) i32 @frame_max_data(ptr noundef %0, ptr n
 
 8:                                                ; preds = %2, %5
   %.0 = phi i32 [ 1, %5 ], [ 0, %2 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
@@ -871,9 +865,9 @@ define internal fastcc range(i32 0, 2) i32 @frame_max_data(ptr noundef %0, ptr n
 define internal fastcc range(i32 0, 2) i32 @frame_max_stream_data(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 0, ptr %3, align 8, !tbaa !23
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8, !tbaa !23
   %5 = call i32 @ossl_quic_wire_decode_frame_max_stream_data(ptr noundef nonnull %1, ptr noundef nonnull %3, ptr noundef nonnull %4) #3
   %.not = icmp eq i32 %5, 0
@@ -886,15 +880,15 @@ define internal fastcc range(i32 0, 2) i32 @frame_max_stream_data(ptr noundef %0
 
 9:                                                ; preds = %2, %6
   %.0 = phi i32 [ 1, %6 ], [ 0, %2 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @frame_data_blocked(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 0, ptr %3, align 8, !tbaa !23
   %4 = call i32 @ossl_quic_wire_decode_frame_data_blocked(ptr noundef nonnull %1, ptr noundef nonnull %3) #3
   %.not = icmp eq i32 %4, 0
@@ -907,7 +901,7 @@ define internal fastcc range(i32 0, 2) i32 @frame_data_blocked(ptr noundef %0, p
 
 8:                                                ; preds = %2, %5
   %.0 = phi i32 [ 1, %5 ], [ 0, %2 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
@@ -915,9 +909,9 @@ define internal fastcc range(i32 0, 2) i32 @frame_data_blocked(ptr noundef %0, p
 define internal fastcc range(i32 0, 2) i32 @frame_stream_data_blocked(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 0, ptr %3, align 8, !tbaa !23
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8, !tbaa !23
   %5 = call i32 @ossl_quic_wire_decode_frame_stream_data_blocked(ptr noundef nonnull %1, ptr noundef nonnull %3, ptr noundef nonnull %4) #3
   %.not = icmp eq i32 %5, 0
@@ -932,15 +926,15 @@ define internal fastcc range(i32 0, 2) i32 @frame_stream_data_blocked(ptr nounde
 
 11:                                               ; preds = %2, %6
   %.0 = phi i32 [ 1, %6 ], [ 0, %2 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @frame_new_conn_id(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca %struct.ossl_quic_frame_new_conn_id_st, align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 @ossl_quic_wire_decode_frame_new_conn_id(ptr noundef nonnull %1, ptr noundef nonnull %3) #3
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %35, label %5
@@ -1000,14 +994,14 @@ put_data.exit:                                    ; preds = %.lr.ph.i
 
 35:                                               ; preds = %2, %put_data.exit
   %.0 = phi i32 [ 1, %put_data.exit ], [ 0, %2 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @frame_retire_conn_id(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 @ossl_quic_wire_decode_frame_retire_conn_id(ptr noundef nonnull %1, ptr noundef nonnull %3) #3
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %8, label %5
@@ -1019,14 +1013,14 @@ define internal fastcc range(i32 0, 2) i32 @frame_retire_conn_id(ptr noundef %0,
 
 8:                                                ; preds = %2, %5
   %.0 = phi i32 [ 1, %5 ], [ 0, %2 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @frame_path_challenge(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 0, ptr %3, align 8, !tbaa !23
   %4 = call i32 @ossl_quic_wire_decode_frame_path_challenge(ptr noundef nonnull %1, ptr noundef nonnull %3) #3
   %.not = icmp eq i32 %4, 0
@@ -1039,14 +1033,14 @@ define internal fastcc range(i32 0, 2) i32 @frame_path_challenge(ptr noundef %0,
 
 8:                                                ; preds = %2, %5
   %.0 = phi i32 [ 1, %5 ], [ 0, %2 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @frame_path_response(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 0, ptr %3, align 8, !tbaa !23
   %4 = call i32 @ossl_quic_wire_decode_frame_path_response(ptr noundef nonnull %1, ptr noundef nonnull %3) #3
   %.not = icmp eq i32 %4, 0
@@ -1059,55 +1053,61 @@ define internal fastcc range(i32 0, 2) i32 @frame_path_response(ptr noundef %0, 
 
 8:                                                ; preds = %2, %5
   %.0 = phi i32 [ 1, %5 ], [ 0, %2 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
-declare i32 @ossl_quic_wire_decode_frame_handshake_done(ptr noundef) local_unnamed_addr #2
+declare i32 @ossl_quic_wire_decode_frame_handshake_done(ptr noundef) local_unnamed_addr #1
 
-declare i32 @ossl_quic_wire_peek_frame_ack_num_ranges(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ossl_quic_wire_peek_frame_ack_num_ranges(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @ossl_quic_wire_decode_frame_ack(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ossl_quic_wire_decode_frame_ack(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @ossl_quic_wire_decode_frame_reset_stream(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ossl_quic_wire_decode_frame_reset_stream(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @ossl_quic_wire_decode_frame_stop_sending(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ossl_quic_wire_decode_frame_stop_sending(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @ossl_quic_wire_decode_frame_crypto(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ossl_quic_wire_decode_frame_crypto(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @ossl_quic_wire_decode_frame_new_token(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ossl_quic_wire_decode_frame_new_token(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @ossl_quic_wire_decode_frame_stream(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ossl_quic_wire_decode_frame_stream(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @ossl_quic_wire_decode_frame_max_data(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ossl_quic_wire_decode_frame_max_data(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @ossl_quic_wire_decode_frame_max_stream_data(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ossl_quic_wire_decode_frame_max_stream_data(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @ossl_quic_wire_decode_frame_max_streams(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ossl_quic_wire_decode_frame_max_streams(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @ossl_quic_wire_decode_frame_data_blocked(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ossl_quic_wire_decode_frame_data_blocked(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @ossl_quic_wire_decode_frame_stream_data_blocked(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ossl_quic_wire_decode_frame_stream_data_blocked(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @ossl_quic_wire_decode_frame_streams_blocked(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ossl_quic_wire_decode_frame_streams_blocked(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @ossl_quic_wire_decode_frame_new_conn_id(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ossl_quic_wire_decode_frame_new_conn_id(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @ossl_quic_wire_decode_frame_retire_conn_id(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ossl_quic_wire_decode_frame_retire_conn_id(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @ossl_quic_wire_decode_frame_path_challenge(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ossl_quic_wire_decode_frame_path_challenge(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @ossl_quic_wire_decode_frame_path_response(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ossl_quic_wire_decode_frame_path_response(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @ossl_quic_wire_decode_frame_conn_close(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ossl_quic_wire_decode_frame_conn_close(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

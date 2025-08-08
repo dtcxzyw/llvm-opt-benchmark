@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define range(i32 -1, 1) i32 @sf_base64decode(ptr noundef readonly captures(address) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2, i64 noundef %3, ptr noundef captures(none) initializes((0, 8)) %4) local_unnamed_addr #0 {
   %6 = alloca [4 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #2
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = udiv i64 %3, 3
   %8 = shl i64 %7, 2
   %9 = add i64 %8, 4
@@ -124,19 +124,18 @@ define range(i32 -1, 1) i32 @sf_base64decode(ptr noundef readonly captures(addre
 
 ._crit_edge:                                      ; preds = %26, %55, %71, %45, %31, %5
   %76 = phi i32 [ 0, %5 ], [ 0, %31 ], [ 0, %71 ], [ 0, %45 ], [ 0, %55 ], [ -1, %26 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #2
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %76
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #1
 
 attributes #0 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

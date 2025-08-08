@@ -7,29 +7,29 @@ target triple = "x86_64-pc-linux-gnu"
 define i32 @SUNContext_Create(i32 noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !8
   store ptr null, ptr %1, align 8, !tbaa !10
-  %5 = tail call noalias dereferenceable_or_null(48) ptr @malloc(i64 noundef 48) #10
+  %5 = tail call noalias dereferenceable_or_null(48) ptr @malloc(i64 noundef 48) #9
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %23, label %6
 
 6:                                                ; preds = %2
-  %7 = call i32 @SUNLogger_CreateFromEnv(i32 noundef 0, ptr noundef nonnull %3) #9
+  %7 = call i32 @SUNLogger_CreateFromEnv(i32 noundef 0, ptr noundef nonnull %3) #10
   %.not24 = icmp eq i32 %7, 0
   br i1 %.not24, label %8, label %10
 
 8:                                                ; preds = %6
-  %9 = call i32 @SUNErrHandler_Create(ptr noundef nonnull @SUNLogErrHandlerFn, ptr noundef null, ptr noundef nonnull %4) #9
+  %9 = call i32 @SUNErrHandler_Create(ptr noundef nonnull @SUNLogErrHandlerFn, ptr noundef null, ptr noundef nonnull %4) #10
   %.not25 = icmp eq i32 %9, 0
   br i1 %.not25, label %12, label %10
 
 10:                                               ; preds = %6, %8
   %.020.ph = phi i32 [ %9, %8 ], [ %7, %6 ]
-  %11 = call i32 @SUNLogger_Destroy(ptr noundef nonnull %3) #9
-  call void @free(ptr noundef nonnull %5) #9
+  %11 = call i32 @SUNLogger_Destroy(ptr noundef nonnull %3) #10
+  call void @free(ptr noundef nonnull %5) #10
   br label %23
 
 12:                                               ; preds = %8
@@ -55,33 +55,27 @@ define i32 @SUNContext_Create(i32 noundef %0, ptr noundef writeonly captures(non
 
 23:                                               ; preds = %10, %12, %2
   %.0 = phi i32 [ -9988, %2 ], [ 0, %12 ], [ %.020.ph, %10 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
-declare i32 @SUNLogger_CreateFromEnv(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @SUNLogger_CreateFromEnv(i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @SUNErrHandler_Create(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @SUNErrHandler_Create(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @SUNLogErrHandlerFn(i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) #3
+declare void @SUNLogErrHandlerFn(i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) #2
 
-declare i32 @SUNLogger_Destroy(ptr noundef) local_unnamed_addr #3
+declare i32 @SUNLogger_Destroy(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i32 @SUNContext_GetLastError(ptr noundef captures(address_is_null) %0) local_unnamed_addr #5 {
+define i32 @SUNContext_GetLastError(ptr noundef captures(address_is_null) %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -97,7 +91,7 @@ define i32 @SUNContext_GetLastError(ptr noundef captures(address_is_null) %0) lo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @SUNContext_PeekLastError(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
+define i32 @SUNContext_PeekLastError(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -120,9 +114,9 @@ define range(i32 -9993, 1) i32 @SUNContext_PushErrHandler(ptr noundef captures(a
   br i1 %or.cond, label %7, label %15
 
 7:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !8
-  %8 = call i32 @SUNErrHandler_Create(ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %4) #9
+  %8 = call i32 @SUNErrHandler_Create(ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %4) #10
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %9, label %14
 
@@ -137,7 +131,7 @@ define range(i32 -9993, 1) i32 @SUNContext_PushErrHandler(ptr noundef captures(a
 
 14:                                               ; preds = %7, %9
   %.1 = phi i32 [ 0, %9 ], [ -9993, %7 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %15
 
 15:                                               ; preds = %3, %14
@@ -158,12 +152,12 @@ define range(i32 -9978, 1) i32 @SUNContext_PopErrHandler(ptr noundef captures(ad
   br i1 %.not10, label %8, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %5, ptr %2, align 8, !tbaa !8
   %7 = load ptr, ptr %5, align 8, !tbaa !22
   store ptr %7, ptr %4, align 8, !tbaa !20
-  call void @SUNErrHandler_Destroy(ptr noundef nonnull %2) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
+  call void @SUNErrHandler_Destroy(ptr noundef nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %8
 
 8:                                                ; preds = %3, %6, %1
@@ -171,7 +165,7 @@ define range(i32 -9978, 1) i32 @SUNContext_PopErrHandler(ptr noundef captures(ad
   ret i32 %.0
 }
 
-declare void @SUNErrHandler_Destroy(ptr noundef) local_unnamed_addr #3
+declare void @SUNErrHandler_Destroy(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -9978, 1) i32 @SUNContext_ClearErrHandlers(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
@@ -187,12 +181,12 @@ define range(i32 -9978, 1) i32 @SUNContext_ClearErrHandlers(ptr noundef captures
 
 SUNContext_PopErrHandler.exit:                    ; preds = %.preheader, %SUNContext_PopErrHandler.exit
   %5 = phi ptr [ %7, %SUNContext_PopErrHandler.exit ], [ %4, %.preheader ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %5, ptr %2, align 8, !tbaa !8
   %6 = load ptr, ptr %5, align 8, !tbaa !22
   store ptr %6, ptr %3, align 8, !tbaa !20
-  call void @SUNErrHandler_Destroy(ptr noundef nonnull %2) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
+  call void @SUNErrHandler_Destroy(ptr noundef nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %7 = load ptr, ptr %3, align 8, !tbaa !20
   %.not5 = icmp eq ptr %7, null
   br i1 %.not5, label %.loopexit, label %SUNContext_PopErrHandler.exit
@@ -203,7 +197,7 @@ SUNContext_PopErrHandler.exit:                    ; preds = %.preheader, %SUNCon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 -9978, 1) i32 @SUNContext_GetProfiler(ptr noundef readnone captures(address_is_null) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #7 {
+define range(i32 -9978, 1) i32 @SUNContext_GetProfiler(ptr noundef readnone captures(address_is_null) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %3
 
@@ -217,14 +211,14 @@ define range(i32 -9978, 1) i32 @SUNContext_GetProfiler(ptr noundef readnone capt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef range(i32 -9978, 1) i32 @SUNContext_SetProfiler(ptr noundef readnone captures(address_is_null) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #8 {
+define noundef range(i32 -9978, 1) i32 @SUNContext_SetProfiler(ptr noundef readnone captures(address_is_null) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #7 {
   %.not = icmp eq ptr %0, null
   %. = select i1 %.not, i32 -9978, i32 0
   ret i32 %.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 -9978, 1) i32 @SUNContext_GetLogger(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #5 {
+define range(i32 -9978, 1) i32 @SUNContext_GetLogger(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %3
 
@@ -257,7 +251,7 @@ define range(i32 -9986, 1) i32 @SUNContext_SetLogger(ptr noundef %0, ptr noundef
   br i1 %.not11, label %11, label %9
 
 9:                                                ; preds = %6
-  %10 = tail call i32 @SUNLogger_Destroy(ptr noundef nonnull %4) #9
+  %10 = tail call i32 @SUNLogger_Destroy(ptr noundef nonnull %4) #10
   %.not12 = icmp eq i32 %10, 0
   br i1 %.not12, label %11, label %13
 
@@ -296,7 +290,7 @@ define noundef i32 @SUNContext_Free(ptr noundef captures(address_is_null) %0) lo
   br i1 %.not11, label %.preheader.i, label %11
 
 11:                                               ; preds = %8
-  %12 = tail call i32 @SUNLogger_Destroy(ptr noundef nonnull %6) #9
+  %12 = tail call i32 @SUNLogger_Destroy(ptr noundef nonnull %6) #10
   %.pre = load ptr, ptr %0, align 8, !tbaa !10
   %.not.i = icmp eq ptr %.pre, null
   br i1 %.not.i, label %SUNContext_ClearErrHandlers.exit, label %.preheader.i
@@ -310,12 +304,12 @@ define noundef i32 @SUNContext_Free(ptr noundef captures(address_is_null) %0) lo
 
 SUNContext_PopErrHandler.exit.i:                  ; preds = %.preheader.i, %SUNContext_PopErrHandler.exit.i
   %16 = phi ptr [ %18, %SUNContext_PopErrHandler.exit.i ], [ %15, %.preheader.i ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %16, ptr %2, align 8, !tbaa !8
   %17 = load ptr, ptr %16, align 8, !tbaa !22
   store ptr %17, ptr %14, align 8, !tbaa !20
-  call void @SUNErrHandler_Destroy(ptr noundef nonnull %2) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
+  call void @SUNErrHandler_Destroy(ptr noundef nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %18 = load ptr, ptr %14, align 8, !tbaa !20
   %.not5.i = icmp eq ptr %18, null
   br i1 %.not5.i, label %SUNContext_ClearErrHandlers.exit.loopexit, label %SUNContext_PopErrHandler.exit.i
@@ -326,7 +320,7 @@ SUNContext_ClearErrHandlers.exit.loopexit:        ; preds = %SUNContext_PopErrHa
 
 SUNContext_ClearErrHandlers.exit:                 ; preds = %SUNContext_ClearErrHandlers.exit.loopexit, %11, %.preheader.i
   %19 = phi ptr [ %.pre12, %SUNContext_ClearErrHandlers.exit.loopexit ], [ null, %11 ], [ %13, %.preheader.i ]
-  call void @free(ptr noundef %19) #9
+  call void @free(ptr noundef %19) #10
   store ptr null, ptr %0, align 8, !tbaa !10
   br label %20
 
@@ -334,17 +328,23 @@ SUNContext_ClearErrHandlers.exit:                 ; preds = %SUNContext_ClearErr
   ret i32 0
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nounwind }
-attributes #10 = { nounwind allocsize(0) }
+attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { nounwind allocsize(0) }
+attributes #10 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

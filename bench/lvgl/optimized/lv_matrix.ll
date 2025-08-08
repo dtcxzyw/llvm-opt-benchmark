@@ -83,7 +83,7 @@ lv_matrix_is_identity_or_translation.exit:        ; preds = %24
   br label %66
 
 lv_matrix_is_identity_or_translation.exit.thread: ; preds = %3, %8, %12, %16, %20, %24, %lv_matrix_is_identity_or_translation.exit
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store float 1.000000e+00, ptr %5, align 4, !tbaa !3
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store float 0.000000e+00, ptr %38, align 4, !tbaa !3
@@ -101,7 +101,7 @@ lv_matrix_is_identity_or_translation.exit.thread: ; preds = %3, %8, %12, %16, %2
   store float 0.000000e+00, ptr %44, align 4, !tbaa !3
   %45 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store float 1.000000e+00, ptr %45, align 4, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %53, %lv_matrix_is_identity_or_translation.exit.thread
@@ -139,8 +139,8 @@ lv_matrix_is_identity_or_translation.exit.thread: ; preds = %3, %8, %12, %16, %2
 
 lv_matrix_multiply.exit:                          ; preds = %53
   %65 = call ptr @lv_memcpy(ptr noundef nonnull %0, ptr noundef nonnull %4, i64 noundef 36) #9
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %66
 
 66:                                               ; preds = %lv_matrix_multiply.exit, %31
@@ -194,13 +194,10 @@ define zeroext i1 @lv_matrix_is_identity_or_translation(ptr noundef readonly cap
   ret i1 %29
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 ; Function Attrs: nounwind uwtable
 define void @lv_matrix_multiply(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
   %3 = alloca %struct._lv_matrix_t, align 4
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %.preheader
@@ -218,7 +215,7 @@ define void @lv_matrix_multiply(ptr noundef %0, ptr noundef readonly captures(no
 
 13:                                               ; preds = %15
   %14 = call ptr @lv_memcpy(ptr noundef nonnull %0, ptr noundef nonnull %3, i64 noundef 36) #9
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 15:                                               ; preds = %16
@@ -244,14 +241,11 @@ define void @lv_matrix_multiply(ptr noundef %0, ptr noundef readonly captures(no
   br i1 %exitcond.not, label %15, label %16, !llvm.loop !9
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
-
 ; Function Attrs: nounwind uwtable
 define void @lv_matrix_scale(ptr noundef %0, float noundef %1, float noundef %2) local_unnamed_addr #1 {
   %4 = alloca %struct._lv_matrix_t, align 4
   %5 = alloca %struct._lv_matrix_t, align 4
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store float %1, ptr %5, align 4, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store float 0.000000e+00, ptr %6, align 4, !tbaa !3
@@ -269,7 +263,7 @@ define void @lv_matrix_scale(ptr noundef %0, float noundef %1, float noundef %2)
   store float 0.000000e+00, ptr %12, align 4, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store float 1.000000e+00, ptr %13, align 4, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %21, %3
@@ -307,8 +301,8 @@ define void @lv_matrix_scale(ptr noundef %0, float noundef %1, float noundef %2)
 
 lv_matrix_multiply.exit:                          ; preds = %21
   %33 = call ptr @lv_memcpy(ptr noundef nonnull %0, ptr noundef nonnull %4, i64 noundef 36) #9
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -320,7 +314,7 @@ define void @lv_matrix_rotate(ptr noundef %0, float noundef %1) local_unnamed_ad
   %6 = fmul float %5, 0x400921FB60000000
   %7 = tail call float @cosf(float noundef %6) #9, !tbaa !10
   %8 = tail call float @sinf(float noundef %6) #9, !tbaa !10
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store float %7, ptr %4, align 4, !tbaa !3
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %10 = fneg float %8
@@ -339,7 +333,7 @@ define void @lv_matrix_rotate(ptr noundef %0, float noundef %1) local_unnamed_ad
   store float 0.000000e+00, ptr %16, align 4, !tbaa !3
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store float 1.000000e+00, ptr %17, align 4, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %25, %2
@@ -377,16 +371,16 @@ define void @lv_matrix_rotate(ptr noundef %0, float noundef %1) local_unnamed_ad
 
 lv_matrix_multiply.exit:                          ; preds = %25
   %37 = call ptr @lv_memcpy(ptr noundef nonnull %0, ptr noundef nonnull %3, i64 noundef 36) #9
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %3) #9
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare float @cosf(float noundef) local_unnamed_addr #4
+declare float @cosf(float noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare float @sinf(float noundef) local_unnamed_addr #4
+declare float @sinf(float noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define void @lv_matrix_skew(ptr noundef %0, float noundef %1, float noundef %2) local_unnamed_addr #1 {
@@ -398,7 +392,7 @@ define void @lv_matrix_skew(ptr noundef %0, float noundef %1, float noundef %2) 
   %9 = fmul float %8, 0x400921FB60000000
   %10 = tail call float @tanf(float noundef %7) #9, !tbaa !10
   %11 = tail call float @tanf(float noundef %9) #9, !tbaa !10
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store float 1.000000e+00, ptr %5, align 4, !tbaa !3
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store float %10, ptr %12, align 4, !tbaa !3
@@ -416,7 +410,7 @@ define void @lv_matrix_skew(ptr noundef %0, float noundef %1, float noundef %2) 
   store float 0.000000e+00, ptr %18, align 4, !tbaa !3
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store float 1.000000e+00, ptr %19, align 4, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %27, %3
@@ -454,21 +448,21 @@ define void @lv_matrix_skew(ptr noundef %0, float noundef %1, float noundef %2) 
 
 lv_matrix_multiply.exit:                          ; preds = %27
   %39 = call ptr @lv_memcpy(ptr noundef nonnull %0, ptr noundef nonnull %4, i64 noundef 36) #9
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare float @tanf(float noundef) local_unnamed_addr #4
+declare float @tanf(float noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #5
+declare float @llvm.fmuladd.f32(float, float, float) #4
 
-declare ptr @lv_memcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #6
+declare ptr @lv_memcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @lv_matrix_inverse(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #7 {
+define noundef zeroext i1 @lv_matrix_inverse(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #6 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %4, label %12
 
@@ -619,7 +613,7 @@ define noundef zeroext i1 @lv_matrix_inverse(ptr noundef writeonly captures(none
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define <2 x float> @lv_matrix_transform_precise_point(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #8 {
+define <2 x float> @lv_matrix_transform_precise_point(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #7 {
   %3 = load float, ptr %1, align 4, !tbaa !12
   %4 = load float, ptr %0, align 4, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -648,10 +642,10 @@ define <2 x float> @lv_matrix_transform_precise_point(ptr noundef readonly captu
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.round.f32(float) #5
+declare float @llvm.round.f32(float) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define { i64, i64 } @lv_matrix_transform_area(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #8 {
+define { i64, i64 } @lv_matrix_transform_area(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #7 {
   %3 = load i32, ptr %1, align 4, !tbaa !15
   %4 = sitofp i32 %3 to float
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -743,15 +737,21 @@ define { i64, i64 } @lv_matrix_transform_area(ptr noundef readonly captures(none
   ret { i64, i64 } %.fca.1.insert
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
+
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

@@ -1738,7 +1738,7 @@ entry:
   %tempBottom.i.i = alloca %"class.eastl::optional", align 4
   %temp.i = alloca %"class.eastl::optional", align 4
   %temp = alloca %"class.eastl::optional", align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %temp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %temp.i)
   %sub.ptr.lhs.cast.i = ptrtoint ptr %middle to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %first to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
@@ -1776,7 +1776,7 @@ _ZN5eastl8optionalIiEC2EOS1_.exit.i:              ; preds = %if.then.i.i, %do.bo
   br i1 %cmp2.not.i, label %_ZN5eastl9make_heapIPNS_8optionalIiEEEEvT_S4_.exit, label %do.body.i, !llvm.loop !29
 
 _ZN5eastl9make_heapIPNS_8optionalIiEEEEvT_S4_.exit: ; preds = %_ZN5eastl8optionalIiEC2EOS1_.exit.i, %entry
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %temp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %temp.i)
   %cmp30 = icmp ult ptr %middle, %last
   br i1 %cmp30, label %for.body.lr.ph, label %for.end
 
@@ -1842,7 +1842,7 @@ for.body.lr.ph.i:                                 ; preds = %for.end
 for.body.i:                                       ; preds = %_ZN5eastl8pop_heapIPNS_8optionalIiEEEEvT_S4_.exit.i, %for.body.lr.ph.i
   %sub.ptr.sub8.i = phi i64 [ %sub.ptr.sub.i, %for.body.lr.ph.i ], [ %sub.ptr.sub.i25, %_ZN5eastl8pop_heapIPNS_8optionalIiEEEEvT_S4_.exit.i ]
   %last.addr.07.i = phi ptr [ %middle, %for.body.lr.ph.i ], [ %add.ptr.i.i, %_ZN5eastl8pop_heapIPNS_8optionalIiEEEEvT_S4_.exit.i ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tempBottom.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %tempBottom.i.i)
   %add.ptr.i.i = getelementptr inbounds i8, ptr %last.addr.07.i, i64 -8
   %engaged.i.i.i23 = getelementptr inbounds i8, ptr %last.addr.07.i, i64 -4
   store i32 0, ptr %tempBottom.i.i, align 4
@@ -1885,7 +1885,7 @@ _ZN5eastl8pop_heapIPNS_8optionalIiEEEEvT_S4_.exit.i: ; preds = %if.else14.i.i.i,
   %sub.ptr.div.i.i = lshr exact i64 %sub.ptr.sub8.i, 3
   %sub.i.i = add nsw i64 %sub.ptr.div.i.i, -1
   call void @_ZN5eastl16adjust_heap_implIPNS_8optionalIiEElOS2_S2_EEvT_T0_S6_S6_T1_(ptr noundef nonnull %first, i64 noundef 0, i64 noundef %sub.i.i, i64 noundef 0, ptr noundef nonnull align 4 dereferenceable(5) %tempBottom.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tempBottom.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %tempBottom.i.i)
   %sub.ptr.lhs.cast.i24 = ptrtoint ptr %add.ptr.i.i to i64
   %sub.ptr.sub.i25 = sub i64 %sub.ptr.lhs.cast.i24, %sub.ptr.rhs.cast.i
   %cmp.i26 = icmp sgt i64 %sub.ptr.sub.i25, 8
@@ -2329,10 +2329,10 @@ declare i64 @llvm.umax.i64(i64, i64) #6
 declare i64 @strlen(ptr captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

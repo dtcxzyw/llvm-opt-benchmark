@@ -12,14 +12,14 @@ define void @_ZN14pingora_limits4rate4Rate3new17h21cc9096ab08846fE(ptr dead_on_u
   %4 = alloca [16 x i8], align 8
   %5 = alloca [16 x i8], align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !3
   %6 = tail call { ptr, i64 } @_ZN14pingora_limits9estimator9Estimator3new17h2b9b9b94fe47e61dE(i64 noundef 4, i64 noundef 1024), !noalias !3
   %7 = extractvalue { ptr, i64 } %6, 0
   %8 = extractvalue { ptr, i64 } %6, 1
   store ptr %7, ptr %5, align 8, !noalias !3
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %8, ptr %9, align 8, !noalias !3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !3
   %10 = invoke { ptr, i64 } @_ZN14pingora_limits9estimator9Estimator3new17h2b9b9b94fe47e61dE(i64 noundef 4, i64 noundef 1024)
           to label %14 unwind label %12, !noalias !3
 
@@ -85,8 +85,8 @@ _ZN14pingora_limits4rate4Rate25new_with_estimator_config17h593787295f625cfbE.exi
   store i64 %1, ptr %38, align 8, !alias.scope !3
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %2, ptr %39, align 8, !alias.scope !3
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !3
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !3
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !3
   ret void
 }
 
@@ -115,7 +115,7 @@ define noundef zeroext i1 @_ZN14pingora_limits4rate4Rate11red_or_blue17hc5b658b2
 ; Function Attrs: nonlazybind uwtable
 define noundef i64 @_ZN14pingora_limits4rate4Rate11maybe_reset17ha6a2865fffd55753E(ptr noundef nonnull align 8 %0) unnamed_addr #0 {
   %2 = alloca [16 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = tail call { i64, i32 } @_ZN3std4time7Instant3now17hd46d520c1ad33f9eE()
   %4 = extractvalue { i64, i32 } %3, 0
   %5 = extractvalue { i64, i32 } %3, 1
@@ -134,7 +134,7 @@ define noundef i64 @_ZN14pingora_limits4rate4Rate11maybe_reset17ha6a2865fffd5575
   %15 = udiv i32 %12, 1000000
   %16 = zext nneg i32 %15 to i64
   %17 = add i64 %13, %16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %19 = load atomic i64, ptr %18 seq_cst, align 8
   %20 = sub i64 %17, %19
@@ -210,10 +210,10 @@ declare void @_ZN14pingora_limits9estimator9Estimator5reset17hff7d6eee1fa5c102E(
 declare void @_ZN4core9panicking5panic17h13ee8adf815f0d87E(ptr noalias noundef nonnull readonly align 1, i64 noundef, ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #8

@@ -119,7 +119,7 @@ define internal noundef ptr @_ZL32_hb_face_builder_reference_tableP9hb_face_tjPv
   br i1 %.not, label %5, label %374
 
 5:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load i32, ptr %6, align 8
   %8 = shl i32 %7, 3
@@ -1034,7 +1034,7 @@ _ZN11hb_vector_tI9hb_pair_tIj17face_table_info_tELb0EED2Ev.exit.i: ; preds = %15
 
 _ZL36_hb_face_builder_data_reference_blobP22hb_face_builder_data_t.exit: ; preds = %._crit_edge.i, %_ZN11hb_vector_tI9hb_pair_tIj17face_table_info_tELb0EED2Ev.exit93.i
   %.0.i = phi ptr [ %.1193.i, %_ZN11hb_vector_tI9hb_pair_tIj17face_table_info_tELb0EED2Ev.exit93.i ], [ null, %._crit_edge.i ]
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %408
 
 374:                                              ; preds = %3
@@ -2904,8 +2904,8 @@ _ZNK22hb_serialize_context_t13only_overflowEv.exit.thread: ; preds = %11, %11, %
   br i1 %1, label %28, label %128
 
 28:                                               ; preds = %27
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %29 = load ptr, ptr %10, align 8
   %30 = load ptr, ptr %19, align 8
   %31 = ptrtoint ptr %30 to i64
@@ -2930,8 +2930,8 @@ _ZNK22hb_serialize_context_t13only_overflowEv.exit.thread: ; preds = %11, %11, %
   store i64 %.sroa.2.8.insert.ext.i.i.i.i, ptr %43, align 8
   %44 = call noundef i32 @_ZNK10hb_array_tIKcE4hashEv(ptr noundef nonnull align 8 dereferenceable(16) %6)
   %45 = xor i32 %44, %37
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %47 = load ptr, ptr %46, align 8
   %.not.i = icmp eq ptr %47, null
@@ -2940,8 +2940,8 @@ _ZNK22hb_serialize_context_t13only_overflowEv.exit.thread: ; preds = %11, %11, %
 48:                                               ; preds = %28
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %.val.i = load ptr, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %50 = load ptr, ptr %.val.i, align 8
   %51 = getelementptr inbounds nuw i8, ptr %.val.i, i64 8
   %52 = load ptr, ptr %51, align 8
@@ -2967,8 +2967,8 @@ _ZNK22hb_serialize_context_t13only_overflowEv.exit.thread: ; preds = %11, %11, %
   store i64 %.sroa.2.8.insert.ext.i.i.i.i.i, ptr %65, align 8
   %66 = call noundef i32 @_ZNK10hb_array_tIKcE4hashEv(ptr noundef nonnull align 8 dereferenceable(16) %4)
   %67 = xor i32 %66, %59
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %68 = call noundef ptr @_ZNK12hb_hashmap_tIPKN22hb_serialize_context_t8object_tEjLb0EE10fetch_itemERKS3_j(ptr noundef nonnull align 8 dereferenceable(48) %49, ptr noundef nonnull align 8 dereferenceable(8) %7, i32 noundef %67)
   %.not7.i = icmp eq ptr %68, null
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 12
@@ -4708,10 +4708,10 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN12hb_hashmap_tIj17face_table_i
 declare void @llvm.experimental.noalias.scope.decl(metadata) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.usub.sat.i32(i32, i32) #17

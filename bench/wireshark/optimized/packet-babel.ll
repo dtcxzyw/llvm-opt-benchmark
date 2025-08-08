@@ -240,9 +240,6 @@ define hidden void @proto_reg_handoff_babel() local_unnamed_addr #0 {
 ; Function Attrs: null_pointer_is_valid
 declare void @dissector_add_uint_range_with_preference(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 
@@ -282,9 +279,9 @@ define internal fastcc i32 @dissect_babel_body(ptr noundef %0, ptr noundef %1, p
   %19 = alloca [16 x i8], align 16
   %20 = alloca [16 x i8], align 16
   %21 = alloca [16 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %15, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %16, i8 0, i64 16, i1 false)
   %22 = zext i16 %4 to i32
   %.not331 = icmp eq i16 %4, 0
@@ -447,12 +444,12 @@ define internal fastcc i32 @dissect_babel_body(ptr noundef %0, ptr noundef %1, p
   br label %347
 
 125:                                              ; preds = %92
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %126 = add i32 %.0328, 6
   %127 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %126)
   %128 = add i32 %.0328, 12
   %129 = add nsw i32 %.0263, -6
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %14, i8 noundef 0, i64 noundef 16, i1 noundef false) #8
   switch i8 %127, label %network_address.exit [
     i8 0, label %140
@@ -496,7 +493,7 @@ define internal fastcc i32 @dissect_babel_body(ptr noundef %0, ptr noundef %1, p
 
 network_address.exit:                             ; preds = %125, %130, %133, %135, %140
   %.056.i.i = phi i32 [ %.0.i.i, %140 ], [ -1, %130 ], [ -1, %133 ], [ -1, %135 ], [ -1, %125 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %141 = load i32, ptr @hf_babel_message_rxcost, align 4
   %142 = add i32 %.0328, 8
   %143 = call ptr @proto_tree_add_item(ptr noundef %87, i32 noundef %141, ptr noundef %0, i32 noundef %142, i32 noundef 2, i32 noundef 0)
@@ -507,7 +504,7 @@ network_address.exit:                             ; preds = %125, %130, %133, %1
   %148 = load i32, ptr @ett_subtree, align 4
   %149 = load ptr, ptr %27, align 8
   %150 = icmp slt i32 %.056.i.i, 0
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   br i1 %150, label %format_address.exit, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %network_address.exit
@@ -525,7 +522,7 @@ network_address.exit:                             ; preds = %125, %130, %133, %1
 
 format_address.exit:                              ; preds = %network_address.exit, %.sink.split.i
   %.0.i = phi ptr [ @.str.104, %network_address.exit ], [ %152, %.sink.split.i ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %153 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %87, ptr noundef %0, i32 noundef %142, i32 noundef %147, i32 noundef %148, ptr noundef null, ptr noundef nonnull @.str.93, ptr noundef %.0.i)
   %154 = load i32, ptr @hf_babel_message_ae, align 4
   %155 = call ptr @proto_tree_add_item(ptr noundef %153, i32 noundef %154, ptr noundef %0, i32 noundef %126, i32 noundef 1, i32 noundef 0)
@@ -543,7 +540,7 @@ format_address.exit:                              ; preds = %network_address.exi
   br label %164
 
 164:                                              ; preds = %159, %format_address.exit
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %347
 
 165:                                              ; preds = %92
@@ -553,12 +550,12 @@ format_address.exit:                              ; preds = %network_address.exi
   br label %347
 
 169:                                              ; preds = %92
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %170 = add i32 %.0328, 6
   %171 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %170)
   %172 = add i32 %.0328, 8
   %173 = add nsw i32 %.0263, -2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %12, i8 noundef 0, i64 noundef 16, i1 noundef false) #8
   switch i8 %171, label %network_address.exit280.thread [
     i8 0, label %network_address.exit280
@@ -595,17 +592,17 @@ format_address.exit:                              ; preds = %network_address.exi
   br label %network_address.exit280
 
 network_address.exit280.thread:                   ; preds = %174, %177, %179, %169
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %183 = load i32, ptr @ett_subtree, align 4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   br label %format_address.exit285
 
 network_address.exit280:                          ; preds = %169, %.sink.split.i.i275
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %18, ptr noundef nonnull align 16 dereferenceable(16) %12, i64 noundef 16, i1 noundef false) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %184 = load i32, ptr @ett_subtree, align 4
   %185 = load ptr, ptr %27, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %bcmp.i281 = call i32 @bcmp(ptr noundef nonnull dereferenceable(12) %18, ptr noundef nonnull dereferenceable(12) @v4prefix, i64 12)
   %186 = icmp eq i32 %bcmp.i281, 0
   %storemerge332 = select i1 %186, i32 2, i32 3
@@ -621,17 +618,17 @@ network_address.exit280:                          ; preds = %169, %.sink.split.i
 format_address.exit285:                           ; preds = %network_address.exit280.thread, %network_address.exit280
   %188 = phi i32 [ %184, %network_address.exit280 ], [ %183, %network_address.exit280.thread ]
   %.0.i284 = phi ptr [ %187, %network_address.exit280 ], [ @.str.104, %network_address.exit280.thread ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %189 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %87, ptr noundef %0, i32 noundef %172, i32 noundef %173, i32 noundef %188, ptr noundef null, ptr noundef nonnull @.str.94, ptr noundef %.0.i284)
   %190 = load i32, ptr @hf_babel_message_ae, align 4
   %191 = call ptr @proto_tree_add_item(ptr noundef %189, i32 noundef %190, ptr noundef %0, i32 noundef %170, i32 noundef 1, i32 noundef 0)
   %192 = load i32, ptr @hf_babel_message_prefix, align 4
   %193 = call ptr @proto_tree_add_item(ptr noundef %189, i32 noundef %192, ptr noundef %0, i32 noundef %172, i32 noundef %173, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %347
 
 194:                                              ; preds = %92
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %19) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %195 = add i32 %.0328, 6
   %196 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %195)
   %197 = add i32 %.0328, 7
@@ -672,7 +669,7 @@ format_address.exit285:                           ; preds = %network_address.exi
   %223 = call ptr @proto_tree_add_item(ptr noundef %87, i32 noundef %221, ptr noundef %0, i32 noundef %222, i32 noundef 2, i32 noundef 0)
   %224 = load i32, ptr @ett_subtree, align 4
   %225 = load ptr, ptr %27, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   br i1 %211, label %format_prefix.exit, label %.sink.split.i.i286
 
 .sink.split.i.i286:                               ; preds = %212
@@ -690,7 +687,7 @@ format_address.exit285:                           ; preds = %network_address.exi
 
 format_prefix.exit:                               ; preds = %212, %.sink.split.i.i286
   %.0.i.i289 = phi ptr [ @.str.104, %212 ], [ %227, %.sink.split.i.i286 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %228 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %225, ptr noundef nonnull @.str.105, ptr noundef %.0.i.i289, i32 noundef %202)
   %229 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %87, ptr noundef %0, i32 noundef %206, i32 noundef %209, i32 noundef %224, ptr noundef null, ptr noundef nonnull @.str.95, ptr noundef %228)
   %230 = load i32, ptr @hf_babel_message_ae, align 4
@@ -714,11 +711,11 @@ format_prefix.exit:                               ; preds = %212, %.sink.split.i
   br label %245
 
 245:                                              ; preds = %240, %format_prefix.exit
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %347
 
 246:                                              ; preds = %92
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %20) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %247 = add i32 %.0328, 7
   %248 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %247)
   %249 = add i32 %.0328, 6
@@ -726,7 +723,7 @@ format_prefix.exit:                               ; preds = %212, %.sink.split.i
   %251 = zext i8 %248 to i32
   %252 = add i32 %.0328, 8
   %253 = add nsw i32 %.0263, -2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %254 = add nuw nsw i32 %251, 7
   %255 = lshr i32 %254, 3
   %256 = icmp ugt i8 %248, -128
@@ -784,18 +781,18 @@ format_prefix.exit:                               ; preds = %212, %.sink.split.i
   br label %.sink.split.i.i293
 
 network_prefix.exit.thread:                       ; preds = %246, %260, %258, %264, %268, %257
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %275 = load i32, ptr @ett_subtree, align 4
   %276 = load ptr, ptr %27, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   br label %format_prefix.exit300
 
 .sink.split.i.i293:                               ; preds = %.sink.split.i291, %272, %267, %263, %257
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %20, ptr noundef nonnull align 16 dereferenceable(16) %9, i64 noundef 16, i1 noundef false) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %277 = load i32, ptr @ett_subtree, align 4
   %278 = load ptr, ptr %27, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %bcmp.i.i294 = call i32 @bcmp(ptr noundef nonnull dereferenceable(12) %20, ptr noundef nonnull dereferenceable(12) @v4prefix, i64 12)
   %279 = icmp eq i32 %bcmp.i.i294, 0
   %.sink3.i295 = select i1 %279, i32 2, i32 3
@@ -812,7 +809,7 @@ format_prefix.exit300:                            ; preds = %network_prefix.exit
   %281 = phi ptr [ %278, %.sink.split.i.i293 ], [ %276, %network_prefix.exit.thread ]
   %282 = phi i32 [ %277, %.sink.split.i.i293 ], [ %275, %network_prefix.exit.thread ]
   %.0.i.i299 = phi ptr [ %280, %.sink.split.i.i293 ], [ @.str.104, %network_prefix.exit.thread ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %283 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %281, ptr noundef nonnull @.str.105, ptr noundef %.0.i.i299, i32 noundef %251)
   %284 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %87, ptr noundef %0, i32 noundef %252, i32 noundef %253, i32 noundef %282, ptr noundef null, ptr noundef nonnull @.str.95, ptr noundef %283)
   %285 = load i32, ptr @hf_babel_message_ae, align 4
@@ -821,11 +818,11 @@ format_prefix.exit300:                            ; preds = %network_prefix.exit
   %288 = call ptr @proto_tree_add_item(ptr noundef %284, i32 noundef %287, ptr noundef %0, i32 noundef %247, i32 noundef 1, i32 noundef 0)
   %289 = load i32, ptr @hf_babel_message_prefix, align 4
   %290 = call ptr @proto_tree_add_item(ptr noundef %284, i32 noundef %289, ptr noundef %0, i32 noundef %252, i32 noundef %253, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %347
 
 291:                                              ; preds = %92
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %21) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %292 = add i32 %.0328, 7
   %293 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %292)
   %294 = add i32 %.0328, 6
@@ -833,7 +830,7 @@ format_prefix.exit300:                            ; preds = %network_prefix.exit
   %296 = zext i8 %293 to i32
   %297 = add i32 %.0328, 20
   %298 = add nsw i32 %.0263, -14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %299 = add nuw nsw i32 %296, 7
   %300 = lshr i32 %299, 3
   %301 = icmp ugt i8 %293, -128
@@ -898,7 +895,7 @@ format_prefix.exit300:                            ; preds = %network_prefix.exit
 
 network_prefix.exit310:                           ; preds = %291, %302, %303, %305, %309, %313, %321
   %.056.i304 = phi i1 [ %.0.i303, %321 ], [ true, %291 ], [ true, %305 ], [ true, %303 ], [ true, %309 ], [ true, %313 ], [ true, %302 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %322 = load i32, ptr @hf_babel_message_seqno, align 4
   %323 = add i32 %.0328, 8
   %324 = call ptr @proto_tree_add_item(ptr noundef %87, i32 noundef %322, ptr noundef %0, i32 noundef %323, i32 noundef 2, i32 noundef 0)
@@ -910,7 +907,7 @@ network_prefix.exit310:                           ; preds = %291, %302, %303, %3
   %330 = call ptr @proto_tree_add_item(ptr noundef %87, i32 noundef %328, ptr noundef %0, i32 noundef %329, i32 noundef 8, i32 noundef 0)
   %331 = load i32, ptr @ett_subtree, align 4
   %332 = load ptr, ptr %27, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br i1 %.056.i304, label %format_prefix.exit318, label %.sink.split.i.i311
 
 .sink.split.i.i311:                               ; preds = %network_prefix.exit310
@@ -928,7 +925,7 @@ network_prefix.exit310:                           ; preds = %291, %302, %303, %3
 
 format_prefix.exit318:                            ; preds = %network_prefix.exit310, %.sink.split.i.i311
   %.0.i.i317 = phi ptr [ @.str.104, %network_prefix.exit310 ], [ %334, %.sink.split.i.i311 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %335 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %332, ptr noundef nonnull @.str.105, ptr noundef %.0.i.i317, i32 noundef %296)
   %336 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %87, ptr noundef %0, i32 noundef %297, i32 noundef %298, i32 noundef %331, ptr noundef null, ptr noundef nonnull @.str.95, ptr noundef %335)
   %337 = load i32, ptr @hf_babel_message_ae, align 4
@@ -937,7 +934,7 @@ format_prefix.exit318:                            ; preds = %network_prefix.exit
   %340 = call ptr @proto_tree_add_item(ptr noundef %336, i32 noundef %339, ptr noundef %0, i32 noundef %292, i32 noundef 1, i32 noundef 0)
   %341 = load i32, ptr @hf_babel_message_prefix, align 4
   %342 = call ptr @proto_tree_add_item(ptr noundef %336, i32 noundef %341, ptr noundef %0, i32 noundef %297, i32 noundef %298, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %347
 
 343:                                              ; preds = %92
@@ -980,16 +977,13 @@ format_prefix.exit318:                            ; preds = %network_prefix.exit
   br label %366
 
 366:                                              ; preds = %359, %._crit_edge
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret i32 %.0.lcssa
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
@@ -1127,7 +1121,7 @@ define internal fastcc void @dissect_babel_subtlvs(ptr noundef %0, i8 noundef ze
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc range(i32 -1, 17) i32 @network_prefix(i32 noundef range(i32 0, 256) %0, i32 noundef range(i32 -1, 256) %1, i32 noundef range(i32 0, 256) %2, ptr noundef %3, i32 noundef %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef range(i32 -14, 254) %6, ptr noundef %7) unnamed_addr #0 {
   %9 = alloca [16 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = add nuw nsw i32 %1, 7
   %11 = lshr i32 %10, 3
   %12 = icmp eq i32 %0, 1
@@ -1247,7 +1241,7 @@ define internal fastcc range(i32 -1, 17) i32 @network_prefix(i32 noundef range(i
 
 62:                                               ; preds = %15, %51, %42, %35, %37, %24, %16, %19, %8, %61
   %.056 = phi i32 [ %.0, %61 ], [ -1, %8 ], [ -1, %19 ], [ -1, %16 ], [ -1, %24 ], [ -1, %37 ], [ -1, %35 ], [ -1, %42 ], [ -1, %51 ], [ -1, %15 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.056
 }
 
@@ -1264,7 +1258,7 @@ declare void @decrement_dissection_depth(ptr noundef) local_unnamed_addr #1
 declare i32 @tvb_get_uint32(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree null_pointer_is_valid
-declare i32 @__snprintf_chk(ptr noundef, i64 noundef, i32 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #4
+declare i32 @__snprintf_chk(ptr noundef, i64 noundef, i32 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
 declare ptr @address_to_str(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -1273,10 +1267,16 @@ declare ptr @address_to_str(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @tvb_memcpy(ptr noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind null_pointer_is_valid memory(argmem: readwrite)
-declare ptr @__memcpy_chk(ptr noalias noundef writeonly, ptr noalias noundef readonly captures(none), i64 noundef, i64 noundef) local_unnamed_addr #5
+declare ptr @__memcpy_chk(ptr noalias noundef writeonly, ptr noalias noundef readonly captures(none), i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid
 declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #6
@@ -1286,10 +1286,10 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { nofree null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nounwind null_pointer_is_valid memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { nofree null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nocallback nofree nounwind null_pointer_is_valid memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nounwind }

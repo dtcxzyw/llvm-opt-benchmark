@@ -250,7 +250,7 @@ declare void @_ZN23btDiscreteDynamicsWorld25predictUnconstraintMotionEf(ptr noun
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN24btMultiBodyDynamicsWorld26predictMultiBodyTransformsEf(ptr noundef nonnull align 8 dereferenceable(848) %0, float noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.CProfileSample, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull @.str.4)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 516
   %5 = load i32, ptr %4, align 4, !tbaa !4
@@ -273,7 +273,7 @@ define dso_local void @_ZN24btMultiBodyDynamicsWorld26predictMultiBodyTransforms
 
 ._crit_edge63:                                    ; preds = %88, %2
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #19
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 18:                                               ; preds = %.lr.ph62, %88
@@ -495,14 +495,14 @@ _ZN20btAlignedObjectArrayI9btVector3E10deallocateEv.exit.i.i: ; preds = %80, %_Z
 92:                                               ; preds = %81, %83, %85, %28
   %.pn30 = phi { ptr, i32 } [ %29, %28 ], [ %82, %81 ], [ %86, %85 ], [ %84, %83 ]
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #19
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn30
 }
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN24btMultiBodyDynamicsWorld26calculateSimulationIslandsEv(ptr noundef nonnull align 8 dereferenceable(848) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.CProfileSample, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull @.str)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %4 = load ptr, ptr %3, align 8, !tbaa !76
@@ -995,33 +995,27 @@ _ZN11btUnionFind5uniteEii.exit123:                ; preds = %255, %_ZN11btUnionF
 
 271:                                              ; preds = %._crit_edge149
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #19
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 272:                                              ; preds = %264, %266, %24
   %.pn89 = phi { ptr, i32 } [ %25, %24 ], [ %267, %266 ], [ %265, %264 ]
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #19
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %.pn89
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 declare void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef) unnamed_addr #2
 
 declare i32 @__gxx_personality_v0(...)
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
-
 ; Function Attrs: nounwind
-declare void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #4
+declare void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN24btMultiBodyDynamicsWorld21updateActivationStateEf(ptr noundef nonnull align 8 dereferenceable(848) %0, float noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.CProfileSample, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull @.str.1)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 516
   %5 = load i32, ptr %4, align 4, !tbaa !4
@@ -1209,7 +1203,7 @@ define dso_local void @_ZN24btMultiBodyDynamicsWorld21updateActivationStateEf(pt
 
 86:                                               ; preds = %._crit_edge
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #19
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 87:                                               ; preds = %._crit_edge
@@ -1220,7 +1214,7 @@ define dso_local void @_ZN24btMultiBodyDynamicsWorld21updateActivationStateEf(pt
 89:                                               ; preds = %27, %50, %29, %77, %61, %87
   %.pn60.pn.pn.pn = phi { ptr, i32 } [ %88, %87 ], [ %28, %27 ], [ %30, %29 ], [ %51, %50 ], [ %62, %61 ], [ %78, %77 ]
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #19
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn60.pn.pn.pn
 }
 
@@ -1430,13 +1424,13 @@ define dso_local void @_ZN24btMultiBodyDynamicsWorldC2EP12btDispatcherP21btBroad
 declare void @_ZN23btDiscreteDynamicsWorldC2EP12btDispatcherP21btBroadphaseInterfaceP18btConstraintSolverP24btCollisionConfiguration(ptr noundef nonnull align 8 dereferenceable(508), ptr noundef, ptr noundef, ptr noundef, ptr noundef) unnamed_addr #2
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #5
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #6
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayI11btMatrix3x3ED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayI11btMatrix3x3ED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !165
   %.not.i.i = icmp ne ptr %3, null
@@ -1468,7 +1462,7 @@ define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayI11btMatrix3x3ED2Ev
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayI9btVector3ED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayI9btVector3ED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !69
   %.not.i.i = icmp ne ptr %3, null
@@ -1500,7 +1494,7 @@ define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayI9btVector3ED2Ev(pt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIfED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIfED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !161
   %.not.i.i = icmp ne ptr %3, null
@@ -1532,7 +1526,7 @@ define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIfED2Ev(ptr noundef
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayI12btQuaternionED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayI12btQuaternionED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !64
   %.not.i.i = icmp ne ptr %3, null
@@ -1564,7 +1558,7 @@ define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayI12btQuaternionED2E
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIP21btMultiBodyConstraintED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIP21btMultiBodyConstraintED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !144
   %.not.i.i = icmp ne ptr %3, null
@@ -1596,7 +1590,7 @@ define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIP21btMultiBodyCons
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIP11btMultiBodyED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIP11btMultiBodyED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !14
   %.not.i.i = icmp ne ptr %3, null
@@ -1628,10 +1622,10 @@ define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIP11btMultiBodyED2E
 }
 
 ; Function Attrs: nounwind
-declare void @_ZN23btDiscreteDynamicsWorldD2Ev(ptr noundef nonnull align 8 dereferenceable(508)) unnamed_addr #4
+declare void @_ZN23btDiscreteDynamicsWorldD2Ev(ptr noundef nonnull align 8 dereferenceable(508)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN24btMultiBodyDynamicsWorldD2Ev(ptr noundef nonnull align 8 dereferenceable(848) initializes((0, 8)) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN24btMultiBodyDynamicsWorldD2Ev(ptr noundef nonnull align 8 dereferenceable(848) initializes((0, 8)) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 512) (i8, ptr @_ZTV24btMultiBodyDynamicsWorld, i64 16), ptr %0, align 8, !tbaa !105
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %3 = load ptr, ptr %2, align 8, !tbaa !153
@@ -1921,7 +1915,7 @@ _ZN20btAlignedObjectArrayIP11btMultiBodyED2Ev.exit: ; preds = %_ZN20btAlignedObj
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN24btMultiBodyDynamicsWorldD0Ev(ptr noundef nonnull align 8 dereferenceable(848) initializes((0, 8)) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN24btMultiBodyDynamicsWorldD0Ev(ptr noundef nonnull align 8 dereferenceable(848) initializes((0, 8)) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN24btMultiBodyDynamicsWorldD2Ev(ptr noundef nonnull align 8 dereferenceable(848) %0) #19
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %0)
           to label %_ZN23btDiscreteDynamicsWorlddlEPv.exit unwind label %2
@@ -2052,7 +2046,7 @@ define dso_local void @_ZN24btMultiBodyDynamicsWorld24solveInternalConstraintsER
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %15 = load ptr, ptr %14, align 8
   tail call void %15(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 4 dereferenceable(128) %1, ptr noundef %12)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull @.str.2)
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 516
   %17 = load i32, ptr %16, align 4, !tbaa !4
@@ -2083,7 +2077,7 @@ define dso_local void @_ZN24btMultiBodyDynamicsWorld24solveInternalConstraintsER
 
 ._crit_edge92:                                    ; preds = %152, %2
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #19
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %38 = load i32, ptr %16, align 4, !tbaa !4
   %39 = icmp sgt i32 %38, 0
   br i1 %39, label %.lr.ph95, label %._crit_edge96
@@ -2421,7 +2415,7 @@ _ZN20btAlignedObjectArrayI11btMatrix3x3E10deallocateEv.exit.i.i: ; preds = %130,
 156:                                              ; preds = %150, %148, %146, %144
   %.pn = phi { ptr, i32 } [ %151, %150 ], [ %149, %148 ], [ %147, %146 ], [ %145, %144 ]
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #19
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn
 
 ._crit_edge96:                                    ; preds = %_ZN11btMultiBody24processDeltaVeeMultiDof2Ev.exit, %._crit_edge92
@@ -2522,7 +2516,7 @@ define dso_local void @_ZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btC
   br i1 %21, label %15, label %_ZN24btMultiBodyDynamicsWorld17forwardKinematicsEv.exit, !llvm.loop !193
 
 _ZN24btMultiBodyDynamicsWorld17forwardKinematicsEv.exit: ; preds = %15, %2
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull @.str.3)
   %22 = load ptr, ptr %0, align 8, !tbaa !105
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 464
@@ -2667,7 +2661,7 @@ _ZN20btAlignedObjectArrayIP17btTypedConstraintE10deallocateEv.exit.i.i: ; preds 
   br label %621
 
 81:                                               ; preds = %66
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %82 = load i32, ptr %29, align 4, !tbaa !109
   %83 = icmp sgt i32 %82, 1
   br i1 %83, label %84, label %_ZN20btAlignedObjectArrayIP17btTypedConstraintE9quickSortI34btSortConstraintOnIslandPredicate2EEvRKT_.exit
@@ -2678,7 +2672,7 @@ _ZN20btAlignedObjectArrayIP17btTypedConstraintE10deallocateEv.exit.i.i: ; preds 
           to label %_ZN20btAlignedObjectArrayIP17btTypedConstraintE9quickSortI34btSortConstraintOnIslandPredicate2EEvRKT_.exit unwind label %136
 
 _ZN20btAlignedObjectArrayIP17btTypedConstraintE9quickSortI34btSortConstraintOnIslandPredicate2EEvRKT_.exit: ; preds = %81, %84
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %86 = load ptr, ptr %0, align 8, !tbaa !105
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 216
   %88 = load ptr, ptr %87, align 8
@@ -2809,7 +2803,7 @@ _ZN20btAlignedObjectArrayIP21btMultiBodyConstraintE10deallocateEv.exit.i.i: ; pr
 136:                                              ; preds = %84
   %137 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %621
 
 138:                                              ; preds = %_ZN20btAlignedObjectArrayIP17btTypedConstraintE9quickSortI34btSortConstraintOnIslandPredicate2EEvRKT_.exit
@@ -2823,7 +2817,7 @@ _ZN20btAlignedObjectArrayIP21btMultiBodyConstraintE10deallocateEv.exit.i.i: ; pr
   br label %621
 
 ._crit_edge:                                      ; preds = %132, %.loopexit575
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %142 = icmp sgt i32 %95, 1
   br i1 %142, label %143, label %_ZN20btAlignedObjectArrayIP21btMultiBodyConstraintE9quickSortI42btSortMultiBodyConstraintOnIslandPredicateEEvRKT_.exit
 
@@ -2838,7 +2832,7 @@ _ZN20btAlignedObjectArrayIP21btMultiBodyConstraintE10deallocateEv.exit.i.i: ; pr
 
 _ZN20btAlignedObjectArrayIP21btMultiBodyConstraintE9quickSortI42btSortMultiBodyConstraintOnIslandPredicateEEvRKT_.exit: ; preds = %._ZN20btAlignedObjectArrayIP21btMultiBodyConstraintE9quickSortI42btSortMultiBodyConstraintOnIslandPredicateEEvRKT_.exit_crit_edge, %._crit_edge
   %145 = phi i32 [ %.pre670, %._ZN20btAlignedObjectArrayIP21btMultiBodyConstraintE9quickSortI42btSortMultiBodyConstraintOnIslandPredicateEEvRKT_.exit_crit_edge ], [ %95, %._crit_edge ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %147 = load ptr, ptr %146, align 8
   %148 = getelementptr inbounds nuw i8, ptr %0, i64 616
@@ -2880,7 +2874,7 @@ _ZN20btAlignedObjectArrayIP21btMultiBodyConstraintE9quickSortI42btSortMultiBodyC
           to label %175 unwind label %207
 
 175:                                              ; preds = %171
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   invoke void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull @.str.2)
           to label %.preheader574 unwind label %209
 
@@ -2921,15 +2915,15 @@ _ZN20btAlignedObjectArrayIP21btMultiBodyConstraintE9quickSortI42btSortMultiBodyC
 
 ._crit_edge615:                                   ; preds = %_ZN20btAlignedObjectArrayIfED2Ev.exit527, %.preheader574
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #19
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #19
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 205:                                              ; preds = %143
   %206 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %621
 
 207:                                              ; preds = %171, %160, %155, %_ZN20btAlignedObjectArrayIP21btMultiBodyConstraintE9quickSortI42btSortMultiBodyConstraintOnIslandPredicateEEvRKT_.exit
@@ -3712,7 +3706,7 @@ _ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit365: ; preds = %.lr.ph.i340, %317
   br i1 %exitcond.not.i452, label %508, label %.lr.ph.i449, !llvm.loop !221
 
 508:                                              ; preds = %.lr.ph.i449
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 1, ptr %197, align 8, !tbaa !160
   store ptr null, ptr %198, align 8, !tbaa !161
   store i32 0, ptr %199, align 4, !tbaa !162
@@ -3730,7 +3724,7 @@ _ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit365: ; preds = %.lr.ph.i340, %317
   %513 = add nsw i64 %512, 24
   call void @llvm.memset.p0.i64(ptr align 4 %510, i8 0, i64 %513, i1 false), !tbaa !197
   store i32 %320, ptr %199, align 4, !tbaa !162
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i8 1, ptr %201, align 8, !tbaa !160
   store ptr null, ptr %202, align 8, !tbaa !161
   store i32 0, ptr %203, align 4, !tbaa !162
@@ -3739,12 +3733,12 @@ _ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit365: ; preds = %.lr.ph.i340, %317
           to label %.lr.ph604 unwind label %530
 
 .loopexit:                                        ; preds = %500
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 1, ptr %197, align 8, !tbaa !160
   store ptr null, ptr %198, align 8, !tbaa !161
   store i32 0, ptr %200, align 8, !tbaa !163
   store i32 %320, ptr %199, align 4, !tbaa !162
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i8 1, ptr %201, align 8, !tbaa !160
   store ptr null, ptr %202, align 8, !tbaa !161
   store i32 0, ptr %204, align 8, !tbaa !163
@@ -3947,7 +3941,7 @@ _ZN11btMultiBody21applyDeltaVeeMultiDofEPKff.exit: ; preds = %_Z7btClampIfEvRT_R
   unreachable
 
 _ZN20btAlignedObjectArrayIfED2Ev.exit:            ; preds = %599, %600
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.not.i.i.i522.not = icmp eq ptr %516, null
   br i1 %.not.i.i.i522.not, label %608, label %604
 
@@ -3963,7 +3957,7 @@ _ZN20btAlignedObjectArrayIfED2Ev.exit:            ; preds = %599, %600
   unreachable
 
 608:                                              ; preds = %604, %_ZN20btAlignedObjectArrayIfED2Ev.exit
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %.sroa.14542.2)
           to label %_ZN20btAlignedObjectArrayIfED2Ev.exit527 unwind label %609
 
@@ -3977,13 +3971,13 @@ _ZN20btAlignedObjectArrayIfED2Ev.exit:            ; preds = %599, %600
 612:                                              ; preds = %590, %580, %530
   %.pn = phi { ptr, i32 } [ %591, %590 ], [ %581, %580 ], [ %531, %530 ]
   call void @_ZN20btAlignedObjectArrayIfED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %8) #19
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %613
 
 613:                                              ; preds = %612, %528
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn, %612 ], [ %529, %528 ]
   call void @_ZN20btAlignedObjectArrayIfED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %7) #19
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread558
 
 .thread558:                                       ; preds = %613, %526
@@ -4012,23 +4006,23 @@ _ZN20btAlignedObjectArrayIfED2Ev.exit530:         ; preds = %.thread553, %.threa
 
 620:                                              ; preds = %_ZN20btAlignedObjectArrayIfED2Ev.exit530, %209
   %.pn251.pn = phi { ptr, i32 } [ %.pn251, %_ZN20btAlignedObjectArrayIfED2Ev.exit530 ], [ %210, %209 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %621
 
 621:                                              ; preds = %79, %136, %207, %620, %205, %140, %138, %77, %75
   %.pn251.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %78, %77 ], [ %76, %75 ], [ %137, %136 ], [ %80, %79 ], [ %206, %205 ], [ %141, %140 ], [ %139, %138 ], [ %.pn251.pn, %620 ], [ %208, %207 ]
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #19
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn251.pn.pn.pn.pn.pn
 }
 
 declare void @_ZN11btMultiBody21stepPositionsMultiDofEfPfS0_(ptr noundef nonnull align 8 dereferenceable(640), float noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #8
+declare float @llvm.fmuladd.f32(float, float, float) #7
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN15btMultibodyLink19updateCacheMultiDofEPf(ptr noundef nonnull align 8 dereferenceable(688) %0, ptr noundef %1) local_unnamed_addr #9 comdat align 2 {
+define linkonce_odr dso_local void @_ZN15btMultibodyLink19updateCacheMultiDofEPf(ptr noundef nonnull align 8 dereferenceable(688) %0, ptr noundef %1) local_unnamed_addr #8 comdat align 2 {
   %.not = icmp eq ptr %1, null
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %4 = select i1 %.not, ptr %3, ptr %1
@@ -4539,7 +4533,7 @@ declare void @_ZN23btDiscreteDynamicsWorld19integrateTransformsEf(ptr noundef no
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN24btMultiBodyDynamicsWorld28integrateMultiBodyTransformsEf(ptr noundef nonnull align 8 dereferenceable(848) %0, float noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.CProfileSample, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull @.str.4)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 516
   %5 = load i32, ptr %4, align 4, !tbaa !4
@@ -4562,7 +4556,7 @@ define dso_local void @_ZN24btMultiBodyDynamicsWorld28integrateMultiBodyTransfor
 
 ._crit_edge83:                                    ; preds = %_ZN11btMultiBody15substractSplitVEv.exit, %2
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #19
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 18:                                               ; preds = %.lr.ph82, %_ZN11btMultiBody15substractSplitVEv.exit
@@ -4905,7 +4899,7 @@ _ZN11btMultiBody15substractSplitVEv.exit:         ; preds = %_ZN11btMultiBody21a
 150:                                              ; preds = %70, %81, %142, %144, %28
   %.pn41 = phi { ptr, i32 } [ %29, %28 ], [ %71, %70 ], [ %145, %144 ], [ %143, %142 ], [ %82, %81 ]
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #19
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn41
 }
 
@@ -5067,7 +5061,7 @@ define dso_local void @_ZN24btMultiBodyDynamicsWorld28debugDrawMultiBodyConstrai
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN24btMultiBodyDynamicsWorld14debugDrawWorldEv(ptr noundef nonnull align 8 dereferenceable(848) %0) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN24btMultiBodyDynamicsWorld14debugDrawWorldEv(ptr noundef nonnull align 8 dereferenceable(848) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca [4 x float], align 16
   %3 = alloca [4 x float], align 16
   %4 = alloca [4 x float], align 16
@@ -5089,7 +5083,7 @@ define dso_local void @_ZN24btMultiBodyDynamicsWorld14debugDrawWorldEv(ptr nound
   %20 = alloca %class.btVector4, align 4
   %21 = alloca %class.btVector3, align 8
   %22 = alloca %class.btVector3, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull @.str.5)
   invoke void @_ZN23btDiscreteDynamicsWorld14debugDrawWorldEv(ptr noundef nonnull align 8 dereferenceable(508) %0)
           to label %23 unwind label %41
@@ -5140,7 +5134,7 @@ define dso_local void @_ZN24btMultiBodyDynamicsWorld14debugDrawWorldEv(ptr nound
   br label %1382
 
 47:                                               ; preds = %39
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   invoke void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull @.str.6)
           to label %.preheader428 unwind label %95
 
@@ -5252,7 +5246,7 @@ define dso_local void @_ZN24btMultiBodyDynamicsWorld14debugDrawWorldEv(ptr nound
 
 ._crit_edge434:                                   ; preds = %._crit_edge, %.preheader
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #19
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %1381
 
 110:                                              ; preds = %.lr.ph433, %._crit_edge
@@ -5274,7 +5268,7 @@ define dso_local void @_ZN24btMultiBodyDynamicsWorld14debugDrawWorldEv(ptr nound
           to label %120 unwind label %166
 
 120:                                              ; preds = %115
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %13) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.experimental.noalias.scope.decl(metadata !236)
   %121 = getelementptr inbounds nuw i8, ptr %113, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %59, ptr noundef nonnull align 8 dereferenceable(16) %121, i64 16, i1 false), !tbaa.struct !70
@@ -5337,7 +5331,7 @@ define dso_local void @_ZN24btMultiBodyDynamicsWorld14debugDrawWorldEv(ptr nound
           to label %165 unwind label %168
 
 165:                                              ; preds = %120
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %170
 
 166:                                              ; preds = %115, %110
@@ -5348,7 +5342,7 @@ define dso_local void @_ZN24btMultiBodyDynamicsWorld14debugDrawWorldEv(ptr nound
 168:                                              ; preds = %120
   %169 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %1379
 
 170:                                              ; preds = %165, %114
@@ -5413,7 +5407,7 @@ define dso_local void @_ZN24btMultiBodyDynamicsWorld14debugDrawWorldEv(ptr nound
   %203 = getelementptr inbounds nuw i8, ptr %180, i64 40
   %204 = load float, ptr %203, align 4, !tbaa !197
   %205 = fadd float %202, %204
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %206 = fcmp ogt float %205, 0.000000e+00
   br i1 %206, label %207, label %230
 
@@ -5509,7 +5503,7 @@ define dso_local void @_ZN24btMultiBodyDynamicsWorld14debugDrawWorldEv(ptr nound
   %283 = phi float [ %.pre38.i, %230 ], [ %229, %207 ]
   %284 = phi float [ %.pre36.i, %230 ], [ %224, %207 ]
   %285 = phi float [ %.pre.i, %230 ], [ %219, %207 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %286 = getelementptr inbounds nuw i8, ptr %194, i64 136
   %287 = load float, ptr %286, align 4, !tbaa !197
   %288 = getelementptr inbounds nuw i8, ptr %194, i64 144
@@ -5547,12 +5541,12 @@ define dso_local void @_ZN24btMultiBodyDynamicsWorld14debugDrawWorldEv(ptr nound
   %320 = fmul float %311, 0x3FB99999A0000000
   %321 = fmul float %315, 0x3FB99999A0000000
   %322 = fmul float %319, 0x3FB99999A0000000
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store float 0.000000e+00, ptr %14, align 4, !tbaa !197
   store float 0.000000e+00, ptr %72, align 4, !tbaa !197
   store float 0.000000e+00, ptr %73, align 4, !tbaa !197
   store float 1.000000e+00, ptr %74, align 4, !tbaa !197
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %323 = getelementptr inbounds nuw i8, ptr %180, i64 48
   %324 = load float, ptr %323, align 4, !tbaa !197
   %325 = fadd float %320, %324
@@ -5567,7 +5561,7 @@ define dso_local void @_ZN24btMultiBodyDynamicsWorld14debugDrawWorldEv(ptr nound
   %334 = fadd float %332, %333
   %335 = load float, ptr %203, align 4, !tbaa !197
   %336 = fadd float %334, %335
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %337 = fcmp ogt float %336, 0.000000e+00
   br i1 %337, label %338, label %361
 
@@ -5663,7 +5657,7 @@ define dso_local void @_ZN24btMultiBodyDynamicsWorld14debugDrawWorldEv(ptr nound
   %414 = phi float [ %.pre38.i274, %361 ], [ %360, %338 ]
   %415 = phi float [ %.pre36.i272, %361 ], [ %355, %338 ]
   %416 = phi float [ %.pre.i270, %361 ], [ %350, %338 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %417 = getelementptr inbounds nuw %struct.btMultibodyLink, ptr %193, i64 %indvars.iv436, i32 4
   %418 = load float, ptr %417, align 4, !tbaa !197
   %419 = getelementptr inbounds nuw i8, ptr %417, i64 8
@@ -5706,13 +5700,13 @@ define dso_local void @_ZN24btMultiBodyDynamicsWorld14debugDrawWorldEv(ptr nound
   %.sroa.3.12.vec.insert.i144 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %453, i64 0
   store <2 x float> %.sroa.0.4.vec.insert.i143, ptr %15, align 8
   store <2 x float> %.sroa.3.12.vec.insert.i144, ptr %76, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %454 = load float, ptr %180, align 4, !tbaa !197
   %455 = load float, ptr %200, align 4, !tbaa !197
   %456 = fadd float %454, %455
   %457 = load float, ptr %203, align 4, !tbaa !197
   %458 = fadd float %456, %457
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %459 = fcmp ogt float %458, 0.000000e+00
   br i1 %459, label %460, label %483
 
@@ -5808,7 +5802,7 @@ define dso_local void @_ZN24btMultiBodyDynamicsWorld14debugDrawWorldEv(ptr nound
   %536 = phi float [ %.pre38.i282, %483 ], [ %482, %460 ]
   %537 = phi float [ %.pre36.i280, %483 ], [ %477, %460 ]
   %538 = phi float [ %.pre.i278, %483 ], [ %472, %460 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %539 = load float, ptr %417, align 4, !tbaa !197
   %540 = load float, ptr %419, align 4, !tbaa !197
   %541 = fmul float %537, %540
@@ -5865,9 +5859,9 @@ define dso_local void @_ZN24btMultiBodyDynamicsWorld14debugDrawWorldEv(ptr nound
           to label %584 unwind label %585
 
 584:                                              ; preds = %580
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #19
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #19
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %.pre443 = load ptr, ptr %174, align 8, !tbaa !53
   %.phi.trans.insert444 = getelementptr inbounds nuw %struct.btMultibodyLink, ptr %.pre443, i64 %indvars.iv436, i32 26
   %.pre445 = load i32, ptr %.phi.trans.insert444, align 4, !tbaa !230
@@ -5876,9 +5870,9 @@ define dso_local void @_ZN24btMultiBodyDynamicsWorld14debugDrawWorldEv(ptr nound
 585:                                              ; preds = %580, %534
   %586 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #19
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #19
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %1379
 
 587:                                              ; preds = %192, %584
@@ -5896,7 +5890,7 @@ define dso_local void @_ZN24btMultiBodyDynamicsWorld14debugDrawWorldEv(ptr nound
   %597 = getelementptr inbounds nuw i8, ptr %180, i64 40
   %598 = load float, ptr %597, align 4, !tbaa !197
   %599 = fadd float %596, %598
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %600 = fcmp ogt float %599, 0.000000e+00
   br i1 %600, label %601, label %624
 
@@ -5992,7 +5986,7 @@ define dso_local void @_ZN24btMultiBodyDynamicsWorld14debugDrawWorldEv(ptr nound
   %677 = phi float [ %.pre38.i290, %624 ], [ %623, %601 ]
   %678 = phi float [ %.pre36.i288, %624 ], [ %618, %601 ]
   %679 = phi float [ %.pre.i286, %624 ], [ %613, %601 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %680 = getelementptr inbounds nuw i8, ptr %590, i64 152
   %681 = load float, ptr %680, align 4, !tbaa !197
   %682 = getelementptr inbounds nuw i8, ptr %590, i64 160
@@ -6030,12 +6024,12 @@ define dso_local void @_ZN24btMultiBodyDynamicsWorld14debugDrawWorldEv(ptr nound
   %714 = fmul float %705, 0x3FB99999A0000000
   %715 = fmul float %709, 0x3FB99999A0000000
   %716 = fmul float %713, 0x3FB99999A0000000
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store float 0.000000e+00, ptr %17, align 4, !tbaa !197
   store float 0.000000e+00, ptr %80, align 4, !tbaa !197
   store float 0.000000e+00, ptr %81, align 4, !tbaa !197
   store float 1.000000e+00, ptr %82, align 4, !tbaa !197
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %717 = getelementptr inbounds nuw i8, ptr %180, i64 48
   %718 = load float, ptr %717, align 4, !tbaa !197
   %719 = fadd float %714, %718
@@ -6050,7 +6044,7 @@ define dso_local void @_ZN24btMultiBodyDynamicsWorld14debugDrawWorldEv(ptr nound
   %728 = fadd float %726, %727
   %729 = load float, ptr %597, align 4, !tbaa !197
   %730 = fadd float %728, %729
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %731 = fcmp ogt float %730, 0.000000e+00
   br i1 %731, label %732, label %755
 
@@ -6146,7 +6140,7 @@ define dso_local void @_ZN24btMultiBodyDynamicsWorld14debugDrawWorldEv(ptr nound
   %808 = phi float [ %.pre38.i298, %755 ], [ %754, %732 ]
   %809 = phi float [ %.pre36.i296, %755 ], [ %749, %732 ]
   %810 = phi float [ %.pre.i294, %755 ], [ %744, %732 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %811 = getelementptr inbounds nuw %struct.btMultibodyLink, ptr %589, i64 %indvars.iv436, i32 4
   %812 = load float, ptr %811, align 4, !tbaa !197
   %813 = getelementptr inbounds nuw i8, ptr %811, i64 8
@@ -6189,13 +6183,13 @@ define dso_local void @_ZN24btMultiBodyDynamicsWorld14debugDrawWorldEv(ptr nound
   %.sroa.3.12.vec.insert.i197 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %847, i64 0
   store <2 x float> %.sroa.0.4.vec.insert.i196, ptr %18, align 8
   store <2 x float> %.sroa.3.12.vec.insert.i197, ptr %84, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %19) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %848 = load float, ptr %180, align 4, !tbaa !197
   %849 = load float, ptr %594, align 4, !tbaa !197
   %850 = fadd float %848, %849
   %851 = load float, ptr %597, align 4, !tbaa !197
   %852 = fadd float %850, %851
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %853 = fcmp ogt float %852, 0.000000e+00
   br i1 %853, label %854, label %877
 
@@ -6291,7 +6285,7 @@ define dso_local void @_ZN24btMultiBodyDynamicsWorld14debugDrawWorldEv(ptr nound
   %930 = phi float [ %.pre38.i306, %877 ], [ %876, %854 ]
   %931 = phi float [ %.pre36.i304, %877 ], [ %871, %854 ]
   %932 = phi float [ %.pre.i302, %877 ], [ %866, %854 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %933 = load float, ptr %811, align 4, !tbaa !197
   %934 = load float, ptr %813, align 4, !tbaa !197
   %935 = fmul float %931, %934
@@ -6348,9 +6342,9 @@ define dso_local void @_ZN24btMultiBodyDynamicsWorld14debugDrawWorldEv(ptr nound
           to label %978 unwind label %979
 
 978:                                              ; preds = %974
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19) #19
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18) #19
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %.pre446 = load ptr, ptr %174, align 8, !tbaa !53
   %.phi.trans.insert448 = getelementptr inbounds nuw %struct.btMultibodyLink, ptr %.pre446, i64 %indvars.iv436, i32 26
   %.pre449 = load i32, ptr %.phi.trans.insert448, align 4, !tbaa !230
@@ -6359,9 +6353,9 @@ define dso_local void @_ZN24btMultiBodyDynamicsWorld14debugDrawWorldEv(ptr nound
 979:                                              ; preds = %974, %928
   %980 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19) #19
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18) #19
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %1379
 
 981:                                              ; preds = %587, %978
@@ -6379,7 +6373,7 @@ define dso_local void @_ZN24btMultiBodyDynamicsWorld14debugDrawWorldEv(ptr nound
   %991 = getelementptr inbounds nuw i8, ptr %180, i64 40
   %992 = load float, ptr %991, align 4, !tbaa !197
   %993 = fadd float %990, %992
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %994 = fcmp ogt float %993, 0.000000e+00
   br i1 %994, label %995, label %1018
 
@@ -6475,7 +6469,7 @@ define dso_local void @_ZN24btMultiBodyDynamicsWorld14debugDrawWorldEv(ptr nound
   %1071 = phi float [ %.pre38.i314, %1018 ], [ %1017, %995 ]
   %1072 = phi float [ %.pre36.i312, %1018 ], [ %1012, %995 ]
   %1073 = phi float [ %.pre.i310, %1018 ], [ %1007, %995 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %1074 = getelementptr inbounds nuw i8, ptr %984, i64 152
   %1075 = load float, ptr %1074, align 4, !tbaa !197
   %1076 = getelementptr inbounds nuw i8, ptr %984, i64 160
@@ -6513,12 +6507,12 @@ define dso_local void @_ZN24btMultiBodyDynamicsWorld14debugDrawWorldEv(ptr nound
   %1108 = fmul float %1099, 0x3FB99999A0000000
   %1109 = fmul float %1103, 0x3FB99999A0000000
   %1110 = fmul float %1107, 0x3FB99999A0000000
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %20) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store float 0.000000e+00, ptr %20, align 4, !tbaa !197
   store float 0.000000e+00, ptr %88, align 4, !tbaa !197
   store float 0.000000e+00, ptr %89, align 4, !tbaa !197
   store float 1.000000e+00, ptr %90, align 4, !tbaa !197
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %21) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %1111 = getelementptr inbounds nuw i8, ptr %180, i64 48
   %1112 = load float, ptr %1111, align 4, !tbaa !197
   %1113 = fadd float %1108, %1112
@@ -6533,7 +6527,7 @@ define dso_local void @_ZN24btMultiBodyDynamicsWorld14debugDrawWorldEv(ptr nound
   %1122 = fadd float %1120, %1121
   %1123 = load float, ptr %991, align 4, !tbaa !197
   %1124 = fadd float %1122, %1123
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %1125 = fcmp ogt float %1124, 0.000000e+00
   br i1 %1125, label %1126, label %1149
 
@@ -6629,7 +6623,7 @@ define dso_local void @_ZN24btMultiBodyDynamicsWorld14debugDrawWorldEv(ptr nound
   %1202 = phi float [ %.pre38.i322, %1149 ], [ %1148, %1126 ]
   %1203 = phi float [ %.pre36.i320, %1149 ], [ %1143, %1126 ]
   %1204 = phi float [ %.pre.i318, %1149 ], [ %1138, %1126 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %1205 = getelementptr inbounds nuw %struct.btMultibodyLink, ptr %983, i64 %indvars.iv436, i32 4
   %1206 = load float, ptr %1205, align 4, !tbaa !197
   %1207 = getelementptr inbounds nuw i8, ptr %1205, i64 8
@@ -6672,13 +6666,13 @@ define dso_local void @_ZN24btMultiBodyDynamicsWorld14debugDrawWorldEv(ptr nound
   %.sroa.3.12.vec.insert.i250 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %1241, i64 0
   store <2 x float> %.sroa.0.4.vec.insert.i249, ptr %21, align 8
   store <2 x float> %.sroa.3.12.vec.insert.i250, ptr %92, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %22) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %1242 = load float, ptr %180, align 4, !tbaa !197
   %1243 = load float, ptr %988, align 4, !tbaa !197
   %1244 = fadd float %1242, %1243
   %1245 = load float, ptr %991, align 4, !tbaa !197
   %1246 = fadd float %1244, %1245
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %1247 = fcmp ogt float %1246, 0.000000e+00
   br i1 %1247, label %1248, label %1271
 
@@ -6774,7 +6768,7 @@ define dso_local void @_ZN24btMultiBodyDynamicsWorld14debugDrawWorldEv(ptr nound
   %1324 = phi float [ %.pre38.i330, %1271 ], [ %1270, %1248 ]
   %1325 = phi float [ %.pre36.i328, %1271 ], [ %1265, %1248 ]
   %1326 = phi float [ %.pre.i326, %1271 ], [ %1260, %1248 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %1327 = load float, ptr %1205, align 4, !tbaa !197
   %1328 = load float, ptr %1207, align 4, !tbaa !197
   %1329 = fmul float %1325, %1328
@@ -6831,17 +6825,17 @@ define dso_local void @_ZN24btMultiBodyDynamicsWorld14debugDrawWorldEv(ptr nound
           to label %1372 unwind label %1373
 
 1372:                                             ; preds = %1368
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22) #19
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21) #19
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %1375
 
 1373:                                             ; preds = %1368, %1322
   %1374 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22) #19
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21) #19
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %1379
 
 1375:                                             ; preds = %1372, %981
@@ -6858,29 +6852,29 @@ define dso_local void @_ZN24btMultiBodyDynamicsWorld14debugDrawWorldEv(ptr nound
 
 1380:                                             ; preds = %1379, %95
   %.pn115.pn = phi { ptr, i32 } [ %.pn115, %1379 ], [ %96, %95 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %1382
 
 1381:                                             ; preds = %39, %._crit_edge434, %28
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #19
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret void
 
 1382:                                             ; preds = %43, %1380, %45, %41
   %.pn115.pn.pn.pn.pn = phi { ptr, i32 } [ %42, %41 ], [ %44, %43 ], [ %.pn115.pn, %1380 ], [ %46, %45 ]
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #19
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %.pn115.pn.pn.pn.pn
 }
 
 declare void @_ZN23btDiscreteDynamicsWorld14debugDrawWorldEv(ptr noundef nonnull align 8 dereferenceable(508)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN24btMultiBodyDynamicsWorld12applyGravityEv(ptr noundef nonnull align 8 dereferenceable(848) %0) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN24btMultiBodyDynamicsWorld12applyGravityEv(ptr noundef nonnull align 8 dereferenceable(848) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.CProfileSample, align 1
   %3 = alloca %class.btVector3, align 8
   tail call void @_ZN23btDiscreteDynamicsWorld12applyGravityEv(ptr noundef nonnull align 8 dereferenceable(508) %0)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull @.str.7)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 516
   %5 = load i32, ptr %4, align 4, !tbaa !4
@@ -6897,7 +6891,7 @@ define dso_local void @_ZN24btMultiBodyDynamicsWorld12applyGravityEv(ptr noundef
 
 ._crit_edge50:                                    ; preds = %.loopexit, %1
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #19
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 12:                                               ; preds = %.lr.ph49, %.loopexit
@@ -6980,7 +6974,7 @@ define dso_local void @_ZN24btMultiBodyDynamicsWorld12applyGravityEv(ptr noundef
 
 .lr.ph46:                                         ; preds = %37, %63
   %.044 = phi i32 [ %64, %63 ], [ 0, %37 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %55 = invoke noundef float @_ZNK11btMultiBody11getLinkMassEi(ptr noundef nonnull align 8 dereferenceable(640) %16, i32 noundef %.044)
           to label %56 unwind label %67
 
@@ -7000,7 +6994,7 @@ define dso_local void @_ZN24btMultiBodyDynamicsWorld12applyGravityEv(ptr noundef
           to label %63 unwind label %67
 
 63:                                               ; preds = %56
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %64 = add nuw nsw i32 %.044, 1
   %65 = load i32, ptr %24, align 4, !tbaa !52
   %66 = icmp slt i32 %64, %65
@@ -7009,9 +7003,9 @@ define dso_local void @_ZN24btMultiBodyDynamicsWorld12applyGravityEv(ptr noundef
 67:                                               ; preds = %56, %.lr.ph46
   %68 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #19
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %68
 
 .loopexit.loopexit:                               ; preds = %63
@@ -7328,14 +7322,14 @@ declare void @_ZN16btCollisionWorld11updateAabbsEv(ptr noundef nonnull align 8 d
 declare void @_ZN16btCollisionWorld23computeOverlappingPairsEv(ptr noundef nonnull align 8 dereferenceable(121)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN16btCollisionWorld14setDebugDrawerEP12btIDebugDraw(ptr noundef nonnull align 8 dereferenceable(121) %0, ptr noundef %1) unnamed_addr #7 comdat align 2 {
+define linkonce_odr dso_local void @_ZN16btCollisionWorld14setDebugDrawerEP12btIDebugDraw(ptr noundef nonnull align 8 dereferenceable(121) %0, ptr noundef %1) unnamed_addr #6 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr %1, ptr %3, align 8, !tbaa !195
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef ptr @_ZN16btCollisionWorld14getDebugDrawerEv(ptr noundef nonnull align 8 dereferenceable(121) %0) unnamed_addr #7 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZN16btCollisionWorld14getDebugDrawerEv(ptr noundef nonnull align 8 dereferenceable(121) %0) unnamed_addr #6 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 8, !tbaa !195
   ret ptr %3
@@ -7384,7 +7378,7 @@ declare noundef ptr @_ZN23btDiscreteDynamicsWorld13getConstraintEi(ptr noundef n
 declare noundef ptr @_ZNK23btDiscreteDynamicsWorld13getConstraintEi(ptr noundef nonnull align 8 dereferenceable(508), i32 noundef) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i32 @_ZNK23btDiscreteDynamicsWorld12getWorldTypeEv(ptr noundef nonnull align 8 dereferenceable(508) %0) unnamed_addr #7 comdat align 2 {
+define linkonce_odr dso_local noundef i32 @_ZNK23btDiscreteDynamicsWorld12getWorldTypeEv(ptr noundef nonnull align 8 dereferenceable(508) %0) unnamed_addr #6 comdat align 2 {
   ret i32 2
 }
 
@@ -7403,7 +7397,7 @@ declare void @_ZN23btDiscreteDynamicsWorld24createPredictiveContactsEf(ptr nound
 declare void @_ZN23btDiscreteDynamicsWorld19debugDrawConstraintEP17btTypedConstraint(ptr noundef nonnull align 8 dereferenceable(508), ptr noundef) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN23btDiscreteDynamicsWorld11setNumTasksEi(ptr noundef nonnull align 8 dereferenceable(508) %0, i32 noundef %1) unnamed_addr #7 comdat align 2 {
+define linkonce_odr dso_local void @_ZN23btDiscreteDynamicsWorld11setNumTasksEi(ptr noundef nonnull align 8 dereferenceable(508) %0, i32 noundef %1) unnamed_addr #6 comdat align 2 {
   ret void
 }
 
@@ -7448,7 +7442,7 @@ define linkonce_odr dso_local noundef ptr @_ZNK24btMultiBodyDynamicsWorld22getMu
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN36MultiBodyInplaceSolverIslandCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN36MultiBodyInplaceSolverIslandCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV36MultiBodyInplaceSolverIslandCallback, i64 16), ptr %0, align 8, !tbaa !105
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %3 = load ptr, ptr %2, align 8, !tbaa !190
@@ -7616,7 +7610,7 @@ _ZN20btAlignedObjectArrayIP17btCollisionObjectED2Ev.exit11: ; preds = %_ZN20btAl
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN36MultiBodyInplaceSolverIslandCallbackD0Ev(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #10 comdat align 2 {
+define linkonce_odr dso_local void @_ZN36MultiBodyInplaceSolverIslandCallbackD0Ev(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #9 comdat align 2 {
   tail call void @_ZN36MultiBodyInplaceSolverIslandCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %0) #19
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 264) #22
   ret void
@@ -8429,7 +8423,7 @@ _ZN20btAlignedObjectArrayIP21btMultiBodyConstraintE9push_backERKS1_.exit: ; pred
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local void @_ZN36MultiBodyInplaceSolverIslandCallback5setupEP19btContactSolverInfoPP17btTypedConstraintiPP21btMultiBodyConstraintiP12btIDebugDraw(ptr noundef nonnull align 8 dereferenceable(264) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6) unnamed_addr #11 comdat align 2 {
+define linkonce_odr dso_local void @_ZN36MultiBodyInplaceSolverIslandCallback5setupEP19btContactSolverInfoPP17btTypedConstraintiPP21btMultiBodyConstraintiP12btIDebugDraw(ptr noundef nonnull align 8 dereferenceable(264) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6) unnamed_addr #10 comdat align 2 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %9 = load ptr, ptr %8, align 8, !tbaa !190
   %.not.i.i = icmp ne ptr %9, null
@@ -8974,7 +8968,7 @@ _ZN20btAlignedObjectArrayIP21btMultiBodyConstraintE6resizeEiRKS1_.exit: ; preds 
 }
 
 ; Function Attrs: noinline noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #12 comdat {
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #11 comdat {
   %2 = tail call ptr @__cxa_begin_catch(ptr %0) #19
   tail call void @_ZSt9terminatev() #21
   unreachable
@@ -8983,23 +8977,23 @@ define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_un
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #13
+declare void @_ZSt9terminatev() local_unnamed_addr #12
 
 declare void @_Z21btAlignedFreeInternalPv(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #14
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #13
 
 declare noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare float @sqrtf(float noundef) local_unnamed_addr #15
+declare float @sqrtf(float noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare float @sinf(float noundef) local_unnamed_addr #15
+declare float @sinf(float noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare float @cosf(float noundef) local_unnamed_addr #15
+declare float @cosf(float noundef) local_unnamed_addr #14
 
 declare void @_ZN23btDiscreteDynamicsWorld13updateActionsEf(ptr noundef nonnull align 8 dereferenceable(508), float noundef) local_unnamed_addr #2
 
@@ -9451,6 +9445,12 @@ tailrecurse:                                      ; preds = %80, %4
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
 
@@ -9466,19 +9466,19 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #18
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { mustprogress uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { cold nofree noreturn }
-attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { mustprogress uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { cold nofree noreturn }
+attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #16 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #18 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }

@@ -468,7 +468,7 @@ entry:
   call fastcc void @_ZN6google8protobuf8compiler4rust12_GLOBAL__N_120AccessorGeneratorForENS2_7ContextINS0_15FieldDescriptorEEE(ptr noalias align 8 %ref.tmp, ptr %agg.tmp.sroa.1.0.copyload, ptr %agg.tmp.sroa.2.0.copyload)
   %0 = load ptr, ptr %ref.tmp, align 8
   %agg.tmp12.sroa.0.0.copyload = load ptr, ptr %field, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2.i)
   %1 = load i32, ptr %agg.tmp12.sroa.0.0.copyload, align 4
   %cmp.i.i = icmp eq i32 %1, 1
   br i1 %cmp.i.i, label %cleanup.done.i, label %cond.false.i
@@ -494,7 +494,7 @@ lpad.thread:                                      ; preds = %cleanup.done.i
   br label %_ZNKSt14default_deleteIN6google8protobuf8compiler4rust17AccessorGeneratorEEclEPS4_.exit.i5
 
 _ZNSt10unique_ptrIN6google8protobuf8compiler4rust17AccessorGeneratorESt14default_deleteIS4_EED2Ev.exit: ; preds = %cleanup.done.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i)
   %vtable.i.i = load ptr, ptr %0, align 8
   %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 8
   %4 = load ptr, ptr %vfn.i.i, align 8
@@ -1165,10 +1165,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

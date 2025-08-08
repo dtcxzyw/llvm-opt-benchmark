@@ -99,7 +99,7 @@ init.i:                                           ; preds = %init.check.i
   br label %_ZN8facebook5velox7process12_GLOBAL__N_18traceMapB5cxx11Ev.exit
 
 _ZN8facebook5velox7process12_GLOBAL__N_18traceMapB5cxx11Ev.exit: ; preds = %entry, %init.check.i, %init.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZZN8facebook5velox7process12_GLOBAL__N_18traceMapB5cxx11EvE14staticTraceMapB5cxx11, i64 56), ptr %ref.tmp.i, align 8, !alias.scope !5
   invoke void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE4lockEv(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds nuw (i8, ptr @_ZZN8facebook5velox7process12_GLOBAL__N_18traceMapB5cxx11EvE14staticTraceMapB5cxx11, i64 56))
           to label %.noexc unwind label %lpad
@@ -145,7 +145,7 @@ lpad.i:                                           ; preds = %.noexc
   br label %lpad.body
 
 invoke.cont5:                                     ; preds = %if.then3.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   ret void
 
 lpad:                                             ; preds = %_ZN8facebook5velox7process12_GLOBAL__N_18traceMapB5cxx11Ev.exit
@@ -195,7 +195,7 @@ init.i:                                           ; preds = %init.check.i
   br label %_ZN8facebook5velox7process12_GLOBAL__N_18traceMapB5cxx11Ev.exit
 
 _ZN8facebook5velox7process12_GLOBAL__N_18traceMapB5cxx11Ev.exit: ; preds = %entry, %init.check.i, %init.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZZN8facebook5velox7process12_GLOBAL__N_18traceMapB5cxx11EvE14staticTraceMapB5cxx11, i64 56), ptr %ref.tmp.i, align 8, !alias.scope !8
   invoke void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE4lockEv(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds nuw (i8, ptr @_ZZN8facebook5velox7process12_GLOBAL__N_18traceMapB5cxx11EvE14staticTraceMapB5cxx11, i64 56))
           to label %.noexc unwind label %terminate.lpad
@@ -253,7 +253,7 @@ lpad.i:                                           ; preds = %if.then.i.i, %.noex
   br label %terminate.lpad.body
 
 invoke.cont2:                                     ; preds = %if.then3.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #16
   ret void
 
@@ -309,7 +309,7 @@ init.i:                                           ; preds = %init.check.i
   br label %_ZN8facebook5velox7process12_GLOBAL__N_18traceMapB5cxx11Ev.exit
 
 _ZN8facebook5velox7process12_GLOBAL__N_18traceMapB5cxx11Ev.exit: ; preds = %entry, %init.check.i, %init.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZZN8facebook5velox7process12_GLOBAL__N_18traceMapB5cxx11EvE14staticTraceMapB5cxx11, i64 56), ptr %ref.tmp.i, align 8, !alias.scope !11
   %_M_owns.i2.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   store i8 1, ptr %_M_owns.i2.i.i.i, align 8, !alias.scope !11
@@ -423,7 +423,7 @@ lpad.i:                                           ; preds = %call32.i.noexc.i, %
   br label %lpad.body
 
 invoke.cont3:                                     ; preds = %if.then.i.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %out)
           to label %invoke.cont4 unwind label %lpad
 
@@ -476,14 +476,14 @@ init.i:                                           ; preds = %init.check.i
 
 _ZN8facebook5velox7process12_GLOBAL__N_18traceMapB5cxx11Ev.exit: ; preds = %entry, %init.check.i, %init.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZZN8facebook5velox7process12_GLOBAL__N_18traceMapB5cxx11EvE14staticTraceMapB5cxx11, i64 56), ptr %ref.tmp.i, align 8, !alias.scope !17, !noalias !14
   %_M_owns.i2.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   store i8 1, ptr %_M_owns.i2.i.i.i, align 8, !alias.scope !17, !noalias !14
   tail call void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE11lock_sharedEv(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds nuw (i8, ptr @_ZZN8facebook5velox7process12_GLOBAL__N_18traceMapB5cxx11EvE14staticTraceMapB5cxx11, i64 56)), !noalias !20
   tail call void @llvm.experimental.noalias.scope.decl(metadata !21)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__alloc_node_gen.i.i.i.i), !noalias !24
+  call void @llvm.lifetime.start.p0(ptr nonnull %__alloc_node_gen.i.i.i.i), !noalias !24
   store ptr null, ptr %agg.result, align 8, !alias.scope !24
   %_M_bucket_count.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8facebook5velox7process12_GLOBAL__N_18traceMapB5cxx11EvE14staticTraceMapB5cxx11, i64 8), align 8, !noalias !24
@@ -502,7 +502,7 @@ _ZN8facebook5velox7process12_GLOBAL__N_18traceMapB5cxx11Ev.exit: ; preds = %entr
           to label %if.then.i.i.i unwind label %lpad.i
 
 if.then.i.i.i:                                    ; preds = %_ZN8facebook5velox7process12_GLOBAL__N_18traceMapB5cxx11Ev.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__alloc_node_gen.i.i.i.i), !noalias !24
+  call void @llvm.lifetime.end.p0(ptr nonnull %__alloc_node_gen.i.i.i.i), !noalias !24
   invoke void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE13unlock_sharedEv(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds nuw (i8, ptr @_ZZN8facebook5velox7process12_GLOBAL__N_18traceMapB5cxx11EvE14staticTraceMapB5cxx11, i64 56))
           to label %"_ZNK5folly16SynchronizedBaseINS_12SynchronizedISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8facebook5velox7process9TraceDataESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SC_EEENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEELNS_6detail22SynchronizedMutexLevelE2EE9withRLockIZNSB_12TraceContext6statusEvE3$_0EEDaOT_.exit" unwind label %terminate.lpad.i.i.i
 
@@ -520,7 +520,7 @@ lpad.i:                                           ; preds = %_ZN8facebook5velox7
   resume { ptr, i32 } %7
 
 "_ZNK5folly16SynchronizedBaseINS_12SynchronizedISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8facebook5velox7process9TraceDataESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SC_EEENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEELNS_6detail22SynchronizedMutexLevelE2EE9withRLockIZNSB_12TraceContext6statusEvE3$_0EEDaOT_.exit": ; preds = %if.then.i.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   ret void
 }
 
@@ -1471,10 +1471,10 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #12
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #15

@@ -343,27 +343,27 @@ entry:
   %agg.tmp = alloca %"class.std::vector", align 8
   %agg.tmp1 = alloca %"class.std::unique_ptr", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.start.p0(i64 232, ptr nonnull %ref.tmp1.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp2.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp3.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp6.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp7.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp13.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp14.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp20.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp21.i)
-  call void @llvm.lifetime.start.p0(i64 232, ptr nonnull %ref.tmp28.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp29.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp30.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp36.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp37.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp43.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp44.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp50.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp51.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp57.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp58.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp1.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp6.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp7.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp13.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp14.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp20.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp21.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp28.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp29.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp30.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp36.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp37.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp43.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp44.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp50.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp51.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp57.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp58.i)
   %0 = getelementptr inbounds nuw i8, ptr %ref.tmp1.i, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %0, i8 0, i64 200, i1 false), !noalias !4
   %_M_single_bucket.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp1.i, i64 48
@@ -388,7 +388,7 @@ call.i.noexc.i:                                   ; preds = %entry
           to label %.noexc.i unwind label %lpad.i, !noalias !4
 
 .noexc.i:                                         ; preds = %call.i.noexc.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i74)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i74)
   %call.i.i75 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2.i)
           to label %if.end.i77 unwind label %terminate.lpad.i.i76, !noalias !4
 
@@ -418,7 +418,7 @@ lpad.i79:                                         ; preds = %invoke.cont.i80, %i
   br label %ehcleanup92.i
 
 invoke.cont.i:                                    ; preds = %invoke.cont.i80
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i74)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i74)
   %call.i = invoke noundef nonnull align 8 dereferenceable(225) ptr @_ZN8facebook5velox4exec24FunctionSignatureBuilder12typeVariableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(225) %ref.tmp1.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2.i)
           to label %invoke.cont5.i unwind label %lpad4.i, !noalias !4
 
@@ -432,7 +432,7 @@ call.i.noexc23.i:                                 ; preds = %invoke.cont5.i
           to label %.noexc25.i unwind label %lpad8.i, !noalias !4
 
 .noexc25.i:                                       ; preds = %call.i.noexc23.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i64)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i64)
   %call.i.i65 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6.i)
           to label %if.end.i67 unwind label %terminate.lpad.i.i66, !noalias !4
 
@@ -462,7 +462,7 @@ lpad.i69:                                         ; preds = %invoke.cont.i70, %i
   br label %ehcleanup90.i
 
 invoke.cont9.i:                                   ; preds = %invoke.cont.i70
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i64)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i64)
   %call12.i = invoke noundef nonnull align 8 dereferenceable(225) ptr @_ZN8facebook5velox4exec24FunctionSignatureBuilder10returnTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(225) %call.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6.i)
           to label %invoke.cont11.i unwind label %lpad10.i, !noalias !4
 
@@ -476,7 +476,7 @@ call.i.noexc31.i:                                 ; preds = %invoke.cont11.i
           to label %.noexc33.i unwind label %lpad15.i, !noalias !4
 
 .noexc33.i:                                       ; preds = %call.i.noexc31.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i54)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i54)
   %call.i.i55 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13.i)
           to label %if.end.i57 unwind label %terminate.lpad.i.i56, !noalias !4
 
@@ -506,7 +506,7 @@ lpad.i59:                                         ; preds = %invoke.cont.i60, %i
   br label %ehcleanup88.i
 
 invoke.cont16.i:                                  ; preds = %invoke.cont.i60
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i54)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i54)
   %call19.i = invoke noundef nonnull align 8 dereferenceable(225) ptr @_ZN8facebook5velox4exec24FunctionSignatureBuilder12argumentTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(225) %call12.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13.i)
           to label %invoke.cont18.i unwind label %lpad17.i, !noalias !4
 
@@ -563,7 +563,7 @@ call.i.noexc58.i:                                 ; preds = %invoke.cont27.i
           to label %.noexc60.i unwind label %lpad31.i, !noalias !4
 
 .noexc60.i:                                       ; preds = %call.i.noexc58.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i44)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i44)
   %call.i.i45 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp29.i)
           to label %if.end.i47 unwind label %terminate.lpad.i.i46, !noalias !4
 
@@ -593,7 +593,7 @@ lpad.i49:                                         ; preds = %invoke.cont.i50, %i
   br label %ehcleanup83.i
 
 invoke.cont32.i:                                  ; preds = %invoke.cont.i50
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i44)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i44)
   %call35.i = invoke noundef nonnull align 8 dereferenceable(225) ptr @_ZN8facebook5velox4exec24FunctionSignatureBuilder12typeVariableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(225) %ref.tmp28.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp29.i)
           to label %invoke.cont34.i unwind label %lpad33.i, !noalias !4
 
@@ -607,7 +607,7 @@ call.i.noexc66.i:                                 ; preds = %invoke.cont34.i
           to label %.noexc68.i unwind label %lpad38.i, !noalias !4
 
 .noexc68.i:                                       ; preds = %call.i.noexc66.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i34)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i34)
   %call.i.i35 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp36.i)
           to label %if.end.i37 unwind label %terminate.lpad.i.i36, !noalias !4
 
@@ -637,7 +637,7 @@ lpad.i39:                                         ; preds = %invoke.cont.i40, %i
   br label %ehcleanup81.i
 
 invoke.cont39.i:                                  ; preds = %invoke.cont.i40
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i34)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i34)
   %call42.i = invoke noundef nonnull align 8 dereferenceable(225) ptr @_ZN8facebook5velox4exec24FunctionSignatureBuilder10returnTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(225) %call35.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp36.i)
           to label %invoke.cont41.i unwind label %lpad40.i, !noalias !4
 
@@ -651,7 +651,7 @@ call.i.noexc74.i:                                 ; preds = %invoke.cont41.i
           to label %.noexc76.i unwind label %lpad45.i, !noalias !4
 
 .noexc76.i:                                       ; preds = %call.i.noexc74.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i24)
   %call.i.i25 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp43.i)
           to label %if.end.i27 unwind label %terminate.lpad.i.i26, !noalias !4
 
@@ -681,7 +681,7 @@ lpad.i29:                                         ; preds = %invoke.cont.i30, %i
   br label %ehcleanup79.i
 
 invoke.cont46.i:                                  ; preds = %invoke.cont.i30
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i24)
   %call49.i = invoke noundef nonnull align 8 dereferenceable(225) ptr @_ZN8facebook5velox4exec24FunctionSignatureBuilder12argumentTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(225) %call42.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp43.i)
           to label %invoke.cont48.i unwind label %lpad47.i, !noalias !4
 
@@ -695,7 +695,7 @@ call.i.noexc82.i:                                 ; preds = %invoke.cont48.i
           to label %.noexc84.i unwind label %lpad52.i, !noalias !4
 
 .noexc84.i:                                       ; preds = %call.i.noexc82.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i)
   %call.i.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp50.i)
           to label %if.end.i unwind label %terminate.lpad.i.i, !noalias !4
 
@@ -725,7 +725,7 @@ lpad.i21:                                         ; preds = %invoke.cont.i22, %i
   br label %ehcleanup77.i
 
 invoke.cont53.i:                                  ; preds = %invoke.cont.i22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i)
   %call56.i = invoke noundef nonnull align 8 dereferenceable(225) ptr @_ZN8facebook5velox4exec24FunctionSignatureBuilder12argumentTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(225) %call49.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp50.i)
           to label %invoke.cont55.i unwind label %lpad54.i, !noalias !4
 
@@ -1144,27 +1144,27 @@ _ZN8facebook5velox9functions12_GLOBAL__N_115valueSignaturesEv.exit: ; preds = %_
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2.i) #23, !noalias !4
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3.i) #23, !noalias !4
   call void @_ZN8facebook5velox4exec24FunctionSignatureBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(225) %ref.tmp1.i) #23, !noalias !4
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.end.p0(i64 232, ptr nonnull %ref.tmp1.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp2.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp3.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp6.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp7.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp13.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp14.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp20.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp21.i)
-  call void @llvm.lifetime.end.p0(i64 232, ptr nonnull %ref.tmp28.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp29.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp30.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp36.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp37.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp43.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp44.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp50.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp51.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp57.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp58.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp1.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp6.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp7.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp13.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp14.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp20.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp21.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp28.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp29.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp30.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp36.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp37.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp43.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp44.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp50.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp51.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp57.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp58.i)
   %call.i23 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #25
           to label %invoke.cont unwind label %lpad
 
@@ -1462,27 +1462,27 @@ entry:
   %agg.tmp = alloca %"class.std::vector", align 8
   %agg.tmp1 = alloca %"class.std::unique_ptr", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.start.p0(i64 232, ptr nonnull %ref.tmp1.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp2.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp3.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp6.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp7.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp13.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp14.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp20.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp21.i)
-  call void @llvm.lifetime.start.p0(i64 232, ptr nonnull %ref.tmp28.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp29.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp30.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp36.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp37.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp43.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp44.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp50.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp51.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp57.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp58.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp1.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp6.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp7.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp13.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp14.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp20.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp21.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp28.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp29.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp30.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp36.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp37.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp43.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp44.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp50.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp51.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp57.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp58.i)
   %0 = getelementptr inbounds nuw i8, ptr %ref.tmp1.i, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %0, i8 0, i64 200, i1 false), !noalias !13
   %_M_single_bucket.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp1.i, i64 48
@@ -1507,7 +1507,7 @@ call.i.noexc.i:                                   ; preds = %entry
           to label %.noexc.i unwind label %lpad.i, !noalias !13
 
 .noexc.i:                                         ; preds = %call.i.noexc.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i74)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i74)
   %call.i.i75 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2.i)
           to label %if.end.i77 unwind label %terminate.lpad.i.i76, !noalias !13
 
@@ -1537,7 +1537,7 @@ lpad.i79:                                         ; preds = %invoke.cont.i80, %i
   br label %ehcleanup92.i
 
 invoke.cont.i:                                    ; preds = %invoke.cont.i80
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i74)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i74)
   %call.i = invoke noundef nonnull align 8 dereferenceable(225) ptr @_ZN8facebook5velox4exec24FunctionSignatureBuilder12typeVariableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(225) %ref.tmp1.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2.i)
           to label %invoke.cont5.i unwind label %lpad4.i, !noalias !13
 
@@ -1551,7 +1551,7 @@ call.i.noexc23.i:                                 ; preds = %invoke.cont5.i
           to label %.noexc25.i unwind label %lpad8.i, !noalias !13
 
 .noexc25.i:                                       ; preds = %call.i.noexc23.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i64)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i64)
   %call.i.i65 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6.i)
           to label %if.end.i67 unwind label %terminate.lpad.i.i66, !noalias !13
 
@@ -1581,7 +1581,7 @@ lpad.i69:                                         ; preds = %invoke.cont.i70, %i
   br label %ehcleanup90.i
 
 invoke.cont9.i:                                   ; preds = %invoke.cont.i70
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i64)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i64)
   %call12.i = invoke noundef nonnull align 8 dereferenceable(225) ptr @_ZN8facebook5velox4exec24FunctionSignatureBuilder10returnTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(225) %call.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6.i)
           to label %invoke.cont11.i unwind label %lpad10.i, !noalias !13
 
@@ -1595,7 +1595,7 @@ call.i.noexc31.i:                                 ; preds = %invoke.cont11.i
           to label %.noexc33.i unwind label %lpad15.i, !noalias !13
 
 .noexc33.i:                                       ; preds = %call.i.noexc31.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i54)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i54)
   %call.i.i55 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13.i)
           to label %if.end.i57 unwind label %terminate.lpad.i.i56, !noalias !13
 
@@ -1625,7 +1625,7 @@ lpad.i59:                                         ; preds = %invoke.cont.i60, %i
   br label %ehcleanup88.i
 
 invoke.cont16.i:                                  ; preds = %invoke.cont.i60
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i54)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i54)
   %call19.i = invoke noundef nonnull align 8 dereferenceable(225) ptr @_ZN8facebook5velox4exec24FunctionSignatureBuilder12argumentTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(225) %call12.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13.i)
           to label %invoke.cont18.i unwind label %lpad17.i, !noalias !13
 
@@ -1682,7 +1682,7 @@ call.i.noexc58.i:                                 ; preds = %invoke.cont27.i
           to label %.noexc60.i unwind label %lpad31.i, !noalias !13
 
 .noexc60.i:                                       ; preds = %call.i.noexc58.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i44)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i44)
   %call.i.i45 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp29.i)
           to label %if.end.i47 unwind label %terminate.lpad.i.i46, !noalias !13
 
@@ -1712,7 +1712,7 @@ lpad.i49:                                         ; preds = %invoke.cont.i50, %i
   br label %ehcleanup83.i
 
 invoke.cont32.i:                                  ; preds = %invoke.cont.i50
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i44)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i44)
   %call35.i = invoke noundef nonnull align 8 dereferenceable(225) ptr @_ZN8facebook5velox4exec24FunctionSignatureBuilder12typeVariableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(225) %ref.tmp28.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp29.i)
           to label %invoke.cont34.i unwind label %lpad33.i, !noalias !13
 
@@ -1726,7 +1726,7 @@ call.i.noexc66.i:                                 ; preds = %invoke.cont34.i
           to label %.noexc68.i unwind label %lpad38.i, !noalias !13
 
 .noexc68.i:                                       ; preds = %call.i.noexc66.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i34)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i34)
   %call.i.i35 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp36.i)
           to label %if.end.i37 unwind label %terminate.lpad.i.i36, !noalias !13
 
@@ -1756,7 +1756,7 @@ lpad.i39:                                         ; preds = %invoke.cont.i40, %i
   br label %ehcleanup81.i
 
 invoke.cont39.i:                                  ; preds = %invoke.cont.i40
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i34)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i34)
   %call42.i = invoke noundef nonnull align 8 dereferenceable(225) ptr @_ZN8facebook5velox4exec24FunctionSignatureBuilder10returnTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(225) %call35.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp36.i)
           to label %invoke.cont41.i unwind label %lpad40.i, !noalias !13
 
@@ -1770,7 +1770,7 @@ call.i.noexc74.i:                                 ; preds = %invoke.cont41.i
           to label %.noexc76.i unwind label %lpad45.i, !noalias !13
 
 .noexc76.i:                                       ; preds = %call.i.noexc74.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i24)
   %call.i.i25 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp43.i)
           to label %if.end.i27 unwind label %terminate.lpad.i.i26, !noalias !13
 
@@ -1800,7 +1800,7 @@ lpad.i29:                                         ; preds = %invoke.cont.i30, %i
   br label %ehcleanup79.i
 
 invoke.cont46.i:                                  ; preds = %invoke.cont.i30
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i24)
   %call49.i = invoke noundef nonnull align 8 dereferenceable(225) ptr @_ZN8facebook5velox4exec24FunctionSignatureBuilder12argumentTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(225) %call42.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp43.i)
           to label %invoke.cont48.i unwind label %lpad47.i, !noalias !13
 
@@ -1814,7 +1814,7 @@ call.i.noexc82.i:                                 ; preds = %invoke.cont48.i
           to label %.noexc84.i unwind label %lpad52.i, !noalias !13
 
 .noexc84.i:                                       ; preds = %call.i.noexc82.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i)
   %call.i.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp50.i)
           to label %if.end.i unwind label %terminate.lpad.i.i, !noalias !13
 
@@ -1844,7 +1844,7 @@ lpad.i21:                                         ; preds = %invoke.cont.i22, %i
   br label %ehcleanup77.i
 
 invoke.cont53.i:                                  ; preds = %invoke.cont.i22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i)
   %call56.i = invoke noundef nonnull align 8 dereferenceable(225) ptr @_ZN8facebook5velox4exec24FunctionSignatureBuilder12argumentTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(225) %call49.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp50.i)
           to label %invoke.cont55.i unwind label %lpad54.i, !noalias !13
 
@@ -2263,27 +2263,27 @@ _ZN8facebook5velox9functions12_GLOBAL__N_115indexSignaturesEv.exit: ; preds = %_
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2.i) #23, !noalias !13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3.i) #23, !noalias !13
   call void @_ZN8facebook5velox4exec24FunctionSignatureBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(225) %ref.tmp1.i) #23, !noalias !13
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.end.p0(i64 232, ptr nonnull %ref.tmp1.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp2.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp3.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp6.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp7.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp13.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp14.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp20.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp21.i)
-  call void @llvm.lifetime.end.p0(i64 232, ptr nonnull %ref.tmp28.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp29.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp30.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp36.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp37.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp43.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp44.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp50.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp51.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp57.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp58.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp1.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp6.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp7.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp13.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp14.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp20.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp21.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp28.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp29.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp30.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp36.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp37.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp43.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp44.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp50.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp51.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp57.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp58.i)
   %call.i23 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #25
           to label %invoke.cont unwind label %lpad
 
@@ -5043,7 +5043,7 @@ if.else.i:                                        ; preds = %_ZNK8facebook5velox
   %end_4.i = getelementptr inbounds nuw i8, ptr %rows, i64 32
   %56 = load i32, ptr %end_4.i, align 8
   %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp3.i.i.i, i64 16
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %agg.tmp3.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp3.i.i.i)
   store ptr %flatArray, ptr %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i, align 8
   %agg.tmp1.sroa.5.0.agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp3.i.i.i, i64 24
   store ptr %startIndexDecoder, ptr %agg.tmp1.sroa.5.0.agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.sroa_idx.i.i, align 8
@@ -5400,7 +5400,7 @@ if.then19.i.i.i.i:                                ; preds = %for.end.i.i.i11.i
   br label %if.then3.i.i.i14.i.invoke
 
 _ZN8facebook5velox4bits13forEachSetBitIZNKS0_9functions12_GLOBAL__N_117FindFirstFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E_EEvPKmiiSP_.exit.i: ; preds = %if.then3.i.i.i14.i.invoke, %for.end.i.i.i11.i, %if.else.i
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp3.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp3.i.i.i)
   br label %invoke.cont15
 
 invoke.cont15:                                    ; preds = %_ZZNK8facebook5velox9functions12_GLOBAL__N_117FindFirstFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISA_EERKS8_IKNS0_4TypeEERNS0_4exec7EvalCtxERSA_ENKUlT_E_clIiEEDaSN_.exit.i, %_ZN8facebook5velox4bits13forEachSetBitIZNKS0_9functions12_GLOBAL__N_117FindFirstFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E_EEvPKmiiSP_.exit.i, %if.then.i
@@ -5769,20 +5769,20 @@ invoke.cont37:                                    ; preds = %call.i.noexc
   store ptr %154, ptr %rawResultIndices, align 8
   store ptr null, ptr %resultNulls, align 8
   store ptr null, ptr %rawResultNulls, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp3873)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp3974)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %rawNulls.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %rawOffsets.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %rawSizes.i)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %lambdaArgs.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %matchBits.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %bitsDecoder.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %startIndexProcessor.i)
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %it.i)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %elementRows.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %wrapCapture.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %elementErrors.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp3873)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp3974)
+  call void @llvm.lifetime.start.p0(ptr nonnull %rawNulls.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %rawOffsets.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %rawSizes.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %lambdaArgs.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %matchBits.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %bitsDecoder.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %startIndexProcessor.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %it.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %elementRows.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %wrapCapture.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %elementErrors.i)
   store ptr %rawResultNulls, ptr %agg.tmp3974, align 8
   %agg.tmp39.sroa.2.0.agg.tmp3974.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp3974, i64 8
   store ptr %resultNulls, ptr %agg.tmp39.sroa.2.0.agg.tmp3974.sroa_idx, align 8
@@ -6707,7 +6707,7 @@ if.else.i67.i:                                    ; preds = %_ZNK8facebook5velox
   %288 = load ptr, ptr %effectiveRows_.i.i.i, align 8
   %289 = load i32, ptr %begin_.i.i.i, align 4
   %290 = load i32, ptr %end_.i.i.i, align 8
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %agg.tmp3.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp3.i.i.i.i)
   store ptr %rawNulls.i, ptr %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i, align 8
   store ptr %agg.tmp3974, ptr %agg.tmp5955.sroa.6.0.agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.sroa_idx.i, align 8
   store ptr %this, ptr %agg.tmp5955.sroa.9.0.agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.sroa_idx.i, align 8
@@ -7011,7 +7011,7 @@ while.body.i70.i.i.i.i.i:                         ; preds = %if.then19.i.i.i.i10
   br i1 %tobool5.old.not.i76.i.i.i.i.i, label %_ZN8facebook5velox4bits13forEachSetBitIZNKS0_9functions12_GLOBAL__N_121FindFirstFunctionBase7doApplyIZNKS4_17FindFirstFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISE_EERKSC_IKNS0_4TypeEERNS0_4exec7EvalCtxERSE_EUliiE_ZNKS7_5applyESA_SH_SM_SP_SQ_EUliE_EEvSA_RKSC_INS0_11ArrayVectorEERKSE_RNS0_14FunctionVectorESP_T_T0_EUliE0_EEvPKmiiS11_.exit.i.i, label %while.body.i70.i.i.i.i.i
 
 _ZN8facebook5velox4bits13forEachSetBitIZNKS0_9functions12_GLOBAL__N_121FindFirstFunctionBase7doApplyIZNKS4_17FindFirstFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISE_EERKSC_IKNS0_4TypeEERNS0_4exec7EvalCtxERSE_EUliiE_ZNKS7_5applyESA_SH_SM_SP_SQ_EUliE_EEvSA_RKSC_INS0_11ArrayVectorEERKSE_RNS0_14FunctionVectorESP_T_T0_EUliE0_EEvPKmiiS11_.exit.i.i: ; preds = %.noexc188.i, %.noexc181.i, %if.then19.i.i.i.i100.i, %for.end.i.i.i7.i.i, %if.then3.i.i.i.i120.i, %if.else.i67.i
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %agg.tmp3.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp3.i.i.i.i)
   br label %invoke.cont60.i
 
 invoke.cont60.i:                                  ; preds = %.noexc180.i, %_ZN8facebook5velox4bits13forEachSetBitIZNKS0_9functions12_GLOBAL__N_121FindFirstFunctionBase7doApplyIZNKS4_17FindFirstFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISE_EERKSC_IKNS0_4TypeEERNS0_4exec7EvalCtxERSE_EUliiE_ZNKS7_5applyESA_SH_SM_SP_SQ_EUliE_EEvSA_RKSC_INS0_11ArrayVectorEERKSE_RNS0_14FunctionVectorESP_T_T0_EUliE0_EEvPKmiiS11_.exit.i.i, %if.then.i145.i
@@ -7600,20 +7600,20 @@ ehcleanup62.i:                                    ; preds = %if.then.i.i.i.i.i28
   br label %ehcleanup61
 
 invoke.cont41:                                    ; preds = %if.then.i.i.i278.i, %invoke.cont.i.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp3873)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp3974)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rawNulls.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rawOffsets.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rawSizes.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %lambdaArgs.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %matchBits.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %bitsDecoder.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %startIndexProcessor.i)
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %it.i)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %elementRows.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %wrapCapture.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %elementErrors.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp3873)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp3974)
+  call void @llvm.lifetime.end.p0(ptr nonnull %rawNulls.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %rawOffsets.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %rawSizes.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %lambdaArgs.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %matchBits.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %bitsDecoder.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %startIndexProcessor.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %it.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %elementRows.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %wrapCapture.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %elementErrors.i)
   %403 = load ptr, ptr %resultNulls, align 8
   store ptr %403, ptr %agg.tmp43, align 8
   %cmp.not.i = icmp eq ptr %403, null
@@ -9875,7 +9875,7 @@ invoke.cont19:                                    ; preds = %call.i.noexc88
   %data_.i86 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %61 = load ptr, ptr %data_.i86, align 8
   store ptr %61, ptr %rawAdjustedSizes, align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %agg.tmp91)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp91)
   store ptr %rawNulls.addr, ptr %agg.tmp91, align 8
   %agg.tmp.sroa.2.0.agg.tmp91.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp91, i64 8
   store ptr %rawAdjustedOffsets, ptr %agg.tmp.sroa.2.0.agg.tmp91.sroa_idx, align 8
@@ -9985,7 +9985,7 @@ if.else.i:                                        ; preds = %_ZNK8facebook5velox
   %79 = load i32, ptr %begin_3.i, align 4
   %80 = load i32, ptr %end_.i, align 8
   %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp3.i.i.i, i64 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %agg.tmp3.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp3.i.i.i)
   store ptr %rawNulls.addr, ptr %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i, align 8
   %agg.tmp1.sroa.5.0.agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp3.i.i.i, i64 24
   store ptr %rawAdjustedOffsets, ptr %agg.tmp1.sroa.5.0.agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.sroa_idx.i.i, align 8
@@ -10575,11 +10575,11 @@ while.body.i71.i.i.i.i:                           ; preds = %if.then19.i.i.i.i, 
   br i1 %tobool5.old.not.i77.i.i.i.i, label %_ZN8facebook5velox4bits13forEachSetBitIZNS0_9functions12_GLOBAL__N_121FindFirstFunctionBase19StartIndexProcessor7processERKSt10shared_ptrINS0_10BaseVectorEERKNS0_17SelectivityVectorEPKmPKiSI_RNS0_4exec7EvalCtxEEUlT_E_EEvSG_iiSM_.exit.i, label %while.body.i71.i.i.i.i
 
 _ZN8facebook5velox4bits13forEachSetBitIZNS0_9functions12_GLOBAL__N_121FindFirstFunctionBase19StartIndexProcessor7processERKSt10shared_ptrINS0_10BaseVectorEERKNS0_17SelectivityVectorEPKmPKiSI_RNS0_4exec7EvalCtxEEUlT_E_EEvSG_iiSM_.exit.i: ; preds = %while.body.i71.i.i.i.i, %while.body.i.i.i.i.i, %if.then19.i.i.i.i, %for.end.i.i.i7.i, %if.then3.i.i.i.i, %if.else.i
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %agg.tmp3.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp3.i.i.i)
   br label %invoke.cont21
 
 invoke.cont21:                                    ; preds = %for.body.i, %_ZN8facebook5velox4bits13forEachSetBitIZNS0_9functions12_GLOBAL__N_121FindFirstFunctionBase19StartIndexProcessor7processERKSt10shared_ptrINS0_10BaseVectorEERKNS0_17SelectivityVectorEPKmPKiSI_RNS0_4exec7EvalCtxEEUlT_E_EEvSG_iiSM_.exit.i, %if.then.i93
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %agg.tmp91)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp91)
   %184 = load ptr, ptr %vector_.i, align 8
   %cmp.i.not.i = icmp eq ptr %184, null
   %185 = ptrtoint ptr %184 to i64
@@ -10737,7 +10737,7 @@ entry:
   store ptr %rawNulls, ptr %rawNulls.addr, align 8
   store ptr %rawOffsets, ptr %rawOffsets.addr, align 8
   store ptr %rawSizes, ptr %rawSizes.addr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %_M_engaged.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 37
   store i8 0, ptr %_M_engaged.i.i.i.i.i, align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(38) %agg.result, i8 0, i64 36, i1 false)
@@ -10779,8 +10779,8 @@ _ZN8facebook5velox17SelectivityVectorC2Eib.exit:  ; preds = %entry, %if.then.i.i
   store i32 0, ptr %begin_.i, align 4
   store i32 0, ptr %end_.i, align 8
   store i16 256, ptr %allSelected_.i, align 4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp1)
   store ptr %rawNulls.addr, ptr %agg.tmp1, align 8
   %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp1, i64 8
   store ptr %rawOffsets.addr, ptr %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx, align 8
@@ -10887,10 +10887,10 @@ if.else.i:                                        ; preds = %_ZNK8facebook5velox
   %end_4.i = getelementptr inbounds nuw i8, ptr %arrayRows, i64 32
   %20 = load i32, ptr %end_4.i, align 8
   %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp3.i.i.i, i64 16
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %agg.tmp3.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp3.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp1, i64 32, i1 false)
   %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp24.i.i.i, i64 16
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %agg.tmp24.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp24.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(32) %agg.tmp1, i64 32, i1 false)
   store i8 1, ptr %agg.tmp24.i.i.i, align 8
   %agg.tmp2.sroa.25.0.agg.tmp24.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp24.i.i.i, i64 8
@@ -11281,12 +11281,12 @@ while.body.i70.i.i.i.i:                           ; preds = %if.then19.i.i.i.i, 
   br i1 %tobool5.old.not.i76.i.i.i.i, label %_ZN8facebook5velox4bits13forEachSetBitIZNS0_9functions12_GLOBAL__N_121FindFirstFunctionBase13toElementRowsEiRKNS0_17SelectivityVectorEPKmPKiSC_EUlT_E_EEvSA_iiSD_.exit.i, label %while.body.i70.i.i.i.i
 
 _ZN8facebook5velox4bits13forEachSetBitIZNS0_9functions12_GLOBAL__N_121FindFirstFunctionBase13toElementRowsEiRKNS0_17SelectivityVectorEPKmPKiSC_EUlT_E_EEvSA_iiSD_.exit.i: ; preds = %while.body.i70.i.i.i.i, %while.body.i.i.i.i.i, %if.then19.i.i.i.i, %for.end.i.i.i7.i, %if.then3.i.i.i.i, %if.else.i
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %agg.tmp3.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %agg.tmp24.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp3.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp24.i.i.i)
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %for.body.i, %_ZN8facebook5velox4bits13forEachSetBitIZNS0_9functions12_GLOBAL__N_121FindFirstFunctionBase13toElementRowsEiRKNS0_17SelectivityVectorEPKmPKiSC_EUlT_E_EEvSA_iiSD_.exit.i, %if.then.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp1)
   %56 = load ptr, ptr %agg.result, align 8
   %57 = load i32, ptr %size_.i, align 8
   %cmp.not.i.i.i5 = icmp sgt i32 %57, 0
@@ -11344,9 +11344,9 @@ _ZN8facebook5velox4bits12findFirstBitEPKmii.exit.i: ; preds = %_ZN8facebook5velo
   %cast.i58.i.i.i = trunc nuw nsw i64 %64 to i32
   %add.i59.i.i.i = or disjoint i32 %.sink.i.i.i, %cast.i58.i.i.i
   store i32 %add.i59.i.i.i, ptr %begin_.i, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %found.i.i)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp.i.i)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp2.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %found.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp2.i.i)
   store i32 -1, ptr %found.i.i, align 4
   store ptr %56, ptr %agg.tmp.i.i, align 8
   %65 = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i, i64 8
@@ -11363,9 +11363,9 @@ _ZN8facebook5velox4bits12findFirstBitEPKmii.exit.i: ; preds = %_ZN8facebook5velo
 
 call.i.i.noexc:                                   ; preds = %_ZN8facebook5velox4bits12findFirstBitEPKmii.exit.i
   %69 = load i32, ptr %found.i.i, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %found.i.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp.i.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp2.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %found.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp2.i.i)
   %add.i = add nsw i32 %69, 1
   store i32 %add.i, ptr %end_.i, align 8
   %70 = load i8, ptr %_M_engaged.i.i.i.i.i, align 1
@@ -12031,8 +12031,8 @@ entry:
   %3 = load i32, ptr %size_.i, align 8
   %4 = load i32, ptr %end_, align 8
   %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %3, i32 %4)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp.i.i)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp1.i.i)
   store ptr %0, ptr %agg.tmp.i.i, align 8
   %5 = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i, i64 8
   store ptr %0, ptr %5, align 8
@@ -12044,8 +12044,8 @@ entry:
   %8 = getelementptr inbounds nuw i8, ptr %agg.tmp1.i.i, i64 16
   store ptr %1, ptr %8, align 8
   tail call void @_ZN8facebook5velox4bits11forEachWordIZNS1_8andRangeILb0EEEvPmPKmS6_iiEUlimE_ZNS3_ILb0EEEvS4_S6_S6_iiEUliE_EEviiT_T0_(i32 noundef %2, i32 noundef %.sroa.speculated, ptr noundef nonnull byval(%class.anon.193) align 8 %agg.tmp.i.i, ptr noundef nonnull byval(%class.anon.194) align 8 %agg.tmp1.i.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp.i.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp1.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp1.i.i)
   %9 = load ptr, ptr %this, align 8
   %size_.i3 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %10 = load i32, ptr %size_.i3, align 8
@@ -12105,9 +12105,9 @@ _ZN8facebook5velox4bits12findFirstBitEPKmii.exit.i: ; preds = %_ZN8facebook5velo
   %cast.i58.i.i.i = trunc nuw nsw i64 %17 to i32
   %add.i59.i.i.i = or disjoint i32 %.sink.i.i.i, %cast.i58.i.i.i
   store i32 %add.i59.i.i.i, ptr %begin_, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %found.i.i)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp.i.i2)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp2.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %found.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i.i2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp2.i.i)
   store i32 -1, ptr %found.i.i, align 4
   store ptr %9, ptr %agg.tmp.i.i2, align 8
   %18 = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i2, i64 8
@@ -12121,9 +12121,9 @@ _ZN8facebook5velox4bits12findFirstBitEPKmii.exit.i: ; preds = %_ZN8facebook5velo
   store i8 1, ptr %21, align 8
   %call.i.i = call noundef zeroext i1 @_ZN8facebook5velox4bits16testWordsReverseIZNS1_11findLastBitEPKmiibEUlimE_ZNS1_11findLastBitES4_iibEUliE_EEbiiT_T0_(i32 noundef %add.i59.i.i.i, i32 noundef %10, ptr noundef nonnull byval(%class.anon.197) align 8 %agg.tmp.i.i2, ptr noundef nonnull byval(%class.anon.198) align 8 %agg.tmp2.i.i)
   %22 = load i32, ptr %found.i.i, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %found.i.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp.i.i2)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp2.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %found.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i.i2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp2.i.i)
   %add.i = add nsw i32 %22, 1
   store i32 %add.i, ptr %end_, align 8
   %_M_engaged.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 37
@@ -13240,10 +13240,10 @@ if.else:                                          ; preds = %_ZNK8facebook5velox
   %end_4 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %38 = load i32, ptr %end_4, align 8
   %39 = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i, i64 16
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %agg.tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %39, ptr noundef nonnull align 8 dereferenceable(32) %func, i64 32, i1 false)
   %40 = getelementptr inbounds nuw i8, ptr %agg.tmp2.i.i, i64 16
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %agg.tmp2.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp2.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %40, ptr noundef nonnull align 8 dereferenceable(32) %func, i64 32, i1 false)
   store i8 1, ptr %agg.tmp.i.i, align 8
   %41 = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i, i64 8
@@ -13252,8 +13252,8 @@ if.else:                                          ; preds = %_ZNK8facebook5velox
   %42 = getelementptr inbounds nuw i8, ptr %agg.tmp2.i.i, i64 8
   store ptr %36, ptr %42, align 8
   tail call void @_ZN8facebook5velox4bits11forEachWordIZNS1_10forEachBitIZNS0_9functions13toWrapCaptureINS0_11ArrayVectorEEEN5boost13intrusive_ptrINS0_6BufferEEEiPKNS0_8CallableERKNS0_17SelectivityVectorERKSt10shared_ptrIT_EEUliE_EEvPKmiibSI_EUlimE_ZNS3_ISM_EEvSO_iibSI_EUliE_EEviiSI_T0_(i32 noundef %37, i32 noundef %38, ptr noundef nonnull byval(%class.anon.216) align 8 %agg.tmp.i.i, ptr noundef nonnull byval(%class.anon.217) align 8 %agg.tmp2.i.i)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %agg.tmp.i.i)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %agg.tmp2.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp2.i.i)
   br label %if.end
 
 if.end:                                           ; preds = %_ZZN8facebook5velox9functions13toWrapCaptureINS0_11ArrayVectorEEEN5boost13intrusive_ptrINS0_6BufferEEEiPKNS0_8CallableERKNS0_17SelectivityVectorERKSt10shared_ptrIT_EENKUliE_clEi.exit, %if.then, %if.else
@@ -14458,20 +14458,20 @@ _ZNSt10shared_ptrIKN8facebook5velox10ScalarTypeILNS1_8TypeKindE4EEEED2Ev.exit: ;
   %39 = load ptr, ptr %result, align 8
   %40 = call noundef ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(99) %39, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox10FlatVectorIlEE, i64 0) #23
   store ptr %40, ptr %flatResult, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp50)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %onMiss.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %rawNulls.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %rawOffsets.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %rawSizes.i)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %lambdaArgs.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %matchBits.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %bitsDecoder.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %startIndexProcessor.i)
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %it.i)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %elementRows.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %wrapCapture.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %elementErrors.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp50)
+  call void @llvm.lifetime.start.p0(ptr nonnull %onMiss.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %rawNulls.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %rawOffsets.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %rawSizes.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %lambdaArgs.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %matchBits.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %bitsDecoder.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %startIndexProcessor.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %it.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %elementRows.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %wrapCapture.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %elementErrors.i)
   store ptr %flatResult, ptr %agg.tmp50, align 8
   %agg.tmp.sroa.2.0.agg.tmp50.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp50, i64 8
   store ptr %rawOffsets, ptr %agg.tmp.sroa.2.0.agg.tmp50.sroa_idx, align 8
@@ -15418,7 +15418,7 @@ invoke.cont51.i:                                  ; preds = %invoke.cont50.i
           to label %invoke.cont54.i unwind label %lpad49.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 invoke.cont54.i:                                  ; preds = %invoke.cont51.i
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %agg.tmp5664.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp5664.i)
   store ptr %rawNulls.i, ptr %agg.tmp5664.i, align 8
   store ptr %onMiss.i, ptr %agg.tmp56.sroa.2.0.agg.tmp5664.sroa_idx.i, align 8
   store ptr %this, ptr %agg.tmp56.sroa.3.0.agg.tmp5664.sroa_idx.i, align 8
@@ -15520,9 +15520,9 @@ if.else.i76.i:                                    ; preds = %_ZNK8facebook5velox
   %193 = load ptr, ptr %effectiveRows_.i.i.i, align 8
   %194 = load i32, ptr %begin_.i.i.i, align 4
   %195 = load i32, ptr %end_.i.i.i, align 8
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %agg.tmp3.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp3.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(72) %agg.tmp5664.i, i64 72, i1 false)
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %agg.tmp24.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp24.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %agg.tmp2.sroa.3.0.agg.tmp24.sroa_idx.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(72) %agg.tmp5664.i, i64 72, i1 false)
   store i8 1, ptr %agg.tmp24.i.i.i.i, align 8
   store ptr %193, ptr %agg.tmp2.sroa.25.0.agg.tmp24.sroa_idx.i.i.i.i, align 8
@@ -15707,12 +15707,12 @@ while.body.i70.i.i.i.i.i:                         ; preds = %if.then19.i.i.i.i10
   br i1 %tobool5.old.not.i76.i.i.i.i.i, label %_ZN8facebook5velox4bits13forEachSetBitIZNKS0_9functions12_GLOBAL__N_121FindFirstFunctionBase7doApplyIZNKS4_22FindFirstIndexFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISE_EERKSC_IKNS0_4TypeEERNS0_4exec7EvalCtxERSE_EUliiE_ZNKS7_5applyESA_SH_SM_SP_SQ_EUliE_EEvSA_RKSC_INS0_11ArrayVectorEERKSE_RNS0_14FunctionVectorESP_T_T0_EUliE0_EEvPKmiiS11_.exit.i.i, label %while.body.i70.i.i.i.i.i
 
 _ZN8facebook5velox4bits13forEachSetBitIZNKS0_9functions12_GLOBAL__N_121FindFirstFunctionBase7doApplyIZNKS4_22FindFirstIndexFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISE_EERKSC_IKNS0_4TypeEERNS0_4exec7EvalCtxERSE_EUliiE_ZNKS7_5applyESA_SH_SM_SP_SQ_EUliE_EEvSA_RKSC_INS0_11ArrayVectorEERKSE_RNS0_14FunctionVectorESP_T_T0_EUliE0_EEvPKmiiS11_.exit.i.i: ; preds = %.noexc188.i, %.noexc184.i, %if.then19.i.i.i.i107.i, %for.end.i.i.i7.i.i, %if.then3.i.i.i.i123.i, %if.else.i76.i
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %agg.tmp3.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %agg.tmp24.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp3.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp24.i.i.i.i)
   br label %invoke.cont57.i
 
 invoke.cont57.i:                                  ; preds = %.noexc183.i, %_ZN8facebook5velox4bits13forEachSetBitIZNKS0_9functions12_GLOBAL__N_121FindFirstFunctionBase7doApplyIZNKS4_22FindFirstIndexFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISE_EERKSC_IKNS0_4TypeEERNS0_4exec7EvalCtxERSE_EUliiE_ZNKS7_5applyESA_SH_SM_SP_SQ_EUliE_EEvSA_RKSC_INS0_11ArrayVectorEERKSE_RNS0_14FunctionVectorESP_T_T0_EUliE0_EEvPKmiiS11_.exit.i.i, %if.then.i148.i
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %agg.tmp5664.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp5664.i)
   %206 = load ptr, ptr %_M_refcount.i.i189.i, align 8
   %cmp.not.i.i.i190.i = icmp eq ptr %206, null
   br i1 %cmp.not.i.i.i190.i, label %_ZNSt10shared_ptrIN8facebook5velox10FlatVectorIS_IvEEEED2Ev.exit.i, label %if.then.i.i.i191.i
@@ -16298,20 +16298,20 @@ ehcleanup59.i:                                    ; preds = %if.then.i.i.i.i.i28
   br label %ehcleanup
 
 invoke.cont18:                                    ; preds = %if.then.i.i.i279.i, %invoke.cont.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp50)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %onMiss.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rawNulls.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rawOffsets.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rawSizes.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %lambdaArgs.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %matchBits.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %bitsDecoder.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %startIndexProcessor.i)
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %it.i)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %elementRows.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %wrapCapture.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %elementErrors.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp50)
+  call void @llvm.lifetime.end.p0(ptr nonnull %onMiss.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %rawNulls.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %rawOffsets.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %rawSizes.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %lambdaArgs.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %matchBits.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %bitsDecoder.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %startIndexProcessor.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %it.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %elementRows.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %wrapCapture.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %elementErrors.i)
   %_M_refcount.i.i62 = getelementptr inbounds nuw i8, ptr %startIndexVector, i64 8
   %284 = load ptr, ptr %_M_refcount.i.i62, align 8
   %cmp.not.i.i.i63 = icmp eq ptr %284, null
@@ -17054,10 +17054,10 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 declare i64 @llvm.umax.i64(i64, i64) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #21
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #21
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #22

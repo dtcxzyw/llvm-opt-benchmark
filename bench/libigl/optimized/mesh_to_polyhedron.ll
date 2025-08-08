@@ -159,7 +159,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl8copyleft4cgal18mesh_to_pol
   %4 = alloca %"class.CGAL::HalfedgeDS_const_decorator", align 8
   %5 = alloca %"class.CGAL::Polyhedron_incremental_builder_3", align 8
   %6 = alloca %"class.CGAL::Point_3", align 8
-  call void @llvm.lifetime.start.p0(i64 184, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 0, ptr %5, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 1
   store i8 0, ptr %7, align 1, !tbaa !29
@@ -209,7 +209,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl8copyleft4cgal18mesh_to_pol
 25:                                               ; preds = %.lr.ph, %35
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %35 ]
   %26 = phi i64 [ %14, %.lr.ph ], [ %36, %35 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %27 = load ptr, ptr %0, align 8, !tbaa !38
   %28 = getelementptr double, ptr %27, i64 %indvars.iv
   %29 = getelementptr double, ptr %28, i64 %26
@@ -225,7 +225,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl8copyleft4cgal18mesh_to_pol
           to label %35 unwind label %38
 
 35:                                               ; preds = %25
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %36 = load i64, ptr %10, align 8, !tbaa !31
   %37 = icmp sgt i64 %36, %indvars.iv.next
@@ -234,7 +234,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl8copyleft4cgal18mesh_to_pol
 38:                                               ; preds = %25
   %39 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %117
 
 ._crit_edge:                                      ; preds = %_ZN4CGAL32Polyhedron_incremental_builder_3INS_18HalfedgeDS_defaultINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEEE9end_facetEv.exit, %.preheader39.._crit_edge_crit_edge
@@ -325,7 +325,7 @@ _ZN4CGAL32Polyhedron_incremental_builder_3INS_18HalfedgeDS_defaultINS_16Simple_c
           to label %100 unwind label %23
 
 77:                                               ; preds = %._crit_edge
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %2, ptr %4, align 8, !tbaa !62
   %78 = invoke noundef zeroext i1 @_ZNK4CGAL26HalfedgeDS_const_decoratorINS_18HalfedgeDS_defaultINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEEE8is_validEbi(ptr noundef nonnull align 8 dereferenceable(8) %4, i1 noundef zeroext false, i32 noundef 3)
           to label %.noexc38 unwind label %23
@@ -400,7 +400,7 @@ _ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit36.i:   ; preds = %.lr.ph.i, %94
 
 _ZNK4CGAL12Polyhedron_3INS_16Simple_cartesianIdEENS_26Polyhedron_items_with_id_3ENS_18HalfedgeDS_defaultESaIiEE8is_validEbi.exit: ; preds = %89, %87, %84, %82, %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit36.i, %91, %.noexc38, %.critedge.i
   %99 = phi i1 [ %98, %.critedge.i ], [ false, %.noexc38 ], [ false, %91 ], [ false, %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit36.i ], [ false, %82 ], [ false, %84 ], [ false, %87 ], [ false, %89 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %100
 
 100:                                              ; preds = %_ZNK4CGAL12Polyhedron_3INS_16Simple_cartesianIdEENS_26Polyhedron_items_with_id_3ENS_18HalfedgeDS_defaultESaIiEE8is_validEbi.exit, %76
@@ -416,7 +416,7 @@ _ZNK4CGAL12Polyhedron_3INS_16Simple_cartesianIdEENS_26Polyhedron_items_with_id_3
   %106 = ptrtoint ptr %105 to i64
   %107 = ptrtoint ptr %102 to i64
   %108 = sub i64 %106, %107
-  call void @_ZdlPvm(ptr noundef nonnull %102, i64 noundef %108) #18
+  call void @_ZdlPvm(ptr noundef nonnull %102, i64 noundef %108) #17
   br label %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_36HalfedgeDS_halfedge_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEEmEEEEEESaISG_EEESaISI_EED2Ev.exit.i
 
 _ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_36HalfedgeDS_halfedge_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEEmEEEEEESaISG_EEESaISI_EED2Ev.exit.i: ; preds = %103, %100
@@ -431,22 +431,19 @@ _ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_l
   %114 = ptrtoint ptr %113 to i64
   %115 = ptrtoint ptr %110 to i64
   %116 = sub i64 %114, %115
-  call void @_ZdlPvm(ptr noundef nonnull %110, i64 noundef %116) #18
+  call void @_ZdlPvm(ptr noundef nonnull %110, i64 noundef %116) #17
   br label %_ZN4CGAL32Polyhedron_incremental_builder_3INS_18HalfedgeDS_defaultINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEEED2Ev.exit
 
 _ZN4CGAL32Polyhedron_incremental_builder_3INS_18HalfedgeDS_defaultINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEEED2Ev.exit: ; preds = %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_36HalfedgeDS_halfedge_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEEmEEEEEESaISG_EEESaISI_EED2Ev.exit.i, %111
-  call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %5) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0
 
 117:                                              ; preds = %61, %71, %38, %23
   %.pn34 = phi { ptr, i32 } [ %39, %38 ], [ %24, %23 ], [ %72, %71 ], [ %62, %61 ]
-  call void @_ZN4CGAL32Polyhedron_incremental_builder_3INS_18HalfedgeDS_defaultINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(178) %5) #17
-  call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %5) #17
+  call void @_ZN4CGAL32Polyhedron_incremental_builder_3INS_18HalfedgeDS_defaultINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(178) %5) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn34
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr dso_local void @_ZN4CGAL32Polyhedron_incremental_builder_3INS_18HalfedgeDS_defaultINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEEE13begin_surfaceEmmmi(ptr noundef nonnull align 8 dereferenceable(178) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -486,7 +483,7 @@ define linkonce_odr dso_local void @_ZN4CGAL32Polyhedron_incremental_builder_3IN
   %29 = ptrtoint ptr %27 to i64
   %30 = ptrtoint ptr %24 to i64
   %31 = sub i64 %29, %30
-  tail call void @_ZdlPvm(ptr noundef nonnull %24, i64 noundef %31) #18
+  tail call void @_ZdlPvm(ptr noundef nonnull %24, i64 noundef %31) #17
   br label %_ZN4CGAL21Random_access_adaptorINS_8internal22In_place_list_iteratorINS_31HalfedgeDS_in_place_list_vertexINS_19I_Polyhedron_vertexINS_34HalfedgeDS_vertex_max_base_with_idINS_21HalfedgeDS_list_typesINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEENS_7Point_3IS8_EEmEEEEEESaISI_EEEED2Ev.exit
 
 _ZN4CGAL21Random_access_adaptorINS_8internal22In_place_list_iteratorINS_31HalfedgeDS_in_place_list_vertexINS_19I_Polyhedron_vertexINS_34HalfedgeDS_vertex_max_base_with_idINS_21HalfedgeDS_list_typesINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEENS_7Point_3IS8_EEmEEEEEESaISI_EEEED2Ev.exit: ; preds = %28, %17
@@ -535,7 +532,7 @@ _ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_l
   br i1 %.not.i8.i.i.i.i, label %_ZNSt12_Vector_baseIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESaISK_EE13_M_deallocateEPSK_m.exit.i.i.i.i, label %51
 
 51:                                               ; preds = %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESaISK_EE11_S_relocateEPSK_SN_SN_RSL_.exit.i.i.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %37, i64 noundef %40) #18
+  tail call void @_ZdlPvm(ptr noundef nonnull %37, i64 noundef %40) #17
   br label %_ZNSt12_Vector_baseIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESaISK_EE13_M_deallocateEPSK_m.exit.i.i.i.i
 
 _ZNSt12_Vector_baseIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESaISK_EE13_M_deallocateEPSK_m.exit.i.i.i.i: ; preds = %51, %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESaISK_EE11_S_relocateEPSK_SN_SN_RSL_.exit.i.i.i.i
@@ -644,7 +641,7 @@ _ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_l
   br i1 %.not.i23.i.i.i.i, label %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESaISK_EE17_M_realloc_insertIJRKSK_EEEvN9__gnu_cxx17__normal_iteratorIPSK_SM_EEDpOT_.exit.i.i.i, label %90
 
 90:                                               ; preds = %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESaISK_EE11_S_relocateEPSK_SN_SN_RSL_.exit22.i.i.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.042.0, i64 noundef %75) #18
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.042.0, i64 noundef %75) #17
   br label %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESaISK_EE17_M_realloc_insertIJRKSK_EEEvN9__gnu_cxx17__normal_iteratorIPSK_SM_EEDpOT_.exit.i.i.i
 
 _ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESaISK_EE17_M_realloc_insertIJRKSK_EEEvN9__gnu_cxx17__normal_iteratorIPSK_SM_EEDpOT_.exit.i.i.i: ; preds = %90, %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESaISK_EE11_S_relocateEPSK_SN_SN_RSL_.exit22.i.i.i.i
@@ -682,7 +679,7 @@ _ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_l
 97:                                               ; preds = %96
   %98 = ptrtoint ptr %.sroa.13.0 to i64
   %99 = sub i64 %98, %74
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.042.0, i64 noundef %99) #18
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.042.0, i64 noundef %99) #17
   br label %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESaISK_EED2Ev.exit.i
 
 _ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESaISK_EED2Ev.exit.i: ; preds = %97, %96
@@ -707,7 +704,7 @@ _ZN4CGAL21Random_access_adaptorINS_8internal22In_place_list_iteratorINS_31Halfed
   %106 = ptrtoint ptr %104 to i64
   %107 = ptrtoint ptr %101 to i64
   %108 = sub i64 %106, %107
-  tail call void @_ZdlPvm(ptr noundef nonnull %101, i64 noundef %108) #18
+  tail call void @_ZdlPvm(ptr noundef nonnull %101, i64 noundef %108) #17
   br label %_ZN4CGAL21Random_access_adaptorINS_8internal22In_place_list_iteratorINS_31HalfedgeDS_in_place_list_vertexINS_19I_Polyhedron_vertexINS_34HalfedgeDS_vertex_max_base_with_idINS_21HalfedgeDS_list_typesINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEENS_7Point_3IS8_EEmEEEEEESaISI_EEEED2Ev.exit19
 
 _ZN4CGAL21Random_access_adaptorINS_8internal22In_place_list_iteratorINS_31HalfedgeDS_in_place_list_vertexINS_19I_Polyhedron_vertexINS_34HalfedgeDS_vertex_max_base_with_idINS_21HalfedgeDS_list_typesINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEENS_7Point_3IS8_EEmEEEEEESaISI_EEEED2Ev.exit19: ; preds = %105, %_ZN4CGAL21Random_access_adaptorINS_8internal22In_place_list_iteratorINS_31HalfedgeDS_in_place_list_vertexINS_19I_Polyhedron_vertexINS_34HalfedgeDS_vertex_max_base_with_idINS_21HalfedgeDS_list_typesINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEENS_7Point_3IS8_EEmEEEEEESaISI_EEEEC2ERKSK_SN_.exit
@@ -760,7 +757,7 @@ _ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_l
   br i1 %.not.i8.i.i.i.i27, label %_ZNSt12_Vector_baseIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESaISK_EE13_M_deallocateEPSK_m.exit.i.i.i.i28, label %132
 
 132:                                              ; preds = %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESaISK_EE11_S_relocateEPSK_SN_SN_RSL_.exit.i.i.i.i26
-  tail call void @_ZdlPvm(ptr noundef nonnull %118, i64 noundef %121) #18
+  tail call void @_ZdlPvm(ptr noundef nonnull %118, i64 noundef %121) #17
   %.pre.pre = load ptr, ptr %62, align 8, !tbaa !73
   %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre.pre, i64 24
   %.pre80.pre = load i64, ptr %.phi.trans.insert.phi.trans.insert, align 8, !tbaa !74
@@ -1045,7 +1042,7 @@ _ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_l
   br i1 %.not.i23.i.i.i.i.i, label %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESaISK_EE17_M_realloc_insertIJRKSK_EEEvN9__gnu_cxx17__normal_iteratorIPSK_SM_EEDpOT_.exit.i.i.i.i, label %116
 
 116:                                              ; preds = %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESaISK_EE11_S_relocateEPSK_SN_SN_RSL_.exit22.i.i.i.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %97, i64 noundef %100) #18
+  tail call void @_ZdlPvm(ptr noundef nonnull %97, i64 noundef %100) #17
   br label %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESaISK_EE17_M_realloc_insertIJRKSK_EEEvN9__gnu_cxx17__normal_iteratorIPSK_SM_EEDpOT_.exit.i.i.i.i
 
 _ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESaISK_EE17_M_realloc_insertIJRKSK_EEEvN9__gnu_cxx17__normal_iteratorIPSK_SM_EEDpOT_.exit.i.i.i.i: ; preds = %116, %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESaISK_EE11_S_relocateEPSK_SN_SN_RSL_.exit22.i.i.i.i.i
@@ -1118,7 +1115,7 @@ _ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_l
   br i1 %.not.i23.i.i.i.i.i13, label %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_36HalfedgeDS_halfedge_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEEmEEEEEESaISG_EEESaISI_EE17_M_realloc_insertIJRKSI_EEEvN9__gnu_cxx17__normal_iteratorIPSI_SK_EEDpOT_.exit.i.i.i.i, label %144
 
 144:                                              ; preds = %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_36HalfedgeDS_halfedge_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEEmEEEEEESaISG_EEESaISI_EE11_S_relocateEPSI_SL_SL_RSJ_.exit22.i.i.i.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %126, i64 noundef %129) #18
+  tail call void @_ZdlPvm(ptr noundef nonnull %126, i64 noundef %129) #17
   br label %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_36HalfedgeDS_halfedge_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEEmEEEEEESaISG_EEESaISI_EE17_M_realloc_insertIJRKSI_EEEvN9__gnu_cxx17__normal_iteratorIPSI_SK_EEDpOT_.exit.i.i.i.i
 
 _ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_36HalfedgeDS_halfedge_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEEmEEEEEESaISG_EEESaISI_EE17_M_realloc_insertIJRKSI_EEEvN9__gnu_cxx17__normal_iteratorIPSI_SK_EEDpOT_.exit.i.i.i.i: ; preds = %144, %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_36HalfedgeDS_halfedge_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEEmEEEEEESaISG_EEESaISI_EE11_S_relocateEPSI_SL_SL_RSJ_.exit22.i.i.i.i.i
@@ -1139,9 +1136,6 @@ _ZN4CGAL32Polyhedron_incremental_builder_3INS_18HalfedgeDS_defaultINS_16Simple_c
   %.sroa.046.0 = phi ptr [ %79, %_ZN4CGAL32Polyhedron_incremental_builder_3INS_18HalfedgeDS_defaultINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEEE28push_back_vertex_to_edge_mapENS_8internal22In_place_list_iteratorINS_33HalfedgeDS_in_place_list_halfedgeINS_21I_Polyhedron_halfedgeINS_36HalfedgeDS_halfedge_max_base_with_idINS_21HalfedgeDS_list_typesIS3_S6_S7_EEmEEEEEESaISJ_EEE.exit ], [ null, %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit3 ]
   ret ptr %.sroa.046.0
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #0
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local ptr @_ZN4CGAL32Polyhedron_incremental_builder_3INS_18HalfedgeDS_defaultINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEEE11begin_facetEv(ptr noundef nonnull align 8 dereferenceable(178) %0) local_unnamed_addr #1 comdat align 2 {
@@ -1668,7 +1662,7 @@ _ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit56:     ; preds = %9, %_ZSt4endlIcSt11
   br label %.critedge53
 
 180:                                              ; preds = %176
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %181 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %182 = load i8, ptr %181, align 1, !tbaa !29, !range !37, !noundef !48
   store i8 %182, ptr %3, align 8, !tbaa !153
@@ -1861,7 +1855,7 @@ _ZN4CGAL15Verbose_ostreamlsImEERS0_RKT_.exit106:  ; preds = %245, %_ZN4CGAL32Pol
 
 .critedge51:                                      ; preds = %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit87, %270, %_ZN4CGAL15Verbose_ostreamlsImEERS0_RKT_.exit106
   store i8 1, ptr %0, align 8, !tbaa !4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.critedge49
 
 .critedge53:                                      ; preds = %177, %.critedge, %157, %160, %153, %145, %130
@@ -1950,7 +1944,7 @@ define linkonce_odr dso_local void @_ZN4CGAL32Polyhedron_incremental_builder_3IN
   store ptr %30, ptr %32, align 8, !tbaa !132
   %33 = add i64 %20, -1
   store i64 %33, ptr %21, align 8, !tbaa !74
-  tail call void @_ZdlPvm(ptr noundef nonnull %26, i64 noundef 56) #18
+  tail call void @_ZdlPvm(ptr noundef nonnull %26, i64 noundef 56) #17
   %34 = load i64, ptr %2, align 8, !tbaa !80
   %35 = load ptr, ptr %11, align 8, !tbaa !73
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
@@ -1996,7 +1990,7 @@ define linkonce_odr dso_local void @_ZN4CGAL32Polyhedron_incremental_builder_3IN
   %.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %48, align 8, !tbaa !54
   %62 = icmp ugt ptr %48, %.sroa.0.0.copyload.i.i.i.i
   %spec.select.i.i.i = select i1 %62, ptr %.sroa.0.0.copyload.i.i.i.i, ptr %48
-  tail call void @_ZdlPvm(ptr noundef %spec.select.i.i.i, i64 noundef 128) #18
+  tail call void @_ZdlPvm(ptr noundef %spec.select.i.i.i, i64 noundef 128) #17
   %63 = load i64, ptr %5, align 8, !tbaa !82
   %64 = load ptr, ptr %11, align 8, !tbaa !73
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 48
@@ -2022,7 +2016,7 @@ define linkonce_odr dso_local void @_ZN4CGAL32Polyhedron_incremental_builder_3IN
   store ptr %77, ptr %79, align 8, !tbaa !148
   %80 = add i64 %67, -1
   store i64 %80, ptr %68, align 8, !tbaa !77
-  tail call void @_ZdlPvm(ptr noundef nonnull %73, i64 noundef 32) #18
+  tail call void @_ZdlPvm(ptr noundef nonnull %73, i64 noundef 32) #17
   %81 = load i64, ptr %8, align 8, !tbaa !81
   %82 = load ptr, ptr %11, align 8, !tbaa !73
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 72
@@ -2048,7 +2042,7 @@ define linkonce_odr dso_local void @_ZN4CGAL32Polyhedron_incremental_builder_3IN
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #18
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #17
   br label %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_36HalfedgeDS_halfedge_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEEmEEEEEESaISG_EEESaISI_EED2Ev.exit
 
 _ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_36HalfedgeDS_halfedge_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEEmEEEEEESaISG_EEESaISI_EED2Ev.exit: ; preds = %1, %4
@@ -2063,7 +2057,7 @@ _ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_l
   %15 = ptrtoint ptr %14 to i64
   %16 = ptrtoint ptr %11 to i64
   %17 = sub i64 %15, %16
-  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef %17) #18
+  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef %17) #17
   br label %_ZN4CGAL21Random_access_adaptorINS_8internal22In_place_list_iteratorINS_31HalfedgeDS_in_place_list_vertexINS_19I_Polyhedron_vertexINS_34HalfedgeDS_vertex_max_base_with_idINS_21HalfedgeDS_list_typesINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEENS_7Point_3IS8_EEmEEEEEESaISI_EEEED2Ev.exit
 
 _ZN4CGAL21Random_access_adaptorINS_8internal22In_place_list_iteratorINS_31HalfedgeDS_in_place_list_vertexINS_19I_Polyhedron_vertexINS_34HalfedgeDS_vertex_max_base_with_idINS_21HalfedgeDS_list_typesINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEENS_7Point_3IS8_EEmEEEEEESaISI_EEEED2Ev.exit: ; preds = %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_36HalfedgeDS_halfedge_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEEmEEEEEESaISG_EEESaISI_EED2Ev.exit, %12
@@ -2083,15 +2077,15 @@ define internal void @__cxx_global_var_init.4() #4 section ".text.startup" comda
   br i1 %5, label %6, label %_ZN5boost4math6detail21min_shift_initializerIdE4initC2Ev.exit, !prof !162
 
 6:                                                ; preds = %3
-  %7 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost4math6detail19get_min_shift_valueIdEET_vE3val) #17
+  %7 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost4math6detail19get_min_shift_valueIdEET_vE3val) #18
   %.not.i.i.i = icmp eq i32 %7, 0
   br i1 %.not.i.i.i, label %_ZN5boost4math6detail21min_shift_initializerIdE4initC2Ev.exit, label %8
 
 8:                                                ; preds = %6
-  %9 = tail call noundef double @ldexp(double noundef 0x10000000000000, i32 noundef 54) #17, !tbaa !58
+  %9 = tail call noundef double @ldexp(double noundef 0x10000000000000, i32 noundef 54) #18, !tbaa !58
   store double %9, ptr @_ZZN5boost4math6detail19get_min_shift_valueIdEET_vE3val, align 8, !tbaa !39
   %10 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZZN5boost4math6detail19get_min_shift_valueIdEET_vE3val)
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost4math6detail19get_min_shift_valueIdEET_vE3val) #17
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost4math6detail19get_min_shift_valueIdEET_vE3val) #18
   br label %_ZN5boost4math6detail21min_shift_initializerIdE4initC2Ev.exit
 
 _ZN5boost4math6detail21min_shift_initializerIdE4initC2Ev.exit: ; preds = %3, %6, %8
@@ -2195,7 +2189,7 @@ _ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_l
 
 34:                                               ; preds = %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_36HalfedgeDS_halfedge_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEEmEEEEEESaISG_EEESaISI_EE11_S_relocateEPSI_SL_SL_RSJ_.exit.i
   %35 = sub i64 %15, %7
-  tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef %35) #18
+  tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef %35) #17
   br label %_ZNSt12_Vector_baseIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_36HalfedgeDS_halfedge_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEEmEEEEEESaISG_EEESaISI_EE13_M_deallocateEPSI_m.exit37.i
 
 _ZNSt12_Vector_baseIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_36HalfedgeDS_halfedge_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEEmEEEEEESaISG_EEESaISI_EE13_M_deallocateEPSI_m.exit37.i: ; preds = %34, %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_36HalfedgeDS_halfedge_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEEmEEEEEESaISG_EEESaISI_EE11_S_relocateEPSI_SL_SL_RSJ_.exit.i
@@ -2232,7 +2226,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !155
-  %8 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #17
+  %8 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #18
   %9 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %1, i64 noundef %8)
   br label %10
 
@@ -2252,7 +2246,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !155
-  %8 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #17
+  %8 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #18
   %9 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %1, i64 noundef %8)
   br label %10
 
@@ -2587,7 +2581,7 @@ _ZN4CGAL15Verbose_ostreamlsIA8_cEERS0_RKT_.exit:  ; preds = %_ZN4CGAL15Verbose_o
 _ZN4CGAL32Polyhedron_incremental_builder_3INS_18HalfedgeDS_defaultINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEEE10find_facetENS_8internal22In_place_list_iteratorINS_29HalfedgeDS_in_place_list_faceINS_18I_Polyhedron_facetINS_32HalfedgeDS_face_max_base_with_idINS_21HalfedgeDS_list_typesIS3_S6_S7_EESt17integral_constantIbLb0EEmEEEEEESaISL_EEE.exit: ; preds = %._crit_edge.i, %_ZN4CGAL15Verbose_ostreamlsIA8_cEERS0_RKT_.exit
   %.04.i = phi i64 [ %167, %._crit_edge.i ], [ 0, %_ZN4CGAL15Verbose_ostreamlsIA8_cEERS0_RKT_.exit ]
   %168 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i64 noundef %.04.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 46, ptr %5, align 1, !tbaa !130
   %169 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !108
   %170 = getelementptr i8, ptr %169, i64 -24
@@ -2607,7 +2601,7 @@ _ZN4CGAL32Polyhedron_incremental_builder_3INS_18HalfedgeDS_defaultINS_16Simple_c
   br label %179
 
 179:                                              ; preds = %175, %177
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %180 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr)
   br label %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit39
 
@@ -2806,7 +2800,7 @@ _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i110: ; preds = %257
   %286 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %287 = load i64, ptr %286, align 8, !tbaa !131
   %288 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i64 noundef %287)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 46, ptr %4, align 1, !tbaa !130
   %289 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !108
   %290 = getelementptr i8, ptr %289, i64 -24
@@ -2826,7 +2820,7 @@ _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i110: ; preds = %257
   br label %299
 
 299:                                              ; preds = %295, %297
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %300 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !108
   %301 = getelementptr i8, ptr %300, i64 -24
   %302 = load i64, ptr %301, align 8
@@ -2940,7 +2934,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !155
-  %8 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #17
+  %8 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #18
   %9 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %1, i64 noundef %8)
   br label %10
 
@@ -2957,7 +2951,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !155
-  %8 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #17
+  %8 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #18
   %9 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %1, i64 noundef %8)
   br label %10
 
@@ -2974,7 +2968,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !155
-  %8 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #17
+  %8 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #18
   %9 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %1, i64 noundef %8)
   br label %10
 
@@ -3272,7 +3266,7 @@ _ZN4CGAL15Verbose_ostreamlsIA44_cEERS0_RKT_.exit11.split.split.backedge: ; preds
   br i1 %13, label %.thread100, label %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit28
 
 .thread100:                                       ; preds = %_ZN4CGAL15Verbose_ostreamlsImEERS0_RKT_.exit25.thread97.us, %.split.us
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 46, ptr %3, align 1, !tbaa !130
   %128 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !108
   %129 = getelementptr i8, ptr %128, i64 -24
@@ -3292,7 +3286,7 @@ _ZN4CGAL15Verbose_ostreamlsIA44_cEERS0_RKT_.exit11.split.split.backedge: ; preds
   br label %138
 
 138:                                              ; preds = %136, %134
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %139 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !108
   %140 = getelementptr i8, ptr %139, i64 -24
   %141 = load i64, ptr %140, align 8
@@ -3353,7 +3347,7 @@ define linkonce_odr dso_local void @_ZN4CGAL15HalfedgeDS_listINS_16Simple_cartes
   %.sroa.01.03.i.i = phi ptr [ %7, %.lr.ph.i.i ], [ %5, %1 ]
   %6 = getelementptr inbounds nuw i8, ptr %.sroa.01.03.i.i, i64 40
   %7 = load ptr, ptr %6, align 8, !tbaa !94
-  tail call void @_ZdlPvm(ptr noundef %.sroa.01.03.i.i, i64 noundef 56) #18
+  tail call void @_ZdlPvm(ptr noundef %.sroa.01.03.i.i, i64 noundef 56) #17
   %.not.i.i = icmp eq ptr %7, %3
   br i1 %.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !175
 
@@ -3409,7 +3403,7 @@ _ZN4CGAL15HalfedgeDS_listINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_ite
   %.sroa.0.0.copyload.i.i.i.i.i = load ptr, ptr %.sroa.03.05.i.i, align 8, !tbaa !54
   %35 = icmp ugt ptr %.sroa.03.05.i.i, %.sroa.0.0.copyload.i.i.i.i.i
   %spec.select.i.i.i.i = select i1 %35, ptr %.sroa.0.0.copyload.i.i.i.i.i, ptr %.sroa.03.05.i.i
-  tail call void @_ZdlPvm(ptr noundef %spec.select.i.i.i.i, i64 noundef 128) #18
+  tail call void @_ZdlPvm(ptr noundef %spec.select.i.i.i.i, i64 noundef 128) #17
   %.not.i.i2 = icmp eq ptr %22, %13
   br i1 %.not.i.i2, label %_ZN4CGAL15HalfedgeDS_listINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEE11edges_clearEv.exit, label %17, !llvm.loop !176
 
@@ -3427,7 +3421,7 @@ _ZN4CGAL15HalfedgeDS_listINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_ite
   %.sroa.01.03.i.i5 = phi ptr [ %42, %.lr.ph.i.i4 ], [ %40, %_ZN4CGAL15HalfedgeDS_listINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEE11edges_clearEv.exit ]
   %41 = getelementptr inbounds nuw i8, ptr %.sroa.01.03.i.i5, i64 16
   %42 = load ptr, ptr %41, align 8, !tbaa !146
-  tail call void @_ZdlPvm(ptr noundef %.sroa.01.03.i.i5, i64 noundef 32) #18
+  tail call void @_ZdlPvm(ptr noundef %.sroa.01.03.i.i5, i64 noundef 32) #17
   %.not.i.i6 = icmp eq ptr %42, %38
   br i1 %.not.i.i6, label %._crit_edge.loopexit.i.i7, label %.lr.ph.i.i4, !llvm.loop !177
 
@@ -5419,6 +5413,12 @@ _ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit20:     ; preds = %_ZN4CGAL15Verbose_o
   ret i1 %.0125133139142
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #0
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #0
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #13
 
@@ -5451,8 +5451,8 @@ attributes #13 = { nocallback nofree nosync nounwind willreturn memory(inaccessi
 attributes #14 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #15 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #17 = { nounwind }
-attributes #18 = { builtin nounwind }
+attributes #17 = { builtin nounwind }
+attributes #18 = { nounwind }
 attributes #19 = { noreturn }
 attributes #20 = { builtin allocsize(0) }
 

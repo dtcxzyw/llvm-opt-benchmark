@@ -44,15 +44,9 @@ define ptr @evrpc_init(ptr noundef %0) local_unnamed_addr #0 {
   ret ptr %2
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @event_mm_calloc_(i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare ptr @event_mm_calloc_(i64 noundef, i64 noundef) local_unnamed_addr #2
-
-declare void @evtag_init() local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @evtag_init() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @evrpc_free(ptr noundef %0) local_unnamed_addr #0 {
@@ -254,7 +248,7 @@ evrpc_construct_uri.exit:                         ; preds = %19
   ret i32 %.0
 }
 
-declare void @event_mm_free_(ptr noundef) local_unnamed_addr #2
+declare void @event_mm_free_(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @evrpc_remove_hook(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readnone captures(address) %2) local_unnamed_addr #0 {
@@ -380,7 +374,7 @@ evrpc_construct_uri.exit:                         ; preds = %4
   ret i32 0
 }
 
-declare i32 @evhttp_set_cb(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @evhttp_set_cb(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @evrpc_request_cb(ptr noundef %0, ptr noundef %1) #0 {
@@ -549,9 +543,9 @@ evrpc_request_cb_closure.exit:                    ; preds = %45, %41, %80, %75, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
-declare i32 @evhttp_del_cb(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @evhttp_del_cb(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @evrpc_reqstate_free_(ptr noundef %0) local_unnamed_addr #0 {
@@ -644,7 +638,7 @@ evrpc_hook_context_free_.exit:                    ; preds = %15, %.preheader.i.i
   ret void
 }
 
-declare void @evbuffer_free(ptr noundef) local_unnamed_addr #2
+declare void @evbuffer_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @evrpc_request_done(ptr noundef %0) local_unnamed_addr #0 {
@@ -779,7 +773,7 @@ evrpc_request_done_closure.exit:                  ; preds = %evrpc_process_hooks
   ret void
 }
 
-declare ptr @evbuffer_new() local_unnamed_addr #2
+declare ptr @evbuffer_new() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @evrpc_request_done_closure(ptr noundef %0, i32 noundef %1) #0 {
@@ -816,17 +810,17 @@ define internal void @evrpc_request_done_closure(ptr noundef %0, i32 noundef %1)
   ret void
 }
 
-declare void @evhttp_send_error(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @evhttp_send_error(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @evrpc_get_request(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
+define ptr @evrpc_get_request(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @evrpc_get_reply(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
+define ptr @evrpc_get_reply(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
@@ -1111,7 +1105,7 @@ evrpc_hook_context_free_.exit:                    ; preds = %13, %.preheader.i.i
   ret void
 }
 
-declare void @evhttp_connection_free(ptr noundef) local_unnamed_addr #2
+declare void @evhttp_connection_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @evrpc_pool_add_connection(ptr noundef captures(none) %0, ptr noundef initializes((0, 16)) %1) local_unnamed_addr #0 {
@@ -1178,16 +1172,16 @@ define void @evrpc_pool_add_connection(ptr noundef captures(none) %0, ptr nounde
   ret void
 }
 
-declare void @evhttp_connection_set_base(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @evhttp_connection_set_base(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @evhttp_connection_set_timeout(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @evhttp_connection_set_timeout(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @evrpc_schedule_request(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca %struct.evrpc_status, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = tail call ptr @evhttp_request_new(ptr noundef nonnull @evrpc_reply_done, ptr noundef nonnull %1) #12
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.thread, label %8
@@ -1296,12 +1290,12 @@ evrpc_process_hooks.exit.thread:                  ; preds = %31, %30, %8
   br label %53
 
 53:                                               ; preds = %.thread35, %.thread, %evrpc_process_hooks.exit.thread
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @evrpc_pool_remove_connection(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #5 {
+define void @evrpc_pool_remove_connection(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 {
   %3 = load ptr, ptr %1, align 8
   %.not = icmp eq ptr %3, null
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1456,7 +1450,7 @@ evrpc_pool_schedule.exit:                         ; preds = %17, %1, %29
   ret i32 0
 }
 
-declare i32 @event_assign(ptr noundef, ptr noundef, i32 noundef, i16 noundef signext, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @event_assign(ptr noundef, ptr noundef, i32 noundef, i16 noundef signext, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @evrpc_request_timeout(i32 %0, i16 signext %1, ptr noundef readonly captures(none) %2) #0 {
@@ -1510,9 +1504,9 @@ define ptr @evrpc_make_request_ctx(ptr noundef %0, ptr noundef %1, ptr noundef %
   ret ptr %.0
 }
 
-declare ptr @event_mm_malloc_(i64 noundef) local_unnamed_addr #2
+declare ptr @event_mm_malloc_(i64 noundef) local_unnamed_addr #1
 
-declare ptr @event_mm_strdup_(ptr noundef) local_unnamed_addr #2
+declare ptr @event_mm_strdup_(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @evrpc_hook_add_meta(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3) local_unnamed_addr #0 {
@@ -1632,10 +1626,10 @@ evrpc_hook_context_free_.exit:                    ; preds = %34, %.preheader.i.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 -1, 1) i32 @evrpc_hook_find_meta(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #7 {
+define range(i32 -1, 1) i32 @evrpc_hook_find_meta(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #6 {
   %5 = load ptr, ptr %0, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.loopexit, label %.preheader
@@ -1668,7 +1662,7 @@ define range(i32 -1, 1) i32 @evrpc_hook_find_meta(ptr noundef readonly captures(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @evrpc_hook_get_connection(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 {
+define ptr @evrpc_hook_get_connection(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %6, label %3
@@ -1686,7 +1680,7 @@ define ptr @evrpc_hook_get_connection(ptr noundef readonly captures(none) %0) lo
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @evrpc_send_request_generic(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #0 {
   %10 = alloca %struct.evrpc_status, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %11 = tail call ptr @event_mm_malloc_(i64 noundef 232) #12
   %12 = icmp eq ptr %11, null
   br i1 %12, label %56, label %13
@@ -1787,12 +1781,12 @@ evrpc_pool_find_connection.exit.i.i:              ; preds = %43
 
 evrpc_make_request.exit:                          ; preds = %42, %54, %20, %56
   %.0 = phi i32 [ -1, %56 ], [ 0, %20 ], [ 0, %54 ], [ 0, %42 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @evrpc_register_generic(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12) local_unnamed_addr #0 {
@@ -1839,21 +1833,21 @@ evrpc_register_object.exit.thread:                ; preds = %13, %20, %21
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @evrpc_request_get_pool(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
+define ptr @evrpc_request_get_pool(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @evrpc_request_set_pool(ptr noundef writeonly captures(none) initializes((24, 32)) %0, ptr noundef %1) local_unnamed_addr #10 {
+define void @evrpc_request_set_pool(ptr noundef writeonly captures(none) initializes((24, 32)) %0, ptr noundef %1) local_unnamed_addr #9 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @evrpc_request_set_cb(ptr noundef writeonly captures(none) initializes((176, 192)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #10 {
+define void @evrpc_request_set_cb(ptr noundef writeonly captures(none) initializes((176, 192)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #9 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 184
@@ -1862,12 +1856,12 @@ define void @evrpc_request_set_cb(ptr noundef writeonly captures(none) initializ
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: noreturn
-declare void @event_err(i32 noundef, ptr noundef, ...) local_unnamed_addr #11
+declare void @event_err(i32 noundef, ptr noundef, ...) local_unnamed_addr #10
 
-declare i64 @evbuffer_get_length(ptr noundef) local_unnamed_addr #2
+declare i64 @evbuffer_get_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @evrpc_request_cb_closure(ptr noundef %0, i32 noundef %1) #0 {
@@ -1926,13 +1920,13 @@ define internal void @evrpc_request_cb_closure(ptr noundef %0, i32 noundef %1) #
   ret void
 }
 
-declare ptr @evhttp_find_header(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @evhttp_find_header(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @evhttp_add_header(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @evhttp_add_header(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @evhttp_send_reply(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @evhttp_send_reply(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @evhttp_request_new(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @evhttp_request_new(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @evrpc_reply_done(ptr noundef %0, ptr noundef %1) #0 {
@@ -2044,7 +2038,7 @@ define internal void @evrpc_schedule_request_closure(ptr noundef %0, i32 noundef
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %11 = icmp eq i32 %1, -1
   br i1 %11, label %35, label %12
 
@@ -2075,14 +2069,14 @@ evrpc_construct_uri.exit:                         ; preds = %12
   br i1 %26, label %27, label %32
 
 27:                                               ; preds = %evrpc_construct_uri.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 0, ptr %28, align 8
   %29 = zext nneg i32 %25 to i64
   store i64 %29, ptr %4, align 8
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %31 = call i32 @event_add(ptr noundef nonnull %30, ptr noundef nonnull %4) #12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %32
 
 32:                                               ; preds = %27, %evrpc_construct_uri.exit
@@ -2107,11 +2101,11 @@ evrpc_construct_uri.exit:                         ; preds = %12
   br label %44
 
 44:                                               ; preds = %32, %35
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-declare i32 @event_del(ptr noundef) local_unnamed_addr #2
+declare i32 @event_del(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @evrpc_reply_done_closure(ptr noundef %0, i32 noundef %1) #0 {
@@ -2120,7 +2114,7 @@ define internal void @evrpc_reply_done_closure(ptr noundef %0, i32 noundef %1) #
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 0, ptr %3, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %5, ptr %8, align 8
@@ -2221,34 +2215,40 @@ evrpc_pool_find_connection.exit.i:                ; preds = %44
   br label %evrpc_pool_schedule.exit
 
 evrpc_pool_schedule.exit:                         ; preds = %43, %37, %56
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-declare void @evhttp_request_own(ptr noundef) local_unnamed_addr #2
+declare void @evhttp_request_own(ptr noundef) local_unnamed_addr #1
 
-declare i32 @evhttp_request_is_owned(ptr noundef) local_unnamed_addr #2
+declare i32 @evhttp_request_is_owned(ptr noundef) local_unnamed_addr #1
 
-declare void @evhttp_request_free(ptr noundef) local_unnamed_addr #2
+declare void @evhttp_request_free(ptr noundef) local_unnamed_addr #1
 
-declare i32 @event_add(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @event_add(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @evhttp_make_request(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @evhttp_make_request(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @evhttp_connection_fail_(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @evhttp_connection_fail_(ptr noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { nounwind }
 attributes #13 = { nounwind willreturn memory(read) }
 attributes #14 = { noreturn nounwind }

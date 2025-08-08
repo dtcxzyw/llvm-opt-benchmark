@@ -450,14 +450,11 @@ $_ZNSt8_Rb_treeI8llm_archSt4pairIKS0_St3mapI10llm_tensorPKcSt4lessIS4_ESaIS1_IKS
 
 @_ZN6LLM_KVC1E8llm_archPKc = unnamed_addr alias void (ptr, i32, ptr), ptr @_ZN6LLM_KVC2E8llm_archPKc
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #0
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #0
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt3mapI8llm_archPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEEC2ESt16initializer_listIS7_ERKS4_RKS8_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, i64 %2, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %4) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt3mapI8llm_archPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEEC2ESt16initializer_listIS7_ERKS4_RKS8_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, i64 %2, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %4) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %6, align 8, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -574,11 +571,8 @@ _ZNSt8_Rb_treeI8llm_archSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE2
 
 declare i32 @__gxx_personality_v0(...)
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #0
-
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt3mapI8llm_archPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt3mapI8llm_archPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeI8llm_archSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %3)
@@ -596,10 +590,10 @@ _ZNSt8_Rb_treeI8llm_archSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EED
 }
 
 ; Function Attrs: nofree nounwind
-declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #4
+declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt3mapI6llm_kvPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEEC2ESt16initializer_listIS7_ERKS4_RKS8_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, i64 %2, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %4) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt3mapI6llm_kvPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEEC2ESt16initializer_listIS7_ERKS4_RKS8_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, i64 %2, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %4) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %6, align 8, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -715,7 +709,7 @@ _ZNSt8_Rb_treeI6llm_kvSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE22_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt3mapI6llm_kvPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt3mapI6llm_kvPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeI6llm_kvSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %3)
@@ -733,7 +727,7 @@ _ZNSt8_Rb_treeI6llm_kvSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EED2E
 }
 
 ; Function Attrs: uwtable
-define internal fastcc void @__cxx_global_var_init.176() unnamed_addr #5 section ".text.startup" personality ptr @__gxx_personality_v0 {
+define internal fastcc void @__cxx_global_var_init.176() unnamed_addr #4 section ".text.startup" personality ptr @__gxx_personality_v0 {
   %1 = alloca %"struct.std::_Rb_tree<llm_tensor, std::pair<const llm_tensor, const char *>, std::_Select1st<std::pair<const llm_tensor, const char *>>, std::less<llm_tensor>>::_Alloc_node", align 8
   %2 = alloca %"struct.std::_Rb_tree<llm_tensor, std::pair<const llm_tensor, const char *>, std::_Select1st<std::pair<const llm_tensor, const char *>>, std::less<llm_tensor>>::_Alloc_node", align 8
   %3 = alloca %"struct.std::_Rb_tree<llm_tensor, std::pair<const llm_tensor, const char *>, std::_Select1st<std::pair<const llm_tensor, const char *>>, std::less<llm_tensor>>::_Alloc_node", align 8
@@ -1027,12 +1021,12 @@ define internal fastcc void @__cxx_global_var_init.176() unnamed_addr #5 section
   %291 = alloca %"class.std::allocator.36", align 1
   %292 = alloca %"struct.std::less", align 1
   %293 = alloca %"class.std::allocator.39", align 1
-  call void @llvm.lifetime.start.p0(i64 3248, ptr nonnull %59) #22
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %60) #22
-  call void @llvm.lifetime.start.p0(i64 336, ptr nonnull %61) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %59)
+  call void @llvm.lifetime.start.p0(ptr nonnull %60)
+  call void @llvm.lifetime.start.p0(ptr nonnull %61)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(336) %61, ptr noundef nonnull align 8 dereferenceable(336) @constinit.199, i64 336, i1 false), !tbaa.struct !26
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %62) #22
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %63) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %62)
+  call void @llvm.lifetime.start.p0(ptr nonnull %63)
   call void @_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEEC2ESt16initializer_listIS7_ERKS4_RKS8_(ptr noundef nonnull align 8 dereferenceable(48) %60, ptr nonnull %61, i64 21, ptr noundef nonnull align 1 dereferenceable(1) %62, ptr noundef nonnull align 1 dereferenceable(1) %63)
   store i32 0, ptr %59, align 8, !tbaa !28
   %294 = getelementptr inbounds nuw i8, ptr %59, i64 16
@@ -1052,7 +1046,7 @@ define internal fastcc void @__cxx_global_var_init.176() unnamed_addr #5 section
 
 301:                                              ; preds = %0
   %302 = getelementptr inbounds nuw i8, ptr %59, i64 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %58) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %58)
   store ptr %302, ptr %58, align 8, !tbaa !35
   %303 = invoke noundef ptr @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE7_M_copyILb0ENSB_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS5_ESG_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %302, ptr noundef nonnull %300, ptr noundef nonnull %294, ptr noundef nonnull align 8 dereferenceable(8) %58)
           to label %.noexc.i.i.i unwind label %.thread1217
@@ -1080,17 +1074,17 @@ _ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_
   %310 = getelementptr inbounds nuw i8, ptr %60, i64 40
   %311 = load i64, ptr %310, align 8, !tbaa !15
   store i64 %311, ptr %298, align 8, !tbaa !15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %58) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %58)
   store ptr %303, ptr %295, align 8, !tbaa !16
   br label %_ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit
 
 _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit: ; preds = %309, %0
   %312 = getelementptr inbounds nuw i8, ptr %59, i64 56
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %64) #22
-  call void @llvm.lifetime.start.p0(i64 336, ptr nonnull %65) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %64)
+  call void @llvm.lifetime.start.p0(ptr nonnull %65)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(336) %65, ptr noundef nonnull align 8 dereferenceable(336) @constinit.199, i64 336, i1 false), !tbaa.struct !26
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %66) #22
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %67) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %66)
+  call void @llvm.lifetime.start.p0(ptr nonnull %67)
   invoke void @_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEEC2ESt16initializer_listIS7_ERKS4_RKS8_(ptr noundef nonnull align 8 dereferenceable(48) %64, ptr nonnull %65, i64 21, ptr noundef nonnull align 1 dereferenceable(1) %66, ptr noundef nonnull align 1 dereferenceable(1) %67)
           to label %313 unwind label %1701
 
@@ -1113,7 +1107,7 @@ _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB
 
 321:                                              ; preds = %313
   %322 = getelementptr inbounds nuw i8, ptr %59, i64 64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %57) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %57)
   store ptr %322, ptr %57, align 8, !tbaa !35
   %323 = invoke noundef ptr @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE7_M_copyILb0ENSB_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS5_ESG_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %322, ptr noundef nonnull %320, ptr noundef nonnull %314, ptr noundef nonnull align 8 dereferenceable(8) %57)
           to label %.noexc.i.i.i584 unwind label %1703
@@ -1141,17 +1135,17 @@ _ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_
   %330 = getelementptr inbounds nuw i8, ptr %64, i64 40
   %331 = load i64, ptr %330, align 8, !tbaa !15
   store i64 %331, ptr %318, align 8, !tbaa !15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %57) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %57)
   store ptr %323, ptr %315, align 8, !tbaa !16
   br label %_ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit591
 
 _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit591: ; preds = %329, %313
   %332 = getelementptr inbounds nuw i8, ptr %59, i64 112
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %68) #22
-  call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %69) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %68)
+  call void @llvm.lifetime.start.p0(ptr nonnull %69)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %69, ptr noundef nonnull align 8 dereferenceable(224) @constinit.312, i64 224, i1 false), !tbaa.struct !41
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %70) #22
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %71) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %70)
+  call void @llvm.lifetime.start.p0(ptr nonnull %71)
   invoke void @_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEEC2ESt16initializer_listIS7_ERKS4_RKS8_(ptr noundef nonnull align 8 dereferenceable(48) %68, ptr nonnull %69, i64 14, ptr noundef nonnull align 1 dereferenceable(1) %70, ptr noundef nonnull align 1 dereferenceable(1) %71)
           to label %333 unwind label %1705
 
@@ -1174,7 +1168,7 @@ _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB
 
 341:                                              ; preds = %333
   %342 = getelementptr inbounds nuw i8, ptr %59, i64 120
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %56) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %56)
   store ptr %342, ptr %56, align 8, !tbaa !35
   %343 = invoke noundef ptr @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE7_M_copyILb0ENSB_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS5_ESG_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %342, ptr noundef nonnull %340, ptr noundef nonnull %334, ptr noundef nonnull align 8 dereferenceable(8) %56)
           to label %.noexc.i.i.i593 unwind label %1707
@@ -1202,17 +1196,17 @@ _ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_
   %350 = getelementptr inbounds nuw i8, ptr %68, i64 40
   %351 = load i64, ptr %350, align 8, !tbaa !15
   store i64 %351, ptr %338, align 8, !tbaa !15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %56) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %56)
   store ptr %343, ptr %335, align 8, !tbaa !16
   br label %_ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit600
 
 _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit600: ; preds = %349, %333
   %352 = getelementptr inbounds nuw i8, ptr %59, i64 168
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %72) #22
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %73) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %72)
+  call void @llvm.lifetime.start.p0(ptr nonnull %73)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %73, ptr noundef nonnull align 8 dereferenceable(144) @constinit.203, i64 144, i1 false), !tbaa.struct !42
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %74) #22
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %75) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %74)
+  call void @llvm.lifetime.start.p0(ptr nonnull %75)
   invoke void @_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEEC2ESt16initializer_listIS7_ERKS4_RKS8_(ptr noundef nonnull align 8 dereferenceable(48) %72, ptr nonnull %73, i64 9, ptr noundef nonnull align 1 dereferenceable(1) %74, ptr noundef nonnull align 1 dereferenceable(1) %75)
           to label %353 unwind label %1709
 
@@ -1235,7 +1229,7 @@ _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB
 
 361:                                              ; preds = %353
   %362 = getelementptr inbounds nuw i8, ptr %59, i64 176
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %55) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %55)
   store ptr %362, ptr %55, align 8, !tbaa !35
   %363 = invoke noundef ptr @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE7_M_copyILb0ENSB_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS5_ESG_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %362, ptr noundef nonnull %360, ptr noundef nonnull %354, ptr noundef nonnull align 8 dereferenceable(8) %55)
           to label %.noexc.i.i.i602 unwind label %1711
@@ -1263,17 +1257,17 @@ _ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_
   %370 = getelementptr inbounds nuw i8, ptr %72, i64 40
   %371 = load i64, ptr %370, align 8, !tbaa !15
   store i64 %371, ptr %358, align 8, !tbaa !15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %55) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %55)
   store ptr %363, ptr %355, align 8, !tbaa !16
   br label %_ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit609
 
 _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit609: ; preds = %369, %353
   %372 = getelementptr inbounds nuw i8, ptr %59, i64 224
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %76) #22
-  call void @llvm.lifetime.start.p0(i64 320, ptr nonnull %77) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %76)
+  call void @llvm.lifetime.start.p0(ptr nonnull %77)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(320) %77, ptr noundef nonnull align 8 dereferenceable(320) @constinit.206, i64 320, i1 false), !tbaa.struct !43
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %78) #22
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %79) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %78)
+  call void @llvm.lifetime.start.p0(ptr nonnull %79)
   invoke void @_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEEC2ESt16initializer_listIS7_ERKS4_RKS8_(ptr noundef nonnull align 8 dereferenceable(48) %76, ptr nonnull %77, i64 20, ptr noundef nonnull align 1 dereferenceable(1) %78, ptr noundef nonnull align 1 dereferenceable(1) %79)
           to label %373 unwind label %1713
 
@@ -1296,7 +1290,7 @@ _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB
 
 381:                                              ; preds = %373
   %382 = getelementptr inbounds nuw i8, ptr %59, i64 232
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %54) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %54)
   store ptr %382, ptr %54, align 8, !tbaa !35
   %383 = invoke noundef ptr @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE7_M_copyILb0ENSB_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS5_ESG_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %382, ptr noundef nonnull %380, ptr noundef nonnull %374, ptr noundef nonnull align 8 dereferenceable(8) %54)
           to label %.noexc.i.i.i611 unwind label %1715
@@ -1324,17 +1318,17 @@ _ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_
   %390 = getelementptr inbounds nuw i8, ptr %76, i64 40
   %391 = load i64, ptr %390, align 8, !tbaa !15
   store i64 %391, ptr %378, align 8, !tbaa !15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %54) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %54)
   store ptr %383, ptr %375, align 8, !tbaa !16
   br label %_ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit618
 
 _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit618: ; preds = %389, %373
   %392 = getelementptr inbounds nuw i8, ptr %59, i64 280
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %80) #22
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %81) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %80)
+  call void @llvm.lifetime.start.p0(ptr nonnull %81)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %81, ptr noundef nonnull align 8 dereferenceable(160) @constinit.214, i64 160, i1 false), !tbaa.struct !44
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %82) #22
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %83) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %82)
+  call void @llvm.lifetime.start.p0(ptr nonnull %83)
   invoke void @_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEEC2ESt16initializer_listIS7_ERKS4_RKS8_(ptr noundef nonnull align 8 dereferenceable(48) %80, ptr nonnull %81, i64 10, ptr noundef nonnull align 1 dereferenceable(1) %82, ptr noundef nonnull align 1 dereferenceable(1) %83)
           to label %393 unwind label %1717
 
@@ -1357,7 +1351,7 @@ _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB
 
 401:                                              ; preds = %393
   %402 = getelementptr inbounds nuw i8, ptr %59, i64 288
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %53) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %53)
   store ptr %402, ptr %53, align 8, !tbaa !35
   %403 = invoke noundef ptr @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE7_M_copyILb0ENSB_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS5_ESG_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %402, ptr noundef nonnull %400, ptr noundef nonnull %394, ptr noundef nonnull align 8 dereferenceable(8) %53)
           to label %.noexc.i.i.i620 unwind label %1719
@@ -1385,19 +1379,19 @@ _ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_
   %410 = getelementptr inbounds nuw i8, ptr %80, i64 40
   %411 = load i64, ptr %410, align 8, !tbaa !15
   store i64 %411, ptr %398, align 8, !tbaa !15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %53) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %53)
   store ptr %403, ptr %395, align 8, !tbaa !16
   br label %_ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit627
 
 _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit627: ; preds = %409, %393
   %412 = getelementptr inbounds nuw i8, ptr %59, i64 336
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %84) #22
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %85) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %84)
+  call void @llvm.lifetime.start.p0(ptr nonnull %85)
   store i32 0, ptr %85, align 8, !tbaa !45
   %413 = getelementptr inbounds nuw i8, ptr %85, i64 8
   store ptr @.str.177, ptr %413, align 8, !tbaa !49
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %86) #22
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %87) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %86)
+  call void @llvm.lifetime.start.p0(ptr nonnull %87)
   invoke void @_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEEC2ESt16initializer_listIS7_ERKS4_RKS8_(ptr noundef nonnull align 8 dereferenceable(48) %84, ptr nonnull %85, i64 1, ptr noundef nonnull align 1 dereferenceable(1) %86, ptr noundef nonnull align 1 dereferenceable(1) %87)
           to label %414 unwind label %1721
 
@@ -1420,7 +1414,7 @@ _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB
 
 422:                                              ; preds = %414
   %423 = getelementptr inbounds nuw i8, ptr %59, i64 344
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %52) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %52)
   store ptr %423, ptr %52, align 8, !tbaa !35
   %424 = invoke noundef ptr @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE7_M_copyILb0ENSB_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS5_ESG_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %423, ptr noundef nonnull %421, ptr noundef nonnull %415, ptr noundef nonnull align 8 dereferenceable(8) %52)
           to label %.noexc.i.i.i629 unwind label %1723
@@ -1448,17 +1442,17 @@ _ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_
   %431 = getelementptr inbounds nuw i8, ptr %84, i64 40
   %432 = load i64, ptr %431, align 8, !tbaa !15
   store i64 %432, ptr %419, align 8, !tbaa !15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %52) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %52)
   store ptr %424, ptr %416, align 8, !tbaa !16
   br label %_ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit636
 
 _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit636: ; preds = %430, %414
   %433 = getelementptr inbounds nuw i8, ptr %59, i64 392
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %88) #22
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %89) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %88)
+  call void @llvm.lifetime.start.p0(ptr nonnull %89)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %89, ptr noundef nonnull align 8 dereferenceable(144) @constinit.209, i64 144, i1 false), !tbaa.struct !42
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %90) #22
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %91) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %90)
+  call void @llvm.lifetime.start.p0(ptr nonnull %91)
   invoke void @_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEEC2ESt16initializer_listIS7_ERKS4_RKS8_(ptr noundef nonnull align 8 dereferenceable(48) %88, ptr nonnull %89, i64 9, ptr noundef nonnull align 1 dereferenceable(1) %90, ptr noundef nonnull align 1 dereferenceable(1) %91)
           to label %434 unwind label %1725
 
@@ -1481,7 +1475,7 @@ _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB
 
 442:                                              ; preds = %434
   %443 = getelementptr inbounds nuw i8, ptr %59, i64 400
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %51) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %51)
   store ptr %443, ptr %51, align 8, !tbaa !35
   %444 = invoke noundef ptr @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE7_M_copyILb0ENSB_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS5_ESG_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %443, ptr noundef nonnull %441, ptr noundef nonnull %435, ptr noundef nonnull align 8 dereferenceable(8) %51)
           to label %.noexc.i.i.i638 unwind label %1727
@@ -1509,17 +1503,17 @@ _ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_
   %451 = getelementptr inbounds nuw i8, ptr %88, i64 40
   %452 = load i64, ptr %451, align 8, !tbaa !15
   store i64 %452, ptr %439, align 8, !tbaa !15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %51) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %51)
   store ptr %444, ptr %436, align 8, !tbaa !16
   br label %_ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit645
 
 _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit645: ; preds = %450, %434
   %453 = getelementptr inbounds nuw i8, ptr %59, i64 448
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %92) #22
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %93) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %92)
+  call void @llvm.lifetime.start.p0(ptr nonnull %93)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %93, ptr noundef nonnull align 8 dereferenceable(208) @constinit.213, i64 208, i1 false), !tbaa.struct !50
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %94) #22
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %95) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %94)
+  call void @llvm.lifetime.start.p0(ptr nonnull %95)
   invoke void @_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEEC2ESt16initializer_listIS7_ERKS4_RKS8_(ptr noundef nonnull align 8 dereferenceable(48) %92, ptr nonnull %93, i64 13, ptr noundef nonnull align 1 dereferenceable(1) %94, ptr noundef nonnull align 1 dereferenceable(1) %95)
           to label %454 unwind label %1729
 
@@ -1542,7 +1536,7 @@ _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB
 
 462:                                              ; preds = %454
   %463 = getelementptr inbounds nuw i8, ptr %59, i64 456
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %50) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %50)
   store ptr %463, ptr %50, align 8, !tbaa !35
   %464 = invoke noundef ptr @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE7_M_copyILb0ENSB_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS5_ESG_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %463, ptr noundef nonnull %461, ptr noundef nonnull %455, ptr noundef nonnull align 8 dereferenceable(8) %50)
           to label %.noexc.i.i.i647 unwind label %1731
@@ -1570,17 +1564,17 @@ _ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_
   %471 = getelementptr inbounds nuw i8, ptr %92, i64 40
   %472 = load i64, ptr %471, align 8, !tbaa !15
   store i64 %472, ptr %459, align 8, !tbaa !15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %50) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %50)
   store ptr %464, ptr %456, align 8, !tbaa !16
   br label %_ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit654
 
 _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit654: ; preds = %470, %454
   %473 = getelementptr inbounds nuw i8, ptr %59, i64 504
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %96) #22
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %97) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %96)
+  call void @llvm.lifetime.start.p0(ptr nonnull %97)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %97, ptr noundef nonnull align 8 dereferenceable(160) @constinit.214, i64 160, i1 false), !tbaa.struct !44
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %98) #22
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %99) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %98)
+  call void @llvm.lifetime.start.p0(ptr nonnull %99)
   invoke void @_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEEC2ESt16initializer_listIS7_ERKS4_RKS8_(ptr noundef nonnull align 8 dereferenceable(48) %96, ptr nonnull %97, i64 10, ptr noundef nonnull align 1 dereferenceable(1) %98, ptr noundef nonnull align 1 dereferenceable(1) %99)
           to label %474 unwind label %1733
 
@@ -1603,7 +1597,7 @@ _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB
 
 482:                                              ; preds = %474
   %483 = getelementptr inbounds nuw i8, ptr %59, i64 512
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %49) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %49)
   store ptr %483, ptr %49, align 8, !tbaa !35
   %484 = invoke noundef ptr @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE7_M_copyILb0ENSB_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS5_ESG_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %483, ptr noundef nonnull %481, ptr noundef nonnull %475, ptr noundef nonnull align 8 dereferenceable(8) %49)
           to label %.noexc.i.i.i656 unwind label %1735
@@ -1631,17 +1625,17 @@ _ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_
   %491 = getelementptr inbounds nuw i8, ptr %96, i64 40
   %492 = load i64, ptr %491, align 8, !tbaa !15
   store i64 %492, ptr %479, align 8, !tbaa !15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %49) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %49)
   store ptr %484, ptr %476, align 8, !tbaa !16
   br label %_ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit663
 
 _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit663: ; preds = %490, %474
   %493 = getelementptr inbounds nuw i8, ptr %59, i64 560
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %100) #22
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %101) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %100)
+  call void @llvm.lifetime.start.p0(ptr nonnull %101)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %101, ptr noundef nonnull align 8 dereferenceable(192) @constinit.339, i64 192, i1 false), !tbaa.struct !51
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %102) #22
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %103) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %102)
+  call void @llvm.lifetime.start.p0(ptr nonnull %103)
   invoke void @_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEEC2ESt16initializer_listIS7_ERKS4_RKS8_(ptr noundef nonnull align 8 dereferenceable(48) %100, ptr nonnull %101, i64 12, ptr noundef nonnull align 1 dereferenceable(1) %102, ptr noundef nonnull align 1 dereferenceable(1) %103)
           to label %494 unwind label %1737
 
@@ -1664,7 +1658,7 @@ _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB
 
 502:                                              ; preds = %494
   %503 = getelementptr inbounds nuw i8, ptr %59, i64 568
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %48) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %48)
   store ptr %503, ptr %48, align 8, !tbaa !35
   %504 = invoke noundef ptr @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE7_M_copyILb0ENSB_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS5_ESG_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %503, ptr noundef nonnull %501, ptr noundef nonnull %495, ptr noundef nonnull align 8 dereferenceable(8) %48)
           to label %.noexc.i.i.i665 unwind label %1739
@@ -1692,17 +1686,17 @@ _ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_
   %511 = getelementptr inbounds nuw i8, ptr %100, i64 40
   %512 = load i64, ptr %511, align 8, !tbaa !15
   store i64 %512, ptr %499, align 8, !tbaa !15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %48) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %48)
   store ptr %504, ptr %496, align 8, !tbaa !16
   br label %_ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit672
 
 _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit672: ; preds = %510, %494
   %513 = getelementptr inbounds nuw i8, ptr %59, i64 616
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %104) #22
-  call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %105) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %104)
+  call void @llvm.lifetime.start.p0(ptr nonnull %105)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %105, ptr noundef nonnull align 8 dereferenceable(224) @constinit.220, i64 224, i1 false), !tbaa.struct !41
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %106) #22
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %107) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %106)
+  call void @llvm.lifetime.start.p0(ptr nonnull %107)
   invoke void @_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEEC2ESt16initializer_listIS7_ERKS4_RKS8_(ptr noundef nonnull align 8 dereferenceable(48) %104, ptr nonnull %105, i64 14, ptr noundef nonnull align 1 dereferenceable(1) %106, ptr noundef nonnull align 1 dereferenceable(1) %107)
           to label %514 unwind label %1741
 
@@ -1725,7 +1719,7 @@ _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB
 
 522:                                              ; preds = %514
   %523 = getelementptr inbounds nuw i8, ptr %59, i64 624
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %47) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %47)
   store ptr %523, ptr %47, align 8, !tbaa !35
   %524 = invoke noundef ptr @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE7_M_copyILb0ENSB_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS5_ESG_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %523, ptr noundef nonnull %521, ptr noundef nonnull %515, ptr noundef nonnull align 8 dereferenceable(8) %47)
           to label %.noexc.i.i.i674 unwind label %1743
@@ -1753,17 +1747,17 @@ _ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_
   %531 = getelementptr inbounds nuw i8, ptr %104, i64 40
   %532 = load i64, ptr %531, align 8, !tbaa !15
   store i64 %532, ptr %519, align 8, !tbaa !15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %47) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
   store ptr %524, ptr %516, align 8, !tbaa !16
   br label %_ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit681
 
 _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit681: ; preds = %530, %514
   %533 = getelementptr inbounds nuw i8, ptr %59, i64 672
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %108) #22
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %109) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %108)
+  call void @llvm.lifetime.start.p0(ptr nonnull %109)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %109, ptr noundef nonnull align 8 dereferenceable(160) @constinit.221, i64 160, i1 false), !tbaa.struct !44
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %110) #22
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %111) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %110)
+  call void @llvm.lifetime.start.p0(ptr nonnull %111)
   invoke void @_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEEC2ESt16initializer_listIS7_ERKS4_RKS8_(ptr noundef nonnull align 8 dereferenceable(48) %108, ptr nonnull %109, i64 10, ptr noundef nonnull align 1 dereferenceable(1) %110, ptr noundef nonnull align 1 dereferenceable(1) %111)
           to label %534 unwind label %1745
 
@@ -1786,7 +1780,7 @@ _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB
 
 542:                                              ; preds = %534
   %543 = getelementptr inbounds nuw i8, ptr %59, i64 680
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %46) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %46)
   store ptr %543, ptr %46, align 8, !tbaa !35
   %544 = invoke noundef ptr @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE7_M_copyILb0ENSB_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS5_ESG_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %543, ptr noundef nonnull %541, ptr noundef nonnull %535, ptr noundef nonnull align 8 dereferenceable(8) %46)
           to label %.noexc.i.i.i683 unwind label %1747
@@ -1814,17 +1808,17 @@ _ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_
   %551 = getelementptr inbounds nuw i8, ptr %108, i64 40
   %552 = load i64, ptr %551, align 8, !tbaa !15
   store i64 %552, ptr %539, align 8, !tbaa !15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %46) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %46)
   store ptr %544, ptr %536, align 8, !tbaa !16
   br label %_ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit690
 
 _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit690: ; preds = %550, %534
   %553 = getelementptr inbounds nuw i8, ptr %59, i64 728
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %112) #22
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %113) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %112)
+  call void @llvm.lifetime.start.p0(ptr nonnull %113)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %113, ptr noundef nonnull align 8 dereferenceable(256) @constinit.222, i64 256, i1 false), !tbaa.struct !52
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %114) #22
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %115) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %114)
+  call void @llvm.lifetime.start.p0(ptr nonnull %115)
   invoke void @_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEEC2ESt16initializer_listIS7_ERKS4_RKS8_(ptr noundef nonnull align 8 dereferenceable(48) %112, ptr nonnull %113, i64 16, ptr noundef nonnull align 1 dereferenceable(1) %114, ptr noundef nonnull align 1 dereferenceable(1) %115)
           to label %554 unwind label %1749
 
@@ -1847,7 +1841,7 @@ _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB
 
 562:                                              ; preds = %554
   %563 = getelementptr inbounds nuw i8, ptr %59, i64 736
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %45) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %45)
   store ptr %563, ptr %45, align 8, !tbaa !35
   %564 = invoke noundef ptr @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE7_M_copyILb0ENSB_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS5_ESG_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %563, ptr noundef nonnull %561, ptr noundef nonnull %555, ptr noundef nonnull align 8 dereferenceable(8) %45)
           to label %.noexc.i.i.i692 unwind label %1751
@@ -1875,17 +1869,17 @@ _ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_
   %571 = getelementptr inbounds nuw i8, ptr %112, i64 40
   %572 = load i64, ptr %571, align 8, !tbaa !15
   store i64 %572, ptr %559, align 8, !tbaa !15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %45) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
   store ptr %564, ptr %556, align 8, !tbaa !16
   br label %_ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit699
 
 _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit699: ; preds = %570, %554
   %573 = getelementptr inbounds nuw i8, ptr %59, i64 784
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %116) #22
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %117) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %116)
+  call void @llvm.lifetime.start.p0(ptr nonnull %117)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %117, ptr noundef nonnull align 8 dereferenceable(160) @constinit.223, i64 160, i1 false), !tbaa.struct !44
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %118) #22
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %119) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %118)
+  call void @llvm.lifetime.start.p0(ptr nonnull %119)
   invoke void @_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEEC2ESt16initializer_listIS7_ERKS4_RKS8_(ptr noundef nonnull align 8 dereferenceable(48) %116, ptr nonnull %117, i64 10, ptr noundef nonnull align 1 dereferenceable(1) %118, ptr noundef nonnull align 1 dereferenceable(1) %119)
           to label %574 unwind label %1753
 
@@ -1908,7 +1902,7 @@ _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB
 
 582:                                              ; preds = %574
   %583 = getelementptr inbounds nuw i8, ptr %59, i64 792
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %44) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %44)
   store ptr %583, ptr %44, align 8, !tbaa !35
   %584 = invoke noundef ptr @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE7_M_copyILb0ENSB_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS5_ESG_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %583, ptr noundef nonnull %581, ptr noundef nonnull %575, ptr noundef nonnull align 8 dereferenceable(8) %44)
           to label %.noexc.i.i.i701 unwind label %1755
@@ -1936,17 +1930,17 @@ _ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_
   %591 = getelementptr inbounds nuw i8, ptr %116, i64 40
   %592 = load i64, ptr %591, align 8, !tbaa !15
   store i64 %592, ptr %579, align 8, !tbaa !15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %44) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %44)
   store ptr %584, ptr %576, align 8, !tbaa !16
   br label %_ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit708
 
 _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit708: ; preds = %590, %574
   %593 = getelementptr inbounds nuw i8, ptr %59, i64 840
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %120) #22
-  call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %121) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %120)
+  call void @llvm.lifetime.start.p0(ptr nonnull %121)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %121, ptr noundef nonnull align 8 dereferenceable(240) @constinit.224, i64 240, i1 false), !tbaa.struct !53
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %122) #22
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %123) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %122)
+  call void @llvm.lifetime.start.p0(ptr nonnull %123)
   invoke void @_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEEC2ESt16initializer_listIS7_ERKS4_RKS8_(ptr noundef nonnull align 8 dereferenceable(48) %120, ptr nonnull %121, i64 15, ptr noundef nonnull align 1 dereferenceable(1) %122, ptr noundef nonnull align 1 dereferenceable(1) %123)
           to label %594 unwind label %1757
 
@@ -1969,7 +1963,7 @@ _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB
 
 602:                                              ; preds = %594
   %603 = getelementptr inbounds nuw i8, ptr %59, i64 848
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %43) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %43)
   store ptr %603, ptr %43, align 8, !tbaa !35
   %604 = invoke noundef ptr @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE7_M_copyILb0ENSB_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS5_ESG_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %603, ptr noundef nonnull %601, ptr noundef nonnull %595, ptr noundef nonnull align 8 dereferenceable(8) %43)
           to label %.noexc.i.i.i710 unwind label %1759
@@ -1997,17 +1991,17 @@ _ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_
   %611 = getelementptr inbounds nuw i8, ptr %120, i64 40
   %612 = load i64, ptr %611, align 8, !tbaa !15
   store i64 %612, ptr %599, align 8, !tbaa !15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %43) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
   store ptr %604, ptr %596, align 8, !tbaa !16
   br label %_ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit717
 
 _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit717: ; preds = %610, %594
   %613 = getelementptr inbounds nuw i8, ptr %59, i64 896
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %124) #22
-  call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %125) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %124)
+  call void @llvm.lifetime.start.p0(ptr nonnull %125)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %125, ptr noundef nonnull align 8 dereferenceable(176) @constinit.225, i64 176, i1 false), !tbaa.struct !54
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %126) #22
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %127) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %126)
+  call void @llvm.lifetime.start.p0(ptr nonnull %127)
   invoke void @_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEEC2ESt16initializer_listIS7_ERKS4_RKS8_(ptr noundef nonnull align 8 dereferenceable(48) %124, ptr nonnull %125, i64 11, ptr noundef nonnull align 1 dereferenceable(1) %126, ptr noundef nonnull align 1 dereferenceable(1) %127)
           to label %614 unwind label %1761
 
@@ -2030,7 +2024,7 @@ _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB
 
 622:                                              ; preds = %614
   %623 = getelementptr inbounds nuw i8, ptr %59, i64 904
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %42) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %42)
   store ptr %623, ptr %42, align 8, !tbaa !35
   %624 = invoke noundef ptr @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE7_M_copyILb0ENSB_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS5_ESG_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %623, ptr noundef nonnull %621, ptr noundef nonnull %615, ptr noundef nonnull align 8 dereferenceable(8) %42)
           to label %.noexc.i.i.i719 unwind label %1763
@@ -2058,17 +2052,17 @@ _ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_
   %631 = getelementptr inbounds nuw i8, ptr %124, i64 40
   %632 = load i64, ptr %631, align 8, !tbaa !15
   store i64 %632, ptr %619, align 8, !tbaa !15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %42) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
   store ptr %624, ptr %616, align 8, !tbaa !16
   br label %_ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit726
 
 _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit726: ; preds = %630, %614
   %633 = getelementptr inbounds nuw i8, ptr %59, i64 952
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %128) #22
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %129) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %128)
+  call void @llvm.lifetime.start.p0(ptr nonnull %129)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %129, ptr noundef nonnull align 8 dereferenceable(192) @constinit.339, i64 192, i1 false), !tbaa.struct !51
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %130) #22
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %131) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %130)
+  call void @llvm.lifetime.start.p0(ptr nonnull %131)
   invoke void @_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEEC2ESt16initializer_listIS7_ERKS4_RKS8_(ptr noundef nonnull align 8 dereferenceable(48) %128, ptr nonnull %129, i64 12, ptr noundef nonnull align 1 dereferenceable(1) %130, ptr noundef nonnull align 1 dereferenceable(1) %131)
           to label %634 unwind label %1765
 
@@ -2091,7 +2085,7 @@ _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB
 
 642:                                              ; preds = %634
   %643 = getelementptr inbounds nuw i8, ptr %59, i64 960
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %41) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %41)
   store ptr %643, ptr %41, align 8, !tbaa !35
   %644 = invoke noundef ptr @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE7_M_copyILb0ENSB_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS5_ESG_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %643, ptr noundef nonnull %641, ptr noundef nonnull %635, ptr noundef nonnull align 8 dereferenceable(8) %41)
           to label %.noexc.i.i.i728 unwind label %1767
@@ -2119,17 +2113,17 @@ _ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_
   %651 = getelementptr inbounds nuw i8, ptr %128, i64 40
   %652 = load i64, ptr %651, align 8, !tbaa !15
   store i64 %652, ptr %639, align 8, !tbaa !15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %41) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
   store ptr %644, ptr %636, align 8, !tbaa !16
   br label %_ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit735
 
 _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit735: ; preds = %650, %634
   %653 = getelementptr inbounds nuw i8, ptr %59, i64 1008
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %132) #22
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %133) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %132)
+  call void @llvm.lifetime.start.p0(ptr nonnull %133)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %133, ptr noundef nonnull align 8 dereferenceable(192) @constinit.339, i64 192, i1 false), !tbaa.struct !51
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %134) #22
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %135) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %134)
+  call void @llvm.lifetime.start.p0(ptr nonnull %135)
   invoke void @_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEEC2ESt16initializer_listIS7_ERKS4_RKS8_(ptr noundef nonnull align 8 dereferenceable(48) %132, ptr nonnull %133, i64 12, ptr noundef nonnull align 1 dereferenceable(1) %134, ptr noundef nonnull align 1 dereferenceable(1) %135)
           to label %654 unwind label %1769
 
@@ -2152,7 +2146,7 @@ _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB
 
 662:                                              ; preds = %654
   %663 = getelementptr inbounds nuw i8, ptr %59, i64 1016
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %40) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %40)
   store ptr %663, ptr %40, align 8, !tbaa !35
   %664 = invoke noundef ptr @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE7_M_copyILb0ENSB_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS5_ESG_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %663, ptr noundef nonnull %661, ptr noundef nonnull %655, ptr noundef nonnull align 8 dereferenceable(8) %40)
           to label %.noexc.i.i.i737 unwind label %1771
@@ -2180,17 +2174,17 @@ _ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_
   %671 = getelementptr inbounds nuw i8, ptr %132, i64 40
   %672 = load i64, ptr %671, align 8, !tbaa !15
   store i64 %672, ptr %659, align 8, !tbaa !15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %40) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
   store ptr %664, ptr %656, align 8, !tbaa !16
   br label %_ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit744
 
 _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit744: ; preds = %670, %654
   %673 = getelementptr inbounds nuw i8, ptr %59, i64 1064
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %136) #22
-  call void @llvm.lifetime.start.p0(i64 272, ptr nonnull %137) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %136)
+  call void @llvm.lifetime.start.p0(ptr nonnull %137)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %137, ptr noundef nonnull align 8 dereferenceable(272) @constinit.232, i64 272, i1 false), !tbaa.struct !55
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %138) #22
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %139) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %138)
+  call void @llvm.lifetime.start.p0(ptr nonnull %139)
   invoke void @_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEEC2ESt16initializer_listIS7_ERKS4_RKS8_(ptr noundef nonnull align 8 dereferenceable(48) %136, ptr nonnull %137, i64 17, ptr noundef nonnull align 1 dereferenceable(1) %138, ptr noundef nonnull align 1 dereferenceable(1) %139)
           to label %674 unwind label %1773
 
@@ -2213,7 +2207,7 @@ _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB
 
 682:                                              ; preds = %674
   %683 = getelementptr inbounds nuw i8, ptr %59, i64 1072
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %39) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %39)
   store ptr %683, ptr %39, align 8, !tbaa !35
   %684 = invoke noundef ptr @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE7_M_copyILb0ENSB_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS5_ESG_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %683, ptr noundef nonnull %681, ptr noundef nonnull %675, ptr noundef nonnull align 8 dereferenceable(8) %39)
           to label %.noexc.i.i.i746 unwind label %1775
@@ -2241,17 +2235,17 @@ _ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_
   %691 = getelementptr inbounds nuw i8, ptr %136, i64 40
   %692 = load i64, ptr %691, align 8, !tbaa !15
   store i64 %692, ptr %679, align 8, !tbaa !15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %39) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
   store ptr %684, ptr %676, align 8, !tbaa !16
   br label %_ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit753
 
 _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit753: ; preds = %690, %674
   %693 = getelementptr inbounds nuw i8, ptr %59, i64 1120
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %140) #22
-  call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %141) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %140)
+  call void @llvm.lifetime.start.p0(ptr nonnull %141)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %141, ptr noundef nonnull align 8 dereferenceable(176) @constinit.233, i64 176, i1 false), !tbaa.struct !54
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %142) #22
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %143) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %142)
+  call void @llvm.lifetime.start.p0(ptr nonnull %143)
   invoke void @_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEEC2ESt16initializer_listIS7_ERKS4_RKS8_(ptr noundef nonnull align 8 dereferenceable(48) %140, ptr nonnull %141, i64 11, ptr noundef nonnull align 1 dereferenceable(1) %142, ptr noundef nonnull align 1 dereferenceable(1) %143)
           to label %694 unwind label %1777
 
@@ -2274,7 +2268,7 @@ _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB
 
 702:                                              ; preds = %694
   %703 = getelementptr inbounds nuw i8, ptr %59, i64 1128
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %38) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %38)
   store ptr %703, ptr %38, align 8, !tbaa !35
   %704 = invoke noundef ptr @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE7_M_copyILb0ENSB_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS5_ESG_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %703, ptr noundef nonnull %701, ptr noundef nonnull %695, ptr noundef nonnull align 8 dereferenceable(8) %38)
           to label %.noexc.i.i.i755 unwind label %1779
@@ -2302,17 +2296,17 @@ _ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_
   %711 = getelementptr inbounds nuw i8, ptr %140, i64 40
   %712 = load i64, ptr %711, align 8, !tbaa !15
   store i64 %712, ptr %699, align 8, !tbaa !15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %38) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
   store ptr %704, ptr %696, align 8, !tbaa !16
   br label %_ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit762
 
 _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit762: ; preds = %710, %694
   %713 = getelementptr inbounds nuw i8, ptr %59, i64 1176
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %144) #22
-  call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %145) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %144)
+  call void @llvm.lifetime.start.p0(ptr nonnull %145)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %145, ptr noundef nonnull align 8 dereferenceable(224) @constinit.236, i64 224, i1 false), !tbaa.struct !41
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %146) #22
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %147) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %146)
+  call void @llvm.lifetime.start.p0(ptr nonnull %147)
   invoke void @_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEEC2ESt16initializer_listIS7_ERKS4_RKS8_(ptr noundef nonnull align 8 dereferenceable(48) %144, ptr nonnull %145, i64 14, ptr noundef nonnull align 1 dereferenceable(1) %146, ptr noundef nonnull align 1 dereferenceable(1) %147)
           to label %714 unwind label %1781
 
@@ -2335,7 +2329,7 @@ _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB
 
 722:                                              ; preds = %714
   %723 = getelementptr inbounds nuw i8, ptr %59, i64 1184
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %37) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
   store ptr %723, ptr %37, align 8, !tbaa !35
   %724 = invoke noundef ptr @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE7_M_copyILb0ENSB_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS5_ESG_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %723, ptr noundef nonnull %721, ptr noundef nonnull %715, ptr noundef nonnull align 8 dereferenceable(8) %37)
           to label %.noexc.i.i.i764 unwind label %1783
@@ -2363,17 +2357,17 @@ _ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_
   %731 = getelementptr inbounds nuw i8, ptr %144, i64 40
   %732 = load i64, ptr %731, align 8, !tbaa !15
   store i64 %732, ptr %719, align 8, !tbaa !15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %37) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
   store ptr %724, ptr %716, align 8, !tbaa !16
   br label %_ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit771
 
 _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit771: ; preds = %730, %714
   %733 = getelementptr inbounds nuw i8, ptr %59, i64 1232
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %148) #22
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %149) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %148)
+  call void @llvm.lifetime.start.p0(ptr nonnull %149)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %149, ptr noundef nonnull align 8 dereferenceable(256) @constinit.237, i64 256, i1 false), !tbaa.struct !52
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %150) #22
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %151) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %150)
+  call void @llvm.lifetime.start.p0(ptr nonnull %151)
   invoke void @_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEEC2ESt16initializer_listIS7_ERKS4_RKS8_(ptr noundef nonnull align 8 dereferenceable(48) %148, ptr nonnull %149, i64 16, ptr noundef nonnull align 1 dereferenceable(1) %150, ptr noundef nonnull align 1 dereferenceable(1) %151)
           to label %734 unwind label %1785
 
@@ -2396,7 +2390,7 @@ _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB
 
 742:                                              ; preds = %734
   %743 = getelementptr inbounds nuw i8, ptr %59, i64 1240
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %36) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
   store ptr %743, ptr %36, align 8, !tbaa !35
   %744 = invoke noundef ptr @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE7_M_copyILb0ENSB_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS5_ESG_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %743, ptr noundef nonnull %741, ptr noundef nonnull %735, ptr noundef nonnull align 8 dereferenceable(8) %36)
           to label %.noexc.i.i.i773 unwind label %1787
@@ -2424,17 +2418,17 @@ _ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_
   %751 = getelementptr inbounds nuw i8, ptr %148, i64 40
   %752 = load i64, ptr %751, align 8, !tbaa !15
   store i64 %752, ptr %739, align 8, !tbaa !15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %36) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
   store ptr %744, ptr %736, align 8, !tbaa !16
   br label %_ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit780
 
 _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit780: ; preds = %750, %734
   %753 = getelementptr inbounds nuw i8, ptr %59, i64 1288
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %152) #22
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %153) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %152)
+  call void @llvm.lifetime.start.p0(ptr nonnull %153)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %153, ptr noundef nonnull align 8 dereferenceable(208) @constinit.238, i64 208, i1 false), !tbaa.struct !50
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %154) #22
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %155) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %154)
+  call void @llvm.lifetime.start.p0(ptr nonnull %155)
   invoke void @_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEEC2ESt16initializer_listIS7_ERKS4_RKS8_(ptr noundef nonnull align 8 dereferenceable(48) %152, ptr nonnull %153, i64 13, ptr noundef nonnull align 1 dereferenceable(1) %154, ptr noundef nonnull align 1 dereferenceable(1) %155)
           to label %754 unwind label %1789
 
@@ -2457,7 +2451,7 @@ _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB
 
 762:                                              ; preds = %754
   %763 = getelementptr inbounds nuw i8, ptr %59, i64 1296
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %35) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
   store ptr %763, ptr %35, align 8, !tbaa !35
   %764 = invoke noundef ptr @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE7_M_copyILb0ENSB_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS5_ESG_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %763, ptr noundef nonnull %761, ptr noundef nonnull %755, ptr noundef nonnull align 8 dereferenceable(8) %35)
           to label %.noexc.i.i.i782 unwind label %1791
@@ -2485,17 +2479,17 @@ _ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_
   %771 = getelementptr inbounds nuw i8, ptr %152, i64 40
   %772 = load i64, ptr %771, align 8, !tbaa !15
   store i64 %772, ptr %759, align 8, !tbaa !15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %35) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
   store ptr %764, ptr %756, align 8, !tbaa !16
   br label %_ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit789
 
 _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit789: ; preds = %770, %754
   %773 = getelementptr inbounds nuw i8, ptr %59, i64 1344
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %156) #22
-  call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %157) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %156)
+  call void @llvm.lifetime.start.p0(ptr nonnull %157)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %157, ptr noundef nonnull align 8 dereferenceable(240) @constinit.239, i64 240, i1 false), !tbaa.struct !53
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %158) #22
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %159) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %158)
+  call void @llvm.lifetime.start.p0(ptr nonnull %159)
   invoke void @_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEEC2ESt16initializer_listIS7_ERKS4_RKS8_(ptr noundef nonnull align 8 dereferenceable(48) %156, ptr nonnull %157, i64 15, ptr noundef nonnull align 1 dereferenceable(1) %158, ptr noundef nonnull align 1 dereferenceable(1) %159)
           to label %774 unwind label %1793
 
@@ -2518,7 +2512,7 @@ _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB
 
 782:                                              ; preds = %774
   %783 = getelementptr inbounds nuw i8, ptr %59, i64 1352
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %34) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
   store ptr %783, ptr %34, align 8, !tbaa !35
   %784 = invoke noundef ptr @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE7_M_copyILb0ENSB_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS5_ESG_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %783, ptr noundef nonnull %781, ptr noundef nonnull %775, ptr noundef nonnull align 8 dereferenceable(8) %34)
           to label %.noexc.i.i.i791 unwind label %1795
@@ -2546,17 +2540,17 @@ _ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_
   %791 = getelementptr inbounds nuw i8, ptr %156, i64 40
   %792 = load i64, ptr %791, align 8, !tbaa !15
   store i64 %792, ptr %779, align 8, !tbaa !15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %34) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
   store ptr %784, ptr %776, align 8, !tbaa !16
   br label %_ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit798
 
 _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit798: ; preds = %790, %774
   %793 = getelementptr inbounds nuw i8, ptr %59, i64 1400
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %160) #22
-  call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %161) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %160)
+  call void @llvm.lifetime.start.p0(ptr nonnull %161)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %161, ptr noundef nonnull align 8 dereferenceable(224) @constinit.312, i64 224, i1 false), !tbaa.struct !41
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %162) #22
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %163) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %162)
+  call void @llvm.lifetime.start.p0(ptr nonnull %163)
   invoke void @_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEEC2ESt16initializer_listIS7_ERKS4_RKS8_(ptr noundef nonnull align 8 dereferenceable(48) %160, ptr nonnull %161, i64 14, ptr noundef nonnull align 1 dereferenceable(1) %162, ptr noundef nonnull align 1 dereferenceable(1) %163)
           to label %794 unwind label %1797
 
@@ -2579,7 +2573,7 @@ _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB
 
 802:                                              ; preds = %794
   %803 = getelementptr inbounds nuw i8, ptr %59, i64 1408
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %33) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
   store ptr %803, ptr %33, align 8, !tbaa !35
   %804 = invoke noundef ptr @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE7_M_copyILb0ENSB_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS5_ESG_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %803, ptr noundef nonnull %801, ptr noundef nonnull %795, ptr noundef nonnull align 8 dereferenceable(8) %33)
           to label %.noexc.i.i.i800 unwind label %1799
@@ -2607,17 +2601,17 @@ _ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_
   %811 = getelementptr inbounds nuw i8, ptr %160, i64 40
   %812 = load i64, ptr %811, align 8, !tbaa !15
   store i64 %812, ptr %799, align 8, !tbaa !15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %33) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
   store ptr %804, ptr %796, align 8, !tbaa !16
   br label %_ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit807
 
 _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit807: ; preds = %810, %794
   %813 = getelementptr inbounds nuw i8, ptr %59, i64 1456
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %164) #22
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %165) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %164)
+  call void @llvm.lifetime.start.p0(ptr nonnull %165)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %165, ptr noundef nonnull align 8 dereferenceable(192) @constinit.339, i64 192, i1 false), !tbaa.struct !51
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %166) #22
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %167) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %166)
+  call void @llvm.lifetime.start.p0(ptr nonnull %167)
   invoke void @_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEEC2ESt16initializer_listIS7_ERKS4_RKS8_(ptr noundef nonnull align 8 dereferenceable(48) %164, ptr nonnull %165, i64 12, ptr noundef nonnull align 1 dereferenceable(1) %166, ptr noundef nonnull align 1 dereferenceable(1) %167)
           to label %814 unwind label %1801
 
@@ -2640,7 +2634,7 @@ _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB
 
 822:                                              ; preds = %814
   %823 = getelementptr inbounds nuw i8, ptr %59, i64 1464
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %32) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
   store ptr %823, ptr %32, align 8, !tbaa !35
   %824 = invoke noundef ptr @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE7_M_copyILb0ENSB_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS5_ESG_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %823, ptr noundef nonnull %821, ptr noundef nonnull %815, ptr noundef nonnull align 8 dereferenceable(8) %32)
           to label %.noexc.i.i.i809 unwind label %1803
@@ -2668,17 +2662,17 @@ _ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_
   %831 = getelementptr inbounds nuw i8, ptr %164, i64 40
   %832 = load i64, ptr %831, align 8, !tbaa !15
   store i64 %832, ptr %819, align 8, !tbaa !15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
   store ptr %824, ptr %816, align 8, !tbaa !16
   br label %_ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit816
 
 _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit816: ; preds = %830, %814
   %833 = getelementptr inbounds nuw i8, ptr %59, i64 1512
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %168) #22
-  call void @llvm.lifetime.start.p0(i64 320, ptr nonnull %169) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %168)
+  call void @llvm.lifetime.start.p0(ptr nonnull %169)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(320) %169, ptr noundef nonnull align 8 dereferenceable(320) @constinit.242, i64 320, i1 false), !tbaa.struct !43
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %170) #22
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %171) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %170)
+  call void @llvm.lifetime.start.p0(ptr nonnull %171)
   invoke void @_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEEC2ESt16initializer_listIS7_ERKS4_RKS8_(ptr noundef nonnull align 8 dereferenceable(48) %168, ptr nonnull %169, i64 20, ptr noundef nonnull align 1 dereferenceable(1) %170, ptr noundef nonnull align 1 dereferenceable(1) %171)
           to label %834 unwind label %1805
 
@@ -2701,7 +2695,7 @@ _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB
 
 842:                                              ; preds = %834
   %843 = getelementptr inbounds nuw i8, ptr %59, i64 1520
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %31) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
   store ptr %843, ptr %31, align 8, !tbaa !35
   %844 = invoke noundef ptr @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE7_M_copyILb0ENSB_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS5_ESG_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %843, ptr noundef nonnull %841, ptr noundef nonnull %835, ptr noundef nonnull align 8 dereferenceable(8) %31)
           to label %.noexc.i.i.i818 unwind label %1807
@@ -2729,17 +2723,17 @@ _ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_
   %851 = getelementptr inbounds nuw i8, ptr %168, i64 40
   %852 = load i64, ptr %851, align 8, !tbaa !15
   store i64 %852, ptr %839, align 8, !tbaa !15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %31) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
   store ptr %844, ptr %836, align 8, !tbaa !16
   br label %_ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit825
 
 _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit825: ; preds = %850, %834
   %853 = getelementptr inbounds nuw i8, ptr %59, i64 1568
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %172) #22
-  call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %173) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %172)
+  call void @llvm.lifetime.start.p0(ptr nonnull %173)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(288) %173, ptr noundef nonnull align 8 dereferenceable(288) @constinit.249, i64 288, i1 false), !tbaa.struct !56
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %174) #22
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %175) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %174)
+  call void @llvm.lifetime.start.p0(ptr nonnull %175)
   invoke void @_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEEC2ESt16initializer_listIS7_ERKS4_RKS8_(ptr noundef nonnull align 8 dereferenceable(48) %172, ptr nonnull %173, i64 18, ptr noundef nonnull align 1 dereferenceable(1) %174, ptr noundef nonnull align 1 dereferenceable(1) %175)
           to label %854 unwind label %1809
 
@@ -2762,7 +2756,7 @@ _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB
 
 862:                                              ; preds = %854
   %863 = getelementptr inbounds nuw i8, ptr %59, i64 1576
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %30) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   store ptr %863, ptr %30, align 8, !tbaa !35
   %864 = invoke noundef ptr @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE7_M_copyILb0ENSB_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS5_ESG_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %863, ptr noundef nonnull %861, ptr noundef nonnull %855, ptr noundef nonnull align 8 dereferenceable(8) %30)
           to label %.noexc.i.i.i827 unwind label %1811
@@ -2790,17 +2784,17 @@ _ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_
   %871 = getelementptr inbounds nuw i8, ptr %172, i64 40
   %872 = load i64, ptr %871, align 8, !tbaa !15
   store i64 %872, ptr %859, align 8, !tbaa !15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
   store ptr %864, ptr %856, align 8, !tbaa !16
   br label %_ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit834
 
 _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit834: ; preds = %870, %854
   %873 = getelementptr inbounds nuw i8, ptr %59, i64 1624
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %176) #22
-  call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %177) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %176)
+  call void @llvm.lifetime.start.p0(ptr nonnull %177)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %177, ptr noundef nonnull align 8 dereferenceable(176) @constinit.250, i64 176, i1 false), !tbaa.struct !54
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %178) #22
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %179) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %178)
+  call void @llvm.lifetime.start.p0(ptr nonnull %179)
   invoke void @_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEEC2ESt16initializer_listIS7_ERKS4_RKS8_(ptr noundef nonnull align 8 dereferenceable(48) %176, ptr nonnull %177, i64 11, ptr noundef nonnull align 1 dereferenceable(1) %178, ptr noundef nonnull align 1 dereferenceable(1) %179)
           to label %874 unwind label %1813
 
@@ -2823,7 +2817,7 @@ _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB
 
 882:                                              ; preds = %874
   %883 = getelementptr inbounds nuw i8, ptr %59, i64 1632
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %29) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   store ptr %883, ptr %29, align 8, !tbaa !35
   %884 = invoke noundef ptr @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE7_M_copyILb0ENSB_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS5_ESG_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %883, ptr noundef nonnull %881, ptr noundef nonnull %875, ptr noundef nonnull align 8 dereferenceable(8) %29)
           to label %.noexc.i.i.i836 unwind label %1815
@@ -2851,17 +2845,17 @@ _ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_
   %891 = getelementptr inbounds nuw i8, ptr %176, i64 40
   %892 = load i64, ptr %891, align 8, !tbaa !15
   store i64 %892, ptr %879, align 8, !tbaa !15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   store ptr %884, ptr %876, align 8, !tbaa !16
   br label %_ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit843
 
 _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit843: ; preds = %890, %874
   %893 = getelementptr inbounds nuw i8, ptr %59, i64 1680
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %180) #22
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %181) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %180)
+  call void @llvm.lifetime.start.p0(ptr nonnull %181)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %181, ptr noundef nonnull align 8 dereferenceable(208) @constinit.253, i64 208, i1 false), !tbaa.struct !50
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %182) #22
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %183) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %182)
+  call void @llvm.lifetime.start.p0(ptr nonnull %183)
   invoke void @_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEEC2ESt16initializer_listIS7_ERKS4_RKS8_(ptr noundef nonnull align 8 dereferenceable(48) %180, ptr nonnull %181, i64 13, ptr noundef nonnull align 1 dereferenceable(1) %182, ptr noundef nonnull align 1 dereferenceable(1) %183)
           to label %894 unwind label %1817
 
@@ -2884,7 +2878,7 @@ _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB
 
 902:                                              ; preds = %894
   %903 = getelementptr inbounds nuw i8, ptr %59, i64 1688
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   store ptr %903, ptr %28, align 8, !tbaa !35
   %904 = invoke noundef ptr @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE7_M_copyILb0ENSB_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS5_ESG_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %903, ptr noundef nonnull %901, ptr noundef nonnull %895, ptr noundef nonnull align 8 dereferenceable(8) %28)
           to label %.noexc.i.i.i845 unwind label %1819
@@ -2912,17 +2906,17 @@ _ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_
   %911 = getelementptr inbounds nuw i8, ptr %180, i64 40
   %912 = load i64, ptr %911, align 8, !tbaa !15
   store i64 %912, ptr %899, align 8, !tbaa !15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   store ptr %904, ptr %896, align 8, !tbaa !16
   br label %_ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit852
 
 _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit852: ; preds = %910, %894
   %913 = getelementptr inbounds nuw i8, ptr %59, i64 1736
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %184) #22
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %185) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %184)
+  call void @llvm.lifetime.start.p0(ptr nonnull %185)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %185, ptr noundef nonnull align 8 dereferenceable(208) @constinit.311, i64 208, i1 false), !tbaa.struct !50
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %186) #22
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %187) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %186)
+  call void @llvm.lifetime.start.p0(ptr nonnull %187)
   invoke void @_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEEC2ESt16initializer_listIS7_ERKS4_RKS8_(ptr noundef nonnull align 8 dereferenceable(48) %184, ptr nonnull %185, i64 13, ptr noundef nonnull align 1 dereferenceable(1) %186, ptr noundef nonnull align 1 dereferenceable(1) %187)
           to label %914 unwind label %1821
 
@@ -2945,7 +2939,7 @@ _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB
 
 922:                                              ; preds = %914
   %923 = getelementptr inbounds nuw i8, ptr %59, i64 1744
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   store ptr %923, ptr %27, align 8, !tbaa !35
   %924 = invoke noundef ptr @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE7_M_copyILb0ENSB_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS5_ESG_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %923, ptr noundef nonnull %921, ptr noundef nonnull %915, ptr noundef nonnull align 8 dereferenceable(8) %27)
           to label %.noexc.i.i.i854 unwind label %1823
@@ -2973,17 +2967,17 @@ _ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_
   %931 = getelementptr inbounds nuw i8, ptr %184, i64 40
   %932 = load i64, ptr %931, align 8, !tbaa !15
   store i64 %932, ptr %919, align 8, !tbaa !15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   store ptr %924, ptr %916, align 8, !tbaa !16
   br label %_ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit861
 
 _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit861: ; preds = %930, %914
   %933 = getelementptr inbounds nuw i8, ptr %59, i64 1792
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %188) #22
-  call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %189) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %188)
+  call void @llvm.lifetime.start.p0(ptr nonnull %189)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %189, ptr noundef nonnull align 8 dereferenceable(176) @constinit.262, i64 176, i1 false), !tbaa.struct !54
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %190) #22
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %191) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %190)
+  call void @llvm.lifetime.start.p0(ptr nonnull %191)
   invoke void @_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEEC2ESt16initializer_listIS7_ERKS4_RKS8_(ptr noundef nonnull align 8 dereferenceable(48) %188, ptr nonnull %189, i64 11, ptr noundef nonnull align 1 dereferenceable(1) %190, ptr noundef nonnull align 1 dereferenceable(1) %191)
           to label %934 unwind label %1825
 
@@ -3006,7 +3000,7 @@ _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB
 
 942:                                              ; preds = %934
   %943 = getelementptr inbounds nuw i8, ptr %59, i64 1800
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   store ptr %943, ptr %26, align 8, !tbaa !35
   %944 = invoke noundef ptr @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE7_M_copyILb0ENSB_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS5_ESG_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %943, ptr noundef nonnull %941, ptr noundef nonnull %935, ptr noundef nonnull align 8 dereferenceable(8) %26)
           to label %.noexc.i.i.i863 unwind label %1827
@@ -3034,17 +3028,17 @@ _ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_
   %951 = getelementptr inbounds nuw i8, ptr %188, i64 40
   %952 = load i64, ptr %951, align 8, !tbaa !15
   store i64 %952, ptr %939, align 8, !tbaa !15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   store ptr %944, ptr %936, align 8, !tbaa !16
   br label %_ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit870
 
 _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit870: ; preds = %950, %934
   %953 = getelementptr inbounds nuw i8, ptr %59, i64 1848
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %192) #22
-  call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %193) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %192)
+  call void @llvm.lifetime.start.p0(ptr nonnull %193)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %193, ptr noundef nonnull align 8 dereferenceable(224) @constinit.312, i64 224, i1 false), !tbaa.struct !41
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %194) #22
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %195) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %194)
+  call void @llvm.lifetime.start.p0(ptr nonnull %195)
   invoke void @_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEEC2ESt16initializer_listIS7_ERKS4_RKS8_(ptr noundef nonnull align 8 dereferenceable(48) %192, ptr nonnull %193, i64 14, ptr noundef nonnull align 1 dereferenceable(1) %194, ptr noundef nonnull align 1 dereferenceable(1) %195)
           to label %954 unwind label %1829
 
@@ -3067,7 +3061,7 @@ _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB
 
 962:                                              ; preds = %954
   %963 = getelementptr inbounds nuw i8, ptr %59, i64 1856
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store ptr %963, ptr %25, align 8, !tbaa !35
   %964 = invoke noundef ptr @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE7_M_copyILb0ENSB_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS5_ESG_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %963, ptr noundef nonnull %961, ptr noundef nonnull %955, ptr noundef nonnull align 8 dereferenceable(8) %25)
           to label %.noexc.i.i.i872 unwind label %1831
@@ -3095,17 +3089,17 @@ _ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_
   %971 = getelementptr inbounds nuw i8, ptr %192, i64 40
   %972 = load i64, ptr %971, align 8, !tbaa !15
   store i64 %972, ptr %959, align 8, !tbaa !15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   store ptr %964, ptr %956, align 8, !tbaa !16
   br label %_ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit879
 
 _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit879: ; preds = %970, %954
   %973 = getelementptr inbounds nuw i8, ptr %59, i64 1904
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %196) #22
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %197) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %196)
+  call void @llvm.lifetime.start.p0(ptr nonnull %197)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %197, ptr noundef nonnull align 8 dereferenceable(192) @constinit.264, i64 192, i1 false), !tbaa.struct !51
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %198) #22
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %199) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %198)
+  call void @llvm.lifetime.start.p0(ptr nonnull %199)
   invoke void @_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEEC2ESt16initializer_listIS7_ERKS4_RKS8_(ptr noundef nonnull align 8 dereferenceable(48) %196, ptr nonnull %197, i64 12, ptr noundef nonnull align 1 dereferenceable(1) %198, ptr noundef nonnull align 1 dereferenceable(1) %199)
           to label %974 unwind label %1833
 
@@ -3128,7 +3122,7 @@ _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB
 
 982:                                              ; preds = %974
   %983 = getelementptr inbounds nuw i8, ptr %59, i64 1912
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   store ptr %983, ptr %24, align 8, !tbaa !35
   %984 = invoke noundef ptr @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE7_M_copyILb0ENSB_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS5_ESG_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %983, ptr noundef nonnull %981, ptr noundef nonnull %975, ptr noundef nonnull align 8 dereferenceable(8) %24)
           to label %.noexc.i.i.i881 unwind label %1835
@@ -3156,17 +3150,17 @@ _ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_
   %991 = getelementptr inbounds nuw i8, ptr %196, i64 40
   %992 = load i64, ptr %991, align 8, !tbaa !15
   store i64 %992, ptr %979, align 8, !tbaa !15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   store ptr %984, ptr %976, align 8, !tbaa !16
   br label %_ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit888
 
 _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit888: ; preds = %990, %974
   %993 = getelementptr inbounds nuw i8, ptr %59, i64 1960
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %200) #22
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %201) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %200)
+  call void @llvm.lifetime.start.p0(ptr nonnull %201)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %201, ptr noundef nonnull align 8 dereferenceable(160) @constinit.265, i64 160, i1 false), !tbaa.struct !44
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %202) #22
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %203) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %202)
+  call void @llvm.lifetime.start.p0(ptr nonnull %203)
   invoke void @_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEEC2ESt16initializer_listIS7_ERKS4_RKS8_(ptr noundef nonnull align 8 dereferenceable(48) %200, ptr nonnull %201, i64 10, ptr noundef nonnull align 1 dereferenceable(1) %202, ptr noundef nonnull align 1 dereferenceable(1) %203)
           to label %994 unwind label %1837
 
@@ -3189,7 +3183,7 @@ _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB
 
 1002:                                             ; preds = %994
   %1003 = getelementptr inbounds nuw i8, ptr %59, i64 1968
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store ptr %1003, ptr %23, align 8, !tbaa !35
   %1004 = invoke noundef ptr @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE7_M_copyILb0ENSB_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS5_ESG_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %1003, ptr noundef nonnull %1001, ptr noundef nonnull %995, ptr noundef nonnull align 8 dereferenceable(8) %23)
           to label %.noexc.i.i.i890 unwind label %1839
@@ -3217,17 +3211,17 @@ _ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_
   %1011 = getelementptr inbounds nuw i8, ptr %200, i64 40
   %1012 = load i64, ptr %1011, align 8, !tbaa !15
   store i64 %1012, ptr %999, align 8, !tbaa !15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   store ptr %1004, ptr %996, align 8, !tbaa !16
   br label %_ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit897
 
 _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit897: ; preds = %1010, %994
   %1013 = getelementptr inbounds nuw i8, ptr %59, i64 2016
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %204) #22
-  call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %205) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %204)
+  call void @llvm.lifetime.start.p0(ptr nonnull %205)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %205, ptr noundef nonnull align 8 dereferenceable(176) @constinit.266, i64 176, i1 false), !tbaa.struct !54
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %206) #22
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %207) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %206)
+  call void @llvm.lifetime.start.p0(ptr nonnull %207)
   invoke void @_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEEC2ESt16initializer_listIS7_ERKS4_RKS8_(ptr noundef nonnull align 8 dereferenceable(48) %204, ptr nonnull %205, i64 11, ptr noundef nonnull align 1 dereferenceable(1) %206, ptr noundef nonnull align 1 dereferenceable(1) %207)
           to label %1014 unwind label %1841
 
@@ -3250,7 +3244,7 @@ _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB
 
 1022:                                             ; preds = %1014
   %1023 = getelementptr inbounds nuw i8, ptr %59, i64 2024
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   store ptr %1023, ptr %22, align 8, !tbaa !35
   %1024 = invoke noundef ptr @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE7_M_copyILb0ENSB_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS5_ESG_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %1023, ptr noundef nonnull %1021, ptr noundef nonnull %1015, ptr noundef nonnull align 8 dereferenceable(8) %22)
           to label %.noexc.i.i.i899 unwind label %1843
@@ -3278,17 +3272,17 @@ _ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_
   %1031 = getelementptr inbounds nuw i8, ptr %204, i64 40
   %1032 = load i64, ptr %1031, align 8, !tbaa !15
   store i64 %1032, ptr %1019, align 8, !tbaa !15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   store ptr %1024, ptr %1016, align 8, !tbaa !16
   br label %_ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit906
 
 _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit906: ; preds = %1030, %1014
   %1033 = getelementptr inbounds nuw i8, ptr %59, i64 2072
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %208) #22
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %209) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %208)
+  call void @llvm.lifetime.start.p0(ptr nonnull %209)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %209, ptr noundef nonnull align 8 dereferenceable(144) @constinit.267, i64 144, i1 false), !tbaa.struct !42
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %210) #22
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %211) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %210)
+  call void @llvm.lifetime.start.p0(ptr nonnull %211)
   invoke void @_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEEC2ESt16initializer_listIS7_ERKS4_RKS8_(ptr noundef nonnull align 8 dereferenceable(48) %208, ptr nonnull %209, i64 9, ptr noundef nonnull align 1 dereferenceable(1) %210, ptr noundef nonnull align 1 dereferenceable(1) %211)
           to label %1034 unwind label %1845
 
@@ -3311,7 +3305,7 @@ _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB
 
 1042:                                             ; preds = %1034
   %1043 = getelementptr inbounds nuw i8, ptr %59, i64 2080
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store ptr %1043, ptr %21, align 8, !tbaa !35
   %1044 = invoke noundef ptr @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE7_M_copyILb0ENSB_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS5_ESG_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %1043, ptr noundef nonnull %1041, ptr noundef nonnull %1035, ptr noundef nonnull align 8 dereferenceable(8) %21)
           to label %.noexc.i.i.i908 unwind label %1847
@@ -3339,17 +3333,17 @@ _ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_
   %1051 = getelementptr inbounds nuw i8, ptr %208, i64 40
   %1052 = load i64, ptr %1051, align 8, !tbaa !15
   store i64 %1052, ptr %1039, align 8, !tbaa !15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   store ptr %1044, ptr %1036, align 8, !tbaa !16
   br label %_ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit915
 
 _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit915: ; preds = %1050, %1034
   %1053 = getelementptr inbounds nuw i8, ptr %59, i64 2128
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %212) #22
-  call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %213) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %212)
+  call void @llvm.lifetime.start.p0(ptr nonnull %213)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %213, ptr noundef nonnull align 8 dereferenceable(224) @constinit.268, i64 224, i1 false), !tbaa.struct !41
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %214) #22
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %215) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %214)
+  call void @llvm.lifetime.start.p0(ptr nonnull %215)
   invoke void @_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEEC2ESt16initializer_listIS7_ERKS4_RKS8_(ptr noundef nonnull align 8 dereferenceable(48) %212, ptr nonnull %213, i64 14, ptr noundef nonnull align 1 dereferenceable(1) %214, ptr noundef nonnull align 1 dereferenceable(1) %215)
           to label %1054 unwind label %1849
 
@@ -3372,7 +3366,7 @@ _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB
 
 1062:                                             ; preds = %1054
   %1063 = getelementptr inbounds nuw i8, ptr %59, i64 2136
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store ptr %1063, ptr %20, align 8, !tbaa !35
   %1064 = invoke noundef ptr @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE7_M_copyILb0ENSB_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS5_ESG_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %1063, ptr noundef nonnull %1061, ptr noundef nonnull %1055, ptr noundef nonnull align 8 dereferenceable(8) %20)
           to label %.noexc.i.i.i917 unwind label %1851
@@ -3400,17 +3394,17 @@ _ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_
   %1071 = getelementptr inbounds nuw i8, ptr %212, i64 40
   %1072 = load i64, ptr %1071, align 8, !tbaa !15
   store i64 %1072, ptr %1059, align 8, !tbaa !15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   store ptr %1064, ptr %1056, align 8, !tbaa !16
   br label %_ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit924
 
 _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit924: ; preds = %1070, %1054
   %1073 = getelementptr inbounds nuw i8, ptr %59, i64 2184
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %216) #22
-  call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %217) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %216)
+  call void @llvm.lifetime.start.p0(ptr nonnull %217)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %217, ptr noundef nonnull align 8 dereferenceable(240) @constinit.269, i64 240, i1 false), !tbaa.struct !53
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %218) #22
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %219) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %218)
+  call void @llvm.lifetime.start.p0(ptr nonnull %219)
   invoke void @_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEEC2ESt16initializer_listIS7_ERKS4_RKS8_(ptr noundef nonnull align 8 dereferenceable(48) %216, ptr nonnull %217, i64 15, ptr noundef nonnull align 1 dereferenceable(1) %218, ptr noundef nonnull align 1 dereferenceable(1) %219)
           to label %1074 unwind label %1853
 
@@ -3433,7 +3427,7 @@ _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB
 
 1082:                                             ; preds = %1074
   %1083 = getelementptr inbounds nuw i8, ptr %59, i64 2192
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store ptr %1083, ptr %19, align 8, !tbaa !35
   %1084 = invoke noundef ptr @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE7_M_copyILb0ENSB_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS5_ESG_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %1083, ptr noundef nonnull %1081, ptr noundef nonnull %1075, ptr noundef nonnull align 8 dereferenceable(8) %19)
           to label %.noexc.i.i.i926 unwind label %1855
@@ -3461,17 +3455,17 @@ _ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_
   %1091 = getelementptr inbounds nuw i8, ptr %216, i64 40
   %1092 = load i64, ptr %1091, align 8, !tbaa !15
   store i64 %1092, ptr %1079, align 8, !tbaa !15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   store ptr %1084, ptr %1076, align 8, !tbaa !16
   br label %_ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit933
 
 _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit933: ; preds = %1090, %1074
   %1093 = getelementptr inbounds nuw i8, ptr %59, i64 2240
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %220) #22
-  call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %221) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %220)
+  call void @llvm.lifetime.start.p0(ptr nonnull %221)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %221, ptr noundef nonnull align 8 dereferenceable(176) @constinit.270, i64 176, i1 false), !tbaa.struct !54
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %222) #22
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %223) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %222)
+  call void @llvm.lifetime.start.p0(ptr nonnull %223)
   invoke void @_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEEC2ESt16initializer_listIS7_ERKS4_RKS8_(ptr noundef nonnull align 8 dereferenceable(48) %220, ptr nonnull %221, i64 11, ptr noundef nonnull align 1 dereferenceable(1) %222, ptr noundef nonnull align 1 dereferenceable(1) %223)
           to label %1094 unwind label %1857
 
@@ -3494,7 +3488,7 @@ _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB
 
 1102:                                             ; preds = %1094
   %1103 = getelementptr inbounds nuw i8, ptr %59, i64 2248
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store ptr %1103, ptr %18, align 8, !tbaa !35
   %1104 = invoke noundef ptr @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE7_M_copyILb0ENSB_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS5_ESG_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %1103, ptr noundef nonnull %1101, ptr noundef nonnull %1095, ptr noundef nonnull align 8 dereferenceable(8) %18)
           to label %.noexc.i.i.i935 unwind label %1859
@@ -3522,17 +3516,17 @@ _ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_
   %1111 = getelementptr inbounds nuw i8, ptr %220, i64 40
   %1112 = load i64, ptr %1111, align 8, !tbaa !15
   store i64 %1112, ptr %1099, align 8, !tbaa !15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   store ptr %1104, ptr %1096, align 8, !tbaa !16
   br label %_ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit942
 
 _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit942: ; preds = %1110, %1094
   %1113 = getelementptr inbounds nuw i8, ptr %59, i64 2296
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %224) #22
-  call void @llvm.lifetime.start.p0(i64 272, ptr nonnull %225) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %224)
+  call void @llvm.lifetime.start.p0(ptr nonnull %225)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %225, ptr noundef nonnull align 8 dereferenceable(272) @constinit.272, i64 272, i1 false), !tbaa.struct !55
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %226) #22
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %227) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %226)
+  call void @llvm.lifetime.start.p0(ptr nonnull %227)
   invoke void @_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEEC2ESt16initializer_listIS7_ERKS4_RKS8_(ptr noundef nonnull align 8 dereferenceable(48) %224, ptr nonnull %225, i64 17, ptr noundef nonnull align 1 dereferenceable(1) %226, ptr noundef nonnull align 1 dereferenceable(1) %227)
           to label %1114 unwind label %1861
 
@@ -3555,7 +3549,7 @@ _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB
 
 1122:                                             ; preds = %1114
   %1123 = getelementptr inbounds nuw i8, ptr %59, i64 2304
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store ptr %1123, ptr %17, align 8, !tbaa !35
   %1124 = invoke noundef ptr @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE7_M_copyILb0ENSB_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS5_ESG_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %1123, ptr noundef nonnull %1121, ptr noundef nonnull %1115, ptr noundef nonnull align 8 dereferenceable(8) %17)
           to label %.noexc.i.i.i944 unwind label %1863
@@ -3583,17 +3577,17 @@ _ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_
   %1131 = getelementptr inbounds nuw i8, ptr %224, i64 40
   %1132 = load i64, ptr %1131, align 8, !tbaa !15
   store i64 %1132, ptr %1119, align 8, !tbaa !15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   store ptr %1124, ptr %1116, align 8, !tbaa !16
   br label %_ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit951
 
 _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit951: ; preds = %1130, %1114
   %1133 = getelementptr inbounds nuw i8, ptr %59, i64 2352
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %228) #22
-  call void @llvm.lifetime.start.p0(i64 352, ptr nonnull %229) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %228)
+  call void @llvm.lifetime.start.p0(ptr nonnull %229)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(352) %229, ptr noundef nonnull align 8 dereferenceable(352) @constinit.273, i64 352, i1 false), !tbaa.struct !57
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %230) #22
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %231) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %230)
+  call void @llvm.lifetime.start.p0(ptr nonnull %231)
   invoke void @_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEEC2ESt16initializer_listIS7_ERKS4_RKS8_(ptr noundef nonnull align 8 dereferenceable(48) %228, ptr nonnull %229, i64 22, ptr noundef nonnull align 1 dereferenceable(1) %230, ptr noundef nonnull align 1 dereferenceable(1) %231)
           to label %1134 unwind label %1865
 
@@ -3616,7 +3610,7 @@ _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB
 
 1142:                                             ; preds = %1134
   %1143 = getelementptr inbounds nuw i8, ptr %59, i64 2360
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store ptr %1143, ptr %16, align 8, !tbaa !35
   %1144 = invoke noundef ptr @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE7_M_copyILb0ENSB_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS5_ESG_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %1143, ptr noundef nonnull %1141, ptr noundef nonnull %1135, ptr noundef nonnull align 8 dereferenceable(8) %16)
           to label %.noexc.i.i.i953 unwind label %1867
@@ -3644,17 +3638,17 @@ _ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_
   %1151 = getelementptr inbounds nuw i8, ptr %228, i64 40
   %1152 = load i64, ptr %1151, align 8, !tbaa !15
   store i64 %1152, ptr %1139, align 8, !tbaa !15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   store ptr %1144, ptr %1136, align 8, !tbaa !16
   br label %_ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit960
 
 _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit960: ; preds = %1150, %1134
   %1153 = getelementptr inbounds nuw i8, ptr %59, i64 2408
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %232) #22
-  call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %233) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %232)
+  call void @llvm.lifetime.start.p0(ptr nonnull %233)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(400) %233, ptr noundef nonnull align 8 dereferenceable(400) @constinit.275, i64 400, i1 false), !tbaa.struct !58
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %234) #22
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %235) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %234)
+  call void @llvm.lifetime.start.p0(ptr nonnull %235)
   invoke void @_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEEC2ESt16initializer_listIS7_ERKS4_RKS8_(ptr noundef nonnull align 8 dereferenceable(48) %232, ptr nonnull %233, i64 25, ptr noundef nonnull align 1 dereferenceable(1) %234, ptr noundef nonnull align 1 dereferenceable(1) %235)
           to label %1154 unwind label %1869
 
@@ -3677,7 +3671,7 @@ _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB
 
 1162:                                             ; preds = %1154
   %1163 = getelementptr inbounds nuw i8, ptr %59, i64 2416
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store ptr %1163, ptr %15, align 8, !tbaa !35
   %1164 = invoke noundef ptr @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE7_M_copyILb0ENSB_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS5_ESG_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %1163, ptr noundef nonnull %1161, ptr noundef nonnull %1155, ptr noundef nonnull align 8 dereferenceable(8) %15)
           to label %.noexc.i.i.i962 unwind label %1871
@@ -3705,17 +3699,17 @@ _ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_
   %1171 = getelementptr inbounds nuw i8, ptr %232, i64 40
   %1172 = load i64, ptr %1171, align 8, !tbaa !15
   store i64 %1172, ptr %1159, align 8, !tbaa !15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   store ptr %1164, ptr %1156, align 8, !tbaa !16
   br label %_ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit969
 
 _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit969: ; preds = %1170, %1154
   %1173 = getelementptr inbounds nuw i8, ptr %59, i64 2464
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %236) #22
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %237) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %236)
+  call void @llvm.lifetime.start.p0(ptr nonnull %237)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %237, ptr noundef nonnull align 8 dereferenceable(208) @constinit.276, i64 208, i1 false), !tbaa.struct !50
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %238) #22
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %239) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %238)
+  call void @llvm.lifetime.start.p0(ptr nonnull %239)
   invoke void @_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEEC2ESt16initializer_listIS7_ERKS4_RKS8_(ptr noundef nonnull align 8 dereferenceable(48) %236, ptr nonnull %237, i64 13, ptr noundef nonnull align 1 dereferenceable(1) %238, ptr noundef nonnull align 1 dereferenceable(1) %239)
           to label %1174 unwind label %1873
 
@@ -3738,7 +3732,7 @@ _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB
 
 1182:                                             ; preds = %1174
   %1183 = getelementptr inbounds nuw i8, ptr %59, i64 2472
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr %1183, ptr %14, align 8, !tbaa !35
   %1184 = invoke noundef ptr @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE7_M_copyILb0ENSB_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS5_ESG_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %1183, ptr noundef nonnull %1181, ptr noundef nonnull %1175, ptr noundef nonnull align 8 dereferenceable(8) %14)
           to label %.noexc.i.i.i971 unwind label %1875
@@ -3766,17 +3760,17 @@ _ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_
   %1191 = getelementptr inbounds nuw i8, ptr %236, i64 40
   %1192 = load i64, ptr %1191, align 8, !tbaa !15
   store i64 %1192, ptr %1179, align 8, !tbaa !15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   store ptr %1184, ptr %1176, align 8, !tbaa !16
   br label %_ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit978
 
 _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit978: ; preds = %1190, %1174
   %1193 = getelementptr inbounds nuw i8, ptr %59, i64 2520
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %240) #22
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %241) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %240)
+  call void @llvm.lifetime.start.p0(ptr nonnull %241)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %241, ptr noundef nonnull align 8 dereferenceable(208) @constinit.279, i64 208, i1 false), !tbaa.struct !50
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %242) #22
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %243) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %242)
+  call void @llvm.lifetime.start.p0(ptr nonnull %243)
   invoke void @_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEEC2ESt16initializer_listIS7_ERKS4_RKS8_(ptr noundef nonnull align 8 dereferenceable(48) %240, ptr nonnull %241, i64 13, ptr noundef nonnull align 1 dereferenceable(1) %242, ptr noundef nonnull align 1 dereferenceable(1) %243)
           to label %1194 unwind label %1877
 
@@ -3799,7 +3793,7 @@ _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB
 
 1202:                                             ; preds = %1194
   %1203 = getelementptr inbounds nuw i8, ptr %59, i64 2528
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr %1203, ptr %13, align 8, !tbaa !35
   %1204 = invoke noundef ptr @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE7_M_copyILb0ENSB_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS5_ESG_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %1203, ptr noundef nonnull %1201, ptr noundef nonnull %1195, ptr noundef nonnull align 8 dereferenceable(8) %13)
           to label %.noexc.i.i.i980 unwind label %1879
@@ -3827,17 +3821,17 @@ _ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_
   %1211 = getelementptr inbounds nuw i8, ptr %240, i64 40
   %1212 = load i64, ptr %1211, align 8, !tbaa !15
   store i64 %1212, ptr %1199, align 8, !tbaa !15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   store ptr %1204, ptr %1196, align 8, !tbaa !16
   br label %_ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit987
 
 _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit987: ; preds = %1210, %1194
   %1213 = getelementptr inbounds nuw i8, ptr %59, i64 2576
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %244) #22
-  call void @llvm.lifetime.start.p0(i64 480, ptr nonnull %245) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %244)
+  call void @llvm.lifetime.start.p0(ptr nonnull %245)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(480) %245, ptr noundef nonnull align 8 dereferenceable(480) @constinit.308, i64 480, i1 false), !tbaa.struct !59
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %246) #22
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %247) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %246)
+  call void @llvm.lifetime.start.p0(ptr nonnull %247)
   invoke void @_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEEC2ESt16initializer_listIS7_ERKS4_RKS8_(ptr noundef nonnull align 8 dereferenceable(48) %244, ptr nonnull %245, i64 30, ptr noundef nonnull align 1 dereferenceable(1) %246, ptr noundef nonnull align 1 dereferenceable(1) %247)
           to label %1214 unwind label %1881
 
@@ -3860,7 +3854,7 @@ _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB
 
 1222:                                             ; preds = %1214
   %1223 = getelementptr inbounds nuw i8, ptr %59, i64 2584
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr %1223, ptr %12, align 8, !tbaa !35
   %1224 = invoke noundef ptr @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE7_M_copyILb0ENSB_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS5_ESG_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %1223, ptr noundef nonnull %1221, ptr noundef nonnull %1215, ptr noundef nonnull align 8 dereferenceable(8) %12)
           to label %.noexc.i.i.i989 unwind label %1883
@@ -3888,17 +3882,17 @@ _ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_
   %1231 = getelementptr inbounds nuw i8, ptr %244, i64 40
   %1232 = load i64, ptr %1231, align 8, !tbaa !15
   store i64 %1232, ptr %1219, align 8, !tbaa !15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   store ptr %1224, ptr %1216, align 8, !tbaa !16
   br label %_ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit996
 
 _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit996: ; preds = %1230, %1214
   %1233 = getelementptr inbounds nuw i8, ptr %59, i64 2632
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %248) #22
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %249) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %248)
+  call void @llvm.lifetime.start.p0(ptr nonnull %249)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %249, ptr noundef nonnull align 8 dereferenceable(208) @constinit.309, i64 208, i1 false), !tbaa.struct !50
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %250) #22
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %251) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %250)
+  call void @llvm.lifetime.start.p0(ptr nonnull %251)
   invoke void @_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEEC2ESt16initializer_listIS7_ERKS4_RKS8_(ptr noundef nonnull align 8 dereferenceable(48) %248, ptr nonnull %249, i64 13, ptr noundef nonnull align 1 dereferenceable(1) %250, ptr noundef nonnull align 1 dereferenceable(1) %251)
           to label %1234 unwind label %1885
 
@@ -3921,7 +3915,7 @@ _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB
 
 1242:                                             ; preds = %1234
   %1243 = getelementptr inbounds nuw i8, ptr %59, i64 2640
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %1243, ptr %11, align 8, !tbaa !35
   %1244 = invoke noundef ptr @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE7_M_copyILb0ENSB_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS5_ESG_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %1243, ptr noundef nonnull %1241, ptr noundef nonnull %1235, ptr noundef nonnull align 8 dereferenceable(8) %11)
           to label %.noexc.i.i.i998 unwind label %1887
@@ -3949,17 +3943,17 @@ _ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_
   %1251 = getelementptr inbounds nuw i8, ptr %248, i64 40
   %1252 = load i64, ptr %1251, align 8, !tbaa !15
   store i64 %1252, ptr %1239, align 8, !tbaa !15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   store ptr %1244, ptr %1236, align 8, !tbaa !16
   br label %_ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit1005
 
 _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit1005: ; preds = %1250, %1234
   %1253 = getelementptr inbounds nuw i8, ptr %59, i64 2688
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %252) #22
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %253) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %252)
+  call void @llvm.lifetime.start.p0(ptr nonnull %253)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %253, ptr noundef nonnull align 8 dereferenceable(160) @constinit.310, i64 160, i1 false), !tbaa.struct !44
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %254) #22
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %255) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %254)
+  call void @llvm.lifetime.start.p0(ptr nonnull %255)
   invoke void @_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEEC2ESt16initializer_listIS7_ERKS4_RKS8_(ptr noundef nonnull align 8 dereferenceable(48) %252, ptr nonnull %253, i64 10, ptr noundef nonnull align 1 dereferenceable(1) %254, ptr noundef nonnull align 1 dereferenceable(1) %255)
           to label %1254 unwind label %1889
 
@@ -3982,7 +3976,7 @@ _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB
 
 1262:                                             ; preds = %1254
   %1263 = getelementptr inbounds nuw i8, ptr %59, i64 2696
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %1263, ptr %10, align 8, !tbaa !35
   %1264 = invoke noundef ptr @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE7_M_copyILb0ENSB_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS5_ESG_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %1263, ptr noundef nonnull %1261, ptr noundef nonnull %1255, ptr noundef nonnull align 8 dereferenceable(8) %10)
           to label %.noexc.i.i.i1007 unwind label %1891
@@ -4010,17 +4004,17 @@ _ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_
   %1271 = getelementptr inbounds nuw i8, ptr %252, i64 40
   %1272 = load i64, ptr %1271, align 8, !tbaa !15
   store i64 %1272, ptr %1259, align 8, !tbaa !15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   store ptr %1264, ptr %1256, align 8, !tbaa !16
   br label %_ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit1014
 
 _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit1014: ; preds = %1270, %1254
   %1273 = getelementptr inbounds nuw i8, ptr %59, i64 2744
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %256) #22
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %257) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %256)
+  call void @llvm.lifetime.start.p0(ptr nonnull %257)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %257, ptr noundef nonnull align 8 dereferenceable(208) @constinit.311, i64 208, i1 false), !tbaa.struct !50
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %258) #22
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %259) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %258)
+  call void @llvm.lifetime.start.p0(ptr nonnull %259)
   invoke void @_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEEC2ESt16initializer_listIS7_ERKS4_RKS8_(ptr noundef nonnull align 8 dereferenceable(48) %256, ptr nonnull %257, i64 13, ptr noundef nonnull align 1 dereferenceable(1) %258, ptr noundef nonnull align 1 dereferenceable(1) %259)
           to label %1274 unwind label %1893
 
@@ -4043,7 +4037,7 @@ _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB
 
 1282:                                             ; preds = %1274
   %1283 = getelementptr inbounds nuw i8, ptr %59, i64 2752
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %1283, ptr %9, align 8, !tbaa !35
   %1284 = invoke noundef ptr @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE7_M_copyILb0ENSB_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS5_ESG_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %1283, ptr noundef nonnull %1281, ptr noundef nonnull %1275, ptr noundef nonnull align 8 dereferenceable(8) %9)
           to label %.noexc.i.i.i1016 unwind label %1895
@@ -4071,17 +4065,17 @@ _ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_
   %1291 = getelementptr inbounds nuw i8, ptr %256, i64 40
   %1292 = load i64, ptr %1291, align 8, !tbaa !15
   store i64 %1292, ptr %1279, align 8, !tbaa !15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   store ptr %1284, ptr %1276, align 8, !tbaa !16
   br label %_ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit1023
 
 _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit1023: ; preds = %1290, %1274
   %1293 = getelementptr inbounds nuw i8, ptr %59, i64 2800
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %260) #22
-  call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %261) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %260)
+  call void @llvm.lifetime.start.p0(ptr nonnull %261)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %261, ptr noundef nonnull align 8 dereferenceable(224) @constinit.312, i64 224, i1 false), !tbaa.struct !41
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %262) #22
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %263) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %262)
+  call void @llvm.lifetime.start.p0(ptr nonnull %263)
   invoke void @_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEEC2ESt16initializer_listIS7_ERKS4_RKS8_(ptr noundef nonnull align 8 dereferenceable(48) %260, ptr nonnull %261, i64 14, ptr noundef nonnull align 1 dereferenceable(1) %262, ptr noundef nonnull align 1 dereferenceable(1) %263)
           to label %1294 unwind label %1897
 
@@ -4104,7 +4098,7 @@ _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB
 
 1302:                                             ; preds = %1294
   %1303 = getelementptr inbounds nuw i8, ptr %59, i64 2808
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %1303, ptr %8, align 8, !tbaa !35
   %1304 = invoke noundef ptr @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE7_M_copyILb0ENSB_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS5_ESG_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %1303, ptr noundef nonnull %1301, ptr noundef nonnull %1295, ptr noundef nonnull align 8 dereferenceable(8) %8)
           to label %.noexc.i.i.i1025 unwind label %1899
@@ -4132,17 +4126,17 @@ _ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_
   %1311 = getelementptr inbounds nuw i8, ptr %260, i64 40
   %1312 = load i64, ptr %1311, align 8, !tbaa !15
   store i64 %1312, ptr %1299, align 8, !tbaa !15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   store ptr %1304, ptr %1296, align 8, !tbaa !16
   br label %_ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit1032
 
 _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit1032: ; preds = %1310, %1294
   %1313 = getelementptr inbounds nuw i8, ptr %59, i64 2856
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %264) #22
-  call void @llvm.lifetime.start.p0(i64 480, ptr nonnull %265) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %264)
+  call void @llvm.lifetime.start.p0(ptr nonnull %265)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(480) %265, ptr noundef nonnull align 8 dereferenceable(480) @constinit.337, i64 480, i1 false), !tbaa.struct !59
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %266) #22
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %267) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %266)
+  call void @llvm.lifetime.start.p0(ptr nonnull %267)
   invoke void @_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEEC2ESt16initializer_listIS7_ERKS4_RKS8_(ptr noundef nonnull align 8 dereferenceable(48) %264, ptr nonnull %265, i64 30, ptr noundef nonnull align 1 dereferenceable(1) %266, ptr noundef nonnull align 1 dereferenceable(1) %267)
           to label %1314 unwind label %1901
 
@@ -4165,7 +4159,7 @@ _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB
 
 1322:                                             ; preds = %1314
   %1323 = getelementptr inbounds nuw i8, ptr %59, i64 2864
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %1323, ptr %7, align 8, !tbaa !35
   %1324 = invoke noundef ptr @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE7_M_copyILb0ENSB_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS5_ESG_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %1323, ptr noundef nonnull %1321, ptr noundef nonnull %1315, ptr noundef nonnull align 8 dereferenceable(8) %7)
           to label %.noexc.i.i.i1034 unwind label %1903
@@ -4193,17 +4187,17 @@ _ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_
   %1331 = getelementptr inbounds nuw i8, ptr %264, i64 40
   %1332 = load i64, ptr %1331, align 8, !tbaa !15
   store i64 %1332, ptr %1319, align 8, !tbaa !15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   store ptr %1324, ptr %1316, align 8, !tbaa !16
   br label %_ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit1041
 
 _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit1041: ; preds = %1330, %1314
   %1333 = getelementptr inbounds nuw i8, ptr %59, i64 2912
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %268) #22
-  call void @llvm.lifetime.start.p0(i64 336, ptr nonnull %269) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %268)
+  call void @llvm.lifetime.start.p0(ptr nonnull %269)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(336) %269, ptr noundef nonnull align 8 dereferenceable(336) @constinit.338, i64 336, i1 false), !tbaa.struct !26
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %270) #22
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %271) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %270)
+  call void @llvm.lifetime.start.p0(ptr nonnull %271)
   invoke void @_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEEC2ESt16initializer_listIS7_ERKS4_RKS8_(ptr noundef nonnull align 8 dereferenceable(48) %268, ptr nonnull %269, i64 21, ptr noundef nonnull align 1 dereferenceable(1) %270, ptr noundef nonnull align 1 dereferenceable(1) %271)
           to label %1334 unwind label %1905
 
@@ -4226,7 +4220,7 @@ _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB
 
 1342:                                             ; preds = %1334
   %1343 = getelementptr inbounds nuw i8, ptr %59, i64 2920
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %1343, ptr %6, align 8, !tbaa !35
   %1344 = invoke noundef ptr @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE7_M_copyILb0ENSB_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS5_ESG_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %1343, ptr noundef nonnull %1341, ptr noundef nonnull %1335, ptr noundef nonnull align 8 dereferenceable(8) %6)
           to label %.noexc.i.i.i1043 unwind label %1907
@@ -4254,17 +4248,17 @@ _ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_
   %1351 = getelementptr inbounds nuw i8, ptr %268, i64 40
   %1352 = load i64, ptr %1351, align 8, !tbaa !15
   store i64 %1352, ptr %1339, align 8, !tbaa !15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store ptr %1344, ptr %1336, align 8, !tbaa !16
   br label %_ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit1050
 
 _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit1050: ; preds = %1350, %1334
   %1353 = getelementptr inbounds nuw i8, ptr %59, i64 2968
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %272) #22
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %273) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %272)
+  call void @llvm.lifetime.start.p0(ptr nonnull %273)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %273, ptr noundef nonnull align 8 dereferenceable(192) @constinit.339, i64 192, i1 false), !tbaa.struct !51
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %274) #22
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %275) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %274)
+  call void @llvm.lifetime.start.p0(ptr nonnull %275)
   invoke void @_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEEC2ESt16initializer_listIS7_ERKS4_RKS8_(ptr noundef nonnull align 8 dereferenceable(48) %272, ptr nonnull %273, i64 12, ptr noundef nonnull align 1 dereferenceable(1) %274, ptr noundef nonnull align 1 dereferenceable(1) %275)
           to label %1354 unwind label %1909
 
@@ -4287,7 +4281,7 @@ _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB
 
 1362:                                             ; preds = %1354
   %1363 = getelementptr inbounds nuw i8, ptr %59, i64 2976
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %1363, ptr %5, align 8, !tbaa !35
   %1364 = invoke noundef ptr @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE7_M_copyILb0ENSB_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS5_ESG_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %1363, ptr noundef nonnull %1361, ptr noundef nonnull %1355, ptr noundef nonnull align 8 dereferenceable(8) %5)
           to label %.noexc.i.i.i1052 unwind label %1911
@@ -4315,17 +4309,17 @@ _ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_
   %1371 = getelementptr inbounds nuw i8, ptr %272, i64 40
   %1372 = load i64, ptr %1371, align 8, !tbaa !15
   store i64 %1372, ptr %1359, align 8, !tbaa !15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store ptr %1364, ptr %1356, align 8, !tbaa !16
   br label %_ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit1059
 
 _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit1059: ; preds = %1370, %1354
   %1373 = getelementptr inbounds nuw i8, ptr %59, i64 3024
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %276) #22
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %277) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %276)
+  call void @llvm.lifetime.start.p0(ptr nonnull %277)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %277, ptr noundef nonnull align 8 dereferenceable(208) @constinit.340, i64 208, i1 false), !tbaa.struct !50
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %278) #22
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %279) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %278)
+  call void @llvm.lifetime.start.p0(ptr nonnull %279)
   invoke void @_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEEC2ESt16initializer_listIS7_ERKS4_RKS8_(ptr noundef nonnull align 8 dereferenceable(48) %276, ptr nonnull %277, i64 13, ptr noundef nonnull align 1 dereferenceable(1) %278, ptr noundef nonnull align 1 dereferenceable(1) %279)
           to label %1374 unwind label %1913
 
@@ -4348,7 +4342,7 @@ _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB
 
 1382:                                             ; preds = %1374
   %1383 = getelementptr inbounds nuw i8, ptr %59, i64 3032
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %1383, ptr %4, align 8, !tbaa !35
   %1384 = invoke noundef ptr @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE7_M_copyILb0ENSB_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS5_ESG_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %1383, ptr noundef nonnull %1381, ptr noundef nonnull %1375, ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %.noexc.i.i.i1061 unwind label %1915
@@ -4376,17 +4370,17 @@ _ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_
   %1391 = getelementptr inbounds nuw i8, ptr %276, i64 40
   %1392 = load i64, ptr %1391, align 8, !tbaa !15
   store i64 %1392, ptr %1379, align 8, !tbaa !15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store ptr %1384, ptr %1376, align 8, !tbaa !16
   br label %_ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit1068
 
 _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit1068: ; preds = %1390, %1374
   %1393 = getelementptr inbounds nuw i8, ptr %59, i64 3080
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %280) #22
-  call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %281) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %280)
+  call void @llvm.lifetime.start.p0(ptr nonnull %281)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %281, ptr noundef nonnull align 8 dereferenceable(224) @constinit.341, i64 224, i1 false), !tbaa.struct !41
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %282) #22
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %283) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %282)
+  call void @llvm.lifetime.start.p0(ptr nonnull %283)
   invoke void @_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEEC2ESt16initializer_listIS7_ERKS4_RKS8_(ptr noundef nonnull align 8 dereferenceable(48) %280, ptr nonnull %281, i64 14, ptr noundef nonnull align 1 dereferenceable(1) %282, ptr noundef nonnull align 1 dereferenceable(1) %283)
           to label %1394 unwind label %1917
 
@@ -4409,7 +4403,7 @@ _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB
 
 1402:                                             ; preds = %1394
   %1403 = getelementptr inbounds nuw i8, ptr %59, i64 3088
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %1403, ptr %3, align 8, !tbaa !35
   %1404 = invoke noundef ptr @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE7_M_copyILb0ENSB_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS5_ESG_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %1403, ptr noundef nonnull %1401, ptr noundef nonnull %1395, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %.noexc.i.i.i1070 unwind label %1919
@@ -4437,17 +4431,17 @@ _ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_
   %1411 = getelementptr inbounds nuw i8, ptr %280, i64 40
   %1412 = load i64, ptr %1411, align 8, !tbaa !15
   store i64 %1412, ptr %1399, align 8, !tbaa !15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr %1404, ptr %1396, align 8, !tbaa !16
   br label %_ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit1077
 
 _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit1077: ; preds = %1410, %1394
   %1413 = getelementptr inbounds nuw i8, ptr %59, i64 3136
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %284) #22
-  call void @llvm.lifetime.start.p0(i64 320, ptr nonnull %285) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %284)
+  call void @llvm.lifetime.start.p0(ptr nonnull %285)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(320) %285, ptr noundef nonnull align 8 dereferenceable(320) @constinit.358, i64 320, i1 false), !tbaa.struct !43
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %286) #22
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %287) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %286)
+  call void @llvm.lifetime.start.p0(ptr nonnull %287)
   invoke void @_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEEC2ESt16initializer_listIS7_ERKS4_RKS8_(ptr noundef nonnull align 8 dereferenceable(48) %284, ptr nonnull %285, i64 20, ptr noundef nonnull align 1 dereferenceable(1) %286, ptr noundef nonnull align 1 dereferenceable(1) %287)
           to label %1414 unwind label %1921
 
@@ -4470,7 +4464,7 @@ _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB
 
 1422:                                             ; preds = %1414
   %1423 = getelementptr inbounds nuw i8, ptr %59, i64 3144
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %1423, ptr %2, align 8, !tbaa !35
   %1424 = invoke noundef ptr @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE7_M_copyILb0ENSB_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS5_ESG_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %1423, ptr noundef nonnull %1421, ptr noundef nonnull %1415, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %.noexc.i.i.i1079 unwind label %1923
@@ -4498,19 +4492,19 @@ _ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_
   %1431 = getelementptr inbounds nuw i8, ptr %284, i64 40
   %1432 = load i64, ptr %1431, align 8, !tbaa !15
   store i64 %1432, ptr %1419, align 8, !tbaa !15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   store ptr %1424, ptr %1416, align 8, !tbaa !16
   br label %_ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit1086
 
 _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit1086: ; preds = %1430, %1414
   %1433 = getelementptr inbounds nuw i8, ptr %59, i64 3192
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %288) #22
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %289) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %288)
+  call void @llvm.lifetime.start.p0(ptr nonnull %289)
   store i32 0, ptr %289, align 8, !tbaa !45
   %1434 = getelementptr inbounds nuw i8, ptr %289, i64 8
   store ptr @.str.177, ptr %1434, align 8, !tbaa !49
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %290) #22
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %291) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %290)
+  call void @llvm.lifetime.start.p0(ptr nonnull %291)
   invoke void @_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEEC2ESt16initializer_listIS7_ERKS4_RKS8_(ptr noundef nonnull align 8 dereferenceable(48) %288, ptr nonnull %289, i64 1, ptr noundef nonnull align 1 dereferenceable(1) %290, ptr noundef nonnull align 1 dereferenceable(1) %291)
           to label %1435 unwind label %1925
 
@@ -4533,7 +4527,7 @@ _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB
 
 1443:                                             ; preds = %1435
   %1444 = getelementptr inbounds nuw i8, ptr %59, i64 3200
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store ptr %1444, ptr %1, align 8, !tbaa !35
   %1445 = invoke noundef ptr @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE7_M_copyILb0ENSB_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS5_ESG_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %1444, ptr noundef nonnull %1442, ptr noundef nonnull %1436, ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %.noexc.i.i.i1088 unwind label %1927
@@ -4561,19 +4555,19 @@ _ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_
   %1452 = getelementptr inbounds nuw i8, ptr %288, i64 40
   %1453 = load i64, ptr %1452, align 8, !tbaa !15
   store i64 %1453, ptr %1440, align 8, !tbaa !15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   store ptr %1445, ptr %1437, align 8, !tbaa !16
   br label %_ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit1095
 
 _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit1095: ; preds = %1451, %1435
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %292) #22
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %293) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %292)
+  call void @llvm.lifetime.start.p0(ptr nonnull %293)
   invoke void @_ZNSt3mapI8llm_archS_I10llm_tensorPKcSt4lessIS1_ESaISt4pairIKS1_S3_EEES4_IS0_ESaIS6_IKS0_SA_EEEC2ESt16initializer_listISD_ERKSB_RKSE_(ptr noundef nonnull align 8 dereferenceable(48) @_ZL16LLM_TENSOR_NAMES, ptr nonnull %59, i64 58, ptr noundef nonnull align 1 dereferenceable(1) %292, ptr noundef nonnull align 1 dereferenceable(1) %293)
           to label %1454 unwind label %1929
 
 1454:                                             ; preds = %_ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit1095
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %293) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %292) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %293)
+  call void @llvm.lifetime.end.p0(ptr nonnull %292)
   %1455 = getelementptr inbounds nuw i8, ptr %59, i64 3248
   br label %1456
 
@@ -4610,10 +4604,10 @@ _ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEED2Ev.exi
   unreachable
 
 _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit: ; preds = %1466
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %291) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %290) #22
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %289) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %288) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %291)
+  call void @llvm.lifetime.end.p0(ptr nonnull %290)
+  call void @llvm.lifetime.end.p0(ptr nonnull %289)
+  call void @llvm.lifetime.end.p0(ptr nonnull %288)
   %1471 = load ptr, ptr %1420, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %284, ptr noundef %1471)
           to label %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1096 unwind label %1472
@@ -4626,10 +4620,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit: ; preds = %
   unreachable
 
 _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1096: ; preds = %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %287) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %286) #22
-  call void @llvm.lifetime.end.p0(i64 320, ptr nonnull %285) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %284) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %287)
+  call void @llvm.lifetime.end.p0(ptr nonnull %286)
+  call void @llvm.lifetime.end.p0(ptr nonnull %285)
+  call void @llvm.lifetime.end.p0(ptr nonnull %284)
   %1475 = load ptr, ptr %1400, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %280, ptr noundef %1475)
           to label %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1097 unwind label %1476
@@ -4642,10 +4636,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1096: ; preds
   unreachable
 
 _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1097: ; preds = %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1096
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %283) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %282) #22
-  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %281) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %280) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %283)
+  call void @llvm.lifetime.end.p0(ptr nonnull %282)
+  call void @llvm.lifetime.end.p0(ptr nonnull %281)
+  call void @llvm.lifetime.end.p0(ptr nonnull %280)
   %1479 = load ptr, ptr %1380, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %276, ptr noundef %1479)
           to label %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1098 unwind label %1480
@@ -4658,10 +4652,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1097: ; preds
   unreachable
 
 _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1098: ; preds = %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1097
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %279) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %278) #22
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %277) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %276) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %279)
+  call void @llvm.lifetime.end.p0(ptr nonnull %278)
+  call void @llvm.lifetime.end.p0(ptr nonnull %277)
+  call void @llvm.lifetime.end.p0(ptr nonnull %276)
   %1483 = load ptr, ptr %1360, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %272, ptr noundef %1483)
           to label %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1099 unwind label %1484
@@ -4674,10 +4668,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1098: ; preds
   unreachable
 
 _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1099: ; preds = %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1098
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %275) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %274) #22
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %273) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %272) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %275)
+  call void @llvm.lifetime.end.p0(ptr nonnull %274)
+  call void @llvm.lifetime.end.p0(ptr nonnull %273)
+  call void @llvm.lifetime.end.p0(ptr nonnull %272)
   %1487 = load ptr, ptr %1340, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %268, ptr noundef %1487)
           to label %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1100 unwind label %1488
@@ -4690,10 +4684,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1099: ; preds
   unreachable
 
 _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1100: ; preds = %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1099
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %271) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %270) #22
-  call void @llvm.lifetime.end.p0(i64 336, ptr nonnull %269) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %268) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %271)
+  call void @llvm.lifetime.end.p0(ptr nonnull %270)
+  call void @llvm.lifetime.end.p0(ptr nonnull %269)
+  call void @llvm.lifetime.end.p0(ptr nonnull %268)
   %1491 = load ptr, ptr %1320, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %264, ptr noundef %1491)
           to label %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1101 unwind label %1492
@@ -4706,10 +4700,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1100: ; preds
   unreachable
 
 _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1101: ; preds = %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1100
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %267) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %266) #22
-  call void @llvm.lifetime.end.p0(i64 480, ptr nonnull %265) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %264) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %267)
+  call void @llvm.lifetime.end.p0(ptr nonnull %266)
+  call void @llvm.lifetime.end.p0(ptr nonnull %265)
+  call void @llvm.lifetime.end.p0(ptr nonnull %264)
   %1495 = load ptr, ptr %1300, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %260, ptr noundef %1495)
           to label %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1102 unwind label %1496
@@ -4722,10 +4716,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1101: ; preds
   unreachable
 
 _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1102: ; preds = %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1101
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %263) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %262) #22
-  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %261) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %260) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %263)
+  call void @llvm.lifetime.end.p0(ptr nonnull %262)
+  call void @llvm.lifetime.end.p0(ptr nonnull %261)
+  call void @llvm.lifetime.end.p0(ptr nonnull %260)
   %1499 = load ptr, ptr %1280, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %256, ptr noundef %1499)
           to label %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1103 unwind label %1500
@@ -4738,10 +4732,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1102: ; preds
   unreachable
 
 _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1103: ; preds = %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1102
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %259) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %258) #22
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %257) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %256) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %259)
+  call void @llvm.lifetime.end.p0(ptr nonnull %258)
+  call void @llvm.lifetime.end.p0(ptr nonnull %257)
+  call void @llvm.lifetime.end.p0(ptr nonnull %256)
   %1503 = load ptr, ptr %1260, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %252, ptr noundef %1503)
           to label %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1104 unwind label %1504
@@ -4754,10 +4748,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1103: ; preds
   unreachable
 
 _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1104: ; preds = %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1103
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %255) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %254) #22
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %253) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %252) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %255)
+  call void @llvm.lifetime.end.p0(ptr nonnull %254)
+  call void @llvm.lifetime.end.p0(ptr nonnull %253)
+  call void @llvm.lifetime.end.p0(ptr nonnull %252)
   %1507 = load ptr, ptr %1240, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %248, ptr noundef %1507)
           to label %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1105 unwind label %1508
@@ -4770,10 +4764,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1104: ; preds
   unreachable
 
 _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1105: ; preds = %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1104
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %251) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %250) #22
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %249) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %248) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %251)
+  call void @llvm.lifetime.end.p0(ptr nonnull %250)
+  call void @llvm.lifetime.end.p0(ptr nonnull %249)
+  call void @llvm.lifetime.end.p0(ptr nonnull %248)
   %1511 = load ptr, ptr %1220, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %244, ptr noundef %1511)
           to label %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1106 unwind label %1512
@@ -4786,10 +4780,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1105: ; preds
   unreachable
 
 _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1106: ; preds = %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1105
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %247) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %246) #22
-  call void @llvm.lifetime.end.p0(i64 480, ptr nonnull %245) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %244) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %247)
+  call void @llvm.lifetime.end.p0(ptr nonnull %246)
+  call void @llvm.lifetime.end.p0(ptr nonnull %245)
+  call void @llvm.lifetime.end.p0(ptr nonnull %244)
   %1515 = load ptr, ptr %1200, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %240, ptr noundef %1515)
           to label %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1107 unwind label %1516
@@ -4802,10 +4796,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1106: ; preds
   unreachable
 
 _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1107: ; preds = %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1106
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %243) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %242) #22
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %241) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %240) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %243)
+  call void @llvm.lifetime.end.p0(ptr nonnull %242)
+  call void @llvm.lifetime.end.p0(ptr nonnull %241)
+  call void @llvm.lifetime.end.p0(ptr nonnull %240)
   %1519 = load ptr, ptr %1180, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %236, ptr noundef %1519)
           to label %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1108 unwind label %1520
@@ -4818,10 +4812,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1107: ; preds
   unreachable
 
 _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1108: ; preds = %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1107
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %239) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %238) #22
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %237) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %236) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %239)
+  call void @llvm.lifetime.end.p0(ptr nonnull %238)
+  call void @llvm.lifetime.end.p0(ptr nonnull %237)
+  call void @llvm.lifetime.end.p0(ptr nonnull %236)
   %1523 = load ptr, ptr %1160, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %232, ptr noundef %1523)
           to label %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1109 unwind label %1524
@@ -4834,10 +4828,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1108: ; preds
   unreachable
 
 _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1109: ; preds = %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1108
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %235) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %234) #22
-  call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %233) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %232) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %235)
+  call void @llvm.lifetime.end.p0(ptr nonnull %234)
+  call void @llvm.lifetime.end.p0(ptr nonnull %233)
+  call void @llvm.lifetime.end.p0(ptr nonnull %232)
   %1527 = load ptr, ptr %1140, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %228, ptr noundef %1527)
           to label %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1110 unwind label %1528
@@ -4850,10 +4844,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1109: ; preds
   unreachable
 
 _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1110: ; preds = %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1109
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %231) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %230) #22
-  call void @llvm.lifetime.end.p0(i64 352, ptr nonnull %229) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %228) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %231)
+  call void @llvm.lifetime.end.p0(ptr nonnull %230)
+  call void @llvm.lifetime.end.p0(ptr nonnull %229)
+  call void @llvm.lifetime.end.p0(ptr nonnull %228)
   %1531 = load ptr, ptr %1120, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %224, ptr noundef %1531)
           to label %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1111 unwind label %1532
@@ -4866,10 +4860,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1110: ; preds
   unreachable
 
 _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1111: ; preds = %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1110
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %227) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %226) #22
-  call void @llvm.lifetime.end.p0(i64 272, ptr nonnull %225) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %224) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %227)
+  call void @llvm.lifetime.end.p0(ptr nonnull %226)
+  call void @llvm.lifetime.end.p0(ptr nonnull %225)
+  call void @llvm.lifetime.end.p0(ptr nonnull %224)
   %1535 = load ptr, ptr %1100, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %220, ptr noundef %1535)
           to label %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1112 unwind label %1536
@@ -4882,10 +4876,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1111: ; preds
   unreachable
 
 _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1112: ; preds = %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1111
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %223) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %222) #22
-  call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %221) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %220) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %223)
+  call void @llvm.lifetime.end.p0(ptr nonnull %222)
+  call void @llvm.lifetime.end.p0(ptr nonnull %221)
+  call void @llvm.lifetime.end.p0(ptr nonnull %220)
   %1539 = load ptr, ptr %1080, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %216, ptr noundef %1539)
           to label %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1113 unwind label %1540
@@ -4898,10 +4892,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1112: ; preds
   unreachable
 
 _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1113: ; preds = %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1112
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %219) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %218) #22
-  call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %217) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %216) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %219)
+  call void @llvm.lifetime.end.p0(ptr nonnull %218)
+  call void @llvm.lifetime.end.p0(ptr nonnull %217)
+  call void @llvm.lifetime.end.p0(ptr nonnull %216)
   %1543 = load ptr, ptr %1060, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %212, ptr noundef %1543)
           to label %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1114 unwind label %1544
@@ -4914,10 +4908,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1113: ; preds
   unreachable
 
 _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1114: ; preds = %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1113
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %215) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %214) #22
-  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %213) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %212) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %215)
+  call void @llvm.lifetime.end.p0(ptr nonnull %214)
+  call void @llvm.lifetime.end.p0(ptr nonnull %213)
+  call void @llvm.lifetime.end.p0(ptr nonnull %212)
   %1547 = load ptr, ptr %1040, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %208, ptr noundef %1547)
           to label %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1115 unwind label %1548
@@ -4930,10 +4924,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1114: ; preds
   unreachable
 
 _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1115: ; preds = %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1114
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %211) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %210) #22
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %209) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %208) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %211)
+  call void @llvm.lifetime.end.p0(ptr nonnull %210)
+  call void @llvm.lifetime.end.p0(ptr nonnull %209)
+  call void @llvm.lifetime.end.p0(ptr nonnull %208)
   %1551 = load ptr, ptr %1020, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %204, ptr noundef %1551)
           to label %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1116 unwind label %1552
@@ -4946,10 +4940,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1115: ; preds
   unreachable
 
 _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1116: ; preds = %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1115
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %207) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %206) #22
-  call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %205) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %204) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %207)
+  call void @llvm.lifetime.end.p0(ptr nonnull %206)
+  call void @llvm.lifetime.end.p0(ptr nonnull %205)
+  call void @llvm.lifetime.end.p0(ptr nonnull %204)
   %1555 = load ptr, ptr %1000, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %200, ptr noundef %1555)
           to label %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1117 unwind label %1556
@@ -4962,10 +4956,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1116: ; preds
   unreachable
 
 _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1117: ; preds = %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1116
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %203) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %202) #22
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %201) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %200) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %203)
+  call void @llvm.lifetime.end.p0(ptr nonnull %202)
+  call void @llvm.lifetime.end.p0(ptr nonnull %201)
+  call void @llvm.lifetime.end.p0(ptr nonnull %200)
   %1559 = load ptr, ptr %980, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %196, ptr noundef %1559)
           to label %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1118 unwind label %1560
@@ -4978,10 +4972,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1117: ; preds
   unreachable
 
 _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1118: ; preds = %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1117
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %199) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %198) #22
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %197) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %196) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %199)
+  call void @llvm.lifetime.end.p0(ptr nonnull %198)
+  call void @llvm.lifetime.end.p0(ptr nonnull %197)
+  call void @llvm.lifetime.end.p0(ptr nonnull %196)
   %1563 = load ptr, ptr %960, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %192, ptr noundef %1563)
           to label %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1119 unwind label %1564
@@ -4994,10 +4988,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1118: ; preds
   unreachable
 
 _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1119: ; preds = %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1118
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %195) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %194) #22
-  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %193) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %192) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %195)
+  call void @llvm.lifetime.end.p0(ptr nonnull %194)
+  call void @llvm.lifetime.end.p0(ptr nonnull %193)
+  call void @llvm.lifetime.end.p0(ptr nonnull %192)
   %1567 = load ptr, ptr %940, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %188, ptr noundef %1567)
           to label %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1120 unwind label %1568
@@ -5010,10 +5004,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1119: ; preds
   unreachable
 
 _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1120: ; preds = %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1119
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %191) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %190) #22
-  call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %189) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %188) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %191)
+  call void @llvm.lifetime.end.p0(ptr nonnull %190)
+  call void @llvm.lifetime.end.p0(ptr nonnull %189)
+  call void @llvm.lifetime.end.p0(ptr nonnull %188)
   %1571 = load ptr, ptr %920, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %184, ptr noundef %1571)
           to label %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1121 unwind label %1572
@@ -5026,10 +5020,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1120: ; preds
   unreachable
 
 _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1121: ; preds = %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1120
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %187) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %186) #22
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %185) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %184) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %187)
+  call void @llvm.lifetime.end.p0(ptr nonnull %186)
+  call void @llvm.lifetime.end.p0(ptr nonnull %185)
+  call void @llvm.lifetime.end.p0(ptr nonnull %184)
   %1575 = load ptr, ptr %900, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %180, ptr noundef %1575)
           to label %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1122 unwind label %1576
@@ -5042,10 +5036,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1121: ; preds
   unreachable
 
 _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1122: ; preds = %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1121
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %183) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %182) #22
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %181) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %180) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %183)
+  call void @llvm.lifetime.end.p0(ptr nonnull %182)
+  call void @llvm.lifetime.end.p0(ptr nonnull %181)
+  call void @llvm.lifetime.end.p0(ptr nonnull %180)
   %1579 = load ptr, ptr %880, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %176, ptr noundef %1579)
           to label %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1123 unwind label %1580
@@ -5058,10 +5052,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1122: ; preds
   unreachable
 
 _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1123: ; preds = %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1122
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %179) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %178) #22
-  call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %177) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %176) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %179)
+  call void @llvm.lifetime.end.p0(ptr nonnull %178)
+  call void @llvm.lifetime.end.p0(ptr nonnull %177)
+  call void @llvm.lifetime.end.p0(ptr nonnull %176)
   %1583 = load ptr, ptr %860, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %172, ptr noundef %1583)
           to label %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1124 unwind label %1584
@@ -5074,10 +5068,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1123: ; preds
   unreachable
 
 _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1124: ; preds = %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1123
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %175) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %174) #22
-  call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %173) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %172) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %175)
+  call void @llvm.lifetime.end.p0(ptr nonnull %174)
+  call void @llvm.lifetime.end.p0(ptr nonnull %173)
+  call void @llvm.lifetime.end.p0(ptr nonnull %172)
   %1587 = load ptr, ptr %840, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %168, ptr noundef %1587)
           to label %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1125 unwind label %1588
@@ -5090,10 +5084,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1124: ; preds
   unreachable
 
 _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1125: ; preds = %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1124
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %171) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %170) #22
-  call void @llvm.lifetime.end.p0(i64 320, ptr nonnull %169) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %168) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %171)
+  call void @llvm.lifetime.end.p0(ptr nonnull %170)
+  call void @llvm.lifetime.end.p0(ptr nonnull %169)
+  call void @llvm.lifetime.end.p0(ptr nonnull %168)
   %1591 = load ptr, ptr %820, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %164, ptr noundef %1591)
           to label %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1126 unwind label %1592
@@ -5106,10 +5100,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1125: ; preds
   unreachable
 
 _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1126: ; preds = %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1125
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %167) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %166) #22
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %165) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %164) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %167)
+  call void @llvm.lifetime.end.p0(ptr nonnull %166)
+  call void @llvm.lifetime.end.p0(ptr nonnull %165)
+  call void @llvm.lifetime.end.p0(ptr nonnull %164)
   %1595 = load ptr, ptr %800, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %160, ptr noundef %1595)
           to label %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1127 unwind label %1596
@@ -5122,10 +5116,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1126: ; preds
   unreachable
 
 _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1127: ; preds = %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1126
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %163) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %162) #22
-  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %161) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %160) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %163)
+  call void @llvm.lifetime.end.p0(ptr nonnull %162)
+  call void @llvm.lifetime.end.p0(ptr nonnull %161)
+  call void @llvm.lifetime.end.p0(ptr nonnull %160)
   %1599 = load ptr, ptr %780, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %156, ptr noundef %1599)
           to label %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1128 unwind label %1600
@@ -5138,10 +5132,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1127: ; preds
   unreachable
 
 _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1128: ; preds = %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1127
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %159) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %158) #22
-  call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %157) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %156) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %159)
+  call void @llvm.lifetime.end.p0(ptr nonnull %158)
+  call void @llvm.lifetime.end.p0(ptr nonnull %157)
+  call void @llvm.lifetime.end.p0(ptr nonnull %156)
   %1603 = load ptr, ptr %760, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %152, ptr noundef %1603)
           to label %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1129 unwind label %1604
@@ -5154,10 +5148,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1128: ; preds
   unreachable
 
 _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1129: ; preds = %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1128
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %155) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %154) #22
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %153) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %152) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %155)
+  call void @llvm.lifetime.end.p0(ptr nonnull %154)
+  call void @llvm.lifetime.end.p0(ptr nonnull %153)
+  call void @llvm.lifetime.end.p0(ptr nonnull %152)
   %1607 = load ptr, ptr %740, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %148, ptr noundef %1607)
           to label %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1130 unwind label %1608
@@ -5170,10 +5164,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1129: ; preds
   unreachable
 
 _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1130: ; preds = %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1129
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %151) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %150) #22
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %149) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %148) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %151)
+  call void @llvm.lifetime.end.p0(ptr nonnull %150)
+  call void @llvm.lifetime.end.p0(ptr nonnull %149)
+  call void @llvm.lifetime.end.p0(ptr nonnull %148)
   %1611 = load ptr, ptr %720, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %144, ptr noundef %1611)
           to label %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1131 unwind label %1612
@@ -5186,10 +5180,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1130: ; preds
   unreachable
 
 _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1131: ; preds = %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1130
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %147) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %146) #22
-  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %145) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %144) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %147)
+  call void @llvm.lifetime.end.p0(ptr nonnull %146)
+  call void @llvm.lifetime.end.p0(ptr nonnull %145)
+  call void @llvm.lifetime.end.p0(ptr nonnull %144)
   %1615 = load ptr, ptr %700, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %140, ptr noundef %1615)
           to label %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1132 unwind label %1616
@@ -5202,10 +5196,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1131: ; preds
   unreachable
 
 _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1132: ; preds = %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1131
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %143) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %142) #22
-  call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %141) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %140) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %143)
+  call void @llvm.lifetime.end.p0(ptr nonnull %142)
+  call void @llvm.lifetime.end.p0(ptr nonnull %141)
+  call void @llvm.lifetime.end.p0(ptr nonnull %140)
   %1619 = load ptr, ptr %680, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %136, ptr noundef %1619)
           to label %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1133 unwind label %1620
@@ -5218,10 +5212,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1132: ; preds
   unreachable
 
 _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1133: ; preds = %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1132
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %139) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %138) #22
-  call void @llvm.lifetime.end.p0(i64 272, ptr nonnull %137) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %136) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %139)
+  call void @llvm.lifetime.end.p0(ptr nonnull %138)
+  call void @llvm.lifetime.end.p0(ptr nonnull %137)
+  call void @llvm.lifetime.end.p0(ptr nonnull %136)
   %1623 = load ptr, ptr %660, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %132, ptr noundef %1623)
           to label %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1134 unwind label %1624
@@ -5234,10 +5228,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1133: ; preds
   unreachable
 
 _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1134: ; preds = %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1133
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %135) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %134) #22
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %133) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %132) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %135)
+  call void @llvm.lifetime.end.p0(ptr nonnull %134)
+  call void @llvm.lifetime.end.p0(ptr nonnull %133)
+  call void @llvm.lifetime.end.p0(ptr nonnull %132)
   %1627 = load ptr, ptr %640, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %128, ptr noundef %1627)
           to label %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1135 unwind label %1628
@@ -5250,10 +5244,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1134: ; preds
   unreachable
 
 _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1135: ; preds = %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1134
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %131) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %130) #22
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %129) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %128) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %131)
+  call void @llvm.lifetime.end.p0(ptr nonnull %130)
+  call void @llvm.lifetime.end.p0(ptr nonnull %129)
+  call void @llvm.lifetime.end.p0(ptr nonnull %128)
   %1631 = load ptr, ptr %620, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %124, ptr noundef %1631)
           to label %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1136 unwind label %1632
@@ -5266,10 +5260,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1135: ; preds
   unreachable
 
 _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1136: ; preds = %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1135
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %127) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %126) #22
-  call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %125) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %124) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %127)
+  call void @llvm.lifetime.end.p0(ptr nonnull %126)
+  call void @llvm.lifetime.end.p0(ptr nonnull %125)
+  call void @llvm.lifetime.end.p0(ptr nonnull %124)
   %1635 = load ptr, ptr %600, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %120, ptr noundef %1635)
           to label %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1137 unwind label %1636
@@ -5282,10 +5276,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1136: ; preds
   unreachable
 
 _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1137: ; preds = %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1136
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %123) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %122) #22
-  call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %121) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %120) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %123)
+  call void @llvm.lifetime.end.p0(ptr nonnull %122)
+  call void @llvm.lifetime.end.p0(ptr nonnull %121)
+  call void @llvm.lifetime.end.p0(ptr nonnull %120)
   %1639 = load ptr, ptr %580, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %116, ptr noundef %1639)
           to label %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1138 unwind label %1640
@@ -5298,10 +5292,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1137: ; preds
   unreachable
 
 _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1138: ; preds = %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1137
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %119) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %118) #22
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %117) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %116) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %119)
+  call void @llvm.lifetime.end.p0(ptr nonnull %118)
+  call void @llvm.lifetime.end.p0(ptr nonnull %117)
+  call void @llvm.lifetime.end.p0(ptr nonnull %116)
   %1643 = load ptr, ptr %560, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %112, ptr noundef %1643)
           to label %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1139 unwind label %1644
@@ -5314,10 +5308,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1138: ; preds
   unreachable
 
 _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1139: ; preds = %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1138
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %115) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %114) #22
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %113) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %112) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %115)
+  call void @llvm.lifetime.end.p0(ptr nonnull %114)
+  call void @llvm.lifetime.end.p0(ptr nonnull %113)
+  call void @llvm.lifetime.end.p0(ptr nonnull %112)
   %1647 = load ptr, ptr %540, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %108, ptr noundef %1647)
           to label %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1140 unwind label %1648
@@ -5330,10 +5324,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1139: ; preds
   unreachable
 
 _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1140: ; preds = %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1139
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %111) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %110) #22
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %109) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %108) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %111)
+  call void @llvm.lifetime.end.p0(ptr nonnull %110)
+  call void @llvm.lifetime.end.p0(ptr nonnull %109)
+  call void @llvm.lifetime.end.p0(ptr nonnull %108)
   %1651 = load ptr, ptr %520, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %104, ptr noundef %1651)
           to label %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1141 unwind label %1652
@@ -5346,10 +5340,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1140: ; preds
   unreachable
 
 _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1141: ; preds = %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1140
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %107) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %106) #22
-  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %105) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %104) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %107)
+  call void @llvm.lifetime.end.p0(ptr nonnull %106)
+  call void @llvm.lifetime.end.p0(ptr nonnull %105)
+  call void @llvm.lifetime.end.p0(ptr nonnull %104)
   %1655 = load ptr, ptr %500, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %100, ptr noundef %1655)
           to label %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1142 unwind label %1656
@@ -5362,10 +5356,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1141: ; preds
   unreachable
 
 _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1142: ; preds = %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1141
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %103) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %102) #22
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %101) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %100) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %103)
+  call void @llvm.lifetime.end.p0(ptr nonnull %102)
+  call void @llvm.lifetime.end.p0(ptr nonnull %101)
+  call void @llvm.lifetime.end.p0(ptr nonnull %100)
   %1659 = load ptr, ptr %480, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %96, ptr noundef %1659)
           to label %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1143 unwind label %1660
@@ -5378,10 +5372,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1142: ; preds
   unreachable
 
 _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1143: ; preds = %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1142
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %99) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %98) #22
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %97) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %96) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %99)
+  call void @llvm.lifetime.end.p0(ptr nonnull %98)
+  call void @llvm.lifetime.end.p0(ptr nonnull %97)
+  call void @llvm.lifetime.end.p0(ptr nonnull %96)
   %1663 = load ptr, ptr %460, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %92, ptr noundef %1663)
           to label %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1144 unwind label %1664
@@ -5394,10 +5388,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1143: ; preds
   unreachable
 
 _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1144: ; preds = %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1143
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %95) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %94) #22
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %93) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %92) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %95)
+  call void @llvm.lifetime.end.p0(ptr nonnull %94)
+  call void @llvm.lifetime.end.p0(ptr nonnull %93)
+  call void @llvm.lifetime.end.p0(ptr nonnull %92)
   %1667 = load ptr, ptr %440, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %88, ptr noundef %1667)
           to label %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1145 unwind label %1668
@@ -5410,10 +5404,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1144: ; preds
   unreachable
 
 _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1145: ; preds = %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1144
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %91) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %90) #22
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %89) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %88) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %91)
+  call void @llvm.lifetime.end.p0(ptr nonnull %90)
+  call void @llvm.lifetime.end.p0(ptr nonnull %89)
+  call void @llvm.lifetime.end.p0(ptr nonnull %88)
   %1671 = load ptr, ptr %420, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %84, ptr noundef %1671)
           to label %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1146 unwind label %1672
@@ -5426,10 +5420,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1145: ; preds
   unreachable
 
 _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1146: ; preds = %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1145
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %87) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %86) #22
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %85) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %84) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %87)
+  call void @llvm.lifetime.end.p0(ptr nonnull %86)
+  call void @llvm.lifetime.end.p0(ptr nonnull %85)
+  call void @llvm.lifetime.end.p0(ptr nonnull %84)
   %1675 = load ptr, ptr %399, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %80, ptr noundef %1675)
           to label %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1147 unwind label %1676
@@ -5442,10 +5436,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1146: ; preds
   unreachable
 
 _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1147: ; preds = %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1146
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %83) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %82) #22
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %81) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %80) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %83)
+  call void @llvm.lifetime.end.p0(ptr nonnull %82)
+  call void @llvm.lifetime.end.p0(ptr nonnull %81)
+  call void @llvm.lifetime.end.p0(ptr nonnull %80)
   %1679 = load ptr, ptr %379, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %76, ptr noundef %1679)
           to label %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1148 unwind label %1680
@@ -5458,10 +5452,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1147: ; preds
   unreachable
 
 _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1148: ; preds = %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1147
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %79) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %78) #22
-  call void @llvm.lifetime.end.p0(i64 320, ptr nonnull %77) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %76) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %79)
+  call void @llvm.lifetime.end.p0(ptr nonnull %78)
+  call void @llvm.lifetime.end.p0(ptr nonnull %77)
+  call void @llvm.lifetime.end.p0(ptr nonnull %76)
   %1683 = load ptr, ptr %359, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %72, ptr noundef %1683)
           to label %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1149 unwind label %1684
@@ -5474,10 +5468,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1148: ; preds
   unreachable
 
 _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1149: ; preds = %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1148
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %75) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %74) #22
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %73) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %72) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %75)
+  call void @llvm.lifetime.end.p0(ptr nonnull %74)
+  call void @llvm.lifetime.end.p0(ptr nonnull %73)
+  call void @llvm.lifetime.end.p0(ptr nonnull %72)
   %1687 = load ptr, ptr %339, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %68, ptr noundef %1687)
           to label %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1150 unwind label %1688
@@ -5490,10 +5484,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1149: ; preds
   unreachable
 
 _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1150: ; preds = %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1149
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %71) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %70) #22
-  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %69) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %68) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %71)
+  call void @llvm.lifetime.end.p0(ptr nonnull %70)
+  call void @llvm.lifetime.end.p0(ptr nonnull %69)
+  call void @llvm.lifetime.end.p0(ptr nonnull %68)
   %1691 = load ptr, ptr %319, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %64, ptr noundef %1691)
           to label %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1151 unwind label %1692
@@ -5506,10 +5500,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1150: ; preds
   unreachable
 
 _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1151: ; preds = %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1150
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %67) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %66) #22
-  call void @llvm.lifetime.end.p0(i64 336, ptr nonnull %65) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %64) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %67)
+  call void @llvm.lifetime.end.p0(ptr nonnull %66)
+  call void @llvm.lifetime.end.p0(ptr nonnull %65)
+  call void @llvm.lifetime.end.p0(ptr nonnull %64)
   %1695 = load ptr, ptr %299, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %60, ptr noundef %1695)
           to label %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1152 unwind label %1696
@@ -5522,11 +5516,11 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1151: ; preds
   unreachable
 
 _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1152: ; preds = %_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1151
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %63) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %62) #22
-  call void @llvm.lifetime.end.p0(i64 336, ptr nonnull %61) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %60) #22
-  call void @llvm.lifetime.end.p0(i64 3248, ptr nonnull %59) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %63)
+  call void @llvm.lifetime.end.p0(ptr nonnull %62)
+  call void @llvm.lifetime.end.p0(ptr nonnull %61)
+  call void @llvm.lifetime.end.p0(ptr nonnull %60)
+  call void @llvm.lifetime.end.p0(ptr nonnull %59)
   %1699 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt3mapI8llm_archS_I10llm_tensorPKcSt4lessIS1_ESaISt4pairIKS1_S3_EEES4_IS0_ESaIS6_IKS0_SA_EEED2Ev, ptr nonnull @_ZL16LLM_TENSOR_NAMES, ptr nonnull @__dso_handle) #22
   ret void
 
@@ -5534,10 +5528,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1152: ; preds
   %1700 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %60) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %63) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %62) #22
-  call void @llvm.lifetime.end.p0(i64 336, ptr nonnull %61) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %60) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %63)
+  call void @llvm.lifetime.end.p0(ptr nonnull %62)
+  call void @llvm.lifetime.end.p0(ptr nonnull %61)
+  call void @llvm.lifetime.end.p0(ptr nonnull %60)
   br label %.loopexit
 
 1701:                                             ; preds = %_ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit
@@ -6113,8 +6107,8 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1152: ; preds
 1929:                                             ; preds = %_ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEEC2IS1_SB_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairISF_SG_EEEbE4typeELb1EEERS1_RKSB_.exit1095
   %1930 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %293) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %292) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %293)
+  call void @llvm.lifetime.end.p0(ptr nonnull %292)
   %1931 = getelementptr inbounds nuw i8, ptr %59, i64 3248
   br label %1932
 
@@ -6134,10 +6128,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1152: ; preds
 1937:                                             ; preds = %.loopexit1222, %1925
   %.pn.pn = phi { ptr, i32 } [ %.pn, %.loopexit1222 ], [ %1926, %1925 ]
   %.114 = phi i1 [ %1936, %.loopexit1222 ], [ false, %1925 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %291) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %290) #22
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %289) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %288) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %291)
+  call void @llvm.lifetime.end.p0(ptr nonnull %290)
+  call void @llvm.lifetime.end.p0(ptr nonnull %289)
+  call void @llvm.lifetime.end.p0(ptr nonnull %288)
   br label %1938
 
 1938:                                             ; preds = %1937, %1923
@@ -6151,10 +6145,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1152: ; preds
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %1938 ], [ %1922, %1921 ]
   %.112232 = phi ptr [ %.113233, %1938 ], [ %1413, %1921 ]
   %.112 = phi i1 [ %.113, %1938 ], [ false, %1921 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %287) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %286) #22
-  call void @llvm.lifetime.end.p0(i64 320, ptr nonnull %285) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %284) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %287)
+  call void @llvm.lifetime.end.p0(ptr nonnull %286)
+  call void @llvm.lifetime.end.p0(ptr nonnull %285)
+  call void @llvm.lifetime.end.p0(ptr nonnull %284)
   br label %1940
 
 1940:                                             ; preds = %1939, %1919
@@ -6168,10 +6162,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1152: ; preds
   %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %1940 ], [ %1918, %1917 ]
   %.110230 = phi ptr [ %.111231, %1940 ], [ %1393, %1917 ]
   %.110 = phi i1 [ %.111, %1940 ], [ false, %1917 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %283) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %282) #22
-  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %281) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %280) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %283)
+  call void @llvm.lifetime.end.p0(ptr nonnull %282)
+  call void @llvm.lifetime.end.p0(ptr nonnull %281)
+  call void @llvm.lifetime.end.p0(ptr nonnull %280)
   br label %1942
 
 1942:                                             ; preds = %1941, %1915
@@ -6185,10 +6179,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1152: ; preds
   %.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn, %1942 ], [ %1914, %1913 ]
   %.108228 = phi ptr [ %.109229, %1942 ], [ %1373, %1913 ]
   %.108 = phi i1 [ %.109, %1942 ], [ false, %1913 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %279) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %278) #22
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %277) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %276) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %279)
+  call void @llvm.lifetime.end.p0(ptr nonnull %278)
+  call void @llvm.lifetime.end.p0(ptr nonnull %277)
+  call void @llvm.lifetime.end.p0(ptr nonnull %276)
   br label %1944
 
 1944:                                             ; preds = %1943, %1911
@@ -6202,10 +6196,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1152: ; preds
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1944 ], [ %1910, %1909 ]
   %.106226 = phi ptr [ %.107227, %1944 ], [ %1353, %1909 ]
   %.106 = phi i1 [ %.107, %1944 ], [ false, %1909 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %275) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %274) #22
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %273) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %272) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %275)
+  call void @llvm.lifetime.end.p0(ptr nonnull %274)
+  call void @llvm.lifetime.end.p0(ptr nonnull %273)
+  call void @llvm.lifetime.end.p0(ptr nonnull %272)
   br label %1946
 
 1946:                                             ; preds = %1945, %1907
@@ -6219,10 +6213,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1152: ; preds
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1946 ], [ %1906, %1905 ]
   %.104224 = phi ptr [ %.105225, %1946 ], [ %1333, %1905 ]
   %.104 = phi i1 [ %.105, %1946 ], [ false, %1905 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %271) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %270) #22
-  call void @llvm.lifetime.end.p0(i64 336, ptr nonnull %269) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %268) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %271)
+  call void @llvm.lifetime.end.p0(ptr nonnull %270)
+  call void @llvm.lifetime.end.p0(ptr nonnull %269)
+  call void @llvm.lifetime.end.p0(ptr nonnull %268)
   br label %1948
 
 1948:                                             ; preds = %1947, %1903
@@ -6236,10 +6230,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1152: ; preds
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1948 ], [ %1902, %1901 ]
   %.102222 = phi ptr [ %.103223, %1948 ], [ %1313, %1901 ]
   %.102 = phi i1 [ %.103, %1948 ], [ false, %1901 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %267) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %266) #22
-  call void @llvm.lifetime.end.p0(i64 480, ptr nonnull %265) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %264) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %267)
+  call void @llvm.lifetime.end.p0(ptr nonnull %266)
+  call void @llvm.lifetime.end.p0(ptr nonnull %265)
+  call void @llvm.lifetime.end.p0(ptr nonnull %264)
   br label %1950
 
 1950:                                             ; preds = %1949, %1899
@@ -6253,10 +6247,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1152: ; preds
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1950 ], [ %1898, %1897 ]
   %.100220 = phi ptr [ %.101221, %1950 ], [ %1293, %1897 ]
   %.100 = phi i1 [ %.101, %1950 ], [ false, %1897 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %263) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %262) #22
-  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %261) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %260) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %263)
+  call void @llvm.lifetime.end.p0(ptr nonnull %262)
+  call void @llvm.lifetime.end.p0(ptr nonnull %261)
+  call void @llvm.lifetime.end.p0(ptr nonnull %260)
   br label %1952
 
 1952:                                             ; preds = %1951, %1895
@@ -6270,10 +6264,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1152: ; preds
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1952 ], [ %1894, %1893 ]
   %.98218 = phi ptr [ %.99219, %1952 ], [ %1273, %1893 ]
   %.98 = phi i1 [ %.99, %1952 ], [ false, %1893 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %259) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %258) #22
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %257) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %256) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %259)
+  call void @llvm.lifetime.end.p0(ptr nonnull %258)
+  call void @llvm.lifetime.end.p0(ptr nonnull %257)
+  call void @llvm.lifetime.end.p0(ptr nonnull %256)
   br label %1954
 
 1954:                                             ; preds = %1953, %1891
@@ -6287,10 +6281,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1152: ; preds
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1954 ], [ %1890, %1889 ]
   %.96216 = phi ptr [ %.97217, %1954 ], [ %1253, %1889 ]
   %.96 = phi i1 [ %.97, %1954 ], [ false, %1889 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %255) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %254) #22
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %253) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %252) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %255)
+  call void @llvm.lifetime.end.p0(ptr nonnull %254)
+  call void @llvm.lifetime.end.p0(ptr nonnull %253)
+  call void @llvm.lifetime.end.p0(ptr nonnull %252)
   br label %1956
 
 1956:                                             ; preds = %1955, %1887
@@ -6304,10 +6298,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1152: ; preds
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1956 ], [ %1886, %1885 ]
   %.94214 = phi ptr [ %.95215, %1956 ], [ %1233, %1885 ]
   %.94 = phi i1 [ %.95, %1956 ], [ false, %1885 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %251) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %250) #22
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %249) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %248) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %251)
+  call void @llvm.lifetime.end.p0(ptr nonnull %250)
+  call void @llvm.lifetime.end.p0(ptr nonnull %249)
+  call void @llvm.lifetime.end.p0(ptr nonnull %248)
   br label %1958
 
 1958:                                             ; preds = %1957, %1883
@@ -6321,10 +6315,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1152: ; preds
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1958 ], [ %1882, %1881 ]
   %.92212 = phi ptr [ %.93213, %1958 ], [ %1213, %1881 ]
   %.92 = phi i1 [ %.93, %1958 ], [ false, %1881 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %247) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %246) #22
-  call void @llvm.lifetime.end.p0(i64 480, ptr nonnull %245) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %244) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %247)
+  call void @llvm.lifetime.end.p0(ptr nonnull %246)
+  call void @llvm.lifetime.end.p0(ptr nonnull %245)
+  call void @llvm.lifetime.end.p0(ptr nonnull %244)
   br label %1960
 
 1960:                                             ; preds = %1959, %1879
@@ -6338,10 +6332,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1152: ; preds
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1960 ], [ %1878, %1877 ]
   %.90210 = phi ptr [ %.91211, %1960 ], [ %1193, %1877 ]
   %.90 = phi i1 [ %.91, %1960 ], [ false, %1877 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %243) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %242) #22
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %241) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %240) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %243)
+  call void @llvm.lifetime.end.p0(ptr nonnull %242)
+  call void @llvm.lifetime.end.p0(ptr nonnull %241)
+  call void @llvm.lifetime.end.p0(ptr nonnull %240)
   br label %1962
 
 1962:                                             ; preds = %1961, %1875
@@ -6355,10 +6349,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1152: ; preds
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1962 ], [ %1874, %1873 ]
   %.88208 = phi ptr [ %.89209, %1962 ], [ %1173, %1873 ]
   %.88 = phi i1 [ %.89, %1962 ], [ false, %1873 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %239) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %238) #22
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %237) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %236) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %239)
+  call void @llvm.lifetime.end.p0(ptr nonnull %238)
+  call void @llvm.lifetime.end.p0(ptr nonnull %237)
+  call void @llvm.lifetime.end.p0(ptr nonnull %236)
   br label %1964
 
 1964:                                             ; preds = %1963, %1871
@@ -6372,10 +6366,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1152: ; preds
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1964 ], [ %1870, %1869 ]
   %.86206 = phi ptr [ %.87207, %1964 ], [ %1153, %1869 ]
   %.86 = phi i1 [ %.87, %1964 ], [ false, %1869 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %235) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %234) #22
-  call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %233) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %232) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %235)
+  call void @llvm.lifetime.end.p0(ptr nonnull %234)
+  call void @llvm.lifetime.end.p0(ptr nonnull %233)
+  call void @llvm.lifetime.end.p0(ptr nonnull %232)
   br label %1966
 
 1966:                                             ; preds = %1965, %1867
@@ -6389,10 +6383,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1152: ; preds
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1966 ], [ %1866, %1865 ]
   %.84204 = phi ptr [ %.85205, %1966 ], [ %1133, %1865 ]
   %.84 = phi i1 [ %.85, %1966 ], [ false, %1865 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %231) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %230) #22
-  call void @llvm.lifetime.end.p0(i64 352, ptr nonnull %229) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %228) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %231)
+  call void @llvm.lifetime.end.p0(ptr nonnull %230)
+  call void @llvm.lifetime.end.p0(ptr nonnull %229)
+  call void @llvm.lifetime.end.p0(ptr nonnull %228)
   br label %1968
 
 1968:                                             ; preds = %1967, %1863
@@ -6406,10 +6400,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1152: ; preds
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1968 ], [ %1862, %1861 ]
   %.82202 = phi ptr [ %.83203, %1968 ], [ %1113, %1861 ]
   %.82 = phi i1 [ %.83, %1968 ], [ false, %1861 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %227) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %226) #22
-  call void @llvm.lifetime.end.p0(i64 272, ptr nonnull %225) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %224) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %227)
+  call void @llvm.lifetime.end.p0(ptr nonnull %226)
+  call void @llvm.lifetime.end.p0(ptr nonnull %225)
+  call void @llvm.lifetime.end.p0(ptr nonnull %224)
   br label %1970
 
 1970:                                             ; preds = %1969, %1859
@@ -6423,10 +6417,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1152: ; preds
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1970 ], [ %1858, %1857 ]
   %.80200 = phi ptr [ %.81201, %1970 ], [ %1093, %1857 ]
   %.80 = phi i1 [ %.81, %1970 ], [ false, %1857 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %223) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %222) #22
-  call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %221) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %220) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %223)
+  call void @llvm.lifetime.end.p0(ptr nonnull %222)
+  call void @llvm.lifetime.end.p0(ptr nonnull %221)
+  call void @llvm.lifetime.end.p0(ptr nonnull %220)
   br label %1972
 
 1972:                                             ; preds = %1971, %1855
@@ -6440,10 +6434,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1152: ; preds
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1972 ], [ %1854, %1853 ]
   %.78198 = phi ptr [ %.79199, %1972 ], [ %1073, %1853 ]
   %.78 = phi i1 [ %.79, %1972 ], [ false, %1853 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %219) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %218) #22
-  call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %217) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %216) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %219)
+  call void @llvm.lifetime.end.p0(ptr nonnull %218)
+  call void @llvm.lifetime.end.p0(ptr nonnull %217)
+  call void @llvm.lifetime.end.p0(ptr nonnull %216)
   br label %1974
 
 1974:                                             ; preds = %1973, %1851
@@ -6457,10 +6451,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1152: ; preds
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1974 ], [ %1850, %1849 ]
   %.76196 = phi ptr [ %.77197, %1974 ], [ %1053, %1849 ]
   %.76 = phi i1 [ %.77, %1974 ], [ false, %1849 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %215) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %214) #22
-  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %213) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %212) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %215)
+  call void @llvm.lifetime.end.p0(ptr nonnull %214)
+  call void @llvm.lifetime.end.p0(ptr nonnull %213)
+  call void @llvm.lifetime.end.p0(ptr nonnull %212)
   br label %1976
 
 1976:                                             ; preds = %1975, %1847
@@ -6474,10 +6468,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1152: ; preds
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1976 ], [ %1846, %1845 ]
   %.74194 = phi ptr [ %.75195, %1976 ], [ %1033, %1845 ]
   %.74 = phi i1 [ %.75, %1976 ], [ false, %1845 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %211) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %210) #22
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %209) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %208) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %211)
+  call void @llvm.lifetime.end.p0(ptr nonnull %210)
+  call void @llvm.lifetime.end.p0(ptr nonnull %209)
+  call void @llvm.lifetime.end.p0(ptr nonnull %208)
   br label %1978
 
 1978:                                             ; preds = %1977, %1843
@@ -6491,10 +6485,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1152: ; preds
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1978 ], [ %1842, %1841 ]
   %.72192 = phi ptr [ %.73193, %1978 ], [ %1013, %1841 ]
   %.72 = phi i1 [ %.73, %1978 ], [ false, %1841 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %207) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %206) #22
-  call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %205) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %204) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %207)
+  call void @llvm.lifetime.end.p0(ptr nonnull %206)
+  call void @llvm.lifetime.end.p0(ptr nonnull %205)
+  call void @llvm.lifetime.end.p0(ptr nonnull %204)
   br label %1980
 
 1980:                                             ; preds = %1979, %1839
@@ -6508,10 +6502,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1152: ; preds
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1980 ], [ %1838, %1837 ]
   %.70190 = phi ptr [ %.71191, %1980 ], [ %993, %1837 ]
   %.70 = phi i1 [ %.71, %1980 ], [ false, %1837 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %203) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %202) #22
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %201) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %200) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %203)
+  call void @llvm.lifetime.end.p0(ptr nonnull %202)
+  call void @llvm.lifetime.end.p0(ptr nonnull %201)
+  call void @llvm.lifetime.end.p0(ptr nonnull %200)
   br label %1982
 
 1982:                                             ; preds = %1981, %1835
@@ -6525,10 +6519,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1152: ; preds
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1982 ], [ %1834, %1833 ]
   %.68188 = phi ptr [ %.69189, %1982 ], [ %973, %1833 ]
   %.68 = phi i1 [ %.69, %1982 ], [ false, %1833 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %199) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %198) #22
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %197) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %196) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %199)
+  call void @llvm.lifetime.end.p0(ptr nonnull %198)
+  call void @llvm.lifetime.end.p0(ptr nonnull %197)
+  call void @llvm.lifetime.end.p0(ptr nonnull %196)
   br label %1984
 
 1984:                                             ; preds = %1983, %1831
@@ -6542,10 +6536,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1152: ; preds
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1984 ], [ %1830, %1829 ]
   %.66186 = phi ptr [ %.67187, %1984 ], [ %953, %1829 ]
   %.66 = phi i1 [ %.67, %1984 ], [ false, %1829 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %195) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %194) #22
-  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %193) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %192) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %195)
+  call void @llvm.lifetime.end.p0(ptr nonnull %194)
+  call void @llvm.lifetime.end.p0(ptr nonnull %193)
+  call void @llvm.lifetime.end.p0(ptr nonnull %192)
   br label %1986
 
 1986:                                             ; preds = %1985, %1827
@@ -6559,10 +6553,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1152: ; preds
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1986 ], [ %1826, %1825 ]
   %.64184 = phi ptr [ %.65185, %1986 ], [ %933, %1825 ]
   %.64 = phi i1 [ %.65, %1986 ], [ false, %1825 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %191) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %190) #22
-  call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %189) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %188) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %191)
+  call void @llvm.lifetime.end.p0(ptr nonnull %190)
+  call void @llvm.lifetime.end.p0(ptr nonnull %189)
+  call void @llvm.lifetime.end.p0(ptr nonnull %188)
   br label %1988
 
 1988:                                             ; preds = %1987, %1823
@@ -6576,10 +6570,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1152: ; preds
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1988 ], [ %1822, %1821 ]
   %.62182 = phi ptr [ %.63183, %1988 ], [ %913, %1821 ]
   %.62 = phi i1 [ %.63, %1988 ], [ false, %1821 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %187) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %186) #22
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %185) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %184) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %187)
+  call void @llvm.lifetime.end.p0(ptr nonnull %186)
+  call void @llvm.lifetime.end.p0(ptr nonnull %185)
+  call void @llvm.lifetime.end.p0(ptr nonnull %184)
   br label %1990
 
 1990:                                             ; preds = %1989, %1819
@@ -6593,10 +6587,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1152: ; preds
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1990 ], [ %1818, %1817 ]
   %.60180 = phi ptr [ %.61181, %1990 ], [ %893, %1817 ]
   %.60 = phi i1 [ %.61, %1990 ], [ false, %1817 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %183) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %182) #22
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %181) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %180) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %183)
+  call void @llvm.lifetime.end.p0(ptr nonnull %182)
+  call void @llvm.lifetime.end.p0(ptr nonnull %181)
+  call void @llvm.lifetime.end.p0(ptr nonnull %180)
   br label %1992
 
 1992:                                             ; preds = %1991, %1815
@@ -6610,10 +6604,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1152: ; preds
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1992 ], [ %1814, %1813 ]
   %.58178 = phi ptr [ %.59179, %1992 ], [ %873, %1813 ]
   %.58 = phi i1 [ %.59, %1992 ], [ false, %1813 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %179) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %178) #22
-  call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %177) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %176) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %179)
+  call void @llvm.lifetime.end.p0(ptr nonnull %178)
+  call void @llvm.lifetime.end.p0(ptr nonnull %177)
+  call void @llvm.lifetime.end.p0(ptr nonnull %176)
   br label %1994
 
 1994:                                             ; preds = %1993, %1811
@@ -6627,10 +6621,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1152: ; preds
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1994 ], [ %1810, %1809 ]
   %.56176 = phi ptr [ %.57177, %1994 ], [ %853, %1809 ]
   %.56 = phi i1 [ %.57, %1994 ], [ false, %1809 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %175) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %174) #22
-  call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %173) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %172) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %175)
+  call void @llvm.lifetime.end.p0(ptr nonnull %174)
+  call void @llvm.lifetime.end.p0(ptr nonnull %173)
+  call void @llvm.lifetime.end.p0(ptr nonnull %172)
   br label %1996
 
 1996:                                             ; preds = %1995, %1807
@@ -6644,10 +6638,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1152: ; preds
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1996 ], [ %1806, %1805 ]
   %.54174 = phi ptr [ %.55175, %1996 ], [ %833, %1805 ]
   %.54 = phi i1 [ %.55, %1996 ], [ false, %1805 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %171) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %170) #22
-  call void @llvm.lifetime.end.p0(i64 320, ptr nonnull %169) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %168) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %171)
+  call void @llvm.lifetime.end.p0(ptr nonnull %170)
+  call void @llvm.lifetime.end.p0(ptr nonnull %169)
+  call void @llvm.lifetime.end.p0(ptr nonnull %168)
   br label %1998
 
 1998:                                             ; preds = %1997, %1803
@@ -6661,10 +6655,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1152: ; preds
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1998 ], [ %1802, %1801 ]
   %.52172 = phi ptr [ %.53173, %1998 ], [ %813, %1801 ]
   %.52 = phi i1 [ %.53, %1998 ], [ false, %1801 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %167) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %166) #22
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %165) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %164) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %167)
+  call void @llvm.lifetime.end.p0(ptr nonnull %166)
+  call void @llvm.lifetime.end.p0(ptr nonnull %165)
+  call void @llvm.lifetime.end.p0(ptr nonnull %164)
   br label %2000
 
 2000:                                             ; preds = %1999, %1799
@@ -6678,10 +6672,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1152: ; preds
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %2000 ], [ %1798, %1797 ]
   %.50170 = phi ptr [ %.51171, %2000 ], [ %793, %1797 ]
   %.50 = phi i1 [ %.51, %2000 ], [ false, %1797 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %163) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %162) #22
-  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %161) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %160) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %163)
+  call void @llvm.lifetime.end.p0(ptr nonnull %162)
+  call void @llvm.lifetime.end.p0(ptr nonnull %161)
+  call void @llvm.lifetime.end.p0(ptr nonnull %160)
   br label %2002
 
 2002:                                             ; preds = %2001, %1795
@@ -6695,10 +6689,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1152: ; preds
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %2002 ], [ %1794, %1793 ]
   %.48168 = phi ptr [ %.49169, %2002 ], [ %773, %1793 ]
   %.48 = phi i1 [ %.49, %2002 ], [ false, %1793 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %159) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %158) #22
-  call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %157) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %156) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %159)
+  call void @llvm.lifetime.end.p0(ptr nonnull %158)
+  call void @llvm.lifetime.end.p0(ptr nonnull %157)
+  call void @llvm.lifetime.end.p0(ptr nonnull %156)
   br label %2004
 
 2004:                                             ; preds = %2003, %1791
@@ -6712,10 +6706,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1152: ; preds
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %2004 ], [ %1790, %1789 ]
   %.46166 = phi ptr [ %.47167, %2004 ], [ %753, %1789 ]
   %.46 = phi i1 [ %.47, %2004 ], [ false, %1789 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %155) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %154) #22
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %153) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %152) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %155)
+  call void @llvm.lifetime.end.p0(ptr nonnull %154)
+  call void @llvm.lifetime.end.p0(ptr nonnull %153)
+  call void @llvm.lifetime.end.p0(ptr nonnull %152)
   br label %2006
 
 2006:                                             ; preds = %2005, %1787
@@ -6729,10 +6723,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1152: ; preds
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %2006 ], [ %1786, %1785 ]
   %.44164 = phi ptr [ %.45165, %2006 ], [ %733, %1785 ]
   %.44 = phi i1 [ %.45, %2006 ], [ false, %1785 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %151) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %150) #22
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %149) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %148) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %151)
+  call void @llvm.lifetime.end.p0(ptr nonnull %150)
+  call void @llvm.lifetime.end.p0(ptr nonnull %149)
+  call void @llvm.lifetime.end.p0(ptr nonnull %148)
   br label %2008
 
 2008:                                             ; preds = %2007, %1783
@@ -6746,10 +6740,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1152: ; preds
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %2008 ], [ %1782, %1781 ]
   %.42162 = phi ptr [ %.43163, %2008 ], [ %713, %1781 ]
   %.42 = phi i1 [ %.43, %2008 ], [ false, %1781 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %147) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %146) #22
-  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %145) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %144) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %147)
+  call void @llvm.lifetime.end.p0(ptr nonnull %146)
+  call void @llvm.lifetime.end.p0(ptr nonnull %145)
+  call void @llvm.lifetime.end.p0(ptr nonnull %144)
   br label %2010
 
 2010:                                             ; preds = %2009, %1779
@@ -6763,10 +6757,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1152: ; preds
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %2010 ], [ %1778, %1777 ]
   %.40160 = phi ptr [ %.41161, %2010 ], [ %693, %1777 ]
   %.40 = phi i1 [ %.41, %2010 ], [ false, %1777 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %143) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %142) #22
-  call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %141) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %140) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %143)
+  call void @llvm.lifetime.end.p0(ptr nonnull %142)
+  call void @llvm.lifetime.end.p0(ptr nonnull %141)
+  call void @llvm.lifetime.end.p0(ptr nonnull %140)
   br label %2012
 
 2012:                                             ; preds = %2011, %1775
@@ -6780,10 +6774,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1152: ; preds
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %2012 ], [ %1774, %1773 ]
   %.38158 = phi ptr [ %.39159, %2012 ], [ %673, %1773 ]
   %.38 = phi i1 [ %.39, %2012 ], [ false, %1773 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %139) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %138) #22
-  call void @llvm.lifetime.end.p0(i64 272, ptr nonnull %137) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %136) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %139)
+  call void @llvm.lifetime.end.p0(ptr nonnull %138)
+  call void @llvm.lifetime.end.p0(ptr nonnull %137)
+  call void @llvm.lifetime.end.p0(ptr nonnull %136)
   br label %2014
 
 2014:                                             ; preds = %2013, %1771
@@ -6797,10 +6791,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1152: ; preds
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %2014 ], [ %1770, %1769 ]
   %.36156 = phi ptr [ %.37157, %2014 ], [ %653, %1769 ]
   %.36 = phi i1 [ %.37, %2014 ], [ false, %1769 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %135) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %134) #22
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %133) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %132) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %135)
+  call void @llvm.lifetime.end.p0(ptr nonnull %134)
+  call void @llvm.lifetime.end.p0(ptr nonnull %133)
+  call void @llvm.lifetime.end.p0(ptr nonnull %132)
   br label %2016
 
 2016:                                             ; preds = %2015, %1767
@@ -6814,10 +6808,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1152: ; preds
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %2016 ], [ %1766, %1765 ]
   %.34154 = phi ptr [ %.35155, %2016 ], [ %633, %1765 ]
   %.34 = phi i1 [ %.35, %2016 ], [ false, %1765 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %131) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %130) #22
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %129) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %128) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %131)
+  call void @llvm.lifetime.end.p0(ptr nonnull %130)
+  call void @llvm.lifetime.end.p0(ptr nonnull %129)
+  call void @llvm.lifetime.end.p0(ptr nonnull %128)
   br label %2018
 
 2018:                                             ; preds = %2017, %1763
@@ -6831,10 +6825,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1152: ; preds
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %2018 ], [ %1762, %1761 ]
   %.32152 = phi ptr [ %.33153, %2018 ], [ %613, %1761 ]
   %.32 = phi i1 [ %.33, %2018 ], [ false, %1761 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %127) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %126) #22
-  call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %125) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %124) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %127)
+  call void @llvm.lifetime.end.p0(ptr nonnull %126)
+  call void @llvm.lifetime.end.p0(ptr nonnull %125)
+  call void @llvm.lifetime.end.p0(ptr nonnull %124)
   br label %2020
 
 2020:                                             ; preds = %2019, %1759
@@ -6848,10 +6842,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1152: ; preds
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %2020 ], [ %1758, %1757 ]
   %.30150 = phi ptr [ %.31151, %2020 ], [ %593, %1757 ]
   %.30 = phi i1 [ %.31, %2020 ], [ false, %1757 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %123) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %122) #22
-  call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %121) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %120) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %123)
+  call void @llvm.lifetime.end.p0(ptr nonnull %122)
+  call void @llvm.lifetime.end.p0(ptr nonnull %121)
+  call void @llvm.lifetime.end.p0(ptr nonnull %120)
   br label %2022
 
 2022:                                             ; preds = %2021, %1755
@@ -6865,10 +6859,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1152: ; preds
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %2022 ], [ %1754, %1753 ]
   %.28148 = phi ptr [ %.29149, %2022 ], [ %573, %1753 ]
   %.28 = phi i1 [ %.29, %2022 ], [ false, %1753 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %119) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %118) #22
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %117) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %116) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %119)
+  call void @llvm.lifetime.end.p0(ptr nonnull %118)
+  call void @llvm.lifetime.end.p0(ptr nonnull %117)
+  call void @llvm.lifetime.end.p0(ptr nonnull %116)
   br label %2024
 
 2024:                                             ; preds = %2023, %1751
@@ -6882,10 +6876,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1152: ; preds
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %2024 ], [ %1750, %1749 ]
   %.26146 = phi ptr [ %.27147, %2024 ], [ %553, %1749 ]
   %.26 = phi i1 [ %.27, %2024 ], [ false, %1749 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %115) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %114) #22
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %113) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %112) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %115)
+  call void @llvm.lifetime.end.p0(ptr nonnull %114)
+  call void @llvm.lifetime.end.p0(ptr nonnull %113)
+  call void @llvm.lifetime.end.p0(ptr nonnull %112)
   br label %2026
 
 2026:                                             ; preds = %2025, %1747
@@ -6899,10 +6893,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1152: ; preds
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %2026 ], [ %1746, %1745 ]
   %.24144 = phi ptr [ %.25145, %2026 ], [ %533, %1745 ]
   %.24 = phi i1 [ %.25, %2026 ], [ false, %1745 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %111) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %110) #22
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %109) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %108) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %111)
+  call void @llvm.lifetime.end.p0(ptr nonnull %110)
+  call void @llvm.lifetime.end.p0(ptr nonnull %109)
+  call void @llvm.lifetime.end.p0(ptr nonnull %108)
   br label %2028
 
 2028:                                             ; preds = %2027, %1743
@@ -6916,10 +6910,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1152: ; preds
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %2028 ], [ %1742, %1741 ]
   %.22142 = phi ptr [ %.23143, %2028 ], [ %513, %1741 ]
   %.22 = phi i1 [ %.23, %2028 ], [ false, %1741 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %107) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %106) #22
-  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %105) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %104) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %107)
+  call void @llvm.lifetime.end.p0(ptr nonnull %106)
+  call void @llvm.lifetime.end.p0(ptr nonnull %105)
+  call void @llvm.lifetime.end.p0(ptr nonnull %104)
   br label %2030
 
 2030:                                             ; preds = %2029, %1739
@@ -6933,10 +6927,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1152: ; preds
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %2030 ], [ %1738, %1737 ]
   %.20140 = phi ptr [ %.21141, %2030 ], [ %493, %1737 ]
   %.20 = phi i1 [ %.21, %2030 ], [ false, %1737 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %103) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %102) #22
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %101) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %100) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %103)
+  call void @llvm.lifetime.end.p0(ptr nonnull %102)
+  call void @llvm.lifetime.end.p0(ptr nonnull %101)
+  call void @llvm.lifetime.end.p0(ptr nonnull %100)
   br label %2032
 
 2032:                                             ; preds = %2031, %1735
@@ -6950,10 +6944,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1152: ; preds
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %2032 ], [ %1734, %1733 ]
   %.18138 = phi ptr [ %.19139, %2032 ], [ %473, %1733 ]
   %.18 = phi i1 [ %.19, %2032 ], [ false, %1733 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %99) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %98) #22
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %97) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %96) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %99)
+  call void @llvm.lifetime.end.p0(ptr nonnull %98)
+  call void @llvm.lifetime.end.p0(ptr nonnull %97)
+  call void @llvm.lifetime.end.p0(ptr nonnull %96)
   br label %2034
 
 2034:                                             ; preds = %2033, %1731
@@ -6967,10 +6961,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1152: ; preds
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %2034 ], [ %1730, %1729 ]
   %.16136 = phi ptr [ %.17137, %2034 ], [ %453, %1729 ]
   %.16 = phi i1 [ %.17, %2034 ], [ false, %1729 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %95) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %94) #22
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %93) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %92) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %95)
+  call void @llvm.lifetime.end.p0(ptr nonnull %94)
+  call void @llvm.lifetime.end.p0(ptr nonnull %93)
+  call void @llvm.lifetime.end.p0(ptr nonnull %92)
   br label %2036
 
 2036:                                             ; preds = %2035, %1727
@@ -6984,10 +6978,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1152: ; preds
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %2036 ], [ %1726, %1725 ]
   %.14134 = phi ptr [ %.15135, %2036 ], [ %433, %1725 ]
   %.14 = phi i1 [ %.15, %2036 ], [ false, %1725 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %91) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %90) #22
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %89) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %88) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %91)
+  call void @llvm.lifetime.end.p0(ptr nonnull %90)
+  call void @llvm.lifetime.end.p0(ptr nonnull %89)
+  call void @llvm.lifetime.end.p0(ptr nonnull %88)
   br label %2038
 
 2038:                                             ; preds = %2037, %1723
@@ -7001,10 +6995,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1152: ; preds
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %2038 ], [ %1722, %1721 ]
   %.12132 = phi ptr [ %.13133, %2038 ], [ %412, %1721 ]
   %.12 = phi i1 [ %.13, %2038 ], [ false, %1721 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %87) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %86) #22
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %85) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %84) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %87)
+  call void @llvm.lifetime.end.p0(ptr nonnull %86)
+  call void @llvm.lifetime.end.p0(ptr nonnull %85)
+  call void @llvm.lifetime.end.p0(ptr nonnull %84)
   br label %2040
 
 2040:                                             ; preds = %2039, %1719
@@ -7018,10 +7012,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1152: ; preds
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %2040 ], [ %1718, %1717 ]
   %.10130 = phi ptr [ %.11131, %2040 ], [ %392, %1717 ]
   %.10 = phi i1 [ %.11, %2040 ], [ false, %1717 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %83) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %82) #22
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %81) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %80) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %83)
+  call void @llvm.lifetime.end.p0(ptr nonnull %82)
+  call void @llvm.lifetime.end.p0(ptr nonnull %81)
+  call void @llvm.lifetime.end.p0(ptr nonnull %80)
   br label %2042
 
 2042:                                             ; preds = %2041, %1715
@@ -7035,10 +7029,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1152: ; preds
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %2042 ], [ %1714, %1713 ]
   %.8128 = phi ptr [ %.9129, %2042 ], [ %372, %1713 ]
   %.8 = phi i1 [ %.9, %2042 ], [ false, %1713 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %79) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %78) #22
-  call void @llvm.lifetime.end.p0(i64 320, ptr nonnull %77) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %76) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %79)
+  call void @llvm.lifetime.end.p0(ptr nonnull %78)
+  call void @llvm.lifetime.end.p0(ptr nonnull %77)
+  call void @llvm.lifetime.end.p0(ptr nonnull %76)
   br label %2044
 
 2044:                                             ; preds = %2043, %1711
@@ -7052,10 +7046,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1152: ; preds
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %2044 ], [ %1710, %1709 ]
   %.6126 = phi ptr [ %.7127, %2044 ], [ %352, %1709 ]
   %.6 = phi i1 [ %.7, %2044 ], [ false, %1709 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %75) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %74) #22
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %73) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %72) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %75)
+  call void @llvm.lifetime.end.p0(ptr nonnull %74)
+  call void @llvm.lifetime.end.p0(ptr nonnull %73)
+  call void @llvm.lifetime.end.p0(ptr nonnull %72)
   br label %2046
 
 2046:                                             ; preds = %2045, %1707
@@ -7069,10 +7063,10 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1152: ; preds
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %2046 ], [ %1706, %1705 ]
   %.4124 = phi ptr [ %.5125, %2046 ], [ %332, %1705 ]
   %.4 = phi i1 [ %.5, %2046 ], [ false, %1705 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %71) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %70) #22
-  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %69) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %68) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %71)
+  call void @llvm.lifetime.end.p0(ptr nonnull %70)
+  call void @llvm.lifetime.end.p0(ptr nonnull %69)
+  call void @llvm.lifetime.end.p0(ptr nonnull %68)
   br label %2048
 
 2048:                                             ; preds = %2047, %1703
@@ -7086,15 +7080,15 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1152: ; preds
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %2048 ], [ %1702, %1701 ]
   %.2122 = phi ptr [ %.3123, %2048 ], [ %312, %1701 ]
   %.2 = phi i1 [ %.3, %2048 ], [ false, %1701 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %67) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %66) #22
-  call void @llvm.lifetime.end.p0(i64 336, ptr nonnull %65) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %64) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %67)
+  call void @llvm.lifetime.end.p0(ptr nonnull %66)
+  call void @llvm.lifetime.end.p0(ptr nonnull %65)
+  call void @llvm.lifetime.end.p0(ptr nonnull %64)
   call void @_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %60) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %63) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %62) #22
-  call void @llvm.lifetime.end.p0(i64 336, ptr nonnull %61) #22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %60) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %63)
+  call void @llvm.lifetime.end.p0(ptr nonnull %62)
+  call void @llvm.lifetime.end.p0(ptr nonnull %61)
+  call void @llvm.lifetime.end.p0(ptr nonnull %60)
   %2050 = icmp eq ptr %59, %.2122
   %or.cond = select i1 %.2, i1 true, i1 %2050
   br i1 %or.cond, label %.loopexit, label %.preheader
@@ -7108,12 +7102,12 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit1152: ; preds
 
 .loopexit:                                        ; preds = %.preheader, %.thread1217, %2049
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1216 = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %2049 ], [ %1700, %.thread1217 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.preheader ]
-  call void @llvm.lifetime.end.p0(i64 3248, ptr nonnull %59) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %59)
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1216
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEEC2ESt16initializer_listIS7_ERKS4_RKS8_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, i64 %2, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %4) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEEC2ESt16initializer_listIS7_ERKS4_RKS8_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, i64 %2, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %4) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %6, align 8, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -7229,7 +7223,7 @@ _ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt3mapI8llm_archS_I10llm_tensorPKcSt4lessIS1_ESaISt4pairIKS1_S3_EEES4_IS0_ESaIS6_IKS0_SA_EEEC2ESt16initializer_listISD_ERKSB_RKSE_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, i64 %2, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %4) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt3mapI8llm_archS_I10llm_tensorPKcSt4lessIS1_ESaISt4pairIKS1_S3_EEES4_IS0_ESaIS6_IKS0_SA_EEEC2ESt16initializer_listISD_ERKSB_RKSE_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, i64 %2, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %4) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %6, align 8, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -7347,7 +7341,7 @@ _ZNSt8_Rb_treeI8llm_archSt4pairIKS0_St3mapI10llm_tensorPKcSt4lessIS4_ESaIS1_IKS4
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS3_ESaIS_IKS3_S5_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !12
@@ -7366,7 +7360,7 @@ _ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt3mapI10llm_tensorPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %3)
@@ -7384,7 +7378,7 @@ _ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt3mapI8llm_archS_I10llm_tensorPKcSt4lessIS1_ESaISt4pairIKS1_S3_EEES4_IS0_ESaIS6_IKS0_SA_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt3mapI8llm_archS_I10llm_tensorPKcSt4lessIS1_ESaISt4pairIKS1_S3_EEES4_IS0_ESaIS6_IKS0_SA_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeI8llm_archSt4pairIKS0_St3mapI10llm_tensorPKcSt4lessIS4_ESaIS1_IKS4_S6_EEEESt10_Select1stISD_ES7_IS0_ESaISD_EE8_M_eraseEPSt13_Rb_tree_nodeISD_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %3)
@@ -7402,7 +7396,7 @@ _ZNSt8_Rb_treeI8llm_archSt4pairIKS0_St3mapI10llm_tensorPKcSt4lessIS4_ESaIS1_IKS4
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt3mapI10llm_tensor15llm_tensor_infoSt4lessIS0_ESaISt4pairIKS0_S1_EEEC2ESt16initializer_listIS6_ERKS3_RKS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, i64 %2, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %4) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt3mapI10llm_tensor15llm_tensor_infoSt4lessIS0_ESaISt4pairIKS0_S1_EEEC2ESt16initializer_listIS6_ERKS3_RKS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, i64 %2, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %4) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %6, align 8, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -7518,7 +7512,7 @@ _ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_15llm_tensor_infoESt10_Select1stIS4_ESt4l
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt3mapI10llm_tensor15llm_tensor_infoSt4lessIS0_ESaISt4pairIKS0_S1_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt3mapI10llm_tensor15llm_tensor_infoSt4lessIS0_ESaISt4pairIKS0_S1_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_15llm_tensor_infoESt10_Select1stIS4_ESt4lessIS0_ESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %3)
@@ -7536,7 +7530,7 @@ _ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_15llm_tensor_infoESt10_Select1stIS4_ESt4l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6LLM_KVC2E8llm_archPKc(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 4), (8, 16)) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #7 align 2 {
+define void @_ZN6LLM_KVC2E8llm_archPKc(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 4), (8, 16)) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #6 align 2 {
   store i32 %1, ptr %0, align 8, !tbaa !67
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %4, align 8, !tbaa !69
@@ -7544,7 +7538,7 @@ define void @_ZN6LLM_KVC2E8llm_archPKc(ptr noundef nonnull writeonly align 8 cap
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6LLM_KVclB5cxx11E6llm_kv(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) local_unnamed_addr #2 align 2 {
+define void @_ZNK6LLM_KVclB5cxx11E6llm_kv(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) local_unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !69
   %.not = icmp eq ptr %5, null
@@ -7704,10 +7698,10 @@ _ZNKSt3mapI8llm_archPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEE2atERS6_.exit34: ; preds
   ret void
 }
 
-declare void @_Z6formatB5cxx11PKcz(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef, ...) local_unnamed_addr #8
+declare void @_Z6formatB5cxx11PKcz(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef, ...) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK11LLM_TN_IMPL3strB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK11LLM_TN_IMPL3strB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL16LLM_TENSOR_NAMES, i64 16), align 8, !tbaa !12
   %.not10.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not10.i.i.i.i, label %.critedge.i, label %.lr.ph.i.i.i.i
@@ -7960,7 +7954,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @_Z13llm_arch_name8llm_arch(i32 noundef %0) local_unnamed_addr #9 {
+define noundef ptr @_Z13llm_arch_name8llm_arch(i32 noundef %0) local_unnamed_addr #8 {
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL14LLM_ARCH_NAMES, i64 16), align 8, !tbaa !12
   %.not10.i.i.i = icmp eq ptr %2, null
   br i1 %.not10.i.i.i, label %_ZNKSt3mapI8llm_archPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEE4findERS6_.exit.thread, label %.lr.ph.i.i.i
@@ -7999,7 +7993,7 @@ _ZNKSt3mapI8llm_archPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEE4findERS6_.exit.thread: 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_Z20llm_arch_from_stringRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #3 {
+define noundef i32 @_Z20llm_arch_from_stringRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #2 {
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL14LLM_ARCH_NAMES, i64 24), align 8, !tbaa !13
   %.not12 = icmp eq ptr %2, getelementptr inbounds nuw (i8, ptr @_ZL14LLM_ARCH_NAMES, i64 8)
   br i1 %.not12, label %.split.loop.exit, label %.lr.ph
@@ -8028,7 +8022,7 @@ define noundef i32 @_Z20llm_arch_from_stringRKNSt7__cxx1112basic_stringIcSt11cha
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 4 dereferenceable(8) ptr @_Z19llm_tensor_info_for10llm_tensor(i32 noundef %0) local_unnamed_addr #2 {
+define noundef nonnull align 4 dereferenceable(8) ptr @_Z19llm_tensor_info_for10llm_tensor(i32 noundef %0) local_unnamed_addr #1 {
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL16LLM_TENSOR_INFOS, i64 16), align 8, !tbaa !12
   %.not10.i.i.i.i = icmp eq ptr %2, null
   br i1 %.not10.i.i.i.i, label %.critedge.i, label %.lr.ph.i.i.i.i
@@ -8066,7 +8060,7 @@ _ZNKSt3mapI10llm_tensor15llm_tensor_infoSt4lessIS0_ESaISt4pairIKS0_S1_EEE2atERS5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt8_Rb_treeI8llm_archSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt8_Rb_treeI8llm_archSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeI8llm_archSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %3)
@@ -8084,7 +8078,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeI8llm_archSt4pairIKS0_PKcESt10_Select1st
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt8_Rb_treeI8llm_archSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt8_Rb_treeI8llm_archSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %.not6 = icmp eq ptr %1, null
   br i1 %.not6, label %._crit_edge, label %.lr.ph
 
@@ -8104,7 +8098,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeI8llm_archSt4pairIKS0_PKcESt10_Select1st
 }
 
 ; Function Attrs: noinline noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #10 comdat {
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #9 comdat {
   %2 = tail call ptr @__cxa_begin_catch(ptr %0) #22
   tail call void @_ZSt9terminatev() #23
   unreachable
@@ -8113,13 +8107,13 @@ define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_un
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #11
+declare void @_ZSt9terminatev() local_unnamed_addr #10
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #12
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt8_Rb_treeI6llm_kvSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt8_Rb_treeI6llm_kvSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeI6llm_kvSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %3)
@@ -8137,7 +8131,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeI6llm_kvSt4pairIKS0_PKcESt10_Select1stIS
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt8_Rb_treeI6llm_kvSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt8_Rb_treeI6llm_kvSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %.not6 = icmp eq ptr %1, null
   br i1 %.not6, label %._crit_edge, label %.lr.ph
 
@@ -8157,7 +8151,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeI6llm_kvSt4pairIKS0_PKcESt10_Select1stIS
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE7_M_copyILb0ENSB_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS5_ESG_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %3) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr noundef ptr @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE7_M_copyILb0ENSB_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS5_ESG_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %3) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %6 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #21
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
@@ -8271,7 +8265,7 @@ define linkonce_odr noundef ptr @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %.not6 = icmp eq ptr %1, null
   br i1 %.not6, label %._crit_edge, label %.lr.ph
 
@@ -8295,10 +8289,10 @@ declare void @__cxa_rethrow() local_unnamed_addr
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #13
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %3)
@@ -8316,7 +8310,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt8_Rb_treeI8llm_archSt4pairIKS0_St3mapI10llm_tensorPKcSt4lessIS4_ESaIS1_IKS4_S6_EEEESt10_Select1stISD_ES7_IS0_ESaISD_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt8_Rb_treeI8llm_archSt4pairIKS0_St3mapI10llm_tensorPKcSt4lessIS4_ESaIS1_IKS4_S6_EEEESt10_Select1stISD_ES7_IS0_ESaISD_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeI8llm_archSt4pairIKS0_St3mapI10llm_tensorPKcSt4lessIS4_ESaIS1_IKS4_S6_EEEESt10_Select1stISD_ES7_IS0_ESaISD_EE8_M_eraseEPSt13_Rb_tree_nodeISD_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %3)
@@ -8334,7 +8328,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeI8llm_archSt4pairIKS0_St3mapI10llm_tenso
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt8_Rb_treeI8llm_archSt4pairIKS0_St3mapI10llm_tensorPKcSt4lessIS4_ESaIS1_IKS4_S6_EEEESt10_Select1stISD_ES7_IS0_ESaISD_EE8_M_eraseEPSt13_Rb_tree_nodeISD_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt8_Rb_treeI8llm_archSt4pairIKS0_St3mapI10llm_tensorPKcSt4lessIS4_ESaIS1_IKS4_S6_EEEESt10_Select1stISD_ES7_IS0_ESaISD_EE8_M_eraseEPSt13_Rb_tree_nodeISD_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %.not6 = icmp eq ptr %1, null
   br i1 %.not6, label %._crit_edge, label %.lr.ph
 
@@ -8368,7 +8362,7 @@ _ZNSt8_Rb_treeI8llm_archSt4pairIKS0_St3mapI10llm_tensorPKcSt4lessIS4_ESaIS1_IKS4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_15llm_tensor_infoESt10_Select1stIS4_ESt4lessIS0_ESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_15llm_tensor_infoESt10_Select1stIS4_ESt4lessIS0_ESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_15llm_tensor_infoESt10_Select1stIS4_ESt4lessIS0_ESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %3)
@@ -8386,7 +8380,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_15llm_tensor_in
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_15llm_tensor_infoESt10_Select1stIS4_ESt4lessIS0_ESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_15llm_tensor_infoESt10_Select1stIS4_ESt4lessIS0_ESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %.not6 = icmp eq ptr %1, null
   br i1 %.not6, label %._crit_edge, label %.lr.ph
 
@@ -8406,13 +8400,13 @@ define linkonce_odr void @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_15llm_tensor_in
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #14
+declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind
-declare void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #15
+declare void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt8_Rb_treeI8llm_archSt4pairIKS0_St3mapI10llm_tensorPKcSt4lessIS4_ESaIS1_IKS4_S6_EEEESt10_Select1stISD_ES7_IS0_ESaISD_EE17_M_construct_nodeIJRKSD_EEEvPSt13_Rb_tree_nodeISD_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(56) %2) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt8_Rb_treeI8llm_archSt4pairIKS0_St3mapI10llm_tensorPKcSt4lessIS4_ESaIS1_IKS4_S6_EEEESt10_Select1stISD_ES7_IS0_ESaISD_EE17_M_construct_nodeIJRKSD_EEEvPSt13_Rb_tree_nodeISD_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(56) %2) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.std::_Rb_tree<llm_tensor, std::pair<const llm_tensor, const char *>, std::_Select1st<std::pair<const llm_tensor, const char *>>, std::less<llm_tensor>>::_Alloc_node", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %6 = load i32, ptr %2, align 8, !tbaa !28
@@ -8434,7 +8428,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeI8llm_archSt4pairIKS0_St3mapI10llm_tenso
 
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %15, ptr %4, align 8, !tbaa !35
   %16 = invoke noundef ptr @_ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE7_M_copyILb0ENSB_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS5_ESG_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %15, ptr noundef nonnull %13, ptr noundef nonnull %7, ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %.noexc.i.i.i.i.i unwind label %25
@@ -8462,7 +8456,7 @@ _ZNSt8_Rb_treeI10llm_tensorSt4pairIKS0_PKcESt10_Select1stIS5_ESt4lessIS0_ESaIS5_
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %24 = load i64, ptr %23, align 8, !tbaa !15
   store i64 %24, ptr %11, align 8, !tbaa !15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store ptr %16, ptr %8, align 8, !tbaa !16
   br label %_ZNSt16allocator_traitsISaISt13_Rb_tree_nodeISt4pairIK8llm_archSt3mapI10llm_tensorPKcSt4lessIS5_ESaIS1_IKS5_S7_EEEEEEE9constructISE_JRKSE_EEEvRSG_PT_DpOT0_.exit
 
@@ -8499,24 +8493,24 @@ _ZNSt16allocator_traitsISaISt13_Rb_tree_nodeISt4pairIK8llm_archSt3mapI10llm_tens
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_out_of_rangePKc(ptr noundef) local_unnamed_addr #16
+declare void @_ZSt20__throw_out_of_rangePKc(ptr noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #17
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #16
 
-declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef) local_unnamed_addr #8
+declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #16
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #14
+declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind
-declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #15
+declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #14
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_llama_arch.cpp() #5 section ".text.startup" personality ptr @__gxx_personality_v0 {
+define internal void @_GLOBAL__sub_I_llama_arch.cpp() #4 section ".text.startup" personality ptr @__gxx_personality_v0 {
   %1 = alloca [139 x %"struct.std::pair.48"], align 4
   %2 = alloca %"struct.std::less.34", align 1
   %3 = alloca %"class.std::allocator.50", align 1
@@ -8526,36 +8520,42 @@ define internal void @_GLOBAL__sub_I_llama_arch.cpp() #5 section ".text.startup"
   %7 = alloca [58 x %"struct.std::pair"], align 8
   %8 = alloca %"struct.std::less", align 1
   %9 = alloca %"class.std::allocator.0", align 1
-  call void @llvm.lifetime.start.p0(i64 928, ptr nonnull %7) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(928) %7, ptr noundef nonnull align 8 dereferenceable(928) @constinit, i64 928, i1 false), !tbaa.struct !96
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #22
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZNSt3mapI8llm_archPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEEC2ESt16initializer_listIS7_ERKS4_RKS8_(ptr noundef nonnull align 8 dereferenceable(48) @_ZL14LLM_ARCH_NAMES, ptr nonnull %7, i64 58, ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 1 dereferenceable(1) %9)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #22
-  call void @llvm.lifetime.end.p0(i64 928, ptr nonnull %7) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %10 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt3mapI8llm_archPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev, ptr nonnull @_ZL14LLM_ARCH_NAMES, ptr nonnull @__dso_handle) #22
-  call void @llvm.lifetime.start.p0(i64 1856, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1856) %4, ptr noundef nonnull align 8 dereferenceable(1856) @constinit.175, i64 1856, i1 false), !tbaa.struct !97
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #22
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZNSt3mapI6llm_kvPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEEC2ESt16initializer_listIS7_ERKS4_RKS8_(ptr noundef nonnull align 8 dereferenceable(48) @_ZL12LLM_KV_NAMES, ptr nonnull %4, i64 116, ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #22
-  call void @llvm.lifetime.end.p0(i64 1856, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %11 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt3mapI6llm_kvPKcSt4lessIS0_ESaISt4pairIKS0_S2_EEED2Ev, ptr nonnull @_ZL12LLM_KV_NAMES, ptr nonnull @__dso_handle) #22
   call fastcc void @__cxx_global_var_init.176()
-  call void @llvm.lifetime.start.p0(i64 1668, ptr nonnull %1) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1668) %1, ptr noundef nonnull align 4 dereferenceable(1668) @constinit.360, i64 1668, i1 false), !tbaa.struct !98
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #22
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZNSt3mapI10llm_tensor15llm_tensor_infoSt4lessIS0_ESaISt4pairIKS0_S1_EEEC2ESt16initializer_listIS6_ERKS3_RKS7_(ptr noundef nonnull align 8 dereferenceable(48) @_ZL16LLM_TENSOR_INFOS, ptr nonnull %1, i64 139, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #22
-  call void @llvm.lifetime.end.p0(i64 1668, ptr nonnull %1) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %12 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt3mapI10llm_tensor15llm_tensor_infoSt4lessIS0_ESaISt4pairIKS0_S1_EEED2Ev, ptr nonnull @_ZL16LLM_TENSOR_INFOS, ptr nonnull @__dso_handle) #22
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #17
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #18
@@ -8563,24 +8563,24 @@ declare void @llvm.assume(i1 noundef) #18
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #19
 
-attributes #0 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree nounwind }
-attributes #5 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { cold nofree noreturn }
-attributes #12 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #1 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree nounwind }
+attributes #4 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { cold nofree noreturn }
+attributes #11 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #18 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #19 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #20 = { nounwind willreturn memory(read) }

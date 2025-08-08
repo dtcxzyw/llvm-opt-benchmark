@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 1, -1) i32 @fdt_address_cells(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !annotation !4
   %4 = call ptr @fdt_getprop(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str, ptr noundef nonnull %3) #5
   %.not.i = icmp eq ptr %4, null
@@ -27,12 +27,12 @@ define dso_local range(i32 1, -1) i32 @fdt_address_cells(ptr noundef %0, i32 nou
   br i1 %9, label %fdt_cells.exit.thread, label %fdt_cells.exit
 
 fdt_cells.exit.thread:                            ; preds = %6, %7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %12
 
 fdt_cells.exit:                                   ; preds = %7, %2
   %.0.i = phi i32 [ %rev.i.i, %7 ], [ %5, %2 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   switch i32 %.0.i, label %11 [
     i32 0, label %12
     i32 -1, label %10
@@ -49,16 +49,10 @@ fdt_cells.exit:                                   ; preds = %7, %2
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, -1) i32 @fdt_size_cells(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !annotation !4
   %4 = call ptr @fdt_getprop(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str.1, ptr noundef nonnull %3) #5
   %.not.i = icmp eq ptr %4, null
@@ -79,11 +73,11 @@ define dso_local range(i32 0, -1) i32 @fdt_size_cells(ptr noundef %0, i32 nounde
 
 fdt_cells.exit.thread:                            ; preds = %7, %6
   %.0.i.ph = phi i32 [ -14, %6 ], [ %spec.select, %7 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %11
 
 fdt_cells.exit:                                   ; preds = %2
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %10 = icmp eq i32 %.fr, -1
   %spec.select7 = select i1 %10, i32 1, i32 %.fr
   br label %11
@@ -98,9 +92,9 @@ define dso_local i32 @fdt_appendprop_addrrange(ptr noundef %0, i32 noundef %1, i
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca [16 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %9, i8 0, i64 16, i1 false), !annotation !4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4, !annotation !4
   %10 = call ptr @fdt_getprop(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str, ptr noundef nonnull %8) #5
   %.not.i.i = icmp eq ptr %10, null
@@ -124,12 +118,12 @@ define dso_local i32 @fdt_appendprop_addrrange(ptr noundef %0, i32 noundef %1, i
   br i1 %15, label %fdt_cells.exit.thread.i, label %fdt_cells.exit.i
 
 fdt_cells.exit.thread.i:                          ; preds = %13, %12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %fdt_address_cells.exit.thread
 
 fdt_cells.exit.i:                                 ; preds = %13, %6
   %.0.i.i = phi i32 [ %rev.i.i.i, %13 ], [ %11, %6 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   switch i32 %.0.i.i, label %fdt_address_cells.exit [
     i32 0, label %fdt_address_cells.exit.thread
     i32 -1, label %fdt_address_cells.exit.thread45
@@ -141,7 +135,7 @@ fdt_address_cells.exit:                           ; preds = %fdt_cells.exit.i
 
 fdt_address_cells.exit.thread45:                  ; preds = %fdt_cells.exit.i, %fdt_address_cells.exit
   %.0.i47 = phi i32 [ %.0.i.i, %fdt_address_cells.exit ], [ 2, %fdt_cells.exit.i ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4, !annotation !4
   %17 = call ptr @fdt_getprop(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str.1, ptr noundef nonnull %7) #5
   %.not.i.i39 = icmp eq ptr %17, null
@@ -162,11 +156,11 @@ fdt_address_cells.exit.thread45:                  ; preds = %fdt_cells.exit.i, %
 
 fdt_cells.exit.thread.i41:                        ; preds = %20, %19
   %.0.i.ph.i = phi i32 [ -14, %19 ], [ %spec.select.i, %20 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %fdt_size_cells.exit
 
 fdt_cells.exit.i43:                               ; preds = %fdt_address_cells.exit.thread45
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %23 = icmp eq i32 %.fr.i, -1
   br i1 %23, label %fdt_size_cells.exit.thread, label %fdt_size_cells.exit
 
@@ -291,24 +285,30 @@ fdt_size_cells.exit.thread:                       ; preds = %fdt_cells.exit.i43,
 
 fdt_address_cells.exit.thread:                    ; preds = %fdt_cells.exit.thread.i, %fdt_cells.exit.i, %49, %58, %fdt_size_cells.exit.thread, %27, %fdt_size_cells.exit, %fdt_address_cells.exit, %78
   %.0 = phi i32 [ %89, %78 ], [ %.0.i.i, %fdt_address_cells.exit ], [ %24, %fdt_size_cells.exit ], [ -15, %27 ], [ -14, %fdt_size_cells.exit.thread ], [ -15, %58 ], [ -14, %49 ], [ -14, %fdt_cells.exit.i ], [ -14, %fdt_cells.exit.thread.i ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
-declare i32 @fdt_appendprop(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @fdt_appendprop(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @fdt_getprop(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @fdt_getprop(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.bswap.i32(i32) #4
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { nounwind }
 

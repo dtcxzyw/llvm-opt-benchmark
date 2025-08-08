@@ -16,7 +16,7 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local { i64, ptr } @jv_load_file(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.stat, align 8
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = tail call i32 (ptr, i32, ...) @open(ptr noundef %0, i32 noundef 0) #9
   %6 = icmp eq i32 %5, -1
   br i1 %6, label %7, label %15
@@ -91,7 +91,7 @@ define dso_local { i64, ptr } @jv_load_file(ptr noundef %0, i32 noundef %1) loca
 
 47:                                               ; preds = %.lr.ph137
   %48 = call i64 @fread(ptr noundef nonnull %44, i64 noundef 1, i64 noundef 4096, ptr noundef nonnull %30)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !4
   %49 = icmp eq i64 %48, 0
   br i1 %49, label %.split.us, label %50, !llvm.loop !12
@@ -166,13 +166,13 @@ define dso_local { i64, ptr } @jv_load_file(ptr noundef %0, i32 noundef %1) loca
 
 .thread113:                                       ; preds = %._crit_edge.us
   call void @jv_free(i64 %.sroa.028.5.lcssa.us, ptr %.sroa.12.5.lcssa.us) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.critedge
 
 .split.us:                                        ; preds = %._crit_edge.us, %47
   %.sroa.028.3.us = phi i64 [ %.sroa.028.1.us135, %47 ], [ %.sroa.028.5.lcssa.us, %._crit_edge.us ]
   %.sroa.12.3.us = phi ptr [ %.sroa.12.1.us136, %47 ], [ %.sroa.12.5.lcssa.us, %._crit_edge.us ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %87 = call i32 @feof(ptr noundef nonnull %30) #9
   %.not75.us = icmp eq i32 %87, 0
   br i1 %.not75.us, label %.lr.ph137, label %.critedge, !llvm.loop !15
@@ -196,7 +196,7 @@ define dso_local { i64, ptr } @jv_load_file(ptr noundef %0, i32 noundef %1) loca
 
 93:                                               ; preds = %.lr.ph
   %94 = call i64 @fread(ptr noundef nonnull %90, i64 noundef 1, i64 noundef 4096, ptr noundef nonnull %30)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !4
   %95 = icmp eq i64 %94, 0
   br i1 %95, label %117, label %96, !llvm.loop !12
@@ -239,7 +239,7 @@ define dso_local { i64, ptr } @jv_load_file(ptr noundef %0, i32 noundef %1) loca
 117:                                              ; preds = %112, %93
   %.sroa.028.3 = phi i64 [ %.sroa.028.193, %93 ], [ %115, %112 ]
   %.sroa.12.3 = phi ptr [ %.sroa.12.194, %93 ], [ %116, %112 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %118 = call i32 @feof(ptr noundef nonnull %30) #9
   %.not75 = icmp eq i32 %118, 0
   br i1 %.not75, label %.lr.ph, label %.critedge
@@ -285,90 +285,90 @@ define dso_local { i64, ptr } @jv_load_file(ptr noundef %0, i32 noundef %1) loca
 
 134:                                              ; preds = %31, %133, %23, %7
   %.fca.1.insert.merged = phi { i64, ptr } [ %14, %7 ], [ %28, %23 ], [ %.merged82, %133 ], [ %39, %31 ]
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret { i64, ptr } %.fca.1.insert.merged
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nofree
-declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #2
+declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #1
 
-declare { i64, ptr } @jv_invalid_with_msg(i64, ptr) local_unnamed_addr #3
+declare { i64, ptr } @jv_invalid_with_msg(i64, ptr) local_unnamed_addr #2
 
-declare { i64, ptr } @jv_string_fmt(ptr noundef, ...) local_unnamed_addr #3
+declare { i64, ptr } @jv_string_fmt(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare ptr @strerror(i32 noundef) local_unnamed_addr #4
+declare ptr @strerror(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #5
+declare ptr @__errno_location() local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fstat(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #6
+declare noundef i32 @fstat(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
-declare i32 @close(i32 noundef) local_unnamed_addr #3
+declare i32 @close(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fdopen(i32 noundef, ptr noundef readonly captures(none)) local_unnamed_addr #6
+declare noalias noundef ptr @fdopen(i32 noundef, ptr noundef readonly captures(none)) local_unnamed_addr #5
 
-declare { i64, ptr } @jv_string(ptr noundef) local_unnamed_addr #3
+declare { i64, ptr } @jv_string(ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare { i64, ptr } @jv_array() local_unnamed_addr #2
 
-declare { i64, ptr } @jv_array() local_unnamed_addr #3
-
-declare ptr @jv_parser_new(i32 noundef) local_unnamed_addr #3
+declare ptr @jv_parser_new(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare ptr @llvm.stacksave.p0() #7
+declare ptr @llvm.stacksave.p0() #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @feof(ptr noundef captures(none)) local_unnamed_addr #6
+declare noundef i32 @feof(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef i32 @ferror(ptr noundef captures(none)) local_unnamed_addr #8
+declare noundef i32 @ferror(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #6
+declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
-declare ptr @jvp_utf8_backtrack(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @jvp_utf8_backtrack(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare { i64, ptr } @jv_string_append_buf(i64, ptr, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare { i64, ptr } @jv_string_append_buf(i64, ptr, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @jv_parser_set_buf(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare void @jv_parser_set_buf(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare { i64, ptr } @jv_parser_next(ptr noundef) local_unnamed_addr #3
+declare { i64, ptr } @jv_parser_next(ptr noundef) local_unnamed_addr #2
 
-declare { i64, ptr } @jv_array_append(i64, ptr, i64, ptr) local_unnamed_addr #3
+declare { i64, ptr } @jv_array_append(i64, ptr, i64, ptr) local_unnamed_addr #2
 
-declare i32 @jv_invalid_has_msg(i64, ptr) local_unnamed_addr #3
+declare i32 @jv_invalid_has_msg(i64, ptr) local_unnamed_addr #2
 
-declare { i64, ptr } @jv_copy(i64, ptr) local_unnamed_addr #3
+declare { i64, ptr } @jv_copy(i64, ptr) local_unnamed_addr #2
 
-declare void @jv_free(i64, ptr) local_unnamed_addr #3
+declare void @jv_free(i64, ptr) local_unnamed_addr #2
 
-declare void @jv_parser_free(ptr noundef) local_unnamed_addr #3
+declare void @jv_parser_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #6
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.stackrestore.p0(ptr) #7
+declare void @llvm.stackrestore.p0(ptr) #6
 
-declare i32 @jv_get_kind(i64, ptr) local_unnamed_addr #3
+declare i32 @jv_get_kind(i64, ptr) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #8 = { nofree nounwind memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #7 = { nofree nounwind memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nounwind }
 attributes #10 = { nounwind willreturn memory(none) }
 

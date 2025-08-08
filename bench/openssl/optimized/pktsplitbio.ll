@@ -160,8 +160,8 @@ define internal range(i32 0, 2) i32 @pkt_split_dgram_recvmmsg(ptr noundef %0, pt
   %.15688 = phi i64 [ 0, %.lr.ph89 ], [ %56, %55 ]
   %.05787 = phi ptr [ %1, %.lr.ph89 ], [ %57, %55 ]
   %.05886 = phi i64 [ %27, %.lr.ph89 ], [ %.159, %55 ]
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %7) #4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %31 = getelementptr inbounds nuw i8, ptr %.05787, i64 8
   %32 = load i64, ptr %31, align 8, !tbaa !9
   %33 = icmp slt i64 %32, 0
@@ -215,8 +215,8 @@ define internal range(i32 0, 2) i32 @pkt_split_dgram_recvmmsg(ptr noundef %0, pt
 
 55:                                               ; preds = %38, %._crit_edge85
   %.159 = phi i64 [ %54, %._crit_edge85 ], [ %.05886, %38 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #4
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %56 = add nuw i64 %.15688, 1
   %57 = getelementptr inbounds nuw i8, ptr %.05787, i64 40
   %58 = icmp ult i64 %56, %.159
@@ -228,8 +228,8 @@ define internal range(i32 0, 2) i32 @pkt_split_dgram_recvmmsg(ptr noundef %0, pt
   br label %.loopexit
 
 .critedge:                                        ; preds = %30, %34, %.lr.ph84
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #4
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %19, %.critedge, %26, %._crit_edge, %6, %12, %._crit_edge90
@@ -246,15 +246,9 @@ define dso_local void @bio_f_pkt_split_dgram_filter_free() local_unnamed_addr #0
 
 declare void @BIO_meth_free(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare ptr @BIO_next(ptr noundef) local_unnamed_addr #1
 
 declare i64 @BIO_ctrl(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 declare i32 @BIO_sendmmsg(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -271,12 +265,18 @@ declare i32 @ossl_quic_wire_decode_pkt_hdr(ptr noundef, i64 noundef, i32 noundef
 declare i32 @bio_msg_copy(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

@@ -192,12 +192,6 @@ define void @rb_Digest_SHA256_Transform(ptr noundef captures(none) %0, ptr nound
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
-
 ; Function Attrs: nofree norecurse nounwind sspstrong memory(argmem: readwrite) uwtable
 define void @rb_Digest_SHA256_Update(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #1 {
   %4 = icmp eq i64 %2, 0
@@ -368,7 +362,7 @@ define noundef i32 @rb_Digest_SHA256_Finish(ptr noundef %0, ptr noundef writeonl
 ; Function Attrs: nofree norecurse nounwind sspstrong memory(argmem: readwrite) uwtable
 define ptr @rb_Digest_SHA256_End(ptr noundef %0, ptr noundef writeonly captures(address_is_null, ret: address, provenance) %1) local_unnamed_addr #1 {
   %3 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %19, label %4
 
@@ -407,7 +401,7 @@ define ptr @rb_Digest_SHA256_End(ptr noundef %0, ptr noundef writeonly captures(
 
 20:                                               ; preds = %19, %18
   %.1 = phi ptr [ %17, %18 ], [ null, %19 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.1
 }
 
@@ -415,12 +409,12 @@ define ptr @rb_Digest_SHA256_End(ptr noundef %0, ptr noundef writeonly captures(
 define ptr @rb_Digest_SHA256_Data(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null, ret: address, provenance) %2) local_unnamed_addr #1 {
   %4 = alloca [32 x i8], align 16
   %5 = alloca %struct._SHA256_CTX, align 8
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 16 dereferenceable(32) @sha256_initial_hash_value, i64 noundef 32, i1 noundef false) #7
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %6, i8 0, i64 72, i1 false)
   call void @rb_Digest_SHA256_Update(ptr noundef nonnull %5, ptr noundef %0, i64 noundef %1)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %rb_Digest_SHA256_End.exit, label %7
 
@@ -455,8 +449,8 @@ define ptr @rb_Digest_SHA256_Data(ptr noundef readonly captures(none) %0, i64 no
 
 rb_Digest_SHA256_End.exit:                        ; preds = %3, %21
   %.1.i = phi ptr [ %20, %21 ], [ null, %3 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.1.i
 }
 
@@ -845,7 +839,7 @@ define noundef i32 @rb_Digest_SHA512_Finish(ptr noundef %0, ptr noundef writeonl
 ; Function Attrs: nofree norecurse nounwind sspstrong memory(argmem: readwrite) uwtable
 define ptr @rb_Digest_SHA512_End(ptr noundef %0, ptr noundef writeonly captures(address_is_null, ret: address, provenance) %1) local_unnamed_addr #1 {
   %3 = alloca [64 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %23, label %4
 
@@ -901,7 +895,7 @@ rb_Digest_SHA512_Finish.exit:                     ; preds = %5
 
 24:                                               ; preds = %23, %22
   %.1 = phi ptr [ %21, %22 ], [ null, %23 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.1
 }
 
@@ -909,12 +903,12 @@ rb_Digest_SHA512_Finish.exit:                     ; preds = %5
 define ptr @rb_Digest_SHA512_Data(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null, ret: address, provenance) %2) local_unnamed_addr #1 {
   %4 = alloca [64 x i8], align 16
   %5 = alloca %struct._SHA512_CTX, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 16 dereferenceable(64) @sha512_initial_hash_value, i64 noundef 64, i1 noundef false) #7
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %6, i8 0, i64 144, i1 false)
   call void @rb_Digest_SHA512_Update(ptr noundef nonnull %5, ptr noundef %0, i64 noundef %1)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %rb_Digest_SHA512_End.exit, label %7
 
@@ -962,8 +956,8 @@ rb_Digest_SHA512_Finish.exit.i:                   ; preds = %8, %rb_Digest_SHA51
 
 rb_Digest_SHA512_End.exit:                        ; preds = %3, %24
   %.1.i = phi ptr [ %23, %24 ], [ null, %3 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.1.i
 }
 
@@ -1021,7 +1015,7 @@ define noundef i32 @rb_Digest_SHA384_Finish(ptr noundef %0, ptr noundef writeonl
 ; Function Attrs: nofree norecurse nounwind sspstrong memory(argmem: readwrite) uwtable
 define ptr @rb_Digest_SHA384_End(ptr noundef %0, ptr noundef writeonly captures(address_is_null, ret: address, provenance) %1) local_unnamed_addr #1 {
   %3 = alloca [48 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %23, label %4
 
@@ -1077,7 +1071,7 @@ rb_Digest_SHA384_Finish.exit:                     ; preds = %5
 
 24:                                               ; preds = %23, %22
   %.1 = phi ptr [ %21, %22 ], [ null, %23 ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.1
 }
 
@@ -1085,12 +1079,12 @@ rb_Digest_SHA384_Finish.exit:                     ; preds = %5
 define ptr @rb_Digest_SHA384_Data(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null, ret: address, provenance) %2) local_unnamed_addr #1 {
   %4 = alloca [48 x i8], align 16
   %5 = alloca %struct._SHA512_CTX, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 16 dereferenceable(64) @sha384_initial_hash_value, i64 noundef 64, i1 noundef false) #7
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %6, i8 0, i64 144, i1 false)
   call void @rb_Digest_SHA512_Update(ptr noundef nonnull %5, ptr noundef readonly %0, i64 noundef %1)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %rb_Digest_SHA384_End.exit, label %7
 
@@ -1138,10 +1132,16 @@ rb_Digest_SHA384_Finish.exit.i:                   ; preds = %8, %rb_Digest_SHA38
 
 rb_Digest_SHA384_End.exit:                        ; preds = %3, %24
   %.1.i = phi ptr [ %23, %24 ], [ null, %3 ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.1.i
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #4

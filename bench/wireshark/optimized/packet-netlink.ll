@@ -236,13 +236,13 @@ define internal fastcc i32 @dissect_netlink_attributes_common(ptr noundef %0, i3
 28:                                               ; preds = %.lr.ph, %96
   %.0144 = phi i32 [ %24, %.lr.ph ], [ %98, %96 ]
   %.0121143 = phi i32 [ %25, %.lr.ph ], [ %99, %96 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %29 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %.0144, i32 noundef %17)
   %30 = icmp ult i16 %29, 4
   br i1 %30, label %.thread, label %31
 
 .thread:                                          ; preds = %28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.loopexit
 
 31:                                               ; preds = %28
@@ -364,7 +364,7 @@ define internal fastcc i32 @dissect_netlink_attributes_common(ptr noundef %0, i3
   %97 = add nsw i32 %89, -4
   %98 = add i32 %97, %.3
   %99 = sub i32 %.0121143, %89
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %100 = icmp ugt i32 %99, 3
   br i1 %100, label %28, label %.loopexit
 
@@ -504,9 +504,6 @@ define hidden noundef i32 @dissect_netlink_header(ptr noundef %0, ptr noundef %1
   ret i32 %62
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 ; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
@@ -533,9 +530,6 @@ declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_add
 
 ; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_netlink() local_unnamed_addr #1 {
@@ -638,7 +632,7 @@ define internal i32 @dissect_netlink(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %or.cond, label %54, label %.critedge
 
 54:                                               ; preds = %46
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 1247464654, ptr %5, align 4
   store i32 %.0101, ptr %35, align 4
   store i16 %48, ptr %36, align 4
@@ -646,7 +640,7 @@ define internal i32 @dissect_netlink(ptr noundef %0, ptr noundef %1, ptr noundef
   %56 = load ptr, ptr @netlink_dissector_table, align 8
   %57 = call i32 @dissector_try_uint_with_data(ptr noundef %56, i32 noundef %37, ptr noundef %55, ptr noundef %1, ptr noundef %2, i1 noundef zeroext true, ptr noundef nonnull %5)
   %.not111.not = icmp eq i32 %57, 0
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.not111.not, label %.critedge, label %72
 
 .critedge:                                        ; preds = %46, %54
@@ -743,6 +737,12 @@ declare i32 @dissector_try_uint_with_data(ptr noundef, i32 noundef, ptr noundef,
 ; Function Attrs: null_pointer_is_valid
 declare i32 @call_data_dissector(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #4
 
@@ -752,7 +752,6 @@ attributes #2 = { noreturn null_pointer_is_valid "no-trapping-math"="true" "stac
 attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { noreturn }
-attributes #6 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

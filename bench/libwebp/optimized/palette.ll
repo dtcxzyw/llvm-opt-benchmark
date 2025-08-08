@@ -30,14 +30,8 @@ define hidden range(i32 -1073741824, 1073741824) i32 @SearchColorNoIdx(ptr nound
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nofree nounwind uwtable
-define hidden void @PrepareMapToPalette(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #2 {
+define hidden void @PrepareMapToPalette(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #1 {
   %5 = zext i32 %1 to i64
   %6 = shl nuw nsw i64 %5, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %2, ptr align 4 %0, i64 %6, i1 false)
@@ -85,13 +79,13 @@ SearchColorNoIdx.exit:                            ; preds = %.lr.ph, %SearchColo
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #4
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @PaletteCompareColorsForQsort(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #5 {
+define internal range(i32 -1, 2) i32 @PaletteCompareColorsForQsort(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #4 {
   %.val = load i32, ptr %0, align 1
   %.val3 = load i32, ptr %1, align 1
   %3 = icmp ult i32 %.val, %.val3
@@ -100,12 +94,12 @@ define internal range(i32 -1, 2) i32 @PaletteCompareColorsForQsort(ptr noundef r
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden i32 @GetColorPalette(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #2 {
+define hidden i32 @GetColorPalette(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = alloca [1024 x i8], align 16
   %4 = alloca [1024 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %3, i8 0, i64 1024, i1 false)
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) %4, i8 0, i64 4096, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8, !tbaa !9
@@ -229,16 +223,16 @@ define hidden i32 @GetColorPalette(ptr noundef readonly captures(none) %0, ptr n
 
 .loopexit65:                                      ; preds = %._crit_edge.us, %._crit_edge87, %53
   %.3 = phi i32 [ %.6, %53 ], [ %.047.lcssa, %._crit_edge87 ], [ 257, %._crit_edge.us ]
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %4) #10
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.3
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @PaletteSort(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef captures(none) %4) local_unnamed_addr #7 {
+define hidden range(i32 0, 2) i32 @PaletteSort(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef captures(none) %4) local_unnamed_addr #6 {
   %6 = alloca [256 x i32], align 16
   %7 = alloca [256 x i32], align 16
   %8 = alloca [256 x i8], align 16
@@ -412,8 +406,8 @@ PaletteHasNonMonotonousDeltas.exit.i:             ; preds = %.lr.ph.i.i, %23
   br i1 %exitcond52.not.i, label %PaletteSortMinimizeDeltas.exit, label %.preheader.i, !llvm.loop !25
 
 103:                                              ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %8) #10
-  call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %9) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %104 = icmp ult i32 %3, 2
   br i1 %104, label %PaletteSortModifiedZeng.exit, label %105
 
@@ -428,9 +422,9 @@ PaletteHasNonMonotonousDeltas.exit.i:             ; preds = %.lr.ph.i.i, %23
   %111 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %112 = load ptr, ptr %111, align 8, !tbaa !16
   %113 = load i32, ptr %112, align 4, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %6, i8 0, i64 1024, i1 false)
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %114 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %115 = load i32, ptr %114, align 8, !tbaa !9
   %116 = shl nsw i32 %115, 1
@@ -691,15 +685,15 @@ PrepareMapToPalette.exit.i.i:                     ; preds = %229, %178, %.prehea
   br i1 %239, label %.preheader.i.i, label %.loopexit120.i, !llvm.loop !28
 
 240:                                              ; preds = %110
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %7) #10
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   tail call void @WebPSafeFree(ptr noundef nonnull %108) #10
   br label %PaletteSortModifiedZeng.exit
 
 .loopexit120.i:                                   ; preds = %PrepareMapToPalette.exit.i.i, %.preheader.lr.ph.i.i, %PrepareMapToPalette.exit.preheader.i.i
   call void @WebPSafeFree(ptr noundef nonnull %118) #10
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %7) #10
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.preheader.i112.i
 
 .preheader.i112.i:                                ; preds = %250, %.loopexit120.i
@@ -939,8 +933,8 @@ CoOccurrenceFindMax.exit.i:                       ; preds = %257
 
 PaletteSortModifiedZeng.exit:                     ; preds = %.lr.ph149.i, %103, %105, %240
   %.0.i = phi i32 [ 0, %240 ], [ 1, %103 ], [ 0, %105 ], [ 1, %.lr.ph149.i ]
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %9) #10
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %8) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %PaletteSortMinimizeDeltas.exit
 
 PaletteSortMinimizeDeltas.exit:                   ; preds = %97, %62, %PaletteHasNonMonotonousDeltas.exit.i, %5, %14, %20, %PaletteSortModifiedZeng.exit
@@ -948,11 +942,17 @@ PaletteSortMinimizeDeltas.exit:                   ; preds = %97, %62, %PaletteHa
   ret i32 %.0
 }
 
-declare ptr @WebPSafeCalloc(i64 noundef, i64 noundef) local_unnamed_addr #8
+declare ptr @WebPSafeCalloc(i64 noundef, i64 noundef) local_unnamed_addr #7
 
-declare void @WebPSafeFree(ptr noundef) local_unnamed_addr #8
+declare void @WebPSafeFree(ptr noundef) local_unnamed_addr #7
 
-declare ptr @WebPSafeMalloc(i64 noundef, i64 noundef) local_unnamed_addr #8
+declare ptr @WebPSafeMalloc(i64 noundef, i64 noundef) local_unnamed_addr #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #9
@@ -961,14 +961,14 @@ declare i32 @llvm.umin.i32(i32, i32) #9
 declare i32 @llvm.umax.i32(i32, i32) #9
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #10 = { nounwind }
 

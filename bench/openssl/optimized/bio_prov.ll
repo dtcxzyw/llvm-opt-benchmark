@@ -329,7 +329,7 @@ define i32 @ossl_prov_bio_vprintf(ptr noundef %0, ptr noundef %1, ptr noundef %2
 ; Function Attrs: nounwind uwtable
 define i32 @ossl_prov_bio_printf(ptr noundef %0, ptr noundef %1, ...) local_unnamed_addr #1 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = load ptr, ptr @c_bio_vprintf, align 8, !tbaa !10
   %5 = icmp eq ptr %4, null
@@ -342,21 +342,15 @@ define i32 @ossl_prov_bio_printf(ptr noundef %0, ptr noundef %1, ...) local_unna
 ossl_prov_bio_vprintf.exit:                       ; preds = %2, %6
   %.0.i = phi i32 [ %7, %6 ], [ -1, %2 ]
   call void @llvm.va_end.p0(ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0.i
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare void @llvm.va_end.p0(ptr) #2
 
 ; Function Attrs: nounwind uwtable
 define ptr @ossl_bio_prov_init_bio_method() local_unnamed_addr #1 {
@@ -408,9 +402,9 @@ define ptr @ossl_bio_prov_init_bio_method() local_unnamed_addr #1 {
   ret ptr %.0
 }
 
-declare ptr @BIO_meth_new(i32 noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @BIO_meth_new(i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @BIO_meth_set_write_ex(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @BIO_meth_set_write_ex(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @bio_core_write_ex(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #1 {
@@ -428,7 +422,7 @@ ossl_prov_bio_write_ex.exit:                      ; preds = %4, %8
   ret i32 %.0.i
 }
 
-declare i32 @BIO_meth_set_read_ex(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @BIO_meth_set_read_ex(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @bio_core_read_ex(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #1 {
@@ -446,7 +440,7 @@ ossl_prov_bio_read_ex.exit:                       ; preds = %4, %8
   ret i32 %.0.i
 }
 
-declare i32 @BIO_meth_set_puts(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @BIO_meth_set_puts(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @bio_core_puts(ptr noundef %0, ptr noundef %1) #1 {
@@ -464,7 +458,7 @@ ossl_prov_bio_puts.exit:                          ; preds = %2, %6
   ret i32 %.0.i
 }
 
-declare i32 @BIO_meth_set_gets(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @BIO_meth_set_gets(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @bio_core_gets(ptr noundef %0, ptr noundef %1, i32 noundef %2) #1 {
@@ -482,7 +476,7 @@ ossl_prov_bio_gets.exit:                          ; preds = %3, %7
   ret i32 %.0.i
 }
 
-declare i32 @BIO_meth_set_ctrl(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @BIO_meth_set_ctrl(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal range(i64 -2147483648, 2147483648) i64 @bio_core_ctrl(ptr noundef %0, i32 noundef %1, i64 noundef %2, ptr noundef %3) #1 {
@@ -501,7 +495,7 @@ ossl_prov_bio_ctrl.exit:                          ; preds = %4, %8
   ret i64 %.0.i
 }
 
-declare i32 @BIO_meth_set_create(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @BIO_meth_set_create(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @bio_core_new(ptr noundef %0) #1 {
@@ -509,7 +503,7 @@ define internal noundef i32 @bio_core_new(ptr noundef %0) #1 {
   ret i32 1
 }
 
-declare i32 @BIO_meth_set_destroy(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @BIO_meth_set_destroy(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @bio_core_free(ptr noundef %0) #1 {
@@ -527,7 +521,7 @@ ossl_prov_bio_free.exit:                          ; preds = %1, %5
   ret i32 1
 }
 
-declare void @BIO_meth_free(ptr noundef) local_unnamed_addr #4
+declare void @BIO_meth_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define ptr @ossl_bio_new_from_core_bio(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
@@ -563,23 +557,29 @@ ossl_prov_bio_up_ref.exit.thread:                 ; preds = %8, %ossl_prov_bio_u
   ret ptr %.0
 }
 
-declare ptr @ossl_prov_ctx_get0_core_bio_method(ptr noundef) local_unnamed_addr #4
+declare ptr @ossl_prov_ctx_get0_core_bio_method(ptr noundef) local_unnamed_addr #3
 
-declare ptr @BIO_new(ptr noundef) local_unnamed_addr #4
+declare ptr @BIO_new(ptr noundef) local_unnamed_addr #3
 
-declare i32 @BIO_free(ptr noundef) local_unnamed_addr #4
+declare i32 @BIO_free(ptr noundef) local_unnamed_addr #3
 
-declare void @BIO_set_data(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @BIO_set_data(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @BIO_get_data(ptr noundef) local_unnamed_addr #4
+declare ptr @BIO_get_data(ptr noundef) local_unnamed_addr #3
 
-declare void @BIO_set_init(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare void @BIO_set_init(ptr noundef, i32 noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 attributes #0 = { nofree norecurse nosync nounwind memory(readwrite, argmem: read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

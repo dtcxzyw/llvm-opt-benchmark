@@ -84,7 +84,7 @@ define internal void @lv_checkbox_event(ptr readnone captures(none) %0, ptr noun
   %20 = tail call ptr @lv_obj_get_style_prop(ptr noundef %13, i32 noundef 0, i8 noundef zeroext 91) #5
   %21 = ptrtoint ptr %20 to i64
   %.sroa.0.0.extract.trunc.i41 = trunc i64 %21 to i32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %22 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %23 = load ptr, ptr %22, align 8, !tbaa !3
   call void @lv_text_get_size(ptr noundef nonnull %9, ptr noundef %23, ptr noundef %16, i32 noundef %.sroa.0.0.extract.trunc.i41, i32 noundef %.sroa.0.0.extract.trunc.i, i32 noundef 536870911, i32 noundef 0) #5
@@ -116,7 +116,7 @@ define internal void @lv_checkbox_event(ptr readnone captures(none) %0, ptr noun
   %43 = call i32 @llvm.smax.i32(i32 %35, i32 %42)
   %44 = getelementptr inbounds nuw i8, ptr %15, i64 4
   store i32 %43, ptr %44, align 4, !tbaa !19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %145
 
 45:                                               ; preds = %11
@@ -181,12 +181,12 @@ define internal void @lv_checkbox_event(ptr readnone captures(none) %0, ptr noun
   %84 = tail call ptr @lv_obj_get_style_prop(ptr noundef %50, i32 noundef 131072, i8 noundef zeroext 105) #5
   %85 = ptrtoint ptr %84 to i64
   %.sroa.0.0.extract.trunc.i67.i = trunc i64 %85 to i32
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @lv_draw_rect_dsc_init(ptr noundef nonnull %3) #5
   %86 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %51, ptr %86, align 8, !tbaa !21
   call void @lv_obj_init_draw_rect_dsc(ptr noundef %50, i32 noundef 131072, ptr noundef nonnull %3) #5
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br i1 %57, label %87, label %94
 
 87:                                               ; preds = %70
@@ -227,7 +227,7 @@ define internal void @lv_checkbox_event(ptr readnone captures(none) %0, ptr noun
   %110 = add i32 %109, %106
   %111 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 %110, ptr %111, align 4, !tbaa !34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 %.sink.i, ptr %5, align 4, !tbaa !31
   %112 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %106, ptr %112, align 4, !tbaa !33
@@ -243,11 +243,11 @@ define internal void @lv_checkbox_event(ptr readnone captures(none) %0, ptr noun
   %117 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %50, i32 noundef 0, i8 noundef zeroext 91) #5
   %118 = ptrtoint ptr %117 to i64
   %.sroa.0.0.extract.trunc.i69.i = trunc i64 %118 to i32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %119 = getelementptr inbounds nuw i8, ptr %50, i64 64
   %120 = load ptr, ptr %119, align 8, !tbaa !3
   call void @lv_text_get_size(ptr noundef nonnull %6, ptr noundef %120, ptr noundef %52, i32 noundef %.sroa.0.0.extract.trunc.i69.i, i32 noundef %.sroa.0.0.extract.trunc.i68.i, i32 noundef 536870911, i32 noundef 0) #5
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @lv_draw_label_dsc_init(ptr noundef nonnull %7) #5
   %121 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %51, ptr %121, align 8, !tbaa !35
@@ -256,7 +256,7 @@ define internal void @lv_checkbox_event(ptr readnone captures(none) %0, ptr noun
   %123 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store ptr %122, ptr %123, align 8, !tbaa !39
   %124 = call i32 @lv_area_get_height(ptr noundef nonnull %4) #5
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %125 = load i32, ptr %6, align 4, !tbaa !17
   br i1 %57, label %126, label %130
 
@@ -291,12 +291,12 @@ lv_checkbox_draw.exit:                            ; preds = %126, %130
   %144 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 %143, ptr %144, align 4, !tbaa !34
   call void @lv_draw_label(ptr noundef %51, ptr noundef nonnull %7, ptr noundef nonnull %8) #5
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #5
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %7) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #5
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %145
 
 145:                                              ; preds = %14, %lv_checkbox_draw.exit, %45, %11, %2
@@ -310,15 +310,9 @@ define noundef ptr @lv_checkbox_create(ptr noundef %0) local_unnamed_addr #0 {
   ret ptr %2
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @lv_obj_class_create_obj(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_obj_class_create_obj(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare void @lv_obj_class_init_obj(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @lv_obj_class_init_obj(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @lv_checkbox_set_text(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -368,17 +362,17 @@ define void @lv_checkbox_set_text(ptr noundef %0, ptr noundef %1) local_unnamed_
   ret void
 }
 
-declare i64 @lv_strlen(ptr noundef) local_unnamed_addr #2
+declare i64 @lv_strlen(ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_realloc(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @lv_realloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare ptr @lv_malloc(i64 noundef) local_unnamed_addr #2
+declare ptr @lv_malloc(i64 noundef) local_unnamed_addr #1
 
-declare ptr @lv_strcpy(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @lv_strcpy(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @lv_obj_refresh_self_size(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @lv_obj_refresh_self_size(ptr noundef) local_unnamed_addr #1
 
-declare void @lv_obj_invalidate(ptr noundef) local_unnamed_addr #2
+declare void @lv_obj_invalidate(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @lv_checkbox_set_text_static(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -406,60 +400,66 @@ define void @lv_checkbox_set_text_static(ptr noundef %0, ptr noundef %1) local_u
   ret void
 }
 
-declare void @lv_free(ptr noundef) local_unnamed_addr #2
+declare void @lv_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @lv_checkbox_get_text(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
+define ptr @lv_checkbox_get_text(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8, !tbaa !3
   ret ptr %3
 }
 
-declare void @lv_obj_add_flag(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_add_flag(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_obj_remove_flag(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_remove_flag(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @lv_obj_event_base(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @lv_obj_event_base(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @lv_event_get_code(ptr noundef) local_unnamed_addr #2
+declare i32 @lv_event_get_code(ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_event_get_current_target(ptr noundef) local_unnamed_addr #2
+declare ptr @lv_event_get_current_target(ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_event_get_param(ptr noundef) local_unnamed_addr #2
+declare ptr @lv_event_get_param(ptr noundef) local_unnamed_addr #1
 
-declare i32 @lv_font_get_line_height(ptr noundef) local_unnamed_addr #2
+declare i32 @lv_font_get_line_height(ptr noundef) local_unnamed_addr #1
 
-declare void @lv_text_get_size(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_text_get_size(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @lv_obj_calculate_ext_draw_size(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @lv_obj_calculate_ext_draw_size(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @lv_obj_get_style_prop(ptr noundef, i32 noundef, i8 noundef zeroext) local_unnamed_addr #2
+declare ptr @lv_obj_get_style_prop(ptr noundef, i32 noundef, i8 noundef zeroext) local_unnamed_addr #1
 
-declare ptr @lv_event_get_layer(ptr noundef) local_unnamed_addr #2
+declare ptr @lv_event_get_layer(ptr noundef) local_unnamed_addr #1
 
-declare void @lv_draw_rect_dsc_init(ptr noundef) local_unnamed_addr #2
+declare void @lv_draw_rect_dsc_init(ptr noundef) local_unnamed_addr #1
 
-declare void @lv_obj_init_draw_rect_dsc(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @lv_obj_init_draw_rect_dsc(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @lv_area_increase(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_area_increase(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_draw_rect(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @lv_draw_rect(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @lv_draw_label_dsc_init(ptr noundef) local_unnamed_addr #2
+declare void @lv_draw_label_dsc_init(ptr noundef) local_unnamed_addr #1
 
-declare void @lv_obj_init_draw_label_dsc(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @lv_obj_init_draw_label_dsc(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @lv_area_get_height(ptr noundef) local_unnamed_addr #2
+declare i32 @lv_area_get_height(ptr noundef) local_unnamed_addr #1
 
-declare void @lv_draw_label(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @lv_draw_label(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #4
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { nounwind }
 

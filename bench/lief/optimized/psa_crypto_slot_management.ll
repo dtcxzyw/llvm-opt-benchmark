@@ -25,14 +25,8 @@ define hidden range(i32 0, 2) i32 @psa_is_valid_key_id(i32 noundef %0, i32 nound
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable
-define hidden range(i32 -141, 1) i32 @psa_initialize_key_slots() local_unnamed_addr #2 {
+define hidden range(i32 -141, 1) i32 @psa_initialize_key_slots() local_unnamed_addr #1 {
   %1 = tail call noalias dereferenceable_or_null(1792) ptr @calloc(i64 noundef 32, i64 noundef 56) #11
   store ptr %1, ptr getelementptr inbounds nuw (i8, ptr @global_data, i64 176), align 8, !tbaa !3
   %2 = icmp eq ptr %1, null
@@ -48,10 +42,10 @@ define hidden range(i32 -141, 1) i32 @psa_initialize_key_slots() local_unnamed_a
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #3
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @psa_wipe_all_key_slots() local_unnamed_addr #4 {
+define hidden void @psa_wipe_all_key_slots() local_unnamed_addr #3 {
   br label %1
 
 1:                                                ; preds = %0, %20
@@ -111,13 +105,13 @@ define hidden void @psa_wipe_all_key_slots() local_unnamed_addr #4 {
   ret void
 }
 
-declare i32 @psa_wipe_key_slot(ptr noundef) local_unnamed_addr #5
+declare i32 @psa_wipe_key_slot(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
-define hidden range(i32 -151, 1) i32 @psa_free_key_slot(i64 noundef %0, ptr noundef %1) local_unnamed_addr #7 {
+define hidden range(i32 -151, 1) i32 @psa_free_key_slot(i64 noundef %0, ptr noundef %1) local_unnamed_addr #6 {
   %3 = icmp eq i64 %0, 22
   br i1 %3, label %26, label %4
 
@@ -160,7 +154,7 @@ define hidden range(i32 -151, 1) i32 @psa_free_key_slot(i64 noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @psa_reserve_free_key_slot(ptr noundef writeonly captures(address_is_null) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #4 {
+define hidden i32 @psa_reserve_free_key_slot(ptr noundef writeonly captures(address_is_null) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #3 {
   %3 = load i8, ptr getelementptr inbounds nuw (i8, ptr @global_data, i64 360), align 8, !tbaa !7
   %.not = icmp eq i8 %3, 0
   br i1 %.not, label %psa_key_slot_state_transition.exit, label %4
@@ -319,7 +313,7 @@ psa_allocate_volatile_key_slot.exit:              ; preds = %8, %33, %.thread._c
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @psa_get_and_lock_key_slot(i32 noundef %0, ptr noundef captures(none) initializes((0, 8)) %1) local_unnamed_addr #4 {
+define hidden i32 @psa_get_and_lock_key_slot(i32 noundef %0, ptr noundef captures(none) initializes((0, 8)) %1) local_unnamed_addr #3 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   store ptr null, ptr %1, align 8, !tbaa !3
@@ -493,9 +487,9 @@ psa_reserve_free_key_slot.exit:                   ; preds = %65, %psa_register_r
   store i32 %0, ptr %79, align 4, !tbaa !28
   %80 = getelementptr inbounds nuw i8, ptr %.334.ph85.i, i64 4
   store i32 1, ptr %80, align 4, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !30
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8, !tbaa !22
   %81 = call i32 @psa_load_persistent_key(ptr noundef nonnull %.334.ph85.i, ptr noundef nonnull %3, ptr noundef nonnull %4) #12
   %.not.i33 = icmp eq i32 %81, 0
@@ -512,8 +506,8 @@ psa_load_persistent_key_into_slot.exit:           ; preds = %.loopexit, %82
   %86 = load ptr, ptr %3, align 8, !tbaa !30
   %87 = load i64, ptr %4, align 8, !tbaa !22
   call void @psa_free_persistent_key_data(ptr noundef %86, i64 noundef %87) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not27 = icmp eq i32 %.0.i34, 0
   %88 = load ptr, ptr %1, align 8, !tbaa !3
   br i1 %.not27, label %92, label %89
@@ -572,7 +566,7 @@ psa_get_and_lock_key_slot_in_memory.exit:         ; preds = %psa_register_read.e
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @psa_unregister_read(ptr noundef %0) local_unnamed_addr #4 {
+define hidden i32 @psa_unregister_read(ptr noundef %0) local_unnamed_addr #3 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %17, label %3
 
@@ -611,7 +605,7 @@ define hidden i32 @psa_unregister_read(ptr noundef %0) local_unnamed_addr #4 {
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @psa_unregister_read_under_mutex(ptr noundef %0) local_unnamed_addr #4 {
+define hidden i32 @psa_unregister_read_under_mutex(ptr noundef %0) local_unnamed_addr #3 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %psa_unregister_read.exit, label %3
 
@@ -662,9 +656,9 @@ define hidden noundef range(i32 -135, 1) i32 @psa_validate_key_persistence(i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @psa_open_key(i32 noundef %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) local_unnamed_addr #4 {
+define hidden i32 @psa_open_key(i32 noundef %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) local_unnamed_addr #3 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 @psa_get_and_lock_key_slot(i32 noundef %0, ptr noundef nonnull %3)
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %7, label %5
@@ -711,12 +705,12 @@ define hidden i32 @psa_open_key(i32 noundef %0, ptr noundef writeonly captures(n
 
 psa_unregister_read_under_mutex.exit:             ; preds = %21, %._crit_edge.i.i, %19, %10, %7, %5
   %.0 = phi i32 [ %spec.store.select, %5 ], [ %20, %19 ], [ 0, %21 ], [ 0, %7 ], [ -151, %10 ], [ -151, %._crit_edge.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @psa_close_key(i32 noundef %0) local_unnamed_addr #4 {
+define hidden i32 @psa_close_key(i32 noundef %0) local_unnamed_addr #3 {
   %.not = icmp eq i32 %0, 0
   br i1 %.not, label %psa_unregister_read.exit, label %2
 
@@ -812,7 +806,7 @@ psa_unregister_read.exit:                         ; preds = %35, %45, %25, %.loo
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @psa_purge_key(i32 noundef %0) local_unnamed_addr #4 {
+define hidden i32 @psa_purge_key(i32 noundef %0) local_unnamed_addr #3 {
   %2 = add i32 %0, -2147418112
   %3 = icmp ult i32 %2, -1073676288
   br i1 %3, label %24, label %4
@@ -909,7 +903,7 @@ psa_unregister_read.exit:                         ; preds = %34, %.loopexit.i, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @mbedtls_psa_get_stats(ptr noundef writeonly captures(none) initializes((0, 64)) %0) local_unnamed_addr #8 {
+define hidden void @mbedtls_psa_get_stats(ptr noundef writeonly captures(none) initializes((0, 64)) %0) local_unnamed_addr #7 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 64, i1 false)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1046,27 +1040,33 @@ define hidden void @mbedtls_psa_get_stats(ptr noundef writeonly captures(none) i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
-declare i32 @psa_load_persistent_key(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @psa_load_persistent_key(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare i32 @psa_copy_key_material_into_slot(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
+declare i32 @psa_copy_key_material_into_slot(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
-declare void @psa_free_persistent_key_data(ptr noundef, i64 noundef) local_unnamed_addr #5
+declare void @psa_free_persistent_key_data(ptr noundef, i64 noundef) local_unnamed_addr #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #10
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #1 = { mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #11 = { nounwind allocsize(0,1) }
 attributes #12 = { nounwind }

@@ -42,22 +42,16 @@ define void @av_audio_fifo_free(ptr noundef %0) local_unnamed_addr #0 {
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare void @av_fifo_freep2(ptr noundef) local_unnamed_addr #1
 
-declare void @av_fifo_freep2(ptr noundef) local_unnamed_addr #2
+declare void @av_freep(ptr noundef) local_unnamed_addr #1
 
-declare void @av_freep(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare void @av_free(ptr noundef) local_unnamed_addr #2
+declare void @av_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @av_audio_fifo_alloc(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call i32 @av_samples_get_buffer_size(ptr noundef nonnull %4, i32 noundef %1, i32 noundef %2, i32 noundef %0, i32 noundef 1) #5
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %38, label %7
@@ -140,19 +134,19 @@ av_audio_fifo_free.exit:                          ; preds = %9, %._crit_edge.i
 
 38:                                               ; preds = %7, %3, %av_audio_fifo_free.exit, %._crit_edge
   %.027 = phi ptr [ null, %av_audio_fifo_free.exit ], [ %8, %._crit_edge ], [ null, %3 ], [ null, %7 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.027
 }
 
-declare i32 @av_samples_get_buffer_size(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @av_samples_get_buffer_size(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare noalias ptr @av_mallocz(i64 noundef) local_unnamed_addr #2
+declare noalias ptr @av_mallocz(i64 noundef) local_unnamed_addr #1
 
-declare i32 @av_sample_fmt_is_planar(i32 noundef) local_unnamed_addr #2
+declare i32 @av_sample_fmt_is_planar(i32 noundef) local_unnamed_addr #1
 
-declare noalias ptr @av_calloc(i64 noundef, i64 noundef) local_unnamed_addr #2
+declare noalias ptr @av_calloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare ptr @av_fifo_alloc2(i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @av_fifo_alloc2(i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -2147483648, 1) i32 @av_audio_fifo_realloc(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -164,7 +158,7 @@ define range(i32 -2147483648, 1) i32 @av_audio_fifo_realloc(ptr noundef captures
   %8 = load ptr, ptr %7, align 8, !tbaa !20
   %9 = tail call i64 @av_fifo_can_write(ptr noundef %8) #5
   %10 = add i64 %9, %6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %12 = load i32, ptr %11, align 4, !tbaa !15
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -211,15 +205,15 @@ define range(i32 -2147483648, 1) i32 @av_audio_fifo_realloc(ptr noundef captures
 
 .loopexit20:                                      ; preds = %.lr.ph, %2, %.loopexit
   %.016 = phi i32 [ 0, %.loopexit ], [ %15, %2 ], [ %34, %.lr.ph ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.016
 }
 
-declare i64 @av_fifo_can_read(ptr noundef) local_unnamed_addr #2
+declare i64 @av_fifo_can_read(ptr noundef) local_unnamed_addr #1
 
-declare i64 @av_fifo_can_write(ptr noundef) local_unnamed_addr #2
+declare i64 @av_fifo_can_write(ptr noundef) local_unnamed_addr #1
 
-declare i32 @av_fifo_grow2(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @av_fifo_grow2(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @av_audio_fifo_write(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -286,7 +280,7 @@ define i32 @av_audio_fifo_write(ptr noundef captures(none) %0, ptr noundef reado
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @av_audio_fifo_space(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
+define i32 @av_audio_fifo_space(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8, !tbaa !22
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -296,13 +290,13 @@ define i32 @av_audio_fifo_space(ptr noundef readonly captures(none) %0) local_un
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @av_audio_fifo_size(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
+define i32 @av_audio_fifo_size(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4, !tbaa !24
   ret i32 %3
 }
 
-declare i32 @av_fifo_write(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @av_fifo_write(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -558323010, -2147483648) i32 @av_audio_fifo_peek(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -415,7 +409,7 @@ define range(i32 -558323010, -2147483648) i32 @av_audio_fifo_peek_at(ptr noundef
   ret i32 %.0
 }
 
-declare i32 @av_fifo_peek(ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @av_fifo_peek(ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @av_audio_fifo_read(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -475,7 +469,7 @@ define i32 @av_audio_fifo_read(ptr noundef captures(none) %0, ptr noundef readon
   ret i32 %.0
 }
 
-declare i32 @av_fifo_read(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @av_fifo_read(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -22, 1) i32 @av_audio_fifo_drain(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -529,7 +523,7 @@ define range(i32 -22, 1) i32 @av_audio_fifo_drain(ptr noundef captures(none) %0,
   ret i32 %.0
 }
 
-declare void @av_fifo_drain2(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @av_fifo_drain2(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @av_audio_fifo_reset(ptr noundef captures(none) %0) local_unnamed_addr #0 {
@@ -556,7 +550,13 @@ define void @av_audio_fifo_reset(ptr noundef captures(none) %0) local_unnamed_ad
   ret void
 }
 
-declare void @av_fifo_reset2(ptr noundef) local_unnamed_addr #2
+declare void @av_fifo_reset2(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #4
@@ -565,9 +565,9 @@ declare i32 @llvm.umin.i32(i32, i32) #4
 declare i32 @llvm.smin.i32(i32, i32) #4
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { nounwind }
 

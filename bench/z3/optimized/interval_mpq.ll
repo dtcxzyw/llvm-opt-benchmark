@@ -904,7 +904,7 @@ _ZN11mpq_managerILb0EE3setER3mpzRKS1_.exit.i52:   ; preds = %258, %253
   br label %269
 
 269:                                              ; preds = %_ZN11mpq_managerILb0EE3setER3mpqRKS1_.exit49, %223, %174, %263, %268
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %270 = load ptr, ptr %12, align 8, !tbaa !3
   store ptr %270, ptr %7, align 8, !tbaa !13
   %271 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -919,7 +919,7 @@ _ZN11mpq_managerILb0EE3setER3mpzRKS1_.exit.i52:   ; preds = %258, %253
   store i8 0, ptr %275, align 4
   %276 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr null, ptr %276, align 8, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %270, ptr %8, align 8, !tbaa !13
   %277 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 0, ptr %277, align 8, !tbaa !9
@@ -933,7 +933,7 @@ _ZN11mpq_managerILb0EE3setER3mpzRKS1_.exit.i52:   ; preds = %258, %253
   store i8 0, ptr %281, align 4
   %282 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr null, ptr %282, align 8, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %270, ptr %9, align 8, !tbaa !13
   %283 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %284 = getelementptr inbounds nuw i8, ptr %9, i64 12
@@ -1089,11 +1089,11 @@ _ZN11mpq_managerILb0EE3setER3mpzRKS1_.exit.i55:   ; preds = %347, %343
 357:                                              ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %9) #18
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @_ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %8) #18
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @_ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #18
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   resume { ptr, i32 } %lpad.phi
 
 358:                                              ; preds = %_ZN11mpq_managerILb0EE2gtERK3mpqS3_.exit, %329, %.noexc
@@ -1366,7 +1366,7 @@ _ZN11mpq_managerILb0EE3setER3mpqRKS1_.exit70:     ; preds = %491, %482, %.noexc9
   unreachable
 
 _ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev.exit: ; preds = %.noexc.i
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %496 = load ptr, ptr %8, align 8, !tbaa !17
   invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(728) %496, ptr noundef nonnull align 8 dereferenceable(32) %277)
           to label %.noexc.i97 unwind label %497
@@ -1383,7 +1383,7 @@ _ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev.exit: ; preds = %.noexc.i
   unreachable
 
 _ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev.exit98: ; preds = %.noexc.i97
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %500 = load ptr, ptr %7, align 8, !tbaa !17
   invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(728) %500, ptr noundef nonnull align 8 dereferenceable(32) %271)
           to label %.noexc.i99 unwind label %501
@@ -1400,15 +1400,12 @@ _ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev.exit98: ; preds = %.noexc.i97
   unreachable
 
 _ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev.exit100: ; preds = %.noexc.i99
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN11mpq_managerILb0EE3setER3mpqRKS1_.exit47
 
 _ZN11mpq_managerILb0EE3setER3mpqRKS1_.exit47:     ; preds = %104, %99, %_ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev.exit100
   ret void
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden noundef nonnull align 8 dereferenceable(728) ptr @_ZNK16interval_managerI17im_default_configE1mEv(ptr noundef nonnull align 8 dereferenceable(600) %0) local_unnamed_addr #3 comdat align 2 {
@@ -1429,9 +1426,9 @@ define weak_odr hidden void @_ZN16interval_managerI17im_default_configE10checkpo
 
 6:                                                ; preds = %1
   %7 = tail call ptr @__cxa_allocate_exception(i64 40) #18
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %8 = load ptr, ptr @_ZN11common_msgs14g_canceled_msgE, align 8, !tbaa !24
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %8, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %9 unwind label %32
 
@@ -1493,15 +1490,15 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i6:
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #18
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %35
 
 32:                                               ; preds = %6
   %33 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #18
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @__cxa_free_exception(ptr %7) #18
   br label %35
 
@@ -1725,7 +1722,7 @@ _ZN11mpq_managerILb0EE6is_oneERK3mpq.exit.thread: ; preds = %8, %_ZN11mpq_manage
   br i1 %46, label %47, label %62
 
 47:                                               ; preds = %_ZN11mpq_managerILb0EE6is_oneERK3mpq.exit.thread
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 8, !tbaa !9
   %48 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i8 0, ptr %48, align 4
@@ -1756,7 +1753,7 @@ _ZN11mpq_managerILb0EE6is_oneERK3mpq.exit.thread: ; preds = %8, %_ZN11mpq_manage
 
 _ZN11mpq_managerILb0EE3setER3mpzRKS1_.exit:       ; preds = %56, %61
   call void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(728) %0, ptr noundef nonnull align 8 dereferenceable(16) %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %66
 
 62:                                               ; preds = %_ZN11mpq_managerILb0EE6is_oneERK3mpq.exit.thread
@@ -1802,7 +1799,7 @@ _ZN11mpq_managerILb0EE3setER3mpqRKS1_.exit:       ; preds = %80, %71, %45, %40
 declare void @_ZN11mpq_managerILb0EE5powerERK3mpqjRS1_(ptr noundef nonnull align 8 dereferenceable(728), ptr noundef nonnull align 8 dereferenceable(32), i32 noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !17
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(728) %2, ptr noundef nonnull align 8 dereferenceable(32) %3)
@@ -1823,9 +1820,6 @@ _ZN11mpq_managerILb0EE3delER3mpq.exit:            ; preds = %.noexc
   tail call void @__clang_call_terminate(ptr %7) #19
   unreachable
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden void @_ZN16interval_managerI17im_default_configE9A_div_x_nERK3mpqS4_jbRS2_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef %3, i1 noundef zeroext %4, ptr noundef nonnull align 8 dereferenceable(32) %5) local_unnamed_addr #3 comdat align 2 {
@@ -1882,7 +1876,7 @@ define weak_odr hidden void @_ZN16interval_managerI17im_default_configE15approx_
   %9 = alloca %class._scoped_numeral, align 8
   %10 = alloca %class._scoped_numeral, align 8
   %11 = alloca %class._scoped_numeral, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !3
   store ptr %13, ptr %7, align 8, !tbaa !13
@@ -1898,7 +1892,7 @@ define weak_odr hidden void @_ZN16interval_managerI17im_default_configE15approx_
   store i8 0, ptr %18, align 4
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr null, ptr %19, align 8, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %13, ptr %8, align 8, !tbaa !13
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %21 = getelementptr inbounds nuw i8, ptr %8, i64 12
@@ -2043,7 +2037,7 @@ _ZN11mpq_managerILb0EE3setER3mpqRKS1_.exit:       ; preds = %77, %72, %.noexc40
   br i1 %93, label %94, label %205
 
 94:                                               ; preds = %_ZN11mpq_managerILb0EE3setER3mpqRKS1_.exit
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %95 = load ptr, ptr %12, align 8, !tbaa !3
   store ptr %95, ptr %9, align 8, !tbaa !13
   %96 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -2250,7 +2244,7 @@ _ZN11mpq_managerILb0EE2ltERK3mpqS3_.exit51:       ; preds = %197
   unreachable
 
 _ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev.exit: ; preds = %.noexc.i
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %369
 
 .loopexit:                                        ; preds = %.backedge, %116, %118, %120, %137, %.noexc44, %140, %141, %194, %197
@@ -2266,11 +2260,11 @@ _ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev.exit: ; preds = %.noexc.i
 204:                                              ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %9) #18
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %378
 
 205:                                              ; preds = %_ZN11mpq_managerILb0EE3setER3mpqRKS1_.exit
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %206 = load ptr, ptr %12, align 8, !tbaa !3
   store ptr %206, ptr %10, align 8, !tbaa !13
   %207 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -2289,7 +2283,7 @@ _ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev.exit: ; preds = %.noexc.i
   store i8 %215, ptr %213, align 4
   %216 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store ptr null, ptr %216, align 8, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %206, ptr %11, align 8, !tbaa !13
   %217 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i32 0, ptr %217, align 8, !tbaa !9
@@ -2354,7 +2348,7 @@ _ZN11mpq_managerILb0EE3setER3mpzj.exit.i54:       ; preds = %238, %235
   %242 = and i8 %241, -2
   store i8 %242, ptr %223, align 4
   %243 = load ptr, ptr %12, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 -1, ptr %6, align 8, !tbaa !9
   %244 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i8 0, ptr %244, align 4
@@ -2364,7 +2358,7 @@ _ZN11mpq_managerILb0EE3setER3mpzj.exit.i54:       ; preds = %238, %235
           to label %_ZN11mpq_managerILb0EE3decER3mpq.exit unwind label %.loopexit.split-lp81
 
 _ZN11mpq_managerILb0EE3decER3mpq.exit:            ; preds = %240
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %246 = add i32 %2, -1
   %247 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %248 = getelementptr inbounds nuw i8, ptr %4, i64 20
@@ -2589,7 +2583,7 @@ _ZN11mpq_managerILb0EE2ltERK3mpqS3_.exit71:       ; preds = %357
   unreachable
 
 _ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev.exit73: ; preds = %.noexc.i72
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %364 = load ptr, ptr %10, align 8, !tbaa !17
   invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(728) %364, ptr noundef nonnull align 8 dereferenceable(32) %207)
           to label %.noexc.i74 unwind label %365
@@ -2606,7 +2600,7 @@ _ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev.exit73: ; preds = %.noexc.i72
   unreachable
 
 _ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev.exit75: ; preds = %.noexc.i74
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %369
 
 .loopexit80:                                      ; preds = %.backedge85, %255, %257, %278, %280, %274, %.noexc59, %277, %297, %.noexc62, %300, %301, %354, %357
@@ -2622,9 +2616,9 @@ _ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev.exit75: ; preds = %.noexc.i74
 368:                                              ; preds = %.loopexit.split-lp81, %.loopexit80
   %lpad.phi84 = phi { ptr, i32 } [ %lpad.loopexit82, %.loopexit80 ], [ %lpad.loopexit.split-lp83, %.loopexit.split-lp81 ]
   call void @_ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %11) #18
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @_ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %10) #18
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %378
 
 369:                                              ; preds = %_ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev.exit75, %_ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev.exit
@@ -2644,7 +2638,7 @@ _ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev.exit75: ; preds = %.noexc.i74
   unreachable
 
 _ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev.exit77: ; preds = %.noexc.i76
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %374 = load ptr, ptr %7, align 8, !tbaa !17
   invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(728) %374, ptr noundef nonnull align 8 dereferenceable(32) %14)
           to label %.noexc.i78 unwind label %375
@@ -2661,20 +2655,20 @@ _ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev.exit77: ; preds = %.noexc.i76
   unreachable
 
 _ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev.exit79: ; preds = %.noexc.i78
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 
 378:                                              ; preds = %368, %204, %78
   %.pn32.pn = phi { ptr, i32 } [ %lpad.phi, %204 ], [ %lpad.phi84, %368 ], [ %79, %78 ]
   call void @_ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %8) #18
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @_ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #18
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   resume { ptr, i32 } %.pn32.pn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN11mpq_managerILb0EE4swapER3mpqS2_(ptr noundef nonnull align 8 dereferenceable(728) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #5 comdat align 2 {
+define linkonce_odr hidden void @_ZN11mpq_managerILb0EE4swapER3mpqS2_(ptr noundef nonnull align 8 dereferenceable(728) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #4 comdat align 2 {
   %4 = load i32, ptr %1, align 8, !tbaa !35
   %5 = load i32, ptr %2, align 8, !tbaa !35
   store i32 %5, ptr %1, align 8, !tbaa !35
@@ -3024,7 +3018,7 @@ _ZN11mpq_managerILb0EE3setER3mpzRKS1_.exit.i21:   ; preds = %73, %68
 
 _ZN11mpq_managerILb0EE12is_minus_oneERK3mpq.exit.thread: ; preds = %_ZN11mpq_managerILb0EE6is_oneERK3mpq.exit, %28, %_ZN11mpq_managerILb0EE12is_minus_oneERK3mpq.exit
   %84 = icmp slt i32 %11, 0
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %85 = load ptr, ptr %10, align 8, !tbaa !3
   store ptr %85, ptr %7, align 8, !tbaa !13
   %86 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -3164,7 +3158,7 @@ _ZN11mpq_managerILb0EE3absER3mpq.exit:            ; preds = %104
   %164 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #18
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   resume { ptr, i32 } %164
 
 _ZN11mpq_managerILb0EE3negER3mpq.exit29:          ; preds = %161, %106
@@ -3184,7 +3178,7 @@ _ZN11mpq_managerILb0EE3negER3mpq.exit29:          ; preds = %161, %106
   unreachable
 
 _ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev.exit: ; preds = %.noexc.i
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN11mpq_managerILb0EE3setER3mpqRKS1_.exit22
 
 _ZN11mpq_managerILb0EE3setER3mpqRKS1_.exit22:     ; preds = %83, %78, %_ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev.exit
@@ -3194,7 +3188,7 @@ _ZN11mpq_managerILb0EE3setER3mpqRKS1_.exit22:     ; preds = %83, %78, %_ZN15_sco
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden void @_ZN16interval_managerI17im_default_configE9pi_seriesEiR3mpqb(ptr noundef nonnull align 8 dereferenceable(600) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 noundef zeroext %3) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class._scoped_numeral, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !3
   store ptr %7, ptr %5, align 8, !tbaa !13
@@ -3559,21 +3553,21 @@ _ZN11mpq_managerILb0EE3mulERK3mpqS3_RS1_.exit:    ; preds = %.noexc59, %173
   unreachable
 
 _ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev.exit: ; preds = %.noexc.i
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
 178:                                              ; preds = %173, %.noexc58, %170, %.noexc55, %152, %138, %137, %.noexc50, %134, %.noexc47, %118, %103, %102, %.noexc40, %99, %.noexc37, %83, %68, %67, %.noexc31, %64, %.noexc28, %48, %33, %.noexc23, %32, %4, %153
   %179 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #18
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %179
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden void @_ZN16interval_managerI17im_default_configE4factEjR3mpq(ptr noundef nonnull align 8 dereferenceable(600) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class._scoped_numeral, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !3
   store ptr %6, ptr %4, align 8, !tbaa !13
@@ -3628,7 +3622,7 @@ _ZN11mpq_managerILb0EE3setER3mpqi.exit:           ; preds = %3
   unreachable
 
 _ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev.exit: ; preds = %.noexc.i
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
 24:                                               ; preds = %3
@@ -3692,7 +3686,7 @@ _ZN11mpq_managerILb0EE3mulERK3mpqS3_RS1_.exit:    ; preds = %.noexc13, %42
 46:                                               ; preds = %44, %24
   %.pn = phi { ptr, i32 } [ %45, %44 ], [ %25, %24 ]
   call void @_ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %4) #18
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn
 }
 
@@ -3700,7 +3694,7 @@ _ZN11mpq_managerILb0EE3mulERK3mpqS3_RS1_.exit:    ; preds = %.noexc13, %42
 define weak_odr hidden void @_ZN16interval_managerI17im_default_configE11sine_seriesERK3mpqjbRS2_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2, i1 noundef zeroext %3, ptr noundef nonnull align 8 dereferenceable(32) %4) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %class._scoped_numeral, align 8
   %7 = alloca %class._scoped_numeral, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !3
   store ptr %9, ptr %6, align 8, !tbaa !13
@@ -3716,7 +3710,7 @@ define weak_odr hidden void @_ZN16interval_managerI17im_default_configE11sine_se
   store i8 0, ptr %14, align 4
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr null, ptr %15, align 8, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %9, ptr %7, align 8, !tbaa !13
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 0, ptr %16, align 8, !tbaa !9
@@ -3796,7 +3790,7 @@ _ZN11mpq_managerILb0EE3setER3mpqRKS1_.exit:       ; preds = %38, %43
   unreachable
 
 _ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev.exit: ; preds = %.noexc.i
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %49 = load ptr, ptr %6, align 8, !tbaa !17
   invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(728) %49, ptr noundef nonnull align 8 dereferenceable(32) %10)
           to label %.noexc.i30 unwind label %50
@@ -3813,7 +3807,7 @@ _ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev.exit: ; preds = %.noexc.i
   unreachable
 
 _ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev.exit31: ; preds = %.noexc.i30
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
 53:                                               ; preds = %43, %31
@@ -3896,9 +3890,9 @@ _ZN11mpq_managerILb0EE3subERK3mpqS3_RS1_.exit:    ; preds = %.noexc33, %79, %82
 85:                                               ; preds = %80, %53
   %.pn = phi { ptr, i32 } [ %81, %80 ], [ %54, %53 ]
   call void @_ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #18
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %6) #18
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %.pn
 }
 
@@ -3906,7 +3900,7 @@ _ZN11mpq_managerILb0EE3subERK3mpqS3_RS1_.exit:    ; preds = %.noexc33, %79, %82
 define weak_odr hidden void @_ZN16interval_managerI17im_default_configE13cosine_seriesERK3mpqjbRS2_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2, i1 noundef zeroext %3, ptr noundef nonnull align 8 dereferenceable(32) %4) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %class._scoped_numeral, align 8
   %7 = alloca %class._scoped_numeral, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !3
   store ptr %9, ptr %6, align 8, !tbaa !13
@@ -3922,7 +3916,7 @@ define weak_odr hidden void @_ZN16interval_managerI17im_default_configE13cosine_
   store i8 0, ptr %14, align 4
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr null, ptr %15, align 8, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %9, ptr %7, align 8, !tbaa !13
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 0, ptr %16, align 8, !tbaa !9
@@ -3975,7 +3969,7 @@ define weak_odr hidden void @_ZN16interval_managerI17im_default_configE13cosine_
   unreachable
 
 _ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev.exit: ; preds = %.noexc.i
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %34 = load ptr, ptr %6, align 8, !tbaa !17
   invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(728) %34, ptr noundef nonnull align 8 dereferenceable(32) %10)
           to label %.noexc.i28 unwind label %35
@@ -3992,7 +3986,7 @@ _ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev.exit: ; preds = %.noexc.i
   unreachable
 
 _ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev.exit29: ; preds = %.noexc.i28
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
 38:                                               ; preds = %5
@@ -4075,9 +4069,9 @@ _ZN11mpq_managerILb0EE3subERK3mpqS3_RS1_.exit:    ; preds = %.noexc30, %63, %66
 69:                                               ; preds = %64, %38
   %.pn = phi { ptr, i32 } [ %65, %64 ], [ %39, %38 ]
   call void @_ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #18
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %6) #18
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %.pn
 }
 
@@ -4085,7 +4079,7 @@ _ZN11mpq_managerILb0EE3subERK3mpqS3_RS1_.exit:    ; preds = %.noexc30, %63, %66
 define weak_odr hidden void @_ZN16interval_managerI17im_default_configE8e_seriesEjbR3mpq(ptr noundef nonnull align 8 dereferenceable(600) %0, i32 noundef %1, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(32) %3) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class._scoped_numeral, align 8
   %6 = alloca %class._scoped_numeral, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !3
   store ptr %8, ptr %5, align 8, !tbaa !13
@@ -4101,7 +4095,7 @@ define weak_odr hidden void @_ZN16interval_managerI17im_default_configE8e_series
   store i8 0, ptr %13, align 4
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr null, ptr %14, align 8, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %8, ptr %6, align 8, !tbaa !13
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 0, ptr %15, align 8, !tbaa !9
@@ -4163,7 +4157,7 @@ _ZN11mpq_managerILb0EE3setER3mpqi.exit16:         ; preds = %25
   unreachable
 
 _ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev.exit: ; preds = %.noexc.i
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %38 = load ptr, ptr %5, align 8, !tbaa !17
   invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(728) %38, ptr noundef nonnull align 8 dereferenceable(32) %9)
           to label %.noexc.i17 unwind label %39
@@ -4180,7 +4174,7 @@ _ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev.exit: ; preds = %.noexc.i
   unreachable
 
 _ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev.exit18: ; preds = %.noexc.i17
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
 42:                                               ; preds = %25, %4
@@ -4323,9 +4317,9 @@ _ZN11mpq_managerILb0EE3setER3mpzRKS1_.exit.i:     ; preds = %70, %66
 102:                                              ; preds = %100, %42
   %.pn = phi { ptr, i32 } [ %101, %100 ], [ %43, %42 ]
   call void @_ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %6) #18
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #18
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn
 }
 
@@ -4379,8 +4373,8 @@ define weak_odr hidden void @_ZN16interval_managerI17im_default_configE7div_mulE
   %35 = select i1 %.not.i57, i32 1, i32 2
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #18
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %38 = icmp sgt i32 %9, 0
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 64
   br i1 %38, label %40, label %53
@@ -4591,8 +4585,8 @@ define weak_odr hidden void @_ZN16interval_managerI17im_default_configE7div_mulE
   %184 = select i1 %183, i8 8, i8 0
   %185 = or disjoint i8 %184, %181
   store i8 %185, ptr %177, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #18
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %186
 
 186:                                              ; preds = %69, %11
@@ -4933,7 +4927,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i: ; pr
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN17default_exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN17default_exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV17default_exception, i64 16), ptr %0, align 8, !tbaa !26
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !30
@@ -4960,7 +4954,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 }
 
 ; Function Attrs: cold noreturn
-declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #7
+declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #6
 
 declare void @__cxa_free_exception(ptr) local_unnamed_addr
 
@@ -5284,10 +5278,10 @@ define weak_odr hidden void @_ZN16interval_managerI17im_default_configEC2ER8resl
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr hidden void @_ZN16interval_managerI17im_default_configED2Ev(ptr noundef nonnull align 8 dereferenceable(600) %0) unnamed_addr #5 comdat($_ZN16interval_managerI17im_default_configED5Ev) align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr hidden void @_ZN16interval_managerI17im_default_configED2Ev(ptr noundef nonnull align 8 dereferenceable(600) %0) unnamed_addr #4 comdat($_ZN16interval_managerI17im_default_configED5Ev) align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !3
@@ -5502,7 +5496,7 @@ define weak_odr hidden void @_ZN16interval_managerI17im_default_configE3delERNS0
 }
 
 ; Function Attrs: noinline noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #9 comdat {
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #8 comdat {
   %2 = tail call ptr @__cxa_begin_catch(ptr %0) #18
   tail call void @_ZSt9terminatev() #19
   unreachable
@@ -5511,7 +5505,7 @@ define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_un
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #10
+declare void @_ZSt9terminatev() local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden noundef zeroext i1 @_ZNK16interval_managerI17im_default_configE12lower_is_infERKNS0_8intervalE(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(65) %1) local_unnamed_addr #3 comdat align 2 {
@@ -7394,7 +7388,7 @@ define weak_odr hidden void @_ZN16interval_managerI17im_default_configE3addERKNS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr hidden void @_ZN16interval_managerI17im_default_configE7add_jstERKNS0_8intervalES4_R26interval_deps_combine_rule(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(65) %1, ptr noundef nonnull align 8 dereferenceable(65) %2, ptr noundef nonnull align 2 dereferenceable(4) %3) local_unnamed_addr #5 comdat align 2 {
+define weak_odr hidden void @_ZN16interval_managerI17im_default_configE7add_jstERKNS0_8intervalES4_R26interval_deps_combine_rule(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(65) %1, ptr noundef nonnull align 8 dereferenceable(65) %2, ptr noundef nonnull align 2 dereferenceable(4) %3) local_unnamed_addr #4 comdat align 2 {
   store i16 5, ptr %3, align 2, !tbaa !48
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i16 10, ptr %5, align 2, !tbaa !51
@@ -7539,7 +7533,7 @@ define weak_odr hidden void @_ZN16interval_managerI17im_default_configE3subERKNS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr hidden void @_ZN16interval_managerI17im_default_configE7sub_jstERKNS0_8intervalES4_R26interval_deps_combine_rule(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(65) %1, ptr noundef nonnull align 8 dereferenceable(65) %2, ptr noundef nonnull align 2 dereferenceable(4) %3) local_unnamed_addr #5 comdat align 2 {
+define weak_odr hidden void @_ZN16interval_managerI17im_default_configE7sub_jstERKNS0_8intervalES4_R26interval_deps_combine_rule(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(65) %1, ptr noundef nonnull align 8 dereferenceable(65) %2, ptr noundef nonnull align 2 dereferenceable(4) %3) local_unnamed_addr #4 comdat align 2 {
   store i16 9, ptr %3, align 2, !tbaa !48
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i16 6, ptr %5, align 2, !tbaa !51
@@ -7550,8 +7544,8 @@ define weak_odr hidden void @_ZN16interval_managerI17im_default_configE7sub_jstE
 define weak_odr hidden void @_ZN16interval_managerI17im_default_configE3subERKNS0_8intervalES4_RS2_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(65) %1, ptr noundef nonnull align 8 dereferenceable(65) %2, ptr noundef nonnull align 8 dereferenceable(65) %3) local_unnamed_addr #3 comdat align 2 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #18
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !3
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -7621,8 +7615,8 @@ define weak_odr hidden void @_ZN16interval_managerI17im_default_configE3subERKNS
   %55 = and i8 %47, -3
   %56 = or disjoint i8 %54, %55
   store i8 %56, ptr %29, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #18
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -7757,7 +7751,7 @@ define weak_odr hidden void @_ZN16interval_managerI17im_default_configE3mulERK3m
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden void @_ZN16interval_managerI17im_default_configE3mulEiiRKNS0_8intervalERS2_(ptr noundef nonnull align 8 dereferenceable(600) %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(65) %3, ptr noundef nonnull align 8 dereferenceable(65) %4) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %class._scoped_numeral, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !3
   store ptr %8, ptr %6, align 8, !tbaa !13
@@ -7820,14 +7814,14 @@ _ZN16interval_managerI17im_default_configE3mulERK3mpqRKNS0_8intervalERS5_.exit: 
   unreachable
 
 _ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev.exit: ; preds = %.noexc.i
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
 30:                                               ; preds = %_ZN11mpq_managerILb0EE3setER3mpqii.exit, %.noexc6, %25, %5
   %31 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %6) #18
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %31
 }
 
@@ -8090,8 +8084,8 @@ _ZNK16interval_managerI17im_default_configE7is_zeroERKNS0_8intervalE.exit238.thr
   %45 = and i8 %24, 2
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #18
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %48 = load i32, ptr %36, align 8
   %49 = icmp slt i32 %48, 1
   %or.cond = select i1 %.not.i239, i1 %49, i1 false
@@ -8266,13 +8260,13 @@ _ZNK16interval_managerI17im_default_configE4is_MERKNS0_8intervalE.exit254: ; pre
 
 141:                                              ; preds = %_ZNK16interval_managerI17im_default_configE4is_MERKNS0_8intervalE.exit254
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %143 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %146 = or disjoint i8 %45, %42
   %147 = icmp ne i8 %146, 0
   %148 = or disjoint i8 %44, %43
@@ -8364,10 +8358,10 @@ _ZNK16interval_managerI17im_default_configE4is_MERKNS0_8intervalE.exit254: ; pre
   br label %202
 
 202:                                              ; preds = %195, %186
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #18
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #18
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #18
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %279
 
 _ZNK16interval_managerI17im_default_configE4is_MERKNS0_8intervalE.exit254.thread: ; preds = %136, %_ZNK16interval_managerI17im_default_configE4is_MERKNS0_8intervalE.exit254
@@ -8650,8 +8644,8 @@ _ZNK16interval_managerI17im_default_configE4is_MERKNS0_8intervalE.exit259.thread
   %394 = select i1 %393, i8 8, i8 0
   %395 = or disjoint i8 %394, %391
   store i8 %395, ptr %387, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #18
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %396
 
 396:                                              ; preds = %279, %34, %22
@@ -9543,7 +9537,7 @@ define weak_odr hidden void @_ZN16interval_managerI17im_default_configE8nth_root
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr hidden void @_ZN16interval_managerI17im_default_configE12nth_root_jstERKNS0_8intervalEjRK3mpqR26interval_deps_combine_rule(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(65) %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 2 dereferenceable(4) %4) local_unnamed_addr #5 comdat align 2 {
+define weak_odr hidden void @_ZN16interval_managerI17im_default_configE12nth_root_jstERKNS0_8intervalEjRK3mpqR26interval_deps_combine_rule(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(65) %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 2 dereferenceable(4) %4) local_unnamed_addr #4 comdat align 2 {
   store i16 1, ptr %4, align 2, !tbaa !48
   %6 = and i32 %2, 1
   %7 = icmp eq i32 %6, 0
@@ -9874,7 +9868,7 @@ define weak_odr hidden void @_ZN16interval_managerI17im_default_configE7xn_eq_yE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr hidden void @_ZN16interval_managerI17im_default_configE11xn_eq_y_jstERKNS0_8intervalEjRK3mpqR26interval_deps_combine_rule(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(65) %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 2 dereferenceable(4) %4) local_unnamed_addr #5 comdat align 2 {
+define weak_odr hidden void @_ZN16interval_managerI17im_default_configE11xn_eq_y_jstERKNS0_8intervalEjRK3mpqR26interval_deps_combine_rule(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(65) %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 2 dereferenceable(4) %4) local_unnamed_addr #4 comdat align 2 {
   %6 = and i32 %2, 1
   %7 = icmp eq i32 %6, 0
   %spec.select = select i1 %7, i16 3, i16 1
@@ -10235,8 +10229,8 @@ define weak_odr hidden void @_ZN16interval_managerI17im_default_configE3invERKNS
   %5 = alloca i32, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #18
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %9 = load i8, ptr %8, align 8
   %10 = and i8 %9, 4
@@ -10882,8 +10876,8 @@ _ZNK16interval_managerI17im_default_configE5is_N1ERKNS0_8intervalE.exit.thread58
   br label %418
 
 418:                                              ; preds = %359, %_ZNK16interval_managerI17im_default_configE5is_N1ERKNS0_8intervalE.exit.thread58, %158
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #18
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -11183,8 +11177,8 @@ _ZNK16interval_managerI17im_default_configE7is_zeroERKNS0_8intervalE.exit.thread
   %49 = icmp ne i8 %48, 0
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #18
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %52 = icmp slt i32 %34, 1
   %or.cond = select i1 %.not.i147, i1 %52, i1 false
   br i1 %or.cond, label %_ZNK16interval_managerI17im_default_configE4is_NERKNS0_8intervalE.exit.thread, label %105
@@ -11650,8 +11644,8 @@ _ZNK16interval_managerI17im_default_configE5is_N1ERKNS0_8intervalE.exit157.threa
   %335 = select i1 %334, i8 8, i8 0
   %336 = or disjoint i8 %335, %332
   store i8 %336, ptr %328, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #18
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %337
 
 337:                                              ; preds = %220, %18
@@ -11746,7 +11740,7 @@ _Z6is_posI11mpq_managerILb0EEEbRT_RKNS2_7numeralE16ext_numeral_kind.exit26: ; pr
 define weak_odr hidden void @_ZN16interval_managerI17im_default_configE2piEjRNS0_8intervalE(ptr noundef nonnull align 8 dereferenceable(600) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(65) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class._scoped_numeral, align 8
   %5 = alloca %class._scoped_numeral, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !3
   store ptr %7, ptr %4, align 8, !tbaa !13
@@ -11758,7 +11752,7 @@ define weak_odr hidden void @_ZN16interval_managerI17im_default_configE2piEjRNS0
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr null, ptr %13, align 8, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %7, ptr %5, align 8, !tbaa !13
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 0, ptr %14, align 8, !tbaa !9
@@ -12039,7 +12033,7 @@ _ZN11mpq_managerILb0EE3setER3mpqRKS1_.exit61:     ; preds = %132, %137
   unreachable
 
 _ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev.exit: ; preds = %.noexc.i
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %142 = load ptr, ptr %4, align 8, !tbaa !17
   invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(728) %142, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %.noexc.i62 unwind label %143
@@ -12056,15 +12050,15 @@ _ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev.exit: ; preds = %.noexc.i
   unreachable
 
 _ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev.exit63: ; preds = %.noexc.i62
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
 146:                                              ; preds = %74, %81, %86, %72
   %.pn38.pn = phi { ptr, i32 } [ %73, %72 ], [ %82, %81 ], [ %75, %74 ], [ %87, %86 ]
   call void @_ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #18
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %4) #18
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn38.pn
 }
 
@@ -12138,7 +12132,7 @@ define weak_odr hidden void @_ZN16interval_managerI17im_default_configE4sineERK3
 
 22:                                               ; preds = %5
   %spec.select = or i32 %2, 1
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %23 = load ptr, ptr %8, align 8, !tbaa !3
   store ptr %23, ptr %6, align 8, !tbaa !13
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -12153,7 +12147,7 @@ define weak_odr hidden void @_ZN16interval_managerI17im_default_configE4sineERK3
   store i8 0, ptr %28, align 4
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr null, ptr %29, align 8, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %23, ptr %7, align 8, !tbaa !13
   %30 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 0, ptr %30, align 8, !tbaa !9
@@ -12220,9 +12214,9 @@ _ZN11mpq_managerILb0EE3setER3mpzRKS1_.exit.i:     ; preds = %41, %40
   %57 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #18
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %6) #18
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %57
 
 58:                                               ; preds = %._crit_edge, %52
@@ -12440,7 +12434,7 @@ _ZN11mpq_managerILb0EE3setER3mpqi.exit48:         ; preds = %152
   unreachable
 
 _ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev.exit: ; preds = %.noexc.i
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %169 = load ptr, ptr %6, align 8, !tbaa !17
   invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(728) %169, ptr noundef nonnull align 8 dereferenceable(32) %24)
           to label %.noexc.i61 unwind label %170
@@ -12457,7 +12451,7 @@ _ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev.exit: ; preds = %.noexc.i
   unreachable
 
 _ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev.exit62: ; preds = %.noexc.i61
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %173
 
 173:                                              ; preds = %_ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev.exit62, %11
@@ -12505,7 +12499,7 @@ define weak_odr hidden void @_ZN16interval_managerI17im_default_configE6cosineER
 28:                                               ; preds = %5
   %29 = and i32 %2, 1
   %spec.select = add i32 %29, %2
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %30 = load ptr, ptr %8, align 8, !tbaa !3
   store ptr %30, ptr %6, align 8, !tbaa !13
   %31 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -12520,7 +12514,7 @@ define weak_odr hidden void @_ZN16interval_managerI17im_default_configE6cosineER
   store i8 0, ptr %35, align 4
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr null, ptr %36, align 8, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %30, ptr %7, align 8, !tbaa !13
   %37 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 0, ptr %37, align 8, !tbaa !9
@@ -12587,9 +12581,9 @@ _ZN11mpq_managerILb0EE3setER3mpzRKS1_.exit.i:     ; preds = %48, %47
   %64 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #18
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %6) #18
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %64
 
 65:                                               ; preds = %._crit_edge, %59
@@ -12807,7 +12801,7 @@ _ZN11mpq_managerILb0EE3setER3mpqi.exit48:         ; preds = %159
   unreachable
 
 _ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev.exit: ; preds = %.noexc.i
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %176 = load ptr, ptr %6, align 8, !tbaa !17
   invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(728) %176, ptr noundef nonnull align 8 dereferenceable(32) %31)
           to label %.noexc.i61 unwind label %177
@@ -12824,7 +12818,7 @@ _ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev.exit: ; preds = %.noexc.i
   unreachable
 
 _ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev.exit62: ; preds = %.noexc.i61
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %180
 
 180:                                              ; preds = %_ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev.exit62, %11
@@ -12838,7 +12832,7 @@ define weak_odr hidden void @_ZN16interval_managerI17im_default_configE1eEjRNS0_
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @_ZN16interval_managerI17im_default_configE8e_seriesEjbR3mpq(ptr noundef nonnull align 8 dereferenceable(600) %0, i32 noundef %1, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(32) %6)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !3
   store ptr %9, ptr %4, align 8, !tbaa !13
@@ -12854,7 +12848,7 @@ define weak_odr hidden void @_ZN16interval_managerI17im_default_configE1eEjRNS0_
   store i8 0, ptr %14, align 4
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr null, ptr %15, align 8, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %9, ptr %5, align 8, !tbaa !13
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 0, ptr %16, align 8, !tbaa !9
@@ -13003,9 +12997,9 @@ _ZN11mpq_managerILb0EE3setER3mpzRKS1_.exit.i:     ; preds = %69, %64
   %85 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #18
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %4) #18
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %85
 
 86:                                               ; preds = %82
@@ -13112,7 +13106,7 @@ _ZN11mpq_managerILb0EE3setER3mpqRKS1_.exit37:     ; preds = %128, %133
   unreachable
 
 _ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev.exit: ; preds = %.noexc.i
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %138 = load ptr, ptr %4, align 8, !tbaa !17
   invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(728) %138, ptr noundef nonnull align 8 dereferenceable(32) %10)
           to label %.noexc.i38 unwind label %139
@@ -13129,27 +13123,27 @@ _ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev.exit: ; preds = %.noexc.i
   unreachable
 
 _ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev.exit39: ; preds = %.noexc.i38
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #11
+declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #12
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #11
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: noreturn
-declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #11
+declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #10
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #13
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #14
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind
 declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
@@ -13349,11 +13343,17 @@ declare void @_ZN11mpz_managerILb0EE5resetER3mpz(ptr noundef nonnull align 8 der
 declare void @_ZNK11mpq_managerILb0EE7displayERSoRK3mpq(ptr noundef nonnull align 8 dereferenceable(728), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_interval_mpq.cpp() #15 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_interval_mpq.cpp() #14 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #18
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #16
@@ -13365,18 +13365,18 @@ attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "t
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind }
 attributes #3 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { cold noreturn }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { cold nofree noreturn }
-attributes #11 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { cold noreturn }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { cold nofree noreturn }
+attributes #10 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #16 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #18 = { nounwind }

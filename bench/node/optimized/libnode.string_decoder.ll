@@ -429,10 +429,10 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i.i, label %if.then5, label %return
 
 if.then5:                                         ; preds = %if.then
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %message.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %message.i)
   %call.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %message.i, i64 noundef 128, ptr noundef nonnull @.str.13, i32 noundef 536870888) #16
   %call2.i = call ptr @_ZN4node19ERR_STRING_TOO_LONGIJEEEN2v85LocalINS1_5ValueEEEPNS1_7IsolateEPKcDpOT_(ptr noundef %isolate, ptr noundef nonnull %message.i)
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %message.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %message.i)
   br label %return.sink.split
 
 if.else17:                                        ; preds = %entry
@@ -1486,10 +1486,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #13

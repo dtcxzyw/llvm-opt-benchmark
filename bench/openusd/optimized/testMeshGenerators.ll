@@ -306,8 +306,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %60 unwind label %69
 
 60:                                               ; preds = %58
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store ptr %59, ptr %15, align 8
   store i64 ptrtoint (ptr @_ZNK32pxrInternal_v0_24__pxrReserved__25GeomUtilMeshGeneratorBase12_PointWriterINS_7GfVec3fEE11_WritePointIPS2_EEvRKS2_ to i64), ptr %16, align 8
   %61 = getelementptr inbounds nuw i8, ptr %16, i64 8
@@ -318,8 +318,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %_ZN32pxrInternal_v0_24__pxrReserved__28GeomUtilCapsuleMeshGenerator14GeneratePointsIPNS_7GfVec3fEfvEEvT_mmT0_S5_PKNS_10GfMatrix4dE.exit unwind label %69
 
 _ZN32pxrInternal_v0_24__pxrReserved__28GeomUtilCapsuleMeshGenerator14GeneratePointsIPNS_7GfVec3fEfvEEvT_mmT0_S5_PKNS_10GfMatrix4dE.exit: ; preds = %60
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %76
 
 63:                                               ; preds = %.noexc, %2
@@ -354,8 +354,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__28GeomUtilCapsuleMeshGenerator14GeneratePoi
           to label %73 unwind label %69
 
 73:                                               ; preds = %71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr %72, ptr %13, align 8
   store i64 ptrtoint (ptr @_ZNK32pxrInternal_v0_24__pxrReserved__25GeomUtilMeshGeneratorBase12_PointWriterINS_7GfVec3fEE11_WritePointIPS2_EEvRKS2_ to i64), ptr %14, align 8
   %74 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -366,8 +366,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__28GeomUtilCapsuleMeshGenerator14GeneratePoi
           to label %_ZN32pxrInternal_v0_24__pxrReserved__28GeomUtilCapsuleMeshGenerator14GeneratePointsIPNS_7GfVec3fEfvEEvT_mmT0_S5_S5_S5_PKNS_10GfMatrix4dE.exit unwind label %69
 
 _ZN32pxrInternal_v0_24__pxrReserved__28GeomUtilCapsuleMeshGenerator14GeneratePointsIPNS_7GfVec3fEfvEEvT_mmT0_S5_S5_S5_PKNS_10GfMatrix4dE.exit: ; preds = %73
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %76
 
 76:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__28GeomUtilCapsuleMeshGenerator14GeneratePointsIPNS_7GfVec3fEfvEEvT_mmT0_S5_S5_S5_PKNS_10GfMatrix4dE.exit, %_ZN32pxrInternal_v0_24__pxrReserved__28GeomUtilCapsuleMeshGenerator14GeneratePointsIPNS_7GfVec3fEfvEEvT_mmT0_S5_PKNS_10GfMatrix4dE.exit
@@ -465,8 +465,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit85: ; 
           to label %115 unwind label %206
 
 115:                                              ; preds = %113
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr %114, ptr %11, align 8
   store i64 ptrtoint (ptr @_ZNK32pxrInternal_v0_24__pxrReserved__25GeomUtilMeshGeneratorBase12_PointWriterINS_7GfVec3fEE11_WritePointIPS2_EEvRKS2_ to i64), ptr %12, align 8
   %116 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -477,8 +477,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit85: ; 
           to label %118 unwind label %206
 
 118:                                              ; preds = %115
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   invoke fastcc void @_ZN12_GLOBAL__N_14_LogIN32pxrInternal_v0_24__pxrReserved__7GfVec3fEEEvRKNS1_17PxOsdMeshTopologyERKNS1_7VtArrayIT_EERSt14basic_ofstreamIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(369) %23, ptr noundef nonnull align 8 dereferenceable(40) %24, ptr noundef nonnull align 8 dereferenceable(248) %1)
           to label %119 unwind label %206
 
@@ -569,8 +569,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit98: ; 
           to label %153 unwind label %215
 
 153:                                              ; preds = %151
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %152, ptr %9, align 8
   store i64 ptrtoint (ptr @_ZNK32pxrInternal_v0_24__pxrReserved__25GeomUtilMeshGeneratorBase12_PointWriterINS_7GfVec3fEE11_WritePointIPS2_EEvRKS2_ to i64), ptr %10, align 8
   %154 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -581,8 +581,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit98: ; 
           to label %156 unwind label %215
 
 156:                                              ; preds = %153
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   invoke fastcc void @_ZN12_GLOBAL__N_14_LogIN32pxrInternal_v0_24__pxrReserved__7GfVec3fEEEvRKNS1_17PxOsdMeshTopologyERKNS1_7VtArrayIT_EERSt14basic_ofstreamIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(369) %27, ptr noundef nonnull align 8 dereferenceable(40) %28, ptr noundef nonnull align 8 dereferenceable(248) %1)
           to label %157 unwind label %215
 
@@ -680,8 +680,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit111: ;
           to label %196 unwind label %224
 
 196:                                              ; preds = %194
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %195, ptr %7, align 8
   store i64 ptrtoint (ptr @_ZNK32pxrInternal_v0_24__pxrReserved__25GeomUtilMeshGeneratorBase12_PointWriterINS_7GfVec3fEE11_WritePointIPS2_EEvRKS2_ to i64), ptr %8, align 8
   %197 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -692,8 +692,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit111: ;
           to label %_ZN32pxrInternal_v0_24__pxrReserved__29GeomUtilCylinderMeshGenerator14GeneratePointsIPNS_7GfVec3fEfvEEvT_mT0_S5_PKNS_10GfMatrix4dE.exit unwind label %224
 
 _ZN32pxrInternal_v0_24__pxrReserved__29GeomUtilCylinderMeshGenerator14GeneratePointsIPNS_7GfVec3fEfvEEvT_mT0_S5_PKNS_10GfMatrix4dE.exit: ; preds = %196
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %231
 
 199:                                              ; preds = %69, %67
@@ -797,8 +797,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__29GeomUtilCylinderMeshGenerator14GeneratePo
           to label %228 unwind label %224
 
 228:                                              ; preds = %226
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %227, ptr %5, align 8
   store i64 ptrtoint (ptr @_ZNK32pxrInternal_v0_24__pxrReserved__25GeomUtilMeshGeneratorBase12_PointWriterINS_7GfVec3fEE11_WritePointIPS2_EEvRKS2_ to i64), ptr %6, align 8
   %229 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -809,8 +809,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__29GeomUtilCylinderMeshGenerator14GeneratePo
           to label %_ZN32pxrInternal_v0_24__pxrReserved__29GeomUtilCylinderMeshGenerator14GeneratePointsIPNS_7GfVec3fEfvEEvT_mT0_S5_S5_S5_PKNS_10GfMatrix4dE.exit unwind label %224
 
 _ZN32pxrInternal_v0_24__pxrReserved__29GeomUtilCylinderMeshGenerator14GeneratePointsIPNS_7GfVec3fEfvEEvT_mT0_S5_S5_S5_PKNS_10GfMatrix4dE.exit: ; preds = %228
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %231
 
 231:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__29GeomUtilCylinderMeshGenerator14GeneratePointsIPNS_7GfVec3fEfvEEvT_mT0_S5_S5_S5_PKNS_10GfMatrix4dE.exit, %_ZN32pxrInternal_v0_24__pxrReserved__29GeomUtilCylinderMeshGenerator14GeneratePointsIPNS_7GfVec3fEfvEEvT_mT0_S5_PKNS_10GfMatrix4dE.exit
@@ -906,8 +906,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit125: ;
           to label %268 unwind label %301
 
 268:                                              ; preds = %266
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %267, ptr %3, align 8
   store i64 ptrtoint (ptr @_ZNK32pxrInternal_v0_24__pxrReserved__25GeomUtilMeshGeneratorBase12_PointWriterINS_7GfVec3fEE11_WritePointIPS2_EEvRKS2_ to i64), ptr %4, align 8
   %269 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -918,8 +918,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit125: ;
           to label %271 unwind label %301
 
 271:                                              ; preds = %268
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   invoke fastcc void @_ZN12_GLOBAL__N_14_LogIN32pxrInternal_v0_24__pxrReserved__7GfVec3fEEEvRKNS1_17PxOsdMeshTopologyERKNS1_7VtArrayIT_EERSt14basic_ofstreamIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(369) %35, ptr noundef nonnull align 8 dereferenceable(40) %36, ptr noundef nonnull align 8 dereferenceable(248) %1)
           to label %272 unwind label %301
 
@@ -1113,12 +1113,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_14_LogIN32pxrInternal_v0_24__pxrRes
   %9 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
   %10 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.18)
   %11 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.17)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %12 = tail call noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE5cdataEv(ptr noundef nonnull align 8 dereferenceable(40) %1)
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE9_StreamerC1EPKS1_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %12)
   %13 = call noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE13_GetShapeDataEv(ptr noundef nonnull align 8 dereferenceable(40) %1)
   call void @_ZN32pxrInternal_v0_24__pxrReserved__16VtStreamOutArrayERSoPKNS_12Vt_ShapeDataENS_13TfFunctionRefIFvS0_EEE(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %13, ptr nonnull %4, ptr nonnull @_ZN32pxrInternal_v0_24__pxrReserved__13TfFunctionRefIFvRSoEE9_InvokeFnINS_7VtArrayINS_7GfVec3fEE9_StreamerEEEvPKvS1_)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %14 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
   %15 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
   ret void
@@ -1430,10 +1430,10 @@ define internal void @_GLOBAL__sub_I_testMeshGenerators.cpp() #11 section ".text
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

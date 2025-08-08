@@ -915,8 +915,8 @@ define ptr @Java_sun_security_jgss_wrapper_GSSLibStub_exportName(ptr noundef %0,
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 40
   %42 = load ptr, ptr %41, align 8
   %43 = call i32 %42(ptr noundef nonnull %6, ptr noundef %39, ptr noundef nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %39, ptr %5, align 8
   %44 = load i32, ptr @JGSS_DEBUG, align 4
   %.not.i = icmp eq i32 %44, 0
@@ -943,8 +943,8 @@ define ptr @Java_sun_security_jgss_wrapper_GSSLibStub_exportName(ptr noundef %0,
   br label %Java_sun_security_jgss_wrapper_GSSLibStub_releaseName.exit
 
 Java_sun_security_jgss_wrapper_GSSLibStub_releaseName.exit: ; preds = %50, %51
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %57 = load ptr, ptr %0, align 8
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 1824
   %59 = load ptr, ptr %58, align 8
@@ -1286,7 +1286,7 @@ define i64 @Java_sun_security_jgss_wrapper_GSSLibStub_getCredName(ptr noundef %0
 
 .thread:                                          ; preds = %3
   store ptr null, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4
   br label %18
 
@@ -1297,7 +1297,7 @@ define i64 @Java_sun_security_jgss_wrapper_GSSLibStub_getCredName(ptr noundef %0
   %12 = tail call i32 @fflush(ptr noundef %11)
   %.pr = load i32, ptr @JGSS_DEBUG, align 4
   store ptr null, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4
   %.not.i = icmp eq i32 %.pr, 0
   br i1 %.not.i, label %18, label %13
@@ -1332,7 +1332,7 @@ inquireCred.exit:                                 ; preds = %18, %24, %26
   %.1.i = phi i32 [ %25, %24 ], [ %27, %26 ], [ %22, %18 ]
   %28 = load i32, ptr %4, align 4
   call void @checkStatus(ptr noundef %0, ptr noundef %1, i32 noundef %.1.i, i32 noundef %28, ptr noundef nonnull @.str.26) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %29 = load ptr, ptr %0, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 1824
   %31 = load ptr, ptr %30, align 8
@@ -1375,7 +1375,7 @@ define i32 @Java_sun_security_jgss_wrapper_GSSLibStub_getCredTime(ptr noundef %0
 
 .thread:                                          ; preds = %3
   store i32 0, ptr %5, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4
   br label %18
 
@@ -1386,7 +1386,7 @@ define i32 @Java_sun_security_jgss_wrapper_GSSLibStub_getCredTime(ptr noundef %0
   %12 = tail call i32 @fflush(ptr noundef %11)
   %.pr = load i32, ptr @JGSS_DEBUG, align 4
   store i32 0, ptr %5, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4
   %.not.i = icmp eq i32 %.pr, 0
   br i1 %.not.i, label %18, label %13
@@ -1421,7 +1421,7 @@ inquireCred.exit:                                 ; preds = %18, %24, %26
   %.1.i = phi i32 [ %25, %24 ], [ %27, %26 ], [ %22, %18 ]
   %28 = load i32, ptr %4, align 4
   call void @checkStatus(ptr noundef %0, ptr noundef %1, i32 noundef %.1.i, i32 noundef %28, ptr noundef nonnull @.str.26) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %29 = load ptr, ptr %0, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 1824
   %31 = load ptr, ptr %30, align 8
@@ -1451,7 +1451,7 @@ define i32 @Java_sun_security_jgss_wrapper_GSSLibStub_getCredUsage(ptr noundef %
   br i1 %.not, label %.thread, label %8
 
 .thread:                                          ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4
   br label %18
 
@@ -1461,7 +1461,7 @@ define i32 @Java_sun_security_jgss_wrapper_GSSLibStub_getCredUsage(ptr noundef %
   %11 = load ptr, ptr @stderr, align 8
   %12 = tail call i32 @fflush(ptr noundef %11)
   %.pr = load i32, ptr @JGSS_DEBUG, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4
   %.not.i = icmp eq i32 %.pr, 0
   br i1 %.not.i, label %18, label %13
@@ -1496,7 +1496,7 @@ inquireCred.exit:                                 ; preds = %18, %24, %26
   %.1.i = phi i32 [ %25, %24 ], [ %27, %26 ], [ %22, %18 ]
   %28 = load i32, ptr %4, align 4
   call void @checkStatus(ptr noundef %0, ptr noundef %1, i32 noundef %.1.i, i32 noundef %28, ptr noundef nonnull @.str.26) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %29 = load ptr, ptr %0, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 1824
   %31 = load ptr, ptr %30, align 8
@@ -3213,10 +3213,10 @@ define ptr @Java_sun_security_jgss_wrapper_GSSLibStub_unwrap(ptr noundef %0, ptr
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

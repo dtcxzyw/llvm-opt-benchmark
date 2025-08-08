@@ -53,22 +53,22 @@ define dso_local { i64, i32 } @AggregateCreate(ptr noundef %0, i32 noundef %1, i
   %39 = alloca [100 x i32], align 16
   %40 = alloca %struct.ObjectAddress, align 4
   %41 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 22, ptr nonnull %34) #8
-  call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %35) #8
-  call void @llvm.lifetime.start.p0(i64 22, ptr nonnull %36) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
   %42 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %37) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %38) #8
-  call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %39) #8
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %40) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
+  call void @llvm.lifetime.start.p0(ptr nonnull %38)
+  call void @llvm.lifetime.start.p0(ptr nonnull %39)
+  call void @llvm.lifetime.start.p0(ptr nonnull %40)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %43, label %46
 
 43:                                               ; preds = %32
-  %44 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %44 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   tail call void @llvm.assume(i1 %44)
-  %45 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 113, ptr noundef nonnull @__func__.AggregateCreate) #8
+  %45 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 113, ptr noundef nonnull @__func__.AggregateCreate) #9
   unreachable
 
 46:                                               ; preds = %32
@@ -76,10 +76,10 @@ define dso_local { i64, i32 } @AggregateCreate(ptr noundef %0, i32 noundef %1, i
   br i1 %.not331, label %47, label %50
 
 47:                                               ; preds = %46
-  %48 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %48 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   tail call void @llvm.assume(i1 %48)
-  %49 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 116, ptr noundef nonnull @__func__.AggregateCreate) #8
+  %49 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 116, ptr noundef nonnull @__func__.AggregateCreate) #9
   unreachable
 
 50:                                               ; preds = %46
@@ -89,10 +89,10 @@ define dso_local { i64, i32 } @AggregateCreate(ptr noundef %0, i32 noundef %1, i
   br i1 %or.cond, label %53, label %56
 
 53:                                               ; preds = %50
-  %54 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %54 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   tail call void @llvm.assume(i1 %54)
-  %55 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 119, ptr noundef nonnull @__func__.AggregateCreate) #8
+  %55 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 119, ptr noundef nonnull @__func__.AggregateCreate) #9
   unreachable
 
 56:                                               ; preds = %50
@@ -100,25 +100,25 @@ define dso_local { i64, i32 } @AggregateCreate(ptr noundef %0, i32 noundef %1, i
   br i1 %57, label %58, label %62
 
 58:                                               ; preds = %56
-  %59 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %59 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   tail call void @llvm.assume(i1 %59)
-  %60 = tail call i32 @errcode(i32 noundef 50856197) #8
-  %61 = tail call i32 (ptr, ptr, i64, ...) @errmsg_plural(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i64 noundef 99, i32 noundef 99) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 132, ptr noundef nonnull @__func__.AggregateCreate) #8
+  %60 = tail call i32 @errcode(i32 noundef 50856197) #9
+  %61 = tail call i32 (ptr, ptr, i64, ...) @errmsg_plural(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i64 noundef 99, i32 noundef 99) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 132, ptr noundef nonnull @__func__.AggregateCreate) #9
   unreachable
 
 62:                                               ; preds = %56
-  %63 = tail call ptr @check_valid_polymorphic_signature(i32 noundef %25, ptr noundef nonnull %42, i32 noundef %4) #8
+  %63 = tail call ptr @check_valid_polymorphic_signature(i32 noundef %25, ptr noundef nonnull %42, i32 noundef %4) #9
   %.not332 = icmp eq ptr %63, null
   br i1 %.not332, label %69, label %64
 
 64:                                               ; preds = %62
-  %65 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %65 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   tail call void @llvm.assume(i1 %65)
-  %66 = tail call i32 @errcode(i32 noundef 50724996) #8
-  %67 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6) #8
-  %68 = tail call i32 (ptr, ...) @errdetail_internal(ptr noundef nonnull @.str.7, ptr noundef nonnull %63) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 145, ptr noundef nonnull @__func__.AggregateCreate) #8
+  %66 = tail call i32 @errcode(i32 noundef 50724996) #9
+  %67 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6) #9
+  %68 = tail call i32 (ptr, ...) @errdetail_internal(ptr noundef nonnull @.str.7, ptr noundef nonnull %63) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 145, ptr noundef nonnull @__func__.AggregateCreate) #9
   unreachable
 
 69:                                               ; preds = %62
@@ -126,17 +126,17 @@ define dso_local { i64, i32 } @AggregateCreate(ptr noundef %0, i32 noundef %1, i
   br i1 %.not333, label %77, label %70
 
 70:                                               ; preds = %69
-  %71 = tail call ptr @check_valid_polymorphic_signature(i32 noundef %27, ptr noundef nonnull %42, i32 noundef %4) #8
+  %71 = tail call ptr @check_valid_polymorphic_signature(i32 noundef %27, ptr noundef nonnull %42, i32 noundef %4) #9
   %.not334 = icmp eq ptr %71, null
   br i1 %.not334, label %77, label %72
 
 72:                                               ; preds = %70
-  %73 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %73 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   tail call void @llvm.assume(i1 %73)
-  %74 = tail call i32 @errcode(i32 noundef 50724996) #8
-  %75 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6) #8
-  %76 = tail call i32 (ptr, ...) @errdetail_internal(ptr noundef nonnull @.str.7, ptr noundef nonnull %71) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 159, ptr noundef nonnull @__func__.AggregateCreate) #8
+  %74 = tail call i32 @errcode(i32 noundef 50724996) #9
+  %75 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6) #9
+  %76 = tail call i32 (ptr, ...) @errdetail_internal(ptr noundef nonnull @.str.7, ptr noundef nonnull %71) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 159, ptr noundef nonnull @__func__.AggregateCreate) #9
   unreachable
 
 77:                                               ; preds = %70, %69
@@ -151,11 +151,11 @@ switch.early.test:                                ; preds = %77
   ]
 
 79:                                               ; preds = %switch.early.test
-  %80 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %80 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   tail call void @llvm.assume(i1 %80)
-  %81 = tail call i32 @errcode(i32 noundef 1088) #8
-  %82 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 173, ptr noundef nonnull @__func__.AggregateCreate) #8
+  %81 = tail call i32 @errcode(i32 noundef 1088) #9
+  %82 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 173, ptr noundef nonnull @__func__.AggregateCreate) #9
   unreachable
 
 83:                                               ; preds = %switch.early.test, %switch.early.test
@@ -183,11 +183,11 @@ switch.early.test:                                ; preds = %77
   br i1 %.not335, label %101, label %97
 
 97:                                               ; preds = %89, %86
-  %98 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %98 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   tail call void @llvm.assume(i1 %98)
-  %99 = tail call i32 @errcode(i32 noundef 50724996) #8
-  %100 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 199, ptr noundef nonnull @__func__.AggregateCreate) #8
+  %99 = tail call i32 @errcode(i32 noundef 50724996) #9
+  %100 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 199, ptr noundef nonnull @__func__.AggregateCreate) #9
   unreachable
 
 101:                                              ; preds = %89, %83
@@ -224,26 +224,26 @@ switch.early.test:                                ; preds = %77
   br i1 %.not336, label %127, label %121
 
 121:                                              ; preds = %117
-  %122 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %122 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   call void @llvm.assume(i1 %122)
-  %123 = call i32 @errcode(i32 noundef 67141764) #8
-  %124 = call ptr @NameListToString(ptr noundef nonnull %12) #8
-  %125 = call ptr @format_type_be(i32 noundef %25) #8
-  %126 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.10, ptr noundef %124, ptr noundef %125) #8
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 248, ptr noundef nonnull @__func__.AggregateCreate) #8
+  %123 = call i32 @errcode(i32 noundef 67141764) #9
+  %124 = call ptr @NameListToString(ptr noundef nonnull %12) #9
+  %125 = call ptr @format_type_be(i32 noundef %25) #9
+  %126 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.10, ptr noundef %124, ptr noundef %125) #9
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 248, ptr noundef nonnull @__func__.AggregateCreate) #9
   unreachable
 
 127:                                              ; preds = %117
   %128 = zext i32 %119 to i64
-  %129 = call ptr @SearchSysCache1(i32 noundef 47, i64 noundef %128) #8
+  %129 = call ptr @SearchSysCache1(i32 noundef 47, i64 noundef %128) #9
   %.not337 = icmp eq ptr %129, null
   br i1 %.not337, label %130, label %133
 
 130:                                              ; preds = %127
-  %131 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %131 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   call void @llvm.assume(i1 %131)
-  %132 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11, i32 noundef %119) #8
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 252, ptr noundef nonnull @__func__.AggregateCreate) #8
+  %132 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11, i32 noundef %119) #9
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 252, ptr noundef nonnull @__func__.AggregateCreate) #9
   unreachable
 
 133:                                              ; preds = %127
@@ -266,19 +266,19 @@ switch.early.test:                                ; preds = %77
 
 145:                                              ; preds = %143
   %146 = load i32, ptr %42, align 4
-  %147 = call zeroext i1 @IsBinaryCoercible(i32 noundef %146, i32 noundef %25) #8
+  %147 = call zeroext i1 @IsBinaryCoercible(i32 noundef %146, i32 noundef %25) #9
   br i1 %147, label %152, label %148
 
 148:                                              ; preds = %145, %143
-  %149 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %149 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   call void @llvm.assume(i1 %149)
-  %150 = call i32 @errcode(i32 noundef 50724996) #8
-  %151 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.12) #8
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 266, ptr noundef nonnull @__func__.AggregateCreate) #8
+  %150 = call i32 @errcode(i32 noundef 50724996) #9
+  %151 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.12) #9
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 266, ptr noundef nonnull @__func__.AggregateCreate) #9
   unreachable
 
 152:                                              ; preds = %145, %133
-  call void @ReleaseSysCache(ptr noundef nonnull %129) #8
+  call void @ReleaseSysCache(ptr noundef nonnull %129) #9
   %.not338 = icmp eq ptr %17, null
   br i1 %.not338, label %190, label %153
 
@@ -290,26 +290,26 @@ switch.early.test:                                ; preds = %77
   br i1 %.not339, label %162, label %156
 
 156:                                              ; preds = %153
-  %157 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %157 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   call void @llvm.assume(i1 %157)
-  %158 = call i32 @errcode(i32 noundef 67141764) #8
-  %159 = call ptr @NameListToString(ptr noundef nonnull %17) #8
-  %160 = call ptr @format_type_be(i32 noundef %27) #8
-  %161 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.10, ptr noundef %159, ptr noundef %160) #8
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 292, ptr noundef nonnull @__func__.AggregateCreate) #8
+  %158 = call i32 @errcode(i32 noundef 67141764) #9
+  %159 = call ptr @NameListToString(ptr noundef nonnull %17) #9
+  %160 = call ptr @format_type_be(i32 noundef %27) #9
+  %161 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.10, ptr noundef %159, ptr noundef %160) #9
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 292, ptr noundef nonnull @__func__.AggregateCreate) #9
   unreachable
 
 162:                                              ; preds = %153
   %163 = zext i32 %154 to i64
-  %164 = call ptr @SearchSysCache1(i32 noundef 47, i64 noundef %163) #8
+  %164 = call ptr @SearchSysCache1(i32 noundef 47, i64 noundef %163) #9
   %.not340 = icmp eq ptr %164, null
   br i1 %.not340, label %165, label %168
 
 165:                                              ; preds = %162
-  %166 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %166 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   call void @llvm.assume(i1 %166)
-  %167 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11, i32 noundef %154) #8
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 296, ptr noundef nonnull @__func__.AggregateCreate) #8
+  %167 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11, i32 noundef %154) #9
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 296, ptr noundef nonnull @__func__.AggregateCreate) #9
   unreachable
 
 168:                                              ; preds = %162
@@ -332,7 +332,7 @@ switch.early.test:                                ; preds = %77
 
 180:                                              ; preds = %178
   %181 = load i32, ptr %42, align 4
-  %182 = call zeroext i1 @IsBinaryCoercible(i32 noundef %181, i32 noundef %27) #8
+  %182 = call zeroext i1 @IsBinaryCoercible(i32 noundef %181, i32 noundef %27) #9
   br i1 %182, label %._crit_edge392, label %183
 
 ._crit_edge392:                                   ; preds = %180
@@ -340,16 +340,16 @@ switch.early.test:                                ; preds = %77
   br label %187
 
 183:                                              ; preds = %180, %178
-  %184 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %184 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   call void @llvm.assume(i1 %184)
-  %185 = call i32 @errcode(i32 noundef 50724996) #8
-  %186 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.12) #8
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 309, ptr noundef nonnull @__func__.AggregateCreate) #8
+  %185 = call i32 @errcode(i32 noundef 50724996) #9
+  %186 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.12) #9
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 309, ptr noundef nonnull @__func__.AggregateCreate) #9
   unreachable
 
 187:                                              ; preds = %._crit_edge392, %168
   %188 = phi i8 [ %.pre, %._crit_edge392 ], [ %175, %168 ]
-  call void @ReleaseSysCache(ptr noundef nonnull %164) #8
+  call void @ReleaseSysCache(ptr noundef nonnull %164) #9
   %189 = zext nneg i8 %188 to i32
   br label %190
 
@@ -366,26 +366,26 @@ switch.early.test:                                ; preds = %77
   br i1 %.not342, label %200, label %194
 
 194:                                              ; preds = %191
-  %195 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %195 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   call void @llvm.assume(i1 %195)
-  %196 = call i32 @errcode(i32 noundef 67141764) #8
-  %197 = call ptr @NameListToString(ptr noundef nonnull %18) #8
-  %198 = call ptr @format_type_be(i32 noundef %27) #8
-  %199 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.13, ptr noundef %197, ptr noundef %198) #8
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 337, ptr noundef nonnull @__func__.AggregateCreate) #8
+  %196 = call i32 @errcode(i32 noundef 67141764) #9
+  %197 = call ptr @NameListToString(ptr noundef nonnull %18) #9
+  %198 = call ptr @format_type_be(i32 noundef %27) #9
+  %199 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.13, ptr noundef %197, ptr noundef %198) #9
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 337, ptr noundef nonnull @__func__.AggregateCreate) #9
   unreachable
 
 200:                                              ; preds = %191
   %201 = zext i32 %192 to i64
-  %202 = call ptr @SearchSysCache1(i32 noundef 47, i64 noundef %201) #8
+  %202 = call ptr @SearchSysCache1(i32 noundef 47, i64 noundef %201) #9
   %.not343 = icmp eq ptr %202, null
   br i1 %.not343, label %203, label %206
 
 203:                                              ; preds = %200
-  %204 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %204 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   call void @llvm.assume(i1 %204)
-  %205 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11, i32 noundef %192) #8
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 341, ptr noundef nonnull @__func__.AggregateCreate) #8
+  %205 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11, i32 noundef %192) #9
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 341, ptr noundef nonnull @__func__.AggregateCreate) #9
   unreachable
 
 206:                                              ; preds = %200
@@ -402,15 +402,15 @@ switch.early.test:                                ; preds = %77
   br i1 %.not344, label %219, label %215
 
 215:                                              ; preds = %206
-  %216 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %216 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   call void @llvm.assume(i1 %216)
-  %217 = call i32 @errcode(i32 noundef 50724996) #8
-  %218 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.14) #8
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 352, ptr noundef nonnull @__func__.AggregateCreate) #8
+  %217 = call i32 @errcode(i32 noundef 50724996) #9
+  %218 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.14) #9
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 352, ptr noundef nonnull @__func__.AggregateCreate) #9
   unreachable
 
 219:                                              ; preds = %206
-  call void @ReleaseSysCache(ptr noundef nonnull %202) #8
+  call void @ReleaseSysCache(ptr noundef nonnull %202) #9
   br label %220
 
 220:                                              ; preds = %219, %190
@@ -432,15 +432,15 @@ switch.early.test:                                ; preds = %77
   br i1 %20, label %226, label %233
 
 226:                                              ; preds = %221
-  %227 = call zeroext i1 @func_strict(i32 noundef %225) #8
+  %227 = call zeroext i1 @func_strict(i32 noundef %225) #9
   br i1 %227, label %228, label %233
 
 228:                                              ; preds = %226
-  %229 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %229 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   call void @llvm.assume(i1 %229)
-  %230 = call i32 @errcode(i32 noundef 50724996) #8
-  %231 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.15) #8
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 396, ptr noundef nonnull @__func__.AggregateCreate) #8
+  %230 = call i32 @errcode(i32 noundef 50724996) #9
+  %231 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.15) #9
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 396, ptr noundef nonnull @__func__.AggregateCreate) #9
   unreachable
 
 232:                                              ; preds = %220
@@ -453,7 +453,7 @@ switch.early.test:                                ; preds = %77
   br i1 %.not346, label %254, label %234
 
 234:                                              ; preds = %233
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %41) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %41)
   store i32 %25, ptr %39, align 16
   %235 = getelementptr inbounds nuw i8, ptr %39, i64 4
   store i32 %25, ptr %235, align 4
@@ -463,13 +463,13 @@ switch.early.test:                                ; preds = %77
   br i1 %.not347, label %244, label %238
 
 238:                                              ; preds = %234
-  %239 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %239 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   call void @llvm.assume(i1 %239)
-  %240 = call i32 @errcode(i32 noundef 67141764) #8
-  %241 = call ptr @NameListToString(ptr noundef nonnull %14) #8
-  %242 = call ptr @format_type_be(i32 noundef %25) #8
-  %243 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.16, ptr noundef %241, ptr noundef %242) #8
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 429, ptr noundef nonnull @__func__.AggregateCreate) #8
+  %240 = call i32 @errcode(i32 noundef 67141764) #9
+  %241 = call ptr @NameListToString(ptr noundef nonnull %14) #9
+  %242 = call ptr @format_type_be(i32 noundef %25) #9
+  %243 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.16, ptr noundef %241, ptr noundef %242) #9
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 429, ptr noundef nonnull @__func__.AggregateCreate) #9
   unreachable
 
 244:                                              ; preds = %234
@@ -477,20 +477,20 @@ switch.early.test:                                ; preds = %77
   br i1 %245, label %246, label %253
 
 246:                                              ; preds = %244
-  %247 = call zeroext i1 @func_strict(i32 noundef %236) #8
+  %247 = call zeroext i1 @func_strict(i32 noundef %236) #9
   br i1 %247, label %248, label %253
 
 248:                                              ; preds = %246
-  %249 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %249 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   call void @llvm.assume(i1 %249)
-  %250 = call i32 @errcode(i32 noundef 50724996) #8
-  %251 = call ptr @format_type_be(i32 noundef 2281) #8
-  %252 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.17, ptr noundef %251) #8
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 440, ptr noundef nonnull @__func__.AggregateCreate) #8
+  %250 = call i32 @errcode(i32 noundef 50724996) #9
+  %251 = call ptr @format_type_be(i32 noundef 2281) #9
+  %252 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.17, ptr noundef %251) #9
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 440, ptr noundef nonnull @__func__.AggregateCreate) #9
   unreachable
 
 253:                                              ; preds = %246, %244
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %41) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
   br label %254
 
 254:                                              ; preds = %253, %233
@@ -506,13 +506,13 @@ switch.early.test:                                ; preds = %77
   br i1 %.not349, label %264, label %258
 
 258:                                              ; preds = %255
-  %259 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %259 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   call void @llvm.assume(i1 %259)
-  %260 = call i32 @errcode(i32 noundef 67141764) #8
-  %261 = call ptr @NameListToString(ptr noundef nonnull %15) #8
-  %262 = call ptr @format_type_be(i32 noundef 17) #8
-  %263 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.18, ptr noundef %261, ptr noundef %262) #8
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 460, ptr noundef nonnull @__func__.AggregateCreate) #8
+  %260 = call i32 @errcode(i32 noundef 67141764) #9
+  %261 = call ptr @NameListToString(ptr noundef nonnull %15) #9
+  %262 = call ptr @format_type_be(i32 noundef 17) #9
+  %263 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.18, ptr noundef %261, ptr noundef %262) #9
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 460, ptr noundef nonnull @__func__.AggregateCreate) #9
   unreachable
 
 264:                                              ; preds = %255, %254
@@ -530,44 +530,44 @@ switch.early.test:                                ; preds = %77
   br i1 %.not351, label %275, label %269
 
 269:                                              ; preds = %265
-  %270 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %270 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   call void @llvm.assume(i1 %270)
-  %271 = call i32 @errcode(i32 noundef 67141764) #8
-  %272 = call ptr @NameListToString(ptr noundef nonnull %16) #8
-  %273 = call ptr @format_type_be(i32 noundef 2281) #8
-  %274 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.19, ptr noundef %272, ptr noundef %273) #8
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 481, ptr noundef nonnull @__func__.AggregateCreate) #8
+  %271 = call i32 @errcode(i32 noundef 67141764) #9
+  %272 = call ptr @NameListToString(ptr noundef nonnull %16) #9
+  %273 = call ptr @format_type_be(i32 noundef 2281) #9
+  %274 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.19, ptr noundef %272, ptr noundef %273) #9
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 481, ptr noundef nonnull @__func__.AggregateCreate) #9
   unreachable
 
 275:                                              ; preds = %265, %264
   %.0286 = phi i32 [ %267, %265 ], [ 0, %264 ]
   %276 = load i32, ptr %38, align 4
-  %277 = call ptr @check_valid_polymorphic_signature(i32 noundef %276, ptr noundef nonnull %42, i32 noundef %4) #8
+  %277 = call ptr @check_valid_polymorphic_signature(i32 noundef %276, ptr noundef nonnull %42, i32 noundef %4) #9
   %.not352 = icmp eq ptr %277, null
   br i1 %.not352, label %283, label %278
 
 278:                                              ; preds = %275
-  %279 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %279 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   call void @llvm.assume(i1 %279)
-  %280 = call i32 @errcode(i32 noundef 67141764) #8
-  %281 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.20) #8
-  %282 = call i32 (ptr, ...) @errdetail_internal(ptr noundef nonnull @.str.7, ptr noundef nonnull %277) #8
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 499, ptr noundef nonnull @__func__.AggregateCreate) #8
+  %280 = call i32 @errcode(i32 noundef 67141764) #9
+  %281 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.20) #9
+  %282 = call i32 (ptr, ...) @errdetail_internal(ptr noundef nonnull @.str.7, ptr noundef nonnull %277) #9
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 499, ptr noundef nonnull @__func__.AggregateCreate) #9
   unreachable
 
 283:                                              ; preds = %275
   %284 = load i32, ptr %38, align 4
-  %285 = call ptr @check_valid_internal_signature(i32 noundef %284, ptr noundef nonnull %42, i32 noundef %4) #8
+  %285 = call ptr @check_valid_internal_signature(i32 noundef %284, ptr noundef nonnull %42, i32 noundef %4) #9
   %.not353 = icmp eq ptr %285, null
   br i1 %.not353, label %291, label %286
 
 286:                                              ; preds = %283
-  %287 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %287 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   call void @llvm.assume(i1 %287)
-  %288 = call i32 @errcode(i32 noundef 50724996) #8
-  %289 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.21) #8
-  %290 = call i32 (ptr, ...) @errdetail_internal(ptr noundef nonnull @.str.7, ptr noundef nonnull %285) #8
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 514, ptr noundef nonnull @__func__.AggregateCreate) #8
+  %288 = call i32 @errcode(i32 noundef 50724996) #9
+  %289 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.21) #9
+  %290 = call i32 (ptr, ...) @errdetail_internal(ptr noundef nonnull @.str.7, ptr noundef nonnull %285) #9
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 514, ptr noundef nonnull @__func__.AggregateCreate) #9
   unreachable
 
 291:                                              ; preds = %283
@@ -591,15 +591,15 @@ switch.early.test:                                ; preds = %77
   br i1 %21, label %298, label %305
 
 298:                                              ; preds = %293
-  %299 = call zeroext i1 @func_strict(i32 noundef %297) #8
+  %299 = call zeroext i1 @func_strict(i32 noundef %297) #9
   br i1 %299, label %300, label %305
 
 300:                                              ; preds = %298
-  %301 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %301 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   call void @llvm.assume(i1 %301)
-  %302 = call i32 @errcode(i32 noundef 50724996) #8
-  %303 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.15) #8
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 554, ptr noundef nonnull @__func__.AggregateCreate) #8
+  %302 = call i32 @errcode(i32 noundef 50724996) #9
+  %303 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.15) #9
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 554, ptr noundef nonnull @__func__.AggregateCreate) #9
   unreachable
 
 304:                                              ; preds = %292
@@ -614,15 +614,15 @@ switch.early.test:                                ; preds = %77
   br i1 %.not355, label %316, label %308
 
 308:                                              ; preds = %305
-  %309 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %309 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   call void @llvm.assume(i1 %309)
-  %310 = call i32 @errcode(i32 noundef 50724996) #8
+  %310 = call i32 @errcode(i32 noundef 50724996) #9
   %311 = load i32, ptr %37, align 4
-  %312 = call ptr @format_type_be(i32 noundef %311) #8
+  %312 = call ptr @format_type_be(i32 noundef %311) #9
   %313 = load i32, ptr %38, align 4
-  %314 = call ptr @format_type_be(i32 noundef %313) #8
-  %315 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.22, ptr noundef %312, ptr noundef %314) #8
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 569, ptr noundef nonnull @__func__.AggregateCreate) #8
+  %314 = call ptr @format_type_be(i32 noundef %313) #9
+  %315 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.22, ptr noundef %312, ptr noundef %314) #9
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 569, ptr noundef nonnull @__func__.AggregateCreate) #9
   unreachable
 
 316:                                              ; preds = %305, %291
@@ -635,16 +635,16 @@ switch.early.test:                                ; preds = %77
   br i1 %.not357, label %.thread, label %318
 
 318:                                              ; preds = %317
-  %319 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %319 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   call void @llvm.assume(i1 %319)
-  %320 = call i32 @errcode(i32 noundef 50724996) #8
-  %321 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.23) #8
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 578, ptr noundef nonnull @__func__.AggregateCreate) #8
+  %320 = call i32 @errcode(i32 noundef 50724996) #9
+  %321 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.23) #9
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 578, ptr noundef nonnull @__func__.AggregateCreate) #9
   unreachable
 
 .thread:                                          ; preds = %317
   %322 = load i32, ptr %42, align 4
-  %323 = call i32 @LookupOperName(ptr noundef null, ptr noundef nonnull %24, i32 noundef %322, i32 noundef %322, i1 noundef zeroext false, i32 noundef -1) #8
+  %323 = call i32 @LookupOperName(ptr noundef null, ptr noundef nonnull %24, i32 noundef %322, i32 noundef %322, i1 noundef zeroext false, i32 noundef -1) #9
   br label %.lr.ph.preheader
 
 324:                                              ; preds = %316
@@ -660,14 +660,14 @@ switch.early.test:                                ; preds = %77
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %332 ]
   %326 = getelementptr inbounds nuw i32, ptr %42, i64 %indvars.iv
   %327 = load i32, ptr %326, align 4
-  %328 = call i32 @GetUserId() #8
-  %329 = call i32 @object_aclcheck(i32 noundef 1247, i32 noundef %327, i32 noundef %328, i64 noundef 256) #8
+  %328 = call i32 @GetUserId() #9
+  %329 = call i32 @object_aclcheck(i32 noundef 1247, i32 noundef %327, i32 noundef %328, i64 noundef 256) #9
   %.not374 = icmp eq i32 %329, 0
   br i1 %.not374, label %332, label %330
 
 330:                                              ; preds = %.lr.ph
   %331 = load i32, ptr %326, align 4
-  call void @aclcheck_error_type(i32 noundef %329, i32 noundef %331) #8
+  call void @aclcheck_error_type(i32 noundef %329, i32 noundef %331) #9
   br label %332
 
 332:                                              ; preds = %.lr.ph, %330
@@ -677,51 +677,51 @@ switch.early.test:                                ; preds = %77
 
 ._crit_edge:                                      ; preds = %332, %324
   %.0294394 = phi i32 [ 0, %324 ], [ %.0294395, %332 ]
-  %333 = call i32 @GetUserId() #8
-  %334 = call i32 @object_aclcheck(i32 noundef 1247, i32 noundef %25, i32 noundef %333, i64 noundef 256) #8
+  %333 = call i32 @GetUserId() #9
+  %334 = call i32 @object_aclcheck(i32 noundef 1247, i32 noundef %25, i32 noundef %333, i64 noundef 256) #9
   %.not358 = icmp eq i32 %334, 0
   br i1 %.not358, label %336, label %335
 
 335:                                              ; preds = %._crit_edge
-  call void @aclcheck_error_type(i32 noundef %334, i32 noundef %25) #8
+  call void @aclcheck_error_type(i32 noundef %334, i32 noundef %25) #9
   br label %336
 
 336:                                              ; preds = %335, %._crit_edge
   br i1 %.not333, label %341, label %337
 
 337:                                              ; preds = %336
-  %338 = call i32 @GetUserId() #8
-  %339 = call i32 @object_aclcheck(i32 noundef 1247, i32 noundef %27, i32 noundef %338, i64 noundef 256) #8
+  %338 = call i32 @GetUserId() #9
+  %339 = call i32 @object_aclcheck(i32 noundef 1247, i32 noundef %27, i32 noundef %338, i64 noundef 256) #9
   %.not359 = icmp eq i32 %339, 0
   br i1 %.not359, label %341, label %340
 
 340:                                              ; preds = %337
-  call void @aclcheck_error_type(i32 noundef %339, i32 noundef %27) #8
+  call void @aclcheck_error_type(i32 noundef %339, i32 noundef %27) #9
   br label %341
 
 341:                                              ; preds = %337, %340, %336
   %342 = load i32, ptr %38, align 4
-  %343 = call i32 @GetUserId() #8
-  %344 = call i32 @object_aclcheck(i32 noundef 1247, i32 noundef %342, i32 noundef %343, i64 noundef 256) #8
+  %343 = call i32 @GetUserId() #9
+  %344 = call i32 @object_aclcheck(i32 noundef 1247, i32 noundef %342, i32 noundef %343, i64 noundef 256) #9
   %.not360 = icmp eq i32 %344, 0
   br i1 %.not360, label %347, label %345
 
 345:                                              ; preds = %341
   %346 = load i32, ptr %38, align 4
-  call void @aclcheck_error_type(i32 noundef %344, i32 noundef %346) #8
+  call void @aclcheck_error_type(i32 noundef %344, i32 noundef %346) #9
   br label %347
 
 347:                                              ; preds = %345, %341
   %348 = load i32, ptr %38, align 4
-  %349 = call i32 @GetUserId() #8
-  %350 = call { i64, i32 } @ProcedureCreate(ptr noundef nonnull %0, i32 noundef %1, i1 noundef zeroext %2, i1 noundef zeroext false, i32 noundef %348, i32 noundef %349, i32 noundef 12, i32 noundef 0, ptr noundef nonnull @.str.24, ptr noundef null, ptr noundef null, i8 noundef signext 97, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, i8 noundef signext 105, i8 noundef signext %31, ptr noundef nonnull %6, i64 noundef %7, i64 noundef %8, i64 noundef %9, ptr noundef %10, i64 noundef 0, i64 noundef 0, i32 noundef 0, float noundef 1.000000e+00, float noundef 0.000000e+00) #8
+  %349 = call i32 @GetUserId() #9
+  %350 = call { i64, i32 } @ProcedureCreate(ptr noundef nonnull %0, i32 noundef %1, i1 noundef zeroext %2, i1 noundef zeroext false, i32 noundef %348, i32 noundef %349, i32 noundef 12, i32 noundef 0, ptr noundef nonnull @.str.24, ptr noundef null, ptr noundef null, i8 noundef signext 97, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, i8 noundef signext 105, i8 noundef signext %31, ptr noundef nonnull %6, i64 noundef %7, i64 noundef %8, i64 noundef %9, ptr noundef %10, i64 noundef 0, i64 noundef 0, i32 noundef 0, float noundef 1.000000e+00, float noundef 0.000000e+00) #9
   %.fca.0.extract = extractvalue { i64, i32 } %350, 0
   %.fca.1.extract = extractvalue { i64, i32 } %350, 1
   store i64 %.fca.0.extract, ptr %33, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %33, i64 8
   store i32 %.fca.1.extract, ptr %.sroa.4.0..sroa_idx, align 8
   %351 = lshr i64 %.fca.0.extract, 32
-  %352 = call ptr @table_open(i32 noundef 2600, i32 noundef 3) #8
+  %352 = call ptr @table_open(i32 noundef 2600, i32 noundef 3) #9
   %353 = getelementptr inbounds nuw i8, ptr %352, i64 64
   %354 = load ptr, ptr %353, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(22) %34, i8 0, i64 22, i1 false)
@@ -790,7 +790,7 @@ switch.early.test:                                ; preds = %77
   br i1 %142, label %398, label %394
 
 394:                                              ; preds = %347
-  %395 = call ptr @cstring_to_text(ptr noundef nonnull %29) #8
+  %395 = call ptr @cstring_to_text(ptr noundef nonnull %29) #9
   %396 = ptrtoint ptr %395 to i64
   %397 = getelementptr inbounds nuw i8, ptr %35, i64 160
   store i64 %396, ptr %397, align 16
@@ -806,7 +806,7 @@ switch.early.test:                                ; preds = %77
   br i1 %.not362, label %405, label %401
 
 401:                                              ; preds = %400
-  %402 = call ptr @cstring_to_text(ptr noundef nonnull %30) #8
+  %402 = call ptr @cstring_to_text(ptr noundef nonnull %30) #9
   %403 = ptrtoint ptr %402 to i64
   %404 = getelementptr inbounds nuw i8, ptr %35, i64 168
   store i64 %403, ptr %404, align 8
@@ -821,7 +821,7 @@ switch.early.test:                                ; preds = %77
   br i1 %2, label %408, label %.thread382
 
 408:                                              ; preds = %407
-  %409 = call ptr @SearchSysCache1(i32 noundef 0, i64 noundef %351) #8
+  %409 = call ptr @SearchSysCache1(i32 noundef 0, i64 noundef %351) #9
   %.not363 = icmp eq ptr %409, null
   br i1 %.not363, label %.thread382, label %410
 
@@ -838,10 +838,10 @@ switch.early.test:                                ; preds = %77
   br i1 %.not364, label %427, label %418
 
 418:                                              ; preds = %410
-  %419 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %419 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   call void @llvm.assume(i1 %419)
-  %420 = call i32 @errcode(i32 noundef 151027844) #8
-  %421 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.25) #8
+  %420 = call i32 @errcode(i32 noundef 151027844) #9
+  %421 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.25) #9
   %422 = load i8, ptr %416, align 4
   switch i8 %422, label %426 [
     i8 110, label %.sink.split
@@ -857,11 +857,11 @@ switch.early.test:                                ; preds = %77
 
 .sink.split:                                      ; preds = %418, %424, %423
   %.str.27.sink = phi ptr [ @.str.27, %423 ], [ @.str.28, %424 ], [ @.str.26, %418 ]
-  %425 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull %.str.27.sink, ptr noundef nonnull %0) #8
+  %425 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull %.str.27.sink, ptr noundef nonnull %0) #9
   br label %426
 
 426:                                              ; preds = %.sink.split, %418
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 713, ptr noundef nonnull @__func__.AggregateCreate) #8
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 713, ptr noundef nonnull @__func__.AggregateCreate) #9
   unreachable
 
 427:                                              ; preds = %410
@@ -872,11 +872,11 @@ switch.early.test:                                ; preds = %77
   br i1 %.not365, label %435, label %431
 
 431:                                              ; preds = %427
-  %432 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %432 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   call void @llvm.assume(i1 %432)
-  %433 = call i32 @errcode(i32 noundef 50724996) #8
-  %434 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.29) #8
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 717, ptr noundef nonnull @__func__.AggregateCreate) #8
+  %433 = call i32 @errcode(i32 noundef 50724996) #9
+  %434 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.29) #9
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 717, ptr noundef nonnull @__func__.AggregateCreate) #9
   unreachable
 
 435:                                              ; preds = %427
@@ -885,26 +885,26 @@ switch.early.test:                                ; preds = %77
   store i8 0, ptr %436, align 1
   %437 = getelementptr inbounds nuw i8, ptr %36, i64 2
   store i8 0, ptr %437, align 2
-  %438 = call ptr @heap_modify_tuple(ptr noundef nonnull %409, ptr noundef %354, ptr noundef nonnull %35, ptr noundef nonnull %34, ptr noundef nonnull %36) #8
+  %438 = call ptr @heap_modify_tuple(ptr noundef nonnull %409, ptr noundef %354, ptr noundef nonnull %35, ptr noundef nonnull %34, ptr noundef nonnull %36) #9
   %439 = getelementptr inbounds nuw i8, ptr %438, i64 4
-  call void @CatalogTupleUpdate(ptr noundef nonnull %352, ptr noundef nonnull %439, ptr noundef %438) #8
-  call void @ReleaseSysCache(ptr noundef nonnull %409) #8
+  call void @CatalogTupleUpdate(ptr noundef nonnull %352, ptr noundef nonnull %439, ptr noundef %438) #9
+  call void @ReleaseSysCache(ptr noundef nonnull %409) #9
   br label %441
 
 .thread382:                                       ; preds = %407, %408
-  %440 = call ptr @heap_form_tuple(ptr noundef %354, ptr noundef nonnull %35, ptr noundef nonnull %34) #8
-  call void @CatalogTupleInsert(ptr noundef nonnull %352, ptr noundef %440) #8
+  %440 = call ptr @heap_form_tuple(ptr noundef %354, ptr noundef nonnull %35, ptr noundef nonnull %34) #9
+  call void @CatalogTupleInsert(ptr noundef nonnull %352, ptr noundef %440) #9
   br label %441
 
 441:                                              ; preds = %.thread382, %435
-  call void @table_close(ptr noundef nonnull %352, i32 noundef 3) #8
-  %442 = call ptr @new_object_addresses() #8
+  call void @table_close(ptr noundef nonnull %352, i32 noundef 3) #9
+  %442 = call ptr @new_object_addresses() #9
   store i32 1255, ptr %40, align 4
   %443 = getelementptr inbounds nuw i8, ptr %40, i64 4
   store i32 %119, ptr %443, align 4
   %444 = getelementptr inbounds nuw i8, ptr %40, i64 8
   store i32 0, ptr %444, align 4
-  call void @add_exact_object_address(ptr noundef nonnull %40, ptr noundef %442) #8
+  call void @add_exact_object_address(ptr noundef nonnull %40, ptr noundef %442) #9
   %.not366 = icmp eq i32 %.0283, 0
   br i1 %.not366, label %446, label %445
 
@@ -912,7 +912,7 @@ switch.early.test:                                ; preds = %77
   store i32 1255, ptr %40, align 4
   store i32 %.0283, ptr %443, align 4
   store i32 0, ptr %444, align 4
-  call void @add_exact_object_address(ptr noundef nonnull %40, ptr noundef %442) #8
+  call void @add_exact_object_address(ptr noundef nonnull %40, ptr noundef %442) #9
   br label %446
 
 446:                                              ; preds = %445, %441
@@ -923,7 +923,7 @@ switch.early.test:                                ; preds = %77
   store i32 1255, ptr %40, align 4
   store i32 %.0284, ptr %443, align 4
   store i32 0, ptr %444, align 4
-  call void @add_exact_object_address(ptr noundef nonnull %40, ptr noundef %442) #8
+  call void @add_exact_object_address(ptr noundef nonnull %40, ptr noundef %442) #9
   br label %448
 
 448:                                              ; preds = %447, %446
@@ -934,7 +934,7 @@ switch.early.test:                                ; preds = %77
   store i32 1255, ptr %40, align 4
   store i32 %.0285, ptr %443, align 4
   store i32 0, ptr %444, align 4
-  call void @add_exact_object_address(ptr noundef nonnull %40, ptr noundef %442) #8
+  call void @add_exact_object_address(ptr noundef nonnull %40, ptr noundef %442) #9
   br label %450
 
 450:                                              ; preds = %449, %448
@@ -945,7 +945,7 @@ switch.early.test:                                ; preds = %77
   store i32 1255, ptr %40, align 4
   store i32 %.0286, ptr %443, align 4
   store i32 0, ptr %444, align 4
-  call void @add_exact_object_address(ptr noundef nonnull %40, ptr noundef %442) #8
+  call void @add_exact_object_address(ptr noundef nonnull %40, ptr noundef %442) #9
   br label %452
 
 452:                                              ; preds = %451, %450
@@ -956,7 +956,7 @@ switch.early.test:                                ; preds = %77
   store i32 1255, ptr %40, align 4
   store i32 %.0289, ptr %443, align 4
   store i32 0, ptr %444, align 4
-  call void @add_exact_object_address(ptr noundef nonnull %40, ptr noundef %442) #8
+  call void @add_exact_object_address(ptr noundef nonnull %40, ptr noundef %442) #9
   br label %454
 
 454:                                              ; preds = %453, %452
@@ -967,7 +967,7 @@ switch.early.test:                                ; preds = %77
   store i32 1255, ptr %40, align 4
   store i32 %.0290, ptr %443, align 4
   store i32 0, ptr %444, align 4
-  call void @add_exact_object_address(ptr noundef nonnull %40, ptr noundef %442) #8
+  call void @add_exact_object_address(ptr noundef nonnull %40, ptr noundef %442) #9
   br label %456
 
 456:                                              ; preds = %455, %454
@@ -978,7 +978,7 @@ switch.early.test:                                ; preds = %77
   store i32 1255, ptr %40, align 4
   store i32 %.0292, ptr %443, align 4
   store i32 0, ptr %444, align 4
-  call void @add_exact_object_address(ptr noundef nonnull %40, ptr noundef %442) #8
+  call void @add_exact_object_address(ptr noundef nonnull %40, ptr noundef %442) #9
   br label %458
 
 458:                                              ; preds = %457, %456
@@ -989,19 +989,19 @@ switch.early.test:                                ; preds = %77
   store i32 2617, ptr %40, align 4
   store i32 %.0294394, ptr %443, align 4
   store i32 0, ptr %444, align 4
-  call void @add_exact_object_address(ptr noundef nonnull %40, ptr noundef %442) #8
+  call void @add_exact_object_address(ptr noundef nonnull %40, ptr noundef %442) #9
   br label %460
 
 460:                                              ; preds = %459, %458
-  call void @record_object_address_dependencies(ptr noundef nonnull %33, ptr noundef %442, i32 noundef 110) #8
-  call void @free_object_addresses(ptr noundef %442) #8
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %40) #8
-  call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %39) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %38) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %37) #8
-  call void @llvm.lifetime.end.p0(i64 22, ptr nonnull %36) #8
-  call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %35) #8
-  call void @llvm.lifetime.end.p0(i64 22, ptr nonnull %34) #8
+  call void @record_object_address_dependencies(ptr noundef nonnull %33, ptr noundef %442, i32 noundef 110) #9
+  call void @free_object_addresses(ptr noundef %442) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
   %.sroa.0.0.copyload = load i64, ptr %33, align 8
   %.sroa.2.0.copyload = load i32, ptr %.sroa.4.0..sroa_idx, align 8
   %.fca.0.insert = insertvalue { i64, i32 } poison, i64 %.sroa.0.0.copyload, 0
@@ -1009,31 +1009,25 @@ switch.early.test:                                ; preds = %77
   ret { i64, i32 } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #3
+declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @errcode(i32 noundef) local_unnamed_addr #3
+declare i32 @errcode(i32 noundef) local_unnamed_addr #2
 
-declare i32 @errmsg_plural(ptr noundef, ptr noundef, i64 noundef, ...) local_unnamed_addr #3
+declare i32 @errmsg_plural(ptr noundef, ptr noundef, i64 noundef, ...) local_unnamed_addr #2
 
-declare ptr @check_valid_polymorphic_signature(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @check_valid_polymorphic_signature(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #3
+declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #2
 
-declare i32 @errdetail_internal(ptr noundef, ...) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @errdetail_internal(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @lookup_agg_function(ptr noundef nonnull %0, i32 noundef range(i32 -96, -2147483647) %1, ptr noundef nonnull %2, i32 noundef %3, ptr noundef nonnull %4) unnamed_addr #0 {
@@ -1042,12 +1036,12 @@ define internal fastcc i32 @lookup_agg_function(ptr noundef nonnull %0, i32 noun
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #8
-  %11 = call i32 @func_get_detail(ptr noundef nonnull %0, ptr noundef null, ptr noundef null, i32 noundef %1, ptr noundef nonnull %2, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef null) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  %11 = call i32 @func_get_detail(ptr noundef nonnull %0, ptr noundef null, ptr noundef null, i32 noundef %1, ptr noundef nonnull %2, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef null) #9
   %12 = icmp eq i32 %11, 2
   %13 = load i32, ptr %6, align 4
   %14 = icmp ne i32 %13, 0
@@ -1055,12 +1049,12 @@ define internal fastcc i32 @lookup_agg_function(ptr noundef nonnull %0, i32 noun
   br i1 %or.cond, label %20, label %15
 
 15:                                               ; preds = %5
-  %16 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %16 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   call void @llvm.assume(i1 %16)
-  %17 = call i32 @errcode(i32 noundef 52461700) #8
-  %18 = call ptr @func_signature_string(ptr noundef nonnull %0, i32 noundef %1, ptr noundef null, ptr noundef nonnull %2) #8
-  %19 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.30, ptr noundef %18) #8
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 860, ptr noundef nonnull @__func__.lookup_agg_function) #8
+  %17 = call i32 @errcode(i32 noundef 52461700) #9
+  %18 = call ptr @func_signature_string(ptr noundef nonnull %0, i32 noundef %1, ptr noundef null, ptr noundef nonnull %2) #9
+  %19 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.30, ptr noundef %18) #9
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 860, ptr noundef nonnull @__func__.lookup_agg_function) #9
   unreachable
 
 20:                                               ; preds = %5
@@ -1069,12 +1063,12 @@ define internal fastcc i32 @lookup_agg_function(ptr noundef nonnull %0, i32 noun
   br i1 %22, label %23, label %28
 
 23:                                               ; preds = %20
-  %24 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %24 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   call void @llvm.assume(i1 %24)
-  %25 = call i32 @errcode(i32 noundef 67141764) #8
-  %26 = call ptr @func_signature_string(ptr noundef nonnull %0, i32 noundef %1, ptr noundef null, ptr noundef nonnull %2) #8
-  %27 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.31, ptr noundef %26) #8
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 866, ptr noundef nonnull @__func__.lookup_agg_function) #8
+  %25 = call i32 @errcode(i32 noundef 67141764) #9
+  %26 = call ptr @func_signature_string(ptr noundef nonnull %0, i32 noundef %1, ptr noundef null, ptr noundef nonnull %2) #9
+  %27 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.31, ptr noundef %26) #9
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 866, ptr noundef nonnull @__func__.lookup_agg_function) #9
   unreachable
 
 28:                                               ; preds = %20
@@ -1085,18 +1079,18 @@ define internal fastcc i32 @lookup_agg_function(ptr noundef nonnull %0, i32 noun
   br i1 %or.cond3, label %32, label %37
 
 32:                                               ; preds = %28
-  %33 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %33 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   call void @llvm.assume(i1 %33)
-  %34 = call i32 @errcode(i32 noundef 67141764) #8
-  %35 = call ptr @func_signature_string(ptr noundef nonnull %0, i32 noundef %1, ptr noundef null, ptr noundef nonnull %2) #8
-  %36 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.32, ptr noundef %35) #8
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 881, ptr noundef nonnull @__func__.lookup_agg_function) #8
+  %34 = call i32 @errcode(i32 noundef 67141764) #9
+  %35 = call ptr @func_signature_string(ptr noundef nonnull %0, i32 noundef %1, ptr noundef null, ptr noundef nonnull %2) #9
+  %36 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.32, ptr noundef %35) #9
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 881, ptr noundef nonnull @__func__.lookup_agg_function) #9
   unreachable
 
 37:                                               ; preds = %28
   %38 = load ptr, ptr %10, align 8
   %39 = load i32, ptr %4, align 4
-  %40 = call i32 @enforce_generic_type_consistency(ptr noundef nonnull %2, ptr noundef %38, i32 noundef %1, i32 noundef %39, i1 noundef zeroext true) #8
+  %40 = call i32 @enforce_generic_type_consistency(ptr noundef nonnull %2, ptr noundef %38, i32 noundef %1, i32 noundef %39, i1 noundef zeroext true) #9
   store i32 %40, ptr %4, align 4
   %41 = icmp sgt i32 %1, 0
   br i1 %41, label %.lr.ph.preheader, label %._crit_edge
@@ -1117,99 +1111,105 @@ define internal fastcc i32 @lookup_agg_function(ptr noundef nonnull %0, i32 noun
   %45 = load ptr, ptr %10, align 8
   %46 = getelementptr inbounds nuw i32, ptr %45, i64 %indvars.iv
   %47 = load i32, ptr %46, align 4
-  %48 = call zeroext i1 @IsBinaryCoercible(i32 noundef %44, i32 noundef %47) #8
+  %48 = call zeroext i1 @IsBinaryCoercible(i32 noundef %44, i32 noundef %47) #9
   br i1 %48, label %42, label %49
 
 49:                                               ; preds = %.lr.ph
-  %50 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %50 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   call void @llvm.assume(i1 %50)
-  %51 = call i32 @errcode(i32 noundef 67141764) #8
+  %51 = call i32 @errcode(i32 noundef 67141764) #9
   %52 = load ptr, ptr %10, align 8
-  %53 = call ptr @func_signature_string(ptr noundef nonnull %0, i32 noundef %1, ptr noundef null, ptr noundef %52) #8
-  %54 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.33, ptr noundef %53) #8
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 905, ptr noundef nonnull @__func__.lookup_agg_function) #8
+  %53 = call ptr @func_signature_string(ptr noundef nonnull %0, i32 noundef %1, ptr noundef null, ptr noundef %52) #9
+  %54 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.33, ptr noundef %53) #9
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 905, ptr noundef nonnull @__func__.lookup_agg_function) #9
   unreachable
 
 ._crit_edge:                                      ; preds = %42, %37
   %55 = load i32, ptr %6, align 4
-  %56 = call i32 @GetUserId() #8
-  %57 = call i32 @object_aclcheck(i32 noundef 1255, i32 noundef %55, i32 noundef %56, i64 noundef 128) #8
+  %56 = call i32 @GetUserId() #9
+  %57 = call i32 @object_aclcheck(i32 noundef 1255, i32 noundef %55, i32 noundef %56, i64 noundef 128) #9
   %.not = icmp eq i32 %57, 0
   br i1 %.not, label %61, label %58
 
 58:                                               ; preds = %._crit_edge
   %59 = load i32, ptr %6, align 4
-  %60 = call ptr @get_func_name(i32 noundef %59) #8
-  call void @aclcheck_error(i32 noundef %57, i32 noundef 19, ptr noundef %60) #8
+  %60 = call ptr @get_func_name(i32 noundef %59) #9
+  call void @aclcheck_error(i32 noundef %57, i32 noundef 19, ptr noundef %60) #9
   br label %61
 
 61:                                               ; preds = %58, %._crit_edge
   %62 = load i32, ptr %6, align 4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %62
 }
 
-declare ptr @NameListToString(ptr noundef) local_unnamed_addr #3
+declare ptr @NameListToString(ptr noundef) local_unnamed_addr #2
 
-declare ptr @format_type_be(i32 noundef) local_unnamed_addr #3
+declare ptr @format_type_be(i32 noundef) local_unnamed_addr #2
 
-declare ptr @SearchSysCache1(i32 noundef, i64 noundef) local_unnamed_addr #3
+declare ptr @SearchSysCache1(i32 noundef, i64 noundef) local_unnamed_addr #2
 
-declare zeroext i1 @IsBinaryCoercible(i32 noundef, i32 noundef) local_unnamed_addr #3
+declare zeroext i1 @IsBinaryCoercible(i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @ReleaseSysCache(ptr noundef) local_unnamed_addr #3
+declare void @ReleaseSysCache(ptr noundef) local_unnamed_addr #2
 
-declare zeroext i1 @func_strict(i32 noundef) local_unnamed_addr #3
+declare zeroext i1 @func_strict(i32 noundef) local_unnamed_addr #2
 
-declare ptr @check_valid_internal_signature(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @check_valid_internal_signature(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @LookupOperName(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #3
+declare i32 @LookupOperName(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #2
 
-declare i32 @object_aclcheck(i32 noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @object_aclcheck(i32 noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @GetUserId() local_unnamed_addr #3
+declare i32 @GetUserId() local_unnamed_addr #2
 
-declare void @aclcheck_error_type(i32 noundef, i32 noundef) local_unnamed_addr #3
+declare void @aclcheck_error_type(i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare { i64, i32 } @ProcedureCreate(ptr noundef, i32 noundef, i1 noundef zeroext, i1 noundef zeroext, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i8 noundef signext, i1 noundef zeroext, i1 noundef zeroext, i1 noundef zeroext, i8 noundef signext, i8 noundef signext, ptr noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef, i64 noundef, i64 noundef, i32 noundef, float noundef, float noundef) local_unnamed_addr #3
+declare { i64, i32 } @ProcedureCreate(ptr noundef, i32 noundef, i1 noundef zeroext, i1 noundef zeroext, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i8 noundef signext, i1 noundef zeroext, i1 noundef zeroext, i1 noundef zeroext, i8 noundef signext, i8 noundef signext, ptr noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef, i64 noundef, i64 noundef, i32 noundef, float noundef, float noundef) local_unnamed_addr #2
 
-declare ptr @table_open(i32 noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @table_open(i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @cstring_to_text(ptr noundef) local_unnamed_addr #3
+declare ptr @cstring_to_text(ptr noundef) local_unnamed_addr #2
 
-declare i32 @errdetail(ptr noundef, ...) local_unnamed_addr #3
+declare i32 @errdetail(ptr noundef, ...) local_unnamed_addr #2
 
-declare ptr @heap_modify_tuple(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @heap_modify_tuple(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @CatalogTupleUpdate(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @CatalogTupleUpdate(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @heap_form_tuple(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @heap_form_tuple(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @CatalogTupleInsert(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @CatalogTupleInsert(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @table_close(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @table_close(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @new_object_addresses() local_unnamed_addr #3
+declare ptr @new_object_addresses() local_unnamed_addr #2
 
-declare void @add_exact_object_address(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @add_exact_object_address(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @record_object_address_dependencies(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @record_object_address_dependencies(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @free_object_addresses(ptr noundef) local_unnamed_addr #3
+declare void @free_object_addresses(ptr noundef) local_unnamed_addr #2
 
-declare i32 @func_get_detail(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i1 noundef zeroext, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @func_get_detail(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i1 noundef zeroext, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @func_signature_string(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @func_signature_string(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @enforce_generic_type_consistency(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare i32 @enforce_generic_type_consistency(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
-declare void @aclcheck_error(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @aclcheck_error(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @get_func_name(i32 noundef) local_unnamed_addr #3
+declare ptr @get_func_name(i32 noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #5
@@ -1221,15 +1221,15 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #1 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { nounwind }
-attributes #9 = { cold nounwind }
+attributes #8 = { cold nounwind }
+attributes #9 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -52,7 +52,7 @@ define hidden void @_ZN14regex_automata4util4iter8Searcher30handle_overlapping_e
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %24 = load i64, ptr %23, align 8, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9), !noalias !5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !5
   store i64 %19, ptr %9, align 8, !noalias !5
   %.fca.1.gep.i = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 %24, ptr %.fca.1.gep.i, align 8, !noalias !5
@@ -65,9 +65,9 @@ define hidden void @_ZN14regex_automata4util4iter8Searcher30handle_overlapping_e
   br i1 %or.cond.i, label %28, label %_ZN14regex_automata4util6search5Input8set_span17hd421a50804d66c51E.exit
 
 28:                                               ; preds = %22
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8), !noalias !5
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7), !noalias !5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6), !noalias !5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !5
   store i64 %26, ptr %6, align 8, !noalias !5
   store ptr %9, ptr %7, align 8, !noalias !5
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -90,7 +90,7 @@ define hidden void @_ZN14regex_automata4util4iter8Searcher30handle_overlapping_e
 
 _ZN14regex_automata4util6search5Input8set_span17hd421a50804d66c51E.exit: ; preds = %22
   store i64 %19, ptr %16, align 8, !alias.scope !5
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9), !noalias !5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18)
@@ -266,7 +266,7 @@ _ZN14regex_automata4meta5regex5Regex17search_slots_with17h8984827c8519266fE.exit
   br i1 %.not.i.i6.i, label %132, label %"_ZN103_$LT$regex_automata..meta..regex..CapturesMatches$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17ha483752b0a2e2074E.exit"
 
 132:                                              ; preds = %129
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5), !noalias !62
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !62
   store ptr @anon.0335a70b866b932772266027cc677848.11, ptr %5, align 8, !noalias !62
   %133 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 1, ptr %133, align 8, !noalias !62
@@ -328,7 +328,7 @@ define hidden void @_ZN14regex_automata4util4iter8Searcher30handle_overlapping_e
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %25 = load i64, ptr %24, align 8, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !67)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10), !noalias !67
+  call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !67
   store i64 %20, ptr %10, align 8, !noalias !67
   %.fca.1.gep.i = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 %25, ptr %.fca.1.gep.i, align 8, !noalias !67
@@ -341,9 +341,9 @@ define hidden void @_ZN14regex_automata4util4iter8Searcher30handle_overlapping_e
   br i1 %or.cond.i, label %29, label %_ZN14regex_automata4util6search5Input8set_span17hd421a50804d66c51E.exit
 
 29:                                               ; preds = %23
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9), !noalias !67
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8), !noalias !67
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7), !noalias !67
+  call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !67
+  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !67
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !67
   store i64 %27, ptr %7, align 8, !noalias !67
   store ptr %10, ptr %8, align 8, !noalias !67
   %30 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -366,9 +366,9 @@ define hidden void @_ZN14regex_automata4util4iter8Searcher30handle_overlapping_e
 
 _ZN14regex_automata4util6search5Input8set_span17hd421a50804d66c51E.exit: ; preds = %23
   store i64 %20, ptr %17, align 8, !alias.scope !67
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10), !noalias !67
+  call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !67
   tail call void @llvm.experimental.noalias.scope.decl(metadata !75)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !78
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !78
   tail call void @llvm.experimental.noalias.scope.decl(metadata !80)
   %37 = load i64, ptr %4, align 8, !range !25, !alias.scope !80, !noalias !78, !noundef !4
   %trunc.i.i = trunc nuw i64 %37 to i1
@@ -481,7 +481,7 @@ _ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h98144260d607b035E.exit
 
 "_ZN99_$LT$regex_automata..meta..regex..FindMatches$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h6f7247bf25afad49E.exit": ; preds = %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h98144260d607b035E.exit.thread.i.i, %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h98144260d607b035E.exit.thread4.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false), !noalias !75
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !78
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !78
   ret void
 }
 
@@ -513,10 +513,10 @@ declare noundef zeroext i1 @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Disp
 declare void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef align 8 captures(none) dereferenceable(48), ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #7

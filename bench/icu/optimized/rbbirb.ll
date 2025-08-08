@@ -320,13 +320,10 @@ define void @_ZN6icu_7715RBBIRuleBuilderD2Ev(ptr noundef nonnull align 8 derefer
   unreachable
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
-
 declare noundef ptr @_ZNK6icu_777UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: noinline noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #6 comdat {
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #5 comdat {
   %2 = tail call ptr @__cxa_begin_catch(ptr %0) #9
   tail call void @_ZSt9terminatev() #10
   unreachable
@@ -335,13 +332,10 @@ define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_un
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #7
+declare void @_ZSt9terminatev() local_unnamed_addr #6
 
 ; Function Attrs: nounwind
 declare void @_ZN6icu_778RBBINodeD1Ev(ptr noundef nonnull align 8 dereferenceable(160)) unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nounwind
 declare void @_ZN6icu_7714RBBISetBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(53)) unnamed_addr #3
@@ -367,12 +361,12 @@ define noundef ptr @_ZN6icu_7715RBBIRuleBuilder11flattenDataEv(ptr noundef nonnu
   br i1 %7, label %8, label %149
 
 8:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   call void @_ZN6icu_7715RBBIRuleScanner10stripRulesERKNS_13UnicodeStringE(ptr dead_on_unwind nonnull writable sret(%"class.icu_77::UnicodeString") align 8 %2, ptr noundef nonnull align 8 dereferenceable(64) %9)
   %10 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSEOS0_(ptr noundef nonnull align 8 dereferenceable(64) %9, ptr noundef nonnull align 8 dereferenceable(64) %2) #9
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #9
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %12 = load ptr, ptr %11, align 8, !tbaa !37
   %13 = call noundef i32 @_ZNK6icu_7716RBBITableBuilder12getTableSizeEv(ptr noundef nonnull align 8 dereferenceable(52) %12)
@@ -394,7 +388,7 @@ define noundef ptr @_ZN6icu_7715RBBIRuleBuilder11flattenDataEv(ptr noundef nonnu
   %29 = shl i32 %28, 2
   %30 = add nsw i32 %29, 7
   %31 = and i32 %30, -8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !tbaa !46
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %33 = load i16, ptr %32, align 8, !tbaa !47
@@ -609,7 +603,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %8, %37, %39
   unreachable
 
 _ZN6icu_7711LocalMemoryINS_14RBBIDataHeaderEED2Ev.exit: ; preds = %141
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %149
 
 145:                                              ; preds = %.loopexit, %.loopexit.split-lp, %63
@@ -625,7 +619,7 @@ _ZN6icu_7711LocalMemoryINS_14RBBIDataHeaderEED2Ev.exit: ; preds = %141
   unreachable
 
 _ZN6icu_7711LocalMemoryINS_14RBBIDataHeaderEED2Ev.exit34: ; preds = %145
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn
 
 149:                                              ; preds = %1, %_ZN6icu_7711LocalMemoryINS_14RBBIDataHeaderEED2Ev.exit
@@ -647,7 +641,7 @@ declare noundef i32 @_ZN6icu_7714RBBISetBuilder11getTrieSizeEv(ptr noundef nonnu
 declare ptr @u_strToUTF8WithSub_77(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @uprv_malloc_77(i64 noundef) local_unnamed_addr #8
+declare noalias ptr @uprv_malloc_77(i64 noundef) local_unnamed_addr #7
 
 declare noundef i32 @_ZNK6icu_7714RBBISetBuilder20getNumCharCategoriesEv(ptr noundef nonnull align 8 dereferenceable(53)) local_unnamed_addr #1
 
@@ -662,7 +656,7 @@ declare noundef i32 @_ZNK6icu_777UVector10elementAtiEi(ptr noundef nonnull align
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZN6icu_7715RBBIRuleBuilder28createRuleBasedBreakIteratorERKNS_13UnicodeStringEP11UParseErrorR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.icu_77::RBBIRuleBuilder", align 8
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN6icu_7715RBBIRuleBuilderC1ERKNS_13UnicodeStringEP11UParseErrorR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192) %4, ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
   %5 = load i32, ptr %2, align 4, !tbaa !30
   %6 = icmp slt i32 %5, 1
@@ -721,13 +715,13 @@ define noundef ptr @_ZN6icu_7715RBBIRuleBuilder28createRuleBasedBreakIteratorERK
 30:                                               ; preds = %27, %12
   %.pn = phi { ptr, i32 } [ %28, %27 ], [ %13, %12 ]
   call void @_ZN6icu_7715RBBIRuleBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(192) %4) #9
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn
 
 .thread27:                                        ; preds = %.thread, %18, %9, %23, %29, %3
   %.0 = phi ptr [ null, %3 ], [ null, %9 ], [ null, %29 ], [ null, %23 ], [ %15, %18 ], [ null, %.thread ]
   call void @_ZN6icu_7715RBBIRuleBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(192) %4) #9
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
 
@@ -779,7 +773,7 @@ define noundef ptr @_ZN6icu_7715RBBIRuleBuilder5buildER10UErrorCode(ptr noundef 
   br label %25
 
 25:                                               ; preds = %36, %22
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 3, ptr %3, align 8, !tbaa !63
   store i32 0, ptr %24, align 4, !tbaa !65
   %26 = load ptr, ptr %23, align 8, !tbaa !37
@@ -808,7 +802,7 @@ define noundef ptr @_ZN6icu_7715RBBIRuleBuilder5buildER10UErrorCode(ptr noundef 
   br i1 %35, label %.preheader.i, label %36, !llvm.loop !67
 
 36:                                               ; preds = %.preheader.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.1.i, label %25, label %_ZN6icu_7715RBBIRuleBuilder14optimizeTablesEv.exit, !llvm.loop !68
 
 _ZN6icu_7715RBBIRuleBuilder14optimizeTablesEv.exit: ; preds = %36
@@ -846,7 +840,7 @@ define void @_ZN6icu_7715RBBIRuleBuilder14optimizeTablesEv(ptr noundef nonnull r
   br label %6
 
 6:                                                ; preds = %17, %1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 3, ptr %2, align 8, !tbaa !63
   store i32 0, ptr %3, align 4, !tbaa !65
   %7 = load ptr, ptr %4, align 8, !tbaa !37
@@ -875,7 +869,7 @@ define void @_ZN6icu_7715RBBIRuleBuilder14optimizeTablesEv(ptr noundef nonnull r
   br i1 %16, label %.preheader, label %17, !llvm.loop !67
 
 17:                                               ; preds = %.preheader
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.1, label %6, label %18, !llvm.loop !68
 
 18:                                               ; preds = %17
@@ -896,15 +890,21 @@ declare noundef i32 @_ZN6icu_7716RBBITableBuilder21removeDuplicateStatesEv(ptr n
 
 declare void @uprv_free_77(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
+
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { cold nofree noreturn }
-attributes #8 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { cold nofree noreturn }
+attributes #7 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nounwind }
 attributes #10 = { noreturn nounwind }
 attributes #11 = { allocsize(0) }

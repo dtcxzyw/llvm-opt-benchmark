@@ -20,10 +20,10 @@ define hidden void @"_ZN100_$LT$wasmparser..readers..Subsections$LT$T$GT$$u20$as
   br i1 %.not, label %11, label %27
 
 11:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !8
   call void @_ZN10wasmparser13binary_reader12BinaryReader7read_u717h1dd0a7f519a13bd4E(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(40) %1), !noalias !5
   %12 = load i8, ptr %5, align 8, !range !10, !noalias !8, !noundef !4
   %trunc.i = trunc nuw i8 %12 to i1
@@ -31,11 +31,11 @@ define hidden void @"_ZN100_$LT$wasmparser..readers..Subsections$LT$T$GT$$u20$as
   %14 = load i8, ptr %13, align 1, !noalias !8
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %16 = load ptr, ptr %15, align 8, !noalias !8, !nonnull !4, !align !11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !8
   br i1 %trunc.i, label %22, label %17
 
 17:                                               ; preds = %11
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4), !noalias !8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !8
   call void @_ZN10wasmparser13binary_reader12BinaryReader11read_reader17hbfc6f32615b48c9dE(ptr noalias noundef nonnull sret({ [32 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(40) %4, ptr noalias noundef nonnull align 8 dereferenceable(40) %1, ptr noalias noundef nonnull readonly align 1 @anon.ee64b866f860954c3616b4a9647f11c7.0, i64 noundef 25), !noalias !5
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %19 = load i8, ptr %18, align 8, !range !12, !noalias !8, !noundef !4
@@ -56,7 +56,7 @@ define hidden void @"_ZN100_$LT$wasmparser..readers..Subsections$LT$T$GT$$u20$as
   %.sroa.612.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 33
   %.sroa.9.0..sroa_idx8.i = getelementptr inbounds nuw i8, ptr %3, i64 33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.9.0..sroa_idx8.i, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.612.0..sroa_idx.i, i64 7, i1 false), !noalias !8
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4), !noalias !8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !8
   store ptr %21, ptr %3, align 8, !noalias !8
   %.sroa.75.0..sroa_idx6.i = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i8 %19, ptr %.sroa.75.0..sroa_idx6.i, align 8, !noalias !8
@@ -64,16 +64,16 @@ define hidden void @"_ZN100_$LT$wasmparser..readers..Subsections$LT$T$GT$$u20$as
   br label %"_ZN10wasmparser7readers20Subsections$LT$T$GT$4read17h75cdfdffc51c3557E.llvm.1622313557807394724.exit"
 
 25:                                               ; preds = %17
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4), !noalias !8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !8
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %21, ptr %26, align 8, !alias.scope !5, !noalias !13
   store i8 12, ptr %6, align 8, !alias.scope !5, !noalias !13
   br label %"_ZN10wasmparser7readers20Subsections$LT$T$GT$4read17h75cdfdffc51c3557E.llvm.1622313557807394724.exit"
 
 "_ZN10wasmparser7readers20Subsections$LT$T$GT$4read17h75cdfdffc51c3557E.llvm.1622313557807394724.exit": ; preds = %22, %24, %25
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %6, i64 56, i1 false)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %28
 
 27:                                               ; preds = %2
@@ -89,7 +89,7 @@ define hidden void @"_ZN10wasmparser7readers20Subsections$LT$T$GT$4read17h75cdfd
   %3 = alloca { { ptr, i64 }, i64, i64, i8, [7 x i8] }, align 8
   %4 = alloca { [32 x i8], i8, [7 x i8] }, align 8
   %5 = alloca { i8, [15 x i8] }, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN10wasmparser13binary_reader12BinaryReader7read_u717h1dd0a7f519a13bd4E(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(40) %1)
   %6 = load i8, ptr %5, align 8, !range !10, !noundef !4
   %trunc = trunc nuw i8 %6 to i1
@@ -97,11 +97,11 @@ define hidden void @"_ZN10wasmparser7readers20Subsections$LT$T$GT$4read17h75cdfd
   %8 = load i8, ptr %7, align 1
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %10 = load ptr, ptr %9, align 8, !nonnull !4, !align !11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %trunc, label %16, label %11
 
 11:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN10wasmparser13binary_reader12BinaryReader11read_reader17hbfc6f32615b48c9dE(ptr noalias noundef nonnull sret({ [32 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(40) %4, ptr noalias noundef nonnull align 8 dereferenceable(40) %1, ptr noalias noundef nonnull readonly align 1 @anon.ee64b866f860954c3616b4a9647f11c7.0, i64 noundef 25)
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %13 = load i8, ptr %12, align 8, !range !12, !noundef !4
@@ -122,7 +122,7 @@ define hidden void @"_ZN10wasmparser7readers20Subsections$LT$T$GT$4read17h75cdfd
   %.sroa.612.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 33
   %.sroa.9.0..sroa_idx8 = getelementptr inbounds nuw i8, ptr %3, i64 33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.9.0..sroa_idx8, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.612.0..sroa_idx, i64 7, i1 false)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store ptr %15, ptr %3, align 8
   %.sroa.75.0..sroa_idx6 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i8 %13, ptr %.sroa.75.0..sroa_idx6, align 8
@@ -130,7 +130,7 @@ define hidden void @"_ZN10wasmparser7readers20Subsections$LT$T$GT$4read17h75cdfd
   br label %21
 
 19:                                               ; preds = %11
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %15, ptr %20, align 8
   store i8 12, ptr %0, align 8
@@ -893,9 +893,9 @@ define hidden void @"_ZN122_$LT$wasmparser..readers..SectionLimitedIntoIterWithO
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load i64, ptr %6, align 8, !noundef !4
   %8 = add i64 %7, %5
-  call void @llvm.lifetime.start.p0(i64 44, ptr nonnull %.sroa.78)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.78)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !21)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %10 = load i8, ptr %9, align 4, !range !10, !alias.scope !21, !noalias !24, !noundef !4
   %11 = trunc nuw i8 %10 to i1
@@ -937,7 +937,7 @@ define hidden void @"_ZN122_$LT$wasmparser..readers..SectionLimitedIntoIterWithO
 28:                                               ; preds = %25, %19
   %.sroa.09.0 = phi i64 [ %27, %25 ], [ %.sroa.09.0.copyload, %19 ]
   %.sroa.510.0 = phi i32 [ 3, %25 ], [ %21, %19 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %29 = icmp eq i32 %.sroa.510.0, 3
   br i1 %29, label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h55926f0d166158d4E.llvm.1622313557807394724.exit", label %30
 
@@ -958,13 +958,13 @@ define hidden void @"_ZN122_$LT$wasmparser..readers..SectionLimitedIntoIterWithO
   br label %33
 
 31:                                               ; preds = %2, %16
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 4, ptr %32, align 8
   br label %33
 
 33:                                               ; preds = %31, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h55926f0d166158d4E.llvm.1622313557807394724.exit"
-  call void @llvm.lifetime.end.p0(i64 44, ptr nonnull %.sroa.78)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.78)
   ret void
 }
 
@@ -1124,17 +1124,17 @@ declare { ptr, ptr } @_ZN3std9panicking3try7cleanup17h78e59bc883c56638E(ptr noun
 ; Function Attrs: cold noreturn nounwind nonlazybind uwtable
 declare void @_ZN4core9panicking19panic_cannot_unwind17hb9fd422cdcdfc93eE() unnamed_addr #8
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
-
 ; Function Attrs: cold nonlazybind uwtable
 declare hidden noundef nonnull align 8 ptr @_ZN10wasmparser13binary_reader17BinaryReaderError3new17h248c9a1501f5fc0cE(ptr noalias noundef nonnull readonly align 1, i64 noundef, i64 noundef) unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #10
+declare void @llvm.assume(i1 noundef) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #11
@@ -1148,8 +1148,8 @@ attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #6 = { nonlazybind "target-cpu"="x86-64" }
 attributes #7 = { cold nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #8 = { cold noreturn nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #12 = { cold noreturn nounwind }
 

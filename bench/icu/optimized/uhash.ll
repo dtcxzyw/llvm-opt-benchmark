@@ -209,12 +209,6 @@ _ZL13_uhash_createPFi8UElementEPFaS_S_ES3_iP10UErrorCode.exit: ; preds = %.crite
   ret ptr %.0.i
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress uwtable
 define ptr @uhash_init_77(ptr noundef captures(ret: address, provenance) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(none) %4) local_unnamed_addr #0 {
   %6 = load i32, ptr %4, align 4, !tbaa !3
@@ -493,7 +487,7 @@ define void @uhash_close_77(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef ptr @uhash_nextElement_77(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #2 {
+define noundef ptr @uhash_nextElement_77(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #1 {
   %3 = load i32, ptr %1, align 4, !tbaa !28
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %5 = load i32, ptr %4, align 4, !tbaa !19
@@ -524,10 +518,10 @@ define noundef ptr @uhash_nextElement_77(ptr noundef readonly captures(none) %0,
   ret ptr %.010
 }
 
-declare void @uprv_free_77(ptr noundef) local_unnamed_addr #3
+declare void @uprv_free_77(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define ptr @uhash_setKeyHasher_77(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #4 {
+define ptr @uhash_setKeyHasher_77(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !7
   store ptr %1, ptr %3, align 8, !tbaa !7
@@ -535,7 +529,7 @@ define ptr @uhash_setKeyHasher_77(ptr noundef captures(none) %0, ptr noundef %1)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define ptr @uhash_setKeyComparator_77(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #4 {
+define ptr @uhash_setKeyComparator_77(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !13
   store ptr %1, ptr %3, align 8, !tbaa !13
@@ -543,7 +537,7 @@ define ptr @uhash_setKeyComparator_77(ptr noundef captures(none) %0, ptr noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define ptr @uhash_setValueComparator_77(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #4 {
+define ptr @uhash_setValueComparator_77(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !14
   store ptr %1, ptr %3, align 8, !tbaa !14
@@ -551,7 +545,7 @@ define ptr @uhash_setValueComparator_77(ptr noundef captures(none) %0, ptr nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define ptr @uhash_setKeyDeleter_77(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #4 {
+define ptr @uhash_setKeyDeleter_77(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !31
   store ptr %1, ptr %3, align 8, !tbaa !31
@@ -559,7 +553,7 @@ define ptr @uhash_setKeyDeleter_77(ptr noundef captures(none) %0, ptr noundef %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define ptr @uhash_setValueDeleter_77(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #4 {
+define ptr @uhash_setValueDeleter_77(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8, !tbaa !32
   store ptr %1, ptr %3, align 8, !tbaa !32
@@ -569,7 +563,7 @@ define ptr @uhash_setValueDeleter_77(ptr noundef captures(none) %0, ptr noundef 
 ; Function Attrs: mustprogress uwtable
 define void @uhash_setResizePolicy_77(ptr noundef captures(none) initializes((56, 72)) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !tbaa !3
   %4 = shl nsw i32 %1, 1
   %5 = sext i32 %4 to i64
@@ -595,7 +589,7 @@ define void @uhash_setResizePolicy_77(ptr noundef captures(none) initializes((56
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 %21, ptr %22, align 8, !tbaa !27
   call fastcc void @_ZL13_uhash_rehashP10UHashtableP10UErrorCode(ptr noundef %0, ptr noundef nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -779,7 +773,7 @@ _ZL15_uhash_allocateP10UHashtableiP10UErrorCode.exit.thread: ; preds = %35, %23,
   br i1 %.not42.i, label %.thread46.i, label %94
 
 94:                                               ; preds = %93
-  tail call void @abort() #14
+  tail call void @abort() #13
   unreachable
 
 .thread46.i:                                      ; preds = %79, %93, %91
@@ -817,7 +811,7 @@ _ZL11_uhash_findPK10UHashtable8UElementi.exit:    ; preds = %73, %.thread46.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @uhash_count_77(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
+define i32 @uhash_count_77(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i32, ptr %2, align 8, !tbaa !25
   ret i32 %3
@@ -898,7 +892,7 @@ define ptr @uhash_get_77(ptr noundef readonly captures(none) %0, ptr noundef %1)
   br i1 %.not42.i, label %.thread46.i, label %39
 
 39:                                               ; preds = %38
-  tail call void @abort() #14
+  tail call void @abort() #13
   unreachable
 
 .thread46.i:                                      ; preds = %24, %38, %36
@@ -990,7 +984,7 @@ define ptr @uhash_iget_77(ptr noundef readonly captures(none) %0, i32 noundef %1
   br i1 %.not42.i, label %.thread46.i, label %40
 
 40:                                               ; preds = %39
-  tail call void @abort() #14
+  tail call void @abort() #13
   unreachable
 
 .thread46.i:                                      ; preds = %25, %39, %37
@@ -1080,7 +1074,7 @@ define i32 @uhash_geti_77(ptr noundef readonly captures(none) %0, ptr noundef %1
   br i1 %.not42.i, label %.thread46.i, label %39
 
 39:                                               ; preds = %38
-  tail call void @abort() #14
+  tail call void @abort() #13
   unreachable
 
 .thread46.i:                                      ; preds = %24, %38, %36
@@ -1172,7 +1166,7 @@ define i32 @uhash_igeti_77(ptr noundef readonly captures(none) %0, i32 noundef %
   br i1 %.not42.i, label %.thread46.i, label %40
 
 40:                                               ; preds = %39
-  tail call void @abort() #14
+  tail call void @abort() #13
   unreachable
 
 .thread46.i:                                      ; preds = %25, %39, %37
@@ -1262,7 +1256,7 @@ define i32 @uhash_getiAndFound_77(ptr noundef readonly captures(none) %0, ptr no
   br i1 %.not42.i, label %.thread46.i, label %40
 
 40:                                               ; preds = %39
-  tail call void @abort() #14
+  tail call void @abort() #13
   unreachable
 
 .thread46.i:                                      ; preds = %25, %39, %37
@@ -1359,7 +1353,7 @@ define i32 @uhash_igetiAndFound_77(ptr noundef readonly captures(none) %0, i32 n
   br i1 %.not42.i, label %.thread46.i, label %41
 
 41:                                               ; preds = %40
-  tail call void @abort() #14
+  tail call void @abort() #13
   unreachable
 
 .thread46.i:                                      ; preds = %26, %40, %38
@@ -1500,7 +1494,7 @@ define internal fastcc ptr @_ZL10_uhash_putP10UHashtable8UElementS1_aP10UErrorCo
   br i1 %.not42.i, label %.thread46.i, label %65
 
 65:                                               ; preds = %64
-  tail call void @abort() #14
+  tail call void @abort() #13
   unreachable
 
 .thread46.i:                                      ; preds = %50, %64, %62
@@ -1735,7 +1729,7 @@ define internal fastcc ptr @_ZL13_uhash_removeP10UHashtable8UElement(ptr noundef
   br i1 %.not42.i, label %.thread46.i, label %40
 
 40:                                               ; preds = %39
-  tail call void @abort() #14
+  tail call void @abort() #13
   unreachable
 
 .thread46.i:                                      ; preds = %25, %39, %37
@@ -1797,10 +1791,10 @@ _ZL28_uhash_internalRemoveElementP10UHashtableP12UHashElement.exit: ; preds = %5
   br i1 %64, label %65, label %66
 
 65:                                               ; preds = %_ZL28_uhash_internalRemoveElementP10UHashtableP12UHashElement.exit
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !tbaa !3
   call fastcc void @_ZL13_uhash_rehashP10UHashtableP10UErrorCode(ptr noundef nonnull %0, ptr noundef nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %66
 
 66:                                               ; preds = %_ZL28_uhash_internalRemoveElementP10UHashtableP12UHashElement.exit, %65, %_ZL11_uhash_findPK10UHashtable8UElementi.exit
@@ -2036,7 +2030,7 @@ define signext range(i8 0, 2) i8 @uhash_containsKey_77(ptr noundef readonly capt
   br i1 %.not42.i, label %.thread46.i, label %39
 
 39:                                               ; preds = %38
-  tail call void @abort() #14
+  tail call void @abort() #13
   unreachable
 
 .thread46.i:                                      ; preds = %24, %38, %36
@@ -2130,7 +2124,7 @@ define signext range(i8 0, 2) i8 @uhash_icontainsKey_77(ptr noundef readonly cap
   br i1 %.not42.i, label %.thread46.i, label %40
 
 40:                                               ; preds = %39
-  tail call void @abort() #14
+  tail call void @abort() #13
   unreachable
 
 .thread46.i:                                      ; preds = %25, %39, %37
@@ -2222,7 +2216,7 @@ define ptr @uhash_find_77(ptr noundef readonly captures(none) %0, ptr noundef %1
   br i1 %.not42.i, label %.thread46.i, label %39
 
 39:                                               ; preds = %38
-  tail call void @abort() #14
+  tail call void @abort() #13
   unreachable
 
 .thread46.i:                                      ; preds = %24, %38, %36
@@ -2254,9 +2248,9 @@ define i32 @uhash_hashUChars_77(ptr %0) local_unnamed_addr #0 {
   ret i32 %7
 }
 
-declare i32 @ustr_hashUCharsN_77(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @ustr_hashUCharsN_77(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @u_strlen_77(ptr noundef) local_unnamed_addr #3
+declare i32 @u_strlen_77(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define i32 @uhash_hashChars_77(ptr %0) local_unnamed_addr #0 {
@@ -2264,7 +2258,7 @@ define i32 @uhash_hashChars_77(ptr %0) local_unnamed_addr #0 {
   br i1 %2, label %7, label %3
 
 3:                                                ; preds = %1
-  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #15
+  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #14
   %5 = trunc i64 %4 to i32
   %6 = tail call i32 @ustr_hashCharsN_77(ptr noundef nonnull %0, i32 noundef %5)
   br label %7
@@ -2274,10 +2268,10 @@ define i32 @uhash_hashChars_77(ptr %0) local_unnamed_addr #0 {
   ret i32 %8
 }
 
-declare i32 @ustr_hashCharsN_77(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @ustr_hashCharsN_77(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
 define i32 @uhash_hashIChars_77(ptr %0) local_unnamed_addr #0 {
@@ -2285,7 +2279,7 @@ define i32 @uhash_hashIChars_77(ptr %0) local_unnamed_addr #0 {
   br i1 %2, label %7, label %3
 
 3:                                                ; preds = %1
-  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #15
+  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #14
   %5 = trunc i64 %4 to i32
   %6 = tail call i32 @ustr_hashICharsN_77(ptr noundef nonnull %0, i32 noundef %5)
   br label %7
@@ -2295,7 +2289,7 @@ define i32 @uhash_hashIChars_77(ptr %0) local_unnamed_addr #0 {
   ret i32 %8
 }
 
-declare i32 @ustr_hashICharsN_77(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @ustr_hashICharsN_77(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define i32 @uhash_hashIStringView_77(ptr readonly captures(address_is_null) %0) local_unnamed_addr #0 {
@@ -2462,7 +2456,7 @@ uhash_nextElement_77.exit:                        ; preds = %34
   br i1 %.not42.i, label %.thread46.i, label %74
 
 74:                                               ; preds = %73
-  tail call void @abort() #14
+  tail call void @abort() #13
   unreachable
 
 .thread46.i:                                      ; preds = %59, %73, %71
@@ -2485,7 +2479,7 @@ _ZL11_uhash_findPK10UHashtable8UElementi.exit:    ; preds = %53, %.thread46.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define signext range(i8 0, 2) i8 @uhash_compareUChars_77(ptr readonly captures(address) %0, ptr readonly captures(address) %1) local_unnamed_addr #5 {
+define signext range(i8 0, 2) i8 @uhash_compareUChars_77(ptr readonly captures(address) %0, ptr readonly captures(address) %1) local_unnamed_addr #4 {
   %3 = icmp eq ptr %0, %1
   br i1 %3, label %18, label %4
 
@@ -2529,7 +2523,7 @@ define signext range(i8 0, 2) i8 @uhash_compareUChars_77(ptr readonly captures(a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define signext range(i8 0, 2) i8 @uhash_compareChars_77(ptr readonly captures(address) %0, ptr readonly captures(address) %1) local_unnamed_addr #5 {
+define signext range(i8 0, 2) i8 @uhash_compareChars_77(ptr readonly captures(address) %0, ptr readonly captures(address) %1) local_unnamed_addr #4 {
   %3 = icmp eq ptr %0, %1
   br i1 %3, label %18, label %4
 
@@ -2622,7 +2616,7 @@ define signext range(i8 0, 2) i8 @uhash_compareIChars_77(ptr readonly captures(a
   ret i8 %.014
 }
 
-declare signext i8 @uprv_asciitolower_77(i8 noundef signext) local_unnamed_addr #3
+declare signext i8 @uprv_asciitolower_77(i8 noundef signext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define signext range(i8 0, 2) i8 @uhash_compareIStringView_77(ptr readonly captures(address) %0, ptr readonly captures(address) %1) local_unnamed_addr #0 {
@@ -2675,14 +2669,14 @@ define signext range(i8 0, 2) i8 @uhash_compareIStringView_77(ptr readonly captu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @uhash_hashLong_77(ptr %0) local_unnamed_addr #7 {
+define i32 @uhash_hashLong_77(ptr %0) local_unnamed_addr #6 {
   %2 = ptrtoint ptr %0 to i64
   %.sroa.0.0.extract.trunc = trunc i64 %2 to i32
   ret i32 %.sroa.0.0.extract.trunc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define signext range(i8 0, 2) i8 @uhash_compareLong_77(ptr %0, ptr %1) local_unnamed_addr #7 {
+define signext range(i8 0, 2) i8 @uhash_compareLong_77(ptr %0, ptr %1) local_unnamed_addr #6 {
   %3 = ptrtoint ptr %0 to i64
   %.sroa.01.0.extract.trunc = trunc i64 %3 to i32
   %4 = ptrtoint ptr %1 to i64
@@ -2693,10 +2687,16 @@ define signext range(i8 0, 2) i8 @uhash_compareLong_77(ptr %0, ptr %1) local_unn
 }
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @uprv_malloc_77(i64 noundef) local_unnamed_addr #8
+declare noalias ptr @uprv_malloc_77(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: cold nofree noreturn nounwind
-declare void @abort() local_unnamed_addr #9
+declare void @abort() local_unnamed_addr #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
@@ -2705,21 +2705,20 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare void @llvm.assume(i1 noundef) #11
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { cold nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { cold nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #12 = { allocsize(0) }
-attributes #13 = { nounwind }
-attributes #14 = { noreturn nounwind }
-attributes #15 = { nounwind willreturn memory(read) }
+attributes #13 = { noreturn nounwind }
+attributes #14 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

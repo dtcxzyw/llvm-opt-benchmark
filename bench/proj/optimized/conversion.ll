@@ -1184,7 +1184,7 @@ define hidden void @_ZNK5osgeo4proj9operation10Conversion12shallowCloneEv(ptr de
   %5 = load ptr, ptr %4, align 8, !tbaa !3
   %6 = getelementptr i8, ptr %5, i64 -24
   %7 = load i64, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = getelementptr inbounds i8, ptr %4, i64 %7
   store ptr %8, ptr %3, align 8, !tbaa !17
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1216,7 +1216,7 @@ _ZN5osgeo4proj4util15BaseObjectNNPtrC2INS0_9operation10ConversionEEERKN7dropbox6
 
 20:                                               ; preds = %_ZN5osgeo4proj4util15BaseObjectNNPtrC2INS0_9operation10ConversionEEERKN7dropbox6oxygen2nnISt10shared_ptrIT_EEE.exit
   call void @_ZN5osgeo4proj4util15BaseObjectNNPtrD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %21 = load ptr, ptr %0, align 8, !tbaa !12
   %22 = load ptr, ptr %21, align 8, !tbaa !3
   %23 = getelementptr i8, ptr %22, i64 -24
@@ -1238,7 +1238,7 @@ _ZN5osgeo4proj4util15BaseObjectNNPtrC2INS0_9operation10ConversionEEERKN7dropbox6
   %33 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5osgeo4proj4util15BaseObjectNNPtrD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %35
 
 34:                                               ; preds = %20
@@ -1345,19 +1345,13 @@ _ZNSt12__shared_ptrIN5osgeo4proj9operation10ConversionELN9__gnu_cxx12_Lock_polic
 
 declare hidden void @_ZN5osgeo4proj4util10BaseObject10assignSelfERKNS1_15BaseObjectNNPtrE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
-
 ; Function Attrs: nounwind
 declare void @_ZN5osgeo4proj4util15BaseObjectNNPtrD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 declare hidden void @_ZN5osgeo4proj9operation19CoordinateOperation7setCRSsEPKS2_b(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation10ConversionEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation10ConversionEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !20
   %.not.i.i = icmp eq ptr %3, null
@@ -1414,7 +1408,7 @@ _ZNSt12__shared_ptrIN5osgeo4proj9operation10ConversionELN9__gnu_cxx12_Lock_polic
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZNK5osgeo4proj9operation10Conversion13_shallowCloneEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.dropbox::oxygen::nn.50") align 8 captures(none) initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.dropbox::oxygen::nn.42", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZNK5osgeo4proj9operation10Conversion12shallowCloneEv(ptr dead_on_unwind nonnull writable sret(%"class.dropbox::oxygen::nn.42") align 8 %3, ptr noundef nonnull align 8 dereferenceable(24) %1)
   call void @llvm.experimental.noalias.scope.decl(metadata !30)
   %4 = load ptr, ptr %3, align 8, !tbaa !12, !noalias !30
@@ -1511,12 +1505,12 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %42, %40
   br label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation10ConversionEEED2Ev.exit
 
 _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation10ConversionEEED2Ev.exit: ; preds = %.thread, %22, %30, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %45
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: uwtable
-define hidden void @_ZTv0_n72_NK5osgeo4proj9operation10Conversion13_shallowCloneEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.dropbox::oxygen::nn.50") align 8 captures(none) initializes((0, 16)) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define hidden void @_ZTv0_n72_NK5osgeo4proj9operation10Conversion13_shallowCloneEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.dropbox::oxygen::nn.50") align 8 captures(none) initializes((0, 16)) %0, ptr noundef %1) unnamed_addr #7 align 2 {
   %3 = load ptr, ptr %1, align 8, !tbaa !3
   %4 = getelementptr inbounds i8, ptr %3, i64 -72
   %5 = load i64, ptr %4, align 8
@@ -1533,7 +1527,7 @@ define hidden void @_ZNK5osgeo4proj9operation10Conversion25alterParametersLinear
   %8 = alloca %"class.osgeo::proj::common::Measure", align 8
   %9 = alloca %"class.osgeo::proj::util::PropertyMap", align 8
   %10 = alloca %"struct.osgeo::proj::util::BaseObjectNNPtr", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   %11 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5osgeo4proj9operation15SingleOperation15parameterValuesEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #36
   %12 = load ptr, ptr %11, align 8, !tbaa !36
@@ -1608,10 +1602,10 @@ define hidden void @_ZNK5osgeo4proj9operation10Conversion25alterParametersLinear
 
 46:                                               ; preds = %44, %42
   %47 = phi double [ %43, %42 ], [ %45, %44 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %48 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5osgeo4proj9operation23OperationParameterValue9parameterEv(ptr noundef nonnull align 8 dereferenceable(56) %20) #36
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #32
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   invoke void @_ZN5osgeo4proj6common7MeasureC1EdRKNS1_13UnitOfMeasureE(ptr noundef nonnull align 8 dereferenceable(24) %8, double noundef %47, ptr noundef nonnull align 8 dereferenceable(24) %2)
           to label %49 unwind label %106
 
@@ -1782,9 +1776,9 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i51: ; preds = %100, %
 
 116:                                              ; preds = %115, %106
   %.pn41.pn.pn = phi { ptr, i32 } [ %.pn41.pn, %115 ], [ %107, %106 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %216
 
 .critedge:                                        ; preds = %22, %19, %27, %40, %33
@@ -1837,15 +1831,15 @@ _ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation21GeneralP
 
 _ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation21GeneralParameterValueEEEESaIS9_EE12emplace_backIJRKS9_EEERS9_DpOT_.exit.thread: ; preds = %103, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i51, %88, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation23OperationParameterValueEEED2Ev.exit
   call void @_ZN5osgeo4proj6common7MeasureD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %136 = getelementptr inbounds nuw i8, ptr %.sroa.064.075, i64 16
   %.not79 = icmp eq ptr %136, %14
   br i1 %.not79, label %._crit_edge.thread, label %.outer
 
 ._crit_edge.thread:                               ; preds = %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation21GeneralParameterValueEEEESaIS9_EE12emplace_backIJRKS9_EEERS9_DpOT_.exit.thread, %._crit_edge
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   invoke void @_ZN5osgeo4proj4util11PropertyMapC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
           to label %137 unwind label %151
 
@@ -1860,7 +1854,7 @@ _ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation21GeneralP
 
 141:                                              ; preds = %139
   call void @_ZN5osgeo4proj4util11PropertyMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %142 = load ptr, ptr %0, align 8, !tbaa !12
   %143 = load ptr, ptr %142, align 8, !tbaa !3
   %144 = getelementptr i8, ptr %143, i64 -24
@@ -1886,7 +1880,7 @@ _ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation21GeneralP
 
 155:                                              ; preds = %153, %151
   %.pn39 = phi { ptr, i32 } [ %154, %153 ], [ %152, %151 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %216
 
 156:                                              ; preds = %141
@@ -1896,7 +1890,7 @@ _ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation21GeneralP
   br label %216
 
 .critedge77:                                      ; preds = %4, %._crit_edge
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %158 = load ptr, ptr %1, align 8, !tbaa !3
   %159 = getelementptr i8, ptr %158, i64 -24
   %160 = load i64, ptr %159, align 8
@@ -1943,13 +1937,13 @@ _ZNSt12__shared_ptrIN5osgeo4proj9operation10ConversionELN9__gnu_cxx12_Lock_polic
   %178 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.7.0, ptr %178, align 8, !tbaa !20
   call void @_ZN5osgeo4proj4util15BaseObjectNNPtrD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %181
 
 179:                                              ; preds = %.critedge77
   %180 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %216
 
 181:                                              ; preds = %141, %_ZNSt12__shared_ptrIN5osgeo4proj9operation10ConversionELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
@@ -2034,53 +2028,53 @@ _ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation21Genera
   br label %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation21GeneralParameterValueEEEESaIS9_EED2Ev.exit
 
 _ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation21GeneralParameterValueEEEESaIS9_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation21GeneralParameterValueEEEES9_EvT_SB_RSaIT0_E.exit.i, %210
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
 216:                                              ; preds = %25, %116, %104, %179, %156, %155
   %.pn46.pn = phi { ptr, i32 } [ %157, %156 ], [ %.pn39, %155 ], [ %180, %179 ], [ %26, %25 ], [ %.pn41.pn.pn, %116 ], [ %105, %104 ]
   call void @_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation21GeneralParameterValueEEEESaIS9_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn46.pn
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5osgeo4proj9operation15SingleOperation15parameterValuesEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #9
+declare noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5osgeo4proj9operation15SingleOperation15parameterValuesEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5osgeo4proj9operation23OperationParameterValue14parameterValueEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #9
+declare noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5osgeo4proj9operation23OperationParameterValue14parameterValueEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef nonnull align 4 dereferenceable(4) ptr @_ZNK5osgeo4proj9operation14ParameterValue4typeEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #9
+declare noundef nonnull align 4 dereferenceable(4) ptr @_ZNK5osgeo4proj9operation14ParameterValue4typeEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5osgeo4proj9operation14ParameterValue5valueEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #9
+declare noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5osgeo4proj9operation14ParameterValue5valueEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5osgeo4proj6common7Measure4unitEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #9
+declare noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5osgeo4proj6common7Measure4unitEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef i32 @_ZNK5osgeo4proj6common13UnitOfMeasure4typeEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #9
+declare noundef i32 @_ZNK5osgeo4proj6common13UnitOfMeasure4typeEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #8
 
 declare hidden noundef zeroext i1 @_ZNK5osgeo4proj6common13UnitOfMeasure15_isEquivalentToERKS2_NS0_4util11IComparable9CriterionE(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef double @_ZNK5osgeo4proj6common7Measure13convertToUnitERKNS1_13UnitOfMeasureE(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #9
+declare noundef double @_ZNK5osgeo4proj6common7Measure13convertToUnitERKNS1_13UnitOfMeasureE(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef double @_ZNK5osgeo4proj6common7Measure5valueEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #9
+declare noundef double @_ZNK5osgeo4proj6common7Measure5valueEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #8
 
 declare void @_ZN5osgeo4proj9operation23OperationParameterValue6createERKN7dropbox6oxygen2nnISt10shared_ptrINS1_18OperationParameterEEEERKNS5_IS6_INS1_14ParameterValueEEEE(ptr dead_on_unwind writable sret(%"class.dropbox::oxygen::nn.102") align 8, ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5osgeo4proj9operation23OperationParameterValue9parameterEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #9
+declare noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5osgeo4proj9operation23OperationParameterValue9parameterEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #8
 
 declare void @_ZN5osgeo4proj9operation14ParameterValue6createERKNS0_6common7MeasureE(ptr dead_on_unwind writable sret(%"class.dropbox::oxygen::nn.74") align 8, ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #1
 
 declare void @_ZN5osgeo4proj6common7MeasureC1EdRKNS1_13UnitOfMeasureE(ptr noundef nonnull align 8 dereferenceable(24), double noundef, ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #1
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation23OperationParameterValueEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation23OperationParameterValueEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !20
   %.not.i.i = icmp eq ptr %3, null
@@ -2135,7 +2129,7 @@ _ZNSt12__shared_ptrIN5osgeo4proj9operation23OperationParameterValueELN9__gnu_cxx
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation14ParameterValueEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation14ParameterValueEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !20
   %.not.i.i = icmp eq ptr %3, null
@@ -2233,7 +2227,7 @@ define void @_ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMa
   %27 = load ptr, ptr %26, align 8, !tbaa !3
   %28 = getelementptr i8, ptr %27, i64 -24
   %29 = load i64, ptr %28, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %30 = getelementptr inbounds i8, ptr %26, i64 %29
   store ptr %30, ptr %5, align 8, !tbaa !17
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -2265,7 +2259,7 @@ _ZN5osgeo4proj4util15BaseObjectNNPtrC2INS0_9operation10ConversionEEERKN7dropbox6
 
 42:                                               ; preds = %_ZN5osgeo4proj4util15BaseObjectNNPtrC2INS0_9operation10ConversionEEERKN7dropbox6oxygen2nnISt10shared_ptrIT_EEE.exit
   call void @_ZN5osgeo4proj4util15BaseObjectNNPtrD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %43 = load ptr, ptr %0, align 8, !tbaa !12
   %44 = load ptr, ptr %43, align 8, !tbaa !3
   %45 = getelementptr i8, ptr %44, i64 -24
@@ -2283,7 +2277,7 @@ _ZN5osgeo4proj4util15BaseObjectNNPtrC2INS0_9operation10ConversionEEERKN7dropbox6
   %51 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5osgeo4proj4util15BaseObjectNNPtrD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %53
 
 52:                                               ; preds = %42
@@ -2304,7 +2298,7 @@ declare void @_ZN5osgeo4proj4util11PropertyMapC1Ev(ptr noundef nonnull align 8 d
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN5osgeo4proj4util11PropertyMap3setERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5osgeo4proj9operation15SingleOperation6methodEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #9
+declare noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5osgeo4proj9operation15SingleOperation6methodEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #8
 
 ; Function Attrs: nounwind
 declare void @_ZN5osgeo4proj4util11PropertyMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #2
@@ -2453,7 +2447,7 @@ _ZNSt12_Vector_baseIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation21G
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5osgeo4proj9operation15OperationMethod10parametersEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #9
+declare noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5osgeo4proj9operation15OperationMethod10parametersEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #8
 
 declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 
@@ -2465,7 +2459,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 declare void @_ZN5osgeo4proj9operation16InvalidOperationD1Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #2
 
 ; Function Attrs: cold noreturn
-declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #10
+declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN5osgeo4proj9operation10Conversion14nn_make_sharedIS2_JRKN7dropbox6oxygen2nnISt10shared_ptrINS1_15OperationMethodEEEERKSt6vectorINS6_IS7_INS1_21GeneralParameterValueEEEESaISG_EEEEENS6_IS7_IT_EEEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.dropbox::oxygen::nn.42") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -2537,7 +2531,7 @@ define void @_ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMa
   %7 = alloca %"class.std::vector", align 8
   %8 = alloca %"class.dropbox::oxygen::nn.54", align 8
   %9 = alloca %"class.dropbox::oxygen::nn.102", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN5osgeo4proj9operation15OperationMethod6createERKNS0_4util11PropertyMapERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_18OperationParameterEEEESaISE_EE(ptr dead_on_unwind nonnull writable sret(%"class.dropbox::oxygen::nn") align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !65
@@ -2575,7 +2569,7 @@ define void @_ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMa
   br label %172
 
 29:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   %30 = icmp ugt i64 %15, 9223372036854775792
   br i1 %30, label %31, label %32
@@ -2626,8 +2620,8 @@ _ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation21GeneralP
 42:                                               ; preds = %.lr.ph, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation23OperationParameterValueEEED2Ev.exit
   %43 = phi ptr [ %18, %.lr.ph ], [ %103, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation23OperationParameterValueEEED2Ev.exit ]
   %.038 = phi i64 [ 0, %.lr.ph ], [ %101, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation23OperationParameterValueEEED2Ev.exit ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %44 = load ptr, ptr %3, align 8, !tbaa !68
   %45 = getelementptr inbounds nuw %"class.dropbox::oxygen::nn.106", ptr %44, i64 %.038
   %46 = getelementptr inbounds nuw %"class.dropbox::oxygen::nn.74", ptr %43, i64 %.038
@@ -2761,8 +2755,8 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i29: ; preds = %97, %9
   br label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation23OperationParameterValueEEED2Ev.exit
 
 _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation23OperationParameterValueEEED2Ev.exit: ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation21GeneralParameterValueEEED2Ev.exit, %85, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i29, %100
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %101 = add nuw i64 %.038, 1
   %102 = load ptr, ptr %16, align 8, !tbaa !69
   %103 = load ptr, ptr %4, align 8, !tbaa !72
@@ -2787,8 +2781,8 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation23OperationParameterV
 
 113:                                              ; preds = %111, %109
   %.pn.pn = phi { ptr, i32 } [ %112, %111 ], [ %110, %109 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %171
 
 114:                                              ; preds = %._crit_edge
@@ -2872,7 +2866,7 @@ _ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation21Genera
   br label %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation21GeneralParameterValueEEEESaIS9_EED2Ev.exit
 
 _ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation21GeneralParameterValueEEEESaIS9_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation21GeneralParameterValueEEEES9_EvT_SB_RSaIT0_E.exit.i, %143
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %148 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %149 = load ptr, ptr %148, align 8, !tbaa !20
   %.not.i.i.i34 = icmp eq ptr %149, null
@@ -2923,19 +2917,19 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i36: ; preds = %167, %
   br label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation15OperationMethodEEED2Ev.exit
 
 _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation15OperationMethodEEED2Ev.exit: ; preds = %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation21GeneralParameterValueEEEESaIS9_EED2Ev.exit, %155, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i36, %170
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
 171:                                              ; preds = %113, %40
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %113 ], [ %41, %40 ]
   call void @_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation21GeneralParameterValueEEEESaIS9_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %172
 
 172:                                              ; preds = %171, %27, %25
   %.pn22 = phi { ptr, i32 } [ %28, %27 ], [ %26, %25 ], [ %.pn.pn.pn, %171 ]
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation15OperationMethodEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %.pn22
 
 173:                                              ; preds = %24
@@ -2945,7 +2939,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation15OperationMethodEEED
 declare void @_ZN5osgeo4proj9operation15OperationMethod6createERKNS0_4util11PropertyMapERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_18OperationParameterEEEESaISE_EE(ptr dead_on_unwind writable sret(%"class.dropbox::oxygen::nn") align 8, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #1
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation21GeneralParameterValueEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation21GeneralParameterValueEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !20
   %.not.i.i = icmp eq ptr %3, null
@@ -3000,7 +2994,7 @@ _ZNSt12__shared_ptrIN5osgeo4proj9operation21GeneralParameterValueELN9__gnu_cxx12
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation15OperationMethodEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation15OperationMethodEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !20
   %.not.i.i = icmp eq ptr %3, null
@@ -3075,7 +3069,7 @@ define internal fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4
   %11 = alloca %"class.osgeo::proj::util::PropertyMap", align 8
   %12 = alloca %"class.osgeo::proj::util::PropertyMap", align 8
   %13 = alloca %"class.std::__cxx11::basic_string", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %15 = load ptr, ptr %14, align 8, !tbaa !74
@@ -3097,14 +3091,14 @@ define internal fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4
   br i1 %.not29, label %.critedge, label %23
 
 .critedge:                                        ; preds = %19, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterEEED2Ev.exit, %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   invoke void @_ZN5osgeo4proj4util11PropertyMapC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %11)
           to label %83 unwind label %95
 
 23:                                               ; preds = %19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   invoke void @_ZN5osgeo4proj4util11PropertyMapC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %8)
           to label %24 unwind label %36
 
@@ -3119,7 +3113,7 @@ define internal fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4
 
 28:                                               ; preds = %27
   call void @_ZN5osgeo4proj4util11PropertyMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %29 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %30 = load i32, ptr %29, align 8, !tbaa !84
   %.not39 = icmp eq i32 %30, 0
@@ -3147,7 +3141,7 @@ define internal fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4
 
 40:                                               ; preds = %38, %36
   %.pn37 = phi { ptr, i32 } [ %39, %38 ], [ %37, %36 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %82
 
 41:                                               ; preds = %33, %31
@@ -3156,7 +3150,7 @@ define internal fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4
   br label %81
 
 43:                                               ; preds = %33, %28
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   invoke void @_ZN5osgeo4proj9operation18OperationParameter6createERKNS0_4util11PropertyMapE(ptr dead_on_unwind nonnull writable sret(%"class.dropbox::oxygen::nn.106") align 8 %9, ptr noundef nonnull align 8 dereferenceable(8) %7)
           to label %44 unwind label %76
 
@@ -3233,9 +3227,9 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %71, %69
   br label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterEEED2Ev.exit
 
 _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterEEED2Ev.exit: ; preds = %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterEEEESaIS9_EE9push_backEOS9_.exit, %59, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %74
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @_ZN5osgeo4proj4util11PropertyMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %75 = load ptr, ptr %14, align 8, !tbaa !74
   %.not = icmp eq ptr %75, null
@@ -3254,7 +3248,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterE
 
 80:                                               ; preds = %78, %76
   %.pn40 = phi { ptr, i32 } [ %79, %78 ], [ %77, %76 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %81
 
 81:                                               ; preds = %80, %41
@@ -3264,7 +3258,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterE
 
 82:                                               ; preds = %81, %40
   %.pn40.pn.pn = phi { ptr, i32 } [ %.pn40.pn, %81 ], [ %.pn37, %40 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %178
 
 83:                                               ; preds = %.critedge
@@ -3278,7 +3272,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterE
 
 87:                                               ; preds = %86
   call void @_ZN5osgeo4proj4util11PropertyMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %88 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %89 = load i32, ptr %88, align 8, !tbaa !91
   %.not31 = icmp eq i32 %89, 0
@@ -3306,7 +3300,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterE
 
 99:                                               ; preds = %97, %95
   %.pn = phi { ptr, i32 } [ %98, %97 ], [ %96, %95 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %177
 
 100:                                              ; preds = %92, %90
@@ -3315,8 +3309,8 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterE
   br label %176
 
 102:                                              ; preds = %92, %87
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #32
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %103 = load ptr, ptr %2, align 8, !tbaa !90
   %104 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %104, ptr %13, align 8, !tbaa !92
@@ -3332,7 +3326,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterE
 
 107:                                              ; preds = %102
   %108 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %103) #32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %108, ptr %5, align 8, !tbaa !94
   %109 = icmp ugt i64 %108, 15
   br i1 %109, label %.noexc.i, label %._crit_edge.i.i
@@ -3370,7 +3364,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterE
   %119 = load ptr, ptr %13, align 8, !tbaa !96
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 %117
   store i8 0, ptr %120, align 1, !tbaa !21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   invoke void @_ZN5osgeo4proj9operation22addDefaultNameIfNeededERKNS0_4util11PropertyMapERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.osgeo::proj::util::PropertyMap") align 8 %12, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %13)
           to label %121 unwind label %165
 
@@ -3397,10 +3391,10 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @_ZN5osgeo4proj4util11PropertyMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %129 = load ptr, ptr %6, align 8, !tbaa !68
   %130 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %131 = load ptr, ptr %130, align 8, !tbaa !65
@@ -3482,7 +3476,7 @@ _ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18Operat
   br label %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterEEEESaIS9_EED2Ev.exit
 
 _ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterEEEESaIS9_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterEEEES9_EvT_SB_RSaIT0_E.exit.i, %157
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
 163:                                              ; preds = %.noexc.i, %106
@@ -3521,8 +3515,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i49
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit51: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i49, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i50, %163
   %.pn32.pn = phi { ptr, i32 } [ %164, %163 ], [ %.pn32, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i50 ], [ %.pn32, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i49 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %176
 
 176:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit51, %100
@@ -3532,13 +3526,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit51: ; preds = %_ZN
 
 177:                                              ; preds = %176, %99
   %.pn32.pn.pn.pn = phi { ptr, i32 } [ %.pn32.pn.pn, %176 ], [ %.pn, %99 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %178
 
 178:                                              ; preds = %177, %82
   %.pn40.pn.pn.pn = phi { ptr, i32 } [ %.pn40.pn.pn, %82 ], [ %.pn32.pn.pn.pn, %177 ]
   call void @_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterEEEESaIS9_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %.pn40.pn.pn.pn
 }
 
@@ -3581,32 +3575,32 @@ define void @_ZN5osgeo4proj9operation10Conversion9createUTMERKNS0_4util11Propert
   br label %49
 
 18:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call fastcc void @_ZN5osgeo4proj9operationL24getUTMConversionPropertyERKNS0_4util11PropertyMapEib(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %2, i1 noundef zeroext %3)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #32
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   invoke void @_ZN5osgeo4proj6common5AngleC1Ed(ptr noundef nonnull align 8 dereferenceable(24) %7, double noundef 0.000000e+00)
           to label %19 unwind label %29
 
 19:                                               ; preds = %18
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %20 = uitofp nneg i32 %2 to double
   %21 = call double @llvm.fmuladd.f64(double %20, double 6.000000e+00, double -1.830000e+02)
   invoke void @_ZN5osgeo4proj6common5AngleC1Ed(ptr noundef nonnull align 8 dereferenceable(24) %8, double noundef %21)
           to label %22 unwind label %31
 
 22:                                               ; preds = %19
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   invoke void @_ZN5osgeo4proj6common5ScaleC1Ed(ptr noundef nonnull align 8 dereferenceable(24) %9, double noundef 9.996000e-01)
           to label %23 unwind label %33
 
 23:                                               ; preds = %22
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   invoke void @_ZN5osgeo4proj6common6LengthC1Ed(ptr noundef nonnull align 8 dereferenceable(24) %10, double noundef 5.000000e+05)
           to label %24 unwind label %35
 
 24:                                               ; preds = %23
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %25 = select i1 %3, double 0.000000e+00, double 1.000000e+07
   invoke void @_ZN5osgeo4proj6common6LengthC1Ed(ptr noundef nonnull align 8 dereferenceable(24) %11, double noundef %25)
           to label %26 unwind label %37
@@ -3623,18 +3617,18 @@ define void @_ZN5osgeo4proj9operation10Conversion9createUTMERKNS0_4util11Propert
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit: ; preds = %27
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #32
   call void @_ZN5osgeo4proj6common6LengthD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @_ZN5osgeo4proj6common6LengthD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @_ZN5osgeo4proj6common5ScaleD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @_ZN5osgeo4proj6common5AngleD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @_ZN5osgeo4proj6common5AngleD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZN5osgeo4proj4util11PropertyMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
 29:                                               ; preds = %18
@@ -3680,34 +3674,34 @@ _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vecto
 
 44:                                               ; preds = %43, %37
   %.pn.pn = phi { ptr, i32 } [ %.pn, %43 ], [ %38, %37 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @_ZN5osgeo4proj6common6LengthD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #32
   br label %45
 
 45:                                               ; preds = %44, %35
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %44 ], [ %36, %35 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @_ZN5osgeo4proj6common5ScaleD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #32
   br label %46
 
 46:                                               ; preds = %45, %33
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %45 ], [ %34, %33 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @_ZN5osgeo4proj6common5AngleD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #32
   br label %47
 
 47:                                               ; preds = %46, %31
   %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %46 ], [ %32, %31 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @_ZN5osgeo4proj6common5AngleD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #32
   br label %48
 
 48:                                               ; preds = %47, %29
   %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %47 ], [ %30, %29 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZN5osgeo4proj4util11PropertyMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %49
 
 49:                                               ; preds = %48, %16
@@ -3724,7 +3718,7 @@ define internal fastcc void @_ZN5osgeo4proj9operationL24getUTMConversionProperty
   br i1 %.not, label %._crit_edge.i.i, label %72
 
 ._crit_edge.i.i:                                  ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %8, ptr %5, align 8, !tbaa !92
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %8, ptr noundef nonnull align 1 dereferenceable(9) @.str.118, i64 9, i1 false)
@@ -3732,7 +3726,7 @@ define internal fastcc void @_ZN5osgeo4proj9operationL24getUTMConversionProperty
   store i64 9, ptr %9, align 8, !tbaa !98
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 25
   store i8 0, ptr %10, align 1, !tbaa !21
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   invoke void @_ZN5osgeo4proj8internal8toStringB5cxx11Ei(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, i32 noundef %2)
           to label %11 unwind label %52
 
@@ -3775,7 +3769,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %27 = select i1 %3, i8 78, i8 83
   %28 = load i64, ptr %9, align 8, !tbaa !98
   %29 = add i64 %28, 1
@@ -3833,7 +3827,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i17
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i18, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %73
 
 52:                                               ; preds = %._crit_edge.i.i
@@ -3863,7 +3857,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i20
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit22: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i20, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i21, %52
   %.pn = phi { ptr, i32 } [ %53, %52 ], [ %55, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i21 ], [ %55, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i20 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %65
 
 63:                                               ; preds = %37, %38
@@ -3890,7 +3884,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i23
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i23, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i24
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn11
 
 72:                                               ; preds = %4
@@ -3906,7 +3900,7 @@ declare void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5
 declare void @_ZN5osgeo4proj6common5AngleC1Ed(ptr noundef nonnull align 8 dereferenceable(24), double noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #11
+declare double @llvm.fmuladd.f64(double, double, double) #10
 
 declare void @_ZN5osgeo4proj6common5ScaleC1Ed(ptr noundef nonnull align 8 dereferenceable(24), double noundef) unnamed_addr #1
 
@@ -3927,7 +3921,7 @@ declare void @_ZN5osgeo4proj6common5AngleD1Ev(ptr noundef nonnull align 8 derefe
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5osgeo4proj9operation10Conversion24createTransverseMercatorERKNS0_4util11PropertyMapERKNS0_6common5AngleESA_RKNS7_5ScaleERKNS7_6LengthESG_(ptr dead_on_unwind noalias writable sret(%"class.dropbox::oxygen::nn.42") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_S5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %8, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6)
   %9 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEi(i32 noundef 9807) #32, !noalias !103
   invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %9, ptr noundef nonnull readonly align 8 dereferenceable(24) %8)
@@ -3935,21 +3929,21 @@ define void @_ZN5osgeo4proj9operation10Conversion24createTransverseMercatorERKNS
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit: ; preds = %7
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 
 10:                                               ; preds = %7
   %11 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   resume { ptr, i32 } %11
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5osgeo4proj9operation10Conversion38createGaussSchreiberTransverseMercatorERKNS0_4util11PropertyMapERKNS0_6common5AngleESA_RKNS7_5ScaleERKNS7_6LengthESG_(ptr dead_on_unwind noalias writable sret(%"class.dropbox::oxygen::nn.42") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_S5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %8, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6)
   %9 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEPKc(ptr noundef nonnull @.str.3) #32, !noalias !106
   invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %9, ptr noundef nonnull readonly align 8 dereferenceable(24) %8)
@@ -3957,21 +3951,21 @@ define void @_ZN5osgeo4proj9operation10Conversion38createGaussSchreiberTransvers
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEPKcRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE.exit: ; preds = %7
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 
 10:                                               ; preds = %7
   %11 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   resume { ptr, i32 } %11
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5osgeo4proj9operation10Conversion37createTransverseMercatorSouthOrientedERKNS0_4util11PropertyMapERKNS0_6common5AngleESA_RKNS7_5ScaleERKNS7_6LengthESG_(ptr dead_on_unwind noalias writable sret(%"class.dropbox::oxygen::nn.42") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_S5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %8, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6)
   %9 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEi(i32 noundef 9808) #32, !noalias !109
   invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %9, ptr noundef nonnull readonly align 8 dereferenceable(24) %8)
@@ -3979,21 +3973,21 @@ define void @_ZN5osgeo4proj9operation10Conversion37createTransverseMercatorSouth
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit: ; preds = %7
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 
 10:                                               ; preds = %7
   %11 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   resume { ptr, i32 } %11
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5osgeo4proj9operation10Conversion25createTwoPointEquidistantERKNS0_4util11PropertyMapERKNS0_6common5AngleESA_SA_SA_RKNS7_6LengthESD_(ptr dead_on_unwind noalias writable sret(%"class.dropbox::oxygen::nn.42") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_S5_S5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %9, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7)
   %10 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEPKc(ptr noundef nonnull @.str.4) #32, !noalias !112
   invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %10, ptr noundef nonnull readonly align 8 dereferenceable(24) %9)
@@ -4001,14 +3995,14 @@ define void @_ZN5osgeo4proj9operation10Conversion25createTwoPointEquidistantERKN
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEPKcRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE.exit: ; preds = %8
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 
 11:                                               ; preds = %8
   %12 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   resume { ptr, i32 } %12
 }
 
@@ -4017,7 +4011,7 @@ declare void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5osgeo4proj9operation10Conversion24createTunisiaMappingGridERKNS0_4util11PropertyMapERKNS0_6common5AngleESA_RKNS7_6LengthESD_(ptr dead_on_unwind noalias writable sret(%"class.dropbox::oxygen::nn.42") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5)
   %8 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEi(i32 noundef 9816) #32, !noalias !115
   invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %8, ptr noundef nonnull readonly align 8 dereferenceable(24) %7)
@@ -4025,14 +4019,14 @@ define void @_ZN5osgeo4proj9operation10Conversion24createTunisiaMappingGridERKNS
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit: ; preds = %6
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 
 9:                                                ; preds = %6
   %10 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   resume { ptr, i32 } %10
 }
 
@@ -4041,7 +4035,7 @@ declare void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5osgeo4proj9operation10Conversion23createTunisiaMiningGridERKNS0_4util11PropertyMapERKNS0_6common5AngleESA_RKNS7_6LengthESD_(ptr dead_on_unwind noalias writable sret(%"class.dropbox::oxygen::nn.42") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5)
   %8 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEi(i32 noundef 9816) #32, !noalias !118
   invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %8, ptr noundef nonnull readonly align 8 dereferenceable(24) %7)
@@ -4049,21 +4043,21 @@ define void @_ZN5osgeo4proj9operation10Conversion23createTunisiaMiningGridERKNS0
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit: ; preds = %6
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 
 9:                                                ; preds = %6
   %10 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   resume { ptr, i32 } %10
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5osgeo4proj9operation10Conversion21createAlbersEqualAreaERKNS0_4util11PropertyMapERKNS0_6common5AngleESA_SA_SA_RKNS7_6LengthESD_(ptr dead_on_unwind noalias writable sret(%"class.dropbox::oxygen::nn.42") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_S5_S5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %9, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7)
   %10 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEi(i32 noundef 9822) #32, !noalias !121
   invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %10, ptr noundef nonnull readonly align 8 dereferenceable(24) %9)
@@ -4071,21 +4065,21 @@ define void @_ZN5osgeo4proj9operation10Conversion21createAlbersEqualAreaERKNS0_4
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit: ; preds = %8
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 
 11:                                               ; preds = %8
   %12 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   resume { ptr, i32 } %12
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5osgeo4proj9operation10Conversion31createLambertConicConformal_1SPERKNS0_4util11PropertyMapERKNS0_6common5AngleESA_RKNS7_5ScaleERKNS7_6LengthESG_(ptr dead_on_unwind noalias writable sret(%"class.dropbox::oxygen::nn.42") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_S5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %8, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6)
   %9 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEi(i32 noundef 9801) #32, !noalias !124
   invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %9, ptr noundef nonnull readonly align 8 dereferenceable(24) %8)
@@ -4093,21 +4087,21 @@ define void @_ZN5osgeo4proj9operation10Conversion31createLambertConicConformal_1
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit: ; preds = %7
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 
 10:                                               ; preds = %7
   %11 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   resume { ptr, i32 } %11
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5osgeo4proj9operation10Conversion40createLambertConicConformal_1SP_VariantBERKNS0_4util11PropertyMapERKNS0_6common5AngleERKNS7_5ScaleESA_SA_RKNS7_6LengthESG_(ptr dead_on_unwind noalias writable sret(%"class.dropbox::oxygen::nn.42") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_S5_S5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %9, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7)
   %10 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEi(i32 noundef 1102) #32, !noalias !127
   invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %10, ptr noundef nonnull readonly align 8 dereferenceable(24) %9)
@@ -4115,21 +4109,21 @@ define void @_ZN5osgeo4proj9operation10Conversion40createLambertConicConformal_1
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit: ; preds = %8
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 
 11:                                               ; preds = %8
   %12 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   resume { ptr, i32 } %12
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5osgeo4proj9operation10Conversion31createLambertConicConformal_2SPERKNS0_4util11PropertyMapERKNS0_6common5AngleESA_SA_SA_RKNS7_6LengthESD_(ptr dead_on_unwind noalias writable sret(%"class.dropbox::oxygen::nn.42") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_S5_S5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %9, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7)
   %10 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEi(i32 noundef 9802) #32, !noalias !130
   invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %10, ptr noundef nonnull readonly align 8 dereferenceable(24) %9)
@@ -4137,21 +4131,21 @@ define void @_ZN5osgeo4proj9operation10Conversion31createLambertConicConformal_2
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit: ; preds = %8
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 
 11:                                               ; preds = %8
   %12 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   resume { ptr, i32 } %12
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5osgeo4proj9operation10Conversion40createLambertConicConformal_2SP_MichiganERKNS0_4util11PropertyMapERKNS0_6common5AngleESA_SA_SA_RKNS7_6LengthESD_RKNS7_5ScaleE(ptr dead_on_unwind noalias writable sret(%"class.dropbox::oxygen::nn.42") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_S5_S5_S5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %10, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8)
   %11 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEi(i32 noundef 1051) #32, !noalias !133
   invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %11, ptr noundef nonnull readonly align 8 dereferenceable(24) %10)
@@ -4159,14 +4153,14 @@ define void @_ZN5osgeo4proj9operation10Conversion40createLambertConicConformal_2
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit: ; preds = %9
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 
 12:                                               ; preds = %9
   %13 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %13
 }
 
@@ -4175,7 +4169,7 @@ declare void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5osgeo4proj9operation10Conversion39createLambertConicConformal_2SP_BelgiumERKNS0_4util11PropertyMapERKNS0_6common5AngleESA_SA_SA_RKNS7_6LengthESD_(ptr dead_on_unwind noalias writable sret(%"class.dropbox::oxygen::nn.42") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_S5_S5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %9, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7)
   %10 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEi(i32 noundef 9803) #32, !noalias !136
   invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %10, ptr noundef nonnull readonly align 8 dereferenceable(24) %9)
@@ -4183,21 +4177,21 @@ define void @_ZN5osgeo4proj9operation10Conversion39createLambertConicConformal_2
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit: ; preds = %8
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 
 11:                                               ; preds = %8
   %12 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   resume { ptr, i32 } %12
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5osgeo4proj9operation10Conversion26createAzimuthalEquidistantERKNS0_4util11PropertyMapERKNS0_6common5AngleESA_RKNS7_6LengthESD_(ptr dead_on_unwind noalias writable sret(%"class.dropbox::oxygen::nn.42") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5)
   %8 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEi(i32 noundef 1125) #32, !noalias !139
   invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %8, ptr noundef nonnull readonly align 8 dereferenceable(24) %7)
@@ -4205,21 +4199,21 @@ define void @_ZN5osgeo4proj9operation10Conversion26createAzimuthalEquidistantERK
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit: ; preds = %6
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 
 9:                                                ; preds = %6
   %10 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   resume { ptr, i32 } %10
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5osgeo4proj9operation10Conversion20createGuamProjectionERKNS0_4util11PropertyMapERKNS0_6common5AngleESA_RKNS7_6LengthESD_(ptr dead_on_unwind noalias writable sret(%"class.dropbox::oxygen::nn.42") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5)
   %8 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEi(i32 noundef 9831) #32, !noalias !142
   invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %8, ptr noundef nonnull readonly align 8 dereferenceable(24) %7)
@@ -4227,21 +4221,21 @@ define void @_ZN5osgeo4proj9operation10Conversion20createGuamProjectionERKNS0_4u
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit: ; preds = %6
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 
 9:                                                ; preds = %6
   %10 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   resume { ptr, i32 } %10
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5osgeo4proj9operation10Conversion11createBonneERKNS0_4util11PropertyMapERKNS0_6common5AngleESA_RKNS7_6LengthESD_(ptr dead_on_unwind noalias writable sret(%"class.dropbox::oxygen::nn.42") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5)
   %8 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEi(i32 noundef 9827) #32, !noalias !145
   invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %8, ptr noundef nonnull readonly align 8 dereferenceable(24) %7)
@@ -4249,21 +4243,21 @@ define void @_ZN5osgeo4proj9operation10Conversion11createBonneERKNS0_4util11Prop
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit: ; preds = %6
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 
 9:                                                ; preds = %6
   %10 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   resume { ptr, i32 } %10
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5osgeo4proj9operation10Conversion42createLambertCylindricalEqualAreaSphericalERKNS0_4util11PropertyMapERKNS0_6common5AngleESA_RKNS7_6LengthESD_(ptr dead_on_unwind noalias writable sret(%"class.dropbox::oxygen::nn.42") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5)
   %8 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEi(i32 noundef 9834) #32, !noalias !148
   invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %8, ptr noundef nonnull readonly align 8 dereferenceable(24) %7)
@@ -4271,21 +4265,21 @@ define void @_ZN5osgeo4proj9operation10Conversion42createLambertCylindricalEqual
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit: ; preds = %6
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 
 9:                                                ; preds = %6
   %10 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   resume { ptr, i32 } %10
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5osgeo4proj9operation10Conversion33createLambertCylindricalEqualAreaERKNS0_4util11PropertyMapERKNS0_6common5AngleESA_RKNS7_6LengthESD_(ptr dead_on_unwind noalias writable sret(%"class.dropbox::oxygen::nn.42") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5)
   %8 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEi(i32 noundef 9835) #32, !noalias !151
   invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %8, ptr noundef nonnull readonly align 8 dereferenceable(24) %7)
@@ -4293,21 +4287,21 @@ define void @_ZN5osgeo4proj9operation10Conversion33createLambertCylindricalEqual
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit: ; preds = %6
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 
 9:                                                ; preds = %6
   %10 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   resume { ptr, i32 } %10
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5osgeo4proj9operation10Conversion20createCassiniSoldnerERKNS0_4util11PropertyMapERKNS0_6common5AngleESA_RKNS7_6LengthESD_(ptr dead_on_unwind noalias writable sret(%"class.dropbox::oxygen::nn.42") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5)
   %8 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEi(i32 noundef 9806) #32, !noalias !154
   invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %8, ptr noundef nonnull readonly align 8 dereferenceable(24) %7)
@@ -4315,21 +4309,21 @@ define void @_ZN5osgeo4proj9operation10Conversion20createCassiniSoldnerERKNS0_4u
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit: ; preds = %6
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 
 9:                                                ; preds = %6
   %10 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   resume { ptr, i32 } %10
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5osgeo4proj9operation10Conversion22createEquidistantConicERKNS0_4util11PropertyMapERKNS0_6common5AngleESA_SA_SA_RKNS7_6LengthESD_(ptr dead_on_unwind noalias writable sret(%"class.dropbox::oxygen::nn.42") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_S5_S5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %9, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7)
   %10 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEi(i32 noundef 1119) #32, !noalias !157
   invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %10, ptr noundef nonnull readonly align 8 dereferenceable(24) %9)
@@ -4337,21 +4331,21 @@ define void @_ZN5osgeo4proj9operation10Conversion22createEquidistantConicERKNS0_
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit: ; preds = %8
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 
 11:                                               ; preds = %8
   %12 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   resume { ptr, i32 } %12
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5osgeo4proj9operation10Conversion13createEckertIERKNS0_4util11PropertyMapERKNS0_6common5AngleERKNS7_6LengthESD_(ptr dead_on_unwind noalias writable sret(%"class.dropbox::oxygen::nn.42") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4)
   %7 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEPKc(ptr noundef nonnull @.str.5) #32, !noalias !160
   invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %6)
@@ -4359,14 +4353,14 @@ define void @_ZN5osgeo4proj9operation10Conversion13createEckertIERKNS0_4util11Pr
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEPKcRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE.exit: ; preds = %5
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
 8:                                                ; preds = %5
   %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %9
 }
 
@@ -4375,7 +4369,7 @@ declare void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5osgeo4proj9operation10Conversion14createEckertIIERKNS0_4util11PropertyMapERKNS0_6common5AngleERKNS7_6LengthESD_(ptr dead_on_unwind noalias writable sret(%"class.dropbox::oxygen::nn.42") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4)
   %7 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEPKc(ptr noundef nonnull @.str.6) #32, !noalias !163
   invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %6)
@@ -4383,21 +4377,21 @@ define void @_ZN5osgeo4proj9operation10Conversion14createEckertIIERKNS0_4util11P
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEPKcRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE.exit: ; preds = %5
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
 8:                                                ; preds = %5
   %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %9
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5osgeo4proj9operation10Conversion15createEckertIIIERKNS0_4util11PropertyMapERKNS0_6common5AngleERKNS7_6LengthESD_(ptr dead_on_unwind noalias writable sret(%"class.dropbox::oxygen::nn.42") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4)
   %7 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEPKc(ptr noundef nonnull @.str.7) #32, !noalias !166
   invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %6)
@@ -4405,21 +4399,21 @@ define void @_ZN5osgeo4proj9operation10Conversion15createEckertIIIERKNS0_4util11
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEPKcRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE.exit: ; preds = %5
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
 8:                                                ; preds = %5
   %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %9
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5osgeo4proj9operation10Conversion14createEckertIVERKNS0_4util11PropertyMapERKNS0_6common5AngleERKNS7_6LengthESD_(ptr dead_on_unwind noalias writable sret(%"class.dropbox::oxygen::nn.42") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4)
   %7 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEPKc(ptr noundef nonnull @.str.8) #32, !noalias !169
   invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %6)
@@ -4427,21 +4421,21 @@ define void @_ZN5osgeo4proj9operation10Conversion14createEckertIVERKNS0_4util11P
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEPKcRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE.exit: ; preds = %5
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
 8:                                                ; preds = %5
   %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %9
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5osgeo4proj9operation10Conversion13createEckertVERKNS0_4util11PropertyMapERKNS0_6common5AngleERKNS7_6LengthESD_(ptr dead_on_unwind noalias writable sret(%"class.dropbox::oxygen::nn.42") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4)
   %7 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEPKc(ptr noundef nonnull @.str.9) #32, !noalias !172
   invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %6)
@@ -4449,21 +4443,21 @@ define void @_ZN5osgeo4proj9operation10Conversion13createEckertVERKNS0_4util11Pr
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEPKcRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE.exit: ; preds = %5
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
 8:                                                ; preds = %5
   %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %9
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5osgeo4proj9operation10Conversion14createEckertVIERKNS0_4util11PropertyMapERKNS0_6common5AngleERKNS7_6LengthESD_(ptr dead_on_unwind noalias writable sret(%"class.dropbox::oxygen::nn.42") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4)
   %7 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEPKc(ptr noundef nonnull @.str.10) #32, !noalias !175
   invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %6)
@@ -4471,14 +4465,14 @@ define void @_ZN5osgeo4proj9operation10Conversion14createEckertVIERKNS0_4util11P
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEPKcRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE.exit: ; preds = %5
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
 8:                                                ; preds = %5
   %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %9
 }
 
@@ -4490,22 +4484,22 @@ define void @_ZN5osgeo4proj9operation10Conversion28createEquidistantCylindricalE
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
   %11 = alloca %"class.std::__cxx11::basic_string", align 8
   %12 = alloca %"class.std::__cxx11::basic_string", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #32
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #32
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #32
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %13, ptr %10, align 8, !tbaa !92
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 0, ptr %14, align 8, !tbaa !98
   store i8 0, ptr %13, align 8, !tbaa !21
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %15, ptr %11, align 8, !tbaa !92
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 0, ptr %16, align 8, !tbaa !98
   store i8 0, ptr %15, align 8, !tbaa !21
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr %17, ptr %12, align 8, !tbaa !92
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -4548,7 +4542,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %29 = load ptr, ptr %11, align 8, !tbaa !96
   %30 = icmp eq ptr %29, %15
   br i1 %30, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i13, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i12
@@ -4566,7 +4560,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i12
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit14
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit14: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i13, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i12
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %35 = load ptr, ptr %10, align 8, !tbaa !96
   %36 = icmp eq ptr %35, %13
   br i1 %36, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i16, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i15
@@ -4584,10 +4578,10 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i15
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit17
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit17: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i16, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i15
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 
 41:                                               ; preds = %6
@@ -4640,7 +4634,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i18
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i19, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i18
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %58 = load ptr, ptr %11, align 8, !tbaa !96
   %59 = icmp eq ptr %58, %15
   br i1 %59, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i22, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i21
@@ -4658,7 +4652,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i21
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit23
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit23: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i22, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i21
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %64 = load ptr, ptr %10, align 8, !tbaa !96
   %65 = icmp eq ptr %64, %13
   br i1 %65, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i25, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i24
@@ -4676,10 +4670,10 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i24
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit26
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit26: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i25, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i24
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   resume { ptr, i32 } %.pn.pn.pn
 }
 
@@ -4696,22 +4690,22 @@ define void @_ZN5osgeo4proj9operation10Conversion37createEquidistantCylindricalS
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
   %11 = alloca %"class.std::__cxx11::basic_string", align 8
   %12 = alloca %"class.std::__cxx11::basic_string", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #32
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #32
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #32
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %13, ptr %10, align 8, !tbaa !92
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 0, ptr %14, align 8, !tbaa !98
   store i8 0, ptr %13, align 8, !tbaa !21
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %15, ptr %11, align 8, !tbaa !92
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 0, ptr %16, align 8, !tbaa !98
   store i8 0, ptr %15, align 8, !tbaa !21
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr %17, ptr %12, align 8, !tbaa !92
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -4754,7 +4748,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %29 = load ptr, ptr %11, align 8, !tbaa !96
   %30 = icmp eq ptr %29, %15
   br i1 %30, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i13, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i12
@@ -4772,7 +4766,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i12
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit14
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit14: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i13, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i12
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %35 = load ptr, ptr %10, align 8, !tbaa !96
   %36 = icmp eq ptr %35, %13
   br i1 %36, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i16, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i15
@@ -4790,10 +4784,10 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i15
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit17
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit17: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i16, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i15
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 
 41:                                               ; preds = %6
@@ -4846,7 +4840,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i18
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i19, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i18
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %58 = load ptr, ptr %11, align 8, !tbaa !96
   %59 = icmp eq ptr %58, %15
   br i1 %59, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i22, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i21
@@ -4864,7 +4858,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i21
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit23
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit23: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i22, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i21
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %64 = load ptr, ptr %10, align 8, !tbaa !96
   %65 = icmp eq ptr %64, %13
   br i1 %65, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i25, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i24
@@ -4882,17 +4876,17 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i24
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit26
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit26: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i25, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i24
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   resume { ptr, i32 } %.pn.pn.pn
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5osgeo4proj9operation10Conversion10createGallERKNS0_4util11PropertyMapERKNS0_6common5AngleERKNS7_6LengthESD_(ptr dead_on_unwind noalias writable sret(%"class.dropbox::oxygen::nn.42") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4)
   %7 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEPKc(ptr noundef nonnull @.str.11) #32, !noalias !184
   invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %6)
@@ -4900,21 +4894,21 @@ define void @_ZN5osgeo4proj9operation10Conversion10createGallERKNS0_4util11Prope
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEPKcRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE.exit: ; preds = %5
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
 8:                                                ; preds = %5
   %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %9
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5osgeo4proj9operation10Conversion21createGoodeHomolosineERKNS0_4util11PropertyMapERKNS0_6common5AngleERKNS7_6LengthESD_(ptr dead_on_unwind noalias writable sret(%"class.dropbox::oxygen::nn.42") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4)
   %7 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEPKc(ptr noundef nonnull @.str.12) #32, !noalias !187
   invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %6)
@@ -4922,21 +4916,21 @@ define void @_ZN5osgeo4proj9operation10Conversion21createGoodeHomolosineERKNS0_4
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEPKcRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE.exit: ; preds = %5
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
 8:                                                ; preds = %5
   %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %9
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5osgeo4proj9operation10Conversion32createInterruptedGoodeHomolosineERKNS0_4util11PropertyMapERKNS0_6common5AngleERKNS7_6LengthESD_(ptr dead_on_unwind noalias writable sret(%"class.dropbox::oxygen::nn.42") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4)
   %7 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEPKc(ptr noundef nonnull @.str.13) #32, !noalias !190
   invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %6)
@@ -4944,21 +4938,21 @@ define void @_ZN5osgeo4proj9operation10Conversion32createInterruptedGoodeHomolos
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEPKcRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE.exit: ; preds = %5
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
 8:                                                ; preds = %5
   %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %9
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5osgeo4proj9operation10Conversion34createGeostationarySatelliteSweepXERKNS0_4util11PropertyMapERKNS0_6common5AngleERKNS7_6LengthESD_SD_(ptr dead_on_unwind noalias writable sret(%"class.dropbox::oxygen::nn.42") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5)
   %8 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEPKc(ptr noundef nonnull @.str.14) #32, !noalias !193
   invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %8, ptr noundef nonnull readonly align 8 dereferenceable(24) %7)
@@ -4966,21 +4960,21 @@ define void @_ZN5osgeo4proj9operation10Conversion34createGeostationarySatelliteS
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEPKcRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE.exit: ; preds = %6
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 
 9:                                                ; preds = %6
   %10 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   resume { ptr, i32 } %10
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5osgeo4proj9operation10Conversion34createGeostationarySatelliteSweepYERKNS0_4util11PropertyMapERKNS0_6common5AngleERKNS7_6LengthESD_SD_(ptr dead_on_unwind noalias writable sret(%"class.dropbox::oxygen::nn.42") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5)
   %8 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEPKc(ptr noundef nonnull @.str.15) #32, !noalias !196
   invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %8, ptr noundef nonnull readonly align 8 dereferenceable(24) %7)
@@ -4988,21 +4982,21 @@ define void @_ZN5osgeo4proj9operation10Conversion34createGeostationarySatelliteS
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEPKcRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE.exit: ; preds = %6
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 
 9:                                                ; preds = %6
   %10 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   resume { ptr, i32 } %10
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5osgeo4proj9operation10Conversion14createGnomonicERKNS0_4util11PropertyMapERKNS0_6common5AngleESA_RKNS7_6LengthESD_(ptr dead_on_unwind noalias writable sret(%"class.dropbox::oxygen::nn.42") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5)
   %8 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEPKc(ptr noundef nonnull @.str.16) #32, !noalias !199
   invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %8, ptr noundef nonnull readonly align 8 dereferenceable(24) %7)
@@ -5010,21 +5004,21 @@ define void @_ZN5osgeo4proj9operation10Conversion14createGnomonicERKNS0_4util11P
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEPKcRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE.exit: ; preds = %6
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 
 9:                                                ; preds = %6
   %10 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   resume { ptr, i32 } %10
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5osgeo4proj9operation10Conversion35createHotineObliqueMercatorVariantAERKNS0_4util11PropertyMapERKNS0_6common5AngleESA_SA_SA_RKNS7_5ScaleERKNS7_6LengthESG_(ptr dead_on_unwind noalias writable sret(%"class.dropbox::oxygen::nn.42") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_S5_S5_S5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %10, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8)
   %11 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEi(i32 noundef 9812) #32, !noalias !202
   invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %11, ptr noundef nonnull readonly align 8 dereferenceable(24) %10)
@@ -5032,21 +5026,21 @@ define void @_ZN5osgeo4proj9operation10Conversion35createHotineObliqueMercatorVa
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit: ; preds = %9
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 
 12:                                               ; preds = %9
   %13 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %13
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5osgeo4proj9operation10Conversion35createHotineObliqueMercatorVariantBERKNS0_4util11PropertyMapERKNS0_6common5AngleESA_SA_SA_RKNS7_5ScaleERKNS7_6LengthESG_(ptr dead_on_unwind noalias writable sret(%"class.dropbox::oxygen::nn.42") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_S5_S5_S5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %10, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8)
   %11 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEi(i32 noundef 9815) #32, !noalias !205
   invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %11, ptr noundef nonnull readonly align 8 dereferenceable(24) %10)
@@ -5054,14 +5048,14 @@ define void @_ZN5osgeo4proj9operation10Conversion35createHotineObliqueMercatorVa
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit: ; preds = %9
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 
 12:                                               ; preds = %9
   %13 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %13
 }
 
@@ -5069,8 +5063,8 @@ _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vecto
 define void @_ZN5osgeo4proj9operation10Conversion48createHotineObliqueMercatorTwoPointNaturalOriginERKNS0_4util11PropertyMapERKNS0_6common5AngleESA_SA_SA_SA_RKNS7_5ScaleERKNS7_6LengthESG_(ptr dead_on_unwind noalias writable sret(%"class.dropbox::oxygen::nn.42") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %9) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %11 = alloca %"class.std::vector.139", align 8
   %12 = alloca [8 x %"class.dropbox::oxygen::nn.74"], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #32
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %12) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @_ZN5osgeo4proj9operation14ParameterValue6createERKNS0_6common7MeasureE(ptr dead_on_unwind nonnull writable sret(%"class.dropbox::oxygen::nn.74") align 8 %12, ptr noundef nonnull align 8 dereferenceable(24) %2)
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   invoke void @_ZN5osgeo4proj9operation14ParameterValue6createERKNS0_6common7MeasureE(ptr dead_on_unwind nonnull writable sret(%"class.dropbox::oxygen::nn.74") align 8 %13, ptr noundef nonnull align 8 dereferenceable(24) %3)
@@ -5299,8 +5293,8 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation14ParameterValueEEED2
   br i1 %103, label %104, label %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation14ParameterValueEEEESaIS9_EED2Ev.exit
 
 104:                                              ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation14ParameterValueEEED2Ev.exit
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %12) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret void
 
 105:                                              ; preds = %24, %22, %20, %18, %16, %14, %10
@@ -5340,8 +5334,8 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation14ParameterValueEEED2
 
 .loopexit:                                        ; preds = %107, %116
   %.pn.pn = phi { ptr, i32 } [ %.pn, %116 ], [ %106, %107 ]
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %12) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -5434,7 +5428,7 @@ _ZNSt12_Vector_baseIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation14P
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5osgeo4proj9operation10Conversion28createLabordeObliqueMercatorERKNS0_4util11PropertyMapERKNS0_6common5AngleESA_SA_RKNS7_5ScaleERKNS7_6LengthESG_(ptr dead_on_unwind noalias writable sret(%"class.dropbox::oxygen::nn.42") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_S5_S5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %9, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7)
   %10 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEi(i32 noundef 9813) #32, !noalias !214
   invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %10, ptr noundef nonnull readonly align 8 dereferenceable(24) %9)
@@ -5442,21 +5436,21 @@ define void @_ZN5osgeo4proj9operation10Conversion28createLabordeObliqueMercatorE
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit: ; preds = %8
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 
 11:                                               ; preds = %8
   %12 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   resume { ptr, i32 } %12
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5osgeo4proj9operation10Conversion36createInternationalMapWorldPolyconicERKNS0_4util11PropertyMapERKNS0_6common5AngleESA_SA_RKNS7_6LengthESD_(ptr dead_on_unwind noalias writable sret(%"class.dropbox::oxygen::nn.42") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_S5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %8, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6)
   %9 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEPKc(ptr noundef nonnull @.str.18) #32, !noalias !217
   invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %9, ptr noundef nonnull readonly align 8 dereferenceable(24) %8)
@@ -5464,21 +5458,21 @@ define void @_ZN5osgeo4proj9operation10Conversion36createInternationalMapWorldPo
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEPKcRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE.exit: ; preds = %7
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 
 10:                                               ; preds = %7
   %11 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   resume { ptr, i32 } %11
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5osgeo4proj9operation10Conversion25createKrovakNorthOrientedERKNS0_4util11PropertyMapERKNS0_6common5AngleESA_SA_SA_RKNS7_5ScaleERKNS7_6LengthESG_(ptr dead_on_unwind noalias writable sret(%"class.dropbox::oxygen::nn.42") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_S5_S5_S5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %10, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8)
   %11 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEi(i32 noundef 1041) #32, !noalias !220
   invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %11, ptr noundef nonnull readonly align 8 dereferenceable(24) %10)
@@ -5486,21 +5480,21 @@ define void @_ZN5osgeo4proj9operation10Conversion25createKrovakNorthOrientedERKN
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit: ; preds = %9
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 
 12:                                               ; preds = %9
   %13 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %13
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5osgeo4proj9operation10Conversion12createKrovakERKNS0_4util11PropertyMapERKNS0_6common5AngleESA_SA_SA_RKNS7_5ScaleERKNS7_6LengthESG_(ptr dead_on_unwind noalias writable sret(%"class.dropbox::oxygen::nn.42") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_S5_S5_S5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %10, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8)
   %11 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEi(i32 noundef 9819) #32, !noalias !223
   invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %11, ptr noundef nonnull readonly align 8 dereferenceable(24) %10)
@@ -5508,21 +5502,21 @@ define void @_ZN5osgeo4proj9operation10Conversion12createKrovakERKNS0_4util11Pro
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit: ; preds = %9
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 
 12:                                               ; preds = %9
   %13 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %13
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5osgeo4proj9operation10Conversion31createLambertAzimuthalEqualAreaERKNS0_4util11PropertyMapERKNS0_6common5AngleESA_RKNS7_6LengthESD_(ptr dead_on_unwind noalias writable sret(%"class.dropbox::oxygen::nn.42") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5)
   %8 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEi(i32 noundef 9820) #32, !noalias !226
   invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %8, ptr noundef nonnull readonly align 8 dereferenceable(24) %7)
@@ -5530,21 +5524,21 @@ define void @_ZN5osgeo4proj9operation10Conversion31createLambertAzimuthalEqualAr
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit: ; preds = %6
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 
 9:                                                ; preds = %6
   %10 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   resume { ptr, i32 } %10
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5osgeo4proj9operation10Conversion23createMillerCylindricalERKNS0_4util11PropertyMapERKNS0_6common5AngleERKNS7_6LengthESD_(ptr dead_on_unwind noalias writable sret(%"class.dropbox::oxygen::nn.42") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4)
   %7 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEPKc(ptr noundef nonnull @.str.19) #32, !noalias !229
   invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %6)
@@ -5552,21 +5546,21 @@ define void @_ZN5osgeo4proj9operation10Conversion23createMillerCylindricalERKNS0
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEPKcRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE.exit: ; preds = %5
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
 8:                                                ; preds = %5
   %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %9
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5osgeo4proj9operation10Conversion22createMercatorVariantAERKNS0_4util11PropertyMapERKNS0_6common5AngleESA_RKNS7_5ScaleERKNS7_6LengthESG_(ptr dead_on_unwind noalias writable sret(%"class.dropbox::oxygen::nn.42") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_S5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %8, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6)
   %9 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEi(i32 noundef 9804) #32, !noalias !232
   invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %9, ptr noundef nonnull readonly align 8 dereferenceable(24) %8)
@@ -5574,21 +5568,21 @@ define void @_ZN5osgeo4proj9operation10Conversion22createMercatorVariantAERKNS0_
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit: ; preds = %7
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 
 10:                                               ; preds = %7
   %11 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   resume { ptr, i32 } %11
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5osgeo4proj9operation10Conversion22createMercatorVariantBERKNS0_4util11PropertyMapERKNS0_6common5AngleESA_RKNS7_6LengthESD_(ptr dead_on_unwind noalias writable sret(%"class.dropbox::oxygen::nn.42") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5)
   %8 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEi(i32 noundef 9805) #32, !noalias !235
   invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %8, ptr noundef nonnull readonly align 8 dereferenceable(24) %7)
@@ -5596,21 +5590,21 @@ define void @_ZN5osgeo4proj9operation10Conversion22createMercatorVariantBERKNS0_
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit: ; preds = %6
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 
 9:                                                ; preds = %6
   %10 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   resume { ptr, i32 } %10
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5osgeo4proj9operation10Conversion40createPopularVisualisationPseudoMercatorERKNS0_4util11PropertyMapERKNS0_6common5AngleESA_RKNS7_6LengthESD_(ptr dead_on_unwind noalias writable sret(%"class.dropbox::oxygen::nn.42") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5)
   %8 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEi(i32 noundef 1024) #32, !noalias !238
   invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %8, ptr noundef nonnull readonly align 8 dereferenceable(24) %7)
@@ -5618,21 +5612,21 @@ define void @_ZN5osgeo4proj9operation10Conversion40createPopularVisualisationPse
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit: ; preds = %6
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 
 9:                                                ; preds = %6
   %10 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   resume { ptr, i32 } %10
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5osgeo4proj9operation10Conversion23createMercatorSphericalERKNS0_4util11PropertyMapERKNS0_6common5AngleESA_RKNS7_6LengthESD_(ptr dead_on_unwind noalias writable sret(%"class.dropbox::oxygen::nn.42") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5)
   %8 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEi(i32 noundef 1026) #32, !noalias !241
   invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %8, ptr noundef nonnull readonly align 8 dereferenceable(24) %7)
@@ -5640,21 +5634,21 @@ define void @_ZN5osgeo4proj9operation10Conversion23createMercatorSphericalERKNS0
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit: ; preds = %6
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 
 9:                                                ; preds = %6
   %10 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   resume { ptr, i32 } %10
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5osgeo4proj9operation10Conversion15createMollweideERKNS0_4util11PropertyMapERKNS0_6common5AngleERKNS7_6LengthESD_(ptr dead_on_unwind noalias writable sret(%"class.dropbox::oxygen::nn.42") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4)
   %7 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEPKc(ptr noundef nonnull @.str.20) #32, !noalias !244
   invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %6)
@@ -5662,21 +5656,21 @@ define void @_ZN5osgeo4proj9operation10Conversion15createMollweideERKNS0_4util11
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEPKcRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE.exit: ; preds = %5
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
 8:                                                ; preds = %5
   %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %9
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5osgeo4proj9operation10Conversion27createNewZealandMappingGridERKNS0_4util11PropertyMapERKNS0_6common5AngleESA_RKNS7_6LengthESD_(ptr dead_on_unwind noalias writable sret(%"class.dropbox::oxygen::nn.42") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5)
   %8 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEi(i32 noundef 9811) #32, !noalias !247
   invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %8, ptr noundef nonnull readonly align 8 dereferenceable(24) %7)
@@ -5684,21 +5678,21 @@ define void @_ZN5osgeo4proj9operation10Conversion27createNewZealandMappingGridER
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit: ; preds = %6
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 
 9:                                                ; preds = %6
   %10 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   resume { ptr, i32 } %10
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5osgeo4proj9operation10Conversion26createObliqueStereographicERKNS0_4util11PropertyMapERKNS0_6common5AngleESA_RKNS7_5ScaleERKNS7_6LengthESG_(ptr dead_on_unwind noalias writable sret(%"class.dropbox::oxygen::nn.42") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_S5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %8, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6)
   %9 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEi(i32 noundef 9809) #32, !noalias !250
   invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %9, ptr noundef nonnull readonly align 8 dereferenceable(24) %8)
@@ -5706,21 +5700,21 @@ define void @_ZN5osgeo4proj9operation10Conversion26createObliqueStereographicERK
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit: ; preds = %7
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 
 10:                                               ; preds = %7
   %11 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   resume { ptr, i32 } %11
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5osgeo4proj9operation10Conversion18createOrthographicERKNS0_4util11PropertyMapERKNS0_6common5AngleESA_RKNS7_6LengthESD_(ptr dead_on_unwind noalias writable sret(%"class.dropbox::oxygen::nn.42") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5)
   %8 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEi(i32 noundef 9840) #32, !noalias !253
   invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %8, ptr noundef nonnull readonly align 8 dereferenceable(24) %7)
@@ -5728,21 +5722,21 @@ define void @_ZN5osgeo4proj9operation10Conversion18createOrthographicERKNS0_4uti
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit: ; preds = %6
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 
 9:                                                ; preds = %6
   %10 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   resume { ptr, i32 } %10
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5osgeo4proj9operation10Conversion23createLocalOrthographicERKNS0_4util11PropertyMapERKNS0_6common5AngleESA_SA_RKNS7_5ScaleERKNS7_6LengthESG_(ptr dead_on_unwind noalias writable sret(%"class.dropbox::oxygen::nn.42") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_S5_S5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %9, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7)
   %10 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEi(i32 noundef 1130) #32, !noalias !256
   invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %10, ptr noundef nonnull readonly align 8 dereferenceable(24) %9)
@@ -5750,21 +5744,21 @@ define void @_ZN5osgeo4proj9operation10Conversion23createLocalOrthographicERKNS0
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit: ; preds = %8
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 
 11:                                               ; preds = %8
   %12 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   resume { ptr, i32 } %12
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5osgeo4proj9operation10Conversion23createAmericanPolyconicERKNS0_4util11PropertyMapERKNS0_6common5AngleESA_RKNS7_6LengthESD_(ptr dead_on_unwind noalias writable sret(%"class.dropbox::oxygen::nn.42") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5)
   %8 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEi(i32 noundef 9818) #32, !noalias !259
   invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %8, ptr noundef nonnull readonly align 8 dereferenceable(24) %7)
@@ -5772,21 +5766,21 @@ define void @_ZN5osgeo4proj9operation10Conversion23createAmericanPolyconicERKNS0
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit: ; preds = %6
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 
 9:                                                ; preds = %6
   %10 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   resume { ptr, i32 } %10
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5osgeo4proj9operation10Conversion32createPolarStereographicVariantAERKNS0_4util11PropertyMapERKNS0_6common5AngleESA_RKNS7_5ScaleERKNS7_6LengthESG_(ptr dead_on_unwind noalias writable sret(%"class.dropbox::oxygen::nn.42") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_S5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %8, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6)
   %9 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEi(i32 noundef 9810) #32, !noalias !262
   invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %9, ptr noundef nonnull readonly align 8 dereferenceable(24) %8)
@@ -5794,21 +5788,21 @@ define void @_ZN5osgeo4proj9operation10Conversion32createPolarStereographicVaria
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit: ; preds = %7
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 
 10:                                               ; preds = %7
   %11 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   resume { ptr, i32 } %11
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5osgeo4proj9operation10Conversion32createPolarStereographicVariantBERKNS0_4util11PropertyMapERKNS0_6common5AngleESA_RKNS7_6LengthESD_(ptr dead_on_unwind noalias writable sret(%"class.dropbox::oxygen::nn.42") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5)
   %8 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEi(i32 noundef 9829) #32, !noalias !265
   invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %8, ptr noundef nonnull readonly align 8 dereferenceable(24) %7)
@@ -5816,21 +5810,21 @@ define void @_ZN5osgeo4proj9operation10Conversion32createPolarStereographicVaria
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit: ; preds = %6
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 
 9:                                                ; preds = %6
   %10 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   resume { ptr, i32 } %10
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5osgeo4proj9operation10Conversion14createRobinsonERKNS0_4util11PropertyMapERKNS0_6common5AngleERKNS7_6LengthESD_(ptr dead_on_unwind noalias writable sret(%"class.dropbox::oxygen::nn.42") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4)
   %7 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEPKc(ptr noundef nonnull @.str.21) #32, !noalias !268
   invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %6)
@@ -5838,21 +5832,21 @@ define void @_ZN5osgeo4proj9operation10Conversion14createRobinsonERKNS0_4util11P
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEPKcRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE.exit: ; preds = %5
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
 8:                                                ; preds = %5
   %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %9
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5osgeo4proj9operation10Conversion16createSinusoidalERKNS0_4util11PropertyMapERKNS0_6common5AngleERKNS7_6LengthESD_(ptr dead_on_unwind noalias writable sret(%"class.dropbox::oxygen::nn.42") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4)
   %7 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEPKc(ptr noundef nonnull @.str.22) #32, !noalias !271
   invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %6)
@@ -5860,21 +5854,21 @@ define void @_ZN5osgeo4proj9operation10Conversion16createSinusoidalERKNS0_4util1
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEPKcRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE.exit: ; preds = %5
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
 8:                                                ; preds = %5
   %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %9
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5osgeo4proj9operation10Conversion19createStereographicERKNS0_4util11PropertyMapERKNS0_6common5AngleESA_RKNS7_5ScaleERKNS7_6LengthESG_(ptr dead_on_unwind noalias writable sret(%"class.dropbox::oxygen::nn.42") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_S5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %8, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6)
   %9 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEPKc(ptr noundef nonnull @.str.23) #32, !noalias !274
   invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %9, ptr noundef nonnull readonly align 8 dereferenceable(24) %8)
@@ -5882,21 +5876,21 @@ define void @_ZN5osgeo4proj9operation10Conversion19createStereographicERKNS0_4ut
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEPKcRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE.exit: ; preds = %7
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 
 10:                                               ; preds = %7
   %11 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   resume { ptr, i32 } %11
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5osgeo4proj9operation10Conversion19createVanDerGrintenERKNS0_4util11PropertyMapERKNS0_6common5AngleERKNS7_6LengthESD_(ptr dead_on_unwind noalias writable sret(%"class.dropbox::oxygen::nn.42") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4)
   %7 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEPKc(ptr noundef nonnull @.str.24) #32, !noalias !277
   invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %6)
@@ -5904,21 +5898,21 @@ define void @_ZN5osgeo4proj9operation10Conversion19createVanDerGrintenERKNS0_4ut
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEPKcRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE.exit: ; preds = %5
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
 8:                                                ; preds = %5
   %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %9
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5osgeo4proj9operation10Conversion13createWagnerIERKNS0_4util11PropertyMapERKNS0_6common5AngleERKNS7_6LengthESD_(ptr dead_on_unwind noalias writable sret(%"class.dropbox::oxygen::nn.42") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4)
   %7 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEPKc(ptr noundef nonnull @.str.25) #32, !noalias !280
   invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %6)
@@ -5926,21 +5920,21 @@ define void @_ZN5osgeo4proj9operation10Conversion13createWagnerIERKNS0_4util11Pr
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEPKcRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE.exit: ; preds = %5
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
 8:                                                ; preds = %5
   %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %9
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5osgeo4proj9operation10Conversion14createWagnerIIERKNS0_4util11PropertyMapERKNS0_6common5AngleERKNS7_6LengthESD_(ptr dead_on_unwind noalias writable sret(%"class.dropbox::oxygen::nn.42") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4)
   %7 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEPKc(ptr noundef nonnull @.str.26) #32, !noalias !283
   invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %6)
@@ -5948,21 +5942,21 @@ define void @_ZN5osgeo4proj9operation10Conversion14createWagnerIIERKNS0_4util11P
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEPKcRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE.exit: ; preds = %5
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
 8:                                                ; preds = %5
   %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %9
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5osgeo4proj9operation10Conversion15createWagnerIIIERKNS0_4util11PropertyMapERKNS0_6common5AngleESA_RKNS7_6LengthESD_(ptr dead_on_unwind noalias writable sret(%"class.dropbox::oxygen::nn.42") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5)
   %8 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEPKc(ptr noundef nonnull @.str.27) #32, !noalias !286
   invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %8, ptr noundef nonnull readonly align 8 dereferenceable(24) %7)
@@ -5970,21 +5964,21 @@ define void @_ZN5osgeo4proj9operation10Conversion15createWagnerIIIERKNS0_4util11
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEPKcRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE.exit: ; preds = %6
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 
 9:                                                ; preds = %6
   %10 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   resume { ptr, i32 } %10
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5osgeo4proj9operation10Conversion14createWagnerIVERKNS0_4util11PropertyMapERKNS0_6common5AngleERKNS7_6LengthESD_(ptr dead_on_unwind noalias writable sret(%"class.dropbox::oxygen::nn.42") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4)
   %7 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEPKc(ptr noundef nonnull @.str.28) #32, !noalias !289
   invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %6)
@@ -5992,21 +5986,21 @@ define void @_ZN5osgeo4proj9operation10Conversion14createWagnerIVERKNS0_4util11P
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEPKcRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE.exit: ; preds = %5
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
 8:                                                ; preds = %5
   %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %9
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5osgeo4proj9operation10Conversion13createWagnerVERKNS0_4util11PropertyMapERKNS0_6common5AngleERKNS7_6LengthESD_(ptr dead_on_unwind noalias writable sret(%"class.dropbox::oxygen::nn.42") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4)
   %7 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEPKc(ptr noundef nonnull @.str.29) #32, !noalias !292
   invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %6)
@@ -6014,21 +6008,21 @@ define void @_ZN5osgeo4proj9operation10Conversion13createWagnerVERKNS0_4util11Pr
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEPKcRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE.exit: ; preds = %5
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
 8:                                                ; preds = %5
   %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %9
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5osgeo4proj9operation10Conversion14createWagnerVIERKNS0_4util11PropertyMapERKNS0_6common5AngleERKNS7_6LengthESD_(ptr dead_on_unwind noalias writable sret(%"class.dropbox::oxygen::nn.42") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4)
   %7 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEPKc(ptr noundef nonnull @.str.30) #32, !noalias !295
   invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %6)
@@ -6036,21 +6030,21 @@ define void @_ZN5osgeo4proj9operation10Conversion14createWagnerVIERKNS0_4util11P
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEPKcRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE.exit: ; preds = %5
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
 8:                                                ; preds = %5
   %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %9
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5osgeo4proj9operation10Conversion15createWagnerVIIERKNS0_4util11PropertyMapERKNS0_6common5AngleERKNS7_6LengthESD_(ptr dead_on_unwind noalias writable sret(%"class.dropbox::oxygen::nn.42") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4)
   %7 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEPKc(ptr noundef nonnull @.str.31) #32, !noalias !298
   invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %6)
@@ -6058,21 +6052,21 @@ define void @_ZN5osgeo4proj9operation10Conversion15createWagnerVIIERKNS0_4util11
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEPKcRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE.exit: ; preds = %5
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
 8:                                                ; preds = %5
   %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %9
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5osgeo4proj9operation10Conversion36createQuadrilateralizedSphericalCubeERKNS0_4util11PropertyMapERKNS0_6common5AngleESA_RKNS7_6LengthESD_(ptr dead_on_unwind noalias writable sret(%"class.dropbox::oxygen::nn.42") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5)
   %8 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEPKc(ptr noundef nonnull @.str.32) #32, !noalias !301
   invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %8, ptr noundef nonnull readonly align 8 dereferenceable(24) %7)
@@ -6080,21 +6074,21 @@ define void @_ZN5osgeo4proj9operation10Conversion36createQuadrilateralizedSpheri
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEPKcRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE.exit: ; preds = %6
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 
 9:                                                ; preds = %6
   %10 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   resume { ptr, i32 } %10
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5osgeo4proj9operation10Conversion31createSphericalCrossTrackHeightERKNS0_4util11PropertyMapERKNS0_6common5AngleESA_SA_RKNS7_6LengthE(ptr dead_on_unwind noalias writable sret(%"class.dropbox::oxygen::nn.42") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5)
   %8 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEPKc(ptr noundef nonnull @.str.33) #32, !noalias !304
   invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %8, ptr noundef nonnull readonly align 8 dereferenceable(24) %7)
@@ -6102,21 +6096,21 @@ define void @_ZN5osgeo4proj9operation10Conversion31createSphericalCrossTrackHeig
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEPKcRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE.exit: ; preds = %6
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 
 9:                                                ; preds = %6
   %10 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   resume { ptr, i32 } %10
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5osgeo4proj9operation10Conversion16createEqualEarthERKNS0_4util11PropertyMapERKNS0_6common5AngleERKNS7_6LengthESD_(ptr dead_on_unwind noalias writable sret(%"class.dropbox::oxygen::nn.42") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4)
   %7 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEi(i32 noundef 1078) #32, !noalias !307
   invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %6)
@@ -6124,21 +6118,21 @@ define void @_ZN5osgeo4proj9operation10Conversion16createEqualEarthERKNS0_4util1
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit: ; preds = %5
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
 8:                                                ; preds = %5
   %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %9
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5osgeo4proj9operation10Conversion25createVerticalPerspectiveERKNS0_4util11PropertyMapERKNS0_6common5AngleESA_RKNS7_6LengthESD_SD_SD_(ptr dead_on_unwind noalias writable sret(%"class.dropbox::oxygen::nn.42") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_S5_S5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %9, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7)
   %10 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEi(i32 noundef 9838) #32, !noalias !310
   invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %10, ptr noundef nonnull readonly align 8 dereferenceable(24) %9)
@@ -6146,21 +6140,21 @@ define void @_ZN5osgeo4proj9operation10Conversion25createVerticalPerspectiveERKN
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEiRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISE_EE.exit: ; preds = %8
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 
 11:                                               ; preds = %8
   %12 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   resume { ptr, i32 } %12
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5osgeo4proj9operation10Conversion32createPoleRotationGRIBConventionERKNS0_4util11PropertyMapERKNS0_6common5AngleESA_SA_(ptr dead_on_unwind noalias writable sret(%"class.dropbox::oxygen::nn.42") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4)
   %7 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEPKc(ptr noundef nonnull @.str.34) #32, !noalias !313
   invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %6)
@@ -6168,21 +6162,21 @@ define void @_ZN5osgeo4proj9operation10Conversion32createPoleRotationGRIBConvent
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEPKcRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE.exit: ; preds = %5
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
 8:                                                ; preds = %5
   %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %9
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5osgeo4proj9operation10Conversion36createPoleRotationNetCDFCFConventionERKNS0_4util11PropertyMapERKNS0_6common5AngleESA_SA_(ptr dead_on_unwind noalias writable sret(%"class.dropbox::oxygen::nn.42") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4)
   %7 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEPKc(ptr noundef nonnull @.str.35) #32, !noalias !316
   invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %6)
@@ -6190,14 +6184,14 @@ define void @_ZN5osgeo4proj9operation10Conversion36createPoleRotationNetCDFCFCon
 
 _ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapEPKcRKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE.exit: ; preds = %5
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
 8:                                                ; preds = %5
   %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %9
 }
 
@@ -6208,10 +6202,10 @@ define void @_ZN5osgeo4proj9operation10Conversion24createChangeVerticalUnitERKNS
   %6 = alloca [1 x %"class.dropbox::oxygen::nn.106"], align 8
   %7 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
   %8 = alloca [1 x %"class.osgeo::proj::common::Measure"], align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN5osgeo4proj9operation27createMethodMapNameEPSGCodeEi(ptr dead_on_unwind nonnull writable sret(%"class.osgeo::proj::util::PropertyMap") align 8 %4, i32 noundef 1069)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   invoke void @_ZN5osgeo4proj9operation25createOpParamNameEPSGCodeEi(ptr dead_on_unwind nonnull writable sret(%"class.dropbox::oxygen::nn.106") align 8 %6, i32 noundef 1051)
           to label %9 unwind label %52
 
@@ -6253,8 +6247,8 @@ define void @_ZN5osgeo4proj9operation10Conversion24createChangeVerticalUnitERKNS
 _ZSt10_ConstructIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterEEEEJRKS9_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i: ; preds = %23, %20, %.noexc
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %11, ptr %25, align 8, !tbaa !65
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #32
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   invoke void @_ZN5osgeo4proj6common7MeasureC1ERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %2)
           to label %26 unwind label %56
 
@@ -6269,8 +6263,8 @@ _ZSt10_ConstructIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18Oper
 28:                                               ; preds = %27
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #32
   call void @_ZN5osgeo4proj6common7MeasureD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_ZN5osgeo4proj9operation18VectorOfParametersD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #32
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %30 = load ptr, ptr %29, align 8, !tbaa !20
@@ -6322,10 +6316,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %48, %46
   br label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterEEED2Ev.exit
 
 _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterEEED2Ev.exit: ; preds = %28, %36, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %51
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN5osgeo4proj4util11PropertyMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
 52:                                               ; preds = %3
@@ -6361,8 +6355,8 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterE
 
 .loopexit17:                                      ; preds = %.loopexit17.loopexit, %56
   %.pn.pn = phi { ptr, i32 } [ %57, %56 ], [ %.pn, %.loopexit17.loopexit ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_ZN5osgeo4proj9operation18VectorOfParametersD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #32
   br label %.loopexit.loopexit
 
@@ -6373,10 +6367,10 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterE
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %52
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %53, %52 ], [ %.pn.pn.pn, %.loopexit.loopexit ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN5osgeo4proj4util11PropertyMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn.pn.pn.pn
 }
 
@@ -6385,7 +6379,7 @@ declare void @_ZN5osgeo4proj9operation27createMethodMapNameEPSGCodeEi(ptr dead_o
 declare void @_ZN5osgeo4proj9operation25createOpParamNameEPSGCodeEi(ptr dead_on_unwind writable sret(%"class.dropbox::oxygen::nn.106") align 8, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !20
   %.not.i.i = icmp eq ptr %3, null
@@ -6451,33 +6445,33 @@ define void @_ZN5osgeo4proj9operation10Conversion24createChangeVerticalUnitERKNS
   %3 = alloca %"class.osgeo::proj::util::PropertyMap", align 8
   %4 = alloca %"struct.osgeo::proj::operation::VectorOfParameters", align 8
   %5 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN5osgeo4proj9operation27createMethodMapNameEPSGCodeEi(ptr dead_on_unwind nonnull writable sret(%"class.osgeo::proj::util::PropertyMap") align 8 %3, i32 noundef 1104)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   invoke void @_ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapES6_RKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_18OperationParameterEEEESaISE_EERKS7_INSA_ISB_INS1_14ParameterValueEEEESaISL_EE(ptr dead_on_unwind writable sret(%"class.dropbox::oxygen::nn.42") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5)
           to label %6 unwind label %7
 
 6:                                                ; preds = %2
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN5osgeo4proj9operation18VectorOfParametersD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZN5osgeo4proj4util11PropertyMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 7:                                                ; preds = %2
   %8 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN5osgeo4proj9operation18VectorOfParametersD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZN5osgeo4proj4util11PropertyMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %8
 }
 
@@ -6486,11 +6480,11 @@ define void @_ZN5osgeo4proj9operation10Conversion25createHeightDepthReversalERKN
   %3 = alloca %"class.osgeo::proj::util::PropertyMap", align 8
   %4 = alloca %"class.std::vector.134", align 8
   %5 = alloca %"class.std::vector.139", align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN5osgeo4proj9operation27createMethodMapNameEPSGCodeEi(ptr dead_on_unwind nonnull writable sret(%"class.osgeo::proj::util::PropertyMap") align 8 %3, i32 noundef 1068)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   invoke void @_ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapES6_RKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_18OperationParameterEEEESaISE_EERKS7_INSA_ISB_INS1_14ParameterValueEEEESaISL_EE(ptr dead_on_unwind writable sret(%"class.dropbox::oxygen::nn.42") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5)
           to label %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation14ParameterValueEEEESaIS9_EED2Ev.exit unwind label %37
@@ -6499,7 +6493,7 @@ _ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation14Paramete
   %.pre = load ptr, ptr %4, align 8, !tbaa !68
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.pre12 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !65
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not4.i.i.i.i2 = icmp eq ptr %.pre, %.pre12
   br i1 %.not4.i.i.i.i2, label %_ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterEEEES9_EvT_SB_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i3
 
@@ -6578,25 +6572,25 @@ _ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18Operat
   br label %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterEEEESaIS9_EED2Ev.exit
 
 _ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterEEEESaIS9_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterEEEES9_EvT_SB_RSaIT0_E.exit.i, %31
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZN5osgeo4proj4util11PropertyMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 37:                                               ; preds = %2
   %38 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation14ParameterValueEEEESaIS9_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterEEEESaIS9_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZN5osgeo4proj4util11PropertyMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %38
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterEEEESaIS9_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -6697,16 +6691,16 @@ define void @_ZN5osgeo4proj9operation10Conversion23createAxisOrderReversalEb(ptr
   br i1 %1, label %11, label %49
 
 11:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN5osgeo4proj9operation21createMapNameEPSGCodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr dead_on_unwind nonnull writable sret(%"class.osgeo::proj::util::PropertyMap") align 8 %3, ptr noundef nonnull align 8 dereferenceable(32) @_ZN5osgeo4proj9operation25AXIS_ORDER_CHANGE_3D_NAMEB5cxx11E, i32 noundef 15499)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   invoke void @_ZN5osgeo4proj9operation27createMethodMapNameEPSGCodeEi(ptr dead_on_unwind nonnull writable sret(%"class.osgeo::proj::util::PropertyMap") align 8 %4, i32 noundef 9844)
           to label %12 unwind label %44
 
 12:                                               ; preds = %11
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   invoke void @_ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapES6_RKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_18OperationParameterEEEESaISE_EERKS7_INSA_ISB_INS1_14ParameterValueEEEESaISL_EE(ptr dead_on_unwind writable sret(%"class.dropbox::oxygen::nn.42") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6)
           to label %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation14ParameterValueEEEESaIS9_EED2Ev.exit unwind label %46
@@ -6715,7 +6709,7 @@ _ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation14Paramete
   %.pre48 = load ptr, ptr %5, align 8, !tbaa !68
   %.phi.trans.insert49 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.pre50 = load ptr, ptr %.phi.trans.insert49, align 8, !tbaa !65
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not4.i.i.i.i9 = icmp eq ptr %.pre48, %.pre50
   br i1 %.not4.i.i.i.i9, label %_ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterEEEES9_EvT_SB_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i10
 
@@ -6794,11 +6788,11 @@ _ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18Operat
   br label %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterEEEESaIS9_EED2Ev.exit
 
 _ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterEEEESaIS9_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterEEEES9_EvT_SB_RSaIT0_E.exit.i, %38
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN5osgeo4proj4util11PropertyMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZN5osgeo4proj4util11PropertyMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %87
 
 44:                                               ; preds = %11
@@ -6810,30 +6804,30 @@ _ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18Operatio
   %47 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation14ParameterValueEEEESaIS9_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterEEEESaIS9_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN5osgeo4proj4util11PropertyMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #32
   br label %48
 
 48:                                               ; preds = %46, %44
   %.pn6 = phi { ptr, i32 } [ %47, %46 ], [ %45, %44 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZN5osgeo4proj4util11PropertyMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %88
 
 49:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN5osgeo4proj9operation21createMapNameEPSGCodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr dead_on_unwind nonnull writable sret(%"class.osgeo::proj::util::PropertyMap") align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) @_ZN5osgeo4proj9operation25AXIS_ORDER_CHANGE_2D_NAMEB5cxx11E, i32 noundef 15498)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   invoke void @_ZN5osgeo4proj9operation27createMethodMapNameEPSGCodeEi(ptr dead_on_unwind nonnull writable sret(%"class.osgeo::proj::util::PropertyMap") align 8 %8, i32 noundef 9843)
           to label %50 unwind label %82
 
 50:                                               ; preds = %49
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
   invoke void @_ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapES6_RKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_18OperationParameterEEEESaISE_EERKS7_INSA_ISB_INS1_14ParameterValueEEEESaISL_EE(ptr dead_on_unwind writable sret(%"class.dropbox::oxygen::nn.42") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %10)
           to label %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation14ParameterValueEEEESaIS9_EED2Ev.exit32 unwind label %84
@@ -6842,7 +6836,7 @@ _ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation14Paramete
   %.pre = load ptr, ptr %9, align 8, !tbaa !68
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %9, i64 8
   %.pre47 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !65
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %.not4.i.i.i.i33 = icmp eq ptr %.pre, %.pre47
   br i1 %.not4.i.i.i.i33, label %_ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterEEEES9_EvT_SB_RSaIT0_E.exit.i44, label %.lr.ph.i.i.i.i34
 
@@ -6921,11 +6915,11 @@ _ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18Operat
   br label %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterEEEESaIS9_EED2Ev.exit46
 
 _ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterEEEESaIS9_EED2Ev.exit46: ; preds = %_ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterEEEES9_EvT_SB_RSaIT0_E.exit.i44, %76
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @_ZN5osgeo4proj4util11PropertyMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @_ZN5osgeo4proj4util11PropertyMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %87
 
 82:                                               ; preds = %49
@@ -6937,17 +6931,17 @@ _ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18Operatio
   %85 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation14ParameterValueEEEESaIS9_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterEEEESaIS9_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @_ZN5osgeo4proj4util11PropertyMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #32
   br label %86
 
 86:                                               ; preds = %84, %82
   %.pn = phi { ptr, i32 } [ %85, %84 ], [ %83, %82 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @_ZN5osgeo4proj4util11PropertyMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %88
 
 87:                                               ; preds = %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterEEEESaIS9_EED2Ev.exit46, %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterEEEESaIS9_EED2Ev.exit
@@ -6965,11 +6959,11 @@ define void @_ZN5osgeo4proj9operation10Conversion26createGeographicGeocentricERK
   %3 = alloca %"class.osgeo::proj::util::PropertyMap", align 8
   %4 = alloca %"class.std::vector.134", align 8
   %5 = alloca %"class.std::vector.139", align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN5osgeo4proj9operation27createMethodMapNameEPSGCodeEi(ptr dead_on_unwind nonnull writable sret(%"class.osgeo::proj::util::PropertyMap") align 8 %3, i32 noundef 9602)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   invoke void @_ZN5osgeo4proj9operation10Conversion6createERKNS0_4util11PropertyMapES6_RKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_18OperationParameterEEEESaISE_EERKS7_INSA_ISB_INS1_14ParameterValueEEEESaISL_EE(ptr dead_on_unwind writable sret(%"class.dropbox::oxygen::nn.42") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5)
           to label %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation14ParameterValueEEEESaIS9_EED2Ev.exit unwind label %37
@@ -6978,7 +6972,7 @@ _ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation14Paramete
   %.pre = load ptr, ptr %4, align 8, !tbaa !68
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.pre12 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !65
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not4.i.i.i.i2 = icmp eq ptr %.pre, %.pre12
   br i1 %.not4.i.i.i.i2, label %_ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterEEEES9_EvT_SB_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i3
 
@@ -7057,20 +7051,20 @@ _ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18Operat
   br label %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterEEEESaIS9_EED2Ev.exit
 
 _ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterEEEESaIS9_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterEEEES9_EvT_SB_RSaIT0_E.exit.i, %31
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZN5osgeo4proj4util11PropertyMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 37:                                               ; preds = %2
   %38 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation14ParameterValueEEEESaIS9_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterEEEESaIS9_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZN5osgeo4proj4util11PropertyMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %38
 }
 
@@ -7080,10 +7074,10 @@ define hidden void @_ZN5osgeo4proj9operation10Conversion26createGeographicGeocen
   %5 = alloca %"class.osgeo::proj::util::PropertyMap", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::shared_ptr.147", align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN5osgeo4proj4util11PropertyMapC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   invoke void @_ZN5osgeo4proj9operation11buildOpNameB5cxx11EPKcRKSt10shared_ptrINS0_3crs3CRSEES9_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull @.str.36, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %8 unwind label %50
 
@@ -7115,9 +7109,9 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZN5osgeo4proj4util11PropertyMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   invoke void @_ZN5osgeo4proj9operation10Conversion26createGeographicGeocentricERKNS0_4util11PropertyMapE(ptr dead_on_unwind writable sret(%"class.dropbox::oxygen::nn.42") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %20 unwind label %62
 
@@ -7127,7 +7121,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %23 = getelementptr i8, ptr %22, i64 -24
   %24 = load i64, ptr %23, align 8
   %25 = getelementptr inbounds i8, ptr %21, i64 %24
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   invoke void @_ZN5osgeo4proj9operation19CoordinateOperation7setCRSsERKN7dropbox6oxygen2nnISt10shared_ptrINS0_3crs3CRSEEEESC_RKS9_(ptr noundef nonnull align 8 dereferenceable(72) %25, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %7)
           to label %26 unwind label %64
@@ -7183,9 +7177,9 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %46, %44
   br label %_ZNSt12__shared_ptrIN5osgeo4proj3crs3CRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN5osgeo4proj3crs3CRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %26, %34, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %49
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_ZN5osgeo4proj4util11PropertyMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
 50:                                               ; preds = %3
@@ -7216,9 +7210,9 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i13
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit15: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i13, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i14, %50
   %.pn = phi { ptr, i32 } [ %51, %50 ], [ %53, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i14 ], [ %53, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i13 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZN5osgeo4proj4util11PropertyMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %67
 
 62:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -7230,7 +7224,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit15: ; preds = %_ZN
   %65 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt12__shared_ptrIN5osgeo4proj3crs3CRSELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation10ConversionEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #32
   br label %66
 
@@ -7241,7 +7235,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit15: ; preds = %_ZN
 
 67:                                               ; preds = %66, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit15
   %.pn10.pn = phi { ptr, i32 } [ %.pn10, %66 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit15 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn10.pn
 }
 
@@ -7315,10 +7309,10 @@ define hidden void @_ZN5osgeo4proj9operation10Conversion34createGeographicGeocen
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::vector.139", align 8
   %8 = alloca %"class.std::shared_ptr.147", align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN5osgeo4proj4util11PropertyMapC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   invoke void @_ZN5osgeo4proj9operation11buildOpNameB5cxx11EPKcRKSt10shared_ptrINS0_3crs3CRSEES9_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull @.str.36, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %9 unwind label %47
 
@@ -7350,10 +7344,10 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZN5osgeo4proj4util11PropertyMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #32
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   %21 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEPKc(ptr noundef nonnull @.str.37) #32, !noalias !319
   invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %21, ptr noundef nonnull readonly align 8 dereferenceable(24) %7)
@@ -7364,9 +7358,9 @@ _ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation14Paramete
   %.pre17 = load ptr, ptr %.pre, align 8, !tbaa !3
   %.phi.trans.insert = getelementptr i8, ptr %.pre17, i64 -24
   %.pre18 = load i64, ptr %.phi.trans.insert, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %22 = getelementptr inbounds i8, ptr %.pre, i64 %.pre18
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   invoke void @_ZN5osgeo4proj9operation19CoordinateOperation7setCRSsERKN7dropbox6oxygen2nnISt10shared_ptrINS0_3crs3CRSEEEESC_RKS9_(ptr noundef nonnull align 8 dereferenceable(72) %22, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %8)
           to label %23 unwind label %61
@@ -7422,9 +7416,9 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %43, %41
   br label %_ZNSt12__shared_ptrIN5osgeo4proj3crs3CRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN5osgeo4proj3crs3CRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %23, %31, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %46
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @_ZN5osgeo4proj4util11PropertyMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
 47:                                               ; preds = %3
@@ -7455,23 +7449,23 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i14
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit16: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i14, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i15, %47
   %.pn = phi { ptr, i32 } [ %48, %47 ], [ %50, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i15 ], [ %50, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i14 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZN5osgeo4proj4util11PropertyMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %64
 
 59:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %60 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation14ParameterValueEEEESaIS9_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %63
 
 61:                                               ; preds = %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation14ParameterValueEEEESaIS9_EED2Ev.exit
   %62 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt12__shared_ptrIN5osgeo4proj3crs3CRSELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation10ConversionEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #32
   br label %63
 
@@ -7482,7 +7476,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit16: ; preds = %_ZN
 
 64:                                               ; preds = %63, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit16
   %.pn10.pn = phi { ptr, i32 } [ %.pn10, %63 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit16 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn10.pn
 }
 
@@ -7491,8 +7485,8 @@ define hidden void @_ZN5osgeo4proj9operation17InverseConversionC2ERKN7dropbox6ox
   %4 = alloca %"class.dropbox::oxygen::nn", align 8
   %5 = alloca %"class.osgeo::proj::util::PropertyMap", align 8
   %6 = alloca %"class.dropbox::oxygen::nn.50", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = load ptr, ptr %2, align 8, !tbaa !12
   %8 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5osgeo4proj9operation15SingleOperation6methodEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #36
   call void @_ZN5osgeo4proj9operation26createPropertiesForInverseERKN7dropbox6oxygen2nnISt10shared_ptrINS1_15OperationMethodEEEE(ptr dead_on_unwind nonnull writable sret(%"class.osgeo::proj::util::PropertyMap") align 8 %5, ptr noundef nonnull align 8 dereferenceable(16) %8)
@@ -7562,10 +7556,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %37, %35
 
 _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation15OperationMethodEEED2Ev.exit: ; preds = %17, %25, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %40
   call void @_ZN5osgeo4proj4util11PropertyMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %42 = load ptr, ptr %2, align 8, !tbaa !12
   %43 = icmp eq ptr %42, null
   br i1 %43, label %49, label %44
@@ -7658,7 +7652,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i17: ; preds = %82, %8
   br label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperationEEED2Ev.exit
 
 _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperationEEED2Ev.exit: ; preds = %63, %70, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i17, %85
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %86 = load ptr, ptr %1, align 8
   store ptr %86, ptr %0, align 8, !tbaa !3
   %87 = getelementptr inbounds nuw i8, ptr %1, i64 152
@@ -7722,15 +7716,15 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperation
 127:                                              ; preds = %125, %123
   %.pn = phi { ptr, i32 } [ %126, %125 ], [ %124, %123 ]
   call void @_ZN5osgeo4proj4util11PropertyMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %133
 
 128:                                              ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperationEEEC2IS2_INS5_10ConversionEETnNSt9enable_ifIXsr3std14is_convertibleIT_S7_EE5valueEiE4typeELi0EEERKNS1_ISD_EE.exit
   %129 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperationEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %132
 
 130:                                              ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperationEEED2Ev.exit
@@ -7756,7 +7750,7 @@ declare void @_ZN5osgeo4proj9operation26createPropertiesForInverseERKN7dropbox6o
 declare void @_ZN5osgeo4proj9operation26InverseCoordinateOperationC2ERKN7dropbox6oxygen2nnISt10shared_ptrINS1_19CoordinateOperationEEEEb(ptr noundef nonnull align 8 dereferenceable(25), ptr noundef, ptr noundef nonnull align 8 dereferenceable(16), i1 noundef zeroext) unnamed_addr #1
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperationEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperationEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !20
   %.not.i.i = icmp eq ptr %3, null
@@ -7822,8 +7816,8 @@ define hidden void @_ZN5osgeo4proj9operation17InverseConversionC1ERKN7dropbox6ox
   %5 = alloca %"class.dropbox::oxygen::nn.50", align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @_ZN5osgeo4proj9operation19CoordinateOperationC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %6)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = load ptr, ptr %1, align 8, !tbaa !12
   %8 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5osgeo4proj9operation15SingleOperation6methodEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #36
   invoke void @_ZN5osgeo4proj9operation26createPropertiesForInverseERKN7dropbox6oxygen2nnISt10shared_ptrINS1_15OperationMethodEEEE(ptr dead_on_unwind nonnull writable sret(%"class.osgeo::proj::util::PropertyMap") align 8 %4, ptr noundef nonnull align 8 dereferenceable(16) %8)
@@ -7895,10 +7889,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %37, %35
 
 _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation15OperationMethodEEED2Ev.exit: ; preds = %17, %25, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %40
   call void @_ZN5osgeo4proj4util11PropertyMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %42 = load ptr, ptr %1, align 8, !tbaa !12
   %43 = icmp eq ptr %42, null
   br i1 %43, label %49, label %44
@@ -7990,7 +7984,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i18: ; preds = %81, %7
   br label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperationEEED2Ev.exit
 
 _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperationEEED2Ev.exit: ; preds = %62, %69, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i18, %84
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store ptr getelementptr inbounds nuw inrange(-24, 72) (i8, ptr @_ZTVN5osgeo4proj9operation17InverseConversionE, i64 24), ptr %0, align 8, !tbaa !3
   store ptr getelementptr inbounds nuw inrange(-88, 56) (i8, ptr @_ZTVN5osgeo4proj9operation17InverseConversionE, i64 248), ptr %6, align 8, !tbaa !3
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -8031,15 +8025,15 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperation
 
 97:                                               ; preds = %96, %90
   %.pn.pn = phi { ptr, i32 } [ %.pn, %96 ], [ %91, %90 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %103
 
 98:                                               ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperationEEEC2IS2_INS5_10ConversionEETnNSt9enable_ifIXsr3std14is_convertibleIT_S7_EE5valueEiE4typeELi0EEERKNS1_ISD_EE.exit
   %99 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperationEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %102
 
 100:                                              ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperationEEED2Ev.exit
@@ -8611,7 +8605,7 @@ _ZN5osgeo4proj9operation17InverseConversionD0Ev.exit: ; preds = %1, %_ZNKSt14def
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define hidden void @_ZNK5osgeo4proj9operation17InverseConversion19inverseAsConversionEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.dropbox::oxygen::nn.42") align 8 captures(none) initializes((0, 16)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(49) %1) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK5osgeo4proj9operation17InverseConversion19inverseAsConversionEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.dropbox::oxygen::nn.42") align 8 captures(none) initializes((0, 16)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(49) %1) local_unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !33, !noalias !322
   %5 = icmp eq ptr %4, null
@@ -8657,7 +8651,7 @@ _ZNSt12__shared_ptrIN5osgeo4proj9operation10ConversionELN9__gnu_cxx12_Lock_polic
 define hidden void @_ZN5osgeo4proj9operation17InverseConversion6createERKN7dropbox6oxygen2nnISt10shared_ptrINS1_10ConversionEEEE(ptr dead_on_unwind noalias writable writeonly sret(%"class.dropbox::oxygen::nn.50") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.dropbox::oxygen::nn.150", align 8
   %4 = alloca %"struct.osgeo::proj::util::BaseObjectNNPtr", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !325)
   %5 = tail call noalias noundef nonnull dereferenceable(144) ptr @_Znwm(i64 noundef 144) #33, !noalias !328
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -8686,7 +8680,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5osgeo4proj9operation17In
   %12 = load ptr, ptr %8, align 8, !tbaa !3
   %13 = getelementptr i8, ptr %12, i64 -24
   %14 = load i64, ptr %13, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %15 = getelementptr inbounds i8, ptr %8, i64 %14
   store ptr %15, ptr %4, align 8, !tbaa !17
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -8711,7 +8705,7 @@ _ZN5osgeo4proj4util15BaseObjectNNPtrC2INS0_9operation17InverseConversionEEERKN7d
 
 23:                                               ; preds = %_ZN5osgeo4proj4util15BaseObjectNNPtrC2INS0_9operation17InverseConversionEEERKN7dropbox6oxygen2nnISt10shared_ptrIT_EEE.exit
   call void @_ZN5osgeo4proj4util15BaseObjectNNPtrD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %24 = load ptr, ptr %3, align 8, !tbaa !331
   %25 = icmp eq ptr %24, null
   br i1 %25, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation17InverseConversionEEED2Ev.exit, label %26
@@ -8729,21 +8723,21 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation17InverseConversionEE
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %33 = load ptr, ptr %11, align 8, !tbaa !20
   store ptr %33, ptr %32, align 8, !tbaa !20
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 34:                                               ; preds = %_ZN5osgeo4proj4util15BaseObjectNNPtrC2INS0_9operation17InverseConversionEEERKN7dropbox6oxygen2nnISt10shared_ptrIT_EEE.exit
   %35 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5osgeo4proj4util15BaseObjectNNPtrD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation17InverseConversionEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %common.resume
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation17InverseConversionEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation17InverseConversionEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !20
   %.not.i.i = icmp eq ptr %3, null
@@ -8803,9 +8797,9 @@ define hidden void @_ZNK5osgeo4proj9operation17InverseConversion13_shallowCloneE
   %4 = alloca %"class.dropbox::oxygen::nn.42", align 8
   %5 = alloca %"class.dropbox::oxygen::nn.42", align 8
   %6 = alloca %"struct.osgeo::proj::util::BaseObjectNNPtr", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !334)
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %8 = load ptr, ptr %7, align 8, !tbaa !33, !noalias !337, !nonnull !340, !noundef !340
@@ -8944,13 +8938,13 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i14: ; preds = %64, %6
   br label %68
 
 68:                                               ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation10ConversionEEED2Ev.exit, %52, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i14, %67
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %69 = load ptr, ptr %3, align 8, !tbaa !331
   %70 = load ptr, ptr %69, align 8, !tbaa !3
   %71 = getelementptr i8, ptr %70, i64 -24
   %72 = load i64, ptr %71, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %73 = getelementptr inbounds i8, ptr %69, i64 %72
   store ptr %73, ptr %6, align 8, !tbaa !17
   %74 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -8982,7 +8976,7 @@ _ZN5osgeo4proj4util15BaseObjectNNPtrC2INS0_9operation17InverseConversionEEERKN7d
 
 85:                                               ; preds = %_ZN5osgeo4proj4util15BaseObjectNNPtrC2INS0_9operation17InverseConversionEEERKN7dropbox6oxygen2nnISt10shared_ptrIT_EEE.exit
   call void @_ZN5osgeo4proj4util15BaseObjectNNPtrD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %86 = load ptr, ptr %3, align 8, !tbaa !331
   %87 = load ptr, ptr %86, align 8, !tbaa !3
   %88 = getelementptr i8, ptr %87, i64 -24
@@ -9090,7 +9084,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i23: ; preds = %133, %
   br label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation17InverseConversionEEED2Ev.exit
 
 _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation17InverseConversionEEED2Ev.exit: ; preds = %.thread, %113, %121, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i23, %136
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 137:                                              ; preds = %_ZNK5osgeo4proj9operation17InverseConversion19inverseAsConversionEv.exit
@@ -9107,8 +9101,8 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation17InverseConversionEE
 141:                                              ; preds = %139, %137
   %.pn = phi { ptr, i32 } [ %140, %139 ], [ %138, %137 ]
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation10ConversionEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %147
 
 142:                                              ; preds = %85
@@ -9120,7 +9114,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation17InverseConversionEE
   %145 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5osgeo4proj4util15BaseObjectNNPtrD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %146
 
 146:                                              ; preds = %144, %142
@@ -9130,7 +9124,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation17InverseConversionEE
 
 147:                                              ; preds = %146, %141
   %.pn9.pn = phi { ptr, i32 } [ %.pn9, %146 ], [ %.pn, %141 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn9.pn
 }
 
@@ -9197,7 +9191,7 @@ _ZNSt12__shared_ptrIN5osgeo4proj9operation17InverseConversionELN9__gnu_cxx12_Loc
 }
 
 ; Function Attrs: uwtable
-define hidden void @_ZTv0_n72_NK5osgeo4proj9operation17InverseConversion13_shallowCloneEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.dropbox::oxygen::nn.50") align 8 captures(none) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define hidden void @_ZTv0_n72_NK5osgeo4proj9operation17InverseConversion13_shallowCloneEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.dropbox::oxygen::nn.50") align 8 captures(none) %0, ptr noundef %1) unnamed_addr #7 align 2 {
   %3 = load ptr, ptr %1, align 8, !tbaa !3
   %4 = getelementptr inbounds i8, ptr %3, i64 -72
   %5 = load i64, ptr %4, align 8
@@ -9207,7 +9201,7 @@ define hidden void @_ZTv0_n72_NK5osgeo4proj9operation17InverseConversion13_shall
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN5osgeo4proj9operation19isAxisOrderReversalEi(i32 noundef %0) local_unnamed_addr #14 {
+define hidden noundef zeroext i1 @_ZN5osgeo4proj9operation19isAxisOrderReversalEi(i32 noundef %0) local_unnamed_addr #13 {
   %2 = add i32 %0, -9843
   %spec.select = icmp ult i32 %2, 2
   ret i1 %spec.select
@@ -9265,14 +9259,14 @@ define void @_ZNK5osgeo4proj9operation10Conversion7inverseEv(ptr dead_on_unwind 
 
 30:                                               ; preds = %22
   %31 = fdiv double 1.000000e+00, %23
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %32 = load ptr, ptr %1, align 8, !tbaa !3
   %33 = getelementptr i8, ptr %32, i64 -24
   %34 = load i64, ptr %33, align 8
   %35 = getelementptr inbounds i8, ptr %1, i64 %34
   call void @_ZN5osgeo4proj9operation26createPropertiesForInverseEPKNS1_19CoordinateOperationEbb(ptr dead_on_unwind nonnull writable sret(%"class.osgeo::proj::util::PropertyMap") align 8 %4, ptr noundef nonnull %35, i1 noundef zeroext false, i1 noundef zeroext false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   invoke void @_ZN5osgeo4proj6common5ScaleC1Ed(ptr noundef nonnull align 8 dereferenceable(24) %5, double noundef %31)
           to label %36 unwind label %59
 
@@ -9282,9 +9276,9 @@ define void @_ZNK5osgeo4proj9operation10Conversion7inverseEv(ptr dead_on_unwind 
 
 37:                                               ; preds = %36
   call void @_ZN5osgeo4proj6common5ScaleD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN5osgeo4proj4util11PropertyMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %38 = load ptr, ptr %3, align 8, !tbaa !12
   %39 = load ptr, ptr %38, align 8, !tbaa !3
   %40 = getelementptr i8, ptr %39, i64 -24
@@ -9316,7 +9310,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation10ConversionEEED2Ev.e
   %57 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %58 = load ptr, ptr %57, align 8, !tbaa !20
   store ptr %58, ptr %56, align 8, !tbaa !20
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %295
 
 59:                                               ; preds = %30
@@ -9332,9 +9326,9 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation10ConversionEEED2Ev.e
 
 63:                                               ; preds = %61, %59
   %.pn38 = phi { ptr, i32 } [ %62, %61 ], [ %60, %59 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN5osgeo4proj4util11PropertyMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %66
 
 64:                                               ; preds = %37
@@ -9345,12 +9339,12 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation10ConversionEEED2Ev.e
 
 66:                                               ; preds = %64, %63
   %.pn40 = phi { ptr, i32 } [ %65, %64 ], [ %.pn38, %63 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %296
 
 67:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %68 = load ptr, ptr %1, align 8, !tbaa !3
   %69 = getelementptr i8, ptr %68, i64 -24
   %70 = load i64, ptr %69, align 8
@@ -9361,7 +9355,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation10ConversionEEED2Ev.e
 
 72:                                               ; preds = %67
   call void @_ZN5osgeo4proj4util11PropertyMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %73 = load ptr, ptr %6, align 8, !tbaa !12
   %74 = load ptr, ptr %73, align 8, !tbaa !3
   %75 = getelementptr i8, ptr %74, i64 -24
@@ -9393,14 +9387,14 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation10ConversionEEED2Ev.e
   %92 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %93 = load ptr, ptr %92, align 8, !tbaa !20
   store ptr %93, ptr %91, align 8, !tbaa !20
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %295
 
 94:                                               ; preds = %67
   %95 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5osgeo4proj4util11PropertyMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %98
 
 96:                                               ; preds = %72
@@ -9411,12 +9405,12 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation10ConversionEEED2Ev.e
 
 98:                                               ; preds = %96, %94
   %.pn36 = phi { ptr, i32 } [ %97, %96 ], [ %95, %94 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %296
 
 99:                                               ; preds = %2, %2
   %100 = icmp eq i32 %21, 9844
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZN5osgeo4proj9operation10Conversion23createAxisOrderReversalEb(ptr dead_on_unwind nonnull writable sret(%"class.dropbox::oxygen::nn.42") align 8 %8, i1 noundef zeroext %100)
   %101 = load ptr, ptr %8, align 8, !tbaa !12
   %102 = load ptr, ptr %101, align 8, !tbaa !3
@@ -9449,19 +9443,19 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation10ConversionEEED2Ev.e
   %120 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %121 = load ptr, ptr %120, align 8, !tbaa !20
   store ptr %121, ptr %119, align 8, !tbaa !20
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %295
 
 122:                                              ; preds = %99
   %123 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation10ConversionEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %296
 
 124:                                              ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %125 = load ptr, ptr %1, align 8, !tbaa !3
   %126 = getelementptr i8, ptr %125, i64 -24
   %127 = load i64, ptr %126, align 8
@@ -9472,7 +9466,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation10ConversionEEED2Ev.e
 
 129:                                              ; preds = %124
   call void @_ZN5osgeo4proj4util11PropertyMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %130 = load ptr, ptr %9, align 8, !tbaa !12
   %131 = load ptr, ptr %130, align 8, !tbaa !3
   %132 = getelementptr i8, ptr %131, i64 -24
@@ -9504,14 +9498,14 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation10ConversionEEED2Ev.e
   %149 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %150 = load ptr, ptr %149, align 8, !tbaa !20
   store ptr %150, ptr %148, align 8, !tbaa !20
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %295
 
 151:                                              ; preds = %124
   %152 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5osgeo4proj4util11PropertyMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %155
 
 153:                                              ; preds = %129
@@ -9522,12 +9516,12 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation10ConversionEEED2Ev.e
 
 155:                                              ; preds = %153, %151
   %.pn32 = phi { ptr, i32 } [ %154, %153 ], [ %152, %151 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %296
 
 156:                                              ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %157 = load ptr, ptr %1, align 8, !tbaa !3
   %158 = getelementptr i8, ptr %157, i64 -24
   %159 = load i64, ptr %158, align 8
@@ -9538,7 +9532,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation10ConversionEEED2Ev.e
 
 161:                                              ; preds = %156
   call void @_ZN5osgeo4proj4util11PropertyMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %162 = load ptr, ptr %11, align 8, !tbaa !12
   %163 = load ptr, ptr %162, align 8, !tbaa !3
   %164 = getelementptr i8, ptr %163, i64 -24
@@ -9570,14 +9564,14 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation10ConversionEEED2Ev.e
   %181 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %182 = load ptr, ptr %181, align 8, !tbaa !20
   store ptr %182, ptr %180, align 8, !tbaa !20
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %295
 
 183:                                              ; preds = %156
   %184 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5osgeo4proj4util11PropertyMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %187
 
 185:                                              ; preds = %161
@@ -9588,7 +9582,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation10ConversionEEED2Ev.e
 
 187:                                              ; preds = %185, %183
   %.pn30 = phi { ptr, i32 } [ %186, %185 ], [ %184, %183 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %296
 
 188:                                              ; preds = %2
@@ -9598,23 +9592,23 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation10ConversionEEED2Ev.e
   br i1 %191, label %192, label %224
 
 192:                                              ; preds = %188
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %193 = load ptr, ptr %1, align 8, !tbaa !3
   %194 = getelementptr i8, ptr %193, i64 -24
   %195 = load i64, ptr %194, align 8
   %196 = getelementptr inbounds i8, ptr %1, i64 %195
   call void @_ZN5osgeo4proj9operation26createPropertiesForInverseEPKNS1_19CoordinateOperationEbb(ptr dead_on_unwind nonnull writable sret(%"class.osgeo::proj::util::PropertyMap") align 8 %14, ptr noundef nonnull %196, i1 noundef zeroext false, i1 noundef zeroext false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false)
   %197 = call noundef ptr @_ZN5osgeo4proj9operation10getMappingEPKc(ptr noundef nonnull @.str.37) #32, !noalias !346
   invoke fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4util11PropertyMapEPKNS1_13MethodMappingERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS1_14ParameterValueEEEESaISG_EE(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef %197, ptr noundef nonnull readonly align 8 dereferenceable(24) %15)
           to label %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation14ParameterValueEEEESaIS9_EED2Ev.exit unwind label %219
 
 _ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation14ParameterValueEEEESaIS9_EED2Ev.exit: ; preds = %192
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @_ZN5osgeo4proj4util11PropertyMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %198 = load ptr, ptr %13, align 8, !tbaa !12
   %199 = load ptr, ptr %198, align 8, !tbaa !3
   %200 = getelementptr i8, ptr %199, i64 -24
@@ -9646,16 +9640,16 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation10ConversionEEED2Ev.e
   %217 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %218 = load ptr, ptr %217, align 8, !tbaa !20
   store ptr %218, ptr %216, align 8, !tbaa !20
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %295
 
 219:                                              ; preds = %192
   %220 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation14ParameterValueEEEESaIS9_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @_ZN5osgeo4proj4util11PropertyMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %223
 
 221:                                              ; preds = %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation14ParameterValueEEEESaIS9_EED2Ev.exit
@@ -9666,13 +9660,13 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation10ConversionEEED2Ev.e
 
 223:                                              ; preds = %221, %219
   %.pn28 = phi { ptr, i32 } [ %222, %221 ], [ %220, %219 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %296
 
 224:                                              ; preds = %188
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16) #32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17) #32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %225 = load ptr, ptr %1, align 8, !tbaa !3
   %226 = getelementptr i8, ptr %225, i64 -24
   %227 = load i64, ptr %226, align 8
@@ -9826,9 +9820,9 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %289, %287
 
 _ZNSt12__shared_ptrIN5osgeo4proj9operation10ConversionELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation10ConversionEEED2Ev.exit82, %277, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %292
   call void @_ZN5osgeo4proj4util15BaseObjectNNPtrD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %18) #32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18) #32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17) #32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %295
 
 293:                                              ; preds = %_ZN7dropbox6oxygen23nn_dynamic_pointer_castIN5osgeo4proj9operation10ConversionENS3_4util10BaseObjectEEESt10shared_ptrIT_ERKNS0_2nnIS8_IT0_EEE.exit
@@ -9837,9 +9831,9 @@ _ZNSt12__shared_ptrIN5osgeo4proj9operation10ConversionELN9__gnu_cxx12_Lock_polic
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation10ConversionEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #32
   call void @_ZNSt12__shared_ptrIN5osgeo4proj9operation10ConversionELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %17) #32
   call void @_ZN5osgeo4proj4util15BaseObjectNNPtrD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %18) #32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18) #32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17) #32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %296
 
 295:                                              ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation10ConversionEEED2Ev.exit56, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation10ConversionEEED2Ev.exit62, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation10ConversionEEED2Ev.exit68, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation10ConversionEEED2Ev.exit76, %_ZNSt12__shared_ptrIN5osgeo4proj9operation10ConversionELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation10ConversionEEED2Ev.exit50, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation10ConversionEEED2Ev.exit
@@ -9851,7 +9845,7 @@ _ZNSt12__shared_ptrIN5osgeo4proj9operation10ConversionELN9__gnu_cxx12_Lock_polic
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef i32 @_ZNK5osgeo4proj9operation15OperationMethod11getEPSGCodeEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #9
+declare noundef i32 @_ZNK5osgeo4proj9operation15OperationMethod11getEPSGCodeEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #8
 
 ; Function Attrs: nounwind
 declare hidden noundef double @_ZNK5osgeo4proj9operation15SingleOperation25parameterValueNumericAsSIEi(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef) local_unnamed_addr #2
@@ -9859,10 +9853,10 @@ declare hidden noundef double @_ZNK5osgeo4proj9operation15SingleOperation25param
 declare void @_ZN5osgeo4proj9operation26createPropertiesForInverseEPKNS1_19CoordinateOperationEbb(ptr dead_on_unwind writable sret(%"class.osgeo::proj::util::PropertyMap") align 8, ptr noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5osgeo4proj6common16IdentifiedObject7nameStrB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #9
+declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5osgeo4proj6common16IdentifiedObject7nameStrB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #8
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n56_NK5osgeo4proj9operation10Conversion7inverseEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.dropbox::oxygen::nn.50") align 8 captures(none) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define void @_ZTv0_n56_NK5osgeo4proj9operation10Conversion7inverseEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.dropbox::oxygen::nn.50") align 8 captures(none) %0, ptr noundef %1) unnamed_addr #7 align 2 {
   %3 = load ptr, ptr %1, align 8, !tbaa !3
   %4 = getelementptr inbounds i8, ptr %3, i64 -56
   %5 = load i64, ptr %4, align 8
@@ -9926,7 +9920,7 @@ define void @_ZNK5osgeo4proj9operation10Conversion20convertToOtherMethodEi(ptr d
   br i1 %53, label %54, label %75
 
 54:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %55 = load ptr, ptr %1, align 8, !tbaa !3
   %56 = getelementptr i8, ptr %55, i64 -24
   %57 = load i64, ptr %56, align 8
@@ -9973,11 +9967,11 @@ define void @_ZNK5osgeo4proj9operation10Conversion20convertToOtherMethodEi(ptr d
 
 _ZN7dropbox6oxygen23nn_dynamic_pointer_castIN5osgeo4proj9operation10ConversionENS3_4util10BaseObjectEEESt10shared_ptrIT_ERKNS0_2nnIS8_IT0_EEE.exit: ; preds = %73, %70, %63, %.thread.i
   call void @_ZN5osgeo4proj4util15BaseObjectNNPtrD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %710
 
 75:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %76 = load ptr, ptr %1, align 8, !tbaa !3
   %77 = getelementptr i8, ptr %76, i64 -24
   %78 = load i64, ptr %77, align 8
@@ -10043,7 +10037,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %105, %103
   br label %_ZNSt12__shared_ptrIN5osgeo4proj3crs3CRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN5osgeo4proj3crs3CRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %84, %93, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %108
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not = icmp eq ptr %85, null
   br i1 %.not, label %109, label %110
 
@@ -10100,8 +10094,8 @@ _ZNSt12__shared_ptrIN5osgeo4proj3crs3CRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 137:                                              ; preds = %127, %129
   %138 = phi double [ %136, %129 ], [ 0.000000e+00, %127 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #32
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN5osgeo4proj6common5AngleC1EdRKNS1_13UnitOfMeasureE(ptr noundef nonnull align 8 dereferenceable(24) %9, double noundef %138, ptr noundef nonnull align 8 dereferenceable(24) @_ZN5osgeo4proj6common13UnitOfMeasure6RADIANE)
   %139 = call noundef double @_ZNK5osgeo4proj6common7Measure13convertToUnitERKNS1_13UnitOfMeasureE(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) @_ZN5osgeo4proj6common13UnitOfMeasure6DEGREEE) #36
   invoke void @_ZN5osgeo4proj6common5AngleC1EdRKNS1_13UnitOfMeasureE(ptr noundef nonnull align 8 dereferenceable(24) %8, double noundef %139, ptr noundef nonnull align 8 dereferenceable(24) @_ZN5osgeo4proj6common13UnitOfMeasure6DEGREEE)
@@ -10109,14 +10103,14 @@ _ZNSt12__shared_ptrIN5osgeo4proj3crs3CRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 140:                                              ; preds = %137
   call void @_ZN5osgeo4proj6common5AngleD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   invoke void @_ZN5osgeo4proj4util11PropertyMapC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %11)
           to label %141 unwind label %198
 
 141:                                              ; preds = %140
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %142 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5osgeo4proj9operation15SingleOperation21parameterValueMeasureEi(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 8802) #32
   %143 = call noundef double @_ZNK5osgeo4proj6common7Measure5valueEv(ptr noundef nonnull align 8 dereferenceable(24) %142) #36
   %144 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5osgeo4proj6common7Measure4unitEv(ptr noundef nonnull align 8 dereferenceable(24) %142) #36
@@ -10124,7 +10118,7 @@ _ZNSt12__shared_ptrIN5osgeo4proj3crs3CRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
           to label %_ZN5osgeo4proj6common5AngleC2ERKNS1_7MeasureE.exit unwind label %200
 
 _ZN5osgeo4proj6common5AngleC2ERKNS1_7MeasureE.exit: ; preds = %141
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %145 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5osgeo4proj9operation15SingleOperation21parameterValueMeasureEi(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 8806) #32
   %146 = call noundef double @_ZNK5osgeo4proj6common7Measure5valueEv(ptr noundef nonnull align 8 dereferenceable(24) %145) #36
   %147 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5osgeo4proj6common7Measure4unitEv(ptr noundef nonnull align 8 dereferenceable(24) %145) #36
@@ -10132,7 +10126,7 @@ _ZN5osgeo4proj6common5AngleC2ERKNS1_7MeasureE.exit: ; preds = %141
           to label %_ZN5osgeo4proj6common6LengthC2ERKNS1_7MeasureE.exit unwind label %202
 
 _ZN5osgeo4proj6common6LengthC2ERKNS1_7MeasureE.exit: ; preds = %_ZN5osgeo4proj6common5AngleC2ERKNS1_7MeasureE.exit
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %148 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5osgeo4proj9operation15SingleOperation21parameterValueMeasureEi(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 8807) #32
   %149 = call noundef double @_ZNK5osgeo4proj6common7Measure5valueEv(ptr noundef nonnull align 8 dereferenceable(24) %148) #36
   %150 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5osgeo4proj6common7Measure4unitEv(ptr noundef nonnull align 8 dereferenceable(24) %148) #36
@@ -10140,7 +10134,7 @@ _ZN5osgeo4proj6common6LengthC2ERKNS1_7MeasureE.exit: ; preds = %_ZN5osgeo4proj6c
           to label %_ZN5osgeo4proj6common6LengthC2ERKNS1_7MeasureE.exit273 unwind label %204
 
 _ZN5osgeo4proj6common6LengthC2ERKNS1_7MeasureE.exit273: ; preds = %_ZN5osgeo4proj6common6LengthC2ERKNS1_7MeasureE.exit
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #32, !noalias !361
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !361
   invoke void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %5, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %14)
           to label %.noexc unwind label %206
 
@@ -10153,20 +10147,20 @@ _ZN5osgeo4proj6common6LengthC2ERKNS1_7MeasureE.exit273: ; preds = %_ZN5osgeo4pro
   %153 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #32, !noalias !361
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !361
   br label %.body
 
 154:                                              ; preds = %.noexc
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #32, !noalias !361
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !361
   call void @_ZN5osgeo4proj6common6LengthD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @_ZN5osgeo4proj6common6LengthD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @_ZN5osgeo4proj6common5AngleD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @_ZN5osgeo4proj4util11PropertyMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %155 = load ptr, ptr %10, align 8, !tbaa !12
   %156 = load ptr, ptr %155, align 8, !tbaa !3
   %157 = getelementptr i8, ptr %156, i64 -24
@@ -10253,16 +10247,16 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %192, %19
   br label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation10ConversionEEED2Ev.exit
 
 _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation10ConversionEEED2Ev.exit: ; preds = %164, %_ZNSt10shared_ptrIN5osgeo4proj9operation10ConversionEEC2ERKS4_.exit, %180, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %195
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @_ZN5osgeo4proj6common5AngleD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %710
 
 196:                                              ; preds = %137
   %197 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5osgeo4proj6common5AngleD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %215
 
 198:                                              ; preds = %140
@@ -10297,25 +10291,25 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation10ConversionEEED2Ev.e
 
 208:                                              ; preds = %.body, %204
   %.pn262 = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %205, %204 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @_ZN5osgeo4proj6common6LengthD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #32
   br label %209
 
 209:                                              ; preds = %208, %202
   %.pn262.pn = phi { ptr, i32 } [ %.pn262, %208 ], [ %203, %202 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @_ZN5osgeo4proj6common5AngleD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #32
   br label %210
 
 210:                                              ; preds = %209, %200
   %.pn262.pn.pn = phi { ptr, i32 } [ %.pn262.pn, %209 ], [ %201, %200 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @_ZN5osgeo4proj4util11PropertyMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #32
   br label %211
 
 211:                                              ; preds = %210, %198
   %.pn262.pn.pn.pn = phi { ptr, i32 } [ %.pn262.pn.pn, %210 ], [ %199, %198 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %214
 
 212:                                              ; preds = %154
@@ -10326,13 +10320,13 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation10ConversionEEED2Ev.e
 
 214:                                              ; preds = %212, %211
   %.pn267 = phi { ptr, i32 } [ %213, %212 ], [ %.pn262.pn.pn.pn, %211 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @_ZN5osgeo4proj6common5AngleD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #32
   br label %215
 
 215:                                              ; preds = %214, %196
   %.pn267.pn = phi { ptr, i32 } [ %.pn267, %214 ], [ %197, %196 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %711
 
 216:                                              ; preds = %116
@@ -10355,15 +10349,15 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation10ConversionEEED2Ev.e
   %225 = call double @sin(double noundef %220) #32, !tbaa !22
   %226 = call double @cos(double noundef %220) #32, !tbaa !22
   %227 = call noundef double @_Z7pj_msfnddd(double noundef %225, double noundef %226, double noundef %113)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15) #32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @_ZN5osgeo4proj4util11PropertyMapC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %16)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   invoke void @_ZN5osgeo4proj6common5AngleC1EdRKNS1_13UnitOfMeasureE(ptr noundef nonnull align 8 dereferenceable(24) %17, double noundef 0.000000e+00, ptr noundef nonnull align 8 dereferenceable(24) @_ZN5osgeo4proj6common13UnitOfMeasure6DEGREEE)
           to label %228 unwind label %284
 
 228:                                              ; preds = %224
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %18) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %229 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5osgeo4proj9operation15SingleOperation21parameterValueMeasureEi(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 8802) #32
   %230 = call noundef double @_ZNK5osgeo4proj6common7Measure5valueEv(ptr noundef nonnull align 8 dereferenceable(24) %229) #36
   %231 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5osgeo4proj6common7Measure4unitEv(ptr noundef nonnull align 8 dereferenceable(24) %229) #36
@@ -10371,12 +10365,12 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation10ConversionEEED2Ev.e
           to label %_ZN5osgeo4proj6common5AngleC2ERKNS1_7MeasureE.exit279 unwind label %286
 
 _ZN5osgeo4proj6common5AngleC2ERKNS1_7MeasureE.exit279: ; preds = %228
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %19) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   invoke void @_ZN5osgeo4proj6common5ScaleC1EdRKNS1_13UnitOfMeasureE(ptr noundef nonnull align 8 dereferenceable(24) %19, double noundef %227, ptr noundef nonnull align 8 dereferenceable(24) @_ZN5osgeo4proj6common13UnitOfMeasure11SCALE_UNITYE)
           to label %232 unwind label %288
 
 232:                                              ; preds = %_ZN5osgeo4proj6common5AngleC2ERKNS1_7MeasureE.exit279
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %20) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %233 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5osgeo4proj9operation15SingleOperation21parameterValueMeasureEi(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 8806) #32
   %234 = call noundef double @_ZNK5osgeo4proj6common7Measure5valueEv(ptr noundef nonnull align 8 dereferenceable(24) %233) #36
   %235 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5osgeo4proj6common7Measure4unitEv(ptr noundef nonnull align 8 dereferenceable(24) %233) #36
@@ -10384,7 +10378,7 @@ _ZN5osgeo4proj6common5AngleC2ERKNS1_7MeasureE.exit279: ; preds = %228
           to label %_ZN5osgeo4proj6common6LengthC2ERKNS1_7MeasureE.exit281 unwind label %290
 
 _ZN5osgeo4proj6common6LengthC2ERKNS1_7MeasureE.exit281: ; preds = %232
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %21) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %236 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5osgeo4proj9operation15SingleOperation21parameterValueMeasureEi(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 8807) #32
   %237 = call noundef double @_ZNK5osgeo4proj6common7Measure5valueEv(ptr noundef nonnull align 8 dereferenceable(24) %236) #36
   %238 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5osgeo4proj6common7Measure4unitEv(ptr noundef nonnull align 8 dereferenceable(24) %236) #36
@@ -10392,7 +10386,7 @@ _ZN5osgeo4proj6common6LengthC2ERKNS1_7MeasureE.exit281: ; preds = %232
           to label %_ZN5osgeo4proj6common6LengthC2ERKNS1_7MeasureE.exit283 unwind label %292
 
 _ZN5osgeo4proj6common6LengthC2ERKNS1_7MeasureE.exit283: ; preds = %_ZN5osgeo4proj6common6LengthC2ERKNS1_7MeasureE.exit281
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #32, !noalias !367
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !367
   invoke void @_ZN5osgeo4proj9operation12createParamsERKNS0_6common7MeasureES5_S5_S5_S5_(ptr dead_on_unwind nonnull writable sret(%"struct.osgeo::proj::operation::VectorOfValues") align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(24) %21)
           to label %.noexc284 unwind label %294
 
@@ -10405,24 +10399,24 @@ _ZN5osgeo4proj6common6LengthC2ERKNS1_7MeasureE.exit283: ; preds = %_ZN5osgeo4pro
   %241 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #32, !noalias !367
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !367
   br label %.body285
 
 242:                                              ; preds = %.noexc284
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #32, !noalias !367
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !367
   call void @_ZN5osgeo4proj6common6LengthD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @_ZN5osgeo4proj6common6LengthD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %20) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @_ZN5osgeo4proj6common5ScaleD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @_ZN5osgeo4proj6common5AngleD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @_ZN5osgeo4proj6common5AngleD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @_ZN5osgeo4proj4util11PropertyMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %243 = load ptr, ptr %15, align 8, !tbaa !12
   %244 = load ptr, ptr %243, align 8, !tbaa !3
   %245 = getelementptr i8, ptr %244, i64 -24
@@ -10509,7 +10503,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i292: ; preds = %280, 
   br label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation10ConversionEEED2Ev.exit294
 
 _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation10ConversionEEED2Ev.exit294: ; preds = %252, %_ZNSt10shared_ptrIN5osgeo4proj9operation10ConversionEEC2ERKS4_.exit289, %268, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i292, %283
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %710
 
 284:                                              ; preds = %224
@@ -10549,33 +10543,33 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation10ConversionEEED2Ev.e
 
 296:                                              ; preds = %.body285, %292
   %.pn254 = phi { ptr, i32 } [ %eh.lpad-body286, %.body285 ], [ %293, %292 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @_ZN5osgeo4proj6common6LengthD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #32
   br label %297
 
 297:                                              ; preds = %296, %290
   %.pn254.pn = phi { ptr, i32 } [ %.pn254, %296 ], [ %291, %290 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %20) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @_ZN5osgeo4proj6common5ScaleD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #32
   br label %298
 
 298:                                              ; preds = %297, %288
   %.pn254.pn.pn = phi { ptr, i32 } [ %.pn254.pn, %297 ], [ %289, %288 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @_ZN5osgeo4proj6common5AngleD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #32
   br label %299
 
 299:                                              ; preds = %298, %286
   %.pn254.pn.pn.pn = phi { ptr, i32 } [ %.pn254.pn.pn, %298 ], [ %287, %286 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @_ZN5osgeo4proj6common5AngleD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #32
   br label %300
 
 300:                                              ; preds = %299, %284
   %.pn254.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn254.pn.pn.pn, %299 ], [ %285, %284 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @_ZN5osgeo4proj4util11PropertyMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %303
 
 301:                                              ; preds = %242
@@ -10586,7 +10580,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation10ConversionEEED2Ev.e
 
 303:                                              ; preds = %301, %300
   %.pn260 = phi { ptr, i32 } [ %302, %301 ], [ %.pn254.pn.pn.pn.pn, %300 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %711
 
 304:                                              ; preds = %216
@@ -10596,7 +10590,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation10ConversionEEED2Ev.e
   br i1 %or.cond7, label %307, label %571
 
 307:                                              ; preds = %304
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %22) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %308 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5osgeo4proj9operation15SingleOperation21parameterValueMeasureEi(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 8801) #32
   %309 = call noundef double @_ZNK5osgeo4proj6common7Measure5valueEv(ptr noundef nonnull align 8 dereferenceable(24) %308) #36
   %310 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5osgeo4proj6common7Measure4unitEv(ptr noundef nonnull align 8 dereferenceable(24) %308) #36
@@ -10660,25 +10654,25 @@ _ZN5osgeo4proj9operationL4tsfnEdd.exit:           ; preds = %_ZN5osgeo4proj9oper
   br i1 %338, label %387, label %339
 
 339:                                              ; preds = %335
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %23) #32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   invoke void @_ZN5osgeo4proj4util11PropertyMapC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %24)
           to label %340 unwind label %370
 
 340:                                              ; preds = %339
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %25) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   %341 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5osgeo4proj9operation15SingleOperation21parameterValueMeasureEi(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 8802) #32
   invoke void @_ZN5osgeo4proj6common5AngleC2ERKNS1_7MeasureE(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(24) %341)
           to label %342 unwind label %372
 
 342:                                              ; preds = %340
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %26) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   %343 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5osgeo4proj9operation15SingleOperation21parameterValueMeasureEi(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 8806) #32
   invoke void @_ZN5osgeo4proj6common6LengthC2ERKNS1_7MeasureE(ptr noundef nonnull align 8 dereferenceable(24) %26, ptr noundef nonnull align 8 dereferenceable(24) %343)
           to label %344 unwind label %374
 
 344:                                              ; preds = %342
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %27) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   %345 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5osgeo4proj9operation15SingleOperation21parameterValueMeasureEi(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 8807) #32
   invoke void @_ZN5osgeo4proj6common6LengthC2ERKNS1_7MeasureE(ptr noundef nonnull align 8 dereferenceable(24) %27, ptr noundef nonnull align 8 dereferenceable(24) %345)
           to label %346 unwind label %376
@@ -10689,13 +10683,13 @@ _ZN5osgeo4proj9operationL4tsfnEdd.exit:           ; preds = %_ZN5osgeo4proj9oper
 
 347:                                              ; preds = %346
   call void @_ZN5osgeo4proj6common6LengthD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %27) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   call void @_ZN5osgeo4proj6common6LengthD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %26) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   call void @_ZN5osgeo4proj6common5AngleD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %25) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   call void @_ZN5osgeo4proj4util11PropertyMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %24) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   %348 = load ptr, ptr %23, align 8, !tbaa !12
   %349 = load ptr, ptr %348, align 8, !tbaa !3
   %350 = getelementptr i8, ptr %349, i64 -24
@@ -10736,7 +10730,7 @@ _ZN5osgeo4proj9operationL4tsfnEdd.exit:           ; preds = %_ZN5osgeo4proj9oper
 
 _ZNSt10shared_ptrIN5osgeo4proj9operation10ConversionEEC2ERKS4_.exit299: ; preds = %357, %365, %368
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation10ConversionEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %23) #32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %23) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %570
 
 370:                                              ; preds = %339
@@ -10767,25 +10761,25 @@ _ZNSt10shared_ptrIN5osgeo4proj9operation10ConversionEEC2ERKS4_.exit299: ; preds 
 
 380:                                              ; preds = %378, %376
   %.pn244 = phi { ptr, i32 } [ %379, %378 ], [ %377, %376 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %27) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   call void @_ZN5osgeo4proj6common6LengthD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #32
   br label %381
 
 381:                                              ; preds = %380, %374
   %.pn244.pn = phi { ptr, i32 } [ %.pn244, %380 ], [ %375, %374 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %26) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   call void @_ZN5osgeo4proj6common5AngleD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #32
   br label %382
 
 382:                                              ; preds = %381, %372
   %.pn244.pn.pn = phi { ptr, i32 } [ %.pn244.pn, %381 ], [ %373, %372 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %25) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   call void @_ZN5osgeo4proj4util11PropertyMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %24) #32
   br label %383
 
 383:                                              ; preds = %382, %370
   %.pn244.pn.pn.pn = phi { ptr, i32 } [ %.pn244.pn.pn, %382 ], [ %371, %370 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %386
 
 384:                                              ; preds = %347
@@ -10796,7 +10790,7 @@ _ZNSt10shared_ptrIN5osgeo4proj9operation10ConversionEEC2ERKS4_.exit299: ; preds 
 
 386:                                              ; preds = %384, %383
   %.pn249 = phi { ptr, i32 } [ %385, %384 ], [ %.pn244.pn.pn.pn, %383 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %23) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %569
 
 387:                                              ; preds = %335
@@ -10878,40 +10872,40 @@ _ZN5osgeo4proj9operationL4tsfnEdd.exit305:        ; preds = %_ZN5osgeo4proj9oper
   br i1 %449, label %.critedge, label %450
 
 450:                                              ; preds = %_ZN5osgeo4proj9operationL4tsfnEdd.exit305
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %28) #32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %29) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   invoke void @_ZN5osgeo4proj4util11PropertyMapC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %29)
           to label %451 unwind label %489
 
 451:                                              ; preds = %450
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %30) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   invoke void @_ZN5osgeo4proj6common5AngleC1EdRKNS1_13UnitOfMeasureE(ptr noundef nonnull align 8 dereferenceable(24) %30, double noundef %422, ptr noundef nonnull align 8 dereferenceable(24) @_ZN5osgeo4proj6common13UnitOfMeasure6DEGREEE)
           to label %452 unwind label %491
 
 452:                                              ; preds = %451
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %31) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
   %453 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5osgeo4proj9operation15SingleOperation21parameterValueMeasureEi(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 8802) #32
   invoke void @_ZN5osgeo4proj6common5AngleC2ERKNS1_7MeasureE(ptr noundef nonnull align 8 dereferenceable(24) %31, ptr noundef nonnull align 8 dereferenceable(24) %453)
           to label %454 unwind label %493
 
 454:                                              ; preds = %452
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %32) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
   invoke void @_ZN5osgeo4proj6common5AngleC1EdRKNS1_13UnitOfMeasureE(ptr noundef nonnull align 8 dereferenceable(24) %32, double noundef %.0203, ptr noundef nonnull align 8 dereferenceable(24) @_ZN5osgeo4proj6common13UnitOfMeasure6DEGREEE)
           to label %455 unwind label %495
 
 455:                                              ; preds = %454
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %33) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
   invoke void @_ZN5osgeo4proj6common5AngleC1EdRKNS1_13UnitOfMeasureE(ptr noundef nonnull align 8 dereferenceable(24) %33, double noundef %.0204, ptr noundef nonnull align 8 dereferenceable(24) @_ZN5osgeo4proj6common13UnitOfMeasure6DEGREEE)
           to label %456 unwind label %497
 
 456:                                              ; preds = %455
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %34) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
   %457 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5osgeo4proj9operation15SingleOperation21parameterValueMeasureEi(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 8806) #32
   invoke void @_ZN5osgeo4proj6common6LengthC2ERKNS1_7MeasureE(ptr noundef nonnull align 8 dereferenceable(24) %34, ptr noundef nonnull align 8 dereferenceable(24) %457)
           to label %458 unwind label %499
 
 458:                                              ; preds = %456
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %35) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
   invoke void @_ZN5osgeo4proj6common6LengthC1Ed(ptr noundef nonnull align 8 dereferenceable(24) %35, double noundef %446)
           to label %459 unwind label %501
 
@@ -10921,19 +10915,19 @@ _ZN5osgeo4proj9operationL4tsfnEdd.exit305:        ; preds = %_ZN5osgeo4proj9oper
 
 460:                                              ; preds = %459
   call void @_ZN5osgeo4proj6common6LengthD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %35) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %35) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
   call void @_ZN5osgeo4proj6common6LengthD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %34) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %34) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
   call void @_ZN5osgeo4proj6common5AngleD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %33) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %33) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
   call void @_ZN5osgeo4proj6common5AngleD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %32) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %32) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
   call void @_ZN5osgeo4proj6common5AngleD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %31) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %31) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
   call void @_ZN5osgeo4proj6common5AngleD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %30) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %30) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
   call void @_ZN5osgeo4proj4util11PropertyMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %29) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   %461 = load ptr, ptr %28, align 8, !tbaa !12
   %462 = load ptr, ptr %461, align 8, !tbaa !3
   %463 = getelementptr i8, ptr %462, i64 -24
@@ -10974,7 +10968,7 @@ _ZN5osgeo4proj9operationL4tsfnEdd.exit305:        ; preds = %_ZN5osgeo4proj9oper
 
 _ZNSt10shared_ptrIN5osgeo4proj9operation10ConversionEEC2ERKS4_.exit308: ; preds = %470, %478, %481
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation10ConversionEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %28) #32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %28) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %570
 
 483:                                              ; preds = %421
@@ -11035,43 +11029,43 @@ _ZNSt10shared_ptrIN5osgeo4proj9operation10ConversionEEC2ERKS4_.exit308: ; preds 
 
 505:                                              ; preds = %503, %501
   %.pn219 = phi { ptr, i32 } [ %504, %503 ], [ %502, %501 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %35) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
   call void @_ZN5osgeo4proj6common6LengthD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %34) #32
   br label %506
 
 506:                                              ; preds = %505, %499
   %.pn219.pn = phi { ptr, i32 } [ %.pn219, %505 ], [ %500, %499 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %34) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
   call void @_ZN5osgeo4proj6common5AngleD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %33) #32
   br label %507
 
 507:                                              ; preds = %506, %497
   %.pn219.pn.pn = phi { ptr, i32 } [ %.pn219.pn, %506 ], [ %498, %497 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %33) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
   call void @_ZN5osgeo4proj6common5AngleD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %32) #32
   br label %508
 
 508:                                              ; preds = %507, %495
   %.pn219.pn.pn.pn = phi { ptr, i32 } [ %.pn219.pn.pn, %507 ], [ %496, %495 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %32) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
   call void @_ZN5osgeo4proj6common5AngleD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %31) #32
   br label %509
 
 509:                                              ; preds = %508, %493
   %.pn219.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn219.pn.pn.pn, %508 ], [ %494, %493 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %31) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
   call void @_ZN5osgeo4proj6common5AngleD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %30) #32
   br label %510
 
 510:                                              ; preds = %509, %491
   %.pn219.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn219.pn.pn.pn.pn, %509 ], [ %492, %491 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %30) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
   call void @_ZN5osgeo4proj4util11PropertyMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %29) #32
   br label %511
 
 511:                                              ; preds = %510, %489
   %.pn219.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn219.pn.pn.pn.pn.pn, %510 ], [ %490, %489 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   br label %514
 
 512:                                              ; preds = %460
@@ -11082,39 +11076,39 @@ _ZNSt10shared_ptrIN5osgeo4proj9operation10ConversionEEC2ERKS4_.exit308: ; preds 
 
 514:                                              ; preds = %512, %511
   %.pn227 = phi { ptr, i32 } [ %513, %512 ], [ %.pn219.pn.pn.pn.pn.pn.pn, %511 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %28) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %569
 
 .critedge:                                        ; preds = %_ZN5osgeo4proj9operationL4tsfnEdd.exit305, %387
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %36) #32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %37) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
   invoke void @_ZN5osgeo4proj4util11PropertyMapC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %37)
           to label %515 unwind label %546
 
 515:                                              ; preds = %.critedge
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %38) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %38)
   %516 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5osgeo4proj9operation15SingleOperation21parameterValueMeasureEi(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 8802) #32
   invoke void @_ZN5osgeo4proj6common5AngleC2ERKNS1_7MeasureE(ptr noundef nonnull align 8 dereferenceable(24) %38, ptr noundef nonnull align 8 dereferenceable(24) %516)
           to label %517 unwind label %548
 
 517:                                              ; preds = %515
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %39) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %39)
   invoke void @_ZN5osgeo4proj6common5AngleC1EdRKNS1_13UnitOfMeasureE(ptr noundef nonnull align 8 dereferenceable(24) %39, double noundef %.0203, ptr noundef nonnull align 8 dereferenceable(24) @_ZN5osgeo4proj6common13UnitOfMeasure6DEGREEE)
           to label %518 unwind label %550
 
 518:                                              ; preds = %517
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %40) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %40)
   invoke void @_ZN5osgeo4proj6common5AngleC1EdRKNS1_13UnitOfMeasureE(ptr noundef nonnull align 8 dereferenceable(24) %40, double noundef %.0204, ptr noundef nonnull align 8 dereferenceable(24) @_ZN5osgeo4proj6common13UnitOfMeasure6DEGREEE)
           to label %519 unwind label %552
 
 519:                                              ; preds = %518
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %41) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %41)
   %520 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5osgeo4proj9operation15SingleOperation21parameterValueMeasureEi(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 8806) #32
   invoke void @_ZN5osgeo4proj6common6LengthC2ERKNS1_7MeasureE(ptr noundef nonnull align 8 dereferenceable(24) %41, ptr noundef nonnull align 8 dereferenceable(24) %520)
           to label %521 unwind label %554
 
 521:                                              ; preds = %519
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %42) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %42)
   invoke void @_ZN5osgeo4proj6common6LengthC1Ed(ptr noundef nonnull align 8 dereferenceable(24) %42, double noundef %413)
           to label %522 unwind label %556
 
@@ -11124,17 +11118,17 @@ _ZNSt10shared_ptrIN5osgeo4proj9operation10ConversionEEC2ERKS4_.exit308: ; preds 
 
 523:                                              ; preds = %522
   call void @_ZN5osgeo4proj6common6LengthD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %42) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %42) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
   call void @_ZN5osgeo4proj6common6LengthD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %41) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %41) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
   call void @_ZN5osgeo4proj6common5AngleD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %40) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %40) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
   call void @_ZN5osgeo4proj6common5AngleD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %39) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %39) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
   call void @_ZN5osgeo4proj6common5AngleD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %38) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %38) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
   call void @_ZN5osgeo4proj4util11PropertyMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %37) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %37) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
   %524 = load ptr, ptr %36, align 8, !tbaa !12
   %525 = load ptr, ptr %524, align 8, !tbaa !3
   %526 = getelementptr i8, ptr %525, i64 -24
@@ -11175,7 +11169,7 @@ _ZNSt10shared_ptrIN5osgeo4proj9operation10ConversionEEC2ERKS4_.exit308: ; preds 
 
 _ZNSt10shared_ptrIN5osgeo4proj9operation10ConversionEEC2ERKS4_.exit311: ; preds = %533, %541, %544
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation10ConversionEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %36) #32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %36) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
   br label %570
 
 546:                                              ; preds = %.critedge
@@ -11216,37 +11210,37 @@ _ZNSt10shared_ptrIN5osgeo4proj9operation10ConversionEEC2ERKS4_.exit311: ; preds 
 
 560:                                              ; preds = %558, %556
   %.pn232 = phi { ptr, i32 } [ %559, %558 ], [ %557, %556 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %42) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
   call void @_ZN5osgeo4proj6common6LengthD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %41) #32
   br label %561
 
 561:                                              ; preds = %560, %554
   %.pn232.pn = phi { ptr, i32 } [ %.pn232, %560 ], [ %555, %554 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %41) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
   call void @_ZN5osgeo4proj6common5AngleD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %40) #32
   br label %562
 
 562:                                              ; preds = %561, %552
   %.pn232.pn.pn = phi { ptr, i32 } [ %.pn232.pn, %561 ], [ %553, %552 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %40) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
   call void @_ZN5osgeo4proj6common5AngleD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %39) #32
   br label %563
 
 563:                                              ; preds = %562, %550
   %.pn232.pn.pn.pn = phi { ptr, i32 } [ %.pn232.pn.pn, %562 ], [ %551, %550 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %39) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
   call void @_ZN5osgeo4proj6common5AngleD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %38) #32
   br label %564
 
 564:                                              ; preds = %563, %548
   %.pn232.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn232.pn.pn.pn, %563 ], [ %549, %548 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %38) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
   call void @_ZN5osgeo4proj4util11PropertyMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %37) #32
   br label %565
 
 565:                                              ; preds = %564, %546
   %.pn232.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn232.pn.pn.pn.pn, %564 ], [ %547, %546 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %37) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
   br label %568
 
 566:                                              ; preds = %523
@@ -11257,18 +11251,18 @@ _ZNSt10shared_ptrIN5osgeo4proj9operation10ConversionEEC2ERKS4_.exit311: ; preds 
 
 568:                                              ; preds = %566, %565
   %.pn239 = phi { ptr, i32 } [ %567, %566 ], [ %.pn232.pn.pn.pn.pn.pn, %565 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %36) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
   br label %569
 
 569:                                              ; preds = %333, %568, %485, %514, %487, %483, %386, %331
   %.pn249.pn.pn.pn = phi { ptr, i32 } [ %332, %331 ], [ %334, %333 ], [ %.pn249, %386 ], [ %.pn239, %568 ], [ %484, %483 ], [ %486, %485 ], [ %.pn227, %514 ], [ %488, %487 ]
   call void @_ZN5osgeo4proj6common5AngleD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %22) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %711
 
 570:                                              ; preds = %_ZNSt10shared_ptrIN5osgeo4proj9operation10ConversionEEC2ERKS4_.exit308, %330, %_ZNSt10shared_ptrIN5osgeo4proj9operation10ConversionEEC2ERKS4_.exit299, %_ZNSt10shared_ptrIN5osgeo4proj9operation10ConversionEEC2ERKS4_.exit311, %319, %315
   call void @_ZN5osgeo4proj6common5AngleD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %22) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %710
 
 571:                                              ; preds = %304
@@ -11385,32 +11379,32 @@ _ZNSt10shared_ptrIN5osgeo4proj9operation10ConversionEEC2ERKS4_.exit311: ; preds 
   %653 = fcmp olt double %652, 1.000000e-08
   %654 = fdiv double %649, 1.000000e+03
   %.0 = select i1 %653, double %654, double %647
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %43) #32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %44) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %43)
+  call void @llvm.lifetime.start.p0(ptr nonnull %44)
   call void @_ZN5osgeo4proj4util11PropertyMapC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %44)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %45) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %45)
   invoke void @_ZN5osgeo4proj6common5AngleC1EdRKNS1_13UnitOfMeasureE(ptr noundef nonnull align 8 dereferenceable(24) %45, double noundef %.0, ptr noundef nonnull align 8 dereferenceable(24) @_ZN5osgeo4proj6common13UnitOfMeasure6DEGREEE)
           to label %655 unwind label %690
 
 655:                                              ; preds = %621
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %46) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %46)
   %656 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5osgeo4proj9operation15SingleOperation21parameterValueMeasureEi(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 8822) #32
   invoke void @_ZN5osgeo4proj6common5AngleC2ERKNS1_7MeasureE(ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef nonnull align 8 dereferenceable(24) %656)
           to label %657 unwind label %692
 
 657:                                              ; preds = %655
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %47) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %47)
   invoke void @_ZN5osgeo4proj6common5ScaleC1Ed(ptr noundef nonnull align 8 dereferenceable(24) %47, double noundef %634)
           to label %658 unwind label %694
 
 658:                                              ; preds = %657
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %48) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %48)
   %659 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5osgeo4proj9operation15SingleOperation21parameterValueMeasureEi(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 8826) #32
   invoke void @_ZN5osgeo4proj6common6LengthC2ERKNS1_7MeasureE(ptr noundef nonnull align 8 dereferenceable(24) %48, ptr noundef nonnull align 8 dereferenceable(24) %659)
           to label %660 unwind label %696
 
 660:                                              ; preds = %658
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %49) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %49)
   %661 = call noundef double @_ZNK5osgeo4proj9operation15SingleOperation25parameterValueNumericAsSIEi(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 8827) #32
   %662 = call double @llvm.fabs.f64(double %645)
   %663 = fcmp ogt double %662, 1.000000e-08
@@ -11425,17 +11419,17 @@ _ZNSt10shared_ptrIN5osgeo4proj9operation10ConversionEEC2ERKS4_.exit311: ; preds 
 
 667:                                              ; preds = %666
   call void @_ZN5osgeo4proj6common6LengthD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %49) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %49) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %49)
   call void @_ZN5osgeo4proj6common6LengthD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %48) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %48) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %48)
   call void @_ZN5osgeo4proj6common5ScaleD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %47) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %47) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
   call void @_ZN5osgeo4proj6common5AngleD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %46) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %46) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %46)
   call void @_ZN5osgeo4proj6common5AngleD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %45) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %45) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
   call void @_ZN5osgeo4proj4util11PropertyMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %44) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %44) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %44)
   %668 = load ptr, ptr %43, align 8, !tbaa !12
   %669 = load ptr, ptr %668, align 8, !tbaa !3
   %670 = getelementptr i8, ptr %669, i64 -24
@@ -11476,7 +11470,7 @@ _ZNSt10shared_ptrIN5osgeo4proj9operation10ConversionEEC2ERKS4_.exit311: ; preds 
 
 _ZNSt10shared_ptrIN5osgeo4proj9operation10ConversionEEC2ERKS4_.exit314: ; preds = %677, %685, %688
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation10ConversionEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %43) #32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %43) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
   br label %710
 
 690:                                              ; preds = %621
@@ -11512,33 +11506,33 @@ _ZNSt10shared_ptrIN5osgeo4proj9operation10ConversionEEC2ERKS4_.exit314: ; preds 
 
 702:                                              ; preds = %700, %698
   %.pn = phi { ptr, i32 } [ %701, %700 ], [ %699, %698 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %49) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %49)
   call void @_ZN5osgeo4proj6common6LengthD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %48) #32
   br label %703
 
 703:                                              ; preds = %702, %696
   %.pn.pn = phi { ptr, i32 } [ %.pn, %702 ], [ %697, %696 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %48) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %48)
   call void @_ZN5osgeo4proj6common5ScaleD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %47) #32
   br label %704
 
 704:                                              ; preds = %703, %694
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %703 ], [ %695, %694 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %47) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
   call void @_ZN5osgeo4proj6common5AngleD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %46) #32
   br label %705
 
 705:                                              ; preds = %704, %692
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %704 ], [ %693, %692 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %46) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %46)
   call void @_ZN5osgeo4proj6common5AngleD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %45) #32
   br label %706
 
 706:                                              ; preds = %705, %690
   %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %705 ], [ %691, %690 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %45) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
   call void @_ZN5osgeo4proj4util11PropertyMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %44) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %44) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %44)
   br label %709
 
 707:                                              ; preds = %667
@@ -11549,7 +11543,7 @@ _ZNSt10shared_ptrIN5osgeo4proj9operation10ConversionEEC2ERKS4_.exit314: ; preds 
 
 709:                                              ; preds = %707, %706
   %.pn217 = phi { ptr, i32 } [ %708, %707 ], [ %.pn.pn.pn.pn.pn, %706 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %43) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
   br label %711
 
 .thread321:                                       ; preds = %119, %571
@@ -11567,19 +11561,19 @@ _ZNSt10shared_ptrIN5osgeo4proj9operation10ConversionEEC2ERKS4_.exit314: ; preds 
 declare void @_ZNK5osgeo4proj9operation19CoordinateOperation9sourceCRSEv(ptr dead_on_unwind writable sret(%"class.std::shared_ptr.147") align 8, ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #15
+declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5osgeo4proj3crs11GeodeticCRS9ellipsoidEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #9
+declare noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5osgeo4proj3crs11GeodeticCRS9ellipsoidEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef double @_ZNK5osgeo4proj5datum9Ellipsoid19squaredEccentricityEv(ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #9
+declare noundef double @_ZNK5osgeo4proj5datum9Ellipsoid19squaredEccentricityEv(ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @acos(double noundef) local_unnamed_addr #16
+declare double @acos(double noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @sqrt(double noundef) local_unnamed_addr #16
+declare double @sqrt(double noundef) local_unnamed_addr #15
 
 declare void @_ZN5osgeo4proj6common5AngleC1EdRKNS1_13UnitOfMeasureE(ptr noundef nonnull align 8 dereferenceable(24), double noundef, ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #1
 
@@ -11603,24 +11597,24 @@ define linkonce_odr hidden void @_ZN5osgeo4proj6common6LengthC2ERKNS1_7MeasureE(
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #11
+declare double @llvm.fabs.f64(double) #10
 
 declare void @_ZN5osgeo4proj6common5ScaleC1EdRKNS1_13UnitOfMeasureE(ptr noundef nonnull align 8 dereferenceable(24), double noundef, ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef double @_ZNK5osgeo4proj6common7Measure10getSIValueEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #9
+declare noundef double @_ZNK5osgeo4proj6common7Measure10getSIValueEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @sin(double noundef) local_unnamed_addr #16
+declare double @sin(double noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @pow(double noundef, double noundef) local_unnamed_addr #16
+declare double @pow(double noundef, double noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @asin(double noundef) local_unnamed_addr #16
+declare double @asin(double noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(errnomem: write) uwtable
-define internal fastcc noundef double @_ZN5osgeo4proj9operationL26find_zero_lcc_1sp_to_2sp_fEdbdd(double noundef %0, i1 noundef zeroext %1, double noundef %2, double noundef %3) unnamed_addr #17 {
+define internal fastcc noundef double @_ZN5osgeo4proj9operationL26find_zero_lcc_1sp_to_2sp_fEdbdd(double noundef %0, i1 noundef zeroext %1, double noundef %2, double noundef %3) unnamed_addr #16 {
   %. = select i1 %1, double 1.000000e+00, double %0
   %.47 = select i1 %1, double 1.000000e+00, double -1.000000e+00
   %.48 = select i1 %1, double %0, double -1.000000e+00
@@ -11691,13 +11685,13 @@ split:                                            ; preds = %7, %._crit_edge
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.floor.f64(double) #11
+declare double @llvm.floor.f64(double) #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5osgeo4proj5datum9Ellipsoid13semiMajorAxisEv(ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #9
+declare noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5osgeo4proj5datum9Ellipsoid13semiMajorAxisEv(ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @log(double noundef) local_unnamed_addr #16
+declare double @log(double noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZNK5osgeo4proj9operation10Conversion17getESRIMethodNameEv(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #0 align 2 {
@@ -11707,12 +11701,12 @@ define hidden noundef ptr @_ZNK5osgeo4proj9operation10Conversion17getESRIMethodN
   %5 = load ptr, ptr %4, align 8, !tbaa !58
   %6 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5osgeo4proj6common16IdentifiedObject7nameStrB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #36
   %7 = tail call noundef i32 @_ZNK5osgeo4proj9operation15OperationMethod11getEPSGCodeEv(ptr noundef nonnull align 8 dereferenceable(56) %5) #36
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call fastcc void @_ZN5osgeo4proj9operationL26getESRIMethodNameAndParamsEPKNS1_10ConversionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiRPKcRPKNS1_16ESRIParamMappingE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef %7, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %2)
   %8 = load ptr, ptr %3, align 8, !tbaa !374
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %8
 }
 
@@ -11722,7 +11716,7 @@ define internal fastcc void @_ZN5osgeo4proj9operationL26getESRIMethodNameAndPara
   %7 = alloca %"class.std::shared_ptr.147", align 8
   store ptr null, ptr %4, align 8, !tbaa !375
   store ptr null, ptr %3, align 8, !tbaa !374
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 0, ptr %6, align 8, !tbaa !94
   %8 = call noundef ptr @_ZN5osgeo4proj9operation15getEsriMappingsERm(ptr noundef nonnull align 8 dereferenceable(8) %6)
   %9 = load i64, ptr %6, align 8, !tbaa !94
@@ -11769,8 +11763,8 @@ define internal fastcc void @_ZN5osgeo4proj9operationL26getESRIMethodNameAndPara
 
 _ZN5osgeo4proj9operationL14getESRIMappingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit: ; preds = %17, %.lr.ph.split.i, %24, %.lr.ph.split.us.i, %14, %5
   %spec.select.i = phi ptr [ null, %5 ], [ %10, %.lr.ph.split.us.i ], [ null, %14 ], [ %20, %24 ], [ null, %17 ], [ %20, %.lr.ph.split.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %28 = load ptr, ptr %0, align 8, !tbaa !3
   %29 = getelementptr i8, ptr %28, i64 -24
   %30 = load i64, ptr %29, align 8
@@ -11981,7 +11975,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %122, %120
   br label %_ZNSt12__shared_ptrIN5osgeo4proj3crs3CRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN5osgeo4proj3crs3CRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %102, %110, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %125
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
@@ -12042,7 +12036,7 @@ define hidden void @_ZNK5osgeo4proj9operation10Conversion12_exportToWKTEPNS0_2io
   br i1 %or.cond14, label %26, label %81
 
 26:                                               ; preds = %23
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZNK5osgeo4proj9operation10Conversion20convertToOtherMethodEi(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr.43") align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef 9805)
   %27 = load ptr, ptr %6, align 8, !tbaa !12
   %.not276 = icmp eq ptr %27, null
@@ -12059,7 +12053,7 @@ define hidden void @_ZNK5osgeo4proj9operation10Conversion12_exportToWKTEPNS0_2io
   %33 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt12__shared_ptrIN5osgeo4proj9operation10ConversionELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %450
 
 34:                                               ; preds = %28
@@ -12113,7 +12107,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %54, %52
   br label %_ZNSt12__shared_ptrIN5osgeo4proj9operation10ConversionELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN5osgeo4proj9operation10ConversionELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %34, %42, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %57
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %449
 
 .critedge:                                        ; preds = %26
@@ -12167,7 +12161,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i210: ; preds = %77, %75
   br label %_ZNSt12__shared_ptrIN5osgeo4proj9operation10ConversionELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit212
 
 _ZNSt12__shared_ptrIN5osgeo4proj9operation10ConversionELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit212: ; preds = %.critedge, %65, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i210, %80
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %81
 
 81:                                               ; preds = %23, %_ZNSt12__shared_ptrIN5osgeo4proj9operation10ConversionELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit212
@@ -12178,8 +12172,8 @@ _ZNSt12__shared_ptrIN5osgeo4proj9operation10ConversionELN9__gnu_cxx12_Lock_polic
   br i1 %82, label %83, label %217
 
 83:                                               ; preds = %81
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call fastcc void @_ZN5osgeo4proj9operationL26getESRIMethodNameAndParamsEPKNS1_10ConversionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiRPKcRPKNS1_16ESRIParamMappingE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(32) %19, i32 noundef %20, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %7)
   %84 = load ptr, ptr %8, align 8, !tbaa !374
   %85 = icmp ne ptr %84, null
@@ -12217,10 +12211,10 @@ _ZNSt12__shared_ptrIN5osgeo4proj9operation10ConversionELN9__gnu_cxx12_Lock_polic
   br i1 %.not183, label %180, label %101
 
 101:                                              ; preds = %96
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %90, ptr %9, align 8, !tbaa !92
   %102 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %100) #32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %102, ptr %5, align 8, !tbaa !94
   %103 = icmp ugt i64 %102, 15
   br i1 %103, label %.noexc.i, label %._crit_edge.i.i
@@ -12257,7 +12251,7 @@ _ZNSt12__shared_ptrIN5osgeo4proj9operation10ConversionELN9__gnu_cxx12_Lock_polic
   %112 = load ptr, ptr %9, align 8, !tbaa !96
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 %111
   store i8 0, ptr %113, align 1, !tbaa !21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %114 = getelementptr inbounds nuw i8, ptr %97, i64 16
   %115 = load i32, ptr %114, align 8, !tbaa !390
   %116 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5osgeo4proj9operation15SingleOperation14parameterValueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef %115) #32
@@ -12278,7 +12272,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %123 = load ptr, ptr %116, align 8, !tbaa !41
   %.not277 = icmp eq ptr %123, null
   br i1 %.not277, label %153, label %124
@@ -12308,7 +12302,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 136:                                              ; preds = %.noexc.i
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %216
 
 137:                                              ; preds = %128
@@ -12345,7 +12339,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br label %213
 
 153:                                              ; preds = %124, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %154 = load ptr, ptr %97, align 8, !tbaa !386
   store ptr %92, ptr %10, align 8, !tbaa !92
   %155 = icmp eq ptr %154, null
@@ -12360,7 +12354,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 157:                                              ; preds = %153
   %158 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %154) #32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %158, ptr %4, align 8, !tbaa !94
   %159 = icmp ugt i64 %158, 15
   br i1 %159, label %.noexc.i215, label %._crit_edge.i.i214
@@ -12397,7 +12391,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %168 = load ptr, ptr %10, align 8, !tbaa !96
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 %167
   store i8 0, ptr %169, align 1, !tbaa !21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %170 = call noundef i64 @_ZN5osgeo4proj8internal7ci_findERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @.str.40) #32
   %.not188 = icmp eq i64 %170, -1
   %171 = load ptr, ptr %10, align 8, !tbaa !96
@@ -12417,7 +12411,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i21
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit221
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit221: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i220, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i219
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br i1 %.not188, label %179, label %177
 
 177:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit221
@@ -12436,7 +12430,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit221: ; preds = %_Z
 
 178:                                              ; preds = %.loopexit.split-lp281, %.loopexit280
   %lpad.phi284 = phi { ptr, i32 } [ %lpad.loopexit282, %.loopexit280 ], [ %lpad.loopexit.split-lp283, %.loopexit.split-lp281 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %216
 
 179:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit221
@@ -12444,7 +12438,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit221: ; preds = %_Z
   br label %213
 
 180:                                              ; preds = %96
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %181 = getelementptr inbounds nuw i8, ptr %97, i64 24
   %182 = load ptr, ptr %181, align 8, !tbaa !394
   store ptr %94, ptr %11, align 8, !tbaa !92
@@ -12460,7 +12454,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit221: ; preds = %_Z
 
 185:                                              ; preds = %180
   %186 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %182) #32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %186, ptr %3, align 8, !tbaa !94
   %187 = icmp ugt i64 %186, 15
   br i1 %187, label %.noexc.i223, label %._crit_edge.i.i222
@@ -12497,7 +12491,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit221: ; preds = %_Z
   %196 = load ptr, ptr %11, align 8, !tbaa !96
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 %195
   store i8 0, ptr %197, align 1, !tbaa !21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   invoke void @_ZN5osgeo4proj2io12WKTFormatter3addERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %11)
           to label %198 unwind label %205
 
@@ -12519,7 +12513,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i22
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit229
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit229: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i228, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i227
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %213
 
 .loopexit285:                                     ; preds = %.noexc.i223
@@ -12553,7 +12547,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i23
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit232: ; preds = %.loopexit285, %.loopexit.split-lp286, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i230, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i231
   %.pn = phi { ptr, i32 } [ %206, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i231 ], [ %206, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i230 ], [ %lpad.loopexit287, %.loopexit285 ], [ %lpad.loopexit.split-lp288, %.loopexit.split-lp286 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %216
 
 213:                                              ; preds = %179, %177, %150, %151, %132, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit229
@@ -12566,13 +12560,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit232: ; preds = %.l
 
 216:                                              ; preds = %136, %178, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit232
   %.pn185.pn = phi { ptr, i32 } [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit232 ], [ %lpad.phi284, %178 ], [ %lpad.loopexit, %136 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %450
 
 .critedge201:                                     ; preds = %213, %88
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.critedge203
 
 217:                                              ; preds = %81
@@ -12586,9 +12580,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit232: ; preds = %.l
 
 222:                                              ; preds = %219
   %223 = tail call ptr @__cxa_allocate_exception(i64 40) #32
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #32
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #32
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %14) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull @.str.41, ptr noundef nonnull align 1 dereferenceable(1) %14)
           to label %224 unwind label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit238.thread
 
@@ -12663,25 +12657,25 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %251 = load i64, ptr %250, align 8, !tbaa !98
   %252 = icmp ult i64 %251, 16
   call void @llvm.assume(i1 %252)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %14) #32
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #32
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br i1 %.0169, label %255, label %450
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit238: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit235
   %253 = load i64, ptr %239, align 8, !tbaa !21
   %254 = add i64 %253, 1
   call void @_ZdlPvm(ptr noundef %238, i64 noundef %254) #31
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %14) #32
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #32
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br i1 %.0169, label %255, label %450
 
 .sink.split:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit238.thread, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i237.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit238.thread273
   %.pn189.pn254.ph = phi { ptr, i32 } [ %241, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit238.thread273 ], [ %241, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i237.thread ], [ %227, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit238.thread ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %14) #32
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #32
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %255
 
 255:                                              ; preds = %.sink.split, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i237, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit238
@@ -12731,8 +12725,8 @@ _ZN5osgeo4proj8internal11starts_withERKNSt7__cxx1112basic_stringIcSt11char_trait
   br label %.critedge203.thread.sink.split
 
 .critedge206:                                     ; preds = %83
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN5osgeo4proj8internal11starts_withERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc.exit.thread
 
 _ZN5osgeo4proj8internal11starts_withERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc.exit.thread: ; preds = %260, %.critedge206, %_ZN5osgeo4proj8internal11starts_withERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc.exit
@@ -12878,7 +12872,7 @@ _ZN5osgeo4proj8internal11starts_withERKNSt7__cxx1112basic_stringIcSt11char_trait
 
 ._crit_edge:                                      ; preds = %.thread264.us302, %377, %321, %292
   %.0172.lcssa = phi i1 [ false, %292 ], [ %.1173.us, %321 ], [ %.1173, %377 ], [ %.2174.us303, %.thread264.us302 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %337 = load ptr, ptr %0, align 8, !tbaa !3
   %338 = getelementptr i8, ptr %337, i64 -24
   %339 = load i64, ptr %338, align 8
@@ -12980,7 +12974,7 @@ _ZNSt10shared_ptrIN5osgeo4proj3crs3CRSEEC2ERKS4_.exit: ; preds = %._crit_edge, %
   br i1 %.not192, label %418, label %383
 
 383:                                              ; preds = %381
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   invoke void @_ZN5osgeo4proj9operation15SingleOperation49createOperationParameterValueFromInterpolationCRSEii(ptr dead_on_unwind nonnull writable sret(%"class.dropbox::oxygen::nn.54") align 8 %16, i32 noundef %20, i32 noundef %382)
           to label %384 unwind label %413
 
@@ -13043,7 +13037,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %409, %40
   br label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation21GeneralParameterValueEEED2Ev.exit
 
 _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation21GeneralParameterValueEEED2Ev.exit: ; preds = %389, %397, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %412
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %418
 
 413:                                              ; preds = %383
@@ -13059,9 +13053,9 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation21GeneralParameterVal
 
 417:                                              ; preds = %415, %413
   %.pn193 = phi { ptr, i32 } [ %416, %415 ], [ %414, %413 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @_ZNSt12__shared_ptrIN5osgeo4proj3crs3CRSELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %15) #32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %450
 
 418:                                              ; preds = %381, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation21GeneralParameterValueEEED2Ev.exit, %379, %_ZNSt10shared_ptrIN5osgeo4proj3crs3CRSEEC2ERKS4_.exit
@@ -13114,7 +13108,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i244: ; preds = %437, %4
   br label %_ZNSt12__shared_ptrIN5osgeo4proj3crs3CRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN5osgeo4proj3crs3CRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %418, %425, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i244, %440
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %.critedge203
 
 .critedge203:                                     ; preds = %.critedge201, %_ZNSt12__shared_ptrIN5osgeo4proj3crs3CRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
@@ -13166,7 +13160,7 @@ declare hidden void @_ZN5osgeo4proj2io12WKTFormatter9startNodeERKNSt7__cxx1112ba
 declare hidden noundef zeroext i1 @_ZNK5osgeo4proj2io12WKTFormatter21useDerivingConversionEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5osgeo4proj6common16IdentifiedObject11identifiersEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #9
+declare noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5osgeo4proj6common16IdentifiedObject11identifiersEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #8
 
 declare hidden void @_ZN5osgeo4proj2io12WKTFormatter15addQuotedStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
@@ -13197,7 +13191,7 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC
 
 8:                                                ; preds = %3
   %9 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %9, ptr %4, align 8, !tbaa !94
   %10 = icmp ugt i64 %9, 15
   br i1 %10, label %.noexc, label %._crit_edge.i
@@ -13232,7 +13226,7 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC
   %20 = load ptr, ptr %0, align 8, !tbaa !96
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 %18
   store i8 0, ptr %21, align 1, !tbaa !21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -13243,7 +13237,7 @@ declare hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5osgeo4proj2
 declare hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5osgeo4proj2io12WKTFormatter15axisAngularUnitEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef zeroext i1 @_ZNK5osgeo4proj6common13UnitOfMeasureeqERKS2_(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #9
+declare noundef zeroext i1 @_ZNK5osgeo4proj6common13UnitOfMeasureeqERKS2_(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #8
 
 ; Function Attrs: nounwind
 declare noundef i64 @_ZN5osgeo4proj8internal7ci_findERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #2
@@ -13254,7 +13248,7 @@ declare hidden void @_ZN5osgeo4proj2io12WKTFormatter3addERKNSt7__cxx1112basic_st
 declare noundef double @_ZNK5osgeo4proj9operation15SingleOperation21parameterValueNumericEiRKNS0_6common13UnitOfMeasureE(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef, ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #2
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %2) local_unnamed_addr #18 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %2) local_unnamed_addr #17 comdat personality ptr @__gxx_personality_v0 {
   %4 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #32
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !98
@@ -13309,7 +13303,7 @@ declare hidden void @_ZN5osgeo4proj2io19FormattingExceptionC1ERKNSt7__cxx1112bas
 declare void @_ZN5osgeo4proj2io19FormattingExceptionD1Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #2
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZN5osgeo4proj8internal11starts_withERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) local_unnamed_addr #7 comdat {
+define linkonce_odr hidden noundef zeroext i1 @_ZN5osgeo4proj8internal11starts_withERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) local_unnamed_addr #6 comdat {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #36
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !98
@@ -13328,12 +13322,12 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5osgeo4proj8internal11starts_w
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef i32 @_ZNK5osgeo4proj9operation18OperationParameter11getEPSGCodeEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #9
+declare noundef i32 @_ZNK5osgeo4proj9operation18OperationParameter11getEPSGCodeEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #8
 
 declare noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5osgeo4proj9operation19CoordinateOperation16interpolationCRSEv(ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef i32 @_ZNK5osgeo4proj6common16IdentifiedObject11getEPSGCodeEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #9
+declare noundef i32 @_ZNK5osgeo4proj6common16IdentifiedObject11getEPSGCodeEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #8
 
 declare hidden void @_ZN5osgeo4proj9operation15SingleOperation49createOperationParameterValueFromInterpolationCRSEii(ptr dead_on_unwind writable sret(%"class.dropbox::oxygen::nn.54") align 8, i32 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -13348,7 +13342,7 @@ declare hidden void @_ZN5osgeo4proj2io12WKTFormatter11popOutputIdEv(ptr noundef 
 declare hidden void @_ZN5osgeo4proj2io12WKTFormatter5leaveEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #1
 
 ; Function Attrs: uwtable
-define hidden void @_ZTvn24_n48_NK5osgeo4proj9operation10Conversion12_exportToWKTEPNS0_2io12WKTFormatterE(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #8 align 2 {
+define hidden void @_ZTvn24_n48_NK5osgeo4proj9operation10Conversion12_exportToWKTEPNS0_2io12WKTFormatterE(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 -24
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   %5 = getelementptr inbounds i8, ptr %4, i64 -48
@@ -13369,7 +13363,7 @@ define hidden void @_ZNK5osgeo4proj9operation10Conversion13_exportToJSONEPNS0_2i
   %7 = alloca %"struct.osgeo::proj::CPLJSonStreamingWriter::ArrayContext", align 8
   %8 = alloca %"class.dropbox::oxygen::nn.54", align 8
   %9 = tail call noundef ptr @_ZNK5osgeo4proj2io13JSONFormatter6writerEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %10 = load ptr, ptr %0, align 8, !tbaa !3
   %11 = getelementptr i8, ptr %10, i64 -24
   %12 = load i64, ptr %11, align 8
@@ -13380,7 +13374,7 @@ define hidden void @_ZNK5osgeo4proj9operation10Conversion13_exportToJSONEPNS0_2i
   %17 = load ptr, ptr %16, align 8, !tbaa !396
   %18 = icmp ne ptr %15, %17
   call void @_ZN5osgeo4proj2io13JSONFormatter13ObjectContextC1ERS2_PKcb(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.36, i1 noundef zeroext %18)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %19, ptr %3, align 8, !tbaa !92
   store i32 1701667182, ptr %19, align 8
@@ -13409,7 +13403,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %29 = load ptr, ptr %0, align 8, !tbaa !3
   %30 = getelementptr i8, ptr %29, i64 -24
   %31 = load i64, ptr %30, align 8
@@ -13444,7 +13438,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i74
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit76
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit76: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i74, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i75
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %241
 
 46:                                               ; preds = %59, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit83, %48, %37
@@ -13457,7 +13451,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit76: ; preds = %_ZN
           to label %._crit_edge.i.i77 unwind label %46
 
 ._crit_edge.i.i77:                                ; preds = %48, %37
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %49 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %49, ptr %4, align 8, !tbaa !92
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %49, ptr noundef nonnull align 1 dereferenceable(6) @.str.51, i64 6, i1 false)
@@ -13486,7 +13480,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i81
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit83
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit83: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i82, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i81
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   invoke void @_ZN5osgeo4proj2io13JSONFormatter27setOmitTypeInImmediateChildEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %59 unwind label %46
 
@@ -13505,7 +13499,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit83: ; preds = %_ZN
 
 66:                                               ; preds = %60
   %67 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5osgeo4proj9operation15SingleOperation15parameterValuesEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #36
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %68 = load ptr, ptr %0, align 8, !tbaa !3
   %69 = getelementptr i8, ptr %68, i64 -24
   %70 = load i64, ptr %69, align 8
@@ -13551,7 +13545,7 @@ _ZNSt10shared_ptrIN5osgeo4proj3crs3CRSEEC2ERKS4_.exit: ; preds = %73, %81, %84
   br i1 %or.cond, label %._crit_edge.i.i84, label %206
 
 ._crit_edge.i.i84:                                ; preds = %_ZNSt10shared_ptrIN5osgeo4proj3crs3CRSEEC2ERKS4_.exit
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %92 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %92, ptr %6, align 8, !tbaa !92
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %92, ptr noundef nonnull align 1 dereferenceable(10) @.str.52, i64 10, i1 false)
@@ -13580,8 +13574,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i88
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit90
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit90: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i89, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i88
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.experimental.noalias.scope.decl(metadata !400)
   store ptr %9, ptr %7, align 8, !tbaa !403, !alias.scope !400
   %102 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -13624,7 +13618,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i92
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit94
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit94: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i92, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i93
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %241
 
 116:                                              ; preds = %60
@@ -13657,7 +13651,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i95
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit97
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit97: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i95, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i96
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %239
 
 128:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit90
@@ -13736,7 +13730,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit97: ; preds = %_ZN
           to label %156 unwind label %186
 
 156:                                              ; preds = %155
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   invoke void @_ZN5osgeo4proj9operation15SingleOperation49createOperationParameterValueFromInterpolationCRSEii(ptr dead_on_unwind nonnull writable sret(%"class.dropbox::oxygen::nn.54") align 8 %8, i32 noundef %152, i32 noundef %153)
           to label %157 unwind label %188
 
@@ -13799,7 +13793,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %182, %18
   br label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation21GeneralParameterValueEEED2Ev.exit
 
 _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation21GeneralParameterValueEEED2Ev.exit: ; preds = %162, %170, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %185
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.pre117 = load ptr, ptr %7, align 8, !tbaa !416
   br label %193
 
@@ -13821,7 +13815,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation21GeneralParameterVal
 
 192:                                              ; preds = %190, %188
   %.pn62 = phi { ptr, i32 } [ %191, %190 ], [ %189, %188 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %204
 
 193:                                              ; preds = %150, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation21GeneralParameterValueEEED2Ev.exit, %.critedge, %._crit_edge
@@ -13848,7 +13842,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation21GeneralParameterVal
   unreachable
 
 _ZN5osgeo4proj22CPLJSonStreamingWriter12ArrayContextD2Ev.exit: ; preds = %195, %198
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %206
 
 204:                                              ; preds = %186, %192, %140
@@ -13858,7 +13852,7 @@ _ZN5osgeo4proj22CPLJSonStreamingWriter12ArrayContextD2Ev.exit: ; preds = %195, %
 
 205:                                              ; preds = %204, %128
   %.pn66.pn = phi { ptr, i32 } [ %.pn66, %204 ], [ %129, %128 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %239
 
 206:                                              ; preds = %_ZNSt10shared_ptrIN5osgeo4proj3crs3CRSEEC2ERKS4_.exit, %_ZN5osgeo4proj22CPLJSonStreamingWriter12ArrayContextD2Ev.exit
@@ -13931,9 +13925,9 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %235, %233
   br label %_ZNSt12__shared_ptrIN5osgeo4proj3crs3CRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN5osgeo4proj3crs3CRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %216, %223, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %238
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN5osgeo4proj2io13JSONFormatter13ObjectContextD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 239:                                              ; preds = %214, %205, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit97
@@ -13943,13 +13937,13 @@ _ZNSt12__shared_ptrIN5osgeo4proj3crs3CRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 240:                                              ; preds = %239, %118
   %.pn66.pn.pn.pn = phi { ptr, i32 } [ %.pn66.pn.pn, %239 ], [ %119, %118 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %241
 
 241:                                              ; preds = %46, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit94, %240, %116, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit76
   %.pn66.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %39, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit76 ], [ %47, %46 ], [ %109, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit94 ], [ %.pn66.pn.pn.pn, %240 ], [ %117, %116 ]
   call void @_ZN5osgeo4proj2io13JSONFormatter13ObjectContextD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %.pn66.pn.pn.pn.pn.pn.pn
 }
 
@@ -14004,7 +13998,7 @@ declare hidden void @_ZNK5osgeo4proj6common16IdentifiedObject8formatIDEPNS0_2io1
 declare void @_ZN5osgeo4proj2io13JSONFormatter13ObjectContextD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #2
 
 ; Function Attrs: uwtable
-define hidden void @_ZTvn56_n88_NK5osgeo4proj9operation10Conversion13_exportToJSONEPNS0_2io13JSONFormatterE(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #8 align 2 {
+define hidden void @_ZTvn56_n88_NK5osgeo4proj9operation10Conversion13_exportToJSONEPNS0_2io13JSONFormatterE(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 -56
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   %5 = getelementptr inbounds i8, ptr %4, i64 -88
@@ -14053,7 +14047,7 @@ define hidden noundef zeroext i1 @_ZNK5osgeo4proj9operation10Conversion19addWKTE
   br i1 %32, label %33, label %99
 
 33:                                               ; preds = %26, %16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   invoke void @_ZN5osgeo4proj2io19PROJStringFormatter6createENS2_10ConventionESt10shared_ptrINS1_15DatabaseContextEE(ptr dead_on_unwind nonnull writable sret(%"class.dropbox::oxygen::nn.245") align 8 %3, i32 noundef 0, ptr noundef nonnull %4)
           to label %34 unwind label %85
@@ -14136,7 +14130,7 @@ _ZNSt12__shared_ptrIN5osgeo4proj2io15DatabaseContextELN9__gnu_cxx12_Lock_policyE
 
 ._crit_edge.i.i:                                  ; preds = %63
   %68 = load ptr, ptr %3, align 8, !tbaa !419
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %69 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %69, ptr %5, align 8, !tbaa !92
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) %69, ptr noundef nonnull align 1 dereferenceable(7) @.str.56, i64 7, i1 false)
@@ -14165,7 +14159,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %79 = load ptr, ptr %3, align 8, !tbaa !419
   %80 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5osgeo4proj2io19PROJStringFormatter8toStringB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(8) %79)
           to label %81 unwind label %87
@@ -14189,7 +14183,7 @@ _ZNKSt14default_deleteIN5osgeo4proj2io19PROJStringFormatterEEclEPS3_.exit.i.i: ;
   br label %_ZN7dropbox6oxygen2nnISt10unique_ptrIN5osgeo4proj2io19PROJStringFormatterESt14default_deleteIS6_EEED2Ev.exit
 
 _ZN7dropbox6oxygen2nnISt10unique_ptrIN5osgeo4proj2io19PROJStringFormatterESt14default_deleteIS6_EEED2Ev.exit: ; preds = %83, %_ZNKSt14default_deleteIN5osgeo4proj2io19PROJStringFormatterEEclEPS3_.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.critedge67
 
 85:                                               ; preds = %33
@@ -14223,7 +14217,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i69
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit71
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit71: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i69, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i70
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %97
 
 97:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit71, %87
@@ -14233,7 +14227,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit71: ; preds = %_ZN
 
 98:                                               ; preds = %97, %85
   %.pn60.pn = phi { ptr, i32 } [ %.pn60, %97 ], [ %86, %85 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %227
 
 99:                                               ; preds = %26
@@ -14251,7 +14245,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit71: ; preds = %_ZN
   br i1 %108, label %109, label %153
 
 109:                                              ; preds = %101, %99
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   invoke void @_ZN5osgeo4proj2io19PROJStringFormatter6createENS2_10ConventionESt10shared_ptrINS1_15DatabaseContextEE(ptr dead_on_unwind nonnull writable sret(%"class.dropbox::oxygen::nn.245") align 8 %6, i32 noundef 0, ptr noundef nonnull %7)
           to label %110 unwind label %146
@@ -14363,12 +14357,12 @@ _ZNKSt14default_deleteIN5osgeo4proj2io19PROJStringFormatterEEclEPS3_.exit.i.i78:
   br label %_ZN7dropbox6oxygen2nnISt10unique_ptrIN5osgeo4proj2io19PROJStringFormatterESt14default_deleteIS6_EEED2Ev.exit79
 
 _ZN7dropbox6oxygen2nnISt10unique_ptrIN5osgeo4proj2io19PROJStringFormatterESt14default_deleteIS6_EEED2Ev.exit79: ; preds = %150, %_ZNKSt14default_deleteIN5osgeo4proj2io19PROJStringFormatterEEclEPS3_.exit.i.i78
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.critedge67
 
 152:                                              ; preds = %148, %146
   %.pn56 = phi { ptr, i32 } [ %149, %148 ], [ %147, %146 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %227
 
 153:                                              ; preds = %101
@@ -14384,7 +14378,7 @@ _ZN5osgeo4proj8internal11starts_withERKNSt7__cxx1112basic_stringIcSt11char_trait
   br i1 %158, label %159, label %_ZN5osgeo4proj8internal11starts_withERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc.exit.thread
 
 159:                                              ; preds = %_ZN5osgeo4proj8internal11starts_withERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   invoke void @_ZN5osgeo4proj2io19PROJStringFormatter6createENS2_10ConventionESt10shared_ptrINS1_15DatabaseContextEE(ptr dead_on_unwind nonnull writable sret(%"class.dropbox::oxygen::nn.245") align 8 %8, i32 noundef 0, ptr noundef nonnull %9)
           to label %160 unwind label %173
@@ -14438,12 +14432,12 @@ _ZN5osgeo4proj8internal11starts_withERKNSt7__cxx1112basic_stringIcSt11char_trait
 
 177:                                              ; preds = %172
   call void @_ZN7dropbox6oxygen2nnISt10unique_ptrIN5osgeo4proj2io19PROJStringFormatterESt14default_deleteIS6_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.critedge67
 
 178:                                              ; preds = %175, %173
   %.pn54 = phi { ptr, i32 } [ %176, %175 ], [ %174, %173 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %227
 
 _ZN5osgeo4proj8internal11starts_withERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc.exit.thread: ; preds = %153, %_ZN5osgeo4proj8internal11starts_withERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc.exit
@@ -14452,7 +14446,7 @@ _ZN5osgeo4proj8internal11starts_withERKNSt7__cxx1112basic_stringIcSt11char_trait
   br i1 %180, label %181, label %.critedge67
 
 181:                                              ; preds = %_ZN5osgeo4proj8internal11starts_withERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc.exit.thread
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   invoke void @_ZN5osgeo4proj2io19PROJStringFormatter6createENS2_10ConventionESt10shared_ptrINS1_15DatabaseContextEE(ptr dead_on_unwind nonnull writable sret(%"class.dropbox::oxygen::nn.245") align 8 %10, i32 noundef 0, ptr noundef nonnull %11)
           to label %182 unwind label %208
@@ -14481,8 +14475,8 @@ _ZN5osgeo4proj8internal11starts_withERKNSt7__cxx1112basic_stringIcSt11char_trait
 
 191:                                              ; preds = %186
   %192 = load ptr, ptr %10, align 8, !tbaa !419
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #32
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %13) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull @.str.56, ptr noundef nonnull align 1 dereferenceable(1) %13)
           to label %193 unwind label %212
 
@@ -14510,8 +14504,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i80
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit82
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit82: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i81, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i80
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13) #32
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %203 = load ptr, ptr %10, align 8, !tbaa !419
   %204 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5osgeo4proj2io19PROJStringFormatter8toStringB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(8) %203)
           to label %205 unwind label %210
@@ -14526,7 +14520,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit82: ; preds = %_ZN
 
 207:                                              ; preds = %206
   call void @_ZN7dropbox6oxygen2nnISt10unique_ptrIN5osgeo4proj2io19PROJStringFormatterESt14default_deleteIS6_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.critedge67
 
 208:                                              ; preds = %181
@@ -14568,8 +14562,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i83
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit85: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i83, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i84, %212
   %.pn = phi { ptr, i32 } [ %213, %212 ], [ %215, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i84 ], [ %215, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i83 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13) #32
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %224
 
 224:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit85, %210
@@ -14579,7 +14573,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit85: ; preds = %_ZN
 
 225:                                              ; preds = %224, %208
   %.pn51.pn = phi { ptr, i32 } [ %.pn51, %224 ], [ %209, %208 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %227
 
 .critedge:                                        ; preds = %138
@@ -14593,12 +14587,12 @@ _ZNKSt14default_deleteIN5osgeo4proj2io19PROJStringFormatterEEclEPS3_.exit.i.i87:
   br label %_ZN7dropbox6oxygen2nnISt10unique_ptrIN5osgeo4proj2io19PROJStringFormatterESt14default_deleteIS6_EEED2Ev.exit88
 
 _ZN7dropbox6oxygen2nnISt10unique_ptrIN5osgeo4proj2io19PROJStringFormatterESt14default_deleteIS6_EEED2Ev.exit88: ; preds = %.critedge, %_ZNKSt14default_deleteIN5osgeo4proj2io19PROJStringFormatterEEclEPS3_.exit.i.i87
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.critedge67
 
 .critedge65:                                      ; preds = %165
   call void @_ZN7dropbox6oxygen2nnISt10unique_ptrIN5osgeo4proj2io19PROJStringFormatterESt14default_deleteIS6_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.critedge67
 
 227:                                              ; preds = %225, %178, %152, %98
@@ -14676,7 +14670,7 @@ declare void @_ZN5osgeo4proj2io19PROJStringFormatter8addParamERKNSt7__cxx1112bas
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5osgeo4proj2io19PROJStringFormatter8toStringB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #1
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN7dropbox6oxygen2nnISt10unique_ptrIN5osgeo4proj2io19PROJStringFormatterESt14default_deleteIS6_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN7dropbox6oxygen2nnISt10unique_ptrIN5osgeo4proj2io19PROJStringFormatterESt14default_deleteIS6_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !419
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %_ZNSt10unique_ptrIN5osgeo4proj2io19PROJStringFormatterESt14default_deleteIS3_EED2Ev.exit, label %_ZNKSt14default_deleteIN5osgeo4proj2io19PROJStringFormatterEEclEPS3_.exit.i
@@ -14703,7 +14697,7 @@ define internal fastcc noundef zeroext i1 @_ZN5osgeo4proj9operationL22createPROJ
   %10 = tail call noundef double @_ZNK5osgeo4proj9operation15SingleOperation21parameterValueNumericEiRKNS0_6common13UnitOfMeasureE(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 8802, ptr noundef nonnull align 8 dereferenceable(24) @_ZN5osgeo4proj6common13UnitOfMeasure6DEGREEE) #32
   %11 = tail call noundef double @_ZNK5osgeo4proj9operation15SingleOperation25parameterValueNumericAsSIEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 8806) #32
   %12 = tail call noundef double @_ZNK5osgeo4proj9operation15SingleOperation25parameterValueNumericAsSIEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 8807) #32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %13 = load ptr, ptr %0, align 8, !tbaa !3
   %14 = getelementptr i8, ptr %13, i64 -24
   %15 = load i64, ptr %14, align 8
@@ -14719,7 +14713,7 @@ define internal fastcc noundef zeroext i1 @_ZN5osgeo4proj9operationL22createPROJ
   br i1 %.not, label %.thread, label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %19
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %21, ptr %4, align 8, !tbaa !92
   store i8 109, ptr %21, align 8, !tbaa !21
@@ -14727,7 +14721,7 @@ define internal fastcc noundef zeroext i1 @_ZN5osgeo4proj9operationL22createPROJ
   store i64 1, ptr %22, align 8, !tbaa !98
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 17
   store i8 0, ptr %23, align 1, !tbaa !21
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %24 = load ptr, ptr %0, align 8, !tbaa !3
   %25 = getelementptr i8, ptr %24, i64 -24
   %26 = load i64, ptr %25, align 8
@@ -14765,7 +14759,7 @@ define internal fastcc noundef zeroext i1 @_ZN5osgeo4proj9operationL22createPROJ
   br i1 %44, label %.critedge69, label %46
 
 46:                                               ; preds = %45
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   invoke void @_ZNK5osgeo4proj6common13UnitOfMeasure18exportToPROJStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %43)
           to label %47 unwind label %87
 
@@ -14868,7 +14862,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.critedge69
 
 85:                                               ; preds = %37
@@ -14879,7 +14873,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 87:                                               ; preds = %46
   %88 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %201
 
 .critedge:                                        ; preds = %47
@@ -14895,7 +14889,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i70
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit72
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit72: ; preds = %.critedge, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i70
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %171
 
 .critedge69:                                      ; preds = %31, %28, %45, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -14956,7 +14950,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit72: ; preds = %.cr
   br i1 %111, label %._crit_edge.i.i73, label %._crit_edge.i.i83
 
 ._crit_edge.i.i73:                                ; preds = %112
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %113 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %113, ptr %7, align 8, !tbaa !92
   store i32 1919252079, ptr %113, align 8
@@ -14985,7 +14979,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i77
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit79
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit79: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i78, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i77
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %._crit_edge.i.i83
 
 123:                                              ; preds = %.critedge69
@@ -15018,11 +15012,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i80
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit82
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit82: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i80, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i81
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %201
 
 ._crit_edge.i.i83:                                ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit79, %112, %108
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %135 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %135, ptr %8, align 8, !tbaa !92
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %135, ptr noundef nonnull align 1 dereferenceable(6) @.str.149, i64 6, i1 false)
@@ -15051,8 +15045,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i87
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit89
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit89: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i88, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i87
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #32
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %145 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %145, ptr %9, align 8, !tbaa !92
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) %145, ptr noundef nonnull align 1 dereferenceable(7) @.str.56, i64 7, i1 false)
@@ -15081,7 +15075,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i94
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit96
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit96: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i95, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i94
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %171
 
 155:                                              ; preds = %._crit_edge.i.i83
@@ -15104,7 +15098,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i97
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit99
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit99: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i97, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i98
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %201
 
 163:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit89
@@ -15127,7 +15121,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i10
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit102
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit102: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i100, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i101
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %201
 
 171:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit72, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit96
@@ -15182,7 +15176,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %191, %189
   br label %_ZNSt12__shared_ptrIN5osgeo4proj3crs3CRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN5osgeo4proj3crs3CRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %171, %179, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %194
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %195 = load ptr, ptr %4, align 8, !tbaa !96
   %196 = icmp eq ptr %195, %21
   br i1 %196, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i104, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i103
@@ -15200,7 +15194,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i10
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit105
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit105: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i104, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i103
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread
 
 201:                                              ; preds = %125, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit82, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit99, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit102, %85, %87, %123
@@ -15210,7 +15204,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit105: ; preds = %_Z
 
 202:                                              ; preds = %201, %35
   %.pn62.pn.pn.pn = phi { ptr, i32 } [ %.pn62.pn.pn, %201 ], [ %36, %35 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %203 = load ptr, ptr %4, align 8, !tbaa !96
   %204 = icmp eq ptr %203, %21
   br i1 %204, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i107, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i106
@@ -15228,9 +15222,9 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i10
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit108
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit108: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i106, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i107
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZNSt12__shared_ptrIN5osgeo4proj3crs3CRSELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn62.pn.pn.pn
 
 .thread:                                          ; preds = %2, %19, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit105
@@ -15285,7 +15279,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i111: ; preds = %228, %2
   br label %_ZNSt12__shared_ptrIN5osgeo4proj3crs3CRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit113
 
 _ZNSt12__shared_ptrIN5osgeo4proj3crs3CRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit113: ; preds = %.thread, %216, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i111, %231
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
 
@@ -15299,7 +15293,7 @@ define internal fastcc noundef zeroext i1 @_ZN5osgeo4proj9operationL33createPROJ
   %9 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5osgeo4proj9operation15SingleOperation6methodEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #36
   %10 = load ptr, ptr %9, align 8, !tbaa !58
   %11 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5osgeo4proj6common16IdentifiedObject7nameStrB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(40) %10) #36
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN5osgeo4proj8internal5splitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEc(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.357") align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %11, i8 noundef signext 32)
   %12 = load ptr, ptr %4, align 8, !tbaa !430
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 32
@@ -15310,7 +15304,7 @@ define internal fastcc noundef zeroext i1 @_ZN5osgeo4proj9operationL33createPROJ
   br i1 %2, label %15, label %57
 
 15:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %16 = load ptr, ptr %0, align 8, !tbaa !3
   %17 = getelementptr i8, ptr %16, i64 -24
   %18 = load i64, ptr %17, align 8
@@ -15393,7 +15387,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %50, %48
   br label %_ZNSt12__shared_ptrIN5osgeo4proj3crs3CRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN5osgeo4proj3crs3CRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %30, %38, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %53
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %57
 
 54:                                               ; preds = %29
@@ -15404,7 +15398,7 @@ _ZNSt12__shared_ptrIN5osgeo4proj3crs3CRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 56:                                               ; preds = %54, %25
   %.pn = phi { ptr, i32 } [ %55, %54 ], [ %26, %25 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %224
 
 57:                                               ; preds = %_ZNSt12__shared_ptrIN5osgeo4proj3crs3CRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %14
@@ -15433,7 +15427,7 @@ _ZNSt12__shared_ptrIN5osgeo4proj3crs3CRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 71:                                               ; preds = %.lr.ph, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
   %72 = phi ptr [ %60, %.lr.ph ], [ %110, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ]
   %.049101 = phi i64 [ 2, %.lr.ph ], [ %108, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %73 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %72, i64 %.049101
   invoke void @_ZN5osgeo4proj8internal5splitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEc(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.357") align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %73, i8 noundef signext 61)
           to label %74 unwind label %83
@@ -15518,7 +15512,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, %103
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %108 = add nuw i64 %.049101, 1
   %109 = load ptr, ptr %58, align 8, !tbaa !433
   %110 = load ptr, ptr %4, align 8, !tbaa !430
@@ -15531,7 +15525,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 
 116:                                              ; preds = %85, %83
   %.pn59 = phi { ptr, i32 } [ %86, %85 ], [ %84, %83 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %224
 
 ._crit_edge106:                                   ; preds = %.thread99, %._crit_edge
@@ -15596,7 +15590,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br i1 %.not, label %._crit_edge106, label %.lr.ph105
 
 ._crit_edge.i.i:                                  ; preds = %._crit_edge106
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %145 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %145, ptr %7, align 8, !tbaa !92
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %145, ptr noundef nonnull align 1 dereferenceable(6) @.str.149, i64 6, i1 false)
@@ -15625,8 +15619,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #32
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %155 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %155, ptr %8, align 8, !tbaa !92
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) %155, ptr noundef nonnull align 1 dereferenceable(7) @.str.56, i64 7, i1 false)
@@ -15655,7 +15649,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i67
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit69
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit69: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i68, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i67
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %204
 
 165:                                              ; preds = %._crit_edge.i.i
@@ -15678,7 +15672,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i70
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit72
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit72: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i70, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i71
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %224
 
 173:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -15701,7 +15695,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i73
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit75
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit75: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i73, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i74
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %224
 
 .critedge:                                        ; preds = %20, %27
@@ -15755,7 +15749,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i78: ; preds = %200, %19
   br label %_ZNSt12__shared_ptrIN5osgeo4proj3crs3CRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit80
 
 _ZNSt12__shared_ptrIN5osgeo4proj3crs3CRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit80: ; preds = %.critedge, %188, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i78, %203
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %204
 
 204:                                              ; preds = %._crit_edge106, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit69, %_ZNSt12__shared_ptrIN5osgeo4proj3crs3CRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit80
@@ -15810,13 +15804,13 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit92
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit92: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i89, %218
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.1
 
 224:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit75, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit72, %137, %116, %56, %23
   %.pn59.pn = phi { ptr, i32 } [ %.pn59, %116 ], [ %138, %137 ], [ %174, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit75 ], [ %166, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit72 ], [ %.pn, %56 ], [ %24, %23 ]
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn59.pn
 }
 
@@ -15932,13 +15926,13 @@ switch.edge:
   br label %1545
 
 78:                                               ; preds = %69
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %79 = load ptr, ptr %0, align 8, !tbaa !3
   %80 = getelementptr i8, ptr %79, i64 -24
   %81 = load i64, ptr %80, align 8
   %82 = getelementptr inbounds i8, ptr %0, i64 %81
   call void @_ZNK5osgeo4proj9operation19CoordinateOperation9sourceCRSEv(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr.147") align 8 %5, ptr noundef nonnull align 8 dereferenceable(72) %82)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %83 = load ptr, ptr %0, align 8, !tbaa !3
   %84 = getelementptr i8, ptr %83, i64 -24
   %85 = load i64, ptr %84, align 8
@@ -15952,7 +15946,7 @@ switch.edge:
   br i1 %89, label %90, label %172
 
 90:                                               ; preds = %87
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call fastcc void @"_ZZNK5osgeo4proj9operation10Conversion19_exportToPROJStringEPNS0_2io19PROJStringFormatterEENK3$_0clERKSt10shared_ptrINS0_3crs3CRSEE"(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(16) %5)
   %91 = load ptr, ptr %7, align 8, !tbaa !437
   %92 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -16005,8 +15999,8 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %111, %109
   br label %_ZNSt12__shared_ptrIN5osgeo4proj3crs11GeodeticCRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN5osgeo4proj3crs11GeodeticCRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %90, %99, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %114
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call fastcc void @"_ZZNK5osgeo4proj9operation10Conversion19_exportToPROJStringEPNS0_2io19PROJStringFormatterEENK3$_0clERKSt10shared_ptrINS0_3crs3CRSEE"(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(16) %6)
   %115 = load ptr, ptr %8, align 8, !tbaa !437
   %116 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -16059,7 +16053,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i582: ; preds = %135, %1
   br label %_ZNSt12__shared_ptrIN5osgeo4proj3crs11GeodeticCRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit584
 
 _ZNSt12__shared_ptrIN5osgeo4proj3crs11GeodeticCRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit584: ; preds = %_ZNSt12__shared_ptrIN5osgeo4proj3crs11GeodeticCRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %123, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i582, %138
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %139 = icmp ne ptr %91, null
   %140 = icmp ne ptr %115, null
   %or.cond13 = and i1 %139, %140
@@ -16140,7 +16134,7 @@ _ZNSt12__shared_ptrIN5osgeo4proj3crs11GeodeticCRSELN9__gnu_cxx12_Lock_policyE2EE
   br label %1543
 
 172:                                              ; preds = %87
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   %173 = invoke noundef zeroext i1 @_ZNK5osgeo4proj2io19PROJStringFormatter12getCRSExportEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %174 unwind label %193
@@ -16155,7 +16149,7 @@ _ZNSt12__shared_ptrIN5osgeo4proj3crs11GeodeticCRSELN9__gnu_cxx12_Lock_policyE2EE
   br i1 %or.cond19, label %178, label %367
 
 178:                                              ; preds = %175
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %176, ptr %10, align 8, !tbaa !355
   %179 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %180 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -16599,13 +16593,13 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i608: ; preds = %362, %3
   br label %_ZNSt12__shared_ptrIN5osgeo4proj3crs3CRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN5osgeo4proj3crs3CRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %.thread787, %350, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i608, %365
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %367
 
 366:                                              ; preds = %342, %329
   %.pn = phi { ptr, i32 } [ %343, %342 ], [ %330, %329 ]
   call void @_ZNSt12__shared_ptrIN5osgeo4proj3crs3CRSELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %1542
 
 367:                                              ; preds = %_ZNSt12__shared_ptrIN5osgeo4proj3crs3CRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %175, %174
@@ -16621,9 +16615,9 @@ _ZNSt12__shared_ptrIN5osgeo4proj3crs3CRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
   ]
 
 373:                                              ; preds = %367
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 0, ptr %11, align 4, !tbaa !22
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i8 1, ptr %12, align 1, !tbaa !449
   %374 = invoke noundef zeroext i1 @_ZNK5osgeo4proj2io19PROJStringFormatter17getUseApproxTMercEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %375 unwind label %406
@@ -16665,7 +16659,7 @@ _ZNSt12__shared_ptrIN5osgeo4proj3crs3CRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
   br i1 %391, label %._crit_edge.i.i, label %416
 
 ._crit_edge.i.i:                                  ; preds = %395
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %396 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %396, ptr %13, align 8, !tbaa !92
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %396, ptr noundef nonnull align 1 dereferenceable(6) @.str.61, i64 6, i1 false)
@@ -16694,7 +16688,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %416
 
 406:                                              ; preds = %416, %394, %390, %373
@@ -16722,7 +16716,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i61
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit612
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit612: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i610, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i611
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %439
 
 416:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %395
@@ -16736,7 +16730,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit612: ; preds = %_Z
   br i1 %420, label %.thread832, label %._crit_edge.i.i613
 
 ._crit_edge.i.i613:                               ; preds = %418
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %421 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr %421, ptr %14, align 8, !tbaa !92
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %421, ptr noundef nonnull align 1 dereferenceable(5) @.str.63, i64 5, i1 false)
@@ -16765,7 +16759,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i61
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit619
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit619: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i618, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i617
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %.thread832
 
 431:                                              ; preds = %._crit_edge.i.i613
@@ -16788,13 +16782,13 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i62
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit622
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit622: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i620, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i621
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %439
 
 439:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit622, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit612, %406
   %.pn526.pn = phi { ptr, i32 } [ %432, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit622 ], [ %407, %406 ], [ %409, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit612 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12) #32
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %1542
 
 440:                                              ; preds = %367
@@ -16908,9 +16902,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit622: ; preds = %_Z
 
 494:                                              ; preds = %488
   %495 = call ptr @__cxa_allocate_exception(i64 40) #32
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15) #32
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16) #32
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %17) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull @.str.41, ptr noundef nonnull align 1 dereferenceable(1) %17)
           to label %496 unwind label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit628.thread
 
@@ -16985,25 +16979,25 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %523 = load i64, ptr %522, align 8, !tbaa !98
   %524 = icmp ult i64 %523, 16
   call void @llvm.assume(i1 %524)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %17) #32
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16) #32
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br i1 %.0402, label %527, label %1542
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit628: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit625
   %525 = load i64, ptr %511, align 8, !tbaa !21
   %526 = add i64 %525, 1
   call void @_ZdlPvm(ptr noundef %510, i64 noundef %526) #31
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %17) #32
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16) #32
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br i1 %.0402, label %527, label %1542
 
 .sink.split:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit628.thread, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i627.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit628.thread922
   %.pn520.pn791.ph = phi { ptr, i32 } [ %513, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit628.thread922 ], [ %513, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i627.thread ], [ %499, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit628.thread ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %17) #32
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16) #32
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %527
 
 527:                                              ; preds = %.sink.split, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i627, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit628
@@ -17019,9 +17013,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit628: ; preds = %_Z
 
 532:                                              ; preds = %528
   %533 = call ptr @__cxa_allocate_exception(i64 40) #32
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %18) #32
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %19) #32
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %20) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull @.str.41, ptr noundef nonnull align 1 dereferenceable(1) %20)
           to label %534 unwind label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit634.thread
 
@@ -17096,25 +17090,25 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %561 = load i64, ptr %560, align 8, !tbaa !98
   %562 = icmp ult i64 %561, 16
   call void @llvm.assume(i1 %562)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %20) #32
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %19) #32
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %18) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br i1 %.0405, label %565, label %1542
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit634: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit631
   %563 = load i64, ptr %549, align 8, !tbaa !21
   %564 = add i64 %563, 1
   call void @_ZdlPvm(ptr noundef %548, i64 noundef %564) #31
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %20) #32
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %19) #32
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %18) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br i1 %.0405, label %565, label %1542
 
 .sink.split1028:                                  ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit634.thread, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i633.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit634.thread933
   %.pn517.pn794.ph = phi { ptr, i32 } [ %551, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit634.thread933 ], [ %551, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i633.thread ], [ %537, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit634.thread ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %20) #32
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %19) #32
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %18) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %565
 
 565:                                              ; preds = %.sink.split1028, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i633, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit634
@@ -17136,9 +17130,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit634: ; preds = %_Z
 
 570:                                              ; preds = %567
   %571 = call ptr @__cxa_allocate_exception(i64 40) #32
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %21) #32
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %22) #32
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %23) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull @.str.41, ptr noundef nonnull align 1 dereferenceable(1) %23)
           to label %572 unwind label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit640.thread
 
@@ -17213,25 +17207,25 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %599 = load i64, ptr %598, align 8, !tbaa !98
   %600 = icmp ult i64 %599, 16
   call void @llvm.assume(i1 %600)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %23) #32
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %22) #32
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %21) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br i1 %.0408, label %603, label %1542
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit640: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit637
   %601 = load i64, ptr %587, align 8, !tbaa !21
   %602 = add i64 %601, 1
   call void @_ZdlPvm(ptr noundef %586, i64 noundef %602) #31
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %23) #32
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %22) #32
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %21) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br i1 %.0408, label %603, label %1542
 
 .sink.split1029:                                  ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit640.thread, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i639.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit640.thread944
   %.pn514.pn797.ph = phi { ptr, i32 } [ %589, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit640.thread944 ], [ %589, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i639.thread ], [ %575, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit640.thread ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %23) #32
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %22) #32
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %21) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %603
 
 603:                                              ; preds = %.sink.split1029, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i639, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit640
@@ -17240,9 +17234,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit640: ; preds = %_Z
   br label %1542
 
 604:                                              ; preds = %566
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %24) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   %605 = load ptr, ptr @_ZN5osgeo4proj9operation17WKT1_SCALE_FACTORE, align 8, !tbaa !374
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %25) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef %605, ptr noundef nonnull align 1 dereferenceable(1) %25)
           to label %606 unwind label %626
 
@@ -17267,8 +17261,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i64
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit643
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit643: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i642, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i641
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %25) #32
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %24) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   %616 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5osgeo4proj6common7Measure4unitEv(ptr noundef nonnull align 8 dereferenceable(24) %607) #36
   %617 = call noundef i32 @_ZNK5osgeo4proj6common13UnitOfMeasure4typeEv(ptr noundef nonnull align 8 dereferenceable(24) %616) #36
   %.not508 = icmp eq i32 %617, 0
@@ -17293,8 +17287,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit643: ; preds = %_Z
 626:                                              ; preds = %604
   %627 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %25) #32
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %24) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %1542
 
 628:                                              ; preds = %623
@@ -17315,9 +17309,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit643: ; preds = %_Z
 
 635:                                              ; preds = %632
   %636 = call ptr @__cxa_allocate_exception(i64 40) #32
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %26) #32
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %27) #32
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %28) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull @.str.41, ptr noundef nonnull align 1 dereferenceable(1) %28)
           to label %637 unwind label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit649.thread
 
@@ -17392,25 +17386,25 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %664 = load i64, ptr %663, align 8, !tbaa !98
   %665 = icmp ult i64 %664, 16
   call void @llvm.assume(i1 %665)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %28) #32
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %27) #32
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %26) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br i1 %.0411, label %668, label %1542
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit649: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit646
   %666 = load i64, ptr %652, align 8, !tbaa !21
   %667 = add i64 %666, 1
   call void @_ZdlPvm(ptr noundef %651, i64 noundef %667) #31
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %28) #32
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %27) #32
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %26) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br i1 %.0411, label %668, label %1542
 
 .sink.split1030:                                  ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit649.thread, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i648.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit649.thread955
   %.pn509.pn800.ph = phi { ptr, i32 } [ %654, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit649.thread955 ], [ %654, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i648.thread ], [ %640, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit649.thread ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %28) #32
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %27) #32
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %26) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br label %668
 
 668:                                              ; preds = %.sink.split1030, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i648, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit649
@@ -17425,9 +17419,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit649: ; preds = %_Z
 
 672:                                              ; preds = %669
   %673 = call ptr @__cxa_allocate_exception(i64 40) #32
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %29) #32
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %30) #32
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %31) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef nonnull @.str.41, ptr noundef nonnull align 1 dereferenceable(1) %31)
           to label %674 unwind label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit655.thread
 
@@ -17502,25 +17496,25 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %701 = load i64, ptr %700, align 8, !tbaa !98
   %702 = icmp ult i64 %701, 16
   call void @llvm.assume(i1 %702)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %31) #32
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %30) #32
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %29) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   br i1 %.0414, label %705, label %1542
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit655: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit652
   %703 = load i64, ptr %689, align 8, !tbaa !21
   %704 = add i64 %703, 1
   call void @_ZdlPvm(ptr noundef %688, i64 noundef %704) #31
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %31) #32
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %30) #32
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %29) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   br i1 %.0414, label %705, label %1542
 
 .sink.split1031:                                  ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit655.thread, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i654.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit655.thread966
   %.pn504.pn803.ph = phi { ptr, i32 } [ %691, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit655.thread966 ], [ %691, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i654.thread ], [ %677, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit655.thread ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %31) #32
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %30) #32
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %29) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   br label %705
 
 705:                                              ; preds = %.sink.split1031, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i654, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit655
@@ -17535,9 +17529,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit655: ; preds = %_Z
 
 709:                                              ; preds = %706
   %710 = call ptr @__cxa_allocate_exception(i64 40) #32
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %32) #32
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %33) #32
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %34) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef nonnull @.str.41, ptr noundef nonnull align 1 dereferenceable(1) %34)
           to label %711 unwind label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit661.thread
 
@@ -17612,25 +17606,25 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %738 = load i64, ptr %737, align 8, !tbaa !98
   %739 = icmp ult i64 %738, 16
   call void @llvm.assume(i1 %739)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %34) #32
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %33) #32
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %32) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
   br i1 %.0420, label %742, label %1542
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit661: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit658
   %740 = load i64, ptr %726, align 8, !tbaa !21
   %741 = add i64 %740, 1
   call void @_ZdlPvm(ptr noundef %725, i64 noundef %741) #31
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %34) #32
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %33) #32
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %32) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
   br i1 %.0420, label %742, label %1542
 
 .sink.split1032:                                  ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit661.thread, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i660.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit661.thread977
   %.pn501.pn806.ph = phi { ptr, i32 } [ %728, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit661.thread977 ], [ %728, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i660.thread ], [ %714, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit661.thread ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %34) #32
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %33) #32
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %32) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
   br label %742
 
 742:                                              ; preds = %.sink.split1032, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i660, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit661
@@ -17656,10 +17650,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit661: ; preds = %_Z
 
 750:                                              ; preds = %749
   %751 = call ptr @__cxa_allocate_exception(i64 40) #32
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %35) #32
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %36) #32
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %37) #32
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %38) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
+  call void @llvm.lifetime.start.p0(ptr nonnull %38)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull @.str.75, ptr noundef nonnull align 1 dereferenceable(1) %38)
           to label %752 unwind label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit670.thread
 
@@ -17769,28 +17763,28 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %792 = load i64, ptr %791, align 8, !tbaa !98
   %793 = icmp ult i64 %792, 16
   call void @llvm.assume(i1 %793)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %38) #32
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %37) #32
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %36) #32
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %35) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
   br i1 %.3426, label %796, label %1542
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit670: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit667
   %794 = load i64, ptr %780, align 8, !tbaa !21
   %795 = add i64 %794, 1
   call void @_ZdlPvm(ptr noundef %779, i64 noundef %795) #31
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %38) #32
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %37) #32
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %36) #32
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %35) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
   br i1 %.3426, label %796, label %1542
 
 .sink.split1033:                                  ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit670.thread, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i669.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit670.thread988
   %.pn497.pn.pn809.ph = phi { ptr, i32 } [ %782, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit670.thread988 ], [ %782, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i669.thread ], [ %758, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit670.thread ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %38) #32
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %37) #32
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %36) #32
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %35) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
   br label %796
 
 796:                                              ; preds = %.sink.split1033, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i669, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit670
@@ -17818,7 +17812,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit670: ; preds = %_Z
 
 805:                                              ; preds = %804
   %806 = call ptr @__cxa_allocate_exception(i64 40) #32
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %39) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %39)
   invoke void @_ZN5osgeo4proj8internal6concatEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %39, ptr noundef nonnull @.str.75, ptr noundef nonnull align 8 dereferenceable(32) %372, ptr noundef nonnull @.str.77)
           to label %807 unwind label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit673.thread
 
@@ -17833,7 +17827,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit670: ; preds = %_Z
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit673.thread: ; preds = %805
   %809 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %39) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
   br label %820
 
 810:                                              ; preds = %808, %807
@@ -17850,14 +17844,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %816 = load i64, ptr %815, align 8, !tbaa !98
   %817 = icmp ult i64 %816, 16
   call void @llvm.assume(i1 %817)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %39) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
   br i1 %.0433, label %820, label %1542
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit673: ; preds = %810
   %818 = load i64, ptr %813, align 8, !tbaa !21
   %819 = add i64 %818, 1
   call void @_ZdlPvm(ptr noundef %812, i64 noundef %819) #31
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %39) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
   br i1 %.0433, label %820, label %1542
 
 820:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i672, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit673.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit673
@@ -17961,8 +17955,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit673: ; preds = %81
 859:                                              ; preds = %857
   %860 = call noundef double @_ZNK5osgeo4proj9operation15SingleOperation21parameterValueNumericEPKcRKNS0_6common13UnitOfMeasureE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull @.str.91, ptr noundef nonnull align 8 dereferenceable(24) @_ZN5osgeo4proj6common13UnitOfMeasure5METREE) #32
   %861 = call noundef double @_ZNK5osgeo4proj9operation15SingleOperation21parameterValueNumericEPKcRKNS0_6common13UnitOfMeasureE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull @.str.92, ptr noundef nonnull align 8 dereferenceable(24) @_ZN5osgeo4proj6common13UnitOfMeasure5METREE) #32
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %40) #32
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %41) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %40)
+  call void @llvm.lifetime.start.p0(ptr nonnull %41)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %40, ptr noundef nonnull @.str.93, ptr noundef nonnull align 1 dereferenceable(1) %41)
           to label %862 unwind label %889
 
@@ -17998,8 +17992,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i67
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit676
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit676: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i675, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i674
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %41) #32
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %40) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
   %878 = call noundef double @_ZNK5osgeo4proj9operation15SingleOperation21parameterValueNumericEPKcRKNS0_6common13UnitOfMeasureE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull @.str.94, ptr noundef nonnull align 8 dereferenceable(24) @_ZN5osgeo4proj6common13UnitOfMeasure6DEGREEE) #32
   %879 = call noundef double @_ZNK5osgeo4proj9operation15SingleOperation21parameterValueNumericEPKcRKNS0_6common13UnitOfMeasureE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull @.str.95, ptr noundef nonnull align 8 dereferenceable(24) @_ZN5osgeo4proj6common13UnitOfMeasure6DEGREEE) #32
   %880 = call noundef double @_ZNK5osgeo4proj9operation15SingleOperation21parameterValueNumericEPKcRKNS0_6common13UnitOfMeasureE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull @.str.96, ptr noundef nonnull align 8 dereferenceable(24) @_ZN5osgeo4proj6common13UnitOfMeasure6DEGREEE) #32
@@ -18038,8 +18032,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit676: ; preds = %_Z
 889:                                              ; preds = %859
   %890 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %41) #32
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %40) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
   br label %1542
 
 891:                                              ; preds = %888, %887, %886, %885, %884, %883, %882, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit676
@@ -18162,7 +18156,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit676: ; preds = %_Z
   br i1 %or.cond27, label %949, label %.thread813
 
 949:                                              ; preds = %945
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %42) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %42)
   invoke void @_ZNK5osgeo4proj3crs11VerticalCRS16coordinateSystemEv(ptr dead_on_unwind nonnull writable sret(%"class.dropbox::oxygen::nn.308") align 8 %42, ptr noundef nonnull align 8 dereferenceable(16) %942)
           to label %950 unwind label %965
 
@@ -18174,8 +18168,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit676: ; preds = %_Z
   %955 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5osgeo4proj2cs20CoordinateSystemAxis4unitEv(ptr noundef nonnull align 8 dereferenceable(56) %954) #36
   %956 = call noundef double @_ZNK5osgeo4proj6common13UnitOfMeasure14conversionToSIEv(ptr noundef nonnull align 8 dereferenceable(24) %955) #36
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs10VerticalCSEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %42) #32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %42) #32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %43) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
+  call void @llvm.lifetime.start.p0(ptr nonnull %43)
   invoke void @_ZNK5osgeo4proj3crs11VerticalCRS16coordinateSystemEv(ptr dead_on_unwind nonnull writable sret(%"class.dropbox::oxygen::nn.308") align 8 %43, ptr noundef nonnull align 8 dereferenceable(16) %946)
           to label %957 unwind label %967
 
@@ -18187,20 +18181,20 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit676: ; preds = %_Z
   %962 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5osgeo4proj2cs20CoordinateSystemAxis4unitEv(ptr noundef nonnull align 8 dereferenceable(56) %961) #36
   %963 = call noundef double @_ZNK5osgeo4proj6common13UnitOfMeasure14conversionToSIEv(ptr noundef nonnull align 8 dereferenceable(24) %962) #36
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs10VerticalCSEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %43) #32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %43) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
   %964 = fdiv double %956, %963
   br label %975
 
 965:                                              ; preds = %949
   %966 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %42) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
   br label %1542
 
 967:                                              ; preds = %950
   %968 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %43) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
   br label %1542
 
 .thread813:                                       ; preds = %941, %945
@@ -18292,13 +18286,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit676: ; preds = %_Z
   br label %1542
 
 .thread832:                                       ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit619, %418
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12) #32
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.thread815
 
 1000:                                             ; preds = %393
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12) #32
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.thread823
 
 .thread823:                                       ; preds = %913, %917, %706, %632, %567, %528, %463, %469, %440, %446, %978, %1000
@@ -18322,7 +18316,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit676: ; preds = %_Z
   br i1 %.0400828, label %._crit_edge.i.i677, label %1028
 
 ._crit_edge.i.i677:                               ; preds = %1007
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %44) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %44)
   %1008 = getelementptr inbounds nuw i8, ptr %44, i64 16
   store ptr %1008, ptr %44, align 8, !tbaa !92
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %1008, ptr noundef nonnull align 1 dereferenceable(6) @.str.61, i64 6, i1 false)
@@ -18351,7 +18345,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i68
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit683
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit683: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i682, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i681
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %44) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %44)
   br label %1028
 
 1018:                                             ; preds = %1298, %1006
@@ -18379,7 +18373,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i68
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit686
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit686: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i684, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i685
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %44) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %44)
   br label %1542
 
 1028:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit683, %1007
@@ -18389,11 +18383,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit686: ; preds = %_Z
   br i1 %.not535, label %1222, label %1031
 
 1031:                                             ; preds = %1028
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %45) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %45)
   %1032 = getelementptr inbounds nuw i8, ptr %45, i64 16
   store ptr %1032, ptr %45, align 8, !tbaa !92
   %1033 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1030) #32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %1033, ptr %4, align 8, !tbaa !94
   %1034 = icmp ugt i64 %1033, 15
   br i1 %1034, label %.noexc.i688, label %._crit_edge.i.i687
@@ -18431,7 +18425,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit686: ; preds = %_Z
   %1044 = load ptr, ptr %45, align 8, !tbaa !96
   %1045 = getelementptr inbounds nuw i8, ptr %1044, i64 %1042
   store i8 0, ptr %1045, align 1, !tbaa !21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %1046 = load i64, ptr %1043, align 8, !tbaa !98
   %1047 = icmp ult i64 %1046, 5
   %.pre1022 = load ptr, ptr %45, align 8, !tbaa !96
@@ -18459,7 +18453,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i69
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit694
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit694: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i693, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i692
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %45) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
   br i1 %.0.i, label %1054, label %.thread833
 
 1054:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit694
@@ -18483,7 +18477,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit694: ; preds = %_Z
 1063:                                             ; preds = %.noexc.i688
   %1064 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %45) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
   br label %1542
 
 1065:                                             ; preds = %1060
@@ -18505,8 +18499,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit694: ; preds = %_Z
   br i1 %1078, label %1079, label %.thread833
 
 1079:                                             ; preds = %1074
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %46) #32
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %47) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %46)
+  call void @llvm.lifetime.start.p0(ptr nonnull %47)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef nonnull @.str.111, ptr noundef nonnull align 1 dereferenceable(1) %47)
           to label %1080 unwind label %1090
 
@@ -18534,8 +18528,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i69
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit697
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit697: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i696, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i695
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %47) #32
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %46) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
+  call void @llvm.lifetime.end.p0(ptr nonnull %46)
   br label %.thread833
 
 1090:                                             ; preds = %1079
@@ -18566,8 +18560,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i69
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit700: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i698, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i699, %1090
   %.pn537 = phi { ptr, i32 } [ %1091, %1090 ], [ %1093, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i699 ], [ %1093, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i698 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %47) #32
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %46) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
+  call void @llvm.lifetime.end.p0(ptr nonnull %46)
   br label %1542
 
 .thread833:                                       ; preds = %1060, %1057, %1054, %1065, %1074, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit697, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit694
@@ -18633,12 +18627,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit700: ; preds = %_Z
   br i1 %.0427.not, label %1222, label %1134
 
 1134:                                             ; preds = %1130, %.thread842
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %48) #32
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %49) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %48)
+  call void @llvm.lifetime.start.p0(ptr nonnull %49)
   %1135 = getelementptr inbounds nuw i8, ptr %49, i64 16
   store ptr %1135, ptr %49, align 8, !tbaa !92
   %1136 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1102) #32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %1136, ptr %3, align 8, !tbaa !94
   %1137 = icmp ugt i64 %1136, 15
   br i1 %1137, label %.noexc.i702, label %._crit_edge.i.i701
@@ -18676,7 +18670,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit700: ; preds = %_Z
   %1147 = load ptr, ptr %49, align 8, !tbaa !96
   %1148 = getelementptr inbounds nuw i8, ptr %1147, i64 %1145
   store i8 0, ptr %1148, align 1, !tbaa !21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   invoke void @_ZN5osgeo4proj8internal5splitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEc(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.357") align 8 %48, ptr noundef nonnull align 8 dereferenceable(32) %49, i8 noundef signext 61)
           to label %1149 unwind label %1167
 
@@ -18698,7 +18692,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i70
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit708
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit708: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i707, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i706
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %49) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %49)
   %1156 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %1157 = load ptr, ptr %1156, align 8, !tbaa !433
   %1158 = load ptr, ptr %48, align 8, !tbaa !430
@@ -18739,7 +18733,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i70
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit711: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i709, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i710, %1165
   %.pn542 = phi { ptr, i32 } [ %1166, %1165 ], [ %1168, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i710 ], [ %1168, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i709 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %49) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %49)
   br label %1221
 
 1175:                                             ; preds = %1163
@@ -18748,9 +18742,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit711: ; preds = %_Z
   br label %1220
 
 1177:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit708
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %50) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %50)
   %1178 = load ptr, ptr %1029, align 8, !tbaa !454
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %51) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %51)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %50, ptr noundef %1178, ptr noundef nonnull align 1 dereferenceable(1) %51)
           to label %1179 unwind label %1189
 
@@ -18778,8 +18772,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i71
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit714
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit714: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i713, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i712
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %51) #32
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %50) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %51)
+  call void @llvm.lifetime.end.p0(ptr nonnull %50)
   br label %1201
 
 1189:                                             ; preds = %1177
@@ -18810,8 +18804,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i71
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit717: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i715, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i716, %1189
   %.pn544 = phi { ptr, i32 } [ %1190, %1189 ], [ %1192, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i716 ], [ %1192, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i715 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %51) #32
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %50) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %51)
+  call void @llvm.lifetime.end.p0(ptr nonnull %50)
   br label %1220
 
 1201:                                             ; preds = %1163, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit714
@@ -18864,7 +18858,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, %1214
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %48) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %48)
   br label %1222
 
 1220:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit717, %1175
@@ -18874,7 +18868,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 
 1221:                                             ; preds = %1220, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit711
   %.pn546.pn = phi { ptr, i32 } [ %.pn546, %1220 ], [ %.pn542, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit711 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %48) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %48)
   br label %1542
 
 1222:                                             ; preds = %1130, %.thread842, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, %1028
@@ -18917,7 +18911,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br i1 %.not551, label %1294, label %1242
 
 1242:                                             ; preds = %1238
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %52) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %52)
   %1243 = load ptr, ptr %1239, align 8, !tbaa !81
   store ptr %1236, ptr %52, align 8, !tbaa !92
   %1244 = icmp eq ptr %1243, null
@@ -18932,7 +18926,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 
 1246:                                             ; preds = %1242
   %1247 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1243) #32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 %1247, ptr %2, align 8, !tbaa !94
   %1248 = icmp ugt i64 %1247, 15
   br i1 %1248, label %.noexc.i721, label %._crit_edge.i.i720
@@ -18969,7 +18963,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   %1257 = load ptr, ptr %52, align 8, !tbaa !96
   %1258 = getelementptr inbounds nuw i8, ptr %1257, i64 %1256
   store i8 0, ptr %1258, align 1, !tbaa !21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %1259 = getelementptr inbounds nuw i8, ptr %1239, i64 8
   %1260 = load i32, ptr %1259, align 8, !tbaa !84
   %1261 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5osgeo4proj9operation15SingleOperation21parameterValueMeasureERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %52, i32 noundef %1260) #32
@@ -18990,7 +18984,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i72
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit727
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit727: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i726, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i725
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %52) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %52)
   %1268 = call noundef zeroext i1 @_ZNK5osgeo4proj6common7MeasureeqERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %1261, ptr noundef nonnull align 8 dereferenceable(24) @_ZN5osgeo4proj9operation11nullMeasureE) #36
   br i1 %1268, label %1269, label %1276
 
@@ -19016,7 +19010,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit727: ; preds = %_Z
 
 1273:                                             ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %52) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %52)
   br label %1542
 
 1274:                                             ; preds = %1269, %1269
@@ -19085,7 +19079,7 @@ thread-pre-split:                                 ; preds = %1274, %1282, %1280
 
 1301:                                             ; preds = %1300
   %1302 = call ptr @__cxa_allocate_exception(i64 40) #32
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %53) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %53)
   invoke void @_ZN5osgeo4proj8internal6concatEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %53, ptr noundef nonnull @.str.115, ptr noundef nonnull align 8 dereferenceable(32) %59)
           to label %1303 unwind label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit730.thread
 
@@ -19100,7 +19094,7 @@ thread-pre-split:                                 ; preds = %1274, %1282, %1280
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit730.thread: ; preds = %1301
   %1305 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %53) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %53)
   br label %1316
 
 1306:                                             ; preds = %1304, %1303
@@ -19117,14 +19111,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %1312 = load i64, ptr %1311, align 8, !tbaa !98
   %1313 = icmp ult i64 %1312, 16
   call void @llvm.assume(i1 %1313)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %53) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %53)
   br i1 %.0395, label %1316, label %1542
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit730: ; preds = %1306
   %1314 = load i64, ptr %1309, align 8, !tbaa !21
   %1315 = add i64 %1314, 1
   call void @_ZdlPvm(ptr noundef %1308, i64 noundef %1315) #31
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %53) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %53)
   br i1 %.0395, label %1316, label %1542
 
 1316:                                             ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i729, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit730.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit730
@@ -19171,12 +19165,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit730: ; preds = %13
   br i1 %brmerge, label %.thread859, label %1333
 
 1333:                                             ; preds = %.thread851
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %54) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %54)
   invoke void @_ZNK5osgeo4proj3crs3CRS18extractGeodeticCRSEv(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr.265") align 8 %54, ptr noundef nonnull align 8 dereferenceable(64) %.0393854)
           to label %1334 unwind label %1355
 
 1334:                                             ; preds = %1333
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %55) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %55)
   call void @llvm.experimental.noalias.scope.decl(metadata !458)
   %1335 = load ptr, ptr %54, align 8, !tbaa !437, !noalias !458
   %1336 = icmp eq ptr %1335, null
@@ -19243,7 +19237,7 @@ _ZSt20dynamic_pointer_castIN5osgeo4proj3crs13GeographicCRSENS2_11GeodeticCRSEESt
   %1358 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt12__shared_ptrIN5osgeo4proj3crs13GeographicCRSELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %55) #32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %55) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %55)
   call void @_ZNSt12__shared_ptrIN5osgeo4proj3crs11GeodeticCRSELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %54) #32
   br label %1417
 
@@ -19321,7 +19315,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i736: ; preds = %1390, %
   br label %_ZNSt12__shared_ptrIN5osgeo4proj3crs13GeographicCRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit738
 
 _ZNSt12__shared_ptrIN5osgeo4proj3crs13GeographicCRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit738: ; preds = %1370, %1378, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i736, %1393
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %55) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %55)
   %1394 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %1395 = load ptr, ptr %1394, align 8, !tbaa !20
   %.not.i.i739 = icmp eq ptr %1395, null
@@ -19372,13 +19366,13 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i741: ; preds = %1413, %
   br label %_ZNSt12__shared_ptrIN5osgeo4proj3crs11GeodeticCRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit743
 
 _ZNSt12__shared_ptrIN5osgeo4proj3crs11GeodeticCRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit743: ; preds = %_ZNSt12__shared_ptrIN5osgeo4proj3crs13GeographicCRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit738, %1401, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i741, %1416
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %54) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %54)
   %.pre1027 = load ptr, ptr %.0393854, align 8, !tbaa !3
   br label %.thread859
 
 1417:                                             ; preds = %1357, %1355
   %.pn556 = phi { ptr, i32 } [ %1358, %1357 ], [ %1356, %1355 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %54) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %54)
   br label %1542
 
 .thread859:                                       ; preds = %.thread851, %_ZNSt12__shared_ptrIN5osgeo4proj3crs11GeodeticCRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit743
@@ -19427,7 +19421,7 @@ _ZNSt12__shared_ptrIN5osgeo4proj3crs11GeodeticCRSELN9__gnu_cxx12_Lock_policyE2EE
   br i1 %1434, label %._crit_edge.i.i744, label %.thread911
 
 ._crit_edge.i.i744:                               ; preds = %1435
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %56) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %56)
   %1436 = getelementptr inbounds nuw i8, ptr %56, i64 16
   store ptr %1436, ptr %56, align 8, !tbaa !92
   store i32 1919252079, ptr %1436, align 8
@@ -19456,7 +19450,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i74
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit750
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit750: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i749, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i748
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %56) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %56)
   br label %.thread911
 
 1446:                                             ; preds = %1459, %1458, %1457, %1433, %1432, %1431, %1430
@@ -19484,7 +19478,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i75
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit753
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit753: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i751, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i752
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %56) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %56)
   br label %1542
 
 1456:                                             ; preds = %1423, %1427
@@ -19589,7 +19583,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i756: ; preds = %1492, %
   br label %_ZNSt12__shared_ptrIN5osgeo4proj3crs13GeographicCRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit758
 
 _ZNSt12__shared_ptrIN5osgeo4proj3crs13GeographicCRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit758: ; preds = %.thread815.thread, %1480, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i756, %1495
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.critedge
 
 .critedge:                                        ; preds = %162, %_ZNSt12__shared_ptrIN5osgeo4proj3crs13GeographicCRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit758
@@ -19643,7 +19637,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i761: ; preds = %1515, %
   br label %_ZNSt12__shared_ptrIN5osgeo4proj3crs3CRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit763
 
 _ZNSt12__shared_ptrIN5osgeo4proj3crs3CRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit763: ; preds = %.critedge, %1503, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i761, %1518
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %1519 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %1520 = load ptr, ptr %1519, align 8, !tbaa !20
   %.not.i.i764 = icmp eq ptr %1520, null
@@ -19694,13 +19688,13 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i766: ; preds = %1538, %
   br label %_ZNSt12__shared_ptrIN5osgeo4proj3crs3CRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit768
 
 _ZNSt12__shared_ptrIN5osgeo4proj3crs3CRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit768: ; preds = %_ZNSt12__shared_ptrIN5osgeo4proj3crs3CRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit763, %1526, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i766, %1541
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
 1542:                                             ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i729, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i672, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i669, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i660, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i654, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i648, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i639, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i633, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i627, %439, %461, %484, %756, %842, %855, %985, %998, %796, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit670, %820, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit673, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit634, %565, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit628, %527, %603, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit640, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit649, %668, %630, %628, %626, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit661, %742, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit655, %705, %891, %889, %925, %927, %911, %909, %971, %973, %967, %965, %976, %1417, %1471, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit753, %1446, %1018, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit686, %1230, %1316, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit730, %1221, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit700, %1063, %1291, %1273, %366, %193
   %.pn564.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn, %366 ], [ %194, %193 ], [ %.pn526.pn, %439 ], [ %462, %461 ], [ %485, %484 ], [ %.pn497.pn.pn809, %796 ], [ %.pn497, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit670 ], [ %757, %756 ], [ %.pn495812, %820 ], [ %811, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit673 ], [ %843, %842 ], [ %856, %855 ], [ %999, %998 ], [ %986, %985 ], [ %.pn520.pn791, %527 ], [ %501, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit628 ], [ %.pn517.pn794, %565 ], [ %539, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit634 ], [ %.pn514.pn797, %603 ], [ %577, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit640 ], [ %631, %630 ], [ %629, %628 ], [ %627, %626 ], [ %.pn509.pn800, %668 ], [ %642, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit649 ], [ %.pn504.pn803, %705 ], [ %679, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit655 ], [ %.pn501.pn806, %742 ], [ %716, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit661 ], [ %892, %891 ], [ %890, %889 ], [ %912, %911 ], [ %910, %909 ], [ %928, %927 ], [ %926, %925 ], [ %977, %976 ], [ %974, %973 ], [ %972, %971 ], [ %968, %967 ], [ %966, %965 ], [ %1231, %1230 ], [ %1021, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit686 ], [ %1019, %1018 ], [ %.pn531847, %1316 ], [ %1307, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit730 ], [ %.pn546.pn, %1221 ], [ %.pn537, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit700 ], [ %1064, %1063 ], [ %1292, %1291 ], [ %lpad.phi, %1273 ], [ %.pn556, %1417 ], [ %1472, %1471 ], [ %1449, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit753 ], [ %1447, %1446 ], [ %501, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i627 ], [ %539, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i633 ], [ %577, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i639 ], [ %642, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i648 ], [ %679, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i654 ], [ %716, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i660 ], [ %.pn497, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i669 ], [ %811, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i672 ], [ %1307, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i729 ]
   call void @_ZNSt12__shared_ptrIN5osgeo4proj3crs13GeographicCRSELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %1543
 
 1543:                                             ; preds = %170, %168, %163, %1542
@@ -19710,9 +19704,9 @@ _ZNSt12__shared_ptrIN5osgeo4proj3crs3CRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 1544:                                             ; preds = %1543, %145
   %.pn570.pn.pn.pn = phi { ptr, i32 } [ %.pn570.pn.pn, %1543 ], [ %146, %145 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZNSt12__shared_ptrIN5osgeo4proj3crs3CRSELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %1545
 
 1545:                                             ; preds = %1544, %76
@@ -19730,7 +19724,7 @@ declare hidden void @_ZN5osgeo4proj2io19FormattingExceptionC1EPKc(ptr noundef no
 declare void @_ZNK5osgeo4proj9operation19CoordinateOperation9targetCRSEv(ptr dead_on_unwind writable sret(%"class.std::shared_ptr.147") align 8, ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #1
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc void @"_ZZNK5osgeo4proj9operation10Conversion19_exportToPROJStringEPNS0_2io19PROJStringFormatterEENK3$_0clERKSt10shared_ptrINS0_3crs3CRSEE"(ptr dead_on_unwind noalias nonnull writable align 8 captures(none) initializes((0, 16)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZNK5osgeo4proj9operation10Conversion19_exportToPROJStringEPNS0_2io19PROJStringFormatterEENK3$_0clERKSt10shared_ptrINS0_3crs3CRSEE"(ptr dead_on_unwind noalias nonnull writable align 8 captures(none) initializes((0, 16)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !464)
   %3 = load ptr, ptr %1, align 8, !tbaa !355, !noalias !464
   %4 = icmp eq ptr %3, null
@@ -20353,7 +20347,7 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %1, %9,
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef zeroext i1 @_ZNK5osgeo4proj3crs11GeodeticCRS25isSphericalPlanetocentricEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #9
+declare noundef zeroext i1 @_ZNK5osgeo4proj3crs11GeodeticCRS25isSphericalPlanetocentricEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #8
 
 declare hidden void @_ZN5osgeo4proj2io19PROJStringFormatter28setOmitProjLongLatIfPossibleEb(ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #1
 
@@ -20362,10 +20356,10 @@ declare void @_ZN5osgeo4proj2io19PROJStringFormatter14startInversionEv(ptr nound
 declare void @_ZN5osgeo4proj2io19PROJStringFormatter13stopInversionEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5osgeo4proj3crs11CompoundCRS25componentReferenceSystemsEv(ptr noundef nonnull align 8 dereferenceable(80)) local_unnamed_addr #9
+declare noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5osgeo4proj3crs11CompoundCRS25componentReferenceSystemsEv(ptr noundef nonnull align 8 dereferenceable(80)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5osgeo4proj3crs8BoundCRS7baseCRSEv(ptr noundef nonnull align 8 dereferenceable(80)) local_unnamed_addr #9
+declare noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5osgeo4proj3crs8BoundCRS7baseCRSEv(ptr noundef nonnull align 8 dereferenceable(80)) local_unnamed_addr #8
 
 declare hidden void @_ZN5osgeo4proj2io19PROJStringFormatter23pushOmitZUnitConversionEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #1
 
@@ -20591,16 +20585,16 @@ declare hidden noundef i32 @_ZNK5osgeo4proj2io19PROJStringFormatter10conventionE
 declare void @_ZNK5osgeo4proj3crs11VerticalCRS16coordinateSystemEv(ptr dead_on_unwind writable sret(%"class.dropbox::oxygen::nn.308") align 8, ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5osgeo4proj2cs16CoordinateSystem8axisListEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #9
+declare noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5osgeo4proj2cs16CoordinateSystem8axisListEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5osgeo4proj2cs20CoordinateSystemAxis4unitEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #9
+declare noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5osgeo4proj2cs20CoordinateSystemAxis4unitEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef double @_ZNK5osgeo4proj6common13UnitOfMeasure14conversionToSIEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #9
+declare noundef double @_ZNK5osgeo4proj6common13UnitOfMeasure14conversionToSIEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #8
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs10VerticalCSEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs10VerticalCSEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !20
   %.not.i.i = icmp eq ptr %3, null
@@ -20657,13 +20651,13 @@ _ZNSt12__shared_ptrIN5osgeo4proj2cs10VerticalCSELN9__gnu_cxx12_Lock_policyE2EED2
 declare hidden void @_ZN5osgeo4proj9operation15SingleOperation36exportToPROJStringChangeVerticalUnitEPNS0_2io19PROJStringFormatterEd(ptr noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5osgeo4proj3crs12ProjectedCRS16coordinateSystemEv(ptr noundef nonnull align 8 dereferenceable(104)) local_unnamed_addr #9
+declare noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5osgeo4proj3crs12ProjectedCRS16coordinateSystemEv(ptr noundef nonnull align 8 dereferenceable(104)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5osgeo4proj2cs20CoordinateSystemAxis9directionEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #9
+declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5osgeo4proj2cs20CoordinateSystemAxis9directionEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #8
 
 ; Function Attrs: inlinehint mustprogress nofree nounwind willreturn memory(read) uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZNK5osgeo4proj4util8CodeListeqERKS2_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #19 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden noundef zeroext i1 @_ZNK5osgeo4proj4util8CodeListeqERKS2_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #18 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !tbaa !98
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -20688,10 +20682,10 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #20
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef zeroext i1 @_ZNK5osgeo4proj5datum9Ellipsoid8isSphereEv(ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #9
+declare noundef zeroext i1 @_ZNK5osgeo4proj5datum9Ellipsoid8isSphereEv(ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #8
 
 declare void @_ZN5osgeo4proj8internal5splitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEc(ptr dead_on_unwind writable sret(%"class.std::vector.357") align 8, ptr noundef nonnull align 8 dereferenceable(32), i8 noundef signext) local_unnamed_addr #1
 
@@ -20753,7 +20747,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef zeroext i1 @_ZNK5osgeo4proj6common7MeasureeqERKS2_(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #9
+declare noundef zeroext i1 @_ZNK5osgeo4proj6common7MeasureeqERKS2_(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #8
 
 declare hidden noundef zeroext i1 @_ZNK5osgeo4proj9operation15SingleOperation25exportToPROJStringGenericEPNS0_2io19PROJStringFormatterE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) local_unnamed_addr #1
 
@@ -20764,7 +20758,7 @@ declare void @_ZNK5osgeo4proj3crs3CRS18extractGeodeticCRSEv(ptr dead_on_unwind w
 declare hidden void @_ZNK5osgeo4proj3crs11GeodeticCRS24addDatumInfoToPROJStringEPNS0_2io19PROJStringFormatterE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5osgeo4proj3crs11GeodeticCRS13primeMeridianEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #9
+declare noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5osgeo4proj3crs11GeodeticCRS13primeMeridianEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #8
 
 declare hidden void @_ZNK5osgeo4proj5datum13PrimeMeridian19_exportToPROJStringEPNS0_2io19PROJStringFormatterE(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef) unnamed_addr #1
 
@@ -20775,7 +20769,7 @@ declare hidden void @_ZNK5osgeo4proj3crs19DerivedProjectedCRS25addUnitConvertAnd
 declare hidden void @_ZNK5osgeo4proj3crs11GeodeticCRS32addAngularUnitConvertAndAxisSwapEPNS0_2io19PROJStringFormatterE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: uwtable
-define hidden void @_ZTvn48_n80_NK5osgeo4proj9operation10Conversion19_exportToPROJStringEPNS0_2io19PROJStringFormatterE(ptr noundef %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define hidden void @_ZTvn48_n80_NK5osgeo4proj9operation10Conversion19_exportToPROJStringEPNS0_2io19PROJStringFormatterE(ptr noundef %0, ptr noundef %1) unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 -48
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   %5 = getelementptr inbounds i8, ptr %4, i64 -80
@@ -20786,7 +20780,7 @@ define hidden void @_ZTvn48_n80_NK5osgeo4proj9operation10Conversion19_exportToPR
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.round.f64(double) #11
+declare double @llvm.round.f64(double) #10
 
 ; Function Attrs: nounwind
 declare i64 @lround(double noundef) local_unnamed_addr #2
@@ -20803,7 +20797,7 @@ define void @_ZNK5osgeo4proj9operation10Conversion8identifyEv(ptr dead_on_unwind
   %9 = load ptr, ptr %8, align 8, !tbaa !3
   %10 = getelementptr i8, ptr %9, i64 -24
   %11 = load i64, ptr %10, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %12 = getelementptr inbounds i8, ptr %8, i64 %11
   store ptr %12, ptr %3, align 8, !tbaa !17
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -20835,7 +20829,7 @@ _ZN5osgeo4proj4util15BaseObjectNNPtrC2INS0_9operation10ConversionEEERKN7dropbox6
 
 24:                                               ; preds = %_ZN5osgeo4proj4util15BaseObjectNNPtrC2INS0_9operation10ConversionEEERKN7dropbox6oxygen2nnISt10shared_ptrIT_EEE.exit
   call void @_ZN5osgeo4proj4util15BaseObjectNNPtrD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %25 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5osgeo4proj9operation15SingleOperation6methodEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #36
   %26 = load ptr, ptr %25, align 8, !tbaa !58
   %27 = call noundef i32 @_ZNK5osgeo4proj9operation15OperationMethod11getEPSGCodeEv(ptr noundef nonnull align 8 dereferenceable(56) %26) #36
@@ -20843,9 +20837,9 @@ _ZN5osgeo4proj4util15BaseObjectNNPtrC2INS0_9operation10ConversionEEERKN7dropbox6
   br i1 %28, label %29, label %58
 
 29:                                               ; preds = %24
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !22
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 1, ptr %5, align 1, !tbaa !449
   %30 = invoke noundef zeroext i1 @_ZNK5osgeo4proj9operation10Conversion5isUTMERiRb(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %31 unwind label %46
@@ -20859,8 +20853,8 @@ _ZN5osgeo4proj4util15BaseObjectNNPtrC2INS0_9operation10ConversionEEERKN7dropbox6
   %35 = getelementptr i8, ptr %34, i64 -24
   %36 = load i64, ptr %35, align 8
   %37 = getelementptr inbounds i8, ptr %33, i64 %36
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   invoke void @_ZN5osgeo4proj4util11PropertyMapC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
           to label %38 unwind label %48
 
@@ -20878,15 +20872,15 @@ _ZN5osgeo4proj4util15BaseObjectNNPtrC2INS0_9operation10ConversionEEERKN7dropbox6
 43:                                               ; preds = %42
   call void @_ZN5osgeo4proj4util11PropertyMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #32
   call void @_ZN5osgeo4proj4util11PropertyMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %56
 
 44:                                               ; preds = %_ZN5osgeo4proj4util15BaseObjectNNPtrC2INS0_9operation10ConversionEEERKN7dropbox6oxygen2nnISt10shared_ptrIT_EEE.exit
   %45 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5osgeo4proj4util15BaseObjectNNPtrD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %59
 
 46:                                               ; preds = %29
@@ -20917,19 +20911,19 @@ _ZN5osgeo4proj4util15BaseObjectNNPtrC2INS0_9operation10ConversionEEERKN7dropbox6
 
 55:                                               ; preds = %54, %48
   %.pn9.pn = phi { ptr, i32 } [ %.pn9, %54 ], [ %49, %48 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %57
 
 56:                                               ; preds = %43, %31
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #32
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %58
 
 57:                                               ; preds = %55, %46
   %.pn9.pn.pn = phi { ptr, i32 } [ %.pn9.pn, %55 ], [ %47, %46 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #32
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %59
 
 58:                                               ; preds = %24, %56
@@ -20948,10 +20942,10 @@ define void @_ZN5osgeo4proj9operation10Conversion25createGeographic2DOffsetsERKN
   %7 = alloca [2 x %"class.dropbox::oxygen::nn.106"], align 8
   %8 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
   %9 = alloca [2 x %"class.osgeo::proj::common::Measure"], align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN5osgeo4proj9operation27createMethodMapNameEPSGCodeEi(ptr dead_on_unwind nonnull writable sret(%"class.osgeo::proj::util::PropertyMap") align 8 %5, i32 noundef 9619)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #32
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   invoke void @_ZN5osgeo4proj9operation25createOpParamNameEPSGCodeEi(ptr dead_on_unwind nonnull writable sret(%"class.dropbox::oxygen::nn.106") align 8 %7, i32 noundef 8601)
           to label %11 unwind label %.thread
 
@@ -21016,8 +21010,8 @@ _ZSt10_ConstructIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18Oper
 31:                                               ; preds = %_ZSt10_ConstructIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterEEEEJRKS9_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %30, ptr %32, align 8, !tbaa !65
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #32
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   invoke void @_ZN5osgeo4proj6common7MeasureC1ERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %2)
           to label %34 unwind label %.thread21
 
@@ -21052,8 +21046,8 @@ _ZSt10_ConstructIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18Oper
   br i1 %43, label %44, label %40
 
 44:                                               ; preds = %40
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @_ZN5osgeo4proj9operation18VectorOfParametersD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #32
   br label %45
 
@@ -21114,10 +21108,10 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterE
   br i1 %71, label %72, label %45
 
 72:                                               ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterEEED2Ev.exit
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZN5osgeo4proj4util11PropertyMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
 .loopexit.loopexit27:                             ; preds = %11
@@ -21162,8 +21156,8 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterE
 
 .loopexit23:                                      ; preds = %83, %.loopexit23.loopexit26, %.thread21
   %.pn.pn = phi { ptr, i32 } [ %33, %.thread21 ], [ %76, %.loopexit23.loopexit26 ], [ %.pn, %83 ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @_ZN5osgeo4proj9operation18VectorOfParametersD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #32
   br label %87
 
@@ -21180,10 +21174,10 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterE
 
 .loopexit:                                        ; preds = %88, %.loopexit.loopexit27, %.thread
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %10, %.thread ], [ %73, %.loopexit.loopexit27 ], [ %.pn.pn.pn, %88 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZN5osgeo4proj4util11PropertyMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn.pn.pn.pn
 }
 
@@ -21194,10 +21188,10 @@ define void @_ZN5osgeo4proj9operation10Conversion25createGeographic3DOffsetsERKN
   %8 = alloca [3 x %"class.dropbox::oxygen::nn.106"], align 8
   %9 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
   %10 = alloca [3 x %"class.osgeo::proj::common::Measure"], align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN5osgeo4proj9operation27createMethodMapNameEPSGCodeEi(ptr dead_on_unwind nonnull writable sret(%"class.osgeo::proj::util::PropertyMap") align 8 %6, i32 noundef 9660)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #32
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   invoke void @_ZN5osgeo4proj9operation25createOpParamNameEPSGCodeEi(ptr dead_on_unwind nonnull writable sret(%"class.dropbox::oxygen::nn.106") align 8 %8, i32 noundef 8601)
           to label %12 unwind label %.thread
 
@@ -21267,8 +21261,8 @@ _ZSt10_ConstructIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18Oper
 34:                                               ; preds = %_ZSt10_ConstructIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterEEEEJRKS9_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i
   %35 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %33, ptr %35, align 8, !tbaa !65
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #32
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %10) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   invoke void @_ZN5osgeo4proj6common7MeasureC1ERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %2)
           to label %37 unwind label %.thread22
 
@@ -21308,8 +21302,8 @@ _ZSt10_ConstructIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18Oper
   br i1 %48, label %49, label %45
 
 49:                                               ; preds = %45
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %10) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @_ZN5osgeo4proj9operation18VectorOfParametersD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #32
   br label %50
 
@@ -21370,10 +21364,10 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterE
   br i1 %76, label %77, label %50
 
 77:                                               ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterEEED2Ev.exit
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_ZN5osgeo4proj4util11PropertyMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
 78:                                               ; preds = %14, %12
@@ -21432,8 +21426,8 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterE
 
 .loopexit24:                                      ; preds = %88, %98, %.thread22
   %.pn.pn = phi { ptr, i32 } [ %36, %.thread22 ], [ %.pn, %98 ], [ %87, %88 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %10) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @_ZN5osgeo4proj9operation18VectorOfParametersD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #32
   br label %102
 
@@ -21450,10 +21444,10 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterE
 
 .loopexit:                                        ; preds = %80, %103, %.thread
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %11, %.thread ], [ %.pn.pn.pn, %103 ], [ %79, %80 ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_ZN5osgeo4proj4util11PropertyMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %.pn.pn.pn.pn
 }
 
@@ -21464,10 +21458,10 @@ define void @_ZN5osgeo4proj9operation10Conversion35createGeographic2DWithHeightO
   %8 = alloca [3 x %"class.dropbox::oxygen::nn.106"], align 8
   %9 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
   %10 = alloca [3 x %"class.osgeo::proj::common::Measure"], align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN5osgeo4proj9operation27createMethodMapNameEPSGCodeEi(ptr dead_on_unwind nonnull writable sret(%"class.osgeo::proj::util::PropertyMap") align 8 %6, i32 noundef 9618)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #32
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   invoke void @_ZN5osgeo4proj9operation25createOpParamNameEPSGCodeEi(ptr dead_on_unwind nonnull writable sret(%"class.dropbox::oxygen::nn.106") align 8 %8, i32 noundef 8601)
           to label %12 unwind label %.thread
 
@@ -21537,8 +21531,8 @@ _ZSt10_ConstructIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18Oper
 34:                                               ; preds = %_ZSt10_ConstructIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterEEEEJRKS9_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i
   %35 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %33, ptr %35, align 8, !tbaa !65
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #32
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %10) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   invoke void @_ZN5osgeo4proj6common7MeasureC1ERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %2)
           to label %37 unwind label %.thread22
 
@@ -21578,8 +21572,8 @@ _ZSt10_ConstructIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18Oper
   br i1 %48, label %49, label %45
 
 49:                                               ; preds = %45
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %10) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @_ZN5osgeo4proj9operation18VectorOfParametersD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #32
   br label %50
 
@@ -21640,10 +21634,10 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterE
   br i1 %76, label %77, label %50
 
 77:                                               ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterEEED2Ev.exit
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_ZN5osgeo4proj4util11PropertyMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
 78:                                               ; preds = %14, %12
@@ -21702,8 +21696,8 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterE
 
 .loopexit24:                                      ; preds = %88, %98, %.thread22
   %.pn.pn = phi { ptr, i32 } [ %36, %.thread22 ], [ %.pn, %98 ], [ %87, %88 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %10) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @_ZN5osgeo4proj9operation18VectorOfParametersD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #32
   br label %102
 
@@ -21720,10 +21714,10 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterE
 
 .loopexit:                                        ; preds = %80, %103, %.thread
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %11, %.thread ], [ %.pn.pn.pn, %103 ], [ %79, %80 ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_ZN5osgeo4proj4util11PropertyMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %.pn.pn.pn.pn
 }
 
@@ -21734,10 +21728,10 @@ define void @_ZN5osgeo4proj9operation10Conversion20createVerticalOffsetERKNS0_4u
   %6 = alloca [1 x %"class.dropbox::oxygen::nn.106"], align 8
   %7 = alloca %"struct.osgeo::proj::operation::VectorOfValues", align 8
   %8 = alloca [1 x %"class.osgeo::proj::common::Measure"], align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN5osgeo4proj9operation27createMethodMapNameEPSGCodeEi(ptr dead_on_unwind nonnull writable sret(%"class.osgeo::proj::util::PropertyMap") align 8 %4, i32 noundef 9616)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   invoke void @_ZN5osgeo4proj9operation25createOpParamNameEPSGCodeEi(ptr dead_on_unwind nonnull writable sret(%"class.dropbox::oxygen::nn.106") align 8 %6, i32 noundef 8603)
           to label %9 unwind label %52
 
@@ -21779,8 +21773,8 @@ define void @_ZN5osgeo4proj9operation10Conversion20createVerticalOffsetERKNS0_4u
 _ZSt10_ConstructIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterEEEEJRKS9_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i: ; preds = %23, %20, %.noexc
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %11, ptr %25, align 8, !tbaa !65
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #32
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   invoke void @_ZN5osgeo4proj6common7MeasureC1ERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %2)
           to label %26 unwind label %56
 
@@ -21795,8 +21789,8 @@ _ZSt10_ConstructIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18Oper
 28:                                               ; preds = %27
   call void @_ZN5osgeo4proj9operation14VectorOfValuesD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #32
   call void @_ZN5osgeo4proj6common7MeasureD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_ZN5osgeo4proj9operation18VectorOfParametersD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #32
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %30 = load ptr, ptr %29, align 8, !tbaa !20
@@ -21848,10 +21842,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %48, %46
   br label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterEEED2Ev.exit
 
 _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterEEED2Ev.exit: ; preds = %28, %36, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %51
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN5osgeo4proj4util11PropertyMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
 52:                                               ; preds = %3
@@ -21887,8 +21881,8 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterE
 
 .loopexit17:                                      ; preds = %.loopexit17.loopexit, %56
   %.pn.pn = phi { ptr, i32 } [ %57, %56 ], [ %.pn, %.loopexit17.loopexit ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_ZN5osgeo4proj9operation18VectorOfParametersD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #32
   br label %.loopexit.loopexit
 
@@ -21899,10 +21893,10 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterE
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %52
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %53, %52 ], [ %.pn.pn.pn, %.loopexit.loopexit ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN5osgeo4proj4util11PropertyMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn.pn.pn.pn
 }
 
@@ -21923,7 +21917,7 @@ declare void @_ZTv0_n24_N5osgeo4proj9operation15SingleOperationD1Ev(ptr noundef)
 declare void @_ZTv0_n24_N5osgeo4proj9operation15SingleOperationD0Ev(ptr noundef) unnamed_addr #4 align 2
 
 ; Function Attrs: uwtable
-declare hidden noundef zeroext i1 @_ZTv0_n32_NK5osgeo4proj9operation15SingleOperation15_isEquivalentToEPKNS0_4util11IComparableENS4_9CriterionERKSt10shared_ptrINS0_2io15DatabaseContextEE(ptr noundef, ptr noundef, i32 noundef, ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #8 align 2
+declare hidden noundef zeroext i1 @_ZTv0_n32_NK5osgeo4proj9operation15SingleOperation15_isEquivalentToEPKNS0_4util11IComparableENS4_9CriterionERKSt10shared_ptrINS0_2io15DatabaseContextEE(ptr noundef, ptr noundef, i32 noundef, ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #7 align 2
 
 declare noundef zeroext i1 @_ZNK5osgeo4proj6common16IdentifiedObject29hasEquivalentNameToUsingAliasEPKS2_RKSt10shared_ptrINS0_2io15DatabaseContextEE(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef, ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
 
@@ -21938,7 +21932,7 @@ declare void @_ZTvn16_n24_N5osgeo4proj9operation15SingleOperationD1Ev(ptr nounde
 declare void @_ZTvn16_n24_N5osgeo4proj9operation15SingleOperationD0Ev(ptr noundef) unnamed_addr #4 align 2
 
 ; Function Attrs: uwtable
-declare hidden noundef zeroext i1 @_ZTvn16_n32_NK5osgeo4proj9operation15SingleOperation15_isEquivalentToEPKNS0_4util11IComparableENS4_9CriterionERKSt10shared_ptrINS0_2io15DatabaseContextEE(ptr noundef, ptr noundef, i32 noundef, ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #8 align 2
+declare hidden noundef zeroext i1 @_ZTvn16_n32_NK5osgeo4proj9operation15SingleOperation15_isEquivalentToEPKNS0_4util11IComparableENS4_9CriterionERKSt10shared_ptrINS0_2io15DatabaseContextEE(ptr noundef, ptr noundef, i32 noundef, ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #7 align 2
 
 ; Function Attrs: nounwind uwtable
 declare void @_ZTvn24_n24_N5osgeo4proj9operation15SingleOperationD1Ev(ptr noundef) unnamed_addr #4 align 2
@@ -21977,10 +21971,10 @@ declare void @_ZTv0_n24_N5osgeo4proj9operation26InverseCoordinateOperationD1Ev(p
 declare void @_ZTv0_n24_N5osgeo4proj9operation26InverseCoordinateOperationD0Ev(ptr noundef) unnamed_addr #4 align 2
 
 ; Function Attrs: uwtable
-declare noundef zeroext i1 @_ZTv0_n32_NK5osgeo4proj9operation26InverseCoordinateOperation15_isEquivalentToEPKNS0_4util11IComparableENS4_9CriterionERKSt10shared_ptrINS0_2io15DatabaseContextEE(ptr noundef, ptr noundef, i32 noundef, ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #8 align 2
+declare noundef zeroext i1 @_ZTv0_n32_NK5osgeo4proj9operation26InverseCoordinateOperation15_isEquivalentToEPKNS0_4util11IComparableENS4_9CriterionERKSt10shared_ptrINS0_2io15DatabaseContextEE(ptr noundef, ptr noundef, i32 noundef, ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #7 align 2
 
 ; Function Attrs: uwtable
-declare void @_ZTv0_n56_NK5osgeo4proj9operation26InverseCoordinateOperation7inverseEv(ptr dead_on_unwind noalias writable sret(%"class.dropbox::oxygen::nn.50") align 8, ptr noundef) unnamed_addr #8 align 2
+declare void @_ZTv0_n56_NK5osgeo4proj9operation26InverseCoordinateOperation7inverseEv(ptr dead_on_unwind noalias writable sret(%"class.dropbox::oxygen::nn.50") align 8, ptr noundef) unnamed_addr #7 align 2
 
 ; Function Attrs: nounwind uwtable
 declare void @_ZTvn16_n24_N5osgeo4proj9operation26InverseCoordinateOperationD1Ev(ptr noundef) unnamed_addr #4 align 2
@@ -21989,7 +21983,7 @@ declare void @_ZTvn16_n24_N5osgeo4proj9operation26InverseCoordinateOperationD1Ev
 declare void @_ZTvn16_n24_N5osgeo4proj9operation26InverseCoordinateOperationD0Ev(ptr noundef) unnamed_addr #4 align 2
 
 ; Function Attrs: uwtable
-declare noundef zeroext i1 @_ZTvn16_n32_NK5osgeo4proj9operation26InverseCoordinateOperation15_isEquivalentToEPKNS0_4util11IComparableENS4_9CriterionERKSt10shared_ptrINS0_2io15DatabaseContextEE(ptr noundef, ptr noundef, i32 noundef, ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #8 align 2
+declare noundef zeroext i1 @_ZTvn16_n32_NK5osgeo4proj9operation26InverseCoordinateOperation15_isEquivalentToEPKNS0_4util11IComparableENS4_9CriterionERKSt10shared_ptrINS0_2io15DatabaseContextEE(ptr noundef, ptr noundef, i32 noundef, ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #7 align 2
 
 ; Function Attrs: nounwind uwtable
 declare void @_ZTvn24_n24_N5osgeo4proj9operation26InverseCoordinateOperationD1Ev(ptr noundef) unnamed_addr #4 align 2
@@ -22004,7 +21998,7 @@ declare void @_ZTvn48_n24_N5osgeo4proj9operation26InverseCoordinateOperationD1Ev
 declare void @_ZTvn48_n24_N5osgeo4proj9operation26InverseCoordinateOperationD0Ev(ptr noundef) unnamed_addr #4 align 2
 
 ; Function Attrs: uwtable
-declare void @_ZTvn48_n80_NK5osgeo4proj9operation26InverseCoordinateOperation19_exportToPROJStringEPNS0_2io19PROJStringFormatterE(ptr noundef, ptr noundef) unnamed_addr #8 align 2
+declare void @_ZTvn48_n80_NK5osgeo4proj9operation26InverseCoordinateOperation19_exportToPROJStringEPNS0_2io19PROJStringFormatterE(ptr noundef, ptr noundef) unnamed_addr #7 align 2
 
 ; Function Attrs: nounwind uwtable
 declare void @_ZTvn56_n24_N5osgeo4proj9operation26InverseCoordinateOperationD1Ev(ptr noundef) unnamed_addr #4 align 2
@@ -22046,25 +22040,25 @@ define linkonce_odr hidden void @_ZNK5osgeo4proj9operation17InverseConversion13_
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr hidden void @_ZThn24_NK5osgeo4proj9operation17InverseConversion19_exportToPROJStringEPNS0_2io19PROJStringFormatterE(ptr noundef %0, ptr noundef %1) unnamed_addr #8 comdat align 2 {
+define linkonce_odr hidden void @_ZThn24_NK5osgeo4proj9operation17InverseConversion19_exportToPROJStringEPNS0_2io19PROJStringFormatterE(ptr noundef %0, ptr noundef %1) unnamed_addr #7 comdat align 2 {
   tail call void @_ZNK5osgeo4proj9operation26InverseCoordinateOperation19_exportToPROJStringEPNS0_2io19PROJStringFormatterE(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef %1)
   ret void
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZThn24_NK5osgeo4proj9operation17InverseConversion15_isEquivalentToEPKNS0_4util11IComparableENS4_9CriterionERKSt10shared_ptrINS0_2io15DatabaseContextEE(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %3) unnamed_addr #8 comdat align 2 {
+define linkonce_odr hidden noundef zeroext i1 @_ZThn24_NK5osgeo4proj9operation17InverseConversion15_isEquivalentToEPKNS0_4util11IComparableENS4_9CriterionERKSt10shared_ptrINS0_2io15DatabaseContextEE(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %3) unnamed_addr #7 comdat align 2 {
   %5 = tail call noundef zeroext i1 @_ZNK5osgeo4proj9operation26InverseCoordinateOperation15_isEquivalentToEPKNS0_4util11IComparableENS4_9CriterionERKSt10shared_ptrINS0_2io15DatabaseContextEE(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %3)
   ret i1 %5
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr hidden void @_ZThn24_NK5osgeo4proj9operation17InverseConversion7inverseEv(ptr dead_on_unwind noalias writable sret(%"class.dropbox::oxygen::nn.50") align 8 %0, ptr noundef %1) unnamed_addr #8 comdat align 2 {
+define linkonce_odr hidden void @_ZThn24_NK5osgeo4proj9operation17InverseConversion7inverseEv(ptr dead_on_unwind noalias writable sret(%"class.dropbox::oxygen::nn.50") align 8 %0, ptr noundef %1) unnamed_addr #7 comdat align 2 {
   tail call void @_ZNK5osgeo4proj9operation26InverseCoordinateOperation7inverseEv(ptr dead_on_unwind writable sret(%"class.dropbox::oxygen::nn.50") align 8 %0, ptr noundef nonnull align 8 dereferenceable(25) %1)
   ret void
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZTv0_n32_NK5osgeo4proj9operation17InverseConversion15_isEquivalentToEPKNS0_4util11IComparableENS4_9CriterionERKSt10shared_ptrINS0_2io15DatabaseContextEE(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %3) unnamed_addr #8 comdat align 2 {
+define linkonce_odr hidden noundef zeroext i1 @_ZTv0_n32_NK5osgeo4proj9operation17InverseConversion15_isEquivalentToEPKNS0_4util11IComparableENS4_9CriterionERKSt10shared_ptrINS0_2io15DatabaseContextEE(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %3) unnamed_addr #7 comdat align 2 {
   %5 = load ptr, ptr %0, align 8, !tbaa !3
   %6 = getelementptr inbounds i8, ptr %5, i64 -32
   %7 = load i64, ptr %6, align 8
@@ -22075,7 +22069,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZTv0_n32_NK5osgeo4proj9operation
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr hidden void @_ZTv0_n56_NK5osgeo4proj9operation17InverseConversion7inverseEv(ptr dead_on_unwind noalias writable sret(%"class.dropbox::oxygen::nn.50") align 8 %0, ptr noundef %1) unnamed_addr #8 comdat align 2 {
+define linkonce_odr hidden void @_ZTv0_n56_NK5osgeo4proj9operation17InverseConversion7inverseEv(ptr dead_on_unwind noalias writable sret(%"class.dropbox::oxygen::nn.50") align 8 %0, ptr noundef %1) unnamed_addr #7 comdat align 2 {
   %3 = load ptr, ptr %1, align 8, !tbaa !3
   %4 = getelementptr inbounds i8, ptr %3, i64 -56
   %5 = load i64, ptr %4, align 8
@@ -22086,7 +22080,7 @@ define linkonce_odr hidden void @_ZTv0_n56_NK5osgeo4proj9operation17InverseConve
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZTvn16_n32_NK5osgeo4proj9operation17InverseConversion15_isEquivalentToEPKNS0_4util11IComparableENS4_9CriterionERKSt10shared_ptrINS0_2io15DatabaseContextEE(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %3) unnamed_addr #8 comdat align 2 {
+define linkonce_odr hidden noundef zeroext i1 @_ZTvn16_n32_NK5osgeo4proj9operation17InverseConversion15_isEquivalentToEPKNS0_4util11IComparableENS4_9CriterionERKSt10shared_ptrINS0_2io15DatabaseContextEE(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %3) unnamed_addr #7 comdat align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 -16
   %6 = load ptr, ptr %5, align 8, !tbaa !3
   %7 = getelementptr inbounds i8, ptr %6, i64 -32
@@ -22098,7 +22092,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZTvn16_n32_NK5osgeo4proj9operati
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr hidden void @_ZTvn24_n48_NK5osgeo4proj9operation17InverseConversion12_exportToWKTEPNS0_2io12WKTFormatterE(ptr noundef %0, ptr noundef %1) unnamed_addr #8 comdat align 2 {
+define linkonce_odr hidden void @_ZTvn24_n48_NK5osgeo4proj9operation17InverseConversion12_exportToWKTEPNS0_2io12WKTFormatterE(ptr noundef %0, ptr noundef %1) unnamed_addr #7 comdat align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 -24
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   %5 = getelementptr inbounds i8, ptr %4, i64 -48
@@ -22109,7 +22103,7 @@ define linkonce_odr hidden void @_ZTvn24_n48_NK5osgeo4proj9operation17InverseCon
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr hidden void @_ZTvn48_n80_NK5osgeo4proj9operation17InverseConversion19_exportToPROJStringEPNS0_2io19PROJStringFormatterE(ptr noundef %0, ptr noundef %1) unnamed_addr #8 comdat align 2 {
+define linkonce_odr hidden void @_ZTvn48_n80_NK5osgeo4proj9operation17InverseConversion19_exportToPROJStringEPNS0_2io19PROJStringFormatterE(ptr noundef %0, ptr noundef %1) unnamed_addr #7 comdat align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 -48
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   %5 = getelementptr inbounds i8, ptr %4, i64 -80
@@ -22121,7 +22115,7 @@ define linkonce_odr hidden void @_ZTvn48_n80_NK5osgeo4proj9operation17InverseCon
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr hidden void @_ZTvn56_n88_NK5osgeo4proj9operation17InverseConversion13_exportToJSONEPNS0_2io13JSONFormatterE(ptr noundef %0, ptr noundef %1) unnamed_addr #8 comdat align 2 {
+define linkonce_odr hidden void @_ZTvn56_n88_NK5osgeo4proj9operation17InverseConversion13_exportToJSONEPNS0_2io13JSONFormatterE(ptr noundef %0, ptr noundef %1) unnamed_addr #7 comdat align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 -56
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   %5 = getelementptr inbounds i8, ptr %4, i64 -88
@@ -22132,7 +22126,7 @@ define linkonce_odr hidden void @_ZTvn56_n88_NK5osgeo4proj9operation17InverseCon
 }
 
 ; Function Attrs: noinline noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #21 comdat {
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #20 comdat {
   %2 = tail call ptr @__cxa_begin_catch(ptr %0) #32
   tail call void @_ZSt9terminatev() #35
   unreachable
@@ -22141,10 +22135,10 @@ define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_un
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #22
+declare void @_ZSt9terminatev() local_unnamed_addr #21
 
 ; Function Attrs: mustprogress noinline nounwind uwtable
-define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #23 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #22 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -22290,10 +22284,10 @@ _ZNSt12_Vector_baseIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18O
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #24
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #23
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #25
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #24
 
 declare noundef ptr @_ZNK5osgeo4proj4util11PropertyMap3getERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
@@ -22304,7 +22298,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #26
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #25
 
 declare void @__cxa_rethrow() local_unnamed_addr
 
@@ -22315,7 +22309,7 @@ declare void @_ZN5osgeo4proj6common5AngleC2EdRKNS1_13UnitOfMeasureE(ptr noundef 
 declare void @_ZN5osgeo4proj6common6LengthC2EdRKNS1_13UnitOfMeasureE(ptr noundef nonnull align 8 dereferenceable(24), double noundef, ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @cos(double noundef) local_unnamed_addr #16
+declare double @cos(double noundef) local_unnamed_addr #15
 
 declare noundef double @_Z7pj_msfnddd(double noundef, double noundef, double noundef) local_unnamed_addr #1
 
@@ -22324,7 +22318,7 @@ declare noundef double @_Z7pj_tsfnddd(double noundef, double noundef, double nou
 declare noundef ptr @_ZN5osgeo4proj9operation15getEsriMappingsERm(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #20
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #19
 
 declare void @_ZN5osgeo4proj2io13JSONFormatter13ObjectContextC1ERS2_PKcb(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i1 noundef zeroext) unnamed_addr #1
 
@@ -22344,12 +22338,12 @@ declare void @_ZN5osgeo4proj2io19PROJStringFormatter7addStepERKNSt7__cxx1112basi
 declare void @_ZN5osgeo4proj2io19PROJStringFormatter8addParamERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEd(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(32), double noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #24
+declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #23
 
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN5osgeo4proj9operation10ConversionELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #7 comdat align 2 {
+define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN5osgeo4proj9operation10ConversionELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 comdat align 2 {
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #31
   ret void
 }
@@ -22769,7 +22763,7 @@ define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt15_Sp_counted_ptrIPN5osgeo4proj9operation17InverseConversionELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #7 comdat align 2 {
+define linkonce_odr hidden void @_ZNSt15_Sp_counted_ptrIPN5osgeo4proj9operation17InverseConversionELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 comdat align 2 {
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #31
   ret void
 }
@@ -22861,6 +22855,12 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %1, %9,
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #26
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #26
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #27
 
@@ -22882,27 +22882,27 @@ attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-siz
 attributes #3 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { cold noreturn }
-attributes #11 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #13 = { mustprogress nofree nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nofree nounwind willreturn memory(read) }
-attributes #16 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nofree norecurse nounwind memory(errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { inlinehint mustprogress nofree nounwind willreturn memory(read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #22 = { cold nofree noreturn }
-attributes #23 = { mustprogress noinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #24 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #25 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #26 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { cold noreturn }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #12 = { mustprogress nofree nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree nounwind willreturn memory(read) }
+attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nofree norecurse nounwind memory(errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { inlinehint mustprogress nofree nounwind willreturn memory(read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { cold nofree noreturn }
+attributes #22 = { mustprogress noinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #23 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #24 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #25 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #26 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #27 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #28 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #29 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }

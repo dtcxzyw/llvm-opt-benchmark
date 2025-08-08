@@ -14,10 +14,10 @@ define internal noundef i32 @crypto_scalarmult_curve25519_sandy2x(ptr noundef %0
   %5 = alloca [3 x [10 x i64]], align 16
   %6 = alloca %struct._sodium_scalarmult_curve25519_sandy2x_fe51, align 8
   %7 = alloca %struct._sodium_scalarmult_curve25519_sandy2x_fe51, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #4
-  call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %5) #4
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #4
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, ptr noundef nonnull align 1 dereferenceable(32) %1, i64 32, i1 false)
   %8 = load i8, ptr %4, align 16
   %9 = and i8 %8, -8
@@ -111,37 +111,37 @@ define internal noundef i32 @crypto_scalarmult_curve25519_sandy2x(ptr noundef %0
   call void @_sodium_scalarmult_curve25519_sandy2x_fe51_mul(ptr noundef nonnull %6, ptr noundef nonnull %6, ptr noundef nonnull %7) #4
   call void @_sodium_scalarmult_curve25519_sandy2x_fe51_pack(ptr noundef %0, ptr noundef nonnull %6) #4
   call void @sodium_memzero(ptr noundef nonnull %4, i64 noundef 32) #4
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #4
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #4
-  call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %5) #4
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare void @_sodium_scalarmult_curve25519_sandy2x_fe_frombytes(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @_sodium_scalarmult_curve25519_sandy2x_fe_frombytes(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @_sodium_scalarmult_curve25519_sandy2x_ladder(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @_sodium_scalarmult_curve25519_sandy2x_ladder(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @_sodium_scalarmult_curve25519_sandy2x_fe51_invert(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @_sodium_scalarmult_curve25519_sandy2x_fe51_invert(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @_sodium_scalarmult_curve25519_sandy2x_fe51_mul(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @_sodium_scalarmult_curve25519_sandy2x_fe51_mul(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @_sodium_scalarmult_curve25519_sandy2x_fe51_pack(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @_sodium_scalarmult_curve25519_sandy2x_fe51_pack(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare void @sodium_memzero(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @sodium_memzero(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 attributes #0 = { nounwind ssp uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind }
 

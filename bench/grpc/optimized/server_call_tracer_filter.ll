@@ -358,7 +358,7 @@ declare ptr @llvm.invariant.start.p0(i64 immarg, ptr captures(none)) #3
 ; Function Attrs: mustprogress uwtable
 define void @_ZN9grpc_core30RegisterServerCallTracerFilterEPNS_17CoreConfiguration7BuilderE(ptr noundef %0) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.grpc_core::SourceLocation", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = load atomic i8, ptr @_ZGVZN9grpc_core17UniqueTypeNameForINS_12_GLOBAL__N_122ServerCallTracerFilterEEENS_14UniqueTypeNameEvE7factory acquire, align 8
   %4 = icmp eq i8 %3, 0
   br i1 %4, label %5, label %_ZN9grpc_core11ChannelInit7Builder14RegisterFilterINS_12_GLOBAL__N_122ServerCallTracerFilterEEERNS0_18FilterRegistrationE23grpc_channel_stack_typeNS_14SourceLocationE.exit, !prof !3
@@ -392,7 +392,7 @@ _ZN9grpc_core11ChannelInit7Builder14RegisterFilterINS_12_GLOBAL__N_122ServerCall
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 109, ptr %.sroa.22.0..sroa_idx.i, align 8, !tbaa !17
   %16 = tail call noundef nonnull align 8 dereferenceable(128) ptr @_ZN9grpc_core11ChannelInit7Builder14RegisterFilterE23grpc_channel_stack_typeNS_14UniqueTypeNameEPK19grpc_channel_filterPFvRNS_24InterceptionChainBuilderEENS_14SourceLocationE(ptr noundef nonnull align 16 dereferenceable(528) %11, i32 noundef 5, i64 %15, ptr %13, ptr noundef nonnull @_ZN9grpc_core12_GLOBAL__N_122ServerCallTracerFilter7kFilterE, ptr noundef nonnull @_ZZN9grpc_core11ChannelInit7Builder14RegisterFilterINS_12_GLOBAL__N_122ServerCallTracerFilterEEERNS0_18FilterRegistrationE23grpc_channel_stack_typeNS_14SourceLocationEENUlRNS_24InterceptionChainBuilderEE_8__invokeESA_, ptr noundef nonnull byval(%"class.grpc_core::SourceLocation") align 8 %2)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -562,12 +562,6 @@ define linkonce_odr void @_ZN9grpc_core12arena_detail19DestroyArenaContextINS_19
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
-
 ; Function Attrs: nofree nounwind
 declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #2
 
@@ -657,7 +651,7 @@ define linkonce_odr void @_ZN9grpc_core21promise_filter_detail19BaseCallDataMeth
   br i1 %.not.not.i, label %_ZN9grpc_core21promise_filter_detail12BaseCallData11set_pollentEP19grpc_polling_entity.exit, label %9, !prof !41
 
 9:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #31
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull @.str.9, i32 noundef 865, i64 64, ptr nonnull @.str.10) #36
   call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #35
   unreachable
@@ -721,7 +715,7 @@ _ZN9grpc_core21promise_filter_detail19BaseCallDataMethods16DestructCallDataEP17g
 
 29:                                               ; preds = %_ZN9grpc_core21promise_filter_detail19BaseCallDataMethods16DestructCallDataEP17grpc_call_elementPK20grpc_call_final_info.exit
   %30 = tail call noundef nonnull ptr @_ZN4absl12lts_2024072212log_internal17MakeCheckOpStringIPKvS4_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_T0_PKc(ptr noundef nonnull %2, ptr noundef null, ptr noundef nonnull @.str.11)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #31
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %31 = load ptr, ptr %30, align 8, !tbaa !10
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %33 = load i64, ptr %32, align 8, !tbaa !15
@@ -739,7 +733,7 @@ define internal void @_ZN9grpc_core21promise_filter_detail29ChannelFilterWithFla
   br i1 %.not.not, label %_ZNSt10unique_ptrIN9grpc_core12_GLOBAL__N_122ServerCallTracerFilterESt14default_deleteIS2_EED2Ev.exit.i, label %7, !prof !41
 
 7:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #31
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull @.str.9, i32 noundef 1573, i64 48, ptr nonnull @.str.12) #36
   call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #35
   unreachable
@@ -1041,7 +1035,7 @@ _ZN9grpc_core21promise_filter_detail17InterceptFinalizeINS_12_GLOBAL__N_122Serve
   %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
   store i64 ptrtoint (ptr @_ZZN9grpc_core21promise_filter_detail14MakeFilterCallINS_12_GLOBAL__N_122ServerCallTracerFilterEEENSt9enable_ifIXsr3std8is_emptyINS0_14FilterCallDataIT_EEEE5valueEPS7_E4typeEPS6_E4call to i64), ptr %50, align 8, !tbaa !139
   store ptr %.0.i.i.i.i, ptr %40, align 8, !tbaa !140
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %8) #31
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %51 = load i8, ptr %2, align 1, !tbaa !141
   store i8 %51, ptr %11, align 8, !tbaa !141
   %52 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -1073,8 +1067,8 @@ _ZN9grpc_core21promise_filter_detail17InterceptFinalizeINS_12_GLOBAL__N_122Serve
   br label %_ZNSt8functionIFN9grpc_core12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS0_5Arena13PooledDeleterEEEENS0_8CallArgsEEEC2EOSA_.exit
 
 _ZNSt8functionIFN9grpc_core12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS0_5Arena13PooledDeleterEEEENS0_8CallArgsEEEC2EOSA_.exit: ; preds = %_ZN9grpc_core21promise_filter_detail17InterceptFinalizeINS_12_GLOBAL__N_122ServerCallTracerFilter4CallEEEvMT_FvPK20grpc_call_final_infoEPvPS5_.exit, %65
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 %51, ptr %6, align 8, !tbaa !141, !noalias !150
   %67 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %54, ptr %67, align 8, !tbaa !142, !noalias !150
@@ -1099,7 +1093,7 @@ _ZNSt8functionIFN9grpc_core12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS
   br label %_ZNSt8functionIFN9grpc_core12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS0_5Arena13PooledDeleterEEEENS0_8CallArgsEEEC2EOSA_.exit.i
 
 _ZNSt8functionIFN9grpc_core12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS0_5Arena13PooledDeleterEEEENS0_8CallArgsEEEC2EOSA_.exit.i: ; preds = %73, %_ZNSt8functionIFN9grpc_core12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS0_5Arena13PooledDeleterEEEENS0_8CallArgsEEEC2EOSA_.exit
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5), !noalias !150
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !150
   %75 = load ptr, ptr %21, align 8, !tbaa !60, !noalias !154
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 56
   %77 = load i16, ptr @_ZN9grpc_core12arena_detail18ArenaContextTraitsINS_19CallTracerInterfaceEE3id_E, align 2, !tbaa !21, !noalias !154
@@ -1211,7 +1205,7 @@ _ZN9grpc_core37ClientInitialMetadataOutstandingTokenD2Ev.exit.i.i.i: ; preds = %
   br label %.body.i
 
 117:                                              ; preds = %114, %_ZN9grpc_core37ClientInitialMetadataOutstandingTokenD2Ev.exit.i.i.i
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5), !noalias !150
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !150
   %118 = load ptr, ptr %90, align 8, !tbaa !147, !noalias !150
   %.not.i.i = icmp eq ptr %118, null
   br i1 %.not.i.i, label %133, label %119
@@ -1255,12 +1249,12 @@ _ZNSt14_Function_baseD2Ev.exit4.i:                ; preds = %128, %.body.i
   br label %.body
 
 133:                                              ; preds = %119, %117
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %9, ptr noundef nonnull align 16 dereferenceable(32) %10, i64 32, i1 false), !tbaa.struct !168
   store ptr @_ZN9grpc_core20arena_promise_detail4NullISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE6vtableE, ptr %10, align 16, !tbaa !171, !noalias !175
   call void @llvm.experimental.noalias.scope.decl(metadata !178)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.34.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.34.i)
   %.sroa.0.0.copyload.i = load ptr, ptr %9, align 16, !tbaa !169, !noalias !178
   %134 = getelementptr inbounds nuw i8, ptr %10, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.34.i, ptr noundef nonnull align 8 dereferenceable(24) %134, i64 24, i1 false)
@@ -1287,7 +1281,7 @@ _ZNSt14_Function_baseD2Ev.exit4.i:                ; preds = %128, %.body.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.34.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.34.i, i64 24, i1 false), !tbaa.struct !189
   %142 = getelementptr inbounds nuw i8, ptr %8, i64 64
   store i64 ptrtoint (ptr @_ZZN9grpc_core21promise_filter_detail14MakeFilterCallINS_12_GLOBAL__N_122ServerCallTracerFilterEEENSt9enable_ifIXsr3std8is_emptyINS0_14FilterCallDataIT_EEEE5valueEPS7_E4typeEPS6_E4call to i64), ptr %142, align 16, !tbaa !130, !alias.scope !178
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.34.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.34.i)
   %143 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %143, align 16
   store ptr @_ZN9grpc_core20arena_promise_detail17AllocatedCallableISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEZNS_8OnCancelINS_3MapINS_12ArenaPromiseIS6_EEZNS_21promise_filter_detail9MapResultISA_NS_12_GLOBAL__N_122ServerCallTracerFilterEEEDaMNT0_4CallEFvRS3_ET_PNSB_14FilterCallDataISF_EEEUlS6_E_EEZNSC_ISA_SE_EEDaSJ_SK_SN_EUlvE_EEDaSK_SF_EUlvE_E6vtableE, ptr %0, align 16, !tbaa !190
@@ -1441,7 +1435,7 @@ _ZN9grpc_core37ClientInitialMetadataOutstandingTokenD2Ev.exit.i: ; preds = %_ZN9
   br label %_ZN9grpc_core8CallArgsD2Ev.exit
 
 _ZN9grpc_core8CallArgsD2Ev.exit:                  ; preds = %_ZN9grpc_core37ClientInitialMetadataOutstandingTokenD2Ev.exit.i, %203
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #31
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 
 204:                                              ; preds = %_ZN9grpc_core5Arena5AllocEm.exit.i.i.i.i
@@ -1496,7 +1490,7 @@ _ZN9grpc_core12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13Poole
 
 _ZNSt14_Function_baseD2Ev.exit28:                 ; preds = %.body, %221
   call void @_ZN9grpc_core8CallArgsD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %11) #31
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #31
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -1551,7 +1545,7 @@ _ZN9grpc_core14promise_detail11PromiseLikeINS_3MapINS_12ArenaPromiseISt10unique_
   %17 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core14promise_detail18ThreadLocalContextINS_5ArenaEE8current_E)
   %18 = load ptr, ptr %17, align 8, !tbaa !60
   store ptr %16, ptr %17, align 8, !tbaa !60
-  call void @llvm.lifetime.start.p0(i64 600, ptr nonnull %2) #31
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(600) %2, i8 0, i64 6, i1 false), !tbaa !21
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 576
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, i8 0, i64 24, i1 false)
@@ -1582,14 +1576,14 @@ _ZN9grpc_core14promise_detail11PromiseLikeINS_3MapINS_12ArenaPromiseISt10unique_
   %34 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZN9grpc_core11MetadataMapI19grpc_metadata_batchJNS_16HttpPathMetadataENS_21HttpAuthorityMetadataENS_18HttpMethodMetadataENS_18HttpStatusMetadataENS_18HttpSchemeMetadataENS_19ContentTypeMetadataENS_10TeMetadataENS_20GrpcEncodingMetadataENS_27GrpcInternalEncodingRequestENS_26GrpcAcceptEncodingMetadataENS_18GrpcStatusMetadataENS_19GrpcTimeoutMetadataENS_31GrpcPreviousRpcAttemptsMetadataENS_27GrpcRetryPushbackMsMetadataENS_17UserAgentMetadataENS_19GrpcMessageMetadataENS_12HostMetadataENS_30EndpointLoadMetricsBinMetadataENS_26GrpcServerStatsBinMetadataENS_20GrpcTraceBinMetadataENS_19GrpcTagsBinMetadataENS_25GrpcLbClientStatsMetadataENS_17LbCostBinMetadataENS_15LbTokenMetadataENS_18XEnvoyPeerMetadataENS_22W3CTraceParentMetadataENS_22GrpcStreamNetworkStateENS_10PeerStringENS_17GrpcStatusContextENS_18GrpcStatusFromWireENS_20GrpcCallWasCancelledENS_12WaitForReadyENS_18IsTransparentRetryENS_16GrpcTrailersOnlyENS_10GrpcTarPitENS_20GrpcRegisteredMethodEEED2Ev(ptr noundef nonnull align 8 dereferenceable(600) %2) #31
-  call void @llvm.lifetime.end.p0(i64 600, ptr nonnull %2) #31
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %35 = extractvalue { ptr, i32 } %34, 0
   call void @__clang_call_terminate(ptr %35) #35
   unreachable
 
 36:                                               ; preds = %30, %14
   call void @_ZN9grpc_core11MetadataMapI19grpc_metadata_batchJNS_16HttpPathMetadataENS_21HttpAuthorityMetadataENS_18HttpMethodMetadataENS_18HttpStatusMetadataENS_18HttpSchemeMetadataENS_19ContentTypeMetadataENS_10TeMetadataENS_20GrpcEncodingMetadataENS_27GrpcInternalEncodingRequestENS_26GrpcAcceptEncodingMetadataENS_18GrpcStatusMetadataENS_19GrpcTimeoutMetadataENS_31GrpcPreviousRpcAttemptsMetadataENS_27GrpcRetryPushbackMsMetadataENS_17UserAgentMetadataENS_19GrpcMessageMetadataENS_12HostMetadataENS_30EndpointLoadMetricsBinMetadataENS_26GrpcServerStatsBinMetadataENS_20GrpcTraceBinMetadataENS_19GrpcTagsBinMetadataENS_25GrpcLbClientStatsMetadataENS_17LbCostBinMetadataENS_15LbTokenMetadataENS_18XEnvoyPeerMetadataENS_22W3CTraceParentMetadataENS_22GrpcStreamNetworkStateENS_10PeerStringENS_17GrpcStatusContextENS_18GrpcStatusFromWireENS_20GrpcCallWasCancelledENS_12WaitForReadyENS_18IsTransparentRetryENS_16GrpcTrailersOnlyENS_10GrpcTarPitENS_20GrpcRegisteredMethodEEED2Ev(ptr noundef nonnull align 8 dereferenceable(600) %2) #31
-  call void @llvm.lifetime.end.p0(i64 600, ptr nonnull %2) #31
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   store ptr %18, ptr %17, align 8, !tbaa !60
   br label %_ZN9grpc_core22cancel_callback_detail7HandlerIZNS_21promise_filter_detail9MapResultINS_12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEENS_12_GLOBAL__N_122ServerCallTracerFilterEEEDaMNT0_4CallEFvRS6_ET_PNS2_14FilterCallDataISD_EEEUlvE_ED2Ev.exit
 
@@ -1730,7 +1724,7 @@ _ZN9grpc_core14promise_detail11PromiseLikeINS0_7CurriedIZNS_21promise_filter_det
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN9grpc_core15InterceptorListISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE7MapImplIZNS_21promise_filter_detail30InterceptServerInitialMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvRS2_EPNS8_14FilterCallDataISC_EERKNS_8CallArgsEEUlS5_E_ZNS6_10PrependMapISN_EEvSC_NS_13DebugLocationEEUlvE_E8PollOnceEPv(ptr dead_on_unwind noalias writable writeonly sret(%"class.grpc_core::Poll") align 8 captures(none) %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef captures(none) %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::unique_ptr.81", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load i8, ptr %5, align 1, !tbaa !141, !noalias !203
   store i8 %6, ptr %4, align 8, !tbaa !141, !noalias !203
@@ -1764,7 +1758,7 @@ define internal void @_ZN9grpc_core15InterceptorListISt10unique_ptrI19grpc_metad
   resume { ptr, i32 } %24
 
 _ZN9grpc_core4PollISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEED2Ev.exit: ; preds = %18, %3
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store i8 1, ptr %0, align 8, !tbaa !211
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -2534,9 +2528,9 @@ define internal void @_ZN9grpc_core20arena_promise_detail17AllocatedCallableISt1
   %5 = alloca %"class.grpc_core::Poll.199", align 8
   %6 = load ptr, ptr %1, align 8, !tbaa !28
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #31, !noalias !229
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !229
   tail call void @llvm.experimental.noalias.scope.decl(metadata !236)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #31, !noalias !239
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !239
   %8 = load ptr, ptr %7, align 16, !tbaa !171, !noalias !240
   %9 = load ptr, ptr %8, align 8, !tbaa !243, !noalias !240
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 48
@@ -2554,8 +2548,8 @@ define internal void @_ZN9grpc_core20arena_promise_detail17AllocatedCallableISt1
   store i8 %16, ptr %14, align 8, !tbaa !141, !noalias !229
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %18 = load i64, ptr %17, align 8, !tbaa !142, !noalias !229
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #31, !noalias !239
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !252
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !239
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !252
   store i8 %16, ptr %3, align 8, !tbaa !141, !noalias !253
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.gep.i = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -2584,18 +2578,18 @@ _ZN9grpc_core4PollISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterE
           cleanup
   call void @_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #31, !noalias !229
   call void @_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #31, !noalias !229
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #31, !noalias !229
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !229
   resume { ptr, i32 } %33
 
 _ZN9grpc_core4PollISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEC2EOS6_.exit: ; preds = %2
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #31, !noalias !239
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #31, !noalias !229
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !239
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !229
   store i8 0, ptr %0, align 8, !tbaa !248
   br label %_ZN9grpc_core4PollISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEED2Ev.exit2
 
 _ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit: ; preds = %13, %28
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !252
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #31, !noalias !229
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !252
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !229
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i8 1, ptr %34, align 8, !tbaa !186, !noalias !252
   store i8 1, ptr %0, align 8, !tbaa !248
@@ -2639,7 +2633,7 @@ define linkonce_odr void @_ZN9grpc_core14UniqueTypeName7FactoryC2ESt17basic_stri
   unreachable
 
 10:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #31
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %1, ptr %4, align 8, !tbaa !108
   %11 = icmp ugt i64 %1, 15
   br i1 %11, label %.noexc.i.i.i, label %._crit_edge.i.i.i.i
@@ -2677,7 +2671,7 @@ define linkonce_odr void @_ZN9grpc_core14UniqueTypeName7FactoryC2ESt17basic_stri
   %21 = load ptr, ptr %5, align 8, !tbaa !10
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 %19
   store i8 0, ptr %22, align 1, !tbaa !149
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #31
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store ptr %5, ptr %0, align 8, !tbaa !4
   ret void
 
@@ -2705,7 +2699,7 @@ define internal void @_ZZN9grpc_core11ChannelInit7Builder14RegisterFilterINS_12_
   br i1 %6, label %7, label %_ZZN9grpc_core11ChannelInit7Builder14RegisterFilterINS_12_GLOBAL__N_122ServerCallTracerFilterEEERNS0_18FilterRegistrationE23grpc_channel_stack_typeNS_14SourceLocationEENKUlRNS_24InterceptionChainBuilderEE_clESA_.exit
 
 7:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #31
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = load atomic i8, ptr @_ZGVZN9grpc_core24InterceptionChainBuilder12FilterTypeIdINS_12_GLOBAL__N_122ServerCallTracerFilterEEEmvE2id acquire, align 8
   %9 = icmp eq i8 %8, 0
   br i1 %9, label %10, label %15, !prof !3
@@ -2724,14 +2718,14 @@ define internal void @_ZZN9grpc_core11ChannelInit7Builder14RegisterFilterINS_12_
 
 15:                                               ; preds = %12, %10, %7
   %16 = load i64, ptr @_ZZN9grpc_core24InterceptionChainBuilder12FilterTypeIdINS_12_GLOBAL__N_122ServerCallTracerFilterEEEmvE2id, align 8, !tbaa !108
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 %16, ptr %2, align 8, !tbaa !108
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %18 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapImmSt4lessImESaISt4pairIKmmEEEixERS3_(ptr noundef nonnull align 8 dereferenceable(48) %17, ptr noundef nonnull align 8 dereferenceable(8) %2)
   %19 = load i64, ptr %18, align 8, !tbaa !108
   %20 = add i64 %19, 1
   store i64 %20, ptr %18, align 8, !tbaa !108
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.experimental.noalias.scope.decl(metadata !260)
   %21 = call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #33, !noalias !263
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_122ServerCallTracerFilterE, i64 16), ptr %21, align 8, !tbaa !19, !noalias !263
@@ -3162,13 +3156,13 @@ _ZNSt10unique_ptrIN9grpc_core12_GLOBAL__N_122ServerCallTracerFilterESt14default_
   br label %.body.i.i
 
 _ZN4absl12lts_2024072217internal_statusor12StatusOrDataISt10unique_ptrIN9grpc_core12_GLOBAL__N_122ServerCallTracerFilterESt14default_deleteIS6_EEED2Ev.exit.i.i: ; preds = %_ZNSt6vectorIN9grpc_core14filters_detail21ChannelDataDestructorESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i.i.i.i, %151
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #31
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZZN9grpc_core11ChannelInit7Builder14RegisterFilterINS_12_GLOBAL__N_122ServerCallTracerFilterEEERNS0_18FilterRegistrationE23grpc_channel_stack_typeNS_14SourceLocationEENKUlRNS_24InterceptionChainBuilderEE_clESA_.exit
 
 .body.i.i:                                        ; preds = %_ZNSt10unique_ptrIN9grpc_core12_GLOBAL__N_122ServerCallTracerFilterESt14default_deleteIS2_EED2Ev.exit39.i.i, %.body.loopexit.split-lp.i.i, %.body.loopexit.i.i
   %.pn.pn.i.i = phi { ptr, i32 } [ %174, %_ZNSt10unique_ptrIN9grpc_core12_GLOBAL__N_122ServerCallTracerFilterESt14default_deleteIS2_EED2Ev.exit39.i.i ], [ %lpad.loopexit.i.i, %.body.loopexit.i.i ], [ %lpad.loopexit.split-lp.i.i, %.body.loopexit.split-lp.i.i ]
   call fastcc void @_ZN4absl12lts_2024072217internal_statusor12StatusOrDataISt10unique_ptrIN9grpc_core12_GLOBAL__N_122ServerCallTracerFilterESt14default_deleteIS6_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #31
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #31
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn.pn.i.i
 
 _ZZN9grpc_core11ChannelInit7Builder14RegisterFilterINS_12_GLOBAL__N_122ServerCallTracerFilterEEERNS0_18FilterRegistrationE23grpc_channel_stack_typeNS_14SourceLocationEENKUlRNS_24InterceptionChainBuilderEE_clESA_.exit: ; preds = %1, %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataISt10unique_ptrIN9grpc_core12_GLOBAL__N_122ServerCallTracerFilterESt14default_deleteIS6_EEED2Ev.exit.i.i
@@ -3489,8 +3483,8 @@ define internal void @_ZZN9grpc_core14filters_detail9AddOpImplINS_12_GLOBAL__N_1
   %8 = alloca %"class.std::unique_ptr.81", align 8
   %9 = alloca %"class.std::unique_ptr.81", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !342)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %11 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core14promise_detail18ThreadLocalContextINS_5ArenaEE8current_E)
   %12 = load ptr, ptr %11, align 8, !tbaa !60, !noalias !342
@@ -3511,7 +3505,7 @@ define internal void @_ZZN9grpc_core14filters_detail9AddOpImplINS_12_GLOBAL__N_1
   br label %_ZN9grpc_core12_GLOBAL__N_122ServerCallTracerFilter4Call23OnClientInitialMetadataER19grpc_metadata_batch.exit.i
 
 _ZN9grpc_core12_GLOBAL__N_122ServerCallTracerFilter4Call23OnClientInitialMetadataER19grpc_metadata_batch.exit.i: ; preds = %19, %5
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #31, !noalias !342
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !342
   %24 = load i8, ptr %4, align 1, !tbaa !141, !noalias !342
   store i8 %24, ptr %8, align 8, !tbaa !141, !noalias !342
   %25 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -3532,7 +3526,7 @@ _ZN9grpc_core12_GLOBAL__N_122ServerCallTracerFilter4Call23OnClientInitialMetadat
   br i1 %.not.i.i.not.i, label %31, label %_ZZN9grpc_core14filters_detail9AddOpImplINS_12_GLOBAL__N_122ServerCallTracerFilterESt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEMNS3_4CallEFvRS5_EXadL_ZNS9_23OnClientInitialMetadataESA_EEvE3AddEPS3_mRNS0_6LayoutIS8_EEENKUlPvSI_SI_S8_E_clESI_SI_SI_S8_.exit, !prof !202
 
 31:                                               ; preds = %_ZN9grpc_core12_GLOBAL__N_122ServerCallTracerFilter4Call23OnClientInitialMetadataER19grpc_metadata_batch.exit.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #31, !noalias !342
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !342
   invoke void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull @.str.15, i32 noundef 267, i64 48, ptr nonnull @.str.16) #36
           to label %32 unwind label %.body.i, !noalias !342
 
@@ -3543,12 +3537,12 @@ _ZN9grpc_core12_GLOBAL__N_122ServerCallTracerFilter4Call23OnClientInitialMetadat
 .body.i:                                          ; preds = %31
   %33 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #31, !noalias !342
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !342
   call void @_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %29) #31, !noalias !342
   call void @_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #31, !noalias !342
   call void @_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #31, !noalias !342
   call void @_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #31, !noalias !342
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #31, !noalias !342
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !342
   resume { ptr, i32 } %33
 
 _ZZN9grpc_core14filters_detail9AddOpImplINS_12_GLOBAL__N_122ServerCallTracerFilterESt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEMNS3_4CallEFvRS5_EXadL_ZNS9_23OnClientInitialMetadataESA_EEvE3AddEPS3_mRNS0_6LayoutIS8_EEENKUlPvSI_SI_S8_E_clESI_SI_SI_S8_.exit: ; preds = %_ZN9grpc_core12_GLOBAL__N_122ServerCallTracerFilter4Call23OnClientInitialMetadataER19grpc_metadata_batch.exit.i
@@ -3561,9 +3555,9 @@ _ZZN9grpc_core14filters_detail9AddOpImplINS_12_GLOBAL__N_122ServerCallTracerFilt
   store i8 1, ptr %36, align 8, !tbaa !141, !alias.scope !342
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 0, ptr %37, align 8, !tbaa !142, !alias.scope !342
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #31, !noalias !342
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !342
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }
 
@@ -3574,8 +3568,8 @@ define internal void @_ZZN9grpc_core14filters_detail9AddOpImplINS_12_GLOBAL__N_1
   %8 = alloca %"class.std::unique_ptr.81", align 8
   %9 = alloca %"class.std::unique_ptr.81", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !347)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %11 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core14promise_detail18ThreadLocalContextINS_5ArenaEE8current_E)
   %12 = load ptr, ptr %11, align 8, !tbaa !60, !noalias !347
@@ -3596,7 +3590,7 @@ define internal void @_ZZN9grpc_core14filters_detail9AddOpImplINS_12_GLOBAL__N_1
   br label %_ZN9grpc_core12_GLOBAL__N_122ServerCallTracerFilter4Call23OnServerInitialMetadataER19grpc_metadata_batch.exit.i
 
 _ZN9grpc_core12_GLOBAL__N_122ServerCallTracerFilter4Call23OnServerInitialMetadataER19grpc_metadata_batch.exit.i: ; preds = %19, %5
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #31, !noalias !347
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !347
   %24 = load i8, ptr %4, align 1, !tbaa !141, !noalias !347
   store i8 %24, ptr %8, align 8, !tbaa !141, !noalias !347
   %25 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -3617,7 +3611,7 @@ _ZN9grpc_core12_GLOBAL__N_122ServerCallTracerFilter4Call23OnServerInitialMetadat
   br i1 %.not.i.i.not.i, label %31, label %_ZZN9grpc_core14filters_detail9AddOpImplINS_12_GLOBAL__N_122ServerCallTracerFilterESt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEMNS3_4CallEFvRS5_EXadL_ZNS9_23OnServerInitialMetadataESA_EEvE3AddEPS3_mRNS0_6LayoutIS8_EEENKUlPvSI_SI_S8_E_clESI_SI_SI_S8_.exit, !prof !202
 
 31:                                               ; preds = %_ZN9grpc_core12_GLOBAL__N_122ServerCallTracerFilter4Call23OnServerInitialMetadataER19grpc_metadata_batch.exit.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #31, !noalias !347
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !347
   invoke void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull @.str.15, i32 noundef 267, i64 48, ptr nonnull @.str.16) #36
           to label %32 unwind label %.body.i, !noalias !347
 
@@ -3628,12 +3622,12 @@ _ZN9grpc_core12_GLOBAL__N_122ServerCallTracerFilter4Call23OnServerInitialMetadat
 .body.i:                                          ; preds = %31
   %33 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #31, !noalias !347
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !347
   call void @_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %29) #31, !noalias !347
   call void @_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #31, !noalias !347
   call void @_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #31, !noalias !347
   call void @_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #31, !noalias !347
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #31, !noalias !347
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !347
   resume { ptr, i32 } %33
 
 _ZZN9grpc_core14filters_detail9AddOpImplINS_12_GLOBAL__N_122ServerCallTracerFilterESt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEMNS3_4CallEFvRS5_EXadL_ZNS9_23OnServerInitialMetadataESA_EEvE3AddEPS3_mRNS0_6LayoutIS8_EEENKUlPvSI_SI_S8_E_clESI_SI_SI_S8_.exit: ; preds = %_ZN9grpc_core12_GLOBAL__N_122ServerCallTracerFilter4Call23OnServerInitialMetadataER19grpc_metadata_batch.exit.i
@@ -3646,9 +3640,9 @@ _ZZN9grpc_core14filters_detail9AddOpImplINS_12_GLOBAL__N_122ServerCallTracerFilt
   store i8 1, ptr %36, align 8, !tbaa !141, !alias.scope !347
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 0, ptr %37, align 8, !tbaa !142, !alias.scope !347
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #31, !noalias !347
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !347
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }
 
@@ -3773,6 +3767,12 @@ __cxx_global_var_init.1.exit:                     ; preds = %0, %4, %7
 }
 
 declare extern_weak void @_ZTHN9grpc_core8Activity19g_current_activity_E() #0
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #28

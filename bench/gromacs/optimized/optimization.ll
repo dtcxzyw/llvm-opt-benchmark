@@ -24,7 +24,7 @@ define void @_ZN3gmx10nelderMeadERKSt8functionIFfNS_8ArrayRefIKfEEEES3_fi(ptr de
   %8 = alloca %"struct.gmx::RealFunctionvalueAtCoordinate", align 8
   %9 = alloca %"struct.gmx::RealFunctionvalueAtCoordinate", align 8
   %10 = alloca %"struct.gmx::RealFunctionvalueAtCoordinate", align 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %11 = ptrtoint ptr %3 to i64
   %12 = ptrtoint ptr %2 to i64
   %13 = sub i64 %11, %12
@@ -69,7 +69,7 @@ define void @_ZN3gmx10nelderMeadERKSt8functionIFfNS_8ArrayRefIKfEEEES3_fi(ptr de
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 36:                                               ; preds = %26
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   invoke void @_ZNK3gmx17NelderMeadSimplex23evaluateReflectionPointERKSt8functionIFfNS_8ArrayRefIKfEEEE(ptr dead_on_unwind nonnull writable sret(%"struct.gmx::RealFunctionvalueAtCoordinate") align 8 %8, ptr noundef nonnull align 8 dereferenceable(72) %7, ptr noundef nonnull align 1 %1)
           to label %37 unwind label %49
 
@@ -122,7 +122,7 @@ define void @_ZN3gmx10nelderMeadERKSt8functionIFfNS_8ArrayRefIKfEEEES3_fi(ptr de
   br i1 %59, label %60, label %82
 
 60:                                               ; preds = %56
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   invoke void @_ZNK3gmx17NelderMeadSimplex22evaluateExpansionPointERKSt8functionIFfNS_8ArrayRefIKfEEEE(ptr dead_on_unwind nonnull writable sret(%"struct.gmx::RealFunctionvalueAtCoordinate") align 8 %9, ptr noundef nonnull align 8 dereferenceable(72) %7, ptr noundef nonnull align 1 %1)
           to label %.invoke unwind label %65
 
@@ -151,7 +151,7 @@ define void @_ZN3gmx10nelderMeadERKSt8functionIFfNS_8ArrayRefIKfEEEES3_fi(ptr de
   %72 = ptrtoint ptr %71 to i64
   %73 = ptrtoint ptr %69 to i64
   %74 = sub i64 %72, %73
-  call void @_ZdlPvm(ptr noundef nonnull %69, i64 noundef %74) #10
+  call void @_ZdlPvm(ptr noundef nonnull %69, i64 noundef %74) #9
   br label %_ZN3gmx29RealFunctionvalueAtCoordinateD2Ev.exit
 
 75:                                               ; preds = %.invoke
@@ -164,20 +164,20 @@ define void @_ZN3gmx10nelderMeadERKSt8functionIFfNS_8ArrayRefIKfEEEES3_fi(ptr de
   %79 = ptrtoint ptr %78 to i64
   %80 = ptrtoint ptr %76 to i64
   %81 = sub i64 %79, %80
-  call void @_ZdlPvm(ptr noundef nonnull %76, i64 noundef %81) #10
+  call void @_ZdlPvm(ptr noundef nonnull %76, i64 noundef %81) #9
   br label %_ZN3gmx29RealFunctionvalueAtCoordinateD2Ev.exit34
 
 _ZN3gmx29RealFunctionvalueAtCoordinateD2Ev.exit34: ; preds = %75, %77
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %109
 
 _ZN3gmx29RealFunctionvalueAtCoordinateD2Ev.exit:  ; preds = %70, %67, %65
   %.pn26 = phi { ptr, i32 } [ %66, %65 ], [ %68, %67 ], [ %68, %70 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %117
 
 82:                                               ; preds = %56
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   invoke void @_ZNK3gmx17NelderMeadSimplex24evaluateContractionPointERKSt8functionIFfNS_8ArrayRefIKfEEEE(ptr dead_on_unwind nonnull writable sret(%"struct.gmx::RealFunctionvalueAtCoordinate") align 8 %10, ptr noundef nonnull align 8 dereferenceable(72) %7, ptr noundef nonnull align 1 %1)
           to label %83 unwind label %91
 
@@ -213,7 +213,7 @@ _ZN3gmx29RealFunctionvalueAtCoordinateD2Ev.exit:  ; preds = %70, %67, %65
   %98 = ptrtoint ptr %97 to i64
   %99 = ptrtoint ptr %95 to i64
   %100 = sub i64 %98, %99
-  call void @_ZdlPvm(ptr noundef nonnull %95, i64 noundef %100) #10
+  call void @_ZdlPvm(ptr noundef nonnull %95, i64 noundef %100) #9
   br label %_ZN3gmx29RealFunctionvalueAtCoordinateD2Ev.exit36
 
 101:                                              ; preds = %86
@@ -230,11 +230,11 @@ _ZN3gmx29RealFunctionvalueAtCoordinateD2Ev.exit:  ; preds = %70, %67, %65
   %106 = ptrtoint ptr %105 to i64
   %107 = ptrtoint ptr %103 to i64
   %108 = sub i64 %106, %107
-  call void @_ZdlPvm(ptr noundef nonnull %103, i64 noundef %108) #10
+  call void @_ZdlPvm(ptr noundef nonnull %103, i64 noundef %108) #9
   br label %_ZN3gmx29RealFunctionvalueAtCoordinateD2Ev.exit38
 
 _ZN3gmx29RealFunctionvalueAtCoordinateD2Ev.exit38: ; preds = %102, %104
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %109
 
 109:                                              ; preds = %48, %_ZN3gmx29RealFunctionvalueAtCoordinateD2Ev.exit38, %_ZN3gmx29RealFunctionvalueAtCoordinateD2Ev.exit34
@@ -247,17 +247,17 @@ _ZN3gmx29RealFunctionvalueAtCoordinateD2Ev.exit38: ; preds = %102, %104
   %113 = ptrtoint ptr %112 to i64
   %114 = ptrtoint ptr %110 to i64
   %115 = sub i64 %113, %114
-  call void @_ZdlPvm(ptr noundef nonnull %110, i64 noundef %115) #10
+  call void @_ZdlPvm(ptr noundef nonnull %110, i64 noundef %115) #9
   br label %_ZN3gmx29RealFunctionvalueAtCoordinateD2Ev.exit40
 
 _ZN3gmx29RealFunctionvalueAtCoordinateD2Ev.exit40: ; preds = %109, %111
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %116 = add nuw nsw i32 %.017, 1
   br label %24, !llvm.loop !17
 
 _ZN3gmx29RealFunctionvalueAtCoordinateD2Ev.exit36: ; preds = %96, %93, %91
   %.pn = phi { ptr, i32 } [ %92, %91 ], [ %94, %93 ], [ %94, %96 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %117
 
 117:                                              ; preds = %_ZN3gmx29RealFunctionvalueAtCoordinateD2Ev.exit36, %_ZN3gmx29RealFunctionvalueAtCoordinateD2Ev.exit, %51
@@ -271,11 +271,11 @@ _ZN3gmx29RealFunctionvalueAtCoordinateD2Ev.exit36: ; preds = %96, %93, %91
   %121 = ptrtoint ptr %120 to i64
   %122 = ptrtoint ptr %118 to i64
   %123 = sub i64 %121, %122
-  call void @_ZdlPvm(ptr noundef nonnull %118, i64 noundef %123) #10
+  call void @_ZdlPvm(ptr noundef nonnull %118, i64 noundef %123) #9
   br label %_ZN3gmx29RealFunctionvalueAtCoordinateD2Ev.exit42
 
 _ZN3gmx29RealFunctionvalueAtCoordinateD2Ev.exit42: ; preds = %117, %119
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 124:                                              ; preds = %30
@@ -302,14 +302,14 @@ _ZN3gmx29RealFunctionvalueAtCoordinateD2Ev.exit42: ; preds = %117, %119
   br i1 %135, label %.noexc.i.i, label %_ZNSt16allocator_traitsISaIfEE8allocateERS0_m.exit.i.i.i.i, !prof !20
 
 .noexc.i.i:                                       ; preds = %134
-  invoke void @_ZSt28__throw_bad_array_new_lengthv() #11
+  invoke void @_ZSt28__throw_bad_array_new_lengthv() #10
           to label %.noexc unwind label %32
 
 .noexc:                                           ; preds = %.noexc.i.i
   unreachable
 
 _ZNSt16allocator_traitsISaIfEE8allocateERS0_m.exit.i.i.i.i: ; preds = %134
-  %136 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %130) #12
+  %136 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %130) #11
           to label %137 unwind label %32
 
 137:                                              ; preds = %_ZNSt16allocator_traitsISaIfEE8allocateERS0_m.exit.i.i.i.i
@@ -346,7 +346,7 @@ _ZNSt16allocator_traitsISaIfEE8allocateERS0_m.exit.i.i.i.i: ; preds = %134
   %155 = ptrtoint ptr %154 to i64
   %156 = ptrtoint ptr %151 to i64
   %157 = sub i64 %155, %156
-  call void @_ZdlPvm(ptr noundef nonnull %151, i64 noundef %157) #10
+  call void @_ZdlPvm(ptr noundef nonnull %151, i64 noundef %157) #9
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit.i
 
 _ZNSt6vectorIfSaIfEED2Ev.exit.i:                  ; preds = %152, %146
@@ -361,7 +361,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit.i:                  ; preds = %152, %146
   %163 = ptrtoint ptr %162 to i64
   %164 = ptrtoint ptr %159 to i64
   %165 = sub i64 %163, %164
-  call void @_ZdlPvm(ptr noundef nonnull %159, i64 noundef %165) #10
+  call void @_ZdlPvm(ptr noundef nonnull %159, i64 noundef %165) #9
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit2.i
 
 _ZNSt6vectorIfSaIfEED2Ev.exit2.i:                 ; preds = %160, %_ZNSt6vectorIfSaIfEED2Ev.exit.i
@@ -383,16 +383,16 @@ _ZNSt6vectorIfSaIfEED2Ev.exit2.i:                 ; preds = %160, %_ZNSt6vectorI
   %173 = ptrtoint ptr %172 to i64
   %174 = ptrtoint ptr %169 to i64
   %175 = sub i64 %173, %174
-  call void @_ZdlPvm(ptr noundef nonnull %169, i64 noundef %175) #10
+  call void @_ZdlPvm(ptr noundef nonnull %169, i64 noundef %175) #9
   br label %_ZNSt16allocator_traitsISaISt10_List_nodeIN3gmx29RealFunctionvalueAtCoordinateEEEE7destroyIS2_EEvRS4_PT_.exit.i.i.i
 
 _ZNSt16allocator_traitsISaISt10_List_nodeIN3gmx29RealFunctionvalueAtCoordinateEEEE7destroyIS2_EEvRS4_PT_.exit.i.i.i: ; preds = %170, %.lr.ph.i.i.i
-  call void @_ZdlPvm(ptr noundef nonnull %.09.i.i.i, i64 noundef 48) #10
+  call void @_ZdlPvm(ptr noundef nonnull %.09.i.i.i, i64 noundef 48) #9
   %.not.i.i.i = icmp eq ptr %167, %7
   br i1 %.not.i.i.i, label %_ZN3gmx17NelderMeadSimplexD2Ev.exit, label %.lr.ph.i.i.i, !llvm.loop !26
 
 _ZN3gmx17NelderMeadSimplexD2Ev.exit:              ; preds = %_ZNSt16allocator_traitsISaISt10_List_nodeIN3gmx29RealFunctionvalueAtCoordinateEEEE7destroyIS2_EEvRS4_PT_.exit.i.i.i, %_ZNSt6vectorIfSaIfEED2Ev.exit2.i
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 
 176:                                              ; preds = %141
@@ -402,46 +402,40 @@ _ZN3gmx17NelderMeadSimplexD2Ev.exit:              ; preds = %_ZNSt16allocator_tr
   br i1 %.not.i.i.i47, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %178
 
 178:                                              ; preds = %176
-  call void @_ZdlPvm(ptr noundef nonnull %144, i64 noundef %130) #10
+  call void @_ZdlPvm(ptr noundef nonnull %144, i64 noundef %130) #9
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %178, %176, %34, %_ZN3gmx29RealFunctionvalueAtCoordinateD2Ev.exit42, %49, %32
   %.pn28.pn.pn.pn = phi { ptr, i32 } [ %33, %32 ], [ %35, %34 ], [ %.pn28, %_ZN3gmx29RealFunctionvalueAtCoordinateD2Ev.exit42 ], [ %50, %49 ], [ %177, %176 ], [ %177, %178 ]
-  call void @_ZN3gmx17NelderMeadSimplexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %7) #9
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7) #9
+  call void @_ZN3gmx17NelderMeadSimplexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %7) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   resume { ptr, i32 } %.pn28.pn.pn.pn
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare void @_ZN3gmx17NelderMeadSimplexC1ERKSt8functionIFfNS_8ArrayRefIKfEEEES4_(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 1, ptr, ptr) unnamed_addr #1
 
-declare void @_ZN3gmx17NelderMeadSimplexC1ERKSt8functionIFfNS_8ArrayRefIKfEEEES4_(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 1, ptr, ptr) unnamed_addr #2
-
-declare noundef float @_ZNK3gmx17NelderMeadSimplex14orientedLengthEv(ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #2
+declare noundef float @_ZNK3gmx17NelderMeadSimplex14orientedLengthEv(ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #1
 
 declare i32 @__gxx_personality_v0(...)
 
-declare void @_ZNK3gmx17NelderMeadSimplex23evaluateReflectionPointERKSt8functionIFfNS_8ArrayRefIKfEEEE(ptr dead_on_unwind writable sret(%"struct.gmx::RealFunctionvalueAtCoordinate") align 8, ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 1) local_unnamed_addr #2
+declare void @_ZNK3gmx17NelderMeadSimplex23evaluateReflectionPointERKSt8functionIFfNS_8ArrayRefIKfEEEE(ptr dead_on_unwind writable sret(%"struct.gmx::RealFunctionvalueAtCoordinate") align 8, ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 1) local_unnamed_addr #1
 
-declare noundef nonnull align 8 dereferenceable(28) ptr @_ZNK3gmx17NelderMeadSimplex10bestVertexEv(ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #2
+declare noundef nonnull align 8 dereferenceable(28) ptr @_ZNK3gmx17NelderMeadSimplex10bestVertexEv(ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #1
 
-declare noundef float @_ZNK3gmx17NelderMeadSimplex16secondWorstValueEv(ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #2
+declare noundef float @_ZNK3gmx17NelderMeadSimplex16secondWorstValueEv(ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #1
 
-declare void @_ZN3gmx17NelderMeadSimplex12swapOutWorstERKNS_29RealFunctionvalueAtCoordinateE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(28)) local_unnamed_addr #2
+declare void @_ZN3gmx17NelderMeadSimplex12swapOutWorstERKNS_29RealFunctionvalueAtCoordinateE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(28)) local_unnamed_addr #1
 
-declare void @_ZNK3gmx17NelderMeadSimplex22evaluateExpansionPointERKSt8functionIFfNS_8ArrayRefIKfEEEE(ptr dead_on_unwind writable sret(%"struct.gmx::RealFunctionvalueAtCoordinate") align 8, ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 1) local_unnamed_addr #2
+declare void @_ZNK3gmx17NelderMeadSimplex22evaluateExpansionPointERKSt8functionIFfNS_8ArrayRefIKfEEEE(ptr dead_on_unwind writable sret(%"struct.gmx::RealFunctionvalueAtCoordinate") align 8, ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 1) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @_ZNK3gmx17NelderMeadSimplex24evaluateContractionPointERKSt8functionIFfNS_8ArrayRefIKfEEEE(ptr dead_on_unwind writable sret(%"struct.gmx::RealFunctionvalueAtCoordinate") align 8, ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 1) local_unnamed_addr #1
 
-declare void @_ZNK3gmx17NelderMeadSimplex24evaluateContractionPointERKSt8functionIFfNS_8ArrayRefIKfEEEE(ptr dead_on_unwind writable sret(%"struct.gmx::RealFunctionvalueAtCoordinate") align 8, ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 1) local_unnamed_addr #2
+declare noundef nonnull align 8 dereferenceable(28) ptr @_ZNK3gmx17NelderMeadSimplex11worstVertexEv(ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #1
 
-declare noundef nonnull align 8 dereferenceable(28) ptr @_ZNK3gmx17NelderMeadSimplex11worstVertexEv(ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #2
-
-declare void @_ZN3gmx17NelderMeadSimplex29shrinkSimplexPointsExceptBestERKSt8functionIFfNS_8ArrayRefIKfEEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 1) local_unnamed_addr #2
+declare void @_ZN3gmx17NelderMeadSimplex29shrinkSimplexPointsExceptBestERKSt8functionIFfNS_8ArrayRefIKfEEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 1) local_unnamed_addr #1
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3gmx17NelderMeadSimplexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN3gmx17NelderMeadSimplexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8, !tbaa !15
   %.not.i.i.i = icmp eq ptr %3, null
@@ -453,7 +447,7 @@ define linkonce_odr void @_ZN3gmx17NelderMeadSimplexD2Ev(ptr noundef nonnull ali
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #10
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #9
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
@@ -468,7 +462,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
   %15 = ptrtoint ptr %14 to i64
   %16 = ptrtoint ptr %11 to i64
   %17 = sub i64 %15, %16
-  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef %17) #10
+  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef %17) #9
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit2
 
 _ZNSt6vectorIfSaIfEED2Ev.exit2:                   ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit, %12
@@ -490,11 +484,11 @@ _ZNSt6vectorIfSaIfEED2Ev.exit2:                   ; preds = %_ZNSt6vectorIfSaIfE
   %25 = ptrtoint ptr %24 to i64
   %26 = ptrtoint ptr %21 to i64
   %27 = sub i64 %25, %26
-  tail call void @_ZdlPvm(ptr noundef nonnull %21, i64 noundef %27) #10
+  tail call void @_ZdlPvm(ptr noundef nonnull %21, i64 noundef %27) #9
   br label %_ZNSt16allocator_traitsISaISt10_List_nodeIN3gmx29RealFunctionvalueAtCoordinateEEEE7destroyIS2_EEvRS4_PT_.exit.i.i
 
 _ZNSt16allocator_traitsISaISt10_List_nodeIN3gmx29RealFunctionvalueAtCoordinateEEEE7destroyIS2_EEvRS4_PT_.exit.i.i: ; preds = %22, %.lr.ph.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %.09.i.i, i64 noundef 48) #10
+  tail call void @_ZdlPvm(ptr noundef nonnull %.09.i.i, i64 noundef 48) #9
   %.not.i.i = icmp eq ptr %19, %0
   br i1 %.not.i.i, label %_ZNSt7__cxx1110_List_baseIN3gmx29RealFunctionvalueAtCoordinateESaIS2_EED2Ev.exit, label %.lr.ph.i.i, !llvm.loop !26
 
@@ -503,33 +497,39 @@ _ZNSt7__cxx1110_List_baseIN3gmx29RealFunctionvalueAtCoordinateESaIS2_EED2Ev.exit
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #4
+declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #3
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #5
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #7
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #3 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #4 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #5 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #2 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #3 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #4 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { nounwind }
-attributes #10 = { builtin nounwind }
-attributes #11 = { noreturn }
-attributes #12 = { builtin allocsize(0) }
+attributes #9 = { builtin nounwind }
+attributes #10 = { noreturn }
+attributes #11 = { builtin allocsize(0) }
+attributes #12 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

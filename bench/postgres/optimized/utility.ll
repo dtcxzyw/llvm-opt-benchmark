@@ -120,20 +120,14 @@ define dso_local zeroext i1 @CommandIsReadOnly(ptr noundef readonly captures(non
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @errstart(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @errstart(i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #3
+declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @PreventCommandIfReadOnly(ptr noundef %0) local_unnamed_addr #0 {
@@ -153,9 +147,9 @@ define dso_local void @PreventCommandIfReadOnly(ptr noundef %0) local_unnamed_ad
   ret void
 }
 
-declare i32 @errcode(i32 noundef) local_unnamed_addr #3
+declare i32 @errcode(i32 noundef) local_unnamed_addr #2
 
-declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #3
+declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @PreventCommandIfParallelMode(ptr noundef %0) local_unnamed_addr #0 {
@@ -174,7 +168,7 @@ define dso_local void @PreventCommandIfParallelMode(ptr noundef %0) local_unname
   ret void
 }
 
-declare zeroext i1 @IsInParallelMode() local_unnamed_addr #3
+declare zeroext i1 @IsInParallelMode() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @PreventCommandDuringRecovery(ptr noundef %0) local_unnamed_addr #0 {
@@ -193,7 +187,7 @@ define dso_local void @PreventCommandDuringRecovery(ptr noundef %0) local_unname
   ret void
 }
 
-declare zeroext i1 @RecoveryInProgress() local_unnamed_addr #3
+declare zeroext i1 @RecoveryInProgress() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ProcessUtility(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #0 {
@@ -692,7 +686,7 @@ ClassifyUtilityCommandAsReadOnly.exit:            ; preds = %17, %17, %17, %17, 
   br label %.critedge
 
 151:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %152 = getelementptr inbounds nuw i8, ptr %.0, i64 144
   %153 = load i32, ptr %152, align 8
   %154 = getelementptr inbounds nuw i8, ptr %.0, i64 148
@@ -709,7 +703,7 @@ ClassifyUtilityCommandAsReadOnly.exit:            ; preds = %17, %17, %17, %17, 
   br label %159
 
 159:                                              ; preds = %156, %151
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.critedge
 
 160:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
@@ -1035,11 +1029,11 @@ CheckRestrictedOperation.exit:                    ; preds = %160
   ret void
 }
 
-declare zeroext i1 @IsTransactionBlock() local_unnamed_addr #3
+declare zeroext i1 @IsTransactionBlock() local_unnamed_addr #2
 
-declare void @check_stack_depth() local_unnamed_addr #3
+declare void @check_stack_depth() local_unnamed_addr #2
 
-declare ptr @copyObjectImpl(ptr noundef) local_unnamed_addr #3
+declare ptr @copyObjectImpl(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 193) i32 @CreateCommandTag(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -1749,38 +1743,38 @@ switch.lookup530:                                 ; preds = %204, %186, %tailrec
   ret i32 %.0
 }
 
-declare ptr @GetCommandTagName(i32 noundef) local_unnamed_addr #3
+declare ptr @GetCommandTagName(i32 noundef) local_unnamed_addr #2
 
-declare ptr @make_parsestate(ptr noundef) local_unnamed_addr #3
+declare ptr @make_parsestate(ptr noundef) local_unnamed_addr #2
 
-declare void @BeginTransactionBlock() local_unnamed_addr #3
+declare void @BeginTransactionBlock() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
-declare void @SetPGVariable(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare void @SetPGVariable(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
-declare ptr @list_make1_impl(i32 noundef, ptr) local_unnamed_addr #3
+declare ptr @list_make1_impl(i32 noundef, ptr) local_unnamed_addr #2
 
-declare zeroext i1 @EndTransactionBlock(i1 noundef zeroext) local_unnamed_addr #3
+declare zeroext i1 @EndTransactionBlock(i1 noundef zeroext) local_unnamed_addr #2
 
-declare zeroext i1 @PrepareTransactionBlock(ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @PrepareTransactionBlock(ptr noundef) local_unnamed_addr #2
 
-declare void @PreventInTransactionBlock(i1 noundef zeroext, ptr noundef) local_unnamed_addr #3
+declare void @PreventInTransactionBlock(i1 noundef zeroext, ptr noundef) local_unnamed_addr #2
 
-declare void @FinishPreparedTransaction(ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare void @FinishPreparedTransaction(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
-declare void @UserAbortTransactionBlock(i1 noundef zeroext) local_unnamed_addr #3
+declare void @UserAbortTransactionBlock(i1 noundef zeroext) local_unnamed_addr #2
 
-declare void @RequireTransactionBlock(i1 noundef zeroext, ptr noundef) local_unnamed_addr #3
+declare void @RequireTransactionBlock(i1 noundef zeroext, ptr noundef) local_unnamed_addr #2
 
-declare void @DefineSavepoint(ptr noundef) local_unnamed_addr #3
+declare void @DefineSavepoint(ptr noundef) local_unnamed_addr #2
 
-declare void @ReleaseSavepoint(ptr noundef) local_unnamed_addr #3
+declare void @ReleaseSavepoint(ptr noundef) local_unnamed_addr #2
 
-declare void @RollbackToSavepoint(ptr noundef) local_unnamed_addr #3
+declare void @RollbackToSavepoint(ptr noundef) local_unnamed_addr #2
 
-declare void @PerformCursorOpen(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare void @PerformCursorOpen(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @CheckRestrictedOperation(ptr noundef %0) unnamed_addr #0 {
@@ -1799,102 +1793,102 @@ define internal fastcc void @CheckRestrictedOperation(ptr noundef %0) unnamed_ad
   ret void
 }
 
-declare void @PerformPortalClose(ptr noundef) local_unnamed_addr #3
+declare void @PerformPortalClose(ptr noundef) local_unnamed_addr #2
 
-declare void @PerformPortalFetch(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @PerformPortalFetch(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @ExecuteDoStmt(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare void @ExecuteDoStmt(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
-declare i32 @CreateTableSpace(ptr noundef) local_unnamed_addr #3
+declare i32 @CreateTableSpace(ptr noundef) local_unnamed_addr #2
 
-declare void @DropTableSpace(ptr noundef) local_unnamed_addr #3
+declare void @DropTableSpace(ptr noundef) local_unnamed_addr #2
 
-declare i32 @AlterTableSpaceOptions(ptr noundef) local_unnamed_addr #3
+declare i32 @AlterTableSpaceOptions(ptr noundef) local_unnamed_addr #2
 
-declare void @ExecuteTruncate(ptr noundef) local_unnamed_addr #3
+declare void @ExecuteTruncate(ptr noundef) local_unnamed_addr #2
 
-declare void @DoCopy(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @DoCopy(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @PrepareQuery(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare void @PrepareQuery(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @ExecuteQuery(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @ExecuteQuery(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @DeallocateQuery(ptr noundef) local_unnamed_addr #3
+declare void @DeallocateQuery(ptr noundef) local_unnamed_addr #2
 
-declare void @GrantRole(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @GrantRole(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @createdb(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @createdb(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @AlterDatabase(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare i32 @AlterDatabase(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
-declare { i64, i32 } @AlterDatabaseRefreshColl(ptr noundef) local_unnamed_addr #3
+declare { i64, i32 } @AlterDatabaseRefreshColl(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
-declare i32 @AlterDatabaseSet(ptr noundef) local_unnamed_addr #3
+declare i32 @AlterDatabaseSet(ptr noundef) local_unnamed_addr #2
 
-declare void @DropDatabase(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @DropDatabase(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @Async_Notify(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @Async_Notify(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @Async_Listen(ptr noundef) local_unnamed_addr #3
+declare void @Async_Listen(ptr noundef) local_unnamed_addr #2
 
-declare void @Async_Unlisten(ptr noundef) local_unnamed_addr #3
+declare void @Async_Unlisten(ptr noundef) local_unnamed_addr #2
 
-declare void @Async_UnlistenAll() local_unnamed_addr #3
+declare void @Async_UnlistenAll() local_unnamed_addr #2
 
-declare void @closeAllVfds() local_unnamed_addr #3
+declare void @closeAllVfds() local_unnamed_addr #2
 
-declare void @load_file(ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare void @load_file(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
-declare zeroext i1 @superuser() local_unnamed_addr #3
+declare zeroext i1 @superuser() local_unnamed_addr #2
 
-declare void @ExecuteCallStmt(ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #3
+declare void @ExecuteCallStmt(ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #2
 
-declare void @cluster(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare void @cluster(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
-declare void @ExecVacuum(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare void @ExecVacuum(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
-declare void @ExplainQuery(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @ExplainQuery(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @AlterSystemSetConfigFile(ptr noundef) local_unnamed_addr #3
+declare void @AlterSystemSetConfigFile(ptr noundef) local_unnamed_addr #2
 
-declare void @ExecSetVariableStmt(ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare void @ExecSetVariableStmt(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
-declare void @GetPGVariable(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @GetPGVariable(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @DiscardCommand(ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare void @DiscardCommand(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
-declare i32 @CreateEventTrigger(ptr noundef) local_unnamed_addr #3
+declare i32 @CreateEventTrigger(ptr noundef) local_unnamed_addr #2
 
-declare i32 @AlterEventTrigger(ptr noundef) local_unnamed_addr #3
+declare i32 @AlterEventTrigger(ptr noundef) local_unnamed_addr #2
 
-declare i32 @CreateRole(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @CreateRole(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @AlterRole(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @AlterRole(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @AlterRoleSet(ptr noundef) local_unnamed_addr #3
+declare i32 @AlterRoleSet(ptr noundef) local_unnamed_addr #2
 
-declare void @DropRole(ptr noundef) local_unnamed_addr #3
+declare void @DropRole(ptr noundef) local_unnamed_addr #2
 
-declare void @ReassignOwnedObjects(ptr noundef) local_unnamed_addr #3
+declare void @ReassignOwnedObjects(ptr noundef) local_unnamed_addr #2
 
-declare void @LockTableCommand(ptr noundef) local_unnamed_addr #3
+declare void @LockTableCommand(ptr noundef) local_unnamed_addr #2
 
-declare void @WarnNoTransactionBlock(i1 noundef zeroext, ptr noundef) local_unnamed_addr #3
+declare void @WarnNoTransactionBlock(i1 noundef zeroext, ptr noundef) local_unnamed_addr #2
 
-declare void @AfterTriggerSetState(ptr noundef) local_unnamed_addr #3
+declare void @AfterTriggerSetState(ptr noundef) local_unnamed_addr #2
 
-declare zeroext i1 @has_privs_of_role(i32 noundef, i32 noundef) local_unnamed_addr #3
+declare zeroext i1 @has_privs_of_role(i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @GetUserId() local_unnamed_addr #3
+declare i32 @GetUserId() local_unnamed_addr #2
 
-declare i32 @errdetail(ptr noundef, ...) local_unnamed_addr #3
+declare i32 @errdetail(ptr noundef, ...) local_unnamed_addr #2
 
-declare void @RequestCheckpoint(i32 noundef) local_unnamed_addr #3
+declare void @RequestCheckpoint(i32 noundef) local_unnamed_addr #2
 
-declare zeroext i1 @EventTriggerSupportsObjectType(i32 noundef) local_unnamed_addr #3
+declare zeroext i1 @EventTriggerSupportsObjectType(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @ProcessUtilitySlow(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
@@ -1907,7 +1901,7 @@ define internal fastcc void @ProcessUtilitySlow(ptr noundef %0, ptr noundef %1, 
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq i32 %3, 0
   %.not = icmp eq i32 %3, 3
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %8) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %8, ptr noundef nonnull align 4 dereferenceable(12) @InvalidObjectAddress, i64 12, i1 false)
   br i1 %.not, label %18, label %16
 
@@ -1919,7 +1913,7 @@ define internal fastcc void @ProcessUtilitySlow(ptr noundef %0, ptr noundef %1, 
   %19 = phi i1 [ false, %7 ], [ %17, %16 ]
   %20 = load ptr, ptr @PG_exception_stack, align 8
   %21 = load ptr, ptr @error_context_stack, align 8
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %9) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %22 = call i32 @__sigsetjmp(ptr noundef nonnull %9, i32 noundef 0) #14
   %.not726 = icmp eq i32 %22, 0
   br i1 %.not726, label %23, label %431
@@ -2037,7 +2031,7 @@ define internal fastcc void @ProcessUtilitySlow(ptr noundef %0, ptr noundef %1, 
   ]
 
 42:                                               ; preds = %37
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %10, ptr noundef nonnull align 16 dereferenceable(16) @__const.ProcessUtilitySlow.validnsps, i64 16, i1 false)
   %43 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %44 = load ptr, ptr %43, align 8
@@ -2055,7 +2049,7 @@ define internal fastcc void @ProcessUtilitySlow(ptr noundef %0, ptr noundef %1, 
   %.sroa.0552.4.extract.shift = lshr i64 %.fca.0.extract521, 32
   %.sroa.0552.4.extract.trunc = trunc nuw i64 %.sroa.0552.4.extract.shift to i32
   call void @NewRelationCreateToastTable(i32 noundef %.sroa.0552.4.extract.trunc, i64 noundef %48) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %ProcessUtility.exit
 
 50:                                               ; preds = %37
@@ -2171,7 +2165,7 @@ ProcessUtility.exit:                              ; preds = %69, %68, %50, %54, 
   br i1 %98, label %.lr.ph16, label %.critedge.loopexit
 
 99:                                               ; preds = %.critedge
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %1, ptr %11, align 8
   %100 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %2, ptr %100, align 8
@@ -2185,7 +2179,7 @@ ProcessUtility.exit:                              ; preds = %69, %68, %50, %54, 
   call void @EventTriggerAlterTableRelid(i32 noundef %87) #11
   call void @AlterTable(ptr noundef nonnull %14, i32 noundef %86, ptr noundef nonnull %11) #11
   call void @EventTriggerAlterTableEnd() #11
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.critedge730
 
 104:                                              ; preds = %.critedge
@@ -2606,7 +2600,7 @@ list_length.exit:                                 ; preds = %242, %.critedge728
   call void @EventTriggerInhibitCommandCollection() #11
   %342 = load ptr, ptr @PG_exception_stack, align 8
   %343 = load ptr, ptr @error_context_stack, align 8
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %12) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %344 = call i32 @__sigsetjmp(ptr noundef nonnull %12, i32 noundef 0) #14
   %.not715 = icmp eq i32 %344, 0
   br i1 %.not715, label %346, label %345
@@ -2626,7 +2620,7 @@ list_length.exit:                                 ; preds = %242, %.critedge728
   call void @EventTriggerUndoInhibitCommandCollection() #11
   store ptr %342, ptr @PG_exception_stack, align 8
   store ptr %343, ptr @error_context_stack, align 8
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %12) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %429
 
 348:                                              ; preds = %25
@@ -2835,12 +2829,12 @@ list_length.exit:                                 ; preds = %242, %.critedge728
 435:                                              ; preds = %433
   store ptr %20, ptr @PG_exception_stack, align 8
   store ptr %21, ptr @error_context_stack, align 8
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %9) #11
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
 
-declare void @ExecuteGrantStmt(ptr noundef) local_unnamed_addr #3
+declare void @ExecuteGrantStmt(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @ExecDropStmt(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #0 {
@@ -2877,21 +2871,21 @@ define internal fastcc void @ExecDropStmt(ptr noundef %0, i1 noundef zeroext %1)
   ret void
 }
 
-declare { i64, i32 } @ExecRenameStmt(ptr noundef) local_unnamed_addr #3
+declare { i64, i32 } @ExecRenameStmt(ptr noundef) local_unnamed_addr #2
 
-declare { i64, i32 } @ExecAlterObjectDependsStmt(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare { i64, i32 } @ExecAlterObjectDependsStmt(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare { i64, i32 } @ExecAlterObjectSchemaStmt(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare { i64, i32 } @ExecAlterObjectSchemaStmt(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare { i64, i32 } @ExecAlterOwnerStmt(ptr noundef) local_unnamed_addr #3
+declare { i64, i32 } @ExecAlterOwnerStmt(ptr noundef) local_unnamed_addr #2
 
-declare { i64, i32 } @CommentObject(ptr noundef) local_unnamed_addr #3
+declare { i64, i32 } @CommentObject(ptr noundef) local_unnamed_addr #2
 
-declare { i64, i32 } @ExecSecLabelStmt(ptr noundef) local_unnamed_addr #3
+declare { i64, i32 } @ExecSecLabelStmt(ptr noundef) local_unnamed_addr #2
 
-declare void @free_parsestate(ptr noundef) local_unnamed_addr #3
+declare void @free_parsestate(ptr noundef) local_unnamed_addr #2
 
-declare void @CommandCounterIncrement() local_unnamed_addr #3
+declare void @CommandCounterIncrement() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ProcessUtilityForAlterTable(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
@@ -2944,11 +2938,11 @@ ProcessUtility.exit:                              ; preds = %23, %24
   ret void
 }
 
-declare void @EventTriggerAlterTableEnd() local_unnamed_addr #3
+declare void @EventTriggerAlterTableEnd() local_unnamed_addr #2
 
-declare void @EventTriggerAlterTableStart(ptr noundef) local_unnamed_addr #3
+declare void @EventTriggerAlterTableStart(ptr noundef) local_unnamed_addr #2
 
-declare void @EventTriggerAlterTableRelid(i32 noundef) local_unnamed_addr #3
+declare void @EventTriggerAlterTableRelid(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @UtilityReturnsTuples(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -3011,9 +3005,9 @@ define dso_local zeroext i1 @UtilityReturnsTuples(ptr noundef readonly captures(
   ret i1 %.0
 }
 
-declare ptr @GetPortalByName(ptr noundef) local_unnamed_addr #3
+declare ptr @GetPortalByName(ptr noundef) local_unnamed_addr #2
 
-declare ptr @FetchPreparedStatement(ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare ptr @FetchPreparedStatement(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @UtilityTupleDescriptor(ptr noundef %0) local_unnamed_addr #0 {
@@ -3075,18 +3069,18 @@ define dso_local ptr @UtilityTupleDescriptor(ptr noundef %0) local_unnamed_addr 
   ret ptr %.0
 }
 
-declare ptr @CallStmtResultDesc(ptr noundef) local_unnamed_addr #3
+declare ptr @CallStmtResultDesc(ptr noundef) local_unnamed_addr #2
 
-declare ptr @CreateTupleDescCopy(ptr noundef) local_unnamed_addr #3
+declare ptr @CreateTupleDescCopy(ptr noundef) local_unnamed_addr #2
 
-declare ptr @FetchPreparedStatementResultDesc(ptr noundef) local_unnamed_addr #3
+declare ptr @FetchPreparedStatementResultDesc(ptr noundef) local_unnamed_addr #2
 
-declare ptr @ExplainResultDesc(ptr noundef) local_unnamed_addr #3
+declare ptr @ExplainResultDesc(ptr noundef) local_unnamed_addr #2
 
-declare ptr @GetPGVariableResultDesc(ptr noundef) local_unnamed_addr #3
+declare ptr @GetPGVariableResultDesc(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @UtilityContainsQuery(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
+define dso_local ptr @UtilityContainsQuery(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %tailrecurse.backedge, %1
@@ -3134,7 +3128,7 @@ tailrecurse.backedge:                             ; preds = %3, %16, %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc range(i32 0, 45) i32 @AlterObjectTypeCommandTag(i32 noundef %0) unnamed_addr #7 {
+define internal fastcc range(i32 0, 45) i32 @AlterObjectTypeCommandTag(i32 noundef %0) unnamed_addr #6 {
   %switch.tableidx = add i32 %0, -1
   %2 = icmp ult i32 %switch.tableidx, 51
   br i1 %2, label %switch.lookup, label %4
@@ -3450,223 +3444,229 @@ tailrecurse.backedge:                             ; preds = %3, %12, %23, %52, %
   ret i32 %.1
 }
 
-declare zeroext i1 @defGetBoolean(ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @defGetBoolean(ptr noundef) local_unnamed_addr #2
 
-declare zeroext i1 @InSecurityRestrictedOperation() local_unnamed_addr #3
+declare zeroext i1 @InSecurityRestrictedOperation() local_unnamed_addr #2
 
-declare zeroext i1 @EventTriggerBeginCompleteQuery() local_unnamed_addr #3
+declare zeroext i1 @EventTriggerBeginCompleteQuery() local_unnamed_addr #2
 
 ; Function Attrs: nounwind returns_twice
-declare i32 @__sigsetjmp(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare i32 @__sigsetjmp(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @EventTriggerDDLCommandStart(ptr noundef) local_unnamed_addr #3
+declare void @EventTriggerDDLCommandStart(ptr noundef) local_unnamed_addr #2
 
-declare i32 @CreateSchemaCommand(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @CreateSchemaCommand(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @transformCreateStmt(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @transformCreateStmt(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @list_delete_first(ptr noundef) local_unnamed_addr #3
+declare ptr @list_delete_first(ptr noundef) local_unnamed_addr #2
 
-declare { i64, i32 } @DefineRelation(ptr noundef, i8 noundef signext, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare { i64, i32 } @DefineRelation(ptr noundef, i8 noundef signext, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @EventTriggerCollectSimpleCommand(i64, i32, i64, i32, ptr noundef) local_unnamed_addr #3
+declare void @EventTriggerCollectSimpleCommand(i64, i32, i64, i32, ptr noundef) local_unnamed_addr #2
 
-declare i64 @transformRelOptions(i64 noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #3
+declare i64 @transformRelOptions(i64 noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #2
 
-declare ptr @heap_reloptions(i8 noundef signext, i64 noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare ptr @heap_reloptions(i8 noundef signext, i64 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
-declare void @NewRelationCreateToastTable(i32 noundef, i64 noundef) local_unnamed_addr #3
+declare void @NewRelationCreateToastTable(i32 noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @CreateForeignTable(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @CreateForeignTable(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @expandTableLikeClause(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @expandTableLikeClause(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @list_concat(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @list_concat(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @AlterTableGetLockLevel(ptr noundef) local_unnamed_addr #3
+declare i32 @AlterTableGetLockLevel(ptr noundef) local_unnamed_addr #2
 
-declare i32 @AlterTableLookupRelation(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @AlterTableLookupRelation(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @AlterTable(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @AlterTable(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare { i64, i32 } @AlterDomainDefault(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare { i64, i32 } @AlterDomainDefault(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare { i64, i32 } @AlterDomainNotNull(ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare { i64, i32 } @AlterDomainNotNull(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
-declare { i64, i32 } @AlterDomainAddConstraint(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare { i64, i32 } @AlterDomainAddConstraint(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare { i64, i32 } @AlterDomainDropConstraint(ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare { i64, i32 } @AlterDomainDropConstraint(ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
-declare { i64, i32 } @AlterDomainValidateConstraint(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare { i64, i32 } @AlterDomainValidateConstraint(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare { i64, i32 } @DefineAggregate(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare { i64, i32 } @DefineAggregate(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
-declare { i64, i32 } @DefineOperator(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare { i64, i32 } @DefineOperator(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare { i64, i32 } @DefineType(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare { i64, i32 } @DefineType(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare { i64, i32 } @DefineTSParser(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare { i64, i32 } @DefineTSParser(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare { i64, i32 } @DefineTSDictionary(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare { i64, i32 } @DefineTSDictionary(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare { i64, i32 } @DefineTSTemplate(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare { i64, i32 } @DefineTSTemplate(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare { i64, i32 } @DefineTSConfiguration(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare { i64, i32 } @DefineTSConfiguration(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare { i64, i32 } @DefineCollation(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare { i64, i32 } @DefineCollation(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
-declare i32 @RangeVarGetRelidExtended(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @RangeVarGetRelidExtended(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @RangeVarCallbackOwnsRelation(ptr noundef, i32 noundef, i32 noundef, ptr noundef) #3
+declare void @RangeVarCallbackOwnsRelation(ptr noundef, i32 noundef, i32 noundef, ptr noundef) #2
 
-declare signext i8 @get_rel_relkind(i32 noundef) local_unnamed_addr #3
+declare signext i8 @get_rel_relkind(i32 noundef) local_unnamed_addr #2
 
-declare ptr @find_all_inheritors(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @find_all_inheritors(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @list_free(ptr noundef) local_unnamed_addr #3
+declare void @list_free(ptr noundef) local_unnamed_addr #2
 
-declare ptr @transformIndexStmt(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @transformIndexStmt(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare { i64, i32 } @DefineIndex(i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i1 noundef zeroext, i1 noundef zeroext, i1 noundef zeroext, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #3
+declare { i64, i32 } @DefineIndex(i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i1 noundef zeroext, i1 noundef zeroext, i1 noundef zeroext, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #2
 
-declare void @ExecReindex(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare void @ExecReindex(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
-declare { i64, i32 } @CreateExtension(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare { i64, i32 } @CreateExtension(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare { i64, i32 } @ExecAlterExtensionStmt(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare { i64, i32 } @ExecAlterExtensionStmt(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare { i64, i32 } @ExecAlterExtensionContentsStmt(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare { i64, i32 } @ExecAlterExtensionContentsStmt(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare { i64, i32 } @CreateForeignDataWrapper(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare { i64, i32 } @CreateForeignDataWrapper(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare { i64, i32 } @AlterForeignDataWrapper(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare { i64, i32 } @AlterForeignDataWrapper(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare { i64, i32 } @CreateForeignServer(ptr noundef) local_unnamed_addr #3
+declare { i64, i32 } @CreateForeignServer(ptr noundef) local_unnamed_addr #2
 
-declare { i64, i32 } @AlterForeignServer(ptr noundef) local_unnamed_addr #3
+declare { i64, i32 } @AlterForeignServer(ptr noundef) local_unnamed_addr #2
 
-declare { i64, i32 } @CreateUserMapping(ptr noundef) local_unnamed_addr #3
+declare { i64, i32 } @CreateUserMapping(ptr noundef) local_unnamed_addr #2
 
-declare { i64, i32 } @AlterUserMapping(ptr noundef) local_unnamed_addr #3
+declare { i64, i32 } @AlterUserMapping(ptr noundef) local_unnamed_addr #2
 
-declare i32 @RemoveUserMapping(ptr noundef) local_unnamed_addr #3
+declare i32 @RemoveUserMapping(ptr noundef) local_unnamed_addr #2
 
-declare void @ImportForeignSchema(ptr noundef) local_unnamed_addr #3
+declare void @ImportForeignSchema(ptr noundef) local_unnamed_addr #2
 
-declare { i64, i32 } @DefineCompositeType(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare { i64, i32 } @DefineCompositeType(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare { i64, i32 } @DefineEnum(ptr noundef) local_unnamed_addr #3
+declare { i64, i32 } @DefineEnum(ptr noundef) local_unnamed_addr #2
 
-declare { i64, i32 } @DefineRange(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare { i64, i32 } @DefineRange(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare { i64, i32 } @AlterEnum(ptr noundef) local_unnamed_addr #3
+declare { i64, i32 } @AlterEnum(ptr noundef) local_unnamed_addr #2
 
-declare { i64, i32 } @DefineView(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare { i64, i32 } @DefineView(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare { i64, i32 } @CreateFunction(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare { i64, i32 } @CreateFunction(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare { i64, i32 } @AlterFunction(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare { i64, i32 } @AlterFunction(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare { i64, i32 } @DefineRule(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare { i64, i32 } @DefineRule(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare { i64, i32 } @DefineSequence(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare { i64, i32 } @DefineSequence(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare { i64, i32 } @AlterSequence(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare { i64, i32 } @AlterSequence(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare { i64, i32 } @ExecCreateTableAs(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare { i64, i32 } @ExecCreateTableAs(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @EventTriggerInhibitCommandCollection() local_unnamed_addr #3
+declare void @EventTriggerInhibitCommandCollection() local_unnamed_addr #2
 
-declare { i64, i32 } @ExecRefreshMatView(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare { i64, i32 } @ExecRefreshMatView(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @EventTriggerUndoInhibitCommandCollection() local_unnamed_addr #3
+declare void @EventTriggerUndoInhibitCommandCollection() local_unnamed_addr #2
 
 ; Function Attrs: noreturn
-declare void @pg_re_throw() local_unnamed_addr #9
+declare void @pg_re_throw() local_unnamed_addr #8
 
-declare { i64, i32 } @CreateTrigger(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #3
+declare { i64, i32 } @CreateTrigger(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #2
 
-declare { i64, i32 } @CreateProceduralLanguage(ptr noundef) local_unnamed_addr #3
+declare { i64, i32 } @CreateProceduralLanguage(ptr noundef) local_unnamed_addr #2
 
-declare { i64, i32 } @DefineDomain(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare { i64, i32 } @DefineDomain(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare { i64, i32 } @CreateConversionCommand(ptr noundef) local_unnamed_addr #3
+declare { i64, i32 } @CreateConversionCommand(ptr noundef) local_unnamed_addr #2
 
-declare { i64, i32 } @CreateCast(ptr noundef) local_unnamed_addr #3
+declare { i64, i32 } @CreateCast(ptr noundef) local_unnamed_addr #2
 
-declare { i64, i32 } @DefineOpClass(ptr noundef) local_unnamed_addr #3
+declare { i64, i32 } @DefineOpClass(ptr noundef) local_unnamed_addr #2
 
-declare { i64, i32 } @DefineOpFamily(ptr noundef) local_unnamed_addr #3
+declare { i64, i32 } @DefineOpFamily(ptr noundef) local_unnamed_addr #2
 
-declare { i64, i32 } @CreateTransform(ptr noundef) local_unnamed_addr #3
+declare { i64, i32 } @CreateTransform(ptr noundef) local_unnamed_addr #2
 
-declare i32 @AlterOpFamily(ptr noundef) local_unnamed_addr #3
+declare i32 @AlterOpFamily(ptr noundef) local_unnamed_addr #2
 
-declare { i64, i32 } @AlterTSDictionary(ptr noundef) local_unnamed_addr #3
+declare { i64, i32 } @AlterTSDictionary(ptr noundef) local_unnamed_addr #2
 
-declare { i64, i32 } @AlterTSConfiguration(ptr noundef) local_unnamed_addr #3
+declare { i64, i32 } @AlterTSConfiguration(ptr noundef) local_unnamed_addr #2
 
-declare i32 @AlterTableMoveAll(ptr noundef) local_unnamed_addr #3
+declare i32 @AlterTableMoveAll(ptr noundef) local_unnamed_addr #2
 
-declare { i64, i32 } @AlterOperator(ptr noundef) local_unnamed_addr #3
+declare { i64, i32 } @AlterOperator(ptr noundef) local_unnamed_addr #2
 
-declare { i64, i32 } @AlterType(ptr noundef) local_unnamed_addr #3
+declare { i64, i32 } @AlterType(ptr noundef) local_unnamed_addr #2
 
-declare void @DropOwnedObjects(ptr noundef) local_unnamed_addr #3
+declare void @DropOwnedObjects(ptr noundef) local_unnamed_addr #2
 
-declare void @ExecAlterDefaultPrivilegesStmt(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @ExecAlterDefaultPrivilegesStmt(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @EventTriggerCollectAlterDefPrivs(ptr noundef) local_unnamed_addr #3
+declare void @EventTriggerCollectAlterDefPrivs(ptr noundef) local_unnamed_addr #2
 
-declare { i64, i32 } @CreatePolicy(ptr noundef) local_unnamed_addr #3
+declare { i64, i32 } @CreatePolicy(ptr noundef) local_unnamed_addr #2
 
-declare { i64, i32 } @AlterPolicy(ptr noundef) local_unnamed_addr #3
+declare { i64, i32 } @AlterPolicy(ptr noundef) local_unnamed_addr #2
 
-declare { i64, i32 } @CreateAccessMethod(ptr noundef) local_unnamed_addr #3
+declare { i64, i32 } @CreateAccessMethod(ptr noundef) local_unnamed_addr #2
 
-declare { i64, i32 } @CreatePublication(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare { i64, i32 } @CreatePublication(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @AlterPublication(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @AlterPublication(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare { i64, i32 } @CreateSubscription(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare { i64, i32 } @CreateSubscription(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
-declare { i64, i32 } @AlterSubscription(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare { i64, i32 } @AlterSubscription(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
-declare void @DropSubscription(ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare void @DropSubscription(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
-declare ptr @transformStatsStmt(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @transformStatsStmt(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare { i64, i32 } @CreateStatistics(ptr noundef) local_unnamed_addr #3
+declare { i64, i32 } @CreateStatistics(ptr noundef) local_unnamed_addr #2
 
-declare { i64, i32 } @AlterStatistics(ptr noundef) local_unnamed_addr #3
+declare { i64, i32 } @AlterStatistics(ptr noundef) local_unnamed_addr #2
 
-declare { i64, i32 } @AlterCollation(ptr noundef) local_unnamed_addr #3
+declare { i64, i32 } @AlterCollation(ptr noundef) local_unnamed_addr #2
 
-declare void @EventTriggerSQLDrop(ptr noundef) local_unnamed_addr #3
+declare void @EventTriggerSQLDrop(ptr noundef) local_unnamed_addr #2
 
-declare void @EventTriggerDDLCommandEnd(ptr noundef) local_unnamed_addr #3
+declare void @EventTriggerDDLCommandEnd(ptr noundef) local_unnamed_addr #2
 
-declare void @EventTriggerEndCompleteQuery() local_unnamed_addr #3
+declare void @EventTriggerEndCompleteQuery() local_unnamed_addr #2
 
-declare ptr @palloc0(i64 noundef) local_unnamed_addr #3
+declare ptr @palloc0(i64 noundef) local_unnamed_addr #2
 
-declare void @RemoveRelations(ptr noundef) local_unnamed_addr #3
+declare void @RemoveRelations(ptr noundef) local_unnamed_addr #2
 
-declare void @RemoveObjects(ptr noundef) local_unnamed_addr #3
+declare void @RemoveObjects(ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #10
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nounwind returns_twice "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind returns_twice "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #11 = { nounwind }
 attributes #12 = { cold nounwind }

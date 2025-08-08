@@ -302,15 +302,9 @@ define noundef ptr @lv_file_explorer_create(ptr noundef %0) local_unnamed_addr #
   ret ptr %2
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @lv_obj_class_create_obj(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_obj_class_create_obj(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare void @lv_obj_class_init_obj(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @lv_obj_class_init_obj(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @lv_file_explorer_set_quick_access_path(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -354,11 +348,11 @@ switch.lookup:                                    ; preds = %6
   ret void
 }
 
-declare i64 @lv_strlen(ptr noundef) local_unnamed_addr #2
+declare i64 @lv_strlen(ptr noundef) local_unnamed_addr #1
 
-declare void @lv_free(ptr noundef) local_unnamed_addr #2
+declare void @lv_free(ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_strdup(ptr noundef) local_unnamed_addr #2
+declare ptr @lv_strdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @lv_file_explorer_set_sort(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -395,7 +389,7 @@ file_explorer_sort.exit:                          ; preds = %3, %9, %11
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define ptr @lv_file_explorer_get_selected_file_name(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
+define ptr @lv_file_explorer_get_selected_file_name(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -409,7 +403,7 @@ define ptr @lv_file_explorer_get_selected_file_name(ptr noundef readonly capture
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define nonnull ptr @lv_file_explorer_get_current_path(ptr noundef readnone captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #4 {
+define nonnull ptr @lv_file_explorer_get_current_path(ptr noundef readnone captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -422,7 +416,7 @@ define nonnull ptr @lv_file_explorer_get_current_path(ptr noundef readnone captu
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define ptr @lv_file_explorer_get_file_table(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
+define ptr @lv_file_explorer_get_file_table(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -436,7 +430,7 @@ define ptr @lv_file_explorer_get_file_table(ptr noundef readonly captures(addres
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define ptr @lv_file_explorer_get_header(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
+define ptr @lv_file_explorer_get_header(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -450,7 +444,7 @@ define ptr @lv_file_explorer_get_header(ptr noundef readonly captures(address_is
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define ptr @lv_file_explorer_get_path_label(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
+define ptr @lv_file_explorer_get_path_label(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -464,7 +458,7 @@ define ptr @lv_file_explorer_get_path_label(ptr noundef readonly captures(addres
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define ptr @lv_file_explorer_get_quick_access_area(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
+define ptr @lv_file_explorer_get_quick_access_area(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -478,7 +472,7 @@ define ptr @lv_file_explorer_get_quick_access_area(ptr noundef readonly captures
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define ptr @lv_file_explorer_get_places_list(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
+define ptr @lv_file_explorer_get_places_list(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -492,7 +486,7 @@ define ptr @lv_file_explorer_get_places_list(ptr noundef readonly captures(addre
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define ptr @lv_file_explorer_get_device_list(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
+define ptr @lv_file_explorer_get_device_list(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -506,7 +500,7 @@ define ptr @lv_file_explorer_get_device_list(ptr noundef readonly captures(addre
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @lv_file_explorer_get_sort(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
+define i32 @lv_file_explorer_get_sort(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -536,8 +530,8 @@ define void @lv_file_explorer_open_dir(ptr noundef %0, ptr noundef %1) local_unn
 define internal fastcc void @show_dir(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca [128 x i8], align 16
   %4 = alloca %struct.lv_fs_dir_t, align 8
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #6
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call i32 @lv_fs_dir_open(ptr noundef nonnull %4, ptr noundef %1) #6
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %168
@@ -890,22 +884,22 @@ file_explorer_sort.exit:                          ; preds = %.outer._crit_edge, 
   br label %168
 
 168:                                              ; preds = %file_explorer_sort.exit, %166, %2
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #6
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-declare void @lv_obj_set_size(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_set_size(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_obj_set_flex_flow(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_set_flex_flow(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @lv_obj_create(ptr noundef) local_unnamed_addr #2
+declare ptr @lv_obj_create(ptr noundef) local_unnamed_addr #1
 
-declare void @lv_obj_set_width(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_set_width(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_obj_set_flex_grow(ptr noundef, i8 noundef zeroext) local_unnamed_addr #2
+declare void @lv_obj_set_flex_grow(ptr noundef, i8 noundef zeroext) local_unnamed_addr #1
 
-declare ptr @lv_obj_add_event_cb(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @lv_obj_add_event_cb(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @quick_access_area_event_handler(ptr noundef %0) #0 {
@@ -927,17 +921,17 @@ define internal void @quick_access_area_event_handler(ptr noundef %0) #0 {
   ret void
 }
 
-declare void @lv_obj_remove_flag(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_remove_flag(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @lv_list_create(ptr noundef) local_unnamed_addr #2
+declare ptr @lv_list_create(ptr noundef) local_unnamed_addr #1
 
-declare void @lv_obj_set_style_bg_color(ptr noundef, i24, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_set_style_bg_color(ptr noundef, i24, i32 noundef) local_unnamed_addr #1
 
-declare ptr @lv_list_add_text(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @lv_list_add_text(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i24 @lv_palette_main(i32 noundef) local_unnamed_addr #2
+declare i24 @lv_palette_main(i32 noundef) local_unnamed_addr #1
 
-declare ptr @lv_list_add_button(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @lv_list_add_button(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @quick_access_event_handler(ptr noundef %0) #0 {
@@ -1010,17 +1004,17 @@ select.unfold:                                    ; preds = %33, %11, %16, %21, 
   ret void
 }
 
-declare ptr @lv_label_create(ptr noundef) local_unnamed_addr #2
+declare ptr @lv_label_create(ptr noundef) local_unnamed_addr #1
 
-declare void @lv_label_set_text(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @lv_label_set_text(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @lv_obj_center(ptr noundef) local_unnamed_addr #2
+declare void @lv_obj_center(ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_table_create(ptr noundef) local_unnamed_addr #2
+declare ptr @lv_table_create(ptr noundef) local_unnamed_addr #1
 
-declare void @lv_table_set_column_width(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_table_set_column_width(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_table_set_column_count(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_table_set_column_count(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @browser_file_event_handler(ptr noundef %0) #0 {
@@ -1039,9 +1033,9 @@ define internal void @browser_file_event_handler(ptr noundef %0) #0 {
   br i1 %13, label %14, label %78
 
 14:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @lv_memset(ptr noundef nonnull %2, i8 noundef zeroext 0, i64 noundef 128) #6
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %16 = load ptr, ptr %15, align 8, !tbaa !24
@@ -1161,7 +1155,7 @@ strip_ext.exit42:                                 ; preds = %52, %53, %55
   br i1 %68, label %69, label %.thread43
 
 69:                                               ; preds = %.thread, %63
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %70 = call i32 @lv_fs_dir_open(ptr noundef nonnull %5, ptr noundef nonnull %2) #6
   %71 = icmp eq i32 %70, 0
   br i1 %71, label %72, label %74
@@ -1172,7 +1166,7 @@ strip_ext.exit42:                                 ; preds = %52, %53, %55
   br label %74
 
 74:                                               ; preds = %69, %72
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %77
 
 .thread43:                                        ; preds = %.thread
@@ -1182,9 +1176,9 @@ strip_ext.exit42:                                 ; preds = %52, %53, %55
   br label %77
 
 77:                                               ; preds = %63, %74, %.thread43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #6
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %84
 
 78:                                               ; preds = %1
@@ -1199,100 +1193,100 @@ strip_ext.exit42:                                 ; preds = %52, %53, %55
   br label %84
 
 .critedge35:                                      ; preds = %30
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #6
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %84
 
 84:                                               ; preds = %80, %78, %77, %.critedge35
   ret void
 }
 
-declare void @lv_obj_set_scroll_dir(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_set_scroll_dir(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_memset(ptr noundef, i8 noundef zeroext, i64 noundef) local_unnamed_addr #2
+declare void @lv_memset(ptr noundef, i8 noundef zeroext, i64 noundef) local_unnamed_addr #1
 
-declare i32 @lv_event_get_code(ptr noundef) local_unnamed_addr #2
+declare i32 @lv_event_get_code(ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_event_get_current_target(ptr noundef) local_unnamed_addr #2
+declare ptr @lv_event_get_current_target(ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_event_get_user_data(ptr noundef) local_unnamed_addr #2
+declare ptr @lv_event_get_user_data(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @lv_obj_has_flag(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @lv_obj_has_flag(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @lv_obj_get_child(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @lv_obj_get_child(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @lv_label_get_text(ptr noundef) local_unnamed_addr #2
+declare ptr @lv_label_get_text(ptr noundef) local_unnamed_addr #1
 
-declare i32 @lv_strcmp(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @lv_strcmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @lv_indev_get_type(ptr noundef) local_unnamed_addr #2
+declare i32 @lv_indev_get_type(ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_indev_active() local_unnamed_addr #2
+declare ptr @lv_indev_active() local_unnamed_addr #1
 
-declare void @lv_table_get_selected_cell(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @lv_table_get_selected_cell(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_table_get_cell_value(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @lv_table_get_cell_value(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @lv_table_get_cell_user_data(ptr noundef, i16 noundef zeroext, i16 noundef zeroext) local_unnamed_addr #2
+declare ptr @lv_table_get_cell_user_data(ptr noundef, i16 noundef zeroext, i16 noundef zeroext) local_unnamed_addr #1
 
-declare i64 @lv_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @lv_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @lv_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare i32 @lv_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare i32 @lv_fs_dir_open(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @lv_fs_dir_open(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @lv_fs_dir_close(ptr noundef) local_unnamed_addr #2
+declare i32 @lv_fs_dir_close(ptr noundef) local_unnamed_addr #1
 
-declare i32 @lv_obj_send_event(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @lv_obj_send_event(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @lv_obj_get_width(ptr noundef) local_unnamed_addr #2
+declare i32 @lv_obj_get_width(ptr noundef) local_unnamed_addr #1
 
-declare void @lv_obj_set_style_radius(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_set_style_radius(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare i24 @lv_color_hex(i32 noundef) local_unnamed_addr #2
+declare i24 @lv_color_hex(i32 noundef) local_unnamed_addr #1
 
-declare void @lv_obj_set_style_bg_opa(ptr noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_set_style_bg_opa(ptr noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_obj_set_style_border_width(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_set_style_border_width(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_obj_set_style_outline_width(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_set_style_outline_width(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_obj_set_style_pad_column(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_set_style_pad_column(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_obj_set_style_pad_row(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_set_style_pad_row(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_obj_set_style_flex_flow(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_set_style_flex_flow(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_obj_set_style_layout(ptr noundef, i16 noundef zeroext, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_set_style_layout(ptr noundef, i16 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_obj_set_style_pad_top(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_set_style_pad_top(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_style_init(ptr noundef) local_unnamed_addr #2
+declare void @lv_style_init(ptr noundef) local_unnamed_addr #1
 
-declare void @lv_style_set_border_width(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_style_set_border_width(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_style_set_bg_color(ptr noundef, i24) local_unnamed_addr #2
+declare void @lv_style_set_bg_color(ptr noundef, i24) local_unnamed_addr #1
 
-declare i32 @lv_obj_get_child_count(ptr noundef) local_unnamed_addr #2
+declare i32 @lv_obj_get_child_count(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @lv_obj_check_type(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @lv_obj_check_type(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @lv_obj_add_style(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_add_style(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_obj_set_style_pad_left(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_set_style_pad_left(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_obj_set_style_pad_right(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_set_style_pad_right(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_obj_set_style_pad_bottom(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_set_style_pad_bottom(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_table_set_cell_value(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @lv_table_set_cell_value(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_malloc(i64 noundef) local_unnamed_addr #2
+declare ptr @lv_malloc(i64 noundef) local_unnamed_addr #1
 
-declare void @lv_table_set_cell_user_data(ptr noundef, i16 noundef zeroext, i16 noundef zeroext, ptr noundef) local_unnamed_addr #2
+declare void @lv_table_set_cell_user_data(ptr noundef, i16 noundef zeroext, i16 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
-declare i32 @lv_fs_dir_read(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @lv_fs_dir_read(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i1 @is_end_with(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
@@ -1329,17 +1323,17 @@ define internal fastcc noundef zeroext i1 @is_end_with(ptr noundef nonnull %0, p
   ret i1 %.021
 }
 
-declare void @lv_table_set_cell_value_fmt(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @lv_table_set_cell_value_fmt(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare void @lv_table_set_row_count(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_table_set_row_count(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_obj_scroll_to_y(ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare void @lv_obj_scroll_to_y(ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare ptr @lv_strncpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @lv_strncpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @lv_label_set_text_fmt(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @lv_label_set_text_fmt(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare i32 @lv_table_get_row_count(ptr noundef) local_unnamed_addr #2
+declare i32 @lv_table_get_row_count(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @sort_by_file_kind(ptr noundef %0, i16 noundef signext range(i16 -32767, -32768) %1, i16 noundef signext %2) unnamed_addr #0 {
@@ -1457,18 +1451,24 @@ define internal fastcc void @exch_table_item(ptr noundef %0, i16 noundef signext
   ret void
 }
 
-declare ptr @lv_strcpy(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @lv_strcpy(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_memcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @lv_memcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree norecurse nosync nounwind memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree norecurse nosync nounwind memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #6 = { nounwind }
 

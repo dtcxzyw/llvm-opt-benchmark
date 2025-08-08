@@ -1110,7 +1110,7 @@ define hidden void @_ZN10OopStorage5Block15release_entriesEmPS_(ptr noundef nonn
   br i1 %or.cond, label %16, label %49
 
 16:                                               ; preds = %13
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %17 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE104ELS1_9ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not.i = icmp eq ptr %17, null
   br i1 %.not.i, label %_ZL23log_release_transitionsmmPK10OopStoragePKv.exit, label %18
@@ -1147,7 +1147,7 @@ define hidden void @_ZN10OopStorage5Block15release_entriesEmPS_(ptr noundef nonn
   br label %_ZL23log_release_transitionsmmPK10OopStoragePKv.exit
 
 _ZL23log_release_transitionsmmPK10OopStoragePKv.exit: ; preds = %16, %28
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 560
   %30 = call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %0, ptr null, ptr nonnull %29) #20, !srcloc !14
   %31 = icmp eq ptr %30, null
@@ -1353,7 +1353,7 @@ define hidden noundef zeroext i1 @_ZN10OopStorage19expand_active_arrayEv(ptr nou
 10:                                               ; preds = %1, %8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %12 = load i8, ptr %11, align 4
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %13 = shl i64 %5, 4
   %14 = add i64 %13, 24
   %15 = load i32, ptr @_ZN10MemTracker15_tracking_levelE, align 4
@@ -1370,7 +1370,7 @@ define hidden noundef zeroext i1 @_ZN10OopStorage19expand_active_arrayEv(ptr nou
   br i1 %20, label %21, label %_ZN10OopStorage11ActiveArray6createEm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE.exit
 
 _ZN10OopStorage11ActiveArray6createEm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE.exit: ; preds = %18
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %_ZNK10OopStorage22relinquish_block_arrayEPNS_11ActiveArrayE.exit
 
 21:                                               ; preds = %18
@@ -1379,7 +1379,7 @@ _ZN10OopStorage11ActiveArray6createEm8MEMFLAGSN17AllocFailStrategy13AllocFailEnu
   store volatile i64 0, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store volatile i32 0, ptr %23, align 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %25 = load volatile i64, ptr %24, align 8
   %.not.i = icmp eq i64 %25, 0
@@ -1850,7 +1850,7 @@ define hidden void @_ZN10OopStorageC2EPKc8MEMFLAGS(ptr noundef nonnull align 8 d
   %6 = alloca %class.NativeCallStack, align 8
   %7 = tail call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef %1, i8 noundef zeroext 9) #20
   store ptr %7, ptr %0, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %8 = load i32, ptr @_ZN10MemTracker15_tracking_levelE, align 4
   %9 = icmp eq i32 %8, 3
   br i1 %9, label %10, label %11
@@ -1874,25 +1874,25 @@ define hidden void @_ZN10OopStorageC2EPKc8MEMFLAGS(ptr noundef nonnull align 8 d
 
 _ZN10OopStorage11ActiveArray6createEm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE.exit: ; preds = %11, %14
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store ptr %12, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false)
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store volatile ptr null, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %21 = call noundef i32 (ptr, i64, ptr, ...) @_ZN2os8snprintfEPcmPKcz(ptr noundef nonnull %5, i64 noundef 256, ptr noundef nonnull @.str.31, ptr noundef %1, ptr noundef nonnull @.str.18) #20
   %22 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 128, i8 noundef zeroext 22, i32 noundef 0) #20
   call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(128) %22, i32 noundef 15, ptr noundef nonnull %5, i1 noundef zeroext true) #20
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store ptr %22, ptr %20, align 8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %24 = call noundef i32 (ptr, i64, ptr, ...) @_ZN2os8snprintfEPcmPKcz(ptr noundef nonnull %4, i64 noundef 256, ptr noundef nonnull @.str.31, ptr noundef %1, ptr noundef nonnull @.str.19) #20
   %25 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 128, i8 noundef zeroext 22, i32 noundef 0) #20
   call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(128) %25, i32 noundef 14, ptr noundef nonnull %4, i1 noundef zeroext true) #20
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store ptr %25, ptr %23, align 8
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr null, ptr %26, align 8
@@ -3205,10 +3205,10 @@ declare i64 @llvm.umin.i64(i64, i64) #18
 declare i32 @llvm.umax.i32(i32, i32) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #19
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #19
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.ctpop.i64(i64) #18

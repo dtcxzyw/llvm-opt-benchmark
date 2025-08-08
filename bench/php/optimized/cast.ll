@@ -92,14 +92,8 @@ define hidden void @php_stream_mode_sanitize_fdopen_fopencookie(ptr noundef read
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @_php_stream_cast(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #2 {
+define dso_local range(i32 -1, 1) i32 @_php_stream_cast(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = alloca i64, align 8
   %6 = alloca [5 x i8], align 1
   %7 = and i32 %1, 536870911
@@ -124,13 +118,13 @@ define dso_local range(i32 -1, 1) i32 @_php_stream_cast(ptr noundef %0, i32 noun
   br i1 %19, label %20, label %25
 
 20:                                               ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %22 = load i64, ptr %21, align 8, !tbaa !25
   %23 = call i32 %14(ptr noundef nonnull %0, i64 noundef %22, i32 noundef 0, ptr noundef nonnull %5) #8
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 176
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %25
 
 25:                                               ; preds = %10, %15, %20, %4
@@ -184,7 +178,7 @@ define dso_local range(i32 -1, 1) i32 @_php_stream_cast(ptr noundef %0, i32 noun
   br i1 %.old4, label %102, label %48
 
 48:                                               ; preds = %43, %47
-  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 98
   %50 = load i8, ptr %49, align 1, !tbaa !4
   switch i8 %50, label %52 [
@@ -256,7 +250,7 @@ php_stream_mode_sanitize_fdopen_fopencookie.exit: ; preds = %60, %61
   store i8 0, ptr %66, align 1, !tbaa !4
   %67 = call noalias ptr @fopencookie(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull byval(%struct._IO_cookie_io_functions_t) align 8 @stream_cookie_functions) #8
   store ptr %67, ptr %2, align 8, !tbaa !27
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not82 = icmp eq ptr %67, null
   br i1 %.not82, label %78, label %68
 
@@ -372,24 +366,24 @@ php_stream_mode_sanitize_fdopen_fopencookie.exit: ; preds = %60, %61
   ret i32 %.0
 }
 
-declare i32 @_php_stream_flush(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @_php_stream_flush(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare noalias ptr @fopencookie(ptr noundef, ptr noundef, ptr noundef byval(%struct._IO_cookie_io_functions_t) align 8) local_unnamed_addr #4
+declare noalias ptr @fopencookie(ptr noundef, ptr noundef, ptr noundef byval(%struct._IO_cookie_io_functions_t) align 8) local_unnamed_addr #3
 
-declare i64 @_php_stream_tell(ptr noundef) local_unnamed_addr #3
+declare i64 @_php_stream_tell(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fseek(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #5
+declare noundef i32 @fseek(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #4
 
-declare void @php_error_docref(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
+declare void @php_error_docref(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare i32 @_php_stream_free(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @_php_stream_free(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @_php_stream_open_wrapper_as_file(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #2 {
+define dso_local ptr @_php_stream_open_wrapper_as_file(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !27
   %6 = or i32 %2, 32
   %7 = tail call ptr @_php_stream_open_wrapper_ex(ptr noundef %0, ptr noundef %1, i32 noundef %6, ptr noundef %3, ptr noundef null) #8
@@ -437,14 +431,14 @@ define dso_local ptr @_php_stream_open_wrapper_as_file(ptr noundef %0, ptr nound
 
 zend_string_release_ex.exit:                      ; preds = %25, %20, %16, %12, %14, %4, %26
   %.0 = phi ptr [ %27, %26 ], [ null, %4 ], [ null, %14 ], [ null, %12 ], [ null, %16 ], [ null, %20 ], [ null, %25 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }
 
-declare ptr @_php_stream_open_wrapper_ex(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @_php_stream_open_wrapper_ex(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 4) i32 @_php_stream_make_seekable(ptr noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #2 {
+define dso_local range(i32 0, 4) i32 @_php_stream_make_seekable(ptr noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %30, label %5
 
@@ -506,28 +500,28 @@ define dso_local range(i32 0, 4) i32 @_php_stream_make_seekable(ptr noundef %0, 
   ret i32 %.0
 }
 
-declare ptr @_php_stream_fopen_tmpfile(i32 noundef) local_unnamed_addr #3
+declare ptr @_php_stream_fopen_tmpfile(i32 noundef) local_unnamed_addr #2
 
-declare ptr @_php_stream_temp_create(i32 noundef, i64 noundef) local_unnamed_addr #3
+declare ptr @_php_stream_temp_create(i32 noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @_php_stream_copy_to_stream_ex(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @_php_stream_copy_to_stream_ex(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @_php_stream_seek(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @_php_stream_seek(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @stream_cookie_reader(ptr noundef %0, ptr noundef %1, i64 noundef %2) #2 {
+define internal i64 @stream_cookie_reader(ptr noundef %0, ptr noundef %1, i64 noundef %2) #1 {
   %4 = tail call i64 @_php_stream_read(ptr noundef %0, ptr noundef %1, i64 noundef %2) #8
   ret i64 %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @stream_cookie_writer(ptr noundef %0, ptr noundef %1, i64 noundef %2) #2 {
+define internal i64 @stream_cookie_writer(ptr noundef %0, ptr noundef %1, i64 noundef %2) #1 {
   %4 = tail call i64 @_php_stream_write(ptr noundef %0, ptr noundef %1, i64 noundef %2) #8
   ret i64 %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @stream_cookie_seeker(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef %2) #2 {
+define internal range(i32 -1, 1) i32 @stream_cookie_seeker(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef %2) #1 {
   %4 = load i64, ptr %1, align 8, !tbaa !41
   %5 = tail call i32 @_php_stream_seek(ptr noundef %0, i64 noundef %4, i32 noundef %2) #8
   %6 = sext i32 %5 to i64
@@ -538,7 +532,7 @@ define internal range(i32 -1, 1) i32 @stream_cookie_seeker(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @stream_cookie_closer(ptr noundef %0) #2 {
+define internal i32 @stream_cookie_closer(ptr noundef %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load i16, ptr %2, align 8
   %4 = and i16 %3, -97
@@ -547,25 +541,31 @@ define internal i32 @stream_cookie_closer(ptr noundef %0) #2 {
   ret i32 %5
 }
 
-declare i64 @_php_stream_read(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i64 @_php_stream_read(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare i64 @_php_stream_write(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i64 @_php_stream_write(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @_efree(ptr noundef) local_unnamed_addr #3
+declare void @_efree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #6
+declare void @llvm.assume(i1 noundef) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #8 = { nounwind }
 

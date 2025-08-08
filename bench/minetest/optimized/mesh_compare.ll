@@ -50,7 +50,7 @@ $_ZSteqIN3irr5video9S3DVertexELm3EEbRKSt5arrayIT_XT0_EES7_ = comdat any
 define dso_local noundef zeroext i1 @_Z14checkMeshEqualRKSt6vectorIN3irr5video9S3DVertexESaIS2_EERKS_ItSaItEERKS_ISt5arrayIS2_Lm3EESaISC_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %vertices, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %indices, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %expected) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %actual = alloca %"class.std::vector", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %actual) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %actual)
   %vertices.val = load ptr, ptr %vertices, align 8
   %0 = getelementptr inbounds nuw i8, ptr %vertices, i64 8
   %vertices.val2 = load ptr, ptr %0, align 8
@@ -96,11 +96,11 @@ invoke.cont:                                      ; preds = %call.i.i.i.i.i.noex
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorISt5arrayIN3irr5video9S3DVertexELm3EESaIS4_EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #17
+  tail call void @_ZdlPv(ptr noundef nonnull %3) #16
   br label %_ZNSt6vectorISt5arrayIN3irr5video9S3DVertexELm3EESaIS4_EED2Ev.exit
 
 _ZNSt6vectorISt5arrayIN3irr5video9S3DVertexELm3EESaIS4_EED2Ev.exit: ; preds = %if.then.i.i.i, %invoke.cont
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %actual) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %actual)
   ret i1 %6
 
 lpad:                                             ; preds = %for.body.i.i.i.i.i
@@ -110,16 +110,13 @@ lpad:                                             ; preds = %for.body.i.i.i.i.i
   br i1 %tobool.not.i.i.i5, label %_ZNSt6vectorISt5arrayIN3irr5video9S3DVertexELm3EESaIS4_EED2Ev.exit7, label %if.then.i.i.i6
 
 if.then.i.i.i6:                                   ; preds = %lpad
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #17
+  tail call void @_ZdlPv(ptr noundef nonnull %3) #16
   br label %_ZNSt6vectorISt5arrayIN3irr5video9S3DVertexELm3EESaIS4_EED2Ev.exit7
 
 _ZNSt6vectorISt5arrayIN3irr5video9S3DVertexELm3EESaIS4_EED2Ev.exit7: ; preds = %if.then.i.i.i6, %lpad
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %actual) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %actual)
   resume { ptr, i32 } %7
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZL16canonicalizeMeshRKSt6vectorIN3irr5video9S3DVertexESaIS2_EERKS_ItSaItEE(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) %agg.result, ptr %vertices.0.val, ptr %vertices.8.val, ptr %indices.0.val, ptr %indices.8.val) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -139,7 +136,7 @@ entry:
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %exception.i = tail call ptr @__cxa_allocate_exception(i64 16) #16, !noalias !9
+  %exception.i = tail call ptr @__cxa_allocate_exception(i64 16) #17, !noalias !9
   invoke void @_ZNSt16invalid_argumentC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i, ptr noundef nonnull @.str)
           to label %invoke.cont.i unwind label %lpad.i, !noalias !9
 
@@ -150,7 +147,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
 lpad.i:                                           ; preds = %if.then.i
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #16, !noalias !9
+  tail call void @__cxa_free_exception(ptr nonnull %exception.i) #17, !noalias !9
   br label %common.resume
 
 if.end.i:                                         ; preds = %entry
@@ -272,7 +269,7 @@ for.body.lr.ph.i:                                 ; preds = %invoke.cont3.i.unr-
 
 for.body.i:                                       ; preds = %invoke.cont29.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %invoke.cont29.i ]
-  call void @llvm.lifetime.start.p0(i64 108, ptr nonnull %ref.tmp4.sroa.0.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp4.sroa.0.i)
   %3 = mul nuw nsw i64 %indvars.iv.i, 3
   %cmp.not.i.i.i = icmp ugt i64 %sub.ptr.div.i.i.i.i, %3
   br i1 %cmp.not.i.i.i, label %invoke.cont7.i, label %if.then.i.i47.invoke.i
@@ -330,7 +327,7 @@ invoke.cont26.i:                                  ; preds = %invoke.cont23.i
 invoke.cont29.i:                                  ; preds = %invoke.cont26.i
   %add.ptr.i.i105.i = getelementptr inbounds nuw %"struct.std::array.25", ptr %call5.i.i.i.i4.i.i46.i, i64 %indvars.iv.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(108) %add.ptr.i.i105.i, ptr noundef nonnull align 8 dereferenceable(108) %ref.tmp4.sroa.0.i, i64 108, i1 false), !tbaa.struct !30, !noalias !9
-  call void @llvm.lifetime.end.p0(i64 108, ptr nonnull %ref.tmp4.sroa.0.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp4.sroa.0.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %for.body, label %for.body.i, !llvm.loop !32
@@ -338,8 +335,8 @@ invoke.cont29.i:                                  ; preds = %invoke.cont26.i
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i47.invoke.i
   %11 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 108, ptr nonnull %ref.tmp4.sroa.0.i)
-  tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i4.i.i46.i) #17, !noalias !9
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp4.sroa.0.i)
+  tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i4.i.i46.i) #16, !noalias !9
   br label %common.resume
 
 common.resume:                                    ; preds = %if.then.i.i.i29, %if.then.i.i.i.i, %lpad.i
@@ -386,14 +383,14 @@ if.else.i.i.i:                                    ; preds = %.noexc
 
 for.body:                                         ; preds = %invoke.cont29.i, %invoke.cont
   %__begin1.sroa.0.04 = phi ptr [ %incdec.ptr.i, %invoke.cont ], [ %call5.i.i.i.i4.i.i46.i, %invoke.cont29.i ]
-  call void @llvm.lifetime.start.p0(i64 108, ptr nonnull %ref.tmp) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(108) %agg.tmp, ptr noundef nonnull align 4 dereferenceable(108) %__begin1.sroa.0.04, i64 108, i1 false), !tbaa.struct !30
   invoke fastcc void @_ZL12sortTriangleSt5arrayIN3irr5video9S3DVertexELm3EE(ptr dead_on_unwind noalias nonnull writable align 4 %ref.tmp, ptr noundef nonnull byval(%"struct.std::array.25") align 8 %agg.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %for.body
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(108) %__begin1.sroa.0.04, ptr noundef nonnull align 4 dereferenceable(108) %ref.tmp, i64 108, i1 false), !tbaa.struct !30
-  call void @llvm.lifetime.end.p0(i64 108, ptr nonnull %ref.tmp) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.04, i64 108
   %cmp.i.not = icmp eq ptr %__begin1.sroa.0.04, %__cur.013.i.i.i.i.i.i.ptr.lcssa
   br i1 %cmp.i.not, label %if.then.i.i, label %for.body
@@ -401,7 +398,7 @@ invoke.cont:                                      ; preds = %for.body
 lpad:                                             ; preds = %for.body
   %13 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 108, ptr nonnull %ref.tmp) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
   br label %if.then.i.i.i29
 
 lpad7.loopexit:                                   ; preds = %for.body.i.i.i.i
@@ -419,14 +416,11 @@ nrvo.skipdtor:                                    ; preds = %.noexc26, %if.else.
 
 if.then.i.i.i29:                                  ; preds = %lpad7.loopexit.split-lp, %lpad7.loopexit, %lpad
   %.pn = phi { ptr, i32 } [ %13, %lpad ], [ %lpad.loopexit, %lpad7.loopexit ], [ %lpad.loopexit.split-lp, %lpad7.loopexit.split-lp ]
-  tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i4.i.i46.i) #17
+  tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i4.i.i46.i) #16
   br label %common.resume
 }
 
 declare i32 @__gxx_personality_v0(...)
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_Z14checkMeshEqualRKSt6vectorIN3irr5video9S3DVertexESaIS2_EERKS_ItSaItEERKS_ISt5arrayIS2_Lm4EESaISC_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %vertices, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %indices, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %expected) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -466,7 +460,7 @@ _ZNSt6vectorISt5arrayIiLm4EESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; preds =
   br i1 %cmp.not.i.i.i.i, label %invoke.cont.thread, label %if.then.i.i.i.i.i
 
 invoke.cont.thread:                               ; preds = %_ZNSt6vectorISt5arrayIiLm4EESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %tris) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %tris)
   %2 = getelementptr inbounds nuw i8, ptr %tris, i64 8
   store i32 0, ptr %2, align 8, !tbaa !38
   %_M_parent.i.i.i.i.i497 = getelementptr inbounds nuw i8, ptr %tris, i64 16
@@ -499,7 +493,7 @@ for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %for.body.lr.ph, label %for.body.i.i.i.i.i.i.i.i.i, !llvm.loop !48
 
 for.body.lr.ph:                                   ; preds = %for.body.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %tris) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %tris)
   %3 = getelementptr inbounds nuw i8, ptr %tris, i64 8
   store i32 0, ptr %3, align 8, !tbaa !38
   %_M_parent.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %tris, i64 16
@@ -528,7 +522,7 @@ for.cond.cleanup:                                 ; preds = %invoke.cont81, %inv
   %_M_parent.i.i.i.i.i505 = phi ptr [ %_M_parent.i.i.i.i.i497, %invoke.cont.thread ], [ %_M_parent.i.i.i.i.i, %invoke.cont81 ]
   %4 = phi ptr [ %2, %invoke.cont.thread ], [ %3, %invoke.cont81 ]
   %refs.sroa.0.0502 = phi ptr [ null, %invoke.cont.thread ], [ %call5.i.i.i.i4.i.i232, %invoke.cont81 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %actual) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %actual)
   %vertices.val = load ptr, ptr %vertices, align 8
   %5 = getelementptr inbounds nuw i8, ptr %vertices, i64 8
   %vertices.val228 = load ptr, ptr %5, align 8
@@ -543,8 +537,8 @@ for.body:                                         ; preds = %invoke.cont81, %for
   %conv488 = phi i64 [ 0, %for.body.lr.ph ], [ %conv, %invoke.cont81 ]
   %k.0487 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %invoke.cont81 ]
   %add.ptr.i = getelementptr inbounds nuw %"struct.std::array", ptr %7, i64 %conv488
-  call void @llvm.lifetime.start.p0(i64 116, ptr nonnull %ref.tmp4) #16
-  call void @llvm.lifetime.start.p0(i64 108, ptr nonnull %ref.tmp5) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %agg.tmp, ptr noundef nonnull align 4 dereferenceable(36) %add.ptr.i, i64 36, i1 false), !tbaa.struct !28
   %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 36
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %arrayinit.element, ptr noundef nonnull align 4 dereferenceable(36) %arrayidx.i.i, i64 36, i1 false), !tbaa.struct !28
@@ -560,10 +554,10 @@ invoke.cont11:                                    ; preds = %for.body
           to label %invoke.cont15 unwind label %lpad13
 
 invoke.cont15:                                    ; preds = %invoke.cont11
-  call void @llvm.lifetime.end.p0(i64 108, ptr nonnull %ref.tmp5) #16
-  call void @llvm.lifetime.end.p0(i64 116, ptr nonnull %ref.tmp4) #16
-  call void @llvm.lifetime.start.p0(i64 116, ptr nonnull %ref.tmp18) #16
-  call void @llvm.lifetime.start.p0(i64 108, ptr nonnull %ref.tmp19) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp19)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %agg.tmp20, ptr noundef nonnull align 4 dereferenceable(36) %add.ptr.i, i64 36, i1 false), !tbaa.struct !28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %arrayinit.element24, ptr noundef nonnull align 4 dereferenceable(36) %arrayidx.i.i238, i64 36, i1 false), !tbaa.struct !28
   %arrayidx.i.i240 = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 108
@@ -579,10 +573,10 @@ invoke.cont29:                                    ; preds = %invoke.cont15
           to label %invoke.cont35 unwind label %lpad33
 
 invoke.cont35:                                    ; preds = %invoke.cont29
-  call void @llvm.lifetime.end.p0(i64 108, ptr nonnull %ref.tmp19) #16
-  call void @llvm.lifetime.end.p0(i64 116, ptr nonnull %ref.tmp18) #16
-  call void @llvm.lifetime.start.p0(i64 116, ptr nonnull %ref.tmp41) #16
-  call void @llvm.lifetime.start.p0(i64 108, ptr nonnull %ref.tmp42) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp41)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp42)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %agg.tmp43, ptr noundef nonnull align 4 dereferenceable(36) %add.ptr.i, i64 36, i1 false), !tbaa.struct !28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %arrayinit.element47, ptr noundef nonnull align 4 dereferenceable(36) %arrayidx.i.i, i64 36, i1 false), !tbaa.struct !28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %arrayinit.element49, ptr noundef nonnull align 4 dereferenceable(36) %arrayidx.i.i240, i64 36, i1 false), !tbaa.struct !28
@@ -597,10 +591,10 @@ invoke.cont52:                                    ; preds = %invoke.cont35
           to label %invoke.cont58 unwind label %lpad56
 
 invoke.cont58:                                    ; preds = %invoke.cont52
-  call void @llvm.lifetime.end.p0(i64 108, ptr nonnull %ref.tmp42) #16
-  call void @llvm.lifetime.end.p0(i64 116, ptr nonnull %ref.tmp41) #16
-  call void @llvm.lifetime.start.p0(i64 116, ptr nonnull %ref.tmp64) #16
-  call void @llvm.lifetime.start.p0(i64 108, ptr nonnull %ref.tmp65) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp42)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp41)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp64)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp65)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %agg.tmp66, ptr noundef nonnull align 4 dereferenceable(36) %arrayidx.i.i, i64 36, i1 false), !tbaa.struct !28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %arrayinit.element70, ptr noundef nonnull align 4 dereferenceable(36) %arrayidx.i.i238, i64 36, i1 false), !tbaa.struct !28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %arrayinit.element72, ptr noundef nonnull align 4 dereferenceable(36) %arrayidx.i.i240, i64 36, i1 false), !tbaa.struct !28
@@ -615,8 +609,8 @@ invoke.cont75:                                    ; preds = %invoke.cont58
           to label %invoke.cont81 unwind label %lpad79
 
 invoke.cont81:                                    ; preds = %invoke.cont75
-  call void @llvm.lifetime.end.p0(i64 108, ptr nonnull %ref.tmp65) #16
-  call void @llvm.lifetime.end.p0(i64 116, ptr nonnull %ref.tmp64) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp65)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp64)
   %inc = add i32 %k.0487, 1
   %conv = zext i32 %inc to i64
   %8 = load ptr, ptr %_M_finish.i, align 8, !tbaa !35
@@ -640,8 +634,8 @@ lpad13:                                           ; preds = %invoke.cont11
 
 ehcleanup:                                        ; preds = %lpad13, %lpad10
   %.pn216 = phi { ptr, i32 } [ %11, %lpad13 ], [ %10, %lpad10 ]
-  call void @llvm.lifetime.end.p0(i64 108, ptr nonnull %ref.tmp5) #16
-  call void @llvm.lifetime.end.p0(i64 116, ptr nonnull %ref.tmp4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp4)
   br label %ehcleanup175.thread
 
 lpad28:                                           ; preds = %invoke.cont15
@@ -656,8 +650,8 @@ lpad33:                                           ; preds = %invoke.cont29
 
 ehcleanup39:                                      ; preds = %lpad33, %lpad28
   %.pn218 = phi { ptr, i32 } [ %13, %lpad33 ], [ %12, %lpad28 ]
-  call void @llvm.lifetime.end.p0(i64 108, ptr nonnull %ref.tmp19) #16
-  call void @llvm.lifetime.end.p0(i64 116, ptr nonnull %ref.tmp18) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp18)
   br label %ehcleanup175.thread
 
 lpad51:                                           ; preds = %invoke.cont35
@@ -672,8 +666,8 @@ lpad56:                                           ; preds = %invoke.cont52
 
 ehcleanup62:                                      ; preds = %lpad56, %lpad51
   %.pn220 = phi { ptr, i32 } [ %15, %lpad56 ], [ %14, %lpad51 ]
-  call void @llvm.lifetime.end.p0(i64 108, ptr nonnull %ref.tmp42) #16
-  call void @llvm.lifetime.end.p0(i64 116, ptr nonnull %ref.tmp41) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp42)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp41)
   br label %ehcleanup175.thread
 
 lpad74:                                           ; preds = %invoke.cont58
@@ -688,8 +682,8 @@ lpad79:                                           ; preds = %invoke.cont75
 
 ehcleanup85:                                      ; preds = %lpad79, %lpad74
   %.pn222 = phi { ptr, i32 } [ %17, %lpad79 ], [ %16, %lpad74 ]
-  call void @llvm.lifetime.end.p0(i64 108, ptr nonnull %ref.tmp65) #16
-  call void @llvm.lifetime.end.p0(i64 116, ptr nonnull %ref.tmp64) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp65)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp64)
   br label %ehcleanup175.thread
 
 invoke.cont90:                                    ; preds = %for.cond.cleanup
@@ -1140,9 +1134,9 @@ invoke.cont147:                                   ; preds = %for.cond132.prehead
   %conv133493 = phi i64 [ %conv133, %for.inc164 ], [ 0, %for.cond132.preheader ]
   %k131.0492 = phi i32 [ %inc165, %for.inc164 ], [ 0, %for.cond132.preheader ]
   %add.ptr.i272 = getelementptr inbounds nuw %"struct.std::array.26", ptr %refs.sroa.0.0502, i64 %conv133493
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp140) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp140)
   store <4 x i32> <i32 1, i32 1, i32 0, i32 0>, ptr %ref.tmp140, align 16, !tbaa !29
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp151) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp151)
   %bcmp.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %add.ptr.i272, ptr noundef nonnull dereferenceable(16) %ref.tmp140, i64 16)
   %tobool1.not.i.i.i.i.i.i.not = icmp eq i32 %bcmp.i.i.i.i.i.i, 0
   br i1 %tobool1.not.i.i.i.i.i.i.not, label %if.end163.critedge, label %land.end
@@ -1151,13 +1145,13 @@ land.end:                                         ; preds = %invoke.cont147
   store <4 x i32> <i32 0, i32 0, i32 1, i32 1>, ptr %ref.tmp151, align 16, !tbaa !29
   %bcmp.i.i.i.i.i.i274 = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %add.ptr.i272, ptr noundef nonnull dereferenceable(16) %ref.tmp151, i64 16)
   %tobool1.not.i.i.i.i.i.i275.not = icmp eq i32 %bcmp.i.i.i.i.i.i274, 0
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp151) #16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp140) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp151)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp140)
   br i1 %tobool1.not.i.i.i.i.i.i275.not, label %for.inc164, label %cleanup170
 
 if.end163.critedge:                               ; preds = %invoke.cont147
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp151) #16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp140) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp151)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp140)
   br label %for.inc164
 
 for.inc164:                                       ; preds = %if.end163.critedge, %land.end
@@ -1173,48 +1167,48 @@ cleanup170:                                       ; preds = %call.i.i.i.i.i.i.2.
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorISt5arrayIN3irr5video9S3DVertexELm3EESaIS4_EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %cleanup170
-  call void @_ZdlPv(ptr noundef nonnull %84) #17
+  call void @_ZdlPv(ptr noundef nonnull %84) #16
   br label %_ZNSt6vectorISt5arrayIN3irr5video9S3DVertexELm3EESaIS4_EED2Ev.exit
 
 _ZNSt6vectorISt5arrayIN3irr5video9S3DVertexELm3EESaIS4_EED2Ev.exit: ; preds = %if.then.i.i.i, %cleanup170
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %actual) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %actual)
   %this.val.i.i276 = load ptr, ptr %_M_parent.i.i.i.i.i505, align 8, !tbaa !43
   call fastcc void @_ZNSt8_Rb_treeISt5arrayIN3irr5video9S3DVertexELm3EESt4pairIKS4_Z14checkMeshEqualRKSt6vectorIS3_SaIS3_EERKS7_ItSaItEERKS7_IS0_IS3_Lm4EESaISG_EEE7QuadRefESt10_Select1stISM_ESt4lessIS4_ESaISM_EE8_M_eraseEPSt13_Rb_tree_nodeISM_E(ptr noundef %this.val.i.i276)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %tris) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %tris)
   %tobool.not.i.i.i277 = icmp eq ptr %refs.sroa.0.0502, null
   br i1 %tobool.not.i.i.i277, label %_ZNSt6vectorISt5arrayIiLm4EESaIS1_EED2Ev.exit, label %if.then.i.i.i278
 
 if.then.i.i.i278:                                 ; preds = %_ZNSt6vectorISt5arrayIN3irr5video9S3DVertexELm3EESaIS4_EED2Ev.exit
-  call void @_ZdlPv(ptr noundef nonnull %refs.sroa.0.0502) #17
+  call void @_ZdlPv(ptr noundef nonnull %refs.sroa.0.0502) #16
   br label %_ZNSt6vectorISt5arrayIiLm4EESaIS1_EED2Ev.exit
 
 _ZNSt6vectorISt5arrayIiLm4EESaIS1_EED2Ev.exit:    ; preds = %if.then.i.i.i278, %_ZNSt6vectorISt5arrayIN3irr5video9S3DVertexELm3EESaIS4_EED2Ev.exit
   ret i1 %retval.4
 
 if.then.i.i.i280:                                 ; preds = %lpad99
-  call void @_ZdlPv(ptr noundef nonnull %80) #17
+  call void @_ZdlPv(ptr noundef nonnull %80) #16
   br label %ehcleanup175
 
 ehcleanup175.thread:                              ; preds = %ehcleanup85, %ehcleanup62, %ehcleanup39, %ehcleanup
   %.pn222.pn.pn.ph = phi { ptr, i32 } [ %.pn216, %ehcleanup ], [ %.pn218, %ehcleanup39 ], [ %.pn220, %ehcleanup62 ], [ %.pn222, %ehcleanup85 ]
   %this.val.i.i282519 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8, !tbaa !43
   call fastcc void @_ZNSt8_Rb_treeISt5arrayIN3irr5video9S3DVertexELm3EESt4pairIKS4_Z14checkMeshEqualRKSt6vectorIS3_SaIS3_EERKS7_ItSaItEERKS7_IS0_IS3_Lm4EESaISG_EEE7QuadRefESt10_Select1stISM_ESt4lessIS4_ESaISM_EE8_M_eraseEPSt13_Rb_tree_nodeISM_E(ptr noundef %this.val.i.i282519)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %tris) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %tris)
   br label %if.then.i.i.i284
 
 ehcleanup175:                                     ; preds = %if.then.i.i.i280, %lpad99, %lpad89
   %.pn.pn.pn = phi { ptr, i32 } [ %22, %lpad89 ], [ %lpad.phi, %lpad99 ], [ %lpad.phi, %if.then.i.i.i280 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %actual) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %actual)
   %this.val.i.i282 = load ptr, ptr %_M_parent.i.i.i.i.i505, align 8, !tbaa !43
   call fastcc void @_ZNSt8_Rb_treeISt5arrayIN3irr5video9S3DVertexELm3EESt4pairIKS4_Z14checkMeshEqualRKSt6vectorIS3_SaIS3_EERKS7_ItSaItEERKS7_IS0_IS3_Lm4EESaISG_EEE7QuadRefESt10_Select1stISM_ESt4lessIS4_ESaISM_EE8_M_eraseEPSt13_Rb_tree_nodeISM_E(ptr noundef %this.val.i.i282)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %tris) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %tris)
   %tobool.not.i.i.i283 = icmp eq ptr %refs.sroa.0.0502, null
   br i1 %tobool.not.i.i.i283, label %ehcleanup181, label %if.then.i.i.i284
 
 if.then.i.i.i284:                                 ; preds = %ehcleanup175, %ehcleanup175.thread
   %.pn222.pn.pn522 = phi { ptr, i32 } [ %.pn222.pn.pn.ph, %ehcleanup175.thread ], [ %.pn.pn.pn, %ehcleanup175 ]
   %refs.sroa.0.0501521 = phi ptr [ %call5.i.i.i.i4.i.i232, %ehcleanup175.thread ], [ %refs.sroa.0.0502, %ehcleanup175 ]
-  call void @_ZdlPv(ptr noundef nonnull %refs.sroa.0.0501521) #17
+  call void @_ZdlPv(ptr noundef nonnull %refs.sroa.0.0501521) #16
   br label %ehcleanup181
 
 ehcleanup181:                                     ; preds = %if.then.i.i.i284, %ehcleanup175
@@ -1356,7 +1350,7 @@ _ZNSt8_Rb_treeISt5arrayIN3irr5video9S3DVertexELm3EESt4pairIKS4_Z14checkMeshEqual
   %call5.i.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(152) ptr @_Znwm(i64 noundef 152) #19
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(116) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(116) %__x, i64 116, i1 false)
-  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %3, ptr noundef nonnull %call5.i.i.i.i.i.i.i, ptr noundef nonnull %retval.sroa.4.0.i.ph.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i) #16
+  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %3, ptr noundef nonnull %call5.i.i.i.i.i.i.i, ptr noundef nonnull %retval.sroa.4.0.i.ph.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i) #17
   %_M_node_count.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %4 = load i64, ptr %_M_node_count.i.i, align 8, !tbaa !46
   %inc.i.i = add i64 %4, 1
@@ -1397,7 +1391,7 @@ land.lhs.true29:                                  ; preds = %if.end25
   br i1 %call32, label %return, label %if.end41
 
 if.end41:                                         ; preds = %land.lhs.true29, %if.end25
-  %exception = call ptr @__cxa_allocate_exception(i64 16) #16
+  %exception = call ptr @__cxa_allocate_exception(i64 16) #17
   invoke void @_ZNSt16invalid_argumentC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception, ptr noundef nonnull @.str.3)
           to label %invoke.cont unwind label %lpad
 
@@ -1408,7 +1402,7 @@ invoke.cont:                                      ; preds = %if.end41
 lpad:                                             ; preds = %if.end41
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr nonnull %exception) #16
+  call void @__cxa_free_exception(ptr nonnull %exception) #17
   resume { ptr, i32 } %0
 
 return:                                           ; preds = %land.lhs.true29, %land.lhs.true13, %land.lhs.true
@@ -1424,34 +1418,34 @@ return:                                           ; preds = %land.lhs.true29, %l
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 
-declare void @_ZNSt16invalid_argumentC1EPKc(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #3
+declare void @_ZNSt16invalid_argumentC1EPKc(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #2
 
 declare void @__cxa_free_exception(ptr) local_unnamed_addr
 
 ; Function Attrs: nounwind
-declare void @_ZNSt16invalid_argumentD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #4
+declare void @_ZNSt16invalid_argumentD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #3
 
 ; Function Attrs: cold noreturn
-declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #5
+declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #4
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #6
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #7
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: noreturn
-declare void @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef, ...) local_unnamed_addr #6
+declare void @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt5arrayIN3irr5video9S3DVertexELm3EESt6vectorIS6_SaIS6_EEEElNS0_5__ops15_Iter_less_iterEEvT_SE_T0_T1_(ptr %__first.coerce, ptr %__last.coerce, i64 noundef %__depth_limit) local_unnamed_addr #0 comdat {
@@ -1477,7 +1471,7 @@ while.body:                                       ; preds = %if.end, %while.body
 
 if.then:                                          ; preds = %while.body
   %sub.ptr.div.i.le = udiv exact i64 %sub.ptr.sub.i34, 108
-  call void @llvm.lifetime.start.p0(i64 108, ptr nonnull %agg.tmp6.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp6.i.i)
   %sub.i.i = add nsw i64 %sub.ptr.div.i.le, -2
   %div2526.i.i = lshr i64 %sub.i.i, 1
   br label %while.cond.i.i
@@ -1492,20 +1486,20 @@ while.cond.i.i:                                   ; preds = %while.cond.i.i, %if
   br i1 %cmp9.not.i.i, label %_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPSt5arrayIN3irr5video9S3DVertexELm3EESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_less_iterEEvT_SE_SE_T0_.exit, label %while.cond.i.i, !llvm.loop !66
 
 _ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPSt5arrayIN3irr5video9S3DVertexELm3EESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_less_iterEEvT_SE_SE_T0_.exit: ; preds = %while.cond.i.i
-  call void @llvm.lifetime.end.p0(i64 108, ptr nonnull %agg.tmp6.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp6.i.i)
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %while.body.i.i, %_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPSt5arrayIN3irr5video9S3DVertexELm3EESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_less_iterEEvT_SE_SE_T0_.exit
   %__last.sroa.0.012.i.i = phi ptr [ %incdec.ptr.i.i.i, %while.body.i.i ], [ %storemerge32, %_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPSt5arrayIN3irr5video9S3DVertexELm3EESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_less_iterEEvT_SE_SE_T0_.exit ]
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__last.sroa.0.012.i.i, i64 -108
-  call void @llvm.lifetime.start.p0(i64 108, ptr nonnull %agg.tmp6.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp6.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(108) %agg.tmp6.i.i.i, ptr noundef nonnull align 4 dereferenceable(108) %incdec.ptr.i.i.i, i64 108, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(108) %incdec.ptr.i.i.i, ptr noundef nonnull align 4 dereferenceable(108) %__first.coerce, i64 108, i1 false), !tbaa.struct !30
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %incdec.ptr.i.i.i to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i, 108
   tail call void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt5arrayIN3irr5video9S3DVertexELm3EESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_less_iterEEvT_T0_SF_T1_T2_(ptr nonnull %__first.coerce, i64 noundef 0, i64 noundef %sub.ptr.div.i.i.i.i, ptr noundef nonnull byval(%"struct.std::array.25") align 8 %agg.tmp6.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 108, ptr nonnull %agg.tmp6.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp6.i.i.i)
   %cmp.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i, 108
   br i1 %cmp.i.i, label %while.body.i.i, label %while.end, !llvm.loop !67
 
@@ -2364,25 +2358,25 @@ if.end.i.i.i.i.i.2.i.i76:                         ; preds = %for.inc.i.i.i.i.i.1
   br label %if.else
 
 if.then12:                                        ; preds = %for.inc.i.i.i.i.i.1.i.i72, %for.inc.i.i.i.i.i.i.i66, %if.then
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %__tmp.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.i.i.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %__tmp.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(36) %__result.coerce, i64 36, i1 false), !tbaa.struct !28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %__result.coerce, ptr noundef nonnull align 4 dereferenceable(36) %__b.coerce, i64 36, i1 false), !tbaa.struct !28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %__b.coerce, ptr noundef nonnull align 4 dereferenceable(36) %__tmp.i.i.i.i.i.i, i64 36, i1 false), !tbaa.struct !28
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %__tmp.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.i.i.i.i.i.i)
   %incdec.ptr1.i.i.i.i = getelementptr inbounds nuw i8, ptr %__b.coerce, i64 36
   %__first1.addr.07.i.ptr.1.i.i.i = getelementptr inbounds nuw i8, ptr %__result.coerce, i64 36
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %__tmp.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.i.i.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %__tmp.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(36) %__first1.addr.07.i.ptr.1.i.i.i, i64 36, i1 false), !tbaa.struct !28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %__first1.addr.07.i.ptr.1.i.i.i, ptr noundef nonnull align 4 dereferenceable(36) %incdec.ptr1.i.i.i.i, i64 36, i1 false), !tbaa.struct !28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %incdec.ptr1.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(36) %__tmp.i.i.i.i.i.i, i64 36, i1 false), !tbaa.struct !28
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %__tmp.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.i.i.i.i.i.i)
   %incdec.ptr1.i.1.i.i.i = getelementptr inbounds nuw i8, ptr %__b.coerce, i64 72
   %__first1.addr.07.i.ptr.2.i.i.i = getelementptr inbounds nuw i8, ptr %__result.coerce, i64 72
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %__tmp.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.i.i.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %__tmp.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(36) %__first1.addr.07.i.ptr.2.i.i.i, i64 36, i1 false), !tbaa.struct !28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %__first1.addr.07.i.ptr.2.i.i.i, ptr noundef nonnull align 4 dereferenceable(36) %incdec.ptr1.i.1.i.i.i, i64 36, i1 false), !tbaa.struct !28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %incdec.ptr1.i.1.i.i.i, ptr noundef nonnull align 4 dereferenceable(36) %__tmp.i.i.i.i.i.i, i64 36, i1 false), !tbaa.struct !28
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %__tmp.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.i.i.i.i.i.i)
   br label %if.end62
 
 if.else:                                          ; preds = %if.end.i.i.i.i.i.2.i.i76, %if.end.i.i.i.i.i.1.i.i70, %if.end.i.i.i.i.i.i.i64
@@ -2414,47 +2408,47 @@ if.end.i.i.i.i.i.2.i.i93:                         ; preds = %for.inc.i.i.i.i.i.1
   br label %if.else27
 
 if.then22:                                        ; preds = %for.inc.i.i.i.i.i.1.i.i89, %for.inc.i.i.i.i.i.i.i83, %if.else
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %__tmp.i.i.i.i.i.i97)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.i.i.i.i.i.i97)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %__tmp.i.i.i.i.i.i97, ptr noundef nonnull align 4 dereferenceable(36) %__result.coerce, i64 36, i1 false), !tbaa.struct !28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %__result.coerce, ptr noundef nonnull align 4 dereferenceable(36) %__c.coerce, i64 36, i1 false), !tbaa.struct !28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %__c.coerce, ptr noundef nonnull align 4 dereferenceable(36) %__tmp.i.i.i.i.i.i97, i64 36, i1 false), !tbaa.struct !28
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %__tmp.i.i.i.i.i.i97)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.i.i.i.i.i.i97)
   %incdec.ptr1.i.i.i.i98 = getelementptr inbounds nuw i8, ptr %__c.coerce, i64 36
   %__first1.addr.07.i.ptr.1.i.i.i99 = getelementptr inbounds nuw i8, ptr %__result.coerce, i64 36
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %__tmp.i.i.i.i.i.i97)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.i.i.i.i.i.i97)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %__tmp.i.i.i.i.i.i97, ptr noundef nonnull align 4 dereferenceable(36) %__first1.addr.07.i.ptr.1.i.i.i99, i64 36, i1 false), !tbaa.struct !28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %__first1.addr.07.i.ptr.1.i.i.i99, ptr noundef nonnull align 4 dereferenceable(36) %incdec.ptr1.i.i.i.i98, i64 36, i1 false), !tbaa.struct !28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %incdec.ptr1.i.i.i.i98, ptr noundef nonnull align 4 dereferenceable(36) %__tmp.i.i.i.i.i.i97, i64 36, i1 false), !tbaa.struct !28
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %__tmp.i.i.i.i.i.i97)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.i.i.i.i.i.i97)
   %incdec.ptr1.i.1.i.i.i100 = getelementptr inbounds nuw i8, ptr %__c.coerce, i64 72
   %__first1.addr.07.i.ptr.2.i.i.i101 = getelementptr inbounds nuw i8, ptr %__result.coerce, i64 72
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %__tmp.i.i.i.i.i.i97)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.i.i.i.i.i.i97)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %__tmp.i.i.i.i.i.i97, ptr noundef nonnull align 4 dereferenceable(36) %__first1.addr.07.i.ptr.2.i.i.i101, i64 36, i1 false), !tbaa.struct !28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %__first1.addr.07.i.ptr.2.i.i.i101, ptr noundef nonnull align 4 dereferenceable(36) %incdec.ptr1.i.1.i.i.i100, i64 36, i1 false), !tbaa.struct !28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %incdec.ptr1.i.1.i.i.i100, ptr noundef nonnull align 4 dereferenceable(36) %__tmp.i.i.i.i.i.i97, i64 36, i1 false), !tbaa.struct !28
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %__tmp.i.i.i.i.i.i97)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.i.i.i.i.i.i97)
   br label %if.end62
 
 if.else27:                                        ; preds = %if.end.i.i.i.i.i.2.i.i93, %if.end.i.i.i.i.i.1.i.i87, %if.end.i.i.i.i.i.i.i81
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %__tmp.i.i.i.i.i.i102)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.i.i.i.i.i.i102)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %__tmp.i.i.i.i.i.i102, ptr noundef nonnull align 4 dereferenceable(36) %__result.coerce, i64 36, i1 false), !tbaa.struct !28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %__result.coerce, ptr noundef nonnull align 4 dereferenceable(36) %__a.coerce, i64 36, i1 false), !tbaa.struct !28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %__a.coerce, ptr noundef nonnull align 4 dereferenceable(36) %__tmp.i.i.i.i.i.i102, i64 36, i1 false), !tbaa.struct !28
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %__tmp.i.i.i.i.i.i102)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.i.i.i.i.i.i102)
   %incdec.ptr1.i.i.i.i103 = getelementptr inbounds nuw i8, ptr %__a.coerce, i64 36
   %__first1.addr.07.i.ptr.1.i.i.i104 = getelementptr inbounds nuw i8, ptr %__result.coerce, i64 36
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %__tmp.i.i.i.i.i.i102)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.i.i.i.i.i.i102)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %__tmp.i.i.i.i.i.i102, ptr noundef nonnull align 4 dereferenceable(36) %__first1.addr.07.i.ptr.1.i.i.i104, i64 36, i1 false), !tbaa.struct !28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %__first1.addr.07.i.ptr.1.i.i.i104, ptr noundef nonnull align 4 dereferenceable(36) %incdec.ptr1.i.i.i.i103, i64 36, i1 false), !tbaa.struct !28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %incdec.ptr1.i.i.i.i103, ptr noundef nonnull align 4 dereferenceable(36) %__tmp.i.i.i.i.i.i102, i64 36, i1 false), !tbaa.struct !28
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %__tmp.i.i.i.i.i.i102)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.i.i.i.i.i.i102)
   %incdec.ptr1.i.1.i.i.i105 = getelementptr inbounds nuw i8, ptr %__a.coerce, i64 72
   %__first1.addr.07.i.ptr.2.i.i.i106 = getelementptr inbounds nuw i8, ptr %__result.coerce, i64 72
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %__tmp.i.i.i.i.i.i102)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.i.i.i.i.i.i102)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %__tmp.i.i.i.i.i.i102, ptr noundef nonnull align 4 dereferenceable(36) %__first1.addr.07.i.ptr.2.i.i.i106, i64 36, i1 false), !tbaa.struct !28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %__first1.addr.07.i.ptr.2.i.i.i106, ptr noundef nonnull align 4 dereferenceable(36) %incdec.ptr1.i.1.i.i.i105, i64 36, i1 false), !tbaa.struct !28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %incdec.ptr1.i.1.i.i.i105, ptr noundef nonnull align 4 dereferenceable(36) %__tmp.i.i.i.i.i.i102, i64 36, i1 false), !tbaa.struct !28
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %__tmp.i.i.i.i.i.i102)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.i.i.i.i.i.i102)
   br label %if.end62
 
 if.else33:                                        ; preds = %if.end.i.i.i.i.i.2.i.i, %if.end.i.i.i.i.i.1.i.i, %if.end.i.i.i.i.i.i.i
@@ -2486,25 +2480,25 @@ if.end.i.i.i.i.i.2.i.i120:                        ; preds = %for.inc.i.i.i.i.i.1
   br label %if.else44
 
 if.then39:                                        ; preds = %for.inc.i.i.i.i.i.1.i.i116, %for.inc.i.i.i.i.i.i.i110, %if.else33
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %__tmp.i.i.i.i.i.i124)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.i.i.i.i.i.i124)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %__tmp.i.i.i.i.i.i124, ptr noundef nonnull align 4 dereferenceable(36) %__result.coerce, i64 36, i1 false), !tbaa.struct !28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %__result.coerce, ptr noundef nonnull align 4 dereferenceable(36) %__a.coerce, i64 36, i1 false), !tbaa.struct !28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %__a.coerce, ptr noundef nonnull align 4 dereferenceable(36) %__tmp.i.i.i.i.i.i124, i64 36, i1 false), !tbaa.struct !28
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %__tmp.i.i.i.i.i.i124)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.i.i.i.i.i.i124)
   %incdec.ptr1.i.i.i.i125 = getelementptr inbounds nuw i8, ptr %__a.coerce, i64 36
   %__first1.addr.07.i.ptr.1.i.i.i126 = getelementptr inbounds nuw i8, ptr %__result.coerce, i64 36
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %__tmp.i.i.i.i.i.i124)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.i.i.i.i.i.i124)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %__tmp.i.i.i.i.i.i124, ptr noundef nonnull align 4 dereferenceable(36) %__first1.addr.07.i.ptr.1.i.i.i126, i64 36, i1 false), !tbaa.struct !28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %__first1.addr.07.i.ptr.1.i.i.i126, ptr noundef nonnull align 4 dereferenceable(36) %incdec.ptr1.i.i.i.i125, i64 36, i1 false), !tbaa.struct !28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %incdec.ptr1.i.i.i.i125, ptr noundef nonnull align 4 dereferenceable(36) %__tmp.i.i.i.i.i.i124, i64 36, i1 false), !tbaa.struct !28
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %__tmp.i.i.i.i.i.i124)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.i.i.i.i.i.i124)
   %incdec.ptr1.i.1.i.i.i127 = getelementptr inbounds nuw i8, ptr %__a.coerce, i64 72
   %__first1.addr.07.i.ptr.2.i.i.i128 = getelementptr inbounds nuw i8, ptr %__result.coerce, i64 72
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %__tmp.i.i.i.i.i.i124)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.i.i.i.i.i.i124)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %__tmp.i.i.i.i.i.i124, ptr noundef nonnull align 4 dereferenceable(36) %__first1.addr.07.i.ptr.2.i.i.i128, i64 36, i1 false), !tbaa.struct !28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %__first1.addr.07.i.ptr.2.i.i.i128, ptr noundef nonnull align 4 dereferenceable(36) %incdec.ptr1.i.1.i.i.i127, i64 36, i1 false), !tbaa.struct !28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %incdec.ptr1.i.1.i.i.i127, ptr noundef nonnull align 4 dereferenceable(36) %__tmp.i.i.i.i.i.i124, i64 36, i1 false), !tbaa.struct !28
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %__tmp.i.i.i.i.i.i124)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.i.i.i.i.i.i124)
   br label %if.end62
 
 if.else44:                                        ; preds = %if.end.i.i.i.i.i.2.i.i120, %if.end.i.i.i.i.i.1.i.i114, %if.end.i.i.i.i.i.i.i108
@@ -2536,47 +2530,47 @@ if.end.i.i.i.i.i.2.i.i142:                        ; preds = %for.inc.i.i.i.i.i.1
   br label %if.else55
 
 if.then50:                                        ; preds = %for.inc.i.i.i.i.i.1.i.i138, %for.inc.i.i.i.i.i.i.i132, %if.else44
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %__tmp.i.i.i.i.i.i146)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.i.i.i.i.i.i146)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %__tmp.i.i.i.i.i.i146, ptr noundef nonnull align 4 dereferenceable(36) %__result.coerce, i64 36, i1 false), !tbaa.struct !28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %__result.coerce, ptr noundef nonnull align 4 dereferenceable(36) %__c.coerce, i64 36, i1 false), !tbaa.struct !28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %__c.coerce, ptr noundef nonnull align 4 dereferenceable(36) %__tmp.i.i.i.i.i.i146, i64 36, i1 false), !tbaa.struct !28
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %__tmp.i.i.i.i.i.i146)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.i.i.i.i.i.i146)
   %incdec.ptr1.i.i.i.i147 = getelementptr inbounds nuw i8, ptr %__c.coerce, i64 36
   %__first1.addr.07.i.ptr.1.i.i.i148 = getelementptr inbounds nuw i8, ptr %__result.coerce, i64 36
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %__tmp.i.i.i.i.i.i146)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.i.i.i.i.i.i146)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %__tmp.i.i.i.i.i.i146, ptr noundef nonnull align 4 dereferenceable(36) %__first1.addr.07.i.ptr.1.i.i.i148, i64 36, i1 false), !tbaa.struct !28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %__first1.addr.07.i.ptr.1.i.i.i148, ptr noundef nonnull align 4 dereferenceable(36) %incdec.ptr1.i.i.i.i147, i64 36, i1 false), !tbaa.struct !28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %incdec.ptr1.i.i.i.i147, ptr noundef nonnull align 4 dereferenceable(36) %__tmp.i.i.i.i.i.i146, i64 36, i1 false), !tbaa.struct !28
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %__tmp.i.i.i.i.i.i146)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.i.i.i.i.i.i146)
   %incdec.ptr1.i.1.i.i.i149 = getelementptr inbounds nuw i8, ptr %__c.coerce, i64 72
   %__first1.addr.07.i.ptr.2.i.i.i150 = getelementptr inbounds nuw i8, ptr %__result.coerce, i64 72
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %__tmp.i.i.i.i.i.i146)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.i.i.i.i.i.i146)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %__tmp.i.i.i.i.i.i146, ptr noundef nonnull align 4 dereferenceable(36) %__first1.addr.07.i.ptr.2.i.i.i150, i64 36, i1 false), !tbaa.struct !28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %__first1.addr.07.i.ptr.2.i.i.i150, ptr noundef nonnull align 4 dereferenceable(36) %incdec.ptr1.i.1.i.i.i149, i64 36, i1 false), !tbaa.struct !28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %incdec.ptr1.i.1.i.i.i149, ptr noundef nonnull align 4 dereferenceable(36) %__tmp.i.i.i.i.i.i146, i64 36, i1 false), !tbaa.struct !28
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %__tmp.i.i.i.i.i.i146)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.i.i.i.i.i.i146)
   br label %if.end62
 
 if.else55:                                        ; preds = %if.end.i.i.i.i.i.2.i.i142, %if.end.i.i.i.i.i.1.i.i136, %if.end.i.i.i.i.i.i.i130
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %__tmp.i.i.i.i.i.i151)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.i.i.i.i.i.i151)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %__tmp.i.i.i.i.i.i151, ptr noundef nonnull align 4 dereferenceable(36) %__result.coerce, i64 36, i1 false), !tbaa.struct !28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %__result.coerce, ptr noundef nonnull align 4 dereferenceable(36) %__b.coerce, i64 36, i1 false), !tbaa.struct !28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %__b.coerce, ptr noundef nonnull align 4 dereferenceable(36) %__tmp.i.i.i.i.i.i151, i64 36, i1 false), !tbaa.struct !28
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %__tmp.i.i.i.i.i.i151)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.i.i.i.i.i.i151)
   %incdec.ptr1.i.i.i.i152 = getelementptr inbounds nuw i8, ptr %__b.coerce, i64 36
   %__first1.addr.07.i.ptr.1.i.i.i153 = getelementptr inbounds nuw i8, ptr %__result.coerce, i64 36
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %__tmp.i.i.i.i.i.i151)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.i.i.i.i.i.i151)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %__tmp.i.i.i.i.i.i151, ptr noundef nonnull align 4 dereferenceable(36) %__first1.addr.07.i.ptr.1.i.i.i153, i64 36, i1 false), !tbaa.struct !28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %__first1.addr.07.i.ptr.1.i.i.i153, ptr noundef nonnull align 4 dereferenceable(36) %incdec.ptr1.i.i.i.i152, i64 36, i1 false), !tbaa.struct !28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %incdec.ptr1.i.i.i.i152, ptr noundef nonnull align 4 dereferenceable(36) %__tmp.i.i.i.i.i.i151, i64 36, i1 false), !tbaa.struct !28
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %__tmp.i.i.i.i.i.i151)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.i.i.i.i.i.i151)
   %incdec.ptr1.i.1.i.i.i154 = getelementptr inbounds nuw i8, ptr %__b.coerce, i64 72
   %__first1.addr.07.i.ptr.2.i.i.i155 = getelementptr inbounds nuw i8, ptr %__result.coerce, i64 72
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %__tmp.i.i.i.i.i.i151)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.i.i.i.i.i.i151)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %__tmp.i.i.i.i.i.i151, ptr noundef nonnull align 4 dereferenceable(36) %__first1.addr.07.i.ptr.2.i.i.i155, i64 36, i1 false), !tbaa.struct !28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %__first1.addr.07.i.ptr.2.i.i.i155, ptr noundef nonnull align 4 dereferenceable(36) %incdec.ptr1.i.1.i.i.i154, i64 36, i1 false), !tbaa.struct !28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %incdec.ptr1.i.1.i.i.i154, ptr noundef nonnull align 4 dereferenceable(36) %__tmp.i.i.i.i.i.i151, i64 36, i1 false), !tbaa.struct !28
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %__tmp.i.i.i.i.i.i151)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.i.i.i.i.i.i151)
   br label %if.end62
 
 if.end62:                                         ; preds = %if.else55, %if.then50, %if.then39, %if.else27, %if.then22, %if.then12
@@ -3606,31 +3600,31 @@ if.then:                                          ; preds = %while.end18
   ret ptr %__first.sroa.0.1
 
 if.end:                                           ; preds = %while.end18
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %__tmp.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.i.i.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %__tmp.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(36) %__first.sroa.0.1, i64 36, i1 false), !tbaa.struct !28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %__first.sroa.0.1, ptr noundef nonnull align 4 dereferenceable(36) %__last.sroa.0.1, i64 36, i1 false), !tbaa.struct !28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %__last.sroa.0.1, ptr noundef nonnull align 4 dereferenceable(36) %__tmp.i.i.i.i.i.i, i64 36, i1 false), !tbaa.struct !28
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %__tmp.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.i.i.i.i.i.i)
   %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %__last.sroa.0.0.pn, i64 -72
   %__first1.addr.07.i.ptr.1.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.1, i64 36
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %__tmp.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.i.i.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %__tmp.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(36) %__first1.addr.07.i.ptr.1.i.i.i, i64 36, i1 false), !tbaa.struct !28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %__first1.addr.07.i.ptr.1.i.i.i, ptr noundef nonnull align 4 dereferenceable(36) %incdec.ptr1.i.i.i.i, i64 36, i1 false), !tbaa.struct !28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %incdec.ptr1.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(36) %__tmp.i.i.i.i.i.i, i64 36, i1 false), !tbaa.struct !28
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %__tmp.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.i.i.i.i.i.i)
   %incdec.ptr1.i.1.i.i.i = getelementptr inbounds i8, ptr %__last.sroa.0.0.pn, i64 -36
   %__first1.addr.07.i.ptr.2.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.1, i64 72
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %__tmp.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.i.i.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %__tmp.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(36) %__first1.addr.07.i.ptr.2.i.i.i, i64 36, i1 false), !tbaa.struct !28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %__first1.addr.07.i.ptr.2.i.i.i, ptr noundef nonnull align 4 dereferenceable(36) %incdec.ptr1.i.1.i.i.i, i64 36, i1 false), !tbaa.struct !28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %incdec.ptr1.i.1.i.i.i, ptr noundef nonnull align 4 dereferenceable(36) %__tmp.i.i.i.i.i.i, i64 36, i1 false), !tbaa.struct !28
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %__tmp.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.i.i.i.i.i.i)
   %incdec.ptr.i45 = getelementptr inbounds nuw i8, ptr %__first.sroa.0.1, i64 108
   br label %while.body, !llvm.loop !73
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #10
+declare i64 @llvm.ctlz.i64(i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIN3irr5video9S3DVertexELm3EESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_less_iterEEvT_SE_T0_(ptr %__first.coerce, ptr %__last.coerce) local_unnamed_addr #0 comdat {
@@ -3679,7 +3673,7 @@ if.end.i.i.i.i.i.2.i.i:                           ; preds = %for.inc.i.i.i.i.i.1
   br label %if.else
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5arrayIN3irr5video9S3DVertexELm3EESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit: ; preds = %for.inc.i.i.i.i.i.1.i.i, %for.inc.i.i.i.i.i.i.i, %for.body
-  call void @llvm.lifetime.start.p0(i64 108, ptr nonnull %__val.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__val.sroa.0)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(108) %__val.sroa.0, ptr noundef nonnull align 4 dereferenceable(108) %__i.sroa.0.040, i64 108, i1 false), !tbaa.struct !30
   %add.ptr.i29 = getelementptr inbounds nuw i8, ptr %__first.coerce.pn39, i64 216
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %__i.sroa.0.040 to i64
@@ -3688,7 +3682,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5arrayIN3irr5video9S3DVert
   %add.ptr.i.i.i.i.i = getelementptr inbounds %"struct.std::array.25", ptr %add.ptr.i29, i64 %sub.ptr.div.neg.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %add.ptr.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(1) %__first.coerce, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(108) %__first.coerce, ptr noundef nonnull align 8 dereferenceable(108) %__val.sroa.0, i64 108, i1 false), !tbaa.struct !30
-  call void @llvm.lifetime.end.p0(i64 108, ptr nonnull %__val.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__val.sroa.0)
   br label %for.inc
 
 if.else:                                          ; preds = %if.end.i.i.i.i.i.2.i.i, %if.end.i.i.i.i.i.1.i.i, %if.end.i.i.i.i.i.i.i
@@ -4261,10 +4255,10 @@ while.end:                                        ; preds = %_ZNK3irr4core8vecto
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #2
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt8_Rb_treeISt5arrayIN3irr5video9S3DVertexELm3EESt4pairIKS4_Z14checkMeshEqualRKSt6vectorIS3_SaIS3_EERKS7_ItSaItEERKS7_IS0_IS3_Lm4EESaISG_EEE7QuadRefESt10_Select1stISM_ESt4lessIS4_ESaISM_EE8_M_eraseEPSt13_Rb_tree_nodeISM_E(ptr noundef %__x) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt8_Rb_treeISt5arrayIN3irr5video9S3DVertexELm3EESt4pairIKS4_Z14checkMeshEqualRKSt6vectorIS3_SaIS3_EERKS7_ItSaItEERKS7_IS0_IS3_Lm4EESaISG_EEE7QuadRefESt10_Select1stISM_ESt4lessIS4_ESaISM_EE8_M_eraseEPSt13_Rb_tree_nodeISM_E(ptr noundef %__x) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.not7 = icmp eq ptr %__x, null
   br i1 %cmp.not7, label %while.end, label %while.body
@@ -4276,7 +4270,7 @@ while.body:                                       ; preds = %entry, %while.body
   tail call fastcc void @_ZNSt8_Rb_treeISt5arrayIN3irr5video9S3DVertexELm3EESt4pairIKS4_Z14checkMeshEqualRKSt6vectorIS3_SaIS3_EERKS7_ItSaItEERKS7_IS0_IS3_Lm4EESaISG_EEE7QuadRefESt10_Select1stISM_ESt4lessIS4_ESaISM_EE8_M_eraseEPSt13_Rb_tree_nodeISM_E(ptr noundef %__x.addr.0.val6)
   %1 = getelementptr i8, ptr %__x.addr.08, i64 16
   %__x.addr.0.val = load ptr, ptr %1, align 8, !tbaa !77
-  tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.08) #17
+  tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.08) #16
   %cmp.not = icmp eq ptr %__x.addr.0.val, null
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !78
 
@@ -4285,7 +4279,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZSteqIN3irr5video9S3DVertexELm3EEbRKSt5arrayIT_XT0_EES7_(ptr noundef nonnull align 4 dereferenceable(108) %__one, ptr noundef nonnull align 4 dereferenceable(108) %__two) local_unnamed_addr #12 comdat {
+define linkonce_odr dso_local noundef zeroext i1 @_ZSteqIN3irr5video9S3DVertexELm3EEbRKSt5arrayIT_XT0_EES7_(ptr noundef nonnull align 4 dereferenceable(108) %__one, ptr noundef nonnull align 4 dereferenceable(108) %__two) local_unnamed_addr #11 comdat {
 entry:
   %0 = load float, ptr %__one, align 4, !tbaa !51
   %1 = load float, ptr %__two, align 4, !tbaa !51
@@ -4500,35 +4494,41 @@ _ZSt5equalIPKN3irr5video9S3DVertexES4_EbT_S5_T0_.exit: ; preds = %_ZNK3irr5video
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #13
+declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind
-declare void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #4
+declare void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #14
+declare void @llvm.experimental.noalias.scope.decl(metadata) #13
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #15
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #14
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { cold noreturn }
-attributes #6 = { noreturn "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nobuiltin allocsize(0) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { nobuiltin nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree nounwind willreturn memory(read) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #16 = { nounwind }
-attributes #17 = { builtin nounwind }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { cold noreturn }
+attributes #5 = { noreturn "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nobuiltin allocsize(0) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { nobuiltin nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree nounwind willreturn memory(read) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) }
+attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #16 = { builtin nounwind }
+attributes #17 = { nounwind }
 attributes #18 = { noreturn }
 attributes #19 = { builtin allocsize(0) }
 attributes #20 = { nounwind willreturn memory(read) }

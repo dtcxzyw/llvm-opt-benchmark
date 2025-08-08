@@ -340,7 +340,7 @@ entry:
   store ptr %enqueuedChildren_, ptr %prev_.i.i.i, align 8
   %nodes_ = getelementptr inbounds nuw i8, ptr %queue, i64 16
   store ptr %this, ptr %ref.tmp, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %rv.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %rv.i)
   %conv.i.i.i.i.i.i.i = zext i64 %id to i128
   %mul.i.i.i.i.i.i.i = mul nuw i128 %conv.i.i.i.i.i.i.i, 14181476777654086739
   %shr.i.i.i.i.i.i.i = lshr i128 %mul.i.i.i.i.i.i.i, 64
@@ -376,7 +376,7 @@ _ZN5boost9intrusive4listIN8proxygen18HTTP2PriorityQueue4NodeEJNS0_11member_hookI
   br i1 %tobool.i.not.i, label %_ZN5boost9intrusive16list_member_hookIJNS0_9link_modeILNS0_14link_mode_typeE2EEEEED2Ev.exit, label %if.then.i.i
 
 while.end:                                        ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %rv.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %rv.i)
   ret void
 
 if.then.i.i:                                      ; preds = %_ZN5boost9intrusive4listIN8proxygen18HTTP2PriorityQueue4NodeEJNS0_11member_hookIS4_NS0_16list_member_hookIJNS0_9link_modeILNS0_14link_mode_typeE2EEEEEEXadL_ZNS4_13enqueuedHook_EEEEENS0_18constant_time_sizeILb0EEEEED2Ev.exit
@@ -702,7 +702,7 @@ invoke.cont21.thread:                             ; preds = %cleanup.done
   br label %while.end
 
 if.else.i:                                        ; preds = %cleanup.done
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %comb.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %comb.i.i)
   invoke void @_ZN6google4base21CheckOpMessageBuilderC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i, ptr noundef nonnull @.str.3)
           to label %.noexc unwind label %lpad13
 
@@ -731,7 +731,7 @@ lpad.i.i:                                         ; preds = %invoke.cont3.i.i, %
 
 invoke.cont21:                                    ; preds = %invoke.cont3.i.i
   call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i) #30
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %comb.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %comb.i.i)
   store ptr %call5.i.i, ptr %_result, align 8
   %cmp.i.not = icmp eq ptr %call5.i.i, null
   br i1 %cmp.i.not, label %while.end, label %while.body
@@ -917,7 +917,7 @@ _ZN6google12Check_GEImplImtEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   br label %while.end
 
 if.else.i:                                        ; preds = %while.cond2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %comb.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %comb.i.i)
   call void @_ZN6google4base21CheckOpMessageBuilderC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i, ptr noundef nonnull @.str.10)
   %6 = load ptr, ptr %comb.i.i, align 8
   %call.i1.i.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %6, i64 noundef %4)
@@ -943,7 +943,7 @@ lpad.i.i:                                         ; preds = %invoke.cont3.i.i, %
 
 _ZN6google12Check_GEImplImtEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit: ; preds = %invoke.cont3.i.i
   call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i) #30
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %comb.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %comb.i.i)
   store ptr %call5.i.i, ptr %_result, align 8
   %cmp.i11.not = icmp eq ptr %call5.i.i, null
   br i1 %cmp.i11.not, label %_ZN6google12Check_GEImplImtEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.while.end_crit_edge, label %while.body8
@@ -974,7 +974,7 @@ while.end:                                        ; preds = %_ZN6google12Check_G
   %9 = phi i64 [ %.pre25, %_ZN6google12Check_GEImplImtEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.while.end_crit_edge ], [ %4, %_ZN6google12Check_GEImplImtEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.thread ]
   %sub = sub i64 %9, %conv.pre-phi
   store i64 %sub, ptr %totalEnqueuedWeight_, align 8
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %ref.tmp2.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2.i)
   %enqueuedHook_.i = getelementptr inbounds nuw i8, ptr %node.addr.024, i64 168
   %10 = load ptr, ptr %enqueuedHook_.i, align 8
   %tobool.not.i.i = icmp eq ptr %10, null
@@ -1008,7 +1008,7 @@ _ZN8proxygen18HTTP2PriorityQueue4Node19removeEnqueuedChildEPS1_.exit: ; preds = 
   %prev_.i.i.i.i = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %13, ptr %prev_.i.i.i.i, align 8, !noalias !9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %enqueuedHook_.i, i8 0, i64 16, i1 false), !noalias !9
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp2.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i)
   %vtable.i12 = load ptr, ptr %parent.023, align 8
   %vfn.i13 = getelementptr inbounds nuw i8, ptr %vtable.i12, i64 16
   %14 = load ptr, ptr %vfn.i13, align 8
@@ -1041,7 +1041,7 @@ entry:
   br i1 %cmp.not.i, label %if.else.i, label %while.end
 
 if.else.i:                                        ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %comb.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %comb.i.i)
   call void @_ZN6google4base21CheckOpMessageBuilderC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i, ptr noundef nonnull @.str.6)
   %3 = load ptr, ptr %comb.i.i, align 8
   %call.i1.i.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef %0)
@@ -1067,7 +1067,7 @@ lpad.i.i:                                         ; preds = %invoke.cont3.i.i, %
 
 _ZN6google12Check_NEImplImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit: ; preds = %invoke.cont3.i.i
   call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i) #30
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %comb.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %comb.i.i)
   store ptr %call5.i.i, ptr %_result, align 8
   %cmp.i.not = icmp eq ptr %call5.i.i, null
   br i1 %cmp.i.not, label %_ZN6google12Check_NEImplImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.while.end_crit_edge, label %while.body
@@ -1172,7 +1172,7 @@ if.then:                                          ; preds = %invoke.cont
   %5 = load i16, ptr %weight_, align 8
   %conv = zext i16 %5 to i64
   %add = add i64 %totalEnqueuedWeight.049, %conv
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %ref.tmp2.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2.i)
   %enqueuedHook_.i = getelementptr inbounds nuw i8, ptr %4, i64 168
   %6 = load ptr, ptr %enqueuedHook_.i, align 8
   %tobool.not.i.i = icmp eq ptr %6, null
@@ -1209,7 +1209,7 @@ invoke.cont11:                                    ; preds = %if.then
   %prev_.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %9, ptr %prev_.i.i.i.i, align 8, !noalias !13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %enqueuedHook_.i, i8 0, i64 16, i1 false), !noalias !13
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp2.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i)
   %10 = load ptr, ptr %_M_storage.i.i, align 8
   %enqueuedHook_ = getelementptr inbounds nuw i8, ptr %10, i64 168
   %11 = load ptr, ptr %enqueuedHook_, align 8
@@ -1513,7 +1513,7 @@ while.body:                                       ; preds = %entry, %_ZN8proxyge
   %conv = zext i16 %3 to i64
   %add = add i64 %2, %conv
   store i64 %add, ptr %totalEnqueuedWeight_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp3.i)
   %enqueuedHook_.i = getelementptr inbounds nuw i8, ptr %node.addr.013, i64 168
   %4 = load ptr, ptr %enqueuedHook_.i, align 8
   %tobool.not.i.i = icmp eq ptr %4, null
@@ -1550,7 +1550,7 @@ _ZN8proxygen18HTTP2PriorityQueue4Node16addEnqueuedChildEPS1_.exit: ; preds = %wh
   store ptr %enqueuedChildren_.i, ptr %enqueuedHook_.i, align 8
   store ptr %enqueuedHook_.i, ptr %prev_.i8.i.i.i, align 8
   store ptr %enqueuedHook_.i, ptr %7, align 8
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp3.i)
   %parent.0.in = getelementptr inbounds nuw i8, ptr %parent.014, i64 80
   %parent.0 = load ptr, ptr %parent.0.in, align 8
   %tobool = icmp eq ptr %parent.0, null
@@ -1975,7 +1975,7 @@ _ZN6google12Check_LEImplImiEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   br label %while.end
 
 if.else.i:                                        ; preds = %for.body
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %comb.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %comb.i.i)
   call void @_ZN6google4base21CheckOpMessageBuilderC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i, ptr noundef nonnull @.str.11)
   %5 = load ptr, ptr %comb.i.i, align 8
   %call.i1.i.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef %.sroa.speculated)
@@ -2001,7 +2001,7 @@ lpad.i.i:                                         ; preds = %invoke.cont3.i.i, %
 
 _ZN6google12Check_LEImplImiEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit: ; preds = %invoke.cont3.i.i
   call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i) #30
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %comb.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %comb.i.i)
   store ptr %call5.i.i, ptr %_result, align 8
   %cmp.i6.not = icmp eq ptr %call5.i.i, null
   br i1 %cmp.i6.not, label %_ZN6google12Check_LEImplImiEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.while.end_crit_edge, label %while.body
@@ -2221,9 +2221,9 @@ _ZNK8proxygen18HTTP2PriorityQueue4Node17getRelativeWeightEv.exit: ; preds = %if.
   %13 = phi ptr [ %8, %if.end.i ], [ %7, %if.then4 ]
   %14 = phi i64 [ %9, %if.end.i ], [ %6, %if.then4 ]
   %retval.0.i = phi double [ %div.i, %if.end.i ], [ 1.000000e+00, %if.then4 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr2.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr4.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr2.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr4.i)
   store i64 %14, ptr %__args.addr.i, align 8
   store ptr %13, ptr %__args.addr2.i, align 8
   store double %retval.0.i, ptr %__args.addr4.i, align 8
@@ -2240,9 +2240,9 @@ _ZNKSt8functionIFbmPN8proxygen15HTTPTransactionEdEEclEmS2_d.exit: ; preds = %_ZN
   %_M_invoker.i10 = getelementptr inbounds nuw i8, ptr %fn, i64 24
   %16 = load ptr, ptr %_M_invoker.i10, align 8
   %call6.i = call noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(32) %fn, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr4.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr2.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr4.i)
   br label %if.end8
 
 if.end8:                                          ; preds = %_ZNKSt8functionIFbmPN8proxygen15HTTPTransactionEdEEclEmS2_d.exit, %lor.lhs.false, %if.end
@@ -2444,9 +2444,9 @@ land.lhs.true34:                                  ; preds = %if.end32
   %txn_ = getelementptr inbounds nuw i8, ptr %this, i64 104
   %20 = load ptr, ptr %txn_, align 8
   %mul36 = fmul double %relativeParentWeight, %retval.0.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr2.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr4.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr6.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr2.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr4.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr6.i)
   store i64 %19, ptr %__args.addr2.i, align 8
   store ptr %20, ptr %__args.addr4.i, align 8
   store double %mul36, ptr %__args.addr6.i, align 8
@@ -2463,9 +2463,9 @@ _ZNKSt8functionIFbRN8proxygen18HTTP2PriorityQueueEmPNS0_15HTTPTransactionEdEEclE
   %_M_invoker.i = getelementptr inbounds nuw i8, ptr %fn, i64 24
   %22 = load ptr, ptr %_M_invoker.i, align 8
   %call8.i = call noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(32) %fn, ptr noundef nonnull align 8 dereferenceable(312) %18, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr6.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr4.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr6.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr2.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr4.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr6.i)
   br i1 %call8.i, label %return, label %if.end39
 
 if.end39:                                         ; preds = %_ZNKSt8functionIFbRN8proxygen18HTTP2PriorityQueueEmPNS0_15HTTPTransactionEdEEclES2_mS4_d.exit, %if.end32
@@ -2577,7 +2577,7 @@ while.cond:                                       ; preds = %cleanup.done
   br i1 %cmp.i.not, label %if.else.i, label %while.end
 
 if.else.i:                                        ; preds = %while.cond
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %comb.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %comb.i.i)
   call void @_ZN6google4base21CheckOpMessageBuilderC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i, ptr noundef nonnull @.str.15)
   %6 = load ptr, ptr %comb.i.i, align 8
   %call.i1.i.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef 0)
@@ -2603,7 +2603,7 @@ lpad.i.i:                                         ; preds = %invoke.cont3.i.i, %
 
 _ZN6google12Check_GTImplIjiEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit: ; preds = %invoke.cont3.i.i
   call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i) #30
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %comb.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %comb.i.i)
   store ptr %call5.i.i, ptr %_result, align 8
   %cmp.i1.not = icmp eq ptr %call5.i.i, null
   br i1 %cmp.i1.not, label %_ZN6google12Check_GTImplIjiEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.while.end_crit_edge, label %while.body
@@ -3272,7 +3272,7 @@ _ZN6google12Check_NEImplImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   br label %while.cond8
 
 if.else.i:                                        ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %comb.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %comb.i.i)
   call void @_ZN6google4base21CheckOpMessageBuilderC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i, ptr noundef nonnull @.str.17)
   %1 = load ptr, ptr %comb.i.i, align 8
   %call.i1.i.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %id)
@@ -3302,7 +3302,7 @@ lpad.i.i:                                         ; preds = %invoke.cont3.i.i, %
 
 _ZN6google12Check_NEImplImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit: ; preds = %invoke.cont3.i.i
   call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i) #30
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %comb.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %comb.i.i)
   store ptr %call5.i.i, ptr %_result, align 8
   %cmp.i.not = icmp eq ptr %call5.i.i, null
   br i1 %cmp.i.not, label %while.cond8, label %while.body
@@ -3327,7 +3327,7 @@ while.cond8:                                      ; preds = %_ZN6google12Check_N
   br i1 %cmp.not.i26, label %if.else.i28, label %while.end23
 
 if.else.i28:                                      ; preds = %while.cond8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %comb.i.i25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %comb.i.i25)
   call void @_ZN6google4base21CheckOpMessageBuilderC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i25, ptr noundef nonnull @.str.18)
   %4 = load ptr, ptr %comb.i.i25, align 8
   %call.i1.i.i29 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef %id)
@@ -3353,7 +3353,7 @@ lpad.i.i30:                                       ; preds = %invoke.cont3.i.i35,
 
 _ZN6google12Check_NEImplImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit38: ; preds = %invoke.cont3.i.i35
   call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i25) #30
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %comb.i.i25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %comb.i.i25)
   store ptr %call5.i.i36, ptr %_result9, align 8
   %cmp.i39.not = icmp eq ptr %call5.i.i36, null
   br i1 %cmp.i39.not, label %while.end23, label %while.body16
@@ -4097,7 +4097,7 @@ _ZN8proxygen18HTTP2PriorityQueue4Node12updateWeightEh.exit: ; preds = %if.end.i,
   br i1 %cmp.not.i, label %if.else.i, label %while.end
 
 if.else.i:                                        ; preds = %_ZN8proxygen18HTTP2PriorityQueue4Node12updateWeightEh.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %comb.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %comb.i.i)
   call void @_ZN6google4base21CheckOpMessageBuilderC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i, ptr noundef nonnull @.str.29)
   %17 = load ptr, ptr %comb.i.i, align 8
   %call.i1.i.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %17, i64 noundef %pri.coerce0)
@@ -4127,7 +4127,7 @@ lpad.i.i:                                         ; preds = %invoke.cont3.i.i, %
 
 _ZN6google12Check_NEImplImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit: ; preds = %invoke.cont3.i.i
   call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i) #30
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %comb.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %comb.i.i)
   store ptr %call5.i.i, ptr %_result, align 8
   %cmp.i.not = icmp eq ptr %call5.i.i, null
   br i1 %cmp.i.not, label %while.end, label %while.body
@@ -4495,7 +4495,7 @@ entry:
   br i1 %cmp.i.not, label %if.else.i, label %while.end
 
 if.else.i:                                        ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %comb.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %comb.i.i)
   call void @_ZN6google4base21CheckOpMessageBuilderC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i, ptr noundef nonnull @.str.33)
   %1 = load ptr, ptr %comb.i.i, align 8
   %call.i1.i.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef 0)
@@ -4521,7 +4521,7 @@ lpad.i.i:                                         ; preds = %invoke.cont3.i.i, %
 
 _ZN6google12Check_GTImplImiEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit: ; preds = %invoke.cont3.i.i
   call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i) #30
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %comb.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %comb.i.i)
   store ptr %call5.i.i, ptr %_result, align 8
   %cmp.i1.not = icmp eq ptr %call5.i.i, null
   br i1 %cmp.i1.not, label %while.end, label %while.body
@@ -4542,7 +4542,7 @@ lpad:                                             ; preds = %while.body
   unreachable
 
 while.end:                                        ; preds = %entry, %_ZN6google12Check_GTImplImiEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %ref.tmp2.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2.i)
   %enqueued_.i = getelementptr inbounds nuw i8, ptr %handle, i64 113
   %4 = load i8, ptr %enqueued_.i, align 1
   %tobool.i = trunc i8 %4 to i1
@@ -4570,7 +4570,7 @@ lpad.i:                                           ; preds = %invoke.cont.i, %con
 _ZN8proxygen18HTTP2PriorityQueue4Node18clearPendingEgressEv.exit: ; preds = %while.end
   store i8 0, ptr %enqueued_.i, align 1
   call void @_ZN8proxygen18HTTP2PriorityQueue4Node27propagatePendingEgressClearEPS1_(ptr noundef nonnull align 8 dereferenceable(200) %handle)
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp2.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i)
   %6 = load i64, ptr %activeCount_, align 8
   %dec = add i64 %6, -1
   store i64 %dec, ptr %activeCount_, align 8
@@ -5091,9 +5091,9 @@ land.lhs.true34.i:                                ; preds = %if.end32.i
   %txn_.i = getelementptr inbounds nuw i8, ptr %retval.0.i83, i64 104
   %55 = load ptr, ptr %txn_.i, align 8
   %mul36.i = fmul double %26, %retval.0.i.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr2.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr4.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr6.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr2.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr4.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr6.i.i)
   store i64 %54, ptr %__args.addr2.i.i, align 8
   store ptr %55, ptr %__args.addr4.i.i, align 8
   store double %mul36.i, ptr %__args.addr6.i.i, align 8
@@ -5107,9 +5107,9 @@ _ZNKSt8functionIFbRN8proxygen18HTTP2PriorityQueueEmPNS0_15HTTPTransactionEdEEclE
           to label %call8.i.i.noexc unwind label %lpad5.loopexit.split-lp.loopexit
 
 call8.i.i.noexc:                                  ; preds = %_ZNKSt8functionIFbRN8proxygen18HTTP2PriorityQueueEmPNS0_15HTTPTransactionEdEEclES2_mS4_d.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr4.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr6.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr2.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr4.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr6.i.i)
   br i1 %call8.i.i24, label %if.end, label %if.end39.i
 
 if.end39.i:                                       ; preds = %call8.i.i.noexc, %if.end32.i
@@ -5153,7 +5153,7 @@ while.end:                                        ; preds = %while.endsplit, %la
   %64 = phi ptr [ %14, %land.rhs26.while.end_crit_edge ], [ %.pre96, %while.endsplit ]
   %65 = phi ptr [ %.pre95, %land.rhs26.while.end_crit_edge ], [ %63, %while.endsplit ]
   %66 = phi ptr [ %13, %land.rhs26.while.end_crit_edge ], [ %storemerge.i, %while.endsplit ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.sroa.0.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) %pendingNodes, i64 16, i1 false)
   %67 = load ptr, ptr %_M_first.i.i29, align 8
   %68 = load ptr, ptr %_M_node.i.i, align 8
@@ -5170,7 +5170,7 @@ while.end:                                        ; preds = %while.endsplit, %la
   store ptr %69, ptr %_M_first.i.i.i, align 8
   store ptr %70, ptr %_M_last.i16.i, align 8
   store ptr %71, ptr %_M_node.i.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.sroa.0.i.i.i.i)
   br i1 %cmp.i.i12.not, label %land.lhs.true, label %while.end40, !llvm.loop !29
 
 while.end40:                                      ; preds = %invoke.cont7, %while.end, %land.rhs
@@ -5781,9 +5781,9 @@ land.lhs.true34.i:                                ; preds = %if.end32.i
   %txn_.i = getelementptr inbounds nuw i8, ptr %11, i64 104
   %39 = load ptr, ptr %txn_.i, align 8
   %mul36.i = fmul double %12, %retval.0.i.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr2.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr4.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr6.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr2.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr4.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr6.i.i)
   store i64 %38, ptr %__args.addr2.i.i, align 8
   store ptr %39, ptr %__args.addr4.i.i, align 8
   store double %mul36.i, ptr %__args.addr6.i.i, align 8
@@ -5804,9 +5804,9 @@ _ZNKSt8functionIFbRN8proxygen18HTTP2PriorityQueueEmPNS0_15HTTPTransactionEdEEclE
           to label %call8.i.i.noexc unwind label %lpad11.loopexit.split-lp.loopexit
 
 call8.i.i.noexc:                                  ; preds = %_ZNKSt8functionIFbRN8proxygen18HTTP2PriorityQueueEmPNS0_15HTTPTransactionEdEEclES2_mS4_d.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr4.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr6.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr2.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr4.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr6.i.i)
   br i1 %call8.i.i29, label %invoke.cont12, label %if.end39.i
 
 if.end39.i:                                       ; preds = %call8.i.i.noexc, %if.end32.i
@@ -5980,7 +5980,7 @@ for.body53:                                       ; preds = %for.body53.lr.ph, %
   br i1 %cmp.i59.not, label %do.end, label %for.body53
 
 if.end61:                                         ; preds = %land.lhs.true17, %land.lhs.true, %while.end
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.sroa.0.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) %pendingNodes, i64 16, i1 false)
   %66 = load ptr, ptr %_M_first.i.i, align 8
   %67 = load ptr, ptr %_M_last.i40, align 8
@@ -5999,7 +5999,7 @@ if.end61:                                         ; preds = %land.lhs.true17, %l
   store ptr %70, ptr %_M_first.i.i.i, align 8
   store ptr %71, ptr %_M_last.i.i, align 8
   store ptr %72, ptr %_M_node.i.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.sroa.0.i.i.i.i)
   br i1 %cmp.i.i.not, label %land.rhs63, label %do.end
 
 land.rhs63:                                       ; preds = %if.end61
@@ -6301,7 +6301,7 @@ entry:
   br i1 %cmp, label %return, label %if.else
 
 if.else:                                          ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %comb.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %comb.i)
   call void @_ZN6google4base21CheckOpMessageBuilderC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %comb.i, ptr noundef %exprtext)
   %2 = load ptr, ptr %comb.i, align 8
   %3 = load double, ptr %v1, align 8
@@ -6329,7 +6329,7 @@ lpad.i:                                           ; preds = %invoke.cont3.i, %in
 
 _ZN6google17MakeCheckOpStringIdiEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit: ; preds = %invoke.cont3.i
   call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %comb.i) #30
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %comb.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %comb.i)
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6google17MakeCheckOpStringIdiEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit
@@ -6351,7 +6351,7 @@ entry:
   br i1 %cmp.not.i, label %if.else.i, label %while.end
 
 if.else.i:                                        ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %comb.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %comb.i.i)
   call void @_ZN6google4base21CheckOpMessageBuilderC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i, ptr noundef nonnull @.str.36)
   %2 = load ptr, ptr %comb.i.i, align 8
   %call.i1.i.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %2, i32 noundef %add)
@@ -6377,7 +6377,7 @@ lpad.i.i:                                         ; preds = %invoke.cont3.i.i, %
 
 _ZN6google12Check_LEImplIjjEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit: ; preds = %invoke.cont3.i.i
   call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i) #30
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %comb.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %comb.i.i)
   store ptr %call5.i.i, ptr %_result, align 8
   %cmp.i.not = icmp eq ptr %call5.i.i, null
   br i1 %cmp.i.not, label %while.end, label %while.body
@@ -8599,10 +8599,10 @@ declare i64 @llvm.umax.i64(i64, i64) #28
 declare i16 @llvm.cttz.i16(i16, i1 immarg) #28
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #29
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #29
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #29
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #29
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #28

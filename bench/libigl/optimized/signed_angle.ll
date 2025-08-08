@@ -41,10 +41,10 @@ define weak_odr dso_local noundef double @_ZN3igl12signed_angleIN5Eigen5BlockIKN
   %.sroa.5 = alloca double, align 8
   %.sroa.0 = alloca double, align 16
   %.sroa.7 = alloca double, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.062)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.062)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7)
   %4 = load ptr, ptr %0, align 8, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !12
@@ -129,27 +129,21 @@ define weak_odr dso_local noundef double @_ZN3igl12signed_angleIN5Eigen5BlockIKN
   %46 = tail call double @llvm.fmuladd.f64(double %.sroa.0.0..sroa.0.0., double %.sroa.062.0..sroa.062.0., double %45)
   %47 = tail call double @atan2(double noundef %44, double noundef %46) #4, !tbaa !19
   %48 = fdiv double %47, 0xC01921FB54442D18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.7)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.062)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.062)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5)
   ret double %48
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare double @llvm.fmuladd.f64(double, double, double) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @sqrt(double noundef) local_unnamed_addr #3
+declare double @sqrt(double noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @atan2(double noundef, double noundef) local_unnamed_addr #3
+declare double @atan2(double noundef, double noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef double @_ZN3igl12signed_angleIN5Eigen5BlockIKNS1_6MatrixIdLin1ELi2ELi0ELin1ELi2EEELi1ELi2ELb0EEES6_NS3_IdLi1ELi2ELi1ELi1ELi2EEEEENT_6ScalarERKNS1_10MatrixBaseIS8_EERKNSA_IT0_EERKNSA_IT1_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
@@ -157,10 +151,10 @@ define weak_odr dso_local noundef double @_ZN3igl12signed_angleIN5Eigen5BlockIKN
   %.sroa.5 = alloca double, align 8
   %.sroa.0 = alloca double, align 16
   %.sroa.7 = alloca double, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.062)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.062)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7)
   %4 = load ptr, ptr %0, align 8, !tbaa !27
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !30
@@ -245,10 +239,10 @@ define weak_odr dso_local noundef double @_ZN3igl12signed_angleIN5Eigen5BlockIKN
   %46 = tail call double @llvm.fmuladd.f64(double %.sroa.0.0..sroa.0.0., double %.sroa.062.0..sroa.062.0., double %45)
   %47 = tail call double @atan2(double noundef %44, double noundef %46) #4, !tbaa !19
   %48 = fdiv double %47, 0xC01921FB54442D18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.7)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.062)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.062)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5)
   ret double %48
 }
 
@@ -258,10 +252,10 @@ define weak_odr dso_local noundef double @_ZN3igl12signed_angleIN5Eigen5BlockIKN
   %.sroa.5 = alloca double, align 8
   %.sroa.0 = alloca double, align 16
   %.sroa.7 = alloca double, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.062)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.062)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7)
   %4 = load ptr, ptr %0, align 8, !tbaa !27
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !30
@@ -346,10 +340,10 @@ define weak_odr dso_local noundef double @_ZN3igl12signed_angleIN5Eigen5BlockIKN
   %46 = tail call double @llvm.fmuladd.f64(double %.sroa.0.0..sroa.0.0., double %.sroa.062.0..sroa.062.0., double %45)
   %47 = tail call double @atan2(double noundef %44, double noundef %46) #4, !tbaa !19
   %48 = fdiv double %47, 0xC01921FB54442D18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.7)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.062)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.062)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5)
   ret double %48
 }
 
@@ -359,10 +353,10 @@ define weak_odr dso_local noundef double @_ZN3igl12signed_angleIN5Eigen5BlockIKN
   %.sroa.5 = alloca double, align 8
   %.sroa.0 = alloca double, align 16
   %.sroa.7 = alloca double, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.062)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.062)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7)
   %4 = load ptr, ptr %2, align 8, !tbaa !39
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %6 = load ptr, ptr %5, align 8, !tbaa !41
@@ -453,10 +447,10 @@ define weak_odr dso_local noundef double @_ZN3igl12signed_angleIN5Eigen5BlockIKN
   %52 = tail call double @llvm.fmuladd.f64(double %.sroa.0.0..sroa.0.0., double %.sroa.062.0..sroa.062.0., double %51)
   %53 = tail call double @atan2(double noundef %50, double noundef %52) #4, !tbaa !19
   %54 = fdiv double %53, 0xC01921FB54442D18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.7)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.062)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.062)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5)
   ret double %54
 }
 
@@ -466,10 +460,10 @@ define weak_odr dso_local noundef double @_ZN3igl12signed_angleIN5Eigen5BlockIKN
   %.sroa.5 = alloca double, align 8
   %.sroa.0 = alloca double, align 16
   %.sroa.7 = alloca double, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.062)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.062)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7)
   %4 = load ptr, ptr %0, align 8, !tbaa !48
   %5 = load ptr, ptr %1, align 8, !tbaa !48
   br label %20
@@ -544,10 +538,10 @@ define weak_odr dso_local noundef double @_ZN3igl12signed_angleIN5Eigen5BlockIKN
   %36 = tail call double @llvm.fmuladd.f64(double %.sroa.0.0..sroa.0.0., double %.sroa.062.0..sroa.062.0., double %35)
   %37 = tail call double @atan2(double noundef %34, double noundef %36) #4, !tbaa !19
   %38 = fdiv double %37, 0xC01921FB54442D18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.7)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.062)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.062)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5)
   ret double %38
 }
 
@@ -557,10 +551,10 @@ define weak_odr dso_local noundef double @_ZN3igl12signed_angleIN5Eigen5BlockIKN
   %.sroa.5 = alloca double, align 8
   %.sroa.0 = alloca double, align 16
   %.sroa.7 = alloca double, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.062)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.062)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7)
   %4 = load ptr, ptr %0, align 8, !tbaa !48
   %5 = load ptr, ptr %1, align 8, !tbaa !48
   br label %20
@@ -635,10 +629,10 @@ define weak_odr dso_local noundef double @_ZN3igl12signed_angleIN5Eigen5BlockIKN
   %36 = tail call double @llvm.fmuladd.f64(double %.sroa.0.0..sroa.0.0., double %.sroa.062.0..sroa.062.0., double %35)
   %37 = tail call double @atan2(double noundef %34, double noundef %36) #4, !tbaa !19
   %38 = fdiv double %37, 0xC01921FB54442D18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.7)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.062)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.062)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5)
   ret double %38
 }
 
@@ -648,10 +642,10 @@ define weak_odr dso_local noundef float @_ZN3igl12signed_angleIN5Eigen5BlockIKNS
   %.sroa.5 = alloca float, align 4
   %.sroa.0 = alloca float, align 4
   %.sroa.7 = alloca float, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.063)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.5)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.063)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7)
   %4 = load ptr, ptr %0, align 8, !tbaa !54
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8, !tbaa !57
@@ -665,8 +659,8 @@ define weak_odr dso_local noundef float @_ZN3igl12signed_angleIN5Eigen5BlockIKNS
   br label %26
 
 14:                                               ; preds = %26
-  %sqrtf = tail call float @sqrtf(float noundef %38) #3
-  %sqrtf32 = tail call float @sqrtf(float noundef %39) #3
+  %sqrtf = tail call float @sqrtf(float noundef %38) #2
+  %sqrtf32 = tail call float @sqrtf(float noundef %39) #2
   %15 = fcmp une float %sqrtf, 0.000000e+00
   %16 = fcmp une float %sqrtf32, 0.000000e+00
   br i1 %15, label %.split.us, label %.split
@@ -739,15 +733,15 @@ define weak_odr dso_local noundef float @_ZN3igl12signed_angleIN5Eigen5BlockIKNS
   %47 = tail call double @atan2(double noundef %43, double noundef %46) #4, !tbaa !19
   %48 = fdiv double %47, 0xC01921FB54442D18
   %49 = fptrunc double %48 to float
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.063)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.063)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5)
   ret float %49
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #2
+declare float @llvm.fmuladd.f32(float, float, float) #1
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef float @_ZN3igl12signed_angleIN5Eigen5BlockIKNS1_6MatrixIfLin1ELi3ELi1ELin1ELi3EEELi1ELi3ELb1EEES6_NS3_IfLi1ELi3ELi1ELi1ELi3EEEEENT_6ScalarERKNS1_10MatrixBaseIS8_EERKNSA_IT0_EERKNSA_IT1_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
@@ -755,17 +749,17 @@ define weak_odr dso_local noundef float @_ZN3igl12signed_angleIN5Eigen5BlockIKNS
   %.sroa.5 = alloca float, align 4
   %.sroa.0 = alloca float, align 4
   %.sroa.7 = alloca float, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.063)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.5)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.063)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7)
   %4 = load ptr, ptr %0, align 8, !tbaa !66
   %5 = load ptr, ptr %1, align 8, !tbaa !66
   br label %18
 
 6:                                                ; preds = %18
-  %sqrtf = tail call float @sqrtf(float noundef %28) #3
-  %sqrtf32 = tail call float @sqrtf(float noundef %29) #3
+  %sqrtf = tail call float @sqrtf(float noundef %28) #2
+  %sqrtf32 = tail call float @sqrtf(float noundef %29) #2
   %7 = fcmp une float %sqrtf, 0.000000e+00
   %8 = fcmp une float %sqrtf32, 0.000000e+00
   br i1 %7, label %.split.us, label %.split
@@ -836,10 +830,10 @@ define weak_odr dso_local noundef float @_ZN3igl12signed_angleIN5Eigen5BlockIKNS
   %37 = tail call double @atan2(double noundef %33, double noundef %36) #4, !tbaa !19
   %38 = fdiv double %37, 0xC01921FB54442D18
   %39 = fptrunc double %38 to float
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.063)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.063)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5)
   ret float %39
 }
 
@@ -849,10 +843,10 @@ define weak_odr dso_local noundef float @_ZN3igl12signed_angleIN5Eigen5BlockIKNS
   %.sroa.5 = alloca float, align 4
   %.sroa.0 = alloca float, align 4
   %.sroa.7 = alloca float, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.063)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.5)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.063)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7)
   %4 = load ptr, ptr %0, align 8, !tbaa !70
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !72
@@ -866,8 +860,8 @@ define weak_odr dso_local noundef float @_ZN3igl12signed_angleIN5Eigen5BlockIKNS
   br label %26
 
 14:                                               ; preds = %26
-  %sqrtf = tail call float @sqrtf(float noundef %38) #3
-  %sqrtf32 = tail call float @sqrtf(float noundef %39) #3
+  %sqrtf = tail call float @sqrtf(float noundef %38) #2
+  %sqrtf32 = tail call float @sqrtf(float noundef %39) #2
   %15 = fcmp une float %sqrtf, 0.000000e+00
   %16 = fcmp une float %sqrtf32, 0.000000e+00
   br i1 %15, label %.split.us, label %.split
@@ -940,10 +934,10 @@ define weak_odr dso_local noundef float @_ZN3igl12signed_angleIN5Eigen5BlockIKNS
   %47 = tail call double @atan2(double noundef %43, double noundef %46) #4, !tbaa !19
   %48 = fdiv double %47, 0xC01921FB54442D18
   %49 = fptrunc double %48 to float
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.063)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.063)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5)
   ret float %49
 }
 
@@ -953,10 +947,10 @@ define weak_odr dso_local noundef double @_ZN3igl12signed_angleIN5Eigen5BlockIKN
   %.sroa.5 = alloca double, align 8
   %.sroa.0 = alloca double, align 16
   %.sroa.7 = alloca double, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.062)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.062)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7)
   %4 = load ptr, ptr %2, align 8, !tbaa !39
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %6 = load ptr, ptr %5, align 8, !tbaa !41
@@ -1047,10 +1041,10 @@ define weak_odr dso_local noundef double @_ZN3igl12signed_angleIN5Eigen5BlockIKN
   %52 = tail call double @llvm.fmuladd.f64(double %.sroa.0.0..sroa.0.0., double %.sroa.062.0..sroa.062.0., double %51)
   %53 = tail call double @atan2(double noundef %50, double noundef %52) #4, !tbaa !19
   %54 = fdiv double %53, 0xC01921FB54442D18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.7)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.062)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.062)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5)
   ret double %54
 }
 
@@ -1060,10 +1054,10 @@ define weak_odr dso_local noundef double @_ZN3igl12signed_angleIN5Eigen5BlockIKN
   %.sroa.5 = alloca double, align 8
   %.sroa.0 = alloca double, align 16
   %.sroa.7 = alloca double, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.062)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.062)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7)
   %4 = load ptr, ptr %0, align 8, !tbaa !39
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8, !tbaa !41
@@ -1148,10 +1142,10 @@ define weak_odr dso_local noundef double @_ZN3igl12signed_angleIN5Eigen5BlockIKN
   %46 = tail call double @llvm.fmuladd.f64(double %.sroa.0.0..sroa.0.0., double %.sroa.062.0..sroa.062.0., double %45)
   %47 = tail call double @atan2(double noundef %44, double noundef %46) #4, !tbaa !19
   %48 = fdiv double %47, 0xC01921FB54442D18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.7)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.062)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.062)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5)
   ret double %48
 }
 
@@ -1161,10 +1155,10 @@ define weak_odr dso_local noundef double @_ZN3igl12signed_angleIN5Eigen5BlockIKN
   %.sroa.5 = alloca double, align 8
   %.sroa.0 = alloca double, align 16
   %.sroa.7 = alloca double, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.062)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.062)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7)
   %4 = load ptr, ptr %0, align 8, !tbaa !39
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8, !tbaa !41
@@ -1249,10 +1243,10 @@ define weak_odr dso_local noundef double @_ZN3igl12signed_angleIN5Eigen5BlockIKN
   %46 = tail call double @llvm.fmuladd.f64(double %.sroa.0.0..sroa.0.0., double %.sroa.062.0..sroa.062.0., double %45)
   %47 = tail call double @atan2(double noundef %44, double noundef %46) #4, !tbaa !19
   %48 = fdiv double %47, 0xC01921FB54442D18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.7)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.062)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.062)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5)
   ret double %48
 }
 
@@ -1262,10 +1256,10 @@ define weak_odr dso_local noundef double @_ZN3igl12signed_angleIN5Eigen5BlockIKN
   %.sroa.5 = alloca double, align 8
   %.sroa.0 = alloca double, align 16
   %.sroa.7 = alloca double, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.062)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.062)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7)
   %4 = load ptr, ptr %0, align 8, !tbaa !39
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8, !tbaa !41
@@ -1350,10 +1344,10 @@ define weak_odr dso_local noundef double @_ZN3igl12signed_angleIN5Eigen5BlockIKN
   %46 = tail call double @llvm.fmuladd.f64(double %.sroa.0.0..sroa.0.0., double %.sroa.062.0..sroa.062.0., double %45)
   %47 = tail call double @atan2(double noundef %44, double noundef %46) #4, !tbaa !19
   %48 = fdiv double %47, 0xC01921FB54442D18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.7)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.062)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.062)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5)
   ret double %48
 }
 
@@ -1363,10 +1357,10 @@ define weak_odr dso_local noundef float @_ZN3igl12signed_angleIN5Eigen5BlockIKNS
   %.sroa.5 = alloca float, align 4
   %.sroa.0 = alloca float, align 4
   %.sroa.7 = alloca float, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.063)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.5)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.063)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7)
   %4 = load ptr, ptr %0, align 8, !tbaa !70
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !72
@@ -1380,8 +1374,8 @@ define weak_odr dso_local noundef float @_ZN3igl12signed_angleIN5Eigen5BlockIKNS
   br label %26
 
 14:                                               ; preds = %26
-  %sqrtf = tail call float @sqrtf(float noundef %38) #3
-  %sqrtf32 = tail call float @sqrtf(float noundef %39) #3
+  %sqrtf = tail call float @sqrtf(float noundef %38) #2
+  %sqrtf32 = tail call float @sqrtf(float noundef %39) #2
   %15 = fcmp une float %sqrtf, 0.000000e+00
   %16 = fcmp une float %sqrtf32, 0.000000e+00
   br i1 %15, label %.split.us, label %.split
@@ -1454,10 +1448,10 @@ define weak_odr dso_local noundef float @_ZN3igl12signed_angleIN5Eigen5BlockIKNS
   %47 = tail call double @atan2(double noundef %43, double noundef %46) #4, !tbaa !19
   %48 = fdiv double %47, 0xC01921FB54442D18
   %49 = fptrunc double %48 to float
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.063)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.063)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5)
   ret float %49
 }
 
@@ -1467,17 +1461,17 @@ define weak_odr dso_local noundef float @_ZN3igl12signed_angleIN5Eigen5BlockIKNS
   %.sroa.5 = alloca float, align 4
   %.sroa.0 = alloca float, align 4
   %.sroa.7 = alloca float, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.063)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.5)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.063)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7)
   %4 = load ptr, ptr %0, align 8, !tbaa !66
   %5 = load ptr, ptr %1, align 8, !tbaa !66
   br label %18
 
 6:                                                ; preds = %18
-  %sqrtf = tail call float @sqrtf(float noundef %28) #3
-  %sqrtf32 = tail call float @sqrtf(float noundef %29) #3
+  %sqrtf = tail call float @sqrtf(float noundef %28) #2
+  %sqrtf32 = tail call float @sqrtf(float noundef %29) #2
   %7 = fcmp une float %sqrtf, 0.000000e+00
   %8 = fcmp une float %sqrtf32, 0.000000e+00
   br i1 %7, label %.split.us, label %.split
@@ -1548,21 +1542,27 @@ define weak_odr dso_local noundef float @_ZN3igl12signed_angleIN5Eigen5BlockIKNS
   %37 = tail call double @atan2(double noundef %33, double noundef %36) #4, !tbaa !19
   %38 = fdiv double %37, 0xC01921FB54442D18
   %39 = fptrunc double %38 to float
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.063)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.063)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5)
   ret float %39
 }
 
 declare i32 @__gxx_personality_v0(...)
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
+
 declare float @sqrtf(float) local_unnamed_addr
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

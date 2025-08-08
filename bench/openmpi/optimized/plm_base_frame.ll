@@ -101,7 +101,7 @@ define internal noundef i32 @local_spawn(ptr noundef %0) #0 {
   br i1 %8, label %10, label %51
 
 10:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %11 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #10
   %12 = load i64, ptr %2, align 8, !tbaa !34
   %13 = sitofp i64 %12 to double
@@ -110,7 +110,7 @@ define internal noundef i32 @local_spawn(ptr noundef %0) #0 {
   %16 = sitofp i64 %15 to double
   %17 = fdiv double %16, 1.000000e+06
   %18 = fadd double %17, %13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %19 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_state_base_framework, i64 76), align 4, !tbaa !36
   %or.cond = icmp ult i32 %19, 64
   br i1 %or.cond, label %20, label %51
@@ -134,7 +134,7 @@ define internal noundef i32 @local_spawn(ptr noundef %0) #0 {
   br i1 %8, label %31, label %51
 
 31:                                               ; preds = %30
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %32 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #10
   %33 = load i64, ptr %3, align 8, !tbaa !34
   %34 = sitofp i64 %33 to double
@@ -143,7 +143,7 @@ define internal noundef i32 @local_spawn(ptr noundef %0) #0 {
   %37 = sitofp i64 %36 to double
   %38 = fdiv double %37, 1.000000e+06
   %39 = fadd double %38, %34
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %40 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_state_base_framework, i64 76), align 4, !tbaa !36
   %or.cond3 = icmp ult i32 %40, 64
   br i1 %or.cond3, label %41, label %51
@@ -331,12 +331,6 @@ declare void @pmix_class_initialize(ptr noundef) local_unnamed_addr #1
 
 declare i32 @pmix_mca_base_framework_components_open(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 declare i32 @prte_plm_base_comm_stop() local_unnamed_addr #1
 
 declare void @pmix_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
@@ -344,7 +338,7 @@ declare void @pmix_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 declare ptr @prte_strerror(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 declare i32 @pmix_mca_base_framework_components_close(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -376,7 +370,7 @@ define internal void @launch_daemons(i32 %0, i16 signext %1, ptr noundef %2) #0 
   br i1 %18, label %19, label %43
 
 19:                                               ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %20 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #10
   %21 = load i64, ptr %4, align 8, !tbaa !34
   %22 = sitofp i64 %21 to double
@@ -385,7 +379,7 @@ define internal void @launch_daemons(i32 %0, i16 signext %1, ptr noundef %2) #0 
   %25 = sitofp i64 %24 to double
   %26 = fdiv double %25, 1.000000e+06
   %27 = fadd double %26, %22
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %28 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_state_base_framework, i64 76), align 4, !tbaa !36
   %or.cond = icmp ult i32 %28, 64
   br i1 %or.cond, label %29, label %43
@@ -483,7 +477,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %54
   br i1 %75, label %76, label %96
 
 76:                                               ; preds = %71
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %77 = call i32 @gettimeofday(ptr noundef nonnull %5, ptr noundef null) #10
   %78 = load i64, ptr %5, align 8, !tbaa !34
   %79 = sitofp i64 %78 to double
@@ -492,7 +486,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %54
   %82 = sitofp i64 %81 to double
   %83 = fdiv double %82, 1.000000e+06
   %84 = fadd double %83, %79
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %85 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_state_base_framework, i64 76), align 4, !tbaa !36
   %or.cond3 = icmp ult i32 %85, 64
   br i1 %or.cond3, label %86, label %96
@@ -583,7 +577,7 @@ pmix_obj_run_destructors.exit119:                 ; preds = %.lr.ph.i116, %107
   br i1 %129, label %130, label %154
 
 130:                                              ; preds = %125
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %131 = call i32 @gettimeofday(ptr noundef nonnull %6, ptr noundef null) #10
   %132 = load i64, ptr %6, align 8, !tbaa !34
   %133 = sitofp i64 %132 to double
@@ -592,7 +586,7 @@ pmix_obj_run_destructors.exit119:                 ; preds = %.lr.ph.i116, %107
   %136 = sitofp i64 %135 to double
   %137 = fdiv double %136, 1.000000e+06
   %138 = fadd double %137, %133
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %139 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_state_base_framework, i64 76), align 4, !tbaa !36
   %or.cond5 = icmp ult i32 %139, 64
   br i1 %or.cond5, label %140, label %154
@@ -737,7 +731,7 @@ pmix_pointer_array_get_item.exit:                 ; preds = %183, %192
   br i1 %216, label %217, label %237
 
 217:                                              ; preds = %212
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %218 = call i32 @gettimeofday(ptr noundef nonnull %7, ptr noundef null) #10
   %219 = load i64, ptr %7, align 8, !tbaa !34
   %220 = sitofp i64 %219 to double
@@ -746,7 +740,7 @@ pmix_pointer_array_get_item.exit:                 ; preds = %183, %192
   %223 = sitofp i64 %222 to double
   %224 = fdiv double %223, 1.000000e+06
   %225 = fadd double %224, %220
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %226 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_state_base_framework, i64 76), align 4, !tbaa !36
   %or.cond9 = icmp ult i32 %226, 64
   br i1 %or.cond9, label %227, label %237
@@ -830,7 +824,7 @@ pmix_obj_run_destructors.exit131:                 ; preds = %.lr.ph.i128, %248
   br i1 %266, label %267, label %291
 
 267:                                              ; preds = %262
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %268 = call i32 @gettimeofday(ptr noundef nonnull %8, ptr noundef null) #10
   %269 = load i64, ptr %8, align 8, !tbaa !34
   %270 = sitofp i64 %269 to double
@@ -839,7 +833,7 @@ pmix_obj_run_destructors.exit131:                 ; preds = %.lr.ph.i128, %248
   %273 = sitofp i64 %272 to double
   %274 = fdiv double %273, 1.000000e+06
   %275 = fadd double %274, %270
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %276 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_state_base_framework, i64 76), align 4, !tbaa !36
   %or.cond11 = icmp ult i32 %276, 64
   br i1 %or.cond11, label %277, label %291
@@ -934,7 +928,7 @@ declare ptr @prte_get_job_data_object(ptr noundef) local_unnamed_addr #1
 declare i32 @prte_plm_base_setup_virtual_machine(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 declare ptr @prte_util_print_name_args(ptr noundef) local_unnamed_addr #1
 
@@ -953,21 +947,27 @@ declare void @prte_ras_base_display_alloc(ptr noundef) local_unnamed_addr #1
 declare i32 @pmix_show_help(ptr noundef, ptr noundef, i32 noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #5
+declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #6
+declare ptr @__errno_location() local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare void @perror(ptr noundef readonly captures(none)) local_unnamed_addr #4
+declare void @perror(ptr noundef readonly captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: cold nofree noreturn nounwind
-declare void @abort() local_unnamed_addr #7
+declare void @abort() local_unnamed_addr #6
 
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #5
+declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #4
 
 declare i32 @prte_plm_base_prted_exit(i8 noundef zeroext) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #8
@@ -977,12 +977,12 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { cold nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { cold nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #10 = { nounwind }

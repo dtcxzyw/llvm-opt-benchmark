@@ -464,17 +464,11 @@ define dso_local i32 @net_rx_queue_update_kobjects(ptr noundef readonly captures
   ret i32 %53
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @sysfs_remove_group(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @kobject_put(ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @netdev_queue_update_kobjects(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
@@ -636,14 +630,14 @@ define internal ptr @net_grab_current_ns() #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal ptr @net_netlink_ns(ptr noundef readonly captures(none) %0) #3 align 16 {
+define internal ptr @net_netlink_ns(ptr noundef readonly captures(none) %0) #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef nonnull ptr @net_initial_ns() #4 align 16 {
+define internal noundef nonnull ptr @net_initial_ns() #3 align 16 {
   ret ptr @init_net
 }
 
@@ -785,13 +779,13 @@ define dso_local i32 @netdev_change_owner(ptr noundef %0, ptr noundef %1, ptr no
   %5 = alloca %struct.kuid_t, align 4
   %6 = alloca %struct.kgid_t, align 4
   %7 = alloca %struct.kgid_t, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4
   call void @net_ns_get_ownership(ptr noundef %1, ptr noundef nonnull %4, ptr noundef nonnull %6) #10
   call void @net_ns_get_ownership(ptr noundef %2, ptr noundef nonnull %5, ptr noundef nonnull %7) #10
@@ -890,15 +884,15 @@ define dso_local i32 @netdev_change_owner(ptr noundef %0, ptr noundef %1, ptr no
 
 .thread13:                                        ; preds = %39, %48, %58, %64, %55, %3, %.loopexit, %23, %13
   %67 = phi i32 [ %15, %13 ], [ %25, %23 ], [ 0, %.loopexit ], [ 0, %3 ], [ %62, %58 ], [ %65, %64 ], [ 0, %55 ], [ %43, %39 ], [ %49, %48 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %67
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @net_ns_get_ownership(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -925,7 +919,7 @@ define dso_local void @netdev_class_remove_file_ns(ptr noundef %0, ptr noundef %
 declare dso_local void @class_remove_file_ns(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local i32 @netdev_kobject_init() local_unnamed_addr #6 section ".init.text" align 16 {
+define dso_local i32 @netdev_kobject_init() local_unnamed_addr #5 section ".init.text" align 16 {
   %1 = tail call i32 @kobj_ns_type_register(ptr noundef nonnull @net_ns_type_operations) #10
   %2 = tail call i32 @class_register(ptr noundef nonnull @net_class) #10
   ret i32 %2
@@ -1096,7 +1090,7 @@ define internal i64 @rx_queue_attr_store(ptr noundef %0, ptr noundef readonly ca
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i64 -2147483648, 2147483648) i64 @show_rps_map(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = alloca [1 x %struct.cpumask], align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 0, ptr %3, align 8
   tail call void @__rcu_read_lock() #10
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -1132,14 +1126,14 @@ define internal range(i64 -2147483648, 2147483648) i64 @show_rps_map(ptr noundef
   %23 = icmp ult i32 %22, 4096
   %24 = select i1 %23, i32 %22, i32 -22
   %25 = sext i32 %24 to i64
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %25
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i64 @store_rps_map(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 align 16 {
   %4 = alloca [1 x %struct.cpumask], align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call zeroext i1 @capable(i32 noundef 12) #10
   br i1 %5, label %6, label %29
 
@@ -1184,7 +1178,7 @@ define internal i64 @store_rps_map(ptr noundef %0, ptr noundef %1, i64 noundef %
 
 29:                                               ; preds = %25, %.thread1, %3
   %30 = phi i64 [ -1, %3 ], [ %24, %.thread1 ], [ %spec.select, %25 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %30
 }
 
@@ -1311,7 +1305,7 @@ declare dso_local void @static_key_slow_dec(ptr noundef) local_unnamed_addr #1
 declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid allocsize(0)
-declare dso_local noalias ptr @__kmalloc(i64 noundef, i32 noundef) local_unnamed_addr #7
+declare dso_local noalias ptr @__kmalloc(i64 noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i64 -2147483648, 2147483648) i64 @show_rps_dev_flow_table_cnt(ptr noundef %0, ptr noundef %1) #0 align 16 {
@@ -1338,7 +1332,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @show_rps_dev_flow_table_
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i64 @store_rps_dev_flow_table_cnt(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 align 16 {
   %4 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call zeroext i1 @capable(i32 noundef 12) #10
   br i1 %5, label %6, label %44
 
@@ -1415,12 +1409,12 @@ define internal i64 @store_rps_dev_flow_table_cnt(ptr noundef %0, ptr noundef %1
 
 44:                                               ; preds = %42, %37, %24, %21, %9, %3
   %45 = phi i64 [ %10, %9 ], [ -1, %3 ], [ -22, %21 ], [ -12, %24 ], [ %2, %42 ], [ %2, %37 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %45
 }
 
 ; Function Attrs: null_pointer_is_valid allocsize(0)
-declare dso_local noalias ptr @vmalloc(i64 noundef) local_unnamed_addr #7
+declare dso_local noalias ptr @vmalloc(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @kstrtoull(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
@@ -1699,7 +1693,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @xps_cpus_show(ptr nounde
 define internal i64 @xps_cpus_store(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 align 16 {
   %4 = alloca [1 x %struct.cpumask], align 8
   %5 = load ptr, ptr %0, align 64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1056
   %7 = load i32, ptr %6, align 8
   %8 = icmp ugt i32 %7, 1
@@ -1762,7 +1756,7 @@ define internal i64 @xps_cpus_store(ptr noundef %0, ptr noundef %1, i64 noundef 
 
 43:                                               ; preds = %37, %34, %29, %9, %3
   %44 = phi i64 [ %30, %29 ], [ %42, %37 ], [ -513, %34 ], [ -2, %3 ], [ -1, %9 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %44
 }
 
@@ -2043,7 +2037,7 @@ define internal i64 @tx_maxrate_store(ptr noundef %0, ptr noundef %1, i64 nounde
   unreachable
 
 17:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4
   %18 = tail call zeroext i1 @capable(i32 noundef 12) #10
   br i1 %18, label %19, label %52
@@ -2108,7 +2102,7 @@ define internal i64 @tx_maxrate_store(ptr noundef %0, ptr noundef %1, i64 nounde
 
 52:                                               ; preds = %49, %45, %33, %28, %19, %17
   %53 = phi i64 [ %29, %28 ], [ %51, %49 ], [ %2, %45 ], [ -513, %33 ], [ -1, %17 ], [ -95, %19 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %53
 }
 
@@ -2128,7 +2122,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @bql_show_limit(ptr nound
 define internal i64 @bql_set_limit(ptr noundef writeonly captures(none) %0, ptr noundef %1, i64 noundef %2) #0 align 16 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = tail call i32 @strcmp(ptr noundef %1, ptr noundef nonnull dereferenceable(4) @.str.20) #10
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %19, label %8
@@ -2160,12 +2154,12 @@ define internal i64 @bql_set_limit(ptr noundef writeonly captures(none) %0, ptr 
 
 21:                                               ; preds = %19, %16, %14
   %22 = phi i64 [ %15, %14 ], [ %2, %19 ], [ -22, %16 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %22
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
+declare dso_local i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i64 -2147483648, 2147483648) i64 @bql_show_limit_max(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 align 16 {
@@ -2180,7 +2174,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @bql_show_limit_max(ptr n
 define internal i64 @bql_set_limit_max(ptr noundef writeonly captures(none) %0, ptr noundef %1, i64 noundef %2) #0 align 16 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = tail call i32 @strcmp(ptr noundef %1, ptr noundef nonnull dereferenceable(4) @.str.20) #10
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %19, label %8
@@ -2212,7 +2206,7 @@ define internal i64 @bql_set_limit_max(ptr noundef writeonly captures(none) %0, 
 
 21:                                               ; preds = %19, %16, %14
   %22 = phi i64 [ %15, %14 ], [ %2, %19 ], [ -22, %16 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %22
 }
 
@@ -2229,7 +2223,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @bql_show_limit_min(ptr n
 define internal i64 @bql_set_limit_min(ptr noundef writeonly captures(none) %0, ptr noundef %1, i64 noundef %2) #0 align 16 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 292
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = tail call i32 @strcmp(ptr noundef %1, ptr noundef nonnull dereferenceable(4) @.str.20) #10
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %19, label %8
@@ -2261,7 +2255,7 @@ define internal i64 @bql_set_limit_min(ptr noundef writeonly captures(none) %0, 
 
 21:                                               ; preds = %19, %16, %14
   %22 = phi i64 [ %15, %14 ], [ %2, %19 ], [ -22, %16 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %22
 }
 
@@ -2279,7 +2273,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @bql_show_hold_time(ptr n
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i64 @bql_set_hold_time(ptr noundef writeonly captures(none) %0, ptr noundef %1, i64 noundef %2) #0 align 16 {
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !annotation !27
   %5 = call i32 @kstrtouint(ptr noundef %1, i32 noundef 10, ptr noundef nonnull %4) #10
   %6 = icmp slt i32 %5, 0
@@ -2299,7 +2293,7 @@ define internal i64 @bql_set_hold_time(ptr noundef writeonly captures(none) %0, 
 
 14:                                               ; preds = %9, %7
   %15 = phi i64 [ %8, %7 ], [ %2, %9 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %15
 }
 
@@ -2367,7 +2361,7 @@ define internal void @netdev_release(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal ptr @net_namespace(ptr noundef readonly captures(none) %0) #3 align 16 {
+define internal ptr @net_namespace(ptr noundef readonly captures(none) %0) #2 align 16 {
   %2 = getelementptr i8, ptr %0, i64 -1064
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
@@ -2408,7 +2402,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @group_store(ptr noundef 
   %6 = getelementptr i8, ptr %0, i64 -1336
   %7 = getelementptr i8, ptr %0, i64 -1064
   %8 = load ptr, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 80
   %10 = load ptr, ptr %9, align 16
   %11 = tail call zeroext i1 @ns_capable(ptr noundef %10, i32 noundef 12) #10
@@ -2456,7 +2450,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @group_store(ptr noundef 
 
 34:                                               ; preds = %31, %18, %4
   %35 = phi i64 [ %33, %31 ], [ -513, %18 ], [ -1, %4 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %35
 }
 
@@ -2747,7 +2741,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @speed_show(ptr noundef %
   br i1 %25, label %36, label %26
 
 26:                                               ; preds = %22
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %4, i8 0, i64 104, i1 false), !annotation !27
   %27 = call i32 @__ethtool_get_link_ksettings(ptr noundef %5, ptr noundef nonnull %4) #10
   %28 = icmp eq i32 %27, 0
@@ -2762,7 +2756,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @speed_show(ptr noundef %
 
 34:                                               ; preds = %29, %26
   %35 = phi i64 [ -22, %26 ], [ %33, %29 ]
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %36
 
 36:                                               ; preds = %34, %22, %17
@@ -2808,7 +2802,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @duplex_show(ptr noundef 
   br i1 %21, label %36, label %22
 
 22:                                               ; preds = %17
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %4, i8 0, i64 104, i1 false), !annotation !27
   %23 = call i32 @__ethtool_get_link_ksettings(ptr noundef %5, ptr noundef nonnull %4) #10
   %24 = icmp eq i32 %23, 0
@@ -2827,7 +2821,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @duplex_show(ptr noundef 
 
 34:                                               ; preds = %25, %22
   %35 = phi i64 [ -22, %22 ], [ %33, %25 ]
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %36
 
 36:                                               ; preds = %34, %17
@@ -2927,7 +2921,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @carrier_changes_show(ptr
 define internal range(i64 -2147483648, 2147483648) i64 @ifalias_show(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 align 16 {
   %4 = alloca [256 x i8], align 16
   %5 = getelementptr i8, ptr %0, i64 -1336
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %4, i8 0, i64 256, i1 false), !annotation !27
   %6 = call i32 @dev_get_alias(ptr noundef %5, ptr noundef nonnull %4, i64 noundef 256) #10
   %7 = icmp sgt i32 %6, 0
@@ -2940,7 +2934,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @ifalias_show(ptr noundef
 10:                                               ; preds = %8, %3
   %11 = phi i32 [ %9, %8 ], [ %6, %3 ]
   %12 = sext i32 %11 to i64
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %12
 }
 
@@ -3068,7 +3062,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @carrier_store(ptr nounde
   %12 = getelementptr i8, ptr %0, i64 -1336
   %13 = getelementptr i8, ptr %0, i64 -1064
   %14 = load ptr, ptr %13, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8, !annotation !27
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 80
   %16 = load ptr, ptr %15, align 16
@@ -3126,7 +3120,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @carrier_store(ptr nounde
 
 46:                                               ; preds = %43, %24, %11
   %47 = phi i64 [ %45, %43 ], [ -513, %24 ], [ -1, %11 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %48
 
 48:                                               ; preds = %46, %4
@@ -3167,7 +3161,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @mtu_store(ptr noundef %0
   %6 = getelementptr i8, ptr %0, i64 -1336
   %7 = getelementptr i8, ptr %0, i64 -1064
   %8 = load ptr, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 80
   %10 = load ptr, ptr %9, align 16
   %11 = tail call zeroext i1 @ns_capable(ptr noundef %10, i32 noundef 12) #10
@@ -3217,7 +3211,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @mtu_store(ptr noundef %0
 
 37:                                               ; preds = %34, %18, %4
   %38 = phi i64 [ %36, %34 ], [ -513, %18 ], [ -1, %4 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %38
 }
 
@@ -3251,7 +3245,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @flags_store(ptr noundef 
   %6 = getelementptr i8, ptr %0, i64 -1336
   %7 = getelementptr i8, ptr %0, i64 -1064
   %8 = load ptr, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 80
   %10 = load ptr, ptr %9, align 16
   %11 = tail call zeroext i1 @ns_capable(ptr noundef %10, i32 noundef 12) #10
@@ -3301,7 +3295,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @flags_store(ptr noundef 
 
 37:                                               ; preds = %34, %18, %4
   %38 = phi i64 [ %36, %34 ], [ -513, %18 ], [ -1, %4 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %38
 }
 
@@ -3339,7 +3333,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @tx_queue_len_store(ptr n
   %8 = getelementptr i8, ptr %0, i64 -1336
   %9 = getelementptr i8, ptr %0, i64 -1064
   %10 = load ptr, ptr %9, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8, !annotation !27
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 80
   %12 = load ptr, ptr %11, align 16
@@ -3388,7 +3382,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @tx_queue_len_store(ptr n
 
 38:                                               ; preds = %35, %20, %7
   %39 = phi i64 [ %37, %35 ], [ -513, %20 ], [ -1, %7 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %40
 
 40:                                               ; preds = %38, %4
@@ -3429,7 +3423,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @gro_flush_timeout_store(
 7:                                                ; preds = %4
   %8 = getelementptr i8, ptr %0, i64 -1064
   %9 = load ptr, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8, !annotation !27
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 80
   %11 = load ptr, ptr %10, align 16
@@ -3477,7 +3471,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @gro_flush_timeout_store(
 
 35:                                               ; preds = %32, %19, %7
   %36 = phi i64 [ %34, %32 ], [ -513, %19 ], [ -1, %7 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %37
 
 37:                                               ; preds = %35, %4
@@ -3515,7 +3509,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @napi_defer_hard_irqs_sto
 7:                                                ; preds = %4
   %8 = getelementptr i8, ptr %0, i64 -1064
   %9 = load ptr, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8, !annotation !27
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 80
   %11 = load ptr, ptr %10, align 16
@@ -3564,7 +3558,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @napi_defer_hard_irqs_sto
 
 36:                                               ; preds = %33, %19, %7
   %37 = phi i64 [ %35, %33 ], [ -513, %19 ], [ -1, %7 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %38
 
 38:                                               ; preds = %36, %4
@@ -3601,7 +3595,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @phys_port_id_show(ptr no
   br i1 %20, label %32, label %21
 
 21:                                               ; preds = %17
-  call void @llvm.lifetime.start.p0(i64 33, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(33) %4, i8 0, i64 33, i1 false), !annotation !27
   %22 = call i32 @dev_get_phys_port_id(ptr noundef %5, ptr noundef nonnull %4) #10
   %23 = icmp eq i32 %22, 0
@@ -3617,7 +3611,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @phys_port_id_show(ptr no
 29:                                               ; preds = %24, %21
   %30 = phi i32 [ %22, %21 ], [ %28, %24 ]
   %31 = sext i32 %30 to i64
-  call void @llvm.lifetime.end.p0(i64 33, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %32
 
 32:                                               ; preds = %29, %17
@@ -3668,7 +3662,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @phys_port_name_show(ptr 
   br i1 %24, label %33, label %25
 
 25:                                               ; preds = %21
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !27
   %26 = call i32 @dev_get_phys_port_name(ptr noundef %5, ptr noundef nonnull %4, i64 noundef 16) #10
   %27 = icmp eq i32 %26, 0
@@ -3681,7 +3675,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @phys_port_name_show(ptr 
 30:                                               ; preds = %28, %25
   %31 = phi i32 [ %26, %25 ], [ %29, %28 ]
   %32 = sext i32 %31 to i64
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %33
 
 33:                                               ; preds = %30, %21
@@ -3732,7 +3726,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @phys_switch_id_show(ptr 
   br i1 %24, label %36, label %25
 
 25:                                               ; preds = %21
-  call void @llvm.lifetime.start.p0(i64 33, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(33) %4, i8 0, i64 33, i1 false)
   %26 = call i32 @dev_get_port_parent_id(ptr noundef %5, ptr noundef nonnull %4, i1 noundef zeroext false) #10
   %27 = icmp eq i32 %26, 0
@@ -3748,7 +3742,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @phys_switch_id_show(ptr 
 33:                                               ; preds = %28, %25
   %34 = phi i32 [ %26, %25 ], [ %32, %28 ]
   %35 = sext i32 %34 to i64
-  call void @llvm.lifetime.end.p0(i64 33, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %36
 
 36:                                               ; preds = %33, %21
@@ -3792,7 +3786,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @proto_down_store(ptr nou
   %6 = getelementptr i8, ptr %0, i64 -1336
   %7 = getelementptr i8, ptr %0, i64 -1064
   %8 = load ptr, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 80
   %10 = load ptr, ptr %9, align 16
   %11 = tail call zeroext i1 @ns_capable(ptr noundef %10, i32 noundef 12) #10
@@ -3842,7 +3836,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @proto_down_store(ptr nou
 
 37:                                               ; preds = %34, %18, %4
   %38 = phi i64 [ %36, %34 ], [ -513, %18 ], [ -1, %4 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %38
 }
 
@@ -3911,7 +3905,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @threaded_store(ptr nound
   %6 = getelementptr i8, ptr %0, i64 -1336
   %7 = getelementptr i8, ptr %0, i64 -1064
   %8 = load ptr, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 80
   %10 = load ptr, ptr %9, align 16
   %11 = tail call zeroext i1 @ns_capable(ptr noundef %10, i32 noundef 12) #10
@@ -3970,7 +3964,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @threaded_store(ptr nound
 
 41:                                               ; preds = %38, %18, %4
   %42 = phi i64 [ %40, %38 ], [ -513, %18 ], [ -1, %4 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %42
 }
 
@@ -3994,13 +3988,13 @@ define internal range(i64 -2147483648, 2147483648) i64 @rx_packets_show(ptr noun
 
 8:                                                ; preds = %3
   %9 = getelementptr i8, ptr %0, i64 -1336
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %4, i8 0, i64 200, i1 false), !annotation !27
   %10 = call ptr @dev_get_stats(ptr noundef %9, ptr noundef nonnull %4) #10
   %11 = load i64, ptr %10, align 8
   %12 = call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @fmt_u64, i64 noundef %11) #10
   %13 = sext i32 %12 to i64
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %14
 
 14:                                               ; preds = %8, %3
@@ -4023,14 +4017,14 @@ define internal range(i64 -2147483648, 2147483648) i64 @tx_packets_show(ptr noun
 
 8:                                                ; preds = %3
   %9 = getelementptr i8, ptr %0, i64 -1336
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %4, i8 0, i64 200, i1 false), !annotation !27
   %10 = call ptr @dev_get_stats(ptr noundef %9, ptr noundef nonnull %4) #10
   %11 = getelementptr i8, ptr %10, i64 8
   %12 = load i64, ptr %11, align 8
   %13 = call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @fmt_u64, i64 noundef %12) #10
   %14 = sext i32 %13 to i64
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %15
 
 15:                                               ; preds = %8, %3
@@ -4050,14 +4044,14 @@ define internal range(i64 -2147483648, 2147483648) i64 @rx_bytes_show(ptr nounde
 
 8:                                                ; preds = %3
   %9 = getelementptr i8, ptr %0, i64 -1336
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %4, i8 0, i64 200, i1 false), !annotation !27
   %10 = call ptr @dev_get_stats(ptr noundef %9, ptr noundef nonnull %4) #10
   %11 = getelementptr i8, ptr %10, i64 16
   %12 = load i64, ptr %11, align 8
   %13 = call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @fmt_u64, i64 noundef %12) #10
   %14 = sext i32 %13 to i64
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %15
 
 15:                                               ; preds = %8, %3
@@ -4077,14 +4071,14 @@ define internal range(i64 -2147483648, 2147483648) i64 @tx_bytes_show(ptr nounde
 
 8:                                                ; preds = %3
   %9 = getelementptr i8, ptr %0, i64 -1336
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %4, i8 0, i64 200, i1 false), !annotation !27
   %10 = call ptr @dev_get_stats(ptr noundef %9, ptr noundef nonnull %4) #10
   %11 = getelementptr i8, ptr %10, i64 24
   %12 = load i64, ptr %11, align 8
   %13 = call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @fmt_u64, i64 noundef %12) #10
   %14 = sext i32 %13 to i64
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %15
 
 15:                                               ; preds = %8, %3
@@ -4104,14 +4098,14 @@ define internal range(i64 -2147483648, 2147483648) i64 @rx_errors_show(ptr nound
 
 8:                                                ; preds = %3
   %9 = getelementptr i8, ptr %0, i64 -1336
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %4, i8 0, i64 200, i1 false), !annotation !27
   %10 = call ptr @dev_get_stats(ptr noundef %9, ptr noundef nonnull %4) #10
   %11 = getelementptr i8, ptr %10, i64 32
   %12 = load i64, ptr %11, align 8
   %13 = call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @fmt_u64, i64 noundef %12) #10
   %14 = sext i32 %13 to i64
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %15
 
 15:                                               ; preds = %8, %3
@@ -4131,14 +4125,14 @@ define internal range(i64 -2147483648, 2147483648) i64 @tx_errors_show(ptr nound
 
 8:                                                ; preds = %3
   %9 = getelementptr i8, ptr %0, i64 -1336
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %4, i8 0, i64 200, i1 false), !annotation !27
   %10 = call ptr @dev_get_stats(ptr noundef %9, ptr noundef nonnull %4) #10
   %11 = getelementptr i8, ptr %10, i64 40
   %12 = load i64, ptr %11, align 8
   %13 = call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @fmt_u64, i64 noundef %12) #10
   %14 = sext i32 %13 to i64
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %15
 
 15:                                               ; preds = %8, %3
@@ -4158,14 +4152,14 @@ define internal range(i64 -2147483648, 2147483648) i64 @rx_dropped_show(ptr noun
 
 8:                                                ; preds = %3
   %9 = getelementptr i8, ptr %0, i64 -1336
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %4, i8 0, i64 200, i1 false), !annotation !27
   %10 = call ptr @dev_get_stats(ptr noundef %9, ptr noundef nonnull %4) #10
   %11 = getelementptr i8, ptr %10, i64 48
   %12 = load i64, ptr %11, align 8
   %13 = call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @fmt_u64, i64 noundef %12) #10
   %14 = sext i32 %13 to i64
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %15
 
 15:                                               ; preds = %8, %3
@@ -4185,14 +4179,14 @@ define internal range(i64 -2147483648, 2147483648) i64 @tx_dropped_show(ptr noun
 
 8:                                                ; preds = %3
   %9 = getelementptr i8, ptr %0, i64 -1336
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %4, i8 0, i64 200, i1 false), !annotation !27
   %10 = call ptr @dev_get_stats(ptr noundef %9, ptr noundef nonnull %4) #10
   %11 = getelementptr i8, ptr %10, i64 56
   %12 = load i64, ptr %11, align 8
   %13 = call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @fmt_u64, i64 noundef %12) #10
   %14 = sext i32 %13 to i64
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %15
 
 15:                                               ; preds = %8, %3
@@ -4212,14 +4206,14 @@ define internal range(i64 -2147483648, 2147483648) i64 @multicast_show(ptr nound
 
 8:                                                ; preds = %3
   %9 = getelementptr i8, ptr %0, i64 -1336
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %4, i8 0, i64 200, i1 false), !annotation !27
   %10 = call ptr @dev_get_stats(ptr noundef %9, ptr noundef nonnull %4) #10
   %11 = getelementptr i8, ptr %10, i64 64
   %12 = load i64, ptr %11, align 8
   %13 = call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @fmt_u64, i64 noundef %12) #10
   %14 = sext i32 %13 to i64
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %15
 
 15:                                               ; preds = %8, %3
@@ -4239,14 +4233,14 @@ define internal range(i64 -2147483648, 2147483648) i64 @collisions_show(ptr noun
 
 8:                                                ; preds = %3
   %9 = getelementptr i8, ptr %0, i64 -1336
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %4, i8 0, i64 200, i1 false), !annotation !27
   %10 = call ptr @dev_get_stats(ptr noundef %9, ptr noundef nonnull %4) #10
   %11 = getelementptr i8, ptr %10, i64 72
   %12 = load i64, ptr %11, align 8
   %13 = call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @fmt_u64, i64 noundef %12) #10
   %14 = sext i32 %13 to i64
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %15
 
 15:                                               ; preds = %8, %3
@@ -4266,14 +4260,14 @@ define internal range(i64 -2147483648, 2147483648) i64 @rx_length_errors_show(pt
 
 8:                                                ; preds = %3
   %9 = getelementptr i8, ptr %0, i64 -1336
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %4, i8 0, i64 200, i1 false), !annotation !27
   %10 = call ptr @dev_get_stats(ptr noundef %9, ptr noundef nonnull %4) #10
   %11 = getelementptr i8, ptr %10, i64 80
   %12 = load i64, ptr %11, align 8
   %13 = call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @fmt_u64, i64 noundef %12) #10
   %14 = sext i32 %13 to i64
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %15
 
 15:                                               ; preds = %8, %3
@@ -4293,14 +4287,14 @@ define internal range(i64 -2147483648, 2147483648) i64 @rx_over_errors_show(ptr 
 
 8:                                                ; preds = %3
   %9 = getelementptr i8, ptr %0, i64 -1336
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %4, i8 0, i64 200, i1 false), !annotation !27
   %10 = call ptr @dev_get_stats(ptr noundef %9, ptr noundef nonnull %4) #10
   %11 = getelementptr i8, ptr %10, i64 88
   %12 = load i64, ptr %11, align 8
   %13 = call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @fmt_u64, i64 noundef %12) #10
   %14 = sext i32 %13 to i64
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %15
 
 15:                                               ; preds = %8, %3
@@ -4320,14 +4314,14 @@ define internal range(i64 -2147483648, 2147483648) i64 @rx_crc_errors_show(ptr n
 
 8:                                                ; preds = %3
   %9 = getelementptr i8, ptr %0, i64 -1336
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %4, i8 0, i64 200, i1 false), !annotation !27
   %10 = call ptr @dev_get_stats(ptr noundef %9, ptr noundef nonnull %4) #10
   %11 = getelementptr i8, ptr %10, i64 96
   %12 = load i64, ptr %11, align 8
   %13 = call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @fmt_u64, i64 noundef %12) #10
   %14 = sext i32 %13 to i64
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %15
 
 15:                                               ; preds = %8, %3
@@ -4347,14 +4341,14 @@ define internal range(i64 -2147483648, 2147483648) i64 @rx_frame_errors_show(ptr
 
 8:                                                ; preds = %3
   %9 = getelementptr i8, ptr %0, i64 -1336
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %4, i8 0, i64 200, i1 false), !annotation !27
   %10 = call ptr @dev_get_stats(ptr noundef %9, ptr noundef nonnull %4) #10
   %11 = getelementptr i8, ptr %10, i64 104
   %12 = load i64, ptr %11, align 8
   %13 = call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @fmt_u64, i64 noundef %12) #10
   %14 = sext i32 %13 to i64
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %15
 
 15:                                               ; preds = %8, %3
@@ -4374,14 +4368,14 @@ define internal range(i64 -2147483648, 2147483648) i64 @rx_fifo_errors_show(ptr 
 
 8:                                                ; preds = %3
   %9 = getelementptr i8, ptr %0, i64 -1336
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %4, i8 0, i64 200, i1 false), !annotation !27
   %10 = call ptr @dev_get_stats(ptr noundef %9, ptr noundef nonnull %4) #10
   %11 = getelementptr i8, ptr %10, i64 112
   %12 = load i64, ptr %11, align 8
   %13 = call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @fmt_u64, i64 noundef %12) #10
   %14 = sext i32 %13 to i64
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %15
 
 15:                                               ; preds = %8, %3
@@ -4401,14 +4395,14 @@ define internal range(i64 -2147483648, 2147483648) i64 @rx_missed_errors_show(pt
 
 8:                                                ; preds = %3
   %9 = getelementptr i8, ptr %0, i64 -1336
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %4, i8 0, i64 200, i1 false), !annotation !27
   %10 = call ptr @dev_get_stats(ptr noundef %9, ptr noundef nonnull %4) #10
   %11 = getelementptr i8, ptr %10, i64 120
   %12 = load i64, ptr %11, align 8
   %13 = call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @fmt_u64, i64 noundef %12) #10
   %14 = sext i32 %13 to i64
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %15
 
 15:                                               ; preds = %8, %3
@@ -4428,14 +4422,14 @@ define internal range(i64 -2147483648, 2147483648) i64 @tx_aborted_errors_show(p
 
 8:                                                ; preds = %3
   %9 = getelementptr i8, ptr %0, i64 -1336
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %4, i8 0, i64 200, i1 false), !annotation !27
   %10 = call ptr @dev_get_stats(ptr noundef %9, ptr noundef nonnull %4) #10
   %11 = getelementptr i8, ptr %10, i64 128
   %12 = load i64, ptr %11, align 8
   %13 = call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @fmt_u64, i64 noundef %12) #10
   %14 = sext i32 %13 to i64
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %15
 
 15:                                               ; preds = %8, %3
@@ -4455,14 +4449,14 @@ define internal range(i64 -2147483648, 2147483648) i64 @tx_carrier_errors_show(p
 
 8:                                                ; preds = %3
   %9 = getelementptr i8, ptr %0, i64 -1336
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %4, i8 0, i64 200, i1 false), !annotation !27
   %10 = call ptr @dev_get_stats(ptr noundef %9, ptr noundef nonnull %4) #10
   %11 = getelementptr i8, ptr %10, i64 136
   %12 = load i64, ptr %11, align 8
   %13 = call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @fmt_u64, i64 noundef %12) #10
   %14 = sext i32 %13 to i64
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %15
 
 15:                                               ; preds = %8, %3
@@ -4482,14 +4476,14 @@ define internal range(i64 -2147483648, 2147483648) i64 @tx_fifo_errors_show(ptr 
 
 8:                                                ; preds = %3
   %9 = getelementptr i8, ptr %0, i64 -1336
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %4, i8 0, i64 200, i1 false), !annotation !27
   %10 = call ptr @dev_get_stats(ptr noundef %9, ptr noundef nonnull %4) #10
   %11 = getelementptr i8, ptr %10, i64 144
   %12 = load i64, ptr %11, align 8
   %13 = call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @fmt_u64, i64 noundef %12) #10
   %14 = sext i32 %13 to i64
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %15
 
 15:                                               ; preds = %8, %3
@@ -4509,14 +4503,14 @@ define internal range(i64 -2147483648, 2147483648) i64 @tx_heartbeat_errors_show
 
 8:                                                ; preds = %3
   %9 = getelementptr i8, ptr %0, i64 -1336
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %4, i8 0, i64 200, i1 false), !annotation !27
   %10 = call ptr @dev_get_stats(ptr noundef %9, ptr noundef nonnull %4) #10
   %11 = getelementptr i8, ptr %10, i64 152
   %12 = load i64, ptr %11, align 8
   %13 = call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @fmt_u64, i64 noundef %12) #10
   %14 = sext i32 %13 to i64
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %15
 
 15:                                               ; preds = %8, %3
@@ -4536,14 +4530,14 @@ define internal range(i64 -2147483648, 2147483648) i64 @tx_window_errors_show(pt
 
 8:                                                ; preds = %3
   %9 = getelementptr i8, ptr %0, i64 -1336
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %4, i8 0, i64 200, i1 false), !annotation !27
   %10 = call ptr @dev_get_stats(ptr noundef %9, ptr noundef nonnull %4) #10
   %11 = getelementptr i8, ptr %10, i64 160
   %12 = load i64, ptr %11, align 8
   %13 = call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @fmt_u64, i64 noundef %12) #10
   %14 = sext i32 %13 to i64
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %15
 
 15:                                               ; preds = %8, %3
@@ -4563,14 +4557,14 @@ define internal range(i64 -2147483648, 2147483648) i64 @rx_compressed_show(ptr n
 
 8:                                                ; preds = %3
   %9 = getelementptr i8, ptr %0, i64 -1336
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %4, i8 0, i64 200, i1 false), !annotation !27
   %10 = call ptr @dev_get_stats(ptr noundef %9, ptr noundef nonnull %4) #10
   %11 = getelementptr i8, ptr %10, i64 168
   %12 = load i64, ptr %11, align 8
   %13 = call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @fmt_u64, i64 noundef %12) #10
   %14 = sext i32 %13 to i64
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %15
 
 15:                                               ; preds = %8, %3
@@ -4590,14 +4584,14 @@ define internal range(i64 -2147483648, 2147483648) i64 @tx_compressed_show(ptr n
 
 8:                                                ; preds = %3
   %9 = getelementptr i8, ptr %0, i64 -1336
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %4, i8 0, i64 200, i1 false), !annotation !27
   %10 = call ptr @dev_get_stats(ptr noundef %9, ptr noundef nonnull %4) #10
   %11 = getelementptr i8, ptr %10, i64 176
   %12 = load i64, ptr %11, align 8
   %13 = call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @fmt_u64, i64 noundef %12) #10
   %14 = sext i32 %13 to i64
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %15
 
 15:                                               ; preds = %8, %3
@@ -4617,14 +4611,14 @@ define internal range(i64 -2147483648, 2147483648) i64 @rx_nohandler_show(ptr no
 
 8:                                                ; preds = %3
   %9 = getelementptr i8, ptr %0, i64 -1336
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %4, i8 0, i64 200, i1 false), !annotation !27
   %10 = call ptr @dev_get_stats(ptr noundef %9, ptr noundef nonnull %4) #10
   %11 = getelementptr i8, ptr %10, i64 184
   %12 = load i64, ptr %11, align 8
   %13 = call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @fmt_u64, i64 noundef %12) #10
   %14 = sext i32 %13 to i64
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %15
 
 15:                                               ; preds = %8, %3
@@ -4643,18 +4637,24 @@ declare dso_local i32 @sysfs_change_owner(ptr noundef, i32, i32) local_unnamed_a
 declare dso_local i32 @sysfs_group_change_owner(ptr noundef, ptr noundef, i32, i32) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #9
+declare i32 @llvm.umax.i32(i32, i32) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 attributes #0 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #4 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #7 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #2 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #3 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #6 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nounwind }
 attributes #11 = { nounwind memory(none) }
 attributes #12 = { nounwind allocsize(0) }

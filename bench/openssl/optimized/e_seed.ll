@@ -101,7 +101,7 @@ define internal noundef i32 @seed_cfb128_cipher(ptr noundef %0, ptr noundef %1, 
   %.02230 = phi i64 [ %3, %.lr.ph ], [ %13, %7 ]
   %.02329 = phi ptr [ %2, %.lr.ph ], [ %14, %7 ]
   %.02428 = phi ptr [ %1, %.lr.ph ], [ %15, %7 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %8 = call i32 @EVP_CIPHER_CTX_get_num(ptr noundef %0) #5
   store i32 %8, ptr %5, align 4, !tbaa !5
   %9 = call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %0) #5
@@ -113,7 +113,7 @@ define internal noundef i32 @seed_cfb128_cipher(ptr noundef %0, ptr noundef %1, 
   %14 = getelementptr inbounds nuw i8, ptr %.02329, i64 %.131
   %15 = getelementptr inbounds nuw i8, ptr %.02428, i64 %.131
   %spec.select27 = call i64 @llvm.umin.i64(i64 %13, i64 %.131)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not32 = icmp eq i64 %13, 0
   br i1 %.not32, label %._crit_edge, label %7, !llvm.loop !9
 
@@ -121,17 +121,11 @@ define internal noundef i32 @seed_cfb128_cipher(ptr noundef %0, ptr noundef %1, 
   ret i32 1
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 declare i32 @EVP_CIPHER_CTX_get_num(ptr noundef) local_unnamed_addr #2
 
 declare void @SEED_cfb128_encrypt(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 declare i32 @EVP_CIPHER_CTX_set_num(ptr noundef, i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @seed_ofb_cipher(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) #1 {
@@ -148,7 +142,7 @@ define internal noundef i32 @seed_ofb_cipher(ptr noundef %0, ptr noundef %1, ptr
   %.021 = phi i64 [ %3, %.lr.ph ], [ %14, %9 ]
   %.01720 = phi ptr [ %2, %.lr.ph ], [ %15, %9 ]
   %.01819 = phi ptr [ %1, %.lr.ph ], [ %16, %9 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = call i32 @EVP_CIPHER_CTX_get_num(ptr noundef %0) #5
   store i32 %10, ptr %5, align 4, !tbaa !5
   %11 = call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %0) #5
@@ -158,7 +152,7 @@ define internal noundef i32 @seed_ofb_cipher(ptr noundef %0, ptr noundef %1, ptr
   %14 = add i64 %.021, -1073741824
   %15 = getelementptr inbounds nuw i8, ptr %.01720, i64 1073741824
   %16 = getelementptr inbounds nuw i8, ptr %.01819, i64 1073741824
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %17 = icmp ugt i64 %14, 1073741823
   br i1 %17, label %9, label %._crit_edge, !llvm.loop !10
 
@@ -170,7 +164,7 @@ define internal noundef i32 @seed_ofb_cipher(ptr noundef %0, ptr noundef %1, ptr
   br i1 %.not, label %24, label %18
 
 18:                                               ; preds = %._crit_edge
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %19 = call i32 @EVP_CIPHER_CTX_get_num(ptr noundef %0) #5
   store i32 %19, ptr %6, align 4, !tbaa !5
   %20 = call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %0) #5
@@ -178,7 +172,7 @@ define internal noundef i32 @seed_ofb_cipher(ptr noundef %0, ptr noundef %1, ptr
   call void @SEED_ofb128_encrypt(ptr noundef %.017.lcssa, ptr noundef %.018.lcssa, i64 noundef %.0.lcssa, ptr noundef %20, ptr noundef nonnull %21, ptr noundef nonnull %6) #5
   %22 = load i32, ptr %6, align 4, !tbaa !5
   %23 = call i32 @EVP_CIPHER_CTX_set_num(ptr noundef %0, i32 noundef %22) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %24
 
 24:                                               ; preds = %18, %._crit_edge
@@ -218,6 +212,12 @@ define internal noundef i32 @seed_ecb_cipher(ptr noundef %0, ptr noundef %1, ptr
 declare ptr @EVP_CIPHER_CTX_get0_cipher(ptr noundef) local_unnamed_addr #2
 
 declare void @SEED_ecb_encrypt(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #4

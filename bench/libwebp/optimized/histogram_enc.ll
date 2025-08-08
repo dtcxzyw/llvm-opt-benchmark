@@ -33,7 +33,7 @@ define hidden void @VP8LFreeHistogramSet(ptr noundef %0) local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define hidden void @VP8LHistogramStoreRefs(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.VP8LRefsCursor, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @VP8LRefsCursorInit(ptr dead_on_unwind nonnull writable sret(%struct.VP8LRefsCursor) align 8 %3, ptr noundef %0) #10
   %.val3 = load ptr, ptr %3, align 8, !tbaa !3
   %.not24 = icmp eq ptr %.val3, null
@@ -64,12 +64,9 @@ VP8LRefsCursorNext.exit:                          ; preds = %5, %10
   br i1 %.not2, label %._crit_edge, label %5, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %VP8LRefsCursorNext.exit, %2
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 declare void @VP8LRefsCursorInit(ptr dead_on_unwind writable sret(%struct.VP8LRefsCursor) align 8, ptr noundef) local_unnamed_addr #1
 
@@ -229,9 +226,6 @@ VP8LPrefixEncodeBits.exit33:                      ; preds = %88, %84, %72, %68
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: nounwind uwtable
 define hidden void @VP8LHistogramCreate(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.VP8LRefsCursor, align 8
@@ -255,7 +249,7 @@ define hidden void @VP8LHistogramCreate(ptr noundef captures(none) %0, ptr nound
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %0, i8 0, i64 %14, i1 false)
   store i32 %7, ptr %9, align 8, !tbaa !24
   store ptr %8, ptr %0, align 8, !tbaa !18
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @VP8LRefsCursorInit(ptr dead_on_unwind nonnull writable sret(%struct.VP8LRefsCursor) align 8 %4, ptr noundef %1) #10
   %.val3.i = load ptr, ptr %4, align 8, !tbaa !3
   %.not24.i = icmp eq ptr %.val3.i, null
@@ -286,12 +280,12 @@ VP8LRefsCursorNext.exit.i:                        ; preds = %21, %16
   br i1 %.not2.i, label %VP8LHistogramStoreRefs.exit, label %16, !llvm.loop !10
 
 VP8LHistogramStoreRefs.exit:                      ; preds = %VP8LRefsCursorNext.exit.i, %6
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @VP8LHistogramInit(ptr noundef captures(none) initializes((3240, 3244)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 {
+define hidden void @VP8LHistogramInit(ptr noundef captures(none) initializes((3240, 3244)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 3240
   store i32 %1, ptr %4, align 8, !tbaa !24
   %.not = icmp eq i32 %2, 0
@@ -319,7 +313,7 @@ define hidden void @VP8LHistogramInit(ptr noundef captures(none) initializes((32
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @VP8LAllocateHistogram(i32 noundef %0) local_unnamed_addr #0 {
@@ -420,7 +414,7 @@ define hidden ptr @VP8LAllocateHistogramSet(i32 noundef %0, i32 noundef %1) loca
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @VP8LHistogramSetClear(ptr noundef %0) local_unnamed_addr #5 {
+define hidden void @VP8LHistogramSetClear(ptr noundef %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !25
   %4 = load ptr, ptr %3, align 8, !tbaa !29
@@ -492,7 +486,7 @@ define hidden void @VP8LHistogramSetClear(ptr noundef %0) local_unnamed_addr #5 
 ; Function Attrs: nounwind uwtable
 define hidden i64 @VP8LBitsEntropy(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.VP8LBitEntropy, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @VP8LBitsEntropyUnrefined(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %3) #10
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %5 = load i32, ptr %4, align 4, !tbaa !33
@@ -569,7 +563,7 @@ DivRound.exit22.i:                                ; preds = %42, %39
 
 BitsEntropyRefine.exit:                           ; preds = %7, %18, %21, %DivRound.exit22.i
   %.016.i = phi i64 [ %..i, %DivRound.exit22.i ], [ 0, %7 ], [ %20, %18 ], [ %.neg.i.i, %21 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %.016.i
 }
 
@@ -619,8 +613,8 @@ define hidden i64 @VP8LHistogramEstimateBits(ptr noundef initializes((3280, 3281
 define internal fastcc i64 @PopulationCost(ptr noundef %0, i32 noundef range(i32 -2147483368, -2147483648) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(none) initializes((0, 1)) %3) unnamed_addr #0 {
   %5 = alloca %struct.VP8LBitEntropy, align 8
   %6 = alloca %struct.VP8LStreaks, align 4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #10
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load ptr, ptr @VP8LGetEntropyUnrefined, align 8, !tbaa !29
   call void %7(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %5, ptr noundef nonnull %6) #10
   %.not = icmp eq ptr %2, null
@@ -741,8 +735,8 @@ BitsEntropyRefine.exit:                           ; preds = %22, %33, %36, %DivR
   %79 = shl nuw nsw i64 %78, 13
   %80 = add i64 %.016.i, 401814323
   %81 = add i64 %80, %79
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #10
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %81
 }
 
@@ -859,7 +853,7 @@ VP8LAllocateHistogramSet.exit:                    ; preds = %.lr.ph.i, %.thread,
   %83 = lshr i32 %82, %5
   %84 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %85 = load ptr, ptr %84, align 8, !tbaa !25
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %25) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   call void @VP8LRefsCursorInit(ptr dead_on_unwind nonnull writable sret(%struct.VP8LRefsCursor) align 8 %25, ptr noundef %2) #10
   %86 = load ptr, ptr %84, align 8, !tbaa !25
   %87 = load ptr, ptr %86, align 8, !tbaa !29
@@ -977,7 +971,7 @@ VP8LRefsCursorNext.exit.i:                        ; preds = %139, %._crit_edge.i
   br i1 %.not24.i, label %HistogramBuild.exit, label %122, !llvm.loop !39
 
 HistogramBuild.exit:                              ; preds = %VP8LRefsCursorNext.exit.i, %VP8LHistogramSetClear.exit.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %25) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   %140 = load ptr, ptr %84, align 8, !tbaa !25
   %141 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %142 = load ptr, ptr %141, align 8, !tbaa !25
@@ -1320,7 +1314,7 @@ GetBinIdForEntropy.exit.i.i:                      ; preds = %.lr.ph21.split.spli
   br i1 %exitcond32.not.i, label %HistogramAnalyzeEntropyBin.exit, label %.lr.ph21.split.split.i, !llvm.loop !50
 
 HistogramAnalyzeEntropyBin.exit:                  ; preds = %305, %282, %277, %GetCombineCostFactor.exit
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %24) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   %wide.trip.count.i102 = zext nneg i32 %71 to i64
   br label %307
 
@@ -1390,7 +1384,7 @@ DivRound.exit.us.i:                               ; preds = %327, %325
   %331 = sext i16 %318 to i64
   %332 = getelementptr inbounds ptr, ptr %.val82, i64 %331
   %333 = load ptr, ptr %332, align 8, !tbaa !29
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   %334 = getelementptr inbounds nuw i8, ptr %333, i64 3248
   %335 = load i64, ptr %334, align 8, !tbaa !55
   %336 = add i64 %335, %322
@@ -1421,7 +1415,7 @@ DivRound.exit.us.i:                               ; preds = %327, %325
   %351 = load i32, ptr %350, align 8, !tbaa !24
   %352 = getelementptr inbounds nuw i8, ptr %.08492.us.i, i64 3240
   store i32 %351, ptr %352, align 8, !tbaa !24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   %.not76.us.i = icmp eq i32 %spec.select.i11.i.us.i, -1
   br i1 %.not76.us.i, label %353, label %.critedge.us.i
 
@@ -1496,7 +1490,7 @@ HistogramSetRemoveHistogram.exit81.us.i:          ; preds = %385, %378, %.crited
   br label %397
 
 HistogramAddEval.exit.thread.us.i:                ; preds = %DivRound.exit.us.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %397
 
 395:                                              ; preds = %313
@@ -1637,7 +1631,7 @@ HistogramSetRemoveHistogram.exit.i109:            ; preds = %441, %434, %416
 
 HistogramCombineEntropyBin.exit:                  ; preds = %463, %.preheader88.i, %._crit_edge.i106
   %.4217 = phi i32 [ %.4, %._crit_edge.i106 ], [ %.3, %.preheader88.i ], [ %.4, %463 ]
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %24) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   %wide.trip.count.i114 = zext i32 %.3 to i64
   br label %.preheader65.us.i
 
@@ -1884,7 +1878,7 @@ DivRound.exit:                                    ; preds = %513, %515
   %575 = zext nneg i32 %spec.select.i130 to i64
   %576 = getelementptr inbounds nuw i32, ptr %523, i64 %575
   %577 = load i32, ptr %576, align 4, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %22) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %578 = icmp eq i32 %.sroa.13.1181.i, 9
   br i1 %578, label %HistoQueuePush.exit.thread.i, label %579
 
@@ -1932,19 +1926,19 @@ DivRound.exit:                                    ; preds = %513, %515
 
 607:                                              ; preds = %595
   %608 = getelementptr i8, ptr %602, i64 -24
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull align 8 dereferenceable(24) %526, i64 24, i1 false), !tbaa.struct !71
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %526, ptr noundef nonnull align 8 dereferenceable(24) %608, i64 24, i1 false), !tbaa.struct !71
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %608, ptr noundef nonnull align 8 dereferenceable(24) %21, i64 24, i1 false), !tbaa.struct !71
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %HistoQueuePush.exit.i
 
 HistoQueuePush.exit.thread.i:                     ; preds = %579, %.lr.ph185.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %22) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %611
 
 HistoQueuePush.exit.i:                            ; preds = %607, %595
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %22) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   %609 = icmp sgt i64 %597, -1
   %610 = icmp ne i32 %598, 9
   %.2115.i = select i1 %609, i64 %.0113183.i, i64 %597
@@ -2163,11 +2157,11 @@ HistoQueueUpdatePair.exit.i:                      ; preds = %696
   br i1 %721, label %722, label %HistoQueueUpdateHead.exit.i
 
 722:                                              ; preds = %718
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(24) %526, i64 24, i1 false), !tbaa.struct !71
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %526, ptr noundef nonnull align 8 dereferenceable(24) %669, i64 24, i1 false), !tbaa.struct !71
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %669, ptr noundef nonnull align 8 dereferenceable(24) %20, i64 24, i1 false), !tbaa.struct !71
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %HistoQueueUpdateHead.exit.i
 
 HistoQueueUpdateHead.exit.i:                      ; preds = %722, %718
@@ -2298,7 +2292,7 @@ RemoveEmptyHistograms.exit:                       ; preds = %739, %.thread232
   br i1 %767, label %798, label %768
 
 768:                                              ; preds = %.lr.ph.i157
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %19) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %769 = icmp eq i32 %.sroa.13.292.i, %741
   br i1 %769, label %HistoQueuePush.exit.i161, label %770
 
@@ -2341,16 +2335,16 @@ RemoveEmptyHistograms.exit:                       ; preds = %739, %.thread232
 
 796:                                              ; preds = %784
   %797 = getelementptr i8, ptr %791, i64 -24
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) %744, i64 24, i1 false), !tbaa.struct !71
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %744, ptr noundef nonnull align 8 dereferenceable(24) %797, i64 24, i1 false), !tbaa.struct !71
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %797, ptr noundef nonnull align 8 dereferenceable(24) %18, i64 24, i1 false), !tbaa.struct !71
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %HistoQueuePush.exit.i161
 
 HistoQueuePush.exit.i161:                         ; preds = %796, %784, %770, %768
   %.sroa.13.9.i = phi i32 [ %741, %768 ], [ %.sroa.13.292.i, %770 ], [ %787, %796 ], [ %787, %784 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %798
 
 798:                                              ; preds = %HistoQueuePush.exit.i161, %.lr.ph.i157
@@ -2468,11 +2462,11 @@ HistoQueuePush.exit.i161:                         ; preds = %796, %784, %770, %7
   br i1 %855, label %856, label %HistoQueueUpdateHead.exit.i150
 
 856:                                              ; preds = %851
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %744, i64 24, i1 false), !tbaa.struct !71
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %744, ptr noundef nonnull align 8 dereferenceable(24) %837, i64 24, i1 false), !tbaa.struct !71
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %837, ptr noundef nonnull align 8 dereferenceable(24) %17, i64 24, i1 false), !tbaa.struct !71
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %HistoQueueUpdateHead.exit.i150
 
 HistoQueueUpdateHead.exit.i150:                   ; preds = %856, %851
@@ -2500,7 +2494,7 @@ HistoQueueUpdateHead.exit.i150:                   ; preds = %856, %851
   br i1 %866, label %897, label %867
 
 867:                                              ; preds = %862
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %16) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %868 = icmp eq i32 %.sroa.13.7103.i, %741
   br i1 %868, label %HistoQueuePush.exit66.i, label %869
 
@@ -2543,16 +2537,16 @@ HistoQueueUpdateHead.exit.i150:                   ; preds = %856, %851
 
 895:                                              ; preds = %883
   %896 = getelementptr i8, ptr %890, i64 -24
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %744, i64 24, i1 false), !tbaa.struct !71
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %744, ptr noundef nonnull align 8 dereferenceable(24) %896, i64 24, i1 false), !tbaa.struct !71
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %896, ptr noundef nonnull align 8 dereferenceable(24) %15, i64 24, i1 false), !tbaa.struct !71
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %HistoQueuePush.exit66.i
 
 HistoQueuePush.exit66.i:                          ; preds = %895, %883, %869, %867
   %.sroa.13.10.i = phi i32 [ %741, %867 ], [ %.sroa.13.7103.i, %869 ], [ %886, %895 ], [ %886, %883 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %.pre122.i = load i32, ptr %7, align 8, !tbaa !28
   br label %897
 
@@ -2658,7 +2652,7 @@ RemoveEmptyHistograms.exit173:                    ; preds = %918
   %932 = getelementptr inbounds nuw ptr, ptr %919, i64 %indvars.iv.i190
   %933 = load ptr, ptr %932, align 8, !tbaa !29
   %934 = load ptr, ptr %929, align 8, !tbaa !29
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %935 = getelementptr inbounds nuw i8, ptr %933, i64 3248
   %936 = load i64, ptr %935, align 8, !tbaa !55
   %937 = icmp sgt i64 %.0479.us.i, -1
@@ -2681,7 +2675,7 @@ RemoveEmptyHistograms.exit173:                    ; preds = %918
 HistogramAddThresh.exit.us.i:                     ; preds = %941, %.preheader.us.i
   %spec.select53.us.i = phi i64 [ %.0479.us.i, %.preheader.us.i ], [ %944, %941 ]
   %spec.select.us.i = phi i32 [ %.0498.us.i, %.preheader.us.i ], [ %945, %941 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %indvars.iv.next.i195 = add nuw nsw i64 %indvars.iv.i190, 1
   %exitcond.not.i196 = icmp eq i64 %indvars.iv.next.i195, %wide.trip.count.i189
   br i1 %exitcond.not.i196, label %._crit_edge.us.i197, label %.preheader.us.i, !llvm.loop !82
@@ -2840,19 +2834,19 @@ declare i32 @WebPReportProgress(ptr noundef, i32 noundef, ptr noundef) local_unn
 declare void @VP8LRefsCursorNextBlock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #7
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @UpdateHistogramCost(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #10
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #10
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2056
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 3280
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 3283
@@ -2913,9 +2907,9 @@ define internal fastcc void @UpdateHistogramCost(ptr noundef %0) unnamed_addr #0
   %.sink = select i1 %53, i32 -1, i32 %57
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 3244
   store i32 %.sink, ptr %58, align 4, !tbaa !56
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -3069,10 +3063,10 @@ define internal fastcc range(i32 0, 2) i32 @GetCombinedHistogramEntropy(ptr noun
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc i64 @GetCombinedEntropy(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 -2147483368, -2147483648) %2, i32 noundef range(i32 0, 256) %3, i32 noundef range(i32 0, 256) %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #8 {
+define internal fastcc i64 @GetCombinedEntropy(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 -2147483368, -2147483648) %2, i32 noundef range(i32 0, 256) %3, i32 noundef range(i32 0, 256) %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #7 {
   %7 = alloca %struct.VP8LStreaks, align 4
   %8 = alloca %struct.VP8LBitEntropy, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %15, label %9
 
@@ -3085,7 +3079,7 @@ define internal fastcc i64 @GetCombinedEntropy(ptr noundef %0, ptr noundef %1, i
   br label %95
 
 15:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.not14 = icmp eq i32 %3, 0
   %.not15 = icmp eq i32 %4, 0
   br i1 %.not14, label %21, label %16
@@ -3224,19 +3218,25 @@ BitsEntropyRefine.exit:                           ; preds = %31, %42, %45, %DivR
   %92 = shl nuw nsw i64 %91, 13
   %93 = add i64 %.016.i, 401814323
   %94 = add i64 %93, %92
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %95
 
 95:                                               ; preds = %BitsEntropyRefine.exit, %9
   %.0 = phi i64 [ %14, %9 ], [ %94, %BitsEntropyRefine.exit ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i64 %.0
 }
 
 declare void @VP8LBitEntropyInit(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #9
@@ -3252,13 +3252,13 @@ declare i32 @llvm.smin.i32(i32, i32) #9
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #10 = { nounwind }
 

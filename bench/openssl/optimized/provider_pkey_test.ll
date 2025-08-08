@@ -97,7 +97,7 @@ declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 define internal range(i32 0, 2) i32 @test_pkey_sig() #0 {
   %1 = alloca ptr, align 8
   %2 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store ptr null, ptr %1, align 8, !tbaa !9
   %3 = load ptr, ptr @libctx, align 8, !tbaa !4
   %4 = tail call ptr @fake_rsa_start(ptr noundef %3) #3
@@ -161,7 +161,7 @@ define internal range(i32 0, 2) i32 @test_pkey_sig() #0 {
 
 36:                                               ; preds = %35, %50
   %.01734 = phi i32 [ 0, %35 ], [ %51, %50 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %37 = load ptr, ptr @libctx, align 8, !tbaa !4
   %38 = load ptr, ptr %1, align 8, !tbaa !9
   %39 = call ptr @EVP_PKEY_CTX_new_from_pkey(ptr noundef %37, ptr noundef %38, ptr noundef nonnull @.str.20) #3
@@ -188,12 +188,12 @@ define internal range(i32 0, 2) i32 @test_pkey_sig() #0 {
   br i1 %.not29, label %.thread, label %50
 
 .thread:                                          ; preds = %36, %41, %47, %44
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.loopexit
 
 50:                                               ; preds = %47
   call void @EVP_PKEY_CTX_free(ptr noundef %39) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %51 = add nuw nsw i32 %.01734, 1
   %exitcond.not = icmp eq i32 %51, 3
   br i1 %exitcond.not, label %.loopexit, label %36, !llvm.loop !13
@@ -210,7 +210,7 @@ define internal range(i32 0, 2) i32 @test_pkey_sig() #0 {
 
 54:                                               ; preds = %0, %.loopexit
   %.018 = phi i32 [ %.016, %.loopexit ], [ 0, %0 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.018
 }
 
@@ -309,9 +309,9 @@ define internal range(i32 0, 2) i32 @test_alternative_keygen_init() #0 {
 define internal range(i32 0, 2) i32 @test_pkey_eq() #0 {
   %1 = alloca ptr, align 8
   %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store ptr null, ptr %1, align 8, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !9
   %3 = load ptr, ptr @libctx, align 8, !tbaa !4
   %4 = tail call ptr @fake_rsa_start(ptr noundef %3) #3
@@ -425,8 +425,8 @@ define internal range(i32 0, 2) i32 @test_pkey_eq() #0 {
 
 59:                                               ; preds = %0, %55
   %.017 = phi i32 [ %.0, %55 ], [ 0, %0 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.017
 }
 
@@ -704,9 +704,6 @@ define dso_local void @cleanup_tests() local_unnamed_addr #0 {
 
 declare void @OSSL_LIB_CTX_free(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare i32 @test_ptr(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare ptr @fake_rsa_start(ptr noundef) local_unnamed_addr #1
@@ -766,9 +763,6 @@ declare i32 @EVP_PKEY_sign_init(ptr noundef) local_unnamed_addr #1
 declare i32 @EVP_PKEY_sign(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 declare i32 @test_size_t_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 declare void @fake_rsa_finish(ptr noundef) local_unnamed_addr #1
 
@@ -852,6 +846,12 @@ declare void @UI_destroy_method(ptr noundef) local_unnamed_addr #1
 declare i32 @UI_get_string_type(ptr noundef) local_unnamed_addr #1
 
 declare i32 @UI_set_result(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

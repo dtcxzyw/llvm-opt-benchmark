@@ -34,14 +34,8 @@ method_from_curve_id.exit:                        ; preds = %2, %4
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define hidden range(i32 0, 2) i32 @ssl_nid_to_curve_id(ptr noundef writeonly captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
+define hidden range(i32 0, 2) i32 @ssl_nid_to_curve_id(ptr noundef writeonly captures(none) %0, i32 noundef %1) local_unnamed_addr #1 {
   br label %5
 
 3:                                                ; preds = %5
@@ -68,7 +62,7 @@ method_from_nid.exit.thread:                      ; preds = %3, %method_from_nid
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @SSL_ECDH_CTX_init(ptr noundef %0, i16 noundef zeroext %1) local_unnamed_addr #3 {
+define hidden range(i32 0, 2) i32 @SSL_ECDH_CTX_init(ptr noundef %0, i16 noundef zeroext %1) local_unnamed_addr #2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !18
   %4 = icmp eq ptr %3, null
   br i1 %4, label %SSL_ECDH_CTX_cleanup.exit.preheader, label %5
@@ -110,7 +104,7 @@ method_from_curve_id.exit:                        ; preds = %SSL_ECDH_CTX_cleanu
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @SSL_ECDH_CTX_cleanup(ptr noundef %0) local_unnamed_addr #3 {
+define hidden void @SSL_ECDH_CTX_cleanup(ptr noundef %0) local_unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !18
   %3 = icmp eq ptr %2, null
   br i1 %3, label %7, label %4
@@ -126,10 +120,10 @@ define hidden void @SSL_ECDH_CTX_cleanup(ptr noundef %0) local_unnamed_addr #3 {
   ret void
 }
 
-declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @SSL_ECDH_CTX_init_for_dhe(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 {
+define hidden void @SSL_ECDH_CTX_init_for_dhe(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !18
   %4 = icmp eq ptr %3, null
   br i1 %4, label %SSL_ECDH_CTX_cleanup.exit, label %5
@@ -148,7 +142,7 @@ SSL_ECDH_CTX_cleanup.exit:                        ; preds = %2, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @SSL_ECDH_CTX_generate_keypair(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 {
+define hidden i32 @SSL_ECDH_CTX_generate_keypair(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !18
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load ptr, ptr %4, align 8, !tbaa !23
@@ -157,7 +151,7 @@ define hidden i32 @SSL_ECDH_CTX_generate_keypair(ptr noundef %0, ptr noundef %1)
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @SSL_ECDH_CTX_compute_secret(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5) local_unnamed_addr #3 {
+define hidden i32 @SSL_ECDH_CTX_compute_secret(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5) local_unnamed_addr #2 {
   %7 = load ptr, ptr %0, align 8, !tbaa !18
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %9 = load ptr, ptr %8, align 8, !tbaa !24
@@ -166,7 +160,7 @@ define hidden i32 @SSL_ECDH_CTX_compute_secret(ptr noundef %0, ptr noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ssl_ec_point_cleanup(ptr noundef readonly captures(none) %0) #3 {
+define internal void @ssl_ec_point_cleanup(ptr noundef readonly captures(none) %0) #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !22
   tail call void @BN_clear_free(ptr noundef %3) #8
@@ -174,7 +168,7 @@ define internal void @ssl_ec_point_cleanup(ptr noundef readonly captures(none) %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ssl_ec_point_generate_keypair(ptr noundef captures(none) %0, ptr noundef %1) #3 {
+define internal range(i32 0, 2) i32 @ssl_ec_point_generate_keypair(ptr noundef captures(none) %0, ptr noundef %1) #2 {
   %3 = tail call ptr @BN_new() #8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %27, label %5
@@ -239,7 +233,7 @@ define internal range(i32 0, 2) i32 @ssl_ec_point_generate_keypair(ptr noundef c
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ssl_ec_point_compute_secret(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) initializes((0, 1)) %3, ptr noundef %4, i64 noundef %5) #3 {
+define internal range(i32 0, 2) i32 @ssl_ec_point_compute_secret(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) initializes((0, 1)) %3, ptr noundef %4, i64 noundef %5) #2 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !22
   store i8 80, ptr %3, align 1, !tbaa !26
@@ -325,7 +319,7 @@ define internal range(i32 0, 2) i32 @ssl_ec_point_compute_secret(ptr noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ssl_x25519_cleanup(ptr noundef readonly captures(none) %0) #3 {
+define internal void @ssl_x25519_cleanup(ptr noundef readonly captures(none) %0) #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !22
   %4 = icmp eq ptr %3, null
@@ -342,7 +336,7 @@ define internal void @ssl_x25519_cleanup(ptr noundef readonly captures(none) %0)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ssl_x25519_generate_keypair(ptr noundef writeonly captures(none) initializes((8, 16)) %0, ptr noundef %1) #3 {
+define internal i32 @ssl_x25519_generate_keypair(ptr noundef writeonly captures(none) initializes((8, 16)) %0, ptr noundef %1) #2 {
   %3 = alloca [32 x i8], align 16
   %4 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #9
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -355,10 +349,10 @@ define internal i32 @ssl_x25519_generate_keypair(ptr noundef writeonly captures(
   br label %10
 
 8:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @X25519_keypair(ptr noundef nonnull %3, ptr noundef nonnull %4) #8
   %9 = call i32 @CBB_add_bytes(ptr noundef %1, ptr noundef nonnull %3, i64 noundef 32) #8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %10
 
 10:                                               ; preds = %8, %7
@@ -367,7 +361,7 @@ define internal i32 @ssl_x25519_generate_keypair(ptr noundef writeonly captures(
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ssl_x25519_compute_secret(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) initializes((0, 1)) %3, ptr noundef %4, i64 noundef %5) #3 {
+define internal range(i32 0, 2) i32 @ssl_x25519_compute_secret(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) initializes((0, 1)) %3, ptr noundef %4, i64 noundef %5) #2 {
   store i8 80, ptr %3, align 1, !tbaa !26
   %7 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #9
   %8 = icmp eq ptr %7, null
@@ -400,62 +394,62 @@ define internal range(i32 0, 2) i32 @ssl_x25519_compute_secret(ptr noundef reado
   ret i32 %.0
 }
 
-declare void @BN_clear_free(ptr noundef) local_unnamed_addr #4
+declare void @BN_clear_free(ptr noundef) local_unnamed_addr #3
 
-declare ptr @BN_new() local_unnamed_addr #4
+declare ptr @BN_new() local_unnamed_addr #3
 
-declare ptr @BN_CTX_new() local_unnamed_addr #4
+declare ptr @BN_CTX_new() local_unnamed_addr #3
 
-declare void @BN_CTX_start(ptr noundef) local_unnamed_addr #4
+declare void @BN_CTX_start(ptr noundef) local_unnamed_addr #3
 
-declare ptr @EC_GROUP_new_by_curve_name(i32 noundef) local_unnamed_addr #4
+declare ptr @EC_GROUP_new_by_curve_name(i32 noundef) local_unnamed_addr #3
 
-declare ptr @EC_GROUP_get0_order(ptr noundef) local_unnamed_addr #4
+declare ptr @EC_GROUP_get0_order(ptr noundef) local_unnamed_addr #3
 
-declare i32 @BN_rand_range(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @BN_rand_range(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @BN_is_zero(ptr noundef) local_unnamed_addr #4
+declare i32 @BN_is_zero(ptr noundef) local_unnamed_addr #3
 
-declare ptr @EC_POINT_new(ptr noundef) local_unnamed_addr #4
+declare ptr @EC_POINT_new(ptr noundef) local_unnamed_addr #3
 
-declare i32 @EC_POINT_mul(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @EC_POINT_mul(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @EC_POINT_point2cbb(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @EC_POINT_point2cbb(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @EC_GROUP_free(ptr noundef) local_unnamed_addr #4
+declare void @EC_GROUP_free(ptr noundef) local_unnamed_addr #3
 
-declare void @EC_POINT_free(ptr noundef) local_unnamed_addr #4
+declare void @EC_POINT_free(ptr noundef) local_unnamed_addr #3
 
-declare void @BN_CTX_end(ptr noundef) local_unnamed_addr #4
+declare void @BN_CTX_end(ptr noundef) local_unnamed_addr #3
 
-declare void @BN_CTX_free(ptr noundef) local_unnamed_addr #4
+declare void @BN_CTX_free(ptr noundef) local_unnamed_addr #3
 
-declare ptr @BN_CTX_get(ptr noundef) local_unnamed_addr #4
+declare ptr @BN_CTX_get(ptr noundef) local_unnamed_addr #3
 
-declare i32 @EC_POINT_oct2point(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @EC_POINT_oct2point(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @EC_POINT_get_affine_coordinates_GFp(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @EC_POINT_get_affine_coordinates_GFp(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @EC_GROUP_get_degree(ptr noundef) local_unnamed_addr #4
+declare i32 @EC_GROUP_get_degree(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 
-declare i32 @BN_bn2bin_padded(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @BN_bn2bin_padded(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
-declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare void @X25519_keypair(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @X25519_keypair(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @CBB_add_bytes(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @CBB_add_bytes(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare i32 @X25519(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @X25519(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @ssl_dhe_cleanup(ptr noundef readonly captures(none) %0) #3 {
+define internal void @ssl_dhe_cleanup(ptr noundef readonly captures(none) %0) #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !22
   tail call void @DH_free(ptr noundef %3) #8
@@ -463,7 +457,7 @@ define internal void @ssl_dhe_cleanup(ptr noundef readonly captures(none) %0) #3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ssl_dhe_generate_keypair(ptr noundef readonly captures(none) %0, ptr noundef %1) #3 {
+define internal range(i32 0, 2) i32 @ssl_dhe_generate_keypair(ptr noundef readonly captures(none) %0, ptr noundef %1) #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !22
   %5 = tail call i32 @DH_generate_key(ptr noundef %4) #8
@@ -487,7 +481,7 @@ define internal range(i32 0, 2) i32 @ssl_dhe_generate_keypair(ptr noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ssl_dhe_compute_secret(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) initializes((0, 1)) %3, ptr noundef %4, i64 noundef %5) #3 {
+define internal range(i32 0, 2) i32 @ssl_dhe_compute_secret(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) initializes((0, 1)) %3, ptr noundef %4, i64 noundef %5) #2 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !22
   store i8 80, ptr %3, align 1, !tbaa !26
@@ -524,32 +518,38 @@ define internal range(i32 0, 2) i32 @ssl_dhe_compute_secret(ptr noundef readonly
   ret i32 %.0
 }
 
-declare void @DH_free(ptr noundef) local_unnamed_addr #4
+declare void @DH_free(ptr noundef) local_unnamed_addr #3
 
-declare i32 @DH_generate_key(ptr noundef) local_unnamed_addr #4
+declare i32 @DH_generate_key(ptr noundef) local_unnamed_addr #3
 
-declare i32 @BN_bn2cbb_padded(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @BN_bn2cbb_padded(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @BN_num_bytes(ptr noundef) local_unnamed_addr #4
+declare i32 @BN_num_bytes(ptr noundef) local_unnamed_addr #3
 
-declare ptr @BN_bin2bn(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @BN_bin2bn(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @DH_size(ptr noundef) local_unnamed_addr #4
+declare i32 @DH_size(ptr noundef) local_unnamed_addr #3
 
-declare i32 @DH_compute_key(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @DH_compute_key(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @BN_free(ptr noundef) local_unnamed_addr #4
+declare void @BN_free(ptr noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 attributes #0 = { nofree norecurse nosync nounwind memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nofree norecurse nosync nounwind memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nofree norecurse nosync nounwind memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #8 = { nounwind }
 attributes #9 = { nounwind allocsize(0) }

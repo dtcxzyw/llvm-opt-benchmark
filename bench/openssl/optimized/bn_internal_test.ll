@@ -50,7 +50,7 @@ declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_is_prime_enhanced() #0 {
   %1 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store i32 0, ptr %1, align 4, !tbaa !9
   %2 = tail call ptr @BN_new() #3
   %3 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 33, ptr noundef nonnull @.str.5, ptr noundef %2) #3
@@ -84,7 +84,7 @@ define internal range(i32 0, 2) i32 @test_is_prime_enhanced() #0 {
 20:                                               ; preds = %15, %9, %4, %0
   %21 = phi i32 [ 0, %9 ], [ 0, %4 ], [ 0, %0 ], [ %19, %15 ]
   call void @BN_free(ptr noundef %2) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %21
 }
 
@@ -93,7 +93,7 @@ declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_is_composite_enhanced(i32 noundef %0) #0 {
   %2 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 4, !tbaa !9
   %3 = tail call ptr @BN_new() #3
   %4 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 54, ptr noundef nonnull @.str.5, ptr noundef %3) #3
@@ -131,7 +131,7 @@ define internal range(i32 0, 2) i32 @test_is_composite_enhanced(i32 noundef %0) 
 25:                                               ; preds = %20, %14, %5, %1
   %26 = phi i32 [ 0, %14 ], [ 0, %5 ], [ 0, %1 ], [ %24, %20 ]
   call void @BN_free(ptr noundef %3) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %26
 }
 
@@ -199,9 +199,6 @@ define dso_local void @cleanup_tests() local_unnamed_addr #0 {
 
 declare void @BN_CTX_free(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare ptr @BN_new() local_unnamed_addr #1
 
 declare i32 @test_true(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -214,9 +211,6 @@ declare i32 @test_int_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32
 
 declare void @BN_free(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 declare i32 @test_int_ne(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 declare i32 @BN_mul_word(ptr noundef, i64 noundef) local_unnamed_addr #1
@@ -224,6 +218,12 @@ declare i32 @BN_mul_word(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare i32 @test_BN_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare ptr @ossl_bn_get0_small_factors() local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

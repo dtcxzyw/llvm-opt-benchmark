@@ -66,9 +66,9 @@ define void @_ZN13dsl_auto_type9auto_type25expression_type_inference21infer_expr
   br label %20
 
 23:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 232, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   invoke fastcc void @_ZN13dsl_auto_type9auto_type25expression_type_inference12TypeInferrer25try_infer_expression_type17h65e42f83cbb26053E(ptr noalias align 8 %7, ptr nonnull align 8 %14, ptr align 8 %1, ptr align 8 %2) #10
           to label %.noexc unwind label %34
 
@@ -119,9 +119,9 @@ define void @_ZN13dsl_auto_type9auto_type25expression_type_inference21infer_expr
           to label %20 unwind label %43
 
 38:                                               ; preds = %30, %25
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 232, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %39 = getelementptr inbounds nuw i8, ptr %14, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %39, i64 24, i1 false)
   invoke void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hf7ac3418a3ace438E"(ptr nonnull sret({ ptr, i64, ptr, ptr, {}, { {} } }) align 8 %10, ptr nonnull align 8 %9)
@@ -1464,8 +1464,8 @@ define void @"_ZN13dsl_auto_type9auto_type16settings_builder87_$LT$impl$u20$dsl_
   %2 = alloca { { i64, [3 x i64] }, { {} } }, align 8
   %3 = alloca { { i64, [3 x i64] }, { {} } }, align 8
   %.sroa.0 = alloca { { { { i64, ptr }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] }, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN11proc_macro211TokenStream3new17h97a667067261ec93E(ptr nonnull sret({ { i64, [3 x i64] }, { {} } }) align 8 %2)
   invoke void @_ZN5quote9__private10push_ident17h41f4c241d49e77f0E(ptr nonnull align 8 %2, ptr nonnull align 1 @anon.19fac61c77b15ff8d2d74d1eb9669630.23, i64 3)
           to label %"_ZN13dsl_auto_type9auto_type16settings_builder122_$LT$impl$u20$core..default..Default$u20$for$u20$dsl_auto_type..auto_type..expression_type_inference..InferrerSettings$GT$7default17he0088eb7a2ea7b6dE.exit" unwind label %4
@@ -1488,8 +1488,8 @@ define void @"_ZN13dsl_auto_type9auto_type16settings_builder87_$LT$impl$u20$dsl_
 "_ZN13dsl_auto_type9auto_type16settings_builder122_$LT$impl$u20$core..default..Default$u20$for$u20$dsl_auto_type..auto_type..expression_type_inference..InferrerSettings$GT$7default17he0088eb7a2ea7b6dE.exit": ; preds = %1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   call void @_ZN3syn11parse_quote5parse17h1b02785d5e97d720E(ptr nonnull sret({ { { { i64, ptr }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] }) align 8 %.sroa.0, ptr nonnull align 8 %3)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0, i64 48, i1 false)
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i8 1, ptr %.sroa.2.0..sroa_idx, align 8
@@ -1798,10 +1798,10 @@ declare void @llvm.assume(i1 noundef) #6
 declare i64 @llvm.umin.i64(i64, i64) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

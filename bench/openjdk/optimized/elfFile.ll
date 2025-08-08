@@ -728,7 +728,7 @@ define hidden noundef zeroext i1 @_ZN7ElfFile15get_source_infoEjPcmPib(ptr nound
   br i1 %8, label %20, label %9
 
 9:                                                ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %10 = call noundef zeroext i1 @_ZNK7ElfFile19read_section_headerEPKcR10Elf64_Shdr(ptr noundef nonnull readonly align 8 dereferenceable(144) %0, ptr noundef nonnull @.str.5, ptr noundef nonnull align 8 dereferenceable(64) %7)
   br i1 %10, label %11, label %_ZNK7ElfFile19is_valid_dwarf_fileEv.exit.thread
 
@@ -741,12 +741,12 @@ define hidden noundef zeroext i1 @_ZN7ElfFile15get_source_infoEjPcmPib(ptr nound
   br i1 %14, label %_ZNK7ElfFile19is_valid_dwarf_fileEv.exit, label %_ZNK7ElfFile19is_valid_dwarf_fileEv.exit.thread
 
 _ZNK7ElfFile19is_valid_dwarf_fileEv.exit.thread:  ; preds = %13, %11, %9
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %24
 
 _ZNK7ElfFile19is_valid_dwarf_fileEv.exit:         ; preds = %13
   %15 = call noundef zeroext i1 @_ZNK7ElfFile19read_section_headerEPKcR10Elf64_Shdr(ptr noundef nonnull readonly align 8 dereferenceable(144) %0, ptr noundef nonnull @.str.8, ptr noundef nonnull align 8 dereferenceable(64) %7)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %15, label %16, label %24
 
 16:                                               ; preds = %_ZNK7ElfFile19is_valid_dwarf_fileEv.exit
@@ -892,7 +892,7 @@ define hidden noundef zeroext i1 @_ZN7ElfFile21create_new_dwarf_fileEPKc(ptr nou
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV9DwarfFile, i64 16), ptr %4, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %4, ptr %20, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %21 = call noundef zeroext i1 @_ZNK7ElfFile19read_section_headerEPKcR10Elf64_Shdr(ptr noundef nonnull readonly align 8 dereferenceable(144) %4, ptr noundef nonnull @.str.5, ptr noundef nonnull align 8 dereferenceable(64) %3)
   br i1 %21, label %22, label %_ZNK7ElfFile19is_valid_dwarf_fileEv.exit
 
@@ -910,7 +910,7 @@ define hidden noundef zeroext i1 @_ZN7ElfFile21create_new_dwarf_fileEPKc(ptr nou
 
 _ZNK7ElfFile19is_valid_dwarf_fileEv.exit:         ; preds = %18, %22, %24, %26
   %28 = phi i1 [ false, %24 ], [ false, %22 ], [ false, %18 ], [ %27, %26 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %29
 
 29:                                               ; preds = %.thread, %_ZNK7ElfFile19is_valid_dwarf_fileEv.exit
@@ -1605,7 +1605,7 @@ define hidden noundef zeroext i1 @_ZN7ElfFile25open_valid_debuginfo_fileERKNS_13
   br i1 %9, label %36, label %10
 
 10:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 8192, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %11 = tail call i64 @ftell(ptr noundef nonnull %8)
   %12 = call noundef i64 @fread(ptr noundef nonnull %3, i64 noundef 1, i64 noundef 8192, ptr noundef nonnull %8)
   %13 = icmp eq i64 %12, 0
@@ -1657,7 +1657,7 @@ _ZN7ElfFile19gnu_debuglink_crc32EjPhm.exit.i:     ; preds = %._crit_edge.loopexi
   br label %_ZN7ElfFile12get_file_crcEP8_IO_FILE.exit
 
 _ZN7ElfFile12get_file_crcEP8_IO_FILE.exit:        ; preds = %._crit_edge.i, %29
-  call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %31 = call i32 @fclose(ptr noundef nonnull %8)
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 4108
   %33 = load i32, ptr %32, align 4
@@ -1852,7 +1852,7 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile12DebugAranges28find_compilation_
   %4 = alloca %"struct.DwarfFile::DebugAranges::AddressDescriptor", align 8
   %5 = alloca %struct.Elf64_Shdr, align 8
   %6 = alloca %"struct.DwarfFile::DebugAranges::DebugArangesSetHeader", align 4
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = load ptr, ptr %0, align 8
   %8 = call noundef zeroext i1 @_ZNK7ElfFile19read_section_headerEPKcR10Elf64_Shdr(ptr noundef nonnull align 8 dereferenceable(144) %7, ptr noundef nonnull @.str.6, ptr noundef nonnull align 8 dereferenceable(64) %5)
   br i1 %8, label %9, label %_ZN9DwarfFile12DebugAranges19read_section_headerEv.exit.thread
@@ -1871,7 +1871,7 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile12DebugAranges28find_compilation_
   br i1 %17, label %_ZN9DwarfFile12DebugAranges19read_section_headerEv.exit.thread, label %_ZN9DwarfFile12DebugAranges19read_section_headerEv.exit
 
 _ZN9DwarfFile12DebugAranges19read_section_headerEv.exit.thread: ; preds = %3, %9
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit
 
 _ZN9DwarfFile12DebugAranges19read_section_headerEv.exit: ; preds = %9
@@ -1881,7 +1881,7 @@ _ZN9DwarfFile12DebugAranges19read_section_headerEv.exit: ; preds = %9
   %20 = load ptr, ptr %19, align 8
   %21 = tail call i32 @fseek(ptr noundef %20, i64 noundef %11, i32 noundef 0)
   %22 = icmp eq i32 %21, 0
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %22, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %_ZN9DwarfFile12DebugAranges19read_section_headerEv.exit
@@ -1903,7 +1903,7 @@ _ZN9DwarfFile12DebugAranges19read_section_headerEv.exit: ; preds = %9
   br i1 %31, label %32, label %.loopexit
 
 32:                                               ; preds = %30
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   %.pre.i = load i64, ptr %18, align 8
   br label %33
@@ -1936,7 +1936,7 @@ _ZN9DwarfFile12DebugAranges23read_address_descriptorERNS0_17AddressDescriptorE.e
   br i1 %49, label %.thread, label %52
 
 .thread:                                          ; preds = %44
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %51 = load i32, ptr %50, align 4
   store i32 %51, ptr %2, align 4
@@ -1956,11 +1956,11 @@ _ZN9DwarfFile12DebugAranges23read_address_descriptorERNS0_17AddressDescriptorE.e
   br i1 %.0.i.i, label %33, label %58, !llvm.loop !13
 
 _ZN9DwarfFile12DebugAranges24read_address_descriptorsERKNS0_21DebugArangesSetHeaderEjRb.exit: ; preds = %33, %_ZN9DwarfFile12DebugAranges23read_address_descriptorERNS0_17AddressDescriptorE.exit.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit
 
 58:                                               ; preds = %52, %55
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %59 = icmp ne i64 %.pre, -1
   %60 = icmp slt i64 %53, %.pre
   %.0.i3 = and i1 %59, %60
@@ -1980,7 +1980,7 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile15CompilationUnit22find_debug_lin
   br i1 %6, label %7, label %_ZN9DwarfFile11DebugAbbrevD2Ev.exit
 
 7:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %10
@@ -2017,11 +2017,11 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile15CompilationUnit22find_debug_lin
   br i1 %29, label %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit.thread, label %30
 
 _ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit.thread: ; preds = %10, %28
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN9DwarfFile11DebugAbbrevD2Ev.exit
 
 30:                                               ; preds = %28
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %31 = load ptr, ptr %0, align 8
   store ptr %31, ptr %5, align 8
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -2040,7 +2040,7 @@ _ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit.thread: ; preds = %1
   store ptr null, ptr %40, align 8
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %42 = load i32, ptr %41, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %43 = call noundef zeroext i1 @_ZNK7ElfFile19read_section_headerEPKcR10Elf64_Shdr(ptr noundef nonnull align 8 dereferenceable(144) %31, ptr noundef nonnull @.str.5, ptr noundef nonnull align 8 dereferenceable(64) %3)
   br i1 %43, label %44, label %_ZN9DwarfFile11DebugAbbrev19read_section_headerEj.exit.thread
 
@@ -2058,14 +2058,14 @@ _ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit.thread: ; preds = %1
   br i1 %53, label %_ZN9DwarfFile11DebugAbbrev19read_section_headerEj.exit.thread, label %_ZN9DwarfFile11DebugAbbrev19read_section_headerEj.exit
 
 _ZN9DwarfFile11DebugAbbrev19read_section_headerEj.exit.thread: ; preds = %30, %44
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %61
 
 _ZN9DwarfFile11DebugAbbrev19read_section_headerEj.exit: ; preds = %44
   store i64 %52, ptr %38, align 8
   %54 = tail call i32 @fseek(ptr noundef %34, i64 noundef %52, i32 noundef 0)
   %55 = icmp eq i32 %54, 0
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %55, label %56, label %61
 
 56:                                               ; preds = %_ZN9DwarfFile11DebugAbbrev19read_section_headerEj.exit
@@ -2536,7 +2536,7 @@ _ZN9DwarfFile21MarkedDwarfFileReader12set_positionEl.exit.thread: ; preds = %5, 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define hidden noundef zeroext i1 @_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef captures(none) initializes((0, 8)) %1, i8 noundef signext %2) local_unnamed_addr #3 align 2 {
   %4 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2582,7 +2582,7 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile21MarkedDwarfFileReader12read_ule
 
 _ZN9DwarfFile21MarkedDwarfFileReader11read_leb128EPmab.exit: ; preds = %7, %28, %26
   %.023.i = phi i1 [ false, %26 ], [ %or.cond29.i.not, %28 ], [ false, %7 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.023.i
 }
 
@@ -2658,7 +2658,7 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile11DebugAbbrev22find_debug_line_of
   br i1 %.0.i2, label %.loopexit, label %23
 
 23:                                               ; preds = %18
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %24 = load i64, ptr %6, align 8
   %25 = icmp ne i64 %24, -1
   %26 = load i64, ptr %7, align 8
@@ -2706,11 +2706,11 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile11DebugAbbrev22find_debug_line_of
 
 _ZN9DwarfFile11DebugAbbrev29read_attribute_specificationsEb.exit: ; preds = %31, %.lr.ph.split.us.i, %40, %42, %23, %.split8.us.i
   %.0.i3 = phi i1 [ %47, %.split8.us.i ], [ false, %23 ], [ false, %42 ], [ false, %40 ], [ false, %.lr.ph.split.us.i ], [ false, %31 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit
 
 48:                                               ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %49 = load i64, ptr %6, align 8
   %50 = icmp ne i64 %49, -1
   %51 = load i64, ptr %7, align 8
@@ -2739,11 +2739,11 @@ _ZN9DwarfFile11DebugAbbrev29read_attribute_specificationsEb.exit: ; preds = %31,
   br i1 %.0.i.i, label %.lr.ph.split.i, label %_ZN9DwarfFile11DebugAbbrev29read_attribute_specificationsEb.exit8.thread, !llvm.loop !18
 
 _ZN9DwarfFile11DebugAbbrev29read_attribute_specificationsEb.exit8.thread: ; preds = %48, %60, %.lr.ph.split.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.loopexit
 
 _ZN9DwarfFile11DebugAbbrev29read_attribute_specificationsEb.exit8: ; preds = %54
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %65 = load i64, ptr %6, align 8
   %66 = icmp ne i64 %65, -1
   %67 = load i64, ptr %7, align 8
@@ -2760,7 +2760,7 @@ _ZN9DwarfFile11DebugAbbrev29read_attribute_specificationsEb.exit8: ; preds = %54
 define hidden noundef zeroext i1 @_ZN9DwarfFile11DebugAbbrev16read_declarationERNS0_23AbbreviationDeclarationE(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(24) initializes((0, 8)) %1) local_unnamed_addr #3 align 2 {
   %3 = alloca i8, align 1
   %4 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2799,17 +2799,17 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile11DebugAbbrev16read_declarationER
   br i1 %27, label %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit.thread, label %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit
 
 _ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit.thread: ; preds = %7, %26
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %59
 
 _ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit: ; preds = %26
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %28 = icmp eq i64 %22, 0
   br i1 %28, label %59, label %29
 
 29:                                               ; preds = %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 0, ptr %30, align 8
   br label %31
 
@@ -2846,11 +2846,11 @@ _ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit: ; preds = %26
   br i1 %51, label %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit11.thread, label %52
 
 _ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit11.thread: ; preds = %31, %50
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %59
 
 52:                                               ; preds = %50
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %54 = load i64, ptr %5, align 8
   %55 = add nsw i64 %54, 1
@@ -2960,7 +2960,7 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile11DebugAbbrev29read_attribute_spe
 define hidden noundef zeroext i1 @_ZN9DwarfFile11DebugAbbrev28read_attribute_specificationERNS0_22AttributeSpecificationE(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(16) initializes((0, 8)) %1) local_unnamed_addr #3 align 2 {
   %3 = alloca i8, align 1
   %4 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2999,13 +2999,13 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile11DebugAbbrev28read_attribute_spe
   br i1 %27, label %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit.thread, label %28
 
 _ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit.thread: ; preds = %7, %26
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %51
 
 28:                                               ; preds = %26
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 0, ptr %29, align 8
   br label %30
 
@@ -3043,7 +3043,7 @@ _ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit.thread: ; preds = %7
 
 _ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit7: ; preds = %30, %49
   %.023.i.i5 = phi i1 [ %50, %49 ], [ false, %30 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %51
 
 51:                                               ; preds = %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit.thread, %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit7
@@ -3203,8 +3203,8 @@ _ZN9DwarfFile21MarkedDwarfFileReader13move_positionEl.exit6: ; preds = %52
   br i1 %81, label %_ZN9DwarfFile21MarkedDwarfFileReader13move_positionEl.exit.thread, label %191
 
 82:                                               ; preds = %_ZN9DwarfFile21MarkedDwarfFileReader25update_to_stored_positionEv.exit
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %84 = load i64, ptr %83, align 8
   %85 = add nsw i64 %84, 1
@@ -3243,17 +3243,17 @@ _ZN9DwarfFile21MarkedDwarfFileReader13move_positionEl.exit6: ; preds = %52
   br i1 %104, label %_ZN9DwarfFile21MarkedDwarfFileReader11read_stringEPcm.exit, label %.split.us.i, !llvm.loop !20
 
 _ZN9DwarfFile21MarkedDwarfFileReader11read_stringEPcm.exit.thread: ; preds = %.split.us.i, %97, %82
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %191
 
 _ZN9DwarfFile21MarkedDwarfFileReader11read_stringEPcm.exit: ; preds = %102
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN9DwarfFile21MarkedDwarfFileReader13move_positionEl.exit.thread
 
 105:                                              ; preds = %_ZN9DwarfFile21MarkedDwarfFileReader25update_to_stored_positionEv.exit, %_ZN9DwarfFile21MarkedDwarfFileReader25update_to_stored_positionEv.exit
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %107
 
@@ -3289,11 +3289,11 @@ _ZN9DwarfFile21MarkedDwarfFileReader11read_stringEPcm.exit: ; preds = %102
   br i1 %126, label %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit.thread, label %127
 
 _ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit.thread: ; preds = %107, %125
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %191
 
 127:                                              ; preds = %125
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %128 = icmp eq i64 %121, 0
   br i1 %128, label %_ZN9DwarfFile21MarkedDwarfFileReader13move_positionEl.exit.thread, label %_ZN9DwarfFile21MarkedDwarfFileReader13move_positionEl.exit11
 
@@ -3339,7 +3339,7 @@ _ZN9DwarfFile21MarkedDwarfFileReader13move_positionEl.exit13: ; preds = %141
   br i1 %156, label %_ZN9DwarfFile21MarkedDwarfFileReader13move_positionEl.exit.thread, label %191
 
 157:                                              ; preds = %_ZN9DwarfFile21MarkedDwarfFileReader25update_to_stored_positionEv.exit, %_ZN9DwarfFile21MarkedDwarfFileReader25update_to_stored_positionEv.exit, %_ZN9DwarfFile21MarkedDwarfFileReader25update_to_stored_positionEv.exit
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %158 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %159
 
@@ -3366,11 +3366,11 @@ _ZN9DwarfFile21MarkedDwarfFileReader13move_positionEl.exit13: ; preds = %141
   br i1 %171, label %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit19.thread, label %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit19
 
 _ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit19.thread: ; preds = %159, %170
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %191
 
 _ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit19: ; preds = %170
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN9DwarfFile21MarkedDwarfFileReader13move_positionEl.exit.thread
 
 172:                                              ; preds = %_ZN9DwarfFile21MarkedDwarfFileReader25update_to_stored_positionEv.exit
@@ -4240,8 +4240,8 @@ _ZN9DwarfFile21MarkedDwarfFileReader12set_positionEl.exit: ; preds = %4, %13
   br label %.loopexit
 
 30:                                               ; preds = %25
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %31 = add nsw i64 %26, 1
   store i64 %31, ptr %19, align 8
   %32 = load ptr, ptr %24, align 8
@@ -4274,14 +4274,14 @@ _ZN9DwarfFile21MarkedDwarfFileReader12set_positionEl.exit: ; preds = %4, %13
   br i1 %48, label %49, label %.split.us.i, !llvm.loop !20
 
 _ZN9DwarfFile21MarkedDwarfFileReader11read_stringEPcm.exit.thread: ; preds = %30, %.split.us.i, %41
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.loopexit
 
 49:                                               ; preds = %46
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %50
 
 50:                                               ; preds = %56, %49
@@ -4303,12 +4303,12 @@ _ZN9DwarfFile21MarkedDwarfFileReader11read_stringEPcm.exit.thread: ; preds = %30
   br i1 %or.cond5.i.i, label %50, label %61, !llvm.loop !15
 
 _ZN9DwarfFile21MarkedDwarfFileReader19read_uleb128_ignoreEa.exit.thread: ; preds = %50
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.loopexit
 
 61:                                               ; preds = %56
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br label %62
 
 62:                                               ; preds = %68, %61
@@ -4330,12 +4330,12 @@ _ZN9DwarfFile21MarkedDwarfFileReader19read_uleb128_ignoreEa.exit.thread: ; preds
   br i1 %or.cond5.i.i10, label %62, label %73, !llvm.loop !15
 
 _ZN9DwarfFile21MarkedDwarfFileReader19read_uleb128_ignoreEa.exit11.thread: ; preds = %62
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit
 
 73:                                               ; preds = %68
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br label %74
 
 74:                                               ; preds = %80, %73
@@ -4357,11 +4357,11 @@ _ZN9DwarfFile21MarkedDwarfFileReader19read_uleb128_ignoreEa.exit11.thread: ; pre
   br i1 %or.cond5.i.i14, label %74, label %85, !llvm.loop !15
 
 _ZN9DwarfFile21MarkedDwarfFileReader19read_uleb128_ignoreEa.exit15.thread: ; preds = %74
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit
 
 85:                                               ; preds = %80
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %86 = add i32 %.028, 1
   %87 = load i64, ptr %18, align 8
   %88 = icmp ne i64 %87, -1
@@ -4417,7 +4417,7 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile17LineNumberProgram21apply_extend
   %6 = alloca i8, align 1
   %7 = alloca i8, align 1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %11
@@ -4445,11 +4445,11 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile17LineNumberProgram21apply_extend
   br i1 %23, label %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit.thread, label %24
 
 _ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit.thread: ; preds = %11, %22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %121
 
 24:                                               ; preds = %22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %25 = load i64, ptr %9, align 8
   %26 = add nsw i64 %25, 1
   store i64 %26, ptr %9, align 8
@@ -4504,8 +4504,8 @@ _ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit.thread: ; preds = %1
   br label %120
 
 55:                                               ; preds = %30
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %56 = load i64, ptr %9, align 8
   %57 = add nsw i64 %56, 1
   store i64 %57, ptr %9, align 8
@@ -4543,14 +4543,14 @@ _ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit.thread: ; preds = %1
   br i1 %76, label %77, label %.split.us.i, !llvm.loop !20
 
 _ZN9DwarfFile21MarkedDwarfFileReader11read_stringEPcm.exit.thread: ; preds = %.split.us.i, %69, %55
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %121
 
 77:                                               ; preds = %74
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %78
 
 78:                                               ; preds = %84, %77
@@ -4576,11 +4576,11 @@ _ZN9DwarfFile21MarkedDwarfFileReader11read_stringEPcm.exit.thread: ; preds = %.s
   br i1 %90, label %_ZN9DwarfFile21MarkedDwarfFileReader19read_uleb128_ignoreEa.exit.thread, label %91
 
 _ZN9DwarfFile21MarkedDwarfFileReader19read_uleb128_ignoreEa.exit.thread: ; preds = %78, %89
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %121
 
 91:                                               ; preds = %89
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %92 = tail call noundef zeroext i1 @_ZN9DwarfFile21MarkedDwarfFileReader19read_uleb128_ignoreEa(ptr noundef nonnull align 8 dereferenceable(40) %8, i8 noundef signext -1)
   br i1 %92, label %93, label %121
 
@@ -4589,7 +4589,7 @@ _ZN9DwarfFile21MarkedDwarfFileReader19read_uleb128_ignoreEa.exit.thread: ; preds
   br i1 %94, label %120, label %121
 
 95:                                               ; preds = %30
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   br label %96
 
 96:                                               ; preds = %102, %95
@@ -4623,12 +4623,12 @@ _ZN9DwarfFile21MarkedDwarfFileReader19read_uleb128_ignoreEa.exit.thread: ; preds
   br i1 %114, label %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit9.thread, label %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit9
 
 _ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit9.thread: ; preds = %96, %113
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %121
 
 _ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit9: ; preds = %113
   %115 = icmp samesign ult i8 %.0.i.i6, 4
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %115, label %116, label %121
 
 116:                                              ; preds = %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit9
@@ -4695,7 +4695,7 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile17LineNumberProgram21apply_standa
   br label %_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registerEjRKNS0_23LineNumberProgramHeaderE.exit.thread
 
 25:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %28
@@ -4731,12 +4731,12 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile17LineNumberProgram21apply_standa
   br i1 %46, label %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit.thread, label %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit
 
 _ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit.thread: ; preds = %28, %45
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registerEjRKNS0_23LineNumberProgramHeaderE.exit.thread
 
 _ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit: ; preds = %45
   %47 = icmp samesign ult i8 %.0.i.i, 4
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %47, label %48, label %_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registerEjRKNS0_23LineNumberProgramHeaderE.exit.thread
 
 48:                                               ; preds = %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit
@@ -4795,7 +4795,7 @@ _ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registe
   br label %_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registerEjRKNS0_23LineNumberProgramHeaderE.exit.thread
 
 82:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %85
@@ -4841,7 +4841,7 @@ _ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registe
   %109 = shl nsw i64 -1, %108
   %110 = select i1 %or.cond30.i.i, i64 0, i64 %109
   %.144 = or i64 %99, %110
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %111 = trunc i64 %.144 to i32
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %113 = load ptr, ptr %112, align 8
@@ -4852,11 +4852,11 @@ _ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registe
   br label %_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registerEjRKNS0_23LineNumberProgramHeaderE.exit.thread
 
 _ZN9DwarfFile21MarkedDwarfFileReader12read_sleb128EPla.exit.thread: ; preds = %85, %103
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registerEjRKNS0_23LineNumberProgramHeaderE.exit.thread
 
 117:                                              ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %120
@@ -4892,12 +4892,12 @@ _ZN9DwarfFile21MarkedDwarfFileReader12read_sleb128EPla.exit.thread: ; preds = %8
   br i1 %138, label %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit15.thread, label %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit15
 
 _ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit15.thread: ; preds = %120, %137
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registerEjRKNS0_23LineNumberProgramHeaderE.exit.thread
 
 _ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit15: ; preds = %137
   %139 = icmp samesign ult i8 %.0.i.i12, 4
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %139, label %140, label %_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registerEjRKNS0_23LineNumberProgramHeaderE.exit.thread
 
 140:                                              ; preds = %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit15
@@ -4908,7 +4908,7 @@ _ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit15: ; preds = %137
   br label %_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registerEjRKNS0_23LineNumberProgramHeaderE.exit.thread
 
 144:                                              ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %147
@@ -4944,12 +4944,12 @@ _ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit15: ; preds = %137
   br i1 %165, label %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit20.thread, label %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit20
 
 _ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit20.thread: ; preds = %147, %164
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registerEjRKNS0_23LineNumberProgramHeaderE.exit.thread
 
 _ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit20: ; preds = %164
   %166 = icmp samesign ult i8 %.0.i.i17, 4
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %166, label %167, label %_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registerEjRKNS0_23LineNumberProgramHeaderE.exit.thread
 
 167:                                              ; preds = %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit20
@@ -5077,7 +5077,7 @@ _ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registe
   br label %_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registerEjRKNS0_23LineNumberProgramHeaderE.exit.thread
 
 248:                                              ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %249 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %250 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %251
@@ -5113,12 +5113,12 @@ _ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registe
   br i1 %269, label %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit28.thread, label %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit28
 
 _ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit28.thread: ; preds = %251, %268
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registerEjRKNS0_23LineNumberProgramHeaderE.exit.thread
 
 _ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit28: ; preds = %268
   %270 = icmp samesign ult i8 %.0.i.i25, 4
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %270, label %271, label %_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registerEjRKNS0_23LineNumberProgramHeaderE.exit.thread
 
 271:                                              ; preds = %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit28
@@ -5231,7 +5231,7 @@ _ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registe
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define hidden noundef zeroext i1 @_ZN9DwarfFile21MarkedDwarfFileReader19read_uleb128_ignoreEa(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, i8 noundef signext %1) local_unnamed_addr #3 align 2 {
   %3 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %6
@@ -5266,7 +5266,7 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile21MarkedDwarfFileReader19read_ule
 
 _ZN9DwarfFile21MarkedDwarfFileReader11read_leb128EPmab.exit: ; preds = %6, %19, %17
   %.023.i = phi i1 [ false, %17 ], [ %or.cond29.i.not, %19 ], [ false, %6 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.023.i
 }
 
@@ -5329,7 +5329,7 @@ define hidden void @_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState18se
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define hidden noundef zeroext i1 @_ZN9DwarfFile21MarkedDwarfFileReader12read_sleb128EPla(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef captures(none) initializes((0, 8)) %1, i8 noundef signext %2) local_unnamed_addr #3 align 2 {
   %4 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5390,7 +5390,7 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile21MarkedDwarfFileReader12read_sle
 
 _ZN9DwarfFile21MarkedDwarfFileReader11read_leb128EPmab.exit: ; preds = %7, %26, %28, %30, %34
   %.023.i = phi i1 [ false, %28 ], [ false, %26 ], [ true, %34 ], [ true, %30 ], [ false, %7 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.023.i
 }
 
@@ -5631,10 +5631,10 @@ declare void @_Z8FreeHeapPv(ptr noundef) local_unnamed_addr #1
 declare noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

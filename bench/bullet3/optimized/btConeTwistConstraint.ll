@@ -219,12 +219,6 @@ define dso_local void @_ZN21btConeTwistConstraintC2ER11btRigidBodyRK11btTransfor
 
 declare void @_ZN17btTypedConstraintC2E21btTypedConstraintTypeR11btRigidBody(ptr noundef nonnull align 8 dereferenceable(72), i32 noundef, ptr noundef nonnull align 8 dereferenceable(744)) unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
-
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN21btConeTwistConstraint8getInfo1EPN17btTypedConstraint17btConstraintInfo1E(ptr noundef nonnull align 8 dereferenceable(632) %0, ptr noundef captures(none) initializes((0, 8)) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 551
@@ -303,7 +297,7 @@ define dso_local void @_ZN21btConeTwistConstraint8getInfo1EPN17btTypedConstraint
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN21btConeTwistConstraint14calcAngleInfo2ERK11btTransformS2_RK11btMatrix3x3S5_(ptr noundef nonnull align 8 dereferenceable(632) initializes((524, 532), (549, 551)) %0, ptr noundef nonnull align 4 dereferenceable(64) %1, ptr noundef nonnull align 4 dereferenceable(64) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(48) %3, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(48) %4) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN21btConeTwistConstraint14calcAngleInfo2ERK11btTransformS2_RK11btMatrix3x3S5_(ptr noundef nonnull align 8 dereferenceable(632) initializes((524, 532), (549, 551)) %0, ptr noundef nonnull align 4 dereferenceable(64) %1, ptr noundef nonnull align 4 dereferenceable(64) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(48) %3, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(48) %4) local_unnamed_addr #3 align 2 {
   %6 = alloca %class.btQuaternion, align 8
   %7 = alloca %class.btQuaternion, align 8
   %8 = alloca %class.btQuaternion, align 8
@@ -538,7 +532,7 @@ define dso_local void @_ZN21btConeTwistConstraint14calcAngleInfo2ERK11btTransfor
   %229 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %230 = load float, ptr %229, align 4, !tbaa !51, !noalias !63
   %231 = fadd float %222, %230
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %232 = fmul float %52, %168
   %233 = tail call float @llvm.fmuladd.f32(float %49, float %159, float %232)
   %234 = tail call noundef float @llvm.fmuladd.f32(float %56, float %177, float %233)
@@ -659,12 +653,12 @@ define dso_local void @_ZN21btConeTwistConstraint14calcAngleInfo2ERK11btTransfor
   store <2 x float> %.sroa.0.4.vec.insert.i3.i.i99, ptr %324, align 4, !alias.scope !64
   %.sroa.4.0..sroa_idx.i110 = getelementptr inbounds nuw i8, ptr %11, i64 56
   store <2 x float> %.sroa.3.12.vec.insert.i4.i.i100, ptr %.sroa.4.0..sroa_idx.i110, align 4, !tbaa !8, !alias.scope !64
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZNK11btMatrix3x311getRotationER12btQuaternion(ptr noundef nonnull align 4 dereferenceable(64) %11, ptr noundef nonnull align 4 dereferenceable(16) %10)
   %.fca.0.load.i = load <2 x float>, ptr %10, align 8
   %.fca.1.gep.i = getelementptr inbounds nuw i8, ptr %10, i64 8
   %.fca.1.load.i = load <2 x float>, ptr %.fca.1.gep.i, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %.sroa.0471.0.vec.extract = extractelement <2 x float> %.fca.0.load.i, i64 0
   %.sroa.0471.4.vec.extract = extractelement <2 x float> %.fca.0.load.i, i64 1
   %.sroa.5472.8.vec.extract = extractelement <2 x float> %.fca.1.load.i, i64 0
@@ -706,23 +700,23 @@ define dso_local void @_ZN21btConeTwistConstraint14calcAngleInfo2ERK11btTransfor
   br label %343
 
 343:                                              ; preds = %330, %342, %22
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %1021
 
 344:                                              ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZNK11btMatrix3x311getRotationER12btQuaternion(ptr noundef nonnull align 4 dereferenceable(64) %1, ptr noundef nonnull align 4 dereferenceable(16) %9)
   %.fca.0.load.i111 = load <2 x float>, ptr %9, align 8
   %.fca.1.gep.i113 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %.fca.1.load.i114 = load <2 x float>, ptr %.fca.1.gep.i113, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %345 = getelementptr inbounds nuw i8, ptr %0, i64 324
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZNK11btMatrix3x311getRotationER12btQuaternion(ptr noundef nonnull align 4 dereferenceable(64) %345, ptr noundef nonnull align 4 dereferenceable(16) %8)
   %.fca.0.load.i116 = load <2 x float>, ptr %8, align 8
   %.fca.1.gep.i118 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.fca.1.load.i119 = load <2 x float>, ptr %.fca.1.gep.i118, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.sroa.5456.12.vec.extract = extractelement <2 x float> %.fca.1.load.i114, i64 1
   %.sroa.0453.0.vec.extract = extractelement <2 x float> %.fca.0.load.i116, i64 0
   %.sroa.0455.0.vec.extract = extractelement <2 x float> %.fca.0.load.i111, i64 0
@@ -751,19 +745,19 @@ define dso_local void @_ZN21btConeTwistConstraint14calcAngleInfo2ERK11btTransfor
   %363 = call float @llvm.fmuladd.f32(float %.sroa.5456.12.vec.extract, float %.sroa.5454.12.vec.extract, float %362)
   %364 = call float @llvm.fmuladd.f32(float %359, float %.sroa.0453.4.vec.extract, float %363)
   %365 = call float @llvm.fmuladd.f32(float %349, float %.sroa.5454.8.vec.extract, float %364)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZNK11btMatrix3x311getRotationER12btQuaternion(ptr noundef nonnull align 4 dereferenceable(64) %2, ptr noundef nonnull align 4 dereferenceable(16) %7)
   %.fca.0.load.i123 = load <2 x float>, ptr %7, align 8
   %.fca.1.gep.i125 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.fca.1.load.i126 = load <2 x float>, ptr %.fca.1.gep.i125, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %366 = getelementptr inbounds nuw i8, ptr %0, i64 388
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZNK11btMatrix3x311getRotationER12btQuaternion(ptr noundef nonnull align 4 dereferenceable(64) %366, ptr noundef nonnull align 4 dereferenceable(16) %6)
   %.fca.0.load.i128 = load <2 x float>, ptr %6, align 8
   %.fca.1.gep.i130 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.fca.1.load.i131 = load <2 x float>, ptr %.fca.1.gep.i130, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.sroa.5434.12.vec.extract = extractelement <2 x float> %.fca.1.load.i126, i64 1
   %.sroa.0431.0.vec.extract = extractelement <2 x float> %.fca.0.load.i128, i64 0
   %.sroa.0433.0.vec.extract = extractelement <2 x float> %.fca.0.load.i123, i64 0
@@ -1643,7 +1637,7 @@ define dso_local void @_ZN21btConeTwistConstraint8getInfo2EPN17btTypedConstraint
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN21btConeTwistConstraint18getInfo2NonVirtualEPN17btTypedConstraint17btConstraintInfo2ERK11btTransformS5_RK11btMatrix3x3S8_(ptr noundef nonnull align 8 dereferenceable(632) initializes((524, 532), (549, 551)) %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull align 4 dereferenceable(64) %2, ptr noundef nonnull align 4 dereferenceable(64) %3, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(48) %4, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(48) %5) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN21btConeTwistConstraint18getInfo2NonVirtualEPN17btTypedConstraint17btConstraintInfo2ERK11btTransformS5_RK11btMatrix3x3S8_(ptr noundef nonnull align 8 dereferenceable(632) initializes((524, 532), (549, 551)) %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull align 4 dereferenceable(64) %2, ptr noundef nonnull align 4 dereferenceable(64) %3, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(48) %4, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(48) %5) local_unnamed_addr #3 align 2 {
   %7 = alloca %class.btVector3, align 8
   %8 = alloca %class.btVector3, align 8
   tail call void @_ZN21btConeTwistConstraint14calcAngleInfo2ERK11btTransformS2_RK11btMatrix3x3S5_(ptr noundef nonnull align 8 dereferenceable(632) %0, ptr noundef nonnull align 4 dereferenceable(64) %2, ptr noundef nonnull align 4 dereferenceable(64) %3, ptr noundef nonnull align 4 dereferenceable(48) %4, ptr noundef nonnull align 4 dereferenceable(48) %5)
@@ -1661,7 +1655,7 @@ define dso_local void @_ZN21btConeTwistConstraint18getInfo2NonVirtualEPN17btType
   %18 = getelementptr float, ptr %10, i64 %17
   %19 = getelementptr i8, ptr %18, i64 8
   store float 1.000000e+00, ptr %19, align 4, !tbaa !51
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 372
   %21 = load float, ptr %2, align 4, !tbaa !51
   %22 = load float, ptr %20, align 4, !tbaa !51
@@ -1737,7 +1731,7 @@ define dso_local void @_ZN21btConeTwistConstraint18getInfo2NonVirtualEPN17btType
   %73 = getelementptr float, ptr %70, i64 %17
   %74 = getelementptr i8, ptr %73, i64 8
   store float -1.000000e+00, ptr %74, align 4, !tbaa !51
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 436
   %76 = load float, ptr %3, align 4, !tbaa !51
   %77 = load float, ptr %75, align 4, !tbaa !51
@@ -2202,16 +2196,16 @@ define dso_local void @_ZN21btConeTwistConstraint18getInfo2NonVirtualEPN17btType
   br label %414
 
 414:                                              ; preds = %411, %410, %409, %349
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #23
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN21btConeTwistConstraint13buildJacobianEv(ptr noundef nonnull align 8 dereferenceable(632) %0) unnamed_addr #4 align 2 {
+define dso_local void @_ZN21btConeTwistConstraint13buildJacobianEv(ptr noundef nonnull align 8 dereferenceable(632) %0) unnamed_addr #3 align 2 {
   %2 = alloca [3 x %class.btVector3], align 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 551
   %4 = load i8, ptr %3, align 1, !tbaa !41, !range !42, !noundef !43
@@ -2297,7 +2291,7 @@ define dso_local void @_ZN21btConeTwistConstraint13buildJacobianEv(ptr noundef n
   %76 = load float, ptr %75, align 4, !tbaa !51
   %77 = getelementptr inbounds nuw i8, ptr %48, i64 64
   %78 = load float, ptr %77, align 4, !tbaa !51
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %79 = fmul float %24, %26
   %80 = tail call float @llvm.fmuladd.f32(float %21, float %22, float %79)
   %81 = tail call noundef float @llvm.fmuladd.f32(float %28, float %30, float %80)
@@ -2422,7 +2416,7 @@ _Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit:   ; preds = %128, %139
   br label %163
 
 162:                                              ; preds = %163
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %262
 
 163:                                              ; preds = %_Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit, %163
@@ -2572,7 +2566,7 @@ _Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit:   ; preds = %128, %139
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN21btConeTwistConstraint23solveConstraintObsoleteER12btSolverBodyS1_f(ptr noundef nonnull align 8 dereferenceable(632) %0, ptr noundef nonnull align 8 dereferenceable(248) %1, ptr noundef nonnull align 8 dereferenceable(248) %2, float noundef %3) unnamed_addr #4 align 2 {
+define dso_local void @_ZN21btConeTwistConstraint23solveConstraintObsoleteER12btSolverBodyS1_f(ptr noundef nonnull align 8 dereferenceable(632) %0, ptr noundef nonnull align 8 dereferenceable(248) %1, ptr noundef nonnull align 8 dereferenceable(248) %2, float noundef %3) unnamed_addr #3 align 2 {
   %5 = alloca %class.btVector3, align 4
   %6 = alloca float, align 4
   %7 = alloca %class.btVector3, align 4
@@ -3009,7 +3003,7 @@ _ZN12btSolverBody20internalApplyImpulseERK9btVector3S2_f.exit125: ; preds = %_ZN
   br i1 %400, label %401, label %1156
 
 401:                                              ; preds = %.loopexit
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %9, ptr noundef nonnull align 4 dereferenceable(64) %24, i64 16, i1 false), !tbaa.struct !7
   %402 = getelementptr inbounds nuw i8, ptr %9, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %402, ptr noundef nonnull align 4 dereferenceable(16) %27, i64 16, i1 false), !tbaa.struct !7
@@ -3017,7 +3011,7 @@ _ZN12btSolverBody20internalApplyImpulseERK9btVector3S2_f.exit125: ; preds = %_ZN
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %403, ptr noundef nonnull align 4 dereferenceable(16) %28, i64 16, i1 false), !tbaa.struct !7
   %404 = getelementptr inbounds nuw i8, ptr %9, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %404, ptr noundef nonnull align 4 dereferenceable(16) %29, i64 16, i1 false), !tbaa.struct !7
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %10, ptr noundef nonnull align 4 dereferenceable(64) %32, i64 16, i1 false), !tbaa.struct !7
   %405 = getelementptr inbounds nuw i8, ptr %10, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %405, ptr noundef nonnull align 4 dereferenceable(16) %35, i64 16, i1 false), !tbaa.struct !7
@@ -3025,7 +3019,7 @@ _ZN12btSolverBody20internalApplyImpulseERK9btVector3S2_f.exit125: ; preds = %_ZN
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %406, ptr noundef nonnull align 4 dereferenceable(16) %36, i64 16, i1 false), !tbaa.struct !7
   %407 = getelementptr inbounds nuw i8, ptr %10, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %407, ptr noundef nonnull align 4 dereferenceable(16) %37, i64 16, i1 false), !tbaa.struct !7
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %408 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %409 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %410 = load float, ptr %408, align 8, !tbaa !51
@@ -3047,7 +3041,7 @@ _ZN12btSolverBody20internalApplyImpulseERK9btVector3S2_f.exit125: ; preds = %_ZN
   store <2 x float> %.sroa.0.4.vec.insert.i.i, ptr %11, align 8
   %.sroa.4.0..sroa_idx.i126 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store <2 x float> %.sroa.3.12.vec.insert.i.i, ptr %.sroa.4.0..sroa_idx.i126, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %423 = getelementptr inbounds nuw i8, ptr %2, i64 192
   %424 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %425 = load float, ptr %423, align 8, !tbaa !51
@@ -3069,7 +3063,7 @@ _ZN12btSolverBody20internalApplyImpulseERK9btVector3S2_f.exit125: ; preds = %_ZN
   store <2 x float> %.sroa.0.4.vec.insert.i.i128, ptr %12, align 8
   %.sroa.4.0..sroa_idx.i130 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store <2 x float> %.sroa.3.12.vec.insert.i.i129, ptr %.sroa.4.0..sroa_idx.i130, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %13) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store float 1.000000e+00, ptr %13, align 4, !tbaa !51
   %438 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %439 = getelementptr inbounds nuw i8, ptr %13, i64 20
@@ -3081,11 +3075,11 @@ _ZN12btSolverBody20internalApplyImpulseERK9btVector3S2_f.exit125: ; preds = %_ZN
   store float 1.000000e+00, ptr %441, align 4, !tbaa !51
   %442 = getelementptr inbounds nuw i8, ptr %13, i64 44
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %442, i8 0, i64 20, i1 false)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %443 = getelementptr inbounds nuw i8, ptr %14, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
   call void @_ZN15btTransformUtil18integrateTransformERK11btTransformRK9btVector3S5_fRS0_(ptr noundef nonnull align 4 dereferenceable(64) %9, ptr noundef nonnull align 4 dereferenceable(16) %14, ptr noundef nonnull align 4 dereferenceable(16) %11, float noundef %3, ptr noundef nonnull align 4 dereferenceable(64) %13)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %15) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store float 1.000000e+00, ptr %15, align 4, !tbaa !51
   %444 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %445 = getelementptr inbounds nuw i8, ptr %15, i64 20
@@ -3269,7 +3263,7 @@ _ZN12btSolverBody20internalApplyImpulseERK9btVector3S2_f.exit125: ; preds = %_ZN
   %617 = fadd float %540, %610
   %618 = fadd float %543, %613
   %619 = fadd float %546, %616
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %16) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @llvm.experimental.noalias.scope.decl(metadata !134)
   %620 = load float, ptr %15, align 4, !tbaa !51, !noalias !137
   %621 = load float, ptr %444, align 4, !tbaa !51, !noalias !137
@@ -3359,7 +3353,7 @@ _ZN12btSolverBody20internalApplyImpulseERK9btVector3S2_f.exit125: ; preds = %_ZN
   store <2 x float> %.sroa.0.4.vec.insert.i3.i.i150, ptr %680, align 4, !alias.scope !134
   %.sroa.4.0..sroa_idx.i161 = getelementptr inbounds nuw i8, ptr %16, i64 56
   store <2 x float> %.sroa.3.12.vec.insert.i4.i.i151, ptr %.sroa.4.0..sroa_idx.i161, align 4, !tbaa !8, !alias.scope !134
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %17) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %681 = fneg float %617
   %682 = fneg float %618
   %683 = fneg float %619
@@ -3482,8 +3476,8 @@ _ZN12btSolverBody20internalApplyImpulseERK9btVector3S2_f.exit125: ; preds = %_ZN
   %.sroa.3.12.vec.insert.i.i.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %769, i64 0
   store <2 x float> %.sroa.0.4.vec.insert.i.i.i, ptr %14, align 8
   store <2 x float> %.sroa.3.12.vec.insert.i.i.i, ptr %443, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #23
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZN15btTransformUtil22calculateDiffAxisAngleERK11btTransformS2_R9btVector3Rf(ptr noundef nonnull align 4 dereferenceable(64) %9, ptr noundef nonnull align 4 dereferenceable(64) %16, ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(4) %8)
   %770 = load float, ptr %7, align 4, !tbaa !51
   %771 = load float, ptr %8, align 4, !tbaa !51
@@ -3497,8 +3491,8 @@ _ZN12btSolverBody20internalApplyImpulseERK9btVector3S2_f.exit125: ; preds = %_ZN
   %779 = fmul float %766, %772
   %780 = fmul float %766, %775
   %781 = fmul float %766, %778
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #23
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %782 = load float, ptr %407, align 4, !tbaa !51
   %783 = fsub float %744, %782
   %784 = getelementptr inbounds nuw i8, ptr %10, i64 52
@@ -3515,8 +3509,8 @@ _ZN12btSolverBody20internalApplyImpulseERK9btVector3S2_f.exit125: ; preds = %_ZN
   %.sroa.3.12.vec.insert.i.i.i191 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %792, i64 0
   store <2 x float> %.sroa.0.4.vec.insert.i.i.i190, ptr %14, align 8
   store <2 x float> %.sroa.3.12.vec.insert.i.i.i191, ptr %443, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #23
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN15btTransformUtil22calculateDiffAxisAngleERK11btTransformS2_R9btVector3Rf(ptr noundef nonnull align 4 dereferenceable(64) %10, ptr noundef nonnull align 4 dereferenceable(64) %17, ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(4) %6)
   %793 = load float, ptr %5, align 4, !tbaa !51
   %794 = load float, ptr %6, align 4, !tbaa !51
@@ -3530,8 +3524,8 @@ _ZN12btSolverBody20internalApplyImpulseERK9btVector3S2_f.exit125: ; preds = %_ZN
   %802 = fmul float %766, %795
   %803 = fmul float %766, %798
   %804 = fmul float %766, %801
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #23
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %805 = load float, ptr %11, align 8, !tbaa !51
   %806 = fsub float %779, %805
   %807 = getelementptr inbounds nuw i8, ptr %11, i64 4
@@ -3967,15 +3961,15 @@ _ZN12btSolverBody20internalApplyImpulseERK9btVector3S2_f.exit279: ; preds = %._c
   br label %_ZN12btSolverBody20internalApplyImpulseERK9btVector3S2_f.exit286
 
 _ZN12btSolverBody20internalApplyImpulseERK9btVector3S2_f.exit286: ; preds = %1099, %_ZN12btSolverBody20internalApplyImpulseERK9btVector3S2_f.exit279, %900
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %17) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %16) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %15) #23
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13) #23
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #23
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZN12btSolverBody20internalApplyImpulseERK9btVector3S2_f.exit336
 
 1156:                                             ; preds = %.loopexit
@@ -4704,10 +4698,10 @@ _ZN12btSolverBody20internalApplyImpulseERK9btVector3S2_f.exit403: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #6
+declare float @llvm.fmuladd.f32(float, float, float) #5
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN15btTransformUtil18integrateTransformERK11btTransformRK9btVector3S5_fRS0_(ptr noundef nonnull align 4 dereferenceable(64) %0, ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(16) %2, float noundef %3, ptr noundef nonnull align 4 dereferenceable(64) %4) local_unnamed_addr #4 comdat align 2 {
+define linkonce_odr dso_local void @_ZN15btTransformUtil18integrateTransformERK11btTransformRK9btVector3S5_fRS0_(ptr noundef nonnull align 4 dereferenceable(64) %0, ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(16) %2, float noundef %3, ptr noundef nonnull align 4 dereferenceable(64) %4) local_unnamed_addr #3 comdat align 2 {
   %6 = alloca %class.btQuaternion, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load float, ptr %1, align 4, !tbaa !51
@@ -4776,12 +4770,12 @@ define linkonce_odr dso_local void @_ZN15btTransformUtil18integrateTransformERK1
   %55 = fmul float %3, %.1
   %56 = fmul float %55, 5.000000e-01
   %57 = tail call noundef float @cosf(float noundef %56) #23, !tbaa !67
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZNK11btMatrix3x311getRotationER12btQuaternion(ptr noundef nonnull align 4 dereferenceable(64) %0, ptr noundef nonnull align 4 dereferenceable(16) %6)
   %.fca.0.load.i = load <2 x float>, ptr %6, align 8
   %.fca.1.gep.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.fca.1.load.i = load <2 x float>, ptr %.fca.1.gep.i, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.sroa.064.0.vec.extract = extractelement <2 x float> %.fca.0.load.i, i64 0
   %.sroa.5.12.vec.extract = extractelement <2 x float> %.fca.1.load.i, i64 1
   %58 = fmul float %52, %.sroa.5.12.vec.extract
@@ -4910,12 +4904,12 @@ _ZN12btQuaternion13safeNormalizeEv.exit:          ; preds = %51, %83
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN21btConeTwistConstraint9updateRHSEf(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(632) %0, float noundef %1) local_unnamed_addr #7 align 2 {
+define dso_local void @_ZN21btConeTwistConstraint9updateRHSEf(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(632) %0, float noundef %1) local_unnamed_addr #6 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, errnomem: readwrite) uwtable
-define dso_local void @_ZN21btConeTwistConstraint13calcAngleInfoEv(ptr noundef nonnull align 8 captures(none) dereferenceable(632) initializes((524, 532), (549, 551)) %0) local_unnamed_addr #8 align 2 {
+define dso_local void @_ZN21btConeTwistConstraint13calcAngleInfoEv(ptr noundef nonnull align 8 captures(none) dereferenceable(632) initializes((524, 532), (549, 551)) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 528
   store float 0.000000e+00, ptr %2, align 8, !tbaa !49
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 524
@@ -5445,7 +5439,7 @@ _Z11btAtan2Fastff.exit129:                        ; preds = %330, %335
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, errnomem: write) uwtable
-define dso_local void @_ZN21btConeTwistConstraint20computeConeLimitInfoERK12btQuaternionRfR9btVector3S3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(632) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %2, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(16) %3, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %4) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN21btConeTwistConstraint20computeConeLimitInfoERK12btQuaternionRfR9btVector3S3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(632) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %2, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(16) %3, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %4) local_unnamed_addr #8 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %7 = load float, ptr %6, align 4, !tbaa !51
   %8 = fcmp olt float %7, -1.000000e+00
@@ -5508,7 +5502,7 @@ define dso_local void @_ZN21btConeTwistConstraint20computeConeLimitInfoERK12btQu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK21btConeTwistConstraint33adjustSwingAxisToUseEllipseNormalER9btVector3(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(632) %0, ptr noundef nonnull align 4 captures(none) dereferenceable(16) %1) local_unnamed_addr #10 align 2 {
+define dso_local void @_ZNK21btConeTwistConstraint33adjustSwingAxisToUseEllipseNormalER9btVector3(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(632) %0, ptr noundef nonnull align 4 captures(none) dereferenceable(16) %1) local_unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load float, ptr %3, align 4, !tbaa !51
   %5 = tail call noundef float @llvm.fabs.f32(float %4)
@@ -5551,7 +5545,7 @@ define dso_local void @_ZNK21btConeTwistConstraint33adjustSwingAxisToUseEllipseN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, errnomem: write) uwtable
-define dso_local void @_ZN21btConeTwistConstraint21computeTwistLimitInfoERK12btQuaternionRfR9btVector3(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(632) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1, ptr noundef nonnull align 4 captures(none) dereferenceable(4) initializes((0, 4)) %2, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(16) initializes((0, 16)) %3) local_unnamed_addr #11 align 2 {
+define dso_local void @_ZN21btConeTwistConstraint21computeTwistLimitInfoERK12btQuaternionRfR9btVector3(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(632) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1, ptr noundef nonnull align 4 captures(none) dereferenceable(4) initializes((0, 4)) %2, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(16) initializes((0, 16)) %3) local_unnamed_addr #10 align 2 {
   %.sroa.013.0.copyload = load <2 x float>, ptr %1, align 4
   %.sroa.614.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.614.0.copyload = load <2 x float>, ptr %.sroa.614.0..sroa_idx, align 4
@@ -5626,7 +5620,7 @@ define dso_local void @_ZN21btConeTwistConstraint21computeTwistLimitInfoERK12btQ
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: read, errnomem: write) uwtable
-define dso_local { <2 x float>, <2 x float> } @_ZNK21btConeTwistConstraint16GetPointForAngleEff(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(632) %0, float noundef %1, float noundef %2) local_unnamed_addr #12 align 2 {
+define dso_local { <2 x float>, <2 x float> } @_ZNK21btConeTwistConstraint16GetPointForAngleEff(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(632) %0, float noundef %1, float noundef %2) local_unnamed_addr #11 align 2 {
   %4 = tail call noundef float @cosf(float noundef %1) #23, !tbaa !67
   %5 = tail call noundef float @sinf(float noundef %1) #23, !tbaa !67
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 468
@@ -5704,18 +5698,18 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK21btConeTwistConstraint16GetP
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN21btConeTwistConstraint14setMotorTargetERK12btQuaternion(ptr noundef nonnull align 8 dereferenceable(632) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN21btConeTwistConstraint14setMotorTargetERK12btQuaternion(ptr noundef nonnull align 8 dereferenceable(632) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1) local_unnamed_addr #3 align 2 {
   %3 = alloca %class.btQuaternion, align 8
   %4 = alloca %class.btQuaternion, align 8
   %5 = alloca %class.btQuaternion, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 388
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZNK11btMatrix3x311getRotationER12btQuaternion(ptr noundef nonnull align 4 dereferenceable(64) %6, ptr noundef nonnull align 4 dereferenceable(16) %4)
   %.fca.0.load.i = load <2 x float>, ptr %4, align 8
   %.fca.1.gep.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.fca.1.load.i = load <2 x float>, ptr %.fca.1.gep.i, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.sroa.021.0.vec.extract = extractelement <2 x float> %.fca.0.load.i, i64 0
   %7 = fneg float %.sroa.021.0.vec.extract
   %.sroa.021.4.vec.extract = extractelement <2 x float> %.fca.0.load.i, i64 1
@@ -5747,12 +5741,12 @@ define dso_local void @_ZN21btConeTwistConstraint14setMotorTargetERK12btQuaterni
   %31 = call float @llvm.fmuladd.f32(float %.sroa.021.4.vec.extract, float %19, float %30)
   %32 = call float @llvm.fmuladd.f32(float %.sroa.522.8.vec.extract, float %16, float %31)
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 324
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZNK11btMatrix3x311getRotationER12btQuaternion(ptr noundef nonnull align 4 dereferenceable(64) %33, ptr noundef nonnull align 4 dereferenceable(16) %3)
   %.fca.0.load.i10 = load <2 x float>, ptr %3, align 8
   %.fca.1.gep.i12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.fca.1.load.i13 = load <2 x float>, ptr %.fca.1.gep.i12, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.sroa.0.0.vec.extract = extractelement <2 x float> %.fca.0.load.i10, i64 0
   %.sroa.5.12.vec.extract = extractelement <2 x float> %.fca.1.load.i13, i64 1
   %34 = fmul float %20, %.sroa.5.12.vec.extract
@@ -5785,12 +5779,12 @@ define dso_local void @_ZN21btConeTwistConstraint14setMotorTargetERK12btQuaterni
   %54 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store <2 x float> %.sroa.3.12.vec.insert.i18, ptr %54, align 8
   call void @_ZN21btConeTwistConstraint31setMotorTargetInConstraintSpaceERK12btQuaternion(ptr noundef nonnull align 8 dereferenceable(632) %0, ptr noundef nonnull align 4 dereferenceable(16) %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, errnomem: readwrite) uwtable
-define dso_local void @_ZN21btConeTwistConstraint31setMotorTargetInConstraintSpaceERK12btQuaternion(ptr noundef nonnull align 8 captures(none) dereferenceable(632) initializes((580, 596)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1) local_unnamed_addr #8 align 2 {
+define dso_local void @_ZN21btConeTwistConstraint31setMotorTargetInConstraintSpaceERK12btQuaternion(ptr noundef nonnull align 8 captures(none) dereferenceable(632) initializes((580, 596)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 580
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 592
@@ -6129,7 +6123,7 @@ _ZN21btConeTwistConstraint21computeTwistLimitInfoERK12btQuaternionRfR9btVector3.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN21btConeTwistConstraint8setParamEifi(ptr noundef nonnull align 8 captures(none) dereferenceable(632) %0, i32 noundef %1, float noundef %2, i32 noundef %3) unnamed_addr #10 align 2 {
+define dso_local void @_ZN21btConeTwistConstraint8setParamEifi(ptr noundef nonnull align 8 captures(none) dereferenceable(632) %0, i32 noundef %1, float noundef %2, i32 noundef %3) unnamed_addr #9 align 2 {
   switch i32 %1, label %23 [
     i32 1, label %5
     i32 2, label %5
@@ -6181,7 +6175,7 @@ define dso_local void @_ZN21btConeTwistConstraint8setParamEifi(ptr noundef nonnu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef float @_ZNK21btConeTwistConstraint8getParamEii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(632) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #13 align 2 {
+define dso_local noundef float @_ZNK21btConeTwistConstraint8getParamEii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(632) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #12 align 2 {
   switch i32 %1, label %22 [
     i32 1, label %4
     i32 2, label %4
@@ -6264,19 +6258,19 @@ define dso_local void @_ZN21btConeTwistConstraint9setFramesERK11btTransformS2_(p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN17btTypedConstraint21setupSolverConstraintER20btAlignedObjectArrayI18btSolverConstraintEiif(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 1 %1, i32 noundef %2, i32 noundef %3, float noundef %4) unnamed_addr #14 comdat align 2 {
+define linkonce_odr dso_local void @_ZN17btTypedConstraint21setupSolverConstraintER20btAlignedObjectArrayI18btSolverConstraintEiif(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 1 %1, i32 noundef %2, i32 noundef %3, float noundef %4) unnamed_addr #13 comdat align 2 {
   ret void
 }
 
 declare noundef ptr @_ZNK17btTypedConstraint9serializeEPvP12btSerializer(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef, ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN17btTypedConstraintD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #14 comdat align 2 {
+define linkonce_odr dso_local void @_ZN17btTypedConstraintD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #13 comdat align 2 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN21btConeTwistConstraintD0Ev(ptr noundef nonnull align 8 dereferenceable(632) %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN21btConeTwistConstraintD0Ev(ptr noundef nonnull align 8 dereferenceable(632) %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %0)
           to label %_ZN21btConeTwistConstraintdlEPv.exit unwind label %2
 
@@ -6292,12 +6286,12 @@ _ZN21btConeTwistConstraintdlEPv.exit:             ; preds = %1
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i32 @_ZNK21btConeTwistConstraint28calculateSerializeBufferSizeEv(ptr noundef nonnull align 8 dereferenceable(632) %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr dso_local noundef i32 @_ZNK21btConeTwistConstraint28calculateSerializeBufferSizeEv(ptr noundef nonnull align 8 dereferenceable(632) %0) unnamed_addr #14 comdat align 2 {
   ret i32 224
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef ptr @_ZNK21btConeTwistConstraint9serializeEPvP12btSerializer(ptr noundef nonnull align 8 dereferenceable(632) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #16 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNK21btConeTwistConstraint9serializeEPvP12btSerializer(ptr noundef nonnull align 8 dereferenceable(632) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #15 comdat align 2 {
   %4 = tail call noundef ptr @_ZNK17btTypedConstraint9serializeEPvP12btSerializer(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1, ptr noundef %2)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 324
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -6413,13 +6407,13 @@ _ZNK11btTransform9serializeER20btTransformFloatData.exit24: ; preds = %31
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare float @sqrtf(float noundef) local_unnamed_addr #17
+declare float @sqrtf(float noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN15btTransformUtil22calculateDiffAxisAngleERK11btTransformS2_R9btVector3Rf(ptr noundef nonnull align 4 dereferenceable(64) %0, ptr noundef nonnull align 4 dereferenceable(64) %1, ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(4) %3) local_unnamed_addr #0 comdat align 2 {
   %5 = alloca %class.btMatrix3x3, align 4
   %6 = alloca %class.btQuaternion, align 4
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %9 = load float, ptr %8, align 4, !tbaa !51, !noalias !163
@@ -6542,7 +6536,7 @@ define linkonce_odr dso_local void @_ZN15btTransformUtil22calculateDiffAxisAngle
   store float %104, ptr %114, align 4, !tbaa !51, !alias.scope !166
   %115 = getelementptr inbounds nuw i8, ptr %5, i64 44
   store float 0.000000e+00, ptr %115, align 4, !tbaa !51, !alias.scope !166
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZNK11btMatrix3x311getRotationER12btQuaternion(ptr noundef nonnull align 4 dereferenceable(48) %5, ptr noundef nonnull align 4 dereferenceable(16) %6)
   %116 = load float, ptr %6, align 4, !tbaa !51
   %117 = getelementptr inbounds nuw i8, ptr %6, i64 4
@@ -6593,8 +6587,8 @@ define linkonce_odr dso_local void @_ZN15btTransformUtil22calculateDiffAxisAngle
   store float %.sink21, ptr %2, align 4
   store float %.sink20, ptr %.sroa.414.0..sroa_idx, align 4
   store float %.sink, ptr %.sroa.515.0..sroa_idx, align 4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #23
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -6608,7 +6602,7 @@ define linkonce_odr dso_local void @_ZNK11btMatrix3x311getRotationER12btQuaterni
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load float, ptr %8, align 4, !tbaa !51
   %10 = fadd float %7, %9
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %11 = fcmp ogt float %10, 0.000000e+00
   br i1 %11, label %12, label %35
 
@@ -6714,29 +6708,29 @@ define linkonce_odr dso_local void @_ZNK11btMatrix3x311getRotationER12btQuaterni
   store float %89, ptr %93, align 4, !tbaa !51
   %94 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store float %88, ptr %94, align 4, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fabs.f32(float) #6
+declare float @llvm.fabs.f32(float) #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare float @acosf(float noundef) local_unnamed_addr #17
+declare float @acosf(float noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare float @atan2f(float noundef, float noundef) local_unnamed_addr #17
+declare float @atan2f(float noundef, float noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare float @cosf(float noundef) local_unnamed_addr #17
+declare float @cosf(float noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare float @sinf(float noundef) local_unnamed_addr #17
+declare float @sinf(float noundef) local_unnamed_addr #16
 
 declare void @_Z21btAlignedFreeInternalPv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: noinline noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #18 comdat {
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #17 comdat {
   %2 = tail call ptr @__cxa_begin_catch(ptr %0) #23
   tail call void @_ZSt9terminatev() #24
   unreachable
@@ -6745,7 +6739,13 @@ define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_un
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #19
+declare void @_ZSt9terminatev() local_unnamed_addr #18
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #19
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #20
@@ -6759,23 +6759,23 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #22
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, errnomem: readwrite) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, errnomem: write) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: read, errnomem: write) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { cold nofree noreturn }
+attributes #3 = { mustprogress uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, errnomem: readwrite) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, errnomem: write) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: read, errnomem: write) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { cold nofree noreturn }
+attributes #19 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #20 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #21 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #22 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }

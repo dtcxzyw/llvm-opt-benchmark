@@ -450,23 +450,17 @@ define hidden void @_glfwReleaseErrorHandlerX11() local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define hidden void @_glfwInputErrorX11(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca [1024 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %3) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141584), align 8, !tbaa !99
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
   %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137912), align 8, !tbaa !3
   %7 = call i32 %4(ptr noundef %5, i32 noundef %6, ptr noundef nonnull %3, i32 noundef 1024) #13
   call void (i32, ptr, ...) @_glfwInputError(i32 noundef %0, ptr noundef nonnull @.str, ptr noundef %1, ptr noundef nonnull %3) #13
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
-declare void @_glfwInputError(i32 noundef, ptr noundef, ...) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare void @_glfwInputError(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden i64 @_glfwCreateNativeCursorX11(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -1001,8 +995,8 @@ define hidden range(i32 0, 2) i32 @_glfwInitX11() #0 {
   br i1 %.not16.i, label %getSystemContentScale.exit, label %233
 
 233:                                              ; preds = %230
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr null, ptr %13, align 8, !tbaa !227
   %234 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142040), align 8, !tbaa !208
   %235 = call i32 %234(ptr noundef nonnull %232, ptr noundef nonnull @.str.111, ptr noundef nonnull @.str.112, ptr noundef nonnull %13, ptr noundef nonnull %12) #13
@@ -1028,8 +1022,8 @@ define hidden range(i32 0, 2) i32 @_glfwInitX11() #0 {
   %.2.i = phi float [ %246, %242 ], [ 9.600000e+01, %239 ], [ 9.600000e+01, %233 ]
   %248 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142032), align 8, !tbaa !207
   call void %248(ptr noundef nonnull %232) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %getSystemContentScale.exit
 
 getSystemContentScale.exit:                       ; preds = %216, %230, %247
@@ -1347,7 +1341,7 @@ createEmptyEventPipe.exit:                        ; preds = %251
   br i1 %.not29.i, label %431, label %411
 
 411:                                              ; preds = %407
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %412 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142336), align 8, !tbaa !206
   %413 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
   %414 = call i32 %412(ptr noundef %413, i32 noundef 1, ptr noundef nonnull %9) #13
@@ -1362,7 +1356,7 @@ createEmptyEventPipe.exit:                        ; preds = %251
   br label %419
 
 419:                                              ; preds = %418, %411
-  call void @llvm.lifetime.start.p0(i64 18, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %420 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142304), align 8, !tbaa !202
   %421 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
   %422 = call i32 %420(ptr noundef %421, i32 noundef 256, ptr noundef nonnull %10) #13
@@ -1379,8 +1373,8 @@ createEmptyEventPipe.exit:                        ; preds = %251
   %428 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142328), align 8, !tbaa !205
   %429 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
   %430 = call i32 %428(ptr noundef %429, i32 noundef 256, i32 noundef 2, i64 noundef 16, i64 noundef 16) #13
-  call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %10) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %431
 
 431:                                              ; preds = %427, %407
@@ -1475,8 +1469,8 @@ thread-pre-split40.i:                             ; preds = %431
   br label %473
 
 473:                                              ; preds = %472, %468, %457, %455
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #13
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(1210) getelementptr inbounds nuw (i8, ptr @_glfw, i64 139682), i8 -1, i64 1210, i1 false)
   %474 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142240), align 8, !tbaa !281
   %.not.i.i = icmp eq i32 %474, 0
@@ -1648,7 +1642,7 @@ thread-pre-split40.i:                             ; preds = %431
 543:                                              ; preds = %540, %._crit_edge60.i.i
   %544 = phi i32 [ %.pre99.i.i, %540 ], [ %487, %._crit_edge60.i.i ]
   %545 = phi i32 [ %.pre.i.i, %540 ], [ %484, %._crit_edge60.i.i ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %546 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141624), align 8, !tbaa !152
   %547 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
   %548 = trunc i32 %545 to i8
@@ -2244,9 +2238,9 @@ translateKeySyms.exit.i.i:                        ; preds = %700, %699, %698, %6
 createKeyTables.exit.i:                           ; preds = %708, %543
   %709 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141552), align 8, !tbaa !144
   %710 = call i32 %709(ptr noundef %550) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %711 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
   %712 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
   %713 = call i64 %711(ptr noundef %712, ptr noundef nonnull @.str.166, i32 noundef 0) #13
@@ -2383,15 +2377,15 @@ createKeyTables.exit.i:                           ; preds = %708, %543
   %811 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
   %812 = call i64 %810(ptr noundef %811, ptr noundef nonnull @.str.199, i32 noundef 0) #13
   store i64 %812, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141144), align 8, !tbaa !355
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %813 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137848), align 8, !tbaa !220
   %814 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %11, i64 noundef 32, ptr noundef nonnull @.str.200, i32 noundef %813) #13
   %815 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141696), align 8, !tbaa !161
   %816 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
   %817 = call i64 %815(ptr noundef %816, ptr noundef nonnull %11, i32 noundef 0) #13
   store i64 %817, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141096), align 8, !tbaa !356
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !357
   %818 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137856), align 8, !tbaa !225
   %819 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 140936), align 8, !tbaa !347
@@ -2404,7 +2398,7 @@ createKeyTables.exit.i:                           ; preds = %708, %543
   %822 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141856), align 8, !tbaa !93
   %823 = call ptr %822(ptr noundef nonnull @errorHandler) #13
   store ptr %823, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137904), align 8, !tbaa !94
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !357
   %824 = load ptr, ptr %3, align 8, !tbaa !357
   %825 = load i64, ptr %824, align 8, !tbaa !268
@@ -2440,7 +2434,7 @@ createKeyTables.exit.i:                           ; preds = %708, %543
   br i1 %.not15.i.i, label %848, label %1004
 
 848:                                              ; preds = %832
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !357
   %849 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137856), align 8, !tbaa !225
   %850 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 140928), align 8, !tbaa !346
@@ -2799,16 +2793,16 @@ getAtomIfSupported.exit94.i.i:                    ; preds = %.lr.ph.i90.i.i, %99
   br label %1003
 
 1003:                                             ; preds = %1000, %getAtomIfSupported.exit94.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %1004
 
 1004:                                             ; preds = %1003, %832, %828
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %initExtensions.exit
 
 initExtensions.exit:                              ; preds = %createKeyTables.exit.i, %1004
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %2) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %1005 = getelementptr inbounds nuw i8, ptr %2, i64 72
   store i64 4194304, ptr %1005, align 8, !tbaa !372
   %1006 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141456), align 8, !tbaa !132
@@ -2821,9 +2815,9 @@ initExtensions.exit:                              ; preds = %createKeyTables.exi
   %1013 = getelementptr inbounds %struct.Screen, ptr %1010, i64 %1012, i32 10
   %1014 = load ptr, ptr %1013, align 8, !tbaa !374
   %1015 = call i64 %1006(ptr noundef %1007, i64 noundef %1008, i32 noundef 0, i32 noundef 0, i32 noundef 1, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 2, ptr noundef %1014, i64 noundef 2048, ptr noundef nonnull %2) #13
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %2) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   store i64 %1015, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137872), align 8, !tbaa !375
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %1) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %1, i8 0, i64 1024, i1 false)
   %1016 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142392), align 8, !tbaa !100
   %.not.i.i11 = icmp eq ptr %1016, null
@@ -2896,7 +2890,7 @@ initExtensions.exit:                              ; preds = %createKeyTables.exi
 
 createHiddenCursor.exit:                          ; preds = %initExtensions.exit, %1017, %._crit_edge.i.i13
   %.0.i.i = phi i64 [ 0, %initExtensions.exit ], [ %1027, %._crit_edge.i.i13 ], [ 0, %1017 ]
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %1) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   store i64 %.0.i.i, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137880), align 8, !tbaa !376
   %1057 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141936), align 8, !tbaa !190
   %1058 = call i32 %1057() #13
@@ -3093,161 +3087,161 @@ define hidden void @_glfwTerminateX11() #0 {
   ret void
 }
 
-declare void @_glfwGetCursorPosX11(ptr noundef, ptr noundef, ptr noundef) #3
+declare void @_glfwGetCursorPosX11(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @_glfwSetCursorPosX11(ptr noundef, double noundef, double noundef) #3
+declare void @_glfwSetCursorPosX11(ptr noundef, double noundef, double noundef) #2
 
-declare void @_glfwSetCursorModeX11(ptr noundef, i32 noundef) #3
+declare void @_glfwSetCursorModeX11(ptr noundef, i32 noundef) #2
 
-declare void @_glfwSetRawMouseMotionX11(ptr noundef, i32 noundef) #3
+declare void @_glfwSetRawMouseMotionX11(ptr noundef, i32 noundef) #2
 
-declare i32 @_glfwRawMouseMotionSupportedX11() #3
+declare i32 @_glfwRawMouseMotionSupportedX11() #2
 
-declare i32 @_glfwCreateCursorX11(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #3
+declare i32 @_glfwCreateCursorX11(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #2
 
-declare i32 @_glfwCreateStandardCursorX11(ptr noundef, i32 noundef) #3
+declare i32 @_glfwCreateStandardCursorX11(ptr noundef, i32 noundef) #2
 
-declare void @_glfwDestroyCursorX11(ptr noundef) #3
+declare void @_glfwDestroyCursorX11(ptr noundef) #2
 
-declare void @_glfwSetCursorX11(ptr noundef, ptr noundef) #3
+declare void @_glfwSetCursorX11(ptr noundef, ptr noundef) #2
 
-declare ptr @_glfwGetScancodeNameX11(i32 noundef) #3
+declare ptr @_glfwGetScancodeNameX11(i32 noundef) #2
 
-declare i32 @_glfwGetKeyScancodeX11(i32 noundef) #3
+declare i32 @_glfwGetKeyScancodeX11(i32 noundef) #2
 
-declare void @_glfwSetClipboardStringX11(ptr noundef) #3
+declare void @_glfwSetClipboardStringX11(ptr noundef) #2
 
-declare ptr @_glfwGetClipboardStringX11() #3
+declare ptr @_glfwGetClipboardStringX11() #2
 
-declare i32 @_glfwInitJoysticksLinux() #3
+declare i32 @_glfwInitJoysticksLinux() #2
 
-declare void @_glfwTerminateJoysticksLinux() #3
+declare void @_glfwTerminateJoysticksLinux() #2
 
-declare i32 @_glfwPollJoystickLinux(ptr noundef, i32 noundef) #3
+declare i32 @_glfwPollJoystickLinux(ptr noundef, i32 noundef) #2
 
-declare ptr @_glfwGetMappingNameLinux() #3
+declare ptr @_glfwGetMappingNameLinux() #2
 
-declare void @_glfwUpdateGamepadGUIDLinux(ptr noundef) #3
+declare void @_glfwUpdateGamepadGUIDLinux(ptr noundef) #2
 
-declare void @_glfwFreeMonitorX11(ptr noundef) #3
+declare void @_glfwFreeMonitorX11(ptr noundef) #2
 
-declare void @_glfwGetMonitorPosX11(ptr noundef, ptr noundef, ptr noundef) #3
+declare void @_glfwGetMonitorPosX11(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @_glfwGetMonitorContentScaleX11(ptr noundef, ptr noundef, ptr noundef) #3
+declare void @_glfwGetMonitorContentScaleX11(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @_glfwGetMonitorWorkareaX11(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #3
+declare void @_glfwGetMonitorWorkareaX11(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
-declare ptr @_glfwGetVideoModesX11(ptr noundef, ptr noundef) #3
+declare ptr @_glfwGetVideoModesX11(ptr noundef, ptr noundef) #2
 
-declare i32 @_glfwGetVideoModeX11(ptr noundef, ptr noundef) #3
+declare i32 @_glfwGetVideoModeX11(ptr noundef, ptr noundef) #2
 
-declare i32 @_glfwGetGammaRampX11(ptr noundef, ptr noundef) #3
+declare i32 @_glfwGetGammaRampX11(ptr noundef, ptr noundef) #2
 
-declare void @_glfwSetGammaRampX11(ptr noundef, ptr noundef) #3
+declare void @_glfwSetGammaRampX11(ptr noundef, ptr noundef) #2
 
-declare i32 @_glfwCreateWindowX11(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #3
+declare i32 @_glfwCreateWindowX11(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @_glfwDestroyWindowX11(ptr noundef) #3
+declare void @_glfwDestroyWindowX11(ptr noundef) #2
 
-declare void @_glfwSetWindowTitleX11(ptr noundef, ptr noundef) #3
+declare void @_glfwSetWindowTitleX11(ptr noundef, ptr noundef) #2
 
-declare void @_glfwSetWindowIconX11(ptr noundef, i32 noundef, ptr noundef) #3
+declare void @_glfwSetWindowIconX11(ptr noundef, i32 noundef, ptr noundef) #2
 
-declare void @_glfwGetWindowPosX11(ptr noundef, ptr noundef, ptr noundef) #3
+declare void @_glfwGetWindowPosX11(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @_glfwSetWindowPosX11(ptr noundef, i32 noundef, i32 noundef) #3
+declare void @_glfwSetWindowPosX11(ptr noundef, i32 noundef, i32 noundef) #2
 
-declare void @_glfwGetWindowSizeX11(ptr noundef, ptr noundef, ptr noundef) #3
+declare void @_glfwGetWindowSizeX11(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @_glfwSetWindowSizeX11(ptr noundef, i32 noundef, i32 noundef) #3
+declare void @_glfwSetWindowSizeX11(ptr noundef, i32 noundef, i32 noundef) #2
 
-declare void @_glfwSetWindowSizeLimitsX11(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) #3
+declare void @_glfwSetWindowSizeLimitsX11(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-declare void @_glfwSetWindowAspectRatioX11(ptr noundef, i32 noundef, i32 noundef) #3
+declare void @_glfwSetWindowAspectRatioX11(ptr noundef, i32 noundef, i32 noundef) #2
 
-declare void @_glfwGetFramebufferSizeX11(ptr noundef, ptr noundef, ptr noundef) #3
+declare void @_glfwGetFramebufferSizeX11(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @_glfwGetWindowFrameSizeX11(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #3
+declare void @_glfwGetWindowFrameSizeX11(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @_glfwGetWindowContentScaleX11(ptr noundef, ptr noundef, ptr noundef) #3
+declare void @_glfwGetWindowContentScaleX11(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @_glfwIconifyWindowX11(ptr noundef) #3
+declare void @_glfwIconifyWindowX11(ptr noundef) #2
 
-declare void @_glfwRestoreWindowX11(ptr noundef) #3
+declare void @_glfwRestoreWindowX11(ptr noundef) #2
 
-declare void @_glfwMaximizeWindowX11(ptr noundef) #3
+declare void @_glfwMaximizeWindowX11(ptr noundef) #2
 
-declare void @_glfwShowWindowX11(ptr noundef) #3
+declare void @_glfwShowWindowX11(ptr noundef) #2
 
-declare void @_glfwHideWindowX11(ptr noundef) #3
+declare void @_glfwHideWindowX11(ptr noundef) #2
 
-declare void @_glfwRequestWindowAttentionX11(ptr noundef) #3
+declare void @_glfwRequestWindowAttentionX11(ptr noundef) #2
 
-declare void @_glfwFocusWindowX11(ptr noundef) #3
+declare void @_glfwFocusWindowX11(ptr noundef) #2
 
-declare void @_glfwSetWindowMonitorX11(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) #3
+declare void @_glfwSetWindowMonitorX11(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-declare i32 @_glfwWindowFocusedX11(ptr noundef) #3
+declare i32 @_glfwWindowFocusedX11(ptr noundef) #2
 
-declare i32 @_glfwWindowIconifiedX11(ptr noundef) #3
+declare i32 @_glfwWindowIconifiedX11(ptr noundef) #2
 
-declare i32 @_glfwWindowVisibleX11(ptr noundef) #3
+declare i32 @_glfwWindowVisibleX11(ptr noundef) #2
 
-declare i32 @_glfwWindowMaximizedX11(ptr noundef) #3
+declare i32 @_glfwWindowMaximizedX11(ptr noundef) #2
 
-declare i32 @_glfwWindowHoveredX11(ptr noundef) #3
+declare i32 @_glfwWindowHoveredX11(ptr noundef) #2
 
-declare i32 @_glfwFramebufferTransparentX11(ptr noundef) #3
+declare i32 @_glfwFramebufferTransparentX11(ptr noundef) #2
 
-declare float @_glfwGetWindowOpacityX11(ptr noundef) #3
+declare float @_glfwGetWindowOpacityX11(ptr noundef) #2
 
-declare void @_glfwSetWindowResizableX11(ptr noundef, i32 noundef) #3
+declare void @_glfwSetWindowResizableX11(ptr noundef, i32 noundef) #2
 
-declare void @_glfwSetWindowDecoratedX11(ptr noundef, i32 noundef) #3
+declare void @_glfwSetWindowDecoratedX11(ptr noundef, i32 noundef) #2
 
-declare void @_glfwSetWindowFloatingX11(ptr noundef, i32 noundef) #3
+declare void @_glfwSetWindowFloatingX11(ptr noundef, i32 noundef) #2
 
-declare void @_glfwSetWindowOpacityX11(ptr noundef, float noundef) #3
+declare void @_glfwSetWindowOpacityX11(ptr noundef, float noundef) #2
 
-declare void @_glfwSetWindowMousePassthroughX11(ptr noundef, i32 noundef) #3
+declare void @_glfwSetWindowMousePassthroughX11(ptr noundef, i32 noundef) #2
 
-declare void @_glfwPollEventsX11() #3
+declare void @_glfwPollEventsX11() #2
 
-declare void @_glfwWaitEventsX11() #3
+declare void @_glfwWaitEventsX11() #2
 
-declare void @_glfwWaitEventsTimeoutX11(double noundef) #3
+declare void @_glfwWaitEventsTimeoutX11(double noundef) #2
 
-declare void @_glfwPostEmptyEventX11() #3
+declare void @_glfwPostEmptyEventX11() #2
 
-declare i32 @_glfwGetEGLPlatformX11(ptr noundef) #3
+declare i32 @_glfwGetEGLPlatformX11(ptr noundef) #2
 
-declare ptr @_glfwGetEGLNativeDisplayX11() #3
+declare ptr @_glfwGetEGLNativeDisplayX11() #2
 
-declare ptr @_glfwGetEGLNativeWindowX11(ptr noundef) #3
+declare ptr @_glfwGetEGLNativeWindowX11(ptr noundef) #2
 
-declare void @_glfwGetRequiredInstanceExtensionsX11(ptr noundef) #3
+declare void @_glfwGetRequiredInstanceExtensionsX11(ptr noundef) #2
 
-declare i32 @_glfwGetPhysicalDevicePresentationSupportX11(ptr noundef, ptr noundef, i32 noundef) #3
+declare i32 @_glfwGetPhysicalDevicePresentationSupportX11(ptr noundef, ptr noundef, i32 noundef) #2
 
-declare i32 @_glfwCreateWindowSurfaceX11(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #3
+declare i32 @_glfwCreateWindowSurfaceX11(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare ptr @setlocale(i32 noundef, ptr noundef) local_unnamed_addr #6
+declare ptr @setlocale(i32 noundef, ptr noundef) local_unnamed_addr #5
 
-declare ptr @_glfwPlatformLoadModule(ptr noundef) local_unnamed_addr #3
+declare ptr @_glfwPlatformLoadModule(ptr noundef) local_unnamed_addr #2
 
-declare ptr @_glfwPlatformGetModuleSymbol(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @_glfwPlatformGetModuleSymbol(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @_glfwPlatformFreeModule(ptr noundef) local_unnamed_addr #3
+declare void @_glfwPlatformFreeModule(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #7
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define internal void @inputMethodInstantiateCallback(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
@@ -3266,7 +3260,7 @@ define internal void @inputMethodInstantiateCallback(ptr readnone captures(none)
   br i1 %.not3, label %.thread, label %11
 
 11:                                               ; preds = %7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !117
   %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141608), align 8, !tbaa !150
   %13 = call ptr (ptr, ...) %12(ptr noundef nonnull %10, ptr noundef nonnull @.str.337, ptr noundef nonnull %4, ptr noundef null) #13
@@ -3303,7 +3297,7 @@ hasUsableInputMethodStyle.exit.thread9:           ; preds = %18, %.preheader.i
   br label %hasUsableInputMethodStyle.exit.thread
 
 hasUsableInputMethodStyle.exit.thread:            ; preds = %11, %hasUsableInputMethodStyle.exit.thread9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141408), align 8, !tbaa !126
   %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137896), align 8, !tbaa !379
   %27 = call i32 %25(ptr noundef %26) #13
@@ -3313,13 +3307,13 @@ hasUsableInputMethodStyle.exit.thread:            ; preds = %11, %hasUsableInput
 28:                                               ; preds = %19
   %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141552), align 8, !tbaa !144
   %30 = call i32 %29(ptr noundef nonnull %14) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.pr = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137896), align 8, !tbaa !379
   %.not5 = icmp eq ptr %.pr, null
   br i1 %.not5, label %.thread, label %31
 
 31:                                               ; preds = %28
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @inputMethodDestroyCallback, ptr %32, align 8, !tbaa !383
   store ptr null, ptr %5, align 8, !tbaa !385
@@ -3330,7 +3324,7 @@ hasUsableInputMethodStyle.exit.thread:            ; preds = %11, %hasUsableInput
   br i1 %.not614, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %31
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread
 
 .lr.ph:                                           ; preds = %31, %.lr.ph
@@ -3344,66 +3338,72 @@ hasUsableInputMethodStyle.exit.thread:            ; preds = %11, %hasUsableInput
   ret void
 }
 
-declare void @_glfwPollMonitorsX11() local_unnamed_addr #3
+declare void @_glfwPollMonitorsX11() local_unnamed_addr #2
 
-declare void @_glfwPushSelectionToManagerX11() local_unnamed_addr #3
+declare void @_glfwPushSelectionToManagerX11() local_unnamed_addr #2
 
-declare void @_glfw_free(ptr noundef) local_unnamed_addr #3
+declare void @_glfw_free(ptr noundef) local_unnamed_addr #2
 
-declare void @_glfwTerminateOSMesa() local_unnamed_addr #3
+declare void @_glfwTerminateOSMesa() local_unnamed_addr #2
 
-declare void @_glfwTerminateEGL() local_unnamed_addr #3
+declare void @_glfwTerminateEGL() local_unnamed_addr #2
 
-declare void @_glfwTerminateGLX() local_unnamed_addr #3
+declare void @_glfwTerminateGLX() local_unnamed_addr #2
 
-declare i32 @close(i32 noundef) local_unnamed_addr #3
+declare i32 @close(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare double @strtod(ptr noundef readonly, ptr noundef captures(none)) local_unnamed_addr #8
+declare double @strtod(ptr noundef readonly, ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind
-declare i32 @pipe(ptr noundef) local_unnamed_addr #6
+declare i32 @pipe(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare ptr @strerror(i32 noundef) local_unnamed_addr #6
+declare ptr @strerror(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #9
+declare ptr @__errno_location() local_unnamed_addr #8
 
-declare i32 @fcntl(i32 noundef, i32 noundef, ...) local_unnamed_addr #3
+declare i32 @fcntl(i32 noundef, i32 noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #10
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #5
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
-declare i64 @_glfwGetWindowPropertyX11(i64 noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
+declare i64 @_glfwGetWindowPropertyX11(i64 noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define internal void @inputMethodDestroyCallback(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #12 {
+define internal void @inputMethodDestroyCallback(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #11 {
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137896), align 8, !tbaa !379
   ret void
 }
 
-declare void @_glfwCreateInputContextX11(ptr noundef) local_unnamed_addr #3
+declare void @_glfwCreateInputContextX11(ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree nounwind memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree nounwind memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #13 = { nounwind }
 attributes #14 = { nounwind willreturn memory(read) }
 attributes #15 = { nounwind willreturn memory(none) }

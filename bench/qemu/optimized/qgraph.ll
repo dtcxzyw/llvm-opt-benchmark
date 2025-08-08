@@ -61,12 +61,6 @@ define dso_local zeroext i1 @qos_graph_has_node(ptr noundef %0) local_unnamed_ad
   ret i1 %4
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @qos_graph_get_node_type(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @node_table, align 8
@@ -132,7 +126,7 @@ search_list_edges.exit:                           ; preds = %7, %8, %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local i32 @qos_graph_edge_get_type(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
+define dso_local i32 @qos_graph_edge_get_type(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %2
 
@@ -146,7 +140,7 @@ define dso_local i32 @qos_graph_edge_get_type(ptr noundef readonly captures(addr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local ptr @qos_graph_edge_get_dest(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
+define dso_local ptr @qos_graph_edge_get_dest(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -161,7 +155,7 @@ define dso_local ptr @qos_graph_edge_get_dest(ptr noundef readonly captures(addr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local ptr @qos_graph_edge_get_arg(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
+define dso_local ptr @qos_graph_edge_get_arg(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -176,7 +170,7 @@ define dso_local ptr @qos_graph_edge_get_arg(ptr noundef readonly captures(addre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local ptr @qos_graph_edge_get_after_cmd_line(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
+define dso_local ptr @qos_graph_edge_get_after_cmd_line(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -191,7 +185,7 @@ define dso_local ptr @qos_graph_edge_get_after_cmd_line(ptr noundef readonly cap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local ptr @qos_graph_edge_get_before_cmd_line(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
+define dso_local ptr @qos_graph_edge_get_before_cmd_line(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -206,7 +200,7 @@ define dso_local ptr @qos_graph_edge_get_before_cmd_line(ptr noundef readonly ca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local ptr @qos_graph_edge_get_extra_device_opts(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
+define dso_local ptr @qos_graph_edge_get_extra_device_opts(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -221,7 +215,7 @@ define dso_local ptr @qos_graph_edge_get_extra_device_opts(ptr noundef readonly 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local ptr @qos_graph_edge_get_name(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
+define dso_local ptr @qos_graph_edge_get_name(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -553,7 +547,7 @@ qos_traverse_graph.exit:                          ; preds = %thread-pre-split.ba
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal void @qos_print_cb(ptr readnone captures(none) %0, i32 %1) #3 {
+define internal void @qos_print_cb(ptr readnone captures(none) %0, i32 %1) #2 {
   ret void
 }
 
@@ -601,11 +595,11 @@ create_node.exit:                                 ; preds = %2
   ret void
 }
 
-declare ptr @g_hash_table_new_full(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @g_hash_table_new_full(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @g_str_hash(ptr noundef) #4
+declare i32 @g_str_hash(ptr noundef) #3
 
-declare i32 @g_str_equal(ptr noundef, ptr noundef) #4
+declare i32 @g_str_equal(ptr noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @destroy_string(ptr noundef %0) #0 {
@@ -690,7 +684,7 @@ define dso_local void @qos_graph_destroy() local_unnamed_addr #0 {
   ret void
 }
 
-declare void @g_hash_table_destroy(ptr noundef) local_unnamed_addr #4
+declare void @g_hash_table_destroy(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qos_node_destroy(ptr noundef %0) local_unnamed_addr #0 {
@@ -699,7 +693,7 @@ define dso_local void @qos_node_destroy(ptr noundef %0) local_unnamed_addr #0 {
   ret void
 }
 
-declare i32 @g_hash_table_remove(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @g_hash_table_remove(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qos_edge_destroy(ptr noundef %0) local_unnamed_addr #0 {
@@ -712,7 +706,7 @@ define dso_local void @qos_edge_destroy(ptr noundef %0) local_unnamed_addr #0 {
 define dso_local void @qos_add_test(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca %struct.QOSGraphTestOptions, align 8
   %6 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.1, ptr noundef %1, ptr noundef %0) #12
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, i8 0, i64 72, i1 false)
   %.not = icmp eq ptr %3, null
   %spec.store.select = select i1 %.not, ptr %5, ptr %3
@@ -776,17 +770,17 @@ create_node.exit:                                 ; preds = %4
   store i8 1, ptr %11, align 4
   call fastcc void @add_edge(ptr noundef %1, ptr noundef %6, i32 noundef 2, ptr noundef nonnull %spec.store.select)
   call void @g_free(ptr noundef %6) #12
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
-declare noalias ptr @g_strdup_printf(ptr noundef, ...) local_unnamed_addr #4
+declare noalias ptr @g_strdup_printf(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: noreturn nounwind
-declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #6
+declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @add_edge(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 3) %2, ptr noundef readonly captures(address_is_null) %3) unnamed_addr #0 {
@@ -884,7 +878,7 @@ define internal fastcc void @add_edge(ptr noundef %0, ptr noundef %1, i32 nounde
   ret void
 }
 
-declare void @g_free(ptr noundef) #4
+declare void @g_free(ptr noundef) #3
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qos_node_create_machine(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -1046,12 +1040,12 @@ build_driver_cmd_line.exit:                       ; preds = %create_node.exit, %
   ret void
 }
 
-declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #4
+declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qos_node_contains(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ...) local_unnamed_addr #0 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = icmp eq ptr %2, null
   br i1 %5, label %6, label %7
 
@@ -1098,15 +1092,15 @@ define dso_local void @qos_node_contains(ptr noundef %0, ptr noundef %1, ptr nou
   br label %25
 
 25:                                               ; preds = %24, %6
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #7
+declare void @llvm.va_start.p0(ptr) #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #7
+declare void @llvm.va_end.p0(ptr) #6
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qos_node_produces(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -1240,11 +1234,11 @@ define dso_local void @qos_graph_node_set_availability(ptr noundef %0, i1 nounde
   ret void
 }
 
-declare ptr @g_hash_table_get_keys(ptr noundef) local_unnamed_addr #4
+declare ptr @g_hash_table_get_keys(ptr noundef) local_unnamed_addr #3
 
-declare ptr @g_hash_table_lookup(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @g_hash_table_lookup(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @g_strcmp0(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @g_strcmp0(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @qos_graph_node_set_availability_explicit(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #0 {
@@ -1289,7 +1283,7 @@ define internal fastcc void @qos_graph_node_set_availability_explicit(ptr nounde
   ret void
 }
 
-declare void @g_list_free(ptr noundef) local_unnamed_addr #4
+declare void @g_list_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @qos_machine_new(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -1311,7 +1305,7 @@ define dso_local ptr @qos_machine_new(ptr noundef readonly captures(none) %0, pt
 }
 
 ; Function Attrs: noreturn
-declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
+declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @qos_driver_new(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
@@ -1367,7 +1361,7 @@ define dso_local void @qos_object_queue_destroy(ptr noundef %0) local_unnamed_ad
   ret void
 }
 
-declare void @g_test_queue_destroy(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @g_test_queue_destroy(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qos_object_start_hw(ptr noundef %0) local_unnamed_addr #0 {
@@ -1416,10 +1410,10 @@ define dso_local noundef nonnull ptr @qos_get_machine_type(ptr noundef readonly 
   ret ptr %7
 }
 
-declare i32 @__fprintf_chk(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #4
+declare i32 @__fprintf_chk(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: cold nofree noreturn nounwind
-declare void @abort() local_unnamed_addr #9
+declare void @abort() local_unnamed_addr #8
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qos_delete_cmd_line(ptr noundef %0) local_unnamed_addr #0 {
@@ -1530,32 +1524,38 @@ define dso_local void @qos_dump_graph() local_unnamed_addr #0 {
   ret void
 }
 
-declare i32 @__printf_chk(i32 noundef, ptr noundef, ...) local_unnamed_addr #4
+declare i32 @__printf_chk(i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
-declare void @g_printerr(ptr noundef, ...) local_unnamed_addr #4
+declare void @g_printerr(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #10
+declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #9
 
-declare i32 @g_hash_table_insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @g_hash_table_insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare noalias ptr @g_strconcat(ptr noundef, ...) local_unnamed_addr #4
+declare noalias ptr @g_strconcat(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: allocsize(1)
-declare ptr @g_memdup2(ptr noundef, i64 noundef) local_unnamed_addr #11
+declare ptr @g_memdup2(ptr noundef, i64 noundef) local_unnamed_addr #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 attributes #0 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #8 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
-attributes #9 = { cold nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
-attributes #10 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
-attributes #11 = { allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #7 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #8 = { cold nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #9 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #10 = { allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { nounwind }
 attributes #13 = { noreturn nounwind }
 attributes #14 = { nounwind allocsize(0) }

@@ -2669,7 +2669,7 @@ _ZN13GrowableArrayI18ResolvedFieldEntryEC2Ev.exit: ; preds = %.lr.ph.i.i.i
   br i1 %.not40, label %101, label %92
 
 92:                                               ; preds = %90
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %93 = load ptr, ptr %11, align 8
   %94 = load i32, ptr %93, align 8
   %95 = icmp sgt i32 %94, 0
@@ -2690,7 +2690,7 @@ _ZN13GrowableArrayI18ResolvedFieldEntryEC2Ev.exit: ; preds = %.lr.ph.i.i.i
   br i1 %100, label %.lr.ph.i, label %_ZN8Rewriter17restore_bytecodesEP6Thread.exit, !llvm.loop !10
 
 _ZN8Rewriter17restore_bytecodesEP6Thread.exit:    ; preds = %.lr.ph.i, %92
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.loopexit
 
 101:                                              ; preds = %90
@@ -2759,7 +2759,7 @@ _ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.
   br i1 %.not42, label %146, label %137
 
 137:                                              ; preds = %134
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %138 = load ptr, ptr %11, align 8
   %139 = load i32, ptr %138, align 8
   %140 = icmp sgt i32 %139, 0
@@ -2780,7 +2780,7 @@ _ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.
   br i1 %145, label %.lr.ph.i34, label %.thread, !llvm.loop !10
 
 .thread:                                          ; preds = %.lr.ph.i34, %137
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #10
   br label %.loopexit
 
@@ -3879,10 +3879,10 @@ declare i32 @llvm.ctpop.i32(i32) #7
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

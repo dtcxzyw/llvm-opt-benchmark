@@ -16,10 +16,10 @@ define range(i32 -1, -2147483648) i32 @u_scanf_parse_77(ptr noundef %0, ptr noun
   %5 = alloca i32, align 4
   %6 = alloca %union.ufmt_args, align 8
   %7 = alloca %struct.u_scanf_spec, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %5, align 4, !tbaa !3
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 4
@@ -359,24 +359,18 @@ _ZL18u_scanf_parse_specPKDsP12u_scanf_spec.exit:  ; preds = %.loopexit125.i, %86
 
 .loopexit:                                        ; preds = %134, %111, %.critedge
   %.126 = phi i32 [ %.025.ph, %.critedge ], [ %.025.ph, %111 ], [ -1, %134 ]
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.126
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare zeroext i16 @u_fgetc_77(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i16 @u_fgetc_77(ptr noundef) local_unnamed_addr #2
+declare signext i8 @u_feof_77(ptr noundef) local_unnamed_addr #1
 
-declare signext i8 @u_feof_77(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare noundef i32 @_Z18ufmt_digitvalue_77Ds(i16 noundef zeroext) local_unnamed_addr #2
+declare noundef i32 @_Z18ufmt_digitvalue_77Ds(i16 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef i32 @_ZL30u_scanf_simple_percent_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) initializes((0, 4)) %5) #0 {
@@ -417,15 +411,15 @@ define internal noundef i32 @_ZL26u_scanf_scientific_handlerP5UFILEP17u_scanf_sp
   %9 = alloca i32, align 4
   %10 = alloca [8 x i16], align 16
   %11 = alloca [8 x i16], align 16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #6
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %13 = load i16, ptr %12, align 2, !tbaa !16
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %14
 
 14:                                               ; preds = %.critedge2.i, %6
@@ -458,7 +452,7 @@ define internal noundef i32 @_ZL26u_scanf_scientific_handlerP5UFILEP17u_scanf_sp
   br label %_ZL23u_scanf_skip_leading_wsP5UFILEDs.exit
 
 _ZL23u_scanf_skip_leading_wsP5UFILEDs.exit:       ; preds = %14, %.critedge.i
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_Z26ufile_fill_uchar_buffer_77P5UFILE(ptr noundef %0)
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -548,10 +542,10 @@ _ZL23u_scanf_skip_leading_wsP5UFILEDs.exit:       ; preds = %14, %.critedge.i
 
 76:                                               ; preds = %_ZL23u_scanf_skip_leading_wsP5UFILEDs.exit, %69
   %.039 = phi i32 [ %75, %69 ], [ 0, %_ZL23u_scanf_skip_leading_wsP5UFILEDs.exit ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.039
 }
 
@@ -562,17 +556,17 @@ define internal noundef i32 @_ZL22u_scanf_scidbl_handlerP5UFILEP17u_scanf_spec_i
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 0, ptr %10, align 4, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 0, ptr %11, align 4, !tbaa !36
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %13 = load i16, ptr %12, align 2, !tbaa !16
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %14
 
 14:                                               ; preds = %.critedge2.i, %6
@@ -605,7 +599,7 @@ define internal noundef i32 @_ZL22u_scanf_scidbl_handlerP5UFILEP17u_scanf_spec_i
   br label %_ZL23u_scanf_skip_leading_wsP5UFILEDs.exit
 
 _ZL23u_scanf_skip_leading_wsP5UFILEDs.exit:       ; preds = %14, %.critedge.i
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_Z26ufile_fill_uchar_buffer_77P5UFILE(ptr noundef %0)
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -685,10 +679,10 @@ _ZL23u_scanf_skip_leading_wsP5UFILEDs.exit:       ; preds = %14, %.critedge.i
 
 72:                                               ; preds = %_ZL23u_scanf_skip_leading_wsP5UFILEDs.exit, %69
   %.043 = phi i32 [ %71, %69 ], [ 0, %_ZL23u_scanf_skip_leading_wsP5UFILEDs.exit ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.043
 }
 
@@ -697,13 +691,13 @@ define internal noundef i32 @_ZL23u_scanf_percent_handlerP5UFILEP17u_scanf_spec_
   %7 = alloca i16, align 2
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4, !tbaa !36
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %11 = load i16, ptr %10, align 2, !tbaa !16
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %.critedge2.i
 
 .critedge2.i:                                     ; preds = %.critedge2.i.backedge, %6
@@ -734,7 +728,7 @@ define internal noundef i32 @_ZL23u_scanf_percent_handlerP5UFILEP17u_scanf_spec_
   br label %_ZL23u_scanf_skip_leading_wsP5UFILEDs.exit
 
 _ZL23u_scanf_skip_leading_wsP5UFILEDs.exit:       ; preds = %.critedge2.i, %.critedge.i
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_Z26ufile_fill_uchar_buffer_77P5UFILE(ptr noundef %0)
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -780,8 +774,8 @@ _ZL23u_scanf_skip_leading_wsP5UFILEDs.exit:       ; preds = %.critedge2.i, %.cri
 
 49:                                               ; preds = %_ZL23u_scanf_skip_leading_wsP5UFILEDs.exit, %43
   %.0 = phi i32 [ %44, %43 ], [ 0, %_ZL23u_scanf_skip_leading_wsP5UFILEDs.exit ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
 
@@ -790,7 +784,7 @@ define internal noundef i32 @_ZL23u_scanf_ustring_handlerP5UFILEP17u_scanf_spec_
   %7 = alloca i16, align 2
   %8 = alloca i16, align 2
   %9 = load ptr, ptr %2, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 13
   %11 = load i8, ptr %10, align 1, !tbaa !17
   %.not = icmp eq i8 %11, 0
@@ -799,7 +793,7 @@ define internal noundef i32 @_ZL23u_scanf_ustring_handlerP5UFILEP17u_scanf_spec_
 12:                                               ; preds = %6
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %14 = load i16, ptr %13, align 2, !tbaa !16
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %15
 
 15:                                               ; preds = %.critedge2.i, %12
@@ -832,7 +826,7 @@ define internal noundef i32 @_ZL23u_scanf_ustring_handlerP5UFILEP17u_scanf_spec_
   br label %_ZL23u_scanf_skip_leading_wsP5UFILEDs.exit
 
 _ZL23u_scanf_skip_leading_wsP5UFILEDs.exit:       ; preds = %15, %.critedge.i
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %27
 
 27:                                               ; preds = %_ZL23u_scanf_skip_leading_wsP5UFILEDs.exit, %6
@@ -937,7 +931,7 @@ _ZL23u_scanf_skip_leading_wsP5UFILEDs.exit:       ; preds = %15, %.critedge.i
   %71 = zext i1 %.not41 to i32
   store i32 %71, ptr %5, align 4, !tbaa !3
   %72 = add nuw nsw i32 %.030.lcssa, %.029
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %72
 }
 
@@ -946,13 +940,13 @@ define internal noundef i32 @_ZL24u_scanf_spellout_handlerP5UFILEP17u_scanf_spec
   %7 = alloca i16, align 2
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4, !tbaa !36
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %11 = load i16, ptr %10, align 2, !tbaa !16
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %12
 
 12:                                               ; preds = %.critedge2.i, %6
@@ -985,7 +979,7 @@ define internal noundef i32 @_ZL24u_scanf_spellout_handlerP5UFILEP17u_scanf_spec
   br label %_ZL23u_scanf_skip_leading_wsP5UFILEDs.exit
 
 _ZL23u_scanf_skip_leading_wsP5UFILEDs.exit:       ; preds = %12, %.critedge.i
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_Z26ufile_fill_uchar_buffer_77P5UFILE(ptr noundef %0)
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1031,8 +1025,8 @@ _ZL23u_scanf_skip_leading_wsP5UFILEDs.exit:       ; preds = %12, %.critedge.i
 
 51:                                               ; preds = %_ZL23u_scanf_skip_leading_wsP5UFILEDs.exit, %44
   %.0 = phi i32 [ %50, %44 ], [ 0, %_ZL23u_scanf_skip_leading_wsP5UFILEDs.exit ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
 
@@ -1040,11 +1034,11 @@ _ZL23u_scanf_skip_leading_wsP5UFILEDs.exit:       ; preds = %12, %.critedge.i
 define internal noundef i32 @_ZL19u_scanf_hex_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) %5) #0 {
   %7 = alloca i16, align 2
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = load ptr, ptr %2, align 8, !tbaa !33
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %11 = load i16, ptr %10, align 2, !tbaa !16
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %12
 
 12:                                               ; preds = %.critedge2.i, %6
@@ -1077,7 +1071,7 @@ define internal noundef i32 @_ZL19u_scanf_hex_handlerP5UFILEP17u_scanf_spec_info
   br label %_ZL23u_scanf_skip_leading_wsP5UFILEDs.exit
 
 _ZL23u_scanf_skip_leading_wsP5UFILEDs.exit:       ; preds = %12, %.critedge.i
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_Z26ufile_fill_uchar_buffer_77P5UFILE(ptr noundef %0)
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1162,7 +1156,7 @@ _ZL23u_scanf_skip_leading_wsP5UFILEDs.exit:       ; preds = %12, %.critedge.i
   %66 = zext i1 %.not28 to i32
   store i32 %66, ptr %5, align 4, !tbaa !3
   %67 = add nsw i32 %48, %.0.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %67
 }
 
@@ -1170,9 +1164,9 @@ _ZL23u_scanf_skip_leading_wsP5UFILEDs.exit:       ; preds = %12, %.critedge.i
 define internal noundef range(i32 -2147483647, -2147483648) i32 @_ZL23u_scanf_scanset_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef writeonly captures(none) initializes((0, 4)) %4, ptr noundef writeonly captures(none) %5) #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = load ptr, ptr %2, align 8, !tbaa !33
   %10 = tail call ptr @uset_open_77(i32 noundef 0, i32 noundef -1)
   %11 = getelementptr inbounds i8, ptr %3, i64 -2
@@ -1304,8 +1298,8 @@ define internal noundef range(i32 -2147483647, -2147483648) i32 @_ZL23u_scanf_sc
 
 58:                                               ; preds = %.critedge.thread65.thread, %.thread, %.critedge.thread65, %53
   %.048 = phi i32 [ %57, %53 ], [ -1, %.critedge.thread65 ], [ -1, %.thread ], [ -1, %.critedge.thread65.thread ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.048
 }
 
@@ -1332,13 +1326,13 @@ define internal noundef i32 @_ZL23u_scanf_integer_handlerP5UFILEP17u_scanf_spec_
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = load ptr, ptr %2, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4, !tbaa !36
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %12 = load i16, ptr %11, align 2, !tbaa !16
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %13
 
 13:                                               ; preds = %.critedge2.i, %6
@@ -1371,7 +1365,7 @@ define internal noundef i32 @_ZL23u_scanf_integer_handlerP5UFILEP17u_scanf_spec_
   br label %_ZL23u_scanf_skip_leading_wsP5UFILEDs.exit
 
 _ZL23u_scanf_skip_leading_wsP5UFILEDs.exit:       ; preds = %13, %.critedge.i
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_Z26ufile_fill_uchar_buffer_77P5UFILE(ptr noundef %0)
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1465,8 +1459,8 @@ _ZL23u_scanf_skip_leading_wsP5UFILEDs.exit:       ; preds = %13, %.critedge.i
 
 73:                                               ; preds = %38, %_ZL23u_scanf_skip_leading_wsP5UFILEDs.exit, %64
   %.0 = phi i32 [ %72, %64 ], [ 0, %_ZL23u_scanf_skip_leading_wsP5UFILEDs.exit ], [ 0, %38 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
 
@@ -1475,13 +1469,13 @@ define internal noundef i32 @_ZL22u_scanf_double_handlerP5UFILEP17u_scanf_spec_i
   %7 = alloca i16, align 2
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4, !tbaa !36
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %11 = load i16, ptr %10, align 2, !tbaa !16
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %12
 
 12:                                               ; preds = %.critedge2.i, %6
@@ -1514,7 +1508,7 @@ define internal noundef i32 @_ZL22u_scanf_double_handlerP5UFILEP17u_scanf_spec_i
   br label %_ZL23u_scanf_skip_leading_wsP5UFILEDs.exit
 
 _ZL23u_scanf_skip_leading_wsP5UFILEDs.exit:       ; preds = %12, %.critedge.i
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_Z26ufile_fill_uchar_buffer_77P5UFILE(ptr noundef %0)
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1585,13 +1579,13 @@ _ZL23u_scanf_skip_leading_wsP5UFILEDs.exit:       ; preds = %12, %.critedge.i
 
 64:                                               ; preds = %_ZL23u_scanf_skip_leading_wsP5UFILEDs.exit, %57
   %.0 = phi i32 [ %63, %57 ], [ 0, %_ZL23u_scanf_skip_leading_wsP5UFILEDs.exit ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @_ZL21u_scanf_count_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) initializes((0, 4)) %5) #3 {
+define internal noundef i32 @_ZL21u_scanf_count_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) initializes((0, 4)) %5) #2 {
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i8, ptr %7, align 4, !tbaa !19
   %.not = icmp eq i8 %8, 0
@@ -1637,11 +1631,11 @@ define internal noundef i32 @_ZL21u_scanf_count_handlerP5UFILEP17u_scanf_spec_in
 define internal noundef i32 @_ZL21u_scanf_octal_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) %5) #0 {
   %7 = alloca i16, align 2
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = load ptr, ptr %2, align 8, !tbaa !33
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %11 = load i16, ptr %10, align 2, !tbaa !16
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %12
 
 12:                                               ; preds = %.critedge2.i, %6
@@ -1674,7 +1668,7 @@ define internal noundef i32 @_ZL21u_scanf_octal_handlerP5UFILEP17u_scanf_spec_in
   br label %_ZL23u_scanf_skip_leading_wsP5UFILEDs.exit
 
 _ZL23u_scanf_skip_leading_wsP5UFILEDs.exit:       ; preds = %12, %.critedge.i
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_Z26ufile_fill_uchar_buffer_77P5UFILE(ptr noundef %0)
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1737,7 +1731,7 @@ _ZL23u_scanf_skip_leading_wsP5UFILEDs.exit:       ; preds = %12, %.critedge.i
   %55 = zext i1 %.not23 to i32
   store i32 %55, ptr %5, align 4, !tbaa !3
   %56 = add nsw i32 %37, %.0.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %56
 }
 
@@ -1745,11 +1739,11 @@ _ZL23u_scanf_skip_leading_wsP5UFILEDs.exit:       ; preds = %12, %.critedge.i
 define internal noundef i32 @_ZL23u_scanf_pointer_handlerP5UFILEP17u_scanf_spec_infoP9ufmt_argsPKDsPiS7_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) %5) #0 {
   %7 = alloca i16, align 2
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = load ptr, ptr %2, align 8, !tbaa !33
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %11 = load i16, ptr %10, align 2, !tbaa !16
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %12
 
 12:                                               ; preds = %.critedge2.i, %6
@@ -1782,7 +1776,7 @@ define internal noundef i32 @_ZL23u_scanf_pointer_handlerP5UFILEP17u_scanf_spec_
   br label %_ZL23u_scanf_skip_leading_wsP5UFILEDs.exit
 
 _ZL23u_scanf_skip_leading_wsP5UFILEDs.exit:       ; preds = %12, %.critedge.i
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_Z26ufile_fill_uchar_buffer_77P5UFILE(ptr noundef %0)
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1832,7 +1826,7 @@ _ZL23u_scanf_skip_leading_wsP5UFILEDs.exit:       ; preds = %12, %.critedge.i
   %49 = zext i1 %.not17 to i32
   store i32 %49, ptr %5, align 4, !tbaa !3
   %50 = add nsw i32 %45, %.0.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %50
 }
 
@@ -1843,13 +1837,13 @@ define internal noundef i32 @_ZL22u_scanf_string_handlerP5UFILEP17u_scanf_spec_i
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
   %11 = alloca i16, align 2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %12 = load ptr, ptr %2, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %12, ptr %9, align 8, !tbaa !61
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 0, ptr %10, align 4, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %11) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 13
   %14 = load i8, ptr %13, align 1, !tbaa !17
   %.not = icmp eq i8 %14, 0
@@ -1858,7 +1852,7 @@ define internal noundef i32 @_ZL22u_scanf_string_handlerP5UFILEP17u_scanf_spec_i
 15:                                               ; preds = %6
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %17 = load i16, ptr %16, align 2, !tbaa !16
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %18
 
 18:                                               ; preds = %.critedge2.i, %15
@@ -1891,7 +1885,7 @@ define internal noundef i32 @_ZL22u_scanf_string_handlerP5UFILEP17u_scanf_spec_i
   br label %_ZL23u_scanf_skip_leading_wsP5UFILEDs.exit
 
 _ZL23u_scanf_skip_leading_wsP5UFILEDs.exit:       ; preds = %18, %.critedge.i
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %30
 
 30:                                               ; preds = %_ZL23u_scanf_skip_leading_wsP5UFILEDs.exit, %6
@@ -2046,10 +2040,10 @@ _ZL23u_scanf_skip_leading_wsP5UFILEDs.exit:       ; preds = %18, %.critedge.i
 
 98:                                               ; preds = %30, %94, %69
   %.039 = phi i32 [ -1, %69 ], [ %97, %94 ], [ -1, %30 ]
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %11) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.039
 }
 
@@ -2059,26 +2053,26 @@ define internal noundef i32 @_ZL24u_scanf_uinteger_handlerP5UFILEP17u_scanf_spec
   ret i32 %7
 }
 
-declare void @_Z26ufile_fill_uchar_buffer_77P5UFILE(ptr noundef) local_unnamed_addr #2
+declare void @_Z26ufile_fill_uchar_buffer_77P5UFILE(ptr noundef) local_unnamed_addr #1
 
-declare ptr @u_locbund_getNumberFormat_77(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @u_locbund_getNumberFormat_77(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @unum_getSymbol_77(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @unum_getSymbol_77(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @u_strToLower_77(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @u_strToLower_77(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @u_strToUpper_77(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @u_strToUpper_77(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @unum_setSymbol_77(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @unum_setSymbol_77(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc noundef i32 @_ZL34u_scanf_skip_leading_positive_signP5UFILEPPvP10UErrorCode(ptr noundef %0, ptr noundef %1, i32 %.0.val) unnamed_addr #0 {
   %3 = alloca i16, align 2
   %4 = alloca [8 x i16], align 16
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #6
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4, !tbaa !36
   %6 = icmp sgt i32 %.0.val, 0
   br i1 %6, label %28, label %7
@@ -2143,49 +2137,55 @@ define internal fastcc noundef i32 @_ZL34u_scanf_skip_leading_positive_signP5UFI
 
 28:                                               ; preds = %7, %.critedge.thread, %.critedge, %2
   %.0 = phi i32 [ %.14, %.critedge.thread ], [ %.1.lcssa, %.critedge ], [ 0, %7 ], [ 0, %2 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #6
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
-declare double @unum_parseDouble_77(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare double @unum_parseDouble_77(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare signext i8 @ufile_getch_77(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare signext i8 @ufile_getch_77(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare signext i8 @u_isWhitespace_77(i32 noundef) local_unnamed_addr #2
+declare signext i8 @u_isWhitespace_77(i32 noundef) local_unnamed_addr #1
 
-declare i32 @u_fungetc_77(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @u_fungetc_77(i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare noundef i64 @_Z13ufmt_uto64_77PKDsPia(ptr noundef, ptr noundef, i8 noundef signext) local_unnamed_addr #2
+declare noundef i64 @_Z13ufmt_uto64_77PKDsPia(ptr noundef, ptr noundef, i8 noundef signext) local_unnamed_addr #1
 
-declare ptr @uset_open_77(i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @uset_open_77(i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @uset_applyPattern_77(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @uset_applyPattern_77(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare signext i8 @ufile_getch32_77(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare signext i8 @ufile_getch32_77(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare signext i8 @uset_contains_77(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare signext i8 @uset_contains_77(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @uset_close_77(ptr noundef) local_unnamed_addr #2
+declare void @uset_close_77(ptr noundef) local_unnamed_addr #1
 
-declare ptr @unum_clone_77(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @unum_clone_77(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @unum_setAttribute_77(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @unum_setAttribute_77(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare i64 @unum_parseInt64_77(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i64 @unum_parseInt64_77(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @unum_close_77(ptr noundef) local_unnamed_addr #2
+declare void @unum_close_77(ptr noundef) local_unnamed_addr #1
 
-declare noundef ptr @_Z12ufmt_utop_77PKDsPi(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare noundef ptr @_Z12ufmt_utop_77PKDsPi(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @u_getDefaultConverter_77(ptr noundef) local_unnamed_addr #2
+declare ptr @u_getDefaultConverter_77(ptr noundef) local_unnamed_addr #1
 
-declare signext i8 @ucnv_getMaxCharSize_77(ptr noundef) local_unnamed_addr #2
+declare signext i8 @ucnv_getMaxCharSize_77(ptr noundef) local_unnamed_addr #1
 
-declare void @ucnv_fromUnicode_77(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i8 noundef signext, ptr noundef) local_unnamed_addr #2
+declare void @ucnv_fromUnicode_77(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i8 noundef signext, ptr noundef) local_unnamed_addr #1
 
-declare void @u_releaseDefaultConverter_77(ptr noundef) local_unnamed_addr #2
+declare void @u_releaseDefaultConverter_77(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
@@ -2197,12 +2197,11 @@ declare i32 @llvm.smin.i32(i32, i32) #5
 declare i32 @llvm.smax.i32(i32, i32) #5
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

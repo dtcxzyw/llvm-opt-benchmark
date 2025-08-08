@@ -437,12 +437,12 @@ define void @_ZN8QuantLib30GaussianQuadMultidimIntegratorC2Emmd(ptr noundef nonn
 entry:
   %ref.tmp.i.i = alloca %"class.QuantLib::GaussHermitePolynomial", align 8
   %ref.tmp.i = alloca %"class.QuantLib::GaussHermitePolynomial", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   call void @_ZN8QuantLib22GaussHermitePolynomialC1Ed(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, double noundef %mu)
   call void @_ZN8QuantLib18GaussianQuadratureC2EmRKNS_28GaussianOrthogonalPolynomialE(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %quadOrder, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %integralV_ = getelementptr inbounds nuw i8, ptr %this, i64 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i)
   invoke void @_ZN8QuantLib22GaussHermitePolynomialC1Ed(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, double noundef %mu)
           to label %.noexc unwind label %lpad
 
@@ -451,10 +451,10 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %.noexc
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i)
   %integrationEntries_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %integrationEntries_, i8 0, i64 24, i1 false)
-  %call5.i.i.i.i2.i.i8 = invoke noalias noundef nonnull dereferenceable(480) ptr @_Znwm(i64 noundef 480) #14
+  %call5.i.i.i.i2.i.i8 = invoke noalias noundef nonnull dereferenceable(480) ptr @_Znwm(i64 noundef 480) #13
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
@@ -467,7 +467,7 @@ invoke.cont3:                                     ; preds = %invoke.cont
   store ptr %add.ptr.i.i.i, ptr %_M_finish.i.i7.i, align 8, !tbaa !9
   %integrationEntriesVR_ = getelementptr inbounds nuw i8, ptr %this, i64 88
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %integrationEntriesVR_, i8 0, i64 24, i1 false)
-  %call5.i.i.i.i2.i.i12 = invoke noalias noundef nonnull dereferenceable(480) ptr @_Znwm(i64 noundef 480) #14
+  %call5.i.i.i.i2.i.i12 = invoke noalias noundef nonnull dereferenceable(480) ptr @_Znwm(i64 noundef 480) #13
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %invoke.cont3
@@ -485,7 +485,7 @@ invoke.cont6:                                     ; preds = %invoke.cont3
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
 
 if.then.i.i:                                      ; preds = %invoke.cont6
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #15
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #14
           to label %.noexc15 unwind label %lpad10
 
 .noexc15:                                         ; preds = %if.then.i.i
@@ -498,7 +498,7 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %invoke.cont6
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
   %mul.i.i.i.i.i.i = shl nuw nsw i64 %dimension, 3
-  %call5.i.i.i.i2.i.i16 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #14
+  %call5.i.i.i.i2.i.i16 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #13
           to label %call5.i.i.i.i2.i.i.noexc unwind label %lpad10
 
 call5.i.i.i.i2.i.i.noexc:                         ; preds = %if.end.i.i.i.i.i.i.i
@@ -553,37 +553,31 @@ if.then.i.i.i:                                    ; preds = %lpad12
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %8 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %7 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  call void @_ZdlPvm(ptr noundef nonnull %7, i64 noundef %sub.ptr.sub.i.i) #16
+  call void @_ZdlPvm(ptr noundef nonnull %7, i64 noundef %sub.ptr.sub.i.i) #15
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %if.then.i.i.i, %lpad12, %lpad10
   %.pn = phi { ptr, i32 } [ %5, %lpad10 ], [ %6, %lpad12 ], [ %6, %if.then.i.i.i ]
-  call void @_ZNSt6vectorISt8functionIFS_IdSaIdEERKS0_IFS2_RKS2_EEdEESaISA_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %integrationEntriesVR_) #13
+  call void @_ZNSt6vectorISt8functionIFS_IdSaIdEERKS0_IFS2_RKS2_EEdEESaISA_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %integrationEntriesVR_) #16
   br label %ehcleanup14
 
 ehcleanup14:                                      ; preds = %ehcleanup, %lpad5
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %4, %lpad5 ]
-  call void @_ZNSt6vectorISt8functionIFdS0_IFdRKS_IdSaIdEEEEdEESaIS8_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %integrationEntries_) #13
+  call void @_ZNSt6vectorISt8functionIFdS0_IFdRKS_IdSaIdEEEEdEESaIS8_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %integrationEntries_) #16
   br label %ehcleanup15
 
 ehcleanup15:                                      ; preds = %ehcleanup14, %lpad2
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup14 ], [ %3, %lpad2 ]
-  call void @_ZN8QuantLib18GaussianQuadratureD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %integralV_) #13
+  call void @_ZN8QuantLib18GaussianQuadratureD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %integralV_) #16
   br label %ehcleanup16
 
 ehcleanup16:                                      ; preds = %ehcleanup15, %lpad
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %ehcleanup15 ], [ %2, %lpad ]
-  call void @_ZN8QuantLib18GaussianQuadratureD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #13
+  call void @_ZN8QuantLib18GaussianQuadratureD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #16
   resume { ptr, i32 } %.pn.pn.pn.pn
 }
 
 declare i32 @__gxx_personality_v0(...)
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm15EEEvv(ptr noundef nonnull align 8 dereferenceable(144) %this) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -595,18 +589,18 @@ entry:
   %integrationEntries_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %integrationEntries_, align 8, !tbaa !3
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 448
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 16
   %_M_invoker.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 24
   %1 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   store i64 0, ptr %1, align 8
   %2 = ptrtoint ptr %this to i64
   store i64 %2, ptr %ref.tmp.i, align 8, !tbaa !42
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.sroa.0.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i64 16, i1 false), !tbaa.struct !43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, i64 16, i1 false), !tbaa.struct !43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, i64 16, i1 false), !tbaa.struct !43
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.sroa.0.i.i.i)
   %_M_manager3.i.i = getelementptr inbounds nuw i8, ptr %0, i64 464
   %3 = load ptr, ptr %_M_manager3.i.i, align 8, !tbaa !42
   store ptr %3, ptr %_M_manager.i.i.i, align 8, !tbaa !42
@@ -630,21 +624,21 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   unreachable
 
 _ZNSt8functionIFdS_IFdRKSt6vectorIdSaIdEEEEdEEaSIZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm15EEEvvEUlS6_dE_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS8_E4typeEOSF_.exit: ; preds = %entry, %if.then.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %integrationEntriesVR_ = getelementptr inbounds nuw i8, ptr %this, i64 88
   %7 = load ptr, ptr %integrationEntriesVR_, align 8, !tbaa !10
   %add.ptr.i1 = getelementptr inbounds nuw i8, ptr %7, i64 448
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i3) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i3)
   %_M_manager.i.i.i4 = getelementptr inbounds nuw i8, ptr %ref.tmp.i3, i64 16
   %_M_invoker.i.i5 = getelementptr inbounds nuw i8, ptr %ref.tmp.i3, i64 24
   %8 = getelementptr inbounds nuw i8, ptr %ref.tmp.i3, i64 8
   store i64 0, ptr %8, align 8
   store i64 %2, ptr %ref.tmp.i3, align 8, !tbaa !42
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.sroa.0.i.i.i2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i2, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i3, i64 16, i1 false), !tbaa.struct !43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i3, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i1, i64 16, i1 false), !tbaa.struct !43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i1, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i2, i64 16, i1 false), !tbaa.struct !43
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.sroa.0.i.i.i2)
   %_M_manager3.i.i6 = getelementptr inbounds nuw i8, ptr %7, i64 464
   %9 = load ptr, ptr %_M_manager3.i.i6, align 8, !tbaa !42
   store ptr %9, ptr %_M_manager.i.i.i4, align 8, !tbaa !42
@@ -668,13 +662,13 @@ terminate.lpad.i.i11:                             ; preds = %if.then.i.i9
   unreachable
 
 _ZNSt8functionIFSt6vectorIdSaIdEERKS_IFS2_RKS2_EEdEEaSIZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm15EEEvvEUlS8_dE_EENSt9enable_ifIXsr9_CallableIT_EE5valueERSA_E4typeEOSH_.exit: ; preds = %_ZNSt8functionIFdS_IFdRKSt6vectorIdSaIdEEEEdEEaSIZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm15EEEvvEUlS6_dE_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS8_E4typeEOSF_.exit, %if.then.i.i9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i3)
   call void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm14EEEvv(ptr noundef nonnull align 8 dereferenceable(144) %this)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt6vectorISt8functionIFS_IdSaIdEERKS0_IFS2_RKS2_EEdEESaISA_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt6vectorISt8functionIFS_IdSaIdEERKS0_IFS2_RKS2_EEdEESaISA_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8, !tbaa !10
   %_M_finish = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -720,7 +714,7 @@ if.then.i.i:                                      ; preds = %invoke.cont
   %sub.ptr.lhs.cast.i = ptrtoint ptr %6 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %5 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef %sub.ptr.sub.i) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef %sub.ptr.sub.i) #15
   br label %_ZNSt12_Vector_baseISt8functionIFSt6vectorIdSaIdEERKS0_IFS3_RKS3_EEdEESaISB_EED2Ev.exit
 
 _ZNSt12_Vector_baseISt8functionIFSt6vectorIdSaIdEERKS0_IFS3_RKS3_EEdEESaISB_EED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -728,7 +722,7 @@ _ZNSt12_Vector_baseISt8functionIFSt6vectorIdSaIdEERKS0_IFS3_RKS3_EEdEESaISB_EED2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt6vectorISt8functionIFdS0_IFdRKS_IdSaIdEEEEdEESaIS8_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt6vectorISt8functionIFdS0_IFdRKS_IdSaIdEEEEdEESaIS8_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8, !tbaa !3
   %_M_finish = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -774,7 +768,7 @@ if.then.i.i:                                      ; preds = %invoke.cont
   %sub.ptr.lhs.cast.i = ptrtoint ptr %6 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %5 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef %sub.ptr.sub.i) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef %sub.ptr.sub.i) #15
   br label %_ZNSt12_Vector_baseISt8functionIFdS0_IFdRKSt6vectorIdSaIdEEEEdEESaIS9_EED2Ev.exit
 
 _ZNSt12_Vector_baseISt8functionIFdS0_IFdRKSt6vectorIdSaIdEEEEdEESaIS9_EED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -782,7 +776,7 @@ _ZNSt12_Vector_baseISt8functionIFdS0_IFdRKSt6vectorIdSaIdEEEEdEESaIS9_EED2Ev.exi
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN8QuantLib18GaussianQuadratureD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN8QuantLib18GaussianQuadratureD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %w_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %w_, align 8, !tbaa !42
@@ -790,7 +784,7 @@ entry:
   br i1 %cmp.not.i.i, label %_ZN8QuantLib5ArrayD2Ev.exit, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i
 
 _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i: ; preds = %entry
-  tail call void @_ZdaPv(ptr noundef nonnull %0) #16
+  tail call void @_ZdaPv(ptr noundef nonnull %0) #15
   br label %_ZN8QuantLib5ArrayD2Ev.exit
 
 _ZN8QuantLib5ArrayD2Ev.exit:                      ; preds = %entry, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i
@@ -800,7 +794,7 @@ _ZN8QuantLib5ArrayD2Ev.exit:                      ; preds = %entry, %_ZNKSt14def
   br i1 %cmp.not.i.i1, label %_ZN8QuantLib5ArrayD2Ev.exit3, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i2
 
 _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i2: ; preds = %_ZN8QuantLib5ArrayD2Ev.exit
-  tail call void @_ZdaPv(ptr noundef nonnull %1) #16
+  tail call void @_ZdaPv(ptr noundef nonnull %1) #15
   br label %_ZN8QuantLib5ArrayD2Ev.exit3
 
 _ZN8QuantLib5ArrayD2Ev.exit3:                     ; preds = %_ZN8QuantLib5ArrayD2Ev.exit, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i2
@@ -808,13 +802,13 @@ _ZN8QuantLib5ArrayD2Ev.exit3:                     ; preds = %_ZN8QuantLib5ArrayD
   ret void
 }
 
-declare void @_ZN8QuantLib22GaussHermitePolynomialC1Ed(ptr noundef nonnull align 8 dereferenceable(16), double noundef) unnamed_addr #4
+declare void @_ZN8QuantLib22GaussHermitePolynomialC1Ed(ptr noundef nonnull align 8 dereferenceable(16), double noundef) unnamed_addr #3
 
-declare void @_ZN8QuantLib18GaussianQuadratureC2EmRKNS_28GaussianOrthogonalPolynomialE(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #4
+declare void @_ZN8QuantLib18GaussianQuadratureC2EmRKNS_28GaussianOrthogonalPolynomialE(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #3
 
 ; Function Attrs: noinline noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #5 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #13
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #4 comdat {
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #16
   tail call void @_ZSt9terminatev() #17
   unreachable
 }
@@ -822,25 +816,25 @@ define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_un
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #6
+declare void @_ZSt9terminatev() local_unnamed_addr #5
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdaPv(ptr noundef) local_unnamed_addr #7
+declare void @_ZdaPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #7
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #8
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: noreturn
-declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #8
+declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #7
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #9
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm14EEEvv(ptr noundef nonnull align 8 dereferenceable(144) %this) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -852,18 +846,18 @@ entry:
   %integrationEntries_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %integrationEntries_, align 8, !tbaa !3
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 416
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 16
   %_M_invoker.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 24
   %1 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   store i64 0, ptr %1, align 8
   %2 = ptrtoint ptr %this to i64
   store i64 %2, ptr %ref.tmp.i, align 8, !tbaa !42
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.sroa.0.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i64 16, i1 false), !tbaa.struct !43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, i64 16, i1 false), !tbaa.struct !43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, i64 16, i1 false), !tbaa.struct !43
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.sroa.0.i.i.i)
   %_M_manager3.i.i = getelementptr inbounds nuw i8, ptr %0, i64 432
   %3 = load ptr, ptr %_M_manager3.i.i, align 8, !tbaa !42
   store ptr %3, ptr %_M_manager.i.i.i, align 8, !tbaa !42
@@ -887,21 +881,21 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   unreachable
 
 _ZNSt8functionIFdS_IFdRKSt6vectorIdSaIdEEEEdEEaSIZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm14EEEvvEUlS6_dE_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS8_E4typeEOSF_.exit: ; preds = %entry, %if.then.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %integrationEntriesVR_ = getelementptr inbounds nuw i8, ptr %this, i64 88
   %7 = load ptr, ptr %integrationEntriesVR_, align 8, !tbaa !10
   %add.ptr.i1 = getelementptr inbounds nuw i8, ptr %7, i64 416
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i3) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i3)
   %_M_manager.i.i.i4 = getelementptr inbounds nuw i8, ptr %ref.tmp.i3, i64 16
   %_M_invoker.i.i5 = getelementptr inbounds nuw i8, ptr %ref.tmp.i3, i64 24
   %8 = getelementptr inbounds nuw i8, ptr %ref.tmp.i3, i64 8
   store i64 0, ptr %8, align 8
   store i64 %2, ptr %ref.tmp.i3, align 8, !tbaa !42
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.sroa.0.i.i.i2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i2, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i3, i64 16, i1 false), !tbaa.struct !43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i3, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i1, i64 16, i1 false), !tbaa.struct !43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i1, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i2, i64 16, i1 false), !tbaa.struct !43
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.sroa.0.i.i.i2)
   %_M_manager3.i.i6 = getelementptr inbounds nuw i8, ptr %7, i64 432
   %9 = load ptr, ptr %_M_manager3.i.i6, align 8, !tbaa !42
   store ptr %9, ptr %_M_manager.i.i.i4, align 8, !tbaa !42
@@ -925,7 +919,7 @@ terminate.lpad.i.i11:                             ; preds = %if.then.i.i9
   unreachable
 
 _ZNSt8functionIFSt6vectorIdSaIdEERKS_IFS2_RKS2_EEdEEaSIZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm14EEEvvEUlS8_dE_EENSt9enable_ifIXsr9_CallableIT_EE5valueERSA_E4typeEOSH_.exit: ; preds = %_ZNSt8functionIFdS_IFdRKSt6vectorIdSaIdEEEEdEEaSIZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm14EEEvvEUlS6_dE_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS8_E4typeEOSF_.exit, %if.then.i.i9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i3)
   call void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm13EEEvv(ptr noundef nonnull align 8 dereferenceable(144) %this)
   ret void
 }
@@ -935,7 +929,7 @@ define linkonce_odr noundef double @_ZNSt17_Function_handlerIFdSt8functionIFdRKS
 entry:
   %ref.tmp.i.i.i.i = alloca %class.anon.18, align 8
   %agg.tmp.i.i = alloca %"class.std::function.16", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i.i)
   %_M_invoker.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i, i64 24
   %_M_invoker2.i.i.i = getelementptr inbounds nuw i8, ptr %__args, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i, i8 0, i64 24, i1 false)
@@ -960,7 +954,7 @@ _ZNSt8functionIFdRKSt6vectorIdSaIdEEEEC2EOS6_.exit.i.i: ; preds = %if.then.i.i.i
   %4 = load ptr, ptr %varBuffer_.i.i.i.i, align 8, !tbaa !37
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 112
   store double %2, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !39
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i)
   store ptr %agg.tmp.i.i, ptr %ref.tmp.i.i.i.i, align 8, !tbaa !42
   %5 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i.i.i, i64 8
   store ptr %3, ptr %5, align 8, !tbaa !54
@@ -968,7 +962,7 @@ _ZNSt8functionIFdRKSt6vectorIdSaIdEEEEC2EOS6_.exit.i.i: ; preds = %if.then.i.i.i
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %_ZNSt8functionIFdRKSt6vectorIdSaIdEEEEC2EOS6_.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i)
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i, i64 16
   %6 = load ptr, ptr %_M_manager.i.i.i, align 8, !tbaa !45
   %tobool.not.i.i.i = icmp eq ptr %6, null
@@ -1008,7 +1002,7 @@ _ZNSt14_Function_baseD2Ev.exit8.i.i:              ; preds = %if.then.i5.i.i, %lp
   resume { ptr, i32 } %9
 
 _ZSt10__invoke_rIdRZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm15EEEvvEUlSt8functionIFdRKSt6vectorIdSaIdEEEEdE_JSA_dEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit: ; preds = %invoke.cont.i.i, %if.then.i2.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i.i)
   ret double %call2.i.i1.i.i
 }
 
@@ -1039,7 +1033,7 @@ sw.epilog:                                        ; preds = %entry, %sw.bb4.i, %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef double @_ZNK8QuantLib18GaussianQuadratureclIZNKS_30GaussianQuadMultidimIntegrator16scalarIntegratorILi15EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdEUldE_EEdRKT_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(16) %f) local_unnamed_addr #0 comdat align 2 {
@@ -1190,11 +1184,11 @@ for.body.i.i.i.i.i.i.i.i.i.i:                     ; preds = %for.body.i.i.i.i.i.
   %45 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37
   %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %45, i64 64
   store double %44, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !39
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i.i.i.i.i) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i.i.i.i.i)
   store ptr %9, ptr %ref.tmp.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !42
   store ptr %8, ptr %2, align 8, !tbaa !58
   %call2.i.i.i.i.i.i.i.i.i.i.i.i = call noundef double @_ZNK8QuantLib18GaussianQuadratureclIZNKS_30GaussianQuadMultidimIntegrator16scalarIntegratorILi9EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdEUldE_EEdRKT_(ptr noundef nonnull align 8 dereferenceable(144) %8, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i.i.i.i.i.i.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i.i.i.i.i) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i.i.i.i.i)
   %46 = call double @llvm.fmuladd.f64(double %42, double %call2.i.i.i.i.i.i.i.i.i.i.i.i, double %sum.07.i.i.i.i.i.i.i.i.i.i)
   %cmp.i.i.i.i.i.i.i.i.i.i = icmp samesign ugt i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i.i, label %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi11EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i.i.i.i, !llvm.loop !60
@@ -1231,7 +1225,7 @@ _ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi15EEEdRKSt8fu
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #12
+declare double @llvm.fmuladd.f64(double, double, double) #11
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef double @_ZNK8QuantLib18GaussianQuadratureclIZNKS_30GaussianQuadMultidimIntegrator16scalarIntegratorILi13EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdEUldE_EEdRKT_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(16) %f) local_unnamed_addr #0 comdat align 2 {
@@ -1338,11 +1332,11 @@ for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %for.body.i.i.i.i.i.
   %31 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37
   %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %31, i64 64
   store double %30, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !39
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i.i.i.i) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i.i.i.i)
   store ptr %9, ptr %ref.tmp.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !42
   store ptr %8, ptr %2, align 8, !tbaa !58
   %call2.i.i.i.i.i.i.i.i.i.i.i = call noundef double @_ZNK8QuantLib18GaussianQuadratureclIZNKS_30GaussianQuadMultidimIntegrator16scalarIntegratorILi9EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdEUldE_EEdRKT_(ptr noundef nonnull align 8 dereferenceable(144) %8, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i.i.i.i.i.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i.i.i.i) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i.i.i.i)
   %32 = call double @llvm.fmuladd.f64(double %28, double %call2.i.i.i.i.i.i.i.i.i.i.i, double %sum.07.i.i.i.i.i.i.i.i.i)
   %cmp.i.i.i.i.i.i.i.i.i = icmp samesign ugt i64 %indvars.iv.i.i.i.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i, label %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi11EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i.i.i, !llvm.loop !60
@@ -1563,7 +1557,7 @@ for.body.i.i.i.i.i.i.i.i.i.i.i:                   ; preds = %_ZZNK8QuantLib30Gau
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi2EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i:              ; preds = %for.body.i.i.i.i.i.i.i.i.i.i.i
-  tail call void @_ZSt25__throw_bad_function_callv() #15
+  tail call void @_ZSt25__throw_bad_function_callv() #14
   unreachable
 
 _ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi2EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i.i.i.i.i.i
@@ -1769,7 +1763,7 @@ for.body.i.i.i.i.i.i.i.i.i.i:                     ; preds = %_ZZNK8QuantLib30Gau
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi2EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i.i.i:                ; preds = %for.body.i.i.i.i.i.i.i.i.i.i
-  tail call void @_ZSt25__throw_bad_function_callv() #15
+  tail call void @_ZSt25__throw_bad_function_callv() #14
   unreachable
 
 _ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi2EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i.i.i.i.i
@@ -1919,7 +1913,7 @@ for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %_ZZNK8QuantLib30Gau
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi2EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %for.body.i.i.i.i.i.i.i.i.i
-  tail call void @_ZSt25__throw_bad_function_callv() #15
+  tail call void @_ZSt25__throw_bad_function_callv() #14
   unreachable
 
 _ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi2EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i.i.i.i
@@ -1949,7 +1943,7 @@ _ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi5EEEdRKSt8fun
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt25__throw_bad_function_callv() local_unnamed_addr #8
+declare void @_ZSt25__throw_bad_function_callv() local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt17_Function_handlerIFSt6vectorIdSaIdEERKSt8functionIFS2_RKS2_EEdEZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm15EEEvvEUlS9_dE_E9_M_invokeERKSt9_Any_dataS9_Od(ptr dead_on_unwind noalias writable sret(%"class.std::vector.7") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %__functor, ptr noundef nonnull align 8 dereferenceable(32) %__args, ptr noundef nonnull align 8 dereferenceable(8) %__args1) #0 comdat align 2 {
@@ -1962,12 +1956,12 @@ entry:
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 112
   store double %0, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !39, !noalias !94
   %integralV_.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i) #13, !noalias !94
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i), !noalias !94
   store ptr %__args, ptr %ref.tmp.i.i.i.i, align 8, !tbaa !42, !noalias !94
   %3 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i.i.i, i64 8
   store ptr %1, ptr %3, align 8, !tbaa !97, !noalias !94
   call void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS0_18vectorIntegratorVRILi15EEESt6vectorIdSaIdEERKSt8functionIFS6_RKS6_EEdEUldE_EES6_RKT_(ptr dead_on_unwind writable sret(%"class.std::vector.7") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %integralV_.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i) #13, !noalias !94
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i), !noalias !94
   ret void
 }
 
@@ -2008,7 +2002,7 @@ invoke.cont:
   %0 = load i64, ptr %n_.i.i, align 8, !tbaa !56
   %1 = trunc i64 %0 to i32
   %conv = add i32 %1, -1
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %term) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %term)
   %conv2 = sext i32 %conv to i64
   %2 = load ptr, ptr %this, align 8, !tbaa !42
   %arrayidx.i = getelementptr inbounds nuw double, ptr %2, i64 %conv2
@@ -2021,12 +2015,12 @@ invoke.cont:
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 104
   store double %3, ptr %add.ptr.i.i.i, align 8, !tbaa !39, !noalias !103
   %integralV_.i.i = getelementptr inbounds nuw i8, ptr %5, i64 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i) #13, !noalias !103
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i), !noalias !103
   store ptr %6, ptr %ref.tmp.i.i, align 8, !tbaa !42, !noalias !103
   %8 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 8
   store ptr %5, ptr %8, align 8, !tbaa !106, !noalias !103
   call void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS0_18vectorIntegratorVRILi14EEESt6vectorIdSaIdEERKSt8functionIFS6_RKS6_EEdEUldE_EES6_RKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.7") align 8 %term, ptr noundef nonnull align 8 dereferenceable(32) %integralV_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i) #13, !noalias !103
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i), !noalias !103
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %term, i64 8
   %9 = load ptr, ptr %_M_finish.i, align 8, !tbaa !41
   %10 = load ptr, ptr %term, align 8, !tbaa !37
@@ -2050,14 +2044,14 @@ cond.true.i.i.i.i:                                ; preds = %invoke.cont
   br i1 %cmp.i.i.i.i.i.i, label %if.then3.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i, !prof !108
 
 if.then3.i.i.i.i.i.i:                             ; preds = %cond.true.i.i.i.i
-  invoke void @_ZSt28__throw_bad_array_new_lengthv() #15
+  invoke void @_ZSt28__throw_bad_array_new_lengthv() #14
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %if.then3.i.i.i.i.i.i
   unreachable
 
 _ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i: ; preds = %cond.true.i.i.i.i
-  %call5.i.i.i.i2.i6.i5 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i) #14
+  %call5.i.i.i.i2.i6.i5 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i) #13
           to label %if.then.i.i.i.i.i.i.i.i.i unwind label %lpad
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i
@@ -2090,7 +2084,7 @@ for.body.lr.ph:                                   ; preds = %_ZNSt6vectorIdSaIdE
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_S6_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS8_18vectorIntegratorVRILi15EEES5_RKSt8functionIFS5_RKS5_EEdEUldE_EES5_RKT_EUlddE_ET1_SK_SK_T0_SO_T2_.exit
   %indvars.iv = phi i64 [ %12, %for.body.lr.ph ], [ %indvars.iv.next, %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_S6_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS8_18vectorIntegratorVRILi15EEES5_RKSt8functionIFS5_RKS5_EEdEUldE_EES5_RKT_EUlddE_ET1_SK_SK_T0_SO_T2_.exit ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp)
   %13 = load ptr, ptr %this, align 8, !tbaa !42
   %arrayidx.i6 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv
   %14 = load double, ptr %arrayidx.i6, align 8, !tbaa !39
@@ -2101,14 +2095,14 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %add.ptr.i.i.i9 = getelementptr inbounds nuw i8, ptr %17, i64 104
   store double %14, ptr %add.ptr.i.i.i9, align 8, !tbaa !39, !noalias !112
   %integralV_.i.i10 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i7) #13, !noalias !112
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i7), !noalias !112
   store ptr %16, ptr %ref.tmp.i.i7, align 8, !tbaa !42, !noalias !112
   store ptr %15, ptr %11, align 8, !tbaa !106, !noalias !112
   invoke void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS0_18vectorIntegratorVRILi14EEESt6vectorIdSaIdEERKSt8functionIFS6_RKS6_EEdEUldE_EES6_RKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.7") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %integralV_.i.i10, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i7)
           to label %invoke.cont17 unwind label %ehcleanup
 
 invoke.cont17:                                    ; preds = %for.body
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i7) #13, !noalias !112
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i7), !noalias !112
   %18 = load ptr, ptr %term, align 8, !tbaa !37
   %19 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8, !tbaa !38
   %20 = load ptr, ptr %ref.tmp, align 8, !tbaa !37
@@ -2125,7 +2119,7 @@ _ZNSt6vectorIdSaIdEEaSEOS1_.exit:                 ; preds = %invoke.cont17
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %19 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %18 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
-  call void @_ZdlPvm(ptr noundef nonnull %18, i64 noundef %sub.ptr.sub.i.i.i.i) #16
+  call void @_ZdlPvm(ptr noundef nonnull %18, i64 noundef %sub.ptr.sub.i.i.i.i) #15
   %.pr = load ptr, ptr %ref.tmp, align 8, !tbaa !37
   %tobool.not.i.i.i = icmp eq ptr %.pr, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIdSaIdEED2Ev.exit, label %if.then.i.i.i
@@ -2135,11 +2129,11 @@ if.then.i.i.i:                                    ; preds = %_ZNSt6vectorIdSaIdE
   %sub.ptr.lhs.cast.i.i13 = ptrtoint ptr %23 to i64
   %sub.ptr.rhs.cast.i.i14 = ptrtoint ptr %.pr to i64
   %sub.ptr.sub.i.i15 = sub i64 %sub.ptr.lhs.cast.i.i13, %sub.ptr.rhs.cast.i.i14
-  call void @_ZdlPvm(ptr noundef nonnull %.pr, i64 noundef %sub.ptr.sub.i.i15) #16
+  call void @_ZdlPvm(ptr noundef nonnull %.pr, i64 noundef %sub.ptr.sub.i.i15) #15
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit
 
 _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %invoke.cont17, %_ZNSt6vectorIdSaIdEEaSEOS1_.exit, %if.then.i.i.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
   %24 = load ptr, ptr %term, align 8, !tbaa !42
   %25 = load ptr, ptr %_M_finish.i, align 8, !tbaa !42
   %cmp.i.not7.i = icmp eq ptr %24, %25
@@ -2184,17 +2178,17 @@ if.then.i.i.i19:                                  ; preds = %nrvo.skipdtor
   %sub.ptr.lhs.cast.i.i21 = ptrtoint ptr %33 to i64
   %sub.ptr.rhs.cast.i.i22 = ptrtoint ptr %32 to i64
   %sub.ptr.sub.i.i23 = sub i64 %sub.ptr.lhs.cast.i.i21, %sub.ptr.rhs.cast.i.i22
-  call void @_ZdlPvm(ptr noundef nonnull %32, i64 noundef %sub.ptr.sub.i.i23) #16
+  call void @_ZdlPvm(ptr noundef nonnull %32, i64 noundef %sub.ptr.sub.i.i23) #15
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit24
 
 _ZNSt6vectorIdSaIdEED2Ev.exit24:                  ; preds = %nrvo.skipdtor, %if.then.i.i.i19
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %term) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %term)
   ret void
 
 ehcleanup:                                        ; preds = %for.body
   %34 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
   %tobool.not.i.i.i26 = icmp eq ptr %cond.i.i.i.i45, null
   br i1 %tobool.not.i.i.i26, label %ehcleanup42, label %if.then.i.i.i27
 
@@ -2202,7 +2196,7 @@ if.then.i.i.i27:                                  ; preds = %ehcleanup
   %sub.ptr.lhs.cast.i.i29 = ptrtoint ptr %add.ptr.i.i.i448 to i64
   %sub.ptr.rhs.cast.i.i30 = ptrtoint ptr %cond.i.i.i.i45 to i64
   %sub.ptr.sub.i.i31 = sub i64 %sub.ptr.lhs.cast.i.i29, %sub.ptr.rhs.cast.i.i30
-  call void @_ZdlPvm(ptr noundef nonnull %cond.i.i.i.i45, i64 noundef %sub.ptr.sub.i.i31) #16
+  call void @_ZdlPvm(ptr noundef nonnull %cond.i.i.i.i45, i64 noundef %sub.ptr.sub.i.i31) #15
   br label %ehcleanup42
 
 ehcleanup42:                                      ; preds = %if.then.i.i.i27, %ehcleanup, %lpad
@@ -2217,11 +2211,11 @@ if.then.i.i.i35:                                  ; preds = %ehcleanup42
   %sub.ptr.lhs.cast.i.i37 = ptrtoint ptr %36 to i64
   %sub.ptr.rhs.cast.i.i38 = ptrtoint ptr %35 to i64
   %sub.ptr.sub.i.i39 = sub i64 %sub.ptr.lhs.cast.i.i37, %sub.ptr.rhs.cast.i.i38
-  call void @_ZdlPvm(ptr noundef nonnull %35, i64 noundef %sub.ptr.sub.i.i39) #16
+  call void @_ZdlPvm(ptr noundef nonnull %35, i64 noundef %sub.ptr.sub.i.i39) #15
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit40
 
 _ZNSt6vectorIdSaIdEED2Ev.exit40:                  ; preds = %ehcleanup42, %if.then.i.i.i35
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %term) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %term)
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -2236,7 +2230,7 @@ invoke.cont:
   %0 = load i64, ptr %n_.i.i, align 8, !tbaa !56
   %1 = trunc i64 %0 to i32
   %conv = add i32 %1, -1
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %term) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %term)
   %conv2 = sext i32 %conv to i64
   %2 = load ptr, ptr %this, align 8, !tbaa !42
   %arrayidx.i = getelementptr inbounds nuw double, ptr %2, i64 %conv2
@@ -2249,12 +2243,12 @@ invoke.cont:
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 96
   store double %3, ptr %add.ptr.i.i.i, align 8, !tbaa !39, !noalias !120
   %integralV_.i.i = getelementptr inbounds nuw i8, ptr %5, i64 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i) #13, !noalias !120
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i), !noalias !120
   store ptr %6, ptr %ref.tmp.i.i, align 8, !tbaa !42, !noalias !120
   %8 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 8
   store ptr %5, ptr %8, align 8, !tbaa !123, !noalias !120
   call void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS0_18vectorIntegratorVRILi13EEESt6vectorIdSaIdEERKSt8functionIFS6_RKS6_EEdEUldE_EES6_RKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.7") align 8 %term, ptr noundef nonnull align 8 dereferenceable(32) %integralV_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i) #13, !noalias !120
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i), !noalias !120
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %term, i64 8
   %9 = load ptr, ptr %_M_finish.i, align 8, !tbaa !41
   %10 = load ptr, ptr %term, align 8, !tbaa !37
@@ -2278,14 +2272,14 @@ cond.true.i.i.i.i:                                ; preds = %invoke.cont
   br i1 %cmp.i.i.i.i.i.i, label %if.then3.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i, !prof !108
 
 if.then3.i.i.i.i.i.i:                             ; preds = %cond.true.i.i.i.i
-  invoke void @_ZSt28__throw_bad_array_new_lengthv() #15
+  invoke void @_ZSt28__throw_bad_array_new_lengthv() #14
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %if.then3.i.i.i.i.i.i
   unreachable
 
 _ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i: ; preds = %cond.true.i.i.i.i
-  %call5.i.i.i.i2.i6.i5 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i) #14
+  %call5.i.i.i.i2.i6.i5 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i) #13
           to label %if.then.i.i.i.i.i.i.i.i.i unwind label %lpad
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i
@@ -2318,7 +2312,7 @@ for.body.lr.ph:                                   ; preds = %_ZNSt6vectorIdSaIdE
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_S6_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS8_18vectorIntegratorVRILi14EEES5_RKSt8functionIFS5_RKS5_EEdEUldE_EES5_RKT_EUlddE_ET1_SK_SK_T0_SO_T2_.exit
   %indvars.iv = phi i64 [ %12, %for.body.lr.ph ], [ %indvars.iv.next, %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_S6_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS8_18vectorIntegratorVRILi14EEES5_RKSt8functionIFS5_RKS5_EEdEUldE_EES5_RKT_EUlddE_ET1_SK_SK_T0_SO_T2_.exit ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp)
   %13 = load ptr, ptr %this, align 8, !tbaa !42
   %arrayidx.i6 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv
   %14 = load double, ptr %arrayidx.i6, align 8, !tbaa !39
@@ -2329,14 +2323,14 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %add.ptr.i.i.i9 = getelementptr inbounds nuw i8, ptr %17, i64 96
   store double %14, ptr %add.ptr.i.i.i9, align 8, !tbaa !39, !noalias !128
   %integralV_.i.i10 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i7) #13, !noalias !128
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i7), !noalias !128
   store ptr %16, ptr %ref.tmp.i.i7, align 8, !tbaa !42, !noalias !128
   store ptr %15, ptr %11, align 8, !tbaa !123, !noalias !128
   invoke void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS0_18vectorIntegratorVRILi13EEESt6vectorIdSaIdEERKSt8functionIFS6_RKS6_EEdEUldE_EES6_RKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.7") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %integralV_.i.i10, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i7)
           to label %invoke.cont17 unwind label %ehcleanup
 
 invoke.cont17:                                    ; preds = %for.body
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i7) #13, !noalias !128
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i7), !noalias !128
   %18 = load ptr, ptr %term, align 8, !tbaa !37
   %19 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8, !tbaa !38
   %20 = load ptr, ptr %ref.tmp, align 8, !tbaa !37
@@ -2353,7 +2347,7 @@ _ZNSt6vectorIdSaIdEEaSEOS1_.exit:                 ; preds = %invoke.cont17
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %19 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %18 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
-  call void @_ZdlPvm(ptr noundef nonnull %18, i64 noundef %sub.ptr.sub.i.i.i.i) #16
+  call void @_ZdlPvm(ptr noundef nonnull %18, i64 noundef %sub.ptr.sub.i.i.i.i) #15
   %.pr = load ptr, ptr %ref.tmp, align 8, !tbaa !37
   %tobool.not.i.i.i = icmp eq ptr %.pr, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIdSaIdEED2Ev.exit, label %if.then.i.i.i
@@ -2363,11 +2357,11 @@ if.then.i.i.i:                                    ; preds = %_ZNSt6vectorIdSaIdE
   %sub.ptr.lhs.cast.i.i13 = ptrtoint ptr %23 to i64
   %sub.ptr.rhs.cast.i.i14 = ptrtoint ptr %.pr to i64
   %sub.ptr.sub.i.i15 = sub i64 %sub.ptr.lhs.cast.i.i13, %sub.ptr.rhs.cast.i.i14
-  call void @_ZdlPvm(ptr noundef nonnull %.pr, i64 noundef %sub.ptr.sub.i.i15) #16
+  call void @_ZdlPvm(ptr noundef nonnull %.pr, i64 noundef %sub.ptr.sub.i.i15) #15
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit
 
 _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %invoke.cont17, %_ZNSt6vectorIdSaIdEEaSEOS1_.exit, %if.then.i.i.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
   %24 = load ptr, ptr %term, align 8, !tbaa !42
   %25 = load ptr, ptr %_M_finish.i, align 8, !tbaa !42
   %cmp.i.not7.i = icmp eq ptr %24, %25
@@ -2412,17 +2406,17 @@ if.then.i.i.i19:                                  ; preds = %nrvo.skipdtor
   %sub.ptr.lhs.cast.i.i21 = ptrtoint ptr %33 to i64
   %sub.ptr.rhs.cast.i.i22 = ptrtoint ptr %32 to i64
   %sub.ptr.sub.i.i23 = sub i64 %sub.ptr.lhs.cast.i.i21, %sub.ptr.rhs.cast.i.i22
-  call void @_ZdlPvm(ptr noundef nonnull %32, i64 noundef %sub.ptr.sub.i.i23) #16
+  call void @_ZdlPvm(ptr noundef nonnull %32, i64 noundef %sub.ptr.sub.i.i23) #15
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit24
 
 _ZNSt6vectorIdSaIdEED2Ev.exit24:                  ; preds = %nrvo.skipdtor, %if.then.i.i.i19
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %term) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %term)
   ret void
 
 ehcleanup:                                        ; preds = %for.body
   %34 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
   %tobool.not.i.i.i26 = icmp eq ptr %cond.i.i.i.i45, null
   br i1 %tobool.not.i.i.i26, label %ehcleanup42, label %if.then.i.i.i27
 
@@ -2430,7 +2424,7 @@ if.then.i.i.i27:                                  ; preds = %ehcleanup
   %sub.ptr.lhs.cast.i.i29 = ptrtoint ptr %add.ptr.i.i.i448 to i64
   %sub.ptr.rhs.cast.i.i30 = ptrtoint ptr %cond.i.i.i.i45 to i64
   %sub.ptr.sub.i.i31 = sub i64 %sub.ptr.lhs.cast.i.i29, %sub.ptr.rhs.cast.i.i30
-  call void @_ZdlPvm(ptr noundef nonnull %cond.i.i.i.i45, i64 noundef %sub.ptr.sub.i.i31) #16
+  call void @_ZdlPvm(ptr noundef nonnull %cond.i.i.i.i45, i64 noundef %sub.ptr.sub.i.i31) #15
   br label %ehcleanup42
 
 ehcleanup42:                                      ; preds = %if.then.i.i.i27, %ehcleanup, %lpad
@@ -2445,11 +2439,11 @@ if.then.i.i.i35:                                  ; preds = %ehcleanup42
   %sub.ptr.lhs.cast.i.i37 = ptrtoint ptr %36 to i64
   %sub.ptr.rhs.cast.i.i38 = ptrtoint ptr %35 to i64
   %sub.ptr.sub.i.i39 = sub i64 %sub.ptr.lhs.cast.i.i37, %sub.ptr.rhs.cast.i.i38
-  call void @_ZdlPvm(ptr noundef nonnull %35, i64 noundef %sub.ptr.sub.i.i39) #16
+  call void @_ZdlPvm(ptr noundef nonnull %35, i64 noundef %sub.ptr.sub.i.i39) #15
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit40
 
 _ZNSt6vectorIdSaIdEED2Ev.exit40:                  ; preds = %ehcleanup42, %if.then.i.i.i35
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %term) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %term)
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -2464,7 +2458,7 @@ invoke.cont:
   %0 = load i64, ptr %n_.i.i, align 8, !tbaa !56
   %1 = trunc i64 %0 to i32
   %conv = add i32 %1, -1
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %term) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %term)
   %conv2 = sext i32 %conv to i64
   %2 = load ptr, ptr %this, align 8, !tbaa !42
   %arrayidx.i = getelementptr inbounds nuw double, ptr %2, i64 %conv2
@@ -2477,12 +2471,12 @@ invoke.cont:
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 88
   store double %3, ptr %add.ptr.i.i.i, align 8, !tbaa !39, !noalias !136
   %integralV_.i.i = getelementptr inbounds nuw i8, ptr %5, i64 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i) #13, !noalias !136
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i), !noalias !136
   store ptr %6, ptr %ref.tmp.i.i, align 8, !tbaa !42, !noalias !136
   %8 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 8
   store ptr %5, ptr %8, align 8, !tbaa !139, !noalias !136
   call void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS0_18vectorIntegratorVRILi12EEESt6vectorIdSaIdEERKSt8functionIFS6_RKS6_EEdEUldE_EES6_RKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.7") align 8 %term, ptr noundef nonnull align 8 dereferenceable(32) %integralV_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i) #13, !noalias !136
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i), !noalias !136
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %term, i64 8
   %9 = load ptr, ptr %_M_finish.i, align 8, !tbaa !41
   %10 = load ptr, ptr %term, align 8, !tbaa !37
@@ -2506,14 +2500,14 @@ cond.true.i.i.i.i:                                ; preds = %invoke.cont
   br i1 %cmp.i.i.i.i.i.i, label %if.then3.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i, !prof !108
 
 if.then3.i.i.i.i.i.i:                             ; preds = %cond.true.i.i.i.i
-  invoke void @_ZSt28__throw_bad_array_new_lengthv() #15
+  invoke void @_ZSt28__throw_bad_array_new_lengthv() #14
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %if.then3.i.i.i.i.i.i
   unreachable
 
 _ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i: ; preds = %cond.true.i.i.i.i
-  %call5.i.i.i.i2.i6.i5 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i) #14
+  %call5.i.i.i.i2.i6.i5 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i) #13
           to label %if.then.i.i.i.i.i.i.i.i.i unwind label %lpad
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i
@@ -2546,7 +2540,7 @@ for.body.lr.ph:                                   ; preds = %_ZNSt6vectorIdSaIdE
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_S6_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS8_18vectorIntegratorVRILi13EEES5_RKSt8functionIFS5_RKS5_EEdEUldE_EES5_RKT_EUlddE_ET1_SK_SK_T0_SO_T2_.exit
   %indvars.iv = phi i64 [ %12, %for.body.lr.ph ], [ %indvars.iv.next, %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_S6_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS8_18vectorIntegratorVRILi13EEES5_RKSt8functionIFS5_RKS5_EEdEUldE_EES5_RKT_EUlddE_ET1_SK_SK_T0_SO_T2_.exit ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp)
   %13 = load ptr, ptr %this, align 8, !tbaa !42
   %arrayidx.i6 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv
   %14 = load double, ptr %arrayidx.i6, align 8, !tbaa !39
@@ -2557,14 +2551,14 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %add.ptr.i.i.i9 = getelementptr inbounds nuw i8, ptr %17, i64 88
   store double %14, ptr %add.ptr.i.i.i9, align 8, !tbaa !39, !noalias !144
   %integralV_.i.i10 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i7) #13, !noalias !144
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i7), !noalias !144
   store ptr %16, ptr %ref.tmp.i.i7, align 8, !tbaa !42, !noalias !144
   store ptr %15, ptr %11, align 8, !tbaa !139, !noalias !144
   invoke void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS0_18vectorIntegratorVRILi12EEESt6vectorIdSaIdEERKSt8functionIFS6_RKS6_EEdEUldE_EES6_RKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.7") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %integralV_.i.i10, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i7)
           to label %invoke.cont17 unwind label %ehcleanup
 
 invoke.cont17:                                    ; preds = %for.body
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i7) #13, !noalias !144
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i7), !noalias !144
   %18 = load ptr, ptr %term, align 8, !tbaa !37
   %19 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8, !tbaa !38
   %20 = load ptr, ptr %ref.tmp, align 8, !tbaa !37
@@ -2581,7 +2575,7 @@ _ZNSt6vectorIdSaIdEEaSEOS1_.exit:                 ; preds = %invoke.cont17
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %19 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %18 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
-  call void @_ZdlPvm(ptr noundef nonnull %18, i64 noundef %sub.ptr.sub.i.i.i.i) #16
+  call void @_ZdlPvm(ptr noundef nonnull %18, i64 noundef %sub.ptr.sub.i.i.i.i) #15
   %.pr = load ptr, ptr %ref.tmp, align 8, !tbaa !37
   %tobool.not.i.i.i = icmp eq ptr %.pr, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIdSaIdEED2Ev.exit, label %if.then.i.i.i
@@ -2591,11 +2585,11 @@ if.then.i.i.i:                                    ; preds = %_ZNSt6vectorIdSaIdE
   %sub.ptr.lhs.cast.i.i13 = ptrtoint ptr %23 to i64
   %sub.ptr.rhs.cast.i.i14 = ptrtoint ptr %.pr to i64
   %sub.ptr.sub.i.i15 = sub i64 %sub.ptr.lhs.cast.i.i13, %sub.ptr.rhs.cast.i.i14
-  call void @_ZdlPvm(ptr noundef nonnull %.pr, i64 noundef %sub.ptr.sub.i.i15) #16
+  call void @_ZdlPvm(ptr noundef nonnull %.pr, i64 noundef %sub.ptr.sub.i.i15) #15
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit
 
 _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %invoke.cont17, %_ZNSt6vectorIdSaIdEEaSEOS1_.exit, %if.then.i.i.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
   %24 = load ptr, ptr %term, align 8, !tbaa !42
   %25 = load ptr, ptr %_M_finish.i, align 8, !tbaa !42
   %cmp.i.not7.i = icmp eq ptr %24, %25
@@ -2640,17 +2634,17 @@ if.then.i.i.i19:                                  ; preds = %nrvo.skipdtor
   %sub.ptr.lhs.cast.i.i21 = ptrtoint ptr %33 to i64
   %sub.ptr.rhs.cast.i.i22 = ptrtoint ptr %32 to i64
   %sub.ptr.sub.i.i23 = sub i64 %sub.ptr.lhs.cast.i.i21, %sub.ptr.rhs.cast.i.i22
-  call void @_ZdlPvm(ptr noundef nonnull %32, i64 noundef %sub.ptr.sub.i.i23) #16
+  call void @_ZdlPvm(ptr noundef nonnull %32, i64 noundef %sub.ptr.sub.i.i23) #15
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit24
 
 _ZNSt6vectorIdSaIdEED2Ev.exit24:                  ; preds = %nrvo.skipdtor, %if.then.i.i.i19
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %term) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %term)
   ret void
 
 ehcleanup:                                        ; preds = %for.body
   %34 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
   %tobool.not.i.i.i26 = icmp eq ptr %cond.i.i.i.i45, null
   br i1 %tobool.not.i.i.i26, label %ehcleanup42, label %if.then.i.i.i27
 
@@ -2658,7 +2652,7 @@ if.then.i.i.i27:                                  ; preds = %ehcleanup
   %sub.ptr.lhs.cast.i.i29 = ptrtoint ptr %add.ptr.i.i.i448 to i64
   %sub.ptr.rhs.cast.i.i30 = ptrtoint ptr %cond.i.i.i.i45 to i64
   %sub.ptr.sub.i.i31 = sub i64 %sub.ptr.lhs.cast.i.i29, %sub.ptr.rhs.cast.i.i30
-  call void @_ZdlPvm(ptr noundef nonnull %cond.i.i.i.i45, i64 noundef %sub.ptr.sub.i.i31) #16
+  call void @_ZdlPvm(ptr noundef nonnull %cond.i.i.i.i45, i64 noundef %sub.ptr.sub.i.i31) #15
   br label %ehcleanup42
 
 ehcleanup42:                                      ; preds = %if.then.i.i.i27, %ehcleanup, %lpad
@@ -2673,11 +2667,11 @@ if.then.i.i.i35:                                  ; preds = %ehcleanup42
   %sub.ptr.lhs.cast.i.i37 = ptrtoint ptr %36 to i64
   %sub.ptr.rhs.cast.i.i38 = ptrtoint ptr %35 to i64
   %sub.ptr.sub.i.i39 = sub i64 %sub.ptr.lhs.cast.i.i37, %sub.ptr.rhs.cast.i.i38
-  call void @_ZdlPvm(ptr noundef nonnull %35, i64 noundef %sub.ptr.sub.i.i39) #16
+  call void @_ZdlPvm(ptr noundef nonnull %35, i64 noundef %sub.ptr.sub.i.i39) #15
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit40
 
 _ZNSt6vectorIdSaIdEED2Ev.exit40:                  ; preds = %ehcleanup42, %if.then.i.i.i35
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %term) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %term)
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -2692,7 +2686,7 @@ invoke.cont:
   %0 = load i64, ptr %n_.i.i, align 8, !tbaa !56
   %1 = trunc i64 %0 to i32
   %conv = add i32 %1, -1
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %term) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %term)
   %conv2 = sext i32 %conv to i64
   %2 = load ptr, ptr %this, align 8, !tbaa !42
   %arrayidx.i = getelementptr inbounds nuw double, ptr %2, i64 %conv2
@@ -2705,12 +2699,12 @@ invoke.cont:
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 80
   store double %3, ptr %add.ptr.i.i.i, align 8, !tbaa !39, !noalias !152
   %integralV_.i.i = getelementptr inbounds nuw i8, ptr %5, i64 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i) #13, !noalias !152
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i), !noalias !152
   store ptr %6, ptr %ref.tmp.i.i, align 8, !tbaa !42, !noalias !152
   %8 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 8
   store ptr %5, ptr %8, align 8, !tbaa !155, !noalias !152
   call void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS0_18vectorIntegratorVRILi11EEESt6vectorIdSaIdEERKSt8functionIFS6_RKS6_EEdEUldE_EES6_RKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.7") align 8 %term, ptr noundef nonnull align 8 dereferenceable(32) %integralV_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i) #13, !noalias !152
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i), !noalias !152
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %term, i64 8
   %9 = load ptr, ptr %_M_finish.i, align 8, !tbaa !41
   %10 = load ptr, ptr %term, align 8, !tbaa !37
@@ -2734,14 +2728,14 @@ cond.true.i.i.i.i:                                ; preds = %invoke.cont
   br i1 %cmp.i.i.i.i.i.i, label %if.then3.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i, !prof !108
 
 if.then3.i.i.i.i.i.i:                             ; preds = %cond.true.i.i.i.i
-  invoke void @_ZSt28__throw_bad_array_new_lengthv() #15
+  invoke void @_ZSt28__throw_bad_array_new_lengthv() #14
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %if.then3.i.i.i.i.i.i
   unreachable
 
 _ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i: ; preds = %cond.true.i.i.i.i
-  %call5.i.i.i.i2.i6.i5 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i) #14
+  %call5.i.i.i.i2.i6.i5 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i) #13
           to label %if.then.i.i.i.i.i.i.i.i.i unwind label %lpad
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i
@@ -2774,7 +2768,7 @@ for.body.lr.ph:                                   ; preds = %_ZNSt6vectorIdSaIdE
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_S6_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS8_18vectorIntegratorVRILi12EEES5_RKSt8functionIFS5_RKS5_EEdEUldE_EES5_RKT_EUlddE_ET1_SK_SK_T0_SO_T2_.exit
   %indvars.iv = phi i64 [ %12, %for.body.lr.ph ], [ %indvars.iv.next, %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_S6_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS8_18vectorIntegratorVRILi12EEES5_RKSt8functionIFS5_RKS5_EEdEUldE_EES5_RKT_EUlddE_ET1_SK_SK_T0_SO_T2_.exit ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp)
   %13 = load ptr, ptr %this, align 8, !tbaa !42
   %arrayidx.i6 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv
   %14 = load double, ptr %arrayidx.i6, align 8, !tbaa !39
@@ -2785,14 +2779,14 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %add.ptr.i.i.i9 = getelementptr inbounds nuw i8, ptr %17, i64 80
   store double %14, ptr %add.ptr.i.i.i9, align 8, !tbaa !39, !noalias !160
   %integralV_.i.i10 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i7) #13, !noalias !160
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i7), !noalias !160
   store ptr %16, ptr %ref.tmp.i.i7, align 8, !tbaa !42, !noalias !160
   store ptr %15, ptr %11, align 8, !tbaa !155, !noalias !160
   invoke void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS0_18vectorIntegratorVRILi11EEESt6vectorIdSaIdEERKSt8functionIFS6_RKS6_EEdEUldE_EES6_RKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.7") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %integralV_.i.i10, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i7)
           to label %invoke.cont17 unwind label %ehcleanup
 
 invoke.cont17:                                    ; preds = %for.body
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i7) #13, !noalias !160
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i7), !noalias !160
   %18 = load ptr, ptr %term, align 8, !tbaa !37
   %19 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8, !tbaa !38
   %20 = load ptr, ptr %ref.tmp, align 8, !tbaa !37
@@ -2809,7 +2803,7 @@ _ZNSt6vectorIdSaIdEEaSEOS1_.exit:                 ; preds = %invoke.cont17
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %19 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %18 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
-  call void @_ZdlPvm(ptr noundef nonnull %18, i64 noundef %sub.ptr.sub.i.i.i.i) #16
+  call void @_ZdlPvm(ptr noundef nonnull %18, i64 noundef %sub.ptr.sub.i.i.i.i) #15
   %.pr = load ptr, ptr %ref.tmp, align 8, !tbaa !37
   %tobool.not.i.i.i = icmp eq ptr %.pr, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIdSaIdEED2Ev.exit, label %if.then.i.i.i
@@ -2819,11 +2813,11 @@ if.then.i.i.i:                                    ; preds = %_ZNSt6vectorIdSaIdE
   %sub.ptr.lhs.cast.i.i13 = ptrtoint ptr %23 to i64
   %sub.ptr.rhs.cast.i.i14 = ptrtoint ptr %.pr to i64
   %sub.ptr.sub.i.i15 = sub i64 %sub.ptr.lhs.cast.i.i13, %sub.ptr.rhs.cast.i.i14
-  call void @_ZdlPvm(ptr noundef nonnull %.pr, i64 noundef %sub.ptr.sub.i.i15) #16
+  call void @_ZdlPvm(ptr noundef nonnull %.pr, i64 noundef %sub.ptr.sub.i.i15) #15
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit
 
 _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %invoke.cont17, %_ZNSt6vectorIdSaIdEEaSEOS1_.exit, %if.then.i.i.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
   %24 = load ptr, ptr %term, align 8, !tbaa !42
   %25 = load ptr, ptr %_M_finish.i, align 8, !tbaa !42
   %cmp.i.not7.i = icmp eq ptr %24, %25
@@ -2868,17 +2862,17 @@ if.then.i.i.i19:                                  ; preds = %nrvo.skipdtor
   %sub.ptr.lhs.cast.i.i21 = ptrtoint ptr %33 to i64
   %sub.ptr.rhs.cast.i.i22 = ptrtoint ptr %32 to i64
   %sub.ptr.sub.i.i23 = sub i64 %sub.ptr.lhs.cast.i.i21, %sub.ptr.rhs.cast.i.i22
-  call void @_ZdlPvm(ptr noundef nonnull %32, i64 noundef %sub.ptr.sub.i.i23) #16
+  call void @_ZdlPvm(ptr noundef nonnull %32, i64 noundef %sub.ptr.sub.i.i23) #15
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit24
 
 _ZNSt6vectorIdSaIdEED2Ev.exit24:                  ; preds = %nrvo.skipdtor, %if.then.i.i.i19
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %term) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %term)
   ret void
 
 ehcleanup:                                        ; preds = %for.body
   %34 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
   %tobool.not.i.i.i26 = icmp eq ptr %cond.i.i.i.i45, null
   br i1 %tobool.not.i.i.i26, label %ehcleanup42, label %if.then.i.i.i27
 
@@ -2886,7 +2880,7 @@ if.then.i.i.i27:                                  ; preds = %ehcleanup
   %sub.ptr.lhs.cast.i.i29 = ptrtoint ptr %add.ptr.i.i.i448 to i64
   %sub.ptr.rhs.cast.i.i30 = ptrtoint ptr %cond.i.i.i.i45 to i64
   %sub.ptr.sub.i.i31 = sub i64 %sub.ptr.lhs.cast.i.i29, %sub.ptr.rhs.cast.i.i30
-  call void @_ZdlPvm(ptr noundef nonnull %cond.i.i.i.i45, i64 noundef %sub.ptr.sub.i.i31) #16
+  call void @_ZdlPvm(ptr noundef nonnull %cond.i.i.i.i45, i64 noundef %sub.ptr.sub.i.i31) #15
   br label %ehcleanup42
 
 ehcleanup42:                                      ; preds = %if.then.i.i.i27, %ehcleanup, %lpad
@@ -2901,11 +2895,11 @@ if.then.i.i.i35:                                  ; preds = %ehcleanup42
   %sub.ptr.lhs.cast.i.i37 = ptrtoint ptr %36 to i64
   %sub.ptr.rhs.cast.i.i38 = ptrtoint ptr %35 to i64
   %sub.ptr.sub.i.i39 = sub i64 %sub.ptr.lhs.cast.i.i37, %sub.ptr.rhs.cast.i.i38
-  call void @_ZdlPvm(ptr noundef nonnull %35, i64 noundef %sub.ptr.sub.i.i39) #16
+  call void @_ZdlPvm(ptr noundef nonnull %35, i64 noundef %sub.ptr.sub.i.i39) #15
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit40
 
 _ZNSt6vectorIdSaIdEED2Ev.exit40:                  ; preds = %ehcleanup42, %if.then.i.i.i35
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %term) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %term)
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -2920,7 +2914,7 @@ invoke.cont:
   %0 = load i64, ptr %n_.i.i, align 8, !tbaa !56
   %1 = trunc i64 %0 to i32
   %conv = add i32 %1, -1
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %term) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %term)
   %conv2 = sext i32 %conv to i64
   %2 = load ptr, ptr %this, align 8, !tbaa !42
   %arrayidx.i = getelementptr inbounds nuw double, ptr %2, i64 %conv2
@@ -2933,12 +2927,12 @@ invoke.cont:
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 72
   store double %3, ptr %add.ptr.i.i.i, align 8, !tbaa !39, !noalias !168
   %integralV_.i.i = getelementptr inbounds nuw i8, ptr %5, i64 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i) #13, !noalias !168
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i), !noalias !168
   store ptr %6, ptr %ref.tmp.i.i, align 8, !tbaa !42, !noalias !168
   %8 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 8
   store ptr %5, ptr %8, align 8, !tbaa !171, !noalias !168
   call void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS0_18vectorIntegratorVRILi10EEESt6vectorIdSaIdEERKSt8functionIFS6_RKS6_EEdEUldE_EES6_RKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.7") align 8 %term, ptr noundef nonnull align 8 dereferenceable(32) %integralV_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i) #13, !noalias !168
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i), !noalias !168
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %term, i64 8
   %9 = load ptr, ptr %_M_finish.i, align 8, !tbaa !41
   %10 = load ptr, ptr %term, align 8, !tbaa !37
@@ -2962,14 +2956,14 @@ cond.true.i.i.i.i:                                ; preds = %invoke.cont
   br i1 %cmp.i.i.i.i.i.i, label %if.then3.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i, !prof !108
 
 if.then3.i.i.i.i.i.i:                             ; preds = %cond.true.i.i.i.i
-  invoke void @_ZSt28__throw_bad_array_new_lengthv() #15
+  invoke void @_ZSt28__throw_bad_array_new_lengthv() #14
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %if.then3.i.i.i.i.i.i
   unreachable
 
 _ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i: ; preds = %cond.true.i.i.i.i
-  %call5.i.i.i.i2.i6.i5 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i) #14
+  %call5.i.i.i.i2.i6.i5 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i) #13
           to label %if.then.i.i.i.i.i.i.i.i.i unwind label %lpad
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i
@@ -3002,7 +2996,7 @@ for.body.lr.ph:                                   ; preds = %_ZNSt6vectorIdSaIdE
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_S6_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS8_18vectorIntegratorVRILi11EEES5_RKSt8functionIFS5_RKS5_EEdEUldE_EES5_RKT_EUlddE_ET1_SK_SK_T0_SO_T2_.exit
   %indvars.iv = phi i64 [ %12, %for.body.lr.ph ], [ %indvars.iv.next, %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_S6_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS8_18vectorIntegratorVRILi11EEES5_RKSt8functionIFS5_RKS5_EEdEUldE_EES5_RKT_EUlddE_ET1_SK_SK_T0_SO_T2_.exit ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp)
   %13 = load ptr, ptr %this, align 8, !tbaa !42
   %arrayidx.i6 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv
   %14 = load double, ptr %arrayidx.i6, align 8, !tbaa !39
@@ -3013,14 +3007,14 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %add.ptr.i.i.i9 = getelementptr inbounds nuw i8, ptr %17, i64 72
   store double %14, ptr %add.ptr.i.i.i9, align 8, !tbaa !39, !noalias !176
   %integralV_.i.i10 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i7) #13, !noalias !176
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i7), !noalias !176
   store ptr %16, ptr %ref.tmp.i.i7, align 8, !tbaa !42, !noalias !176
   store ptr %15, ptr %11, align 8, !tbaa !171, !noalias !176
   invoke void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS0_18vectorIntegratorVRILi10EEESt6vectorIdSaIdEERKSt8functionIFS6_RKS6_EEdEUldE_EES6_RKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.7") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %integralV_.i.i10, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i7)
           to label %invoke.cont17 unwind label %ehcleanup
 
 invoke.cont17:                                    ; preds = %for.body
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i7) #13, !noalias !176
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i7), !noalias !176
   %18 = load ptr, ptr %term, align 8, !tbaa !37
   %19 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8, !tbaa !38
   %20 = load ptr, ptr %ref.tmp, align 8, !tbaa !37
@@ -3037,7 +3031,7 @@ _ZNSt6vectorIdSaIdEEaSEOS1_.exit:                 ; preds = %invoke.cont17
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %19 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %18 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
-  call void @_ZdlPvm(ptr noundef nonnull %18, i64 noundef %sub.ptr.sub.i.i.i.i) #16
+  call void @_ZdlPvm(ptr noundef nonnull %18, i64 noundef %sub.ptr.sub.i.i.i.i) #15
   %.pr = load ptr, ptr %ref.tmp, align 8, !tbaa !37
   %tobool.not.i.i.i = icmp eq ptr %.pr, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIdSaIdEED2Ev.exit, label %if.then.i.i.i
@@ -3047,11 +3041,11 @@ if.then.i.i.i:                                    ; preds = %_ZNSt6vectorIdSaIdE
   %sub.ptr.lhs.cast.i.i13 = ptrtoint ptr %23 to i64
   %sub.ptr.rhs.cast.i.i14 = ptrtoint ptr %.pr to i64
   %sub.ptr.sub.i.i15 = sub i64 %sub.ptr.lhs.cast.i.i13, %sub.ptr.rhs.cast.i.i14
-  call void @_ZdlPvm(ptr noundef nonnull %.pr, i64 noundef %sub.ptr.sub.i.i15) #16
+  call void @_ZdlPvm(ptr noundef nonnull %.pr, i64 noundef %sub.ptr.sub.i.i15) #15
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit
 
 _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %invoke.cont17, %_ZNSt6vectorIdSaIdEEaSEOS1_.exit, %if.then.i.i.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
   %24 = load ptr, ptr %term, align 8, !tbaa !42
   %25 = load ptr, ptr %_M_finish.i, align 8, !tbaa !42
   %cmp.i.not7.i = icmp eq ptr %24, %25
@@ -3096,17 +3090,17 @@ if.then.i.i.i19:                                  ; preds = %nrvo.skipdtor
   %sub.ptr.lhs.cast.i.i21 = ptrtoint ptr %33 to i64
   %sub.ptr.rhs.cast.i.i22 = ptrtoint ptr %32 to i64
   %sub.ptr.sub.i.i23 = sub i64 %sub.ptr.lhs.cast.i.i21, %sub.ptr.rhs.cast.i.i22
-  call void @_ZdlPvm(ptr noundef nonnull %32, i64 noundef %sub.ptr.sub.i.i23) #16
+  call void @_ZdlPvm(ptr noundef nonnull %32, i64 noundef %sub.ptr.sub.i.i23) #15
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit24
 
 _ZNSt6vectorIdSaIdEED2Ev.exit24:                  ; preds = %nrvo.skipdtor, %if.then.i.i.i19
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %term) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %term)
   ret void
 
 ehcleanup:                                        ; preds = %for.body
   %34 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
   %tobool.not.i.i.i26 = icmp eq ptr %cond.i.i.i.i45, null
   br i1 %tobool.not.i.i.i26, label %ehcleanup42, label %if.then.i.i.i27
 
@@ -3114,7 +3108,7 @@ if.then.i.i.i27:                                  ; preds = %ehcleanup
   %sub.ptr.lhs.cast.i.i29 = ptrtoint ptr %add.ptr.i.i.i448 to i64
   %sub.ptr.rhs.cast.i.i30 = ptrtoint ptr %cond.i.i.i.i45 to i64
   %sub.ptr.sub.i.i31 = sub i64 %sub.ptr.lhs.cast.i.i29, %sub.ptr.rhs.cast.i.i30
-  call void @_ZdlPvm(ptr noundef nonnull %cond.i.i.i.i45, i64 noundef %sub.ptr.sub.i.i31) #16
+  call void @_ZdlPvm(ptr noundef nonnull %cond.i.i.i.i45, i64 noundef %sub.ptr.sub.i.i31) #15
   br label %ehcleanup42
 
 ehcleanup42:                                      ; preds = %if.then.i.i.i27, %ehcleanup, %lpad
@@ -3129,11 +3123,11 @@ if.then.i.i.i35:                                  ; preds = %ehcleanup42
   %sub.ptr.lhs.cast.i.i37 = ptrtoint ptr %36 to i64
   %sub.ptr.rhs.cast.i.i38 = ptrtoint ptr %35 to i64
   %sub.ptr.sub.i.i39 = sub i64 %sub.ptr.lhs.cast.i.i37, %sub.ptr.rhs.cast.i.i38
-  call void @_ZdlPvm(ptr noundef nonnull %35, i64 noundef %sub.ptr.sub.i.i39) #16
+  call void @_ZdlPvm(ptr noundef nonnull %35, i64 noundef %sub.ptr.sub.i.i39) #15
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit40
 
 _ZNSt6vectorIdSaIdEED2Ev.exit40:                  ; preds = %ehcleanup42, %if.then.i.i.i35
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %term) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %term)
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -3148,7 +3142,7 @@ invoke.cont:
   %0 = load i64, ptr %n_.i.i, align 8, !tbaa !56
   %1 = trunc i64 %0 to i32
   %conv = add i32 %1, -1
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %term) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %term)
   %conv2 = sext i32 %conv to i64
   %2 = load ptr, ptr %this, align 8, !tbaa !42
   %arrayidx.i = getelementptr inbounds nuw double, ptr %2, i64 %conv2
@@ -3161,12 +3155,12 @@ invoke.cont:
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 64
   store double %3, ptr %add.ptr.i.i.i, align 8, !tbaa !39, !noalias !184
   %integralV_.i.i = getelementptr inbounds nuw i8, ptr %5, i64 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i) #13, !noalias !184
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i), !noalias !184
   store ptr %6, ptr %ref.tmp.i.i, align 8, !tbaa !42, !noalias !184
   %8 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 8
   store ptr %5, ptr %8, align 8, !tbaa !187, !noalias !184
   call void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS0_18vectorIntegratorVRILi9EEESt6vectorIdSaIdEERKSt8functionIFS6_RKS6_EEdEUldE_EES6_RKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.7") align 8 %term, ptr noundef nonnull align 8 dereferenceable(32) %integralV_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i) #13, !noalias !184
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i), !noalias !184
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %term, i64 8
   %9 = load ptr, ptr %_M_finish.i, align 8, !tbaa !41
   %10 = load ptr, ptr %term, align 8, !tbaa !37
@@ -3190,14 +3184,14 @@ cond.true.i.i.i.i:                                ; preds = %invoke.cont
   br i1 %cmp.i.i.i.i.i.i, label %if.then3.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i, !prof !108
 
 if.then3.i.i.i.i.i.i:                             ; preds = %cond.true.i.i.i.i
-  invoke void @_ZSt28__throw_bad_array_new_lengthv() #15
+  invoke void @_ZSt28__throw_bad_array_new_lengthv() #14
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %if.then3.i.i.i.i.i.i
   unreachable
 
 _ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i: ; preds = %cond.true.i.i.i.i
-  %call5.i.i.i.i2.i6.i5 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i) #14
+  %call5.i.i.i.i2.i6.i5 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i) #13
           to label %if.then.i.i.i.i.i.i.i.i.i unwind label %lpad
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i
@@ -3230,7 +3224,7 @@ for.body.lr.ph:                                   ; preds = %_ZNSt6vectorIdSaIdE
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_S6_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS8_18vectorIntegratorVRILi10EEES5_RKSt8functionIFS5_RKS5_EEdEUldE_EES5_RKT_EUlddE_ET1_SK_SK_T0_SO_T2_.exit
   %indvars.iv = phi i64 [ %12, %for.body.lr.ph ], [ %indvars.iv.next, %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_S6_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS8_18vectorIntegratorVRILi10EEES5_RKSt8functionIFS5_RKS5_EEdEUldE_EES5_RKT_EUlddE_ET1_SK_SK_T0_SO_T2_.exit ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp)
   %13 = load ptr, ptr %this, align 8, !tbaa !42
   %arrayidx.i6 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv
   %14 = load double, ptr %arrayidx.i6, align 8, !tbaa !39
@@ -3241,14 +3235,14 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %add.ptr.i.i.i9 = getelementptr inbounds nuw i8, ptr %17, i64 64
   store double %14, ptr %add.ptr.i.i.i9, align 8, !tbaa !39, !noalias !192
   %integralV_.i.i10 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i7) #13, !noalias !192
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i7), !noalias !192
   store ptr %16, ptr %ref.tmp.i.i7, align 8, !tbaa !42, !noalias !192
   store ptr %15, ptr %11, align 8, !tbaa !187, !noalias !192
   invoke void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS0_18vectorIntegratorVRILi9EEESt6vectorIdSaIdEERKSt8functionIFS6_RKS6_EEdEUldE_EES6_RKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.7") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %integralV_.i.i10, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i7)
           to label %invoke.cont17 unwind label %ehcleanup
 
 invoke.cont17:                                    ; preds = %for.body
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i7) #13, !noalias !192
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i7), !noalias !192
   %18 = load ptr, ptr %term, align 8, !tbaa !37
   %19 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8, !tbaa !38
   %20 = load ptr, ptr %ref.tmp, align 8, !tbaa !37
@@ -3265,7 +3259,7 @@ _ZNSt6vectorIdSaIdEEaSEOS1_.exit:                 ; preds = %invoke.cont17
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %19 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %18 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
-  call void @_ZdlPvm(ptr noundef nonnull %18, i64 noundef %sub.ptr.sub.i.i.i.i) #16
+  call void @_ZdlPvm(ptr noundef nonnull %18, i64 noundef %sub.ptr.sub.i.i.i.i) #15
   %.pr = load ptr, ptr %ref.tmp, align 8, !tbaa !37
   %tobool.not.i.i.i = icmp eq ptr %.pr, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIdSaIdEED2Ev.exit, label %if.then.i.i.i
@@ -3275,11 +3269,11 @@ if.then.i.i.i:                                    ; preds = %_ZNSt6vectorIdSaIdE
   %sub.ptr.lhs.cast.i.i13 = ptrtoint ptr %23 to i64
   %sub.ptr.rhs.cast.i.i14 = ptrtoint ptr %.pr to i64
   %sub.ptr.sub.i.i15 = sub i64 %sub.ptr.lhs.cast.i.i13, %sub.ptr.rhs.cast.i.i14
-  call void @_ZdlPvm(ptr noundef nonnull %.pr, i64 noundef %sub.ptr.sub.i.i15) #16
+  call void @_ZdlPvm(ptr noundef nonnull %.pr, i64 noundef %sub.ptr.sub.i.i15) #15
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit
 
 _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %invoke.cont17, %_ZNSt6vectorIdSaIdEEaSEOS1_.exit, %if.then.i.i.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
   %24 = load ptr, ptr %term, align 8, !tbaa !42
   %25 = load ptr, ptr %_M_finish.i, align 8, !tbaa !42
   %cmp.i.not7.i = icmp eq ptr %24, %25
@@ -3324,17 +3318,17 @@ if.then.i.i.i19:                                  ; preds = %nrvo.skipdtor
   %sub.ptr.lhs.cast.i.i21 = ptrtoint ptr %33 to i64
   %sub.ptr.rhs.cast.i.i22 = ptrtoint ptr %32 to i64
   %sub.ptr.sub.i.i23 = sub i64 %sub.ptr.lhs.cast.i.i21, %sub.ptr.rhs.cast.i.i22
-  call void @_ZdlPvm(ptr noundef nonnull %32, i64 noundef %sub.ptr.sub.i.i23) #16
+  call void @_ZdlPvm(ptr noundef nonnull %32, i64 noundef %sub.ptr.sub.i.i23) #15
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit24
 
 _ZNSt6vectorIdSaIdEED2Ev.exit24:                  ; preds = %nrvo.skipdtor, %if.then.i.i.i19
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %term) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %term)
   ret void
 
 ehcleanup:                                        ; preds = %for.body
   %34 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
   %tobool.not.i.i.i26 = icmp eq ptr %cond.i.i.i.i45, null
   br i1 %tobool.not.i.i.i26, label %ehcleanup42, label %if.then.i.i.i27
 
@@ -3342,7 +3336,7 @@ if.then.i.i.i27:                                  ; preds = %ehcleanup
   %sub.ptr.lhs.cast.i.i29 = ptrtoint ptr %add.ptr.i.i.i448 to i64
   %sub.ptr.rhs.cast.i.i30 = ptrtoint ptr %cond.i.i.i.i45 to i64
   %sub.ptr.sub.i.i31 = sub i64 %sub.ptr.lhs.cast.i.i29, %sub.ptr.rhs.cast.i.i30
-  call void @_ZdlPvm(ptr noundef nonnull %cond.i.i.i.i45, i64 noundef %sub.ptr.sub.i.i31) #16
+  call void @_ZdlPvm(ptr noundef nonnull %cond.i.i.i.i45, i64 noundef %sub.ptr.sub.i.i31) #15
   br label %ehcleanup42
 
 ehcleanup42:                                      ; preds = %if.then.i.i.i27, %ehcleanup, %lpad
@@ -3357,11 +3351,11 @@ if.then.i.i.i35:                                  ; preds = %ehcleanup42
   %sub.ptr.lhs.cast.i.i37 = ptrtoint ptr %36 to i64
   %sub.ptr.rhs.cast.i.i38 = ptrtoint ptr %35 to i64
   %sub.ptr.sub.i.i39 = sub i64 %sub.ptr.lhs.cast.i.i37, %sub.ptr.rhs.cast.i.i38
-  call void @_ZdlPvm(ptr noundef nonnull %35, i64 noundef %sub.ptr.sub.i.i39) #16
+  call void @_ZdlPvm(ptr noundef nonnull %35, i64 noundef %sub.ptr.sub.i.i39) #15
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit40
 
 _ZNSt6vectorIdSaIdEED2Ev.exit40:                  ; preds = %ehcleanup42, %if.then.i.i.i35
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %term) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %term)
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -3376,7 +3370,7 @@ invoke.cont:
   %0 = load i64, ptr %n_.i.i, align 8, !tbaa !56
   %1 = trunc i64 %0 to i32
   %conv = add i32 %1, -1
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %term) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %term)
   %conv2 = sext i32 %conv to i64
   %2 = load ptr, ptr %this, align 8, !tbaa !42
   %arrayidx.i = getelementptr inbounds nuw double, ptr %2, i64 %conv2
@@ -3389,12 +3383,12 @@ invoke.cont:
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 56
   store double %3, ptr %add.ptr.i.i.i, align 8, !tbaa !39, !noalias !200
   %integralV_.i.i = getelementptr inbounds nuw i8, ptr %5, i64 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i) #13, !noalias !200
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i), !noalias !200
   store ptr %6, ptr %ref.tmp.i.i, align 8, !tbaa !42, !noalias !200
   %8 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 8
   store ptr %5, ptr %8, align 8, !tbaa !203, !noalias !200
   call void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS0_18vectorIntegratorVRILi8EEESt6vectorIdSaIdEERKSt8functionIFS6_RKS6_EEdEUldE_EES6_RKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.7") align 8 %term, ptr noundef nonnull align 8 dereferenceable(32) %integralV_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i) #13, !noalias !200
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i), !noalias !200
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %term, i64 8
   %9 = load ptr, ptr %_M_finish.i, align 8, !tbaa !41
   %10 = load ptr, ptr %term, align 8, !tbaa !37
@@ -3418,14 +3412,14 @@ cond.true.i.i.i.i:                                ; preds = %invoke.cont
   br i1 %cmp.i.i.i.i.i.i, label %if.then3.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i, !prof !108
 
 if.then3.i.i.i.i.i.i:                             ; preds = %cond.true.i.i.i.i
-  invoke void @_ZSt28__throw_bad_array_new_lengthv() #15
+  invoke void @_ZSt28__throw_bad_array_new_lengthv() #14
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %if.then3.i.i.i.i.i.i
   unreachable
 
 _ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i: ; preds = %cond.true.i.i.i.i
-  %call5.i.i.i.i2.i6.i5 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i) #14
+  %call5.i.i.i.i2.i6.i5 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i) #13
           to label %if.then.i.i.i.i.i.i.i.i.i unwind label %lpad
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i
@@ -3458,7 +3452,7 @@ for.body.lr.ph:                                   ; preds = %_ZNSt6vectorIdSaIdE
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_S6_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS8_18vectorIntegratorVRILi9EEES5_RKSt8functionIFS5_RKS5_EEdEUldE_EES5_RKT_EUlddE_ET1_SK_SK_T0_SO_T2_.exit
   %indvars.iv = phi i64 [ %12, %for.body.lr.ph ], [ %indvars.iv.next, %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_S6_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS8_18vectorIntegratorVRILi9EEES5_RKSt8functionIFS5_RKS5_EEdEUldE_EES5_RKT_EUlddE_ET1_SK_SK_T0_SO_T2_.exit ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp)
   %13 = load ptr, ptr %this, align 8, !tbaa !42
   %arrayidx.i6 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv
   %14 = load double, ptr %arrayidx.i6, align 8, !tbaa !39
@@ -3469,14 +3463,14 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %add.ptr.i.i.i9 = getelementptr inbounds nuw i8, ptr %17, i64 56
   store double %14, ptr %add.ptr.i.i.i9, align 8, !tbaa !39, !noalias !208
   %integralV_.i.i10 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i7) #13, !noalias !208
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i7), !noalias !208
   store ptr %16, ptr %ref.tmp.i.i7, align 8, !tbaa !42, !noalias !208
   store ptr %15, ptr %11, align 8, !tbaa !203, !noalias !208
   invoke void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS0_18vectorIntegratorVRILi8EEESt6vectorIdSaIdEERKSt8functionIFS6_RKS6_EEdEUldE_EES6_RKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.7") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %integralV_.i.i10, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i7)
           to label %invoke.cont17 unwind label %ehcleanup
 
 invoke.cont17:                                    ; preds = %for.body
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i7) #13, !noalias !208
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i7), !noalias !208
   %18 = load ptr, ptr %term, align 8, !tbaa !37
   %19 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8, !tbaa !38
   %20 = load ptr, ptr %ref.tmp, align 8, !tbaa !37
@@ -3493,7 +3487,7 @@ _ZNSt6vectorIdSaIdEEaSEOS1_.exit:                 ; preds = %invoke.cont17
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %19 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %18 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
-  call void @_ZdlPvm(ptr noundef nonnull %18, i64 noundef %sub.ptr.sub.i.i.i.i) #16
+  call void @_ZdlPvm(ptr noundef nonnull %18, i64 noundef %sub.ptr.sub.i.i.i.i) #15
   %.pr = load ptr, ptr %ref.tmp, align 8, !tbaa !37
   %tobool.not.i.i.i = icmp eq ptr %.pr, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIdSaIdEED2Ev.exit, label %if.then.i.i.i
@@ -3503,11 +3497,11 @@ if.then.i.i.i:                                    ; preds = %_ZNSt6vectorIdSaIdE
   %sub.ptr.lhs.cast.i.i13 = ptrtoint ptr %23 to i64
   %sub.ptr.rhs.cast.i.i14 = ptrtoint ptr %.pr to i64
   %sub.ptr.sub.i.i15 = sub i64 %sub.ptr.lhs.cast.i.i13, %sub.ptr.rhs.cast.i.i14
-  call void @_ZdlPvm(ptr noundef nonnull %.pr, i64 noundef %sub.ptr.sub.i.i15) #16
+  call void @_ZdlPvm(ptr noundef nonnull %.pr, i64 noundef %sub.ptr.sub.i.i15) #15
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit
 
 _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %invoke.cont17, %_ZNSt6vectorIdSaIdEEaSEOS1_.exit, %if.then.i.i.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
   %24 = load ptr, ptr %term, align 8, !tbaa !42
   %25 = load ptr, ptr %_M_finish.i, align 8, !tbaa !42
   %cmp.i.not7.i = icmp eq ptr %24, %25
@@ -3552,17 +3546,17 @@ if.then.i.i.i19:                                  ; preds = %nrvo.skipdtor
   %sub.ptr.lhs.cast.i.i21 = ptrtoint ptr %33 to i64
   %sub.ptr.rhs.cast.i.i22 = ptrtoint ptr %32 to i64
   %sub.ptr.sub.i.i23 = sub i64 %sub.ptr.lhs.cast.i.i21, %sub.ptr.rhs.cast.i.i22
-  call void @_ZdlPvm(ptr noundef nonnull %32, i64 noundef %sub.ptr.sub.i.i23) #16
+  call void @_ZdlPvm(ptr noundef nonnull %32, i64 noundef %sub.ptr.sub.i.i23) #15
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit24
 
 _ZNSt6vectorIdSaIdEED2Ev.exit24:                  ; preds = %nrvo.skipdtor, %if.then.i.i.i19
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %term) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %term)
   ret void
 
 ehcleanup:                                        ; preds = %for.body
   %34 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
   %tobool.not.i.i.i26 = icmp eq ptr %cond.i.i.i.i45, null
   br i1 %tobool.not.i.i.i26, label %ehcleanup42, label %if.then.i.i.i27
 
@@ -3570,7 +3564,7 @@ if.then.i.i.i27:                                  ; preds = %ehcleanup
   %sub.ptr.lhs.cast.i.i29 = ptrtoint ptr %add.ptr.i.i.i448 to i64
   %sub.ptr.rhs.cast.i.i30 = ptrtoint ptr %cond.i.i.i.i45 to i64
   %sub.ptr.sub.i.i31 = sub i64 %sub.ptr.lhs.cast.i.i29, %sub.ptr.rhs.cast.i.i30
-  call void @_ZdlPvm(ptr noundef nonnull %cond.i.i.i.i45, i64 noundef %sub.ptr.sub.i.i31) #16
+  call void @_ZdlPvm(ptr noundef nonnull %cond.i.i.i.i45, i64 noundef %sub.ptr.sub.i.i31) #15
   br label %ehcleanup42
 
 ehcleanup42:                                      ; preds = %if.then.i.i.i27, %ehcleanup, %lpad
@@ -3585,11 +3579,11 @@ if.then.i.i.i35:                                  ; preds = %ehcleanup42
   %sub.ptr.lhs.cast.i.i37 = ptrtoint ptr %36 to i64
   %sub.ptr.rhs.cast.i.i38 = ptrtoint ptr %35 to i64
   %sub.ptr.sub.i.i39 = sub i64 %sub.ptr.lhs.cast.i.i37, %sub.ptr.rhs.cast.i.i38
-  call void @_ZdlPvm(ptr noundef nonnull %35, i64 noundef %sub.ptr.sub.i.i39) #16
+  call void @_ZdlPvm(ptr noundef nonnull %35, i64 noundef %sub.ptr.sub.i.i39) #15
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit40
 
 _ZNSt6vectorIdSaIdEED2Ev.exit40:                  ; preds = %ehcleanup42, %if.then.i.i.i35
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %term) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %term)
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -3604,7 +3598,7 @@ invoke.cont:
   %0 = load i64, ptr %n_.i.i, align 8, !tbaa !56
   %1 = trunc i64 %0 to i32
   %conv = add i32 %1, -1
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %term) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %term)
   %conv2 = sext i32 %conv to i64
   %2 = load ptr, ptr %this, align 8, !tbaa !42
   %arrayidx.i = getelementptr inbounds nuw double, ptr %2, i64 %conv2
@@ -3617,12 +3611,12 @@ invoke.cont:
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 48
   store double %3, ptr %add.ptr.i.i.i, align 8, !tbaa !39, !noalias !216
   %integralV_.i.i = getelementptr inbounds nuw i8, ptr %5, i64 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i) #13, !noalias !216
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i), !noalias !216
   store ptr %6, ptr %ref.tmp.i.i, align 8, !tbaa !42, !noalias !216
   %8 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 8
   store ptr %5, ptr %8, align 8, !tbaa !219, !noalias !216
   call void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS0_18vectorIntegratorVRILi7EEESt6vectorIdSaIdEERKSt8functionIFS6_RKS6_EEdEUldE_EES6_RKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.7") align 8 %term, ptr noundef nonnull align 8 dereferenceable(32) %integralV_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i) #13, !noalias !216
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i), !noalias !216
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %term, i64 8
   %9 = load ptr, ptr %_M_finish.i, align 8, !tbaa !41
   %10 = load ptr, ptr %term, align 8, !tbaa !37
@@ -3646,14 +3640,14 @@ cond.true.i.i.i.i:                                ; preds = %invoke.cont
   br i1 %cmp.i.i.i.i.i.i, label %if.then3.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i, !prof !108
 
 if.then3.i.i.i.i.i.i:                             ; preds = %cond.true.i.i.i.i
-  invoke void @_ZSt28__throw_bad_array_new_lengthv() #15
+  invoke void @_ZSt28__throw_bad_array_new_lengthv() #14
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %if.then3.i.i.i.i.i.i
   unreachable
 
 _ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i: ; preds = %cond.true.i.i.i.i
-  %call5.i.i.i.i2.i6.i5 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i) #14
+  %call5.i.i.i.i2.i6.i5 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i) #13
           to label %if.then.i.i.i.i.i.i.i.i.i unwind label %lpad
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i
@@ -3686,7 +3680,7 @@ for.body.lr.ph:                                   ; preds = %_ZNSt6vectorIdSaIdE
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_S6_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS8_18vectorIntegratorVRILi8EEES5_RKSt8functionIFS5_RKS5_EEdEUldE_EES5_RKT_EUlddE_ET1_SK_SK_T0_SO_T2_.exit
   %indvars.iv = phi i64 [ %12, %for.body.lr.ph ], [ %indvars.iv.next, %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_S6_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS8_18vectorIntegratorVRILi8EEES5_RKSt8functionIFS5_RKS5_EEdEUldE_EES5_RKT_EUlddE_ET1_SK_SK_T0_SO_T2_.exit ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp)
   %13 = load ptr, ptr %this, align 8, !tbaa !42
   %arrayidx.i6 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv
   %14 = load double, ptr %arrayidx.i6, align 8, !tbaa !39
@@ -3697,14 +3691,14 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %add.ptr.i.i.i9 = getelementptr inbounds nuw i8, ptr %17, i64 48
   store double %14, ptr %add.ptr.i.i.i9, align 8, !tbaa !39, !noalias !224
   %integralV_.i.i10 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i7) #13, !noalias !224
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i7), !noalias !224
   store ptr %16, ptr %ref.tmp.i.i7, align 8, !tbaa !42, !noalias !224
   store ptr %15, ptr %11, align 8, !tbaa !219, !noalias !224
   invoke void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS0_18vectorIntegratorVRILi7EEESt6vectorIdSaIdEERKSt8functionIFS6_RKS6_EEdEUldE_EES6_RKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.7") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %integralV_.i.i10, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i7)
           to label %invoke.cont17 unwind label %ehcleanup
 
 invoke.cont17:                                    ; preds = %for.body
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i7) #13, !noalias !224
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i7), !noalias !224
   %18 = load ptr, ptr %term, align 8, !tbaa !37
   %19 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8, !tbaa !38
   %20 = load ptr, ptr %ref.tmp, align 8, !tbaa !37
@@ -3721,7 +3715,7 @@ _ZNSt6vectorIdSaIdEEaSEOS1_.exit:                 ; preds = %invoke.cont17
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %19 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %18 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
-  call void @_ZdlPvm(ptr noundef nonnull %18, i64 noundef %sub.ptr.sub.i.i.i.i) #16
+  call void @_ZdlPvm(ptr noundef nonnull %18, i64 noundef %sub.ptr.sub.i.i.i.i) #15
   %.pr = load ptr, ptr %ref.tmp, align 8, !tbaa !37
   %tobool.not.i.i.i = icmp eq ptr %.pr, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIdSaIdEED2Ev.exit, label %if.then.i.i.i
@@ -3731,11 +3725,11 @@ if.then.i.i.i:                                    ; preds = %_ZNSt6vectorIdSaIdE
   %sub.ptr.lhs.cast.i.i13 = ptrtoint ptr %23 to i64
   %sub.ptr.rhs.cast.i.i14 = ptrtoint ptr %.pr to i64
   %sub.ptr.sub.i.i15 = sub i64 %sub.ptr.lhs.cast.i.i13, %sub.ptr.rhs.cast.i.i14
-  call void @_ZdlPvm(ptr noundef nonnull %.pr, i64 noundef %sub.ptr.sub.i.i15) #16
+  call void @_ZdlPvm(ptr noundef nonnull %.pr, i64 noundef %sub.ptr.sub.i.i15) #15
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit
 
 _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %invoke.cont17, %_ZNSt6vectorIdSaIdEEaSEOS1_.exit, %if.then.i.i.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
   %24 = load ptr, ptr %term, align 8, !tbaa !42
   %25 = load ptr, ptr %_M_finish.i, align 8, !tbaa !42
   %cmp.i.not7.i = icmp eq ptr %24, %25
@@ -3780,17 +3774,17 @@ if.then.i.i.i19:                                  ; preds = %nrvo.skipdtor
   %sub.ptr.lhs.cast.i.i21 = ptrtoint ptr %33 to i64
   %sub.ptr.rhs.cast.i.i22 = ptrtoint ptr %32 to i64
   %sub.ptr.sub.i.i23 = sub i64 %sub.ptr.lhs.cast.i.i21, %sub.ptr.rhs.cast.i.i22
-  call void @_ZdlPvm(ptr noundef nonnull %32, i64 noundef %sub.ptr.sub.i.i23) #16
+  call void @_ZdlPvm(ptr noundef nonnull %32, i64 noundef %sub.ptr.sub.i.i23) #15
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit24
 
 _ZNSt6vectorIdSaIdEED2Ev.exit24:                  ; preds = %nrvo.skipdtor, %if.then.i.i.i19
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %term) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %term)
   ret void
 
 ehcleanup:                                        ; preds = %for.body
   %34 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
   %tobool.not.i.i.i26 = icmp eq ptr %cond.i.i.i.i45, null
   br i1 %tobool.not.i.i.i26, label %ehcleanup42, label %if.then.i.i.i27
 
@@ -3798,7 +3792,7 @@ if.then.i.i.i27:                                  ; preds = %ehcleanup
   %sub.ptr.lhs.cast.i.i29 = ptrtoint ptr %add.ptr.i.i.i448 to i64
   %sub.ptr.rhs.cast.i.i30 = ptrtoint ptr %cond.i.i.i.i45 to i64
   %sub.ptr.sub.i.i31 = sub i64 %sub.ptr.lhs.cast.i.i29, %sub.ptr.rhs.cast.i.i30
-  call void @_ZdlPvm(ptr noundef nonnull %cond.i.i.i.i45, i64 noundef %sub.ptr.sub.i.i31) #16
+  call void @_ZdlPvm(ptr noundef nonnull %cond.i.i.i.i45, i64 noundef %sub.ptr.sub.i.i31) #15
   br label %ehcleanup42
 
 ehcleanup42:                                      ; preds = %if.then.i.i.i27, %ehcleanup, %lpad
@@ -3813,11 +3807,11 @@ if.then.i.i.i35:                                  ; preds = %ehcleanup42
   %sub.ptr.lhs.cast.i.i37 = ptrtoint ptr %36 to i64
   %sub.ptr.rhs.cast.i.i38 = ptrtoint ptr %35 to i64
   %sub.ptr.sub.i.i39 = sub i64 %sub.ptr.lhs.cast.i.i37, %sub.ptr.rhs.cast.i.i38
-  call void @_ZdlPvm(ptr noundef nonnull %35, i64 noundef %sub.ptr.sub.i.i39) #16
+  call void @_ZdlPvm(ptr noundef nonnull %35, i64 noundef %sub.ptr.sub.i.i39) #15
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit40
 
 _ZNSt6vectorIdSaIdEED2Ev.exit40:                  ; preds = %ehcleanup42, %if.then.i.i.i35
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %term) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %term)
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -3832,7 +3826,7 @@ invoke.cont:
   %0 = load i64, ptr %n_.i.i, align 8, !tbaa !56
   %1 = trunc i64 %0 to i32
   %conv = add i32 %1, -1
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %term) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %term)
   %conv2 = sext i32 %conv to i64
   %2 = load ptr, ptr %this, align 8, !tbaa !42
   %arrayidx.i = getelementptr inbounds nuw double, ptr %2, i64 %conv2
@@ -3845,12 +3839,12 @@ invoke.cont:
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 40
   store double %3, ptr %add.ptr.i.i.i, align 8, !tbaa !39, !noalias !232
   %integralV_.i.i = getelementptr inbounds nuw i8, ptr %5, i64 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i) #13, !noalias !232
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i), !noalias !232
   store ptr %6, ptr %ref.tmp.i.i, align 8, !tbaa !42, !noalias !232
   %8 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 8
   store ptr %5, ptr %8, align 8, !tbaa !235, !noalias !232
   call void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS0_18vectorIntegratorVRILi6EEESt6vectorIdSaIdEERKSt8functionIFS6_RKS6_EEdEUldE_EES6_RKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.7") align 8 %term, ptr noundef nonnull align 8 dereferenceable(32) %integralV_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i) #13, !noalias !232
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i), !noalias !232
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %term, i64 8
   %9 = load ptr, ptr %_M_finish.i, align 8, !tbaa !41
   %10 = load ptr, ptr %term, align 8, !tbaa !37
@@ -3874,14 +3868,14 @@ cond.true.i.i.i.i:                                ; preds = %invoke.cont
   br i1 %cmp.i.i.i.i.i.i, label %if.then3.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i, !prof !108
 
 if.then3.i.i.i.i.i.i:                             ; preds = %cond.true.i.i.i.i
-  invoke void @_ZSt28__throw_bad_array_new_lengthv() #15
+  invoke void @_ZSt28__throw_bad_array_new_lengthv() #14
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %if.then3.i.i.i.i.i.i
   unreachable
 
 _ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i: ; preds = %cond.true.i.i.i.i
-  %call5.i.i.i.i2.i6.i5 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i) #14
+  %call5.i.i.i.i2.i6.i5 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i) #13
           to label %if.then.i.i.i.i.i.i.i.i.i unwind label %lpad
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i
@@ -3914,7 +3908,7 @@ for.body.lr.ph:                                   ; preds = %_ZNSt6vectorIdSaIdE
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_S6_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS8_18vectorIntegratorVRILi7EEES5_RKSt8functionIFS5_RKS5_EEdEUldE_EES5_RKT_EUlddE_ET1_SK_SK_T0_SO_T2_.exit
   %indvars.iv = phi i64 [ %12, %for.body.lr.ph ], [ %indvars.iv.next, %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_S6_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS8_18vectorIntegratorVRILi7EEES5_RKSt8functionIFS5_RKS5_EEdEUldE_EES5_RKT_EUlddE_ET1_SK_SK_T0_SO_T2_.exit ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp)
   %13 = load ptr, ptr %this, align 8, !tbaa !42
   %arrayidx.i6 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv
   %14 = load double, ptr %arrayidx.i6, align 8, !tbaa !39
@@ -3925,14 +3919,14 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %add.ptr.i.i.i9 = getelementptr inbounds nuw i8, ptr %17, i64 40
   store double %14, ptr %add.ptr.i.i.i9, align 8, !tbaa !39, !noalias !240
   %integralV_.i.i10 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i7) #13, !noalias !240
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i7), !noalias !240
   store ptr %16, ptr %ref.tmp.i.i7, align 8, !tbaa !42, !noalias !240
   store ptr %15, ptr %11, align 8, !tbaa !235, !noalias !240
   invoke void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS0_18vectorIntegratorVRILi6EEESt6vectorIdSaIdEERKSt8functionIFS6_RKS6_EEdEUldE_EES6_RKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.7") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %integralV_.i.i10, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i7)
           to label %invoke.cont17 unwind label %ehcleanup
 
 invoke.cont17:                                    ; preds = %for.body
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i7) #13, !noalias !240
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i7), !noalias !240
   %18 = load ptr, ptr %term, align 8, !tbaa !37
   %19 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8, !tbaa !38
   %20 = load ptr, ptr %ref.tmp, align 8, !tbaa !37
@@ -3949,7 +3943,7 @@ _ZNSt6vectorIdSaIdEEaSEOS1_.exit:                 ; preds = %invoke.cont17
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %19 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %18 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
-  call void @_ZdlPvm(ptr noundef nonnull %18, i64 noundef %sub.ptr.sub.i.i.i.i) #16
+  call void @_ZdlPvm(ptr noundef nonnull %18, i64 noundef %sub.ptr.sub.i.i.i.i) #15
   %.pr = load ptr, ptr %ref.tmp, align 8, !tbaa !37
   %tobool.not.i.i.i = icmp eq ptr %.pr, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIdSaIdEED2Ev.exit, label %if.then.i.i.i
@@ -3959,11 +3953,11 @@ if.then.i.i.i:                                    ; preds = %_ZNSt6vectorIdSaIdE
   %sub.ptr.lhs.cast.i.i13 = ptrtoint ptr %23 to i64
   %sub.ptr.rhs.cast.i.i14 = ptrtoint ptr %.pr to i64
   %sub.ptr.sub.i.i15 = sub i64 %sub.ptr.lhs.cast.i.i13, %sub.ptr.rhs.cast.i.i14
-  call void @_ZdlPvm(ptr noundef nonnull %.pr, i64 noundef %sub.ptr.sub.i.i15) #16
+  call void @_ZdlPvm(ptr noundef nonnull %.pr, i64 noundef %sub.ptr.sub.i.i15) #15
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit
 
 _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %invoke.cont17, %_ZNSt6vectorIdSaIdEEaSEOS1_.exit, %if.then.i.i.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
   %24 = load ptr, ptr %term, align 8, !tbaa !42
   %25 = load ptr, ptr %_M_finish.i, align 8, !tbaa !42
   %cmp.i.not7.i = icmp eq ptr %24, %25
@@ -4008,17 +4002,17 @@ if.then.i.i.i19:                                  ; preds = %nrvo.skipdtor
   %sub.ptr.lhs.cast.i.i21 = ptrtoint ptr %33 to i64
   %sub.ptr.rhs.cast.i.i22 = ptrtoint ptr %32 to i64
   %sub.ptr.sub.i.i23 = sub i64 %sub.ptr.lhs.cast.i.i21, %sub.ptr.rhs.cast.i.i22
-  call void @_ZdlPvm(ptr noundef nonnull %32, i64 noundef %sub.ptr.sub.i.i23) #16
+  call void @_ZdlPvm(ptr noundef nonnull %32, i64 noundef %sub.ptr.sub.i.i23) #15
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit24
 
 _ZNSt6vectorIdSaIdEED2Ev.exit24:                  ; preds = %nrvo.skipdtor, %if.then.i.i.i19
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %term) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %term)
   ret void
 
 ehcleanup:                                        ; preds = %for.body
   %34 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
   %tobool.not.i.i.i26 = icmp eq ptr %cond.i.i.i.i45, null
   br i1 %tobool.not.i.i.i26, label %ehcleanup42, label %if.then.i.i.i27
 
@@ -4026,7 +4020,7 @@ if.then.i.i.i27:                                  ; preds = %ehcleanup
   %sub.ptr.lhs.cast.i.i29 = ptrtoint ptr %add.ptr.i.i.i448 to i64
   %sub.ptr.rhs.cast.i.i30 = ptrtoint ptr %cond.i.i.i.i45 to i64
   %sub.ptr.sub.i.i31 = sub i64 %sub.ptr.lhs.cast.i.i29, %sub.ptr.rhs.cast.i.i30
-  call void @_ZdlPvm(ptr noundef nonnull %cond.i.i.i.i45, i64 noundef %sub.ptr.sub.i.i31) #16
+  call void @_ZdlPvm(ptr noundef nonnull %cond.i.i.i.i45, i64 noundef %sub.ptr.sub.i.i31) #15
   br label %ehcleanup42
 
 ehcleanup42:                                      ; preds = %if.then.i.i.i27, %ehcleanup, %lpad
@@ -4041,11 +4035,11 @@ if.then.i.i.i35:                                  ; preds = %ehcleanup42
   %sub.ptr.lhs.cast.i.i37 = ptrtoint ptr %36 to i64
   %sub.ptr.rhs.cast.i.i38 = ptrtoint ptr %35 to i64
   %sub.ptr.sub.i.i39 = sub i64 %sub.ptr.lhs.cast.i.i37, %sub.ptr.rhs.cast.i.i38
-  call void @_ZdlPvm(ptr noundef nonnull %35, i64 noundef %sub.ptr.sub.i.i39) #16
+  call void @_ZdlPvm(ptr noundef nonnull %35, i64 noundef %sub.ptr.sub.i.i39) #15
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit40
 
 _ZNSt6vectorIdSaIdEED2Ev.exit40:                  ; preds = %ehcleanup42, %if.then.i.i.i35
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %term) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %term)
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -4060,7 +4054,7 @@ invoke.cont:
   %0 = load i64, ptr %n_.i.i, align 8, !tbaa !56
   %1 = trunc i64 %0 to i32
   %conv = add i32 %1, -1
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %term) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %term)
   %conv2 = sext i32 %conv to i64
   %2 = load ptr, ptr %this, align 8, !tbaa !42
   %arrayidx.i = getelementptr inbounds nuw double, ptr %2, i64 %conv2
@@ -4073,12 +4067,12 @@ invoke.cont:
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 32
   store double %3, ptr %add.ptr.i.i.i, align 8, !tbaa !39, !noalias !248
   %integralV_.i.i = getelementptr inbounds nuw i8, ptr %5, i64 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i) #13, !noalias !248
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i), !noalias !248
   store ptr %6, ptr %ref.tmp.i.i, align 8, !tbaa !42, !noalias !248
   %8 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 8
   store ptr %5, ptr %8, align 8, !tbaa !251, !noalias !248
   call void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS0_18vectorIntegratorVRILi5EEESt6vectorIdSaIdEERKSt8functionIFS6_RKS6_EEdEUldE_EES6_RKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.7") align 8 %term, ptr noundef nonnull align 8 dereferenceable(32) %integralV_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i) #13, !noalias !248
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i), !noalias !248
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %term, i64 8
   %9 = load ptr, ptr %_M_finish.i, align 8, !tbaa !41
   %10 = load ptr, ptr %term, align 8, !tbaa !37
@@ -4102,14 +4096,14 @@ cond.true.i.i.i.i:                                ; preds = %invoke.cont
   br i1 %cmp.i.i.i.i.i.i, label %if.then3.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i, !prof !108
 
 if.then3.i.i.i.i.i.i:                             ; preds = %cond.true.i.i.i.i
-  invoke void @_ZSt28__throw_bad_array_new_lengthv() #15
+  invoke void @_ZSt28__throw_bad_array_new_lengthv() #14
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %if.then3.i.i.i.i.i.i
   unreachable
 
 _ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i: ; preds = %cond.true.i.i.i.i
-  %call5.i.i.i.i2.i6.i5 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i) #14
+  %call5.i.i.i.i2.i6.i5 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i) #13
           to label %if.then.i.i.i.i.i.i.i.i.i unwind label %lpad
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i
@@ -4142,7 +4136,7 @@ for.body.lr.ph:                                   ; preds = %_ZNSt6vectorIdSaIdE
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_S6_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS8_18vectorIntegratorVRILi6EEES5_RKSt8functionIFS5_RKS5_EEdEUldE_EES5_RKT_EUlddE_ET1_SK_SK_T0_SO_T2_.exit
   %indvars.iv = phi i64 [ %12, %for.body.lr.ph ], [ %indvars.iv.next, %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_S6_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS8_18vectorIntegratorVRILi6EEES5_RKSt8functionIFS5_RKS5_EEdEUldE_EES5_RKT_EUlddE_ET1_SK_SK_T0_SO_T2_.exit ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp)
   %13 = load ptr, ptr %this, align 8, !tbaa !42
   %arrayidx.i6 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv
   %14 = load double, ptr %arrayidx.i6, align 8, !tbaa !39
@@ -4153,14 +4147,14 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %add.ptr.i.i.i9 = getelementptr inbounds nuw i8, ptr %17, i64 32
   store double %14, ptr %add.ptr.i.i.i9, align 8, !tbaa !39, !noalias !256
   %integralV_.i.i10 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i7) #13, !noalias !256
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i7), !noalias !256
   store ptr %16, ptr %ref.tmp.i.i7, align 8, !tbaa !42, !noalias !256
   store ptr %15, ptr %11, align 8, !tbaa !251, !noalias !256
   invoke void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS0_18vectorIntegratorVRILi5EEESt6vectorIdSaIdEERKSt8functionIFS6_RKS6_EEdEUldE_EES6_RKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.7") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %integralV_.i.i10, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i7)
           to label %invoke.cont17 unwind label %ehcleanup
 
 invoke.cont17:                                    ; preds = %for.body
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i7) #13, !noalias !256
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i7), !noalias !256
   %18 = load ptr, ptr %term, align 8, !tbaa !37
   %19 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8, !tbaa !38
   %20 = load ptr, ptr %ref.tmp, align 8, !tbaa !37
@@ -4177,7 +4171,7 @@ _ZNSt6vectorIdSaIdEEaSEOS1_.exit:                 ; preds = %invoke.cont17
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %19 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %18 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
-  call void @_ZdlPvm(ptr noundef nonnull %18, i64 noundef %sub.ptr.sub.i.i.i.i) #16
+  call void @_ZdlPvm(ptr noundef nonnull %18, i64 noundef %sub.ptr.sub.i.i.i.i) #15
   %.pr = load ptr, ptr %ref.tmp, align 8, !tbaa !37
   %tobool.not.i.i.i = icmp eq ptr %.pr, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIdSaIdEED2Ev.exit, label %if.then.i.i.i
@@ -4187,11 +4181,11 @@ if.then.i.i.i:                                    ; preds = %_ZNSt6vectorIdSaIdE
   %sub.ptr.lhs.cast.i.i13 = ptrtoint ptr %23 to i64
   %sub.ptr.rhs.cast.i.i14 = ptrtoint ptr %.pr to i64
   %sub.ptr.sub.i.i15 = sub i64 %sub.ptr.lhs.cast.i.i13, %sub.ptr.rhs.cast.i.i14
-  call void @_ZdlPvm(ptr noundef nonnull %.pr, i64 noundef %sub.ptr.sub.i.i15) #16
+  call void @_ZdlPvm(ptr noundef nonnull %.pr, i64 noundef %sub.ptr.sub.i.i15) #15
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit
 
 _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %invoke.cont17, %_ZNSt6vectorIdSaIdEEaSEOS1_.exit, %if.then.i.i.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
   %24 = load ptr, ptr %term, align 8, !tbaa !42
   %25 = load ptr, ptr %_M_finish.i, align 8, !tbaa !42
   %cmp.i.not7.i = icmp eq ptr %24, %25
@@ -4236,17 +4230,17 @@ if.then.i.i.i19:                                  ; preds = %nrvo.skipdtor
   %sub.ptr.lhs.cast.i.i21 = ptrtoint ptr %33 to i64
   %sub.ptr.rhs.cast.i.i22 = ptrtoint ptr %32 to i64
   %sub.ptr.sub.i.i23 = sub i64 %sub.ptr.lhs.cast.i.i21, %sub.ptr.rhs.cast.i.i22
-  call void @_ZdlPvm(ptr noundef nonnull %32, i64 noundef %sub.ptr.sub.i.i23) #16
+  call void @_ZdlPvm(ptr noundef nonnull %32, i64 noundef %sub.ptr.sub.i.i23) #15
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit24
 
 _ZNSt6vectorIdSaIdEED2Ev.exit24:                  ; preds = %nrvo.skipdtor, %if.then.i.i.i19
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %term) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %term)
   ret void
 
 ehcleanup:                                        ; preds = %for.body
   %34 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
   %tobool.not.i.i.i26 = icmp eq ptr %cond.i.i.i.i45, null
   br i1 %tobool.not.i.i.i26, label %ehcleanup42, label %if.then.i.i.i27
 
@@ -4254,7 +4248,7 @@ if.then.i.i.i27:                                  ; preds = %ehcleanup
   %sub.ptr.lhs.cast.i.i29 = ptrtoint ptr %add.ptr.i.i.i448 to i64
   %sub.ptr.rhs.cast.i.i30 = ptrtoint ptr %cond.i.i.i.i45 to i64
   %sub.ptr.sub.i.i31 = sub i64 %sub.ptr.lhs.cast.i.i29, %sub.ptr.rhs.cast.i.i30
-  call void @_ZdlPvm(ptr noundef nonnull %cond.i.i.i.i45, i64 noundef %sub.ptr.sub.i.i31) #16
+  call void @_ZdlPvm(ptr noundef nonnull %cond.i.i.i.i45, i64 noundef %sub.ptr.sub.i.i31) #15
   br label %ehcleanup42
 
 ehcleanup42:                                      ; preds = %if.then.i.i.i27, %ehcleanup, %lpad
@@ -4269,11 +4263,11 @@ if.then.i.i.i35:                                  ; preds = %ehcleanup42
   %sub.ptr.lhs.cast.i.i37 = ptrtoint ptr %36 to i64
   %sub.ptr.rhs.cast.i.i38 = ptrtoint ptr %35 to i64
   %sub.ptr.sub.i.i39 = sub i64 %sub.ptr.lhs.cast.i.i37, %sub.ptr.rhs.cast.i.i38
-  call void @_ZdlPvm(ptr noundef nonnull %35, i64 noundef %sub.ptr.sub.i.i39) #16
+  call void @_ZdlPvm(ptr noundef nonnull %35, i64 noundef %sub.ptr.sub.i.i39) #15
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit40
 
 _ZNSt6vectorIdSaIdEED2Ev.exit40:                  ; preds = %ehcleanup42, %if.then.i.i.i35
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %term) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %term)
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -4288,7 +4282,7 @@ invoke.cont:
   %0 = load i64, ptr %n_.i.i, align 8, !tbaa !56
   %1 = trunc i64 %0 to i32
   %conv = add i32 %1, -1
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %term) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %term)
   %conv2 = sext i32 %conv to i64
   %2 = load ptr, ptr %this, align 8, !tbaa !42
   %arrayidx.i = getelementptr inbounds nuw double, ptr %2, i64 %conv2
@@ -4301,12 +4295,12 @@ invoke.cont:
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 24
   store double %3, ptr %add.ptr.i.i.i, align 8, !tbaa !39, !noalias !264
   %integralV_.i.i = getelementptr inbounds nuw i8, ptr %5, i64 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i) #13, !noalias !264
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i), !noalias !264
   store ptr %6, ptr %ref.tmp.i.i, align 8, !tbaa !42, !noalias !264
   %8 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 8
   store ptr %5, ptr %8, align 8, !tbaa !267, !noalias !264
   call void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS0_18vectorIntegratorVRILi4EEESt6vectorIdSaIdEERKSt8functionIFS6_RKS6_EEdEUldE_EES6_RKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.7") align 8 %term, ptr noundef nonnull align 8 dereferenceable(32) %integralV_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i) #13, !noalias !264
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i), !noalias !264
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %term, i64 8
   %9 = load ptr, ptr %_M_finish.i, align 8, !tbaa !41
   %10 = load ptr, ptr %term, align 8, !tbaa !37
@@ -4330,14 +4324,14 @@ cond.true.i.i.i.i:                                ; preds = %invoke.cont
   br i1 %cmp.i.i.i.i.i.i, label %if.then3.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i, !prof !108
 
 if.then3.i.i.i.i.i.i:                             ; preds = %cond.true.i.i.i.i
-  invoke void @_ZSt28__throw_bad_array_new_lengthv() #15
+  invoke void @_ZSt28__throw_bad_array_new_lengthv() #14
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %if.then3.i.i.i.i.i.i
   unreachable
 
 _ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i: ; preds = %cond.true.i.i.i.i
-  %call5.i.i.i.i2.i6.i5 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i) #14
+  %call5.i.i.i.i2.i6.i5 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i) #13
           to label %if.then.i.i.i.i.i.i.i.i.i unwind label %lpad
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i
@@ -4370,7 +4364,7 @@ for.body.lr.ph:                                   ; preds = %_ZNSt6vectorIdSaIdE
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_S6_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS8_18vectorIntegratorVRILi5EEES5_RKSt8functionIFS5_RKS5_EEdEUldE_EES5_RKT_EUlddE_ET1_SK_SK_T0_SO_T2_.exit
   %indvars.iv = phi i64 [ %12, %for.body.lr.ph ], [ %indvars.iv.next, %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_S6_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS8_18vectorIntegratorVRILi5EEES5_RKSt8functionIFS5_RKS5_EEdEUldE_EES5_RKT_EUlddE_ET1_SK_SK_T0_SO_T2_.exit ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp)
   %13 = load ptr, ptr %this, align 8, !tbaa !42
   %arrayidx.i6 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv
   %14 = load double, ptr %arrayidx.i6, align 8, !tbaa !39
@@ -4381,14 +4375,14 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %add.ptr.i.i.i9 = getelementptr inbounds nuw i8, ptr %17, i64 24
   store double %14, ptr %add.ptr.i.i.i9, align 8, !tbaa !39, !noalias !272
   %integralV_.i.i10 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i7) #13, !noalias !272
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i7), !noalias !272
   store ptr %16, ptr %ref.tmp.i.i7, align 8, !tbaa !42, !noalias !272
   store ptr %15, ptr %11, align 8, !tbaa !267, !noalias !272
   invoke void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS0_18vectorIntegratorVRILi4EEESt6vectorIdSaIdEERKSt8functionIFS6_RKS6_EEdEUldE_EES6_RKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.7") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %integralV_.i.i10, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i7)
           to label %invoke.cont17 unwind label %ehcleanup
 
 invoke.cont17:                                    ; preds = %for.body
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i7) #13, !noalias !272
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i7), !noalias !272
   %18 = load ptr, ptr %term, align 8, !tbaa !37
   %19 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8, !tbaa !38
   %20 = load ptr, ptr %ref.tmp, align 8, !tbaa !37
@@ -4405,7 +4399,7 @@ _ZNSt6vectorIdSaIdEEaSEOS1_.exit:                 ; preds = %invoke.cont17
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %19 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %18 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
-  call void @_ZdlPvm(ptr noundef nonnull %18, i64 noundef %sub.ptr.sub.i.i.i.i) #16
+  call void @_ZdlPvm(ptr noundef nonnull %18, i64 noundef %sub.ptr.sub.i.i.i.i) #15
   %.pr = load ptr, ptr %ref.tmp, align 8, !tbaa !37
   %tobool.not.i.i.i = icmp eq ptr %.pr, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIdSaIdEED2Ev.exit, label %if.then.i.i.i
@@ -4415,11 +4409,11 @@ if.then.i.i.i:                                    ; preds = %_ZNSt6vectorIdSaIdE
   %sub.ptr.lhs.cast.i.i13 = ptrtoint ptr %23 to i64
   %sub.ptr.rhs.cast.i.i14 = ptrtoint ptr %.pr to i64
   %sub.ptr.sub.i.i15 = sub i64 %sub.ptr.lhs.cast.i.i13, %sub.ptr.rhs.cast.i.i14
-  call void @_ZdlPvm(ptr noundef nonnull %.pr, i64 noundef %sub.ptr.sub.i.i15) #16
+  call void @_ZdlPvm(ptr noundef nonnull %.pr, i64 noundef %sub.ptr.sub.i.i15) #15
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit
 
 _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %invoke.cont17, %_ZNSt6vectorIdSaIdEEaSEOS1_.exit, %if.then.i.i.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
   %24 = load ptr, ptr %term, align 8, !tbaa !42
   %25 = load ptr, ptr %_M_finish.i, align 8, !tbaa !42
   %cmp.i.not7.i = icmp eq ptr %24, %25
@@ -4464,17 +4458,17 @@ if.then.i.i.i19:                                  ; preds = %nrvo.skipdtor
   %sub.ptr.lhs.cast.i.i21 = ptrtoint ptr %33 to i64
   %sub.ptr.rhs.cast.i.i22 = ptrtoint ptr %32 to i64
   %sub.ptr.sub.i.i23 = sub i64 %sub.ptr.lhs.cast.i.i21, %sub.ptr.rhs.cast.i.i22
-  call void @_ZdlPvm(ptr noundef nonnull %32, i64 noundef %sub.ptr.sub.i.i23) #16
+  call void @_ZdlPvm(ptr noundef nonnull %32, i64 noundef %sub.ptr.sub.i.i23) #15
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit24
 
 _ZNSt6vectorIdSaIdEED2Ev.exit24:                  ; preds = %nrvo.skipdtor, %if.then.i.i.i19
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %term) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %term)
   ret void
 
 ehcleanup:                                        ; preds = %for.body
   %34 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
   %tobool.not.i.i.i26 = icmp eq ptr %cond.i.i.i.i45, null
   br i1 %tobool.not.i.i.i26, label %ehcleanup42, label %if.then.i.i.i27
 
@@ -4482,7 +4476,7 @@ if.then.i.i.i27:                                  ; preds = %ehcleanup
   %sub.ptr.lhs.cast.i.i29 = ptrtoint ptr %add.ptr.i.i.i448 to i64
   %sub.ptr.rhs.cast.i.i30 = ptrtoint ptr %cond.i.i.i.i45 to i64
   %sub.ptr.sub.i.i31 = sub i64 %sub.ptr.lhs.cast.i.i29, %sub.ptr.rhs.cast.i.i30
-  call void @_ZdlPvm(ptr noundef nonnull %cond.i.i.i.i45, i64 noundef %sub.ptr.sub.i.i31) #16
+  call void @_ZdlPvm(ptr noundef nonnull %cond.i.i.i.i45, i64 noundef %sub.ptr.sub.i.i31) #15
   br label %ehcleanup42
 
 ehcleanup42:                                      ; preds = %if.then.i.i.i27, %ehcleanup, %lpad
@@ -4497,11 +4491,11 @@ if.then.i.i.i35:                                  ; preds = %ehcleanup42
   %sub.ptr.lhs.cast.i.i37 = ptrtoint ptr %36 to i64
   %sub.ptr.rhs.cast.i.i38 = ptrtoint ptr %35 to i64
   %sub.ptr.sub.i.i39 = sub i64 %sub.ptr.lhs.cast.i.i37, %sub.ptr.rhs.cast.i.i38
-  call void @_ZdlPvm(ptr noundef nonnull %35, i64 noundef %sub.ptr.sub.i.i39) #16
+  call void @_ZdlPvm(ptr noundef nonnull %35, i64 noundef %sub.ptr.sub.i.i39) #15
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit40
 
 _ZNSt6vectorIdSaIdEED2Ev.exit40:                  ; preds = %ehcleanup42, %if.then.i.i.i35
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %term) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %term)
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -4516,7 +4510,7 @@ invoke.cont:
   %0 = load i64, ptr %n_.i.i, align 8, !tbaa !56
   %1 = trunc i64 %0 to i32
   %conv = add i32 %1, -1
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %term) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %term)
   %conv2 = sext i32 %conv to i64
   %2 = load ptr, ptr %this, align 8, !tbaa !42
   %arrayidx.i = getelementptr inbounds nuw double, ptr %2, i64 %conv2
@@ -4529,12 +4523,12 @@ invoke.cont:
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 16
   store double %3, ptr %add.ptr.i.i.i, align 8, !tbaa !39, !noalias !280
   %integralV_.i.i = getelementptr inbounds nuw i8, ptr %5, i64 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i) #13, !noalias !280
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i), !noalias !280
   store ptr %6, ptr %ref.tmp.i.i, align 8, !tbaa !42, !noalias !280
   %8 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 8
   store ptr %5, ptr %8, align 8, !tbaa !283, !noalias !280
   call void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS0_18vectorIntegratorVRILi3EEESt6vectorIdSaIdEERKSt8functionIFS6_RKS6_EEdEUldE_EES6_RKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.7") align 8 %term, ptr noundef nonnull align 8 dereferenceable(32) %integralV_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i) #13, !noalias !280
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i), !noalias !280
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %term, i64 8
   %9 = load ptr, ptr %_M_finish.i, align 8, !tbaa !41
   %10 = load ptr, ptr %term, align 8, !tbaa !37
@@ -4558,14 +4552,14 @@ cond.true.i.i.i.i:                                ; preds = %invoke.cont
   br i1 %cmp.i.i.i.i.i.i, label %if.then3.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i, !prof !108
 
 if.then3.i.i.i.i.i.i:                             ; preds = %cond.true.i.i.i.i
-  invoke void @_ZSt28__throw_bad_array_new_lengthv() #15
+  invoke void @_ZSt28__throw_bad_array_new_lengthv() #14
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %if.then3.i.i.i.i.i.i
   unreachable
 
 _ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i: ; preds = %cond.true.i.i.i.i
-  %call5.i.i.i.i2.i6.i5 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i) #14
+  %call5.i.i.i.i2.i6.i5 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i) #13
           to label %if.then.i.i.i.i.i.i.i.i.i unwind label %lpad
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i
@@ -4598,7 +4592,7 @@ for.body.lr.ph:                                   ; preds = %_ZNSt6vectorIdSaIdE
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_S6_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS8_18vectorIntegratorVRILi4EEES5_RKSt8functionIFS5_RKS5_EEdEUldE_EES5_RKT_EUlddE_ET1_SK_SK_T0_SO_T2_.exit
   %indvars.iv = phi i64 [ %12, %for.body.lr.ph ], [ %indvars.iv.next, %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_S6_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS8_18vectorIntegratorVRILi4EEES5_RKSt8functionIFS5_RKS5_EEdEUldE_EES5_RKT_EUlddE_ET1_SK_SK_T0_SO_T2_.exit ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp)
   %13 = load ptr, ptr %this, align 8, !tbaa !42
   %arrayidx.i6 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv
   %14 = load double, ptr %arrayidx.i6, align 8, !tbaa !39
@@ -4609,14 +4603,14 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %add.ptr.i.i.i9 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store double %14, ptr %add.ptr.i.i.i9, align 8, !tbaa !39, !noalias !288
   %integralV_.i.i10 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i7) #13, !noalias !288
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i7), !noalias !288
   store ptr %16, ptr %ref.tmp.i.i7, align 8, !tbaa !42, !noalias !288
   store ptr %15, ptr %11, align 8, !tbaa !283, !noalias !288
   invoke void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS0_18vectorIntegratorVRILi3EEESt6vectorIdSaIdEERKSt8functionIFS6_RKS6_EEdEUldE_EES6_RKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.7") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %integralV_.i.i10, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i7)
           to label %invoke.cont17 unwind label %ehcleanup
 
 invoke.cont17:                                    ; preds = %for.body
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i7) #13, !noalias !288
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i7), !noalias !288
   %18 = load ptr, ptr %term, align 8, !tbaa !37
   %19 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8, !tbaa !38
   %20 = load ptr, ptr %ref.tmp, align 8, !tbaa !37
@@ -4633,7 +4627,7 @@ _ZNSt6vectorIdSaIdEEaSEOS1_.exit:                 ; preds = %invoke.cont17
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %19 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %18 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
-  call void @_ZdlPvm(ptr noundef nonnull %18, i64 noundef %sub.ptr.sub.i.i.i.i) #16
+  call void @_ZdlPvm(ptr noundef nonnull %18, i64 noundef %sub.ptr.sub.i.i.i.i) #15
   %.pr = load ptr, ptr %ref.tmp, align 8, !tbaa !37
   %tobool.not.i.i.i = icmp eq ptr %.pr, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIdSaIdEED2Ev.exit, label %if.then.i.i.i
@@ -4643,11 +4637,11 @@ if.then.i.i.i:                                    ; preds = %_ZNSt6vectorIdSaIdE
   %sub.ptr.lhs.cast.i.i13 = ptrtoint ptr %23 to i64
   %sub.ptr.rhs.cast.i.i14 = ptrtoint ptr %.pr to i64
   %sub.ptr.sub.i.i15 = sub i64 %sub.ptr.lhs.cast.i.i13, %sub.ptr.rhs.cast.i.i14
-  call void @_ZdlPvm(ptr noundef nonnull %.pr, i64 noundef %sub.ptr.sub.i.i15) #16
+  call void @_ZdlPvm(ptr noundef nonnull %.pr, i64 noundef %sub.ptr.sub.i.i15) #15
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit
 
 _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %invoke.cont17, %_ZNSt6vectorIdSaIdEEaSEOS1_.exit, %if.then.i.i.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
   %24 = load ptr, ptr %term, align 8, !tbaa !42
   %25 = load ptr, ptr %_M_finish.i, align 8, !tbaa !42
   %cmp.i.not7.i = icmp eq ptr %24, %25
@@ -4692,17 +4686,17 @@ if.then.i.i.i19:                                  ; preds = %nrvo.skipdtor
   %sub.ptr.lhs.cast.i.i21 = ptrtoint ptr %33 to i64
   %sub.ptr.rhs.cast.i.i22 = ptrtoint ptr %32 to i64
   %sub.ptr.sub.i.i23 = sub i64 %sub.ptr.lhs.cast.i.i21, %sub.ptr.rhs.cast.i.i22
-  call void @_ZdlPvm(ptr noundef nonnull %32, i64 noundef %sub.ptr.sub.i.i23) #16
+  call void @_ZdlPvm(ptr noundef nonnull %32, i64 noundef %sub.ptr.sub.i.i23) #15
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit24
 
 _ZNSt6vectorIdSaIdEED2Ev.exit24:                  ; preds = %nrvo.skipdtor, %if.then.i.i.i19
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %term) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %term)
   ret void
 
 ehcleanup:                                        ; preds = %for.body
   %34 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
   %tobool.not.i.i.i26 = icmp eq ptr %cond.i.i.i.i45, null
   br i1 %tobool.not.i.i.i26, label %ehcleanup42, label %if.then.i.i.i27
 
@@ -4710,7 +4704,7 @@ if.then.i.i.i27:                                  ; preds = %ehcleanup
   %sub.ptr.lhs.cast.i.i29 = ptrtoint ptr %add.ptr.i.i.i448 to i64
   %sub.ptr.rhs.cast.i.i30 = ptrtoint ptr %cond.i.i.i.i45 to i64
   %sub.ptr.sub.i.i31 = sub i64 %sub.ptr.lhs.cast.i.i29, %sub.ptr.rhs.cast.i.i30
-  call void @_ZdlPvm(ptr noundef nonnull %cond.i.i.i.i45, i64 noundef %sub.ptr.sub.i.i31) #16
+  call void @_ZdlPvm(ptr noundef nonnull %cond.i.i.i.i45, i64 noundef %sub.ptr.sub.i.i31) #15
   br label %ehcleanup42
 
 ehcleanup42:                                      ; preds = %if.then.i.i.i27, %ehcleanup, %lpad
@@ -4725,11 +4719,11 @@ if.then.i.i.i35:                                  ; preds = %ehcleanup42
   %sub.ptr.lhs.cast.i.i37 = ptrtoint ptr %36 to i64
   %sub.ptr.rhs.cast.i.i38 = ptrtoint ptr %35 to i64
   %sub.ptr.sub.i.i39 = sub i64 %sub.ptr.lhs.cast.i.i37, %sub.ptr.rhs.cast.i.i38
-  call void @_ZdlPvm(ptr noundef nonnull %35, i64 noundef %sub.ptr.sub.i.i39) #16
+  call void @_ZdlPvm(ptr noundef nonnull %35, i64 noundef %sub.ptr.sub.i.i39) #15
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit40
 
 _ZNSt6vectorIdSaIdEED2Ev.exit40:                  ; preds = %ehcleanup42, %if.then.i.i.i35
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %term) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %term)
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -4744,7 +4738,7 @@ invoke.cont:
   %0 = load i64, ptr %n_.i.i, align 8, !tbaa !56
   %1 = trunc i64 %0 to i32
   %conv = add i32 %1, -1
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %term) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %term)
   %conv2 = sext i32 %conv to i64
   %2 = load ptr, ptr %this, align 8, !tbaa !42
   %arrayidx.i = getelementptr inbounds nuw double, ptr %2, i64 %conv2
@@ -4757,12 +4751,12 @@ invoke.cont:
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   store double %3, ptr %add.ptr.i.i.i, align 8, !tbaa !39, !noalias !296
   %integralV_.i.i = getelementptr inbounds nuw i8, ptr %5, i64 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i) #13, !noalias !296
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i), !noalias !296
   store ptr %6, ptr %ref.tmp.i.i, align 8, !tbaa !42, !noalias !296
   %8 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 8
   store ptr %5, ptr %8, align 8, !tbaa !299, !noalias !296
   call void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS0_18vectorIntegratorVRILi2EEESt6vectorIdSaIdEERKSt8functionIFS6_RKS6_EEdEUldE_EES6_RKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.7") align 8 %term, ptr noundef nonnull align 8 dereferenceable(32) %integralV_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i) #13, !noalias !296
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i), !noalias !296
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %term, i64 8
   %9 = load ptr, ptr %_M_finish.i, align 8, !tbaa !41
   %10 = load ptr, ptr %term, align 8, !tbaa !37
@@ -4786,14 +4780,14 @@ cond.true.i.i.i.i:                                ; preds = %invoke.cont
   br i1 %cmp.i.i.i.i.i.i, label %if.then3.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i, !prof !108
 
 if.then3.i.i.i.i.i.i:                             ; preds = %cond.true.i.i.i.i
-  invoke void @_ZSt28__throw_bad_array_new_lengthv() #15
+  invoke void @_ZSt28__throw_bad_array_new_lengthv() #14
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %if.then3.i.i.i.i.i.i
   unreachable
 
 _ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i: ; preds = %cond.true.i.i.i.i
-  %call5.i.i.i.i2.i6.i5 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i) #14
+  %call5.i.i.i.i2.i6.i5 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i) #13
           to label %if.then.i.i.i.i.i.i.i.i.i unwind label %lpad
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i
@@ -4826,7 +4820,7 @@ for.body.lr.ph:                                   ; preds = %_ZNSt6vectorIdSaIdE
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_S6_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS8_18vectorIntegratorVRILi3EEES5_RKSt8functionIFS5_RKS5_EEdEUldE_EES5_RKT_EUlddE_ET1_SK_SK_T0_SO_T2_.exit
   %indvars.iv = phi i64 [ %12, %for.body.lr.ph ], [ %indvars.iv.next, %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_S6_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS8_18vectorIntegratorVRILi3EEES5_RKSt8functionIFS5_RKS5_EEdEUldE_EES5_RKT_EUlddE_ET1_SK_SK_T0_SO_T2_.exit ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp)
   %13 = load ptr, ptr %this, align 8, !tbaa !42
   %arrayidx.i6 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv
   %14 = load double, ptr %arrayidx.i6, align 8, !tbaa !39
@@ -4837,14 +4831,14 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %add.ptr.i.i.i9 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store double %14, ptr %add.ptr.i.i.i9, align 8, !tbaa !39, !noalias !304
   %integralV_.i.i10 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i7) #13, !noalias !304
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i7), !noalias !304
   store ptr %16, ptr %ref.tmp.i.i7, align 8, !tbaa !42, !noalias !304
   store ptr %15, ptr %11, align 8, !tbaa !299, !noalias !304
   invoke void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS0_18vectorIntegratorVRILi2EEESt6vectorIdSaIdEERKSt8functionIFS6_RKS6_EEdEUldE_EES6_RKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.7") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %integralV_.i.i10, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i7)
           to label %invoke.cont17 unwind label %ehcleanup
 
 invoke.cont17:                                    ; preds = %for.body
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i7) #13, !noalias !304
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i7), !noalias !304
   %18 = load ptr, ptr %term, align 8, !tbaa !37
   %19 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8, !tbaa !38
   %20 = load ptr, ptr %ref.tmp, align 8, !tbaa !37
@@ -4861,7 +4855,7 @@ _ZNSt6vectorIdSaIdEEaSEOS1_.exit:                 ; preds = %invoke.cont17
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %19 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %18 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
-  call void @_ZdlPvm(ptr noundef nonnull %18, i64 noundef %sub.ptr.sub.i.i.i.i) #16
+  call void @_ZdlPvm(ptr noundef nonnull %18, i64 noundef %sub.ptr.sub.i.i.i.i) #15
   %.pr = load ptr, ptr %ref.tmp, align 8, !tbaa !37
   %tobool.not.i.i.i = icmp eq ptr %.pr, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIdSaIdEED2Ev.exit, label %if.then.i.i.i
@@ -4871,11 +4865,11 @@ if.then.i.i.i:                                    ; preds = %_ZNSt6vectorIdSaIdE
   %sub.ptr.lhs.cast.i.i13 = ptrtoint ptr %23 to i64
   %sub.ptr.rhs.cast.i.i14 = ptrtoint ptr %.pr to i64
   %sub.ptr.sub.i.i15 = sub i64 %sub.ptr.lhs.cast.i.i13, %sub.ptr.rhs.cast.i.i14
-  call void @_ZdlPvm(ptr noundef nonnull %.pr, i64 noundef %sub.ptr.sub.i.i15) #16
+  call void @_ZdlPvm(ptr noundef nonnull %.pr, i64 noundef %sub.ptr.sub.i.i15) #15
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit
 
 _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %invoke.cont17, %_ZNSt6vectorIdSaIdEEaSEOS1_.exit, %if.then.i.i.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
   %24 = load ptr, ptr %term, align 8, !tbaa !42
   %25 = load ptr, ptr %_M_finish.i, align 8, !tbaa !42
   %cmp.i.not7.i = icmp eq ptr %24, %25
@@ -4920,17 +4914,17 @@ if.then.i.i.i19:                                  ; preds = %nrvo.skipdtor
   %sub.ptr.lhs.cast.i.i21 = ptrtoint ptr %33 to i64
   %sub.ptr.rhs.cast.i.i22 = ptrtoint ptr %32 to i64
   %sub.ptr.sub.i.i23 = sub i64 %sub.ptr.lhs.cast.i.i21, %sub.ptr.rhs.cast.i.i22
-  call void @_ZdlPvm(ptr noundef nonnull %32, i64 noundef %sub.ptr.sub.i.i23) #16
+  call void @_ZdlPvm(ptr noundef nonnull %32, i64 noundef %sub.ptr.sub.i.i23) #15
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit24
 
 _ZNSt6vectorIdSaIdEED2Ev.exit24:                  ; preds = %nrvo.skipdtor, %if.then.i.i.i19
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %term) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %term)
   ret void
 
 ehcleanup:                                        ; preds = %for.body
   %34 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
   %tobool.not.i.i.i26 = icmp eq ptr %cond.i.i.i.i45, null
   br i1 %tobool.not.i.i.i26, label %ehcleanup42, label %if.then.i.i.i27
 
@@ -4938,7 +4932,7 @@ if.then.i.i.i27:                                  ; preds = %ehcleanup
   %sub.ptr.lhs.cast.i.i29 = ptrtoint ptr %add.ptr.i.i.i448 to i64
   %sub.ptr.rhs.cast.i.i30 = ptrtoint ptr %cond.i.i.i.i45 to i64
   %sub.ptr.sub.i.i31 = sub i64 %sub.ptr.lhs.cast.i.i29, %sub.ptr.rhs.cast.i.i30
-  call void @_ZdlPvm(ptr noundef nonnull %cond.i.i.i.i45, i64 noundef %sub.ptr.sub.i.i31) #16
+  call void @_ZdlPvm(ptr noundef nonnull %cond.i.i.i.i45, i64 noundef %sub.ptr.sub.i.i31) #15
   br label %ehcleanup42
 
 ehcleanup42:                                      ; preds = %if.then.i.i.i27, %ehcleanup, %lpad
@@ -4953,11 +4947,11 @@ if.then.i.i.i35:                                  ; preds = %ehcleanup42
   %sub.ptr.lhs.cast.i.i37 = ptrtoint ptr %36 to i64
   %sub.ptr.rhs.cast.i.i38 = ptrtoint ptr %35 to i64
   %sub.ptr.sub.i.i39 = sub i64 %sub.ptr.lhs.cast.i.i37, %sub.ptr.rhs.cast.i.i38
-  call void @_ZdlPvm(ptr noundef nonnull %35, i64 noundef %sub.ptr.sub.i.i39) #16
+  call void @_ZdlPvm(ptr noundef nonnull %35, i64 noundef %sub.ptr.sub.i.i39) #15
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit40
 
 _ZNSt6vectorIdSaIdEED2Ev.exit40:                  ; preds = %ehcleanup42, %if.then.i.i.i35
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %term) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %term)
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -4970,7 +4964,7 @@ entry:
   %0 = load i64, ptr %n_.i.i, align 8, !tbaa !56
   %1 = trunc i64 %0 to i32
   %conv = add i32 %1, -1
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %term) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %term)
   %conv2 = sext i32 %conv to i64
   %2 = load ptr, ptr %this, align 8, !tbaa !42
   %arrayidx.i = getelementptr inbounds nuw double, ptr %2, i64 %conv2
@@ -4987,7 +4981,7 @@ entry:
   br i1 %tobool.not.i.i.i.i, label %if.then.i.i.i, label %invoke.cont
 
 if.then.i.i.i:                                    ; preds = %entry
-  tail call void @_ZSt25__throw_bad_function_callv() #15, !noalias !315
+  tail call void @_ZSt25__throw_bad_function_callv() #14, !noalias !315
   unreachable
 
 invoke.cont:                                      ; preds = %entry
@@ -5017,14 +5011,14 @@ cond.true.i.i.i.i:                                ; preds = %invoke.cont
   br i1 %cmp.i.i.i.i.i.i, label %if.then3.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i, !prof !108
 
 if.then3.i.i.i.i.i.i:                             ; preds = %cond.true.i.i.i.i
-  invoke void @_ZSt28__throw_bad_array_new_lengthv() #15
+  invoke void @_ZSt28__throw_bad_array_new_lengthv() #14
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %if.then3.i.i.i.i.i.i
   unreachable
 
 _ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i: ; preds = %cond.true.i.i.i.i
-  %call5.i.i.i.i2.i6.i4 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i) #14
+  %call5.i.i.i.i2.i6.i4 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i) #13
           to label %if.then.i.i.i.i.i.i.i.i.i unwind label %lpad
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i
@@ -5056,7 +5050,7 @@ for.body.lr.ph:                                   ; preds = %_ZNSt6vectorIdSaIdE
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_S6_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS8_18vectorIntegratorVRILi2EEES5_RKSt8functionIFS5_RKS5_EEdEUldE_EES5_RKT_EUlddE_ET1_SK_SK_T0_SO_T2_.exit
   %indvars.iv = phi i64 [ %12, %for.body.lr.ph ], [ %indvars.iv.next, %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES6_S6_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS8_18vectorIntegratorVRILi2EEES5_RKSt8functionIFS5_RKS5_EEdEUldE_EES5_RKT_EUlddE_ET1_SK_SK_T0_SO_T2_.exit ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp)
   %13 = load ptr, ptr %this, align 8, !tbaa !42
   %arrayidx.i5 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv
   %14 = load double, ptr %arrayidx.i5, align 8, !tbaa !39
@@ -5071,7 +5065,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   br i1 %tobool.not.i.i.i.i8, label %if.then.i.i.i10, label %_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi1EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd.exit.i
 
 if.then.i.i.i10:                                  ; preds = %for.body
-  invoke void @_ZSt25__throw_bad_function_callv() #15
+  invoke void @_ZSt25__throw_bad_function_callv() #14
           to label %.noexc11 unwind label %ehcleanup.loopexit.split-lp
 
 .noexc11:                                         ; preds = %if.then.i.i.i10
@@ -5100,7 +5094,7 @@ _ZNSt6vectorIdSaIdEEaSEOS1_.exit:                 ; preds = %invoke.cont17
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %21 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %20 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
-  call void @_ZdlPvm(ptr noundef nonnull %20, i64 noundef %sub.ptr.sub.i.i.i.i) #16
+  call void @_ZdlPvm(ptr noundef nonnull %20, i64 noundef %sub.ptr.sub.i.i.i.i) #15
   %.pr = load ptr, ptr %ref.tmp, align 8, !tbaa !37
   %tobool.not.i.i.i = icmp eq ptr %.pr, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIdSaIdEED2Ev.exit, label %if.then.i.i.i15
@@ -5110,11 +5104,11 @@ if.then.i.i.i15:                                  ; preds = %_ZNSt6vectorIdSaIdE
   %sub.ptr.lhs.cast.i.i16 = ptrtoint ptr %25 to i64
   %sub.ptr.rhs.cast.i.i17 = ptrtoint ptr %.pr to i64
   %sub.ptr.sub.i.i18 = sub i64 %sub.ptr.lhs.cast.i.i16, %sub.ptr.rhs.cast.i.i17
-  call void @_ZdlPvm(ptr noundef nonnull %.pr, i64 noundef %sub.ptr.sub.i.i18) #16
+  call void @_ZdlPvm(ptr noundef nonnull %.pr, i64 noundef %sub.ptr.sub.i.i18) #15
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit
 
 _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %invoke.cont17, %_ZNSt6vectorIdSaIdEEaSEOS1_.exit, %if.then.i.i.i15
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
   %26 = load ptr, ptr %term, align 8, !tbaa !42
   %27 = load ptr, ptr %_M_finish.i, align 8, !tbaa !42
   %cmp.i.not7.i = icmp eq ptr %26, %27
@@ -5159,11 +5153,11 @@ if.then.i.i.i22:                                  ; preds = %nrvo.skipdtor
   %sub.ptr.lhs.cast.i.i24 = ptrtoint ptr %35 to i64
   %sub.ptr.rhs.cast.i.i25 = ptrtoint ptr %34 to i64
   %sub.ptr.sub.i.i26 = sub i64 %sub.ptr.lhs.cast.i.i24, %sub.ptr.rhs.cast.i.i25
-  call void @_ZdlPvm(ptr noundef nonnull %34, i64 noundef %sub.ptr.sub.i.i26) #16
+  call void @_ZdlPvm(ptr noundef nonnull %34, i64 noundef %sub.ptr.sub.i.i26) #15
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit27
 
 _ZNSt6vectorIdSaIdEED2Ev.exit27:                  ; preds = %nrvo.skipdtor, %if.then.i.i.i22
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %term) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %term)
   ret void
 
 ehcleanup.loopexit:                               ; preds = %_ZNK8QuantLib30GaussianQuadMultidimIntegrator18vectorIntegratorVRILi1EEESt6vectorIdSaIdEERKSt8functionIFS4_RKS4_EEd.exit.i
@@ -5178,7 +5172,7 @@ ehcleanup.loopexit.split-lp:                      ; preds = %if.then.i.i.i10
 
 ehcleanup:                                        ; preds = %ehcleanup.loopexit.split-lp, %ehcleanup.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %ehcleanup.loopexit ], [ %lpad.loopexit.split-lp, %ehcleanup.loopexit.split-lp ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
   %tobool.not.i.i.i29 = icmp eq ptr %cond.i.i.i.i49, null
   br i1 %tobool.not.i.i.i29, label %ehcleanup42, label %if.then.i.i.i30
 
@@ -5186,7 +5180,7 @@ if.then.i.i.i30:                                  ; preds = %ehcleanup
   %sub.ptr.lhs.cast.i.i32 = ptrtoint ptr %add.ptr.i.i.i51 to i64
   %sub.ptr.rhs.cast.i.i33 = ptrtoint ptr %cond.i.i.i.i49 to i64
   %sub.ptr.sub.i.i34 = sub i64 %sub.ptr.lhs.cast.i.i32, %sub.ptr.rhs.cast.i.i33
-  call void @_ZdlPvm(ptr noundef nonnull %cond.i.i.i.i49, i64 noundef %sub.ptr.sub.i.i34) #16
+  call void @_ZdlPvm(ptr noundef nonnull %cond.i.i.i.i49, i64 noundef %sub.ptr.sub.i.i34) #15
   br label %ehcleanup42
 
 ehcleanup42:                                      ; preds = %if.then.i.i.i30, %ehcleanup, %lpad
@@ -5201,16 +5195,16 @@ if.then.i.i.i38:                                  ; preds = %ehcleanup42
   %sub.ptr.lhs.cast.i.i40 = ptrtoint ptr %37 to i64
   %sub.ptr.rhs.cast.i.i41 = ptrtoint ptr %36 to i64
   %sub.ptr.sub.i.i42 = sub i64 %sub.ptr.lhs.cast.i.i40, %sub.ptr.rhs.cast.i.i41
-  call void @_ZdlPvm(ptr noundef nonnull %36, i64 noundef %sub.ptr.sub.i.i42) #16
+  call void @_ZdlPvm(ptr noundef nonnull %36, i64 noundef %sub.ptr.sub.i.i42) #15
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit43
 
 _ZNSt6vectorIdSaIdEED2Ev.exit43:                  ; preds = %ehcleanup42, %if.then.i.i.i38
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %term) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %term)
   resume { ptr, i32 } %.pn.pn
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #11
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm13EEEvv(ptr noundef nonnull align 8 dereferenceable(144) %this) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -5222,18 +5216,18 @@ entry:
   %integrationEntries_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %integrationEntries_, align 8, !tbaa !3
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 384
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 16
   %_M_invoker.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 24
   %1 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   store i64 0, ptr %1, align 8
   %2 = ptrtoint ptr %this to i64
   store i64 %2, ptr %ref.tmp.i, align 8, !tbaa !42
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.sroa.0.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i64 16, i1 false), !tbaa.struct !43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, i64 16, i1 false), !tbaa.struct !43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, i64 16, i1 false), !tbaa.struct !43
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.sroa.0.i.i.i)
   %_M_manager3.i.i = getelementptr inbounds nuw i8, ptr %0, i64 400
   %3 = load ptr, ptr %_M_manager3.i.i, align 8, !tbaa !42
   store ptr %3, ptr %_M_manager.i.i.i, align 8, !tbaa !42
@@ -5257,21 +5251,21 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   unreachable
 
 _ZNSt8functionIFdS_IFdRKSt6vectorIdSaIdEEEEdEEaSIZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm13EEEvvEUlS6_dE_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS8_E4typeEOSF_.exit: ; preds = %entry, %if.then.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %integrationEntriesVR_ = getelementptr inbounds nuw i8, ptr %this, i64 88
   %7 = load ptr, ptr %integrationEntriesVR_, align 8, !tbaa !10
   %add.ptr.i1 = getelementptr inbounds nuw i8, ptr %7, i64 384
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i3) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i3)
   %_M_manager.i.i.i4 = getelementptr inbounds nuw i8, ptr %ref.tmp.i3, i64 16
   %_M_invoker.i.i5 = getelementptr inbounds nuw i8, ptr %ref.tmp.i3, i64 24
   %8 = getelementptr inbounds nuw i8, ptr %ref.tmp.i3, i64 8
   store i64 0, ptr %8, align 8
   store i64 %2, ptr %ref.tmp.i3, align 8, !tbaa !42
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.sroa.0.i.i.i2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i2, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i3, i64 16, i1 false), !tbaa.struct !43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i3, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i1, i64 16, i1 false), !tbaa.struct !43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i1, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i2, i64 16, i1 false), !tbaa.struct !43
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.sroa.0.i.i.i2)
   %_M_manager3.i.i6 = getelementptr inbounds nuw i8, ptr %7, i64 400
   %9 = load ptr, ptr %_M_manager3.i.i6, align 8, !tbaa !42
   store ptr %9, ptr %_M_manager.i.i.i4, align 8, !tbaa !42
@@ -5295,7 +5289,7 @@ terminate.lpad.i.i11:                             ; preds = %if.then.i.i9
   unreachable
 
 _ZNSt8functionIFSt6vectorIdSaIdEERKS_IFS2_RKS2_EEdEEaSIZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm13EEEvvEUlS8_dE_EENSt9enable_ifIXsr9_CallableIT_EE5valueERSA_E4typeEOSH_.exit: ; preds = %_ZNSt8functionIFdS_IFdRKSt6vectorIdSaIdEEEEdEEaSIZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm13EEEvvEUlS6_dE_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS8_E4typeEOSF_.exit, %if.then.i.i9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i3)
   call void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm12EEEvv(ptr noundef nonnull align 8 dereferenceable(144) %this)
   ret void
 }
@@ -5387,14 +5381,14 @@ for.body.i.i.i:                                   ; preds = %call2.i.i.i.i.i.noe
   %12 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 96
   store double %11, ptr %add.ptr.i.i.i.i.i.i, align 8, !tbaa !39
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i.i) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i.i)
   store ptr %agg.tmp, ptr %ref.tmp.i.i.i.i.i, align 8, !tbaa !42
   store ptr %3, ptr %6, align 8, !tbaa !66
   %call2.i.i.i.i.i1 = invoke noundef double @_ZNK8QuantLib18GaussianQuadratureclIZNKS_30GaussianQuadMultidimIntegrator16scalarIntegratorILi13EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdEUldE_EEdRKT_(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i.i.i)
           to label %call2.i.i.i.i.i.noexc unwind label %lpad
 
 call2.i.i.i.i.i.noexc:                            ; preds = %for.body.i.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i.i) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i.i)
   %13 = call double @llvm.fmuladd.f64(double %9, double %call2.i.i.i.i.i1, double %sum.07.i.i.i)
   %cmp.i.i.i = icmp samesign ugt i64 %indvars.iv.i.i.i, 1
   br i1 %cmp.i.i.i, label %for.body.i.i.i, label %invoke.cont.loopexit, !llvm.loop !64
@@ -5458,12 +5452,12 @@ entry:
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 104
   store double %0, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !39, !noalias !342
   %integralV_.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i) #13, !noalias !342
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i), !noalias !342
   store ptr %__args, ptr %ref.tmp.i.i.i.i, align 8, !tbaa !42, !noalias !342
   %3 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i.i.i, i64 8
   store ptr %1, ptr %3, align 8, !tbaa !106, !noalias !342
   call void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS0_18vectorIntegratorVRILi14EEESt6vectorIdSaIdEERKSt8functionIFS6_RKS6_EEdEUldE_EES6_RKT_(ptr dead_on_unwind writable sret(%"class.std::vector.7") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %integralV_.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i) #13, !noalias !342
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i), !noalias !342
   ret void
 }
 
@@ -5503,18 +5497,18 @@ entry:
   %integrationEntries_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %integrationEntries_, align 8, !tbaa !3
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 352
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 16
   %_M_invoker.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 24
   %1 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   store i64 0, ptr %1, align 8
   %2 = ptrtoint ptr %this to i64
   store i64 %2, ptr %ref.tmp.i, align 8, !tbaa !42
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.sroa.0.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i64 16, i1 false), !tbaa.struct !43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, i64 16, i1 false), !tbaa.struct !43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, i64 16, i1 false), !tbaa.struct !43
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.sroa.0.i.i.i)
   %_M_manager3.i.i = getelementptr inbounds nuw i8, ptr %0, i64 368
   %3 = load ptr, ptr %_M_manager3.i.i, align 8, !tbaa !42
   store ptr %3, ptr %_M_manager.i.i.i, align 8, !tbaa !42
@@ -5538,21 +5532,21 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   unreachable
 
 _ZNSt8functionIFdS_IFdRKSt6vectorIdSaIdEEEEdEEaSIZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm12EEEvvEUlS6_dE_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS8_E4typeEOSF_.exit: ; preds = %entry, %if.then.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %integrationEntriesVR_ = getelementptr inbounds nuw i8, ptr %this, i64 88
   %7 = load ptr, ptr %integrationEntriesVR_, align 8, !tbaa !10
   %add.ptr.i1 = getelementptr inbounds nuw i8, ptr %7, i64 352
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i3) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i3)
   %_M_manager.i.i.i4 = getelementptr inbounds nuw i8, ptr %ref.tmp.i3, i64 16
   %_M_invoker.i.i5 = getelementptr inbounds nuw i8, ptr %ref.tmp.i3, i64 24
   %8 = getelementptr inbounds nuw i8, ptr %ref.tmp.i3, i64 8
   store i64 0, ptr %8, align 8
   store i64 %2, ptr %ref.tmp.i3, align 8, !tbaa !42
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.sroa.0.i.i.i2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i2, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i3, i64 16, i1 false), !tbaa.struct !43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i3, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i1, i64 16, i1 false), !tbaa.struct !43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i1, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i2, i64 16, i1 false), !tbaa.struct !43
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.sroa.0.i.i.i2)
   %_M_manager3.i.i6 = getelementptr inbounds nuw i8, ptr %7, i64 368
   %9 = load ptr, ptr %_M_manager3.i.i6, align 8, !tbaa !42
   store ptr %9, ptr %_M_manager.i.i.i4, align 8, !tbaa !42
@@ -5576,7 +5570,7 @@ terminate.lpad.i.i11:                             ; preds = %if.then.i.i9
   unreachable
 
 _ZNSt8functionIFSt6vectorIdSaIdEERKS_IFS2_RKS2_EEdEEaSIZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm12EEEvvEUlS8_dE_EENSt9enable_ifIXsr9_CallableIT_EE5valueERSA_E4typeEOSH_.exit: ; preds = %_ZNSt8functionIFdS_IFdRKSt6vectorIdSaIdEEEEdEEaSIZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm12EEEvvEUlS6_dE_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS8_E4typeEOSF_.exit, %if.then.i.i9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i3)
   call void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm11EEEvv(ptr noundef nonnull align 8 dereferenceable(144) %this)
   ret void
 }
@@ -5586,7 +5580,7 @@ define linkonce_odr noundef double @_ZNSt17_Function_handlerIFdSt8functionIFdRKS
 entry:
   %ref.tmp.i.i.i.i = alloca %class.anon.20, align 8
   %agg.tmp.i.i = alloca %"class.std::function.16", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i.i)
   %_M_invoker.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i, i64 24
   %_M_invoker2.i.i.i = getelementptr inbounds nuw i8, ptr %__args, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i, i8 0, i64 24, i1 false)
@@ -5611,7 +5605,7 @@ _ZNSt8functionIFdRKSt6vectorIdSaIdEEEEC2EOS6_.exit.i.i: ; preds = %if.then.i.i.i
   %4 = load ptr, ptr %varBuffer_.i.i.i.i, align 8, !tbaa !37
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 96
   store double %2, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !39
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i)
   store ptr %agg.tmp.i.i, ptr %ref.tmp.i.i.i.i, align 8, !tbaa !42
   %5 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i.i.i, i64 8
   store ptr %3, ptr %5, align 8, !tbaa !66
@@ -5619,7 +5613,7 @@ _ZNSt8functionIFdRKSt6vectorIdSaIdEEEEC2EOS6_.exit.i.i: ; preds = %if.then.i.i.i
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %_ZNSt8functionIFdRKSt6vectorIdSaIdEEEEC2EOS6_.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i)
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i, i64 16
   %6 = load ptr, ptr %_M_manager.i.i.i, align 8, !tbaa !45
   %tobool.not.i.i.i = icmp eq ptr %6, null
@@ -5659,7 +5653,7 @@ _ZNSt14_Function_baseD2Ev.exit8.i.i:              ; preds = %if.then.i5.i.i, %lp
   resume { ptr, i32 } %9
 
 _ZSt10__invoke_rIdRZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm13EEEvvEUlSt8functionIFdRKSt6vectorIdSaIdEEEEdE_JSA_dEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit: ; preds = %invoke.cont.i.i, %if.then.i2.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i.i)
   ret double %call2.i.i1.i.i
 }
 
@@ -5700,12 +5694,12 @@ entry:
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 96
   store double %0, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !39, !noalias !357
   %integralV_.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i) #13, !noalias !357
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i), !noalias !357
   store ptr %__args, ptr %ref.tmp.i.i.i.i, align 8, !tbaa !42, !noalias !357
   %3 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i.i.i, i64 8
   store ptr %1, ptr %3, align 8, !tbaa !123, !noalias !357
   call void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS0_18vectorIntegratorVRILi13EEESt6vectorIdSaIdEERKSt8functionIFS6_RKS6_EEdEUldE_EES6_RKT_(ptr dead_on_unwind writable sret(%"class.std::vector.7") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %integralV_.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i) #13, !noalias !357
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i), !noalias !357
   ret void
 }
 
@@ -5745,18 +5739,18 @@ entry:
   %integrationEntries_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %integrationEntries_, align 8, !tbaa !3
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 320
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 16
   %_M_invoker.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 24
   %1 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   store i64 0, ptr %1, align 8
   %2 = ptrtoint ptr %this to i64
   store i64 %2, ptr %ref.tmp.i, align 8, !tbaa !42
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.sroa.0.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i64 16, i1 false), !tbaa.struct !43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, i64 16, i1 false), !tbaa.struct !43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, i64 16, i1 false), !tbaa.struct !43
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.sroa.0.i.i.i)
   %_M_manager3.i.i = getelementptr inbounds nuw i8, ptr %0, i64 336
   %3 = load ptr, ptr %_M_manager3.i.i, align 8, !tbaa !42
   store ptr %3, ptr %_M_manager.i.i.i, align 8, !tbaa !42
@@ -5780,21 +5774,21 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   unreachable
 
 _ZNSt8functionIFdS_IFdRKSt6vectorIdSaIdEEEEdEEaSIZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm11EEEvvEUlS6_dE_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS8_E4typeEOSF_.exit: ; preds = %entry, %if.then.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %integrationEntriesVR_ = getelementptr inbounds nuw i8, ptr %this, i64 88
   %7 = load ptr, ptr %integrationEntriesVR_, align 8, !tbaa !10
   %add.ptr.i1 = getelementptr inbounds nuw i8, ptr %7, i64 320
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i3) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i3)
   %_M_manager.i.i.i4 = getelementptr inbounds nuw i8, ptr %ref.tmp.i3, i64 16
   %_M_invoker.i.i5 = getelementptr inbounds nuw i8, ptr %ref.tmp.i3, i64 24
   %8 = getelementptr inbounds nuw i8, ptr %ref.tmp.i3, i64 8
   store i64 0, ptr %8, align 8
   store i64 %2, ptr %ref.tmp.i3, align 8, !tbaa !42
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.sroa.0.i.i.i2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i2, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i3, i64 16, i1 false), !tbaa.struct !43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i3, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i1, i64 16, i1 false), !tbaa.struct !43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i1, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i2, i64 16, i1 false), !tbaa.struct !43
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.sroa.0.i.i.i2)
   %_M_manager3.i.i6 = getelementptr inbounds nuw i8, ptr %7, i64 336
   %9 = load ptr, ptr %_M_manager3.i.i6, align 8, !tbaa !42
   store ptr %9, ptr %_M_manager.i.i.i4, align 8, !tbaa !42
@@ -5818,7 +5812,7 @@ terminate.lpad.i.i11:                             ; preds = %if.then.i.i9
   unreachable
 
 _ZNSt8functionIFSt6vectorIdSaIdEERKS_IFS2_RKS2_EEdEEaSIZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm11EEEvvEUlS8_dE_EENSt9enable_ifIXsr9_CallableIT_EE5valueERSA_E4typeEOSH_.exit: ; preds = %_ZNSt8functionIFdS_IFdRKSt6vectorIdSaIdEEEEdEEaSIZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm11EEEvvEUlS6_dE_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS8_E4typeEOSF_.exit, %if.then.i.i9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i3)
   call void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm10EEEvv(ptr noundef nonnull align 8 dereferenceable(144) %this)
   ret void
 }
@@ -5954,14 +5948,14 @@ for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %call2.i.i.i.i.i.i.i
   %26 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37
   %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %26, i64 64
   store double %25, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !39
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i.i.i.i) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i.i.i.i)
   store ptr %agg.tmp, ptr %ref.tmp.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !42
   store ptr %3, ptr %6, align 8, !tbaa !58
   %call2.i.i.i.i.i.i.i.i.i.i.i1 = invoke noundef double @_ZNK8QuantLib18GaussianQuadratureclIZNKS_30GaussianQuadMultidimIntegrator16scalarIntegratorILi9EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdEUldE_EEdRKT_(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i.i.i.i.i.i.i.i.i)
           to label %call2.i.i.i.i.i.i.i.i.i.i.i.noexc unwind label %lpad
 
 call2.i.i.i.i.i.i.i.i.i.i.i.noexc:                ; preds = %for.body.i.i.i.i.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i.i.i.i) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i.i.i.i)
   %27 = call double @llvm.fmuladd.f64(double %23, double %call2.i.i.i.i.i.i.i.i.i.i.i1, double %sum.07.i.i.i.i.i.i.i.i.i)
   %cmp.i.i.i.i.i.i.i.i.i = icmp samesign ugt i64 %indvars.iv.i.i.i.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i, label %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi11EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i.i.i, !llvm.loop !60
@@ -6037,12 +6031,12 @@ entry:
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 88
   store double %0, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !39, !noalias !372
   %integralV_.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i) #13, !noalias !372
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i), !noalias !372
   store ptr %__args, ptr %ref.tmp.i.i.i.i, align 8, !tbaa !42, !noalias !372
   %3 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i.i.i, i64 8
   store ptr %1, ptr %3, align 8, !tbaa !139, !noalias !372
   call void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS0_18vectorIntegratorVRILi12EEESt6vectorIdSaIdEERKSt8functionIFS6_RKS6_EEdEUldE_EES6_RKT_(ptr dead_on_unwind writable sret(%"class.std::vector.7") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %integralV_.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i) #13, !noalias !372
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i), !noalias !372
   ret void
 }
 
@@ -6082,18 +6076,18 @@ entry:
   %integrationEntries_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %integrationEntries_, align 8, !tbaa !3
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 288
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 16
   %_M_invoker.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 24
   %1 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   store i64 0, ptr %1, align 8
   %2 = ptrtoint ptr %this to i64
   store i64 %2, ptr %ref.tmp.i, align 8, !tbaa !42
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.sroa.0.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i64 16, i1 false), !tbaa.struct !43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, i64 16, i1 false), !tbaa.struct !43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, i64 16, i1 false), !tbaa.struct !43
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.sroa.0.i.i.i)
   %_M_manager3.i.i = getelementptr inbounds nuw i8, ptr %0, i64 304
   %3 = load ptr, ptr %_M_manager3.i.i, align 8, !tbaa !42
   store ptr %3, ptr %_M_manager.i.i.i, align 8, !tbaa !42
@@ -6117,21 +6111,21 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   unreachable
 
 _ZNSt8functionIFdS_IFdRKSt6vectorIdSaIdEEEEdEEaSIZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm10EEEvvEUlS6_dE_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS8_E4typeEOSF_.exit: ; preds = %entry, %if.then.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %integrationEntriesVR_ = getelementptr inbounds nuw i8, ptr %this, i64 88
   %7 = load ptr, ptr %integrationEntriesVR_, align 8, !tbaa !10
   %add.ptr.i1 = getelementptr inbounds nuw i8, ptr %7, i64 288
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i3) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i3)
   %_M_manager.i.i.i4 = getelementptr inbounds nuw i8, ptr %ref.tmp.i3, i64 16
   %_M_invoker.i.i5 = getelementptr inbounds nuw i8, ptr %ref.tmp.i3, i64 24
   %8 = getelementptr inbounds nuw i8, ptr %ref.tmp.i3, i64 8
   store i64 0, ptr %8, align 8
   store i64 %2, ptr %ref.tmp.i3, align 8, !tbaa !42
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.sroa.0.i.i.i2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i2, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i3, i64 16, i1 false), !tbaa.struct !43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i3, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i1, i64 16, i1 false), !tbaa.struct !43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i1, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i2, i64 16, i1 false), !tbaa.struct !43
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.sroa.0.i.i.i2)
   %_M_manager3.i.i6 = getelementptr inbounds nuw i8, ptr %7, i64 304
   %9 = load ptr, ptr %_M_manager3.i.i6, align 8, !tbaa !42
   store ptr %9, ptr %_M_manager.i.i.i4, align 8, !tbaa !42
@@ -6155,7 +6149,7 @@ terminate.lpad.i.i11:                             ; preds = %if.then.i.i9
   unreachable
 
 _ZNSt8functionIFSt6vectorIdSaIdEERKS_IFS2_RKS2_EEdEEaSIZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm10EEEvvEUlS8_dE_EENSt9enable_ifIXsr9_CallableIT_EE5valueERSA_E4typeEOSH_.exit: ; preds = %_ZNSt8functionIFdS_IFdRKSt6vectorIdSaIdEEEEdEEaSIZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm10EEEvvEUlS6_dE_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS8_E4typeEOSF_.exit, %if.then.i.i9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i3)
   call void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm9EEEvv(ptr noundef nonnull align 8 dereferenceable(144) %this)
   ret void
 }
@@ -6269,14 +6263,14 @@ for.body.i.i.i.i.i.i:                             ; preds = %call2.i.i.i.i.i.i.i
   %19 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37
   %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %19, i64 64
   store double %18, ptr %add.ptr.i.i.i.i.i.i.i.i.i, align 8, !tbaa !39
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
   store ptr %agg.tmp, ptr %ref.tmp.i.i.i.i.i.i.i.i, align 8, !tbaa !42
   store ptr %3, ptr %6, align 8, !tbaa !58
   %call2.i.i.i.i.i.i.i.i1 = invoke noundef double @_ZNK8QuantLib18GaussianQuadratureclIZNKS_30GaussianQuadMultidimIntegrator16scalarIntegratorILi9EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdEUldE_EEdRKT_(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i.i.i.i.i.i)
           to label %call2.i.i.i.i.i.i.i.i.noexc unwind label %lpad
 
 call2.i.i.i.i.i.i.i.i.noexc:                      ; preds = %for.body.i.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
   %20 = call double @llvm.fmuladd.f64(double %16, double %call2.i.i.i.i.i.i.i.i1, double %sum.07.i.i.i.i.i.i)
   %cmp.i.i.i.i.i.i = icmp samesign ugt i64 %indvars.iv.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi11EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i, !llvm.loop !60
@@ -6346,12 +6340,12 @@ entry:
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 80
   store double %0, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !39, !noalias !387
   %integralV_.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i) #13, !noalias !387
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i), !noalias !387
   store ptr %__args, ptr %ref.tmp.i.i.i.i, align 8, !tbaa !42, !noalias !387
   %3 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i.i.i, i64 8
   store ptr %1, ptr %3, align 8, !tbaa !155, !noalias !387
   call void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS0_18vectorIntegratorVRILi11EEESt6vectorIdSaIdEERKSt8functionIFS6_RKS6_EEdEUldE_EES6_RKT_(ptr dead_on_unwind writable sret(%"class.std::vector.7") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %integralV_.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i) #13, !noalias !387
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i), !noalias !387
   ret void
 }
 
@@ -6391,18 +6385,18 @@ entry:
   %integrationEntries_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %integrationEntries_, align 8, !tbaa !3
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 256
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 16
   %_M_invoker.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 24
   %1 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   store i64 0, ptr %1, align 8
   %2 = ptrtoint ptr %this to i64
   store i64 %2, ptr %ref.tmp.i, align 8, !tbaa !42
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.sroa.0.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i64 16, i1 false), !tbaa.struct !43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, i64 16, i1 false), !tbaa.struct !43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, i64 16, i1 false), !tbaa.struct !43
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.sroa.0.i.i.i)
   %_M_manager3.i.i = getelementptr inbounds nuw i8, ptr %0, i64 272
   %3 = load ptr, ptr %_M_manager3.i.i, align 8, !tbaa !42
   store ptr %3, ptr %_M_manager.i.i.i, align 8, !tbaa !42
@@ -6426,21 +6420,21 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   unreachable
 
 _ZNSt8functionIFdS_IFdRKSt6vectorIdSaIdEEEEdEEaSIZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm9EEEvvEUlS6_dE_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS8_E4typeEOSF_.exit: ; preds = %entry, %if.then.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %integrationEntriesVR_ = getelementptr inbounds nuw i8, ptr %this, i64 88
   %7 = load ptr, ptr %integrationEntriesVR_, align 8, !tbaa !10
   %add.ptr.i1 = getelementptr inbounds nuw i8, ptr %7, i64 256
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i3) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i3)
   %_M_manager.i.i.i4 = getelementptr inbounds nuw i8, ptr %ref.tmp.i3, i64 16
   %_M_invoker.i.i5 = getelementptr inbounds nuw i8, ptr %ref.tmp.i3, i64 24
   %8 = getelementptr inbounds nuw i8, ptr %ref.tmp.i3, i64 8
   store i64 0, ptr %8, align 8
   store i64 %2, ptr %ref.tmp.i3, align 8, !tbaa !42
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.sroa.0.i.i.i2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i2, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i3, i64 16, i1 false), !tbaa.struct !43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i3, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i1, i64 16, i1 false), !tbaa.struct !43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i1, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i2, i64 16, i1 false), !tbaa.struct !43
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.sroa.0.i.i.i2)
   %_M_manager3.i.i6 = getelementptr inbounds nuw i8, ptr %7, i64 272
   %9 = load ptr, ptr %_M_manager3.i.i6, align 8, !tbaa !42
   store ptr %9, ptr %_M_manager.i.i.i4, align 8, !tbaa !42
@@ -6464,7 +6458,7 @@ terminate.lpad.i.i11:                             ; preds = %if.then.i.i9
   unreachable
 
 _ZNSt8functionIFSt6vectorIdSaIdEERKS_IFS2_RKS2_EEdEEaSIZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm9EEEvvEUlS8_dE_EENSt9enable_ifIXsr9_CallableIT_EE5valueERSA_E4typeEOSH_.exit: ; preds = %_ZNSt8functionIFdS_IFdRKSt6vectorIdSaIdEEEEdEEaSIZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm9EEEvvEUlS6_dE_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS8_E4typeEOSF_.exit, %if.then.i.i9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i3)
   call void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm8EEEvv(ptr noundef nonnull align 8 dereferenceable(144) %this)
   ret void
 }
@@ -6556,14 +6550,14 @@ for.body.i.i.i:                                   ; preds = %call2.i.i.i.i.i.noe
   %12 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 64
   store double %11, ptr %add.ptr.i.i.i.i.i.i, align 8, !tbaa !39
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i.i) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i.i)
   store ptr %agg.tmp, ptr %ref.tmp.i.i.i.i.i, align 8, !tbaa !42
   store ptr %3, ptr %6, align 8, !tbaa !58
   %call2.i.i.i.i.i1 = invoke noundef double @_ZNK8QuantLib18GaussianQuadratureclIZNKS_30GaussianQuadMultidimIntegrator16scalarIntegratorILi9EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdEUldE_EEdRKT_(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i.i.i)
           to label %call2.i.i.i.i.i.noexc unwind label %lpad
 
 call2.i.i.i.i.i.noexc:                            ; preds = %for.body.i.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i.i) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i.i)
   %13 = call double @llvm.fmuladd.f64(double %9, double %call2.i.i.i.i.i1, double %sum.07.i.i.i)
   %cmp.i.i.i = icmp samesign ugt i64 %indvars.iv.i.i.i, 1
   br i1 %cmp.i.i.i, label %for.body.i.i.i, label %invoke.cont.loopexit, !llvm.loop !60
@@ -6627,12 +6621,12 @@ entry:
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 72
   store double %0, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !39, !noalias !402
   %integralV_.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i) #13, !noalias !402
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i), !noalias !402
   store ptr %__args, ptr %ref.tmp.i.i.i.i, align 8, !tbaa !42, !noalias !402
   %3 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i.i.i, i64 8
   store ptr %1, ptr %3, align 8, !tbaa !171, !noalias !402
   call void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS0_18vectorIntegratorVRILi10EEESt6vectorIdSaIdEERKSt8functionIFS6_RKS6_EEdEUldE_EES6_RKT_(ptr dead_on_unwind writable sret(%"class.std::vector.7") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %integralV_.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i) #13, !noalias !402
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i), !noalias !402
   ret void
 }
 
@@ -6672,18 +6666,18 @@ entry:
   %integrationEntries_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %integrationEntries_, align 8, !tbaa !3
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 224
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 16
   %_M_invoker.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 24
   %1 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   store i64 0, ptr %1, align 8
   %2 = ptrtoint ptr %this to i64
   store i64 %2, ptr %ref.tmp.i, align 8, !tbaa !42
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.sroa.0.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i64 16, i1 false), !tbaa.struct !43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, i64 16, i1 false), !tbaa.struct !43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, i64 16, i1 false), !tbaa.struct !43
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.sroa.0.i.i.i)
   %_M_manager3.i.i = getelementptr inbounds nuw i8, ptr %0, i64 240
   %3 = load ptr, ptr %_M_manager3.i.i, align 8, !tbaa !42
   store ptr %3, ptr %_M_manager.i.i.i, align 8, !tbaa !42
@@ -6707,21 +6701,21 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   unreachable
 
 _ZNSt8functionIFdS_IFdRKSt6vectorIdSaIdEEEEdEEaSIZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm8EEEvvEUlS6_dE_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS8_E4typeEOSF_.exit: ; preds = %entry, %if.then.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %integrationEntriesVR_ = getelementptr inbounds nuw i8, ptr %this, i64 88
   %7 = load ptr, ptr %integrationEntriesVR_, align 8, !tbaa !10
   %add.ptr.i1 = getelementptr inbounds nuw i8, ptr %7, i64 224
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i3) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i3)
   %_M_manager.i.i.i4 = getelementptr inbounds nuw i8, ptr %ref.tmp.i3, i64 16
   %_M_invoker.i.i5 = getelementptr inbounds nuw i8, ptr %ref.tmp.i3, i64 24
   %8 = getelementptr inbounds nuw i8, ptr %ref.tmp.i3, i64 8
   store i64 0, ptr %8, align 8
   store i64 %2, ptr %ref.tmp.i3, align 8, !tbaa !42
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.sroa.0.i.i.i2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i2, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i3, i64 16, i1 false), !tbaa.struct !43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i3, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i1, i64 16, i1 false), !tbaa.struct !43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i1, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i2, i64 16, i1 false), !tbaa.struct !43
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.sroa.0.i.i.i2)
   %_M_manager3.i.i6 = getelementptr inbounds nuw i8, ptr %7, i64 240
   %9 = load ptr, ptr %_M_manager3.i.i6, align 8, !tbaa !42
   store ptr %9, ptr %_M_manager.i.i.i4, align 8, !tbaa !42
@@ -6745,7 +6739,7 @@ terminate.lpad.i.i11:                             ; preds = %if.then.i.i9
   unreachable
 
 _ZNSt8functionIFSt6vectorIdSaIdEERKS_IFS2_RKS2_EEdEEaSIZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm8EEEvvEUlS8_dE_EENSt9enable_ifIXsr9_CallableIT_EE5valueERSA_E4typeEOSH_.exit: ; preds = %_ZNSt8functionIFdS_IFdRKSt6vectorIdSaIdEEEEdEEaSIZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm8EEEvvEUlS6_dE_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS8_E4typeEOSF_.exit, %if.then.i.i9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i3)
   call void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm7EEEvv(ptr noundef nonnull align 8 dereferenceable(144) %this)
   ret void
 }
@@ -6755,7 +6749,7 @@ define linkonce_odr noundef double @_ZNSt17_Function_handlerIFdSt8functionIFdRKS
 entry:
   %ref.tmp.i.i.i.i = alloca %class.anon.24, align 8
   %agg.tmp.i.i = alloca %"class.std::function.16", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i.i)
   %_M_invoker.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i, i64 24
   %_M_invoker2.i.i.i = getelementptr inbounds nuw i8, ptr %__args, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i, i8 0, i64 24, i1 false)
@@ -6780,7 +6774,7 @@ _ZNSt8functionIFdRKSt6vectorIdSaIdEEEEC2EOS6_.exit.i.i: ; preds = %if.then.i.i.i
   %4 = load ptr, ptr %varBuffer_.i.i.i.i, align 8, !tbaa !37
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 64
   store double %2, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !39
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i)
   store ptr %agg.tmp.i.i, ptr %ref.tmp.i.i.i.i, align 8, !tbaa !42
   %5 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i.i.i, i64 8
   store ptr %3, ptr %5, align 8, !tbaa !58
@@ -6788,7 +6782,7 @@ _ZNSt8functionIFdRKSt6vectorIdSaIdEEEEC2EOS6_.exit.i.i: ; preds = %if.then.i.i.i
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %_ZNSt8functionIFdRKSt6vectorIdSaIdEEEEC2EOS6_.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i)
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i, i64 16
   %6 = load ptr, ptr %_M_manager.i.i.i, align 8, !tbaa !45
   %tobool.not.i.i.i = icmp eq ptr %6, null
@@ -6828,7 +6822,7 @@ _ZNSt14_Function_baseD2Ev.exit8.i.i:              ; preds = %if.then.i5.i.i, %lp
   resume { ptr, i32 } %9
 
 _ZSt10__invoke_rIdRZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm9EEEvvEUlSt8functionIFdRKSt6vectorIdSaIdEEEEdE_JSA_dEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit: ; preds = %invoke.cont.i.i, %if.then.i2.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i.i)
   ret double %call2.i.i1.i.i
 }
 
@@ -6869,12 +6863,12 @@ entry:
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 64
   store double %0, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !39, !noalias !417
   %integralV_.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i) #13, !noalias !417
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i), !noalias !417
   store ptr %__args, ptr %ref.tmp.i.i.i.i, align 8, !tbaa !42, !noalias !417
   %3 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i.i.i, i64 8
   store ptr %1, ptr %3, align 8, !tbaa !187, !noalias !417
   call void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS0_18vectorIntegratorVRILi9EEESt6vectorIdSaIdEERKSt8functionIFS6_RKS6_EEdEUldE_EES6_RKT_(ptr dead_on_unwind writable sret(%"class.std::vector.7") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %integralV_.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i) #13, !noalias !417
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i), !noalias !417
   ret void
 }
 
@@ -6914,18 +6908,18 @@ entry:
   %integrationEntries_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %integrationEntries_, align 8, !tbaa !3
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 192
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 16
   %_M_invoker.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 24
   %1 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   store i64 0, ptr %1, align 8
   %2 = ptrtoint ptr %this to i64
   store i64 %2, ptr %ref.tmp.i, align 8, !tbaa !42
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.sroa.0.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i64 16, i1 false), !tbaa.struct !43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, i64 16, i1 false), !tbaa.struct !43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, i64 16, i1 false), !tbaa.struct !43
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.sroa.0.i.i.i)
   %_M_manager3.i.i = getelementptr inbounds nuw i8, ptr %0, i64 208
   %3 = load ptr, ptr %_M_manager3.i.i, align 8, !tbaa !42
   store ptr %3, ptr %_M_manager.i.i.i, align 8, !tbaa !42
@@ -6949,21 +6943,21 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   unreachable
 
 _ZNSt8functionIFdS_IFdRKSt6vectorIdSaIdEEEEdEEaSIZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm7EEEvvEUlS6_dE_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS8_E4typeEOSF_.exit: ; preds = %entry, %if.then.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %integrationEntriesVR_ = getelementptr inbounds nuw i8, ptr %this, i64 88
   %7 = load ptr, ptr %integrationEntriesVR_, align 8, !tbaa !10
   %add.ptr.i1 = getelementptr inbounds nuw i8, ptr %7, i64 192
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i3) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i3)
   %_M_manager.i.i.i4 = getelementptr inbounds nuw i8, ptr %ref.tmp.i3, i64 16
   %_M_invoker.i.i5 = getelementptr inbounds nuw i8, ptr %ref.tmp.i3, i64 24
   %8 = getelementptr inbounds nuw i8, ptr %ref.tmp.i3, i64 8
   store i64 0, ptr %8, align 8
   store i64 %2, ptr %ref.tmp.i3, align 8, !tbaa !42
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.sroa.0.i.i.i2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i2, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i3, i64 16, i1 false), !tbaa.struct !43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i3, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i1, i64 16, i1 false), !tbaa.struct !43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i1, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i2, i64 16, i1 false), !tbaa.struct !43
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.sroa.0.i.i.i2)
   %_M_manager3.i.i6 = getelementptr inbounds nuw i8, ptr %7, i64 208
   %9 = load ptr, ptr %_M_manager3.i.i6, align 8, !tbaa !42
   store ptr %9, ptr %_M_manager.i.i.i4, align 8, !tbaa !42
@@ -6987,7 +6981,7 @@ terminate.lpad.i.i11:                             ; preds = %if.then.i.i9
   unreachable
 
 _ZNSt8functionIFSt6vectorIdSaIdEERKS_IFS2_RKS2_EEdEEaSIZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm7EEEvvEUlS8_dE_EENSt9enable_ifIXsr9_CallableIT_EE5valueERSA_E4typeEOSH_.exit: ; preds = %_ZNSt8functionIFdS_IFdRKSt6vectorIdSaIdEEEEdEEaSIZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm7EEEvvEUlS6_dE_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS8_E4typeEOSF_.exit, %if.then.i.i9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i3)
   call void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm6EEEvv(ptr noundef nonnull align 8 dereferenceable(144) %this)
   ret void
 }
@@ -7079,14 +7073,14 @@ for.body.i.i.i:                                   ; preds = %call2.i.i.i.i.i.noe
   %12 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 48
   store double %11, ptr %add.ptr.i.i.i.i.i.i, align 8, !tbaa !39
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i.i) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i.i)
   store ptr %agg.tmp, ptr %ref.tmp.i.i.i.i.i, align 8, !tbaa !42
   store ptr %3, ptr %6, align 8, !tbaa !78
   %call2.i.i.i.i.i1 = invoke noundef double @_ZNK8QuantLib18GaussianQuadratureclIZNKS_30GaussianQuadMultidimIntegrator16scalarIntegratorILi7EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdEUldE_EEdRKT_(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i.i.i)
           to label %call2.i.i.i.i.i.noexc unwind label %lpad
 
 call2.i.i.i.i.i.noexc:                            ; preds = %for.body.i.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i.i) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i.i)
   %13 = call double @llvm.fmuladd.f64(double %9, double %call2.i.i.i.i.i1, double %sum.07.i.i.i)
   %cmp.i.i.i = icmp samesign ugt i64 %indvars.iv.i.i.i, 1
   br i1 %cmp.i.i.i, label %for.body.i.i.i, label %invoke.cont.loopexit, !llvm.loop !76
@@ -7150,12 +7144,12 @@ entry:
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 56
   store double %0, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !39, !noalias !432
   %integralV_.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i) #13, !noalias !432
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i), !noalias !432
   store ptr %__args, ptr %ref.tmp.i.i.i.i, align 8, !tbaa !42, !noalias !432
   %3 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i.i.i, i64 8
   store ptr %1, ptr %3, align 8, !tbaa !203, !noalias !432
   call void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS0_18vectorIntegratorVRILi8EEESt6vectorIdSaIdEERKSt8functionIFS6_RKS6_EEdEUldE_EES6_RKT_(ptr dead_on_unwind writable sret(%"class.std::vector.7") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %integralV_.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i) #13, !noalias !432
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i), !noalias !432
   ret void
 }
 
@@ -7195,18 +7189,18 @@ entry:
   %integrationEntries_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %integrationEntries_, align 8, !tbaa !3
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 160
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 16
   %_M_invoker.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 24
   %1 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   store i64 0, ptr %1, align 8
   %2 = ptrtoint ptr %this to i64
   store i64 %2, ptr %ref.tmp.i, align 8, !tbaa !42
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.sroa.0.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i64 16, i1 false), !tbaa.struct !43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, i64 16, i1 false), !tbaa.struct !43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, i64 16, i1 false), !tbaa.struct !43
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.sroa.0.i.i.i)
   %_M_manager3.i.i = getelementptr inbounds nuw i8, ptr %0, i64 176
   %3 = load ptr, ptr %_M_manager3.i.i, align 8, !tbaa !42
   store ptr %3, ptr %_M_manager.i.i.i, align 8, !tbaa !42
@@ -7230,21 +7224,21 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   unreachable
 
 _ZNSt8functionIFdS_IFdRKSt6vectorIdSaIdEEEEdEEaSIZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm6EEEvvEUlS6_dE_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS8_E4typeEOSF_.exit: ; preds = %entry, %if.then.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %integrationEntriesVR_ = getelementptr inbounds nuw i8, ptr %this, i64 88
   %7 = load ptr, ptr %integrationEntriesVR_, align 8, !tbaa !10
   %add.ptr.i1 = getelementptr inbounds nuw i8, ptr %7, i64 160
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i3) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i3)
   %_M_manager.i.i.i4 = getelementptr inbounds nuw i8, ptr %ref.tmp.i3, i64 16
   %_M_invoker.i.i5 = getelementptr inbounds nuw i8, ptr %ref.tmp.i3, i64 24
   %8 = getelementptr inbounds nuw i8, ptr %ref.tmp.i3, i64 8
   store i64 0, ptr %8, align 8
   store i64 %2, ptr %ref.tmp.i3, align 8, !tbaa !42
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.sroa.0.i.i.i2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i2, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i3, i64 16, i1 false), !tbaa.struct !43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i3, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i1, i64 16, i1 false), !tbaa.struct !43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i1, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i2, i64 16, i1 false), !tbaa.struct !43
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.sroa.0.i.i.i2)
   %_M_manager3.i.i6 = getelementptr inbounds nuw i8, ptr %7, i64 176
   %9 = load ptr, ptr %_M_manager3.i.i6, align 8, !tbaa !42
   store ptr %9, ptr %_M_manager.i.i.i4, align 8, !tbaa !42
@@ -7268,7 +7262,7 @@ terminate.lpad.i.i11:                             ; preds = %if.then.i.i9
   unreachable
 
 _ZNSt8functionIFSt6vectorIdSaIdEERKS_IFS2_RKS2_EEdEEaSIZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm6EEEvvEUlS8_dE_EENSt9enable_ifIXsr9_CallableIT_EE5valueERSA_E4typeEOSH_.exit: ; preds = %_ZNSt8functionIFdS_IFdRKSt6vectorIdSaIdEEEEdEEaSIZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm6EEEvvEUlS6_dE_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS8_E4typeEOSF_.exit, %if.then.i.i9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i3)
   call void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm5EEEvv(ptr noundef nonnull align 8 dereferenceable(144) %this)
   ret void
 }
@@ -7278,7 +7272,7 @@ define linkonce_odr noundef double @_ZNSt17_Function_handlerIFdSt8functionIFdRKS
 entry:
   %ref.tmp.i.i.i.i = alloca %class.anon.26, align 8
   %agg.tmp.i.i = alloca %"class.std::function.16", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i.i)
   %_M_invoker.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i, i64 24
   %_M_invoker2.i.i.i = getelementptr inbounds nuw i8, ptr %__args, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i, i8 0, i64 24, i1 false)
@@ -7303,7 +7297,7 @@ _ZNSt8functionIFdRKSt6vectorIdSaIdEEEEC2EOS6_.exit.i.i: ; preds = %if.then.i.i.i
   %4 = load ptr, ptr %varBuffer_.i.i.i.i, align 8, !tbaa !37
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 48
   store double %2, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !39
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i)
   store ptr %agg.tmp.i.i, ptr %ref.tmp.i.i.i.i, align 8, !tbaa !42
   %5 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i.i.i, i64 8
   store ptr %3, ptr %5, align 8, !tbaa !78
@@ -7311,7 +7305,7 @@ _ZNSt8functionIFdRKSt6vectorIdSaIdEEEEC2EOS6_.exit.i.i: ; preds = %if.then.i.i.i
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %_ZNSt8functionIFdRKSt6vectorIdSaIdEEEEC2EOS6_.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i)
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i, i64 16
   %6 = load ptr, ptr %_M_manager.i.i.i, align 8, !tbaa !45
   %tobool.not.i.i.i = icmp eq ptr %6, null
@@ -7351,7 +7345,7 @@ _ZNSt14_Function_baseD2Ev.exit8.i.i:              ; preds = %if.then.i5.i.i, %lp
   resume { ptr, i32 } %9
 
 _ZSt10__invoke_rIdRZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm7EEEvvEUlSt8functionIFdRKSt6vectorIdSaIdEEEEdE_JSA_dEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit: ; preds = %invoke.cont.i.i, %if.then.i2.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i.i)
   ret double %call2.i.i1.i.i
 }
 
@@ -7392,12 +7386,12 @@ entry:
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 48
   store double %0, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !39, !noalias !447
   %integralV_.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i) #13, !noalias !447
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i), !noalias !447
   store ptr %__args, ptr %ref.tmp.i.i.i.i, align 8, !tbaa !42, !noalias !447
   %3 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i.i.i, i64 8
   store ptr %1, ptr %3, align 8, !tbaa !219, !noalias !447
   call void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS0_18vectorIntegratorVRILi7EEESt6vectorIdSaIdEERKSt8functionIFS6_RKS6_EEdEUldE_EES6_RKT_(ptr dead_on_unwind writable sret(%"class.std::vector.7") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %integralV_.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i) #13, !noalias !447
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i), !noalias !447
   ret void
 }
 
@@ -7437,18 +7431,18 @@ entry:
   %integrationEntries_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %integrationEntries_, align 8, !tbaa !3
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 128
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 16
   %_M_invoker.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 24
   %1 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   store i64 0, ptr %1, align 8
   %2 = ptrtoint ptr %this to i64
   store i64 %2, ptr %ref.tmp.i, align 8, !tbaa !42
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.sroa.0.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i64 16, i1 false), !tbaa.struct !43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, i64 16, i1 false), !tbaa.struct !43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, i64 16, i1 false), !tbaa.struct !43
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.sroa.0.i.i.i)
   %_M_manager3.i.i = getelementptr inbounds nuw i8, ptr %0, i64 144
   %3 = load ptr, ptr %_M_manager3.i.i, align 8, !tbaa !42
   store ptr %3, ptr %_M_manager.i.i.i, align 8, !tbaa !42
@@ -7472,21 +7466,21 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   unreachable
 
 _ZNSt8functionIFdS_IFdRKSt6vectorIdSaIdEEEEdEEaSIZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm5EEEvvEUlS6_dE_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS8_E4typeEOSF_.exit: ; preds = %entry, %if.then.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %integrationEntriesVR_ = getelementptr inbounds nuw i8, ptr %this, i64 88
   %7 = load ptr, ptr %integrationEntriesVR_, align 8, !tbaa !10
   %add.ptr.i1 = getelementptr inbounds nuw i8, ptr %7, i64 128
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i3) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i3)
   %_M_manager.i.i.i4 = getelementptr inbounds nuw i8, ptr %ref.tmp.i3, i64 16
   %_M_invoker.i.i5 = getelementptr inbounds nuw i8, ptr %ref.tmp.i3, i64 24
   %8 = getelementptr inbounds nuw i8, ptr %ref.tmp.i3, i64 8
   store i64 0, ptr %8, align 8
   store i64 %2, ptr %ref.tmp.i3, align 8, !tbaa !42
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.sroa.0.i.i.i2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i2, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i3, i64 16, i1 false), !tbaa.struct !43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i3, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i1, i64 16, i1 false), !tbaa.struct !43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i1, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i2, i64 16, i1 false), !tbaa.struct !43
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.sroa.0.i.i.i2)
   %_M_manager3.i.i6 = getelementptr inbounds nuw i8, ptr %7, i64 144
   %9 = load ptr, ptr %_M_manager3.i.i6, align 8, !tbaa !42
   store ptr %9, ptr %_M_manager.i.i.i4, align 8, !tbaa !42
@@ -7510,7 +7504,7 @@ terminate.lpad.i.i11:                             ; preds = %if.then.i.i9
   unreachable
 
 _ZNSt8functionIFSt6vectorIdSaIdEERKS_IFS2_RKS2_EEdEEaSIZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm5EEEvvEUlS8_dE_EENSt9enable_ifIXsr9_CallableIT_EE5valueERSA_E4typeEOSH_.exit: ; preds = %_ZNSt8functionIFdS_IFdRKSt6vectorIdSaIdEEEEdEEaSIZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm5EEEvvEUlS6_dE_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS8_E4typeEOSF_.exit, %if.then.i.i9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i3)
   call void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm4EEEvv(ptr noundef nonnull align 8 dereferenceable(144) %this)
   ret void
 }
@@ -7602,14 +7596,14 @@ for.body.i.i.i:                                   ; preds = %call2.i.i.i.i.i.noe
   %12 = load ptr, ptr %varBuffer_.i.i, align 8, !tbaa !37
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 32
   store double %11, ptr %add.ptr.i.i.i.i.i.i, align 8, !tbaa !39
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i.i) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i.i)
   store ptr %agg.tmp, ptr %ref.tmp.i.i.i.i.i, align 8, !tbaa !42
   store ptr %3, ptr %6, align 8, !tbaa !81
   %call2.i.i.i.i.i1 = invoke noundef double @_ZNK8QuantLib18GaussianQuadratureclIZNKS_30GaussianQuadMultidimIntegrator16scalarIntegratorILi5EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdEUldE_EEdRKT_(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i.i.i)
           to label %call2.i.i.i.i.i.noexc unwind label %lpad
 
 call2.i.i.i.i.i.noexc:                            ; preds = %for.body.i.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i.i) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i.i)
   %13 = call double @llvm.fmuladd.f64(double %9, double %call2.i.i.i.i.i1, double %sum.07.i.i.i)
   %cmp.i.i.i = icmp samesign ugt i64 %indvars.iv.i.i.i, 1
   br i1 %cmp.i.i.i, label %for.body.i.i.i, label %invoke.cont.loopexit, !llvm.loop !74
@@ -7673,12 +7667,12 @@ entry:
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 40
   store double %0, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !39, !noalias !462
   %integralV_.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i) #13, !noalias !462
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i), !noalias !462
   store ptr %__args, ptr %ref.tmp.i.i.i.i, align 8, !tbaa !42, !noalias !462
   %3 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i.i.i, i64 8
   store ptr %1, ptr %3, align 8, !tbaa !235, !noalias !462
   call void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS0_18vectorIntegratorVRILi6EEESt6vectorIdSaIdEERKSt8functionIFS6_RKS6_EEdEUldE_EES6_RKT_(ptr dead_on_unwind writable sret(%"class.std::vector.7") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %integralV_.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i) #13, !noalias !462
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i), !noalias !462
   ret void
 }
 
@@ -7718,18 +7712,18 @@ entry:
   %integrationEntries_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %integrationEntries_, align 8, !tbaa !3
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 96
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 16
   %_M_invoker.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 24
   %1 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   store i64 0, ptr %1, align 8
   %2 = ptrtoint ptr %this to i64
   store i64 %2, ptr %ref.tmp.i, align 8, !tbaa !42
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.sroa.0.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i64 16, i1 false), !tbaa.struct !43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, i64 16, i1 false), !tbaa.struct !43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, i64 16, i1 false), !tbaa.struct !43
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.sroa.0.i.i.i)
   %_M_manager3.i.i = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load ptr, ptr %_M_manager3.i.i, align 8, !tbaa !42
   store ptr %3, ptr %_M_manager.i.i.i, align 8, !tbaa !42
@@ -7753,21 +7747,21 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   unreachable
 
 _ZNSt8functionIFdS_IFdRKSt6vectorIdSaIdEEEEdEEaSIZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm4EEEvvEUlS6_dE_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS8_E4typeEOSF_.exit: ; preds = %entry, %if.then.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %integrationEntriesVR_ = getelementptr inbounds nuw i8, ptr %this, i64 88
   %7 = load ptr, ptr %integrationEntriesVR_, align 8, !tbaa !10
   %add.ptr.i1 = getelementptr inbounds nuw i8, ptr %7, i64 96
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i3) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i3)
   %_M_manager.i.i.i4 = getelementptr inbounds nuw i8, ptr %ref.tmp.i3, i64 16
   %_M_invoker.i.i5 = getelementptr inbounds nuw i8, ptr %ref.tmp.i3, i64 24
   %8 = getelementptr inbounds nuw i8, ptr %ref.tmp.i3, i64 8
   store i64 0, ptr %8, align 8
   store i64 %2, ptr %ref.tmp.i3, align 8, !tbaa !42
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.sroa.0.i.i.i2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i2, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i3, i64 16, i1 false), !tbaa.struct !43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i3, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i1, i64 16, i1 false), !tbaa.struct !43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i1, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i2, i64 16, i1 false), !tbaa.struct !43
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.sroa.0.i.i.i2)
   %_M_manager3.i.i6 = getelementptr inbounds nuw i8, ptr %7, i64 112
   %9 = load ptr, ptr %_M_manager3.i.i6, align 8, !tbaa !42
   store ptr %9, ptr %_M_manager.i.i.i4, align 8, !tbaa !42
@@ -7791,7 +7785,7 @@ terminate.lpad.i.i11:                             ; preds = %if.then.i.i9
   unreachable
 
 _ZNSt8functionIFSt6vectorIdSaIdEERKS_IFS2_RKS2_EEdEEaSIZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm4EEEvvEUlS8_dE_EENSt9enable_ifIXsr9_CallableIT_EE5valueERSA_E4typeEOSH_.exit: ; preds = %_ZNSt8functionIFdS_IFdRKSt6vectorIdSaIdEEEEdEEaSIZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm4EEEvvEUlS6_dE_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS8_E4typeEOSF_.exit, %if.then.i.i9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i3)
   call void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm3EEEvv(ptr noundef nonnull align 8 dereferenceable(144) %this)
   ret void
 }
@@ -7801,7 +7795,7 @@ define linkonce_odr noundef double @_ZNSt17_Function_handlerIFdSt8functionIFdRKS
 entry:
   %ref.tmp.i.i.i.i = alloca %class.anon.28, align 8
   %agg.tmp.i.i = alloca %"class.std::function.16", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i.i)
   %_M_invoker.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i, i64 24
   %_M_invoker2.i.i.i = getelementptr inbounds nuw i8, ptr %__args, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i, i8 0, i64 24, i1 false)
@@ -7826,7 +7820,7 @@ _ZNSt8functionIFdRKSt6vectorIdSaIdEEEEC2EOS6_.exit.i.i: ; preds = %if.then.i.i.i
   %4 = load ptr, ptr %varBuffer_.i.i.i.i, align 8, !tbaa !37
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 32
   store double %2, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !39
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i)
   store ptr %agg.tmp.i.i, ptr %ref.tmp.i.i.i.i, align 8, !tbaa !42
   %5 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i.i.i, i64 8
   store ptr %3, ptr %5, align 8, !tbaa !81
@@ -7834,7 +7828,7 @@ _ZNSt8functionIFdRKSt6vectorIdSaIdEEEEC2EOS6_.exit.i.i: ; preds = %if.then.i.i.i
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %_ZNSt8functionIFdRKSt6vectorIdSaIdEEEEC2EOS6_.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i)
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i, i64 16
   %6 = load ptr, ptr %_M_manager.i.i.i, align 8, !tbaa !45
   %tobool.not.i.i.i = icmp eq ptr %6, null
@@ -7874,7 +7868,7 @@ _ZNSt14_Function_baseD2Ev.exit8.i.i:              ; preds = %if.then.i5.i.i, %lp
   resume { ptr, i32 } %9
 
 _ZSt10__invoke_rIdRZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm5EEEvvEUlSt8functionIFdRKSt6vectorIdSaIdEEEEdE_JSA_dEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit: ; preds = %invoke.cont.i.i, %if.then.i2.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i.i)
   ret double %call2.i.i1.i.i
 }
 
@@ -7915,12 +7909,12 @@ entry:
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 32
   store double %0, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !39, !noalias !477
   %integralV_.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i) #13, !noalias !477
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i), !noalias !477
   store ptr %__args, ptr %ref.tmp.i.i.i.i, align 8, !tbaa !42, !noalias !477
   %3 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i.i.i, i64 8
   store ptr %1, ptr %3, align 8, !tbaa !251, !noalias !477
   call void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS0_18vectorIntegratorVRILi5EEESt6vectorIdSaIdEERKSt8functionIFS6_RKS6_EEdEUldE_EES6_RKT_(ptr dead_on_unwind writable sret(%"class.std::vector.7") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %integralV_.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i) #13, !noalias !477
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i), !noalias !477
   ret void
 }
 
@@ -7960,18 +7954,18 @@ entry:
   %integrationEntries_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %integrationEntries_, align 8, !tbaa !3
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 64
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 16
   %_M_invoker.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 24
   %1 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   store i64 0, ptr %1, align 8
   %2 = ptrtoint ptr %this to i64
   store i64 %2, ptr %ref.tmp.i, align 8, !tbaa !42
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.sroa.0.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i64 16, i1 false), !tbaa.struct !43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, i64 16, i1 false), !tbaa.struct !43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, i64 16, i1 false), !tbaa.struct !43
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.sroa.0.i.i.i)
   %_M_manager3.i.i = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %_M_manager3.i.i, align 8, !tbaa !42
   store ptr %3, ptr %_M_manager.i.i.i, align 8, !tbaa !42
@@ -7995,21 +7989,21 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   unreachable
 
 _ZNSt8functionIFdS_IFdRKSt6vectorIdSaIdEEEEdEEaSIZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm3EEEvvEUlS6_dE_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS8_E4typeEOSF_.exit: ; preds = %entry, %if.then.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %integrationEntriesVR_ = getelementptr inbounds nuw i8, ptr %this, i64 88
   %7 = load ptr, ptr %integrationEntriesVR_, align 8, !tbaa !10
   %add.ptr.i1 = getelementptr inbounds nuw i8, ptr %7, i64 64
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i3) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i3)
   %_M_manager.i.i.i4 = getelementptr inbounds nuw i8, ptr %ref.tmp.i3, i64 16
   %_M_invoker.i.i5 = getelementptr inbounds nuw i8, ptr %ref.tmp.i3, i64 24
   %8 = getelementptr inbounds nuw i8, ptr %ref.tmp.i3, i64 8
   store i64 0, ptr %8, align 8
   store i64 %2, ptr %ref.tmp.i3, align 8, !tbaa !42
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.sroa.0.i.i.i2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i2, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i3, i64 16, i1 false), !tbaa.struct !43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i3, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i1, i64 16, i1 false), !tbaa.struct !43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i1, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i2, i64 16, i1 false), !tbaa.struct !43
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.sroa.0.i.i.i2)
   %_M_manager3.i.i6 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %9 = load ptr, ptr %_M_manager3.i.i6, align 8, !tbaa !42
   store ptr %9, ptr %_M_manager.i.i.i4, align 8, !tbaa !42
@@ -8033,7 +8027,7 @@ terminate.lpad.i.i11:                             ; preds = %if.then.i.i9
   unreachable
 
 _ZNSt8functionIFSt6vectorIdSaIdEERKS_IFS2_RKS2_EEdEEaSIZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm3EEEvvEUlS8_dE_EENSt9enable_ifIXsr9_CallableIT_EE5valueERSA_E4typeEOSH_.exit: ; preds = %_ZNSt8functionIFdS_IFdRKSt6vectorIdSaIdEEEEdEEaSIZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm3EEEvvEUlS6_dE_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS8_E4typeEOSF_.exit, %if.then.i.i9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i3)
   call void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm2EEEvv(ptr noundef nonnull align 8 dereferenceable(144) %this)
   ret void
 }
@@ -8172,7 +8166,7 @@ for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %call2.i.i.i.i.i.i.i
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi2EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %for.body.i.i.i.i.i.i.i.i.i
-  invoke void @_ZSt25__throw_bad_function_callv() #15
+  invoke void @_ZSt25__throw_bad_function_callv() #14
           to label %.noexc unwind label %lpad.loopexit.split-lp
 
 .noexc:                                           ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i
@@ -8266,12 +8260,12 @@ entry:
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 24
   store double %0, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !39, !noalias !492
   %integralV_.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i) #13, !noalias !492
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i), !noalias !492
   store ptr %__args, ptr %ref.tmp.i.i.i.i, align 8, !tbaa !42, !noalias !492
   %3 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i.i.i, i64 8
   store ptr %1, ptr %3, align 8, !tbaa !267, !noalias !492
   call void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS0_18vectorIntegratorVRILi4EEESt6vectorIdSaIdEERKSt8functionIFS6_RKS6_EEdEUldE_EES6_RKT_(ptr dead_on_unwind writable sret(%"class.std::vector.7") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %integralV_.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i) #13, !noalias !492
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i), !noalias !492
   ret void
 }
 
@@ -8315,18 +8309,18 @@ entry:
   %integrationEntries_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %integrationEntries_, align 8, !tbaa !3
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 16
   %_M_invoker.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 24
   %1 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   store i64 0, ptr %1, align 8
   %2 = ptrtoint ptr %this to i64
   store i64 %2, ptr %ref.tmp.i, align 8, !tbaa !42
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.sroa.0.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i64 16, i1 false), !tbaa.struct !43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, i64 16, i1 false), !tbaa.struct !43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, i64 16, i1 false), !tbaa.struct !43
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.sroa.0.i.i.i)
   %_M_manager3.i.i = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %_M_manager3.i.i, align 8, !tbaa !42
   store ptr %3, ptr %_M_manager.i.i.i, align 8, !tbaa !42
@@ -8350,21 +8344,21 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   unreachable
 
 _ZNSt8functionIFdS_IFdRKSt6vectorIdSaIdEEEEdEEaSIZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm2EEEvvEUlS6_dE_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS8_E4typeEOSF_.exit: ; preds = %entry, %if.then.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %integrationEntriesVR_ = getelementptr inbounds nuw i8, ptr %this, i64 88
   %7 = load ptr, ptr %integrationEntriesVR_, align 8, !tbaa !10
   %add.ptr.i1 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i3) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i3)
   %_M_manager.i.i.i4 = getelementptr inbounds nuw i8, ptr %ref.tmp.i3, i64 16
   %_M_invoker.i.i5 = getelementptr inbounds nuw i8, ptr %ref.tmp.i3, i64 24
   %8 = getelementptr inbounds nuw i8, ptr %ref.tmp.i3, i64 8
   store i64 0, ptr %8, align 8
   store i64 %2, ptr %ref.tmp.i3, align 8, !tbaa !42
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.sroa.0.i.i.i2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i2, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i3, i64 16, i1 false), !tbaa.struct !43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i3, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i1, i64 16, i1 false), !tbaa.struct !43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i1, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i2, i64 16, i1 false), !tbaa.struct !43
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.sroa.0.i.i.i2)
   %_M_manager3.i.i6 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %9 = load ptr, ptr %_M_manager3.i.i6, align 8, !tbaa !42
   store ptr %9, ptr %_M_manager.i.i.i4, align 8, !tbaa !42
@@ -8388,19 +8382,19 @@ terminate.lpad.i.i11:                             ; preds = %if.then.i.i9
   unreachable
 
 _ZNSt8functionIFSt6vectorIdSaIdEERKS_IFS2_RKS2_EEdEEaSIZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm2EEEvvEUlS8_dE_EENSt9enable_ifIXsr9_CallableIT_EE5valueERSA_E4typeEOSH_.exit: ; preds = %_ZNSt8functionIFdS_IFdRKSt6vectorIdSaIdEEEEdEEaSIZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm2EEEvvEUlS6_dE_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS8_E4typeEOSF_.exit, %if.then.i.i9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i3)
   %13 = load ptr, ptr %integrationEntries_, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i)
   %_M_manager.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 16
   %_M_invoker.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 24
   %14 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 8
   store i64 0, ptr %14, align 8
   store i64 %2, ptr %ref.tmp.i.i, align 8, !tbaa !42
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.sroa.0.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, i64 16, i1 false), !tbaa.struct !43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(32) %13, i64 16, i1 false), !tbaa.struct !43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i, i64 16, i1 false), !tbaa.struct !43
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.sroa.0.i.i.i.i)
   %_M_manager3.i.i.i = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %_M_manager3.i.i.i, align 8, !tbaa !42
   store ptr %15, ptr %_M_manager.i.i.i.i, align 8, !tbaa !42
@@ -8424,19 +8418,19 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
   unreachable
 
 _ZNSt8functionIFdS_IFdRKSt6vectorIdSaIdEEEEdEEaSIZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm1EEEvvEUlRKS6_dE_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS8_E4typeEOSH_.exit.i: ; preds = %if.then.i.i.i, %_ZNSt8functionIFSt6vectorIdSaIdEERKS_IFS2_RKS2_EEdEEaSIZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm2EEEvvEUlS8_dE_EENSt9enable_ifIXsr9_CallableIT_EE5valueERSA_E4typeEOSH_.exit
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i)
   %19 = load ptr, ptr %integrationEntriesVR_, align 8, !tbaa !10
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i2.i) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i2.i)
   %_M_manager.i.i.i3.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i2.i, i64 16
   %_M_invoker.i.i4.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i2.i, i64 24
   %20 = getelementptr inbounds nuw i8, ptr %ref.tmp.i2.i, i64 8
   store i64 0, ptr %20, align 8
   store i64 %2, ptr %ref.tmp.i2.i, align 8, !tbaa !42
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i1.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.sroa.0.i.i.i1.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i1.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i2.i, i64 16, i1 false), !tbaa.struct !43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i2.i, ptr noundef nonnull align 8 dereferenceable(32) %19, i64 16, i1 false), !tbaa.struct !43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i1.i, i64 16, i1 false), !tbaa.struct !43
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i1.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.sroa.0.i.i.i1.i)
   %_M_manager3.i.i5.i = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load ptr, ptr %_M_manager3.i.i5.i, align 8, !tbaa !42
   store ptr %21, ptr %_M_manager.i.i.i3.i, align 8, !tbaa !42
@@ -8460,7 +8454,7 @@ terminate.lpad.i.i10.i:                           ; preds = %if.then.i.i8.i
   unreachable
 
 _ZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm1EEEvv.exit: ; preds = %_ZNSt8functionIFdS_IFdRKSt6vectorIdSaIdEEEEdEEaSIZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm1EEEvvEUlRKS6_dE_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS8_E4typeEOSH_.exit.i, %if.then.i.i8.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i2.i) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i2.i)
   ret void
 }
 
@@ -8576,7 +8570,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %call2.i.i.i.i.i.i.i
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i, label %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi2EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %for.body.i.i.i.i.i.i
-  invoke void @_ZSt25__throw_bad_function_callv() #15
+  invoke void @_ZSt25__throw_bad_function_callv() #14
           to label %.noexc unwind label %lpad.loopexit.split-lp
 
 .noexc:                                           ; preds = %if.then.i.i.i.i.i.i.i.i.i
@@ -8664,12 +8658,12 @@ entry:
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 16
   store double %0, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !39, !noalias !507
   %integralV_.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i) #13, !noalias !507
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i), !noalias !507
   store ptr %__args, ptr %ref.tmp.i.i.i.i, align 8, !tbaa !42, !noalias !507
   %3 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i.i.i, i64 8
   store ptr %1, ptr %3, align 8, !tbaa !283, !noalias !507
   call void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS0_18vectorIntegratorVRILi3EEESt6vectorIdSaIdEERKSt8functionIFS6_RKS6_EEdEUldE_EES6_RKT_(ptr dead_on_unwind writable sret(%"class.std::vector.7") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %integralV_.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i) #13, !noalias !507
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i), !noalias !507
   ret void
 }
 
@@ -8789,7 +8783,7 @@ for.body.i.i.i:                                   ; preds = %call2.i.i.i.i.i.i.n
   br i1 %tobool.not.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZZNK8QuantLib30GaussianQuadMultidimIntegrator16scalarIntegratorILi2EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEEdENKUldE_clEd.exit.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %for.body.i.i.i
-  invoke void @_ZSt25__throw_bad_function_callv() #15
+  invoke void @_ZSt25__throw_bad_function_callv() #14
           to label %.noexc unwind label %lpad.loopexit.split-lp
 
 .noexc:                                           ; preds = %if.then.i.i.i.i.i.i
@@ -8871,12 +8865,12 @@ entry:
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   store double %0, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !39, !noalias !522
   %integralV_.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i) #13, !noalias !522
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i), !noalias !522
   store ptr %__args, ptr %ref.tmp.i.i.i.i, align 8, !tbaa !42, !noalias !522
   %3 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i.i.i, i64 8
   store ptr %1, ptr %3, align 8, !tbaa !299, !noalias !522
   call void @_ZNK8QuantLib30GaussianQuadMultidimIntegrator16VectorIntegratorclIZNKS0_18vectorIntegratorVRILi2EEESt6vectorIdSaIdEERKSt8functionIFS6_RKS6_EEdEUldE_EES6_RKT_(ptr dead_on_unwind writable sret(%"class.std::vector.7") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %integralV_.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i) #13, !noalias !522
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i), !noalias !522
   ret void
 }
 
@@ -8920,7 +8914,7 @@ entry:
   br i1 %tobool.not.i.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZSt10__invoke_rIdRZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm1EEEvvEUlRKSt8functionIFdRKSt6vectorIdSaIdEEEEdE_JSA_dEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.exit
 
 if.then.i.i.i.i.i:                                ; preds = %entry
-  tail call void @_ZSt25__throw_bad_function_callv() #15
+  tail call void @_ZSt25__throw_bad_function_callv() #14
   unreachable
 
 _ZSt10__invoke_rIdRZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm1EEEvvEUlRKSt8functionIFdRKSt6vectorIdSaIdEEEEdE_JSA_dEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.exit: ; preds = %entry
@@ -8970,7 +8964,7 @@ entry:
   br i1 %tobool.not.i.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZSt10__invoke_rISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm1EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.exit
 
 if.then.i.i.i.i.i:                                ; preds = %entry
-  tail call void @_ZSt25__throw_bad_function_callv() #15, !noalias !540
+  tail call void @_ZSt25__throw_bad_function_callv() #14, !noalias !540
   unreachable
 
 _ZSt10__invoke_rISt6vectorIdSaIdEERZNK8QuantLib30GaussianQuadMultidimIntegrator9spawnFctsILm1EEEvvEUlRKSt8functionIFS2_RKS2_EEdE_JSC_dEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.exit: ; preds = %entry
@@ -9006,23 +9000,29 @@ sw.epilog:                                        ; preds = %entry, %sw.bb4.i, %
   ret i1 false
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
+
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { cold nofree noreturn }
-attributes #7 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #13 = { nounwind }
-attributes #14 = { builtin allocsize(0) }
-attributes #15 = { noreturn }
-attributes #16 = { builtin nounwind }
+attributes #1 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { cold nofree noreturn }
+attributes #6 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #13 = { builtin allocsize(0) }
+attributes #14 = { noreturn }
+attributes #15 = { builtin nounwind }
+attributes #16 = { nounwind }
 attributes #17 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

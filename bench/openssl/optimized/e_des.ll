@@ -127,15 +127,9 @@ define internal range(i32 -1, 2) i32 @des_ctrl(ptr readnone captures(none) %0, i
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 declare ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef) local_unnamed_addr #2
 
 declare void @DES_set_key_unchecked(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 declare void @DES_ncbc_encrypt(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -160,7 +154,7 @@ define internal noundef i32 @des_cfb64_cipher(ptr noundef %0, ptr noundef %1, pt
   %.023 = phi i64 [ %3, %.lr.ph ], [ %15, %9 ]
   %.01922 = phi ptr [ %2, %.lr.ph ], [ %16, %9 ]
   %.02021 = phi ptr [ %1, %.lr.ph ], [ %17, %9 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = call i32 @EVP_CIPHER_CTX_get_num(ptr noundef %0) #5
   store i32 %10, ptr %5, align 4, !tbaa !8
   %11 = call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %0) #5
@@ -171,7 +165,7 @@ define internal noundef i32 @des_cfb64_cipher(ptr noundef %0, ptr noundef %1, pt
   %15 = add i64 %.023, -1073741824
   %16 = getelementptr inbounds nuw i8, ptr %.01922, i64 1073741824
   %17 = getelementptr inbounds nuw i8, ptr %.02021, i64 1073741824
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %18 = icmp ugt i64 %15, 1073741823
   br i1 %18, label %9, label %._crit_edge, !llvm.loop !10
 
@@ -183,7 +177,7 @@ define internal noundef i32 @des_cfb64_cipher(ptr noundef %0, ptr noundef %1, pt
   br i1 %.not, label %26, label %19
 
 19:                                               ; preds = %._crit_edge
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %20 = call i32 @EVP_CIPHER_CTX_get_num(ptr noundef %0) #5
   store i32 %20, ptr %6, align 4, !tbaa !8
   %21 = call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %0) #5
@@ -192,7 +186,7 @@ define internal noundef i32 @des_cfb64_cipher(ptr noundef %0, ptr noundef %1, pt
   call void @DES_cfb64_encrypt(ptr noundef %.019.lcssa, ptr noundef %.020.lcssa, i64 noundef %.0.lcssa, ptr noundef %21, ptr noundef nonnull %22, ptr noundef nonnull %6, i32 noundef %23) #5
   %24 = load i32, ptr %6, align 4, !tbaa !8
   %25 = call i32 @EVP_CIPHER_CTX_set_num(ptr noundef %0, i32 noundef %24) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %26
 
 26:                                               ; preds = %19, %._crit_edge
@@ -220,7 +214,7 @@ define internal noundef i32 @des_ofb_cipher(ptr noundef %0, ptr noundef %1, ptr 
   %.021 = phi i64 [ %3, %.lr.ph ], [ %14, %9 ]
   %.01720 = phi ptr [ %2, %.lr.ph ], [ %15, %9 ]
   %.01819 = phi ptr [ %1, %.lr.ph ], [ %16, %9 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = call i32 @EVP_CIPHER_CTX_get_num(ptr noundef %0) #5
   store i32 %10, ptr %5, align 4, !tbaa !8
   %11 = call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %0) #5
@@ -230,7 +224,7 @@ define internal noundef i32 @des_ofb_cipher(ptr noundef %0, ptr noundef %1, ptr 
   %14 = add i64 %.021, -1073741824
   %15 = getelementptr inbounds nuw i8, ptr %.01720, i64 1073741824
   %16 = getelementptr inbounds nuw i8, ptr %.01819, i64 1073741824
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %17 = icmp ugt i64 %14, 1073741823
   br i1 %17, label %9, label %._crit_edge, !llvm.loop !11
 
@@ -242,7 +236,7 @@ define internal noundef i32 @des_ofb_cipher(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %.not, label %24, label %18
 
 18:                                               ; preds = %._crit_edge
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %19 = call i32 @EVP_CIPHER_CTX_get_num(ptr noundef %0) #5
   store i32 %19, ptr %6, align 4, !tbaa !8
   %20 = call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %0) #5
@@ -250,7 +244,7 @@ define internal noundef i32 @des_ofb_cipher(ptr noundef %0, ptr noundef %1, ptr 
   call void @DES_ofb64_encrypt(ptr noundef %.017.lcssa, ptr noundef %.018.lcssa, i64 noundef %.0.lcssa, ptr noundef %20, ptr noundef nonnull %21, ptr noundef nonnull %6) #5
   %22 = load i32, ptr %6, align 4, !tbaa !8
   %23 = call i32 @EVP_CIPHER_CTX_set_num(ptr noundef %0, i32 noundef %22) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %24
 
 24:                                               ; preds = %18, %._crit_edge
@@ -295,8 +289,8 @@ declare void @DES_ecb_encrypt(ptr noundef, ptr noundef, ptr noundef, i32 noundef
 define internal noundef i32 @des_cfb1_cipher(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) #1 {
   %5 = alloca [1 x i8], align 1
   %6 = alloca [1 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #5
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 0, ptr %6, align 1
   %.not42 = icmp eq i64 %3, 0
   br i1 %.not42, label %._crit_edge41, label %.preheader.lr.ph
@@ -360,8 +354,8 @@ define internal noundef i32 @des_cfb1_cipher(ptr noundef %0, ptr noundef capture
   br i1 %.not44, label %._crit_edge41, label %.preheader, !llvm.loop !21
 
 ._crit_edge41:                                    ; preds = %._crit_edge, %4
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 1
 }
 
@@ -406,6 +400,12 @@ define internal noundef i32 @des_cfb8_cipher(ptr noundef %0, ptr noundef %1, ptr
 18:                                               ; preds = %14, %._crit_edge
   ret i32 1
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #4

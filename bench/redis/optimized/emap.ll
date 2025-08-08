@@ -36,7 +36,7 @@ define hidden void @je_emap_update_edata_state(ptr noundef %0, ptr noundef %1, p
   %10 = shl nuw nsw i64 %9, 17
   %11 = or i64 %8, %10
   store i64 %11, ptr %2, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br i1 %6, label %12, label %13
 
 12:                                               ; preds = %4
@@ -240,15 +240,9 @@ atomic_store_p.exit:                              ; preds = %atomic_store_p.exit
   br label %rtree_leaf_elm_state_update.exit
 
 rtree_leaf_elm_state_update.exit:                 ; preds = %atomic_store_p.exit27.thread, %atomic_store_p.exit27, %atomic_store_p.exit
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @je_emap_try_acquire_edata_neighbor(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext %5) local_unnamed_addr #0 {
@@ -257,7 +251,7 @@ define hidden ptr @je_emap_try_acquire_edata_neighbor(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc ptr @emap_try_acquire_edata_neighbor_impl(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext %5, i1 noundef zeroext %6) unnamed_addr #3 {
+define internal fastcc ptr @emap_try_acquire_edata_neighbor_impl(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext %5, i1 noundef zeroext %6) unnamed_addr #2 {
 tsdn_witness_tsdp_get.exit:
   %7 = alloca %struct.rtree_ctx_s, align 8
   %8 = icmp eq ptr %0, null
@@ -285,7 +279,7 @@ tsdn_witness_tsdp_get.exit:
   br i1 %19, label %103, label %20
 
 20:                                               ; preds = %16
-  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br i1 %8, label %21, label %22, !prof !20
 
 21:                                               ; preds = %20
@@ -454,7 +448,7 @@ extent_neighbor_head_state_mergeable.exit:        ; preds = %82, %80
 
 extent_can_acquire_neighbor.exit.thread:          ; preds = %102, %69, %85, %87, %90, %92, %99, %80, %82, %rtree_leaf_elm_lookup.exit
   %.1 = phi ptr [ null, %rtree_leaf_elm_lookup.exit ], [ %77, %102 ], [ null, %69 ], [ null, %85 ], [ null, %87 ], [ null, %90 ], [ null, %92 ], [ null, %99 ], [ null, %80 ], [ null, %82 ]
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %103
 
 103:                                              ; preds = %16, %extent_can_acquire_neighbor.exit.thread
@@ -479,7 +473,7 @@ define hidden noundef zeroext i1 @je_emap_register_boundary(ptr noundef %0, ptr 
   %6 = alloca %struct.rtree_ctx_s, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %9 = icmp eq ptr %0, null
   br i1 %9, label %10, label %11, !prof !20
 
@@ -493,8 +487,8 @@ define hidden noundef zeroext i1 @je_emap_register_boundary(ptr noundef %0, ptr 
 
 tsdn_rtree_ctx.exit:                              ; preds = %10, %11
   %.0.i = phi ptr [ %6, %10 ], [ %12, %11 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %13 = call fastcc zeroext i1 @emap_rtree_leaf_elms_lookup(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %.0.i, ptr noundef %2, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef nonnull %7, ptr noundef nonnull %8)
   br i1 %13, label %emap_rtree_write_acquired.exit, label %14
 
@@ -533,9 +527,9 @@ tsdn_rtree_ctx.exit:                              ; preds = %10, %11
   br label %emap_rtree_write_acquired.exit
 
 emap_rtree_write_acquired.exit:                   ; preds = %32, %.critedge.i, %tsdn_rtree_ctx.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %13
 }
 
@@ -725,7 +719,7 @@ rtree_leaf_elm_lookup.exit:                       ; preds = %92, %70, %80, %106
 ; Function Attrs: nounwind uwtable
 define hidden void @je_emap_register_interior(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.rtree_ctx_s, align 8
-  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = icmp eq ptr %0, null
   br i1 %6, label %7, label %8, !prof !20
 
@@ -854,7 +848,7 @@ rtree_leaf_elm_lookup.exit.i:                     ; preds = %26, %37, %46, %71, 
   br i1 %.not.i, label %rtree_write_range_impl.exit, label %26, !llvm.loop !29
 
 rtree_write_range_impl.exit:                      ; preds = %rtree_leaf_elm_lookup.exit.i, %tsdn_rtree_ctx.exit
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -864,7 +858,7 @@ define hidden void @je_emap_deregister_boundary(ptr noundef %0, ptr noundef %1, 
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = icmp eq ptr %0, null
-  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br i1 %7, label %8, label %9
 
 8:                                                ; preds = %3
@@ -877,8 +871,8 @@ define hidden void @je_emap_deregister_boundary(ptr noundef %0, ptr noundef %1, 
 
 tsdn_rtree_ctx.exit:                              ; preds = %8, %9
   %.0.i11 = phi ptr [ %4, %8 ], [ %10, %9 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %11 = call fastcc zeroext i1 @emap_rtree_leaf_elms_lookup(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %.0.i11, ptr noundef %2, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %12 = load ptr, ptr %5, align 8, !tbaa !28
   %13 = load ptr, ptr %6, align 8, !tbaa !28
@@ -891,16 +885,16 @@ tsdn_rtree_ctx.exit:                              ; preds = %8, %9
   br label %emap_rtree_write_acquired.exit
 
 emap_rtree_write_acquired.exit:                   ; preds = %tsdn_rtree_ctx.exit, %14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden void @je_emap_deregister_interior(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca %struct.rtree_ctx_s, align 8
-  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = icmp eq ptr %0, null
   br i1 %5, label %6, label %7, !prof !20
 
@@ -1027,14 +1021,14 @@ rtree_leaf_elm_lookup.exit.i.i:                   ; preds = %66, %52, %41, %32, 
   br i1 %.not.i.i, label %rtree_clear_range.exit, label %21, !llvm.loop !29
 
 rtree_clear_range.exit:                           ; preds = %rtree_leaf_elm_lookup.exit.i.i, %12, %tsdn_rtree_ctx.exit
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden void @je_emap_remap(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = alloca %struct.rtree_ctx_s, align 8
-  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = icmp eq ptr %0, null
   br i1 %7, label %8, label %9, !prof !20
 
@@ -1270,7 +1264,7 @@ rtree_leaf_elm_lookup.exit.i19:                   ; preds = %116, %130, %104, %9
   br label %rtree_write.exit21
 
 rtree_write.exit21:                               ; preds = %rtree_write.exit, %79, %rtree_leaf_elm_lookup.exit.i19, %133, %tsdn_rtree_ctx.exit
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -1278,7 +1272,7 @@ rtree_write.exit21:                               ; preds = %rtree_write.exit, %
 define hidden zeroext i1 @je_emap_split_prepare(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef readonly captures(none) %3, i64 noundef %4, ptr noundef readonly captures(none) %5, i64 noundef %6) local_unnamed_addr #0 {
   %8 = alloca %struct.rtree_ctx_s, align 8
   %9 = alloca %struct.edata_s, align 8
-  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %10 = icmp eq ptr %0, null
   br i1 %10, label %11, label %12, !prof !20
 
@@ -1292,7 +1286,7 @@ define hidden zeroext i1 @je_emap_split_prepare(ptr noundef %0, ptr noundef %1, 
 
 tsdn_rtree_ctx.exit:                              ; preds = %11, %12
   %.0.i = phi ptr [ %8, %11 ], [ %13, %12 ]
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %14, i8 0, i64 104, i1 false)
   %15 = getelementptr i8, ptr %3, i64 8
@@ -1328,16 +1322,16 @@ tsdn_rtree_ctx.exit:                              ; preds = %11, %12
 
 34:                                               ; preds = %31, %tsdn_rtree_ctx.exit, %25, %28
   %.0 = phi i1 [ true, %28 ], [ true, %25 ], [ true, %tsdn_rtree_ctx.exit ], [ %33, %31 ]
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %9) #6
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i1 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @je_emap_split_commit(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6) local_unnamed_addr #5 {
+define hidden void @je_emap_split_commit(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6) local_unnamed_addr #4 {
   %8 = load ptr, ptr %2, align 8, !tbaa !30
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !32
@@ -1405,7 +1399,7 @@ emap_rtree_write_acquired.exit15:                 ; preds = %.critedge.i12, %38
 ; Function Attrs: nounwind uwtable
 define hidden void @je_emap_merge_prepare(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #0 {
   %6 = alloca %struct.rtree_ctx_s, align 8
-  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = icmp eq ptr %0, null
   br i1 %7, label %8, label %9, !prof !20
 
@@ -1424,12 +1418,12 @@ tsdn_rtree_ctx.exit:                              ; preds = %8, %9
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %15 = call fastcc zeroext i1 @emap_rtree_leaf_elms_lookup(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %.0.i, ptr noundef %4, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull %13, ptr noundef nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @je_emap_merge_commit(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef readnone captures(none) %4) local_unnamed_addr #5 {
+define hidden void @je_emap_merge_commit(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef readnone captures(none) %4) local_unnamed_addr #4 {
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !32
   %.not = icmp eq ptr %7, null
@@ -1488,7 +1482,7 @@ emap_rtree_write_acquired.exit:                   ; preds = %.critedge.i, %28
 ; Function Attrs: nounwind uwtable
 define hidden void @je_emap_do_assert_mapped(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca %struct.rtree_ctx_s, align 8
-  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = icmp eq ptr %0, null
   br i1 %5, label %6, label %7, !prof !20
 
@@ -1583,7 +1577,7 @@ tsdn_rtree_ctx.exit:                              ; preds = %6, %7
 rtree_read.exit:                                  ; preds = %18, %28, %40, %54
   %.0.i.i = phi ptr [ %23, %18 ], [ %35, %28 ], [ %55, %54 ], [ %53, %40 ]
   %56 = load atomic i64, ptr %.0.i.i monotonic, align 8, !noalias !38
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -1595,7 +1589,7 @@ define hidden void @je_emap_do_assert_not_mapped(ptr noundef %0, ptr noundef %1,
   %.val = load ptr, ptr %6, align 8, !tbaa !11
   %7 = ptrtoint ptr %.val to i64
   %8 = and i64 %7, -4096
-  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %9 = icmp eq ptr %0, null
   br i1 %9, label %10, label %11, !prof !20
 
@@ -1693,7 +1687,7 @@ rtree_leaf_elm_lookup.exit.i:                     ; preds = %55, %41, %29, %19
   br label %emap_full_alloc_ctx_try_lookup.exit
 
 emap_full_alloc_ctx_try_lookup.exit:              ; preds = %rtree_leaf_elm_lookup.exit.i, %58
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.val9 = load ptr, ptr %6, align 8, !tbaa !11
   %60 = getelementptr i8, ptr %2, i64 16
   %.val10 = load i64, ptr %60, align 8, !tbaa !19
@@ -1702,7 +1696,7 @@ emap_full_alloc_ctx_try_lookup.exit:              ; preds = %rtree_leaf_elm_look
   %63 = and i64 %.val10, -4096
   %64 = add i64 %62, -4096
   %65 = add i64 %64, %63
-  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br i1 %9, label %66, label %67, !prof !20
 
 66:                                               ; preds = %emap_full_alloc_ctx_try_lookup.exit
@@ -1799,7 +1793,7 @@ rtree_leaf_elm_lookup.exit.i16:                   ; preds = %111, %97, %85, %75
   br label %emap_full_alloc_ctx_try_lookup.exit8
 
 emap_full_alloc_ctx_try_lookup.exit8:             ; preds = %rtree_leaf_elm_lookup.exit.i16, %114
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -1807,12 +1801,18 @@ declare void @je_rtree_ctx_data_init(ptr noundef) local_unnamed_addr #1
 
 declare ptr @je_rtree_leaf_elm_lookup_hard(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

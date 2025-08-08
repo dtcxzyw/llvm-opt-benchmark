@@ -31,15 +31,9 @@ define ptr @tls_get_cipher_from_engine(i32 noundef %0) local_unnamed_addr #0 {
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare ptr @ENGINE_get_cipher_engine(i32 noundef) local_unnamed_addr #1
 
 declare ptr @ENGINE_get_cipher(ptr noundef, i32 noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
 define ptr @tls_get_digest_from_engine(i32 noundef %0) local_unnamed_addr #0 {
@@ -169,7 +163,7 @@ declare i32 @HMAC_Update(ptr noundef, ptr noundef, i64 noundef) local_unnamed_ad
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ssl_hmac_old_final(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !84
   %7 = call i32 @HMAC_Final(ptr noundef %6, ptr noundef %1, ptr noundef nonnull %4) #4
@@ -188,7 +182,7 @@ define range(i32 0, 2) i32 @ssl_hmac_old_final(ptr noundef readonly captures(non
 
 13:                                               ; preds = %3, %9, %10
   %.0 = phi i32 [ 1, %10 ], [ 1, %9 ], [ 0, %3 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -205,7 +199,7 @@ define i64 @ssl_hmac_old_size(ptr noundef readonly captures(none) %0) local_unna
 declare i64 @HMAC_size(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @ssl_hmac_get0_HMAC_CTX(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
+define ptr @ssl_hmac_get0_HMAC_CTX(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !84
   ret ptr %3
@@ -241,7 +235,7 @@ declare void @EVP_PKEY_free(ptr noundef) local_unnamed_addr #1
 define i32 @ssl_set_tmp_ecdh_groups(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = alloca i32, align 4
   %9 = tail call ptr @EC_KEY_get0_group(ptr noundef %6) #4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %12
 
@@ -263,7 +257,7 @@ define i32 @ssl_set_tmp_ecdh_groups(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 17:                                               ; preds = %12, %15, %11
   %.0 = phi i32 [ 0, %11 ], [ %16, %15 ], [ 0, %12 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
 
@@ -289,10 +283,16 @@ define void @SSL_set_tmp_dh_callback(ptr noundef %0, ptr noundef %1) local_unnam
 
 declare i64 @SSL_callback_ctrl(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

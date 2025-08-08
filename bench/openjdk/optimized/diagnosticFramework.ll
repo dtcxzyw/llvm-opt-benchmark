@@ -648,7 +648,7 @@ _ZN10DCmdParser18lookup_dcmd_optionEPKcm.exit:    ; preds = %33
   br i1 %.not33, label %25, label %.loopexit35, !llvm.loop !17
 
 55:                                               ; preds = %25
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.017.i = load ptr, ptr %9, align 8
   %.not18.i = icmp eq ptr %.017.i, null
   br i1 %.not18.i, label %.preheader.i, label %.lr.ph.i26
@@ -716,7 +716,7 @@ _ZN10DCmdParser18lookup_dcmd_optionEPKcm.exit:    ; preds = %33
   br label %_ZN10DCmdParser5checkEP10JavaThread.exit
 
 _ZN10DCmdParser5checkEP10JavaThread.exit:         ; preds = %79, %.preheader.i, %.loopexit.sink.split.i
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit35
 
 .loopexit35:                                      ; preds = %52, %41, %_ZN10DCmdParser18lookup_dcmd_optionEPKcm.exit, %_ZN10DCmdParser5checkEP10JavaThread.exit, %4, %46
@@ -2477,7 +2477,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %1, %5
   %36 = load i32, ptr %35, align 8
   %37 = getelementptr inbounds nuw i8, ptr %.016, i64 16
   %38 = load i8, ptr %37, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   %39 = and i8 %38, 1
   store ptr %23, ptr %19, align 8
@@ -2491,7 +2491,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %1, %5
   store i32 %36, ptr %43, align 8
   %44 = getelementptr inbounds nuw i8, ptr %19, i64 52
   store i8 %39, ptr %44, align 4
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %45 = load i32, ptr %6, align 8
   %46 = load i32, ptr %8, align 4
   %47 = icmp eq i32 %45, %46
@@ -2967,10 +2967,10 @@ declare i32 @llvm.ctpop.i32(i32) #14
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #17

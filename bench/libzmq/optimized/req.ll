@@ -185,7 +185,7 @@ define noundef i32 @_ZN3zmq5req_t5xsendEPNS_5msg_tE(ptr noundef nonnull align 8 
   %28 = load i32, ptr %27, align 4, !tbaa !93
   %29 = add i32 %28, 1
   store i32 %29, ptr %27, align 4, !tbaa !93
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %30 = call noundef i32 @_ZN3zmq5msg_t9init_sizeEm(ptr noundef nonnull align 8 dereferenceable(64) %3, i64 noundef 4)
   %31 = call noundef ptr @_ZN3zmq5msg_t4dataEv(ptr noundef nonnull align 8 dereferenceable(64) %3)
   %32 = load i32, ptr %27, align 4
@@ -208,11 +208,11 @@ define noundef i32 @_ZN3zmq5req_t5xsendEPNS_5msg_tE(ptr noundef nonnull align 8 
   call void @_ZN3zmq5msg_t9set_flagsEh(ptr noundef nonnull align 8 dereferenceable(64) %3, i8 noundef zeroext 1)
   %42 = call noundef i32 @_ZN3zmq8dealer_t8sendpipeEPNS_5msg_tEPPNS_6pipe_tE(ptr noundef nonnull align 8 dereferenceable(1929) %0, ptr noundef nonnull %3, ptr noundef nonnull %22)
   %.not23.not = icmp eq i32 %42, 0
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not23.not, label %43, label %85
 
 43:                                               ; preds = %41, %20
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %44 = call noundef i32 @_ZN3zmq5msg_t4initEv(ptr noundef nonnull align 8 dereferenceable(64) %4)
   %.not24 = icmp eq i32 %44, 0
   br i1 %.not24, label %53, label %45, !prof !99
@@ -235,7 +235,7 @@ define noundef i32 @_ZN3zmq5req_t5xsendEPNS_5msg_tE(ptr noundef nonnull align 8 
   br i1 %.not25.not, label %55, label %.thread
 
 .thread:                                          ; preds = %53
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %85
 
 55:                                               ; preds = %53
@@ -253,7 +253,7 @@ define noundef i32 @_ZN3zmq5req_t5xsendEPNS_5msg_tE(ptr noundef nonnull align 8 
 
 62:                                               ; preds = %57, %55
   store i8 0, ptr %21, align 2, !tbaa !90
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br label %63
 
 63:                                               ; preds = %75, %62
@@ -282,8 +282,8 @@ define noundef i32 @_ZN3zmq5req_t5xsendEPNS_5msg_tE(ptr noundef nonnull align 8 
   br label %63, !llvm.loop !103
 
 77:                                               ; preds = %73
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #10
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %78
 
 78:                                               ; preds = %77, %17
@@ -311,9 +311,6 @@ define noundef i32 @_ZN3zmq5req_t5xsendEPNS_5msg_tE(ptr noundef nonnull align 8 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #6
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
-
 declare noundef i32 @_ZN3zmq5msg_t9init_sizeEm(ptr noundef nonnull align 8 dereferenceable(64), i64 noundef) local_unnamed_addr #1
 
 declare noundef ptr @_ZN3zmq5msg_t4dataEv(ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #1
@@ -322,15 +319,12 @@ declare noundef ptr @_ZN3zmq5msg_t4dataEv(ptr noundef nonnull align 8 dereferenc
 declare ptr @strerror(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #8
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #8
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #7
 
 declare void @_ZN3zmq9zmq_abortEPKc(ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 declare void @_ZN3zmq5msg_t9set_flagsEh(ptr noundef nonnull align 8 dereferenceable(64), i8 noundef zeroext) local_unnamed_addr #1
 
@@ -384,7 +378,7 @@ define noundef i32 @_ZN3zmq5req_t5xrecvEPNS_5msg_tE(ptr noundef nonnull align 8 
   br label %.thread
 
 .preheader90:                                     ; preds = %19, %23
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8, !tbaa !105
   %22 = call noundef i32 @_ZN3zmq8dealer_t8recvpipeEPNS_5msg_tEPPNS_6pipe_tE(ptr noundef nonnull align 8 dereferenceable(1960) %0, ptr noundef %1, ptr noundef nonnull %7)
   %.not.i = icmp eq i32 %22, 0
@@ -396,11 +390,11 @@ define noundef i32 @_ZN3zmq5req_t5xrecvEPNS_5msg_tE(ptr noundef nonnull align 8 
   %25 = load ptr, ptr %7, align 8
   %26 = icmp ne ptr %25, %24
   %or.cond.not.i = select i1 %.not8.i, i1 %26, i1 false
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %or.cond.not.i, label %.preheader90, label %27
 
 .thread67:                                        ; preds = %.preheader90
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %94
 
 27:                                               ; preds = %23
@@ -431,7 +425,7 @@ define noundef i32 @_ZN3zmq5req_t5xrecvEPNS_5msg_tE(ptr noundef nonnull align 8 
   br label %.preheader, !llvm.loop !106
 
 .preheader:                                       ; preds = %.preheader.backedge, %.preheader.lr.ph
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !105
   %38 = call noundef i32 @_ZN3zmq8dealer_t8recvpipeEPNS_5msg_tEPPNS_6pipe_tE(ptr noundef nonnull align 8 dereferenceable(1960) %0, ptr noundef nonnull %1, ptr noundef nonnull %6)
   %.not.i45 = icmp eq i32 %38, 0
@@ -443,14 +437,14 @@ define noundef i32 @_ZN3zmq5req_t5xrecvEPNS_5msg_tE(ptr noundef nonnull align 8 
   %41 = load ptr, ptr %6, align 8
   %42 = icmp ne ptr %41, %40
   %or.cond.not.i48 = select i1 %.not8.i47, i1 %42, i1 false
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %or.cond.not.i48, label %.preheader.backedge, label %_ZN3zmq5req_t15recv_reply_pipeEPNS_5msg_tE.exit49.thread
 
 .preheader.backedge:                              ; preds = %39, %_ZN3zmq5req_t15recv_reply_pipeEPNS_5msg_tE.exit49.thread
   br label %.preheader, !llvm.loop !107
 
 43:                                               ; preds = %.preheader
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %44 = tail call ptr @__errno_location() #12
   %45 = load i32, ptr %44, align 4, !tbaa !98
   %46 = call ptr @strerror(i32 noundef %45) #10
@@ -468,7 +462,7 @@ _ZN3zmq5req_t15recv_reply_pipeEPNS_5msg_tE.exit49.thread: ; preds = %39, %43
   br i1 %.not37, label %.backedge, label %.preheader.backedge, !llvm.loop !106
 
 .thread:                                          ; preds = %.thread.preheader, %54
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !105
   %53 = call noundef i32 @_ZN3zmq8dealer_t8recvpipeEPNS_5msg_tEPPNS_6pipe_tE(ptr noundef nonnull align 8 dereferenceable(1960) %0, ptr noundef %1, ptr noundef nonnull %5)
   %.not.i50 = icmp eq i32 %53, 0
@@ -480,11 +474,11 @@ _ZN3zmq5req_t15recv_reply_pipeEPNS_5msg_tE.exit49.thread: ; preds = %39, %43
   %56 = load ptr, ptr %5, align 8
   %57 = icmp ne ptr %56, %55
   %or.cond.not.i53 = select i1 %.not8.i52, i1 %57, i1 false
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %or.cond.not.i53, label %.thread, label %58
 
 .thread70:                                        ; preds = %.thread
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %94
 
 58:                                               ; preds = %54
@@ -508,7 +502,7 @@ _ZN3zmq5req_t15recv_reply_pipeEPNS_5msg_tE.exit49.thread: ; preds = %39, %43
   br label %.preheader76, !llvm.loop !106
 
 .preheader76:                                     ; preds = %.preheader76.backedge, %.preheader76.lr.ph
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !105
   %65 = call noundef i32 @_ZN3zmq8dealer_t8recvpipeEPNS_5msg_tEPPNS_6pipe_tE(ptr noundef nonnull align 8 dereferenceable(1960) %0, ptr noundef nonnull %1, ptr noundef nonnull %4)
   %.not.i55 = icmp eq i32 %65, 0
@@ -520,14 +514,14 @@ _ZN3zmq5req_t15recv_reply_pipeEPNS_5msg_tE.exit49.thread: ; preds = %39, %43
   %68 = load ptr, ptr %4, align 8
   %69 = icmp ne ptr %68, %67
   %or.cond.not.i58 = select i1 %.not8.i57, i1 %69, i1 false
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %or.cond.not.i58, label %.preheader76.backedge, label %_ZN3zmq5req_t15recv_reply_pipeEPNS_5msg_tE.exit59.thread
 
 .preheader76.backedge:                            ; preds = %66, %_ZN3zmq5req_t15recv_reply_pipeEPNS_5msg_tE.exit59.thread
   br label %.preheader76, !llvm.loop !108
 
 70:                                               ; preds = %.preheader76
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %71 = tail call ptr @__errno_location() #12
   %72 = load i32, ptr %71, align 4, !tbaa !98
   %73 = call ptr @strerror(i32 noundef %72) #10
@@ -558,7 +552,7 @@ _ZN3zmq5req_t15recv_reply_pipeEPNS_5msg_tE.exit59.thread: ; preds = %66, %70
   br label %84
 
 84:                                               ; preds = %86, %._crit_edge
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !105
   %85 = call noundef i32 @_ZN3zmq8dealer_t8recvpipeEPNS_5msg_tEPPNS_6pipe_tE(ptr noundef nonnull align 8 dereferenceable(1960) %0, ptr noundef %1, ptr noundef nonnull %3)
   %.not.i60 = icmp eq i32 %85, 0
@@ -570,11 +564,11 @@ _ZN3zmq5req_t15recv_reply_pipeEPNS_5msg_tE.exit59.thread: ; preds = %66, %70
   %88 = load ptr, ptr %3, align 8
   %89 = icmp ne ptr %88, %87
   %or.cond.not.i63 = select i1 %.not8.i62, i1 %89, i1 false
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %or.cond.not.i63, label %84, label %90
 
 _ZN3zmq5req_t15recv_reply_pipeEPNS_5msg_tE.exit64: ; preds = %84
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %94
 
 90:                                               ; preds = %86
@@ -600,14 +594,14 @@ define noundef i32 @_ZN3zmq5req_t15recv_reply_pipeEPNS_5msg_tE(ptr noundef nonnu
   br label %5
 
 5:                                                ; preds = %7, %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !105
   %6 = call noundef i32 @_ZN3zmq8dealer_t8recvpipeEPNS_5msg_tEPPNS_6pipe_tE(ptr noundef nonnull align 8 dereferenceable(1929) %0, ptr noundef %1, ptr noundef nonnull %3)
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %.thread
 
 .thread:                                          ; preds = %5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.loopexit
 
 7:                                                ; preds = %5
@@ -616,7 +610,7 @@ define noundef i32 @_ZN3zmq5req_t15recv_reply_pipeEPNS_5msg_tE(ptr noundef nonnu
   %9 = load ptr, ptr %3, align 8
   %10 = icmp ne ptr %9, %8
   %or.cond.not = select i1 %.not8, i1 %10, i1 false
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %or.cond.not, label %5, label %.loopexit
 
 .loopexit:                                        ; preds = %7, %.thread
@@ -969,25 +963,25 @@ declare noundef i32 @_ZN3zmq13socket_base_t5xjoinEPKc(ptr noundef nonnull align 
 declare noundef i32 @_ZN3zmq13socket_base_t6xleaveEPKc(ptr noundef nonnull align 8 dereferenceable(1825), ptr noundef) unnamed_addr #1
 
 ; Function Attrs: uwtable
-declare void @_ZThn1464_N3zmq13socket_base_t8in_eventEv(ptr noundef) unnamed_addr #9 align 2
+declare void @_ZThn1464_N3zmq13socket_base_t8in_eventEv(ptr noundef) unnamed_addr #8 align 2
 
 ; Function Attrs: uwtable
-declare void @_ZThn1464_N3zmq13socket_base_t9out_eventEv(ptr noundef) unnamed_addr #9 align 2
+declare void @_ZThn1464_N3zmq13socket_base_t9out_eventEv(ptr noundef) unnamed_addr #8 align 2
 
 ; Function Attrs: uwtable
-declare void @_ZThn1464_N3zmq13socket_base_t11timer_eventEi(ptr noundef, i32 noundef) unnamed_addr #9 align 2
+declare void @_ZThn1464_N3zmq13socket_base_t11timer_eventEi(ptr noundef, i32 noundef) unnamed_addr #8 align 2
 
 ; Function Attrs: uwtable
-declare void @_ZThn1472_N3zmq13socket_base_t14read_activatedEPNS_6pipe_tE(ptr noundef, ptr noundef) unnamed_addr #9 align 2
+declare void @_ZThn1472_N3zmq13socket_base_t14read_activatedEPNS_6pipe_tE(ptr noundef, ptr noundef) unnamed_addr #8 align 2
 
 ; Function Attrs: uwtable
-declare void @_ZThn1472_N3zmq13socket_base_t15write_activatedEPNS_6pipe_tE(ptr noundef, ptr noundef) unnamed_addr #9 align 2
+declare void @_ZThn1472_N3zmq13socket_base_t15write_activatedEPNS_6pipe_tE(ptr noundef, ptr noundef) unnamed_addr #8 align 2
 
 ; Function Attrs: uwtable
-declare void @_ZThn1472_N3zmq13socket_base_t8hiccupedEPNS_6pipe_tE(ptr noundef, ptr noundef) unnamed_addr #9 align 2
+declare void @_ZThn1472_N3zmq13socket_base_t8hiccupedEPNS_6pipe_tE(ptr noundef, ptr noundef) unnamed_addr #8 align 2
 
 ; Function Attrs: uwtable
-declare void @_ZThn1472_N3zmq13socket_base_t15pipe_terminatedEPNS_6pipe_tE(ptr noundef, ptr noundef) unnamed_addr #9 align 2
+declare void @_ZThn1472_N3zmq13socket_base_t15pipe_terminatedEPNS_6pipe_tE(ptr noundef, ptr noundef) unnamed_addr #8 align 2
 
 declare void @_ZN3zmq8object_t12process_stopEv(ptr noundef nonnull align 8 dereferenceable(20)) unnamed_addr #1
 
@@ -1024,19 +1018,25 @@ declare void @_ZN3zmq11io_object_t8in_eventEv(ptr noundef nonnull align 8 derefe
 declare void @_ZN3zmq11io_object_t9out_eventEv(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
 
 ; Function Attrs: uwtable
-declare void @_ZThn1448_N3zmq14session_base_t11timer_eventEi(ptr noundef, i32 noundef) unnamed_addr #9 align 2
+declare void @_ZThn1448_N3zmq14session_base_t11timer_eventEi(ptr noundef, i32 noundef) unnamed_addr #8 align 2
 
 ; Function Attrs: uwtable
-declare void @_ZThn1464_N3zmq14session_base_t14read_activatedEPNS_6pipe_tE(ptr noundef, ptr noundef) unnamed_addr #9 align 2
+declare void @_ZThn1464_N3zmq14session_base_t14read_activatedEPNS_6pipe_tE(ptr noundef, ptr noundef) unnamed_addr #8 align 2
 
 ; Function Attrs: uwtable
-declare void @_ZThn1464_N3zmq14session_base_t15write_activatedEPNS_6pipe_tE(ptr noundef, ptr noundef) unnamed_addr #9 align 2
+declare void @_ZThn1464_N3zmq14session_base_t15write_activatedEPNS_6pipe_tE(ptr noundef, ptr noundef) unnamed_addr #8 align 2
 
 ; Function Attrs: uwtable
-declare void @_ZThn1464_N3zmq14session_base_t8hiccupedEPNS_6pipe_tE(ptr noundef, ptr noundef) unnamed_addr #9 align 2
+declare void @_ZThn1464_N3zmq14session_base_t8hiccupedEPNS_6pipe_tE(ptr noundef, ptr noundef) unnamed_addr #8 align 2
 
 ; Function Attrs: uwtable
-declare void @_ZThn1464_N3zmq14session_base_t15pipe_terminatedEPNS_6pipe_tE(ptr noundef, ptr noundef) unnamed_addr #9 align 2
+declare void @_ZThn1464_N3zmq14session_base_t15pipe_terminatedEPNS_6pipe_tE(ptr noundef, ptr noundef) unnamed_addr #8 align 2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1045,9 +1045,9 @@ attributes #3 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no
 attributes #4 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nounwind }
 attributes #11 = { builtin nounwind }
 attributes #12 = { nounwind willreturn memory(none) }

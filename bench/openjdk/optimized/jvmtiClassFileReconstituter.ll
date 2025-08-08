@@ -763,9 +763,9 @@ define hidden void @_ZN27JvmtiClassFileReconstituter26write_attribute_name_index
   %3 = alloca i32, align 4
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #14
   %5 = trunc i64 %4 to i32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = call noundef ptr @_ZN11SymbolTable11lookup_onlyEPKciRj(ptr noundef nonnull %1, i32 noundef %5, ptr noundef nonnull align 4 dereferenceable(4) %3) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit, label %7
 
@@ -1021,9 +1021,9 @@ define hidden void @_ZN27JvmtiClassFileReconstituter27write_annotations_attribut
   %5 = alloca i32, align 4
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #14
   %7 = trunc i64 %6 to i32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %8 = call noundef ptr @_ZN11SymbolTable11lookup_onlyEPKciRj(ptr noundef nonnull %1, i32 noundef %7, ptr noundef nonnull align 4 dereferenceable(4) %5) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit, label %9
 
@@ -1122,7 +1122,7 @@ define hidden void @_ZN27JvmtiClassFileReconstituter20write_code_attributeERK12m
   br i1 %.not134, label %19, label %10
 
 10:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %11 = tail call noundef ptr @_ZNK11ConstMethod27compressed_linenumber_tableEv(ptr noundef nonnull align 8 dereferenceable(52) %6) #12
   call void @_ZN30CompressedLineNumberReadStreamC1EPh(ptr noundef nonnull align 8 dereferenceable(20) %3, ptr noundef %11) #12
   br label %12
@@ -1134,7 +1134,7 @@ define hidden void @_ZN27JvmtiClassFileReconstituter20write_code_attributeERK12m
   br i1 %13, label %12, label %_ZN27JvmtiClassFileReconstituter25line_number_table_entriesERK12methodHandle.exit, !llvm.loop !10
 
 _ZN27JvmtiClassFileReconstituter25line_number_table_entriesERK12methodHandle.exit: ; preds = %12
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not = icmp eq i16 %.0.i, 0
   br i1 %.not, label %19, label %15
 
@@ -6253,7 +6253,7 @@ _ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit: ; preds = %_ZN27Jvmt
   %115 = phi ptr [ %112, %106 ], [ %99, %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit25 ]
   %116 = getelementptr inbounds i8, ptr %115, i64 %98
   store ptr %116, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %117 = icmp eq ptr %115, null
   br i1 %117, label %_ZN30JvmtiConstantPoolReconstituter16copy_cpool_bytesEPh.exit, label %118
 
@@ -6274,7 +6274,7 @@ _ZN30JvmtiConstantPoolReconstituter16copy_cpool_bytesEPh.exit: ; preds = %_ZN27J
   %124 = phi i64 [ %113, %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit ], [ %.pre72, %118 ]
   %125 = phi ptr [ %114, %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit ], [ %.pre71, %118 ]
   %126 = phi ptr [ %116, %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit ], [ %.pre, %118 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %127 = load ptr, ptr %27, align 8
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 164
   %.sroa.0.0.copyload.i = load i32, ptr %128, align 4
@@ -7807,10 +7807,10 @@ declare i32 @llvm.ctpop.i32(i32) #10
 declare i32 @llvm.fshl.i32(i32, i32, i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

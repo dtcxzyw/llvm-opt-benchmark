@@ -179,7 +179,7 @@ define void @view_ctrl_pad_create(ptr noundef %0, ptr noundef captures(none) ini
   tail call void @lv_obj_set_style_pad_top(ptr noundef %66, i32 noundef 20, i32 noundef 0) #3
   tail call void @lv_obj_set_flex_flow(ptr noundef %66, i32 noundef 4) #3
   tail call void @lv_obj_set_flex_align(ptr noundef %66, i32 noundef 2, i32 noundef 2, i32 noundef 2) #3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %67 = call fastcc ptr @spinbox_ctrl_create(ptr noundef %66, i8 noundef zeroext 16, ptr noundef nonnull %3)
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 200
   store ptr %67, ptr %68, align 8, !tbaa !33
@@ -219,75 +219,69 @@ define void @view_ctrl_pad_create(ptr noundef %0, ptr noundef captures(none) ini
   %85 = call fastcc ptr @spinbox_ctrl_create(ptr noundef %80, i8 noundef zeroext -127, ptr noundef null)
   %86 = getelementptr inbounds nuw i8, ptr %1, i64 248
   store ptr %85, ptr %86, align 8, !tbaa !40
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @lv_tabview_create(ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_tabview_create(ptr noundef) local_unnamed_addr #2
+declare void @lv_tabview_set_tab_bar_size(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_tabview_set_tab_bar_size(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_set_width(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_obj_set_width(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @lv_pct(i32 noundef) local_unnamed_addr #1
 
-declare i32 @lv_pct(i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_set_flex_grow(ptr noundef, i8 noundef zeroext) local_unnamed_addr #1
 
-declare void @lv_obj_set_flex_grow(ptr noundef, i8 noundef zeroext) local_unnamed_addr #2
+declare void @lv_obj_set_style_radius(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_obj_set_style_radius(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_set_style_bg_color(ptr noundef, i24, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_obj_set_style_bg_color(ptr noundef, i24, i32 noundef) local_unnamed_addr #2
+declare i24 @lv_color_hex(i32 noundef) local_unnamed_addr #1
 
-declare i24 @lv_color_hex(i32 noundef) local_unnamed_addr #2
+declare ptr @lv_tabview_get_tab_bar(ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_tabview_get_tab_bar(ptr noundef) local_unnamed_addr #2
+declare void @lv_obj_set_style_outline_width(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_obj_set_style_outline_width(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i24 @lv_color_white() local_unnamed_addr #1
 
-declare i24 @lv_color_white() local_unnamed_addr #2
+declare void @lv_obj_set_height(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_obj_set_height(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @lv_tabview_add_tab(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_tabview_add_tab(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @lv_obj_set_flex_flow(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @lv_obj_set_flex_align(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_obj_set_flex_flow(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @lv_checkbox_create(ptr noundef) local_unnamed_addr #1
 
-declare void @lv_obj_set_flex_align(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_checkbox_set_text(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_checkbox_create(ptr noundef) local_unnamed_addr #2
+declare ptr @lv_obj_create(ptr noundef) local_unnamed_addr #1
 
-declare void @lv_checkbox_set_text(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @lv_obj_remove_style_all(ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_obj_create(ptr noundef) local_unnamed_addr #2
+declare void @lv_obj_set_size(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_obj_remove_style_all(ptr noundef) local_unnamed_addr #2
+declare ptr @lv_label_create(ptr noundef) local_unnamed_addr #1
 
-declare void @lv_obj_set_size(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_label_set_text(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_label_create(ptr noundef) local_unnamed_addr #2
+declare ptr @lv_dropdown_create(ptr noundef) local_unnamed_addr #1
 
-declare void @lv_label_set_text(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @lv_dropdown_set_options_static(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_dropdown_create(ptr noundef) local_unnamed_addr #2
+declare void @lv_style_init(ptr noundef) local_unnamed_addr #1
 
-declare void @lv_dropdown_set_options_static(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @lv_style_set_border_width(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_style_init(ptr noundef) local_unnamed_addr #2
+declare void @lv_style_set_width(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_style_set_border_width(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_style_set_height(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_style_set_width(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_set_style_pad_top(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_style_set_height(ptr noundef, i32 noundef) local_unnamed_addr #2
-
-declare void @lv_obj_set_style_pad_top(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
-
-declare void @lv_obj_add_style(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_add_style(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @spinbox_ctrl_create(ptr noundef %0, i8 noundef zeroext range(i8 1, -126) %1, ptr noundef writeonly captures(address_is_null) %2) unnamed_addr #0 {
@@ -361,67 +355,67 @@ define internal fastcc noundef ptr @spinbox_ctrl_create(ptr noundef %0, i8 nound
   ret ptr %17
 }
 
-declare void @lv_obj_set_style_width(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_set_style_width(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_obj_add_flag(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_add_flag(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_obj_set_style_pad_row(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_set_style_pad_row(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_obj_set_style_pad_column(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_set_style_pad_column(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_style_set_pad_left(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_style_set_pad_left(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_style_set_pad_right(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_style_set_pad_right(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_style_set_pad_top(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_style_set_pad_top(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_style_set_pad_bottom(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_style_set_pad_bottom(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_obj_set_style_clip_corner(ptr noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_set_style_clip_corner(ptr noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_obj_set_style_outline_color(ptr noundef, i24, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_set_style_outline_color(ptr noundef, i24, i32 noundef) local_unnamed_addr #1
 
-declare i24 @lv_color_hex3(i32 noundef) local_unnamed_addr #2
+declare i24 @lv_color_hex3(i32 noundef) local_unnamed_addr #1
 
-declare void @lv_obj_set_style_flex_main_place(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_set_style_flex_main_place(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_style_set_radius(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_style_set_radius(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_style_set_outline_width(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_style_set_outline_width(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_style_set_outline_pad(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_style_set_outline_pad(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_style_set_outline_color(ptr noundef, i24) local_unnamed_addr #2
+declare void @lv_style_set_outline_color(ptr noundef, i24) local_unnamed_addr #1
 
-declare void @lv_style_set_shadow_width(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_style_set_shadow_width(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_style_set_bg_color(ptr noundef, i24) local_unnamed_addr #2
+declare void @lv_style_set_bg_color(ptr noundef, i24) local_unnamed_addr #1
 
-declare void @lv_style_set_text_color(ptr noundef, i24) local_unnamed_addr #2
+declare void @lv_style_set_text_color(ptr noundef, i24) local_unnamed_addr #1
 
-declare i24 @lv_theme_get_color_primary(ptr noundef) local_unnamed_addr #2
+declare i24 @lv_theme_get_color_primary(ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_button_create(ptr noundef) local_unnamed_addr #2
+declare ptr @lv_button_create(ptr noundef) local_unnamed_addr #1
 
-declare void @lv_obj_center(ptr noundef) local_unnamed_addr #2
+declare void @lv_obj_center(ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_spinbox_create(ptr noundef) local_unnamed_addr #2
+declare ptr @lv_spinbox_create(ptr noundef) local_unnamed_addr #1
 
-declare void @lv_obj_set_style_shadow_width(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_set_style_shadow_width(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_obj_set_style_border_width(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_set_style_border_width(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_obj_set_style_outline_pad(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_set_style_outline_pad(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_obj_set_user_data(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @lv_obj_set_user_data(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @lv_spinbox_set_range(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_spinbox_set_range(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_spinbox_set_digit_format(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_spinbox_set_digit_format(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_spinbox_step_prev(ptr noundef) local_unnamed_addr #2
+declare void @lv_spinbox_step_prev(ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_obj_add_event_cb(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @lv_obj_add_event_cb(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @btn_inc_event_handler(ptr noundef %0) #0 {
@@ -457,17 +451,23 @@ define internal void @btn_dec_event_handler(ptr noundef %0) #0 {
   ret void
 }
 
-declare ptr @lv_event_get_user_data(ptr noundef) local_unnamed_addr #2
+declare ptr @lv_event_get_user_data(ptr noundef) local_unnamed_addr #1
 
-declare i32 @lv_event_get_code(ptr noundef) local_unnamed_addr #2
+declare i32 @lv_event_get_code(ptr noundef) local_unnamed_addr #1
 
-declare void @lv_spinbox_increment(ptr noundef) local_unnamed_addr #2
+declare void @lv_spinbox_increment(ptr noundef) local_unnamed_addr #1
 
-declare void @lv_spinbox_decrement(ptr noundef) local_unnamed_addr #2
+declare void @lv_spinbox_decrement(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

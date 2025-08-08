@@ -126,7 +126,7 @@ define internal noundef i32 @lj_cf_debug_setfenv(ptr noundef %0) #0 {
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @lj_cf_debug_getinfo(ptr noundef %0) #0 {
   %2 = alloca %struct.lj_Debug, align 8
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -344,7 +344,7 @@ treatstackoption.exit51:                          ; preds = %93, %94
   br label %95
 
 95:                                               ; preds = %90, %treatstackoption.exit51, %22
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 1
 }
 
@@ -372,7 +372,7 @@ define internal range(i32 1, 3) i32 @lj_cf_debug_getlocal(ptr noundef %0) #0 {
 getthread.exit:                                   ; preds = %1, %8, %11
   %.024 = phi i32 [ 1, %11 ], [ 0, %8 ], [ 0, %1 ]
   %.0.i = phi ptr [ %13, %11 ], [ %0, %8 ], [ %0, %1 ]
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %14 = or disjoint i32 %.024, 2
   %15 = tail call i32 @lj_lib_checkint(ptr noundef nonnull %0, i32 noundef %14) #10
   %16 = load ptr, ptr %3, align 8, !tbaa !16
@@ -420,7 +420,7 @@ getthread.exit:                                   ; preds = %1, %8, %11
 
 35:                                               ; preds = %32, %31, %21
   %.0 = phi i32 [ 1, %21 ], [ 2, %31 ], [ 1, %32 ]
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
 
@@ -448,7 +448,7 @@ define internal noundef i32 @lj_cf_debug_setlocal(ptr noundef %0) #0 {
 getthread.exit:                                   ; preds = %1, %8, %11
   %.0 = phi i32 [ 1, %11 ], [ 0, %8 ], [ 0, %1 ]
   %.0.i = phi ptr [ %13, %11 ], [ %0, %8 ], [ %0, %1 ]
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %14 = add nuw nsw i32 %.0, 1
   %15 = tail call i32 @lj_lib_checkint(ptr noundef nonnull %0, i32 noundef %14) #10
   %16 = call i32 @lua_getstack(ptr noundef %.0.i, i32 noundef %15, ptr noundef nonnull %2) #10
@@ -472,7 +472,7 @@ getthread.exit:                                   ; preds = %1, %8, %11
   %26 = call i32 @lj_lib_checkint(ptr noundef nonnull %0, i32 noundef %25) #10
   %27 = call ptr @lua_setlocal(ptr noundef %.0.i, ptr noundef nonnull %2, i32 noundef %26) #10
   call void @lua_pushstring(ptr noundef nonnull %0, ptr noundef %27) #10
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 1
 }
 
@@ -565,10 +565,10 @@ define internal noundef i32 @lj_cf_debug_upvaluejoin(ptr noundef %0) #0 {
   %.sroa.444 = alloca ptr, align 8
   %.sroa.0 = alloca ptr, align 16
   %.sroa.4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.043)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.444)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.043)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.444)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4)
   br label %2
 
 2:                                                ; preds = %1, %18
@@ -637,10 +637,10 @@ define internal noundef i32 @lj_cf_debug_upvaluejoin(ptr noundef %0) #0 {
   br label %36
 
 36:                                               ; preds = %32, %28, %22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.043)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.444)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.043)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.444)
   ret i32 0
 }
 
@@ -711,7 +711,7 @@ getthread.exit:                                   ; preds = %7, %1
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @lj_cf_debug_gethook(ptr noundef %0) #0 {
   %2 = alloca [5 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = tail call i32 @lua_gethookmask(ptr noundef %0) #10
   %4 = tail call ptr @lua_gethook(ptr noundef %0) #10
   %5 = icmp ne ptr %4, null
@@ -776,14 +776,14 @@ unmakemask.exit:                                  ; preds = %21, %23
   %29 = call i32 @lua_gethookcount(ptr noundef %0) #10
   %30 = sext i32 %29 to i64
   call void @lua_pushinteger(ptr noundef %0, i64 noundef %30) #10
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 3
 }
 
 ; Function Attrs: cold nounwind uwtable
 define internal noundef i32 @lj_cf_debug_debug(ptr noundef %0) #3 {
   %2 = alloca [250 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 250, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = load ptr, ptr @stderr, align 8, !tbaa !37
   %4 = tail call i64 @fwrite(ptr nonnull @.str.24, i64 11, i64 1, ptr %3) #13
   %5 = load ptr, ptr @stdin, align 8, !tbaa !37
@@ -819,8 +819,8 @@ define internal noundef i32 @lj_cf_debug_debug(ptr noundef %0) #3 {
 
 20:                                               ; preds = %12, %14
   call void @lua_settop(ptr noundef %0, i32 noundef 0) #10
-  call void @llvm.lifetime.end.p0(i64 250, ptr nonnull %2) #10
-  call void @llvm.lifetime.start.p0(i64 250, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %21 = load ptr, ptr @stderr, align 8, !tbaa !37
   %22 = call i64 @fwrite(ptr nonnull @.str.24, i64 11, i64 1, ptr %21) #13
   %23 = load ptr, ptr @stdin, align 8, !tbaa !37
@@ -829,7 +829,7 @@ define internal noundef i32 @lj_cf_debug_debug(ptr noundef %0) #3 {
   br i1 %25, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %20, %.lr.ph, %1
-  call void @llvm.lifetime.end.p0(i64 250, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 0
 }
 
@@ -903,9 +903,6 @@ declare i32 @lua_setfenv(ptr noundef, i32 noundef) local_unnamed_addr #1
 ; Function Attrs: noreturn
 declare hidden void @lj_err_caller(ptr noundef, i32 noundef) local_unnamed_addr #4
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
-
 declare ptr @luaL_optlstring(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare i32 @lua_isnumber(ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -922,9 +919,6 @@ declare hidden void @lj_err_arg(ptr noundef, i32 noundef, i32 noundef) local_unn
 declare hidden i32 @lj_debug_getinfo(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 declare void @lua_createtable(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 declare void @lua_pushstring(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1017,7 +1011,7 @@ declare void @lua_pushnil(ptr noundef) local_unnamed_addr #1
 declare void @lua_call(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #6
+declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 declare i32 @lua_gethookmask(ptr noundef) local_unnamed_addr #1
 
@@ -1028,15 +1022,15 @@ declare void @lua_pushlstring(ptr noundef, ptr noundef, i64 noundef) local_unnam
 declare i32 @lua_gethookcount(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputs(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #7
+declare noundef i32 @fputs(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @fgets(ptr noundef writeonly, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #7
+declare noundef ptr @fgets(ptr noundef writeonly, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 declare i32 @luaL_loadbuffer(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare i32 @lua_pcall(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -1045,6 +1039,12 @@ declare ptr @lua_tolstring(ptr noundef, i32 noundef, ptr noundef) local_unnamed_
 declare void @luaL_traceback(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 declare hidden i32 @lj_lib_optint(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nofree nounwind
 declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #8
@@ -1060,9 +1060,9 @@ attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "t
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { cold nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nofree nounwind }
 attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #10 = { nounwind }

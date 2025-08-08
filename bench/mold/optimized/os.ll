@@ -137,12 +137,6 @@ _mi_align_up.exit:                                ; preds = %21, %18, %11
   ret i64 %.010
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
-
 ; Function Attrs: nounwind uwtable
 define hidden void @_mi_os_init() local_unnamed_addr #1 {
   tail call void @_mi_prim_mem_init(ptr noundef nonnull @mi_os_mem_config) #7
@@ -372,9 +366,9 @@ define hidden ptr @_mi_os_alloc(i64 noundef %0, ptr noundef writeonly captures(n
 
 _mi_os_good_alloc_size.exit:                      ; preds = %16, %23, %26
   %.010.i = phi i64 [ %0, %16 ], [ %25, %23 ], [ %28, %26 ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 0, ptr %3, align 1, !tbaa !24
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 0, ptr %4, align 1, !tbaa !24
   %29 = call fastcc ptr @mi_os_prim_alloc(i64 noundef %.010.i, i64 noundef 0, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef %3, ptr noundef %4) #8
   %.not = icmp eq ptr %29, null
@@ -397,8 +391,8 @@ _mi_os_good_alloc_size.exit:                      ; preds = %16, %23, %26
   br label %33
 
 33:                                               ; preds = %30, %_mi_os_good_alloc_size.exit
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %34
 
 34:                                               ; preds = %2, %33
@@ -416,7 +410,7 @@ define internal fastcc ptr @mi_os_prim_alloc(i64 noundef %0, i64 noundef %1, i1 
   %spec.select.i = and i1 %2, %3
   %spec.store.select.i = tail call i64 @llvm.umax.i64(i64 %1, i64 1)
   store i8 0, ptr %5, align 1, !tbaa !24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8, !tbaa !26
   %10 = call i32 @_mi_prim_alloc(ptr noundef null, i64 noundef %0, i64 noundef %spec.store.select.i, i1 noundef zeroext %2, i1 noundef zeroext %spec.select.i, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %7) #7
   %.not.i = icmp eq i32 %10, 0
@@ -444,7 +438,7 @@ define internal fastcc ptr @mi_os_prim_alloc(i64 noundef %0, i64 noundef %1, i1 
 
 18:                                               ; preds = %17, %16, %14
   %19 = load ptr, ptr %7, align 8, !tbaa !26
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %mi_os_prim_alloc_at.exit
 
 mi_os_prim_alloc_at.exit:                         ; preds = %6, %18
@@ -526,9 +520,9 @@ _mi_os_good_alloc_size.exit:                      ; preds = %20, %27, %30
 
 _mi_align_up.exit:                                ; preds = %38, %41
   %.0.i17 = phi i64 [ %40, %38 ], [ %43, %41 ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 0, ptr %7, align 1, !tbaa !24
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i8 0, ptr %8, align 1, !tbaa !24
   %spec.select.i = and i1 %2, %3
   %.not.i18 = icmp uge i64 %.0.i17, %33
@@ -610,7 +604,7 @@ mi_os_prim_free.exit.i:                           ; preds = %71, %62
 
 79:                                               ; preds = %77
   store i8 0, ptr %8, align 1, !tbaa !24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !26
   %80 = call i32 @_mi_prim_alloc(ptr noundef null, i64 noundef %74, i64 noundef 1, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %6) #7
   %.not.i.i.i = icmp eq i32 %80, 0
@@ -627,13 +621,13 @@ mi_os_prim_free.exit.i:                           ; preds = %71, %62
   br i1 %.not25.i.i.i, label %mi_os_prim_alloc.exit.thread93.i, label %mi_os_prim_alloc.exit.i
 
 mi_os_prim_alloc.exit.thread93.i:                 ; preds = %82
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %mi_os_prim_alloc_aligned.exit.thread
 
 mi_os_prim_alloc.exit.i:                          ; preds = %82
   call void @_mi_stat_increase(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 64), i64 noundef %74) #7
   %.pr.i = load ptr, ptr %6, align 8, !tbaa !26
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %84 = icmp eq ptr %.pr.i, null
   br i1 %84, label %mi_os_prim_alloc_aligned.exit.thread, label %mi_align_up_ptr.exit.i
 
@@ -741,8 +735,8 @@ mi_os_prim_alloc_aligned.exit.thread26:           ; preds = %mi_os_prim_alloc_al
 
 mi_os_prim_alloc_aligned.exit.thread:             ; preds = %77, %mi_os_prim_alloc.exit.thread93.i, %mi_os_prim_alloc.exit.i, %92, %mi_os_prim_free.exit.i, %_mi_align_up.exit.i, %_mi_align_up.exit, %mi_os_prim_alloc_aligned.exit.thread26, %mi_os_prim_alloc_aligned.exit
   %.0.i1925 = phi ptr [ %.0.i1931, %mi_os_prim_alloc_aligned.exit.thread26 ], [ null, %mi_os_prim_alloc_aligned.exit ], [ null, %_mi_align_up.exit ], [ null, %_mi_align_up.exit.i ], [ null, %mi_os_prim_free.exit.i ], [ null, %92 ], [ null, %mi_os_prim_alloc.exit.i ], [ null, %mi_os_prim_alloc.exit.thread93.i ], [ null, %77 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %128
 
 128:                                              ; preds = %5, %mi_os_prim_alloc_aligned.exit.thread
@@ -798,7 +792,7 @@ _mi_align_up.exit:                                ; preds = %18, %21
   br i1 %or.cond, label %32, label %55
 
 32:                                               ; preds = %28
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   tail call void @_mi_stat_decrease(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 96), i64 noundef %24) #7
   %33 = load i64, ptr @mi_os_mem_config, align 8, !tbaa !12
   %34 = ptrtoint ptr %26 to i64
@@ -841,7 +835,7 @@ mi_align_down_ptr.exit27.i.i.i.i:                 ; preds = %44, %40
   br label %_mi_os_decommit.exit
 
 _mi_os_decommit.exit:                             ; preds = %mi_align_down_ptr.exit27.i.i.i.i, %51, %54
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %55
 
 55:                                               ; preds = %_mi_align_up.exit, %_mi_os_decommit.exit, %28, %6, %11
@@ -852,7 +846,7 @@ _mi_os_decommit.exit:                             ; preds = %mi_align_down_ptr.e
 ; Function Attrs: nounwind uwtable
 define hidden noundef zeroext i1 @_mi_os_decommit(ptr noundef %0, i64 noundef %1) local_unnamed_addr #1 {
   %3 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   tail call void @_mi_stat_decrease(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 96), i64 noundef %1) #7
   %4 = icmp eq i64 %1, 0
   %5 = icmp eq ptr %0, null
@@ -903,7 +897,7 @@ mi_align_down_ptr.exit27.i.i.i:                   ; preds = %19, %15
 
 mi_os_decommit_ex.exit:                           ; preds = %2, %mi_align_down_ptr.exit27.i.i.i, %26, %29
   %.0.i = phi i1 [ false, %29 ], [ true, %26 ], [ true, %2 ], [ true, %mi_align_down_ptr.exit27.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0.i
 }
 
@@ -958,7 +952,7 @@ mi_align_down_ptr.exit27.i:                       ; preds = %24, %20
 
 31:                                               ; preds = %mi_align_down_ptr.exit27.i
   %32 = inttoptr i64 %.in.i to ptr
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 0, ptr %5, align 1, !tbaa !24
   %33 = call i32 @_mi_prim_commit(ptr noundef %32, i64 noundef %29, ptr noundef nonnull %5) #7
   %.not = icmp eq i32 %33, 0
@@ -979,7 +973,7 @@ mi_align_down_ptr.exit27.i:                       ; preds = %24, %20
   br label %39
 
 39:                                               ; preds = %35, %38, %34
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %mi_os_page_align_areax.exit.thread
 
 mi_os_page_align_areax.exit.thread:               ; preds = %mi_align_down_ptr.exit27.i, %8, %39
@@ -1076,7 +1070,7 @@ define hidden zeroext i1 @_mi_os_purge_ex(ptr noundef %0, i64 noundef %1, i1 nou
   br i1 %11, label %41, label %12
 
 12:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 1, ptr %5, align 1, !tbaa !24
   tail call void @_mi_stat_decrease(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 96), i64 noundef %3) #7
   %13 = icmp eq i64 %1, 0
@@ -1129,7 +1123,7 @@ mi_align_down_ptr.exit27.i.i.i:                   ; preds = %28, %24
 mi_os_decommit_ex.exit:                           ; preds = %12, %mi_align_down_ptr.exit27.i.i.i, %35, %38
   %39 = load i8, ptr %5, align 1, !tbaa !24, !range !9, !noundef !10
   %40 = trunc nuw i8 %39 to i1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_mi_os_reset.exit
 
 41:                                               ; preds = %10, %8
@@ -1366,11 +1360,11 @@ define hidden ptr @_mi_os_alloc_huge_os_pages(i64 noundef %0, i32 noundef %1, i6
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %mi_os_prim_free.exit.us
   %.05098.us = phi i64 [ %42, %mi_os_prim_free.exit.us ], [ 0, %.lr.ph ]
   %.05297.us = phi i8 [ %spec.select.us, %mi_os_prim_free.exit.us ], [ 1, %.lr.ph ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 0, ptr %7, align 1, !tbaa !24
   %34 = shl i64 %.05098.us, 30
   %35 = getelementptr inbounds nuw i8, ptr %30, i64 %34
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8, !tbaa !26
   %36 = call i32 @_mi_prim_alloc_huge_os_pages(ptr noundef nonnull %35, i64 noundef 1073741824, i32 noundef %1, ptr noundef nonnull %7, ptr noundef nonnull %8) #7
   %37 = load i8, ptr %7, align 1, !tbaa !24, !range !9, !noundef !10
@@ -1398,19 +1392,19 @@ define hidden ptr @_mi_os_alloc_huge_os_pages(i64 noundef %0, i32 noundef %1, i6
   br i1 %.not70.us, label %.thread, label %mi_os_prim_free.exit.us
 
 mi_os_prim_free.exit.us:                          ; preds = %41
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %exitcond148.not = icmp eq i64 %42, %0
   br i1 %exitcond148.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !30
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %mi_os_prim_free.exit
   %.05098 = phi i64 [ %62, %mi_os_prim_free.exit ], [ 0, %.lr.ph ]
   %.05297 = phi i8 [ %spec.select, %mi_os_prim_free.exit ], [ 1, %.lr.ph ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 0, ptr %7, align 1, !tbaa !24
   %48 = shl i64 %.05098, 30
   %49 = getelementptr inbounds nuw i8, ptr %30, i64 %48
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8, !tbaa !26
   %50 = call i32 @_mi_prim_alloc_huge_os_pages(ptr noundef nonnull %49, i64 noundef 1073741824, i32 noundef %1, ptr noundef nonnull %7, ptr noundef nonnull %8) #7
   %51 = load i8, ptr %7, align 1, !tbaa !24, !range !9, !noundef !10
@@ -1464,8 +1458,8 @@ mi_os_prim_free.exit:                             ; preds = %53
   %62 = add nuw i64 %.05098, 1
   call void @_mi_stat_increase(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 96), i64 noundef 1073741824) #7
   call void @_mi_stat_increase(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 64), i64 noundef 1073741824) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %exitcond.not = icmp eq i64 %62, %0
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split
 
@@ -1476,8 +1470,8 @@ mi_os_prim_free.exit:                             ; preds = %53
 mi_os_prim_free.exit.thread:                      ; preds = %.split.us, %.split104.us, %55, %61, %.thread
   %spec.select88 = phi i8 [ %spec.select.us, %.thread ], [ %.us-phi107, %61 ], [ %.us-phi107, %55 ], [ %.us-phi107, %.split104.us ], [ %.us-phi101, %.split.us ]
   %.2.ph = phi i64 [ %42, %.thread ], [ %.us-phi108, %61 ], [ %.us-phi108, %55 ], [ %.us-phi108, %.split104.us ], [ %.us-phi102, %.split.us ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %mi_os_prim_free.exit, %mi_os_prim_free.exit.us, %29, %mi_os_prim_free.exit.thread
@@ -1594,20 +1588,26 @@ _mi_os_numa_node_count.exit:                      ; preds = %0, %2
 declare i64 @_mi_prim_numa_node() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #4
+declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #3
 
 declare i32 @_mi_prim_free(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 declare void @_mi_stat_decrease(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare i32 @_mi_prim_alloc(ptr noundef, i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 declare i32 @_mi_prim_decommit(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 declare i32 @_mi_prim_protect(ptr noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.ctpop.i64(i64) #6
@@ -1618,13 +1618,12 @@ declare i64 @llvm.umax.i64(i64, i64) #6
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { nounwind "no-builtin-malloc" }
 attributes #8 = { "no-builtin-malloc" }
-attributes #9 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

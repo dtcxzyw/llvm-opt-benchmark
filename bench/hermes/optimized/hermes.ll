@@ -1310,13 +1310,13 @@ invoke.cont:                                      ; preds = %invoke.cont.lr.ph, 
   %1 = load ptr, ptr %second, align 8
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.027, i64 48
   %2 = load ptr, ptr %_M_finish.i, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %cmp.i.not3.i = icmp eq ptr %1, %2
   br i1 %cmp.i.not3.i, label %invoke.cont20, label %for.body.i
 
 for.body.i:                                       ; preds = %invoke.cont, %invoke.cont5.i
   %__first.sroa.0.04.i = phi ptr [ %incdec.ptr.i.i, %invoke.cont5.i ], [ %1, %invoke.cont ]
-  call void @llvm.lifetime.start.p0(i64 392, ptr nonnull %ss.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ss.i.i)
   invoke void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss.i.i)
           to label %.noexc unwind label %lpad.loopexit
 
@@ -1356,7 +1356,7 @@ lpad.i.i:                                         ; preds = %invoke.cont13.i.i, 
 
 "_ZZN8facebook6hermes13HermesRuntime20getExecutedFunctionsB5cxx11EvENK3$_0clB5cxx11ERKN6hermes2vm20CodeCoverageProfiler8FuncInfoE.exit.i": ; preds = %invoke.cont13.i.i
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss.i.i) #39
-  call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %ss.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ss.i.i)
   %6 = load ptr, ptr %_M_finish.i.i.i.i, align 8
   %7 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %6, %7
@@ -1452,7 +1452,7 @@ lpad.i:                                           ; preds = %lpad.i.loopexit.spl
   br label %lpad.body
 
 invoke.cont20:                                    ; preds = %invoke.cont5.i, %invoke.cont
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %call.i.i45 = invoke { ptr, i8 } @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St6vectorIS5_SaIS5_EEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE10_M_emplaceIJRS7_RSA_EEES6_INSD_14_Node_iteratorISB_Lb0ELb1EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(56) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(24) %res)
           to label %invoke.cont23 unwind label %lpad.loopexit.split-lp
 
@@ -1643,7 +1643,7 @@ entry:
   %ref.tmp26 = alloca %"class.std::allocator", align 1
   %ref.tmp44 = alloca %"class.std::shared_ptr.278", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i)
   %call.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #42, !noalias !16
   invoke void @_ZNSt12__shared_ptrIKN8facebook3jsi6BufferELN9__gnu_cxx12_Lock_policyE2EEC2IS3_St14default_deleteIS3_EvEEOSt10unique_ptrIT_T0_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(8) %buffer)
           to label %invoke.cont.i unwind label %lpad.i, !noalias !16
@@ -1775,7 +1775,7 @@ cleanup.action.i:                                 ; preds = %lpad.i, %lpad.i.i
   br label %common.resume
 
 _ZSt11make_uniqueIN8facebook6hermes12_GLOBAL__N_113BufferAdapterEJSt10unique_ptrIKNS0_3jsi6BufferESt14default_deleteIS7_EEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit: ; preds = %invoke.cont2.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i)
   %18 = load ptr, ptr %ref.tmp, align 8
   store ptr null, ptr %ref.tmp, align 8
   store ptr %18, ptr %agg.tmp, align 8
@@ -2667,11 +2667,11 @@ land.lhs.true:                                    ; preds = %entry
 _ZN8facebook3jsi6ObjectD2Ev.exit:                 ; preds = %land.lhs.true
   %3 = ptrtoint ptr %call3 to i64
   %or.i.i.i = or i64 %3, -281474976710656
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %hv.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %hv.i)
   store i64 %or.i.i.i, ptr %hv.i, align 8, !noalias !19
   %hermesValues_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %call.i = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN6hermes18ManagedChunkedListIN8facebook6hermes17HermesRuntimeImpl12ManagedValueINS_2vm17PinnedHermesValueEEELm16EE3addIJRNS5_11HermesValueEEEERS7_DpOT_(ptr noundef nonnull align 8 dereferenceable(48) %hermesValues_.i, ptr noundef nonnull align 8 dereferenceable(8) %hv.i), !noalias !19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %hv.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %hv.i)
   store i32 7, ptr %agg.result, align 8
   %data_.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %call.i, ptr %data_.i, align 8
@@ -3351,7 +3351,7 @@ entry:
   %0 = getelementptr inbounds nuw i8, ptr %jsiBuffer, i64 8
   %jsiBuffer.val16 = load ptr, ptr %0, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !28)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i)
   %call.i20 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #42
           to label %call.i.noexc unwind label %lpad
 
@@ -3419,7 +3419,7 @@ invoke.cont:                                      ; preds = %invoke.cont.i.i
   %size_.i.i = getelementptr inbounds nuw i8, ptr %call.i20, i64 16
   store i64 %call9.i.i, ptr %size_.i.i, align 8, !noalias !28
   store ptr %call.i20, ptr %buffer, align 8, !alias.scope !28
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i)
   %9 = load ptr, ptr %data_.i.i.i, align 8
   %cmp.i.i = icmp ugt i64 %call9.i.i, 127
   br i1 %cmp.i.i, label %invoke.cont9, label %invoke.cont9.thread
@@ -3755,8 +3755,8 @@ call5.i.i.i5.i.i.i.i.noexc:                       ; preds = %if.end96
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !35
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIKN8facebook6hermes12_GLOBAL__N_124HermesPreparedJavaScriptESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i43, align 8, !noalias !35
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i43, i64 16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i.i.i.i.i.i), !noalias !35
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp6.i.i.i.i.i.i.i), !noalias !35
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i.i.i.i.i.i.i), !noalias !35
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp6.i.i.i.i.i.i.i), !noalias !35
   store i64 %25, ptr %agg.tmp.i.i.i.i.i.i.i, align 8, !noalias !35
   store ptr null, ptr %bcErr, align 8, !noalias !35
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp6.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %sourceURL) #39, !noalias !35
@@ -3790,8 +3790,8 @@ _ZNKSt14default_deleteIN6hermes3hbc20BCProviderFromBufferEEclEPS2_.exit.i.i.i.i.
   br label %_ZNSt10shared_ptrIKN8facebook6hermes12_GLOBAL__N_124HermesPreparedJavaScriptEED2Ev.exit
 
 _ZNSt10shared_ptrIKN8facebook6hermes12_GLOBAL__N_124HermesPreparedJavaScriptEED2Ev.exit: ; preds = %invoke.cont.i.i.i.i.i.i.i, %_ZNKSt14default_deleteIN6hermes3hbc20BCProviderFromBufferEEclEPS2_.exit.i.i.i.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i.i.i.i.i.i), !noalias !35
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp6.i.i.i.i.i.i.i), !noalias !35
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i.i.i.i.i.i.i), !noalias !35
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp6.i.i.i.i.i.i.i), !noalias !35
   store ptr %_M_impl.i.i.i.i.i.i, ptr %agg.result, align 8
   %_M_refcount.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %call5.i.i.i5.i.i.i.i43, ptr %_M_refcount.i.i, align 8
@@ -4250,11 +4250,11 @@ if.else13:                                        ; preds = %if.else9
   br i1 %cmp.i11, label %_ZN8facebook3jsi6SymbolD2Ev.exit, label %if.else17
 
 _ZN8facebook3jsi6SymbolD2Ev.exit:                 ; preds = %if.else13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %hv.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %hv.i)
   store i64 %hv.coerce, ptr %hv.i, align 8, !noalias !42
   %hermesValues_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %call.i = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN6hermes18ManagedChunkedListIN8facebook6hermes17HermesRuntimeImpl12ManagedValueINS_2vm17PinnedHermesValueEEELm16EE3addIJRNS5_11HermesValueEEEERS7_DpOT_(ptr noundef nonnull align 8 dereferenceable(48) %hermesValues_.i, ptr noundef nonnull align 8 dereferenceable(8) %hv.i), !noalias !42
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %hv.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %hv.i)
   store i32 4, ptr %agg.result, align 8
   %data_.i12 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %call.i, ptr %data_.i12, align 8
@@ -4268,22 +4268,22 @@ if.else17:                                        ; preds = %if.else13
   ]
 
 _ZN8facebook3jsi6BigIntD2Ev.exit:                 ; preds = %if.else17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %hv.i20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %hv.i20)
   store i64 %hv.coerce, ptr %hv.i20, align 8, !noalias !45
   %hermesValues_.i21 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %call.i22 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN6hermes18ManagedChunkedListIN8facebook6hermes17HermesRuntimeImpl12ManagedValueINS_2vm17PinnedHermesValueEEELm16EE3addIJRNS5_11HermesValueEEEERS7_DpOT_(ptr noundef nonnull align 8 dereferenceable(48) %hermesValues_.i21, ptr noundef nonnull align 8 dereferenceable(8) %hv.i20), !noalias !45
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %hv.i20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %hv.i20)
   store i32 5, ptr %agg.result, align 8
   %data_.i23 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %call.i22, ptr %data_.i23, align 8
   br label %return
 
 _ZN8facebook3jsi6StringD2Ev.exit:                 ; preds = %if.else17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %hv.i35)
+  call void @llvm.lifetime.start.p0(ptr nonnull %hv.i35)
   store i64 %hv.coerce, ptr %hv.i35, align 8, !noalias !48
   %hermesValues_.i36 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %call.i37 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN6hermes18ManagedChunkedListIN8facebook6hermes17HermesRuntimeImpl12ManagedValueINS_2vm17PinnedHermesValueEEELm16EE3addIJRNS5_11HermesValueEEEERS7_DpOT_(ptr noundef nonnull align 8 dereferenceable(48) %hermesValues_.i36, ptr noundef nonnull align 8 dereferenceable(8) %hv.i35), !noalias !48
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %hv.i35)
+  call void @llvm.lifetime.end.p0(ptr nonnull %hv.i35)
   store i32 6, ptr %agg.result, align 8
   %data_.i38 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %call.i37, ptr %data_.i38, align 8
@@ -4292,11 +4292,11 @@ _ZN8facebook3jsi6StringD2Ev.exit:                 ; preds = %if.else17
 _ZN8facebook3jsi6ObjectD2Ev.exit:                 ; preds = %if.else17
   %cmp.i48 = icmp samesign ugt i64 %hv.coerce, -281474976710657
   tail call void @llvm.assume(i1 %cmp.i48)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %hv.i49)
+  call void @llvm.lifetime.start.p0(ptr nonnull %hv.i49)
   store i64 %hv.coerce, ptr %hv.i49, align 8, !noalias !51
   %hermesValues_.i50 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %call.i51 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN6hermes18ManagedChunkedListIN8facebook6hermes17HermesRuntimeImpl12ManagedValueINS_2vm17PinnedHermesValueEEELm16EE3addIJRNS5_11HermesValueEEEERS7_DpOT_(ptr noundef nonnull align 8 dereferenceable(48) %hermesValues_.i50, ptr noundef nonnull align 8 dereferenceable(8) %hv.i49), !noalias !51
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %hv.i49)
+  call void @llvm.lifetime.end.p0(ptr nonnull %hv.i49)
   store i32 7, ptr %agg.result, align 8
   %data_.i52 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %call.i51, ptr %data_.i52, align 8
@@ -4369,12 +4369,12 @@ entry:
   %call = tail call ptr @_ZN6hermes2vm7Runtime9getGlobalEv(ptr noundef nonnull align 8 dereferenceable(9832) %0)
   %retval.sroa.0.0.copyload.i = load i64, ptr %call, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !54)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %hv.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %hv.i)
   store i64 %retval.sroa.0.0.copyload.i, ptr %hv.i, align 8, !noalias !54
   %hermesValues_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %call.i = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN6hermes18ManagedChunkedListIN8facebook6hermes17HermesRuntimeImpl12ManagedValueINS_2vm17PinnedHermesValueEEELm16EE3addIJRNS5_11HermesValueEEEERS7_DpOT_(ptr noundef nonnull align 8 dereferenceable(48) %hermesValues_.i, ptr noundef nonnull align 8 dereferenceable(8) %hv.i), !noalias !54
   store ptr %call.i, ptr %agg.result, align 8, !alias.scope !57
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %hv.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %hv.i)
   ret void
 }
 
@@ -4640,7 +4640,7 @@ if.end.i4:                                        ; preds = %invoke.cont17
 invoke.cont23:                                    ; preds = %invoke.cont17
   %retval.sroa.0.0.copyload.i = load i64, ptr %call13, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !60)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %hv.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %hv.i)
   store i64 %retval.sroa.0.0.copyload.i, ptr %hv.i, align 8, !noalias !60
   %hermesValues_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %call.i6 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN6hermes18ManagedChunkedListIN8facebook6hermes17HermesRuntimeImpl12ManagedValueINS_2vm17PinnedHermesValueEEELm16EE3addIJRNS5_11HermesValueEEEERS7_DpOT_(ptr noundef nonnull align 8 dereferenceable(48) %hermesValues_.i, ptr noundef nonnull align 8 dereferenceable(8) %hv.i)
@@ -4648,7 +4648,7 @@ invoke.cont23:                                    ; preds = %invoke.cont17
 
 invoke.cont27:                                    ; preds = %invoke.cont23
   store ptr %call.i6, ptr %agg.result, align 8, !alias.scope !63
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %hv.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %hv.i)
   call void @_ZN6hermes2vm7GCScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(212) %gcScope) #39
   ret void
 
@@ -4719,7 +4719,7 @@ if.end.i.cont:                                    ; preds = %if.end.i.invoke
 invoke.cont20:                                    ; preds = %invoke.cont14
   %retval.sroa.0.0.copyload.i = load i64, ptr %call10, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !66)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %hv.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %hv.i)
   store i64 %retval.sroa.0.0.copyload.i, ptr %hv.i, align 8, !noalias !66
   %hermesValues_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %call.i3 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN6hermes18ManagedChunkedListIN8facebook6hermes17HermesRuntimeImpl12ManagedValueINS_2vm17PinnedHermesValueEEELm16EE3addIJRNS5_11HermesValueEEEERS7_DpOT_(ptr noundef nonnull align 8 dereferenceable(48) %hermesValues_.i, ptr noundef nonnull align 8 dereferenceable(8) %hv.i)
@@ -4727,7 +4727,7 @@ invoke.cont20:                                    ; preds = %invoke.cont14
 
 invoke.cont24:                                    ; preds = %invoke.cont20
   store ptr %call.i3, ptr %agg.result, align 8, !alias.scope !69
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %hv.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %hv.i)
   call void @_ZN6hermes2vm7GCScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(212) %gcScope) #39
   ret void
 
@@ -4808,7 +4808,7 @@ if.end.i:                                         ; preds = %invoke.cont13
 invoke.cont19:                                    ; preds = %invoke.cont13
   %retval.sroa.0.0.copyload.i = load i64, ptr %call9, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !72)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %hv.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %hv.i)
   store i64 %retval.sroa.0.0.copyload.i, ptr %hv.i, align 8, !noalias !72
   %hermesValues_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %call.i1 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN6hermes18ManagedChunkedListIN8facebook6hermes17HermesRuntimeImpl12ManagedValueINS_2vm17PinnedHermesValueEEELm16EE3addIJRNS5_11HermesValueEEEERS7_DpOT_(ptr noundef nonnull align 8 dereferenceable(48) %hermesValues_.i, ptr noundef nonnull align 8 dereferenceable(8) %hv.i)
@@ -4816,7 +4816,7 @@ invoke.cont19:                                    ; preds = %invoke.cont13
 
 invoke.cont23:                                    ; preds = %invoke.cont19
   store ptr %call.i1, ptr %agg.result, align 8, !alias.scope !75
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %hv.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %hv.i)
   call void @_ZN6hermes2vm7GCScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(212) %gcScope) #39
   ret void
 
@@ -4835,12 +4835,12 @@ entry:
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %agg.tmp.sroa.0.0.copyload = load i64, ptr %1, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !78)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %hv.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %hv.i)
   store i64 %agg.tmp.sroa.0.0.copyload, ptr %hv.i, align 8, !noalias !78
   %hermesValues_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %call.i = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN6hermes18ManagedChunkedListIN8facebook6hermes17HermesRuntimeImpl12ManagedValueINS_2vm17PinnedHermesValueEEELm16EE3addIJRNS5_11HermesValueEEEERS7_DpOT_(ptr noundef nonnull align 8 dereferenceable(48) %hermesValues_.i, ptr noundef nonnull align 8 dereferenceable(8) %hv.i), !noalias !78
   store ptr %call.i, ptr %agg.result, align 8, !alias.scope !81
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %hv.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %hv.i)
   ret void
 }
 
@@ -5180,13 +5180,13 @@ entry:
   store i32 0, ptr %curChunkIndex_.i, align 8
   store ptr %gcScope, ptr %topGCScope_.i, align 8
   %2 = load ptr, ptr %runtime_, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %value.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %value.addr.i)
   store i64 %value, ptr %value.addr.i, align 8
   %call1.i1 = invoke { i32, i64 } @_ZN6hermes2vm15BigIntPrimitive9fromBytesERNS0_7RuntimeEN4llvh8ArrayRefIhEE(ptr noundef nonnull align 8 dereferenceable(9832) %2, ptr nonnull %value.addr.i, i64 8)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %value.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %value.addr.i)
   %3 = extractvalue { i32, i64 } %call1.i1, 0
   %cmp.not.i = icmp eq i32 %3, 0
   br i1 %cmp.not.i, label %if.end.i, label %invoke.cont6
@@ -5201,7 +5201,7 @@ if.end.i:                                         ; preds = %invoke.cont
 invoke.cont6:                                     ; preds = %invoke.cont
   %4 = extractvalue { i32, i64 } %call1.i1, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !84)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %hv.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %hv.i)
   store i64 %4, ptr %hv.i, align 8, !noalias !84
   %hermesValues_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %call.i2 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN6hermes18ManagedChunkedListIN8facebook6hermes17HermesRuntimeImpl12ManagedValueINS_2vm17PinnedHermesValueEEELm16EE3addIJRNS5_11HermesValueEEEERS7_DpOT_(ptr noundef nonnull align 8 dereferenceable(48) %hermesValues_.i, ptr noundef nonnull align 8 dereferenceable(8) %hv.i)
@@ -5209,7 +5209,7 @@ invoke.cont6:                                     ; preds = %invoke.cont
 
 invoke.cont8:                                     ; preds = %invoke.cont6
   store ptr %call.i2, ptr %agg.result, align 8, !alias.scope !87
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %hv.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %hv.i)
   call void @_ZN6hermes2vm7GCScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(212) %gcScope) #39
   ret void
 
@@ -5250,7 +5250,7 @@ entry:
   store i32 0, ptr %curChunkIndex_.i, align 8
   store ptr %gcScope, ptr %topGCScope_.i, align 8
   %2 = load ptr, ptr %runtime_, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %tmp.i)
   store i64 %value, ptr %tmp.i, align 16
   %arrayinit.element.i = getelementptr inbounds nuw i8, ptr %tmp.i, i64 8
   store i64 0, ptr %arrayinit.element.i, align 8
@@ -5258,7 +5258,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %tmp.i)
   %3 = extractvalue { i32, i64 } %call1.i1, 0
   %cmp.not.i = icmp eq i32 %3, 0
   br i1 %cmp.not.i, label %if.end.i, label %invoke.cont6
@@ -5273,7 +5273,7 @@ if.end.i:                                         ; preds = %invoke.cont
 invoke.cont6:                                     ; preds = %invoke.cont
   %4 = extractvalue { i32, i64 } %call1.i1, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !90)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %hv.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %hv.i)
   store i64 %4, ptr %hv.i, align 8, !noalias !90
   %hermesValues_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %call.i2 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN6hermes18ManagedChunkedListIN8facebook6hermes17HermesRuntimeImpl12ManagedValueINS_2vm17PinnedHermesValueEEELm16EE3addIJRNS5_11HermesValueEEEERS7_DpOT_(ptr noundef nonnull align 8 dereferenceable(48) %hermesValues_.i, ptr noundef nonnull align 8 dereferenceable(8) %hv.i)
@@ -5281,7 +5281,7 @@ invoke.cont6:                                     ; preds = %invoke.cont
 
 invoke.cont8:                                     ; preds = %invoke.cont6
   store ptr %call.i2, ptr %agg.result, align 8, !alias.scope !93
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %hv.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %hv.i)
   call void @_ZN6hermes2vm7GCScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(212) %gcScope) #39
   ret void
 
@@ -5409,7 +5409,7 @@ if.end.i:                                         ; preds = %invoke.cont9
 invoke.cont15:                                    ; preds = %invoke.cont9
   %9 = extractvalue { i32, i64 } %call10, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !96)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %hv.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %hv.i)
   store i64 %9, ptr %hv.i, align 8, !noalias !96
   %hermesValues_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %call.i1 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN6hermes18ManagedChunkedListIN8facebook6hermes17HermesRuntimeImpl12ManagedValueINS_2vm17PinnedHermesValueEEELm16EE3addIJRNS5_11HermesValueEEEERS7_DpOT_(ptr noundef nonnull align 8 dereferenceable(48) %hermesValues_.i, ptr noundef nonnull align 8 dereferenceable(8) %hv.i)
@@ -5417,7 +5417,7 @@ invoke.cont15:                                    ; preds = %invoke.cont9
 
 invoke.cont18:                                    ; preds = %invoke.cont15
   store ptr %call.i1, ptr %agg.result, align 8, !alias.scope !99
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %hv.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %hv.i)
   call void @_ZN6hermes2vm7GCScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(212) %gcScope) #39
   ret void
 
@@ -5572,7 +5572,7 @@ if.end.i.i:                                       ; preds = %call2.i.noexc
 invoke.cont:                                      ; preds = %call2.i.noexc
   %4 = extractvalue { i32, i64 } %call2.i1, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !102)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %hv.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %hv.i)
   store i64 %4, ptr %hv.i, align 8, !noalias !102
   %hermesValues_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %call.i2 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN6hermes18ManagedChunkedListIN8facebook6hermes17HermesRuntimeImpl12ManagedValueINS_2vm17PinnedHermesValueEEELm16EE3addIJRNS5_11HermesValueEEEERS7_DpOT_(ptr noundef nonnull align 8 dereferenceable(48) %hermesValues_.i, ptr noundef nonnull align 8 dereferenceable(8) %hv.i)
@@ -5580,7 +5580,7 @@ invoke.cont:                                      ; preds = %call2.i.noexc
 
 invoke.cont3:                                     ; preds = %invoke.cont
   store ptr %call.i2, ptr %agg.result, align 8, !alias.scope !105
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %hv.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %hv.i)
   call void @_ZN6hermes2vm7GCScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(212) %gcScope) #39
   ret void
 
@@ -5657,7 +5657,7 @@ if.end.i.i:                                       ; preds = %call2.i.noexc
 invoke.cont:                                      ; preds = %call2.i.noexc
   %4 = extractvalue { i32, i64 } %call2.i1, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !108)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %hv.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %hv.i)
   store i64 %4, ptr %hv.i, align 8, !noalias !108
   %hermesValues_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %call.i2 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN6hermes18ManagedChunkedListIN8facebook6hermes17HermesRuntimeImpl12ManagedValueINS_2vm17PinnedHermesValueEEELm16EE3addIJRNS5_11HermesValueEEEERS7_DpOT_(ptr noundef nonnull align 8 dereferenceable(48) %hermesValues_.i, ptr noundef nonnull align 8 dereferenceable(8) %hv.i)
@@ -5665,7 +5665,7 @@ invoke.cont:                                      ; preds = %call2.i.noexc
 
 invoke.cont3:                                     ; preds = %invoke.cont
   store ptr %call.i2, ptr %agg.result, align 8, !alias.scope !111
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %hv.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %hv.i)
   call void @_ZN6hermes2vm7GCScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(212) %gcScope) #39
   ret void
 
@@ -5820,7 +5820,7 @@ invoke.cont3:                                     ; preds = %entry
   %3 = ptrtoint ptr %call to i64
   %or.i.i.i.i = or i64 %3, -281474976710656
   call void @llvm.experimental.noalias.scope.decl(metadata !114)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %hv.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %hv.i)
   store i64 %or.i.i.i.i, ptr %hv.i, align 8, !noalias !114
   %hermesValues_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %call.i1 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN6hermes18ManagedChunkedListIN8facebook6hermes17HermesRuntimeImpl12ManagedValueINS_2vm17PinnedHermesValueEEELm16EE3addIJRNS5_11HermesValueEEEERS7_DpOT_(ptr noundef nonnull align 8 dereferenceable(48) %hermesValues_.i, ptr noundef nonnull align 8 dereferenceable(8) %hv.i)
@@ -5828,7 +5828,7 @@ invoke.cont3:                                     ; preds = %entry
 
 invoke.cont7:                                     ; preds = %invoke.cont3
   store ptr %call.i1, ptr %agg.result, align 8, !alias.scope !117
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %hv.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %hv.i)
   call void @_ZN6hermes2vm7GCScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(212) %gcScope) #39
   ret void
 
@@ -5995,7 +5995,7 @@ if.end.i:                                         ; preds = %_ZNSt10unique_ptrIN
 
 invoke.cont9:                                     ; preds = %_ZNSt10unique_ptrIN8facebook6hermes17HermesRuntimeImpl8JsiProxyESt14default_deleteIS3_EED2Ev.exit
   call void @llvm.experimental.noalias.scope.decl(metadata !120)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %hv.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %hv.i)
   store i64 %5, ptr %hv.i, align 8, !noalias !120
   %hermesValues_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %call.i4 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN6hermes18ManagedChunkedListIN8facebook6hermes17HermesRuntimeImpl12ManagedValueINS_2vm17PinnedHermesValueEEELm16EE3addIJRNS5_11HermesValueEEEERS7_DpOT_(ptr noundef nonnull align 8 dereferenceable(48) %hermesValues_.i, ptr noundef nonnull align 8 dereferenceable(8) %hv.i)
@@ -6003,7 +6003,7 @@ invoke.cont9:                                     ; preds = %_ZNSt10unique_ptrIN
 
 invoke.cont11:                                    ; preds = %invoke.cont9
   store ptr %call.i4, ptr %agg.result, align 8, !alias.scope !123
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %hv.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %hv.i)
   call void @_ZN6hermes2vm7GCScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(212) %gcScope) #39
   ret void
 
@@ -7912,7 +7912,7 @@ invoke.cont45:                                    ; preds = %invoke.cont42, %if.
           to label %invoke.cont47 unwind label %lpad38
 
 invoke.cont47:                                    ; preds = %invoke.cont45
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !132)
   store i32 6, ptr %ref.tmp.i, align 8, !alias.scope !132
   %21 = load ptr, ptr %ref.tmp44, align 8, !noalias !132
@@ -7944,7 +7944,7 @@ lpad.i:                                           ; preds = %_ZN8facebook3jsi6de
 
 invoke.cont49:                                    ; preds = %_ZN8facebook3jsi6detail7toValueINS0_6StringEEENS0_5ValueERNS0_7RuntimeERKT_.exit.i
   call void @_ZN8facebook3jsi5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i) #39
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %26 = load ptr, ptr %ref.tmp44, align 8
   %tobool.not.i.i = icmp eq ptr %26, null
   br i1 %tobool.not.i.i, label %_ZN8facebook3jsi6StringD2Ev.exit, label %if.then.i.i22
@@ -8080,7 +8080,7 @@ if.end.i:                                         ; preds = %invoke.cont
 invoke.cont11:                                    ; preds = %invoke.cont
   %retval.sroa.0.0.copyload.i = load i64, ptr %call, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !136)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %hv.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %hv.i)
   store i64 %retval.sroa.0.0.copyload.i, ptr %hv.i, align 8, !noalias !136
   %hermesValues_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %call.i2 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN6hermes18ManagedChunkedListIN8facebook6hermes17HermesRuntimeImpl12ManagedValueINS_2vm17PinnedHermesValueEEELm16EE3addIJRNS5_11HermesValueEEEERS7_DpOT_(ptr noundef nonnull align 8 dereferenceable(48) %hermesValues_.i, ptr noundef nonnull align 8 dereferenceable(8) %hv.i)
@@ -8088,7 +8088,7 @@ invoke.cont11:                                    ; preds = %invoke.cont
 
 invoke.cont15:                                    ; preds = %invoke.cont11
   store ptr %call.i2, ptr %agg.result, align 8, !alias.scope !139
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %hv.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %hv.i)
   call void @_ZN6hermes2vm7GCScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(212) %gcScope) #39
   ret void
 
@@ -8118,12 +8118,12 @@ entry:
   %conv.i.i.i.i.i.i = trunc i64 %sub.i.i.i.i.i.i to i32
   %retval.sroa.0.0.i.i.i.i.i = select i1 %tobool.not.i.i.i.i.i, i32 0, i32 %conv.i.i.i.i.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !142)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %wr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %wr.i)
   store i32 %retval.sroa.0.0.i.i.i.i.i, ptr %wr.i, align 4, !noalias !142
   %weakHermesValues_.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %call.i = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN6hermes18ManagedChunkedListIN8facebook6hermes17HermesRuntimeImpl12ManagedValueINS_2vm8WeakRootINS5_8JSObjectEEEEELm16EE3addIJRS8_EEERS9_DpOT_(ptr noundef nonnull align 8 dereferenceable(48) %weakHermesValues_.i, ptr noundef nonnull align 4 dereferenceable(4) %wr.i), !noalias !142
   store ptr %call.i, ptr %agg.result, align 8, !alias.scope !145
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %wr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %wr.i)
   ret void
 }
 
@@ -8151,11 +8151,11 @@ _ZNK6hermes2vm8WeakRootINS0_8JSObjectEE3getERNS0_11PointerBaseERNS0_7HadesGCE.ex
 
 _ZN8facebook3jsi6ObjectD2Ev.exit:                 ; preds = %_ZNK6hermes2vm8WeakRootINS0_8JSObjectEE3getERNS0_11PointerBaseERNS0_7HadesGCE.exit
   %or.i.i.i = or i64 %add.i.i.i.i.i, -281474976710656
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %hv.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %hv.i)
   store i64 %or.i.i.i, ptr %hv.i, align 8, !noalias !148
   %hermesValues_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %call.i = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN6hermes18ManagedChunkedListIN8facebook6hermes17HermesRuntimeImpl12ManagedValueINS_2vm17PinnedHermesValueEEELm16EE3addIJRNS5_11HermesValueEEEERS7_DpOT_(ptr noundef nonnull align 8 dereferenceable(48) %hermesValues_.i, ptr noundef nonnull align 8 dereferenceable(8) %hv.i), !noalias !148
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %hv.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %hv.i)
   store i32 7, ptr %agg.result, align 8
   %data_.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %call.i, ptr %data_.i, align 8
@@ -8275,7 +8275,7 @@ if.end.i:                                         ; preds = %invoke.cont30
 invoke.cont34:                                    ; preds = %invoke.cont30
   %retval.sroa.0.0.copyload.i = load i64, ptr %retval.0.i.i.i.i.i.i, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !151)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %hv.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %hv.i)
   store i64 %retval.sroa.0.0.copyload.i, ptr %hv.i, align 8, !noalias !151
   %hermesValues_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %call.i2 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN6hermes18ManagedChunkedListIN8facebook6hermes17HermesRuntimeImpl12ManagedValueINS_2vm17PinnedHermesValueEEELm16EE3addIJRNS5_11HermesValueEEEERS7_DpOT_(ptr noundef nonnull align 8 dereferenceable(48) %hermesValues_.i, ptr noundef nonnull align 8 dereferenceable(8) %hv.i)
@@ -8283,7 +8283,7 @@ invoke.cont34:                                    ; preds = %invoke.cont30
 
 invoke.cont38:                                    ; preds = %invoke.cont34
   store ptr %call.i2, ptr %agg.result, align 8, !alias.scope !154
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %hv.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %hv.i)
   call void @_ZN6hermes2vm7GCScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(212) %gcScope) #39
   ret void
 
@@ -9016,7 +9016,7 @@ if.end.i:                                         ; preds = %invoke.cont6
 invoke.cont11:                                    ; preds = %invoke.cont6
   %7 = extractvalue { i32, i64 } %call7, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !160)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %hv.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %hv.i)
   store i64 %7, ptr %hv.i, align 8, !noalias !160
   %hermesValues_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %call.i1 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN6hermes18ManagedChunkedListIN8facebook6hermes17HermesRuntimeImpl12ManagedValueINS_2vm17PinnedHermesValueEEELm16EE3addIJRNS5_11HermesValueEEEERS7_DpOT_(ptr noundef nonnull align 8 dereferenceable(48) %hermesValues_.i, ptr noundef nonnull align 8 dereferenceable(8) %hv.i)
@@ -9030,7 +9030,7 @@ lpad:                                             ; preds = %invoke.cont11, %if.
 
 nrvo.skipdtor:                                    ; preds = %invoke.cont11
   store ptr %call.i1, ptr %agg.result, align 8, !alias.scope !163
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %hv.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %hv.i)
   call void @_ZN6hermes2vm7GCScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(212) %gcScope) #39
   ret void
 }
@@ -11926,7 +11926,7 @@ if.end:                                           ; preds = %land.lhs.true, %ent
   %runtime_ = getelementptr inbounds nuw i8, ptr %this, i64 128
   %1 = load ptr, ptr %runtime_, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %cause) #39
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i)
   %heapStorage_.i.i = getelementptr inbounds nuw i8, ptr %1, i64 840
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #39
   invoke void @_ZN6hermes2vm7HadesGC7collectENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i, ptr noundef nonnull %agg.tmp.i, i1 noundef zeroext false)
@@ -11941,7 +11941,7 @@ lpad.i:                                           ; preds = %if.end
 
 invoke.cont:                                      ; preds = %if.end
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i) #39
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #39
   br label %return
 
@@ -13036,7 +13036,7 @@ if.then:                                          ; preds = %entry
 
 if.else:                                          ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !185)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %add.ptr.i.i = getelementptr inbounds i8, ptr %str.coerce0, i64 %str.coerce1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #39, !noalias !185
   %call.i1.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
@@ -13074,7 +13074,7 @@ lpad.body.i:                                      ; preds = %lpad.i, %lpad.i.i
 
 _ZN6hermes2vm15StringPrimitive13arrayToStringIcEENSt7__cxx1112basic_stringIT_St11char_traitsIS5_ESaIS5_EEEN4llvh8ArrayRefIS5_EE.exit: ; preds = %.noexc.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #39
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %call5 = invoke { i32, i64 } @_ZN6hermes2vm23ExternalStringPrimitiveIcE6createINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEERNS0_7RuntimeEOT_(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
@@ -16730,7 +16730,7 @@ entry:
   br i1 %cmp.i.i, label %_ZN6hermes2vm15BigIntPrimitive32createUninitializedWithNumDigitsERNS0_7RuntimeEj.exit.thread, label %if.end.i
 
 _ZN6hermes2vm15BigIntPrimitive32createUninitializedWithNumDigitsERNS0_7RuntimeEj.exit.thread: ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp3.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp3.i.i)
   %rightKind_.i3.i5.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp3.i.i, i64 24
   store i32 1, ptr %rightKind_.i3.i5.i.i, align 8
   %leftSize_.i4.i6.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp3.i.i, i64 32
@@ -16741,7 +16741,7 @@ _ZN6hermes2vm15BigIntPrimitive32createUninitializedWithNumDigitsERNS0_7RuntimeEj
   %0 = getelementptr inbounds nuw i8, ptr %ref.tmp3.i.i, i64 8
   store i32 3, ptr %0, align 8
   %call10.i.i = call noundef i32 @_ZN6hermes2vm7Runtime15raiseRangeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp3.i.i)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp3.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp3.i.i)
   br label %return
 
 if.end.i:                                         ; preds = %entry
@@ -16776,10 +16776,10 @@ if.end:                                           ; preds = %cond.false.i.i.i.i.
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i.i, i64 8
   %numDigits.i = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i.i, i64 4
   %call8 = tail call noundef i32 @_ZN6hermes6bigint13initWithBytesENS0_16MutableBigIntRefEN4llvh8ArrayRefIhEE(ptr nonnull %add.ptr.i.i.i, ptr nonnull %numDigits.i, ptr %bytes.coerce0, i64 %bytes.coerce1)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp3.i)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp6.i)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp9.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp6.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp9.i)
   switch i32 %call8, label %sw.epilog.i [
     i32 0, label %_ZN6hermes2vm15BigIntPrimitive12raiseOnErrorERNS0_7RuntimeENS_6bigint15OperationStatusE.exit.thread
     i32 1, label %sw.bb1.i
@@ -16789,10 +16789,10 @@ if.end:                                           ; preds = %cond.false.i.i.i.i.
   ]
 
 _ZN6hermes2vm15BigIntPrimitive12raiseOnErrorERNS0_7RuntimeENS_6bigint15OperationStatusE.exit.thread: ; preds = %if.end
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp3.i)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp6.i)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp9.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp6.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp9.i)
   br label %if.end12
 
 sw.bb1.i:                                         ; preds = %if.end
@@ -16843,10 +16843,10 @@ _ZN6hermes2vm15BigIntPrimitive12raiseOnErrorERNS0_7RuntimeENS_6bigint15Operation
   %ref.tmp9.sink28.i = phi ptr [ %ref.tmp9.i, %sw.bb8.i ], [ %ref.tmp6.i, %sw.bb5.i ], [ %ref.tmp3.i, %sw.bb2.i ], [ %ref.tmp.i, %sw.bb1.i ]
   store i32 3, ptr %ref.tmp9.sink28.i.sroa.phi, align 8
   %call10.i = call noundef i32 @_ZN6hermes2vm7Runtime15raiseRangeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp9.sink28.i)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp3.i)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp6.i)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp9.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp6.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp9.i)
   %cmp.not = icmp eq i32 %call10.i, 1
   br i1 %cmp.not, label %if.end12, label %return
 
@@ -17148,12 +17148,12 @@ invoke.cont:
   %conv.i = zext i32 %id.coerce to i64
   %or.i.i = or disjoint i64 %conv.i, -1266637395197952
   tail call void @llvm.experimental.noalias.scope.decl(metadata !196)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %hv.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %hv.i)
   store i64 %or.i.i, ptr %hv.i, align 8, !noalias !196
   %hermesValues_.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %call.i = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN6hermes18ManagedChunkedListIN8facebook6hermes17HermesRuntimeImpl12ManagedValueINS_2vm17PinnedHermesValueEEELm16EE3addIJRNS5_11HermesValueEEEERS7_DpOT_(ptr noundef nonnull align 8 dereferenceable(48) %hermesValues_.i, ptr noundef nonnull align 8 dereferenceable(8) %hv.i), !noalias !196
   store ptr %call.i, ptr %sym, align 8, !alias.scope !199
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %hv.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %hv.i)
   store i32 0, ptr %ret, align 8
   %ho_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %ho_, align 8
@@ -17509,12 +17509,12 @@ entry:
   %conv.i = zext i32 %id.coerce to i64
   %or.i.i = or disjoint i64 %conv.i, -1266637395197952
   tail call void @llvm.experimental.noalias.scope.decl(metadata !202)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %hv.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %hv.i)
   store i64 %or.i.i, ptr %hv.i, align 8, !noalias !202
   %hermesValues_.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %call.i = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN6hermes18ManagedChunkedListIN8facebook6hermes17HermesRuntimeImpl12ManagedValueINS_2vm17PinnedHermesValueEEELm16EE3addIJRNS5_11HermesValueEEEERS7_DpOT_(ptr noundef nonnull align 8 dereferenceable(48) %hermesValues_.i, ptr noundef nonnull align 8 dereferenceable(8) %hv.i), !noalias !202
   store ptr %call.i, ptr %sym, align 8, !alias.scope !205
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %hv.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %hv.i)
   %ho_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %ho_, align 8
   %2 = load ptr, ptr %rt_, align 8
@@ -18536,8 +18536,8 @@ invoke.cont10:                                    ; preds = %invoke.cont10.loope
 invoke.cont23:                                    ; preds = %invoke.cont10
   %13 = load i32, ptr %Size.i.i.i.i.i, align 8
   %conv.i21 = zext i32 %13 to i64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr4.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr6.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr4.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr6.i)
   store ptr %tobool.not.i, ptr %__args.addr4.i, align 8, !noalias !224
   store i64 %conv.i21, ptr %__args.addr6.i, align 8, !noalias !224
   %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %context, i64 16
@@ -18559,8 +18559,8 @@ if.end.i22:                                       ; preds = %invoke.cont23
           to label %invoke.cont26 unwind label %lpad25
 
 invoke.cont26:                                    ; preds = %if.end.i22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr4.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr6.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr4.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr6.i)
   call void @_ZN8facebook3jsi5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ret) #39
   invoke void @_ZN8facebook3jsi5ValueC1EOS1_(ptr noundef nonnull align 8 dereferenceable(16) %ret, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp16)
           to label %invoke.cont28 unwind label %lpad27
@@ -19944,7 +19944,7 @@ if.then.i.i.i.i:                                  ; preds = %entry
 _ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE6AroundC2ERS8_.exit: ; preds = %entry
   %plain_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %plain_.i.i, align 8, !noalias !259
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i), !noalias !259
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i), !noalias !259
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, i8 0, i64 16, i1 false), !noalias !262
   invoke void @_ZN8facebook6hermes13HermesRuntime31evaluateJavaScriptWithSourceMapERKSt10shared_ptrIKNS_3jsi6BufferEES8_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr sret(%"class.facebook::jsi::Value") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(184) %1, ptr noundef nonnull readonly align 8 dereferenceable(16) %buffer, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(32) %sourceURL)
           to label %invoke.cont unwind label %lpad.i.i
@@ -19957,7 +19957,7 @@ lpad.i.i:                                         ; preds = %_ZN8facebook3jsi20W
   resume { ptr, i32 } %2
 
 invoke.cont:                                      ; preds = %_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE6AroundC2ERS8_.exit
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i), !noalias !259
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i), !noalias !259
   %call1.i.i.i.i.i.i2 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #39
   ret void
 }
@@ -20109,7 +20109,7 @@ _ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRu
 call.i.i.noexc:                                   ; preds = %_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE6AroundC2ERS8_.exit
   %retval.sroa.0.0.copyload.i.i.i = load i64, ptr %call.i.i2, align 8, !noalias !274
   tail call void @llvm.experimental.noalias.scope.decl(metadata !275)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %hv.i.i.i), !noalias !274
+  call void @llvm.lifetime.start.p0(ptr nonnull %hv.i.i.i), !noalias !274
   store i64 %retval.sroa.0.0.copyload.i.i.i, ptr %hv.i.i.i, align 8, !noalias !278
   %hermesValues_.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %call.i.i.i3 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN6hermes18ManagedChunkedListIN8facebook6hermes17HermesRuntimeImpl12ManagedValueINS_2vm17PinnedHermesValueEEELm16EE3addIJRNS5_11HermesValueEEEERS7_DpOT_(ptr noundef nonnull align 8 dereferenceable(48) %hermesValues_.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %hv.i.i.i)
@@ -20117,7 +20117,7 @@ call.i.i.noexc:                                   ; preds = %_ZN8facebook3jsi20W
 
 invoke.cont:                                      ; preds = %call.i.i.noexc
   store ptr %call.i.i.i3, ptr %agg.result, align 8, !alias.scope !279
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %hv.i.i.i), !noalias !274
+  call void @llvm.lifetime.end.p0(ptr nonnull %hv.i.i.i), !noalias !274
   %call1.i.i.i.i.i.i4 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #39
   ret void
 
@@ -20419,12 +20419,12 @@ entry:
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %agg.tmp.sroa.0.0.copyload.i = load i64, ptr %2, align 8, !noalias !294
   tail call void @llvm.experimental.noalias.scope.decl(metadata !297)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %hv.i.i), !noalias !294
+  call void @llvm.lifetime.start.p0(ptr nonnull %hv.i.i), !noalias !294
   store i64 %agg.tmp.sroa.0.0.copyload.i, ptr %hv.i.i, align 8, !noalias !300
   %hermesValues_.i.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %call.i.i = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN6hermes18ManagedChunkedListIN8facebook6hermes17HermesRuntimeImpl12ManagedValueINS_2vm17PinnedHermesValueEEELm16EE3addIJRNS5_11HermesValueEEEERS7_DpOT_(ptr noundef nonnull align 8 dereferenceable(48) %hermesValues_.i.i, ptr noundef nonnull align 8 dereferenceable(8) %hv.i.i), !noalias !300
   store ptr %call.i.i, ptr %agg.result, align 8, !alias.scope !301
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %hv.i.i), !noalias !294
+  call void @llvm.lifetime.end.p0(ptr nonnull %hv.i.i), !noalias !294
   ret void
 }
 
@@ -20445,7 +20445,7 @@ if.then.i.i.i.i:                                  ; preds = %entry
 _ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE6AroundC2ERS8_.exit: ; preds = %entry
   %plain_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %plain_.i, align 8, !noalias !304
-  call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %gcScope.i.i), !noalias !304
+  call void @llvm.lifetime.start.p0(ptr nonnull %gcScope.i.i), !noalias !304
   %runtime_.i.i = getelementptr inbounds nuw i8, ptr %1, i64 128
   %2 = load ptr, ptr %runtime_.i.i, align 8, !noalias !307
   store ptr %2, ptr %gcScope.i.i, align 8, !noalias !307
@@ -20493,7 +20493,7 @@ lpad.i.i:                                         ; preds = %invoke.cont9.i.i, %
 
 invoke.cont:                                      ; preds = %invoke.cont9.i.i
   call void @_ZN6hermes2vm7GCScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(212) %gcScope.i.i) #39
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %gcScope.i.i), !noalias !304
+  call void @llvm.lifetime.end.p0(ptr nonnull %gcScope.i.i), !noalias !304
   %call1.i.i.i.i.i.i2 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #39
   ret void
 }
@@ -20753,7 +20753,7 @@ _ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRu
   %plain_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %plain_.i, align 8, !noalias !322
   tail call void @llvm.experimental.noalias.scope.decl(metadata !325)
-  call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %gcScope.i.i), !noalias !322
+  call void @llvm.lifetime.start.p0(ptr nonnull %gcScope.i.i), !noalias !322
   %runtime_.i.i = getelementptr inbounds nuw i8, ptr %1, i64 128
   %2 = load ptr, ptr %runtime_.i.i, align 8, !noalias !328
   store ptr %2, ptr %gcScope.i.i, align 8, !noalias !328
@@ -20785,7 +20785,7 @@ invoke.cont3.i.i:                                 ; preds = %_ZN8facebook3jsi20W
   %5 = ptrtoint ptr %call.i.i to i64
   %or.i.i.i.i.i.i = or i64 %5, -281474976710656
   call void @llvm.experimental.noalias.scope.decl(metadata !329)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %hv.i.i.i), !noalias !328
+  call void @llvm.lifetime.start.p0(ptr nonnull %hv.i.i.i), !noalias !328
   store i64 %or.i.i.i.i.i.i, ptr %hv.i.i.i, align 8, !noalias !332
   %hermesValues_.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %call.i1.i.i = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN6hermes18ManagedChunkedListIN8facebook6hermes17HermesRuntimeImpl12ManagedValueINS_2vm17PinnedHermesValueEEELm16EE3addIJRNS5_11HermesValueEEEERS7_DpOT_(ptr noundef nonnull align 8 dereferenceable(48) %hermesValues_.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %hv.i.i.i)
@@ -20800,9 +20800,9 @@ lpad.i.i:                                         ; preds = %invoke.cont3.i.i, %
 
 invoke.cont:                                      ; preds = %invoke.cont3.i.i
   store ptr %call.i1.i.i, ptr %agg.result, align 8, !alias.scope !333
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %hv.i.i.i), !noalias !328
+  call void @llvm.lifetime.end.p0(ptr nonnull %hv.i.i.i), !noalias !328
   call void @_ZN6hermes2vm7GCScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(212) %gcScope.i.i) #39, !noalias !328
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %gcScope.i.i), !noalias !322
+  call void @llvm.lifetime.end.p0(ptr nonnull %gcScope.i.i), !noalias !322
   %call1.i.i.i.i.i.i2 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #39
   ret void
 }
@@ -20969,7 +20969,7 @@ _ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRu
   %3 = inttoptr i64 %and.i.i.i.i to ptr
   %context_.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 24
   %4 = load ptr, ptr %context_.i.i.i, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__ptr.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__ptr.i.i.i)
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   %5 = load ptr, ptr %_M_manager.i.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %5, @_ZNSt17_Function_handlerIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mENS1_21DecoratedHostFunctionEE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation
@@ -20978,7 +20978,7 @@ _ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRu
 lor.lhs.false.i.i.i:                              ; preds = %_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE6AroundC2ERS8_.exit
   %tobool.not.i.i.i = icmp ne ptr %5, null
   tail call void @llvm.assume(i1 %tobool.not.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__typeinfo_result.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__typeinfo_result.i.i.i.i)
   %call.i.i.i.i = invoke noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(16) %__typeinfo_result.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 0)
           to label %invoke.cont.i.i.i.i unwind label %terminate.lpad.i.i.i.i
 
@@ -20986,7 +20986,7 @@ invoke.cont.i.i.i.i:                              ; preds = %lor.lhs.false.i.i.i
   %6 = load ptr, ptr %__typeinfo_result.i.i.i.i, align 8
   %tobool4.not.i.i.i.i = icmp eq ptr %6, null
   %spec.select.i.i.i = select i1 %tobool4.not.i.i.i.i, ptr @_ZTIv, ptr %6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__typeinfo_result.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__typeinfo_result.i.i.i.i)
   %__name2.i.i.i.i = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i, i64 8
   %7 = load ptr, ptr %__name2.i.i.i.i, align 8
   %cmp.i.i.i.i = icmp eq ptr %7, @_ZTSN8facebook3jsi21DecoratedHostFunctionE
@@ -21023,7 +21023,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
 
 invoke.cont:                                      ; preds = %if.then.i.i.i
   %14 = load ptr, ptr %__ptr.i.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__ptr.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__ptr.i.i.i)
   %plainHF_.i = getelementptr inbounds nuw i8, ptr %14, i64 8
   %call1.i.i.i.i.i.i2 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #39
   ret ptr %plainHF_.i
@@ -21036,8 +21036,8 @@ entry:
   %desc.i = alloca %"struct.hermes::vm::NamedPropertyDescriptor", align 4
   %plain_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %plain_, align 8
-  call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %gcScope.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %desc.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %gcScope.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %desc.i)
   %runtime_.i = getelementptr inbounds nuw i8, ptr %0, i64 128
   %1 = load ptr, ptr %runtime_.i, align 8
   store ptr %1, ptr %gcScope.i, align 8
@@ -21100,8 +21100,8 @@ _ZN6hermes2vm8JSObject21getOwnNamedDescriptorENS0_6HandleIS1_EERNS0_7RuntimeENS0
 _ZN8facebook6hermes17HermesRuntimeImpl14hasNativeStateERKNS_3jsi6ObjectE.exit: ; preds = %entry, %_ZN6hermes2vm8JSObject21getOwnNamedDescriptorENS0_6HandleIS1_EERNS0_7RuntimeENS0_8SymbolIDERNS0_23NamedPropertyDescriptorE.exit.i
   %retval.0.i = phi i1 [ false, %entry ], [ %tobool.i.i.i, %_ZN6hermes2vm8JSObject21getOwnNamedDescriptorENS0_6HandleIS1_EERNS0_7RuntimeENS0_8SymbolIDERNS0_23NamedPropertyDescriptorE.exit.i ]
   call void @_ZN6hermes2vm7GCScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(212) %gcScope.i) #39
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %gcScope.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %desc.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %gcScope.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %desc.i)
   ret i1 %retval.0.i
 }
 
@@ -21309,7 +21309,7 @@ if.then.i.i.i.i:                                  ; preds = %entry
 _ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE6AroundC2ERS8_.exit: ; preds = %entry
   %plain_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %plain_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %gcScope.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %gcScope.i.i)
   %runtime_.i.i = getelementptr inbounds nuw i8, ptr %1, i64 128
   %2 = load ptr, ptr %runtime_.i.i, align 8
   store ptr %2, ptr %gcScope.i.i, align 8
@@ -21366,7 +21366,7 @@ invoke.cont:                                      ; preds = %invoke.cont15.i.i
   %11 = and i32 %call16.i.i, 256
   %bf.cast.i2.i.i = icmp ne i32 %11, 0
   call void @_ZN6hermes2vm7GCScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(212) %gcScope.i.i) #39
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %gcScope.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %gcScope.i.i)
   %call1.i.i.i.i.i.i2 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #39
   ret i1 %bf.cast.i2.i.i
 }
@@ -21388,7 +21388,7 @@ if.then.i.i.i.i:                                  ; preds = %entry
 _ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE6AroundC2ERS8_.exit: ; preds = %entry
   %plain_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %plain_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %gcScope.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %gcScope.i.i)
   %runtime_.i.i = getelementptr inbounds nuw i8, ptr %1, i64 128
   %2 = load ptr, ptr %runtime_.i.i, align 8
   store ptr %2, ptr %gcScope.i.i, align 8
@@ -21443,7 +21443,7 @@ invoke.cont:                                      ; preds = %invoke.cont16.i.i
   %10 = and i32 %call17.i.i, 256
   %bf.cast.i2.i.i = icmp ne i32 %10, 0
   call void @_ZN6hermes2vm7GCScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(212) %gcScope.i.i) #39
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %gcScope.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %gcScope.i.i)
   %call1.i.i.i.i.i.i2 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #39
   ret i1 %bf.cast.i2.i.i
 }
@@ -21739,7 +21739,7 @@ _ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRu
   %conv.i.i.i.i.i.i.i.i = trunc i64 %sub.i.i.i.i.i.i.i.i to i32
   %retval.sroa.0.0.i.i.i.i.i.i.i = select i1 %tobool.not.i.i.i.i.i.i.i, i32 0, i32 %conv.i.i.i.i.i.i.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !352)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %wr.i.i.i), !noalias !351
+  call void @llvm.lifetime.start.p0(ptr nonnull %wr.i.i.i), !noalias !351
   store i32 %retval.sroa.0.0.i.i.i.i.i.i.i, ptr %wr.i.i.i, align 4, !noalias !355
   %weakHermesValues_.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 64
   %call.i.i.i2 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN6hermes18ManagedChunkedListIN8facebook6hermes17HermesRuntimeImpl12ManagedValueINS_2vm8WeakRootINS5_8JSObjectEEEEELm16EE3addIJRS8_EEERS9_DpOT_(ptr noundef nonnull align 8 dereferenceable(48) %weakHermesValues_.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %wr.i.i.i)
@@ -21747,7 +21747,7 @@ _ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRu
 
 invoke.cont:                                      ; preds = %_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE6AroundC2ERS8_.exit
   store ptr %call.i.i.i2, ptr %agg.result, align 8, !alias.scope !356
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %wr.i.i.i), !noalias !351
+  call void @llvm.lifetime.end.p0(ptr nonnull %wr.i.i.i), !noalias !351
   %call1.i.i.i.i.i.i3 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #39
   ret void
 
@@ -21800,14 +21800,14 @@ _ZNK6hermes2vm8WeakRootINS0_8JSObjectEE3getERNS0_11PointerBaseERNS0_7HadesGCE.ex
 
 _ZN8facebook3jsi6ObjectD2Ev.exit.i.i:             ; preds = %.noexc
   %or.i.i.i.i.i = or i64 %add.i.i.i.i.i.i.i, -281474976710656
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %hv.i.i.i), !noalias !365
+  call void @llvm.lifetime.start.p0(ptr nonnull %hv.i.i.i), !noalias !365
   store i64 %or.i.i.i.i.i, ptr %hv.i.i.i, align 8, !noalias !366
   %hermesValues_.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %call.i.i.i2 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN6hermes18ManagedChunkedListIN8facebook6hermes17HermesRuntimeImpl12ManagedValueINS_2vm17PinnedHermesValueEEELm16EE3addIJRNS5_11HermesValueEEEERS7_DpOT_(ptr noundef nonnull align 8 dereferenceable(48) %hermesValues_.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %hv.i.i.i)
           to label %call.i.i.i.noexc unwind label %lpad
 
 call.i.i.i.noexc:                                 ; preds = %_ZN8facebook3jsi6ObjectD2Ev.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %hv.i.i.i), !noalias !365
+  call void @llvm.lifetime.end.p0(ptr nonnull %hv.i.i.i), !noalias !365
   store i32 7, ptr %agg.result, align 8, !alias.scope !365
   %data_.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %call.i.i.i2, ptr %data_.i.i.i, align 8, !alias.scope !365
@@ -22434,7 +22434,7 @@ if.then.i.i.i.i:                                  ; preds = %entry
 _ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE6AroundC2ERS8_.exit: ; preds = %entry
   %plain_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %plain_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %gcScope.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %gcScope.i.i)
   %runtime_.i.i = getelementptr inbounds nuw i8, ptr %1, i64 128
   %2 = load ptr, ptr %runtime_.i.i, align 8
   store ptr %2, ptr %gcScope.i.i, align 8
@@ -22489,7 +22489,7 @@ invoke.cont:                                      ; preds = %invoke.cont16.i.i
   %10 = and i32 %call17.i.i, 256
   %bf.cast.i.i.i.i = icmp ne i32 %10, 0
   call void @_ZN6hermes2vm7GCScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(212) %gcScope.i.i) #39
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %gcScope.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %gcScope.i.i)
   %call1.i.i.i.i.i.i2 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #39
   ret i1 %bf.cast.i.i.i.i
 }
@@ -22807,7 +22807,7 @@ entry:
 define linkonce_odr hidden void @_ZThn8_N8facebook3jsi16RuntimeDecoratorINS_6hermes17HermesRuntimeImplENS0_17ThreadSafeRuntimeEE14collectGarbageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %this, ptr noundef %cause) unnamed_addr #20 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i)
   %plain_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %plain_.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -22826,7 +22826,7 @@ lpad.i:                                           ; preds = %entry
 
 _ZN8facebook3jsi16RuntimeDecoratorINS_6hermes17HermesRuntimeImplENS0_17ThreadSafeRuntimeEE14collectGarbageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %entry
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i) #39
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i)
   ret void
 }
 
@@ -22834,7 +22834,7 @@ _ZN8facebook3jsi16RuntimeDecoratorINS_6hermes17HermesRuntimeImplENS0_17ThreadSaf
 define linkonce_odr hidden void @_ZThn8_N8facebook3jsi16RuntimeDecoratorINS_6hermes17HermesRuntimeImplENS0_17ThreadSafeRuntimeEE34startTrackingHeapObjectStackTracesESt8functionIFvmNSt6chrono8durationIlSt5ratioILl1ELl1000000EEEESt6vectorISt5tupleIJmmmEESaISE_EEEE(ptr noundef %this, ptr noundef %callback) unnamed_addr #20 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.std::function.459", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i)
   %plain_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %plain_.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -22902,7 +22902,7 @@ _ZNSt8functionIFvmNSt6chrono8durationIlSt5ratioILl1ELl1000000EEEESt6vectorISt5tu
   resume { ptr, i32 } %7
 
 _ZN8facebook3jsi16RuntimeDecoratorINS_6hermes17HermesRuntimeImplENS0_17ThreadSafeRuntimeEE34startTrackingHeapObjectStackTracesESt8functionIFvmNSt6chrono8durationIlSt5ratioILl1ELl1000000EEEESt6vectorISt5tupleIJmmmEESaISE_EEEE.exit: ; preds = %invoke.cont.i, %if.then.i.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i)
   ret void
 }
 
@@ -23017,8 +23017,8 @@ entry:
   %agg.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %sourceURL) #39
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i8 0, i64 16, i1 false), !noalias !390
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp)
           to label %invoke.cont.i unwind label %lpad.i, !noalias !390
@@ -23046,8 +23046,8 @@ ehcleanup.i:                                      ; preds = %lpad2.i, %lpad.i
 
 invoke.cont:                                      ; preds = %invoke.cont.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i) #39, !noalias !390
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #39
   ret void
 }
@@ -23060,7 +23060,7 @@ entry:
   %plain_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %plain_, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !393)
-  call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %gcScope.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %gcScope.i)
   %runtime_.i = getelementptr inbounds nuw i8, ptr %0, i64 128
   %1 = load ptr, ptr %runtime_.i, align 8, !noalias !393
   store ptr %1, ptr %gcScope.i, align 8, !noalias !393
@@ -23103,7 +23103,7 @@ if.end.i.i.i:                                     ; preds = %call2.i.noexc.i
 invoke.cont.i:                                    ; preds = %call2.i.noexc.i
   %5 = extractvalue { i32, i64 } %call2.i1.i, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !396)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %hv.i.i), !noalias !393
+  call void @llvm.lifetime.start.p0(ptr nonnull %hv.i.i), !noalias !393
   store i64 %5, ptr %hv.i.i, align 8, !noalias !399
   %hermesValues_.i.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %call.i2.i = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN6hermes18ManagedChunkedListIN8facebook6hermes17HermesRuntimeImpl12ManagedValueINS_2vm17PinnedHermesValueEEELm16EE3addIJRNS5_11HermesValueEEEERS7_DpOT_(ptr noundef nonnull align 8 dereferenceable(48) %hermesValues_.i.i, ptr noundef nonnull align 8 dereferenceable(8) %hv.i.i)
@@ -23117,9 +23117,9 @@ lpad.i:                                           ; preds = %invoke.cont.i, %if.
 
 _ZN8facebook6hermes17HermesRuntimeImpl21createStringFromAsciiEPKcm.exit: ; preds = %invoke.cont.i
   store ptr %call.i2.i, ptr %agg.result, align 8, !alias.scope !400
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %hv.i.i), !noalias !393
+  call void @llvm.lifetime.end.p0(ptr nonnull %hv.i.i), !noalias !393
   call void @_ZN6hermes2vm7GCScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(212) %gcScope.i) #39, !noalias !393
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %gcScope.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %gcScope.i)
   ret void
 }
 
@@ -23709,7 +23709,7 @@ invoke.cont4:                                     ; preds = %if.then.i.i.i.i.i, 
   store ptr %call.i.i2.i6, ptr %agg.tmp, align 8
   store ptr @_ZNSt17_Function_handlerIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mENS1_21DecoratedHostFunctionEE9_M_invokeERKSt9_Any_dataS4_S6_OS7_Om, ptr %_M_invoker.i4, align 8
   store ptr @_ZNSt17_Function_handlerIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mENS1_21DecoratedHostFunctionEE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr %_M_manager.i.i5, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %context.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %context.i)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !409)
   %call.i.i7 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #42
           to label %_ZSt11make_uniqueIN8facebook6hermes17HermesRuntimeImpl9HFContextEJSt8functionIFNS0_3jsi5ValueERNS5_7RuntimeERKS6_PS9_mEERS2_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit.i unwind label %lpad5.body.thread
@@ -23728,7 +23728,7 @@ _ZSt11make_uniqueIN8facebook6hermes17HermesRuntimeImpl9HFContextEJSt8functionIFN
           to label %invoke.cont6 unwind label %lpad5.body
 
 invoke.cont6:                                     ; preds = %_ZSt11make_uniqueIN8facebook6hermes17HermesRuntimeImpl9HFContextEJSt8functionIFNS0_3jsi5ValueERNS5_7RuntimeERKS6_PS9_mEERS2_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %context.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %context.i)
   %5 = load ptr, ptr %_M_manager.i.i5, align 8
   %tobool.not.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEED2Ev.exit, label %if.then.i.i9
@@ -24337,8 +24337,8 @@ entry:
   %1 = load ptr, ptr %__args3, align 8, !noalias !416
   %2 = load i64, ptr %__args5, align 8, !noalias !416
   %3 = load ptr, ptr %0, align 8, !noalias !421
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr4.i.i.i.i), !noalias !421
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr6.i.i.i.i), !noalias !421
+  call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr4.i.i.i.i), !noalias !421
+  call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr6.i.i.i.i), !noalias !421
   store ptr %1, ptr %__args.addr4.i.i.i.i, align 8, !noalias !424
   store i64 %2, ptr %__args.addr6.i.i.i.i, align 8, !noalias !424
   %_M_manager.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -24355,8 +24355,8 @@ _ZSt10__invoke_rIN8facebook3jsi5ValueERNS1_21DecoratedHostFunctionEJRNS1_7Runtim
   %_M_invoker.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %_M_invoker.i.i.i.i, align 8, !noalias !424
   call void %5(ptr sret(%"class.facebook::jsi::Value") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %plainHF_.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(16) %__args1, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr6.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr4.i.i.i.i), !noalias !421
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr6.i.i.i.i), !noalias !421
+  call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr4.i.i.i.i), !noalias !421
+  call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr6.i.i.i.i), !noalias !421
   ret void
 }
 
@@ -24388,10 +24388,10 @@ declare i64 @llvm.umax.i64(i64, i64) #34
 declare i64 @llvm.umin.i64(i64, i64) #34
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #36
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #36
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #36
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #36
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #37

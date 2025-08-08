@@ -28,8 +28,8 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local range(i32 0, 3) i32 @spec_yyparse() local_unnamed_addr #0 {
   %1 = alloca [200 x i8], align 16
   %2 = alloca [200 x %union.YYSTYPE], align 16
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %1) #7
-  call void @llvm.lifetime.start.p0(i64 3200, ptr nonnull %2) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 -2, ptr @spec_yychar, align 4
   br label %5
 
@@ -67,7 +67,7 @@ define dso_local range(i32 0, 3) i32 @spec_yyparse() local_unnamed_addr #0 {
   %spec.store.select = call i64 @llvm.smin.i64(i64 %16, i64 10000)
   %17 = mul i64 %spec.store.select, 17
   %18 = add i64 %17, 15
-  %19 = call noalias ptr @malloc(i64 noundef %18) #8
+  %19 = call noalias ptr @malloc(i64 noundef %18) #7
   %.not289.not = icmp eq ptr %19, null
   br i1 %.not289.not, label %311, label %20
 
@@ -82,7 +82,7 @@ define dso_local range(i32 0, 3) i32 @spec_yyparse() local_unnamed_addr #0 {
   br i1 %.not290, label %26, label %25
 
 25:                                               ; preds = %20
-  call void @free(ptr noundef %.0247) #7
+  call void @free(ptr noundef %.0247) #8
   br label %26
 
 26:                                               ; preds = %20, %25
@@ -117,7 +117,7 @@ define dso_local range(i32 0, 3) i32 @spec_yyparse() local_unnamed_addr #0 {
   br i1 %40, label %41, label %43
 
 41:                                               ; preds = %38
-  %42 = call i32 @spec_yylex() #7
+  %42 = call i32 @spec_yylex() #8
   store i32 %42, ptr @spec_yychar, align 4
   br label %43
 
@@ -268,7 +268,7 @@ define dso_local range(i32 0, 3) i32 @spec_yyparse() local_unnamed_addr #0 {
   %106 = add i32 %105, 1
   %107 = sext i32 %106 to i64
   %108 = shl nsw i64 %107, 3
-  %109 = call ptr @pg_realloc(ptr noundef %103, i64 noundef %108) #7
+  %109 = call ptr @pg_realloc(ptr noundef %103, i64 noundef %108) #8
   %110 = load ptr, ptr %.2263, align 8
   %111 = load i32, ptr %104, align 8
   %112 = sext i32 %111 to i64
@@ -301,7 +301,7 @@ define dso_local range(i32 0, 3) i32 @spec_yyparse() local_unnamed_addr #0 {
   %128 = add i32 %127, 1
   %129 = sext i32 %128 to i64
   %130 = shl nsw i64 %129, 3
-  %131 = call ptr @pg_realloc(ptr noundef %125, i64 noundef %130) #7
+  %131 = call ptr @pg_realloc(ptr noundef %125, i64 noundef %130) #8
   %132 = load ptr, ptr %.2263, align 8
   %133 = load i32, ptr %126, align 8
   %134 = sext i32 %133 to i64
@@ -312,13 +312,13 @@ define dso_local range(i32 0, 3) i32 @spec_yyparse() local_unnamed_addr #0 {
   br label %282
 
 138:                                              ; preds = %79
-  %139 = call ptr @pg_malloc(i64 noundef 8) #7
+  %139 = call ptr @pg_malloc(i64 noundef 8) #8
   %140 = load ptr, ptr %.2263, align 8
   store ptr %140, ptr %139, align 8
   br label %282
 
 141:                                              ; preds = %79
-  %142 = call ptr @pg_malloc(i64 noundef 40) #7
+  %142 = call ptr @pg_malloc(i64 noundef 40) #8
   %143 = getelementptr inbounds i8, ptr %.2263, i64 -48
   %144 = load ptr, ptr %143, align 8
   store ptr %144, ptr %142, align 8
@@ -347,7 +347,7 @@ define dso_local range(i32 0, 3) i32 @spec_yyparse() local_unnamed_addr #0 {
   %161 = add i32 %160, 1
   %162 = sext i32 %161 to i64
   %163 = shl nsw i64 %162, 3
-  %164 = call ptr @pg_realloc(ptr noundef %158, i64 noundef %163) #7
+  %164 = call ptr @pg_realloc(ptr noundef %158, i64 noundef %163) #8
   %165 = load ptr, ptr %.2263, align 8
   %166 = load i32, ptr %159, align 8
   %167 = sext i32 %166 to i64
@@ -358,13 +358,13 @@ define dso_local range(i32 0, 3) i32 @spec_yyparse() local_unnamed_addr #0 {
   br label %282
 
 171:                                              ; preds = %79
-  %172 = call ptr @pg_malloc(i64 noundef 8) #7
+  %172 = call ptr @pg_malloc(i64 noundef 8) #8
   %173 = load ptr, ptr %.2263, align 8
   store ptr %173, ptr %172, align 8
   br label %282
 
 174:                                              ; preds = %79
-  %175 = call ptr @pg_malloc(i64 noundef 24) #7
+  %175 = call ptr @pg_malloc(i64 noundef 24) #8
   %176 = getelementptr inbounds i8, ptr %.2263, i64 -16
   %177 = load ptr, ptr %176, align 8
   store ptr %177, ptr %175, align 8
@@ -393,7 +393,7 @@ define dso_local range(i32 0, 3) i32 @spec_yyparse() local_unnamed_addr #0 {
   %188 = add i32 %187, 1
   %189 = sext i32 %188 to i64
   %190 = shl nsw i64 %189, 3
-  %191 = call ptr @pg_realloc(ptr noundef %185, i64 noundef %190) #7
+  %191 = call ptr @pg_realloc(ptr noundef %185, i64 noundef %190) #8
   %192 = load ptr, ptr %.2263, align 8
   %193 = load i32, ptr %186, align 8
   %194 = sext i32 %193 to i64
@@ -404,13 +404,13 @@ define dso_local range(i32 0, 3) i32 @spec_yyparse() local_unnamed_addr #0 {
   br label %282
 
 198:                                              ; preds = %79
-  %199 = call ptr @pg_malloc(i64 noundef 8) #7
+  %199 = call ptr @pg_malloc(i64 noundef 8) #8
   %200 = load ptr, ptr %.2263, align 8
   store ptr %200, ptr %199, align 8
   br label %282
 
 201:                                              ; preds = %79
-  %202 = call ptr @pg_malloc(i64 noundef 16) #7
+  %202 = call ptr @pg_malloc(i64 noundef 16) #8
   %203 = getelementptr inbounds nuw i8, ptr %.2263, i64 8
   %204 = load i32, ptr %203, align 8
   store i32 %204, ptr %202, align 8
@@ -427,7 +427,7 @@ define dso_local range(i32 0, 3) i32 @spec_yyparse() local_unnamed_addr #0 {
   %212 = add i32 %211, 1
   %213 = sext i32 %212 to i64
   %214 = shl nsw i64 %213, 3
-  %215 = call ptr @pg_realloc(ptr noundef %209, i64 noundef %214) #7
+  %215 = call ptr @pg_realloc(ptr noundef %209, i64 noundef %214) #8
   %216 = load ptr, ptr %.2263, align 8
   %217 = load i32, ptr %210, align 8
   %218 = sext i32 %217 to i64
@@ -438,13 +438,13 @@ define dso_local range(i32 0, 3) i32 @spec_yyparse() local_unnamed_addr #0 {
   br label %282
 
 222:                                              ; preds = %79
-  %223 = call ptr @pg_malloc(i64 noundef 8) #7
+  %223 = call ptr @pg_malloc(i64 noundef 8) #8
   %224 = load ptr, ptr %.2263, align 8
   store ptr %224, ptr %223, align 8
   br label %282
 
 225:                                              ; preds = %79
-  %226 = call ptr @pg_malloc(i64 noundef 32) #7
+  %226 = call ptr @pg_malloc(i64 noundef 32) #8
   %227 = load ptr, ptr %.2263, align 8
   store ptr %227, ptr %226, align 8
   %228 = getelementptr inbounds nuw i8, ptr %226, i64 8
@@ -456,7 +456,7 @@ define dso_local range(i32 0, 3) i32 @spec_yyparse() local_unnamed_addr #0 {
   br label %282
 
 231:                                              ; preds = %79
-  %232 = call ptr @pg_malloc(i64 noundef 32) #7
+  %232 = call ptr @pg_malloc(i64 noundef 32) #8
   %233 = getelementptr inbounds i8, ptr %.2263, i64 -48
   %234 = load ptr, ptr %233, align 8
   store ptr %234, ptr %232, align 8
@@ -480,7 +480,7 @@ define dso_local range(i32 0, 3) i32 @spec_yyparse() local_unnamed_addr #0 {
   %247 = add i32 %246, 1
   %248 = sext i32 %247 to i64
   %249 = shl nsw i64 %248, 3
-  %250 = call ptr @pg_realloc(ptr noundef %244, i64 noundef %249) #7
+  %250 = call ptr @pg_realloc(ptr noundef %244, i64 noundef %249) #8
   %251 = load ptr, ptr %.2263, align 8
   %252 = load i32, ptr %245, align 8
   %253 = sext i32 %252 to i64
@@ -491,13 +491,13 @@ define dso_local range(i32 0, 3) i32 @spec_yyparse() local_unnamed_addr #0 {
   br label %282
 
 257:                                              ; preds = %79
-  %258 = call ptr @pg_malloc(i64 noundef 8) #7
+  %258 = call ptr @pg_malloc(i64 noundef 8) #8
   %259 = load ptr, ptr %.2263, align 8
   store ptr %259, ptr %258, align 8
   br label %282
 
 260:                                              ; preds = %79
-  %261 = call ptr @pg_malloc(i64 noundef 32) #7
+  %261 = call ptr @pg_malloc(i64 noundef 32) #8
   %262 = load ptr, ptr %.2263, align 8
   store ptr %262, ptr %261, align 8
   %263 = getelementptr inbounds nuw i8, ptr %261, i64 8
@@ -511,7 +511,7 @@ define dso_local range(i32 0, 3) i32 @spec_yyparse() local_unnamed_addr #0 {
   br label %282
 
 267:                                              ; preds = %79
-  %268 = call ptr @pg_malloc(i64 noundef 32) #7
+  %268 = call ptr @pg_malloc(i64 noundef 32) #8
   %269 = getelementptr inbounds i8, ptr %.2263, i64 -32
   %270 = load ptr, ptr %269, align 8
   store ptr %270, ptr %268, align 8
@@ -527,7 +527,7 @@ define dso_local range(i32 0, 3) i32 @spec_yyparse() local_unnamed_addr #0 {
   br label %282
 
 276:                                              ; preds = %79
-  %277 = call ptr @pg_malloc(i64 noundef 32) #7
+  %277 = call ptr @pg_malloc(i64 noundef 32) #8
   store ptr null, ptr %277, align 8
   %278 = getelementptr inbounds nuw i8, ptr %277, i64 8
   store i32 0, ptr %278, align 8
@@ -590,11 +590,11 @@ define dso_local range(i32 0, 3) i32 @spec_yyparse() local_unnamed_addr #0 {
   %309 = load i32, ptr @spec_yynerrs, align 4
   %310 = add i32 %309, 1
   store i32 %310, ptr @spec_yynerrs, align 4
-  call void @spec_yyerror(ptr noundef nonnull @.str) #7
+  call void @spec_yyerror(ptr noundef nonnull @.str) #8
   br label %.loopexit
 
 311:                                              ; preds = %9, %15
-  call void @spec_yyerror(ptr noundef nonnull @.str.3) #7
+  call void @spec_yyerror(ptr noundef nonnull @.str.3) #8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.thread319, %49, %308, %311
@@ -606,51 +606,51 @@ define dso_local range(i32 0, 3) i32 @spec_yyparse() local_unnamed_addr #0 {
 .loopexit.thread:                                 ; preds = %26, %.loopexit
   %.5362 = phi ptr [ %.5, %.loopexit ], [ %19, %26 ]
   %.0259360 = phi i32 [ %.0259, %.loopexit ], [ 1, %26 ]
-  call void @free(ptr noundef %.5362) #7
+  call void @free(ptr noundef %.5362) #8
   br label %312
 
 312:                                              ; preds = %.loopexit, %.loopexit.thread
   %.0259361 = phi i32 [ %.0259, %.loopexit ], [ %.0259360, %.loopexit.thread ]
-  call void @llvm.lifetime.end.p0(i64 3200, ptr nonnull %2) #7
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %1) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0259361
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
-declare i32 @spec_yylex() local_unnamed_addr #5
+declare i32 @spec_yylex() local_unnamed_addr #4
 
-declare ptr @pg_realloc(ptr noundef, i64 noundef) local_unnamed_addr #5
+declare ptr @pg_realloc(ptr noundef, i64 noundef) local_unnamed_addr #4
 
-declare ptr @pg_malloc(i64 noundef) local_unnamed_addr #5
+declare ptr @pg_malloc(i64 noundef) local_unnamed_addr #4
 
-declare void @spec_yyerror(ptr noundef) local_unnamed_addr #5
+declare void @spec_yyerror(ptr noundef) local_unnamed_addr #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nounwind }
-attributes #8 = { nounwind allocsize(0) }
+attributes #7 = { nounwind allocsize(0) }
+attributes #8 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

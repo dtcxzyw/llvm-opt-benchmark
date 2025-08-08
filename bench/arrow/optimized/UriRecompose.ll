@@ -9,11 +9,8 @@ define range(i32 0, 5) i32 @uriToStringCharsRequiredA(ptr noundef %0, ptr nounde
   ret i32 %3
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc range(i32 0, 5) i32 @uriToStringEngineA(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4) unnamed_addr #2 {
+define internal fastcc range(i32 0, 5) i32 @uriToStringEngineA(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4) unnamed_addr #1 {
   %6 = alloca [4 x i8], align 1
   %7 = icmp eq ptr %1, null
   br i1 %7, label %11, label %8
@@ -266,7 +263,7 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineA(ptr noundef write
   %118 = phi i8 [ %149, %.preheader680.split ], [ %96, %.preheader680.split.preheader ]
   %.9388688787 = phi i32 [ %144, %.preheader680.split ], [ %.6385, %.preheader680.split.preheader ]
   %indvars.iv786 = phi i64 [ %indvars.iv.next, %.preheader680.split ], [ 0, %.preheader680.split.preheader ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br i1 %117, label %119, label %127
 
 119:                                              ; preds = %.lr.ph
@@ -306,7 +303,7 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineA(ptr noundef write
   %138 = sext i32 %.9388688787 to i64
   %139 = getelementptr inbounds i8, ptr %0, i64 %138
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %139, ptr noundef nonnull align 1 dereferenceable(1) %6, i64 %136, i1 false)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not536 = icmp eq i64 %indvars.iv786, 3
   br i1 %.not536, label %.thread599, label %141
 
@@ -1021,9 +1018,6 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineA(ptr noundef write
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 5) i32 @uriToStringA(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = tail call fastcc i32 @uriToStringEngineA(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef null)
@@ -1037,7 +1031,7 @@ define range(i32 0, 5) i32 @uriToStringCharsRequiredW(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc range(i32 0, 5) i32 @uriToStringEngineW(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4) unnamed_addr #2 {
+define internal fastcc range(i32 0, 5) i32 @uriToStringEngineW(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4) unnamed_addr #1 {
   %6 = alloca [4 x i32], align 16
   %7 = icmp eq ptr %1, null
   br i1 %7, label %11, label %8
@@ -1297,7 +1291,7 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineW(ptr noundef write
   %125 = phi i8 [ %163, %.preheader690.split ], [ %103, %.preheader690.split.preheader ]
   %.9388698797 = phi i32 [ %158, %.preheader690.split ], [ %.6385, %.preheader690.split.preheader ]
   %indvars.iv796 = phi i64 [ %indvars.iv.next, %.preheader690.split ], [ 0, %.preheader690.split.preheader ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br i1 %124, label %126, label %137
 
 126:                                              ; preds = %.lr.ph
@@ -1344,7 +1338,7 @@ define internal fastcc range(i32 0, 5) i32 @uriToStringEngineW(ptr noundef write
   %152 = getelementptr inbounds i32, ptr %0, i64 %151
   %153 = shl nuw nsw i64 %149, 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %152, ptr noundef nonnull align 16 dereferenceable(1) %6, i64 %153, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not536 = icmp eq i64 %indvars.iv796, 3
   br i1 %.not536, label %.thread599, label %155
 
@@ -2081,21 +2075,27 @@ define range(i32 0, 5) i32 @uriToStringW(ptr noundef writeonly captures(address_
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
-declare i32 @uriIsHostSetA(ptr noundef) local_unnamed_addr #4
+declare i32 @uriIsHostSetA(ptr noundef) local_unnamed_addr #3
 
-declare signext i8 @uriHexToLetterExA(i32 noundef, i32 noundef) local_unnamed_addr #4
+declare signext i8 @uriHexToLetterExA(i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @uriIsHostSetW(ptr noundef) local_unnamed_addr #4
+declare i32 @uriIsHostSetW(ptr noundef) local_unnamed_addr #3
 
-declare i32 @uriHexToLetterExW(i32 noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @uriHexToLetterExW(i32 noundef, i32 noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #1 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

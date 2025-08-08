@@ -448,28 +448,28 @@ entry:
   %agg.tmp = alloca %"class.std::vector", align 8
   %agg.tmp1 = alloca %"class.std::unique_ptr", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp3.i)
-  call void @llvm.lifetime.start.p0(i64 232, ptr nonnull %ref.tmp4.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp5.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp6.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp10.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp11.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp17.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp18.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp33.i)
-  call void @llvm.lifetime.start.p0(i64 232, ptr nonnull %ref.tmp34.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp35.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp36.i)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %agg.tmp.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp43.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp44.i)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %agg.tmp47.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp52.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp53.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp59.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp60.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp66.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp67.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp4.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp5.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp6.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp10.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp17.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp18.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp33.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp34.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp35.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp36.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp43.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp44.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp47.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp52.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp53.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp59.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp60.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp66.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp67.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp, i8 0, i64 24, i1 false), !alias.scope !4
   %_M_single_bucket.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp4.i, i64 48
   %_M_bucket_count.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp4.i, i64 8
@@ -503,7 +503,7 @@ call.i.noexc.i:                                   ; preds = %for.body.i
           to label %.noexc.i unwind label %lpad.i
 
 .noexc.i:                                         ; preds = %call.i.noexc.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i103)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i103)
   %call.i.i104 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5.i)
           to label %if.end.i106 unwind label %terminate.lpad.i.i105
 
@@ -533,7 +533,7 @@ lpad.i108:                                        ; preds = %invoke.cont.i109, %
   br label %ehcleanup90.i
 
 invoke.cont.i:                                    ; preds = %invoke.cont.i109
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i103)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i103)
   %call9.i = invoke noundef nonnull align 8 dereferenceable(225) ptr @_ZN8facebook5velox4exec24FunctionSignatureBuilder10returnTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(225) %ref.tmp4.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5.i)
           to label %invoke.cont8.i unwind label %lpad7.i
 
@@ -887,7 +887,7 @@ call.i.noexc61.i:                                 ; preds = %for.end.i
           to label %.noexc63.i unwind label %lpad37.i
 
 .noexc63.i:                                       ; preds = %call.i.noexc61.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i43)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i43)
   %call.i.i44 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp35.i)
           to label %if.end.i46 unwind label %terminate.lpad.i.i45
 
@@ -917,7 +917,7 @@ lpad.i48:                                         ; preds = %invoke.cont.i49, %i
   br label %ehcleanup90.i
 
 invoke.cont38.i:                                  ; preds = %invoke.cont.i49
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i43)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i43)
   %_M_engaged.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i, i64 32
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i, align 8, !noalias !4
   %call42.i = invoke noundef nonnull align 8 dereferenceable(225) ptr @_ZN8facebook5velox4exec24FunctionSignatureBuilder15integerVariableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8optionalIS8_E(ptr noundef nonnull align 8 dereferenceable(225) %ref.tmp34.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp35.i, ptr noundef nonnull %agg.tmp.i)
@@ -933,7 +933,7 @@ call.i.noexc70.i:                                 ; preds = %invoke.cont41.i
           to label %.noexc72.i unwind label %lpad45.i
 
 .noexc72.i:                                       ; preds = %call.i.noexc70.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i33)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i33)
   %call.i.i34 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp43.i)
           to label %if.end.i36 unwind label %terminate.lpad.i.i35
 
@@ -963,7 +963,7 @@ lpad.i38:                                         ; preds = %invoke.cont.i39, %i
   br label %ehcleanup85.i
 
 invoke.cont46.i:                                  ; preds = %invoke.cont.i39
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i33)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i33)
   %_M_engaged.i.i.i.i.i75.i = getelementptr inbounds nuw i8, ptr %agg.tmp47.i, i64 32
   store i8 0, ptr %_M_engaged.i.i.i.i.i75.i, align 8, !noalias !4
   %call51.i = invoke noundef nonnull align 8 dereferenceable(225) ptr @_ZN8facebook5velox4exec24FunctionSignatureBuilder15integerVariableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8optionalIS8_E(ptr noundef nonnull align 8 dereferenceable(225) %call42.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp43.i, ptr noundef nonnull %agg.tmp47.i)
@@ -979,7 +979,7 @@ call.i.noexc80.i:                                 ; preds = %invoke.cont50.i
           to label %.noexc82.i unwind label %lpad54.i
 
 .noexc82.i:                                       ; preds = %call.i.noexc80.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i)
   %call.i.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp52.i)
           to label %if.end.i unwind label %terminate.lpad.i.i
 
@@ -1009,7 +1009,7 @@ lpad.i30:                                         ; preds = %invoke.cont.i31, %i
   br label %ehcleanup82.i
 
 invoke.cont55.i:                                  ; preds = %invoke.cont.i31
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i)
   %call58.i = invoke noundef nonnull align 8 dereferenceable(225) ptr @_ZN8facebook5velox4exec24FunctionSignatureBuilder10returnTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(225) %call51.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp52.i)
           to label %invoke.cont57.i unwind label %lpad56.i
 
@@ -1400,28 +1400,28 @@ _ZN8facebook5velox9functions12_GLOBAL__N_122ComparisonSimdFunctionISt8equal_toIv
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp35.i) #24
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp36.i) #24
   call void @_ZN8facebook5velox4exec24FunctionSignatureBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(225) %ref.tmp34.i) #24
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp3.i)
-  call void @llvm.lifetime.end.p0(i64 232, ptr nonnull %ref.tmp4.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp5.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp6.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp10.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp11.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp17.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp18.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp33.i)
-  call void @llvm.lifetime.end.p0(i64 232, ptr nonnull %ref.tmp34.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp35.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp36.i)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp43.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp44.i)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp47.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp52.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp53.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp59.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp60.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp66.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp67.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp4.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp5.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp6.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp10.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp17.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp18.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp33.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp34.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp35.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp36.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp43.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp44.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp47.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp52.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp53.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp59.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp60.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp66.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp67.i)
   %call.i2 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #27
           to label %invoke.cont unwind label %lpad
 
@@ -1712,28 +1712,28 @@ entry:
   %agg.tmp = alloca %"class.std::vector", align 8
   %agg.tmp1 = alloca %"class.std::unique_ptr", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !23)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp3.i)
-  call void @llvm.lifetime.start.p0(i64 232, ptr nonnull %ref.tmp4.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp5.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp6.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp10.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp11.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp17.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp18.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp33.i)
-  call void @llvm.lifetime.start.p0(i64 232, ptr nonnull %ref.tmp34.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp35.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp36.i)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %agg.tmp.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp43.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp44.i)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %agg.tmp47.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp52.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp53.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp59.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp60.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp66.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp67.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp4.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp5.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp6.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp10.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp17.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp18.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp33.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp34.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp35.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp36.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp43.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp44.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp47.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp52.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp53.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp59.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp60.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp66.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp67.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp, i8 0, i64 24, i1 false), !alias.scope !23
   %_M_single_bucket.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp4.i, i64 48
   %_M_bucket_count.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp4.i, i64 8
@@ -1767,7 +1767,7 @@ call.i.noexc.i:                                   ; preds = %for.body.i
           to label %.noexc.i unwind label %lpad.i
 
 .noexc.i:                                         ; preds = %call.i.noexc.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i103)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i103)
   %call.i.i104 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5.i)
           to label %if.end.i106 unwind label %terminate.lpad.i.i105
 
@@ -1797,7 +1797,7 @@ lpad.i108:                                        ; preds = %invoke.cont.i109, %
   br label %ehcleanup90.i
 
 invoke.cont.i:                                    ; preds = %invoke.cont.i109
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i103)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i103)
   %call9.i = invoke noundef nonnull align 8 dereferenceable(225) ptr @_ZN8facebook5velox4exec24FunctionSignatureBuilder10returnTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(225) %ref.tmp4.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5.i)
           to label %invoke.cont8.i unwind label %lpad7.i
 
@@ -2151,7 +2151,7 @@ call.i.noexc61.i:                                 ; preds = %for.end.i
           to label %.noexc63.i unwind label %lpad37.i
 
 .noexc63.i:                                       ; preds = %call.i.noexc61.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i43)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i43)
   %call.i.i44 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp35.i)
           to label %if.end.i46 unwind label %terminate.lpad.i.i45
 
@@ -2181,7 +2181,7 @@ lpad.i48:                                         ; preds = %invoke.cont.i49, %i
   br label %ehcleanup90.i
 
 invoke.cont38.i:                                  ; preds = %invoke.cont.i49
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i43)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i43)
   %_M_engaged.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i, i64 32
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i, align 8, !noalias !23
   %call42.i = invoke noundef nonnull align 8 dereferenceable(225) ptr @_ZN8facebook5velox4exec24FunctionSignatureBuilder15integerVariableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8optionalIS8_E(ptr noundef nonnull align 8 dereferenceable(225) %ref.tmp34.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp35.i, ptr noundef nonnull %agg.tmp.i)
@@ -2197,7 +2197,7 @@ call.i.noexc70.i:                                 ; preds = %invoke.cont41.i
           to label %.noexc72.i unwind label %lpad45.i
 
 .noexc72.i:                                       ; preds = %call.i.noexc70.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i33)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i33)
   %call.i.i34 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp43.i)
           to label %if.end.i36 unwind label %terminate.lpad.i.i35
 
@@ -2227,7 +2227,7 @@ lpad.i38:                                         ; preds = %invoke.cont.i39, %i
   br label %ehcleanup85.i
 
 invoke.cont46.i:                                  ; preds = %invoke.cont.i39
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i33)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i33)
   %_M_engaged.i.i.i.i.i75.i = getelementptr inbounds nuw i8, ptr %agg.tmp47.i, i64 32
   store i8 0, ptr %_M_engaged.i.i.i.i.i75.i, align 8, !noalias !23
   %call51.i = invoke noundef nonnull align 8 dereferenceable(225) ptr @_ZN8facebook5velox4exec24FunctionSignatureBuilder15integerVariableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8optionalIS8_E(ptr noundef nonnull align 8 dereferenceable(225) %call42.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp43.i, ptr noundef nonnull %agg.tmp47.i)
@@ -2243,7 +2243,7 @@ call.i.noexc80.i:                                 ; preds = %invoke.cont50.i
           to label %.noexc82.i unwind label %lpad54.i
 
 .noexc82.i:                                       ; preds = %call.i.noexc80.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i)
   %call.i.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp52.i)
           to label %if.end.i unwind label %terminate.lpad.i.i
 
@@ -2273,7 +2273,7 @@ lpad.i30:                                         ; preds = %invoke.cont.i31, %i
   br label %ehcleanup82.i
 
 invoke.cont55.i:                                  ; preds = %invoke.cont.i31
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i)
   %call58.i = invoke noundef nonnull align 8 dereferenceable(225) ptr @_ZN8facebook5velox4exec24FunctionSignatureBuilder10returnTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(225) %call51.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp52.i)
           to label %invoke.cont57.i unwind label %lpad56.i
 
@@ -2664,28 +2664,28 @@ _ZN8facebook5velox9functions12_GLOBAL__N_122ComparisonSimdFunctionISt12not_equal
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp35.i) #24
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp36.i) #24
   call void @_ZN8facebook5velox4exec24FunctionSignatureBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(225) %ref.tmp34.i) #24
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp3.i)
-  call void @llvm.lifetime.end.p0(i64 232, ptr nonnull %ref.tmp4.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp5.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp6.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp10.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp11.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp17.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp18.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp33.i)
-  call void @llvm.lifetime.end.p0(i64 232, ptr nonnull %ref.tmp34.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp35.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp36.i)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp43.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp44.i)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp47.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp52.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp53.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp59.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp60.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp66.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp67.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp4.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp5.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp6.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp10.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp17.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp18.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp33.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp34.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp35.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp36.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp43.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp44.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp47.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp52.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp53.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp59.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp60.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp66.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp67.i)
   %call.i2 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #27
           to label %invoke.cont unwind label %lpad
 
@@ -2866,28 +2866,28 @@ entry:
   %agg.tmp = alloca %"class.std::vector", align 8
   %agg.tmp1 = alloca %"class.std::unique_ptr", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !39)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp3.i)
-  call void @llvm.lifetime.start.p0(i64 232, ptr nonnull %ref.tmp4.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp5.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp6.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp10.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp11.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp17.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp18.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp33.i)
-  call void @llvm.lifetime.start.p0(i64 232, ptr nonnull %ref.tmp34.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp35.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp36.i)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %agg.tmp.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp43.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp44.i)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %agg.tmp47.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp52.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp53.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp59.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp60.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp66.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp67.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp4.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp5.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp6.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp10.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp17.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp18.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp33.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp34.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp35.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp36.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp43.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp44.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp47.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp52.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp53.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp59.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp60.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp66.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp67.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp, i8 0, i64 24, i1 false), !alias.scope !39
   %_M_single_bucket.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp4.i, i64 48
   %_M_bucket_count.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp4.i, i64 8
@@ -2921,7 +2921,7 @@ call.i.noexc.i:                                   ; preds = %for.body.i
           to label %.noexc.i unwind label %lpad.i
 
 .noexc.i:                                         ; preds = %call.i.noexc.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i103)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i103)
   %call.i.i104 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5.i)
           to label %if.end.i106 unwind label %terminate.lpad.i.i105
 
@@ -2951,7 +2951,7 @@ lpad.i108:                                        ; preds = %invoke.cont.i109, %
   br label %ehcleanup90.i
 
 invoke.cont.i:                                    ; preds = %invoke.cont.i109
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i103)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i103)
   %call9.i = invoke noundef nonnull align 8 dereferenceable(225) ptr @_ZN8facebook5velox4exec24FunctionSignatureBuilder10returnTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(225) %ref.tmp4.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5.i)
           to label %invoke.cont8.i unwind label %lpad7.i
 
@@ -3305,7 +3305,7 @@ call.i.noexc61.i:                                 ; preds = %for.end.i
           to label %.noexc63.i unwind label %lpad37.i
 
 .noexc63.i:                                       ; preds = %call.i.noexc61.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i43)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i43)
   %call.i.i44 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp35.i)
           to label %if.end.i46 unwind label %terminate.lpad.i.i45
 
@@ -3335,7 +3335,7 @@ lpad.i48:                                         ; preds = %invoke.cont.i49, %i
   br label %ehcleanup90.i
 
 invoke.cont38.i:                                  ; preds = %invoke.cont.i49
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i43)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i43)
   %_M_engaged.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i, i64 32
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i, align 8, !noalias !39
   %call42.i = invoke noundef nonnull align 8 dereferenceable(225) ptr @_ZN8facebook5velox4exec24FunctionSignatureBuilder15integerVariableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8optionalIS8_E(ptr noundef nonnull align 8 dereferenceable(225) %ref.tmp34.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp35.i, ptr noundef nonnull %agg.tmp.i)
@@ -3351,7 +3351,7 @@ call.i.noexc70.i:                                 ; preds = %invoke.cont41.i
           to label %.noexc72.i unwind label %lpad45.i
 
 .noexc72.i:                                       ; preds = %call.i.noexc70.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i33)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i33)
   %call.i.i34 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp43.i)
           to label %if.end.i36 unwind label %terminate.lpad.i.i35
 
@@ -3381,7 +3381,7 @@ lpad.i38:                                         ; preds = %invoke.cont.i39, %i
   br label %ehcleanup85.i
 
 invoke.cont46.i:                                  ; preds = %invoke.cont.i39
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i33)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i33)
   %_M_engaged.i.i.i.i.i75.i = getelementptr inbounds nuw i8, ptr %agg.tmp47.i, i64 32
   store i8 0, ptr %_M_engaged.i.i.i.i.i75.i, align 8, !noalias !39
   %call51.i = invoke noundef nonnull align 8 dereferenceable(225) ptr @_ZN8facebook5velox4exec24FunctionSignatureBuilder15integerVariableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8optionalIS8_E(ptr noundef nonnull align 8 dereferenceable(225) %call42.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp43.i, ptr noundef nonnull %agg.tmp47.i)
@@ -3397,7 +3397,7 @@ call.i.noexc80.i:                                 ; preds = %invoke.cont50.i
           to label %.noexc82.i unwind label %lpad54.i
 
 .noexc82.i:                                       ; preds = %call.i.noexc80.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i)
   %call.i.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp52.i)
           to label %if.end.i unwind label %terminate.lpad.i.i
 
@@ -3427,7 +3427,7 @@ lpad.i30:                                         ; preds = %invoke.cont.i31, %i
   br label %ehcleanup82.i
 
 invoke.cont55.i:                                  ; preds = %invoke.cont.i31
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i)
   %call58.i = invoke noundef nonnull align 8 dereferenceable(225) ptr @_ZN8facebook5velox4exec24FunctionSignatureBuilder10returnTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(225) %call51.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp52.i)
           to label %invoke.cont57.i unwind label %lpad56.i
 
@@ -3818,28 +3818,28 @@ _ZN8facebook5velox9functions12_GLOBAL__N_122ComparisonSimdFunctionISt4lessIvEN5x
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp35.i) #24
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp36.i) #24
   call void @_ZN8facebook5velox4exec24FunctionSignatureBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(225) %ref.tmp34.i) #24
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp3.i)
-  call void @llvm.lifetime.end.p0(i64 232, ptr nonnull %ref.tmp4.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp5.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp6.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp10.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp11.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp17.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp18.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp33.i)
-  call void @llvm.lifetime.end.p0(i64 232, ptr nonnull %ref.tmp34.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp35.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp36.i)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp43.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp44.i)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp47.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp52.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp53.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp59.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp60.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp66.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp67.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp4.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp5.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp6.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp10.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp17.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp18.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp33.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp34.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp35.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp36.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp43.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp44.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp47.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp52.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp53.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp59.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp60.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp66.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp67.i)
   %call.i2 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #27
           to label %invoke.cont unwind label %lpad
 
@@ -4020,28 +4020,28 @@ entry:
   %agg.tmp = alloca %"class.std::vector", align 8
   %agg.tmp1 = alloca %"class.std::unique_ptr", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !55)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp3.i)
-  call void @llvm.lifetime.start.p0(i64 232, ptr nonnull %ref.tmp4.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp5.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp6.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp10.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp11.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp17.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp18.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp33.i)
-  call void @llvm.lifetime.start.p0(i64 232, ptr nonnull %ref.tmp34.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp35.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp36.i)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %agg.tmp.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp43.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp44.i)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %agg.tmp47.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp52.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp53.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp59.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp60.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp66.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp67.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp4.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp5.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp6.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp10.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp17.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp18.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp33.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp34.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp35.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp36.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp43.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp44.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp47.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp52.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp53.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp59.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp60.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp66.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp67.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp, i8 0, i64 24, i1 false), !alias.scope !55
   %_M_single_bucket.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp4.i, i64 48
   %_M_bucket_count.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp4.i, i64 8
@@ -4075,7 +4075,7 @@ call.i.noexc.i:                                   ; preds = %for.body.i
           to label %.noexc.i unwind label %lpad.i
 
 .noexc.i:                                         ; preds = %call.i.noexc.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i103)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i103)
   %call.i.i104 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5.i)
           to label %if.end.i106 unwind label %terminate.lpad.i.i105
 
@@ -4105,7 +4105,7 @@ lpad.i108:                                        ; preds = %invoke.cont.i109, %
   br label %ehcleanup90.i
 
 invoke.cont.i:                                    ; preds = %invoke.cont.i109
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i103)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i103)
   %call9.i = invoke noundef nonnull align 8 dereferenceable(225) ptr @_ZN8facebook5velox4exec24FunctionSignatureBuilder10returnTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(225) %ref.tmp4.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5.i)
           to label %invoke.cont8.i unwind label %lpad7.i
 
@@ -4459,7 +4459,7 @@ call.i.noexc61.i:                                 ; preds = %for.end.i
           to label %.noexc63.i unwind label %lpad37.i
 
 .noexc63.i:                                       ; preds = %call.i.noexc61.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i43)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i43)
   %call.i.i44 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp35.i)
           to label %if.end.i46 unwind label %terminate.lpad.i.i45
 
@@ -4489,7 +4489,7 @@ lpad.i48:                                         ; preds = %invoke.cont.i49, %i
   br label %ehcleanup90.i
 
 invoke.cont38.i:                                  ; preds = %invoke.cont.i49
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i43)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i43)
   %_M_engaged.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i, i64 32
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i, align 8, !noalias !55
   %call42.i = invoke noundef nonnull align 8 dereferenceable(225) ptr @_ZN8facebook5velox4exec24FunctionSignatureBuilder15integerVariableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8optionalIS8_E(ptr noundef nonnull align 8 dereferenceable(225) %ref.tmp34.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp35.i, ptr noundef nonnull %agg.tmp.i)
@@ -4505,7 +4505,7 @@ call.i.noexc70.i:                                 ; preds = %invoke.cont41.i
           to label %.noexc72.i unwind label %lpad45.i
 
 .noexc72.i:                                       ; preds = %call.i.noexc70.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i33)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i33)
   %call.i.i34 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp43.i)
           to label %if.end.i36 unwind label %terminate.lpad.i.i35
 
@@ -4535,7 +4535,7 @@ lpad.i38:                                         ; preds = %invoke.cont.i39, %i
   br label %ehcleanup85.i
 
 invoke.cont46.i:                                  ; preds = %invoke.cont.i39
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i33)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i33)
   %_M_engaged.i.i.i.i.i75.i = getelementptr inbounds nuw i8, ptr %agg.tmp47.i, i64 32
   store i8 0, ptr %_M_engaged.i.i.i.i.i75.i, align 8, !noalias !55
   %call51.i = invoke noundef nonnull align 8 dereferenceable(225) ptr @_ZN8facebook5velox4exec24FunctionSignatureBuilder15integerVariableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8optionalIS8_E(ptr noundef nonnull align 8 dereferenceable(225) %call42.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp43.i, ptr noundef nonnull %agg.tmp47.i)
@@ -4551,7 +4551,7 @@ call.i.noexc80.i:                                 ; preds = %invoke.cont50.i
           to label %.noexc82.i unwind label %lpad54.i
 
 .noexc82.i:                                       ; preds = %call.i.noexc80.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i)
   %call.i.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp52.i)
           to label %if.end.i unwind label %terminate.lpad.i.i
 
@@ -4581,7 +4581,7 @@ lpad.i30:                                         ; preds = %invoke.cont.i31, %i
   br label %ehcleanup82.i
 
 invoke.cont55.i:                                  ; preds = %invoke.cont.i31
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i)
   %call58.i = invoke noundef nonnull align 8 dereferenceable(225) ptr @_ZN8facebook5velox4exec24FunctionSignatureBuilder10returnTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(225) %call51.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp52.i)
           to label %invoke.cont57.i unwind label %lpad56.i
 
@@ -4972,28 +4972,28 @@ _ZN8facebook5velox9functions12_GLOBAL__N_122ComparisonSimdFunctionISt7greaterIvE
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp35.i) #24
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp36.i) #24
   call void @_ZN8facebook5velox4exec24FunctionSignatureBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(225) %ref.tmp34.i) #24
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp3.i)
-  call void @llvm.lifetime.end.p0(i64 232, ptr nonnull %ref.tmp4.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp5.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp6.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp10.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp11.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp17.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp18.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp33.i)
-  call void @llvm.lifetime.end.p0(i64 232, ptr nonnull %ref.tmp34.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp35.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp36.i)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp43.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp44.i)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp47.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp52.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp53.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp59.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp60.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp66.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp67.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp4.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp5.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp6.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp10.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp17.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp18.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp33.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp34.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp35.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp36.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp43.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp44.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp47.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp52.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp53.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp59.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp60.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp66.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp67.i)
   %call.i2 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #27
           to label %invoke.cont unwind label %lpad
 
@@ -5174,28 +5174,28 @@ entry:
   %agg.tmp = alloca %"class.std::vector", align 8
   %agg.tmp1 = alloca %"class.std::unique_ptr", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !71)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp3.i)
-  call void @llvm.lifetime.start.p0(i64 232, ptr nonnull %ref.tmp4.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp5.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp6.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp10.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp11.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp17.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp18.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp33.i)
-  call void @llvm.lifetime.start.p0(i64 232, ptr nonnull %ref.tmp34.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp35.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp36.i)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %agg.tmp.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp43.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp44.i)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %agg.tmp47.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp52.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp53.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp59.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp60.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp66.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp67.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp4.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp5.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp6.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp10.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp17.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp18.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp33.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp34.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp35.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp36.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp43.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp44.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp47.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp52.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp53.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp59.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp60.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp66.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp67.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp, i8 0, i64 24, i1 false), !alias.scope !71
   %_M_single_bucket.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp4.i, i64 48
   %_M_bucket_count.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp4.i, i64 8
@@ -5229,7 +5229,7 @@ call.i.noexc.i:                                   ; preds = %for.body.i
           to label %.noexc.i unwind label %lpad.i
 
 .noexc.i:                                         ; preds = %call.i.noexc.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i103)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i103)
   %call.i.i104 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5.i)
           to label %if.end.i106 unwind label %terminate.lpad.i.i105
 
@@ -5259,7 +5259,7 @@ lpad.i108:                                        ; preds = %invoke.cont.i109, %
   br label %ehcleanup90.i
 
 invoke.cont.i:                                    ; preds = %invoke.cont.i109
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i103)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i103)
   %call9.i = invoke noundef nonnull align 8 dereferenceable(225) ptr @_ZN8facebook5velox4exec24FunctionSignatureBuilder10returnTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(225) %ref.tmp4.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5.i)
           to label %invoke.cont8.i unwind label %lpad7.i
 
@@ -5613,7 +5613,7 @@ call.i.noexc61.i:                                 ; preds = %for.end.i
           to label %.noexc63.i unwind label %lpad37.i
 
 .noexc63.i:                                       ; preds = %call.i.noexc61.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i43)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i43)
   %call.i.i44 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp35.i)
           to label %if.end.i46 unwind label %terminate.lpad.i.i45
 
@@ -5643,7 +5643,7 @@ lpad.i48:                                         ; preds = %invoke.cont.i49, %i
   br label %ehcleanup90.i
 
 invoke.cont38.i:                                  ; preds = %invoke.cont.i49
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i43)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i43)
   %_M_engaged.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i, i64 32
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i, align 8, !noalias !71
   %call42.i = invoke noundef nonnull align 8 dereferenceable(225) ptr @_ZN8facebook5velox4exec24FunctionSignatureBuilder15integerVariableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8optionalIS8_E(ptr noundef nonnull align 8 dereferenceable(225) %ref.tmp34.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp35.i, ptr noundef nonnull %agg.tmp.i)
@@ -5659,7 +5659,7 @@ call.i.noexc70.i:                                 ; preds = %invoke.cont41.i
           to label %.noexc72.i unwind label %lpad45.i
 
 .noexc72.i:                                       ; preds = %call.i.noexc70.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i33)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i33)
   %call.i.i34 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp43.i)
           to label %if.end.i36 unwind label %terminate.lpad.i.i35
 
@@ -5689,7 +5689,7 @@ lpad.i38:                                         ; preds = %invoke.cont.i39, %i
   br label %ehcleanup85.i
 
 invoke.cont46.i:                                  ; preds = %invoke.cont.i39
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i33)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i33)
   %_M_engaged.i.i.i.i.i75.i = getelementptr inbounds nuw i8, ptr %agg.tmp47.i, i64 32
   store i8 0, ptr %_M_engaged.i.i.i.i.i75.i, align 8, !noalias !71
   %call51.i = invoke noundef nonnull align 8 dereferenceable(225) ptr @_ZN8facebook5velox4exec24FunctionSignatureBuilder15integerVariableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8optionalIS8_E(ptr noundef nonnull align 8 dereferenceable(225) %call42.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp43.i, ptr noundef nonnull %agg.tmp47.i)
@@ -5705,7 +5705,7 @@ call.i.noexc80.i:                                 ; preds = %invoke.cont50.i
           to label %.noexc82.i unwind label %lpad54.i
 
 .noexc82.i:                                       ; preds = %call.i.noexc80.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i)
   %call.i.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp52.i)
           to label %if.end.i unwind label %terminate.lpad.i.i
 
@@ -5735,7 +5735,7 @@ lpad.i30:                                         ; preds = %invoke.cont.i31, %i
   br label %ehcleanup82.i
 
 invoke.cont55.i:                                  ; preds = %invoke.cont.i31
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i)
   %call58.i = invoke noundef nonnull align 8 dereferenceable(225) ptr @_ZN8facebook5velox4exec24FunctionSignatureBuilder10returnTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(225) %call51.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp52.i)
           to label %invoke.cont57.i unwind label %lpad56.i
 
@@ -6126,28 +6126,28 @@ _ZN8facebook5velox9functions12_GLOBAL__N_122ComparisonSimdFunctionISt10less_equa
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp35.i) #24
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp36.i) #24
   call void @_ZN8facebook5velox4exec24FunctionSignatureBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(225) %ref.tmp34.i) #24
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp3.i)
-  call void @llvm.lifetime.end.p0(i64 232, ptr nonnull %ref.tmp4.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp5.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp6.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp10.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp11.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp17.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp18.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp33.i)
-  call void @llvm.lifetime.end.p0(i64 232, ptr nonnull %ref.tmp34.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp35.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp36.i)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp43.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp44.i)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp47.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp52.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp53.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp59.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp60.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp66.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp67.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp4.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp5.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp6.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp10.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp17.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp18.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp33.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp34.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp35.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp36.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp43.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp44.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp47.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp52.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp53.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp59.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp60.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp66.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp67.i)
   %call.i2 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #27
           to label %invoke.cont unwind label %lpad
 
@@ -6328,28 +6328,28 @@ entry:
   %agg.tmp = alloca %"class.std::vector", align 8
   %agg.tmp1 = alloca %"class.std::unique_ptr", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !87)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp3.i)
-  call void @llvm.lifetime.start.p0(i64 232, ptr nonnull %ref.tmp4.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp5.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp6.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp10.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp11.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp17.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp18.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp33.i)
-  call void @llvm.lifetime.start.p0(i64 232, ptr nonnull %ref.tmp34.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp35.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp36.i)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %agg.tmp.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp43.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp44.i)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %agg.tmp47.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp52.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp53.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp59.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp60.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp66.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp67.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp4.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp5.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp6.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp10.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp17.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp18.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp33.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp34.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp35.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp36.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp43.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp44.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp47.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp52.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp53.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp59.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp60.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp66.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp67.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp, i8 0, i64 24, i1 false), !alias.scope !87
   %_M_single_bucket.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp4.i, i64 48
   %_M_bucket_count.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp4.i, i64 8
@@ -6383,7 +6383,7 @@ call.i.noexc.i:                                   ; preds = %for.body.i
           to label %.noexc.i unwind label %lpad.i
 
 .noexc.i:                                         ; preds = %call.i.noexc.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i103)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i103)
   %call.i.i104 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5.i)
           to label %if.end.i106 unwind label %terminate.lpad.i.i105
 
@@ -6413,7 +6413,7 @@ lpad.i108:                                        ; preds = %invoke.cont.i109, %
   br label %ehcleanup90.i
 
 invoke.cont.i:                                    ; preds = %invoke.cont.i109
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i103)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i103)
   %call9.i = invoke noundef nonnull align 8 dereferenceable(225) ptr @_ZN8facebook5velox4exec24FunctionSignatureBuilder10returnTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(225) %ref.tmp4.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5.i)
           to label %invoke.cont8.i unwind label %lpad7.i
 
@@ -6767,7 +6767,7 @@ call.i.noexc61.i:                                 ; preds = %for.end.i
           to label %.noexc63.i unwind label %lpad37.i
 
 .noexc63.i:                                       ; preds = %call.i.noexc61.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i43)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i43)
   %call.i.i44 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp35.i)
           to label %if.end.i46 unwind label %terminate.lpad.i.i45
 
@@ -6797,7 +6797,7 @@ lpad.i48:                                         ; preds = %invoke.cont.i49, %i
   br label %ehcleanup90.i
 
 invoke.cont38.i:                                  ; preds = %invoke.cont.i49
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i43)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i43)
   %_M_engaged.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i, i64 32
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i, align 8, !noalias !87
   %call42.i = invoke noundef nonnull align 8 dereferenceable(225) ptr @_ZN8facebook5velox4exec24FunctionSignatureBuilder15integerVariableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8optionalIS8_E(ptr noundef nonnull align 8 dereferenceable(225) %ref.tmp34.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp35.i, ptr noundef nonnull %agg.tmp.i)
@@ -6813,7 +6813,7 @@ call.i.noexc70.i:                                 ; preds = %invoke.cont41.i
           to label %.noexc72.i unwind label %lpad45.i
 
 .noexc72.i:                                       ; preds = %call.i.noexc70.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i33)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i33)
   %call.i.i34 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp43.i)
           to label %if.end.i36 unwind label %terminate.lpad.i.i35
 
@@ -6843,7 +6843,7 @@ lpad.i38:                                         ; preds = %invoke.cont.i39, %i
   br label %ehcleanup85.i
 
 invoke.cont46.i:                                  ; preds = %invoke.cont.i39
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i33)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i33)
   %_M_engaged.i.i.i.i.i75.i = getelementptr inbounds nuw i8, ptr %agg.tmp47.i, i64 32
   store i8 0, ptr %_M_engaged.i.i.i.i.i75.i, align 8, !noalias !87
   %call51.i = invoke noundef nonnull align 8 dereferenceable(225) ptr @_ZN8facebook5velox4exec24FunctionSignatureBuilder15integerVariableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8optionalIS8_E(ptr noundef nonnull align 8 dereferenceable(225) %call42.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp43.i, ptr noundef nonnull %agg.tmp47.i)
@@ -6859,7 +6859,7 @@ call.i.noexc80.i:                                 ; preds = %invoke.cont50.i
           to label %.noexc82.i unwind label %lpad54.i
 
 .noexc82.i:                                       ; preds = %call.i.noexc80.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i)
   %call.i.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp52.i)
           to label %if.end.i unwind label %terminate.lpad.i.i
 
@@ -6889,7 +6889,7 @@ lpad.i30:                                         ; preds = %invoke.cont.i31, %i
   br label %ehcleanup82.i
 
 invoke.cont55.i:                                  ; preds = %invoke.cont.i31
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i)
   %call58.i = invoke noundef nonnull align 8 dereferenceable(225) ptr @_ZN8facebook5velox4exec24FunctionSignatureBuilder10returnTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(225) %call51.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp52.i)
           to label %invoke.cont57.i unwind label %lpad56.i
 
@@ -7280,28 +7280,28 @@ _ZN8facebook5velox9functions12_GLOBAL__N_122ComparisonSimdFunctionISt13greater_e
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp35.i) #24
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp36.i) #24
   call void @_ZN8facebook5velox4exec24FunctionSignatureBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(225) %ref.tmp34.i) #24
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp3.i)
-  call void @llvm.lifetime.end.p0(i64 232, ptr nonnull %ref.tmp4.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp5.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp6.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp10.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp11.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp17.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp18.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp33.i)
-  call void @llvm.lifetime.end.p0(i64 232, ptr nonnull %ref.tmp34.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp35.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp36.i)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp43.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp44.i)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp47.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp52.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp53.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp59.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp60.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp66.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp67.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp4.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp5.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp6.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp10.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp17.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp18.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp33.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp34.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp35.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp36.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp43.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp44.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp47.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp52.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp53.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp59.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp60.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp66.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp67.i)
   %call.i2 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #27
           to label %invoke.cont unwind label %lpad
 
@@ -9977,14 +9977,14 @@ lpad.i20:                                         ; preds = %invoke.cont.i21, %_
   br label %ehcleanup
 
 invoke.cont:                                      ; preds = %invoke.cont.i21
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp23)
   store ptr %lhsDecoded, ptr %agg.tmp23, align 8
   %agg.tmp.sroa.2.0.agg.tmp23.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp23, i64 8
   store ptr %rhsDecoded, ptr %agg.tmp.sroa.2.0.agg.tmp23.sroa_idx, align 8
   %agg.tmp.sroa.3.0.agg.tmp23.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp23, i64 16
   store ptr %resultVector, ptr %agg.tmp.sroa.3.0.agg.tmp23.sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i.i.i)
   %allSelected_.i.i.i = getelementptr inbounds nuw i8, ptr %rows, i64 36
   %_M_engaged.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %rows, i64 37
   %18 = load i8, ptr %_M_engaged.i.i.i.i.i, align 1
@@ -10272,7 +10272,7 @@ if.else.i.i:                                      ; preds = %_ZNK8facebook5velox
   %71 = load i32, ptr %begin_3.i.i, align 4
   %end_4.i.i = getelementptr inbounds nuw i8, ptr %rows, i64 32
   %72 = load i32, ptr %end_4.i.i, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp6.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp6.i.i.i.i)
   store i8 1, ptr %agg.tmp6.i.i.i.i, align 8
   %agg.tmp.sroa.29.0.agg.tmp6.sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp6.i.i.i.i, i64 8
   store ptr %70, ptr %agg.tmp.sroa.29.0.agg.tmp6.sroa_idx.i.i.i.i, align 8
@@ -10337,10 +10337,10 @@ for.body.i.i.i25.i.i:                             ; preds = %if.end14.i.i.i.i.i,
   %add50.i.i.i.i.i = phi i32 [ %add.i.i.i.i.i, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE10ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i ], [ %add47.i.i.i.i.i, %if.end14.i.i.i.i.i ]
   %i.049.i.i.i.i.i = phi i32 [ %add50.i.i.i.i.i, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE10ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i ], [ %mul.i.i.i.i.i.i, %if.end14.i.i.i.i.i ]
   %div16.i.i.i.i.i = sdiv i32 %i.049.i.i.i.i.i, 64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i15.i.i.i.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp12.i.i.i.i.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i15.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp12.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i.i.i.i.i.i.i)
   %idxprom.i.i.i.i.i.i = sext i32 %div16.i.i.i.i.i to i64
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds i64, ptr %70, i64 %idxprom.i.i.i.i.i.i
   %77 = load i64, ptr %arrayidx.i.i.i.i.i.i, align 8
@@ -10757,10 +10757,10 @@ _ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBA
   br i1 %tobool7.not.i.i.i.i.i.i, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE10ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i, label %while.body.i.i.i.i.i.i, !llvm.loop !117
 
 _ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE10ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i: ; preds = %for.inc.i.i.i.i.i.i, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INS9_4avx2EEEE15applyComparisonILNS0_8TypeKindE10ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSF_0EeqT_LSF_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESQ_RS2_RSt10shared_ptrISP_EEUlT_E_EEvSO_SV_ENKUlSV_E_clIiEEDaSV_.exit.i.i.i.i.i.i, %if.then.i.i.i.i.i.i, %for.body.i.i.i25.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i15.i.i.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp12.i.i.i.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i15.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp12.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11.i.i.i.i.i.i.i)
   %add.i.i.i.i.i = add nsw i32 %add50.i.i.i.i.i, 64
   %cmp15.not.i.i.i.i.i = icmp sgt i32 %add.i.i.i.i.i, %74
   br i1 %cmp15.not.i.i.i.i.i, label %for.end.i.i.i26.i.i, label %for.body.i.i.i25.i.i, !llvm.loop !118
@@ -10777,13 +10777,13 @@ if.then19.i.i.i.i.i:                              ; preds = %for.end.i.i.i26.i.i
   br label %if.then3.i.i.i27.i.i.invoke
 
 _ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE10ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiiSX_.exit.i.i: ; preds = %if.then3.i.i.i27.i.i.invoke, %for.end.i.i.i26.i.i, %if.else.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp6.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp6.i.i.i.i)
   br label %invoke.cont12
 
 invoke.cont12:                                    ; preds = %for.inc.i.i, %_ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE10ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiiSX_.exit.i.i, %if.then.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp23)
   %147 = load ptr, ptr %vector_.i18, align 8
   %cmp.i.not.i = icmp eq ptr %147, null
   %148 = ptrtoint ptr %147 to i64
@@ -11168,9 +11168,9 @@ sw.bb8:                                           ; preds = %entry
   %9 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %10 = load ptr, ptr %9, align 8
   %.val1 = load ptr, ptr %10, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %resultVector.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %lhsDecoded.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %rhsDecoded.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %resultVector.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %lhsDecoded.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %rhsDecoded.i)
   store ptr %.val1, ptr %resultVector.i, align 8
   %call.i.i = tail call noundef ptr @_ZN8facebook5velox10FlatVectorIbE16mutableRawValuesEv(ptr noundef nonnull align 8 dereferenceable(184) %.val1)
   %encoding_.i.i = getelementptr inbounds nuw i8, ptr %2, i64 28
@@ -11306,14 +11306,14 @@ lpad.i44.i:                                       ; preds = %invoke.cont.i45.i, 
   br label %ehcleanup.i
 
 invoke.cont.i:                                    ; preds = %invoke.cont.i45.i
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp47.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp47.i)
   store ptr %lhsDecoded.i, ptr %agg.tmp47.i, align 8
   %agg.tmp.sroa.2.0.agg.tmp47.sroa_idx.i = getelementptr inbounds nuw i8, ptr %agg.tmp47.i, i64 8
   store ptr %rhsDecoded.i, ptr %agg.tmp.sroa.2.0.agg.tmp47.sroa_idx.i, align 8
   %agg.tmp.sroa.3.0.agg.tmp47.sroa_idx.i = getelementptr inbounds nuw i8, ptr %agg.tmp47.i, i64 16
   store ptr %resultVector.i, ptr %agg.tmp.sroa.3.0.agg.tmp47.sroa_idx.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i.i.i.i)
   %allSelected_.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 36
   %_M_engaged.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 37
   %30 = load i8, ptr %_M_engaged.i.i.i.i.i.i, align 1
@@ -11599,7 +11599,7 @@ if.else.i.i.i:                                    ; preds = %_ZNK8facebook5velox
   %85 = load i32, ptr %begin_3.i.i.i, align 4
   %end_4.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 32
   %86 = load i32, ptr %end_4.i.i.i, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp6.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp6.i.i.i.i.i)
   store i8 1, ptr %agg.tmp6.i.i.i.i.i, align 8
   %agg.tmp.sroa.29.0.agg.tmp6.sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp6.i.i.i.i.i, i64 8
   store ptr %84, ptr %agg.tmp.sroa.29.0.agg.tmp6.sroa_idx.i.i.i.i.i, align 8
@@ -11664,10 +11664,10 @@ for.body.i.i.i25.i.i.i:                           ; preds = %if.end14.i.i.i.i.i.
   %add50.i.i.i.i.i.i = phi i32 [ %add.i.i.i.i.i.i, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE3ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i ], [ %add47.i.i.i.i.i.i, %if.end14.i.i.i.i.i.i ]
   %i.049.i.i.i.i.i.i = phi i32 [ %add50.i.i.i.i.i.i, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE3ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i ], [ %mul.i.i.i.i.i.i.i, %if.end14.i.i.i.i.i.i ]
   %div16.i.i.i.i.i.i = sdiv i32 %i.049.i.i.i.i.i.i, 64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i)
   %idxprom.i.i.i.i.i.i.i = sext i32 %div16.i.i.i.i.i.i to i64
   %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds i64, ptr %84, i64 %idxprom.i.i.i.i.i.i.i
   %91 = load i64, ptr %arrayidx.i.i.i.i.i.i.i, align 8
@@ -12080,10 +12080,10 @@ _ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBA
   br i1 %tobool7.not.i.i.i.i.i.i.i, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE3ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i, !llvm.loop !132
 
 _ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE3ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i: ; preds = %for.inc.i.i.i.i.i.i.i, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INS9_4avx2EEEE15applyComparisonILNS0_8TypeKindE3ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSF_0EeqT_LSF_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESQ_RS2_RSt10shared_ptrISP_EEUlT_E_EEvSO_SV_ENKUlSV_E_clIiEEDaSV_.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %for.body.i.i.i25.i.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i)
   %add.i.i.i.i.i.i = add nsw i32 %add50.i.i.i.i.i.i, 64
   %cmp15.not.i.i.i.i.i.i = icmp sgt i32 %add.i.i.i.i.i.i, %88
   br i1 %cmp15.not.i.i.i.i.i.i, label %for.end.i.i.i26.i.i.i, label %for.body.i.i.i25.i.i.i, !llvm.loop !133
@@ -12100,13 +12100,13 @@ if.then19.i.i.i.i.i.i:                            ; preds = %for.end.i.i.i26.i.i
   br label %if.then3.i.i.i27.i.i.invoke.i
 
 _ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE3ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiiSX_.exit.i.i.i: ; preds = %for.end.i.i.i26.i.i.i, %if.then3.i.i.i27.i.i.invoke.i, %if.else.i.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp6.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp6.i.i.i.i.i)
   br label %invoke.cont11.i
 
 invoke.cont11.i:                                  ; preds = %for.inc.i.i.i, %_ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE3ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiiSX_.exit.i.i.i, %if.then.i.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp47.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp47.i)
   %165 = load ptr, ptr %vector_.i42.i, align 8
   %cmp.i.not.i.i = icmp eq ptr %165, null
   %166 = ptrtoint ptr %165 to i64
@@ -12665,9 +12665,9 @@ if.end52.i:                                       ; preds = %_ZN8facebook5velox4
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INS6_4avx2EEEE15applyComparisonILNS0_8TypeKindE3ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSC_0EeqT_LSC_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESN_RNS0_4exec7EvalCtxERSt10shared_ptrISM_E.exit
 
 _ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INS6_4avx2EEEE15applyComparisonILNS0_8TypeKindE3ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSC_0EeqT_LSC_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESN_RNS0_4exec7EvalCtxERSt10shared_ptrISM_E.exit: ; preds = %_ZN8facebook5velox4exec18LocalDecodedVectorD2Ev.exit.i, %if.end.i65.thread.i, %if.end.i65.i, %_ZNKSt14default_deleteIN8facebook5velox13DecodedVectorEEclEPS2_.exit.i.i76.i, %if.end52.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %resultVector.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %lhsDecoded.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %rhsDecoded.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %resultVector.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %lhsDecoded.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %rhsDecoded.i)
   br label %sw.epilog
 
 sw.bb13:                                          ; preds = %entry
@@ -12680,9 +12680,9 @@ sw.bb13:                                          ; preds = %entry
   %227 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %228 = load ptr, ptr %227, align 8
   %.val2 = load ptr, ptr %228, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %resultVector.i19)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %lhsDecoded.i20)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %rhsDecoded.i21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %resultVector.i19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %lhsDecoded.i20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %rhsDecoded.i21)
   store ptr %.val2, ptr %resultVector.i19, align 8
   %call.i.i22 = tail call noundef ptr @_ZN8facebook5velox10FlatVectorIbE16mutableRawValuesEv(ptr noundef nonnull align 8 dereferenceable(184) %.val2)
   %encoding_.i.i23 = getelementptr inbounds nuw i8, ptr %2, i64 28
@@ -12814,14 +12814,14 @@ lpad.i44.i48:                                     ; preds = %invoke.cont.i45.i51
   br label %ehcleanup.i49
 
 invoke.cont.i52:                                  ; preds = %invoke.cont.i45.i51
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp47.i18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp47.i18)
   store ptr %lhsDecoded.i20, ptr %agg.tmp47.i18, align 8
   %agg.tmp.sroa.2.0.agg.tmp47.sroa_idx.i53 = getelementptr inbounds nuw i8, ptr %agg.tmp47.i18, i64 8
   store ptr %rhsDecoded.i21, ptr %agg.tmp.sroa.2.0.agg.tmp47.sroa_idx.i53, align 8
   %agg.tmp.sroa.3.0.agg.tmp47.sroa_idx.i54 = getelementptr inbounds nuw i8, ptr %agg.tmp47.i18, i64 16
   store ptr %resultVector.i19, ptr %agg.tmp.sroa.3.0.agg.tmp47.sroa_idx.i54, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i16)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i.i.i.i17)
   %allSelected_.i.i.i.i55 = getelementptr inbounds nuw i8, ptr %223, i64 36
   %_M_engaged.i.i.i.i.i.i56 = getelementptr inbounds nuw i8, ptr %223, i64 37
   %248 = load i8, ptr %_M_engaged.i.i.i.i.i.i56, align 1
@@ -13107,7 +13107,7 @@ if.else.i.i.i66:                                  ; preds = %_ZNK8facebook5velox
   %303 = load i32, ptr %begin_3.i.i.i67, align 4
   %end_4.i.i.i68 = getelementptr inbounds nuw i8, ptr %223, i64 32
   %304 = load i32, ptr %end_4.i.i.i68, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp6.i.i.i.i.i15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp6.i.i.i.i.i15)
   store i8 1, ptr %agg.tmp6.i.i.i.i.i15, align 8
   %agg.tmp.sroa.29.0.agg.tmp6.sroa_idx.i.i.i.i.i69 = getelementptr inbounds nuw i8, ptr %agg.tmp6.i.i.i.i.i15, i64 8
   store ptr %302, ptr %agg.tmp.sroa.29.0.agg.tmp6.sroa_idx.i.i.i.i.i69, align 8
@@ -13172,10 +13172,10 @@ for.body.i.i.i25.i.i.i209:                        ; preds = %if.end14.i.i.i.i.i.
   %add50.i.i.i.i.i.i210 = phi i32 [ %add.i.i.i.i.i.i215, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE1ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i ], [ %add47.i.i.i.i.i.i207, %if.end14.i.i.i.i.i.i206 ]
   %i.049.i.i.i.i.i.i211 = phi i32 [ %add50.i.i.i.i.i.i210, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE1ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i ], [ %mul.i.i.i.i.i.i.i189, %if.end14.i.i.i.i.i.i206 ]
   %div16.i.i.i.i.i.i212 = sdiv i32 %i.049.i.i.i.i.i.i211, 64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i11)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i12)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i13)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i14)
   %idxprom.i.i.i.i.i.i.i213 = sext i32 %div16.i.i.i.i.i.i212 to i64
   %arrayidx.i.i.i.i.i.i.i214 = getelementptr inbounds i64, ptr %302, i64 %idxprom.i.i.i.i.i.i.i213
   %309 = load i64, ptr %arrayidx.i.i.i.i.i.i.i214, align 8
@@ -13588,10 +13588,10 @@ _ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBA
   br i1 %tobool7.not.i.i.i.i.i.i.i358, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE1ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i308, !llvm.loop !156
 
 _ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE1ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i: ; preds = %for.inc.i.i.i.i.i.i.i282, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INS9_4avx2EEEE15applyComparisonILNS0_8TypeKindE1ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSF_0EeqT_LSF_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESQ_RS2_RSt10shared_ptrISP_EEUlT_E_EEvSO_SV_ENKUlSV_E_clIiEEDaSV_.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i225, %for.body.i.i.i25.i.i.i209
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i11)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i12)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i13)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i14)
   %add.i.i.i.i.i.i215 = add nsw i32 %add50.i.i.i.i.i.i210, 64
   %cmp15.not.i.i.i.i.i.i216 = icmp sgt i32 %add.i.i.i.i.i.i215, %306
   br i1 %cmp15.not.i.i.i.i.i.i216, label %for.end.i.i.i26.i.i.i217, label %for.body.i.i.i25.i.i.i209, !llvm.loop !157
@@ -13608,13 +13608,13 @@ if.then19.i.i.i.i.i.i219:                         ; preds = %for.end.i.i.i26.i.i
   br label %if.then3.i.i.i27.i.i.invoke.i224
 
 _ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE1ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiiSX_.exit.i.i.i: ; preds = %for.end.i.i.i26.i.i.i217, %if.then3.i.i.i27.i.i.invoke.i224, %if.else.i.i.i66
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp6.i.i.i.i.i15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp6.i.i.i.i.i15)
   br label %invoke.cont11.i73
 
 invoke.cont11.i73:                                ; preds = %for.inc.i.i.i444, %_ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE1ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiiSX_.exit.i.i.i, %if.then.i.i.i393
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i16)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i17)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp47.i18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11.i.i.i.i17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp47.i18)
   %383 = load ptr, ptr %vector_.i42.i46, align 8
   %cmp.i.not.i.i74 = icmp eq ptr %383, null
   %384 = ptrtoint ptr %383 to i64
@@ -14173,9 +14173,9 @@ if.end52.i507:                                    ; preds = %_ZN8facebook5velox4
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INS6_4avx2EEEE15applyComparisonILNS0_8TypeKindE1ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSC_0EeqT_LSC_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESN_RNS0_4exec7EvalCtxERSt10shared_ptrISM_E.exit
 
 _ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INS6_4avx2EEEE15applyComparisonILNS0_8TypeKindE1ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSC_0EeqT_LSC_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESN_RNS0_4exec7EvalCtxERSt10shared_ptrISM_E.exit: ; preds = %_ZN8facebook5velox4exec18LocalDecodedVectorD2Ev.exit.i88, %if.end.i65.thread.i108, %if.end.i65.i139, %_ZNKSt14default_deleteIN8facebook5velox13DecodedVectorEEclEPS2_.exit.i.i76.i102, %if.end52.i507
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %resultVector.i19)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %lhsDecoded.i20)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %rhsDecoded.i21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %resultVector.i19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %lhsDecoded.i20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %rhsDecoded.i21)
   br label %sw.epilog
 
 sw.bb18:                                          ; preds = %entry
@@ -14188,9 +14188,9 @@ sw.bb18:                                          ; preds = %entry
   %445 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %446 = load ptr, ptr %445, align 8
   %.val3 = load ptr, ptr %446, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %resultVector.i651)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %lhsDecoded.i652)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %rhsDecoded.i653)
+  call void @llvm.lifetime.start.p0(ptr nonnull %resultVector.i651)
+  call void @llvm.lifetime.start.p0(ptr nonnull %lhsDecoded.i652)
+  call void @llvm.lifetime.start.p0(ptr nonnull %rhsDecoded.i653)
   store ptr %.val3, ptr %resultVector.i651, align 8
   %call.i.i654 = tail call noundef ptr @_ZN8facebook5velox10FlatVectorIbE16mutableRawValuesEv(ptr noundef nonnull align 8 dereferenceable(184) %.val3)
   %encoding_.i.i655 = getelementptr inbounds nuw i8, ptr %2, i64 28
@@ -14322,14 +14322,14 @@ lpad.i44.i680:                                    ; preds = %invoke.cont.i45.i68
   br label %ehcleanup.i681
 
 invoke.cont.i684:                                 ; preds = %invoke.cont.i45.i683
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp47.i650)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp47.i650)
   store ptr %lhsDecoded.i652, ptr %agg.tmp47.i650, align 8
   %agg.tmp.sroa.2.0.agg.tmp47.sroa_idx.i685 = getelementptr inbounds nuw i8, ptr %agg.tmp47.i650, i64 8
   store ptr %rhsDecoded.i653, ptr %agg.tmp.sroa.2.0.agg.tmp47.sroa_idx.i685, align 8
   %agg.tmp.sroa.3.0.agg.tmp47.sroa_idx.i686 = getelementptr inbounds nuw i8, ptr %agg.tmp47.i650, i64 16
   store ptr %resultVector.i651, ptr %agg.tmp.sroa.3.0.agg.tmp47.sroa_idx.i686, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i648)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i649)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i648)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i.i.i.i649)
   %allSelected_.i.i.i.i687 = getelementptr inbounds nuw i8, ptr %441, i64 36
   %_M_engaged.i.i.i.i.i.i688 = getelementptr inbounds nuw i8, ptr %441, i64 37
   %466 = load i8, ptr %_M_engaged.i.i.i.i.i.i688, align 1
@@ -14615,7 +14615,7 @@ if.else.i.i.i698:                                 ; preds = %_ZNK8facebook5velox
   %521 = load i32, ptr %begin_3.i.i.i699, align 4
   %end_4.i.i.i700 = getelementptr inbounds nuw i8, ptr %441, i64 32
   %522 = load i32, ptr %end_4.i.i.i700, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp6.i.i.i.i.i647)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp6.i.i.i.i.i647)
   store i8 1, ptr %agg.tmp6.i.i.i.i.i647, align 8
   %agg.tmp.sroa.29.0.agg.tmp6.sroa_idx.i.i.i.i.i701 = getelementptr inbounds nuw i8, ptr %agg.tmp6.i.i.i.i.i647, i64 8
   store ptr %520, ptr %agg.tmp.sroa.29.0.agg.tmp6.sroa_idx.i.i.i.i.i701, align 8
@@ -14680,10 +14680,10 @@ for.body.i.i.i25.i.i.i797:                        ; preds = %if.end14.i.i.i.i.i.
   %add50.i.i.i.i.i.i798 = phi i32 [ %add.i.i.i.i.i.i803, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE2ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i ], [ %add47.i.i.i.i.i.i795, %if.end14.i.i.i.i.i.i794 ]
   %i.049.i.i.i.i.i.i799 = phi i32 [ %add50.i.i.i.i.i.i798, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE2ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i ], [ %mul.i.i.i.i.i.i.i777, %if.end14.i.i.i.i.i.i794 ]
   %div16.i.i.i.i.i.i800 = sdiv i32 %i.049.i.i.i.i.i.i799, 64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i643)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i644)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i645)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i646)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i643)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i644)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i645)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i646)
   %idxprom.i.i.i.i.i.i.i801 = sext i32 %div16.i.i.i.i.i.i800 to i64
   %arrayidx.i.i.i.i.i.i.i802 = getelementptr inbounds i64, ptr %520, i64 %idxprom.i.i.i.i.i.i.i801
   %527 = load i64, ptr %arrayidx.i.i.i.i.i.i.i802, align 8
@@ -15096,10 +15096,10 @@ _ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBA
   br i1 %tobool7.not.i.i.i.i.i.i.i946, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE2ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i896, !llvm.loop !179
 
 _ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE2ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i: ; preds = %for.inc.i.i.i.i.i.i.i870, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INS9_4avx2EEEE15applyComparisonILNS0_8TypeKindE2ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSF_0EeqT_LSF_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESQ_RS2_RSt10shared_ptrISP_EEUlT_E_EEvSO_SV_ENKUlSV_E_clIiEEDaSV_.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i813, %for.body.i.i.i25.i.i.i797
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i643)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i644)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i645)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i646)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i643)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i644)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i645)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i646)
   %add.i.i.i.i.i.i803 = add nsw i32 %add50.i.i.i.i.i.i798, 64
   %cmp15.not.i.i.i.i.i.i804 = icmp sgt i32 %add.i.i.i.i.i.i803, %524
   br i1 %cmp15.not.i.i.i.i.i.i804, label %for.end.i.i.i26.i.i.i805, label %for.body.i.i.i25.i.i.i797, !llvm.loop !180
@@ -15116,13 +15116,13 @@ if.then19.i.i.i.i.i.i807:                         ; preds = %for.end.i.i.i26.i.i
   br label %if.then3.i.i.i27.i.i.invoke.i812
 
 _ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE2ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiiSX_.exit.i.i.i: ; preds = %for.end.i.i.i26.i.i.i805, %if.then3.i.i.i27.i.i.invoke.i812, %if.else.i.i.i698
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp6.i.i.i.i.i647)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp6.i.i.i.i.i647)
   br label %invoke.cont11.i705
 
 invoke.cont11.i705:                               ; preds = %for.inc.i.i.i1032, %_ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE2ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiiSX_.exit.i.i.i, %if.then.i.i.i981
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i648)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i649)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp47.i650)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i648)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11.i.i.i.i649)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp47.i650)
   %601 = load ptr, ptr %vector_.i42.i678, align 8
   %cmp.i.not.i.i706 = icmp eq ptr %601, null
   %602 = ptrtoint ptr %601 to i64
@@ -15705,9 +15705,9 @@ if.end52.i1093:                                   ; preds = %_ZN8facebook5velox4
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INS6_4avx2EEEE15applyComparisonILNS0_8TypeKindE2ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSC_0EeqT_LSC_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESN_RNS0_4exec7EvalCtxERSt10shared_ptrISM_E.exit
 
 _ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INS6_4avx2EEEE15applyComparisonILNS0_8TypeKindE2ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSC_0EeqT_LSC_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESN_RNS0_4exec7EvalCtxERSt10shared_ptrISM_E.exit: ; preds = %_ZN8facebook5velox4exec18LocalDecodedVectorD2Ev.exit.i720, %if.end.i65.thread.i733, %if.end.i65.i735, %_ZNKSt14default_deleteIN8facebook5velox13DecodedVectorEEclEPS2_.exit.i.i76.i732, %if.end52.i1093
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %resultVector.i651)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %lhsDecoded.i652)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %rhsDecoded.i653)
+  call void @llvm.lifetime.end.p0(ptr nonnull %resultVector.i651)
+  call void @llvm.lifetime.end.p0(ptr nonnull %lhsDecoded.i652)
+  call void @llvm.lifetime.end.p0(ptr nonnull %rhsDecoded.i653)
   br label %sw.epilog
 
 sw.bb23:                                          ; preds = %entry
@@ -15720,9 +15720,9 @@ sw.bb23:                                          ; preds = %entry
   %679 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %680 = load ptr, ptr %679, align 8
   %.val4 = load ptr, ptr %680, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %resultVector.i1206)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %lhsDecoded.i1207)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %rhsDecoded.i1208)
+  call void @llvm.lifetime.start.p0(ptr nonnull %resultVector.i1206)
+  call void @llvm.lifetime.start.p0(ptr nonnull %lhsDecoded.i1207)
+  call void @llvm.lifetime.start.p0(ptr nonnull %rhsDecoded.i1208)
   store ptr %.val4, ptr %resultVector.i1206, align 8
   %call.i.i1209 = tail call noundef ptr @_ZN8facebook5velox10FlatVectorIbE16mutableRawValuesEv(ptr noundef nonnull align 8 dereferenceable(184) %.val4)
   %encoding_.i.i1210 = getelementptr inbounds nuw i8, ptr %2, i64 28
@@ -15854,14 +15854,14 @@ lpad.i44.i1235:                                   ; preds = %invoke.cont.i45.i12
   br label %ehcleanup.i1236
 
 invoke.cont.i1239:                                ; preds = %invoke.cont.i45.i1238
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp47.i1205)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp47.i1205)
   store ptr %lhsDecoded.i1207, ptr %agg.tmp47.i1205, align 8
   %agg.tmp.sroa.2.0.agg.tmp47.sroa_idx.i1240 = getelementptr inbounds nuw i8, ptr %agg.tmp47.i1205, i64 8
   store ptr %rhsDecoded.i1208, ptr %agg.tmp.sroa.2.0.agg.tmp47.sroa_idx.i1240, align 8
   %agg.tmp.sroa.3.0.agg.tmp47.sroa_idx.i1241 = getelementptr inbounds nuw i8, ptr %agg.tmp47.i1205, i64 16
   store ptr %resultVector.i1206, ptr %agg.tmp.sroa.3.0.agg.tmp47.sroa_idx.i1241, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i1203)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i1204)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i1203)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i.i.i.i1204)
   %allSelected_.i.i.i.i1242 = getelementptr inbounds nuw i8, ptr %675, i64 36
   %_M_engaged.i.i.i.i.i.i1243 = getelementptr inbounds nuw i8, ptr %675, i64 37
   %700 = load i8, ptr %_M_engaged.i.i.i.i.i.i1243, align 1
@@ -16147,7 +16147,7 @@ if.else.i.i.i1253:                                ; preds = %_ZNK8facebook5velox
   %755 = load i32, ptr %begin_3.i.i.i1254, align 4
   %end_4.i.i.i1255 = getelementptr inbounds nuw i8, ptr %675, i64 32
   %756 = load i32, ptr %end_4.i.i.i1255, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp6.i.i.i.i.i1202)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp6.i.i.i.i.i1202)
   store i8 1, ptr %agg.tmp6.i.i.i.i.i1202, align 8
   %agg.tmp.sroa.29.0.agg.tmp6.sroa_idx.i.i.i.i.i1256 = getelementptr inbounds nuw i8, ptr %agg.tmp6.i.i.i.i.i1202, i64 8
   store ptr %754, ptr %agg.tmp.sroa.29.0.agg.tmp6.sroa_idx.i.i.i.i.i1256, align 8
@@ -16212,10 +16212,10 @@ for.body.i.i.i25.i.i.i1352:                       ; preds = %if.end14.i.i.i.i.i.
   %add50.i.i.i.i.i.i1353 = phi i32 [ %add.i.i.i.i.i.i1358, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE4ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i ], [ %add47.i.i.i.i.i.i1350, %if.end14.i.i.i.i.i.i1349 ]
   %i.049.i.i.i.i.i.i1354 = phi i32 [ %add50.i.i.i.i.i.i1353, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE4ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i ], [ %mul.i.i.i.i.i.i.i1332, %if.end14.i.i.i.i.i.i1349 ]
   %div16.i.i.i.i.i.i1355 = sdiv i32 %i.049.i.i.i.i.i.i1354, 64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i1198)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i1199)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i1200)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i1201)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i1198)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i1199)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i1200)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i1201)
   %idxprom.i.i.i.i.i.i.i1356 = sext i32 %div16.i.i.i.i.i.i1355 to i64
   %arrayidx.i.i.i.i.i.i.i1357 = getelementptr inbounds i64, ptr %754, i64 %idxprom.i.i.i.i.i.i.i1356
   %761 = load i64, ptr %arrayidx.i.i.i.i.i.i.i1357, align 8
@@ -16628,10 +16628,10 @@ _ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBA
   br i1 %tobool7.not.i.i.i.i.i.i.i1501, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE4ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i1451, !llvm.loop !202
 
 _ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE4ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i: ; preds = %for.inc.i.i.i.i.i.i.i1425, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INS9_4avx2EEEE15applyComparisonILNS0_8TypeKindE4ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSF_0EeqT_LSF_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESQ_RS2_RSt10shared_ptrISP_EEUlT_E_EEvSO_SV_ENKUlSV_E_clIiEEDaSV_.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i1368, %for.body.i.i.i25.i.i.i1352
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i1198)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i1199)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i1200)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i1201)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i1198)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i1199)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i1200)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i1201)
   %add.i.i.i.i.i.i1358 = add nsw i32 %add50.i.i.i.i.i.i1353, 64
   %cmp15.not.i.i.i.i.i.i1359 = icmp sgt i32 %add.i.i.i.i.i.i1358, %758
   br i1 %cmp15.not.i.i.i.i.i.i1359, label %for.end.i.i.i26.i.i.i1360, label %for.body.i.i.i25.i.i.i1352, !llvm.loop !203
@@ -16648,13 +16648,13 @@ if.then19.i.i.i.i.i.i1362:                        ; preds = %for.end.i.i.i26.i.i
   br label %if.then3.i.i.i27.i.i.invoke.i1367
 
 _ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE4ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiiSX_.exit.i.i.i: ; preds = %for.end.i.i.i26.i.i.i1360, %if.then3.i.i.i27.i.i.invoke.i1367, %if.else.i.i.i1253
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp6.i.i.i.i.i1202)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp6.i.i.i.i.i1202)
   br label %invoke.cont11.i1260
 
 invoke.cont11.i1260:                              ; preds = %for.inc.i.i.i1587, %_ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE4ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiiSX_.exit.i.i.i, %if.then.i.i.i1536
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i1203)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i1204)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp47.i1205)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i1203)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11.i.i.i.i1204)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp47.i1205)
   %835 = load ptr, ptr %vector_.i42.i1233, align 8
   %cmp.i.not.i.i1261 = icmp eq ptr %835, null
   %836 = ptrtoint ptr %835 to i64
@@ -17298,9 +17298,9 @@ if.end52.i1647:                                   ; preds = %_ZN8facebook5velox4
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INS6_4avx2EEEE15applyComparisonILNS0_8TypeKindE4ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSC_0EeqT_LSC_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESN_RNS0_4exec7EvalCtxERSt10shared_ptrISM_E.exit
 
 _ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INS6_4avx2EEEE15applyComparisonILNS0_8TypeKindE4ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSC_0EeqT_LSC_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESN_RNS0_4exec7EvalCtxERSt10shared_ptrISM_E.exit: ; preds = %_ZN8facebook5velox4exec18LocalDecodedVectorD2Ev.exit.i1275, %if.end.i65.thread.i1288, %if.end.i65.i1290, %_ZNKSt14default_deleteIN8facebook5velox13DecodedVectorEEclEPS2_.exit.i.i76.i1287, %if.end52.i1647
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %resultVector.i1206)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %lhsDecoded.i1207)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %rhsDecoded.i1208)
+  call void @llvm.lifetime.end.p0(ptr nonnull %resultVector.i1206)
+  call void @llvm.lifetime.end.p0(ptr nonnull %lhsDecoded.i1207)
+  call void @llvm.lifetime.end.p0(ptr nonnull %rhsDecoded.i1208)
   br label %sw.epilog
 
 sw.bb28:                                          ; preds = %entry
@@ -17326,9 +17326,9 @@ sw.bb33:                                          ; preds = %entry
   %940 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %941 = load ptr, ptr %940, align 8
   %.val5 = load ptr, ptr %941, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %resultVector.i1736)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %lhsDecoded.i1737)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %rhsDecoded.i1738)
+  call void @llvm.lifetime.start.p0(ptr nonnull %resultVector.i1736)
+  call void @llvm.lifetime.start.p0(ptr nonnull %lhsDecoded.i1737)
+  call void @llvm.lifetime.start.p0(ptr nonnull %rhsDecoded.i1738)
   store ptr %.val5, ptr %resultVector.i1736, align 8
   %call.i.i1739 = tail call noundef ptr @_ZN8facebook5velox10FlatVectorIbE16mutableRawValuesEv(ptr noundef nonnull align 8 dereferenceable(184) %.val5)
   %encoding_.i.i1740 = getelementptr inbounds nuw i8, ptr %2, i64 28
@@ -17460,14 +17460,14 @@ lpad.i44.i1765:                                   ; preds = %invoke.cont.i45.i17
   br label %ehcleanup.i1766
 
 invoke.cont.i1769:                                ; preds = %invoke.cont.i45.i1768
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp47.i1735)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp47.i1735)
   store ptr %lhsDecoded.i1737, ptr %agg.tmp47.i1735, align 8
   %agg.tmp.sroa.2.0.agg.tmp47.sroa_idx.i1770 = getelementptr inbounds nuw i8, ptr %agg.tmp47.i1735, i64 8
   store ptr %rhsDecoded.i1738, ptr %agg.tmp.sroa.2.0.agg.tmp47.sroa_idx.i1770, align 8
   %agg.tmp.sroa.3.0.agg.tmp47.sroa_idx.i1771 = getelementptr inbounds nuw i8, ptr %agg.tmp47.i1735, i64 16
   store ptr %resultVector.i1736, ptr %agg.tmp.sroa.3.0.agg.tmp47.sroa_idx.i1771, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i1733)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i1734)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i1733)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i.i.i.i1734)
   %allSelected_.i.i.i.i1772 = getelementptr inbounds nuw i8, ptr %936, i64 36
   %_M_engaged.i.i.i.i.i.i1773 = getelementptr inbounds nuw i8, ptr %936, i64 37
   %961 = load i8, ptr %_M_engaged.i.i.i.i.i.i1773, align 1
@@ -17753,7 +17753,7 @@ if.else.i.i.i1783:                                ; preds = %_ZNK8facebook5velox
   %1016 = load i32, ptr %begin_3.i.i.i1784, align 4
   %end_4.i.i.i1785 = getelementptr inbounds nuw i8, ptr %936, i64 32
   %1017 = load i32, ptr %end_4.i.i.i1785, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp6.i.i.i.i.i1732)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp6.i.i.i.i.i1732)
   store i8 1, ptr %agg.tmp6.i.i.i.i.i1732, align 8
   %agg.tmp.sroa.29.0.agg.tmp6.sroa_idx.i.i.i.i.i1786 = getelementptr inbounds nuw i8, ptr %agg.tmp6.i.i.i.i.i1732, i64 8
   store ptr %1015, ptr %agg.tmp.sroa.29.0.agg.tmp6.sroa_idx.i.i.i.i.i1786, align 8
@@ -17818,10 +17818,10 @@ for.body.i.i.i25.i.i.i1883:                       ; preds = %if.end14.i.i.i.i.i.
   %add50.i.i.i.i.i.i1884 = phi i32 [ %add.i.i.i.i.i.i1889, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE5ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i ], [ %add47.i.i.i.i.i.i1881, %if.end14.i.i.i.i.i.i1880 ]
   %i.049.i.i.i.i.i.i1885 = phi i32 [ %add50.i.i.i.i.i.i1884, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE5ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i ], [ %mul.i.i.i.i.i.i.i1863, %if.end14.i.i.i.i.i.i1880 ]
   %div16.i.i.i.i.i.i1886 = sdiv i32 %i.049.i.i.i.i.i.i1885, 64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i1728)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i1729)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i1730)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i1731)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i1728)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i1729)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i1730)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i1731)
   %idxprom.i.i.i.i.i.i.i1887 = sext i32 %div16.i.i.i.i.i.i1886 to i64
   %arrayidx.i.i.i.i.i.i.i1888 = getelementptr inbounds i64, ptr %1015, i64 %idxprom.i.i.i.i.i.i.i1887
   %1022 = load i64, ptr %arrayidx.i.i.i.i.i.i.i1888, align 8
@@ -18234,10 +18234,10 @@ _ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBA
   br i1 %tobool7.not.i.i.i.i.i.i.i2032, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE5ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i1982, !llvm.loop !229
 
 _ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE5ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i: ; preds = %for.inc.i.i.i.i.i.i.i1956, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INS9_4avx2EEEE15applyComparisonILNS0_8TypeKindE5ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSF_0EeqT_LSF_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESQ_RS2_RSt10shared_ptrISP_EEUlT_E_EEvSO_SV_ENKUlSV_E_clIiEEDaSV_.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i1899, %for.body.i.i.i25.i.i.i1883
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i1728)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i1729)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i1730)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i1731)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i1728)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i1729)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i1730)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i1731)
   %add.i.i.i.i.i.i1889 = add nsw i32 %add50.i.i.i.i.i.i1884, 64
   %cmp15.not.i.i.i.i.i.i1890 = icmp sgt i32 %add.i.i.i.i.i.i1889, %1019
   br i1 %cmp15.not.i.i.i.i.i.i1890, label %for.end.i.i.i26.i.i.i1891, label %for.body.i.i.i25.i.i.i1883, !llvm.loop !230
@@ -18254,13 +18254,13 @@ if.then19.i.i.i.i.i.i1893:                        ; preds = %for.end.i.i.i26.i.i
   br label %if.then3.i.i.i27.i.i.invoke.i1898
 
 _ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE5ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiiSX_.exit.i.i.i: ; preds = %for.end.i.i.i26.i.i.i1891, %if.then3.i.i.i27.i.i.invoke.i1898, %if.else.i.i.i1783
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp6.i.i.i.i.i1732)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp6.i.i.i.i.i1732)
   br label %invoke.cont11.i1790
 
 invoke.cont11.i1790:                              ; preds = %for.inc.i.i.i2118, %_ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE5ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiiSX_.exit.i.i.i, %if.then.i.i.i2067
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i1733)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i1734)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp47.i1735)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i1733)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11.i.i.i.i1734)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp47.i1735)
   %1096 = load ptr, ptr %vector_.i42.i1763, align 8
   %cmp.i.not.i.i1791 = icmp eq ptr %1096, null
   %1097 = ptrtoint ptr %1096 to i64
@@ -18819,9 +18819,9 @@ if.end52.i2179:                                   ; preds = %_ZN8facebook5velox4
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INS6_4avx2EEEE15applyComparisonILNS0_8TypeKindE5ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSC_0EeqT_LSC_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESN_RNS0_4exec7EvalCtxERSt10shared_ptrISM_E.exit
 
 _ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INS6_4avx2EEEE15applyComparisonILNS0_8TypeKindE5ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSC_0EeqT_LSC_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESN_RNS0_4exec7EvalCtxERSt10shared_ptrISM_E.exit: ; preds = %_ZN8facebook5velox4exec18LocalDecodedVectorD2Ev.exit.i1805, %if.end.i65.thread.i1818, %if.end.i65.i1821, %_ZNKSt14default_deleteIN8facebook5velox13DecodedVectorEEclEPS2_.exit.i.i76.i1817, %if.end52.i2179
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %resultVector.i1736)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %lhsDecoded.i1737)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %rhsDecoded.i1738)
+  call void @llvm.lifetime.end.p0(ptr nonnull %resultVector.i1736)
+  call void @llvm.lifetime.end.p0(ptr nonnull %lhsDecoded.i1737)
+  call void @llvm.lifetime.end.p0(ptr nonnull %rhsDecoded.i1738)
   br label %sw.epilog
 
 sw.bb38:                                          ; preds = %entry
@@ -18834,9 +18834,9 @@ sw.bb38:                                          ; preds = %entry
   %1162 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %1163 = load ptr, ptr %1162, align 8
   %.val6 = load ptr, ptr %1163, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %resultVector.i2294)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %lhsDecoded.i2295)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %rhsDecoded.i2296)
+  call void @llvm.lifetime.start.p0(ptr nonnull %resultVector.i2294)
+  call void @llvm.lifetime.start.p0(ptr nonnull %lhsDecoded.i2295)
+  call void @llvm.lifetime.start.p0(ptr nonnull %rhsDecoded.i2296)
   store ptr %.val6, ptr %resultVector.i2294, align 8
   %call.i.i2297 = tail call noundef ptr @_ZN8facebook5velox10FlatVectorIbE16mutableRawValuesEv(ptr noundef nonnull align 8 dereferenceable(184) %.val6)
   %encoding_.i.i2298 = getelementptr inbounds nuw i8, ptr %2, i64 28
@@ -18968,14 +18968,14 @@ lpad.i44.i2323:                                   ; preds = %invoke.cont.i45.i23
   br label %ehcleanup.i2324
 
 invoke.cont.i2327:                                ; preds = %invoke.cont.i45.i2326
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp47.i2293)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp47.i2293)
   store ptr %lhsDecoded.i2295, ptr %agg.tmp47.i2293, align 8
   %agg.tmp.sroa.2.0.agg.tmp47.sroa_idx.i2328 = getelementptr inbounds nuw i8, ptr %agg.tmp47.i2293, i64 8
   store ptr %rhsDecoded.i2296, ptr %agg.tmp.sroa.2.0.agg.tmp47.sroa_idx.i2328, align 8
   %agg.tmp.sroa.3.0.agg.tmp47.sroa_idx.i2329 = getelementptr inbounds nuw i8, ptr %agg.tmp47.i2293, i64 16
   store ptr %resultVector.i2294, ptr %agg.tmp.sroa.3.0.agg.tmp47.sroa_idx.i2329, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i2291)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i2292)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i2291)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i.i.i.i2292)
   %allSelected_.i.i.i.i2330 = getelementptr inbounds nuw i8, ptr %1158, i64 36
   %_M_engaged.i.i.i.i.i.i2331 = getelementptr inbounds nuw i8, ptr %1158, i64 37
   %1183 = load i8, ptr %_M_engaged.i.i.i.i.i.i2331, align 1
@@ -19261,7 +19261,7 @@ if.else.i.i.i2341:                                ; preds = %_ZNK8facebook5velox
   %1238 = load i32, ptr %begin_3.i.i.i2342, align 4
   %end_4.i.i.i2343 = getelementptr inbounds nuw i8, ptr %1158, i64 32
   %1239 = load i32, ptr %end_4.i.i.i2343, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp6.i.i.i.i.i2290)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp6.i.i.i.i.i2290)
   store i8 1, ptr %agg.tmp6.i.i.i.i.i2290, align 8
   %agg.tmp.sroa.29.0.agg.tmp6.sroa_idx.i.i.i.i.i2344 = getelementptr inbounds nuw i8, ptr %agg.tmp6.i.i.i.i.i2290, i64 8
   store ptr %1237, ptr %agg.tmp.sroa.29.0.agg.tmp6.sroa_idx.i.i.i.i.i2344, align 8
@@ -19326,10 +19326,10 @@ for.body.i.i.i25.i.i.i2440:                       ; preds = %if.end14.i.i.i.i.i.
   %add50.i.i.i.i.i.i2441 = phi i32 [ %add.i.i.i.i.i.i2446, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE6ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i ], [ %add47.i.i.i.i.i.i2438, %if.end14.i.i.i.i.i.i2437 ]
   %i.049.i.i.i.i.i.i2442 = phi i32 [ %add50.i.i.i.i.i.i2441, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE6ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i ], [ %mul.i.i.i.i.i.i.i2420, %if.end14.i.i.i.i.i.i2437 ]
   %div16.i.i.i.i.i.i2443 = sdiv i32 %i.049.i.i.i.i.i.i2442, 64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i2286)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i2287)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i2288)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i2289)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i2286)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i2287)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i2288)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i2289)
   %idxprom.i.i.i.i.i.i.i2444 = sext i32 %div16.i.i.i.i.i.i2443 to i64
   %arrayidx.i.i.i.i.i.i.i2445 = getelementptr inbounds i64, ptr %1237, i64 %idxprom.i.i.i.i.i.i.i2444
   %1244 = load i64, ptr %arrayidx.i.i.i.i.i.i.i2445, align 8
@@ -19742,10 +19742,10 @@ _ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBA
   br i1 %tobool7.not.i.i.i.i.i.i.i2589, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE6ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i2539, !llvm.loop !252
 
 _ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE6ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i: ; preds = %for.inc.i.i.i.i.i.i.i2513, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INS9_4avx2EEEE15applyComparisonILNS0_8TypeKindE6ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSF_0EeqT_LSF_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESQ_RS2_RSt10shared_ptrISP_EEUlT_E_EEvSO_SV_ENKUlSV_E_clIiEEDaSV_.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i2456, %for.body.i.i.i25.i.i.i2440
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i2286)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i2287)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i2288)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i2289)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i2286)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i2287)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i2288)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i2289)
   %add.i.i.i.i.i.i2446 = add nsw i32 %add50.i.i.i.i.i.i2441, 64
   %cmp15.not.i.i.i.i.i.i2447 = icmp sgt i32 %add.i.i.i.i.i.i2446, %1241
   br i1 %cmp15.not.i.i.i.i.i.i2447, label %for.end.i.i.i26.i.i.i2448, label %for.body.i.i.i25.i.i.i2440, !llvm.loop !253
@@ -19762,13 +19762,13 @@ if.then19.i.i.i.i.i.i2450:                        ; preds = %for.end.i.i.i26.i.i
   br label %if.then3.i.i.i27.i.i.invoke.i2455
 
 _ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE6ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiiSX_.exit.i.i.i: ; preds = %for.end.i.i.i26.i.i.i2448, %if.then3.i.i.i27.i.i.invoke.i2455, %if.else.i.i.i2341
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp6.i.i.i.i.i2290)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp6.i.i.i.i.i2290)
   br label %invoke.cont11.i2348
 
 invoke.cont11.i2348:                              ; preds = %for.inc.i.i.i2675, %_ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE6ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiiSX_.exit.i.i.i, %if.then.i.i.i2624
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i2291)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i2292)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp47.i2293)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i2291)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11.i.i.i.i2292)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp47.i2293)
   %1318 = load ptr, ptr %vector_.i42.i2321, align 8
   %cmp.i.not.i.i2349 = icmp eq ptr %1318, null
   %1319 = ptrtoint ptr %1318 to i64
@@ -20412,9 +20412,9 @@ if.end52.i2736:                                   ; preds = %_ZN8facebook5velox4
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INS6_4avx2EEEE15applyComparisonILNS0_8TypeKindE6ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSC_0EeqT_LSC_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESN_RNS0_4exec7EvalCtxERSt10shared_ptrISM_E.exit
 
 _ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt8equal_toIvEN5xsimd4fma3INS6_4avx2EEEE15applyComparisonILNS0_8TypeKindE6ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSC_0EeqT_LSC_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESN_RNS0_4exec7EvalCtxERSt10shared_ptrISM_E.exit: ; preds = %_ZN8facebook5velox4exec18LocalDecodedVectorD2Ev.exit.i2363, %if.end.i65.thread.i2376, %if.end.i65.i2378, %_ZNKSt14default_deleteIN8facebook5velox13DecodedVectorEEclEPS2_.exit.i.i76.i2375, %if.end52.i2736
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %resultVector.i2294)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %lhsDecoded.i2295)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %rhsDecoded.i2296)
+  call void @llvm.lifetime.end.p0(ptr nonnull %resultVector.i2294)
+  call void @llvm.lifetime.end.p0(ptr nonnull %lhsDecoded.i2295)
+  call void @llvm.lifetime.end.p0(ptr nonnull %rhsDecoded.i2296)
   br label %sw.epilog
 
 sw.default:                                       ; preds = %entry
@@ -23066,14 +23066,14 @@ lpad.i20:                                         ; preds = %invoke.cont.i21, %_
   br label %ehcleanup
 
 invoke.cont:                                      ; preds = %invoke.cont.i21
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp23)
   store ptr %lhsDecoded, ptr %agg.tmp23, align 8
   %agg.tmp.sroa.2.0.agg.tmp23.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp23, i64 8
   store ptr %rhsDecoded, ptr %agg.tmp.sroa.2.0.agg.tmp23.sroa_idx, align 8
   %agg.tmp.sroa.3.0.agg.tmp23.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp23, i64 16
   store ptr %resultVector, ptr %agg.tmp.sroa.3.0.agg.tmp23.sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i.i.i)
   %allSelected_.i.i.i = getelementptr inbounds nuw i8, ptr %rows, i64 36
   %_M_engaged.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %rows, i64 37
   %18 = load i8, ptr %_M_engaged.i.i.i.i.i, align 1
@@ -23361,7 +23361,7 @@ if.else.i.i:                                      ; preds = %_ZNK8facebook5velox
   %71 = load i32, ptr %begin_3.i.i, align 4
   %end_4.i.i = getelementptr inbounds nuw i8, ptr %rows, i64 32
   %72 = load i32, ptr %end_4.i.i, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp6.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp6.i.i.i.i)
   store i8 1, ptr %agg.tmp6.i.i.i.i, align 8
   %agg.tmp.sroa.29.0.agg.tmp6.sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp6.i.i.i.i, i64 8
   store ptr %70, ptr %agg.tmp.sroa.29.0.agg.tmp6.sroa_idx.i.i.i.i, align 8
@@ -23426,10 +23426,10 @@ for.body.i.i.i25.i.i:                             ; preds = %if.end14.i.i.i.i.i,
   %add50.i.i.i.i.i = phi i32 [ %add.i.i.i.i.i, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE10ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i ], [ %add47.i.i.i.i.i, %if.end14.i.i.i.i.i ]
   %i.049.i.i.i.i.i = phi i32 [ %add50.i.i.i.i.i, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE10ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i ], [ %mul.i.i.i.i.i.i, %if.end14.i.i.i.i.i ]
   %div16.i.i.i.i.i = sdiv i32 %i.049.i.i.i.i.i, 64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i15.i.i.i.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp12.i.i.i.i.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i15.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp12.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i.i.i.i.i.i.i)
   %idxprom.i.i.i.i.i.i = sext i32 %div16.i.i.i.i.i to i64
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds i64, ptr %70, i64 %idxprom.i.i.i.i.i.i
   %77 = load i64, ptr %arrayidx.i.i.i.i.i.i, align 8
@@ -23846,10 +23846,10 @@ _ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBA
   br i1 %tobool7.not.i.i.i.i.i.i, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE10ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i, label %while.body.i.i.i.i.i.i, !llvm.loop !297
 
 _ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE10ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i: ; preds = %for.inc.i.i.i.i.i.i, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INS9_4avx2EEEE15applyComparisonILNS0_8TypeKindE10ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSF_0EeqT_LSF_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESQ_RS2_RSt10shared_ptrISP_EEUlT_E_EEvSO_SV_ENKUlSV_E_clIiEEDaSV_.exit.i.i.i.i.i.i, %if.then.i.i.i.i.i.i, %for.body.i.i.i25.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i15.i.i.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp12.i.i.i.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i15.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp12.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11.i.i.i.i.i.i.i)
   %add.i.i.i.i.i = add nsw i32 %add50.i.i.i.i.i, 64
   %cmp15.not.i.i.i.i.i = icmp sgt i32 %add.i.i.i.i.i, %74
   br i1 %cmp15.not.i.i.i.i.i, label %for.end.i.i.i26.i.i, label %for.body.i.i.i25.i.i, !llvm.loop !298
@@ -23866,13 +23866,13 @@ if.then19.i.i.i.i.i:                              ; preds = %for.end.i.i.i26.i.i
   br label %if.then3.i.i.i27.i.i.invoke
 
 _ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE10ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiiSX_.exit.i.i: ; preds = %if.then3.i.i.i27.i.i.invoke, %for.end.i.i.i26.i.i, %if.else.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp6.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp6.i.i.i.i)
   br label %invoke.cont12
 
 invoke.cont12:                                    ; preds = %for.inc.i.i, %_ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE10ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiiSX_.exit.i.i, %if.then.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp23)
   %147 = load ptr, ptr %vector_.i18, align 8
   %cmp.i.not.i = icmp eq ptr %147, null
   %148 = ptrtoint ptr %147 to i64
@@ -24257,9 +24257,9 @@ sw.bb8:                                           ; preds = %entry
   %9 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %10 = load ptr, ptr %9, align 8
   %.val1 = load ptr, ptr %10, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %resultVector.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %lhsDecoded.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %rhsDecoded.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %resultVector.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %lhsDecoded.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %rhsDecoded.i)
   store ptr %.val1, ptr %resultVector.i, align 8
   %call.i.i = tail call noundef ptr @_ZN8facebook5velox10FlatVectorIbE16mutableRawValuesEv(ptr noundef nonnull align 8 dereferenceable(184) %.val1)
   %encoding_.i.i = getelementptr inbounds nuw i8, ptr %2, i64 28
@@ -24395,14 +24395,14 @@ lpad.i44.i:                                       ; preds = %invoke.cont.i45.i, 
   br label %ehcleanup.i
 
 invoke.cont.i:                                    ; preds = %invoke.cont.i45.i
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp47.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp47.i)
   store ptr %lhsDecoded.i, ptr %agg.tmp47.i, align 8
   %agg.tmp.sroa.2.0.agg.tmp47.sroa_idx.i = getelementptr inbounds nuw i8, ptr %agg.tmp47.i, i64 8
   store ptr %rhsDecoded.i, ptr %agg.tmp.sroa.2.0.agg.tmp47.sroa_idx.i, align 8
   %agg.tmp.sroa.3.0.agg.tmp47.sroa_idx.i = getelementptr inbounds nuw i8, ptr %agg.tmp47.i, i64 16
   store ptr %resultVector.i, ptr %agg.tmp.sroa.3.0.agg.tmp47.sroa_idx.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i.i.i.i)
   %allSelected_.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 36
   %_M_engaged.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 37
   %30 = load i8, ptr %_M_engaged.i.i.i.i.i.i, align 1
@@ -24688,7 +24688,7 @@ if.else.i.i.i:                                    ; preds = %_ZNK8facebook5velox
   %85 = load i32, ptr %begin_3.i.i.i, align 4
   %end_4.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 32
   %86 = load i32, ptr %end_4.i.i.i, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp6.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp6.i.i.i.i.i)
   store i8 1, ptr %agg.tmp6.i.i.i.i.i, align 8
   %agg.tmp.sroa.29.0.agg.tmp6.sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp6.i.i.i.i.i, i64 8
   store ptr %84, ptr %agg.tmp.sroa.29.0.agg.tmp6.sroa_idx.i.i.i.i.i, align 8
@@ -24753,10 +24753,10 @@ for.body.i.i.i25.i.i.i:                           ; preds = %if.end14.i.i.i.i.i.
   %add50.i.i.i.i.i.i = phi i32 [ %add.i.i.i.i.i.i, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE3ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i ], [ %add47.i.i.i.i.i.i, %if.end14.i.i.i.i.i.i ]
   %i.049.i.i.i.i.i.i = phi i32 [ %add50.i.i.i.i.i.i, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE3ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i ], [ %mul.i.i.i.i.i.i.i, %if.end14.i.i.i.i.i.i ]
   %div16.i.i.i.i.i.i = sdiv i32 %i.049.i.i.i.i.i.i, 64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i)
   %idxprom.i.i.i.i.i.i.i = sext i32 %div16.i.i.i.i.i.i to i64
   %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds i64, ptr %84, i64 %idxprom.i.i.i.i.i.i.i
   %91 = load i64, ptr %arrayidx.i.i.i.i.i.i.i, align 8
@@ -25169,10 +25169,10 @@ _ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBA
   br i1 %tobool7.not.i.i.i.i.i.i.i, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE3ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i, !llvm.loop !311
 
 _ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE3ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i: ; preds = %for.inc.i.i.i.i.i.i.i, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INS9_4avx2EEEE15applyComparisonILNS0_8TypeKindE3ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSF_0EeqT_LSF_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESQ_RS2_RSt10shared_ptrISP_EEUlT_E_EEvSO_SV_ENKUlSV_E_clIiEEDaSV_.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %for.body.i.i.i25.i.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i)
   %add.i.i.i.i.i.i = add nsw i32 %add50.i.i.i.i.i.i, 64
   %cmp15.not.i.i.i.i.i.i = icmp sgt i32 %add.i.i.i.i.i.i, %88
   br i1 %cmp15.not.i.i.i.i.i.i, label %for.end.i.i.i26.i.i.i, label %for.body.i.i.i25.i.i.i, !llvm.loop !312
@@ -25189,13 +25189,13 @@ if.then19.i.i.i.i.i.i:                            ; preds = %for.end.i.i.i26.i.i
   br label %if.then3.i.i.i27.i.i.invoke.i
 
 _ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE3ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiiSX_.exit.i.i.i: ; preds = %for.end.i.i.i26.i.i.i, %if.then3.i.i.i27.i.i.invoke.i, %if.else.i.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp6.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp6.i.i.i.i.i)
   br label %invoke.cont11.i
 
 invoke.cont11.i:                                  ; preds = %for.inc.i.i.i, %_ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE3ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiiSX_.exit.i.i.i, %if.then.i.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp47.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp47.i)
   %165 = load ptr, ptr %vector_.i42.i, align 8
   %cmp.i.not.i.i = icmp eq ptr %165, null
   %166 = ptrtoint ptr %165 to i64
@@ -25754,9 +25754,9 @@ if.end52.i:                                       ; preds = %_ZN8facebook5velox4
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INS6_4avx2EEEE15applyComparisonILNS0_8TypeKindE3ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSC_0EeqT_LSC_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESN_RNS0_4exec7EvalCtxERSt10shared_ptrISM_E.exit
 
 _ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INS6_4avx2EEEE15applyComparisonILNS0_8TypeKindE3ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSC_0EeqT_LSC_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESN_RNS0_4exec7EvalCtxERSt10shared_ptrISM_E.exit: ; preds = %_ZN8facebook5velox4exec18LocalDecodedVectorD2Ev.exit.i, %if.end.i65.thread.i, %if.end.i65.i, %_ZNKSt14default_deleteIN8facebook5velox13DecodedVectorEEclEPS2_.exit.i.i76.i, %if.end52.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %resultVector.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %lhsDecoded.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %rhsDecoded.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %resultVector.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %lhsDecoded.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %rhsDecoded.i)
   br label %sw.epilog
 
 sw.bb13:                                          ; preds = %entry
@@ -25769,9 +25769,9 @@ sw.bb13:                                          ; preds = %entry
   %227 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %228 = load ptr, ptr %227, align 8
   %.val2 = load ptr, ptr %228, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %resultVector.i19)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %lhsDecoded.i20)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %rhsDecoded.i21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %resultVector.i19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %lhsDecoded.i20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %rhsDecoded.i21)
   store ptr %.val2, ptr %resultVector.i19, align 8
   %call.i.i22 = tail call noundef ptr @_ZN8facebook5velox10FlatVectorIbE16mutableRawValuesEv(ptr noundef nonnull align 8 dereferenceable(184) %.val2)
   %encoding_.i.i23 = getelementptr inbounds nuw i8, ptr %2, i64 28
@@ -25903,14 +25903,14 @@ lpad.i44.i48:                                     ; preds = %invoke.cont.i45.i51
   br label %ehcleanup.i49
 
 invoke.cont.i52:                                  ; preds = %invoke.cont.i45.i51
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp47.i18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp47.i18)
   store ptr %lhsDecoded.i20, ptr %agg.tmp47.i18, align 8
   %agg.tmp.sroa.2.0.agg.tmp47.sroa_idx.i53 = getelementptr inbounds nuw i8, ptr %agg.tmp47.i18, i64 8
   store ptr %rhsDecoded.i21, ptr %agg.tmp.sroa.2.0.agg.tmp47.sroa_idx.i53, align 8
   %agg.tmp.sroa.3.0.agg.tmp47.sroa_idx.i54 = getelementptr inbounds nuw i8, ptr %agg.tmp47.i18, i64 16
   store ptr %resultVector.i19, ptr %agg.tmp.sroa.3.0.agg.tmp47.sroa_idx.i54, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i16)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i.i.i.i17)
   %allSelected_.i.i.i.i55 = getelementptr inbounds nuw i8, ptr %223, i64 36
   %_M_engaged.i.i.i.i.i.i56 = getelementptr inbounds nuw i8, ptr %223, i64 37
   %248 = load i8, ptr %_M_engaged.i.i.i.i.i.i56, align 1
@@ -26196,7 +26196,7 @@ if.else.i.i.i66:                                  ; preds = %_ZNK8facebook5velox
   %303 = load i32, ptr %begin_3.i.i.i67, align 4
   %end_4.i.i.i68 = getelementptr inbounds nuw i8, ptr %223, i64 32
   %304 = load i32, ptr %end_4.i.i.i68, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp6.i.i.i.i.i15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp6.i.i.i.i.i15)
   store i8 1, ptr %agg.tmp6.i.i.i.i.i15, align 8
   %agg.tmp.sroa.29.0.agg.tmp6.sroa_idx.i.i.i.i.i69 = getelementptr inbounds nuw i8, ptr %agg.tmp6.i.i.i.i.i15, i64 8
   store ptr %302, ptr %agg.tmp.sroa.29.0.agg.tmp6.sroa_idx.i.i.i.i.i69, align 8
@@ -26261,10 +26261,10 @@ for.body.i.i.i25.i.i.i209:                        ; preds = %if.end14.i.i.i.i.i.
   %add50.i.i.i.i.i.i210 = phi i32 [ %add.i.i.i.i.i.i215, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE1ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i ], [ %add47.i.i.i.i.i.i207, %if.end14.i.i.i.i.i.i206 ]
   %i.049.i.i.i.i.i.i211 = phi i32 [ %add50.i.i.i.i.i.i210, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE1ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i ], [ %mul.i.i.i.i.i.i.i189, %if.end14.i.i.i.i.i.i206 ]
   %div16.i.i.i.i.i.i212 = sdiv i32 %i.049.i.i.i.i.i.i211, 64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i11)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i12)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i13)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i14)
   %idxprom.i.i.i.i.i.i.i213 = sext i32 %div16.i.i.i.i.i.i212 to i64
   %arrayidx.i.i.i.i.i.i.i214 = getelementptr inbounds i64, ptr %302, i64 %idxprom.i.i.i.i.i.i.i213
   %309 = load i64, ptr %arrayidx.i.i.i.i.i.i.i214, align 8
@@ -26677,10 +26677,10 @@ _ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBA
   br i1 %tobool7.not.i.i.i.i.i.i.i358, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE1ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i308, !llvm.loop !334
 
 _ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE1ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i: ; preds = %for.inc.i.i.i.i.i.i.i282, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INS9_4avx2EEEE15applyComparisonILNS0_8TypeKindE1ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSF_0EeqT_LSF_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESQ_RS2_RSt10shared_ptrISP_EEUlT_E_EEvSO_SV_ENKUlSV_E_clIiEEDaSV_.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i225, %for.body.i.i.i25.i.i.i209
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i11)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i12)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i13)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i14)
   %add.i.i.i.i.i.i215 = add nsw i32 %add50.i.i.i.i.i.i210, 64
   %cmp15.not.i.i.i.i.i.i216 = icmp sgt i32 %add.i.i.i.i.i.i215, %306
   br i1 %cmp15.not.i.i.i.i.i.i216, label %for.end.i.i.i26.i.i.i217, label %for.body.i.i.i25.i.i.i209, !llvm.loop !335
@@ -26697,13 +26697,13 @@ if.then19.i.i.i.i.i.i219:                         ; preds = %for.end.i.i.i26.i.i
   br label %if.then3.i.i.i27.i.i.invoke.i224
 
 _ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE1ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiiSX_.exit.i.i.i: ; preds = %for.end.i.i.i26.i.i.i217, %if.then3.i.i.i27.i.i.invoke.i224, %if.else.i.i.i66
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp6.i.i.i.i.i15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp6.i.i.i.i.i15)
   br label %invoke.cont11.i73
 
 invoke.cont11.i73:                                ; preds = %for.inc.i.i.i444, %_ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE1ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiiSX_.exit.i.i.i, %if.then.i.i.i393
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i16)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i17)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp47.i18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11.i.i.i.i17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp47.i18)
   %383 = load ptr, ptr %vector_.i42.i46, align 8
   %cmp.i.not.i.i74 = icmp eq ptr %383, null
   %384 = ptrtoint ptr %383 to i64
@@ -27262,9 +27262,9 @@ if.end52.i507:                                    ; preds = %_ZN8facebook5velox4
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INS6_4avx2EEEE15applyComparisonILNS0_8TypeKindE1ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSC_0EeqT_LSC_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESN_RNS0_4exec7EvalCtxERSt10shared_ptrISM_E.exit
 
 _ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INS6_4avx2EEEE15applyComparisonILNS0_8TypeKindE1ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSC_0EeqT_LSC_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESN_RNS0_4exec7EvalCtxERSt10shared_ptrISM_E.exit: ; preds = %_ZN8facebook5velox4exec18LocalDecodedVectorD2Ev.exit.i88, %if.end.i65.thread.i108, %if.end.i65.i139, %_ZNKSt14default_deleteIN8facebook5velox13DecodedVectorEEclEPS2_.exit.i.i76.i102, %if.end52.i507
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %resultVector.i19)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %lhsDecoded.i20)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %rhsDecoded.i21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %resultVector.i19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %lhsDecoded.i20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %rhsDecoded.i21)
   br label %sw.epilog
 
 sw.bb18:                                          ; preds = %entry
@@ -27277,9 +27277,9 @@ sw.bb18:                                          ; preds = %entry
   %445 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %446 = load ptr, ptr %445, align 8
   %.val3 = load ptr, ptr %446, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %resultVector.i651)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %lhsDecoded.i652)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %rhsDecoded.i653)
+  call void @llvm.lifetime.start.p0(ptr nonnull %resultVector.i651)
+  call void @llvm.lifetime.start.p0(ptr nonnull %lhsDecoded.i652)
+  call void @llvm.lifetime.start.p0(ptr nonnull %rhsDecoded.i653)
   store ptr %.val3, ptr %resultVector.i651, align 8
   %call.i.i654 = tail call noundef ptr @_ZN8facebook5velox10FlatVectorIbE16mutableRawValuesEv(ptr noundef nonnull align 8 dereferenceable(184) %.val3)
   %encoding_.i.i655 = getelementptr inbounds nuw i8, ptr %2, i64 28
@@ -27411,14 +27411,14 @@ lpad.i44.i680:                                    ; preds = %invoke.cont.i45.i68
   br label %ehcleanup.i681
 
 invoke.cont.i684:                                 ; preds = %invoke.cont.i45.i683
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp47.i650)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp47.i650)
   store ptr %lhsDecoded.i652, ptr %agg.tmp47.i650, align 8
   %agg.tmp.sroa.2.0.agg.tmp47.sroa_idx.i685 = getelementptr inbounds nuw i8, ptr %agg.tmp47.i650, i64 8
   store ptr %rhsDecoded.i653, ptr %agg.tmp.sroa.2.0.agg.tmp47.sroa_idx.i685, align 8
   %agg.tmp.sroa.3.0.agg.tmp47.sroa_idx.i686 = getelementptr inbounds nuw i8, ptr %agg.tmp47.i650, i64 16
   store ptr %resultVector.i651, ptr %agg.tmp.sroa.3.0.agg.tmp47.sroa_idx.i686, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i648)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i649)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i648)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i.i.i.i649)
   %allSelected_.i.i.i.i687 = getelementptr inbounds nuw i8, ptr %441, i64 36
   %_M_engaged.i.i.i.i.i.i688 = getelementptr inbounds nuw i8, ptr %441, i64 37
   %466 = load i8, ptr %_M_engaged.i.i.i.i.i.i688, align 1
@@ -27704,7 +27704,7 @@ if.else.i.i.i698:                                 ; preds = %_ZNK8facebook5velox
   %521 = load i32, ptr %begin_3.i.i.i699, align 4
   %end_4.i.i.i700 = getelementptr inbounds nuw i8, ptr %441, i64 32
   %522 = load i32, ptr %end_4.i.i.i700, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp6.i.i.i.i.i647)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp6.i.i.i.i.i647)
   store i8 1, ptr %agg.tmp6.i.i.i.i.i647, align 8
   %agg.tmp.sroa.29.0.agg.tmp6.sroa_idx.i.i.i.i.i701 = getelementptr inbounds nuw i8, ptr %agg.tmp6.i.i.i.i.i647, i64 8
   store ptr %520, ptr %agg.tmp.sroa.29.0.agg.tmp6.sroa_idx.i.i.i.i.i701, align 8
@@ -27769,10 +27769,10 @@ for.body.i.i.i25.i.i.i797:                        ; preds = %if.end14.i.i.i.i.i.
   %add50.i.i.i.i.i.i798 = phi i32 [ %add.i.i.i.i.i.i803, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE2ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i ], [ %add47.i.i.i.i.i.i795, %if.end14.i.i.i.i.i.i794 ]
   %i.049.i.i.i.i.i.i799 = phi i32 [ %add50.i.i.i.i.i.i798, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE2ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i ], [ %mul.i.i.i.i.i.i.i777, %if.end14.i.i.i.i.i.i794 ]
   %div16.i.i.i.i.i.i800 = sdiv i32 %i.049.i.i.i.i.i.i799, 64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i643)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i644)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i645)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i646)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i643)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i644)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i645)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i646)
   %idxprom.i.i.i.i.i.i.i801 = sext i32 %div16.i.i.i.i.i.i800 to i64
   %arrayidx.i.i.i.i.i.i.i802 = getelementptr inbounds i64, ptr %520, i64 %idxprom.i.i.i.i.i.i.i801
   %527 = load i64, ptr %arrayidx.i.i.i.i.i.i.i802, align 8
@@ -28185,10 +28185,10 @@ _ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBA
   br i1 %tobool7.not.i.i.i.i.i.i.i946, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE2ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i896, !llvm.loop !357
 
 _ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE2ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i: ; preds = %for.inc.i.i.i.i.i.i.i870, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INS9_4avx2EEEE15applyComparisonILNS0_8TypeKindE2ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSF_0EeqT_LSF_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESQ_RS2_RSt10shared_ptrISP_EEUlT_E_EEvSO_SV_ENKUlSV_E_clIiEEDaSV_.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i813, %for.body.i.i.i25.i.i.i797
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i643)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i644)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i645)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i646)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i643)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i644)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i645)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i646)
   %add.i.i.i.i.i.i803 = add nsw i32 %add50.i.i.i.i.i.i798, 64
   %cmp15.not.i.i.i.i.i.i804 = icmp sgt i32 %add.i.i.i.i.i.i803, %524
   br i1 %cmp15.not.i.i.i.i.i.i804, label %for.end.i.i.i26.i.i.i805, label %for.body.i.i.i25.i.i.i797, !llvm.loop !358
@@ -28205,13 +28205,13 @@ if.then19.i.i.i.i.i.i807:                         ; preds = %for.end.i.i.i26.i.i
   br label %if.then3.i.i.i27.i.i.invoke.i812
 
 _ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE2ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiiSX_.exit.i.i.i: ; preds = %for.end.i.i.i26.i.i.i805, %if.then3.i.i.i27.i.i.invoke.i812, %if.else.i.i.i698
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp6.i.i.i.i.i647)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp6.i.i.i.i.i647)
   br label %invoke.cont11.i705
 
 invoke.cont11.i705:                               ; preds = %for.inc.i.i.i1032, %_ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE2ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiiSX_.exit.i.i.i, %if.then.i.i.i981
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i648)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i649)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp47.i650)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i648)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11.i.i.i.i649)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp47.i650)
   %601 = load ptr, ptr %vector_.i42.i678, align 8
   %cmp.i.not.i.i706 = icmp eq ptr %601, null
   %602 = ptrtoint ptr %601 to i64
@@ -28794,9 +28794,9 @@ if.end52.i1093:                                   ; preds = %_ZN8facebook5velox4
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INS6_4avx2EEEE15applyComparisonILNS0_8TypeKindE2ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSC_0EeqT_LSC_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESN_RNS0_4exec7EvalCtxERSt10shared_ptrISM_E.exit
 
 _ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INS6_4avx2EEEE15applyComparisonILNS0_8TypeKindE2ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSC_0EeqT_LSC_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESN_RNS0_4exec7EvalCtxERSt10shared_ptrISM_E.exit: ; preds = %_ZN8facebook5velox4exec18LocalDecodedVectorD2Ev.exit.i720, %if.end.i65.thread.i733, %if.end.i65.i735, %_ZNKSt14default_deleteIN8facebook5velox13DecodedVectorEEclEPS2_.exit.i.i76.i732, %if.end52.i1093
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %resultVector.i651)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %lhsDecoded.i652)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %rhsDecoded.i653)
+  call void @llvm.lifetime.end.p0(ptr nonnull %resultVector.i651)
+  call void @llvm.lifetime.end.p0(ptr nonnull %lhsDecoded.i652)
+  call void @llvm.lifetime.end.p0(ptr nonnull %rhsDecoded.i653)
   br label %sw.epilog
 
 sw.bb23:                                          ; preds = %entry
@@ -28809,9 +28809,9 @@ sw.bb23:                                          ; preds = %entry
   %683 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %684 = load ptr, ptr %683, align 8
   %.val4 = load ptr, ptr %684, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %resultVector.i1209)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %lhsDecoded.i1210)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %rhsDecoded.i1211)
+  call void @llvm.lifetime.start.p0(ptr nonnull %resultVector.i1209)
+  call void @llvm.lifetime.start.p0(ptr nonnull %lhsDecoded.i1210)
+  call void @llvm.lifetime.start.p0(ptr nonnull %rhsDecoded.i1211)
   store ptr %.val4, ptr %resultVector.i1209, align 8
   %call.i.i1212 = tail call noundef ptr @_ZN8facebook5velox10FlatVectorIbE16mutableRawValuesEv(ptr noundef nonnull align 8 dereferenceable(184) %.val4)
   %encoding_.i.i1213 = getelementptr inbounds nuw i8, ptr %2, i64 28
@@ -28943,14 +28943,14 @@ lpad.i44.i1238:                                   ; preds = %invoke.cont.i45.i12
   br label %ehcleanup.i1239
 
 invoke.cont.i1242:                                ; preds = %invoke.cont.i45.i1241
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp47.i1208)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp47.i1208)
   store ptr %lhsDecoded.i1210, ptr %agg.tmp47.i1208, align 8
   %agg.tmp.sroa.2.0.agg.tmp47.sroa_idx.i1243 = getelementptr inbounds nuw i8, ptr %agg.tmp47.i1208, i64 8
   store ptr %rhsDecoded.i1211, ptr %agg.tmp.sroa.2.0.agg.tmp47.sroa_idx.i1243, align 8
   %agg.tmp.sroa.3.0.agg.tmp47.sroa_idx.i1244 = getelementptr inbounds nuw i8, ptr %agg.tmp47.i1208, i64 16
   store ptr %resultVector.i1209, ptr %agg.tmp.sroa.3.0.agg.tmp47.sroa_idx.i1244, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i1206)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i1207)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i1206)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i.i.i.i1207)
   %allSelected_.i.i.i.i1245 = getelementptr inbounds nuw i8, ptr %679, i64 36
   %_M_engaged.i.i.i.i.i.i1246 = getelementptr inbounds nuw i8, ptr %679, i64 37
   %704 = load i8, ptr %_M_engaged.i.i.i.i.i.i1246, align 1
@@ -29236,7 +29236,7 @@ if.else.i.i.i1256:                                ; preds = %_ZNK8facebook5velox
   %759 = load i32, ptr %begin_3.i.i.i1257, align 4
   %end_4.i.i.i1258 = getelementptr inbounds nuw i8, ptr %679, i64 32
   %760 = load i32, ptr %end_4.i.i.i1258, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp6.i.i.i.i.i1205)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp6.i.i.i.i.i1205)
   store i8 1, ptr %agg.tmp6.i.i.i.i.i1205, align 8
   %agg.tmp.sroa.29.0.agg.tmp6.sroa_idx.i.i.i.i.i1259 = getelementptr inbounds nuw i8, ptr %agg.tmp6.i.i.i.i.i1205, i64 8
   store ptr %758, ptr %agg.tmp.sroa.29.0.agg.tmp6.sroa_idx.i.i.i.i.i1259, align 8
@@ -29301,10 +29301,10 @@ for.body.i.i.i25.i.i.i1355:                       ; preds = %if.end14.i.i.i.i.i.
   %add50.i.i.i.i.i.i1356 = phi i32 [ %add.i.i.i.i.i.i1361, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE4ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i ], [ %add47.i.i.i.i.i.i1353, %if.end14.i.i.i.i.i.i1352 ]
   %i.049.i.i.i.i.i.i1357 = phi i32 [ %add50.i.i.i.i.i.i1356, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE4ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i ], [ %mul.i.i.i.i.i.i.i1335, %if.end14.i.i.i.i.i.i1352 ]
   %div16.i.i.i.i.i.i1358 = sdiv i32 %i.049.i.i.i.i.i.i1357, 64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i1201)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i1202)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i1203)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i1204)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i1201)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i1202)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i1203)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i1204)
   %idxprom.i.i.i.i.i.i.i1359 = sext i32 %div16.i.i.i.i.i.i1358 to i64
   %arrayidx.i.i.i.i.i.i.i1360 = getelementptr inbounds i64, ptr %758, i64 %idxprom.i.i.i.i.i.i.i1359
   %765 = load i64, ptr %arrayidx.i.i.i.i.i.i.i1360, align 8
@@ -29717,10 +29717,10 @@ _ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBA
   br i1 %tobool7.not.i.i.i.i.i.i.i1504, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE4ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i1454, !llvm.loop !380
 
 _ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE4ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i: ; preds = %for.inc.i.i.i.i.i.i.i1428, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INS9_4avx2EEEE15applyComparisonILNS0_8TypeKindE4ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSF_0EeqT_LSF_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESQ_RS2_RSt10shared_ptrISP_EEUlT_E_EEvSO_SV_ENKUlSV_E_clIiEEDaSV_.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i1371, %for.body.i.i.i25.i.i.i1355
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i1201)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i1202)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i1203)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i1204)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i1201)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i1202)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i1203)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i1204)
   %add.i.i.i.i.i.i1361 = add nsw i32 %add50.i.i.i.i.i.i1356, 64
   %cmp15.not.i.i.i.i.i.i1362 = icmp sgt i32 %add.i.i.i.i.i.i1361, %762
   br i1 %cmp15.not.i.i.i.i.i.i1362, label %for.end.i.i.i26.i.i.i1363, label %for.body.i.i.i25.i.i.i1355, !llvm.loop !381
@@ -29737,13 +29737,13 @@ if.then19.i.i.i.i.i.i1365:                        ; preds = %for.end.i.i.i26.i.i
   br label %if.then3.i.i.i27.i.i.invoke.i1370
 
 _ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE4ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiiSX_.exit.i.i.i: ; preds = %for.end.i.i.i26.i.i.i1363, %if.then3.i.i.i27.i.i.invoke.i1370, %if.else.i.i.i1256
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp6.i.i.i.i.i1205)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp6.i.i.i.i.i1205)
   br label %invoke.cont11.i1263
 
 invoke.cont11.i1263:                              ; preds = %for.inc.i.i.i1590, %_ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE4ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiiSX_.exit.i.i.i, %if.then.i.i.i1539
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i1206)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i1207)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp47.i1208)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i1206)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11.i.i.i.i1207)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp47.i1208)
   %839 = load ptr, ptr %vector_.i42.i1236, align 8
   %cmp.i.not.i.i1264 = icmp eq ptr %839, null
   %840 = ptrtoint ptr %839 to i64
@@ -30387,9 +30387,9 @@ if.end52.i1650:                                   ; preds = %_ZN8facebook5velox4
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INS6_4avx2EEEE15applyComparisonILNS0_8TypeKindE4ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSC_0EeqT_LSC_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESN_RNS0_4exec7EvalCtxERSt10shared_ptrISM_E.exit
 
 _ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INS6_4avx2EEEE15applyComparisonILNS0_8TypeKindE4ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSC_0EeqT_LSC_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESN_RNS0_4exec7EvalCtxERSt10shared_ptrISM_E.exit: ; preds = %_ZN8facebook5velox4exec18LocalDecodedVectorD2Ev.exit.i1278, %if.end.i65.thread.i1291, %if.end.i65.i1293, %_ZNKSt14default_deleteIN8facebook5velox13DecodedVectorEEclEPS2_.exit.i.i76.i1290, %if.end52.i1650
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %resultVector.i1209)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %lhsDecoded.i1210)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %rhsDecoded.i1211)
+  call void @llvm.lifetime.end.p0(ptr nonnull %resultVector.i1209)
+  call void @llvm.lifetime.end.p0(ptr nonnull %lhsDecoded.i1210)
+  call void @llvm.lifetime.end.p0(ptr nonnull %rhsDecoded.i1211)
   br label %sw.epilog
 
 sw.bb28:                                          ; preds = %entry
@@ -30415,9 +30415,9 @@ sw.bb33:                                          ; preds = %entry
   %948 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %949 = load ptr, ptr %948, align 8
   %.val5 = load ptr, ptr %949, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %resultVector.i1737)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %lhsDecoded.i1738)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %rhsDecoded.i1739)
+  call void @llvm.lifetime.start.p0(ptr nonnull %resultVector.i1737)
+  call void @llvm.lifetime.start.p0(ptr nonnull %lhsDecoded.i1738)
+  call void @llvm.lifetime.start.p0(ptr nonnull %rhsDecoded.i1739)
   store ptr %.val5, ptr %resultVector.i1737, align 8
   %call.i.i1740 = tail call noundef ptr @_ZN8facebook5velox10FlatVectorIbE16mutableRawValuesEv(ptr noundef nonnull align 8 dereferenceable(184) %.val5)
   %encoding_.i.i1741 = getelementptr inbounds nuw i8, ptr %2, i64 28
@@ -30549,14 +30549,14 @@ lpad.i44.i1766:                                   ; preds = %invoke.cont.i45.i17
   br label %ehcleanup.i1767
 
 invoke.cont.i1770:                                ; preds = %invoke.cont.i45.i1769
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp47.i1736)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp47.i1736)
   store ptr %lhsDecoded.i1738, ptr %agg.tmp47.i1736, align 8
   %agg.tmp.sroa.2.0.agg.tmp47.sroa_idx.i1771 = getelementptr inbounds nuw i8, ptr %agg.tmp47.i1736, i64 8
   store ptr %rhsDecoded.i1739, ptr %agg.tmp.sroa.2.0.agg.tmp47.sroa_idx.i1771, align 8
   %agg.tmp.sroa.3.0.agg.tmp47.sroa_idx.i1772 = getelementptr inbounds nuw i8, ptr %agg.tmp47.i1736, i64 16
   store ptr %resultVector.i1737, ptr %agg.tmp.sroa.3.0.agg.tmp47.sroa_idx.i1772, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i1734)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i1735)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i1734)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i.i.i.i1735)
   %allSelected_.i.i.i.i1773 = getelementptr inbounds nuw i8, ptr %944, i64 36
   %_M_engaged.i.i.i.i.i.i1774 = getelementptr inbounds nuw i8, ptr %944, i64 37
   %969 = load i8, ptr %_M_engaged.i.i.i.i.i.i1774, align 1
@@ -30842,7 +30842,7 @@ if.else.i.i.i1784:                                ; preds = %_ZNK8facebook5velox
   %1024 = load i32, ptr %begin_3.i.i.i1785, align 4
   %end_4.i.i.i1786 = getelementptr inbounds nuw i8, ptr %944, i64 32
   %1025 = load i32, ptr %end_4.i.i.i1786, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp6.i.i.i.i.i1733)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp6.i.i.i.i.i1733)
   store i8 1, ptr %agg.tmp6.i.i.i.i.i1733, align 8
   %agg.tmp.sroa.29.0.agg.tmp6.sroa_idx.i.i.i.i.i1787 = getelementptr inbounds nuw i8, ptr %agg.tmp6.i.i.i.i.i1733, i64 8
   store ptr %1023, ptr %agg.tmp.sroa.29.0.agg.tmp6.sroa_idx.i.i.i.i.i1787, align 8
@@ -30907,10 +30907,10 @@ for.body.i.i.i25.i.i.i1883:                       ; preds = %if.end14.i.i.i.i.i.
   %add50.i.i.i.i.i.i1884 = phi i32 [ %add.i.i.i.i.i.i1889, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE5ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i ], [ %add47.i.i.i.i.i.i1881, %if.end14.i.i.i.i.i.i1880 ]
   %i.049.i.i.i.i.i.i1885 = phi i32 [ %add50.i.i.i.i.i.i1884, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE5ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i ], [ %mul.i.i.i.i.i.i.i1863, %if.end14.i.i.i.i.i.i1880 ]
   %div16.i.i.i.i.i.i1886 = sdiv i32 %i.049.i.i.i.i.i.i1885, 64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i1729)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i1730)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i1731)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i1732)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i1729)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i1730)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i1731)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i1732)
   %idxprom.i.i.i.i.i.i.i1887 = sext i32 %div16.i.i.i.i.i.i1886 to i64
   %arrayidx.i.i.i.i.i.i.i1888 = getelementptr inbounds i64, ptr %1023, i64 %idxprom.i.i.i.i.i.i.i1887
   %1030 = load i64, ptr %arrayidx.i.i.i.i.i.i.i1888, align 8
@@ -31323,10 +31323,10 @@ _ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBA
   br i1 %tobool7.not.i.i.i.i.i.i.i2032, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE5ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i1982, !llvm.loop !407
 
 _ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE5ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i: ; preds = %for.inc.i.i.i.i.i.i.i1956, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INS9_4avx2EEEE15applyComparisonILNS0_8TypeKindE5ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSF_0EeqT_LSF_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESQ_RS2_RSt10shared_ptrISP_EEUlT_E_EEvSO_SV_ENKUlSV_E_clIiEEDaSV_.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i1899, %for.body.i.i.i25.i.i.i1883
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i1729)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i1730)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i1731)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i1732)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i1729)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i1730)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i1731)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i1732)
   %add.i.i.i.i.i.i1889 = add nsw i32 %add50.i.i.i.i.i.i1884, 64
   %cmp15.not.i.i.i.i.i.i1890 = icmp sgt i32 %add.i.i.i.i.i.i1889, %1027
   br i1 %cmp15.not.i.i.i.i.i.i1890, label %for.end.i.i.i26.i.i.i1891, label %for.body.i.i.i25.i.i.i1883, !llvm.loop !408
@@ -31343,13 +31343,13 @@ if.then19.i.i.i.i.i.i1893:                        ; preds = %for.end.i.i.i26.i.i
   br label %if.then3.i.i.i27.i.i.invoke.i1898
 
 _ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE5ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiiSX_.exit.i.i.i: ; preds = %for.end.i.i.i26.i.i.i1891, %if.then3.i.i.i27.i.i.invoke.i1898, %if.else.i.i.i1784
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp6.i.i.i.i.i1733)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp6.i.i.i.i.i1733)
   br label %invoke.cont11.i1791
 
 invoke.cont11.i1791:                              ; preds = %for.inc.i.i.i2118, %_ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE5ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiiSX_.exit.i.i.i, %if.then.i.i.i2067
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i1734)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i1735)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp47.i1736)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i1734)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11.i.i.i.i1735)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp47.i1736)
   %1104 = load ptr, ptr %vector_.i42.i1764, align 8
   %cmp.i.not.i.i1792 = icmp eq ptr %1104, null
   %1105 = ptrtoint ptr %1104 to i64
@@ -31908,9 +31908,9 @@ if.end52.i2179:                                   ; preds = %_ZN8facebook5velox4
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INS6_4avx2EEEE15applyComparisonILNS0_8TypeKindE5ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSC_0EeqT_LSC_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESN_RNS0_4exec7EvalCtxERSt10shared_ptrISM_E.exit
 
 _ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INS6_4avx2EEEE15applyComparisonILNS0_8TypeKindE5ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSC_0EeqT_LSC_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESN_RNS0_4exec7EvalCtxERSt10shared_ptrISM_E.exit: ; preds = %_ZN8facebook5velox4exec18LocalDecodedVectorD2Ev.exit.i1806, %if.end.i65.thread.i1819, %if.end.i65.i1821, %_ZNKSt14default_deleteIN8facebook5velox13DecodedVectorEEclEPS2_.exit.i.i76.i1818, %if.end52.i2179
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %resultVector.i1737)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %lhsDecoded.i1738)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %rhsDecoded.i1739)
+  call void @llvm.lifetime.end.p0(ptr nonnull %resultVector.i1737)
+  call void @llvm.lifetime.end.p0(ptr nonnull %lhsDecoded.i1738)
+  call void @llvm.lifetime.end.p0(ptr nonnull %rhsDecoded.i1739)
   br label %sw.epilog
 
 sw.bb38:                                          ; preds = %entry
@@ -31923,9 +31923,9 @@ sw.bb38:                                          ; preds = %entry
   %1170 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %1171 = load ptr, ptr %1170, align 8
   %.val6 = load ptr, ptr %1171, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %resultVector.i2274)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %lhsDecoded.i2275)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %rhsDecoded.i2276)
+  call void @llvm.lifetime.start.p0(ptr nonnull %resultVector.i2274)
+  call void @llvm.lifetime.start.p0(ptr nonnull %lhsDecoded.i2275)
+  call void @llvm.lifetime.start.p0(ptr nonnull %rhsDecoded.i2276)
   store ptr %.val6, ptr %resultVector.i2274, align 8
   %call.i.i2277 = tail call noundef ptr @_ZN8facebook5velox10FlatVectorIbE16mutableRawValuesEv(ptr noundef nonnull align 8 dereferenceable(184) %.val6)
   %encoding_.i.i2278 = getelementptr inbounds nuw i8, ptr %2, i64 28
@@ -32057,14 +32057,14 @@ lpad.i44.i2303:                                   ; preds = %invoke.cont.i45.i23
   br label %ehcleanup.i2304
 
 invoke.cont.i2307:                                ; preds = %invoke.cont.i45.i2306
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp47.i2273)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp47.i2273)
   store ptr %lhsDecoded.i2275, ptr %agg.tmp47.i2273, align 8
   %agg.tmp.sroa.2.0.agg.tmp47.sroa_idx.i2308 = getelementptr inbounds nuw i8, ptr %agg.tmp47.i2273, i64 8
   store ptr %rhsDecoded.i2276, ptr %agg.tmp.sroa.2.0.agg.tmp47.sroa_idx.i2308, align 8
   %agg.tmp.sroa.3.0.agg.tmp47.sroa_idx.i2309 = getelementptr inbounds nuw i8, ptr %agg.tmp47.i2273, i64 16
   store ptr %resultVector.i2274, ptr %agg.tmp.sroa.3.0.agg.tmp47.sroa_idx.i2309, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i2271)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i2272)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i2271)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i.i.i.i2272)
   %allSelected_.i.i.i.i2310 = getelementptr inbounds nuw i8, ptr %1166, i64 36
   %_M_engaged.i.i.i.i.i.i2311 = getelementptr inbounds nuw i8, ptr %1166, i64 37
   %1191 = load i8, ptr %_M_engaged.i.i.i.i.i.i2311, align 1
@@ -32350,7 +32350,7 @@ if.else.i.i.i2321:                                ; preds = %_ZNK8facebook5velox
   %1246 = load i32, ptr %begin_3.i.i.i2322, align 4
   %end_4.i.i.i2323 = getelementptr inbounds nuw i8, ptr %1166, i64 32
   %1247 = load i32, ptr %end_4.i.i.i2323, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp6.i.i.i.i.i2270)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp6.i.i.i.i.i2270)
   store i8 1, ptr %agg.tmp6.i.i.i.i.i2270, align 8
   %agg.tmp.sroa.29.0.agg.tmp6.sroa_idx.i.i.i.i.i2324 = getelementptr inbounds nuw i8, ptr %agg.tmp6.i.i.i.i.i2270, i64 8
   store ptr %1245, ptr %agg.tmp.sroa.29.0.agg.tmp6.sroa_idx.i.i.i.i.i2324, align 8
@@ -32415,10 +32415,10 @@ for.body.i.i.i25.i.i.i2420:                       ; preds = %if.end14.i.i.i.i.i.
   %add50.i.i.i.i.i.i2421 = phi i32 [ %add.i.i.i.i.i.i2426, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE6ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i ], [ %add47.i.i.i.i.i.i2418, %if.end14.i.i.i.i.i.i2417 ]
   %i.049.i.i.i.i.i.i2422 = phi i32 [ %add50.i.i.i.i.i.i2421, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE6ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i ], [ %mul.i.i.i.i.i.i.i2400, %if.end14.i.i.i.i.i.i2417 ]
   %div16.i.i.i.i.i.i2423 = sdiv i32 %i.049.i.i.i.i.i.i2422, 64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i2266)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i2267)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i2268)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i2269)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i2266)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i2267)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i2268)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i2269)
   %idxprom.i.i.i.i.i.i.i2424 = sext i32 %div16.i.i.i.i.i.i2423 to i64
   %arrayidx.i.i.i.i.i.i.i2425 = getelementptr inbounds i64, ptr %1245, i64 %idxprom.i.i.i.i.i.i.i2424
   %1252 = load i64, ptr %arrayidx.i.i.i.i.i.i.i2425, align 8
@@ -32831,10 +32831,10 @@ _ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBA
   br i1 %tobool7.not.i.i.i.i.i.i.i2569, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE6ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i2519, !llvm.loop !430
 
 _ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE6ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i: ; preds = %for.inc.i.i.i.i.i.i.i2493, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INS9_4avx2EEEE15applyComparisonILNS0_8TypeKindE6ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSF_0EeqT_LSF_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESQ_RS2_RSt10shared_ptrISP_EEUlT_E_EEvSO_SV_ENKUlSV_E_clIiEEDaSV_.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i2436, %for.body.i.i.i25.i.i.i2420
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i2266)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i2267)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i2268)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i2269)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i2266)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i2267)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i2268)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i2269)
   %add.i.i.i.i.i.i2426 = add nsw i32 %add50.i.i.i.i.i.i2421, 64
   %cmp15.not.i.i.i.i.i.i2427 = icmp sgt i32 %add.i.i.i.i.i.i2426, %1249
   br i1 %cmp15.not.i.i.i.i.i.i2427, label %for.end.i.i.i26.i.i.i2428, label %for.body.i.i.i25.i.i.i2420, !llvm.loop !431
@@ -32851,13 +32851,13 @@ if.then19.i.i.i.i.i.i2430:                        ; preds = %for.end.i.i.i26.i.i
   br label %if.then3.i.i.i27.i.i.invoke.i2435
 
 _ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE6ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiiSX_.exit.i.i.i: ; preds = %for.end.i.i.i26.i.i.i2428, %if.then3.i.i.i27.i.i.invoke.i2435, %if.else.i.i.i2321
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp6.i.i.i.i.i2270)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp6.i.i.i.i.i2270)
   br label %invoke.cont11.i2328
 
 invoke.cont11.i2328:                              ; preds = %for.inc.i.i.i2655, %_ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE6ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiiSX_.exit.i.i.i, %if.then.i.i.i2604
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i2271)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i2272)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp47.i2273)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i2271)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11.i.i.i.i2272)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp47.i2273)
   %1326 = load ptr, ptr %vector_.i42.i2301, align 8
   %cmp.i.not.i.i2329 = icmp eq ptr %1326, null
   %1327 = ptrtoint ptr %1326 to i64
@@ -33501,9 +33501,9 @@ if.end52.i2716:                                   ; preds = %_ZN8facebook5velox4
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INS6_4avx2EEEE15applyComparisonILNS0_8TypeKindE6ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSC_0EeqT_LSC_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESN_RNS0_4exec7EvalCtxERSt10shared_ptrISM_E.exit
 
 _ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt12not_equal_toIvEN5xsimd4fma3INS6_4avx2EEEE15applyComparisonILNS0_8TypeKindE6ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSC_0EeqT_LSC_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESN_RNS0_4exec7EvalCtxERSt10shared_ptrISM_E.exit: ; preds = %_ZN8facebook5velox4exec18LocalDecodedVectorD2Ev.exit.i2343, %if.end.i65.thread.i2356, %if.end.i65.i2358, %_ZNKSt14default_deleteIN8facebook5velox13DecodedVectorEEclEPS2_.exit.i.i76.i2355, %if.end52.i2716
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %resultVector.i2274)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %lhsDecoded.i2275)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %rhsDecoded.i2276)
+  call void @llvm.lifetime.end.p0(ptr nonnull %resultVector.i2274)
+  call void @llvm.lifetime.end.p0(ptr nonnull %lhsDecoded.i2275)
+  call void @llvm.lifetime.end.p0(ptr nonnull %rhsDecoded.i2276)
   br label %sw.epilog
 
 sw.default:                                       ; preds = %entry
@@ -35377,14 +35377,14 @@ lpad.i20:                                         ; preds = %invoke.cont.i21, %_
   br label %ehcleanup
 
 invoke.cont:                                      ; preds = %invoke.cont.i21
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp23)
   store ptr %lhsDecoded, ptr %agg.tmp23, align 8
   %agg.tmp.sroa.2.0.agg.tmp23.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp23, i64 8
   store ptr %rhsDecoded, ptr %agg.tmp.sroa.2.0.agg.tmp23.sroa_idx, align 8
   %agg.tmp.sroa.3.0.agg.tmp23.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp23, i64 16
   store ptr %resultVector, ptr %agg.tmp.sroa.3.0.agg.tmp23.sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i.i.i)
   %allSelected_.i.i.i = getelementptr inbounds nuw i8, ptr %rows, i64 36
   %_M_engaged.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %rows, i64 37
   %18 = load i8, ptr %_M_engaged.i.i.i.i.i, align 1
@@ -35672,7 +35672,7 @@ if.else.i.i:                                      ; preds = %_ZNK8facebook5velox
   %71 = load i32, ptr %begin_3.i.i, align 4
   %end_4.i.i = getelementptr inbounds nuw i8, ptr %rows, i64 32
   %72 = load i32, ptr %end_4.i.i, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp6.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp6.i.i.i.i)
   store i8 1, ptr %agg.tmp6.i.i.i.i, align 8
   %agg.tmp.sroa.29.0.agg.tmp6.sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp6.i.i.i.i, i64 8
   store ptr %70, ptr %agg.tmp.sroa.29.0.agg.tmp6.sroa_idx.i.i.i.i, align 8
@@ -35737,10 +35737,10 @@ for.body.i.i.i25.i.i:                             ; preds = %if.end14.i.i.i.i.i,
   %add50.i.i.i.i.i = phi i32 [ %add.i.i.i.i.i, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE10ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i ], [ %add47.i.i.i.i.i, %if.end14.i.i.i.i.i ]
   %i.049.i.i.i.i.i = phi i32 [ %add50.i.i.i.i.i, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE10ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i ], [ %mul.i.i.i.i.i.i, %if.end14.i.i.i.i.i ]
   %div16.i.i.i.i.i = sdiv i32 %i.049.i.i.i.i.i, 64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i15.i.i.i.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp12.i.i.i.i.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i15.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp12.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i.i.i.i.i.i.i)
   %idxprom.i.i.i.i.i.i = sext i32 %div16.i.i.i.i.i to i64
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds i64, ptr %70, i64 %idxprom.i.i.i.i.i.i
   %77 = load i64, ptr %arrayidx.i.i.i.i.i.i, align 8
@@ -36157,10 +36157,10 @@ _ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBA
   br i1 %tobool7.not.i.i.i.i.i.i, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE10ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i, label %while.body.i.i.i.i.i.i, !llvm.loop !457
 
 _ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE10ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i: ; preds = %for.inc.i.i.i.i.i.i, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INS9_4avx2EEEE15applyComparisonILNS0_8TypeKindE10ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSF_0EeqT_LSF_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESQ_RS2_RSt10shared_ptrISP_EEUlT_E_EEvSO_SV_ENKUlSV_E_clIiEEDaSV_.exit.i.i.i.i.i.i, %if.then.i.i.i.i.i.i, %for.body.i.i.i25.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i15.i.i.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp12.i.i.i.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i15.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp12.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11.i.i.i.i.i.i.i)
   %add.i.i.i.i.i = add nsw i32 %add50.i.i.i.i.i, 64
   %cmp15.not.i.i.i.i.i = icmp sgt i32 %add.i.i.i.i.i, %74
   br i1 %cmp15.not.i.i.i.i.i, label %for.end.i.i.i26.i.i, label %for.body.i.i.i25.i.i, !llvm.loop !458
@@ -36177,13 +36177,13 @@ if.then19.i.i.i.i.i:                              ; preds = %for.end.i.i.i26.i.i
   br label %if.then3.i.i.i27.i.i.invoke
 
 _ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE10ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiiSX_.exit.i.i: ; preds = %if.then3.i.i.i27.i.i.invoke, %for.end.i.i.i26.i.i, %if.else.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp6.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp6.i.i.i.i)
   br label %invoke.cont12
 
 invoke.cont12:                                    ; preds = %for.inc.i.i, %_ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE10ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiiSX_.exit.i.i, %if.then.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp23)
   %147 = load ptr, ptr %vector_.i18, align 8
   %cmp.i.not.i = icmp eq ptr %147, null
   %148 = ptrtoint ptr %147 to i64
@@ -36568,9 +36568,9 @@ sw.bb8:                                           ; preds = %entry
   %9 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %10 = load ptr, ptr %9, align 8
   %.val1 = load ptr, ptr %10, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %resultVector.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %lhsDecoded.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %rhsDecoded.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %resultVector.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %lhsDecoded.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %rhsDecoded.i)
   store ptr %.val1, ptr %resultVector.i, align 8
   %call.i.i = tail call noundef ptr @_ZN8facebook5velox10FlatVectorIbE16mutableRawValuesEv(ptr noundef nonnull align 8 dereferenceable(184) %.val1)
   %encoding_.i.i = getelementptr inbounds nuw i8, ptr %2, i64 28
@@ -36706,14 +36706,14 @@ lpad.i44.i:                                       ; preds = %invoke.cont.i45.i, 
   br label %ehcleanup.i
 
 invoke.cont.i:                                    ; preds = %invoke.cont.i45.i
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp47.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp47.i)
   store ptr %lhsDecoded.i, ptr %agg.tmp47.i, align 8
   %agg.tmp.sroa.2.0.agg.tmp47.sroa_idx.i = getelementptr inbounds nuw i8, ptr %agg.tmp47.i, i64 8
   store ptr %rhsDecoded.i, ptr %agg.tmp.sroa.2.0.agg.tmp47.sroa_idx.i, align 8
   %agg.tmp.sroa.3.0.agg.tmp47.sroa_idx.i = getelementptr inbounds nuw i8, ptr %agg.tmp47.i, i64 16
   store ptr %resultVector.i, ptr %agg.tmp.sroa.3.0.agg.tmp47.sroa_idx.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i.i.i.i)
   %allSelected_.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 36
   %_M_engaged.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 37
   %30 = load i8, ptr %_M_engaged.i.i.i.i.i.i, align 1
@@ -36999,7 +36999,7 @@ if.else.i.i.i:                                    ; preds = %_ZNK8facebook5velox
   %85 = load i32, ptr %begin_3.i.i.i, align 4
   %end_4.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 32
   %86 = load i32, ptr %end_4.i.i.i, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp6.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp6.i.i.i.i.i)
   store i8 1, ptr %agg.tmp6.i.i.i.i.i, align 8
   %agg.tmp.sroa.29.0.agg.tmp6.sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp6.i.i.i.i.i, i64 8
   store ptr %84, ptr %agg.tmp.sroa.29.0.agg.tmp6.sroa_idx.i.i.i.i.i, align 8
@@ -37064,10 +37064,10 @@ for.body.i.i.i25.i.i.i:                           ; preds = %if.end14.i.i.i.i.i.
   %add50.i.i.i.i.i.i = phi i32 [ %add.i.i.i.i.i.i, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE3ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i ], [ %add47.i.i.i.i.i.i, %if.end14.i.i.i.i.i.i ]
   %i.049.i.i.i.i.i.i = phi i32 [ %add50.i.i.i.i.i.i, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE3ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i ], [ %mul.i.i.i.i.i.i.i, %if.end14.i.i.i.i.i.i ]
   %div16.i.i.i.i.i.i = sdiv i32 %i.049.i.i.i.i.i.i, 64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i)
   %idxprom.i.i.i.i.i.i.i = sext i32 %div16.i.i.i.i.i.i to i64
   %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds i64, ptr %84, i64 %idxprom.i.i.i.i.i.i.i
   %91 = load i64, ptr %arrayidx.i.i.i.i.i.i.i, align 8
@@ -37480,10 +37480,10 @@ _ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBA
   br i1 %tobool7.not.i.i.i.i.i.i.i, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE3ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i, !llvm.loop !471
 
 _ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE3ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i: ; preds = %for.inc.i.i.i.i.i.i.i, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INS9_4avx2EEEE15applyComparisonILNS0_8TypeKindE3ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSF_0EeqT_LSF_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESQ_RS2_RSt10shared_ptrISP_EEUlT_E_EEvSO_SV_ENKUlSV_E_clIiEEDaSV_.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %for.body.i.i.i25.i.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i)
   %add.i.i.i.i.i.i = add nsw i32 %add50.i.i.i.i.i.i, 64
   %cmp15.not.i.i.i.i.i.i = icmp sgt i32 %add.i.i.i.i.i.i, %88
   br i1 %cmp15.not.i.i.i.i.i.i, label %for.end.i.i.i26.i.i.i, label %for.body.i.i.i25.i.i.i, !llvm.loop !472
@@ -37500,13 +37500,13 @@ if.then19.i.i.i.i.i.i:                            ; preds = %for.end.i.i.i26.i.i
   br label %if.then3.i.i.i27.i.i.invoke.i
 
 _ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE3ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiiSX_.exit.i.i.i: ; preds = %for.end.i.i.i26.i.i.i, %if.then3.i.i.i27.i.i.invoke.i, %if.else.i.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp6.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp6.i.i.i.i.i)
   br label %invoke.cont11.i
 
 invoke.cont11.i:                                  ; preds = %for.inc.i.i.i, %_ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE3ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiiSX_.exit.i.i.i, %if.then.i.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp47.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp47.i)
   %165 = load ptr, ptr %vector_.i42.i, align 8
   %cmp.i.not.i.i = icmp eq ptr %165, null
   %166 = ptrtoint ptr %165 to i64
@@ -38065,9 +38065,9 @@ if.end52.i:                                       ; preds = %_ZN8facebook5velox4
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INS6_4avx2EEEE15applyComparisonILNS0_8TypeKindE3ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSC_0EeqT_LSC_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESN_RNS0_4exec7EvalCtxERSt10shared_ptrISM_E.exit
 
 _ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INS6_4avx2EEEE15applyComparisonILNS0_8TypeKindE3ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSC_0EeqT_LSC_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESN_RNS0_4exec7EvalCtxERSt10shared_ptrISM_E.exit: ; preds = %_ZN8facebook5velox4exec18LocalDecodedVectorD2Ev.exit.i, %if.end.i65.thread.i, %if.end.i65.i, %_ZNKSt14default_deleteIN8facebook5velox13DecodedVectorEEclEPS2_.exit.i.i76.i, %if.end52.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %resultVector.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %lhsDecoded.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %rhsDecoded.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %resultVector.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %lhsDecoded.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %rhsDecoded.i)
   br label %sw.epilog
 
 sw.bb13:                                          ; preds = %entry
@@ -38080,9 +38080,9 @@ sw.bb13:                                          ; preds = %entry
   %227 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %228 = load ptr, ptr %227, align 8
   %.val2 = load ptr, ptr %228, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %resultVector.i19)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %lhsDecoded.i20)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %rhsDecoded.i21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %resultVector.i19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %lhsDecoded.i20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %rhsDecoded.i21)
   store ptr %.val2, ptr %resultVector.i19, align 8
   %call.i.i22 = tail call noundef ptr @_ZN8facebook5velox10FlatVectorIbE16mutableRawValuesEv(ptr noundef nonnull align 8 dereferenceable(184) %.val2)
   %encoding_.i.i23 = getelementptr inbounds nuw i8, ptr %2, i64 28
@@ -38214,14 +38214,14 @@ lpad.i44.i48:                                     ; preds = %invoke.cont.i45.i51
   br label %ehcleanup.i49
 
 invoke.cont.i52:                                  ; preds = %invoke.cont.i45.i51
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp47.i18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp47.i18)
   store ptr %lhsDecoded.i20, ptr %agg.tmp47.i18, align 8
   %agg.tmp.sroa.2.0.agg.tmp47.sroa_idx.i53 = getelementptr inbounds nuw i8, ptr %agg.tmp47.i18, i64 8
   store ptr %rhsDecoded.i21, ptr %agg.tmp.sroa.2.0.agg.tmp47.sroa_idx.i53, align 8
   %agg.tmp.sroa.3.0.agg.tmp47.sroa_idx.i54 = getelementptr inbounds nuw i8, ptr %agg.tmp47.i18, i64 16
   store ptr %resultVector.i19, ptr %agg.tmp.sroa.3.0.agg.tmp47.sroa_idx.i54, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i16)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i.i.i.i17)
   %allSelected_.i.i.i.i55 = getelementptr inbounds nuw i8, ptr %223, i64 36
   %_M_engaged.i.i.i.i.i.i56 = getelementptr inbounds nuw i8, ptr %223, i64 37
   %248 = load i8, ptr %_M_engaged.i.i.i.i.i.i56, align 1
@@ -38507,7 +38507,7 @@ if.else.i.i.i66:                                  ; preds = %_ZNK8facebook5velox
   %303 = load i32, ptr %begin_3.i.i.i67, align 4
   %end_4.i.i.i68 = getelementptr inbounds nuw i8, ptr %223, i64 32
   %304 = load i32, ptr %end_4.i.i.i68, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp6.i.i.i.i.i15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp6.i.i.i.i.i15)
   store i8 1, ptr %agg.tmp6.i.i.i.i.i15, align 8
   %agg.tmp.sroa.29.0.agg.tmp6.sroa_idx.i.i.i.i.i69 = getelementptr inbounds nuw i8, ptr %agg.tmp6.i.i.i.i.i15, i64 8
   store ptr %302, ptr %agg.tmp.sroa.29.0.agg.tmp6.sroa_idx.i.i.i.i.i69, align 8
@@ -38572,10 +38572,10 @@ for.body.i.i.i25.i.i.i209:                        ; preds = %if.end14.i.i.i.i.i.
   %add50.i.i.i.i.i.i210 = phi i32 [ %add.i.i.i.i.i.i215, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE1ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i ], [ %add47.i.i.i.i.i.i207, %if.end14.i.i.i.i.i.i206 ]
   %i.049.i.i.i.i.i.i211 = phi i32 [ %add50.i.i.i.i.i.i210, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE1ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i ], [ %mul.i.i.i.i.i.i.i189, %if.end14.i.i.i.i.i.i206 ]
   %div16.i.i.i.i.i.i212 = sdiv i32 %i.049.i.i.i.i.i.i211, 64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i11)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i12)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i13)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i14)
   %idxprom.i.i.i.i.i.i.i213 = sext i32 %div16.i.i.i.i.i.i212 to i64
   %arrayidx.i.i.i.i.i.i.i214 = getelementptr inbounds i64, ptr %302, i64 %idxprom.i.i.i.i.i.i.i213
   %309 = load i64, ptr %arrayidx.i.i.i.i.i.i.i214, align 8
@@ -38988,10 +38988,10 @@ _ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBA
   br i1 %tobool7.not.i.i.i.i.i.i.i358, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE1ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i308, !llvm.loop !494
 
 _ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE1ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i: ; preds = %for.inc.i.i.i.i.i.i.i282, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INS9_4avx2EEEE15applyComparisonILNS0_8TypeKindE1ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSF_0EeqT_LSF_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESQ_RS2_RSt10shared_ptrISP_EEUlT_E_EEvSO_SV_ENKUlSV_E_clIiEEDaSV_.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i225, %for.body.i.i.i25.i.i.i209
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i11)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i12)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i13)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i14)
   %add.i.i.i.i.i.i215 = add nsw i32 %add50.i.i.i.i.i.i210, 64
   %cmp15.not.i.i.i.i.i.i216 = icmp sgt i32 %add.i.i.i.i.i.i215, %306
   br i1 %cmp15.not.i.i.i.i.i.i216, label %for.end.i.i.i26.i.i.i217, label %for.body.i.i.i25.i.i.i209, !llvm.loop !495
@@ -39008,13 +39008,13 @@ if.then19.i.i.i.i.i.i219:                         ; preds = %for.end.i.i.i26.i.i
   br label %if.then3.i.i.i27.i.i.invoke.i224
 
 _ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE1ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiiSX_.exit.i.i.i: ; preds = %for.end.i.i.i26.i.i.i217, %if.then3.i.i.i27.i.i.invoke.i224, %if.else.i.i.i66
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp6.i.i.i.i.i15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp6.i.i.i.i.i15)
   br label %invoke.cont11.i73
 
 invoke.cont11.i73:                                ; preds = %for.inc.i.i.i444, %_ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE1ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiiSX_.exit.i.i.i, %if.then.i.i.i393
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i16)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i17)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp47.i18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11.i.i.i.i17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp47.i18)
   %383 = load ptr, ptr %vector_.i42.i46, align 8
   %cmp.i.not.i.i74 = icmp eq ptr %383, null
   %384 = ptrtoint ptr %383 to i64
@@ -39573,9 +39573,9 @@ if.end52.i507:                                    ; preds = %_ZN8facebook5velox4
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INS6_4avx2EEEE15applyComparisonILNS0_8TypeKindE1ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSC_0EeqT_LSC_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESN_RNS0_4exec7EvalCtxERSt10shared_ptrISM_E.exit
 
 _ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INS6_4avx2EEEE15applyComparisonILNS0_8TypeKindE1ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSC_0EeqT_LSC_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESN_RNS0_4exec7EvalCtxERSt10shared_ptrISM_E.exit: ; preds = %_ZN8facebook5velox4exec18LocalDecodedVectorD2Ev.exit.i88, %if.end.i65.thread.i108, %if.end.i65.i139, %_ZNKSt14default_deleteIN8facebook5velox13DecodedVectorEEclEPS2_.exit.i.i76.i102, %if.end52.i507
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %resultVector.i19)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %lhsDecoded.i20)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %rhsDecoded.i21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %resultVector.i19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %lhsDecoded.i20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %rhsDecoded.i21)
   br label %sw.epilog
 
 sw.bb18:                                          ; preds = %entry
@@ -39588,9 +39588,9 @@ sw.bb18:                                          ; preds = %entry
   %445 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %446 = load ptr, ptr %445, align 8
   %.val3 = load ptr, ptr %446, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %resultVector.i651)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %lhsDecoded.i652)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %rhsDecoded.i653)
+  call void @llvm.lifetime.start.p0(ptr nonnull %resultVector.i651)
+  call void @llvm.lifetime.start.p0(ptr nonnull %lhsDecoded.i652)
+  call void @llvm.lifetime.start.p0(ptr nonnull %rhsDecoded.i653)
   store ptr %.val3, ptr %resultVector.i651, align 8
   %call.i.i654 = tail call noundef ptr @_ZN8facebook5velox10FlatVectorIbE16mutableRawValuesEv(ptr noundef nonnull align 8 dereferenceable(184) %.val3)
   %encoding_.i.i655 = getelementptr inbounds nuw i8, ptr %2, i64 28
@@ -39722,14 +39722,14 @@ lpad.i44.i680:                                    ; preds = %invoke.cont.i45.i68
   br label %ehcleanup.i681
 
 invoke.cont.i684:                                 ; preds = %invoke.cont.i45.i683
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp47.i650)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp47.i650)
   store ptr %lhsDecoded.i652, ptr %agg.tmp47.i650, align 8
   %agg.tmp.sroa.2.0.agg.tmp47.sroa_idx.i685 = getelementptr inbounds nuw i8, ptr %agg.tmp47.i650, i64 8
   store ptr %rhsDecoded.i653, ptr %agg.tmp.sroa.2.0.agg.tmp47.sroa_idx.i685, align 8
   %agg.tmp.sroa.3.0.agg.tmp47.sroa_idx.i686 = getelementptr inbounds nuw i8, ptr %agg.tmp47.i650, i64 16
   store ptr %resultVector.i651, ptr %agg.tmp.sroa.3.0.agg.tmp47.sroa_idx.i686, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i648)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i649)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i648)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i.i.i.i649)
   %allSelected_.i.i.i.i687 = getelementptr inbounds nuw i8, ptr %441, i64 36
   %_M_engaged.i.i.i.i.i.i688 = getelementptr inbounds nuw i8, ptr %441, i64 37
   %466 = load i8, ptr %_M_engaged.i.i.i.i.i.i688, align 1
@@ -40015,7 +40015,7 @@ if.else.i.i.i698:                                 ; preds = %_ZNK8facebook5velox
   %521 = load i32, ptr %begin_3.i.i.i699, align 4
   %end_4.i.i.i700 = getelementptr inbounds nuw i8, ptr %441, i64 32
   %522 = load i32, ptr %end_4.i.i.i700, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp6.i.i.i.i.i647)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp6.i.i.i.i.i647)
   store i8 1, ptr %agg.tmp6.i.i.i.i.i647, align 8
   %agg.tmp.sroa.29.0.agg.tmp6.sroa_idx.i.i.i.i.i701 = getelementptr inbounds nuw i8, ptr %agg.tmp6.i.i.i.i.i647, i64 8
   store ptr %520, ptr %agg.tmp.sroa.29.0.agg.tmp6.sroa_idx.i.i.i.i.i701, align 8
@@ -40080,10 +40080,10 @@ for.body.i.i.i25.i.i.i796:                        ; preds = %if.end14.i.i.i.i.i.
   %add50.i.i.i.i.i.i797 = phi i32 [ %add.i.i.i.i.i.i802, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE2ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i ], [ %add47.i.i.i.i.i.i794, %if.end14.i.i.i.i.i.i793 ]
   %i.049.i.i.i.i.i.i798 = phi i32 [ %add50.i.i.i.i.i.i797, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE2ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i ], [ %mul.i.i.i.i.i.i.i776, %if.end14.i.i.i.i.i.i793 ]
   %div16.i.i.i.i.i.i799 = sdiv i32 %i.049.i.i.i.i.i.i798, 64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i643)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i644)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i645)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i646)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i643)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i644)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i645)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i646)
   %idxprom.i.i.i.i.i.i.i800 = sext i32 %div16.i.i.i.i.i.i799 to i64
   %arrayidx.i.i.i.i.i.i.i801 = getelementptr inbounds i64, ptr %520, i64 %idxprom.i.i.i.i.i.i.i800
   %527 = load i64, ptr %arrayidx.i.i.i.i.i.i.i801, align 8
@@ -40496,10 +40496,10 @@ _ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBA
   br i1 %tobool7.not.i.i.i.i.i.i.i945, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE2ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i895, !llvm.loop !517
 
 _ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE2ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i: ; preds = %for.inc.i.i.i.i.i.i.i869, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INS9_4avx2EEEE15applyComparisonILNS0_8TypeKindE2ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSF_0EeqT_LSF_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESQ_RS2_RSt10shared_ptrISP_EEUlT_E_EEvSO_SV_ENKUlSV_E_clIiEEDaSV_.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i812, %for.body.i.i.i25.i.i.i796
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i643)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i644)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i645)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i646)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i643)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i644)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i645)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i646)
   %add.i.i.i.i.i.i802 = add nsw i32 %add50.i.i.i.i.i.i797, 64
   %cmp15.not.i.i.i.i.i.i803 = icmp sgt i32 %add.i.i.i.i.i.i802, %524
   br i1 %cmp15.not.i.i.i.i.i.i803, label %for.end.i.i.i26.i.i.i804, label %for.body.i.i.i25.i.i.i796, !llvm.loop !518
@@ -40516,13 +40516,13 @@ if.then19.i.i.i.i.i.i806:                         ; preds = %for.end.i.i.i26.i.i
   br label %if.then3.i.i.i27.i.i.invoke.i811
 
 _ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE2ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiiSX_.exit.i.i.i: ; preds = %for.end.i.i.i26.i.i.i804, %if.then3.i.i.i27.i.i.invoke.i811, %if.else.i.i.i698
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp6.i.i.i.i.i647)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp6.i.i.i.i.i647)
   br label %invoke.cont11.i705
 
 invoke.cont11.i705:                               ; preds = %for.inc.i.i.i1031, %_ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE2ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiiSX_.exit.i.i.i, %if.then.i.i.i980
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i648)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i649)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp47.i650)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i648)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11.i.i.i.i649)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp47.i650)
   %601 = load ptr, ptr %vector_.i42.i678, align 8
   %cmp.i.not.i.i706 = icmp eq ptr %601, null
   %602 = ptrtoint ptr %601 to i64
@@ -41105,9 +41105,9 @@ if.end52.i1092:                                   ; preds = %_ZN8facebook5velox4
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INS6_4avx2EEEE15applyComparisonILNS0_8TypeKindE2ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSC_0EeqT_LSC_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESN_RNS0_4exec7EvalCtxERSt10shared_ptrISM_E.exit
 
 _ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INS6_4avx2EEEE15applyComparisonILNS0_8TypeKindE2ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSC_0EeqT_LSC_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESN_RNS0_4exec7EvalCtxERSt10shared_ptrISM_E.exit: ; preds = %_ZN8facebook5velox4exec18LocalDecodedVectorD2Ev.exit.i720, %if.end.i65.thread.i733, %if.end.i65.i735, %_ZNKSt14default_deleteIN8facebook5velox13DecodedVectorEEclEPS2_.exit.i.i76.i732, %if.end52.i1092
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %resultVector.i651)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %lhsDecoded.i652)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %rhsDecoded.i653)
+  call void @llvm.lifetime.end.p0(ptr nonnull %resultVector.i651)
+  call void @llvm.lifetime.end.p0(ptr nonnull %lhsDecoded.i652)
+  call void @llvm.lifetime.end.p0(ptr nonnull %rhsDecoded.i653)
   br label %sw.epilog
 
 sw.bb23:                                          ; preds = %entry
@@ -41120,9 +41120,9 @@ sw.bb23:                                          ; preds = %entry
   %679 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %680 = load ptr, ptr %679, align 8
   %.val4 = load ptr, ptr %680, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %resultVector.i1189)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %lhsDecoded.i1190)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %rhsDecoded.i1191)
+  call void @llvm.lifetime.start.p0(ptr nonnull %resultVector.i1189)
+  call void @llvm.lifetime.start.p0(ptr nonnull %lhsDecoded.i1190)
+  call void @llvm.lifetime.start.p0(ptr nonnull %rhsDecoded.i1191)
   store ptr %.val4, ptr %resultVector.i1189, align 8
   %call.i.i1192 = tail call noundef ptr @_ZN8facebook5velox10FlatVectorIbE16mutableRawValuesEv(ptr noundef nonnull align 8 dereferenceable(184) %.val4)
   %encoding_.i.i1193 = getelementptr inbounds nuw i8, ptr %2, i64 28
@@ -41254,14 +41254,14 @@ lpad.i44.i1218:                                   ; preds = %invoke.cont.i45.i12
   br label %ehcleanup.i1219
 
 invoke.cont.i1222:                                ; preds = %invoke.cont.i45.i1221
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp47.i1188)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp47.i1188)
   store ptr %lhsDecoded.i1190, ptr %agg.tmp47.i1188, align 8
   %agg.tmp.sroa.2.0.agg.tmp47.sroa_idx.i1223 = getelementptr inbounds nuw i8, ptr %agg.tmp47.i1188, i64 8
   store ptr %rhsDecoded.i1191, ptr %agg.tmp.sroa.2.0.agg.tmp47.sroa_idx.i1223, align 8
   %agg.tmp.sroa.3.0.agg.tmp47.sroa_idx.i1224 = getelementptr inbounds nuw i8, ptr %agg.tmp47.i1188, i64 16
   store ptr %resultVector.i1189, ptr %agg.tmp.sroa.3.0.agg.tmp47.sroa_idx.i1224, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i1186)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i1187)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i1186)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i.i.i.i1187)
   %allSelected_.i.i.i.i1225 = getelementptr inbounds nuw i8, ptr %675, i64 36
   %_M_engaged.i.i.i.i.i.i1226 = getelementptr inbounds nuw i8, ptr %675, i64 37
   %700 = load i8, ptr %_M_engaged.i.i.i.i.i.i1226, align 1
@@ -41547,7 +41547,7 @@ if.else.i.i.i1236:                                ; preds = %_ZNK8facebook5velox
   %755 = load i32, ptr %begin_3.i.i.i1237, align 4
   %end_4.i.i.i1238 = getelementptr inbounds nuw i8, ptr %675, i64 32
   %756 = load i32, ptr %end_4.i.i.i1238, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp6.i.i.i.i.i1185)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp6.i.i.i.i.i1185)
   store i8 1, ptr %agg.tmp6.i.i.i.i.i1185, align 8
   %agg.tmp.sroa.29.0.agg.tmp6.sroa_idx.i.i.i.i.i1239 = getelementptr inbounds nuw i8, ptr %agg.tmp6.i.i.i.i.i1185, i64 8
   store ptr %754, ptr %agg.tmp.sroa.29.0.agg.tmp6.sroa_idx.i.i.i.i.i1239, align 8
@@ -41612,10 +41612,10 @@ for.body.i.i.i25.i.i.i1335:                       ; preds = %if.end14.i.i.i.i.i.
   %add50.i.i.i.i.i.i1336 = phi i32 [ %add.i.i.i.i.i.i1341, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE4ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i ], [ %add47.i.i.i.i.i.i1333, %if.end14.i.i.i.i.i.i1332 ]
   %i.049.i.i.i.i.i.i1337 = phi i32 [ %add50.i.i.i.i.i.i1336, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE4ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i ], [ %mul.i.i.i.i.i.i.i1315, %if.end14.i.i.i.i.i.i1332 ]
   %div16.i.i.i.i.i.i1338 = sdiv i32 %i.049.i.i.i.i.i.i1337, 64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i1181)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i1182)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i1183)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i1184)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i1181)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i1182)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i1183)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i1184)
   %idxprom.i.i.i.i.i.i.i1339 = sext i32 %div16.i.i.i.i.i.i1338 to i64
   %arrayidx.i.i.i.i.i.i.i1340 = getelementptr inbounds i64, ptr %754, i64 %idxprom.i.i.i.i.i.i.i1339
   %761 = load i64, ptr %arrayidx.i.i.i.i.i.i.i1340, align 8
@@ -42028,10 +42028,10 @@ _ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBA
   br i1 %tobool7.not.i.i.i.i.i.i.i1484, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE4ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i1434, !llvm.loop !540
 
 _ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE4ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i: ; preds = %for.inc.i.i.i.i.i.i.i1408, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INS9_4avx2EEEE15applyComparisonILNS0_8TypeKindE4ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSF_0EeqT_LSF_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESQ_RS2_RSt10shared_ptrISP_EEUlT_E_EEvSO_SV_ENKUlSV_E_clIiEEDaSV_.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i1351, %for.body.i.i.i25.i.i.i1335
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i1181)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i1182)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i1183)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i1184)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i1181)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i1182)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i1183)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i1184)
   %add.i.i.i.i.i.i1341 = add nsw i32 %add50.i.i.i.i.i.i1336, 64
   %cmp15.not.i.i.i.i.i.i1342 = icmp sgt i32 %add.i.i.i.i.i.i1341, %758
   br i1 %cmp15.not.i.i.i.i.i.i1342, label %for.end.i.i.i26.i.i.i1343, label %for.body.i.i.i25.i.i.i1335, !llvm.loop !541
@@ -42048,13 +42048,13 @@ if.then19.i.i.i.i.i.i1345:                        ; preds = %for.end.i.i.i26.i.i
   br label %if.then3.i.i.i27.i.i.invoke.i1350
 
 _ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE4ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiiSX_.exit.i.i.i: ; preds = %for.end.i.i.i26.i.i.i1343, %if.then3.i.i.i27.i.i.invoke.i1350, %if.else.i.i.i1236
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp6.i.i.i.i.i1185)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp6.i.i.i.i.i1185)
   br label %invoke.cont11.i1243
 
 invoke.cont11.i1243:                              ; preds = %for.inc.i.i.i1570, %_ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE4ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiiSX_.exit.i.i.i, %if.then.i.i.i1519
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i1186)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i1187)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp47.i1188)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i1186)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11.i.i.i.i1187)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp47.i1188)
   %835 = load ptr, ptr %vector_.i42.i1216, align 8
   %cmp.i.not.i.i1244 = icmp eq ptr %835, null
   %836 = ptrtoint ptr %835 to i64
@@ -42698,9 +42698,9 @@ if.end52.i1630:                                   ; preds = %_ZN8facebook5velox4
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INS6_4avx2EEEE15applyComparisonILNS0_8TypeKindE4ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSC_0EeqT_LSC_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESN_RNS0_4exec7EvalCtxERSt10shared_ptrISM_E.exit
 
 _ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INS6_4avx2EEEE15applyComparisonILNS0_8TypeKindE4ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSC_0EeqT_LSC_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESN_RNS0_4exec7EvalCtxERSt10shared_ptrISM_E.exit: ; preds = %_ZN8facebook5velox4exec18LocalDecodedVectorD2Ev.exit.i1258, %if.end.i65.thread.i1271, %if.end.i65.i1273, %_ZNKSt14default_deleteIN8facebook5velox13DecodedVectorEEclEPS2_.exit.i.i76.i1270, %if.end52.i1630
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %resultVector.i1189)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %lhsDecoded.i1190)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %rhsDecoded.i1191)
+  call void @llvm.lifetime.end.p0(ptr nonnull %resultVector.i1189)
+  call void @llvm.lifetime.end.p0(ptr nonnull %lhsDecoded.i1190)
+  call void @llvm.lifetime.end.p0(ptr nonnull %rhsDecoded.i1191)
   br label %sw.epilog
 
 sw.bb28:                                          ; preds = %entry
@@ -42726,9 +42726,9 @@ sw.bb33:                                          ; preds = %entry
   %940 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %941 = load ptr, ptr %940, align 8
   %.val5 = load ptr, ptr %941, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %resultVector.i1719)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %lhsDecoded.i1720)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %rhsDecoded.i1721)
+  call void @llvm.lifetime.start.p0(ptr nonnull %resultVector.i1719)
+  call void @llvm.lifetime.start.p0(ptr nonnull %lhsDecoded.i1720)
+  call void @llvm.lifetime.start.p0(ptr nonnull %rhsDecoded.i1721)
   store ptr %.val5, ptr %resultVector.i1719, align 8
   %call.i.i1722 = tail call noundef ptr @_ZN8facebook5velox10FlatVectorIbE16mutableRawValuesEv(ptr noundef nonnull align 8 dereferenceable(184) %.val5)
   %encoding_.i.i1723 = getelementptr inbounds nuw i8, ptr %2, i64 28
@@ -42860,14 +42860,14 @@ lpad.i44.i1748:                                   ; preds = %invoke.cont.i45.i17
   br label %ehcleanup.i1749
 
 invoke.cont.i1752:                                ; preds = %invoke.cont.i45.i1751
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp47.i1718)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp47.i1718)
   store ptr %lhsDecoded.i1720, ptr %agg.tmp47.i1718, align 8
   %agg.tmp.sroa.2.0.agg.tmp47.sroa_idx.i1753 = getelementptr inbounds nuw i8, ptr %agg.tmp47.i1718, i64 8
   store ptr %rhsDecoded.i1721, ptr %agg.tmp.sroa.2.0.agg.tmp47.sroa_idx.i1753, align 8
   %agg.tmp.sroa.3.0.agg.tmp47.sroa_idx.i1754 = getelementptr inbounds nuw i8, ptr %agg.tmp47.i1718, i64 16
   store ptr %resultVector.i1719, ptr %agg.tmp.sroa.3.0.agg.tmp47.sroa_idx.i1754, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i1716)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i1717)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i1716)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i.i.i.i1717)
   %allSelected_.i.i.i.i1755 = getelementptr inbounds nuw i8, ptr %936, i64 36
   %_M_engaged.i.i.i.i.i.i1756 = getelementptr inbounds nuw i8, ptr %936, i64 37
   %961 = load i8, ptr %_M_engaged.i.i.i.i.i.i1756, align 1
@@ -43153,7 +43153,7 @@ if.else.i.i.i1766:                                ; preds = %_ZNK8facebook5velox
   %1016 = load i32, ptr %begin_3.i.i.i1767, align 4
   %end_4.i.i.i1768 = getelementptr inbounds nuw i8, ptr %936, i64 32
   %1017 = load i32, ptr %end_4.i.i.i1768, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp6.i.i.i.i.i1715)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp6.i.i.i.i.i1715)
   store i8 1, ptr %agg.tmp6.i.i.i.i.i1715, align 8
   %agg.tmp.sroa.29.0.agg.tmp6.sroa_idx.i.i.i.i.i1769 = getelementptr inbounds nuw i8, ptr %agg.tmp6.i.i.i.i.i1715, i64 8
   store ptr %1015, ptr %agg.tmp.sroa.29.0.agg.tmp6.sroa_idx.i.i.i.i.i1769, align 8
@@ -43218,10 +43218,10 @@ for.body.i.i.i25.i.i.i1865:                       ; preds = %if.end14.i.i.i.i.i.
   %add50.i.i.i.i.i.i1866 = phi i32 [ %add.i.i.i.i.i.i1871, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE5ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i ], [ %add47.i.i.i.i.i.i1863, %if.end14.i.i.i.i.i.i1862 ]
   %i.049.i.i.i.i.i.i1867 = phi i32 [ %add50.i.i.i.i.i.i1866, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE5ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i ], [ %mul.i.i.i.i.i.i.i1845, %if.end14.i.i.i.i.i.i1862 ]
   %div16.i.i.i.i.i.i1868 = sdiv i32 %i.049.i.i.i.i.i.i1867, 64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i1711)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i1712)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i1713)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i1714)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i1711)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i1712)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i1713)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i1714)
   %idxprom.i.i.i.i.i.i.i1869 = sext i32 %div16.i.i.i.i.i.i1868 to i64
   %arrayidx.i.i.i.i.i.i.i1870 = getelementptr inbounds i64, ptr %1015, i64 %idxprom.i.i.i.i.i.i.i1869
   %1022 = load i64, ptr %arrayidx.i.i.i.i.i.i.i1870, align 8
@@ -43634,10 +43634,10 @@ _ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBA
   br i1 %tobool7.not.i.i.i.i.i.i.i2014, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE5ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i1964, !llvm.loop !567
 
 _ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE5ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i: ; preds = %for.inc.i.i.i.i.i.i.i1938, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INS9_4avx2EEEE15applyComparisonILNS0_8TypeKindE5ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSF_0EeqT_LSF_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESQ_RS2_RSt10shared_ptrISP_EEUlT_E_EEvSO_SV_ENKUlSV_E_clIiEEDaSV_.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i1881, %for.body.i.i.i25.i.i.i1865
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i1711)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i1712)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i1713)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i1714)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i1711)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i1712)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i1713)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i1714)
   %add.i.i.i.i.i.i1871 = add nsw i32 %add50.i.i.i.i.i.i1866, 64
   %cmp15.not.i.i.i.i.i.i1872 = icmp sgt i32 %add.i.i.i.i.i.i1871, %1019
   br i1 %cmp15.not.i.i.i.i.i.i1872, label %for.end.i.i.i26.i.i.i1873, label %for.body.i.i.i25.i.i.i1865, !llvm.loop !568
@@ -43654,13 +43654,13 @@ if.then19.i.i.i.i.i.i1875:                        ; preds = %for.end.i.i.i26.i.i
   br label %if.then3.i.i.i27.i.i.invoke.i1880
 
 _ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE5ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiiSX_.exit.i.i.i: ; preds = %for.end.i.i.i26.i.i.i1873, %if.then3.i.i.i27.i.i.invoke.i1880, %if.else.i.i.i1766
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp6.i.i.i.i.i1715)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp6.i.i.i.i.i1715)
   br label %invoke.cont11.i1773
 
 invoke.cont11.i1773:                              ; preds = %for.inc.i.i.i2100, %_ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE5ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiiSX_.exit.i.i.i, %if.then.i.i.i2049
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i1716)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i1717)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp47.i1718)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i1716)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11.i.i.i.i1717)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp47.i1718)
   %1096 = load ptr, ptr %vector_.i42.i1746, align 8
   %cmp.i.not.i.i1774 = icmp eq ptr %1096, null
   %1097 = ptrtoint ptr %1096 to i64
@@ -44219,9 +44219,9 @@ if.end52.i2161:                                   ; preds = %_ZN8facebook5velox4
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INS6_4avx2EEEE15applyComparisonILNS0_8TypeKindE5ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSC_0EeqT_LSC_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESN_RNS0_4exec7EvalCtxERSt10shared_ptrISM_E.exit
 
 _ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INS6_4avx2EEEE15applyComparisonILNS0_8TypeKindE5ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSC_0EeqT_LSC_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESN_RNS0_4exec7EvalCtxERSt10shared_ptrISM_E.exit: ; preds = %_ZN8facebook5velox4exec18LocalDecodedVectorD2Ev.exit.i1788, %if.end.i65.thread.i1801, %if.end.i65.i1804, %_ZNKSt14default_deleteIN8facebook5velox13DecodedVectorEEclEPS2_.exit.i.i76.i1800, %if.end52.i2161
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %resultVector.i1719)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %lhsDecoded.i1720)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %rhsDecoded.i1721)
+  call void @llvm.lifetime.end.p0(ptr nonnull %resultVector.i1719)
+  call void @llvm.lifetime.end.p0(ptr nonnull %lhsDecoded.i1720)
+  call void @llvm.lifetime.end.p0(ptr nonnull %rhsDecoded.i1721)
   br label %sw.epilog
 
 sw.bb38:                                          ; preds = %entry
@@ -44234,9 +44234,9 @@ sw.bb38:                                          ; preds = %entry
   %1162 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %1163 = load ptr, ptr %1162, align 8
   %.val6 = load ptr, ptr %1163, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %resultVector.i2276)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %lhsDecoded.i2277)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %rhsDecoded.i2278)
+  call void @llvm.lifetime.start.p0(ptr nonnull %resultVector.i2276)
+  call void @llvm.lifetime.start.p0(ptr nonnull %lhsDecoded.i2277)
+  call void @llvm.lifetime.start.p0(ptr nonnull %rhsDecoded.i2278)
   store ptr %.val6, ptr %resultVector.i2276, align 8
   %call.i.i2279 = tail call noundef ptr @_ZN8facebook5velox10FlatVectorIbE16mutableRawValuesEv(ptr noundef nonnull align 8 dereferenceable(184) %.val6)
   %encoding_.i.i2280 = getelementptr inbounds nuw i8, ptr %2, i64 28
@@ -44368,14 +44368,14 @@ lpad.i44.i2305:                                   ; preds = %invoke.cont.i45.i23
   br label %ehcleanup.i2306
 
 invoke.cont.i2309:                                ; preds = %invoke.cont.i45.i2308
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp47.i2275)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp47.i2275)
   store ptr %lhsDecoded.i2277, ptr %agg.tmp47.i2275, align 8
   %agg.tmp.sroa.2.0.agg.tmp47.sroa_idx.i2310 = getelementptr inbounds nuw i8, ptr %agg.tmp47.i2275, i64 8
   store ptr %rhsDecoded.i2278, ptr %agg.tmp.sroa.2.0.agg.tmp47.sroa_idx.i2310, align 8
   %agg.tmp.sroa.3.0.agg.tmp47.sroa_idx.i2311 = getelementptr inbounds nuw i8, ptr %agg.tmp47.i2275, i64 16
   store ptr %resultVector.i2276, ptr %agg.tmp.sroa.3.0.agg.tmp47.sroa_idx.i2311, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i2273)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i2274)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i2273)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i.i.i.i2274)
   %allSelected_.i.i.i.i2312 = getelementptr inbounds nuw i8, ptr %1158, i64 36
   %_M_engaged.i.i.i.i.i.i2313 = getelementptr inbounds nuw i8, ptr %1158, i64 37
   %1183 = load i8, ptr %_M_engaged.i.i.i.i.i.i2313, align 1
@@ -44661,7 +44661,7 @@ if.else.i.i.i2323:                                ; preds = %_ZNK8facebook5velox
   %1238 = load i32, ptr %begin_3.i.i.i2324, align 4
   %end_4.i.i.i2325 = getelementptr inbounds nuw i8, ptr %1158, i64 32
   %1239 = load i32, ptr %end_4.i.i.i2325, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp6.i.i.i.i.i2272)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp6.i.i.i.i.i2272)
   store i8 1, ptr %agg.tmp6.i.i.i.i.i2272, align 8
   %agg.tmp.sroa.29.0.agg.tmp6.sroa_idx.i.i.i.i.i2326 = getelementptr inbounds nuw i8, ptr %agg.tmp6.i.i.i.i.i2272, i64 8
   store ptr %1237, ptr %agg.tmp.sroa.29.0.agg.tmp6.sroa_idx.i.i.i.i.i2326, align 8
@@ -44726,10 +44726,10 @@ for.body.i.i.i25.i.i.i2422:                       ; preds = %if.end14.i.i.i.i.i.
   %add50.i.i.i.i.i.i2423 = phi i32 [ %add.i.i.i.i.i.i2428, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE6ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i ], [ %add47.i.i.i.i.i.i2420, %if.end14.i.i.i.i.i.i2419 ]
   %i.049.i.i.i.i.i.i2424 = phi i32 [ %add50.i.i.i.i.i.i2423, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE6ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i ], [ %mul.i.i.i.i.i.i.i2402, %if.end14.i.i.i.i.i.i2419 ]
   %div16.i.i.i.i.i.i2425 = sdiv i32 %i.049.i.i.i.i.i.i2424, 64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i2268)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i2269)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i2270)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i2271)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i2268)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i2269)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i2270)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i2271)
   %idxprom.i.i.i.i.i.i.i2426 = sext i32 %div16.i.i.i.i.i.i2425 to i64
   %arrayidx.i.i.i.i.i.i.i2427 = getelementptr inbounds i64, ptr %1237, i64 %idxprom.i.i.i.i.i.i.i2426
   %1244 = load i64, ptr %arrayidx.i.i.i.i.i.i.i2427, align 8
@@ -45142,10 +45142,10 @@ _ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBA
   br i1 %tobool7.not.i.i.i.i.i.i.i2571, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE6ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i2521, !llvm.loop !590
 
 _ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE6ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i: ; preds = %for.inc.i.i.i.i.i.i.i2495, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INS9_4avx2EEEE15applyComparisonILNS0_8TypeKindE6ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSF_0EeqT_LSF_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESQ_RS2_RSt10shared_ptrISP_EEUlT_E_EEvSO_SV_ENKUlSV_E_clIiEEDaSV_.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i2438, %for.body.i.i.i25.i.i.i2422
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i2268)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i2269)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i2270)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i2271)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i2268)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i2269)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i2270)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i2271)
   %add.i.i.i.i.i.i2428 = add nsw i32 %add50.i.i.i.i.i.i2423, 64
   %cmp15.not.i.i.i.i.i.i2429 = icmp sgt i32 %add.i.i.i.i.i.i2428, %1241
   br i1 %cmp15.not.i.i.i.i.i.i2429, label %for.end.i.i.i26.i.i.i2430, label %for.body.i.i.i25.i.i.i2422, !llvm.loop !591
@@ -45162,13 +45162,13 @@ if.then19.i.i.i.i.i.i2432:                        ; preds = %for.end.i.i.i26.i.i
   br label %if.then3.i.i.i27.i.i.invoke.i2437
 
 _ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE6ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiiSX_.exit.i.i.i: ; preds = %for.end.i.i.i26.i.i.i2430, %if.then3.i.i.i27.i.i.invoke.i2437, %if.else.i.i.i2323
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp6.i.i.i.i.i2272)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp6.i.i.i.i.i2272)
   br label %invoke.cont11.i2330
 
 invoke.cont11.i2330:                              ; preds = %for.inc.i.i.i2657, %_ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE6ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiiSX_.exit.i.i.i, %if.then.i.i.i2606
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i2273)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i2274)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp47.i2275)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i2273)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11.i.i.i.i2274)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp47.i2275)
   %1318 = load ptr, ptr %vector_.i42.i2303, align 8
   %cmp.i.not.i.i2331 = icmp eq ptr %1318, null
   %1319 = ptrtoint ptr %1318 to i64
@@ -45812,9 +45812,9 @@ if.end52.i2718:                                   ; preds = %_ZN8facebook5velox4
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INS6_4avx2EEEE15applyComparisonILNS0_8TypeKindE6ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSC_0EeqT_LSC_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESN_RNS0_4exec7EvalCtxERSt10shared_ptrISM_E.exit
 
 _ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt4lessIvEN5xsimd4fma3INS6_4avx2EEEE15applyComparisonILNS0_8TypeKindE6ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSC_0EeqT_LSC_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESN_RNS0_4exec7EvalCtxERSt10shared_ptrISM_E.exit: ; preds = %_ZN8facebook5velox4exec18LocalDecodedVectorD2Ev.exit.i2345, %if.end.i65.thread.i2358, %if.end.i65.i2360, %_ZNKSt14default_deleteIN8facebook5velox13DecodedVectorEEclEPS2_.exit.i.i76.i2357, %if.end52.i2718
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %resultVector.i2276)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %lhsDecoded.i2277)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %rhsDecoded.i2278)
+  call void @llvm.lifetime.end.p0(ptr nonnull %resultVector.i2276)
+  call void @llvm.lifetime.end.p0(ptr nonnull %lhsDecoded.i2277)
+  call void @llvm.lifetime.end.p0(ptr nonnull %rhsDecoded.i2278)
   br label %sw.epilog
 
 sw.default:                                       ; preds = %entry
@@ -47688,14 +47688,14 @@ lpad.i20:                                         ; preds = %invoke.cont.i21, %_
   br label %ehcleanup
 
 invoke.cont:                                      ; preds = %invoke.cont.i21
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp23)
   store ptr %lhsDecoded, ptr %agg.tmp23, align 8
   %agg.tmp.sroa.2.0.agg.tmp23.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp23, i64 8
   store ptr %rhsDecoded, ptr %agg.tmp.sroa.2.0.agg.tmp23.sroa_idx, align 8
   %agg.tmp.sroa.3.0.agg.tmp23.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp23, i64 16
   store ptr %resultVector, ptr %agg.tmp.sroa.3.0.agg.tmp23.sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i.i.i)
   %allSelected_.i.i.i = getelementptr inbounds nuw i8, ptr %rows, i64 36
   %_M_engaged.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %rows, i64 37
   %18 = load i8, ptr %_M_engaged.i.i.i.i.i, align 1
@@ -47983,7 +47983,7 @@ if.else.i.i:                                      ; preds = %_ZNK8facebook5velox
   %71 = load i32, ptr %begin_3.i.i, align 4
   %end_4.i.i = getelementptr inbounds nuw i8, ptr %rows, i64 32
   %72 = load i32, ptr %end_4.i.i, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp6.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp6.i.i.i.i)
   store i8 1, ptr %agg.tmp6.i.i.i.i, align 8
   %agg.tmp.sroa.29.0.agg.tmp6.sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp6.i.i.i.i, i64 8
   store ptr %70, ptr %agg.tmp.sroa.29.0.agg.tmp6.sroa_idx.i.i.i.i, align 8
@@ -48048,10 +48048,10 @@ for.body.i.i.i25.i.i:                             ; preds = %if.end14.i.i.i.i.i,
   %add50.i.i.i.i.i = phi i32 [ %add.i.i.i.i.i, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE10ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i ], [ %add47.i.i.i.i.i, %if.end14.i.i.i.i.i ]
   %i.049.i.i.i.i.i = phi i32 [ %add50.i.i.i.i.i, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE10ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i ], [ %mul.i.i.i.i.i.i, %if.end14.i.i.i.i.i ]
   %div16.i.i.i.i.i = sdiv i32 %i.049.i.i.i.i.i, 64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i15.i.i.i.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp12.i.i.i.i.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i15.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp12.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i.i.i.i.i.i.i)
   %idxprom.i.i.i.i.i.i = sext i32 %div16.i.i.i.i.i to i64
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds i64, ptr %70, i64 %idxprom.i.i.i.i.i.i
   %77 = load i64, ptr %arrayidx.i.i.i.i.i.i, align 8
@@ -48468,10 +48468,10 @@ _ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBA
   br i1 %tobool7.not.i.i.i.i.i.i, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE10ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i, label %while.body.i.i.i.i.i.i, !llvm.loop !617
 
 _ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE10ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i: ; preds = %for.inc.i.i.i.i.i.i, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INS9_4avx2EEEE15applyComparisonILNS0_8TypeKindE10ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSF_0EeqT_LSF_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESQ_RS2_RSt10shared_ptrISP_EEUlT_E_EEvSO_SV_ENKUlSV_E_clIiEEDaSV_.exit.i.i.i.i.i.i, %if.then.i.i.i.i.i.i, %for.body.i.i.i25.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i15.i.i.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp12.i.i.i.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i15.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp12.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11.i.i.i.i.i.i.i)
   %add.i.i.i.i.i = add nsw i32 %add50.i.i.i.i.i, 64
   %cmp15.not.i.i.i.i.i = icmp sgt i32 %add.i.i.i.i.i, %74
   br i1 %cmp15.not.i.i.i.i.i, label %for.end.i.i.i26.i.i, label %for.body.i.i.i25.i.i, !llvm.loop !618
@@ -48488,13 +48488,13 @@ if.then19.i.i.i.i.i:                              ; preds = %for.end.i.i.i26.i.i
   br label %if.then3.i.i.i27.i.i.invoke
 
 _ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE10ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiiSX_.exit.i.i: ; preds = %if.then3.i.i.i27.i.i.invoke, %for.end.i.i.i26.i.i, %if.else.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp6.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp6.i.i.i.i)
   br label %invoke.cont12
 
 invoke.cont12:                                    ; preds = %for.inc.i.i, %_ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE10ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiiSX_.exit.i.i, %if.then.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp23)
   %147 = load ptr, ptr %vector_.i18, align 8
   %cmp.i.not.i = icmp eq ptr %147, null
   %148 = ptrtoint ptr %147 to i64
@@ -48879,9 +48879,9 @@ sw.bb8:                                           ; preds = %entry
   %9 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %10 = load ptr, ptr %9, align 8
   %.val1 = load ptr, ptr %10, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %resultVector.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %lhsDecoded.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %rhsDecoded.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %resultVector.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %lhsDecoded.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %rhsDecoded.i)
   store ptr %.val1, ptr %resultVector.i, align 8
   %call.i.i = tail call noundef ptr @_ZN8facebook5velox10FlatVectorIbE16mutableRawValuesEv(ptr noundef nonnull align 8 dereferenceable(184) %.val1)
   %encoding_.i.i = getelementptr inbounds nuw i8, ptr %2, i64 28
@@ -49017,14 +49017,14 @@ lpad.i44.i:                                       ; preds = %invoke.cont.i45.i, 
   br label %ehcleanup.i
 
 invoke.cont.i:                                    ; preds = %invoke.cont.i45.i
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp47.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp47.i)
   store ptr %lhsDecoded.i, ptr %agg.tmp47.i, align 8
   %agg.tmp.sroa.2.0.agg.tmp47.sroa_idx.i = getelementptr inbounds nuw i8, ptr %agg.tmp47.i, i64 8
   store ptr %rhsDecoded.i, ptr %agg.tmp.sroa.2.0.agg.tmp47.sroa_idx.i, align 8
   %agg.tmp.sroa.3.0.agg.tmp47.sroa_idx.i = getelementptr inbounds nuw i8, ptr %agg.tmp47.i, i64 16
   store ptr %resultVector.i, ptr %agg.tmp.sroa.3.0.agg.tmp47.sroa_idx.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i.i.i.i)
   %allSelected_.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 36
   %_M_engaged.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 37
   %30 = load i8, ptr %_M_engaged.i.i.i.i.i.i, align 1
@@ -49310,7 +49310,7 @@ if.else.i.i.i:                                    ; preds = %_ZNK8facebook5velox
   %85 = load i32, ptr %begin_3.i.i.i, align 4
   %end_4.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 32
   %86 = load i32, ptr %end_4.i.i.i, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp6.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp6.i.i.i.i.i)
   store i8 1, ptr %agg.tmp6.i.i.i.i.i, align 8
   %agg.tmp.sroa.29.0.agg.tmp6.sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp6.i.i.i.i.i, i64 8
   store ptr %84, ptr %agg.tmp.sroa.29.0.agg.tmp6.sroa_idx.i.i.i.i.i, align 8
@@ -49375,10 +49375,10 @@ for.body.i.i.i25.i.i.i:                           ; preds = %if.end14.i.i.i.i.i.
   %add50.i.i.i.i.i.i = phi i32 [ %add.i.i.i.i.i.i, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE3ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i ], [ %add47.i.i.i.i.i.i, %if.end14.i.i.i.i.i.i ]
   %i.049.i.i.i.i.i.i = phi i32 [ %add50.i.i.i.i.i.i, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE3ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i ], [ %mul.i.i.i.i.i.i.i, %if.end14.i.i.i.i.i.i ]
   %div16.i.i.i.i.i.i = sdiv i32 %i.049.i.i.i.i.i.i, 64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i)
   %idxprom.i.i.i.i.i.i.i = sext i32 %div16.i.i.i.i.i.i to i64
   %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds i64, ptr %84, i64 %idxprom.i.i.i.i.i.i.i
   %91 = load i64, ptr %arrayidx.i.i.i.i.i.i.i, align 8
@@ -49791,10 +49791,10 @@ _ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBA
   br i1 %tobool7.not.i.i.i.i.i.i.i, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE3ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i, !llvm.loop !631
 
 _ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE3ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i: ; preds = %for.inc.i.i.i.i.i.i.i, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INS9_4avx2EEEE15applyComparisonILNS0_8TypeKindE3ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSF_0EeqT_LSF_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESQ_RS2_RSt10shared_ptrISP_EEUlT_E_EEvSO_SV_ENKUlSV_E_clIiEEDaSV_.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %for.body.i.i.i25.i.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i)
   %add.i.i.i.i.i.i = add nsw i32 %add50.i.i.i.i.i.i, 64
   %cmp15.not.i.i.i.i.i.i = icmp sgt i32 %add.i.i.i.i.i.i, %88
   br i1 %cmp15.not.i.i.i.i.i.i, label %for.end.i.i.i26.i.i.i, label %for.body.i.i.i25.i.i.i, !llvm.loop !632
@@ -49811,13 +49811,13 @@ if.then19.i.i.i.i.i.i:                            ; preds = %for.end.i.i.i26.i.i
   br label %if.then3.i.i.i27.i.i.invoke.i
 
 _ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE3ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiiSX_.exit.i.i.i: ; preds = %for.end.i.i.i26.i.i.i, %if.then3.i.i.i27.i.i.invoke.i, %if.else.i.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp6.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp6.i.i.i.i.i)
   br label %invoke.cont11.i
 
 invoke.cont11.i:                                  ; preds = %for.inc.i.i.i, %_ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE3ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiiSX_.exit.i.i.i, %if.then.i.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp47.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp47.i)
   %165 = load ptr, ptr %vector_.i42.i, align 8
   %cmp.i.not.i.i = icmp eq ptr %165, null
   %166 = ptrtoint ptr %165 to i64
@@ -50376,9 +50376,9 @@ if.end52.i:                                       ; preds = %_ZN8facebook5velox4
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INS6_4avx2EEEE15applyComparisonILNS0_8TypeKindE3ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSC_0EeqT_LSC_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESN_RNS0_4exec7EvalCtxERSt10shared_ptrISM_E.exit
 
 _ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INS6_4avx2EEEE15applyComparisonILNS0_8TypeKindE3ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSC_0EeqT_LSC_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESN_RNS0_4exec7EvalCtxERSt10shared_ptrISM_E.exit: ; preds = %_ZN8facebook5velox4exec18LocalDecodedVectorD2Ev.exit.i, %if.end.i65.thread.i, %if.end.i65.i, %_ZNKSt14default_deleteIN8facebook5velox13DecodedVectorEEclEPS2_.exit.i.i76.i, %if.end52.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %resultVector.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %lhsDecoded.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %rhsDecoded.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %resultVector.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %lhsDecoded.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %rhsDecoded.i)
   br label %sw.epilog
 
 sw.bb13:                                          ; preds = %entry
@@ -50391,9 +50391,9 @@ sw.bb13:                                          ; preds = %entry
   %227 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %228 = load ptr, ptr %227, align 8
   %.val2 = load ptr, ptr %228, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %resultVector.i19)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %lhsDecoded.i20)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %rhsDecoded.i21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %resultVector.i19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %lhsDecoded.i20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %rhsDecoded.i21)
   store ptr %.val2, ptr %resultVector.i19, align 8
   %call.i.i22 = tail call noundef ptr @_ZN8facebook5velox10FlatVectorIbE16mutableRawValuesEv(ptr noundef nonnull align 8 dereferenceable(184) %.val2)
   %encoding_.i.i23 = getelementptr inbounds nuw i8, ptr %2, i64 28
@@ -50525,14 +50525,14 @@ lpad.i44.i48:                                     ; preds = %invoke.cont.i45.i51
   br label %ehcleanup.i49
 
 invoke.cont.i52:                                  ; preds = %invoke.cont.i45.i51
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp47.i18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp47.i18)
   store ptr %lhsDecoded.i20, ptr %agg.tmp47.i18, align 8
   %agg.tmp.sroa.2.0.agg.tmp47.sroa_idx.i53 = getelementptr inbounds nuw i8, ptr %agg.tmp47.i18, i64 8
   store ptr %rhsDecoded.i21, ptr %agg.tmp.sroa.2.0.agg.tmp47.sroa_idx.i53, align 8
   %agg.tmp.sroa.3.0.agg.tmp47.sroa_idx.i54 = getelementptr inbounds nuw i8, ptr %agg.tmp47.i18, i64 16
   store ptr %resultVector.i19, ptr %agg.tmp.sroa.3.0.agg.tmp47.sroa_idx.i54, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i16)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i.i.i.i17)
   %allSelected_.i.i.i.i55 = getelementptr inbounds nuw i8, ptr %223, i64 36
   %_M_engaged.i.i.i.i.i.i56 = getelementptr inbounds nuw i8, ptr %223, i64 37
   %248 = load i8, ptr %_M_engaged.i.i.i.i.i.i56, align 1
@@ -50818,7 +50818,7 @@ if.else.i.i.i66:                                  ; preds = %_ZNK8facebook5velox
   %303 = load i32, ptr %begin_3.i.i.i67, align 4
   %end_4.i.i.i68 = getelementptr inbounds nuw i8, ptr %223, i64 32
   %304 = load i32, ptr %end_4.i.i.i68, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp6.i.i.i.i.i15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp6.i.i.i.i.i15)
   store i8 1, ptr %agg.tmp6.i.i.i.i.i15, align 8
   %agg.tmp.sroa.29.0.agg.tmp6.sroa_idx.i.i.i.i.i69 = getelementptr inbounds nuw i8, ptr %agg.tmp6.i.i.i.i.i15, i64 8
   store ptr %302, ptr %agg.tmp.sroa.29.0.agg.tmp6.sroa_idx.i.i.i.i.i69, align 8
@@ -50883,10 +50883,10 @@ for.body.i.i.i25.i.i.i209:                        ; preds = %if.end14.i.i.i.i.i.
   %add50.i.i.i.i.i.i210 = phi i32 [ %add.i.i.i.i.i.i215, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE1ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i ], [ %add47.i.i.i.i.i.i207, %if.end14.i.i.i.i.i.i206 ]
   %i.049.i.i.i.i.i.i211 = phi i32 [ %add50.i.i.i.i.i.i210, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE1ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i ], [ %mul.i.i.i.i.i.i.i189, %if.end14.i.i.i.i.i.i206 ]
   %div16.i.i.i.i.i.i212 = sdiv i32 %i.049.i.i.i.i.i.i211, 64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i11)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i12)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i13)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i14)
   %idxprom.i.i.i.i.i.i.i213 = sext i32 %div16.i.i.i.i.i.i212 to i64
   %arrayidx.i.i.i.i.i.i.i214 = getelementptr inbounds i64, ptr %302, i64 %idxprom.i.i.i.i.i.i.i213
   %309 = load i64, ptr %arrayidx.i.i.i.i.i.i.i214, align 8
@@ -51299,10 +51299,10 @@ _ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBA
   br i1 %tobool7.not.i.i.i.i.i.i.i358, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE1ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i308, !llvm.loop !654
 
 _ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE1ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i: ; preds = %for.inc.i.i.i.i.i.i.i282, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INS9_4avx2EEEE15applyComparisonILNS0_8TypeKindE1ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSF_0EeqT_LSF_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESQ_RS2_RSt10shared_ptrISP_EEUlT_E_EEvSO_SV_ENKUlSV_E_clIiEEDaSV_.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i225, %for.body.i.i.i25.i.i.i209
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i11)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i12)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i13)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i14)
   %add.i.i.i.i.i.i215 = add nsw i32 %add50.i.i.i.i.i.i210, 64
   %cmp15.not.i.i.i.i.i.i216 = icmp sgt i32 %add.i.i.i.i.i.i215, %306
   br i1 %cmp15.not.i.i.i.i.i.i216, label %for.end.i.i.i26.i.i.i217, label %for.body.i.i.i25.i.i.i209, !llvm.loop !655
@@ -51319,13 +51319,13 @@ if.then19.i.i.i.i.i.i219:                         ; preds = %for.end.i.i.i26.i.i
   br label %if.then3.i.i.i27.i.i.invoke.i224
 
 _ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE1ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiiSX_.exit.i.i.i: ; preds = %for.end.i.i.i26.i.i.i217, %if.then3.i.i.i27.i.i.invoke.i224, %if.else.i.i.i66
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp6.i.i.i.i.i15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp6.i.i.i.i.i15)
   br label %invoke.cont11.i73
 
 invoke.cont11.i73:                                ; preds = %for.inc.i.i.i444, %_ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE1ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiiSX_.exit.i.i.i, %if.then.i.i.i393
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i16)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i17)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp47.i18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11.i.i.i.i17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp47.i18)
   %383 = load ptr, ptr %vector_.i42.i46, align 8
   %cmp.i.not.i.i74 = icmp eq ptr %383, null
   %384 = ptrtoint ptr %383 to i64
@@ -51884,9 +51884,9 @@ if.end52.i507:                                    ; preds = %_ZN8facebook5velox4
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INS6_4avx2EEEE15applyComparisonILNS0_8TypeKindE1ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSC_0EeqT_LSC_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESN_RNS0_4exec7EvalCtxERSt10shared_ptrISM_E.exit
 
 _ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INS6_4avx2EEEE15applyComparisonILNS0_8TypeKindE1ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSC_0EeqT_LSC_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESN_RNS0_4exec7EvalCtxERSt10shared_ptrISM_E.exit: ; preds = %_ZN8facebook5velox4exec18LocalDecodedVectorD2Ev.exit.i88, %if.end.i65.thread.i108, %if.end.i65.i139, %_ZNKSt14default_deleteIN8facebook5velox13DecodedVectorEEclEPS2_.exit.i.i76.i102, %if.end52.i507
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %resultVector.i19)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %lhsDecoded.i20)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %rhsDecoded.i21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %resultVector.i19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %lhsDecoded.i20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %rhsDecoded.i21)
   br label %sw.epilog
 
 sw.bb18:                                          ; preds = %entry
@@ -51899,9 +51899,9 @@ sw.bb18:                                          ; preds = %entry
   %445 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %446 = load ptr, ptr %445, align 8
   %.val3 = load ptr, ptr %446, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %resultVector.i651)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %lhsDecoded.i652)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %rhsDecoded.i653)
+  call void @llvm.lifetime.start.p0(ptr nonnull %resultVector.i651)
+  call void @llvm.lifetime.start.p0(ptr nonnull %lhsDecoded.i652)
+  call void @llvm.lifetime.start.p0(ptr nonnull %rhsDecoded.i653)
   store ptr %.val3, ptr %resultVector.i651, align 8
   %call.i.i654 = tail call noundef ptr @_ZN8facebook5velox10FlatVectorIbE16mutableRawValuesEv(ptr noundef nonnull align 8 dereferenceable(184) %.val3)
   %encoding_.i.i655 = getelementptr inbounds nuw i8, ptr %2, i64 28
@@ -52033,14 +52033,14 @@ lpad.i44.i680:                                    ; preds = %invoke.cont.i45.i68
   br label %ehcleanup.i681
 
 invoke.cont.i684:                                 ; preds = %invoke.cont.i45.i683
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp47.i650)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp47.i650)
   store ptr %lhsDecoded.i652, ptr %agg.tmp47.i650, align 8
   %agg.tmp.sroa.2.0.agg.tmp47.sroa_idx.i685 = getelementptr inbounds nuw i8, ptr %agg.tmp47.i650, i64 8
   store ptr %rhsDecoded.i653, ptr %agg.tmp.sroa.2.0.agg.tmp47.sroa_idx.i685, align 8
   %agg.tmp.sroa.3.0.agg.tmp47.sroa_idx.i686 = getelementptr inbounds nuw i8, ptr %agg.tmp47.i650, i64 16
   store ptr %resultVector.i651, ptr %agg.tmp.sroa.3.0.agg.tmp47.sroa_idx.i686, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i648)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i649)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i648)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i.i.i.i649)
   %allSelected_.i.i.i.i687 = getelementptr inbounds nuw i8, ptr %441, i64 36
   %_M_engaged.i.i.i.i.i.i688 = getelementptr inbounds nuw i8, ptr %441, i64 37
   %466 = load i8, ptr %_M_engaged.i.i.i.i.i.i688, align 1
@@ -52326,7 +52326,7 @@ if.else.i.i.i698:                                 ; preds = %_ZNK8facebook5velox
   %521 = load i32, ptr %begin_3.i.i.i699, align 4
   %end_4.i.i.i700 = getelementptr inbounds nuw i8, ptr %441, i64 32
   %522 = load i32, ptr %end_4.i.i.i700, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp6.i.i.i.i.i647)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp6.i.i.i.i.i647)
   store i8 1, ptr %agg.tmp6.i.i.i.i.i647, align 8
   %agg.tmp.sroa.29.0.agg.tmp6.sroa_idx.i.i.i.i.i701 = getelementptr inbounds nuw i8, ptr %agg.tmp6.i.i.i.i.i647, i64 8
   store ptr %520, ptr %agg.tmp.sroa.29.0.agg.tmp6.sroa_idx.i.i.i.i.i701, align 8
@@ -52391,10 +52391,10 @@ for.body.i.i.i25.i.i.i796:                        ; preds = %if.end14.i.i.i.i.i.
   %add50.i.i.i.i.i.i797 = phi i32 [ %add.i.i.i.i.i.i802, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE2ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i ], [ %add47.i.i.i.i.i.i794, %if.end14.i.i.i.i.i.i793 ]
   %i.049.i.i.i.i.i.i798 = phi i32 [ %add50.i.i.i.i.i.i797, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE2ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i ], [ %mul.i.i.i.i.i.i.i776, %if.end14.i.i.i.i.i.i793 ]
   %div16.i.i.i.i.i.i799 = sdiv i32 %i.049.i.i.i.i.i.i798, 64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i643)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i644)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i645)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i646)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i643)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i644)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i645)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i646)
   %idxprom.i.i.i.i.i.i.i800 = sext i32 %div16.i.i.i.i.i.i799 to i64
   %arrayidx.i.i.i.i.i.i.i801 = getelementptr inbounds i64, ptr %520, i64 %idxprom.i.i.i.i.i.i.i800
   %527 = load i64, ptr %arrayidx.i.i.i.i.i.i.i801, align 8
@@ -52807,10 +52807,10 @@ _ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBA
   br i1 %tobool7.not.i.i.i.i.i.i.i945, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE2ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i895, !llvm.loop !677
 
 _ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE2ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i: ; preds = %for.inc.i.i.i.i.i.i.i869, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INS9_4avx2EEEE15applyComparisonILNS0_8TypeKindE2ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSF_0EeqT_LSF_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESQ_RS2_RSt10shared_ptrISP_EEUlT_E_EEvSO_SV_ENKUlSV_E_clIiEEDaSV_.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i812, %for.body.i.i.i25.i.i.i796
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i643)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i644)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i645)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i646)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i643)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i644)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i645)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i646)
   %add.i.i.i.i.i.i802 = add nsw i32 %add50.i.i.i.i.i.i797, 64
   %cmp15.not.i.i.i.i.i.i803 = icmp sgt i32 %add.i.i.i.i.i.i802, %524
   br i1 %cmp15.not.i.i.i.i.i.i803, label %for.end.i.i.i26.i.i.i804, label %for.body.i.i.i25.i.i.i796, !llvm.loop !678
@@ -52827,13 +52827,13 @@ if.then19.i.i.i.i.i.i806:                         ; preds = %for.end.i.i.i26.i.i
   br label %if.then3.i.i.i27.i.i.invoke.i811
 
 _ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE2ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiiSX_.exit.i.i.i: ; preds = %for.end.i.i.i26.i.i.i804, %if.then3.i.i.i27.i.i.invoke.i811, %if.else.i.i.i698
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp6.i.i.i.i.i647)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp6.i.i.i.i.i647)
   br label %invoke.cont11.i705
 
 invoke.cont11.i705:                               ; preds = %for.inc.i.i.i1031, %_ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE2ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiiSX_.exit.i.i.i, %if.then.i.i.i980
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i648)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i649)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp47.i650)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i648)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11.i.i.i.i649)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp47.i650)
   %601 = load ptr, ptr %vector_.i42.i678, align 8
   %cmp.i.not.i.i706 = icmp eq ptr %601, null
   %602 = ptrtoint ptr %601 to i64
@@ -53416,9 +53416,9 @@ if.end52.i1092:                                   ; preds = %_ZN8facebook5velox4
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INS6_4avx2EEEE15applyComparisonILNS0_8TypeKindE2ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSC_0EeqT_LSC_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESN_RNS0_4exec7EvalCtxERSt10shared_ptrISM_E.exit
 
 _ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INS6_4avx2EEEE15applyComparisonILNS0_8TypeKindE2ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSC_0EeqT_LSC_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESN_RNS0_4exec7EvalCtxERSt10shared_ptrISM_E.exit: ; preds = %_ZN8facebook5velox4exec18LocalDecodedVectorD2Ev.exit.i720, %if.end.i65.thread.i733, %if.end.i65.i735, %_ZNKSt14default_deleteIN8facebook5velox13DecodedVectorEEclEPS2_.exit.i.i76.i732, %if.end52.i1092
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %resultVector.i651)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %lhsDecoded.i652)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %rhsDecoded.i653)
+  call void @llvm.lifetime.end.p0(ptr nonnull %resultVector.i651)
+  call void @llvm.lifetime.end.p0(ptr nonnull %lhsDecoded.i652)
+  call void @llvm.lifetime.end.p0(ptr nonnull %rhsDecoded.i653)
   br label %sw.epilog
 
 sw.bb23:                                          ; preds = %entry
@@ -53431,9 +53431,9 @@ sw.bb23:                                          ; preds = %entry
   %679 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %680 = load ptr, ptr %679, align 8
   %.val4 = load ptr, ptr %680, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %resultVector.i1205)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %lhsDecoded.i1206)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %rhsDecoded.i1207)
+  call void @llvm.lifetime.start.p0(ptr nonnull %resultVector.i1205)
+  call void @llvm.lifetime.start.p0(ptr nonnull %lhsDecoded.i1206)
+  call void @llvm.lifetime.start.p0(ptr nonnull %rhsDecoded.i1207)
   store ptr %.val4, ptr %resultVector.i1205, align 8
   %call.i.i1208 = tail call noundef ptr @_ZN8facebook5velox10FlatVectorIbE16mutableRawValuesEv(ptr noundef nonnull align 8 dereferenceable(184) %.val4)
   %encoding_.i.i1209 = getelementptr inbounds nuw i8, ptr %2, i64 28
@@ -53565,14 +53565,14 @@ lpad.i44.i1234:                                   ; preds = %invoke.cont.i45.i12
   br label %ehcleanup.i1235
 
 invoke.cont.i1238:                                ; preds = %invoke.cont.i45.i1237
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp47.i1204)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp47.i1204)
   store ptr %lhsDecoded.i1206, ptr %agg.tmp47.i1204, align 8
   %agg.tmp.sroa.2.0.agg.tmp47.sroa_idx.i1239 = getelementptr inbounds nuw i8, ptr %agg.tmp47.i1204, i64 8
   store ptr %rhsDecoded.i1207, ptr %agg.tmp.sroa.2.0.agg.tmp47.sroa_idx.i1239, align 8
   %agg.tmp.sroa.3.0.agg.tmp47.sroa_idx.i1240 = getelementptr inbounds nuw i8, ptr %agg.tmp47.i1204, i64 16
   store ptr %resultVector.i1205, ptr %agg.tmp.sroa.3.0.agg.tmp47.sroa_idx.i1240, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i1202)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i1203)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i1202)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i.i.i.i1203)
   %allSelected_.i.i.i.i1241 = getelementptr inbounds nuw i8, ptr %675, i64 36
   %_M_engaged.i.i.i.i.i.i1242 = getelementptr inbounds nuw i8, ptr %675, i64 37
   %700 = load i8, ptr %_M_engaged.i.i.i.i.i.i1242, align 1
@@ -53858,7 +53858,7 @@ if.else.i.i.i1252:                                ; preds = %_ZNK8facebook5velox
   %755 = load i32, ptr %begin_3.i.i.i1253, align 4
   %end_4.i.i.i1254 = getelementptr inbounds nuw i8, ptr %675, i64 32
   %756 = load i32, ptr %end_4.i.i.i1254, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp6.i.i.i.i.i1201)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp6.i.i.i.i.i1201)
   store i8 1, ptr %agg.tmp6.i.i.i.i.i1201, align 8
   %agg.tmp.sroa.29.0.agg.tmp6.sroa_idx.i.i.i.i.i1255 = getelementptr inbounds nuw i8, ptr %agg.tmp6.i.i.i.i.i1201, i64 8
   store ptr %754, ptr %agg.tmp.sroa.29.0.agg.tmp6.sroa_idx.i.i.i.i.i1255, align 8
@@ -53923,10 +53923,10 @@ for.body.i.i.i25.i.i.i1351:                       ; preds = %if.end14.i.i.i.i.i.
   %add50.i.i.i.i.i.i1352 = phi i32 [ %add.i.i.i.i.i.i1357, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE4ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i ], [ %add47.i.i.i.i.i.i1349, %if.end14.i.i.i.i.i.i1348 ]
   %i.049.i.i.i.i.i.i1353 = phi i32 [ %add50.i.i.i.i.i.i1352, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE4ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i ], [ %mul.i.i.i.i.i.i.i1331, %if.end14.i.i.i.i.i.i1348 ]
   %div16.i.i.i.i.i.i1354 = sdiv i32 %i.049.i.i.i.i.i.i1353, 64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i1197)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i1198)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i1199)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i1200)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i1197)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i1198)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i1199)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i1200)
   %idxprom.i.i.i.i.i.i.i1355 = sext i32 %div16.i.i.i.i.i.i1354 to i64
   %arrayidx.i.i.i.i.i.i.i1356 = getelementptr inbounds i64, ptr %754, i64 %idxprom.i.i.i.i.i.i.i1355
   %761 = load i64, ptr %arrayidx.i.i.i.i.i.i.i1356, align 8
@@ -54339,10 +54339,10 @@ _ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBA
   br i1 %tobool7.not.i.i.i.i.i.i.i1500, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE4ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i1450, !llvm.loop !700
 
 _ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE4ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i: ; preds = %for.inc.i.i.i.i.i.i.i1424, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INS9_4avx2EEEE15applyComparisonILNS0_8TypeKindE4ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSF_0EeqT_LSF_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESQ_RS2_RSt10shared_ptrISP_EEUlT_E_EEvSO_SV_ENKUlSV_E_clIiEEDaSV_.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i1367, %for.body.i.i.i25.i.i.i1351
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i1197)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i1198)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i1199)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i1200)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i1197)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i1198)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i1199)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i1200)
   %add.i.i.i.i.i.i1357 = add nsw i32 %add50.i.i.i.i.i.i1352, 64
   %cmp15.not.i.i.i.i.i.i1358 = icmp sgt i32 %add.i.i.i.i.i.i1357, %758
   br i1 %cmp15.not.i.i.i.i.i.i1358, label %for.end.i.i.i26.i.i.i1359, label %for.body.i.i.i25.i.i.i1351, !llvm.loop !701
@@ -54359,13 +54359,13 @@ if.then19.i.i.i.i.i.i1361:                        ; preds = %for.end.i.i.i26.i.i
   br label %if.then3.i.i.i27.i.i.invoke.i1366
 
 _ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE4ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiiSX_.exit.i.i.i: ; preds = %for.end.i.i.i26.i.i.i1359, %if.then3.i.i.i27.i.i.invoke.i1366, %if.else.i.i.i1252
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp6.i.i.i.i.i1201)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp6.i.i.i.i.i1201)
   br label %invoke.cont11.i1259
 
 invoke.cont11.i1259:                              ; preds = %for.inc.i.i.i1586, %_ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE4ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiiSX_.exit.i.i.i, %if.then.i.i.i1535
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i1202)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i1203)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp47.i1204)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i1202)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11.i.i.i.i1203)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp47.i1204)
   %835 = load ptr, ptr %vector_.i42.i1232, align 8
   %cmp.i.not.i.i1260 = icmp eq ptr %835, null
   %836 = ptrtoint ptr %835 to i64
@@ -55009,9 +55009,9 @@ if.end52.i1646:                                   ; preds = %_ZN8facebook5velox4
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INS6_4avx2EEEE15applyComparisonILNS0_8TypeKindE4ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSC_0EeqT_LSC_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESN_RNS0_4exec7EvalCtxERSt10shared_ptrISM_E.exit
 
 _ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INS6_4avx2EEEE15applyComparisonILNS0_8TypeKindE4ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSC_0EeqT_LSC_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESN_RNS0_4exec7EvalCtxERSt10shared_ptrISM_E.exit: ; preds = %_ZN8facebook5velox4exec18LocalDecodedVectorD2Ev.exit.i1274, %if.end.i65.thread.i1287, %if.end.i65.i1289, %_ZNKSt14default_deleteIN8facebook5velox13DecodedVectorEEclEPS2_.exit.i.i76.i1286, %if.end52.i1646
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %resultVector.i1205)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %lhsDecoded.i1206)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %rhsDecoded.i1207)
+  call void @llvm.lifetime.end.p0(ptr nonnull %resultVector.i1205)
+  call void @llvm.lifetime.end.p0(ptr nonnull %lhsDecoded.i1206)
+  call void @llvm.lifetime.end.p0(ptr nonnull %rhsDecoded.i1207)
   br label %sw.epilog
 
 sw.bb28:                                          ; preds = %entry
@@ -55037,9 +55037,9 @@ sw.bb33:                                          ; preds = %entry
   %940 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %941 = load ptr, ptr %940, align 8
   %.val5 = load ptr, ptr %941, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %resultVector.i1735)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %lhsDecoded.i1736)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %rhsDecoded.i1737)
+  call void @llvm.lifetime.start.p0(ptr nonnull %resultVector.i1735)
+  call void @llvm.lifetime.start.p0(ptr nonnull %lhsDecoded.i1736)
+  call void @llvm.lifetime.start.p0(ptr nonnull %rhsDecoded.i1737)
   store ptr %.val5, ptr %resultVector.i1735, align 8
   %call.i.i1738 = tail call noundef ptr @_ZN8facebook5velox10FlatVectorIbE16mutableRawValuesEv(ptr noundef nonnull align 8 dereferenceable(184) %.val5)
   %encoding_.i.i1739 = getelementptr inbounds nuw i8, ptr %2, i64 28
@@ -55171,14 +55171,14 @@ lpad.i44.i1764:                                   ; preds = %invoke.cont.i45.i17
   br label %ehcleanup.i1765
 
 invoke.cont.i1768:                                ; preds = %invoke.cont.i45.i1767
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp47.i1734)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp47.i1734)
   store ptr %lhsDecoded.i1736, ptr %agg.tmp47.i1734, align 8
   %agg.tmp.sroa.2.0.agg.tmp47.sroa_idx.i1769 = getelementptr inbounds nuw i8, ptr %agg.tmp47.i1734, i64 8
   store ptr %rhsDecoded.i1737, ptr %agg.tmp.sroa.2.0.agg.tmp47.sroa_idx.i1769, align 8
   %agg.tmp.sroa.3.0.agg.tmp47.sroa_idx.i1770 = getelementptr inbounds nuw i8, ptr %agg.tmp47.i1734, i64 16
   store ptr %resultVector.i1735, ptr %agg.tmp.sroa.3.0.agg.tmp47.sroa_idx.i1770, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i1732)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i1733)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i1732)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i.i.i.i1733)
   %allSelected_.i.i.i.i1771 = getelementptr inbounds nuw i8, ptr %936, i64 36
   %_M_engaged.i.i.i.i.i.i1772 = getelementptr inbounds nuw i8, ptr %936, i64 37
   %961 = load i8, ptr %_M_engaged.i.i.i.i.i.i1772, align 1
@@ -55464,7 +55464,7 @@ if.else.i.i.i1782:                                ; preds = %_ZNK8facebook5velox
   %1016 = load i32, ptr %begin_3.i.i.i1783, align 4
   %end_4.i.i.i1784 = getelementptr inbounds nuw i8, ptr %936, i64 32
   %1017 = load i32, ptr %end_4.i.i.i1784, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp6.i.i.i.i.i1731)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp6.i.i.i.i.i1731)
   store i8 1, ptr %agg.tmp6.i.i.i.i.i1731, align 8
   %agg.tmp.sroa.29.0.agg.tmp6.sroa_idx.i.i.i.i.i1785 = getelementptr inbounds nuw i8, ptr %agg.tmp6.i.i.i.i.i1731, i64 8
   store ptr %1015, ptr %agg.tmp.sroa.29.0.agg.tmp6.sroa_idx.i.i.i.i.i1785, align 8
@@ -55529,10 +55529,10 @@ for.body.i.i.i25.i.i.i1882:                       ; preds = %if.end14.i.i.i.i.i.
   %add50.i.i.i.i.i.i1883 = phi i32 [ %add.i.i.i.i.i.i1888, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE5ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i ], [ %add47.i.i.i.i.i.i1880, %if.end14.i.i.i.i.i.i1879 ]
   %i.049.i.i.i.i.i.i1884 = phi i32 [ %add50.i.i.i.i.i.i1883, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE5ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i ], [ %mul.i.i.i.i.i.i.i1862, %if.end14.i.i.i.i.i.i1879 ]
   %div16.i.i.i.i.i.i1885 = sdiv i32 %i.049.i.i.i.i.i.i1884, 64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i1727)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i1728)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i1729)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i1730)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i1727)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i1728)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i1729)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i1730)
   %idxprom.i.i.i.i.i.i.i1886 = sext i32 %div16.i.i.i.i.i.i1885 to i64
   %arrayidx.i.i.i.i.i.i.i1887 = getelementptr inbounds i64, ptr %1015, i64 %idxprom.i.i.i.i.i.i.i1886
   %1022 = load i64, ptr %arrayidx.i.i.i.i.i.i.i1887, align 8
@@ -55945,10 +55945,10 @@ _ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBA
   br i1 %tobool7.not.i.i.i.i.i.i.i2031, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE5ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i1981, !llvm.loop !727
 
 _ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE5ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i: ; preds = %for.inc.i.i.i.i.i.i.i1955, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INS9_4avx2EEEE15applyComparisonILNS0_8TypeKindE5ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSF_0EeqT_LSF_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESQ_RS2_RSt10shared_ptrISP_EEUlT_E_EEvSO_SV_ENKUlSV_E_clIiEEDaSV_.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i1898, %for.body.i.i.i25.i.i.i1882
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i1727)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i1728)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i1729)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i1730)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i1727)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i1728)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i1729)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i1730)
   %add.i.i.i.i.i.i1888 = add nsw i32 %add50.i.i.i.i.i.i1883, 64
   %cmp15.not.i.i.i.i.i.i1889 = icmp sgt i32 %add.i.i.i.i.i.i1888, %1019
   br i1 %cmp15.not.i.i.i.i.i.i1889, label %for.end.i.i.i26.i.i.i1890, label %for.body.i.i.i25.i.i.i1882, !llvm.loop !728
@@ -55965,13 +55965,13 @@ if.then19.i.i.i.i.i.i1892:                        ; preds = %for.end.i.i.i26.i.i
   br label %if.then3.i.i.i27.i.i.invoke.i1897
 
 _ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE5ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiiSX_.exit.i.i.i: ; preds = %for.end.i.i.i26.i.i.i1890, %if.then3.i.i.i27.i.i.invoke.i1897, %if.else.i.i.i1782
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp6.i.i.i.i.i1731)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp6.i.i.i.i.i1731)
   br label %invoke.cont11.i1789
 
 invoke.cont11.i1789:                              ; preds = %for.inc.i.i.i2117, %_ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE5ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiiSX_.exit.i.i.i, %if.then.i.i.i2066
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i1732)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i1733)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp47.i1734)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i1732)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11.i.i.i.i1733)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp47.i1734)
   %1096 = load ptr, ptr %vector_.i42.i1762, align 8
   %cmp.i.not.i.i1790 = icmp eq ptr %1096, null
   %1097 = ptrtoint ptr %1096 to i64
@@ -56530,9 +56530,9 @@ if.end52.i2178:                                   ; preds = %_ZN8facebook5velox4
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INS6_4avx2EEEE15applyComparisonILNS0_8TypeKindE5ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSC_0EeqT_LSC_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESN_RNS0_4exec7EvalCtxERSt10shared_ptrISM_E.exit
 
 _ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INS6_4avx2EEEE15applyComparisonILNS0_8TypeKindE5ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSC_0EeqT_LSC_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESN_RNS0_4exec7EvalCtxERSt10shared_ptrISM_E.exit: ; preds = %_ZN8facebook5velox4exec18LocalDecodedVectorD2Ev.exit.i1804, %if.end.i65.thread.i1818, %if.end.i65.i1821, %_ZNKSt14default_deleteIN8facebook5velox13DecodedVectorEEclEPS2_.exit.i.i76.i1816, %if.end52.i2178
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %resultVector.i1735)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %lhsDecoded.i1736)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %rhsDecoded.i1737)
+  call void @llvm.lifetime.end.p0(ptr nonnull %resultVector.i1735)
+  call void @llvm.lifetime.end.p0(ptr nonnull %lhsDecoded.i1736)
+  call void @llvm.lifetime.end.p0(ptr nonnull %rhsDecoded.i1737)
   br label %sw.epilog
 
 sw.bb38:                                          ; preds = %entry
@@ -56545,9 +56545,9 @@ sw.bb38:                                          ; preds = %entry
   %1162 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %1163 = load ptr, ptr %1162, align 8
   %.val6 = load ptr, ptr %1163, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %resultVector.i2293)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %lhsDecoded.i2294)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %rhsDecoded.i2295)
+  call void @llvm.lifetime.start.p0(ptr nonnull %resultVector.i2293)
+  call void @llvm.lifetime.start.p0(ptr nonnull %lhsDecoded.i2294)
+  call void @llvm.lifetime.start.p0(ptr nonnull %rhsDecoded.i2295)
   store ptr %.val6, ptr %resultVector.i2293, align 8
   %call.i.i2296 = tail call noundef ptr @_ZN8facebook5velox10FlatVectorIbE16mutableRawValuesEv(ptr noundef nonnull align 8 dereferenceable(184) %.val6)
   %encoding_.i.i2297 = getelementptr inbounds nuw i8, ptr %2, i64 28
@@ -56679,14 +56679,14 @@ lpad.i44.i2322:                                   ; preds = %invoke.cont.i45.i23
   br label %ehcleanup.i2323
 
 invoke.cont.i2326:                                ; preds = %invoke.cont.i45.i2325
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp47.i2292)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp47.i2292)
   store ptr %lhsDecoded.i2294, ptr %agg.tmp47.i2292, align 8
   %agg.tmp.sroa.2.0.agg.tmp47.sroa_idx.i2327 = getelementptr inbounds nuw i8, ptr %agg.tmp47.i2292, i64 8
   store ptr %rhsDecoded.i2295, ptr %agg.tmp.sroa.2.0.agg.tmp47.sroa_idx.i2327, align 8
   %agg.tmp.sroa.3.0.agg.tmp47.sroa_idx.i2328 = getelementptr inbounds nuw i8, ptr %agg.tmp47.i2292, i64 16
   store ptr %resultVector.i2293, ptr %agg.tmp.sroa.3.0.agg.tmp47.sroa_idx.i2328, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i2290)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i2291)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i2290)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i.i.i.i2291)
   %allSelected_.i.i.i.i2329 = getelementptr inbounds nuw i8, ptr %1158, i64 36
   %_M_engaged.i.i.i.i.i.i2330 = getelementptr inbounds nuw i8, ptr %1158, i64 37
   %1183 = load i8, ptr %_M_engaged.i.i.i.i.i.i2330, align 1
@@ -56972,7 +56972,7 @@ if.else.i.i.i2340:                                ; preds = %_ZNK8facebook5velox
   %1238 = load i32, ptr %begin_3.i.i.i2341, align 4
   %end_4.i.i.i2342 = getelementptr inbounds nuw i8, ptr %1158, i64 32
   %1239 = load i32, ptr %end_4.i.i.i2342, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp6.i.i.i.i.i2289)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp6.i.i.i.i.i2289)
   store i8 1, ptr %agg.tmp6.i.i.i.i.i2289, align 8
   %agg.tmp.sroa.29.0.agg.tmp6.sroa_idx.i.i.i.i.i2343 = getelementptr inbounds nuw i8, ptr %agg.tmp6.i.i.i.i.i2289, i64 8
   store ptr %1237, ptr %agg.tmp.sroa.29.0.agg.tmp6.sroa_idx.i.i.i.i.i2343, align 8
@@ -57037,10 +57037,10 @@ for.body.i.i.i25.i.i.i2440:                       ; preds = %if.end14.i.i.i.i.i.
   %add50.i.i.i.i.i.i2441 = phi i32 [ %add.i.i.i.i.i.i2446, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE6ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i ], [ %add47.i.i.i.i.i.i2438, %if.end14.i.i.i.i.i.i2437 ]
   %i.049.i.i.i.i.i.i2442 = phi i32 [ %add50.i.i.i.i.i.i2441, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE6ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i ], [ %mul.i.i.i.i.i.i.i2420, %if.end14.i.i.i.i.i.i2437 ]
   %div16.i.i.i.i.i.i2443 = sdiv i32 %i.049.i.i.i.i.i.i2442, 64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i2285)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i2286)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i2287)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i2288)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i2285)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i2286)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i2287)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i2288)
   %idxprom.i.i.i.i.i.i.i2444 = sext i32 %div16.i.i.i.i.i.i2443 to i64
   %arrayidx.i.i.i.i.i.i.i2445 = getelementptr inbounds i64, ptr %1237, i64 %idxprom.i.i.i.i.i.i.i2444
   %1244 = load i64, ptr %arrayidx.i.i.i.i.i.i.i2445, align 8
@@ -57453,10 +57453,10 @@ _ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBA
   br i1 %tobool7.not.i.i.i.i.i.i.i2589, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE6ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i2539, !llvm.loop !750
 
 _ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE6ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i: ; preds = %for.inc.i.i.i.i.i.i.i2513, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INS9_4avx2EEEE15applyComparisonILNS0_8TypeKindE6ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSF_0EeqT_LSF_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESQ_RS2_RSt10shared_ptrISP_EEUlT_E_EEvSO_SV_ENKUlSV_E_clIiEEDaSV_.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i2456, %for.body.i.i.i25.i.i.i2440
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i2285)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i2286)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i2287)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i2288)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i2285)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i2286)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i2287)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i2288)
   %add.i.i.i.i.i.i2446 = add nsw i32 %add50.i.i.i.i.i.i2441, 64
   %cmp15.not.i.i.i.i.i.i2447 = icmp sgt i32 %add.i.i.i.i.i.i2446, %1241
   br i1 %cmp15.not.i.i.i.i.i.i2447, label %for.end.i.i.i26.i.i.i2448, label %for.body.i.i.i25.i.i.i2440, !llvm.loop !751
@@ -57473,13 +57473,13 @@ if.then19.i.i.i.i.i.i2450:                        ; preds = %for.end.i.i.i26.i.i
   br label %if.then3.i.i.i27.i.i.invoke.i2455
 
 _ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE6ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiiSX_.exit.i.i.i: ; preds = %for.end.i.i.i26.i.i.i2448, %if.then3.i.i.i27.i.i.invoke.i2455, %if.else.i.i.i2340
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp6.i.i.i.i.i2289)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp6.i.i.i.i.i2289)
   br label %invoke.cont11.i2347
 
 invoke.cont11.i2347:                              ; preds = %for.inc.i.i.i2675, %_ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE6ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiiSX_.exit.i.i.i, %if.then.i.i.i2624
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i2290)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i2291)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp47.i2292)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i2290)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11.i.i.i.i2291)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp47.i2292)
   %1318 = load ptr, ptr %vector_.i42.i2320, align 8
   %cmp.i.not.i.i2348 = icmp eq ptr %1318, null
   %1319 = ptrtoint ptr %1318 to i64
@@ -58123,9 +58123,9 @@ if.end52.i2736:                                   ; preds = %_ZN8facebook5velox4
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INS6_4avx2EEEE15applyComparisonILNS0_8TypeKindE6ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSC_0EeqT_LSC_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESN_RNS0_4exec7EvalCtxERSt10shared_ptrISM_E.exit
 
 _ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt7greaterIvEN5xsimd4fma3INS6_4avx2EEEE15applyComparisonILNS0_8TypeKindE6ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSC_0EeqT_LSC_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESN_RNS0_4exec7EvalCtxERSt10shared_ptrISM_E.exit: ; preds = %_ZN8facebook5velox4exec18LocalDecodedVectorD2Ev.exit.i2362, %if.end.i65.thread.i2375, %if.end.i65.i2377, %_ZNKSt14default_deleteIN8facebook5velox13DecodedVectorEEclEPS2_.exit.i.i76.i2374, %if.end52.i2736
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %resultVector.i2293)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %lhsDecoded.i2294)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %rhsDecoded.i2295)
+  call void @llvm.lifetime.end.p0(ptr nonnull %resultVector.i2293)
+  call void @llvm.lifetime.end.p0(ptr nonnull %lhsDecoded.i2294)
+  call void @llvm.lifetime.end.p0(ptr nonnull %rhsDecoded.i2295)
   br label %sw.epilog
 
 sw.default:                                       ; preds = %entry
@@ -59999,14 +59999,14 @@ lpad.i20:                                         ; preds = %invoke.cont.i21, %_
   br label %ehcleanup
 
 invoke.cont:                                      ; preds = %invoke.cont.i21
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp23)
   store ptr %lhsDecoded, ptr %agg.tmp23, align 8
   %agg.tmp.sroa.2.0.agg.tmp23.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp23, i64 8
   store ptr %rhsDecoded, ptr %agg.tmp.sroa.2.0.agg.tmp23.sroa_idx, align 8
   %agg.tmp.sroa.3.0.agg.tmp23.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp23, i64 16
   store ptr %resultVector, ptr %agg.tmp.sroa.3.0.agg.tmp23.sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i.i.i)
   %allSelected_.i.i.i = getelementptr inbounds nuw i8, ptr %rows, i64 36
   %_M_engaged.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %rows, i64 37
   %18 = load i8, ptr %_M_engaged.i.i.i.i.i, align 1
@@ -60294,7 +60294,7 @@ if.else.i.i:                                      ; preds = %_ZNK8facebook5velox
   %71 = load i32, ptr %begin_3.i.i, align 4
   %end_4.i.i = getelementptr inbounds nuw i8, ptr %rows, i64 32
   %72 = load i32, ptr %end_4.i.i, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp6.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp6.i.i.i.i)
   store i8 1, ptr %agg.tmp6.i.i.i.i, align 8
   %agg.tmp.sroa.29.0.agg.tmp6.sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp6.i.i.i.i, i64 8
   store ptr %70, ptr %agg.tmp.sroa.29.0.agg.tmp6.sroa_idx.i.i.i.i, align 8
@@ -60359,10 +60359,10 @@ for.body.i.i.i25.i.i:                             ; preds = %if.end14.i.i.i.i.i,
   %add50.i.i.i.i.i = phi i32 [ %add.i.i.i.i.i, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE10ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i ], [ %add47.i.i.i.i.i, %if.end14.i.i.i.i.i ]
   %i.049.i.i.i.i.i = phi i32 [ %add50.i.i.i.i.i, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE10ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i ], [ %mul.i.i.i.i.i.i, %if.end14.i.i.i.i.i ]
   %div16.i.i.i.i.i = sdiv i32 %i.049.i.i.i.i.i, 64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i15.i.i.i.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp12.i.i.i.i.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i15.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp12.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i.i.i.i.i.i.i)
   %idxprom.i.i.i.i.i.i = sext i32 %div16.i.i.i.i.i to i64
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds i64, ptr %70, i64 %idxprom.i.i.i.i.i.i
   %77 = load i64, ptr %arrayidx.i.i.i.i.i.i, align 8
@@ -60779,10 +60779,10 @@ _ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBA
   br i1 %tobool7.not.i.i.i.i.i.i, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE10ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i, label %while.body.i.i.i.i.i.i, !llvm.loop !777
 
 _ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE10ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i: ; preds = %for.inc.i.i.i.i.i.i, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INS9_4avx2EEEE15applyComparisonILNS0_8TypeKindE10ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSF_0EeqT_LSF_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESQ_RS2_RSt10shared_ptrISP_EEUlT_E_EEvSO_SV_ENKUlSV_E_clIiEEDaSV_.exit.i.i.i.i.i.i, %if.then.i.i.i.i.i.i, %for.body.i.i.i25.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i15.i.i.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp12.i.i.i.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i15.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp12.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11.i.i.i.i.i.i.i)
   %add.i.i.i.i.i = add nsw i32 %add50.i.i.i.i.i, 64
   %cmp15.not.i.i.i.i.i = icmp sgt i32 %add.i.i.i.i.i, %74
   br i1 %cmp15.not.i.i.i.i.i, label %for.end.i.i.i26.i.i, label %for.body.i.i.i25.i.i, !llvm.loop !778
@@ -60799,13 +60799,13 @@ if.then19.i.i.i.i.i:                              ; preds = %for.end.i.i.i26.i.i
   br label %if.then3.i.i.i27.i.i.invoke
 
 _ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE10ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiiSX_.exit.i.i: ; preds = %if.then3.i.i.i27.i.i.invoke, %for.end.i.i.i26.i.i, %if.else.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp6.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp6.i.i.i.i)
   br label %invoke.cont12
 
 invoke.cont12:                                    ; preds = %for.inc.i.i, %_ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE10ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiiSX_.exit.i.i, %if.then.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp23)
   %147 = load ptr, ptr %vector_.i18, align 8
   %cmp.i.not.i = icmp eq ptr %147, null
   %148 = ptrtoint ptr %147 to i64
@@ -61190,9 +61190,9 @@ sw.bb8:                                           ; preds = %entry
   %9 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %10 = load ptr, ptr %9, align 8
   %.val1 = load ptr, ptr %10, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %resultVector.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %lhsDecoded.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %rhsDecoded.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %resultVector.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %lhsDecoded.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %rhsDecoded.i)
   store ptr %.val1, ptr %resultVector.i, align 8
   %call.i.i = tail call noundef ptr @_ZN8facebook5velox10FlatVectorIbE16mutableRawValuesEv(ptr noundef nonnull align 8 dereferenceable(184) %.val1)
   %encoding_.i.i = getelementptr inbounds nuw i8, ptr %2, i64 28
@@ -61328,14 +61328,14 @@ lpad.i44.i:                                       ; preds = %invoke.cont.i45.i, 
   br label %ehcleanup.i
 
 invoke.cont.i:                                    ; preds = %invoke.cont.i45.i
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp47.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp47.i)
   store ptr %lhsDecoded.i, ptr %agg.tmp47.i, align 8
   %agg.tmp.sroa.2.0.agg.tmp47.sroa_idx.i = getelementptr inbounds nuw i8, ptr %agg.tmp47.i, i64 8
   store ptr %rhsDecoded.i, ptr %agg.tmp.sroa.2.0.agg.tmp47.sroa_idx.i, align 8
   %agg.tmp.sroa.3.0.agg.tmp47.sroa_idx.i = getelementptr inbounds nuw i8, ptr %agg.tmp47.i, i64 16
   store ptr %resultVector.i, ptr %agg.tmp.sroa.3.0.agg.tmp47.sroa_idx.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i.i.i.i)
   %allSelected_.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 36
   %_M_engaged.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 37
   %30 = load i8, ptr %_M_engaged.i.i.i.i.i.i, align 1
@@ -61621,7 +61621,7 @@ if.else.i.i.i:                                    ; preds = %_ZNK8facebook5velox
   %85 = load i32, ptr %begin_3.i.i.i, align 4
   %end_4.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 32
   %86 = load i32, ptr %end_4.i.i.i, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp6.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp6.i.i.i.i.i)
   store i8 1, ptr %agg.tmp6.i.i.i.i.i, align 8
   %agg.tmp.sroa.29.0.agg.tmp6.sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp6.i.i.i.i.i, i64 8
   store ptr %84, ptr %agg.tmp.sroa.29.0.agg.tmp6.sroa_idx.i.i.i.i.i, align 8
@@ -61686,10 +61686,10 @@ for.body.i.i.i25.i.i.i:                           ; preds = %if.end14.i.i.i.i.i.
   %add50.i.i.i.i.i.i = phi i32 [ %add.i.i.i.i.i.i, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE3ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i ], [ %add47.i.i.i.i.i.i, %if.end14.i.i.i.i.i.i ]
   %i.049.i.i.i.i.i.i = phi i32 [ %add50.i.i.i.i.i.i, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE3ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i ], [ %mul.i.i.i.i.i.i.i, %if.end14.i.i.i.i.i.i ]
   %div16.i.i.i.i.i.i = sdiv i32 %i.049.i.i.i.i.i.i, 64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i)
   %idxprom.i.i.i.i.i.i.i = sext i32 %div16.i.i.i.i.i.i to i64
   %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds i64, ptr %84, i64 %idxprom.i.i.i.i.i.i.i
   %91 = load i64, ptr %arrayidx.i.i.i.i.i.i.i, align 8
@@ -62102,10 +62102,10 @@ _ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBA
   br i1 %tobool7.not.i.i.i.i.i.i.i, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE3ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i, !llvm.loop !791
 
 _ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE3ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i: ; preds = %for.inc.i.i.i.i.i.i.i, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INS9_4avx2EEEE15applyComparisonILNS0_8TypeKindE3ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSF_0EeqT_LSF_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESQ_RS2_RSt10shared_ptrISP_EEUlT_E_EEvSO_SV_ENKUlSV_E_clIiEEDaSV_.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %for.body.i.i.i25.i.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i)
   %add.i.i.i.i.i.i = add nsw i32 %add50.i.i.i.i.i.i, 64
   %cmp15.not.i.i.i.i.i.i = icmp sgt i32 %add.i.i.i.i.i.i, %88
   br i1 %cmp15.not.i.i.i.i.i.i, label %for.end.i.i.i26.i.i.i, label %for.body.i.i.i25.i.i.i, !llvm.loop !792
@@ -62122,13 +62122,13 @@ if.then19.i.i.i.i.i.i:                            ; preds = %for.end.i.i.i26.i.i
   br label %if.then3.i.i.i27.i.i.invoke.i
 
 _ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE3ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiiSX_.exit.i.i.i: ; preds = %for.end.i.i.i26.i.i.i, %if.then3.i.i.i27.i.i.invoke.i, %if.else.i.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp6.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp6.i.i.i.i.i)
   br label %invoke.cont11.i
 
 invoke.cont11.i:                                  ; preds = %for.inc.i.i.i, %_ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE3ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiiSX_.exit.i.i.i, %if.then.i.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp47.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp47.i)
   %165 = load ptr, ptr %vector_.i42.i, align 8
   %cmp.i.not.i.i = icmp eq ptr %165, null
   %166 = ptrtoint ptr %165 to i64
@@ -62687,9 +62687,9 @@ if.end52.i:                                       ; preds = %_ZN8facebook5velox4
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INS6_4avx2EEEE15applyComparisonILNS0_8TypeKindE3ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSC_0EeqT_LSC_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESN_RNS0_4exec7EvalCtxERSt10shared_ptrISM_E.exit
 
 _ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INS6_4avx2EEEE15applyComparisonILNS0_8TypeKindE3ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSC_0EeqT_LSC_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESN_RNS0_4exec7EvalCtxERSt10shared_ptrISM_E.exit: ; preds = %_ZN8facebook5velox4exec18LocalDecodedVectorD2Ev.exit.i, %if.end.i65.thread.i, %if.end.i65.i, %_ZNKSt14default_deleteIN8facebook5velox13DecodedVectorEEclEPS2_.exit.i.i76.i, %if.end52.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %resultVector.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %lhsDecoded.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %rhsDecoded.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %resultVector.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %lhsDecoded.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %rhsDecoded.i)
   br label %sw.epilog
 
 sw.bb13:                                          ; preds = %entry
@@ -62702,9 +62702,9 @@ sw.bb13:                                          ; preds = %entry
   %227 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %228 = load ptr, ptr %227, align 8
   %.val2 = load ptr, ptr %228, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %resultVector.i19)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %lhsDecoded.i20)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %rhsDecoded.i21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %resultVector.i19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %lhsDecoded.i20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %rhsDecoded.i21)
   store ptr %.val2, ptr %resultVector.i19, align 8
   %call.i.i22 = tail call noundef ptr @_ZN8facebook5velox10FlatVectorIbE16mutableRawValuesEv(ptr noundef nonnull align 8 dereferenceable(184) %.val2)
   %encoding_.i.i23 = getelementptr inbounds nuw i8, ptr %2, i64 28
@@ -62836,14 +62836,14 @@ lpad.i44.i48:                                     ; preds = %invoke.cont.i45.i51
   br label %ehcleanup.i49
 
 invoke.cont.i52:                                  ; preds = %invoke.cont.i45.i51
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp47.i18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp47.i18)
   store ptr %lhsDecoded.i20, ptr %agg.tmp47.i18, align 8
   %agg.tmp.sroa.2.0.agg.tmp47.sroa_idx.i53 = getelementptr inbounds nuw i8, ptr %agg.tmp47.i18, i64 8
   store ptr %rhsDecoded.i21, ptr %agg.tmp.sroa.2.0.agg.tmp47.sroa_idx.i53, align 8
   %agg.tmp.sroa.3.0.agg.tmp47.sroa_idx.i54 = getelementptr inbounds nuw i8, ptr %agg.tmp47.i18, i64 16
   store ptr %resultVector.i19, ptr %agg.tmp.sroa.3.0.agg.tmp47.sroa_idx.i54, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i16)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i.i.i.i17)
   %allSelected_.i.i.i.i55 = getelementptr inbounds nuw i8, ptr %223, i64 36
   %_M_engaged.i.i.i.i.i.i56 = getelementptr inbounds nuw i8, ptr %223, i64 37
   %248 = load i8, ptr %_M_engaged.i.i.i.i.i.i56, align 1
@@ -63129,7 +63129,7 @@ if.else.i.i.i66:                                  ; preds = %_ZNK8facebook5velox
   %303 = load i32, ptr %begin_3.i.i.i67, align 4
   %end_4.i.i.i68 = getelementptr inbounds nuw i8, ptr %223, i64 32
   %304 = load i32, ptr %end_4.i.i.i68, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp6.i.i.i.i.i15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp6.i.i.i.i.i15)
   store i8 1, ptr %agg.tmp6.i.i.i.i.i15, align 8
   %agg.tmp.sroa.29.0.agg.tmp6.sroa_idx.i.i.i.i.i69 = getelementptr inbounds nuw i8, ptr %agg.tmp6.i.i.i.i.i15, i64 8
   store ptr %302, ptr %agg.tmp.sroa.29.0.agg.tmp6.sroa_idx.i.i.i.i.i69, align 8
@@ -63194,10 +63194,10 @@ for.body.i.i.i25.i.i.i209:                        ; preds = %if.end14.i.i.i.i.i.
   %add50.i.i.i.i.i.i210 = phi i32 [ %add.i.i.i.i.i.i215, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE1ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i ], [ %add47.i.i.i.i.i.i207, %if.end14.i.i.i.i.i.i206 ]
   %i.049.i.i.i.i.i.i211 = phi i32 [ %add50.i.i.i.i.i.i210, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE1ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i ], [ %mul.i.i.i.i.i.i.i189, %if.end14.i.i.i.i.i.i206 ]
   %div16.i.i.i.i.i.i212 = sdiv i32 %i.049.i.i.i.i.i.i211, 64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i11)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i12)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i13)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i14)
   %idxprom.i.i.i.i.i.i.i213 = sext i32 %div16.i.i.i.i.i.i212 to i64
   %arrayidx.i.i.i.i.i.i.i214 = getelementptr inbounds i64, ptr %302, i64 %idxprom.i.i.i.i.i.i.i213
   %309 = load i64, ptr %arrayidx.i.i.i.i.i.i.i214, align 8
@@ -63610,10 +63610,10 @@ _ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBA
   br i1 %tobool7.not.i.i.i.i.i.i.i358, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE1ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i308, !llvm.loop !814
 
 _ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE1ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i: ; preds = %for.inc.i.i.i.i.i.i.i282, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INS9_4avx2EEEE15applyComparisonILNS0_8TypeKindE1ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSF_0EeqT_LSF_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESQ_RS2_RSt10shared_ptrISP_EEUlT_E_EEvSO_SV_ENKUlSV_E_clIiEEDaSV_.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i225, %for.body.i.i.i25.i.i.i209
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i11)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i12)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i13)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i14)
   %add.i.i.i.i.i.i215 = add nsw i32 %add50.i.i.i.i.i.i210, 64
   %cmp15.not.i.i.i.i.i.i216 = icmp sgt i32 %add.i.i.i.i.i.i215, %306
   br i1 %cmp15.not.i.i.i.i.i.i216, label %for.end.i.i.i26.i.i.i217, label %for.body.i.i.i25.i.i.i209, !llvm.loop !815
@@ -63630,13 +63630,13 @@ if.then19.i.i.i.i.i.i219:                         ; preds = %for.end.i.i.i26.i.i
   br label %if.then3.i.i.i27.i.i.invoke.i224
 
 _ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE1ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiiSX_.exit.i.i.i: ; preds = %for.end.i.i.i26.i.i.i217, %if.then3.i.i.i27.i.i.invoke.i224, %if.else.i.i.i66
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp6.i.i.i.i.i15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp6.i.i.i.i.i15)
   br label %invoke.cont11.i73
 
 invoke.cont11.i73:                                ; preds = %for.inc.i.i.i444, %_ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE1ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiiSX_.exit.i.i.i, %if.then.i.i.i393
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i16)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i17)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp47.i18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11.i.i.i.i17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp47.i18)
   %383 = load ptr, ptr %vector_.i42.i46, align 8
   %cmp.i.not.i.i74 = icmp eq ptr %383, null
   %384 = ptrtoint ptr %383 to i64
@@ -64195,9 +64195,9 @@ if.end52.i507:                                    ; preds = %_ZN8facebook5velox4
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INS6_4avx2EEEE15applyComparisonILNS0_8TypeKindE1ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSC_0EeqT_LSC_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESN_RNS0_4exec7EvalCtxERSt10shared_ptrISM_E.exit
 
 _ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INS6_4avx2EEEE15applyComparisonILNS0_8TypeKindE1ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSC_0EeqT_LSC_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESN_RNS0_4exec7EvalCtxERSt10shared_ptrISM_E.exit: ; preds = %_ZN8facebook5velox4exec18LocalDecodedVectorD2Ev.exit.i88, %if.end.i65.thread.i108, %if.end.i65.i139, %_ZNKSt14default_deleteIN8facebook5velox13DecodedVectorEEclEPS2_.exit.i.i76.i102, %if.end52.i507
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %resultVector.i19)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %lhsDecoded.i20)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %rhsDecoded.i21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %resultVector.i19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %lhsDecoded.i20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %rhsDecoded.i21)
   br label %sw.epilog
 
 sw.bb18:                                          ; preds = %entry
@@ -64210,9 +64210,9 @@ sw.bb18:                                          ; preds = %entry
   %445 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %446 = load ptr, ptr %445, align 8
   %.val3 = load ptr, ptr %446, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %resultVector.i651)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %lhsDecoded.i652)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %rhsDecoded.i653)
+  call void @llvm.lifetime.start.p0(ptr nonnull %resultVector.i651)
+  call void @llvm.lifetime.start.p0(ptr nonnull %lhsDecoded.i652)
+  call void @llvm.lifetime.start.p0(ptr nonnull %rhsDecoded.i653)
   store ptr %.val3, ptr %resultVector.i651, align 8
   %call.i.i654 = tail call noundef ptr @_ZN8facebook5velox10FlatVectorIbE16mutableRawValuesEv(ptr noundef nonnull align 8 dereferenceable(184) %.val3)
   %encoding_.i.i655 = getelementptr inbounds nuw i8, ptr %2, i64 28
@@ -64344,14 +64344,14 @@ lpad.i44.i680:                                    ; preds = %invoke.cont.i45.i68
   br label %ehcleanup.i681
 
 invoke.cont.i684:                                 ; preds = %invoke.cont.i45.i683
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp47.i650)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp47.i650)
   store ptr %lhsDecoded.i652, ptr %agg.tmp47.i650, align 8
   %agg.tmp.sroa.2.0.agg.tmp47.sroa_idx.i685 = getelementptr inbounds nuw i8, ptr %agg.tmp47.i650, i64 8
   store ptr %rhsDecoded.i653, ptr %agg.tmp.sroa.2.0.agg.tmp47.sroa_idx.i685, align 8
   %agg.tmp.sroa.3.0.agg.tmp47.sroa_idx.i686 = getelementptr inbounds nuw i8, ptr %agg.tmp47.i650, i64 16
   store ptr %resultVector.i651, ptr %agg.tmp.sroa.3.0.agg.tmp47.sroa_idx.i686, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i648)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i649)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i648)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i.i.i.i649)
   %allSelected_.i.i.i.i687 = getelementptr inbounds nuw i8, ptr %441, i64 36
   %_M_engaged.i.i.i.i.i.i688 = getelementptr inbounds nuw i8, ptr %441, i64 37
   %466 = load i8, ptr %_M_engaged.i.i.i.i.i.i688, align 1
@@ -64637,7 +64637,7 @@ if.else.i.i.i698:                                 ; preds = %_ZNK8facebook5velox
   %521 = load i32, ptr %begin_3.i.i.i699, align 4
   %end_4.i.i.i700 = getelementptr inbounds nuw i8, ptr %441, i64 32
   %522 = load i32, ptr %end_4.i.i.i700, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp6.i.i.i.i.i647)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp6.i.i.i.i.i647)
   store i8 1, ptr %agg.tmp6.i.i.i.i.i647, align 8
   %agg.tmp.sroa.29.0.agg.tmp6.sroa_idx.i.i.i.i.i701 = getelementptr inbounds nuw i8, ptr %agg.tmp6.i.i.i.i.i647, i64 8
   store ptr %520, ptr %agg.tmp.sroa.29.0.agg.tmp6.sroa_idx.i.i.i.i.i701, align 8
@@ -64702,10 +64702,10 @@ for.body.i.i.i25.i.i.i796:                        ; preds = %if.end14.i.i.i.i.i.
   %add50.i.i.i.i.i.i797 = phi i32 [ %add.i.i.i.i.i.i802, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE2ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i ], [ %add47.i.i.i.i.i.i794, %if.end14.i.i.i.i.i.i793 ]
   %i.049.i.i.i.i.i.i798 = phi i32 [ %add50.i.i.i.i.i.i797, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE2ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i ], [ %mul.i.i.i.i.i.i.i776, %if.end14.i.i.i.i.i.i793 ]
   %div16.i.i.i.i.i.i799 = sdiv i32 %i.049.i.i.i.i.i.i798, 64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i643)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i644)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i645)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i646)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i643)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i644)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i645)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i646)
   %idxprom.i.i.i.i.i.i.i800 = sext i32 %div16.i.i.i.i.i.i799 to i64
   %arrayidx.i.i.i.i.i.i.i801 = getelementptr inbounds i64, ptr %520, i64 %idxprom.i.i.i.i.i.i.i800
   %527 = load i64, ptr %arrayidx.i.i.i.i.i.i.i801, align 8
@@ -65118,10 +65118,10 @@ _ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBA
   br i1 %tobool7.not.i.i.i.i.i.i.i945, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE2ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i895, !llvm.loop !837
 
 _ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE2ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i: ; preds = %for.inc.i.i.i.i.i.i.i869, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INS9_4avx2EEEE15applyComparisonILNS0_8TypeKindE2ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSF_0EeqT_LSF_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESQ_RS2_RSt10shared_ptrISP_EEUlT_E_EEvSO_SV_ENKUlSV_E_clIiEEDaSV_.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i812, %for.body.i.i.i25.i.i.i796
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i643)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i644)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i645)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i646)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i643)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i644)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i645)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i646)
   %add.i.i.i.i.i.i802 = add nsw i32 %add50.i.i.i.i.i.i797, 64
   %cmp15.not.i.i.i.i.i.i803 = icmp sgt i32 %add.i.i.i.i.i.i802, %524
   br i1 %cmp15.not.i.i.i.i.i.i803, label %for.end.i.i.i26.i.i.i804, label %for.body.i.i.i25.i.i.i796, !llvm.loop !838
@@ -65138,13 +65138,13 @@ if.then19.i.i.i.i.i.i806:                         ; preds = %for.end.i.i.i26.i.i
   br label %if.then3.i.i.i27.i.i.invoke.i811
 
 _ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE2ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiiSX_.exit.i.i.i: ; preds = %for.end.i.i.i26.i.i.i804, %if.then3.i.i.i27.i.i.invoke.i811, %if.else.i.i.i698
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp6.i.i.i.i.i647)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp6.i.i.i.i.i647)
   br label %invoke.cont11.i705
 
 invoke.cont11.i705:                               ; preds = %for.inc.i.i.i1031, %_ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE2ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiiSX_.exit.i.i.i, %if.then.i.i.i980
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i648)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i649)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp47.i650)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i648)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11.i.i.i.i649)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp47.i650)
   %601 = load ptr, ptr %vector_.i42.i678, align 8
   %cmp.i.not.i.i706 = icmp eq ptr %601, null
   %602 = ptrtoint ptr %601 to i64
@@ -65727,9 +65727,9 @@ if.end52.i1092:                                   ; preds = %_ZN8facebook5velox4
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INS6_4avx2EEEE15applyComparisonILNS0_8TypeKindE2ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSC_0EeqT_LSC_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESN_RNS0_4exec7EvalCtxERSt10shared_ptrISM_E.exit
 
 _ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INS6_4avx2EEEE15applyComparisonILNS0_8TypeKindE2ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSC_0EeqT_LSC_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESN_RNS0_4exec7EvalCtxERSt10shared_ptrISM_E.exit: ; preds = %_ZN8facebook5velox4exec18LocalDecodedVectorD2Ev.exit.i720, %if.end.i65.thread.i733, %if.end.i65.i735, %_ZNKSt14default_deleteIN8facebook5velox13DecodedVectorEEclEPS2_.exit.i.i76.i732, %if.end52.i1092
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %resultVector.i651)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %lhsDecoded.i652)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %rhsDecoded.i653)
+  call void @llvm.lifetime.end.p0(ptr nonnull %resultVector.i651)
+  call void @llvm.lifetime.end.p0(ptr nonnull %lhsDecoded.i652)
+  call void @llvm.lifetime.end.p0(ptr nonnull %rhsDecoded.i653)
   br label %sw.epilog
 
 sw.bb23:                                          ; preds = %entry
@@ -65742,9 +65742,9 @@ sw.bb23:                                          ; preds = %entry
   %679 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %680 = load ptr, ptr %679, align 8
   %.val4 = load ptr, ptr %680, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %resultVector.i1205)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %lhsDecoded.i1206)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %rhsDecoded.i1207)
+  call void @llvm.lifetime.start.p0(ptr nonnull %resultVector.i1205)
+  call void @llvm.lifetime.start.p0(ptr nonnull %lhsDecoded.i1206)
+  call void @llvm.lifetime.start.p0(ptr nonnull %rhsDecoded.i1207)
   store ptr %.val4, ptr %resultVector.i1205, align 8
   %call.i.i1208 = tail call noundef ptr @_ZN8facebook5velox10FlatVectorIbE16mutableRawValuesEv(ptr noundef nonnull align 8 dereferenceable(184) %.val4)
   %encoding_.i.i1209 = getelementptr inbounds nuw i8, ptr %2, i64 28
@@ -65876,14 +65876,14 @@ lpad.i44.i1234:                                   ; preds = %invoke.cont.i45.i12
   br label %ehcleanup.i1235
 
 invoke.cont.i1238:                                ; preds = %invoke.cont.i45.i1237
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp47.i1204)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp47.i1204)
   store ptr %lhsDecoded.i1206, ptr %agg.tmp47.i1204, align 8
   %agg.tmp.sroa.2.0.agg.tmp47.sroa_idx.i1239 = getelementptr inbounds nuw i8, ptr %agg.tmp47.i1204, i64 8
   store ptr %rhsDecoded.i1207, ptr %agg.tmp.sroa.2.0.agg.tmp47.sroa_idx.i1239, align 8
   %agg.tmp.sroa.3.0.agg.tmp47.sroa_idx.i1240 = getelementptr inbounds nuw i8, ptr %agg.tmp47.i1204, i64 16
   store ptr %resultVector.i1205, ptr %agg.tmp.sroa.3.0.agg.tmp47.sroa_idx.i1240, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i1202)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i1203)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i1202)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i.i.i.i1203)
   %allSelected_.i.i.i.i1241 = getelementptr inbounds nuw i8, ptr %675, i64 36
   %_M_engaged.i.i.i.i.i.i1242 = getelementptr inbounds nuw i8, ptr %675, i64 37
   %700 = load i8, ptr %_M_engaged.i.i.i.i.i.i1242, align 1
@@ -66169,7 +66169,7 @@ if.else.i.i.i1252:                                ; preds = %_ZNK8facebook5velox
   %755 = load i32, ptr %begin_3.i.i.i1253, align 4
   %end_4.i.i.i1254 = getelementptr inbounds nuw i8, ptr %675, i64 32
   %756 = load i32, ptr %end_4.i.i.i1254, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp6.i.i.i.i.i1201)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp6.i.i.i.i.i1201)
   store i8 1, ptr %agg.tmp6.i.i.i.i.i1201, align 8
   %agg.tmp.sroa.29.0.agg.tmp6.sroa_idx.i.i.i.i.i1255 = getelementptr inbounds nuw i8, ptr %agg.tmp6.i.i.i.i.i1201, i64 8
   store ptr %754, ptr %agg.tmp.sroa.29.0.agg.tmp6.sroa_idx.i.i.i.i.i1255, align 8
@@ -66234,10 +66234,10 @@ for.body.i.i.i25.i.i.i1351:                       ; preds = %if.end14.i.i.i.i.i.
   %add50.i.i.i.i.i.i1352 = phi i32 [ %add.i.i.i.i.i.i1357, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE4ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i ], [ %add47.i.i.i.i.i.i1349, %if.end14.i.i.i.i.i.i1348 ]
   %i.049.i.i.i.i.i.i1353 = phi i32 [ %add50.i.i.i.i.i.i1352, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE4ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i ], [ %mul.i.i.i.i.i.i.i1331, %if.end14.i.i.i.i.i.i1348 ]
   %div16.i.i.i.i.i.i1354 = sdiv i32 %i.049.i.i.i.i.i.i1353, 64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i1197)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i1198)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i1199)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i1200)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i1197)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i1198)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i1199)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i1200)
   %idxprom.i.i.i.i.i.i.i1355 = sext i32 %div16.i.i.i.i.i.i1354 to i64
   %arrayidx.i.i.i.i.i.i.i1356 = getelementptr inbounds i64, ptr %754, i64 %idxprom.i.i.i.i.i.i.i1355
   %761 = load i64, ptr %arrayidx.i.i.i.i.i.i.i1356, align 8
@@ -66650,10 +66650,10 @@ _ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBA
   br i1 %tobool7.not.i.i.i.i.i.i.i1500, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE4ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i1450, !llvm.loop !860
 
 _ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE4ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i: ; preds = %for.inc.i.i.i.i.i.i.i1424, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INS9_4avx2EEEE15applyComparisonILNS0_8TypeKindE4ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSF_0EeqT_LSF_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESQ_RS2_RSt10shared_ptrISP_EEUlT_E_EEvSO_SV_ENKUlSV_E_clIiEEDaSV_.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i1367, %for.body.i.i.i25.i.i.i1351
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i1197)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i1198)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i1199)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i1200)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i1197)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i1198)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i1199)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i1200)
   %add.i.i.i.i.i.i1357 = add nsw i32 %add50.i.i.i.i.i.i1352, 64
   %cmp15.not.i.i.i.i.i.i1358 = icmp sgt i32 %add.i.i.i.i.i.i1357, %758
   br i1 %cmp15.not.i.i.i.i.i.i1358, label %for.end.i.i.i26.i.i.i1359, label %for.body.i.i.i25.i.i.i1351, !llvm.loop !861
@@ -66670,13 +66670,13 @@ if.then19.i.i.i.i.i.i1361:                        ; preds = %for.end.i.i.i26.i.i
   br label %if.then3.i.i.i27.i.i.invoke.i1366
 
 _ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE4ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiiSX_.exit.i.i.i: ; preds = %for.end.i.i.i26.i.i.i1359, %if.then3.i.i.i27.i.i.invoke.i1366, %if.else.i.i.i1252
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp6.i.i.i.i.i1201)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp6.i.i.i.i.i1201)
   br label %invoke.cont11.i1259
 
 invoke.cont11.i1259:                              ; preds = %for.inc.i.i.i1586, %_ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE4ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiiSX_.exit.i.i.i, %if.then.i.i.i1535
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i1202)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i1203)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp47.i1204)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i1202)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11.i.i.i.i1203)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp47.i1204)
   %835 = load ptr, ptr %vector_.i42.i1232, align 8
   %cmp.i.not.i.i1260 = icmp eq ptr %835, null
   %836 = ptrtoint ptr %835 to i64
@@ -67320,9 +67320,9 @@ if.end52.i1646:                                   ; preds = %_ZN8facebook5velox4
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INS6_4avx2EEEE15applyComparisonILNS0_8TypeKindE4ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSC_0EeqT_LSC_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESN_RNS0_4exec7EvalCtxERSt10shared_ptrISM_E.exit
 
 _ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INS6_4avx2EEEE15applyComparisonILNS0_8TypeKindE4ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSC_0EeqT_LSC_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESN_RNS0_4exec7EvalCtxERSt10shared_ptrISM_E.exit: ; preds = %_ZN8facebook5velox4exec18LocalDecodedVectorD2Ev.exit.i1274, %if.end.i65.thread.i1287, %if.end.i65.i1289, %_ZNKSt14default_deleteIN8facebook5velox13DecodedVectorEEclEPS2_.exit.i.i76.i1286, %if.end52.i1646
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %resultVector.i1205)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %lhsDecoded.i1206)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %rhsDecoded.i1207)
+  call void @llvm.lifetime.end.p0(ptr nonnull %resultVector.i1205)
+  call void @llvm.lifetime.end.p0(ptr nonnull %lhsDecoded.i1206)
+  call void @llvm.lifetime.end.p0(ptr nonnull %rhsDecoded.i1207)
   br label %sw.epilog
 
 sw.bb28:                                          ; preds = %entry
@@ -67348,9 +67348,9 @@ sw.bb33:                                          ; preds = %entry
   %940 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %941 = load ptr, ptr %940, align 8
   %.val5 = load ptr, ptr %941, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %resultVector.i1735)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %lhsDecoded.i1736)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %rhsDecoded.i1737)
+  call void @llvm.lifetime.start.p0(ptr nonnull %resultVector.i1735)
+  call void @llvm.lifetime.start.p0(ptr nonnull %lhsDecoded.i1736)
+  call void @llvm.lifetime.start.p0(ptr nonnull %rhsDecoded.i1737)
   store ptr %.val5, ptr %resultVector.i1735, align 8
   %call.i.i1738 = tail call noundef ptr @_ZN8facebook5velox10FlatVectorIbE16mutableRawValuesEv(ptr noundef nonnull align 8 dereferenceable(184) %.val5)
   %encoding_.i.i1739 = getelementptr inbounds nuw i8, ptr %2, i64 28
@@ -67482,14 +67482,14 @@ lpad.i44.i1764:                                   ; preds = %invoke.cont.i45.i17
   br label %ehcleanup.i1765
 
 invoke.cont.i1768:                                ; preds = %invoke.cont.i45.i1767
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp47.i1734)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp47.i1734)
   store ptr %lhsDecoded.i1736, ptr %agg.tmp47.i1734, align 8
   %agg.tmp.sroa.2.0.agg.tmp47.sroa_idx.i1769 = getelementptr inbounds nuw i8, ptr %agg.tmp47.i1734, i64 8
   store ptr %rhsDecoded.i1737, ptr %agg.tmp.sroa.2.0.agg.tmp47.sroa_idx.i1769, align 8
   %agg.tmp.sroa.3.0.agg.tmp47.sroa_idx.i1770 = getelementptr inbounds nuw i8, ptr %agg.tmp47.i1734, i64 16
   store ptr %resultVector.i1735, ptr %agg.tmp.sroa.3.0.agg.tmp47.sroa_idx.i1770, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i1732)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i1733)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i1732)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i.i.i.i1733)
   %allSelected_.i.i.i.i1771 = getelementptr inbounds nuw i8, ptr %936, i64 36
   %_M_engaged.i.i.i.i.i.i1772 = getelementptr inbounds nuw i8, ptr %936, i64 37
   %961 = load i8, ptr %_M_engaged.i.i.i.i.i.i1772, align 1
@@ -67775,7 +67775,7 @@ if.else.i.i.i1782:                                ; preds = %_ZNK8facebook5velox
   %1016 = load i32, ptr %begin_3.i.i.i1783, align 4
   %end_4.i.i.i1784 = getelementptr inbounds nuw i8, ptr %936, i64 32
   %1017 = load i32, ptr %end_4.i.i.i1784, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp6.i.i.i.i.i1731)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp6.i.i.i.i.i1731)
   store i8 1, ptr %agg.tmp6.i.i.i.i.i1731, align 8
   %agg.tmp.sroa.29.0.agg.tmp6.sroa_idx.i.i.i.i.i1785 = getelementptr inbounds nuw i8, ptr %agg.tmp6.i.i.i.i.i1731, i64 8
   store ptr %1015, ptr %agg.tmp.sroa.29.0.agg.tmp6.sroa_idx.i.i.i.i.i1785, align 8
@@ -67840,10 +67840,10 @@ for.body.i.i.i25.i.i.i1880:                       ; preds = %if.end14.i.i.i.i.i.
   %add50.i.i.i.i.i.i1881 = phi i32 [ %add.i.i.i.i.i.i1886, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE5ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i ], [ %add47.i.i.i.i.i.i1878, %if.end14.i.i.i.i.i.i1877 ]
   %i.049.i.i.i.i.i.i1882 = phi i32 [ %add50.i.i.i.i.i.i1881, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE5ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i ], [ %mul.i.i.i.i.i.i.i1860, %if.end14.i.i.i.i.i.i1877 ]
   %div16.i.i.i.i.i.i1883 = sdiv i32 %i.049.i.i.i.i.i.i1882, 64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i1727)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i1728)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i1729)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i1730)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i1727)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i1728)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i1729)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i1730)
   %idxprom.i.i.i.i.i.i.i1884 = sext i32 %div16.i.i.i.i.i.i1883 to i64
   %arrayidx.i.i.i.i.i.i.i1885 = getelementptr inbounds i64, ptr %1015, i64 %idxprom.i.i.i.i.i.i.i1884
   %1022 = load i64, ptr %arrayidx.i.i.i.i.i.i.i1885, align 8
@@ -68256,10 +68256,10 @@ _ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBA
   br i1 %tobool7.not.i.i.i.i.i.i.i2029, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE5ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i1979, !llvm.loop !887
 
 _ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE5ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i: ; preds = %for.inc.i.i.i.i.i.i.i1953, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INS9_4avx2EEEE15applyComparisonILNS0_8TypeKindE5ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSF_0EeqT_LSF_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESQ_RS2_RSt10shared_ptrISP_EEUlT_E_EEvSO_SV_ENKUlSV_E_clIiEEDaSV_.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i1896, %for.body.i.i.i25.i.i.i1880
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i1727)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i1728)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i1729)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i1730)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i1727)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i1728)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i1729)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i1730)
   %add.i.i.i.i.i.i1886 = add nsw i32 %add50.i.i.i.i.i.i1881, 64
   %cmp15.not.i.i.i.i.i.i1887 = icmp sgt i32 %add.i.i.i.i.i.i1886, %1019
   br i1 %cmp15.not.i.i.i.i.i.i1887, label %for.end.i.i.i26.i.i.i1888, label %for.body.i.i.i25.i.i.i1880, !llvm.loop !888
@@ -68276,13 +68276,13 @@ if.then19.i.i.i.i.i.i1890:                        ; preds = %for.end.i.i.i26.i.i
   br label %if.then3.i.i.i27.i.i.invoke.i1895
 
 _ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE5ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiiSX_.exit.i.i.i: ; preds = %for.end.i.i.i26.i.i.i1888, %if.then3.i.i.i27.i.i.invoke.i1895, %if.else.i.i.i1782
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp6.i.i.i.i.i1731)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp6.i.i.i.i.i1731)
   br label %invoke.cont11.i1789
 
 invoke.cont11.i1789:                              ; preds = %for.inc.i.i.i2115, %_ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE5ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiiSX_.exit.i.i.i, %if.then.i.i.i2064
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i1732)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i1733)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp47.i1734)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i1732)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11.i.i.i.i1733)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp47.i1734)
   %1096 = load ptr, ptr %vector_.i42.i1762, align 8
   %cmp.i.not.i.i1790 = icmp eq ptr %1096, null
   %1097 = ptrtoint ptr %1096 to i64
@@ -68841,9 +68841,9 @@ if.end52.i2177:                                   ; preds = %_ZN8facebook5velox4
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INS6_4avx2EEEE15applyComparisonILNS0_8TypeKindE5ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSC_0EeqT_LSC_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESN_RNS0_4exec7EvalCtxERSt10shared_ptrISM_E.exit
 
 _ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INS6_4avx2EEEE15applyComparisonILNS0_8TypeKindE5ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSC_0EeqT_LSC_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESN_RNS0_4exec7EvalCtxERSt10shared_ptrISM_E.exit: ; preds = %_ZN8facebook5velox4exec18LocalDecodedVectorD2Ev.exit.i1804, %if.end.i65.thread.i1817, %if.end.i65.i1819, %_ZNKSt14default_deleteIN8facebook5velox13DecodedVectorEEclEPS2_.exit.i.i76.i1816, %if.end52.i2177
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %resultVector.i1735)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %lhsDecoded.i1736)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %rhsDecoded.i1737)
+  call void @llvm.lifetime.end.p0(ptr nonnull %resultVector.i1735)
+  call void @llvm.lifetime.end.p0(ptr nonnull %lhsDecoded.i1736)
+  call void @llvm.lifetime.end.p0(ptr nonnull %rhsDecoded.i1737)
   br label %sw.epilog
 
 sw.bb38:                                          ; preds = %entry
@@ -68856,9 +68856,9 @@ sw.bb38:                                          ; preds = %entry
   %1162 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %1163 = load ptr, ptr %1162, align 8
   %.val6 = load ptr, ptr %1163, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %resultVector.i2307)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %lhsDecoded.i2308)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %rhsDecoded.i2309)
+  call void @llvm.lifetime.start.p0(ptr nonnull %resultVector.i2307)
+  call void @llvm.lifetime.start.p0(ptr nonnull %lhsDecoded.i2308)
+  call void @llvm.lifetime.start.p0(ptr nonnull %rhsDecoded.i2309)
   store ptr %.val6, ptr %resultVector.i2307, align 8
   %call.i.i2310 = tail call noundef ptr @_ZN8facebook5velox10FlatVectorIbE16mutableRawValuesEv(ptr noundef nonnull align 8 dereferenceable(184) %.val6)
   %encoding_.i.i2311 = getelementptr inbounds nuw i8, ptr %2, i64 28
@@ -68990,14 +68990,14 @@ lpad.i44.i2336:                                   ; preds = %invoke.cont.i45.i23
   br label %ehcleanup.i2337
 
 invoke.cont.i2340:                                ; preds = %invoke.cont.i45.i2339
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp47.i2306)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp47.i2306)
   store ptr %lhsDecoded.i2308, ptr %agg.tmp47.i2306, align 8
   %agg.tmp.sroa.2.0.agg.tmp47.sroa_idx.i2341 = getelementptr inbounds nuw i8, ptr %agg.tmp47.i2306, i64 8
   store ptr %rhsDecoded.i2309, ptr %agg.tmp.sroa.2.0.agg.tmp47.sroa_idx.i2341, align 8
   %agg.tmp.sroa.3.0.agg.tmp47.sroa_idx.i2342 = getelementptr inbounds nuw i8, ptr %agg.tmp47.i2306, i64 16
   store ptr %resultVector.i2307, ptr %agg.tmp.sroa.3.0.agg.tmp47.sroa_idx.i2342, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i2304)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i2305)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i2304)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i.i.i.i2305)
   %allSelected_.i.i.i.i2343 = getelementptr inbounds nuw i8, ptr %1158, i64 36
   %_M_engaged.i.i.i.i.i.i2344 = getelementptr inbounds nuw i8, ptr %1158, i64 37
   %1183 = load i8, ptr %_M_engaged.i.i.i.i.i.i2344, align 1
@@ -69283,7 +69283,7 @@ if.else.i.i.i2354:                                ; preds = %_ZNK8facebook5velox
   %1238 = load i32, ptr %begin_3.i.i.i2355, align 4
   %end_4.i.i.i2356 = getelementptr inbounds nuw i8, ptr %1158, i64 32
   %1239 = load i32, ptr %end_4.i.i.i2356, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp6.i.i.i.i.i2303)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp6.i.i.i.i.i2303)
   store i8 1, ptr %agg.tmp6.i.i.i.i.i2303, align 8
   %agg.tmp.sroa.29.0.agg.tmp6.sroa_idx.i.i.i.i.i2357 = getelementptr inbounds nuw i8, ptr %agg.tmp6.i.i.i.i.i2303, i64 8
   store ptr %1237, ptr %agg.tmp.sroa.29.0.agg.tmp6.sroa_idx.i.i.i.i.i2357, align 8
@@ -69348,10 +69348,10 @@ for.body.i.i.i25.i.i.i2453:                       ; preds = %if.end14.i.i.i.i.i.
   %add50.i.i.i.i.i.i2454 = phi i32 [ %add.i.i.i.i.i.i2459, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE6ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i ], [ %add47.i.i.i.i.i.i2451, %if.end14.i.i.i.i.i.i2450 ]
   %i.049.i.i.i.i.i.i2455 = phi i32 [ %add50.i.i.i.i.i.i2454, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE6ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i ], [ %mul.i.i.i.i.i.i.i2433, %if.end14.i.i.i.i.i.i2450 ]
   %div16.i.i.i.i.i.i2456 = sdiv i32 %i.049.i.i.i.i.i.i2455, 64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i2299)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i2300)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i2301)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i2302)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i2299)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i2300)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i2301)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i2302)
   %idxprom.i.i.i.i.i.i.i2457 = sext i32 %div16.i.i.i.i.i.i2456 to i64
   %arrayidx.i.i.i.i.i.i.i2458 = getelementptr inbounds i64, ptr %1237, i64 %idxprom.i.i.i.i.i.i.i2457
   %1244 = load i64, ptr %arrayidx.i.i.i.i.i.i.i2458, align 8
@@ -69764,10 +69764,10 @@ _ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBA
   br i1 %tobool7.not.i.i.i.i.i.i.i2602, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE6ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i2552, !llvm.loop !910
 
 _ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE6ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i: ; preds = %for.inc.i.i.i.i.i.i.i2526, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INS9_4avx2EEEE15applyComparisonILNS0_8TypeKindE6ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSF_0EeqT_LSF_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESQ_RS2_RSt10shared_ptrISP_EEUlT_E_EEvSO_SV_ENKUlSV_E_clIiEEDaSV_.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i2469, %for.body.i.i.i25.i.i.i2453
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i2299)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i2300)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i2301)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i2302)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i2299)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i2300)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i2301)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i2302)
   %add.i.i.i.i.i.i2459 = add nsw i32 %add50.i.i.i.i.i.i2454, 64
   %cmp15.not.i.i.i.i.i.i2460 = icmp sgt i32 %add.i.i.i.i.i.i2459, %1241
   br i1 %cmp15.not.i.i.i.i.i.i2460, label %for.end.i.i.i26.i.i.i2461, label %for.body.i.i.i25.i.i.i2453, !llvm.loop !911
@@ -69784,13 +69784,13 @@ if.then19.i.i.i.i.i.i2463:                        ; preds = %for.end.i.i.i26.i.i
   br label %if.then3.i.i.i27.i.i.invoke.i2468
 
 _ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE6ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiiSX_.exit.i.i.i: ; preds = %for.end.i.i.i26.i.i.i2461, %if.then3.i.i.i27.i.i.invoke.i2468, %if.else.i.i.i2354
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp6.i.i.i.i.i2303)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp6.i.i.i.i.i2303)
   br label %invoke.cont11.i2361
 
 invoke.cont11.i2361:                              ; preds = %for.inc.i.i.i2688, %_ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE6ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiiSX_.exit.i.i.i, %if.then.i.i.i2637
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i2304)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i2305)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp47.i2306)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i2304)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11.i.i.i.i2305)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp47.i2306)
   %1318 = load ptr, ptr %vector_.i42.i2334, align 8
   %cmp.i.not.i.i2362 = icmp eq ptr %1318, null
   %1319 = ptrtoint ptr %1318 to i64
@@ -70434,9 +70434,9 @@ if.end52.i2750:                                   ; preds = %_ZN8facebook5velox4
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INS6_4avx2EEEE15applyComparisonILNS0_8TypeKindE6ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSC_0EeqT_LSC_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESN_RNS0_4exec7EvalCtxERSt10shared_ptrISM_E.exit
 
 _ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt10less_equalIvEN5xsimd4fma3INS6_4avx2EEEE15applyComparisonILNS0_8TypeKindE6ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSC_0EeqT_LSC_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESN_RNS0_4exec7EvalCtxERSt10shared_ptrISM_E.exit: ; preds = %_ZN8facebook5velox4exec18LocalDecodedVectorD2Ev.exit.i2376, %if.end.i65.thread.i2389, %if.end.i65.i2391, %_ZNKSt14default_deleteIN8facebook5velox13DecodedVectorEEclEPS2_.exit.i.i76.i2388, %if.end52.i2750
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %resultVector.i2307)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %lhsDecoded.i2308)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %rhsDecoded.i2309)
+  call void @llvm.lifetime.end.p0(ptr nonnull %resultVector.i2307)
+  call void @llvm.lifetime.end.p0(ptr nonnull %lhsDecoded.i2308)
+  call void @llvm.lifetime.end.p0(ptr nonnull %rhsDecoded.i2309)
   br label %sw.epilog
 
 sw.default:                                       ; preds = %entry
@@ -72310,14 +72310,14 @@ lpad.i20:                                         ; preds = %invoke.cont.i21, %_
   br label %ehcleanup
 
 invoke.cont:                                      ; preds = %invoke.cont.i21
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp23)
   store ptr %lhsDecoded, ptr %agg.tmp23, align 8
   %agg.tmp.sroa.2.0.agg.tmp23.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp23, i64 8
   store ptr %rhsDecoded, ptr %agg.tmp.sroa.2.0.agg.tmp23.sroa_idx, align 8
   %agg.tmp.sroa.3.0.agg.tmp23.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp23, i64 16
   store ptr %resultVector, ptr %agg.tmp.sroa.3.0.agg.tmp23.sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i.i.i)
   %allSelected_.i.i.i = getelementptr inbounds nuw i8, ptr %rows, i64 36
   %_M_engaged.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %rows, i64 37
   %18 = load i8, ptr %_M_engaged.i.i.i.i.i, align 1
@@ -72605,7 +72605,7 @@ if.else.i.i:                                      ; preds = %_ZNK8facebook5velox
   %71 = load i32, ptr %begin_3.i.i, align 4
   %end_4.i.i = getelementptr inbounds nuw i8, ptr %rows, i64 32
   %72 = load i32, ptr %end_4.i.i, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp6.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp6.i.i.i.i)
   store i8 1, ptr %agg.tmp6.i.i.i.i, align 8
   %agg.tmp.sroa.29.0.agg.tmp6.sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp6.i.i.i.i, i64 8
   store ptr %70, ptr %agg.tmp.sroa.29.0.agg.tmp6.sroa_idx.i.i.i.i, align 8
@@ -72670,10 +72670,10 @@ for.body.i.i.i25.i.i:                             ; preds = %if.end14.i.i.i.i.i,
   %add50.i.i.i.i.i = phi i32 [ %add.i.i.i.i.i, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE10ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i ], [ %add47.i.i.i.i.i, %if.end14.i.i.i.i.i ]
   %i.049.i.i.i.i.i = phi i32 [ %add50.i.i.i.i.i, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE10ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i ], [ %mul.i.i.i.i.i.i, %if.end14.i.i.i.i.i ]
   %div16.i.i.i.i.i = sdiv i32 %i.049.i.i.i.i.i, 64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i15.i.i.i.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp12.i.i.i.i.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i15.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp12.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i.i.i.i.i.i.i)
   %idxprom.i.i.i.i.i.i = sext i32 %div16.i.i.i.i.i to i64
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds i64, ptr %70, i64 %idxprom.i.i.i.i.i.i
   %77 = load i64, ptr %arrayidx.i.i.i.i.i.i, align 8
@@ -73090,10 +73090,10 @@ _ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBA
   br i1 %tobool7.not.i.i.i.i.i.i, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE10ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i, label %while.body.i.i.i.i.i.i, !llvm.loop !937
 
 _ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE10ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i: ; preds = %for.inc.i.i.i.i.i.i, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INS9_4avx2EEEE15applyComparisonILNS0_8TypeKindE10ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSF_0EeqT_LSF_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESQ_RS2_RSt10shared_ptrISP_EEUlT_E_EEvSO_SV_ENKUlSV_E_clIiEEDaSV_.exit.i.i.i.i.i.i, %if.then.i.i.i.i.i.i, %for.body.i.i.i25.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i15.i.i.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp12.i.i.i.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i15.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp12.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11.i.i.i.i.i.i.i)
   %add.i.i.i.i.i = add nsw i32 %add50.i.i.i.i.i, 64
   %cmp15.not.i.i.i.i.i = icmp sgt i32 %add.i.i.i.i.i, %74
   br i1 %cmp15.not.i.i.i.i.i, label %for.end.i.i.i26.i.i, label %for.body.i.i.i25.i.i, !llvm.loop !938
@@ -73110,13 +73110,13 @@ if.then19.i.i.i.i.i:                              ; preds = %for.end.i.i.i26.i.i
   br label %if.then3.i.i.i27.i.i.invoke
 
 _ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE10ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiiSX_.exit.i.i: ; preds = %if.then3.i.i.i27.i.i.invoke, %for.end.i.i.i26.i.i, %if.else.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp6.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp6.i.i.i.i)
   br label %invoke.cont12
 
 invoke.cont12:                                    ; preds = %for.inc.i.i, %_ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE10ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiiSX_.exit.i.i, %if.then.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp23)
   %147 = load ptr, ptr %vector_.i18, align 8
   %cmp.i.not.i = icmp eq ptr %147, null
   %148 = ptrtoint ptr %147 to i64
@@ -73501,9 +73501,9 @@ sw.bb8:                                           ; preds = %entry
   %9 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %10 = load ptr, ptr %9, align 8
   %.val1 = load ptr, ptr %10, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %resultVector.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %lhsDecoded.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %rhsDecoded.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %resultVector.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %lhsDecoded.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %rhsDecoded.i)
   store ptr %.val1, ptr %resultVector.i, align 8
   %call.i.i = tail call noundef ptr @_ZN8facebook5velox10FlatVectorIbE16mutableRawValuesEv(ptr noundef nonnull align 8 dereferenceable(184) %.val1)
   %encoding_.i.i = getelementptr inbounds nuw i8, ptr %2, i64 28
@@ -73639,14 +73639,14 @@ lpad.i44.i:                                       ; preds = %invoke.cont.i45.i, 
   br label %ehcleanup.i
 
 invoke.cont.i:                                    ; preds = %invoke.cont.i45.i
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp47.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp47.i)
   store ptr %lhsDecoded.i, ptr %agg.tmp47.i, align 8
   %agg.tmp.sroa.2.0.agg.tmp47.sroa_idx.i = getelementptr inbounds nuw i8, ptr %agg.tmp47.i, i64 8
   store ptr %rhsDecoded.i, ptr %agg.tmp.sroa.2.0.agg.tmp47.sroa_idx.i, align 8
   %agg.tmp.sroa.3.0.agg.tmp47.sroa_idx.i = getelementptr inbounds nuw i8, ptr %agg.tmp47.i, i64 16
   store ptr %resultVector.i, ptr %agg.tmp.sroa.3.0.agg.tmp47.sroa_idx.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i.i.i.i)
   %allSelected_.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 36
   %_M_engaged.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 37
   %30 = load i8, ptr %_M_engaged.i.i.i.i.i.i, align 1
@@ -73932,7 +73932,7 @@ if.else.i.i.i:                                    ; preds = %_ZNK8facebook5velox
   %85 = load i32, ptr %begin_3.i.i.i, align 4
   %end_4.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 32
   %86 = load i32, ptr %end_4.i.i.i, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp6.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp6.i.i.i.i.i)
   store i8 1, ptr %agg.tmp6.i.i.i.i.i, align 8
   %agg.tmp.sroa.29.0.agg.tmp6.sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp6.i.i.i.i.i, i64 8
   store ptr %84, ptr %agg.tmp.sroa.29.0.agg.tmp6.sroa_idx.i.i.i.i.i, align 8
@@ -73997,10 +73997,10 @@ for.body.i.i.i25.i.i.i:                           ; preds = %if.end14.i.i.i.i.i.
   %add50.i.i.i.i.i.i = phi i32 [ %add.i.i.i.i.i.i, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE3ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i ], [ %add47.i.i.i.i.i.i, %if.end14.i.i.i.i.i.i ]
   %i.049.i.i.i.i.i.i = phi i32 [ %add50.i.i.i.i.i.i, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE3ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i ], [ %mul.i.i.i.i.i.i.i, %if.end14.i.i.i.i.i.i ]
   %div16.i.i.i.i.i.i = sdiv i32 %i.049.i.i.i.i.i.i, 64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i)
   %idxprom.i.i.i.i.i.i.i = sext i32 %div16.i.i.i.i.i.i to i64
   %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds i64, ptr %84, i64 %idxprom.i.i.i.i.i.i.i
   %91 = load i64, ptr %arrayidx.i.i.i.i.i.i.i, align 8
@@ -74413,10 +74413,10 @@ _ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBA
   br i1 %tobool7.not.i.i.i.i.i.i.i, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE3ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i, !llvm.loop !951
 
 _ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE3ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i: ; preds = %for.inc.i.i.i.i.i.i.i, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INS9_4avx2EEEE15applyComparisonILNS0_8TypeKindE3ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSF_0EeqT_LSF_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESQ_RS2_RSt10shared_ptrISP_EEUlT_E_EEvSO_SV_ENKUlSV_E_clIiEEDaSV_.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %for.body.i.i.i25.i.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i)
   %add.i.i.i.i.i.i = add nsw i32 %add50.i.i.i.i.i.i, 64
   %cmp15.not.i.i.i.i.i.i = icmp sgt i32 %add.i.i.i.i.i.i, %88
   br i1 %cmp15.not.i.i.i.i.i.i, label %for.end.i.i.i26.i.i.i, label %for.body.i.i.i25.i.i.i, !llvm.loop !952
@@ -74433,13 +74433,13 @@ if.then19.i.i.i.i.i.i:                            ; preds = %for.end.i.i.i26.i.i
   br label %if.then3.i.i.i27.i.i.invoke.i
 
 _ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE3ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiiSX_.exit.i.i.i: ; preds = %for.end.i.i.i26.i.i.i, %if.then3.i.i.i27.i.i.invoke.i, %if.else.i.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp6.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp6.i.i.i.i.i)
   br label %invoke.cont11.i
 
 invoke.cont11.i:                                  ; preds = %for.inc.i.i.i, %_ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE3ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiiSX_.exit.i.i.i, %if.then.i.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp47.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp47.i)
   %165 = load ptr, ptr %vector_.i42.i, align 8
   %cmp.i.not.i.i = icmp eq ptr %165, null
   %166 = ptrtoint ptr %165 to i64
@@ -74998,9 +74998,9 @@ if.end52.i:                                       ; preds = %_ZN8facebook5velox4
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INS6_4avx2EEEE15applyComparisonILNS0_8TypeKindE3ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSC_0EeqT_LSC_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESN_RNS0_4exec7EvalCtxERSt10shared_ptrISM_E.exit
 
 _ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INS6_4avx2EEEE15applyComparisonILNS0_8TypeKindE3ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSC_0EeqT_LSC_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESN_RNS0_4exec7EvalCtxERSt10shared_ptrISM_E.exit: ; preds = %_ZN8facebook5velox4exec18LocalDecodedVectorD2Ev.exit.i, %if.end.i65.thread.i, %if.end.i65.i, %_ZNKSt14default_deleteIN8facebook5velox13DecodedVectorEEclEPS2_.exit.i.i76.i, %if.end52.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %resultVector.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %lhsDecoded.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %rhsDecoded.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %resultVector.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %lhsDecoded.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %rhsDecoded.i)
   br label %sw.epilog
 
 sw.bb13:                                          ; preds = %entry
@@ -75013,9 +75013,9 @@ sw.bb13:                                          ; preds = %entry
   %227 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %228 = load ptr, ptr %227, align 8
   %.val2 = load ptr, ptr %228, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %resultVector.i19)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %lhsDecoded.i20)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %rhsDecoded.i21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %resultVector.i19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %lhsDecoded.i20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %rhsDecoded.i21)
   store ptr %.val2, ptr %resultVector.i19, align 8
   %call.i.i22 = tail call noundef ptr @_ZN8facebook5velox10FlatVectorIbE16mutableRawValuesEv(ptr noundef nonnull align 8 dereferenceable(184) %.val2)
   %encoding_.i.i23 = getelementptr inbounds nuw i8, ptr %2, i64 28
@@ -75147,14 +75147,14 @@ lpad.i44.i48:                                     ; preds = %invoke.cont.i45.i51
   br label %ehcleanup.i49
 
 invoke.cont.i52:                                  ; preds = %invoke.cont.i45.i51
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp47.i18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp47.i18)
   store ptr %lhsDecoded.i20, ptr %agg.tmp47.i18, align 8
   %agg.tmp.sroa.2.0.agg.tmp47.sroa_idx.i53 = getelementptr inbounds nuw i8, ptr %agg.tmp47.i18, i64 8
   store ptr %rhsDecoded.i21, ptr %agg.tmp.sroa.2.0.agg.tmp47.sroa_idx.i53, align 8
   %agg.tmp.sroa.3.0.agg.tmp47.sroa_idx.i54 = getelementptr inbounds nuw i8, ptr %agg.tmp47.i18, i64 16
   store ptr %resultVector.i19, ptr %agg.tmp.sroa.3.0.agg.tmp47.sroa_idx.i54, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i16)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i.i.i.i17)
   %allSelected_.i.i.i.i55 = getelementptr inbounds nuw i8, ptr %223, i64 36
   %_M_engaged.i.i.i.i.i.i56 = getelementptr inbounds nuw i8, ptr %223, i64 37
   %248 = load i8, ptr %_M_engaged.i.i.i.i.i.i56, align 1
@@ -75440,7 +75440,7 @@ if.else.i.i.i66:                                  ; preds = %_ZNK8facebook5velox
   %303 = load i32, ptr %begin_3.i.i.i67, align 4
   %end_4.i.i.i68 = getelementptr inbounds nuw i8, ptr %223, i64 32
   %304 = load i32, ptr %end_4.i.i.i68, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp6.i.i.i.i.i15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp6.i.i.i.i.i15)
   store i8 1, ptr %agg.tmp6.i.i.i.i.i15, align 8
   %agg.tmp.sroa.29.0.agg.tmp6.sroa_idx.i.i.i.i.i69 = getelementptr inbounds nuw i8, ptr %agg.tmp6.i.i.i.i.i15, i64 8
   store ptr %302, ptr %agg.tmp.sroa.29.0.agg.tmp6.sroa_idx.i.i.i.i.i69, align 8
@@ -75505,10 +75505,10 @@ for.body.i.i.i25.i.i.i209:                        ; preds = %if.end14.i.i.i.i.i.
   %add50.i.i.i.i.i.i210 = phi i32 [ %add.i.i.i.i.i.i215, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE1ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i ], [ %add47.i.i.i.i.i.i207, %if.end14.i.i.i.i.i.i206 ]
   %i.049.i.i.i.i.i.i211 = phi i32 [ %add50.i.i.i.i.i.i210, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE1ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i ], [ %mul.i.i.i.i.i.i.i189, %if.end14.i.i.i.i.i.i206 ]
   %div16.i.i.i.i.i.i212 = sdiv i32 %i.049.i.i.i.i.i.i211, 64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i11)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i12)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i13)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i14)
   %idxprom.i.i.i.i.i.i.i213 = sext i32 %div16.i.i.i.i.i.i212 to i64
   %arrayidx.i.i.i.i.i.i.i214 = getelementptr inbounds i64, ptr %302, i64 %idxprom.i.i.i.i.i.i.i213
   %309 = load i64, ptr %arrayidx.i.i.i.i.i.i.i214, align 8
@@ -75921,10 +75921,10 @@ _ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBA
   br i1 %tobool7.not.i.i.i.i.i.i.i358, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE1ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i308, !llvm.loop !974
 
 _ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE1ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i: ; preds = %for.inc.i.i.i.i.i.i.i282, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INS9_4avx2EEEE15applyComparisonILNS0_8TypeKindE1ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSF_0EeqT_LSF_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESQ_RS2_RSt10shared_ptrISP_EEUlT_E_EEvSO_SV_ENKUlSV_E_clIiEEDaSV_.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i225, %for.body.i.i.i25.i.i.i209
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i11)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i12)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i13)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i14)
   %add.i.i.i.i.i.i215 = add nsw i32 %add50.i.i.i.i.i.i210, 64
   %cmp15.not.i.i.i.i.i.i216 = icmp sgt i32 %add.i.i.i.i.i.i215, %306
   br i1 %cmp15.not.i.i.i.i.i.i216, label %for.end.i.i.i26.i.i.i217, label %for.body.i.i.i25.i.i.i209, !llvm.loop !975
@@ -75941,13 +75941,13 @@ if.then19.i.i.i.i.i.i219:                         ; preds = %for.end.i.i.i26.i.i
   br label %if.then3.i.i.i27.i.i.invoke.i224
 
 _ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE1ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiiSX_.exit.i.i.i: ; preds = %for.end.i.i.i26.i.i.i217, %if.then3.i.i.i27.i.i.invoke.i224, %if.else.i.i.i66
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp6.i.i.i.i.i15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp6.i.i.i.i.i15)
   br label %invoke.cont11.i73
 
 invoke.cont11.i73:                                ; preds = %for.inc.i.i.i444, %_ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE1ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiiSX_.exit.i.i.i, %if.then.i.i.i393
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i16)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i17)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp47.i18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11.i.i.i.i17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp47.i18)
   %383 = load ptr, ptr %vector_.i42.i46, align 8
   %cmp.i.not.i.i74 = icmp eq ptr %383, null
   %384 = ptrtoint ptr %383 to i64
@@ -76506,9 +76506,9 @@ if.end52.i507:                                    ; preds = %_ZN8facebook5velox4
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INS6_4avx2EEEE15applyComparisonILNS0_8TypeKindE1ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSC_0EeqT_LSC_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESN_RNS0_4exec7EvalCtxERSt10shared_ptrISM_E.exit
 
 _ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INS6_4avx2EEEE15applyComparisonILNS0_8TypeKindE1ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSC_0EeqT_LSC_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESN_RNS0_4exec7EvalCtxERSt10shared_ptrISM_E.exit: ; preds = %_ZN8facebook5velox4exec18LocalDecodedVectorD2Ev.exit.i88, %if.end.i65.thread.i108, %if.end.i65.i139, %_ZNKSt14default_deleteIN8facebook5velox13DecodedVectorEEclEPS2_.exit.i.i76.i102, %if.end52.i507
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %resultVector.i19)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %lhsDecoded.i20)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %rhsDecoded.i21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %resultVector.i19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %lhsDecoded.i20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %rhsDecoded.i21)
   br label %sw.epilog
 
 sw.bb18:                                          ; preds = %entry
@@ -76521,9 +76521,9 @@ sw.bb18:                                          ; preds = %entry
   %445 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %446 = load ptr, ptr %445, align 8
   %.val3 = load ptr, ptr %446, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %resultVector.i651)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %lhsDecoded.i652)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %rhsDecoded.i653)
+  call void @llvm.lifetime.start.p0(ptr nonnull %resultVector.i651)
+  call void @llvm.lifetime.start.p0(ptr nonnull %lhsDecoded.i652)
+  call void @llvm.lifetime.start.p0(ptr nonnull %rhsDecoded.i653)
   store ptr %.val3, ptr %resultVector.i651, align 8
   %call.i.i654 = tail call noundef ptr @_ZN8facebook5velox10FlatVectorIbE16mutableRawValuesEv(ptr noundef nonnull align 8 dereferenceable(184) %.val3)
   %encoding_.i.i655 = getelementptr inbounds nuw i8, ptr %2, i64 28
@@ -76655,14 +76655,14 @@ lpad.i44.i680:                                    ; preds = %invoke.cont.i45.i68
   br label %ehcleanup.i681
 
 invoke.cont.i684:                                 ; preds = %invoke.cont.i45.i683
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp47.i650)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp47.i650)
   store ptr %lhsDecoded.i652, ptr %agg.tmp47.i650, align 8
   %agg.tmp.sroa.2.0.agg.tmp47.sroa_idx.i685 = getelementptr inbounds nuw i8, ptr %agg.tmp47.i650, i64 8
   store ptr %rhsDecoded.i653, ptr %agg.tmp.sroa.2.0.agg.tmp47.sroa_idx.i685, align 8
   %agg.tmp.sroa.3.0.agg.tmp47.sroa_idx.i686 = getelementptr inbounds nuw i8, ptr %agg.tmp47.i650, i64 16
   store ptr %resultVector.i651, ptr %agg.tmp.sroa.3.0.agg.tmp47.sroa_idx.i686, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i648)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i649)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i648)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i.i.i.i649)
   %allSelected_.i.i.i.i687 = getelementptr inbounds nuw i8, ptr %441, i64 36
   %_M_engaged.i.i.i.i.i.i688 = getelementptr inbounds nuw i8, ptr %441, i64 37
   %466 = load i8, ptr %_M_engaged.i.i.i.i.i.i688, align 1
@@ -76948,7 +76948,7 @@ if.else.i.i.i698:                                 ; preds = %_ZNK8facebook5velox
   %521 = load i32, ptr %begin_3.i.i.i699, align 4
   %end_4.i.i.i700 = getelementptr inbounds nuw i8, ptr %441, i64 32
   %522 = load i32, ptr %end_4.i.i.i700, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp6.i.i.i.i.i647)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp6.i.i.i.i.i647)
   store i8 1, ptr %agg.tmp6.i.i.i.i.i647, align 8
   %agg.tmp.sroa.29.0.agg.tmp6.sroa_idx.i.i.i.i.i701 = getelementptr inbounds nuw i8, ptr %agg.tmp6.i.i.i.i.i647, i64 8
   store ptr %520, ptr %agg.tmp.sroa.29.0.agg.tmp6.sroa_idx.i.i.i.i.i701, align 8
@@ -77013,10 +77013,10 @@ for.body.i.i.i25.i.i.i796:                        ; preds = %if.end14.i.i.i.i.i.
   %add50.i.i.i.i.i.i797 = phi i32 [ %add.i.i.i.i.i.i802, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE2ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i ], [ %add47.i.i.i.i.i.i794, %if.end14.i.i.i.i.i.i793 ]
   %i.049.i.i.i.i.i.i798 = phi i32 [ %add50.i.i.i.i.i.i797, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE2ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i ], [ %mul.i.i.i.i.i.i.i776, %if.end14.i.i.i.i.i.i793 ]
   %div16.i.i.i.i.i.i799 = sdiv i32 %i.049.i.i.i.i.i.i798, 64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i643)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i644)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i645)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i646)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i643)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i644)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i645)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i646)
   %idxprom.i.i.i.i.i.i.i800 = sext i32 %div16.i.i.i.i.i.i799 to i64
   %arrayidx.i.i.i.i.i.i.i801 = getelementptr inbounds i64, ptr %520, i64 %idxprom.i.i.i.i.i.i.i800
   %527 = load i64, ptr %arrayidx.i.i.i.i.i.i.i801, align 8
@@ -77429,10 +77429,10 @@ _ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBA
   br i1 %tobool7.not.i.i.i.i.i.i.i945, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE2ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i895, !llvm.loop !997
 
 _ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE2ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i: ; preds = %for.inc.i.i.i.i.i.i.i869, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INS9_4avx2EEEE15applyComparisonILNS0_8TypeKindE2ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSF_0EeqT_LSF_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESQ_RS2_RSt10shared_ptrISP_EEUlT_E_EEvSO_SV_ENKUlSV_E_clIiEEDaSV_.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i812, %for.body.i.i.i25.i.i.i796
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i643)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i644)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i645)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i646)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i643)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i644)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i645)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i646)
   %add.i.i.i.i.i.i802 = add nsw i32 %add50.i.i.i.i.i.i797, 64
   %cmp15.not.i.i.i.i.i.i803 = icmp sgt i32 %add.i.i.i.i.i.i802, %524
   br i1 %cmp15.not.i.i.i.i.i.i803, label %for.end.i.i.i26.i.i.i804, label %for.body.i.i.i25.i.i.i796, !llvm.loop !998
@@ -77449,13 +77449,13 @@ if.then19.i.i.i.i.i.i806:                         ; preds = %for.end.i.i.i26.i.i
   br label %if.then3.i.i.i27.i.i.invoke.i811
 
 _ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE2ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiiSX_.exit.i.i.i: ; preds = %for.end.i.i.i26.i.i.i804, %if.then3.i.i.i27.i.i.invoke.i811, %if.else.i.i.i698
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp6.i.i.i.i.i647)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp6.i.i.i.i.i647)
   br label %invoke.cont11.i705
 
 invoke.cont11.i705:                               ; preds = %for.inc.i.i.i1031, %_ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE2ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiiSX_.exit.i.i.i, %if.then.i.i.i980
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i648)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i649)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp47.i650)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i648)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11.i.i.i.i649)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp47.i650)
   %601 = load ptr, ptr %vector_.i42.i678, align 8
   %cmp.i.not.i.i706 = icmp eq ptr %601, null
   %602 = ptrtoint ptr %601 to i64
@@ -78038,9 +78038,9 @@ if.end52.i1092:                                   ; preds = %_ZN8facebook5velox4
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INS6_4avx2EEEE15applyComparisonILNS0_8TypeKindE2ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSC_0EeqT_LSC_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESN_RNS0_4exec7EvalCtxERSt10shared_ptrISM_E.exit
 
 _ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INS6_4avx2EEEE15applyComparisonILNS0_8TypeKindE2ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSC_0EeqT_LSC_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESN_RNS0_4exec7EvalCtxERSt10shared_ptrISM_E.exit: ; preds = %_ZN8facebook5velox4exec18LocalDecodedVectorD2Ev.exit.i720, %if.end.i65.thread.i733, %if.end.i65.i735, %_ZNKSt14default_deleteIN8facebook5velox13DecodedVectorEEclEPS2_.exit.i.i76.i732, %if.end52.i1092
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %resultVector.i651)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %lhsDecoded.i652)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %rhsDecoded.i653)
+  call void @llvm.lifetime.end.p0(ptr nonnull %resultVector.i651)
+  call void @llvm.lifetime.end.p0(ptr nonnull %lhsDecoded.i652)
+  call void @llvm.lifetime.end.p0(ptr nonnull %rhsDecoded.i653)
   br label %sw.epilog
 
 sw.bb23:                                          ; preds = %entry
@@ -78053,9 +78053,9 @@ sw.bb23:                                          ; preds = %entry
   %679 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %680 = load ptr, ptr %679, align 8
   %.val4 = load ptr, ptr %680, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %resultVector.i1205)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %lhsDecoded.i1206)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %rhsDecoded.i1207)
+  call void @llvm.lifetime.start.p0(ptr nonnull %resultVector.i1205)
+  call void @llvm.lifetime.start.p0(ptr nonnull %lhsDecoded.i1206)
+  call void @llvm.lifetime.start.p0(ptr nonnull %rhsDecoded.i1207)
   store ptr %.val4, ptr %resultVector.i1205, align 8
   %call.i.i1208 = tail call noundef ptr @_ZN8facebook5velox10FlatVectorIbE16mutableRawValuesEv(ptr noundef nonnull align 8 dereferenceable(184) %.val4)
   %encoding_.i.i1209 = getelementptr inbounds nuw i8, ptr %2, i64 28
@@ -78187,14 +78187,14 @@ lpad.i44.i1234:                                   ; preds = %invoke.cont.i45.i12
   br label %ehcleanup.i1235
 
 invoke.cont.i1238:                                ; preds = %invoke.cont.i45.i1237
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp47.i1204)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp47.i1204)
   store ptr %lhsDecoded.i1206, ptr %agg.tmp47.i1204, align 8
   %agg.tmp.sroa.2.0.agg.tmp47.sroa_idx.i1239 = getelementptr inbounds nuw i8, ptr %agg.tmp47.i1204, i64 8
   store ptr %rhsDecoded.i1207, ptr %agg.tmp.sroa.2.0.agg.tmp47.sroa_idx.i1239, align 8
   %agg.tmp.sroa.3.0.agg.tmp47.sroa_idx.i1240 = getelementptr inbounds nuw i8, ptr %agg.tmp47.i1204, i64 16
   store ptr %resultVector.i1205, ptr %agg.tmp.sroa.3.0.agg.tmp47.sroa_idx.i1240, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i1202)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i1203)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i1202)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i.i.i.i1203)
   %allSelected_.i.i.i.i1241 = getelementptr inbounds nuw i8, ptr %675, i64 36
   %_M_engaged.i.i.i.i.i.i1242 = getelementptr inbounds nuw i8, ptr %675, i64 37
   %700 = load i8, ptr %_M_engaged.i.i.i.i.i.i1242, align 1
@@ -78480,7 +78480,7 @@ if.else.i.i.i1252:                                ; preds = %_ZNK8facebook5velox
   %755 = load i32, ptr %begin_3.i.i.i1253, align 4
   %end_4.i.i.i1254 = getelementptr inbounds nuw i8, ptr %675, i64 32
   %756 = load i32, ptr %end_4.i.i.i1254, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp6.i.i.i.i.i1201)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp6.i.i.i.i.i1201)
   store i8 1, ptr %agg.tmp6.i.i.i.i.i1201, align 8
   %agg.tmp.sroa.29.0.agg.tmp6.sroa_idx.i.i.i.i.i1255 = getelementptr inbounds nuw i8, ptr %agg.tmp6.i.i.i.i.i1201, i64 8
   store ptr %754, ptr %agg.tmp.sroa.29.0.agg.tmp6.sroa_idx.i.i.i.i.i1255, align 8
@@ -78545,10 +78545,10 @@ for.body.i.i.i25.i.i.i1351:                       ; preds = %if.end14.i.i.i.i.i.
   %add50.i.i.i.i.i.i1352 = phi i32 [ %add.i.i.i.i.i.i1357, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE4ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i ], [ %add47.i.i.i.i.i.i1349, %if.end14.i.i.i.i.i.i1348 ]
   %i.049.i.i.i.i.i.i1353 = phi i32 [ %add50.i.i.i.i.i.i1352, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE4ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i ], [ %mul.i.i.i.i.i.i.i1331, %if.end14.i.i.i.i.i.i1348 ]
   %div16.i.i.i.i.i.i1354 = sdiv i32 %i.049.i.i.i.i.i.i1353, 64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i1197)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i1198)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i1199)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i1200)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i1197)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i1198)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i1199)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i1200)
   %idxprom.i.i.i.i.i.i.i1355 = sext i32 %div16.i.i.i.i.i.i1354 to i64
   %arrayidx.i.i.i.i.i.i.i1356 = getelementptr inbounds i64, ptr %754, i64 %idxprom.i.i.i.i.i.i.i1355
   %761 = load i64, ptr %arrayidx.i.i.i.i.i.i.i1356, align 8
@@ -78961,10 +78961,10 @@ _ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBA
   br i1 %tobool7.not.i.i.i.i.i.i.i1500, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE4ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i1450, !llvm.loop !1020
 
 _ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE4ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i: ; preds = %for.inc.i.i.i.i.i.i.i1424, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INS9_4avx2EEEE15applyComparisonILNS0_8TypeKindE4ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSF_0EeqT_LSF_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESQ_RS2_RSt10shared_ptrISP_EEUlT_E_EEvSO_SV_ENKUlSV_E_clIiEEDaSV_.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i1367, %for.body.i.i.i25.i.i.i1351
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i1197)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i1198)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i1199)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i1200)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i1197)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i1198)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i1199)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i1200)
   %add.i.i.i.i.i.i1357 = add nsw i32 %add50.i.i.i.i.i.i1352, 64
   %cmp15.not.i.i.i.i.i.i1358 = icmp sgt i32 %add.i.i.i.i.i.i1357, %758
   br i1 %cmp15.not.i.i.i.i.i.i1358, label %for.end.i.i.i26.i.i.i1359, label %for.body.i.i.i25.i.i.i1351, !llvm.loop !1021
@@ -78981,13 +78981,13 @@ if.then19.i.i.i.i.i.i1361:                        ; preds = %for.end.i.i.i26.i.i
   br label %if.then3.i.i.i27.i.i.invoke.i1366
 
 _ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE4ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiiSX_.exit.i.i.i: ; preds = %for.end.i.i.i26.i.i.i1359, %if.then3.i.i.i27.i.i.invoke.i1366, %if.else.i.i.i1252
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp6.i.i.i.i.i1201)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp6.i.i.i.i.i1201)
   br label %invoke.cont11.i1259
 
 invoke.cont11.i1259:                              ; preds = %for.inc.i.i.i1586, %_ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE4ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiiSX_.exit.i.i.i, %if.then.i.i.i1535
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i1202)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i1203)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp47.i1204)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i1202)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11.i.i.i.i1203)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp47.i1204)
   %835 = load ptr, ptr %vector_.i42.i1232, align 8
   %cmp.i.not.i.i1260 = icmp eq ptr %835, null
   %836 = ptrtoint ptr %835 to i64
@@ -79631,9 +79631,9 @@ if.end52.i1646:                                   ; preds = %_ZN8facebook5velox4
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INS6_4avx2EEEE15applyComparisonILNS0_8TypeKindE4ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSC_0EeqT_LSC_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESN_RNS0_4exec7EvalCtxERSt10shared_ptrISM_E.exit
 
 _ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INS6_4avx2EEEE15applyComparisonILNS0_8TypeKindE4ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSC_0EeqT_LSC_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESN_RNS0_4exec7EvalCtxERSt10shared_ptrISM_E.exit: ; preds = %_ZN8facebook5velox4exec18LocalDecodedVectorD2Ev.exit.i1274, %if.end.i65.thread.i1287, %if.end.i65.i1289, %_ZNKSt14default_deleteIN8facebook5velox13DecodedVectorEEclEPS2_.exit.i.i76.i1286, %if.end52.i1646
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %resultVector.i1205)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %lhsDecoded.i1206)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %rhsDecoded.i1207)
+  call void @llvm.lifetime.end.p0(ptr nonnull %resultVector.i1205)
+  call void @llvm.lifetime.end.p0(ptr nonnull %lhsDecoded.i1206)
+  call void @llvm.lifetime.end.p0(ptr nonnull %rhsDecoded.i1207)
   br label %sw.epilog
 
 sw.bb28:                                          ; preds = %entry
@@ -79659,9 +79659,9 @@ sw.bb33:                                          ; preds = %entry
   %940 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %941 = load ptr, ptr %940, align 8
   %.val5 = load ptr, ptr %941, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %resultVector.i1735)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %lhsDecoded.i1736)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %rhsDecoded.i1737)
+  call void @llvm.lifetime.start.p0(ptr nonnull %resultVector.i1735)
+  call void @llvm.lifetime.start.p0(ptr nonnull %lhsDecoded.i1736)
+  call void @llvm.lifetime.start.p0(ptr nonnull %rhsDecoded.i1737)
   store ptr %.val5, ptr %resultVector.i1735, align 8
   %call.i.i1738 = tail call noundef ptr @_ZN8facebook5velox10FlatVectorIbE16mutableRawValuesEv(ptr noundef nonnull align 8 dereferenceable(184) %.val5)
   %encoding_.i.i1739 = getelementptr inbounds nuw i8, ptr %2, i64 28
@@ -79793,14 +79793,14 @@ lpad.i44.i1764:                                   ; preds = %invoke.cont.i45.i17
   br label %ehcleanup.i1765
 
 invoke.cont.i1768:                                ; preds = %invoke.cont.i45.i1767
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp47.i1734)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp47.i1734)
   store ptr %lhsDecoded.i1736, ptr %agg.tmp47.i1734, align 8
   %agg.tmp.sroa.2.0.agg.tmp47.sroa_idx.i1769 = getelementptr inbounds nuw i8, ptr %agg.tmp47.i1734, i64 8
   store ptr %rhsDecoded.i1737, ptr %agg.tmp.sroa.2.0.agg.tmp47.sroa_idx.i1769, align 8
   %agg.tmp.sroa.3.0.agg.tmp47.sroa_idx.i1770 = getelementptr inbounds nuw i8, ptr %agg.tmp47.i1734, i64 16
   store ptr %resultVector.i1735, ptr %agg.tmp.sroa.3.0.agg.tmp47.sroa_idx.i1770, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i1732)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i1733)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i1732)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i.i.i.i1733)
   %allSelected_.i.i.i.i1771 = getelementptr inbounds nuw i8, ptr %936, i64 36
   %_M_engaged.i.i.i.i.i.i1772 = getelementptr inbounds nuw i8, ptr %936, i64 37
   %961 = load i8, ptr %_M_engaged.i.i.i.i.i.i1772, align 1
@@ -80086,7 +80086,7 @@ if.else.i.i.i1782:                                ; preds = %_ZNK8facebook5velox
   %1016 = load i32, ptr %begin_3.i.i.i1783, align 4
   %end_4.i.i.i1784 = getelementptr inbounds nuw i8, ptr %936, i64 32
   %1017 = load i32, ptr %end_4.i.i.i1784, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp6.i.i.i.i.i1731)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp6.i.i.i.i.i1731)
   store i8 1, ptr %agg.tmp6.i.i.i.i.i1731, align 8
   %agg.tmp.sroa.29.0.agg.tmp6.sroa_idx.i.i.i.i.i1785 = getelementptr inbounds nuw i8, ptr %agg.tmp6.i.i.i.i.i1731, i64 8
   store ptr %1015, ptr %agg.tmp.sroa.29.0.agg.tmp6.sroa_idx.i.i.i.i.i1785, align 8
@@ -80151,10 +80151,10 @@ for.body.i.i.i25.i.i.i1880:                       ; preds = %if.end14.i.i.i.i.i.
   %add50.i.i.i.i.i.i1881 = phi i32 [ %add.i.i.i.i.i.i1886, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE5ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i ], [ %add47.i.i.i.i.i.i1878, %if.end14.i.i.i.i.i.i1877 ]
   %i.049.i.i.i.i.i.i1882 = phi i32 [ %add50.i.i.i.i.i.i1881, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE5ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i ], [ %mul.i.i.i.i.i.i.i1860, %if.end14.i.i.i.i.i.i1877 ]
   %div16.i.i.i.i.i.i1883 = sdiv i32 %i.049.i.i.i.i.i.i1882, 64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i1727)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i1728)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i1729)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i1730)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i1727)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i1728)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i1729)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i1730)
   %idxprom.i.i.i.i.i.i.i1884 = sext i32 %div16.i.i.i.i.i.i1883 to i64
   %arrayidx.i.i.i.i.i.i.i1885 = getelementptr inbounds i64, ptr %1015, i64 %idxprom.i.i.i.i.i.i.i1884
   %1022 = load i64, ptr %arrayidx.i.i.i.i.i.i.i1885, align 8
@@ -80567,10 +80567,10 @@ _ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBA
   br i1 %tobool7.not.i.i.i.i.i.i.i2029, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE5ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i1979, !llvm.loop !1047
 
 _ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE5ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i: ; preds = %for.inc.i.i.i.i.i.i.i1953, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INS9_4avx2EEEE15applyComparisonILNS0_8TypeKindE5ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSF_0EeqT_LSF_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESQ_RS2_RSt10shared_ptrISP_EEUlT_E_EEvSO_SV_ENKUlSV_E_clIiEEDaSV_.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i1896, %for.body.i.i.i25.i.i.i1880
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i1727)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i1728)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i1729)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i1730)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i1727)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i1728)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i1729)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i1730)
   %add.i.i.i.i.i.i1886 = add nsw i32 %add50.i.i.i.i.i.i1881, 64
   %cmp15.not.i.i.i.i.i.i1887 = icmp sgt i32 %add.i.i.i.i.i.i1886, %1019
   br i1 %cmp15.not.i.i.i.i.i.i1887, label %for.end.i.i.i26.i.i.i1888, label %for.body.i.i.i25.i.i.i1880, !llvm.loop !1048
@@ -80587,13 +80587,13 @@ if.then19.i.i.i.i.i.i1890:                        ; preds = %for.end.i.i.i26.i.i
   br label %if.then3.i.i.i27.i.i.invoke.i1895
 
 _ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE5ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiiSX_.exit.i.i.i: ; preds = %for.end.i.i.i26.i.i.i1888, %if.then3.i.i.i27.i.i.invoke.i1895, %if.else.i.i.i1782
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp6.i.i.i.i.i1731)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp6.i.i.i.i.i1731)
   br label %invoke.cont11.i1789
 
 invoke.cont11.i1789:                              ; preds = %for.inc.i.i.i2115, %_ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE5ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiiSX_.exit.i.i.i, %if.then.i.i.i2064
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i1732)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i1733)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp47.i1734)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i1732)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11.i.i.i.i1733)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp47.i1734)
   %1096 = load ptr, ptr %vector_.i42.i1762, align 8
   %cmp.i.not.i.i1790 = icmp eq ptr %1096, null
   %1097 = ptrtoint ptr %1096 to i64
@@ -81152,9 +81152,9 @@ if.end52.i2177:                                   ; preds = %_ZN8facebook5velox4
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INS6_4avx2EEEE15applyComparisonILNS0_8TypeKindE5ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSC_0EeqT_LSC_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESN_RNS0_4exec7EvalCtxERSt10shared_ptrISM_E.exit
 
 _ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INS6_4avx2EEEE15applyComparisonILNS0_8TypeKindE5ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSC_0EeqT_LSC_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESN_RNS0_4exec7EvalCtxERSt10shared_ptrISM_E.exit: ; preds = %_ZN8facebook5velox4exec18LocalDecodedVectorD2Ev.exit.i1804, %if.end.i65.thread.i1817, %if.end.i65.i1819, %_ZNKSt14default_deleteIN8facebook5velox13DecodedVectorEEclEPS2_.exit.i.i76.i1816, %if.end52.i2177
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %resultVector.i1735)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %lhsDecoded.i1736)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %rhsDecoded.i1737)
+  call void @llvm.lifetime.end.p0(ptr nonnull %resultVector.i1735)
+  call void @llvm.lifetime.end.p0(ptr nonnull %lhsDecoded.i1736)
+  call void @llvm.lifetime.end.p0(ptr nonnull %rhsDecoded.i1737)
   br label %sw.epilog
 
 sw.bb38:                                          ; preds = %entry
@@ -81167,9 +81167,9 @@ sw.bb38:                                          ; preds = %entry
   %1162 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %1163 = load ptr, ptr %1162, align 8
   %.val6 = load ptr, ptr %1163, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %resultVector.i2307)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %lhsDecoded.i2308)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %rhsDecoded.i2309)
+  call void @llvm.lifetime.start.p0(ptr nonnull %resultVector.i2307)
+  call void @llvm.lifetime.start.p0(ptr nonnull %lhsDecoded.i2308)
+  call void @llvm.lifetime.start.p0(ptr nonnull %rhsDecoded.i2309)
   store ptr %.val6, ptr %resultVector.i2307, align 8
   %call.i.i2310 = tail call noundef ptr @_ZN8facebook5velox10FlatVectorIbE16mutableRawValuesEv(ptr noundef nonnull align 8 dereferenceable(184) %.val6)
   %encoding_.i.i2311 = getelementptr inbounds nuw i8, ptr %2, i64 28
@@ -81301,14 +81301,14 @@ lpad.i44.i2336:                                   ; preds = %invoke.cont.i45.i23
   br label %ehcleanup.i2337
 
 invoke.cont.i2340:                                ; preds = %invoke.cont.i45.i2339
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp47.i2306)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp47.i2306)
   store ptr %lhsDecoded.i2308, ptr %agg.tmp47.i2306, align 8
   %agg.tmp.sroa.2.0.agg.tmp47.sroa_idx.i2341 = getelementptr inbounds nuw i8, ptr %agg.tmp47.i2306, i64 8
   store ptr %rhsDecoded.i2309, ptr %agg.tmp.sroa.2.0.agg.tmp47.sroa_idx.i2341, align 8
   %agg.tmp.sroa.3.0.agg.tmp47.sroa_idx.i2342 = getelementptr inbounds nuw i8, ptr %agg.tmp47.i2306, i64 16
   store ptr %resultVector.i2307, ptr %agg.tmp.sroa.3.0.agg.tmp47.sroa_idx.i2342, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i2304)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i2305)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i2304)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i.i.i.i2305)
   %allSelected_.i.i.i.i2343 = getelementptr inbounds nuw i8, ptr %1158, i64 36
   %_M_engaged.i.i.i.i.i.i2344 = getelementptr inbounds nuw i8, ptr %1158, i64 37
   %1183 = load i8, ptr %_M_engaged.i.i.i.i.i.i2344, align 1
@@ -81594,7 +81594,7 @@ if.else.i.i.i2354:                                ; preds = %_ZNK8facebook5velox
   %1238 = load i32, ptr %begin_3.i.i.i2355, align 4
   %end_4.i.i.i2356 = getelementptr inbounds nuw i8, ptr %1158, i64 32
   %1239 = load i32, ptr %end_4.i.i.i2356, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp6.i.i.i.i.i2303)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp6.i.i.i.i.i2303)
   store i8 1, ptr %agg.tmp6.i.i.i.i.i2303, align 8
   %agg.tmp.sroa.29.0.agg.tmp6.sroa_idx.i.i.i.i.i2357 = getelementptr inbounds nuw i8, ptr %agg.tmp6.i.i.i.i.i2303, i64 8
   store ptr %1237, ptr %agg.tmp.sroa.29.0.agg.tmp6.sroa_idx.i.i.i.i.i2357, align 8
@@ -81659,10 +81659,10 @@ for.body.i.i.i25.i.i.i2453:                       ; preds = %if.end14.i.i.i.i.i.
   %add50.i.i.i.i.i.i2454 = phi i32 [ %add.i.i.i.i.i.i2459, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE6ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i ], [ %add47.i.i.i.i.i.i2451, %if.end14.i.i.i.i.i.i2450 ]
   %i.049.i.i.i.i.i.i2455 = phi i32 [ %add50.i.i.i.i.i.i2454, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE6ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i ], [ %mul.i.i.i.i.i.i.i2433, %if.end14.i.i.i.i.i.i2450 ]
   %div16.i.i.i.i.i.i2456 = sdiv i32 %i.049.i.i.i.i.i.i2455, 64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i2299)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i2300)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i2301)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i2302)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i2299)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i2300)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i2301)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i2302)
   %idxprom.i.i.i.i.i.i.i2457 = sext i32 %div16.i.i.i.i.i.i2456 to i64
   %arrayidx.i.i.i.i.i.i.i2458 = getelementptr inbounds i64, ptr %1237, i64 %idxprom.i.i.i.i.i.i.i2457
   %1244 = load i64, ptr %arrayidx.i.i.i.i.i.i.i2458, align 8
@@ -82075,10 +82075,10 @@ _ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBA
   br i1 %tobool7.not.i.i.i.i.i.i.i2602, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE6ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i2552, !llvm.loop !1070
 
 _ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE6ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiibSX_ENKUliE_clEi.exit.i.i.i.i.i.i: ; preds = %for.inc.i.i.i.i.i.i.i2526, %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INS9_4avx2EEEE15applyComparisonILNS0_8TypeKindE6ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSF_0EeqT_LSF_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESQ_RS2_RSt10shared_ptrISP_EEUlT_E_EEvSO_SV_ENKUlSV_E_clIiEEDaSV_.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i2469, %for.body.i.i.i25.i.i.i2453
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i2299)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i2300)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i2301)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i2302)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i15.i.i.i.i.i.i.i2299)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp12.i.i.i.i.i.i.i.i2300)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i2301)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11.i.i.i.i.i.i.i.i2302)
   %add.i.i.i.i.i.i2459 = add nsw i32 %add50.i.i.i.i.i.i2454, 64
   %cmp15.not.i.i.i.i.i.i2460 = icmp sgt i32 %add.i.i.i.i.i.i2459, %1241
   br i1 %cmp15.not.i.i.i.i.i.i2460, label %for.end.i.i.i26.i.i.i2461, label %for.body.i.i.i25.i.i.i2453, !llvm.loop !1071
@@ -82095,13 +82095,13 @@ if.then19.i.i.i.i.i.i2463:                        ; preds = %for.end.i.i.i26.i.i
   br label %if.then3.i.i.i27.i.i.invoke.i2468
 
 _ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE6ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiiSX_.exit.i.i.i: ; preds = %for.end.i.i.i26.i.i.i2461, %if.then3.i.i.i27.i.i.invoke.i2468, %if.else.i.i.i2354
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp6.i.i.i.i.i2303)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp6.i.i.i.i.i2303)
   br label %invoke.cont11.i2361
 
 invoke.cont11.i2361:                              ; preds = %for.inc.i.i.i2688, %_ZN8facebook5velox4bits13forEachSetBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INSB_4avx2EEEE15applyComparisonILNS0_8TypeKindE6ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSH_0EeqT_LSH_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESS_RS4_RSt10shared_ptrISR_EEUlT_E_EEvSQ_SX_EUlSX_E_EEvPKmiiSX_.exit.i.i.i, %if.then.i.i.i2637
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i2304)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i2305)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp47.i2306)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i2304)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp11.i.i.i.i2305)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp47.i2306)
   %1318 = load ptr, ptr %vector_.i42.i2334, align 8
   %cmp.i.not.i.i2362 = icmp eq ptr %1318, null
   %1319 = ptrtoint ptr %1318 to i64
@@ -82745,9 +82745,9 @@ if.end52.i2750:                                   ; preds = %_ZN8facebook5velox4
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INS6_4avx2EEEE15applyComparisonILNS0_8TypeKindE6ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSC_0EeqT_LSC_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESN_RNS0_4exec7EvalCtxERSt10shared_ptrISM_E.exit
 
 _ZN8facebook5velox9functions12_GLOBAL__N_114SimdComparatorISt13greater_equalIvEN5xsimd4fma3INS6_4avx2EEEE15applyComparisonILNS0_8TypeKindE6ETnNSt9enable_ifIXooaasr5xsimd17has_simd_registerINS0_10TypeTraitsIXT_EE10NativeTypeEEE5valueneT_LSC_0EeqT_LSC_10EEiE4typeELi0EEEvRKNS0_17SelectivityVectorERNS0_10BaseVectorESN_RNS0_4exec7EvalCtxERSt10shared_ptrISM_E.exit: ; preds = %_ZN8facebook5velox4exec18LocalDecodedVectorD2Ev.exit.i2376, %if.end.i65.thread.i2389, %if.end.i65.i2391, %_ZNKSt14default_deleteIN8facebook5velox13DecodedVectorEEclEPS2_.exit.i.i76.i2388, %if.end52.i2750
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %resultVector.i2307)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %lhsDecoded.i2308)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %rhsDecoded.i2309)
+  call void @llvm.lifetime.end.p0(ptr nonnull %resultVector.i2307)
+  call void @llvm.lifetime.end.p0(ptr nonnull %lhsDecoded.i2308)
+  call void @llvm.lifetime.end.p0(ptr nonnull %rhsDecoded.i2309)
   br label %sw.epilog
 
 sw.default:                                       ; preds = %entry
@@ -84387,10 +84387,10 @@ declare i64 @llvm.umin.i64(i64, i64) #19
 declare i64 @llvm.umax.i64(i64, i64) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #20
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #20
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #21

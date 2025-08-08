@@ -135,7 +135,6 @@ define void @_ZN4core5slice4sort10merge_sort17hcc30410b81815c73E(ptr align 8 %0,
 
 15:                                               ; preds = %3
   %16 = lshr i64 %13, 1
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %4)
   %17 = call ptr @"_ZN5alloc5slice11stable_sort28_$u7b$$u7b$closure$u7d$$u7d$17h63003c9e8f1f1addE"(ptr nonnull align 1 %4, i64 %16)
   %18 = icmp eq ptr %17, null
   br i1 %18, label %19, label %"_ZN4core5slice4sort10merge_sort32BufGuard$LT$T$C$ElemDeallocF$GT$3new17h9021cb358cb914b4E.exit"
@@ -145,11 +144,9 @@ define void @_ZN4core5slice4sort10merge_sort17hcc30410b81815c73E(ptr align 8 %0,
   unreachable
 
 "_ZN4core5slice4sort10merge_sort32BufGuard$LT$T$C$ElemDeallocF$GT$3new17h9021cb358cb914b4E.exit": ; preds = %15
-  call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %4)
   store ptr %17, ptr %12, align 8
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 %16, ptr %20, align 8
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %4)
   %21 = invoke ptr @"_ZN5alloc5slice11stable_sort28_$u7b$$u7b$closure$u7d$$u7d$17hac16f12390d44517E"(ptr nonnull align 1 %4, i64 16)
           to label %.noexc unwind label %31
 
@@ -170,7 +167,6 @@ define void @_ZN4core5slice4sort10merge_sort17hcc30410b81815c73E(ptr align 8 %0,
   store i64 16, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i64 0, ptr %25, align 8
-  call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %4)
   %26 = icmp ne ptr %0, null
   %27 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -372,7 +368,7 @@ define void @_ZN4core5slice4sort10merge_sort17hcc30410b81815c73E(ptr align 8 %0,
   br i1 %89, label %90, label %.loopexit56
 
 90:                                               ; preds = %86
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %91 = load i64, ptr %25, align 8, !noundef !3
   %92 = icmp ult i64 %88, %91
   br i1 %92, label %93, label %.invoke
@@ -380,18 +376,18 @@ define void @_ZN4core5slice4sort10merge_sort17hcc30410b81815c73E(ptr align 8 %0,
 93:                                               ; preds = %90
   %94 = load ptr, ptr %11, align 8, !nonnull !3, !noundef !3
   %95 = getelementptr inbounds { i64, i64 }, ptr %94, i64 %88
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %96 = load i64, ptr %95, align 8, !noundef !3
   %97 = getelementptr inbounds nuw i8, ptr %95, i64 8
   %98 = load i64, ptr %97, align 8, !noundef !3
   %99 = add nuw i64 %88, 1
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %100 = icmp ult i64 %99, %91
   br i1 %100, label %101, label %.invoke
 
 101:                                              ; preds = %93
   %102 = getelementptr inbounds { i64, i64 }, ptr %94, i64 %99
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %103 = load i64, ptr %102, align 8, !noundef !3
   %104 = getelementptr inbounds nuw i8, ptr %102, i64 8
   %105 = load i64, ptr %104, align 8, !noundef !3
@@ -402,7 +398,7 @@ define void @_ZN4core5slice4sort10merge_sort17hcc30410b81815c73E(ptr align 8 %0,
 108:                                              ; preds = %101
   %109 = extractvalue { ptr, i64 } %107, 0
   %110 = extractvalue { ptr, i64 } %107, 1
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.idx42.i = mul i64 %96, 96
   %111 = getelementptr inbounds i8, ptr %109, i64 %.idx42.i
   %112 = getelementptr inbounds { i64, [11 x i64] }, ptr %109, i64 %110
@@ -515,8 +511,8 @@ define void @_ZN4core5slice4sort10merge_sort17hcc30410b81815c73E(ptr align 8 %0,
   unreachable
 
 156:                                              ; preds = %.loopexit.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %157 = load i64, ptr %25, align 8, !noundef !3
   %158 = icmp ult i64 %99, %157
   br i1 %158, label %159, label %.invoke
@@ -524,12 +520,12 @@ define void @_ZN4core5slice4sort10merge_sort17hcc30410b81815c73E(ptr align 8 %0,
 159:                                              ; preds = %156
   %160 = load ptr, ptr %11, align 8, !nonnull !3, !noundef !3
   %161 = getelementptr inbounds { i64, i64 }, ptr %160, i64 %99
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %162 = add i64 %103, %96
   store i64 %162, ptr %161, align 8
   %163 = getelementptr inbounds nuw i8, ptr %161, i64 8
   store i64 %98, ptr %163, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %164 = load i64, ptr %25, align 8, !noundef !3
   %.not.i47 = icmp ult i64 %88, %164
   br i1 %.not.i47, label %"_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF$GT$6remove17haf08635e70901d8bE.exit", label %.invoke
@@ -563,7 +559,7 @@ define void @_ZN4core5slice4sort10merge_sort17hcc30410b81815c73E(ptr align 8 %0,
   %172 = load i64, ptr %25, align 8, !noundef !3
   %173 = add i64 %172, -1
   store i64 %173, ptr %25, align 8
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %82
 
 174:                                              ; preds = %.body, %30
@@ -573,7 +569,7 @@ define void @_ZN4core5slice4sort10merge_sort17hcc30410b81815c73E(ptr align 8 %0,
   unreachable
 
 .preheader.i50:                                   ; preds = %28
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %176 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %177 = getelementptr inbounds nuw i8, ptr %5, i64 16
   br label %178
@@ -592,7 +588,7 @@ define void @_ZN4core5slice4sort10merge_sort17hcc30410b81815c73E(ptr align 8 %0,
   br i1 %.not.i52, label %178, label %_ZN4core5slice4sort25insertion_sort_shift_left17hc4d6ac57830d63e5E.exit
 
 _ZN4core5slice4sort25insertion_sort_shift_left17hc4d6ac57830d63e5E.exit: ; preds = %178
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %36
 
 183:                                              ; preds = %30
@@ -4897,7 +4893,7 @@ define i64 @_ZN4core5slice4sort20provide_sorted_batch17h19b72e9b6e0b749aE(ptr al
   %.fr = freeze { ptr, i64 } %19
   %20 = extractvalue { ptr, i64 } %.fr, 0
   %21 = extractvalue { ptr, i64 } %.fr, 1
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %22 = add i64 %18, -1
   %or.cond.i = icmp ult i64 %22, %21
   br i1 %or.cond.i, label %.preheader.i, label %25
@@ -4929,7 +4925,7 @@ define i64 @_ZN4core5slice4sort20provide_sorted_batch17h19b72e9b6e0b749aE(ptr al
   br i1 %.not.i, label %26, label %_ZN4core5slice4sort25insertion_sort_shift_left17hc4d6ac57830d63e5E.exit
 
 _ZN4core5slice4sort25insertion_sort_shift_left17hc4d6ac57830d63e5E.exit: ; preds = %26, %.preheader.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %14
 }
 
@@ -5026,7 +5022,7 @@ define zeroext i1 @_ZN4core5slice4sort22partial_insertion_sort17h1afc1aabe1d5884
   %.fr = freeze { ptr, i64 } %44
   %45 = extractvalue { ptr, i64 } %.fr, 0
   %46 = extractvalue { ptr, i64 } %.fr, 1
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %47 = add i64 %.1.lcssa, -2
   %or.cond.i = icmp ult i64 %47, %46
   br i1 %or.cond.i, label %.preheader.i, label %48
@@ -5048,9 +5044,9 @@ define zeroext i1 @_ZN4core5slice4sort22partial_insertion_sort17h1afc1aabe1d5884
   %50 = call { ptr, i64 } @"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17had0207f859160824E"(ptr nonnull align 8 %10, ptr align 8 %45, i64 %46, ptr nonnull align 8 @anon.799167e198c8f28f48796f1a9c152206.33)
   %51 = extractvalue { ptr, i64 } %50, 0
   %52 = extractvalue { ptr, i64 } %50, 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %53 = getelementptr { i64, { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } } }, ptr %51, i64 %52
   %54 = getelementptr i8, ptr %53, i64 -104
   %55 = getelementptr i8, ptr %53, i64 -208
@@ -5114,19 +5110,19 @@ common.resume:                                    ; preds = %97, %62
   resume { ptr, i32 } %common.resume.op
 
 _ZN4core5slice4sort11insert_tail17h173062d1be4cd480E.exit: ; preds = %.lr.ph.i, %67
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.not.i = icmp ult i64 %49, %46
   br i1 %.not.i, label %.lr.ph.i, label %_ZN4core5slice4sort25insertion_sort_shift_left17h26be96fffef21835E.exit
 
 _ZN4core5slice4sort25insertion_sort_shift_left17h26be96fffef21835E.exit: ; preds = %_ZN4core5slice4sort11insert_tail17h173062d1be4cd480E.exit, %.preheader.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %77 = call { ptr, i64 } @"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h5b4a4bb52013dcd9E"(i64 0, i64 %.1.lcssa, ptr align 8 %0, i64 %.fr36, ptr nonnull align 8 @anon.799167e198c8f28f48796f1a9c152206.30)
   %.fr29 = freeze { ptr, i64 } %77
   %78 = extractvalue { ptr, i64 } %.fr29, 0
   %79 = extractvalue { ptr, i64 } %.fr29, 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %80 = icmp ugt i64 %79, 1
   br i1 %80, label %82, label %81
 
@@ -5148,8 +5144,8 @@ _ZN4core5slice4sort25insertion_sort_shift_left17h26be96fffef21835E.exit: ; preds
   %88 = call { ptr, i64 } @"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h5b4a4bb52013dcd9E"(i64 %87, i64 %79, ptr align 8 %78, i64 %79, ptr nonnull align 8 @anon.799167e198c8f28f48796f1a9c152206.36)
   %89 = extractvalue { ptr, i64 } %88, 0
   %90 = extractvalue { ptr, i64 } %88, 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %91 = icmp ugt i64 %90, 1
   call void @llvm.assume(i1 %91)
   %92 = getelementptr inbounds nuw i8, ptr %89, i64 104
@@ -5203,15 +5199,15 @@ _ZN4core5slice4sort25insertion_sort_shift_left17h26be96fffef21835E.exit: ; preds
   unreachable
 
 _ZN4core5slice4sort11insert_head17h1aa0d09c2b4fdea7E.exit: ; preds = %.lr.ph.i26, %.critedge.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %107 = call { i64, i64 } @"_ZN89_$LT$core..ops..range..Range$LT$T$GT$$u20$as$u20$core..iter..range..RangeIteratorImpl$GT$14spec_next_back17h6efb5854a4b822aeE"(ptr nonnull align 8 %9)
   %108 = extractvalue { i64, i64 } %107, 0
   %109 = icmp eq i64 %108, 0
   br i1 %109, label %_ZN4core5slice4sort26insertion_sort_shift_right17h5179e29170f1697aE.exit, label %.lr.ph.i26
 
 _ZN4core5slice4sort26insertion_sort_shift_right17h5179e29170f1697aE.exit: ; preds = %_ZN4core5slice4sort11insert_head17h1aa0d09c2b4fdea7E.exit, %82
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %110
 
 110:                                              ; preds = %40, %_ZN4core5slice4sort26insertion_sort_shift_right17h5179e29170f1697aE.exit
@@ -5312,7 +5308,7 @@ define zeroext i1 @_ZN4core5slice4sort22partial_insertion_sort17h2167b454218c752
   %.fr = freeze { ptr, i64 } %44
   %45 = extractvalue { ptr, i64 } %.fr, 0
   %46 = extractvalue { ptr, i64 } %.fr, 1
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %47 = add i64 %.1.lcssa, -2
   %or.cond.i = icmp ult i64 %47, %46
   br i1 %or.cond.i, label %.preheader.i, label %48
@@ -5334,9 +5330,9 @@ define zeroext i1 @_ZN4core5slice4sort22partial_insertion_sort17h2167b454218c752
   %50 = call { ptr, i64 } @"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17heb7e97c2067b2cb6E"(ptr nonnull align 8 %10, ptr align 8 %45, i64 %46, ptr nonnull align 8 @anon.799167e198c8f28f48796f1a9c152206.33)
   %51 = extractvalue { ptr, i64 } %50, 0
   %52 = extractvalue { ptr, i64 } %50, 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %53 = getelementptr i64, ptr %51, i64 %52
   %54 = getelementptr i8, ptr %53, i64 -8
   %55 = getelementptr i8, ptr %53, i64 -16
@@ -5403,19 +5399,19 @@ common.resume:                                    ; preds = %102, %64
   resume { ptr, i32 } %common.resume.op
 
 _ZN4core5slice4sort11insert_tail17h78dff37ecb0bd9d6E.exit: ; preds = %.lr.ph.i, %69
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.not.i = icmp ult i64 %49, %46
   br i1 %.not.i, label %.lr.ph.i, label %_ZN4core5slice4sort25insertion_sort_shift_left17h9bbeb16b4579519aE.exit
 
 _ZN4core5slice4sort25insertion_sort_shift_left17h9bbeb16b4579519aE.exit: ; preds = %_ZN4core5slice4sort11insert_tail17h78dff37ecb0bd9d6E.exit, %.preheader.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %80 = call { ptr, i64 } @"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h04edc34cab5f0934E"(i64 0, i64 %.1.lcssa, ptr align 8 %0, i64 %.fr36, ptr nonnull align 8 @anon.799167e198c8f28f48796f1a9c152206.30)
   %.fr29 = freeze { ptr, i64 } %80
   %81 = extractvalue { ptr, i64 } %.fr29, 0
   %82 = extractvalue { ptr, i64 } %.fr29, 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %83 = icmp ugt i64 %82, 1
   br i1 %83, label %85, label %84
 
@@ -5437,8 +5433,8 @@ _ZN4core5slice4sort25insertion_sort_shift_left17h9bbeb16b4579519aE.exit: ; preds
   %91 = call { ptr, i64 } @"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h04edc34cab5f0934E"(i64 %90, i64 %82, ptr align 8 %81, i64 %82, ptr nonnull align 8 @anon.799167e198c8f28f48796f1a9c152206.36)
   %92 = extractvalue { ptr, i64 } %91, 0
   %93 = extractvalue { ptr, i64 } %91, 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %94 = icmp ugt i64 %93, 1
   call void @llvm.assume(i1 %94)
   %95 = getelementptr inbounds nuw i8, ptr %92, i64 8
@@ -5495,15 +5491,15 @@ _ZN4core5slice4sort25insertion_sort_shift_left17h9bbeb16b4579519aE.exit: ; preds
   unreachable
 
 _ZN4core5slice4sort11insert_head17h9b2d85f306f0231bE.exit: ; preds = %.lr.ph.i26, %.critedge.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %113 = call { i64, i64 } @"_ZN89_$LT$core..ops..range..Range$LT$T$GT$$u20$as$u20$core..iter..range..RangeIteratorImpl$GT$14spec_next_back17h6efb5854a4b822aeE"(ptr nonnull align 8 %9)
   %114 = extractvalue { i64, i64 } %113, 0
   %115 = icmp eq i64 %114, 0
   br i1 %115, label %_ZN4core5slice4sort26insertion_sort_shift_right17hc5b8575a3b55afa9E.exit, label %.lr.ph.i26
 
 _ZN4core5slice4sort26insertion_sort_shift_right17hc5b8575a3b55afa9E.exit: ; preds = %_ZN4core5slice4sort11insert_head17h9b2d85f306f0231bE.exit, %85
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %116
 
 116:                                              ; preds = %40, %_ZN4core5slice4sort26insertion_sort_shift_right17hc5b8575a3b55afa9E.exit
@@ -5604,7 +5600,7 @@ define zeroext i1 @_ZN4core5slice4sort22partial_insertion_sort17hb0e1927809514f7
   %.fr = freeze { ptr, i64 } %44
   %45 = extractvalue { ptr, i64 } %.fr, 0
   %46 = extractvalue { ptr, i64 } %.fr, 1
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %47 = add i64 %.1.lcssa, -2
   %or.cond.i = icmp ult i64 %47, %46
   br i1 %or.cond.i, label %.preheader.i, label %48
@@ -5626,9 +5622,9 @@ define zeroext i1 @_ZN4core5slice4sort22partial_insertion_sort17hb0e1927809514f7
   %50 = call { ptr, i64 } @"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h97232feb8ff0f9a1E"(ptr nonnull align 8 %10, ptr align 2 %45, i64 %46, ptr nonnull align 8 @anon.799167e198c8f28f48796f1a9c152206.33)
   %51 = extractvalue { ptr, i64 } %50, 0
   %52 = extractvalue { ptr, i64 } %50, 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %53 = getelementptr i16, ptr %51, i64 %52
   %54 = getelementptr i8, ptr %53, i64 -2
   %55 = getelementptr i8, ptr %53, i64 -4
@@ -5695,19 +5691,19 @@ common.resume:                                    ; preds = %102, %64
   resume { ptr, i32 } %common.resume.op
 
 _ZN4core5slice4sort11insert_tail17h06b5856a57127b48E.exit: ; preds = %.lr.ph.i, %69
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.not.i = icmp ult i64 %49, %46
   br i1 %.not.i, label %.lr.ph.i, label %_ZN4core5slice4sort25insertion_sort_shift_left17ha5341729b709cb41E.exit
 
 _ZN4core5slice4sort25insertion_sort_shift_left17ha5341729b709cb41E.exit: ; preds = %_ZN4core5slice4sort11insert_tail17h06b5856a57127b48E.exit, %.preheader.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %80 = call { ptr, i64 } @"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hcc02a5cf896f51abE"(i64 0, i64 %.1.lcssa, ptr align 2 %0, i64 %.fr36, ptr nonnull align 8 @anon.799167e198c8f28f48796f1a9c152206.30)
   %.fr29 = freeze { ptr, i64 } %80
   %81 = extractvalue { ptr, i64 } %.fr29, 0
   %82 = extractvalue { ptr, i64 } %.fr29, 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %83 = icmp ugt i64 %82, 1
   br i1 %83, label %85, label %84
 
@@ -5729,8 +5725,8 @@ _ZN4core5slice4sort25insertion_sort_shift_left17ha5341729b709cb41E.exit: ; preds
   %91 = call { ptr, i64 } @"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hcc02a5cf896f51abE"(i64 %90, i64 %82, ptr align 2 %81, i64 %82, ptr nonnull align 8 @anon.799167e198c8f28f48796f1a9c152206.36)
   %92 = extractvalue { ptr, i64 } %91, 0
   %93 = extractvalue { ptr, i64 } %91, 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %94 = icmp ugt i64 %93, 1
   call void @llvm.assume(i1 %94)
   %95 = getelementptr inbounds nuw i8, ptr %92, i64 2
@@ -5787,15 +5783,15 @@ _ZN4core5slice4sort25insertion_sort_shift_left17ha5341729b709cb41E.exit: ; preds
   unreachable
 
 _ZN4core5slice4sort11insert_head17hd9dbe3d82caec768E.exit: ; preds = %.lr.ph.i26, %.critedge.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %113 = call { i64, i64 } @"_ZN89_$LT$core..ops..range..Range$LT$T$GT$$u20$as$u20$core..iter..range..RangeIteratorImpl$GT$14spec_next_back17h6efb5854a4b822aeE"(ptr nonnull align 8 %9)
   %114 = extractvalue { i64, i64 } %113, 0
   %115 = icmp eq i64 %114, 0
   br i1 %115, label %_ZN4core5slice4sort26insertion_sort_shift_right17hf17df605f5ec2b26E.exit, label %.lr.ph.i26
 
 _ZN4core5slice4sort26insertion_sort_shift_right17hf17df605f5ec2b26E.exit: ; preds = %_ZN4core5slice4sort11insert_head17hd9dbe3d82caec768E.exit, %85
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %116
 
 116:                                              ; preds = %40, %_ZN4core5slice4sort26insertion_sort_shift_right17hf17df605f5ec2b26E.exit
@@ -5896,7 +5892,7 @@ define zeroext i1 @_ZN4core5slice4sort22partial_insertion_sort17hb52a11968cf64fc
   %.fr = freeze { ptr, i64 } %44
   %45 = extractvalue { ptr, i64 } %.fr, 0
   %46 = extractvalue { ptr, i64 } %.fr, 1
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %47 = add i64 %.1.lcssa, -2
   %or.cond.i = icmp ult i64 %47, %46
   br i1 %or.cond.i, label %.preheader.i, label %48
@@ -5918,9 +5914,9 @@ define zeroext i1 @_ZN4core5slice4sort22partial_insertion_sort17hb52a11968cf64fc
   %50 = call { ptr, i64 } @"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17heb7e97c2067b2cb6E"(ptr nonnull align 8 %10, ptr align 8 %45, i64 %46, ptr nonnull align 8 @anon.799167e198c8f28f48796f1a9c152206.33)
   %51 = extractvalue { ptr, i64 } %50, 0
   %52 = extractvalue { ptr, i64 } %50, 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %53 = getelementptr i64, ptr %51, i64 %52
   %54 = getelementptr i8, ptr %53, i64 -8
   %55 = getelementptr i8, ptr %53, i64 -16
@@ -5987,19 +5983,19 @@ common.resume:                                    ; preds = %102, %64
   resume { ptr, i32 } %common.resume.op
 
 _ZN4core5slice4sort11insert_tail17h44ad2207b62074ecE.exit: ; preds = %.lr.ph.i, %69
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.not.i = icmp ult i64 %49, %46
   br i1 %.not.i, label %.lr.ph.i, label %_ZN4core5slice4sort25insertion_sort_shift_left17h093596ccf6cc2f4eE.exit
 
 _ZN4core5slice4sort25insertion_sort_shift_left17h093596ccf6cc2f4eE.exit: ; preds = %_ZN4core5slice4sort11insert_tail17h44ad2207b62074ecE.exit, %.preheader.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %80 = call { ptr, i64 } @"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h04edc34cab5f0934E"(i64 0, i64 %.1.lcssa, ptr align 8 %0, i64 %.fr36, ptr nonnull align 8 @anon.799167e198c8f28f48796f1a9c152206.30)
   %.fr29 = freeze { ptr, i64 } %80
   %81 = extractvalue { ptr, i64 } %.fr29, 0
   %82 = extractvalue { ptr, i64 } %.fr29, 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %83 = icmp ugt i64 %82, 1
   br i1 %83, label %85, label %84
 
@@ -6021,8 +6017,8 @@ _ZN4core5slice4sort25insertion_sort_shift_left17h093596ccf6cc2f4eE.exit: ; preds
   %91 = call { ptr, i64 } @"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h04edc34cab5f0934E"(i64 %90, i64 %82, ptr align 8 %81, i64 %82, ptr nonnull align 8 @anon.799167e198c8f28f48796f1a9c152206.36)
   %92 = extractvalue { ptr, i64 } %91, 0
   %93 = extractvalue { ptr, i64 } %91, 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %94 = icmp ugt i64 %93, 1
   call void @llvm.assume(i1 %94)
   %95 = getelementptr inbounds nuw i8, ptr %92, i64 8
@@ -6079,15 +6075,15 @@ _ZN4core5slice4sort25insertion_sort_shift_left17h093596ccf6cc2f4eE.exit: ; preds
   unreachable
 
 _ZN4core5slice4sort11insert_head17h01d37fc1ae89f0f2E.exit: ; preds = %.lr.ph.i26, %.critedge.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %113 = call { i64, i64 } @"_ZN89_$LT$core..ops..range..Range$LT$T$GT$$u20$as$u20$core..iter..range..RangeIteratorImpl$GT$14spec_next_back17h6efb5854a4b822aeE"(ptr nonnull align 8 %9)
   %114 = extractvalue { i64, i64 } %113, 0
   %115 = icmp eq i64 %114, 0
   br i1 %115, label %_ZN4core5slice4sort26insertion_sort_shift_right17h96b522238acbbff5E.exit, label %.lr.ph.i26
 
 _ZN4core5slice4sort26insertion_sort_shift_right17h96b522238acbbff5E.exit: ; preds = %_ZN4core5slice4sort11insert_head17h01d37fc1ae89f0f2E.exit, %85
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %116
 
 116:                                              ; preds = %40, %_ZN4core5slice4sort26insertion_sort_shift_right17h96b522238acbbff5E.exit
@@ -6188,7 +6184,7 @@ define zeroext i1 @_ZN4core5slice4sort22partial_insertion_sort17hf259ec1d172baf6
   %.fr = freeze { ptr, i64 } %44
   %45 = extractvalue { ptr, i64 } %.fr, 0
   %46 = extractvalue { ptr, i64 } %.fr, 1
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %47 = add i64 %.1.lcssa, -2
   %or.cond.i = icmp ult i64 %47, %46
   br i1 %or.cond.i, label %.preheader.i, label %48
@@ -6210,9 +6206,9 @@ define zeroext i1 @_ZN4core5slice4sort22partial_insertion_sort17hf259ec1d172baf6
   %50 = call { ptr, i64 } @"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hbdee86c1866e5fb4E"(ptr nonnull align 8 %10, ptr align 8 %45, i64 %46, ptr nonnull align 8 @anon.799167e198c8f28f48796f1a9c152206.33)
   %51 = extractvalue { ptr, i64 } %50, 0
   %52 = extractvalue { ptr, i64 } %50, 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %53 = getelementptr { { i64, i8, [7 x i8] }, i16, [3 x i16] }, ptr %51, i64 %52
   %54 = getelementptr i8, ptr %53, i64 -24
   %55 = getelementptr i8, ptr %53, i64 -48
@@ -6276,19 +6272,19 @@ common.resume:                                    ; preds = %97, %62
   resume { ptr, i32 } %common.resume.op
 
 _ZN4core5slice4sort11insert_tail17h857b768695498dc5E.exit: ; preds = %.lr.ph.i, %67
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.not.i = icmp ult i64 %49, %46
   br i1 %.not.i, label %.lr.ph.i, label %_ZN4core5slice4sort25insertion_sort_shift_left17h4bdee571c842f4e9E.exit
 
 _ZN4core5slice4sort25insertion_sort_shift_left17h4bdee571c842f4e9E.exit: ; preds = %_ZN4core5slice4sort11insert_tail17h857b768695498dc5E.exit, %.preheader.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %77 = call { ptr, i64 } @"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17heb1734ef240d79c4E"(i64 0, i64 %.1.lcssa, ptr align 8 %0, i64 %.fr36, ptr nonnull align 8 @anon.799167e198c8f28f48796f1a9c152206.30)
   %.fr29 = freeze { ptr, i64 } %77
   %78 = extractvalue { ptr, i64 } %.fr29, 0
   %79 = extractvalue { ptr, i64 } %.fr29, 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %80 = icmp ugt i64 %79, 1
   br i1 %80, label %82, label %81
 
@@ -6310,8 +6306,8 @@ _ZN4core5slice4sort25insertion_sort_shift_left17h4bdee571c842f4e9E.exit: ; preds
   %88 = call { ptr, i64 } @"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17heb1734ef240d79c4E"(i64 %87, i64 %79, ptr align 8 %78, i64 %79, ptr nonnull align 8 @anon.799167e198c8f28f48796f1a9c152206.36)
   %89 = extractvalue { ptr, i64 } %88, 0
   %90 = extractvalue { ptr, i64 } %88, 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %91 = icmp ugt i64 %90, 1
   call void @llvm.assume(i1 %91)
   %92 = getelementptr inbounds nuw i8, ptr %89, i64 24
@@ -6365,15 +6361,15 @@ _ZN4core5slice4sort25insertion_sort_shift_left17h4bdee571c842f4e9E.exit: ; preds
   unreachable
 
 _ZN4core5slice4sort11insert_head17h1f581f3da3e2ab5cE.exit: ; preds = %.lr.ph.i26, %.critedge.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %107 = call { i64, i64 } @"_ZN89_$LT$core..ops..range..Range$LT$T$GT$$u20$as$u20$core..iter..range..RangeIteratorImpl$GT$14spec_next_back17h6efb5854a4b822aeE"(ptr nonnull align 8 %9)
   %108 = extractvalue { i64, i64 } %107, 0
   %109 = icmp eq i64 %108, 0
   br i1 %109, label %_ZN4core5slice4sort26insertion_sort_shift_right17hfe2454372ae93d75E.exit, label %.lr.ph.i26
 
 _ZN4core5slice4sort26insertion_sort_shift_right17hfe2454372ae93d75E.exit: ; preds = %_ZN4core5slice4sort11insert_head17h1f581f3da3e2ab5cE.exit, %82
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %110
 
 110:                                              ; preds = %40, %_ZN4core5slice4sort26insertion_sort_shift_right17hfe2454372ae93d75E.exit
@@ -7154,7 +7150,7 @@ define void @_ZN4core5slice4sort7recurse17h11a7e02e6eafe0f9E(ptr align 8 %0, i64
 .preheader.i:                                     ; preds = %.outer._crit_edge
   %100 = icmp ne ptr %.sroa.0.0.lcssa, null
   call void @llvm.assume(i1 %100)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %101 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %102 = getelementptr inbounds nuw i8, ptr %6, i64 16
   br label %103
@@ -7173,7 +7169,7 @@ define void @_ZN4core5slice4sort7recurse17h11a7e02e6eafe0f9E(ptr align 8 %0, i64
   br i1 %.not.i, label %103, label %_ZN4core5slice4sort25insertion_sort_shift_left17h26be96fffef21835E.exit
 
 _ZN4core5slice4sort25insertion_sort_shift_left17h26be96fffef21835E.exit: ; preds = %103
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit
 }
 
@@ -7405,7 +7401,7 @@ define void @_ZN4core5slice4sort7recurse17h2270c20e8418a8e1E(ptr align 8 %0, i64
 .preheader.i:                                     ; preds = %.outer._crit_edge
   %100 = icmp ne ptr %.sroa.0.0.lcssa, null
   call void @llvm.assume(i1 %100)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %101 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %102 = getelementptr inbounds nuw i8, ptr %6, i64 16
   br label %103
@@ -7424,7 +7420,7 @@ define void @_ZN4core5slice4sort7recurse17h2270c20e8418a8e1E(ptr align 8 %0, i64
   br i1 %.not.i, label %103, label %_ZN4core5slice4sort25insertion_sort_shift_left17h9bbeb16b4579519aE.exit
 
 _ZN4core5slice4sort25insertion_sort_shift_left17h9bbeb16b4579519aE.exit: ; preds = %103
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit
 }
 
@@ -7656,7 +7652,7 @@ define void @_ZN4core5slice4sort7recurse17h2c2823d3d79b27a9E(ptr align 2 %0, i64
 .preheader.i:                                     ; preds = %.outer._crit_edge
   %100 = icmp ne ptr %.sroa.0.0.lcssa, null
   call void @llvm.assume(i1 %100)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %101 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %102 = getelementptr inbounds nuw i8, ptr %6, i64 16
   br label %103
@@ -7675,7 +7671,7 @@ define void @_ZN4core5slice4sort7recurse17h2c2823d3d79b27a9E(ptr align 2 %0, i64
   br i1 %.not.i, label %103, label %_ZN4core5slice4sort25insertion_sort_shift_left17ha5341729b709cb41E.exit
 
 _ZN4core5slice4sort25insertion_sort_shift_left17ha5341729b709cb41E.exit: ; preds = %103
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit
 }
 
@@ -7907,7 +7903,7 @@ define void @_ZN4core5slice4sort7recurse17h6fa5497bbe91df66E(ptr align 8 %0, i64
 .preheader.i:                                     ; preds = %.outer._crit_edge
   %100 = icmp ne ptr %.sroa.0.0.lcssa, null
   call void @llvm.assume(i1 %100)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %101 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %102 = getelementptr inbounds nuw i8, ptr %6, i64 16
   br label %103
@@ -7926,7 +7922,7 @@ define void @_ZN4core5slice4sort7recurse17h6fa5497bbe91df66E(ptr align 8 %0, i64
   br i1 %.not.i, label %103, label %_ZN4core5slice4sort25insertion_sort_shift_left17h4bdee571c842f4e9E.exit
 
 _ZN4core5slice4sort25insertion_sort_shift_left17h4bdee571c842f4e9E.exit: ; preds = %103
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit
 }
 
@@ -8158,7 +8154,7 @@ define void @_ZN4core5slice4sort7recurse17hfa74fa4166aee7c4E(ptr align 8 %0, i64
 .preheader.i:                                     ; preds = %.outer._crit_edge
   %100 = icmp ne ptr %.sroa.0.0.lcssa, null
   call void @llvm.assume(i1 %100)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %101 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %102 = getelementptr inbounds nuw i8, ptr %6, i64 16
   br label %103
@@ -8177,7 +8173,7 @@ define void @_ZN4core5slice4sort7recurse17hfa74fa4166aee7c4E(ptr align 8 %0, i64
   br i1 %.not.i, label %103, label %_ZN4core5slice4sort25insertion_sort_shift_left17h093596ccf6cc2f4eE.exit
 
 _ZN4core5slice4sort25insertion_sort_shift_left17h093596ccf6cc2f4eE.exit: ; preds = %103
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit
 }
 
@@ -10095,10 +10091,10 @@ declare zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..funct
 declare zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h4c1db6f89fe6d29dE"(ptr align 8, ptr align 2, ptr align 2) unnamed_addr #0
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

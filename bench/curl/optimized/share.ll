@@ -29,18 +29,12 @@ define ptr @curl_share_init() local_unnamed_addr #0 {
   ret ptr %2
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare void @Curl_init_dnscache(ptr noundef, i64 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @Curl_init_dnscache(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 5) i32 @curl_share_setopt(ptr noundef %0, i32 noundef %1, ...) local_unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %137, label %4
 
@@ -317,31 +311,31 @@ define range(i32 0, 5) i32 @curl_share_setopt(ptr noundef %0, i32 noundef %1, ..
 
 137:                                              ; preds = %7, %2, %4, %.thread69
   %.0 = phi i32 [ %.1, %.thread69 ], [ 3, %4 ], [ 3, %2 ], [ 2, %7 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #3
+declare void @llvm.va_start.p0(ptr) #2
 
-declare ptr @Curl_cookie_init(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare ptr @Curl_cookie_init(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare ptr @Curl_hsts_init() local_unnamed_addr #2
+declare ptr @Curl_hsts_init() local_unnamed_addr #1
 
-declare i32 @Curl_ssl_scache_create(i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @Curl_ssl_scache_create(i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @Curl_cpool_init(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @Curl_cpool_init(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @Curl_on_disconnect(ptr noundef, ptr noundef, i1 noundef zeroext) #2
+declare zeroext i1 @Curl_on_disconnect(ptr noundef, ptr noundef, i1 noundef zeroext) #1
 
-declare void @Curl_cookie_cleanup(ptr noundef) local_unnamed_addr #2
+declare void @Curl_cookie_cleanup(ptr noundef) local_unnamed_addr #1
 
-declare void @Curl_hsts_cleanup(ptr noundef) local_unnamed_addr #2
+declare void @Curl_hsts_cleanup(ptr noundef) local_unnamed_addr #1
 
-declare void @Curl_ssl_scache_destroy(ptr noundef) local_unnamed_addr #2
+declare void @Curl_ssl_scache_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #3
+declare void @llvm.va_end.p0(ptr) #2
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 4) i32 @curl_share_cleanup(ptr noundef %0) local_unnamed_addr #0 {
@@ -438,11 +432,11 @@ define range(i32 0, 4) i32 @curl_share_cleanup(ptr noundef %0) local_unnamed_add
   ret i32 %.0
 }
 
-declare void @Curl_cpool_destroy(ptr noundef) local_unnamed_addr #2
+declare void @Curl_cpool_destroy(ptr noundef) local_unnamed_addr #1
 
-declare void @Curl_hash_destroy(ptr noundef) local_unnamed_addr #2
+declare void @Curl_hash_destroy(ptr noundef) local_unnamed_addr #1
 
-declare void @Curl_psl_destroy(ptr noundef) local_unnamed_addr #2
+declare void @Curl_psl_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 4) i32 @Curl_share_lock(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -508,10 +502,16 @@ define hidden range(i32 0, 4) i32 @Curl_share_unlock(ptr noundef %0, i32 noundef
   ret i32 %.0
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

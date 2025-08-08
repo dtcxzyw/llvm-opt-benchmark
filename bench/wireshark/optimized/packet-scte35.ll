@@ -501,7 +501,7 @@ declare ptr @register_dissector_table(ptr noundef, ptr noundef, i32 noundef, i32
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 0, -2147483648) i32 @dissect_scte35_private_command(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %7 = icmp slt i32 %6, 4
   br i1 %7, label %23, label %8
@@ -526,7 +526,7 @@ define internal range(i32 0, -2147483648) i32 @dissect_scte35_private_command(pt
 
 23:                                               ; preds = %4, %8
   %.0 = phi i32 [ %6, %8 ], [ 0, %4 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -554,7 +554,7 @@ define hidden void @proto_register_scte35_splice_insert() local_unnamed_addr #0 
 define internal i32 @dissect_scte35_splice_insert(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %8 = icmp slt i32 %7, 5
   br i1 %8, label %128, label %9
@@ -662,7 +662,7 @@ define internal i32 @dissect_scte35_splice_insert(ptr noundef %0, ptr noundef re
   %.4148.us = phi i32 [ %94, %93 ], [ 7, %.lr.ph ]
   %.0127147.us = phi i32 [ %95, %93 ], [ 0, %.lr.ph ]
   %69 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.4148.us)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %70 = call i32 @tvb_reported_length(ptr noundef %69)
   %71 = icmp slt i32 %70, %68
   br i1 %71, label %dissect_component.exit, label %72
@@ -700,7 +700,7 @@ define internal i32 @dissect_scte35_splice_insert(ptr noundef %0, ptr noundef re
 
 93:                                               ; preds = %89, %76
   %.034.i.ph.us = phi i32 [ 2, %76 ], [ 6, %89 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %94 = add i32 %.034.i.ph.us, %.4148.us
   %95 = add nuw nsw i32 %.0127147.us, 1
   %exitcond159.not = icmp eq i32 %95, %63
@@ -710,7 +710,7 @@ define internal i32 @dissect_scte35_splice_insert(ptr noundef %0, ptr noundef re
   %.4148 = phi i32 [ %105, %.critedge.i ], [ 7, %.lr.ph ]
   %.0127147 = phi i32 [ %106, %.critedge.i ], [ 0, %.lr.ph ]
   %96 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.4148)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %97 = call i32 @tvb_reported_length(ptr noundef %96)
   %98 = icmp slt i32 %97, %68
   br i1 %98, label %dissect_component.exit, label %.critedge.i
@@ -722,7 +722,7 @@ define internal i32 @dissect_scte35_splice_insert(ptr noundef %0, ptr noundef re
   %102 = load ptr, ptr %5, align 8
   %103 = load i32, ptr @hf_component_tag, align 4
   %104 = call ptr @proto_tree_add_item(ptr noundef %102, i32 noundef %103, ptr noundef %96, i32 noundef 0, i32 noundef 1, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %105 = add nuw nsw i32 %.4148, 1
   %106 = add nuw nsw i32 %.0127147, 1
   %exitcond.not = icmp eq i32 %106, %63
@@ -730,7 +730,7 @@ define internal i32 @dissect_scte35_splice_insert(ptr noundef %0, ptr noundef re
 
 dissect_component.exit:                           ; preds = %.lr.ph.split, %.lr.ph.split.us, %74
   %.us-phi = phi i32 [ %.4148.us, %74 ], [ %.4148.us, %.lr.ph.split.us ], [ %.4148, %.lr.ph.split ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %128
 
 .thread:                                          ; preds = %.critedge.i, %93, %.preheader, %52, %38, %56
@@ -769,7 +769,7 @@ dissect_component.exit:                           ; preds = %.lr.ph.split, %.lr.
 
 128:                                              ; preds = %dissect_component.exit, %14, %118, %107, %58, %57, %49, %37, %12, %4
   %.0 = phi i32 [ 0, %4 ], [ 0, %12 ], [ 6, %37 ], [ 6, %49 ], [ 6, %57 ], [ 7, %58 ], [ %.us-phi, %dissect_component.exit ], [ %.3126, %107 ], [ 5, %14 ], [ %127, %118 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
@@ -797,8 +797,8 @@ define hidden void @proto_register_scte35_splice_schedule() local_unnamed_addr #
 define internal noundef i32 @dissect_scte35_splice_schedule(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %8 = icmp slt i32 %7, 1
   br i1 %8, label %.loopexit165, label %9
@@ -976,8 +976,8 @@ define internal noundef i32 @dissect_scte35_splice_schedule(ptr noundef %0, ptr 
 
 .loopexit165:                                     ; preds = %53, %56, %69, %89, %100, %13, %9, %4
   %.0 = phi i32 [ 0, %4 ], [ 0, %9 ], [ 1, %13 ], [ %52, %53 ], [ %60, %56 ], [ %73, %69 ], [ %.2150, %89 ], [ %109, %100 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -1075,7 +1075,7 @@ define internal range(i32 0, 69655) i32 @dissect_scte35_splice_info(ptr noundef 
   %.0105116 = phi i16 [ %178, %175 ], [ 0, %27 ]
   %53 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.0102117)
   %54 = zext i16 %.0105116 to i32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %55 = call zeroext i8 @tvb_get_uint8(ptr noundef %53, i32 noundef 0)
   %56 = call zeroext i8 @tvb_get_uint8(ptr noundef %53, i32 noundef 1)
   %57 = zext i8 %56 to i32
@@ -1188,7 +1188,7 @@ define internal range(i32 0, 69655) i32 @dissect_scte35_splice_info(ptr noundef 
   %.22.i.i = phi i32 [ %143, %.lr.ph.i.i ], [ 7, %127 ]
   %.01011.i.i = phi i32 [ %144, %.lr.ph.i.i ], [ 0, %127 ]
   %132 = call ptr @tvb_new_subset_length(ptr noundef %71, i32 noundef %.22.i.i, i32 noundef 6)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %133 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %99, ptr noundef %132, i32 noundef 0, i32 noundef 6, i32 noundef range(i32 -2147483648, 255) %.01011.i.i, ptr noundef nonnull %5, ptr noundef nonnull @.str.184, i32 noundef range(i32 -2147483648, 255) %.01011.i.i)
   %134 = load ptr, ptr %5, align 8
   %135 = load i32, ptr @hf_descriptor_component_tag, align 4
@@ -1199,7 +1199,7 @@ define internal range(i32 0, 69655) i32 @dissect_scte35_splice_info(ptr noundef 
   %140 = load ptr, ptr %5, align 8
   %141 = load i32, ptr @hf_descriptor_component_pts_offset, align 4
   %142 = call ptr @proto_tree_add_item(ptr noundef %140, i32 noundef %141, ptr noundef %132, i32 noundef 1, i32 noundef 5, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %143 = add nuw nsw i32 %.22.i.i, 6
   %144 = add nuw nsw i32 %.01011.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %144, %131
@@ -1249,12 +1249,12 @@ define internal range(i32 0, 69655) i32 @dissect_scte35_splice_info(ptr noundef 
   br label %dissect_scte35_splice_descriptor.exit
 
 dissect_scte35_splice_descriptor.exit.thread:     ; preds = %72, %79, %83
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit
 
 dissect_scte35_splice_descriptor.exit.thread112:  ; preds = %98, %88, %76
   %.ph = phi i32 [ 10, %76 ], [ %97, %88 ], [ 11, %98 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %175
 
 dissect_scte35_splice_descriptor.exit:            ; preds = %.lr.ph, %162
@@ -1262,7 +1262,7 @@ dissect_scte35_splice_descriptor.exit:            ; preds = %.lr.ph, %162
   %172 = icmp slt i32 %.036.i, 1
   %173 = add nuw i32 %.036.i, 6
   %spec.select.i = select i1 %172, i32 %.036.i, i32 %173
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %174 = icmp slt i32 %spec.select.i, 1
   br i1 %174, label %.loopexit, label %175
 
@@ -1304,9 +1304,6 @@ define hidden void @proto_reg_handoff_scte35() local_unnamed_addr #0 {
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #1
 
@@ -1321,9 +1318,6 @@ declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noun
 
 ; Function Attrs: null_pointer_is_valid
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
@@ -1361,10 +1355,15 @@ declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_
 ; Function Attrs: null_pointer_is_valid
 declare i32 @dissector_try_uint_with_data(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
+
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

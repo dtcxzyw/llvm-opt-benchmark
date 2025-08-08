@@ -332,9 +332,6 @@ define hidden void @proto_reg_handoff_cmpp() local_unnamed_addr #0 {
 ; Function Attrs: null_pointer_is_valid
 declare void @dissector_add_uint_range_with_preference(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 
@@ -442,9 +439,6 @@ define internal i32 @dissect_cmpp_tcp_pdu(ptr noundef %0, ptr noundef readonly c
 ; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: null_pointer_is_valid
 declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -464,10 +458,10 @@ declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr
 define internal fastcc void @cmpp_connect(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = load i32, ptr @hf_cmpp_connect_Source_Addr, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = tail call ptr @wmem_packet_scope()
   %6 = call ptr @proto_tree_add_item_ret_string(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef 12, i32 noundef 6, i32 noundef 0, ptr noundef %5, ptr noundef nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %7 = load i32, ptr @hf_cmpp_connect_AuthenticatorSource, align 4
   %8 = call ptr @proto_tree_add_string(ptr noundef %0, i32 noundef %7, ptr noundef %1, i32 noundef 18, i32 noundef 16, ptr noundef nonnull @.str.202)
   %9 = load i32, ptr @hf_cmpp_Version, align 4
@@ -547,19 +541,19 @@ define internal fastcc void @cmpp_submit(ptr noundef %0, ptr noundef %1) unnamed
   %28 = zext i8 %27 to i32
   %29 = tail call ptr @proto_tree_add_uint(ptr noundef %0, i32 noundef %26, ptr noundef %1, i32 noundef 23, i32 noundef 1, i32 noundef %28)
   %30 = load i32, ptr @hf_cmpp_Service_Id, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %31 = tail call ptr @wmem_packet_scope()
   %32 = call ptr @proto_tree_add_item_ret_string(ptr noundef %0, i32 noundef %30, ptr noundef %1, i32 noundef 24, i32 noundef 10, i32 noundef 0, ptr noundef %31, ptr noundef nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %33 = load i32, ptr @hf_cmpp_submit_Fee_UserType, align 4
   %34 = call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef 34)
   %35 = zext i8 %34 to i32
   %36 = call ptr @proto_tree_add_uint(ptr noundef %0, i32 noundef %33, ptr noundef %1, i32 noundef 34, i32 noundef 1, i32 noundef %35)
   %37 = load i32, ptr @hf_cmpp_submit_Fee_terminal_Id, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %38 = call ptr @wmem_packet_scope()
   %39 = call ptr @proto_tree_add_item_ret_string(ptr noundef %0, i32 noundef %37, ptr noundef %1, i32 noundef 35, i32 noundef 32, i32 noundef 0, ptr noundef %38, ptr noundef nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %40 = load i32, ptr @hf_cmpp_submit_Fee_terminal_type, align 4
   %41 = call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef 67)
   %42 = sext i8 %41 to i64
@@ -577,35 +571,35 @@ define internal fastcc void @cmpp_submit(ptr noundef %0, ptr noundef %1) unnamed
   %54 = zext i8 %53 to i32
   %55 = call ptr @proto_tree_add_uint(ptr noundef %0, i32 noundef %52, ptr noundef %1, i32 noundef 70, i32 noundef 1, i32 noundef %54)
   %56 = load i32, ptr @hf_cmpp_submit_Msg_src, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %57 = call ptr @wmem_packet_scope()
   %58 = call ptr @proto_tree_add_item_ret_string(ptr noundef %0, i32 noundef %56, ptr noundef %1, i32 noundef 71, i32 noundef 6, i32 noundef 0, ptr noundef %57, ptr noundef nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %59 = load i32, ptr @hf_cmpp_submit_FeeType, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %60 = call ptr @wmem_packet_scope()
   %61 = call ptr @proto_tree_add_item_ret_string(ptr noundef %0, i32 noundef %59, ptr noundef %1, i32 noundef 77, i32 noundef 2, i32 noundef 0, ptr noundef %60, ptr noundef nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %62 = load i32, ptr @hf_cmpp_submit_FeeCode, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %63 = call ptr @wmem_packet_scope()
   %64 = call ptr @proto_tree_add_item_ret_string(ptr noundef %0, i32 noundef %62, ptr noundef %1, i32 noundef 79, i32 noundef 6, i32 noundef 0, ptr noundef %63, ptr noundef nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %65 = load i32, ptr @hf_cmpp_submit_Valld_Time, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %66 = call ptr @wmem_packet_scope()
   %67 = call ptr @proto_tree_add_item_ret_string(ptr noundef %0, i32 noundef %65, ptr noundef %1, i32 noundef 85, i32 noundef 17, i32 noundef 0, ptr noundef %66, ptr noundef nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %68 = load i32, ptr @hf_cmpp_submit_At_Time, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %69 = call ptr @wmem_packet_scope()
   %70 = call ptr @proto_tree_add_item_ret_string(ptr noundef %0, i32 noundef %68, ptr noundef %1, i32 noundef 102, i32 noundef 17, i32 noundef 0, ptr noundef %69, ptr noundef nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %71 = load i32, ptr @hf_cmpp_submit_Src_Id, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %72 = call ptr @wmem_packet_scope()
   %73 = call ptr @proto_tree_add_item_ret_string(ptr noundef %0, i32 noundef %71, ptr noundef %1, i32 noundef 119, i32 noundef 17, i32 noundef 0, ptr noundef %72, ptr noundef nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %74 = load i32, ptr @hf_cmpp_submit_DestUsr_tl, align 4
   %75 = call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef 140)
   %76 = zext i8 %75 to i32
@@ -617,10 +611,10 @@ define internal fastcc void @cmpp_submit(ptr noundef %0, ptr noundef %1) unnamed
   %.0101 = phi i32 [ %81, %.lr.ph ], [ 141, %2 ]
   %.099100 = phi i32 [ %82, %.lr.ph ], [ 0, %2 ]
   %78 = load i32, ptr @hf_cmpp_Dest_terminal_Id, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %79 = call ptr @wmem_packet_scope()
   %80 = call ptr @proto_tree_add_item_ret_string(ptr noundef %0, i32 noundef %78, ptr noundef %1, i32 noundef %.0101, i32 noundef 32, i32 noundef 0, ptr noundef %79, ptr noundef nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %81 = add nuw nsw i32 %.0101, 32
   %82 = add nuw nsw i32 %.099100, 1
   %exitcond.not = icmp eq i32 %82, %76
@@ -642,10 +636,10 @@ define internal fastcc void @cmpp_submit(ptr noundef %0, ptr noundef %1) unnamed
   %94 = call ptr @proto_tree_add_string(ptr noundef %0, i32 noundef %93, ptr noundef %1, i32 noundef %92, i32 noundef %90, ptr noundef nonnull @.str.205)
   %95 = add i32 %92, %90
   %96 = load i32, ptr @hf_cmpp_LinkID, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %97 = call ptr @wmem_packet_scope()
   %98 = call ptr @proto_tree_add_item_ret_string(ptr noundef %0, i32 noundef %96, ptr noundef %1, i32 noundef %95, i32 noundef 20, i32 noundef 0, ptr noundef %97, ptr noundef nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -672,15 +666,15 @@ define internal fastcc void @cmpp_deliver(ptr noundef %0, ptr noundef %1) unname
   %11 = load i32, ptr @hf_cmpp_msg_id, align 4
   tail call fastcc void @cmpp_msg_id(ptr noundef %0, ptr noundef %1, i32 noundef %11, i32 noundef 12)
   %12 = load i32, ptr @hf_cmpp_deliver_Dest_Id, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %13 = tail call ptr @wmem_packet_scope()
   %14 = call ptr @proto_tree_add_item_ret_string(ptr noundef %0, i32 noundef %12, ptr noundef %1, i32 noundef 20, i32 noundef 21, i32 noundef 0, ptr noundef %13, ptr noundef nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %15 = load i32, ptr @hf_cmpp_Service_Id, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %16 = call ptr @wmem_packet_scope()
   %17 = call ptr @proto_tree_add_item_ret_string(ptr noundef %0, i32 noundef %15, ptr noundef %1, i32 noundef 41, i32 noundef 10, i32 noundef 0, ptr noundef %16, ptr noundef nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %18 = load i32, ptr @hf_cmpp_TP_pId, align 4
   %19 = call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef 51)
   %20 = zext i8 %19 to i32
@@ -694,10 +688,10 @@ define internal fastcc void @cmpp_deliver(ptr noundef %0, ptr noundef %1) unname
   %28 = zext i8 %27 to i32
   %29 = call ptr @proto_tree_add_uint(ptr noundef %0, i32 noundef %26, ptr noundef %1, i32 noundef 53, i32 noundef 1, i32 noundef %28)
   %30 = load i32, ptr @hf_cmpp_deliver_Src_terminal_Id, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %31 = call ptr @wmem_packet_scope()
   %32 = call ptr @proto_tree_add_item_ret_string(ptr noundef %0, i32 noundef %30, ptr noundef %1, i32 noundef 54, i32 noundef 32, i32 noundef 0, ptr noundef %31, ptr noundef nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %33 = load i32, ptr @hf_cmpp_deliver_Src_terminal_type, align 4
   %34 = call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef 86)
   %35 = sext i8 %34 to i64
@@ -726,25 +720,25 @@ define internal fastcc void @cmpp_deliver(ptr noundef %0, ptr noundef %1) unname
   %54 = load i32, ptr @hf_cmpp_msg_id, align 4
   call fastcc void @cmpp_msg_id(ptr noundef %53, ptr noundef %1, i32 noundef %54, i32 noundef 89)
   %55 = load i32, ptr @hf_cmpp_deliver_Report_Stat, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %56 = call ptr @wmem_packet_scope()
   %57 = call ptr @proto_tree_add_item_ret_string(ptr noundef %53, i32 noundef %55, ptr noundef %1, i32 noundef 97, i32 noundef 7, i32 noundef 0, ptr noundef %56, ptr noundef nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %58 = load i32, ptr @hf_cmpp_deliver_Report_Submit_time, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %59 = call ptr @wmem_packet_scope()
   %60 = call ptr @proto_tree_add_item_ret_string(ptr noundef %53, i32 noundef %58, ptr noundef %1, i32 noundef 104, i32 noundef 10, i32 noundef 0, ptr noundef %59, ptr noundef nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %61 = load i32, ptr @hf_cmpp_deliver_Report_Done_time, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %62 = call ptr @wmem_packet_scope()
   %63 = call ptr @proto_tree_add_item_ret_string(ptr noundef %53, i32 noundef %61, ptr noundef %1, i32 noundef 114, i32 noundef 10, i32 noundef 0, ptr noundef %62, ptr noundef nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %64 = load i32, ptr @hf_cmpp_Dest_terminal_Id, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %65 = call ptr @wmem_packet_scope()
   %66 = call ptr @proto_tree_add_item_ret_string(ptr noundef %53, i32 noundef %64, ptr noundef %1, i32 noundef 124, i32 noundef 32, i32 noundef 0, ptr noundef %65, ptr noundef nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %67 = load i32, ptr @hf_cmpp_deliver_Report_SMSC_sequence, align 4
   %68 = call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef 156)
   %69 = call ptr @proto_tree_add_uint(ptr noundef %53, i32 noundef %67, ptr noundef %1, i32 noundef 156, i32 noundef 4, i32 noundef %68)
@@ -753,10 +747,10 @@ define internal fastcc void @cmpp_deliver(ptr noundef %0, ptr noundef %1) unname
 70:                                               ; preds = %49, %46
   %71 = add nuw nsw i32 %44, 89
   %72 = load i32, ptr @hf_cmpp_LinkID, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %73 = call ptr @wmem_packet_scope()
   %74 = call ptr @proto_tree_add_item_ret_string(ptr noundef %0, i32 noundef %72, ptr noundef %1, i32 noundef %71, i32 noundef 20, i32 noundef 0, ptr noundef %73, ptr noundef nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -838,10 +832,15 @@ declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr 
 ; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_boolean(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
+
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

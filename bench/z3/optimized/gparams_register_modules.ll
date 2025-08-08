@@ -1415,7 +1415,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define hidden void @_Z24gparams_register_modulesv() local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %1 = alloca %class.param_descrs, align 8
   %2 = alloca %class.param_descrs, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @_ZN12param_descrsC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %1)
   invoke void @_ZN14context_params20collect_param_descrsER12param_descrs(ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %3 unwind label %7
@@ -1426,8 +1426,8 @@ define hidden void @_Z24gparams_register_modulesv() local_unnamed_addr #3 person
 
 4:                                                ; preds = %3
   call void @_ZN12param_descrsD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %1) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZN12param_descrsC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %2)
   invoke void @_ZN10env_params20collect_param_descrsER12param_descrs(ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %5 unwind label %9
@@ -1438,7 +1438,7 @@ define hidden void @_Z24gparams_register_modulesv() local_unnamed_addr #3 person
 
 6:                                                ; preds = %5
   call void @_ZN12param_descrsD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @_ZN7gparams15register_moduleEPKcPFP12param_descrsvE(ptr noundef nonnull @.str, ptr noundef nonnull @"_ZZ24gparams_register_modulesvEN3$_08__invokeEv")
   call void @_ZN7gparams15register_moduleEPKcPFP12param_descrsvE(ptr noundef nonnull @.str.2, ptr noundef nonnull @"_ZZ24gparams_register_modulesvEN3$_18__invokeEv")
   call void @_ZN7gparams15register_moduleEPKcPFP12param_descrsvE(ptr noundef nonnull @.str.4, ptr noundef nonnull @"_ZZ24gparams_register_modulesvEN3$_28__invokeEv")
@@ -1497,23 +1497,20 @@ define hidden void @_Z24gparams_register_modulesv() local_unnamed_addr #3 person
   %8 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN12param_descrsD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %1) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %11
 
 9:                                                ; preds = %5, %4
   %10 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN12param_descrsD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %11
 
 11:                                               ; preds = %9, %7
   %.pn = phi { ptr, i32 } [ %10, %9 ], [ %8, %7 ]
   resume { ptr, i32 } %.pn
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 declare void @_ZN12param_descrsC1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #0
 
@@ -1526,9 +1523,6 @@ declare void @_ZN7gparams15register_globalER12param_descrs(ptr noundef nonnull a
 ; Function Attrs: nounwind
 declare void @_ZN12param_descrsD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
-
 declare void @_ZN10env_params20collect_param_descrsER12param_descrs(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 declare void @_ZN7gparams15register_moduleEPKcPFP12param_descrsvE(ptr noundef, ptr noundef) local_unnamed_addr #0
@@ -1536,7 +1530,7 @@ declare void @_ZN7gparams15register_moduleEPKcPFP12param_descrsvE(ptr noundef, p
 declare void @_ZN7gparams21register_module_descrEPKcS1_(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ24gparams_register_modulesvEN3$_08__invokeEv"() #5 align 2 {
+define internal noundef ptr @"_ZZ24gparams_register_modulesvEN3$_08__invokeEv"() #4 align 2 {
   %1 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 8)
   tail call void @_ZN12param_descrsC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %1)
   tail call void @_ZN12param_descrs6insertEPKc12cmd_arg_kindS1_S1_S1_(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.71, i32 noundef 1, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.73, ptr noundef nonnull @.str)
@@ -1548,7 +1542,7 @@ declare noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef) local_unnamed_ad
 declare void @_ZN12param_descrs6insertEPKc12cmd_arg_kindS1_S1_S1_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ24gparams_register_modulesvEN3$_18__invokeEv"() #5 align 2 {
+define internal noundef ptr @"_ZZ24gparams_register_modulesvEN3$_18__invokeEv"() #4 align 2 {
   %1 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 8)
   tail call void @_ZN12param_descrsC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %1)
   tail call void @_ZN12param_descrs6insertEPKc12cmd_arg_kindS1_S1_S1_(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.74, i32 noundef 0, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.2)
@@ -1556,7 +1550,7 @@ define internal noundef ptr @"_ZZ24gparams_register_modulesvEN3$_18__invokeEv"()
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ24gparams_register_modulesvEN3$_28__invokeEv"() #5 align 2 {
+define internal noundef ptr @"_ZZ24gparams_register_modulesvEN3$_28__invokeEv"() #4 align 2 {
   %1 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 8)
   tail call void @_ZN12param_descrsC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %1)
   tail call void @_ZN3nnf16get_param_descrsER12param_descrs(ptr noundef nonnull align 8 dereferenceable(8) %1)
@@ -1566,7 +1560,7 @@ define internal noundef ptr @"_ZZ24gparams_register_modulesvEN3$_28__invokeEv"()
 declare void @_ZN3nnf16get_param_descrsER12param_descrs(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ24gparams_register_modulesvEN3$_38__invokeEv"() #5 align 2 {
+define internal noundef ptr @"_ZZ24gparams_register_modulesvEN3$_38__invokeEv"() #4 align 2 {
   %1 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 8)
   tail call void @_ZN12param_descrsC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %1)
   tail call void @_ZN12param_descrs6insertEPKc12cmd_arg_kindS1_S1_S1_(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.77, i32 noundef 0, ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.79, ptr noundef nonnull @.str.4)
@@ -1577,7 +1571,7 @@ define internal noundef ptr @"_ZZ24gparams_register_modulesvEN3$_38__invokeEv"()
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ24gparams_register_modulesvEN3$_48__invokeEv"() #5 align 2 {
+define internal noundef ptr @"_ZZ24gparams_register_modulesvEN3$_48__invokeEv"() #4 align 2 {
   %1 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 8)
   tail call void @_ZN12param_descrsC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %1)
   tail call void @_ZN9pp_params20collect_param_descrsER12param_descrs(ptr noundef nonnull align 8 dereferenceable(8) %1)
@@ -1608,7 +1602,7 @@ define linkonce_odr hidden void @_ZN9pp_params20collect_param_descrsER12param_de
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ24gparams_register_modulesvEN3$_58__invokeEv"() #5 align 2 {
+define internal noundef ptr @"_ZZ24gparams_register_modulesvEN3$_58__invokeEv"() #4 align 2 {
   %1 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 8)
   tail call void @_ZN12param_descrsC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %1)
   tail call void @_ZN12param_descrs6insertEPKc12cmd_arg_kindS1_S1_S1_(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.127, i32 noundef 0, ptr noundef nonnull @.str.128, ptr noundef nonnull @.str.129, ptr noundef nonnull @.str.9)
@@ -1621,7 +1615,7 @@ define internal noundef ptr @"_ZZ24gparams_register_modulesvEN3$_58__invokeEv"()
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ24gparams_register_modulesvEN3$_68__invokeEv"() #5 align 2 {
+define internal noundef ptr @"_ZZ24gparams_register_modulesvEN3$_68__invokeEv"() #4 align 2 {
   %1 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 8)
   tail call void @_ZN12param_descrsC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %1)
   tail call void @_ZN12param_descrs6insertEPKc12cmd_arg_kindS1_S1_S1_(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.144, i32 noundef 1, ptr noundef nonnull @.str.145, ptr noundef nonnull @.str.73, ptr noundef nonnull @.str.11)
@@ -1634,7 +1628,7 @@ define internal noundef ptr @"_ZZ24gparams_register_modulesvEN3$_68__invokeEv"()
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ24gparams_register_modulesvEN3$_78__invokeEv"() #5 align 2 {
+define internal noundef ptr @"_ZZ24gparams_register_modulesvEN3$_78__invokeEv"() #4 align 2 {
   %1 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 8)
   tail call void @_ZN12param_descrsC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %1)
   tail call void @_ZN12param_descrs6insertEPKc12cmd_arg_kindS1_S1_S1_(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.77, i32 noundef 0, ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.79, ptr noundef nonnull @.str.13)
@@ -1646,7 +1640,7 @@ define internal noundef ptr @"_ZZ24gparams_register_modulesvEN3$_78__invokeEv"()
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ24gparams_register_modulesvEN3$_88__invokeEv"() #5 align 2 {
+define internal noundef ptr @"_ZZ24gparams_register_modulesvEN3$_88__invokeEv"() #4 align 2 {
   %1 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 8)
   tail call void @_ZN12param_descrsC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %1)
   tail call void @_ZN12model_params20collect_param_descrsER12param_descrs(ptr noundef nonnull align 8 dereferenceable(8) %1)
@@ -1666,7 +1660,7 @@ define linkonce_odr hidden void @_ZN12model_params20collect_param_descrsER12para
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ24gparams_register_modulesvEN3$_98__invokeEv"() #5 align 2 {
+define internal noundef ptr @"_ZZ24gparams_register_modulesvEN3$_98__invokeEv"() #4 align 2 {
   %1 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 8)
   tail call void @_ZN12param_descrsC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %1)
   tail call void @_ZN9fp_params20collect_param_descrsER12param_descrs(ptr noundef nonnull align 8 dereferenceable(8) %1)
@@ -1796,7 +1790,7 @@ define linkonce_odr hidden void @_ZN9fp_params20collect_param_descrsER12param_de
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ24gparams_register_modulesvEN4$_108__invokeEv"() #5 align 2 {
+define internal noundef ptr @"_ZZ24gparams_register_modulesvEN4$_108__invokeEv"() #4 align 2 {
   %1 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 8)
   tail call void @_ZN12param_descrsC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %1)
   tail call void @_ZN12nlsat_params20collect_param_descrsER12param_descrs(ptr noundef nonnull align 8 dereferenceable(8) %1)
@@ -1825,7 +1819,7 @@ define linkonce_odr hidden void @_ZN12nlsat_params20collect_param_descrsER12para
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ24gparams_register_modulesvEN4$_118__invokeEv"() #5 align 2 {
+define internal noundef ptr @"_ZZ24gparams_register_modulesvEN4$_118__invokeEv"() #4 align 2 {
   %1 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 8)
   tail call void @_ZN12param_descrsC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %1)
   tail call void @_ZN10opt_params20collect_param_descrsER12param_descrs(ptr noundef nonnull align 8 dereferenceable(8) %1)
@@ -1866,7 +1860,7 @@ define linkonce_odr hidden void @_ZN10opt_params20collect_param_descrsER12param_
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ24gparams_register_modulesvEN4$_128__invokeEv"() #5 align 2 {
+define internal noundef ptr @"_ZZ24gparams_register_modulesvEN4$_128__invokeEv"() #4 align 2 {
   %1 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 8)
   tail call void @_ZN12param_descrsC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %1)
   tail call void @_ZN21arith_rewriter_params20collect_param_descrsER12param_descrs(ptr noundef nonnull align 8 dereferenceable(8) %1)
@@ -1892,7 +1886,7 @@ define linkonce_odr hidden void @_ZN21arith_rewriter_params20collect_param_descr
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ24gparams_register_modulesvEN4$_138__invokeEv"() #5 align 2 {
+define internal noundef ptr @"_ZZ24gparams_register_modulesvEN4$_138__invokeEv"() #4 align 2 {
   %1 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 8)
   tail call void @_ZN12param_descrsC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %1)
   tail call void @_ZN12param_descrs6insertEPKc12cmd_arg_kindS1_S1_S1_(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.541, i32 noundef 1, ptr noundef nonnull @.str.542, ptr noundef nonnull @.str.82, ptr noundef nonnull @.str.2)
@@ -1905,7 +1899,7 @@ define internal noundef ptr @"_ZZ24gparams_register_modulesvEN4$_138__invokeEv"(
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ24gparams_register_modulesvEN4$_148__invokeEv"() #5 align 2 {
+define internal noundef ptr @"_ZZ24gparams_register_modulesvEN4$_148__invokeEv"() #4 align 2 {
   %1 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 8)
   tail call void @_ZN12param_descrsC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %1)
   tail call void @_ZN20bool_rewriter_params20collect_param_descrsER12param_descrs(ptr noundef nonnull align 8 dereferenceable(8) %1)
@@ -1928,7 +1922,7 @@ define linkonce_odr hidden void @_ZN20bool_rewriter_params20collect_param_descrs
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ24gparams_register_modulesvEN4$_158__invokeEv"() #5 align 2 {
+define internal noundef ptr @"_ZZ24gparams_register_modulesvEN4$_158__invokeEv"() #4 align 2 {
   %1 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 8)
   tail call void @_ZN12param_descrsC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %1)
   tail call void @_ZN18bv_rewriter_params20collect_param_descrsER12param_descrs(ptr noundef nonnull align 8 dereferenceable(8) %1)
@@ -1953,7 +1947,7 @@ define linkonce_odr hidden void @_ZN18bv_rewriter_params20collect_param_descrsER
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ24gparams_register_modulesvEN4$_168__invokeEv"() #5 align 2 {
+define internal noundef ptr @"_ZZ24gparams_register_modulesvEN4$_168__invokeEv"() #4 align 2 {
   %1 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 8)
   tail call void @_ZN12param_descrsC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %1)
   tail call void @_ZN12param_descrs6insertEPKc12cmd_arg_kindS1_S1_S1_(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.597, i32 noundef 1, ptr noundef nonnull @.str.598, ptr noundef nonnull @.str.82, ptr noundef nonnull @.str.2)
@@ -1961,7 +1955,7 @@ define internal noundef ptr @"_ZZ24gparams_register_modulesvEN4$_168__invokeEv"(
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ24gparams_register_modulesvEN4$_178__invokeEv"() #5 align 2 {
+define internal noundef ptr @"_ZZ24gparams_register_modulesvEN4$_178__invokeEv"() #4 align 2 {
   %1 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 8)
   tail call void @_ZN12param_descrsC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %1)
   tail call void @_ZN12param_descrs6insertEPKc12cmd_arg_kindS1_S1_S1_(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.597, i32 noundef 1, ptr noundef nonnull @.str.599, ptr noundef nonnull @.str.82, ptr noundef nonnull @.str.2)
@@ -1969,7 +1963,7 @@ define internal noundef ptr @"_ZZ24gparams_register_modulesvEN4$_178__invokeEv"(
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ24gparams_register_modulesvEN4$_188__invokeEv"() #5 align 2 {
+define internal noundef ptr @"_ZZ24gparams_register_modulesvEN4$_188__invokeEv"() #4 align 2 {
   %1 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 8)
   tail call void @_ZN12param_descrsC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %1)
   tail call void @_ZN31pattern_inference_params_helper20collect_param_descrsER12param_descrs(ptr noundef nonnull align 8 dereferenceable(8) %1)
@@ -1992,7 +1986,7 @@ define linkonce_odr hidden void @_ZN31pattern_inference_params_helper20collect_p
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ24gparams_register_modulesvEN4$_198__invokeEv"() #5 align 2 {
+define internal noundef ptr @"_ZZ24gparams_register_modulesvEN4$_198__invokeEv"() #4 align 2 {
   %1 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 8)
   tail call void @_ZN12param_descrsC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %1)
   tail call void @_ZN12param_descrs6insertEPKc12cmd_arg_kindS1_S1_S1_(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.620, i32 noundef 1, ptr noundef nonnull @.str.621, ptr noundef nonnull @.str.82, ptr noundef nonnull @.str.2)
@@ -2004,7 +1998,7 @@ define internal noundef ptr @"_ZZ24gparams_register_modulesvEN4$_198__invokeEv"(
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ24gparams_register_modulesvEN4$_208__invokeEv"() #5 align 2 {
+define internal noundef ptr @"_ZZ24gparams_register_modulesvEN4$_208__invokeEv"() #4 align 2 {
   %1 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 8)
   tail call void @_ZN12param_descrsC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %1)
   tail call void @_ZN15rewriter_params20collect_param_descrsER12param_descrs(ptr noundef nonnull align 8 dereferenceable(8) %1)
@@ -2027,7 +2021,7 @@ define linkonce_odr hidden void @_ZN15rewriter_params20collect_param_descrsER12p
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ24gparams_register_modulesvEN4$_218__invokeEv"() #5 align 2 {
+define internal noundef ptr @"_ZZ24gparams_register_modulesvEN4$_218__invokeEv"() #4 align 2 {
   %1 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 8)
   tail call void @_ZN12param_descrsC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %1)
   tail call void @_ZN10sat_params20collect_param_descrsER12param_descrs(ptr noundef nonnull align 8 dereferenceable(8) %1)
@@ -2139,7 +2133,7 @@ define linkonce_odr hidden void @_ZN10sat_params20collect_param_descrsER12param_
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ24gparams_register_modulesvEN4$_228__invokeEv"() #5 align 2 {
+define internal noundef ptr @"_ZZ24gparams_register_modulesvEN4$_228__invokeEv"() #4 align 2 {
   %1 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 8)
   tail call void @_ZN12param_descrsC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %1)
   tail call void @_ZN12param_descrs6insertEPKc12cmd_arg_kindS1_S1_S1_(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.868, i32 noundef 1, ptr noundef nonnull @.str.869, ptr noundef nonnull @.str.73, ptr noundef nonnull @.str.2)
@@ -2147,7 +2141,7 @@ define internal noundef ptr @"_ZZ24gparams_register_modulesvEN4$_228__invokeEv"(
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ24gparams_register_modulesvEN4$_238__invokeEv"() #5 align 2 {
+define internal noundef ptr @"_ZZ24gparams_register_modulesvEN4$_238__invokeEv"() #4 align 2 {
   %1 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 8)
   tail call void @_ZN12param_descrsC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %1)
   tail call void @_ZN10sls_params20collect_param_descrsER12param_descrs(ptr noundef nonnull align 8 dereferenceable(8) %1)
@@ -2191,7 +2185,7 @@ define linkonce_odr hidden void @_ZN10sls_params20collect_param_descrsER12param_
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ24gparams_register_modulesvEN4$_248__invokeEv"() #5 align 2 {
+define internal noundef ptr @"_ZZ24gparams_register_modulesvEN4$_248__invokeEv"() #4 align 2 {
   %1 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 8)
   tail call void @_ZN12param_descrsC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %1)
   tail call void @_ZN13solver_params20collect_param_descrsER12param_descrs(ptr noundef nonnull align 8 dereferenceable(8) %1)
@@ -2216,7 +2210,7 @@ define linkonce_odr hidden void @_ZN13solver_params20collect_param_descrsER12par
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ24gparams_register_modulesvEN4$_258__invokeEv"() #5 align 2 {
+define internal noundef ptr @"_ZZ24gparams_register_modulesvEN4$_258__invokeEv"() #4 align 2 {
   %1 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 8)
   tail call void @_ZN12param_descrsC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %1)
   tail call void @_ZN13tactic_params20collect_param_descrsER12param_descrs(ptr noundef nonnull align 8 dereferenceable(8) %1)
@@ -2239,7 +2233,7 @@ define linkonce_odr hidden void @_ZN13tactic_params20collect_param_descrsER12par
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ24gparams_register_modulesvEN4$_268__invokeEv"() #5 align 2 {
+define internal noundef ptr @"_ZZ24gparams_register_modulesvEN4$_268__invokeEv"() #4 align 2 {
   %1 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 8)
   tail call void @_ZN12param_descrsC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %1)
   tail call void @_ZN12param_descrs6insertEPKc12cmd_arg_kindS1_S1_S1_(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.977, i32 noundef 1, ptr noundef nonnull @.str.978, ptr noundef nonnull @.str.82, ptr noundef nonnull @.str.42)
@@ -2249,7 +2243,7 @@ define internal noundef ptr @"_ZZ24gparams_register_modulesvEN4$_268__invokeEv"(
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ24gparams_register_modulesvEN4$_278__invokeEv"() #5 align 2 {
+define internal noundef ptr @"_ZZ24gparams_register_modulesvEN4$_278__invokeEv"() #4 align 2 {
   %1 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 8)
   tail call void @_ZN12param_descrsC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %1)
   tail call void @_ZN12param_descrs6insertEPKc12cmd_arg_kindS1_S1_S1_(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.983, i32 noundef 1, ptr noundef nonnull @.str.984, ptr noundef nonnull @.str.73, ptr noundef nonnull @.str.33)
@@ -2262,7 +2256,7 @@ define internal noundef ptr @"_ZZ24gparams_register_modulesvEN4$_278__invokeEv"(
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ24gparams_register_modulesvEN4$_288__invokeEv"() #5 align 2 {
+define internal noundef ptr @"_ZZ24gparams_register_modulesvEN4$_288__invokeEv"() #4 align 2 {
   %1 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 8)
   tail call void @_ZN12param_descrsC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %1)
   tail call void @_ZN12param_descrs6insertEPKc12cmd_arg_kindS1_S1_S1_(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.996, i32 noundef 1, ptr noundef nonnull @.str.997, ptr noundef nonnull @.str.73, ptr noundef nonnull @.str.33)
@@ -2271,7 +2265,7 @@ define internal noundef ptr @"_ZZ24gparams_register_modulesvEN4$_288__invokeEv"(
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ24gparams_register_modulesvEN4$_298__invokeEv"() #5 align 2 {
+define internal noundef ptr @"_ZZ24gparams_register_modulesvEN4$_298__invokeEv"() #4 align 2 {
   %1 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 8)
   tail call void @_ZN12param_descrsC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %1)
   tail call void @_ZN21sat_simplifier_params20collect_param_descrsER12param_descrs(ptr noundef nonnull align 8 dereferenceable(8) %1)
@@ -2315,7 +2309,7 @@ define linkonce_odr hidden void @_ZN21sat_simplifier_params20collect_param_descr
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ24gparams_register_modulesvEN4$_308__invokeEv"() #5 align 2 {
+define internal noundef ptr @"_ZZ24gparams_register_modulesvEN4$_308__invokeEv"() #4 align 2 {
   %1 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 8)
   tail call void @_ZN12param_descrsC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %1)
   tail call void @_ZN17smt_params_helper20collect_param_descrsER12param_descrs(ptr noundef nonnull align 8 dereferenceable(8) %1)
@@ -2475,7 +2469,7 @@ define linkonce_odr hidden void @_ZN17smt_params_helper20collect_param_descrsER1
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ24gparams_register_modulesvEN4$_318__invokeEv"() #5 align 2 {
+define internal noundef ptr @"_ZZ24gparams_register_modulesvEN4$_318__invokeEv"() #4 align 2 {
   %1 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 8)
   tail call void @_ZN12param_descrsC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %1)
   tail call void @_ZN12param_descrs6insertEPKc12cmd_arg_kindS1_S1_S1_(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.1362, i32 noundef 0, ptr noundef nonnull @.str.1363, ptr noundef nonnull @.str.79, ptr noundef nonnull @.str.49)
@@ -2485,7 +2479,7 @@ define internal noundef ptr @"_ZZ24gparams_register_modulesvEN4$_318__invokeEv"(
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ24gparams_register_modulesvEN4$_328__invokeEv"() #5 align 2 {
+define internal noundef ptr @"_ZZ24gparams_register_modulesvEN4$_328__invokeEv"() #4 align 2 {
   %1 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 8)
   tail call void @_ZN12param_descrsC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %1)
   tail call void @_ZN15parallel_params20collect_param_descrsER12param_descrs(ptr noundef nonnull align 8 dereferenceable(8) %1)
@@ -2508,7 +2502,7 @@ define linkonce_odr hidden void @_ZN15parallel_params20collect_param_descrsER12p
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal noundef ptr @"_ZZ24gparams_register_modulesvEN4$_338__invokeEv"() #5 align 2 {
+define internal noundef ptr @"_ZZ24gparams_register_modulesvEN4$_338__invokeEv"() #4 align 2 {
   %1 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 8)
   tail call void @_ZN12param_descrsC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %1)
   tail call void @_ZN12param_descrs6insertEPKc12cmd_arg_kindS1_S1_S1_(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.1388, i32 noundef 1, ptr noundef nonnull @.str.1389, ptr noundef nonnull @.str.82, ptr noundef nonnull @.str)
@@ -2517,19 +2511,25 @@ define internal noundef ptr @"_ZZ24gparams_register_modulesvEN4$_338__invokeEv"(
 }
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_gparams_register_modules.cpp() #6 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_gparams_register_modules.cpp() #5 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #7
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
+
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind }
 attributes #3 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nounwind }
 
 !llvm.linker.options = !{}

@@ -652,7 +652,6 @@ _ZN5alloc11collections5btree4node12slice_insert17h2dd62a479812bd95E.exit.i19.i: 
 
 224:                                              ; preds = %._crit_edge
   tail call void @llvm.experimental.noalias.scope.decl(metadata !111)
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %6), !noalias !108
   %225 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %226 = load i64, ptr %225, align 8, !alias.scope !111, !noalias !108, !noundef !4
   %227 = invoke noundef align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$17try_new_uninit_in17h9de2d6cc2c3c48a4E.llvm.9602705825316643594"()
@@ -693,7 +692,6 @@ _ZN5alloc11collections5btree3mem7replace17h5eee1cb286f1f6a9E.exit.i: ; preds = %
   store i16 0, ptr %237, align 8, !noalias !120
   store ptr %227, ptr %.val, align 8, !alias.scope !111, !noalias !108
   store i64 %236, ptr %225, align 8, !alias.scope !111, !noalias !108
-  call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %6), !noalias !108
   %238 = icmp eq i64 %.sroa.8.0.lcssa, %226
   br i1 %238, label %240, label %239
 
@@ -1124,7 +1122,6 @@ define hidden { ptr, i64 } @"_ZN5alloc11collections5btree5split178_$LT$impl$u20$
   %.sroa.01.017.i = phi i64 [ %12, %_ZN5alloc11collections5btree3mem7replace17h5eee1cb286f1f6a9E.exit.i ], [ 0, %"_ZN5alloc11collections5btree4node117NodeRef$LT$alloc..collections..btree..node..marker..Owned$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$8new_leaf17hdeff0735630babccE.exit.i" ]
   %.sroa.0.016.i = phi ptr [ %13, %_ZN5alloc11collections5btree3mem7replace17h5eee1cb286f1f6a9E.exit.i ], [ %8, %"_ZN5alloc11collections5btree4node117NodeRef$LT$alloc..collections..btree..node..marker..Owned$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$8new_leaf17hdeff0735630babccE.exit.i" ]
   %12 = add nuw i64 %.sroa.01.017.i, 1
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3)
   %13 = invoke noundef align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$17try_new_uninit_in17h9de2d6cc2c3c48a4E.llvm.9602705825316643594"()
           to label %.noexc.i.i unwind label %.loopexit.i, !noalias !164
 
@@ -1172,7 +1169,6 @@ _ZN5alloc11collections5btree3mem7replace17h5eee1cb286f1f6a9E.exit.i: ; preds = %
   store ptr %13, ptr %.sroa.0.016.i, align 8, !noalias !167
   %21 = getelementptr inbounds nuw i8, ptr %.sroa.0.016.i, i64 96
   store i16 0, ptr %21, align 8, !noalias !172
-  call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3)
   %exitcond.not.i = icmp eq i64 %12, %7
   br i1 %exitcond.not.i, label %"_ZN5alloc11collections5btree5split178_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Owned$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$10new_pillar17h07d570ac07c2b0f9E.exit.split", label %.lr.ph.i
 
@@ -1347,7 +1343,7 @@ _ZN5alloc11collections5btree4node13move_to_slice17h6f6d55eec4473bdaE.exit.i: ; p
   br i1 %.not.i1.i.i, label %"_ZN5alloc11collections5btree4node29BalancingContext$LT$K$C$V$GT$15bulk_steal_left17hefae93a651c2512bE.exit.i.i.i", label %97
 
 93:                                               ; preds = %72
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5), !noalias !218
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !218
   store ptr %73, ptr %5, align 8, !noalias !218
   store i64 %74, ptr %.sroa.5.0..sroa_idx.i.i.i, align 8, !noalias !218
   store i64 %75, ptr %.sroa.55.0..sroa_idx.i.i.i, align 8, !noalias !218
@@ -1356,7 +1352,7 @@ _ZN5alloc11collections5btree4node13move_to_slice17h6f6d55eec4473bdaE.exit.i: ; p
   store ptr %82, ptr %.sroa.11.0..sroa_idx.i.i.i, align 8, !noalias !218
   store i64 %79, ptr %.sroa.15.0..sroa_idx.i.i.i, align 8, !noalias !218
   %94 = call fastcc { ptr, i64 } @"_ZN5alloc11collections5btree4node29BalancingContext$LT$K$C$V$GT$8do_merge17h642fb3adf86904f1E"(ptr noalias noundef align 8 captures(none) dereferenceable(56) %5), !noalias !218
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5), !noalias !218
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !218
   br label %"_ZN5alloc11collections5btree3fix263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$$C$alloc..collections..btree..node..marker..KV$GT$$GT$15fix_right_child17hfafca1653cf2d44cE.exit.i.i"
 
 "_ZN5alloc11collections5btree4node29BalancingContext$LT$K$C$V$GT$15bulk_steal_left17hefae93a651c2512bE.exit.i.i.i": ; preds = %135, %_ZN5alloc11collections5btree4node13move_to_slice17h795638a28d0ce89eE.exit55.i.i.i.i, %92
@@ -1534,7 +1530,7 @@ _ZN5alloc11collections5btree4node13move_to_slice17h6f6d55eec4473bdaE.exit.i.i.i.
   br i1 %.not.i1.i.i47, label %"_ZN5alloc11collections5btree4node29BalancingContext$LT$K$C$V$GT$16bulk_steal_right17h7bc2cfe364b1de99E.exit.i.i.i", label %_ZN5alloc11collections5btree4node13move_to_slice17h795638a28d0ce89eE.exit59.i.i.i.i
 
 178:                                              ; preds = %160
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4), !noalias !264
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !264
   store ptr %161, ptr %4, align 8, !noalias !264
   store i64 %162, ptr %.sroa.5.0..sroa_idx.i.i.i44, align 8, !noalias !264
   store i64 0, ptr %.sroa.55.0..sroa_idx.i.i.i45, align 8, !noalias !264
@@ -1543,7 +1539,7 @@ _ZN5alloc11collections5btree4node13move_to_slice17h6f6d55eec4473bdaE.exit.i.i.i.
   store ptr %167, ptr %.sroa.13.0..sroa_idx.i.i.i, align 8, !noalias !264
   store i64 %165, ptr %.sroa.16.0..sroa_idx.i.i.i, align 8, !noalias !264
   %179 = call fastcc { ptr, i64 } @"_ZN5alloc11collections5btree4node29BalancingContext$LT$K$C$V$GT$8do_merge17h642fb3adf86904f1E"(ptr noalias noundef align 8 captures(none) dereferenceable(56) %4), !noalias !264
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4), !noalias !264
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !264
   br label %"_ZN5alloc11collections5btree3fix263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$$C$alloc..collections..btree..node..marker..KV$GT$$GT$14fix_left_child17h8ba5f4e201204bafE.exit.i.i"
 
 "_ZN5alloc11collections5btree4node29BalancingContext$LT$K$C$V$GT$16bulk_steal_right17h7bc2cfe364b1de99E.exit.i.i.i": ; preds = %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17h64fb39a9933b109aE.exit.i.i.i.i", %_ZN5alloc11collections5btree4node13move_to_slice17h795638a28d0ce89eE.exit59.i.i.i.i, %177
@@ -2471,12 +2467,6 @@ declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly 
 ; Function Attrs: nounwind nonlazybind allockind("free") uwtable
 declare void @__rust_dealloc(ptr allocptr noundef, i64 noundef, i64 noundef) unnamed_addr #18
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #19
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #19
-
 ; Function Attrs: nonlazybind uwtable
 declare void @"_ZN93_$LT$alloc..collections..btree..mem..replace..PanicGuard$u20$as$u20$core..ops..drop..Drop$GT$4drop17he7f40e69e6f26b83E"(ptr noalias noundef nonnull align 1) unnamed_addr #1
 
@@ -2488,6 +2478,12 @@ declare void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 nounde
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden noundef align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$17try_new_uninit_in17h9de2d6cc2c3c48a4E.llvm.9602705825316643594"() unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #19
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #20

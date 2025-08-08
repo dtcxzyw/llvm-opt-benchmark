@@ -353,7 +353,7 @@ define weak_odr void @_ZN5boost7archive18basic_xml_oarchiveINS0_12xml_oarchiveEE
   br i1 %.not.i, label %_ZN5boost7archive21basic_text_oprimitiveISoE3putEc.exit, label %16
 
 16:                                               ; preds = %7
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZN5boost7archive17archive_exceptionC1ENS1_14exception_codeEPKcS4_(ptr noundef nonnull align 8 dereferenceable(140) %2, i32 noundef 13, ptr noundef null, ptr noundef null) #18
   invoke void @_ZN5boost13serialization15throw_exceptionINS_7archive17archive_exceptionEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(140) %2) #19
           to label %17 unwind label %18
@@ -365,7 +365,7 @@ define weak_odr void @_ZN5boost7archive18basic_xml_oarchiveINS0_12xml_oarchiveEE
   %19 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5boost7archive17archive_exceptionD1Ev(ptr noundef nonnull align 8 dereferenceable(140) %2) #18
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %19
 
 _ZN5boost7archive21basic_text_oprimitiveISoE3putEc.exit: ; preds = %7
@@ -377,12 +377,6 @@ _ZN5boost7archive21basic_text_oprimitiveISoE3putEc.exit: ; preds = %7
 ._crit_edge:                                      ; preds = %_ZN5boost7archive21basic_text_oprimitiveISoE3putEc.exit, %1
   ret void
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN5boost7archive18basic_xml_oarchiveINS0_12xml_oarchiveEE4initEv(ptr noundef nonnull align 8 dereferenceable(46) %0) local_unnamed_addr #1 comdat align 2 {
@@ -426,12 +420,12 @@ define weak_odr void @_ZN5boost7archive18basic_xml_oarchiveINS0_12xml_oarchiveEE
 _ZN5boost7archive21basic_text_oprimitiveISoE3putEPKc.exit8: ; preds = %.lr.ph.i5
   %16 = tail call noundef ptr @_ZN5boost7archive23BOOST_ARCHIVE_SIGNATUREEv()
   tail call void @_ZN5boost7archive18basic_xml_oarchiveINS0_12xml_oarchiveEE15write_attributeEPKcS5_(ptr noundef nonnull align 8 dereferenceable(46) %0, ptr noundef nonnull @.str.3, ptr noundef %16)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %2) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZN5boost7archive21BOOST_ARCHIVE_VERSIONEv(ptr dead_on_unwind nonnull writable sret(%"class.boost::serialization::library_version_type") align 2 %2)
   %17 = load i16, ptr %2, align 2, !tbaa !52
   %18 = zext i16 %17 to i32
   call void @_ZN5boost7archive18basic_xml_oarchiveINS0_12xml_oarchiveEE15write_attributeEPKciS5_(ptr noundef nonnull align 8 dereferenceable(46) %0, ptr noundef nonnull @.str.4, i32 noundef %18, ptr noundef nonnull @.str.5)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %2) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.lr.ph.i9
 
 .lr.ph.i9:                                        ; preds = %.lr.ph.i9, %_ZN5boost7archive21basic_text_oprimitiveISoE3putEPKc.exit8
@@ -470,7 +464,7 @@ define weak_odr void @_ZN5boost7archive18basic_xml_oarchiveINS0_12xml_oarchiveEE
   br i1 %.not.i, label %_ZN5boost7archive21basic_text_oprimitiveISoE3putEc.exit, label %19
 
 19:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %9) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN5boost7archive17archive_exceptionC1ENS1_14exception_codeEPKcS4_(ptr noundef nonnull align 8 dereferenceable(140) %9, i32 noundef 13, ptr noundef null, ptr noundef null) #18
   invoke void @_ZN5boost13serialization15throw_exceptionINS_7archive17archive_exceptionEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(140) %9) #19
           to label %20 unwind label %21
@@ -486,7 +480,7 @@ common.resume:                                    ; preds = %49, %21
   %22 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5boost7archive17archive_exceptionD1Ev(ptr noundef nonnull align 8 dereferenceable(140) %9) #18
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %9) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %common.resume
 
 _ZN5boost7archive21basic_text_oprimitiveISoE3putEc.exit: ; preds = %3
@@ -523,10 +517,10 @@ _ZN5boost7archive21basic_text_oprimitiveISoE3putEPKc.exit7: ; preds = %.lr.ph.i4
   %34 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #20
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 %34
   %36 = load ptr, ptr %10, align 8, !tbaa !31
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #18
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !54
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !54
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7), !noalias !54
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !54
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !54
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !54
   store ptr %2, ptr %5, align 8, !tbaa !61, !noalias !63
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %37, i8 0, i64 18, i1 false), !noalias !63
@@ -535,10 +529,10 @@ _ZN5boost7archive21basic_text_oprimitiveISoE3putEPKc.exit7: ; preds = %.lr.ph.i4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %38, i8 0, i64 18, i1 false), !noalias !63
   store ptr %36, ptr %7, align 8, !tbaa !66, !noalias !63
   call void @_ZNSt11__copy_moveILb0ELb0ESt18input_iterator_tagE8__copy_mIN5boost7archive9iterators10xml_escapeIPKcEENS5_16ostream_iteratorIcEEEET0_T_SD_SC_(ptr dead_on_unwind nonnull writable sret(%"class.boost::archive::iterators::ostream_iterator") align 8 %8, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !54
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !54
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7), !noalias !54
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !54
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !54
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !54
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %39 = load ptr, ptr %10, align 8, !tbaa !31
   %40 = load ptr, ptr %39, align 8, !tbaa !42
   %41 = getelementptr i8, ptr %40, i64 -24
@@ -551,7 +545,7 @@ _ZN5boost7archive21basic_text_oprimitiveISoE3putEPKc.exit7: ; preds = %.lr.ph.i4
   br i1 %.not.i8, label %_ZN5boost7archive21basic_text_oprimitiveISoE3putEc.exit9, label %47
 
 47:                                               ; preds = %_ZN5boost7archive21basic_text_oprimitiveISoE3putEPKc.exit7
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN5boost7archive17archive_exceptionC1ENS1_14exception_codeEPKcS4_(ptr noundef nonnull align 8 dereferenceable(140) %4, i32 noundef 13, ptr noundef null, ptr noundef null) #18
   invoke void @_ZN5boost13serialization15throw_exceptionINS_7archive17archive_exceptionEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(140) %4) #19
           to label %48 unwind label %49
@@ -563,7 +557,7 @@ _ZN5boost7archive21basic_text_oprimitiveISoE3putEPKc.exit7: ; preds = %.lr.ph.i4
   %50 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5boost7archive17archive_exceptionD1Ev(ptr noundef nonnull align 8 dereferenceable(140) %4) #18
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %common.resume
 
 _ZN5boost7archive21basic_text_oprimitiveISoE3putEc.exit9: ; preds = %_ZN5boost7archive21basic_text_oprimitiveISoE3putEPKc.exit7
@@ -591,7 +585,7 @@ define weak_odr void @_ZN5boost7archive18basic_xml_oarchiveINS0_12xml_oarchiveEE
   br i1 %.not.i, label %_ZN5boost7archive21basic_text_oprimitiveISoE3putEc.exit, label %17
 
 17:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %7) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN5boost7archive17archive_exceptionC1ENS1_14exception_codeEPKcS4_(ptr noundef nonnull align 8 dereferenceable(140) %7, i32 noundef 13, ptr noundef null, ptr noundef null) #18
   invoke void @_ZN5boost13serialization15throw_exceptionINS_7archive17archive_exceptionEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(140) %7) #19
           to label %18 unwind label %19
@@ -607,7 +601,7 @@ common.resume:                                    ; preds = %57, %44, %19
   %20 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5boost7archive17archive_exceptionD1Ev(ptr noundef nonnull align 8 dereferenceable(140) %7) #18
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %7) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %common.resume
 
 _ZN5boost7archive21basic_text_oprimitiveISoE3putEc.exit: ; preds = %4
@@ -654,7 +648,7 @@ _ZN5boost7archive21basic_text_oprimitiveISoE3putEPKc.exit8: ; preds = %.lr.ph.i5
   br i1 %.not.i.i.i, label %_ZN5boost7archive17xml_oarchive_implINS0_12xml_oarchiveEE4saveIiEEvRKT_.exit, label %42
 
 42:                                               ; preds = %_ZN5boost7archive21basic_text_oprimitiveISoE3putEPKc.exit8
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %6) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN5boost7archive17archive_exceptionC1ENS1_14exception_codeEPKcS4_(ptr noundef nonnull align 8 dereferenceable(140) %6, i32 noundef 13, ptr noundef null, ptr noundef null) #18
   invoke void @_ZN5boost13serialization15throw_exceptionINS_7archive17archive_exceptionEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(140) %6) #19
           to label %43 unwind label %44
@@ -666,7 +660,7 @@ _ZN5boost7archive21basic_text_oprimitiveISoE3putEPKc.exit8: ; preds = %.lr.ph.i5
   %45 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5boost7archive17archive_exceptionD1Ev(ptr noundef nonnull align 8 dereferenceable(140) %6) #18
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %6) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %common.resume
 
 _ZN5boost7archive17xml_oarchive_implINS0_12xml_oarchiveEE4saveIiEEvRKT_.exit: ; preds = %_ZN5boost7archive21basic_text_oprimitiveISoE3putEPKc.exit8
@@ -683,7 +677,7 @@ _ZN5boost7archive17xml_oarchive_implINS0_12xml_oarchiveEE4saveIiEEvRKT_.exit: ; 
   br i1 %.not.i9, label %_ZN5boost7archive21basic_text_oprimitiveISoE3putEc.exit10, label %55
 
 55:                                               ; preds = %_ZN5boost7archive17xml_oarchive_implINS0_12xml_oarchiveEE4saveIiEEvRKT_.exit
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN5boost7archive17archive_exceptionC1ENS1_14exception_codeEPKcS4_(ptr noundef nonnull align 8 dereferenceable(140) %5, i32 noundef 13, ptr noundef null, ptr noundef null) #18
   invoke void @_ZN5boost13serialization15throw_exceptionINS_7archive17archive_exceptionEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(140) %5) #19
           to label %56 unwind label %57
@@ -695,7 +689,7 @@ _ZN5boost7archive17xml_oarchive_implINS0_12xml_oarchiveEE4saveIiEEvRKT_.exit: ; 
   %58 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5boost7archive17archive_exceptionD1Ev(ptr noundef nonnull align 8 dereferenceable(140) %5) #18
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %common.resume
 
 _ZN5boost7archive21basic_text_oprimitiveISoE3putEc.exit10: ; preds = %_ZN5boost7archive17xml_oarchive_implINS0_12xml_oarchiveEE4saveIiEEvRKT_.exit
@@ -735,10 +729,10 @@ define weak_odr void @_ZN5boost7archive17xml_oarchive_implINS0_12xml_oarchiveEE4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = load ptr, ptr %9, align 8, !tbaa !31
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #18
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3), !noalias !68
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !68
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !68
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !68
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !68
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !68
   store ptr %1, ptr %3, align 8, !tbaa !61, !noalias !75
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %11, i8 0, i64 18, i1 false), !noalias !75
@@ -747,10 +741,10 @@ define weak_odr void @_ZN5boost7archive17xml_oarchive_implINS0_12xml_oarchiveEE4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %12, i8 0, i64 18, i1 false), !noalias !75
   store ptr %10, ptr %5, align 8, !tbaa !66, !noalias !75
   call void @_ZNSt11__copy_moveILb0ELb0ESt18input_iterator_tagE8__copy_mIN5boost7archive9iterators10xml_escapeIPKcEENS5_16ostream_iteratorIcEEEET0_T_SD_SC_(ptr dead_on_unwind nonnull writable sret(%"class.boost::archive::iterators::ostream_iterator") align 8 %6, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !68
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !68
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !68
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !68
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !68
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !68
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -788,7 +782,7 @@ define weak_odr void @_ZN5boost7archive18basic_xml_oarchiveINS0_12xml_oarchiveEE
   br i1 %22, label %23, label %_ZNK5boost7archive6detail8XML_nameIKcEclEc.exit.i
 
 23:                                               ; preds = %18
-  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %11) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @_ZN5boost7archive21xml_archive_exceptionC1ENS1_14exception_codeEPKcS4_(ptr noundef nonnull align 8 dereferenceable(8) %11, i32 noundef 2, ptr noundef null, ptr noundef null)
   invoke void @_ZN5boost13serialization15throw_exceptionINS_7archive21xml_archive_exceptionEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(8) %11) #19
           to label %24 unwind label %25
@@ -804,7 +798,7 @@ common.resume:                                    ; preds = %93, %75, %60, %43, 
   %26 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5boost7archive21xml_archive_exceptionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #18
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %11) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %common.resume
 
 _ZNK5boost7archive6detail8XML_nameIKcEclEc.exit.i: ; preds = %18, %.lr.ph.i
@@ -832,7 +826,7 @@ _ZSt8for_eachIPKcN5boost7archive6detail8XML_nameIS0_EEET0_T_S8_S7_.exit: ; preds
   br i1 %.not.i.i, label %_ZN5boost7archive21basic_text_oprimitiveISoE3putEc.exit.i, label %41
 
 41:                                               ; preds = %31
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %10) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZN5boost7archive17archive_exceptionC1ENS1_14exception_codeEPKcS4_(ptr noundef nonnull align 8 dereferenceable(140) %10, i32 noundef 13, ptr noundef null, ptr noundef null) #18
   invoke void @_ZN5boost13serialization15throw_exceptionINS_7archive17archive_exceptionEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(140) %10) #19
           to label %42 unwind label %43
@@ -844,7 +838,7 @@ _ZSt8for_eachIPKcN5boost7archive6detail8XML_nameIS0_EEET0_T_S8_S7_.exit: ; preds
   %44 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5boost7archive17archive_exceptionD1Ev(ptr noundef nonnull align 8 dereferenceable(140) %10) #18
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %10) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %common.resume
 
 _ZN5boost7archive21basic_text_oprimitiveISoE3putEc.exit.i: ; preds = %31
@@ -872,7 +866,7 @@ _ZN5boost7archive18basic_xml_oarchiveINS0_12xml_oarchiveEE12end_preambleEv.exit:
   br i1 %.not.i6, label %_ZN5boost7archive21basic_text_oprimitiveISoE3putEc.exit, label %58
 
 58:                                               ; preds = %48
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %9) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN5boost7archive17archive_exceptionC1ENS1_14exception_codeEPKcS4_(ptr noundef nonnull align 8 dereferenceable(140) %9, i32 noundef 13, ptr noundef null, ptr noundef null) #18
   invoke void @_ZN5boost13serialization15throw_exceptionINS_7archive17archive_exceptionEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(140) %9) #19
           to label %59 unwind label %60
@@ -884,7 +878,7 @@ _ZN5boost7archive18basic_xml_oarchiveINS0_12xml_oarchiveEE12end_preambleEv.exit:
   %61 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5boost7archive17archive_exceptionD1Ev(ptr noundef nonnull align 8 dereferenceable(140) %9) #18
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %9) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %common.resume
 
 _ZN5boost7archive21basic_text_oprimitiveISoE3putEc.exit: ; preds = %48
@@ -907,7 +901,7 @@ _ZN5boost7archive21basic_text_oprimitiveISoE3putEc.exit: ; preds = %48
   br i1 %.not.i.i8, label %_ZN5boost7archive21basic_text_oprimitiveISoE3putEc.exit.i9, label %73
 
 73:                                               ; preds = %.lr.ph.i7
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %8) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZN5boost7archive17archive_exceptionC1ENS1_14exception_codeEPKcS4_(ptr noundef nonnull align 8 dereferenceable(140) %8, i32 noundef 13, ptr noundef null, ptr noundef null) #18
   invoke void @_ZN5boost13serialization15throw_exceptionINS_7archive17archive_exceptionEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(140) %8) #19
           to label %74 unwind label %75
@@ -919,7 +913,7 @@ _ZN5boost7archive21basic_text_oprimitiveISoE3putEc.exit: ; preds = %48
   %76 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5boost7archive17archive_exceptionD1Ev(ptr noundef nonnull align 8 dereferenceable(140) %8) #18
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %8) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %common.resume
 
 _ZN5boost7archive21basic_text_oprimitiveISoE3putEc.exit.i9: ; preds = %.lr.ph.i7
@@ -949,7 +943,7 @@ _ZN5boost7archive18basic_xml_oarchiveINS0_12xml_oarchiveEE6indentEv.exit: ; pred
   br i1 %.not.i10, label %_ZN5boost7archive21basic_text_oprimitiveISoE3putEc.exit11, label %91
 
 91:                                               ; preds = %_ZN5boost7archive18basic_xml_oarchiveINS0_12xml_oarchiveEE6indentEv.exit
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %7) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN5boost7archive17archive_exceptionC1ENS1_14exception_codeEPKcS4_(ptr noundef nonnull align 8 dereferenceable(140) %7, i32 noundef 13, ptr noundef null, ptr noundef null) #18
   invoke void @_ZN5boost13serialization15throw_exceptionINS_7archive17archive_exceptionEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(140) %7) #19
           to label %92 unwind label %93
@@ -961,7 +955,7 @@ _ZN5boost7archive18basic_xml_oarchiveINS0_12xml_oarchiveEE6indentEv.exit: ; pred
   %94 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5boost7archive17archive_exceptionD1Ev(ptr noundef nonnull align 8 dereferenceable(140) %7) #18
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %7) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %common.resume
 
 _ZN5boost7archive21basic_text_oprimitiveISoE3putEc.exit11: ; preds = %_ZN5boost7archive18basic_xml_oarchiveINS0_12xml_oarchiveEE6indentEv.exit
@@ -969,10 +963,10 @@ _ZN5boost7archive21basic_text_oprimitiveISoE3putEc.exit11: ; preds = %_ZN5boost7
   %96 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #20
   %97 = getelementptr inbounds nuw i8, ptr %1, i64 %96
   %98 = load ptr, ptr %82, align 8, !tbaa !31
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #18
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3), !noalias !80
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !80
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !80
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !80
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !80
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !80
   store ptr %1, ptr %3, align 8, !tbaa !61, !noalias !87
   %99 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %99, i8 0, i64 18, i1 false), !noalias !87
@@ -981,10 +975,10 @@ _ZN5boost7archive21basic_text_oprimitiveISoE3putEc.exit11: ; preds = %_ZN5boost7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %100, i8 0, i64 18, i1 false), !noalias !87
   store ptr %98, ptr %5, align 8, !tbaa !66, !noalias !87
   call void @_ZNSt11__copy_moveILb0ELb0ESt18input_iterator_tagE8__copy_mIN5boost7archive9iterators10xml_escapeIPKcEENS5_16ostream_iteratorIcEEEET0_T_SD_SC_(ptr dead_on_unwind nonnull writable sret(%"class.boost::archive::iterators::ostream_iterator") align 8 %6, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !80
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !80
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !80
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !80
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !80
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !80
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store i8 1, ptr %28, align 4, !tbaa !79
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 45
   store i8 0, ptr %101, align 1, !tbaa !90
@@ -995,7 +989,7 @@ _ZN5boost7archive21basic_text_oprimitiveISoE3putEc.exit11: ; preds = %_ZN5boost7
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN5boost7archive18basic_xml_oarchiveINS0_12xml_oarchiveEE12end_preambleEv(ptr noundef nonnull align 8 dereferenceable(46) %0) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -1019,7 +1013,7 @@ define weak_odr void @_ZN5boost7archive18basic_xml_oarchiveINS0_12xml_oarchiveEE
   br i1 %.not.i, label %_ZN5boost7archive21basic_text_oprimitiveISoE3putEc.exit, label %16
 
 16:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZN5boost7archive17archive_exceptionC1ENS1_14exception_codeEPKcS4_(ptr noundef nonnull align 8 dereferenceable(140) %2, i32 noundef 13, ptr noundef null, ptr noundef null) #18
   invoke void @_ZN5boost13serialization15throw_exceptionINS_7archive17archive_exceptionEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(140) %2) #19
           to label %17 unwind label %18
@@ -1031,7 +1025,7 @@ define weak_odr void @_ZN5boost7archive18basic_xml_oarchiveINS0_12xml_oarchiveEE
   %19 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5boost7archive17archive_exceptionD1Ev(ptr noundef nonnull align 8 dereferenceable(140) %2) #18
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %19
 
 _ZN5boost7archive21basic_text_oprimitiveISoE3putEc.exit: ; preds = %6
@@ -1078,7 +1072,7 @@ define weak_odr void @_ZN5boost7archive18basic_xml_oarchiveINS0_12xml_oarchiveEE
   br i1 %23, label %24, label %_ZNK5boost7archive6detail8XML_nameIKcEclEc.exit.i
 
 24:                                               ; preds = %19
-  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %12) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @_ZN5boost7archive21xml_archive_exceptionC1ENS1_14exception_codeEPKcS4_(ptr noundef nonnull align 8 dereferenceable(8) %12, i32 noundef 2, ptr noundef null, ptr noundef null)
   invoke void @_ZN5boost13serialization15throw_exceptionINS_7archive21xml_archive_exceptionEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(8) %12) #19
           to label %25 unwind label %26
@@ -1094,7 +1088,7 @@ common.resume:                                    ; preds = %121, %105, %80, %65
   %27 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5boost7archive21xml_archive_exceptionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #18
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %12) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %common.resume
 
 _ZNK5boost7archive6detail8XML_nameIKcEclEc.exit.i: ; preds = %19, %.lr.ph.i
@@ -1122,7 +1116,7 @@ _ZSt8for_eachIPKcN5boost7archive6detail8XML_nameIS0_EEET0_T_S8_S7_.exit: ; preds
   br i1 %.not.i.i, label %_ZN5boost7archive21basic_text_oprimitiveISoE3putEc.exit.i, label %42
 
 42:                                               ; preds = %32
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %11) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @_ZN5boost7archive17archive_exceptionC1ENS1_14exception_codeEPKcS4_(ptr noundef nonnull align 8 dereferenceable(140) %11, i32 noundef 13, ptr noundef null, ptr noundef null) #18
   invoke void @_ZN5boost13serialization15throw_exceptionINS_7archive17archive_exceptionEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(140) %11) #19
           to label %43 unwind label %44
@@ -1134,7 +1128,7 @@ _ZSt8for_eachIPKcN5boost7archive6detail8XML_nameIS0_EEET0_T_S8_S7_.exit: ; preds
   %45 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5boost7archive17archive_exceptionD1Ev(ptr noundef nonnull align 8 dereferenceable(140) %11) #18
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %11) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %common.resume
 
 _ZN5boost7archive21basic_text_oprimitiveISoE3putEc.exit.i: ; preds = %32
@@ -1166,7 +1160,7 @@ _ZN5boost7archive18basic_xml_oarchiveINS0_12xml_oarchiveEE12end_preambleEv.exit:
   br i1 %.not.i6, label %_ZN5boost7archive21basic_text_oprimitiveISoE3putEc.exit, label %63
 
 63:                                               ; preds = %53
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %10) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZN5boost7archive17archive_exceptionC1ENS1_14exception_codeEPKcS4_(ptr noundef nonnull align 8 dereferenceable(140) %10, i32 noundef 13, ptr noundef null, ptr noundef null) #18
   invoke void @_ZN5boost13serialization15throw_exceptionINS_7archive17archive_exceptionEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(140) %10) #19
           to label %64 unwind label %65
@@ -1178,7 +1172,7 @@ _ZN5boost7archive18basic_xml_oarchiveINS0_12xml_oarchiveEE12end_preambleEv.exit:
   %66 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5boost7archive17archive_exceptionD1Ev(ptr noundef nonnull align 8 dereferenceable(140) %10) #18
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %10) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %common.resume
 
 _ZN5boost7archive21basic_text_oprimitiveISoE3putEc.exit: ; preds = %53
@@ -1201,7 +1195,7 @@ _ZN5boost7archive21basic_text_oprimitiveISoE3putEc.exit: ; preds = %53
   br i1 %.not.i.i8, label %_ZN5boost7archive21basic_text_oprimitiveISoE3putEc.exit.i9, label %78
 
 78:                                               ; preds = %.lr.ph.i7
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %9) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN5boost7archive17archive_exceptionC1ENS1_14exception_codeEPKcS4_(ptr noundef nonnull align 8 dereferenceable(140) %9, i32 noundef 13, ptr noundef null, ptr noundef null) #18
   invoke void @_ZN5boost13serialization15throw_exceptionINS_7archive17archive_exceptionEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(140) %9) #19
           to label %79 unwind label %80
@@ -1213,7 +1207,7 @@ _ZN5boost7archive21basic_text_oprimitiveISoE3putEc.exit: ; preds = %53
   %81 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5boost7archive17archive_exceptionD1Ev(ptr noundef nonnull align 8 dereferenceable(140) %9) #18
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %9) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %common.resume
 
 _ZN5boost7archive21basic_text_oprimitiveISoE3putEc.exit.i9: ; preds = %.lr.ph.i7
@@ -1242,10 +1236,10 @@ _ZN5boost7archive21basic_text_oprimitiveISoE3putEPKc.exit: ; preds = %.lr.ph.i10
   %90 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #20
   %91 = getelementptr inbounds nuw i8, ptr %1, i64 %90
   %92 = load ptr, ptr %85, align 8, !tbaa !31
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #18
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !91
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !91
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7), !noalias !91
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !91
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !91
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !91
   store ptr %1, ptr %5, align 8, !tbaa !61, !noalias !98
   %93 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %93, i8 0, i64 18, i1 false), !noalias !98
@@ -1254,10 +1248,10 @@ _ZN5boost7archive21basic_text_oprimitiveISoE3putEPKc.exit: ; preds = %.lr.ph.i10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %94, i8 0, i64 18, i1 false), !noalias !98
   store ptr %92, ptr %7, align 8, !tbaa !66, !noalias !98
   call void @_ZNSt11__copy_moveILb0ELb0ESt18input_iterator_tagE8__copy_mIN5boost7archive9iterators10xml_escapeIPKcEENS5_16ostream_iteratorIcEEEET0_T_SD_SC_(ptr dead_on_unwind nonnull writable sret(%"class.boost::archive::iterators::ostream_iterator") align 8 %8, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !91
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !91
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7), !noalias !91
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !91
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !91
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !91
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %95 = load ptr, ptr %85, align 8, !tbaa !31
   %96 = load ptr, ptr %95, align 8, !tbaa !42
   %97 = getelementptr i8, ptr %96, i64 -24
@@ -1270,7 +1264,7 @@ _ZN5boost7archive21basic_text_oprimitiveISoE3putEPKc.exit: ; preds = %.lr.ph.i10
   br i1 %.not.i12, label %_ZN5boost7archive21basic_text_oprimitiveISoE3putEc.exit13, label %103
 
 103:                                              ; preds = %_ZN5boost7archive21basic_text_oprimitiveISoE3putEPKc.exit
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN5boost7archive17archive_exceptionC1ENS1_14exception_codeEPKcS4_(ptr noundef nonnull align 8 dereferenceable(140) %4, i32 noundef 13, ptr noundef null, ptr noundef null) #18
   invoke void @_ZN5boost13serialization15throw_exceptionINS_7archive17archive_exceptionEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(140) %4) #19
           to label %104 unwind label %105
@@ -1282,7 +1276,7 @@ _ZN5boost7archive21basic_text_oprimitiveISoE3putEPKc.exit: ; preds = %.lr.ph.i10
   %106 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5boost7archive17archive_exceptionD1Ev(ptr noundef nonnull align 8 dereferenceable(140) %4) #18
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %common.resume
 
 _ZN5boost7archive21basic_text_oprimitiveISoE3putEc.exit13: ; preds = %_ZN5boost7archive21basic_text_oprimitiveISoE3putEPKc.exit
@@ -1304,7 +1298,7 @@ _ZN5boost7archive21basic_text_oprimitiveISoE3putEc.exit13: ; preds = %_ZN5boost7
   br i1 %.not.i14, label %_ZN5boost7archive21basic_text_oprimitiveISoE3putEc.exit15, label %119
 
 119:                                              ; preds = %110
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN5boost7archive17archive_exceptionC1ENS1_14exception_codeEPKcS4_(ptr noundef nonnull align 8 dereferenceable(140) %3, i32 noundef 13, ptr noundef null, ptr noundef null) #18
   invoke void @_ZN5boost13serialization15throw_exceptionINS_7archive17archive_exceptionEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(140) %3) #19
           to label %120 unwind label %121
@@ -1316,7 +1310,7 @@ _ZN5boost7archive21basic_text_oprimitiveISoE3putEc.exit13: ; preds = %_ZN5boost7
   %122 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5boost7archive17archive_exceptionD1Ev(ptr noundef nonnull align 8 dereferenceable(140) %3) #18
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %common.resume
 
 _ZN5boost7archive21basic_text_oprimitiveISoE3putEc.exit15: ; preds = %110
@@ -1443,7 +1437,7 @@ define weak_odr void @_ZN5boost7archive18basic_xml_oarchiveINS0_12xml_oarchiveEE
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #5
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN5boost7archive17xml_oarchive_implINS0_12xml_oarchiveEE4saveERKNS0_12version_typeE(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -1461,7 +1455,7 @@ define weak_odr void @_ZN5boost7archive17xml_oarchive_implINS0_12xml_oarchiveEE4
   br i1 %.not.i.i.i, label %_ZN5boost7archive17xml_oarchive_implINS0_12xml_oarchiveEE4saveIjEEvRKT_.exit, label %13
 
 13:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN5boost7archive17archive_exceptionC1ENS1_14exception_codeEPKcS4_(ptr noundef nonnull align 8 dereferenceable(140) %3, i32 noundef 13, ptr noundef null, ptr noundef null) #18
   invoke void @_ZN5boost13serialization15throw_exceptionINS_7archive17archive_exceptionEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(140) %3) #19
           to label %14 unwind label %15
@@ -1473,7 +1467,7 @@ define weak_odr void @_ZN5boost7archive17xml_oarchive_implINS0_12xml_oarchiveEE4
   %16 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5boost7archive17archive_exceptionD1Ev(ptr noundef nonnull align 8 dereferenceable(140) %3) #18
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %16
 
 _ZN5boost7archive17xml_oarchive_implINS0_12xml_oarchiveEE4saveIjEEvRKT_.exit: ; preds = %2
@@ -1499,7 +1493,7 @@ define weak_odr void @_ZN5boost7archive17xml_oarchive_implINS0_12xml_oarchiveEE4
   br i1 %.not.i.i.i, label %_ZN5boost7archive17xml_oarchive_implINS0_12xml_oarchiveEE4saveIjEEvRKT_.exit, label %13
 
 13:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN5boost7archive17archive_exceptionC1ENS1_14exception_codeEPKcS4_(ptr noundef nonnull align 8 dereferenceable(140) %3, i32 noundef 13, ptr noundef null, ptr noundef null) #18
   invoke void @_ZN5boost13serialization15throw_exceptionINS_7archive17archive_exceptionEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(140) %3) #19
           to label %14 unwind label %15
@@ -1511,7 +1505,7 @@ define weak_odr void @_ZN5boost7archive17xml_oarchive_implINS0_12xml_oarchiveEE4
   %16 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5boost7archive17archive_exceptionD1Ev(ptr noundef nonnull align 8 dereferenceable(140) %3) #18
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %16
 
 _ZN5boost7archive17xml_oarchive_implINS0_12xml_oarchiveEE4saveIjEEvRKT_.exit: ; preds = %2
@@ -1563,12 +1557,12 @@ define linkonce_odr hidden void @_ZN5boost7archive13save_iteratorIPKwEEvRSoT_S5_
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %18, i8 0, i64 17, i1 false)
   store ptr %0, ptr %6, align 8, !tbaa !66
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   invoke void @_ZSt4copyIN5boost7archive9iterators13mb_from_wcharINS2_10xml_escapeIPKwEEEENS2_16ostream_iteratorIcEEET0_T_SC_SB_(ptr dead_on_unwind nonnull writable sret(%"class.boost::archive::iterators::ostream_iterator") align 8 %7, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6)
           to label %19 unwind label %22
 
 19:                                               ; preds = %16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_ZN5boost7archive6detail18utf8_codecvt_facetD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #18
   call void @_ZN5boost7archive6detail18utf8_codecvt_facetD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #18
   ret void
@@ -1581,7 +1575,7 @@ define linkonce_odr hidden void @_ZN5boost7archive13save_iteratorIPKwEEvRSoT_S5_
 22:                                               ; preds = %16
   %23 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_ZN5boost7archive6detail18utf8_codecvt_facetD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #18
   br label %24
 
@@ -1592,7 +1586,7 @@ define linkonce_odr hidden void @_ZN5boost7archive13save_iteratorIPKwEEvRSoT_S5_
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @wcslen(ptr noundef captures(none)) local_unnamed_addr #4
+declare i64 @wcslen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN5boost7archive17xml_oarchive_implINS0_12xml_oarchiveEE4saveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -1606,10 +1600,10 @@ define weak_odr void @_ZN5boost7archive17xml_oarchive_implINS0_12xml_oarchiveEE4
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %12 = load ptr, ptr %11, align 8, !tbaa !31
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #18
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3), !noalias !121
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !121
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !121
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !121
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !121
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !121
   store ptr %7, ptr %3, align 8, !tbaa !61, !noalias !128
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %13, i8 0, i64 18, i1 false), !noalias !128
@@ -1618,10 +1612,10 @@ define weak_odr void @_ZN5boost7archive17xml_oarchive_implINS0_12xml_oarchiveEE4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %14, i8 0, i64 18, i1 false), !noalias !128
   store ptr %12, ptr %5, align 8, !tbaa !66, !noalias !128
   call void @_ZNSt11__copy_moveILb0ELb0ESt18input_iterator_tagE8__copy_mIN5boost7archive9iterators10xml_escapeIPKcEENS5_16ostream_iteratorIcEEEET0_T_SD_SC_(ptr dead_on_unwind nonnull writable sret(%"class.boost::archive::iterators::ostream_iterator") align 8 %6, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !121
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !121
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !121
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !121
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !121
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !121
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -1668,7 +1662,7 @@ declare void @_ZN5boost7archive21basic_text_oprimitiveISoEC2ERSob(ptr noundef no
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: nounwind
-declare void @_ZN5boost7archive21basic_text_oprimitiveISoED2Ev(ptr noundef nonnull align 8 dereferenceable(88)) unnamed_addr #6
+declare void @_ZN5boost7archive21basic_text_oprimitiveISoED2Ev(ptr noundef nonnull align 8 dereferenceable(88)) unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN5boost7archive17xml_oarchive_implINS0_12xml_oarchiveEED2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #0 comdat($_ZN5boost7archive17xml_oarchive_implINS0_12xml_oarchiveEED5Ev) align 2 personality ptr @__gxx_personality_v0 {
@@ -1730,7 +1724,7 @@ _ZN5boost7archive21basic_text_oprimitiveISoE3putEPKc.exit: ; preds = %.noexc, %5
 declare noundef i32 @_ZNK5boost7archive6detail14basic_oarchive9get_flagsEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #2
 
 ; Function Attrs: noinline noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #7 comdat {
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #6 comdat {
   %2 = tail call ptr @__cxa_begin_catch(ptr %0) #18
   tail call void @_ZSt9terminatev() #22
   unreachable
@@ -1739,7 +1733,7 @@ define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_un
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #8
+declare void @_ZSt9terminatev() local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN5boost7archive17xml_oarchive_implINS0_12xml_oarchiveEED0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #0 comdat($_ZN5boost7archive17xml_oarchive_implINS0_12xml_oarchiveEED5Ev) align 2 {
@@ -1770,7 +1764,7 @@ define weak_odr void @_ZN5boost7archive17xml_oarchive_implINS0_12xml_oarchiveEE1
   br i1 %.not.i.i, label %_ZN5boost7archive21basic_text_oprimitiveISoE3putEc.exit.i, label %18
 
 18:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN5boost7archive17archive_exceptionC1ENS1_14exception_codeEPKcS4_(ptr noundef nonnull align 8 dereferenceable(140) %4, i32 noundef 13, ptr noundef null, ptr noundef null) #18
   invoke void @_ZN5boost13serialization15throw_exceptionINS_7archive17archive_exceptionEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(140) %4) #19
           to label %19 unwind label %20
@@ -1782,7 +1776,7 @@ define weak_odr void @_ZN5boost7archive17xml_oarchive_implINS0_12xml_oarchiveEE1
   %21 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5boost7archive17archive_exceptionD1Ev(ptr noundef nonnull align 8 dereferenceable(140) %4) #18
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %21
 
 _ZN5boost7archive21basic_text_oprimitiveISoE3putEc.exit.i: ; preds = %8
@@ -1876,7 +1870,7 @@ define linkonce_odr hidden void @_ZN5boost7archive6detail15common_oarchiveINS0_1
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @__cxx_global_var_init() #9 section ".text.startup" comdat($_ZN5boost13serialization9singletonINS_7archive6detail12extra_detail3mapINS2_12xml_oarchiveEEEE10m_instanceE) personality ptr @__gxx_personality_v0 {
+define internal void @__cxx_global_var_init() #8 section ".text.startup" comdat($_ZN5boost13serialization9singletonINS_7archive6detail12extra_detail3mapINS2_12xml_oarchiveEEEE10m_instanceE) personality ptr @__gxx_personality_v0 {
   %1 = load i8, ptr @_ZGVN5boost13serialization9singletonINS_7archive6detail12extra_detail3mapINS2_12xml_oarchiveEEEE10m_instanceE, align 8
   %2 = icmp eq i8 %1, 0
   br i1 %2, label %3, label %10
@@ -1911,10 +1905,10 @@ _ZN5boost13serialization9singletonINS_7archive6detail12extra_detail3mapINS2_12xm
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef i32 @_ZSt19uncaught_exceptionsv() local_unnamed_addr #10
+declare noundef i32 @_ZSt19uncaught_exceptionsv() local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #11
+declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost13serialization6detail17singleton_wrapperINS_7archive6detail12extra_detail3mapINS3_12xml_oarchiveEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -1936,10 +1930,10 @@ _ZN5boost7archive6detail20basic_serializer_mapD2Ev.exit: ; preds = %1
 }
 
 ; Function Attrs: nofree nounwind
-declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #11
+declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
-declare void @__cxa_guard_release(ptr) local_unnamed_addr #11
+declare void @__cxa_guard_release(ptr) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt8_Rb_treeIPKN5boost7archive6detail16basic_serializerES5_St9_IdentityIS5_ENS2_20basic_serializer_map25type_info_pointer_compareESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -1962,7 +1956,7 @@ define linkonce_odr hidden void @_ZNSt8_Rb_treeIPKN5boost7archive6detail16basic_
 }
 
 ; Function Attrs: inlinehint mustprogress noreturn uwtable
-define linkonce_odr hidden void @_ZN5boost13serialization15throw_exceptionINS_7archive17archive_exceptionEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(140) %0) local_unnamed_addr #12 comdat {
+define linkonce_odr hidden void @_ZN5boost13serialization15throw_exceptionINS_7archive17archive_exceptionEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(140) %0) local_unnamed_addr #11 comdat {
   %2 = tail call ptr @__cxa_allocate_exception(i64 144) #18
   tail call void @_ZN5boost7archive17archive_exceptionC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(140) %2, ptr noundef nonnull align 8 dereferenceable(140) %0) #18
   tail call void @__cxa_throw(ptr nonnull %2, ptr nonnull @_ZTIN5boost7archive17archive_exceptionE, ptr nonnull @_ZN5boost7archive17archive_exceptionD1Ev) #19
@@ -1970,28 +1964,28 @@ define linkonce_odr hidden void @_ZN5boost13serialization15throw_exceptionINS_7a
 }
 
 ; Function Attrs: nounwind
-declare void @_ZN5boost7archive17archive_exceptionC1ENS1_14exception_codeEPKcS4_(ptr noundef nonnull align 8 dereferenceable(140), i32 noundef, ptr noundef, ptr noundef) unnamed_addr #6
+declare void @_ZN5boost7archive17archive_exceptionC1ENS1_14exception_codeEPKcS4_(ptr noundef nonnull align 8 dereferenceable(140), i32 noundef, ptr noundef, ptr noundef) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN5boost7archive17archive_exceptionD1Ev(ptr noundef nonnull align 8 dereferenceable(140)) unnamed_addr #6
+declare void @_ZN5boost7archive17archive_exceptionD1Ev(ptr noundef nonnull align 8 dereferenceable(140)) unnamed_addr #5
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8), i8 noundef signext) local_unnamed_addr #2
 
 declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 
 ; Function Attrs: nounwind
-declare void @_ZN5boost7archive17archive_exceptionC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(140), ptr noundef nonnull align 8 dereferenceable(140)) unnamed_addr #6
+declare void @_ZN5boost7archive17archive_exceptionC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(140), ptr noundef nonnull align 8 dereferenceable(140)) unnamed_addr #5
 
 ; Function Attrs: cold noreturn
-declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #13
+declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #12
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #14
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #13
 
 ; Function Attrs: inlinehint mustprogress noreturn uwtable
-define linkonce_odr hidden void @_ZN5boost13serialization15throw_exceptionINS_7archive21xml_archive_exceptionEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #12 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN5boost13serialization15throw_exceptionINS_7archive21xml_archive_exceptionEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #11 comdat personality ptr @__gxx_personality_v0 {
   %2 = tail call ptr @__cxa_allocate_exception(i64 152) #18
   invoke void @_ZN5boost7archive21xml_archive_exceptionC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %0)
           to label %3 unwind label %4
@@ -2010,7 +2004,7 @@ define linkonce_odr hidden void @_ZN5boost13serialization15throw_exceptionINS_7a
 declare void @_ZN5boost7archive21xml_archive_exceptionC1ENS1_14exception_codeEPKcS4_(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef, ptr noundef, ptr noundef) unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare void @_ZN5boost7archive21xml_archive_exceptionD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #6
+declare void @_ZN5boost7archive21xml_archive_exceptionD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #5
 
 declare void @_ZN5boost7archive21xml_archive_exceptionC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #2
 
@@ -2019,7 +2013,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 declare void @_ZN5boost7archive6detail14basic_oarchiveC2Ej(ptr noundef nonnull align 8 dereferenceable(40), i32 noundef) unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare void @_ZN5boost7archive6detail14basic_oarchiveD2Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #6
+declare void @_ZN5boost7archive6detail14basic_oarchiveD2Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #5
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #2
 
@@ -2262,7 +2256,7 @@ _ZN5boost7archive9iterators6escapeINS1_10xml_escapeIPKcEES5_E16dereference_implE
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr hidden void @_ZSt4copyIN5boost7archive9iterators13mb_from_wcharINS2_10xml_escapeIPKwEEEENS2_16ostream_iteratorIcEEET0_T_SC_SB_(ptr dead_on_unwind noalias writable sret(%"class.boost::archive::iterators::ostream_iterator") align 8 %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #15 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZSt4copyIN5boost7archive9iterators13mb_from_wcharINS2_10xml_escapeIPKwEEEENS2_16ostream_iteratorIcEEET0_T_SC_SB_(ptr dead_on_unwind noalias writable sret(%"class.boost::archive::iterators::ostream_iterator") align 8 %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #14 comdat personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.boost::archive::iterators::mb_from_wchar", align 8
   %6 = alloca %"class.boost::archive::iterators::mb_from_wchar", align 8
   %7 = alloca %"class.boost::archive::iterators::mb_from_wchar", align 8
@@ -2427,7 +2421,7 @@ define linkonce_odr hidden void @_ZSt4copyIN5boost7archive9iterators13mb_from_wc
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr hidden void @_ZSt13__copy_move_aILb0EN5boost7archive9iterators13mb_from_wcharINS2_10xml_escapeIPKwEEEENS2_16ostream_iteratorIcEEET1_T0_SC_SB_(ptr dead_on_unwind noalias writable sret(%"class.boost::archive::iterators::ostream_iterator") align 8 %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #15 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZSt13__copy_move_aILb0EN5boost7archive9iterators13mb_from_wcharINS2_10xml_escapeIPKwEEEENS2_16ostream_iteratorIcEEET1_T0_SC_SB_(ptr dead_on_unwind noalias writable sret(%"class.boost::archive::iterators::ostream_iterator") align 8 %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #14 comdat personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.boost::archive::iterators::ostream_iterator", align 8
   %6 = alloca %"class.boost::archive::iterators::mb_from_wchar", align 8
   %7 = alloca %"class.boost::archive::iterators::mb_from_wchar", align 8
@@ -2596,7 +2590,7 @@ define linkonce_odr hidden void @_ZSt13__copy_move_aILb0EN5boost7archive9iterato
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr hidden void @_ZSt14__copy_move_a1ILb0EN5boost7archive9iterators13mb_from_wcharINS2_10xml_escapeIPKwEEEENS2_16ostream_iteratorIcEEET1_T0_SC_SB_(ptr dead_on_unwind noalias writable sret(%"class.boost::archive::iterators::ostream_iterator") align 8 %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #15 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZSt14__copy_move_a1ILb0EN5boost7archive9iterators13mb_from_wcharINS2_10xml_escapeIPKwEEEENS2_16ostream_iteratorIcEEET1_T0_SC_SB_(ptr dead_on_unwind noalias writable sret(%"class.boost::archive::iterators::ostream_iterator") align 8 %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #14 comdat personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.boost::archive::iterators::mb_from_wchar", align 8
   %6 = alloca %"class.boost::archive::iterators::mb_from_wchar", align 8
   %7 = alloca %"class.boost::archive::iterators::ostream_iterator", align 8
@@ -2685,7 +2679,7 @@ define linkonce_odr hidden void @_ZSt14__copy_move_a1ILb0EN5boost7archive9iterat
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr hidden void @_ZSt14__copy_move_a2ILb0EN5boost7archive9iterators13mb_from_wcharINS2_10xml_escapeIPKwEEEENS2_16ostream_iteratorIcEEET1_T0_SC_SB_(ptr dead_on_unwind noalias writable sret(%"class.boost::archive::iterators::ostream_iterator") align 8 %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #15 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZSt14__copy_move_a2ILb0EN5boost7archive9iterators13mb_from_wcharINS2_10xml_escapeIPKwEEEENS2_16ostream_iteratorIcEEET1_T0_SC_SB_(ptr dead_on_unwind noalias writable sret(%"class.boost::archive::iterators::ostream_iterator") align 8 %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #14 comdat personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.boost::archive::iterators::mb_from_wchar", align 8
   %6 = alloca %"class.boost::archive::iterators::mb_from_wchar", align 8
   %7 = alloca %"class.boost::archive::iterators::ostream_iterator", align 8
@@ -2993,7 +2987,7 @@ define linkonce_odr hidden void @_ZN5boost7archive9iterators13mb_from_wcharINS1_
   %2 = alloca i32, align 4
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i8, ptr %5, align 8, !tbaa !176, !range !18, !noundef !19
   %7 = trunc nuw i8 %6 to i1
@@ -3047,8 +3041,8 @@ _ZN5boost7archive9iterators6escapeINS1_10xml_escapeIPKwEES5_E16dereference_implE
 _ZNK5boost9iterators6detail20iterator_facade_baseINS_7archive9iterators10xml_escapeIPKwEEwNS0_25single_pass_traversal_tagEwlLb0ELb0EEdeEv.exit: ; preds = %._ZNK5boost7archive9iterators6escapeINS1_10xml_escapeIPKwEES5_E11dereferenceEv.exit_crit_edge.i.i, %_ZN5boost7archive9iterators6escapeINS1_10xml_escapeIPKwEES5_E16dereference_implEv.exit.i.i.i
   %20 = phi i32 [ %.pre.i.i, %._ZNK5boost7archive9iterators6escapeINS1_10xml_escapeIPKwEES5_E11dereferenceEv.exit_crit_edge.i.i ], [ %.0.i.i.i.i.i, %_ZN5boost7archive9iterators6escapeINS1_10xml_escapeIPKwEES5_E16dereference_implEv.exit.i.i.i ]
   store i32 %20, ptr %2, align 4, !tbaa !175
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #18
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -3066,19 +3060,25 @@ _ZNK5boost9iterators6detail20iterator_facade_baseINS_7archive9iterators10xml_esc
   %34 = sub i64 %32, %33
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i64 %34, ptr %35, align 8, !tbaa !144
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #18
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
 declare void @_ZN5boost7archive6detail18utf8_codecvt_facetC1Em(ptr noundef nonnull align 8 dereferenceable(24), i64 noundef) unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
 
 ; Function Attrs: nounwind
-declare void @_ZN5boost7archive6detail18utf8_codecvt_facetD1Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #6
+declare void @_ZN5boost7archive6detail18utf8_codecvt_facetD1Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #16
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #17
@@ -3086,20 +3086,20 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #17
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { cold nofree noreturn }
-attributes #9 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nofree nounwind }
-attributes #12 = { inlinehint mustprogress noreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { cold noreturn }
-attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #15 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { cold nofree noreturn }
+attributes #8 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nofree nounwind }
+attributes #11 = { inlinehint mustprogress noreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { cold noreturn }
+attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #14 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #16 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #17 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #18 = { nounwind }
 attributes #19 = { noreturn }

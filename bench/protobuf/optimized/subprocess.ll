@@ -680,7 +680,7 @@ invoke.cont197:                                   ; preds = %if.then191
   %_M_str.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp196, i64 8
   store ptr %scratch_.i, ptr %_M_str.i.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp194) #23
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %args.i.i), !noalias !7
+  call void @llvm.lifetime.start.p0(ptr nonnull %args.i.i), !noalias !7
   %retval.sroa.0.0.copyload.i.i.i = load i64, ptr %ref.tmp196, align 8, !noalias !7
   %retval.sroa.2.0.copyload.i.i.i = load ptr, ptr %_M_str.i.i, align 8, !noalias !7
   store i64 %retval.sroa.0.0.copyload.i.i.i, ptr %args.i.i, align 16, !noalias !7
@@ -696,7 +696,7 @@ lpad.i:                                           ; preds = %invoke.cont197
   br label %ehcleanup
 
 invoke.cont198:                                   ; preds = %invoke.cont197
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %args.i.i), !noalias !7
+  call void @llvm.lifetime.end.p0(ptr nonnull %args.i.i), !noalias !7
   %call199 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %error, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp194) #23
   br label %cleanup.sink.split
 
@@ -719,7 +719,7 @@ invoke.cont213:                                   ; preds = %if.then208
   %_M_str.i.i30 = getelementptr inbounds nuw i8, ptr %ref.tmp212, i64 8
   store ptr %scratch_.i26, ptr %_M_str.i.i30, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp210) #23
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %args.i.i33), !noalias !10
+  call void @llvm.lifetime.start.p0(ptr nonnull %args.i.i33), !noalias !10
   %retval.sroa.0.0.copyload.i.i.i34 = load i64, ptr %ref.tmp212, align 8, !noalias !10
   %retval.sroa.2.0.copyload.i.i.i36 = load ptr, ptr %_M_str.i.i30, align 8, !noalias !10
   store i64 %retval.sroa.0.0.copyload.i.i.i34, ptr %args.i.i33, align 16, !noalias !10
@@ -735,7 +735,7 @@ lpad.i37:                                         ; preds = %invoke.cont213
   br label %ehcleanup
 
 invoke.cont214:                                   ; preds = %invoke.cont213
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %args.i.i33), !noalias !10
+  call void @llvm.lifetime.end.p0(ptr nonnull %args.i.i33), !noalias !10
   %call215 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %error, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp210) #23
   br label %cleanup.sink.split
 
@@ -890,10 +890,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #19
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #19
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #20

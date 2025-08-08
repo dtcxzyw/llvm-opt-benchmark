@@ -899,7 +899,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__15GfMultiInterval9GetBoundsEv
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__15GfMultiInterval8ContainsEd(ptr noundef nonnull align 8 dereferenceable(48) %0, double noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfInterval", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store double %1, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = tail call double @llvm.fabs.f64(double %1)
@@ -914,7 +914,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__15GfMultiInterv
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = call ptr @_ZNKSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__10GfIntervalES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS1_EPKSt18_Rb_tree_node_baseRKS1_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %9, ptr noundef nonnull %10, ptr noundef nonnull align 8 dereferenceable(32) %3)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not = icmp eq ptr %11, %10
   br i1 %.not, label %.critedge, label %12
 
@@ -1432,7 +1432,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread16: ; p
   br i1 %48, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit6.thread17, label %49
 
 _ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit6.thread17: ; preds = %45
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %54
 
 49:                                               ; preds = %45
@@ -1440,14 +1440,14 @@ _ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit6.thread17: ; 
   br i1 %50, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit6, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit6.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit6.thread: ; preds = %40, %49
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit6: ; preds = %49
   %51 = getelementptr inbounds nuw i8, ptr %36, i64 56
   %52 = load i8, ptr %51, align 8
   %53 = trunc i8 %52 to i1
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br i1 %53, label %54, label %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit
 
 54:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit6.thread17, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit6
@@ -1466,7 +1466,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit6: ; preds = %
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit6.thread, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit6
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread: ; preds = %30, %21, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit.thread16, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval8ContainsEd.exit, %2, %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit
@@ -1480,7 +1480,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__15GfMultiInterval21GetContainingIntervalEd(ptr noundef nonnull align 8 dereferenceable(48) %0, double noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfInterval", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store double %1, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = tail call double @llvm.fabs.f64(double %1)
@@ -1495,7 +1495,7 @@ define noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__15GfMultiInterval21Get
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = call ptr @_ZNKSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__10GfIntervalES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_upper_boundEPKSt13_Rb_tree_nodeIS1_EPKSt18_Rb_tree_node_baseRKS1_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %9, ptr noundef nonnull %10, ptr noundef nonnull align 8 dereferenceable(32) %3)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %11, %13
@@ -1889,10 +1889,10 @@ _ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval10IntersectsERKS0_.exit.thread
   br i1 %or.cond32, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval7IsEmptyEv.exit.thread25, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval7IsEmptyEv.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval7IsEmptyEv.exit.thread25: ; preds = %79
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %2, ptr %5, align 8
   %82 = call ptr @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__10GfIntervalES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE17_M_insert_unique_IRKS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_ESt23_Rb_tree_const_iteratorIS1_EOT_RT0_(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr nonnull %0, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval7IsEmptyEv.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval7IsEmptyEv.exit.thread: ; preds = %79, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval10IntersectsERKS0_.exit.thread24, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval7IsEmptyEv.exit.thread25
@@ -1906,10 +1906,10 @@ _ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval7IsEmptyEv.exit.thread: ; pred
   br i1 %or.cond33, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval7IsEmptyEv.exit19.thread26, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval7IsEmptyEv.exit19.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval7IsEmptyEv.exit19.thread26: ; preds = %84
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %2, ptr %4, align 8
   %87 = call ptr @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__10GfIntervalES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE17_M_insert_unique_IRKS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_ESt23_Rb_tree_const_iteratorIS1_EOT_RT0_(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr nonnull %0, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval7IsEmptyEv.exit19.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval7IsEmptyEv.exit19.thread: ; preds = %84, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval7IsEmptyEv.exit.thread, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval7IsEmptyEv.exit19.thread26
@@ -1980,13 +1980,13 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__15GfMultiInterval13GetComplem
   br i1 %or.cond, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval7IsEmptyEv.exit.thread51, label %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt3setINS_10GfIntervalESt4lessIS2_ESaIS2_EELb0EEppEv.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval7IsEmptyEv.exit.thread51: ; preds = %27
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %0, ptr %4, align 8
   %30 = invoke ptr @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__10GfIntervalES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE17_M_insert_unique_IRKS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_ESt23_Rb_tree_const_iteratorIS1_EOT_RT0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr nonnull %6, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %_ZNSt3setIN32pxrInternal_v0_24__pxrReserved__10GfIntervalESt4lessIS1_ESaIS1_EE6insertESt23_Rb_tree_const_iteratorIS1_ERKS1_.exit unwind label %.loopexit
 
 _ZNSt3setIN32pxrInternal_v0_24__pxrReserved__10GfIntervalESt4lessIS1_ESaIS1_EE6insertESt23_Rb_tree_const_iteratorIS1_ERKS1_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval7IsEmptyEv.exit.thread51
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt3setINS_10GfIntervalESt4lessIS2_ESaIS2_EELb0EEppEv.exit
 
 .loopexit:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval7IsEmptyEv.exit.thread51
@@ -2028,13 +2028,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt3setINS_10GfIntervalESt4les
   br i1 %40, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval7IsEmptyEv.exit33.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval7IsEmptyEv.exit33.thread52
 
 _ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval7IsEmptyEv.exit33.thread52: ; preds = %2, %._crit_edge
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %0, ptr %3, align 8
   %41 = invoke ptr @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__10GfIntervalES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE17_M_insert_unique_IRKS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_ESt23_Rb_tree_const_iteratorIS1_EOT_RT0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr nonnull %6, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %_ZNSt3setIN32pxrInternal_v0_24__pxrReserved__10GfIntervalESt4lessIS1_ESaIS1_EE6insertESt23_Rb_tree_const_iteratorIS1_ERKS1_.exit35 unwind label %.loopexit.split-lp
 
 _ZNSt3setIN32pxrInternal_v0_24__pxrReserved__10GfIntervalESt4lessIS1_ESaIS1_EE6insertESt23_Rb_tree_const_iteratorIS1_ERKS1_.exit35: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval7IsEmptyEv.exit33.thread52
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval7IsEmptyEv.exit33.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval7IsEmptyEv.exit33.thread: ; preds = %._crit_edge, %_ZNSt3setIN32pxrInternal_v0_24__pxrReserved__10GfIntervalESt4lessIS1_ESaIS1_EE6insertESt23_Rb_tree_const_iteratorIS1_ERKS1_.exit35
@@ -2108,7 +2108,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__15GfMultiInterval9IntersectERK
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfMultiInterval", align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfMultiInterval", align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__15GfMultiIntervalC1ERKNS_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(32) %1)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__15GfMultiInterval13GetComplementEv(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::GfMultiInterval") align 8 %3, ptr noundef nonnull readonly align 8 dereferenceable(48) %4)
           to label %.noexc unwind label %23
 
@@ -2150,7 +2150,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__15GfMultiInterval6RemoveERKS0_.exit.i: ; pr
   br label %.body
 
 17:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__15GfMultiInterval6RemoveERKS0_.exit.i
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %19 = load ptr, ptr %18, align 8
   invoke void @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__10GfIntervalES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef %19)
@@ -2203,7 +2203,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__15GfMultiInterval17_AssertInv
   br i1 %14, label %15, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval7IsEmptyEv.exit.thread25
 
 _ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval7IsEmptyEv.exit.thread25: ; preds = %13
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit
 
 15:                                               ; preds = %13
@@ -2213,14 +2213,14 @@ _ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval7IsEmptyEv.exit.thread25: ; pr
   br i1 %18, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval7IsEmptyEv.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval7IsEmptyEv.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval7IsEmptyEv.exit.thread: ; preds = %.lr.ph, %15
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %.loopexit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval7IsEmptyEv.exit: ; preds = %15
   %19 = getelementptr inbounds nuw i8, ptr %.sroa.019.035, i64 56
   %20 = load i8, ptr %19, align 8
   %21 = trunc i8 %20 to i1
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br i1 %21, label %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit, label %.loopexit
 
 .loopexit:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval7IsEmptyEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval7IsEmptyEv.exit.thread
@@ -2239,7 +2239,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval7IsEmptyEv.exit: ; preds = %15
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval7IsEmptyEv.exit.thread25, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval7IsEmptyEv.exit
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not = icmp eq ptr %.039, null
   br i1 %.not, label %100, label %23
 
@@ -2273,7 +2273,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i:
   %38 = getelementptr inbounds nuw i8, ptr %.sroa.019.035, i64 40
   %39 = load i8, ptr %38, align 8
   %40 = trunc i8 %39 to i1
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br i1 %40, label %.loopexit32, label %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit4
 
 41:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.i
@@ -2304,18 +2304,18 @@ _ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i
   br i1 %or.cond.i7.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfIntervalltERKS0_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfIntervalltERKS0_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__10GfIntervalltERKS0_.exit.thread: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.i, %33, %52
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %.loopexit32
 
 _ZNK32pxrInternal_v0_24__pxrReserved__10GfIntervalltERKS0_.exit.thread28: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit.thread.i, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval6_BoundneERKS1_.exit6.thread.i
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit4
 
 _ZNK32pxrInternal_v0_24__pxrReserved__10GfIntervalltERKS0_.exit: ; preds = %52
   %56 = getelementptr inbounds nuw i8, ptr %.sroa.019.035, i64 56
   %57 = load i8, ptr %56, align 8
   %58 = trunc i8 %57 to i1
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br i1 %58, label %.loopexit32, label %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit4
 
 .loopexit32:                                      ; preds = %37, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfIntervalltERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfIntervalltERKS0_.exit.thread
@@ -2334,7 +2334,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__10GfIntervalltERKS0_.exit: ; preds = %52
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit4: ; preds = %37, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfIntervalltERKS0_.exit.thread28, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfIntervalltERKS0_.exit
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.039, i64 8
   %.sroa.5.0.copyload.i = load i8, ptr %.sroa.5.0..sroa_idx.i, align 8
   %.sroa.115.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.039, i64 16
@@ -2417,18 +2417,18 @@ _ZNK32pxrInternal_v0_24__pxrReserved__10GfIntervalanERKS0_.exit.i: ; preds = %90
   br i1 %96, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval10IntersectsERKS0_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval10IntersectsERKS0_.exit.thread30
 
 _ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval10IntersectsERKS0_.exit.thread30: ; preds = %95
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   br label %.loopexit33
 
 _ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval10IntersectsERKS0_.exit.thread: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfIntervalanERKS0_.exit.i, %66
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit5
 
 _ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval10IntersectsERKS0_.exit: ; preds = %95
   %97 = trunc i8 %.sroa.5.1.i to i1
   %98 = trunc i8 %.sroa.15.0.i to i1
   %spec.select.i = select i1 %97, i1 %98, i1 false
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   br i1 %spec.select.i, label %.loopexit33, label %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit5
 
 .loopexit33:                                      ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval10IntersectsERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval10IntersectsERKS0_.exit.thread30
@@ -2447,7 +2447,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval10IntersectsERKS0_.exit: ; pre
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit5: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval10IntersectsERKS0_.exit.thread, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval10IntersectsERKS0_.exit
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %100
 
 100:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit5, %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit
@@ -4514,10 +4514,10 @@ declare double @llvm.fabs.f64(double) #16
 declare void @llvm.experimental.noalias.scope.decl(metadata) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #18
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #18
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #18
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

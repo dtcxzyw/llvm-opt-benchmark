@@ -1005,7 +1005,7 @@ define linkonce_odr hidden void @_ZNK5boost6system6detail22generic_error_categor
   %4 = alloca i64, align 8
   %5 = alloca [128 x i8], align 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3)
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #29, !noalias !3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !3
   %6 = call ptr @strerror_r(i32 noundef %2, ptr noundef nonnull %5, i64 noundef 128) #29, !noalias !3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %7, ptr %0, align 8, !tbaa !6, !alias.scope !3
@@ -1018,7 +1018,7 @@ define linkonce_odr hidden void @_ZNK5boost6system6detail22generic_error_categor
 
 9:                                                ; preds = %3
   %10 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #29
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #29, !noalias !3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !3
   store i64 %10, ptr %4, align 8, !tbaa !11, !noalias !3
   %11 = icmp ugt i64 %10, 15
   br i1 %11, label %.noexc.i.i, label %._crit_edge.i.i.i
@@ -1053,8 +1053,8 @@ _ZN5boost6system6detail30generic_error_category_messageB5cxx11Ei.exit: ; preds =
   %20 = load ptr, ptr %0, align 8, !tbaa !13, !alias.scope !3
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 %18
   store i8 0, ptr %21, align 1, !tbaa !15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #29, !noalias !3
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #29, !noalias !3
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !3
   ret void
 }
 
@@ -1072,12 +1072,6 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 ; Function Attrs: cold nofree noreturn
 declare void @_ZSt9terminatev() local_unnamed_addr #6
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
-
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden { i32, ptr } @_ZNK5boost6system14error_category23default_error_conditionEi(ptr noundef nonnull align 8 dereferenceable(52) %0, i32 noundef %1) unnamed_addr #7 comdat align 2 {
   %.fca.0.insert = insertvalue { i32, ptr } poison, i32 %1, 0
@@ -1091,7 +1085,7 @@ define weak_odr void @_ZN5boost4wave8grammars23has_include_grammar_genINS0_8cppl
   %8 = alloca %"class.boost::spirit::classic::scanner", align 8
   %9 = alloca %"struct.boost::wave::grammars::has_include_grammar", align 8
   %10 = alloca %"struct.boost::spirit::classic::alternative", align 8
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %9) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN5boost6spirit7classic7grammarINS_4wave8grammars19has_include_grammarINSt7__cxx114listINS3_8cpplexer9lex_tokenINS3_4util13file_positionINSA_11flex_stringIcSt11char_traitsIcESaIcENSA_9CowStringINSA_22AllocatorStringStorageIcSF_EEPcEEEEEEEENS_19fast_pool_allocatorISN_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_14parser_contextINS1_5nil_tEEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(113) %9)
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 88
   store ptr %3, ptr %11, align 8, !tbaa !17
@@ -1103,14 +1097,14 @@ define weak_odr void @_ZN5boost4wave8grammars23has_include_grammar_genINS0_8cppl
   store i8 1, ptr %14, align 8, !tbaa !18
   store i8 0, ptr %4, align 1, !tbaa !32
   store i8 0, ptr %5, align 1, !tbaa !32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i64 7496243243655365000, ptr %10, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !33)
   call void @llvm.experimental.noalias.scope.decl(metadata !36)
   %15 = ptrtoint ptr %10 to i64
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #29, !noalias !39
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !39
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !noalias !39
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #29, !noalias !39
+  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !39
   store i64 %15, ptr %8, align 8, !noalias !39
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %7, ptr %16, align 8, !tbaa !17, !noalias !39
@@ -1180,19 +1174,19 @@ _ZNK5boost6spirit7classic7grammarINS_4wave8grammars19has_include_grammarINSt7__c
   store i8 %45, ptr %47, align 1, !tbaa !53, !alias.scope !39
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %.sroa.09.0.i.i.i.i.i.i16.i.i, ptr %48, align 8, !tbaa !54, !alias.scope !39
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #29, !noalias !39
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #29, !noalias !39
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !39
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !39
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @_ZN5boost6spirit7classic7grammarINS_4wave8grammars19has_include_grammarINSt7__cxx114listINS3_8cpplexer9lex_tokenINS3_4util13file_positionINSA_11flex_stringIcSt11char_traitsIcESaIcENSA_9CowStringINSA_22AllocatorStringStorageIcSF_EEPcEEEEEEEENS_19fast_pool_allocatorISN_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_14parser_contextINS1_5nil_tEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(113) %9) #29
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %9) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 
 49:                                               ; preds = %_ZNK5boost6spirit7classic7grammarINS_4wave8grammars19has_include_grammarINSt7__cxx114listINS3_8cpplexer9lex_tokenINS3_4util13file_positionINSA_11flex_stringIcSt11char_traitsIcESaIcENSA_9CowStringINSA_22AllocatorStringStorageIcSF_EEPcEEEEEEEENS_19fast_pool_allocatorISN_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_14parser_contextINS1_5nil_tEEEE5parseINS1_7scannerINSA_20unput_queue_iteratorISt14_List_iteratorISN_ESN_SS_EENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINS1_5chlitINS3_8token_idEEES19_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultISX_T_E4typeERKS1I_.exit.i.i, %.noexc, %6
   %50 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @_ZN5boost6spirit7classic7grammarINS_4wave8grammars19has_include_grammarINSt7__cxx114listINS3_8cpplexer9lex_tokenINS3_4util13file_positionINSA_11flex_stringIcSt11char_traitsIcESaIcENSA_9CowStringINSA_22AllocatorStringStorageIcSF_EEPcEEEEEEEENS_19fast_pool_allocatorISN_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_14parser_contextINS1_5nil_tEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(113) %9) #29
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %9) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   resume { ptr, i32 } %50
 }
 
@@ -1310,7 +1304,7 @@ _ZN5boost6spirit7classic4impl14object_with_idINS2_11grammar_tagEmED2Ev.exit: ; p
 define weak_odr void @_ZN5boost4wave8grammars23has_include_grammar_genINS0_8cpplexer12lex_iteratorINS3_9lex_tokenINS0_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEEEE26parse_operator_has_includeERKNS6_20unput_queue_iteratorISK_SJ_NSt7__cxx114listISJ_NS_19fast_pool_allocatorISJ_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEESW_RST_RbSY_(ptr dead_on_unwind noalias writable sret(%"struct.boost::spirit::classic::parse_info.54") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 1 dereferenceable(1) %5) local_unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"struct.boost::wave::grammars::has_include_grammar", align 8
   %8 = alloca %"struct.boost::spirit::classic::alternative", align 8
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %7) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN5boost6spirit7classic7grammarINS_4wave8grammars19has_include_grammarINSt7__cxx114listINS3_8cpplexer9lex_tokenINS3_4util13file_positionINSA_11flex_stringIcSt11char_traitsIcESaIcENSA_9CowStringINSA_22AllocatorStringStorageIcSF_EEPcEEEEEEEENS_19fast_pool_allocatorISN_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_14parser_contextINS1_5nil_tEEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(113) %7)
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 88
   store ptr %3, ptr %9, align 8, !tbaa !17
@@ -1322,23 +1316,23 @@ define weak_odr void @_ZN5boost4wave8grammars23has_include_grammar_genINS0_8cppl
   store i8 1, ptr %12, align 8, !tbaa !18
   store i8 0, ptr %4, align 1, !tbaa !32
   store i8 0, ptr %5, align 1, !tbaa !32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 7496243243655365000, ptr %8, align 8
   invoke void @_ZN5boost6spirit7classic4impl13phrase_parserINS1_11alternativeINS1_5chlitINS_4wave8token_idEEES8_EEE5parseINS6_4util20unput_queue_iteratorINS6_8cpplexer12lex_iteratorINSE_9lex_tokenINSC_13file_positionINSC_11flex_stringIcSt11char_traitsIcESaIcENSC_9CowStringINSC_22AllocatorStringStorageIcSL_EEPcEEEEEEEEEEST_NSt7__cxx114listIST_NS_19fast_pool_allocatorIST_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS6_8grammars19has_include_grammarIS11_EEEENS1_10parse_infoIT_EERKS17_S1A_RKT0_RKS9_(ptr dead_on_unwind writable sret(%"struct.boost::spirit::classic::parse_info.54") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(113) %7, ptr noundef nonnull align 4 dereferenceable(8) %8)
           to label %_ZN5boost6spirit7classic5parseINS_4wave4util20unput_queue_iteratorINS3_8cpplexer12lex_iteratorINS6_9lex_tokenINS4_13file_positionINS4_11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEESL_NSt7__cxx114listISL_NS_19fast_pool_allocatorISL_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS3_8grammars19has_include_grammarIST_EENS1_11alternativeINS1_5chlitINS3_8token_idEEES11_EEEENS1_10parse_infoIT_EERKS14_S17_RKNS1_6parserIT0_EERKNS18_IT1_EE.exit unwind label %13
 
 _ZN5boost6spirit7classic5parseINS_4wave4util20unput_queue_iteratorINS3_8cpplexer12lex_iteratorINS6_9lex_tokenINS4_13file_positionINS4_11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEESL_NSt7__cxx114listISL_NS_19fast_pool_allocatorISL_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS3_8grammars19has_include_grammarIST_EENS1_11alternativeINS1_5chlitINS3_8token_idEEES11_EEEENS1_10parse_infoIT_EERKS14_S17_RKNS1_6parserIT0_EERKNS18_IT1_EE.exit: ; preds = %6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @_ZN5boost6spirit7classic7grammarINS_4wave8grammars19has_include_grammarINSt7__cxx114listINS3_8cpplexer9lex_tokenINS3_4util13file_positionINSA_11flex_stringIcSt11char_traitsIcESaIcENSA_9CowStringINSA_22AllocatorStringStorageIcSF_EEPcEEEEEEEENS_19fast_pool_allocatorISN_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_14parser_contextINS1_5nil_tEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(113) %7) #29
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %7) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 
 13:                                               ; preds = %6
   %14 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @_ZN5boost6spirit7classic7grammarINS_4wave8grammars19has_include_grammarINSt7__cxx114listINS3_8cpplexer9lex_tokenINS3_4util13file_positionINSA_11flex_stringIcSt11char_traitsIcESaIcENSA_9CowStringINSA_22AllocatorStringStorageIcSF_EEPcEEEEEEEENS_19fast_pool_allocatorISN_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_14parser_contextINS1_5nil_tEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(113) %7) #29
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %7) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   resume { ptr, i32 } %14
 }
 
@@ -1477,12 +1471,12 @@ define linkonce_odr hidden noundef ptr @_ZNK5boost6system6detail22generic_error_
   br label %_ZN5boost6system6detail30generic_error_category_messageEiPcm.exit
 
 8:                                                ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 0, ptr %5, align 1
   %9 = call ptr @strerror_r(i32 noundef %1, ptr noundef nonnull %5, i64 noundef 0) #29
   %10 = icmp eq ptr %9, %5
   %11 = select i1 %10, ptr null, ptr %9
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN5boost6system6detail30generic_error_category_messageEiPcm.exit
 
 _ZN5boost6system6detail30generic_error_category_messageEiPcm.exit: ; preds = %6, %8
@@ -1847,7 +1841,7 @@ _ZN5boost10shared_ptrINS_6spirit7classic4impl26object_with_id_base_supplyImEEED2
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr hidden void @_ZN5boost6spirit7classic4impl26object_with_id_base_supplyImE7releaseEm(ptr noundef nonnull align 8 dereferenceable(72) %0, i64 noundef %1) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.boost::unique_lock", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %0, ptr %3, align 8, !tbaa !98
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i8 0, ptr %4, align 8, !tbaa !100
@@ -1948,7 +1942,7 @@ _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIP
   br i1 %46, label %44, label %_ZN5boost11unique_lockINS_5mutexEED2Ev.exit, !llvm.loop !110
 
 _ZN5boost11unique_lockINS_5mutexEED2Ev.exit:      ; preds = %44, %38
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %39
 
 _ZNSt6vectorImSaImEE9push_backERKm.exit:          ; preds = %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i, %16, %8
@@ -1966,7 +1960,7 @@ _ZNSt6vectorImSaImEE9push_backERKm.exit:          ; preds = %_ZNSt6vectorImSaImE
   br i1 %53, label %51, label %_ZN5boost11unique_lockINS_5mutexEED2Ev.exit3, !llvm.loop !110
 
 _ZN5boost11unique_lockINS_5mutexEED2Ev.exit3:     ; preds = %51, %_ZNSt6vectorImSaImEE9push_backERKm.exit
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -1980,7 +1974,7 @@ define linkonce_odr hidden void @_ZN5boost11unique_lockINS_5mutexEE4lockEv(ptr n
   br i1 %6, label %7, label %11
 
 7:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN5boost10lock_errorC2EiPKc(ptr noundef nonnull align 8 dereferenceable(40) %3, i32 noundef 1, ptr noundef nonnull @.str)
   invoke void @_ZN5boost15throw_exceptionINS_10lock_errorEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(40) %3) #30
           to label %8 unwind label %9
@@ -1992,7 +1986,7 @@ define linkonce_odr hidden void @_ZN5boost11unique_lockINS_5mutexEE4lockEv(ptr n
   %10 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #29
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %common.resume
 
 11:                                               ; preds = %1
@@ -2002,7 +1996,7 @@ define linkonce_odr hidden void @_ZN5boost11unique_lockINS_5mutexEE4lockEv(ptr n
   br i1 %14, label %15, label %.preheader
 
 15:                                               ; preds = %11
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN5boost10lock_errorC2EiPKc(ptr noundef nonnull align 8 dereferenceable(40) %4, i32 noundef 35, ptr noundef nonnull @.str.41)
   invoke void @_ZN5boost15throw_exceptionINS_10lock_errorEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(40) %4) #30
           to label %16 unwind label %17
@@ -2014,7 +2008,7 @@ define linkonce_odr hidden void @_ZN5boost11unique_lockINS_5mutexEE4lockEv(ptr n
   %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %4) #29
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %common.resume
 
 .preheader:                                       ; preds = %11, %.preheader
@@ -2025,7 +2019,7 @@ define linkonce_odr hidden void @_ZN5boost11unique_lockINS_5mutexEE4lockEv(ptr n
   ]
 
 20:                                               ; preds = %.preheader
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZN5boost10lock_errorC2EiPKc(ptr noundef nonnull align 8 dereferenceable(40) %2, i32 noundef %19, ptr noundef nonnull @.str.60)
   invoke void @_ZN5boost15throw_exceptionINS_10lock_errorEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(40) %2) #30
           to label %21 unwind label %22
@@ -2041,7 +2035,7 @@ common.resume:                                    ; preds = %9, %17, %22
   %23 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %2) #29
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %common.resume
 
 _ZN5boost5mutex4lockEv.exit:                      ; preds = %.preheader
@@ -2069,7 +2063,7 @@ define linkonce_odr hidden void @_ZN5boost15throw_exceptionINS_10lock_errorEEEvR
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN5boost10lock_errorC2EiPKc(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.boost::system::error_code", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8
   %5 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost6system6detail18generic_cat_holderIvE8instanceE, i64 8), align 8, !tbaa !77
   %6 = and i64 %5, -2
@@ -2096,7 +2090,7 @@ _ZN5boost16thread_exceptionC2EiPKc.exit:          ; preds = %7, %9
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @_ZN5boost6system6detail18generic_cat_holderIvE8instanceE, ptr %16, align 8, !tbaa !15
   call void @_ZN5boost6system12system_errorC2ERKNS0_10error_codeEPKc(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef %2)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost10lock_errorE, i64 16), ptr %0, align 8, !tbaa !42
   ret void
 }
@@ -2515,7 +2509,7 @@ define linkonce_odr hidden void @_ZN5boost16exception_detail20copy_boost_excepti
   br i1 %.not, label %36, label %6
 
 6:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %7 = load ptr, ptr %5, align 8, !tbaa !42
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %9 = load ptr, ptr %8, align 8
@@ -2554,7 +2548,7 @@ _ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEEaSERKS3_.e
   unreachable
 
 _ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev.exit: ; preds = %15, %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEE7releaseEv.exit.i.i, %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEEaSERKS3_.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %36
 
 23:                                               ; preds = %6
@@ -2586,7 +2580,7 @@ _ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev.exit:
 _ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev.exit22: ; preds = %28, %25, %23
   %.sroa.0.2 = phi ptr [ null, %23 ], [ %10, %25 ], [ %10, %28 ]
   %.pn = phi { ptr, i32 } [ %24, %23 ], [ %26, %25 ], [ %26, %28 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %69
 
 36:                                               ; preds = %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev.exit, %2
@@ -2684,9 +2678,9 @@ define linkonce_odr hidden void @_ZN5boost6system12system_errorC2ERKNS0_10error_
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #29
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #29
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %9, ptr %7, align 8, !tbaa !6
   %10 = icmp eq ptr %2, null
@@ -2698,7 +2692,7 @@ define linkonce_odr hidden void @_ZN5boost6system12system_errorC2ERKNS0_10error_
 
 11:                                               ; preds = %3
   %12 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #29
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %12, ptr %4, align 8, !tbaa !11
   %13 = icmp ugt i64 %12, 15
   br i1 %13, label %.noexc.i, label %._crit_edge.i.i
@@ -2733,7 +2727,7 @@ define linkonce_odr hidden void @_ZN5boost6system12system_errorC2ERKNS0_10error_
   %23 = load ptr, ptr %7, align 8, !tbaa !13
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 %21
   store i8 0, ptr %24, align 1, !tbaa !15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.experimental.noalias.scope.decl(metadata !119)
   %25 = load i64, ptr %22, align 8, !tbaa !16, !noalias !119
   %26 = and i64 %25, -2
@@ -2784,7 +2778,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   store ptr %32, ptr %29, align 8, !tbaa !13
   store i64 0, ptr %42, align 8, !tbaa !16
   store i8 0, ptr %32, align 8, !tbaa !15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   invoke void @_ZNK5boost6system10error_code4whatB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr noundef nonnull align 8 dereferenceable(24) %1)
           to label %44 unwind label %128
 
@@ -2955,7 +2949,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i21
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit23
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit23: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i22, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i21
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %113 = load ptr, ptr %6, align 8, !tbaa !13
   %114 = icmp eq ptr %113, %30
   br i1 %114, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i25, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i24
@@ -2990,9 +2984,9 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i27
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit29
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit29: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i28, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i27
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #29
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #29
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost6system12system_errorE, i64 16), ptr %0, align 8, !tbaa !42
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %125, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false), !tbaa.struct !111
@@ -3055,7 +3049,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i33
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i33, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i34, %128
   %.pn.pn = phi { ptr, i32 } [ %129, %128 ], [ %.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i34 ], [ %.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i33 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %149 = load ptr, ptr %6, align 8, !tbaa !13
   %150 = icmp eq ptr %149, %30
   br i1 %150, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i37, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i36
@@ -3091,9 +3085,9 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i39
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit41
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit41: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i39, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i40
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #29
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #29
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn.pn.pn
 }
 
@@ -3113,7 +3107,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i: ; preds
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit unwind label %55
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   invoke void @_ZNK5boost6system10error_code9to_stringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull align 8 dereferenceable(24) %1)
           to label %10 unwind label %57
 
@@ -3156,7 +3150,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %27 = load i64, ptr %26, align 8, !tbaa !82
   %28 = icmp ugt i64 %27, 3
@@ -3173,7 +3167,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i14: ; pre
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit17 unwind label %55
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit17: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i14
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %34 = load i64, ptr %26, align 8, !tbaa !82
   %35 = icmp ugt i64 %34, 3
   %36 = and i64 %34, -2
@@ -3221,7 +3215,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i22
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i23, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i22
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %79
 
 55:                                               ; preds = %.invoke, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i31, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i14, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
@@ -3256,7 +3250,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i25
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i25, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i26, %57
   %.pn = phi { ptr, i32 } [ %58, %57 ], [ %60, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i26 ], [ %60, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i25 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %83
 
 68:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit17
@@ -3286,7 +3280,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i28
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit30: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i28, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i29, %68
   %.pn7 = phi { ptr, i32 } [ %69, %68 ], [ %71, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i29 ], [ %71, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i28 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %83
 
 79:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -3368,7 +3362,7 @@ _ZNK5boost6system10error_code5valueEv.exit:       ; preds = %2
   %14 = load i32, ptr %1, align 8, !tbaa !15
   tail call void @llvm.experimental.noalias.scope.decl(metadata !129)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !132)
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #29, !noalias !135
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !135
   %15 = call ptr @strerror_r(i32 noundef %14, ptr noundef nonnull %4, i64 noundef 128) #29, !noalias !135
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %16, ptr %0, align 8, !tbaa !6, !alias.scope !135
@@ -3381,7 +3375,7 @@ _ZNK5boost6system10error_code5valueEv.exit:       ; preds = %2
 
 18:                                               ; preds = %_ZNK5boost6system10error_code5valueEv.exit
   %19 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #29
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #29, !noalias !135
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !135
   store i64 %19, ptr %3, align 8, !tbaa !11, !noalias !135
   %20 = icmp ugt i64 %19, 15
   br i1 %20, label %.noexc.i.i.i, label %._crit_edge.i.i.i.i
@@ -3416,8 +3410,8 @@ _ZN5boost6system6detail29system_error_category_messageB5cxx11Ei.exit: ; preds = 
   %29 = load ptr, ptr %0, align 8, !tbaa !13, !alias.scope !135
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 %27
   store i8 0, ptr %30, align 1, !tbaa !15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #29, !noalias !135
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #29, !noalias !135
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !135
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !135
   br label %37
 
 _ZNK5boost6system10error_code8categoryEv.exit.thread: ; preds = %2
@@ -3472,7 +3466,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i: ; preds
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
   %22 = load i32, ptr %1, align 8, !tbaa !128
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %23 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 32, ptr noundef nonnull @.str.53, i32 noundef %22) #29
   %24 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #29
   %25 = load i64, ptr %9, align 8, !tbaa !16
@@ -3492,7 +3486,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i: ; preds = %_
           to label %_ZN5boost6system6detail10append_intERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit unwind label %29
 
 _ZN5boost6system6detail10append_intERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %85
 
 29:                                               ; preds = %.invoke, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
@@ -3538,7 +3532,7 @@ _ZNK5boost6system10error_code13category_nameEv.exit: ; preds = %2
   %46 = phi ptr [ %37, %_ZNK5boost6system10error_code13category_nameEv.exit.thread ], [ %43, %_ZNK5boost6system10error_code13category_nameEv.exit ]
   %.0.i29 = phi ptr [ @.str.54, %_ZNK5boost6system10error_code13category_nameEv.exit.thread ], [ %42, %_ZNK5boost6system10error_code13category_nameEv.exit ]
   %47 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i29) #29
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %47, ptr %4, align 8, !tbaa !11
   %48 = icmp ugt i64 %47, 15
   br i1 %48, label %.noexc.i15, label %._crit_edge.i.i14
@@ -3573,7 +3567,7 @@ _ZNK5boost6system10error_code13category_nameEv.exit: ; preds = %2
   %58 = load ptr, ptr %0, align 8, !tbaa !13
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 %56
   store i8 0, ptr %59, align 1, !tbaa !15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %60 = load i64, ptr %6, align 8, !tbaa !82
   %.not.i = icmp eq i64 %60, 1
   %61 = load i32, ptr %1, align 8, !tbaa !15
@@ -3591,7 +3585,7 @@ _ZNK5boost6system10error_code13category_nameEv.exit: ; preds = %2
 
 _ZNK5boost6system10error_code5valueEv.exit:       ; preds = %55, %62
   %.0.i19 = phi i32 [ %69, %62 ], [ %61, %55 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %70 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 32, ptr noundef nonnull @.str.53, i32 noundef %.0.i19) #29
   %71 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #29
   %72 = load i64, ptr %57, align 8, !tbaa !16
@@ -3611,7 +3605,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i20: ; preds = 
           to label %_ZN5boost6system6detail10append_intERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit23 unwind label %77
 
 _ZN5boost6system6detail10append_intERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit23: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i20
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %85
 
 77:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i20, %75
@@ -3655,7 +3649,7 @@ define linkonce_odr hidden void @_ZNK5boost15source_location9to_stringB5cxx11Ev(
 .noexc.i:                                         ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %10, ptr %0, align 8, !tbaa !6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 25, ptr %4, align 8, !tbaa !11
   %11 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef 0)
   store ptr %11, ptr %0, align 8, !tbaa !13
@@ -3667,7 +3661,7 @@ define linkonce_odr hidden void @_ZNK5boost15source_location9to_stringB5cxx11Ev(
   %14 = load ptr, ptr %0, align 8, !tbaa !13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 %12
   store i8 0, ptr %15, align 1, !tbaa !15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %93
 
 16:                                               ; preds = %2
@@ -3683,7 +3677,7 @@ define linkonce_odr hidden void @_ZNK5boost15source_location9to_stringB5cxx11Ev(
 
 20:                                               ; preds = %16
   %21 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %17) #29
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %21, ptr %3, align 8, !tbaa !11
   %22 = icmp ugt i64 %21, 15
   br i1 %22, label %.noexc.i20, label %._crit_edge.i.i19
@@ -3718,8 +3712,8 @@ define linkonce_odr hidden void @_ZNK5boost15source_location9to_stringB5cxx11Ev(
   %32 = load ptr, ptr %0, align 8, !tbaa !13
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 %30
   store i8 0, ptr %33, align 1, !tbaa !15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #29
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %34 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 16, ptr noundef nonnull @.str.58, i64 noundef %8) #29
   %35 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #29
   %36 = load i64, ptr %31, align 8, !tbaa !16
@@ -3851,12 +3845,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit: ; preds = %_ZNKS
   br label %86
 
 85:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit29
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %93
 
 86:                                               ; preds = %54, %83, %52
   %.pn.pn = phi { ptr, i32 } [ %53, %52 ], [ %84, %83 ], [ %55, %54 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %87 = load ptr, ptr %0, align 8, !tbaa !13
   %88 = icmp eq ptr %87, %18
   br i1 %88, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -4016,7 +4010,7 @@ _ZN5boost6spirit7classic4impl14object_with_idINS2_11grammar_tagEmEC2Ev.exit: ; p
   br i1 %.not.i.i, label %_ZN5boost6spirit7classic4impl19grammar_helper_listINS1_7grammarINS_4wave8grammars19has_include_grammarINSt7__cxx114listINS5_8cpplexer9lex_tokenINS5_4util13file_positionINSC_11flex_stringIcSt11char_traitsIcESaIcENSC_9CowStringINSC_22AllocatorStringStorageIcSH_EEPcEEEEEEEENS_19fast_pool_allocatorISP_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_14parser_contextINS1_5nil_tEEEEEEC2Ev.exit, label %10
 
 10:                                               ; preds = %_ZN5boost6spirit7classic4impl14object_with_idINS2_11grammar_tagEmEC2Ev.exit
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   invoke void @_ZN5boost21thread_resource_errorC2EiPKc(ptr noundef nonnull align 8 dereferenceable(40) %2, i32 noundef %9, ptr noundef nonnull @.str.67)
           to label %.noexc.i unwind label %14
 
@@ -4031,7 +4025,7 @@ _ZN5boost6spirit7classic4impl14object_with_idINS2_11grammar_tagEmEC2Ev.exit: ; p
   %13 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %2) #29
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.body.i
 
 14:                                               ; preds = %10
@@ -4148,7 +4142,7 @@ _ZN5boost9call_onceIRFvvEJEEEvRNS_9once_flagEOT_DpOT0_.exit: ; preds = %1, %_ZN5
   br label %common.resume
 
 _ZN5boost6spirit7classic4impl19object_with_id_baseINS2_11grammar_tagEmE14mutex_instanceEv.exit: ; preds = %_ZN5boost9call_onceIRFvvEJEEEvRNS_9once_flagEOT_DpOT0_.exit, %24, %27
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr @_ZZN5boost6spirit7classic4impl19object_with_id_baseINS2_11grammar_tagEmE14mutex_instanceEvE5mutex, ptr %3, align 8, !tbaa !98
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i8 0, ptr %31, align 8, !tbaa !100
@@ -4182,7 +4176,7 @@ _ZN5boost6spirit7classic4impl19object_with_id_baseINS2_11grammar_tagEmE14mutex_i
   br i1 %.not.i.i, label %48, label %44
 
 44:                                               ; preds = %42
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   invoke void @_ZN5boost21thread_resource_errorC2EiPKc(ptr noundef nonnull align 8 dereferenceable(40) %2, i32 noundef %43, ptr noundef nonnull @.str.67)
           to label %.noexc unwind label %52
 
@@ -4197,7 +4191,7 @@ _ZN5boost6spirit7classic4impl19object_with_id_baseINS2_11grammar_tagEmE14mutex_i
   %47 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %2) #29
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.body
 
 48:                                               ; preds = %42
@@ -4292,7 +4286,7 @@ _ZN5boost10shared_ptrINS_6spirit7classic4impl26object_with_id_base_supplyImEEEaS
   br i1 %86, label %84, label %_ZN5boost11unique_lockINS_5mutexEED2Ev.exit, !llvm.loop !110
 
 _ZN5boost11unique_lockINS_5mutexEED2Ev.exit:      ; preds = %84, %_ZN5boost10shared_ptrINS_6spirit7classic4impl26object_with_id_base_supplyImEEEaSERKS6_.exit
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %87 = load ptr, ptr %0, align 8, !tbaa !71
   %88 = call noundef i64 @_ZN5boost6spirit7classic4impl26object_with_id_base_supplyImE7acquireEv(ptr noundef nonnull align 8 dereferenceable(72) %87)
   ret i64 %88
@@ -4313,7 +4307,7 @@ _ZN5boost11unique_lockINS_5mutexEED2Ev.exit:      ; preds = %84, %_ZN5boost10sha
   br i1 %96, label %94, label %_ZN5boost11unique_lockINS_5mutexEED2Ev.exit6, !llvm.loop !110
 
 _ZN5boost11unique_lockINS_5mutexEED2Ev.exit6:     ; preds = %94, %89
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %common.resume
 }
 
@@ -4326,7 +4320,7 @@ declare void @__cxa_guard_release(ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN5boost10shared_ptrINS_6spirit7classic4impl26object_with_id_base_supplyImEEE5resetIS5_EEvPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.boost::shared_ptr", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %1, ptr %3, align 8, !tbaa !71
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr null, ptr %4, align 8, !tbaa !72
@@ -4414,14 +4408,14 @@ _ZN5boost10shared_ptrINS_6spirit7classic4impl26object_with_id_base_supplyImEEEC2
   unreachable
 
 _ZN5boost10shared_ptrINS_6spirit7classic4impl26object_with_id_base_supplyImEEED2Ev.exit: ; preds = %_ZN5boost10shared_ptrINS_6spirit7classic4impl26object_with_id_base_supplyImEEEC2IS5_EEPT_.exit, %21, %.noexc.i.i, %32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr hidden noundef i64 @_ZN5boost6spirit7classic4impl26object_with_id_base_supplyImE7acquireEv(ptr noundef nonnull align 8 dereferenceable(72) %0) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.boost::unique_lock", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %0, ptr %2, align 8, !tbaa !98
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i8 0, ptr %3, align 8, !tbaa !100
@@ -4508,7 +4502,7 @@ _ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i: ; preds = %30, %_ZNSt6vec
   br i1 %40, label %38, label %_ZN5boost11unique_lockINS_5mutexEED2Ev.exit, !llvm.loop !110
 
 _ZN5boost11unique_lockINS_5mutexEED2Ev.exit:      ; preds = %38, %32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %33
 
 _ZNSt6vectorImSaImEE7reserveEm.exit:              ; preds = %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i, %27, %12
@@ -4533,7 +4527,7 @@ _ZNSt6vectorImSaImEE7reserveEm.exit:              ; preds = %_ZNSt12_Vector_base
   br i1 %50, label %48, label %_ZN5boost11unique_lockINS_5mutexEED2Ev.exit6, !llvm.loop !110
 
 _ZN5boost11unique_lockINS_5mutexEED2Ev.exit6:     ; preds = %48, %43
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
 
@@ -4556,7 +4550,7 @@ define linkonce_odr hidden void @_ZN5boost5mutexC2Ev(ptr noundef nonnull align 8
   br i1 %.not, label %8, label %4
 
 4:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZN5boost21thread_resource_errorC2EiPKc(ptr noundef nonnull align 8 dereferenceable(40) %2, i32 noundef %3, ptr noundef nonnull @.str.67)
   invoke void @_ZN5boost15throw_exceptionINS_21thread_resource_errorEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(40) %2) #30
           to label %5 unwind label %6
@@ -4568,7 +4562,7 @@ define linkonce_odr hidden void @_ZN5boost5mutexC2Ev(ptr noundef nonnull align 8
   %7 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %2) #29
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %7
 
 8:                                                ; preds = %1
@@ -4598,7 +4592,7 @@ define linkonce_odr hidden void @_ZN5boost15throw_exceptionINS_21thread_resource
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN5boost21thread_resource_errorC2EiPKc(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.boost::system::error_code", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8
   %5 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost6system6detail18generic_cat_holderIvE8instanceE, i64 8), align 8, !tbaa !77
   %6 = and i64 %5, -2
@@ -4625,7 +4619,7 @@ _ZN5boost16thread_exceptionC2EiPKc.exit:          ; preds = %7, %9
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @_ZN5boost6system6detail18generic_cat_holderIvE8instanceE, ptr %16, align 8, !tbaa !15
   call void @_ZN5boost6system12system_errorC2ERKNS0_10error_codeEPKc(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef %2)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost21thread_resource_errorE, i64 16), ptr %0, align 8, !tbaa !42
   ret void
 }
@@ -5111,7 +5105,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost6detail17sp_counted_impl_pINS_6
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr hidden void @_ZN5boost6spirit7classic4impl12skipper_skipINS1_11alternativeINS1_5chlitINS_4wave8token_idEEES8_EENS1_7scannerINS6_4util20unput_queue_iteratorISt14_List_iteratorINS6_8cpplexer9lex_tokenINSB_13file_positionINSB_11flex_stringIcSt11char_traitsIcESaIcENSB_9CowStringINSB_22AllocatorStringStorageIcSK_EEPcEEEEEEEEESS_NSt7__cxx114listISS_NS_19fast_pool_allocatorISS_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyIS9_NS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEES14_EEvRKT_RKT0_RKNS1_24skipper_iteration_policyIT1_EE(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) local_unnamed_addr #4 comdat personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.boost::spirit::classic::scanner.73", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !147
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -5253,7 +5247,7 @@ _ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt
 
 _ZNSt7__cxx114listIN5boost4wave8cpplexer9lex_tokenINS2_4util13file_positionINS5_11flex_stringIcSt11char_traitsIcESaIcENS5_9CowStringINS5_22AllocatorStringStorageIcSA_EEPcEEEEEEEENS1_19fast_pool_allocatorISI_NS1_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEaSERKSN_.exit.i: ; preds = %.lr.ph.i.i.i.i, %54, %52, %._crit_edge
   store i64 %.sroa.0.0, ptr %14, align 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
 _ZN5boost4wave4util20unput_queue_iteratorISt14_List_iteratorINS0_8cpplexer9lex_tokenINS1_13file_positionINS1_11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcSA_EEPcEEEEEEEEESI_NSt7__cxx114listISI_NS_19fast_pool_allocatorISI_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEaSERKSR_.exit: ; preds = %3, %_ZN5boost4wave4util20unput_queue_iteratorISt14_List_iteratorINS0_8cpplexer9lex_tokenINS1_13file_positionINS1_11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcSA_EEPcEEEEEEEEESI_NSt7__cxx114listISI_NS_19fast_pool_allocatorISI_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEaSERKSR_.exit
@@ -5275,7 +5269,7 @@ define linkonce_odr hidden i64 @_ZNK5boost6spirit7classic11alternativeINS1_5chli
   %.sroa.0.0.copyload = load i64, ptr %6, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.5.0.copyload = load ptr, ptr %.sroa.5.0..sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZNK5boost6spirit7classic11char_parserINS1_5chlitINS_4wave8token_idEEEE5parseINS1_7scannerINS4_4util20unput_queue_iteratorISt14_List_iteratorINS4_8cpplexer9lex_tokenINSA_13file_positionINSA_11flex_stringIcSt11char_traitsIcESaIcENSA_9CowStringINSA_22AllocatorStringStorageIcSJ_EEPcEEEEEEEEESR_NSt7__cxx114listISR_NS_19fast_pool_allocatorISR_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_27no_skipper_iteration_policyINS1_28skip_parser_iteration_policyINS1_11alternativeIS6_S6_EENS1_16iteration_policyEEEEENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS6_T_E4typeERKS1E_(ptr dead_on_unwind nonnull writable sret(%"class.boost::spirit::classic::match.75") align 8 %3, ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %7 = load i64, ptr %3, align 8, !tbaa !158
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -5342,7 +5336,7 @@ _ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traits
   br label %_ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit
 
 _ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit: ; preds = %_ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm.exit.i, %18, %14, %11, %2
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not.not.not = icmp sgt i64 %7, -1
   br i1 %.not.not.not, label %_ZN5boost4wave4util20unput_queue_iteratorISt14_List_iteratorINS0_8cpplexer9lex_tokenINS1_13file_positionINS1_11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcSA_EEPcEEEEEEEEESI_NSt7__cxx114listISI_NS_19fast_pool_allocatorISI_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEaSERKSR_.exit, label %32
 
@@ -5397,7 +5391,7 @@ _ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_posit
 
 _ZNSt7__cxx114listIN5boost4wave8cpplexer9lex_tokenINS2_4util13file_positionINS5_11flex_stringIcSt11char_traitsIcESaIcENS5_9CowStringINS5_22AllocatorStringStorageIcSA_EEPcEEEEEEEENS1_19fast_pool_allocatorISI_NS1_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEaSERKSN_.exit.i: ; preds = %.lr.ph.i.i.i.i, %49, %47, %32
   store i64 %.sroa.0.0.copyload, ptr %33, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 4
   call void @_ZNK5boost6spirit7classic11char_parserINS1_5chlitINS_4wave8token_idEEEE5parseINS1_7scannerINS4_4util20unput_queue_iteratorISt14_List_iteratorINS4_8cpplexer9lex_tokenINSA_13file_positionINSA_11flex_stringIcSt11char_traitsIcESaIcENSA_9CowStringINSA_22AllocatorStringStorageIcSJ_EEPcEEEEEEEEESR_NSt7__cxx114listISR_NS_19fast_pool_allocatorISR_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_27no_skipper_iteration_policyINS1_28skip_parser_iteration_policyINS1_11alternativeIS6_S6_EENS1_16iteration_policyEEEEENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS6_T_E4typeERKS1E_(ptr dead_on_unwind nonnull writable sret(%"class.boost::spirit::classic::match.75") align 8 %4, ptr noundef nonnull align 1 dereferenceable(1) %51, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %52 = load i64, ptr %4, align 8, !tbaa !158
@@ -5465,7 +5459,7 @@ _ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traits
   br label %_ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit11
 
 _ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit11: ; preds = %_ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm.exit.i18, %63, %59, %56, %_ZNSt7__cxx114listIN5boost4wave8cpplexer9lex_tokenINS2_4util13file_positionINS5_11flex_stringIcSt11char_traitsIcESaIcENS5_9CowStringINS5_22AllocatorStringStorageIcSA_EEPcEEEEEEEENS1_19fast_pool_allocatorISI_NS1_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEaSERKSN_.exit.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN5boost4wave4util20unput_queue_iteratorISt14_List_iteratorINS0_8cpplexer9lex_tokenINS1_13file_positionINS1_11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcSA_EEPcEEEEEEEEESI_NSt7__cxx114listISI_NS_19fast_pool_allocatorISI_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEaSERKSR_.exit
 
 _ZN5boost4wave4util20unput_queue_iteratorISt14_List_iteratorINS0_8cpplexer9lex_tokenINS1_13file_positionINS1_11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcSA_EEPcEEEEEEEEESI_NSt7__cxx114listISI_NS_19fast_pool_allocatorISI_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEaSERKSR_.exit: ; preds = %_ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit, %_ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit11
@@ -5508,7 +5502,7 @@ _ZNK5boost6spirit7classic7scannerINS_4wave4util20unput_queue_iteratorISt14_List_
   br i1 %23, label %82, label %_ZNK5boost6spirit7classic7scannerINS_4wave4util20unput_queue_iteratorISt14_List_iteratorINS3_8cpplexer9lex_tokenINS4_13file_positionINS4_11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcSD_EEPcEEEEEEEEESL_NSt7__cxx114listISL_NS_19fast_pool_allocatorISL_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_27no_skipper_iteration_policyINS1_28skip_parser_iteration_policyINS1_11alternativeINS1_5chlitINS3_8token_idEEES11_EENS1_16iteration_policyEEEEENS1_12match_policyENS1_13action_policyEEEE6at_endEv.exit.thread
 
 _ZNK5boost6spirit7classic7scannerINS_4wave4util20unput_queue_iteratorISt14_List_iteratorINS3_8cpplexer9lex_tokenINS4_13file_positionINS4_11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcSD_EEPcEEEEEEEEESL_NSt7__cxx114listISL_NS_19fast_pool_allocatorISL_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_27no_skipper_iteration_policyINS1_28skip_parser_iteration_policyINS1_11alternativeINS1_5chlitINS3_8token_idEEES11_EENS1_16iteration_policyEEEEENS1_12match_policyENS1_13action_policyEEEE6at_endEv.exit.thread: ; preds = %._crit_edge.i.i.i.i.i.i, %18, %_ZNK5boost6spirit7classic7scannerINS_4wave4util20unput_queue_iteratorISt14_List_iteratorINS3_8cpplexer9lex_tokenINS4_13file_positionINS4_11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcSD_EEPcEEEEEEEEESL_NSt7__cxx114listISL_NS_19fast_pool_allocatorISL_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_27no_skipper_iteration_policyINS1_28skip_parser_iteration_policyINS1_11alternativeINS1_5chlitINS3_8token_idEEES11_EENS1_16iteration_policyEEEEENS1_12match_policyENS1_13action_policyEEEE6at_endEv.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZNK5boost6spirit7classic7scannerINS_4wave4util20unput_queue_iteratorISt14_List_iteratorINS3_8cpplexer9lex_tokenINS4_13file_positionINS4_11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcSD_EEPcEEEEEEEEESL_NSt7__cxx114listISL_NS_19fast_pool_allocatorISL_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_27no_skipper_iteration_policyINS1_28skip_parser_iteration_policyINS1_11alternativeINS1_5chlitINS3_8token_idEEES11_EENS1_16iteration_policyEEEEENS1_12match_policyENS1_13action_policyEEEEdeEv(ptr dead_on_unwind nonnull writable sret(%"class.boost::wave::cpplexer::lex_token") align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %2)
   %24 = load ptr, ptr %4, align 8, !tbaa !95
   %.not.i = icmp eq ptr %24, null
@@ -5520,7 +5514,7 @@ _ZNK5boost6spirit7classic7scannerINS_4wave4util20unput_queue_iteratorISt14_List_
   br i1 %26, label %46, label %_ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt11char_traitsIcESaIcENS3_9CowStringINS3_22AllocatorStringStorageIcS8_EEPcEEEEEEED2Ev.exit22.thread
 
 _ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt11char_traitsIcESaIcENS3_9CowStringINS3_22AllocatorStringStorageIcS8_EEPcEEEEEEED2Ev.exit22.thread: ; preds = %.thread
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %82
 
 27:                                               ; preds = %_ZNK5boost6spirit7classic7scannerINS_4wave4util20unput_queue_iteratorISt14_List_iteratorINS3_8cpplexer9lex_tokenINS4_13file_positionINS4_11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcSD_EEPcEEEEEEEEESL_NSt7__cxx114listISL_NS_19fast_pool_allocatorISL_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_27no_skipper_iteration_policyINS1_28skip_parser_iteration_policyINS1_11alternativeINS1_5chlitINS3_8token_idEEES11_EENS1_16iteration_policyEEEEENS1_12match_policyENS1_13action_policyEEEE6at_endEv.exit.thread
@@ -5671,11 +5665,11 @@ _ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traits
   store ptr %80, ptr %69, align 8, !tbaa !17
   store ptr %69, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !97
   %81 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE) #29
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %switch.ph, label %82, label %84
 
 _ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt11char_traitsIcESaIcENS3_9CowStringINS3_22AllocatorStringStorageIcS8_EEPcEEEEEEED2Ev.exit22: ; preds = %63, %64, %68
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %switch.ph, label %82, label %84
 
 82:                                               ; preds = %_ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm.exit.i21, %_ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt11char_traitsIcESaIcENS3_9CowStringINS3_22AllocatorStringStorageIcS8_EEPcEEEEEEED2Ev.exit22.thread, %_ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt11char_traitsIcESaIcENS3_9CowStringINS3_22AllocatorStringStorageIcS8_EEPcEEEEEEED2Ev.exit22, %_ZNK5boost6spirit7classic7scannerINS_4wave4util20unput_queue_iteratorISt14_List_iteratorINS3_8cpplexer9lex_tokenINS4_13file_positionINS4_11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcSD_EEPcEEEEEEEEESL_NSt7__cxx114listISL_NS_19fast_pool_allocatorISL_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_27no_skipper_iteration_policyINS1_28skip_parser_iteration_policyINS1_11alternativeINS1_5chlitINS3_8token_idEEES11_EENS1_16iteration_policyEEEEENS1_12match_policyENS1_13action_policyEEEE6at_endEv.exit
@@ -5898,8 +5892,8 @@ _ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traits
 define linkonce_odr hidden ptr @_ZNSt7__cxx114listIN5boost4wave8cpplexer9lex_tokenINS2_4util13file_positionINS5_11flex_stringIcSt11char_traitsIcESaIcENS5_9CowStringINS5_22AllocatorStringStorageIcSA_EEPcEEEEEEEENS1_19fast_pool_allocatorISI_NS1_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEE6insertISt20_List_const_iteratorISI_EvEESt14_List_iteratorISI_ESQ_T_ST_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr %2, ptr %3) local_unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::list", align 8
   %6 = alloca %"class.boost::fast_pool_allocator.87", align 1
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #29
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i8, ptr @_ZZN5boost14singleton_poolINS_23fast_pool_allocator_tagELj8ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEvE1f, align 1, !tbaa !32, !range !86, !noundef !87
   %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %_ZN5boost14singleton_poolINS_23fast_pool_allocator_tagELj8ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i, label %9
@@ -5935,7 +5929,7 @@ _ZN5boost14singleton_poolINS_23fast_pool_allocator_tagELj8ENS_33default_user_all
 _ZNKSt7__cxx114listIN5boost4wave8cpplexer9lex_tokenINS2_4util13file_positionINS5_11flex_stringIcSt11char_traitsIcESaIcENS5_9CowStringINS5_22AllocatorStringStorageIcSA_EEPcEEEEEEEENS1_19fast_pool_allocatorISI_NS1_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEE13get_allocatorEv.exit: ; preds = %_ZN5boost14singleton_poolINS_23fast_pool_allocator_tagELj8ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i
   %15 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN5boost14singleton_poolINS_23fast_pool_allocator_tagELj8ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE) #29
   call void @_ZNSt7__cxx114listIN5boost4wave8cpplexer9lex_tokenINS2_4util13file_positionINS5_11flex_stringIcSt11char_traitsIcESaIcENS5_9CowStringINS5_22AllocatorStringStorageIcSA_EEPcEEEEEEEENS1_19fast_pool_allocatorISI_NS1_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEC2ISt20_List_const_iteratorISI_EvEET_SR_RKSM_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr %2, ptr %3, ptr noundef nonnull align 1 dereferenceable(1) %6)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %16 = load ptr, ptr %5, align 8, !tbaa !48
   %17 = icmp eq ptr %16, %5
   br i1 %17, label %23, label %_ZNSt7__cxx114listIN5boost4wave8cpplexer9lex_tokenINS2_4util13file_positionINS5_11flex_stringIcSt11char_traitsIcESaIcENS5_9CowStringINS5_22AllocatorStringStorageIcSA_EEPcEEEEEEEENS1_19fast_pool_allocatorISI_NS1_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEE6spliceESt20_List_const_iteratorISI_ERSN_.exit
@@ -6004,7 +5998,7 @@ _ZNSt7__cxx1110_List_baseIN5boost4wave8cpplexer9lex_tokenINS2_4util13file_positi
   br i1 %.not.i.i, label %_ZNSt7__cxx1110_List_baseIN5boost4wave8cpplexer9lex_tokenINS2_4util13file_positionINS5_11flex_stringIcSt11char_traitsIcESaIcENS5_9CowStringINS5_22AllocatorStringStorageIcSA_EEPcEEEEEEEENS1_19fast_pool_allocatorISI_NS1_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEED2Ev.exit, label %.lr.ph.i.i, !llvm.loop !188
 
 _ZNSt7__cxx1110_List_baseIN5boost4wave8cpplexer9lex_tokenINS2_4util13file_positionINS5_11flex_stringIcSt11char_traitsIcESaIcENS5_9CowStringINS5_22AllocatorStringStorageIcSA_EEPcEEEEEEEENS1_19fast_pool_allocatorISI_NS1_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEED2Ev.exit: ; preds = %_ZNSt7__cxx1110_List_baseIN5boost4wave8cpplexer9lex_tokenINS2_4util13file_positionINS5_11flex_stringIcSt11char_traitsIcESaIcENS5_9CowStringINS5_22AllocatorStringStorageIcSA_EEPcEEEEEEEENS1_19fast_pool_allocatorISI_NS1_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEE11_M_put_nodeEPSt10_List_nodeISI_E.exit.i.i, %23
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.sroa.05.0
 }
 
@@ -6321,7 +6315,7 @@ _ZN5boost14singleton_poolINS_23fast_pool_allocator_tagELj24ENS_33default_user_al
   br i1 %29, label %30, label %34
 
 30:                                               ; preds = %_ZN5boost14singleton_poolINS_23fast_pool_allocator_tagELj24ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE6mallocEv.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %2, align 8, !tbaa !42
   invoke void @_ZN5boost15throw_exceptionISt9bad_allocEEvRKT_(ptr noundef nonnull align 8 dereferenceable(8) %2) #30
           to label %31 unwind label %32
@@ -6333,7 +6327,7 @@ _ZN5boost14singleton_poolINS_23fast_pool_allocator_tagELj24ENS_33default_user_al
   %33 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt9bad_allocD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #29
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %common.resume
 
 34:                                               ; preds = %_ZN5boost14singleton_poolINS_23fast_pool_allocator_tagELj24ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE6mallocEv.exit
@@ -7174,7 +7168,7 @@ _ZNK5boost8weak_ptrINS_6spirit7classic4impl14grammar_helperINS2_7grammarINS_4wav
   br label %58
 
 26:                                               ; preds = %_ZNK5boost8weak_ptrINS_6spirit7classic4impl14grammar_helperINS2_7grammarINS_4wave8grammars19has_include_grammarINSt7__cxx114listINS6_8cpplexer9lex_tokenINS6_4util13file_positionINSD_11flex_stringIcSt11char_traitsIcESaIcENSD_9CowStringINSD_22AllocatorStringStorageIcSI_EEPcEEEEEEEENS_19fast_pool_allocatorISQ_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS2_14parser_contextINS2_5nil_tEEEEESW_NS2_7scannerINSD_20unput_queue_iteratorISt14_List_iteratorISQ_ESQ_SV_EENS2_16scanner_policiesINS2_28skip_parser_iteration_policyINS2_11alternativeINS2_5chlitINS6_8token_idEEES1B_EENS2_16iteration_policyEEENS2_12match_policyENS2_13action_policyEEEEEEEE7expiredEv.exit.thread, %_ZNK5boost8weak_ptrINS_6spirit7classic4impl14grammar_helperINS2_7grammarINS_4wave8grammars19has_include_grammarINSt7__cxx114listINS6_8cpplexer9lex_tokenINS6_4util13file_positionINSD_11flex_stringIcSt11char_traitsIcESaIcENSD_9CowStringINSD_22AllocatorStringStorageIcSI_EEPcEEEEEEEENS_19fast_pool_allocatorISQ_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS2_14parser_contextINS2_5nil_tEEEEESW_NS2_7scannerINSD_20unput_queue_iteratorISt14_List_iteratorISQ_ESQ_SV_EENS2_16scanner_policiesINS2_28skip_parser_iteration_policyINS2_11alternativeINS2_5chlitINS6_8token_idEEES1B_EENS2_16iteration_policyEEENS2_12match_policyENS2_13action_policyEEEEEEEE7expiredEv.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !207)
   store ptr null, ptr %2, align 8, !tbaa !210, !alias.scope !207
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -7234,14 +7228,14 @@ _ZN5boost6detail12shared_countC2ERKNS0_10weak_countENS0_14sp_nothrow_tagE.exit.i
   unreachable
 
 _ZN5boost10shared_ptrINS_6spirit7classic4impl14grammar_helperINS2_7grammarINS_4wave8grammars19has_include_grammarINSt7__cxx114listINS6_8cpplexer9lex_tokenINS6_4util13file_positionINSD_11flex_stringIcSt11char_traitsIcESaIcENSD_9CowStringINSD_22AllocatorStringStorageIcSI_EEPcEEEEEEEENS_19fast_pool_allocatorISQ_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS2_14parser_contextINS2_5nil_tEEEEESW_NS2_7scannerINSD_20unput_queue_iteratorISt14_List_iteratorISQ_ESQ_SV_EENS2_16scanner_policiesINS2_28skip_parser_iteration_policyINS2_11alternativeINS2_5chlitINS6_8token_idEEES1B_EENS2_16iteration_policyEEENS2_12match_policyENS2_13action_policyEEEEEEEED2Ev.exit: ; preds = %38, %.noexc.i.i, %49
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %37
 
 56:                                               ; preds = %_ZN5boost6detail12shared_countC2ERKNS0_10weak_countENS0_14sp_nothrow_tagE.exit.i.i
   %57 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5boost10shared_ptrINS_6spirit7classic4impl14grammar_helperINS2_7grammarINS_4wave8grammars19has_include_grammarINSt7__cxx114listINS6_8cpplexer9lex_tokenINS6_4util13file_positionINSD_11flex_stringIcSt11char_traitsIcESaIcENSD_9CowStringINSD_22AllocatorStringStorageIcSI_EEPcEEEEEEEENS_19fast_pool_allocatorISQ_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS2_14parser_contextINS2_5nil_tEEEEESW_NS2_7scannerINSD_20unput_queue_iteratorISt14_List_iteratorISQ_ESQ_SV_EENS2_16scanner_policiesINS2_28skip_parser_iteration_policyINS2_11alternativeINS2_5chlitINS6_8token_idEEES1B_EENS2_16iteration_policyEEENS2_12match_policyENS2_13action_policyEEEEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #29
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %58
 
 58:                                               ; preds = %56, %24
@@ -7407,14 +7401,14 @@ _ZNSt6vectorIPN5boost4wave8grammars19has_include_grammarINSt7__cxx114listINS1_8c
   br i1 %.not17, label %30, label %88
 
 30:                                               ; preds = %_ZNSt6vectorIPN5boost4wave8grammars19has_include_grammarINSt7__cxx114listINS1_8cpplexer9lex_tokenINS1_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEENS0_19fast_pool_allocatorISL_NS0_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEE10definitionINS0_6spirit7classic7scannerINS8_20unput_queue_iteratorISt14_List_iteratorISL_ESL_SQ_EENSU_16scanner_policiesINSU_28skip_parser_iteration_policyINSU_11alternativeINSU_5chlitINS1_8token_idEEES15_EENSU_16iteration_policyEEENSU_12match_policyENSU_13action_policyEEEEEEESaIS1E_EE6resizeEm.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %31 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #33
   invoke void @_ZN5boost4wave8grammars19has_include_grammarINSt7__cxx114listINS0_8cpplexer9lex_tokenINS0_4util13file_positionINS7_11flex_stringIcSt11char_traitsIcESaIcENS7_9CowStringINS7_22AllocatorStringStorageIcSC_EEPcEEEEEEEENS_19fast_pool_allocatorISK_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEE10definitionINS_6spirit7classic7scannerINS7_20unput_queue_iteratorISt14_List_iteratorISK_ESK_SP_EENST_16scanner_policiesINST_28skip_parser_iteration_policyINST_11alternativeINST_5chlitINS0_8token_idEEES14_EENST_16iteration_policyEEENST_12match_policyENST_13action_policyEEEEEEC2ERKSQ_(ptr noundef nonnull align 8 dereferenceable(48) %31, ptr noundef nonnull align 8 dereferenceable(113) %1)
           to label %32 unwind label %74
 
 32:                                               ; preds = %30
   store ptr %31, ptr %3, align 8, !tbaa !221
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store ptr %33, ptr %4, align 8, !tbaa !98
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -7513,8 +7507,8 @@ _ZN5boost6spirit7classic4impl19grammar_helper_listINS1_7grammarINS_4wave8grammar
   br i1 %73, label %71, label %_ZN5boost7movelib10unique_ptrINS_4wave8grammars19has_include_grammarINSt7__cxx114listINS2_8cpplexer9lex_tokenINS2_4util13file_positionINS9_11flex_stringIcSt11char_traitsIcESaIcENS9_9CowStringINS9_22AllocatorStringStorageIcSE_EEPcEEEEEEEENS_19fast_pool_allocatorISM_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEE10definitionINS_6spirit7classic7scannerINS9_20unput_queue_iteratorISt14_List_iteratorISM_ESM_SR_EENSV_16scanner_policiesINSV_28skip_parser_iteration_policyINSV_11alternativeINSV_5chlitINS2_8token_idEEES16_EENSV_16iteration_policyEEENSV_12match_policyENSV_13action_policyEEEEEEENS0_14default_deleteIS1E_EEED2Ev.exit, !llvm.loop !110
 
 _ZN5boost7movelib10unique_ptrINS_4wave8grammars19has_include_grammarINSt7__cxx114listINS2_8cpplexer9lex_tokenINS2_4util13file_positionINS9_11flex_stringIcSt11char_traitsIcESaIcENS9_9CowStringINS9_22AllocatorStringStorageIcSE_EEPcEEEEEEEENS_19fast_pool_allocatorISM_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEE10definitionINS_6spirit7classic7scannerINS9_20unput_queue_iteratorISt14_List_iteratorISM_ESM_SR_EENSV_16scanner_policiesINSV_28skip_parser_iteration_policyINSV_11alternativeINSV_5chlitINS2_8token_idEEES16_EENSV_16iteration_policyEEENSV_12match_policyENSV_13action_policyEEEEEEENS0_14default_deleteIS1E_EEED2Ev.exit: ; preds = %71, %_ZN5boost6spirit7classic4impl19grammar_helper_listINS1_7grammarINS_4wave8grammars19has_include_grammarINSt7__cxx114listINS5_8cpplexer9lex_tokenINS5_4util13file_positionINSC_11flex_stringIcSt11char_traitsIcESaIcENSC_9CowStringINSC_22AllocatorStringStorageIcSH_EEPcEEEEEEEENS_19fast_pool_allocatorISP_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_14parser_contextINS1_5nil_tEEEEEE9push_backEPNS2_19grammar_helper_baseISZ_EE.exit
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #29
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %88
 
 74:                                               ; preds = %30
@@ -7546,13 +7540,13 @@ _ZN5boost7movelib10unique_ptrINS_4wave8grammars19has_include_grammarINSt7__cxx11
 
 _ZN5boost11unique_lockINS_5mutexEED2Ev.exit22:    ; preds = %84, %78, %76
   %.pn = phi { ptr, i32 } [ %77, %76 ], [ %79, %78 ], [ %79, %84 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZN5boost7movelib10unique_ptrINS_4wave8grammars19has_include_grammarINSt7__cxx114listINS2_8cpplexer9lex_tokenINS2_4util13file_positionINS9_11flex_stringIcSt11char_traitsIcESaIcENS9_9CowStringINS9_22AllocatorStringStorageIcSE_EEPcEEEEEEEENS_19fast_pool_allocatorISM_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEE10definitionINS_6spirit7classic7scannerINS9_20unput_queue_iteratorISt14_List_iteratorISM_ESM_SR_EENSV_16scanner_policiesINSV_28skip_parser_iteration_policyINSV_11alternativeINSV_5chlitINS2_8token_idEEES16_EENSV_16iteration_policyEEENSV_12match_policyENSV_13action_policyEEEEEEENS0_14default_deleteIS1E_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
   br label %87
 
 87:                                               ; preds = %_ZN5boost11unique_lockINS_5mutexEED2Ev.exit22, %74
   %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN5boost11unique_lockINS_5mutexEED2Ev.exit22 ], [ %75, %74 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn.pn
 
 88:                                               ; preds = %_ZNSt6vectorIPN5boost4wave8grammars19has_include_grammarINSt7__cxx114listINS1_8cpplexer9lex_tokenINS1_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEENS0_19fast_pool_allocatorISL_NS0_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEE10definitionINS0_6spirit7classic7scannerINS8_20unput_queue_iteratorISt14_List_iteratorISL_ESL_SQ_EENSU_16scanner_policiesINSU_28skip_parser_iteration_policyINSU_11alternativeINSU_5chlitINS1_8token_idEEES15_EENSU_16iteration_policyEEENSU_12match_policyENSU_13action_policyEEEEEEESaIS1E_EE6resizeEm.exit, %_ZN5boost7movelib10unique_ptrINS_4wave8grammars19has_include_grammarINSt7__cxx114listINS2_8cpplexer9lex_tokenINS2_4util13file_positionINS9_11flex_stringIcSt11char_traitsIcESaIcENS9_9CowStringINS9_22AllocatorStringStorageIcSE_EEPcEEEEEEEENS_19fast_pool_allocatorISM_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEE10definitionINS_6spirit7classic7scannerINS9_20unput_queue_iteratorISt14_List_iteratorISM_ESM_SR_EENSV_16scanner_policiesINSV_28skip_parser_iteration_policyINSV_11alternativeINSV_5chlitINS2_8token_idEEES16_EENSV_16iteration_policyEEENSV_12match_policyENSV_13action_policyEEEEEEENS0_14default_deleteIS1E_EEED2Ev.exit
@@ -8419,7 +8413,7 @@ _ZNK5boost6spirit7classic8sequenceINS2_INS1_5chlitINS_4wave8token_idEEES6_EENS1_
   br i1 %.not.not, label %8, label %_ZNK5boost6spirit7classic8sequenceINS2_INS1_5chlitINS_4wave8token_idEEES6_EENS1_11alternativeINS8_INS1_4ruleINS1_7scannerINS4_4util20unput_queue_iteratorISt14_List_iteratorINS4_8cpplexer9lex_tokenINSB_13file_positionINSB_11flex_stringIcSt11char_traitsIcESaIcENSB_9CowStringINSB_22AllocatorStringStorageIcSK_EEPcEEEEEEEEESS_NSt7__cxx114listISS_NS_19fast_pool_allocatorISS_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS8_IS6_S6_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEENS1_5nil_tES1B_EES1C_EES1C_EEE5parseIS1A_EENS1_13parser_resultIS1F_T_E4typeERKS1I_.exit.thread
 
 8:                                                ; preds = %_ZNK5boost6spirit7classic8sequenceINS2_INS1_5chlitINS_4wave8token_idEEES6_EENS1_11alternativeINS8_INS1_4ruleINS1_7scannerINS4_4util20unput_queue_iteratorISt14_List_iteratorINS4_8cpplexer9lex_tokenINSB_13file_positionINSB_11flex_stringIcSt11char_traitsIcESaIcENSB_9CowStringINSB_22AllocatorStringStorageIcSK_EEPcEEEEEEEEESS_NSt7__cxx114listISS_NS_19fast_pool_allocatorISS_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS8_IS6_S6_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEENS1_5nil_tES1B_EES1C_EES1C_EEE5parseIS1A_EENS1_13parser_resultIS1F_T_E4typeERKS1I_.exit
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @_ZNK5boost6spirit7classic11char_parserINS1_5chlitINS_4wave8token_idEEEE5parseINS1_7scannerINS4_4util20unput_queue_iteratorISt14_List_iteratorINS4_8cpplexer9lex_tokenINSA_13file_positionINSA_11flex_stringIcSt11char_traitsIcESaIcENSA_9CowStringINSA_22AllocatorStringStorageIcSJ_EEPcEEEEEEEEESR_NSt7__cxx114listISR_NS_19fast_pool_allocatorISR_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeIS6_S6_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS6_T_E4typeERKS1C_(ptr dead_on_unwind nonnull writable sret(%"class.boost::spirit::classic::match.75") align 8 %3, ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %10 = load i64, ptr %3, align 8, !tbaa !158
@@ -8487,7 +8481,7 @@ _ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traits
   br label %_ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit
 
 _ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit: ; preds = %_ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm.exit.i, %21, %17, %14, %8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not7.not.not = icmp sgt i64 %10, -1
   %35 = add nsw i64 %10, %spec.select.i
   %spec.select = select i1 %.not7.not.not, i64 %35, i64 -1
@@ -8535,7 +8529,7 @@ _ZNK5boost6spirit7classic7scannerINS_4wave4util20unput_queue_iteratorISt14_List_
   br i1 %24, label %83, label %_ZNK5boost6spirit7classic7scannerINS_4wave4util20unput_queue_iteratorISt14_List_iteratorINS3_8cpplexer9lex_tokenINS4_13file_positionINS4_11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcSD_EEPcEEEEEEEEESL_NSt7__cxx114listISL_NS_19fast_pool_allocatorISL_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINS1_5chlitINS3_8token_idEEES10_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEE6at_endEv.exit.thread
 
 _ZNK5boost6spirit7classic7scannerINS_4wave4util20unput_queue_iteratorISt14_List_iteratorINS3_8cpplexer9lex_tokenINS4_13file_positionINS4_11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcSD_EEPcEEEEEEEEESL_NSt7__cxx114listISL_NS_19fast_pool_allocatorISL_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINS1_5chlitINS3_8token_idEEES10_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEE6at_endEv.exit.thread: ; preds = %._crit_edge.i.i.i.i.i.i, %19, %_ZNK5boost6spirit7classic7scannerINS_4wave4util20unput_queue_iteratorISt14_List_iteratorINS3_8cpplexer9lex_tokenINS4_13file_positionINS4_11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcSD_EEPcEEEEEEEEESL_NSt7__cxx114listISL_NS_19fast_pool_allocatorISL_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINS1_5chlitINS3_8token_idEEES10_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEE6at_endEv.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZNK5boost6spirit7classic7scannerINS_4wave4util20unput_queue_iteratorISt14_List_iteratorINS3_8cpplexer9lex_tokenINS4_13file_positionINS4_11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcSD_EEPcEEEEEEEEESL_NSt7__cxx114listISL_NS_19fast_pool_allocatorISL_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINS1_5chlitINS3_8token_idEEES10_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEdeEv(ptr dead_on_unwind nonnull writable sret(%"class.boost::wave::cpplexer::lex_token") align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %2)
   %25 = load ptr, ptr %4, align 8, !tbaa !95
   %.not.i = icmp eq ptr %25, null
@@ -8547,7 +8541,7 @@ _ZNK5boost6spirit7classic7scannerINS_4wave4util20unput_queue_iteratorISt14_List_
   br i1 %27, label %47, label %_ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt11char_traitsIcESaIcENS3_9CowStringINS3_22AllocatorStringStorageIcS8_EEPcEEEEEEED2Ev.exit22.thread
 
 _ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt11char_traitsIcESaIcENS3_9CowStringINS3_22AllocatorStringStorageIcS8_EEPcEEEEEEED2Ev.exit22.thread: ; preds = %.thread
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %83
 
 28:                                               ; preds = %_ZNK5boost6spirit7classic7scannerINS_4wave4util20unput_queue_iteratorISt14_List_iteratorINS3_8cpplexer9lex_tokenINS4_13file_positionINS4_11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcSD_EEPcEEEEEEEEESL_NSt7__cxx114listISL_NS_19fast_pool_allocatorISL_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINS1_5chlitINS3_8token_idEEES10_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEE6at_endEv.exit.thread
@@ -8698,11 +8692,11 @@ _ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traits
   store ptr %81, ptr %70, align 8, !tbaa !17
   store ptr %70, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !97
   %82 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE) #29
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %switch.ph, label %83, label %85
 
 _ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt11char_traitsIcESaIcENS3_9CowStringINS3_22AllocatorStringStorageIcS8_EEPcEEEEEEED2Ev.exit22: ; preds = %64, %65, %69
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %switch.ph, label %83, label %85
 
 83:                                               ; preds = %_ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm.exit.i21, %_ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt11char_traitsIcESaIcENS3_9CowStringINS3_22AllocatorStringStorageIcS8_EEPcEEEEEEED2Ev.exit22.thread, %_ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt11char_traitsIcESaIcENS3_9CowStringINS3_22AllocatorStringStorageIcS8_EEPcEEEEEEED2Ev.exit22, %_ZNK5boost6spirit7classic7scannerINS_4wave4util20unput_queue_iteratorISt14_List_iteratorINS3_8cpplexer9lex_tokenINS4_13file_positionINS4_11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcSD_EEPcEEEEEEEEESL_NSt7__cxx114listISL_NS_19fast_pool_allocatorISL_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINS1_5chlitINS3_8token_idEEES10_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEE6at_endEv.exit
@@ -8719,7 +8713,7 @@ _ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt
 define linkonce_odr hidden i64 @_ZNK5boost6spirit7classic8sequenceINS1_5chlitINS_4wave8token_idEEES6_E5parseINS1_7scannerINS4_4util20unput_queue_iteratorISt14_List_iteratorINS4_8cpplexer9lex_tokenINSA_13file_positionINSA_11flex_stringIcSt11char_traitsIcESaIcENSA_9CowStringINSA_22AllocatorStringStorageIcSJ_EEPcEEEEEEEEESR_NSt7__cxx114listISR_NS_19fast_pool_allocatorISR_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeIS6_S6_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS7_T_E4typeERKS1C_(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.boost::spirit::classic::match.75", align 8
   %4 = alloca %"class.boost::spirit::classic::match.75", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZNK5boost6spirit7classic11char_parserINS1_5chlitINS_4wave8token_idEEEE5parseINS1_7scannerINS4_4util20unput_queue_iteratorISt14_List_iteratorINS4_8cpplexer9lex_tokenINSA_13file_positionINSA_11flex_stringIcSt11char_traitsIcESaIcENSA_9CowStringINSA_22AllocatorStringStorageIcSJ_EEPcEEEEEEEEESR_NSt7__cxx114listISR_NS_19fast_pool_allocatorISR_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeIS6_S6_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS6_T_E4typeERKS1C_(ptr dead_on_unwind nonnull writable sret(%"class.boost::spirit::classic::match.75") align 8 %3, ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %5 = load i64, ptr %3, align 8, !tbaa !158
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -8786,12 +8780,12 @@ _ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traits
   br label %_ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit
 
 _ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit: ; preds = %_ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm.exit.i, %16, %12, %9, %2
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not.not = icmp sgt i64 %5, -1
   br i1 %.not.not, label %30, label %.thread
 
 30:                                               ; preds = %_ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 4
   call void @_ZNK5boost6spirit7classic11char_parserINS1_5chlitINS_4wave8token_idEEEE5parseINS1_7scannerINS4_4util20unput_queue_iteratorISt14_List_iteratorINS4_8cpplexer9lex_tokenINSA_13file_positionINSA_11flex_stringIcSt11char_traitsIcESaIcENSA_9CowStringINSA_22AllocatorStringStorageIcSJ_EEPcEEEEEEEEESR_NSt7__cxx114listISR_NS_19fast_pool_allocatorISR_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeIS6_S6_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS6_T_E4typeERKS1C_(ptr dead_on_unwind nonnull writable sret(%"class.boost::spirit::classic::match.75") align 8 %4, ptr noundef nonnull align 1 dereferenceable(1) %31, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %32 = load i64, ptr %4, align 8, !tbaa !158
@@ -8859,7 +8853,7 @@ _ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traits
   br label %_ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit11
 
 _ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit11: ; preds = %_ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm.exit.i19, %43, %39, %36, %30
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not10.not.not = icmp sgt i64 %32, -1
   %57 = add nsw i64 %32, %5
   %spec.select = select i1 %.not10.not.not, i64 %57, i64 -1
@@ -9145,7 +9139,7 @@ define linkonce_odr hidden i64 @_ZNK5boost6spirit7classic8sequenceINS2_INS1_6act
   br i1 %.not.not, label %5, label %.thread
 
 5:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !251)
   %7 = load ptr, ptr %1, align 8, !tbaa !151, !noalias !251
@@ -9229,7 +9223,7 @@ _ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traits
   br label %_ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit
 
 _ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit: ; preds = %_ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm.exit.i, %25, %21, %18, %_ZNK5boost6spirit7classic6actionINS2_INS2_INS1_5chlitINS_4wave8token_idEEENS1_15ref_value_actorINSt7__cxx114listINS4_8cpplexer9lex_tokenINS4_4util13file_positionINSC_11flex_stringIcSt11char_traitsIcESaIcENSC_9CowStringINSC_22AllocatorStringStorageIcSH_EEPcEEEEEEEENS_19fast_pool_allocatorISP_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEENS1_16push_back_actionEEEEENS1_19ref_const_ref_actorIbbNS1_13assign_actionEEEEES10_E5parseINS1_7scannerINSC_20unput_queue_iteratorISt14_List_iteratorISP_ESP_SU_EENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeIS6_S6_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS12_T_E4typeERKS1K_.exit
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %39 = add nuw nsw i64 %8, %4
   %spec.select = select i1 %.not.not.i, i64 %39, i64 -1
   br label %.thread
@@ -9242,7 +9236,7 @@ _ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_posit
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden i64 @_ZNK5boost6spirit7classic8sequenceINS1_6actionINS1_5chlitINS_4wave8token_idEEENS1_15ref_value_actorINSt7__cxx114listINS5_8cpplexer9lex_tokenINS5_4util13file_positionINSD_11flex_stringIcSt11char_traitsIcESaIcENSD_9CowStringINSD_22AllocatorStringStorageIcSI_EEPcEEEEEEEENS_19fast_pool_allocatorISQ_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEENS1_16push_back_actionEEEEENS1_11kleene_starINS3_INS1_19negated_char_parserIS7_EESX_EEEEE5parseINS1_7scannerINSD_20unput_queue_iteratorISt14_List_iteratorISQ_ESQ_SV_EENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeIS7_S7_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS14_T_E4typeERKS1M_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.boost::spirit::classic::match.75", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !257)
   %4 = load ptr, ptr %1, align 8, !tbaa !151, !noalias !257
   tail call void @_ZN5boost6spirit7classic4impl12skipper_skipINS1_11alternativeINS1_5chlitINS_4wave8token_idEEES8_EENS1_7scannerINS6_4util20unput_queue_iteratorISt14_List_iteratorINS6_8cpplexer9lex_tokenINSB_13file_positionINSB_11flex_stringIcSt11char_traitsIcESaIcENSB_9CowStringINSB_22AllocatorStringStorageIcSK_EEPcEEEEEEEEESS_NSt7__cxx114listISS_NS_19fast_pool_allocatorISS_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyIS9_NS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEES14_EEvRKT_RKT0_RKNS1_24skipper_iteration_policyIT1_EE(ptr noundef nonnull align 4 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %1), !noalias !257
@@ -9360,7 +9354,7 @@ _ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traits
   br label %_ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit
 
 _ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit: ; preds = %_ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm.exit.i, %37, %33, %30, %25
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not.not = icmp sgt i64 %26, -1
   br i1 %.not.not, label %51, label %.thread
 
@@ -9392,7 +9386,7 @@ define linkonce_odr hidden i64 @_ZNK5boost6spirit7classic11kleene_starINS1_6acti
   %.sroa.0.0.copyload = load i64, ptr %9, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
   %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.experimental.noalias.scope.decl(metadata !262)
   %10 = load ptr, ptr %1, align 8, !tbaa !151, !noalias !262
   call void @_ZN5boost6spirit7classic4impl12skipper_skipINS1_11alternativeINS1_5chlitINS_4wave8token_idEEES8_EENS1_7scannerINS6_4util20unput_queue_iteratorISt14_List_iteratorINS6_8cpplexer9lex_tokenINSB_13file_positionINSB_11flex_stringIcSt11char_traitsIcESaIcENSB_9CowStringINSB_22AllocatorStringStorageIcSK_EEPcEEEEEEEEESS_NSt7__cxx114listISS_NS_19fast_pool_allocatorISS_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyIS9_NS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEES14_EEvRKT_RKT0_RKNS1_24skipper_iteration_policyIT1_EE(ptr noundef nonnull align 4 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %1), !noalias !262
@@ -9505,7 +9499,7 @@ _ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traits
   br label %_ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit
 
 _ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit: ; preds = %_ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm.exit.i, %38, %34, %32, %28
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not = icmp sgt i64 %29, -1
   br i1 %.not, label %52, label %54
 
@@ -9683,7 +9677,7 @@ _ZNK5boost6spirit7classic7scannerINS_4wave4util20unput_queue_iteratorISt14_List_
   br i1 %25, label %90, label %_ZNK5boost6spirit7classic7scannerINS_4wave4util20unput_queue_iteratorISt14_List_iteratorINS3_8cpplexer9lex_tokenINS4_13file_positionINS4_11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcSD_EEPcEEEEEEEEESL_NSt7__cxx114listISL_NS_19fast_pool_allocatorISL_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINS1_5chlitINS3_8token_idEEES10_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEE6at_endEv.exit.thread
 
 _ZNK5boost6spirit7classic7scannerINS_4wave4util20unput_queue_iteratorISt14_List_iteratorINS3_8cpplexer9lex_tokenINS4_13file_positionINS4_11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcSD_EEPcEEEEEEEEESL_NSt7__cxx114listISL_NS_19fast_pool_allocatorISL_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINS1_5chlitINS3_8token_idEEES10_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEE6at_endEv.exit.thread: ; preds = %._crit_edge.i.i.i.i.i.i, %20, %_ZNK5boost6spirit7classic7scannerINS_4wave4util20unput_queue_iteratorISt14_List_iteratorINS3_8cpplexer9lex_tokenINS4_13file_positionINS4_11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcSD_EEPcEEEEEEEEESL_NSt7__cxx114listISL_NS_19fast_pool_allocatorISL_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINS1_5chlitINS3_8token_idEEES10_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEE6at_endEv.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZNK5boost6spirit7classic7scannerINS_4wave4util20unput_queue_iteratorISt14_List_iteratorINS3_8cpplexer9lex_tokenINS4_13file_positionINS4_11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcSD_EEPcEEEEEEEEESL_NSt7__cxx114listISL_NS_19fast_pool_allocatorISL_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINS1_5chlitINS3_8token_idEEES10_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEdeEv(ptr dead_on_unwind nonnull writable sret(%"class.boost::wave::cpplexer::lex_token") align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %2)
   %26 = load ptr, ptr %4, align 8, !tbaa !95
   store ptr %26, ptr %5, align 8, !tbaa !95
@@ -9803,7 +9797,7 @@ _ZNK5boost6spirit7classic7scannerINS_4wave4util20unput_queue_iteratorISt14_List_
           cleanup
   call void @_ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt11char_traitsIcESaIcENS3_9CowStringINS3_22AllocatorStringStorageIcS8_EEPcEEEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #29
   call void @_ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt11char_traitsIcESaIcENS3_9CowStringINS3_22AllocatorStringStorageIcS8_EEPcEEEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #29
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %69
 
 70:                                               ; preds = %_ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt11char_traitsIcESaIcENS3_9CowStringINS3_22AllocatorStringStorageIcS8_EEPcEEEEEEED2Ev.exit, %67
@@ -9864,7 +9858,7 @@ _ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traits
   br label %_ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt11char_traitsIcESaIcENS3_9CowStringINS3_22AllocatorStringStorageIcS8_EEPcEEEEEEED2Ev.exit22
 
 _ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt11char_traitsIcESaIcENS3_9CowStringINS3_22AllocatorStringStorageIcS8_EEPcEEEEEEED2Ev.exit22: ; preds = %70, %72, %76, %_ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm.exit.i21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %30, label %92, label %90
 
 90:                                               ; preds = %_ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt11char_traitsIcESaIcENS3_9CowStringINS3_22AllocatorStringStorageIcS8_EEPcEEEEEEED2Ev.exit22, %_ZNK5boost6spirit7classic7scannerINS_4wave4util20unput_queue_iteratorISt14_List_iteratorINS3_8cpplexer9lex_tokenINS4_13file_positionINS4_11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcSD_EEPcEEEEEEEEESL_NSt7__cxx114listISL_NS_19fast_pool_allocatorISL_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINS1_5chlitINS3_8token_idEEES10_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEE6at_endEv.exit
@@ -10024,7 +10018,7 @@ define linkonce_odr hidden void @_ZN5boost6spirit7classic4impl15concrete_parserI
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden i64 @_ZNK5boost6spirit7classic4impl15concrete_parserINS1_6actionINS4_INS1_5chlitINS_4wave8token_idEEENS1_15ref_value_actorINSt7__cxx114listINS6_8cpplexer9lex_tokenINS6_4util13file_positionINSE_11flex_stringIcSt11char_traitsIcESaIcENSE_9CowStringINSE_22AllocatorStringStorageIcSJ_EEPcEEEEEEEENS_19fast_pool_allocatorISR_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEENS1_16push_back_actionEEEEENS1_19ref_const_ref_actorIbbNS1_13assign_actionEEEEENS1_7scannerINSE_20unput_queue_iteratorISt14_List_iteratorISR_ESR_SW_EENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeIS8_S8_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEENS1_5nil_tEE16do_parse_virtualERKS1I_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.boost::spirit::classic::match.75", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @_ZNK5boost6spirit7classic6actionINS2_INS1_5chlitINS_4wave8token_idEEENS1_15ref_value_actorINSt7__cxx114listINS4_8cpplexer9lex_tokenINS4_4util13file_positionINSC_11flex_stringIcSt11char_traitsIcESaIcENSC_9CowStringINSC_22AllocatorStringStorageIcSH_EEPcEEEEEEEENS_19fast_pool_allocatorISP_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEENS1_16push_back_actionEEEEENS1_19ref_const_ref_actorIbbNS1_13assign_actionEEEE5parseINS1_7scannerINSC_20unput_queue_iteratorISt14_List_iteratorISP_ESP_SU_EENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeIS6_S6_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS11_T_E4typeERKS1J_(ptr dead_on_unwind nonnull writable sret(%"class.boost::spirit::classic::match.75") align 8 %3, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %5 = load i64, ptr %3, align 8, !tbaa !158
@@ -10092,7 +10086,7 @@ _ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traits
   br label %_ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit
 
 _ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit: ; preds = %_ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm.exit.i, %16, %12, %9, %2
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %5
 }
 
@@ -10153,7 +10147,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5boost6spirit7classic4impl15concrete
 define linkonce_odr hidden i64 @_ZNK5boost6spirit7classic10differenceINS2_INS1_14anychar_parserENS1_5chlitINS_4wave8token_idEEEEES7_E5parseINS1_7scannerINS5_4util20unput_queue_iteratorISt14_List_iteratorINS5_8cpplexer9lex_tokenINSC_13file_positionINSC_11flex_stringIcSt11char_traitsIcESaIcENSC_9CowStringINSC_22AllocatorStringStorageIcSL_EEPcEEEEEEEEEST_NSt7__cxx114listIST_NS_19fast_pool_allocatorIST_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeIS7_S7_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS9_T_E4typeERKS1E_(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.boost::wave::util::unput_queue_iterator", align 8
   %4 = alloca %"class.boost::spirit::classic::match.75", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !147
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
@@ -10164,7 +10158,7 @@ define linkonce_odr hidden i64 @_ZNK5boost6spirit7classic10differenceINS2_INS1_1
 8:                                                ; preds = %2
   %9 = load ptr, ptr %5, align 8, !tbaa !147
   call void @_ZSt4swapIN5boost4wave4util20unput_queue_iteratorISt14_List_iteratorINS1_8cpplexer9lex_tokenINS2_13file_positionINS2_11flex_stringIcSt11char_traitsIcESaIcENS2_9CowStringINS2_22AllocatorStringStorageIcSB_EEPcEEEEEEEEESJ_NSt7__cxx114listISJ_NS0_19fast_pool_allocatorISJ_NS0_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleISW_ESt18is_move_assignableISW_EEE5valueEvE4typeERSW_S15_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %9)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
   call void @_ZNK5boost6spirit7classic11char_parserINS1_5chlitINS_4wave8token_idEEEE5parseINS1_7scannerINS4_4util20unput_queue_iteratorISt14_List_iteratorINS4_8cpplexer9lex_tokenINSA_13file_positionINSA_11flex_stringIcSt11char_traitsIcESaIcENSA_9CowStringINSA_22AllocatorStringStorageIcSJ_EEPcEEEEEEEEESR_NSt7__cxx114listISR_NS_19fast_pool_allocatorISR_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeIS6_S6_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS6_T_E4typeERKS1C_(ptr dead_on_unwind nonnull writable sret(%"class.boost::spirit::classic::match.75") align 8 %4, ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %11 = load i64, ptr %4, align 8, !tbaa !158
@@ -10232,7 +10226,7 @@ _ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traits
   br label %_ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit
 
 _ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit: ; preds = %_ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm.exit.i, %22, %18, %15, %8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %36 = icmp slt i64 %11, %7
   br i1 %36, label %.critedge, label %_ZN5boost4wave4util20unput_queue_iteratorISt14_List_iteratorINS0_8cpplexer9lex_tokenINS1_13file_positionINS1_11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcSA_EEPcEEEEEEEEESI_NSt7__cxx114listISI_NS_19fast_pool_allocatorISI_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEaSERKSR_.exit
 
@@ -10298,7 +10292,7 @@ _ZNSt7__cxx114listIN5boost4wave8cpplexer9lex_tokenINS2_4util13file_positionINS5_
 
 _ZN5boost4wave4util20unput_queue_iteratorISt14_List_iteratorINS0_8cpplexer9lex_tokenINS1_13file_positionINS1_11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcSA_EEPcEEEEEEEEESI_NSt7__cxx114listISI_NS_19fast_pool_allocatorISI_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEaSERKSR_.exit: ; preds = %_ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit, %2, %_ZNSt7__cxx114listIN5boost4wave8cpplexer9lex_tokenINS2_4util13file_positionINS5_11flex_stringIcSt11char_traitsIcESaIcENS5_9CowStringINS5_22AllocatorStringStorageIcSA_EEPcEEEEEEEENS1_19fast_pool_allocatorISI_NS1_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEaSERKSN_.exit.i, %.critedge
   %.sroa.012.0 = phi i64 [ %7, %.critedge ], [ %7, %_ZNSt7__cxx114listIN5boost4wave8cpplexer9lex_tokenINS2_4util13file_positionINS5_11flex_stringIcSt11char_traitsIcESaIcENS5_9CowStringINS5_22AllocatorStringStorageIcSA_EEPcEEEEEEEENS1_19fast_pool_allocatorISI_NS1_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEaSERKSN_.exit.i ], [ -1, %2 ], [ -1, %_ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %.sroa.012.0
 }
 
@@ -10307,11 +10301,11 @@ define linkonce_odr hidden i64 @_ZNK5boost6spirit7classic10differenceINS1_14anyc
   %3 = alloca %"class.boost::wave::util::unput_queue_iterator", align 8
   %4 = alloca %"class.boost::spirit::classic::match.75", align 8
   %5 = alloca %"class.boost::spirit::classic::match.75", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !147
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZNK5boost6spirit7classic11char_parserINS1_14anychar_parserEE5parseINS1_7scannerINS_4wave4util20unput_queue_iteratorISt14_List_iteratorINS7_8cpplexer9lex_tokenINS8_13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSH_EEPcEEEEEEEEESP_NSt7__cxx114listISP_NS_19fast_pool_allocatorISP_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINS1_5chlitINS7_8token_idEEES14_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS3_T_E4typeERKS1D_(ptr dead_on_unwind nonnull writable sret(%"class.boost::spirit::classic::match.75") align 8 %4, ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %8 = load i64, ptr %4, align 8, !tbaa !158
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -10378,14 +10372,14 @@ _ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traits
   br label %_ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit
 
 _ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit: ; preds = %_ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm.exit.i, %19, %15, %12, %2
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not.not = icmp sgt i64 %8, -1
   br i1 %.not.not, label %33, label %_ZN5boost4wave4util20unput_queue_iteratorISt14_List_iteratorINS0_8cpplexer9lex_tokenINS1_13file_positionINS1_11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcSA_EEPcEEEEEEEEESI_NSt7__cxx114listISI_NS_19fast_pool_allocatorISI_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEaSERKSR_.exit
 
 33:                                               ; preds = %_ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit
   %34 = load ptr, ptr %6, align 8, !tbaa !147
   call void @_ZSt4swapIN5boost4wave4util20unput_queue_iteratorISt14_List_iteratorINS1_8cpplexer9lex_tokenINS2_13file_positionINS2_11flex_stringIcSt11char_traitsIcESaIcENS2_9CowStringINS2_22AllocatorStringStorageIcSB_EEPcEEEEEEEEESJ_NSt7__cxx114listISJ_NS0_19fast_pool_allocatorISJ_NS0_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleISW_ESt18is_move_assignableISW_EEE5valueEvE4typeERSW_S15_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %34)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZNK5boost6spirit7classic11char_parserINS1_5chlitINS_4wave8token_idEEEE5parseINS1_7scannerINS4_4util20unput_queue_iteratorISt14_List_iteratorINS4_8cpplexer9lex_tokenINSA_13file_positionINSA_11flex_stringIcSt11char_traitsIcESaIcENSA_9CowStringINSA_22AllocatorStringStorageIcSJ_EEPcEEEEEEEEESR_NSt7__cxx114listISR_NS_19fast_pool_allocatorISR_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeIS6_S6_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS6_T_E4typeERKS1C_(ptr dead_on_unwind nonnull writable sret(%"class.boost::spirit::classic::match.75") align 8 %5, ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %35 = load i64, ptr %5, align 8, !tbaa !158
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -10452,7 +10446,7 @@ _ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traits
   br label %_ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit12
 
 _ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit12: ; preds = %_ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm.exit.i20, %46, %42, %39, %33
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %60 = icmp slt i64 %35, 0
   %61 = icmp slt i64 %35, %8
   %or.cond = select i1 %60, i1 true, i1 %61
@@ -10520,7 +10514,7 @@ _ZNSt7__cxx114listIN5boost4wave8cpplexer9lex_tokenINS2_4util13file_positionINS5_
 
 _ZN5boost4wave4util20unput_queue_iteratorISt14_List_iteratorINS0_8cpplexer9lex_tokenINS1_13file_positionINS1_11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcSA_EEPcEEEEEEEEESI_NSt7__cxx114listISI_NS_19fast_pool_allocatorISI_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEaSERKSR_.exit: ; preds = %_ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit12, %_ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit, %_ZNSt7__cxx114listIN5boost4wave8cpplexer9lex_tokenINS2_4util13file_positionINS5_11flex_stringIcSt11char_traitsIcESaIcENS5_9CowStringINS5_22AllocatorStringStorageIcSA_EEPcEEEEEEEENS1_19fast_pool_allocatorISI_NS1_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEaSERKSN_.exit.i, %.critedge
   %.sroa.023.0 = phi i64 [ %8, %.critedge ], [ %8, %_ZNSt7__cxx114listIN5boost4wave8cpplexer9lex_tokenINS2_4util13file_positionINS5_11flex_stringIcSt11char_traitsIcESaIcENS5_9CowStringINS5_22AllocatorStringStorageIcSA_EEPcEEEEEEEENS1_19fast_pool_allocatorISI_NS1_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEaSERKSN_.exit.i ], [ -1, %_ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit ], [ -1, %_ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit12 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %.sroa.023.0
 }
 
@@ -10675,7 +10669,7 @@ _ZNK5boost6spirit7classic7scannerINS_4wave4util20unput_queue_iteratorISt14_List_
   br i1 %24, label %75, label %_ZNK5boost6spirit7classic7scannerINS_4wave4util20unput_queue_iteratorISt14_List_iteratorINS3_8cpplexer9lex_tokenINS4_13file_positionINS4_11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcSD_EEPcEEEEEEEEESL_NSt7__cxx114listISL_NS_19fast_pool_allocatorISL_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINS1_5chlitINS3_8token_idEEES10_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEE6at_endEv.exit.thread
 
 _ZNK5boost6spirit7classic7scannerINS_4wave4util20unput_queue_iteratorISt14_List_iteratorINS3_8cpplexer9lex_tokenINS4_13file_positionINS4_11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcSD_EEPcEEEEEEEEESL_NSt7__cxx114listISL_NS_19fast_pool_allocatorISL_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINS1_5chlitINS3_8token_idEEES10_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEE6at_endEv.exit.thread: ; preds = %._crit_edge.i.i.i.i.i.i, %19, %_ZNK5boost6spirit7classic7scannerINS_4wave4util20unput_queue_iteratorISt14_List_iteratorINS3_8cpplexer9lex_tokenINS4_13file_positionINS4_11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcSD_EEPcEEEEEEEEESL_NSt7__cxx114listISL_NS_19fast_pool_allocatorISL_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINS1_5chlitINS3_8token_idEEES10_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEE6at_endEv.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZNK5boost6spirit7classic7scannerINS_4wave4util20unput_queue_iteratorISt14_List_iteratorINS3_8cpplexer9lex_tokenINS4_13file_positionINS4_11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcSD_EEPcEEEEEEEEESL_NSt7__cxx114listISL_NS_19fast_pool_allocatorISL_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINS1_5chlitINS3_8token_idEEES10_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEdeEv(ptr dead_on_unwind nonnull writable sret(%"class.boost::wave::cpplexer::lex_token") align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %2)
   %25 = load ptr, ptr %4, align 8, !tbaa !95
   %.not.i = icmp eq ptr %25, null
@@ -10823,7 +10817,7 @@ _ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traits
   br label %_ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt11char_traitsIcESaIcENS3_9CowStringINS3_22AllocatorStringStorageIcS8_EEPcEEEEEEED2Ev.exit22
 
 _ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt11char_traitsIcESaIcENS3_9CowStringINS3_22AllocatorStringStorageIcS8_EEPcEEEEEEED2Ev.exit22: ; preds = %.thread, %54, %57, %61, %_ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm.exit.i21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %77
 
 75:                                               ; preds = %_ZNK5boost6spirit7classic7scannerINS_4wave4util20unput_queue_iteratorISt14_List_iteratorINS3_8cpplexer9lex_tokenINS4_13file_positionINS4_11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcSD_EEPcEEEEEEEEESL_NSt7__cxx114listISL_NS_19fast_pool_allocatorISL_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINS1_5chlitINS3_8token_idEEES10_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEE6at_endEv.exit
@@ -10987,7 +10981,7 @@ define linkonce_odr hidden i64 @_ZNK5boost6spirit7classic8sequenceINS2_INS1_6act
   br i1 %.not.not, label %5, label %.thread
 
 5:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !279)
   %7 = load ptr, ptr %1, align 8, !tbaa !151, !noalias !279
@@ -11106,7 +11100,7 @@ _ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traits
   br label %_ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit
 
 _ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit: ; preds = %_ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm.exit.i, %40, %36, %33, %28
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not7.not.not = icmp sgt i64 %29, -1
   %54 = add nsw i64 %29, %4
   %spec.select = select i1 %.not7.not.not, i64 %54, i64 -1
@@ -11120,7 +11114,7 @@ _ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_posit
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden i64 @_ZNK5boost6spirit7classic8sequenceINS1_6actionINS1_5chlitINS_4wave8token_idEEENS1_15ref_value_actorINSt7__cxx114listINS5_8cpplexer9lex_tokenINS5_4util13file_positionINSD_11flex_stringIcSt11char_traitsIcESaIcENSD_9CowStringINSD_22AllocatorStringStorageIcSI_EEPcEEEEEEEENS_19fast_pool_allocatorISQ_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEENS1_16push_back_actionEEEEENS1_4ruleINS1_7scannerINSD_20unput_queue_iteratorISt14_List_iteratorISQ_ESQ_SV_EENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeIS7_S7_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEENS1_5nil_tES1F_EEE5parseIS1E_EENS1_13parser_resultIS1H_T_E4typeERKS1K_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.boost::spirit::classic::match.75", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !282)
   %4 = load ptr, ptr %1, align 8, !tbaa !151, !noalias !282
   tail call void @_ZN5boost6spirit7classic4impl12skipper_skipINS1_11alternativeINS1_5chlitINS_4wave8token_idEEES8_EENS1_7scannerINS6_4util20unput_queue_iteratorISt14_List_iteratorINS6_8cpplexer9lex_tokenINSB_13file_positionINSB_11flex_stringIcSt11char_traitsIcESaIcENSB_9CowStringINSB_22AllocatorStringStorageIcSK_EEPcEEEEEEEEESS_NSt7__cxx114listISS_NS_19fast_pool_allocatorISS_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyIS9_NS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEES14_EEvRKT_RKT0_RKNS1_24skipper_iteration_policyIT1_EE(ptr noundef nonnull align 4 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %1), !noalias !282
@@ -11238,7 +11232,7 @@ _ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traits
   br label %_ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit
 
 _ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit: ; preds = %_ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm.exit.i, %37, %33, %30, %25
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not.not = icmp sgt i64 %26, -1
   br i1 %.not.not, label %51, label %.thread
 
@@ -11448,7 +11442,7 @@ define linkonce_odr hidden void @_ZN5boost6spirit7classic4impl13phrase_parserINS
   %6 = alloca %"class.boost::wave::util::unput_queue_iterator.55", align 8
   %7 = alloca %"class.boost::spirit::classic::scanner.178", align 8
   %8 = ptrtoint ptr %4 to i64
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %9 = load ptr, ptr %1, align 8, !tbaa !289
   store ptr %9, ptr %6, align 8, !tbaa !289
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -11467,7 +11461,7 @@ _ZN5boost4wave4util20unput_queue_iteratorINS0_8cpplexer12lex_iteratorINS3_9lex_t
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %17 = load ptr, ptr %16, align 8, !tbaa !293
   store ptr %17, ptr %15, align 8, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %8, ptr %7, align 8
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %6, ptr %18, align 8, !tbaa !17
@@ -11654,7 +11648,7 @@ _ZN5boost6spirit17iterator_policies17multi_pass_sharedISt4pairINS_4wave8cpplexer
   br label %_ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev.exit
 
 _ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev.exit: ; preds = %70, %_ZN5boost6spirit17iterator_policies17multi_pass_uniqueISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS5_9lex_tokenINS4_4util13file_positionINS9_11flex_stringIcSt11char_traitsIcESaIcENS9_9CowStringINS9_22AllocatorStringStorageIcSE_EEPcEEEEEEEEEEPNS5_19lex_input_interfaceISM_EEENS1_11ref_counted6uniqueENS1_8no_check6uniqueENS1_19split_functor_input6uniqueISR_Lb1EEENS1_15split_std_deque6uniqueISM_EELb1ELb1ELb1EE7releaseINS0_10multi_passISR_NS1_14default_policyISS_SU_SW_SZ_EEEEEEbRT_.exit.i, %_ZN5boost6spirit17iterator_policies17multi_pass_uniqueISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS5_9lex_tokenINS4_4util13file_positionINS9_11flex_stringIcSt11char_traitsIcESaIcENS9_9CowStringINS9_22AllocatorStringStorageIcSE_EEPcEEEEEEEEEEPNS5_19lex_input_interfaceISM_EEENS1_11ref_counted6uniqueENS1_8no_check6uniqueENS1_19split_functor_input6uniqueISR_Lb1EEENS1_15split_std_deque6uniqueISM_EELb1ELb1ELb1EE7destroyINS0_10multi_passISR_NS1_14default_policyISS_SU_SW_SZ_EEEEEEvRT_.exit.i, %_ZN5boost6spirit17iterator_policies17multi_pass_sharedISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS5_9lex_tokenINS4_4util13file_positionINS9_11flex_stringIcSt11char_traitsIcESaIcENS9_9CowStringINS9_22AllocatorStringStorageIcSE_EEPcEEEEEEEEEEPNS5_19lex_input_interfaceISM_EEENS1_11ref_counted6sharedENS1_8no_check6sharedENS1_19split_functor_input6sharedISR_EENS1_15split_std_deque6sharedISM_EEED2Ev.exit.i
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %104 = load ptr, ptr %6, align 8, !tbaa !289
   %.not.i.i.i13 = icmp eq ptr %104, null
   br i1 %.not.i.i.i13, label %_ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev.exit27, label %_ZN5boost6spirit17iterator_policies17multi_pass_uniqueISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS5_9lex_tokenINS4_4util13file_positionINS9_11flex_stringIcSt11char_traitsIcESaIcENS9_9CowStringINS9_22AllocatorStringStorageIcSE_EEPcEEEEEEEEEEPNS5_19lex_input_interfaceISM_EEENS1_11ref_counted6uniqueENS1_8no_check6uniqueENS1_19split_functor_input6uniqueISR_Lb1EEENS1_15split_std_deque6uniqueISM_EELb1ELb1ELb1EE7releaseINS0_10multi_passISR_NS1_14default_policyISS_SU_SW_SZ_EEEEEEbRT_.exit.i14
@@ -11721,7 +11715,7 @@ _ZN5boost6spirit17iterator_policies17multi_pass_sharedISt4pairINS_4wave8cpplexer
   br label %_ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev.exit27
 
 _ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev.exit27: ; preds = %_ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev.exit, %_ZN5boost6spirit17iterator_policies17multi_pass_uniqueISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS5_9lex_tokenINS4_4util13file_positionINS9_11flex_stringIcSt11char_traitsIcESaIcENS9_9CowStringINS9_22AllocatorStringStorageIcSE_EEPcEEEEEEEEEEPNS5_19lex_input_interfaceISM_EEENS1_11ref_counted6uniqueENS1_8no_check6uniqueENS1_19split_functor_input6uniqueISR_Lb1EEENS1_15split_std_deque6uniqueISM_EELb1ELb1ELb1EE7releaseINS0_10multi_passISR_NS1_14default_policyISS_SU_SW_SZ_EEEEEEbRT_.exit.i14, %_ZN5boost6spirit17iterator_policies17multi_pass_uniqueISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS5_9lex_tokenINS4_4util13file_positionINS9_11flex_stringIcSt11char_traitsIcESaIcENS9_9CowStringINS9_22AllocatorStringStorageIcSE_EEPcEEEEEEEEEEPNS5_19lex_input_interfaceISM_EEENS1_11ref_counted6uniqueENS1_8no_check6uniqueENS1_19split_functor_input6uniqueISR_Lb1EEENS1_15split_std_deque6uniqueISM_EELb1ELb1ELb1EE7destroyINS0_10multi_passISR_NS1_14default_policyISS_SU_SW_SZ_EEEEEEvRT_.exit.i15, %_ZN5boost6spirit17iterator_policies17multi_pass_sharedISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS5_9lex_tokenINS4_4util13file_positionINS9_11flex_stringIcSt11char_traitsIcESaIcENS9_9CowStringINS9_22AllocatorStringStorageIcSE_EEPcEEEEEEEEEEPNS5_19lex_input_interfaceISM_EEENS1_11ref_counted6sharedENS1_8no_check6sharedENS1_19split_functor_input6sharedISR_EENS1_15split_std_deque6sharedISM_EEED2Ev.exit.i26
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
 130:                                              ; preds = %62, %_ZN5boost6spirit7classic7scannerINS_4wave4util20unput_queue_iteratorINS3_8cpplexer12lex_iteratorINS6_9lex_tokenINS4_13file_positionINS4_11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEESL_NSt7__cxx114listISL_NS_19fast_pool_allocatorISL_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINS1_5chlitINS3_8token_idEEES10_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEC2ERSU_RKSU_RKS16_.exit
@@ -11732,16 +11726,16 @@ _ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functo
 .body:                                            ; preds = %45, %130
   %.pn = phi { ptr, i32 } [ %131, %130 ], [ %46, %45 ]
   call void @_ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #29
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #29
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %.pn
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden i64 @_ZNK5boost6spirit7classic7grammarINS_4wave8grammars19has_include_grammarINSt7__cxx114listINS3_8cpplexer9lex_tokenINS3_4util13file_positionINSA_11flex_stringIcSt11char_traitsIcESaIcENSA_9CowStringINSA_22AllocatorStringStorageIcSF_EEPcEEEEEEEENS_19fast_pool_allocatorISN_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_14parser_contextINS1_5nil_tEEEE5parseINS1_7scannerINSA_20unput_queue_iteratorINS8_12lex_iteratorISN_EESN_SS_EENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINS1_5chlitINS3_8token_idEEES19_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultISX_T_E4typeERKS1I_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) local_unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.boost::spirit::classic::parser_scanner_linker.187", align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load ptr, ptr %1, align 8, !tbaa !151
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !300
@@ -11909,14 +11903,14 @@ _ZN5boost6spirit17iterator_policies17multi_pass_sharedISt4pairINS_4wave8cpplexer
   br label %_ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev.exit24
 
 _ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev.exit24: ; preds = %_ZNK5boost6spirit7classic7grammarINS_4wave8grammars19has_include_grammarINSt7__cxx114listINS3_8cpplexer9lex_tokenINS3_4util13file_positionINSA_11flex_stringIcSt11char_traitsIcESaIcENSA_9CowStringINSA_22AllocatorStringStorageIcSF_EEPcEEEEEEEENS_19fast_pool_allocatorISN_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_14parser_contextINS1_5nil_tEEEE10parse_mainINS1_7scannerINSA_20unput_queue_iteratorINS8_12lex_iteratorISN_EESN_SS_EENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINS1_5chlitINS3_8token_idEEES19_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultISX_T_E4typeERKS1I_.exit, %_ZN5boost6spirit17iterator_policies17multi_pass_uniqueISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS5_9lex_tokenINS4_4util13file_positionINS9_11flex_stringIcSt11char_traitsIcESaIcENS9_9CowStringINS9_22AllocatorStringStorageIcSE_EEPcEEEEEEEEEEPNS5_19lex_input_interfaceISM_EEENS1_11ref_counted6uniqueENS1_8no_check6uniqueENS1_19split_functor_input6uniqueISR_Lb1EEENS1_15split_std_deque6uniqueISM_EELb1ELb1ELb1EE7releaseINS0_10multi_passISR_NS1_14default_policyISS_SU_SW_SZ_EEEEEEbRT_.exit.i11, %_ZN5boost6spirit17iterator_policies17multi_pass_sharedISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS5_9lex_tokenINS4_4util13file_positionINS9_11flex_stringIcSt11char_traitsIcESaIcENS9_9CowStringINS9_22AllocatorStringStorageIcSE_EEPcEEEEEEEEEEPNS5_19lex_input_interfaceISM_EEENS1_11ref_counted6sharedENS1_8no_check6sharedENS1_19split_functor_input6sharedISR_EENS1_15split_std_deque6sharedISM_EEED2Ev.exit.i23
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %49
 
 74:                                               ; preds = %.noexc, %_ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev.exit
   %75 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %47) #29
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %75
 }
 
@@ -11924,7 +11918,7 @@ _ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functo
 define linkonce_odr hidden void @_ZN5boost6spirit7classic4impl12skipper_skipINS1_11alternativeINS1_5chlitINS_4wave8token_idEEES8_EENS1_7scannerINS6_4util20unput_queue_iteratorINS6_8cpplexer12lex_iteratorINSD_9lex_tokenINSB_13file_positionINSB_11flex_stringIcSt11char_traitsIcESaIcENSB_9CowStringINSB_22AllocatorStringStorageIcSK_EEPcEEEEEEEEEESS_NSt7__cxx114listISS_NS_19fast_pool_allocatorISS_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyIS9_NS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEES14_EEvRKT_RKT0_RKNS1_24skipper_iteration_policyIT1_EE(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) local_unnamed_addr #4 comdat personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.boost::spirit::classic::scanner.184", align 8
   %5 = alloca %"class.boost::wave::util::unput_queue_iterator.55", align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !300
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -11994,7 +11988,7 @@ _ZN5boost6spirit7classic7scannerINS_4wave4util20unput_queue_iteratorINS3_8cpplex
   br label %40
 
 40:                                               ; preds = %_ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev.exit, %_ZN5boost6spirit7classic7scannerINS_4wave4util20unput_queue_iteratorINS3_8cpplexer12lex_iteratorINS6_9lex_tokenINS4_13file_positionINS4_11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEESL_NSt7__cxx114listISL_NS_19fast_pool_allocatorISL_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_27no_skipper_iteration_policyINS1_28skip_parser_iteration_policyINS1_11alternativeINS1_5chlitINS3_8token_idEEES11_EENS1_16iteration_policyEEEEENS1_12match_policyENS1_13action_policyEEEEC2ERSU_RKSU_RKS18_.exit
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %41 = load ptr, ptr %6, align 8, !tbaa !300
   %42 = load ptr, ptr %41, align 8, !tbaa !289
   store ptr %42, ptr %5, align 8, !tbaa !289
@@ -12158,15 +12152,15 @@ _ZN5boost6spirit17iterator_policies17multi_pass_sharedISt4pairINS_4wave8cpplexer
   br label %_ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev.exit
 
 _ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev.exit: ; preds = %60, %_ZN5boost6spirit17iterator_policies17multi_pass_uniqueISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS5_9lex_tokenINS4_4util13file_positionINS9_11flex_stringIcSt11char_traitsIcESaIcENS9_9CowStringINS9_22AllocatorStringStorageIcSE_EEPcEEEEEEEEEEPNS5_19lex_input_interfaceISM_EEENS1_11ref_counted6uniqueENS1_8no_check6uniqueENS1_19split_functor_input6uniqueISR_Lb1EEENS1_15split_std_deque6uniqueISM_EELb1ELb1ELb1EE7releaseINS0_10multi_passISR_NS1_14default_policyISS_SU_SW_SZ_EEEEEEbRT_.exit.i, %_ZN5boost6spirit17iterator_policies17multi_pass_uniqueISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS5_9lex_tokenINS4_4util13file_positionINS9_11flex_stringIcSt11char_traitsIcESaIcENS9_9CowStringINS9_22AllocatorStringStorageIcSE_EEPcEEEEEEEEEEPNS5_19lex_input_interfaceISM_EEENS1_11ref_counted6uniqueENS1_8no_check6uniqueENS1_19split_functor_input6uniqueISR_Lb1EEENS1_15split_std_deque6uniqueISM_EELb1ELb1ELb1EE7destroyINS0_10multi_passISR_NS1_14default_policyISS_SU_SW_SZ_EEEEEEvRT_.exit.i, %_ZN5boost6spirit17iterator_policies17multi_pass_sharedISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS5_9lex_tokenINS4_4util13file_positionINS9_11flex_stringIcSt11char_traitsIcESaIcENS9_9CowStringINS9_22AllocatorStringStorageIcSE_EEPcEEEEEEEEEEPNS5_19lex_input_interfaceISM_EEENS1_11ref_counted6sharedENS1_8no_check6sharedENS1_19split_functor_input6sharedISR_EENS1_15split_std_deque6sharedISM_EEED2Ev.exit.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %52, label %40, label %107
 
 106:                                              ; preds = %58, %56
   %.pn = phi { ptr, i32 } [ %59, %58 ], [ %57, %56 ]
   call void @_ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #29
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #29
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %common.resume
 
 107:                                              ; preds = %_ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev.exit
@@ -12236,7 +12230,7 @@ _ZN5boost6spirit17iterator_policies17multi_pass_sharedISt4pairINS_4wave8cpplexer
   br label %_ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev.exit29
 
 _ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev.exit29: ; preds = %107, %_ZN5boost6spirit17iterator_policies17multi_pass_uniqueISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS5_9lex_tokenINS4_4util13file_positionINS9_11flex_stringIcSt11char_traitsIcESaIcENS9_9CowStringINS9_22AllocatorStringStorageIcSE_EEPcEEEEEEEEEEPNS5_19lex_input_interfaceISM_EEENS1_11ref_counted6uniqueENS1_8no_check6uniqueENS1_19split_functor_input6uniqueISR_Lb1EEENS1_15split_std_deque6uniqueISM_EELb1ELb1ELb1EE7releaseINS0_10multi_passISR_NS1_14default_policyISS_SU_SW_SZ_EEEEEEbRT_.exit.i16, %_ZN5boost6spirit17iterator_policies17multi_pass_uniqueISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS5_9lex_tokenINS4_4util13file_positionINS9_11flex_stringIcSt11char_traitsIcESaIcENS9_9CowStringINS9_22AllocatorStringStorageIcSE_EEPcEEEEEEEEEEPNS5_19lex_input_interfaceISM_EEENS1_11ref_counted6uniqueENS1_8no_check6uniqueENS1_19split_functor_input6uniqueISR_Lb1EEENS1_15split_std_deque6uniqueISM_EELb1ELb1ELb1EE7destroyINS0_10multi_passISR_NS1_14default_policyISS_SU_SW_SZ_EEEEEEvRT_.exit.i17, %_ZN5boost6spirit17iterator_policies17multi_pass_sharedISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS5_9lex_tokenINS4_4util13file_positionINS9_11flex_stringIcSt11char_traitsIcESaIcENS9_9CowStringINS9_22AllocatorStringStorageIcSE_EEPcEEEEEEEEEEPNS5_19lex_input_interfaceISM_EEENS1_11ref_counted6sharedENS1_8no_check6sharedENS1_19split_functor_input6sharedISR_EENS1_15split_std_deque6sharedISM_EEED2Ev.exit.i28
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -12245,7 +12239,7 @@ define linkonce_odr hidden i64 @_ZNK5boost6spirit7classic11alternativeINS1_5chli
   %3 = alloca %"class.boost::wave::util::unput_queue_iterator.55", align 8
   %4 = alloca %"class.boost::spirit::classic::match.75", align 8
   %5 = alloca %"class.boost::spirit::classic::match.75", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !313
   %8 = load ptr, ptr %7, align 8, !tbaa !289
@@ -12266,7 +12260,7 @@ define linkonce_odr hidden i64 @_ZNK5boost6spirit7classic11alternativeINS1_5chli
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %17 = load ptr, ptr %16, align 8, !tbaa !293
   store ptr %17, ptr %15, align 8, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   invoke void @_ZNK5boost6spirit7classic11char_parserINS1_5chlitINS_4wave8token_idEEEE5parseINS1_7scannerINS4_4util20unput_queue_iteratorINS4_8cpplexer12lex_iteratorINSC_9lex_tokenINSA_13file_positionINSA_11flex_stringIcSt11char_traitsIcESaIcENSA_9CowStringINSA_22AllocatorStringStorageIcSJ_EEPcEEEEEEEEEESR_NSt7__cxx114listISR_NS_19fast_pool_allocatorISR_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_27no_skipper_iteration_policyINS1_28skip_parser_iteration_policyINS1_11alternativeIS6_S6_EENS1_16iteration_policyEEEEENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS6_T_E4typeERKS1E_(ptr dead_on_unwind nonnull writable sret(%"class.boost::spirit::classic::match.75") align 8 %4, ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(40) %1)
           to label %18 unwind label %44
 
@@ -12336,14 +12330,14 @@ _ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traits
   br label %_ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt11char_traitsIcESaIcENS3_9CowStringINS3_22AllocatorStringStorageIcS8_EEPcEEEEEEED2Ev.exit
 
 _ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt11char_traitsIcESaIcENS3_9CowStringINS3_22AllocatorStringStorageIcS8_EEPcEEEEEEED2Ev.exit: ; preds = %_ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm.exit.i, %30, %26, %23, %18
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not = icmp slt i64 %19, 0
   br i1 %.not, label %48, label %51
 
 44:                                               ; preds = %14
   %45 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %105
 
 46:                                               ; preds = %48
@@ -12423,11 +12417,11 @@ _ZN5boost6spirit17iterator_policies17multi_pass_sharedISt4pairINS_4wave8cpplexer
   br label %_ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev.exit
 
 _ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev.exit: ; preds = %51, %_ZN5boost6spirit17iterator_policies17multi_pass_uniqueISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS5_9lex_tokenINS4_4util13file_positionINS9_11flex_stringIcSt11char_traitsIcESaIcENS9_9CowStringINS9_22AllocatorStringStorageIcSE_EEPcEEEEEEEEEEPNS5_19lex_input_interfaceISM_EEENS1_11ref_counted6uniqueENS1_8no_check6uniqueENS1_19split_functor_input6uniqueISR_Lb1EEENS1_15split_std_deque6uniqueISM_EELb1ELb1ELb1EE7releaseINS0_10multi_passISR_NS1_14default_policyISS_SU_SW_SZ_EEEEEEbRT_.exit.i, %_ZN5boost6spirit17iterator_policies17multi_pass_uniqueISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS5_9lex_tokenINS4_4util13file_positionINS9_11flex_stringIcSt11char_traitsIcESaIcENS9_9CowStringINS9_22AllocatorStringStorageIcSE_EEPcEEEEEEEEEEPNS5_19lex_input_interfaceISM_EEENS1_11ref_counted6uniqueENS1_8no_check6uniqueENS1_19split_functor_input6uniqueISR_Lb1EEENS1_15split_std_deque6uniqueISM_EELb1ELb1ELb1EE7destroyINS0_10multi_passISR_NS1_14default_policyISS_SU_SW_SZ_EEEEEEvRT_.exit.i, %_ZN5boost6spirit17iterator_policies17multi_pass_sharedISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS5_9lex_tokenINS4_4util13file_positionINS9_11flex_stringIcSt11char_traitsIcESaIcENS9_9CowStringINS9_22AllocatorStringStorageIcSE_EEPcEEEEEEEEEEPNS5_19lex_input_interfaceISM_EEENS1_11ref_counted6sharedENS1_8no_check6sharedENS1_19split_functor_input6sharedISR_EENS1_15split_std_deque6sharedISM_EEED2Ev.exit.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not, label %78, label %106
 
 78:                                               ; preds = %_ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev.exit
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 4
   call void @_ZNK5boost6spirit7classic11char_parserINS1_5chlitINS_4wave8token_idEEEE5parseINS1_7scannerINS4_4util20unput_queue_iteratorINS4_8cpplexer12lex_iteratorINSC_9lex_tokenINSA_13file_positionINSA_11flex_stringIcSt11char_traitsIcESaIcENSA_9CowStringINSA_22AllocatorStringStorageIcSJ_EEPcEEEEEEEEEESR_NSt7__cxx114listISR_NS_19fast_pool_allocatorISR_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_27no_skipper_iteration_policyINS1_28skip_parser_iteration_policyINS1_11alternativeIS6_S6_EENS1_16iteration_policyEEEEENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS6_T_E4typeERKS1E_(ptr dead_on_unwind nonnull writable sret(%"class.boost::spirit::classic::match.75") align 8 %5, ptr noundef nonnull align 1 dereferenceable(1) %79, ptr noundef nonnull align 8 dereferenceable(40) %1)
   %80 = load i64, ptr %5, align 8, !tbaa !158
@@ -12495,13 +12489,13 @@ _ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traits
   br label %_ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit17
 
 _ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit17: ; preds = %_ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm.exit.i24, %91, %87, %84, %78
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %106
 
 105:                                              ; preds = %46, %44
   %.pn12 = phi { ptr, i32 } [ %47, %46 ], [ %45, %44 ]
   call void @_ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #29
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn12
 
 106:                                              ; preds = %_ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev.exit, %_ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit17
@@ -12607,7 +12601,7 @@ _ZNK5boost6spirit7classic7scannerINS_4wave4util20unput_queue_iteratorINS3_8cpple
   br i1 %23, label %171, label %_ZNK5boost6spirit7classic7scannerINS_4wave4util20unput_queue_iteratorINS3_8cpplexer12lex_iteratorINS6_9lex_tokenINS4_13file_positionINS4_11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEESL_NSt7__cxx114listISL_NS_19fast_pool_allocatorISL_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_27no_skipper_iteration_policyINS1_28skip_parser_iteration_policyINS1_11alternativeINS1_5chlitINS3_8token_idEEES11_EENS1_16iteration_policyEEEEENS1_12match_policyENS1_13action_policyEEEE6at_endEv.exit.thread
 
 _ZNK5boost6spirit7classic7scannerINS_4wave4util20unput_queue_iteratorINS3_8cpplexer12lex_iteratorINS6_9lex_tokenINS4_13file_positionINS4_11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEESL_NSt7__cxx114listISL_NS_19fast_pool_allocatorISL_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_27no_skipper_iteration_policyINS1_28skip_parser_iteration_policyINS1_11alternativeINS1_5chlitINS3_8token_idEEES11_EENS1_16iteration_policyEEEEENS1_12match_policyENS1_13action_policyEEEE6at_endEv.exit.thread: ; preds = %._crit_edge.i.i.i.i.i.i, %20, %_ZNK5boost6spirit7classic7scannerINS_4wave4util20unput_queue_iteratorINS3_8cpplexer12lex_iteratorINS6_9lex_tokenINS4_13file_positionINS4_11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEESL_NSt7__cxx114listISL_NS_19fast_pool_allocatorISL_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_27no_skipper_iteration_policyINS1_28skip_parser_iteration_policyINS1_11alternativeINS1_5chlitINS3_8token_idEEES11_EENS1_16iteration_policyEEEEENS1_12match_policyENS1_13action_policyEEEE6at_endEv.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZNK5boost6spirit7classic7scannerINS_4wave4util20unput_queue_iteratorINS3_8cpplexer12lex_iteratorINS6_9lex_tokenINS4_13file_positionINS4_11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEESL_NSt7__cxx114listISL_NS_19fast_pool_allocatorISL_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_27no_skipper_iteration_policyINS1_28skip_parser_iteration_policyINS1_11alternativeINS1_5chlitINS3_8token_idEEES11_EENS1_16iteration_policyEEEEENS1_12match_policyENS1_13action_policyEEEEdeEv(ptr dead_on_unwind nonnull writable sret(%"class.boost::wave::cpplexer::lex_token") align 8 %4, ptr noundef nonnull align 8 dereferenceable(40) %2)
   %24 = load ptr, ptr %4, align 8, !tbaa !95
   %.not.i = icmp eq ptr %24, null
@@ -12619,7 +12613,7 @@ _ZNK5boost6spirit7classic7scannerINS_4wave4util20unput_queue_iteratorINS3_8cpple
   br i1 %26, label %46, label %_ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt11char_traitsIcESaIcENS3_9CowStringINS3_22AllocatorStringStorageIcS8_EEPcEEEEEEED2Ev.exit28.thread
 
 _ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt11char_traitsIcESaIcENS3_9CowStringINS3_22AllocatorStringStorageIcS8_EEPcEEEEEEED2Ev.exit28.thread: ; preds = %.thread
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %171
 
 27:                                               ; preds = %_ZNK5boost6spirit7classic7scannerINS_4wave4util20unput_queue_iteratorINS3_8cpplexer12lex_iteratorINS6_9lex_tokenINS4_13file_positionINS4_11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEESL_NSt7__cxx114listISL_NS_19fast_pool_allocatorISL_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_27no_skipper_iteration_policyINS1_28skip_parser_iteration_policyINS1_11alternativeINS1_5chlitINS3_8token_idEEES11_EENS1_16iteration_policyEEEEENS1_12match_policyENS1_13action_policyEEEE6at_endEv.exit.thread
@@ -12677,7 +12671,7 @@ _ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt
   br i1 %32, label %46, label %152
 
 46:                                               ; preds = %_ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm.exit.i, %.thread, %_ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt11char_traitsIcESaIcENS3_9CowStringINS3_22AllocatorStringStorageIcS8_EEPcEEEEEEED2Ev.exit
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %47 = load ptr, ptr %7, align 8, !tbaa !313
   %48 = load ptr, ptr %47, align 8, !tbaa !289
   store ptr %48, ptr %5, align 8, !tbaa !289
@@ -12699,7 +12693,7 @@ _ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt
   %57 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %58 = load ptr, ptr %57, align 8, !tbaa !293
   store ptr %58, ptr %56, align 8, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %59 = load ptr, ptr %2, align 8, !tbaa !151
   call void @llvm.experimental.noalias.scope.decl(metadata !315)
   %60 = ptrtoint ptr %59 to i64
@@ -12844,7 +12838,7 @@ _ZN5boost6spirit17iterator_policies17multi_pass_sharedISt4pairINS_4wave8cpplexer
   br label %_ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev.exit
 
 _ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev.exit: ; preds = %_ZNK5boost6spirit7classic7scannerINS_4wave4util20unput_queue_iteratorINS3_8cpplexer12lex_iteratorINS6_9lex_tokenINS4_13file_positionINS4_11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEESL_NSt7__cxx114listISL_NS_19fast_pool_allocatorISL_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_27no_skipper_iteration_policyINSW_INS1_28skip_parser_iteration_policyINS1_11alternativeINS1_5chlitINS3_8token_idEEES11_EENS1_16iteration_policyEEEEEEENS1_12match_policyENS1_13action_policyEEEEppEv.exit, %_ZN5boost6spirit17iterator_policies17multi_pass_uniqueISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS5_9lex_tokenINS4_4util13file_positionINS9_11flex_stringIcSt11char_traitsIcESaIcENS9_9CowStringINS9_22AllocatorStringStorageIcSE_EEPcEEEEEEEEEEPNS5_19lex_input_interfaceISM_EEENS1_11ref_counted6uniqueENS1_8no_check6uniqueENS1_19split_functor_input6uniqueISR_Lb1EEENS1_15split_std_deque6uniqueISM_EELb1ELb1ELb1EE7releaseINS0_10multi_passISR_NS1_14default_policyISS_SU_SW_SZ_EEEEEEbRT_.exit.i, %_ZN5boost6spirit17iterator_policies17multi_pass_uniqueISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS5_9lex_tokenINS4_4util13file_positionINS9_11flex_stringIcSt11char_traitsIcESaIcENS9_9CowStringINS9_22AllocatorStringStorageIcSE_EEPcEEEEEEEEEEPNS5_19lex_input_interfaceISM_EEENS1_11ref_counted6uniqueENS1_8no_check6uniqueENS1_19split_functor_input6uniqueISR_Lb1EEENS1_15split_std_deque6uniqueISM_EELb1ELb1ELb1EE7destroyINS0_10multi_passISR_NS1_14default_policyISS_SU_SW_SZ_EEEEEEvRT_.exit.i, %_ZN5boost6spirit17iterator_policies17multi_pass_sharedISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS5_9lex_tokenINS4_4util13file_positionINS9_11flex_stringIcSt11char_traitsIcESaIcENS9_9CowStringINS9_22AllocatorStringStorageIcSE_EEPcEEEEEEEEEEPNS5_19lex_input_interfaceISM_EEENS1_11ref_counted6sharedENS1_8no_check6sharedENS1_19split_functor_input6sharedISR_EENS1_15split_std_deque6sharedISM_EEED2Ev.exit.i
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.experimental.noalias.scope.decl(metadata !322)
   store i64 1, ptr %0, align 8, !tbaa !158, !alias.scope !322
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -12925,7 +12919,7 @@ _ZN5boost6spirit17iterator_policies17multi_pass_sharedISt4pairINS_4wave8cpplexer
   br label %_ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev.exit44
 
 _ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev.exit44: ; preds = %125, %_ZN5boost6spirit17iterator_policies17multi_pass_uniqueISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS5_9lex_tokenINS4_4util13file_positionINS9_11flex_stringIcSt11char_traitsIcESaIcENS9_9CowStringINS9_22AllocatorStringStorageIcSE_EEPcEEEEEEEEEEPNS5_19lex_input_interfaceISM_EEENS1_11ref_counted6uniqueENS1_8no_check6uniqueENS1_19split_functor_input6uniqueISR_Lb1EEENS1_15split_std_deque6uniqueISM_EELb1ELb1ELb1EE7releaseINS0_10multi_passISR_NS1_14default_policyISS_SU_SW_SZ_EEEEEEbRT_.exit.i31, %_ZN5boost6spirit17iterator_policies17multi_pass_sharedISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS5_9lex_tokenINS4_4util13file_positionINS9_11flex_stringIcSt11char_traitsIcESaIcENS9_9CowStringINS9_22AllocatorStringStorageIcSE_EEPcEEEEEEEEEEPNS5_19lex_input_interfaceISM_EEENS1_11ref_counted6sharedENS1_8no_check6sharedENS1_19split_functor_input6sharedISR_EENS1_15split_std_deque6sharedISM_EEED2Ev.exit.i43
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %152
 
 150:                                              ; preds = %92
@@ -12936,11 +12930,11 @@ _ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functo
 .body:                                            ; preds = %85, %150
   %.pn = phi { ptr, i32 } [ %151, %150 ], [ %86, %85 ]
   call void @_ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %62) #29
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #29
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt11char_traitsIcESaIcENS3_9CowStringINS3_22AllocatorStringStorageIcS8_EEPcEEEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #29
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn
 
 152:                                              ; preds = %_ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm.exit.i, %_ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt11char_traitsIcESaIcENS3_9CowStringINS3_22AllocatorStringStorageIcS8_EEPcEEEEEEED2Ev.exit, %_ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev.exit44
@@ -12999,11 +12993,11 @@ _ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traits
   store ptr %169, ptr %158, align 8, !tbaa !17
   store ptr %158, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !97
   %170 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE) #29
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %switch.ph, label %171, label %173
 
 _ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt11char_traitsIcESaIcENS3_9CowStringINS3_22AllocatorStringStorageIcS8_EEPcEEEEEEED2Ev.exit28: ; preds = %152, %153, %157
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %switch.ph, label %171, label %173
 
 171:                                              ; preds = %_ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm.exit.i27, %_ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt11char_traitsIcESaIcENS3_9CowStringINS3_22AllocatorStringStorageIcS8_EEPcEEEEEEED2Ev.exit28.thread, %_ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt11char_traitsIcESaIcENS3_9CowStringINS3_22AllocatorStringStorageIcS8_EEPcEEEEEEED2Ev.exit28, %_ZNK5boost6spirit7classic7scannerINS_4wave4util20unput_queue_iteratorINS3_8cpplexer12lex_iteratorINS6_9lex_tokenINS4_13file_positionINS4_11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEESL_NSt7__cxx114listISL_NS_19fast_pool_allocatorISL_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_27no_skipper_iteration_policyINS1_28skip_parser_iteration_policyINS1_11alternativeINS1_5chlitINS3_8token_idEEES11_EENS1_16iteration_policyEEEEENS1_12match_policyENS1_13action_policyEEEE6at_endEv.exit
@@ -13562,7 +13556,7 @@ _ZNK5boost8weak_ptrINS_6spirit7classic4impl14grammar_helperINS2_7grammarINS_4wav
   br label %58
 
 26:                                               ; preds = %_ZNK5boost8weak_ptrINS_6spirit7classic4impl14grammar_helperINS2_7grammarINS_4wave8grammars19has_include_grammarINSt7__cxx114listINS6_8cpplexer9lex_tokenINS6_4util13file_positionINSD_11flex_stringIcSt11char_traitsIcESaIcENSD_9CowStringINSD_22AllocatorStringStorageIcSI_EEPcEEEEEEEENS_19fast_pool_allocatorISQ_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS2_14parser_contextINS2_5nil_tEEEEESW_NS2_7scannerINSD_20unput_queue_iteratorINSB_12lex_iteratorISQ_EESQ_SV_EENS2_16scanner_policiesINS2_28skip_parser_iteration_policyINS2_11alternativeINS2_5chlitINS6_8token_idEEES1B_EENS2_16iteration_policyEEENS2_12match_policyENS2_13action_policyEEEEEEEE7expiredEv.exit.thread, %_ZNK5boost8weak_ptrINS_6spirit7classic4impl14grammar_helperINS2_7grammarINS_4wave8grammars19has_include_grammarINSt7__cxx114listINS6_8cpplexer9lex_tokenINS6_4util13file_positionINSD_11flex_stringIcSt11char_traitsIcESaIcENSD_9CowStringINSD_22AllocatorStringStorageIcSI_EEPcEEEEEEEENS_19fast_pool_allocatorISQ_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS2_14parser_contextINS2_5nil_tEEEEESW_NS2_7scannerINSD_20unput_queue_iteratorINSB_12lex_iteratorISQ_EESQ_SV_EENS2_16scanner_policiesINS2_28skip_parser_iteration_policyINS2_11alternativeINS2_5chlitINS6_8token_idEEES1B_EENS2_16iteration_policyEEENS2_12match_policyENS2_13action_policyEEEEEEEE7expiredEv.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !333)
   store ptr null, ptr %2, align 8, !tbaa !336, !alias.scope !333
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -13622,14 +13616,14 @@ _ZN5boost6detail12shared_countC2ERKNS0_10weak_countENS0_14sp_nothrow_tagE.exit.i
   unreachable
 
 _ZN5boost10shared_ptrINS_6spirit7classic4impl14grammar_helperINS2_7grammarINS_4wave8grammars19has_include_grammarINSt7__cxx114listINS6_8cpplexer9lex_tokenINS6_4util13file_positionINSD_11flex_stringIcSt11char_traitsIcESaIcENSD_9CowStringINSD_22AllocatorStringStorageIcSI_EEPcEEEEEEEENS_19fast_pool_allocatorISQ_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS2_14parser_contextINS2_5nil_tEEEEESW_NS2_7scannerINSD_20unput_queue_iteratorINSB_12lex_iteratorISQ_EESQ_SV_EENS2_16scanner_policiesINS2_28skip_parser_iteration_policyINS2_11alternativeINS2_5chlitINS6_8token_idEEES1B_EENS2_16iteration_policyEEENS2_12match_policyENS2_13action_policyEEEEEEEED2Ev.exit: ; preds = %38, %.noexc.i.i, %49
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %37
 
 56:                                               ; preds = %_ZN5boost6detail12shared_countC2ERKNS0_10weak_countENS0_14sp_nothrow_tagE.exit.i.i
   %57 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5boost10shared_ptrINS_6spirit7classic4impl14grammar_helperINS2_7grammarINS_4wave8grammars19has_include_grammarINSt7__cxx114listINS6_8cpplexer9lex_tokenINS6_4util13file_positionINSD_11flex_stringIcSt11char_traitsIcESaIcENSD_9CowStringINSD_22AllocatorStringStorageIcSI_EEPcEEEEEEEENS_19fast_pool_allocatorISQ_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS2_14parser_contextINS2_5nil_tEEEEESW_NS2_7scannerINSD_20unput_queue_iteratorINSB_12lex_iteratorISQ_EESQ_SV_EENS2_16scanner_policiesINS2_28skip_parser_iteration_policyINS2_11alternativeINS2_5chlitINS6_8token_idEEES1B_EENS2_16iteration_policyEEENS2_12match_policyENS2_13action_policyEEEEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #29
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %58
 
 58:                                               ; preds = %56, %24
@@ -13795,14 +13789,14 @@ _ZNSt6vectorIPN5boost4wave8grammars19has_include_grammarINSt7__cxx114listINS1_8c
   br i1 %.not17, label %30, label %88
 
 30:                                               ; preds = %_ZNSt6vectorIPN5boost4wave8grammars19has_include_grammarINSt7__cxx114listINS1_8cpplexer9lex_tokenINS1_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEENS0_19fast_pool_allocatorISL_NS0_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEE10definitionINS0_6spirit7classic7scannerINS8_20unput_queue_iteratorINS6_12lex_iteratorISL_EESL_SQ_EENSU_16scanner_policiesINSU_28skip_parser_iteration_policyINSU_11alternativeINSU_5chlitINS1_8token_idEEES15_EENSU_16iteration_policyEEENSU_12match_policyENSU_13action_policyEEEEEEESaIS1E_EE6resizeEm.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %31 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #33
   invoke void @_ZN5boost4wave8grammars19has_include_grammarINSt7__cxx114listINS0_8cpplexer9lex_tokenINS0_4util13file_positionINS7_11flex_stringIcSt11char_traitsIcESaIcENS7_9CowStringINS7_22AllocatorStringStorageIcSC_EEPcEEEEEEEENS_19fast_pool_allocatorISK_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEE10definitionINS_6spirit7classic7scannerINS7_20unput_queue_iteratorINS5_12lex_iteratorISK_EESK_SP_EENST_16scanner_policiesINST_28skip_parser_iteration_policyINST_11alternativeINST_5chlitINS0_8token_idEEES14_EENST_16iteration_policyEEENST_12match_policyENST_13action_policyEEEEEEC2ERKSQ_(ptr noundef nonnull align 8 dereferenceable(48) %31, ptr noundef nonnull align 8 dereferenceable(113) %1)
           to label %32 unwind label %74
 
 32:                                               ; preds = %30
   store ptr %31, ptr %3, align 8, !tbaa !346
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store ptr %33, ptr %4, align 8, !tbaa !98
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -13901,8 +13895,8 @@ _ZN5boost6spirit7classic4impl19grammar_helper_listINS1_7grammarINS_4wave8grammar
   br i1 %73, label %71, label %_ZN5boost7movelib10unique_ptrINS_4wave8grammars19has_include_grammarINSt7__cxx114listINS2_8cpplexer9lex_tokenINS2_4util13file_positionINS9_11flex_stringIcSt11char_traitsIcESaIcENS9_9CowStringINS9_22AllocatorStringStorageIcSE_EEPcEEEEEEEENS_19fast_pool_allocatorISM_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEE10definitionINS_6spirit7classic7scannerINS9_20unput_queue_iteratorINS7_12lex_iteratorISM_EESM_SR_EENSV_16scanner_policiesINSV_28skip_parser_iteration_policyINSV_11alternativeINSV_5chlitINS2_8token_idEEES16_EENSV_16iteration_policyEEENSV_12match_policyENSV_13action_policyEEEEEEENS0_14default_deleteIS1E_EEED2Ev.exit, !llvm.loop !110
 
 _ZN5boost7movelib10unique_ptrINS_4wave8grammars19has_include_grammarINSt7__cxx114listINS2_8cpplexer9lex_tokenINS2_4util13file_positionINS9_11flex_stringIcSt11char_traitsIcESaIcENS9_9CowStringINS9_22AllocatorStringStorageIcSE_EEPcEEEEEEEENS_19fast_pool_allocatorISM_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEE10definitionINS_6spirit7classic7scannerINS9_20unput_queue_iteratorINS7_12lex_iteratorISM_EESM_SR_EENSV_16scanner_policiesINSV_28skip_parser_iteration_policyINSV_11alternativeINSV_5chlitINS2_8token_idEEES16_EENSV_16iteration_policyEEENSV_12match_policyENSV_13action_policyEEEEEEENS0_14default_deleteIS1E_EEED2Ev.exit: ; preds = %71, %_ZN5boost6spirit7classic4impl19grammar_helper_listINS1_7grammarINS_4wave8grammars19has_include_grammarINSt7__cxx114listINS5_8cpplexer9lex_tokenINS5_4util13file_positionINSC_11flex_stringIcSt11char_traitsIcESaIcENSC_9CowStringINSC_22AllocatorStringStorageIcSH_EEPcEEEEEEEENS_19fast_pool_allocatorISP_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_14parser_contextINS1_5nil_tEEEEEE9push_backEPNS2_19grammar_helper_baseISZ_EE.exit
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #29
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %88
 
 74:                                               ; preds = %30
@@ -13934,13 +13928,13 @@ _ZN5boost7movelib10unique_ptrINS_4wave8grammars19has_include_grammarINSt7__cxx11
 
 _ZN5boost11unique_lockINS_5mutexEED2Ev.exit22:    ; preds = %84, %78, %76
   %.pn = phi { ptr, i32 } [ %77, %76 ], [ %79, %78 ], [ %79, %84 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZN5boost7movelib10unique_ptrINS_4wave8grammars19has_include_grammarINSt7__cxx114listINS2_8cpplexer9lex_tokenINS2_4util13file_positionINS9_11flex_stringIcSt11char_traitsIcESaIcENS9_9CowStringINS9_22AllocatorStringStorageIcSE_EEPcEEEEEEEENS_19fast_pool_allocatorISM_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEE10definitionINS_6spirit7classic7scannerINS9_20unput_queue_iteratorINS7_12lex_iteratorISM_EESM_SR_EENSV_16scanner_policiesINSV_28skip_parser_iteration_policyINSV_11alternativeINSV_5chlitINS2_8token_idEEES16_EENSV_16iteration_policyEEENSV_12match_policyENSV_13action_policyEEEEEEENS0_14default_deleteIS1E_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
   br label %87
 
 87:                                               ; preds = %_ZN5boost11unique_lockINS_5mutexEED2Ev.exit22, %74
   %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN5boost11unique_lockINS_5mutexEED2Ev.exit22 ], [ %75, %74 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn.pn
 
 88:                                               ; preds = %_ZNSt6vectorIPN5boost4wave8grammars19has_include_grammarINSt7__cxx114listINS1_8cpplexer9lex_tokenINS1_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEENS0_19fast_pool_allocatorISL_NS0_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEE10definitionINS0_6spirit7classic7scannerINS8_20unput_queue_iteratorINS6_12lex_iteratorISL_EESL_SQ_EENSU_16scanner_policiesINSU_28skip_parser_iteration_policyINSU_11alternativeINSU_5chlitINS1_8token_idEEES15_EENSU_16iteration_policyEEENSU_12match_policyENSU_13action_policyEEEEEEESaIS1E_EE6resizeEm.exit, %_ZN5boost7movelib10unique_ptrINS_4wave8grammars19has_include_grammarINSt7__cxx114listINS2_8cpplexer9lex_tokenINS2_4util13file_positionINS9_11flex_stringIcSt11char_traitsIcESaIcENS9_9CowStringINS9_22AllocatorStringStorageIcSE_EEPcEEEEEEEENS_19fast_pool_allocatorISM_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEE10definitionINS_6spirit7classic7scannerINS9_20unput_queue_iteratorINS7_12lex_iteratorISM_EESM_SR_EENSV_16scanner_policiesINSV_28skip_parser_iteration_policyINSV_11alternativeINSV_5chlitINS2_8token_idEEES16_EENSV_16iteration_policyEEENSV_12match_policyENSV_13action_policyEEEEEEENS0_14default_deleteIS1E_EEED2Ev.exit
@@ -14808,7 +14802,7 @@ _ZNK5boost6spirit7classic8sequenceINS2_INS1_5chlitINS_4wave8token_idEEES6_EENS1_
   br i1 %.not.not, label %8, label %_ZNK5boost6spirit7classic8sequenceINS2_INS1_5chlitINS_4wave8token_idEEES6_EENS1_11alternativeINS8_INS1_4ruleINS1_7scannerINS4_4util20unput_queue_iteratorINS4_8cpplexer12lex_iteratorINSD_9lex_tokenINSB_13file_positionINSB_11flex_stringIcSt11char_traitsIcESaIcENSB_9CowStringINSB_22AllocatorStringStorageIcSK_EEPcEEEEEEEEEESS_NSt7__cxx114listISS_NS_19fast_pool_allocatorISS_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS8_IS6_S6_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEENS1_5nil_tES1B_EES1C_EES1C_EEE5parseIS1A_EENS1_13parser_resultIS1F_T_E4typeERKS1I_.exit.thread
 
 8:                                                ; preds = %_ZNK5boost6spirit7classic8sequenceINS2_INS1_5chlitINS_4wave8token_idEEES6_EENS1_11alternativeINS8_INS1_4ruleINS1_7scannerINS4_4util20unput_queue_iteratorINS4_8cpplexer12lex_iteratorINSD_9lex_tokenINSB_13file_positionINSB_11flex_stringIcSt11char_traitsIcESaIcENSB_9CowStringINSB_22AllocatorStringStorageIcSK_EEPcEEEEEEEEEESS_NSt7__cxx114listISS_NS_19fast_pool_allocatorISS_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS8_IS6_S6_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEENS1_5nil_tES1B_EES1C_EES1C_EEE5parseIS1A_EENS1_13parser_resultIS1F_T_E4typeERKS1I_.exit
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @_ZNK5boost6spirit7classic11char_parserINS1_5chlitINS_4wave8token_idEEEE5parseINS1_7scannerINS4_4util20unput_queue_iteratorINS4_8cpplexer12lex_iteratorINSC_9lex_tokenINSA_13file_positionINSA_11flex_stringIcSt11char_traitsIcESaIcENSA_9CowStringINSA_22AllocatorStringStorageIcSJ_EEPcEEEEEEEEEESR_NSt7__cxx114listISR_NS_19fast_pool_allocatorISR_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeIS6_S6_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS6_T_E4typeERKS1C_(ptr dead_on_unwind nonnull writable sret(%"class.boost::spirit::classic::match.75") align 8 %3, ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(40) %1)
   %10 = load i64, ptr %3, align 8, !tbaa !158
@@ -14876,7 +14870,7 @@ _ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traits
   br label %_ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit
 
 _ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit: ; preds = %_ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm.exit.i, %21, %17, %14, %8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not7.not.not = icmp sgt i64 %10, -1
   %35 = add nsw i64 %10, %spec.select.i
   %spec.select = select i1 %.not7.not.not, i64 %35, i64 -1
@@ -14924,7 +14918,7 @@ _ZNK5boost6spirit7classic7scannerINS_4wave4util20unput_queue_iteratorINS3_8cpple
   br i1 %24, label %172, label %_ZNK5boost6spirit7classic7scannerINS_4wave4util20unput_queue_iteratorINS3_8cpplexer12lex_iteratorINS6_9lex_tokenINS4_13file_positionINS4_11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEESL_NSt7__cxx114listISL_NS_19fast_pool_allocatorISL_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINS1_5chlitINS3_8token_idEEES10_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEE6at_endEv.exit.thread
 
 _ZNK5boost6spirit7classic7scannerINS_4wave4util20unput_queue_iteratorINS3_8cpplexer12lex_iteratorINS6_9lex_tokenINS4_13file_positionINS4_11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEESL_NSt7__cxx114listISL_NS_19fast_pool_allocatorISL_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINS1_5chlitINS3_8token_idEEES10_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEE6at_endEv.exit.thread: ; preds = %._crit_edge.i.i.i.i.i.i, %21, %_ZNK5boost6spirit7classic7scannerINS_4wave4util20unput_queue_iteratorINS3_8cpplexer12lex_iteratorINS6_9lex_tokenINS4_13file_positionINS4_11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEESL_NSt7__cxx114listISL_NS_19fast_pool_allocatorISL_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINS1_5chlitINS3_8token_idEEES10_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEE6at_endEv.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZNK5boost6spirit7classic7scannerINS_4wave4util20unput_queue_iteratorINS3_8cpplexer12lex_iteratorINS6_9lex_tokenINS4_13file_positionINS4_11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEESL_NSt7__cxx114listISL_NS_19fast_pool_allocatorISL_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINS1_5chlitINS3_8token_idEEES10_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEdeEv(ptr dead_on_unwind nonnull writable sret(%"class.boost::wave::cpplexer::lex_token") align 8 %4, ptr noundef nonnull align 8 dereferenceable(40) %2)
   %25 = load ptr, ptr %4, align 8, !tbaa !95
   %.not.i = icmp eq ptr %25, null
@@ -14936,7 +14930,7 @@ _ZNK5boost6spirit7classic7scannerINS_4wave4util20unput_queue_iteratorINS3_8cpple
   br i1 %27, label %47, label %_ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt11char_traitsIcESaIcENS3_9CowStringINS3_22AllocatorStringStorageIcS8_EEPcEEEEEEED2Ev.exit28.thread
 
 _ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt11char_traitsIcESaIcENS3_9CowStringINS3_22AllocatorStringStorageIcS8_EEPcEEEEEEED2Ev.exit28.thread: ; preds = %.thread
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %172
 
 28:                                               ; preds = %_ZNK5boost6spirit7classic7scannerINS_4wave4util20unput_queue_iteratorINS3_8cpplexer12lex_iteratorINS6_9lex_tokenINS4_13file_positionINS4_11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEESL_NSt7__cxx114listISL_NS_19fast_pool_allocatorISL_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINS1_5chlitINS3_8token_idEEES10_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEE6at_endEv.exit.thread
@@ -14994,7 +14988,7 @@ _ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt
   br i1 %33, label %47, label %153
 
 47:                                               ; preds = %_ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm.exit.i, %.thread, %_ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt11char_traitsIcESaIcENS3_9CowStringINS3_22AllocatorStringStorageIcS8_EEPcEEEEEEED2Ev.exit
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %48 = load ptr, ptr %8, align 8, !tbaa !300
   %49 = load ptr, ptr %48, align 8, !tbaa !289
   store ptr %49, ptr %5, align 8, !tbaa !289
@@ -15016,7 +15010,7 @@ _ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt
   %58 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %59 = load ptr, ptr %58, align 8, !tbaa !293
   store ptr %59, ptr %57, align 8, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %60 = load ptr, ptr %2, align 8, !tbaa !151
   call void @llvm.experimental.noalias.scope.decl(metadata !357)
   %61 = ptrtoint ptr %60 to i64
@@ -15161,7 +15155,7 @@ _ZN5boost6spirit17iterator_policies17multi_pass_sharedISt4pairINS_4wave8cpplexer
   br label %_ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev.exit
 
 _ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev.exit: ; preds = %_ZNK5boost6spirit7classic7scannerINS_4wave4util20unput_queue_iteratorINS3_8cpplexer12lex_iteratorINS6_9lex_tokenINS4_13file_positionINS4_11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEESL_NSt7__cxx114listISL_NS_19fast_pool_allocatorISL_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_27no_skipper_iteration_policyINS1_28skip_parser_iteration_policyINS1_11alternativeINS1_5chlitINS3_8token_idEEES11_EENS1_16iteration_policyEEEEENS1_12match_policyENS1_13action_policyEEEEppEv.exit, %_ZN5boost6spirit17iterator_policies17multi_pass_uniqueISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS5_9lex_tokenINS4_4util13file_positionINS9_11flex_stringIcSt11char_traitsIcESaIcENS9_9CowStringINS9_22AllocatorStringStorageIcSE_EEPcEEEEEEEEEEPNS5_19lex_input_interfaceISM_EEENS1_11ref_counted6uniqueENS1_8no_check6uniqueENS1_19split_functor_input6uniqueISR_Lb1EEENS1_15split_std_deque6uniqueISM_EELb1ELb1ELb1EE7releaseINS0_10multi_passISR_NS1_14default_policyISS_SU_SW_SZ_EEEEEEbRT_.exit.i, %_ZN5boost6spirit17iterator_policies17multi_pass_uniqueISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS5_9lex_tokenINS4_4util13file_positionINS9_11flex_stringIcSt11char_traitsIcESaIcENS9_9CowStringINS9_22AllocatorStringStorageIcSE_EEPcEEEEEEEEEEPNS5_19lex_input_interfaceISM_EEENS1_11ref_counted6uniqueENS1_8no_check6uniqueENS1_19split_functor_input6uniqueISR_Lb1EEENS1_15split_std_deque6uniqueISM_EELb1ELb1ELb1EE7destroyINS0_10multi_passISR_NS1_14default_policyISS_SU_SW_SZ_EEEEEEvRT_.exit.i, %_ZN5boost6spirit17iterator_policies17multi_pass_sharedISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS5_9lex_tokenINS4_4util13file_positionINS9_11flex_stringIcSt11char_traitsIcESaIcENS9_9CowStringINS9_22AllocatorStringStorageIcSE_EEPcEEEEEEEEEEPNS5_19lex_input_interfaceISM_EEENS1_11ref_counted6sharedENS1_8no_check6sharedENS1_19split_functor_input6sharedISR_EENS1_15split_std_deque6sharedISM_EEED2Ev.exit.i
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.experimental.noalias.scope.decl(metadata !360)
   store i64 1, ptr %0, align 8, !tbaa !158, !alias.scope !360
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -15242,7 +15236,7 @@ _ZN5boost6spirit17iterator_policies17multi_pass_sharedISt4pairINS_4wave8cpplexer
   br label %_ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev.exit44
 
 _ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev.exit44: ; preds = %126, %_ZN5boost6spirit17iterator_policies17multi_pass_uniqueISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS5_9lex_tokenINS4_4util13file_positionINS9_11flex_stringIcSt11char_traitsIcESaIcENS9_9CowStringINS9_22AllocatorStringStorageIcSE_EEPcEEEEEEEEEEPNS5_19lex_input_interfaceISM_EEENS1_11ref_counted6uniqueENS1_8no_check6uniqueENS1_19split_functor_input6uniqueISR_Lb1EEENS1_15split_std_deque6uniqueISM_EELb1ELb1ELb1EE7releaseINS0_10multi_passISR_NS1_14default_policyISS_SU_SW_SZ_EEEEEEbRT_.exit.i31, %_ZN5boost6spirit17iterator_policies17multi_pass_sharedISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS5_9lex_tokenINS4_4util13file_positionINS9_11flex_stringIcSt11char_traitsIcESaIcENS9_9CowStringINS9_22AllocatorStringStorageIcSE_EEPcEEEEEEEEEEPNS5_19lex_input_interfaceISM_EEENS1_11ref_counted6sharedENS1_8no_check6sharedENS1_19split_functor_input6sharedISR_EENS1_15split_std_deque6sharedISM_EEED2Ev.exit.i43
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %153
 
 151:                                              ; preds = %93
@@ -15253,11 +15247,11 @@ _ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functo
 .body:                                            ; preds = %86, %151
   %.pn = phi { ptr, i32 } [ %152, %151 ], [ %87, %86 ]
   call void @_ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %63) #29
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #29
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt11char_traitsIcESaIcENS3_9CowStringINS3_22AllocatorStringStorageIcS8_EEPcEEEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #29
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn
 
 153:                                              ; preds = %_ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm.exit.i, %_ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt11char_traitsIcESaIcENS3_9CowStringINS3_22AllocatorStringStorageIcS8_EEPcEEEEEEED2Ev.exit, %_ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev.exit44
@@ -15316,11 +15310,11 @@ _ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traits
   store ptr %170, ptr %159, align 8, !tbaa !17
   store ptr %159, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !97
   %171 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE) #29
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %switch.ph, label %172, label %174
 
 _ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt11char_traitsIcESaIcENS3_9CowStringINS3_22AllocatorStringStorageIcS8_EEPcEEEEEEED2Ev.exit28: ; preds = %153, %154, %158
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %switch.ph, label %172, label %174
 
 172:                                              ; preds = %_ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm.exit.i27, %_ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt11char_traitsIcESaIcENS3_9CowStringINS3_22AllocatorStringStorageIcS8_EEPcEEEEEEED2Ev.exit28.thread, %_ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt11char_traitsIcESaIcENS3_9CowStringINS3_22AllocatorStringStorageIcS8_EEPcEEEEEEED2Ev.exit28, %_ZNK5boost6spirit7classic7scannerINS_4wave4util20unput_queue_iteratorINS3_8cpplexer12lex_iteratorINS6_9lex_tokenINS4_13file_positionINS4_11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEESL_NSt7__cxx114listISL_NS_19fast_pool_allocatorISL_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINS1_5chlitINS3_8token_idEEES10_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEE6at_endEv.exit
@@ -15337,7 +15331,7 @@ _ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt
 define linkonce_odr hidden i64 @_ZNK5boost6spirit7classic8sequenceINS1_5chlitINS_4wave8token_idEEES6_E5parseINS1_7scannerINS4_4util20unput_queue_iteratorINS4_8cpplexer12lex_iteratorINSC_9lex_tokenINSA_13file_positionINSA_11flex_stringIcSt11char_traitsIcESaIcENSA_9CowStringINSA_22AllocatorStringStorageIcSJ_EEPcEEEEEEEEEESR_NSt7__cxx114listISR_NS_19fast_pool_allocatorISR_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeIS6_S6_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS7_T_E4typeERKS1C_(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) local_unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.boost::spirit::classic::match.75", align 8
   %4 = alloca %"class.boost::spirit::classic::match.75", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZNK5boost6spirit7classic11char_parserINS1_5chlitINS_4wave8token_idEEEE5parseINS1_7scannerINS4_4util20unput_queue_iteratorINS4_8cpplexer12lex_iteratorINSC_9lex_tokenINSA_13file_positionINSA_11flex_stringIcSt11char_traitsIcESaIcENSA_9CowStringINSA_22AllocatorStringStorageIcSJ_EEPcEEEEEEEEEESR_NSt7__cxx114listISR_NS_19fast_pool_allocatorISR_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeIS6_S6_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS6_T_E4typeERKS1C_(ptr dead_on_unwind nonnull writable sret(%"class.boost::spirit::classic::match.75") align 8 %3, ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(40) %1)
   %5 = load i64, ptr %3, align 8, !tbaa !158
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -15404,12 +15398,12 @@ _ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traits
   br label %_ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit
 
 _ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit: ; preds = %_ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm.exit.i, %16, %12, %9, %2
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not.not = icmp sgt i64 %5, -1
   br i1 %.not.not, label %30, label %.thread
 
 30:                                               ; preds = %_ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 4
   call void @_ZNK5boost6spirit7classic11char_parserINS1_5chlitINS_4wave8token_idEEEE5parseINS1_7scannerINS4_4util20unput_queue_iteratorINS4_8cpplexer12lex_iteratorINSC_9lex_tokenINSA_13file_positionINSA_11flex_stringIcSt11char_traitsIcESaIcENSA_9CowStringINSA_22AllocatorStringStorageIcSJ_EEPcEEEEEEEEEESR_NSt7__cxx114listISR_NS_19fast_pool_allocatorISR_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeIS6_S6_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS6_T_E4typeERKS1C_(ptr dead_on_unwind nonnull writable sret(%"class.boost::spirit::classic::match.75") align 8 %4, ptr noundef nonnull align 1 dereferenceable(1) %31, ptr noundef nonnull align 8 dereferenceable(40) %1)
   %32 = load i64, ptr %4, align 8, !tbaa !158
@@ -15477,7 +15471,7 @@ _ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traits
   br label %_ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit11
 
 _ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit11: ; preds = %_ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm.exit.i19, %43, %39, %36, %30
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not10.not.not = icmp sgt i64 %32, -1
   %57 = add nsw i64 %32, %5
   %spec.select = select i1 %.not10.not.not, i64 %57, i64 -1
@@ -15491,7 +15485,7 @@ _ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_posit
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden i64 @_ZNK5boost6spirit7classic11alternativeINS2_INS1_4ruleINS1_7scannerINS_4wave4util20unput_queue_iteratorINS5_8cpplexer12lex_iteratorINS8_9lex_tokenINS6_13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSF_EEPcEEEEEEEEEESN_NSt7__cxx114listISN_NS_19fast_pool_allocatorISN_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS2_INS1_5chlitINS5_8token_idEEES11_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEENS1_5nil_tES19_EES1A_EES1A_E5parseIS18_EENS1_13parser_resultIS1C_T_E4typeERKS1F_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) local_unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.boost::wave::util::unput_queue_iterator.55", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !300
   %6 = load ptr, ptr %5, align 8, !tbaa !289
@@ -15523,7 +15517,7 @@ define linkonce_odr hidden i64 @_ZNK5boost6spirit7classic11alternativeINS2_INS1_
   %19 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #29
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %19
 
 20:                                               ; preds = %17
@@ -15598,7 +15592,7 @@ _ZN5boost6spirit17iterator_policies17multi_pass_sharedISt4pairINS_4wave8cpplexer
   br label %_ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev.exit
 
 _ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev.exit: ; preds = %23, %_ZN5boost6spirit17iterator_policies17multi_pass_uniqueISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS5_9lex_tokenINS4_4util13file_positionINS9_11flex_stringIcSt11char_traitsIcESaIcENS9_9CowStringINS9_22AllocatorStringStorageIcSE_EEPcEEEEEEEEEEPNS5_19lex_input_interfaceISM_EEENS1_11ref_counted6uniqueENS1_8no_check6uniqueENS1_19split_functor_input6uniqueISR_Lb1EEENS1_15split_std_deque6uniqueISM_EELb1ELb1ELb1EE7releaseINS0_10multi_passISR_NS1_14default_policyISS_SU_SW_SZ_EEEEEEbRT_.exit.i, %_ZN5boost6spirit17iterator_policies17multi_pass_uniqueISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS5_9lex_tokenINS4_4util13file_positionINS9_11flex_stringIcSt11char_traitsIcESaIcENS9_9CowStringINS9_22AllocatorStringStorageIcSE_EEPcEEEEEEEEEEPNS5_19lex_input_interfaceISM_EEENS1_11ref_counted6uniqueENS1_8no_check6uniqueENS1_19split_functor_input6uniqueISR_Lb1EEENS1_15split_std_deque6uniqueISM_EELb1ELb1ELb1EE7destroyINS0_10multi_passISR_NS1_14default_policyISS_SU_SW_SZ_EEEEEEvRT_.exit.i, %_ZN5boost6spirit17iterator_policies17multi_pass_sharedISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS5_9lex_tokenINS4_4util13file_positionINS9_11flex_stringIcSt11char_traitsIcESaIcENS9_9CowStringINS9_22AllocatorStringStorageIcSE_EEPcEEEEEEEEEEPNS5_19lex_input_interfaceISM_EEENS1_11ref_counted6sharedENS1_8no_check6sharedENS1_19split_functor_input6sharedISR_EENS1_15split_std_deque6sharedISM_EEED2Ev.exit.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not, label %50, label %54
 
 50:                                               ; preds = %_ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev.exit
@@ -15615,7 +15609,7 @@ _ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functo
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden i64 @_ZNK5boost6spirit7classic11alternativeINS1_4ruleINS1_7scannerINS_4wave4util20unput_queue_iteratorINS5_8cpplexer12lex_iteratorINS8_9lex_tokenINS6_13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSF_EEPcEEEEEEEEEESN_NSt7__cxx114listISN_NS_19fast_pool_allocatorISN_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS2_INS1_5chlitINS5_8token_idEEES11_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEENS1_5nil_tES19_EES1A_E5parseIS18_EENS1_13parser_resultIS1B_T_E4typeERKS1E_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) local_unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.boost::wave::util::unput_queue_iterator.55", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !300
   %6 = load ptr, ptr %5, align 8, !tbaa !289
@@ -15648,7 +15642,7 @@ define linkonce_odr hidden i64 @_ZNK5boost6spirit7classic11alternativeINS1_4rule
   %20 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #29
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %20
 
 21:                                               ; preds = %18
@@ -15723,7 +15717,7 @@ _ZN5boost6spirit17iterator_policies17multi_pass_sharedISt4pairINS_4wave8cpplexer
   br label %_ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev.exit
 
 _ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev.exit: ; preds = %24, %_ZN5boost6spirit17iterator_policies17multi_pass_uniqueISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS5_9lex_tokenINS4_4util13file_positionINS9_11flex_stringIcSt11char_traitsIcESaIcENS9_9CowStringINS9_22AllocatorStringStorageIcSE_EEPcEEEEEEEEEEPNS5_19lex_input_interfaceISM_EEENS1_11ref_counted6uniqueENS1_8no_check6uniqueENS1_19split_functor_input6uniqueISR_Lb1EEENS1_15split_std_deque6uniqueISM_EELb1ELb1ELb1EE7releaseINS0_10multi_passISR_NS1_14default_policyISS_SU_SW_SZ_EEEEEEbRT_.exit.i, %_ZN5boost6spirit17iterator_policies17multi_pass_uniqueISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS5_9lex_tokenINS4_4util13file_positionINS9_11flex_stringIcSt11char_traitsIcESaIcENS9_9CowStringINS9_22AllocatorStringStorageIcSE_EEPcEEEEEEEEEEPNS5_19lex_input_interfaceISM_EEENS1_11ref_counted6uniqueENS1_8no_check6uniqueENS1_19split_functor_input6uniqueISR_Lb1EEENS1_15split_std_deque6uniqueISM_EELb1ELb1ELb1EE7destroyINS0_10multi_passISR_NS1_14default_policyISS_SU_SW_SZ_EEEEEEvRT_.exit.i, %_ZN5boost6spirit17iterator_policies17multi_pass_sharedISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS5_9lex_tokenINS4_4util13file_positionINS9_11flex_stringIcSt11char_traitsIcESaIcENS9_9CowStringINS9_22AllocatorStringStorageIcSE_EEPcEEEEEEEEEEPNS5_19lex_input_interfaceISM_EEENS1_11ref_counted6sharedENS1_8no_check6sharedENS1_19split_functor_input6sharedISR_EENS1_15split_std_deque6sharedISM_EEED2Ev.exit.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not, label %51, label %55
 
 51:                                               ; preds = %_ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev.exit
@@ -15740,7 +15734,7 @@ _ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functo
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden i64 @_ZNK5boost6spirit7classic4impl9rule_baseINS1_4ruleINS1_7scannerINS_4wave4util20unput_queue_iteratorINS6_8cpplexer12lex_iteratorINS9_9lex_tokenINS7_13file_positionINS7_11flex_stringIcSt11char_traitsIcESaIcENS7_9CowStringINS7_22AllocatorStringStorageIcSG_EEPcEEEEEEEEEESO_NSt7__cxx114listISO_NS_19fast_pool_allocatorISO_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINS1_5chlitINS6_8token_idEEES13_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEENS1_5nil_tES1B_EERKS1C_S1A_S1B_S1B_E5parseIS1A_EENS1_13parser_resultIS1C_T_E4typeERKS1I_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) local_unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.boost::spirit::classic::parser_scanner_linker.187", align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load ptr, ptr %1, align 8, !tbaa !151
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !300
@@ -15904,14 +15898,14 @@ _ZN5boost6spirit17iterator_policies17multi_pass_sharedISt4pairINS_4wave8cpplexer
   br label %_ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev.exit23
 
 _ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev.exit23: ; preds = %49, %_ZN5boost6spirit17iterator_policies17multi_pass_uniqueISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS5_9lex_tokenINS4_4util13file_positionINS9_11flex_stringIcSt11char_traitsIcESaIcENS9_9CowStringINS9_22AllocatorStringStorageIcSE_EEPcEEEEEEEEEEPNS5_19lex_input_interfaceISM_EEENS1_11ref_counted6uniqueENS1_8no_check6uniqueENS1_19split_functor_input6uniqueISR_Lb1EEENS1_15split_std_deque6uniqueISM_EELb1ELb1ELb1EE7releaseINS0_10multi_passISR_NS1_14default_policyISS_SU_SW_SZ_EEEEEEbRT_.exit.i10, %_ZN5boost6spirit17iterator_policies17multi_pass_sharedISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS5_9lex_tokenINS4_4util13file_positionINS9_11flex_stringIcSt11char_traitsIcESaIcENS9_9CowStringINS9_22AllocatorStringStorageIcSE_EEPcEEEEEEEEEEPNS5_19lex_input_interfaceISM_EEENS1_11ref_counted6sharedENS1_8no_check6sharedENS1_19split_functor_input6sharedISR_EENS1_15split_std_deque6sharedISM_EEED2Ev.exit.i22
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %48
 
 74:                                               ; preds = %_ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev.exit
   %75 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %47) #29
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %75
 }
 
@@ -15923,7 +15917,7 @@ define linkonce_odr hidden i64 @_ZNK5boost6spirit7classic4impl9rule_baseINS1_4ru
   br i1 %.not, label %50, label %5
 
 5:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !300
   %8 = load ptr, ptr %7, align 8, !tbaa !289
@@ -16016,14 +16010,14 @@ _ZN5boost6spirit17iterator_policies17multi_pass_sharedISt4pairINS_4wave8cpplexer
   br label %_ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev.exit
 
 _ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev.exit: ; preds = %23, %_ZN5boost6spirit17iterator_policies17multi_pass_uniqueISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS5_9lex_tokenINS4_4util13file_positionINS9_11flex_stringIcSt11char_traitsIcESaIcENS9_9CowStringINS9_22AllocatorStringStorageIcSE_EEPcEEEEEEEEEEPNS5_19lex_input_interfaceISM_EEENS1_11ref_counted6uniqueENS1_8no_check6uniqueENS1_19split_functor_input6uniqueISR_Lb1EEENS1_15split_std_deque6uniqueISM_EELb1ELb1ELb1EE7releaseINS0_10multi_passISR_NS1_14default_policyISS_SU_SW_SZ_EEEEEEbRT_.exit.i, %_ZN5boost6spirit17iterator_policies17multi_pass_sharedISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS5_9lex_tokenINS4_4util13file_positionINS9_11flex_stringIcSt11char_traitsIcESaIcENS9_9CowStringINS9_22AllocatorStringStorageIcSE_EEPcEEEEEEEEEEPNS5_19lex_input_interfaceISM_EEENS1_11ref_counted6sharedENS1_8no_check6sharedENS1_19split_functor_input6sharedISR_EENS1_15split_std_deque6sharedISM_EEED2Ev.exit.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %50
 
 48:                                               ; preds = %14
   %49 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #29
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %49
 
 50:                                               ; preds = %2, %_ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev.exit
@@ -16213,7 +16207,7 @@ define linkonce_odr hidden i64 @_ZNK5boost6spirit7classic8sequenceINS2_INS1_6act
   br i1 %.not.not, label %5, label %.thread
 
 5:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @_ZNK5boost6spirit7classic6actionINS2_INS2_INS1_5chlitINS_4wave8token_idEEENS1_15ref_value_actorINSt7__cxx114listINS4_8cpplexer9lex_tokenINS4_4util13file_positionINSC_11flex_stringIcSt11char_traitsIcESaIcENSC_9CowStringINSC_22AllocatorStringStorageIcSH_EEPcEEEEEEEENS_19fast_pool_allocatorISP_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEENS1_16push_back_actionEEEEENS1_19ref_const_ref_actorIbbNS1_13assign_actionEEEEES10_E5parseINS1_7scannerINSC_20unput_queue_iteratorINSA_12lex_iteratorISP_EESP_SU_EENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeIS6_S6_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS12_T_E4typeERKS1K_(ptr dead_on_unwind nonnull writable sret(%"class.boost::spirit::classic::match.75") align 8 %3, ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(40) %1)
   %7 = load i64, ptr %3, align 8, !tbaa !158
@@ -16281,7 +16275,7 @@ _ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traits
   br label %_ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit
 
 _ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit: ; preds = %_ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm.exit.i, %18, %14, %11, %5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not7.not.not = icmp sgt i64 %7, -1
   %32 = add nsw i64 %7, %4
   %spec.select = select i1 %.not7.not.not, i64 %32, i64 -1
@@ -16295,7 +16289,7 @@ _ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_posit
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden i64 @_ZNK5boost6spirit7classic8sequenceINS1_6actionINS1_5chlitINS_4wave8token_idEEENS1_15ref_value_actorINSt7__cxx114listINS5_8cpplexer9lex_tokenINS5_4util13file_positionINSD_11flex_stringIcSt11char_traitsIcESaIcENSD_9CowStringINSD_22AllocatorStringStorageIcSI_EEPcEEEEEEEENS_19fast_pool_allocatorISQ_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEENS1_16push_back_actionEEEEENS1_11kleene_starINS3_INS1_19negated_char_parserIS7_EESX_EEEEE5parseINS1_7scannerINSD_20unput_queue_iteratorINSB_12lex_iteratorISQ_EESQ_SV_EENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeIS7_S7_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS14_T_E4typeERKS1M_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) local_unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.boost::spirit::classic::match.75", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZNK5boost6spirit7classic6actionINS1_5chlitINS_4wave8token_idEEENS1_15ref_value_actorINSt7__cxx114listINS4_8cpplexer9lex_tokenINS4_4util13file_positionINSC_11flex_stringIcSt11char_traitsIcESaIcENSC_9CowStringINSC_22AllocatorStringStorageIcSH_EEPcEEEEEEEENS_19fast_pool_allocatorISP_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEENS1_16push_back_actionEEEE5parseINS1_7scannerINSC_20unput_queue_iteratorINSA_12lex_iteratorISP_EESP_SU_EENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeIS6_S6_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultISX_T_E4typeERKS1F_(ptr dead_on_unwind nonnull writable sret(%"class.boost::spirit::classic::match.75") align 8 %3, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(40) %1)
   %4 = load i64, ptr %3, align 8, !tbaa !158
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -16362,7 +16356,7 @@ _ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traits
   br label %_ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit
 
 _ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit: ; preds = %_ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm.exit.i, %15, %11, %8, %2
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not.not = icmp sgt i64 %4, -1
   br i1 %.not.not, label %29, label %.thread
 
@@ -16416,7 +16410,7 @@ define linkonce_odr hidden void @_ZNK5boost6spirit7classic6actionINS2_INS2_INS1_
 
 _ZNK5boost6spirit7classic7scannerINS_4wave4util20unput_queue_iteratorINS3_8cpplexer12lex_iteratorINS6_9lex_tokenINS4_13file_positionINS4_11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEESL_NSt7__cxx114listISL_NS_19fast_pool_allocatorISL_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINS1_5chlitINS3_8token_idEEES10_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEE6at_endEv.exit: ; preds = %._crit_edge.i.i.i.i.i.i, %19, %22
   %24 = phi ptr [ %7, %._crit_edge.i.i.i.i.i.i ], [ %7, %19 ], [ %.pre, %22 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %25 = load ptr, ptr %24, align 8, !tbaa !289
   store ptr %25, ptr %4, align 8, !tbaa !289
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -16456,7 +16450,7 @@ _ZN5boost4wave4util20unput_queue_iteratorINS0_8cpplexer12lex_iteratorINS3_9lex_t
   %43 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #29
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %43
 
 44:                                               ; preds = %36, %34
@@ -16523,7 +16517,7 @@ _ZN5boost6spirit17iterator_policies17multi_pass_sharedISt4pairINS_4wave8cpplexer
   br label %_ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev.exit
 
 _ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev.exit: ; preds = %44, %_ZN5boost6spirit17iterator_policies17multi_pass_uniqueISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS5_9lex_tokenINS4_4util13file_positionINS9_11flex_stringIcSt11char_traitsIcESaIcENS9_9CowStringINS9_22AllocatorStringStorageIcSE_EEPcEEEEEEEEEEPNS5_19lex_input_interfaceISM_EEENS1_11ref_counted6uniqueENS1_8no_check6uniqueENS1_19split_functor_input6uniqueISR_Lb1EEENS1_15split_std_deque6uniqueISM_EELb1ELb1ELb1EE7releaseINS0_10multi_passISR_NS1_14default_policyISS_SU_SW_SZ_EEEEEEbRT_.exit.i, %_ZN5boost6spirit17iterator_policies17multi_pass_sharedISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS5_9lex_tokenINS4_4util13file_positionINS9_11flex_stringIcSt11char_traitsIcESaIcENS9_9CowStringINS9_22AllocatorStringStorageIcSE_EEPcEEEEEEEEEEPNS5_19lex_input_interfaceISM_EEENS1_11ref_counted6sharedENS1_8no_check6sharedENS1_19split_functor_input6sharedISR_EENS1_15split_std_deque6sharedISM_EEED2Ev.exit.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -16564,7 +16558,7 @@ define linkonce_odr hidden void @_ZNK5boost6spirit7classic6actionINS1_5chlitINS_
 
 _ZNK5boost6spirit7classic7scannerINS_4wave4util20unput_queue_iteratorINS3_8cpplexer12lex_iteratorINS6_9lex_tokenINS4_13file_positionINS4_11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEESL_NSt7__cxx114listISL_NS_19fast_pool_allocatorISL_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINS1_5chlitINS3_8token_idEEES10_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEE6at_endEv.exit: ; preds = %._crit_edge.i.i.i.i.i.i, %19, %22
   %24 = phi ptr [ %7, %._crit_edge.i.i.i.i.i.i ], [ %7, %19 ], [ %.pre, %22 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %25 = load ptr, ptr %24, align 8, !tbaa !289
   store ptr %25, ptr %4, align 8, !tbaa !289
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -16695,7 +16689,7 @@ _ZN5boost6spirit17iterator_policies17multi_pass_sharedISt4pairINS_4wave8cpplexer
   br label %_ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev.exit
 
 _ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev.exit: ; preds = %56, %_ZN5boost6spirit17iterator_policies17multi_pass_uniqueISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS5_9lex_tokenINS4_4util13file_positionINS9_11flex_stringIcSt11char_traitsIcESaIcENS9_9CowStringINS9_22AllocatorStringStorageIcSE_EEPcEEEEEEEEEEPNS5_19lex_input_interfaceISM_EEENS1_11ref_counted6uniqueENS1_8no_check6uniqueENS1_19split_functor_input6uniqueISR_Lb1EEENS1_15split_std_deque6uniqueISM_EELb1ELb1ELb1EE7releaseINS0_10multi_passISR_NS1_14default_policyISS_SU_SW_SZ_EEEEEEbRT_.exit.i, %_ZN5boost6spirit17iterator_policies17multi_pass_sharedISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS5_9lex_tokenINS4_4util13file_positionINS9_11flex_stringIcSt11char_traitsIcESaIcENS9_9CowStringINS9_22AllocatorStringStorageIcSE_EEPcEEEEEEEEEEPNS5_19lex_input_interfaceISM_EEENS1_11ref_counted6sharedENS1_8no_check6sharedENS1_19split_functor_input6sharedISR_EENS1_15split_std_deque6sharedISM_EEED2Ev.exit.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
 81:                                               ; preds = %51
@@ -16706,7 +16700,7 @@ _ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functo
 _ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit: ; preds = %81, %51, %49
   %.pn.pn = phi { ptr, i32 } [ %50, %49 ], [ %52, %51 ], [ %52, %81 ]
   call void @_ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #29
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -16723,7 +16717,7 @@ define linkonce_odr hidden i64 @_ZNK5boost6spirit7classic11kleene_starINS1_6acti
 
 10:                                               ; preds = %_ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev.exit, %2
   %.sroa.024.0 = phi i64 [ 0, %2 ], [ %.sroa.024.1, %_ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev.exit ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %11 = load ptr, ptr %5, align 8, !tbaa !300
   %12 = load ptr, ptr %11, align 8, !tbaa !289
   store ptr %12, ptr %3, align 8, !tbaa !289
@@ -16741,7 +16735,7 @@ _ZN5boost4wave4util20unput_queue_iteratorINS0_8cpplexer12lex_iteratorINS3_9lex_t
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %18 = load ptr, ptr %17, align 8, !tbaa !293
   store ptr %18, ptr %7, align 8, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   invoke void @_ZNK5boost6spirit7classic6actionINS1_19negated_char_parserINS1_5chlitINS_4wave8token_idEEEEENS1_15ref_value_actorINSt7__cxx114listINS5_8cpplexer9lex_tokenINS5_4util13file_positionINSE_11flex_stringIcSt11char_traitsIcESaIcENSE_9CowStringINSE_22AllocatorStringStorageIcSJ_EEPcEEEEEEEENS_19fast_pool_allocatorISR_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEENS1_16push_back_actionEEEE5parseINS1_7scannerINSE_20unput_queue_iteratorINSC_12lex_iteratorISR_EESR_SW_EENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeIS7_S7_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultISZ_T_E4typeERKS1H_(ptr dead_on_unwind nonnull writable sret(%"class.boost::spirit::classic::match.75") align 8 %4, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(40) %1)
           to label %19 unwind label %45
 
@@ -16809,7 +16803,7 @@ _ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traits
   br label %_ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt11char_traitsIcESaIcENS3_9CowStringINS3_22AllocatorStringStorageIcS8_EEPcEEEEEEED2Ev.exit
 
 _ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt11char_traitsIcESaIcENS3_9CowStringINS3_22AllocatorStringStorageIcS8_EEPcEEEEEEED2Ev.exit: ; preds = %_ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm.exit.i, %29, %25, %23, %19
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not = icmp sgt i64 %20, -1
   br i1 %.not, label %43, label %49
 
@@ -16820,7 +16814,7 @@ _ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt
 45:                                               ; preds = %_ZN5boost4wave4util20unput_queue_iteratorINS0_8cpplexer12lex_iteratorINS3_9lex_tokenINS1_13file_positionINS1_11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcSA_EEPcEEEEEEEEEESI_NSt7__cxx114listISI_NS_19fast_pool_allocatorISI_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEC2ERKSR_.exit
   %46 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %98
 
 47:                                               ; preds = %49
@@ -16958,13 +16952,13 @@ _ZN5boost6spirit17iterator_policies17multi_pass_sharedISt4pairINS_4wave8cpplexer
   br label %_ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev.exit
 
 _ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev.exit: ; preds = %52, %_ZN5boost6spirit17iterator_policies17multi_pass_uniqueISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS5_9lex_tokenINS4_4util13file_positionINS9_11flex_stringIcSt11char_traitsIcESaIcENS9_9CowStringINS9_22AllocatorStringStorageIcSE_EEPcEEEEEEEEEEPNS5_19lex_input_interfaceISM_EEENS1_11ref_counted6uniqueENS1_8no_check6uniqueENS1_19split_functor_input6uniqueISR_Lb1EEENS1_15split_std_deque6uniqueISM_EELb1ELb1ELb1EE7releaseINS0_10multi_passISR_NS1_14default_policyISS_SU_SW_SZ_EEEEEEbRT_.exit.i, %_ZN5boost6spirit17iterator_policies17multi_pass_uniqueISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS5_9lex_tokenINS4_4util13file_positionINS9_11flex_stringIcSt11char_traitsIcESaIcENS9_9CowStringINS9_22AllocatorStringStorageIcSE_EEPcEEEEEEEEEEPNS5_19lex_input_interfaceISM_EEENS1_11ref_counted6uniqueENS1_8no_check6uniqueENS1_19split_functor_input6uniqueISR_Lb1EEENS1_15split_std_deque6uniqueISM_EELb1ELb1ELb1EE7destroyINS0_10multi_passISR_NS1_14default_policyISS_SU_SW_SZ_EEEEEEvRT_.exit.i, %_ZN5boost6spirit17iterator_policies17multi_pass_sharedISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS5_9lex_tokenINS4_4util13file_positionINS9_11flex_stringIcSt11char_traitsIcESaIcENS9_9CowStringINS9_22AllocatorStringStorageIcSE_EEPcEEEEEEEEEEPNS5_19lex_input_interfaceISM_EEENS1_11ref_counted6sharedENS1_8no_check6sharedENS1_19split_functor_input6sharedISR_EENS1_15split_std_deque6sharedISM_EEED2Ev.exit.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not, label %10, label %99
 
 98:                                               ; preds = %47, %45
   %.pn13 = phi { ptr, i32 } [ %48, %47 ], [ %46, %45 ]
   call void @_ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #29
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn13
 
 99:                                               ; preds = %_ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev.exit
@@ -17008,7 +17002,7 @@ define linkonce_odr hidden void @_ZNK5boost6spirit7classic6actionINS1_19negated_
 
 _ZNK5boost6spirit7classic7scannerINS_4wave4util20unput_queue_iteratorINS3_8cpplexer12lex_iteratorINS6_9lex_tokenINS4_13file_positionINS4_11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEESL_NSt7__cxx114listISL_NS_19fast_pool_allocatorISL_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINS1_5chlitINS3_8token_idEEES10_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEE6at_endEv.exit: ; preds = %._crit_edge.i.i.i.i.i.i, %19, %22
   %24 = phi ptr [ %7, %._crit_edge.i.i.i.i.i.i ], [ %7, %19 ], [ %.pre, %22 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %25 = load ptr, ptr %24, align 8, !tbaa !289
   store ptr %25, ptr %4, align 8, !tbaa !289
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -17139,7 +17133,7 @@ _ZN5boost6spirit17iterator_policies17multi_pass_sharedISt4pairINS_4wave8cpplexer
   br label %_ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev.exit
 
 _ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev.exit: ; preds = %56, %_ZN5boost6spirit17iterator_policies17multi_pass_uniqueISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS5_9lex_tokenINS4_4util13file_positionINS9_11flex_stringIcSt11char_traitsIcESaIcENS9_9CowStringINS9_22AllocatorStringStorageIcSE_EEPcEEEEEEEEEEPNS5_19lex_input_interfaceISM_EEENS1_11ref_counted6uniqueENS1_8no_check6uniqueENS1_19split_functor_input6uniqueISR_Lb1EEENS1_15split_std_deque6uniqueISM_EELb1ELb1ELb1EE7releaseINS0_10multi_passISR_NS1_14default_policyISS_SU_SW_SZ_EEEEEEbRT_.exit.i, %_ZN5boost6spirit17iterator_policies17multi_pass_sharedISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS5_9lex_tokenINS4_4util13file_positionINS9_11flex_stringIcSt11char_traitsIcESaIcENS9_9CowStringINS9_22AllocatorStringStorageIcSE_EEPcEEEEEEEEEEPNS5_19lex_input_interfaceISM_EEENS1_11ref_counted6sharedENS1_8no_check6sharedENS1_19split_functor_input6sharedISR_EENS1_15split_std_deque6sharedISM_EEED2Ev.exit.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
 81:                                               ; preds = %51
@@ -17150,7 +17144,7 @@ _ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functo
 _ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit: ; preds = %81, %51, %49
   %.pn.pn = phi { ptr, i32 } [ %50, %49 ], [ %52, %51 ], [ %52, %81 ]
   call void @_ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #29
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -17192,7 +17186,7 @@ _ZNK5boost6spirit7classic7scannerINS_4wave4util20unput_queue_iteratorINS3_8cpple
   br i1 %25, label %180, label %_ZNK5boost6spirit7classic7scannerINS_4wave4util20unput_queue_iteratorINS3_8cpplexer12lex_iteratorINS6_9lex_tokenINS4_13file_positionINS4_11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEESL_NSt7__cxx114listISL_NS_19fast_pool_allocatorISL_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINS1_5chlitINS3_8token_idEEES10_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEE6at_endEv.exit.thread
 
 _ZNK5boost6spirit7classic7scannerINS_4wave4util20unput_queue_iteratorINS3_8cpplexer12lex_iteratorINS6_9lex_tokenINS4_13file_positionINS4_11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEESL_NSt7__cxx114listISL_NS_19fast_pool_allocatorISL_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINS1_5chlitINS3_8token_idEEES10_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEE6at_endEv.exit.thread: ; preds = %._crit_edge.i.i.i.i.i.i, %22, %_ZNK5boost6spirit7classic7scannerINS_4wave4util20unput_queue_iteratorINS3_8cpplexer12lex_iteratorINS6_9lex_tokenINS4_13file_positionINS4_11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEESL_NSt7__cxx114listISL_NS_19fast_pool_allocatorISL_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINS1_5chlitINS3_8token_idEEES10_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEE6at_endEv.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZNK5boost6spirit7classic7scannerINS_4wave4util20unput_queue_iteratorINS3_8cpplexer12lex_iteratorINS6_9lex_tokenINS4_13file_positionINS4_11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEESL_NSt7__cxx114listISL_NS_19fast_pool_allocatorISL_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINS1_5chlitINS3_8token_idEEES10_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEdeEv(ptr dead_on_unwind nonnull writable sret(%"class.boost::wave::cpplexer::lex_token") align 8 %4, ptr noundef nonnull align 8 dereferenceable(40) %2)
   %26 = load ptr, ptr %4, align 8, !tbaa !95
   store ptr %26, ptr %5, align 8, !tbaa !95
@@ -17270,7 +17264,7 @@ _ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt
   br i1 %30, label %51, label %159
 
 51:                                               ; preds = %_ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt11char_traitsIcESaIcENS3_9CowStringINS3_22AllocatorStringStorageIcS8_EEPcEEEEEEED2Ev.exit
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %52 = load ptr, ptr %9, align 8, !tbaa !300
   %53 = load ptr, ptr %52, align 8, !tbaa !289
   store ptr %53, ptr %6, align 8, !tbaa !289
@@ -17292,7 +17286,7 @@ _ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt
   %62 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %63 = load ptr, ptr %62, align 8, !tbaa !293
   store ptr %63, ptr %61, align 8, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %64 = load ptr, ptr %2, align 8, !tbaa !151
   call void @llvm.experimental.noalias.scope.decl(metadata !376)
   %65 = ptrtoint ptr %64 to i64
@@ -17437,7 +17431,7 @@ _ZN5boost6spirit17iterator_policies17multi_pass_sharedISt4pairINS_4wave8cpplexer
   br label %_ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev.exit
 
 _ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev.exit: ; preds = %_ZNK5boost6spirit7classic7scannerINS_4wave4util20unput_queue_iteratorINS3_8cpplexer12lex_iteratorINS6_9lex_tokenINS4_13file_positionINS4_11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEESL_NSt7__cxx114listISL_NS_19fast_pool_allocatorISL_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_27no_skipper_iteration_policyINS1_28skip_parser_iteration_policyINS1_11alternativeINS1_5chlitINS3_8token_idEEES11_EENS1_16iteration_policyEEEEENS1_12match_policyENS1_13action_policyEEEEppEv.exit, %_ZN5boost6spirit17iterator_policies17multi_pass_uniqueISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS5_9lex_tokenINS4_4util13file_positionINS9_11flex_stringIcSt11char_traitsIcESaIcENS9_9CowStringINS9_22AllocatorStringStorageIcSE_EEPcEEEEEEEEEEPNS5_19lex_input_interfaceISM_EEENS1_11ref_counted6uniqueENS1_8no_check6uniqueENS1_19split_functor_input6uniqueISR_Lb1EEENS1_15split_std_deque6uniqueISM_EELb1ELb1ELb1EE7releaseINS0_10multi_passISR_NS1_14default_policyISS_SU_SW_SZ_EEEEEEbRT_.exit.i, %_ZN5boost6spirit17iterator_policies17multi_pass_uniqueISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS5_9lex_tokenINS4_4util13file_positionINS9_11flex_stringIcSt11char_traitsIcESaIcENS9_9CowStringINS9_22AllocatorStringStorageIcSE_EEPcEEEEEEEEEEPNS5_19lex_input_interfaceISM_EEENS1_11ref_counted6uniqueENS1_8no_check6uniqueENS1_19split_functor_input6uniqueISR_Lb1EEENS1_15split_std_deque6uniqueISM_EELb1ELb1ELb1EE7destroyINS0_10multi_passISR_NS1_14default_policyISS_SU_SW_SZ_EEEEEEvRT_.exit.i, %_ZN5boost6spirit17iterator_policies17multi_pass_sharedISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS5_9lex_tokenINS4_4util13file_positionINS9_11flex_stringIcSt11char_traitsIcESaIcENS9_9CowStringINS9_22AllocatorStringStorageIcSE_EEPcEEEEEEEEEEPNS5_19lex_input_interfaceISM_EEENS1_11ref_counted6sharedENS1_8no_check6sharedENS1_19split_functor_input6sharedISR_EENS1_15split_std_deque6sharedISM_EEED2Ev.exit.i
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.experimental.noalias.scope.decl(metadata !379)
   store i64 1, ptr %0, align 8, !tbaa !158, !alias.scope !379
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -17518,7 +17512,7 @@ _ZN5boost6spirit17iterator_policies17multi_pass_sharedISt4pairINS_4wave8cpplexer
   br label %_ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev.exit44
 
 _ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev.exit44: ; preds = %130, %_ZN5boost6spirit17iterator_policies17multi_pass_uniqueISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS5_9lex_tokenINS4_4util13file_positionINS9_11flex_stringIcSt11char_traitsIcESaIcENS9_9CowStringINS9_22AllocatorStringStorageIcSE_EEPcEEEEEEEEEEPNS5_19lex_input_interfaceISM_EEENS1_11ref_counted6uniqueENS1_8no_check6uniqueENS1_19split_functor_input6uniqueISR_Lb1EEENS1_15split_std_deque6uniqueISM_EELb1ELb1ELb1EE7releaseINS0_10multi_passISR_NS1_14default_policyISS_SU_SW_SZ_EEEEEEbRT_.exit.i31, %_ZN5boost6spirit17iterator_policies17multi_pass_sharedISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS5_9lex_tokenINS4_4util13file_positionINS9_11flex_stringIcSt11char_traitsIcESaIcENS9_9CowStringINS9_22AllocatorStringStorageIcSE_EEPcEEEEEEEEEEPNS5_19lex_input_interfaceISM_EEENS1_11ref_counted6sharedENS1_8no_check6sharedENS1_19split_functor_input6sharedISR_EENS1_15split_std_deque6sharedISM_EEED2Ev.exit.i43
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %159
 
 155:                                              ; preds = %_ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt11char_traitsIcESaIcENS3_9CowStringINS3_22AllocatorStringStorageIcS8_EEPcEEEEEEEC2ERKSG_.exit
@@ -17535,9 +17529,9 @@ _ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functo
 .body:                                            ; preds = %90, %157
   %.pn = phi { ptr, i32 } [ %158, %157 ], [ %91, %90 ]
   call void @_ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %67) #29
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #29
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %179
 
 159:                                              ; preds = %_ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt11char_traitsIcESaIcENS3_9CowStringINS3_22AllocatorStringStorageIcS8_EEPcEEEEEEED2Ev.exit, %_ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev.exit44
@@ -17598,13 +17592,13 @@ _ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traits
   br label %_ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt11char_traitsIcESaIcENS3_9CowStringINS3_22AllocatorStringStorageIcS8_EEPcEEEEEEED2Ev.exit28
 
 _ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt11char_traitsIcESaIcENS3_9CowStringINS3_22AllocatorStringStorageIcS8_EEPcEEEEEEED2Ev.exit28: ; preds = %159, %161, %165, %_ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm.exit.i27
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %30, label %182, label %180
 
 179:                                              ; preds = %.body, %155
   %.pn17.pn.pn = phi { ptr, i32 } [ %.pn, %.body ], [ %156, %155 ]
   call void @_ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt11char_traitsIcESaIcENS3_9CowStringINS3_22AllocatorStringStorageIcS8_EEPcEEEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #29
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn17.pn.pn
 
 180:                                              ; preds = %_ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt11char_traitsIcESaIcENS3_9CowStringINS3_22AllocatorStringStorageIcS8_EEPcEEEEEEED2Ev.exit28, %_ZNK5boost6spirit7classic7scannerINS_4wave4util20unput_queue_iteratorINS3_8cpplexer12lex_iteratorINS6_9lex_tokenINS4_13file_positionINS4_11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEESL_NSt7__cxx114listISL_NS_19fast_pool_allocatorISL_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINS1_5chlitINS3_8token_idEEES10_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEE6at_endEv.exit
@@ -17654,7 +17648,7 @@ define linkonce_odr hidden void @_ZNK5boost6spirit7classic6actionINS2_INS1_5chli
 
 _ZNK5boost6spirit7classic7scannerINS_4wave4util20unput_queue_iteratorINS3_8cpplexer12lex_iteratorINS6_9lex_tokenINS4_13file_positionINS4_11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEESL_NSt7__cxx114listISL_NS_19fast_pool_allocatorISL_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINS1_5chlitINS3_8token_idEEES10_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEE6at_endEv.exit: ; preds = %._crit_edge.i.i.i.i.i.i, %19, %22
   %24 = phi ptr [ %7, %._crit_edge.i.i.i.i.i.i ], [ %7, %19 ], [ %.pre, %22 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %25 = load ptr, ptr %24, align 8, !tbaa !289
   store ptr %25, ptr %4, align 8, !tbaa !289
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -17694,7 +17688,7 @@ _ZN5boost4wave4util20unput_queue_iteratorINS0_8cpplexer12lex_iteratorINS3_9lex_t
   %43 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #29
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %43
 
 44:                                               ; preds = %36, %34
@@ -17761,7 +17755,7 @@ _ZN5boost6spirit17iterator_policies17multi_pass_sharedISt4pairINS_4wave8cpplexer
   br label %_ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev.exit
 
 _ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev.exit: ; preds = %44, %_ZN5boost6spirit17iterator_policies17multi_pass_uniqueISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS5_9lex_tokenINS4_4util13file_positionINS9_11flex_stringIcSt11char_traitsIcESaIcENS9_9CowStringINS9_22AllocatorStringStorageIcSE_EEPcEEEEEEEEEEPNS5_19lex_input_interfaceISM_EEENS1_11ref_counted6uniqueENS1_8no_check6uniqueENS1_19split_functor_input6uniqueISR_Lb1EEENS1_15split_std_deque6uniqueISM_EELb1ELb1ELb1EE7releaseINS0_10multi_passISR_NS1_14default_policyISS_SU_SW_SZ_EEEEEEbRT_.exit.i, %_ZN5boost6spirit17iterator_policies17multi_pass_sharedISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS5_9lex_tokenINS4_4util13file_positionINS9_11flex_stringIcSt11char_traitsIcESaIcENS9_9CowStringINS9_22AllocatorStringStorageIcSE_EEPcEEEEEEEEEEPNS5_19lex_input_interfaceISM_EEENS1_11ref_counted6sharedENS1_8no_check6sharedENS1_19split_functor_input6sharedISR_EENS1_15split_std_deque6sharedISM_EEED2Ev.exit.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -17774,7 +17768,7 @@ define linkonce_odr hidden void @_ZN5boost6spirit7classic4impl15concrete_parserI
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden i64 @_ZNK5boost6spirit7classic4impl15concrete_parserINS1_6actionINS4_INS1_5chlitINS_4wave8token_idEEENS1_15ref_value_actorINSt7__cxx114listINS6_8cpplexer9lex_tokenINS6_4util13file_positionINSE_11flex_stringIcSt11char_traitsIcESaIcENSE_9CowStringINSE_22AllocatorStringStorageIcSJ_EEPcEEEEEEEENS_19fast_pool_allocatorISR_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEENS1_16push_back_actionEEEEENS1_19ref_const_ref_actorIbbNS1_13assign_actionEEEEENS1_7scannerINSE_20unput_queue_iteratorINSC_12lex_iteratorISR_EESR_SW_EENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeIS8_S8_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEENS1_5nil_tEE16do_parse_virtualERKS1I_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.boost::spirit::classic::match.75", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @_ZNK5boost6spirit7classic6actionINS2_INS1_5chlitINS_4wave8token_idEEENS1_15ref_value_actorINSt7__cxx114listINS4_8cpplexer9lex_tokenINS4_4util13file_positionINSC_11flex_stringIcSt11char_traitsIcESaIcENSC_9CowStringINSC_22AllocatorStringStorageIcSH_EEPcEEEEEEEENS_19fast_pool_allocatorISP_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEENS1_16push_back_actionEEEEENS1_19ref_const_ref_actorIbbNS1_13assign_actionEEEE5parseINS1_7scannerINSC_20unput_queue_iteratorINSA_12lex_iteratorISP_EESP_SU_EENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeIS6_S6_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS11_T_E4typeERKS1J_(ptr dead_on_unwind nonnull writable sret(%"class.boost::spirit::classic::match.75") align 8 %3, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(40) %1)
   %5 = load i64, ptr %3, align 8, !tbaa !158
@@ -17842,7 +17836,7 @@ _ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traits
   br label %_ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit
 
 _ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit: ; preds = %_ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm.exit.i, %16, %12, %9, %2
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %5
 }
 
@@ -17916,7 +17910,7 @@ define linkonce_odr hidden i64 @_ZNK5boost6spirit7classic6actionINS1_10differenc
 
 _ZNK5boost6spirit7classic7scannerINS_4wave4util20unput_queue_iteratorINS3_8cpplexer12lex_iteratorINS6_9lex_tokenINS4_13file_positionINS4_11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEESL_NSt7__cxx114listISL_NS_19fast_pool_allocatorISL_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINS1_5chlitINS3_8token_idEEES10_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEE6at_endEv.exit: ; preds = %._crit_edge.i.i.i.i.i.i, %18, %21
   %23 = phi ptr [ %6, %._crit_edge.i.i.i.i.i.i ], [ %6, %18 ], [ %.pre, %21 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %24 = load ptr, ptr %23, align 8, !tbaa !289
   store ptr %24, ptr %3, align 8, !tbaa !289
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -18025,13 +18019,13 @@ _ZN5boost6spirit17iterator_policies17multi_pass_sharedISt4pairINS_4wave8cpplexer
   br label %_ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev.exit
 
 _ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev.exit: ; preds = %_ZNK5boost6spirit7classic13action_policy9do_actionIZNS_4wave8grammars19has_include_grammarINSt7__cxx114listINS4_8cpplexer9lex_tokenINS4_4util13file_positionINSB_11flex_stringIcSt11char_traitsIcESaIcENSB_9CowStringINSB_22AllocatorStringStorageIcSG_EEPcEEEEEEEENS_19fast_pool_allocatorISO_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEE10definitionINS1_7scannerINSB_20unput_queue_iteratorINS9_12lex_iteratorISO_EESO_ST_EENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINS1_5chlitINS4_8token_idEEES16_EENS1_16iteration_policyEEENS1_12match_policyES2_EEEEEC1ERKSU_EUlS10_S10_E_NS1_5nil_tES10_EEvRKT_RT0_RKT1_S1P_.exit, %_ZN5boost6spirit17iterator_policies17multi_pass_uniqueISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS5_9lex_tokenINS4_4util13file_positionINS9_11flex_stringIcSt11char_traitsIcESaIcENS9_9CowStringINS9_22AllocatorStringStorageIcSE_EEPcEEEEEEEEEEPNS5_19lex_input_interfaceISM_EEENS1_11ref_counted6uniqueENS1_8no_check6uniqueENS1_19split_functor_input6uniqueISR_Lb1EEENS1_15split_std_deque6uniqueISM_EELb1ELb1ELb1EE7releaseINS0_10multi_passISR_NS1_14default_policyISS_SU_SW_SZ_EEEEEEbRT_.exit.i, %_ZN5boost6spirit17iterator_policies17multi_pass_uniqueISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS5_9lex_tokenINS4_4util13file_positionINS9_11flex_stringIcSt11char_traitsIcESaIcENS9_9CowStringINS9_22AllocatorStringStorageIcSE_EEPcEEEEEEEEEEPNS5_19lex_input_interfaceISM_EEENS1_11ref_counted6uniqueENS1_8no_check6uniqueENS1_19split_functor_input6uniqueISR_Lb1EEENS1_15split_std_deque6uniqueISM_EELb1ELb1ELb1EE7destroyINS0_10multi_passISR_NS1_14default_policyISS_SU_SW_SZ_EEEEEEvRT_.exit.i, %_ZN5boost6spirit17iterator_policies17multi_pass_sharedISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS5_9lex_tokenINS4_4util13file_positionINS9_11flex_stringIcSt11char_traitsIcESaIcENS9_9CowStringINS9_22AllocatorStringStorageIcSE_EEPcEEEEEEEEEEPNS5_19lex_input_interfaceISM_EEENS1_11ref_counted6sharedENS1_8no_check6sharedENS1_19split_functor_input6sharedISR_EENS1_15split_std_deque6sharedISM_EEED2Ev.exit.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %33
 
 68:                                               ; preds = %40, %38
   %.pn = phi { ptr, i32 } [ %41, %40 ], [ %39, %38 ]
   call void @_ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #29
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn
 }
 
@@ -18039,7 +18033,7 @@ _ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functo
 define linkonce_odr hidden i64 @_ZNK5boost6spirit7classic10differenceINS2_INS1_14anychar_parserENS1_5chlitINS_4wave8token_idEEEEES7_E5parseINS1_7scannerINS5_4util20unput_queue_iteratorINS5_8cpplexer12lex_iteratorINSE_9lex_tokenINSC_13file_positionINSC_11flex_stringIcSt11char_traitsIcESaIcENSC_9CowStringINSC_22AllocatorStringStorageIcSL_EEPcEEEEEEEEEEST_NSt7__cxx114listIST_NS_19fast_pool_allocatorIST_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeIS7_S7_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS9_T_E4typeERKS1E_(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) local_unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.boost::wave::util::unput_queue_iterator.55", align 8
   %4 = alloca %"class.boost::spirit::classic::match.75", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !300
   %7 = load ptr, ptr %6, align 8, !tbaa !289
@@ -18073,7 +18067,7 @@ define linkonce_odr hidden i64 @_ZNK5boost6spirit7classic10differenceINS2_INS1_1
           to label %21 unwind label %54
 
 21:                                               ; preds = %19
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 4
   invoke void @_ZNK5boost6spirit7classic11char_parserINS1_5chlitINS_4wave8token_idEEEE5parseINS1_7scannerINS4_4util20unput_queue_iteratorINS4_8cpplexer12lex_iteratorINSC_9lex_tokenINSA_13file_positionINSA_11flex_stringIcSt11char_traitsIcESaIcENSA_9CowStringINSA_22AllocatorStringStorageIcSJ_EEPcEEEEEEEEEESR_NSt7__cxx114listISR_NS_19fast_pool_allocatorISR_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeIS6_S6_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS6_T_E4typeERKS1C_(ptr dead_on_unwind nonnull writable sret(%"class.boost::spirit::classic::match.75") align 8 %4, ptr noundef nonnull align 1 dereferenceable(1) %22, ptr noundef nonnull align 8 dereferenceable(40) %1)
           to label %23 unwind label %56
@@ -18144,7 +18138,7 @@ _ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traits
   br label %_ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit
 
 _ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit: ; preds = %_ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm.exit.i, %35, %31, %28, %23
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %49 = icmp slt i64 %24, 0
   %50 = icmp slt i64 %24, %17
   %or.cond = select i1 %49, i1 true, i1 %50
@@ -18163,7 +18157,7 @@ _ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_posit
 56:                                               ; preds = %21
   %57 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %86
 
 58:                                               ; preds = %51
@@ -18239,13 +18233,13 @@ _ZN5boost6spirit17iterator_policies17multi_pass_sharedISt4pairINS_4wave8cpplexer
   br label %_ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev.exit
 
 _ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev.exit: ; preds = %.critedge, %_ZN5boost6spirit17iterator_policies17multi_pass_uniqueISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS5_9lex_tokenINS4_4util13file_positionINS9_11flex_stringIcSt11char_traitsIcESaIcENS9_9CowStringINS9_22AllocatorStringStorageIcSE_EEPcEEEEEEEEEEPNS5_19lex_input_interfaceISM_EEENS1_11ref_counted6uniqueENS1_8no_check6uniqueENS1_19split_functor_input6uniqueISR_Lb1EEENS1_15split_std_deque6uniqueISM_EELb1ELb1ELb1EE7releaseINS0_10multi_passISR_NS1_14default_policyISS_SU_SW_SZ_EEEEEEbRT_.exit.i, %_ZN5boost6spirit17iterator_policies17multi_pass_uniqueISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS5_9lex_tokenINS4_4util13file_positionINS9_11flex_stringIcSt11char_traitsIcESaIcENS9_9CowStringINS9_22AllocatorStringStorageIcSE_EEPcEEEEEEEEEEPNS5_19lex_input_interfaceISM_EEENS1_11ref_counted6uniqueENS1_8no_check6uniqueENS1_19split_functor_input6uniqueISR_Lb1EEENS1_15split_std_deque6uniqueISM_EELb1ELb1ELb1EE7destroyINS0_10multi_passISR_NS1_14default_policyISS_SU_SW_SZ_EEEEEEvRT_.exit.i, %_ZN5boost6spirit17iterator_policies17multi_pass_sharedISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS5_9lex_tokenINS4_4util13file_positionINS9_11flex_stringIcSt11char_traitsIcESaIcENS9_9CowStringINS9_22AllocatorStringStorageIcSE_EEPcEEEEEEEEEEPNS5_19lex_input_interfaceISM_EEENS1_11ref_counted6sharedENS1_8no_check6sharedENS1_19split_functor_input6sharedISR_EENS1_15split_std_deque6sharedISM_EEED2Ev.exit.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %.sroa.021.0
 
 86:                                               ; preds = %56, %58, %54
   %.pn16 = phi { ptr, i32 } [ %55, %54 ], [ %59, %58 ], [ %57, %56 ]
   call void @_ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #29
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn16
 }
 
@@ -18254,7 +18248,7 @@ define linkonce_odr hidden i64 @_ZNK5boost6spirit7classic10differenceINS1_14anyc
   %3 = alloca %"class.boost::wave::util::unput_queue_iterator.55", align 8
   %4 = alloca %"class.boost::spirit::classic::match.75", align 8
   %5 = alloca %"class.boost::spirit::classic::match.75", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !300
   %8 = load ptr, ptr %7, align 8, !tbaa !289
@@ -18275,7 +18269,7 @@ define linkonce_odr hidden i64 @_ZNK5boost6spirit7classic10differenceINS1_14anyc
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %17 = load ptr, ptr %16, align 8, !tbaa !293
   store ptr %17, ptr %15, align 8, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   invoke void @_ZNK5boost6spirit7classic11char_parserINS1_14anychar_parserEE5parseINS1_7scannerINS_4wave4util20unput_queue_iteratorINS7_8cpplexer12lex_iteratorINSA_9lex_tokenINS8_13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSH_EEPcEEEEEEEEEESP_NSt7__cxx114listISP_NS_19fast_pool_allocatorISP_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINS1_5chlitINS7_8token_idEEES14_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS3_T_E4typeERKS1D_(ptr dead_on_unwind nonnull writable sret(%"class.boost::spirit::classic::match.75") align 8 %4, ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(40) %1)
           to label %18 unwind label %78
 
@@ -18345,7 +18339,7 @@ _ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traits
   br label %_ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt11char_traitsIcESaIcENS3_9CowStringINS3_22AllocatorStringStorageIcS8_EEPcEEEEEEED2Ev.exit
 
 _ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt11char_traitsIcESaIcENS3_9CowStringINS3_22AllocatorStringStorageIcS8_EEPcEEEEEEED2Ev.exit: ; preds = %_ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm.exit.i, %30, %26, %23, %18
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not.not = icmp sgt i64 %19, -1
   br i1 %.not.not, label %44, label %.critedge
 
@@ -18355,7 +18349,7 @@ _ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt
           to label %46 unwind label %80
 
 46:                                               ; preds = %44
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   invoke void @_ZNK5boost6spirit7classic11char_parserINS1_5chlitINS_4wave8token_idEEEE5parseINS1_7scannerINS4_4util20unput_queue_iteratorINS4_8cpplexer12lex_iteratorINSC_9lex_tokenINSA_13file_positionINSA_11flex_stringIcSt11char_traitsIcESaIcENSA_9CowStringINSA_22AllocatorStringStorageIcSJ_EEPcEEEEEEEEEESR_NSt7__cxx114listISR_NS_19fast_pool_allocatorISR_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeIS6_S6_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS6_T_E4typeERKS1C_(ptr dead_on_unwind nonnull writable sret(%"class.boost::spirit::classic::match.75") align 8 %5, ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(40) %1)
           to label %47 unwind label %82
 
@@ -18425,7 +18419,7 @@ _ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traits
   br label %_ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit21
 
 _ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit21: ; preds = %_ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm.exit.i28, %59, %55, %52, %47
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %73 = icmp slt i64 %48, 0
   %74 = icmp slt i64 %48, %19
   %or.cond = select i1 %73, i1 true, i1 %74
@@ -18439,7 +18433,7 @@ _ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_posit
 78:                                               ; preds = %14
   %79 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %112
 
 80:                                               ; preds = %44
@@ -18450,7 +18444,7 @@ _ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_posit
 82:                                               ; preds = %46
   %83 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %112
 
 84:                                               ; preds = %75
@@ -18526,20 +18520,20 @@ _ZN5boost6spirit17iterator_policies17multi_pass_sharedISt4pairINS_4wave8cpplexer
   br label %_ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev.exit
 
 _ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev.exit: ; preds = %.critedge, %_ZN5boost6spirit17iterator_policies17multi_pass_uniqueISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS5_9lex_tokenINS4_4util13file_positionINS9_11flex_stringIcSt11char_traitsIcESaIcENS9_9CowStringINS9_22AllocatorStringStorageIcSE_EEPcEEEEEEEEEEPNS5_19lex_input_interfaceISM_EEENS1_11ref_counted6uniqueENS1_8no_check6uniqueENS1_19split_functor_input6uniqueISR_Lb1EEENS1_15split_std_deque6uniqueISM_EELb1ELb1ELb1EE7releaseINS0_10multi_passISR_NS1_14default_policyISS_SU_SW_SZ_EEEEEEbRT_.exit.i, %_ZN5boost6spirit17iterator_policies17multi_pass_uniqueISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS5_9lex_tokenINS4_4util13file_positionINS9_11flex_stringIcSt11char_traitsIcESaIcENS9_9CowStringINS9_22AllocatorStringStorageIcSE_EEPcEEEEEEEEEEPNS5_19lex_input_interfaceISM_EEENS1_11ref_counted6uniqueENS1_8no_check6uniqueENS1_19split_functor_input6uniqueISR_Lb1EEENS1_15split_std_deque6uniqueISM_EELb1ELb1ELb1EE7destroyINS0_10multi_passISR_NS1_14default_policyISS_SU_SW_SZ_EEEEEEvRT_.exit.i, %_ZN5boost6spirit17iterator_policies17multi_pass_sharedISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS5_9lex_tokenINS4_4util13file_positionINS9_11flex_stringIcSt11char_traitsIcESaIcENS9_9CowStringINS9_22AllocatorStringStorageIcSE_EEPcEEEEEEEEEEPNS5_19lex_input_interfaceISM_EEENS1_11ref_counted6sharedENS1_8no_check6sharedENS1_19split_functor_input6sharedISR_EENS1_15split_std_deque6sharedISM_EEED2Ev.exit.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %.sroa.032.0
 
 112:                                              ; preds = %82, %84, %80, %78
   %.pn19 = phi { ptr, i32 } [ %81, %80 ], [ %79, %78 ], [ %85, %84 ], [ %83, %82 ]
   call void @_ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #29
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn19
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr hidden void @_ZSt4swapIN5boost4wave4util20unput_queue_iteratorINS1_8cpplexer12lex_iteratorINS4_9lex_tokenINS2_13file_positionINS2_11flex_stringIcSt11char_traitsIcESaIcENS2_9CowStringINS2_22AllocatorStringStorageIcSB_EEPcEEEEEEEEEESJ_NSt7__cxx114listISJ_NS0_19fast_pool_allocatorISJ_NS0_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleISW_ESt18is_move_assignableISW_EEE5valueEvE4typeERSW_S15_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #4 comdat personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.boost::wave::util::unput_queue_iterator.55", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load ptr, ptr %0, align 8, !tbaa !289
   store ptr %4, ptr %3, align 8, !tbaa !289
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -18632,14 +18626,14 @@ _ZN5boost6spirit17iterator_policies17multi_pass_sharedISt4pairINS_4wave8cpplexer
   br label %_ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev.exit
 
 _ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev.exit: ; preds = %16, %_ZN5boost6spirit17iterator_policies17multi_pass_uniqueISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS5_9lex_tokenINS4_4util13file_positionINS9_11flex_stringIcSt11char_traitsIcESaIcENS9_9CowStringINS9_22AllocatorStringStorageIcSE_EEPcEEEEEEEEEEPNS5_19lex_input_interfaceISM_EEENS1_11ref_counted6uniqueENS1_8no_check6uniqueENS1_19split_functor_input6uniqueISR_Lb1EEENS1_15split_std_deque6uniqueISM_EELb1ELb1ELb1EE7releaseINS0_10multi_passISR_NS1_14default_policyISS_SU_SW_SZ_EEEEEEbRT_.exit.i, %_ZN5boost6spirit17iterator_policies17multi_pass_uniqueISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS5_9lex_tokenINS4_4util13file_positionINS9_11flex_stringIcSt11char_traitsIcESaIcENS9_9CowStringINS9_22AllocatorStringStorageIcSE_EEPcEEEEEEEEEEPNS5_19lex_input_interfaceISM_EEENS1_11ref_counted6uniqueENS1_8no_check6uniqueENS1_19split_functor_input6uniqueISR_Lb1EEENS1_15split_std_deque6uniqueISM_EELb1ELb1ELb1EE7destroyINS0_10multi_passISR_NS1_14default_policyISS_SU_SW_SZ_EEEEEEvRT_.exit.i, %_ZN5boost6spirit17iterator_policies17multi_pass_sharedISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS5_9lex_tokenINS4_4util13file_positionINS9_11flex_stringIcSt11char_traitsIcESaIcENS9_9CowStringINS9_22AllocatorStringStorageIcSE_EEPcEEEEEEEEEEPNS5_19lex_input_interfaceISM_EEENS1_11ref_counted6sharedENS1_8no_check6sharedENS1_19split_functor_input6sharedISR_EENS1_15split_std_deque6sharedISM_EEED2Ev.exit.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 43:                                               ; preds = %14, %_ZN5boost4wave4util20unput_queue_iteratorINS0_8cpplexer12lex_iteratorINS3_9lex_tokenINS1_13file_positionINS1_11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcSA_EEPcEEEEEEEEEESI_NSt7__cxx114listISI_NS_19fast_pool_allocatorISI_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEC2ERKSR_.exit
   %44 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #29
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %44
 }
 
@@ -18680,7 +18674,7 @@ _ZNK5boost6spirit7classic7scannerINS_4wave4util20unput_queue_iteratorINS3_8cpple
   br i1 %24, label %167, label %_ZNK5boost6spirit7classic7scannerINS_4wave4util20unput_queue_iteratorINS3_8cpplexer12lex_iteratorINS6_9lex_tokenINS4_13file_positionINS4_11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEESL_NSt7__cxx114listISL_NS_19fast_pool_allocatorISL_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINS1_5chlitINS3_8token_idEEES10_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEE6at_endEv.exit.thread
 
 _ZNK5boost6spirit7classic7scannerINS_4wave4util20unput_queue_iteratorINS3_8cpplexer12lex_iteratorINS6_9lex_tokenINS4_13file_positionINS4_11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEESL_NSt7__cxx114listISL_NS_19fast_pool_allocatorISL_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINS1_5chlitINS3_8token_idEEES10_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEE6at_endEv.exit.thread: ; preds = %._crit_edge.i.i.i.i.i.i, %21, %_ZNK5boost6spirit7classic7scannerINS_4wave4util20unput_queue_iteratorINS3_8cpplexer12lex_iteratorINS6_9lex_tokenINS4_13file_positionINS4_11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEESL_NSt7__cxx114listISL_NS_19fast_pool_allocatorISL_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINS1_5chlitINS3_8token_idEEES10_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEE6at_endEv.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZNK5boost6spirit7classic7scannerINS_4wave4util20unput_queue_iteratorINS3_8cpplexer12lex_iteratorINS6_9lex_tokenINS4_13file_positionINS4_11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEESL_NSt7__cxx114listISL_NS_19fast_pool_allocatorISL_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINS1_5chlitINS3_8token_idEEES10_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEdeEv(ptr dead_on_unwind nonnull writable sret(%"class.boost::wave::cpplexer::lex_token") align 8 %4, ptr noundef nonnull align 8 dereferenceable(40) %2)
   %25 = load ptr, ptr %4, align 8, !tbaa !95
   %.not.i = icmp eq ptr %25, null
@@ -18735,7 +18729,7 @@ _ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traits
   br label %_ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt11char_traitsIcESaIcENS3_9CowStringINS3_22AllocatorStringStorageIcS8_EEPcEEEEEEED2Ev.exit
 
 _ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt11char_traitsIcESaIcENS3_9CowStringINS3_22AllocatorStringStorageIcS8_EEPcEEEEEEED2Ev.exit: ; preds = %_ZNK5boost6spirit7classic7scannerINS_4wave4util20unput_queue_iteratorINS3_8cpplexer12lex_iteratorINS6_9lex_tokenINS4_13file_positionINS4_11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEESL_NSt7__cxx114listISL_NS_19fast_pool_allocatorISL_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINS1_5chlitINS3_8token_idEEES10_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEE6at_endEv.exit.thread, %_ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm.exit.i, %26
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %42 = load ptr, ptr %8, align 8, !tbaa !300
   %43 = load ptr, ptr %42, align 8, !tbaa !289
   store ptr %43, ptr %5, align 8, !tbaa !289
@@ -18757,7 +18751,7 @@ _ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt
   %52 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %53 = load ptr, ptr %52, align 8, !tbaa !293
   store ptr %53, ptr %51, align 8, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %54 = load ptr, ptr %2, align 8, !tbaa !151
   call void @llvm.experimental.noalias.scope.decl(metadata !382)
   %55 = ptrtoint ptr %54 to i64
@@ -18902,7 +18896,7 @@ _ZN5boost6spirit17iterator_policies17multi_pass_sharedISt4pairINS_4wave8cpplexer
   br label %_ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev.exit
 
 _ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev.exit: ; preds = %_ZNK5boost6spirit7classic7scannerINS_4wave4util20unput_queue_iteratorINS3_8cpplexer12lex_iteratorINS6_9lex_tokenINS4_13file_positionINS4_11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEESL_NSt7__cxx114listISL_NS_19fast_pool_allocatorISL_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_27no_skipper_iteration_policyINS1_28skip_parser_iteration_policyINS1_11alternativeINS1_5chlitINS3_8token_idEEES11_EENS1_16iteration_policyEEEEENS1_12match_policyENS1_13action_policyEEEEppEv.exit, %_ZN5boost6spirit17iterator_policies17multi_pass_uniqueISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS5_9lex_tokenINS4_4util13file_positionINS9_11flex_stringIcSt11char_traitsIcESaIcENS9_9CowStringINS9_22AllocatorStringStorageIcSE_EEPcEEEEEEEEEEPNS5_19lex_input_interfaceISM_EEENS1_11ref_counted6uniqueENS1_8no_check6uniqueENS1_19split_functor_input6uniqueISR_Lb1EEENS1_15split_std_deque6uniqueISM_EELb1ELb1ELb1EE7releaseINS0_10multi_passISR_NS1_14default_policyISS_SU_SW_SZ_EEEEEEbRT_.exit.i, %_ZN5boost6spirit17iterator_policies17multi_pass_uniqueISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS5_9lex_tokenINS4_4util13file_positionINS9_11flex_stringIcSt11char_traitsIcESaIcENS9_9CowStringINS9_22AllocatorStringStorageIcSE_EEPcEEEEEEEEEEPNS5_19lex_input_interfaceISM_EEENS1_11ref_counted6uniqueENS1_8no_check6uniqueENS1_19split_functor_input6uniqueISR_Lb1EEENS1_15split_std_deque6uniqueISM_EELb1ELb1ELb1EE7destroyINS0_10multi_passISR_NS1_14default_policyISS_SU_SW_SZ_EEEEEEvRT_.exit.i, %_ZN5boost6spirit17iterator_policies17multi_pass_sharedISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS5_9lex_tokenINS4_4util13file_positionINS9_11flex_stringIcSt11char_traitsIcESaIcENS9_9CowStringINS9_22AllocatorStringStorageIcSE_EEPcEEEEEEEEEEPNS5_19lex_input_interfaceISM_EEENS1_11ref_counted6sharedENS1_8no_check6sharedENS1_19split_functor_input6sharedISR_EENS1_15split_std_deque6sharedISM_EEED2Ev.exit.i
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.experimental.noalias.scope.decl(metadata !385)
   store i64 1, ptr %0, align 8, !tbaa !158, !alias.scope !385
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -18990,15 +18984,15 @@ _ZN5boost6spirit17iterator_policies17multi_pass_sharedISt4pairINS_4wave8cpplexer
 .body:                                            ; preds = %80, %145
   %.pn = phi { ptr, i32 } [ %146, %145 ], [ %81, %80 ]
   call void @_ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %57) #29
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #29
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt11char_traitsIcESaIcENS3_9CowStringINS3_22AllocatorStringStorageIcS8_EEPcEEEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #29
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn
 
 147:                                              ; preds = %_ZN5boost6spirit17iterator_policies17multi_pass_sharedISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS5_9lex_tokenINS4_4util13file_positionINS9_11flex_stringIcSt11char_traitsIcESaIcENS9_9CowStringINS9_22AllocatorStringStorageIcSE_EEPcEEEEEEEEEEPNS5_19lex_input_interfaceISM_EEENS1_11ref_counted6sharedENS1_8no_check6sharedENS1_19split_functor_input6sharedISR_EENS1_15split_std_deque6sharedISM_EEED2Ev.exit.i43, %_ZN5boost6spirit17iterator_policies17multi_pass_uniqueISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS5_9lex_tokenINS4_4util13file_positionINS9_11flex_stringIcSt11char_traitsIcESaIcENS9_9CowStringINS9_22AllocatorStringStorageIcSE_EEPcEEEEEEEEEEPNS5_19lex_input_interfaceISM_EEENS1_11ref_counted6uniqueENS1_8no_check6uniqueENS1_19split_functor_input6uniqueISR_Lb1EEENS1_15split_std_deque6uniqueISM_EELb1ELb1ELb1EE7releaseINS0_10multi_passISR_NS1_14default_policyISS_SU_SW_SZ_EEEEEEbRT_.exit.i31, %120
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %148 = load ptr, ptr %4, align 8, !tbaa !95
   %.not.i23 = icmp eq ptr %148, null
   br i1 %.not.i23, label %_ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt11char_traitsIcESaIcENS3_9CowStringINS3_22AllocatorStringStorageIcS8_EEPcEEEEEEED2Ev.exit28, label %149
@@ -19056,7 +19050,7 @@ _ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traits
   br label %_ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt11char_traitsIcESaIcENS3_9CowStringINS3_22AllocatorStringStorageIcS8_EEPcEEEEEEED2Ev.exit28
 
 _ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt11char_traitsIcESaIcENS3_9CowStringINS3_22AllocatorStringStorageIcS8_EEPcEEEEEEED2Ev.exit28: ; preds = %147, %149, %153, %_ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm.exit.i27
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %169
 
 167:                                              ; preds = %_ZNK5boost6spirit7classic7scannerINS_4wave4util20unput_queue_iteratorINS3_8cpplexer12lex_iteratorINS6_9lex_tokenINS4_13file_positionINS4_11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEESL_NSt7__cxx114listISL_NS_19fast_pool_allocatorISL_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINS1_5chlitINS3_8token_idEEES10_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEE6at_endEv.exit
@@ -19666,7 +19660,7 @@ define linkonce_odr hidden i64 @_ZNK5boost6spirit7classic8sequenceINS2_INS1_6act
   br i1 %.not.not, label %5, label %.thread
 
 5:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @_ZNK5boost6spirit7classic6actionINS1_5chlitINS_4wave8token_idEEENS1_15ref_value_actorINSt7__cxx114listINS4_8cpplexer9lex_tokenINS4_4util13file_positionINSC_11flex_stringIcSt11char_traitsIcESaIcENSC_9CowStringINSC_22AllocatorStringStorageIcSH_EEPcEEEEEEEENS_19fast_pool_allocatorISP_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEENS1_16push_back_actionEEEE5parseINS1_7scannerINSC_20unput_queue_iteratorINSA_12lex_iteratorISP_EESP_SU_EENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeIS6_S6_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultISX_T_E4typeERKS1F_(ptr dead_on_unwind nonnull writable sret(%"class.boost::spirit::classic::match.75") align 8 %3, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(40) %1)
   %7 = load i64, ptr %3, align 8, !tbaa !158
@@ -19734,7 +19728,7 @@ _ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traits
   br label %_ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit
 
 _ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit: ; preds = %_ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm.exit.i, %18, %14, %11, %5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not7.not.not = icmp sgt i64 %7, -1
   %32 = add nsw i64 %7, %4
   %spec.select = select i1 %.not7.not.not, i64 %32, i64 -1
@@ -19748,7 +19742,7 @@ _ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_posit
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden i64 @_ZNK5boost6spirit7classic8sequenceINS1_6actionINS1_5chlitINS_4wave8token_idEEENS1_15ref_value_actorINSt7__cxx114listINS5_8cpplexer9lex_tokenINS5_4util13file_positionINSD_11flex_stringIcSt11char_traitsIcESaIcENSD_9CowStringINSD_22AllocatorStringStorageIcSI_EEPcEEEEEEEENS_19fast_pool_allocatorISQ_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEENS1_16push_back_actionEEEEENS1_4ruleINS1_7scannerINSD_20unput_queue_iteratorINSB_12lex_iteratorISQ_EESQ_SV_EENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeIS7_S7_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEENS1_5nil_tES1F_EEE5parseIS1E_EENS1_13parser_resultIS1H_T_E4typeERKS1K_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) local_unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.boost::spirit::classic::match.75", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZNK5boost6spirit7classic6actionINS1_5chlitINS_4wave8token_idEEENS1_15ref_value_actorINSt7__cxx114listINS4_8cpplexer9lex_tokenINS4_4util13file_positionINSC_11flex_stringIcSt11char_traitsIcESaIcENSC_9CowStringINSC_22AllocatorStringStorageIcSH_EEPcEEEEEEEENS_19fast_pool_allocatorISP_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEENS1_16push_back_actionEEEE5parseINS1_7scannerINSC_20unput_queue_iteratorINSA_12lex_iteratorISP_EESP_SU_EENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeIS6_S6_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultISX_T_E4typeERKS1F_(ptr dead_on_unwind nonnull writable sret(%"class.boost::spirit::classic::match.75") align 8 %3, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(40) %1)
   %4 = load i64, ptr %3, align 8, !tbaa !158
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -19815,7 +19809,7 @@ _ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traits
   br label %_ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit
 
 _ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit: ; preds = %_ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm.exit.i, %15, %11, %8, %2
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not.not = icmp sgt i64 %4, -1
   br i1 %.not.not, label %29, label %.thread
 
@@ -19871,7 +19865,7 @@ define linkonce_odr hidden i64 @_ZNK5boost6spirit7classic11kleene_starINS1_11alt
 
 7:                                                ; preds = %_ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev.exit, %2
   %.sroa.011.0 = phi i64 [ 0, %2 ], [ %.sroa.011.1, %_ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev.exit ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #29
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = load ptr, ptr %4, align 8, !tbaa !300
   %9 = load ptr, ptr %8, align 8, !tbaa !289
   store ptr %9, ptr %3, align 8, !tbaa !289
@@ -19904,7 +19898,7 @@ _ZN5boost4wave4util20unput_queue_iteratorINS0_8cpplexer12lex_iteratorINS3_9lex_t
   %21 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #29
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %21
 
 22:                                               ; preds = %17
@@ -20037,7 +20031,7 @@ _ZN5boost6spirit17iterator_policies17multi_pass_sharedISt4pairINS_4wave8cpplexer
   br label %_ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev.exit
 
 _ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev.exit: ; preds = %25, %_ZN5boost6spirit17iterator_policies17multi_pass_uniqueISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS5_9lex_tokenINS4_4util13file_positionINS9_11flex_stringIcSt11char_traitsIcESaIcENS9_9CowStringINS9_22AllocatorStringStorageIcSE_EEPcEEEEEEEEEEPNS5_19lex_input_interfaceISM_EEENS1_11ref_counted6uniqueENS1_8no_check6uniqueENS1_19split_functor_input6uniqueISR_Lb1EEENS1_15split_std_deque6uniqueISM_EELb1ELb1ELb1EE7releaseINS0_10multi_passISR_NS1_14default_policyISS_SU_SW_SZ_EEEEEEbRT_.exit.i, %_ZN5boost6spirit17iterator_policies17multi_pass_uniqueISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS5_9lex_tokenINS4_4util13file_positionINS9_11flex_stringIcSt11char_traitsIcESaIcENS9_9CowStringINS9_22AllocatorStringStorageIcSE_EEPcEEEEEEEEEEPNS5_19lex_input_interfaceISM_EEENS1_11ref_counted6uniqueENS1_8no_check6uniqueENS1_19split_functor_input6uniqueISR_Lb1EEENS1_15split_std_deque6uniqueISM_EELb1ELb1ELb1EE7destroyINS0_10multi_passISR_NS1_14default_policyISS_SU_SW_SZ_EEEEEEvRT_.exit.i, %_ZN5boost6spirit17iterator_policies17multi_pass_sharedISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS5_9lex_tokenINS4_4util13file_positionINS9_11flex_stringIcSt11char_traitsIcESaIcENS9_9CowStringINS9_22AllocatorStringStorageIcSE_EEPcEEEEEEEEEEPNS5_19lex_input_interfaceISM_EEENS1_11ref_counted6sharedENS1_8no_check6sharedENS1_19split_functor_input6sharedISR_EENS1_15split_std_deque6sharedISM_EEED2Ev.exit.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #29
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not, label %7, label %71
 
 71:                                               ; preds = %_ZN5boost6spirit10multi_passISt4pairINS_4wave8cpplexer4impl25lex_iterator_functor_shimINS4_9lex_tokenINS3_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEEEPNS4_19lex_input_interfaceISL_EEENS0_17iterator_policies14default_policyINSR_11ref_countedENSR_8no_checkENSR_19split_functor_inputENSR_15split_std_dequeEEEED2Ev.exit
@@ -20152,6 +20146,12 @@ define internal void @_GLOBAL__sub_I_instantiate_has_include_grammar.cpp() #24 s
   %32 = tail call ptr @llvm.invariant.start.p0(i64 1, ptr nonnull @_ZN7phoenixL4arg6E)
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #25

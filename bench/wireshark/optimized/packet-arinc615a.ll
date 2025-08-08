@@ -215,7 +215,7 @@ define internal i32 @dissect_find(ptr noundef %0, ptr noundef readonly captures(
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %13 = load ptr, ptr %12, align 8
   %14 = tail call ptr @ptvcursor_new(ptr noundef %13, ptr noundef %11, ptr noundef %0, i32 noundef 0)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %15 = load i32, ptr @hf_find_opcode, align 4
   %16 = call ptr @ptvcursor_add_ret_uint(ptr noundef %14, i32 noundef %15, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %5)
   %17 = load ptr, ptr %6, align 8
@@ -248,7 +248,7 @@ define internal i32 @dissect_find(ptr noundef %0, ptr noundef readonly captures(
   %36 = call ptr @ptvcursor_add(ptr noundef %14, i32 noundef %35, i32 noundef 1, i32 noundef 0)
   call void @ptvcursor_free(ptr noundef %14)
   %37 = call i32 @tvb_captured_length(ptr noundef %0)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %37
 }
 
@@ -362,7 +362,7 @@ proto_item_set_generated.exit.i:                  ; preds = %49, %46, %32
   ]
 
 58:                                               ; preds = %proto_item_set_generated.exit.i, %proto_item_set_generated.exit.i, %proto_item_set_generated.exit.i, %proto_item_set_generated.exit.i
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %59 = load i32, ptr @hf_a615a_protocol_version, align 4
   %60 = tail call ptr @ptvcursor_add(ptr noundef %55, i32 noundef %59, i32 noundef 2, i32 noundef 0)
   %61 = load i32, ptr @hf_a615a_operation_status, align 4
@@ -373,12 +373,12 @@ proto_item_set_generated.exit.i:                  ; preds = %49, %46, %32
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %63, i32 noundef 25, ptr noundef nonnull @.str.129, ptr noundef %65)
   %66 = load i32, ptr @hf_a615a_status_description, align 4
   %67 = call ptr @ptvcursor_add(ptr noundef %55, i32 noundef %66, i32 noundef 1, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %dissect_a615a_protocol_file.exit
 
 68:                                               ; preds = %proto_item_set_generated.exit.i
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %69 = load i32, ptr @hf_a615a_protocol_version, align 4
   %70 = tail call ptr @ptvcursor_add(ptr noundef %55, i32 noundef %69, i32 noundef 2, i32 noundef 0)
   %71 = load i32, ptr @hf_a615a_number_target_hardware, align 4
@@ -425,12 +425,12 @@ proto_item_set_generated.exit.i:                  ; preds = %49, %46, %32
   br i1 %96, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !8
 
 dissect_a615a_LCL.exit.i:                         ; preds = %._crit_edge.i.i, %68
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %dissect_a615a_protocol_file.exit
 
 97:                                               ; preds = %proto_item_set_generated.exit.i
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %98 = load i32, ptr @hf_a615a_protocol_version, align 4
   %99 = tail call ptr @ptvcursor_add(ptr noundef %55, i32 noundef %98, i32 noundef 2, i32 noundef 0)
   %100 = load i32, ptr @hf_a615a_counter, align 4
@@ -447,11 +447,11 @@ dissect_a615a_LCL.exit.i:                         ; preds = %._crit_edge.i.i, %6
   %110 = call ptr @ptvcursor_add(ptr noundef %55, i32 noundef %109, i32 noundef 2, i32 noundef 0)
   %111 = load i32, ptr @hf_a615a_status_description, align 4
   %112 = call ptr @ptvcursor_add(ptr noundef %55, i32 noundef %111, i32 noundef 1, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %dissect_a615a_protocol_file.exit
 
 113:                                              ; preds = %proto_item_set_generated.exit.i
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %114 = load i32, ptr @hf_a615a_protocol_version, align 4
   %115 = tail call ptr @ptvcursor_add(ptr noundef %55, i32 noundef %114, i32 noundef 2, i32 noundef 0)
   %116 = load i32, ptr @hf_a615a_file_count, align 4
@@ -470,11 +470,11 @@ dissect_a615a_LCL.exit.i:                         ; preds = %._crit_edge.i.i, %6
   br i1 %123, label %.lr.ph.i32.i, label %dissect_a615a_LNA.exit.i, !llvm.loop !9
 
 dissect_a615a_LNA.exit.i:                         ; preds = %.lr.ph.i32.i, %113
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %dissect_a615a_protocol_file.exit
 
 124:                                              ; preds = %proto_item_set_generated.exit.i
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %125 = load i32, ptr @hf_a615a_protocol_version, align 4
   %126 = tail call ptr @ptvcursor_add(ptr noundef %55, i32 noundef %125, i32 noundef 2, i32 noundef 0)
   %127 = load i32, ptr @hf_a615a_file_count, align 4
@@ -498,11 +498,11 @@ dissect_a615a_LNA.exit.i:                         ; preds = %.lr.ph.i32.i, %113
   br i1 %138, label %.lr.ph.i36.i, label %dissect_a615a_LNL.exit.i, !llvm.loop !10
 
 dissect_a615a_LNL.exit.i:                         ; preds = %.lr.ph.i36.i, %124
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %dissect_a615a_protocol_file.exit
 
 139:                                              ; preds = %proto_item_set_generated.exit.i
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %140 = load i32, ptr @hf_a615a_protocol_version, align 4
   %141 = tail call ptr @ptvcursor_add(ptr noundef %55, i32 noundef %140, i32 noundef 2, i32 noundef 0)
   %142 = load i32, ptr @hf_a615a_file_count, align 4
@@ -523,13 +523,13 @@ dissect_a615a_LNL.exit.i:                         ; preds = %.lr.ph.i36.i, %124
 dissect_a615a_LNR.exit.i:                         ; preds = %.lr.ph.i40.i, %139
   %150 = load i32, ptr @hf_a615a_user_data, align 4
   %151 = call ptr @ptvcursor_add(ptr noundef %55, i32 noundef %150, i32 noundef 1, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %dissect_a615a_protocol_file.exit
 
 152:                                              ; preds = %proto_item_set_generated.exit.i
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr null, ptr %12, align 8
   %153 = load i32, ptr @hf_a615a_protocol_version, align 4
   %154 = load ptr, ptr %53, align 8
@@ -598,13 +598,13 @@ sub_1.i.i:                                        ; preds = %sub_0.i.i
   br i1 %192, label %.lr.ph.i44.i, label %dissect_a615a_LNS.exit.i, !llvm.loop !12
 
 dissect_a615a_LNS.exit.i:                         ; preds = %.lr.ph.i44.i, %174
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %dissect_a615a_protocol_file.exit
 
 193:                                              ; preds = %proto_item_set_generated.exit.i
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %194 = load i32, ptr @hf_a615a_protocol_version, align 4
   %195 = tail call ptr @ptvcursor_add(ptr noundef %55, i32 noundef %194, i32 noundef 2, i32 noundef 0)
   %196 = load i32, ptr @hf_a615a_file_count, align 4
@@ -628,14 +628,14 @@ dissect_a615a_LNS.exit.i:                         ; preds = %.lr.ph.i44.i, %174
   br i1 %207, label %.lr.ph.i47.i, label %dissect_a615a_LUR.exit.i, !llvm.loop !13
 
 dissect_a615a_LUR.exit.i:                         ; preds = %.lr.ph.i47.i, %193
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %dissect_a615a_protocol_file.exit
 
 208:                                              ; preds = %proto_item_set_generated.exit.i
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8
   %209 = load i32, ptr @hf_a615a_protocol_version, align 4
   %210 = load ptr, ptr %53, align 8
@@ -715,10 +715,10 @@ sub_1.i55.i:                                      ; preds = %sub_0.i51.i
 
 dissect_a615a_LUS.exit.i:                         ; preds = %.lr.ph.i53.i, %230
   call void @ptvcursor_pop_subtree(ptr noundef %55)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %dissect_a615a_protocol_file.exit
 
 default.unreachable:                              ; preds = %proto_item_set_generated.exit.i
@@ -743,9 +743,6 @@ declare void @dissector_add_uint_with_preference(ptr noundef, i32 noundef, ptr n
 
 ; Function Attrs: null_pointer_is_valid
 declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
@@ -777,9 +774,6 @@ declare void @ptvcursor_free(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -804,10 +798,15 @@ declare void @ptvcursor_pop_subtree(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: null_pointer_is_valid
 declare ptr @ptvcursor_add_ret_string(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
+
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

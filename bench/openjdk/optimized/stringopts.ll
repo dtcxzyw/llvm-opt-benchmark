@@ -4573,13 +4573,13 @@ _ZN13SafePointNode12ensure_stackEP8JVMStatej.exit: ; preds = %_ZN4Node7set_reqEj
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 352
   %198 = load ptr, ptr %197, align 8
   %199 = call noundef ptr @_ZN5ciEnv15the_null_stringEv(ptr noundef nonnull align 8 dereferenceable(1265) %198) #11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %200 = call noundef ptr @_ZN8ciObject5klassEv(ptr noundef nonnull align 8 dereferenceable(40) %199) #11
   store ptr %200, ptr %4, align 8
   %201 = call noundef ptr @_ZN7TypePtr10interfacesERP7ciKlassbbbN4Type17InterfaceHandlingE(ptr noundef nonnull align 8 dereferenceable(8) %4, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef 1) #11
   %202 = load ptr, ptr %4, align 8
   %203 = call noundef ptr @_ZN11TypeInstPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS0_i(i32 noundef 2, ptr noundef %202, ptr noundef %201, i1 noundef zeroext true, ptr noundef nonnull %199, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 2147483647) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %204 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %205 = load ptr, ptr %204, align 8
   %206 = call noundef ptr @_ZN11PhaseValues7makeconEPK4Type(ptr noundef nonnull align 8 dereferenceable(2400) %205, ptr noundef %203) #11
@@ -7601,7 +7601,7 @@ _ZN8GraphKit7LShiftIEP4NodeS1_.exit:              ; preds = %_ZN4NodenwEm.exit.i
   %1933 = load ptr, ptr %1911, align 8
   %1934 = load ptr, ptr %1933, align 8
   %1935 = call noundef ptr %1934(ptr noundef nonnull align 8 dereferenceable(2400) %1911, ptr noundef %.0.i.i.i.i448) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN22PreserveReexecuteStateC1EP8GraphKit(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(84) %5) #11
   %1936 = load ptr, ptr %1827, align 8
   %1937 = getelementptr inbounds nuw i8, ptr %1936, i64 56
@@ -7620,7 +7620,7 @@ _ZN8GraphKit7LShiftIEP4NodeS1_.exit:              ; preds = %_ZN4NodenwEm.exit.i
   %1947 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1948 = load ptr, ptr %1947, align 8
   %1949 = call noundef zeroext i1 @_ZN12AllocateNode18maybe_set_completeEP8PhaseGVN(ptr noundef nonnull align 8 dereferenceable(131) %1945, ptr noundef %1948) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %1950 = load ptr, ptr %204, align 8
   %1951 = call noundef ptr @_ZN11PhaseValues6intconEi(ptr noundef nonnull align 8 dereferenceable(2400) %1950, i32 noundef 0) #11
   %1952 = load i32, ptr %207, align 4
@@ -14817,13 +14817,13 @@ _ZN8GraphKit11set_controlEP4Node.exit:            ; preds = %_ZN4Node7del_outEPS
   %303 = getelementptr inbounds nuw i8, ptr %302, i64 352
   %304 = load ptr, ptr %303, align 8
   %305 = tail call noundef ptr @_ZN5ciEnv19the_min_jint_stringEv(ptr noundef nonnull align 8 dereferenceable(1265) %304) #11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %306 = tail call noundef ptr @_ZN8ciObject5klassEv(ptr noundef nonnull align 8 dereferenceable(40) %305) #11
   store ptr %306, ptr %8, align 8
   %307 = call noundef ptr @_ZN7TypePtr10interfacesERP7ciKlassbbbN4Type17InterfaceHandlingE(ptr noundef nonnull align 8 dereferenceable(8) %8, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef 1) #11
   %308 = load ptr, ptr %8, align 8
   %309 = call noundef ptr @_ZN11TypeInstPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS0_i(i32 noundef 2, ptr noundef %308, ptr noundef %307, i1 noundef zeroext true, ptr noundef nonnull %305, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 2147483647) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %310 = load ptr, ptr %21, align 8
   %311 = call noundef ptr @_ZN11PhaseValues7makeconEPK4Type(ptr noundef nonnull align 8 dereferenceable(2400) %310, ptr noundef %309) #11
   %312 = call noundef ptr @_ZN15PhaseStringOpts11copy_stringER8GraphKitP4NodeS3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull align 8 dereferenceable(84) %1, ptr noundef %311, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5)
@@ -17677,10 +17677,10 @@ declare i32 @llvm.ctpop.i32(i32) #9
 declare i32 @llvm.abs.i32(i32, i1 immarg) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

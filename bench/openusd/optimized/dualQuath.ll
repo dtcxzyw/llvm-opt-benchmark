@@ -470,7 +470,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7GfQuathmLENS_8pxr_half4halfE.exit10: ; pre
   %104 = fpext float %103 to double
   %105 = tail call noundef nonnull align 2 dereferenceable(6) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7GfVec3hmLEd(ptr noundef nonnull align 2 dereferenceable(8) %74, double noundef %104)
   %106 = tail call i16 @_ZN32pxrInternal_v0_24__pxrReserved__5GfDotERKNS_7GfQuathES2_(ptr noundef nonnull align 2 dereferenceable(8) %0, ptr noundef nonnull align 2 dereferenceable(8) %74)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %107 = load i64, ptr %0, align 2
   store i64 %107, ptr %3, align 8
   %108 = lshr i64 %107, 48
@@ -521,7 +521,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__mlENS_8pxr_half4halfERKNS_7GfQuathE.exit: ;
   %138 = fpext float %136 to double
   %139 = call noundef nonnull align 2 dereferenceable(6) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7GfVec3hmLEd(ptr noundef nonnull align 2 dereferenceable(8) %3, double noundef %138)
   %.sroa.02.0.copyload.i = load i64, ptr %3, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store i64 %.sroa.02.0.copyload.i, ptr %4, align 8
   %140 = lshr i64 %.sroa.02.0.copyload.i, 48
   %141 = load i16, ptr %75, align 2
@@ -721,7 +721,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit: ; preds = %15, %24
   %.sroa.2.0.insert.ext.i9.i = zext i16 %.sroa.0.0.copyload.i.i1.i to i64
   %.sroa.2.0.insert.shift.i10.i = shl nuw i64 %.sroa.2.0.insert.ext.i9.i, 48
   %.sroa.01.0.insert.insert.i11.i = or disjoint i64 %.sroa.0.0.insert.insert.i.i8.i, %.sroa.2.0.insert.shift.i10.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %.sroa.01.0.insert.insert.i.i, ptr %4, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %.sroa.01.0.insert.insert.i11.i, ptr %.sroa.2.0..sroa_idx, align 8
@@ -729,7 +729,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit: ; preds = %15, %24
   %.sroa.02.0.copyload.i = load i64, ptr %54, align 2
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %54, i64 8
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 2
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %55 = zext i16 %.sink.i to i64
   %56 = getelementptr inbounds nuw [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %55
   %57 = load float, ptr %56, align 4
@@ -776,7 +776,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit: ; preds = %15, %24
 
 _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit7: ; preds = %69, %77, %86
   %.sink.i6 = phi i16 [ %85, %77 ], [ %87, %86 ], [ %71, %69 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %.sroa.02.0.copyload.i, ptr %3, align 8
   %88 = lshr i64 %.sroa.02.0.copyload.i, 48
   %89 = getelementptr inbounds nuw [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %88
@@ -826,9 +826,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__mlENS_8pxr_half4halfERKNS_7GfQuathE.exit: ;
   %118 = fpext float %116 to double
   %119 = call noundef nonnull align 2 dereferenceable(6) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7GfVec3hmLEd(ptr noundef nonnull align 2 dereferenceable(8) %3, double noundef %118)
   %.sroa.02.0.copyload.i8 = load i64, ptr %3, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store i64 %.sroa.02.0.copyload.i8, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 %.sroa.2.0.copyload.i, ptr %2, align 8
   %120 = lshr i64 %.sroa.02.0.copyload.i8, 48
   %121 = lshr i64 %.sroa.2.0.copyload.i, 48
@@ -875,7 +875,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__miERKNS_7GfQuathES2_.exit: ; preds = %129, 
   store i16 %.sink.i.i.i.i10, ptr %148, align 2
   %149 = call noundef nonnull align 2 dereferenceable(6) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7GfVec3hmIERKS0_(ptr noundef nonnull align 2 dereferenceable(8) %2, ptr noundef nonnull align 2 dereferenceable(8) %5)
   %.sroa.0.0.copyload.i = load i64, ptr %2, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %150
 
 150:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__miERKNS_7GfQuathES2_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__11GfDualQuath11GetIdentityEv.exit
@@ -890,17 +890,17 @@ _ZN32pxrInternal_v0_24__pxrReserved__miERKNS_7GfQuathES2_.exit: ; preds = %129, 
 define void @_ZN32pxrInternal_v0_24__pxrReserved__11GfDualQuath14SetTranslationERKNS_7GfVec3hE(ptr noundef nonnull align 2 dereferenceable(16) %0, ptr noundef nonnull readonly align 2 captures(none) dereferenceable(6) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfQuath", align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfVec3h", align 2
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %4, ptr noundef nonnull align 2 dereferenceable(6) %1, i64 6, i1 false)
   %5 = call noundef nonnull align 2 dereferenceable(6) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7GfVec3hmLEd(ptr noundef nonnull align 2 dereferenceable(6) %4, double noundef 5.000000e-01)
   %.sroa.0.0.copyload.i.i = load i48, ptr %5, align 2
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.sroa.03.0.insert.ext = zext i48 %.sroa.0.0.copyload.i.i to i64
   store i64 %.sroa.03.0.insert.ext, ptr %3, align 8
   %6 = call noundef nonnull align 2 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7GfQuathmLERKS0_(ptr noundef nonnull align 2 dereferenceable(8) %3, ptr noundef nonnull align 2 dereferenceable(8) %0)
   %.sroa.0.0.copyload.i = load i64, ptr %6, align 2
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.0.0.copyload.i, ptr %7, align 2
   ret void
@@ -1161,28 +1161,28 @@ define noundef nonnull align 2 dereferenceable(16) ptr @_ZN32pxrInternal_v0_24__
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfQuath", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfQuath", align 8
   %7 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfQuath", align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %8 = load i64, ptr %0, align 2
   store i64 %8, ptr %6, align 8
   %9 = call noundef nonnull align 2 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7GfQuathmLERKS0_(ptr noundef nonnull align 2 dereferenceable(8) %6, ptr noundef nonnull align 2 dereferenceable(8) %1)
   %.sroa.0.0.copyload.i = load i64, ptr %9, align 2
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %11 = load i64, ptr %0, align 2
   store i64 %11, ptr %5, align 8
   %12 = call noundef nonnull align 2 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7GfQuathmLERKS0_(ptr noundef nonnull align 2 dereferenceable(8) %5, ptr noundef nonnull align 2 dereferenceable(8) %10)
   %.sroa.0.0.copyload.i4 = load i64, ptr %12, align 2
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %14 = load i64, ptr %13, align 2
   store i64 %14, ptr %4, align 8
   %15 = call noundef nonnull align 2 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7GfQuathmLERKS0_(ptr noundef nonnull align 2 dereferenceable(8) %4, ptr noundef nonnull align 2 dereferenceable(8) %1)
   %.sroa.0.0.copyload.i5 = load i64, ptr %15, align 2
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store i64 %.sroa.0.0.copyload.i5, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %.sroa.0.0.copyload.i4, ptr %3, align 8
   %16 = lshr i64 %.sroa.0.0.copyload.i5, 48
   %17 = lshr i64 %.sroa.0.0.copyload.i4, 48
@@ -1229,7 +1229,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__plERKNS_7GfQuathES2_.exit: ; preds = %25, %
   store i16 %.sink.i.i.i.i, ptr %44, align 2
   %45 = call noundef nonnull align 2 dereferenceable(6) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7GfVec3hpLERKS0_(ptr noundef nonnull align 2 dereferenceable(8) %3, ptr noundef nonnull align 2 dereferenceable(8) %7)
   %.sroa.0.0.copyload.i6 = load i64, ptr %3, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store i64 %.sroa.0.0.copyload.i, ptr %0, align 2
   store i64 %.sroa.0.0.copyload.i6, ptr %13, align 2
   ret ptr %0
@@ -1242,11 +1242,11 @@ define i48 @_ZNK32pxrInternal_v0_24__pxrReserved__11GfDualQuath9TransformERKNS_7
   %5 = tail call i48 @_ZNK32pxrInternal_v0_24__pxrReserved__7GfQuath9TransformERKNS_7GfVec3hE(ptr noundef nonnull align 2 dereferenceable(8) %0, ptr noundef nonnull align 2 dereferenceable(6) %1)
   %6 = tail call i48 @_ZNK32pxrInternal_v0_24__pxrReserved__11GfDualQuath14GetTranslationEv(ptr noundef nonnull align 2 dereferenceable(16) %0)
   store i48 %6, ptr %4, align 8
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i48 %5, ptr %3, align 8
   %7 = call noundef nonnull align 2 dereferenceable(6) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7GfVec3hpLERKS0_(ptr noundef nonnull align 2 dereferenceable(6) %3, ptr noundef nonnull align 2 dereferenceable(6) %4)
   %.sroa.0.0.copyload.i = load i48, ptr %7, align 2
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i48 %.sroa.0.0.copyload.i
 }
 
@@ -1844,10 +1844,10 @@ define internal void @_GLOBAL__sub_I_dualQuath.cpp() #11 section ".text.startup"
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

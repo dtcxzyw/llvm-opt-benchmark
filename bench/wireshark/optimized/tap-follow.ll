@@ -85,7 +85,7 @@ declare void @follow_iterate_followers(ptr noundef, ptr noundef) local_unnamed_a
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef zeroext i1 @follow_register(ptr readnone captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
   %4 = alloca %struct._stat_tap_ui, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call ptr @follow_get_stat_tap_string(ptr noundef %1)
   store i32 3, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -98,12 +98,9 @@ define internal noundef zeroext i1 @follow_register(ptr readnone captures(none) 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   call void @register_stat_tap_ui(ptr noundef nonnull %4, ptr noundef %1)
   call void @g_free(ptr noundef %5)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 false
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare ptr @follow_get_stat_tap_string(ptr noundef) local_unnamed_addr #1
@@ -116,9 +113,9 @@ define internal void @follow_stream(ptr noundef readonly captures(none) %0, ptr 
   %6 = tail call i32 @get_follow_proto_id(ptr noundef %1)
   %7 = tail call ptr @proto_get_protocol_filter_name(i32 noundef %6)
   %8 = getelementptr i8, ptr %0, i64 7
-  %9 = tail call i64 @strlen(ptr noundef %7) #12
+  %9 = tail call i64 @strlen(ptr noundef %7) #11
   %10 = getelementptr i8, ptr %8, i64 %9
-  %11 = tail call noalias dereferenceable_or_null(120) ptr @g_malloc0(i64 noundef 120) #13
+  %11 = tail call noalias dereferenceable_or_null(120) ptr @g_malloc0(i64 noundef 120) #12
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store i32 -1, ptr %12, align 8
   %13 = tail call ptr @get_follow_sub_stream_id_func(ptr noundef %1)
@@ -126,44 +123,44 @@ define internal void @follow_stream(ptr noundef readonly captures(none) %0, ptr 
   %spec.select = sext i1 %.not to i32
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 28
   store i32 %spec.select, ptr %14, align 4
-  %15 = tail call noalias dereferenceable_or_null(128) ptr @g_malloc0(i64 noundef 128) #13
+  %15 = tail call noalias dereferenceable_or_null(128) ptr @g_malloc0(i64 noundef 128) #12
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 112
   store ptr %11, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 120
   store i64 -1, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %1, ptr %18, align 8
-  %19 = tail call i32 @strncmp(ptr noundef %10, ptr noundef nonnull dereferenceable(5) @.str.3, i64 noundef 4) #12
+  %19 = tail call i32 @strncmp(ptr noundef %10, ptr noundef nonnull dereferenceable(5) @.str.3, i64 noundef 4) #11
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %follow_arg_mode.exit, label %follow_arg_strncmp.exit.i
 
 follow_arg_strncmp.exit.i:                        ; preds = %2
-  %21 = tail call i32 @strncmp(ptr noundef %10, ptr noundef nonnull dereferenceable(7) @.str.4, i64 noundef 6) #12
+  %21 = tail call i32 @strncmp(ptr noundef %10, ptr noundef nonnull dereferenceable(7) @.str.4, i64 noundef 6) #11
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %follow_arg_mode.exit, label %follow_arg_strncmp.exit13.i
 
 follow_arg_strncmp.exit13.i:                      ; preds = %follow_arg_strncmp.exit.i
-  %23 = tail call i32 @strncmp(ptr noundef %10, ptr noundef nonnull dereferenceable(8) @.str.5, i64 noundef 7) #12
+  %23 = tail call i32 @strncmp(ptr noundef %10, ptr noundef nonnull dereferenceable(8) @.str.5, i64 noundef 7) #11
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %follow_arg_mode.exit, label %follow_arg_strncmp.exit14.i
 
 follow_arg_strncmp.exit14.i:                      ; preds = %follow_arg_strncmp.exit13.i
-  %25 = tail call i32 @strncmp(ptr noundef %10, ptr noundef nonnull dereferenceable(5) @.str.6, i64 noundef 4) #12
+  %25 = tail call i32 @strncmp(ptr noundef %10, ptr noundef nonnull dereferenceable(5) @.str.6, i64 noundef 4) #11
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %follow_arg_mode.exit, label %follow_arg_strncmp.exit15.i
 
 follow_arg_strncmp.exit15.i:                      ; preds = %follow_arg_strncmp.exit14.i
-  %27 = tail call i32 @strncmp(ptr noundef %10, ptr noundef nonnull dereferenceable(7) @.str.7, i64 noundef 6) #12
+  %27 = tail call i32 @strncmp(ptr noundef %10, ptr noundef nonnull dereferenceable(7) @.str.7, i64 noundef 6) #11
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %follow_arg_mode.exit, label %follow_arg_strncmp.exit16.i
 
 follow_arg_strncmp.exit16.i:                      ; preds = %follow_arg_strncmp.exit15.i
-  %29 = tail call i32 @strncmp(ptr noundef %10, ptr noundef nonnull dereferenceable(6) @.str.8, i64 noundef 5) #12
+  %29 = tail call i32 @strncmp(ptr noundef %10, ptr noundef nonnull dereferenceable(6) @.str.8, i64 noundef 5) #11
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %follow_arg_mode.exit, label %follow_arg_strncmp.exit17.i
 
 follow_arg_strncmp.exit17.i:                      ; preds = %follow_arg_strncmp.exit16.i
-  tail call fastcc void @follow_exit(ptr noundef nonnull @.str.9) #14
+  tail call fastcc void @follow_exit(ptr noundef nonnull @.str.9) #13
   unreachable
 
 follow_arg_mode.exit:                             ; preds = %2, %follow_arg_strncmp.exit.i, %follow_arg_strncmp.exit13.i, %follow_arg_strncmp.exit14.i, %follow_arg_strncmp.exit15.i, %follow_arg_strncmp.exit16.i
@@ -171,9 +168,9 @@ follow_arg_mode.exit:                             ; preds = %2, %follow_arg_strn
   %.sink.i = phi i32 [ 3, %2 ], [ 0, %follow_arg_strncmp.exit.i ], [ 2, %follow_arg_strncmp.exit13.i ], [ 4, %follow_arg_strncmp.exit14.i ], [ 5, %follow_arg_strncmp.exit15.i ], [ 6, %follow_arg_strncmp.exit16.i ]
   %31 = getelementptr i8, ptr %10, i64 %.sink2.i
   store i32 %.sink.i, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #11
-  call void @llvm.lifetime.start.p0(i64 81, ptr nonnull %5) #11
-  %32 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %31, ptr noundef nonnull @.str.10, ptr noundef nonnull %12, ptr noundef nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  %32 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %31, ptr noundef nonnull @.str.10, ptr noundef nonnull %12, ptr noundef nonnull %4) #14
   %33 = icmp eq i32 %32, 1
   br i1 %33, label %34, label %53
 
@@ -193,7 +190,7 @@ follow_arg_mode.exit:                             ; preds = %2, %follow_arg_strn
   br i1 %41, label %42, label %follow_arg_filter.exit
 
 42:                                               ; preds = %39
-  %43 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %37, ptr noundef nonnull @.str.10, ptr noundef nonnull %14, ptr noundef nonnull %4) #11
+  %43 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %37, ptr noundef nonnull @.str.10, ptr noundef nonnull %14, ptr noundef nonnull %4) #14
   %44 = icmp eq i32 %43, 1
   br i1 %44, label %45, label %follow_arg_filter.exit
 
@@ -224,17 +221,17 @@ follow_arg_mode.exit:                             ; preds = %2, %follow_arg_strn
   %58 = phi i1 [ true, %53 ], [ false, %80 ]
   %indvars.iv.i = phi i64 [ 0, %53 ], [ 1, %80 ]
   %59 = getelementptr [2 x i32], ptr %54, i64 0, i64 %indvars.iv.i
-  %60 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %.0, ptr noundef nonnull @.str.11, ptr noundef nonnull %5, ptr noundef %59, ptr noundef nonnull %4) #11
+  %60 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %.0, ptr noundef nonnull @.str.11, ptr noundef nonnull %5, ptr noundef %59, ptr noundef nonnull %4) #14
   %61 = icmp eq i32 %60, 2
   br i1 %61, label %66, label %62
 
 62:                                               ; preds = %57
-  %63 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %.0, ptr noundef nonnull @.str.12, ptr noundef nonnull %5, ptr noundef %59, ptr noundef nonnull %4) #11
+  %63 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %.0, ptr noundef nonnull @.str.12, ptr noundef nonnull %5, ptr noundef %59, ptr noundef nonnull %4) #14
   %64 = icmp eq i32 %63, 2
   br i1 %64, label %.thread.i, label %65
 
 65:                                               ; preds = %62
-  call fastcc void @follow_exit(ptr noundef nonnull @.str.13) #14
+  call fastcc void @follow_exit(ptr noundef nonnull @.str.13) #13
   unreachable
 
 66:                                               ; preds = %57
@@ -250,7 +247,7 @@ follow_arg_mode.exit:                             ; preds = %2, %follow_arg_strn
   br i1 %or.cond47.i, label %71, label %76
 
 71:                                               ; preds = %.thread.i, %66
-  call fastcc void @follow_exit(ptr noundef nonnull @.str.14) #14
+  call fastcc void @follow_exit(ptr noundef nonnull @.str.14) #13
   unreachable
 
 72:                                               ; preds = %66
@@ -259,7 +256,7 @@ follow_arg_mode.exit:                             ; preds = %2, %follow_arg_strn
   br i1 %74, label %80, label %75
 
 75:                                               ; preds = %72
-  call fastcc void @follow_exit(ptr noundef nonnull @.str.15) #14
+  call fastcc void @follow_exit(ptr noundef nonnull @.str.15) #13
   unreachable
 
 76:                                               ; preds = %.thread.i
@@ -268,7 +265,7 @@ follow_arg_mode.exit:                             ; preds = %2, %follow_arg_strn
   br i1 %78, label %80, label %79
 
 79:                                               ; preds = %76
-  call fastcc void @follow_exit(ptr noundef nonnull @.str.16) #14
+  call fastcc void @follow_exit(ptr noundef nonnull @.str.16) #13
   unreachable
 
 80:                                               ; preds = %76, %72
@@ -296,7 +293,7 @@ follow_arg_mode.exit:                             ; preds = %2, %follow_arg_strn
   br i1 %.not.i, label %93, label %92
 
 92:                                               ; preds = %88
-  call fastcc void @follow_exit(ptr noundef nonnull @.str.17) #14
+  call fastcc void @follow_exit(ptr noundef nonnull @.str.17) #13
   unreachable
 
 93:                                               ; preds = %88
@@ -305,9 +302,9 @@ follow_arg_mode.exit:                             ; preds = %2, %follow_arg_strn
 
 follow_arg_filter.exit:                           ; preds = %39, %42, %45, %50, %93
   %.1 = phi ptr [ %87, %93 ], [ %37, %45 ], [ %48, %50 ], [ %37, %42 ], [ %37, %39 ]
-  call void @llvm.lifetime.end.p0(i64 81, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #11
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %94 = load i8, ptr %.1, align 1
   %95 = icmp eq i8 %94, 0
   %96 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -321,12 +318,12 @@ follow_arg_filter.exit:                           ; preds = %39, %42, %45, %50, 
 
 99:                                               ; preds = %follow_arg_filter.exit
   %100 = getelementptr inbounds nuw i8, ptr %11, i64 20
-  %101 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %.1, ptr noundef nonnull @.str.18, ptr noundef nonnull %96, ptr noundef nonnull %100, ptr noundef nonnull %3) #11
+  %101 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %.1, ptr noundef nonnull @.str.18, ptr noundef nonnull %96, ptr noundef nonnull %100, ptr noundef nonnull %3) #14
   %102 = icmp eq i32 %101, 2
   br i1 %102, label %thread-pre-split, label %103
 
 103:                                              ; preds = %99
-  %104 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %.1, ptr noundef nonnull @.str.19, ptr noundef nonnull %96, ptr noundef nonnull %3) #11
+  %104 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %.1, ptr noundef nonnull @.str.19, ptr noundef nonnull %96, ptr noundef nonnull %3) #14
   %105 = icmp eq i32 %104, 1
   br i1 %105, label %106, label %108
 
@@ -336,7 +333,7 @@ follow_arg_filter.exit:                           ; preds = %39, %42, %45, %50, 
   br label %109
 
 108:                                              ; preds = %103
-  call fastcc void @follow_exit(ptr noundef nonnull @.str.20) #14
+  call fastcc void @follow_exit(ptr noundef nonnull @.str.20) #13
   unreachable
 
 thread-pre-split:                                 ; preds = %99
@@ -357,18 +354,18 @@ thread-pre-split:                                 ; preds = %99
   br i1 %117, label %118, label %follow_arg_range.exit
 
 118:                                              ; preds = %112, %109
-  call fastcc void @follow_exit(ptr noundef nonnull @.str.21) #14
+  call fastcc void @follow_exit(ptr noundef nonnull @.str.21) #13
   unreachable
 
 follow_arg_range.exit:                            ; preds = %97, %112
   %.2 = phi ptr [ %.1, %97 ], [ %115, %112 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.val65 = load i8, ptr %.2, align 1
   %.not.i67 = icmp eq i8 %.val65, 0
   br i1 %.not.i67, label %follow_arg_done.exit, label %119
 
 119:                                              ; preds = %follow_arg_range.exit
-  call fastcc void @follow_exit(ptr noundef nonnull @.str.22) #14
+  call fastcc void @follow_exit(ptr noundef nonnull @.str.22) #13
   unreachable
 
 follow_arg_done.exit:                             ; preds = %follow_arg_range.exit
@@ -392,7 +389,7 @@ follow_arg_done.exit:                             ; preds = %follow_arg_range.ex
   br i1 %131, label %132, label %145
 
 132:                                              ; preds = %129, %122
-  call fastcc void @follow_exit(ptr noundef nonnull @.str) #14
+  call fastcc void @follow_exit(ptr noundef nonnull @.str) #13
   unreachable
 
 133:                                              ; preds = %follow_arg_done.exit
@@ -410,7 +407,7 @@ follow_arg_done.exit:                             ; preds = %follow_arg_range.ex
   br i1 %143, label %144, label %145
 
 144:                                              ; preds = %133
-  call fastcc void @follow_exit(ptr noundef nonnull @.str.1) #14
+  call fastcc void @follow_exit(ptr noundef nonnull @.str.1) #13
   unreachable
 
 145:                                              ; preds = %133, %129
@@ -424,7 +421,7 @@ follow_arg_done.exit:                             ; preds = %follow_arg_range.ex
 150:                                              ; preds = %145
   call void @follow_free(ptr noundef %15)
   %151 = call ptr @g_string_free(ptr noundef nonnull %149, i32 noundef 1)
-  call fastcc void @follow_exit(ptr noundef nonnull @.str.2) #14
+  call fastcc void @follow_exit(ptr noundef nonnull @.str.2) #13
   unreachable
 
 152:                                              ; preds = %145
@@ -437,9 +434,6 @@ declare void @register_stat_tap_ui(ptr noundef, ptr noundef) local_unnamed_addr 
 ; Function Attrs: null_pointer_is_valid
 declare void @g_free(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: null_pointer_is_valid
 declare i32 @get_follow_proto_id(ptr noundef) local_unnamed_addr #1
 
@@ -447,10 +441,10 @@ declare i32 @get_follow_proto_id(ptr noundef) local_unnamed_addr #1
 declare ptr @proto_get_protocol_filter_name(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid allocsize(0)
-declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #4
+declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
 declare ptr @get_follow_sub_stream_id_func(ptr noundef) local_unnamed_addr #1
@@ -459,7 +453,7 @@ declare ptr @get_follow_sub_stream_id_func(ptr noundef) local_unnamed_addr #1
 declare ptr @get_follow_index_func(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold noreturn null_pointer_is_valid sspstrong uwtable
-define internal fastcc void @follow_exit(ptr noundef %0) unnamed_addr #5 {
+define internal fastcc void @follow_exit(ptr noundef %0) unnamed_addr #4 {
   %2 = load ptr, ptr @stderr, align 8
   %3 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %2, i32 noundef 2, ptr noundef nonnull @.str.23, ptr noundef %0)
   tail call void @exit(i32 noundef 1) #15
@@ -484,7 +478,7 @@ define internal void @follow_draw(ptr noundef %0) #0 {
   %3 = alloca [46 x i8], align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8
-  call void @llvm.lifetime.start.p0(i64 46, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = load i32, ptr %5, align 8
   %cond = icmp eq i32 %6, 6
   br i1 %cond, label %7, label %22
@@ -523,7 +517,7 @@ define internal void @follow_draw(ptr noundef %0) #0 {
   br i1 %or.cond, label %switch.lookup, label %29
 
 29:                                               ; preds = %22
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.39, i32 noundef 7, ptr noundef nonnull @.str.40, i64 noundef 89, ptr noundef nonnull @__func__.follow_str_type, ptr noundef nonnull @.str.41) #14
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.39, i32 noundef 7, ptr noundef nonnull @.str.40, i64 noundef 89, ptr noundef nonnull @__func__.follow_str_type, ptr noundef nonnull @.str.41) #13
   unreachable
 
 switch.lookup:                                    ; preds = %22
@@ -629,7 +623,7 @@ switch.lookup:                                    ; preds = %22
   br label %thread-pre-split
 
 86:                                               ; preds = %73
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.39, i32 noundef 7, ptr noundef nonnull @.str.40, i64 noundef 265, ptr noundef nonnull @__func__.follow_draw, ptr noundef nonnull @.str.41) #14
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.39, i32 noundef 7, ptr noundef nonnull @.str.40, i64 noundef 265, ptr noundef nonnull @__func__.follow_draw, ptr noundef nonnull @.str.41) #13
   unreachable
 
 thread-pre-split:                                 ; preds = %75, %83
@@ -657,7 +651,7 @@ thread-pre-split:                                 ; preds = %75, %83
   %95 = load ptr, ptr %94, align 8
   %96 = getelementptr inbounds nuw i8, ptr %94, i64 8
   %97 = load i32, ptr %96, align 8
-  call void @llvm.lifetime.start.p0(i64 78, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %98 = icmp sgt i32 %97, 0
   br i1 %98, label %.lr.ph.i, label %follow_print_hex.exit
 
@@ -676,7 +670,7 @@ thread-pre-split:                                 ; preds = %75, %83
 
 103:                                              ; preds = %100
   %104 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %2, i64 noundef 78, i32 noundef 2, i64 noundef 78, ptr noundef nonnull @.str.55, i32 noundef 8, i32 noundef %.038.i)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %57, i8 noundef 32, i64 noundef 52, i1 noundef false) #11
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %57, i8 noundef 32, i64 noundef 52, i1 noundef false) #14
   br label %105
 
 105:                                              ; preds = %103, %100
@@ -751,7 +745,7 @@ thread-pre-split:                                 ; preds = %75, %83
   br i1 %140, label %follow_print_hex.exit, label %100, !llvm.loop !11
 
 follow_print_hex.exit:                            ; preds = %148, %89
-  call void @llvm.lifetime.end.p0(i64 78, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %149 = load ptr, ptr %93, align 8
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 8
   %151 = load i32, ptr %150, align 8
@@ -767,7 +761,7 @@ follow_print_hex.exit:                            ; preds = %148, %89
   %157 = load i32, ptr %156, align 8
   %158 = add i32 %157, 2
   %159 = zext i32 %158 to i64
-  %160 = call noalias ptr @g_malloc(i64 noundef %159) #13
+  %160 = call noalias ptr @g_malloc(i64 noundef %159) #12
   %161 = load ptr, ptr %154, align 8
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 8
   %163 = load i32, ptr %162, align 8
@@ -862,7 +856,7 @@ follow_print_hex.exit:                            ; preds = %148, %89
   %214 = shl i32 %213, 1
   %215 = add i32 %214, 2
   %216 = zext i32 %215 to i64
-  %217 = call noalias ptr @g_malloc(i64 noundef %216) #13
+  %217 = call noalias ptr @g_malloc(i64 noundef %216) #12
   %218 = load ptr, ptr %210, align 8
   %219 = getelementptr inbounds nuw i8, ptr %218, i64 8
   %220 = load i32, ptr %219, align 8
@@ -958,7 +952,7 @@ follow_print_hex.exit:                            ; preds = %148, %89
   br i1 %284, label %.lr.ph, label %.cont, !llvm.loop !14
 
 285:                                              ; preds = %87
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.39, i32 noundef 7, ptr noundef nonnull @.str.40, i64 noundef 356, ptr noundef nonnull @__func__.follow_draw, ptr noundef nonnull @.str.41) #14
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.39, i32 noundef 7, ptr noundef nonnull @.str.40, i64 noundef 356, ptr noundef nonnull @__func__.follow_draw, ptr noundef nonnull @.str.41) #13
   unreachable
 
 .cont:                                            ; preds = %.lr.ph, %254, %follow_print_hex.exit, %67, %189, %191, %._crit_edge
@@ -980,7 +974,7 @@ follow_print_hex.exit:                            ; preds = %148, %89
   br label %292
 
 292:                                              ; preds = %._crit_edge154, %290
-  call void @llvm.lifetime.end.p0(i64 46, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -997,10 +991,10 @@ define internal void @follow_free(ptr noundef %0) #0 {
 declare ptr @g_string_free(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #3
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #6
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 ; Function Attrs: null_pointer_is_valid
 declare zeroext i1 @get_host_ipaddr6(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -1012,7 +1006,7 @@ declare zeroext i1 @get_host_ipaddr(ptr noundef, ptr noundef) local_unnamed_addr
 declare i32 @__fprintf_chk(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree noreturn nounwind null_pointer_is_valid
-declare void @exit(i32 noundef) local_unnamed_addr #7
+declare void @exit(i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: null_pointer_is_valid
 declare i32 @__printf_chk(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
@@ -1024,10 +1018,10 @@ declare void @address_to_str_buf(ptr noundef, ptr noundef, i32 noundef) local_un
 declare ptr @g_list_last(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn null_pointer_is_valid
-declare void @ws_log_fatal_full(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #8
+declare void @ws_log_fatal_full(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid allocsize(0)
-declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #4
+declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
 declare void @EBCDIC_to_ASCII(ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -1039,7 +1033,7 @@ declare ptr @ws_utf8_make_valid_strbuf(ptr noundef, ptr noundef, i64 noundef) lo
 declare i64 @wmem_strbuf_get_len(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #6
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: null_pointer_is_valid
 declare ptr @wmem_strbuf_get_str(ptr noundef) local_unnamed_addr #1
@@ -1054,32 +1048,38 @@ declare double @nstime_to_sec(ptr noundef) local_unnamed_addr #1
 declare noalias ptr @g_base64_encode(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare noundef i32 @putc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #6
+declare noundef i32 @putc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree null_pointer_is_valid
-declare i32 @__snprintf_chk(ptr noundef, i64 noundef, i32 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #9
+declare i32 @__snprintf_chk(ptr noundef, i64 noundef, i32 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #8
 
 ; Function Attrs: null_pointer_is_valid
 declare void @follow_info_free(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { cold noreturn null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree noreturn nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { noreturn null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nofree null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { cold noreturn null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree noreturn nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { noreturn null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #11 = { nounwind }
-attributes #12 = { nounwind willreturn memory(read) }
-attributes #13 = { allocsize(0) }
-attributes #14 = { noreturn }
+attributes #11 = { nounwind willreturn memory(read) }
+attributes #12 = { allocsize(0) }
+attributes #13 = { noreturn }
+attributes #14 = { nounwind }
 attributes #15 = { cold noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}

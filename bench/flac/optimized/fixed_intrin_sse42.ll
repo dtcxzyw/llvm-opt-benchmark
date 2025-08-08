@@ -9,10 +9,10 @@ define hidden range(i32 0, 5) i32 @FLAC__fixed_compute_best_predictor_limit_resi
   %.sroa.0621 = alloca <2 x i64>, align 16
   %.sroa.0617 = alloca <2 x i64>, align 16
   %.sroa.0 = alloca <2 x i64>, align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0625)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0621)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0617)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0625)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0621)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0617)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
   %4 = getelementptr inbounds i8, ptr %0, i64 -8
   %5 = getelementptr inbounds i8, ptr %0, i64 -12
   %6 = getelementptr inbounds i8, ptr %0, i64 -16
@@ -428,21 +428,21 @@ define hidden range(i32 0, 5) i32 @FLAC__fixed_compute_best_predictor_limit_resi
   %.9 = phi i32 [ %spec.select432, %225 ], [ %spec.select432, %223 ], [ %.7, %220 ]
   %234 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store float %.sink572, ptr %234, align 4, !tbaa !14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0617)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0621)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0625)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0617)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0621)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0625)
   ret i32 %.9
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @log(double noundef) local_unnamed_addr #2
+declare double @log(double noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.abs.i64(i64, i1 immarg) #3
@@ -454,8 +454,8 @@ declare i64 @llvm.umin.i64(i64, i64) #3
 declare <2 x i64> @llvm.abs.v2i64(<2 x i64>, i1 immarg) #3
 
 attributes #0 = { nofree norecurse nounwind sspstrong memory(argmem: readwrite, errnomem: write) uwtable "min-legal-vector-width"="128" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #4 = { nounwind }
 

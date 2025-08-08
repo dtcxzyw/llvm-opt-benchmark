@@ -132,7 +132,7 @@ _sha1_clear.exit:                                 ; preds = %1, %4, %6, %9
 define internal ptr @_sha1_sha1(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
   %5 = alloca %struct.Py_buffer, align 8
   %6 = alloca [2 x ptr], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %9, label %.thread
 
@@ -161,7 +161,7 @@ define internal ptr @_sha1_sha1(ptr noundef %0, ptr noundef %1, i64 noundef %2, 
   br i1 %.not37, label %.thread49, label %17
 
 .thread49:                                        ; preds = %.thread43
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br label %45
 
 17:                                               ; preds = %.thread43
@@ -172,7 +172,7 @@ define internal ptr @_sha1_sha1(ptr noundef %0, ptr noundef %1, i64 noundef %2, 
   br i1 %spec.select, label %.thread55, label %20
 
 .thread55:                                        ; preds = %17
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br label %26
 
 20:                                               ; preds = %17
@@ -183,7 +183,7 @@ define internal ptr @_sha1_sha1(ptr noundef %0, ptr noundef %1, i64 noundef %2, 
   br i1 %24, label %86, label %25
 
 25:                                               ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not.i = icmp eq ptr %18, null
   br i1 %.not.i, label %45, label %26
 
@@ -325,24 +325,18 @@ update.exit29.i:                                  ; preds = %65
 
 _sha1_sha1_impl.exit:                             ; preds = %30, %34, %36, %43, %49, %50, %Py_DECREF.exit.i, %63, %64, %85
   %.0.i = phi ptr [ null, %30 ], [ null, %43 ], [ null, %34 ], [ null, %36 ], [ null, %50 ], [ null, %49 ], [ null, %63 ], [ null, %Py_DECREF.exit.i ], [ %47, %85 ], [ %47, %64 ]
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %86
 
 86:                                               ; preds = %20, %12, %_sha1_sha1_impl.exit
   %.029 = phi ptr [ null, %20 ], [ %.0.i, %_sha1_sha1_impl.exit ], [ null, %12 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.029
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 declare ptr @_PyArg_UnpackKeywords(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 declare i32 @PyObject_IsTrue(ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -516,7 +510,7 @@ SHA1Type_copy_impl.exit:                          ; preds = %37, %33, %_PyMutex_
 ; Function Attrs: nounwind uwtable
 define internal ptr @SHA1Type_digest(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca [20 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i8, ptr %4, align 8, !tbaa !29, !range !51, !noundef !52
   %6 = trunc nuw i8 %5 to i1
@@ -552,14 +546,14 @@ _PyMutex_Lock.exit.i:                             ; preds = %11, %7, %2
 
 SHA1Type_digest_impl.exit:                        ; preds = %_PyMutex_Lock.exit.i, %16, %20
   %21 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %3, i64 noundef 20) #3
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %21
 }
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @SHA1Type_hexdigest(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca [20 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i8, ptr %4, align 8, !tbaa !29, !range !51, !noundef !52
   %6 = trunc nuw i8 %5 to i1
@@ -595,14 +589,14 @@ _PyMutex_Lock.exit.i:                             ; preds = %11, %7, %2
 
 SHA1Type_hexdigest_impl.exit:                     ; preds = %_PyMutex_Lock.exit.i, %16, %20
   %21 = call ptr @_Py_strhex(ptr noundef nonnull %3, i64 noundef 20) #3
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %21
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @SHA1Type_update(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca %struct.Py_buffer, align 8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr i8, ptr %1, i64 8
   %.val = load ptr, ptr %4, align 8, !tbaa !17
   %5 = getelementptr i8, ptr %.val, i64 168
@@ -735,7 +729,7 @@ update.exit23:                                    ; preds = %.lr.ph.i20, %51
 
 63:                                               ; preds = %13, %62, %20, %11, %7
   %.0 = phi ptr [ null, %7 ], [ null, %20 ], [ @_Py_NoneStruct, %62 ], [ null, %11 ], [ null, %13 ]
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
@@ -772,6 +766,12 @@ define internal ptr @sha1_get_digest_size(ptr readnone captures(none) %0, ptr re
 declare ptr @PyLong_FromLong(i64 noundef) local_unnamed_addr #1
 
 declare ptr @PyUnicode_FromStringAndSize(ptr noundef, i64 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

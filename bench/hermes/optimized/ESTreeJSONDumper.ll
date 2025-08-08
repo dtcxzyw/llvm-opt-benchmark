@@ -522,434 +522,434 @@ _ZN4llvh9StringRefC2EPKc.exit:                    ; preds = %entry
   %0 = extractvalue { ptr, i8 } %call.i, 0
   %1 = load ptr, ptr %0, align 8
   %second.i = getelementptr inbounds nuw i8, ptr %1, i64 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp1.i)
   store ptr @.str.1, ptr %agg.tmp1.i, align 8
   %agg.tmp.sroa.0.sroa.2.0.agg.tmp1.sroa_idx.i = getelementptr inbounds nuw i8, ptr %agg.tmp1.i, i64 8
   store i64 14, ptr %agg.tmp.sroa.0.sroa.2.0.agg.tmp1.sroa_idx.i, align 8
   %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i = getelementptr inbounds nuw i8, ptr %agg.tmp1.i, i64 16
   store i8 0, ptr %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i, align 8
   %call.i.i = call { ptr, i8 } @_ZN4llvh9StringMapIcNS_15MallocAllocatorEE11try_emplaceIJcEEESt4pairINS_17StringMapIteratorIcEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %second.i, ptr nonnull @.str.1, i64 14, ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp1.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp1.i)
   %call.i147 = call { ptr, i8 } @_ZN4llvh9StringMapINS_9StringSetINS_15MallocAllocatorEEES2_E11try_emplaceIJEEESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %ignoredEmptyFields_, ptr nonnull @.str, i64 18)
   %2 = extractvalue { ptr, i8 } %call.i147, 0
   %3 = load ptr, ptr %2, align 8
   %second.i148 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1.i149)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp1.i149)
   store ptr @.str.2, ptr %agg.tmp1.i149, align 8
   %agg.tmp.sroa.0.sroa.2.0.agg.tmp1.sroa_idx.i150 = getelementptr inbounds nuw i8, ptr %agg.tmp1.i149, i64 8
   store i64 10, ptr %agg.tmp.sroa.0.sroa.2.0.agg.tmp1.sroa_idx.i150, align 8
   %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i151 = getelementptr inbounds nuw i8, ptr %agg.tmp1.i149, i64 16
   store i8 0, ptr %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i151, align 8
   %call.i.i152 = call { ptr, i8 } @_ZN4llvh9StringMapIcNS_15MallocAllocatorEE11try_emplaceIJcEEESt4pairINS_17StringMapIteratorIcEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %second.i148, ptr nonnull @.str.2, i64 10, ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i151)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp1.i149)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp1.i149)
   %call.i153 = call { ptr, i8 } @_ZN4llvh9StringMapINS_9StringSetINS_15MallocAllocatorEEES2_E11try_emplaceIJEEESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %ignoredEmptyFields_, ptr nonnull @.str, i64 18)
   %4 = extractvalue { ptr, i8 } %call.i153, 0
   %5 = load ptr, ptr %4, align 8
   %second.i154 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1.i155)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp1.i155)
   store ptr @.str.3, ptr %agg.tmp1.i155, align 8
   %agg.tmp.sroa.0.sroa.2.0.agg.tmp1.sroa_idx.i156 = getelementptr inbounds nuw i8, ptr %agg.tmp1.i155, i64 8
   store i64 9, ptr %agg.tmp.sroa.0.sroa.2.0.agg.tmp1.sroa_idx.i156, align 8
   %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i157 = getelementptr inbounds nuw i8, ptr %agg.tmp1.i155, i64 16
   store i8 0, ptr %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i157, align 8
   %call.i.i158 = call { ptr, i8 } @_ZN4llvh9StringMapIcNS_15MallocAllocatorEE11try_emplaceIJcEEESt4pairINS_17StringMapIteratorIcEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %second.i154, ptr nonnull @.str.3, i64 9, ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i157)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp1.i155)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp1.i155)
   %call.i159 = call { ptr, i8 } @_ZN4llvh9StringMapINS_9StringSetINS_15MallocAllocatorEEES2_E11try_emplaceIJEEESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %ignoredEmptyFields_, ptr nonnull @.str.4, i64 23)
   %6 = extractvalue { ptr, i8 } %call.i159, 0
   %7 = load ptr, ptr %6, align 8
   %second.i160 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1.i161)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp1.i161)
   store ptr @.str.1, ptr %agg.tmp1.i161, align 8
   %agg.tmp.sroa.0.sroa.2.0.agg.tmp1.sroa_idx.i162 = getelementptr inbounds nuw i8, ptr %agg.tmp1.i161, i64 8
   store i64 14, ptr %agg.tmp.sroa.0.sroa.2.0.agg.tmp1.sroa_idx.i162, align 8
   %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i163 = getelementptr inbounds nuw i8, ptr %agg.tmp1.i161, i64 16
   store i8 0, ptr %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i163, align 8
   %call.i.i164 = call { ptr, i8 } @_ZN4llvh9StringMapIcNS_15MallocAllocatorEE11try_emplaceIJcEEESt4pairINS_17StringMapIteratorIcEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %second.i160, ptr nonnull @.str.1, i64 14, ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i163)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp1.i161)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp1.i161)
   %call.i165 = call { ptr, i8 } @_ZN4llvh9StringMapINS_9StringSetINS_15MallocAllocatorEEES2_E11try_emplaceIJEEESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %ignoredEmptyFields_, ptr nonnull @.str.4, i64 23)
   %8 = extractvalue { ptr, i8 } %call.i165, 0
   %9 = load ptr, ptr %8, align 8
   %second.i166 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1.i167)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp1.i167)
   store ptr @.str.2, ptr %agg.tmp1.i167, align 8
   %agg.tmp.sroa.0.sroa.2.0.agg.tmp1.sroa_idx.i168 = getelementptr inbounds nuw i8, ptr %agg.tmp1.i167, i64 8
   store i64 10, ptr %agg.tmp.sroa.0.sroa.2.0.agg.tmp1.sroa_idx.i168, align 8
   %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i169 = getelementptr inbounds nuw i8, ptr %agg.tmp1.i167, i64 16
   store i8 0, ptr %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i169, align 8
   %call.i.i170 = call { ptr, i8 } @_ZN4llvh9StringMapIcNS_15MallocAllocatorEE11try_emplaceIJcEEESt4pairINS_17StringMapIteratorIcEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %second.i166, ptr nonnull @.str.2, i64 10, ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i169)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp1.i167)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp1.i167)
   %call.i171 = call { ptr, i8 } @_ZN4llvh9StringMapINS_9StringSetINS_15MallocAllocatorEEES2_E11try_emplaceIJEEESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %ignoredEmptyFields_, ptr nonnull @.str.4, i64 23)
   %10 = extractvalue { ptr, i8 } %call.i171, 0
   %11 = load ptr, ptr %10, align 8
   %second.i172 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1.i173)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp1.i173)
   store ptr @.str.3, ptr %agg.tmp1.i173, align 8
   %agg.tmp.sroa.0.sroa.2.0.agg.tmp1.sroa_idx.i174 = getelementptr inbounds nuw i8, ptr %agg.tmp1.i173, i64 8
   store i64 9, ptr %agg.tmp.sroa.0.sroa.2.0.agg.tmp1.sroa_idx.i174, align 8
   %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i175 = getelementptr inbounds nuw i8, ptr %agg.tmp1.i173, i64 16
   store i8 0, ptr %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i175, align 8
   %call.i.i176 = call { ptr, i8 } @_ZN4llvh9StringMapIcNS_15MallocAllocatorEE11try_emplaceIJcEEESt4pairINS_17StringMapIteratorIcEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %second.i172, ptr nonnull @.str.3, i64 9, ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i175)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp1.i173)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp1.i173)
   %call.i177 = call { ptr, i8 } @_ZN4llvh9StringMapINS_9StringSetINS_15MallocAllocatorEEES2_E11try_emplaceIJEEESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %ignoredEmptyFields_, ptr nonnull @.str.5, i64 19)
   %12 = extractvalue { ptr, i8 } %call.i177, 0
   %13 = load ptr, ptr %12, align 8
   %second.i178 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1.i179)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp1.i179)
   store ptr @.str.1, ptr %agg.tmp1.i179, align 8
   %agg.tmp.sroa.0.sroa.2.0.agg.tmp1.sroa_idx.i180 = getelementptr inbounds nuw i8, ptr %agg.tmp1.i179, i64 8
   store i64 14, ptr %agg.tmp.sroa.0.sroa.2.0.agg.tmp1.sroa_idx.i180, align 8
   %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i181 = getelementptr inbounds nuw i8, ptr %agg.tmp1.i179, i64 16
   store i8 0, ptr %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i181, align 8
   %call.i.i182 = call { ptr, i8 } @_ZN4llvh9StringMapIcNS_15MallocAllocatorEE11try_emplaceIJcEEESt4pairINS_17StringMapIteratorIcEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %second.i178, ptr nonnull @.str.1, i64 14, ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i181)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp1.i179)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp1.i179)
   %call.i183 = call { ptr, i8 } @_ZN4llvh9StringMapINS_9StringSetINS_15MallocAllocatorEEES2_E11try_emplaceIJEEESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %ignoredEmptyFields_, ptr nonnull @.str.5, i64 19)
   %14 = extractvalue { ptr, i8 } %call.i183, 0
   %15 = load ptr, ptr %14, align 8
   %second.i184 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1.i185)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp1.i185)
   store ptr @.str.2, ptr %agg.tmp1.i185, align 8
   %agg.tmp.sroa.0.sroa.2.0.agg.tmp1.sroa_idx.i186 = getelementptr inbounds nuw i8, ptr %agg.tmp1.i185, i64 8
   store i64 10, ptr %agg.tmp.sroa.0.sroa.2.0.agg.tmp1.sroa_idx.i186, align 8
   %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i187 = getelementptr inbounds nuw i8, ptr %agg.tmp1.i185, i64 16
   store i8 0, ptr %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i187, align 8
   %call.i.i188 = call { ptr, i8 } @_ZN4llvh9StringMapIcNS_15MallocAllocatorEE11try_emplaceIJcEEESt4pairINS_17StringMapIteratorIcEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %second.i184, ptr nonnull @.str.2, i64 10, ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i187)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp1.i185)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp1.i185)
   %call.i189 = call { ptr, i8 } @_ZN4llvh9StringMapINS_9StringSetINS_15MallocAllocatorEEES2_E11try_emplaceIJEEESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %ignoredEmptyFields_, ptr nonnull @.str.5, i64 19)
   %16 = extractvalue { ptr, i8 } %call.i189, 0
   %17 = load ptr, ptr %16, align 8
   %second.i190 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1.i191)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp1.i191)
   store ptr @.str.3, ptr %agg.tmp1.i191, align 8
   %agg.tmp.sroa.0.sroa.2.0.agg.tmp1.sroa_idx.i192 = getelementptr inbounds nuw i8, ptr %agg.tmp1.i191, i64 8
   store i64 9, ptr %agg.tmp.sroa.0.sroa.2.0.agg.tmp1.sroa_idx.i192, align 8
   %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i193 = getelementptr inbounds nuw i8, ptr %agg.tmp1.i191, i64 16
   store i8 0, ptr %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i193, align 8
   %call.i.i194 = call { ptr, i8 } @_ZN4llvh9StringMapIcNS_15MallocAllocatorEE11try_emplaceIJcEEESt4pairINS_17StringMapIteratorIcEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %second.i190, ptr nonnull @.str.3, i64 9, ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i193)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp1.i191)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp1.i191)
   %call.i195 = call { ptr, i8 } @_ZN4llvh9StringMapINS_9StringSetINS_15MallocAllocatorEEES2_E11try_emplaceIJEEESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %ignoredEmptyFields_, ptr nonnull @.str.6, i64 20)
   %18 = extractvalue { ptr, i8 } %call.i195, 0
   %19 = load ptr, ptr %18, align 8
   %second.i196 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1.i197)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp1.i197)
   store ptr @.str.1, ptr %agg.tmp1.i197, align 8
   %agg.tmp.sroa.0.sroa.2.0.agg.tmp1.sroa_idx.i198 = getelementptr inbounds nuw i8, ptr %agg.tmp1.i197, i64 8
   store i64 14, ptr %agg.tmp.sroa.0.sroa.2.0.agg.tmp1.sroa_idx.i198, align 8
   %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i199 = getelementptr inbounds nuw i8, ptr %agg.tmp1.i197, i64 16
   store i8 0, ptr %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i199, align 8
   %call.i.i200 = call { ptr, i8 } @_ZN4llvh9StringMapIcNS_15MallocAllocatorEE11try_emplaceIJcEEESt4pairINS_17StringMapIteratorIcEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %second.i196, ptr nonnull @.str.1, i64 14, ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i199)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp1.i197)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp1.i197)
   %call.i201 = call { ptr, i8 } @_ZN4llvh9StringMapINS_9StringSetINS_15MallocAllocatorEEES2_E11try_emplaceIJEEESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %ignoredEmptyFields_, ptr nonnull @.str.6, i64 20)
   %20 = extractvalue { ptr, i8 } %call.i201, 0
   %21 = load ptr, ptr %20, align 8
   %second.i202 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1.i203)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp1.i203)
   store ptr @.str.7, ptr %agg.tmp1.i203, align 8
   %agg.tmp.sroa.0.sroa.2.0.agg.tmp1.sroa_idx.i204 = getelementptr inbounds nuw i8, ptr %agg.tmp1.i203, i64 8
   store i64 11, ptr %agg.tmp.sroa.0.sroa.2.0.agg.tmp1.sroa_idx.i204, align 8
   %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i205 = getelementptr inbounds nuw i8, ptr %agg.tmp1.i203, i64 16
   store i8 0, ptr %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i205, align 8
   %call.i.i206 = call { ptr, i8 } @_ZN4llvh9StringMapIcNS_15MallocAllocatorEE11try_emplaceIJcEEESt4pairINS_17StringMapIteratorIcEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %second.i202, ptr nonnull @.str.7, i64 11, ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i205)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp1.i203)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp1.i203)
   %call.i207 = call { ptr, i8 } @_ZN4llvh9StringMapINS_9StringSetINS_15MallocAllocatorEEES2_E11try_emplaceIJEEESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %ignoredEmptyFields_, ptr nonnull @.str.8, i64 13)
   %22 = extractvalue { ptr, i8 } %call.i207, 0
   %23 = load ptr, ptr %22, align 8
   %second.i208 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1.i209)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp1.i209)
   store ptr @.str.9, ptr %agg.tmp1.i209, align 8
   %agg.tmp.sroa.0.sroa.2.0.agg.tmp1.sroa_idx.i210 = getelementptr inbounds nuw i8, ptr %agg.tmp1.i209, i64 8
   store i64 13, ptr %agg.tmp.sroa.0.sroa.2.0.agg.tmp1.sroa_idx.i210, align 8
   %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i211 = getelementptr inbounds nuw i8, ptr %agg.tmp1.i209, i64 16
   store i8 0, ptr %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i211, align 8
   %call.i.i212 = call { ptr, i8 } @_ZN4llvh9StringMapIcNS_15MallocAllocatorEE11try_emplaceIJcEEESt4pairINS_17StringMapIteratorIcEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %second.i208, ptr nonnull @.str.9, i64 13, ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i211)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp1.i209)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp1.i209)
   %call.i213 = call { ptr, i8 } @_ZN4llvh9StringMapINS_9StringSetINS_15MallocAllocatorEEES2_E11try_emplaceIJEEESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %ignoredEmptyFields_, ptr nonnull @.str.10, i64 14)
   %24 = extractvalue { ptr, i8 } %call.i213, 0
   %25 = load ptr, ptr %24, align 8
   %second.i214 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1.i215)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp1.i215)
   store ptr @.str.9, ptr %agg.tmp1.i215, align 8
   %agg.tmp.sroa.0.sroa.2.0.agg.tmp1.sroa_idx.i216 = getelementptr inbounds nuw i8, ptr %agg.tmp1.i215, i64 8
   store i64 13, ptr %agg.tmp.sroa.0.sroa.2.0.agg.tmp1.sroa_idx.i216, align 8
   %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i217 = getelementptr inbounds nuw i8, ptr %agg.tmp1.i215, i64 16
   store i8 0, ptr %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i217, align 8
   %call.i.i218 = call { ptr, i8 } @_ZN4llvh9StringMapIcNS_15MallocAllocatorEE11try_emplaceIJcEEESt4pairINS_17StringMapIteratorIcEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %second.i214, ptr nonnull @.str.9, i64 13, ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i217)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp1.i215)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp1.i215)
   %call.i219 = call { ptr, i8 } @_ZN4llvh9StringMapINS_9StringSetINS_15MallocAllocatorEEES2_E11try_emplaceIJEEESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %ignoredEmptyFields_, ptr nonnull @.str.11, i64 22)
   %26 = extractvalue { ptr, i8 } %call.i219, 0
   %27 = load ptr, ptr %26, align 8
   %second.i220 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1.i221)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp1.i221)
   store ptr @.str.9, ptr %agg.tmp1.i221, align 8
   %agg.tmp.sroa.0.sroa.2.0.agg.tmp1.sroa_idx.i222 = getelementptr inbounds nuw i8, ptr %agg.tmp1.i221, i64 8
   store i64 13, ptr %agg.tmp.sroa.0.sroa.2.0.agg.tmp1.sroa_idx.i222, align 8
   %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i223 = getelementptr inbounds nuw i8, ptr %agg.tmp1.i221, i64 16
   store i8 0, ptr %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i223, align 8
   %call.i.i224 = call { ptr, i8 } @_ZN4llvh9StringMapIcNS_15MallocAllocatorEE11try_emplaceIJcEEESt4pairINS_17StringMapIteratorIcEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %second.i220, ptr nonnull @.str.9, i64 13, ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i223)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp1.i221)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp1.i221)
   %call.i225 = call { ptr, i8 } @_ZN4llvh9StringMapINS_9StringSetINS_15MallocAllocatorEEES2_E11try_emplaceIJEEESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %ignoredEmptyFields_, ptr nonnull @.str.12, i64 10)
   %28 = extractvalue { ptr, i8 } %call.i225, 0
   %29 = load ptr, ptr %28, align 8
   %second.i226 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1.i227)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp1.i227)
   store ptr @.str.13, ptr %agg.tmp1.i227, align 8
   %agg.tmp.sroa.0.sroa.2.0.agg.tmp1.sroa_idx.i228 = getelementptr inbounds nuw i8, ptr %agg.tmp1.i227, i64 8
   store i64 14, ptr %agg.tmp.sroa.0.sroa.2.0.agg.tmp1.sroa_idx.i228, align 8
   %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i229 = getelementptr inbounds nuw i8, ptr %agg.tmp1.i227, i64 16
   store i8 0, ptr %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i229, align 8
   %call.i.i230 = call { ptr, i8 } @_ZN4llvh9StringMapIcNS_15MallocAllocatorEE11try_emplaceIJcEEESt4pairINS_17StringMapIteratorIcEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %second.i226, ptr nonnull @.str.13, i64 14, ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i229)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp1.i227)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp1.i227)
   %call.i231 = call { ptr, i8 } @_ZN4llvh9StringMapINS_9StringSetINS_15MallocAllocatorEEES2_E11try_emplaceIJEEESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %ignoredEmptyFields_, ptr nonnull @.str.12, i64 10)
   %30 = extractvalue { ptr, i8 } %call.i231, 0
   %31 = load ptr, ptr %30, align 8
   %second.i232 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1.i233)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp1.i233)
   store ptr @.str.14, ptr %agg.tmp1.i233, align 8
   %agg.tmp.sroa.0.sroa.2.0.agg.tmp1.sroa_idx.i234 = getelementptr inbounds nuw i8, ptr %agg.tmp1.i233, i64 8
   store i64 8, ptr %agg.tmp.sroa.0.sroa.2.0.agg.tmp1.sroa_idx.i234, align 8
   %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i235 = getelementptr inbounds nuw i8, ptr %agg.tmp1.i233, i64 16
   store i8 0, ptr %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i235, align 8
   %call.i.i236 = call { ptr, i8 } @_ZN4llvh9StringMapIcNS_15MallocAllocatorEE11try_emplaceIJcEEESt4pairINS_17StringMapIteratorIcEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %second.i232, ptr nonnull @.str.14, i64 8, ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i235)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp1.i233)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp1.i233)
   %call.i237 = call { ptr, i8 } @_ZN4llvh9StringMapINS_9StringSetINS_15MallocAllocatorEEES2_E11try_emplaceIJEEESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %ignoredEmptyFields_, ptr nonnull @.str.15, i64 16)
   %32 = extractvalue { ptr, i8 } %call.i237, 0
   %33 = load ptr, ptr %32, align 8
   %second.i238 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1.i239)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp1.i239)
   store ptr @.str.1, ptr %agg.tmp1.i239, align 8
   %agg.tmp.sroa.0.sroa.2.0.agg.tmp1.sroa_idx.i240 = getelementptr inbounds nuw i8, ptr %agg.tmp1.i239, i64 8
   store i64 14, ptr %agg.tmp.sroa.0.sroa.2.0.agg.tmp1.sroa_idx.i240, align 8
   %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i241 = getelementptr inbounds nuw i8, ptr %agg.tmp1.i239, i64 16
   store i8 0, ptr %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i241, align 8
   %call.i.i242 = call { ptr, i8 } @_ZN4llvh9StringMapIcNS_15MallocAllocatorEE11try_emplaceIJcEEESt4pairINS_17StringMapIteratorIcEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %second.i238, ptr nonnull @.str.1, i64 14, ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i241)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp1.i239)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp1.i239)
   %call.i243 = call { ptr, i8 } @_ZN4llvh9StringMapINS_9StringSetINS_15MallocAllocatorEEES2_E11try_emplaceIJEEESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %ignoredEmptyFields_, ptr nonnull @.str.15, i64 16)
   %34 = extractvalue { ptr, i8 } %call.i243, 0
   %35 = load ptr, ptr %34, align 8
   %second.i244 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1.i245)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp1.i245)
   store ptr @.str.16, ptr %agg.tmp1.i245, align 8
   %agg.tmp.sroa.0.sroa.2.0.agg.tmp1.sroa_idx.i246 = getelementptr inbounds nuw i8, ptr %agg.tmp1.i245, i64 8
   store i64 19, ptr %agg.tmp.sroa.0.sroa.2.0.agg.tmp1.sroa_idx.i246, align 8
   %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i247 = getelementptr inbounds nuw i8, ptr %agg.tmp1.i245, i64 16
   store i8 0, ptr %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i247, align 8
   %call.i.i248 = call { ptr, i8 } @_ZN4llvh9StringMapIcNS_15MallocAllocatorEE11try_emplaceIJcEEESt4pairINS_17StringMapIteratorIcEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %second.i244, ptr nonnull @.str.16, i64 19, ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i247)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp1.i245)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp1.i245)
   %call.i249 = call { ptr, i8 } @_ZN4llvh9StringMapINS_9StringSetINS_15MallocAllocatorEEES2_E11try_emplaceIJEEESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %ignoredEmptyFields_, ptr nonnull @.str.15, i64 16)
   %36 = extractvalue { ptr, i8 } %call.i249, 0
   %37 = load ptr, ptr %36, align 8
   %second.i250 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1.i251)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp1.i251)
   store ptr @.str.17, ptr %agg.tmp1.i251, align 8
   %agg.tmp.sroa.0.sroa.2.0.agg.tmp1.sroa_idx.i252 = getelementptr inbounds nuw i8, ptr %agg.tmp1.i251, i64 8
   store i64 10, ptr %agg.tmp.sroa.0.sroa.2.0.agg.tmp1.sroa_idx.i252, align 8
   %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i253 = getelementptr inbounds nuw i8, ptr %agg.tmp1.i251, i64 16
   store i8 0, ptr %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i253, align 8
   %call.i.i254 = call { ptr, i8 } @_ZN4llvh9StringMapIcNS_15MallocAllocatorEE11try_emplaceIJcEEESt4pairINS_17StringMapIteratorIcEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %second.i250, ptr nonnull @.str.17, i64 10, ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i253)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp1.i251)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp1.i251)
   %call.i255 = call { ptr, i8 } @_ZN4llvh9StringMapINS_9StringSetINS_15MallocAllocatorEEES2_E11try_emplaceIJEEESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %ignoredEmptyFields_, ptr nonnull @.str.15, i64 16)
   %38 = extractvalue { ptr, i8 } %call.i255, 0
   %39 = load ptr, ptr %38, align 8
   %second.i256 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1.i257)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp1.i257)
   store ptr @.str.18, ptr %agg.tmp1.i257, align 8
   %agg.tmp.sroa.0.sroa.2.0.agg.tmp1.sroa_idx.i258 = getelementptr inbounds nuw i8, ptr %agg.tmp1.i257, i64 8
   store i64 10, ptr %agg.tmp.sroa.0.sroa.2.0.agg.tmp1.sroa_idx.i258, align 8
   %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i259 = getelementptr inbounds nuw i8, ptr %agg.tmp1.i257, i64 16
   store i8 0, ptr %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i259, align 8
   %call.i.i260 = call { ptr, i8 } @_ZN4llvh9StringMapIcNS_15MallocAllocatorEE11try_emplaceIJcEEESt4pairINS_17StringMapIteratorIcEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %second.i256, ptr nonnull @.str.18, i64 10, ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i259)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp1.i257)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp1.i257)
   %call.i261 = call { ptr, i8 } @_ZN4llvh9StringMapINS_9StringSetINS_15MallocAllocatorEEES2_E11try_emplaceIJEEESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %ignoredEmptyFields_, ptr nonnull @.str.19, i64 15)
   %40 = extractvalue { ptr, i8 } %call.i261, 0
   %41 = load ptr, ptr %40, align 8
   %second.i262 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1.i263)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp1.i263)
   store ptr @.str.1, ptr %agg.tmp1.i263, align 8
   %agg.tmp.sroa.0.sroa.2.0.agg.tmp1.sroa_idx.i264 = getelementptr inbounds nuw i8, ptr %agg.tmp1.i263, i64 8
   store i64 14, ptr %agg.tmp.sroa.0.sroa.2.0.agg.tmp1.sroa_idx.i264, align 8
   %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i265 = getelementptr inbounds nuw i8, ptr %agg.tmp1.i263, i64 16
   store i8 0, ptr %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i265, align 8
   %call.i.i266 = call { ptr, i8 } @_ZN4llvh9StringMapIcNS_15MallocAllocatorEE11try_emplaceIJcEEESt4pairINS_17StringMapIteratorIcEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %second.i262, ptr nonnull @.str.1, i64 14, ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i265)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp1.i263)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp1.i263)
   %call.i267 = call { ptr, i8 } @_ZN4llvh9StringMapINS_9StringSetINS_15MallocAllocatorEEES2_E11try_emplaceIJEEESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %ignoredEmptyFields_, ptr nonnull @.str.19, i64 15)
   %42 = extractvalue { ptr, i8 } %call.i267, 0
   %43 = load ptr, ptr %42, align 8
   %second.i268 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1.i269)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp1.i269)
   store ptr @.str.16, ptr %agg.tmp1.i269, align 8
   %agg.tmp.sroa.0.sroa.2.0.agg.tmp1.sroa_idx.i270 = getelementptr inbounds nuw i8, ptr %agg.tmp1.i269, i64 8
   store i64 19, ptr %agg.tmp.sroa.0.sroa.2.0.agg.tmp1.sroa_idx.i270, align 8
   %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i271 = getelementptr inbounds nuw i8, ptr %agg.tmp1.i269, i64 16
   store i8 0, ptr %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i271, align 8
   %call.i.i272 = call { ptr, i8 } @_ZN4llvh9StringMapIcNS_15MallocAllocatorEE11try_emplaceIJcEEESt4pairINS_17StringMapIteratorIcEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %second.i268, ptr nonnull @.str.16, i64 19, ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i271)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp1.i269)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp1.i269)
   %call.i273 = call { ptr, i8 } @_ZN4llvh9StringMapINS_9StringSetINS_15MallocAllocatorEEES2_E11try_emplaceIJEEESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %ignoredEmptyFields_, ptr nonnull @.str.19, i64 15)
   %44 = extractvalue { ptr, i8 } %call.i273, 0
   %45 = load ptr, ptr %44, align 8
   %second.i274 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1.i275)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp1.i275)
   store ptr @.str.17, ptr %agg.tmp1.i275, align 8
   %agg.tmp.sroa.0.sroa.2.0.agg.tmp1.sroa_idx.i276 = getelementptr inbounds nuw i8, ptr %agg.tmp1.i275, i64 8
   store i64 10, ptr %agg.tmp.sroa.0.sroa.2.0.agg.tmp1.sroa_idx.i276, align 8
   %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i277 = getelementptr inbounds nuw i8, ptr %agg.tmp1.i275, i64 16
   store i8 0, ptr %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i277, align 8
   %call.i.i278 = call { ptr, i8 } @_ZN4llvh9StringMapIcNS_15MallocAllocatorEE11try_emplaceIJcEEESt4pairINS_17StringMapIteratorIcEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %second.i274, ptr nonnull @.str.17, i64 10, ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i277)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp1.i275)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp1.i275)
   %call.i279 = call { ptr, i8 } @_ZN4llvh9StringMapINS_9StringSetINS_15MallocAllocatorEEES2_E11try_emplaceIJEEESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %ignoredEmptyFields_, ptr nonnull @.str.19, i64 15)
   %46 = extractvalue { ptr, i8 } %call.i279, 0
   %47 = load ptr, ptr %46, align 8
   %second.i280 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1.i281)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp1.i281)
   store ptr @.str.18, ptr %agg.tmp1.i281, align 8
   %agg.tmp.sroa.0.sroa.2.0.agg.tmp1.sroa_idx.i282 = getelementptr inbounds nuw i8, ptr %agg.tmp1.i281, i64 8
   store i64 10, ptr %agg.tmp.sroa.0.sroa.2.0.agg.tmp1.sroa_idx.i282, align 8
   %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i283 = getelementptr inbounds nuw i8, ptr %agg.tmp1.i281, i64 16
   store i8 0, ptr %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i283, align 8
   %call.i.i284 = call { ptr, i8 } @_ZN4llvh9StringMapIcNS_15MallocAllocatorEE11try_emplaceIJcEEESt4pairINS_17StringMapIteratorIcEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %second.i280, ptr nonnull @.str.18, i64 10, ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i283)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp1.i281)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp1.i281)
   %call.i285 = call { ptr, i8 } @_ZN4llvh9StringMapINS_9StringSetINS_15MallocAllocatorEEES2_E11try_emplaceIJEEESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %ignoredEmptyFields_, ptr nonnull @.str.20, i64 13)
   %48 = extractvalue { ptr, i8 } %call.i285, 0
   %49 = load ptr, ptr %48, align 8
   %second.i286 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1.i287)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp1.i287)
   store ptr @.str.21, ptr %agg.tmp1.i287, align 8
   %agg.tmp.sroa.0.sroa.2.0.agg.tmp1.sroa_idx.i288 = getelementptr inbounds nuw i8, ptr %agg.tmp1.i287, i64 8
   store i64 8, ptr %agg.tmp.sroa.0.sroa.2.0.agg.tmp1.sroa_idx.i288, align 8
   %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i289 = getelementptr inbounds nuw i8, ptr %agg.tmp1.i287, i64 16
   store i8 0, ptr %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i289, align 8
   %call.i.i290 = call { ptr, i8 } @_ZN4llvh9StringMapIcNS_15MallocAllocatorEE11try_emplaceIJcEEESt4pairINS_17StringMapIteratorIcEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %second.i286, ptr nonnull @.str.21, i64 8, ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i289)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp1.i287)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp1.i287)
   %call.i291 = call { ptr, i8 } @_ZN4llvh9StringMapINS_9StringSetINS_15MallocAllocatorEEES2_E11try_emplaceIJEEESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %ignoredEmptyFields_, ptr nonnull @.str.20, i64 13)
   %50 = extractvalue { ptr, i8 } %call.i291, 0
   %51 = load ptr, ptr %50, align 8
   %second.i292 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1.i293)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp1.i293)
   store ptr @.str.14, ptr %agg.tmp1.i293, align 8
   %agg.tmp.sroa.0.sroa.2.0.agg.tmp1.sroa_idx.i294 = getelementptr inbounds nuw i8, ptr %agg.tmp1.i293, i64 8
   store i64 8, ptr %agg.tmp.sroa.0.sroa.2.0.agg.tmp1.sroa_idx.i294, align 8
   %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i295 = getelementptr inbounds nuw i8, ptr %agg.tmp1.i293, i64 16
   store i8 0, ptr %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i295, align 8
   %call.i.i296 = call { ptr, i8 } @_ZN4llvh9StringMapIcNS_15MallocAllocatorEE11try_emplaceIJcEEESt4pairINS_17StringMapIteratorIcEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %second.i292, ptr nonnull @.str.14, i64 8, ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i295)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp1.i293)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp1.i293)
   %call.i297 = call { ptr, i8 } @_ZN4llvh9StringMapINS_9StringSetINS_15MallocAllocatorEEES2_E11try_emplaceIJEEESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %ignoredEmptyFields_, ptr nonnull @.str.20, i64 13)
   %52 = extractvalue { ptr, i8 } %call.i297, 0
   %53 = load ptr, ptr %52, align 8
   %second.i298 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1.i299)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp1.i299)
   store ptr @.str.13, ptr %agg.tmp1.i299, align 8
   %agg.tmp.sroa.0.sroa.2.0.agg.tmp1.sroa_idx.i300 = getelementptr inbounds nuw i8, ptr %agg.tmp1.i299, i64 8
   store i64 14, ptr %agg.tmp.sroa.0.sroa.2.0.agg.tmp1.sroa_idx.i300, align 8
   %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i301 = getelementptr inbounds nuw i8, ptr %agg.tmp1.i299, i64 16
   store i8 0, ptr %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i301, align 8
   %call.i.i302 = call { ptr, i8 } @_ZN4llvh9StringMapIcNS_15MallocAllocatorEE11try_emplaceIJcEEESt4pairINS_17StringMapIteratorIcEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %second.i298, ptr nonnull @.str.13, i64 14, ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i301)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp1.i299)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp1.i299)
   %call.i303 = call { ptr, i8 } @_ZN4llvh9StringMapINS_9StringSetINS_15MallocAllocatorEEES2_E11try_emplaceIJEEESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %ignoredEmptyFields_, ptr nonnull @.str.20, i64 13)
   %54 = extractvalue { ptr, i8 } %call.i303, 0
   %55 = load ptr, ptr %54, align 8
   %second.i304 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1.i305)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp1.i305)
   store ptr @.str.22, ptr %agg.tmp1.i305, align 8
   %agg.tmp.sroa.0.sroa.2.0.agg.tmp1.sroa_idx.i306 = getelementptr inbounds nuw i8, ptr %agg.tmp1.i305, i64 8
   store i64 11, ptr %agg.tmp.sroa.0.sroa.2.0.agg.tmp1.sroa_idx.i306, align 8
   %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i307 = getelementptr inbounds nuw i8, ptr %agg.tmp1.i305, i64 16
   store i8 0, ptr %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i307, align 8
   %call.i.i308 = call { ptr, i8 } @_ZN4llvh9StringMapIcNS_15MallocAllocatorEE11try_emplaceIJcEEESt4pairINS_17StringMapIteratorIcEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %second.i304, ptr nonnull @.str.22, i64 11, ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i307)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp1.i305)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp1.i305)
   %call.i309 = call { ptr, i8 } @_ZN4llvh9StringMapINS_9StringSetINS_15MallocAllocatorEEES2_E11try_emplaceIJEEESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %ignoredEmptyFields_, ptr nonnull @.str.23, i64 20)
   %56 = extractvalue { ptr, i8 } %call.i309, 0
   %57 = load ptr, ptr %56, align 8
   %second.i310 = getelementptr inbounds nuw i8, ptr %57, i64 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1.i311)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp1.i311)
   store ptr @.str.21, ptr %agg.tmp1.i311, align 8
   %agg.tmp.sroa.0.sroa.2.0.agg.tmp1.sroa_idx.i312 = getelementptr inbounds nuw i8, ptr %agg.tmp1.i311, i64 8
   store i64 8, ptr %agg.tmp.sroa.0.sroa.2.0.agg.tmp1.sroa_idx.i312, align 8
   %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i313 = getelementptr inbounds nuw i8, ptr %agg.tmp1.i311, i64 16
   store i8 0, ptr %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i313, align 8
   %call.i.i314 = call { ptr, i8 } @_ZN4llvh9StringMapIcNS_15MallocAllocatorEE11try_emplaceIJcEEESt4pairINS_17StringMapIteratorIcEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %second.i310, ptr nonnull @.str.21, i64 8, ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i313)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp1.i311)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp1.i311)
   %call.i315 = call { ptr, i8 } @_ZN4llvh9StringMapINS_9StringSetINS_15MallocAllocatorEEES2_E11try_emplaceIJEEESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %ignoredEmptyFields_, ptr nonnull @.str.23, i64 20)
   %58 = extractvalue { ptr, i8 } %call.i315, 0
   %59 = load ptr, ptr %58, align 8
   %second.i316 = getelementptr inbounds nuw i8, ptr %59, i64 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1.i317)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp1.i317)
   store ptr @.str.14, ptr %agg.tmp1.i317, align 8
   %agg.tmp.sroa.0.sroa.2.0.agg.tmp1.sroa_idx.i318 = getelementptr inbounds nuw i8, ptr %agg.tmp1.i317, i64 8
   store i64 8, ptr %agg.tmp.sroa.0.sroa.2.0.agg.tmp1.sroa_idx.i318, align 8
   %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i319 = getelementptr inbounds nuw i8, ptr %agg.tmp1.i317, i64 16
   store i8 0, ptr %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i319, align 8
   %call.i.i320 = call { ptr, i8 } @_ZN4llvh9StringMapIcNS_15MallocAllocatorEE11try_emplaceIJcEEESt4pairINS_17StringMapIteratorIcEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %second.i316, ptr nonnull @.str.14, i64 8, ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i319)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp1.i317)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp1.i317)
   %call.i321 = call { ptr, i8 } @_ZN4llvh9StringMapINS_9StringSetINS_15MallocAllocatorEEES2_E11try_emplaceIJEEESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %ignoredEmptyFields_, ptr nonnull @.str.23, i64 20)
   %60 = extractvalue { ptr, i8 } %call.i321, 0
   %61 = load ptr, ptr %60, align 8
   %second.i322 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1.i323)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp1.i323)
   store ptr @.str.13, ptr %agg.tmp1.i323, align 8
   %agg.tmp.sroa.0.sroa.2.0.agg.tmp1.sroa_idx.i324 = getelementptr inbounds nuw i8, ptr %agg.tmp1.i323, i64 8
   store i64 14, ptr %agg.tmp.sroa.0.sroa.2.0.agg.tmp1.sroa_idx.i324, align 8
   %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i325 = getelementptr inbounds nuw i8, ptr %agg.tmp1.i323, i64 16
   store i8 0, ptr %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i325, align 8
   %call.i.i326 = call { ptr, i8 } @_ZN4llvh9StringMapIcNS_15MallocAllocatorEE11try_emplaceIJcEEESt4pairINS_17StringMapIteratorIcEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %second.i322, ptr nonnull @.str.13, i64 14, ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i325)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp1.i323)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp1.i323)
   %call.i327 = call { ptr, i8 } @_ZN4llvh9StringMapINS_9StringSetINS_15MallocAllocatorEEES2_E11try_emplaceIJEEESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %ignoredEmptyFields_, ptr nonnull @.str.23, i64 20)
   %62 = extractvalue { ptr, i8 } %call.i327, 0
   %63 = load ptr, ptr %62, align 8
   %second.i328 = getelementptr inbounds nuw i8, ptr %63, i64 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1.i329)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp1.i329)
   store ptr @.str.22, ptr %agg.tmp1.i329, align 8
   %agg.tmp.sroa.0.sroa.2.0.agg.tmp1.sroa_idx.i330 = getelementptr inbounds nuw i8, ptr %agg.tmp1.i329, i64 8
   store i64 11, ptr %agg.tmp.sroa.0.sroa.2.0.agg.tmp1.sroa_idx.i330, align 8
   %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i331 = getelementptr inbounds nuw i8, ptr %agg.tmp1.i329, i64 16
   store i8 0, ptr %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i331, align 8
   %call.i.i332 = call { ptr, i8 } @_ZN4llvh9StringMapIcNS_15MallocAllocatorEE11try_emplaceIJcEEESt4pairINS_17StringMapIteratorIcEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %second.i328, ptr nonnull @.str.22, i64 11, ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i331)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp1.i329)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp1.i329)
   %call.i333 = call { ptr, i8 } @_ZN4llvh9StringMapINS_9StringSetINS_15MallocAllocatorEEES2_E11try_emplaceIJEEESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %ignoredEmptyFields_, ptr nonnull @.str.24, i64 13)
   %64 = extractvalue { ptr, i8 } %call.i333, 0
   %65 = load ptr, ptr %64, align 8
   %second.i334 = getelementptr inbounds nuw i8, ptr %65, i64 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1.i335)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp1.i335)
   store ptr @.str.13, ptr %agg.tmp1.i335, align 8
   %agg.tmp.sroa.0.sroa.2.0.agg.tmp1.sroa_idx.i336 = getelementptr inbounds nuw i8, ptr %agg.tmp1.i335, i64 8
   store i64 14, ptr %agg.tmp.sroa.0.sroa.2.0.agg.tmp1.sroa_idx.i336, align 8
   %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i337 = getelementptr inbounds nuw i8, ptr %agg.tmp1.i335, i64 16
   store i8 0, ptr %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i337, align 8
   %call.i.i338 = call { ptr, i8 } @_ZN4llvh9StringMapIcNS_15MallocAllocatorEE11try_emplaceIJcEEESt4pairINS_17StringMapIteratorIcEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %second.i334, ptr nonnull @.str.13, i64 14, ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i337)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp1.i335)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp1.i335)
   %call.i339 = call { ptr, i8 } @_ZN4llvh9StringMapINS_9StringSetINS_15MallocAllocatorEEES2_E11try_emplaceIJEEESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %ignoredEmptyFields_, ptr nonnull @.str.25, i64 12)
   %66 = extractvalue { ptr, i8 } %call.i339, 0
   %67 = load ptr, ptr %66, align 8
   %second.i340 = getelementptr inbounds nuw i8, ptr %67, i64 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1.i341)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp1.i341)
   store ptr @.str.13, ptr %agg.tmp1.i341, align 8
   %agg.tmp.sroa.0.sroa.2.0.agg.tmp1.sroa_idx.i342 = getelementptr inbounds nuw i8, ptr %agg.tmp1.i341, i64 8
   store i64 14, ptr %agg.tmp.sroa.0.sroa.2.0.agg.tmp1.sroa_idx.i342, align 8
   %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i343 = getelementptr inbounds nuw i8, ptr %agg.tmp1.i341, i64 16
   store i8 0, ptr %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i343, align 8
   %call.i.i344 = call { ptr, i8 } @_ZN4llvh9StringMapIcNS_15MallocAllocatorEE11try_emplaceIJcEEESt4pairINS_17StringMapIteratorIcEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %second.i340, ptr nonnull @.str.13, i64 14, ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i343)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp1.i341)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp1.i341)
   %call.i345 = call { ptr, i8 } @_ZN4llvh9StringMapINS_9StringSetINS_15MallocAllocatorEEES2_E11try_emplaceIJEEESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %ignoredEmptyFields_, ptr nonnull @.str.26, i64 17)
   %68 = extractvalue { ptr, i8 } %call.i345, 0
   %69 = load ptr, ptr %68, align 8
   %second.i346 = getelementptr inbounds nuw i8, ptr %69, i64 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1.i347)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp1.i347)
   store ptr @.str.9, ptr %agg.tmp1.i347, align 8
   %agg.tmp.sroa.0.sroa.2.0.agg.tmp1.sroa_idx.i348 = getelementptr inbounds nuw i8, ptr %agg.tmp1.i347, i64 8
   store i64 13, ptr %agg.tmp.sroa.0.sroa.2.0.agg.tmp1.sroa_idx.i348, align 8
   %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i349 = getelementptr inbounds nuw i8, ptr %agg.tmp1.i347, i64 16
   store i8 0, ptr %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i349, align 8
   %call.i.i350 = call { ptr, i8 } @_ZN4llvh9StringMapIcNS_15MallocAllocatorEE11try_emplaceIJcEEESt4pairINS_17StringMapIteratorIcEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %second.i346, ptr nonnull @.str.9, i64 13, ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i349)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp1.i347)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp1.i347)
   %call.i351 = call { ptr, i8 } @_ZN4llvh9StringMapINS_9StringSetINS_15MallocAllocatorEEES2_E11try_emplaceIJEEESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %ignoredEmptyFields_, ptr nonnull @.str.27, i64 13)
   %70 = extractvalue { ptr, i8 } %call.i351, 0
   %71 = load ptr, ptr %70, align 8
   %second.i352 = getelementptr inbounds nuw i8, ptr %71, i64 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1.i353)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp1.i353)
   store ptr @.str.28, ptr %agg.tmp1.i353, align 8
   %agg.tmp.sroa.0.sroa.2.0.agg.tmp1.sroa_idx.i354 = getelementptr inbounds nuw i8, ptr %agg.tmp1.i353, i64 8
   store i64 16, ptr %agg.tmp.sroa.0.sroa.2.0.agg.tmp1.sroa_idx.i354, align 8
   %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i355 = getelementptr inbounds nuw i8, ptr %agg.tmp1.i353, i64 16
   store i8 0, ptr %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i355, align 8
   %call.i.i356 = call { ptr, i8 } @_ZN4llvh9StringMapIcNS_15MallocAllocatorEE11try_emplaceIJcEEESt4pairINS_17StringMapIteratorIcEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %second.i352, ptr nonnull @.str.28, i64 16, ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i355)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp1.i353)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp1.i353)
   br label %if.end217
 
 if.end217:                                        ; preds = %_ZN4llvh9StringRefC2EPKc.exit, %entry
@@ -3620,7 +3620,7 @@ if.then48:                                        ; preds = %if.end42
   %32 = load ptr, ptr %this, align 8
   %33 = load ptr, ptr %sm_, align 8
   %call58 = call noundef ptr @_ZNK6hermes18SourceErrorManager16findBufferForLocEN4llvh5SMLocE(ptr noundef nonnull align 8 dereferenceable(464) %33, ptr %retval.sroa.0.0.copyload.i) #7
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %BufferStart.i.i = getelementptr inbounds nuw i8, ptr %call58, i64 8
   %34 = load ptr, ptr %BufferStart.i.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %retval.sroa.0.0.copyload.i to i64
@@ -3643,7 +3643,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %if.t
   br i1 %cmp.not.i.i, label %_ZN6hermes15dumpSMRangeJSONERNS_11JSONEmitterEN4llvh7SMRangeEPKNS2_12MemoryBufferE.exit, label %for.body.i.i
 
 _ZN6hermes15dumpSMRangeJSONERNS_11JSONEmitterEN4llvh7SMRangeEPKNS2_12MemoryBufferE.exit: ; preds = %for.body.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %36 = load ptr, ptr %this, align 8
   call void @_ZN6hermes11JSONEmitter10closeArrayEv(ptr noundef nonnull align 8 dereferenceable(72) %36) #7
   br label %if.end60
@@ -27595,10 +27595,10 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 declare void @_ZN6hermes11JSONEmitter9emitValueEl(ptr noundef nonnull align 8 dereferenceable(72), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

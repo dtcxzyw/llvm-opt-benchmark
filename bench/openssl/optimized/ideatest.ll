@@ -43,8 +43,8 @@ declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 define internal i32 @test_idea_ecb() #0 {
   %1 = alloca %struct.idea_key_st, align 4
   %2 = alloca %struct.idea_key_st, align 4
-  call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %1) #3
-  call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %2) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @IDEA_set_encrypt_key(ptr noundef nonnull @k, ptr noundef nonnull %1) #3
   call void @IDEA_ecb_encrypt(ptr noundef nonnull @in, ptr noundef nonnull @out, ptr noundef nonnull %1) #3
   %3 = call i32 @test_mem_eq(ptr noundef nonnull @.str.3, i32 noundef 68, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, ptr noundef nonnull @out, i64 noundef 8, ptr noundef nonnull @c, i64 noundef 8) #3
@@ -59,8 +59,8 @@ define internal i32 @test_idea_ecb() #0 {
 
 6:                                                ; preds = %0, %4
   %.0 = phi i32 [ %5, %4 ], [ 0, %0 ]
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %2) #3
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %1) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
 }
 
@@ -69,9 +69,9 @@ define internal i32 @test_idea_cbc() #0 {
   %1 = alloca %struct.idea_key_st, align 4
   %2 = alloca %struct.idea_key_st, align 4
   %3 = alloca [8 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %1) #3
-  call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %2) #3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @IDEA_set_encrypt_key(ptr noundef nonnull @k, ptr noundef nonnull %1) #3
   call void @IDEA_set_decrypt_key(ptr noundef nonnull %1, ptr noundef nonnull %2) #3
   store i64 288233674720149760, ptr %3, align 8
@@ -80,9 +80,9 @@ define internal i32 @test_idea_cbc() #0 {
   call void @IDEA_cbc_encrypt(ptr noundef nonnull @out, ptr noundef nonnull @out, i64 noundef 8, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef 0) #3
   call void @IDEA_cbc_encrypt(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @out, i64 8), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @out, i64 8), i64 noundef 22, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef 0) #3
   %4 = call i32 @test_mem_eq(ptr noundef nonnull @.str.3, i32 noundef 89, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.4, ptr noundef nonnull @text, i64 noundef 30, ptr noundef nonnull @out, i64 noundef 30) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #3
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %2) #3
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %1) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %4
 }
 
@@ -91,9 +91,9 @@ define internal i32 @test_idea_cfb64() #0 {
   %1 = alloca %struct.idea_key_st, align 4
   %2 = alloca %struct.idea_key_st, align 4
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %1) #3
-  call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %2) #3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @IDEA_set_encrypt_key(ptr noundef nonnull @cfb_key, ptr noundef nonnull %1) #3
   call void @IDEA_set_decrypt_key(ptr noundef nonnull %1, ptr noundef nonnull %2) #3
   store i64 -3607505710935961036, ptr @cfb_tmp, align 8
@@ -114,14 +114,11 @@ define internal i32 @test_idea_cfb64() #0 {
 
 7:                                                ; preds = %0, %5
   %.0 = phi i32 [ %6, %5 ], [ 0, %0 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #3
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %2) #3
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %1) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 declare void @IDEA_set_encrypt_key(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -131,12 +128,15 @@ declare i32 @test_mem_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr
 
 declare void @IDEA_set_decrypt_key(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 declare void @IDEA_cbc_encrypt(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 declare void @IDEA_cfb64_encrypt(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

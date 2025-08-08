@@ -103,7 +103,7 @@ define void @SCT_print(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nound
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %42 = load i64, ptr %41, align 8, !tbaa !15
   %43 = tail call ptr @ASN1_GENERALIZEDTIME_new() #3
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %44 = icmp eq ptr %43, null
   br i1 %44, label %timestamp_print.exit, label %45
 
@@ -132,7 +132,7 @@ define void @SCT_print(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nound
   br label %timestamp_print.exit
 
 timestamp_print.exit:                             ; preds = %31, %58
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %59 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %1, ptr noundef nonnull @.str.15, i32 noundef %14, ptr noundef nonnull @.str.8) #3
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %61 = load i64, ptr %60, align 8, !tbaa !16
@@ -185,9 +185,6 @@ SCT_signature_algorithms_print.exit:              ; preds = %74, %82
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare ptr @CTLOG_STORE_get0_log_by_id(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 declare i32 @BIO_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
@@ -195,9 +192,6 @@ declare i32 @BIO_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 declare i32 @BIO_hex_string(ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 declare ptr @CTLOG_get0_name(ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
 define void @SCT_LIST_print(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
@@ -248,6 +242,12 @@ declare void @ASN1_GENERALIZEDTIME_free(ptr noundef) local_unnamed_addr #1
 declare i32 @SCT_get_signature_nid(ptr noundef) local_unnamed_addr #1
 
 declare ptr @OBJ_nid2ln(i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

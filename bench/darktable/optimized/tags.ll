@@ -133,7 +133,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @dt_tag_new(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %136, label %4
 
@@ -368,40 +368,34 @@ define range(i32 0, 2) i32 @dt_tag_new(ptr noundef %0, ptr noundef writeonly cap
 
 136:                                              ; preds = %134, %135, %2, %4, %39
   %.0 = phi i32 [ 1, %39 ], [ 0, %4 ], [ 0, %2 ], [ 1, %135 ], [ 1, %134 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare void @dt_print_ext(ptr noundef, ...) local_unnamed_addr #1
 
-declare void @dt_print_ext(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @sqlite3_prepare_v2(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @sqlite3_prepare_v2(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare ptr @dt_database_get(ptr noundef) local_unnamed_addr #2
+declare ptr @dt_database_get(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
-declare ptr @sqlite3_errmsg(ptr noundef) local_unnamed_addr #2
+declare ptr @sqlite3_errmsg(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @sqlite3_bind_text(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @sqlite3_bind_text(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @sqlite3_step(ptr noundef) local_unnamed_addr #1
 
-declare i32 @sqlite3_step(ptr noundef) local_unnamed_addr #2
+declare i64 @sqlite3_column_int64(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i64 @sqlite3_column_int64(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @sqlite3_finalize(ptr noundef) local_unnamed_addr #1
 
-declare i32 @sqlite3_finalize(ptr noundef) local_unnamed_addr #2
+declare i32 @sqlite3_column_int(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @sqlite3_column_int(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @g_strstr_len(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @g_strstr_len(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
-
-declare i32 @sqlite3_bind_int(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @sqlite3_bind_int(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @dt_tag_new_from_gui(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
@@ -437,12 +431,12 @@ define range(i32 0, 2) i32 @dt_tag_new_from_gui(ptr noundef %0, ptr noundef writ
   ret i32 %3
 }
 
-declare void @dt_control_signal_raise(ptr noundef, i32 noundef, ...) local_unnamed_addr #2
+declare void @dt_control_signal_raise(ptr noundef, i32 noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @dt_tag_remove(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !9
   %5 = and i32 %4, 256
   %.not = icmp eq i32 %5, 0
@@ -632,14 +626,14 @@ define i32 @dt_tag_remove(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 
   br label %119
 
 119:                                              ; preds = %114, %33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define void @dt_tag_delete_tag_batch(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.14, ptr noundef %0) #11
   %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !9
   %5 = and i32 %4, 256
@@ -703,13 +697,13 @@ define void @dt_tag_delete_tag_batch(ptr noundef %0) local_unnamed_addr #0 {
   %40 = call i32 @sqlite3_finalize(ptr noundef %39) #11
   call void @g_free(ptr noundef %22) #11
   call void @dt_set_darktable_tags()
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
-declare noalias ptr @g_strdup_printf(ptr noundef, ...) local_unnamed_addr #2
+declare noalias ptr @g_strdup_printf(ptr noundef, ...) local_unnamed_addr #1
 
-declare void @g_free(ptr noundef) #2
+declare void @g_free(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @dt_tag_remove_list(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
@@ -718,7 +712,7 @@ define i32 @dt_tag_remove_list(ptr noundef readonly captures(address_is_null) %0
   br i1 %.not, label %30, label %3
 
 3:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !57
   br label %.outer
 
@@ -780,7 +774,7 @@ define i32 @dt_tag_remove_list(ptr noundef readonly captures(address_is_null) %0
 
 .thread33:                                        ; preds = %.thread, %23, %4
   %.2 = phi i32 [ %29, %23 ], [ %.01626.ph, %4 ], [ %20, %.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %30
 
 30:                                               ; preds = %1, %.thread33
@@ -788,15 +782,15 @@ define i32 @dt_tag_remove_list(ptr noundef readonly captures(address_is_null) %0
   ret i32 %.0
 }
 
-declare void @dt_util_str_cat(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @dt_util_str_cat(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define noalias ptr @dt_tag_get_name(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !9
   %4 = and i32 %3, 256
   %.not = icmp eq i32 %4, 0
@@ -851,18 +845,18 @@ define noalias ptr @dt_tag_get_name(i32 noundef %0) local_unnamed_addr #0 {
   %.0 = phi ptr [ %32, %29 ], [ null, %25 ]
   %34 = load ptr, ptr %2, align 8, !tbaa !52
   %35 = call i32 @sqlite3_finalize(ptr noundef %34) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0
 }
 
-declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #2
+declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #1
 
-declare ptr @sqlite3_column_text(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @sqlite3_column_text(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @dt_tag_rename(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %45, label %4
 
@@ -937,14 +931,14 @@ define void @dt_tag_rename(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
   br label %45
 
 45:                                               ; preds = %6, %2, %4, %40
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @dt_tag_exists(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !9
   %5 = and i32 %4, 256
   %.not = icmp eq i32 %5, 0
@@ -1012,7 +1006,7 @@ define range(i32 0, 2) i32 @dt_tag_exists(ptr noundef %0, ptr noundef writeonly 
   %.0 = phi i32 [ 1, %30 ], [ 0, %35 ], [ %.0.ph, %.sink.split ]
   %37 = load ptr, ptr %3, align 8, !tbaa !52
   %38 = call i32 @sqlite3_finalize(ptr noundef %37) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
@@ -1023,7 +1017,7 @@ define range(i32 0, 2) i32 @dt_tag_attach_images(i32 noundef %0, ptr noundef rea
   br i1 %.not, label %17, label %5
 
 5:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !63
   %6 = zext i32 %0 to i64
   %7 = inttoptr i64 %6 to ptr
@@ -1050,7 +1044,7 @@ define range(i32 0, 2) i32 @dt_tag_attach_images(i32 noundef %0, ptr noundef rea
 
 16:                                               ; preds = %.thread, %10
   %phi.call16 = phi i32 [ %9, %.thread ], [ %12, %10 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %17
 
 17:                                               ; preds = %3, %16
@@ -1058,9 +1052,9 @@ define range(i32 0, 2) i32 @dt_tag_attach_images(i32 noundef %0, ptr noundef rea
   ret i32 %.0
 }
 
-declare ptr @g_list_prepend(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @g_list_prepend(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @dt_undo_start_group(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @dt_undo_start_group(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @_tag_execute(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef nonnull captures(none) %2, i32 noundef %3, i32 noundef range(i32 0, 4) %4) unnamed_addr #0 {
@@ -1205,9 +1199,9 @@ _tag_add_tags_to_list.exit.thread57:              ; preds = %.thread, %_tag_add_
   br i1 %.not, label %6, label %7
 }
 
-declare void @g_list_free(ptr noundef) local_unnamed_addr #2
+declare void @g_list_free(ptr noundef) local_unnamed_addr #1
 
-declare void @dt_undo_record(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @dt_undo_record(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @_pop_undo(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3, ptr noundef captures(none) %4) #0 {
@@ -1296,7 +1290,7 @@ define internal void @_tags_undo_data_free(ptr noundef %0) #0 {
   ret void
 }
 
-declare void @dt_undo_end_group(ptr noundef) local_unnamed_addr #2
+declare void @dt_undo_end_group(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @dt_tag_attach(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
@@ -1331,12 +1325,12 @@ define range(i32 0, 2) i32 @dt_tag_attach(i32 noundef %0, i32 noundef %1, i32 no
   ret i32 %.0
 }
 
-declare ptr @dt_act_on_get_images(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @dt_act_on_get_images(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @dt_is_tag_attached(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !9
   %5 = and i32 %4, 256
   %.not = icmp eq i32 %5, 0
@@ -1396,11 +1390,11 @@ define range(i32 0, 2) i32 @dt_is_tag_attached(i32 noundef %0, i32 noundef %1) l
   %39 = zext i1 %38 to i32
   %40 = load ptr, ptr %3, align 8, !tbaa !52
   %41 = call i32 @sqlite3_finalize(ptr noundef %40) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %39
 }
 
-declare ptr @g_list_append(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @g_list_append(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @dt_tag_set_tags(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
@@ -1409,7 +1403,7 @@ define range(i32 0, 2) i32 @dt_tag_set_tags(ptr noundef %0, ptr noundef readonly
   br i1 %.not, label %20, label %7
 
 7:                                                ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !63
   %.not13 = icmp eq i32 %4, 0
   br i1 %.not13, label %.thread, label %11
@@ -1439,7 +1433,7 @@ define range(i32 0, 2) i32 @dt_tag_set_tags(ptr noundef %0, ptr noundef readonly
 
 19:                                               ; preds = %.thread, %11
   %phi.call19 = phi i32 [ %10, %.thread ], [ %15, %11 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %20
 
 20:                                               ; preds = %5, %19
@@ -1471,14 +1465,14 @@ define range(i32 0, 2) i32 @dt_tag_attach_string_list(ptr noundef %0, ptr nounde
   br i1 %.not29, label %18, label %12
 
 12:                                               ; preds = %.lr.ph
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !54
   %13 = call i32 @dt_tag_new(ptr noundef nonnull %10, ptr noundef nonnull %4)
   %14 = load i32, ptr %4, align 4, !tbaa !54
   %15 = zext i32 %14 to i64
   %16 = inttoptr i64 %15 to ptr
   %17 = call ptr @g_list_prepend(ptr noundef %.01833, ptr noundef %16) #11
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %18
 
 18:                                               ; preds = %12, %.lr.ph
@@ -1494,7 +1488,7 @@ define range(i32 0, 2) i32 @dt_tag_attach_string_list(ptr noundef %0, ptr nounde
   br i1 %.not27, label %30, label %21
 
 21:                                               ; preds = %._crit_edge
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !63
   %.not28 = icmp eq i32 %2, 0
   br i1 %.not28, label %.thread, label %23
@@ -1516,7 +1510,7 @@ define range(i32 0, 2) i32 @dt_tag_attach_string_list(ptr noundef %0, ptr nounde
 
 29:                                               ; preds = %.thread, %23
   %phi.call31 = phi i32 [ %22, %.thread ], [ %25, %23 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %30
 
 30:                                               ; preds = %29, %._crit_edge
@@ -1530,13 +1524,13 @@ define range(i32 0, 2) i32 @dt_tag_attach_string_list(ptr noundef %0, ptr nounde
   ret i32 %.0
 }
 
-declare ptr @g_strsplit(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @g_strsplit(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @g_strchomp(ptr noundef) local_unnamed_addr #2
+declare ptr @g_strchomp(ptr noundef) local_unnamed_addr #1
 
-declare ptr @g_strchug(ptr noundef) local_unnamed_addr #2
+declare ptr @g_strchug(ptr noundef) local_unnamed_addr #1
 
-declare void @g_strfreev(ptr noundef) local_unnamed_addr #2
+declare void @g_strfreev(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @dt_tag_detach_images(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -1548,7 +1542,7 @@ define range(i32 0, 2) i32 @dt_tag_detach_images(i32 noundef %0, ptr noundef rea
   %6 = zext i32 %0 to i64
   %7 = inttoptr i64 %6 to ptr
   %8 = tail call ptr @g_list_prepend(ptr noundef null, ptr noundef %7) #11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !63
   %.not14 = icmp eq i32 %2, 0
   br i1 %.not14, label %.thread, label %10
@@ -1572,7 +1566,7 @@ define range(i32 0, 2) i32 @dt_tag_detach_images(i32 noundef %0, ptr noundef rea
 
 16:                                               ; preds = %.thread, %10
   %phi.call16 = phi i32 [ %9, %.thread ], [ %12, %10 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %17
 
 17:                                               ; preds = %3, %16
@@ -1583,7 +1577,7 @@ define range(i32 0, 2) i32 @dt_tag_detach_images(i32 noundef %0, ptr noundef rea
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @dt_tag_detach(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = icmp sgt i32 %1, 0
   br i1 %6, label %10, label %7
 
@@ -1615,11 +1609,11 @@ define range(i32 0, 2) i32 @dt_tag_detach(i32 noundef %0, i32 noundef %1, i32 no
   %18 = call i32 @dt_tag_detach_images(i32 noundef %0, ptr noundef %17, i32 noundef %2)
   %19 = load ptr, ptr %5, align 8, !tbaa !63
   call void @g_list_free(ptr noundef %19) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %18
 }
 
-declare void @dt_grouping_add_grouped_images(ptr noundef) local_unnamed_addr #2
+declare void @dt_grouping_add_grouped_images(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @dt_tag_detach_by_string(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
@@ -1634,7 +1628,7 @@ define range(i32 0, 2) i32 @dt_tag_detach_by_string(ptr noundef %0, i32 noundef 
   br i1 %.not23, label %84, label %9
 
 9:                                                ; preds = %7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !9
   %11 = and i32 %10, 256
   %.not24 = icmp eq i32 %11, 0
@@ -1724,7 +1718,7 @@ define range(i32 0, 2) i32 @dt_tag_detach_by_string(ptr noundef %0, i32 noundef 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %dt_tag_detach.exit.us
   %56 = load ptr, ptr %6, align 8, !tbaa !52
   %57 = call i32 @sqlite3_column_int(ptr noundef %56, i32 noundef 0) #11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %58 = call ptr @g_list_prepend(ptr noundef null, ptr noundef nonnull %55) #11
   store ptr %58, ptr %5, align 8, !tbaa !63
   br i1 %.not.i, label %dt_tag_detach.exit.us, label %59
@@ -1739,7 +1733,7 @@ dt_tag_detach.exit.us:                            ; preds = %59, %.lr.ph.split.u
   %61 = call i32 @dt_tag_detach_images(i32 noundef %57, ptr noundef %60, i32 noundef %2)
   %62 = load ptr, ptr %5, align 8, !tbaa !63
   call void @g_list_free(ptr noundef %62) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %63 = load ptr, ptr %6, align 8, !tbaa !52
   %64 = call i32 @sqlite3_step(ptr noundef %63) #11
   %65 = icmp eq i32 %64, 100
@@ -1751,13 +1745,13 @@ dt_tag_detach.exit.us:                            ; preds = %59, %.lr.ph.split.u
 dt_tag_detach.exit.us29:                          ; preds = %.lr.ph.split, %dt_tag_detach.exit.us29
   %66 = load ptr, ptr %6, align 8, !tbaa !52
   %67 = call i32 @sqlite3_column_int(ptr noundef %66, i32 noundef 0) #11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %68 = call ptr @dt_act_on_get_images(i32 noundef %53, i32 noundef 1, i32 noundef 0) #11
   store ptr %68, ptr %5, align 8, !tbaa !63
   %69 = call i32 @dt_tag_detach_images(i32 noundef %67, ptr noundef %68, i32 noundef %2)
   %70 = load ptr, ptr %5, align 8, !tbaa !63
   call void @g_list_free(ptr noundef %70) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %71 = load ptr, ptr %6, align 8, !tbaa !52
   %72 = call i32 @sqlite3_step(ptr noundef %71) #11
   %73 = icmp eq i32 %72, 100
@@ -1766,7 +1760,7 @@ dt_tag_detach.exit.us29:                          ; preds = %.lr.ph.split, %dt_t
 dt_tag_detach.exit:                               ; preds = %.lr.ph.split, %dt_tag_detach.exit
   %74 = load ptr, ptr %6, align 8, !tbaa !52
   %75 = call i32 @sqlite3_column_int(ptr noundef %74, i32 noundef 0) #11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %76 = call ptr @dt_act_on_get_images(i32 noundef %53, i32 noundef 1, i32 noundef 0) #11
   store ptr %76, ptr %5, align 8, !tbaa !63
   call void @dt_grouping_add_grouped_images(ptr noundef nonnull %5) #11
@@ -1774,7 +1768,7 @@ dt_tag_detach.exit:                               ; preds = %.lr.ph.split, %dt_t
   %77 = call i32 @dt_tag_detach_images(i32 noundef %75, ptr noundef %.pre.i, i32 noundef %2)
   %78 = load ptr, ptr %5, align 8, !tbaa !63
   call void @g_list_free(ptr noundef %78) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %79 = load ptr, ptr %6, align 8, !tbaa !52
   %80 = call i32 @sqlite3_step(ptr noundef %79) #11
   %81 = icmp eq i32 %80, 100
@@ -1785,7 +1779,7 @@ dt_tag_detach.exit:                               ; preds = %.lr.ph.split, %dt_t
   %82 = load ptr, ptr %6, align 8, !tbaa !52
   %83 = call i32 @sqlite3_finalize(ptr noundef %82) #11
   call void @g_free(ptr noundef %24) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %84
 
 84:                                               ; preds = %4, %7, %._crit_edge
@@ -1821,7 +1815,7 @@ define void @dt_set_darktable_tags() local_unnamed_addr #0 {
   br label %15
 
 15:                                               ; preds = %9, %5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %16 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !9
   %17 = and i32 %16, 256
   %.not3 = icmp eq i32 %17, 0
@@ -1851,11 +1845,11 @@ define void @dt_set_darktable_tags() local_unnamed_addr #0 {
   %31 = call i32 @sqlite3_step(ptr noundef %30) #11
   %32 = load ptr, ptr %1, align 8, !tbaa !52
   %33 = call i32 @sqlite3_finalize(ptr noundef %32) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }
 
-declare i32 @sqlite3_exec(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @sqlite3_exec(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @dt_tag_count_attached(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -1864,7 +1858,7 @@ define i32 @dt_tag_count_attached(i32 noundef %0, i32 noundef %1) local_unnamed_
   br i1 %4, label %5, label %31
 
 5:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.not = icmp eq i32 %1, 0
   %6 = select i1 %.not, ptr @.str.26, ptr @.str.25
   %7 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.24, i32 noundef %0, ptr noundef nonnull %6) #11
@@ -1908,7 +1902,7 @@ define i32 @dt_tag_count_attached(i32 noundef %0, i32 noundef %1) local_unnamed_
   %.0 = phi i32 [ %27, %25 ], [ 0, %21 ]
   %29 = load ptr, ptr %3, align 8, !tbaa !52
   %30 = call i32 @sqlite3_finalize(ptr noundef %29) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %31
 
 31:                                               ; preds = %2, %28
@@ -1919,7 +1913,7 @@ define i32 @dt_tag_count_attached(i32 noundef %0, i32 noundef %1) local_unnamed_
 ; Function Attrs: nounwind uwtable
 define i32 @dt_tag_get_attached(i32 noundef %0, ptr noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = icmp sgt i32 %0, 0
   br i1 %5, label %6, label %8
 
@@ -2084,16 +2078,16 @@ define i32 @dt_tag_get_attached(i32 noundef %0, ptr noundef captures(none) %1, i
 
 97:                                               ; preds = %._crit_edge, %35
   %.040 = phi i32 [ %.141.lcssa, %._crit_edge ], [ 0, %35 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.040
 }
 
-declare ptr @dt_selection_get_list_query(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @dt_selection_get_list_query(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #5
+declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #4
 
-declare ptr @g_strrstr(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @g_strrstr(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @dt_sort_tag(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -2178,7 +2172,7 @@ define ptr @dt_sort_tag(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   ret ptr %.024
 }
 
-declare ptr @g_list_sort(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @g_list_sort(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @sort_tag_by_path(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
@@ -2201,7 +2195,7 @@ define internal i32 @sort_tag_by_leave(ptr noundef readonly captures(none) %0, p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @sort_tag_by_count(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #6 {
+define internal i32 @sort_tag_by_count(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #5 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = load i32, ptr %3, align 8, !tbaa !78
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2213,7 +2207,7 @@ define internal i32 @sort_tag_by_count(ptr noundef readonly captures(none) %0, p
 ; Function Attrs: nounwind uwtable
 define ptr @dt_tag_get_list(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !63
   %3 = tail call i32 @dt_conf_get_bool(ptr noundef nonnull @.str.32) #11
   %4 = call i32 @dt_tag_get_attached(i32 noundef %0, ptr noundef nonnull %2, i32 noundef 0)
@@ -2319,11 +2313,11 @@ dt_tag_free_result.exit:                          ; preds = %33, %18, %thread-pr
 
 37:                                               ; preds = %1, %dt_tag_free_result.exit
   %.022 = phi ptr [ %36, %dt_tag_free_result.exit ], [ null, %1 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.022
 }
 
-declare i32 @dt_conf_get_bool(ptr noundef) local_unnamed_addr #2
+declare i32 @dt_conf_get_bool(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @dt_tag_free_result(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
@@ -2343,12 +2337,12 @@ define void @dt_tag_free_result(ptr noundef readonly captures(address_is_null) %
   ret void
 }
 
-declare ptr @dt_util_glist_uniq(ptr noundef) local_unnamed_addr #2
+declare ptr @dt_util_glist_uniq(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @dt_tag_get_hierarchical(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !63
   %4 = call i32 @dt_tag_get_attached(i32 noundef %0, ptr noundef nonnull %3, i32 noundef %1)
   %5 = icmp eq i32 %4, 0
@@ -2383,11 +2377,11 @@ dt_tag_free_result.exit:                          ; preds = %.preheader, %._crit
 
 13:                                               ; preds = %2, %dt_tag_free_result.exit
   %.0 = phi ptr [ %6, %dt_tag_free_result.exit ], [ null, %2 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
-declare ptr @g_list_reverse(ptr noundef) local_unnamed_addr #2
+declare ptr @g_list_reverse(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @dt_tag_get_tags(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -2415,8 +2409,8 @@ define internal fastcc ptr @_tag_get_tags(i32 noundef %0, i32 noundef range(i32 
 
 11:                                               ; preds = %8, %6
   %.08 = phi ptr [ %7, %6 ], [ %10, %8 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %4, i8 0, i64 256, i1 false)
   %12 = icmp eq i32 %1, 2
   %13 = icmp eq i32 %1, 0
@@ -2470,8 +2464,8 @@ define internal fastcc ptr @_tag_get_tags(i32 noundef %0, i32 noundef range(i32 
   %42 = load ptr, ptr %3, align 8, !tbaa !52
   %43 = call i32 @sqlite3_finalize(ptr noundef %42) #11
   call void @g_free(ptr noundef %.08) #11
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0.lcssa
 }
 
@@ -2484,7 +2478,7 @@ define ptr @dt_tag_get_list_export(i32 noundef %0, i32 noundef %1) local_unnamed
   br i1 %6, label %7, label %_tag_get_attached_export.exit.thread
 
 7:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !9
   %9 = and i32 %8, 256
   %.not.i = icmp eq i32 %9, 0
@@ -2532,7 +2526,7 @@ define ptr @dt_tag_get_list_export(i32 noundef %0, i32 noundef %1) local_unnamed
 _tag_get_attached_export.exit.thread90:           ; preds = %30
   %34 = load ptr, ptr %3, align 8, !tbaa !52
   %35 = call i32 @sqlite3_finalize(ptr noundef %34) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_tag_get_attached_export.exit.thread
 
 .lr.ph.i:                                         ; preds = %30, %49
@@ -2582,7 +2576,7 @@ _tag_get_attached_export.exit.thread90:           ; preds = %30
 _tag_get_attached_export.exit:                    ; preds = %49
   %63 = load ptr, ptr %3, align 8, !tbaa !52
   %64 = call i32 @sqlite3_finalize(ptr noundef %63) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %65 = icmp eq i32 %59, 0
   br i1 %65, label %_tag_get_attached_export.exit.thread, label %66
 
@@ -2849,7 +2843,7 @@ _tag_get_attached_export.exit.thread:             ; preds = %2, %_tag_get_attach
   ret ptr %.055
 }
 
-declare ptr @g_list_find_custom(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @g_list_find_custom(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @_is_not_exportable_tag(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
@@ -2877,7 +2871,7 @@ define internal range(i32 -1, 1) i32 @_is_not_exportable_tag(ptr noundef readonl
 ; Function Attrs: nounwind uwtable
 define ptr @dt_tag_get_hierarchical_export(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !63
   %4 = call i32 @dt_tag_get_attached(i32 noundef %0, ptr noundef nonnull %3, i32 noundef 1)
   %5 = icmp eq i32 %4, 0
@@ -2942,14 +2936,14 @@ dt_tag_free_result.exit:                          ; preds = %6, %._crit_edge.thr
 
 26:                                               ; preds = %2, %dt_tag_free_result.exit
   %.0 = phi ptr [ %19, %dt_tag_free_result.exit ], [ null, %2 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define ptr @dt_tag_get_images(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !9
   %4 = and i32 %3, 256
   %.not = icmp eq i32 %4, 0
@@ -3011,7 +3005,7 @@ define ptr @dt_tag_get_images(i32 noundef %0) local_unnamed_addr #0 {
   %37 = load ptr, ptr %2, align 8, !tbaa !52
   %38 = call i32 @sqlite3_finalize(ptr noundef %37) #11
   %39 = call ptr @g_list_reverse(ptr noundef %.0.lcssa) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %39
 }
 
@@ -3019,7 +3013,7 @@ define ptr @dt_tag_get_images(i32 noundef %0) local_unnamed_addr #0 {
 define ptr @dt_tag_get_images_from_list(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !57
   %.not18 = icmp eq ptr %0, null
   br i1 %.not18, label %._crit_edge.thread, label %.lr.ph
@@ -3045,7 +3039,7 @@ define ptr @dt_tag_get_images_from_list(ptr noundef readonly captures(address_is
   %12 = getelementptr i8, ptr %.pre, i64 %11
   %13 = getelementptr i8, ptr %12, i64 -1
   store i8 0, ptr %13, align 1, !tbaa !6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %14 = load ptr, ptr %3, align 8, !tbaa !57
   %15 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.36, i32 noundef %1, ptr noundef %14) #11
   %16 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !9
@@ -3097,20 +3091,20 @@ define ptr @dt_tag_get_images_from_list(ptr noundef readonly captures(address_is
   call void @g_free(ptr noundef %15) #11
   %43 = load ptr, ptr %3, align 8, !tbaa !57
   call void @g_free(ptr noundef %43) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %2, %._crit_edge23, %._crit_edge
   %.0 = phi ptr [ %.1.lcssa, %._crit_edge23 ], [ null, %._crit_edge ], [ null, %2 ]
   %44 = call ptr @g_list_reverse(ptr noundef %.0) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %44
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @dt_tag_get_suggestions(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = tail call i32 @dt_selected_images_count()
   %4 = tail call i32 @dt_conf_get_int(ptr noundef nonnull @.str.37) #11
   %5 = tail call i32 @dt_conf_get_int(ptr noundef nonnull @.str.38) #11
@@ -3279,18 +3273,18 @@ define i32 @dt_tag_get_suggestions(ptr noundef captures(none) %0) local_unnamed_
 
 103:                                              ; preds = %97, %93
   call void @g_free(ptr noundef %.0) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.036.lcssa
 }
 
-declare i32 @dt_conf_get_int(ptr noundef) local_unnamed_addr #2
+declare i32 @dt_conf_get_int(ptr noundef) local_unnamed_addr #1
 
-declare ptr @dt_conf_get_string_const(ptr noundef) local_unnamed_addr #2
+declare ptr @dt_conf_get_string_const(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @dt_tag_count_tags_images(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %1, align 4, !tbaa !54
   store i32 0, ptr %2, align 4, !tbaa !54
   %.not = icmp eq ptr %0, null
@@ -3445,14 +3439,14 @@ define void @dt_tag_count_tags_images(ptr noundef %0, ptr noundef writeonly capt
   br label %96
 
 96:                                               ; preds = %86, %90, %3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define void @dt_tag_get_tags_images(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %115, label %5
 
@@ -3638,14 +3632,14 @@ define void @dt_tag_get_tags_images(ptr noundef %0, ptr noundef captures(none) %
   br label %115
 
 115:                                              ; preds = %105, %109, %3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @dt_selected_images_count() local_unnamed_addr #0 {
   %1 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !9
   %3 = and i32 %2, 256
   %.not = icmp eq i32 %3, 0
@@ -3677,14 +3671,14 @@ define i32 @dt_selected_images_count() local_unnamed_addr #0 {
   %19 = call i32 @sqlite3_column_int(ptr noundef %18, i32 noundef 0) #11
   %20 = load ptr, ptr %1, align 8, !tbaa !52
   %21 = call i32 @sqlite3_finalize(ptr noundef %20) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %19
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @dt_tag_images_count(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !9
   %4 = and i32 %3, 256
   %.not = icmp eq i32 %4, 0
@@ -3730,14 +3724,14 @@ define i32 @dt_tag_images_count(i32 noundef %0) local_unnamed_addr #0 {
   %29 = call i32 @sqlite3_column_int(ptr noundef %28, i32 noundef 0) #11
   %30 = load ptr, ptr %2, align 8, !tbaa !52
   %31 = call i32 @sqlite3_finalize(ptr noundef %30) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %29
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @dt_tag_get_with_usage(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !9
   %4 = and i32 %3, 256
   %.not = icmp eq i32 %4, 0
@@ -3889,14 +3883,14 @@ define i32 @dt_tag_get_with_usage(ptr noundef captures(none) %0) local_unnamed_a
   br label %95
 
 95:                                               ; preds = %89, %85
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0.lcssa
 }
 
 ; Function Attrs: nounwind uwtable
 define noalias ptr @dt_tag_get_synonyms(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !9
   %4 = and i32 %3, 256
   %.not = icmp eq i32 %4, 0
@@ -3951,7 +3945,7 @@ define noalias ptr @dt_tag_get_synonyms(i32 noundef %0) local_unnamed_addr #0 {
   %.0 = phi ptr [ %32, %29 ], [ null, %25 ]
   %34 = load ptr, ptr %2, align 8, !tbaa !52
   %35 = call i32 @sqlite3_finalize(ptr noundef %34) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0
 }
 
@@ -3963,7 +3957,7 @@ define void @dt_tag_set_synonyms(i32 noundef %0, ptr noundef %1) local_unnamed_a
   br i1 %.not, label %63, label %5
 
 5:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !57
   br label %6
 
@@ -4033,8 +4027,8 @@ define void @dt_tag_set_synonyms(i32 noundef %0, ptr noundef %1) local_unnamed_a
 dt_cleanup_synonyms.exit:                         ; preds = %8, %.preheader.i, %._crit_edge.i, %22
   call void @g_strfreev(ptr noundef %9) #11
   %26 = load ptr, ptr %3, align 8, !tbaa !57
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %27 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !9
   %28 = and i32 %27, 256
   %.not7 = icmp eq i32 %28, 0
@@ -4093,7 +4087,7 @@ dt_cleanup_synonyms.exit:                         ; preds = %8, %.preheader.i, %
   %61 = load ptr, ptr %4, align 8, !tbaa !52
   %62 = call i32 @sqlite3_finalize(ptr noundef %61) #11
   call void @g_free(ptr noundef %26) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %63
 
 63:                                               ; preds = %2, %58
@@ -4103,7 +4097,7 @@ dt_cleanup_synonyms.exit:                         ; preds = %8, %.preheader.i, %
 ; Function Attrs: nounwind uwtable
 define i32 @dt_tag_get_flags(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !9
   %4 = and i32 %3, 256
   %.not = icmp eq i32 %4, 0
@@ -4157,14 +4151,14 @@ define i32 @dt_tag_get_flags(i32 noundef %0) local_unnamed_addr #0 {
   %.0 = phi i32 [ %31, %29 ], [ 0, %25 ]
   %33 = load ptr, ptr %2, align 8, !tbaa !52
   %34 = call i32 @sqlite3_finalize(ptr noundef %33) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define void @dt_tag_set_flags(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !9
   %5 = and i32 %4, 256
   %.not = icmp eq i32 %5, 0
@@ -4222,7 +4216,7 @@ define void @dt_tag_set_flags(i32 noundef %0, i32 noundef %1) local_unnamed_addr
   %37 = call i32 @sqlite3_step(ptr noundef %36) #11
   %38 = load ptr, ptr %3, align 8, !tbaa !52
   %39 = call i32 @sqlite3_finalize(ptr noundef %38) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -4230,7 +4224,7 @@ define void @dt_tag_set_flags(i32 noundef %0, i32 noundef %1) local_unnamed_addr
 define void @dt_tag_add_synonym(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = tail call ptr @dt_tag_get_synonyms(i32 noundef %0)
   store ptr %5, ptr %3, align 8, !tbaa !57
   %.not = icmp eq ptr %5, null
@@ -4246,7 +4240,7 @@ define void @dt_tag_add_synonym(i32 noundef %0, ptr noundef %1) local_unnamed_ad
   br label %9
 
 9:                                                ; preds = %7, %6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !9
   %11 = and i32 %10, 256
   %.not6 = icmp eq i32 %11, 0
@@ -4307,12 +4301,12 @@ define void @dt_tag_add_synonym(i32 noundef %0, ptr noundef %1) local_unnamed_ad
   %46 = call i32 @sqlite3_finalize(ptr noundef %45) #11
   %47 = load ptr, ptr %3, align 8, !tbaa !57
   call void @g_free(ptr noundef %47) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-declare void @g_list_free_full(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @g_list_free_full(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @_free_result_item(ptr noundef %0) #0 {
@@ -4327,7 +4321,7 @@ define internal void @_free_result_item(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @dt_tag_get_recent_used(ptr noundef readnone captures(none) %0) local_unnamed_addr #7 {
+define noundef i32 @dt_tag_get_recent_used(ptr noundef readnone captures(none) %0) local_unnamed_addr #6 {
   ret i32 0
 }
 
@@ -4341,11 +4335,11 @@ define i64 @dt_tag_import(ptr noundef readonly captures(none) %0) local_unnamed_
   br i1 %.not, label %75, label %6
 
 6:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !57
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 0, ptr %3, align 8, !tbaa !83
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !54
   %7 = call i64 @getline(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %5) #11
   %.not81134 = icmp eq i64 %7, -1
@@ -4556,9 +4550,9 @@ define i64 @dt_tag_import(ptr noundef readonly captures(none) %0) local_unnamed_
 73:                                               ; preds = %69, %72, %._crit_edge142
   %74 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !56
   call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %74, i32 noundef 9) #11
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %75
 
 75:                                               ; preds = %1, %73
@@ -4567,21 +4561,21 @@ define i64 @dt_tag_import(ptr noundef readonly captures(none) %0) local_unnamed_
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #3
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #2
 
-declare i64 @getline(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i64 @getline(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @g_list_nth(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @g_list_nth(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @g_list_delete_link(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @g_list_delete_link(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @dt_util_glist_to_str(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @dt_util_glist_to_str(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #3
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define range(i64 -2147483648, 2147483648) i64 @dt_tag_export(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -4591,7 +4585,7 @@ define range(i64 -2147483648, 2147483648) i64 @dt_tag_export(ptr noundef readonl
   br i1 %.not, label %87, label %4
 
 4:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !63
   %5 = call i32 @dt_tag_get_with_usage(ptr noundef nonnull %2)
   %6 = load ptr, ptr %2, align 8, !tbaa !63
@@ -4677,7 +4671,7 @@ define range(i64 -2147483648, 2147483648) i64 @dt_tag_export(ptr noundef readonl
 
 dt_tag_free_result.exit:                          ; preds = %._crit_edge142, %31
   %32 = tail call i32 @fclose(ptr noundef nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %87
 
 .lr.ph141:                                        ; preds = %27, %.critedge3
@@ -4856,10 +4850,10 @@ dt_tag_free_result.exit:                          ; preds = %._crit_edge142, %31
   ret i64 %.072
 }
 
-declare i32 @g_strcmp0(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @g_strcmp0(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #3
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define ptr @dt_tag_get_subtags(i32 noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -4870,9 +4864,9 @@ define ptr @dt_tag_get_subtags(i32 noundef %0, ptr noundef %1, i32 noundef %2) l
 
 6:                                                ; preds = %3
   %7 = tail call i32 @dt_util_string_count_char(ptr noundef nonnull %1, i8 noundef signext 124) #11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !57
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !9
   %9 = and i32 %8, 256
   %.not30 = icmp eq i32 %9, 0
@@ -5000,8 +4994,8 @@ define ptr @dt_tag_get_subtags(i32 noundef %0, ptr noundef %1, i32 noundef %2) l
   %76 = load ptr, ptr %5, align 8, !tbaa !52
   %77 = call i32 @sqlite3_finalize(ptr noundef %76) #11
   %78 = load ptr, ptr %4, align 8, !tbaa !57
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %79
 
 79:                                               ; preds = %3, %75
@@ -5009,7 +5003,7 @@ define ptr @dt_tag_get_subtags(i32 noundef %0, ptr noundef %1, i32 noundef %2) l
   ret ptr %.0
 }
 
-declare i32 @dt_util_string_count_char(ptr noundef, i8 noundef signext) local_unnamed_addr #2
+declare i32 @dt_util_string_count_char(ptr noundef, i8 noundef signext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @dt_tag_get_tag_id_by_name(ptr noundef %0) local_unnamed_addr #0 {
@@ -5021,7 +5015,7 @@ define i32 @dt_tag_get_tag_id_by_name(ptr noundef %0) local_unnamed_addr #0 {
   %4 = tail call i32 @dt_conf_is_equal(ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.69) #11
   %.not11 = icmp eq i32 %4, 0
   %5 = select i1 %.not11, ptr @.str.71, ptr @.str.70
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !9
   %7 = and i32 %6, 256
   %.not12 = icmp eq i32 %7, 0
@@ -5075,7 +5069,7 @@ define i32 @dt_tag_get_tag_id_by_name(ptr noundef %0) local_unnamed_addr #0 {
   %.09 = phi i32 [ %34, %32 ], [ 0, %28 ]
   %36 = load ptr, ptr %2, align 8, !tbaa !52
   %37 = call i32 @sqlite3_finalize(ptr noundef %36) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %38
 
 38:                                               ; preds = %1, %35
@@ -5083,14 +5077,14 @@ define i32 @dt_tag_get_tag_id_by_name(ptr noundef %0) local_unnamed_addr #0 {
   ret i32 %.0
 }
 
-declare i32 @dt_conf_is_equal(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @dt_conf_is_equal(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #9
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #8
 
-declare ptr @g_list_copy(ptr noundef) local_unnamed_addr #2
+declare ptr @g_list_copy(ptr noundef) local_unnamed_addr #1
 
-declare ptr @g_list_concat(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @g_list_concat(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_pop_undo_execute(i32 noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
@@ -5098,7 +5092,7 @@ define internal fastcc void @_pop_undo_execute(i32 noundef %0, ptr noundef %1, p
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8, !tbaa !57
   %.not11.i = icmp eq ptr %1, null
   br i1 %.not11.i, label %_get_tb_removed_tag_string_values.exit, label %.lr.ph.i
@@ -5138,8 +5132,8 @@ define internal fastcc void @_pop_undo_execute(i32 noundef %0, ptr noundef %1, p
 
 _get_tb_removed_tag_string_values.exit:           ; preds = %3, %._crit_edge.i, %17
   %21 = phi ptr [ %.pre13.i, %17 ], [ null, %._crit_edge.i ], [ null, %3 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !57
   %.not11.i9 = icmp eq ptr %2, null
   br i1 %.not11.i9, label %_get_tb_added_tag_string_values.exit, label %.lr.ph.i10
@@ -5179,14 +5173,14 @@ _get_tb_removed_tag_string_values.exit:           ; preds = %3, %._crit_edge.i, 
 
 _get_tb_added_tag_string_values.exit:             ; preds = %_get_tb_removed_tag_string_values.exit, %._crit_edge.i14, %31
   %35 = phi ptr [ %.pre13.i17, %31 ], [ null, %._crit_edge.i14 ], [ null, %_get_tb_removed_tag_string_values.exit ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %36 = icmp sgt i32 %0, 0
   %37 = icmp ne ptr %21, null
   %or.cond.i = and i1 %36, %37
   br i1 %or.cond.i, label %38, label %_bulk_remove_tags.exit
 
 38:                                               ; preds = %_get_tb_added_tag_string_values.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %39 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.73, i32 noundef %0, ptr noundef nonnull %21) #11
   %40 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !9
   %41 = and i32 %40, 256
@@ -5218,7 +5212,7 @@ _get_tb_added_tag_string_values.exit:             ; preds = %_get_tb_removed_tag
   %56 = load ptr, ptr %5, align 8, !tbaa !52
   %57 = call i32 @sqlite3_finalize(ptr noundef %56) #11
   call void @g_free(ptr noundef %39) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_bulk_remove_tags.exit
 
 _bulk_remove_tags.exit:                           ; preds = %_get_tb_added_tag_string_values.exit, %53
@@ -5226,7 +5220,7 @@ _bulk_remove_tags.exit:                           ; preds = %_get_tb_added_tag_s
   br i1 %.not.i20, label %_bulk_add_tags.exit, label %58
 
 58:                                               ; preds = %_bulk_remove_tags.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %59 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.74, ptr noundef nonnull %35) #11
   %60 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !9
   %61 = and i32 %60, 256
@@ -5258,7 +5252,7 @@ _bulk_remove_tags.exit:                           ; preds = %_get_tb_added_tag_s
   %76 = load ptr, ptr %4, align 8, !tbaa !52
   %77 = call i32 @sqlite3_finalize(ptr noundef %76) #11
   call void @g_free(ptr noundef %59) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_bulk_add_tags.exit
 
 _bulk_add_tags.exit:                              ; preds = %_bulk_remove_tags.exit, %73
@@ -5279,29 +5273,35 @@ define internal void @_undo_tags_free(ptr noundef %0) #0 {
   ret void
 }
 
-declare ptr @g_list_find(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @g_list_find(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @g_list_length(ptr noundef) local_unnamed_addr #2
+declare i32 @g_list_length(ptr noundef) local_unnamed_addr #1
 
-declare ptr @g_list_remove(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @g_list_remove(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #3
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 attributes #0 = { nounwind uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
-attributes #3 = { nofree nounwind "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
-attributes #5 = { allocsize(0) "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
-attributes #8 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
-attributes #9 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #1 = { "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #2 = { nofree nounwind "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #4 = { allocsize(0) "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #7 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #8 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { nounwind }
 attributes #12 = { cold nounwind }
 attributes #13 = { nounwind willreturn memory(read) }

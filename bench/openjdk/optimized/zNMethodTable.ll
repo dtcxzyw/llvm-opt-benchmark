@@ -335,7 +335,7 @@ _ZN13ZNMethodTable14register_entryEP18ZNMethodTableEntrymP7nmethod.exit: ; preds
 
 ._crit_edge:                                      ; preds = %67, %.loopexit
   %72 = phi ptr [ %.pre22, %.loopexit ], [ %69, %67 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %72, ptr %2, align 8
   %73 = load ptr, ptr @_ZN13ZNMethodTable12_safe_deleteE, align 8
   %.not.i.i.i = icmp eq ptr %73, null
@@ -362,7 +362,7 @@ _ZN7ZLockerI5ZLockEC2EPS0_.exit.i.i:              ; preds = %74, %._crit_edge
   br label %_ZN15ZActivatedArrayIA_18ZNMethodTableEntryE16add_if_activatedEPS0_.exit.i
 
 _ZN15ZActivatedArrayIA_18ZNMethodTableEntryE16add_if_activatedEPS0_.exit.i: ; preds = %80, %79
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %82 = icmp eq ptr %72, null
   %or.cond.i = or i1 %82, %.not.i.i
   br i1 %or.cond.i, label %_ZN11ZSafeDeleteIA_18ZNMethodTableEntryE15schedule_deleteEPS0_.exit, label %83
@@ -980,10 +980,10 @@ define internal void @_GLOBAL__sub_I_zNMethodTable.cpp() #6 section ".text.start
 declare i32 @llvm.ctpop.i32(i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

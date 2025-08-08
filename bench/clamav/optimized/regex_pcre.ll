@@ -123,8 +123,8 @@ define range(i32 0, 21) i32 @cli_pcre_compile(ptr noundef captures(address_is_nu
   %6 = alloca i32, align 4
   %7 = alloca i64, align 8
   %8 = alloca [256 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %12, label %9
 
@@ -175,14 +175,14 @@ define range(i32 0, 21) i32 @cli_pcre_compile(ptr noundef captures(address_is_nu
   br i1 %26, label %27, label %31
 
 27:                                               ; preds = %24
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %28 = load i32, ptr %6, align 4, !tbaa !16
   %29 = call i32 @pcre2_get_error_message_8(i32 noundef %28, ptr noundef nonnull %8, i64 noundef 256) #6
   %30 = load i64, ptr %7, align 8, !tbaa !17
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.4, i64 noundef %30, ptr noundef nonnull %8) #6
   call void @pcre2_compile_context_free_8(ptr noundef nonnull %17) #6
   call void @pcre2_general_context_free_8(ptr noundef nonnull %14) #6
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %41
 
 31:                                               ; preds = %24
@@ -210,13 +210,10 @@ define range(i32 0, 21) i32 @cli_pcre_compile(ptr noundef captures(address_is_nu
 
 41:                                               ; preds = %35, %34, %27, %18, %15, %12
   %.0 = phi i32 [ 4, %27 ], [ 0, %35 ], [ 20, %34 ], [ 20, %18 ], [ 20, %15 ], [ 2, %12 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 declare ptr @pcre2_general_context_create_8(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -229,9 +226,6 @@ declare ptr @pcre2_compile_8(ptr noundef, i64 noundef, i32 noundef, ptr noundef,
 declare i32 @pcre2_get_error_message_8(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 declare void @pcre2_compile_context_free_8(ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 declare ptr @pcre2_match_context_create_8(ptr noundef) local_unnamed_addr #1
 
@@ -318,7 +312,7 @@ define void @cli_pcre_report(ptr noundef readonly captures(none) %0, ptr noundef
   %8 = alloca ptr, align 8
   %9 = alloca [2057 x i8], align 16
   %10 = alloca [2057 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 2057, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %12 = load ptr, ptr %11, align 8, !tbaa !20
   %13 = tail call ptr @pcre2_get_ovector_pointer_8(ptr noundef %12) #6
@@ -381,10 +375,10 @@ define void @cli_pcre_report(ptr noundef readonly captures(none) %0, ptr noundef
   br i1 %exitcond41.not, label %38, label %.preheader
 
 38:                                               ; preds = %37
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #6
-  call void @llvm.lifetime.start.p0(i64 2057, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %39 = load ptr, ptr %0, align 8, !tbaa !15
   %40 = call i32 @pcre2_pattern_info_8(ptr noundef %39, i32 noundef 17, ptr noundef nonnull %6) #6
   %41 = load i32, ptr %6, align 4, !tbaa !16
@@ -460,10 +454,10 @@ define void @cli_pcre_report(ptr noundef readonly captures(none) %0, ptr noundef
   br i1 %85, label %.lr.ph34.i, label %named_substr_print.exit
 
 named_substr_print.exit:                          ; preds = %._crit_edge.i, %43, %44
-  call void @llvm.lifetime.end.p0(i64 2057, ptr nonnull %9) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %90
 
 86:                                               ; preds = %5
@@ -482,14 +476,14 @@ named_substr_print.exit:                          ; preds = %._crit_edge.i, %43,
 90:                                               ; preds = %88, %89, %named_substr_print.exit
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.20) #6
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.10) #6
-  call void @llvm.lifetime.end.p0(i64 2057, ptr nonnull %10) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 }
 
 declare void @cli_warnmsg(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #5
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 21) i32 @cli_pcre_results_reset(ptr noundef captures(none) initializes((0, 12)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
@@ -578,12 +572,18 @@ declare void @pcre2_match_context_free_8(ptr noundef) local_unnamed_addr #1
 
 declare i32 @pcre2_pattern_info_8(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

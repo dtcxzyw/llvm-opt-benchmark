@@ -74,8 +74,8 @@ define dso_local i32 @trackpoint_detect(ptr noundef %0, i1 noundef zeroext %1) l
   %4 = alloca [2 x i8], align 2
   %5 = alloca i8, align 1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #7
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i16 0, ptr %4, align 2
   %7 = call i32 @ps2_command(ptr noundef nonnull %6, ptr noundef nonnull %4, i32 noundef 737) #7
   %8 = icmp eq i32 %7, 0
@@ -89,13 +89,13 @@ define dso_local i32 @trackpoint_detect(ptr noundef %0, i1 noundef zeroext %1) l
 
 .thread:                                          ; preds = %9, %2
   %.ph = phi i32 [ %7, %2 ], [ -19, %9 ]
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %104
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %15 = load i8, ptr %14, align 1
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %1, label %16, label %104
 
 16:                                               ; preds = %13
@@ -226,12 +226,12 @@ define dso_local i32 @trackpoint_detect(ptr noundef %0, i1 noundef zeroext %1) l
 87:                                               ; preds = %86, %83
   %88 = load ptr, ptr %6, align 8
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 344
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr @trackpoint_attr_group, ptr %3, align 16
   %90 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr null, ptr %90, align 8
   %91 = call i32 @device_add_groups(ptr noundef nonnull %89, ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %92 = icmp eq i32 %91, 0
   %93 = load ptr, ptr %6, align 8
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 344
@@ -256,19 +256,16 @@ define dso_local i32 @trackpoint_detect(ptr noundef %0, i1 noundef zeroext %1) l
 
 104:                                              ; preds = %.thread, %97, %95, %16, %13
   %105 = phi i32 [ -1, %95 ], [ 0, %97 ], [ 0, %13 ], [ -12, %16 ], [ %.ph, %.thread ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %105
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @trackpoint_reconnect(ptr noundef %0) #0 align 16 {
   %2 = alloca [2 x i8], align 1
   %3 = alloca [2 x i8], align 2
   %4 = load ptr, ptr %0, align 8
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i16 0, ptr %3, align 2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = call i32 @ps2_command(ptr noundef nonnull %5, ptr noundef nonnull %3, i32 noundef 737) #7
@@ -278,7 +275,7 @@ define internal i32 @trackpoint_reconnect(ptr noundef %0) #0 align 16 {
   %10 = icmp ult i8 %9, 6
   %11 = select i1 %10, i32 0, i32 -19
   %12 = select i1 %7, i32 %11, i32 %6
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %13 = select i1 %7, i1 %10, i1 false
   br i1 %13, label %14, label %31
 
@@ -288,7 +285,7 @@ define internal i32 @trackpoint_reconnect(ptr noundef %0) #0 align 16 {
   br i1 %16, label %17, label %29
 
 17:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %2) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i8 127, ptr %2, align 1
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 1
   store i8 0, ptr %18, align 1
@@ -306,7 +303,7 @@ define internal i32 @trackpoint_reconnect(ptr noundef %0) #0 align 16 {
 
 27:                                               ; preds = %21, %17
   %28 = phi i1 [ false, %17 ], [ %26, %21 ]
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %29
 
 29:                                               ; preds = %27, %14
@@ -325,12 +322,12 @@ define internal void @trackpoint_disconnect(ptr noundef captures(none) %0) #0 al
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 344
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr @trackpoint_attr_group, ptr %2, align 16
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr null, ptr %6, align 8
   call void @device_remove_groups(ptr noundef nonnull %5, ptr noundef nonnull %2) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %7 = load ptr, ptr %0, align 8
   call void @kfree(ptr noundef %7) #7
   store ptr null, ptr %0, align 8
@@ -338,15 +335,15 @@ define internal void @trackpoint_disconnect(ptr noundef captures(none) %0) #0 al
 }
 
 ; Function Attrs: cold null_pointer_is_valid
-declare dso_local void @_dev_warn(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare dso_local void @_dev_warn(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @input_set_capability(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare dso_local void @input_set_capability(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @trackpoint_power_on_reset(ptr noundef %0) unnamed_addr #0 align 16 {
   %2 = alloca [2 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %2) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i8 127, ptr %2, align 1
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 1
   store i8 0, ptr %3, align 1
@@ -365,7 +362,7 @@ define internal fastcc i32 @trackpoint_power_on_reset(ptr noundef %0) unnamed_ad
 
 13:                                               ; preds = %6, %1
   %14 = phi i32 [ %4, %1 ], [ %12, %6 ]
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %14
 }
 
@@ -429,7 +426,7 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
 
 55:                                               ; preds = %52
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %50) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %50)
   store i8 45, ptr %50, align 1
   %57 = call i32 @ps2_command(ptr noundef nonnull %56, ptr noundef nonnull %50, i32 noundef 4578) #7
   %58 = icmp eq i32 %57, 0
@@ -442,19 +439,19 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
   br i1 %62, label %67, label %63
 
 63:                                               ; preds = %59
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %49) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %49)
   store i8 71, ptr %49, align 1
   %64 = getelementptr inbounds nuw i8, ptr %49, i64 1
   store i8 45, ptr %64, align 1
   %65 = getelementptr inbounds nuw i8, ptr %49, i64 2
   store i8 1, ptr %65, align 1
   %66 = call i32 @ps2_command(ptr noundef nonnull %56, ptr noundef nonnull %49, i32 noundef 12514) #7
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %49) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %49)
   br label %67
 
 67:                                               ; preds = %63, %59, %55
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %50) #7
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %48) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %50)
+  call void @llvm.lifetime.start.p0(ptr nonnull %48)
   store i8 32, ptr %48, align 1
   %68 = call i32 @ps2_command(ptr noundef nonnull %56, ptr noundef nonnull %48, i32 noundef 4578) #7
   %69 = icmp ne i32 %68, 0
@@ -464,19 +461,19 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
   br i1 %72, label %77, label %73
 
 73:                                               ; preds = %67
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %47) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %47)
   store i8 71, ptr %47, align 1
   %74 = getelementptr inbounds nuw i8, ptr %47, i64 1
   store i8 32, ptr %74, align 1
   %75 = getelementptr inbounds nuw i8, ptr %47, i64 2
   store i8 -128, ptr %75, align 1
   %76 = call i32 @ps2_command(ptr noundef nonnull %56, ptr noundef nonnull %47, i32 noundef 12514) #7
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %47) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
   br label %77
 
 77:                                               ; preds = %73, %67
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %48) #7
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %46) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %48)
+  call void @llvm.lifetime.start.p0(ptr nonnull %46)
   store i8 35, ptr %46, align 1
   %78 = call i32 @ps2_command(ptr noundef nonnull %56, ptr noundef nonnull %46, i32 noundef 4578) #7
   %79 = icmp eq i32 %78, 0
@@ -489,18 +486,18 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
   br i1 %83, label %88, label %84
 
 84:                                               ; preds = %80
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %45) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %45)
   store i8 71, ptr %45, align 1
   %85 = getelementptr inbounds nuw i8, ptr %45, i64 1
   store i8 35, ptr %85, align 1
   %86 = getelementptr inbounds nuw i8, ptr %45, i64 2
   store i8 1, ptr %86, align 1
   %87 = call i32 @ps2_command(ptr noundef nonnull %56, ptr noundef nonnull %45, i32 noundef 12514) #7
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %45) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
   br label %88
 
 88:                                               ; preds = %84, %80, %77
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %46) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %46)
   br label %94
 
 89:                                               ; preds = %2
@@ -520,18 +517,18 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
   br i1 %96, label %101, label %105
 
 101:                                              ; preds = %94
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %44) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %44)
   store i8 -127, ptr %44, align 1
   %102 = getelementptr inbounds nuw i8, ptr %44, i64 1
   store i8 %98, ptr %102, align 1
   %103 = getelementptr inbounds nuw i8, ptr %44, i64 2
   store i8 %100, ptr %103, align 1
   %104 = call i32 @ps2_command(ptr noundef nonnull %97, ptr noundef nonnull %44, i32 noundef 12514) #7
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %44) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %44)
   br label %123
 
 105:                                              ; preds = %94
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %43) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %43)
   store i8 %98, ptr %43, align 1
   %106 = call i32 @ps2_command(ptr noundef nonnull %97, ptr noundef nonnull %43, i32 noundef 4578) #7
   %107 = icmp eq i32 %106, 0
@@ -546,7 +543,7 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
   br i1 %113, label %122, label %114
 
 114:                                              ; preds = %108
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %42) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %42)
   store i8 71, ptr %42, align 1
   %115 = getelementptr inbounds nuw i8, ptr %42, i64 1
   store i8 %98, ptr %115, align 1
@@ -561,11 +558,11 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
   br label %121
 
 121:                                              ; preds = %119, %114
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %42) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
   br label %122
 
 122:                                              ; preds = %121, %108, %105
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %43) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
   br label %123
 
 123:                                              ; preds = %122, %101
@@ -594,18 +591,18 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
   br i1 %134, label %139, label %143
 
 139:                                              ; preds = %132
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %41) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %41)
   store i8 -127, ptr %41, align 1
   %140 = getelementptr inbounds nuw i8, ptr %41, i64 1
   store i8 %136, ptr %140, align 1
   %141 = getelementptr inbounds nuw i8, ptr %41, i64 2
   store i8 %138, ptr %141, align 1
   %142 = call i32 @ps2_command(ptr noundef nonnull %135, ptr noundef nonnull %41, i32 noundef 12514) #7
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %41) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
   br label %161
 
 143:                                              ; preds = %132
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %40) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %40)
   store i8 %136, ptr %40, align 1
   %144 = call i32 @ps2_command(ptr noundef nonnull %135, ptr noundef nonnull %40, i32 noundef 4578) #7
   %145 = icmp eq i32 %144, 0
@@ -620,7 +617,7 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
   br i1 %151, label %160, label %152
 
 152:                                              ; preds = %146
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %39) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %39)
   store i8 71, ptr %39, align 1
   %153 = getelementptr inbounds nuw i8, ptr %39, i64 1
   store i8 %136, ptr %153, align 1
@@ -635,11 +632,11 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
   br label %159
 
 159:                                              ; preds = %157, %152
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %39) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
   br label %160
 
 160:                                              ; preds = %159, %146, %143
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %40) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
   br label %161
 
 161:                                              ; preds = %160, %139, %128
@@ -668,18 +665,18 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
   br i1 %172, label %177, label %181
 
 177:                                              ; preds = %170
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %38) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %38)
   store i8 -127, ptr %38, align 1
   %178 = getelementptr inbounds nuw i8, ptr %38, i64 1
   store i8 %174, ptr %178, align 1
   %179 = getelementptr inbounds nuw i8, ptr %38, i64 2
   store i8 %176, ptr %179, align 1
   %180 = call i32 @ps2_command(ptr noundef nonnull %173, ptr noundef nonnull %38, i32 noundef 12514) #7
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %38) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
   br label %199
 
 181:                                              ; preds = %170
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %37) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
   store i8 %174, ptr %37, align 1
   %182 = call i32 @ps2_command(ptr noundef nonnull %173, ptr noundef nonnull %37, i32 noundef 4578) #7
   %183 = icmp eq i32 %182, 0
@@ -694,7 +691,7 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
   br i1 %189, label %198, label %190
 
 190:                                              ; preds = %184
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %36) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
   store i8 71, ptr %36, align 1
   %191 = getelementptr inbounds nuw i8, ptr %36, i64 1
   store i8 %174, ptr %191, align 1
@@ -709,11 +706,11 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
   br label %197
 
 197:                                              ; preds = %195, %190
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %36) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
   br label %198
 
 198:                                              ; preds = %197, %184, %181
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %37) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
   br label %199
 
 199:                                              ; preds = %198, %177, %166
@@ -742,18 +739,18 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
   br i1 %210, label %215, label %219
 
 215:                                              ; preds = %208
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %35) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
   store i8 -127, ptr %35, align 1
   %216 = getelementptr inbounds nuw i8, ptr %35, i64 1
   store i8 %212, ptr %216, align 1
   %217 = getelementptr inbounds nuw i8, ptr %35, i64 2
   store i8 %214, ptr %217, align 1
   %218 = call i32 @ps2_command(ptr noundef nonnull %211, ptr noundef nonnull %35, i32 noundef 12514) #7
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %35) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
   br label %237
 
 219:                                              ; preds = %208
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %34) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
   store i8 %212, ptr %34, align 1
   %220 = call i32 @ps2_command(ptr noundef nonnull %211, ptr noundef nonnull %34, i32 noundef 4578) #7
   %221 = icmp eq i32 %220, 0
@@ -768,7 +765,7 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
   br i1 %227, label %236, label %228
 
 228:                                              ; preds = %222
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %33) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
   store i8 71, ptr %33, align 1
   %229 = getelementptr inbounds nuw i8, ptr %33, i64 1
   store i8 %212, ptr %229, align 1
@@ -783,11 +780,11 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
   br label %235
 
 235:                                              ; preds = %233, %228
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %33) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
   br label %236
 
 236:                                              ; preds = %235, %222, %219
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %34) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
   br label %237
 
 237:                                              ; preds = %236, %215, %204
@@ -816,18 +813,18 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
   br i1 %248, label %253, label %257
 
 253:                                              ; preds = %246
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %32) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
   store i8 -127, ptr %32, align 1
   %254 = getelementptr inbounds nuw i8, ptr %32, i64 1
   store i8 %250, ptr %254, align 1
   %255 = getelementptr inbounds nuw i8, ptr %32, i64 2
   store i8 %252, ptr %255, align 1
   %256 = call i32 @ps2_command(ptr noundef nonnull %249, ptr noundef nonnull %32, i32 noundef 12514) #7
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %32) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
   br label %275
 
 257:                                              ; preds = %246
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %31) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
   store i8 %250, ptr %31, align 1
   %258 = call i32 @ps2_command(ptr noundef nonnull %249, ptr noundef nonnull %31, i32 noundef 4578) #7
   %259 = icmp eq i32 %258, 0
@@ -842,7 +839,7 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
   br i1 %265, label %274, label %266
 
 266:                                              ; preds = %260
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %30) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   store i8 71, ptr %30, align 1
   %267 = getelementptr inbounds nuw i8, ptr %30, i64 1
   store i8 %250, ptr %267, align 1
@@ -857,11 +854,11 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
   br label %273
 
 273:                                              ; preds = %271, %266
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %30) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
   br label %274
 
 274:                                              ; preds = %273, %260, %257
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %31) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
   br label %275
 
 275:                                              ; preds = %274, %253, %242
@@ -890,18 +887,18 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
   br i1 %286, label %291, label %295
 
 291:                                              ; preds = %284
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %29) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   store i8 -127, ptr %29, align 1
   %292 = getelementptr inbounds nuw i8, ptr %29, i64 1
   store i8 %288, ptr %292, align 1
   %293 = getelementptr inbounds nuw i8, ptr %29, i64 2
   store i8 %290, ptr %293, align 1
   %294 = call i32 @ps2_command(ptr noundef nonnull %287, ptr noundef nonnull %29, i32 noundef 12514) #7
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %29) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   br label %313
 
 295:                                              ; preds = %284
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %28) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   store i8 %288, ptr %28, align 1
   %296 = call i32 @ps2_command(ptr noundef nonnull %287, ptr noundef nonnull %28, i32 noundef 4578) #7
   %297 = icmp eq i32 %296, 0
@@ -916,7 +913,7 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
   br i1 %303, label %312, label %304
 
 304:                                              ; preds = %298
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %27) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   store i8 71, ptr %27, align 1
   %305 = getelementptr inbounds nuw i8, ptr %27, i64 1
   store i8 %288, ptr %305, align 1
@@ -931,11 +928,11 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
   br label %311
 
 311:                                              ; preds = %309, %304
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %27) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %312
 
 312:                                              ; preds = %311, %298, %295
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %28) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %313
 
 313:                                              ; preds = %312, %291, %280
@@ -964,18 +961,18 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
   br i1 %324, label %329, label %333
 
 329:                                              ; preds = %322
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %26) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   store i8 -127, ptr %26, align 1
   %330 = getelementptr inbounds nuw i8, ptr %26, i64 1
   store i8 %326, ptr %330, align 1
   %331 = getelementptr inbounds nuw i8, ptr %26, i64 2
   store i8 %328, ptr %331, align 1
   %332 = call i32 @ps2_command(ptr noundef nonnull %325, ptr noundef nonnull %26, i32 noundef 12514) #7
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %26) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br label %351
 
 333:                                              ; preds = %322
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %25) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i8 %326, ptr %25, align 1
   %334 = call i32 @ps2_command(ptr noundef nonnull %325, ptr noundef nonnull %25, i32 noundef 4578) #7
   %335 = icmp eq i32 %334, 0
@@ -990,7 +987,7 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
   br i1 %341, label %350, label %342
 
 342:                                              ; preds = %336
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %24) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   store i8 71, ptr %24, align 1
   %343 = getelementptr inbounds nuw i8, ptr %24, i64 1
   store i8 %326, ptr %343, align 1
@@ -1005,11 +1002,11 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
   br label %349
 
 349:                                              ; preds = %347, %342
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %24) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %350
 
 350:                                              ; preds = %349, %336, %333
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %25) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %351
 
 351:                                              ; preds = %350, %329, %318
@@ -1038,18 +1035,18 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
   br i1 %362, label %367, label %371
 
 367:                                              ; preds = %360
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %23) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i8 -127, ptr %23, align 1
   %368 = getelementptr inbounds nuw i8, ptr %23, i64 1
   store i8 %364, ptr %368, align 1
   %369 = getelementptr inbounds nuw i8, ptr %23, i64 2
   store i8 %366, ptr %369, align 1
   %370 = call i32 @ps2_command(ptr noundef nonnull %363, ptr noundef nonnull %23, i32 noundef 12514) #7
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %23) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %389
 
 371:                                              ; preds = %360
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %22) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   store i8 %364, ptr %22, align 1
   %372 = call i32 @ps2_command(ptr noundef nonnull %363, ptr noundef nonnull %22, i32 noundef 4578) #7
   %373 = icmp eq i32 %372, 0
@@ -1064,7 +1061,7 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
   br i1 %379, label %388, label %380
 
 380:                                              ; preds = %374
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %21) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store i8 71, ptr %21, align 1
   %381 = getelementptr inbounds nuw i8, ptr %21, i64 1
   store i8 %364, ptr %381, align 1
@@ -1079,11 +1076,11 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
   br label %387
 
 387:                                              ; preds = %385, %380
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %21) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %388
 
 388:                                              ; preds = %387, %374, %371
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %22) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %389
 
 389:                                              ; preds = %388, %367, %356
@@ -1112,18 +1109,18 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
   br i1 %400, label %405, label %409
 
 405:                                              ; preds = %398
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %20) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store i8 -127, ptr %20, align 1
   %406 = getelementptr inbounds nuw i8, ptr %20, i64 1
   store i8 %402, ptr %406, align 1
   %407 = getelementptr inbounds nuw i8, ptr %20, i64 2
   store i8 %404, ptr %407, align 1
   %408 = call i32 @ps2_command(ptr noundef nonnull %401, ptr noundef nonnull %20, i32 noundef 12514) #7
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %20) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %427
 
 409:                                              ; preds = %398
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %19) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store i8 %402, ptr %19, align 1
   %410 = call i32 @ps2_command(ptr noundef nonnull %401, ptr noundef nonnull %19, i32 noundef 4578) #7
   %411 = icmp eq i32 %410, 0
@@ -1138,7 +1135,7 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
   br i1 %417, label %426, label %418
 
 418:                                              ; preds = %412
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %18) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i8 71, ptr %18, align 1
   %419 = getelementptr inbounds nuw i8, ptr %18, i64 1
   store i8 %402, ptr %419, align 1
@@ -1153,11 +1150,11 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
   br label %425
 
 425:                                              ; preds = %423, %418
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %18) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %426
 
 426:                                              ; preds = %425, %412, %409
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %19) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %427
 
 427:                                              ; preds = %426, %405, %394
@@ -1186,18 +1183,18 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
   br i1 %438, label %443, label %447
 
 443:                                              ; preds = %436
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %17) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i8 -127, ptr %17, align 1
   %444 = getelementptr inbounds nuw i8, ptr %17, i64 1
   store i8 %440, ptr %444, align 1
   %445 = getelementptr inbounds nuw i8, ptr %17, i64 2
   store i8 %442, ptr %445, align 1
   %446 = call i32 @ps2_command(ptr noundef nonnull %439, ptr noundef nonnull %17, i32 noundef 12514) #7
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %17) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %465
 
 447:                                              ; preds = %436
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %16) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i8 %440, ptr %16, align 1
   %448 = call i32 @ps2_command(ptr noundef nonnull %439, ptr noundef nonnull %16, i32 noundef 4578) #7
   %449 = icmp eq i32 %448, 0
@@ -1212,7 +1209,7 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
   br i1 %455, label %464, label %456
 
 456:                                              ; preds = %450
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %15) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i8 71, ptr %15, align 1
   %457 = getelementptr inbounds nuw i8, ptr %15, i64 1
   store i8 %440, ptr %457, align 1
@@ -1227,11 +1224,11 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
   br label %463
 
 463:                                              ; preds = %461, %456
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %15) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %464
 
 464:                                              ; preds = %463, %450, %447
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %16) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %465
 
 465:                                              ; preds = %464, %443, %432
@@ -1260,18 +1257,18 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
   br i1 %476, label %481, label %485
 
 481:                                              ; preds = %474
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %14) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i8 -127, ptr %14, align 1
   %482 = getelementptr inbounds nuw i8, ptr %14, i64 1
   store i8 %478, ptr %482, align 1
   %483 = getelementptr inbounds nuw i8, ptr %14, i64 2
   store i8 %480, ptr %483, align 1
   %484 = call i32 @ps2_command(ptr noundef nonnull %477, ptr noundef nonnull %14, i32 noundef 12514) #7
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %14) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %503
 
 485:                                              ; preds = %474
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %13) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i8 %478, ptr %13, align 1
   %486 = call i32 @ps2_command(ptr noundef nonnull %477, ptr noundef nonnull %13, i32 noundef 4578) #7
   %487 = icmp eq i32 %486, 0
@@ -1286,7 +1283,7 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
   br i1 %493, label %502, label %494
 
 494:                                              ; preds = %488
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %12) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i8 71, ptr %12, align 1
   %495 = getelementptr inbounds nuw i8, ptr %12, i64 1
   store i8 %478, ptr %495, align 1
@@ -1301,11 +1298,11 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
   br label %501
 
 501:                                              ; preds = %499, %494
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %12) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %502
 
 502:                                              ; preds = %501, %488, %485
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %503
 
 503:                                              ; preds = %502, %481, %470
@@ -1332,18 +1329,18 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
   br i1 %511, label %514, label %518
 
 514:                                              ; preds = %508
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %11) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i8 -127, ptr %11, align 1
   %515 = getelementptr inbounds nuw i8, ptr %11, i64 1
   store i8 %513, ptr %515, align 1
   %516 = getelementptr inbounds nuw i8, ptr %11, i64 2
   store i8 %509, ptr %516, align 1
   %517 = call i32 @ps2_command(ptr noundef nonnull %512, ptr noundef nonnull %11, i32 noundef 12514) #7
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %11) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %536
 
 518:                                              ; preds = %508
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i8 %513, ptr %10, align 1
   %519 = call i32 @ps2_command(ptr noundef nonnull %512, ptr noundef nonnull %10, i32 noundef 4578) #7
   %520 = icmp eq i32 %519, 0
@@ -1358,7 +1355,7 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
   br i1 %526, label %535, label %527
 
 527:                                              ; preds = %521
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %9) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 71, ptr %9, align 1
   %528 = getelementptr inbounds nuw i8, ptr %9, i64 1
   store i8 %513, ptr %528, align 1
@@ -1373,11 +1370,11 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
   br label %534
 
 534:                                              ; preds = %532, %527
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %9) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %535
 
 535:                                              ; preds = %534, %521, %518
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %536
 
 536:                                              ; preds = %535, %514
@@ -1406,18 +1403,18 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
   br i1 %547, label %552, label %556
 
 552:                                              ; preds = %545
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %8) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i8 -127, ptr %8, align 1
   %553 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store i8 %549, ptr %553, align 1
   %554 = getelementptr inbounds nuw i8, ptr %8, i64 2
   store i8 %551, ptr %554, align 1
   %555 = call i32 @ps2_command(ptr noundef nonnull %548, ptr noundef nonnull %8, i32 noundef 12514) #7
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %8) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %574
 
 556:                                              ; preds = %545
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 %549, ptr %7, align 1
   %557 = call i32 @ps2_command(ptr noundef nonnull %548, ptr noundef nonnull %7, i32 noundef 4578) #7
   %558 = icmp eq i32 %557, 0
@@ -1432,7 +1429,7 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
   br i1 %564, label %573, label %565
 
 565:                                              ; preds = %559
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 71, ptr %6, align 1
   %566 = getelementptr inbounds nuw i8, ptr %6, i64 1
   store i8 %549, ptr %566, align 1
@@ -1447,11 +1444,11 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
   br label %572
 
 572:                                              ; preds = %570, %565
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %573
 
 573:                                              ; preds = %572, %559, %556
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %574
 
 574:                                              ; preds = %573, %552, %541
@@ -1480,18 +1477,18 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
   br i1 %585, label %590, label %594
 
 590:                                              ; preds = %583
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 -127, ptr %5, align 1
   %591 = getelementptr inbounds nuw i8, ptr %5, i64 1
   store i8 %587, ptr %591, align 1
   %592 = getelementptr inbounds nuw i8, ptr %5, i64 2
   store i8 %589, ptr %592, align 1
   %593 = call i32 @ps2_command(ptr noundef nonnull %586, ptr noundef nonnull %5, i32 noundef 12514) #7
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %612
 
 594:                                              ; preds = %583
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 %587, ptr %4, align 1
   %595 = call i32 @ps2_command(ptr noundef nonnull %586, ptr noundef nonnull %4, i32 noundef 4578) #7
   %596 = icmp eq i32 %595, 0
@@ -1506,7 +1503,7 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
   br i1 %602, label %611, label %603
 
 603:                                              ; preds = %597
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 71, ptr %3, align 1
   %604 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 %587, ptr %604, align 1
@@ -1521,11 +1518,11 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
   br label %610
 
 610:                                              ; preds = %608, %603
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %611
 
 611:                                              ; preds = %610, %597, %594
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %612
 
 612:                                              ; preds = %611, %590, %579, %.thread26
@@ -1533,34 +1530,31 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
 }
 
 ; Function Attrs: cold null_pointer_is_valid
-declare dso_local void @_dev_err(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare dso_local void @_dev_err(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @kfree(ptr noundef) local_unnamed_addr #3
+declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: cold null_pointer_is_valid
-declare dso_local void @_dev_info(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare dso_local void @_dev_info(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @ps2_command(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare dso_local i32 @ps2_command(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid allocsize(2)
-declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #4
+declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @device_remove_groups(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare dso_local void @device_remove_groups(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i64 @psmouse_attr_show_helper(ptr noundef, ptr noundef, ptr noundef) #3
+declare dso_local i64 @psmouse_attr_show_helper(ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i64 @psmouse_attr_set_helper(ptr noundef, ptr noundef, ptr noundef, i64 noundef) #3
+declare dso_local i64 @psmouse_attr_set_helper(ptr noundef, ptr noundef, ptr noundef, i64 noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef range(i64 -2147483648, 2147483648) i64 @trackpoint_show_int_attr(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) #5 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @trackpoint_show_int_attr(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) #4 align 16 {
   %4 = load ptr, ptr %0, align 8
   %5 = load i64, ptr %1, align 8
   %6 = getelementptr i8, ptr %4, i64 %5
@@ -1583,7 +1577,7 @@ define internal i64 @trackpoint_set_int_attr(ptr noundef %0, ptr noundef readonl
   %6 = alloca i8, align 1
   %7 = load ptr, ptr %0, align 8
   %8 = load i64, ptr %1, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 0, ptr %6, align 1, !annotation !8
   %9 = call i32 @kstrtou8(ptr noundef %2, i32 noundef 10, ptr noundef nonnull %6) #7
   %10 = icmp eq i32 %9, 0
@@ -1600,14 +1594,14 @@ define internal i64 @trackpoint_set_int_attr(ptr noundef %0, ptr noundef readonl
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load i8, ptr %17, align 8
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 -127, ptr %5, align 1
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 1
   store i8 %18, ptr %19, align 1
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 2
   store i8 %15, ptr %20, align 1
   %21 = call i32 @ps2_command(ptr noundef nonnull %16, ptr noundef nonnull %5, i32 noundef 12514) #7
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %22 = icmp eq i32 %21, 0
   %23 = sext i32 %21 to i64
   %24 = select i1 %22, i64 %3, i64 %23
@@ -1615,15 +1609,15 @@ define internal i64 @trackpoint_set_int_attr(ptr noundef %0, ptr noundef readonl
 
 25:                                               ; preds = %13, %11
   %26 = phi i64 [ %12, %11 ], [ %24, %13 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i64 %26
 }
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #6
+declare dso_local noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @kstrtou8(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare dso_local i32 @kstrtou8(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i64 @trackpoint_set_bit_attr(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i64 noundef %3) #0 align 16 {
@@ -1632,7 +1626,7 @@ define internal i64 @trackpoint_set_bit_attr(ptr noundef %0, ptr noundef readonl
   %7 = load ptr, ptr %0, align 8
   %8 = load i64, ptr %1, align 8
   %9 = getelementptr i8, ptr %7, i64 %8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 0, ptr %6, align 1, !annotation !8
   %10 = call i32 @kstrtobool(ptr noundef %2, ptr noundef nonnull %6) #7
   %11 = icmp eq i32 %10, 0
@@ -1666,7 +1660,7 @@ define internal i64 @trackpoint_set_bit_attr(ptr noundef %0, ptr noundef readonl
   %26 = load i8, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 9
   %28 = load i8, ptr %27, align 1
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 71, ptr %5, align 1
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 1
   store i8 %26, ptr %29, align 1
@@ -1677,14 +1671,14 @@ define internal i64 @trackpoint_set_bit_attr(ptr noundef %0, ptr noundef readonl
   br i1 %32, label %.thread3, label %33
 
 .thread3:                                         ; preds = %24
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %38
 
 33:                                               ; preds = %24
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %35 = call i32 @ps2_command(ptr noundef nonnull %34, ptr noundef nonnull %5, i32 noundef 12514) #7
   %.fr = freeze i32 %35
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %36 = icmp eq i32 %.fr, 0
   %37 = sext i32 %.fr to i64
   br i1 %36, label %.thread, label %38
@@ -1694,15 +1688,15 @@ define internal i64 @trackpoint_set_bit_attr(ptr noundef %0, ptr noundef readonl
 
 38:                                               ; preds = %.thread, %33, %.thread3, %12
   %39 = phi i64 [ %13, %12 ], [ %3, %.thread ], [ %37, %33 ], [ -22, %.thread3 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i64 %39
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @kstrtobool(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare dso_local i32 @kstrtobool(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @device_add_groups(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare dso_local i32 @device_add_groups(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal zeroext i16 @trackpoint_is_attr_visible(ptr noundef %0, ptr noundef readonly captures(address) %1, i32 %2) #0 align 16 {
@@ -1728,15 +1722,21 @@ define internal zeroext i16 @trackpoint_is_attr_visible(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local ptr @psmouse_from_serio(ptr noundef) local_unnamed_addr #3
+declare dso_local ptr @psmouse_from_serio(ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 attributes #0 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { cold null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #3 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #4 = { null_pointer_is_valid allocsize(2) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #5 = { fn_ret_thunk_extern nofree nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #6 = { nofree nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #1 = { cold null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #3 = { null_pointer_is_valid allocsize(2) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #4 = { fn_ret_thunk_extern nofree nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #5 = { nofree nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nounwind }
 attributes #8 = { nounwind allocsize(2) }
 attributes #9 = { cold nounwind }

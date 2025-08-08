@@ -95,16 +95,10 @@ define noundef i32 @ossl_cipher_hw_generic_ecb(ptr noundef readonly captures(non
   ret i32 1
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: nounwind uwtable
 define noundef i32 @ossl_cipher_hw_generic_ofb128(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %7 = load i32, ptr %6, align 8, !tbaa !18
   store i32 %7, ptr %5, align 4, !tbaa !19
@@ -116,7 +110,7 @@ define noundef i32 @ossl_cipher_hw_generic_ofb128(ptr noundef %0, ptr noundef %1
   call void @CRYPTO_ofb128_encrypt(ptr noundef %2, ptr noundef %1, i64 noundef %3, ptr noundef %9, ptr noundef nonnull %10, ptr noundef nonnull %5, ptr noundef %12) #4
   %13 = load i32, ptr %5, align 4, !tbaa !19
   store i32 %13, ptr %6, align 8, !tbaa !18
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 1
 }
 
@@ -125,7 +119,7 @@ declare void @CRYPTO_ofb128_encrypt(ptr noundef, ptr noundef, i64 noundef, ptr n
 ; Function Attrs: nounwind uwtable
 define noundef i32 @ossl_cipher_hw_generic_cfb128(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %7 = load i32, ptr %6, align 8, !tbaa !18
   store i32 %7, ptr %5, align 4, !tbaa !19
@@ -142,7 +136,7 @@ define noundef i32 @ossl_cipher_hw_generic_cfb128(ptr noundef %0, ptr noundef %1
   call void @CRYPTO_cfb128_encrypt(ptr noundef %2, ptr noundef %1, i64 noundef %3, ptr noundef %9, ptr noundef nonnull %10, ptr noundef nonnull %5, i32 noundef %15, ptr noundef %17) #4
   %18 = load i32, ptr %5, align 4, !tbaa !19
   store i32 %18, ptr %6, align 8, !tbaa !18
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 1
 }
 
@@ -151,7 +145,7 @@ declare void @CRYPTO_cfb128_encrypt(ptr noundef, ptr noundef, i64 noundef, ptr n
 ; Function Attrs: nounwind uwtable
 define noundef i32 @ossl_cipher_hw_generic_cfb8(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %7 = load i32, ptr %6, align 8, !tbaa !18
   store i32 %7, ptr %5, align 4, !tbaa !19
@@ -168,7 +162,7 @@ define noundef i32 @ossl_cipher_hw_generic_cfb8(ptr noundef %0, ptr noundef %1, 
   call void @CRYPTO_cfb128_8_encrypt(ptr noundef %2, ptr noundef %1, i64 noundef %3, ptr noundef %9, ptr noundef nonnull %10, ptr noundef nonnull %5, i32 noundef %15, ptr noundef %17) #4
   %18 = load i32, ptr %5, align 4, !tbaa !19
   store i32 %18, ptr %6, align 8, !tbaa !18
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 1
 }
 
@@ -177,7 +171,7 @@ declare void @CRYPTO_cfb128_8_encrypt(ptr noundef, ptr noundef, i64 noundef, ptr
 ; Function Attrs: nounwind uwtable
 define noundef i32 @ossl_cipher_hw_generic_cfb1(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %7 = load i32, ptr %6, align 8, !tbaa !18
   store i32 %7, ptr %5, align 4, !tbaa !19
@@ -249,7 +243,7 @@ define noundef i32 @ossl_cipher_hw_generic_cfb1(ptr noundef %0, ptr noundef %1, 
 45:                                               ; preds = %._crit_edge, %34, %14
   %storemerge = load i32, ptr %5, align 4, !tbaa !19
   store i32 %storemerge, ptr %6, align 8, !tbaa !18
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 1
 }
 
@@ -258,7 +252,7 @@ declare void @CRYPTO_cfb128_1_encrypt(ptr noundef, ptr noundef, i64 noundef, ptr
 ; Function Attrs: nounwind uwtable
 define noundef i32 @ossl_cipher_hw_generic_ctr(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %7 = load i32, ptr %6, align 8, !tbaa !18
   store i32 %7, ptr %5, align 4, !tbaa !19
@@ -284,7 +278,7 @@ define noundef i32 @ossl_cipher_hw_generic_ctr(ptr noundef %0, ptr noundef %1, p
 18:                                               ; preds = %15, %14
   %19 = load i32, ptr %5, align 4, !tbaa !19
   store i32 %19, ptr %6, align 8, !tbaa !18
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 1
 }
 
@@ -416,7 +410,7 @@ define noundef i32 @ossl_cipher_hw_chunked_cfb8(ptr noundef %0, ptr noundef %1, 
   %.01826 = phi i64 [ %3, %.lr.ph ], [ %20, %11 ]
   %.01925 = phi ptr [ %2, %.lr.ph ], [ %21, %11 ]
   %.02024 = phi ptr [ %1, %.lr.ph ], [ %22, %11 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 %12, ptr %5, align 4, !tbaa !19
   %13 = load ptr, ptr %7, align 8, !tbaa !6
   %14 = load i8, ptr %9, align 4
@@ -427,7 +421,7 @@ define noundef i32 @ossl_cipher_hw_chunked_cfb8(ptr noundef %0, ptr noundef %1, 
   call void @CRYPTO_cfb128_8_encrypt(ptr noundef %.01925, ptr noundef %.02024, i64 noundef %.01826, ptr noundef %13, ptr noundef nonnull %8, ptr noundef nonnull %5, i32 noundef %17, ptr noundef %18) #4
   %19 = load i32, ptr %5, align 4, !tbaa !19
   store i32 %19, ptr %6, align 8, !tbaa !18
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %20 = sub nuw i64 %.01826, %.127
   %21 = getelementptr inbounds nuw i8, ptr %.01925, i64 %.127
   %22 = getelementptr inbounds nuw i8, ptr %.02024, i64 %.127
@@ -461,7 +455,7 @@ define noundef i32 @ossl_cipher_hw_chunked_cfb128(ptr noundef %0, ptr noundef %1
   %.01826 = phi i64 [ %3, %.lr.ph ], [ %20, %11 ]
   %.01925 = phi ptr [ %2, %.lr.ph ], [ %21, %11 ]
   %.02024 = phi ptr [ %1, %.lr.ph ], [ %22, %11 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 %12, ptr %5, align 4, !tbaa !19
   %13 = load ptr, ptr %7, align 8, !tbaa !6
   %14 = load i8, ptr %9, align 4
@@ -472,7 +466,7 @@ define noundef i32 @ossl_cipher_hw_chunked_cfb128(ptr noundef %0, ptr noundef %1
   call void @CRYPTO_cfb128_encrypt(ptr noundef %.01925, ptr noundef %.02024, i64 noundef %.01826, ptr noundef %13, ptr noundef nonnull %8, ptr noundef nonnull %5, i32 noundef %17, ptr noundef %18) #4
   %19 = load i32, ptr %5, align 4, !tbaa !19
   store i32 %19, ptr %6, align 8, !tbaa !18
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %20 = sub nuw i64 %.01826, %.127
   %21 = getelementptr inbounds nuw i8, ptr %.01925, i64 %.127
   %22 = getelementptr inbounds nuw i8, ptr %.02024, i64 %.127
@@ -504,14 +498,14 @@ define noundef i32 @ossl_cipher_hw_chunked_ofb128(ptr noundef %0, ptr noundef %1
   %.015 = phi i64 [ %3, %.lr.ph ], [ %17, %12 ]
   %.01114 = phi ptr [ %2, %.lr.ph ], [ %18, %12 ]
   %.01213 = phi ptr [ %1, %.lr.ph ], [ %19, %12 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 %13, ptr %6, align 4, !tbaa !19
   %14 = load ptr, ptr %9, align 8, !tbaa !6
   %15 = load ptr, ptr %11, align 8, !tbaa !14
   call void @CRYPTO_ofb128_encrypt(ptr noundef %.01114, ptr noundef %.01213, i64 noundef 1073741824, ptr noundef %14, ptr noundef nonnull %10, ptr noundef nonnull %6, ptr noundef %15) #4
   %16 = load i32, ptr %6, align 4, !tbaa !19
   store i32 %16, ptr %8, align 8, !tbaa !18
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %17 = add i64 %.015, -1073741824
   %18 = getelementptr inbounds nuw i8, ptr %.01114, i64 1073741824
   %19 = getelementptr inbounds nuw i8, ptr %.01213, i64 1073741824
@@ -526,7 +520,7 @@ define noundef i32 @ossl_cipher_hw_chunked_ofb128(ptr noundef %0, ptr noundef %1
   br i1 %.not, label %30, label %21
 
 21:                                               ; preds = %._crit_edge
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %23 = load i32, ptr %22, align 8, !tbaa !18
   store i32 %23, ptr %5, align 4, !tbaa !19
@@ -538,12 +532,18 @@ define noundef i32 @ossl_cipher_hw_chunked_ofb128(ptr noundef %0, ptr noundef %1
   call void @CRYPTO_ofb128_encrypt(ptr noundef %.011.lcssa, ptr noundef %.012.lcssa, i64 noundef %.0.lcssa, ptr noundef %25, ptr noundef nonnull %26, ptr noundef nonnull %5, ptr noundef %28) #4
   %29 = load i32, ptr %5, align 4, !tbaa !19
   store i32 %29, ptr %22, align 8, !tbaa !18
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %30
 
 30:                                               ; preds = %21, %._crit_edge
   ret i32 1
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #3

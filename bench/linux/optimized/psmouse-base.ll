@@ -175,14 +175,8 @@ define dso_local ptr @psmouse_from_serio(ptr noundef readonly captures(none) %0)
   ret ptr %4
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @psmouse_report_standard_buttons(ptr noundef %0, i8 noundef zeroext %1) local_unnamed_addr #2 align 16 {
+define dso_local void @psmouse_report_standard_buttons(ptr noundef %0, i8 noundef zeroext %1) local_unnamed_addr #1 align 16 {
   %3 = and i8 %1, 1
   %4 = zext nneg i8 %3 to i32
   tail call void @input_event(ptr noundef %0, i32 noundef 1, i32 noundef 272, i32 noundef %4) #14
@@ -198,7 +192,7 @@ define dso_local void @psmouse_report_standard_buttons(ptr noundef %0, i8 nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @psmouse_report_standard_motion(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 align 16 {
+define dso_local void @psmouse_report_standard_motion(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 align 16 {
   %3 = getelementptr i8, ptr %1, i64 1
   %4 = load i8, ptr %3, align 1
   %5 = icmp eq i8 %4, 0
@@ -237,7 +231,7 @@ define dso_local void @psmouse_report_standard_motion(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @psmouse_report_standard_packet(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 align 16 {
+define dso_local void @psmouse_report_standard_packet(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 align 16 {
   %3 = load i8, ptr %1, align 1
   %4 = and i8 %3, 1
   %5 = zext nneg i8 %4 to i32
@@ -288,7 +282,7 @@ define dso_local void @psmouse_report_standard_packet(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 1, 3) i32 @psmouse_process_byte(ptr noundef captures(none) %0) #2 align 16 {
+define dso_local noundef range(i32 1, 3) i32 @psmouse_process_byte(ptr noundef captures(none) %0) #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 232
@@ -442,14 +436,14 @@ default.unreachable1:                             ; preds = %19
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @psmouse_queue_work(ptr noundef readnone captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #2 align 16 {
+define dso_local void @psmouse_queue_work(ptr noundef readnone captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 align 16 {
   %4 = load ptr, ptr @kpsmoused_wq, align 8
   %5 = tail call zeroext i1 @queue_delayed_work_on(i32 noundef 64, ptr noundef %4, ptr noundef %1, i64 noundef %2) #14
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @psmouse_set_state(ptr noundef captures(none) initializes((80, 88), (241, 242), (256, 272), (280, 284)) %0, i32 noundef %1) local_unnamed_addr #2 align 16 {
+define dso_local void @psmouse_set_state(ptr noundef captures(none) initializes((80, 88), (241, 242), (256, 272), (280, 284)) %0, i32 noundef %1) local_unnamed_addr #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 208
@@ -472,9 +466,9 @@ define dso_local void @psmouse_set_state(ptr noundef captures(none) initializes(
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @psmouse_reset(ptr noundef %0) local_unnamed_addr #2 align 16 {
+define dso_local i32 @psmouse_reset(ptr noundef %0) local_unnamed_addr #1 align 16 {
   %2 = alloca [2 x i8], align 2
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i16 0, ptr %2, align 2, !annotation !7
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = call i32 @ps2_command(ptr noundef nonnull %3, ptr noundef nonnull %2, i32 noundef 767) #14
@@ -493,20 +487,20 @@ define dso_local i32 @psmouse_reset(ptr noundef %0) local_unnamed_addr #2 align 
 
 14:                                               ; preds = %6, %1
   %15 = phi i32 [ %4, %1 ], [ %13, %6 ]
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %15
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @ps2_command(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare dso_local i32 @ps2_command(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @psmouse_set_resolution(ptr noundef %0, i32 noundef %1) #2 align 16 {
+define dso_local void @psmouse_set_resolution(ptr noundef %0, i32 noundef %1) #1 align 16 {
   %3 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = add i32 %1, -201
   %5 = icmp ult i32 %4, -200
   %.lhs.trunc = trunc i32 %1 to i8
@@ -523,16 +517,16 @@ define dso_local void @psmouse_set_resolution(ptr noundef %0, i32 noundef %1) #2
   %14 = shl i32 25, %13
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 384
   store i32 %14, ptr %15, align 8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef zeroext i1 @psmouse_matches_pnp_id(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 align 16 {
+define dso_local noundef zeroext i1 @psmouse_matches_pnp_id(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 align 16 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %7 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(6) @.str, i64 noundef 5) #14
   %8 = icmp eq i32 %7, 0
@@ -590,24 +584,24 @@ define dso_local noundef zeroext i1 @psmouse_matches_pnp_id(ptr noundef readonly
 
 29:                                               ; preds = %.loopexit7, %9, %2
   %30 = phi i1 [ %28, %.loopexit7 ], [ false, %2 ], [ false, %9 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %30
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #5
+declare dso_local i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local ptr @kstrndup(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #4
+declare dso_local ptr @kstrndup(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local ptr @strsep(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare dso_local ptr @strsep(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @kfree(ptr noundef) local_unnamed_addr #4
+declare dso_local void @kfree(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -1, 1) i32 @psmouse_activate(ptr noundef %0) local_unnamed_addr #2 align 16 {
+define dso_local noundef range(i32 -1, 1) i32 @psmouse_activate(ptr noundef %0) local_unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = tail call i32 @ps2_command(ptr noundef nonnull %2, ptr noundef null, i32 noundef 244) #14
   %4 = icmp eq i32 %3, 0
@@ -645,10 +639,10 @@ define dso_local noundef range(i32 -1, 1) i32 @psmouse_activate(ptr noundef %0) 
 }
 
 ; Function Attrs: cold null_pointer_is_valid
-declare dso_local void @_dev_warn(ptr noundef, ptr noundef, ...) local_unnamed_addr #6
+declare dso_local void @_dev_warn(ptr noundef, ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @psmouse_deactivate(ptr noundef %0) local_unnamed_addr #2 align 16 {
+define dso_local i32 @psmouse_deactivate(ptr noundef %0) local_unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = tail call i32 @ps2_command(ptr noundef nonnull %2, ptr noundef null, i32 noundef 245) #14
   %4 = icmp eq i32 %3, 0
@@ -685,7 +679,7 @@ define dso_local i32 @psmouse_deactivate(ptr noundef %0) local_unnamed_addr #2 a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @psmouse_attr_show_helper(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address) %1, ptr noundef %2) #2 align 16 {
+define dso_local i64 @psmouse_attr_show_helper(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address) %1, ptr noundef %2) #1 align 16 {
   %4 = getelementptr i8, ptr %0, i64 120
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 208
@@ -712,7 +706,7 @@ define dso_local i64 @psmouse_attr_show_helper(ptr noundef readonly captures(non
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i64 -2147483648, 2147483648) i64 @psmouse_attr_set_helper(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address) %1, ptr noundef %2, i64 noundef %3) #2 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @psmouse_attr_set_helper(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address) %1, ptr noundef %2, i64 noundef %3) #1 align 16 {
   %5 = tail call i32 @mutex_lock_interruptible(ptr noundef nonnull @psmouse_mutex) #14
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %117
@@ -901,13 +895,13 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @psmouse_attr_set_helper
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @mutex_lock_interruptible(ptr noundef) local_unnamed_addr #4
+declare dso_local i32 @mutex_lock_interruptible(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #4
+declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal void @psmouse_exit() #7 section ".exit.text" align 16 {
+define internal void @psmouse_exit() #6 section ".exit.text" align 16 {
   tail call void @serio_unregister_driver(ptr noundef nonnull @psmouse_drv) #14
   %1 = load ptr, ptr @kpsmoused_wq, align 8
   tail call void @destroy_workqueue(ptr noundef %1) #14
@@ -916,16 +910,16 @@ define internal void @psmouse_exit() #7 section ".exit.text" align 16 {
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @serio_unregister_driver(ptr noundef) local_unnamed_addr #4
+declare dso_local void @serio_unregister_driver(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @destroy_workqueue(ptr noundef) local_unnamed_addr #4
+declare dso_local void @destroy_workqueue(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @psmouse_smbus_module_exit() local_unnamed_addr #4
+declare dso_local void @psmouse_smbus_module_exit() local_unnamed_addr #3
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal i32 @psmouse_init() #7 section ".init.text" align 16 {
+define internal i32 @psmouse_init() #6 section ".init.text" align 16 {
   tail call void @lifebook_module_init() #14
   tail call void @synaptics_module_init() #14
   %1 = tail call i32 @psmouse_smbus_module_init() #14
@@ -963,7 +957,7 @@ define internal i32 @psmouse_init() #7 section ".init.text" align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define internal noundef range(i32 -22, 1) i32 @psmouse_set_maxproto(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1) #8 align 16 {
+define internal noundef range(i32 -22, 1) i32 @psmouse_set_maxproto(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1) #7 align 16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.thread, label %4
 
@@ -1025,7 +1019,7 @@ define internal noundef range(i32 -22, 1) i32 @psmouse_set_maxproto(ptr noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @psmouse_get_maxproto(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 align 16 {
+define internal noundef i32 @psmouse_get_maxproto(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1) #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr %4, align 4
@@ -1062,10 +1056,10 @@ define internal noundef i32 @psmouse_get_maxproto(ptr noundef writeonly captures
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
+declare dso_local i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @ps2bare_detect(ptr noundef captures(none) %0, i1 noundef zeroext %1) #2 align 16 {
+define internal noundef i32 @ps2bare_detect(ptr noundef captures(none) %0, i1 noundef zeroext %1) #1 align 16 {
   br i1 %1, label %3, label %16
 
 3:                                                ; preds = %2
@@ -1099,13 +1093,13 @@ define internal noundef i32 @ps2bare_detect(ptr noundef captures(none) %0, i1 no
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @ps2pp_detect(ptr noundef, i1 noundef zeroext) #4
+declare dso_local i32 @ps2pp_detect(ptr noundef, i1 noundef zeroext) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 -19, 1) i32 @thinking_detect(ptr noundef %0, i1 noundef zeroext %1) #2 align 16 {
+define internal range(i32 -19, 1) i32 @thinking_detect(ptr noundef %0, i1 noundef zeroext %1) #1 align 16 {
   %3 = alloca [2 x i8], align 2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i16 10, ptr %3, align 2, !annotation !7
   %5 = call i32 @ps2_command(ptr noundef nonnull %4, ptr noundef nonnull %3, i32 noundef 4339) #14
   store i8 0, ptr %3, align 2
@@ -1146,21 +1140,21 @@ define internal range(i32 -19, 1) i32 @thinking_detect(ptr noundef %0, i1 nounde
 
 28:                                               ; preds = %20, %14
   %29 = phi i32 [ %19, %14 ], [ 0, %20 ]
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %29
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @cypress_detect(ptr noundef, i1 noundef zeroext) #4
+declare dso_local i32 @cypress_detect(ptr noundef, i1 noundef zeroext) #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @cypress_init(ptr noundef) #4
+declare dso_local i32 @cypress_init(ptr noundef) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 -19, 1) i32 @genius_detect(ptr noundef %0, i1 noundef zeroext %1) #2 align 16 {
+define internal range(i32 -19, 1) i32 @genius_detect(ptr noundef %0, i1 noundef zeroext %1) #1 align 16 {
   %3 = alloca [4 x i8], align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 3, ptr %3, align 4, !annotation !7
   %5 = call i32 @ps2_command(ptr noundef nonnull %4, ptr noundef nonnull %3, i32 noundef 4328) #14
   %6 = call i32 @ps2_command(ptr noundef nonnull %4, ptr noundef null, i32 noundef 230) #14
@@ -1205,15 +1199,15 @@ define internal range(i32 -19, 1) i32 @genius_detect(ptr noundef %0, i1 noundef 
 
 32:                                               ; preds = %19, %2
   %33 = phi i32 [ %18, %2 ], [ 0, %19 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %33
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 -19, 1) i32 @intellimouse_detect(ptr noundef %0, i1 noundef zeroext %1) #2 align 16 {
+define internal range(i32 -19, 1) i32 @intellimouse_detect(ptr noundef %0, i1 noundef zeroext %1) #1 align 16 {
   %3 = alloca [2 x i8], align 2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i16 200, ptr %3, align 2, !annotation !7
   %5 = call i32 @ps2_command(ptr noundef nonnull %4, ptr noundef nonnull %3, i32 noundef 4339) #14
   store i8 100, ptr %3, align 2
@@ -1261,18 +1255,18 @@ define internal range(i32 -19, 1) i32 @intellimouse_detect(ptr noundef %0, i1 no
 
 30:                                               ; preds = %28, %2
   %31 = phi i32 [ %12, %2 ], [ 0, %28 ]
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %31
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -19, 1) i32 @im_explorer_detect(ptr noundef %0, i1 noundef zeroext %1) #2 align 16 {
+define internal noundef range(i32 -19, 1) i32 @im_explorer_detect(ptr noundef %0, i1 noundef zeroext %1) #1 align 16 {
   %3 = alloca [2 x i8], align 2
   %4 = alloca [2 x i8], align 2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i16 200, ptr %4, align 2, !annotation !7
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i16 200, ptr %3, align 2, !annotation !7
   %6 = call i32 @ps2_command(ptr noundef nonnull %5, ptr noundef nonnull %3, i32 noundef 4339) #14
   store i8 100, ptr %3, align 2
@@ -1280,7 +1274,7 @@ define internal noundef range(i32 -19, 1) i32 @im_explorer_detect(ptr noundef %0
   store i8 80, ptr %3, align 2
   %8 = call i32 @ps2_command(ptr noundef nonnull %5, ptr noundef nonnull %3, i32 noundef 4339) #14
   %9 = call i32 @ps2_command(ptr noundef nonnull %5, ptr noundef nonnull %3, i32 noundef 754) #14
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %10 = call i32 @ps2_command(ptr noundef nonnull %5, ptr noundef nonnull %4, i32 noundef 4339) #14
   store i8 -56, ptr %4, align 2
   %11 = call i32 @ps2_command(ptr noundef nonnull %5, ptr noundef nonnull %4, i32 noundef 4339) #14
@@ -1343,39 +1337,39 @@ define internal noundef range(i32 -19, 1) i32 @im_explorer_detect(ptr noundef %0
 
 43:                                               ; preds = %41, %16, %2
   %44 = phi i32 [ -19, %2 ], [ 0, %41 ], [ 0, %16 ]
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %44
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @synaptics_detect(ptr noundef, i1 noundef zeroext) #4
+declare dso_local i32 @synaptics_detect(ptr noundef, i1 noundef zeroext) #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @synaptics_init_absolute(ptr noundef) #4
+declare dso_local i32 @synaptics_init_absolute(ptr noundef) #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @synaptics_init_relative(ptr noundef) #4
+declare dso_local i32 @synaptics_init_relative(ptr noundef) #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @synaptics_init_smbus(ptr noundef) #4
+declare dso_local i32 @synaptics_init_smbus(ptr noundef) #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @alps_detect(ptr noundef, i1 noundef zeroext) #4
+declare dso_local i32 @alps_detect(ptr noundef, i1 noundef zeroext) #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @alps_init(ptr noundef) #4
+declare dso_local i32 @alps_init(ptr noundef) #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @lifebook_detect(ptr noundef, i1 noundef zeroext) #4
+declare dso_local i32 @lifebook_detect(ptr noundef, i1 noundef zeroext) #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @lifebook_init(ptr noundef) #4
+declare dso_local i32 @lifebook_init(ptr noundef) #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @trackpoint_detect(ptr noundef, i1 noundef zeroext) #4
+declare dso_local i32 @trackpoint_detect(ptr noundef, i1 noundef zeroext) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @cortron_detect(ptr noundef captures(none) %0, i1 noundef zeroext %1) #2 align 16 {
+define internal noundef i32 @cortron_detect(ptr noundef captures(none) %0, i1 noundef zeroext %1) #1 align 16 {
   br i1 %1, label %3, label %11
 
 3:                                                ; preds = %2
@@ -1397,40 +1391,40 @@ define internal noundef i32 @cortron_detect(ptr noundef captures(none) %0, i1 no
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @focaltech_detect(ptr noundef, i1 noundef zeroext) #4
+declare dso_local i32 @focaltech_detect(ptr noundef, i1 noundef zeroext) #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @focaltech_init(ptr noundef) #4
+declare dso_local i32 @focaltech_init(ptr noundef) #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @byd_detect(ptr noundef, i1 noundef zeroext) #4
+declare dso_local i32 @byd_detect(ptr noundef, i1 noundef zeroext) #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @byd_init(ptr noundef) #4
+declare dso_local i32 @byd_init(ptr noundef) #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @input_set_capability(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare dso_local void @input_set_capability(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #9
+declare dso_local noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @input_event(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare dso_local void @input_event(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local zeroext i1 @queue_delayed_work_on(i32 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+declare dso_local zeroext i1 @queue_delayed_work_on(i32 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @_raw_spin_lock_irq(ptr noundef) local_unnamed_addr #4 section ".spinlock.text"
+declare dso_local void @_raw_spin_lock_irq(ptr noundef) local_unnamed_addr #3 section ".spinlock.text"
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @_raw_spin_unlock_irq(ptr noundef) local_unnamed_addr #4 section ".spinlock.text"
+declare dso_local void @_raw_spin_unlock_irq(ptr noundef) local_unnamed_addr #3 section ".spinlock.text"
 
 ; Function Attrs: mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(read)
-declare dso_local i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #10
+declare dso_local i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef range(i64 -2147483648, 2147483648) i64 @psmouse_attr_show_protocol(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef writeonly captures(none) %2) #11 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @psmouse_attr_show_protocol(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef writeonly captures(none) %2) #10 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -1441,7 +1435,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @psmouse_attr_sho
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @psmouse_attr_set_protocol(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) #2 align 16 {
+define internal i64 @psmouse_attr_set_protocol(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) #1 align 16 {
   %5 = alloca [2 x i8], align 2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
@@ -1612,10 +1606,10 @@ define internal i64 @psmouse_attr_set_protocol(ptr noundef %0, ptr readnone capt
   br i1 %101, label %102, label %105
 
 102:                                              ; preds = %84
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i16 0, ptr %5, align 2, !annotation !7
   %103 = call i32 @ps2_command(ptr noundef nonnull %6, ptr noundef nonnull %5, i32 noundef 767) #14
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %104 = call fastcc i32 @psmouse_switch_protocol(ptr noundef %0, ptr noundef nonnull @psmouse_protocols), !range !12
   br label %105
 
@@ -1718,19 +1712,19 @@ define internal i64 @psmouse_attr_set_protocol(ptr noundef %0, ptr readnone capt
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local ptr @input_allocate_device() local_unnamed_addr #4
+declare dso_local ptr @input_allocate_device() local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @input_free_device(ptr noundef) local_unnamed_addr #4
+declare dso_local void @input_free_device(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @serio_unregister_child_port(ptr noundef) local_unnamed_addr #4
+declare dso_local void @serio_unregister_child_port(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #4
+declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -1, 1) i32 @psmouse_switch_protocol(ptr noundef %0, ptr noundef %1) unnamed_addr #2 align 16 {
+define internal fastcc noundef range(i32 -1, 1) i32 @psmouse_switch_protocol(ptr noundef %0, ptr noundef %1) unnamed_addr #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1894,7 +1888,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @psmouse_switch_protocol(ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @psmouse_initialize(ptr noundef %0) unnamed_addr #2 align 16 {
+define internal fastcc void @psmouse_initialize(ptr noundef %0) unnamed_addr #1 align 16 {
   %2 = load i32, ptr @psmouse_max_proto, align 4
   %3 = icmp eq i32 %2, 1
   br i1 %3, label %15, label %4
@@ -1920,13 +1914,13 @@ define internal fastcc void @psmouse_initialize(ptr noundef %0) unnamed_addr #2 
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @input_register_device(ptr noundef) local_unnamed_addr #4
+declare dso_local i32 @input_register_device(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @input_unregister_device(ptr noundef) local_unnamed_addr #4
+declare dso_local void @input_unregister_device(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 0, -2147483648) i32 @psmouse_extensions(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2) unnamed_addr #2 align 16 {
+define internal fastcc range(i32 0, -2147483648) i32 @psmouse_extensions(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2) unnamed_addr #1 align 16 {
   %4 = alloca [2 x i8], align 2
   %5 = alloca i32, align 4
   store i32 %1, ptr %5, align 4
@@ -2527,10 +2521,10 @@ psmouse_do_detect.exit12.thread:                  ; preds = %.thread44, %psmouse
   %302 = phi i1 [ %152, %.thread43 ], [ %152, %151 ], [ %152, %284 ], [ %152, %301 ], [ false, %117 ], [ %152, %.thread47.sink.split ], [ %152, %277 ]
   %303 = phi i32 [ %.pr46.pr.pr, %.thread43 ], [ %.pr40.pr, %151 ], [ %.pr46.pr.pr, %284 ], [ %.pr46.pr.pr, %301 ], [ %.pr18, %117 ], [ 6, %.thread47.sink.split ], [ %.pr46.pr.pr, %277 ]
   %304 = tail call i32 @ps2_command(ptr noundef nonnull %6, ptr noundef null, i32 noundef 246) #14
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i16 0, ptr %4, align 2, !annotation !7
   %305 = call i32 @ps2_command(ptr noundef nonnull %6, ptr noundef nonnull %4, i32 noundef 767) #14
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %306 = icmp ugt i32 %303, 5
   br i1 %306, label %307, label %309
 
@@ -2615,12 +2609,12 @@ ps2bare_detect.exit:                              ; preds = %312, %336
 }
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #9
+declare dso_local noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @psmouse_set_rate(ptr noundef %0, i32 noundef %1) #2 align 16 {
+define internal void @psmouse_set_rate(ptr noundef %0, i32 noundef %1) #1 align 16 {
   %3 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %4
 
 4:                                                ; preds = %4, %2
@@ -2641,12 +2635,12 @@ define internal void @psmouse_set_rate(ptr noundef %0, i32 noundef %1) #2 align 
   %16 = zext i8 %15 to i32
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 380
   store i32 %16, ptr %17, align 4
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @psmouse_set_scale(ptr noundef %0, i32 noundef %1) #2 align 16 {
+define internal void @psmouse_set_scale(ptr noundef %0, i32 noundef %1) #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = icmp eq i32 %1, 1
   %5 = select i1 %4, i32 231, i32 230
@@ -2655,7 +2649,7 @@ define internal void @psmouse_set_scale(ptr noundef %0, i32 noundef %1) #2 align
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @psmouse_poll(ptr noundef %0) #2 align 16 {
+define internal i32 @psmouse_poll(ptr noundef %0) #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 242
@@ -2668,7 +2662,7 @@ define internal i32 @psmouse_poll(ptr noundef %0) #2 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc zeroext i1 @psmouse_do_detect(ptr noundef readonly captures(none) %0, ptr noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3) unnamed_addr #2 align 16 {
+define internal fastcc zeroext i1 @psmouse_do_detect(ptr noundef readonly captures(none) %0, ptr noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3) unnamed_addr #1 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 201
@@ -2722,7 +2716,7 @@ define internal fastcc zeroext i1 @psmouse_do_detect(ptr noundef readonly captur
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc zeroext i1 @psmouse_try_protocol(ptr noundef %0, i32 noundef range(i32 2, 12) %1, ptr noundef captures(none) %2, i1 noundef zeroext %3) unnamed_addr #2 align 16 {
+define internal fastcc zeroext i1 @psmouse_try_protocol(ptr noundef %0, i32 noundef range(i32 2, 12) %1, ptr noundef captures(none) %2, i1 noundef zeroext %3) unnamed_addr #1 align 16 {
   br label %8
 
 5:                                                ; preds = %8
@@ -2777,16 +2771,16 @@ define internal fastcc zeroext i1 @psmouse_try_protocol(ptr noundef %0, i32 noun
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @synaptics_init(ptr noundef) local_unnamed_addr #4
+declare dso_local i32 @synaptics_init(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @synaptics_reset(ptr noundef) local_unnamed_addr #4
+declare dso_local void @synaptics_reset(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @ps2_interrupt(ptr noundef, i8 noundef zeroext, i32 noundef) #4
+declare dso_local i32 @ps2_interrupt(ptr noundef, i8 noundef zeroext, i32 noundef) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @psmouse_connect(ptr noundef %0, ptr noundef %1) #2 align 16 {
+define internal i32 @psmouse_connect(ptr noundef %0, ptr noundef %1) #1 align 16 {
   %3 = alloca [2 x i8], align 2
   tail call void @mutex_lock(ptr noundef nonnull @psmouse_mutex) #14
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 256
@@ -2894,7 +2888,7 @@ define internal i32 @psmouse_connect(ptr noundef %0, ptr noundef %1) #2 align 16
   br label %67
 
 67:                                               ; preds = %66, %62
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i16 165, ptr %3, align 2, !annotation !7
   %68 = call i32 @ps2_command(ptr noundef nonnull %40, ptr noundef nonnull %3, i32 noundef 754) #14
   %69 = icmp eq i32 %68, 0
@@ -2910,7 +2904,7 @@ define internal i32 @psmouse_connect(ptr noundef %0, ptr noundef %1) #2 align 16
   ]
 
 .thread11:                                        ; preds = %70
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %177
 
 72:                                               ; preds = %70, %70, %70, %70
@@ -2926,11 +2920,11 @@ define internal i32 @psmouse_connect(ptr noundef %0, ptr noundef %1) #2 align 16
   br label %.thread
 
 .thread:                                          ; preds = %75, %72
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %81
 
 79:                                               ; preds = %67
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %80 = icmp slt i32 %68, 0
   br i1 %80, label %177, label %81
 
@@ -3132,19 +3126,19 @@ define internal i32 @psmouse_connect(ptr noundef %0, ptr noundef %1) #2 align 16
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -2, 1) i32 @psmouse_reconnect(ptr noundef readonly captures(none) %0) #2 align 16 {
+define internal noundef range(i32 -2, 1) i32 @psmouse_reconnect(ptr noundef readonly captures(none) %0) #1 align 16 {
   %2 = tail call fastcc i32 @__psmouse_reconnect(ptr noundef %0, i1 noundef zeroext false), !range !23
   ret i32 %2
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -2, 1) i32 @psmouse_fast_reconnect(ptr noundef readonly captures(none) %0) #2 align 16 {
+define internal noundef range(i32 -2, 1) i32 @psmouse_fast_reconnect(ptr noundef readonly captures(none) %0) #1 align 16 {
   %2 = tail call fastcc i32 @__psmouse_reconnect(ptr noundef %0, i1 noundef zeroext true), !range !23
   ret i32 %2
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @psmouse_disconnect(ptr noundef %0) #2 align 16 {
+define internal void @psmouse_disconnect(ptr noundef %0) #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 -16
@@ -3306,7 +3300,7 @@ define internal void @psmouse_disconnect(ptr noundef %0) #2 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @psmouse_cleanup(ptr noundef readonly captures(none) %0) #2 align 16 {
+define internal void @psmouse_cleanup(ptr noundef readonly captures(none) %0) #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 -16
@@ -3450,10 +3444,10 @@ define internal void @psmouse_cleanup(ptr noundef readonly captures(none) %0) #2
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @ps2_init(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare dso_local void @ps2_init(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 0, 3) i32 @psmouse_pre_receive_byte(ptr noundef captures(none) %0, i8 noundef zeroext %1, i32 noundef %2) #2 align 16 {
+define internal noundef range(i32 0, 3) i32 @psmouse_pre_receive_byte(ptr noundef captures(none) %0, i8 noundef zeroext %1, i32 noundef %2) #1 align 16 {
   %4 = getelementptr i8, ptr %0, i64 264
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, 0
@@ -3544,7 +3538,7 @@ define internal noundef range(i32 0, 3) i32 @psmouse_pre_receive_byte(ptr nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @psmouse_receive_byte(ptr noundef %0, i8 noundef zeroext %1) #2 align 16 {
+define internal void @psmouse_receive_byte(ptr noundef %0, i8 noundef zeroext %1) #1 align 16 {
   %3 = getelementptr i8, ptr %0, i64 -16
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 344
@@ -3726,7 +3720,7 @@ define internal void @psmouse_receive_byte(ptr noundef %0, i8 noundef zeroext %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @psmouse_resync(ptr noundef %0) #2 align 16 {
+define internal void @psmouse_resync(ptr noundef %0) #1 align 16 {
   %2 = getelementptr i8, ptr %0, i64 -120
   %3 = getelementptr i8, ptr %0, i64 -104
   %4 = load ptr, ptr %3, align 8
@@ -3989,28 +3983,28 @@ define internal void @psmouse_resync(ptr noundef %0) #2 align 16 {
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @init_timer_key(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare dso_local void @init_timer_key(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @delayed_work_timer_fn(ptr noundef) #4
+declare dso_local void @delayed_work_timer_fn(ptr noundef) #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @serio_open(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare dso_local i32 @serio_open(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @serio_close(ptr noundef) local_unnamed_addr #4
+declare dso_local void @serio_close(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid allocsize(2)
-declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #12
+declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: cold null_pointer_is_valid
-declare dso_local void @_dev_info(ptr noundef, ptr noundef, ...) local_unnamed_addr #6
+declare dso_local void @_dev_info(ptr noundef, ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @serio_reconnect(ptr noundef) local_unnamed_addr #4
+declare dso_local void @serio_reconnect(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -5, 1) i32 @psmouse_handle_byte(ptr noundef %0) unnamed_addr #2 align 16 {
+define internal fastcc noundef range(i32 -5, 1) i32 @psmouse_handle_byte(ptr noundef %0) unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 %3(ptr noundef %0) #14
@@ -4092,22 +4086,22 @@ define internal fastcc noundef range(i32 -5, 1) i32 @psmouse_handle_byte(ptr nou
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @pm_wakeup_dev_event(ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #4
+declare dso_local void @pm_wakeup_dev_event(ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: cold null_pointer_is_valid
-declare dso_local void @_dev_notice(ptr noundef, ptr noundef, ...) local_unnamed_addr #6
+declare dso_local void @_dev_notice(ptr noundef, ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @ps2_sendbyte(ptr noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #4
+declare dso_local i32 @ps2_sendbyte(ptr noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @msleep(i32 noundef) local_unnamed_addr #4
+declare dso_local void @msleep(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @usleep_range_state(i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #4
+declare dso_local void @usleep_range_state(i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -2, 1) i32 @__psmouse_reconnect(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1) unnamed_addr #2 align 16 {
+define internal fastcc noundef range(i32 -2, 1) i32 @__psmouse_reconnect(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1) unnamed_addr #1 align 16 {
   %3 = alloca [2 x i8], align 2
   %4 = alloca [2 x i8], align 2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 464
@@ -4207,11 +4201,11 @@ define internal fastcc noundef range(i32 -2, 1) i32 @__psmouse_reconnect(ptr nou
   br label %82
 
 60:                                               ; preds = %44
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i16 0, ptr %4, align 2, !annotation !7
   %61 = call i32 @ps2_command(ptr noundef %6, ptr noundef nonnull %4, i32 noundef 767) #14
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #14
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i16 165, ptr %3, align 2, !annotation !7
   %62 = call i32 @ps2_command(ptr noundef %6, ptr noundef nonnull %3, i32 noundef 754) #14
   %63 = icmp eq i32 %62, 0
@@ -4227,7 +4221,7 @@ define internal fastcc noundef range(i32 -2, 1) i32 @__psmouse_reconnect(ptr nou
   ]
 
 .thread8:                                         ; preds = %64
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %131
 
 66:                                               ; preds = %64, %64, %64, %64
@@ -4243,11 +4237,11 @@ define internal fastcc noundef range(i32 -2, 1) i32 @__psmouse_reconnect(ptr nou
   br label %.thread
 
 .thread:                                          ; preds = %69, %66
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %75
 
 73:                                               ; preds = %60
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %74 = icmp slt i32 %62, 0
   br i1 %74, label %131, label %75
 
@@ -4392,10 +4386,10 @@ define internal fastcc noundef range(i32 -2, 1) i32 @__psmouse_reconnect(ptr nou
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @__flush_workqueue(ptr noundef) local_unnamed_addr #4
+declare dso_local void @__flush_workqueue(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef range(i64 -2147483648, 2147483648) i64 @psmouse_show_int_attr(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) #11 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @psmouse_show_int_attr(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) #10 align 16 {
   %4 = ptrtoint ptr %1 to i64
   %5 = getelementptr i8, ptr %0, i64 %4
   %6 = load i32, ptr %5, align 4
@@ -4405,9 +4399,9 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @psmouse_show_int
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @psmouse_attr_set_rate(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i64 noundef %3) #2 align 16 {
+define internal i64 @psmouse_attr_set_rate(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i64 noundef %3) #1 align 16 {
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4, !annotation !7
   %6 = call i32 @kstrtouint(ptr noundef %2, i32 noundef 10, ptr noundef nonnull %5) #14
   %7 = icmp eq i32 %6, 0
@@ -4426,17 +4420,17 @@ define internal i64 @psmouse_attr_set_rate(ptr noundef %0, ptr readnone captures
 
 14:                                               ; preds = %10, %8
   %15 = phi i64 [ %9, %8 ], [ %3, %10 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %15
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @kstrtouint(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare dso_local i32 @kstrtouint(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @psmouse_attr_set_resolution(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i64 noundef %3) #2 align 16 {
+define internal i64 @psmouse_attr_set_resolution(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i64 noundef %3) #1 align 16 {
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4, !annotation !7
   %6 = call i32 @kstrtouint(ptr noundef %2, i32 noundef 10, ptr noundef nonnull %5) #14
   %7 = icmp eq i32 %6, 0
@@ -4455,14 +4449,14 @@ define internal i64 @psmouse_attr_set_resolution(ptr noundef %0, ptr readnone ca
 
 14:                                               ; preds = %10, %8
   %15 = phi i64 [ %9, %8 ], [ %3, %10 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %15
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @psmouse_set_int_attr(ptr noundef writeonly captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) #2 align 16 {
+define internal i64 @psmouse_set_int_attr(ptr noundef writeonly captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) #1 align 16 {
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4, !annotation !7
   %6 = call i32 @kstrtouint(ptr noundef %2, i32 noundef 10, ptr noundef nonnull %5) #14
   %7 = icmp eq i32 %6, 0
@@ -4481,45 +4475,51 @@ define internal i64 @psmouse_set_int_attr(ptr noundef writeonly captures(none) %
 
 14:                                               ; preds = %10, %8
   %15 = phi i64 [ %9, %8 ], [ %3, %10 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %15
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @lifebook_module_init() local_unnamed_addr #4
+declare dso_local void @lifebook_module_init() local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @synaptics_module_init() local_unnamed_addr #4
+declare dso_local void @synaptics_module_init() local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @psmouse_smbus_module_init() local_unnamed_addr #4
+declare dso_local i32 @psmouse_smbus_module_init() local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local ptr @alloc_workqueue(ptr noundef, i32 noundef, i32 noundef, ...) local_unnamed_addr #4
+declare dso_local ptr @alloc_workqueue(ptr noundef, i32 noundef, i32 noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: cold null_pointer_is_valid
-declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #6
+declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @__serio_register_driver(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare dso_local i32 @__serio_register_driver(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #13
+declare i32 @llvm.abs.i32(i32, i1 immarg) #12
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
 attributes #0 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #6 = { cold null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #7 = { cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #8 = { fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #9 = { nofree nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #11 = { fn_ret_thunk_extern nofree nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #12 = { null_pointer_is_valid allocsize(2) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #1 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #5 = { cold null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #6 = { cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #7 = { fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #8 = { nofree nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #10 = { fn_ret_thunk_extern nofree nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #11 = { null_pointer_is_valid allocsize(2) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #14 = { nounwind }
 attributes #15 = { cold nounwind }
 attributes #16 = { nounwind allocsize(2) }

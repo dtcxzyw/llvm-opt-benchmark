@@ -78,7 +78,7 @@ define hidden void @_ZN6hermes2vm15StorageProvider20contiguousVAProviderEm(ptr n
 entry:
   %result.i.i = alloca %"class.llvh::ErrorOr", align 8
   %call.i = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #17, !noalias !4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %result.i.i), !noalias !4
+  call void @llvm.lifetime.start.p0(ptr nonnull %result.i.i), !noalias !4
   %numSucceededAllocs_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %numSucceededAllocs_.i.i.i, i8 0, i64 24, i1 false), !noalias !4
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes2vm12_GLOBAL__N_127ContiguousVAStorageProviderE, i64 16), ptr %call.i, align 8, !noalias !4
@@ -115,7 +115,7 @@ _ZNSt10unique_ptrIN6hermes2vm12_GLOBAL__N_127ContiguousVAStorageProviderESt14def
   store ptr %2, ptr %level_.i.i, align 8, !noalias !4
   %3 = load i64, ptr %size_.i.i, align 8, !noalias !4
   call void @_ZN6hermes8oscompat7vm_nameEPvmPKc(ptr noundef %2, i64 noundef %3, ptr noundef nonnull @.str.4) #18, !noalias !4
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %result.i.i), !noalias !4
+  call void @llvm.lifetime.end.p0(ptr nonnull %result.i.i), !noalias !4
   store ptr %call.i, ptr %agg.result, align 8
   ret void
 }
@@ -256,8 +256,8 @@ entry:
   %ref.tmp2.i = alloca %"class.std::allocator", align 1
   %ref.tmp = alloca %"class.std::random_device", align 8
   %ref.tmp1 = alloca %"class.std::random_device", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp2.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2.i)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2.i) #18
   %call.i.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef %call.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2.i) #18
@@ -268,14 +268,14 @@ entry:
   call void @_ZNSt13random_device7_M_initERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(5000) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #18
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2.i) #18
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp2.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i)
   %call.i = call noundef i32 @_ZNSt13random_device9_M_getvalEv(ptr noundef nonnull align 8 dereferenceable(5000) %ref.tmp) #18
   %conv = zext i32 %call.i to i64
   call void @_ZNSt13random_device7_M_finiEv(ptr noundef nonnull align 8 dereferenceable(5000) %ref.tmp) #18
   %shl = shl nuw i64 %conv, 32
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i3)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp2.i4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2.i4)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2.i4) #18
   %call.i.i5 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i3) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i3, ptr noundef %call.i.i5, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2.i4) #18
@@ -286,8 +286,8 @@ entry:
   call void @_ZNSt13random_device7_M_initERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(5000) %ref.tmp1, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i3) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i3) #18
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2.i4) #18
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i3)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp2.i4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i4)
   %call.i6 = call noundef i32 @_ZNSt13random_device9_M_getvalEv(ptr noundef nonnull align 8 dereferenceable(5000) %ref.tmp1) #18
   %conv3 = zext i32 %call.i6 to i64
   call void @_ZNSt13random_device7_M_finiEv(ptr noundef nonnull align 8 dereferenceable(5000) %ref.tmp1) #18
@@ -1153,10 +1153,10 @@ declare void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #14

@@ -8452,37 +8452,31 @@ define hidden i32 @dissect_ngap_SecondaryRATDataUsageReportTransfer(ptr noundef 
   ret i32 %18
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @p_get_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @p_get_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @col_append_sep_str(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @col_append_sep_str(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_per_sequence(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @dissect_per_sequence(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden range(i32 -268435456, 268435456) i32 @dissect_ngap_LastVisitedNGRANCellInformation_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_ngap_LastVisitedNGRANCellInformation_PDU, align 4
   %7 = load i32, ptr @ett_ngap_LastVisitedNGRANCellInformation, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @LastVisitedNGRANCellInformation_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @asn1_ctx_init(ptr noundef, i32 noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #2
+declare void @asn1_ctx_init(ptr noundef, i32 noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ngap_LastVisitedNGRANCellInformation(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
@@ -8494,14 +8488,14 @@ define internal i32 @dissect_ngap_LastVisitedNGRANCellInformation(ptr noundef %0
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden range(i32 -268435456, 268435456) i32 @dissect_ngap_LastVisitedPSCellInformation_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_ngap_LastVisitedPSCellInformation_PDU, align 4
   %7 = load i32, ptr @ett_ngap_LastVisitedPSCellInformation, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @LastVisitedPSCellInformation_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
@@ -8515,42 +8509,42 @@ define internal i32 @dissect_ngap_LastVisitedPSCellInformation(ptr noundef %0, i
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden range(i32 -268435456, 268435456) i32 @dissect_ngap_MobilityRestrictionList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_ngap_MobilityRestrictionList_PDU, align 4
   %7 = load i32, ptr @ett_ngap_MobilityRestrictionList, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @MobilityRestrictionList_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden range(i32 -268435456, 268435456) i32 @dissect_ngap_MDT_Configuration_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_ngap_MDT_Configuration_PDU, align 4
   %7 = load i32, ptr @ett_ngap_MDT_Configuration, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @MDT_Configuration_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden range(i32 -268435456, 268435456) i32 @dissect_ngap_NGRAN_CGI_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_ngap_NGRAN_CGI_PDU, align 4
   %7 = load i32, ptr @ett_ngap_NGRAN_CGI, align 4
   %8 = call i32 @dissect_per_choice(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @NGRAN_CGI_choice, ptr noundef null)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
@@ -8564,7 +8558,7 @@ define internal i32 @dissect_ngap_NGRAN_CGI(ptr noundef %0, i32 noundef %1, ptr 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden range(i32 -268435456, 268435456) i32 @dissect_ngap_SONConfigurationTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_ngap_SONConfigurationTransfer_PDU, align 4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -8588,14 +8582,14 @@ dissect_ngap_SONConfigurationTransfer.exit:       ; preds = %4, %13
   %18 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %17, ptr noundef nonnull @SONConfigurationTransfer_sequence)
   %19 = add i32 %18, 7
   %20 = ashr i32 %19, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %20
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden range(i32 -268435456, 268435456) i32 @dissect_ngap_SourceNGRANNode_ToTargetNGRANNode_TransparentContainer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_ngap_SourceNGRANNode_ToTargetNGRANNode_TransparentContainer_PDU, align 4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -8609,7 +8603,7 @@ define hidden range(i32 -268435456, 268435456) i32 @dissect_ngap_SourceNGRANNode
 
 13:                                               ; preds = %4
   %14 = load ptr, ptr %9, align 8
-  %15 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %14, i64 noundef 72) #13
+  %15 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %14, i64 noundef 72) #12
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store i32 -1, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 56
@@ -8627,14 +8621,14 @@ dissect_ngap_SourceNGRANNode_ToTargetNGRANNode_TransparentContainer.exit: ; pred
   %22 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %21, ptr noundef nonnull @SourceNGRANNode_ToTargetNGRANNode_TransparentContainer_sequence)
   %23 = add i32 %22, 7
   %24 = ashr i32 %23, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %24
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden range(i32 -268435456, 268435456) i32 @dissect_ngap_TargetNGRANNode_ToSourceNGRANNode_TransparentContainer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_ngap_TargetNGRANNode_ToSourceNGRANNode_TransparentContainer_PDU, align 4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -8648,7 +8642,7 @@ define hidden range(i32 -268435456, 268435456) i32 @dissect_ngap_TargetNGRANNode
 
 13:                                               ; preds = %4
   %14 = load ptr, ptr %9, align 8
-  %15 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %14, i64 noundef 72) #13
+  %15 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %14, i64 noundef 72) #12
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store i32 -1, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 56
@@ -8666,7 +8660,7 @@ dissect_ngap_TargetNGRANNode_ToSourceNGRANNode_TransparentContainer.exit: ; pred
   %22 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %21, ptr noundef nonnull @TargetNGRANNode_ToSourceNGRANNode_TransparentContainer_sequence)
   %23 = add i32 %22, 7
   %24 = ashr i32 %23, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %24
 }
 
@@ -10544,13 +10538,13 @@ define hidden void @proto_reg_handoff_ngap() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @find_dissector_add_dependency(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @find_dissector_add_dependency(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @create_dissector_handle(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @create_dissector_handle(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_QosFlowAdditionalInfoListRel_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
@@ -10565,7 +10559,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_QosFlowAdditionalI
 
 11:                                               ; preds = %4
   %12 = load ptr, ptr %7, align 8
-  %13 = tail call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %12, i64 noundef 72) #13
+  %13 = tail call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %12, i64 noundef 72) #12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store i32 -1, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 56
@@ -10583,21 +10577,21 @@ ngap_get_private_data.exit:                       ; preds = %4, %11
   br i1 %20, label %21, label %25
 
 21:                                               ; preds = %ngap_get_private_data.exit
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @asn1_ctx_init(ptr noundef nonnull %6, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %22 = load i32, ptr @hf_ngap_QosFlowAdditionalInfoListRelCom_PDU, align 4
   %23 = load i32, ptr @ett_ngap_QosFlowAdditionalInfoListRelCom, align 4
   %24 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %6, ptr noundef %2, i32 noundef %22, i32 noundef %23, ptr noundef nonnull @QosFlowAdditionalInfoListRelCom_sequence_of, i32 noundef 1, i32 noundef 64, i1 noundef zeroext false)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %29
 
 25:                                               ; preds = %ngap_get_private_data.exit
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %26 = load i32, ptr @hf_ngap_QosFlowAdditionalInfoListRelRes_PDU, align 4
   %27 = load i32, ptr @ett_ngap_QosFlowAdditionalInfoListRelRes, align 4
   %28 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %26, i32 noundef %27, ptr noundef nonnull @QosFlowAdditionalInfoListRelRes_sequence_of, i32 noundef 1, i32 noundef 64, i1 noundef zeroext false)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %29
 
 29:                                               ; preds = %25, %21
@@ -10610,274 +10604,274 @@ ngap_get_private_data.exit:                       ; preds = %4, %11
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_AllowedNSSAI_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_AllowedNSSAI_PDU, align 4
   %7 = load i32, ptr @ett_ngap_AllowedNSSAI, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @AllowedNSSAI_sequence_of, i32 noundef 1, i32 noundef 8, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_AMFName_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_AMFName_PDU, align 4
   %7 = call i32 @dissect_per_PrintableString(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 1, i32 noundef 150, i1 noundef zeroext true, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_OverloadResponse_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_OverloadResponse_PDU, align 4
   %7 = load i32, ptr @ett_ngap_OverloadResponse, align 4
   %8 = call i32 @dissect_per_choice(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @OverloadResponse_choice, ptr noundef null)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_AMFSetID_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_AMFSetID_PDU, align 4
   %7 = call i32 @dissect_per_bit_string(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 10, i32 noundef 10, i1 noundef zeroext false, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_TNLAssociationList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_TNLAssociationList_PDU, align 4
   %7 = load i32, ptr @ett_ngap_TNLAssociationList, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @TNLAssociationList_sequence_of, i32 noundef 1, i32 noundef 32, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_AMF_TNLAssociationSetupList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_AMF_TNLAssociationSetupList_PDU, align 4
   %7 = load i32, ptr @ett_ngap_AMF_TNLAssociationSetupList, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @AMF_TNLAssociationSetupList_sequence_of, i32 noundef 1, i32 noundef 32, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_AMF_TNLAssociationToAddList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_AMF_TNLAssociationToAddList_PDU, align 4
   %7 = load i32, ptr @ett_ngap_AMF_TNLAssociationToAddList, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @AMF_TNLAssociationToAddList_sequence_of, i32 noundef 1, i32 noundef 32, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_AMF_TNLAssociationToRemoveList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_AMF_TNLAssociationToRemoveList_PDU, align 4
   %7 = load i32, ptr @ett_ngap_AMF_TNLAssociationToRemoveList, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @AMF_TNLAssociationToRemoveList_sequence_of, i32 noundef 1, i32 noundef 32, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_AMF_TNLAssociationToUpdateList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_AMF_TNLAssociationToUpdateList_PDU, align 4
   %7 = load i32, ptr @ett_ngap_AMF_TNLAssociationToUpdateList, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @AMF_TNLAssociationToUpdateList_sequence_of, i32 noundef 1, i32 noundef 32, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_TrafficLoadReductionIndication_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_TrafficLoadReductionIndication_PDU, align 4
   %7 = call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 1, i32 noundef 99, ptr noundef null, i1 noundef zeroext false)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_AMF_UE_NGAP_ID_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_AMF_UE_NGAP_ID_PDU, align 4
   %7 = call i32 @dissect_per_constrained_integer_64b(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i64 noundef 0, i64 noundef 1099511627775, ptr noundef null, i1 noundef zeroext false)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_AssistanceDataForPaging_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_AssistanceDataForPaging_PDU, align 4
   %7 = load i32, ptr @ett_ngap_AssistanceDataForPaging, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @AssistanceDataForPaging_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_BroadcastCancelledAreaList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_BroadcastCancelledAreaList_PDU, align 4
   %7 = load i32, ptr @ett_ngap_BroadcastCancelledAreaList, align 4
   %8 = call i32 @dissect_per_choice(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @BroadcastCancelledAreaList_choice, ptr noundef null)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_BroadcastCompletedAreaList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_BroadcastCompletedAreaList_PDU, align 4
   %7 = load i32, ptr @ett_ngap_BroadcastCompletedAreaList, align 4
   %8 = call i32 @dissect_per_choice(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @BroadcastCompletedAreaList_choice, ptr noundef null)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_CancelAllWarningMessages_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_CancelAllWarningMessages_PDU, align 4
   %7 = call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 1, ptr noundef null, i1 noundef zeroext true, i32 noundef 0, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_Cause_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_Cause_PDU, align 4
   %7 = load i32, ptr @ett_ngap_Cause, align 4
   %8 = call i32 @dissect_per_choice(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @Cause_choice, ptr noundef null)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_CellIDListForRestart_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_CellIDListForRestart_PDU, align 4
   %7 = load i32, ptr @ett_ngap_CellIDListForRestart, align 4
   %8 = call i32 @dissect_per_choice(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @CellIDListForRestart_choice, ptr noundef null)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_ConcurrentWarningMessageInd_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_ConcurrentWarningMessageInd_PDU, align 4
   %7 = call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 1, ptr noundef null, i1 noundef zeroext true, i32 noundef 0, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_CoreNetworkAssistanceInformationForInactive_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_CoreNetworkAssistanceInformationForInactive_PDU, align 4
   %7 = load i32, ptr @ett_ngap_CoreNetworkAssistanceInformationForInactive, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @CoreNetworkAssistanceInformationForInactive_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_CriticalityDiagnostics_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_CriticalityDiagnostics_PDU, align 4
   %7 = load i32, ptr @ett_ngap_CriticalityDiagnostics, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @CriticalityDiagnostics_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
@@ -10885,10 +10879,10 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_CriticalityDiagnos
 define internal range(i32 -268435456, 268435456) i32 @dissect_DataCodingScheme_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @asn1_ctx_init(ptr noundef nonnull %6, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %7 = load i32, ptr @hf_ngap_DataCodingScheme_PDU, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8
   %8 = call i32 @dissect_per_bit_string(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %6, ptr noundef %2, i32 noundef %7, i32 noundef 8, i32 noundef 8, i1 noundef zeroext false, ptr noundef null, i32 noundef 0, ptr noundef nonnull %5, ptr noundef null)
   %9 = load ptr, ptr %5, align 8
@@ -10907,7 +10901,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_DataCodingScheme_P
 
 17:                                               ; preds = %10
   %18 = load ptr, ptr %13, align 8
-  %19 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %18, i64 noundef 72) #13
+  %19 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %18, i64 noundef 72) #12
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   store i32 -1, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 56
@@ -10931,71 +10925,71 @@ ngap_get_private_data.exit.i:                     ; preds = %17, %10
   br label %dissect_ngap_DataCodingScheme.exit
 
 dissect_ngap_DataCodingScheme.exit:               ; preds = %4, %ngap_get_private_data.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %32 = add i32 %8, 7
   %33 = ashr i32 %32, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %33
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_PagingDRX_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_PagingDRX_PDU, align 4
   %7 = call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 4, ptr noundef null, i1 noundef zeroext true, i32 noundef 0, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_DirectForwardingPathAvailability_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_DirectForwardingPathAvailability_PDU, align 4
   %7 = call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 1, ptr noundef null, i1 noundef zeroext true, i32 noundef 0, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_EmergencyAreaIDListForRestart_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_EmergencyAreaIDListForRestart_PDU, align 4
   %7 = load i32, ptr @ett_ngap_EmergencyAreaIDListForRestart, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @EmergencyAreaIDListForRestart_sequence_of, i32 noundef 1, i32 noundef 256, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_EmergencyFallbackIndicator_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_EmergencyFallbackIndicator_PDU, align 4
   %7 = load i32, ptr @ett_ngap_EmergencyFallbackIndicator, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @EmergencyFallbackIndicator_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_EUTRA_CGI_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_EUTRA_CGI_PDU, align 4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -11009,7 +11003,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_EUTRA_CGI_PDU(ptr 
 
 13:                                               ; preds = %4
   %14 = load ptr, ptr %9, align 8
-  %15 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %14, i64 noundef 72) #13
+  %15 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %14, i64 noundef 72) #12
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store i32 -1, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 56
@@ -11027,41 +11021,41 @@ dissect_ngap_EUTRA_CGI.exit:                      ; preds = %4, %13
   %22 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %21, ptr noundef nonnull @EUTRA_CGI_sequence)
   %23 = add i32 %22, 7
   %24 = ashr i32 %23, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %24
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_FiveG_S_TMSI_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_FiveG_S_TMSI_PDU, align 4
   %7 = load i32, ptr @ett_ngap_FiveG_S_TMSI, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @FiveG_S_TMSI_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_GlobalRANNodeID_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_GlobalRANNodeID_PDU, align 4
   %7 = call i32 @dissect_ngap_GlobalRANNodeID(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_GUAMI_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_GUAMI_PDU, align 4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -11075,7 +11069,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_GUAMI_PDU(ptr noun
 
 13:                                               ; preds = %4
   %14 = load ptr, ptr %9, align 8
-  %15 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %14, i64 noundef 72) #13
+  %15 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %14, i64 noundef 72) #12
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store i32 -1, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 56
@@ -11093,14 +11087,14 @@ dissect_ngap_GUAMI.exit:                          ; preds = %4, %13
   %22 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %21, ptr noundef nonnull @GUAMI_sequence)
   %23 = add i32 %22, 7
   %24 = ashr i32 %23, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %24
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverType_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_HandoverType_PDU, align 4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -11114,7 +11108,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverType_PDU(p
 
 13:                                               ; preds = %4
   %14 = load ptr, ptr %9, align 8
-  %15 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %14, i64 noundef 72) #13
+  %15 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %14, i64 noundef 72) #12
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store i32 -1, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 56
@@ -11130,74 +11124,74 @@ dissect_ngap_HandoverType.exit:                   ; preds = %4, %13
   %21 = call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 3, ptr noundef nonnull %20, i1 noundef zeroext true, i32 noundef 1, ptr noundef null)
   %22 = add i32 %21, 7
   %23 = ashr i32 %22, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %23
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_IMSVoiceSupportIndicator_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_IMSVoiceSupportIndicator_PDU, align 4
   %7 = call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 2, ptr noundef null, i1 noundef zeroext true, i32 noundef 0, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_IndexToRFSP_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_IndexToRFSP_PDU, align 4
   %7 = call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 1, i32 noundef 256, ptr noundef null, i1 noundef zeroext true)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_InfoOnRecommendedCellsAndRANNodesForPaging_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_InfoOnRecommendedCellsAndRANNodesForPaging_PDU, align 4
   %7 = load i32, ptr @ett_ngap_InfoOnRecommendedCellsAndRANNodesForPaging, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @InfoOnRecommendedCellsAndRANNodesForPaging_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_LocationReportingRequestType_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_LocationReportingRequestType_PDU, align 4
   %7 = load i32, ptr @ett_ngap_LocationReportingRequestType, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @LocationReportingRequestType_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_MaskedIMEISV_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_MaskedIMEISV_PDU, align 4
   %7 = call i32 @dissect_per_bit_string(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 64, i32 noundef 64, i1 noundef zeroext false, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
@@ -11205,10 +11199,10 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MaskedIMEISV_PDU(p
 define internal range(i32 -268435456, 268435456) i32 @dissect_MessageIdentifier_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @asn1_ctx_init(ptr noundef nonnull %6, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %7 = load i32, ptr @hf_ngap_MessageIdentifier_PDU, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8
   %8 = call i32 @dissect_per_bit_string(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %6, ptr noundef %2, i32 noundef -1, i32 noundef 16, i32 noundef 16, i1 noundef zeroext false, ptr noundef null, i32 noundef 0, ptr noundef nonnull %5, ptr noundef null)
   %9 = load ptr, ptr %5, align 8
@@ -11220,23 +11214,23 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MessageIdentifier_
   br label %dissect_ngap_MessageIdentifier.exit
 
 dissect_ngap_MessageIdentifier.exit:              ; preds = %4, %10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %12 = add i32 %8, 7
   %13 = ashr i32 %12, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %13
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_NAS_PDU_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_NAS_PDU_PDU, align 4
   %7 = call i32 @dissect_ngap_NAS_PDU(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
@@ -11244,10 +11238,10 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_NAS_PDU_PDU(ptr no
 define internal range(i32 -268435456, 268435456) i32 @dissect_NASSecurityParametersFromNGRAN_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @asn1_ctx_init(ptr noundef nonnull %6, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %7 = load i32, ptr @hf_ngap_NASSecurityParametersFromNGRAN_PDU, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8
   %8 = call i32 @dissect_per_octet_string(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %6, ptr noundef %2, i32 noundef %7, i32 noundef -1, i32 noundef -1, i1 noundef zeroext false, ptr noundef nonnull %5)
   %9 = load ptr, ptr %5, align 8
@@ -11266,23 +11260,23 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_NASSecurityParamet
   br label %dissect_ngap_NASSecurityParametersFromNGRAN.exit
 
 dissect_ngap_NASSecurityParametersFromNGRAN.exit: ; preds = %4, %10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %18 = add i32 %8, 7
   %19 = ashr i32 %18, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %19
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_NewSecurityContextInd_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_NewSecurityContextInd_PDU, align 4
   %7 = call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 1, ptr noundef null, i1 noundef zeroext true, i32 noundef 0, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
@@ -11290,10 +11284,10 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_NewSecurityContext
 define internal range(i32 -268435456, 268435456) i32 @dissect_NGAP_Message_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @asn1_ctx_init(ptr noundef nonnull %6, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %7 = load i32, ptr @hf_ngap_NGAP_Message_PDU, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %8 = call i32 @dissect_per_octet_string(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %6, ptr noundef %2, i32 noundef %7, i32 noundef -1, i32 noundef -1, i1 noundef zeroext false, ptr noundef nonnull %5)
   %9 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %9, null
@@ -11312,30 +11306,30 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_NGAP_Message_PDU(p
   br label %dissect_ngap_NGAP_Message.exit
 
 dissect_ngap_NGAP_Message.exit:                   ; preds = %4, %10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %20 = add i32 %8, 7
   %21 = ashr i32 %20, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %21
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_NGRANTraceID_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_NGRANTraceID_PDU, align 4
   %7 = call i32 @dissect_ngap_NGRANTraceID(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_NR_CGI_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_NR_CGI_PDU, align 4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -11349,7 +11343,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_NR_CGI_PDU(ptr nou
 
 13:                                               ; preds = %4
   %14 = load ptr, ptr %9, align 8
-  %15 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %14, i64 noundef 72) #13
+  %15 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %14, i64 noundef 72) #12
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store i32 -1, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 56
@@ -11367,7 +11361,7 @@ dissect_ngap_NR_CGI.exit:                         ; preds = %4, %13
   %22 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %21, ptr noundef nonnull @NR_CGI_sequence)
   %23 = add i32 %22, 7
   %24 = ashr i32 %23, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %24
 }
 
@@ -11375,7 +11369,7 @@ dissect_ngap_NR_CGI.exit:                         ; preds = %4, %13
 define internal range(i32 -268435456, 268435456) i32 @dissect_NRPPa_PDU_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @asn1_ctx_init(ptr noundef nonnull %6, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %7 = load i32, ptr @hf_ngap_NRPPa_PDU_PDU, align 4
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -11395,7 +11389,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_NRPPa_PDU_PDU(ptr 
   br label %18
 
 18:                                               ; preds = %14, %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8
   %19 = call i32 @dissect_per_octet_string(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %6, ptr noundef %2, i32 noundef %7, i32 noundef -1, i32 noundef -1, i1 noundef zeroext false, ptr noundef nonnull %5)
   %20 = load ptr, ptr %5, align 8
@@ -11413,502 +11407,502 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_NRPPa_PDU_PDU(ptr 
   br label %dissect_ngap_NRPPa_PDU.exit
 
 dissect_ngap_NRPPa_PDU.exit:                      ; preds = %18, %25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %29 = add i32 %19, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_NumberOfBroadcastsRequested_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_NumberOfBroadcastsRequested_PDU, align 4
   %7 = call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 0, i32 noundef 65535, ptr noundef null, i1 noundef zeroext false)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_OverloadStartNSSAIList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_OverloadStartNSSAIList_PDU, align 4
   %7 = load i32, ptr @ett_ngap_OverloadStartNSSAIList, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @OverloadStartNSSAIList_sequence_of, i32 noundef 1, i32 noundef 1024, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_PagingOrigin_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_PagingOrigin_PDU, align 4
   %7 = call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 1, ptr noundef null, i1 noundef zeroext true, i32 noundef 0, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_PagingPriority_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_PagingPriority_PDU, align 4
   %7 = call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 8, ptr noundef null, i1 noundef zeroext true, i32 noundef 0, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceAdmittedList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceAdmittedList_PDU, align 4
   %7 = load i32, ptr @ett_ngap_PDUSessionResourceAdmittedList, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @PDUSessionResourceAdmittedList_sequence_of, i32 noundef 1, i32 noundef 256, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceFailedToModifyListModRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceFailedToModifyListModRes_PDU, align 4
   %7 = load i32, ptr @ett_ngap_PDUSessionResourceFailedToModifyListModRes, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @PDUSessionResourceFailedToModifyListModRes_sequence_of, i32 noundef 1, i32 noundef 256, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceFailedToSetupListCxtRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceFailedToSetupListCxtRes_PDU, align 4
   %7 = load i32, ptr @ett_ngap_PDUSessionResourceFailedToSetupListCxtRes, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @PDUSessionResourceFailedToSetupListCxtRes_sequence_of, i32 noundef 1, i32 noundef 256, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceFailedToSetupListHOAck_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceFailedToSetupListHOAck_PDU, align 4
   %7 = load i32, ptr @ett_ngap_PDUSessionResourceFailedToSetupListHOAck, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @PDUSessionResourceFailedToSetupListHOAck_sequence_of, i32 noundef 1, i32 noundef 256, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceFailedToSetupListPSReq_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceFailedToSetupListPSReq_PDU, align 4
   %7 = load i32, ptr @ett_ngap_PDUSessionResourceFailedToSetupListPSReq, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @PDUSessionResourceFailedToSetupListPSReq_sequence_of, i32 noundef 1, i32 noundef 256, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceFailedToSetupListSURes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceFailedToSetupListSURes_PDU, align 4
   %7 = load i32, ptr @ett_ngap_PDUSessionResourceFailedToSetupListSURes, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @PDUSessionResourceFailedToSetupListSURes_sequence_of, i32 noundef 1, i32 noundef 256, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceHandoverList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceHandoverList_PDU, align 4
   %7 = load i32, ptr @ett_ngap_PDUSessionResourceHandoverList, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @PDUSessionResourceHandoverList_sequence_of, i32 noundef 1, i32 noundef 256, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceListCxtRelCpl_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceListCxtRelCpl_PDU, align 4
   %7 = load i32, ptr @ett_ngap_PDUSessionResourceListCxtRelCpl, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @PDUSessionResourceListCxtRelCpl_sequence_of, i32 noundef 1, i32 noundef 256, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceListHORqd_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceListHORqd_PDU, align 4
   %7 = load i32, ptr @ett_ngap_PDUSessionResourceListHORqd, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @PDUSessionResourceListHORqd_sequence_of, i32 noundef 1, i32 noundef 256, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceModifyListModCfm_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceModifyListModCfm_PDU, align 4
   %7 = load i32, ptr @ett_ngap_PDUSessionResourceModifyListModCfm, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @PDUSessionResourceModifyListModCfm_sequence_of, i32 noundef 1, i32 noundef 256, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceModifyListModInd_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceModifyListModInd_PDU, align 4
   %7 = load i32, ptr @ett_ngap_PDUSessionResourceModifyListModInd, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @PDUSessionResourceModifyListModInd_sequence_of, i32 noundef 1, i32 noundef 256, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceModifyListModReq_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceModifyListModReq_PDU, align 4
   %7 = load i32, ptr @ett_ngap_PDUSessionResourceModifyListModReq, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @PDUSessionResourceModifyListModReq_sequence_of, i32 noundef 1, i32 noundef 256, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceModifyListModRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceModifyListModRes_PDU, align 4
   %7 = load i32, ptr @ett_ngap_PDUSessionResourceModifyListModRes, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @PDUSessionResourceModifyListModRes_sequence_of, i32 noundef 1, i32 noundef 256, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceNotifyList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceNotifyList_PDU, align 4
   %7 = load i32, ptr @ett_ngap_PDUSessionResourceNotifyList, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @PDUSessionResourceNotifyList_sequence_of, i32 noundef 1, i32 noundef 256, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceReleasedListNot_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceReleasedListNot_PDU, align 4
   %7 = load i32, ptr @ett_ngap_PDUSessionResourceReleasedListNot, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @PDUSessionResourceReleasedListNot_sequence_of, i32 noundef 1, i32 noundef 256, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceReleasedListPSAck_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceReleasedListPSAck_PDU, align 4
   %7 = load i32, ptr @ett_ngap_PDUSessionResourceReleasedListPSAck, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @PDUSessionResourceReleasedListPSAck_sequence_of, i32 noundef 1, i32 noundef 256, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceReleasedListPSFail_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceReleasedListPSFail_PDU, align 4
   %7 = load i32, ptr @ett_ngap_PDUSessionResourceReleasedListPSFail, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @PDUSessionResourceReleasedListPSFail_sequence_of, i32 noundef 1, i32 noundef 256, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceReleasedListRelRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceReleasedListRelRes_PDU, align 4
   %7 = load i32, ptr @ett_ngap_PDUSessionResourceReleasedListRelRes, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @PDUSessionResourceReleasedListRelRes_sequence_of, i32 noundef 1, i32 noundef 256, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceSetupListCxtReq_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceSetupListCxtReq_PDU, align 4
   %7 = load i32, ptr @ett_ngap_PDUSessionResourceSetupListCxtReq, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @PDUSessionResourceSetupListCxtReq_sequence_of, i32 noundef 1, i32 noundef 256, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceSetupListCxtRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceSetupListCxtRes_PDU, align 4
   %7 = load i32, ptr @ett_ngap_PDUSessionResourceSetupListCxtRes, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @PDUSessionResourceSetupListCxtRes_sequence_of, i32 noundef 1, i32 noundef 256, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceSetupListHOReq_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceSetupListHOReq_PDU, align 4
   %7 = load i32, ptr @ett_ngap_PDUSessionResourceSetupListHOReq, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @PDUSessionResourceSetupListHOReq_sequence_of, i32 noundef 1, i32 noundef 256, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceSetupListSUReq_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceSetupListSUReq_PDU, align 4
   %7 = load i32, ptr @ett_ngap_PDUSessionResourceSetupListSUReq, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @PDUSessionResourceSetupListSUReq_sequence_of, i32 noundef 1, i32 noundef 256, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceSetupListSURes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceSetupListSURes_PDU, align 4
   %7 = load i32, ptr @ett_ngap_PDUSessionResourceSetupListSURes, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @PDUSessionResourceSetupListSURes_sequence_of, i32 noundef 1, i32 noundef 256, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceToBeSwitchedDLList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceToBeSwitchedDLList_PDU, align 4
   %7 = load i32, ptr @ett_ngap_PDUSessionResourceToBeSwitchedDLList, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @PDUSessionResourceToBeSwitchedDLList_sequence_of, i32 noundef 1, i32 noundef 256, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceSwitchedList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceSwitchedList_PDU, align 4
   %7 = load i32, ptr @ett_ngap_PDUSessionResourceSwitchedList, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @PDUSessionResourceSwitchedList_sequence_of, i32 noundef 1, i32 noundef 256, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceToReleaseListHOCmd_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceToReleaseListHOCmd_PDU, align 4
   %7 = load i32, ptr @ett_ngap_PDUSessionResourceToReleaseListHOCmd, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @PDUSessionResourceToReleaseListHOCmd_sequence_of, i32 noundef 1, i32 noundef 256, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceToReleaseListRelCmd_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceToReleaseListRelCmd_PDU, align 4
   %7 = load i32, ptr @ett_ngap_PDUSessionResourceToReleaseListRelCmd, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @PDUSessionResourceToReleaseListRelCmd_sequence_of, i32 noundef 1, i32 noundef 256, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_PLMNSupportList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_PLMNSupportList_PDU, align 4
   %7 = load i32, ptr @ett_ngap_PLMNSupportList, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @PLMNSupportList_sequence_of, i32 noundef 1, i32 noundef 12, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_PWSFailedCellIDList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_PWSFailedCellIDList_PDU, align 4
   %7 = load i32, ptr @ett_ngap_PWSFailedCellIDList, align 4
   %8 = call i32 @dissect_per_choice(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @PWSFailedCellIDList_choice, ptr noundef null)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_RANNodeName_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_RANNodeName_PDU, align 4
   %7 = call i32 @dissect_per_PrintableString(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 1, i32 noundef 150, i1 noundef zeroext true, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_RANPagingPriority_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_RANPagingPriority_PDU, align 4
   %7 = call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 1, i32 noundef 256, ptr noundef null, i1 noundef zeroext false)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_RANStatusTransfer_TransparentContainer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_RANStatusTransfer_TransparentContainer_PDU, align 4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -11932,7 +11926,7 @@ dissect_ngap_RANStatusTransfer_TransparentContainer.exit: ; preds = %4, %13
   %18 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %17, ptr noundef nonnull @RANStatusTransfer_TransparentContainer_sequence)
   %19 = add i32 %18, 7
   %20 = ashr i32 %19, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %20
 }
 
@@ -11940,10 +11934,10 @@ dissect_ngap_RANStatusTransfer_TransparentContainer.exit: ; preds = %4, %13
 define internal range(i32 -268435456, 268435456) i32 @dissect_RAN_UE_NGAP_ID_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @asn1_ctx_init(ptr noundef nonnull %6, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %7 = load i32, ptr @hf_ngap_RAN_UE_NGAP_ID_PDU, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 408
@@ -11955,7 +11949,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RAN_UE_NGAP_ID_PDU
 
 14:                                               ; preds = %4
   %15 = load ptr, ptr %10, align 8
-  %16 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %15, i64 noundef 72) #13
+  %16 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %15, i64 noundef 72) #12
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
   store i32 -1, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 56
@@ -11971,63 +11965,63 @@ dissect_ngap_RAN_UE_NGAP_ID.exit:                 ; preds = %4, %14
   %22 = load i32, ptr %5, align 4
   %23 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 48
   store i32 %22, ptr %23, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %24 = add i32 %21, 7
   %25 = ashr i32 %24, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %25
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_RelativeAMFCapacity_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_RelativeAMFCapacity_PDU, align 4
   %7 = call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 0, i32 noundef 255, ptr noundef null, i1 noundef zeroext false)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_RepetitionPeriod_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_RepetitionPeriod_PDU, align 4
   %7 = call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 0, i32 noundef 131071, ptr noundef null, i1 noundef zeroext false)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_ResetType_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_ResetType_PDU, align 4
   %7 = load i32, ptr @ett_ngap_ResetType, align 4
   %8 = call i32 @dissect_per_choice(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @ResetType_choice, ptr noundef null)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_RoutingID_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_RoutingID_PDU, align 4
   %7 = call i32 @dissect_per_octet_string(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef -1, i32 noundef -1, i1 noundef zeroext false, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
@@ -12035,10 +12029,10 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RoutingID_PDU(ptr 
 define internal range(i32 -268435456, 268435456) i32 @dissect_RRCEstablishmentCause_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @asn1_ctx_init(ptr noundef nonnull %6, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %7 = load i32, ptr @hf_ngap_RRCEstablishmentCause_PDU, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %8 = call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %6, ptr noundef %2, i32 noundef %7, i32 noundef 10, ptr noundef nonnull %5, i1 noundef zeroext true, i32 noundef 2, ptr noundef null)
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %10 = load ptr, ptr %9, align 8
@@ -12047,63 +12041,63 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RRCEstablishmentCa
   %13 = load i32, ptr %5, align 4
   %14 = call ptr @val_to_str_const(i32 noundef %13, ptr noundef nonnull @ngap_RRCEstablishmentCause_vals, ptr noundef nonnull @.str.3482)
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %12, i32 noundef 25, ptr noundef nonnull @.str.3575, ptr noundef %14)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %15 = add i32 %8, 7
   %16 = ashr i32 %15, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %16
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_RRCInactiveTransitionReportRequest_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_RRCInactiveTransitionReportRequest_PDU, align 4
   %7 = call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 3, ptr noundef null, i1 noundef zeroext true, i32 noundef 0, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_RRCState_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_RRCState_PDU, align 4
   %7 = call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 2, ptr noundef null, i1 noundef zeroext true, i32 noundef 0, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_SecurityContext_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_SecurityContext_PDU, align 4
   %7 = load i32, ptr @ett_ngap_SecurityContext, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @SecurityContext_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_SecurityKey_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_SecurityKey_PDU, align 4
   %7 = call i32 @dissect_per_bit_string(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 256, i32 noundef 256, i1 noundef zeroext false, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
@@ -12111,10 +12105,10 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_SecurityKey_PDU(pt
 define internal range(i32 -268435456, 268435456) i32 @dissect_SerialNumber_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @asn1_ctx_init(ptr noundef nonnull %6, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %7 = load i32, ptr @hf_ngap_SerialNumber_PDU, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8
   %8 = call i32 @dissect_per_bit_string(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %6, ptr noundef %2, i32 noundef %7, i32 noundef 16, i32 noundef 16, i1 noundef zeroext false, ptr noundef null, i32 noundef 0, ptr noundef nonnull %5, ptr noundef null)
   %9 = load ptr, ptr %5, align 8
@@ -12138,107 +12132,107 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_SerialNumber_PDU(p
   br label %dissect_ngap_SerialNumber.exit
 
 dissect_ngap_SerialNumber.exit:                   ; preds = %4, %10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %24 = add i32 %8, 7
   %25 = ashr i32 %24, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %25
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_ServedGUAMIList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_ServedGUAMIList_PDU, align 4
   %7 = load i32, ptr @ett_ngap_ServedGUAMIList, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @ServedGUAMIList_sequence_of, i32 noundef 1, i32 noundef 256, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_SliceSupportList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_SliceSupportList_PDU, align 4
   %7 = load i32, ptr @ett_ngap_SliceSupportList, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @SliceSupportList_sequence_of, i32 noundef 1, i32 noundef 1024, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_SourceToTarget_TransparentContainer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_SourceToTarget_TransparentContainer_PDU, align 4
   %7 = call fastcc i32 @dissect_ngap_SourceToTarget_TransparentContainer(ptr noundef %0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_SupportedTAList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_SupportedTAList_PDU, align 4
   %7 = load i32, ptr @ett_ngap_SupportedTAList, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @SupportedTAList_sequence_of, i32 noundef 1, i32 noundef 256, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_TAIListForPaging_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_TAIListForPaging_PDU, align 4
   %7 = load i32, ptr @ett_ngap_TAIListForPaging, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @TAIListForPaging_sequence_of, i32 noundef 1, i32 noundef 16, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_TAIListForRestart_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_TAIListForRestart_PDU, align 4
   %7 = load i32, ptr @ett_ngap_TAIListForRestart, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @TAIListForRestart_sequence_of, i32 noundef 1, i32 noundef 2048, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_TargetID_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_TargetID_PDU, align 4
   %7 = load i32, ptr @ett_ngap_TargetID, align 4
   %8 = call i32 @dissect_per_choice(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @TargetID_choice, ptr noundef null)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
@@ -12246,7 +12240,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_TargetID_PDU(ptr n
 define internal range(i32 -268435456, 268435456) i32 @dissect_TargetToSource_TransparentContainer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @asn1_ctx_init(ptr noundef nonnull %6, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %7 = load i32, ptr @hf_ngap_TargetToSource_TransparentContainer_PDU, align 4
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -12266,7 +12260,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_TargetToSource_Tra
   br label %18
 
 18:                                               ; preds = %14, %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %19 = call i32 @dissect_per_octet_string(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %6, ptr noundef %2, i32 noundef %7, i32 noundef -1, i32 noundef -1, i1 noundef zeroext false, ptr noundef nonnull %5)
   %20 = load i8, ptr @ngap_dissect_container, align 1, !range !6, !noundef !7
   %21 = trunc nuw i8 %20 to i1
@@ -12291,7 +12285,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_TargetToSource_Tra
 
 32:                                               ; preds = %26
   %33 = load ptr, ptr %28, align 8
-  %34 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %33, i64 noundef 72) #13
+  %34 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %33, i64 noundef 72) #12
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 24
   store i32 -1, ptr %35, align 8
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 56
@@ -12358,216 +12352,216 @@ ngap_get_private_data.exit.i:                     ; preds = %32, %26
   br label %dissect_ngap_TargetToSource_TransparentContainer.exit
 
 dissect_ngap_TargetToSource_TransparentContainer.exit: ; preds = %18, %24, %68
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %72 = add i32 %19, 7
   %73 = ashr i32 %72, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %73
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_TimeToWait_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_TimeToWait_PDU, align 4
   %7 = call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 6, ptr noundef null, i1 noundef zeroext true, i32 noundef 0, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_TraceActivation_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_TraceActivation_PDU, align 4
   %7 = load i32, ptr @ett_ngap_TraceActivation, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @TraceActivation_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_TransportLayerAddress_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_TransportLayerAddress_PDU, align 4
   %7 = call i32 @dissect_ngap_TransportLayerAddress(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_UEAggregateMaximumBitRate_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_UEAggregateMaximumBitRate_PDU, align 4
   %7 = load i32, ptr @ett_ngap_UEAggregateMaximumBitRate, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @UEAggregateMaximumBitRate_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_UE_associatedLogicalNG_connectionList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_UE_associatedLogicalNG_connectionList_PDU, align 4
   %7 = load i32, ptr @ett_ngap_UE_associatedLogicalNG_connectionList, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @UE_associatedLogicalNG_connectionList_sequence_of, i32 noundef 1, i32 noundef 65536, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextRequest_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_UEContextRequest_PDU, align 4
   %7 = call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 1, ptr noundef null, i1 noundef zeroext true, i32 noundef 0, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_UE_NGAP_IDs_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_UE_NGAP_IDs_PDU, align 4
   %7 = load i32, ptr @ett_ngap_UE_NGAP_IDs, align 4
   %8 = call i32 @dissect_per_choice(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @UE_NGAP_IDs_choice, ptr noundef null)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_UEPagingIdentity_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_UEPagingIdentity_PDU, align 4
   %7 = load i32, ptr @ett_ngap_UEPagingIdentity, align 4
   %8 = call i32 @dissect_per_choice(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @UEPagingIdentity_choice, ptr noundef null)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_UEPresenceInAreaOfInterestList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_UEPresenceInAreaOfInterestList_PDU, align 4
   %7 = load i32, ptr @ett_ngap_UEPresenceInAreaOfInterestList, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @UEPresenceInAreaOfInterestList_sequence_of, i32 noundef 1, i32 noundef 64, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_UERadioCapability_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_UERadioCapability_PDU, align 4
   %7 = call fastcc i32 @dissect_ngap_UERadioCapability(ptr noundef %0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_UERadioCapabilityForPaging_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_UERadioCapabilityForPaging_PDU, align 4
   %7 = load i32, ptr @ett_ngap_UERadioCapabilityForPaging, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @UERadioCapabilityForPaging_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_UESecurityCapabilities_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_UESecurityCapabilities_PDU, align 4
   %7 = load i32, ptr @ett_ngap_UESecurityCapabilities, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @UESecurityCapabilities_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_UnavailableGUAMIList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_UnavailableGUAMIList_PDU, align 4
   %7 = load i32, ptr @ett_ngap_UnavailableGUAMIList, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @UnavailableGUAMIList_sequence_of, i32 noundef 1, i32 noundef 256, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_UserLocationInformation_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_UserLocationInformation_PDU, align 4
   %7 = load i32, ptr @ett_ngap_UserLocationInformation, align 4
   %8 = call i32 @dissect_per_choice(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @UserLocationInformation_choice, ptr noundef null)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_WarningAreaList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_WarningAreaList_PDU, align 4
   %7 = load i32, ptr @ett_ngap_WarningAreaList, align 4
   %8 = call i32 @dissect_per_choice(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @WarningAreaList_choice, ptr noundef null)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
@@ -12575,10 +12569,10 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_WarningAreaList_PD
 define internal range(i32 -268435456, 268435456) i32 @dissect_WarningMessageContents_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @asn1_ctx_init(ptr noundef nonnull %6, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %7 = load i32, ptr @hf_ngap_WarningMessageContents_PDU, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8
   %8 = call i32 @dissect_per_octet_string(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %6, ptr noundef %2, i32 noundef %7, i32 noundef 1, i32 noundef 9600, i1 noundef zeroext false, ptr noundef nonnull %5)
   %9 = load ptr, ptr %5, align 8
@@ -12597,7 +12591,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_WarningMessageCont
 
 17:                                               ; preds = %10
   %18 = load ptr, ptr %13, align 8
-  %19 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %18, i64 noundef 72) #13
+  %19 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %18, i64 noundef 72) #12
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   store i32 -1, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 56
@@ -12668,23 +12662,23 @@ ngap_get_private_data.exit.i:                     ; preds = %17, %10
   br i1 %exitcond.not.i.i, label %dissect_ngap_WarningMessageContents.exit, label %42, !llvm.loop !8
 
 dissect_ngap_WarningMessageContents.exit:         ; preds = %54, %4, %39
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %56 = add i32 %8, 7
   %57 = ashr i32 %56, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %57
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_WarningSecurityInfo_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_WarningSecurityInfo_PDU, align 4
   %7 = call i32 @dissect_per_octet_string(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 50, i32 noundef 50, i1 noundef zeroext false, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
@@ -12692,10 +12686,10 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_WarningSecurityInf
 define internal range(i32 -268435456, 268435456) i32 @dissect_WarningType_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @asn1_ctx_init(ptr noundef nonnull %6, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %7 = load i32, ptr @hf_ngap_WarningType_PDU, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8
   %8 = call i32 @dissect_per_octet_string(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %6, ptr noundef %2, i32 noundef %7, i32 noundef 2, i32 noundef 2, i1 noundef zeroext false, ptr noundef nonnull %5)
   %9 = load ptr, ptr %5, align 8
@@ -12719,269 +12713,269 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_WarningType_PDU(pt
   br label %dissect_ngap_WarningType.exit
 
 dissect_ngap_WarningType.exit:                    ; preds = %4, %10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %24 = add i32 %8, 7
   %25 = ashr i32 %24, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %25
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_UPTransportLayerInformationList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_UPTransportLayerInformationList_PDU, align 4
   %7 = load i32, ptr @ett_ngap_UPTransportLayerInformationList, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @UPTransportLayerInformationList_sequence_of, i32 noundef 1, i32 noundef 3, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_DataForwardingNotPossible_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_DataForwardingNotPossible_PDU, align 4
   %7 = call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 1, ptr noundef null, i1 noundef zeroext true, i32 noundef 0, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_NetworkInstance_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_NetworkInstance_PDU, align 4
   %7 = call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 1, i32 noundef 256, ptr noundef null, i1 noundef zeroext true)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionAggregateMaximumBitRate_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_PDUSessionAggregateMaximumBitRate_PDU, align 4
   %7 = load i32, ptr @ett_ngap_PDUSessionAggregateMaximumBitRate, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @PDUSessionAggregateMaximumBitRate_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceFailedToModifyListModCfm_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceFailedToModifyListModCfm_PDU, align 4
   %7 = load i32, ptr @ett_ngap_PDUSessionResourceFailedToModifyListModCfm, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @PDUSessionResourceFailedToModifyListModCfm_sequence_of, i32 noundef 1, i32 noundef 256, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceFailedToSetupListCxtFail_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceFailedToSetupListCxtFail_PDU, align 4
   %7 = load i32, ptr @ett_ngap_PDUSessionResourceFailedToSetupListCxtFail, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @PDUSessionResourceFailedToSetupListCxtFail_sequence_of, i32 noundef 1, i32 noundef 256, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceListCxtRelReq_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceListCxtRelReq_PDU, align 4
   %7 = load i32, ptr @ett_ngap_PDUSessionResourceListCxtRelReq, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @PDUSessionResourceListCxtRelReq_sequence_of, i32 noundef 1, i32 noundef 256, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionType_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_PDUSessionType_PDU, align 4
   %7 = call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 5, ptr noundef null, i1 noundef zeroext true, i32 noundef 0, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_QosFlowAddOrModifyRequestList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_QosFlowAddOrModifyRequestList_PDU, align 4
   %7 = load i32, ptr @ett_ngap_QosFlowAddOrModifyRequestList, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @QosFlowAddOrModifyRequestList_sequence_of, i32 noundef 1, i32 noundef 64, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_QosFlowSetupRequestList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_QosFlowSetupRequestList_PDU, align 4
   %7 = load i32, ptr @ett_ngap_QosFlowSetupRequestList, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @QosFlowSetupRequestList_sequence_of, i32 noundef 1, i32 noundef 64, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_QosFlowListWithCause_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_QosFlowListWithCause_PDU, align 4
   %7 = load i32, ptr @ett_ngap_QosFlowListWithCause, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @QosFlowListWithCause_sequence_of, i32 noundef 1, i32 noundef 64, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_SecurityIndication_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_SecurityIndication_PDU, align 4
   %7 = load i32, ptr @ett_ngap_SecurityIndication, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @SecurityIndication_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_UPTransportLayerInformation_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_UPTransportLayerInformation_PDU, align 4
   %7 = load i32, ptr @ett_ngap_UPTransportLayerInformation, align 4
   %8 = call i32 @dissect_per_choice(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @UPTransportLayerInformation_choice, ptr noundef null)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_UL_NGU_UP_TNLModifyList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_UL_NGU_UP_TNLModifyList_PDU, align 4
   %7 = load i32, ptr @ett_ngap_UL_NGU_UP_TNLModifyList, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @UL_NGU_UP_TNLModifyList_sequence_of, i32 noundef 1, i32 noundef 4, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_WarningAreaCoordinates_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_WarningAreaCoordinates_PDU, align 4
   %7 = call i32 @dissect_per_octet_string(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 1, i32 noundef 1024, i1 noundef zeroext false, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceSecondaryRATUsageList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceSecondaryRATUsageList_PDU, align 4
   %7 = load i32, ptr @ett_ngap_PDUSessionResourceSecondaryRATUsageList, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @PDUSessionResourceSecondaryRATUsageList_sequence_of, i32 noundef 1, i32 noundef 256, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverFlag_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_HandoverFlag_PDU, align 4
   %7 = call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 1, ptr noundef null, i1 noundef zeroext true, i32 noundef 0, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_RedirectionVoiceFallback_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_RedirectionVoiceFallback_PDU, align 4
   %7 = call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 2, ptr noundef null, i1 noundef zeroext true, i32 noundef 0, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_UERetentionInformation_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_UERetentionInformation_PDU, align 4
   %7 = call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 1, ptr noundef null, i1 noundef zeroext true, i32 noundef 0, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
@@ -12989,10 +12983,10 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UERetentionInforma
 define internal range(i32 -268435456, 268435456) i32 @dissect_EN_DCSONConfigurationTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @asn1_ctx_init(ptr noundef nonnull %6, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %7 = load i32, ptr @hf_ngap_EN_DCSONConfigurationTransfer_PDU, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8
   %8 = call i32 @dissect_per_octet_string(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %6, ptr noundef %2, i32 noundef %7, i32 noundef -1, i32 noundef -1, i1 noundef zeroext false, ptr noundef nonnull %5)
   %9 = load ptr, ptr %5, align 8
@@ -13011,850 +13005,850 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_EN_DCSONConfigurat
   br label %dissect_ngap_EN_DCSONConfigurationTransfer.exit
 
 dissect_ngap_EN_DCSONConfigurationTransfer.exit:  ; preds = %4, %10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %19 = add i32 %8, 7
   %20 = ashr i32 %19, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %20
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_CNAssistedRANTuning_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_CNAssistedRANTuning_PDU, align 4
   %7 = load i32, ptr @ett_ngap_CNAssistedRANTuning, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @CNAssistedRANTuning_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_CommonNetworkInstance_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_CommonNetworkInstance_PDU, align 4
   %7 = call i32 @dissect_per_octet_string(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef -1, i32 noundef -1, i1 noundef zeroext false, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_NGRAN_TNLAssociationToRemoveList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_NGRAN_TNLAssociationToRemoveList_PDU, align 4
   %7 = load i32, ptr @ett_ngap_NGRAN_TNLAssociationToRemoveList, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @NGRAN_TNLAssociationToRemoveList_sequence_of, i32 noundef 1, i32 noundef 32, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_EndpointIPAddressAndPort_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_EndpointIPAddressAndPort_PDU, align 4
   %7 = load i32, ptr @ett_ngap_EndpointIPAddressAndPort, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @EndpointIPAddressAndPort_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_SourceToTarget_AMFInformationReroute_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_SourceToTarget_AMFInformationReroute_PDU, align 4
   %7 = load i32, ptr @ett_ngap_SourceToTarget_AMFInformationReroute, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @SourceToTarget_AMFInformationReroute_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_RIMInformationTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_RIMInformationTransfer_PDU, align 4
   %7 = load i32, ptr @ett_ngap_RIMInformationTransfer, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @RIMInformationTransfer_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_SRVCCOperationPossible_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_SRVCCOperationPossible_PDU, align 4
   %7 = call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 2, ptr noundef null, i1 noundef zeroext true, i32 noundef 0, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_TargetRNC_ID_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_TargetRNC_ID_PDU, align 4
   %7 = load i32, ptr @ett_ngap_TargetRNC_ID, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @TargetRNC_ID_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_RedundantPDUSessionInformation_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_RedundantPDUSessionInformation_PDU, align 4
   %7 = load i32, ptr @ett_ngap_RedundantPDUSessionInformation, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @RedundantPDUSessionInformation_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_IAB_Authorized_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_IAB_Authorized_PDU, align 4
   %7 = call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 2, ptr noundef null, i1 noundef zeroext true, i32 noundef 0, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_IAB_Supported_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_IAB_Supported_PDU, align 4
   %7 = call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 1, ptr noundef null, i1 noundef zeroext true, i32 noundef 0, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_IABNodeIndication_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_IABNodeIndication_PDU, align 4
   %7 = call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 1, ptr noundef null, i1 noundef zeroext true, i32 noundef 0, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_NB_IoT_PagingDRX_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_NB_IoT_PagingDRX_PDU, align 4
   %7 = call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 6, ptr noundef null, i1 noundef zeroext true, i32 noundef 0, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_NB_IoT_Paging_eDRXInfo_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_NB_IoT_Paging_eDRXInfo_PDU, align 4
   %7 = load i32, ptr @ett_ngap_NB_IoT_Paging_eDRXInfo, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @NB_IoT_Paging_eDRXInfo_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_NB_IoT_DefaultPagingDRX_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_NB_IoT_DefaultPagingDRX_PDU, align 4
   %7 = call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 4, ptr noundef null, i1 noundef zeroext true, i32 noundef 0, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_Enhanced_CoverageRestriction_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_Enhanced_CoverageRestriction_PDU, align 4
   %7 = call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 1, ptr noundef null, i1 noundef zeroext true, i32 noundef 0, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_Extended_ConnectedTime_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_Extended_ConnectedTime_PDU, align 4
   %7 = call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 0, i32 noundef 255, ptr noundef null, i1 noundef zeroext false)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_PagingAssisDataforCEcapabUE_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_PagingAssisDataforCEcapabUE_PDU, align 4
   %7 = load i32, ptr @ett_ngap_PagingAssisDataforCEcapabUE, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @PagingAssisDataforCEcapabUE_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_WUS_Assistance_Information_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_WUS_Assistance_Information_PDU, align 4
   %7 = load i32, ptr @ett_ngap_WUS_Assistance_Information, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @WUS_Assistance_Information_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_UE_DifferentiationInfo_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_UE_DifferentiationInfo_PDU, align 4
   %7 = load i32, ptr @ett_ngap_UE_DifferentiationInfo, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @UE_DifferentiationInfo_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_NB_IoT_UEPriority_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_NB_IoT_UEPriority_PDU, align 4
   %7 = call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 0, i32 noundef 255, ptr noundef null, i1 noundef zeroext true)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_UL_CP_SecurityInformation_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_UL_CP_SecurityInformation_PDU, align 4
   %7 = load i32, ptr @ett_ngap_UL_CP_SecurityInformation, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @UL_CP_SecurityInformation_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_DL_CP_SecurityInformation_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_DL_CP_SecurityInformation_PDU, align 4
   %7 = load i32, ptr @ett_ngap_DL_CP_SecurityInformation, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @DL_CP_SecurityInformation_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_TAI_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_TAI_PDU, align 4
   %7 = call i32 @dissect_ngap_TAI(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_LTEV2XServicesAuthorized_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_LTEV2XServicesAuthorized_PDU, align 4
   %7 = load i32, ptr @ett_ngap_LTEV2XServicesAuthorized, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @LTEV2XServicesAuthorized_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_NRV2XServicesAuthorized_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_NRV2XServicesAuthorized_PDU, align 4
   %7 = load i32, ptr @ett_ngap_NRV2XServicesAuthorized, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @NRV2XServicesAuthorized_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_LTEUESidelinkAggregateMaximumBitrate_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_LTEUESidelinkAggregateMaximumBitrate_PDU, align 4
   %7 = load i32, ptr @ett_ngap_LTEUESidelinkAggregateMaximumBitrate, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @LTEUESidelinkAggregateMaximumBitrate_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_NRUESidelinkAggregateMaximumBitrate_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_NRUESidelinkAggregateMaximumBitrate_PDU, align 4
   %7 = load i32, ptr @ett_ngap_NRUESidelinkAggregateMaximumBitrate, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @NRUESidelinkAggregateMaximumBitrate_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_PC5QoSParameters_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_PC5QoSParameters_PDU, align 4
   %7 = load i32, ptr @ett_ngap_PC5QoSParameters, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @PC5QoSParameters_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_CEmodeBrestricted_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_CEmodeBrestricted_PDU, align 4
   %7 = call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 2, ptr noundef null, i1 noundef zeroext true, i32 noundef 0, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_EUTRA_PagingeDRXInformation_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_EUTRA_PagingeDRXInformation_PDU, align 4
   %7 = load i32, ptr @ett_ngap_EUTRA_PagingeDRXInformation, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @EUTRA_PagingeDRXInformation_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_CEmodeBSupport_Indicator_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_CEmodeBSupport_Indicator_PDU, align 4
   %7 = call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 1, ptr noundef null, i1 noundef zeroext true, i32 noundef 0, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_LTEM_Indication_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_LTEM_Indication_PDU, align 4
   %7 = call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 1, ptr noundef null, i1 noundef zeroext true, i32 noundef 0, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_EndIndication_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_EndIndication_PDU, align 4
   %7 = call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 2, ptr noundef null, i1 noundef zeroext true, i32 noundef 0, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_EDT_Session_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_EDT_Session_PDU, align 4
   %7 = call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 1, ptr noundef null, i1 noundef zeroext true, i32 noundef 0, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_UECapabilityInfoRequest_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_UECapabilityInfoRequest_PDU, align 4
   %7 = call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 1, ptr noundef null, i1 noundef zeroext true, i32 noundef 0, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceFailedToResumeListRESReq_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceFailedToResumeListRESReq_PDU, align 4
   %7 = load i32, ptr @ett_ngap_PDUSessionResourceFailedToResumeListRESReq, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @PDUSessionResourceFailedToResumeListRESReq_sequence_of, i32 noundef 1, i32 noundef 256, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceFailedToResumeListRESRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceFailedToResumeListRESRes_PDU, align 4
   %7 = load i32, ptr @ett_ngap_PDUSessionResourceFailedToResumeListRESRes, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @PDUSessionResourceFailedToResumeListRESRes_sequence_of, i32 noundef 1, i32 noundef 256, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceSuspendListSUSReq_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceSuspendListSUSReq_PDU, align 4
   %7 = load i32, ptr @ett_ngap_PDUSessionResourceSuspendListSUSReq, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @PDUSessionResourceSuspendListSUSReq_sequence_of, i32 noundef 1, i32 noundef 256, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceResumeListRESReq_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceResumeListRESReq_PDU, align 4
   %7 = load i32, ptr @ett_ngap_PDUSessionResourceResumeListRESReq, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @PDUSessionResourceResumeListRESReq_sequence_of, i32 noundef 1, i32 noundef 256, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceResumeListRESRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceResumeListRESRes_PDU, align 4
   %7 = load i32, ptr @ett_ngap_PDUSessionResourceResumeListRESRes, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @PDUSessionResourceResumeListRESRes_sequence_of, i32 noundef 1, i32 noundef 256, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_UE_UP_CIoT_Support_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_UE_UP_CIoT_Support_PDU, align 4
   %7 = call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 1, ptr noundef null, i1 noundef zeroext true, i32 noundef 0, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_Suspend_Request_Indication_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_Suspend_Request_Indication_PDU, align 4
   %7 = call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 1, ptr noundef null, i1 noundef zeroext true, i32 noundef 0, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_Suspend_Response_Indication_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_Suspend_Response_Indication_PDU, align 4
   %7 = call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 1, ptr noundef null, i1 noundef zeroext true, i32 noundef 0, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_RGLevelWirelineAccessCharacteristics_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_RGLevelWirelineAccessCharacteristics_PDU, align 4
   %7 = call i32 @dissect_per_octet_string(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef -1, i32 noundef -1, i1 noundef zeroext false, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_W_AGFIdentityInformation_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_W_AGFIdentityInformation_PDU, align 4
   %7 = call i32 @dissect_per_octet_string(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef -1, i32 noundef -1, i1 noundef zeroext false, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_GlobalTNGF_ID_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_GlobalTNGF_ID_PDU, align 4
   %7 = load i32, ptr @ett_ngap_GlobalTNGF_ID, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @GlobalTNGF_ID_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_GlobalTWIF_ID_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_GlobalTWIF_ID_PDU, align 4
   %7 = load i32, ptr @ett_ngap_GlobalTWIF_ID, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @GlobalTWIF_ID_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_GlobalW_AGF_ID_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_GlobalW_AGF_ID_PDU, align 4
   %7 = load i32, ptr @ett_ngap_GlobalW_AGF_ID, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @GlobalW_AGF_ID_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_UserLocationInformationW_AGF_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_UserLocationInformationW_AGF_PDU, align 4
   %7 = load i32, ptr @ett_ngap_UserLocationInformationW_AGF, align 4
   %8 = call i32 @dissect_per_choice(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @UserLocationInformationW_AGF_choice, ptr noundef null)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_UserLocationInformationTNGF_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_UserLocationInformationTNGF_PDU, align 4
   %7 = load i32, ptr @ett_ngap_UserLocationInformationTNGF, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @UserLocationInformationTNGF_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_AuthenticatedIndication_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_AuthenticatedIndication_PDU, align 4
   %7 = call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 1, ptr noundef null, i1 noundef zeroext true, i32 noundef 0, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_TNGFIdentityInformation_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_TNGFIdentityInformation_PDU, align 4
   %7 = call i32 @dissect_per_octet_string(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef -1, i32 noundef -1, i1 noundef zeroext false, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_TWIFIdentityInformation_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_TWIFIdentityInformation_PDU, align 4
   %7 = call i32 @dissect_per_octet_string(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef -1, i32 noundef -1, i1 noundef zeroext false, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_UserLocationInformationTWIF_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_UserLocationInformationTWIF_PDU, align 4
   %7 = load i32, ptr @ett_ngap_UserLocationInformationTWIF, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @UserLocationInformationTWIF_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_PLMNIdentity_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_PLMNIdentity_PDU, align 4
   %7 = call i32 @dissect_ngap_PLMNIdentity(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_IntersystemSONConfigurationTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_IntersystemSONConfigurationTransfer_PDU, align 4
   %7 = load i32, ptr @ett_ngap_IntersystemSONConfigurationTransfer, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @IntersystemSONConfigurationTransfer_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_SONInformationReport_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_SONInformationReport_PDU, align 4
   %7 = load i32, ptr @ett_ngap_SONInformationReport, align 4
   %8 = call i32 @dissect_per_choice(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @SONInformationReport_choice, ptr noundef null)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_MDTPLMNList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_MDTPLMNList_PDU, align 4
   %7 = load i32, ptr @ett_ngap_MDTPLMNList, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @MDTPLMNList_sequence_of, i32 noundef 1, i32 noundef 16, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_PrivacyIndicator_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_PrivacyIndicator_PDU, align 4
   %7 = call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 2, ptr noundef null, i1 noundef zeroext true, i32 noundef 0, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_URI_address_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_URI_address_PDU, align 4
   %7 = call i32 @dissect_per_VisibleString(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef -1, i32 noundef -1, i1 noundef zeroext false, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_NPN_AccessInformation_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_NPN_AccessInformation_PDU, align 4
   %7 = load i32, ptr @ett_ngap_NPN_AccessInformation, align 4
   %8 = call i32 @dissect_per_choice(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @NPN_AccessInformation_choice, ptr noundef null)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
@@ -13863,10 +13857,10 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_TargettoSource_Fai
   %5 = alloca %struct._asn1_ctx_t, align 8
   %6 = alloca ptr, align 8
   %7 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @asn1_ctx_init(ptr noundef nonnull %7, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %8 = load i32, ptr @hf_ngap_TargettoSource_Failure_TransparentContainer_PDU, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %9 = call i32 @dissect_per_octet_string(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %7, ptr noundef %2, i32 noundef %8, i32 noundef -1, i32 noundef -1, i1 noundef zeroext false, ptr noundef nonnull %6)
   %10 = load i8, ptr @ngap_dissect_container, align 1, !range !6, !noundef !7
   %11 = trunc nuw i8 %10 to i1
@@ -13892,7 +13886,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_TargettoSource_Fai
 
 23:                                               ; preds = %16
   %24 = load ptr, ptr %19, align 8
-  %25 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %24, i64 noundef 72) #13
+  %25 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %24, i64 noundef 72) #12
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
   store i32 -1, ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 56
@@ -13920,12 +13914,12 @@ ngap_get_private_data.exit.i:                     ; preds = %23, %16
 39:                                               ; preds = %ngap_get_private_data.exit.i
   %40 = load ptr, ptr %6, align 8
   %41 = load ptr, ptr %17, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %41)
   %42 = load i32, ptr @hf_ngap_TargetNGRANNode_ToSourceNGRANNode_FailureTransparentContainer_PDU, align 4
   %43 = load i32, ptr @ett_ngap_TargetNGRANNode_ToSourceNGRANNode_FailureTransparentContainer, align 4
   %44 = call i32 @dissect_per_sequence(ptr noundef %40, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %36, i32 noundef %42, i32 noundef %43, ptr noundef nonnull @TargetNGRANNode_ToSourceNGRANNode_FailureTransparentContainer_sequence)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %45
 
 45:                                               ; preds = %39, %ngap_get_private_data.exit.i
@@ -13936,78 +13930,78 @@ ngap_get_private_data.exit.i:                     ; preds = %23, %16
   br label %dissect_ngap_TargettoSource_Failure_TransparentContainer.exit
 
 dissect_ngap_TargettoSource_Failure_TransparentContainer.exit: ; preds = %4, %14, %45
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %49 = add i32 %9, 7
   %50 = ashr i32 %49, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %50
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_UERadioCapabilityID_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_UERadioCapabilityID_PDU, align 4
   %7 = call i32 @dissect_per_octet_string(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef -1, i32 noundef -1, i1 noundef zeroext false, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_EarlyStatusTransfer_TransparentContainer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_EarlyStatusTransfer_TransparentContainer_PDU, align 4
   %7 = load i32, ptr @ett_ngap_EarlyStatusTransfer_TransparentContainer, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @EarlyStatusTransfer_TransparentContainer_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_NotifySourceNGRANNode_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_NotifySourceNGRANNode_PDU, align 4
   %7 = call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 1, ptr noundef null, i1 noundef zeroext true, i32 noundef 0, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_Extended_RANNodeName_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_Extended_RANNodeName_PDU, align 4
   %7 = load i32, ptr @ett_ngap_Extended_RANNodeName, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @Extended_RANNodeName_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_Extended_AMFName_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_Extended_AMFName_PDU, align 4
   %7 = load i32, ptr @ett_ngap_Extended_AMFName, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @Extended_AMFName_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
@@ -14015,10 +14009,10 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_Extended_AMFName_P
 define internal range(i32 -268435456, 268435456) i32 @dissect_GlobalCable_ID_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @asn1_ctx_init(ptr noundef nonnull %6, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %7 = load i32, ptr @hf_ngap_GlobalCable_ID_PDU, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8
   %8 = call i32 @dissect_per_octet_string(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %6, ptr noundef %2, i32 noundef %7, i32 noundef -1, i32 noundef -1, i1 noundef zeroext false, ptr noundef nonnull %5)
   %9 = load ptr, ptr %5, align 8
@@ -14036,418 +14030,418 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_GlobalCable_ID_PDU
   br label %dissect_ngap_GlobalCable_ID.exit
 
 dissect_ngap_GlobalCable_ID.exit:                 ; preds = %4, %10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %18 = add i32 %8, 7
   %19 = ashr i32 %18, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %19
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_IntersystemSONInformationRequest_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_IntersystemSONInformationRequest_PDU, align 4
   %7 = load i32, ptr @ett_ngap_IntersystemSONInformationRequest, align 4
   %8 = call i32 @dissect_per_choice(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @IntersystemSONInformationRequest_choice, ptr noundef null)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_IntersystemSONInformationReply_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_IntersystemSONInformationReply_PDU, align 4
   %7 = load i32, ptr @ett_ngap_IntersystemSONInformationReply, align 4
   %8 = call i32 @dissect_per_choice(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @IntersystemSONInformationReply_choice, ptr noundef null)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_IntersystemCellStateIndication_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_IntersystemCellStateIndication_PDU, align 4
   %7 = load i32, ptr @ett_ngap_IntersystemCellStateIndication, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @IntersystemCellStateIndication_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_IntersystemResourceStatusReport_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_IntersystemResourceStatusReport_PDU, align 4
   %7 = load i32, ptr @ett_ngap_IntersystemResourceStatusReport, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @IntersystemResourceStatusReport_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_SuccessfulHandoverReportList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_SuccessfulHandoverReportList_PDU, align 4
   %7 = load i32, ptr @ett_ngap_SuccessfulHandoverReportList, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @SuccessfulHandoverReportList_sequence_of, i32 noundef 1, i32 noundef 64, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_MBS_AreaSessionID_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_MBS_AreaSessionID_PDU, align 4
   %7 = call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 0, i32 noundef 65535, ptr noundef null, i1 noundef zeroext true)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_MBS_QoSFlowsToBeSetupList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_MBS_QoSFlowsToBeSetupList_PDU, align 4
   %7 = load i32, ptr @ett_ngap_MBS_QoSFlowsToBeSetupList, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @MBS_QoSFlowsToBeSetupList_sequence_of, i32 noundef 1, i32 noundef 64, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_MBS_ServiceArea_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_MBS_ServiceArea_PDU, align 4
   %7 = load i32, ptr @ett_ngap_MBS_ServiceArea, align 4
   %8 = call i32 @dissect_per_choice(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @MBS_ServiceArea_choice, ptr noundef null)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_MBS_SessionID_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_MBS_SessionID_PDU, align 4
   %7 = load i32, ptr @ett_ngap_MBS_SessionID, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @MBS_SessionID_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_MBS_DistributionReleaseRequestTransfer_OCTET_STRING_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_MBS_DistributionReleaseRequestTransfer_OCTET_STRING_PDU, align 4
   %7 = call i32 @dissect_per_octet_string_containing_pdu_new(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef -1, i32 noundef -1, i1 noundef zeroext false, ptr noundef nonnull @dissect_MBS_DistributionReleaseRequestTransfer_PDU)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_MBS_DistributionSetupRequestTransfer_OCTET_STRING_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_MBS_DistributionSetupRequestTransfer_OCTET_STRING_PDU, align 4
   %7 = call i32 @dissect_per_octet_string_containing_pdu_new(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef -1, i32 noundef -1, i1 noundef zeroext false, ptr noundef nonnull @dissect_MBS_DistributionSetupRequestTransfer_PDU)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_MBS_DistributionSetupResponseTransfer_OCTET_STRING_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_MBS_DistributionSetupResponseTransfer_OCTET_STRING_PDU, align 4
   %7 = call i32 @dissect_per_octet_string_containing_pdu_new(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef -1, i32 noundef -1, i1 noundef zeroext false, ptr noundef nonnull @dissect_MBS_DistributionSetupResponseTransfer_PDU)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_MBS_DistributionSetupUnsuccessfulTransfer_OCTET_STRING_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_MBS_DistributionSetupUnsuccessfulTransfer_OCTET_STRING_PDU, align 4
   %7 = call i32 @dissect_per_octet_string_containing_pdu_new(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef -1, i32 noundef -1, i1 noundef zeroext false, ptr noundef nonnull @dissect_MBS_DistributionSetupUnsuccessfulTransfer_PDU)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_MulticastSessionActivationRequestTransfer_OCTET_STRING_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_MulticastSessionActivationRequestTransfer_OCTET_STRING_PDU, align 4
   %7 = call i32 @dissect_per_octet_string_containing_pdu_new(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef -1, i32 noundef -1, i1 noundef zeroext false, ptr noundef nonnull @dissect_MulticastSessionActivationRequestTransfer_PDU)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_MulticastSessionDeactivationRequestTransfer_OCTET_STRING_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_MulticastSessionDeactivationRequestTransfer_OCTET_STRING_PDU, align 4
   %7 = call i32 @dissect_per_octet_string_containing_pdu_new(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef -1, i32 noundef -1, i1 noundef zeroext false, ptr noundef nonnull @dissect_MulticastSessionDeactivationRequestTransfer_PDU)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_MulticastSessionUpdateRequestTransfer_OCTET_STRING_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_MulticastSessionUpdateRequestTransfer_OCTET_STRING_PDU, align 4
   %7 = call i32 @dissect_per_octet_string_containing_pdu_new(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef -1, i32 noundef -1, i1 noundef zeroext false, ptr noundef nonnull @dissect_MulticastSessionUpdateRequestTransfer_PDU)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_MulticastGroupPagingAreaList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_MulticastGroupPagingAreaList_PDU, align 4
   %7 = load i32, ptr @ett_ngap_MulticastGroupPagingAreaList, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @MulticastGroupPagingAreaList_sequence_of, i32 noundef 1, i32 noundef 64, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_MBSSessionSetupOrModFailureTransfer_OCTET_STRING_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_MBSSessionSetupOrModFailureTransfer_OCTET_STRING_PDU, align 4
   %7 = call i32 @dissect_per_octet_string_containing_pdu_new(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef -1, i32 noundef -1, i1 noundef zeroext false, ptr noundef nonnull @dissect_MBSSessionSetupOrModFailureTransfer_PDU)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_MBSSessionSetupOrModRequestTransfer_OCTET_STRING_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_MBSSessionSetupOrModRequestTransfer_OCTET_STRING_PDU, align 4
   %7 = call i32 @dissect_per_octet_string_containing_pdu_new(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef -1, i32 noundef -1, i1 noundef zeroext false, ptr noundef nonnull @dissect_MBSSessionSetupOrModRequestTransfer_PDU)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_MBSSessionSetupOrModResponseTransfer_OCTET_STRING_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_MBSSessionSetupOrModResponseTransfer_OCTET_STRING_PDU, align 4
   %7 = call i32 @dissect_per_octet_string_containing_pdu_new(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef -1, i32 noundef -1, i1 noundef zeroext false, ptr noundef nonnull @dissect_MBSSessionSetupOrModResponseTransfer_PDU)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_MBSSessionToReleaseList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_MBSSessionToReleaseList_PDU, align 4
   %7 = load i32, ptr @ett_ngap_MBSSessionToReleaseList, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @MBSSessionToReleaseList_sequence_of, i32 noundef 1, i32 noundef 32, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_MBSSessionSetupRequestList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_MBSSessionSetupRequestList_PDU, align 4
   %7 = load i32, ptr @ett_ngap_MBSSessionSetupRequestList, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @MBSSessionSetupRequestList_sequence_of, i32 noundef 1, i32 noundef 32, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_MBSSessionSetuporModifyRequestList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_MBSSessionSetuporModifyRequestList_PDU, align 4
   %7 = load i32, ptr @ett_ngap_MBSSessionSetuporModifyRequestList, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @MBSSessionSetuporModifyRequestList_sequence_of, i32 noundef 1, i32 noundef 32, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_TimeSyncAssistanceInfo_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_TimeSyncAssistanceInfo_PDU, align 4
   %7 = load i32, ptr @ett_ngap_TimeSyncAssistanceInfo, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @TimeSyncAssistanceInfo_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_QMCConfigInfo_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_QMCConfigInfo_PDU, align 4
   %7 = load i32, ptr @ett_ngap_QMCConfigInfo, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @QMCConfigInfo_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_QMCDeactivation_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_QMCDeactivation_PDU, align 4
   %7 = load i32, ptr @ett_ngap_QMCDeactivation, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @QMCDeactivation_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_NR_PagingeDRXInformation_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_NR_PagingeDRXInformation_PDU, align 4
   %7 = load i32, ptr @ett_ngap_NR_PagingeDRXInformation, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @NR_PagingeDRXInformation_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_RedCapIndication_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_RedCapIndication_PDU, align 4
   %7 = call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 1, ptr noundef null, i1 noundef zeroext true, i32 noundef 0, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_TargetNSSAIInformation_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_TargetNSSAIInformation_PDU, align 4
   %7 = load i32, ptr @ett_ngap_TargetNSSAIInformation, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @TargetNSSAIInformation_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_UESliceMaximumBitRateList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_UESliceMaximumBitRateList_PDU, align 4
   %7 = load i32, ptr @ett_ngap_UESliceMaximumBitRateList, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @UESliceMaximumBitRateList_sequence_of, i32 noundef 1, i32 noundef 8, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
@@ -14455,10 +14449,10 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UESliceMaximumBitR
 define internal range(i32 -268435456, 268435456) i32 @dissect_PagingCause_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @asn1_ctx_init(ptr noundef nonnull %6, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %7 = load i32, ptr @hf_ngap_PagingCause_PDU, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %8 = call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %6, ptr noundef %2, i32 noundef %7, i32 noundef 1, ptr noundef nonnull %5, i1 noundef zeroext true, i32 noundef 0, ptr noundef null)
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %10 = load ptr, ptr %9, align 8
@@ -14467,897 +14461,897 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PagingCause_PDU(pt
   %13 = load i32, ptr %5, align 4
   %14 = call ptr @val_to_str_const(i32 noundef %13, ptr noundef nonnull @ngap_PagingCause_vals, ptr noundef nonnull @.str.3482)
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %12, i32 noundef 25, ptr noundef nonnull @.str.3608, ptr noundef %14)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %15 = add i32 %8, 7
   %16 = ashr i32 %15, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %16
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_PEIPSassistanceInformation_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_PEIPSassistanceInformation_PDU, align 4
   %7 = load i32, ptr @ett_ngap_PEIPSassistanceInformation, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @PEIPSassistanceInformation_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_FiveG_ProSeAuthorized_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_FiveG_ProSeAuthorized_PDU, align 4
   %7 = load i32, ptr @ett_ngap_FiveG_ProSeAuthorized, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @FiveG_ProSeAuthorized_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_FiveG_ProSePC5QoSParameters_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_FiveG_ProSePC5QoSParameters_PDU, align 4
   %7 = load i32, ptr @ett_ngap_FiveG_ProSePC5QoSParameters, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @FiveG_ProSePC5QoSParameters_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_MBS_SessionTNLInfo5GC_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_MBS_SessionTNLInfo5GC_PDU, align 4
   %7 = load i32, ptr @ett_ngap_MBS_SessionTNLInfo5GC, align 4
   %8 = call i32 @dissect_per_choice(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @MBS_SessionTNLInfo5GC_choice, ptr noundef null)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_MBS_SessionFSAIDList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_MBS_SessionFSAIDList_PDU, align 4
   %7 = load i32, ptr @ett_ngap_MBS_SessionFSAIDList, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @MBS_SessionFSAIDList_sequence_of, i32 noundef 1, i32 noundef 64, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_MBSSessionReleaseResponseTransfer_OCTET_STRING_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_MBSSessionReleaseResponseTransfer_OCTET_STRING_PDU, align 4
   %7 = call i32 @dissect_per_octet_string_containing_pdu_new(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef -1, i32 noundef -1, i1 noundef zeroext false, ptr noundef nonnull @dissect_MBSSessionReleaseResponseTransfer_PDU)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_MDTPLMNModificationList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_MDTPLMNModificationList_PDU, align 4
   %7 = load i32, ptr @ett_ngap_MDTPLMNModificationList, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @MDTPLMNModificationList_sequence_of, i32 noundef 0, i32 noundef 16, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_HFCNode_ID_new_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_HFCNode_ID_new_PDU, align 4
   %7 = load i32, ptr @ett_ngap_HFCNode_ID_new, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @HFCNode_ID_new_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_GlobalCable_ID_new_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_GlobalCable_ID_new_PDU, align 4
   %7 = load i32, ptr @ett_ngap_GlobalCable_ID_new, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @GlobalCable_ID_new_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_TargetHomeENB_ID_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_TargetHomeENB_ID_PDU, align 4
   %7 = load i32, ptr @ett_ngap_TargetHomeENB_ID, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @TargetHomeENB_ID_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_NetworkControlledRepeaterAuthorized_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_NetworkControlledRepeaterAuthorized_PDU, align 4
   %7 = call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 2, ptr noundef null, i1 noundef zeroext true, i32 noundef 0, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_NID_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_NID_PDU, align 4
   %7 = call i32 @dissect_per_bit_string(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 44, i32 noundef 44, i1 noundef zeroext false, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_SupportedUETypeList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_SupportedUETypeList_PDU, align 4
   %7 = load i32, ptr @ett_ngap_SupportedUETypeList, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @SupportedUETypeList_sequence_of, i32 noundef 1, i32 noundef 8, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_AerialUEsubscriptionInformation_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_AerialUEsubscriptionInformation_PDU, align 4
   %7 = call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 2, ptr noundef null, i1 noundef zeroext true, i32 noundef 0, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_NR_A2X_ServicesAuthorized_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_NR_A2X_ServicesAuthorized_PDU, align 4
   %7 = load i32, ptr @ett_ngap_NR_A2X_ServicesAuthorized, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @NR_A2X_ServicesAuthorized_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_LTE_A2X_ServicesAuthorized_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_LTE_A2X_ServicesAuthorized_PDU, align 4
   %7 = load i32, ptr @ett_ngap_LTE_A2X_ServicesAuthorized, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @LTE_A2X_ServicesAuthorized_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_A2X_PC5_QoS_Parameters_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_A2X_PC5_QoS_Parameters_PDU, align 4
   %7 = load i32, ptr @ett_ngap_A2X_PC5_QoS_Parameters, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @A2X_PC5_QoS_Parameters_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_SuccessfulPSCellChangeReportList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_SuccessfulPSCellChangeReportList_PDU, align 4
   %7 = load i32, ptr @ett_ngap_SuccessfulPSCellChangeReportList, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @SuccessfulPSCellChangeReportList_sequence_of, i32 noundef 1, i32 noundef 64, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_IntersystemMobilityFailureforVoiceFallback_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_IntersystemMobilityFailureforVoiceFallback_PDU, align 4
   %7 = load i32, ptr @ett_ngap_IntersystemMobilityFailureforVoiceFallback, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @IntersystemMobilityFailureforVoiceFallback_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_RANTimingSynchronisationStatusInfo_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_RANTimingSynchronisationStatusInfo_PDU, align 4
   %7 = load i32, ptr @ett_ngap_RANTimingSynchronisationStatusInfo, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @RANTimingSynchronisationStatusInfo_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_RAN_TSSRequestType_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_RAN_TSSRequestType_PDU, align 4
   %7 = call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 2, ptr noundef null, i1 noundef zeroext true, i32 noundef 0, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_RAN_TSSScope_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_RAN_TSSScope_PDU, align 4
   %7 = load i32, ptr @ett_ngap_RAN_TSSScope, align 4
   %8 = call i32 @dissect_per_choice(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @RAN_TSSScope_choice, ptr noundef null)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_TLContainer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_TLContainer_PDU, align 4
   %7 = call i32 @dissect_per_octet_string(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef -1, i32 noundef -1, i1 noundef zeroext false, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_MobileIAB_Authorized_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_MobileIAB_Authorized_PDU, align 4
   %7 = call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 2, ptr noundef null, i1 noundef zeroext true, i32 noundef 0, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_MobileIABNodeIndication_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_MobileIABNodeIndication_PDU, align 4
   %7 = call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 1, ptr noundef null, i1 noundef zeroext true, i32 noundef 0, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_NoPDUSessionIndication_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_NoPDUSessionIndication_PDU, align 4
   %7 = call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 1, ptr noundef null, i1 noundef zeroext true, i32 noundef 0, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_MobileIAB_Supported_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_MobileIAB_Supported_PDU, align 4
   %7 = call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 1, ptr noundef null, i1 noundef zeroext true, i32 noundef 0, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_FiveGCAction_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_FiveGCAction_PDU, align 4
   %7 = load i32, ptr @ett_ngap_FiveGCAction, align 4
   %8 = call i32 @dissect_per_choice(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @FiveGCAction_choice, ptr noundef null)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_PagingPolicyDifferentiation_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_PagingPolicyDifferentiation_PDU, align 4
   %7 = load i32, ptr @ett_ngap_PagingPolicyDifferentiation, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @PagingPolicyDifferentiation_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_DL_Signalling_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_DL_Signalling_PDU, align 4
   %7 = call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 1, ptr noundef null, i1 noundef zeroext true, i32 noundef 0, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_PNI_NPNBasedMDT_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_PNI_NPNBasedMDT_PDU, align 4
   %7 = load i32, ptr @ett_ngap_PNI_NPNBasedMDT, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @PNI_NPNBasedMDT_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_SNPN_CellBasedMDT_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_SNPN_CellBasedMDT_PDU, align 4
   %7 = load i32, ptr @ett_ngap_SNPN_CellBasedMDT, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @SNPN_CellBasedMDT_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_SNPN_TAIBasedMDT_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_SNPN_TAIBasedMDT_PDU, align 4
   %7 = load i32, ptr @ett_ngap_SNPN_TAIBasedMDT, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @SNPN_TAIBasedMDT_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_SNPN_BasedMDT_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_SNPN_BasedMDT_PDU, align 4
   %7 = load i32, ptr @ett_ngap_SNPN_BasedMDT, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @SNPN_BasedMDT_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_Partially_Allowed_NSSAI_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_Partially_Allowed_NSSAI_PDU, align 4
   %7 = load i32, ptr @ett_ngap_Partially_Allowed_NSSAI, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @Partially_Allowed_NSSAI_sequence_of, i32 noundef 1, i32 noundef 8, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_AssociatedSessionID_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_AssociatedSessionID_PDU, align 4
   %7 = call i32 @dissect_per_octet_string(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef -1, i32 noundef -1, i1 noundef zeroext false, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_BroadcastTransportFailureTransfer_OCTET_STRING_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_BroadcastTransportFailureTransfer_OCTET_STRING_PDU, align 4
   %7 = call i32 @dissect_per_octet_string_containing_pdu_new(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef -1, i32 noundef -1, i1 noundef zeroext false, ptr noundef nonnull @dissect_BroadcastTransportFailureTransfer_PDU)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_BroadcastTransportRequestTransfer_OCTET_STRING_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_BroadcastTransportRequestTransfer_OCTET_STRING_PDU, align 4
   %7 = call i32 @dissect_per_octet_string_containing_pdu_new(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef -1, i32 noundef -1, i1 noundef zeroext false, ptr noundef nonnull @dissect_BroadcastTransportRequestTransfer_PDU)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_BroadcastTransportResponseTransfer_OCTET_STRING_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_BroadcastTransportResponseTransfer_OCTET_STRING_PDU, align 4
   %7 = call i32 @dissect_per_octet_string_containing_pdu_new(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef -1, i32 noundef -1, i1 noundef zeroext false, ptr noundef nonnull @dissect_BroadcastTransportResponseTransfer_PDU)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_DLDiscarding_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_DLDiscarding_PDU, align 4
   %7 = load i32, ptr @ett_ngap_DLDiscarding, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @DLDiscarding_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_ERedCapIndication_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_ERedCapIndication_PDU, align 4
   %7 = call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 1, ptr noundef null, i1 noundef zeroext true, i32 noundef 0, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_XrDeviceWith2Rx_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_XrDeviceWith2Rx_PDU, align 4
   %7 = call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 1, ptr noundef null, i1 noundef zeroext true, i32 noundef 0, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_SLPositioningRangingServiceInfo_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_SLPositioningRangingServiceInfo_PDU, align 4
   %7 = load i32, ptr @ett_ngap_SLPositioningRangingServiceInfo, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @SLPositioningRangingServiceInfo_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionListMTCommHReq_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_PDUSessionListMTCommHReq_PDU, align 4
   %7 = load i32, ptr @ett_ngap_PDUSessionListMTCommHReq, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @PDUSessionListMTCommHReq_sequence_of, i32 noundef 1, i32 noundef 256, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_MBS_NGUFailureIndication_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_MBS_NGUFailureIndication_PDU, align 4
   %7 = load i32, ptr @ett_ngap_MBS_NGUFailureIndication, align 4
   %8 = call i32 @dissect_per_choice(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @MBS_NGUFailureIndication_choice, ptr noundef null)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_UserPlaneFailureIndication_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_UserPlaneFailureIndication_PDU, align 4
   %7 = load i32, ptr @ett_ngap_UserPlaneFailureIndication, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @UserPlaneFailureIndication_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_UserLocationInformationN3IWF_without_PortNumber_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_UserLocationInformationN3IWF_without_PortNumber_PDU, align 4
   %7 = load i32, ptr @ett_ngap_UserLocationInformationN3IWF_without_PortNumber, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @UserLocationInformationN3IWF_without_PortNumber_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_AUN3DeviceAccessInfo_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_AUN3DeviceAccessInfo_PDU, align 4
   %7 = load i32, ptr @ett_ngap_AUN3DeviceAccessInfo, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @AUN3DeviceAccessInfo_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_SecondaryRATUsageInformation_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_SecondaryRATUsageInformation_PDU, align 4
   %7 = load i32, ptr @ett_ngap_SecondaryRATUsageInformation, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @SecondaryRATUsageInformation_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceReleaseResponseTransfer_OCTET_STRING_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceReleaseResponseTransfer_OCTET_STRING_PDU, align 4
   %7 = call i32 @dissect_per_octet_string_containing_pdu_new(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef -1, i32 noundef -1, i1 noundef zeroext false, ptr noundef nonnull @dissect_PDUSessionResourceReleaseResponseTransfer_PDU)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_S_NSSAI_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_S_NSSAI_PDU, align 4
   %7 = load i32, ptr @ett_ngap_S_NSSAI, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @S_NSSAI_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_MaximumIntegrityProtectedDataRate_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_MaximumIntegrityProtectedDataRate_PDU, align 4
   %7 = call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 2, ptr noundef null, i1 noundef zeroext true, i32 noundef 0, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_QosFlowPerTNLInformationList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_QosFlowPerTNLInformationList_PDU, align 4
   %7 = load i32, ptr @ett_ngap_QosFlowPerTNLInformationList, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @QosFlowPerTNLInformationList_sequence_of, i32 noundef 1, i32 noundef 3, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_AdditionalDLUPTNLInformationForHOList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_AdditionalDLUPTNLInformationForHOList_PDU, align 4
   %7 = load i32, ptr @ett_ngap_AdditionalDLUPTNLInformationForHOList, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @AdditionalDLUPTNLInformationForHOList_sequence_of, i32 noundef 1, i32 noundef 3, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_UPTransportLayerInformationPairList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_UPTransportLayerInformationPairList_PDU, align 4
   %7 = load i32, ptr @ett_ngap_UPTransportLayerInformationPairList, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @UPTransportLayerInformationPairList_sequence_of, i32 noundef 1, i32 noundef 3, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_SecurityResult_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_SecurityResult_PDU, align 4
   %7 = load i32, ptr @ett_ngap_SecurityResult, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @SecurityResult_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_AssociatedQosFlowList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_AssociatedQosFlowList_PDU, align 4
   %7 = load i32, ptr @ett_ngap_AssociatedQosFlowList, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @AssociatedQosFlowList_sequence_of, i32 noundef 1, i32 noundef 64, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_CNTypeRestrictionsForEquivalent_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_CNTypeRestrictionsForEquivalent_PDU, align 4
   %7 = load i32, ptr @ett_ngap_CNTypeRestrictionsForEquivalent, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @CNTypeRestrictionsForEquivalent_sequence_of, i32 noundef 1, i32 noundef 15, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_CNTypeRestrictionsForServing_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_CNTypeRestrictionsForServing_PDU, align 4
   %7 = call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 1, ptr noundef null, i1 noundef zeroext true, i32 noundef 0, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_ULForwarding_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_ULForwarding_PDU, align 4
   %7 = call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 1, ptr noundef null, i1 noundef zeroext true, i32 noundef 0, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_CPTransportLayerInformation_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_CPTransportLayerInformation_PDU, align 4
   %7 = load i32, ptr @ett_ngap_CPTransportLayerInformation, align 4
   %8 = call i32 @dissect_per_choice(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @CPTransportLayerInformation_choice, ptr noundef null)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_LocationReportingAdditionalInfo_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_LocationReportingAdditionalInfo_PDU, align 4
   %7 = call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 1, ptr noundef null, i1 noundef zeroext true, i32 noundef 0, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_SCTP_TLAs_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_SCTP_TLAs_PDU, align 4
   %7 = load i32, ptr @ett_ngap_SCTP_TLAs, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @SCTP_TLAs_sequence_of, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_DataForwardingResponseERABList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_DataForwardingResponseERABList_PDU, align 4
   %7 = load i32, ptr @ett_ngap_DataForwardingResponseERABList, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @DataForwardingResponseERABList_sequence_of, i32 noundef 1, i32 noundef 256, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_GUAMIType_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_GUAMIType_PDU, align 4
   %7 = call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 2, ptr noundef null, i1 noundef zeroext true, i32 noundef 0, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
@@ -15365,10 +15359,10 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_GUAMIType_PDU(ptr 
 define internal range(i32 -268435456, 268435456) i32 @dissect_RAT_Information_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @asn1_ctx_init(ptr noundef nonnull %6, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %7 = load i32, ptr @hf_ngap_RAT_Information_PDU, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 -1, ptr %5, align 4
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %9 = load ptr, ptr %8, align 8
@@ -15381,7 +15375,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RAT_Information_PD
 
 14:                                               ; preds = %4
   %15 = load ptr, ptr %10, align 8
-  %16 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %15, i64 noundef 72) #13
+  %16 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %15, i64 noundef 72) #12
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
   store i32 -1, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 56
@@ -15417,7 +15411,7 @@ ngap_get_private_data.exit.i:                     ; preds = %14, %4
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   %.018.i = phi i32 [ %48, %.lr.ph.i ], [ 0, %.preheader.i ]
   %32 = call ptr @wmem_file_scope()
-  %33 = call noalias dereferenceable_or_null(8) ptr @wmem_alloc(ptr noundef %32, i64 noundef 8) #13
+  %33 = call noalias dereferenceable_or_null(8) ptr @wmem_alloc(ptr noundef %32, i64 noundef 8) #12
   %34 = load ptr, ptr %24, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load ptr, ptr %35, align 8
@@ -15442,117 +15436,117 @@ ngap_get_private_data.exit.i:                     ; preds = %14, %4
   br i1 %53, label %.lr.ph.i, label %dissect_ngap_RAT_Information.exit, !llvm.loop !10
 
 dissect_ngap_RAT_Information.exit:                ; preds = %.lr.ph.i, %ngap_get_private_data.exit.i, %23, %.preheader.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %54 = add i32 %21, 7
   %55 = ashr i32 %54, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %55
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_ExtendedRATRestrictionInformation_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_ExtendedRATRestrictionInformation_PDU, align 4
   %7 = load i32, ptr @ett_ngap_ExtendedRATRestrictionInformation, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @ExtendedRATRestrictionInformation_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_QosMonitoringRequest_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_QosMonitoringRequest_PDU, align 4
   %7 = call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 3, ptr noundef null, i1 noundef zeroext true, i32 noundef 1, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_SgNB_UE_X2AP_ID_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_SgNB_UE_X2AP_ID_PDU, align 4
   %7 = call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 0, i32 noundef -1, ptr noundef null, i1 noundef zeroext false)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_ExtendedPacketDelayBudget_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_ExtendedPacketDelayBudget_PDU, align 4
   %7 = call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 1, i32 noundef 65535, ptr noundef null, i1 noundef zeroext true)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_DL_NGU_TNLInformationReused_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_DL_NGU_TNLInformationReused_PDU, align 4
   %7 = call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 1, ptr noundef null, i1 noundef zeroext true, i32 noundef 0, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_QosFlowPerTNLInformation_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_QosFlowPerTNLInformation_PDU, align 4
   %7 = load i32, ptr @ett_ngap_QosFlowPerTNLInformation, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @QosFlowPerTNLInformation_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_RedundantQosFlowIndicator_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_RedundantQosFlowIndicator_PDU, align 4
   %7 = call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 2, ptr noundef null, i1 noundef zeroext false, i32 noundef 0, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_TSCTrafficCharacteristics_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_TSCTrafficCharacteristics_PDU, align 4
   %7 = load i32, ptr @ett_ngap_TSCTrafficCharacteristics, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @TSCTrafficCharacteristics_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
@@ -15560,10 +15554,10 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_TSCTrafficCharacte
 define internal range(i32 -268435456, 268435456) i32 @dissect_UERadioCapabilityForPagingOfNB_IoT_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @asn1_ctx_init(ptr noundef nonnull %6, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %7 = load i32, ptr @hf_ngap_UERadioCapabilityForPagingOfNB_IoT_PDU, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8
   %8 = call i32 @dissect_per_octet_string(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %6, ptr noundef %2, i32 noundef %7, i32 noundef -1, i32 noundef -1, i1 noundef zeroext false, ptr noundef nonnull %5)
   %9 = load ptr, ptr %5, align 8
@@ -15586,31 +15580,31 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UERadioCapabilityF
   br label %dissect_ngap_UERadioCapabilityForPagingOfNB_IoT.exit
 
 dissect_ngap_UERadioCapabilityForPagingOfNB_IoT.exit: ; preds = %4, %13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %23 = add i32 %8, 7
   %24 = ashr i32 %23, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %24
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_AlternativeQoSParaSetList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_AlternativeQoSParaSetList_PDU, align 4
   %7 = load i32, ptr @ett_ngap_AlternativeQoSParaSetList, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @AlternativeQoSParaSetList_sequence_of, i32 noundef 1, i32 noundef 8, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_AlternativeQoSParaSetIndex_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_AlternativeQoSParaSetIndex_PDU, align 4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -15624,7 +15618,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_AlternativeQoSPara
 
 13:                                               ; preds = %4
   %14 = load ptr, ptr %9, align 8
-  %15 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %14, i64 noundef 72) #13
+  %15 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %14, i64 noundef 72) #12
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store i32 -1, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 56
@@ -15643,159 +15637,159 @@ dissect_ngap_AlternativeQoSParaSetIndex.exit:     ; preds = %4, %13
   %23 = call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %not..i, i32 noundef 8, ptr noundef null, i1 noundef zeroext true)
   %24 = add i32 %23, 7
   %25 = ashr i32 %24, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %25
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_UEHistoryInformationFromTheUE_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_UEHistoryInformationFromTheUE_PDU, align 4
   %7 = load i32, ptr @ett_ngap_UEHistoryInformationFromTheUE, align 4
   %8 = call i32 @dissect_per_choice(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @UEHistoryInformationFromTheUE_choice, ptr noundef null)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_NPN_Support_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_NPN_Support_PDU, align 4
   %7 = load i32, ptr @ett_ngap_NPN_Support, align 4
   %8 = call i32 @dissect_per_choice(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @NPN_Support_choice, ptr noundef null)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_NPN_PagingAssistanceInformation_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_NPN_PagingAssistanceInformation_PDU, align 4
   %7 = load i32, ptr @ett_ngap_NPN_PagingAssistanceInformation, align 4
   %8 = call i32 @dissect_per_choice(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @NPN_PagingAssistanceInformation_choice, ptr noundef null)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_NPN_MobilityInformation_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_NPN_MobilityInformation_PDU, align 4
   %7 = load i32, ptr @ett_ngap_NPN_MobilityInformation, align 4
   %8 = call i32 @dissect_per_choice(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @NPN_MobilityInformation_choice, ptr noundef null)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_DAPSRequestInfo_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_DAPSRequestInfo_PDU, align 4
   %7 = load i32, ptr @ett_ngap_DAPSRequestInfo, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @DAPSRequestInfo_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_DAPSResponseInfoList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_DAPSResponseInfoList_PDU, align 4
   %7 = load i32, ptr @ett_ngap_DAPSResponseInfoList, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @DAPSResponseInfoList_sequence_of, i32 noundef 1, i32 noundef 32, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_ExtendedSliceSupportList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_ExtendedSliceSupportList_PDU, align 4
   %7 = load i32, ptr @ett_ngap_ExtendedSliceSupportList, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @ExtendedSliceSupportList_sequence_of, i32 noundef 1, i32 noundef 65535, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_ConfiguredTACIndication_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_ConfiguredTACIndication_PDU, align 4
   %7 = call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 1, ptr noundef null, i1 noundef zeroext true, i32 noundef 0, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_QosMonitoringReportingFrequency_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_QosMonitoringReportingFrequency_PDU, align 4
   %7 = call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 1, i32 noundef 1800, ptr noundef null, i1 noundef zeroext true)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_QosFlowParametersList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_QosFlowParametersList_PDU, align 4
   %7 = load i32, ptr @ett_ngap_QosFlowParametersList, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @QosFlowParametersList_sequence_of, i32 noundef 1, i32 noundef 64, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_QosFlowFeedbackList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_QosFlowFeedbackList_PDU, align 4
   %7 = load i32, ptr @ett_ngap_QosFlowFeedbackList, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @QosFlowFeedbackList_sequence_of, i32 noundef 1, i32 noundef 64, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
@@ -15803,10 +15797,10 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_QosFlowFeedbackLis
 define internal range(i32 -268435456, 268435456) i32 @dissect_BurstArrivalTime_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @asn1_ctx_init(ptr noundef nonnull %6, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %7 = load i32, ptr @hf_ngap_BurstArrivalTime_PDU, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8
   %8 = call i32 @dissect_per_octet_string(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %6, ptr noundef %2, i32 noundef %7, i32 noundef -1, i32 noundef -1, i1 noundef zeroext false, ptr noundef nonnull %5)
   %9 = load ptr, ptr %5, align 8
@@ -15825,292 +15819,292 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_BurstArrivalTime_P
   br label %dissect_ngap_BurstArrivalTime.exit
 
 dissect_ngap_BurstArrivalTime.exit:               ; preds = %4, %10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %19 = add i32 %8, 7
   %20 = ashr i32 %19, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %20
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_ExtendedUEIdentityIndexValue_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_ExtendedUEIdentityIndexValue_PDU, align 4
   %7 = call i32 @dissect_per_bit_string(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 16, i32 noundef 16, i1 noundef zeroext false, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_ExpectedUEActivityBehaviour_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_ExpectedUEActivityBehaviour_PDU, align 4
   %7 = load i32, ptr @ett_ngap_ExpectedUEActivityBehaviour, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @ExpectedUEActivityBehaviour_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_MicoAllPLMN_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_MicoAllPLMN_PDU, align 4
   %7 = call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 1, ptr noundef null, i1 noundef zeroext true, i32 noundef 0, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_ExtendedReportIntervalMDT_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_ExtendedReportIntervalMDT_PDU, align 4
   %7 = call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 2, ptr noundef null, i1 noundef zeroext true, i32 noundef 0, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_SourceNodeID_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_SourceNodeID_PDU, align 4
   %7 = load i32, ptr @ett_ngap_SourceNodeID, align 4
   %8 = call i32 @dissect_per_choice(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @SourceNodeID_choice, ptr noundef null)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_NRNTNTAIInformation_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_NRNTNTAIInformation_PDU, align 4
   %7 = load i32, ptr @ett_ngap_NRNTNTAIInformation, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @NRNTNTAIInformation_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_LastVisitedPSCellList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_LastVisitedPSCellList_PDU, align 4
   %7 = load i32, ptr @ett_ngap_LastVisitedPSCellList, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @LastVisitedPSCellList_sequence_of, i32 noundef 1, i32 noundef 8, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_MBS_SupportIndicator_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_MBS_SupportIndicator_PDU, align 4
   %7 = call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 1, ptr noundef null, i1 noundef zeroext true, i32 noundef 1, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_MBSSessionFailedtoSetupList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_MBSSessionFailedtoSetupList_PDU, align 4
   %7 = load i32, ptr @ett_ngap_MBSSessionFailedtoSetupList, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @MBSSessionFailedtoSetupList_sequence_of, i32 noundef 1, i32 noundef 32, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_MBSSessionSetupResponseList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_MBSSessionSetupResponseList_PDU, align 4
   %7 = load i32, ptr @ett_ngap_MBSSessionSetupResponseList, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @MBSSessionSetupResponseList_sequence_of, i32 noundef 1, i32 noundef 32, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_MBS_ActiveSessionInformation_SourcetoTargetList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_MBS_ActiveSessionInformation_SourcetoTargetList_PDU, align 4
   %7 = load i32, ptr @ett_ngap_MBS_ActiveSessionInformation_SourcetoTargetList, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @MBS_ActiveSessionInformation_SourcetoTargetList_sequence_of, i32 noundef 1, i32 noundef 256, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_MBS_ActiveSessionInformation_TargettoSourceList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_MBS_ActiveSessionInformation_TargettoSourceList_PDU, align 4
   %7 = load i32, ptr @ett_ngap_MBS_ActiveSessionInformation_TargettoSourceList, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @MBS_ActiveSessionInformation_TargettoSourceList_sequence_of, i32 noundef 1, i32 noundef 256, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_OnboardingSupport_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_OnboardingSupport_PDU, align 4
   %7 = call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 1, ptr noundef null, i1 noundef zeroext true, i32 noundef 0, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_SurvivalTime_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_SurvivalTime_PDU, align 4
   %7 = call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 0, i32 noundef 1920000, ptr noundef null, i1 noundef zeroext true)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionPairID_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_PDUSessionPairID_PDU, align 4
   %7 = call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 0, i32 noundef 255, ptr noundef null, i1 noundef zeroext true)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_M4ReportAmountMDT_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_M4ReportAmountMDT_PDU, align 4
   %7 = call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 8, ptr noundef null, i1 noundef zeroext true, i32 noundef 0, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_M5ReportAmountMDT_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_M5ReportAmountMDT_PDU, align 4
   %7 = call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 8, ptr noundef null, i1 noundef zeroext true, i32 noundef 0, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_M6ReportAmountMDT_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_M6ReportAmountMDT_PDU, align 4
   %7 = call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 8, ptr noundef null, i1 noundef zeroext true, i32 noundef 0, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_M7ReportAmountMDT_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_M7ReportAmountMDT_PDU, align 4
   %7 = call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 8, ptr noundef null, i1 noundef zeroext true, i32 noundef 0, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_IncludeBeamMeasurementsIndication_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_IncludeBeamMeasurementsIndication_PDU, align 4
   %7 = call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 1, ptr noundef null, i1 noundef zeroext true, i32 noundef 0, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_ExcessPacketDelayThresholdConfiguration_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_ExcessPacketDelayThresholdConfiguration_PDU, align 4
   %7 = load i32, ptr @ett_ngap_ExcessPacketDelayThresholdConfiguration, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @ExcessPacketDelayThresholdConfiguration_sequence_of, i32 noundef 1, i32 noundef 255, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
@@ -16118,10 +16112,10 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_ExcessPacketDelayT
 define internal range(i32 -268435456, 268435456) i32 @dissect_PagingCauseIndicationForVoiceService_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @asn1_ctx_init(ptr noundef nonnull %6, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %7 = load i32, ptr @hf_ngap_PagingCauseIndicationForVoiceService_PDU, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %8 = call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %6, ptr noundef %2, i32 noundef %7, i32 noundef 1, ptr noundef nonnull %5, i1 noundef zeroext true, i32 noundef 0, ptr noundef null)
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %10 = load ptr, ptr %9, align 8
@@ -16130,504 +16124,504 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PagingCauseIndicat
   %13 = load i32, ptr %5, align 4
   %14 = call ptr @val_to_str_const(i32 noundef %13, ptr noundef nonnull @ngap_PagingCauseIndicationForVoiceService_vals, ptr noundef nonnull @.str.3482)
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %12, i32 noundef 25, ptr noundef nonnull @.str.3622, ptr noundef %14)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %15 = add i32 %8, 7
   %16 = ashr i32 %15, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %16
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_TAINSAGSupportList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_TAINSAGSupportList_PDU, align 4
   %7 = load i32, ptr @ett_ngap_TAINSAGSupportList, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @TAINSAGSupportList_sequence_of, i32 noundef 1, i32 noundef 256, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_NGAPIESupportInformationRequestList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_NGAPIESupportInformationRequestList_PDU, align 4
   %7 = load i32, ptr @ett_ngap_NGAPIESupportInformationRequestList, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @NGAPIESupportInformationRequestList_sequence_of, i32 noundef 1, i32 noundef 32, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_NGAPIESupportInformationResponseList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_NGAPIESupportInformationResponseList_PDU, align 4
   %7 = load i32, ptr @ett_ngap_NGAPIESupportInformationResponseList, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @NGAPIESupportInformationResponseList_sequence_of, i32 noundef 1, i32 noundef 32, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_EarlyMeasurement_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_EarlyMeasurement_PDU, align 4
   %7 = call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 1, ptr noundef null, i1 noundef zeroext true, i32 noundef 0, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_BeamMeasurementsReportConfiguration_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_BeamMeasurementsReportConfiguration_PDU, align 4
   %7 = load i32, ptr @ett_ngap_BeamMeasurementsReportConfiguration, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @BeamMeasurementsReportConfiguration_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_HashedUEIdentityIndexValue_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_HashedUEIdentityIndexValue_PDU, align 4
   %7 = call i32 @dissect_per_bit_string(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 13, i32 noundef 13, i1 noundef zeroext true, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_ExtendedMobilityInformation_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_ExtendedMobilityInformation_PDU, align 4
   %7 = call i32 @dissect_per_bit_string(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 32, i32 noundef 32, i1 noundef zeroext false, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_AdditionalCancelledlocationReportingReferenceIDList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_AdditionalCancelledlocationReportingReferenceIDList_PDU, align 4
   %7 = load i32, ptr @ett_ngap_AdditionalCancelledlocationReportingReferenceIDList, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @AdditionalCancelledlocationReportingReferenceIDList_sequence_of, i32 noundef 1, i32 noundef 63, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_EquivalentSNPNsList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_EquivalentSNPNsList_PDU, align 4
   %7 = load i32, ptr @ett_ngap_EquivalentSNPNsList, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @EquivalentSNPNsList_sequence_of, i32 noundef 1, i32 noundef 15, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_FiveGProSeLayer2Multipath_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_FiveGProSeLayer2Multipath_PDU, align 4
   %7 = call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 2, ptr noundef null, i1 noundef zeroext true, i32 noundef 0, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_FiveGProSeLayer2UEtoUERelay_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_FiveGProSeLayer2UEtoUERelay_PDU, align 4
   %7 = call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 2, ptr noundef null, i1 noundef zeroext true, i32 noundef 0, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_FiveGProSeLayer2UEtoUERemote_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_FiveGProSeLayer2UEtoUERemote_PDU, align 4
   %7 = call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 2, ptr noundef null, i1 noundef zeroext true, i32 noundef 0, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_CandidateRelayUEInformationList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_CandidateRelayUEInformationList_PDU, align 4
   %7 = load i32, ptr @ett_ngap_CandidateRelayUEInformationList, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @CandidateRelayUEInformationList_sequence_of, i32 noundef 1, i32 noundef 32, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_C_RNTI_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_C_RNTI_PDU, align 4
   %7 = call i32 @dissect_per_bit_string(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 16, i32 noundef 16, i1 noundef zeroext false, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_TimeSinceFailure_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_TimeSinceFailure_PDU, align 4
   %7 = call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 0, i32 noundef 172800, ptr noundef null, i1 noundef zeroext true)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_ClockQualityReportingControlInfo_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_ClockQualityReportingControlInfo_PDU, align 4
   %7 = load i32, ptr @ett_ngap_ClockQualityReportingControlInfo, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @ClockQualityReportingControlInfo_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_RANfeedbacktype_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_RANfeedbacktype_PDU, align 4
   %7 = load i32, ptr @ett_ngap_RANfeedbacktype, align 4
   %8 = call i32 @dissect_per_choice(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @RANfeedbacktype_choice, ptr noundef null)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_QoSFlowTSCList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_QoSFlowTSCList_PDU, align 4
   %7 = load i32, ptr @ett_ngap_QoSFlowTSCList, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @QoSFlowTSCList_sequence_of, i32 noundef 1, i32 noundef 64, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_TSCTrafficCharacteristicsFeedback_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_TSCTrafficCharacteristicsFeedback_PDU, align 4
   %7 = load i32, ptr @ett_ngap_TSCTrafficCharacteristicsFeedback, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @TSCTrafficCharacteristicsFeedback_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_AssistanceInformationQoE_Meas_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_AssistanceInformationQoE_Meas_PDU, align 4
   %7 = call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 1, i32 noundef 16, ptr noundef null, i1 noundef zeroext true)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_MBSCommServiceType_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_MBSCommServiceType_PDU, align 4
   %7 = call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 2, ptr noundef null, i1 noundef zeroext true, i32 noundef 0, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_MobileIAB_MTUserLocationInformation_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_MobileIAB_MTUserLocationInformation_PDU, align 4
   %7 = load i32, ptr @ett_ngap_MobileIAB_MTUserLocationInformation, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @MobileIAB_MTUserLocationInformation_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_CN_MT_CommunicationHandling_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_CN_MT_CommunicationHandling_PDU, align 4
   %7 = call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 1, ptr noundef null, i1 noundef zeroext true, i32 noundef 0, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_PNI_NPN_AreaScopeofMDT_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_PNI_NPN_AreaScopeofMDT_PDU, align 4
   %7 = load i32, ptr @ett_ngap_PNI_NPN_AreaScopeofMDT, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @PNI_NPN_AreaScopeofMDT_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_MBS_AssistanceInformation_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_MBS_AssistanceInformation_PDU, align 4
   %7 = call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 1, ptr noundef null, i1 noundef zeroext true, i32 noundef 0, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_TimeBasedHandoverInformation_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_TimeBasedHandoverInformation_PDU, align 4
   %7 = load i32, ptr @ett_ngap_TimeBasedHandoverInformation, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @TimeBasedHandoverInformation_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_PDUsetQoSParameters_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_PDUsetQoSParameters_PDU, align 4
   %7 = load i32, ptr @ett_ngap_PDUsetQoSParameters, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @PDUsetQoSParameters_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSetbasedHandlingIndicator_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_PDUSetbasedHandlingIndicator_PDU, align 4
   %7 = call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 1, ptr noundef null, i1 noundef zeroext true, i32 noundef 0, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_N6JitterInformation_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_N6JitterInformation_PDU, align 4
   %7 = load i32, ptr @ett_ngap_N6JitterInformation, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @N6JitterInformation_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_ECNMarkingorCongestionInformationReportingRequest_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_ECNMarkingorCongestionInformationReportingRequest_PDU, align 4
   %7 = load i32, ptr @ett_ngap_ECNMarkingorCongestionInformationReportingRequest, align 4
   %8 = call i32 @dissect_per_choice(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @ECNMarkingorCongestionInformationReportingRequest_choice, ptr noundef null)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_ECNMarkingorCongestionInformationReportingStatus_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_ECNMarkingorCongestionInformationReportingStatus_PDU, align 4
   %7 = load i32, ptr @ett_ngap_ECNMarkingorCongestionInformationReportingStatus, align 4
   %8 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @ECNMarkingorCongestionInformationReportingStatus_sequence_of, i32 noundef 1, i32 noundef 64, i1 noundef zeroext false)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_UserPlaneErrorIndicator_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_UserPlaneErrorIndicator_PDU, align 4
   %7 = call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 1, ptr noundef null, i1 noundef zeroext true, i32 noundef 0, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_MaximumDataBurstVolume_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_MaximumDataBurstVolume_PDU, align 4
   %7 = call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 0, i32 noundef 4095, ptr noundef null, i1 noundef zeroext true)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_MN_only_MDT_collection_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_MN_only_MDT_collection_PDU, align 4
   %7 = call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 1, ptr noundef null, i1 noundef zeroext true, i32 noundef 0, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_UserPlaneFailureIndicationReport_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_UserPlaneFailureIndicationReport_PDU, align 4
   %7 = call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef 3, ptr noundef null, i1 noundef zeroext true, i32 noundef 0, ptr noundef null)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_QoERVQoEReportingPaths_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_QoERVQoEReportingPaths_PDU, align 4
   %7 = load i32, ptr @ett_ngap_QoERVQoEReportingPaths, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @QoERVQoEReportingPaths_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_AMFConfigurationUpdate_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_AMFConfigurationUpdate_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 1, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -16648,7 +16642,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_AMFConfigurationUp
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -16667,14 +16661,14 @@ dissect_ngap_AMFConfigurationUpdate.exit:         ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @AMFConfigurationUpdate_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_AMFConfigurationUpdateAcknowledge_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_AMFConfigurationUpdateAcknowledge_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 2, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -16695,7 +16689,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_AMFConfigurationUp
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -16714,14 +16708,14 @@ dissect_ngap_AMFConfigurationUpdateAcknowledge.exit: ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @AMFConfigurationUpdateAcknowledge_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_AMFConfigurationUpdateFailure_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_AMFConfigurationUpdateFailure_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 3, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -16742,7 +16736,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_AMFConfigurationUp
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -16761,14 +16755,14 @@ dissect_ngap_AMFConfigurationUpdateFailure.exit:  ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @AMFConfigurationUpdateFailure_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_AMFCPRelocationIndication_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_AMFCPRelocationIndication_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 4, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -16789,7 +16783,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_AMFCPRelocationInd
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -16808,14 +16802,14 @@ dissect_ngap_AMFCPRelocationIndication.exit:      ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @AMFCPRelocationIndication_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_AMFStatusIndication_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_AMFStatusIndication_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 5, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -16836,7 +16830,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_AMFStatusIndicatio
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -16855,14 +16849,14 @@ dissect_ngap_AMFStatusIndication.exit:            ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @AMFStatusIndication_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_BroadcastSessionModificationRequest_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_BroadcastSessionModificationRequest_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 6, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -16883,7 +16877,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_BroadcastSessionMo
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -16902,14 +16896,14 @@ dissect_ngap_BroadcastSessionModificationRequest.exit: ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @BroadcastSessionModificationRequest_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_BroadcastSessionModificationResponse_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_BroadcastSessionModificationResponse_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 7, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -16930,7 +16924,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_BroadcastSessionMo
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -16949,14 +16943,14 @@ dissect_ngap_BroadcastSessionModificationResponse.exit: ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @BroadcastSessionModificationResponse_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_BroadcastSessionModificationFailure_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_BroadcastSessionModificationFailure_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 8, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -16977,7 +16971,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_BroadcastSessionMo
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -16996,14 +16990,14 @@ dissect_ngap_BroadcastSessionModificationFailure.exit: ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @BroadcastSessionModificationFailure_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_BroadcastSessionReleaseRequest_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_BroadcastSessionReleaseRequest_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 9, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -17024,7 +17018,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_BroadcastSessionRe
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -17043,14 +17037,14 @@ dissect_ngap_BroadcastSessionReleaseRequest.exit: ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @BroadcastSessionReleaseRequest_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_BroadcastSessionReleaseResponse_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_BroadcastSessionReleaseResponse_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 10, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -17071,7 +17065,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_BroadcastSessionRe
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -17090,14 +17084,14 @@ dissect_ngap_BroadcastSessionReleaseResponse.exit: ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @BroadcastSessionReleaseResponse_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_BroadcastSessionReleaseRequired_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_BroadcastSessionReleaseRequired_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 11, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -17118,7 +17112,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_BroadcastSessionRe
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -17137,14 +17131,14 @@ dissect_ngap_BroadcastSessionReleaseRequired.exit: ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @BroadcastSessionReleaseRequired_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_BroadcastSessionSetupRequest_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_BroadcastSessionSetupRequest_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 12, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -17165,7 +17159,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_BroadcastSessionSe
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -17184,14 +17178,14 @@ dissect_ngap_BroadcastSessionSetupRequest.exit:   ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @BroadcastSessionSetupRequest_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_BroadcastSessionSetupResponse_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_BroadcastSessionSetupResponse_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 13, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -17212,7 +17206,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_BroadcastSessionSe
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -17231,14 +17225,14 @@ dissect_ngap_BroadcastSessionSetupResponse.exit:  ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @BroadcastSessionSetupResponse_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_BroadcastSessionSetupFailure_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_BroadcastSessionSetupFailure_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 14, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -17259,7 +17253,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_BroadcastSessionSe
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -17278,14 +17272,14 @@ dissect_ngap_BroadcastSessionSetupFailure.exit:   ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @BroadcastSessionSetupFailure_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_BroadcastSessionTransportRequest_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_BroadcastSessionTransportRequest_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 15, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -17306,7 +17300,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_BroadcastSessionTr
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -17325,14 +17319,14 @@ dissect_ngap_BroadcastSessionTransportRequest.exit: ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @BroadcastSessionTransportRequest_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_BroadcastSessionTransportResponse_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_BroadcastSessionTransportResponse_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 16, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -17353,7 +17347,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_BroadcastSessionTr
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -17372,14 +17366,14 @@ dissect_ngap_BroadcastSessionTransportResponse.exit: ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @BroadcastSessionTransportResponse_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_BroadcastSessionTransportFailure_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_BroadcastSessionTransportFailure_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 17, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -17400,7 +17394,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_BroadcastSessionTr
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -17419,14 +17413,14 @@ dissect_ngap_BroadcastSessionTransportFailure.exit: ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @BroadcastSessionTransportFailure_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_CellTrafficTrace_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_CellTrafficTrace_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 18, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -17447,7 +17441,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_CellTrafficTrace_P
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -17466,14 +17460,14 @@ dissect_ngap_CellTrafficTrace.exit:               ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @CellTrafficTrace_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_ConnectionEstablishmentIndication_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_ConnectionEstablishmentIndication_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 19, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -17494,7 +17488,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_ConnectionEstablis
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -17513,14 +17507,14 @@ dissect_ngap_ConnectionEstablishmentIndication.exit: ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @ConnectionEstablishmentIndication_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_DeactivateTrace_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_DeactivateTrace_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 20, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -17541,7 +17535,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_DeactivateTrace_PD
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -17560,14 +17554,14 @@ dissect_ngap_DeactivateTrace.exit:                ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @DeactivateTrace_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_DistributionSetupRequest_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_DistributionSetupRequest_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 21, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -17588,7 +17582,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_DistributionSetupR
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -17607,14 +17601,14 @@ dissect_ngap_DistributionSetupRequest.exit:       ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @DistributionSetupRequest_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_DistributionSetupResponse_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_DistributionSetupResponse_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 22, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -17635,7 +17629,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_DistributionSetupR
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -17654,14 +17648,14 @@ dissect_ngap_DistributionSetupResponse.exit:      ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @DistributionSetupResponse_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_DistributionSetupFailure_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_DistributionSetupFailure_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 23, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -17682,7 +17676,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_DistributionSetupF
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -17701,14 +17695,14 @@ dissect_ngap_DistributionSetupFailure.exit:       ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @DistributionSetupFailure_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_DistributionReleaseRequest_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_DistributionReleaseRequest_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 24, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -17729,7 +17723,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_DistributionReleas
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -17748,14 +17742,14 @@ dissect_ngap_DistributionReleaseRequest.exit:     ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @DistributionReleaseRequest_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_DistributionReleaseResponse_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_DistributionReleaseResponse_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 25, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -17776,7 +17770,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_DistributionReleas
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -17795,14 +17789,14 @@ dissect_ngap_DistributionReleaseResponse.exit:    ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @DistributionReleaseResponse_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_DownlinkNASTransport_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_DownlinkNASTransport_PDU, align 4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -17826,7 +17820,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_DownlinkNASTranspo
 
 20:                                               ; preds = %4
   %21 = load ptr, ptr %16, align 8
-  %22 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %21, i64 noundef 72) #13
+  %22 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %21, i64 noundef 72) #12
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   store i32 -1, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 56
@@ -17845,14 +17839,14 @@ dissect_ngap_DownlinkNASTransport.exit:           ; preds = %4, %20
   %30 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %29, ptr noundef nonnull @DownlinkNASTransport_sequence)
   %31 = add i32 %30, 7
   %32 = ashr i32 %31, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %32
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_DownlinkNonUEAssociatedNRPPaTransport_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_DownlinkNonUEAssociatedNRPPaTransport_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 27, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -17873,7 +17867,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_DownlinkNonUEAssoc
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -17892,14 +17886,14 @@ dissect_ngap_DownlinkNonUEAssociatedNRPPaTransport.exit: ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @DownlinkNonUEAssociatedNRPPaTransport_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_DownlinkRANConfigurationTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_DownlinkRANConfigurationTransfer_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 28, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -17920,7 +17914,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_DownlinkRANConfigu
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -17939,14 +17933,14 @@ dissect_ngap_DownlinkRANConfigurationTransfer.exit: ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @DownlinkRANConfigurationTransfer_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_DownlinkRANEarlyStatusTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_DownlinkRANEarlyStatusTransfer_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 29, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -17967,7 +17961,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_DownlinkRANEarlySt
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -17986,14 +17980,14 @@ dissect_ngap_DownlinkRANEarlyStatusTransfer.exit: ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @DownlinkRANEarlyStatusTransfer_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_DownlinkRANStatusTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_DownlinkRANStatusTransfer_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 30, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -18014,7 +18008,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_DownlinkRANStatusT
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -18033,14 +18027,14 @@ dissect_ngap_DownlinkRANStatusTransfer.exit:      ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @DownlinkRANStatusTransfer_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_DownlinkUEAssociatedNRPPaTransport_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_DownlinkUEAssociatedNRPPaTransport_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 31, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -18061,7 +18055,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_DownlinkUEAssociat
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -18080,14 +18074,14 @@ dissect_ngap_DownlinkUEAssociatedNRPPaTransport.exit: ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @DownlinkUEAssociatedNRPPaTransport_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_ErrorIndication_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_ErrorIndication_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 32, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -18108,7 +18102,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_ErrorIndication_PD
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -18127,14 +18121,14 @@ dissect_ngap_ErrorIndication.exit:                ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @ErrorIndication_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverCancel_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_HandoverCancel_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 33, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -18155,7 +18149,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverCancel_PDU
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -18174,14 +18168,14 @@ dissect_ngap_HandoverCancel.exit:                 ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @HandoverCancel_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverCancelAcknowledge_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_HandoverCancelAcknowledge_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 34, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -18202,7 +18196,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverCancelAckn
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -18221,14 +18215,14 @@ dissect_ngap_HandoverCancelAcknowledge.exit:      ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @HandoverCancelAcknowledge_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverNotify_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_HandoverNotify_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 35, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -18249,7 +18243,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverNotify_PDU
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -18268,14 +18262,14 @@ dissect_ngap_HandoverNotify.exit:                 ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @HandoverNotify_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverRequired_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_HandoverRequired_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 36, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -18296,7 +18290,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverRequired_P
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -18315,14 +18309,14 @@ dissect_ngap_HandoverRequired.exit:               ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @HandoverRequired_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverCommand_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_HandoverCommand_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 37, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -18343,7 +18337,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverCommand_PD
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -18362,14 +18356,14 @@ dissect_ngap_HandoverCommand.exit:                ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @HandoverCommand_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverPreparationFailure_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_HandoverPreparationFailure_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 38, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -18390,7 +18384,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverPreparatio
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -18409,14 +18403,14 @@ dissect_ngap_HandoverPreparationFailure.exit:     ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @HandoverPreparationFailure_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverRequest_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_HandoverRequest_PDU, align 4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -18440,7 +18434,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverRequest_PD
 
 20:                                               ; preds = %4
   %21 = load ptr, ptr %16, align 8
-  %22 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %21, i64 noundef 72) #13
+  %22 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %21, i64 noundef 72) #12
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   store i32 -1, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 56
@@ -18459,14 +18453,14 @@ dissect_ngap_HandoverRequest.exit:                ; preds = %4, %20
   %30 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %29, ptr noundef nonnull @HandoverRequest_sequence)
   %31 = add i32 %30, 7
   %32 = ashr i32 %31, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %32
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverRequestAcknowledge_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_HandoverRequestAcknowledge_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 40, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -18487,7 +18481,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverRequestAck
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -18506,14 +18500,14 @@ dissect_ngap_HandoverRequestAcknowledge.exit:     ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @HandoverRequestAcknowledge_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverFailure_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_HandoverFailure_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 41, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -18534,7 +18528,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverFailure_PD
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -18553,14 +18547,14 @@ dissect_ngap_HandoverFailure.exit:                ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @HandoverFailure_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverSuccess_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_HandoverSuccess_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 42, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -18581,7 +18575,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverSuccess_PD
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -18600,14 +18594,14 @@ dissect_ngap_HandoverSuccess.exit:                ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @HandoverSuccess_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_InitialContextSetupRequest_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_InitialContextSetupRequest_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 43, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -18628,7 +18622,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_InitialContextSetu
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -18647,14 +18641,14 @@ dissect_ngap_InitialContextSetupRequest.exit:     ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @InitialContextSetupRequest_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_InitialContextSetupResponse_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_InitialContextSetupResponse_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 44, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -18675,7 +18669,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_InitialContextSetu
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -18694,14 +18688,14 @@ dissect_ngap_InitialContextSetupResponse.exit:    ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @InitialContextSetupResponse_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_InitialContextSetupFailure_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_InitialContextSetupFailure_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 45, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -18722,7 +18716,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_InitialContextSetu
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -18741,14 +18735,14 @@ dissect_ngap_InitialContextSetupFailure.exit:     ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @InitialContextSetupFailure_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_InitialUEMessage_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_InitialUEMessage_PDU, align 4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -18772,7 +18766,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_InitialUEMessage_P
 
 20:                                               ; preds = %4
   %21 = load ptr, ptr %16, align 8
-  %22 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %21, i64 noundef 72) #13
+  %22 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %21, i64 noundef 72) #12
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   store i32 -1, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 56
@@ -18791,14 +18785,14 @@ dissect_ngap_InitialUEMessage.exit:               ; preds = %4, %20
   %30 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %29, ptr noundef nonnull @InitialUEMessage_sequence)
   %31 = add i32 %30, 7
   %32 = ashr i32 %31, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %32
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_LocationReport_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_LocationReport_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 47, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -18819,7 +18813,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_LocationReport_PDU
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -18838,14 +18832,14 @@ dissect_ngap_LocationReport.exit:                 ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @LocationReport_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_LocationReportingControl_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_LocationReportingControl_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 48, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -18866,7 +18860,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_LocationReportingC
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -18885,14 +18879,14 @@ dissect_ngap_LocationReportingControl.exit:       ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @LocationReportingControl_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_LocationReportingFailureIndication_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_LocationReportingFailureIndication_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 49, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -18913,7 +18907,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_LocationReportingF
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -18932,14 +18926,14 @@ dissect_ngap_LocationReportingFailureIndication.exit: ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @LocationReportingFailureIndication_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_MTCommunicationHandlingRequest_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_MTCommunicationHandlingRequest_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 50, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -18960,7 +18954,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MTCommunicationHan
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -18979,14 +18973,14 @@ dissect_ngap_MTCommunicationHandlingRequest.exit: ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @MTCommunicationHandlingRequest_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_MTCommunicationHandlingResponse_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_MTCommunicationHandlingResponse_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 51, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -19007,7 +19001,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MTCommunicationHan
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -19026,14 +19020,14 @@ dissect_ngap_MTCommunicationHandlingResponse.exit: ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @MTCommunicationHandlingResponse_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_MTCommunicationHandlingFailure_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_MTCommunicationHandlingFailure_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 52, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -19054,7 +19048,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MTCommunicationHan
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -19073,14 +19067,14 @@ dissect_ngap_MTCommunicationHandlingFailure.exit: ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @MTCommunicationHandlingFailure_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_MulticastSessionActivationRequest_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_MulticastSessionActivationRequest_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 53, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -19101,7 +19095,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MulticastSessionAc
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -19120,14 +19114,14 @@ dissect_ngap_MulticastSessionActivationRequest.exit: ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @MulticastSessionActivationRequest_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_MulticastSessionActivationResponse_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_MulticastSessionActivationResponse_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 54, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -19148,7 +19142,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MulticastSessionAc
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -19167,14 +19161,14 @@ dissect_ngap_MulticastSessionActivationResponse.exit: ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @MulticastSessionActivationResponse_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_MulticastSessionActivationFailure_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_MulticastSessionActivationFailure_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 55, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -19195,7 +19189,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MulticastSessionAc
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -19214,14 +19208,14 @@ dissect_ngap_MulticastSessionActivationFailure.exit: ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @MulticastSessionActivationFailure_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_MulticastSessionDeactivationRequest_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_MulticastSessionDeactivationRequest_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 56, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -19242,7 +19236,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MulticastSessionDe
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -19261,14 +19255,14 @@ dissect_ngap_MulticastSessionDeactivationRequest.exit: ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @MulticastSessionDeactivationRequest_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_MulticastSessionDeactivationResponse_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_MulticastSessionDeactivationResponse_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 57, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -19289,7 +19283,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MulticastSessionDe
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -19308,14 +19302,14 @@ dissect_ngap_MulticastSessionDeactivationResponse.exit: ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @MulticastSessionDeactivationResponse_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_MulticastSessionUpdateRequest_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_MulticastSessionUpdateRequest_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 58, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -19336,7 +19330,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MulticastSessionUp
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -19355,14 +19349,14 @@ dissect_ngap_MulticastSessionUpdateRequest.exit:  ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @MulticastSessionUpdateRequest_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_MulticastSessionUpdateResponse_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_MulticastSessionUpdateResponse_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 59, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -19383,7 +19377,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MulticastSessionUp
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -19402,14 +19396,14 @@ dissect_ngap_MulticastSessionUpdateResponse.exit: ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @MulticastSessionUpdateResponse_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_MulticastSessionUpdateFailure_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_MulticastSessionUpdateFailure_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 60, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -19430,7 +19424,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MulticastSessionUp
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -19449,14 +19443,14 @@ dissect_ngap_MulticastSessionUpdateFailure.exit:  ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @MulticastSessionUpdateFailure_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_MulticastGroupPaging_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_MulticastGroupPaging_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 61, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -19477,7 +19471,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MulticastGroupPagi
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -19496,14 +19490,14 @@ dissect_ngap_MulticastGroupPaging.exit:           ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @MulticastGroupPaging_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_NASNonDeliveryIndication_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_NASNonDeliveryIndication_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 62, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -19524,7 +19518,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_NASNonDeliveryIndi
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -19543,14 +19537,14 @@ dissect_ngap_NASNonDeliveryIndication.exit:       ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @NASNonDeliveryIndication_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_NGReset_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_NGReset_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 63, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -19571,7 +19565,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_NGReset_PDU(ptr no
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -19590,14 +19584,14 @@ dissect_ngap_NGReset.exit:                        ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @NGReset_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_NGResetAcknowledge_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_NGResetAcknowledge_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 64, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -19618,7 +19612,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_NGResetAcknowledge
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -19637,14 +19631,14 @@ dissect_ngap_NGResetAcknowledge.exit:             ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @NGResetAcknowledge_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_NGSetupRequest_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_NGSetupRequest_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 65, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -19665,7 +19659,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_NGSetupRequest_PDU
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -19684,14 +19678,14 @@ dissect_ngap_NGSetupRequest.exit:                 ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @NGSetupRequest_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_NGSetupResponse_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_NGSetupResponse_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 66, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -19712,7 +19706,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_NGSetupResponse_PD
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -19731,14 +19725,14 @@ dissect_ngap_NGSetupResponse.exit:                ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @NGSetupResponse_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_NGSetupFailure_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_NGSetupFailure_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 67, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -19759,7 +19753,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_NGSetupFailure_PDU
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -19778,14 +19772,14 @@ dissect_ngap_NGSetupFailure.exit:                 ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @NGSetupFailure_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_OverloadStart_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_OverloadStart_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 68, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -19806,7 +19800,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_OverloadStart_PDU(
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -19825,14 +19819,14 @@ dissect_ngap_OverloadStart.exit:                  ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @OverloadStart_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_OverloadStop_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_OverloadStop_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 69, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -19853,7 +19847,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_OverloadStop_PDU(p
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -19872,14 +19866,14 @@ dissect_ngap_OverloadStop.exit:                   ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @OverloadStop_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_Paging_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_Paging_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 70, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -19900,7 +19894,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_Paging_PDU(ptr nou
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -19919,14 +19913,14 @@ dissect_ngap_Paging.exit:                         ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @Paging_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_PathSwitchRequest_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_PathSwitchRequest_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 71, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -19947,7 +19941,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PathSwitchRequest_
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -19966,14 +19960,14 @@ dissect_ngap_PathSwitchRequest.exit:              ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @PathSwitchRequest_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_PathSwitchRequestAcknowledge_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_PathSwitchRequestAcknowledge_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 72, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -19994,7 +19988,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PathSwitchRequestA
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -20013,14 +20007,14 @@ dissect_ngap_PathSwitchRequestAcknowledge.exit:   ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @PathSwitchRequestAcknowledge_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_PathSwitchRequestFailure_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_PathSwitchRequestFailure_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 73, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -20041,7 +20035,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PathSwitchRequestF
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -20060,14 +20054,14 @@ dissect_ngap_PathSwitchRequestFailure.exit:       ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @PathSwitchRequestFailure_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceModifyRequest_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceModifyRequest_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 74, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -20088,7 +20082,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResource
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -20107,14 +20101,14 @@ dissect_ngap_PDUSessionResourceModifyRequest.exit: ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @PDUSessionResourceModifyRequest_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceModifyResponse_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceModifyResponse_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 75, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -20135,7 +20129,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResource
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -20154,14 +20148,14 @@ dissect_ngap_PDUSessionResourceModifyResponse.exit: ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @PDUSessionResourceModifyResponse_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceModifyIndication_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceModifyIndication_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 76, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -20182,7 +20176,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResource
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -20201,14 +20195,14 @@ dissect_ngap_PDUSessionResourceModifyIndication.exit: ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @PDUSessionResourceModifyIndication_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceModifyConfirm_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceModifyConfirm_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 77, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -20229,7 +20223,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResource
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -20248,14 +20242,14 @@ dissect_ngap_PDUSessionResourceModifyConfirm.exit: ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @PDUSessionResourceModifyConfirm_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceNotify_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceNotify_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 78, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -20276,7 +20270,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResource
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -20295,14 +20289,14 @@ dissect_ngap_PDUSessionResourceNotify.exit:       ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @PDUSessionResourceNotify_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceReleaseCommand_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceReleaseCommand_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 79, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -20323,7 +20317,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResource
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -20342,14 +20336,14 @@ dissect_ngap_PDUSessionResourceReleaseCommand.exit: ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @PDUSessionResourceReleaseCommand_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceReleaseResponse_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceReleaseResponse_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 80, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -20370,7 +20364,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResource
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -20389,14 +20383,14 @@ dissect_ngap_PDUSessionResourceReleaseResponse.exit: ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @PDUSessionResourceReleaseResponse_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceSetupRequest_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceSetupRequest_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 81, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -20417,7 +20411,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResource
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -20436,14 +20430,14 @@ dissect_ngap_PDUSessionResourceSetupRequest.exit: ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @PDUSessionResourceSetupRequest_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceSetupResponse_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceSetupResponse_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 82, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -20464,7 +20458,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResource
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -20483,14 +20477,14 @@ dissect_ngap_PDUSessionResourceSetupResponse.exit: ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @PDUSessionResourceSetupResponse_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_PrivateMessage_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_PrivateMessage_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 83, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -20511,7 +20505,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PrivateMessage_PDU
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -20530,14 +20524,14 @@ dissect_ngap_PrivateMessage.exit:                 ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @PrivateMessage_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_PWSCancelRequest_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_PWSCancelRequest_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 84, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -20558,7 +20552,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PWSCancelRequest_P
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -20577,14 +20571,14 @@ dissect_ngap_PWSCancelRequest.exit:               ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @PWSCancelRequest_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_PWSCancelResponse_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_PWSCancelResponse_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 85, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -20605,7 +20599,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PWSCancelResponse_
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -20624,14 +20618,14 @@ dissect_ngap_PWSCancelResponse.exit:              ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @PWSCancelResponse_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_PWSFailureIndication_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_PWSFailureIndication_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 86, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -20652,7 +20646,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PWSFailureIndicati
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -20671,14 +20665,14 @@ dissect_ngap_PWSFailureIndication.exit:           ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @PWSFailureIndication_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_PWSRestartIndication_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_PWSRestartIndication_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 87, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -20699,7 +20693,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PWSRestartIndicati
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -20718,14 +20712,14 @@ dissect_ngap_PWSRestartIndication.exit:           ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @PWSRestartIndication_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_RANConfigurationUpdate_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_RANConfigurationUpdate_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 88, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -20746,7 +20740,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RANConfigurationUp
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -20765,14 +20759,14 @@ dissect_ngap_RANConfigurationUpdate.exit:         ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @RANConfigurationUpdate_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_RANConfigurationUpdateAcknowledge_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_RANConfigurationUpdateAcknowledge_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 89, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -20793,7 +20787,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RANConfigurationUp
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -20812,14 +20806,14 @@ dissect_ngap_RANConfigurationUpdateAcknowledge.exit: ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @RANConfigurationUpdateAcknowledge_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_RANConfigurationUpdateFailure_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_RANConfigurationUpdateFailure_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 90, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -20840,7 +20834,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RANConfigurationUp
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -20859,14 +20853,14 @@ dissect_ngap_RANConfigurationUpdateFailure.exit:  ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @RANConfigurationUpdateFailure_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_RANCPRelocationIndication_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_RANCPRelocationIndication_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 91, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -20887,7 +20881,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RANCPRelocationInd
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -20906,14 +20900,14 @@ dissect_ngap_RANCPRelocationIndication.exit:      ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @RANCPRelocationIndication_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_RANPagingRequest_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_RANPagingRequest_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 92, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -20934,7 +20928,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RANPagingRequest_P
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -20953,14 +20947,14 @@ dissect_ngap_RANPagingRequest.exit:               ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @RANPagingRequest_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_RerouteNASRequest_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_RerouteNASRequest_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 93, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -20981,7 +20975,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RerouteNASRequest_
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -21000,14 +20994,14 @@ dissect_ngap_RerouteNASRequest.exit:              ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @RerouteNASRequest_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_RetrieveUEInformation_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_RetrieveUEInformation_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 94, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -21028,7 +21022,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RetrieveUEInformat
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -21047,14 +21041,14 @@ dissect_ngap_RetrieveUEInformation.exit:          ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @RetrieveUEInformation_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_RRCInactiveTransitionReport_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_RRCInactiveTransitionReport_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 95, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -21075,7 +21069,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RRCInactiveTransit
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -21094,14 +21088,14 @@ dissect_ngap_RRCInactiveTransitionReport.exit:    ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @RRCInactiveTransitionReport_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_SecondaryRATDataUsageReport_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_SecondaryRATDataUsageReport_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 96, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -21122,7 +21116,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_SecondaryRATDataUs
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -21141,14 +21135,14 @@ dissect_ngap_SecondaryRATDataUsageReport.exit:    ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @SecondaryRATDataUsageReport_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_TimingSynchronisationStatusRequest_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_TimingSynchronisationStatusRequest_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 97, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -21169,7 +21163,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_TimingSynchronisat
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -21188,14 +21182,14 @@ dissect_ngap_TimingSynchronisationStatusRequest.exit: ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @TimingSynchronisationStatusRequest_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_TimingSynchronisationStatusResponse_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_TimingSynchronisationStatusResponse_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 98, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -21216,7 +21210,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_TimingSynchronisat
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -21235,14 +21229,14 @@ dissect_ngap_TimingSynchronisationStatusResponse.exit: ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @TimingSynchronisationStatusResponse_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_TimingSynchronisationStatusFailure_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_TimingSynchronisationStatusFailure_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 99, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -21263,7 +21257,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_TimingSynchronisat
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -21282,14 +21276,14 @@ dissect_ngap_TimingSynchronisationStatusFailure.exit: ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @TimingSynchronisationStatusFailure_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_TimingSynchronisationStatusReport_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_TimingSynchronisationStatusReport_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 100, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -21310,7 +21304,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_TimingSynchronisat
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -21329,14 +21323,14 @@ dissect_ngap_TimingSynchronisationStatusReport.exit: ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @TimingSynchronisationStatusReport_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_TraceFailureIndication_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_TraceFailureIndication_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 101, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -21357,7 +21351,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_TraceFailureIndica
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -21376,14 +21370,14 @@ dissect_ngap_TraceFailureIndication.exit:         ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @TraceFailureIndication_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_TraceStart_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_TraceStart_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 102, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -21404,7 +21398,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_TraceStart_PDU(ptr
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -21423,14 +21417,14 @@ dissect_ngap_TraceStart.exit:                     ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @TraceStart_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextModificationRequest_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_UEContextModificationRequest_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 103, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -21451,7 +21445,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextModificat
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -21470,14 +21464,14 @@ dissect_ngap_UEContextModificationRequest.exit:   ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @UEContextModificationRequest_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextModificationResponse_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_UEContextModificationResponse_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 104, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -21498,7 +21492,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextModificat
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -21517,14 +21511,14 @@ dissect_ngap_UEContextModificationResponse.exit:  ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @UEContextModificationResponse_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextModificationFailure_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_UEContextModificationFailure_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 105, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -21545,7 +21539,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextModificat
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -21564,14 +21558,14 @@ dissect_ngap_UEContextModificationFailure.exit:   ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @UEContextModificationFailure_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextReleaseCommand_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_UEContextReleaseCommand_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 106, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -21592,7 +21586,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextReleaseCo
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -21611,14 +21605,14 @@ dissect_ngap_UEContextReleaseCommand.exit:        ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @UEContextReleaseCommand_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextReleaseComplete_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_UEContextReleaseComplete_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 107, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -21639,7 +21633,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextReleaseCo
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -21658,14 +21652,14 @@ dissect_ngap_UEContextReleaseComplete.exit:       ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @UEContextReleaseComplete_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextReleaseRequest_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_UEContextReleaseRequest_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 108, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -21686,7 +21680,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextReleaseRe
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -21705,14 +21699,14 @@ dissect_ngap_UEContextReleaseRequest.exit:        ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @UEContextReleaseRequest_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextResumeRequest_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_UEContextResumeRequest_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 109, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -21733,7 +21727,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextResumeReq
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -21752,14 +21746,14 @@ dissect_ngap_UEContextResumeRequest.exit:         ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @UEContextResumeRequest_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextResumeResponse_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_UEContextResumeResponse_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 110, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -21780,7 +21774,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextResumeRes
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -21799,14 +21793,14 @@ dissect_ngap_UEContextResumeResponse.exit:        ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @UEContextResumeResponse_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextResumeFailure_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_UEContextResumeFailure_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 111, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -21827,7 +21821,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextResumeFai
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -21846,14 +21840,14 @@ dissect_ngap_UEContextResumeFailure.exit:         ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @UEContextResumeFailure_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextSuspendRequest_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_UEContextSuspendRequest_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 112, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -21874,7 +21868,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextSuspendRe
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -21893,14 +21887,14 @@ dissect_ngap_UEContextSuspendRequest.exit:        ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @UEContextSuspendRequest_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextSuspendResponse_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_UEContextSuspendResponse_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 113, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -21921,7 +21915,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextSuspendRe
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -21940,14 +21934,14 @@ dissect_ngap_UEContextSuspendResponse.exit:       ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @UEContextSuspendResponse_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextSuspendFailure_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_UEContextSuspendFailure_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 114, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -21968,7 +21962,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextSuspendFa
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -21987,14 +21981,14 @@ dissect_ngap_UEContextSuspendFailure.exit:        ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @UEContextSuspendFailure_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_UEInformationTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_UEInformationTransfer_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 115, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -22015,7 +22009,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UEInformationTrans
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -22034,14 +22028,14 @@ dissect_ngap_UEInformationTransfer.exit:          ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @UEInformationTransfer_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_UERadioCapabilityCheckRequest_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_UERadioCapabilityCheckRequest_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 116, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -22062,7 +22056,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UERadioCapabilityC
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -22081,14 +22075,14 @@ dissect_ngap_UERadioCapabilityCheckRequest.exit:  ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @UERadioCapabilityCheckRequest_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_UERadioCapabilityCheckResponse_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_UERadioCapabilityCheckResponse_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 117, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -22109,7 +22103,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UERadioCapabilityC
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -22128,14 +22122,14 @@ dissect_ngap_UERadioCapabilityCheckResponse.exit: ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @UERadioCapabilityCheckResponse_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_UERadioCapabilityIDMappingRequest_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_UERadioCapabilityIDMappingRequest_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 118, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -22156,7 +22150,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UERadioCapabilityI
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -22175,14 +22169,14 @@ dissect_ngap_UERadioCapabilityIDMappingRequest.exit: ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @UERadioCapabilityIDMappingRequest_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_UERadioCapabilityIDMappingResponse_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_UERadioCapabilityIDMappingResponse_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 119, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -22203,7 +22197,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UERadioCapabilityI
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -22222,14 +22216,14 @@ dissect_ngap_UERadioCapabilityIDMappingResponse.exit: ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @UERadioCapabilityIDMappingResponse_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_UERadioCapabilityInfoIndication_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_UERadioCapabilityInfoIndication_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 120, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -22250,7 +22244,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UERadioCapabilityI
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -22269,14 +22263,14 @@ dissect_ngap_UERadioCapabilityInfoIndication.exit: ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @UERadioCapabilityInfoIndication_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_UETNLABindingReleaseRequest_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_UETNLABindingReleaseRequest_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 121, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -22297,7 +22291,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UETNLABindingRelea
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -22316,14 +22310,14 @@ dissect_ngap_UETNLABindingReleaseRequest.exit:    ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @UETNLABindingReleaseRequest_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_UplinkNASTransport_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_UplinkNASTransport_PDU, align 4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -22347,7 +22341,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UplinkNASTransport
 
 20:                                               ; preds = %4
   %21 = load ptr, ptr %16, align 8
-  %22 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %21, i64 noundef 72) #13
+  %22 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %21, i64 noundef 72) #12
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   store i32 -1, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 56
@@ -22366,14 +22360,14 @@ dissect_ngap_UplinkNASTransport.exit:             ; preds = %4, %20
   %30 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %29, ptr noundef nonnull @UplinkNASTransport_sequence)
   %31 = add i32 %30, 7
   %32 = ashr i32 %31, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %32
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_UplinkNonUEAssociatedNRPPaTransport_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_UplinkNonUEAssociatedNRPPaTransport_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 123, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -22394,7 +22388,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UplinkNonUEAssocia
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -22413,14 +22407,14 @@ dissect_ngap_UplinkNonUEAssociatedNRPPaTransport.exit: ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @UplinkNonUEAssociatedNRPPaTransport_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_UplinkRANConfigurationTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_UplinkRANConfigurationTransfer_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 124, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -22441,7 +22435,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UplinkRANConfigura
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -22460,14 +22454,14 @@ dissect_ngap_UplinkRANConfigurationTransfer.exit: ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @UplinkRANConfigurationTransfer_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_UplinkRANEarlyStatusTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_UplinkRANEarlyStatusTransfer_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 125, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -22488,7 +22482,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UplinkRANEarlyStat
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -22507,14 +22501,14 @@ dissect_ngap_UplinkRANEarlyStatusTransfer.exit:   ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @UplinkRANEarlyStatusTransfer_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_UplinkRANStatusTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_UplinkRANStatusTransfer_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 126, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -22535,7 +22529,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UplinkRANStatusTra
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -22554,14 +22548,14 @@ dissect_ngap_UplinkRANStatusTransfer.exit:        ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @UplinkRANStatusTransfer_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_UplinkUEAssociatedNRPPaTransport_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_UplinkUEAssociatedNRPPaTransport_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 127, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -22582,7 +22576,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UplinkUEAssociated
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -22601,14 +22595,14 @@ dissect_ngap_UplinkUEAssociatedNRPPaTransport.exit: ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @UplinkUEAssociatedNRPPaTransport_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_WriteReplaceWarningRequest_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_WriteReplaceWarningRequest_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 128, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -22629,7 +22623,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_WriteReplaceWarnin
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -22648,14 +22642,14 @@ dissect_ngap_WriteReplaceWarningRequest.exit:     ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @WriteReplaceWarningRequest_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_WriteReplaceWarningResponse_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_WriteReplaceWarningResponse_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 129, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -22676,7 +22670,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_WriteReplaceWarnin
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -22695,14 +22689,14 @@ dissect_ngap_WriteReplaceWarningResponse.exit:    ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @WriteReplaceWarningResponse_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_UplinkRIMInformationTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_UplinkRIMInformationTransfer_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 130, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -22723,7 +22717,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UplinkRIMInformati
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -22742,14 +22736,14 @@ dissect_ngap_UplinkRIMInformationTransfer.exit:   ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @UplinkRIMInformationTransfer_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_DownlinkRIMInformationTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_DownlinkRIMInformationTransfer_PDU, align 4
   %7 = call ptr @val_to_str_const(i32 noundef 131, ptr noundef nonnull @mtype_names, ptr noundef nonnull @.str.3482)
@@ -22770,7 +22764,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_DownlinkRIMInforma
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %14, align 8
-  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #13
+  %20 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %19, i64 noundef 72) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 -1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -22789,30 +22783,30 @@ dissect_ngap_DownlinkRIMInformationTransfer.exit: ; preds = %4, %18
   %28 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %27, ptr noundef nonnull @DownlinkRIMInformationTransfer_sequence)
   %29 = add i32 %28, 7
   %30 = ashr i32 %29, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %30
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @dissector_add_string(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @dissector_add_string(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceSetupRequestTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceSetupRequestTransfer_PDU, align 4
   %7 = call fastcc i32 @dissect_ngap_PDUSessionResourceSetupRequestTransfer(ptr noundef %0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceSetupResponseTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceSetupResponseTransfer_PDU, align 4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -22836,14 +22830,14 @@ dissect_ngap_PDUSessionResourceSetupResponseTransfer.exit: ; preds = %4, %13
   %18 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %17, ptr noundef nonnull @PDUSessionResourceSetupResponseTransfer_sequence)
   %19 = add i32 %18, 7
   %20 = ashr i32 %19, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %20
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceSetupUnsuccessfulTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceSetupUnsuccessfulTransfer_PDU, align 4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -22867,14 +22861,14 @@ dissect_ngap_PDUSessionResourceSetupUnsuccessfulTransfer.exit: ; preds = %4, %13
   %18 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %17, ptr noundef nonnull @PDUSessionResourceSetupUnsuccessfulTransfer_sequence)
   %19 = add i32 %18, 7
   %20 = ashr i32 %19, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %20
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceReleaseCommandTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceReleaseCommandTransfer_PDU, align 4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -22904,7 +22898,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResource
 
 23:                                               ; preds = %17
   %24 = load ptr, ptr %19, align 8
-  %25 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %24, i64 noundef 72) #13
+  %25 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %24, i64 noundef 72) #12
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
   store i32 -1, ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 56
@@ -22930,7 +22924,7 @@ ngap_get_private_data.exit.i:                     ; preds = %23, %17
 
 38:                                               ; preds = %ngap_get_private_data.exit.i
   %39 = load ptr, ptr %34, align 8
-  %40 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %39, i64 noundef 72) #13
+  %40 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %39, i64 noundef 72) #12
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
   store i32 -1, ptr %41, align 8
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 56
@@ -22946,14 +22940,14 @@ dissect_ngap_PDUSessionResourceReleaseCommandTransfer.exit: ; preds = %ngap_get_
   store i8 -1, ptr %45, align 8
   %46 = add i32 %32, 7
   %47 = ashr i32 %46, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %47
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceReleaseResponseTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceReleaseResponseTransfer_PDU, align 4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -22983,7 +22977,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResource
 
 23:                                               ; preds = %17
   %24 = load ptr, ptr %19, align 8
-  %25 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %24, i64 noundef 72) #13
+  %25 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %24, i64 noundef 72) #12
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
   store i32 -1, ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 56
@@ -23009,7 +23003,7 @@ ngap_get_private_data.exit.i:                     ; preds = %23, %17
 
 38:                                               ; preds = %ngap_get_private_data.exit.i
   %39 = load ptr, ptr %34, align 8
-  %40 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %39, i64 noundef 72) #13
+  %40 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %39, i64 noundef 72) #12
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
   store i32 -1, ptr %41, align 8
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 56
@@ -23025,14 +23019,14 @@ dissect_ngap_PDUSessionResourceReleaseResponseTransfer.exit: ; preds = %ngap_get
   store i8 -1, ptr %45, align 8
   %46 = add i32 %32, 7
   %47 = ashr i32 %46, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %47
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceModifyRequestTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceModifyRequestTransfer_PDU, align 4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -23056,14 +23050,14 @@ dissect_ngap_PDUSessionResourceModifyRequestTransfer.exit: ; preds = %4, %13
   %18 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %17, ptr noundef nonnull @PDUSessionResourceModifyRequestTransfer_sequence)
   %19 = add i32 %18, 7
   %20 = ashr i32 %19, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %20
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceModifyResponseTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceModifyResponseTransfer_PDU, align 4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -23087,14 +23081,14 @@ dissect_ngap_PDUSessionResourceModifyResponseTransfer.exit: ; preds = %4, %13
   %18 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %17, ptr noundef nonnull @PDUSessionResourceModifyResponseTransfer_sequence)
   %19 = add i32 %18, 7
   %20 = ashr i32 %19, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %20
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceModifyUnsuccessfulTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceModifyUnsuccessfulTransfer_PDU, align 4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -23118,14 +23112,14 @@ dissect_ngap_PDUSessionResourceModifyUnsuccessfulTransfer.exit: ; preds = %4, %1
   %18 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %17, ptr noundef nonnull @PDUSessionResourceModifyUnsuccessfulTransfer_sequence)
   %19 = add i32 %18, 7
   %20 = ashr i32 %19, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %20
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceNotifyTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceNotifyTransfer_PDU, align 4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -23149,14 +23143,14 @@ dissect_ngap_PDUSessionResourceNotifyTransfer.exit: ; preds = %4, %13
   %18 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %17, ptr noundef nonnull @PDUSessionResourceNotifyTransfer_sequence)
   %19 = add i32 %18, 7
   %20 = ashr i32 %19, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %20
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceNotifyReleasedTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceNotifyReleasedTransfer_PDU, align 4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -23180,14 +23174,14 @@ dissect_ngap_PDUSessionResourceNotifyReleasedTransfer.exit: ; preds = %4, %13
   %18 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %17, ptr noundef nonnull @PDUSessionResourceNotifyReleasedTransfer_sequence)
   %19 = add i32 %18, 7
   %20 = ashr i32 %19, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %20
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceModifyIndicationTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceModifyIndicationTransfer_PDU, align 4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -23211,14 +23205,14 @@ dissect_ngap_PDUSessionResourceModifyIndicationTransfer.exit: ; preds = %4, %13
   %18 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %17, ptr noundef nonnull @PDUSessionResourceModifyIndicationTransfer_sequence)
   %19 = add i32 %18, 7
   %20 = ashr i32 %19, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %20
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceModifyConfirmTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceModifyConfirmTransfer_PDU, align 4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -23242,14 +23236,14 @@ dissect_ngap_PDUSessionResourceModifyConfirmTransfer.exit: ; preds = %4, %13
   %18 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %17, ptr noundef nonnull @PDUSessionResourceModifyConfirmTransfer_sequence)
   %19 = add i32 %18, 7
   %20 = ashr i32 %19, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %20
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_PathSwitchRequestTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_PathSwitchRequestTransfer_PDU, align 4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -23273,14 +23267,14 @@ dissect_ngap_PathSwitchRequestTransfer.exit:      ; preds = %4, %13
   %18 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %17, ptr noundef nonnull @PathSwitchRequestTransfer_sequence)
   %19 = add i32 %18, 7
   %20 = ashr i32 %19, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %20
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_PathSwitchRequestSetupFailedTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_PathSwitchRequestSetupFailedTransfer_PDU, align 4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -23304,14 +23298,14 @@ dissect_ngap_PathSwitchRequestSetupFailedTransfer.exit: ; preds = %4, %13
   %18 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %17, ptr noundef nonnull @PathSwitchRequestSetupFailedTransfer_sequence)
   %19 = add i32 %18, 7
   %20 = ashr i32 %19, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %20
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_PathSwitchRequestAcknowledgeTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_PathSwitchRequestAcknowledgeTransfer_PDU, align 4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -23335,14 +23329,14 @@ dissect_ngap_PathSwitchRequestAcknowledgeTransfer.exit: ; preds = %4, %13
   %18 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %17, ptr noundef nonnull @PathSwitchRequestAcknowledgeTransfer_sequence)
   %19 = add i32 %18, 7
   %20 = ashr i32 %19, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %20
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_PathSwitchRequestUnsuccessfulTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_PathSwitchRequestUnsuccessfulTransfer_PDU, align 4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -23366,14 +23360,14 @@ dissect_ngap_PathSwitchRequestUnsuccessfulTransfer.exit: ; preds = %4, %13
   %18 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %17, ptr noundef nonnull @PathSwitchRequestUnsuccessfulTransfer_sequence)
   %19 = add i32 %18, 7
   %20 = ashr i32 %19, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %20
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverRequiredTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_HandoverRequiredTransfer_PDU, align 4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -23397,14 +23391,14 @@ dissect_ngap_HandoverRequiredTransfer.exit:       ; preds = %4, %13
   %18 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %17, ptr noundef nonnull @HandoverRequiredTransfer_sequence)
   %19 = add i32 %18, 7
   %20 = ashr i32 %19, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %20
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverCommandTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_HandoverCommandTransfer_PDU, align 4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -23428,14 +23422,14 @@ dissect_ngap_HandoverCommandTransfer.exit:        ; preds = %4, %13
   %18 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %17, ptr noundef nonnull @HandoverCommandTransfer_sequence)
   %19 = add i32 %18, 7
   %20 = ashr i32 %19, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %20
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverPreparationUnsuccessfulTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_HandoverPreparationUnsuccessfulTransfer_PDU, align 4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -23459,14 +23453,14 @@ dissect_ngap_HandoverPreparationUnsuccessfulTransfer.exit: ; preds = %4, %13
   %18 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %17, ptr noundef nonnull @HandoverPreparationUnsuccessfulTransfer_sequence)
   %19 = add i32 %18, 7
   %20 = ashr i32 %19, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %20
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverRequestAcknowledgeTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_HandoverRequestAcknowledgeTransfer_PDU, align 4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -23490,14 +23484,14 @@ dissect_ngap_HandoverRequestAcknowledgeTransfer.exit: ; preds = %4, %13
   %18 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %17, ptr noundef nonnull @HandoverRequestAcknowledgeTransfer_sequence)
   %19 = add i32 %18, 7
   %20 = ashr i32 %19, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %20
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_HandoverResourceAllocationUnsuccessfulTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_HandoverResourceAllocationUnsuccessfulTransfer_PDU, align 4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -23521,14 +23515,14 @@ dissect_ngap_HandoverResourceAllocationUnsuccessfulTransfer.exit: ; preds = %4, 
   %18 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %17, ptr noundef nonnull @HandoverResourceAllocationUnsuccessfulTransfer_sequence)
   %19 = add i32 %18, 7
   %20 = ashr i32 %19, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %20
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_SecondaryRATDataUsageReportTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_SecondaryRATDataUsageReportTransfer_PDU, align 4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -23552,14 +23546,14 @@ dissect_ngap_SecondaryRATDataUsageReportTransfer.exit: ; preds = %4, %13
   %18 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %17, ptr noundef nonnull @SecondaryRATDataUsageReportTransfer_sequence)
   %19 = add i32 %18, 7
   %20 = ashr i32 %19, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %20
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResourceModifyIndicationUnsuccessfulTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceModifyIndicationUnsuccessfulTransfer_PDU, align 4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -23583,14 +23577,14 @@ dissect_ngap_PDUSessionResourceModifyIndicationUnsuccessfulTransfer.exit: ; pred
   %18 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %17, ptr noundef nonnull @PDUSessionResourceModifyIndicationUnsuccessfulTransfer_sequence)
   %19 = add i32 %18, 7
   %20 = ashr i32 %19, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %20
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextResumeRequestTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_UEContextResumeRequestTransfer_PDU, align 4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -23614,14 +23608,14 @@ dissect_ngap_UEContextResumeRequestTransfer.exit: ; preds = %4, %13
   %18 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %17, ptr noundef nonnull @UEContextResumeRequestTransfer_sequence)
   %19 = add i32 %18, 7
   %20 = ashr i32 %19, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %20
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextResumeResponseTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_UEContextResumeResponseTransfer_PDU, align 4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -23645,14 +23639,14 @@ dissect_ngap_UEContextResumeResponseTransfer.exit: ; preds = %4, %13
   %18 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %17, ptr noundef nonnull @UEContextResumeResponseTransfer_sequence)
   %19 = add i32 %18, 7
   %20 = ashr i32 %19, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %20
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_UEContextSuspendRequestTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_UEContextSuspendRequestTransfer_PDU, align 4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -23676,14 +23670,14 @@ dissect_ngap_UEContextSuspendRequestTransfer.exit: ; preds = %4, %13
   %18 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %17, ptr noundef nonnull @UEContextSuspendRequestTransfer_sequence)
   %19 = add i32 %18, 7
   %20 = ashr i32 %19, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %20
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_MBSSessionSetupOrModRequestTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_MBSSessionSetupOrModRequestTransfer_PDU, align 4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -23707,14 +23701,14 @@ dissect_ngap_MBSSessionSetupOrModRequestTransfer.exit: ; preds = %4, %13
   %18 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %17, ptr noundef nonnull @MBSSessionSetupOrModRequestTransfer_sequence)
   %19 = add i32 %18, 7
   %20 = ashr i32 %19, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %20
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_MBSSessionSetupOrModResponseTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_MBSSessionSetupOrModResponseTransfer_PDU, align 4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -23738,14 +23732,14 @@ dissect_ngap_MBSSessionSetupOrModResponseTransfer.exit: ; preds = %4, %13
   %18 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %17, ptr noundef nonnull @MBSSessionSetupOrModResponseTransfer_sequence)
   %19 = add i32 %18, 7
   %20 = ashr i32 %19, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %20
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_MBSSessionSetupOrModFailureTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_MBSSessionSetupOrModFailureTransfer_PDU, align 4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -23769,14 +23763,14 @@ dissect_ngap_MBSSessionSetupOrModFailureTransfer.exit: ; preds = %4, %13
   %18 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %17, ptr noundef nonnull @MBSSessionSetupOrModFailureTransfer_sequence)
   %19 = add i32 %18, 7
   %20 = ashr i32 %19, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %20
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_MBSSessionReleaseResponseTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_MBSSessionReleaseResponseTransfer_PDU, align 4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -23800,18 +23794,18 @@ dissect_ngap_MBSSessionReleaseResponseTransfer.exit: ; preds = %4, %13
   %18 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %17, ptr noundef nonnull @MBSSessionReleaseResponseTransfer_sequence)
   %19 = add i32 %18, 7
   %20 = ashr i32 %19, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %20
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @proto_get_id_by_filter_name(ptr noundef) local_unnamed_addr #2
+declare i32 @proto_get_id_by_filter_name(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @dissector_add_uint_with_preference(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @dissector_add_uint_with_preference(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @stats_tree_register(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @stats_tree_register(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @ngap_stats_tree_packet(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef readonly captures(none) %3, i32 %4) #0 {
@@ -23889,7 +23883,7 @@ define hidden void @proto_register_ngap() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
-define internal void @ngap_ExtendedPacketDelayBudget_fmt(ptr noundef %0, i32 noundef %1) #3 {
+define internal void @ngap_ExtendedPacketDelayBudget_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = uitofp i32 %1 to float
   %4 = fdiv float %3, 1.000000e+02
   %5 = fpext float %4 to double
@@ -23898,7 +23892,7 @@ define internal void @ngap_ExtendedPacketDelayBudget_fmt(ptr noundef %0, i32 nou
 }
 
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
-define internal void @ngap_PacketDelayBudget_fmt(ptr noundef %0, i32 noundef %1) #3 {
+define internal void @ngap_PacketDelayBudget_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = uitofp i32 %1 to float
   %4 = fmul float %3, 5.000000e-01
   %5 = fpext float %4 to double
@@ -23907,7 +23901,7 @@ define internal void @ngap_PacketDelayBudget_fmt(ptr noundef %0, i32 noundef %1)
 }
 
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
-define internal void @ngap_PeriodicRegistrationUpdateTimer_fmt(ptr noundef %0, i32 noundef %1) #3 {
+define internal void @ngap_PeriodicRegistrationUpdateTimer_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = and i32 %1, 31
   %4 = lshr i32 %1, 5
   switch i32 %4, label %8 [
@@ -23956,14 +23950,14 @@ define internal void @ngap_PeriodicRegistrationUpdateTimer_fmt(ptr noundef %0, i
 }
 
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
-define internal void @ngap_Threshold_RSRP_fmt(ptr noundef %0, i32 noundef %1) #3 {
+define internal void @ngap_Threshold_RSRP_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = add i32 %1, -156
   %4 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.4591, i32 noundef %3, i32 noundef %1)
   ret void
 }
 
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
-define internal void @ngap_Threshold_RSRQ_fmt(ptr noundef %0, i32 noundef %1) #3 {
+define internal void @ngap_Threshold_RSRQ_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = uitofp i32 %1 to float
   %4 = fmul float %3, 5.000000e-01
   %5 = fadd float %4, -4.300000e+01
@@ -23973,7 +23967,7 @@ define internal void @ngap_Threshold_RSRQ_fmt(ptr noundef %0, i32 noundef %1) #3
 }
 
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
-define internal void @ngap_PacketLossRate_fmt(ptr noundef %0, i32 noundef %1) #3 {
+define internal void @ngap_PacketLossRate_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = uitofp i32 %1 to float
   %4 = fdiv float %3, 1.000000e+01
   %5 = fpext float %4 to double
@@ -23982,7 +23976,7 @@ define internal void @ngap_PacketLossRate_fmt(ptr noundef %0, i32 noundef %1) #3
 }
 
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
-define internal void @ngap_TimeUEStayedInCellEnhancedGranularity_fmt(ptr noundef %0, i32 noundef %1) #3 {
+define internal void @ngap_TimeUEStayedInCellEnhancedGranularity_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = uitofp i32 %1 to float
   %4 = fdiv float %3, 1.000000e+01
   %5 = fpext float %4 to double
@@ -23991,7 +23985,7 @@ define internal void @ngap_TimeUEStayedInCellEnhancedGranularity_fmt(ptr noundef
 }
 
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
-define internal void @ngap_Threshold_SINR_fmt(ptr noundef %0, i32 noundef %1) #3 {
+define internal void @ngap_Threshold_SINR_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = uitofp i32 %1 to float
   %4 = fmul float %3, 5.000000e-01
   %5 = fadd float %4, -2.300000e+01
@@ -24001,7 +23995,7 @@ define internal void @ngap_Threshold_SINR_fmt(ptr noundef %0, i32 noundef %1) #3
 }
 
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
-define internal void @ngap_N6Jitter_fmt(ptr noundef %0, i32 noundef %1) #3 {
+define internal void @ngap_N6Jitter_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = uitofp i32 %1 to float
   %4 = fmul float %3, 5.000000e-01
   %5 = fpext float %4 to double
@@ -24010,22 +24004,22 @@ define internal void @ngap_N6Jitter_fmt(ptr noundef %0, i32 noundef %1) #3 {
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #2
+declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ngap(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
@@ -24037,7 +24031,7 @@ define internal i32 @dissect_ngap(ptr noundef %0, ptr noundef %1, ptr noundef %2
   tail call void @col_clear(ptr noundef %8, i32 noundef 25)
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %10 = load ptr, ptr %9, align 8
-  %11 = tail call noalias dereferenceable_or_null(4) ptr @wmem_alloc(ptr noundef %10, i64 noundef 4) #13
+  %11 = tail call noalias dereferenceable_or_null(4) ptr @wmem_alloc(ptr noundef %10, i64 noundef 4) #12
   store i32 0, ptr %11, align 4
   %12 = load i32, ptr @proto_ngap, align 4
   %13 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %12, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
@@ -24052,7 +24046,7 @@ define internal i32 @dissect_ngap(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 19:                                               ; preds = %4
   %20 = load ptr, ptr %9, align 8
-  %21 = tail call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %20, i64 noundef 72) #13
+  %21 = tail call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %20, i64 noundef 72) #12
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   store i32 -1, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 56
@@ -24074,7 +24068,7 @@ ngap_get_private_data.exit:                       ; preds = %4, %19
 
 30:                                               ; preds = %ngap_get_private_data.exit
   %31 = load ptr, ptr %9, align 8
-  %32 = tail call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %31, i64 noundef 72) #13
+  %32 = tail call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %31, i64 noundef 72) #12
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 24
   store i32 -1, ptr %33, align 8
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 56
@@ -24095,7 +24089,7 @@ ngap_get_private_data.exit39:                     ; preds = %ngap_get_private_da
 
 40:                                               ; preds = %ngap_get_private_data.exit39
   %41 = tail call ptr @wmem_file_scope()
-  %42 = tail call noalias dereferenceable_or_null(80) ptr @wmem_alloc0(ptr noundef %41, i64 noundef 80) #13
+  %42 = tail call noalias dereferenceable_or_null(80) ptr @wmem_alloc0(ptr noundef %41, i64 noundef 80) #12
   store ptr %42, ptr %.0.i38, align 8
   %43 = tail call ptr @wmem_file_scope()
   %44 = load ptr, ptr %.0.i38, align 8
@@ -24112,7 +24106,7 @@ ngap_get_private_data.exit39:                     ; preds = %ngap_get_private_da
 
 52:                                               ; preds = %40
   %53 = sext i32 %48 to i64
-  %54 = tail call ptr @wmem_memdup(ptr noundef %43, ptr noundef %50, i64 noundef %53) #14
+  %54 = tail call ptr @wmem_memdup(ptr noundef %43, ptr noundef %50, i64 noundef %53) #13
   %55 = getelementptr inbounds nuw i8, ptr %44, i64 16
   store ptr %54, ptr %55, align 8
   %56 = getelementptr inbounds nuw i8, ptr %44, i64 8
@@ -24146,7 +24140,7 @@ copy_address_wmem.exit:                           ; preds = %40, %52
 
 74:                                               ; preds = %copy_address_wmem.exit
   %75 = sext i32 %70 to i64
-  %76 = tail call ptr @wmem_memdup(ptr noundef %64, ptr noundef %72, i64 noundef %75) #14
+  %76 = tail call ptr @wmem_memdup(ptr noundef %64, ptr noundef %72, i64 noundef %75) #13
   %77 = getelementptr inbounds nuw i8, ptr %65, i64 48
   store ptr %76, ptr %77, align 8
   %78 = getelementptr inbounds nuw i8, ptr %65, i64 40
@@ -24180,12 +24174,12 @@ copy_address_wmem.exit40:                         ; preds = %copy_address_wmem.e
   br label %96
 
 96:                                               ; preds = %copy_address_wmem.exit40, %ngap_get_private_data.exit39
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %97 = load i32, ptr @hf_ngap_NGAP_PDU_PDU, align 4
   %98 = load i32, ptr @ett_ngap_NGAP_PDU, align 4
   %99 = call i32 @dissect_per_choice(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %15, i32 noundef %97, i32 noundef %98, ptr noundef nonnull @NGAP_PDU_choice, ptr noundef null)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %100 = load i32, ptr @ngap_tap, align 4
   call void @tap_queue_packet(i32 noundef %100, ptr noundef %1, ptr noundef %11)
   %101 = call i32 @tvb_captured_length(ptr noundef %0)
@@ -24195,7 +24189,7 @@ copy_address_wmem.exit40:                         ; preds = %copy_address_wmem.e
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ngap_media_type(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %7 = load ptr, ptr %6, align 8
@@ -24224,7 +24218,7 @@ define internal i32 @dissect_ngap_media_type(ptr noundef %0, ptr noundef %1, ptr
   %22 = load ptr, ptr %6, align 8
   %23 = zext nneg i32 %19 to i64
   %24 = shl nuw nsw i64 %23, 4
-  %25 = tail call noalias ptr @wmem_alloc(ptr noundef %22, i64 noundef %24) #13
+  %25 = tail call noalias ptr @wmem_alloc(ptr noundef %22, i64 noundef %24) #12
   %26 = tail call i32 @json_parse(ptr noundef %18, ptr noundef %25, i32 noundef %19)
   %27 = icmp slt i32 %26, 1
   br i1 %27, label %126, label %28
@@ -24274,7 +24268,7 @@ sub_1:                                            ; preds = %sub_0
 
 .tail.thread:                                     ; preds = %sub_1, %sub_0, %39, %41, %.tail
   %.1 = phi ptr [ %.0116163, %.tail ], [ %40, %41 ], [ null, %39 ], [ %.0116163, %sub_0 ], [ %.0116163, %sub_1 ]
-  %44 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(4) @.str.4886) #15
+  %44 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(4) @.str.4886) #14
   %.not142 = icmp eq i32 %44, 0
   br i1 %.not142, label %45, label %50
 
@@ -24290,7 +24284,7 @@ sub_1:                                            ; preds = %sub_0
 
 50:                                               ; preds = %45, %47, %.tail.thread
   %.2 = phi ptr [ %.1, %.tail.thread ], [ %46, %47 ], [ null, %45 ]
-  %51 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(6) @.str.4888) #15
+  %51 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(6) @.str.4888) #14
   %.not144 = icmp eq i32 %51, 0
   br i1 %.not144, label %52, label %57
 
@@ -24306,17 +24300,17 @@ sub_1:                                            ; preds = %sub_0
 
 57:                                               ; preds = %52, %54, %50
   %.3 = phi ptr [ %.2, %50 ], [ %53, %54 ], [ null, %52 ]
-  %58 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(4) @.str.4891) #15
+  %58 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(4) @.str.4891) #14
   %.not146 = icmp eq i32 %58, 0
   br i1 %.not146, label %63, label %59
 
 59:                                               ; preds = %57
-  %60 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(9) @.str.4892) #15
+  %60 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(9) @.str.4892) #14
   %.not147 = icmp eq i32 %60, 0
   br i1 %.not147, label %63, label %61
 
 61:                                               ; preds = %59
-  %62 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(7) @.str.4893) #15
+  %62 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(7) @.str.4893) #14
   %.not148 = icmp eq i32 %62, 0
   br i1 %.not148, label %63, label %68
 
@@ -24346,7 +24340,7 @@ sub_1:                                            ; preds = %sub_0
   br i1 %.not151, label %.thread164, label %72
 
 72:                                               ; preds = %70
-  %73 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %71, ptr noundef %.pre175) #15
+  %73 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %71, ptr noundef %.pre175) #14
   %.not152 = icmp eq i32 %73, 0
   br i1 %.not152, label %74, label %.thread164
 
@@ -24454,24 +24448,24 @@ thread-pre-split:                                 ; preds = %.lr.ph, %41, %47, %
 
 126:                                              ; preds = %102, %21, %15, %4, %12, %119
   %.0 = phi i32 [ %125, %119 ], [ 0, %12 ], [ 0, %4 ], [ 0, %15 ], [ 0, %21 ], [ 0, %102 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @register_dissector_table(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @register_dissector_table(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @prefs_register_bool_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @prefs_register_bool_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @prefs_register_enum_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare void @prefs_register_enum_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @register_tap(ptr noundef) local_unnamed_addr #2
+declare i32 @register_tap(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ngap_SecondaryRATUsageInformation(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
@@ -24515,10 +24509,10 @@ define internal i32 @dissect_ngap_VolumeTimedReportList(ptr noundef %0, i32 noun
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_per_enumerated(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i1 noundef zeroext, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @dissect_per_enumerated(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i1 noundef zeroext, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_per_constrained_sequence_of(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare i32 @dissect_per_constrained_sequence_of(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ngap_VolumeTimedReport_Item(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
@@ -24530,7 +24524,7 @@ define internal i32 @dissect_ngap_VolumeTimedReport_Item(ptr noundef %0, i32 nou
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ngap_T_startTimeStamp(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8
   %7 = call i32 @dissect_per_octet_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 4, i32 noundef 4, i1 noundef zeroext false, ptr noundef nonnull %6)
   %8 = load ptr, ptr %6, align 8
@@ -24545,14 +24539,14 @@ define internal i32 @dissect_ngap_T_startTimeStamp(ptr noundef %0, i32 noundef %
   br label %13
 
 13:                                               ; preds = %9, %5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ngap_T_endTimeStamp(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8
   %7 = call i32 @dissect_per_octet_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 4, i32 noundef 4, i1 noundef zeroext false, ptr noundef nonnull %6)
   %8 = load ptr, ptr %6, align 8
@@ -24567,7 +24561,7 @@ define internal i32 @dissect_ngap_T_endTimeStamp(ptr noundef %0, i32 noundef %1,
   br label %13
 
 13:                                               ; preds = %9, %5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %7
 }
 
@@ -24578,16 +24572,16 @@ define internal i32 @dissect_ngap_INTEGER_0_18446744073709551615(ptr noundef %0,
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_per_octet_string(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #2
+declare i32 @dissect_per_octet_string(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @tvb_ntp_fmt_ts_sec(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @tvb_ntp_fmt_ts_sec(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_per_constrained_integer_64b(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare i32 @dissect_per_constrained_integer_64b(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ngap_QoSFlowsUsageReport_Item(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
@@ -24609,7 +24603,7 @@ define internal i32 @dissect_ngap_T_rATType_01(ptr noundef %0, i32 noundef %1, p
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_per_constrained_integer(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare i32 @dissect_per_constrained_integer(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ngap_ProtocolExtensionField(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
@@ -24631,7 +24625,7 @@ define internal i32 @dissect_ngap_ProtocolExtensionID(ptr noundef %0, i32 nounde
 
 12:                                               ; preds = %5
   %13 = load ptr, ptr %8, align 8
-  %14 = tail call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %13, i64 noundef 72) #13
+  %14 = tail call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %13, i64 noundef 72) #12
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store i32 -1, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 56
@@ -24661,18 +24655,18 @@ define internal i32 @dissect_ngap_T_extensionValue(ptr noundef %0, i32 noundef %
 }
 
 ; Function Attrs: null_pointer_is_valid allocsize(1)
-declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare void @p_add_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @p_add_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_per_open_type_pdu_new(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @dissect_per_open_type_pdu_new(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ProtocolExtensionFieldExtensionValue(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._ngap_ctx_t, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr @proto_ngap, align 4
@@ -24682,7 +24676,7 @@ define internal i32 @dissect_ProtocolExtensionFieldExtensionValue(ptr noundef %0
 
 10:                                               ; preds = %4
   %11 = load ptr, ptr %6, align 8
-  %12 = tail call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %11, i64 noundef 72) #13
+  %12 = tail call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %11, i64 noundef 72) #12
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store i32 -1, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 56
@@ -24721,18 +24715,18 @@ ngap_get_private_data.exit:                       ; preds = %4, %10
 
 33:                                               ; preds = %30, %ngap_get_private_data.exit
   %34 = call i32 @tvb_captured_length(ptr noundef %0)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %34
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissector_try_uint_with_data(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #2
+declare i32 @dissector_try_uint_with_data(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #2
+declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ngap_CellType(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
@@ -24767,12 +24761,12 @@ define internal i32 @dissect_ngap_CellSize(ptr noundef %0, i32 noundef %1, ptr n
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_per_choice(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @dissect_per_choice(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ngap_CauseRadioNetwork(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 45, ptr noundef nonnull %6, i1 noundef zeroext true, i32 noundef 14, ptr noundef null)
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %9 = load ptr, ptr %8, align 8
@@ -24781,14 +24775,14 @@ define internal i32 @dissect_ngap_CauseRadioNetwork(ptr noundef %0, i32 noundef 
   %12 = load i32, ptr %6, align 4
   %13 = call ptr @val_to_str_const(i32 noundef %12, ptr noundef nonnull @ngap_CauseRadioNetwork_vals, ptr noundef nonnull @.str.3482)
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %11, i32 noundef 25, ptr noundef nonnull @.str.3481, ptr noundef %13)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ngap_CauseTransport(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 2, ptr noundef nonnull %6, i1 noundef zeroext true, i32 noundef 0, ptr noundef null)
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %9 = load ptr, ptr %8, align 8
@@ -24797,14 +24791,14 @@ define internal i32 @dissect_ngap_CauseTransport(ptr noundef %0, i32 noundef %1,
   %12 = load i32, ptr %6, align 4
   %13 = call ptr @val_to_str_const(i32 noundef %12, ptr noundef nonnull @ngap_CauseTransport_vals, ptr noundef nonnull @.str.3482)
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %11, i32 noundef 25, ptr noundef nonnull @.str.3543, ptr noundef %13)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ngap_CauseNas(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 4, ptr noundef nonnull %6, i1 noundef zeroext true, i32 noundef 3, ptr noundef null)
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %9 = load ptr, ptr %8, align 8
@@ -24813,14 +24807,14 @@ define internal i32 @dissect_ngap_CauseNas(ptr noundef %0, i32 noundef %1, ptr n
   %12 = load i32, ptr %6, align 4
   %13 = call ptr @val_to_str_const(i32 noundef %12, ptr noundef nonnull @ngap_CauseNas_vals, ptr noundef nonnull @.str.3482)
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %11, i32 noundef 25, ptr noundef nonnull @.str.3544, ptr noundef %13)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ngap_CauseProtocol(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 7, ptr noundef nonnull %6, i1 noundef zeroext true, i32 noundef 0, ptr noundef null)
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %9 = load ptr, ptr %8, align 8
@@ -24829,14 +24823,14 @@ define internal i32 @dissect_ngap_CauseProtocol(ptr noundef %0, i32 noundef %1, 
   %12 = load i32, ptr %6, align 4
   %13 = call ptr @val_to_str_const(i32 noundef %12, ptr noundef nonnull @ngap_CauseProtocol_vals, ptr noundef nonnull @.str.3482)
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %11, i32 noundef 25, ptr noundef nonnull @.str.3545, ptr noundef %13)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ngap_CauseMisc(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 6, ptr noundef nonnull %6, i1 noundef zeroext true, i32 noundef 0, ptr noundef null)
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %9 = load ptr, ptr %8, align 8
@@ -24845,7 +24839,7 @@ define internal i32 @dissect_ngap_CauseMisc(ptr noundef %0, i32 noundef %1, ptr 
   %12 = load i32, ptr %6, align 4
   %13 = call ptr @val_to_str_const(i32 noundef %12, ptr noundef nonnull @ngap_CauseMisc_vals, ptr noundef nonnull @.str.3482)
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %11, i32 noundef 25, ptr noundef nonnull @.str.3546, ptr noundef %13)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %7
 }
 
@@ -24857,10 +24851,10 @@ define internal i32 @dissect_ngap_ProtocolIE_SingleContainer(ptr noundef %0, i32
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ngap_ProtocolIE_Field(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
@@ -24882,7 +24876,7 @@ define internal i32 @dissect_ngap_ProtocolIE_ID(ptr noundef %0, i32 noundef %1, 
 
 12:                                               ; preds = %5
   %13 = load ptr, ptr %8, align 8
-  %14 = tail call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %13, i64 noundef 72) #13
+  %14 = tail call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %13, i64 noundef 72) #12
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store i32 -1, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 56
@@ -24919,15 +24913,15 @@ define internal i32 @dissect_ngap_T_ie_field_value(ptr noundef %0, i32 noundef %
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_item_get_parent_nth(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @proto_item_get_parent_nth(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @val_to_str_ext(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @val_to_str_ext(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ProtocolIEFieldValue(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._ngap_ctx_t, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr @proto_ngap, align 4
@@ -24937,7 +24931,7 @@ define internal i32 @dissect_ProtocolIEFieldValue(ptr noundef %0, ptr noundef %1
 
 10:                                               ; preds = %4
   %11 = load ptr, ptr %6, align 8
-  %12 = tail call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %11, i64 noundef 72) #13
+  %12 = tail call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %11, i64 noundef 72) #12
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store i32 -1, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 56
@@ -24975,7 +24969,7 @@ ngap_get_private_data.exit:                       ; preds = %4, %10
 
 32:                                               ; preds = %ngap_get_private_data.exit, %30
   %33 = phi i32 [ %31, %30 ], [ 0, %ngap_get_private_data.exit ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %33
 }
 
@@ -24989,7 +24983,7 @@ define internal i32 @dissect_ngap_INTEGER_0_40950(ptr noundef %0, i32 noundef %1
 define internal i32 @dissect_ngap_PLMNIdentity(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %9 = load ptr, ptr %8, align 8
@@ -25002,7 +24996,7 @@ define internal i32 @dissect_ngap_PLMNIdentity(ptr noundef %0, i32 noundef %1, p
 
 14:                                               ; preds = %5
   %15 = load ptr, ptr %10, align 8
-  %16 = tail call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %15, i64 noundef 72) #13
+  %16 = tail call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %15, i64 noundef 72) #12
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
   store i32 -1, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 56
@@ -25036,7 +25030,7 @@ ngap_get_private_data.exit:                       ; preds = %5, %14
   br i1 %.not16, label %41, label %35
 
 35:                                               ; preds = %25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %36 = load ptr, ptr %6, align 8
   %37 = call i32 @tvb_get_ntoh24(ptr noundef %36, i32 noundef 0)
   store i32 %37, ptr %7, align 4
@@ -25044,7 +25038,7 @@ ngap_get_private_data.exit:                       ; preds = %5, %14
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %40 = load ptr, ptr %39, align 8
   call void @wmem_array_append(ptr noundef %40, ptr noundef nonnull %7, i32 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %48
 
 41:                                               ; preds = %25
@@ -25061,7 +25055,7 @@ ngap_get_private_data.exit:                       ; preds = %5, %14
   br label %48
 
 48:                                               ; preds = %35, %44, %41, %ngap_get_private_data.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %23
 }
 
@@ -25094,16 +25088,16 @@ define internal i32 @dissect_ngap_ServiceAreaInformation(ptr noundef %0, i32 nou
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_e212_mcc_mnc(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare i32 @dissect_e212_mcc_mnc(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @tvb_get_ntoh24(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @tvb_get_ntoh24(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @wmem_array_append(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @wmem_array_append(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ngap_RATRestrictions_Item(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
@@ -25115,7 +25109,7 @@ define internal i32 @dissect_ngap_RATRestrictions_Item(ptr noundef %0, i32 nound
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ngap_RATRestrictionInformation(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8
   %7 = call i32 @dissect_per_bit_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 8, i32 noundef 8, i1 noundef zeroext true, ptr noundef null, i32 noundef 0, ptr noundef nonnull %6, ptr noundef null)
   %8 = load ptr, ptr %6, align 8
@@ -25132,15 +25126,15 @@ define internal i32 @dissect_ngap_RATRestrictionInformation(ptr noundef %0, i32 
   br label %15
 
 15:                                               ; preds = %9, %5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_per_bit_string(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @dissect_per_bit_string(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_tree_add_bitmask_list(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @proto_tree_add_bitmask_list(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ngap_ForbiddenAreaInformation_Item(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
@@ -25159,7 +25153,7 @@ define internal i32 @dissect_ngap_ForbiddenTACs(ptr noundef %0, i32 noundef %1, 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ngap_TAC(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = load ptr, ptr %7, align 8
@@ -25172,7 +25166,7 @@ define internal i32 @dissect_ngap_TAC(ptr noundef %0, i32 noundef %1, ptr nounde
 
 13:                                               ; preds = %5
   %14 = load ptr, ptr %9, align 8
-  %15 = tail call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %14, i64 noundef 72) #13
+  %15 = tail call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %14, i64 noundef 72) #12
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store i32 -1, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 56
@@ -25220,7 +25214,7 @@ ngap_get_private_data.exit:                       ; preds = %5, %13
   br label %39
 
 39:                                               ; preds = %27, %34, %31, %ngap_get_private_data.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %20
 }
 
@@ -25333,7 +25327,7 @@ define internal i32 @dissect_ngap_NR_CGI(ptr noundef %0, i32 noundef %1, ptr nou
 
 12:                                               ; preds = %5
   %13 = load ptr, ptr %8, align 8
-  %14 = tail call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %13, i64 noundef 72) #13
+  %14 = tail call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %13, i64 noundef 72) #12
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store i32 -1, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 56
@@ -25355,7 +25349,7 @@ ngap_get_private_data.exit:                       ; preds = %5, %12
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ngap_NRCellIdentity(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8
   %7 = call i32 @dissect_per_bit_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef -1, i32 noundef 36, i32 noundef 36, i1 noundef zeroext false, ptr noundef null, i32 noundef 0, ptr noundef nonnull %6, ptr noundef null)
   %8 = load ptr, ptr %6, align 8
@@ -25369,7 +25363,7 @@ define internal i32 @dissect_ngap_NRCellIdentity(ptr noundef %0, i32 noundef %1,
   br label %12
 
 12:                                               ; preds = %9, %5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %7
 }
 
@@ -25381,7 +25375,7 @@ define internal i32 @dissect_ngap_TAListforMDT(ptr noundef %0, i32 noundef %1, p
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_per_null(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @dissect_per_null(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ngap_TAIListforMDT(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
@@ -25405,7 +25399,7 @@ define internal i32 @dissect_ngap_TAI(ptr noundef %0, i32 noundef %1, ptr nounde
 
 14:                                               ; preds = %5
   %15 = load ptr, ptr %10, align 8
-  %16 = tail call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %15, i64 noundef 72) #13
+  %16 = tail call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %15, i64 noundef 72) #12
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
   store i32 -1, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 56
@@ -25422,7 +25416,7 @@ ngap_get_private_data.exit:                       ; preds = %5, %14
   %22 = load ptr, ptr %8, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 408
   %24 = load ptr, ptr %23, align 8
-  %25 = tail call noalias dereferenceable_or_null(8) ptr @wmem_alloc0(ptr noundef %24, i64 noundef 8) #13
+  %25 = tail call noalias dereferenceable_or_null(8) ptr @wmem_alloc0(ptr noundef %24, i64 noundef 8) #12
   %26 = getelementptr inbounds nuw i8, ptr %.0.i, i64 40
   store ptr %25, ptr %26, align 8
   %27 = load i32, ptr @ett_ngap_TAI, align 4
@@ -25454,7 +25448,7 @@ ngap_get_private_data.exit:                       ; preds = %5, %14
   br i1 %44, label %45, label %72
 
 45:                                               ; preds = %41
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %46 = load ptr, ptr %26, align 8
   %47 = load i32, ptr %46, align 4
   %48 = shl i32 %47, 24
@@ -25470,9 +25464,9 @@ ngap_get_private_data.exit:                       ; preds = %5, %14
   br i1 %.not23, label %71, label %56
 
 56:                                               ; preds = %45
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %57 = call ptr @wmem_file_scope()
-  %58 = call noalias dereferenceable_or_null(4) ptr @wmem_alloc(ptr noundef %57, i64 noundef 4) #13
+  %58 = call noalias dereferenceable_or_null(4) ptr @wmem_alloc(ptr noundef %57, i64 noundef 4) #12
   %59 = getelementptr inbounds nuw i8, ptr %.0.i, i64 48
   %60 = load i32, ptr %59, align 8
   store i32 %60, ptr %58, align 4
@@ -25493,11 +25487,11 @@ ngap_get_private_data.exit:                       ; preds = %5, %14
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 72
   %70 = load ptr, ptr %69, align 8
   call void @wmem_tree_insert32_array(ptr noundef %70, ptr noundef nonnull %7, ptr noundef %58)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %71
 
 71:                                               ; preds = %56, %45
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %72
 
 72:                                               ; preds = %71, %41, %37, %35, %ngap_get_private_data.exit
@@ -25505,16 +25499,16 @@ ngap_get_private_data.exit:                       ; preds = %5, %14
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @wmem_map_lookup(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @wmem_map_lookup(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid allocsize(1)
-declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @wmem_file_scope() local_unnamed_addr #2
+declare ptr @wmem_file_scope() local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @wmem_tree_insert32_array(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @wmem_tree_insert32_array(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ngap_ImmediateMDTNr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
@@ -25533,7 +25527,7 @@ define internal i32 @dissect_ngap_LoggedMDTNr(ptr noundef %0, i32 noundef %1, pt
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ngap_MeasurementsToActivate(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8
   %7 = call i32 @dissect_per_bit_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 8, i32 noundef 8, i1 noundef zeroext false, ptr noundef null, i32 noundef 0, ptr noundef nonnull %6, ptr noundef null)
   %8 = load ptr, ptr %6, align 8
@@ -25550,7 +25544,7 @@ define internal i32 @dissect_ngap_MeasurementsToActivate(ptr noundef %0, i32 nou
   br label %15
 
 15:                                               ; preds = %9, %5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %7
 }
 
@@ -25733,14 +25727,14 @@ define internal i32 @dissect_ngap_BluetoothMeasConfigNameItem(ptr noundef %0, i3
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ngap_BluetoothName(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8
   %7 = call i32 @dissect_per_octet_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef -1, i32 noundef 1, i32 noundef 248, i1 noundef zeroext false, ptr noundef nonnull %6)
   %8 = load ptr, ptr %6, align 8
   %9 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %4, ptr noundef %8, i32 noundef 0, i32 noundef -1, i32 noundef 2)
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %9, ptr %10, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %7
 }
 
@@ -25779,21 +25773,21 @@ define internal i32 @dissect_ngap_WLANMeasConfigNameItem(ptr noundef %0, i32 nou
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ngap_WLANName(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8
   %7 = call i32 @dissect_per_octet_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef -1, i32 noundef 1, i32 noundef 32, i1 noundef zeroext false, ptr noundef nonnull %6)
   %8 = load ptr, ptr %6, align 8
   %9 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %4, ptr noundef %8, i32 noundef 0, i32 noundef -1, i32 noundef 2)
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %9, ptr %10, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ngap_MDT_Location_Information(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8
   %7 = call i32 @dissect_per_bit_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 8, i32 noundef 8, i1 noundef zeroext false, ptr noundef null, i32 noundef 0, ptr noundef nonnull %6, ptr noundef null)
   %8 = load ptr, ptr %6, align 8
@@ -25810,7 +25804,7 @@ define internal i32 @dissect_ngap_MDT_Location_Information(ptr noundef %0, i32 n
   br label %15
 
 15:                                               ; preds = %9, %5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %7
 }
 
@@ -25987,7 +25981,7 @@ define internal i32 @dissect_ngap_AreaScopeOfMDT_EUTRA(ptr noundef %0, i32 nound
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ngap_MDTModeEutra(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8
   %7 = call i32 @dissect_per_octet_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef -1, i32 noundef -1, i1 noundef zeroext false, ptr noundef nonnull %6)
   %8 = load ptr, ptr %6, align 8
@@ -26006,7 +26000,7 @@ define internal i32 @dissect_ngap_MDTModeEutra(ptr noundef %0, i32 noundef %1, p
   br label %18
 
 18:                                               ; preds = %9, %5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %7
 }
 
@@ -26037,7 +26031,7 @@ define internal i32 @dissect_ngap_EUTRA_CGI(ptr noundef %0, i32 noundef %1, ptr 
 
 12:                                               ; preds = %5
   %13 = load ptr, ptr %8, align 8
-  %14 = tail call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %13, i64 noundef 72) #13
+  %14 = tail call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %13, i64 noundef 72) #12
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store i32 -1, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 56
@@ -26059,7 +26053,7 @@ ngap_get_private_data.exit:                       ; preds = %5, %12
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ngap_EUTRACellIdentity(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8
   %7 = call i32 @dissect_per_bit_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef -1, i32 noundef 28, i32 noundef 28, i1 noundef zeroext false, ptr noundef null, i32 noundef 0, ptr noundef nonnull %6, ptr noundef null)
   %8 = load ptr, ptr %6, align 8
@@ -26073,12 +26067,12 @@ define internal i32 @dissect_ngap_EUTRACellIdentity(ptr noundef %0, i32 noundef 
   br label %12
 
 12:                                               ; preds = %9, %5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_s1ap_MDTMode_PDU(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @dissect_s1ap_MDTMode_PDU(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ngap_TargetRANNodeID_SON(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
@@ -26111,7 +26105,7 @@ define internal i32 @dissect_ngap_XnTNLConfigurationInfo(ptr noundef %0, i32 nou
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ngap_GlobalRANNodeID(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 408
@@ -26123,7 +26117,7 @@ define internal i32 @dissect_ngap_GlobalRANNodeID(ptr noundef %0, i32 noundef %1
 
 13:                                               ; preds = %5
   %14 = load ptr, ptr %9, align 8
-  %15 = tail call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %14, i64 noundef 72) #13
+  %15 = tail call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %14, i64 noundef 72) #12
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store i32 -1, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 56
@@ -26229,7 +26223,7 @@ addresses_equal.exit21.sink.split:                ; preds = %72, %48
   br label %addresses_equal.exit21
 
 addresses_equal.exit21:                           ; preds = %addresses_equal.exit21.sink.split, %65, %57, %addresses_equal.exit, %72, %23, %ngap_get_private_data.exit
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %21
 }
 
@@ -26336,9 +26330,9 @@ define internal i32 @dissect_ngap_XnExtTLAs(ptr noundef %0, i32 noundef %1, ptr 
 define internal i32 @dissect_ngap_TransportLayerAddress(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = call i32 @dissect_per_bit_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 1, i32 noundef 160, i1 noundef zeroext true, ptr noundef null, i32 noundef 0, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %9 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %9, null
@@ -26378,8 +26372,8 @@ define internal i32 @dissect_ngap_TransportLayerAddress(ptr noundef %0, i32 noun
   br label %31
 
 31:                                               ; preds = %16, %24, %20, %10, %5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %8
 }
 
@@ -26400,7 +26394,7 @@ define internal i32 @dissect_ngap_XnGTP_TLAs(ptr noundef %0, i32 noundef %1, ptr
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ngap_RRCContainer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8
   %7 = call i32 @dissect_per_octet_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef -1, i32 noundef -1, i1 noundef zeroext false, ptr noundef nonnull %6)
   %8 = load ptr, ptr %6, align 8
@@ -26419,7 +26413,7 @@ define internal i32 @dissect_ngap_RRCContainer(ptr noundef %0, i32 noundef %1, p
 
 16:                                               ; preds = %9
   %17 = load ptr, ptr %12, align 8
-  %18 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %17, i64 noundef 72) #13
+  %18 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %17, i64 noundef 72) #12
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
   store i32 -1, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 56
@@ -26520,7 +26514,7 @@ ngap_get_private_data.exit:                       ; preds = %9, %16
   br label %74
 
 74:                                               ; preds = %57, %53, %66, %70, %61, %51, %64, %5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %7
 }
 
@@ -26552,7 +26546,7 @@ define internal i32 @dissect_ngap_UEHistoryInformation(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i1 @value_is_in_range(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @value_is_in_range(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @ngap_get_ranmode_id(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
@@ -26565,7 +26559,7 @@ define internal fastcc i32 @ngap_get_ranmode_id(ptr noundef readonly captures(no
 
 8:                                                ; preds = %3
   %9 = load ptr, ptr %4, align 8
-  %10 = tail call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %9, i64 noundef 72) #13
+  %10 = tail call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %9, i64 noundef 72) #12
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store i32 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 56
@@ -26661,16 +26655,16 @@ addresses_equal.exit16:                           ; preds = %addresses_equal.exi
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_nr_rrc_HandoverPreparationInformation_PDU(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @dissect_nr_rrc_HandoverPreparationInformation_PDU(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_nr_rrc_HandoverCommand_PDU(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @dissect_nr_rrc_HandoverCommand_PDU(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_lte_rrc_HandoverPreparationInformation_PDU(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @dissect_lte_rrc_HandoverPreparationInformation_PDU(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_lte_rrc_HandoverCommand_PDU(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @dissect_lte_rrc_HandoverCommand_PDU(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ngap_PDUSessionResourceInformationItem(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
@@ -26775,7 +26769,7 @@ define internal i32 @dissect_ngap_LastVisitedCellInformation(ptr noundef %0, i32
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ngap_LastVisitedEUTRANCellInformation(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8
   %7 = call i32 @dissect_per_octet_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef -1, i32 noundef -1, i1 noundef zeroext false, ptr noundef nonnull %6)
   %8 = load ptr, ptr %6, align 8
@@ -26794,14 +26788,14 @@ define internal i32 @dissect_ngap_LastVisitedEUTRANCellInformation(ptr noundef %
   br label %18
 
 18:                                               ; preds = %9, %5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ngap_LastVisitedUTRANCellInformation(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8
   %7 = call i32 @dissect_per_octet_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef -1, i32 noundef -1, i1 noundef zeroext false, ptr noundef nonnull %6)
   %8 = load ptr, ptr %6, align 8
@@ -26820,14 +26814,14 @@ define internal i32 @dissect_ngap_LastVisitedUTRANCellInformation(ptr noundef %0
   br label %18
 
 18:                                               ; preds = %9, %5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ngap_LastVisitedGERANCellInformation(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8
   %7 = call i32 @dissect_per_octet_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef -1, i32 noundef -1, i1 noundef zeroext false, ptr noundef nonnull %6)
   %8 = load ptr, ptr %6, align 8
@@ -26846,18 +26840,18 @@ define internal i32 @dissect_ngap_LastVisitedGERANCellInformation(ptr noundef %0
   br label %18
 
 18:                                               ; preds = %9, %5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_s1ap_LastVisitedEUTRANCellInformation_PDU(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @dissect_s1ap_LastVisitedEUTRANCellInformation_PDU(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_ranap_LastVisitedUTRANCell_Item_PDU(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @dissect_ranap_LastVisitedUTRANCell_Item_PDU(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_s1ap_LastVisitedGERANCellInformation_PDU(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @dissect_s1ap_LastVisitedGERANCellInformation_PDU(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ngap_QosFlowAdditionalInfoItemRelCom(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
@@ -26912,7 +26906,7 @@ define internal i32 @dissect_ngap_AMFName(ptr noundef %0, i32 noundef %1, ptr no
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_per_PrintableString(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #2
+declare i32 @dissect_per_PrintableString(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ngap_OverloadResponse(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
@@ -27380,7 +27374,7 @@ define internal i32 @dissect_ngap_PagingDRX(ptr noundef %0, i32 noundef %1, ptr 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ngap_PeriodicRegistrationUpdateTimer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8
   %7 = call i32 @dissect_per_bit_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef -1, i32 noundef 8, i32 noundef 8, i1 noundef zeroext false, ptr noundef null, i32 noundef 0, ptr noundef nonnull %6, ptr noundef null)
   %8 = load ptr, ptr %6, align 8
@@ -27397,7 +27391,7 @@ define internal i32 @dissect_ngap_PeriodicRegistrationUpdateTimer(ptr noundef %0
   br label %15
 
 15:                                               ; preds = %9, %5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %7
 }
 
@@ -27428,10 +27422,10 @@ define internal i32 @dissect_ngap_BIT_STRING_SIZE_10(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ngap_TAIListForInactiveItem(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
@@ -27511,7 +27505,7 @@ define internal i32 @dissect_ngap_ProcedureCode(ptr noundef %0, i32 noundef %1, 
 
 12:                                               ; preds = %5
   %13 = load ptr, ptr %8, align 8
-  %14 = tail call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %13, i64 noundef 72) #13
+  %14 = tail call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %13, i64 noundef 72) #12
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store i32 -1, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 56
@@ -27555,7 +27549,7 @@ define internal i32 @dissect_ngap_TypeOfError(ptr noundef %0, i32 noundef %1, pt
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i8 @dissect_cbs_data_coding_scheme(ptr noundef, ptr noundef, ptr noundef, i16 noundef zeroext) local_unnamed_addr #2
+declare zeroext i8 @dissect_cbs_data_coding_scheme(ptr noundef, ptr noundef, ptr noundef, i16 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ngap_DirectForwardingPathAvailability(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
@@ -27591,7 +27585,7 @@ define internal i32 @dissect_ngap_AMFPointer(ptr noundef %0, i32 noundef %1, ptr
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ngap_FiveG_TMSI(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8
   %7 = call i32 @dissect_per_octet_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef -1, i32 noundef 4, i32 noundef 4, i1 noundef zeroext false, ptr noundef nonnull %6)
   %8 = load ptr, ptr %6, align 8
@@ -27621,7 +27615,7 @@ define internal i32 @dissect_ngap_FiveG_TMSI(ptr noundef %0, i32 noundef %1, ptr
   br label %proto_item_set_hidden.exit
 
 proto_item_set_hidden.exit:                       ; preds = %17, %14, %9, %5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %7
 }
 
@@ -27638,7 +27632,7 @@ define internal i32 @dissect_ngap_GUAMI(ptr noundef %0, i32 noundef %1, ptr noun
 
 12:                                               ; preds = %5
   %13 = load ptr, ptr %8, align 8
-  %14 = tail call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %13, i64 noundef 72) #13
+  %14 = tail call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %13, i64 noundef 72) #12
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store i32 -1, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 56
@@ -27780,7 +27774,7 @@ define internal i32 @dissect_ngap_NAS_PDU(ptr noundef %0, i32 noundef %1, ptr no
   %9 = alloca i32, align 4
   %10 = alloca %struct.except_stacknode, align 8
   %11 = alloca %struct.except_catch, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8
   %12 = call i32 @dissect_per_octet_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef -1, i32 noundef -1, i1 noundef zeroext false, ptr noundef nonnull %6)
   %13 = load ptr, ptr %6, align 8
@@ -27800,7 +27794,7 @@ define internal i32 @dissect_ngap_NAS_PDU(ptr noundef %0, i32 noundef %1, ptr no
 
 22:                                               ; preds = %15
   %23 = load ptr, ptr %18, align 8
-  %24 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %23, i64 noundef 72) #13
+  %24 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %23, i64 noundef 72) #12
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
   store i32 -1, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 56
@@ -27845,16 +27839,16 @@ ngap_get_private_data.exit:                       ; preds = %15, %22
   %46 = load ptr, ptr %45, align 8
   %47 = load i32, ptr @ett_ngap_NAS_PDU, align 4
   %48 = call ptr @proto_item_add_subtree(ptr noundef %46, i32 noundef %47)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store volatile i32 %12, ptr %7, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store volatile i32 0, ptr %9, align 4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #12
-  call void @llvm.lifetime.start.p0(i64 248, ptr nonnull %11) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @except_setup_try(ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull @dissect_ngap_NAS_PDU.catch_spec, i64 noundef 1)
   %49 = getelementptr inbounds nuw i8, ptr %11, i64 48
-  %50 = call i32 @_setjmp(ptr noundef nonnull %49) #16
+  %50 = call i32 @_setjmp(ptr noundef nonnull %49) #15
   %.not42 = icmp eq i32 %50, 0
   %51 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %.sink = select i1 %.not42, ptr null, ptr %51
@@ -27962,7 +27956,7 @@ ngap_get_private_data.exit:                       ; preds = %15, %22
 
 98:                                               ; preds = %97
   %.0..0..0..0.17 = load volatile ptr, ptr %8, align 8
-  call void @except_rethrow(ptr noundef %.0..0..0..0.17) #17
+  call void @except_rethrow(ptr noundef %.0..0..0..0.17) #16
   unreachable
 
 99:                                               ; preds = %97, %95
@@ -27970,57 +27964,57 @@ ngap_get_private_data.exit:                       ; preds = %15, %22
   %101 = load volatile ptr, ptr %100, align 8
   call void @except_free(ptr noundef %101)
   %102 = call ptr @except_pop()
-  call void @llvm.lifetime.end.p0(i64 248, ptr nonnull %11) #12
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.0..0..0..0.18 = load volatile i32, ptr %7, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %103
 
 103:                                              ; preds = %99, %42, %41, %40, %5
   %.0 = phi i32 [ %12, %5 ], [ %.0..0..0..0.18, %99 ], [ %12, %42 ], [ %12, %41 ], [ %12, %40 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #2
+declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @de_nas_5gs_s1_mode_to_n1_mode_nas_transparent_cont(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @de_nas_5gs_s1_mode_to_n1_mode_nas_transparent_cont(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @de_nas_5gs_intra_n1_mode_nas_transparent_cont(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @de_nas_5gs_intra_n1_mode_nas_transparent_cont(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @except_setup_try(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @except_setup_try(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind null_pointer_is_valid returns_twice
-declare i32 @_setjmp(ptr noundef) local_unnamed_addr #5
+declare i32 @_setjmp(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @show_exception(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare void @show_exception(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn null_pointer_is_valid
-declare void @except_rethrow(ptr noundef) local_unnamed_addr #6
+declare void @except_rethrow(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: null_pointer_is_valid
-declare void @except_free(ptr noundef) local_unnamed_addr #2
+declare void @except_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @except_pop() local_unnamed_addr #2
+declare ptr @except_pop() local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @de_nas_5gs_n1_mode_to_s1_mode_nas_transparent_cont(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @de_nas_5gs_n1_mode_to_s1_mode_nas_transparent_cont(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ngap_NGRANTraceID(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = call i32 @dissect_per_octet_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 8, i32 noundef 8, i1 noundef zeroext false, ptr noundef nonnull %6)
   %8 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %8, null
@@ -28044,7 +28038,7 @@ define internal i32 @dissect_ngap_NGRANTraceID(ptr noundef %0, i32 noundef %1, p
   br label %24
 
 24:                                               ; preds = %5, %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %7
 }
 
@@ -28083,7 +28077,7 @@ define internal i32 @dissect_ngap_T_handoverRequestAcknowledgeTransfer(ptr nound
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_per_octet_string_containing_pdu_new(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #2
+declare i32 @dissect_per_octet_string_containing_pdu_new(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ngap_PDUSessionResourceFailedToModifyItemModRes(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
@@ -28541,7 +28535,7 @@ define internal i32 @dissect_ngap_DRBStatusDL18(ptr noundef %0, i32 noundef %1, 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ngap_RAN_UE_NGAP_ID(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 408
@@ -28553,7 +28547,7 @@ define internal i32 @dissect_ngap_RAN_UE_NGAP_ID(ptr noundef %0, i32 noundef %1,
 
 13:                                               ; preds = %5
   %14 = load ptr, ptr %9, align 8
-  %15 = tail call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %14, i64 noundef 72) #13
+  %15 = tail call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %14, i64 noundef 72) #12
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store i32 -1, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 56
@@ -28569,7 +28563,7 @@ ngap_get_private_data.exit:                       ; preds = %5, %13
   %21 = load i32, ptr %6, align 4
   %22 = getelementptr inbounds nuw i8, ptr %.0.i, i64 48
   store i32 %21, ptr %22, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %20
 }
 
@@ -28636,7 +28630,7 @@ define internal fastcc i32 @dissect_ngap_SourceToTarget_TransparentContainer(ptr
   br label %20
 
 20:                                               ; preds = %16, %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %21 = call i32 @dissect_per_octet_string(ptr noundef %0, i32 noundef 0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef -1, i32 noundef -1, i1 noundef zeroext false, ptr noundef nonnull %5)
   %22 = load i8, ptr @ngap_dissect_container, align 1, !range !6, !noundef !7
   %23 = trunc nuw i8 %22 to i1
@@ -28661,7 +28655,7 @@ define internal fastcc i32 @dissect_ngap_SourceToTarget_TransparentContainer(ptr
 
 34:                                               ; preds = %28
   %35 = load ptr, ptr %30, align 8
-  %36 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %35, i64 noundef 72) #13
+  %36 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %35, i64 noundef 72) #12
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 24
   store i32 -1, ptr %37, align 8
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 56
@@ -28683,14 +28677,14 @@ ngap_get_private_data.exit:                       ; preds = %28, %34
   %47 = load ptr, ptr %46, align 8
   %48 = load i32, ptr @ett_ngap_SourceToTarget_TransparentContainer, align 4
   %49 = call ptr @proto_item_add_subtree(ptr noundef %47, i32 noundef %48)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store volatile i32 0, ptr %7, align 4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #12
-  call void @llvm.lifetime.start.p0(i64 248, ptr nonnull %9) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @except_setup_try(ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull @dissect_ngap_SourceToTarget_TransparentContainer.catch_spec, i64 noundef 1)
   %50 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  %51 = call i32 @_setjmp(ptr noundef nonnull %50) #16
+  %51 = call i32 @_setjmp(ptr noundef nonnull %50) #15
   %.not43 = icmp eq i32 %51, 0
   %52 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %.sink = select i1 %.not43, ptr null, ptr %52
@@ -28817,7 +28811,7 @@ ngap_get_private_data.exit:                       ; preds = %28, %34
 
 107:                                              ; preds = %106
   %.0..0..0..0.18 = load volatile ptr, ptr %6, align 8
-  call void @except_rethrow(ptr noundef %.0..0..0..0.18) #17
+  call void @except_rethrow(ptr noundef %.0..0..0..0.18) #16
   unreachable
 
 108:                                              ; preds = %106, %104
@@ -28825,10 +28819,10 @@ ngap_get_private_data.exit:                       ; preds = %28, %34
   %110 = load volatile ptr, ptr %109, align 8
   call void @except_free(ptr noundef %110)
   %111 = call ptr @except_pop()
-  call void @llvm.lifetime.end.p0(i64 248, ptr nonnull %9) #12
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %112 = load ptr, ptr %10, align 8
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 8
   %114 = load ptr, ptr %113, align 8
@@ -28836,18 +28830,18 @@ ngap_get_private_data.exit:                       ; preds = %28, %34
   br label %115
 
 115:                                              ; preds = %108, %26, %20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %21
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @col_set_writable(ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare void @col_set_writable(ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_s1ap_SourceeNB_ToTargeteNB_TransparentContainer_PDU(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @dissect_s1ap_SourceeNB_ToTargeteNB_TransparentContainer_PDU(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_rrc_ToTargetRNC_Container_PDU(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @dissect_rrc_ToTargetRNC_Container_PDU(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ngap_SupportedTAItem(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
@@ -28862,7 +28856,7 @@ define internal i32 @dissect_ngap_SupportedTAItem(ptr noundef %0, i32 noundef %1
 
 12:                                               ; preds = %5
   %13 = load ptr, ptr %8, align 8
-  %14 = tail call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %13, i64 noundef 72) #13
+  %14 = tail call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %13, i64 noundef 72) #12
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store i32 -1, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 56
@@ -28900,7 +28894,7 @@ ngap_get_private_data.exit:                       ; preds = %5, %12
 32:                                               ; preds = %29, %29
   %33 = getelementptr inbounds nuw i8, ptr %19, i64 408
   %34 = load ptr, ptr %33, align 8
-  %35 = tail call noalias dereferenceable_or_null(16) ptr @wmem_alloc0(ptr noundef %34, i64 noundef 16) #13
+  %35 = tail call noalias dereferenceable_or_null(16) ptr @wmem_alloc0(ptr noundef %34, i64 noundef 16) #12
   %36 = getelementptr inbounds nuw i8, ptr %.0.i, i64 32
   store ptr %35, ptr %36, align 8
   %37 = load ptr, ptr %6, align 8
@@ -28921,7 +28915,7 @@ ngap_get_private_data.exit:                       ; preds = %5, %12
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare noalias ptr @wmem_array_new(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare noalias ptr @wmem_array_new(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ngap_BroadcastPLMNList(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
@@ -28971,7 +28965,7 @@ define internal i32 @dissect_ngap_EPS_TAI(ptr noundef %0, i32 noundef %1, ptr no
 
 12:                                               ; preds = %5
   %13 = load ptr, ptr %8, align 8
-  %14 = tail call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %13, i64 noundef 72) #13
+  %14 = tail call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %13, i64 noundef 72) #12
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store i32 -1, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 56
@@ -28993,7 +28987,7 @@ ngap_get_private_data.exit:                       ; preds = %5, %12
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ngap_EPS_TAC(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8
   %7 = call i32 @dissect_per_octet_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef -1, i32 noundef 2, i32 noundef 2, i1 noundef zeroext false, ptr noundef nonnull %6)
   %8 = load ptr, ptr %6, align 8
@@ -29007,20 +29001,20 @@ define internal i32 @dissect_ngap_EPS_TAC(ptr noundef %0, i32 noundef %1, ptr no
   br label %12
 
 12:                                               ; preds = %9, %5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_s1ap_TargeteNB_ToSourceeNB_TransparentContainer_PDU(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @dissect_s1ap_TargeteNB_ToSourceeNB_TransparentContainer_PDU(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_rrc_TargetRNC_ToSourceRNC_Container_PDU(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @dissect_rrc_TargetRNC_ToSourceRNC_Container_PDU(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ngap_InterfacesToTrace(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8
   %7 = call i32 @dissect_per_bit_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 8, i32 noundef 8, i1 noundef zeroext false, ptr noundef null, i32 noundef 0, ptr noundef nonnull %6, ptr noundef null)
   %8 = load ptr, ptr %6, align 8
@@ -29037,7 +29031,7 @@ define internal i32 @dissect_ngap_InterfacesToTrace(ptr noundef %0, i32 noundef 
   br label %15
 
 15:                                               ; preds = %9, %5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %7
 }
 
@@ -29098,7 +29092,7 @@ define internal fastcc i32 @dissect_ngap_UERadioCapability(ptr noundef %0, ptr n
   br label %21
 
 21:                                               ; preds = %17, %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8
   %22 = load ptr, ptr %11, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 408
@@ -29110,7 +29104,7 @@ define internal fastcc i32 @dissect_ngap_UERadioCapability(ptr noundef %0, ptr n
 
 27:                                               ; preds = %21
   %28 = load ptr, ptr %23, align 8
-  %29 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %28, i64 noundef 72) #13
+  %29 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %28, i64 noundef 72) #12
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 24
   store i32 -1, ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 56
@@ -29128,7 +29122,7 @@ ngap_get_private_data.exit:                       ; preds = %21, %27
   br i1 %.not40, label %108, label %36
 
 36:                                               ; preds = %ngap_get_private_data.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %38 = load ptr, ptr %37, align 8
   %39 = load i32, ptr @ett_ngap_UERadioCapability, align 4
@@ -29158,14 +29152,14 @@ ngap_get_private_data.exit:                       ; preds = %21, %27
   br i1 %.not41, label %107, label %52
 
 52:                                               ; preds = %50
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store volatile i32 0, ptr %8, align 4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #12
-  call void @llvm.lifetime.start.p0(i64 248, ptr nonnull %10) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @except_setup_try(ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull @dissect_ngap_UERadioCapability.catch_spec, i64 noundef 1)
   %53 = getelementptr inbounds nuw i8, ptr %10, i64 48
-  %54 = call i32 @_setjmp(ptr noundef nonnull %53) #16
+  %54 = call i32 @_setjmp(ptr noundef nonnull %53) #15
   %.not42 = icmp eq i32 %54, 0
   %55 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %.sink = select i1 %.not42, ptr null, ptr %55
@@ -29274,7 +29268,7 @@ ngap_get_private_data.exit:                       ; preds = %21, %27
 
 102:                                              ; preds = %101
   %.0..0..0..0.20 = load volatile ptr, ptr %7, align 8
-  call void @except_rethrow(ptr noundef %.0..0..0..0.20) #17
+  call void @except_rethrow(ptr noundef %.0..0..0..0.20) #16
   unreachable
 
 103:                                              ; preds = %101, %99
@@ -29282,18 +29276,18 @@ ngap_get_private_data.exit:                       ; preds = %21, %27
   %105 = load volatile ptr, ptr %104, align 8
   call void @except_free(ptr noundef %105)
   %106 = call ptr @except_pop()
-  call void @llvm.lifetime.end.p0(i64 248, ptr nonnull %10) #12
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %107
 
 107:                                              ; preds = %103, %50
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %108
 
 108:                                              ; preds = %107, %ngap_get_private_data.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %34
 }
 
@@ -29309,7 +29303,7 @@ define internal fastcc zeroext i1 @ngap_is_nbiot_ue(ptr noundef %0) unnamed_addr
 
 7:                                                ; preds = %1
   %8 = load ptr, ptr %3, align 8
-  %9 = tail call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %8, i64 noundef 72) #13
+  %9 = tail call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %8, i64 noundef 72) #12
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i32 -1, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 56
@@ -29326,7 +29320,7 @@ ngap_get_private_data.exit:                       ; preds = %1, %7
   br i1 %.not, label %30, label %15
 
 15:                                               ; preds = %ngap_get_private_data.exit
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 1, ptr %2, align 16
   %16 = getelementptr inbounds nuw i8, ptr %.0.i, i64 48
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -29354,7 +29348,7 @@ ngap_get_private_data.exit:                       ; preds = %1, %7
 
 .sink.split:                                      ; preds = %26, %15
   %.1.ph = phi i1 [ false, %15 ], [ %29, %26 ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %30
 
 30:                                               ; preds = %.sink.split, %ngap_get_private_data.exit
@@ -29363,12 +29357,12 @@ ngap_get_private_data.exit:                       ; preds = %1, %7
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @wmem_tree_lookup32_array_le(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @wmem_tree_lookup32_array_le(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ngap_UERadioCapabilityForPagingOfNR(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8
   %7 = call i32 @dissect_per_octet_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef -1, i32 noundef -1, i1 noundef zeroext false, ptr noundef nonnull %6)
   %8 = load ptr, ptr %6, align 8
@@ -29391,14 +29385,14 @@ define internal i32 @dissect_ngap_UERadioCapabilityForPagingOfNR(ptr noundef %0,
   br label %22
 
 22:                                               ; preds = %12, %5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ngap_UERadioCapabilityForPagingOfEUTRA(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8
   %7 = call i32 @dissect_per_octet_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef -1, i32 noundef -1, i1 noundef zeroext false, ptr noundef nonnull %6)
   %8 = load ptr, ptr %6, align 8
@@ -29421,14 +29415,14 @@ define internal i32 @dissect_ngap_UERadioCapabilityForPagingOfEUTRA(ptr noundef 
   br label %22
 
 22:                                               ; preds = %12, %5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ngap_NRencryptionAlgorithms(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8
   %7 = call i32 @dissect_per_bit_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 16, i32 noundef 16, i1 noundef zeroext true, ptr noundef null, i32 noundef 0, ptr noundef nonnull %6, ptr noundef null)
   %8 = load ptr, ptr %6, align 8
@@ -29445,14 +29439,14 @@ define internal i32 @dissect_ngap_NRencryptionAlgorithms(ptr noundef %0, i32 nou
   br label %15
 
 15:                                               ; preds = %9, %5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ngap_NRintegrityProtectionAlgorithms(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8
   %7 = call i32 @dissect_per_bit_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 16, i32 noundef 16, i1 noundef zeroext true, ptr noundef null, i32 noundef 0, ptr noundef nonnull %6, ptr noundef null)
   %8 = load ptr, ptr %6, align 8
@@ -29469,14 +29463,14 @@ define internal i32 @dissect_ngap_NRintegrityProtectionAlgorithms(ptr noundef %0
   br label %15
 
 15:                                               ; preds = %9, %5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ngap_EUTRAencryptionAlgorithms(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8
   %7 = call i32 @dissect_per_bit_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 16, i32 noundef 16, i1 noundef zeroext true, ptr noundef null, i32 noundef 0, ptr noundef nonnull %6, ptr noundef null)
   %8 = load ptr, ptr %6, align 8
@@ -29493,14 +29487,14 @@ define internal i32 @dissect_ngap_EUTRAencryptionAlgorithms(ptr noundef %0, i32 
   br label %15
 
 15:                                               ; preds = %9, %5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ngap_EUTRAintegrityProtectionAlgorithms(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8
   %7 = call i32 @dissect_per_bit_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 16, i32 noundef 16, i1 noundef zeroext true, ptr noundef null, i32 noundef 0, ptr noundef nonnull %6, ptr noundef null)
   %8 = load ptr, ptr %6, align 8
@@ -29517,7 +29511,7 @@ define internal i32 @dissect_ngap_EUTRAintegrityProtectionAlgorithms(ptr noundef
   br label %15
 
 15:                                               ; preds = %9, %5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %7
 }
 
@@ -29558,7 +29552,7 @@ define internal i32 @dissect_ngap_UserLocationInformationN3IWF_with_PortNumber(p
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ngap_TimeStamp(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8
   %7 = call i32 @dissect_per_octet_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 4, i32 noundef 4, i1 noundef zeroext false, ptr noundef nonnull %6)
   %8 = load ptr, ptr %6, align 8
@@ -29573,14 +29567,14 @@ define internal i32 @dissect_ngap_TimeStamp(ptr noundef %0, i32 noundef %1, ptr 
   br label %13
 
 13:                                               ; preds = %9, %5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ngap_PortNumber(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8
   %7 = call i32 @dissect_per_octet_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef -1, i32 noundef 2, i32 noundef 2, i1 noundef zeroext false, ptr noundef nonnull %6)
   %8 = load ptr, ptr %6, align 8
@@ -29594,7 +29588,7 @@ define internal i32 @dissect_ngap_PortNumber(ptr noundef %0, i32 noundef %1, ptr
   br label %12
 
 12:                                               ; preds = %9, %5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %7
 }
 
@@ -29627,19 +29621,19 @@ define internal i32 @dissect_ngap_EmergencyAreaIDList(ptr noundef %0, i32 nounde
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @dissect_cbs_data(i8 noundef zeroext, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @dissect_cbs_data(i8 noundef zeroext, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @tvb_get_string_enc(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @tvb_get_string_enc(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_string_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare ptr @proto_tree_add_string_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ngap_UPTransportLayerInformationItem(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
@@ -29908,7 +29902,7 @@ define internal i32 @dissect_ngap_T_secondaryRATDataUsageReportTransfer(ptr noun
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_s1ap_EN_DCSONConfigurationTransfer_PDU(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @dissect_s1ap_EN_DCSONConfigurationTransfer_PDU(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ngap_NGRAN_TNLAssociationToRemoveItem(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
@@ -29974,7 +29968,7 @@ define internal i32 @dissect_ngap_LAI(ptr noundef %0, i32 noundef %1, ptr nounde
 
 12:                                               ; preds = %5
   %13 = load ptr, ptr %8, align 8
-  %14 = tail call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %13, i64 noundef 72) #13
+  %14 = tail call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %13, i64 noundef 72) #12
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store i32 -1, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 56
@@ -30008,7 +30002,7 @@ define internal i32 @dissect_ngap_ExtendedRNC_ID(ptr noundef %0, i32 noundef %1,
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ngap_LAC(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8
   %7 = call i32 @dissect_per_octet_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef -1, i32 noundef 2, i32 noundef 2, i1 noundef zeroext false, ptr noundef nonnull %6)
   %8 = load ptr, ptr %6, align 8
@@ -30022,7 +30016,7 @@ define internal i32 @dissect_ngap_LAC(ptr noundef %0, i32 noundef %1, ptr nounde
   br label %12
 
 12:                                               ; preds = %9, %5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %7
 }
 
@@ -30056,7 +30050,7 @@ define internal i32 @dissect_ngap_CoverageEnhancementLevel(ptr noundef %0, i32 n
   %13 = alloca i32, align 4
   %14 = alloca %struct.except_stacknode, align 8
   %15 = alloca %struct.except_catch, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %16 = call i32 @dissect_per_octet_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef -1, i32 noundef -1, i1 noundef zeroext false, ptr noundef nonnull %6)
   %17 = load ptr, ptr %6, align 8
   %18 = icmp ne ptr %17, null
@@ -30070,7 +30064,7 @@ define internal i32 @dissect_ngap_CoverageEnhancementLevel(ptr noundef %0, i32 n
   %23 = load ptr, ptr %22, align 8
   %24 = load i32, ptr @ett_ngap_CoverageEnhancementLevel, align 4
   %25 = call ptr @proto_item_add_subtree(ptr noundef %23, i32 noundef %24)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store volatile i32 %16, ptr %7, align 4
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %27 = load ptr, ptr %26, align 8
@@ -30083,14 +30077,14 @@ define internal i32 @dissect_ngap_CoverageEnhancementLevel(ptr noundef %0, i32 n
   br i1 %or.cond5, label %32, label %87
 
 32:                                               ; preds = %21
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store volatile i32 0, ptr %9, align 4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #12
-  call void @llvm.lifetime.start.p0(i64 248, ptr nonnull %11) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @except_setup_try(ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull @dissect_ngap_CoverageEnhancementLevel.catch_spec, i64 noundef 1)
   %33 = getelementptr inbounds nuw i8, ptr %11, i64 48
-  %34 = call i32 @_setjmp(ptr noundef nonnull %33) #16
+  %34 = call i32 @_setjmp(ptr noundef nonnull %33) #15
   %.not62 = icmp eq i32 %34, 0
   %35 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %.sink = select i1 %.not62, ptr null, ptr %35
@@ -30198,7 +30192,7 @@ define internal i32 @dissect_ngap_CoverageEnhancementLevel(ptr noundef %0, i32 n
 
 82:                                               ; preds = %81
   %.0..0..0..0.40 = load volatile ptr, ptr %8, align 8
-  call void @except_rethrow(ptr noundef %.0..0..0..0.40) #17
+  call void @except_rethrow(ptr noundef %.0..0..0..0.40) #16
   unreachable
 
 83:                                               ; preds = %81, %79
@@ -30206,21 +30200,21 @@ define internal i32 @dissect_ngap_CoverageEnhancementLevel(ptr noundef %0, i32 n
   %85 = load volatile ptr, ptr %84, align 8
   call void @except_free(ptr noundef %85)
   %86 = call ptr @except_pop()
-  call void @llvm.lifetime.end.p0(i64 248, ptr nonnull %11) #12
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %142
 
 87:                                               ; preds = %21
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store volatile i32 0, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14) #12
-  call void @llvm.lifetime.start.p0(i64 248, ptr nonnull %15) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @except_setup_try(ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull @dissect_ngap_CoverageEnhancementLevel.catch_spec.3585, i64 noundef 1)
   %88 = getelementptr inbounds nuw i8, ptr %15, i64 48
-  %89 = call i32 @_setjmp(ptr noundef nonnull %88) #16
+  %89 = call i32 @_setjmp(ptr noundef nonnull %88) #15
   %.not = icmp eq i32 %89, 0
   %90 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %.sink67 = select i1 %.not, ptr null, ptr %90
@@ -30328,7 +30322,7 @@ define internal i32 @dissect_ngap_CoverageEnhancementLevel(ptr noundef %0, i32 n
 
 137:                                              ; preds = %136
   %.0..0..0..0.22 = load volatile ptr, ptr %12, align 8
-  call void @except_rethrow(ptr noundef %.0..0..0..0.22) #17
+  call void @except_rethrow(ptr noundef %.0..0..0..0.22) #16
   unreachable
 
 138:                                              ; preds = %136, %134
@@ -30336,28 +30330,28 @@ define internal i32 @dissect_ngap_CoverageEnhancementLevel(ptr noundef %0, i32 n
   %140 = load volatile ptr, ptr %139, align 8
   call void @except_free(ptr noundef %140)
   %141 = call ptr @except_pop()
-  call void @llvm.lifetime.end.p0(i64 248, ptr nonnull %15) #12
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %142
 
 142:                                              ; preds = %138, %83
   %.0..0..0..0.41 = load volatile i32, ptr %7, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %143
 
 143:                                              ; preds = %142, %5
   %.0 = phi i32 [ %.0..0..0..0.41, %142 ], [ %16, %5 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_lte_rrc_UEPagingCoverageInformation_NB_PDU(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @dissect_lte_rrc_UEPagingCoverageInformation_NB_PDU(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_lte_rrc_UEPagingCoverageInformation_PDU(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @dissect_lte_rrc_UEPagingCoverageInformation_PDU(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ngap_PagingProbabilityInformation(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
@@ -30720,7 +30714,7 @@ define internal i32 @dissect_ngap_UERLFReportContainer(ptr noundef %0, i32 nound
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ngap_NRUERLFReportContainer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8
   %7 = call i32 @dissect_per_octet_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef -1, i32 noundef -1, i1 noundef zeroext false, ptr noundef nonnull %6)
   %8 = load ptr, ptr %6, align 8
@@ -30739,14 +30733,14 @@ define internal i32 @dissect_ngap_NRUERLFReportContainer(ptr noundef %0, i32 nou
   br label %18
 
 18:                                               ; preds = %9, %5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ngap_LTEUERLFReportContainer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8
   %7 = call i32 @dissect_per_octet_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef -1, i32 noundef -1, i1 noundef zeroext false, ptr noundef nonnull %6)
   %8 = load ptr, ptr %6, align 8
@@ -30765,15 +30759,15 @@ define internal i32 @dissect_ngap_LTEUERLFReportContainer(ptr noundef %0, i32 no
   br label %18
 
 18:                                               ; preds = %9, %5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_nr_rrc_nr_RLF_Report_r16_PDU(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @dissect_nr_rrc_nr_RLF_Report_r16_PDU(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_lte_rrc_RLF_Report_r9_PDU(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @dissect_lte_rrc_RLF_Report_r9_PDU(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ngap_T_earlyIRATHO(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
@@ -30855,7 +30849,7 @@ define internal i32 @dissect_ngap_MobilityInformation(ptr noundef %0, i32 nounde
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_per_VisibleString(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #2
+declare i32 @dissect_per_VisibleString(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ngap_CellCAGList(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
@@ -30918,7 +30912,7 @@ define internal i32 @dissect_ngap_RANNodeNameUTF8String(ptr noundef %0, i32 noun
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_per_UTF8String(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare i32 @dissect_per_UTF8String(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ngap_AMFNameVisibleString(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
@@ -30935,7 +30929,7 @@ define internal i32 @dissect_ngap_AMFNameUTF8String(ptr noundef %0, i32 noundef 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ngap_GlobalCable_ID(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8
   %7 = call i32 @dissect_per_octet_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef -1, i32 noundef -1, i1 noundef zeroext false, ptr noundef nonnull %6)
   %8 = load ptr, ptr %6, align 8
@@ -30953,7 +30947,7 @@ define internal i32 @dissect_ngap_GlobalCable_ID(ptr noundef %0, i32 noundef %1,
   br label %17
 
 17:                                               ; preds = %9, %5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %7
 }
 
@@ -31236,7 +31230,7 @@ define internal i32 @dissect_ngap_SuccessfulHandoverReport_Item(ptr noundef %0, 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ngap_T_successfulHOReportContainer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8
   %7 = call i32 @dissect_per_octet_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef -1, i32 noundef -1, i1 noundef zeroext false, ptr noundef nonnull %6)
   %8 = load ptr, ptr %6, align 8
@@ -31255,12 +31249,12 @@ define internal i32 @dissect_ngap_T_successfulHOReportContainer(ptr noundef %0, 
   br label %18
 
 18:                                               ; preds = %9, %5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_nr_rrc_SuccessHO_Report_r17_PDU(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @dissect_nr_rrc_SuccessHO_Report_r17_PDU(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ngap_MBS_AreaSessionID(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
@@ -31346,42 +31340,42 @@ define internal i32 @dissect_ngap_NID(ptr noundef %0, i32 noundef %1, ptr nounde
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_MBS_DistributionReleaseRequestTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_MBS_DistributionReleaseRequestTransfer_PDU, align 4
   %7 = load i32, ptr @ett_ngap_MBS_DistributionReleaseRequestTransfer, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @MBS_DistributionReleaseRequestTransfer_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_MBS_DistributionSetupRequestTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_MBS_DistributionSetupRequestTransfer_PDU, align 4
   %7 = load i32, ptr @ett_ngap_MBS_DistributionSetupRequestTransfer, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @MBS_DistributionSetupRequestTransfer_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_MBS_DistributionSetupResponseTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_MBS_DistributionSetupResponseTransfer_PDU, align 4
   %7 = load i32, ptr @ett_ngap_MBS_DistributionSetupResponseTransfer, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @MBS_DistributionSetupResponseTransfer_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
@@ -31401,56 +31395,56 @@ define internal i32 @dissect_ngap_MBSSessionStatus(ptr noundef %0, i32 noundef %
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_MBS_DistributionSetupUnsuccessfulTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_MBS_DistributionSetupUnsuccessfulTransfer_PDU, align 4
   %7 = load i32, ptr @ett_ngap_MBS_DistributionSetupUnsuccessfulTransfer, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @MBS_DistributionSetupUnsuccessfulTransfer_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_MulticastSessionActivationRequestTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_MulticastSessionActivationRequestTransfer_PDU, align 4
   %7 = load i32, ptr @ett_ngap_MulticastSessionActivationRequestTransfer, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @MulticastSessionActivationRequestTransfer_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_MulticastSessionDeactivationRequestTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_MulticastSessionDeactivationRequestTransfer_PDU, align 4
   %7 = load i32, ptr @ett_ngap_MulticastSessionDeactivationRequestTransfer, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @MulticastSessionDeactivationRequestTransfer_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_MulticastSessionUpdateRequestTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_MulticastSessionUpdateRequestTransfer_PDU, align 4
   %7 = load i32, ptr @ett_ngap_MulticastSessionUpdateRequestTransfer, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @MulticastSessionUpdateRequestTransfer_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
@@ -31901,7 +31895,7 @@ define internal i32 @dissect_ngap_SuccessfulPSCellChangeReport_Item(ptr noundef 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ngap_T_successfulPSCellChangeReportContainer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8
   %7 = call i32 @dissect_per_octet_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef -1, i32 noundef -1, i1 noundef zeroext false, ptr noundef nonnull %6)
   %8 = load ptr, ptr %6, align 8
@@ -31920,12 +31914,12 @@ define internal i32 @dissect_ngap_T_successfulPSCellChangeReportContainer(ptr no
   br label %18
 
 18:                                               ; preds = %9, %5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_nr_rrc_SuccessPSCell_Report_r18_PDU(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @dissect_nr_rrc_SuccessPSCell_Report_r18_PDU(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ngap_T_synchronisationState_enum(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
@@ -32129,28 +32123,28 @@ define internal i32 @dissect_ngap_PartiallyAllowedNSSAI_Item(ptr noundef %0, i32
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_BroadcastTransportFailureTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_BroadcastTransportFailureTransfer_PDU, align 4
   %7 = load i32, ptr @ett_ngap_BroadcastTransportFailureTransfer, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @BroadcastTransportFailureTransfer_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_BroadcastTransportRequestTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_BroadcastTransportRequestTransfer_PDU, align 4
   %7 = load i32, ptr @ett_ngap_BroadcastTransportRequestTransfer, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @BroadcastTransportRequestTransfer_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
@@ -32178,14 +32172,14 @@ define internal i32 @dissect_ngap_MBS_SessionTNLInfoNGRANItem(ptr noundef %0, i3
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_BroadcastTransportResponseTransfer_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %6 = load i32, ptr @hf_ngap_BroadcastTransportResponseTransfer_PDU, align 4
   %7 = load i32, ptr @ett_ngap_BroadcastTransportResponseTransfer, align 4
   %8 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @BroadcastTransportResponseTransfer_sequence)
   %9 = add i32 %8, 7
   %10 = ashr i32 %9, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 }
 
@@ -32391,18 +32385,18 @@ define internal i32 @dissect_ngap_DataForwardingResponseERABListItem(ptr noundef
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @wmem_array_get_count(ptr noundef) local_unnamed_addr #2
+declare i32 @wmem_array_get_count(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @wmem_array_index(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @wmem_array_index(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @wmem_map_insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @wmem_map_insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ngap_T_primaryRATRestriction(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8
   %7 = call i32 @dissect_per_bit_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 8, i32 noundef 8, i1 noundef zeroext true, ptr noundef null, i32 noundef 0, ptr noundef nonnull %6, ptr noundef null)
   %8 = load ptr, ptr %6, align 8
@@ -32427,14 +32421,14 @@ define internal i32 @dissect_ngap_T_primaryRATRestriction(ptr noundef %0, i32 no
   br label %20
 
 20:                                               ; preds = %9, %18, %5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ngap_T_secondaryRATRestriction(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8
   %7 = call i32 @dissect_per_bit_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 8, i32 noundef 8, i1 noundef zeroext true, ptr noundef null, i32 noundef 0, ptr noundef nonnull %6, ptr noundef null)
   %8 = load ptr, ptr %6, align 8
@@ -32451,7 +32445,7 @@ define internal i32 @dissect_ngap_T_secondaryRATRestriction(ptr noundef %0, i32 
   br label %15
 
 15:                                               ; preds = %9, %5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %7
 }
 
@@ -32483,7 +32477,7 @@ define internal i32 @dissect_ngap_Periodicity(ptr noundef %0, i32 noundef %1, pt
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ngap_BurstArrivalTime(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8
   %7 = call i32 @dissect_per_octet_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef -1, i32 noundef -1, i1 noundef zeroext false, ptr noundef nonnull %6)
   %8 = load ptr, ptr %6, align 8
@@ -32502,12 +32496,12 @@ define internal i32 @dissect_ngap_BurstArrivalTime(ptr noundef %0, i32 noundef %
   br label %18
 
 18:                                               ; preds = %9, %5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_nr_rrc_ReferenceTime_r16_PDU(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @dissect_nr_rrc_ReferenceTime_r16_PDU(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ngap_AlternativeQoSParaSetList(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
@@ -32536,7 +32530,7 @@ define internal i32 @dissect_ngap_AlternativeQoSParaSetIndex(ptr noundef %0, i32
 
 12:                                               ; preds = %5
   %13 = load ptr, ptr %8, align 8
-  %14 = tail call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %13, i64 noundef 72) #13
+  %14 = tail call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %13, i64 noundef 72) #12
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store i32 -1, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 56
@@ -32559,7 +32553,7 @@ ngap_get_private_data.exit:                       ; preds = %5, %12
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ngap_NRMobilityHistoryReport(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8
   %7 = call i32 @dissect_per_octet_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef -1, i32 noundef -1, i1 noundef zeroext false, ptr noundef nonnull %6)
   %8 = load ptr, ptr %6, align 8
@@ -32578,12 +32572,12 @@ define internal i32 @dissect_ngap_NRMobilityHistoryReport(ptr noundef %0, i32 no
   br label %18
 
 18:                                               ; preds = %9, %5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_nr_rrc_VisitedCellInfoList_r16_PDU(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @dissect_nr_rrc_VisitedCellInfoList_r16_PDU(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ngap_Allowed_PNI_NPN_List(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
@@ -32676,7 +32670,7 @@ define internal i32 @dissect_ngap_QosFlowFeedbackItem(ptr noundef %0, i32 nounde
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ngap_UpdateFeedback(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8
   %7 = call i32 @dissect_per_bit_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 8, i32 noundef 8, i1 noundef zeroext true, ptr noundef null, i32 noundef 0, ptr noundef nonnull %6, ptr noundef null)
   %8 = load ptr, ptr %6, align 8
@@ -32693,7 +32687,7 @@ define internal i32 @dissect_ngap_UpdateFeedback(ptr noundef %0, i32 noundef %1,
   br label %15
 
 15:                                               ; preds = %9, %5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %7
 }
 
@@ -33124,10 +33118,10 @@ define internal i32 @dissect_ngap_OBJECT_IDENTIFIER(ptr noundef %0, i32 noundef 
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_per_object_identifier(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @dissect_per_object_identifier(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_per_open_type(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @dissect_per_open_type(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_ngap_PDUSessionResourceSetupRequestTransfer(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
@@ -33153,16 +33147,16 @@ define internal fastcc i32 @dissect_ngap_PDUSessionResourceSetupRequestTransfer(
   br label %20
 
 20:                                               ; preds = %16, %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store volatile i32 0, ptr %5, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store volatile i32 0, ptr %7, align 4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #12
-  call void @llvm.lifetime.start.p0(i64 248, ptr nonnull %9) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @except_setup_try(ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull @dissect_ngap_PDUSessionResourceSetupRequestTransfer.catch_spec, i64 noundef 1)
   %21 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  %22 = call i32 @_setjmp(ptr noundef nonnull %21) #16
+  %22 = call i32 @_setjmp(ptr noundef nonnull %21) #15
   %.not32 = icmp eq i32 %22, 0
   %23 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %.sink = select i1 %.not32, ptr null, ptr %23
@@ -33270,7 +33264,7 @@ define internal fastcc i32 @dissect_ngap_PDUSessionResourceSetupRequestTransfer(
 
 68:                                               ; preds = %67
   %.0..0..0..0.17 = load volatile ptr, ptr %6, align 8
-  call void @except_rethrow(ptr noundef %.0..0..0..0.17) #17
+  call void @except_rethrow(ptr noundef %.0..0..0..0.17) #16
   unreachable
 
 69:                                               ; preds = %67, %65
@@ -33278,12 +33272,12 @@ define internal fastcc i32 @dissect_ngap_PDUSessionResourceSetupRequestTransfer(
   %71 = load volatile ptr, ptr %70, align 8
   call void @except_free(ptr noundef %71)
   %72 = call ptr @except_pop()
-  call void @llvm.lifetime.end.p0(i64 248, ptr nonnull %9) #12
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.0..0..0..0.19 = load volatile i32, ptr %5, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0..0..0..0.19
 }
 
@@ -33321,7 +33315,7 @@ define internal i32 @dissect_ngap_QosFlowNotifyItem(ptr noundef %0, i32 noundef 
 
 12:                                               ; preds = %5
   %13 = load ptr, ptr %8, align 8
-  %14 = tail call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %13, i64 noundef 72) #13
+  %14 = tail call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %13, i64 noundef 72) #12
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store i32 -1, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 56
@@ -33417,61 +33411,61 @@ define internal i32 @dissect_ngap_SuspendIndicator(ptr noundef %0, i32 noundef %
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @stats_tree_manip_node_int(i32 noundef, ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #2
+declare i32 @stats_tree_manip_node_int(i32 noundef, ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @stats_tree_tick_pivot(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @stats_tree_tick_pivot(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @stats_tree_create_node(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare i32 @stats_tree_create_node(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @stats_tree_create_pivot(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @stats_tree_create_pivot(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @prefs_get_range_value(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @prefs_get_range_value(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree null_pointer_is_valid
-declare i32 @__snprintf_chk(ptr noundef, i64 noundef, i32 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #7
+declare i32 @__snprintf_chk(ptr noundef, i64 noundef, i32 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #6
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @_try_val_to_str_ext_init(i32 noundef, ptr noundef) #2
+declare ptr @_try_val_to_str_ext_init(i32 noundef, ptr noundef) #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @col_clear(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @col_clear(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @find_or_create_conversation(ptr noundef) local_unnamed_addr #2
+declare ptr @find_or_create_conversation(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @conversation_get_proto_data(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @conversation_get_proto_data(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare noalias ptr @wmem_map_new(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare noalias ptr @wmem_map_new(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @wmem_int64_hash(ptr noundef) #2
+declare i32 @wmem_int64_hash(ptr noundef) #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @g_int64_equal(ptr noundef, ptr noundef) #2
+declare i32 @g_int64_equal(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: null_pointer_is_valid
-declare noalias ptr @wmem_tree_new(ptr noundef) local_unnamed_addr #2
+declare noalias ptr @wmem_tree_new(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @conversation_add_proto_data(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @conversation_add_proto_data(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @tap_queue_packet(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @tap_queue_packet(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid allocsize(2)
-declare ptr @wmem_memdup(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #8
+declare ptr @wmem_memdup(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ngap_InitiatingMessage(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
@@ -33507,7 +33501,7 @@ define internal i32 @dissect_ngap_InitiatingMessage_value(ptr noundef %0, i32 no
 
 12:                                               ; preds = %5
   %13 = load ptr, ptr %8, align 8
-  %14 = tail call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %13, i64 noundef 72) #13
+  %14 = tail call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %13, i64 noundef 72) #12
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store i32 -1, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 56
@@ -33536,7 +33530,7 @@ define internal i32 @dissect_InitiatingMessageValue(ptr noundef %0, ptr noundef 
 
 9:                                                ; preds = %4
   %10 = load ptr, ptr %5, align 8
-  %11 = tail call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %10, i64 noundef 72) #13
+  %11 = tail call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %10, i64 noundef 72) #12
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store i32 -1, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 56
@@ -33577,7 +33571,7 @@ define internal i32 @dissect_ngap_SuccessfulOutcome_value(ptr noundef %0, i32 no
 
 12:                                               ; preds = %5
   %13 = load ptr, ptr %8, align 8
-  %14 = tail call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %13, i64 noundef 72) #13
+  %14 = tail call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %13, i64 noundef 72) #12
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store i32 -1, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 56
@@ -33606,7 +33600,7 @@ define internal i32 @dissect_SuccessfulOutcomeValue(ptr noundef %0, ptr noundef 
 
 9:                                                ; preds = %4
   %10 = load ptr, ptr %5, align 8
-  %11 = tail call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %10, i64 noundef 72) #13
+  %11 = tail call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %10, i64 noundef 72) #12
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store i32 -1, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 56
@@ -33647,7 +33641,7 @@ define internal i32 @dissect_ngap_UnsuccessfulOutcome_value(ptr noundef %0, i32 
 
 12:                                               ; preds = %5
   %13 = load ptr, ptr %8, align 8
-  %14 = tail call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %13, i64 noundef 72) #13
+  %14 = tail call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %13, i64 noundef 72) #12
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store i32 -1, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 56
@@ -33676,7 +33670,7 @@ define internal i32 @dissect_UnsuccessfulOutcomeValue(ptr noundef %0, ptr nounde
 
 9:                                                ; preds = %4
   %10 = load ptr, ptr %5, align 8
-  %11 = tail call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %10, i64 noundef 72) #13
+  %11 = tail call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %10, i64 noundef 72) #12
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store i32 -1, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 56
@@ -33705,21 +33699,21 @@ ngap_get_private_data.exit:                       ; preds = %4, %9
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @json_parse(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @json_parse(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @json_get_object(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @json_get_object(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @json_get_string(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @json_get_string(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #9
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc noundef zeroext i1 @find_n2_info_content(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef writeonly captures(none) %4) unnamed_addr #0 {
   %6 = alloca double, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = tail call ptr @json_get_object(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %29, label %8
@@ -33735,7 +33729,7 @@ define internal fastcc noundef zeroext i1 @find_n2_info_content(ptr noundef %0, 
   br i1 %.not30, label %29, label %12
 
 12:                                               ; preds = %10
-  %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef %3) #15
+  %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef %3) #14
   %.not31 = icmp eq i32 %13, 0
   br i1 %.not31, label %14, label %29
 
@@ -33745,7 +33739,7 @@ define internal fastcc noundef zeroext i1 @find_n2_info_content(ptr noundef %0, 
   br i1 %.not32, label %26, label %16
 
 16:                                               ; preds = %14
-  %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(10) @.str.45) #15
+  %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(10) @.str.45) #14
   %18 = icmp eq i32 %17, 0
   %19 = load i8, ptr @ngap_disable_nrppa_encapsulation, align 1, !range !6
   %20 = trunc nuw i8 %19 to i1
@@ -33774,30 +33768,36 @@ define internal fastcc noundef zeroext i1 @find_n2_info_content(ptr noundef %0, 
 
 29:                                               ; preds = %.sink.split, %10, %12, %8, %5
   %.0 = phi i1 [ false, %5 ], [ false, %8 ], [ false, %12 ], [ false, %10 ], [ true, %.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @dissector_get_string_handle(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @dissector_get_string_handle(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @json_get_array(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @json_get_array(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @json_get_array_len(ptr noundef) local_unnamed_addr #2
+declare i32 @json_get_array_len(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @json_get_array_index(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @json_get_array_index(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i1 @col_get_writable(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @col_get_writable(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @call_dissector_with_data(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @call_dissector_with_data(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i1 @json_get_double(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @json_get_double(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #10
@@ -33806,23 +33806,22 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind null_pointer_is_valid returns_twice "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { noreturn null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { null_pointer_is_valid allocsize(2) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind null_pointer_is_valid returns_twice "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { noreturn null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { null_pointer_is_valid allocsize(2) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #12 = { nounwind }
-attributes #13 = { allocsize(1) }
-attributes #14 = { allocsize(2) }
-attributes #15 = { nounwind willreturn memory(read) }
-attributes #16 = { nounwind returns_twice }
-attributes #17 = { noreturn }
+attributes #12 = { allocsize(1) }
+attributes #13 = { allocsize(2) }
+attributes #14 = { nounwind willreturn memory(read) }
+attributes #15 = { nounwind returns_twice }
+attributes #16 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

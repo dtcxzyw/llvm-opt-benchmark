@@ -27,14 +27,8 @@ define void @srand_generate(ptr noundef writeonly captures(none) %0, i32 noundef
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nounwind
-declare i32 @rand() local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @rand() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @drand_generate(ptr noundef writeonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -65,7 +59,7 @@ define float @smatrix_difference(ptr noundef %0, ptr noundef readonly captures(n
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   store i32 %2, ptr %6, align 4, !tbaa !12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 1, ptr %7, align 4, !tbaa !12
   %8 = icmp sgt i32 %3, 0
   br i1 %8, label %.preheader.lr.ph, label %._crit_edge28
@@ -112,18 +106,18 @@ define float @smatrix_difference(ptr noundef %0, ptr noundef readonly captures(n
   %.019.lcssa = phi float [ 0.000000e+00, %5 ], [ %18, %._crit_edge ]
   %22 = sitofp i32 %3 to float
   %23 = fdiv float %.019.lcssa, %22
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret float %23
 }
 
-declare float @snrm2_(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare float @snrm2_(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define double @dmatrix_difference(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   store i32 %2, ptr %6, align 4, !tbaa !12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 1, ptr %7, align 4, !tbaa !12
   %8 = icmp sgt i32 %3, 0
   br i1 %8, label %.preheader.lr.ph, label %._crit_edge28
@@ -170,14 +164,14 @@ define double @dmatrix_difference(ptr noundef %0, ptr noundef readonly captures(
   %.019.lcssa = phi double [ 0.000000e+00, %5 ], [ %18, %._crit_edge ]
   %22 = sitofp i32 %3 to double
   %23 = fdiv double %.019.lcssa, %22
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret double %23
 }
 
-declare double @dnrm2_(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare double @dnrm2_(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @cconjugate_vector(i32 noundef %0, i32 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #4 {
+define void @cconjugate_vector(i32 noundef %0, i32 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #3 {
   %4 = icmp sgt i32 %0, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
 
@@ -203,7 +197,7 @@ define void @cconjugate_vector(i32 noundef %0, i32 noundef %1, ptr noundef captu
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @zconjugate_vector(i32 noundef %0, i32 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #4 {
+define void @zconjugate_vector(i32 noundef %0, i32 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #3 {
   %4 = icmp sgt i32 %0, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
 
@@ -229,7 +223,7 @@ define void @zconjugate_vector(i32 noundef %0, i32 noundef %1, ptr noundef captu
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @stranspose(i32 noundef %0, i32 noundef %1, float noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4, ptr noundef writeonly captures(none) %5, i32 noundef %6) local_unnamed_addr #4 {
+define void @stranspose(i32 noundef %0, i32 noundef %1, float noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4, ptr noundef writeonly captures(none) %5, i32 noundef %6) local_unnamed_addr #3 {
   %.not18 = icmp eq i32 %1, 0
   %.not1516 = icmp eq i32 %0, 0
   %or.cond = or i1 %.not18, %.not1516
@@ -271,7 +265,7 @@ define void @stranspose(i32 noundef %0, i32 noundef %1, float noundef %2, ptr no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @dtranspose(i32 noundef %0, i32 noundef %1, double noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4, ptr noundef writeonly captures(none) %5, i32 noundef %6) local_unnamed_addr #4 {
+define void @dtranspose(i32 noundef %0, i32 noundef %1, double noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4, ptr noundef writeonly captures(none) %5, i32 noundef %6) local_unnamed_addr #3 {
   %.not18 = icmp eq i32 %1, 0
   %.not1516 = icmp eq i32 %0, 0
   %or.cond = or i1 %.not18, %.not1516
@@ -313,7 +307,7 @@ define void @dtranspose(i32 noundef %0, i32 noundef %1, double noundef %2, ptr n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @ctranspose(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #4 {
+define void @ctranspose(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #3 {
   %9 = shl nsw i32 %6, 1
   %10 = shl nsw i32 %4, 1
   %11 = shl nsw i32 %1, 1
@@ -381,10 +375,10 @@ define void @ctranspose(i32 noundef %0, i32 noundef %1, ptr noundef readonly cap
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #5
+declare float @llvm.fmuladd.f32(float, float, float) #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @ztranspose(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #4 {
+define void @ztranspose(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #3 {
   %9 = shl nsw i32 %6, 1
   %10 = shl nsw i32 %4, 1
   %11 = shl nsw i32 %1, 1
@@ -452,10 +446,10 @@ define void @ztranspose(i32 noundef %0, i32 noundef %1, ptr noundef readonly cap
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #5
+declare double @llvm.fmuladd.f64(double, double, double) #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @my_scopy(i32 noundef %0, i32 noundef %1, float noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4, ptr noundef writeonly captures(none) %5, i32 noundef %6) local_unnamed_addr #4 {
+define void @my_scopy(i32 noundef %0, i32 noundef %1, float noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4, ptr noundef writeonly captures(none) %5, i32 noundef %6) local_unnamed_addr #3 {
   %.not18 = icmp eq i32 %0, 0
   %.not1516 = icmp eq i32 %1, 0
   %or.cond = or i1 %.not18, %.not1516
@@ -497,7 +491,7 @@ define void @my_scopy(i32 noundef %0, i32 noundef %1, float noundef %2, ptr noun
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @my_dcopy(i32 noundef %0, i32 noundef %1, double noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4, ptr noundef writeonly captures(none) %5, i32 noundef %6) local_unnamed_addr #4 {
+define void @my_dcopy(i32 noundef %0, i32 noundef %1, double noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4, ptr noundef writeonly captures(none) %5, i32 noundef %6) local_unnamed_addr #3 {
   %.not18 = icmp eq i32 %0, 0
   %.not1516 = icmp eq i32 %1, 0
   %or.cond = or i1 %.not18, %.not1516
@@ -539,7 +533,7 @@ define void @my_dcopy(i32 noundef %0, i32 noundef %1, double noundef %2, ptr nou
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @my_ccopy(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #4 {
+define void @my_ccopy(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #3 {
   %9 = shl nsw i32 %6, 1
   %10 = shl nsw i32 %4, 1
   %.not41 = icmp eq i32 %0, 0
@@ -604,7 +598,7 @@ define void @my_ccopy(i32 noundef %0, i32 noundef %1, ptr noundef readonly captu
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @my_zcopy(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #4 {
+define void @my_zcopy(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #3 {
   %9 = shl nsw i32 %6, 1
   %10 = shl nsw i32 %4, 1
   %.not41 = icmp eq i32 %0, 0
@@ -668,12 +662,18 @@ define void @my_zcopy(i32 noundef %0, i32 noundef %1, ptr noundef readonly captu
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
-attributes #4 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
+attributes #3 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

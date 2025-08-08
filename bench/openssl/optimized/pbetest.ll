@@ -52,8 +52,8 @@ define internal range(i32 0, 2) i32 @test_pkcs5_pbe_des_sha1() #0 {
 define internal fastcc range(i32 0, 2) i32 @test_pkcs5_pbe(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 24, 33) %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #3
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = tail call ptr @EVP_CIPHER_CTX_new() #3
   %8 = tail call i32 @test_ptr(ptr noundef nonnull @.str.2, i32 noundef 69, ptr noundef nonnull @.str.3, ptr noundef %7) #3
   %.not = icmp eq i32 %8, 0
@@ -151,17 +151,14 @@ define internal fastcc range(i32 0, 2) i32 @test_pkcs5_pbe(ptr noundef %0, ptr n
   %.0 = phi ptr [ %10, %55 ], [ %10, %50 ], [ %10, %44 ], [ %10, %38 ], [ %10, %30 ], [ %10, %25 ], [ %10, %18 ], [ %10, %12 ], [ %10, %9 ], [ null, %4 ], [ %10, %63 ]
   call void @EVP_CIPHER_CTX_free(ptr noundef %7) #3
   call void @X509_ALGOR_free(ptr noundef %.0) #3
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.025
 }
 
 declare ptr @EVP_rc4() local_unnamed_addr #1
 
 declare ptr @EVP_md5() local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 declare ptr @EVP_CIPHER_CTX_new() local_unnamed_addr #1
 
@@ -187,12 +184,15 @@ declare void @EVP_CIPHER_CTX_free(ptr noundef) local_unnamed_addr #1
 
 declare void @X509_ALGOR_free(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 declare ptr @EVP_des_cbc() local_unnamed_addr #1
 
 declare ptr @EVP_sha1() local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

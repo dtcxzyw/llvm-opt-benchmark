@@ -115,11 +115,11 @@ define internal range(i32 0, 2) i32 @test_rsa_oaep(i32 noundef %0) #0 {
   %3 = alloca [256 x i8], align 16
   %4 = alloca [256 x i8], align 16
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %3) #5
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4, !tbaa !9
   %6 = call fastcc i32 @test_rsa_simple(i32 noundef %0, i32 noundef 4, i32 noundef 4, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %2)
   %.not = icmp eq i32 %6, 0
@@ -184,10 +184,10 @@ define internal range(i32 0, 2) i32 @test_rsa_oaep(i32 noundef %0) #0 {
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph23, %24, %.preheader, %7, %11, %1
   %.014 = phi i32 [ 0, %7 ], [ 0, %11 ], [ 0, %1 ], [ 1, %.preheader ], [ 0, %.lr.ph23 ], [ 1, %24 ], [ 0, %.lr.ph ]
   call void @RSA_free(ptr noundef %.pre) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #5
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %3) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.014
 }
 
@@ -202,7 +202,7 @@ define internal range(i32 0, 2) i32 @test_rsa_security_bit(i32 noundef %0) #0 {
   %8 = load i32, ptr %7, align 4, !tbaa !17
   %9 = add nsw i32 %6, 7
   %10 = sdiv i32 %9, 8
-  call void @llvm.lifetime.start.p0(i64 2000, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %11 = tail call i32 @test_ptr(ptr noundef nonnull @.str.5, i32 noundef 369, ptr noundef nonnull @.str.11, ptr noundef %3) #5
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %29, label %12
@@ -238,7 +238,7 @@ define internal range(i32 0, 2) i32 @test_rsa_security_bit(i32 noundef %0) #0 {
 29:                                               ; preds = %26, %14, %1, %12
   %.0 = phi i32 [ 0, %14 ], [ 0, %12 ], [ 0, %1 ], [ %spec.select, %26 ]
   call void @RSA_free(ptr noundef %3) #5
-  call void @llvm.lifetime.end.p0(i64 2000, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
 
@@ -248,9 +248,9 @@ declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 define internal range(i32 0, 2) i32 @test_rsa_saos() #0 {
   %1 = alloca i32, align 4
   %2 = alloca [256 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store i32 0, ptr %1, align 4, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = tail call fastcc ptr @load_key(i32 noundef 1)
   %4 = tail call i32 @test_ptr(ptr noundef nonnull @.str.5, i32 noundef 659, ptr noundef nonnull @.str.17, ptr noundef %3) #5
   %.not = icmp eq i32 %4, 0
@@ -350,8 +350,8 @@ define internal range(i32 0, 2) i32 @test_rsa_saos() #0 {
   %.0 = phi i32 [ 1, %57 ], [ 0, %49 ], [ 0, %44 ], [ 0, %39 ], [ 0, %32 ], [ 0, %27 ], [ 0, %22 ], [ 0, %16 ], [ 0, %11 ], [ 0, %8 ], [ 0, %5 ], [ 0, %0 ]
   call void @RSA_free(ptr noundef %3) #5
   call void @RSA_free(ptr noundef %.019) #5
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %2) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
 }
 
@@ -365,19 +365,19 @@ define internal range(i32 0, 2) i32 @test_EVP_rsa_legacy_key() #0 {
   %6 = alloca [256 x i8], align 16
   %7 = alloca [129 x i8], align 16
   %8 = alloca [129 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store i64 384, ptr %1, align 8, !tbaa !18
-  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %2) #5
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #5
-  call void @llvm.lifetime.start.p0(i64 257, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(257) %4, ptr noundef nonnull align 16 dereferenceable(257) @__const.test_EVP_rsa_legacy_key.n_data, i64 257, i1 false)
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %5, ptr noundef nonnull align 1 dereferenceable(3) @__const.test_EVP_rsa_legacy_key.e_data, i64 3, i1 false)
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %6, ptr noundef nonnull align 16 dereferenceable(256) @__const.test_EVP_rsa_legacy_key.d_data, i64 256, i1 false)
-  call void @llvm.lifetime.start.p0(i64 129, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(129) %7, ptr noundef nonnull align 16 dereferenceable(129) @__const.test_EVP_rsa_legacy_key.p_data, i64 129, i1 false)
-  call void @llvm.lifetime.start.p0(i64 129, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(129) %8, ptr noundef nonnull align 16 dereferenceable(129) @__const.test_EVP_rsa_legacy_key.q_data, i64 129, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %3, i8 -17, i64 64, i1 false)
   %9 = call ptr @BN_bin2bn(ptr noundef nonnull %7, i32 noundef 129, ptr noundef null) #5
@@ -480,14 +480,14 @@ define internal range(i32 0, 2) i32 @test_EVP_rsa_legacy_key() #0 {
   %63 = phi i32 [ %61, %55 ], [ 0, %50 ], [ 0, %45 ], [ 0, %40 ], [ 0, %35 ], [ 0, %32 ], [ 0, %29 ], [ 0, %26 ], [ 0, %23 ], [ 0, %20 ], [ 0, %17 ], [ 0, %14 ], [ 0, %11 ], [ 0, %0 ]
   call void @EVP_MD_CTX_free(ptr noundef %.016) #5
   call void @EVP_PKEY_free(ptr noundef %.0) #5
-  call void @llvm.lifetime.end.p0(i64 129, ptr nonnull %8) #5
-  call void @llvm.lifetime.end.p0(i64 129, ptr nonnull %7) #5
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 257, ptr nonnull %4) #5
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #5
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %2) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %63
 }
 
@@ -495,8 +495,8 @@ define internal range(i32 0, 2) i32 @test_EVP_rsa_legacy_key() #0 {
 define internal fastcc range(i32 0, 2) i32 @test_rsa_simple(i32 noundef %0, i32 noundef range(i32 1, 5) %1, i32 noundef range(i32 1, 5) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) unnamed_addr #0 {
   %7 = alloca [256 x i8], align 16
   %8 = alloca [256 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %7) #5
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call ptr @RSA_new() #5
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %rsa_setkey.exit, label %10
@@ -604,13 +604,10 @@ rsa_setkey.exit:                                  ; preds = %6, %10, %11, %23, %
   %.027 = phi ptr [ %9, %51 ], [ %9, %54 ], [ %9, %57 ], [ %9, %60 ], [ null, %61 ]
   %.0 = phi i32 [ 0, %51 ], [ 0, %54 ], [ 0, %57 ], [ 1, %60 ], [ 1, %61 ]
   call void @RSA_free(ptr noundef %.027) #5
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %8) #5
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 declare i32 @RSA_public_encrypt(i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -624,9 +621,6 @@ declare i32 @test_mem_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr
 
 declare void @RSA_free(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 declare ptr @RSA_new() local_unnamed_addr #1
 
 declare i32 @RSA_set0_key(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -638,14 +632,14 @@ declare i32 @RSA_set0_factors(ptr noundef, ptr noundef, ptr noundef) local_unnam
 declare i32 @RSA_set0_crt_params(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare i32 @test_int_le(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 declare i32 @test_ptr(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare i32 @test_true(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -732,11 +726,17 @@ declare void @EVP_MD_CTX_free(ptr noundef) local_unnamed_addr #1
 
 declare void @EVP_PKEY_free(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

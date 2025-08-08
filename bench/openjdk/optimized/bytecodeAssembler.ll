@@ -410,7 +410,7 @@ _ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit: ; preds = %23, %35
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 60
   %51 = load i32, ptr %50, align 4
   %52 = add nsw i32 %51, -1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %49, ptr %3, align 8
   %53 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %1, ptr %53, align 8
@@ -446,7 +446,7 @@ _ZN12ConstantPool10copy_cp_toEiiRK18constantPoolHandleiP10JavaThread.exit: ; pre
   store ptr %49, ptr %72, align 8
   call void @_ZN12ConstantPool15copy_cp_to_implERK18constantPoolHandleiiS2_iP10JavaThread(ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 1, i32 noundef %52, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 1, ptr noundef nonnull %1) #8
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %73 = load ptr, ptr %21, align 8
   %.not42 = icmp eq ptr %73, null
   br i1 %.not42, label %74, label %151
@@ -928,20 +928,20 @@ define hidden void @_ZN17BytecodeAssembler4_newEP6SymbolP10JavaThread(ptr nounde
   %5 = alloca %class.BytecodeCPEntry, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 1, ptr %4, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %1, ptr %8, align 8
   %9 = call noundef zeroext i16 @_ZN20BytecodeConstantPool11find_or_addERK15BytecodeCPEntryP10JavaThread(ptr noundef nonnull align 8 dereferenceable(2092) %7, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef %2)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %11 = load ptr, ptr %10, align 8
   %.not.i = icmp eq ptr %11, null
   br i1 %.not.i, label %_ZN20BytecodeConstantPool5klassEP6SymbolP10JavaThread.exit, label %_ZN20BytecodeConstantPool5klassEP6SymbolP10JavaThread.exit.thread
 
 _ZN20BytecodeConstantPool5klassEP6SymbolP10JavaThread.exit.thread: ; preds = %3
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %35
 
 _ZN20BytecodeConstantPool5klassEP6SymbolP10JavaThread.exit: ; preds = %3
@@ -952,7 +952,7 @@ _ZN20BytecodeConstantPool5klassEP6SymbolP10JavaThread.exit: ; preds = %3
   store ptr %12, ptr %13, align 8
   %14 = call noundef zeroext i16 @_ZN20BytecodeConstantPool11find_or_addERK15BytecodeCPEntryP10JavaThread(ptr noundef nonnull align 8 dereferenceable(2092) %7, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %2)
   %.pr = load ptr, ptr %10, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not = icmp eq ptr %.pr, null
   br i1 %.not, label %15, label %35
 
@@ -1000,20 +1000,20 @@ define hidden void @_ZN17BytecodeAssembler11load_stringEP6SymbolP10JavaThread(pt
   %5 = alloca %class.BytecodeCPEntry, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 1, ptr %4, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %1, ptr %8, align 8
   %9 = call noundef zeroext i16 @_ZN20BytecodeConstantPool11find_or_addERK15BytecodeCPEntryP10JavaThread(ptr noundef nonnull align 8 dereferenceable(2092) %7, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef %2)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %11 = load ptr, ptr %10, align 8
   %.not.i = icmp eq ptr %11, null
   br i1 %.not.i, label %_ZN20BytecodeConstantPool6stringEP6SymbolP10JavaThread.exit, label %_ZN20BytecodeConstantPool6stringEP6SymbolP10JavaThread.exit.thread
 
 _ZN20BytecodeConstantPool6stringEP6SymbolP10JavaThread.exit.thread: ; preds = %3
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %76
 
 _ZN20BytecodeConstantPool6stringEP6SymbolP10JavaThread.exit: ; preds = %3
@@ -1022,7 +1022,7 @@ _ZN20BytecodeConstantPool6stringEP6SymbolP10JavaThread.exit: ; preds = %3
   store ptr %1, ptr %12, align 8
   %13 = call noundef zeroext i16 @_ZN20BytecodeConstantPool11find_or_addERK15BytecodeCPEntryP10JavaThread(ptr noundef nonnull align 8 dereferenceable(2092) %7, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %2)
   %.pr = load ptr, ptr %10, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not = icmp eq ptr %.pr, null
   br i1 %.not, label %14, label %76
 
@@ -1324,20 +1324,20 @@ define linkonce_odr hidden noundef zeroext i16 @_ZN20BytecodeConstantPool9method
   %9 = alloca %class.BytecodeCPEntry, align 8
   %10 = alloca %class.BytecodeCPEntry, align 8
   %11 = alloca %class.BytecodeCPEntry, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 1, ptr %9, align 8
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %1, ptr %12, align 8
   %13 = call noundef zeroext i16 @_ZN20BytecodeConstantPool11find_or_addERK15BytecodeCPEntryP10JavaThread(ptr noundef nonnull align 8 dereferenceable(2092) %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %15 = load ptr, ptr %14, align 8
   %.not.i = icmp eq ptr %15, null
   br i1 %.not.i, label %_ZN20BytecodeConstantPool5klassEP6SymbolP10JavaThread.exit, label %_ZN20BytecodeConstantPool5klassEP6SymbolP10JavaThread.exit.thread
 
 _ZN20BytecodeConstantPool5klassEP6SymbolP10JavaThread.exit.thread: ; preds = %5
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %34
 
 _ZN20BytecodeConstantPool5klassEP6SymbolP10JavaThread.exit: ; preds = %5
@@ -1348,35 +1348,35 @@ _ZN20BytecodeConstantPool5klassEP6SymbolP10JavaThread.exit: ; preds = %5
   store ptr %16, ptr %17, align 8
   %18 = call noundef zeroext i16 @_ZN20BytecodeConstantPool11find_or_addERK15BytecodeCPEntryP10JavaThread(ptr noundef nonnull align 8 dereferenceable(2092) %0, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull %4)
   %.pr = load ptr, ptr %14, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %.not = icmp eq ptr %.pr, null
   br i1 %.not, label %19, label %34
 
 19:                                               ; preds = %_ZN20BytecodeConstantPool5klassEP6SymbolP10JavaThread.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 1, ptr %7, align 8
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %2, ptr %20, align 8
   %21 = call noundef zeroext i16 @_ZN20BytecodeConstantPool11find_or_addERK15BytecodeCPEntryP10JavaThread(ptr noundef nonnull align 8 dereferenceable(2092) %0, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %22 = load ptr, ptr %14, align 8
   %.not.i11 = icmp eq ptr %22, null
   br i1 %.not.i11, label %23, label %_ZN20BytecodeConstantPool13name_and_typeEP6SymbolS1_P10JavaThread.exit.thread
 
 23:                                               ; preds = %19
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 1, ptr %6, align 8
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %3, ptr %24, align 8
   %25 = call noundef zeroext i16 @_ZN20BytecodeConstantPool11find_or_addERK15BytecodeCPEntryP10JavaThread(ptr noundef nonnull align 8 dereferenceable(2092) %0, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %26 = load ptr, ptr %14, align 8
   %.not10.i = icmp eq ptr %26, null
   br i1 %.not10.i, label %_ZN20BytecodeConstantPool13name_and_typeEP6SymbolS1_P10JavaThread.exit, label %_ZN20BytecodeConstantPool13name_and_typeEP6SymbolS1_P10JavaThread.exit.thread
 
 _ZN20BytecodeConstantPool13name_and_typeEP6SymbolS1_P10JavaThread.exit.thread: ; preds = %19, %23
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %34
 
 _ZN20BytecodeConstantPool13name_and_typeEP6SymbolS1_P10JavaThread.exit: ; preds = %23
@@ -1390,7 +1390,7 @@ _ZN20BytecodeConstantPool13name_and_typeEP6SymbolS1_P10JavaThread.exit: ; preds 
   store ptr %27, ptr %28, align 8
   %29 = call noundef zeroext i16 @_ZN20BytecodeConstantPool11find_or_addERK15BytecodeCPEntryP10JavaThread(ptr noundef nonnull align 8 dereferenceable(2092) %0, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull %4)
   %.pr15 = load ptr, ptr %14, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.not17 = icmp eq ptr %.pr15, null
   br i1 %.not17, label %30, label %34
 
@@ -1851,10 +1851,10 @@ _ZN13GrowableArrayIhE10deallocateEPh.exit:        ; preds = %42, %39, %.preheade
 declare i32 @llvm.ctpop.i32(i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

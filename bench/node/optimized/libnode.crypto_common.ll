@@ -918,9 +918,9 @@ do.end16:                                         ; preds = %entry
   %6 = load ptr, ptr %isolate_data_.i.i, align 8
   %subject_string_.i.i = getelementptr inbounds nuw i8, ptr %6, i64 2264
   %7 = load ptr, ptr %subject_string_.i.i, align 8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %type_buf.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %value_str.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %accum.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %type_buf.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %value_str.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %accum.i)
   %call.i = call noundef ptr @X509_get_subject_name(ptr noundef %cert) #16
   %cmp.not.i = icmp eq ptr %call.i, null
   br i1 %cmp.not.i, label %do.body3.i, label %do.end4.i
@@ -1084,24 +1084,24 @@ for.inc.i:                                        ; preds = %if.else221.i, %if.e
   br i1 %exitcond.not.i, label %_ZN4node6cryptoL17GetX509NameObjectIXadL_Z21X509_get_subject_nameEEEEN2v810MaybeLocalINS2_5ValueEEEPNS_11EnvironmentEP7x509_st.exit.thread291, label %for.body.i, !llvm.loop !11
 
 _ZN4node6cryptoL17GetX509NameObjectIXadL_Z21X509_get_subject_nameEEEEN2v810MaybeLocalINS2_5ValueEEEPNS_11EnvironmentEP7x509_st.exit.thread: ; preds = %if.end66.i, %do.end15.i, %_ZN4node16OnScopeLeaveImplIZNS_6cryptoL17GetX509NameObjectIXadL_Z21X509_get_subject_nameEEEEN2v810MaybeLocalINS3_5ValueEEEPNS_11EnvironmentEP7x509_stEUlvE_ED2Ev.exit.thread.i
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %type_buf.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %value_str.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %accum.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %type_buf.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %value_str.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %accum.i)
   br label %cleanup743
 
 _ZN4node6cryptoL17GetX509NameObjectIXadL_Z21X509_get_subject_nameEEEEN2v810MaybeLocalINS2_5ValueEEEPNS_11EnvironmentEP7x509_st.exit.thread291: ; preds = %for.inc.i, %for.cond.preheader.i
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %type_buf.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %value_str.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %accum.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %type_buf.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %value_str.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %accum.i)
   br label %if.end.i
 
 _ZN4node6cryptoL17GetX509NameObjectIXadL_Z21X509_get_subject_nameEEEEN2v810MaybeLocalINS2_5ValueEEEPNS_11EnvironmentEP7x509_st.exit: ; preds = %if.end76.i
   %26 = ptrtoint ptr %12 to i64
   %add1.i365.i = add i64 %26, 608
   %27 = inttoptr i64 %add1.i365.i to ptr
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %type_buf.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %value_str.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %accum.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %type_buf.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %value_str.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %accum.i)
   %cmp.i.i.not.i = icmp eq i64 %add1.i365.i, 0
   br i1 %cmp.i.i.not.i, label %cleanup743, label %if.end.i
 
@@ -1139,9 +1139,9 @@ lor.lhs.false:                                    ; preds = %if.end5.i.i, %_ZN4n
   %35 = load ptr, ptr %isolate_data_.i.i, align 8
   %issuer_string_.i.i = getelementptr inbounds nuw i8, ptr %35, i64 1216
   %36 = load ptr, ptr %issuer_string_.i.i, align 8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %type_buf.i75)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %value_str.i76)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %accum.i77)
+  call void @llvm.lifetime.start.p0(ptr nonnull %type_buf.i75)
+  call void @llvm.lifetime.start.p0(ptr nonnull %value_str.i76)
+  call void @llvm.lifetime.start.p0(ptr nonnull %accum.i77)
   %call.i78 = call noundef ptr @X509_get_issuer_name(ptr noundef %cert) #16
   %cmp.not.i79 = icmp eq ptr %call.i78, null
   br i1 %cmp.not.i79, label %do.body3.i165, label %do.end4.i80
@@ -1305,24 +1305,24 @@ for.inc.i148:                                     ; preds = %if.else221.i152, %i
   br i1 %exitcond.not.i151, label %_ZN4node6cryptoL17GetX509NameObjectIXadL_Z20X509_get_issuer_nameEEEEN2v810MaybeLocalINS2_5ValueEEEPNS_11EnvironmentEP7x509_st.exit.thread301, label %for.body.i92, !llvm.loop !13
 
 _ZN4node6cryptoL17GetX509NameObjectIXadL_Z20X509_get_issuer_nameEEEEN2v810MaybeLocalINS2_5ValueEEEPNS_11EnvironmentEP7x509_st.exit.thread: ; preds = %if.end66.i104, %do.end15.i83, %_ZN4node16OnScopeLeaveImplIZNS_6cryptoL17GetX509NameObjectIXadL_Z20X509_get_issuer_nameEEEEN2v810MaybeLocalINS3_5ValueEEEPNS_11EnvironmentEP7x509_stEUlvE_ED2Ev.exit.thread.i
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %type_buf.i75)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %value_str.i76)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %accum.i77)
+  call void @llvm.lifetime.end.p0(ptr nonnull %type_buf.i75)
+  call void @llvm.lifetime.end.p0(ptr nonnull %value_str.i76)
+  call void @llvm.lifetime.end.p0(ptr nonnull %accum.i77)
   br label %cleanup743
 
 _ZN4node6cryptoL17GetX509NameObjectIXadL_Z20X509_get_issuer_nameEEEEN2v810MaybeLocalINS2_5ValueEEEPNS_11EnvironmentEP7x509_st.exit.thread301: ; preds = %for.inc.i148, %for.cond.preheader.i88
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %type_buf.i75)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %value_str.i76)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %accum.i77)
+  call void @llvm.lifetime.end.p0(ptr nonnull %type_buf.i75)
+  call void @llvm.lifetime.end.p0(ptr nonnull %value_str.i76)
+  call void @llvm.lifetime.end.p0(ptr nonnull %accum.i77)
   br label %if.end.i167
 
 _ZN4node6cryptoL17GetX509NameObjectIXadL_Z20X509_get_issuer_nameEEEEN2v810MaybeLocalINS2_5ValueEEEPNS_11EnvironmentEP7x509_st.exit: ; preds = %if.end76.i108
   %55 = ptrtoint ptr %41 to i64
   %add1.i365.i159 = add i64 %55, 608
   %56 = inttoptr i64 %add1.i365.i159 to ptr
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %type_buf.i75)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %value_str.i76)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %accum.i77)
+  call void @llvm.lifetime.end.p0(ptr nonnull %type_buf.i75)
+  call void @llvm.lifetime.end.p0(ptr nonnull %value_str.i76)
+  call void @llvm.lifetime.end.p0(ptr nonnull %accum.i77)
   %cmp.i.i.not.i166 = icmp eq i64 %add1.i365.i159, 0
   br i1 %cmp.i.i.not.i166, label %cleanup743, label %if.end.i167
 
@@ -2241,7 +2241,7 @@ entry:
   %0 = load ptr, ptr %bio, align 8
   %call1 = tail call ptr @X509_get0_notAfter(ptr noundef %cert) #16
   %call2 = tail call i32 @ASN1_TIME_print(ptr noundef %0, ptr noundef %call1) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %mem.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %mem.i)
   %1 = load ptr, ptr %bio, align 8
   %call1.i = call i64 @BIO_ctrl(ptr noundef %1, i32 noundef 115, i64 noundef 0, ptr noundef nonnull %mem.i) #16
   %isolate_.i.i = getelementptr inbounds nuw i8, ptr %env, i64 88
@@ -2264,7 +2264,7 @@ do.body13.i:                                      ; preds = %entry
   unreachable
 
 _ZN4node6crypto9ToV8ValueEPNS_11EnvironmentERKSt10unique_ptrI6bio_stNS_15FunctionDeleterIS4_XadL_Z12BIO_free_allEEEEE.exit: ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %mem.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %mem.i)
   ret ptr %call3.i
 }
 
@@ -2279,7 +2279,7 @@ entry:
   %0 = load ptr, ptr %bio, align 8
   %call1 = tail call ptr @X509_get0_notBefore(ptr noundef %cert) #16
   %call2 = tail call i32 @ASN1_TIME_print(ptr noundef %0, ptr noundef %call1) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %mem.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %mem.i)
   %1 = load ptr, ptr %bio, align 8
   %call1.i = call i64 @BIO_ctrl(ptr noundef %1, i32 noundef 115, i64 noundef 0, ptr noundef nonnull %mem.i) #16
   %isolate_.i.i = getelementptr inbounds nuw i8, ptr %env, i64 88
@@ -2302,7 +2302,7 @@ do.body13.i:                                      ; preds = %entry
   unreachable
 
 _ZN4node6crypto9ToV8ValueEPNS_11EnvironmentERKSt10unique_ptrI6bio_stNS_15FunctionDeleterIS4_XadL_Z12BIO_free_allEEEEE.exit: ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %mem.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %mem.i)
   ret ptr %call3.i
 }
 
@@ -2753,7 +2753,7 @@ do.end30:                                         ; preds = %do.body18
   br label %return
 
 if.end40:                                         ; preds = %do.end15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %mem.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %mem.i)
   %8 = load ptr, ptr %bio, align 8
   %call1.i = call i64 @BIO_ctrl(ptr noundef %8, i32 noundef 115, i64 noundef 0, ptr noundef nonnull %mem.i) #16
   %isolate_.i.i = getelementptr inbounds nuw i8, ptr %env, i64 88
@@ -2776,7 +2776,7 @@ do.body13.i:                                      ; preds = %if.end40
   unreachable
 
 _ZN4node6crypto9ToV8ValueEPNS_11EnvironmentERKSt10unique_ptrI6bio_stNS_15FunctionDeleterIS4_XadL_Z12BIO_free_allEEEEE.exit: ; preds = %if.end40
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %mem.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %mem.i)
   br label %return
 
 return:                                           ; preds = %_ZN4node6crypto9ToV8ValueEPNS_11EnvironmentERKSt10unique_ptrI6bio_stNS_15FunctionDeleterIS4_XadL_Z12BIO_free_allEEEEE.exit, %do.end30, %if.then
@@ -2839,7 +2839,7 @@ do.end30:                                         ; preds = %do.body18
   br label %return
 
 if.end40:                                         ; preds = %do.end15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %mem.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %mem.i)
   %8 = load ptr, ptr %bio, align 8
   %call1.i = call i64 @BIO_ctrl(ptr noundef %8, i32 noundef 115, i64 noundef 0, ptr noundef nonnull %mem.i) #16
   %isolate_.i.i = getelementptr inbounds nuw i8, ptr %env, i64 88
@@ -2862,7 +2862,7 @@ do.body13.i:                                      ; preds = %if.end40
   unreachable
 
 _ZN4node6crypto9ToV8ValueEPNS_11EnvironmentERKSt10unique_ptrI6bio_stNS_15FunctionDeleterIS4_XadL_Z12BIO_free_allEEEEE.exit: ; preds = %if.end40
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %mem.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %mem.i)
   br label %return
 
 return:                                           ; preds = %_ZN4node6crypto9ToV8ValueEPNS_11EnvironmentERKSt10unique_ptrI6bio_stNS_15FunctionDeleterIS4_XadL_Z12BIO_free_allEEEEE.exit, %do.end30, %if.then
@@ -2901,7 +2901,7 @@ do.end11:                                         ; preds = %do.body
   br label %return
 
 if.end19:                                         ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %mem.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %mem.i)
   %6 = load ptr, ptr %bio, align 8
   %call1.i = call i64 @BIO_ctrl(ptr noundef %6, i32 noundef 115, i64 noundef 0, ptr noundef nonnull %mem.i) #16
   %isolate_.i.i = getelementptr inbounds nuw i8, ptr %env, i64 88
@@ -2924,7 +2924,7 @@ do.body13.i:                                      ; preds = %if.end19
   unreachable
 
 _ZN4node6crypto9ToV8ValueEPNS_11EnvironmentERKSt10unique_ptrI6bio_stNS_15FunctionDeleterIS4_XadL_Z12BIO_free_allEEEEE.exit: ; preds = %if.end19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %mem.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %mem.i)
   br label %return
 
 return:                                           ; preds = %_ZN4node6crypto9ToV8ValueEPNS_11EnvironmentERKSt10unique_ptrI6bio_stNS_15FunctionDeleterIS4_XadL_Z12BIO_free_allEEEEE.exit, %do.end11
@@ -2967,7 +2967,7 @@ do.end11:                                         ; preds = %do.body
   br label %return
 
 if.end19:                                         ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %mem.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %mem.i)
   %6 = load ptr, ptr %bio, align 8
   %call1.i = call i64 @BIO_ctrl(ptr noundef %6, i32 noundef 115, i64 noundef 0, ptr noundef nonnull %mem.i) #16
   %isolate_.i.i = getelementptr inbounds nuw i8, ptr %env, i64 88
@@ -2990,7 +2990,7 @@ do.body13.i:                                      ; preds = %if.end19
   unreachable
 
 _ZN4node6crypto9ToV8ValueEPNS_11EnvironmentERKSt10unique_ptrI6bio_stNS_15FunctionDeleterIS4_XadL_Z12BIO_free_allEEEEE.exit: ; preds = %if.end19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %mem.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %mem.i)
   br label %return
 
 return:                                           ; preds = %_ZN4node6crypto9ToV8ValueEPNS_11EnvironmentERKSt10unique_ptrI6bio_stNS_15FunctionDeleterIS4_XadL_Z12BIO_free_allEEEEE.exit, %do.end11
@@ -4224,7 +4224,7 @@ while.cond.i:                                     ; preds = %_ZNSt10unique_ptrI7
 while.body.i:                                     ; preds = %while.cond.i
   %16 = load ptr, ptr %ssl, align 8
   %call11.i = call ptr @SSL_get_SSL_CTX(ptr noundef %16) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %issuer.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %issuer.i.i)
   %call.i.i = call ptr @SSL_CTX_get_cert_store(ptr noundef %call11.i) #16, !noalias !26
   %call1.i.i = call ptr @X509_STORE_CTX_new() #16, !noalias !26
   %cmp.not.i.i = icmp eq ptr %call1.i.i, null
@@ -4247,7 +4247,7 @@ _ZNSt10unique_ptrI7x509_stN4node15FunctionDeleterIS0_XadL_Z9X509_freeEEEEED2Ev.e
 _ZNSt10unique_ptrI7x509_stN4node15FunctionDeleterIS0_XadL_Z9X509_freeEEEEED2Ev.exit.i: ; preds = %land.lhs.true6.i.i
   %17 = load ptr, ptr %issuer.i.i, align 8, !noalias !26
   call void @X509_STORE_CTX_free(ptr noundef nonnull %call1.i.i) #16, !noalias !26
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %issuer.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %issuer.i.i)
   %cmp.i.not.i39 = icmp eq ptr %17, null
   br i1 %cmp.i.not.i39, label %_ZN4node6crypto12_GLOBAL__N_117GetLastIssuedCertEPSt10unique_ptrI7x509_stNS_15FunctionDeleterIS3_XadL_Z9X509_freeEEEEERKS2_I6ssl_stNS4_IS8_XadL_Z8SSL_freeEEEEEN2v85LocalINSD_6ObjectEEEPNS_11EnvironmentE.exit, label %if.end.i40
 
@@ -4318,7 +4318,7 @@ unreachable.i:                                    ; preds = %_ZNSt10unique_ptrI7
   unreachable
 
 _ZN4node6crypto12_GLOBAL__N_117GetLastIssuedCertEPSt10unique_ptrI7x509_stNS_15FunctionDeleterIS3_XadL_Z9X509_freeEEEEERKS2_I6ssl_stNS4_IS8_XadL_Z8SSL_freeEEEEEN2v85LocalINSD_6ObjectEEEPNS_11EnvironmentE.exit.sink.split: ; preds = %while.body.i, %_ZNSt10unique_ptrI7x509_stN4node15FunctionDeleterIS0_XadL_Z9X509_freeEEEEED2Ev.exit.thread24.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %issuer.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %issuer.i.i)
   br label %_ZN4node6crypto12_GLOBAL__N_117GetLastIssuedCertEPSt10unique_ptrI7x509_stNS_15FunctionDeleterIS3_XadL_Z9X509_freeEEEEERKS2_I6ssl_stNS4_IS8_XadL_Z8SSL_freeEEEEEN2v85LocalINSD_6ObjectEEEPNS_11EnvironmentE.exit
 
 _ZN4node6crypto12_GLOBAL__N_117GetLastIssuedCertEPSt10unique_ptrI7x509_stNS_15FunctionDeleterIS3_XadL_Z9X509_freeEEEEERKS2_I6ssl_stNS4_IS8_XadL_Z8SSL_freeEEEEEN2v85LocalINSD_6ObjectEEEPNS_11EnvironmentE.exit: ; preds = %while.cond.i, %_ZNSt10unique_ptrI7x509_stN4node15FunctionDeleterIS0_XadL_Z9X509_freeEEEEED2Ev.exit.i, %_ZNSt10unique_ptrI7x509_stN4node15FunctionDeleterIS0_XadL_Z9X509_freeEEEEED2Ev.exit15.i, %_ZN4node6crypto12_GLOBAL__N_117GetLastIssuedCertEPSt10unique_ptrI7x509_stNS_15FunctionDeleterIS3_XadL_Z9X509_freeEEEEERKS2_I6ssl_stNS4_IS8_XadL_Z8SSL_freeEEEEEN2v85LocalINSD_6ObjectEEEPNS_11EnvironmentE.exit.sink.split
@@ -4441,7 +4441,7 @@ entry:
   %mem.i = alloca ptr, align 8
   %0 = load ptr, ptr %bio, align 8
   %call1 = tail call i32 @BN_print(ptr noundef %0, ptr noundef %n) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %mem.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %mem.i)
   %1 = load ptr, ptr %bio, align 8
   %call1.i = call i64 @BIO_ctrl(ptr noundef %1, i32 noundef 115, i64 noundef 0, ptr noundef nonnull %mem.i) #16
   %isolate_.i.i = getelementptr inbounds nuw i8, ptr %env, i64 88
@@ -4464,7 +4464,7 @@ do.body13.i:                                      ; preds = %entry
   unreachable
 
 _ZN4node6crypto9ToV8ValueEPNS_11EnvironmentERKSt10unique_ptrI6bio_stNS_15FunctionDeleterIS4_XadL_Z12BIO_free_allEEEEE.exit: ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %mem.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %mem.i)
   ret ptr %call3.i
 }
 
@@ -4475,7 +4475,7 @@ entry:
   %call = tail call i64 @BN_get_word(ptr noundef %e) #16
   %0 = load ptr, ptr %bio, align 8
   %call2 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.99, i64 noundef %call) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %mem.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %mem.i)
   %1 = load ptr, ptr %bio, align 8
   %call1.i = call i64 @BIO_ctrl(ptr noundef %1, i32 noundef 115, i64 noundef 0, ptr noundef nonnull %mem.i) #16
   %isolate_.i.i = getelementptr inbounds nuw i8, ptr %env, i64 88
@@ -4498,7 +4498,7 @@ do.body13.i:                                      ; preds = %entry
   unreachable
 
 _ZN4node6crypto9ToV8ValueEPNS_11EnvironmentERKSt10unique_ptrI6bio_stNS_15FunctionDeleterIS4_XadL_Z12BIO_free_allEEEEE.exit: ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %mem.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %mem.i)
   ret ptr %call3.i
 }
 
@@ -5374,10 +5374,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

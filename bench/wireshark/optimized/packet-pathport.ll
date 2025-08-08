@@ -404,7 +404,7 @@ define internal fastcc i32 @dissect_pathport_common(ptr noundef %0, ptr noundef 
 
 .lr.ph.i:                                         ; preds = %49, %dissect_one_pdu.exit.i
   %.09.i = phi i32 [ %182, %dissect_one_pdu.exit.i ], [ 20, %49 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %71 = load i32, ptr @ett_pp_pdu, align 4
   %72 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %2, ptr noundef %0, i32 noundef %.09.i, i32 noundef 0, i32 noundef %71, ptr noundef nonnull %6, ptr noundef nonnull @.str.12)
   %73 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.09.i)
@@ -472,7 +472,7 @@ define internal fastcc i32 @dissect_pathport_common(ptr noundef %0, ptr noundef 
 
 .lr.ph.i41.i.i:                                   ; preds = %112, %dissect_one_tlv.exit.i.i.i
   %.07.i.i.i = phi i32 [ %.0.i.i.i.i, %dissect_one_tlv.exit.i.i.i ], [ %86, %112 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %115 = load i32, ptr @ett_pp_tlv, align 4
   %116 = call ptr @proto_tree_add_subtree(ptr noundef %72, ptr noundef %0, i32 noundef %.07.i.i.i, i32 noundef 0, i32 noundef %115, ptr noundef nonnull %5, ptr noundef nonnull @.str.20)
   %117 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.07.i.i.i)
@@ -507,7 +507,7 @@ define internal fastcc i32 @dissect_pathport_common(ptr noundef %0, ptr noundef 
 
 dissect_one_tlv.exit.i.i.i:                       ; preds = %136, %.lr.ph.i41.i.i
   %.0.i.i.i.i = phi i32 [ %139, %136 ], [ %133, %.lr.ph.i41.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %140 = icmp ult i32 %.0.i.i.i.i, %113
   br i1 %140, label %.lr.ph.i41.i.i, label %dissect_one_pdu.exit.i, !llvm.loop !8
 
@@ -518,7 +518,7 @@ dissect_one_tlv.exit.i.i.i:                       ; preds = %136, %.lr.ph.i41.i.
 
 .lr.ph.i42.i.i:                                   ; preds = %141, %.lr.ph.i42.i.i
   %.042.i.i.i = phi i32 [ %175, %.lr.ph.i42.i.i ], [ %86, %141 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %144 = load i32, ptr @ett_pp_data, align 4
   %145 = call ptr @proto_tree_add_subtree(ptr noundef %72, ptr noundef %0, i32 noundef %.042.i.i.i, i32 noundef 0, i32 noundef %144, ptr noundef nonnull %4, ptr noundef nonnull @.str.179)
   %146 = load i32, ptr @hf_pp_data_encoding, align 4
@@ -552,7 +552,7 @@ dissect_one_tlv.exit.i.i.i:                       ; preds = %136, %.lr.ph.i41.i.
   %173 = add nuw nsw i32 %150, 3
   %174 = and i32 %173, 131068
   %175 = add i32 %174, %166
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %176 = icmp ult i32 %175, %142
   br i1 %176, label %.lr.ph.i42.i.i, label %dissect_one_pdu.exit.i, !llvm.loop !9
 
@@ -565,7 +565,7 @@ dissect_one_pdu.exit.i:                           ; preds = %.lr.ph.i42.i.i, %di
   %180 = add nuw nsw i32 %81, 3
   %181 = and i32 %180, 131068
   %182 = add i32 %181, %86
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %183 = icmp ult i32 %182, %69
   br i1 %183, label %.lr.ph.i, label %dissect_multiple_pdus.exit, !llvm.loop !10
 
@@ -579,9 +579,6 @@ declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
 declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #1
@@ -600,9 +597,6 @@ declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unn
 
 ; Function Attrs: null_pointer_is_valid
 declare ptr @tvb_address_to_str(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare void @col_add_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
@@ -634,10 +628,15 @@ declare ptr @val_to_str_ext(i32 noundef, ptr noundef, ptr noundef) local_unnamed
 ; Function Attrs: null_pointer_is_valid
 declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
+
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

@@ -290,10 +290,10 @@ define internal noundef zeroext i16 @de_bmaple_lcs_qos(ptr noundef %0, ptr nound
   %9 = alloca i64, align 8
   %10 = alloca i64, align 8
   %11 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %12 = shl i32 %3, 3
   %13 = load i32, ptr @hf_gsm_bssmap_le_spare, align 4
   %14 = and i32 %12, 65528
@@ -333,10 +333,10 @@ define internal noundef zeroext i16 @de_bmaple_lcs_qos(ptr noundef %0, ptr nound
   %42 = and i32 %.1, 65528
   %43 = call ptr @proto_tree_add_bits_item(ptr noundef %1, i32 noundef %41, ptr noundef %0, i32 noundef %42, i32 noundef 2, i32 noundef 0)
   %44 = trunc i32 %4 to i16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i16 %44
 }
 
@@ -364,7 +364,7 @@ declare zeroext i16 @be_ganss_loc_type(ptr noundef, ptr noundef, ptr noundef, i3
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef zeroext i16 @de_bmaple_pos_dta(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5, i32 %6) #1 {
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = load i32, ptr @hf_gsm_bssmap_le_pos_data_disc, align 4
   %10 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %1, i32 noundef %9, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %8)
   %11 = load i32, ptr %8, align 4
@@ -389,7 +389,7 @@ define internal noundef zeroext i16 @de_bmaple_pos_dta(ptr noundef %0, ptr nound
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %7
   %.017 = trunc i32 %4 to i16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i16 %.017
 }
 
@@ -537,7 +537,7 @@ define internal noundef zeroext i16 @be_measured_cell_identity(ptr noundef %0, p
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_gsm_bssmap_le() local_unnamed_addr #1 {
   %1 = alloca [46 x ptr], align 16
-  call void @llvm.lifetime.start.p0(i64 368, ptr nonnull %1) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store ptr @ett_bssmap_le_msg, ptr %1, align 16
   br label %2
 
@@ -574,12 +574,9 @@ define hidden void @proto_register_gsm_bssmap_le() local_unnamed_addr #1 {
   %11 = load i32, ptr @proto_bssmap_le, align 4
   %12 = call ptr @register_dissector(ptr noundef nonnull @.str.81, ptr noundef nonnull @dissect_bssmap_le, i32 noundef %11)
   store ptr %12, ptr @bssmap_le_handle, align 8
-  call void @llvm.lifetime.end.p0(i64 368, ptr nonnull %1) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
@@ -602,7 +599,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_bssmap_le(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address) %3) #1 {
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %9, label %6
 
@@ -708,12 +705,9 @@ define internal i32 @dissect_bssmap_le(ptr noundef %0, ptr noundef %1, ptr nound
   br label %65
 
 65:                                               ; preds = %57, %61, %46
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %18
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_gsm_bssmap_le() local_unnamed_addr #1 {
@@ -1122,10 +1116,15 @@ declare ptr @get_gsm_a_msg_string(i32 noundef, i32 noundef) local_unnamed_addr #
 ; Function Attrs: null_pointer_is_valid
 declare zeroext i16 @elem_telv(ptr noundef, ptr noundef, ptr noundef, i8 noundef zeroext, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
+
 attributes #0 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

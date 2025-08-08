@@ -35,27 +35,21 @@ define internal i32 @node_cmp(ptr noundef readonly captures(none) %0, ptr nounde
 define ptr @ossl_policy_tree_find_sk(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.X509_POLICY_DATA_st, align 8
   %4 = alloca %struct.X509_POLICY_NODE_st, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #3
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %1, ptr %5, align 8, !tbaa !12
   store ptr %3, ptr %4, align 8, !tbaa !8
   %6 = call i32 @OPENSSL_sk_find(ptr noundef %0, ptr noundef nonnull %4) #3
   %7 = call ptr @OPENSSL_sk_value(ptr noundef %0, i32 noundef %6) #3
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #3
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %7
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 declare i32 @OPENSSL_sk_find(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare ptr @OPENSSL_sk_value(ptr noundef, i32 noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
 define ptr @ossl_policy_level_find_node(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -310,6 +304,12 @@ define range(i32 0, 2) i32 @ossl_policy_node_match(ptr noundef readonly captures
 }
 
 declare ptr @OPENSSL_sk_new_null() local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

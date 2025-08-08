@@ -20,7 +20,7 @@ define dso_local void @_ZN3ozz2io6ExternIDv4_fE4SaveERNS0_8OArchiveEPKS2_m(ptr n
   %.0.i5.i.i = phi i64 [ %21, %.lr.ph.i.i ], [ 0, %.preheader.i.i ]
   %9 = getelementptr inbounds nuw float, ptr %1, i64 %.0.i5.i.i
   %10 = load float, ptr %9, align 4, !tbaa !13
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %11 = load i8, ptr %6, align 8, !tbaa !4, !range !11, !noundef !12
   %12 = trunc nuw i8 %11 to i1
   %13 = bitcast float %10 to i32
@@ -33,7 +33,7 @@ define dso_local void @_ZN3ozz2io6ExternIDv4_fE4SaveERNS0_8OArchiveEPKS2_m(ptr n
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8
   %20 = call noundef i64 %19(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull %4, i64 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %21 = add nuw i64 %.0.i5.i.i, 1
   %exitcond.not = icmp eq i64 %21, %5
   br i1 %exitcond.not, label %_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIKfEEEEvRKT_.exit, label %.lr.ph.i.i, !llvm.loop !18
@@ -50,12 +50,6 @@ define dso_local void @_ZN3ozz2io6ExternIDv4_fE4SaveERNS0_8OArchiveEPKS2_m(ptr n
 _ZN3ozz2io8OArchivelsINS0_8internal5ArrayIKfEEEEvRKT_.exit: ; preds = %.lr.ph.i.i, %.preheader.i.i, %22
   ret void
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3ozz2io6ExternIDv4_fE4LoadERNS0_8IArchiveEPS2_mj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
@@ -111,7 +105,7 @@ define dso_local void @_ZN3ozz2io6ExternIDv2_xE4SaveERNS0_8OArchiveEPKS2_m(ptr n
   %.0.i5.i.i = phi i64 [ %18, %.lr.ph.i.i ], [ 0, %.preheader.i.i ]
   %9 = getelementptr inbounds nuw i32, ptr %1, i64 %.0.i5.i.i
   %10 = load i32, ptr %9, align 4, !tbaa !25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %11 = load i8, ptr %6, align 8, !tbaa !4, !range !11, !noundef !12
   %12 = trunc nuw i8 %11 to i1
   %.sroa.0.0.insert.insert.i.i.i = call i32 @llvm.bswap.i32(i32 %10)
@@ -122,7 +116,7 @@ define dso_local void @_ZN3ozz2io6ExternIDv2_xE4SaveERNS0_8OArchiveEPKS2_m(ptr n
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = call noundef i64 %16(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull %4, i64 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %18 = add nuw i64 %.0.i5.i.i, 1
   %exitcond.not = icmp eq i64 %18, %5
   br i1 %exitcond.not, label %_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIKiEEEEvRKT_.exit, label %.lr.ph.i.i, !llvm.loop !27
@@ -194,7 +188,7 @@ define dso_local void @_ZN3ozz2io6ExternINS_4math8Float4x4EE4SaveERNS0_8OArchive
   %.0.i5.i.i = phi i64 [ %21, %.lr.ph.i.i ], [ 0, %.preheader.i.i ]
   %9 = getelementptr inbounds nuw float, ptr %1, i64 %.0.i5.i.i
   %10 = load float, ptr %9, align 4, !tbaa !13
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %11 = load i8, ptr %6, align 8, !tbaa !4, !range !11, !noundef !12
   %12 = trunc nuw i8 %11 to i1
   %13 = bitcast float %10 to i32
@@ -207,7 +201,7 @@ define dso_local void @_ZN3ozz2io6ExternINS_4math8Float4x4EE4SaveERNS0_8OArchive
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8
   %20 = call noundef i64 %19(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull %4, i64 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %21 = add nuw i64 %.0.i5.i.i, 1
   %exitcond.not = icmp eq i64 %21, %5
   br i1 %exitcond.not, label %_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIKfEEEEvRKT_.exit, label %.lr.ph.i.i, !llvm.loop !18
@@ -262,13 +256,18 @@ _ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIfEEEEvRT_.exit: ; preds = %.lr.ph.i.i
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #1
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.bswap.i32(i32) #2
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

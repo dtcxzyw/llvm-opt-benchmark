@@ -23,8 +23,8 @@ define internal i32 @audio_write_header(ptr noundef %0) #0 {
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %7 = load i32, ptr %6, align 4, !tbaa !24
   %.not = icmp eq i32 %7, 1
@@ -73,8 +73,8 @@ define internal i32 @audio_write_header(ptr noundef %0) #0 {
 
 32:                                               ; preds = %27, %31, %15
   %.0 = phi i32 [ -22, %15 ], [ -5, %27 ], [ %22, %31 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
 
@@ -175,7 +175,7 @@ define internal void @audio_get_output_timestamp(ptr noundef readonly captures(n
   %5 = alloca i64, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8, !tbaa !57
   %8 = tail call i64 @av_gettime() #4
   store i64 %8, ptr %3, align 8, !tbaa !57
@@ -187,7 +187,7 @@ define internal void @audio_get_output_timestamp(ptr noundef readonly captures(n
   %14 = load i64, ptr %5, align 8, !tbaa !57
   %15 = sub nsw i64 %13, %14
   store i64 %15, ptr %2, align 8, !tbaa !57
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -196,7 +196,7 @@ define internal range(i32 -22, 1) i32 @audio_write_frame(ptr noundef %0, i32 nou
   %5 = alloca %struct.AVPacket, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %8 = and i32 %3, 1
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %21, label %9
@@ -241,7 +241,7 @@ define internal range(i32 -22, 1) i32 @audio_write_frame(ptr noundef %0, i32 nou
 
 38:                                               ; preds = %21, %9
   %.0 = phi i32 [ %20, %9 ], [ %37, %21 ]
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -253,9 +253,6 @@ define internal i32 @audio_get_device_list(ptr readnone captures(none) %0, ptr n
 
 declare ptr @av_default_item_name(ptr noundef) #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 declare i32 @ff_alsa_open(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -263,9 +260,6 @@ declare i32 @ff_alsa_open(ptr noundef, i32 noundef, ptr noundef, ptr noundef, pt
 declare void @avpriv_set_pts_info(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 declare i32 @snd_pcm_close(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 declare i32 @ff_alsa_extend_reorder_buf(ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -282,6 +276,12 @@ declare i32 @snd_pcm_delay(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @av_sample_fmt_is_planar(i32 noundef) local_unnamed_addr #2
 
 declare i32 @ff_alsa_get_device_list(ptr noundef, i32 noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { cold nounwind optsize uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

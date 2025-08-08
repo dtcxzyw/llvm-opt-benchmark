@@ -94,19 +94,16 @@ define dso_local noundef i64 @hashhandler(ptr noundef readnone captures(none) %0
   ret i64 %35
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @hashbuild(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca i32, align 4
   %5 = alloca double, align 8
   %6 = alloca double, align 8
   %7 = alloca %struct.HashBuildState, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = tail call i32 @RelationGetNumberOfBlocksInFork(ptr noundef %1, i32 noundef 0) #9
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %15, label %9
@@ -181,10 +178,10 @@ define dso_local noundef ptr @hashbuild(ptr noundef %0, ptr noundef %1, ptr noun
   %49 = load double, ptr %33, align 8
   %50 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store double %49, ptr %50, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %47
 }
 
@@ -198,8 +195,8 @@ define dso_local void @hashbuildempty(ptr noundef %0) #0 {
 define dso_local noundef zeroext i1 @hashinsert(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4, i32 %5, i1 zeroext %6, ptr readnone captures(none) %7) #0 {
   %9 = alloca [1 x i64], align 8
   %10 = alloca [1 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #9
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %11 = call zeroext i1 @_hash_convert_tuple(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %9, ptr noundef nonnull %10) #9
   br i1 %11, label %12, label %16
 
@@ -213,8 +210,8 @@ define dso_local noundef zeroext i1 @hashinsert(ptr noundef %0, ptr noundef %1, 
   br label %16
 
 16:                                               ; preds = %8, %12
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i1 false
 }
 
@@ -225,9 +222,9 @@ define dso_local ptr @hashbulkdelete(ptr noundef readonly captures(none) %0, ptr
   %7 = alloca i32, align 4
   %8 = alloca %struct.xl_hash_update_meta_page, align 8
   %9 = load ptr, ptr %0, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4
   store double 0.000000e+00, ptr %5, align 8
   store double 0.000000e+00, ptr %6, align 8
@@ -427,7 +424,7 @@ BufferGetPage.exit79:                             ; preds = %72, %78
   br i1 %120, label %121, label %144
 
 121:                                              ; preds = %117, %110
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %122 = getelementptr inbounds nuw i8, ptr %.0.i.i78, i64 32
   %123 = load double, ptr %122, align 8
   store double %123, ptr %8, align 8
@@ -464,7 +461,7 @@ BufferGetPage.exit81:                             ; preds = %128, %134
   %142 = trunc i64 %125 to i32
   %143 = getelementptr inbounds nuw i8, ptr %.0.i.i80, i64 4
   store i32 %142, ptr %143, align 4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %144
 
 144:                                              ; preds = %103, %113, %117, %BufferGetPage.exit81
@@ -491,9 +488,9 @@ BufferGetPage.exit81:                             ; preds = %128, %134
   %156 = load double, ptr %155, align 8
   %157 = fadd double %154, %156
   store double %157, ptr %155, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }
 
@@ -512,13 +509,13 @@ define dso_local noundef ptr @hashvacuumcleanup(ptr noundef readonly captures(no
   ret ptr %1
 }
 
-declare void @hashcostestimate(ptr noundef, ptr noundef, double noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
+declare void @hashcostestimate(ptr noundef, ptr noundef, double noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
-declare ptr @hashoptions(i64 noundef, i1 noundef zeroext) #2
+declare ptr @hashoptions(i64 noundef, i1 noundef zeroext) #1
 
-declare zeroext i1 @hashvalidate(i32 noundef) #2
+declare zeroext i1 @hashvalidate(i32 noundef) #1
 
-declare void @hashadjustmembers(i32 noundef, i32 noundef, ptr noundef, ptr noundef) #2
+declare void @hashadjustmembers(i32 noundef, i32 noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @hashbeginscan(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 {
@@ -734,43 +731,40 @@ define dso_local void @hashendscan(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef range(i32 0, 4) i32 @hashtranslatestrategy(i16 noundef zeroext %0, i32 %1, i32 %2) #3 {
+define dso_local noundef range(i32 0, 4) i32 @hashtranslatestrategy(i16 noundef zeroext %0, i32 %1, i32 %2) #2 {
   %4 = icmp eq i16 %0, 1
   %. = select i1 %4, i32 3, i32 0
   ret i32 %.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local zeroext range(i16 0, 2) i16 @hashtranslatecmptype(i32 noundef %0, i32 %1, i32 %2) #3 {
+define dso_local zeroext range(i16 0, 2) i16 @hashtranslatecmptype(i32 noundef %0, i32 %1, i32 %2) #2 {
   %4 = icmp eq i32 %0, 3
   %. = zext i1 %4 to i16
   ret i16 %.
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare i32 @RelationGetNumberOfBlocksInFork(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @RelationGetNumberOfBlocksInFork(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #4
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @estimate_rel_size(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @estimate_rel_size(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @_hash_init(ptr noundef, double noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @_hash_init(ptr noundef, double noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @_h_spoolinit(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @_h_spoolinit(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @hashbuildCallback(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i1 zeroext %4, ptr noundef captures(none) %5) #0 {
   %7 = alloca [1 x i64], align 8
   %8 = alloca [1 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = call zeroext i1 @_hash_convert_tuple(ptr noundef %0, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %7, ptr noundef nonnull %8) #9
   br i1 %9, label %10, label %23
 
@@ -802,51 +796,51 @@ define internal void @hashbuildCallback(ptr noundef %0, ptr noundef %1, ptr noun
   br label %23
 
 23:                                               ; preds = %6, %19
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
-declare void @pgstat_progress_update_param(i32 noundef, i64 noundef) local_unnamed_addr #2
+declare void @pgstat_progress_update_param(i32 noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @_h_indexbuild(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @_h_indexbuild(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @_h_spooldestroy(ptr noundef) local_unnamed_addr #2
+declare void @_h_spooldestroy(ptr noundef) local_unnamed_addr #1
 
-declare ptr @palloc(i64 noundef) local_unnamed_addr #2
+declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @_hash_convert_tuple(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @_hash_convert_tuple(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @index_form_tuple(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @index_form_tuple(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
-declare void @_hash_doinsert(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare void @_hash_doinsert(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare void @pfree(ptr noundef) local_unnamed_addr #2
+declare void @pfree(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @_hash_first(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @_hash_first(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @_hash_next(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @_hash_next(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @tbm_add_tuples(ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare void @tbm_add_tuples(ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare ptr @RelationGetIndexScan(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @RelationGetIndexScan(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @_hash_kill_items(ptr noundef) local_unnamed_addr #2
+declare void @_hash_kill_items(ptr noundef) local_unnamed_addr #1
 
-declare void @_hash_dropscanbuf(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @_hash_dropscanbuf(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @_hash_getcachedmetap(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare ptr @_hash_getcachedmetap(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare i32 @_hash_spareindex(i32 noundef) local_unnamed_addr #2
+declare i32 @_hash_spareindex(i32 noundef) local_unnamed_addr #1
 
-declare i32 @ReadBufferExtended(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ReadBufferExtended(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @LockBufferForCleanup(i32 noundef) local_unnamed_addr #2
+declare void @LockBufferForCleanup(i32 noundef) local_unnamed_addr #1
 
-declare void @_hash_checkpage(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @_hash_checkpage(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @hashbucketcleanup(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef captures(address_is_null) %8, ptr noundef captures(address_is_null) %9, i1 noundef zeroext %10, ptr noundef readonly captures(address_is_null) %11, ptr noundef %12) local_unnamed_addr #0 {
@@ -872,7 +866,7 @@ define dso_local void @hashbucketcleanup(ptr noundef %0, i32 noundef %1, i32 nou
   %.097 = phi i1 [ false, %18 ], [ %.198, %154 ]
   %.095 = phi i32 [ %2, %18 ], [ %151, %154 ]
   %.0 = phi i32 [ %3, %18 ], [ %148, %154 ]
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %14) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @vacuum_delay_point(i1 noundef zeroext false) #9
   %24 = icmp slt i32 %.095, 0
   br i1 %24, label %25, label %31
@@ -1071,7 +1065,7 @@ BufferGetPage.exit:                               ; preds = %25, %31
   br i1 %118, label %119, label %144
 
 119:                                              ; preds = %116, %110
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %15) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i8 %.0104, ptr %15, align 1
   %120 = icmp eq i32 %.095, %2
   %121 = zext i1 %120 to i8
@@ -1117,7 +1111,7 @@ BufferGetPage.exit122:                            ; preds = %128, %134
   %142 = trunc i64 %127 to i32
   %143 = getelementptr inbounds nuw i8, ptr %.0.i.i121, i64 4
   store i32 %142, ptr %143, align 4
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %15) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %144
 
 144:                                              ; preds = %105, %113, %116, %BufferGetPage.exit122
@@ -1146,11 +1140,11 @@ BufferGetPage.exit122:                            ; preds = %128, %134
   br label %154
 
 154:                                              ; preds = %152, %153
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %14) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %23
 
 155:                                              ; preds = %147
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %14) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %.not113 = icmp eq i32 %.095, %2
   br i1 %.not113, label %157, label %156
 
@@ -1254,45 +1248,51 @@ BufferGetPage.exit124:                            ; preds = %160, %166
   ret void
 }
 
-declare void @_hash_dropbuf(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @_hash_dropbuf(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @_hash_getbuf(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @_hash_getbuf(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @LockBuffer(i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @LockBuffer(i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @MarkBufferDirty(i32 noundef) local_unnamed_addr #2
+declare void @MarkBufferDirty(i32 noundef) local_unnamed_addr #1
 
-declare void @XLogBeginInsert() local_unnamed_addr #2
+declare void @XLogBeginInsert() local_unnamed_addr #1
 
-declare void @XLogRegisterData(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @XLogRegisterData(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @XLogRegisterBuffer(i8 noundef zeroext, i32 noundef, i8 noundef zeroext) local_unnamed_addr #2
+declare void @XLogRegisterBuffer(i8 noundef zeroext, i32 noundef, i8 noundef zeroext) local_unnamed_addr #1
 
-declare i64 @XLogInsert(i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #2
+declare i64 @XLogInsert(i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #1
 
-declare void @_hash_relbuf(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @_hash_relbuf(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @palloc0(i64 noundef) local_unnamed_addr #2
+declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
 
-declare i32 @_hash_get_newbucket_from_oldbucket(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @_hash_get_newbucket_from_oldbucket(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @vacuum_delay_point(i1 noundef zeroext) local_unnamed_addr #2
+declare void @vacuum_delay_point(i1 noundef zeroext) local_unnamed_addr #1
 
-declare i32 @_hash_hashkey2bucket(i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @_hash_hashkey2bucket(i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @_hash_get_indextuple_hashkey(ptr noundef) local_unnamed_addr #2
+declare i32 @_hash_get_indextuple_hashkey(ptr noundef) local_unnamed_addr #1
 
-declare void @PageIndexMultiDelete(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @PageIndexMultiDelete(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @XLogRegisterBufData(i8 noundef zeroext, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @XLogRegisterBufData(i8 noundef zeroext, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @_hash_getbuf_with_strategy(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @_hash_getbuf_with_strategy(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @IsBufferCleanupOK(i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @IsBufferCleanupOK(i32 noundef) local_unnamed_addr #1
 
-declare void @_hash_squeezebucket(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @_hash_squeezebucket(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @_h_spool(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @_h_spool(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #6
@@ -1304,11 +1304,11 @@ declare i64 @llvm.umin.i64(i64, i64) #7
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }

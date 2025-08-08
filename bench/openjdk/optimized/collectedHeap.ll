@@ -707,7 +707,7 @@ define hidden void @_ZN13CollectedHeap10trace_heapEN6GCWhen4TypeEPK8GCTracer(ptr
   %5 = alloca %class.GCHeapSummary, align 8
   %6 = alloca %class.MetaspaceSummary, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = load ptr, ptr %0, align 8, !noalias !6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 296
   %9 = load ptr, ptr %8, align 8, !noalias !6
@@ -721,7 +721,7 @@ define hidden void @_ZN13CollectedHeap10trace_heapEN6GCWhen4TypeEPK8GCTracer(ptr
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i64 %13, ptr %15, align 8, !alias.scope !6
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZNK8GCTracer22report_gc_heap_summaryEN6GCWhen4TypeERK13GCHeapSummary(ptr noundef nonnull align 8 dereferenceable(80) %2, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(40) %5) #18
   call void @llvm.experimental.noalias.scope.decl(metadata !9)
   %16 = call noundef i64 @_ZN11MetaspaceGC17capacity_until_GCEv() #18, !noalias !9
@@ -1328,7 +1328,7 @@ define linkonce_odr hidden void @_ZN13CollectedHeap21fill_with_object_implEPP12H
   br i1 %.not, label %38, label %17
 
 17:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %18 = sub i64 %1, %9
   %19 = load ptr, ptr @_ZN8Universe17_fillerArrayKlassE, align 8
   %.tr.i = trunc i64 %18 to i32
@@ -1366,7 +1366,7 @@ define linkonce_odr hidden void @_ZN13CollectedHeap21fill_with_object_implEPP12H
   br label %_ZN13CollectedHeap15fill_with_arrayEPP12HeapWordImplmb.exit
 
 _ZN13CollectedHeap15fill_with_arrayEPP12HeapWordImplmb.exit: ; preds = %17, %30, %.lr.ph.i.i.preheader.i.i
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %47
 
 38:                                               ; preds = %3
@@ -1422,7 +1422,7 @@ define hidden void @_ZN13CollectedHeap17fill_with_objectsEPP12HeapWordImplmb(ptr
   %.not = icmp ult i64 %21, %12
   %22 = select i1 %.not, i64 %12, i64 0
   %23 = sub i64 %13, %22
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %24 = load i8, ptr @UseCompressedClassPointers, align 1
   %25 = and i8 %24, 1
   %26 = xor i8 %25, 3
@@ -1458,7 +1458,7 @@ define hidden void @_ZN13CollectedHeap17fill_with_objectsEPP12HeapWordImplmb(ptr
   br label %_ZN13CollectedHeap15fill_with_arrayEPP12HeapWordImplmb.exit
 
 _ZN13CollectedHeap15fill_with_arrayEPP12HeapWordImplmb.exit: ; preds = %20, %34, %.lr.ph.i.i.preheader.i.i
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %42 = getelementptr inbounds ptr, ptr %.020, i64 %23
   %43 = sub i64 %.01719, %23
   %44 = icmp ugt i64 %43, %13
@@ -1479,13 +1479,13 @@ define hidden void @_ZN13CollectedHeap22fill_with_dummy_objectEPP12HeapWordImplS
   %7 = ptrtoint ptr %1 to i64
   %8 = sub i64 %6, %7
   %9 = lshr i64 %8, 3
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %11 = load ptr, ptr %10, align 8
   call void @_ZN10HandleMark10initializeEP6Thread(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef %11) #18
   call void @_ZN13CollectedHeap21fill_with_object_implEPP12HeapWordImplmb(ptr noundef %1, i64 noundef %9, i1 noundef zeroext %3)
   call void @_ZN10HandleMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #18
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -2900,10 +2900,10 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare void @llvm.experimental.noalias.scope.decl(metadata) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #17
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

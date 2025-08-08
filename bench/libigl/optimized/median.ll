@@ -42,7 +42,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl6medianIN5Eigen5BlockINS1_6
   br i1 %6, label %7, label %66
 
 7:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   invoke void @_ZN3igl14matrix_to_listIN5Eigen5BlockINS1_6MatrixIfLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEEvRKNS1_10MatrixBaseIT_EERSt6vectorINS7_6ScalarESaISC_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(24) %3)
           to label %8 unwind label %44
@@ -144,8 +144,8 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %50, %_ZSt11nth_elem
   %55 = ptrtoint ptr %54 to i64
   %56 = ptrtoint ptr %52 to i64
   %57 = sub i64 %55, %56
-  call void @_ZdlPvm(ptr noundef nonnull %52, i64 noundef %57) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #7
+  call void @_ZdlPvm(ptr noundef nonnull %52, i64 noundef %57) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %66
 
 58:                                               ; preds = %46, %48, %44
@@ -160,26 +160,20 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %50, %_ZSt11nth_elem
   %63 = ptrtoint ptr %62 to i64
   %64 = ptrtoint ptr %59 to i64
   %65 = sub i64 %63, %64
-  call void @_ZdlPvm(ptr noundef nonnull %59, i64 noundef %65) #8
+  call void @_ZdlPvm(ptr noundef nonnull %59, i64 noundef %65) #7
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit25
 
 _ZNSt6vectorIfSaIfEED2Ev.exit25:                  ; preds = %58, %60
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn.pn
 
 66:                                               ; preds = %2, %_ZNSt6vectorIfSaIfEED2Ev.exit
   ret i1 %6
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare void @_ZN3igl14matrix_to_listIN5Eigen5BlockINS1_6MatrixIfLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEEvRKNS1_10MatrixBaseIT_EERSt6vectorINS7_6ScalarESaISC_EE(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #2
+declare void @_ZN3igl14matrix_to_listIN5Eigen5BlockINS1_6MatrixIfLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEEvRKNS1_10MatrixBaseIT_EERSt6vectorINS7_6ScalarESaISC_EE(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #1
 
 declare i32 @__gxx_personality_v0(...)
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef zeroext i1 @_ZN3igl6medianIN5Eigen5BlockINS1_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEdEEbRKNS1_10MatrixBaseIT_EERT0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
@@ -190,7 +184,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl6medianIN5Eigen5BlockINS1_6
   br i1 %6, label %7, label %66
 
 7:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   invoke void @_ZN3igl14matrix_to_listIN5Eigen5BlockINS1_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEEvRKNS1_10MatrixBaseIT_EERSt6vectorINS7_6ScalarESaISC_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(24) %3)
           to label %8 unwind label %44
@@ -292,8 +286,8 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %50, %_ZSt11nth_elem
   %55 = ptrtoint ptr %54 to i64
   %56 = ptrtoint ptr %52 to i64
   %57 = sub i64 %55, %56
-  call void @_ZdlPvm(ptr noundef nonnull %52, i64 noundef %57) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #7
+  call void @_ZdlPvm(ptr noundef nonnull %52, i64 noundef %57) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %66
 
 58:                                               ; preds = %46, %48, %44
@@ -308,18 +302,18 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %50, %_ZSt11nth_elem
   %63 = ptrtoint ptr %62 to i64
   %64 = ptrtoint ptr %59 to i64
   %65 = sub i64 %63, %64
-  call void @_ZdlPvm(ptr noundef nonnull %59, i64 noundef %65) #8
+  call void @_ZdlPvm(ptr noundef nonnull %59, i64 noundef %65) #7
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit25
 
 _ZNSt6vectorIdSaIdEED2Ev.exit25:                  ; preds = %58, %60
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn.pn
 
 66:                                               ; preds = %2, %_ZNSt6vectorIdSaIdEED2Ev.exit
   ret i1 %6
 }
 
-declare void @_ZN3igl14matrix_to_listIN5Eigen5BlockINS1_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEEvRKNS1_10MatrixBaseIT_EERSt6vectorINS7_6ScalarESaISC_EE(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #2
+declare void @_ZN3igl14matrix_to_listIN5Eigen5BlockINS1_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEEvRKNS1_10MatrixBaseIT_EERSt6vectorINS7_6ScalarESaISC_EE(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef zeroext i1 @_ZN3igl6medianIN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEEdEEbRKNS1_10MatrixBaseIT_EERT0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
@@ -330,7 +324,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl6medianIN5Eigen6MatrixIdLin
   br i1 %6, label %7, label %66
 
 7:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   invoke void @_ZN3igl14matrix_to_listIN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERSt6vectorINS5_6ScalarESaISA_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(24) %3)
           to label %8 unwind label %44
@@ -432,8 +426,8 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %50, %_ZSt11nth_elem
   %55 = ptrtoint ptr %54 to i64
   %56 = ptrtoint ptr %52 to i64
   %57 = sub i64 %55, %56
-  call void @_ZdlPvm(ptr noundef nonnull %52, i64 noundef %57) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #7
+  call void @_ZdlPvm(ptr noundef nonnull %52, i64 noundef %57) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %66
 
 58:                                               ; preds = %46, %48, %44
@@ -448,21 +442,21 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %50, %_ZSt11nth_elem
   %63 = ptrtoint ptr %62 to i64
   %64 = ptrtoint ptr %59 to i64
   %65 = sub i64 %63, %64
-  call void @_ZdlPvm(ptr noundef nonnull %59, i64 noundef %65) #8
+  call void @_ZdlPvm(ptr noundef nonnull %59, i64 noundef %65) #7
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit25
 
 _ZNSt6vectorIdSaIdEED2Ev.exit25:                  ; preds = %58, %60
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn.pn
 
 66:                                               ; preds = %2, %_ZNSt6vectorIdSaIdEED2Ev.exit
   ret i1 %6
 }
 
-declare void @_ZN3igl14matrix_to_listIN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERSt6vectorINS5_6ScalarESaISA_EE(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #2
+declare void @_ZN3igl14matrix_to_listIN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERSt6vectorINS5_6ScalarESaISA_EE(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #1
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZSt13__introselectIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElNS0_5__ops15_Iter_less_iterEEvT_S9_S9_T0_T1_(ptr %0, ptr %1, ptr %2, i64 noundef %3) local_unnamed_addr #0 comdat {
@@ -971,10 +965,10 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElfNS0_5_
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #5
+declare i64 @llvm.ctlz.i64(i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZSt13__introselectIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEElNS0_5__ops15_Iter_less_iterEEvT_S9_S9_T0_T1_(ptr %0, ptr %1, ptr %2, i64 noundef %3) local_unnamed_addr #0 comdat {
@@ -1482,18 +1476,23 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEldNS0_5_
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { nounwind }
-attributes #8 = { builtin nounwind }
+attributes #7 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

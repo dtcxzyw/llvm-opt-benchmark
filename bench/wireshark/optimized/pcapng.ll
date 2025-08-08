@@ -183,35 +183,29 @@ define void @register_pcapng_block_type_handler(i32 noundef %0, ptr noundef %1, 
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+; Function Attrs: null_pointer_is_valid
+declare void @ws_log_full(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @ws_log_full(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
-
-; Function Attrs: null_pointer_is_valid
-declare ptr @g_hash_table_new_full(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @g_hash_table_new_full(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind null_pointer_is_valid willreturn memory(none)
-declare i32 @g_direct_hash(ptr noundef) #3
+declare i32 @g_direct_hash(ptr noundef) #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind null_pointer_is_valid willreturn memory(none)
-declare i32 @g_direct_equal(ptr noundef, ptr noundef) #3
+declare i32 @g_direct_equal(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: null_pointer_is_valid
-declare void @g_free(ptr noundef) #2
+declare void @g_free(ptr noundef) #1
 
 ; Function Attrs: null_pointer_is_valid allocsize(0)
-declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #4
+declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid allocsize(0,1)
-declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #5
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @g_hash_table_insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @g_hash_table_insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define void @register_pcapng_option_handler(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
@@ -310,7 +304,7 @@ define void @pcapng_process_uint8_option(ptr noundef readonly captures(none) %0,
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @wtap_block_add_uint8_option(ptr noundef, i32 noundef, i8 noundef zeroext) local_unnamed_addr #2
+declare i32 @wtap_block_add_uint8_option(ptr noundef, i32 noundef, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define void @pcapng_process_uint32_option(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i16 noundef zeroext %3, i16 noundef zeroext %4, ptr noundef readonly captures(none) %5) local_unnamed_addr #0 {
@@ -351,7 +345,7 @@ define void @pcapng_process_uint32_option(ptr noundef readonly captures(none) %0
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @wtap_block_add_uint32_option(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wtap_block_add_uint32_option(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define void @pcapng_process_timestamp_option(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i16 noundef zeroext %3, i16 noundef zeroext %4, ptr noundef readonly captures(none) %5) local_unnamed_addr #0 {
@@ -401,7 +395,7 @@ define void @pcapng_process_timestamp_option(ptr noundef readonly captures(none)
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @wtap_block_add_uint64_option(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @wtap_block_add_uint64_option(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define void @pcapng_process_uint64_option(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i16 noundef zeroext %3, i16 noundef zeroext %4, ptr noundef readonly captures(none) %5) local_unnamed_addr #0 {
@@ -480,7 +474,7 @@ define void @pcapng_process_int64_option(ptr noundef readonly captures(none) %0,
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @wtap_block_add_int64_option(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @wtap_block_add_int64_option(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define void @pcapng_process_string_option(ptr noundef readonly captures(none) %0, i16 noundef zeroext %1, i16 noundef zeroext %2, ptr noundef %3) local_unnamed_addr #0 {
@@ -494,10 +488,10 @@ define void @pcapng_process_string_option(ptr noundef readonly captures(none) %0
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @ws_utf8_make_valid(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @ws_utf8_make_valid(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @wtap_block_add_string_option_owned(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @wtap_block_add_string_option_owned(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define void @pcapng_process_bytes_option(ptr noundef readonly captures(none) %0, i16 noundef zeroext %1, i16 noundef zeroext %2, ptr noundef %3) local_unnamed_addr #0 {
@@ -510,7 +504,7 @@ define void @pcapng_process_bytes_option(ptr noundef readonly captures(none) %0,
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @wtap_block_add_bytes_option(ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @wtap_block_add_bytes_option(ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define noundef zeroext i1 @pcapng_process_options(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #0 {
@@ -814,13 +808,13 @@ pcapng_process_custom_option.exit.thread:         ; preds = %69, %127, %pcapng_p
 }
 
 ; Function Attrs: null_pointer_is_valid allocsize(0)
-declare noalias ptr @g_try_malloc(i64 noundef) local_unnamed_addr #4
+declare noalias ptr @g_try_malloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i1 @wtap_read_bytes(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @wtap_read_bytes(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden range(i32 -1, 2) i32 @pcapng_open(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -830,11 +824,11 @@ define hidden range(i32 -1, 2) i32 @pcapng_open(ptr noundef %0, ptr noundef %1, 
   %7 = alloca i64, align 8
   %8 = alloca %struct.section_info_t, align 8
   %9 = alloca %struct.section_info_t, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #20
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #20
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #20
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #20
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = load ptr, ptr %0, align 8
   %11 = call zeroext i1 @wtap_read_bytes_or_eof(ptr noundef %10, ptr noundef nonnull %6, i32 noundef 8, ptr noundef %1, ptr noundef %2)
   br i1 %11, label %16, label %12
@@ -894,7 +888,7 @@ define hidden range(i32 -1, 2) i32 @pcapng_open(ptr noundef %0, ptr noundef %1, 
 
 31:                                               ; preds = %18
   %32 = load ptr, ptr %0, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %33 = call zeroext i1 @wtap_read_bytes(ptr noundef %32, ptr noundef nonnull %4, i32 noundef 4, ptr noundef %1, ptr noundef %2)
   br i1 %33, label %34, label %47
 
@@ -925,13 +919,13 @@ define hidden range(i32 -1, 2) i32 @pcapng_open(ptr noundef %0, ptr noundef %1, 
   br label %47
 
 47:                                               ; preds = %45, %31
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %48 = load ptr, ptr %19, align 8
   call void @wtap_block_unref(ptr noundef %48)
   br label %117
 
 49:                                               ; preds = %39
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %51 = load ptr, ptr %50, align 8
   %52 = load ptr, ptr %51, align 8
@@ -1085,21 +1079,21 @@ get_block_type_internal.exit:                     ; preds = %114, %103, %thread-
 
 117:                                              ; preds = %110, %84, %25, %16, %12, %get_block_type_internal.exit, %47, %29, %22, %14
   %.0 = phi i32 [ 1, %get_block_type_internal.exit ], [ -1, %47 ], [ 0, %29 ], [ 0, %22 ], [ 0, %14 ], [ -1, %12 ], [ 0, %16 ], [ -1, %25 ], [ -1, %84 ], [ -1, %110 ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9) #20
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #20
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i1 @wtap_read_bytes_or_eof(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @wtap_read_bytes_or_eof(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc range(i32 0, 3) i32 @pcapng_read_section_header_block(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca %struct.pcapng_section_header_block_s, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = call zeroext i1 @wtap_read_bytes(ptr noundef %0, ptr noundef nonnull %7, i32 noundef 16, ptr noundef %4, ptr noundef %5)
   br i1 %8, label %9, label %65
 
@@ -1218,24 +1212,24 @@ define internal fastcc range(i32 0, 3) i32 @pcapng_read_section_header_block(ptr
 
 65:                                               ; preds = %59, %6, %63, %43, %37, %32, %24
   %.0 = phi i32 [ 1, %24 ], [ 2, %32 ], [ 2, %37 ], [ 0, %63 ], [ 2, %43 ], [ 2, %6 ], [ 2, %59 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @wtap_block_unref(ptr noundef) local_unnamed_addr #2
+declare void @wtap_block_unref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @wtap_block_copy(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @wtap_block_copy(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @g_array_new(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @g_array_new(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @g_array_sized_new(i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @g_array_sized_new(i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @g_array_append_vals(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @g_array_append_vals(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef zeroext i1 @pcapng_read(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(none) initializes((0, 8)) %4) #0 {
@@ -1243,8 +1237,8 @@ define internal noundef zeroext i1 @pcapng_read(ptr noundef %0, ptr noundef %1, 
   %7 = alloca %struct.wtapng_block_s, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = load ptr, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #20
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %1, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -1290,8 +1284,8 @@ define internal noundef zeroext i1 @pcapng_read(ptr noundef %0, ptr noundef %1, 
   br label %36
 
 36:                                               ; preds = %30, %23
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #20
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %22
 }
 
@@ -1301,8 +1295,8 @@ define internal noundef zeroext i1 @pcapng_seek_read(ptr noundef captures(none) 
   %7 = alloca %struct.wtapng_block_s, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = load ptr, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #20
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i64 @file_seek(ptr noundef %11, i64 noundef %1, i32 noundef 0, ptr noundef %3)
@@ -1360,8 +1354,8 @@ define internal noundef zeroext i1 @pcapng_seek_read(ptr noundef captures(none) 
 
 43:                                               ; preds = %32, %29, %38, %5
   %.020 = phi i1 [ false, %5 ], [ true, %38 ], [ false, %29 ], [ false, %32 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #20
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.020
 }
 
@@ -1398,13 +1392,13 @@ define internal void @pcapng_close(ptr noundef readonly captures(none) %0) #0 {
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @file_eof(ptr noundef) local_unnamed_addr #2
+declare i32 @file_eof(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i64 @file_tell(ptr noundef) local_unnamed_addr #2
+declare i64 @file_tell(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i64 @file_seek(ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i64 @file_seek(ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc noundef zeroext i1 @pcapng_read_block(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((8, 16)) %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
@@ -1417,7 +1411,7 @@ define internal fastcc noundef zeroext i1 @pcapng_read_block(ptr noundef capture
   %14 = alloca i32, align 4
   %15 = alloca i32, align 4
   %16 = alloca %struct.pcapng_block_header_s, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr null, ptr %17, align 8
   %18 = call zeroext i1 @wtap_read_bytes_or_eof(ptr noundef %1, ptr noundef nonnull %16, i32 noundef 8, ptr noundef %5, ptr noundef %6)
@@ -1580,14 +1574,14 @@ pcapng_read_meta_event_block.exit:                ; preds = %73
   br i1 %81, label %189, label %pcapng_read_meta_event_block.exit.thread
 
 82:                                               ; preds = %41, %41, %41, %41, %41, %41
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %9) #20
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #20
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #20
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #20
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %13) #20
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i32 0, ptr %14, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i32 0, ptr %15, align 4
   %switch.selectcmp.case1.i = icmp eq i32 %34, 545
   %switch.selectcmp.case2.i = icmp eq i32 %34, 534
@@ -1765,25 +1759,25 @@ pcapng_read_meta_event_block.exit:                ; preds = %73
   br i1 %183, label %pcapng_read_sysdig_event_block.exit, label %pcapng_read_sysdig_event_block.exit.thread
 
 pcapng_read_sysdig_event_block.exit.thread:       ; preds = %85, %87, %100, %104, %106, %108, %110, %114, %169
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #20
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #20
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %13) #20
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #20
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %9) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %pcapng_read_meta_event_block.exit.thread
 
 pcapng_read_sysdig_event_block.exit:              ; preds = %169
   %184 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i8 0, ptr %184, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #20
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #20
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %13) #20
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #20
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %9) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %189
 
 185:                                              ; preds = %41
@@ -1796,7 +1790,7 @@ pcapng_read_sysdig_event_block.exit:              ; preds = %169
 
 189:                                              ; preds = %pcapng_read_sysdig_event_block.exit, %pcapng_read_meta_event_block.exit, %22, %42, %44, %46, %48, %50, %52, %54, %80, %185, %187
   %.098 = phi ptr [ %2, %187 ], [ %2, %42 ], [ %2, %44 ], [ %2, %46 ], [ %2, %48 ], [ %2, %50 ], [ %2, %52 ], [ %2, %54 ], [ %2, %pcapng_read_meta_event_block.exit ], [ %2, %80 ], [ %2, %pcapng_read_sysdig_event_block.exit ], [ %2, %185 ], [ %3, %22 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %190 = call zeroext i1 @wtap_read_bytes(ptr noundef %1, ptr noundef nonnull %8, i32 noundef 4, ptr noundef %5, ptr noundef %6)
   br i1 %190, label %191, label %pcapng_read_and_check_block_trailer.exit
 
@@ -1828,12 +1822,12 @@ pcapng_read_sysdig_event_block.exit:              ; preds = %169
 
 pcapng_read_and_check_block_trailer.exit:         ; preds = %189, %196, %202
   %.0.i103 = phi i1 [ false, %202 ], [ false, %189 ], [ true, %196 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %pcapng_read_meta_event_block.exit.thread
 
 pcapng_read_meta_event_block.exit.thread:         ; preds = %73, %67, %64, %pcapng_read_sysdig_event_block.exit.thread, %pcapng_read_and_check_block_trailer.exit, %187, %185, %80, %54, %52, %50, %48, %46, %44, %42, %22, %7, %39
   %.0 = phi i1 [ false, %39 ], [ false, %7 ], [ false, %22 ], [ false, %42 ], [ false, %44 ], [ false, %46 ], [ false, %48 ], [ false, %50 ], [ false, %52 ], [ false, %54 ], [ false, %80 ], [ false, %185 ], [ false, %187 ], [ %.0.i103, %pcapng_read_and_check_block_trailer.exit ], [ false, %pcapng_read_sysdig_event_block.exit.thread ], [ false, %64 ], [ false, %67 ], [ false, %73 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   ret i1 %.0
 }
 
@@ -1842,7 +1836,7 @@ define internal fastcc void @pcapng_process_internal_block(ptr noundef %0, ptr n
   %7 = alloca %struct.interface_info_s, align 8
   %8 = alloca i8, align 1
   %9 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = load i32, ptr %4, align 8
   switch i32 %10, label %127 [
     i32 168627466, label %11
@@ -1895,12 +1889,12 @@ define internal fastcc void @pcapng_process_internal_block(ptr noundef %0, ptr n
 
 31:                                               ; preds = %6
   %32 = tail call ptr @wtap_block_create(i32 noundef 1)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %33 = tail call ptr @wtap_block_get_mandatory_data(ptr noundef %32)
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %35 = load ptr, ptr %34, align 8
   %36 = tail call ptr @wtap_block_get_mandatory_data(ptr noundef %35)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %37 = load ptr, ptr %34, align 8
   tail call void @wtap_block_copy(ptr noundef %32, ptr noundef %37)
   %38 = getelementptr inbounds nuw i8, ptr %33, i64 24
@@ -1949,8 +1943,8 @@ pcapng_process_idb.exit:                          ; preds = %60, %63
   %64 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %65 = load ptr, ptr %64, align 8
   %66 = call ptr @g_array_append_vals(ptr noundef %65, ptr noundef nonnull %7, i32 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #20
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %67 = load ptr, ptr %34, align 8
   call void @wtap_block_unref(ptr noundef %67)
   br label %127
@@ -2049,7 +2043,7 @@ pcapng_process_nrb.exit:                          ; preds = %74, %80
   br label %127
 
 127:                                              ; preds = %6, %123, %121, %pcapng_process_nrb.exit, %68, %pcapng_process_idb.exit, %11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }
 
@@ -2062,28 +2056,28 @@ define hidden void @register_pcapng() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @wtap_register_file_type_subtype(ptr noundef) local_unnamed_addr #2
+declare i32 @wtap_register_file_type_subtype(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @wtap_register_backwards_compatibility_lua_name(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @wtap_register_backwards_compatibility_lua_name(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind null_pointer_is_valid memory(argmem: readwrite)
-declare ptr @__memcpy_chk(ptr noalias noundef writeonly, ptr noalias noundef readonly captures(none), i64 noundef, i64 noundef) local_unnamed_addr #6
+declare ptr @__memcpy_chk(ptr noalias noundef writeonly, ptr noalias noundef readonly captures(none), i64 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @wtap_block_add_custom_option(ptr noundef, i32 noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @wtap_block_add_custom_option(ptr noundef, i32 noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @ws_buffer_assure_space(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @ws_buffer_assure_space(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @wtap_block_add_nflx_custom_option(ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @wtap_block_add_nflx_custom_option(ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @wtap_block_create(i32 noundef) local_unnamed_addr #2
+declare ptr @wtap_block_create(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @wtap_block_get_mandatory_data(ptr noundef) local_unnamed_addr #2
+declare ptr @wtap_block_get_mandatory_data(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef zeroext i1 @pcapng_process_section_header_block_option(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i16 noundef zeroext %2, i16 noundef zeroext %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) #0 {
@@ -2148,17 +2142,17 @@ pcapng_process_unhandled_option.exit:             ; preds = %8, %14, %20, %pcapn
 }
 
 ; Function Attrs: nocallback nofree nounwind null_pointer_is_valid memory(argmem: readwrite)
-declare ptr @__memset_chk(ptr noundef writeonly, i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #6
+declare ptr @__memset_chk(ptr noundef writeonly, i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @g_hash_table_lookup(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @g_hash_table_lookup(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc noundef zeroext i1 @pcapng_read_if_descr_block(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
   %8 = alloca %struct.pcapng_interface_description_block_s, align 4
   %9 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #20
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = icmp ult i32 %11, 20
@@ -2342,8 +2336,8 @@ define internal fastcc noundef zeroext i1 @pcapng_read_if_descr_block(ptr nounde
 
 .critedge:                                        ; preds = %.thread, %45, %29, %16, %89, %13
   %.079 = phi i1 [ false, %13 ], [ true, %89 ], [ false, %16 ], [ false, %29 ], [ false, %45 ], [ false, %.thread ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i1 %.079
 }
 
@@ -2353,10 +2347,10 @@ define internal fastcc noundef zeroext i1 @pcapng_read_packet_block(ptr noundef 
   %9 = alloca %struct.pcapng_packet_block_s, align 4
   %10 = alloca i32, align 4
   %11 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %8) #20
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %9) #20
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #20
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %12 = tail call ptr @wtap_block_create(i32 noundef 5)
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %12, ptr %13, align 8
@@ -2686,17 +2680,17 @@ define internal fastcc noundef zeroext i1 @pcapng_read_packet_block(ptr noundef 
 
 205:                                              ; preds = %174, %170, %141, %125, %54, %21, %197, %122, %111, %103, %93, %51, %18
   %.0 = phi i1 [ false, %18 ], [ false, %93 ], [ false, %111 ], [ false, %122 ], [ true, %197 ], [ false, %103 ], [ false, %51 ], [ false, %21 ], [ false, %54 ], [ false, %125 ], [ false, %141 ], [ false, %170 ], [ false, %174 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #20
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #20
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %9) #20
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %8) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i1 %.0
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc noundef zeroext i1 @pcapng_read_simple_packet_block(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef captures(none) %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca %struct.pcapng_simple_packet_block_s, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %9 = load i32, ptr %8, align 4
   %10 = icmp ult i32 %9, 16
@@ -2847,7 +2841,7 @@ define internal fastcc noundef zeroext i1 @pcapng_read_simple_packet_block(ptr n
 
 90:                                               ; preds = %83, %70, %48, %14, %85, %45, %39, %22, %11
   %.0 = phi i1 [ false, %11 ], [ false, %22 ], [ false, %39 ], [ false, %45 ], [ true, %85 ], [ false, %14 ], [ false, %48 ], [ false, %70 ], [ false, %83 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i1 %.0
 }
 
@@ -2855,8 +2849,8 @@ define internal fastcc noundef zeroext i1 @pcapng_read_simple_packet_block(ptr n
 define internal fastcc noundef zeroext i1 @pcapng_read_name_resolution_block(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca %struct.pcapng_name_resolution_block_s, align 2
   %8 = alloca %struct.Buffer, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #20
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = icmp ult i32 %10, 16
@@ -3246,15 +3240,15 @@ name_resolution_block_find_name_end.exit153:      ; preds = %.lr.ph.i147
 
 183:                                              ; preds = %._crit_edge209, %181, %170, %159, %.loopexit157, %128, %118, %112, %101, %.loopexit, %70, %60, %50, %36, %32, %12
   %.0 = phi i1 [ false, %12 ], [ false, %32 ], [ false, %50 ], [ false, %170 ], [ true, %181 ], [ false, %60 ], [ false, %.loopexit ], [ false, %101 ], [ false, %70 ], [ false, %112 ], [ false, %118 ], [ false, %.loopexit157 ], [ false, %159 ], [ false, %128 ], [ false, %36 ], [ false, %._crit_edge209 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #20
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i1 %.0
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc noundef zeroext i1 @pcapng_read_interface_statistics_block(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca %struct.pcapng_interface_statistics_block_s, align 4
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %7) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %9 = load i32, ptr %8, align 4
   %10 = icmp ult i32 %9, 24
@@ -3320,14 +3314,14 @@ define internal fastcc noundef zeroext i1 @pcapng_read_interface_statistics_bloc
 
 45:                                               ; preds = %38, %14, %43, %11
   %.0 = phi i1 [ false, %11 ], [ true, %43 ], [ false, %14 ], [ false, %38 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i1 %.0
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc noundef zeroext i1 @pcapng_read_decryption_secrets_block(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca %struct.pcapng_decryption_secrets_block_s, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = call zeroext i1 @wtap_read_bytes(ptr noundef %0, ptr noundef nonnull %7, i32 noundef 8, ptr noundef %4, ptr noundef %5)
   br i1 %8, label %9, label %46
 
@@ -3395,7 +3389,7 @@ define internal fastcc noundef zeroext i1 @pcapng_read_decryption_secrets_block(
 
 46:                                               ; preds = %37, %31, %6, %44, %28
   %.0 = phi i1 [ false, %28 ], [ true, %44 ], [ false, %6 ], [ false, %31 ], [ false, %37 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i1 %.0
 }
 
@@ -3404,7 +3398,7 @@ define internal fastcc noundef zeroext i1 @pcapng_read_custom_block(ptr noundef 
   %7 = alloca %struct.pcapng_nflx_custom_block_s, align 4
   %8 = alloca i32, align 4
   %9 = alloca %struct.pcapng_custom_block_s, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = icmp ult i32 %11, 16
@@ -3440,8 +3434,8 @@ define internal fastcc noundef zeroext i1 @pcapng_read_custom_block(ptr noundef 
   br i1 %cond, label %27, label %66
 
 27:                                               ; preds = %26
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #20
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %28 = load i32, ptr %10, align 4
   %29 = icmp ult i32 %28, 20
   br i1 %29, label %30, label %33
@@ -3514,8 +3508,8 @@ pcapng_read_nflx_custom_block.exit.thread.sink.split: ; preds = %47, %30
   br label %pcapng_read_nflx_custom_block.exit.thread
 
 pcapng_read_nflx_custom_block.exit.thread:        ; preds = %pcapng_read_nflx_custom_block.exit.thread.sink.split, %33, %50, %39
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #20
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %pcapng_handle_generic_custom_block.exit
 
 pcapng_read_nflx_custom_block.exit:               ; preds = %41, %52
@@ -3523,8 +3517,8 @@ pcapng_read_nflx_custom_block.exit:               ; preds = %41, %52
   %63 = load i32, ptr %10, align 4
   %64 = add i32 %63, %.sink32.i
   %65 = call zeroext i1 @pcapng_process_options(ptr noundef %0, ptr noundef %3, ptr noundef %2, i32 noundef %64, ptr noundef null, i32 noundef 2, ptr noundef %4, ptr noundef %5)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #20
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %65, label %pcapng_handle_generic_custom_block.exit.thread, label %pcapng_handle_generic_custom_block.exit
 
 66:                                               ; preds = %26
@@ -3570,7 +3564,7 @@ pcapng_handle_generic_custom_block.exit.thread:   ; preds = %66, %pcapng_read_nf
 
 pcapng_handle_generic_custom_block.exit:          ; preds = %66, %pcapng_read_nflx_custom_block.exit.thread, %pcapng_read_nflx_custom_block.exit, %16, %pcapng_handle_generic_custom_block.exit.thread, %13
   %.0 = phi i1 [ false, %13 ], [ true, %pcapng_handle_generic_custom_block.exit.thread ], [ false, %16 ], [ false, %pcapng_read_nflx_custom_block.exit ], [ false, %pcapng_read_nflx_custom_block.exit.thread ], [ false, %66 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i1 %.0
 }
 
@@ -3578,7 +3572,7 @@ pcapng_handle_generic_custom_block.exit:          ; preds = %66, %pcapng_read_nf
 define internal fastcc noundef zeroext i1 @pcapng_read_systemd_journal_export_block(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef captures(none) %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca i64, align 8
   %8 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = icmp ult i32 %10, 35
@@ -3652,9 +3646,9 @@ define internal fastcc noundef zeroext i1 @pcapng_read_systemd_journal_export_bl
   br i1 %.not50, label %47, label %.critedge52
 
 47:                                               ; preds = %45
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %48 = call zeroext i1 @ws_strtou64(ptr noundef %46, ptr noundef nonnull %8, ptr noundef nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %49 = load ptr, ptr %17, align 8
   store i32 4, ptr %49, align 8
   %50 = load ptr, ptr %17, align 8
@@ -3712,7 +3706,7 @@ define internal fastcc noundef zeroext i1 @pcapng_read_systemd_journal_export_bl
 
 81:                                               ; preds = %.critedge.thread, %80, %75, %15, %12
   %.0 = phi i1 [ false, %12 ], [ false, %15 ], [ true, %75 ], [ true, %80 ], [ false, %.critedge.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i1 %.0
 }
 
@@ -3769,15 +3763,15 @@ define internal fastcc noundef zeroext i1 @pcapng_read_unknown_block(ptr noundef
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @wtap_pcap_encap_to_wtap_encap(i32 noundef) local_unnamed_addr #2
+declare i32 @wtap_pcap_encap_to_wtap_encap(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @wtap_max_snaplen_for_encap(i32 noundef) local_unnamed_addr #2
+declare i32 @wtap_max_snaplen_for_encap(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef zeroext i1 @pcapng_process_if_descr_block_option(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i16 noundef zeroext %2, i16 noundef zeroext %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) #0 {
   %8 = alloca %struct.if_filter_opt_s, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   switch i16 %2, label %124 [
     i16 2, label %9
     i16 3, label %15
@@ -4022,34 +4016,34 @@ pcapng_process_unhandled_option.exit.thread:      ; preds = %124, %126, %130
 
 pcapng_process_unhandled_option.exit:             ; preds = %7, %7, %7, %7, %7, %9, %15, %93, %106, %._crit_edge, %47, %45, %21, %29, %33, %35, %99, %101, %112, %120, %pcapng_process_unhandled_option.exit.thread, %130, %43
   %.0 = phi i1 [ false, %43 ], [ false, %130 ], [ true, %pcapng_process_unhandled_option.exit.thread ], [ true, %120 ], [ true, %112 ], [ true, %101 ], [ true, %99 ], [ true, %35 ], [ true, %33 ], [ true, %29 ], [ true, %21 ], [ true, %45 ], [ true, %47 ], [ true, %._crit_edge ], [ true, %106 ], [ true, %93 ], [ true, %15 ], [ true, %9 ], [ true, %7 ], [ true, %7 ], [ true, %7 ], [ true, %7 ], [ true, %7 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i1 %.0
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @wtap_block_get_uint8_option_value(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @wtap_block_get_uint8_option_value(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare noalias ptr @g_strndup(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare noalias ptr @g_strndup(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @wtap_block_add_if_filter_option(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @wtap_block_add_if_filter_option(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @pcap_process_pseudo_header(ptr noundef, i1 noundef zeroext, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @pcap_process_pseudo_header(ptr noundef, i1 noundef zeroext, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i1 @wtap_read_bytes_buffer(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @wtap_read_bytes_buffer(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef zeroext i1 @pcapng_process_packet_block_option(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i16 noundef zeroext %2, i16 noundef zeroext %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) #0 {
   %8 = alloca %struct.packet_verdict_opt_s, align 8
   %9 = alloca %struct.packet_hash_opt_s, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #20
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   switch i16 %2, label %120 [
     i16 2, label %10
     i16 3, label %23
@@ -4318,55 +4312,55 @@ pcapng_process_unhandled_option.exit.thread:      ; preds = %120, %122, %126
 
 pcapng_process_unhandled_option.exit:             ; preds = %pcapng_process_uint32_option.exit, %27, %pcapng_process_uint64_option.exit, %pcapng_process_uint64_option.exit117, %pcapng_process_uint32_option.exit119, %116, %pcapng_process_unhandled_option.exit.thread, %126, %83, %105, %93, %81, %66, %53, %40, %25, %11
   %.0 = phi i1 [ false, %11 ], [ false, %25 ], [ false, %40 ], [ false, %53 ], [ false, %66 ], [ false, %81 ], [ false, %93 ], [ false, %105 ], [ true, %83 ], [ false, %126 ], [ true, %pcapng_process_unhandled_option.exit.thread ], [ true, %116 ], [ true, %pcapng_process_uint32_option.exit119 ], [ true, %pcapng_process_uint64_option.exit117 ], [ true, %pcapng_process_uint64_option.exit ], [ true, %27 ], [ true, %pcapng_process_uint32_option.exit ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #20
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i1 %.0
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @wtap_block_get_uint32_option_value(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @wtap_block_get_uint32_option_value(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @wtap_block_get_uint64_option_value(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @wtap_block_get_uint64_option_value(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @pcap_read_post_process(i1 noundef zeroext, i32 noundef, ptr noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #2
+declare void @pcap_read_post_process(i1 noundef zeroext, i32 noundef, ptr noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @g_byte_array_new_take(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @g_byte_array_new_take(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid allocsize(1)
-declare ptr @g_memdup2(ptr noundef, i64 noundef) local_unnamed_addr #8
+declare ptr @g_memdup2(ptr noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @wtap_block_add_packet_hash_option(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @wtap_block_add_packet_hash_option(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @wtap_packet_hash_free(ptr noundef) local_unnamed_addr #2
+declare void @wtap_packet_hash_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @wtap_block_add_packet_verdict_option(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @wtap_block_add_packet_verdict_option(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @wtap_packet_verdict_free(ptr noundef) local_unnamed_addr #2
+declare void @wtap_packet_verdict_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #2
+declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @ws_buffer_init(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @ws_buffer_init(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @ws_buffer_free(ptr noundef) local_unnamed_addr #2
+declare void @ws_buffer_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid allocsize(0)
-declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #4
+declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare i64 @g_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @g_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @g_list_prepend(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @g_list_prepend(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef zeroext i1 @pcapng_process_name_resolution_block_option(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i16 noundef zeroext %2, i16 noundef zeroext %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) #0 {
@@ -4605,28 +4599,28 @@ pcapng_process_unhandled_option.exit:             ; preds = %8, %19, %27, %38, %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #9
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i1 @ws_strtou64(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @ws_strtou64(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @wtap_add_idb(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @wtap_add_idb(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @wtap_block_get_int64_option_value(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @wtap_block_get_int64_option_value(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @wtap_block_remove_option(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wtap_block_remove_option(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @wtapng_process_dsb(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @wtapng_process_dsb(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @wtapng_process_nrb(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @wtapng_process_nrb(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @g_array_free(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @g_array_free(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 -8, 1) i32 @pcapng_dump_can_write_encap(i32 noundef %0) #0 {
@@ -4660,8 +4654,8 @@ define internal noundef zeroext i1 @pcapng_dump_open(ptr noundef initializes((56
   store ptr @pcapng_dump, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr @pcapng_dump_finish, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #20
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %13 = load ptr, ptr %12, align 8
   %.not.i = icmp eq ptr %13, null
@@ -4687,7 +4681,7 @@ define internal noundef zeroext i1 @pcapng_dump_open(ptr noundef initializes((56
   br i1 %.not25.i, label %29, label %22
 
 22:                                               ; preds = %18
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 8
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @compute_shb_option_size, ptr %23, align 8
@@ -4696,7 +4690,7 @@ define internal noundef zeroext i1 @pcapng_dump_open(ptr noundef initializes((56
   %.not.i.i = icmp eq i32 %25, 0
   %26 = add i32 %25, 4
   %spec.select.i.i = select i1 %.not.i.i, i32 0, i32 %26
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %27 = add i32 %spec.select.i.i, 28
   store i32 %27, ptr %21, align 4
   %28 = icmp ne i32 %spec.select.i.i, 0
@@ -4735,7 +4729,7 @@ define internal noundef zeroext i1 @pcapng_dump_open(ptr noundef initializes((56
   br i1 %or.cond.i, label %42, label %pcapng_write_section_header_block.exit
 
 42:                                               ; preds = %41
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %0, ptr %5, align 8
   %43 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %1, ptr %43, align 8
@@ -4745,28 +4739,28 @@ define internal noundef zeroext i1 @pcapng_dump_open(ptr noundef initializes((56
   br i1 %45, label %write_options.exit.i, label %write_options.exit.thread.i
 
 write_options.exit.thread.i:                      ; preds = %42
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %pcapng_write_section_header_block.exit.thread
 
 write_options.exit.i:                             ; preds = %42
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i16 0, ptr %4, align 2
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 2
   store i16 0, ptr %46, align 2
   %47 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %4, i64 noundef 4, ptr noundef %1)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #20
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %47, label %pcapng_write_section_header_block.exit, label %pcapng_write_section_header_block.exit.thread
 
 pcapng_write_section_header_block.exit.thread:    ; preds = %29, %38, %write_options.exit.i, %write_options.exit.thread.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.loopexit
 
 pcapng_write_section_header_block.exit:           ; preds = %41, %write_options.exit.i
   %48 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %30, i64 noundef 4, ptr noundef %1)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %48, label %.preheader30, label %.loopexit
 
 .preheader30:                                     ; preds = %pcapng_write_section_header_block.exit
@@ -4831,12 +4825,12 @@ pcapng_write_section_header_block.exit:           ; preds = %41, %write_options.
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @wtap_wtap_encap_to_pcap_encap(i32 noundef) local_unnamed_addr #2
+declare i32 @wtap_wtap_encap_to_pcap_encap(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal zeroext i1 @pcapng_add_idb(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = tail call ptr @wtap_block_create(i32 noundef 1)
   store ptr %6, ptr %5, align 8
   tail call void @wtap_block_copy(ptr noundef %6, ptr noundef %1)
@@ -4845,7 +4839,7 @@ define internal zeroext i1 @pcapng_add_idb(ptr noundef %0, ptr noundef %1, ptr n
   %9 = call ptr @g_array_append_vals(ptr noundef %8, ptr noundef nonnull %5, i32 noundef 1)
   %10 = load ptr, ptr %5, align 8
   %11 = call fastcc zeroext i1 @pcapng_write_if_descr_block(ptr noundef %0, ptr noundef %10, ptr noundef %2)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %11
 }
 
@@ -4928,13 +4922,13 @@ define internal noundef zeroext i1 @pcapng_dump(ptr noundef %0, ptr noundef %1, 
   br i1 %55, label %60, label %56
 
 56:                                               ; preds = %52
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %30) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   store i32 0, ptr %30, align 8
   %57 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store ptr @compute_epb_option_size, ptr %57, align 8
   %58 = call zeroext i1 @wtap_block_foreach_option(ptr noundef nonnull %54, ptr noundef nonnull @compute_block_option_size, ptr noundef nonnull %30)
   %59 = load i32, ptr %30, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %30) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
   switch i32 %59, label %62 [
     i32 -4, label %60
     i32 0, label %60
@@ -4947,11 +4941,11 @@ define internal noundef zeroext i1 @pcapng_dump(ptr noundef %0, ptr noundef %1, 
 62:                                               ; preds = %56, %46, %40, %34
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26) #20
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %27) #20
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %28) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   store i32 0, ptr %28, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %29) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   %65 = load i32, ptr %63, align 8
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %67 = load i32, ptr %66, align 8
@@ -4979,7 +4973,7 @@ define internal noundef zeroext i1 @pcapng_dump(ptr noundef %0, ptr noundef %1, 
   br i1 %.not85.i, label %86, label %81
 
 81:                                               ; preds = %71
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %25) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i32 0, ptr %25, align 8
   %82 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store ptr @compute_epb_option_size, ptr %82, align 8
@@ -4988,7 +4982,7 @@ define internal noundef zeroext i1 @pcapng_dump(ptr noundef %0, ptr noundef %1, 
   %.not.i.i = icmp eq i32 %84, 0
   %85 = add i32 %84, 4
   %spec.select.i.i = select i1 %.not.i.i, i32 0, i32 %85
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %25) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %86
 
 86:                                               ; preds = %81, %71
@@ -5209,18 +5203,18 @@ define internal noundef zeroext i1 @pcapng_dump(ptr noundef %0, ptr noundef %1, 
   br i1 %212, label %pcapng_write_enhanced_packet_block.exit, label %pcapng_write_enhanced_packet_block.exit.thread
 
 pcapng_write_enhanced_packet_block.exit.thread:   ; preds = %70, %148, %161, %._crit_edge.thread.i, %165, %173, %198, %201, %206, %210
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29) #20
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %28) #20
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %27) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br label %364
 
 pcapng_write_enhanced_packet_block.exit:          ; preds = %209, %210
   %213 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %171, i64 noundef 4, ptr noundef %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29) #20
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %28) #20
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %27) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br i1 %213, label %363, label %364
 
 214:                                              ; preds = %32, %32
@@ -5248,14 +5242,14 @@ pcapng_write_enhanced_packet_block.exit:          ; preds = %209, %210
   br label %364
 
 227:                                              ; preds = %32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #20
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store i32 0, ptr %19, align 4
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %20) #20
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #20
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22) #20
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %23) #20
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %24) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   %228 = getelementptr inbounds nuw i8, ptr %1, i64 100
   %229 = load i32, ptr %228, align 4
   %230 = icmp ugt i32 %229, 262144
@@ -5333,29 +5327,29 @@ pcapng_write_enhanced_packet_block.exit:          ; preds = %209, %210
   br i1 %271, label %pcapng_write_sysdig_event_block.exit, label %pcapng_write_sysdig_event_block.exit.thread
 
 pcapng_write_sysdig_event_block.exit.thread:      ; preds = %231, %232, %239, %256, %258, %260, %262, %264, %269
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %24) #20
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #20
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %20) #20
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %364
 
 pcapng_write_sysdig_event_block.exit:             ; preds = %268, %269
   %272 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %237, i64 noundef 4, ptr noundef %3)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %24) #20
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #20
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %20) #20
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br i1 %272, label %363, label %364
 
 273:                                              ; preds = %32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #20
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i32 0, ptr %17, align 4
   %274 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %275 = load i32, ptr %274, align 8
@@ -5394,14 +5388,14 @@ pcapng_write_sysdig_event_block.exit:             ; preds = %268, %269
   br i1 %292, label %pcapng_write_systemd_journal_export_block.exit, label %pcapng_write_systemd_journal_export_block.exit.thread
 
 pcapng_write_systemd_journal_export_block.exit.thread: ; preds = %277, %278, %285, %290
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %364
 
 pcapng_write_systemd_journal_export_block.exit:   ; preds = %289, %290
   %293 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %283, i64 noundef 4, ptr noundef %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br i1 %293, label %363, label %364
 
 294:                                              ; preds = %32
@@ -5411,13 +5405,13 @@ pcapng_write_systemd_journal_export_block.exit:   ; preds = %289, %290
   br i1 %cond, label %297, label %334
 
 297:                                              ; preds = %294
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #20
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #20
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #20
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %298 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %299 = load ptr, ptr %298, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 0, ptr %11, align 8
   %300 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr @compute_epb_option_size, ptr %300, align 8
@@ -5426,7 +5420,7 @@ pcapng_write_systemd_journal_export_block.exit:   ; preds = %289, %290
   %.not.i.i59 = icmp eq i32 %302, 0
   %303 = add i32 %302, 4
   %spec.select.i.i60 = select i1 %.not.i.i59, i32 0, i32 %303
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   store i32 2989, ptr %12, align 4
   %304 = add i32 %spec.select.i.i60, 20
   %305 = getelementptr inbounds nuw i8, ptr %12, i64 4
@@ -5474,7 +5468,7 @@ pcapng_write_systemd_journal_export_block.exit:   ; preds = %289, %290
 
 326:                                              ; preds = %325
   %327 = load ptr, ptr %298, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %0, ptr %10, align 8
   %328 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %3, ptr %328, align 8
@@ -5484,38 +5478,38 @@ pcapng_write_systemd_journal_export_block.exit:   ; preds = %289, %290
   br i1 %330, label %write_options.exit.i, label %write_options.exit.thread.i
 
 write_options.exit.thread.i:                      ; preds = %326
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %pcapng_write_bblog_block.exit.thread
 
 write_options.exit.i:                             ; preds = %326
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i16 0, ptr %9, align 2
   %331 = getelementptr inbounds nuw i8, ptr %9, i64 2
   store i16 0, ptr %331, align 2
   %332 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %9, i64 noundef 4, ptr noundef %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #20
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br i1 %332, label %pcapng_write_bblog_block.exit, label %pcapng_write_bblog_block.exit.thread
 
 pcapng_write_bblog_block.exit.thread:             ; preds = %311, %313, %315, %321, %write_options.exit.i, %write_options.exit.thread.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #20
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #20
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %364
 
 pcapng_write_bblog_block.exit:                    ; preds = %325, %write_options.exit.i
   %333 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %305, i64 noundef 4, ptr noundef %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #20
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #20
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br i1 %333, label %363, label %364
 
 334:                                              ; preds = %294
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #20
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #20
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4
   %335 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %336 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -5524,9 +5518,9 @@ pcapng_write_bblog_block.exit:                    ; preds = %325, %write_options
   br i1 %338, label %339, label %pcapng_write_custom_block.exit.thread70
 
 pcapng_write_custom_block.exit.thread70:          ; preds = %334
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #20
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %363
 
 339:                                              ; preds = %334
@@ -5572,16 +5566,16 @@ pcapng_write_custom_block.exit.thread70:          ; preds = %334
   br i1 %360, label %pcapng_write_custom_block.exit, label %pcapng_write_custom_block.exit.thread
 
 pcapng_write_custom_block.exit.thread:            ; preds = %342, %343, %350, %353, %358
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #20
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %364
 
 pcapng_write_custom_block.exit:                   ; preds = %357, %358
   %361 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %348, i64 noundef 4, ptr noundef %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #20
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %361, label %363, label %364
 
 362:                                              ; preds = %32
@@ -5653,10 +5647,10 @@ define internal noundef zeroext i1 @pcapng_dump_finish(ptr noundef %0, ptr nound
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr ptr, ptr %35, i64 %indvars.iv
   %37 = load ptr, ptr %36, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #20
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %8) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %38 = call ptr @wtap_block_get_mandatory_data(ptr noundef %37)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 8
   store ptr @compute_isb_option_size, ptr %14, align 8
   %39 = call zeroext i1 @wtap_block_foreach_option(ptr noundef %37, ptr noundef nonnull @compute_block_option_size, ptr noundef nonnull %6)
@@ -5664,7 +5658,7 @@ define internal noundef zeroext i1 @pcapng_dump_finish(ptr noundef %0, ptr nound
   %.not.i.i = icmp eq i32 %40, 0
   %41 = add i32 %40, 4
   %spec.select.i.i = select i1 %.not.i.i, i32 0, i32 %41
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store i32 5, ptr %7, align 4
   %42 = add i32 %spec.select.i.i, 24
   store i32 %42, ptr %15, align 4
@@ -5688,7 +5682,7 @@ define internal noundef zeroext i1 @pcapng_dump_finish(ptr noundef %0, ptr nound
   br i1 %.not.i, label %pcapng_write_interface_statistics_block.exit, label %52
 
 52:                                               ; preds = %51
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %0, ptr %5, align 8
   store ptr %1, ptr %18, align 8
   store ptr @write_wtap_isb_option, ptr %19, align 8
@@ -5696,27 +5690,27 @@ define internal noundef zeroext i1 @pcapng_dump_finish(ptr noundef %0, ptr nound
   br i1 %53, label %write_options.exit.i, label %write_options.exit.thread.i
 
 write_options.exit.thread.i:                      ; preds = %52
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %pcapng_write_interface_statistics_block.exit.thread
 
 write_options.exit.i:                             ; preds = %52
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i16 0, ptr %4, align 2
   store i16 0, ptr %20, align 2
   %54 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %4, i64 noundef 4, ptr noundef %1)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #20
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %54, label %pcapng_write_interface_statistics_block.exit, label %pcapng_write_interface_statistics_block.exit.thread
 
 pcapng_write_interface_statistics_block.exit.thread: ; preds = %33, %44, %write_options.exit.i, %write_options.exit.thread.i
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.loopexit
 
 pcapng_write_interface_statistics_block.exit:     ; preds = %51, %write_options.exit.i
   %55 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %15, i64 noundef 4, ptr noundef %1)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %55, label %30, label %.loopexit
 
 .critedge:                                        ; preds = %30, %21
@@ -5740,8 +5734,8 @@ define internal fastcc zeroext i1 @pcapng_write_if_descr_block(ptr noundef %0, p
   %6 = alloca %struct.compute_options_size_t, align 8
   %7 = alloca %struct.pcapng_block_header_s, align 4
   %8 = alloca %struct.pcapng_interface_description_block_s, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #20
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call ptr @wtap_block_get_mandatory_data(ptr noundef %1)
   %10 = load i32, ptr %9, align 8
   %11 = tail call i32 @wtap_wtap_encap_to_pcap_encap(i32 noundef %10)
@@ -5758,7 +5752,7 @@ define internal fastcc zeroext i1 @pcapng_write_if_descr_block(ptr noundef %0, p
   br label %40
 
 16:                                               ; preds = %13, %3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 8
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @compute_idb_option_size, ptr %17, align 8
@@ -5767,7 +5761,7 @@ define internal fastcc zeroext i1 @pcapng_write_if_descr_block(ptr noundef %0, p
   %.not.i = icmp eq i32 %19, 0
   %20 = add i32 %19, 4
   %spec.select.i = select i1 %.not.i, i32 0, i32 %20
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store i32 1, ptr %7, align 4
   %21 = add i32 %spec.select.i, 20
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 4
@@ -5792,7 +5786,7 @@ define internal fastcc zeroext i1 @pcapng_write_if_descr_block(ptr noundef %0, p
   br i1 %.not, label %38, label %32
 
 32:                                               ; preds = %31
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %0, ptr %5, align 8
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %2, ptr %33, align 8
@@ -5802,17 +5796,17 @@ define internal fastcc zeroext i1 @pcapng_write_if_descr_block(ptr noundef %0, p
   br i1 %35, label %write_options.exit, label %write_options.exit.thread
 
 write_options.exit.thread:                        ; preds = %32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %40
 
 write_options.exit:                               ; preds = %32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i16 0, ptr %4, align 2
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 2
   store i16 0, ptr %36, align 2
   %37 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %4, i64 noundef 4, ptr noundef %2)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #20
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %37, label %38, label %40
 
 38:                                               ; preds = %write_options.exit, %31
@@ -5821,8 +5815,8 @@ write_options.exit:                               ; preds = %32
 
 40:                                               ; preds = %write_options.exit.thread, %38, %write_options.exit, %24, %16, %15
   %.0 = phi i1 [ false, %15 ], [ false, %16 ], [ false, %24 ], [ false, %write_options.exit ], [ %39, %38 ], [ false, %write_options.exit.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i1 %.0
 }
 
@@ -5831,8 +5825,8 @@ define internal fastcc zeroext i1 @pcapng_write_decryption_secrets_block(ptr nou
   %4 = alloca %struct.pcapng_block_header_s, align 4
   %5 = alloca %struct.pcapng_decryption_secrets_block_s, align 4
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #20
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = tail call ptr @wtap_block_get_mandatory_data(ptr noundef %1)
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %9 = load i32, ptr %8, align 4
@@ -5868,11 +5862,11 @@ define internal fastcc zeroext i1 @pcapng_write_decryption_secrets_block(ptr nou
   br i1 %.not, label %31, label %28
 
 28:                                               ; preds = %27
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4
   %29 = zext nneg i32 %11 to i64
   %30 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %6, i64 noundef %29, ptr noundef %2)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %28, %27
@@ -5881,8 +5875,8 @@ define internal fastcc zeroext i1 @pcapng_write_decryption_secrets_block(ptr nou
 
 33:                                               ; preds = %31, %21, %16, %3, %28
   %.021 = phi i1 [ false, %28 ], [ false, %3 ], [ false, %16 ], [ false, %21 ], [ %32, %31 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.021
 }
 
@@ -5953,7 +5947,7 @@ define internal fastcc noundef zeroext i1 @pcapng_write_internal_blocks(ptr noun
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr ptr, ptr %39, i64 %indvars.iv108
   %41 = load ptr, ptr %40, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %42 = call ptr @wtap_block_get_mandatory_data(ptr noundef %41)
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 4
   %44 = load i32, ptr %43, align 4
@@ -5980,20 +5974,20 @@ define internal fastcc noundef zeroext i1 @pcapng_write_internal_blocks(ptr noun
   br i1 %.not.i, label %pcapng_write_meta_event_block.exit, label %58
 
 58:                                               ; preds = %57
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4
   %59 = zext nneg i32 %46 to i64
   %60 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %4, i64 noundef %59, ptr noundef %1)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %60, label %pcapng_write_meta_event_block.exit, label %pcapng_write_meta_event_block.exit.thread
 
 pcapng_write_meta_event_block.exit.thread:        ; preds = %58, %37, %51
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.critedge79.thread
 
 pcapng_write_meta_event_block.exit:               ; preds = %57, %58
   %61 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %35, i64 noundef 4, ptr noundef %1)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %61, label %62, label %.critedge79.thread
 
 62:                                               ; preds = %pcapng_write_meta_event_block.exit
@@ -6113,7 +6107,7 @@ pcapng_write_meta_event_block.exit:               ; preds = %57, %58
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @compute_epb_option_size(ptr readnone captures(none) %0, i32 noundef %1, i32 %2, ptr noundef readonly captures(none) %3) #10 {
+define internal i32 @compute_epb_option_size(ptr readnone captures(none) %0, i32 noundef %1, i32 %2, ptr noundef readonly captures(none) %3) #9 {
   switch i32 %1, label %23 [
     i32 2, label %pcapng_compute_packet_verdict_option_size.exit
     i32 4, label %5
@@ -6182,9 +6176,9 @@ define internal fastcc zeroext i1 @pcapng_write_simple_packet_block(ptr noundef 
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #20
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #20
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4
   %10 = load i32, ptr %8, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -6248,17 +6242,17 @@ define internal fastcc zeroext i1 @pcapng_write_simple_packet_block(ptr noundef 
 
 46:                                               ; preds = %44, %41, %36, %33, %28, %16, %15
   %.0 = phi i1 [ false, %15 ], [ false, %16 ], [ false, %28 ], [ false, %33 ], [ false, %36 ], [ false, %41 ], [ %45, %44 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #20
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i1 @wtap_addrinfo_list_empty(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @wtap_addrinfo_list_empty(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @wtap_block_make_copy(ptr noundef) local_unnamed_addr #2
+declare ptr @wtap_block_make_copy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc zeroext i1 @pcapng_write_name_resolution_block(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
@@ -6268,14 +6262,14 @@ define internal fastcc zeroext i1 @pcapng_write_name_resolution_block(ptr nounde
   %7 = alloca %struct.compute_options_size_t, align 8
   %8 = alloca %struct.pcapng_block_header_s, align 8
   %9 = alloca %struct.pcapng_name_resolution_block_s, align 2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #20
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = tail call ptr @wtap_block_get_mandatory_data(ptr noundef %1)
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %234, label %11
 
 11:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 8
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr @compute_nrb_option_size, ptr %12, align 8
@@ -6284,7 +6278,7 @@ define internal fastcc zeroext i1 @pcapng_write_name_resolution_block(ptr nounde
   %.not.i = icmp eq i32 %14, 0
   %15 = add i32 %14, 4
   %spec.select.i = select i1 %.not.i, i32 0, i32 %15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %16 = add i32 %spec.select.i, -983021
   %17 = icmp ult i32 %16, -1048577
   br i1 %17, label %234, label %18
@@ -6360,12 +6354,12 @@ define internal fastcc zeroext i1 @pcapng_write_name_resolution_block(ptr nounde
   %54 = add i32 %.1136.ph171.fr, 4
   %55 = zext i32 %54 to i64
   %56 = getelementptr i8, ptr %19, i64 %55
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %56, ptr %6, align 8
   %57 = call zeroext i1 @wtap_block_foreach_option(ptr noundef %1, ptr noundef nonnull @put_nrb_option, ptr noundef nonnull %6)
   %58 = load ptr, ptr %6, align 8
   store i32 0, ptr %58, align 1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.reass = add i32 %.1136.ph171.fr, %invariant.op
   %.reass168 = add i32 %.ph149170, %invariant.op
   store i32 %.reass168, ptr %21, align 4
@@ -6515,12 +6509,12 @@ define internal fastcc zeroext i1 @pcapng_write_name_resolution_block(ptr nounde
   %148 = add i32 %.4.ph190.fr, 4
   %149 = zext i32 %148 to i64
   %150 = getelementptr i8, ptr %19, i64 %149
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %150, ptr %5, align 8
   %151 = call zeroext i1 @wtap_block_foreach_option(ptr noundef %1, ptr noundef nonnull @put_nrb_option, ptr noundef nonnull %5)
   %152 = load ptr, ptr %5, align 8
   store i32 0, ptr %152, align 1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.reass185 = add i32 %.4.ph190.fr, %invariant.op184
   %.reass187 = add i32 %.ph189, %invariant.op184
   store i32 %.reass187, ptr %21, align 4
@@ -6616,12 +6610,12 @@ define internal fastcc zeroext i1 @pcapng_write_name_resolution_block(ptr nounde
   %217 = add i32 %208, 4
   %218 = zext i32 %216 to i64
   %219 = getelementptr i8, ptr %19, i64 %218
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %219, ptr %4, align 8
   %220 = call zeroext i1 @wtap_block_foreach_option(ptr noundef %1, ptr noundef nonnull @put_nrb_option, ptr noundef nonnull %4)
   %221 = load ptr, ptr %4, align 8
   store i32 0, ptr %221, align 1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %222 = add i32 %216, %spec.select.i
   %223 = add i32 %217, %spec.select.i
   store i32 %223, ptr %21, align 4
@@ -6646,22 +6640,22 @@ define internal fastcc zeroext i1 @pcapng_write_name_resolution_block(ptr nounde
 
 234:                                              ; preds = %.sink.split, %11, %3
   %.0137 = phi i1 [ true, %3 ], [ true, %11 ], [ %.0137.ph, %.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i1 %.0137
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @g_list_free(ptr noundef) local_unnamed_addr #2
+declare void @g_list_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @wtap_dump_discard_name_resolution(ptr noundef) local_unnamed_addr #2
+declare void @wtap_dump_discard_name_resolution(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i1 @wtap_dump_file_write(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @wtap_dump_file_write(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 65536) i32 @compute_nrb_option_size(ptr readnone captures(none) %0, i32 noundef %1, i32 %2, ptr noundef readonly captures(none) %3) #11 {
+define internal range(i32 0, 65536) i32 @compute_nrb_option_size(ptr readnone captures(none) %0, i32 noundef %1, i32 %2, ptr noundef readonly captures(none) %3) #10 {
   switch i32 %1, label %10 [
     i32 2, label %5
     i32 3, label %11
@@ -6687,16 +6681,16 @@ define internal range(i32 0, 65536) i32 @compute_nrb_option_size(ptr readnone ca
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @g_list_nth_data(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @g_list_nth_data(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i1 @wtap_block_foreach_option(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @wtap_block_foreach_option(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nounwind null_pointer_is_valid sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef zeroext i1 @put_nrb_option(ptr readnone captures(none) %0, i32 noundef %1, i32 %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) %4) #12 {
+define internal noundef zeroext i1 @put_nrb_option(ptr readnone captures(none) %0, i32 noundef %1, i32 %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) %4) #11 {
   switch i32 %1, label %55 [
     i32 1, label %6
     i32 2, label %6
@@ -6862,19 +6856,19 @@ define internal noundef zeroext i1 @compute_block_option_size(ptr noundef %0, i3
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @pcap_get_phdr_size(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @pcap_get_phdr_size(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i1 @pcap_write_phdr(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @pcap_write_phdr(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @wtap_rec_generate_idb(ptr noundef) local_unnamed_addr #2
+declare ptr @wtap_rec_generate_idb(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc zeroext i1 @write_options(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca %struct.pcapng_option_header, align 2
   %6 = alloca %struct.write_options_t, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %0, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %3, ptr %7, align 8
@@ -6884,17 +6878,17 @@ define internal fastcc zeroext i1 @write_options(ptr noundef %0, ptr noundef %1,
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i16 0, ptr %5, align 2
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 2
   store i16 0, ptr %11, align 2
   %12 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %5, i64 noundef 4, ptr noundef %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %13
 
 13:                                               ; preds = %4, %10
   %.0 = phi i1 [ %12, %10 ], [ false, %4 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0
 }
 
@@ -6920,7 +6914,7 @@ define internal noundef zeroext i1 @write_wtap_epb_option(ptr noundef %0, ptr re
   ]
 
 17:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i16 2, ptr %16, align 2
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 2
   store i16 4, ptr %18, align 2
@@ -6928,16 +6922,16 @@ define internal noundef zeroext i1 @write_wtap_epb_option(ptr noundef %0, ptr re
   br i1 %19, label %pcapng_write_uint32_option.exit, label %pcapng_write_uint32_option.exit.thread
 
 pcapng_write_uint32_option.exit.thread:           ; preds = %17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %117
 
 pcapng_write_uint32_option.exit:                  ; preds = %17
   %20 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef %4, i64 noundef 4, ptr noundef %5)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br i1 %20, label %116, label %117
 
 21:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i16 4, ptr %15, align 2
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 2
   store i16 8, ptr %22, align 2
@@ -6945,16 +6939,16 @@ pcapng_write_uint32_option.exit:                  ; preds = %17
   br i1 %23, label %pcapng_write_uint64_option.exit, label %pcapng_write_uint64_option.exit.thread
 
 pcapng_write_uint64_option.exit.thread:           ; preds = %21
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %117
 
 pcapng_write_uint64_option.exit:                  ; preds = %21
   %24 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef %4, i64 noundef 8, ptr noundef %5)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br i1 %24, label %116, label %117
 
 25:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i16 5, ptr %14, align 2
   %26 = getelementptr inbounds nuw i8, ptr %14, i64 2
   store i16 8, ptr %26, align 2
@@ -6962,16 +6956,16 @@ pcapng_write_uint64_option.exit:                  ; preds = %21
   br i1 %27, label %pcapng_write_uint64_option.exit21, label %pcapng_write_uint64_option.exit21.thread
 
 pcapng_write_uint64_option.exit21.thread:         ; preds = %25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %117
 
 pcapng_write_uint64_option.exit21:                ; preds = %25
   %28 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef %4, i64 noundef 8, ptr noundef %5)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br i1 %28, label %116, label %117
 
 29:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i16 6, ptr %13, align 2
   %30 = getelementptr inbounds nuw i8, ptr %13, i64 2
   store i16 4, ptr %30, align 2
@@ -6979,18 +6973,18 @@ pcapng_write_uint64_option.exit21:                ; preds = %25
   br i1 %31, label %pcapng_write_uint32_option.exit23, label %pcapng_write_uint32_option.exit23.thread
 
 pcapng_write_uint32_option.exit23.thread:         ; preds = %29
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %117
 
 pcapng_write_uint32_option.exit23:                ; preds = %29
   %32 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef %4, i64 noundef 4, ptr noundef %5)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br i1 %32, label %116, label %117
 
 33:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #20
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11) #20
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 0, ptr %12, align 4
   %34 = load i32, ptr %4, align 8
   switch i32 %34, label %.thread.i.i [
@@ -7097,21 +7091,21 @@ pcapng_compute_packet_verdict_option_size.exit.i: ; preds = %.thread.i.i, %33, %
   br i1 %81, label %pcapng_write_packet_verdict_option.exit, label %pcapng_write_packet_verdict_option.exit.thread
 
 pcapng_write_packet_verdict_option.exit.thread:   ; preds = %.thread.i, %48, %50, %58, %62, %64, %67, %71, %73, %79
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #20
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #20
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %117
 
 pcapng_write_packet_verdict_option.exit:          ; preds = %76, %79, %pcapng_compute_packet_verdict_option_size.exit.i, %41
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #20
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #20
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %116
 
 82:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #20
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #20
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %83 = load i8, ptr %4, align 8
   %switch.tableidx = add i8 %83, -2
@@ -7179,15 +7173,15 @@ pcapng_compute_packet_hash_option_size.exit.thread.i: ; preds = %switch.lookup, 
   br i1 %115, label %pcapng_write_packet_hash_option.exit, label %pcapng_write_packet_hash_option.exit.thread
 
 pcapng_write_packet_hash_option.exit.thread:      ; preds = %99, %100, %104, %106, %113
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #20
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #20
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %117
 
 pcapng_write_packet_hash_option.exit:             ; preds = %111, %113, %pcapng_compute_packet_hash_option_size.exit.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #20
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #20
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %116
 
 116:                                              ; preds = %pcapng_write_packet_hash_option.exit, %pcapng_write_packet_verdict_option.exit, %6, %pcapng_write_uint32_option.exit23, %pcapng_write_uint64_option.exit21, %pcapng_write_uint64_option.exit, %pcapng_write_uint32_option.exit
@@ -7218,10 +7212,10 @@ define internal noundef zeroext i1 @write_block_option(ptr noundef %0, i32 nound
   %13 = load ptr, ptr %4, align 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %15 = load ptr, ptr %14, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %16 = load ptr, ptr %3, align 8
   %17 = tail call i64 @strlen(ptr noundef %16) #21
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 0, ptr %11, align 4
   %18 = add i64 %17, -65536
   %or.cond.i = icmp ult i64 %18, -65535
@@ -7251,24 +7245,24 @@ define internal noundef zeroext i1 @write_block_option(ptr noundef %0, i32 nound
   br i1 %30, label %pcapng_write_string_option.exit, label %pcapng_write_string_option.exit.thread
 
 pcapng_write_string_option.exit.thread:           ; preds = %19, %23, %28
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #20
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %79
 
 pcapng_write_string_option.exit:                  ; preds = %26, %28, %12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #20
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %78
 
 31:                                               ; preds = %5, %5
   %32 = load ptr, ptr %4, align 8
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %34 = load ptr, ptr %33, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #20
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #20
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %35 = load i32, ptr %3, align 8
   %cond.i = icmp eq i32 %35, 10949
   %..i = select i1 %cond.i, i64 16, i64 8
@@ -7332,17 +7326,17 @@ pcapng_write_string_option.exit:                  ; preds = %26, %28, %12
   br i1 %69, label %pcapng_write_custom_option.exit, label %pcapng_write_custom_option.exit.thread
 
 pcapng_write_custom_option.exit.thread:           ; preds = %40, %45, %51, %54, %60, %67
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #20
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #20
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #20
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %79
 
 pcapng_write_custom_option.exit:                  ; preds = %65, %67, %31
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #20
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #20
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #20
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %78
 
 70:                                               ; preds = %5
@@ -7367,7 +7361,7 @@ pcapng_write_custom_option.exit:                  ; preds = %65, %67, %31
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define internal noundef range(i32 0, 9) i32 @compute_isb_option_size(ptr readnone captures(none) %0, i32 noundef %1, i32 %2, ptr readnone captures(none) %3) #13 {
+define internal noundef range(i32 0, 9) i32 @compute_isb_option_size(ptr readnone captures(none) %0, i32 noundef %1, i32 %2, ptr readnone captures(none) %3) #12 {
   %.off = add i32 %1, -2
   %switch = icmp ult i32 %.off, 7
   %. = select i1 %switch, i32 8, i32 0
@@ -7391,9 +7385,9 @@ define internal noundef zeroext i1 @write_wtap_isb_option(ptr noundef %0, ptr re
   ]
 
 11:                                               ; preds = %6, %6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #20
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #20
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %12 = trunc nuw nsw i32 %2 to i16
   store i16 %12, ptr %8, align 2
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 2
@@ -7412,20 +7406,20 @@ define internal noundef zeroext i1 @write_wtap_isb_option(ptr noundef %0, ptr re
   br i1 %20, label %pcapng_write_timestamp_option.exit, label %pcapng_write_timestamp_option.exit.thread
 
 pcapng_write_timestamp_option.exit.thread:        ; preds = %11, %15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #20
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #20
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %28
 
 pcapng_write_timestamp_option.exit:               ; preds = %15
   %21 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %10, i64 noundef 4, ptr noundef %5)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #20
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #20
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %21, label %27, label %28
 
 22:                                               ; preds = %6, %6, %6, %6, %6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %23 = trunc nuw nsw i32 %2 to i16
   store i16 %23, ptr %7, align 2
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 2
@@ -7434,12 +7428,12 @@ pcapng_write_timestamp_option.exit:               ; preds = %15
   br i1 %25, label %pcapng_write_uint64_option.exit, label %pcapng_write_uint64_option.exit.thread
 
 pcapng_write_uint64_option.exit.thread:           ; preds = %22
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %28
 
 pcapng_write_uint64_option.exit:                  ; preds = %22
   %26 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef %4, i64 noundef 8, ptr noundef %5)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %26, label %27, label %28
 
 27:                                               ; preds = %6, %pcapng_write_uint64_option.exit, %pcapng_write_timestamp_option.exit
@@ -7451,7 +7445,7 @@ pcapng_write_uint64_option.exit:                  ; preds = %22
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 65536) i32 @compute_shb_option_size(ptr readnone captures(none) %0, i32 noundef %1, i32 %2, ptr noundef readonly captures(none) %3) #11 {
+define internal range(i32 0, 65536) i32 @compute_shb_option_size(ptr readnone captures(none) %0, i32 noundef %1, i32 %2, ptr noundef readonly captures(none) %3) #10 {
   %.off = add i32 %1, -2
   %switch = icmp ult i32 %.off, 3
   br i1 %switch, label %5, label %9
@@ -7477,10 +7471,10 @@ define internal noundef zeroext i1 @write_wtap_shb_option(ptr noundef %0, ptr re
   br i1 %switch, label %9, label %26
 
 9:                                                ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %10 = load ptr, ptr %4, align 8
   %11 = tail call i64 @strlen(ptr noundef %10) #21
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4
   %12 = add i64 %11, -65536
   %or.cond.i = icmp ult i64 %12, -65535
@@ -7515,8 +7509,8 @@ pcapng_write_string_option.exit:                  ; preds = %21, %23, %9
 
 .sink.split:                                      ; preds = %23, %18, %13, %pcapng_write_string_option.exit
   %.0.ph = phi i1 [ true, %pcapng_write_string_option.exit ], [ false, %13 ], [ false, %18 ], [ false, %23 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #20
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %26
 
 26:                                               ; preds = %.sink.split, %6
@@ -7525,7 +7519,7 @@ pcapng_write_string_option.exit:                  ; preds = %21, %23, %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 65536) i32 @compute_idb_option_size(ptr readnone captures(none) %0, i32 noundef %1, i32 %2, ptr noundef readonly captures(none) %3) #11 {
+define internal range(i32 0, 65536) i32 @compute_idb_option_size(ptr readnone captures(none) %0, i32 noundef %1, i32 %2, ptr noundef readonly captures(none) %3) #10 {
   switch i32 %1, label %25 [
     i32 2, label %5
     i32 3, label %5
@@ -7603,10 +7597,10 @@ define internal noundef zeroext i1 @write_wtap_idb_option(ptr noundef %0, ptr re
   ]
 
 17:                                               ; preds = %6, %6, %6, %6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %18 = load ptr, ptr %4, align 8
   %19 = tail call i64 @strlen(ptr noundef %18) #21
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i32 0, ptr %16, align 4
   %20 = add i64 %19, -65536
   %or.cond.i = icmp ult i64 %20, -65535
@@ -7637,17 +7631,17 @@ define internal noundef zeroext i1 @write_wtap_idb_option(ptr noundef %0, ptr re
   br i1 %33, label %pcapng_write_string_option.exit, label %pcapng_write_string_option.exit.thread
 
 pcapng_write_string_option.exit.thread:           ; preds = %21, %26, %31
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #20
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %89
 
 pcapng_write_string_option.exit:                  ; preds = %29, %31, %17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #20
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %88
 
 34:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i16 8, ptr %14, align 2
   %35 = getelementptr inbounds nuw i8, ptr %14, i64 2
   store i16 8, ptr %35, align 2
@@ -7655,17 +7649,17 @@ pcapng_write_string_option.exit:                  ; preds = %29, %31, %17
   br i1 %36, label %pcapng_write_uint64_option.exit, label %pcapng_write_uint64_option.exit.thread
 
 pcapng_write_uint64_option.exit.thread:           ; preds = %34
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %89
 
 pcapng_write_uint64_option.exit:                  ; preds = %34
   %37 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef %4, i64 noundef 8, ptr noundef %5)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br i1 %37, label %88, label %89
 
 38:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #20
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 0, ptr %13, align 4
   store i16 9, ptr %12, align 2
   %39 = getelementptr inbounds nuw i8, ptr %12, i64 2
@@ -7678,20 +7672,20 @@ pcapng_write_uint64_option.exit:                  ; preds = %34
   br i1 %42, label %pcapng_write_uint8_option.exit, label %pcapng_write_uint8_option.exit.thread
 
 pcapng_write_uint8_option.exit.thread:            ; preds = %38, %41
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #20
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %89
 
 pcapng_write_uint8_option.exit:                   ; preds = %41
   %43 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %13, i64 noundef 3, ptr noundef %5)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #20
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br i1 %43, label %88, label %89
 
 44:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #20
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #20
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 0, ptr %11, align 4
   %45 = load i32, ptr %4, align 8
   switch i32 %45, label %pcapng_write_if_filter_option.exit [
@@ -7766,20 +7760,20 @@ pcapng_write_uint8_option.exit:                   ; preds = %41
   br i1 %81, label %pcapng_write_if_filter_option.exit, label %pcapng_write_if_filter_option.exit.thread
 
 pcapng_write_if_filter_option.exit.thread:        ; preds = %57, %65, %69, %73, %79
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #20
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #20
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %89
 
 pcapng_write_if_filter_option.exit:               ; preds = %78, %79, %44, %46, %51
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #20
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #20
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %88
 
 82:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #20
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4
   store i16 13, ptr %7, align 2
   %83 = getelementptr inbounds nuw i8, ptr %7, i64 2
@@ -7792,14 +7786,14 @@ pcapng_write_if_filter_option.exit:               ; preds = %78, %79, %44, %46, 
   br i1 %86, label %pcapng_write_uint8_option.exit26, label %pcapng_write_uint8_option.exit26.thread
 
 pcapng_write_uint8_option.exit26.thread:          ; preds = %82, %85
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #20
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %89
 
 pcapng_write_uint8_option.exit26:                 ; preds = %85
   %87 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %8, i64 noundef 3, ptr noundef %5)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #20
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %87, label %88, label %89
 
 88:                                               ; preds = %pcapng_write_if_filter_option.exit, %pcapng_write_string_option.exit, %6, %pcapng_write_uint8_option.exit26, %pcapng_write_uint8_option.exit, %pcapng_write_uint64_option.exit
@@ -7811,7 +7805,13 @@ pcapng_write_uint8_option.exit26:                 ; preds = %85
 }
 
 ; Function Attrs: noreturn null_pointer_is_valid
-declare void @ws_log_fatal_full(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #14
+declare void @ws_log_fatal_full(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #13
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.bswap.i16(i16) #15
@@ -7829,20 +7829,20 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare void @llvm.assume(i1 noundef) #17
 
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nosync nounwind null_pointer_is_valid willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { null_pointer_is_valid allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nocallback nofree nounwind null_pointer_is_valid memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nofree norecurse nounwind null_pointer_is_valid sspstrong memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { noreturn null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree nosync nounwind null_pointer_is_valid willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { null_pointer_is_valid allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nounwind null_pointer_is_valid memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nofree norecurse nounwind null_pointer_is_valid sspstrong memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { noreturn null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #16 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #17 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }

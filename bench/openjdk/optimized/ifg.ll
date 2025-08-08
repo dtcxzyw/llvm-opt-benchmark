@@ -1487,7 +1487,7 @@ _ZN8IndexSet6removeEj.exit._ZN8IndexSet6removeEj.exit65_crit_edge: ; preds = %_Z
 
 _ZN8IndexSet6removeEj.exit65:                     ; preds = %_ZN8IndexSet6removeEj.exit._ZN8IndexSet6removeEj.exit65_crit_edge, %122, %94
   %124 = phi i32 [ %.pre, %_ZN8IndexSet6removeEj.exit._ZN8IndexSet6removeEj.exit65_crit_edge ], [ %123, %122 ], [ %.pre102, %94 ]
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %125 = icmp eq i32 %124, 0
   br i1 %125, label %_ZN12PhaseChaitin19interfere_with_liveEjP8IndexSet.exit, label %126
 
@@ -1635,7 +1635,7 @@ _ZN16IndexSetIterator4nextEv.exit13.i:            ; preds = %202, %188
   br i1 %.not.i, label %_ZN12PhaseChaitin19interfere_with_liveEjP8IndexSet.exit, label %137, !llvm.loop !20
 
 _ZN12PhaseChaitin19interfere_with_liveEjP8IndexSet.exit: ; preds = %198, %_ZN16IndexSetIterator4nextEv.exit13.i, %_ZN8IndexSet6removeEj.exit65, %126, %_ZN16IndexSetIterator4nextEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %204
 
 204:                                              ; preds = %_ZN12PhaseChaitin19interfere_with_liveEjP8IndexSet.exit, %_ZNK5Block8get_nodeEj.exit
@@ -3927,7 +3927,7 @@ _ZNK5Block8get_nodeEj.exit:                       ; preds = %143, %147
   br i1 %.not93, label %_ZN12PhaseChaitin29remove_interference_from_copyEP5BlockjjP8IndexSetdRNS_8PressureES5_.exit, label %258
 
 258:                                              ; preds = %254
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %259 = getelementptr inbounds nuw i8, ptr %163, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %5, ptr noundef nonnull readonly align 8 dereferenceable(96) %259, i64 96, i1 false)
   %260 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN7Matcher16idealreg2regmaskE, i64 24), align 8
@@ -3995,8 +3995,8 @@ _ZN7RegMask3ANDERKS_.exit.i:                      ; preds = %280, %276
   br label %_ZN12PhaseChaitin45check_for_high_pressure_transition_at_fatprojERjjR3LRGRNS_8PressureEi.exit
 
 _ZN12PhaseChaitin45check_for_high_pressure_transition_at_fatprojERjjR3LRGRNS_8PressureEi.exit: ; preds = %_ZN7RegMask3ANDERKS_.exit.i, %287
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %4, ptr noundef nonnull readonly align 8 dereferenceable(96) %259, i64 96, i1 false)
   %289 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN7Matcher16idealreg2regmaskE, i64 48), align 8
   %290 = load i32, ptr %28, align 8
@@ -4063,7 +4063,7 @@ _ZN7RegMask3ANDERKS_.exit.i108:                   ; preds = %309, %305
   br label %_ZN12PhaseChaitin45check_for_high_pressure_transition_at_fatprojERjjR3LRGRNS_8PressureEi.exit111
 
 _ZN12PhaseChaitin45check_for_high_pressure_transition_at_fatprojERjjR3LRGRNS_8PressureEi.exit111: ; preds = %_ZN7RegMask3ANDERKS_.exit.i108, %316
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN12PhaseChaitin29remove_interference_from_copyEP5BlockjjP8IndexSetdRNS_8PressureES5_.exit
 
 318:                                              ; preds = %185, %167
@@ -4482,7 +4482,7 @@ _ZNK7RegMask11is_NotEmptyEv.exit:                 ; preds = %.lr.ph.i121
   br label %_ZNK7RegMask11is_NotEmptyEv.exit.thread
 
 _ZNK7RegMask11is_NotEmptyEv.exit.thread:          ; preds = %555, %566, %_ZNK7RegMask11is_NotEmptyEv.exit, %553, %_ZN12PhaseChaitin29remove_interference_from_copyEP5BlockjjP8IndexSetdRNS_8PressureES5_.exit
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %567 = load i32, ptr %8, align 8
   %568 = icmp eq i32 %567, 0
   br i1 %568, label %_ZN12PhaseChaitin19interfere_with_liveEjP8IndexSet.exit, label %569
@@ -4630,7 +4630,7 @@ _ZN16IndexSetIterator4nextEv.exit13.i:            ; preds = %644, %630
   br i1 %.not.i131, label %_ZN12PhaseChaitin19interfere_with_liveEjP8IndexSet.exit, label %579, !llvm.loop !20
 
 _ZN12PhaseChaitin19interfere_with_liveEjP8IndexSet.exit: ; preds = %640, %_ZN16IndexSetIterator4nextEv.exit13.i, %_ZNK7RegMask11is_NotEmptyEv.exit.thread, %569, %_ZN16IndexSetIterator4nextEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %646
 
 646:                                              ; preds = %_ZN12PhaseChaitin19interfere_with_liveEjP8IndexSet.exit, %_ZNK5Block8get_nodeEj.exit
@@ -5111,10 +5111,10 @@ declare double @llvm.fabs.f64(double) #10
 declare void @llvm.assume(i1 noundef) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -17,20 +17,20 @@ define noundef nonnull ptr @BIO_f_asn1() local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define i32 @BIO_asn1_set_prefix(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = alloca %struct.BIO_ASN1_EX_FUNCS_st, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %1, ptr %4, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %2, ptr %5, align 8, !tbaa !8
   %6 = call i64 @BIO_ctrl(ptr noundef %0, i32 noundef 149, i64 noundef 0, ptr noundef nonnull %4) #6
   %7 = trunc i64 %6 to i32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @BIO_asn1_get_prefix(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #1 {
   %4 = alloca %struct.BIO_ASN1_EX_FUNCS_st, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call i64 @BIO_ctrl(ptr noundef %0, i32 noundef 150, i64 noundef 0, ptr noundef nonnull %4) #6
   %6 = trunc i64 %5 to i32
   %7 = icmp sgt i32 %6, 0
@@ -45,27 +45,27 @@ define i32 @BIO_asn1_get_prefix(ptr noundef %0, ptr noundef writeonly captures(n
   br label %asn1_bio_get_ex.exit
 
 asn1_bio_get_ex.exit:                             ; preds = %3, %8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @BIO_asn1_set_suffix(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = alloca %struct.BIO_ASN1_EX_FUNCS_st, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %1, ptr %4, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %2, ptr %5, align 8, !tbaa !8
   %6 = call i64 @BIO_ctrl(ptr noundef %0, i32 noundef 151, i64 noundef 0, ptr noundef nonnull %4) #6
   %7 = trunc i64 %6 to i32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @BIO_asn1_get_suffix(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #1 {
   %4 = alloca %struct.BIO_ASN1_EX_FUNCS_st, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call i64 @BIO_ctrl(ptr noundef %0, i32 noundef 152, i64 noundef 0, ptr noundef nonnull %4) #6
   %6 = trunc i64 %5 to i32
   %7 = icmp sgt i32 %6, 0
@@ -80,7 +80,7 @@ define i32 @BIO_asn1_get_suffix(ptr noundef %0, ptr noundef writeonly captures(n
   br label %asn1_bio_get_ex.exit
 
 asn1_bio_get_ex.exit:                             ; preds = %3, %8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %6
 }
 
@@ -89,7 +89,7 @@ declare i32 @bwrite_conv(ptr noundef, ptr noundef, i64 noundef, ptr noundef) #2
 ; Function Attrs: nounwind uwtable
 define internal i32 @asn1_bio_write(ptr noundef %0, ptr noundef %1, i32 noundef %2) #1 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call ptr @BIO_get_data(ptr noundef %0) #6
   %6 = tail call ptr @BIO_next(ptr noundef %0) #6
   %7 = icmp eq ptr %1, null
@@ -252,7 +252,7 @@ asn1_bio_setup_ex.exit:                           ; preds = %25, %27
 
 .loopexit:                                        ; preds = %34, %asn1_bio_setup_ex.exit.thread, %3, %.loopexit91, %73
   %.0 = phi i32 [ %75, %.loopexit91 ], [ 0, %73 ], [ 0, %3 ], [ -1, %asn1_bio_setup_ex.exit.thread ], [ -1, %34 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -545,9 +545,6 @@ define internal i64 @asn1_bio_callback_ctrl(ptr noundef %0, i32 noundef %1, ptr 
   ret i64 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 declare ptr @BIO_get_data(ptr noundef) local_unnamed_addr #2
 
 declare ptr @BIO_next(ptr noundef) local_unnamed_addr #2
@@ -623,13 +620,10 @@ declare void @BIO_clear_flags(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 declare void @BIO_copy_next_retry(ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
-
 declare i32 @BIO_read(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare i32 @BIO_gets(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -647,14 +641,20 @@ declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_
 
 declare i64 @BIO_callback_ctrl(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #5
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nounwind }
 attributes #7 = { nounwind willreturn memory(read) }

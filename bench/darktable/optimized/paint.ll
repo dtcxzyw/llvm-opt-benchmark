@@ -41,7 +41,7 @@ define void @dtgtk_cairo_paint_empty(ptr noundef %0, i32 noundef %1, i32 noundef
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %10, double noundef %10) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %21 = load double, ptr %8, align 8, !tbaa !6
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -49,7 +49,7 @@ define void @dtgtk_cairo_paint_empty(ptr noundef %0, i32 noundef %1, i32 noundef
   %24 = call reassoc nsz arcp contract afn double @hypot(double noundef %21, double noundef %23) #10
   %25 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %24
   call void @cairo_set_line_width(ptr noundef %0, double noundef %25) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_stroke(ptr noundef %0) #9
   call void @cairo_identity_matrix(ptr noundef %0) #9
   call void @cairo_restore(ptr noundef %0) #9
@@ -60,9 +60,6 @@ declare void @cairo_save(ptr noundef) local_unnamed_addr #1
 
 declare void @cairo_set_line_cap(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare void @cairo_translate(ptr noundef, double noundef, double noundef) local_unnamed_addr #1
 
 declare void @cairo_scale(ptr noundef, double noundef, double noundef) local_unnamed_addr #1
@@ -72,10 +69,7 @@ declare void @cairo_get_matrix(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @cairo_set_line_width(ptr noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare double @hypot(double noundef, double noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare double @hypot(double noundef, double noundef) local_unnamed_addr #2
 
 declare void @cairo_stroke(ptr noundef) local_unnamed_addr #1
 
@@ -104,7 +98,7 @@ define void @dtgtk_cairo_paint_color(ptr noundef %0, i32 noundef %1, i32 noundef
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %10, double noundef %10) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %21 = load double, ptr %8, align 8, !tbaa !6
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -112,7 +106,7 @@ define void @dtgtk_cairo_paint_color(ptr noundef %0, i32 noundef %1, i32 noundef
   %24 = call reassoc nsz arcp contract afn double @hypot(double noundef %21, double noundef %23) #10
   %25 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %24
   call void @cairo_set_line_width(ptr noundef %0, double noundef %25) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_translate(ptr noundef %0, double noundef %11, double noundef %16) #9
   call void @cairo_scale(ptr noundef %0, double noundef %12, double noundef %17) #9
   call void @cairo_rectangle(ptr noundef %0, double noundef 1.000000e-01, double noundef 1.000000e-01, double noundef 8.000000e-01, double noundef 8.000000e-01) #9
@@ -151,7 +145,7 @@ define void @dtgtk_cairo_paint_presets(ptr noundef %0, i32 noundef %1, i32 nound
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %10, double noundef %10) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %21 = load double, ptr %8, align 8, !tbaa !6
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -159,7 +153,7 @@ define void @dtgtk_cairo_paint_presets(ptr noundef %0, i32 noundef %1, i32 nound
   %24 = call reassoc nsz arcp contract afn double @hypot(double noundef %21, double noundef %23) #10
   %25 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %24
   call void @cairo_set_line_width(ptr noundef %0, double noundef %25) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_move_to(ptr noundef %0, double noundef 1.000000e-01, double noundef 1.000000e-01) #9
   call void @cairo_line_to(ptr noundef %0, double noundef 9.000000e-01, double noundef 1.000000e-01) #9
   call void @cairo_move_to(ptr noundef %0, double noundef 1.000000e-01, double noundef 5.000000e-01) #9
@@ -197,7 +191,7 @@ define void @dtgtk_cairo_paint_triangle(ptr noundef %0, i32 noundef %1, i32 noun
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %10, double noundef %10) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %21 = load double, ptr %8, align 8, !tbaa !6
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -205,7 +199,7 @@ define void @dtgtk_cairo_paint_triangle(ptr noundef %0, i32 noundef %1, i32 noun
   %24 = call reassoc nsz arcp contract afn double @hypot(double noundef %21, double noundef %23) #10
   %25 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %24
   call void @cairo_set_line_width(ptr noundef %0, double noundef %25) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call fastcc void @_draw_triangle(ptr noundef %0, i32 noundef %5)
   call void @cairo_stroke(ptr noundef %0) #9
   call void @cairo_identity_matrix(ptr noundef %0) #9
@@ -217,13 +211,13 @@ define void @dtgtk_cairo_paint_triangle(ptr noundef %0, i32 noundef %1, i32 noun
 define internal fastcc void @_draw_triangle(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = alloca %struct._cairo_matrix, align 8
   %4 = alloca %struct._cairo_matrix, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @cairo_matrix_init(ptr noundef nonnull %3, double noundef -1.000000e+00, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 1.000000e+00, double noundef 1.000000e+00, double noundef 0.000000e+00) #9
   %5 = and i32 %1, 2
   %.not.not = icmp eq i32 %5, 0
   %. = select reassoc nsz arcp contract afn i1 %.not.not, double 0x3C91A62633145C07, double 0xBCAA79394C9E8A0A
   %6 = select reassoc nsz arcp contract afn i1 %.not.not, double -1.000000e+00, double 1.000000e+00
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = fneg reassoc nsz arcp contract afn double %6
   %.neg = fmul reassoc nsz arcp contract afn double %., -5.000000e-01
   %8 = fadd reassoc nsz arcp contract afn double %.neg, 5.000000e-01
@@ -251,8 +245,8 @@ define internal fastcc void @_draw_triangle(ptr noundef %0, i32 noundef %1) unna
   call void @cairo_line_to(ptr noundef %0, double noundef 4.500000e-01, double noundef 5.000000e-01) #9
   call void @cairo_line_to(ptr noundef %0, double noundef 5.000000e-02, double noundef 9.000000e-01) #9
   call void @cairo_line_to(ptr noundef %0, double noundef 5.000000e-02, double noundef 5.000000e-01) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -277,7 +271,7 @@ define void @dtgtk_cairo_paint_solid_triangle(ptr noundef %0, i32 noundef %1, i3
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %10, double noundef %10) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %21 = load double, ptr %8, align 8, !tbaa !6
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -285,7 +279,7 @@ define void @dtgtk_cairo_paint_solid_triangle(ptr noundef %0, i32 noundef %1, i3
   %24 = call reassoc nsz arcp contract afn double @hypot(double noundef %21, double noundef %23) #10
   %25 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %24
   call void @cairo_set_line_width(ptr noundef %0, double noundef %25) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call fastcc void @_draw_triangle(ptr noundef %0, i32 noundef %5)
   call void @cairo_stroke_preserve(ptr noundef %0) #9
   call void @cairo_set_operator(ptr noundef %0, i32 noundef 1) #9
@@ -322,7 +316,7 @@ define void @dtgtk_cairo_paint_arrow(ptr noundef %0, i32 noundef %1, i32 noundef
   tail call void @cairo_translate(ptr noundef %0, double noundef %17, double noundef %22) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %12, double noundef %12) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %23 = load double, ptr %8, align 8, !tbaa !6
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -330,14 +324,14 @@ define void @dtgtk_cairo_paint_arrow(ptr noundef %0, i32 noundef %1, i32 noundef
   %26 = call reassoc nsz arcp contract afn double @hypot(double noundef %23, double noundef %25) #10
   %27 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %26
   call void @cairo_set_line_width(ptr noundef %0, double noundef %27) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @cairo_matrix_init(ptr noundef nonnull %9, double noundef -1.000000e+00, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 1.000000e+00, double noundef 1.000000e+00, double noundef 0.000000e+00) #9
   %28 = and i32 %5, 1
   %.not = icmp eq i32 %28, 0
   %. = select reassoc nsz arcp contract afn i1 %.not, double 0x3C91A62633145C07, double 0xBCAA79394C9E8A0A
   %29 = select reassoc nsz arcp contract afn i1 %.not, double -1.000000e+00, double 1.000000e+00
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %30 = fneg reassoc nsz arcp contract afn double %29
   %.neg43 = fmul reassoc nsz arcp contract afn double %., -5.000000e-01
   %31 = fadd reassoc nsz arcp contract afn double %.neg43, 5.000000e-01
@@ -366,8 +360,8 @@ define void @dtgtk_cairo_paint_arrow(ptr noundef %0, i32 noundef %1, i32 noundef
   call void @cairo_stroke(ptr noundef %0) #9
   call void @cairo_identity_matrix(ptr noundef %0) #9
   call void @cairo_restore(ptr noundef %0) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }
 
@@ -398,7 +392,7 @@ define void @dtgtk_cairo_paint_solid_arrow(ptr noundef %0, i32 noundef %1, i32 n
   tail call void @cairo_translate(ptr noundef %0, double noundef %17, double noundef %22) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %12, double noundef %12) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %23 = load double, ptr %8, align 8, !tbaa !6
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -406,14 +400,14 @@ define void @dtgtk_cairo_paint_solid_arrow(ptr noundef %0, i32 noundef %1, i32 n
   %26 = call reassoc nsz arcp contract afn double @hypot(double noundef %23, double noundef %25) #10
   %27 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %26
   call void @cairo_set_line_width(ptr noundef %0, double noundef %27) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @cairo_matrix_init(ptr noundef nonnull %9, double noundef -1.000000e+00, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 1.000000e+00, double noundef 1.000000e+00, double noundef 0.000000e+00) #9
   %28 = and i32 %5, 2
   %.not.not = icmp eq i32 %28, 0
   %. = select reassoc nsz arcp contract afn i1 %.not.not, double 0x3C91A62633145C07, double 0xBCAA79394C9E8A0A
   %29 = select reassoc nsz arcp contract afn i1 %.not.not, double -1.000000e+00, double 1.000000e+00
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %30 = fneg reassoc nsz arcp contract afn double %29
   %.neg43 = fmul reassoc nsz arcp contract afn double %., -5.000000e-01
   %31 = fadd reassoc nsz arcp contract afn double %.neg43, 5.000000e-01
@@ -442,8 +436,8 @@ define void @dtgtk_cairo_paint_solid_arrow(ptr noundef %0, i32 noundef %1, i32 n
   call void @cairo_fill(ptr noundef %0) #9
   call void @cairo_identity_matrix(ptr noundef %0) #9
   call void @cairo_restore(ptr noundef %0) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }
 
@@ -469,7 +463,7 @@ define void @dtgtk_cairo_paint_line_arrow(ptr noundef %0, i32 noundef %1, i32 no
   tail call void @cairo_translate(ptr noundef %0, double noundef %16, double noundef %21) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %11, double noundef %11) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %22 = load double, ptr %8, align 8, !tbaa !6
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -477,11 +471,11 @@ define void @dtgtk_cairo_paint_line_arrow(ptr noundef %0, i32 noundef %1, i32 no
   %25 = call reassoc nsz arcp contract afn double @hypot(double noundef %22, double noundef %24) #10
   %26 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %25
   call void @cairo_set_line_width(ptr noundef %0, double noundef %26) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_move_to(ptr noundef %0, double noundef 1.000000e-01, double noundef 5.000000e-01) #9
   call void @cairo_line_to(ptr noundef %0, double noundef 9.000000e-01, double noundef 5.000000e-01) #9
   call void @cairo_stroke(ptr noundef %0) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @cairo_matrix_init(ptr noundef nonnull %9, double noundef -1.000000e+00, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 1.000000e+00, double noundef 1.000000e+00, double noundef 0.000000e+00) #9
   %27 = and i32 %5, 4
   %.not = icmp eq i32 %27, 0
@@ -498,7 +492,7 @@ define void @dtgtk_cairo_paint_line_arrow(ptr noundef %0, i32 noundef %1, i32 no
   call void @cairo_fill(ptr noundef %0) #9
   call void @cairo_identity_matrix(ptr noundef %0) #9
   call void @cairo_restore(ptr noundef %0) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }
 
@@ -523,7 +517,7 @@ define void @dtgtk_cairo_paint_sortby(ptr noundef %0, i32 noundef %1, i32 nounde
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %10, double noundef %10) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %21 = load double, ptr %8, align 8, !tbaa !6
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -531,7 +525,7 @@ define void @dtgtk_cairo_paint_sortby(ptr noundef %0, i32 noundef %1, i32 nounde
   %24 = call reassoc nsz arcp contract afn double @hypot(double noundef %21, double noundef %23) #10
   %25 = fdiv reassoc nsz arcp contract afn double 1.941600e+00, %24
   call void @cairo_set_line_width(ptr noundef %0, double noundef %25) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_move_to(ptr noundef %0, double noundef 1.000000e-01, double noundef 5.000000e-02) #9
   call void @cairo_line_to(ptr noundef %0, double noundef 1.000000e-01, double noundef 0x3FEE666666666666) #9
   call void @cairo_move_to(ptr noundef %0, double noundef 0.000000e+00, double noundef 8.000000e-01) #9
@@ -580,7 +574,7 @@ define void @dtgtk_cairo_paint_flip(ptr noundef %0, i32 noundef %1, i32 noundef 
   tail call void @cairo_translate(ptr noundef %0, double noundef %16, double noundef %21) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %11, double noundef %11) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %22 = load double, ptr %8, align 8, !tbaa !6
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -588,8 +582,8 @@ define void @dtgtk_cairo_paint_flip(ptr noundef %0, i32 noundef %1, i32 noundef 
   %25 = call reassoc nsz arcp contract afn double @hypot(double noundef %22, double noundef %24) #10
   %26 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %25
   call void @cairo_set_line_width(ptr noundef %0, double noundef %26) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @cairo_matrix_init(ptr noundef nonnull %9, double noundef 0xBDEC306F72CECE67, double noundef -1.000000e+00, double noundef 1.000000e+00, double noundef 0xBDEC306F72CECE67, double noundef 0x3DDC307000000000, double noundef 0x3FF0000000070C1C) #9
   %27 = and i32 %5, 1
   %.not = icmp eq i32 %27, 0
@@ -613,7 +607,7 @@ define void @dtgtk_cairo_paint_flip(ptr noundef %0, i32 noundef %1, i32 noundef 
   call void @cairo_stroke(ptr noundef %0) #9
   call void @cairo_identity_matrix(ptr noundef %0) #9
   call void @cairo_restore(ptr noundef %0) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }
 
@@ -640,7 +634,7 @@ define void @dtgtk_cairo_paint_reset(ptr noundef %0, i32 noundef %1, i32 noundef
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %10, double noundef %10) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %21 = load double, ptr %8, align 8, !tbaa !6
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -648,7 +642,7 @@ define void @dtgtk_cairo_paint_reset(ptr noundef %0, i32 noundef %1, i32 noundef
   %24 = call reassoc nsz arcp contract afn double @hypot(double noundef %21, double noundef %23) #10
   %25 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %24
   call void @cairo_set_line_width(ptr noundef %0, double noundef %25) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_arc(ptr noundef %0, double noundef 5.000000e-01, double noundef 5.000000e-01, double noundef 4.600000e-01, double noundef 0.000000e+00, double noundef 6.283200e+00) #9
   call void @cairo_move_to(ptr noundef %0, double noundef 5.000000e-01, double noundef 3.200000e-01) #9
   call void @cairo_line_to(ptr noundef %0, double noundef 5.000000e-01, double noundef 6.800000e-01) #9
@@ -681,7 +675,7 @@ define void @dtgtk_cairo_paint_store(ptr noundef %0, i32 noundef %1, i32 noundef
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %10, double noundef %10) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %21 = load double, ptr %8, align 8, !tbaa !6
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -689,7 +683,7 @@ define void @dtgtk_cairo_paint_store(ptr noundef %0, i32 noundef %1, i32 noundef
   %24 = call reassoc nsz arcp contract afn double @hypot(double noundef %21, double noundef %23) #10
   %25 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %24
   call void @cairo_set_line_width(ptr noundef %0, double noundef %25) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_move_to(ptr noundef %0, double noundef 2.750000e-01, double noundef 1.000000e-01) #9
   call void @cairo_line_to(ptr noundef %0, double noundef 1.000000e-01, double noundef 1.000000e-01) #9
   call void @cairo_line_to(ptr noundef %0, double noundef 1.000000e-01, double noundef 9.000000e-01) #9
@@ -729,7 +723,7 @@ define void @dtgtk_cairo_paint_switch(ptr noundef %0, i32 noundef %1, i32 nounde
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %10, double noundef %10) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %21 = load double, ptr %8, align 8, !tbaa !6
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -737,7 +731,7 @@ define void @dtgtk_cairo_paint_switch(ptr noundef %0, i32 noundef %1, i32 nounde
   %24 = call reassoc nsz arcp contract afn double @hypot(double noundef %21, double noundef %23) #10
   %25 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %24
   call void @cairo_set_line_width(ptr noundef %0, double noundef %25) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_arc(ptr noundef %0, double noundef 5.000000e-01, double noundef 5.000000e-01, double noundef 4.600000e-01, double noundef 0xBFEBF49F49F49F4A, double noundef 0x4010130ECA8641FE) #9
   call void @cairo_move_to(ptr noundef %0, double noundef 5.000000e-01, double noundef 0.000000e+00) #9
   call void @cairo_line_to(ptr noundef %0, double noundef 5.000000e-01, double noundef 5.000000e-01) #9
@@ -783,7 +777,7 @@ define void @dtgtk_cairo_paint_switch_inactive(ptr noundef %0, i32 noundef %1, i
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %10, double noundef %10) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %21 = load double, ptr %8, align 8, !tbaa !6
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -791,7 +785,7 @@ define void @dtgtk_cairo_paint_switch_inactive(ptr noundef %0, i32 noundef %1, i
   %24 = call reassoc nsz arcp contract afn double @hypot(double noundef %21, double noundef %23) #10
   %25 = fdiv reassoc nsz arcp contract afn double 0x3FDF10CB3E147AE2, %24
   call void @cairo_set_line_width(ptr noundef %0, double noundef %25) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_arc(ptr noundef %0, double noundef 5.000000e-01, double noundef 5.000000e-01, double noundef 4.600000e-01, double noundef 0xBFEBF49F49F49F4A, double noundef 0x4010130ECA8641FE) #9
   call void @cairo_move_to(ptr noundef %0, double noundef 5.000000e-01, double noundef 0.000000e+00) #9
   call void @cairo_line_to(ptr noundef %0, double noundef 5.000000e-01, double noundef 5.000000e-01) #9
@@ -833,7 +827,7 @@ define void @dtgtk_cairo_paint_switch_on(ptr noundef %0, i32 noundef %1, i32 nou
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %10, double noundef %10) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %21 = load double, ptr %8, align 8, !tbaa !6
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -841,7 +835,7 @@ define void @dtgtk_cairo_paint_switch_on(ptr noundef %0, i32 noundef %1, i32 nou
   %24 = call reassoc nsz arcp contract afn double @hypot(double noundef %21, double noundef %23) #10
   %25 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %24
   call void @cairo_set_line_width(ptr noundef %0, double noundef %25) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_arc(ptr noundef %0, double noundef 5.000000e-01, double noundef 5.000000e-01, double noundef 5.000000e-01, double noundef 0.000000e+00, double noundef 0x401921FB54442D18) #9
   call void @cairo_stroke(ptr noundef %0) #9
   call void @cairo_arc(ptr noundef %0, double noundef 5.000000e-01, double noundef 5.000000e-01, double noundef 3.000000e-01, double noundef 0.000000e+00, double noundef 0x401921FB54442D18) #9
@@ -883,7 +877,7 @@ define void @dtgtk_cairo_paint_switch_off(ptr noundef %0, i32 noundef %1, i32 no
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %10, double noundef %10) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %21 = load double, ptr %8, align 8, !tbaa !6
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -891,7 +885,7 @@ define void @dtgtk_cairo_paint_switch_off(ptr noundef %0, i32 noundef %1, i32 no
   %24 = call reassoc nsz arcp contract afn double @hypot(double noundef %21, double noundef %23) #10
   %25 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %24
   call void @cairo_set_line_width(ptr noundef %0, double noundef %25) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_arc(ptr noundef %0, double noundef 5.000000e-01, double noundef 5.000000e-01, double noundef 5.000000e-01, double noundef 0.000000e+00, double noundef 0x401921FB54442D18) #9
   call void @cairo_stroke(ptr noundef %0) #9
   call void @cairo_identity_matrix(ptr noundef %0) #9
@@ -920,7 +914,7 @@ define void @dtgtk_cairo_paint_switch_deprecated(ptr noundef %0, i32 noundef %1,
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %10, double noundef %10) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %21 = load double, ptr %8, align 8, !tbaa !6
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -928,7 +922,7 @@ define void @dtgtk_cairo_paint_switch_deprecated(ptr noundef %0, i32 noundef %1,
   %24 = call reassoc nsz arcp contract afn double @hypot(double noundef %21, double noundef %23) #10
   %25 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %24
   call void @cairo_set_line_width(ptr noundef %0, double noundef %25) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_move_to(ptr noundef %0, double noundef 1.000000e-01, double noundef 1.000000e-01) #9
   call void @cairo_line_to(ptr noundef %0, double noundef 9.000000e-01, double noundef 9.000000e-01) #9
   call void @cairo_move_to(ptr noundef %0, double noundef 1.000000e-01, double noundef 9.000000e-01) #9
@@ -967,7 +961,7 @@ define void @dtgtk_cairo_paint_plusminus(ptr noundef %0, i32 noundef %1, i32 nou
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %10, double noundef %10) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %21 = load double, ptr %8, align 8, !tbaa !6
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -975,7 +969,7 @@ define void @dtgtk_cairo_paint_plusminus(ptr noundef %0, i32 noundef %1, i32 nou
   %24 = call reassoc nsz arcp contract afn double @hypot(double noundef %21, double noundef %23) #10
   %25 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %24
   call void @cairo_set_line_width(ptr noundef %0, double noundef %25) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_arc(ptr noundef %0, double noundef 5.000000e-01, double noundef 5.000000e-01, double noundef 4.500000e-01, double noundef 0.000000e+00, double noundef 0x401921FB54442D18) #9
   call void @cairo_fill(ptr noundef %0) #9
   call void @cairo_set_source_rgba(ptr noundef %0, double noundef 2.000000e-01, double noundef 2.000000e-01, double noundef 2.000000e-01, double noundef 1.000000e+00) #9
@@ -1019,7 +1013,7 @@ define void @dtgtk_cairo_paint_square_plus(ptr noundef %0, i32 noundef %1, i32 n
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %10, double noundef %10) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %21 = load double, ptr %8, align 8, !tbaa !6
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -1027,7 +1021,7 @@ define void @dtgtk_cairo_paint_square_plus(ptr noundef %0, i32 noundef %1, i32 n
   %24 = call reassoc nsz arcp contract afn double @hypot(double noundef %21, double noundef %23) #10
   %25 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %24
   call void @cairo_set_line_width(ptr noundef %0, double noundef %25) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_new_sub_path(ptr noundef %0) #9
   call void @cairo_arc(ptr noundef %0, double noundef 9.000000e-01, double noundef 1.000000e-01, double noundef 1.000000e-01, double noundef 0xBFF921FB54442D18, double noundef 0.000000e+00) #9
   call void @cairo_arc(ptr noundef %0, double noundef 9.000000e-01, double noundef 9.000000e-01, double noundef 1.000000e-01, double noundef 0.000000e+00, double noundef 0x3FF921FB54442D18) #9
@@ -1067,7 +1061,7 @@ define void @dtgtk_cairo_paint_sorting(ptr noundef %0, i32 noundef %1, i32 nound
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %10, double noundef %10) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %21 = load double, ptr %8, align 8, !tbaa !6
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -1075,7 +1069,7 @@ define void @dtgtk_cairo_paint_sorting(ptr noundef %0, i32 noundef %1, i32 nound
   %24 = call reassoc nsz arcp contract afn double @hypot(double noundef %21, double noundef %23) #10
   %25 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %24
   call void @cairo_set_line_width(ptr noundef %0, double noundef %25) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_move_to(ptr noundef %0, double noundef 4.000000e-01, double noundef 1.000000e-01) #9
   call void @cairo_line_to(ptr noundef %0, double noundef 4.000000e-01, double noundef 9.000000e-01) #9
   call void @cairo_line_to(ptr noundef %0, double noundef 2.000000e-01, double noundef 0x3FE6666666666666) #9
@@ -1109,7 +1103,7 @@ define void @dtgtk_cairo_paint_plus_simple(ptr noundef %0, i32 noundef %1, i32 n
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %10, double noundef %10) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %21 = load double, ptr %8, align 8, !tbaa !6
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -1117,7 +1111,7 @@ define void @dtgtk_cairo_paint_plus_simple(ptr noundef %0, i32 noundef %1, i32 n
   %24 = call reassoc nsz arcp contract afn double @hypot(double noundef %21, double noundef %23) #10
   %25 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %24
   call void @cairo_set_line_width(ptr noundef %0, double noundef %25) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_move_to(ptr noundef %0, double noundef 5.000000e-01, double noundef 1.000000e-01) #9
   call void @cairo_line_to(ptr noundef %0, double noundef 5.000000e-01, double noundef 9.000000e-01) #9
   call void @cairo_move_to(ptr noundef %0, double noundef 1.000000e-01, double noundef 5.000000e-01) #9
@@ -1149,7 +1143,7 @@ define void @dtgtk_cairo_paint_minus_simple(ptr noundef %0, i32 noundef %1, i32 
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %10, double noundef %10) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %21 = load double, ptr %8, align 8, !tbaa !6
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -1157,7 +1151,7 @@ define void @dtgtk_cairo_paint_minus_simple(ptr noundef %0, i32 noundef %1, i32 
   %24 = call reassoc nsz arcp contract afn double @hypot(double noundef %21, double noundef %23) #10
   %25 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %24
   call void @cairo_set_line_width(ptr noundef %0, double noundef %25) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_move_to(ptr noundef %0, double noundef 1.000000e-01, double noundef 5.000000e-01) #9
   call void @cairo_line_to(ptr noundef %0, double noundef 9.000000e-01, double noundef 5.000000e-01) #9
   call void @cairo_stroke(ptr noundef %0) #9
@@ -1187,7 +1181,7 @@ define void @dtgtk_cairo_paint_multiply_small(ptr noundef %0, i32 noundef %1, i3
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %10, double noundef %10) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %21 = load double, ptr %8, align 8, !tbaa !6
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -1195,7 +1189,7 @@ define void @dtgtk_cairo_paint_multiply_small(ptr noundef %0, i32 noundef %1, i3
   %24 = call reassoc nsz arcp contract afn double @hypot(double noundef %21, double noundef %23) #10
   %25 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %24
   call void @cairo_set_line_width(ptr noundef %0, double noundef %25) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_move_to(ptr noundef %0, double noundef 3.000000e-01, double noundef 3.000000e-01) #9
   call void @cairo_line_to(ptr noundef %0, double noundef 0x3FE6666666666666, double noundef 0x3FE6666666666666) #9
   call void @cairo_move_to(ptr noundef %0, double noundef 0x3FE6666666666666, double noundef 3.000000e-01) #9
@@ -1227,7 +1221,7 @@ define void @dtgtk_cairo_paint_treelist(ptr noundef %0, i32 noundef %1, i32 noun
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %10, double noundef %10) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %21 = load double, ptr %8, align 8, !tbaa !6
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -1235,7 +1229,7 @@ define void @dtgtk_cairo_paint_treelist(ptr noundef %0, i32 noundef %1, i32 noun
   %24 = call reassoc nsz arcp contract afn double @hypot(double noundef %21, double noundef %23) #10
   %25 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %24
   call void @cairo_set_line_width(ptr noundef %0, double noundef %25) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_move_to(ptr noundef %0, double noundef 5.000000e-02, double noundef 5.000000e-02) #9
   call void @cairo_line_to(ptr noundef %0, double noundef 1.250000e-01, double noundef 5.000000e-02) #9
   call void @cairo_move_to(ptr noundef %0, double noundef 2.500000e-01, double noundef 3.500000e-01) #9
@@ -1281,7 +1275,7 @@ define void @dtgtk_cairo_paint_invert(ptr noundef %0, i32 noundef %1, i32 nounde
   tail call void @cairo_translate(ptr noundef %0, double noundef %16, double noundef %21) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %11, double noundef %11) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %22 = load double, ptr %8, align 8, !tbaa !6
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -1289,7 +1283,7 @@ define void @dtgtk_cairo_paint_invert(ptr noundef %0, i32 noundef %1, i32 nounde
   %25 = call reassoc nsz arcp contract afn double @hypot(double noundef %22, double noundef %24) #10
   %26 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %25
   call void @cairo_set_line_width(ptr noundef %0, double noundef %26) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_set_line_cap(ptr noundef %0, i32 noundef 1) #9
   call void @cairo_arc(ptr noundef %0, double noundef 5.000000e-01, double noundef 5.000000e-01, double noundef 4.600000e-01, double noundef 0.000000e+00, double noundef 0x401921FB54442D18) #9
   call void @cairo_stroke(ptr noundef %0) #9
@@ -1322,7 +1316,7 @@ define void @dtgtk_cairo_paint_masks_eye(ptr noundef %0, i32 noundef %1, i32 nou
   tail call void @cairo_translate(ptr noundef %0, double noundef %16, double noundef %21) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %11, double noundef %11) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %22 = load double, ptr %8, align 8, !tbaa !6
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -1330,8 +1324,8 @@ define void @dtgtk_cairo_paint_masks_eye(ptr noundef %0, i32 noundef %1, i32 nou
   %25 = call reassoc nsz arcp contract afn double @hypot(double noundef %22, double noundef %24) #10
   %26 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %25
   call void @cairo_set_line_width(ptr noundef %0, double noundef %26) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %9, ptr noundef nonnull align 16 dereferenceable(16) @__const.dtgtk_cairo_paint_masks_eye.dashed, i64 16, i1 false)
   call void @cairo_set_dash(ptr noundef %0, ptr noundef nonnull %9, i32 noundef 2, double noundef 0.000000e+00) #9
   call void @cairo_arc(ptr noundef %0, double noundef 7.500000e-01, double noundef 7.500000e-01, double noundef 7.500000e-01, double noundef 2.800000e+00, double noundef 4.712400e+00) #9
@@ -1347,12 +1341,12 @@ define void @dtgtk_cairo_paint_masks_eye(ptr noundef %0, i32 noundef %1, i32 nou
   call void @cairo_fill(ptr noundef %0) #9
   call void @cairo_identity_matrix(ptr noundef %0) #9
   call void @cairo_restore(ptr noundef %0) #9
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare void @cairo_set_dash(ptr noundef, ptr noundef, i32 noundef, double noundef) local_unnamed_addr #1
 
@@ -1378,7 +1372,7 @@ define void @dtgtk_cairo_paint_masks_circle(ptr noundef %0, i32 noundef %1, i32 
   tail call void @cairo_translate(ptr noundef %0, double noundef %16, double noundef %21) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %11, double noundef %11) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %22 = load double, ptr %8, align 8, !tbaa !6
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -1386,7 +1380,7 @@ define void @dtgtk_cairo_paint_masks_circle(ptr noundef %0, i32 noundef %1, i32 
   %25 = call reassoc nsz arcp contract afn double @hypot(double noundef %22, double noundef %24) #10
   %26 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %25
   call void @cairo_set_line_width(ptr noundef %0, double noundef %26) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_arc(ptr noundef %0, double noundef 5.000000e-01, double noundef 5.000000e-01, double noundef 4.000000e-01, double noundef 0.000000e+00, double noundef 6.283200e+00) #9
   call void @cairo_stroke(ptr noundef %0) #9
   call void @cairo_identity_matrix(ptr noundef %0) #9
@@ -1416,7 +1410,7 @@ define void @dtgtk_cairo_paint_masks_ellipse(ptr noundef %0, i32 noundef %1, i32
   tail call void @cairo_translate(ptr noundef %0, double noundef %16, double noundef %21) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %11, double noundef %11) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %22 = load double, ptr %8, align 8, !tbaa !6
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -1424,7 +1418,7 @@ define void @dtgtk_cairo_paint_masks_ellipse(ptr noundef %0, i32 noundef %1, i32
   %25 = call reassoc nsz arcp contract afn double @hypot(double noundef %22, double noundef %24) #10
   %26 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %25
   call void @cairo_set_line_width(ptr noundef %0, double noundef %26) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_save(ptr noundef %0) #9
   call void @cairo_translate(ptr noundef %0, double noundef 1.465000e-01, double noundef 0.000000e+00) #9
   call void @cairo_scale(ptr noundef %0, double noundef 7.070000e-01, double noundef 1.000000e+00) #9
@@ -1457,7 +1451,7 @@ define void @dtgtk_cairo_paint_masks_gradient(ptr noundef %0, i32 noundef %1, i3
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %10, double noundef %10) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef -5.000000e-02, double noundef -5.000000e-02) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %21 = load double, ptr %8, align 8, !tbaa !6
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -1465,7 +1459,7 @@ define void @dtgtk_cairo_paint_masks_gradient(ptr noundef %0, i32 noundef %1, i3
   %24 = call reassoc nsz arcp contract afn double @hypot(double noundef %21, double noundef %23) #10
   %25 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %24
   call void @cairo_set_line_width(ptr noundef %0, double noundef %25) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_rectangle(ptr noundef %0, double noundef 1.000000e-01, double noundef 1.000000e-01, double noundef 9.000000e-01, double noundef 9.000000e-01) #9
   call void @cairo_stroke_preserve(ptr noundef %0) #9
   %26 = call ptr @cairo_pattern_create_linear(double noundef 5.000000e-01, double noundef 1.000000e-01, double noundef 5.000000e-01, double noundef 9.000000e-01) #9
@@ -1509,7 +1503,7 @@ define void @dtgtk_cairo_paint_masks_path(ptr noundef %0, i32 noundef %1, i32 no
   tail call void @cairo_translate(ptr noundef %0, double noundef %16, double noundef %21) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %11, double noundef %11) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %22 = load double, ptr %8, align 8, !tbaa !6
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -1517,7 +1511,7 @@ define void @dtgtk_cairo_paint_masks_path(ptr noundef %0, i32 noundef %1, i32 no
   %25 = call reassoc nsz arcp contract afn double @hypot(double noundef %22, double noundef %24) #10
   %26 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %25
   call void @cairo_set_line_width(ptr noundef %0, double noundef %26) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_set_line_cap(ptr noundef %0, i32 noundef 1) #9
   call void @cairo_move_to(ptr noundef %0, double noundef 1.000000e-01, double noundef 9.000000e-01) #9
   call void @cairo_curve_to(ptr noundef %0, double noundef 1.000000e-01, double noundef 5.000000e-01, double noundef 9.000000e-01, double noundef 6.000000e-01, double noundef 9.000000e-01, double noundef 1.000000e-01) #9
@@ -1554,7 +1548,7 @@ define void @dtgtk_cairo_paint_masks_vertgradient(ptr noundef %0, i32 noundef %1
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %10, double noundef %10) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %21 = load double, ptr %8, align 8, !tbaa !6
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -1562,7 +1556,7 @@ define void @dtgtk_cairo_paint_masks_vertgradient(ptr noundef %0, i32 noundef %1
   %24 = call reassoc nsz arcp contract afn double @hypot(double noundef %21, double noundef %23) #10
   %25 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %24
   call void @cairo_set_line_width(ptr noundef %0, double noundef %25) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_rectangle(ptr noundef %0, double noundef 1.000000e-01, double noundef 1.000000e-01, double noundef 9.000000e-01, double noundef 9.000000e-01) #9
   call void @cairo_stroke_preserve(ptr noundef %0) #9
   %26 = call ptr @cairo_pattern_create_linear(double noundef 1.000000e-01, double noundef 5.000000e-01, double noundef 9.000000e-01, double noundef 5.000000e-01) #9
@@ -1598,7 +1592,7 @@ define void @dtgtk_cairo_paint_masks_brush_and_inverse(ptr noundef %0, i32 nound
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %10, double noundef %10) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %21 = load double, ptr %8, align 8, !tbaa !6
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -1606,7 +1600,7 @@ define void @dtgtk_cairo_paint_masks_brush_and_inverse(ptr noundef %0, i32 nound
   %24 = call reassoc nsz arcp contract afn double @hypot(double noundef %21, double noundef %23) #10
   %25 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %24
   call void @cairo_set_line_width(ptr noundef %0, double noundef %25) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_arc(ptr noundef %0, double noundef 5.000000e-01, double noundef 5.000000e-01, double noundef 4.000000e-01, double noundef 0.000000e+00, double noundef 0x401921FB54442D18) #9
   call void @cairo_stroke(ptr noundef %0) #9
   call void @cairo_arc(ptr noundef %0, double noundef 5.000000e-01, double noundef 5.000000e-01, double noundef 4.000000e-01, double noundef 0x4012D97C7F3321D2, double noundef 0x3FF921FB54442D18) #9
@@ -1652,7 +1646,7 @@ define void @dtgtk_cairo_paint_masks_brush(ptr noundef %0, i32 noundef %1, i32 n
   tail call void @cairo_translate(ptr noundef %0, double noundef %16, double noundef %21) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %11, double noundef %11) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %22 = load double, ptr %8, align 8, !tbaa !6
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -1660,7 +1654,7 @@ define void @dtgtk_cairo_paint_masks_brush(ptr noundef %0, i32 noundef %1, i32 n
   %25 = call reassoc nsz arcp contract afn double @hypot(double noundef %22, double noundef %24) #10
   %26 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %25
   call void @cairo_set_line_width(ptr noundef %0, double noundef %26) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_move_to(ptr noundef %0, double noundef -5.000000e-02, double noundef 1.000000e+00) #9
   call void @cairo_arc_negative(ptr noundef %0, double noundef 2.500000e-01, double noundef 8.500000e-01, double noundef 1.500000e-01, double noundef 0x3FF921FB54442D18, double noundef 0x400C260F3FA8846E) #9
   call void @cairo_arc(ptr noundef %0, double noundef -2.360000e-01, double noundef 0x3FE70A3D70A3D70A, double noundef 3.500000e-01, double noundef 0x3FD015BF9217271A, double noundef 0x3FEA23574D659F8A) #9
@@ -1701,7 +1695,7 @@ define void @dtgtk_cairo_paint_masks_uniform(ptr noundef %0, i32 noundef %1, i32
   tail call void @cairo_translate(ptr noundef %0, double noundef %16, double noundef %21) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %11, double noundef %11) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %22 = load double, ptr %8, align 8, !tbaa !6
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -1709,7 +1703,7 @@ define void @dtgtk_cairo_paint_masks_uniform(ptr noundef %0, i32 noundef %1, i32
   %25 = call reassoc nsz arcp contract afn double @hypot(double noundef %22, double noundef %24) #10
   %26 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %25
   call void @cairo_set_line_width(ptr noundef %0, double noundef %26) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_arc(ptr noundef %0, double noundef 5.000000e-01, double noundef 5.000000e-01, double noundef 5.000000e-01, double noundef 0xC00921FB54442D18, double noundef 0x400921FB54442D18) #9
   call void @cairo_stroke(ptr noundef %0) #9
   call void @cairo_identity_matrix(ptr noundef %0) #9
@@ -1739,7 +1733,7 @@ define void @dtgtk_cairo_paint_masks_drawn(ptr noundef %0, i32 noundef %1, i32 n
   tail call void @cairo_translate(ptr noundef %0, double noundef %16, double noundef %21) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %11, double noundef %11) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %22 = load double, ptr %8, align 8, !tbaa !6
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -1747,7 +1741,7 @@ define void @dtgtk_cairo_paint_masks_drawn(ptr noundef %0, i32 noundef %1, i32 n
   %25 = call reassoc nsz arcp contract afn double @hypot(double noundef %22, double noundef %24) #10
   %26 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %25
   call void @cairo_set_line_width(ptr noundef %0, double noundef %26) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_move_to(ptr noundef %0, double noundef 1.000000e+00, double noundef 1.000000e+00) #9
   call void @cairo_line_to(ptr noundef %0, double noundef 9.000000e-01, double noundef 0x3FE6666666666666) #9
   call void @cairo_line_to(ptr noundef %0, double noundef 2.000000e-01, double noundef 0.000000e+00) #9
@@ -1841,10 +1835,10 @@ define void @_gradient_arc(ptr noundef %0, double noundef %1, i32 noundef %2, do
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define void @dtgtk_cairo_paint_masks_parametric(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef readnone captures(none) %6) local_unnamed_addr #0 {
@@ -1872,7 +1866,7 @@ define void @dtgtk_cairo_paint_masks_parametric(ptr noundef %0, i32 noundef %1, 
   tail call void @cairo_translate(ptr noundef %0, double noundef %20, double noundef %25) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %15, double noundef %15) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %26 = load double, ptr %8, align 8, !tbaa !6
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -1880,11 +1874,11 @@ define void @dtgtk_cairo_paint_masks_parametric(ptr noundef %0, i32 noundef %1, 
   %29 = call reassoc nsz arcp contract afn double @hypot(double noundef %26, double noundef %28) #10
   %30 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %29
   call void @cairo_set_line_width(ptr noundef %0, double noundef %30) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %31 = call ptr @cairo_get_source(ptr noundef %0) #9
   %32 = call i32 @cairo_pattern_get_rgba(ptr noundef %31, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12) #9
   %.not = icmp eq i32 %32, 0
@@ -1913,10 +1907,10 @@ define void @dtgtk_cairo_paint_masks_parametric(ptr noundef %0, i32 noundef %1, 
 41:                                               ; preds = %7, %33
   call void @cairo_identity_matrix(ptr noundef %0) #9
   call void @cairo_restore(ptr noundef %0) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }
 
@@ -1950,7 +1944,7 @@ define void @dtgtk_cairo_paint_masks_drawn_and_parametric(ptr noundef %0, i32 no
   tail call void @cairo_translate(ptr noundef %0, double noundef %20, double noundef %25) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %15, double noundef %15) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef -1.000000e-01, double noundef -5.000000e-02) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %26 = load double, ptr %8, align 8, !tbaa !6
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -1958,11 +1952,11 @@ define void @dtgtk_cairo_paint_masks_drawn_and_parametric(ptr noundef %0, i32 no
   %29 = call reassoc nsz arcp contract afn double @hypot(double noundef %26, double noundef %28) #10
   %30 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %29
   call void @cairo_set_line_width(ptr noundef %0, double noundef %30) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %31 = call ptr @cairo_get_source(ptr noundef %0) #9
   %32 = call i32 @cairo_pattern_get_rgba(ptr noundef %31, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12) #9
   %.not = icmp eq i32 %32, 0
@@ -2012,10 +2006,10 @@ define void @dtgtk_cairo_paint_masks_drawn_and_parametric(ptr noundef %0, i32 no
 42:                                               ; preds = %7, %33
   call void @cairo_identity_matrix(ptr noundef %0) #9
   call void @cairo_restore(ptr noundef %0) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }
 
@@ -2040,7 +2034,7 @@ define void @dtgtk_cairo_paint_masks_raster(ptr noundef %0, i32 noundef %1, i32 
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %10, double noundef %10) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %21 = load double, ptr %8, align 8, !tbaa !6
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -2048,7 +2042,7 @@ define void @dtgtk_cairo_paint_masks_raster(ptr noundef %0, i32 noundef %1, i32 
   %24 = call reassoc nsz arcp contract afn double @hypot(double noundef %21, double noundef %23) #10
   %25 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %24
   call void @cairo_set_line_width(ptr noundef %0, double noundef %25) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_arc(ptr noundef %0, double noundef 5.000000e-01, double noundef 5.000000e-01, double noundef 5.000000e-01, double noundef 0.000000e+00, double noundef 0x401921FB54442D18) #9
   call void @cairo_clip(ptr noundef %0) #9
   call void @cairo_new_path(ptr noundef %0) #9
@@ -2113,7 +2107,7 @@ define void @dtgtk_cairo_paint_masks_multi(ptr noundef %0, i32 noundef %1, i32 n
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %10, double noundef %10) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %21 = load double, ptr %8, align 8, !tbaa !6
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -2121,7 +2115,7 @@ define void @dtgtk_cairo_paint_masks_multi(ptr noundef %0, i32 noundef %1, i32 n
   %24 = call reassoc nsz arcp contract afn double @hypot(double noundef %21, double noundef %23) #10
   %25 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %24
   call void @cairo_set_line_width(ptr noundef %0, double noundef %25) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_arc(ptr noundef %0, double noundef 3.000000e-01, double noundef 3.000000e-01, double noundef 3.000000e-01, double noundef 0.000000e+00, double noundef 6.283200e+00) #9
   call void @cairo_stroke(ptr noundef %0) #9
   call void @cairo_move_to(ptr noundef %0, double noundef 0.000000e+00, double noundef 1.000000e+00) #9
@@ -2153,7 +2147,7 @@ define void @dtgtk_cairo_paint_masks_inverse(ptr noundef %0, i32 noundef %1, i32
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %10, double noundef %10) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %21 = load double, ptr %8, align 8, !tbaa !6
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -2161,7 +2155,7 @@ define void @dtgtk_cairo_paint_masks_inverse(ptr noundef %0, i32 noundef %1, i32
   %24 = call reassoc nsz arcp contract afn double @hypot(double noundef %21, double noundef %23) #10
   %25 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %24
   call void @cairo_set_line_width(ptr noundef %0, double noundef %25) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_arc(ptr noundef %0, double noundef 5.000000e-01, double noundef 5.000000e-01, double noundef 4.600000e-01, double noundef 0.000000e+00, double noundef 0x401921FB54442D18) #9
   call void @cairo_stroke(ptr noundef %0) #9
   call void @cairo_arc(ptr noundef %0, double noundef 5.000000e-01, double noundef 5.000000e-01, double noundef 4.600000e-01, double noundef 0x4012D97C7F3321D2, double noundef 0x3FF921FB54442D18) #9
@@ -2192,7 +2186,7 @@ define void @dtgtk_cairo_paint_masks_union(ptr noundef %0, i32 noundef %1, i32 n
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.minnum.f64(double, double) #7
+declare double @llvm.minnum.f64(double, double) #6
 
 ; Function Attrs: nounwind uwtable
 define void @dtgtk_cairo_paint_masks_intersection(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef readnone captures(none) %6) local_unnamed_addr #0 {
@@ -2356,7 +2350,7 @@ define void @dtgtk_cairo_paint_masks_used(ptr noundef %0, i32 noundef %1, i32 no
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %10, double noundef %10) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %21 = load double, ptr %8, align 8, !tbaa !6
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -2364,7 +2358,7 @@ define void @dtgtk_cairo_paint_masks_used(ptr noundef %0, i32 noundef %1, i32 no
   %24 = call reassoc nsz arcp contract afn double @hypot(double noundef %21, double noundef %23) #10
   %25 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %24
   call void @cairo_set_line_width(ptr noundef %0, double noundef %25) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_arc(ptr noundef %0, double noundef 5.000000e-01, double noundef 5.000000e-01, double noundef 3.500000e-01, double noundef 0.000000e+00, double noundef 0x401921FB54442D18) #9
   call void @cairo_move_to(ptr noundef %0, double noundef 5.000000e-01, double noundef 1.500000e-01) #9
   call void @cairo_line_to(ptr noundef %0, double noundef 5.000000e-01, double noundef 5.000000e-01) #9
@@ -2402,7 +2396,7 @@ define void @dtgtk_cairo_paint_eye_toggle(ptr noundef %0, i32 noundef %1, i32 no
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %10, double noundef %10) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %21 = load double, ptr %8, align 8, !tbaa !6
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -2410,7 +2404,7 @@ define void @dtgtk_cairo_paint_eye_toggle(ptr noundef %0, i32 noundef %1, i32 no
   %24 = call reassoc nsz arcp contract afn double @hypot(double noundef %21, double noundef %23) #10
   %25 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %24
   call void @cairo_set_line_width(ptr noundef %0, double noundef %25) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_arc(ptr noundef %0, double noundef 5.000000e-01, double noundef 5.000000e-01, double noundef 1.600000e-01, double noundef 0.000000e+00, double noundef 0x401921FB54442D18) #9
   call void @cairo_fill(ptr noundef %0) #9
   call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 2.200000e-01) #9
@@ -2457,7 +2451,7 @@ define void @dtgtk_cairo_paint_timer(ptr noundef %0, i32 noundef %1, i32 noundef
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %10, double noundef %10) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %21 = load double, ptr %8, align 8, !tbaa !6
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -2465,7 +2459,7 @@ define void @dtgtk_cairo_paint_timer(ptr noundef %0, i32 noundef %1, i32 noundef
   %24 = call reassoc nsz arcp contract afn double @hypot(double noundef %21, double noundef %23) #10
   %25 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %24
   call void @cairo_set_line_width(ptr noundef %0, double noundef %25) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_arc(ptr noundef %0, double noundef 5.000000e-01, double noundef 5.000000e-01, double noundef 5.000000e-01, double noundef 0xBFF65D4C3B2A1908, double noundef 0x4004F77777777777) #9
   call void @cairo_line_to(ptr noundef %0, double noundef 5.000000e-01, double noundef 5.000000e-01) #9
   call void @cairo_stroke(ptr noundef %0) #9
@@ -2495,7 +2489,7 @@ define void @dtgtk_cairo_paint_grid(ptr noundef %0, i32 noundef %1, i32 noundef 
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %10, double noundef %10) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %21 = load double, ptr %8, align 8, !tbaa !6
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -2503,7 +2497,7 @@ define void @dtgtk_cairo_paint_grid(ptr noundef %0, i32 noundef %1, i32 noundef 
   %24 = call reassoc nsz arcp contract afn double @hypot(double noundef %21, double noundef %23) #10
   %25 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %24
   call void @cairo_set_line_width(ptr noundef %0, double noundef %25) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_new_sub_path(ptr noundef %0) #9
   call void @cairo_arc(ptr noundef %0, double noundef 9.000000e-01, double noundef 1.000000e-01, double noundef 1.000000e-01, double noundef 0xBFF921FB54442D18, double noundef 0.000000e+00) #9
   call void @cairo_arc(ptr noundef %0, double noundef 9.000000e-01, double noundef 9.000000e-01, double noundef 1.000000e-01, double noundef 0.000000e+00, double noundef 0x3FF921FB54442D18) #9
@@ -2549,7 +2543,7 @@ define void @dtgtk_cairo_paint_focus_peaking(ptr noundef %0, i32 noundef %1, i32
   tail call void @cairo_translate(ptr noundef %0, double noundef %16, double noundef %21) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %11, double noundef %11) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %22 = load double, ptr %8, align 8, !tbaa !6
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -2557,7 +2551,7 @@ define void @dtgtk_cairo_paint_focus_peaking(ptr noundef %0, i32 noundef %1, i32
   %25 = call reassoc nsz arcp contract afn double @hypot(double noundef %22, double noundef %24) #10
   %26 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %25
   call void @cairo_set_line_width(ptr noundef %0, double noundef %26) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_arc(ptr noundef %0, double noundef 5.000000e-01, double noundef 5.000000e-01, double noundef 2.000000e-01, double noundef 0.000000e+00, double noundef 0x401921FB54442D18) #9
   call void @cairo_move_to(ptr noundef %0, double noundef 3.000000e-01, double noundef 5.000000e-01) #9
   call void @cairo_line_to(ptr noundef %0, double noundef 0x3FE6666666666666, double noundef 5.000000e-01) #9
@@ -2604,7 +2598,7 @@ define void @dtgtk_cairo_paint_camera(ptr noundef %0, i32 noundef %1, i32 nounde
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %10, double noundef %10) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %21 = load double, ptr %8, align 8, !tbaa !6
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -2612,7 +2606,7 @@ define void @dtgtk_cairo_paint_camera(ptr noundef %0, i32 noundef %1, i32 nounde
   %24 = call reassoc nsz arcp contract afn double @hypot(double noundef %21, double noundef %23) #10
   %25 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %24
   call void @cairo_set_line_width(ptr noundef %0, double noundef %25) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_arc(ptr noundef %0, double noundef 5.000000e-01, double noundef 5.000000e-01, double noundef 2.000000e-01, double noundef 0.000000e+00, double noundef 0x401921FB54442D18) #9
   call void @cairo_stroke(ptr noundef %0) #9
   call void @cairo_arc(ptr noundef %0, double noundef 5.000000e-01, double noundef 5.000000e-01, double noundef 1.000000e-01, double noundef 0x400921FB54442D18, double noundef 0x4012D97C7F3321D2) #9
@@ -2653,7 +2647,7 @@ define void @dtgtk_cairo_paint_histogram_scope(ptr noundef %0, i32 noundef %1, i
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %10, double noundef %10) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %21 = load double, ptr %8, align 8, !tbaa !6
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -2661,7 +2655,7 @@ define void @dtgtk_cairo_paint_histogram_scope(ptr noundef %0, i32 noundef %1, i
   %24 = call reassoc nsz arcp contract afn double @hypot(double noundef %21, double noundef %23) #10
   %25 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %24
   call void @cairo_set_line_width(ptr noundef %0, double noundef %25) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_move_to(ptr noundef %0, double noundef 0.000000e+00, double noundef 1.000000e+00) #9
   call void @cairo_curve_to(ptr noundef %0, double noundef 3.000000e-01, double noundef 1.000000e+00, double noundef 3.000000e-01, double noundef 0.000000e+00, double noundef 5.000000e-01, double noundef 0.000000e+00) #9
   call void @cairo_curve_to(ptr noundef %0, double noundef 0x3FE6666666666666, double noundef 0.000000e+00, double noundef 0x3FE6666666666666, double noundef 1.000000e+00, double noundef 1.000000e+00, double noundef 1.000000e+00) #9
@@ -2696,7 +2690,7 @@ define void @dtgtk_cairo_paint_waveform_scope(ptr noundef %0, i32 noundef %1, i3
   tail call void @cairo_translate(ptr noundef %0, double noundef %19, double noundef %24) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %14, double noundef %14) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %25 = load double, ptr %8, align 8, !tbaa !6
   %26 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -2704,11 +2698,11 @@ define void @dtgtk_cairo_paint_waveform_scope(ptr noundef %0, i32 noundef %1, i3
   %28 = call reassoc nsz arcp contract afn double @hypot(double noundef %25, double noundef %27) #10
   %29 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %28
   call void @cairo_set_line_width(ptr noundef %0, double noundef %29) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %30 = call ptr @cairo_get_source(ptr noundef %0) #9
   %31 = call i32 @cairo_pattern_get_rgba(ptr noundef %30, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12) #9
   %.not = icmp eq i32 %31, 0
@@ -2763,10 +2757,10 @@ define void @dtgtk_cairo_paint_waveform_scope(ptr noundef %0, i32 noundef %1, i3
 57:                                               ; preds = %7, %32
   call void @cairo_identity_matrix(ptr noundef %0) #9
   call void @cairo_restore(ptr noundef %0) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }
 
@@ -2791,7 +2785,7 @@ define void @dtgtk_cairo_paint_vectorscope(ptr noundef %0, i32 noundef %1, i32 n
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %10, double noundef %10) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %21 = load double, ptr %8, align 8, !tbaa !6
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -2799,7 +2793,7 @@ define void @dtgtk_cairo_paint_vectorscope(ptr noundef %0, i32 noundef %1, i32 n
   %24 = call reassoc nsz arcp contract afn double @hypot(double noundef %21, double noundef %23) #10
   %25 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %24
   call void @cairo_set_line_width(ptr noundef %0, double noundef %25) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_move_to(ptr noundef %0, double noundef 0.000000e+00, double noundef 3.000000e-01) #9
   call void @cairo_curve_to(ptr noundef %0, double noundef 1.000000e-01, double noundef 0.000000e+00, double noundef 0x3FE6666666666666, double noundef 3.000000e-01, double noundef 1.000000e+00, double noundef 0x3FE6666666666666) #9
   call void @cairo_curve_to(ptr noundef %0, double noundef 9.000000e-01, double noundef 8.000000e-01, double noundef 1.000000e-01, double noundef 8.000000e-01, double noundef 0.000000e+00, double noundef 3.000000e-01) #9
@@ -2830,7 +2824,7 @@ define void @dtgtk_cairo_paint_linear_scale(ptr noundef %0, i32 noundef %1, i32 
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %10, double noundef %10) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %21 = load double, ptr %8, align 8, !tbaa !6
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -2838,7 +2832,7 @@ define void @dtgtk_cairo_paint_linear_scale(ptr noundef %0, i32 noundef %1, i32 
   %24 = call reassoc nsz arcp contract afn double @hypot(double noundef %21, double noundef %23) #10
   %25 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %24
   call void @cairo_set_line_width(ptr noundef %0, double noundef %25) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_move_to(ptr noundef %0, double noundef 0.000000e+00, double noundef 1.000000e+00) #9
   call void @cairo_line_to(ptr noundef %0, double noundef 1.000000e+00, double noundef 0.000000e+00) #9
   call void @cairo_stroke(ptr noundef %0) #9
@@ -2868,7 +2862,7 @@ define void @dtgtk_cairo_paint_logarithmic_scale(ptr noundef %0, i32 noundef %1,
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %10, double noundef %10) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %21 = load double, ptr %8, align 8, !tbaa !6
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -2876,7 +2870,7 @@ define void @dtgtk_cairo_paint_logarithmic_scale(ptr noundef %0, i32 noundef %1,
   %24 = call reassoc nsz arcp contract afn double @hypot(double noundef %21, double noundef %23) #10
   %25 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %24
   call void @cairo_set_line_width(ptr noundef %0, double noundef %25) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_move_to(ptr noundef %0, double noundef 0.000000e+00, double noundef 1.000000e+00) #9
   call void @cairo_curve_to(ptr noundef %0, double noundef 0.000000e+00, double noundef 3.300000e-01, double noundef 6.600000e-01, double noundef 0.000000e+00, double noundef 1.000000e+00, double noundef 0.000000e+00) #9
   call void @cairo_stroke(ptr noundef %0) #9
@@ -2910,7 +2904,7 @@ define void @dtgtk_cairo_paint_waveform_overlaid(ptr noundef %0, i32 noundef %1,
   tail call void @cairo_translate(ptr noundef %0, double noundef %19, double noundef %24) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %14, double noundef %14) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %25 = load double, ptr %8, align 8, !tbaa !6
   %26 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -2918,11 +2912,11 @@ define void @dtgtk_cairo_paint_waveform_overlaid(ptr noundef %0, i32 noundef %1,
   %28 = call reassoc nsz arcp contract afn double @hypot(double noundef %25, double noundef %27) #10
   %29 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %28
   call void @cairo_set_line_width(ptr noundef %0, double noundef %29) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %30 = call ptr @cairo_get_source(ptr noundef %0) #9
   %31 = call i32 @cairo_pattern_get_rgba(ptr noundef %30, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12) #9
   %.not = icmp eq i32 %31, 0
@@ -2969,10 +2963,10 @@ define void @dtgtk_cairo_paint_waveform_overlaid(ptr noundef %0, i32 noundef %1,
 60:                                               ; preds = %7, %32
   call void @cairo_identity_matrix(ptr noundef %0) #9
   call void @cairo_restore(ptr noundef %0) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }
 
@@ -2997,7 +2991,7 @@ define void @dtgtk_cairo_paint_rgb_parade(ptr noundef %0, i32 noundef %1, i32 no
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %10, double noundef %10) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %21 = load double, ptr %8, align 8, !tbaa !6
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -3005,7 +2999,7 @@ define void @dtgtk_cairo_paint_rgb_parade(ptr noundef %0, i32 noundef %1, i32 no
   %24 = call reassoc nsz arcp contract afn double @hypot(double noundef %21, double noundef %23) #10
   %25 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %24
   call void @cairo_set_line_width(ptr noundef %0, double noundef %25) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %26 = call ptr @cairo_pattern_create_linear(double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 1.000000e+00) #9
   call void @cairo_pattern_add_color_stop_rgba(ptr noundef %26, double noundef 0.000000e+00, double noundef 8.000000e-01, double noundef 3.000000e-01, double noundef 3.000000e-01, double noundef 2.000000e-01) #9
   call void @cairo_pattern_add_color_stop_rgba(ptr noundef %26, double noundef 4.000000e-01, double noundef 8.000000e-01, double noundef 3.000000e-01, double noundef 3.000000e-01, double noundef 0x3FE6666666666666) #9
@@ -3056,7 +3050,7 @@ define void @dtgtk_cairo_paint_luv(ptr noundef %0, i32 noundef %1, i32 noundef %
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %10, double noundef %10) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %21 = load double, ptr %8, align 8, !tbaa !6
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -3064,7 +3058,7 @@ define void @dtgtk_cairo_paint_luv(ptr noundef %0, i32 noundef %1, i32 noundef %
   %24 = call reassoc nsz arcp contract afn double @hypot(double noundef %21, double noundef %23) #10
   %25 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %24
   call void @cairo_set_line_width(ptr noundef %0, double noundef %25) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_move_to(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
   call void @cairo_line_to(ptr noundef %0, double noundef 0.000000e+00, double noundef 1.000000e+00) #9
   call void @cairo_line_to(ptr noundef %0, double noundef 0x3FE6666666666666, double noundef 1.000000e+00) #9
@@ -3102,7 +3096,7 @@ define void @dtgtk_cairo_paint_jzazbz(ptr noundef %0, i32 noundef %1, i32 nounde
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %10, double noundef %10) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %21 = load double, ptr %8, align 8, !tbaa !6
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -3110,7 +3104,7 @@ define void @dtgtk_cairo_paint_jzazbz(ptr noundef %0, i32 noundef %1, i32 nounde
   %24 = call reassoc nsz arcp contract afn double @hypot(double noundef %21, double noundef %23) #10
   %25 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %24
   call void @cairo_set_line_width(ptr noundef %0, double noundef %25) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_move_to(ptr noundef %0, double noundef 4.000000e-01, double noundef 0.000000e+00) #9
   call void @cairo_curve_to(ptr noundef %0, double noundef 4.500000e-01, double noundef 1.000000e+00, double noundef 1.000000e-01, double noundef 1.000000e+00, double noundef 0.000000e+00, double noundef 8.000000e-01) #9
   call void @cairo_stroke(ptr noundef %0) #9
@@ -3146,7 +3140,7 @@ define void @dtgtk_cairo_paint_ryb(ptr noundef %0, i32 noundef %1, i32 noundef %
   tail call void @cairo_translate(ptr noundef %0, double noundef %16, double noundef %21) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %11, double noundef %11) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef -5.000000e-02, double noundef -5.000000e-02) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %22 = load double, ptr %8, align 8, !tbaa !6
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -3154,7 +3148,7 @@ define void @dtgtk_cairo_paint_ryb(ptr noundef %0, i32 noundef %1, i32 noundef %
   %25 = call reassoc nsz arcp contract afn double @hypot(double noundef %22, double noundef %24) #10
   %26 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %25
   call void @cairo_set_line_width(ptr noundef %0, double noundef %26) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_set_source_rgba(ptr noundef %0, double noundef 1.000000e+00, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 8.000000e-01) #9
   call void @cairo_arc(ptr noundef %0, double noundef 5.000000e-01, double noundef 5.000000e-01, double noundef 5.000000e-01, double noundef 0xC004F1A148B27984, double noundef 0xBFE0C1682E46CE51) #9
   call void @cairo_line_to(ptr noundef %0, double noundef 5.000000e-01, double noundef 5.000000e-01) #9
@@ -3199,7 +3193,7 @@ define void @dtgtk_cairo_paint_color_harmony(ptr noundef %0, i32 noundef %1, i32
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %10, double noundef %10) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 5.000000e-01, double noundef 5.000000e-01) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %21 = load double, ptr %8, align 8, !tbaa !6
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -3207,7 +3201,7 @@ define void @dtgtk_cairo_paint_color_harmony(ptr noundef %0, i32 noundef %1, i32
   %24 = call reassoc nsz arcp contract afn double @hypot(double noundef %21, double noundef %23) #10
   %25 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %24
   call void @cairo_set_line_width(ptr noundef %0, double noundef %25) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_arc(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 5.000000e-01, double noundef 0.000000e+00, double noundef 0x401921FB54442D18) #9
   call void @cairo_stroke(ptr noundef %0) #9
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -3269,7 +3263,7 @@ define void @dtgtk_cairo_paint_clock(ptr noundef %0, i32 noundef %1, i32 noundef
   tail call void @cairo_translate(ptr noundef %0, double noundef %16, double noundef %21) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %11, double noundef %11) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 5.000000e-01, double noundef 5.000000e-01) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %22 = load double, ptr %8, align 8, !tbaa !6
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -3277,7 +3271,7 @@ define void @dtgtk_cairo_paint_clock(ptr noundef %0, i32 noundef %1, i32 noundef
   %25 = call reassoc nsz arcp contract afn double @hypot(double noundef %22, double noundef %24) #10
   %26 = fdiv reassoc nsz arcp contract afn double 1.941600e+00, %25
   call void @cairo_set_line_width(ptr noundef %0, double noundef %26) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_arc(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 5.000000e-01, double noundef 0.000000e+00, double noundef 0x401921FB54442D18) #9
   call void @cairo_stroke(ptr noundef %0) #9
   br label %32
@@ -3333,7 +3327,7 @@ define void @dtgtk_cairo_paint_filmstrip(ptr noundef %0, i32 noundef %1, i32 nou
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %10, double noundef %10) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %21 = load double, ptr %8, align 8, !tbaa !6
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -3341,7 +3335,7 @@ define void @dtgtk_cairo_paint_filmstrip(ptr noundef %0, i32 noundef %1, i32 nou
   %24 = call reassoc nsz arcp contract afn double @hypot(double noundef %21, double noundef %23) #10
   %25 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %24
   call void @cairo_set_line_width(ptr noundef %0, double noundef %25) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_scale(ptr noundef %0, double noundef 0x3FE6666666666666, double noundef 0x3FE6666666666666) #9
   call void @cairo_translate(ptr noundef %0, double noundef 1.500000e-01, double noundef 1.500000e-01) #9
   call void @cairo_move_to(ptr noundef %0, double noundef 0.000000e+00, double noundef 1.000000e+00) #9
@@ -3385,7 +3379,7 @@ define void @dtgtk_cairo_paint_directory(ptr noundef %0, i32 noundef %1, i32 nou
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %10, double noundef %10) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %21 = load double, ptr %8, align 8, !tbaa !6
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -3393,7 +3387,7 @@ define void @dtgtk_cairo_paint_directory(ptr noundef %0, i32 noundef %1, i32 nou
   %24 = call reassoc nsz arcp contract afn double @hypot(double noundef %21, double noundef %23) #10
   %25 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %24
   call void @cairo_set_line_width(ptr noundef %0, double noundef %25) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_new_sub_path(ptr noundef %0) #9
   call void @cairo_arc(ptr noundef %0, double noundef 8.500000e-01, double noundef 3.500000e-01, double noundef 1.000000e-01, double noundef 0xBFF921FB54442D18, double noundef 0.000000e+00) #9
   call void @cairo_arc(ptr noundef %0, double noundef 8.000000e-01, double noundef 7.500000e-01, double noundef 1.000000e-01, double noundef 0.000000e+00, double noundef 0x3FF921FB54442D18) #9
@@ -3434,7 +3428,7 @@ define void @dtgtk_cairo_paint_refresh(ptr noundef %0, i32 noundef %1, i32 nound
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %10, double noundef %10) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %21 = load double, ptr %8, align 8, !tbaa !6
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -3442,7 +3436,7 @@ define void @dtgtk_cairo_paint_refresh(ptr noundef %0, i32 noundef %1, i32 nound
   %24 = call reassoc nsz arcp contract afn double @hypot(double noundef %21, double noundef %23) #10
   %25 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %24
   call void @cairo_set_line_width(ptr noundef %0, double noundef %25) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %26 = and i32 %5, 1
   %.not = icmp eq i32 %26, 0
   br i1 %.not, label %28, label %27
@@ -3485,7 +3479,7 @@ define void @dtgtk_cairo_paint_perspective(ptr noundef %0, i32 noundef %1, i32 n
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %10, double noundef %10) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %21 = load double, ptr %8, align 8, !tbaa !6
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -3493,7 +3487,7 @@ define void @dtgtk_cairo_paint_perspective(ptr noundef %0, i32 noundef %1, i32 n
   %24 = call reassoc nsz arcp contract afn double @hypot(double noundef %21, double noundef %23) #10
   %25 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %24
   call void @cairo_set_line_width(ptr noundef %0, double noundef %25) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %26 = and i32 %5, 3
   switch i32 %26, label %default.unreachable [
     i32 1, label %27
@@ -3558,7 +3552,7 @@ define void @dtgtk_cairo_paint_structure(ptr noundef %0, i32 noundef %1, i32 nou
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %10, double noundef %10) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %21 = load double, ptr %8, align 8, !tbaa !6
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -3566,7 +3560,7 @@ define void @dtgtk_cairo_paint_structure(ptr noundef %0, i32 noundef %1, i32 nou
   %24 = call reassoc nsz arcp contract afn double @hypot(double noundef %21, double noundef %23) #10
   %25 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %24
   call void @cairo_set_line_width(ptr noundef %0, double noundef %25) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_move_to(ptr noundef %0, double noundef 1.000000e-01, double noundef 1.000000e-01) #9
   call void @cairo_line_to(ptr noundef %0, double noundef 0.000000e+00, double noundef 9.000000e-01) #9
   call void @cairo_stroke(ptr noundef %0) #9
@@ -3605,7 +3599,7 @@ define void @dtgtk_cairo_paint_draw_structure(ptr noundef %0, i32 noundef %1, i3
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %10, double noundef %10) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %21 = load double, ptr %8, align 8, !tbaa !6
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -3613,7 +3607,7 @@ define void @dtgtk_cairo_paint_draw_structure(ptr noundef %0, i32 noundef %1, i3
   %24 = call reassoc nsz arcp contract afn double @hypot(double noundef %21, double noundef %23) #10
   %25 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %24
   call void @cairo_set_line_width(ptr noundef %0, double noundef %25) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_move_to(ptr noundef %0, double noundef 1.000000e-01, double noundef 1.000000e-01) #9
   call void @cairo_line_to(ptr noundef %0, double noundef 1.000000e-01, double noundef 9.000000e-01) #9
   call void @cairo_line_to(ptr noundef %0, double noundef 9.000000e-01, double noundef 9.000000e-01) #9
@@ -3654,7 +3648,7 @@ define void @dtgtk_cairo_paint_cancel(ptr noundef %0, i32 noundef %1, i32 nounde
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %10, double noundef %10) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %21 = load double, ptr %8, align 8, !tbaa !6
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -3662,7 +3656,7 @@ define void @dtgtk_cairo_paint_cancel(ptr noundef %0, i32 noundef %1, i32 nounde
   %24 = call reassoc nsz arcp contract afn double @hypot(double noundef %21, double noundef %23) #10
   %25 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %24
   call void @cairo_set_line_width(ptr noundef %0, double noundef %25) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_move_to(ptr noundef %0, double noundef 8.500000e-01, double noundef 1.500000e-01) #9
   call void @cairo_line_to(ptr noundef %0, double noundef 1.500000e-01, double noundef 8.500000e-01) #9
   call void @cairo_move_to(ptr noundef %0, double noundef 1.500000e-01, double noundef 1.500000e-01) #9
@@ -3694,7 +3688,7 @@ define void @dtgtk_cairo_paint_aspectflip(ptr noundef %0, i32 noundef %1, i32 no
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %10, double noundef %10) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %21 = load double, ptr %8, align 8, !tbaa !6
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -3702,7 +3696,7 @@ define void @dtgtk_cairo_paint_aspectflip(ptr noundef %0, i32 noundef %1, i32 no
   %24 = call reassoc nsz arcp contract afn double @hypot(double noundef %21, double noundef %23) #10
   %25 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %24
   call void @cairo_set_line_width(ptr noundef %0, double noundef %25) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %26 = and i32 %5, 1
   %.not = icmp eq i32 %26, 0
   br i1 %.not, label %28, label %27
@@ -3746,7 +3740,7 @@ define void @dtgtk_cairo_paint_styles(ptr noundef %0, i32 noundef %1, i32 nounde
   tail call void @cairo_translate(ptr noundef %0, double noundef %16, double noundef %21) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %11, double noundef %11) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 5.600000e-01, double noundef 4.000000e-01) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %22 = load double, ptr %8, align 8, !tbaa !6
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -3754,7 +3748,7 @@ define void @dtgtk_cairo_paint_styles(ptr noundef %0, i32 noundef %1, i32 nounde
   %25 = call reassoc nsz arcp contract afn double @hypot(double noundef %22, double noundef %24) #10
   %26 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %25
   call void @cairo_set_line_width(ptr noundef %0, double noundef %26) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_arc(ptr noundef %0, double noundef 2.500000e-01, double noundef 4.500000e-01, double noundef 5.000000e-01, double noundef 0.000000e+00, double noundef 0x401921FB54442D18) #9
   call void @cairo_stroke(ptr noundef %0) #9
   call void @cairo_arc(ptr noundef %0, double noundef -5.800000e-01, double noundef 6.500000e-01, double noundef 3.000000e-01, double noundef 0.000000e+00, double noundef 0x401921FB54442D18) #9
@@ -3798,7 +3792,7 @@ define void @dtgtk_cairo_paint_label(ptr noundef %0, i32 noundef %1, i32 noundef
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %10, double noundef %10) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %21 = load double, ptr %8, align 8, !tbaa !6
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -3806,7 +3800,7 @@ define void @dtgtk_cairo_paint_label(ptr noundef %0, i32 noundef %1, i32 noundef
   %24 = call reassoc nsz arcp contract afn double @hypot(double noundef %21, double noundef %23) #10
   %25 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %24
   call void @cairo_set_line_width(ptr noundef %0, double noundef %25) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_push_group(ptr noundef %0) #9
   call void @cairo_arc(ptr noundef %0, double noundef 5.000000e-01, double noundef 5.000000e-01, double noundef 4.000000e-01, double noundef 0.000000e+00, double noundef 0x401921FB54442D18) #9
   %26 = and i32 %5, 7
@@ -3877,7 +3871,7 @@ define void @dtgtk_cairo_paint_label_sel(ptr noundef %0, i32 noundef %1, i32 nou
   tail call void @cairo_translate(ptr noundef %0, double noundef %16, double noundef %21) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %11, double noundef %11) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %22 = load double, ptr %8, align 8, !tbaa !6
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -3885,7 +3879,7 @@ define void @dtgtk_cairo_paint_label_sel(ptr noundef %0, i32 noundef %1, i32 nou
   %25 = call reassoc nsz arcp contract afn double @hypot(double noundef %22, double noundef %24) #10
   %26 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %25
   call void @cairo_set_line_width(ptr noundef %0, double noundef %26) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %27 = and i32 %5, 7
   %28 = icmp samesign ult i32 %27, 5
   br i1 %28, label %29, label %34
@@ -3984,7 +3978,7 @@ define void @dtgtk_cairo_paint_reject(ptr noundef %0, i32 noundef %1, i32 nounde
   tail call void @cairo_translate(ptr noundef %0, double noundef %16, double noundef %21) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %11, double noundef %11) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %22 = load double, ptr %8, align 8, !tbaa !6
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -3992,7 +3986,7 @@ define void @dtgtk_cairo_paint_reject(ptr noundef %0, i32 noundef %1, i32 nounde
   %25 = call reassoc nsz arcp contract afn double @hypot(double noundef %22, double noundef %24) #10
   %26 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %25
   call void @cairo_set_line_width(ptr noundef %0, double noundef %26) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_arc(ptr noundef %0, double noundef 5.000000e-01, double noundef 5.000000e-01, double noundef 5.000000e-01, double noundef 0.000000e+00, double noundef 0x401921FB54442D18) #9
   call void @cairo_move_to(ptr noundef %0, double noundef 0x3FE6666666666666, double noundef 3.000000e-01) #9
   call void @cairo_line_to(ptr noundef %0, double noundef 3.000000e-01, double noundef 0x3FE6666666666666) #9
@@ -4035,7 +4029,7 @@ define void @dtgtk_cairo_paint_remove(ptr noundef %0, i32 noundef %1, i32 nounde
   tail call void @cairo_translate(ptr noundef %0, double noundef %16, double noundef %21) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %11, double noundef %11) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %22 = load double, ptr %8, align 8, !tbaa !6
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -4043,7 +4037,7 @@ define void @dtgtk_cairo_paint_remove(ptr noundef %0, i32 noundef %1, i32 nounde
   %25 = call reassoc nsz arcp contract afn double @hypot(double noundef %22, double noundef %24) #10
   %26 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %25
   call void @cairo_set_line_width(ptr noundef %0, double noundef %26) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_new_sub_path(ptr noundef %0) #9
   call void @cairo_arc(ptr noundef %0, double noundef 9.000000e-01, double noundef 1.000000e-01, double noundef 1.000000e-01, double noundef 0xBFF921FB54442D18, double noundef 0.000000e+00) #9
   call void @cairo_arc(ptr noundef %0, double noundef 9.000000e-01, double noundef 9.000000e-01, double noundef 1.000000e-01, double noundef 0.000000e+00, double noundef 0x3FF921FB54442D18) #9
@@ -4089,7 +4083,7 @@ define void @dtgtk_cairo_paint_star(ptr noundef %0, i32 noundef %1, i32 noundef 
   tail call void @cairo_translate(ptr noundef %0, double noundef %21, double noundef %26) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %16, double noundef %16) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %10) #9
   %27 = load double, ptr %10, align 8, !tbaa !6
   %28 = getelementptr inbounds nuw i8, ptr %10, i64 24
@@ -4097,8 +4091,8 @@ define void @dtgtk_cairo_paint_star(ptr noundef %0, i32 noundef %1, i32 noundef 
   %30 = call reassoc nsz arcp contract afn double @hypot(double noundef %27, double noundef %29) #10
   %31 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %30
   call void @cairo_set_line_width(ptr noundef %0, double noundef %31) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10) #9
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %32 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store float 0x3FE2CF2300000000, ptr %32, align 4, !tbaa !18
   %33 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -4117,7 +4111,7 @@ define void @dtgtk_cairo_paint_star(ptr noundef %0, i32 noundef %1, i32 noundef 
   store float 0xBFEE6F0E00000000, ptr %39, align 16, !tbaa !18
   %40 = getelementptr inbounds nuw i8, ptr %8, i64 36
   store float 0xBFE2CF2260000000, ptr %40, align 4, !tbaa !18
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %41 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store float 0x3FE9E377A0000000, ptr %41, align 4, !tbaa !18
   %42 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -4161,16 +4155,16 @@ define void @dtgtk_cairo_paint_star(ptr noundef %0, i32 noundef %1, i32 noundef 
 
 dt_draw_star.exit:                                ; preds = %50
   call void @cairo_close_path(ptr noundef %0) #9
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #9
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %79, label %62
 
 62:                                               ; preds = %dt_draw_star.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %63 = call ptr @cairo_get_source(ptr noundef %0) #9
   %64 = call i32 @cairo_pattern_get_rgba(ptr noundef %63, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14) #9
   %65 = icmp eq i32 %64, 0
@@ -4194,10 +4188,10 @@ dt_draw_star.exit:                                ; preds = %50
   br label %78
 
 78:                                               ; preds = %66, %62
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %79
 
 79:                                               ; preds = %78, %dt_draw_star.exit
@@ -4234,7 +4228,7 @@ define void @dtgtk_cairo_paint_unratestar(ptr noundef %0, i32 noundef %1, i32 no
   tail call void @cairo_translate(ptr noundef %0, double noundef %21, double noundef %26) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %16, double noundef %16) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %10) #9
   %27 = load double, ptr %10, align 8, !tbaa !6
   %28 = getelementptr inbounds nuw i8, ptr %10, i64 24
@@ -4242,8 +4236,8 @@ define void @dtgtk_cairo_paint_unratestar(ptr noundef %0, i32 noundef %1, i32 no
   %30 = call reassoc nsz arcp contract afn double @hypot(double noundef %27, double noundef %29) #10
   %31 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %30
   call void @cairo_set_line_width(ptr noundef %0, double noundef %31) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10) #9
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %32 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store float 0x3FE2CF2300000000, ptr %32, align 4, !tbaa !18
   %33 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -4262,7 +4256,7 @@ define void @dtgtk_cairo_paint_unratestar(ptr noundef %0, i32 noundef %1, i32 no
   store float 0xBFEE6F0E00000000, ptr %39, align 16, !tbaa !18
   %40 = getelementptr inbounds nuw i8, ptr %8, i64 36
   store float 0xBFE2CF2260000000, ptr %40, align 4, !tbaa !18
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %41 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store float 0x3FE9E377A0000000, ptr %41, align 4, !tbaa !18
   %42 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -4306,12 +4300,12 @@ define void @dtgtk_cairo_paint_unratestar(ptr noundef %0, i32 noundef %1, i32 no
 
 dt_draw_star.exit:                                ; preds = %50
   call void @cairo_close_path(ptr noundef %0) #9
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #9
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %62 = call ptr @cairo_get_source(ptr noundef %0) #9
   %63 = call i32 @cairo_pattern_get_rgba(ptr noundef %62, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14) #9
   %64 = icmp eq i32 %63, 0
@@ -4345,10 +4339,10 @@ dt_draw_star.exit:                                ; preds = %50
 79:                                               ; preds = %65, %dt_draw_star.exit
   call void @cairo_identity_matrix(ptr noundef %0) #9
   call void @cairo_restore(ptr noundef %0) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret void
 }
 
@@ -4373,7 +4367,7 @@ define void @dtgtk_cairo_paint_local_copy(ptr noundef %0, i32 noundef %1, i32 no
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %10, double noundef %10) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %21 = load double, ptr %8, align 8, !tbaa !6
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -4381,7 +4375,7 @@ define void @dtgtk_cairo_paint_local_copy(ptr noundef %0, i32 noundef %1, i32 no
   %24 = call reassoc nsz arcp contract afn double @hypot(double noundef %21, double noundef %23) #10
   %25 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %24
   call void @cairo_set_line_width(ptr noundef %0, double noundef %25) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %26 = and i32 %5, 16
   %.not = icmp eq i32 %26, 0
   br i1 %.not, label %28, label %27
@@ -4433,7 +4427,7 @@ define void @dtgtk_cairo_paint_altered(ptr noundef %0, i32 noundef %1, i32 nound
   tail call void @cairo_translate(ptr noundef %0, double noundef %16, double noundef %21) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %11, double noundef %11) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 5.000000e-01, double noundef 5.000000e-01) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %22 = load double, ptr %8, align 8, !tbaa !6
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -4441,7 +4435,7 @@ define void @dtgtk_cairo_paint_altered(ptr noundef %0, i32 noundef %1, i32 nound
   %25 = call reassoc nsz arcp contract afn double @hypot(double noundef %22, double noundef %24) #10
   %26 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %25
   call void @cairo_set_line_width(ptr noundef %0, double noundef %26) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_arc(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 1.000000e+00, double noundef 0.000000e+00, double noundef 0x401921FB54442D18) #9
   call void @cairo_move_to(ptr noundef %0, double noundef 0xBFED906BCF328D46, double noundef 0xBFD87DE2A6AEA963) #9
   call void @cairo_curve_to(ptr noundef %0, double noundef 0.000000e+00, double noundef 0xBFE87DE2A6AEA963, double noundef 0.000000e+00, double noundef 0x3FE87DE2A6AEA963, double noundef 0x3FED906BCF328D46, double noundef 0x3FD87DE2A6AEA963) #9
@@ -4478,7 +4472,7 @@ define void @dtgtk_cairo_paint_tags(ptr noundef %0, i32 noundef %1, i32 noundef 
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %10, double noundef %10) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %21 = load double, ptr %8, align 8, !tbaa !6
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -4486,7 +4480,7 @@ define void @dtgtk_cairo_paint_tags(ptr noundef %0, i32 noundef %1, i32 noundef 
   %24 = call reassoc nsz arcp contract afn double @hypot(double noundef %21, double noundef %23) #10
   %25 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %24
   call void @cairo_set_line_width(ptr noundef %0, double noundef %25) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_move_to(ptr noundef %0, double noundef 4.000000e-01, double noundef 5.000000e-02) #9
   call void @cairo_line_to(ptr noundef %0, double noundef 6.000000e-01, double noundef 3.000000e-01) #9
   call void @cairo_line_to(ptr noundef %0, double noundef 6.000000e-01, double noundef 8.000000e-01) #9
@@ -4524,7 +4518,7 @@ define void @dtgtk_cairo_paint_audio(ptr noundef %0, i32 noundef %1, i32 noundef
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %10, double noundef %10) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %21 = load double, ptr %8, align 8, !tbaa !6
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -4532,7 +4526,7 @@ define void @dtgtk_cairo_paint_audio(ptr noundef %0, i32 noundef %1, i32 noundef
   %24 = call reassoc nsz arcp contract afn double @hypot(double noundef %21, double noundef %23) #10
   %25 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %24
   call void @cairo_set_line_width(ptr noundef %0, double noundef %25) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_rectangle(ptr noundef %0, double noundef 5.000000e-02, double noundef 4.000000e-01, double noundef 2.000000e-01, double noundef 2.000000e-01) #9
   call void @cairo_move_to(ptr noundef %0, double noundef 2.500000e-01, double noundef 6.000000e-01) #9
   call void @cairo_line_to(ptr noundef %0, double noundef 4.500000e-01, double noundef 7.700000e-01) #9
@@ -4572,7 +4566,7 @@ define void @dtgtk_cairo_paint_label_flower(ptr noundef %0, i32 noundef %1, i32 
   tail call void @cairo_translate(ptr noundef %0, double noundef %16, double noundef %21) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %11, double noundef %11) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %22 = load double, ptr %8, align 8, !tbaa !6
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -4580,7 +4574,7 @@ define void @dtgtk_cairo_paint_label_flower(ptr noundef %0, i32 noundef %1, i32 
   %25 = call reassoc nsz arcp contract afn double @hypot(double noundef %22, double noundef %24) #10
   %26 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %25
   call void @cairo_set_line_width(ptr noundef %0, double noundef %26) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %27 = and i32 %5, 1
   %.not = icmp eq i32 %27, 0
   br i1 %.not, label %31, label %28
@@ -4707,7 +4701,7 @@ define void @dtgtk_cairo_paint_colorpicker(ptr noundef %0, i32 noundef %1, i32 n
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %10, double noundef %10) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 5.000000e-02) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %21 = load double, ptr %8, align 8, !tbaa !6
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -4715,7 +4709,7 @@ define void @dtgtk_cairo_paint_colorpicker(ptr noundef %0, i32 noundef %1, i32 n
   %24 = call reassoc nsz arcp contract afn double @hypot(double noundef %21, double noundef %23) #10
   %25 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %24
   call void @cairo_set_line_width(ptr noundef %0, double noundef %25) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_move_to(ptr noundef %0, double noundef 0.000000e+00, double noundef 1.000000e+00) #9
   call void @cairo_line_to(ptr noundef %0, double noundef 8.000000e-02, double noundef 8.500000e-01) #9
   call void @cairo_line_to(ptr noundef %0, double noundef 1.600000e-01, double noundef 1.000000e+00) #9
@@ -4757,7 +4751,7 @@ define void @dtgtk_cairo_paint_colorpicker_set_values(ptr noundef %0, i32 nounde
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %10, double noundef %10) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 5.000000e-02) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %21 = load double, ptr %8, align 8, !tbaa !6
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -4765,7 +4759,7 @@ define void @dtgtk_cairo_paint_colorpicker_set_values(ptr noundef %0, i32 nounde
   %24 = call reassoc nsz arcp contract afn double @hypot(double noundef %21, double noundef %23) #10
   %25 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %24
   call void @cairo_set_line_width(ptr noundef %0, double noundef %25) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_move_to(ptr noundef %0, double noundef 0.000000e+00, double noundef 1.000000e+00) #9
   call void @cairo_line_to(ptr noundef %0, double noundef 8.000000e-02, double noundef 8.500000e-01) #9
   call void @cairo_line_to(ptr noundef %0, double noundef 1.600000e-01, double noundef 1.000000e+00) #9
@@ -4813,7 +4807,7 @@ define void @dtgtk_cairo_paint_showmask(ptr noundef %0, i32 noundef %1, i32 noun
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %10, double noundef %10) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %21 = load double, ptr %8, align 8, !tbaa !6
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -4821,7 +4815,7 @@ define void @dtgtk_cairo_paint_showmask(ptr noundef %0, i32 noundef %1, i32 noun
   %24 = call reassoc nsz arcp contract afn double @hypot(double noundef %21, double noundef %23) #10
   %25 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %24
   call void @cairo_set_line_width(ptr noundef %0, double noundef %25) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_arc(ptr noundef %0, double noundef 5.000000e-01, double noundef 5.000000e-01, double noundef 3.500000e-01, double noundef 0xC00921FB54442D18, double noundef 0x400921FB54442D18) #9
   call void @cairo_rectangle(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 1.000000e+00, double noundef 1.000000e+00) #9
   call void @cairo_set_fill_rule(ptr noundef %0, i32 noundef 1) #9
@@ -4856,7 +4850,7 @@ define void @dtgtk_cairo_paint_preferences(ptr noundef %0, i32 noundef %1, i32 n
   tail call void @cairo_translate(ptr noundef %0, double noundef %16, double noundef %21) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %11, double noundef %11) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 5.000000e-01, double noundef 5.000000e-01) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %22 = load double, ptr %8, align 8, !tbaa !6
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -4864,7 +4858,7 @@ define void @dtgtk_cairo_paint_preferences(ptr noundef %0, i32 noundef %1, i32 n
   %25 = call reassoc nsz arcp contract afn double @hypot(double noundef %22, double noundef %24) #10
   %26 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %25
   call void @cairo_set_line_width(ptr noundef %0, double noundef %26) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_rotate(ptr noundef %0, double noundef 0x3FD0C152382D7365) #9
   br label %28
 
@@ -4916,7 +4910,7 @@ define void @dtgtk_cairo_paint_overlays(ptr noundef %0, i32 noundef %1, i32 noun
   tail call void @cairo_translate(ptr noundef %0, double noundef %18, double noundef %23) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %13, double noundef %13) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 5.000000e-01, double noundef 5.000000e-01) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %10) #9
   %24 = load double, ptr %10, align 8, !tbaa !6
   %25 = getelementptr inbounds nuw i8, ptr %10, i64 24
@@ -4924,8 +4918,8 @@ define void @dtgtk_cairo_paint_overlays(ptr noundef %0, i32 noundef %1, i32 noun
   %27 = call reassoc nsz arcp contract afn double @hypot(double noundef %24, double noundef %26) #10
   %28 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %27
   call void @cairo_set_line_width(ptr noundef %0, double noundef %28) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10) #9
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %29 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store float 0x3FE2CF2300000000, ptr %29, align 4, !tbaa !18
   %30 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -4944,7 +4938,7 @@ define void @dtgtk_cairo_paint_overlays(ptr noundef %0, i32 noundef %1, i32 noun
   store float 0xBFEE6F0E00000000, ptr %36, align 16, !tbaa !18
   %37 = getelementptr inbounds nuw i8, ptr %8, i64 36
   store float 0xBFE2CF2260000000, ptr %37, align 4, !tbaa !18
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %38 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store float 0x3FE9E377A0000000, ptr %38, align 4, !tbaa !18
   %39 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -4987,8 +4981,8 @@ define void @dtgtk_cairo_paint_overlays(ptr noundef %0, i32 noundef %1, i32 noun
 
 dt_draw_star.exit:                                ; preds = %47
   call void @cairo_close_path(ptr noundef %0) #9
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #9
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_stroke(ptr noundef %0) #9
   call void @cairo_identity_matrix(ptr noundef %0) #9
   call void @cairo_restore(ptr noundef %0) #9
@@ -5017,7 +5011,7 @@ define void @dtgtk_cairo_paint_help(ptr noundef %0, i32 noundef %1, i32 noundef 
   tail call void @cairo_translate(ptr noundef %0, double noundef %16, double noundef %21) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %11, double noundef %11) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 5.000000e-01, double noundef 5.000000e-01) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %22 = load double, ptr %8, align 8, !tbaa !6
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -5025,7 +5019,7 @@ define void @dtgtk_cairo_paint_help(ptr noundef %0, i32 noundef %1, i32 noundef 
   %25 = call reassoc nsz arcp contract afn double @hypot(double noundef %22, double noundef %24) #10
   %26 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %25
   call void @cairo_set_line_width(ptr noundef %0, double noundef %26) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_arc(ptr noundef %0, double noundef 0.000000e+00, double noundef -5.000000e-01, double noundef 4.000000e-01, double noundef 0xC00921FB54442D18, double noundef 0x3FE921FB54442D18) #9
   call void @cairo_arc_negative(ptr noundef %0, double noundef 0x3FE6666666666666, double noundef 4.000000e-01, double noundef 0x3FE6666666666666, double noundef 0xC002D97C7F3321D2, double noundef 0xC00921FB54442D18) #9
   call void @cairo_stroke(ptr noundef %0) #9
@@ -5057,7 +5051,7 @@ define void @dtgtk_cairo_paint_grouping(ptr noundef %0, i32 noundef %1, i32 noun
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %10, double noundef %10) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %21 = load double, ptr %8, align 8, !tbaa !6
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -5065,7 +5059,7 @@ define void @dtgtk_cairo_paint_grouping(ptr noundef %0, i32 noundef %1, i32 noun
   %24 = call reassoc nsz arcp contract afn double @hypot(double noundef %21, double noundef %23) #10
   %25 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %24
   call void @cairo_set_line_width(ptr noundef %0, double noundef %25) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_move_to(ptr noundef %0, double noundef 3.000000e-01, double noundef 1.500000e-01) #9
   call void @cairo_line_to(ptr noundef %0, double noundef 0x3FEE666666666666, double noundef 1.500000e-01) #9
   call void @cairo_line_to(ptr noundef %0, double noundef 0x3FEE666666666666, double noundef 6.500000e-01) #9
@@ -5113,7 +5107,7 @@ define void @dtgtk_cairo_paint_alignment(ptr noundef %0, i32 noundef %1, i32 nou
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %10, double noundef %10) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %21 = load double, ptr %8, align 8, !tbaa !6
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -5121,7 +5115,7 @@ define void @dtgtk_cairo_paint_alignment(ptr noundef %0, i32 noundef %1, i32 nou
   %24 = call reassoc nsz arcp contract afn double @hypot(double noundef %21, double noundef %23) #10
   %25 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %24
   call void @cairo_set_line_width(ptr noundef %0, double noundef %25) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %26 = ashr i32 %5, 14
   switch i32 %26, label %36 [
     i32 1, label %27
@@ -5214,7 +5208,7 @@ define void @dtgtk_cairo_paint_text_label(ptr noundef %0, i32 noundef %1, i32 no
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %10, double noundef %10) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %21 = load double, ptr %8, align 8, !tbaa !6
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -5222,7 +5216,7 @@ define void @dtgtk_cairo_paint_text_label(ptr noundef %0, i32 noundef %1, i32 no
   %24 = call reassoc nsz arcp contract afn double @hypot(double noundef %21, double noundef %23) #10
   %25 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %24
   call void @cairo_set_line_width(ptr noundef %0, double noundef %25) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_move_to(ptr noundef %0, double noundef 1.000000e-01, double noundef 1.000000e+00) #9
   call void @cairo_line_to(ptr noundef %0, double noundef 5.000000e-01, double noundef 0.000000e+00) #9
   call void @cairo_line_to(ptr noundef %0, double noundef 9.000000e-01, double noundef 1.000000e+00) #9
@@ -5255,7 +5249,7 @@ define void @dtgtk_cairo_paint_union(ptr noundef %0, i32 noundef %1, i32 noundef
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %10, double noundef %10) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %21 = load double, ptr %8, align 8, !tbaa !6
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -5263,7 +5257,7 @@ define void @dtgtk_cairo_paint_union(ptr noundef %0, i32 noundef %1, i32 noundef
   %24 = call reassoc nsz arcp contract afn double @hypot(double noundef %21, double noundef %23) #10
   %25 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %24
   call void @cairo_set_line_width(ptr noundef %0, double noundef %25) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_arc(ptr noundef %0, double noundef 3.000000e-01, double noundef 5.000000e-01, double noundef 3.000000e-01, double noundef 0.000000e+00, double noundef 0x401921FB54442D18) #9
   call void @cairo_arc(ptr noundef %0, double noundef 0x3FE70A3D70A3D70A, double noundef 5.000000e-01, double noundef 3.000000e-01, double noundef 0.000000e+00, double noundef 0x401921FB54442D18) #9
   call void @cairo_fill(ptr noundef %0) #9
@@ -5297,7 +5291,7 @@ define void @dtgtk_cairo_paint_intersection(ptr noundef %0, i32 noundef %1, i32 
   tail call void @cairo_translate(ptr noundef %0, double noundef %19, double noundef %24) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %14, double noundef %14) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %25 = load double, ptr %8, align 8, !tbaa !6
   %26 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -5305,11 +5299,11 @@ define void @dtgtk_cairo_paint_intersection(ptr noundef %0, i32 noundef %1, i32 
   %28 = call reassoc nsz arcp contract afn double @hypot(double noundef %25, double noundef %27) #10
   %29 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %28
   call void @cairo_set_line_width(ptr noundef %0, double noundef %29) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %30 = call ptr @cairo_get_source(ptr noundef %0) #9
   %31 = call i32 @cairo_pattern_get_rgba(ptr noundef %30, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12) #9
   %.not = icmp eq i32 %31, 0
@@ -5332,10 +5326,10 @@ define void @dtgtk_cairo_paint_intersection(ptr noundef %0, i32 noundef %1, i32 
 36:                                               ; preds = %7, %32
   call void @cairo_identity_matrix(ptr noundef %0) #9
   call void @cairo_restore(ptr noundef %0) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }
 
@@ -5360,7 +5354,7 @@ define void @dtgtk_cairo_paint_andnot(ptr noundef %0, i32 noundef %1, i32 nounde
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %10, double noundef %10) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %21 = load double, ptr %8, align 8, !tbaa !6
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -5368,7 +5362,7 @@ define void @dtgtk_cairo_paint_andnot(ptr noundef %0, i32 noundef %1, i32 nounde
   %24 = call reassoc nsz arcp contract afn double @hypot(double noundef %21, double noundef %23) #10
   %25 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %24
   call void @cairo_set_line_width(ptr noundef %0, double noundef %25) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_move_to(ptr noundef %0, double noundef 1.000000e-01, double noundef 1.000000e-01) #9
   call void @cairo_line_to(ptr noundef %0, double noundef 9.000000e-01, double noundef 9.000000e-01) #9
   call void @cairo_stroke(ptr noundef %0) #9
@@ -5398,7 +5392,7 @@ define void @dtgtk_cairo_paint_dropdown(ptr noundef %0, i32 noundef %1, i32 noun
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %10, double noundef %10) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %21 = load double, ptr %8, align 8, !tbaa !6
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -5406,7 +5400,7 @@ define void @dtgtk_cairo_paint_dropdown(ptr noundef %0, i32 noundef %1, i32 noun
   %24 = call reassoc nsz arcp contract afn double @hypot(double noundef %21, double noundef %23) #10
   %25 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %24
   call void @cairo_set_line_width(ptr noundef %0, double noundef %25) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_move_to(ptr noundef %0, double noundef 1.000000e-01, double noundef 3.000000e-01) #9
   call void @cairo_line_to(ptr noundef %0, double noundef 5.000000e-01, double noundef 0x3FE6666666666666) #9
   call void @cairo_line_to(ptr noundef %0, double noundef 9.000000e-01, double noundef 3.000000e-01) #9
@@ -5437,7 +5431,7 @@ define void @dtgtk_cairo_paint_bracket(ptr noundef %0, i32 noundef %1, i32 nound
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %10, double noundef %10) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %21 = load double, ptr %8, align 8, !tbaa !6
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -5445,7 +5439,7 @@ define void @dtgtk_cairo_paint_bracket(ptr noundef %0, i32 noundef %1, i32 nound
   %24 = call reassoc nsz arcp contract afn double @hypot(double noundef %21, double noundef %23) #10
   %25 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %24
   call void @cairo_set_line_width(ptr noundef %0, double noundef %25) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_rectangle(ptr noundef %0, double noundef 5.000000e-02, double noundef 5.000000e-02, double noundef 4.500000e-01, double noundef 4.500000e-01) #9
   call void @cairo_stroke(ptr noundef %0) #9
   call void @cairo_set_line_width(ptr noundef %0, double noundef 2.500000e-02) #9
@@ -5483,7 +5477,7 @@ define void @dtgtk_cairo_paint_lock(ptr noundef %0, i32 noundef %1, i32 noundef 
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %10, double noundef %10) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %21 = load double, ptr %8, align 8, !tbaa !6
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -5491,7 +5485,7 @@ define void @dtgtk_cairo_paint_lock(ptr noundef %0, i32 noundef %1, i32 noundef 
   %24 = call reassoc nsz arcp contract afn double @hypot(double noundef %21, double noundef %23) #10
   %25 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %24
   call void @cairo_set_line_width(ptr noundef %0, double noundef %25) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_rectangle(ptr noundef %0, double noundef 2.500000e-01, double noundef 5.000000e-01, double noundef 5.000000e-01, double noundef 4.500000e-01) #9
   call void @cairo_fill(ptr noundef %0) #9
   call void @cairo_translate(ptr noundef %0, double noundef 5.000000e-01, double noundef 5.000000e-01) #9
@@ -5524,7 +5518,7 @@ define void @dtgtk_cairo_paint_check_mark(ptr noundef %0, i32 noundef %1, i32 no
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %10, double noundef %10) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %21 = load double, ptr %8, align 8, !tbaa !6
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -5532,7 +5526,7 @@ define void @dtgtk_cairo_paint_check_mark(ptr noundef %0, i32 noundef %1, i32 no
   %24 = call reassoc nsz arcp contract afn double @hypot(double noundef %21, double noundef %23) #10
   %25 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %24
   call void @cairo_set_line_width(ptr noundef %0, double noundef %25) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_move_to(ptr noundef %0, double noundef 2.000000e-01, double noundef 4.500000e-01) #9
   call void @cairo_line_to(ptr noundef %0, double noundef 4.500000e-01, double noundef 9.000000e-01) #9
   call void @cairo_line_to(ptr noundef %0, double noundef 9.000000e-01, double noundef 2.000000e-01) #9
@@ -5563,7 +5557,7 @@ define void @dtgtk_cairo_paint_overexposed(ptr noundef %0, i32 noundef %1, i32 n
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %10, double noundef %10) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %21 = load double, ptr %8, align 8, !tbaa !6
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -5571,7 +5565,7 @@ define void @dtgtk_cairo_paint_overexposed(ptr noundef %0, i32 noundef %1, i32 n
   %24 = call reassoc nsz arcp contract afn double @hypot(double noundef %21, double noundef %23) #10
   %25 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %24
   call void @cairo_set_line_width(ptr noundef %0, double noundef %25) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_move_to(ptr noundef %0, double noundef 1.000000e+00, double noundef 0.000000e+00) #9
   call void @cairo_line_to(ptr noundef %0, double noundef 0.000000e+00, double noundef 1.000000e+00) #9
   call void @cairo_line_to(ptr noundef %0, double noundef 1.000000e+00, double noundef 1.000000e+00) #9
@@ -5610,7 +5604,7 @@ define void @dtgtk_cairo_paint_bulb(ptr noundef %0, i32 noundef %1, i32 noundef 
   tail call void @cairo_translate(ptr noundef %0, double noundef %16, double noundef %21) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %11, double noundef %11) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef -5.000000e-02) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %22 = load double, ptr %8, align 8, !tbaa !6
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -5618,7 +5612,7 @@ define void @dtgtk_cairo_paint_bulb(ptr noundef %0, i32 noundef %1, i32 noundef 
   %25 = call reassoc nsz arcp contract afn double @hypot(double noundef %22, double noundef %24) #10
   %26 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %25
   call void @cairo_set_line_width(ptr noundef %0, double noundef %26) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_arc_negative(ptr noundef %0, double noundef 5.000000e-01, double noundef 3.800000e-01, double noundef 4.000000e-01, double noundef 1.000000e+00, double noundef 0x400121FB54442D18) #9
   call void @cairo_close_path(ptr noundef %0) #9
   %27 = and i32 %5, 16
@@ -5669,7 +5663,7 @@ define void @dtgtk_cairo_paint_bulb_mod(ptr noundef %0, i32 noundef %1, i32 noun
   tail call void @cairo_translate(ptr noundef %0, double noundef %16, double noundef %21) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %11, double noundef %11) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef -5.000000e-02) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %22 = load double, ptr %8, align 8, !tbaa !6
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -5677,7 +5671,7 @@ define void @dtgtk_cairo_paint_bulb_mod(ptr noundef %0, i32 noundef %1, i32 noun
   %25 = call reassoc nsz arcp contract afn double @hypot(double noundef %22, double noundef %24) #10
   %26 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %25
   call void @cairo_set_line_width(ptr noundef %0, double noundef %26) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_rectangle(ptr noundef %0, double noundef 7.800000e-01, double noundef 0x3FEE666666666666, double noundef 2.200000e-01, double noundef 2.200000e-01) #9
   %27 = and i32 %5, 16
   %.not = icmp eq i32 %27, 0
@@ -5740,7 +5734,7 @@ define void @dtgtk_cairo_paint_rawoverexposed(ptr noundef %0, i32 noundef %1, i3
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %10, double noundef %10) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %21 = load double, ptr %8, align 8, !tbaa !6
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -5748,7 +5742,7 @@ define void @dtgtk_cairo_paint_rawoverexposed(ptr noundef %0, i32 noundef %1, i3
   %24 = call reassoc nsz arcp contract afn double @hypot(double noundef %21, double noundef %23) #10
   %25 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %24
   call void @cairo_set_line_width(ptr noundef %0, double noundef %25) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_save(ptr noundef %0) #9
   %26 = and i32 %5, 16
   %.not = icmp eq i32 %26, 0
@@ -5800,7 +5794,7 @@ define void @dtgtk_cairo_paint_gamut_check(ptr noundef %0, i32 noundef %1, i32 n
   tail call void @cairo_translate(ptr noundef %0, double noundef %16, double noundef %21) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %11, double noundef %11) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef -5.000000e-02) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %22 = load double, ptr %8, align 8, !tbaa !6
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -5808,7 +5802,7 @@ define void @dtgtk_cairo_paint_gamut_check(ptr noundef %0, i32 noundef %1, i32 n
   %25 = call reassoc nsz arcp contract afn double @hypot(double noundef %22, double noundef %24) #10
   %26 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %25
   call void @cairo_set_line_width(ptr noundef %0, double noundef %26) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_move_to(ptr noundef %0, double noundef 0.000000e+00, double noundef 9.330000e-01) #9
   call void @cairo_line_to(ptr noundef %0, double noundef 5.000000e-01, double noundef 0x3FB126E978D4FDF0) #9
   call void @cairo_line_to(ptr noundef %0, double noundef 1.000000e+00, double noundef 9.330000e-01) #9
@@ -5856,7 +5850,7 @@ define void @dtgtk_cairo_paint_softproof(ptr noundef %0, i32 noundef %1, i32 nou
   tail call void @cairo_translate(ptr noundef %0, double noundef %16, double noundef %21) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %11, double noundef %11) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %22 = load double, ptr %8, align 8, !tbaa !6
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -5864,7 +5858,7 @@ define void @dtgtk_cairo_paint_softproof(ptr noundef %0, i32 noundef %1, i32 nou
   %25 = call reassoc nsz arcp contract afn double @hypot(double noundef %22, double noundef %24) #10
   %26 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %25
   call void @cairo_set_line_width(ptr noundef %0, double noundef %26) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_move_to(ptr noundef %0, double noundef 3.000000e-01, double noundef 1.000000e+00) #9
   call void @cairo_curve_to(ptr noundef %0, double noundef 1.400000e-01, double noundef 9.100000e-01, double noundef 3.000000e-02, double noundef 1.200000e-01, double noundef 1.800000e-01, double noundef 0.000000e+00) #9
   call void @cairo_curve_to(ptr noundef %0, double noundef 3.200000e-01, double noundef 0xBFB47AE147AE1480, double noundef 6.900000e-01, double noundef 3.700000e-01, double noundef 0x3FEF0A3D70A3D70A, double noundef 0x3FE5C28F5C28F5C2) #9
@@ -5902,7 +5896,7 @@ define void @dtgtk_cairo_paint_display(ptr noundef %0, i32 noundef %1, i32 nound
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %10, double noundef %10) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %21 = load double, ptr %8, align 8, !tbaa !6
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -5910,7 +5904,7 @@ define void @dtgtk_cairo_paint_display(ptr noundef %0, i32 noundef %1, i32 nound
   %24 = call reassoc nsz arcp contract afn double @hypot(double noundef %21, double noundef %23) #10
   %25 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %24
   call void @cairo_set_line_width(ptr noundef %0, double noundef %25) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_rectangle(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 1.000000e+00, double noundef 7.500000e-01) #9
   call void @cairo_move_to(ptr noundef %0, double noundef 5.000000e-01, double noundef 7.500000e-01) #9
   call void @cairo_line_to(ptr noundef %0, double noundef 5.000000e-01, double noundef 1.000000e+00) #9
@@ -5944,7 +5938,7 @@ define void @dtgtk_cairo_paint_display2(ptr noundef %0, i32 noundef %1, i32 noun
   tail call void @cairo_translate(ptr noundef %0, double noundef %16, double noundef %21) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %11, double noundef %11) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 5.000000e-01, double noundef 5.000000e-01) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %22 = load double, ptr %8, align 8, !tbaa !6
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -5952,7 +5946,7 @@ define void @dtgtk_cairo_paint_display2(ptr noundef %0, i32 noundef %1, i32 noun
   %25 = call reassoc nsz arcp contract afn double @hypot(double noundef %22, double noundef %24) #10
   %26 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %25
   call void @cairo_set_line_width(ptr noundef %0, double noundef %26) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_move_to(ptr noundef %0, double noundef -5.500000e-01, double noundef 9.000000e-01) #9
   call void @cairo_rel_line_to(ptr noundef %0, double noundef 0x3FE6666666666666, double noundef 0.000000e+00) #9
   call void @cairo_stroke(ptr noundef %0) #9
@@ -5994,7 +5988,7 @@ define void @dtgtk_cairo_paint_rect_landscape(ptr noundef %0, i32 noundef %1, i3
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %10, double noundef %10) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %21 = load double, ptr %8, align 8, !tbaa !6
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -6002,7 +5996,7 @@ define void @dtgtk_cairo_paint_rect_landscape(ptr noundef %0, i32 noundef %1, i3
   %24 = call reassoc nsz arcp contract afn double @hypot(double noundef %21, double noundef %23) #10
   %25 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %24
   call void @cairo_set_line_width(ptr noundef %0, double noundef %25) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_move_to(ptr noundef %0, double noundef 0.000000e+00, double noundef 3.000000e-01) #9
   call void @cairo_line_to(ptr noundef %0, double noundef 1.000000e+00, double noundef 3.000000e-01) #9
   call void @cairo_line_to(ptr noundef %0, double noundef 1.000000e+00, double noundef 0x3FE6666666666666) #9
@@ -6035,7 +6029,7 @@ define void @dtgtk_cairo_paint_rect_portrait(ptr noundef %0, i32 noundef %1, i32
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %10, double noundef %10) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %21 = load double, ptr %8, align 8, !tbaa !6
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -6043,7 +6037,7 @@ define void @dtgtk_cairo_paint_rect_portrait(ptr noundef %0, i32 noundef %1, i32
   %24 = call reassoc nsz arcp contract afn double @hypot(double noundef %21, double noundef %23) #10
   %25 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %24
   call void @cairo_set_line_width(ptr noundef %0, double noundef %25) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_move_to(ptr noundef %0, double noundef 3.000000e-01, double noundef 0.000000e+00) #9
   call void @cairo_line_to(ptr noundef %0, double noundef 0x3FE6666666666666, double noundef 0.000000e+00) #9
   call void @cairo_line_to(ptr noundef %0, double noundef 0x3FE6666666666666, double noundef 1.000000e+00) #9
@@ -6076,7 +6070,7 @@ define void @dtgtk_cairo_paint_polygon(ptr noundef %0, i32 noundef %1, i32 nound
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %10, double noundef %10) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %21 = load double, ptr %8, align 8, !tbaa !6
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -6084,7 +6078,7 @@ define void @dtgtk_cairo_paint_polygon(ptr noundef %0, i32 noundef %1, i32 nound
   %24 = call reassoc nsz arcp contract afn double @hypot(double noundef %21, double noundef %23) #10
   %25 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %24
   call void @cairo_set_line_width(ptr noundef %0, double noundef %25) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_move_to(ptr noundef %0, double noundef 0.000000e+00, double noundef 3.000000e-01) #9
   call void @cairo_line_to(ptr noundef %0, double noundef 0x3FE6666666666666, double noundef 0.000000e+00) #9
   call void @cairo_line_to(ptr noundef %0, double noundef 5.000000e-01, double noundef 5.000000e-01) #9
@@ -6119,7 +6113,7 @@ define void @dtgtk_cairo_paint_zoom(ptr noundef %0, i32 noundef %1, i32 noundef 
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %10, double noundef %10) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %21 = load double, ptr %8, align 8, !tbaa !6
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -6127,7 +6121,7 @@ define void @dtgtk_cairo_paint_zoom(ptr noundef %0, i32 noundef %1, i32 noundef 
   %24 = call reassoc nsz arcp contract afn double @hypot(double noundef %21, double noundef %23) #10
   %25 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %24
   call void @cairo_set_line_width(ptr noundef %0, double noundef %25) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_move_to(ptr noundef %0, double noundef 9.000000e-01, double noundef 9.000000e-01) #9
   call void @cairo_line_to(ptr noundef %0, double noundef 6.500000e-01, double noundef 6.500000e-01) #9
   call void @cairo_stroke(ptr noundef %0) #9
@@ -6159,7 +6153,7 @@ define void @dtgtk_cairo_paint_multiinstance(ptr noundef %0, i32 noundef %1, i32
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %10, double noundef %10) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %21 = load double, ptr %8, align 8, !tbaa !6
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -6167,7 +6161,7 @@ define void @dtgtk_cairo_paint_multiinstance(ptr noundef %0, i32 noundef %1, i32
   %24 = call reassoc nsz arcp contract afn double @hypot(double noundef %21, double noundef %23) #10
   %25 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %24
   call void @cairo_set_line_width(ptr noundef %0, double noundef %25) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_rectangle(ptr noundef %0, double noundef 3.500000e-01, double noundef 3.500000e-01, double noundef 6.000000e-01, double noundef 6.000000e-01) #9
   call void @cairo_stroke(ptr noundef %0) #9
   call void @cairo_rectangle(ptr noundef %0, double noundef 5.000000e-02, double noundef 5.000000e-02, double noundef 9.000000e-01, double noundef 9.000000e-01) #9
@@ -6203,7 +6197,7 @@ define void @dtgtk_cairo_paint_modulegroup_active(ptr noundef %0, i32 noundef %1
   tail call void @cairo_translate(ptr noundef %0, double noundef %16, double noundef %21) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %11, double noundef %11) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %22 = load double, ptr %8, align 8, !tbaa !6
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -6211,7 +6205,7 @@ define void @dtgtk_cairo_paint_modulegroup_active(ptr noundef %0, i32 noundef %1
   %25 = call reassoc nsz arcp contract afn double @hypot(double noundef %22, double noundef %24) #10
   %26 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %25
   call void @cairo_set_line_width(ptr noundef %0, double noundef %26) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_arc(ptr noundef %0, double noundef 5.000000e-01, double noundef 5.000000e-01, double noundef 4.000000e-01, double noundef 0xBFEBF49F49F49F4A, double noundef 0x4010130ECA8641FE) #9
   call void @cairo_move_to(ptr noundef %0, double noundef 5.000000e-01, double noundef 5.000000e-02) #9
   call void @cairo_line_to(ptr noundef %0, double noundef 5.000000e-01, double noundef 4.000000e-01) #9
@@ -6245,7 +6239,7 @@ define void @dtgtk_cairo_paint_modulegroup_favorites(ptr noundef %0, i32 noundef
   tail call void @cairo_translate(ptr noundef %0, double noundef %18, double noundef %23) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %13, double noundef %13) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %24 = load double, ptr %8, align 8, !tbaa !6
   %25 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -6253,8 +6247,8 @@ define void @dtgtk_cairo_paint_modulegroup_favorites(ptr noundef %0, i32 noundef
   %27 = call reassoc nsz arcp contract afn double @hypot(double noundef %24, double noundef %26) #10
   %28 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %27
   call void @cairo_set_line_width(ptr noundef %0, double noundef %28) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %9) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %29 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store double 0x3FE2CF2304755A5E, ptr %29, align 8, !tbaa !12
   %30 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -6273,7 +6267,7 @@ define void @dtgtk_cairo_paint_modulegroup_favorites(ptr noundef %0, i32 noundef
   store double 0xBFEE6F0E13445500, ptr %36, align 16, !tbaa !12
   %37 = getelementptr inbounds nuw i8, ptr %9, i64 72
   store double 0xBFE2CF2304755A60, ptr %37, align 8, !tbaa !12
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %10) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %38 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store double 0x3FE9E3779B97F4A8, ptr %38, align 8, !tbaa !12
   %39 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -6300,8 +6294,8 @@ define void @dtgtk_cairo_paint_modulegroup_favorites(ptr noundef %0, i32 noundef
   call void @cairo_stroke(ptr noundef %0) #9
   call void @cairo_identity_matrix(ptr noundef %0) #9
   call void @cairo_restore(ptr noundef %0) #9
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %10) #9
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %9) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 
 48:                                               ; preds = %7, %48
@@ -6349,7 +6343,7 @@ define void @dtgtk_cairo_paint_modulegroup_basics(ptr noundef %0, i32 noundef %1
   tail call void @cairo_translate(ptr noundef %0, double noundef %20, double noundef %25) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %15, double noundef %15) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %26 = load double, ptr %8, align 8, !tbaa !6
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -6357,11 +6351,11 @@ define void @dtgtk_cairo_paint_modulegroup_basics(ptr noundef %0, i32 noundef %1
   %29 = call reassoc nsz arcp contract afn double @hypot(double noundef %26, double noundef %28) #10
   %30 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %29
   call void @cairo_set_line_width(ptr noundef %0, double noundef %30) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %31 = call ptr @cairo_get_source(ptr noundef %0) #9
   %32 = call i32 @cairo_pattern_get_rgba(ptr noundef %31, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12) #9
   %.not = icmp eq i32 %32, 0
@@ -6421,10 +6415,10 @@ define void @dtgtk_cairo_paint_modulegroup_basics(ptr noundef %0, i32 noundef %1
 45:                                               ; preds = %7, %33
   call void @cairo_identity_matrix(ptr noundef %0) #9
   call void @cairo_restore(ptr noundef %0) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }
 
@@ -6450,7 +6444,7 @@ define void @dtgtk_cairo_paint_modulegroup_basic(ptr noundef %0, i32 noundef %1,
   tail call void @cairo_translate(ptr noundef %0, double noundef %16, double noundef %21) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %11, double noundef %11) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %22 = load double, ptr %8, align 8, !tbaa !6
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -6458,7 +6452,7 @@ define void @dtgtk_cairo_paint_modulegroup_basic(ptr noundef %0, i32 noundef %1,
   %25 = call reassoc nsz arcp contract afn double @hypot(double noundef %22, double noundef %24) #10
   %26 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %25
   call void @cairo_set_line_width(ptr noundef %0, double noundef %26) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_arc(ptr noundef %0, double noundef 5.000000e-01, double noundef 5.000000e-01, double noundef 4.000000e-01, double noundef 0xC00921FB54442D18, double noundef 0x400921FB54442D18) #9
   call void @cairo_stroke(ptr noundef %0) #9
   call void @cairo_identity_matrix(ptr noundef %0) #9
@@ -6488,7 +6482,7 @@ define void @dtgtk_cairo_paint_modulegroup_tone(ptr noundef %0, i32 noundef %1, 
   tail call void @cairo_translate(ptr noundef %0, double noundef %16, double noundef %21) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %11, double noundef %11) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %22 = load double, ptr %8, align 8, !tbaa !6
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -6496,7 +6490,7 @@ define void @dtgtk_cairo_paint_modulegroup_tone(ptr noundef %0, i32 noundef %1, 
   %25 = call reassoc nsz arcp contract afn double @hypot(double noundef %22, double noundef %24) #10
   %26 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %25
   call void @cairo_set_line_width(ptr noundef %0, double noundef %26) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_arc(ptr noundef %0, double noundef 5.000000e-01, double noundef 5.000000e-01, double noundef 4.000000e-01, double noundef 0xC00921FB54442D18, double noundef 0x400921FB54442D18) #9
   call void @cairo_stroke(ptr noundef %0) #9
   %27 = call ptr @cairo_pattern_create_linear(double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 1.000000e+00, double noundef 0.000000e+00) #9
@@ -6533,7 +6527,7 @@ define void @dtgtk_cairo_paint_modulegroup_color(ptr noundef %0, i32 noundef %1,
   tail call void @cairo_translate(ptr noundef %0, double noundef %16, double noundef %21) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %11, double noundef %11) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %22 = load double, ptr %8, align 8, !tbaa !6
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -6541,7 +6535,7 @@ define void @dtgtk_cairo_paint_modulegroup_color(ptr noundef %0, i32 noundef %1,
   %25 = call reassoc nsz arcp contract afn double @hypot(double noundef %22, double noundef %24) #10
   %26 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %25
   call void @cairo_set_line_width(ptr noundef %0, double noundef %26) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_arc(ptr noundef %0, double noundef 5.000000e-01, double noundef 5.000000e-01, double noundef 4.000000e-01, double noundef 0xC00921FB54442D18, double noundef 0x400921FB54442D18) #9
   call void @cairo_stroke(ptr noundef %0) #9
   %27 = call ptr @cairo_pattern_create_linear(double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 1.000000e+00, double noundef 0.000000e+00) #9
@@ -6581,7 +6575,7 @@ define void @dtgtk_cairo_paint_modulegroup_correct(ptr noundef %0, i32 noundef %
   tail call void @cairo_translate(ptr noundef %0, double noundef %16, double noundef %21) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %11, double noundef %11) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %22 = load double, ptr %8, align 8, !tbaa !6
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -6589,7 +6583,7 @@ define void @dtgtk_cairo_paint_modulegroup_correct(ptr noundef %0, i32 noundef %
   %25 = call reassoc nsz arcp contract afn double @hypot(double noundef %22, double noundef %24) #10
   %26 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %25
   call void @cairo_set_line_width(ptr noundef %0, double noundef %26) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_arc(ptr noundef %0, double noundef 4.200000e-01, double noundef 5.000000e-01, double noundef 4.000000e-01, double noundef 0.000000e+00, double noundef 0x400921FB54442D18) #9
   call void @cairo_stroke(ptr noundef %0) #9
   call void @cairo_arc(ptr noundef %0, double noundef 5.800000e-01, double noundef 5.000000e-01, double noundef 4.000000e-01, double noundef 0x400921FB54442D18, double noundef 0.000000e+00) #9
@@ -6621,7 +6615,7 @@ define void @dtgtk_cairo_paint_modulegroup_effect(ptr noundef %0, i32 noundef %1
   tail call void @cairo_translate(ptr noundef %0, double noundef %16, double noundef %21) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %11, double noundef %11) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %22 = load double, ptr %8, align 8, !tbaa !6
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -6629,7 +6623,7 @@ define void @dtgtk_cairo_paint_modulegroup_effect(ptr noundef %0, i32 noundef %1
   %25 = call reassoc nsz arcp contract afn double @hypot(double noundef %22, double noundef %24) #10
   %26 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %25
   call void @cairo_set_line_width(ptr noundef %0, double noundef %26) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_arc(ptr noundef %0, double noundef 5.000000e-01, double noundef 5.000000e-01, double noundef 4.000000e-01, double noundef 0xC00921FB54442D18, double noundef 0x400921FB54442D18) #9
   call void @cairo_stroke(ptr noundef %0) #9
   call void @cairo_move_to(ptr noundef %0, double noundef 3.780000e-01, double noundef 5.020000e-01) #9
@@ -6692,7 +6686,7 @@ define void @dtgtk_cairo_paint_modulegroup_grading(ptr noundef %0, i32 noundef %
   tail call void @cairo_translate(ptr noundef %0, double noundef %16, double noundef %21) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %11, double noundef %11) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %22 = load double, ptr %8, align 8, !tbaa !6
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -6700,7 +6694,7 @@ define void @dtgtk_cairo_paint_modulegroup_grading(ptr noundef %0, i32 noundef %
   %25 = call reassoc nsz arcp contract afn double @hypot(double noundef %22, double noundef %24) #10
   %26 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %25
   call void @cairo_set_line_width(ptr noundef %0, double noundef %26) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_arc(ptr noundef %0, double noundef 5.000000e-01, double noundef 5.000000e-01, double noundef 4.000000e-01, double noundef 0xC00921FB54442D18, double noundef 0x400921FB54442D18) #9
   call void @cairo_stroke_preserve(ptr noundef %0) #9
   call void @cairo_clip(ptr noundef %0) #9
@@ -6754,7 +6748,7 @@ define void @dtgtk_cairo_paint_modulegroup_technical(ptr noundef %0, i32 noundef
   tail call void @cairo_translate(ptr noundef %0, double noundef %16, double noundef %21) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %11, double noundef %11) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %22 = load double, ptr %8, align 8, !tbaa !6
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -6762,7 +6756,7 @@ define void @dtgtk_cairo_paint_modulegroup_technical(ptr noundef %0, i32 noundef
   %25 = call reassoc nsz arcp contract afn double @hypot(double noundef %22, double noundef %24) #10
   %26 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %25
   call void @cairo_set_line_width(ptr noundef %0, double noundef %26) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_arc(ptr noundef %0, double noundef 5.000000e-01, double noundef 5.000000e-01, double noundef 4.000000e-01, double noundef 0xC00921FB54442D18, double noundef 0x400921FB54442D18) #9
   call void @cairo_stroke(ptr noundef %0) #9
   call void @cairo_arc(ptr noundef %0, double noundef 5.000000e-02, double noundef 5.000000e-01, double noundef 5.500000e-01, double noundef 0xBFE38B112D7BD4AD, double noundef 0x3FE38B112D7BD4AD) #9
@@ -6805,7 +6799,7 @@ define void @dtgtk_cairo_paint_map_pin(ptr noundef %0, i32 noundef %1, i32 nound
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %10, double noundef %10) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %21 = load double, ptr %8, align 8, !tbaa !6
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -6813,7 +6807,7 @@ define void @dtgtk_cairo_paint_map_pin(ptr noundef %0, i32 noundef %1, i32 nound
   %24 = call reassoc nsz arcp contract afn double @hypot(double noundef %21, double noundef %23) #10
   %25 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %24
   call void @cairo_set_line_width(ptr noundef %0, double noundef %25) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_move_to(ptr noundef %0, double noundef 2.000000e-01, double noundef 0.000000e+00) #9
   call void @cairo_line_to(ptr noundef %0, double noundef 0.000000e+00, double noundef 1.000000e+00) #9
   call void @cairo_line_to(ptr noundef %0, double noundef 0x3FE6666666666666, double noundef 0.000000e+00) #9
@@ -6845,7 +6839,7 @@ define void @dtgtk_cairo_paint_tool_clone(ptr noundef %0, i32 noundef %1, i32 no
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %10, double noundef %10) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %21 = load double, ptr %8, align 8, !tbaa !6
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -6853,7 +6847,7 @@ define void @dtgtk_cairo_paint_tool_clone(ptr noundef %0, i32 noundef %1, i32 no
   %24 = call reassoc nsz arcp contract afn double @hypot(double noundef %21, double noundef %23) #10
   %25 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %24
   call void @cairo_set_line_width(ptr noundef %0, double noundef %25) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_arc(ptr noundef %0, double noundef 6.500000e-01, double noundef 3.500000e-01, double noundef 3.500000e-01, double noundef 0.000000e+00, double noundef 0x401921FB54442D18) #9
   call void @cairo_stroke(ptr noundef %0) #9
   call void @cairo_arc(ptr noundef %0, double noundef 3.500000e-01, double noundef 6.500000e-01, double noundef 3.500000e-01, double noundef 0.000000e+00, double noundef 0x401921FB54442D18) #9
@@ -6884,7 +6878,7 @@ define void @dtgtk_cairo_paint_tool_heal(ptr noundef %0, i32 noundef %1, i32 nou
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %10, double noundef %10) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %21 = load double, ptr %8, align 8, !tbaa !6
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -6892,7 +6886,7 @@ define void @dtgtk_cairo_paint_tool_heal(ptr noundef %0, i32 noundef %1, i32 nou
   %24 = call reassoc nsz arcp contract afn double @hypot(double noundef %21, double noundef %23) #10
   %25 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %24
   call void @cairo_set_line_width(ptr noundef %0, double noundef %25) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_set_line_width(ptr noundef %0, double noundef 1.000000e-02) #9
   call void @cairo_move_to(ptr noundef %0, double noundef 3.500000e-01, double noundef 1.000000e-01) #9
   call void @cairo_rel_line_to(ptr noundef %0, double noundef 3.000000e-01, double noundef 0.000000e+00) #9
@@ -6938,7 +6932,7 @@ define void @dtgtk_cairo_paint_tool_fill(ptr noundef %0, i32 noundef %1, i32 nou
   tail call void @cairo_translate(ptr noundef %0, double noundef %16, double noundef %21) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %11, double noundef %11) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %22 = load double, ptr %8, align 8, !tbaa !6
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -6946,7 +6940,7 @@ define void @dtgtk_cairo_paint_tool_fill(ptr noundef %0, i32 noundef %1, i32 nou
   %25 = call reassoc nsz arcp contract afn double @hypot(double noundef %22, double noundef %24) #10
   %26 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %25
   call void @cairo_set_line_width(ptr noundef %0, double noundef %26) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_move_to(ptr noundef %0, double noundef 1.000000e-01, double noundef 1.000000e-01) #9
   call void @cairo_line_to(ptr noundef %0, double noundef 2.000000e-01, double noundef 1.000000e-01) #9
   call void @cairo_line_to(ptr noundef %0, double noundef 2.000000e-01, double noundef 9.000000e-01) #9
@@ -6984,7 +6978,7 @@ define void @dtgtk_cairo_paint_tool_blur(ptr noundef %0, i32 noundef %1, i32 nou
   tail call void @cairo_translate(ptr noundef %0, double noundef %16, double noundef %21) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %11, double noundef %11) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %22 = load double, ptr %8, align 8, !tbaa !6
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -6992,7 +6986,7 @@ define void @dtgtk_cairo_paint_tool_blur(ptr noundef %0, i32 noundef %1, i32 nou
   %25 = call reassoc nsz arcp contract afn double @hypot(double noundef %22, double noundef %24) #10
   %26 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %25
   call void @cairo_set_line_width(ptr noundef %0, double noundef %26) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_move_to(ptr noundef %0, double noundef 5.000000e-01, double noundef 1.000000e-01) #9
   call void @cairo_arc(ptr noundef %0, double noundef 5.000000e-01, double noundef 6.500000e-01, double noundef 2.800000e-01, double noundef 0xBFE41B2F769CF0E0, double noundef 0x400E28C731EB6950) #9
   call void @cairo_close_path(ptr noundef %0) #9
@@ -7026,7 +7020,7 @@ define void @dtgtk_cairo_paint_paste_forms(ptr noundef %0, i32 noundef %1, i32 n
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %10, double noundef %10) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %21 = load double, ptr %8, align 8, !tbaa !6
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -7034,7 +7028,7 @@ define void @dtgtk_cairo_paint_paste_forms(ptr noundef %0, i32 noundef %1, i32 n
   %24 = call reassoc nsz arcp contract afn double @hypot(double noundef %21, double noundef %23) #10
   %25 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %24
   call void @cairo_set_line_width(ptr noundef %0, double noundef %25) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_move_to(ptr noundef %0, double noundef 1.000000e-01, double noundef 6.000000e-01) #9
   call void @cairo_line_to(ptr noundef %0, double noundef 9.000000e-01, double noundef 6.000000e-01) #9
   call void @cairo_line_to(ptr noundef %0, double noundef 5.000000e-01, double noundef 1.000000e+00) #9
@@ -7073,7 +7067,7 @@ define void @dtgtk_cairo_paint_cut_forms(ptr noundef %0, i32 noundef %1, i32 nou
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %10, double noundef %10) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef -7.000000e-02) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %21 = load double, ptr %8, align 8, !tbaa !6
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -7081,7 +7075,7 @@ define void @dtgtk_cairo_paint_cut_forms(ptr noundef %0, i32 noundef %1, i32 nou
   %24 = call reassoc nsz arcp contract afn double @hypot(double noundef %21, double noundef %23) #10
   %25 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %24
   call void @cairo_set_line_width(ptr noundef %0, double noundef %25) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_set_line_width(ptr noundef %0, double noundef 1.000000e-01) #9
   %26 = and i32 %5, 16
   %.not = icmp eq i32 %26, 0
@@ -7134,7 +7128,7 @@ define void @dtgtk_cairo_paint_display_wavelet_scale(ptr noundef %0, i32 noundef
   tail call void @cairo_translate(ptr noundef %0, double noundef %16, double noundef %21) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %11, double noundef %11) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %22 = load double, ptr %8, align 8, !tbaa !6
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -7142,7 +7136,7 @@ define void @dtgtk_cairo_paint_display_wavelet_scale(ptr noundef %0, i32 noundef
   %25 = call reassoc nsz arcp contract afn double @hypot(double noundef %22, double noundef %24) #10
   %26 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %25
   call void @cairo_set_line_width(ptr noundef %0, double noundef %26) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %27 = and i32 %5, 16
   %.not = icmp eq i32 %27, 0
   br i1 %.not, label %35, label %28
@@ -7206,7 +7200,7 @@ define void @dtgtk_cairo_paint_auto_levels(ptr noundef %0, i32 noundef %1, i32 n
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %10, double noundef %10) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %21 = load double, ptr %8, align 8, !tbaa !6
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -7214,7 +7208,7 @@ define void @dtgtk_cairo_paint_auto_levels(ptr noundef %0, i32 noundef %1, i32 n
   %24 = call reassoc nsz arcp contract afn double @hypot(double noundef %21, double noundef %23) #10
   %25 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %24
   call void @cairo_set_line_width(ptr noundef %0, double noundef %25) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_move_to(ptr noundef %0, double noundef 1.000000e-01, double noundef 3.000000e-01) #9
   call void @cairo_line_to(ptr noundef %0, double noundef 1.000000e-01, double noundef 1.000000e+00) #9
   call void @cairo_stroke(ptr noundef %0) #9
@@ -7278,7 +7272,7 @@ define void @dtgtk_cairo_paint_compass_star(ptr noundef %0, i32 noundef %1, i32 
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %10, double noundef %10) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %21 = load double, ptr %8, align 8, !tbaa !6
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -7286,7 +7280,7 @@ define void @dtgtk_cairo_paint_compass_star(ptr noundef %0, i32 noundef %1, i32 
   %24 = call reassoc nsz arcp contract afn double @hypot(double noundef %21, double noundef %23) #10
   %25 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %24
   call void @cairo_set_line_width(ptr noundef %0, double noundef %25) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @_compass_star(ptr noundef %0, double noundef 5.000000e-01, double noundef 5.000000e-01, double noundef 1.000000e+00)
   call void @cairo_identity_matrix(ptr noundef %0) #9
   call void @cairo_restore(ptr noundef %0) #9
@@ -7314,7 +7308,7 @@ define void @dtgtk_cairo_paint_wand(ptr noundef %0, i32 noundef %1, i32 noundef 
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %10, double noundef %10) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %21 = load double, ptr %8, align 8, !tbaa !6
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -7322,7 +7316,7 @@ define void @dtgtk_cairo_paint_wand(ptr noundef %0, i32 noundef %1, i32 noundef 
   %24 = call reassoc nsz arcp contract afn double @hypot(double noundef %21, double noundef %23) #10
   %25 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %24
   call void @cairo_set_line_width(ptr noundef %0, double noundef %25) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_move_to(ptr noundef %0, double noundef 1.000000e+00, double noundef 8.500000e-01) #9
   call void @cairo_line_to(ptr noundef %0, double noundef 8.500000e-01, double noundef 1.000000e+00) #9
   call void @cairo_line_to(ptr noundef %0, double noundef 2.000000e-01, double noundef 3.500000e-01) #9
@@ -7363,7 +7357,7 @@ define void @dtgtk_cairo_paint_lt_mode_grid(ptr noundef %0, i32 noundef %1, i32 
   tail call void @cairo_translate(ptr noundef %0, double noundef %16, double noundef %21) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %11, double noundef %11) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %22 = load double, ptr %8, align 8, !tbaa !6
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -7371,7 +7365,7 @@ define void @dtgtk_cairo_paint_lt_mode_grid(ptr noundef %0, i32 noundef %1, i32 
   %25 = call reassoc nsz arcp contract afn double @hypot(double noundef %22, double noundef %24) #10
   %26 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %25
   call void @cairo_set_line_width(ptr noundef %0, double noundef %26) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_rectangle(ptr noundef %0, double noundef 5.000000e-02, double noundef 2.000000e-01, double noundef 9.000000e-01, double noundef 6.000000e-01) #9
   call void @cairo_move_to(ptr noundef %0, double noundef 6.000000e-02, double noundef 5.000000e-01) #9
   call void @cairo_line_to(ptr noundef %0, double noundef 0x3FEE147AE147AE14, double noundef 5.000000e-01) #9
@@ -7410,7 +7404,7 @@ define void @dtgtk_cairo_paint_lt_mode_zoom(ptr noundef %0, i32 noundef %1, i32 
   tail call void @cairo_translate(ptr noundef %0, double noundef %16, double noundef %21) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %11, double noundef %11) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %22 = load double, ptr %8, align 8, !tbaa !6
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -7418,7 +7412,7 @@ define void @dtgtk_cairo_paint_lt_mode_zoom(ptr noundef %0, i32 noundef %1, i32 
   %25 = call reassoc nsz arcp contract afn double @hypot(double noundef %22, double noundef %24) #10
   %26 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %25
   call void @cairo_set_line_width(ptr noundef %0, double noundef %26) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_rectangle(ptr noundef %0, double noundef 3.000000e-01, double noundef 2.000000e-01, double noundef 5.000000e-01, double noundef 3.400000e-01) #9
   call void @cairo_move_to(ptr noundef %0, double noundef 0.000000e+00, double noundef 2.000000e-01) #9
   call void @cairo_line_to(ptr noundef %0, double noundef 2.000000e-01, double noundef 2.000000e-01) #9
@@ -7463,7 +7457,7 @@ define void @dtgtk_cairo_paint_lt_mode_culling_fixed(ptr noundef %0, i32 noundef
   tail call void @cairo_translate(ptr noundef %0, double noundef %16, double noundef %21) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %11, double noundef %11) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %22 = load double, ptr %8, align 8, !tbaa !6
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -7471,7 +7465,7 @@ define void @dtgtk_cairo_paint_lt_mode_culling_fixed(ptr noundef %0, i32 noundef
   %25 = call reassoc nsz arcp contract afn double @hypot(double noundef %22, double noundef %24) #10
   %26 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %25
   call void @cairo_set_line_width(ptr noundef %0, double noundef %26) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_rectangle(ptr noundef %0, double noundef 1.600000e-01, double noundef 2.200000e-01, double noundef 3.100000e-01, double noundef 5.600000e-01) #9
   call void @cairo_rectangle(ptr noundef %0, double noundef 5.300000e-01, double noundef 2.200000e-01, double noundef 3.100000e-01, double noundef 5.600000e-01) #9
   call void @cairo_stroke(ptr noundef %0) #9
@@ -7520,7 +7514,7 @@ define void @dtgtk_cairo_paint_lt_mode_culling_dynamic(ptr noundef %0, i32 nound
   tail call void @cairo_translate(ptr noundef %0, double noundef %16, double noundef %21) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %11, double noundef %11) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %22 = load double, ptr %8, align 8, !tbaa !6
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -7528,7 +7522,7 @@ define void @dtgtk_cairo_paint_lt_mode_culling_dynamic(ptr noundef %0, i32 nound
   %25 = call reassoc nsz arcp contract afn double @hypot(double noundef %22, double noundef %24) #10
   %26 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %25
   call void @cairo_set_line_width(ptr noundef %0, double noundef %26) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_rectangle(ptr noundef %0, double noundef 1.600000e-01, double noundef 2.200000e-01, double noundef 3.100000e-01, double noundef 5.600000e-01) #9
   call void @cairo_rectangle(ptr noundef %0, double noundef 5.300000e-01, double noundef 2.200000e-01, double noundef 3.100000e-01, double noundef 5.600000e-01) #9
   call void @cairo_stroke(ptr noundef %0) #9
@@ -7569,7 +7563,7 @@ define void @dtgtk_cairo_paint_lt_mode_fullpreview(ptr noundef %0, i32 noundef %
   tail call void @cairo_translate(ptr noundef %0, double noundef %16, double noundef %21) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %11, double noundef %11) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %22 = load double, ptr %8, align 8, !tbaa !6
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -7577,7 +7571,7 @@ define void @dtgtk_cairo_paint_lt_mode_fullpreview(ptr noundef %0, i32 noundef %
   %25 = call reassoc nsz arcp contract afn double @hypot(double noundef %22, double noundef %24) #10
   %26 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %25
   call void @cairo_set_line_width(ptr noundef %0, double noundef %26) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_rectangle(ptr noundef %0, double noundef 7.000000e-02, double noundef 2.200000e-01, double noundef 8.600000e-01, double noundef 5.600000e-01) #9
   call void @cairo_stroke(ptr noundef %0) #9
   call void @cairo_move_to(ptr noundef %0, double noundef 1.900000e-01, double noundef 2.900000e-01) #9
@@ -7631,7 +7625,7 @@ define void @dtgtk_cairo_paint_link(ptr noundef %0, i32 noundef %1, i32 noundef 
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %10, double noundef %10) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %21 = load double, ptr %8, align 8, !tbaa !6
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -7639,7 +7633,7 @@ define void @dtgtk_cairo_paint_link(ptr noundef %0, i32 noundef %1, i32 noundef 
   %24 = call reassoc nsz arcp contract afn double @hypot(double noundef %21, double noundef %23) #10
   %25 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %24
   call void @cairo_set_line_width(ptr noundef %0, double noundef %25) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_set_line_width(ptr noundef %0, double noundef 1.000000e-01) #9
   call void @cairo_move_to(ptr noundef %0, double noundef 5.000000e-01, double noundef 5.000000e-01) #9
   call void @cairo_line_to(ptr noundef %0, double noundef 1.000000e+00, double noundef 0.000000e+00) #9
@@ -7684,7 +7678,7 @@ define void @dtgtk_cairo_paint_shortcut(ptr noundef %0, i32 noundef %1, i32 noun
   tail call void @cairo_translate(ptr noundef %0, double noundef %16, double noundef %21) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %11, double noundef %11) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %22 = load double, ptr %8, align 8, !tbaa !6
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -7692,7 +7686,7 @@ define void @dtgtk_cairo_paint_shortcut(ptr noundef %0, i32 noundef %1, i32 noun
   %25 = call reassoc nsz arcp contract afn double @hypot(double noundef %22, double noundef %24) #10
   %26 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %25
   call void @cairo_set_line_width(ptr noundef %0, double noundef %26) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %27 = and i32 %5, 3
   %.not = icmp eq i32 %27, 0
   br i1 %.not, label %32, label %28
@@ -7800,7 +7794,7 @@ define void @dtgtk_cairo_paint_pin(ptr noundef %0, i32 noundef %1, i32 noundef %
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %10, double noundef %10) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %21 = load double, ptr %8, align 8, !tbaa !6
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -7808,7 +7802,7 @@ define void @dtgtk_cairo_paint_pin(ptr noundef %0, i32 noundef %1, i32 noundef %
   %24 = call reassoc nsz arcp contract afn double @hypot(double noundef %21, double noundef %23) #10
   %25 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %24
   call void @cairo_set_line_width(ptr noundef %0, double noundef %25) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_move_to(ptr noundef %0, double noundef 5.000000e-01, double noundef 5.000000e-01) #9
   call void @cairo_line_to(ptr noundef %0, double noundef 0.000000e+00, double noundef 1.000000e+00) #9
   call void @cairo_stroke(ptr noundef %0) #9
@@ -7848,7 +7842,7 @@ define void @dtgtk_cairo_paint_filtering_menu(ptr noundef %0, i32 noundef %1, i3
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %10, double noundef %10) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %21 = load double, ptr %8, align 8, !tbaa !6
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -7856,7 +7850,7 @@ define void @dtgtk_cairo_paint_filtering_menu(ptr noundef %0, i32 noundef %1, i3
   %24 = call reassoc nsz arcp contract afn double @hypot(double noundef %21, double noundef %23) #10
   %25 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %24
   call void @cairo_set_line_width(ptr noundef %0, double noundef %25) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_move_to(ptr noundef %0, double noundef 1.000000e-01, double noundef 0.000000e+00) #9
   call void @cairo_line_to(ptr noundef %0, double noundef 8.000000e-01, double noundef 0.000000e+00) #9
   call void @cairo_arc(ptr noundef %0, double noundef 8.000000e-01, double noundef 1.000000e-01, double noundef 1.000000e-01, double noundef 0xBFF921FB54442D18, double noundef 0x3FE41B2F769CF0E0) #9
@@ -7903,7 +7897,7 @@ define void @dtgtk_cairo_paint_snapshots_restore(ptr noundef %0, i32 noundef %1,
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #9
   tail call void @cairo_scale(ptr noundef %0, double noundef %10, double noundef %10) #9
   tail call void @cairo_translate(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00) #9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @cairo_get_matrix(ptr noundef %0, ptr noundef nonnull %8) #9
   %21 = load double, ptr %8, align 8, !tbaa !6
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -7911,7 +7905,7 @@ define void @dtgtk_cairo_paint_snapshots_restore(ptr noundef %0, i32 noundef %1,
   %24 = call reassoc nsz arcp contract afn double @hypot(double noundef %21, double noundef %23) #10
   %25 = fdiv reassoc nsz arcp contract afn double 1.618000e+00, %24
   call void @cairo_set_line_width(ptr noundef %0, double noundef %25) #9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @cairo_move_to(ptr noundef %0, double noundef 5.000000e-01, double noundef 5.000000e-02) #9
   call void @cairo_line_to(ptr noundef %0, double noundef 5.000000e-01, double noundef 0x3FEE666666666666) #9
   call void @cairo_move_to(ptr noundef %0, double noundef 3.000000e-01, double noundef 6.000000e-01) #9
@@ -7925,17 +7919,23 @@ define void @dtgtk_cairo_paint_snapshots_restore(ptr noundef %0, i32 noundef %1,
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #8
 
 attributes #0 = { nounwind uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
 attributes #1 = { "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
-attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #9 = { nounwind }
 attributes #10 = { nounwind willreturn memory(none) }

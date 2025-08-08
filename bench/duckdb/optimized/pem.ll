@@ -17,22 +17,22 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 ; Function Attrs: mustprogress uwtable
 define hidden range(i32 -2147483648, 2147479296) i32 @mbedtls_pem_read_buffer(ptr noundef writeonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef readnone captures(none) %4, i64 noundef %5, ptr noundef writeonly captures(none) %6) local_unnamed_addr #2 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp eq ptr %0, null
   br i1 %9, label %59, label %10
 
 10:                                               ; preds = %7
-  %11 = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %1) #10
+  %11 = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %1) #9
   %12 = icmp eq ptr %11, null
   br i1 %12, label %59, label %13
 
 13:                                               ; preds = %10
-  %14 = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %2) #10
+  %14 = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %2) #9
   %.not = icmp ugt ptr %14, %11
   br i1 %.not, label %15, label %59
 
 15:                                               ; preds = %13
-  %16 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #10
+  %16 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #9
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 %16
   %18 = load i8, ptr %17, align 1, !tbaa !3
   %19 = icmp eq i8 %18, 32
@@ -48,7 +48,7 @@ define hidden range(i32 -2147483648, 2147479296) i32 @mbedtls_pem_read_buffer(pt
 
 24:                                               ; preds = %15
   %25 = getelementptr inbounds nuw i8, ptr %.154, i64 1
-  %26 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #10
+  %26 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #9
   %27 = getelementptr inbounds nuw i8, ptr %14, i64 %26
   %28 = load i8, ptr %27, align 1, !tbaa !3
   %29 = icmp eq i8 %28, 32
@@ -88,7 +88,7 @@ define hidden range(i32 -2147483648, 2147479296) i32 @mbedtls_pem_read_buffer(pt
 
 47:                                               ; preds = %44
   %48 = load i64, ptr %8, align 8, !tbaa !6
-  %49 = call noalias ptr @calloc(i64 noundef 1, i64 noundef %48) #11
+  %49 = call noalias ptr @calloc(i64 noundef 1, i64 noundef %48) #10
   %50 = icmp eq ptr %49, null
   br i1 %50, label %59, label %51
 
@@ -100,7 +100,7 @@ define hidden range(i32 -2147483648, 2147479296) i32 @mbedtls_pem_read_buffer(pt
 53:                                               ; preds = %51
   %54 = load i64, ptr %8, align 8, !tbaa !6
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %49, i64 noundef %54)
-  call void @free(ptr noundef nonnull %49) #9
+  call void @free(ptr noundef nonnull %49) #11
   %55 = add nsw i32 %52, -4352
   br label %59
 
@@ -113,31 +113,25 @@ define hidden range(i32 -2147483648, 2147479296) i32 @mbedtls_pem_read_buffer(pt
 
 59:                                               ; preds = %44, %47, %43, %41, %15, %13, %10, %7, %56, %53
   %.052 = phi i32 [ %55, %53 ], [ 0, %56 ], [ -5248, %7 ], [ -4224, %10 ], [ -4224, %13 ], [ -4224, %15 ], [ -5120, %41 ], [ -4352, %43 ], [ -4480, %47 ], [ -4396, %44 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.052
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
+declare noundef ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare noundef ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
-
-declare i32 @mbedtls_base64_decode(ptr noundef, i64 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
+declare i32 @mbedtls_base64_decode(ptr noundef, i64 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #6
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #5
 
-declare void @mbedtls_platform_zeroize(ptr noundef, i64 noundef) local_unnamed_addr #5
+declare void @mbedtls_platform_zeroize(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @mbedtls_pem_free(ptr noundef %0) local_unnamed_addr #2 {
@@ -150,16 +144,22 @@ define hidden void @mbedtls_pem_free(ptr noundef %0) local_unnamed_addr #2 {
   %5 = load i64, ptr %4, align 8, !tbaa !12
   tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %2, i64 noundef %5)
   %6 = load ptr, ptr %0, align 8, !tbaa !8
-  tail call void @free(ptr noundef %6) #9
+  tail call void @free(ptr noundef %6) #11
   br label %7
 
 7:                                                ; preds = %3, %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !13
-  tail call void @free(ptr noundef %9) #9
+  tail call void @free(ptr noundef %9) #11
   tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %0, i64 noundef 24)
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #8
@@ -167,15 +167,15 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #2 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #9 = { nounwind }
-attributes #10 = { nounwind willreturn memory(read) }
-attributes #11 = { nounwind allocsize(0,1) }
+attributes #9 = { nounwind willreturn memory(read) }
+attributes #10 = { nounwind allocsize(0,1) }
+attributes #11 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

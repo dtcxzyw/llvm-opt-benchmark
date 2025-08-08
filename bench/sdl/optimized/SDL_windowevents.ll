@@ -19,13 +19,7 @@ define hidden void @SDL_InitWindowEventWatch() local_unnamed_addr #0 {
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare zeroext i1 @SDL_InitEventWatchList(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare zeroext i1 @SDL_InitEventWatchList(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @SDL_QuitWindowEventWatch() local_unnamed_addr #0 {
@@ -35,7 +29,7 @@ define hidden void @SDL_QuitWindowEventWatch() local_unnamed_addr #0 {
   ret void
 }
 
-declare void @SDL_QuitEventWatchList(ptr noundef) local_unnamed_addr #2
+declare void @SDL_QuitEventWatchList(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @SDL_AddWindowEventWatch(i32 noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -45,7 +39,7 @@ define hidden void @SDL_AddWindowEventWatch(i32 noundef %0, ptr noundef %1, ptr 
   ret void
 }
 
-declare zeroext i1 @SDL_AddEventWatchList(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_AddEventWatchList(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @SDL_RemoveWindowEventWatch(i32 noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -55,7 +49,7 @@ define hidden void @SDL_RemoveWindowEventWatch(i32 noundef %0, ptr noundef %1, p
   ret void
 }
 
-declare void @SDL_RemoveEventWatchList(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @SDL_RemoveEventWatchList(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @SDL_SendWindowEvent(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
@@ -386,7 +380,7 @@ define hidden zeroext i1 @SDL_SendWindowEvent(ptr noundef %0, i32 noundef %1, i3
   br label %163
 
 163:                                              ; preds = %11, %161, %155, %149, %143, %135, %129, %123, %117, %111, %104, %97, %91, %81, %54, %24, %22, %16
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 %1, ptr %5, align 8
   %164 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %164, align 8
@@ -543,7 +537,7 @@ define hidden zeroext i1 @SDL_SendWindowEvent(ptr noundef %0, i32 noundef %1, i3
   br label %214
 
 214:                                              ; preds = %181, %182, %183, %184, %185, %186, %187, %188, %189, %190, %191, %192, %193, %._crit_edge, %213, %._crit_edge.thread, %180, %197, %194
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %215
 
 215:                                              ; preds = %157, %151, %145, %137, %139, %131, %125, %119, %113, %107, %100, %93, %87, %50, %18, %12, %6, %4, %214, %80
@@ -551,16 +545,16 @@ define hidden zeroext i1 @SDL_SendWindowEvent(ptr noundef %0, i32 noundef %1, i3
   ret i1 %.0135
 }
 
-declare void @SDL_CheckWindowPixelSizeChanged(ptr noundef) local_unnamed_addr #2
+declare void @SDL_CheckWindowPixelSizeChanged(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_DispatchEventWatchList(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_DispatchEventWatchList(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_EventEnabled_REAL(i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_EventEnabled_REAL(i32 noundef) local_unnamed_addr #1
 
-declare void @SDL_FilterEvents_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @SDL_FilterEvents_REAL(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef zeroext i1 @RemoveSupercededWindowEvents(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #3 {
+define internal noundef zeroext i1 @RemoveSupercededWindowEvents(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 {
   %3 = load i32, ptr %1, align 8
   %4 = load i32, ptr %0, align 8
   %5 = icmp eq i32 %3, %4
@@ -582,46 +576,52 @@ define internal noundef zeroext i1 @RemoveSupercededWindowEvents(ptr noundef rea
   ret i1 %.0
 }
 
-declare zeroext i1 @SDL_PushEvent_REAL(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_PushEvent_REAL(ptr noundef) local_unnamed_addr #1
 
-declare void @SDL_OnWindowShown(ptr noundef) local_unnamed_addr #2
+declare void @SDL_OnWindowShown(ptr noundef) local_unnamed_addr #1
 
-declare void @SDL_OnWindowHidden(ptr noundef) local_unnamed_addr #2
+declare void @SDL_OnWindowHidden(ptr noundef) local_unnamed_addr #1
 
-declare void @SDL_OnWindowMoved(ptr noundef) local_unnamed_addr #2
+declare void @SDL_OnWindowMoved(ptr noundef) local_unnamed_addr #1
 
-declare void @SDL_OnWindowResized(ptr noundef) local_unnamed_addr #2
+declare void @SDL_OnWindowResized(ptr noundef) local_unnamed_addr #1
 
-declare void @SDL_OnWindowPixelSizeChanged(ptr noundef) local_unnamed_addr #2
+declare void @SDL_OnWindowPixelSizeChanged(ptr noundef) local_unnamed_addr #1
 
-declare void @SDL_OnWindowMinimized(ptr noundef) local_unnamed_addr #2
+declare void @SDL_OnWindowMinimized(ptr noundef) local_unnamed_addr #1
 
-declare void @SDL_OnWindowMaximized(ptr noundef) local_unnamed_addr #2
+declare void @SDL_OnWindowMaximized(ptr noundef) local_unnamed_addr #1
 
-declare void @SDL_OnWindowRestored(ptr noundef) local_unnamed_addr #2
+declare void @SDL_OnWindowRestored(ptr noundef) local_unnamed_addr #1
 
-declare void @SDL_OnWindowEnter(ptr noundef) local_unnamed_addr #2
+declare void @SDL_OnWindowEnter(ptr noundef) local_unnamed_addr #1
 
-declare void @SDL_OnWindowLeave(ptr noundef) local_unnamed_addr #2
+declare void @SDL_OnWindowLeave(ptr noundef) local_unnamed_addr #1
 
-declare void @SDL_OnWindowFocusGained(ptr noundef) local_unnamed_addr #2
+declare void @SDL_OnWindowFocusGained(ptr noundef) local_unnamed_addr #1
 
-declare void @SDL_OnWindowFocusLost(ptr noundef) local_unnamed_addr #2
+declare void @SDL_OnWindowFocusLost(ptr noundef) local_unnamed_addr #1
 
-declare void @SDL_OnWindowDisplayChanged(ptr noundef) local_unnamed_addr #2
+declare void @SDL_OnWindowDisplayChanged(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_HasActiveTrays() local_unnamed_addr #2
+declare zeroext i1 @SDL_HasActiveTrays() local_unnamed_addr #1
 
-declare ptr @SDL_GetVideoDevice() local_unnamed_addr #2
+declare ptr @SDL_GetVideoDevice() local_unnamed_addr #1
 
-declare zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare void @SDL_SendQuit() local_unnamed_addr #2
+declare void @SDL_SendQuit() local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

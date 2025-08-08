@@ -1085,8 +1085,8 @@ get_soi.exit:                                     ; preds = %91, %100
   br label %skip_variable.exit
 
 381:                                              ; preds = %89
-  call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %382 = load ptr, ptr %6, align 8
   %383 = getelementptr inbounds nuw i8, ptr %382, i64 8
   %384 = load i64, ptr %383, align 8
@@ -1412,15 +1412,15 @@ get_soi.exit:                                     ; preds = %91, %100
   br label %get_dht.exit
 
 get_dht.exit.thread:                              ; preds = %386, %399, %417, %435, %517
-  call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %first_marker.exit.thread
 
 get_dht.exit:                                     ; preds = %._crit_edge169.i, %553
   store ptr %.2119.lcssa.i, ptr %382, align 8
   store i64 %.2.lcssa.i, ptr %383, align 8
-  call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %skip_variable.exit
 
 558:                                              ; preds = %89
@@ -3605,10 +3605,10 @@ declare i32 @llvm.umin.i32(i32, i32) #5
 declare i32 @llvm.usub.sat.i32(i32, i32) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #5

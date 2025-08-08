@@ -1100,7 +1100,7 @@ define internal ptr @_codecs_encode(ptr readnone captures(none) %0, ptr noundef 
   %5 = alloca [3 x ptr], align 16
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %10, label %.thread
 
@@ -1150,7 +1150,7 @@ define internal ptr @_codecs_encode(ptr readnone captures(none) %0, ptr noundef 
   br label %55
 
 28:                                               ; preds = %23
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %29 = call ptr @PyUnicode_AsUTF8AndSize(ptr noundef nonnull %22, ptr noundef nonnull %6) #5
   %30 = icmp eq ptr %29, null
   br i1 %30, label %.thread64, label %31
@@ -1168,11 +1168,11 @@ define internal ptr @_codecs_encode(ptr readnone captures(none) %0, ptr noundef 
 
 36:                                               ; preds = %31
   %.not53 = icmp eq i64 %18, 2
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %.not53, label %_codecs_encode_impl.exit, label %.thread66
 
 .thread64:                                        ; preds = %34, %28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %55
 
 .thread66:                                        ; preds = %36, %20
@@ -1224,7 +1224,7 @@ _codecs_encode_impl.exit:                         ; preds = %36, %51, %.thread68
 
 55:                                               ; preds = %.thread64, %27, %42, %49, %_codecs_encode_impl.exit, %14, %43
   %.039 = phi ptr [ null, %43 ], [ null, %49 ], [ %54, %_codecs_encode_impl.exit ], [ null, %42 ], [ null, %27 ], [ null, %14 ], [ null, %.thread64 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.039
 }
 
@@ -1233,7 +1233,7 @@ define internal ptr @_codecs_decode(ptr readnone captures(none) %0, ptr noundef 
   %5 = alloca [3 x ptr], align 16
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %10, label %.thread
 
@@ -1283,7 +1283,7 @@ define internal ptr @_codecs_decode(ptr readnone captures(none) %0, ptr noundef 
   br label %55
 
 28:                                               ; preds = %23
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %29 = call ptr @PyUnicode_AsUTF8AndSize(ptr noundef nonnull %22, ptr noundef nonnull %6) #5
   %30 = icmp eq ptr %29, null
   br i1 %30, label %.thread64, label %31
@@ -1301,11 +1301,11 @@ define internal ptr @_codecs_decode(ptr readnone captures(none) %0, ptr noundef 
 
 36:                                               ; preds = %31
   %.not53 = icmp eq i64 %18, 2
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %.not53, label %_codecs_decode_impl.exit, label %.thread66
 
 .thread64:                                        ; preds = %34, %28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %55
 
 .thread66:                                        ; preds = %36, %20
@@ -1357,7 +1357,7 @@ _codecs_decode_impl.exit:                         ; preds = %36, %51, %.thread68
 
 55:                                               ; preds = %.thread64, %27, %42, %49, %_codecs_decode_impl.exit, %14, %43
   %.039 = phi ptr [ null, %43 ], [ null, %49 ], [ %54, %_codecs_decode_impl.exit ], [ null, %42 ], [ null, %27 ], [ null, %14 ], [ null, %.thread64 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.039
 }
 
@@ -1408,7 +1408,7 @@ define internal ptr @_codecs_escape_encode(ptr readnone captures(none) %0, ptr n
   br i1 %.not25, label %34, label %25
 
 25:                                               ; preds = %21
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %26 = call ptr @PyUnicode_AsUTF8AndSize(ptr noundef %19, ptr noundef nonnull %5) #5
   %27 = icmp eq ptr %26, null
   br i1 %27, label %.thread, label %28
@@ -1425,11 +1425,11 @@ define internal ptr @_codecs_escape_encode(ptr readnone captures(none) %0, ptr n
   br label %.thread
 
 .thread:                                          ; preds = %31, %25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %95
 
 33:                                               ; preds = %28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %35
 
 34:                                               ; preds = %21
@@ -1437,7 +1437,7 @@ define internal ptr @_codecs_escape_encode(ptr readnone captures(none) %0, ptr n
   br label %95
 
 35:                                               ; preds = %33, %17, %15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %36 = getelementptr i8, ptr %10, i64 16
   %.val.i = load i64, ptr %36, align 8, !tbaa !23
   %37 = icmp sgt i64 %.val.i, 2305843009213693951
@@ -1565,7 +1565,7 @@ define internal ptr @_codecs_escape_encode(ptr readnone captures(none) %0, ptr n
 
 _codecs_escape_encode_impl.exit:                  ; preds = %38, %40, %._crit_edge.i, %90, %93
   %.042.i = phi ptr [ null, %38 ], [ null, %._crit_edge.i ], [ null, %40 ], [ %94, %93 ], [ null, %90 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %95
 
 95:                                               ; preds = %.thread, %14, %34, %_codecs_escape_encode_impl.exit, %7
@@ -1578,7 +1578,7 @@ define internal ptr @_codecs_escape_decode(ptr readnone captures(none) %0, ptr n
   %4 = alloca %struct.Py_buffer, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %4, i8 0, i64 80, i1 false)
   %7 = add i64 %2, -1
   %or.cond = icmp ult i64 %7, 2
@@ -1600,7 +1600,7 @@ define internal ptr @_codecs_escape_decode(ptr readnone captures(none) %0, ptr n
   br i1 %.not28, label %24, label %15
 
 15:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %16 = call ptr @PyUnicode_AsUTF8AndSize(ptr noundef nonnull %11, ptr noundef nonnull %5) #5
   %17 = icmp eq ptr %16, null
   br i1 %17, label %.thread, label %18
@@ -1613,11 +1613,11 @@ define internal ptr @_codecs_escape_decode(ptr readnone captures(none) %0, ptr n
   br i1 %22, label %.thread, label %23
 
 .thread:                                          ; preds = %15, %18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_codecs_escape_decode_impl.exit
 
 23:                                               ; preds = %18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %26
 
 24:                                               ; preds = %10
@@ -1645,7 +1645,7 @@ define internal ptr @_codecs_escape_decode(ptr readnone captures(none) %0, ptr n
   br i1 %.not30, label %45, label %36
 
 36:                                               ; preds = %32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %37 = call ptr @PyUnicode_AsUTF8AndSize(ptr noundef %30, ptr noundef nonnull %6) #5
   %38 = icmp eq ptr %37, null
   br i1 %38, label %.thread43, label %39
@@ -1662,11 +1662,11 @@ define internal ptr @_codecs_escape_decode(ptr readnone captures(none) %0, ptr n
   br label %.thread43
 
 .thread43:                                        ; preds = %42, %36
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_codecs_escape_decode_impl.exit
 
 44:                                               ; preds = %39
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %46
 
 45:                                               ; preds = %32
@@ -1699,7 +1699,7 @@ _codecs_escape_decode_impl.exit:                  ; preds = %52, %46, %.thread43
   br label %58
 
 58:                                               ; preds = %_codecs_escape_decode_impl.exit, %57
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.024
 }
 
@@ -1749,7 +1749,7 @@ define internal ptr @_codecs_utf_8_encode(ptr readnone captures(none) %0, ptr no
   br i1 %.not25, label %33, label %24
 
 24:                                               ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %25 = call ptr @PyUnicode_AsUTF8AndSize(ptr noundef %18, ptr noundef nonnull %4) #5
   %26 = icmp eq ptr %25, null
   br i1 %26, label %.thread, label %27
@@ -1766,11 +1766,11 @@ define internal ptr @_codecs_utf_8_encode(ptr readnone captures(none) %0, ptr no
   br label %.thread
 
 .thread:                                          ; preds = %30, %24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_codecs_utf_8_encode_impl.exit
 
 32:                                               ; preds = %27
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %34
 
 33:                                               ; preds = %20
@@ -1799,7 +1799,7 @@ define internal ptr @_codecs_utf_8_decode(ptr readnone captures(none) %0, ptr no
   %4 = alloca i64, align 8
   %5 = alloca %struct.Py_buffer, align 8
   %6 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %5, i8 0, i64 80, i1 false)
   %7 = add i64 %2, -1
   %or.cond = icmp ult i64 %7, 3
@@ -1836,7 +1836,7 @@ define internal ptr @_codecs_utf_8_decode(ptr readnone captures(none) %0, ptr no
   br i1 %.not29, label %32, label %23
 
 23:                                               ; preds = %19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %24 = call ptr @PyUnicode_AsUTF8AndSize(ptr noundef %17, ptr noundef nonnull %6) #5
   %25 = icmp eq ptr %24, null
   br i1 %25, label %.thread, label %26
@@ -1853,11 +1853,11 @@ define internal ptr @_codecs_utf_8_decode(ptr readnone captures(none) %0, ptr no
   br label %.thread
 
 .thread:                                          ; preds = %29, %23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %50
 
 31:                                               ; preds = %26
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %33
 
 32:                                               ; preds = %19
@@ -1882,7 +1882,7 @@ define internal ptr @_codecs_utf_8_decode(ptr readnone captures(none) %0, ptr no
   %.val3442 = load ptr, ptr %5, align 8, !tbaa !28
   %40 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.val3543 = load i64, ptr %40, align 8, !tbaa !31
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %.val3543, ptr %4, align 8, !tbaa !21
   br label %43
 
@@ -1890,7 +1890,7 @@ define internal ptr @_codecs_utf_8_decode(ptr readnone captures(none) %0, ptr no
   %.val34 = load ptr, ptr %5, align 8, !tbaa !28
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.val35 = load i64, ptr %42, align 8, !tbaa !31
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %.val35, ptr %4, align 8, !tbaa !21
   %.not.i = icmp eq i32 %.fr, 0
   %spec.select = select i1 %.not.i, ptr %4, ptr null
@@ -1912,7 +1912,7 @@ define internal ptr @_codecs_utf_8_decode(ptr readnone captures(none) %0, ptr no
 
 _codecs_utf_8_decode_impl.exit:                   ; preds = %43, %47
   %.0.i.i = phi ptr [ %49, %47 ], [ null, %43 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %50
 
 50:                                               ; preds = %.thread, %35, %10, %8, %_codecs_utf_8_decode_impl.exit, %32
@@ -1927,7 +1927,7 @@ _codecs_utf_8_decode_impl.exit:                   ; preds = %43, %47
   br label %54
 
 54:                                               ; preds = %50, %53
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.022
 }
 
@@ -1977,7 +1977,7 @@ define internal ptr @_codecs_utf_7_encode(ptr readnone captures(none) %0, ptr no
   br i1 %.not25, label %33, label %24
 
 24:                                               ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %25 = call ptr @PyUnicode_AsUTF8AndSize(ptr noundef %18, ptr noundef nonnull %4) #5
   %26 = icmp eq ptr %25, null
   br i1 %26, label %.thread, label %27
@@ -1994,11 +1994,11 @@ define internal ptr @_codecs_utf_7_encode(ptr readnone captures(none) %0, ptr no
   br label %.thread
 
 .thread:                                          ; preds = %30, %24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_codecs_utf_7_encode_impl.exit
 
 32:                                               ; preds = %27
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %34
 
 33:                                               ; preds = %20
@@ -2027,7 +2027,7 @@ define internal ptr @_codecs_utf_7_decode(ptr readnone captures(none) %0, ptr no
   %4 = alloca i64, align 8
   %5 = alloca %struct.Py_buffer, align 8
   %6 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %5, i8 0, i64 80, i1 false)
   %7 = add i64 %2, -1
   %or.cond = icmp ult i64 %7, 3
@@ -2064,7 +2064,7 @@ define internal ptr @_codecs_utf_7_decode(ptr readnone captures(none) %0, ptr no
   br i1 %.not29, label %32, label %23
 
 23:                                               ; preds = %19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %24 = call ptr @PyUnicode_AsUTF8AndSize(ptr noundef %17, ptr noundef nonnull %6) #5
   %25 = icmp eq ptr %24, null
   br i1 %25, label %.thread, label %26
@@ -2081,11 +2081,11 @@ define internal ptr @_codecs_utf_7_decode(ptr readnone captures(none) %0, ptr no
   br label %.thread
 
 .thread:                                          ; preds = %29, %23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %50
 
 31:                                               ; preds = %26
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %33
 
 32:                                               ; preds = %19
@@ -2110,7 +2110,7 @@ define internal ptr @_codecs_utf_7_decode(ptr readnone captures(none) %0, ptr no
   %.val3442 = load ptr, ptr %5, align 8, !tbaa !28
   %40 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.val3543 = load i64, ptr %40, align 8, !tbaa !31
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %.val3543, ptr %4, align 8, !tbaa !21
   br label %43
 
@@ -2118,7 +2118,7 @@ define internal ptr @_codecs_utf_7_decode(ptr readnone captures(none) %0, ptr no
   %.val34 = load ptr, ptr %5, align 8, !tbaa !28
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.val35 = load i64, ptr %42, align 8, !tbaa !31
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %.val35, ptr %4, align 8, !tbaa !21
   %.not.i = icmp eq i32 %.fr, 0
   %spec.select = select i1 %.not.i, ptr %4, ptr null
@@ -2140,7 +2140,7 @@ define internal ptr @_codecs_utf_7_decode(ptr readnone captures(none) %0, ptr no
 
 _codecs_utf_7_decode_impl.exit:                   ; preds = %43, %47
   %.0.i.i = phi ptr [ %49, %47 ], [ null, %43 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %50
 
 50:                                               ; preds = %.thread, %35, %10, %8, %_codecs_utf_7_decode_impl.exit, %32
@@ -2155,7 +2155,7 @@ _codecs_utf_7_decode_impl.exit:                   ; preds = %43, %47
   br label %54
 
 54:                                               ; preds = %50, %53
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.022
 }
 
@@ -2205,7 +2205,7 @@ define internal ptr @_codecs_utf_16_encode(ptr readnone captures(none) %0, ptr n
   br i1 %.not33, label %33, label %24
 
 24:                                               ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %25 = call ptr @PyUnicode_AsUTF8AndSize(ptr noundef %18, ptr noundef nonnull %4) #5
   %26 = icmp eq ptr %25, null
   br i1 %26, label %.thread, label %27
@@ -2222,11 +2222,11 @@ define internal ptr @_codecs_utf_16_encode(ptr readnone captures(none) %0, ptr n
   br label %.thread
 
 .thread:                                          ; preds = %30, %24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_codecs_utf_16_encode_impl.exit
 
 32:                                               ; preds = %27
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %34
 
 33:                                               ; preds = %20
@@ -2314,7 +2314,7 @@ define internal ptr @_codecs_utf_16_le_encode(ptr readnone captures(none) %0, pt
   br i1 %.not25, label %33, label %24
 
 24:                                               ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %25 = call ptr @PyUnicode_AsUTF8AndSize(ptr noundef %18, ptr noundef nonnull %4) #5
   %26 = icmp eq ptr %25, null
   br i1 %26, label %.thread, label %27
@@ -2331,11 +2331,11 @@ define internal ptr @_codecs_utf_16_le_encode(ptr readnone captures(none) %0, pt
   br label %.thread
 
 .thread:                                          ; preds = %30, %24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_codecs_utf_16_le_encode_impl.exit
 
 32:                                               ; preds = %27
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %34
 
 33:                                               ; preds = %20
@@ -2405,7 +2405,7 @@ define internal ptr @_codecs_utf_16_be_encode(ptr readnone captures(none) %0, pt
   br i1 %.not25, label %33, label %24
 
 24:                                               ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %25 = call ptr @PyUnicode_AsUTF8AndSize(ptr noundef %18, ptr noundef nonnull %4) #5
   %26 = icmp eq ptr %25, null
   br i1 %26, label %.thread, label %27
@@ -2422,11 +2422,11 @@ define internal ptr @_codecs_utf_16_be_encode(ptr readnone captures(none) %0, pt
   br label %.thread
 
 .thread:                                          ; preds = %30, %24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_codecs_utf_16_be_encode_impl.exit
 
 32:                                               ; preds = %27
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %34
 
 33:                                               ; preds = %20
@@ -2456,7 +2456,7 @@ define internal ptr @_codecs_utf_16_decode(ptr readnone captures(none) %0, ptr n
   %5 = alloca i64, align 8
   %6 = alloca %struct.Py_buffer, align 8
   %7 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %6, i8 0, i64 80, i1 false)
   %8 = add i64 %2, -1
   %or.cond = icmp ult i64 %8, 3
@@ -2493,7 +2493,7 @@ define internal ptr @_codecs_utf_16_decode(ptr readnone captures(none) %0, ptr n
   br i1 %.not29, label %33, label %24
 
 24:                                               ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %25 = call ptr @PyUnicode_AsUTF8AndSize(ptr noundef %18, ptr noundef nonnull %7) #5
   %26 = icmp eq ptr %25, null
   br i1 %26, label %.thread, label %27
@@ -2510,11 +2510,11 @@ define internal ptr @_codecs_utf_16_decode(ptr readnone captures(none) %0, ptr n
   br label %.thread
 
 .thread:                                          ; preds = %30, %24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %51
 
 32:                                               ; preds = %27
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %34
 
 33:                                               ; preds = %20
@@ -2539,9 +2539,9 @@ define internal ptr @_codecs_utf_16_decode(ptr readnone captures(none) %0, ptr n
   %.val3442 = load ptr, ptr %6, align 8, !tbaa !28
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.val3543 = load i64, ptr %41, align 8, !tbaa !31
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %.val3543, ptr %5, align 8, !tbaa !21
   br label %44
 
@@ -2549,9 +2549,9 @@ define internal ptr @_codecs_utf_16_decode(ptr readnone captures(none) %0, ptr n
   %.val34 = load ptr, ptr %6, align 8, !tbaa !28
   %43 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.val35 = load i64, ptr %43, align 8, !tbaa !31
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %.val35, ptr %5, align 8, !tbaa !21
   %.not.i = icmp eq i32 %.fr, 0
   %spec.select = select i1 %.not.i, ptr %5, ptr null
@@ -2573,8 +2573,8 @@ define internal ptr @_codecs_utf_16_decode(ptr readnone captures(none) %0, ptr n
 
 _codecs_utf_16_decode_impl.exit:                  ; preds = %44, %48
   %.0.i.i = phi ptr [ %50, %48 ], [ null, %44 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %51
 
 51:                                               ; preds = %.thread, %36, %11, %9, %_codecs_utf_16_decode_impl.exit, %33
@@ -2589,7 +2589,7 @@ _codecs_utf_16_decode_impl.exit:                  ; preds = %44, %48
   br label %55
 
 55:                                               ; preds = %51, %54
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.022
 }
 
@@ -2599,7 +2599,7 @@ define internal ptr @_codecs_utf_16_le_decode(ptr readnone captures(none) %0, pt
   %5 = alloca i64, align 8
   %6 = alloca %struct.Py_buffer, align 8
   %7 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %6, i8 0, i64 80, i1 false)
   %8 = add i64 %2, -1
   %or.cond = icmp ult i64 %8, 3
@@ -2636,7 +2636,7 @@ define internal ptr @_codecs_utf_16_le_decode(ptr readnone captures(none) %0, pt
   br i1 %.not29, label %33, label %24
 
 24:                                               ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %25 = call ptr @PyUnicode_AsUTF8AndSize(ptr noundef %18, ptr noundef nonnull %7) #5
   %26 = icmp eq ptr %25, null
   br i1 %26, label %.thread, label %27
@@ -2653,11 +2653,11 @@ define internal ptr @_codecs_utf_16_le_decode(ptr readnone captures(none) %0, pt
   br label %.thread
 
 .thread:                                          ; preds = %30, %24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %51
 
 32:                                               ; preds = %27
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %34
 
 33:                                               ; preds = %20
@@ -2682,9 +2682,9 @@ define internal ptr @_codecs_utf_16_le_decode(ptr readnone captures(none) %0, pt
   %.val3442 = load ptr, ptr %6, align 8, !tbaa !28
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.val3543 = load i64, ptr %41, align 8, !tbaa !31
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 -1, ptr %4, align 4, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %.val3543, ptr %5, align 8, !tbaa !21
   br label %44
 
@@ -2692,9 +2692,9 @@ define internal ptr @_codecs_utf_16_le_decode(ptr readnone captures(none) %0, pt
   %.val34 = load ptr, ptr %6, align 8, !tbaa !28
   %43 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.val35 = load i64, ptr %43, align 8, !tbaa !31
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 -1, ptr %4, align 4, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %.val35, ptr %5, align 8, !tbaa !21
   %.not.i = icmp eq i32 %.fr, 0
   %spec.select = select i1 %.not.i, ptr %5, ptr null
@@ -2716,8 +2716,8 @@ define internal ptr @_codecs_utf_16_le_decode(ptr readnone captures(none) %0, pt
 
 _codecs_utf_16_le_decode_impl.exit:               ; preds = %44, %48
   %.0.i.i = phi ptr [ %50, %48 ], [ null, %44 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %51
 
 51:                                               ; preds = %.thread, %36, %11, %9, %_codecs_utf_16_le_decode_impl.exit, %33
@@ -2732,7 +2732,7 @@ _codecs_utf_16_le_decode_impl.exit:               ; preds = %44, %48
   br label %55
 
 55:                                               ; preds = %51, %54
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.022
 }
 
@@ -2742,7 +2742,7 @@ define internal ptr @_codecs_utf_16_be_decode(ptr readnone captures(none) %0, pt
   %5 = alloca i64, align 8
   %6 = alloca %struct.Py_buffer, align 8
   %7 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %6, i8 0, i64 80, i1 false)
   %8 = add i64 %2, -1
   %or.cond = icmp ult i64 %8, 3
@@ -2779,7 +2779,7 @@ define internal ptr @_codecs_utf_16_be_decode(ptr readnone captures(none) %0, pt
   br i1 %.not29, label %33, label %24
 
 24:                                               ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %25 = call ptr @PyUnicode_AsUTF8AndSize(ptr noundef %18, ptr noundef nonnull %7) #5
   %26 = icmp eq ptr %25, null
   br i1 %26, label %.thread, label %27
@@ -2796,11 +2796,11 @@ define internal ptr @_codecs_utf_16_be_decode(ptr readnone captures(none) %0, pt
   br label %.thread
 
 .thread:                                          ; preds = %30, %24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %51
 
 32:                                               ; preds = %27
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %34
 
 33:                                               ; preds = %20
@@ -2825,9 +2825,9 @@ define internal ptr @_codecs_utf_16_be_decode(ptr readnone captures(none) %0, pt
   %.val3442 = load ptr, ptr %6, align 8, !tbaa !28
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.val3543 = load i64, ptr %41, align 8, !tbaa !31
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 1, ptr %4, align 4, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %.val3543, ptr %5, align 8, !tbaa !21
   br label %44
 
@@ -2835,9 +2835,9 @@ define internal ptr @_codecs_utf_16_be_decode(ptr readnone captures(none) %0, pt
   %.val34 = load ptr, ptr %6, align 8, !tbaa !28
   %43 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.val35 = load i64, ptr %43, align 8, !tbaa !31
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 1, ptr %4, align 4, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %.val35, ptr %5, align 8, !tbaa !21
   %.not.i = icmp eq i32 %.fr, 0
   %spec.select = select i1 %.not.i, ptr %5, ptr null
@@ -2859,8 +2859,8 @@ define internal ptr @_codecs_utf_16_be_decode(ptr readnone captures(none) %0, pt
 
 _codecs_utf_16_be_decode_impl.exit:               ; preds = %44, %48
   %.0.i.i = phi ptr [ %50, %48 ], [ null, %44 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %51
 
 51:                                               ; preds = %.thread, %36, %11, %9, %_codecs_utf_16_be_decode_impl.exit, %33
@@ -2875,7 +2875,7 @@ _codecs_utf_16_be_decode_impl.exit:               ; preds = %44, %48
   br label %55
 
 55:                                               ; preds = %51, %54
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.022
 }
 
@@ -2885,7 +2885,7 @@ define internal ptr @_codecs_utf_16_ex_decode(ptr readnone captures(none) %0, pt
   %5 = alloca i64, align 8
   %6 = alloca %struct.Py_buffer, align 8
   %7 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %6, i8 0, i64 80, i1 false)
   %8 = add i64 %2, -1
   %or.cond = icmp ult i64 %8, 4
@@ -2922,7 +2922,7 @@ define internal ptr @_codecs_utf_16_ex_decode(ptr readnone captures(none) %0, pt
   br i1 %.not34, label %33, label %24
 
 24:                                               ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %25 = call ptr @PyUnicode_AsUTF8AndSize(ptr noundef %18, ptr noundef nonnull %7) #5
   %26 = icmp eq ptr %25, null
   br i1 %26, label %.thread, label %27
@@ -2939,11 +2939,11 @@ define internal ptr @_codecs_utf_16_ex_decode(ptr readnone captures(none) %0, pt
   br label %.thread
 
 .thread:                                          ; preds = %30, %24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %61
 
 32:                                               ; preds = %27
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %34
 
 33:                                               ; preds = %20
@@ -2985,9 +2985,9 @@ define internal ptr @_codecs_utf_16_ex_decode(ptr readnone captures(none) %0, pt
   %.val4049 = load ptr, ptr %6, align 8, !tbaa !28
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.val4150 = load i64, ptr %50, align 8, !tbaa !31
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 %.025.ph, ptr %4, align 4, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %.val4150, ptr %5, align 8, !tbaa !21
   br label %53
 
@@ -2995,9 +2995,9 @@ define internal ptr @_codecs_utf_16_ex_decode(ptr readnone captures(none) %0, pt
   %.val40 = load ptr, ptr %6, align 8, !tbaa !28
   %52 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.val41 = load i64, ptr %52, align 8, !tbaa !31
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 %39, ptr %4, align 4, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %.val41, ptr %5, align 8, !tbaa !21
   %.not.i = icmp eq i32 %.fr, 0
   %spec.select = select i1 %.not.i, ptr %5, ptr null
@@ -3020,8 +3020,8 @@ define internal ptr @_codecs_utf_16_ex_decode(ptr readnone captures(none) %0, pt
 
 _codecs_utf_16_ex_decode_impl.exit:               ; preds = %53, %57
   %.0.i = phi ptr [ %60, %57 ], [ null, %53 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %61
 
 61:                                               ; preds = %.thread, %45, %41, %11, %9, %_codecs_utf_16_ex_decode_impl.exit, %33
@@ -3036,7 +3036,7 @@ _codecs_utf_16_ex_decode_impl.exit:               ; preds = %53, %57
   br label %65
 
 65:                                               ; preds = %61, %64
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.027
 }
 
@@ -3086,7 +3086,7 @@ define internal ptr @_codecs_utf_32_encode(ptr readnone captures(none) %0, ptr n
   br i1 %.not33, label %33, label %24
 
 24:                                               ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %25 = call ptr @PyUnicode_AsUTF8AndSize(ptr noundef %18, ptr noundef nonnull %4) #5
   %26 = icmp eq ptr %25, null
   br i1 %26, label %.thread, label %27
@@ -3103,11 +3103,11 @@ define internal ptr @_codecs_utf_32_encode(ptr readnone captures(none) %0, ptr n
   br label %.thread
 
 .thread:                                          ; preds = %30, %24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_codecs_utf_32_encode_impl.exit
 
 32:                                               ; preds = %27
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %34
 
 33:                                               ; preds = %20
@@ -3195,7 +3195,7 @@ define internal ptr @_codecs_utf_32_le_encode(ptr readnone captures(none) %0, pt
   br i1 %.not25, label %33, label %24
 
 24:                                               ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %25 = call ptr @PyUnicode_AsUTF8AndSize(ptr noundef %18, ptr noundef nonnull %4) #5
   %26 = icmp eq ptr %25, null
   br i1 %26, label %.thread, label %27
@@ -3212,11 +3212,11 @@ define internal ptr @_codecs_utf_32_le_encode(ptr readnone captures(none) %0, pt
   br label %.thread
 
 .thread:                                          ; preds = %30, %24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_codecs_utf_32_le_encode_impl.exit
 
 32:                                               ; preds = %27
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %34
 
 33:                                               ; preds = %20
@@ -3286,7 +3286,7 @@ define internal ptr @_codecs_utf_32_be_encode(ptr readnone captures(none) %0, pt
   br i1 %.not25, label %33, label %24
 
 24:                                               ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %25 = call ptr @PyUnicode_AsUTF8AndSize(ptr noundef %18, ptr noundef nonnull %4) #5
   %26 = icmp eq ptr %25, null
   br i1 %26, label %.thread, label %27
@@ -3303,11 +3303,11 @@ define internal ptr @_codecs_utf_32_be_encode(ptr readnone captures(none) %0, pt
   br label %.thread
 
 .thread:                                          ; preds = %30, %24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_codecs_utf_32_be_encode_impl.exit
 
 32:                                               ; preds = %27
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %34
 
 33:                                               ; preds = %20
@@ -3337,7 +3337,7 @@ define internal ptr @_codecs_utf_32_decode(ptr readnone captures(none) %0, ptr n
   %5 = alloca i64, align 8
   %6 = alloca %struct.Py_buffer, align 8
   %7 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %6, i8 0, i64 80, i1 false)
   %8 = add i64 %2, -1
   %or.cond = icmp ult i64 %8, 3
@@ -3374,7 +3374,7 @@ define internal ptr @_codecs_utf_32_decode(ptr readnone captures(none) %0, ptr n
   br i1 %.not29, label %33, label %24
 
 24:                                               ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %25 = call ptr @PyUnicode_AsUTF8AndSize(ptr noundef %18, ptr noundef nonnull %7) #5
   %26 = icmp eq ptr %25, null
   br i1 %26, label %.thread, label %27
@@ -3391,11 +3391,11 @@ define internal ptr @_codecs_utf_32_decode(ptr readnone captures(none) %0, ptr n
   br label %.thread
 
 .thread:                                          ; preds = %30, %24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %51
 
 32:                                               ; preds = %27
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %34
 
 33:                                               ; preds = %20
@@ -3420,9 +3420,9 @@ define internal ptr @_codecs_utf_32_decode(ptr readnone captures(none) %0, ptr n
   %.val3442 = load ptr, ptr %6, align 8, !tbaa !28
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.val3543 = load i64, ptr %41, align 8, !tbaa !31
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %.val3543, ptr %5, align 8, !tbaa !21
   br label %44
 
@@ -3430,9 +3430,9 @@ define internal ptr @_codecs_utf_32_decode(ptr readnone captures(none) %0, ptr n
   %.val34 = load ptr, ptr %6, align 8, !tbaa !28
   %43 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.val35 = load i64, ptr %43, align 8, !tbaa !31
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %.val35, ptr %5, align 8, !tbaa !21
   %.not.i = icmp eq i32 %.fr, 0
   %spec.select = select i1 %.not.i, ptr %5, ptr null
@@ -3454,8 +3454,8 @@ define internal ptr @_codecs_utf_32_decode(ptr readnone captures(none) %0, ptr n
 
 _codecs_utf_32_decode_impl.exit:                  ; preds = %44, %48
   %.0.i.i = phi ptr [ %50, %48 ], [ null, %44 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %51
 
 51:                                               ; preds = %.thread, %36, %11, %9, %_codecs_utf_32_decode_impl.exit, %33
@@ -3470,7 +3470,7 @@ _codecs_utf_32_decode_impl.exit:                  ; preds = %44, %48
   br label %55
 
 55:                                               ; preds = %51, %54
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.022
 }
 
@@ -3480,7 +3480,7 @@ define internal ptr @_codecs_utf_32_le_decode(ptr readnone captures(none) %0, pt
   %5 = alloca i64, align 8
   %6 = alloca %struct.Py_buffer, align 8
   %7 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %6, i8 0, i64 80, i1 false)
   %8 = add i64 %2, -1
   %or.cond = icmp ult i64 %8, 3
@@ -3517,7 +3517,7 @@ define internal ptr @_codecs_utf_32_le_decode(ptr readnone captures(none) %0, pt
   br i1 %.not29, label %33, label %24
 
 24:                                               ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %25 = call ptr @PyUnicode_AsUTF8AndSize(ptr noundef %18, ptr noundef nonnull %7) #5
   %26 = icmp eq ptr %25, null
   br i1 %26, label %.thread, label %27
@@ -3534,11 +3534,11 @@ define internal ptr @_codecs_utf_32_le_decode(ptr readnone captures(none) %0, pt
   br label %.thread
 
 .thread:                                          ; preds = %30, %24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %51
 
 32:                                               ; preds = %27
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %34
 
 33:                                               ; preds = %20
@@ -3563,9 +3563,9 @@ define internal ptr @_codecs_utf_32_le_decode(ptr readnone captures(none) %0, pt
   %.val3442 = load ptr, ptr %6, align 8, !tbaa !28
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.val3543 = load i64, ptr %41, align 8, !tbaa !31
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 -1, ptr %4, align 4, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %.val3543, ptr %5, align 8, !tbaa !21
   br label %44
 
@@ -3573,9 +3573,9 @@ define internal ptr @_codecs_utf_32_le_decode(ptr readnone captures(none) %0, pt
   %.val34 = load ptr, ptr %6, align 8, !tbaa !28
   %43 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.val35 = load i64, ptr %43, align 8, !tbaa !31
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 -1, ptr %4, align 4, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %.val35, ptr %5, align 8, !tbaa !21
   %.not.i = icmp eq i32 %.fr, 0
   %spec.select = select i1 %.not.i, ptr %5, ptr null
@@ -3597,8 +3597,8 @@ define internal ptr @_codecs_utf_32_le_decode(ptr readnone captures(none) %0, pt
 
 _codecs_utf_32_le_decode_impl.exit:               ; preds = %44, %48
   %.0.i.i = phi ptr [ %50, %48 ], [ null, %44 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %51
 
 51:                                               ; preds = %.thread, %36, %11, %9, %_codecs_utf_32_le_decode_impl.exit, %33
@@ -3613,7 +3613,7 @@ _codecs_utf_32_le_decode_impl.exit:               ; preds = %44, %48
   br label %55
 
 55:                                               ; preds = %51, %54
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.022
 }
 
@@ -3623,7 +3623,7 @@ define internal ptr @_codecs_utf_32_be_decode(ptr readnone captures(none) %0, pt
   %5 = alloca i64, align 8
   %6 = alloca %struct.Py_buffer, align 8
   %7 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %6, i8 0, i64 80, i1 false)
   %8 = add i64 %2, -1
   %or.cond = icmp ult i64 %8, 3
@@ -3660,7 +3660,7 @@ define internal ptr @_codecs_utf_32_be_decode(ptr readnone captures(none) %0, pt
   br i1 %.not29, label %33, label %24
 
 24:                                               ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %25 = call ptr @PyUnicode_AsUTF8AndSize(ptr noundef %18, ptr noundef nonnull %7) #5
   %26 = icmp eq ptr %25, null
   br i1 %26, label %.thread, label %27
@@ -3677,11 +3677,11 @@ define internal ptr @_codecs_utf_32_be_decode(ptr readnone captures(none) %0, pt
   br label %.thread
 
 .thread:                                          ; preds = %30, %24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %51
 
 32:                                               ; preds = %27
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %34
 
 33:                                               ; preds = %20
@@ -3706,9 +3706,9 @@ define internal ptr @_codecs_utf_32_be_decode(ptr readnone captures(none) %0, pt
   %.val3442 = load ptr, ptr %6, align 8, !tbaa !28
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.val3543 = load i64, ptr %41, align 8, !tbaa !31
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 1, ptr %4, align 4, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %.val3543, ptr %5, align 8, !tbaa !21
   br label %44
 
@@ -3716,9 +3716,9 @@ define internal ptr @_codecs_utf_32_be_decode(ptr readnone captures(none) %0, pt
   %.val34 = load ptr, ptr %6, align 8, !tbaa !28
   %43 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.val35 = load i64, ptr %43, align 8, !tbaa !31
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 1, ptr %4, align 4, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %.val35, ptr %5, align 8, !tbaa !21
   %.not.i = icmp eq i32 %.fr, 0
   %spec.select = select i1 %.not.i, ptr %5, ptr null
@@ -3740,8 +3740,8 @@ define internal ptr @_codecs_utf_32_be_decode(ptr readnone captures(none) %0, pt
 
 _codecs_utf_32_be_decode_impl.exit:               ; preds = %44, %48
   %.0.i.i = phi ptr [ %50, %48 ], [ null, %44 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %51
 
 51:                                               ; preds = %.thread, %36, %11, %9, %_codecs_utf_32_be_decode_impl.exit, %33
@@ -3756,7 +3756,7 @@ _codecs_utf_32_be_decode_impl.exit:               ; preds = %44, %48
   br label %55
 
 55:                                               ; preds = %51, %54
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.022
 }
 
@@ -3766,7 +3766,7 @@ define internal ptr @_codecs_utf_32_ex_decode(ptr readnone captures(none) %0, pt
   %5 = alloca i64, align 8
   %6 = alloca %struct.Py_buffer, align 8
   %7 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %6, i8 0, i64 80, i1 false)
   %8 = add i64 %2, -1
   %or.cond = icmp ult i64 %8, 4
@@ -3803,7 +3803,7 @@ define internal ptr @_codecs_utf_32_ex_decode(ptr readnone captures(none) %0, pt
   br i1 %.not34, label %33, label %24
 
 24:                                               ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %25 = call ptr @PyUnicode_AsUTF8AndSize(ptr noundef %18, ptr noundef nonnull %7) #5
   %26 = icmp eq ptr %25, null
   br i1 %26, label %.thread, label %27
@@ -3820,11 +3820,11 @@ define internal ptr @_codecs_utf_32_ex_decode(ptr readnone captures(none) %0, pt
   br label %.thread
 
 .thread:                                          ; preds = %30, %24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %61
 
 32:                                               ; preds = %27
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %34
 
 33:                                               ; preds = %20
@@ -3866,9 +3866,9 @@ define internal ptr @_codecs_utf_32_ex_decode(ptr readnone captures(none) %0, pt
   %.val4049 = load ptr, ptr %6, align 8, !tbaa !28
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.val4150 = load i64, ptr %50, align 8, !tbaa !31
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 %.025.ph, ptr %4, align 4, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %.val4150, ptr %5, align 8, !tbaa !21
   br label %53
 
@@ -3876,9 +3876,9 @@ define internal ptr @_codecs_utf_32_ex_decode(ptr readnone captures(none) %0, pt
   %.val40 = load ptr, ptr %6, align 8, !tbaa !28
   %52 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.val41 = load i64, ptr %52, align 8, !tbaa !31
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 %39, ptr %4, align 4, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %.val41, ptr %5, align 8, !tbaa !21
   %.not.i = icmp eq i32 %.fr, 0
   %spec.select = select i1 %.not.i, ptr %5, ptr null
@@ -3901,8 +3901,8 @@ define internal ptr @_codecs_utf_32_ex_decode(ptr readnone captures(none) %0, pt
 
 _codecs_utf_32_ex_decode_impl.exit:               ; preds = %53, %57
   %.0.i = phi ptr [ %60, %57 ], [ null, %53 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %61
 
 61:                                               ; preds = %.thread, %45, %41, %11, %9, %_codecs_utf_32_ex_decode_impl.exit, %33
@@ -3917,7 +3917,7 @@ _codecs_utf_32_ex_decode_impl.exit:               ; preds = %53, %57
   br label %65
 
 65:                                               ; preds = %61, %64
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.027
 }
 
@@ -3967,7 +3967,7 @@ define internal ptr @_codecs_unicode_escape_encode(ptr readnone captures(none) %
   br i1 %.not25, label %33, label %24
 
 24:                                               ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %25 = call ptr @PyUnicode_AsUTF8AndSize(ptr noundef %18, ptr noundef nonnull %4) #5
   %26 = icmp eq ptr %25, null
   br i1 %26, label %.thread, label %27
@@ -3984,11 +3984,11 @@ define internal ptr @_codecs_unicode_escape_encode(ptr readnone captures(none) %
   br label %.thread
 
 .thread:                                          ; preds = %30, %24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_codecs_unicode_escape_encode_impl.exit
 
 32:                                               ; preds = %27
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %34
 
 33:                                               ; preds = %20
@@ -4017,7 +4017,7 @@ define internal ptr @_codecs_unicode_escape_decode(ptr readnone captures(none) %
   %5 = alloca %struct.Py_buffer, align 8
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %5, i8 0, i64 80, i1 false)
   %8 = add i64 %2, -1
   %or.cond = icmp ult i64 %8, 3
@@ -4039,7 +4039,7 @@ define internal ptr @_codecs_unicode_escape_decode(ptr readnone captures(none) %
   br i1 %.not36, label %25, label %16
 
 16:                                               ; preds = %11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %17 = call ptr @PyUnicode_AsUTF8AndSize(ptr noundef nonnull %12, ptr noundef nonnull %6) #5
   %18 = icmp eq ptr %17, null
   br i1 %18, label %.thread, label %19
@@ -4052,11 +4052,11 @@ define internal ptr @_codecs_unicode_escape_decode(ptr readnone captures(none) %
   br i1 %23, label %.thread, label %24
 
 .thread:                                          ; preds = %16, %19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %64
 
 24:                                               ; preds = %19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %27
 
 25:                                               ; preds = %11
@@ -4084,7 +4084,7 @@ define internal ptr @_codecs_unicode_escape_decode(ptr readnone captures(none) %
   br i1 %.not38, label %46, label %37
 
 37:                                               ; preds = %33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %38 = call ptr @PyUnicode_AsUTF8AndSize(ptr noundef %31, ptr noundef nonnull %7) #5
   %39 = icmp eq ptr %38, null
   br i1 %39, label %.thread53, label %40
@@ -4101,11 +4101,11 @@ define internal ptr @_codecs_unicode_escape_decode(ptr readnone captures(none) %
   br label %.thread53
 
 .thread53:                                        ; preds = %43, %37
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %64
 
 45:                                               ; preds = %40
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %47
 
 46:                                               ; preds = %33
@@ -4130,7 +4130,7 @@ define internal ptr @_codecs_unicode_escape_decode(ptr readnone captures(none) %
   %.val4860 = load ptr, ptr %5, align 8, !tbaa !28
   %54 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.val4961 = load i64, ptr %54, align 8, !tbaa !31
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %.val4961, ptr %4, align 8, !tbaa !21
   br label %57
 
@@ -4138,7 +4138,7 @@ define internal ptr @_codecs_unicode_escape_decode(ptr readnone captures(none) %
   %.val48 = load ptr, ptr %5, align 8, !tbaa !28
   %56 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.val49 = load i64, ptr %56, align 8, !tbaa !31
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %.val49, ptr %4, align 8, !tbaa !21
   %.not.i = icmp eq i32 %.fr, 0
   %spec.select = select i1 %.not.i, ptr %4, ptr null
@@ -4160,7 +4160,7 @@ define internal ptr @_codecs_unicode_escape_decode(ptr readnone captures(none) %
 
 _codecs_unicode_escape_decode_impl.exit:          ; preds = %57, %61
   %.0.i.i = phi ptr [ %63, %61 ], [ null, %57 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %64
 
 64:                                               ; preds = %.thread53, %.thread, %49, %25, %9, %_codecs_unicode_escape_decode_impl.exit, %46
@@ -4175,7 +4175,7 @@ _codecs_unicode_escape_decode_impl.exit:          ; preds = %57, %61
   br label %68
 
 68:                                               ; preds = %64, %67
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.030
 }
 
@@ -4225,7 +4225,7 @@ define internal ptr @_codecs_raw_unicode_escape_encode(ptr readnone captures(non
   br i1 %.not25, label %33, label %24
 
 24:                                               ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %25 = call ptr @PyUnicode_AsUTF8AndSize(ptr noundef %18, ptr noundef nonnull %4) #5
   %26 = icmp eq ptr %25, null
   br i1 %26, label %.thread, label %27
@@ -4242,11 +4242,11 @@ define internal ptr @_codecs_raw_unicode_escape_encode(ptr readnone captures(non
   br label %.thread
 
 .thread:                                          ; preds = %30, %24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_codecs_raw_unicode_escape_encode_impl.exit
 
 32:                                               ; preds = %27
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %34
 
 33:                                               ; preds = %20
@@ -4275,7 +4275,7 @@ define internal ptr @_codecs_raw_unicode_escape_decode(ptr readnone captures(non
   %5 = alloca %struct.Py_buffer, align 8
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %5, i8 0, i64 80, i1 false)
   %8 = add i64 %2, -1
   %or.cond = icmp ult i64 %8, 3
@@ -4297,7 +4297,7 @@ define internal ptr @_codecs_raw_unicode_escape_decode(ptr readnone captures(non
   br i1 %.not36, label %25, label %16
 
 16:                                               ; preds = %11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %17 = call ptr @PyUnicode_AsUTF8AndSize(ptr noundef nonnull %12, ptr noundef nonnull %6) #5
   %18 = icmp eq ptr %17, null
   br i1 %18, label %.thread, label %19
@@ -4310,11 +4310,11 @@ define internal ptr @_codecs_raw_unicode_escape_decode(ptr readnone captures(non
   br i1 %23, label %.thread, label %24
 
 .thread:                                          ; preds = %16, %19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %64
 
 24:                                               ; preds = %19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %27
 
 25:                                               ; preds = %11
@@ -4342,7 +4342,7 @@ define internal ptr @_codecs_raw_unicode_escape_decode(ptr readnone captures(non
   br i1 %.not38, label %46, label %37
 
 37:                                               ; preds = %33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %38 = call ptr @PyUnicode_AsUTF8AndSize(ptr noundef %31, ptr noundef nonnull %7) #5
   %39 = icmp eq ptr %38, null
   br i1 %39, label %.thread53, label %40
@@ -4359,11 +4359,11 @@ define internal ptr @_codecs_raw_unicode_escape_decode(ptr readnone captures(non
   br label %.thread53
 
 .thread53:                                        ; preds = %43, %37
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %64
 
 45:                                               ; preds = %40
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %47
 
 46:                                               ; preds = %33
@@ -4388,7 +4388,7 @@ define internal ptr @_codecs_raw_unicode_escape_decode(ptr readnone captures(non
   %.val4860 = load ptr, ptr %5, align 8, !tbaa !28
   %54 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.val4961 = load i64, ptr %54, align 8, !tbaa !31
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %.val4961, ptr %4, align 8, !tbaa !21
   br label %57
 
@@ -4396,7 +4396,7 @@ define internal ptr @_codecs_raw_unicode_escape_decode(ptr readnone captures(non
   %.val48 = load ptr, ptr %5, align 8, !tbaa !28
   %56 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.val49 = load i64, ptr %56, align 8, !tbaa !31
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %.val49, ptr %4, align 8, !tbaa !21
   %.not.i = icmp eq i32 %.fr, 0
   %spec.select = select i1 %.not.i, ptr %4, ptr null
@@ -4418,7 +4418,7 @@ define internal ptr @_codecs_raw_unicode_escape_decode(ptr readnone captures(non
 
 _codecs_raw_unicode_escape_decode_impl.exit:      ; preds = %57, %61
   %.0.i.i = phi ptr [ %63, %61 ], [ null, %57 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %64
 
 64:                                               ; preds = %.thread53, %.thread, %49, %25, %9, %_codecs_raw_unicode_escape_decode_impl.exit, %46
@@ -4433,7 +4433,7 @@ _codecs_raw_unicode_escape_decode_impl.exit:      ; preds = %57, %61
   br label %68
 
 68:                                               ; preds = %64, %67
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.030
 }
 
@@ -4483,7 +4483,7 @@ define internal ptr @_codecs_latin_1_encode(ptr readnone captures(none) %0, ptr 
   br i1 %.not25, label %33, label %24
 
 24:                                               ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %25 = call ptr @PyUnicode_AsUTF8AndSize(ptr noundef %18, ptr noundef nonnull %4) #5
   %26 = icmp eq ptr %25, null
   br i1 %26, label %.thread, label %27
@@ -4500,11 +4500,11 @@ define internal ptr @_codecs_latin_1_encode(ptr readnone captures(none) %0, ptr 
   br label %.thread
 
 .thread:                                          ; preds = %30, %24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_codecs_latin_1_encode_impl.exit
 
 32:                                               ; preds = %27
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %34
 
 33:                                               ; preds = %20
@@ -4532,7 +4532,7 @@ _codecs_latin_1_encode_impl.exit:                 ; preds = %37, %34, %.thread, 
 define internal ptr @_codecs_latin_1_decode(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %4 = alloca %struct.Py_buffer, align 8
   %5 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %4, i8 0, i64 80, i1 false)
   %6 = add i64 %2, -1
   %or.cond = icmp ult i64 %6, 2
@@ -4569,7 +4569,7 @@ define internal ptr @_codecs_latin_1_decode(ptr readnone captures(none) %0, ptr 
   br i1 %.not22, label %31, label %22
 
 22:                                               ; preds = %18
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %23 = call ptr @PyUnicode_AsUTF8AndSize(ptr noundef %16, ptr noundef nonnull %5) #5
   %24 = icmp eq ptr %23, null
   br i1 %24, label %.thread, label %25
@@ -4586,11 +4586,11 @@ define internal ptr @_codecs_latin_1_decode(ptr readnone captures(none) %0, ptr 
   br label %.thread
 
 .thread:                                          ; preds = %28, %22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_codecs_latin_1_decode_impl.exit
 
 30:                                               ; preds = %25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %32
 
 31:                                               ; preds = %18
@@ -4623,7 +4623,7 @@ _codecs_latin_1_decode_impl.exit:                 ; preds = %38, %32, %.thread, 
   br label %44
 
 44:                                               ; preds = %_codecs_latin_1_decode_impl.exit, %43
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.017
 }
 
@@ -4673,7 +4673,7 @@ define internal ptr @_codecs_ascii_encode(ptr readnone captures(none) %0, ptr no
   br i1 %.not25, label %33, label %24
 
 24:                                               ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %25 = call ptr @PyUnicode_AsUTF8AndSize(ptr noundef %18, ptr noundef nonnull %4) #5
   %26 = icmp eq ptr %25, null
   br i1 %26, label %.thread, label %27
@@ -4690,11 +4690,11 @@ define internal ptr @_codecs_ascii_encode(ptr readnone captures(none) %0, ptr no
   br label %.thread
 
 .thread:                                          ; preds = %30, %24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_codecs_ascii_encode_impl.exit
 
 32:                                               ; preds = %27
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %34
 
 33:                                               ; preds = %20
@@ -4722,7 +4722,7 @@ _codecs_ascii_encode_impl.exit:                   ; preds = %37, %34, %.thread, 
 define internal ptr @_codecs_ascii_decode(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %4 = alloca %struct.Py_buffer, align 8
   %5 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %4, i8 0, i64 80, i1 false)
   %6 = add i64 %2, -1
   %or.cond = icmp ult i64 %6, 2
@@ -4759,7 +4759,7 @@ define internal ptr @_codecs_ascii_decode(ptr readnone captures(none) %0, ptr no
   br i1 %.not22, label %31, label %22
 
 22:                                               ; preds = %18
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %23 = call ptr @PyUnicode_AsUTF8AndSize(ptr noundef %16, ptr noundef nonnull %5) #5
   %24 = icmp eq ptr %23, null
   br i1 %24, label %.thread, label %25
@@ -4776,11 +4776,11 @@ define internal ptr @_codecs_ascii_decode(ptr readnone captures(none) %0, ptr no
   br label %.thread
 
 .thread:                                          ; preds = %28, %22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_codecs_ascii_decode_impl.exit
 
 30:                                               ; preds = %25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %32
 
 31:                                               ; preds = %18
@@ -4813,7 +4813,7 @@ _codecs_ascii_decode_impl.exit:                   ; preds = %38, %32, %.thread, 
   br label %44
 
 44:                                               ; preds = %_codecs_ascii_decode_impl.exit, %43
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.017
 }
 
@@ -4863,7 +4863,7 @@ define internal ptr @_codecs_charmap_encode(ptr readnone captures(none) %0, ptr 
   br i1 %.not30, label %33, label %24
 
 24:                                               ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %25 = call ptr @PyUnicode_AsUTF8AndSize(ptr noundef %18, ptr noundef nonnull %4) #5
   %26 = icmp eq ptr %25, null
   br i1 %26, label %.thread, label %27
@@ -4880,11 +4880,11 @@ define internal ptr @_codecs_charmap_encode(ptr readnone captures(none) %0, ptr 
   br label %.thread
 
 .thread:                                          ; preds = %30, %24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_codecs_charmap_encode_impl.exit
 
 32:                                               ; preds = %27
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %34
 
 33:                                               ; preds = %20
@@ -4925,7 +4925,7 @@ _codecs_charmap_encode_impl.exit:                 ; preds = %43, %39, %.thread, 
 define internal ptr @_codecs_charmap_decode(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %4 = alloca %struct.Py_buffer, align 8
   %5 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %4, i8 0, i64 80, i1 false)
   %6 = add i64 %2, -1
   %or.cond = icmp ult i64 %6, 3
@@ -4962,7 +4962,7 @@ define internal ptr @_codecs_charmap_decode(ptr readnone captures(none) %0, ptr 
   br i1 %.not27, label %31, label %22
 
 22:                                               ; preds = %18
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %23 = call ptr @PyUnicode_AsUTF8AndSize(ptr noundef %16, ptr noundef nonnull %5) #5
   %24 = icmp eq ptr %23, null
   br i1 %24, label %.thread, label %25
@@ -4979,11 +4979,11 @@ define internal ptr @_codecs_charmap_decode(ptr readnone captures(none) %0, ptr 
   br label %.thread
 
 .thread:                                          ; preds = %28, %22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_codecs_charmap_decode_impl.exit
 
 30:                                               ; preds = %25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %32
 
 31:                                               ; preds = %18
@@ -5029,7 +5029,7 @@ _codecs_charmap_decode_impl.exit:                 ; preds = %44, %37, %.thread, 
   br label %50
 
 50:                                               ; preds = %_codecs_charmap_decode_impl.exit, %49
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.021
 }
 
@@ -5061,7 +5061,7 @@ define internal ptr @_codecs_readbuffer_encode(ptr readnone captures(none) %0, p
   %4 = alloca %struct.Py_buffer, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %4, i8 0, i64 80, i1 false)
   %7 = add i64 %2, -1
   %or.cond = icmp ult i64 %7, 2
@@ -5083,7 +5083,7 @@ define internal ptr @_codecs_readbuffer_encode(ptr readnone captures(none) %0, p
   br i1 %.not28, label %24, label %15
 
 15:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %16 = call ptr @PyUnicode_AsUTF8AndSize(ptr noundef nonnull %11, ptr noundef nonnull %5) #5
   %17 = icmp eq ptr %16, null
   br i1 %17, label %.thread, label %18
@@ -5096,11 +5096,11 @@ define internal ptr @_codecs_readbuffer_encode(ptr readnone captures(none) %0, p
   br i1 %22, label %.thread, label %23
 
 .thread:                                          ; preds = %15, %18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_codecs_readbuffer_encode_impl.exit
 
 23:                                               ; preds = %18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %26
 
 24:                                               ; preds = %10
@@ -5128,7 +5128,7 @@ define internal ptr @_codecs_readbuffer_encode(ptr readnone captures(none) %0, p
   br i1 %.not30, label %45, label %36
 
 36:                                               ; preds = %32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %37 = call ptr @PyUnicode_AsUTF8AndSize(ptr noundef %30, ptr noundef nonnull %6) #5
   %38 = icmp eq ptr %37, null
   br i1 %38, label %.thread43, label %39
@@ -5145,11 +5145,11 @@ define internal ptr @_codecs_readbuffer_encode(ptr readnone captures(none) %0, p
   br label %.thread43
 
 .thread43:                                        ; preds = %42, %36
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_codecs_readbuffer_encode_impl.exit
 
 44:                                               ; preds = %39
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %46
 
 45:                                               ; preds = %32
@@ -5181,7 +5181,7 @@ _codecs_readbuffer_encode_impl.exit:              ; preds = %52, %46, %.thread43
   br label %58
 
 58:                                               ; preds = %_codecs_readbuffer_encode_impl.exit, %57
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.024
 }
 
@@ -5334,20 +5334,14 @@ declare i32 @PyCodec_Register(ptr noundef) local_unnamed_addr #1
 
 declare i32 @PyCodec_Unregister(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare void @_PyArg_BadArgument(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare ptr @PyUnicode_AsUTF8AndSize(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 declare ptr @_PyCodec_Lookup(ptr noundef) local_unnamed_addr #1
 
@@ -5368,7 +5362,7 @@ declare i32 @_PyBytes_Resize(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare ptr @Py_BuildValue(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare i32 @PyBuffer_FillInfo(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -5430,11 +5424,17 @@ declare i32 @_PyCodec_UnregisterError(ptr noundef) local_unnamed_addr #1
 
 declare ptr @PyCodec_LookupError(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nounwind }
 attributes #6 = { nounwind willreturn memory(read) }
 

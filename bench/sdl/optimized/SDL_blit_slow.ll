@@ -1777,13 +1777,7 @@ GetPixelAccessMethod.exit643.thread:              ; preds = %61, %70, %71, %swit
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare zeroext i8 @SDL_LookupRGBAColor(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare zeroext i8 @SDL_LookupRGBAColor(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @SDL_Blit_Slow_Float(ptr noundef captures(none) %0) local_unnamed_addr #0 {
@@ -1805,14 +1799,14 @@ define hidden void @SDL_Blit_Slow_Float(ptr noundef captures(none) %0) local_unn
   %17 = load i8, ptr %16, align 2
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 123
   %19 = load i8, ptr %18, align 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -3469,34 +3463,34 @@ WriteFloatPixel.exit:                             ; preds = %1007, %1002, %float
   br i1 %.not140, label %._crit_edge193, label %.lr.ph192.split, !llvm.loop !8
 
 ._crit_edge193:                                   ; preds = %._crit_edge, %.lr.ph192.split.us, %GetPixelAccessMethod.exit163.thread
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
-declare float @SDL_GetSurfaceSDRWhitePoint(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare float @SDL_GetSurfaceSDRWhitePoint(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare float @SDL_GetSurfaceHDRHeadroom(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare float @SDL_GetSurfaceHDRHeadroom(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_SetFloatProperty_REAL(i32 noundef, ptr noundef, float noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_SetFloatProperty_REAL(i32 noundef, ptr noundef, float noundef) local_unnamed_addr #1
 
-declare i32 @SDL_GetSurfaceProperties_REAL(ptr noundef) local_unnamed_addr #2
+declare i32 @SDL_GetSurfaceProperties_REAL(ptr noundef) local_unnamed_addr #1
 
-declare ptr @SDL_GetStringProperty_REAL(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @SDL_GetStringProperty_REAL(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @SDL_strncmp_REAL(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @SDL_strncmp_REAL(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare double @SDL_atof_REAL(ptr noundef) local_unnamed_addr #2
+declare double @SDL_atof_REAL(ptr noundef) local_unnamed_addr #1
 
-declare i32 @SDL_strcasecmp_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @SDL_strcasecmp_REAL(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @SDL_GetColorPrimariesConversionMatrix(i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @SDL_GetColorPrimariesConversionMatrix(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @ReadFloatPixel(ptr noundef readonly captures(none) %0, i32 noundef range(i32 0, 5) %1, ptr noundef readonly %2, ptr noundef readonly captures(none) %3, i32 noundef %4, float noundef %5, ptr noundef nonnull writeonly captures(none) %6, ptr noundef nonnull writeonly captures(none) %7, ptr noundef nonnull writeonly captures(none) %8, ptr noundef nonnull writeonly captures(none) %9) unnamed_addr #0 {
@@ -4237,20 +4231,26 @@ default.unreachable215:                           ; preds = %10
   ret void
 }
 
-declare void @SDL_ConvertColorPrimaries(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @SDL_ConvertColorPrimaries(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #3
+declare float @llvm.fmuladd.f32(float, float, float) #2
 
-declare float @SDL_roundf_REAL(float noundef) local_unnamed_addr #2
+declare float @SDL_roundf_REAL(float noundef) local_unnamed_addr #1
 
-declare float @SDL_sRGBfromLinear(float noundef) local_unnamed_addr #2
+declare float @SDL_sRGBfromLinear(float noundef) local_unnamed_addr #1
 
-declare float @SDL_sRGBtoLinear(float noundef) local_unnamed_addr #2
+declare float @SDL_sRGBtoLinear(float noundef) local_unnamed_addr #1
 
-declare float @SDL_PQtoNits(float noundef) local_unnamed_addr #2
+declare float @SDL_PQtoNits(float noundef) local_unnamed_addr #1
 
-declare float @SDL_PQfromNits(float noundef) local_unnamed_addr #2
+declare float @SDL_PQfromNits(float noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #4
@@ -4262,9 +4262,9 @@ declare i32 @llvm.umin.i32(i32, i32) #4
 declare float @llvm.fabs.f32(float) #4
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { nounwind }
 

@@ -269,7 +269,7 @@ declare i32 @ossl_cipher_generic_get_ctx_params(ptr noundef, ptr noundef) #1
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @aes_wrap_set_ctx_params(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 0, ptr %3, align 8, !tbaa !13
   %4 = icmp eq ptr %1, null
   br i1 %4, label %ossl_param_is_empty.exit.thread, label %ossl_param_is_empty.exit
@@ -306,7 +306,7 @@ ossl_param_is_empty.exit.thread.sink.split:       ; preds = %10, %8
 
 ossl_param_is_empty.exit.thread:                  ; preds = %ossl_param_is_empty.exit.thread.sink.split, %2, %6, %10, %ossl_param_is_empty.exit
   %.0 = phi i32 [ 1, %ossl_param_is_empty.exit ], [ 1, %10 ], [ 1, %6 ], [ 1, %2 ], [ 0, %ossl_param_is_empty.exit.thread.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
@@ -699,17 +699,11 @@ define internal i32 @aes_128_wrappadinv_get_params(ptr noundef %0) #0 {
   ret i32 %2
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare i32 @ossl_prov_is_running() local_unnamed_addr #1
 
 declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 declare void @ossl_cipher_generic_initkey(ptr noundef, i64 noundef, i64 noundef, i64 noundef, i32 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @aes_wrap_init(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, i32 noundef range(i32 0, 2) %6) unnamed_addr #0 {
@@ -785,7 +779,7 @@ define internal fastcc range(i32 0, 2) i32 @aes_wrap_init(ptr noundef %0, ptr no
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %23
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 0, ptr %8, align 8, !tbaa !13
   %40 = icmp eq ptr %5, null
   br i1 %40, label %aes_wrap_set_ctx_params.exit, label %ossl_param_is_empty.exit.i
@@ -822,7 +816,7 @@ ossl_param_is_empty.exit.thread.sink.split.i:     ; preds = %46, %44
 
 aes_wrap_set_ctx_params.exit:                     ; preds = %.thread, %ossl_param_is_empty.exit.i, %42, %46, %ossl_param_is_empty.exit.thread.sink.split.i
   %.0.i = phi i32 [ 1, %ossl_param_is_empty.exit.i ], [ 1, %46 ], [ 1, %42 ], [ 1, %.thread ], [ 0, %ossl_param_is_empty.exit.thread.sink.split.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %50
 
 50:                                               ; preds = %39, %21, %7, %aes_wrap_set_ctx_params.exit
@@ -867,6 +861,12 @@ declare i32 @ossl_cipher_generic_get_params(ptr noundef, i32 noundef, i64 nounde
 declare ptr @OSSL_PARAM_locate_const(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare i32 @OSSL_PARAM_get_size_t(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

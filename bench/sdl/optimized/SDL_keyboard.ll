@@ -95,12 +95,6 @@ define hidden noundef zeroext i1 @SDL_IsKeyboard(i16 noundef zeroext %0, i16 nou
   ret i1 %or.cond
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
-
 ; Function Attrs: nounwind uwtable
 define hidden void @SDL_AddKeyboard(i32 noundef %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca %union.SDL_Event, align 8
@@ -150,13 +144,13 @@ SDL_GetKeyboardIndex.exit.thread:                 ; preds = %10, %3
   br i1 %2, label %24, label %SDL_GetKeyboardIndex.exit
 
 24:                                               ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %4, i8 0, i64 128, i1 false)
   store i32 773, ptr %4, align 8
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 %0, ptr %25, align 8
   %26 = call zeroext i1 @SDL_PushEvent_REAL(ptr noundef nonnull %4) #13
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %SDL_GetKeyboardIndex.exit
 
 SDL_GetKeyboardIndex.exit:                        ; preds = %6, %SDL_GetKeyboardIndex.exit.thread, %24, %15
@@ -164,12 +158,12 @@ SDL_GetKeyboardIndex.exit:                        ; preds = %6, %SDL_GetKeyboard
 }
 
 ; Function Attrs: allocsize(1)
-declare ptr @SDL_realloc_REAL(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare ptr @SDL_realloc_REAL(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 declare noalias ptr @SDL_strdup_REAL(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare zeroext i1 @SDL_PushEvent_REAL(ptr noundef) local_unnamed_addr #1
 
@@ -224,13 +218,13 @@ SDL_GetKeyboardIndex.exit:                        ; preds = %6
   br i1 %1, label %26, label %SDL_GetKeyboardIndex.exit.thread
 
 26:                                               ; preds = %25
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %3, i8 0, i64 128, i1 false)
   store i32 774, ptr %3, align 8
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 %0, ptr %27, align 8
   %28 = call zeroext i1 @SDL_PushEvent_REAL(ptr noundef nonnull %3) #13
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %SDL_GetKeyboardIndex.exit.thread
 
 SDL_GetKeyboardIndex.exit.thread:                 ; preds = %10, %2, %25, %26
@@ -240,7 +234,7 @@ SDL_GetKeyboardIndex.exit.thread:                 ; preds = %10, %2, %25, %26
 declare void @SDL_free_REAL(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
 define hidden void @SDL_SetKeyboardName(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -281,7 +275,7 @@ SDL_GetKeyboardIndex.exit.thread:                 ; preds = %9, %2, %SDL_GetKeyb
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden zeroext i1 @SDL_HasKeyboard_REAL() local_unnamed_addr #7 {
+define hidden zeroext i1 @SDL_HasKeyboard_REAL() local_unnamed_addr #6 {
   %1 = load i32, ptr @SDL_keyboard_count, align 4
   %2 = icmp sgt i32 %1, 0
   ret i1 %2
@@ -423,7 +417,7 @@ define hidden zeroext i1 @SDL_SendKeyboardKey(i64 noundef %0, i32 noundef %1, i3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden ptr @SDL_GetCurrentKeymap() local_unnamed_addr #8 {
+define hidden ptr @SDL_GetCurrentKeymap() local_unnamed_addr #7 {
   %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_keyboard, i64 1040), align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.thread, label %2
@@ -560,7 +554,7 @@ declare i32 @SDL_GetKeymapKeycode(ptr noundef, i32 noundef, i16 noundef zeroext)
 declare void @SDL_SendKeymapChangedEvent() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden ptr @SDL_GetKeyboardFocus_REAL() local_unnamed_addr #7 {
+define hidden ptr @SDL_GetKeyboardFocus_REAL() local_unnamed_addr #6 {
   %1 = load ptr, ptr @SDL_keyboard, align 8
   ret ptr %1
 }
@@ -965,7 +959,7 @@ declare i32 @SDL_GetKeymapScancode(ptr noundef, i32 noundef, ptr noundef) local_
 ; Function Attrs: nounwind uwtable
 define hidden void @SDL_SendKeyboardUnicodeKey(i64 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i16, align 2
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i16 0, ptr %3, align 2
   %4 = icmp eq i32 %1, 10
   %spec.store.select = select i1 %4, i32 13, i32 %1
@@ -1023,7 +1017,7 @@ SetKeymapEntry.exit:                              ; preds = %9, %15
   br label %30
 
 30:                                               ; preds = %28, %23
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -1192,7 +1186,7 @@ define internal fastcc zeroext i1 @SDL_SendKeyboardKeyInternal(i64 noundef %0, i
   br i1 %68, label %69, label %88
 
 69:                                               ; preds = %67
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 %., ptr %7, align 8
   %70 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %0, ptr %70, align 8
@@ -1226,7 +1220,7 @@ define internal fastcc zeroext i1 @SDL_SendKeyboardKeyInternal(i64 noundef %0, i
   %86 = getelementptr inbounds nuw i8, ptr %7, i64 20
   store i32 %2, ptr %86, align 4
   %87 = call zeroext i1 @SDL_PushEvent_REAL(ptr noundef nonnull %7) #13
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %88
 
 88:                                               ; preds = %83, %67
@@ -1293,7 +1287,7 @@ SetKeymapEntry.exit:                              ; preds = %7, %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden zeroext i16 @SDL_GetModState_REAL() local_unnamed_addr #7 {
+define hidden zeroext i16 @SDL_GetModState_REAL() local_unnamed_addr #6 {
   %1 = load i16, ptr getelementptr inbounds nuw (i8, ptr @SDL_keyboard, i64 8), align 8
   ret i16 %1
 }
@@ -1360,7 +1354,7 @@ define hidden void @SDL_ReleaseAutoReleaseKeys() local_unnamed_addr #0 {
 declare i64 @SDL_GetTicks_REAL() local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden zeroext i1 @SDL_HardwareKeyboardKeyPressed() local_unnamed_addr #9 {
+define hidden zeroext i1 @SDL_HardwareKeyboardKeyPressed() local_unnamed_addr #8 {
   br label %2
 
 1:                                                ; preds = %2
@@ -1415,7 +1409,7 @@ define hidden void @SDL_SendKeyboardText(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %12, label %13, label %25
 
 13:                                               ; preds = %11
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 771, ptr %2, align 8
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 0, ptr %14, align 8
@@ -1442,7 +1436,7 @@ define hidden void @SDL_SendKeyboardText(ptr noundef %0) local_unnamed_addr #0 {
   br label %.sink.split
 
 .sink.split:                                      ; preds = %18, %23
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %25
 
 25:                                               ; preds = %.sink.split, %11, %8, %6, %1, %4
@@ -1473,7 +1467,7 @@ define hidden void @SDL_SendEditingText(ptr noundef %0, i32 noundef %1, i32 noun
   br i1 %9, label %10, label %24
 
 10:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 770, ptr %4, align 8
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 0, ptr %11, align 8
@@ -1504,7 +1498,7 @@ define hidden void @SDL_SendEditingText(ptr noundef %0, i32 noundef %1, i32 noun
   br label %.sink.split
 
 .sink.split:                                      ; preds = %15, %22
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %24
 
 24:                                               ; preds = %.sink.split, %8, %3, %6
@@ -1528,7 +1522,7 @@ define hidden void @SDL_SendEditingTextCandidates(ptr noundef readonly captures(
   br i1 %11, label %12, label %50
 
 12:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 775, ptr %5, align 8
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %13, align 8
@@ -1613,7 +1607,7 @@ define hidden void @SDL_SendEditingTextCandidates(ptr noundef readonly captures(
   br label %.sink.split
 
 .sink.split:                                      ; preds = %31, %.critedge20
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %50
 
 50:                                               ; preds = %.sink.split, %10, %4, %8
@@ -1716,7 +1710,7 @@ SDL_RemoveKeyboard.exit:                          ; preds = %14, %.lr.ph.split, 
 declare void @SDL_RemoveHintCallback_REAL(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden nonnull ptr @SDL_GetKeyboardState_REAL(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #10 {
+define hidden nonnull ptr @SDL_GetKeyboardState_REAL(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #9 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %3, label %2
 
@@ -1729,13 +1723,13 @@ define hidden nonnull ptr @SDL_GetKeyboardState_REAL(ptr noundef writeonly captu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define hidden void @SDL_SetModState_REAL(i16 noundef zeroext %0) local_unnamed_addr #11 {
+define hidden void @SDL_SetModState_REAL(i16 noundef zeroext %0) local_unnamed_addr #10 {
   store i16 %0, ptr getelementptr inbounds nuw (i8, ptr @SDL_keyboard, i64 8), align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define hidden void @SDL_ToggleModState(i16 noundef zeroext %0, i1 noundef zeroext %1) local_unnamed_addr #12 {
+define hidden void @SDL_ToggleModState(i16 noundef zeroext %0, i1 noundef zeroext %1) local_unnamed_addr #11 {
   br i1 %1, label %3, label %6
 
 3:                                                ; preds = %2
@@ -1770,21 +1764,27 @@ declare i64 @SDL_strlen_REAL(ptr noundef) local_unnamed_addr #1
 declare ptr @SDL_AllocateTemporaryMemory(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nofree norecurse nosync nounwind memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree norecurse nosync nounwind memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #13 = { nounwind }
 attributes #14 = { nounwind allocsize(1) }
 

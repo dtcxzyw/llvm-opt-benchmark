@@ -26,7 +26,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @task_cgroup_devices_init() local_unnamed_addr #0 {
   %1 = alloca i16, align 2
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %1) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %2 = tail call i32 @xcpuinfo_init() #5
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %3, label %10
@@ -49,25 +49,19 @@ define dso_local range(i32 -1, 1) i32 @task_cgroup_devices_init() local_unnamed_
 
 10:                                               ; preds = %5, %0, %7
   %.0 = phi i32 [ -1, %7 ], [ -1, %0 ], [ 0, %5 ]
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %1) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @xcpuinfo_init() local_unnamed_addr #1
 
-declare i32 @xcpuinfo_init() local_unnamed_addr #2
+declare i32 @get_procs(ptr noundef) local_unnamed_addr #1
 
-declare i32 @get_procs(ptr noundef) local_unnamed_addr #2
+declare i32 @error(ptr noundef, ...) local_unnamed_addr #1
 
-declare i32 @error(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @cgroup_g_initialize(i32 noundef) local_unnamed_addr #1
 
-declare i32 @cgroup_g_initialize(i32 noundef) local_unnamed_addr #2
-
-declare i32 @xcpuinfo_fini() local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @xcpuinfo_fini() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @task_cgroup_devices_fini() local_unnamed_addr #0 {
@@ -76,18 +70,18 @@ define dso_local i32 @task_cgroup_devices_fini() local_unnamed_addr #0 {
   ret i32 %1
 }
 
-declare i32 @cgroup_g_step_destroy(i32 noundef) local_unnamed_addr #2
+declare i32 @cgroup_g_step_destroy(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @task_cgroup_devices_create(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = alloca %struct.handle_dev_args, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 768
   %7 = load ptr, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.b = load i1, ptr @is_first_task, align 1
   br i1 %.b, label %11, label %8
 
@@ -158,24 +152,24 @@ define dso_local i32 @task_cgroup_devices_create(ptr noundef %0) local_unnamed_a
 
 35:                                               ; preds = %27, %13, %32, %8
   %.0 = phi i32 [ -1, %8 ], [ %34, %32 ], [ -1, %13 ], [ -1, %27 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
 
-declare i32 @cgroup_g_step_create(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @cgroup_g_step_create(i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @gres_g_get_devices(ptr noundef, i1 noundef zeroext, i16 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @gres_g_get_devices(ptr noundef, i1 noundef zeroext, i16 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @list_for_each(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @list_for_each(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @_handle_device_access(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = alloca %struct.cgroup_limits_t, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = tail call ptr @gres_device_id2str(ptr noundef nonnull %6) #5
   store ptr %7, ptr %4, align 8
@@ -185,7 +179,7 @@ define internal range(i32 -1, 1) i32 @_handle_device_access(ptr noundef %0, ptr 
   br i1 %.not, label %35, label %10
 
 10:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %11 = load i32, ptr %1, align 8
   switch i32 %11, label %20 [
     i32 7, label %12
@@ -236,7 +230,7 @@ define internal range(i32 -1, 1) i32 @_handle_device_access(ptr noundef %0, ptr 
 
 34:                                               ; preds = %25, %28, %22
   call void @slurm_xfree(ptr noundef nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %35
 
 35:                                               ; preds = %34, %2
@@ -267,19 +261,19 @@ define internal range(i32 -1, 1) i32 @_handle_device_access(ptr noundef %0, ptr 
 51:                                               ; preds = %47, %35
   %.0 = phi i32 [ -1, %47 ], [ 0, %35 ]
   call void @slurm_xfree(ptr noundef nonnull %4) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
-declare void @list_destroy(ptr noundef) local_unnamed_addr #2
+declare void @list_destroy(ptr noundef) local_unnamed_addr #1
 
-declare i32 @cgroup_g_constrain_apply(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @cgroup_g_constrain_apply(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare i32 @getpid() local_unnamed_addr #3
+declare i32 @getpid() local_unnamed_addr #2
 
-declare i32 @cgroup_g_step_addto(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @cgroup_g_step_addto(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @task_cgroup_devices_add_pid(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -287,12 +281,12 @@ define dso_local i32 @task_cgroup_devices_add_pid(ptr noundef %0, i32 noundef %1
   ret i32 %4
 }
 
-declare i32 @cgroup_g_task_addto(i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @cgroup_g_task_addto(i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @task_cgroup_devices_constrain(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.handle_dev_args, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %6 = load i32, ptr %5, align 8
   %.off = add i32 %6, 6
@@ -334,7 +328,7 @@ define dso_local range(i32 -1, 1) i32 @task_cgroup_devices_constrain(ptr noundef
 
 .critedge:                                        ; preds = %11, %24, %3, %19, %7
   %.0 = phi i32 [ 0, %3 ], [ 0, %7 ], [ -1, %19 ], [ 0, %24 ], [ 0, %11 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -346,30 +340,36 @@ define dso_local i32 @task_cgroup_devices_add_extern_pid(i32 noundef %0) local_u
   ret i32 %3
 }
 
-declare ptr @gres_device_id2str(ptr noundef) local_unnamed_addr #2
+declare ptr @gres_device_id2str(ptr noundef) local_unnamed_addr #1
 
-declare ptr @xstrdup_printf(ptr noundef, ...) local_unnamed_addr #2
+declare ptr @xstrdup_printf(ptr noundef, ...) local_unnamed_addr #1
 
-declare ptr @xstrdup(ptr noundef) local_unnamed_addr #2
+declare ptr @xstrdup(ptr noundef) local_unnamed_addr #1
 
-declare i32 @get_log_level() local_unnamed_addr #2
+declare i32 @get_log_level() local_unnamed_addr #1
 
-declare void @log_var(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @log_var(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare void @slurm_xfree(ptr noundef) local_unnamed_addr #2
+declare void @slurm_xfree(ptr noundef) local_unnamed_addr #1
 
-declare void @cgroup_init_limits(ptr noundef) local_unnamed_addr #2
+declare void @cgroup_init_limits(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
-declare i32 @cgroup_g_constrain_set(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @cgroup_g_constrain_set(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6, !7}

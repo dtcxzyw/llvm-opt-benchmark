@@ -41,17 +41,11 @@ define dso_local noundef i32 @_ZN3ozz9animation9FindJointERKNS0_8SkeletonEPKc(pt
   ret i32 %spec.select
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN3ozz9animation21GetJointLocalRestPoseERKNS0_8SkeletonEi(ptr dead_on_unwind noalias writable writeonly sret(%"struct.ozz::math::Transform") align 4 captures(none) initializes((0, 40)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1, i32 noundef %2) local_unnamed_addr #3 {
+define dso_local void @_ZN3ozz9animation21GetJointLocalRestPoseERKNS0_8SkeletonEi(ptr dead_on_unwind noalias writable writeonly sret(%"struct.ozz::math::Transform") align 4 captures(none) initializes((0, 40)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = alloca [4 x <4 x float>], align 16
   %5 = alloca [4 x <4 x float>], align 16
   %6 = alloca [4 x <4 x float>], align 16
@@ -60,7 +54,7 @@ define dso_local void @_ZN3ozz9animation21GetJointLocalRestPoseERKNS0_8SkeletonE
   %9 = sdiv i32 %2, 4
   %10 = sext i32 %9 to i64
   %11 = getelementptr inbounds nuw %"struct.ozz::math::SoaTransform", ptr %8, i64 %10
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %12 = load <4 x float>, ptr %11, align 16, !tbaa !20
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %14 = load <4 x float>, ptr %13, align 16, !tbaa !20
@@ -81,7 +75,7 @@ define dso_local void @_ZN3ozz9animation21GetJointLocalRestPoseERKNS0_8SkeletonE
   %26 = shufflevector <4 x float> %20, <4 x float> %19, <4 x i32> <i32 6, i32 7, i32 2, i32 3>
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store <4 x float> %26, ptr %27, align 16, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %28 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %29 = load <4 x float>, ptr %28, align 16, !tbaa !20
   %30 = getelementptr inbounds nuw i8, ptr %11, i64 80
@@ -105,7 +99,7 @@ define dso_local void @_ZN3ozz9animation21GetJointLocalRestPoseERKNS0_8SkeletonE
   %45 = shufflevector <4 x float> %38, <4 x float> %39, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
   %46 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store <4 x float> %45, ptr %46, align 16, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %47 = getelementptr inbounds nuw i8, ptr %11, i64 112
   %48 = load <4 x float>, ptr %47, align 16, !tbaa !20
   %49 = getelementptr inbounds nuw i8, ptr %11, i64 128
@@ -154,18 +148,23 @@ define dso_local void @_ZN3ozz9animation21GetJointLocalRestPoseERKNS0_8SkeletonE
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %83 = extractelement <4 x float> %77, i64 2
   store float %83, ptr %82, align 4, !tbaa !20
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
+
 attributes #0 = { mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind willreturn memory(read) }
-attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

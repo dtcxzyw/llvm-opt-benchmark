@@ -104,7 +104,7 @@ entry:
   br i1 %cmp.i.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr.i)
   store ptr %cell, ptr %__args.addr.i, align 8
   %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1 = load ptr, ptr %_M_manager.i.i, align 8
@@ -119,7 +119,7 @@ _ZNKSt8functionIFvPN6hermes2vm6GCCellERNS1_15WeakRefAcceptorEEEclES3_S5_.exit: ;
   %_M_invoker.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %2 = load ptr, ptr %_M_invoker.i, align 8
   call void %2(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %acceptor) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr.i)
   br label %if.end
 
 if.end:                                           ; preds = %_ZNKSt8functionIFvPN6hermes2vm6GCCellERNS1_15WeakRefAcceptorEEEclES3_S5_.exit, %entry
@@ -362,14 +362,14 @@ entry:
 define hidden noundef ptr @_ZN6hermes2vm11testhelpers11DummyObject15createLongLivedERNS0_7HadesGCE(ptr noundef nonnull align 8 dereferenceable(8152) %gc) local_unnamed_addr #0 align 2 {
 entry:
   %lk.i.i.i = alloca %"class.std::lock_guard", align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %lk.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %lk.i.i.i)
   call void @_ZN6hermes2vm7HadesGC19pauseBackgroundTaskEv(ptr nonnull sret(%"class.std::lock_guard") align 8 %lk.i.i.i, ptr noundef nonnull align 8 dereferenceable(8152) %gc) #11
   %call.i.i.i = call noundef ptr @_ZN6hermes2vm7HadesGC14allocLongLivedEj(ptr noundef nonnull align 8 dereferenceable(8152) %gc, i32 noundef 104) #11
   call void @_ZN6hermes2vm11testhelpers11DummyObjectC2ERNS0_7HadesGCE(ptr noundef nonnull align 8 dereferenceable(104) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(8152) %gc)
   store i32 1308622952, ptr %call.i.i.i, align 4
   %0 = load ptr, ptr %lk.i.i.i, align 8
   %call1.i.i.i.i.i.i.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %lk.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %lk.i.i.i)
   ret ptr %call.i.i.i
 }
 
@@ -528,10 +528,10 @@ declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #7
 declare void @_ZSt25__throw_bad_function_callv() local_unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #9

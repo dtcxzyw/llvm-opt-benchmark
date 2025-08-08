@@ -16,16 +16,16 @@ define ptr @PKCS12_create_ex2(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   %20 = alloca i32, align 4
   %21 = alloca i32, align 4
   %22 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store ptr null, ptr %17, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store ptr null, ptr %18, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %19) #3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store i32 0, ptr %20, align 4, !tbaa !10
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %21) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store i32 -1, ptr %21, align 4, !tbaa !10
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %22) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   store i32 -1, ptr %22, align 4, !tbaa !10
   %23 = icmp eq i32 %6, 0
   %spec.store.select = select i1 %23, i32 427, i32 %6
@@ -148,17 +148,17 @@ pkcs12_remove_bag.exit.thread:                    ; preds = %46
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %pkcs12_remove_bag.exit129.us
   %.084146.us = phi i32 [ %70, %pkcs12_remove_bag.exit129.us ], [ 0, %.lr.ph.split.us.preheader ]
   %63 = call ptr @OPENSSL_sk_value(ptr noundef %4, i32 noundef %.084146.us) #3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i32 -1, ptr %15, align 4, !tbaa !10
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i32 -1, ptr %16, align 4, !tbaa !10
   %64 = call ptr @X509_alias_get0(ptr noundef %63, ptr noundef nonnull %15) #3
   %65 = call ptr @X509_keyid_get0(ptr noundef %63, ptr noundef nonnull %16) #3
   %66 = load i32, ptr %15, align 4, !tbaa !10
   %67 = load i32, ptr %16, align 4, !tbaa !10
   %68 = call fastcc ptr @pkcs12_add_cert_bag(ptr noundef nonnull %18, ptr noundef %63, ptr noundef %64, i32 noundef %66, ptr noundef %65, i32 noundef %67)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %69 = icmp eq ptr %68, null
   br i1 %69, label %PKCS12_add_safe_ex.exit.thread, label %pkcs12_remove_bag.exit129.us
 
@@ -171,17 +171,17 @@ pkcs12_remove_bag.exit129.us:                     ; preds = %.lr.ph.split.us
 .lr.ph.split:                                     ; preds = %.lr.ph, %pkcs12_remove_bag.exit129
   %.084146 = phi i32 [ %87, %pkcs12_remove_bag.exit129 ], [ 0, %.lr.ph ]
   %73 = call ptr @OPENSSL_sk_value(ptr noundef %4, i32 noundef %.084146) #3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i32 -1, ptr %15, align 4, !tbaa !10
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i32 -1, ptr %16, align 4, !tbaa !10
   %74 = call ptr @X509_alias_get0(ptr noundef %73, ptr noundef nonnull %15) #3
   %75 = call ptr @X509_keyid_get0(ptr noundef %73, ptr noundef nonnull %16) #3
   %76 = load i32, ptr %15, align 4, !tbaa !10
   %77 = load i32, ptr %16, align 4, !tbaa !10
   %78 = call fastcc ptr @pkcs12_add_cert_bag(ptr noundef nonnull %18, ptr noundef %73, ptr noundef %74, i32 noundef %76, ptr noundef %75, i32 noundef %77)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %79 = icmp eq ptr %78, null
   br i1 %79, label %PKCS12_add_safe_ex.exit.thread, label %80
 
@@ -383,33 +383,30 @@ PKCS12_add_safe_ex.exit.thread:                   ; preds = %.lr.ph.split, %.lr.
 
 145:                                              ; preds = %PKCS12_add_safes_ex.exit, %141, %34, %32, %PKCS12_add_safe_ex.exit.thread, %28
   %.086 = phi ptr [ null, %28 ], [ null, %PKCS12_add_safe_ex.exit.thread ], [ null, %32 ], [ null, %34 ], [ %136, %141 ], [ %136, %PKCS12_add_safes_ex.exit ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20) #3
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %19) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   ret ptr %.086
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare void @ERR_new() local_unnamed_addr #1
 
-declare void @ERR_new() local_unnamed_addr #2
+declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare i32 @X509_check_private_key(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @X509_check_private_key(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @X509_digest(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @X509_digest(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @EVP_sha1() local_unnamed_addr #1
 
-declare ptr @EVP_sha1() local_unnamed_addr #2
+declare ptr @X509_alias_get0(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @X509_alias_get0(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare ptr @X509_keyid_get0(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @X509_keyid_get0(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @pkcs12_add_cert_bag(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5) unnamed_addr #0 {
@@ -493,27 +490,27 @@ define internal fastcc void @pkcs12_remove_bag(ptr %.0.val, ptr noundef %0) unna
   ret void
 }
 
-declare i32 @OPENSSL_sk_num(ptr noundef) local_unnamed_addr #2
+declare i32 @OPENSSL_sk_num(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @PKCS12_add_cert(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 -1, ptr %3, align 4, !tbaa !10
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 -1, ptr %4, align 4, !tbaa !10
   %5 = call ptr @X509_alias_get0(ptr noundef %1, ptr noundef nonnull %3) #3
   %6 = call ptr @X509_keyid_get0(ptr noundef %1, ptr noundef nonnull %4) #3
   %7 = load i32, ptr %3, align 4, !tbaa !10
   %8 = load i32, ptr %4, align 4, !tbaa !10
   %9 = call fastcc ptr @pkcs12_add_cert_bag(ptr noundef %0, ptr noundef %1, ptr noundef %5, i32 noundef %7, ptr noundef %6, i32 noundef %8)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %9
 }
 
-declare ptr @OPENSSL_sk_value(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @OPENSSL_sk_value(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @PKCS12_add_safe_ex(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
@@ -570,9 +567,9 @@ define range(i32 0, 2) i32 @PKCS12_add_safe_ex(ptr noundef captures(none) %0, pt
   ret i32 %.020
 }
 
-declare void @OPENSSL_sk_pop_free(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @OPENSSL_sk_pop_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @PKCS12_SAFEBAG_free(ptr noundef) #2
+declare void @PKCS12_SAFEBAG_free(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @PKCS12_add_key_ex(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #0 {
@@ -654,9 +651,9 @@ pkcs12_add_bag.exit.thread47:                     ; preds = %28, %.thread, %.thr
   ret ptr %.022
 }
 
-declare i32 @PKCS12_add_friendlyname_utf8(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @PKCS12_add_friendlyname_utf8(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @PKCS12_add_localkeyid(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @PKCS12_add_localkeyid(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @PKCS12_add_safe(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
@@ -686,14 +683,11 @@ define ptr @PKCS12_add_safes_ex(ptr noundef %0, i32 noundef %1, ptr noundef %2, 
   ret ptr %.0
 }
 
-declare void @PKCS7_free(ptr noundef) #2
+declare void @PKCS7_free(ptr noundef) #1
 
-declare i32 @PKCS12_set_mac(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @PKCS12_set_mac(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @PKCS12_free(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @PKCS12_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @PKCS12_create_ex(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, ptr noundef %10, ptr noundef %11) local_unnamed_addr #0 {
@@ -707,15 +701,15 @@ define ptr @PKCS12_create(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr no
   ret ptr %11
 }
 
-declare ptr @EVP_PKEY2PKCS8(ptr noundef) local_unnamed_addr #2
+declare ptr @EVP_PKEY2PKCS8(ptr noundef) local_unnamed_addr #1
 
-declare i32 @PKCS8_add_keyusage(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @PKCS8_add_keyusage(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @PKCS8_PRIV_KEY_INFO_free(ptr noundef) local_unnamed_addr #2
+declare void @PKCS8_PRIV_KEY_INFO_free(ptr noundef) local_unnamed_addr #1
 
-declare ptr @PKCS12_SAFEBAG_create_pkcs8_encrypt_ex(i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @PKCS12_SAFEBAG_create_pkcs8_encrypt_ex(i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @PKCS12_SAFEBAG_create0_p8inf(ptr noundef) local_unnamed_addr #2
+declare ptr @PKCS12_SAFEBAG_create0_p8inf(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @PKCS12_add_key(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
@@ -769,21 +763,21 @@ pkcs12_add_bag.exit.thread10:                     ; preds = %15, %.thread, %7, %
   ret ptr %.0
 }
 
-declare ptr @PKCS12_SAFEBAG_create_secret(i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @PKCS12_SAFEBAG_create_secret(i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @OPENSSL_sk_new_null() local_unnamed_addr #2
+declare ptr @OPENSSL_sk_new_null() local_unnamed_addr #1
 
-declare ptr @PKCS12_pack_p7data(ptr noundef) local_unnamed_addr #2
+declare ptr @PKCS12_pack_p7data(ptr noundef) local_unnamed_addr #1
 
-declare ptr @PKCS12_pack_p7encdata_ex(i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @PKCS12_pack_p7encdata_ex(i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @OPENSSL_sk_push(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @OPENSSL_sk_push(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @OPENSSL_sk_free(ptr noundef) local_unnamed_addr #2
+declare void @OPENSSL_sk_free(ptr noundef) local_unnamed_addr #1
 
-declare ptr @PKCS12_init_ex(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @PKCS12_init_ex(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @PKCS12_pack_authsafes(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @PKCS12_pack_authsafes(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @PKCS12_add_safes(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -807,19 +801,25 @@ PKCS12_add_safes_ex.exit:                         ; preds = %2, %6, %8
   ret ptr %.0.i
 }
 
-declare i32 @EVP_PKEY_get_attr_by_NID(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @EVP_PKEY_get_attr_by_NID(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @X509at_add1_attr(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @X509at_add1_attr(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @EVP_PKEY_get_attr(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @EVP_PKEY_get_attr(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @PKCS12_SAFEBAG_create_cert(ptr noundef) local_unnamed_addr #2
+declare ptr @PKCS12_SAFEBAG_create_cert(ptr noundef) local_unnamed_addr #1
 
-declare ptr @OPENSSL_sk_delete_ptr(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @OPENSSL_sk_delete_ptr(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

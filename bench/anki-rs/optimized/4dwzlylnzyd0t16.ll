@@ -121,13 +121,13 @@ define void @_ZN14anki_proto_gen12get_services17h27a42d222accd88bE(ptr writeonly
   br i1 %54, label %55, label %84
 
 55:                                               ; preds = %53
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   invoke void @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h03374749ac2aa418E"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %9, ptr nonnull align 8 @anon.c2c254bac7312232f49bd554ba5b0ae2.7)
           to label %.noexc unwind label %.thread87.loopexit.split-lp
 
@@ -236,13 +236,13 @@ define void @_ZN14anki_proto_gen12get_services17h27a42d222accd88bE(ptr writeonly
 
 89:                                               ; preds = %63
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %21, ptr noundef nonnull align 8 dereferenceable(48) %15, i64 48, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %90 = invoke { ptr, ptr } @"_ZN102_$LT$$RF$mut$u20$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hb0c18e321dafa85bE"(ptr nonnull align 8 %34)
           to label %91 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -365,8 +365,8 @@ define void @_ZN14anki_proto_gen12get_services17h27a42d222accd88bE(ptr writeonly
 
 128:                                              ; preds = %123
   %129 = getelementptr inbounds nuw i8, ptr %122, i64 24
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %130 = invoke { ptr, i32 } @"_ZN13prost_reflect10descriptor3api61_$LT$impl$u20$prost_reflect..descriptor..MethodDescriptor$GT$11parent_file17hd27ae0e6d42ed4e7E"(ptr nonnull align 8 %129)
           to label %.noexc40 unwind label %.loopexit.split-lp.loopexit
 
@@ -451,8 +451,8 @@ define void @_ZN14anki_proto_gen12get_services17h27a42d222accd88bE(ptr writeonly
 
 163:                                              ; preds = %161
   %164 = getelementptr inbounds nuw i8, ptr %160, i64 24
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %165 = invoke { ptr, i32 } @"_ZN13prost_reflect10descriptor3api61_$LT$impl$u20$prost_reflect..descriptor..MethodDescriptor$GT$11parent_file17hd27ae0e6d42ed4e7E"(ptr nonnull align 8 %164)
           to label %.noexc48 unwind label %.loopexit
 
@@ -521,8 +521,8 @@ define void @_ZN14anki_proto_gen12get_services17h27a42d222accd88bE(ptr writeonly
   unreachable
 
 191:                                              ; preds = %.thread.i47
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %192 = getelementptr inbounds nuw i8, ptr %160, i64 56
   invoke void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h8a51ae078d990a19E"(ptr nonnull align 8 %192)
           to label %195 unwind label %193
@@ -542,8 +542,8 @@ define void @_ZN14anki_proto_gen12get_services17h27a42d222accd88bE(ptr writeonly
   br label %159
 
 196:                                              ; preds = %.thread.i39
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %197 = getelementptr inbounds nuw i8, ptr %122, i64 56
   invoke void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h8a51ae078d990a19E"(ptr nonnull align 8 %197)
           to label %200 unwind label %198
@@ -579,8 +579,8 @@ define void @_ZN14anki_proto_gen12get_services17h27a42d222accd88bE(ptr writeonly
 
 208:                                              ; preds = %206
   %209 = getelementptr inbounds nuw i8, ptr %205, i64 24
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %210 = invoke { ptr, i32 } @"_ZN13prost_reflect10descriptor3api61_$LT$impl$u20$prost_reflect..descriptor..MethodDescriptor$GT$11parent_file17hd27ae0e6d42ed4e7E"(ptr nonnull align 8 %209)
           to label %.noexc57 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -649,8 +649,8 @@ define void @_ZN14anki_proto_gen12get_services17h27a42d222accd88bE(ptr writeonly
   unreachable
 
 236:                                              ; preds = %.thread.i56
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %237 = getelementptr inbounds nuw i8, ptr %205, i64 56
   invoke void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h8a51ae078d990a19E"(ptr nonnull align 8 %237)
           to label %240 unwind label %238
@@ -946,7 +946,7 @@ define { ptr, i32 } @_ZN14anki_proto_gen6Method5input17h365368cd04bdfe87E(ptr al
   %4 = tail call { ptr, i32 } @"_ZN13prost_reflect10descriptor3api61_$LT$impl$u20$prost_reflect..descriptor..MethodDescriptor$GT$5input17h29d60a13b9006a01E"(ptr nonnull align 8 %3)
   %5 = extractvalue { ptr, i32 } %4, 0
   %6 = extractvalue { ptr, i32 } %4, 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %5, ptr %2, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %6, ptr %7, align 8
@@ -990,7 +990,7 @@ _ZN14anki_proto_gen16msg_if_not_empty17h17e6a436681bb54fE.exit: ; preds = %14, %
   %.sroa.3.0.i = phi i32 [ undef, %17 ], [ %16, %14 ]
   %21 = insertvalue { ptr, i32 } poison, ptr %.sroa.0.0.i, 0
   %22 = insertvalue { ptr, i32 } %21, i32 %.sroa.3.0.i, 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret { ptr, i32 } %22
 }
 
@@ -1001,7 +1001,7 @@ define { ptr, i32 } @_ZN14anki_proto_gen6Method6output17hc1049834832083d4E(ptr a
   %4 = tail call { ptr, i32 } @"_ZN13prost_reflect10descriptor3api61_$LT$impl$u20$prost_reflect..descriptor..MethodDescriptor$GT$6output17h8102691bd2648bd4E"(ptr nonnull align 8 %3)
   %5 = extractvalue { ptr, i32 } %4, 0
   %6 = extractvalue { ptr, i32 } %4, 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %5, ptr %2, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %6, ptr %7, align 8
@@ -1045,7 +1045,7 @@ _ZN14anki_proto_gen16msg_if_not_empty17h17e6a436681bb54fE.exit: ; preds = %14, %
   %.sroa.3.0.i = phi i32 [ undef, %17 ], [ %16, %14 ]
   %21 = insertvalue { ptr, i32 } poison, ptr %.sroa.0.0.i, 0
   %22 = insertvalue { ptr, i32 } %21, i32 %.sroa.3.0.i, 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret { ptr, i32 } %22
 }
 
@@ -1528,10 +1528,10 @@ declare ptr @"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Cl
 declare void @llvm.assume(i1 noundef) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7

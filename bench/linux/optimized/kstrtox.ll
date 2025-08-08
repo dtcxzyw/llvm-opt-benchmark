@@ -179,12 +179,6 @@ define dso_local i32 @_parse_integer_limit(ptr noundef readonly captures(none) %
   ret i32 %.lcssa
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
 define dso_local i32 @_parse_integer(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #1 align 16 {
   %4 = zext i32 %1 to i64
@@ -393,7 +387,7 @@ _parse_integer.exit:                              ; preds = %45, %50, %62
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
 define dso_local noundef range(i32 -34, 1) i32 @kstrtoll(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #1 align 16 {
   %4 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load i8, ptr %0, align 1
   %6 = icmp eq i8 %5, 45
   br i1 %6, label %7, label %86
@@ -546,14 +540,14 @@ _parse_integer.exit:                              ; preds = %46, %51, %63
 
 .thread12:                                        ; preds = %74, %72, %_parse_integer.exit, %92, %89, %86, %83
   %94 = phi i32 [ 0, %92 ], [ -34, %83 ], [ %87, %86 ], [ -34, %89 ], [ -22, %74 ], [ -22, %72 ], [ -34, %_parse_integer.exit ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %94
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
 define dso_local noundef range(i32 -34, 1) i32 @_kstrtoul(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #1 align 16 {
   %4 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8, !annotation !6
   %5 = call i32 @kstrtoull(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %4), !range !7
   %6 = icmp slt i32 %5, 0
@@ -565,14 +559,14 @@ define dso_local noundef range(i32 -34, 1) i32 @_kstrtoul(ptr noundef readonly c
   br label %9
 
 9:                                                ; preds = %7, %3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %5
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
 define dso_local noundef range(i32 -34, 1) i32 @_kstrtol(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #1 align 16 {
   %4 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8, !annotation !6
   %5 = call i32 @kstrtoll(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %4), !range !8
   %6 = icmp slt i32 %5, 0
@@ -584,14 +578,14 @@ define dso_local noundef range(i32 -34, 1) i32 @_kstrtol(ptr noundef readonly ca
   br label %9
 
 9:                                                ; preds = %7, %3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %5
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
 define dso_local noundef range(i32 -34, 1) i32 @kstrtouint(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #1 align 16 {
   %4 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8, !annotation !6
   %5 = call i32 @kstrtoull(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %4), !range !7
   %6 = icmp slt i32 %5, 0
@@ -609,14 +603,14 @@ define dso_local noundef range(i32 -34, 1) i32 @kstrtouint(ptr noundef readonly 
 
 12:                                               ; preds = %10, %7, %3
   %13 = phi i32 [ 0, %10 ], [ %5, %3 ], [ -34, %7 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %13
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
 define dso_local noundef range(i32 -34, 1) i32 @kstrtoint(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #1 align 16 {
   %4 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8, !annotation !6
   %5 = call i32 @kstrtoll(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %4), !range !8
   %6 = icmp slt i32 %5, 0
@@ -635,14 +629,14 @@ define dso_local noundef range(i32 -34, 1) i32 @kstrtoint(ptr noundef readonly c
 
 13:                                               ; preds = %11, %7, %3
   %14 = phi i32 [ 0, %11 ], [ %5, %3 ], [ -34, %7 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %14
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
 define dso_local noundef range(i32 -34, 1) i32 @kstrtou16(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #1 align 16 {
   %4 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8, !annotation !6
   %5 = call i32 @kstrtoull(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %4), !range !7
   %6 = icmp slt i32 %5, 0
@@ -660,14 +654,14 @@ define dso_local noundef range(i32 -34, 1) i32 @kstrtou16(ptr noundef readonly c
 
 12:                                               ; preds = %10, %7, %3
   %13 = phi i32 [ 0, %10 ], [ %5, %3 ], [ -34, %7 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %13
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
 define dso_local noundef range(i32 -34, 1) i32 @kstrtos16(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #1 align 16 {
   %4 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8, !annotation !6
   %5 = call i32 @kstrtoll(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %4), !range !8
   %6 = icmp slt i32 %5, 0
@@ -686,14 +680,14 @@ define dso_local noundef range(i32 -34, 1) i32 @kstrtos16(ptr noundef readonly c
 
 13:                                               ; preds = %11, %7, %3
   %14 = phi i32 [ 0, %11 ], [ %5, %3 ], [ -34, %7 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %14
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
 define dso_local noundef range(i32 -34, 1) i32 @kstrtou8(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #1 align 16 {
   %4 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8, !annotation !6
   %5 = call i32 @kstrtoull(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %4), !range !7
   %6 = icmp slt i32 %5, 0
@@ -711,14 +705,14 @@ define dso_local noundef range(i32 -34, 1) i32 @kstrtou8(ptr noundef readonly ca
 
 12:                                               ; preds = %10, %7, %3
   %13 = phi i32 [ 0, %10 ], [ %5, %3 ], [ -34, %7 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %13
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
 define dso_local noundef range(i32 -34, 1) i32 @kstrtos8(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #1 align 16 {
   %4 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8, !annotation !6
   %5 = call i32 @kstrtoll(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %4), !range !8
   %6 = icmp slt i32 %5, 0
@@ -737,7 +731,7 @@ define dso_local noundef range(i32 -34, 1) i32 @kstrtos8(ptr noundef readonly ca
 
 13:                                               ; preds = %11, %7, %3
   %14 = phi i32 [ 0, %11 ], [ %5, %3 ], [ -34, %7 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %14
 }
 
@@ -793,9 +787,9 @@ define dso_local noundef range(i32 -22, 1) i32 @kstrtobool(ptr noundef readonly 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @kstrtobool_from_user(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(none) %2) #3 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @kstrtobool_from_user(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(none) %2) #2 align 16 {
   %4 = alloca [4 x i8], align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !annotation !6
   %5 = tail call i64 @llvm.umin.i64(i64 %1, i64 3)
   %6 = call i64 @_copy_from_user(ptr noundef nonnull %4, ptr noundef %0, i64 noundef %5) #7
@@ -847,17 +841,17 @@ define dso_local noundef range(i32 -22, 1) i32 @kstrtobool_from_user(ptr noundef
 
 kstrtobool.exit:                                  ; preds = %19, %12, %8, %3
   %21 = phi i32 [ -14, %3 ], [ -22, %8 ], [ -22, %12 ], [ 0, %19 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %21
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -34, 1) i32 @kstrtoull_from_user(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) #3 align 16 {
+define dso_local noundef range(i32 -34, 1) i32 @kstrtoull_from_user(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) #2 align 16 {
   %5 = alloca [67 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 67, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(67) %5, i8 0, i64 67, i1 false), !annotation !6
   %6 = tail call i64 @llvm.umin.i64(i64 %1, i64 66)
   %7 = call i64 @_copy_from_user(ptr noundef nonnull %5, ptr noundef %0, i64 noundef %6) #7
@@ -872,14 +866,14 @@ define dso_local noundef range(i32 -34, 1) i32 @kstrtoull_from_user(ptr noundef 
 
 12:                                               ; preds = %9, %4
   %13 = phi i32 [ %11, %9 ], [ -14, %4 ]
-  call void @llvm.lifetime.end.p0(i64 67, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %13
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -34, 1) i32 @kstrtoll_from_user(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) #3 align 16 {
+define dso_local noundef range(i32 -34, 1) i32 @kstrtoll_from_user(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) #2 align 16 {
   %5 = alloca [67 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 67, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(67) %5, i8 0, i64 67, i1 false), !annotation !6
   %6 = tail call i64 @llvm.umin.i64(i64 %1, i64 66)
   %7 = call i64 @_copy_from_user(ptr noundef nonnull %5, ptr noundef %0, i64 noundef %6) #7
@@ -894,14 +888,14 @@ define dso_local noundef range(i32 -34, 1) i32 @kstrtoll_from_user(ptr noundef %
 
 12:                                               ; preds = %9, %4
   %13 = phi i32 [ %11, %9 ], [ -14, %4 ]
-  call void @llvm.lifetime.end.p0(i64 67, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %13
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -34, 1) i32 @kstrtoul_from_user(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) #3 align 16 {
+define dso_local noundef range(i32 -34, 1) i32 @kstrtoul_from_user(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) #2 align 16 {
   %5 = alloca [67 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 67, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(67) %5, i8 0, i64 67, i1 false), !annotation !6
   %6 = tail call i64 @llvm.umin.i64(i64 %1, i64 66)
   %7 = call i64 @_copy_from_user(ptr noundef nonnull %5, ptr noundef %0, i64 noundef %6) #7
@@ -916,14 +910,14 @@ define dso_local noundef range(i32 -34, 1) i32 @kstrtoul_from_user(ptr noundef %
 
 12:                                               ; preds = %9, %4
   %13 = phi i32 [ %11, %9 ], [ -14, %4 ]
-  call void @llvm.lifetime.end.p0(i64 67, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %13
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -34, 1) i32 @kstrtol_from_user(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) #3 align 16 {
+define dso_local noundef range(i32 -34, 1) i32 @kstrtol_from_user(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) #2 align 16 {
   %5 = alloca [67 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 67, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(67) %5, i8 0, i64 67, i1 false), !annotation !6
   %6 = tail call i64 @llvm.umin.i64(i64 %1, i64 66)
   %7 = call i64 @_copy_from_user(ptr noundef nonnull %5, ptr noundef %0, i64 noundef %6) #7
@@ -938,15 +932,15 @@ define dso_local noundef range(i32 -34, 1) i32 @kstrtol_from_user(ptr noundef %0
 
 12:                                               ; preds = %9, %4
   %13 = phi i32 [ %11, %9 ], [ -14, %4 ]
-  call void @llvm.lifetime.end.p0(i64 67, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %13
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -34, 1) i32 @kstrtouint_from_user(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) #3 align 16 {
+define dso_local noundef range(i32 -34, 1) i32 @kstrtouint_from_user(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) #2 align 16 {
   %5 = alloca i64, align 8
   %6 = alloca [35 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 35, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(35) %6, i8 0, i64 35, i1 false), !annotation !6
   %7 = tail call i64 @llvm.umin.i64(i64 %1, i64 34)
   %8 = call i64 @_copy_from_user(ptr noundef nonnull %6, ptr noundef %0, i64 noundef %7) #7
@@ -956,7 +950,7 @@ define dso_local noundef range(i32 -34, 1) i32 @kstrtouint_from_user(ptr noundef
 10:                                               ; preds = %4
   %11 = getelementptr [35 x i8], ptr %6, i64 0, i64 %7
   store i8 0, ptr %11, align 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8, !annotation !6
   %12 = call i32 @kstrtoull(ptr noundef nonnull readonly %6, i32 noundef %2, ptr noundef nonnull %5), !range !7
   %13 = icmp slt i32 %12, 0
@@ -974,20 +968,20 @@ define dso_local noundef range(i32 -34, 1) i32 @kstrtouint_from_user(ptr noundef
 
 kstrtouint.exit:                                  ; preds = %10, %14, %17
   %19 = phi i32 [ 0, %17 ], [ %12, %10 ], [ -34, %14 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %20
 
 20:                                               ; preds = %kstrtouint.exit, %4
   %21 = phi i32 [ %19, %kstrtouint.exit ], [ -14, %4 ]
-  call void @llvm.lifetime.end.p0(i64 35, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %21
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -34, 1) i32 @kstrtoint_from_user(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) #3 align 16 {
+define dso_local noundef range(i32 -34, 1) i32 @kstrtoint_from_user(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) #2 align 16 {
   %5 = alloca i64, align 8
   %6 = alloca [35 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 35, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(35) %6, i8 0, i64 35, i1 false), !annotation !6
   %7 = tail call i64 @llvm.umin.i64(i64 %1, i64 34)
   %8 = call i64 @_copy_from_user(ptr noundef nonnull %6, ptr noundef %0, i64 noundef %7) #7
@@ -997,7 +991,7 @@ define dso_local noundef range(i32 -34, 1) i32 @kstrtoint_from_user(ptr noundef 
 10:                                               ; preds = %4
   %11 = getelementptr [35 x i8], ptr %6, i64 0, i64 %7
   store i8 0, ptr %11, align 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8, !annotation !6
   %12 = call i32 @kstrtoll(ptr noundef nonnull readonly %6, i32 noundef %2, ptr noundef nonnull %5), !range !8
   %13 = icmp slt i32 %12, 0
@@ -1016,20 +1010,20 @@ define dso_local noundef range(i32 -34, 1) i32 @kstrtoint_from_user(ptr noundef 
 
 kstrtoint.exit:                                   ; preds = %10, %14, %18
   %20 = phi i32 [ 0, %18 ], [ %12, %10 ], [ -34, %14 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %21
 
 21:                                               ; preds = %kstrtoint.exit, %4
   %22 = phi i32 [ %20, %kstrtoint.exit ], [ -14, %4 ]
-  call void @llvm.lifetime.end.p0(i64 35, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %22
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -34, 1) i32 @kstrtou16_from_user(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) #3 align 16 {
+define dso_local noundef range(i32 -34, 1) i32 @kstrtou16_from_user(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) #2 align 16 {
   %5 = alloca i64, align 8
   %6 = alloca [19 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 19, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(19) %6, i8 0, i64 19, i1 false), !annotation !6
   %7 = tail call i64 @llvm.umin.i64(i64 %1, i64 18)
   %8 = call i64 @_copy_from_user(ptr noundef nonnull %6, ptr noundef %0, i64 noundef %7) #7
@@ -1039,7 +1033,7 @@ define dso_local noundef range(i32 -34, 1) i32 @kstrtou16_from_user(ptr noundef 
 10:                                               ; preds = %4
   %11 = getelementptr [19 x i8], ptr %6, i64 0, i64 %7
   store i8 0, ptr %11, align 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8, !annotation !6
   %12 = call i32 @kstrtoull(ptr noundef nonnull readonly %6, i32 noundef %2, ptr noundef nonnull %5), !range !7
   %13 = icmp slt i32 %12, 0
@@ -1057,20 +1051,20 @@ define dso_local noundef range(i32 -34, 1) i32 @kstrtou16_from_user(ptr noundef 
 
 kstrtou16.exit:                                   ; preds = %10, %14, %17
   %19 = phi i32 [ 0, %17 ], [ %12, %10 ], [ -34, %14 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %20
 
 20:                                               ; preds = %kstrtou16.exit, %4
   %21 = phi i32 [ %19, %kstrtou16.exit ], [ -14, %4 ]
-  call void @llvm.lifetime.end.p0(i64 19, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %21
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -34, 1) i32 @kstrtos16_from_user(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) #3 align 16 {
+define dso_local noundef range(i32 -34, 1) i32 @kstrtos16_from_user(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) #2 align 16 {
   %5 = alloca i64, align 8
   %6 = alloca [19 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 19, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(19) %6, i8 0, i64 19, i1 false), !annotation !6
   %7 = tail call i64 @llvm.umin.i64(i64 %1, i64 18)
   %8 = call i64 @_copy_from_user(ptr noundef nonnull %6, ptr noundef %0, i64 noundef %7) #7
@@ -1080,7 +1074,7 @@ define dso_local noundef range(i32 -34, 1) i32 @kstrtos16_from_user(ptr noundef 
 10:                                               ; preds = %4
   %11 = getelementptr [19 x i8], ptr %6, i64 0, i64 %7
   store i8 0, ptr %11, align 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8, !annotation !6
   %12 = call i32 @kstrtoll(ptr noundef nonnull readonly %6, i32 noundef %2, ptr noundef nonnull %5), !range !8
   %13 = icmp slt i32 %12, 0
@@ -1099,20 +1093,20 @@ define dso_local noundef range(i32 -34, 1) i32 @kstrtos16_from_user(ptr noundef 
 
 kstrtos16.exit:                                   ; preds = %10, %14, %18
   %20 = phi i32 [ 0, %18 ], [ %12, %10 ], [ -34, %14 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %21
 
 21:                                               ; preds = %kstrtos16.exit, %4
   %22 = phi i32 [ %20, %kstrtos16.exit ], [ -14, %4 ]
-  call void @llvm.lifetime.end.p0(i64 19, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %22
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -34, 1) i32 @kstrtou8_from_user(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) #3 align 16 {
+define dso_local noundef range(i32 -34, 1) i32 @kstrtou8_from_user(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) #2 align 16 {
   %5 = alloca i64, align 8
   %6 = alloca [11 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 11, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %6, i8 0, i64 11, i1 false), !annotation !6
   %7 = tail call i64 @llvm.umin.i64(i64 %1, i64 10)
   %8 = call i64 @_copy_from_user(ptr noundef nonnull %6, ptr noundef %0, i64 noundef %7) #7
@@ -1122,7 +1116,7 @@ define dso_local noundef range(i32 -34, 1) i32 @kstrtou8_from_user(ptr noundef %
 10:                                               ; preds = %4
   %11 = getelementptr [11 x i8], ptr %6, i64 0, i64 %7
   store i8 0, ptr %11, align 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8, !annotation !6
   %12 = call i32 @kstrtoull(ptr noundef nonnull readonly %6, i32 noundef %2, ptr noundef nonnull %5), !range !7
   %13 = icmp slt i32 %12, 0
@@ -1140,20 +1134,20 @@ define dso_local noundef range(i32 -34, 1) i32 @kstrtou8_from_user(ptr noundef %
 
 kstrtou8.exit:                                    ; preds = %10, %14, %17
   %19 = phi i32 [ 0, %17 ], [ %12, %10 ], [ -34, %14 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %20
 
 20:                                               ; preds = %kstrtou8.exit, %4
   %21 = phi i32 [ %19, %kstrtou8.exit ], [ -14, %4 ]
-  call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %21
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -34, 1) i32 @kstrtos8_from_user(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) #3 align 16 {
+define dso_local noundef range(i32 -34, 1) i32 @kstrtos8_from_user(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) #2 align 16 {
   %5 = alloca i64, align 8
   %6 = alloca [11 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 11, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %6, i8 0, i64 11, i1 false), !annotation !6
   %7 = tail call i64 @llvm.umin.i64(i64 %1, i64 10)
   %8 = call i64 @_copy_from_user(ptr noundef nonnull %6, ptr noundef %0, i64 noundef %7) #7
@@ -1163,7 +1157,7 @@ define dso_local noundef range(i32 -34, 1) i32 @kstrtos8_from_user(ptr noundef %
 10:                                               ; preds = %4
   %11 = getelementptr [11 x i8], ptr %6, i64 0, i64 %7
   store i8 0, ptr %11, align 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8, !annotation !6
   %12 = call i32 @kstrtoll(ptr noundef nonnull readonly %6, i32 noundef %2, ptr noundef nonnull %5), !range !8
   %13 = icmp slt i32 %12, 0
@@ -1182,31 +1176,37 @@ define dso_local noundef range(i32 -34, 1) i32 @kstrtos8_from_user(ptr noundef %
 
 kstrtos8.exit:                                    ; preds = %10, %14, %18
   %20 = phi i32 [ 0, %18 ], [ %12, %10 ], [ -34, %14 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %21
 
 21:                                               ; preds = %kstrtos8.exit, %4
   %22 = phi i32 [ %20, %kstrtos8.exit ], [ -14, %4 ]
-  call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %22
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i64 @_copy_from_user(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
+declare dso_local i64 @_copy_from_user(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #6
+declare i32 @llvm.fshl.i32(i32, i32, i32) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #6
+declare i64 @llvm.umin.i64(i64, i64) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 attributes #0 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #2 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}

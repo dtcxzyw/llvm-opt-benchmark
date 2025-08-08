@@ -199,13 +199,7 @@ define i32 @ossl_cms_env_asn1_ctrl(ptr noundef %0, i32 noundef %1) local_unnamed
   ret i32 %.1
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare ptr @EVP_PKEY_CTX_get0_pkey(ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 declare i32 @EVP_PKEY_is_a(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -423,13 +417,13 @@ declare ptr @ossl_cms_ctx_get0_libctx(ptr noundef) local_unnamed_addr #1
 declare ptr @ossl_cms_ctx_get0_propq(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @CMS_RecipientInfo_type(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
+define i32 @CMS_RecipientInfo_type(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = load i32, ptr %0, align 8, !tbaa !13
   ret i32 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @CMS_RecipientInfo_get0_pkey_ctx(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
+define ptr @CMS_RecipientInfo_get0_pkey_ctx(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = load i32, ptr %0, align 8, !tbaa !13
   switch i32 %2, label %8 [
     i32 0, label %.sink.split
@@ -896,11 +890,11 @@ define i32 @ossl_cms_pkey_get_ri_type(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not18, label %22, label %18
 
 18:                                               ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %19 = call i32 %17(ptr noundef nonnull %0, i32 noundef 8, i64 noundef 0, ptr noundef nonnull %2) #6
   %20 = icmp slt i32 %19, 1
   %21 = load i32, ptr %2, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %20, label %22, label %23
 
 22:                                               ; preds = %18, %15, %12
@@ -1059,7 +1053,7 @@ declare void @EVP_PKEY_free(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define i32 @CMS_RecipientInfo_kekri_id_cmp(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.asn1_string_st, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load i32, ptr %0, align 8, !tbaa !13
   %.not = icmp eq i32 %5, 2
   br i1 %.not, label %7, label %6
@@ -1089,7 +1083,7 @@ define i32 @CMS_RecipientInfo_kekri_id_cmp(ptr noundef readonly captures(none) %
 
 18:                                               ; preds = %7, %6
   %.0 = phi i32 [ -2, %6 ], [ %17, %7 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -1410,9 +1404,9 @@ define i32 @CMS_RecipientInfo_decrypt(ptr noundef %0, ptr noundef %1) local_unna
   %11 = load ptr, ptr %10, align 8, !tbaa !12
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %13 = load ptr, ptr %12, align 8, !tbaa !16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !99
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %14 = tail call ptr @ossl_cms_get0_cmsctx(ptr noundef %0) #6
   %15 = tail call ptr @ossl_cms_ctx_get0_libctx(ptr noundef %14) #6
   %16 = tail call ptr @ossl_cms_ctx_get0_propq(ptr noundef %14) #6
@@ -1490,7 +1484,7 @@ ossl_cms_get0_env_enc_content.exit.i:             ; preds = %29, %25, %22, %18, 
 45:                                               ; preds = %42
   %46 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
   %47 = load ptr, ptr %46, align 8, !tbaa !102
-  call void @llvm.lifetime.start.p0(i64 50, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %48 = load ptr, ptr %47, align 8, !tbaa !103
   %49 = call i32 @OBJ_obj2txt(ptr noundef nonnull %7, i32 noundef 50, ptr noundef %48, i32 noundef 0) #6
   %50 = call i32 @ERR_set_mark() #6
@@ -1511,7 +1505,7 @@ ossl_cms_get0_env_enc_content.exit.i:             ; preds = %29, %25, %22, %18, 
   call void @ERR_new() #6
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 604, ptr noundef nonnull @__func__.cms_RecipientInfo_ktri_decrypt) #6
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 46, i32 noundef 148, ptr noundef null) #6
-  call void @llvm.lifetime.end.p0(i64 50, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %cms_RecipientInfo_ktri_decrypt.exit
 
 .thread.i:                                        ; preds = %52, %45
@@ -1520,7 +1514,7 @@ ossl_cms_get0_env_enc_content.exit.i:             ; preds = %29, %25, %22, %18, 
   %59 = call i32 @EVP_CIPHER_get_key_length(ptr noundef nonnull %.04556.i) #6
   %60 = sext i32 %59 to i64
   call void @EVP_CIPHER_free(ptr noundef %51) #6
-  call void @llvm.lifetime.end.p0(i64 50, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %61
 
 61:                                               ; preds = %.thread.i, %42, %35
@@ -1588,13 +1582,13 @@ ossl_cms_get0_env_enc_content.exit.i:             ; preds = %29, %25, %22, %18, 
 
 cms_RecipientInfo_ktri_decrypt.exit:              ; preds = %34, %.thread59.i, %85, %93
   %.0.i = phi i32 [ 0, %34 ], [ 0, %93 ], [ 1, %85 ], [ 0, %.thread59.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %176
 
 96:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !109
   %97 = tail call ptr @ossl_cms_get0_cmsctx(ptr noundef %0) #6
   %.val.i.i7 = load ptr, ptr %0, align 8, !tbaa !3
@@ -1792,8 +1786,8 @@ cms_get_key_wrap_cipher.exit.thread.i:            ; preds = %cms_get_key_wrap_ci
 
 cms_RecipientInfo_kekri_decrypt.exit:             ; preds = %cms_get_enveloped_type.exit.thread.i.i17, %99, %103, %ossl_cms_get0_env_enc_content.exit.i12, %113, %121, %172
   %.0.i15 = phi i32 [ 0, %121 ], [ %.03759.i, %172 ], [ 0, %113 ], [ 0, %ossl_cms_get0_env_enc_content.exit.i12 ], [ 0, %99 ], [ 0, %103 ], [ 0, %cms_get_enveloped_type.exit.thread.i.i17 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %176
 
 173:                                              ; preds = %2
@@ -1827,7 +1821,7 @@ define i32 @CMS_RecipientInfo_encrypt(ptr noundef %0, ptr noundef %1) local_unna
   ]
 
 7:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %8 = tail call ptr @ossl_cms_get0_cmsctx(ptr noundef %0) #6
   %9 = load i32, ptr %1, align 8, !tbaa !13
   %.not.i = icmp eq i32 %9, 0
@@ -1953,7 +1947,7 @@ ossl_cms_get0_env_enc_content.exit.i:             ; preds = %26, %22, %19, %15, 
 
 cms_RecipientInfo_ktri_encrypt.exit:              ; preds = %10, %33, %64
   %.026.i = phi i32 [ 0, %10 ], [ %.0.i, %64 ], [ 0, %33 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %137
 
 65:                                               ; preds = %2
@@ -1961,8 +1955,8 @@ cms_RecipientInfo_ktri_encrypt.exit:              ; preds = %10, %33, %64
   br label %137
 
 67:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !109
   %68 = tail call ptr @ossl_cms_get0_cmsctx(ptr noundef %0) #6
   %.val.i.i9 = load ptr, ptr %0, align 8, !tbaa !3
@@ -2134,8 +2128,8 @@ cms_get_key_wrap_cipher.exit.thread.i:            ; preds = %cms_get_key_wrap_ci
 
 cms_RecipientInfo_kekri_encrypt.exit:             ; preds = %cms_get_enveloped_type.exit.thread.i.i18, %70, %74, %ossl_cms_get0_env_enc_content.exit.i14, %85, %133
   %.0.i17 = phi i32 [ 0, %85 ], [ %.03051.i, %133 ], [ 0, %ossl_cms_get0_env_enc_content.exit.i14 ], [ 0, %70 ], [ 0, %74 ], [ 0, %cms_get_enveloped_type.exit.thread.i.i18 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %137
 
 134:                                              ; preds = %2
@@ -2219,7 +2213,7 @@ cms_env_encrypt_content_key.exit.i:               ; preds = %.lr.ph.i.i
   br label %cms_EnvelopedData_Encryption_init_bio.exit
 
 33:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !115
   %34 = icmp eq ptr %10, null
   br i1 %34, label %cms_EnvelopedData_Decryption_init_bio.exit, label %35
@@ -2252,7 +2246,7 @@ cms_env_encrypt_content_key.exit.i:               ; preds = %.lr.ph.i.i
 
 cms_EnvelopedData_Decryption_init_bio.exit:       ; preds = %33, %39, %43, %.sink.split.i
   %.0.i5 = phi ptr [ null, %33 ], [ %10, %43 ], [ %10, %39 ], [ null, %.sink.split.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %cms_EnvelopedData_Encryption_init_bio.exit
 
 cms_EnvelopedData_Encryption_init_bio.exit:       ; preds = %.critedge.i, %cms_env_encrypt_content_key.exit.i, %11, %cms_EnvelopedData_Decryption_init_bio.exit
@@ -2350,7 +2344,7 @@ declare ptr @ossl_cms_EncryptedContent_init_bio(ptr noundef, ptr noundef) local_
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ossl_cms_EnvelopedData_final(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !115
   %4 = tail call ptr @BIO_find_type(ptr noundef %1, i32 noundef 522) #6
   %5 = load ptr, ptr %0, align 8, !tbaa !3
@@ -2427,7 +2421,7 @@ ossl_cms_get0_enveloped.exit:                     ; preds = %2
 
 34:                                               ; preds = %ossl_cms_get0_enveloped.exit.thread, %ossl_cms_get0_enveloped.exit, %32, %31, %26, %12
   %.0 = phi i32 [ 0, %12 ], [ 0, %26 ], [ 0, %31 ], [ 1, %32 ], [ 0, %ossl_cms_get0_enveloped.exit ], [ 0, %ossl_cms_get0_enveloped.exit.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
@@ -2578,7 +2572,7 @@ cms_env_set_originfo_version.exit:                ; preds = %27, %4, %.preheader
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ossl_cms_AuthEnvelopedData_final(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i64 @BIO_ctrl(ptr noundef %1, i32 noundef 129, i64 noundef 0, ptr noundef nonnull %3) #6
   %5 = load ptr, ptr %3, align 8, !tbaa !115
   %6 = call i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef %5) #6
@@ -2628,7 +2622,7 @@ define range(i32 0, 2) i32 @ossl_cms_AuthEnvelopedData_final(ptr noundef readonl
 
 27:                                               ; preds = %2, %26
   %.010 = phi i32 [ %.0, %26 ], [ 1, %2 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.010
 }
 
@@ -2657,12 +2651,12 @@ define i32 @ossl_cms_pkey_is_ri_type_supported(ptr noundef %0, i32 noundef %1) l
   br i1 %.not14, label %14, label %9
 
 9:                                                ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %10 = sext i32 %1 to i64
   %11 = call i32 %8(ptr noundef nonnull %0, i32 noundef 11, i64 noundef %10, ptr noundef nonnull %3) #6
   %12 = icmp slt i32 %11, 1
   %13 = load i32, ptr %3, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %12, label %14, label %20
 
 14:                                               ; preds = %9, %6, %2
@@ -2746,14 +2740,20 @@ declare i32 @EVP_EncryptUpdate(ptr noundef, ptr noundef, ptr noundef, ptr nounde
 
 declare i32 @EVP_EncryptFinal_ex(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #6 = { nounwind }
 

@@ -1833,14 +1833,11 @@ define hidden void @proto_register_openflow_v4() local_unnamed_addr #0 {
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: null_pointer_is_valid
-declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_openflow_v4(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
@@ -1860,19 +1857,16 @@ define internal i32 @dissect_openflow_v4(ptr noundef %0, ptr noundef %1, ptr nou
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #2
+declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_openflow_v4() local_unnamed_addr #0 {
@@ -1883,25 +1877,25 @@ define hidden void @proto_reg_handoff_openflow_v4() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @find_dissector_add_dependency(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @find_dissector_add_dependency(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @_try_val_to_str_ext_init(i32 noundef, ptr noundef) #2
+declare ptr @_try_val_to_str_ext_init(i32 noundef, ptr noundef) #1
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @val_to_str_ext_const(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @val_to_str_ext_const(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @dissect_openflow_message_v4(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
@@ -2833,7 +2827,7 @@ common.ret:                                       ; preds = %4, %4, %4, %126, %1
 
 .lr.ph.i135:                                      ; preds = %651, %dissect_openflow_packet_queue_v4.exit.i
   %.014.i = phi i32 [ %.0.lcssa.i.i, %dissect_openflow_packet_queue_v4.exit.i ], [ %657, %651 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %659 = load i32, ptr @ett_openflow_v4_packet_queue, align 4
   %660 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef range(i32 -2147483648, 65535) %.014.i, i32 noundef -1, i32 noundef %659, ptr noundef nonnull %6, ptr noundef nonnull @.str.1154)
   %661 = load i32, ptr @hf_openflow_v4_packet_queue_queue_id, align 4
@@ -2860,7 +2854,7 @@ common.ret:                                       ; preds = %4, %4, %4, %126, %1
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i135, %dissect_openflow_queue_prop_v4.exit.i.i
   %.031.i.i = phi i32 [ %.0.i.i.i, %dissect_openflow_queue_prop_v4.exit.i.i ], [ %677, %.lr.ph.i135 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %680 = load i32, ptr @ett_openflow_v4_queue_prop, align 4
   %681 = call ptr @proto_tree_add_subtree(ptr noundef %660, ptr noundef %0, i32 noundef range(i32 -2147483632, 65535) %.031.i.i, i32 noundef -1, i32 noundef %680, ptr noundef nonnull %5, ptr noundef nonnull @.str.1155)
   %682 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef range(i32 -2147483632, 65535) %.031.i.i)
@@ -2925,13 +2919,13 @@ common.ret:                                       ; preds = %4, %4, %4, %126, %1
 
 dissect_openflow_queue_prop_v4.exit.i.i:          ; preds = %720, %709, %702, %695
   %.0.i.i.i = phi i32 [ %701, %695 ], [ %708, %702 ], [ %spec.select.i.i.i, %709 ], [ %spec.select61.i.i.i, %720 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %725 = icmp slt i32 %.0.i.i.i, %678
   br i1 %725, label %.lr.ph.i.i, label %dissect_openflow_packet_queue_v4.exit.i, !llvm.loop !12
 
 dissect_openflow_packet_queue_v4.exit.i:          ; preds = %dissect_openflow_queue_prop_v4.exit.i.i, %.lr.ph.i135
   %.0.lcssa.i.i = phi i32 [ %677, %.lr.ph.i135 ], [ %.0.i.i.i, %dissect_openflow_queue_prop_v4.exit.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %726 = icmp slt i32 %.0.lcssa.i.i, %11
   br i1 %726, label %.lr.ph.i135, label %common.ret, !llvm.loop !13
 
@@ -3069,10 +3063,10 @@ dissect_openflow_packet_queue_v4.exit.i:          ; preds = %dissect_openflow_qu
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #2
+declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @dissect_openflow_multipart_reply_v4(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) unnamed_addr #0 {
@@ -3187,7 +3181,7 @@ define internal fastcc void @dissect_openflow_multipart_reply_v4(ptr noundef %0,
 
 .lr.ph177:                                        ; preds = %.preheader, %dissect_openflow_flow_stats_v4.exit
   %.0176 = phi i32 [ %.0.lcssa.i, %dissect_openflow_flow_stats_v4.exit ], [ %28, %.preheader ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %64 = load i32, ptr @ett_openflow_v4_flow_stats, align 4
   %65 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef range(i32 -2147483648, 65535) %.0176, i32 noundef -1, i32 noundef %64, ptr noundef nonnull %10, ptr noundef nonnull @.str.1142)
   %66 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef range(i32 -2147483648, 65535) %.0176)
@@ -3259,7 +3253,7 @@ define internal fastcc void @dissect_openflow_multipart_reply_v4(ptr noundef %0,
 
 dissect_openflow_flow_stats_v4.exit:              ; preds = %.lr.ph.i, %.lr.ph177
   %.0.lcssa.i = phi i32 [ %121, %.lr.ph177 ], [ %123, %.lr.ph.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %125 = icmp slt i32 %.0.lcssa.i, %47
   br i1 %125, label %.lr.ph177, label %.loopexit, !llvm.loop !16
 
@@ -3384,7 +3378,7 @@ dissect_openflow_flow_stats_v4.exit:              ; preds = %.lr.ph.i, %.lr.ph17
 
 .lr.ph169:                                        ; preds = %.preheader143, %dissect_openflow_group_stats_v4.exit
   %.4168 = phi i32 [ %.0.lcssa.i128, %dissect_openflow_group_stats_v4.exit ], [ %28, %.preheader143 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %231 = load i32, ptr @ett_openflow_v4_group_stats, align 4
   %232 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef range(i32 -2147483648, 65535) %.4168, i32 noundef -1, i32 noundef %231, ptr noundef nonnull %9, ptr noundef nonnull @.str.1146)
   %233 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef range(i32 -2147483648, 65535) %.4168)
@@ -3437,13 +3431,13 @@ dissect_openflow_flow_stats_v4.exit:              ; preds = %.lr.ph.i, %.lr.ph17
 
 dissect_openflow_group_stats_v4.exit:             ; preds = %.lr.ph.i129, %.lr.ph169
   %.0.lcssa.i128 = phi i32 [ %263, %.lr.ph169 ], [ %272, %.lr.ph.i129 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %274 = icmp slt i32 %.0.lcssa.i128, %39
   br i1 %274, label %.lr.ph169, label %.loopexit, !llvm.loop !21
 
 .lr.ph167:                                        ; preds = %.preheader145, %dissect_openflow_group_desc_v4.exit
   %.5166 = phi i32 [ %.0.lcssa.i130, %dissect_openflow_group_desc_v4.exit ], [ %28, %.preheader145 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %275 = load i32, ptr @ett_openflow_v4_group_desc, align 4
   %276 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef range(i32 -2147483648, 65535) %.5166, i32 noundef -1, i32 noundef %275, ptr noundef nonnull %8, ptr noundef nonnull @.str.1148)
   %277 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef range(i32 -2147483648, 65535) %.5166)
@@ -3474,7 +3468,7 @@ dissect_openflow_group_stats_v4.exit:             ; preds = %.lr.ph.i129, %.lr.p
 
 dissect_openflow_group_desc_v4.exit:              ; preds = %.lr.ph.i131, %.lr.ph167
   %.0.lcssa.i130 = phi i32 [ %292, %.lr.ph167 ], [ %294, %.lr.ph.i131 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %296 = icmp slt i32 %.0.lcssa.i130, %37
   br i1 %296, label %.lr.ph167, label %.loopexit, !llvm.loop !23
 
@@ -3668,7 +3662,7 @@ dissect_openflow_group_desc_v4.exit:              ; preds = %.lr.ph.i131, %.lr.p
 
 .lr.ph165:                                        ; preds = %.preheader147, %dissect_openflow_meter_stats_v4.exit
   %.6164 = phi i32 [ %.0.lcssa.i132, %dissect_openflow_meter_stats_v4.exit ], [ %28, %.preheader147 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %483 = load i32, ptr @ett_openflow_v4_meter_stats, align 4
   %484 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef range(i32 -2147483648, 65535) %.6164, i32 noundef -1, i32 noundef %483, ptr noundef nonnull %7, ptr noundef nonnull @.str.1149)
   %485 = load i32, ptr @hf_openflow_v4_meter_stats_meter_id, align 4
@@ -3720,13 +3714,13 @@ dissect_openflow_group_desc_v4.exit:              ; preds = %.lr.ph.i131, %.lr.p
 
 dissect_openflow_meter_stats_v4.exit:             ; preds = %.lr.ph.i133, %.lr.ph165
   %.0.lcssa.i132 = phi i32 [ %513, %.lr.ph165 ], [ %523, %.lr.ph.i133 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %525 = icmp samesign ult i32 %.0.lcssa.i132, %35
   br i1 %525, label %.lr.ph165, label %.loopexit, !llvm.loop !25
 
 .lr.ph163:                                        ; preds = %.preheader149, %dissect_openflow_meter_config_v4.exit
   %.7162 = phi i32 [ %.0.lcssa.i135, %dissect_openflow_meter_config_v4.exit ], [ %28, %.preheader149 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %526 = load i32, ptr @ett_openflow_v4_meter_config, align 4
   %527 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef range(i32 -2147483648, 65535) %.7162, i32 noundef -1, i32 noundef %526, ptr noundef nonnull %6, ptr noundef nonnull @.str.1151)
   %528 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef range(i32 -2147483648, 65535) %.7162)
@@ -3765,7 +3759,7 @@ dissect_openflow_meter_stats_v4.exit:             ; preds = %.lr.ph.i133, %.lr.p
 
 dissect_openflow_meter_config_v4.exit:            ; preds = %.lr.ph.i136, %.lr.ph163
   %.0.lcssa.i135 = phi i32 [ %550, %.lr.ph163 ], [ %552, %.lr.ph.i136 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %554 = icmp slt i32 %.0.lcssa.i135, %33
   br i1 %554, label %.lr.ph163, label %.loopexit, !llvm.loop !27
 
@@ -3840,21 +3834,21 @@ dissect_openflow_meter_config_v4.exit:            ; preds = %.lr.ph.i136, %.lr.p
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_expert_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare ptr @proto_tree_add_expert_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @col_set_writable(ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare void @col_set_writable(ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_bits_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_bits_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_openflow_match_v4(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = load i32, ptr @ett_openflow_v4_match, align 4
   %7 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %6, ptr noundef nonnull %5, ptr noundef nonnull @.str.1121)
   %8 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %3)
@@ -3914,21 +3908,21 @@ define internal fastcc i32 @dissect_openflow_match_v4(ptr noundef %0, ptr nounde
 
 37:                                               ; preds = %33, %.loopexit
   %.2 = phi i32 [ %36, %33 ], [ %.0, %.loopexit ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.2
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i1 @col_get_writable(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @col_get_writable(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_openflow_oxm_v4(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
@@ -4623,7 +4617,7 @@ dissect_openflow_instruction_header_v4.exit:      ; preds = %4, %18
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc range(i32 -2147483632, -2147483648) i32 @dissect_openflow_bucket_v4(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 -2147483648, 131069) %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = load i32, ptr @ett_openflow_v4_bucket, align 4
   %7 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %6, ptr noundef nonnull %5, ptr noundef nonnull @.str.1130)
   %8 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %3)
@@ -4659,18 +4653,18 @@ define internal fastcc range(i32 -2147483632, -2147483648) i32 @dissect_openflow
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %.0.lcssa = phi i32 [ %25, %4 ], [ %29, %.lr.ph ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0.lcssa
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_openflow_table_features_v4(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 -2147483648, 65535) %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @ett_openflow_v4_table_features, align 4
   %8 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %7, ptr noundef nonnull %6, ptr noundef nonnull @.str.1134)
   %9 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %3)
@@ -4707,7 +4701,7 @@ define internal fastcc i32 @dissect_openflow_table_features_v4(ptr noundef %0, p
 
 .lr.ph:                                           ; preds = %4, %dissect_openflow_table_feature_prop_v4.exit
   %.051 = phi i32 [ %.0.i, %dissect_openflow_table_feature_prop_v4.exit ], [ %36, %4 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %38 = load i32, ptr @ett_openflow_v4_table_feature_prop, align 4
   %39 = call ptr @proto_tree_add_subtree(ptr noundef %8, ptr noundef %0, i32 noundef range(i32 -2147483648, 131069) %.051, i32 noundef -1, i32 noundef %38, ptr noundef nonnull %5, ptr noundef nonnull @.str.1135)
   %40 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef range(i32 -2147483648, 131069) %.051)
@@ -4888,20 +4882,20 @@ dissect_openflow_action_header_v4.exit.i:         ; preds = %88, %.lr.ph107.i
 
 dissect_openflow_table_feature_prop_v4.exit:      ; preds = %.lr.ph, %.loopexit.i, %132
   %.0.i = phi i32 [ %49, %.lr.ph ], [ %137, %132 ], [ %.1.i, %.loopexit.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %138 = icmp slt i32 %.0.i, %11
   br i1 %138, label %.lr.ph, label %._crit_edge, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %dissect_openflow_table_feature_prop_v4.exit, %4
   %.0.lcssa = phi i32 [ %36, %4 ], [ %.0.i, %dissect_openflow_table_feature_prop_v4.exit ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0.lcssa
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc range(i32 -2147483636, 196604) i32 @dissect_openflow_meter_band_v4(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 -2147483648, 131069) %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = load i32, ptr @ett_openflow_v4_meter_band, align 4
   %7 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %6, ptr noundef nonnull %5, ptr noundef nonnull @.str.1152)
   %8 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %3)
@@ -4961,18 +4955,23 @@ define internal fastcc range(i32 -2147483636, 196604) i32 @dissect_openflow_mete
 
 46:                                               ; preds = %42, %35, %28, %24
   %.0 = phi i32 [ %27, %24 ], [ %34, %28 ], [ %spec.select, %35 ], [ %spec.select60, %42 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.umax.i16(i16, i16) #3
 
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

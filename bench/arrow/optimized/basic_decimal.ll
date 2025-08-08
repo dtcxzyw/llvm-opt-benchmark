@@ -244,13 +244,7 @@ define weak_odr void @_ZN5arrow19GenericBasicDecimalINS_15BasicDecimal128ELi128E
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare i32 @__gxx_personality_v0(...)
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN5arrow19GenericBasicDecimalINS_15BasicDecimal128ELi128ELi2EEC2EPKh(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #0 comdat($_ZN5arrow19GenericBasicDecimalINS_15BasicDecimal128ELi128ELi2EEC5EPKh) align 2 {
@@ -264,7 +258,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5arrow19Gen
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr { i64, i64 } @_ZNK5arrow19GenericBasicDecimalINS_15BasicDecimal128ELi128ELi2EE19little_endian_arrayEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #3 comdat align 2 {
+define weak_odr { i64, i64 } @_ZNK5arrow19GenericBasicDecimalINS_15BasicDecimal128ELi128ELi2EE19little_endian_arrayEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #2 comdat align 2 {
   %.sroa.0.0.copyload = load i64, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !4
@@ -294,7 +288,7 @@ define weak_odr { i64, i64 } @_ZNK5arrow19GenericBasicDecimalINS_15BasicDecimal1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZNK5arrow19GenericBasicDecimalINS_15BasicDecimal128ELi128ELi2EE7ToBytesEPh(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #0 comdat align 2 {
@@ -320,13 +314,13 @@ define weak_odr noundef zeroext i1 @_ZNK5arrow19GenericBasicDecimalINS_15BasicDe
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr noundef zeroext i1 @_ZNK5arrow19GenericBasicDecimalINS_15BasicDecimal128ELi128ELi2EEcvbEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #3 comdat align 2 {
+define weak_odr noundef zeroext i1 @_ZNK5arrow19GenericBasicDecimalINS_15BasicDecimal128ELi128ELi2EEcvbEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #2 comdat align 2 {
   %2 = alloca %"struct.std::array", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %bcmp.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16)
   %.not9.i.i.i.i.i.i = icmp ne i32 %bcmp.i.i.i.i.i.i, 0
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %.not9.i.i.i.i.i.i
 }
 
@@ -360,7 +354,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5arrow19Gen
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr void @_ZNK5arrow19GenericBasicDecimalINS_15BasicDecimal256ELi256ELi4EE19little_endian_arrayEv(ptr dead_on_unwind noalias writable sret(%"struct.std::array.2") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #3 comdat align 2 {
+define weak_odr void @_ZNK5arrow19GenericBasicDecimalINS_15BasicDecimal256ELi256ELi4EE19little_endian_arrayEv(ptr dead_on_unwind noalias writable sret(%"struct.std::array.2") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #2 comdat align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   ret void
 }
@@ -405,13 +399,13 @@ define weak_odr noundef zeroext i1 @_ZNK5arrow19GenericBasicDecimalINS_15BasicDe
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr noundef zeroext i1 @_ZNK5arrow19GenericBasicDecimalINS_15BasicDecimal256ELi256ELi4EEcvbEv(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #3 comdat align 2 {
+define weak_odr noundef zeroext i1 @_ZNK5arrow19GenericBasicDecimalINS_15BasicDecimal256ELi256ELi4EEcvbEv(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #2 comdat align 2 {
   %2 = alloca %"struct.std::array.2", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false)
   %bcmp.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32)
   %.not9.i.i.i.i.i.i = icmp ne i32 %bcmp.i.i.i.i.i.i, 0
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %.not9.i.i.i.i.i.i
 }
 
@@ -435,7 +429,7 @@ define weak_odr i32 @_ZNK5arrow17SmallBasicDecimalIiE19native_endian_arrayEv(ptr
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr i32 @_ZNK5arrow17SmallBasicDecimalIiE19little_endian_arrayEv(ptr noundef nonnull align 4 dereferenceable(4) %0) local_unnamed_addr #3 comdat align 2 {
+define weak_odr i32 @_ZNK5arrow17SmallBasicDecimalIiE19little_endian_arrayEv(ptr noundef nonnull align 4 dereferenceable(4) %0) local_unnamed_addr #2 comdat align 2 {
   %2 = load i32, ptr %0, align 4, !tbaa !10
   ret i32 %2
 }
@@ -493,7 +487,7 @@ define weak_odr noundef i32 @_ZNK5arrow17SmallBasicDecimalIiE5valueEv(ptr nounde
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr noundef i32 @_ZNK5arrow17SmallBasicDecimalIiE23CountLeadingBinaryZerosEv(ptr noundef nonnull align 4 dereferenceable(4) %0) local_unnamed_addr #3 comdat align 2 {
+define weak_odr noundef i32 @_ZNK5arrow17SmallBasicDecimalIiE23CountLeadingBinaryZerosEv(ptr noundef nonnull align 4 dereferenceable(4) %0) local_unnamed_addr #2 comdat align 2 {
   %2 = load i32, ptr %0, align 4, !tbaa !10
   %3 = tail call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %2, i1 false)
   ret i32 %3
@@ -526,7 +520,7 @@ define weak_odr i64 @_ZNK5arrow17SmallBasicDecimalIlE19native_endian_arrayEv(ptr
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr i64 @_ZNK5arrow17SmallBasicDecimalIlE19little_endian_arrayEv(ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #3 comdat align 2 {
+define weak_odr i64 @_ZNK5arrow17SmallBasicDecimalIlE19little_endian_arrayEv(ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #2 comdat align 2 {
   %2 = load i64, ptr %0, align 8, !tbaa !13
   ret i64 %2
 }
@@ -583,7 +577,7 @@ define weak_odr noundef i64 @_ZNK5arrow17SmallBasicDecimalIlE5valueEv(ptr nounde
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr noundef i32 @_ZNK5arrow17SmallBasicDecimalIlE23CountLeadingBinaryZerosEv(ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #3 comdat align 2 {
+define weak_odr noundef i32 @_ZNK5arrow17SmallBasicDecimalIlE23CountLeadingBinaryZerosEv(ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #2 comdat align 2 {
   %2 = load i64, ptr %0, align 8, !tbaa !13
   %3 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %2, i1 false)
   %4 = trunc nuw nsw i64 %3 to i32
@@ -597,7 +591,7 @@ define weak_odr noundef i64 @_ZNK5arrow17SmallBasicDecimalIlE8low_bitsEv(ptr nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 4 dereferenceable(4) ptr @_ZN5arrow14BasicDecimal326NegateEv(ptr noundef nonnull returned align 4 captures(ret: address, provenance) dereferenceable(4) %0) local_unnamed_addr #5 align 2 {
+define noundef nonnull align 4 dereferenceable(4) ptr @_ZN5arrow14BasicDecimal326NegateEv(ptr noundef nonnull returned align 4 captures(ret: address, provenance) dereferenceable(4) %0) local_unnamed_addr #4 align 2 {
   %2 = load i32, ptr %0, align 4, !tbaa !10
   %3 = sub i32 0, %2
   store i32 %3, ptr %0, align 4, !tbaa !10
@@ -605,7 +599,7 @@ define noundef nonnull align 4 dereferenceable(4) ptr @_ZN5arrow14BasicDecimal32
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef range(i32 0, 2) i32 @_ZNK5arrow14BasicDecimal326DivideERKS0_PS0_S3_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #5 align 2 {
+define noundef range(i32 0, 2) i32 @_ZNK5arrow14BasicDecimal326DivideERKS0_PS0_S3_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #4 align 2 {
   %5 = load i32, ptr %1, align 4, !tbaa !10
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %14, label %7
@@ -630,7 +624,7 @@ define noundef range(i32 0, 2) i32 @_ZNK5arrow14BasicDecimal326DivideERKS0_PS0_S
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 4 dereferenceable(4) ptr @_ZN5arrow14BasicDecimal32lSEj(ptr noundef nonnull returned align 4 captures(ret: address, provenance) dereferenceable(4) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
+define noundef nonnull align 4 dereferenceable(4) ptr @_ZN5arrow14BasicDecimal32lSEj(ptr noundef nonnull returned align 4 captures(ret: address, provenance) dereferenceable(4) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %6, label %.sink.split
 
@@ -647,7 +641,7 @@ define noundef nonnull align 4 dereferenceable(4) ptr @_ZN5arrow14BasicDecimal32
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 4 dereferenceable(4) ptr @_ZN5arrow14BasicDecimal32rSEj(ptr noundef nonnull returned align 4 captures(ret: address, provenance) dereferenceable(4) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
+define noundef nonnull align 4 dereferenceable(4) ptr @_ZN5arrow14BasicDecimal32rSEj(ptr noundef nonnull returned align 4 captures(ret: address, provenance) dereferenceable(4) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %6, label %.sink.split
 
@@ -664,7 +658,7 @@ define noundef nonnull align 4 dereferenceable(4) ptr @_ZN5arrow14BasicDecimal32
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK5arrow14BasicDecimal3219GetWholeAndFractionEiPS0_S1_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #5 align 2 {
+define void @_ZNK5arrow14BasicDecimal3219GetWholeAndFractionEiPS0_S1_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #4 align 2 {
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds %"class.arrow::BasicDecimal32", ptr @_ZN5arrowL21kDecimal32PowersOfTenE, i64 %5
   %7 = load i32, ptr %6, align 4
@@ -689,12 +683,12 @@ _ZNK5arrow14BasicDecimal326DivideERKS0_PS0_S3_.exit: ; preds = %4, %9, %12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(4) ptr @_ZN5arrow14BasicDecimal3211GetMaxValueEv() local_unnamed_addr #6 align 2 {
+define noundef nonnull align 4 dereferenceable(4) ptr @_ZN5arrow14BasicDecimal3211GetMaxValueEv() local_unnamed_addr #5 align 2 {
   ret ptr @_ZN5arrow13DecimalTraitsINS_14BasicDecimal32EE9kMaxValueE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @_ZN5arrow14BasicDecimal3211GetMaxValueEi(i32 noundef %0) local_unnamed_addr #6 align 2 {
+define i32 @_ZN5arrow14BasicDecimal3211GetMaxValueEi(i32 noundef %0) local_unnamed_addr #5 align 2 {
   %2 = sext i32 %0 to i64
   %3 = getelementptr inbounds %"class.arrow::BasicDecimal32", ptr @_ZN5arrowL21kDecimal32PowersOfTenE, i64 %2
   %.sroa.0.0.copyload = load i32, ptr %3, align 4
@@ -702,7 +696,7 @@ define i32 @_ZN5arrow14BasicDecimal3211GetMaxValueEi(i32 noundef %0) local_unnam
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @_ZNK5arrow14BasicDecimal3215IncreaseScaleByEi(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
+define i32 @_ZNK5arrow14BasicDecimal3215IncreaseScaleByEi(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds %"class.arrow::BasicDecimal32", ptr @_ZN5arrowL21kDecimal32PowersOfTenE, i64 %3
   %5 = load i32, ptr %0, align 4
@@ -712,7 +706,7 @@ define i32 @_ZNK5arrow14BasicDecimal3215IncreaseScaleByEi(ptr noundef nonnull re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @_ZN5arrowmlERKNS_14BasicDecimal32ES2_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #7 {
+define i32 @_ZN5arrowmlERKNS_14BasicDecimal32ES2_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #6 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4, !tbaa !10
   %5 = mul i32 %4, %3
@@ -720,7 +714,7 @@ define i32 @_ZN5arrowmlERKNS_14BasicDecimal32ES2_(ptr noundef nonnull readonly a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @_ZNK5arrow14BasicDecimal3213ReduceScaleByEib(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #7 align 2 {
+define i32 @_ZNK5arrow14BasicDecimal3213ReduceScaleByEib(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #6 align 2 {
   %4 = icmp eq i32 %1, 0
   br i1 %4, label %5, label %7
 
@@ -769,7 +763,7 @@ _ZN5arrow14BasicDecimal323AbsEv.exit:             ; preds = %_ZNK5arrow14BasicDe
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZN5arrowgeERKNS_14BasicDecimal32ES2_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #7 {
+define noundef zeroext i1 @_ZN5arrowgeERKNS_14BasicDecimal32ES2_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #6 {
   %3 = load i32, ptr %0, align 4, !tbaa !10
   %4 = load i32, ptr %1, align 4, !tbaa !10
   %5 = icmp sge i32 %3, %4
@@ -777,28 +771,28 @@ define noundef zeroext i1 @_ZN5arrowgeERKNS_14BasicDecimal32ES2_(ptr noundef non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(4) ptr @_ZN5arrow14BasicDecimal3218GetScaleMultiplierEi(i32 noundef %0) local_unnamed_addr #6 align 2 {
+define noundef nonnull align 4 dereferenceable(4) ptr @_ZN5arrow14BasicDecimal3218GetScaleMultiplierEi(i32 noundef %0) local_unnamed_addr #5 align 2 {
   %2 = sext i32 %0 to i64
   %3 = getelementptr inbounds %"class.arrow::BasicDecimal32", ptr @_ZN5arrowL21kDecimal32PowersOfTenE, i64 %2
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(4) ptr @_ZN5arrow14BasicDecimal3222GetHalfScaleMultiplierEi(i32 noundef %0) local_unnamed_addr #6 align 2 {
+define noundef nonnull align 4 dereferenceable(4) ptr @_ZN5arrow14BasicDecimal3222GetHalfScaleMultiplierEi(i32 noundef %0) local_unnamed_addr #5 align 2 {
   %2 = sext i32 %0 to i64
   %3 = getelementptr inbounds %"class.arrow::BasicDecimal32", ptr @_ZN5arrowL25kDecimal32HalfPowersOfTenE, i64 %2
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i64 -2147483648, 2147483648) i64 @_ZNK5arrow14BasicDecimal32cvNS_14BasicDecimal64EEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #7 align 2 {
+define range(i64 -2147483648, 2147483648) i64 @_ZNK5arrow14BasicDecimal32cvNS_14BasicDecimal64EEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #6 align 2 {
   %2 = load i32, ptr %0, align 4, !tbaa !10
   %3 = sext i32 %2 to i64
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN5arrow14BasicDecimal646NegateEv(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) local_unnamed_addr #5 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN5arrow14BasicDecimal646NegateEv(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) local_unnamed_addr #4 align 2 {
   %2 = load i64, ptr %0, align 8, !tbaa !13
   %3 = sub i64 0, %2
   store i64 %3, ptr %0, align 8, !tbaa !13
@@ -806,7 +800,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN5arrow14BasicDecimal64
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef range(i32 0, 2) i32 @_ZNK5arrow14BasicDecimal646DivideERKS0_PS0_S3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #5 align 2 {
+define noundef range(i32 0, 2) i32 @_ZNK5arrow14BasicDecimal646DivideERKS0_PS0_S3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #4 align 2 {
   %5 = load i64, ptr %1, align 8, !tbaa !13
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %14, label %7
@@ -831,7 +825,7 @@ define noundef range(i32 0, 2) i32 @_ZNK5arrow14BasicDecimal646DivideERKS0_PS0_S
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN5arrow14BasicDecimal64lSEj(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(8) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN5arrow14BasicDecimal64lSEj(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(8) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %7, label %.sink.split
 
@@ -849,7 +843,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN5arrow14BasicDecimal64
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN5arrow14BasicDecimal64rSEj(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(8) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN5arrow14BasicDecimal64rSEj(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(8) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %7, label %.sink.split
 
@@ -867,7 +861,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN5arrow14BasicDecimal64
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK5arrow14BasicDecimal6419GetWholeAndFractionEiPS0_S1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #5 align 2 {
+define void @_ZNK5arrow14BasicDecimal6419GetWholeAndFractionEiPS0_S1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #4 align 2 {
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds %"class.arrow::BasicDecimal64", ptr @_ZN5arrowL21kDecimal64PowersOfTenE, i64 %5
   %7 = load i64, ptr %6, align 8
@@ -892,12 +886,12 @@ _ZNK5arrow14BasicDecimal646DivideERKS0_PS0_S3_.exit: ; preds = %4, %9, %12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN5arrow14BasicDecimal6411GetMaxValueEv() local_unnamed_addr #6 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN5arrow14BasicDecimal6411GetMaxValueEv() local_unnamed_addr #5 align 2 {
   ret ptr @_ZN5arrow13DecimalTraitsINS_14BasicDecimal64EE9kMaxValueE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i64 @_ZN5arrow14BasicDecimal6411GetMaxValueEi(i32 noundef %0) local_unnamed_addr #6 align 2 {
+define i64 @_ZN5arrow14BasicDecimal6411GetMaxValueEi(i32 noundef %0) local_unnamed_addr #5 align 2 {
   %2 = sext i32 %0 to i64
   %3 = getelementptr inbounds %"class.arrow::BasicDecimal64", ptr @_ZN5arrowL21kDecimal64PowersOfTenE, i64 %2
   %.sroa.0.0.copyload = load i64, ptr %3, align 8
@@ -905,7 +899,7 @@ define i64 @_ZN5arrow14BasicDecimal6411GetMaxValueEi(i32 noundef %0) local_unnam
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @_ZNK5arrow14BasicDecimal6415IncreaseScaleByEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
+define i64 @_ZNK5arrow14BasicDecimal6415IncreaseScaleByEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds %"class.arrow::BasicDecimal64", ptr @_ZN5arrowL21kDecimal64PowersOfTenE, i64 %3
   %5 = load i64, ptr %0, align 8
@@ -915,7 +909,7 @@ define i64 @_ZNK5arrow14BasicDecimal6415IncreaseScaleByEi(ptr noundef nonnull re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @_ZN5arrowmlERKNS_14BasicDecimal64ES2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #7 {
+define i64 @_ZN5arrowmlERKNS_14BasicDecimal64ES2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #6 {
   %3 = load i64, ptr %0, align 8
   %4 = load i64, ptr %1, align 8, !tbaa !13
   %5 = mul i64 %4, %3
@@ -923,7 +917,7 @@ define i64 @_ZN5arrowmlERKNS_14BasicDecimal64ES2_(ptr noundef nonnull readonly a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @_ZNK5arrow14BasicDecimal6413ReduceScaleByEib(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #7 align 2 {
+define i64 @_ZNK5arrow14BasicDecimal6413ReduceScaleByEib(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #6 align 2 {
   %4 = icmp eq i32 %1, 0
   br i1 %4, label %5, label %7
 
@@ -972,7 +966,7 @@ _ZN5arrow14BasicDecimal643AbsEv.exit:             ; preds = %_ZNK5arrow14BasicDe
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZN5arrowgeERKNS_14BasicDecimal64ES2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #7 {
+define noundef zeroext i1 @_ZN5arrowgeERKNS_14BasicDecimal64ES2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #6 {
   %3 = load i64, ptr %0, align 8, !tbaa !13
   %4 = load i64, ptr %1, align 8, !tbaa !13
   %5 = icmp sge i64 %3, %4
@@ -980,21 +974,21 @@ define noundef zeroext i1 @_ZN5arrowgeERKNS_14BasicDecimal64ES2_(ptr noundef non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN5arrow14BasicDecimal6418GetScaleMultiplierEi(i32 noundef %0) local_unnamed_addr #6 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN5arrow14BasicDecimal6418GetScaleMultiplierEi(i32 noundef %0) local_unnamed_addr #5 align 2 {
   %2 = sext i32 %0 to i64
   %3 = getelementptr inbounds %"class.arrow::BasicDecimal64", ptr @_ZN5arrowL21kDecimal64PowersOfTenE, i64 %2
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN5arrow14BasicDecimal6422GetHalfScaleMultiplierEi(i32 noundef %0) local_unnamed_addr #6 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN5arrow14BasicDecimal6422GetHalfScaleMultiplierEi(i32 noundef %0) local_unnamed_addr #5 align 2 {
   %2 = sext i32 %0 to i64
   %3 = getelementptr inbounds %"class.arrow::BasicDecimal64", ptr @_ZN5arrowL25kDecimal64HalfPowersOfTenE, i64 %2
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK5arrow14BasicDecimal3215FitsInPrecisionEi(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
+define noundef zeroext i1 @_ZNK5arrow14BasicDecimal3215FitsInPrecisionEi(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
   %3 = load i32, ptr %0, align 4, !tbaa !10
   %4 = icmp eq i32 %3, -2147483648
   br i1 %4, label %10, label %5
@@ -1013,7 +1007,7 @@ define noundef zeroext i1 @_ZNK5arrow14BasicDecimal3215FitsInPrecisionEi(ptr nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZN5arrowltERKNS_14BasicDecimal32ES2_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #7 {
+define noundef zeroext i1 @_ZN5arrowltERKNS_14BasicDecimal32ES2_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #6 {
   %3 = load i32, ptr %0, align 4, !tbaa !10
   %4 = load i32, ptr %1, align 4, !tbaa !10
   %5 = icmp slt i32 %3, %4
@@ -1021,7 +1015,7 @@ define noundef zeroext i1 @_ZN5arrowltERKNS_14BasicDecimal32ES2_(ptr noundef non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK5arrow14BasicDecimal6415FitsInPrecisionEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
+define noundef zeroext i1 @_ZNK5arrow14BasicDecimal6415FitsInPrecisionEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
   %3 = load i64, ptr %0, align 8, !tbaa !13
   %4 = icmp eq i64 %3, -9223372036854775808
   br i1 %4, label %10, label %5
@@ -1040,7 +1034,7 @@ define noundef zeroext i1 @_ZNK5arrow14BasicDecimal6415FitsInPrecisionEi(ptr nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZN5arrowltERKNS_14BasicDecimal64ES2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #7 {
+define noundef zeroext i1 @_ZN5arrowltERKNS_14BasicDecimal64ES2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #6 {
   %3 = load i64, ptr %0, align 8, !tbaa !13
   %4 = load i64, ptr %1, align 8, !tbaa !13
   %5 = icmp slt i64 %3, %4
@@ -1048,7 +1042,7 @@ define noundef zeroext i1 @_ZN5arrowltERKNS_14BasicDecimal64ES2_(ptr noundef non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZN5arrowleERKNS_14BasicDecimal32ES2_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #7 {
+define noundef zeroext i1 @_ZN5arrowleERKNS_14BasicDecimal32ES2_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #6 {
   %3 = load i32, ptr %0, align 4, !tbaa !10
   %4 = load i32, ptr %1, align 4, !tbaa !10
   %5 = icmp sle i32 %3, %4
@@ -1056,7 +1050,7 @@ define noundef zeroext i1 @_ZN5arrowleERKNS_14BasicDecimal32ES2_(ptr noundef non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZN5arrowgtERKNS_14BasicDecimal32ES2_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #7 {
+define noundef zeroext i1 @_ZN5arrowgtERKNS_14BasicDecimal32ES2_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #6 {
   %3 = load i32, ptr %0, align 4, !tbaa !10
   %4 = load i32, ptr %1, align 4, !tbaa !10
   %5 = icmp sgt i32 %3, %4
@@ -1064,21 +1058,21 @@ define noundef zeroext i1 @_ZN5arrowgtERKNS_14BasicDecimal32ES2_(ptr noundef non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @_ZN5arrowngERKNS_14BasicDecimal32E(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #7 {
+define i32 @_ZN5arrowngERKNS_14BasicDecimal32E(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #6 {
   %2 = load i32, ptr %0, align 4
   %3 = sub i32 0, %2
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @_ZN5arrowcoERKNS_14BasicDecimal32E(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #7 {
+define i32 @_ZN5arrowcoERKNS_14BasicDecimal32E(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #6 {
   %2 = load i32, ptr %0, align 4, !tbaa !10
   %3 = xor i32 %2, -1
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @_ZN5arrowplERKNS_14BasicDecimal32ES2_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #7 {
+define i32 @_ZN5arrowplERKNS_14BasicDecimal32ES2_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #6 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4, !tbaa !10
   %5 = add nsw i32 %4, %3
@@ -1086,7 +1080,7 @@ define i32 @_ZN5arrowplERKNS_14BasicDecimal32ES2_(ptr noundef nonnull readonly a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @_ZN5arrowmiERKNS_14BasicDecimal32ES2_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #7 {
+define i32 @_ZN5arrowmiERKNS_14BasicDecimal32ES2_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #6 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4, !tbaa !10
   %5 = sub nsw i32 %3, %4
@@ -1094,7 +1088,7 @@ define i32 @_ZN5arrowmiERKNS_14BasicDecimal32ES2_(ptr noundef nonnull readonly a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @_ZN5arrowdvERKNS_14BasicDecimal32ES2_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #7 {
+define i32 @_ZN5arrowdvERKNS_14BasicDecimal32ES2_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #6 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4, !tbaa !10
   %5 = sdiv i32 %3, %4
@@ -1102,7 +1096,7 @@ define i32 @_ZN5arrowdvERKNS_14BasicDecimal32ES2_(ptr noundef nonnull readonly a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 -2147483647, -2147483648) i32 @_ZN5arrowrmERKNS_14BasicDecimal32ES2_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #7 {
+define range(i32 -2147483647, -2147483648) i32 @_ZN5arrowrmERKNS_14BasicDecimal32ES2_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #6 {
   %3 = load i32, ptr %1, align 4, !tbaa !10
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %_ZNK5arrow14BasicDecimal326DivideERKS0_PS0_S3_.exit, label %5
@@ -1118,7 +1112,7 @@ _ZNK5arrow14BasicDecimal326DivideERKS0_PS0_S3_.exit: ; preds = %2, %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZN5arrowleERKNS_14BasicDecimal64ES2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #7 {
+define noundef zeroext i1 @_ZN5arrowleERKNS_14BasicDecimal64ES2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #6 {
   %3 = load i64, ptr %0, align 8, !tbaa !13
   %4 = load i64, ptr %1, align 8, !tbaa !13
   %5 = icmp sle i64 %3, %4
@@ -1126,7 +1120,7 @@ define noundef zeroext i1 @_ZN5arrowleERKNS_14BasicDecimal64ES2_(ptr noundef non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZN5arrowgtERKNS_14BasicDecimal64ES2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #7 {
+define noundef zeroext i1 @_ZN5arrowgtERKNS_14BasicDecimal64ES2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #6 {
   %3 = load i64, ptr %0, align 8, !tbaa !13
   %4 = load i64, ptr %1, align 8, !tbaa !13
   %5 = icmp sgt i64 %3, %4
@@ -1134,21 +1128,21 @@ define noundef zeroext i1 @_ZN5arrowgtERKNS_14BasicDecimal64ES2_(ptr noundef non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @_ZN5arrowngERKNS_14BasicDecimal64E(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #7 {
+define i64 @_ZN5arrowngERKNS_14BasicDecimal64E(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #6 {
   %2 = load i64, ptr %0, align 8
   %3 = sub i64 0, %2
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @_ZN5arrowcoERKNS_14BasicDecimal64E(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #7 {
+define i64 @_ZN5arrowcoERKNS_14BasicDecimal64E(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #6 {
   %2 = load i64, ptr %0, align 8, !tbaa !13
   %3 = xor i64 %2, -1
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @_ZN5arrowplERKNS_14BasicDecimal64ES2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #7 {
+define i64 @_ZN5arrowplERKNS_14BasicDecimal64ES2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #6 {
   %3 = load i64, ptr %0, align 8
   %4 = load i64, ptr %1, align 8, !tbaa !13
   %5 = add nsw i64 %4, %3
@@ -1156,7 +1150,7 @@ define i64 @_ZN5arrowplERKNS_14BasicDecimal64ES2_(ptr noundef nonnull readonly a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @_ZN5arrowmiERKNS_14BasicDecimal64ES2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #7 {
+define i64 @_ZN5arrowmiERKNS_14BasicDecimal64ES2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #6 {
   %3 = load i64, ptr %0, align 8
   %4 = load i64, ptr %1, align 8, !tbaa !13
   %5 = sub nsw i64 %3, %4
@@ -1164,7 +1158,7 @@ define i64 @_ZN5arrowmiERKNS_14BasicDecimal64ES2_(ptr noundef nonnull readonly a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @_ZN5arrowdvERKNS_14BasicDecimal64ES2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #7 {
+define i64 @_ZN5arrowdvERKNS_14BasicDecimal64ES2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #6 {
   %3 = load i64, ptr %0, align 8
   %4 = load i64, ptr %1, align 8, !tbaa !13
   %5 = sdiv i64 %3, %4
@@ -1172,7 +1166,7 @@ define i64 @_ZN5arrowdvERKNS_14BasicDecimal64ES2_(ptr noundef nonnull readonly a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i64 -9223372036854775807, -9223372036854775808) i64 @_ZN5arrowrmERKNS_14BasicDecimal64ES2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #7 {
+define range(i64 -9223372036854775807, -9223372036854775808) i64 @_ZN5arrowrmERKNS_14BasicDecimal64ES2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #6 {
   %3 = load i64, ptr %1, align 8, !tbaa !13
   %4 = icmp eq i64 %3, 0
   br i1 %4, label %_ZNK5arrow14BasicDecimal646DivideERKS0_PS0_S3_.exit, label %5
@@ -1188,7 +1182,7 @@ _ZNK5arrow14BasicDecimal646DivideERKS0_PS0_S3_.exit: ; preds = %2, %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow15BasicDecimal1286NegateEv(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(16) %0) local_unnamed_addr #5 align 2 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow15BasicDecimal1286NegateEv(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(16) %0) local_unnamed_addr #4 align 2 {
   %2 = load i64, ptr %0, align 8, !tbaa !7
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !tbaa !7
@@ -1203,7 +1197,7 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow15BasicDecimal1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow15BasicDecimal1283AbsEv(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(16) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow15BasicDecimal1283AbsEv(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(16) %0) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8, !tbaa !7
   %4 = icmp slt i64 %3, 0
@@ -1225,7 +1219,7 @@ _ZN5arrowltERKNS_15BasicDecimal128ES2_.exit.thread: ; preds = %1, %_ZN5arrowltER
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZN5arrowltERKNS_15BasicDecimal128ES2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #7 {
+define noundef zeroext i1 @_ZN5arrowltERKNS_15BasicDecimal128ES2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !tbaa !7
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1249,7 +1243,7 @@ define noundef zeroext i1 @_ZN5arrowltERKNS_15BasicDecimal128ES2_(ptr noundef no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define { i64, i64 } @_ZN5arrow15BasicDecimal1283AbsERKS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define { i64, i64 } @_ZN5arrow15BasicDecimal1283AbsERKS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %.sroa.0.0.copyload1 = load i64, ptr %0, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.6.0.copyload = load i64, ptr %.sroa.6.0..sroa_idx, align 8
@@ -1273,7 +1267,7 @@ _ZN5arrow15BasicDecimal1283AbsEv.exit:            ; preds = %1, %_ZN5arrowltERKN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK5arrow15BasicDecimal12815FitsInPrecisionEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZNK5arrow15BasicDecimal12815FitsInPrecisionEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %.sroa.0.0.copyload1.i = load i64, ptr %0, align 8
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.6.0.copyload.i = load i64, ptr %.sroa.6.0..sroa_idx.i, align 8
@@ -1313,7 +1307,7 @@ _ZN5arrowltERKNS_15BasicDecimal128ES2_.exit:      ; preds = %_ZN5arrow15BasicDec
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow15BasicDecimal128pLERKS0_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #5 align 2 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow15BasicDecimal128pLERKS0_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !tbaa !7
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1331,7 +1325,7 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow15BasicDecimal1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow15BasicDecimal128mIERKS0_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #5 align 2 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow15BasicDecimal128mIERKS0_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !tbaa !7
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1349,17 +1343,17 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow15BasicDecimal1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow15BasicDecimal128dVERKS0_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #8 align 2 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow15BasicDecimal128dVERKS0_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #7 align 2 {
   %3 = alloca %"class.arrow::BasicDecimal128", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   %4 = call noundef i32 @_ZNK5arrow15BasicDecimal1286DivideERKS0_PS0_S3_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %0, ptr noundef nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef range(i32 0, 3) i32 @_ZNK5arrow15BasicDecimal1286DivideERKS0_PS0_S3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 3) i32 @_ZNK5arrow15BasicDecimal1286DivideERKS0_PS0_S3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %.sroa.09.i = alloca i64, align 8
   %.sroa.410.i = alloca i64, align 8
   %.sroa.0.i = alloca i64, align 8
@@ -1373,8 +1367,8 @@ define noundef range(i32 0, 3) i32 @_ZNK5arrow15BasicDecimal1286DivideERKS0_PS0_
   %.val = load i64, ptr %1, align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val4 = load i64, ptr %9, align 8
-  call void @llvm.lifetime.start.p0(i64 132, ptr nonnull %6) #15
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %6, align 16, !tbaa !15
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %.val.i = load i64, ptr %0, align 8
@@ -1561,14 +1555,14 @@ _ZN5arrowL11FillInArrayERKNS_15BasicDecimal128EPjRb.exit112.i: ; preds = %79, %7
   ]
 
 86:                                               ; preds = %85
-  call void @llvm.lifetime.start.p0(i64 132, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %87 = zext i32 %82 to i64
   br label %105
 
 88:                                               ; preds = %105
   %89 = trunc nuw i8 %.112.i to i1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.027.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.428.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.027.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.428.i.i)
   %90 = load i32, ptr %5, align 16
   %.not.i.i.i.i = icmp ne i32 %90, 0
   %or.cond.not.i = select i1 %43, i1 %.not.i.i.i.i, i1 false
@@ -1581,8 +1575,8 @@ _ZN5arrowL11FillInArrayERKNS_15BasicDecimal128EPjRb.exit112.i: ; preds = %79, %7
   store i64 %.sroa.027.i.i.0..sroa.027.i.i.0..sroa.027.i.i.0..sroa.027.i.0..sroa.027.i.0..sroa.027.0..sroa.027.0..sroa.027.0..i.i, ptr %2, align 8
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %.sroa.428.0..sroa.428.0..sroa.428.8..i.i, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.027.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.428.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.027.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.428.i.i)
   store i64 %114, ptr %3, align 8
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 0, ptr %.sroa.4.0..sroa_idx.i.i, align 8
@@ -1616,8 +1610,8 @@ _ZN5arrowL11FillInArrayERKNS_15BasicDecimal128EPjRb.exit112.i: ; preds = %79, %7
   br i1 %104, label %.lr.ph38.i.i.i.i, label %.preheader.i.i.i.i, !llvm.loop !16
 
 _ZN5arrowL14BuildFromArrayEPNS_15BasicDecimal128EPKjl.exit.i.i: ; preds = %88
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.027.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.428.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.027.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.428.i.i)
   br label %_ZN5arrowL12SingleDivideINS_15BasicDecimal128EEENS_13DecimalStatusEPKjljPT_bbS6_.exit.i
 
 105:                                              ; preds = %105, %86
@@ -1666,12 +1660,12 @@ _ZN5arrowL14BuildFromArrayEPNS_15BasicDecimal128EPKjl.exit.i.i: ; preds = %88
 
 _ZN5arrowL12SingleDivideINS_15BasicDecimal128EEENS_13DecimalStatusEPKjljPT_bbS6_.exit.i: ; preds = %124, %123, %_ZN5arrowL14BuildFromArrayEPNS_15BasicDecimal128EPKjl.exit.i.i
   %.0.i113.i = phi i32 [ 2, %_ZN5arrowL14BuildFromArrayEPNS_15BasicDecimal128EPKjl.exit.i.i ], [ 0, %123 ], [ 0, %124 ]
-  call void @llvm.lifetime.end.p0(i64 132, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN5arrowL13DecimalDivideINS_15BasicDecimal128EEENS_13DecimalStatusERKT_S5_PS3_S6_.exit
 
 131:                                              ; preds = %85
   %132 = sub nsw i64 %45, %.0.i109.i
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %8) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %133 = tail call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %82, i1 false)
   %.not.i = icmp eq i32 %133, 0
   %.pre42 = add nsw i64 %.0.i109.i, -1
@@ -1768,8 +1762,8 @@ _ZN5arrowL14ShiftArrayLeftEPjll.exit.thread.i:    ; preds = %138
   br i1 %173, label %164, label %._crit_edge.i125.i, !llvm.loop !20
 
 _ZN5arrowL15ShiftArrayRightEPjll.exit.i:          ; preds = %._crit_edge.i125.i, %._crit_edge45.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.0.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.5.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5.i)
   %174 = icmp sgt i64 %132, 4
   br i1 %174, label %.lr.ph.preheader.i.i.i, label %.lr.ph38.preheader.i.i.i
 
@@ -1791,10 +1785,10 @@ _ZN5arrowL15ShiftArrayRightEPjll.exit.i:          ; preds = %._crit_edge.i125.i,
   store i64 %.sroa.0.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..i, ptr %2, align 8
   %.sroa.4.0..sroa_idx.i128.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %.sroa.5.0..sroa.5.8..i, ptr %.sroa.4.0..sroa_idx.i128.i, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.5.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.09.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.410.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.09.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.410.i)
   br i1 %43, label %.lr.ph.preheader.i.i145.i, label %.lr.ph38.i.i140.i.preheader
 
 .lr.ph38.i.i140.i.preheader:                      ; preds = %.lr.ph.preheader.i.i145.i, %.preheader.i.i.i
@@ -1827,8 +1821,8 @@ _ZN5arrowL15ShiftArrayRightEPjll.exit.i:          ; preds = %._crit_edge.i125.i,
   br i1 %192, label %.lr.ph38.i.i.i, label %.preheader.i.i.i, !llvm.loop !16
 
 _ZN5arrowL14BuildFromArrayEPNS_15BasicDecimal128EPKjl.exit.i: ; preds = %.lr.ph.preheader.i.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.5.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5.i)
   br label %_ZN5arrowL16FixDivisionSignsINS_15BasicDecimal128EEEvPT_S3_bb.exit.i
 
 193:                                              ; preds = %._crit_edge.thread.i, %.lr.ph44.i
@@ -1962,8 +1956,8 @@ _ZN5arrowL14BuildFromArrayEPNS_15BasicDecimal128EPKjl.exit.i: ; preds = %.lr.ph.
   store i64 %.sroa.09.i.0..sroa.09.i.0..sroa.09.i.0..sroa.09.0..sroa.09.0..sroa.09.0..i, ptr %3, align 8
   %.sroa.4.0..sroa_idx.i137.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %.sroa.410.0..sroa.410.0..sroa.410.8..i, ptr %.sroa.4.0..sroa_idx.i137.i, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.09.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.410.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.09.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.410.i)
   %264 = trunc nuw i8 %.112.i to i1
   %.not67.i = icmp eq i8 %.114.i, %.112.i
   br i1 %.not67.i, label %286, label %279
@@ -1995,8 +1989,8 @@ _ZN5arrowL14BuildFromArrayEPNS_15BasicDecimal128EPKjl.exit.i: ; preds = %.lr.ph.
   br i1 %278, label %.lr.ph38.i.i140.i, label %.preheader.i.i143.i, !llvm.loop !16
 
 _ZN5arrowL14BuildFromArrayEPNS_15BasicDecimal128EPKjl.exit149.i: ; preds = %.lr.ph.preheader.i.i145.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.09.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.410.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.09.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.410.i)
   br label %_ZN5arrowL16FixDivisionSignsINS_15BasicDecimal128EEEvPT_S3_bb.exit.i
 
 279:                                              ; preds = %.preheader.i.i143.i
@@ -2028,18 +2022,18 @@ _ZN5arrowL14BuildFromArrayEPNS_15BasicDecimal128EPKjl.exit149.i: ; preds = %.lr.
 
 _ZN5arrowL16FixDivisionSignsINS_15BasicDecimal128EEEvPT_S3_bb.exit.i: ; preds = %287, %286, %_ZN5arrowL14BuildFromArrayEPNS_15BasicDecimal128EPKjl.exit149.i, %_ZN5arrowL14BuildFromArrayEPNS_15BasicDecimal128EPKjl.exit.i
   %.1.i = phi i32 [ 2, %_ZN5arrowL14BuildFromArrayEPNS_15BasicDecimal128EPKjl.exit.i ], [ 2, %_ZN5arrowL14BuildFromArrayEPNS_15BasicDecimal128EPKjl.exit149.i ], [ 0, %286 ], [ 0, %287 ]
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %8) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZN5arrowL13DecimalDivideINS_15BasicDecimal128EEENS_13DecimalStatusERKT_S5_PS3_S6_.exit
 
 _ZN5arrowL13DecimalDivideINS_15BasicDecimal128EEENS_13DecimalStatusERKT_S5_PS3_S6_.exit: ; preds = %84, %85, %_ZN5arrowL12SingleDivideINS_15BasicDecimal128EEENS_13DecimalStatusEPKjljPT_bbS6_.exit.i, %_ZN5arrowL16FixDivisionSignsINS_15BasicDecimal128EEEvPT_S3_bb.exit.i
   %.0.i = phi i32 [ 0, %84 ], [ %.0.i113.i, %_ZN5arrowL12SingleDivideINS_15BasicDecimal128EEENS_13DecimalStatusEPKjljPT_bbS6_.exit.i ], [ %.1.i, %_ZN5arrowL16FixDivisionSignsINS_15BasicDecimal128EEEvPT_S3_bb.exit.i ], [ 1, %85 ]
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7) #15
-  call void @llvm.lifetime.end.p0(i64 132, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow15BasicDecimal128oRERKS0_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #5 align 2 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow15BasicDecimal128oRERKS0_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #4 align 2 {
   %3 = load i64, ptr %1, align 8, !tbaa !7
   %4 = load i64, ptr %0, align 8, !tbaa !7
   %5 = or i64 %4, %3
@@ -2054,7 +2048,7 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow15BasicDecimal1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow15BasicDecimal128aNERKS0_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #5 align 2 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow15BasicDecimal128aNERKS0_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #4 align 2 {
   %3 = load i64, ptr %1, align 8, !tbaa !7
   %4 = load i64, ptr %0, align 8, !tbaa !7
   %5 = and i64 %4, %3
@@ -2069,7 +2063,7 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow15BasicDecimal1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow15BasicDecimal128lSEj(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow15BasicDecimal128lSEj(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %24, label %3
 
@@ -2114,7 +2108,7 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow15BasicDecimal1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow15BasicDecimal128rSEj(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow15BasicDecimal128rSEj(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %28, label %3
 
@@ -2165,7 +2159,7 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow15BasicDecimal1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow15BasicDecimal128mLERKS0_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow15BasicDecimal128mLERKS0_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !tbaa !7
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -2233,7 +2227,7 @@ _ZN5arrow15BasicDecimal1283AbsERKS0_.exit18:      ; preds = %_ZN5arrow15BasicDec
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZN5arrowleERKNS_15BasicDecimal128ES2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #7 {
+define noundef zeroext i1 @_ZN5arrowleERKNS_15BasicDecimal128ES2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8, !tbaa !7
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2257,7 +2251,7 @@ _ZN5arrowgtERKNS_15BasicDecimal128ES2_.exit:      ; preds = %2, %8, %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZN5arrowgtERKNS_15BasicDecimal128ES2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #7 {
+define noundef zeroext i1 @_ZN5arrowgtERKNS_15BasicDecimal128ES2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8, !tbaa !7
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2281,7 +2275,7 @@ _ZN5arrowltERKNS_15BasicDecimal128ES2_.exit:      ; preds = %2, %8, %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZN5arrowgeERKNS_15BasicDecimal128ES2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #7 {
+define noundef zeroext i1 @_ZN5arrowgeERKNS_15BasicDecimal128ES2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !tbaa !7
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -2305,7 +2299,7 @@ _ZN5arrowltERKNS_15BasicDecimal128ES2_.exit:      ; preds = %2, %8, %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define { i64, i64 } @_ZN5arrowngERKNS_15BasicDecimal128E(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #7 {
+define { i64, i64 } @_ZN5arrowngERKNS_15BasicDecimal128E(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8, !tbaa !7
   %4 = load i64, ptr %0, align 8, !tbaa !7
@@ -2320,7 +2314,7 @@ define { i64, i64 } @_ZN5arrowngERKNS_15BasicDecimal128E(ptr noundef nonnull rea
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define { i64, i64 } @_ZN5arrowcoERKNS_15BasicDecimal128E(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #7 {
+define { i64, i64 } @_ZN5arrowcoERKNS_15BasicDecimal128E(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8, !tbaa !7
   %4 = xor i64 %3, -1
@@ -2332,7 +2326,7 @@ define { i64, i64 } @_ZN5arrowcoERKNS_15BasicDecimal128E(ptr noundef nonnull rea
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define { i64, i64 } @_ZN5arrowplERKNS_15BasicDecimal128ES2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #7 {
+define { i64, i64 } @_ZN5arrowplERKNS_15BasicDecimal128ES2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !tbaa !7
   %5 = load i64, ptr %0, align 8, !tbaa !7
@@ -2350,7 +2344,7 @@ define { i64, i64 } @_ZN5arrowplERKNS_15BasicDecimal128ES2_(ptr noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define { i64, i64 } @_ZN5arrowmiERKNS_15BasicDecimal128ES2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #7 {
+define { i64, i64 } @_ZN5arrowmiERKNS_15BasicDecimal128ES2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !tbaa !7
   %5 = load i64, ptr %0, align 8, !tbaa !7
@@ -2368,7 +2362,7 @@ define { i64, i64 } @_ZN5arrowmiERKNS_15BasicDecimal128ES2_(ptr noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define { i64, i64 } @_ZN5arrowmlERKNS_15BasicDecimal128ES2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define { i64, i64 } @_ZN5arrowmlERKNS_15BasicDecimal128ES2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !tbaa !7
   %5 = load i64, ptr %0, align 8, !tbaa !7
@@ -2436,14 +2430,14 @@ _ZN5arrow15BasicDecimal128mLERKS0_.exit:          ; preds = %_ZN5arrow15BasicDec
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define { i64, i64 } @_ZN5arrowdvERKNS_15BasicDecimal128ES2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #8 {
+define { i64, i64 } @_ZN5arrowdvERKNS_15BasicDecimal128ES2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #7 {
   %3 = alloca %"class.arrow::BasicDecimal128", align 8
   %4 = alloca %"class.arrow::BasicDecimal128", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   %5 = call noundef i32 @_ZNK5arrow15BasicDecimal1286DivideERKS0_PS0_S3_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %3, ptr noundef nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.fca.0.load = load i64, ptr %3, align 8
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.fca.0.load, 0
   %.fca.1.gep = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -2453,14 +2447,14 @@ define { i64, i64 } @_ZN5arrowdvERKNS_15BasicDecimal128ES2_(ptr noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define { i64, i64 } @_ZN5arrowrmERKNS_15BasicDecimal128ES2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #8 {
+define { i64, i64 } @_ZN5arrowrmERKNS_15BasicDecimal128ES2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #7 {
   %3 = alloca %"class.arrow::BasicDecimal128", align 8
   %4 = alloca %"class.arrow::BasicDecimal128", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   %5 = call noundef i32 @_ZNK5arrow15BasicDecimal1286DivideERKS0_PS0_S3_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %4, ptr noundef nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.fca.0.load = load i64, ptr %3, align 8
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.fca.0.load, 0
   %.fca.1.gep = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -2470,7 +2464,7 @@ define { i64, i64 } @_ZN5arrowrmERKNS_15BasicDecimal128ES2_(ptr noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef range(i32 0, 4) i32 @_ZNK5arrow14BasicDecimal327RescaleEiiPS0_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #5 align 2 {
+define noundef range(i32 0, 4) i32 @_ZNK5arrow14BasicDecimal327RescaleEiiPS0_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #4 align 2 {
   %5 = icmp eq i32 %1, %2
   br i1 %5, label %6, label %8
 
@@ -2529,7 +2523,7 @@ _ZN5arrow14DecimalRescaleINS_14BasicDecimal32EEENS_13DecimalStatusERKT_iiPS3_.ex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef range(i32 0, 4) i32 @_ZNK5arrow14BasicDecimal647RescaleEiiPS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #5 align 2 {
+define noundef range(i32 0, 4) i32 @_ZNK5arrow14BasicDecimal647RescaleEiiPS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #4 align 2 {
   %5 = icmp eq i32 %1, %2
   br i1 %5, label %6, label %8
 
@@ -2588,13 +2582,13 @@ _ZN5arrow14DecimalRescaleINS_14BasicDecimal64EEENS_13DecimalStatusERKT_iiPS3_.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK5arrow15BasicDecimal1287RescaleEiiPS0_(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #3 align 2 {
+define noundef i32 @_ZNK5arrow15BasicDecimal1287RescaleEiiPS0_(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #2 align 2 {
   %5 = tail call noundef i32 @_ZN5arrow14DecimalRescaleINS_15BasicDecimal128EEENS_13DecimalStatusERKT_iiPS3_(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3)
   ret i32 %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef i32 @_ZN5arrow14DecimalRescaleINS_15BasicDecimal128EEENS_13DecimalStatusERKT_iiPS3_(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr noundef i32 @_ZN5arrow14DecimalRescaleINS_15BasicDecimal128EEENS_13DecimalStatusERKT_iiPS3_(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #2 comdat personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.arrow::BasicDecimal128", align 8
   %6 = alloca %"class.arrow::GenericBasicDecimal", align 8
   %7 = icmp eq i32 %1, %2
@@ -2616,16 +2610,16 @@ define linkonce_odr noundef i32 @_ZN5arrow14DecimalRescaleINS_15BasicDecimal128E
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   %16 = call noundef i32 @_ZNK5arrow15BasicDecimal1286DivideERKS0_PS0_S3_(ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %13, ptr noundef %3, ptr noundef nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   %bcmp.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16)
   %bcmp.i.i.i.i.i.i.i.i.fr = freeze i32 %bcmp.i.i.i.i.i.i.i.i
   %.not9.i.i.i.i.i.i.i.i.not = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.fr, 0
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.not9.i.i.i.i.i.i.i.i.not, label %_ZN5arrowL25RescaleWouldCauseDataLossINS_15BasicDecimal128EEEbRKT_iS4_PS2_.exit.thread17, label %_ZN5arrowL25RescaleWouldCauseDataLossINS_15BasicDecimal128EEEbRKT_iS4_PS2_.exit.thread, !prof !27
 
 17:                                               ; preds = %9
@@ -2731,7 +2725,7 @@ _ZN5arrowL25RescaleWouldCauseDataLossINS_15BasicDecimal128EEEbRKT_iS4_PS2_.exit.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZNK5arrow15BasicDecimal12819GetWholeAndFractionEiPS0_S1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #8 align 2 {
+define void @_ZNK5arrow15BasicDecimal12819GetWholeAndFractionEiPS0_S1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #7 align 2 {
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds [39 x %"class.arrow::BasicDecimal128"], ptr @_ZN5arrowL22kDecimal128PowersOfTenE, i64 0, i64 %5
   %7 = tail call noundef i32 @_ZNK5arrow15BasicDecimal1286DivideERKS0_PS0_S3_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef %2, ptr noundef %3)
@@ -2739,26 +2733,26 @@ define void @_ZNK5arrow15BasicDecimal12819GetWholeAndFractionEiPS0_S1_(ptr nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow15BasicDecimal12818GetScaleMultiplierEi(i32 noundef %0) local_unnamed_addr #6 align 2 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow15BasicDecimal12818GetScaleMultiplierEi(i32 noundef %0) local_unnamed_addr #5 align 2 {
   %2 = sext i32 %0 to i64
   %3 = getelementptr inbounds [39 x %"class.arrow::BasicDecimal128"], ptr @_ZN5arrowL22kDecimal128PowersOfTenE, i64 0, i64 %2
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow15BasicDecimal12822GetHalfScaleMultiplierEi(i32 noundef %0) local_unnamed_addr #6 align 2 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow15BasicDecimal12822GetHalfScaleMultiplierEi(i32 noundef %0) local_unnamed_addr #5 align 2 {
   %2 = sext i32 %0 to i64
   %3 = getelementptr inbounds [39 x %"class.arrow::BasicDecimal128"], ptr @_ZN5arrowL26kDecimal128HalfPowersOfTenE, i64 0, i64 %2
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow15BasicDecimal12811GetMaxValueEv() local_unnamed_addr #6 align 2 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow15BasicDecimal12811GetMaxValueEv() local_unnamed_addr #5 align 2 {
   ret ptr @_ZN5arrowL19kMaxDecimal128ValueE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define { i64, i64 } @_ZN5arrow15BasicDecimal12811GetMaxValueEi(i32 noundef %0) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define { i64, i64 } @_ZN5arrow15BasicDecimal12811GetMaxValueEi(i32 noundef %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = sext i32 %0 to i64
   %3 = getelementptr inbounds [39 x %"class.arrow::BasicDecimal128"], ptr @_ZN5arrowL22kDecimal128PowersOfTenE, i64 0, i64 %2
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -2774,7 +2768,7 @@ define { i64, i64 } @_ZN5arrow15BasicDecimal12811GetMaxValueEi(i32 noundef %0) l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define { i64, i64 } @_ZNK5arrow15BasicDecimal12815IncreaseScaleByEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define { i64, i64 } @_ZNK5arrow15BasicDecimal12815IncreaseScaleByEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds [39 x %"class.arrow::BasicDecimal128"], ptr @_ZN5arrowL22kDecimal128PowersOfTenE, i64 0, i64 %3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2844,7 +2838,7 @@ _ZN5arrowmlERKNS_15BasicDecimal128ES2_.exit:      ; preds = %_ZN5arrow15BasicDec
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define { i64, i64 } @_ZNK5arrow15BasicDecimal12813ReduceScaleByEib(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define { i64, i64 } @_ZNK5arrow15BasicDecimal12813ReduceScaleByEib(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.arrow::BasicDecimal128", align 8
   %5 = alloca %"class.arrow::BasicDecimal128", align 8
   %6 = icmp eq i32 %1, 0
@@ -2858,7 +2852,7 @@ define { i64, i64 } @_ZNK5arrow15BasicDecimal12813ReduceScaleByEib(ptr noundef n
   %9 = sext i32 %1 to i64
   %10 = getelementptr inbounds [39 x %"class.arrow::BasicDecimal128"], ptr @_ZN5arrowL22kDecimal128PowersOfTenE, i64 0, i64 %9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   %11 = call noundef i32 @_ZNK5arrow15BasicDecimal1286DivideERKS0_PS0_S3_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull %4, ptr noundef nonnull %5)
   br i1 %2, label %12, label %_ZN5arrowgeERKNS_15BasicDecimal128ES2_.exit.thread7
@@ -2913,7 +2907,7 @@ _ZN5arrowgeERKNS_15BasicDecimal128ES2_.exit.thread: ; preds = %24
   br label %_ZN5arrowgeERKNS_15BasicDecimal128ES2_.exit.thread7
 
 _ZN5arrowgeERKNS_15BasicDecimal128ES2_.exit.thread7: ; preds = %24, %_ZN5arrow15BasicDecimal1283AbsEv.exit, %_ZN5arrowgeERKNS_15BasicDecimal128ES2_.exit.thread, %8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %40
 
 40:                                               ; preds = %_ZN5arrowgeERKNS_15BasicDecimal128ES2_.exit.thread7, %7
@@ -2926,7 +2920,7 @@ _ZN5arrowgeERKNS_15BasicDecimal128ES2_.exit.thread7: ; preds = %24, %_ZN5arrow15
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i32 0, 129) i32 @_ZNK5arrow15BasicDecimal12823CountLeadingBinaryZerosEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #7 align 2 {
+define noundef range(i32 0, 129) i32 @_ZNK5arrow15BasicDecimal12823CountLeadingBinaryZerosEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8, !tbaa !7
   %4 = icmp eq i64 %3, 0
@@ -2950,7 +2944,7 @@ define noundef range(i32 0, 129) i32 @_ZNK5arrow15BasicDecimal12823CountLeadingB
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal2566NegateEv(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(32) %0) local_unnamed_addr #8 align 2 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal2566NegateEv(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(32) %0) local_unnamed_addr #7 align 2 {
   br label %3
 
 2:                                                ; preds = %3
@@ -2972,7 +2966,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal2563AbsEv(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(32) %0) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal2563AbsEv(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(32) %0) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i64, ptr %2, align 8, !tbaa !7
   %4 = icmp slt i64 %3, 0
@@ -2997,7 +2991,7 @@ _ZN5arrow15BasicDecimal2566NegateEv.exit:         ; preds = %.preheader, %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZN5arrowltERKNS_15BasicDecimal256ES2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #7 {
+define noundef zeroext i1 @_ZN5arrowltERKNS_15BasicDecimal256ES2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i64, ptr %3, align 8, !tbaa !7
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -3045,9 +3039,9 @@ define noundef zeroext i1 @_ZN5arrowltERKNS_15BasicDecimal256ES2_(ptr noundef no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN5arrow15BasicDecimal2563AbsERKS0_(ptr dead_on_unwind noalias writable writeonly sret(%"class.arrow::BasicDecimal256") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow15BasicDecimal2563AbsERKS0_(ptr dead_on_unwind noalias writable writeonly sret(%"class.arrow::BasicDecimal256") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.arrow::BasicDecimal256", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load i64, ptr %4, align 8, !tbaa !7
@@ -3070,12 +3064,12 @@ define void @_ZN5arrow15BasicDecimal2563AbsERKS0_(ptr dead_on_unwind noalias wri
 
 _ZN5arrow15BasicDecimal2563AbsEv.exit:            ; preds = %.preheader.i, %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal256pLERKS0_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #8 align 2 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal256pLERKS0_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #7 align 2 {
   br label %4
 
 3:                                                ; preds = %4
@@ -3102,7 +3096,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal256mIERKS0_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #8 align 2 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal256mIERKS0_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #7 align 2 {
   %3 = alloca %"class.arrow::BasicDecimal256", align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull readonly align 8 dereferenceable(32) %1, i64 32, i1 false)
   br label %4
@@ -3145,9 +3139,9 @@ _ZN5arrow15BasicDecimal256pLERKS0_.exit:          ; preds = %_ZN5arrowngERKNS_15
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN5arrowngERKNS_15BasicDecimal256E(ptr dead_on_unwind noalias writable writeonly sret(%"class.arrow::BasicDecimal256") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #8 {
+define void @_ZN5arrowngERKNS_15BasicDecimal256E(ptr dead_on_unwind noalias writable writeonly sret(%"class.arrow::BasicDecimal256") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #7 {
   %3 = alloca %"class.arrow::BasicDecimal256", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   br label %4
 
@@ -3167,12 +3161,12 @@ define void @_ZN5arrowngERKNS_15BasicDecimal256E(ptr dead_on_unwind noalias writ
 
 _ZN5arrow15BasicDecimal2566NegateEv.exit:         ; preds = %4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal256lSEj(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(32) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal256lSEj(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(32) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
   %3 = icmp eq i32 %1, 0
   br i1 %3, label %.loopexit, label %4
 
@@ -3264,7 +3258,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal256rSEj(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(32) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal256rSEj(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(32) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
   %3 = alloca %"struct.std::array.2", align 8
   %4 = alloca %"struct.std::array.2", align 8
   %5 = icmp eq i32 %1, 0
@@ -3287,7 +3281,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal2
   br i1 %.not.i.i.i.i.i, label %_ZNSt5arrayImLm4EE4fillERKm.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !33
 
 12:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false)
   br label %.lr.ph.i.i.i.i.i24
 
@@ -3328,7 +3322,7 @@ _ZNSt5arrayImLm4EE4fillERKm.exit29.us.preheader:  ; preds = %.lr.ph
 
 _ZNSt5arrayImLm4EE4fillERKm.exit29._crit_edge:    ; preds = %_ZNSt5arrayImLm4EE4fillERKm.exit29, %_ZNSt5arrayImLm4EE4fillERKm.exit29.us.preheader
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZNSt5arrayImLm4EE4fillERKm.exit
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %_ZNSt5arrayImLm4EE4fillERKm.exit29
@@ -3361,7 +3355,7 @@ _ZNSt5arrayImLm4EE4fillERKm.exit:                 ; preds = %.lr.ph.i.i.i.i.i, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal256mLERKS0_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal256mLERKS0_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.arrow::BasicDecimal256", align 8
   %4 = alloca %"class.arrow::BasicDecimal256", align 8
   %5 = alloca %"struct.std::array.2", align 8
@@ -3413,7 +3407,7 @@ _ZN5arrow15BasicDecimal2563AbsERKS0_.exit:        ; preds = %.preheader.i.i, %2
   br i1 %exitcond.not.i.i.i6, label %_ZN5arrow15BasicDecimal2563AbsERKS0_.exit7, label %.preheader.i.i3, !llvm.loop !29
 
 _ZN5arrow15BasicDecimal2563AbsERKS0_.exit7:       ; preds = %.preheader.i.i3, %_ZN5arrow15BasicDecimal2563AbsERKS0_.exit
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   br label %.lr.ph.i
 
@@ -3472,12 +3466,12 @@ _ZN5arrow12_GLOBAL__N_121MultiplyUnsignedArrayILi4EEEvRKSt5arrayImXT_EES5_PS3_.e
   br i1 %exitcond.not.i8, label %_ZN5arrow15BasicDecimal2566NegateEv.exit, label %.preheader, !llvm.loop !29
 
 _ZN5arrow15BasicDecimal2566NegateEv.exit:         ; preds = %.preheader, %_ZN5arrow12_GLOBAL__N_121MultiplyUnsignedArrayILi4EEEvRKSt5arrayImXT_EES5_PS3_.exit
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef range(i32 0, 3) i32 @_ZNK5arrow15BasicDecimal2566DivideERKS0_PS0_S3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 3) i32 @_ZNK5arrow15BasicDecimal2566DivideERKS0_PS0_S3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.std::array.2", align 8
   %6 = alloca %"struct.std::array.2", align 8
   %7 = alloca %"struct.std::array.2", align 8
@@ -3487,11 +3481,11 @@ define noundef range(i32 0, 3) i32 @_ZNK5arrow15BasicDecimal2566DivideERKS0_PS0_
   %11 = alloca [65 x i32], align 16
   %12 = alloca [64 x i32], align 16
   %13 = alloca [64 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 260, ptr nonnull %11) #15
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %12) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 0, ptr %11, align 16, !tbaa !15
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull readonly align 8 dereferenceable(32) %0, i64 32, i1 false)
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %16 = load i64, ptr %15, align 8, !tbaa !7
@@ -3562,9 +3556,9 @@ _ZN5arrow15BasicDecimal2566NegateEv.exit.i.i:     ; preds = %_ZN5arrow15BasicDec
 
 _ZN5arrowL11FillInArrayERKNS_15BasicDecimal256EPjRb.exit.i: ; preds = %31, %.lr.ph.i.i.i, %.loopexit.i.i.i
   %.120.lcssa.i.i.i = phi i64 [ %.019.i.i.i, %.loopexit.i.i.i ], [ %40, %.lr.ph.i.i.i ], [ 0, %31 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %43 = add nuw nsw i64 %.120.lcssa.i.i.i, 1
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull readonly align 8 dereferenceable(32) %1, i64 32, i1 false)
   %44 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %45 = load i64, ptr %44, align 8, !tbaa !7
@@ -3635,7 +3629,7 @@ _ZN5arrow15BasicDecimal2566NegateEv.exit.i115.i:  ; preds = %_ZN5arrow15BasicDec
 
 _ZN5arrowL11FillInArrayERKNS_15BasicDecimal256EPjRb.exit116.i: ; preds = %60, %.lr.ph.i.i106.i, %.loopexit.i.i102.i
   %.120.lcssa.i.i105.i = phi i64 [ %.019.i.i103.i, %.loopexit.i.i102.i ], [ %69, %.lr.ph.i.i106.i ], [ 0, %60 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %.not.not.i = icmp slt i64 %.120.lcssa.i.i.i, %.120.lcssa.i.i105.i
   br i1 %.not.not.i, label %72, label %73
 
@@ -3652,12 +3646,12 @@ _ZN5arrowL11FillInArrayERKNS_15BasicDecimal256EPjRb.exit116.i: ; preds = %60, %.
 
 .lr.ph.i.i:                                       ; preds = %73
   %74 = load i32, ptr %12, align 16, !tbaa !15
-  call void @llvm.lifetime.start.p0(i64 260, ptr nonnull %8) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %75 = zext i32 %74 to i64
   br label %104
 
 ._crit_edge.i.i:                                  ; preds = %104
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %76 = add i64 %.120.lcssa.i.i.i, -8
   %77 = icmp sgt i64 %76, -1
   br i1 %77, label %.lr.ph.i.i.i.i, label %.lr.ph38.i.i.i.i.preheader
@@ -3720,7 +3714,7 @@ _ZN5arrowL11FillInArrayERKNS_15BasicDecimal256EPjRb.exit116.i: ; preds = %60, %.
   br i1 %103, label %.lr.ph38.i.i.i.i, label %.preheader.i.i.i.i, !llvm.loop !40
 
 _ZN5arrowL14BuildFromArrayEPNS_15BasicDecimal256EPKjl.exit.i.i: ; preds = %.lr.ph.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN5arrowL12SingleDivideINS_15BasicDecimal256EEENS_13DecimalStatusEPKjljPT_bbS6_.exit.i
 
 104:                                              ; preds = %104, %.lr.ph.i.i
@@ -3742,7 +3736,7 @@ _ZN5arrowL14BuildFromArrayEPNS_15BasicDecimal256EPKjl.exit.i.i: ; preds = %.lr.p
 
 115:                                              ; preds = %.lr.ph40.preheader.i.i.i.i, %.preheader.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   store i64 %113, ptr %3, align 8
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.0..sroa_idx.i.i, i8 0, i64 24, i1 false)
@@ -3782,12 +3776,12 @@ _ZN5arrow15BasicDecimal2566NegateEv.exit.i.i.i:   ; preds = %.preheader8.i.i.i, 
 
 _ZN5arrowL12SingleDivideINS_15BasicDecimal256EEENS_13DecimalStatusEPKjljPT_bbS6_.exit.i: ; preds = %.preheader.i.i.i, %_ZN5arrow15BasicDecimal2566NegateEv.exit.i.i.i, %_ZN5arrowL14BuildFromArrayEPNS_15BasicDecimal256EPKjl.exit.i.i
   %.0.i.i = phi i32 [ 2, %_ZN5arrowL14BuildFromArrayEPNS_15BasicDecimal256EPKjl.exit.i.i ], [ 0, %_ZN5arrow15BasicDecimal2566NegateEv.exit.i.i.i ], [ 0, %.preheader.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 260, ptr nonnull %8) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZN5arrowL13DecimalDivideINS_15BasicDecimal256EEENS_13DecimalStatusERKT_S5_PS3_S6_.exit
 
 131:                                              ; preds = %73
   %132 = sub i64 %43, %.120.lcssa.i.i105.i
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %13) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %133 = load i32, ptr %12, align 16, !tbaa !15
   %134 = tail call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %133, i1 false)
   %135 = icmp sgt i64 %.120.lcssa.i.i105.i, 0
@@ -3899,7 +3893,7 @@ _ZN5arrowL14ShiftArrayLeftEPjll.exit128.i:        ; preds = %._crit_edge.i123.i,
   br i1 %183, label %174, label %._crit_edge.i131.i, !llvm.loop !20
 
 _ZN5arrowL15ShiftArrayRightEPjll.exit.i:          ; preds = %._crit_edge.i131.i, %._crit_edge201.i
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %184 = add i64 %132, -9
   %185 = icmp sgt i64 %184, -1
   br i1 %185, label %.lr.ph.i.i136.i, label %.lr.ph38.preheader.i.i.i
@@ -3963,7 +3957,7 @@ _ZN5arrowL15ShiftArrayRightEPjll.exit.i:          ; preds = %._crit_edge.i131.i,
   br i1 %212, label %.lr.ph38.i.i.i, label %.preheader.i.i135.i, !llvm.loop !40
 
 _ZN5arrowL14BuildFromArrayEPNS_15BasicDecimal256EPKjl.exit.i: ; preds = %.lr.ph.i.i136.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN5arrowL16FixDivisionSignsINS_15BasicDecimal256EEEvPT_S3_bb.exit.i
 
 213:                                              ; preds = %._crit_edge.thread.i, %.lr.ph200.i
@@ -4086,8 +4080,8 @@ _ZN5arrowL14BuildFromArrayEPNS_15BasicDecimal256EPKjl.exit.i: ; preds = %.lr.ph.
 
 280:                                              ; preds = %.lr.ph40.preheader.i.i.i, %.preheader.i.i135.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %281 = add i64 %.120.lcssa.i.i.i, -8
   %282 = icmp sgt i64 %281, -1
   br i1 %282, label %.lr.ph.i.i150.i, label %.lr.ph38.i.i144.i.preheader
@@ -4150,12 +4144,12 @@ _ZN5arrowL14BuildFromArrayEPNS_15BasicDecimal256EPKjl.exit.i: ; preds = %.lr.ph.
   br i1 %308, label %.lr.ph38.i.i144.i, label %.preheader.i.i147.i, !llvm.loop !40
 
 _ZN5arrowL14BuildFromArrayEPNS_15BasicDecimal256EPKjl.exit153.i: ; preds = %.lr.ph.i.i150.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN5arrowL16FixDivisionSignsINS_15BasicDecimal256EEEvPT_S3_bb.exit.i
 
 309:                                              ; preds = %.lr.ph40.preheader.i.i139.i, %.preheader.i.i147.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %310 = xor i1 %17, %46
   br i1 %310, label %.preheader8.i.i, label %_ZN5arrow15BasicDecimal2566NegateEv.exit.i154.i
 
@@ -4192,24 +4186,24 @@ _ZN5arrow15BasicDecimal2566NegateEv.exit.i154.i:  ; preds = %.preheader8.i.i, %3
 
 _ZN5arrowL16FixDivisionSignsINS_15BasicDecimal256EEEvPT_S3_bb.exit.i: ; preds = %.preheader.i155.i, %_ZN5arrow15BasicDecimal2566NegateEv.exit.i154.i, %_ZN5arrowL14BuildFromArrayEPNS_15BasicDecimal256EPKjl.exit153.i, %_ZN5arrowL14BuildFromArrayEPNS_15BasicDecimal256EPKjl.exit.i
   %.1.i = phi i32 [ 2, %_ZN5arrowL14BuildFromArrayEPNS_15BasicDecimal256EPKjl.exit.i ], [ 2, %_ZN5arrowL14BuildFromArrayEPNS_15BasicDecimal256EPKjl.exit153.i ], [ 0, %_ZN5arrow15BasicDecimal2566NegateEv.exit.i154.i ], [ 0, %.preheader.i155.i ]
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %13) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %_ZN5arrowL13DecimalDivideINS_15BasicDecimal256EEENS_13DecimalStatusERKT_S5_PS3_S6_.exit
 
 _ZN5arrowL13DecimalDivideINS_15BasicDecimal256EEENS_13DecimalStatusERKT_S5_PS3_S6_.exit: ; preds = %72, %73, %_ZN5arrowL12SingleDivideINS_15BasicDecimal256EEENS_13DecimalStatusEPKjljPT_bbS6_.exit.i, %_ZN5arrowL16FixDivisionSignsINS_15BasicDecimal256EEEvPT_S3_bb.exit.i
   %.0.i = phi i32 [ 0, %72 ], [ %.0.i.i, %_ZN5arrowL12SingleDivideINS_15BasicDecimal256EEENS_13DecimalStatusEPKjljPT_bbS6_.exit.i ], [ %.1.i, %_ZN5arrowL16FixDivisionSignsINS_15BasicDecimal256EEEvPT_S3_bb.exit.i ], [ 1, %73 ]
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %12) #15
-  call void @llvm.lifetime.end.p0(i64 260, ptr nonnull %11) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i32 %.0.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK5arrow15BasicDecimal2567RescaleEiiPS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #3 align 2 {
+define noundef i32 @_ZNK5arrow15BasicDecimal2567RescaleEiiPS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #2 align 2 {
   %5 = tail call noundef i32 @_ZN5arrow14DecimalRescaleINS_15BasicDecimal256EEENS_13DecimalStatusERKT_iiPS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3)
   ret i32 %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef i32 @_ZN5arrow14DecimalRescaleINS_15BasicDecimal256EEENS_13DecimalStatusERKT_iiPS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr noundef i32 @_ZN5arrow14DecimalRescaleINS_15BasicDecimal256EEENS_13DecimalStatusERKT_iiPS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #2 comdat personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.arrow::BasicDecimal256", align 8
   %6 = alloca %"class.arrow::GenericBasicDecimal.1", align 8
   %7 = alloca %"class.arrow::BasicDecimal256", align 8
@@ -4229,23 +4223,23 @@ define linkonce_odr noundef i32 @_ZN5arrow14DecimalRescaleINS_15BasicDecimal256E
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   %17 = call noundef i32 @_ZNK5arrow15BasicDecimal2566DivideERKS0_PS0_S3_(ptr noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(32) %14, ptr noundef %3, ptr noundef nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false)
   %bcmp.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32)
   %.not9.i.i.i.i.i.i.i.i = icmp ne i32 %bcmp.i.i.i.i.i.i.i.i, 0
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #15
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN5arrowL25RescaleWouldCauseDataLossINS_15BasicDecimal256EEEbRKT_iS4_PS2_.exit
 
 18:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull readonly align 8 dereferenceable(32) %0, i64 32, i1 false)
   %19 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal256mLERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull readonly align 8 dereferenceable(32) %14)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %21 = load i64, ptr %20, align 8, !tbaa !7
   %22 = icmp slt i64 %21, 0
@@ -4339,7 +4333,7 @@ _ZN5arrowL25RescaleWouldCauseDataLossINS_15BasicDecimal256EEEbRKT_iS4_PS2_.exit:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZNK5arrow15BasicDecimal25615IncreaseScaleByEi(ptr dead_on_unwind noalias nonnull writable sret(%"class.arrow::BasicDecimal256") align 8 captures(none) initializes((0, 32)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
+define void @_ZNK5arrow15BasicDecimal25615IncreaseScaleByEi(ptr dead_on_unwind noalias nonnull writable sret(%"class.arrow::BasicDecimal256") align 8 captures(none) initializes((0, 32)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, i32 noundef %2) local_unnamed_addr #7 align 2 {
   %4 = sext i32 %2 to i64
   %5 = getelementptr inbounds [77 x %"class.arrow::BasicDecimal256"], ptr @_ZN5arrowL22kDecimal256PowersOfTenE, i64 0, i64 %4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(32) %1, i64 32, i1 false)
@@ -4348,14 +4342,14 @@ define void @_ZNK5arrow15BasicDecimal25615IncreaseScaleByEi(ptr dead_on_unwind n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN5arrowmlERKNS_15BasicDecimal256ES2_(ptr dead_on_unwind noalias nonnull writable sret(%"class.arrow::BasicDecimal256") align 8 captures(none) initializes((0, 32)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %2) local_unnamed_addr #8 {
+define void @_ZN5arrowmlERKNS_15BasicDecimal256ES2_(ptr dead_on_unwind noalias nonnull writable sret(%"class.arrow::BasicDecimal256") align 8 captures(none) initializes((0, 32)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %2) local_unnamed_addr #7 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   %4 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal256mLERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %2)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZNK5arrow15BasicDecimal25613ReduceScaleByEib(ptr dead_on_unwind noalias writable sret(%"class.arrow::BasicDecimal256") align 8 captures(none) initializes((0, 32)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, i32 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5arrow15BasicDecimal25613ReduceScaleByEib(ptr dead_on_unwind noalias writable sret(%"class.arrow::BasicDecimal256") align 8 captures(none) initializes((0, 32)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, i32 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.arrow::BasicDecimal256", align 8
   %6 = alloca %"class.arrow::BasicDecimal256", align 8
   %7 = icmp eq i32 %2, 0
@@ -4369,7 +4363,7 @@ define void @_ZNK5arrow15BasicDecimal25613ReduceScaleByEib(ptr dead_on_unwind no
   %10 = sext i32 %2 to i64
   %11 = getelementptr inbounds [77 x %"class.arrow::BasicDecimal256"], ptr @_ZN5arrowL22kDecimal256PowersOfTenE, i64 0, i64 %10
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   %12 = call noundef i32 @_ZNK5arrow15BasicDecimal2566DivideERKS0_PS0_S3_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull %0, ptr noundef nonnull %5)
   br i1 %3, label %13, label %58
@@ -4441,7 +4435,7 @@ _ZN5arrowgeERKNS_15BasicDecimal256ES2_.exit:      ; preds = %33
   br i1 %39, label %58, label %40
 
 40:                                               ; preds = %36, %31, %26, %_ZN5arrowgeERKNS_15BasicDecimal256ES2_.exit
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %42 = load i64, ptr %41, align 8, !tbaa !7
   %43 = ashr i64 %42, 63
@@ -4479,11 +4473,11 @@ _ZN5arrow15BasicDecimal256CI2NS_19GenericBasicDecimalIS0_Li256ELi4EEEIllEET_.exi
   br i1 %exitcond.not.i, label %_ZN5arrow15BasicDecimal256pLERKS0_.exit, label %47, !llvm.loop !30
 
 _ZN5arrow15BasicDecimal256pLERKS0_.exit:          ; preds = %47
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %58
 
 58:                                               ; preds = %36, %31, %26, %_ZN5arrowgeERKNS_15BasicDecimal256ES2_.exit, %_ZN5arrow15BasicDecimal256pLERKS0_.exit, %9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %59
 
 59:                                               ; preds = %58, %8
@@ -4491,9 +4485,9 @@ _ZN5arrow15BasicDecimal256pLERKS0_.exit:          ; preds = %47
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZNK5arrow15BasicDecimal25615FitsInPrecisionEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, i32 noundef %1) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZNK5arrow15BasicDecimal25615FitsInPrecisionEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, i32 noundef %1) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.arrow::BasicDecimal256", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #15, !noalias !50
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !50
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull readonly align 8 dereferenceable(32) %0, i64 32, i1 false), !noalias !50
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load i64, ptr %4, align 8, !tbaa !7, !noalias !50
@@ -4525,7 +4519,7 @@ _ZN5arrow15BasicDecimal2563AbsERKS0_.exit:        ; preds = %_ZN5arrow15BasicDec
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #15, !noalias !50
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !50
   %14 = sext i32 %1 to i64
   %15 = getelementptr inbounds [77 x %"class.arrow::BasicDecimal256"], ptr @_ZN5arrowL22kDecimal256PowersOfTenE, i64 0, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
@@ -4568,7 +4562,7 @@ _ZN5arrowltERKNS_15BasicDecimal256ES2_.exit:      ; preds = %18, %23, %28, %30
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZNK5arrow15BasicDecimal25619GetWholeAndFractionEiPS0_S1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #8 align 2 {
+define void @_ZNK5arrow15BasicDecimal25619GetWholeAndFractionEiPS0_S1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #7 align 2 {
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds [77 x %"class.arrow::BasicDecimal256"], ptr @_ZN5arrowL22kDecimal256PowersOfTenE, i64 0, i64 %5
   %7 = tail call noundef i32 @_ZNK5arrow15BasicDecimal2566DivideERKS0_PS0_S3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %2, ptr noundef %3)
@@ -4576,25 +4570,25 @@ define void @_ZNK5arrow15BasicDecimal25619GetWholeAndFractionEiPS0_S1_(ptr nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal25618GetScaleMultiplierEi(i32 noundef %0) local_unnamed_addr #6 align 2 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal25618GetScaleMultiplierEi(i32 noundef %0) local_unnamed_addr #5 align 2 {
   %2 = sext i32 %0 to i64
   %3 = getelementptr inbounds [77 x %"class.arrow::BasicDecimal256"], ptr @_ZN5arrowL22kDecimal256PowersOfTenE, i64 0, i64 %2
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal25622GetHalfScaleMultiplierEi(i32 noundef %0) local_unnamed_addr #6 align 2 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal25622GetHalfScaleMultiplierEi(i32 noundef %0) local_unnamed_addr #5 align 2 {
   %2 = sext i32 %0 to i64
   %3 = getelementptr inbounds [77 x %"class.arrow::BasicDecimal256"], ptr @_ZN5arrowL26kDecimal256HalfPowersOfTenE, i64 0, i64 %2
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZN5arrow15BasicDecimal25611GetMaxValueEi(ptr dead_on_unwind noalias writable sret(%"class.arrow::BasicDecimal256") align 8 captures(none) initializes((0, 32)) %0, i32 noundef %1) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow15BasicDecimal25611GetMaxValueEi(ptr dead_on_unwind noalias writable sret(%"class.arrow::BasicDecimal256") align 8 captures(none) initializes((0, 32)) %0, i32 noundef %1) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.arrow::BasicDecimal256", align 8
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds [77 x %"class.arrow::BasicDecimal256"], ptr @_ZN5arrowL22kDecimal256PowersOfTenE, i64 0, i64 %4
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !53)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 -1, i64 32, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 16 dereferenceable(32) %5, i64 32, i1 false)
@@ -4620,12 +4614,12 @@ define void @_ZN5arrow15BasicDecimal25611GetMaxValueEi(ptr dead_on_unwind noalia
   br i1 %exitcond.not.i.i, label %_ZN5arrowplERKNS_15BasicDecimal256ES2_.exit, label %6, !llvm.loop !30
 
 _ZN5arrowplERKNS_15BasicDecimal256ES2_.exit:      ; preds = %6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN5arrowplERKNS_15BasicDecimal256ES2_(ptr dead_on_unwind noalias writable sret(%"class.arrow::BasicDecimal256") align 8 captures(none) initializes((0, 32)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %2) local_unnamed_addr #8 {
+define void @_ZN5arrowplERKNS_15BasicDecimal256ES2_(ptr dead_on_unwind noalias writable sret(%"class.arrow::BasicDecimal256") align 8 captures(none) initializes((0, 32)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %2) local_unnamed_addr #7 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   br label %4
 
@@ -4653,7 +4647,7 @@ _ZN5arrow15BasicDecimal256pLERKS0_.exit:          ; preds = %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN5arrowcoERKNS_15BasicDecimal256E(ptr dead_on_unwind noalias writable writeonly sret(%"class.arrow::BasicDecimal256") align 8 captures(none) initializes((0, 32)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #5 {
+define void @_ZN5arrowcoERKNS_15BasicDecimal256E(ptr dead_on_unwind noalias writable writeonly sret(%"class.arrow::BasicDecimal256") align 8 captures(none) initializes((0, 32)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #4 {
   %3 = load i64, ptr %1, align 8, !tbaa !7
   %4 = xor i64 %3, -1
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -4676,34 +4670,40 @@ define void @_ZN5arrowcoERKNS_15BasicDecimal256E(ptr dead_on_unwind noalias writ
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal256dVERKS0_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #8 align 2 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal256dVERKS0_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #7 align 2 {
   %3 = alloca %"class.arrow::BasicDecimal256", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
   %4 = call noundef i32 @_ZNK5arrow15BasicDecimal2566DivideERKS0_PS0_S3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %0, ptr noundef nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN5arrowdvERKNS_15BasicDecimal256ES2_(ptr dead_on_unwind noalias writable sret(%"class.arrow::BasicDecimal256") align 8 captures(none) initializes((0, 32)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %2) local_unnamed_addr #8 {
+define void @_ZN5arrowdvERKNS_15BasicDecimal256ES2_(ptr dead_on_unwind noalias writable sret(%"class.arrow::BasicDecimal256") align 8 captures(none) initializes((0, 32)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %2) local_unnamed_addr #7 {
   %4 = alloca %"class.arrow::BasicDecimal256", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   %5 = call noundef i32 @_ZNK5arrow15BasicDecimal2566DivideERKS0_PS0_S3_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull %0, ptr noundef nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #10
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #10
+declare i64 @llvm.ctlz.i64(i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #10
+declare i32 @llvm.abs.i32(i32, i1 immarg) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #11
@@ -4722,20 +4722,19 @@ declare i32 @llvm.smin.i32(i32, i32) #14
 
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #2 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #15 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

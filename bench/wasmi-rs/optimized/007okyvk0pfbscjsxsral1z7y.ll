@@ -72,22 +72,22 @@ define void @"_ZN76_$LT$wasmi_fuzz..config..FuzzSmithConfig$u20$as$u20$arbitrary
   %29 = alloca [16 x i8], align 8
   %30 = alloca [24 x i8], align 8
   %31 = alloca [16 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %31)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %30)
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   store i64 0, ptr %30, align 8
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i64 1000, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 16
   store i8 0, ptr %33, align 8
   call void @_ZN9arbitrary12unstructured12Unstructured12int_in_range17hc4963a0dc6a008c8E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %31, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %30)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
   %34 = load i8, ptr %31, align 8, !range !3, !noundef !4
   %35 = trunc nuw i8 %34 to i1
   %36 = getelementptr inbounds nuw i8, ptr %31, i64 1
   %37 = load i8, ptr %36, align 1, !range !5
   %38 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %39 = load i64, ptr %38, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
   br i1 %35, label %40, label %42
 
 40:                                               ; preds = %2
@@ -97,22 +97,22 @@ define void @"_ZN76_$LT$wasmi_fuzz..config..FuzzSmithConfig$u20$as$u20$arbitrary
   br label %246
 
 42:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %29)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %28)
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   store i64 0, ptr %28, align 8
   %43 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store i64 1000, ptr %43, align 8
   %44 = getelementptr inbounds nuw i8, ptr %28, i64 16
   store i8 0, ptr %44, align 8
   call void @_ZN9arbitrary12unstructured12Unstructured12int_in_range17hc4963a0dc6a008c8E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %29, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %28)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   %45 = load i8, ptr %29, align 8, !range !3, !noundef !4
   %46 = trunc nuw i8 %45 to i1
   %47 = getelementptr inbounds nuw i8, ptr %29, i64 1
   %48 = load i8, ptr %47, align 1, !range !5
   %49 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %50 = load i64, ptr %49, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   br i1 %46, label %51, label %53
 
 51:                                               ; preds = %42
@@ -122,22 +122,22 @@ define void @"_ZN76_$LT$wasmi_fuzz..config..FuzzSmithConfig$u20$as$u20$arbitrary
   br label %246
 
 53:                                               ; preds = %42
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %27)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   store i64 0, ptr %26, align 8
   %54 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store i64 1000, ptr %54, align 8
   %55 = getelementptr inbounds nuw i8, ptr %26, i64 16
   store i8 0, ptr %55, align 8
   call void @_ZN9arbitrary12unstructured12Unstructured12int_in_range17hc4963a0dc6a008c8E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %27, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %26)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   %56 = load i8, ptr %27, align 8, !range !3, !noundef !4
   %57 = trunc nuw i8 %56 to i1
   %58 = getelementptr inbounds nuw i8, ptr %27, i64 1
   %59 = load i8, ptr %58, align 1, !range !5
   %60 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %61 = load i64, ptr %60, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br i1 %57, label %62, label %64
 
 62:                                               ; preds = %53
@@ -147,22 +147,22 @@ define void @"_ZN76_$LT$wasmi_fuzz..config..FuzzSmithConfig$u20$as$u20$arbitrary
   br label %246
 
 64:                                               ; preds = %53
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %25)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   store i64 0, ptr %24, align 8
   %65 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i64 1000, ptr %65, align 8
   %66 = getelementptr inbounds nuw i8, ptr %24, i64 16
   store i8 0, ptr %66, align 8
   call void @_ZN9arbitrary12unstructured12Unstructured12int_in_range17hc4963a0dc6a008c8E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %25, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %24)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   %67 = load i8, ptr %25, align 8, !range !3, !noundef !4
   %68 = trunc nuw i8 %67 to i1
   %69 = getelementptr inbounds nuw i8, ptr %25, i64 1
   %70 = load i8, ptr %69, align 1, !range !5
   %71 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %72 = load i64, ptr %71, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br i1 %68, label %73, label %75
 
 73:                                               ; preds = %64
@@ -172,22 +172,22 @@ define void @"_ZN76_$LT$wasmi_fuzz..config..FuzzSmithConfig$u20$as$u20$arbitrary
   br label %246
 
 75:                                               ; preds = %64
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %23)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   store i64 0, ptr %22, align 8
   %76 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i64 1000, ptr %76, align 8
   %77 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store i8 0, ptr %77, align 8
   call void @_ZN9arbitrary12unstructured12Unstructured12int_in_range17hc4963a0dc6a008c8E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %23, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %22)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   %78 = load i8, ptr %23, align 8, !range !3, !noundef !4
   %79 = trunc nuw i8 %78 to i1
   %80 = getelementptr inbounds nuw i8, ptr %23, i64 1
   %81 = load i8, ptr %80, align 1, !range !5
   %82 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %83 = load i64, ptr %82, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br i1 %79, label %84, label %86
 
 84:                                               ; preds = %75
@@ -197,22 +197,22 @@ define void @"_ZN76_$LT$wasmi_fuzz..config..FuzzSmithConfig$u20$as$u20$arbitrary
   br label %246
 
 86:                                               ; preds = %75
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %21)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store i64 0, ptr %20, align 8
   %87 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i64 1000, ptr %87, align 8
   %88 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store i8 0, ptr %88, align 8
   call void @_ZN9arbitrary12unstructured12Unstructured12int_in_range17hc4963a0dc6a008c8E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %21, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %20)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   %89 = load i8, ptr %21, align 8, !range !3, !noundef !4
   %90 = trunc nuw i8 %89 to i1
   %91 = getelementptr inbounds nuw i8, ptr %21, i64 1
   %92 = load i8, ptr %91, align 1, !range !5
   %93 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %94 = load i64, ptr %93, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br i1 %90, label %95, label %97
 
 95:                                               ; preds = %86
@@ -222,22 +222,22 @@ define void @"_ZN76_$LT$wasmi_fuzz..config..FuzzSmithConfig$u20$as$u20$arbitrary
   br label %246
 
 97:                                               ; preds = %86
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %19)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i64 0, ptr %18, align 8
   %98 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i64 1000, ptr %98, align 8
   %99 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store i8 0, ptr %99, align 8
   call void @_ZN9arbitrary12unstructured12Unstructured12int_in_range17hc4963a0dc6a008c8E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %19, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %18)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %100 = load i8, ptr %19, align 8, !range !3, !noundef !4
   %101 = trunc nuw i8 %100 to i1
   %102 = getelementptr inbounds nuw i8, ptr %19, i64 1
   %103 = load i8, ptr %102, align 1, !range !5
   %104 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %105 = load i64, ptr %104, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br i1 %101, label %106, label %108
 
 106:                                              ; preds = %97
@@ -247,22 +247,22 @@ define void @"_ZN76_$LT$wasmi_fuzz..config..FuzzSmithConfig$u20$as$u20$arbitrary
   br label %246
 
 108:                                              ; preds = %97
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i64 0, ptr %16, align 8
   %109 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i64 1000, ptr %109, align 8
   %110 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i8 0, ptr %110, align 8
   call void @_ZN9arbitrary12unstructured12Unstructured12int_in_range17hc4963a0dc6a008c8E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %17, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %16)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %111 = load i8, ptr %17, align 8, !range !3, !noundef !4
   %112 = trunc nuw i8 %111 to i1
   %113 = getelementptr inbounds nuw i8, ptr %17, i64 1
   %114 = load i8, ptr %113, align 1, !range !5
   %115 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %116 = load i64, ptr %115, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br i1 %112, label %117, label %119
 
 117:                                              ; preds = %108
@@ -272,22 +272,22 @@ define void @"_ZN76_$LT$wasmi_fuzz..config..FuzzSmithConfig$u20$as$u20$arbitrary
   br label %246
 
 119:                                              ; preds = %108
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i64 0, ptr %14, align 8
   %120 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i64 1000, ptr %120, align 8
   %121 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i8 0, ptr %121, align 8
   call void @_ZN9arbitrary12unstructured12Unstructured12int_in_range17hc4963a0dc6a008c8E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %15, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %14)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %122 = load i8, ptr %15, align 8, !range !3, !noundef !4
   %123 = trunc nuw i8 %122 to i1
   %124 = getelementptr inbounds nuw i8, ptr %15, i64 1
   %125 = load i8, ptr %124, align 1, !range !5
   %126 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %127 = load i64, ptr %126, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br i1 %123, label %128, label %130
 
 128:                                              ; preds = %119
@@ -297,23 +297,23 @@ define void @"_ZN76_$LT$wasmi_fuzz..config..FuzzSmithConfig$u20$as$u20$arbitrary
   br label %246
 
 130:                                              ; preds = %119
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i64 0, ptr %12, align 8
   %131 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 100, ptr %131, align 8
   %132 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i8 0, ptr %132, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %12, i64 24, i1 false)
   call void @_ZN9arbitrary12unstructured12Unstructured12int_in_range17hc4963a0dc6a008c8E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %13, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %3)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %133 = load i8, ptr %13, align 8, !range !3, !noundef !4
   %134 = trunc nuw i8 %133 to i1
   %135 = getelementptr inbounds nuw i8, ptr %13, i64 1
   %136 = load i8, ptr %135, align 1, !range !5
   %137 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %138 = load i64, ptr %137, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br i1 %134, label %139, label %141
 
 139:                                              ; preds = %130
@@ -323,7 +323,7 @@ define void @"_ZN76_$LT$wasmi_fuzz..config..FuzzSmithConfig$u20$as$u20$arbitrary
   br label %246
 
 141:                                              ; preds = %130
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @_ZN9arbitrary12unstructured12Unstructured12int_in_range17hc4963a0dc6a008c8E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %11, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12)
   %142 = load i8, ptr %11, align 8, !range !3, !noundef !4
   %143 = trunc nuw i8 %142 to i1
@@ -331,7 +331,7 @@ define void @"_ZN76_$LT$wasmi_fuzz..config..FuzzSmithConfig$u20$as$u20$arbitrary
   %145 = load i8, ptr %144, align 1, !range !5
   %146 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %147 = load i64, ptr %146, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br i1 %143, label %148, label %150
 
 148:                                              ; preds = %141
@@ -341,22 +341,22 @@ define void @"_ZN76_$LT$wasmi_fuzz..config..FuzzSmithConfig$u20$as$u20$arbitrary
   br label %246
 
 150:                                              ; preds = %141
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 0, ptr %9, align 8
   %151 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 4294967296, ptr %151, align 8
   %152 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i8 0, ptr %152, align 8
   call void @_ZN9arbitrary12unstructured12Unstructured12int_in_range17h1495ebc92229cc8aE(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %10, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %9)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %153 = load i8, ptr %10, align 8, !range !3, !noundef !4
   %154 = trunc nuw i8 %153 to i1
   %155 = getelementptr inbounds nuw i8, ptr %10, i64 1
   %156 = load i8, ptr %155, align 1, !range !5
   %157 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %158 = load i64, ptr %157, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br i1 %154, label %159, label %161
 
 159:                                              ; preds = %150
@@ -366,22 +366,22 @@ define void @"_ZN76_$LT$wasmi_fuzz..config..FuzzSmithConfig$u20$as$u20$arbitrary
   br label %246
 
 161:                                              ; preds = %150
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i128 0, ptr %7, align 16
   %162 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i128 18446744073709551616, ptr %162, align 16
   %163 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i8 0, ptr %163, align 16
   call void @_ZN9arbitrary12unstructured12Unstructured12int_in_range17ha5edbda8e8514732E(ptr noalias noundef nonnull sret([32 x i8]) align 16 captures(none) dereferenceable(32) %8, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(48) %7)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %164 = load i8, ptr %8, align 16, !range !3, !noundef !4
   %165 = trunc nuw i8 %164 to i1
   %166 = getelementptr inbounds nuw i8, ptr %8, i64 1
   %167 = load i8, ptr %166, align 1, !range !5
   %168 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %169 = load i128, ptr %168, align 16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %165, label %170, label %172
 
 170:                                              ; preds = %161
@@ -403,22 +403,22 @@ define void @"_ZN76_$LT$wasmi_fuzz..config..FuzzSmithConfig$u20$as$u20$arbitrary
   br label %246
 
 178:                                              ; preds = %172
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8
   %179 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 1000000, ptr %179, align 8
   %180 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i8 0, ptr %180, align 8
   call void @_ZN9arbitrary12unstructured12Unstructured12int_in_range17h1495ebc92229cc8aE(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %5)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %181 = load i8, ptr %6, align 8, !range !3, !noundef !4
   %182 = trunc nuw i8 %181 to i1
   %183 = getelementptr inbounds nuw i8, ptr %6, i64 1
   %184 = load i8, ptr %183, align 1, !range !5
   %185 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %186 = load i64, ptr %185, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %182, label %187, label %189
 
 187:                                              ; preds = %178
@@ -428,7 +428,7 @@ define void @"_ZN76_$LT$wasmi_fuzz..config..FuzzSmithConfig$u20$as$u20$arbitrary
   br label %246
 
 189:                                              ; preds = %178
-  call void @llvm.lifetime.start.p0(i64 352, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @"_ZN69_$LT$wasm_smith..config..Config$u20$as$u20$core..default..Default$GT$7default17he73b7b24620a2734E"(ptr noalias noundef nonnull sret([352 x i8]) align 16 captures(none) dereferenceable(352) %4)
   %190 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.sroa.485.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -493,7 +493,7 @@ define void @"_ZN76_$LT$wasmi_fuzz..config..FuzzSmithConfig$u20$as$u20$arbitrary
   %243 = load i8, ptr %242, align 8, !range !3, !noundef !4
   %244 = getelementptr inbounds nuw i8, ptr %4, i64 346
   %245 = load i8, ptr %244, align 2, !range !3, !noundef !4
-  call void @llvm.lifetime.end.p0(i64 352, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store i128 %169, ptr %0, align 16
   %.sroa.687.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i64 %200, ptr %.sroa.687.0..sroa_idx, align 16
@@ -705,10 +705,10 @@ declare hidden { i1, i8 } @_ZN9arbitrary12unstructured12Unstructured12int_in_ran
 declare void @"_ZN69_$LT$wasm_smith..config..Config$u20$as$u20$core..default..Default$GT$7default17he73b7b24620a2734E"(ptr dead_on_unwind noalias noundef writable sret([352 x i8]) align 16 captures(none) dereferenceable(352)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

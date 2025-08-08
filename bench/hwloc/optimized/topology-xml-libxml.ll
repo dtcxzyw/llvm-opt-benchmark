@@ -362,8 +362,8 @@ hwloc_libxml2_init_once.exit:                     ; preds = %6, %19
   store ptr %81, ptr %82, align 8, !tbaa !39
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr null, ptr %83, align 8, !tbaa !39
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %84 = load ptr, ptr %74, align 8, !tbaa !32
   %85 = call i32 %84(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef nonnull %8) #11
   %86 = icmp slt i32 %85, 0
@@ -377,18 +377,18 @@ hwloc_libxml2_init_once.exit:                     ; preds = %6, %19
   br i1 %.not60, label %89, label %.thread75
 
 .thread75:                                        ; preds = %.lr.ph
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %104
 
 89:                                               ; preds = %.lr.ph
   call void @free(ptr noundef %.179) #11
   %90 = load ptr, ptr %8, align 8, !tbaa !15
   %91 = call noalias ptr @strdup(ptr noundef %90) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %92 = load ptr, ptr %72, align 8, !tbaa !18
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 24
   %94 = load ptr, ptr %93, align 8, !tbaa !32
@@ -398,8 +398,8 @@ hwloc_libxml2_init_once.exit:                     ; preds = %6, %19
 
 ._crit_edge:                                      ; preds = %89, %71
   %.1.lcssa = phi ptr [ null, %71 ], [ %91, %89 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %97 = call i32 @hwloc__xml_import_diff(ptr noundef nonnull %0, ptr noundef %4) #11
   %98 = icmp eq ptr %5, null
   %99 = icmp ne i32 %97, 0
@@ -500,17 +500,14 @@ hwloc_libxml2_cleanup.exit:                       ; preds = %4, %6
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
-declare void @xmlCheckVersion(i32 noundef) local_unnamed_addr #3
+declare void @xmlCheckVersion(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #4
+declare ptr @__errno_location() local_unnamed_addr #3
 
-declare ptr @xmlReadFile(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @xmlReadFile(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @xmlReadMemory(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @xmlReadMemory(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @hwloc_libxml_look_init(ptr noundef captures(none) %0, ptr noundef captures(none) %1) #1 {
@@ -581,8 +578,8 @@ define internal range(i32 -1, 1) i32 @hwloc_libxml_look_init(ptr noundef capture
   br i1 %.not40, label %43, label %57
 
 43:                                               ; preds = %41
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #11
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %44 = tail call ptr @xmlGetProp(ptr noundef nonnull %34, ptr noundef nonnull @.str.9) #11
   %.not41 = icmp eq ptr %44, null
   br i1 %.not41, label %52, label %45
@@ -610,8 +607,8 @@ define internal range(i32 -1, 1) i32 @hwloc_libxml_look_init(ptr noundef capture
   store i32 %.sink, ptr %55, align 4, !tbaa !42
   %56 = load ptr, ptr @xmlFree, align 8, !tbaa !3
   call void %56(ptr noundef %44) #11
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #11
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %67
 
 57:                                               ; preds = %41
@@ -699,14 +696,11 @@ hwloc_libxml2_cleanup.exit:                       ; preds = %hwloc_libxml_free_b
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare void @xmlSetGenericErrorFunc(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @xmlSetGenericErrorFunc(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @hwloc__xml_verbose() local_unnamed_addr #2
 
-declare i32 @hwloc__xml_verbose() local_unnamed_addr #3
-
-declare ptr @__xmlGenericError() local_unnamed_addr #3
+declare ptr @__xmlGenericError() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define internal void @hwloc_libxml2_error_callback(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ...) #0 {
@@ -714,24 +708,24 @@ define internal void @hwloc_libxml2_error_callback(ptr readnone captures(none) %
 }
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #5
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #4
 
-declare void @xmlCleanupParser() local_unnamed_addr #3
+declare void @xmlCleanupParser() local_unnamed_addr #2
 
-declare ptr @xmlGetIntSubset(ptr noundef) local_unnamed_addr #3
+declare ptr @xmlGetIntSubset(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #6
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
-declare ptr @xmlDocGetRootElement(ptr noundef) local_unnamed_addr #3
+declare ptr @xmlDocGetRootElement(ptr noundef) local_unnamed_addr #2
 
-declare ptr @xmlGetProp(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @xmlGetProp(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #6
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @hwloc__libxml_import_next_attr(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) #1 {
@@ -936,7 +930,7 @@ define internal void @hwloc__libxml_import_close_child(ptr readnone captures(non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 -1, 2) i32 @hwloc__libxml_import_get_content(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) #8 {
+define internal range(i32 -1, 2) i32 @hwloc__libxml_import_get_content(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) #7 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !39
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -978,14 +972,14 @@ define internal void @hwloc__libxml_import_close_content(ptr readnone captures(n
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
-declare void @xmlFreeDoc(ptr noundef) local_unnamed_addr #3
+declare void @xmlFreeDoc(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @hwloc__libxml2_prepare_export(ptr noundef %0, ptr noundef %1, i64 noundef %2) unnamed_addr #1 {
   %4 = alloca %struct.hwloc__xml_export_state_s, align 8
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   tail call void @xmlCheckVersion(i32 noundef 20913) #11
   %.b.i = load i1, ptr @hwloc_libxml2_init_once.checked, align 4
   br i1 %.b.i, label %hwloc_libxml2_init_once.exit, label %5
@@ -1037,21 +1031,21 @@ hwloc_libxml2_init_once.exit:                     ; preds = %3, %14
   store ptr %1, ptr %26, align 8, !tbaa !61
   store ptr %16, ptr %19, align 8, !tbaa !39
   call void @hwloc__xml_export_topology(ptr noundef nonnull %4, ptr noundef %0, i64 noundef %2) #11
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %15
 }
 
-declare i32 @xmlSaveFormatFileEnc(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @xmlSaveFormatFileEnc(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @xmlNewDoc(ptr noundef) local_unnamed_addr #3
+declare ptr @xmlNewDoc(ptr noundef) local_unnamed_addr #2
 
-declare ptr @xmlNewNode(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @xmlNewNode(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @xmlNewProp(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @xmlNewProp(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @xmlDocSetRootElement(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @xmlDocSetRootElement(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @xmlCreateIntSubset(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @xmlCreateIntSubset(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal void @hwloc__libxml_export_new_child(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 56)) %1, ptr noundef %2) #1 {
@@ -1106,26 +1100,26 @@ define internal void @hwloc__libxml_export_end_object(ptr readnone captures(none
   ret void
 }
 
-declare void @hwloc__xml_export_topology(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @hwloc__xml_export_topology(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare ptr @xmlNewChild(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @xmlNewChild(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @xmlNodeAddContentLen(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @xmlNodeAddContentLen(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @xmlDocDumpFormatMemoryEnc(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @xmlDocDumpFormatMemoryEnc(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #9
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #10
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #9
 
-declare i32 @hwloc__xml_import_diff(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @hwloc__xml_import_diff(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @hwloc__libxml2_prepare_export_diff(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
   %3 = alloca %struct.hwloc__xml_export_state_s, align 8
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   tail call void @xmlCheckVersion(i32 noundef 20913) #11
   %.b.i = load i1, ptr @hwloc_libxml2_init_once.checked, align 4
   br i1 %.b.i, label %hwloc_libxml2_init_once.exit, label %4
@@ -1181,23 +1175,29 @@ hwloc_libxml2_init_once.exit:                     ; preds = %2, %13
   store ptr null, ptr %26, align 8, !tbaa !61
   store ptr %15, ptr %19, align 8, !tbaa !39
   call void @hwloc__xml_export_diff(ptr noundef nonnull %3, ptr noundef %0) #11
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %14
 }
 
-declare void @hwloc__xml_export_diff(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @hwloc__xml_export_diff(ptr noundef, ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree nounwind memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree nounwind memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { nounwind }
 attributes #12 = { nounwind willreturn memory(none) }
 attributes #13 = { cold nounwind }

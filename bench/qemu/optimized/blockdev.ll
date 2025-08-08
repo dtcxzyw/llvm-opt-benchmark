@@ -469,9 +469,6 @@ define dso_local void @override_max_devs(i32 noundef %0, i32 noundef %1) local_u
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 declare ptr @blk_next(ptr noundef) local_unnamed_addr #1
 
 declare ptr @blk_legacy_dinfo(ptr noundef) local_unnamed_addr #1
@@ -479,10 +476,7 @@ declare ptr @blk_legacy_dinfo(ptr noundef) local_unnamed_addr #1
 declare i32 @__fprintf_chk(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
+declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @blockdev_mark_auto_del(ptr noundef %0) local_unnamed_addr #0 {
@@ -695,7 +689,7 @@ define dso_local ptr @drive_get(i32 noundef %0, i32 noundef %1, i32 noundef %2) 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @drive_check_orphaned() local_unnamed_addr #0 {
   %1 = alloca %struct.Location, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %2 = tail call zeroext i1 @qemu_in_main_thread() #14
   br i1 %2, label %4, label %3
 
@@ -770,12 +764,12 @@ define dso_local void @drive_check_orphaned() local_unnamed_addr #0 {
   unreachable
 
 .critedge:                                        ; preds = %4, %._crit_edge
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %1) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare ptr @blk_get_attached_dev(ptr noundef) local_unnamed_addr #1
 
@@ -788,7 +782,7 @@ declare void @error_report(ptr noundef, ...) local_unnamed_addr #1
 declare ptr @loc_pop(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #6
+declare void @exit(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @drive_get_by_index(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -1026,9 +1020,9 @@ qemu_opt_rename.exit:                             ; preds = %13
   br i1 %.not, label %48, label %23
 
 23:                                               ; preds = %21
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 0, ptr %5, align 1, !annotation !10
   %24 = call i32 @bdrv_parse_cache_mode(ptr noundef nonnull %22, ptr noundef nonnull %4, ptr noundef nonnull %5) #14
   %.not197 = icmp eq i32 %24, 0
@@ -1072,14 +1066,14 @@ qemu_opt_rename.exit:                             ; preds = %13
 
 .thread:                                          ; preds = %39, %41
   %46 = call i32 @qemu_opt_unset(ptr noundef %0, ptr noundef nonnull @.str.58) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %48
 
 47:                                               ; preds = %23
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %2, ptr noundef nonnull @.str.1, i32 noundef 835, ptr noundef nonnull @__func__.drive_new, ptr noundef nonnull @.str.59) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %qobject_unref_impl.exit
 
 48:                                               ; preds = %.thread, %21
@@ -1487,7 +1481,7 @@ declare ptr @qemu_opts_create(ptr noundef, ptr noundef, i32 noundef, ptr noundef
 declare zeroext i1 @qemu_opts_absorb_qdict(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 declare zeroext i1 @qemu_opt_get_bool(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
@@ -1513,15 +1507,15 @@ define internal fastcc ptr @blockdev_init(ptr noundef %0, ptr noundef %1, ptr no
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4
-  call void @llvm.lifetime.start.p0(i64 248, ptr nonnull %6) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %6, i8 0, i64 248, i1 false), !annotation !10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8
   %10 = tail call ptr @qdict_get_try_str(ptr noundef %1, ptr noundef nonnull @.str.75) #14
   %11 = tail call ptr @qemu_opts_create(ptr noundef nonnull @qemu_common_drive_opts, ptr noundef %10, i32 noundef 1, ptr noundef %2) #14
@@ -1582,7 +1576,7 @@ account_get_opt.exit153:                          ; preds = %account_get_opt.exi
   br label %167
 
 33:                                               ; preds = %account_get_opt.exit153
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8
   %34 = call zeroext i1 @qemu_opt_get_bool(ptr noundef nonnull %11, ptr noundef nonnull @.str.26, i1 noundef zeroext false) #14
   br i1 %34, label %35, label %38
@@ -1683,7 +1677,7 @@ account_get_opt.exit153:                          ; preds = %account_get_opt.exi
 extract_common_blockdev_options.exit:             ; preds = %43, %44, %84, %88
   %.0166 = phi i32 [ %86, %84 ], [ %86, %88 ], [ 0, %44 ], [ 0, %43 ]
   %.1165 = phi ptr [ %45, %84 ], [ %45, %88 ], [ %45, %44 ], [ null, %43 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %89 = load ptr, ptr %7, align 8
   %.not128 = icmp eq ptr %89, null
   br i1 %.not128, label %91, label %90
@@ -1968,23 +1962,23 @@ qobject_unref_impl.exit158:                       ; preds = %185, %182, %qobject
 
 qobject_unref_impl.exit161:                       ; preds = %193, %190, %qobject_unref_impl.exit158, %164
   %.0 = phi ptr [ %.1, %164 ], [ null, %qobject_unref_impl.exit158 ], [ null, %190 ], [ null, %193 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #14
-  call void @llvm.lifetime.end.p0(i64 248, ptr nonnull %6) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #8
+declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #7
 
 declare ptr @blk_set_legacy_dinfo(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare void @qemu_opts_del(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal fastcc void @qobject_unref_impl(ptr noundef %0) unnamed_addr #9 {
+define internal fastcc void @qobject_unref_impl(ptr noundef %0) unnamed_addr #8 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.critedge, label %2
 
@@ -2018,7 +2012,7 @@ define dso_local void @qmp_blockdev_snapshot_sync(ptr noundef %0, ptr noundef %1
   %10 = alloca %struct.BlockdevSnapshotSync, align 8
   %11 = alloca %struct.TransactionAction, align 8
   %12 = zext i1 %5 to i8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %0, ptr %10, align 8
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %1, ptr %13, align 8
@@ -2034,20 +2028,20 @@ define dso_local void @qmp_blockdev_snapshot_sync(ptr noundef %0, ptr noundef %1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %18, i8 0, i64 3, i1 false)
   %19 = getelementptr inbounds nuw i8, ptr %10, i64 44
   store i32 %6, ptr %19, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 10, ptr %11, align 8
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i32 0, ptr %20, align 4
   %21 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %10, ptr %21, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %22 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %11, ptr %22, align 8
   store ptr null, ptr %9, align 8
   call void @qmp_transaction(ptr noundef nonnull %9, ptr noundef null, ptr noundef %7)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #14
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 }
 
@@ -2056,24 +2050,24 @@ define dso_local void @qmp_blockdev_snapshot(ptr noundef %0, ptr noundef %1, ptr
   %4 = alloca %struct.TransactionActionList, align 8
   %5 = alloca %struct.BlockdevSnapshot, align 8
   %6 = alloca %struct.TransactionAction, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %0, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %1, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 8, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 0, ptr %8, align 4
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %5, ptr %9, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %6, ptr %10, align 8
   store ptr null, ptr %4, align 8
   call void @qmp_transaction(ptr noundef nonnull %4, ptr noundef null, ptr noundef %2)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -2082,24 +2076,24 @@ define dso_local void @qmp_blockdev_snapshot_internal_sync(ptr noundef %0, ptr n
   %4 = alloca %struct.TransactionActionList, align 8
   %5 = alloca %struct.BlockdevSnapshotInternal, align 8
   %6 = alloca %struct.TransactionAction, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %0, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %1, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 9, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 0, ptr %8, align 4
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %5, ptr %9, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %6, ptr %10, align 8
   store ptr null, ptr %4, align 8
   call void @qmp_transaction(ptr noundef nonnull %4, ptr noundef null, ptr noundef %2)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -2107,8 +2101,8 @@ define dso_local void @qmp_blockdev_snapshot_internal_sync(ptr noundef %0, ptr n
 define dso_local noalias noundef ptr @qmp_blockdev_snapshot_delete_internal_sync(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.QEMUSnapshotInfo, align 8
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 416, ptr nonnull %5) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8
   %7 = tail call zeroext i1 @qemu_in_main_thread() #14
   br i1 %7, label %9, label %8
@@ -2212,8 +2206,8 @@ define dso_local noalias noundef ptr @qmp_blockdev_snapshot_delete_internal_sync
 glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %29, %54, %15, %9, %28, %22, %20, %14
   %.0 = phi ptr [ null, %20 ], [ null, %28 ], [ null, %22 ], [ null, %14 ], [ null, %9 ], [ null, %15 ], [ %30, %54 ], [ %30, %29 ]
   call void @bdrv_graph_rdunlock_main_loop() #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #14
-  call void @llvm.lifetime.end.p0(i64 416, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }
 
@@ -2261,7 +2255,7 @@ define internal void @internal_snapshot_abort(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8
   %5 = tail call zeroext i1 @qemu_in_main_thread() #14
   br i1 %5, label %7, label %6
@@ -2291,7 +2285,7 @@ define internal void @internal_snapshot_abort(ptr noundef %0) #0 {
 
 glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %11, %15, %7
   call void @bdrv_graph_rdunlock_main_loop() #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -2585,7 +2579,7 @@ define internal void @block_dirty_bitmap_remove_commit(ptr noundef readonly capt
 }
 
 ; Function Attrs: noreturn nounwind sspstrong uwtable
-define internal void @abort_commit(ptr readnone captures(none) %0) #10 {
+define internal void @abort_commit(ptr readnone captures(none) %0) #9 {
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 2097, ptr noundef nonnull @__func__.abort_commit, ptr noundef null) #15
   unreachable
 }
@@ -2600,7 +2594,7 @@ define dso_local void @qmp_transaction(ptr noundef readonly captures(address_is_
   %9 = alloca i64, align 8
   %10 = alloca i64, align 8
   %11 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr null, ptr %11, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.thread, label %12
@@ -2680,12 +2674,12 @@ define dso_local void @qmp_transaction(ptr noundef readonly captures(address_is_
   ]
 
 32:                                               ; preds = %.lr.ph42, %.lr.ph42
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8
   %33 = call noalias dereferenceable_or_null(24) ptr @g_malloc0(i64 noundef 24) #18
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 0, ptr %9, align 8, !annotation !10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i64 0, ptr %10, align 8, !annotation !10
   call void @bdrv_graph_rdlock_main_loop() #14
   call void @tran_add(ptr noundef %28, ptr noundef nonnull @external_snapshot_drv, ptr noundef %33) #14
@@ -2937,16 +2931,16 @@ define dso_local void @qmp_transaction(ptr noundef readonly captures(address_is_
 
 external_snapshot_action.exit.i:                  ; preds = %158, %153, %149, %142, %134, %131, %123, %117, %113, %102, %87, %83, %67, %58, %56, %50
   call void @bdrv_graph_rdunlock_main_loop() #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %transaction_action.exit
 
 160:                                              ; preds = %.lr.ph42
   %161 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %162 = load ptr, ptr %161, align 8
   %163 = call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #18
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
   %164 = call zeroext i1 @qemu_in_main_thread() #14
   br i1 %164, label %166, label %165
@@ -3151,7 +3145,7 @@ thread-pre-split.i.i:                             ; preds = %bdrv_cow_bs.exit.i.
   br label %drive_backup_action.exit.i
 
 drive_backup_action.exit.i:                       ; preds = %248, %240, %233, %229, %207, %192, %179, %172
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %transaction_action.exit
 
 249:                                              ; preds = %.lr.ph42
@@ -3194,9 +3188,9 @@ drive_backup_action.exit.i:                       ; preds = %248, %240, %233, %2
 268:                                              ; preds = %.lr.ph42
   %269 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %270 = load ptr, ptr %269, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 416, ptr nonnull %6) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %271 = call noalias dereferenceable_or_null(432) ptr @g_malloc0(i64 noundef 432) #18
   %272 = call zeroext i1 @qemu_in_main_thread() #14
   br i1 %272, label %274, label %273
@@ -3313,14 +3307,14 @@ drive_backup_action.exit.i:                       ; preds = %248, %240, %233, %2
 
 internal_snapshot_action.exit.i:                  ; preds = %320, %318, %297, %295, %291, %286, %283, %279, %274
   call void @bdrv_graph_rdunlock_main_loop() #14
-  call void @llvm.lifetime.end.p0(i64 416, ptr nonnull %6) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %transaction_action.exit
 
 322:                                              ; preds = %.lr.ph42
   %323 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %324 = load ptr, ptr %323, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8
   %325 = call noalias dereferenceable_or_null(32) ptr @g_malloc0(i64 noundef 32) #18
   call void @tran_add(ptr noundef %28, ptr noundef nonnull @block_dirty_bitmap_add_drv, ptr noundef %325) #14
@@ -3361,7 +3355,7 @@ internal_snapshot_action.exit.i:                  ; preds = %320, %318, %297, %2
   br label %block_dirty_bitmap_add_action.exit.i
 
 block_dirty_bitmap_add_action.exit.i:             ; preds = %351, %347
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %transaction_action.exit
 
 352:                                              ; preds = %.lr.ph42
@@ -3508,7 +3502,7 @@ transaction_action.exit:                          ; preds = %external_snapshot_a
   br label %426
 
 426:                                              ; preds = %22, %425
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret void
 }
 
@@ -3529,7 +3523,7 @@ declare void @job_txn_unref(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noalias noundef ptr @qmp_x_debug_block_dirty_bitmap_sha256(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !annotation !10
   %5 = call ptr @block_dirty_bitmap_lookup(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4, ptr noundef %2) #14
   %6 = icmp ne ptr %5, null
@@ -3550,7 +3544,7 @@ define dso_local noalias noundef ptr @qmp_x_debug_block_dirty_bitmap_sha256(ptr 
 
 14:                                               ; preds = %9, %3, %12
   %.0 = phi ptr [ %13, %12 ], [ null, %3 ], [ null, %9 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
 
@@ -3559,12 +3553,12 @@ declare ptr @block_dirty_bitmap_lookup(ptr noundef, ptr noundef, ptr noundef, pt
 declare ptr @bdrv_dirty_bitmap_sha256(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #8
+declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qmp_block_resize(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8
   %6 = call ptr @bdrv_lookup_bs(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %5) #14
   %7 = load ptr, ptr %5, align 8
@@ -3604,7 +3598,7 @@ define dso_local void @qmp_block_resize(ptr noundef %0, ptr noundef %1, i64 noun
   br label %19
 
 19:                                               ; preds = %12, %14, %16, %11, %8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -3631,7 +3625,7 @@ declare void @blk_co_unref(ptr noundef) #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qmp_block_stream(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5, i1 noundef zeroext %6, ptr noundef %7, i1 noundef zeroext %8, i64 noundef %9, i1 noundef zeroext %10, i32 noundef %11, ptr noundef %12, i1 noundef zeroext %13, i1 noundef zeroext %14, i1 noundef zeroext %15, i1 noundef zeroext %16, ptr noundef %17) local_unnamed_addr #0 {
   %19 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store ptr null, ptr %19, align 8
   %20 = tail call zeroext i1 @qemu_in_main_thread() #14
   br i1 %20, label %22, label %21
@@ -3853,7 +3847,7 @@ bdrv_filter_or_cow_bs.exit120:                    ; preds = %82
   br label %97
 
 97:                                               ; preds = %31, %.loopexit, %96, %95, %90, %30, %28, %25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   ret void
 }
 
@@ -3872,7 +3866,7 @@ declare void @bdrv_graph_rdunlock_main_loop() local_unnamed_addr #1
 declare void @stream_start(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef, i32 noundef, i64 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal fastcc void @trace_qmp_block_stream(ptr noundef nonnull %0) unnamed_addr #9 {
+define internal fastcc void @trace_qmp_block_stream(ptr noundef nonnull %0) unnamed_addr #8 {
   %2 = alloca %struct.timeval, align 8
   %3 = load i32, ptr @trace_events_enabled_count, align 4
   %.not.i = icmp eq i32 %3, 0
@@ -3895,7 +3889,7 @@ define internal fastcc void @trace_qmp_block_stream(ptr noundef nonnull %0) unna
   br i1 %11, label %12, label %18
 
 12:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !10
   %13 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #14
   %14 = tail call i32 @qemu_get_thread_id() #14
@@ -3903,7 +3897,7 @@ define internal fastcc void @trace_qmp_block_stream(ptr noundef nonnull %0) unna
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load i64, ptr %16, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.239, i32 noundef %14, i64 noundef %15, i64 noundef %17, ptr noundef nonnull %0) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %_nocheck__trace_qmp_block_stream.exit
 
 18:                                               ; preds = %9
@@ -3919,11 +3913,11 @@ define dso_local void @qmp_block_commit(ptr noundef %0, ptr noundef %1, ptr noun
   %20 = alloca ptr, align 8
   %21 = alloca i64, align 8
   %22 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store ptr null, ptr %20, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store i64 0, ptr %21, align 8, !annotation !10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   store i64 0, ptr %22, align 8, !annotation !10
   tail call void @bdrv_graph_rdlock_main_loop() #14
   %spec.select = select i1 %9, i64 %10, i64 0
@@ -4175,9 +4169,9 @@ bdrv_filter_or_cow_bs.exit:                       ; preds = %.preheader, %80
 
 glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %83, %111, %115, %104, %105, %60, %38, %30, %28, %29, %117, %91, %74, %70, %65, %58, %51, %43, %36
   call void @bdrv_graph_rdunlock_main_loop() #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   ret void
 }
 
@@ -4203,19 +4197,19 @@ declare void @commit_start(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i
 define dso_local void @qmp_drive_backup(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.TransactionActionList, align 8
   %4 = alloca %struct.TransactionAction, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 11, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 0, ptr %5, align 4
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %0, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %4, ptr %7, align 8
   store ptr null, ptr %3, align 8
   call void @qmp_transaction(ptr noundef nonnull %3, ptr noundef null, ptr noundef %1)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -4243,26 +4237,26 @@ declare ptr @bdrv_get_xdbg_block_graph(ptr noundef) local_unnamed_addr #1
 define dso_local void @qmp_blockdev_backup(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.TransactionActionList, align 8
   %4 = alloca %struct.TransactionAction, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 7, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 0, ptr %5, align 4
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %0, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %4, ptr %7, align 8
   store ptr null, ptr %3, align 8
   call void @qmp_transaction(ptr noundef nonnull %3, ptr noundef null, ptr noundef %1)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qmp_drive_mirror(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
@@ -4549,7 +4543,7 @@ bdrv_cow_bs.exit.thread:                          ; preds = %29, %bdrv_cow_bs.ex
   br label %158
 
 158:                                              ; preds = %89, %2, %106, %105, %81, %55, %46, %11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -4562,7 +4556,7 @@ declare void @bdrv_img_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef
 declare ptr @bdrv_skip_implicit_filters(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold nofree noreturn nounwind
-declare void @abort() local_unnamed_addr #11
+declare void @abort() local_unnamed_addr #10
 
 declare i32 @bdrv_has_zero_init(ptr noundef) #1
 
@@ -4795,7 +4789,7 @@ find_block_job_locked.exit:                       ; preds = %9
   br i1 %22, label %23, label %29
 
 23:                                               ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !10
   %24 = call i32 @gettimeofday(ptr noundef nonnull %5, ptr noundef null) #14
   %25 = tail call i32 @qemu_get_thread_id() #14
@@ -4803,7 +4797,7 @@ find_block_job_locked.exit:                       ; preds = %9
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %28 = load i64, ptr %27, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.249, i32 noundef %25, i64 noundef %26, i64 noundef %28, ptr noundef nonnull %10) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %trace_qmp_block_job_cancel.exit
 
 29:                                               ; preds = %20
@@ -4867,7 +4861,7 @@ find_block_job_locked.exit:                       ; preds = %7
   br i1 %17, label %18, label %24
 
 18:                                               ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !10
   %19 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #14
   %20 = tail call i32 @qemu_get_thread_id() #14
@@ -4875,7 +4869,7 @@ find_block_job_locked.exit:                       ; preds = %7
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %23 = load i64, ptr %22, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.251, i32 noundef %20, i64 noundef %21, i64 noundef %23, ptr noundef nonnull %8) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %trace_qmp_block_job_pause.exit
 
 24:                                               ; preds = %15
@@ -4937,7 +4931,7 @@ find_block_job_locked.exit:                       ; preds = %7
   br i1 %17, label %18, label %24
 
 18:                                               ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !10
   %19 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #14
   %20 = tail call i32 @qemu_get_thread_id() #14
@@ -4945,7 +4939,7 @@ find_block_job_locked.exit:                       ; preds = %7
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %23 = load i64, ptr %22, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.253, i32 noundef %20, i64 noundef %21, i64 noundef %23, ptr noundef nonnull %8) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %trace_qmp_block_job_resume.exit
 
 24:                                               ; preds = %15
@@ -5007,7 +5001,7 @@ find_block_job_locked.exit:                       ; preds = %7
   br i1 %17, label %18, label %24
 
 18:                                               ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !10
   %19 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #14
   %20 = tail call i32 @qemu_get_thread_id() #14
@@ -5015,7 +5009,7 @@ find_block_job_locked.exit:                       ; preds = %7
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %23 = load i64, ptr %22, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.255, i32 noundef %20, i64 noundef %21, i64 noundef %23, ptr noundef nonnull %8) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %trace_qmp_block_job_complete.exit
 
 24:                                               ; preds = %15
@@ -5077,7 +5071,7 @@ find_block_job_locked.exit:                       ; preds = %7
   br i1 %17, label %18, label %24
 
 18:                                               ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !10
   %19 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #14
   %20 = tail call i32 @qemu_get_thread_id() #14
@@ -5085,7 +5079,7 @@ find_block_job_locked.exit:                       ; preds = %7
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %23 = load i64, ptr %22, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.257, i32 noundef %20, i64 noundef %21, i64 noundef %23, ptr noundef nonnull %8) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %trace_qmp_block_job_finalize.exit
 
 24:                                               ; preds = %15
@@ -5113,7 +5107,7 @@ declare void @job_unref_locked(ptr noundef) local_unnamed_addr #1
 define dso_local void @qmp_block_job_dismiss(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.timeval, align 8
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %6 = inttoptr i64 %5 to ptr
   tail call void %6(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.183, i32 noundef 56) #14
@@ -5156,7 +5150,7 @@ find_block_job_locked.exit:                       ; preds = %8
   br i1 %18, label %19, label %25
 
 19:                                               ; preds = %16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !10
   %20 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #14
   %21 = tail call i32 @qemu_get_thread_id() #14
@@ -5164,7 +5158,7 @@ find_block_job_locked.exit:                       ; preds = %8
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %24 = load i64, ptr %23, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.259, i32 noundef %21, i64 noundef %22, i64 noundef %24, ptr noundef nonnull %9) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %trace_qmp_block_job_dismiss.exit
 
 25:                                               ; preds = %16
@@ -5178,7 +5172,7 @@ trace_qmp_block_job_dismiss.exit:                 ; preds = %find_block_job_lock
 
 glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %find_block_job_locked.exit.thread, %trace_qmp_block_job_dismiss.exit
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.183, i32 noundef 56) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -5220,7 +5214,7 @@ declare void @block_job_change_locked(ptr noundef, ptr noundef, ptr noundef) loc
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qmp_change_backing_file(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8
   %6 = tail call fastcc ptr @qmp_get_root_bs(ptr noundef %0, ptr noundef %3)
   %.not = icmp eq ptr %6, null
@@ -5309,7 +5303,7 @@ define dso_local void @qmp_change_backing_file(ptr noundef %0, ptr noundef %1, p
   br label %41
 
 41:                                               ; preds = %37, %38, %24, %4, %40
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -5324,7 +5318,7 @@ define dso_local void @qmp_blockdev_add(ptr noundef %0, ptr noundef %1) local_un
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !annotation !10
   %5 = call ptr @qobject_output_visitor_new(ptr noundef nonnull %4) #14
   %6 = call zeroext i1 @visit_type_BlockdevOptions(ptr noundef %5, ptr noundef null, ptr noundef nonnull %3, ptr noundef nonnull @error_abort) #14
@@ -5386,7 +5380,7 @@ bdrv_set_monitor_owned.exit:                      ; preds = %17
 
 23:                                               ; preds = %15, %bdrv_set_monitor_owned.exit, %14
   call void @visit_free(ptr noundef %5) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -5412,11 +5406,11 @@ define dso_local void @qmp_blockdev_reopen(ptr noundef readonly captures(address
 .lr.ph:                                           ; preds = %2, %25
   %.01631 = phi ptr [ %26, %25 ], [ null, %2 ]
   %.01730 = phi ptr [ %27, %25 ], [ %0, %2 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = getelementptr inbounds nuw i8, ptr %.01730, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %3, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !annotation !10
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
@@ -5466,16 +5460,16 @@ qobject_type.exit.i:                              ; preds = %20
   br label %25
 
 .thread:                                          ; preds = %12, %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %29
 
 25:                                               ; preds = %qobject_type.exit.i, %24
   %.0.i = phi ptr [ null, %24 ], [ %19, %qobject_type.exit.i ]
   call void @qdict_flatten(ptr noundef %.0.i) #14
   %26 = call ptr @bdrv_reopen_queue(ptr noundef %.01631, ptr noundef nonnull %11, ptr noundef %.0.i, i1 noundef zeroext false) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %27 = load ptr, ptr %.01730, align 8
   %.not = icmp eq ptr %27, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
@@ -5737,7 +5731,7 @@ declare void @bdrv_graph_wrunlock() #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @qmp_query_block_jobs(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8
   %3 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -5783,7 +5777,7 @@ define dso_local ptr @qmp_query_block_jobs(ptr noundef %0) local_unnamed_addr #0
 glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %1, %._crit_edge.loopexit, %13
   %.2 = phi ptr [ null, %13 ], [ %.0..0..0..0..0..0.15.pre, %._crit_edge.loopexit ], [ null, %1 ]
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.183, i32 noundef 56) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.2
 }
 
@@ -5952,7 +5946,7 @@ qobject_type.exit:                                ; preds = %.lr.ph
   ]
 
 7:                                                ; preds = %qobject_type.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 0, ptr %3, align 8, !annotation !10
   %8 = load ptr, ptr %.02710, align 8
   %.not.i = icmp eq ptr %8, null
@@ -5989,12 +5983,12 @@ qobject_check_type.exit:                          ; preds = %qobject_type.exit.i
 .thread:                                          ; preds = %qobject_check_type.exit
   %20 = trunc nuw i64 %17 to i32
   call void @block_acct_add_interval(ptr noundef %0, i32 noundef %20) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %27
 
 21:                                               ; preds = %qobject_check_type.exit
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %1, ptr noundef nonnull @.str.1, i32 noundef 351, ptr noundef nonnull @__func__.parse_stats_intervals, ptr noundef nonnull @.str.204, ptr noundef %14) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.loopexit
 
 qobject_check_type.exit36:                        ; preds = %qobject_type.exit
@@ -6100,7 +6094,7 @@ declare i32 @bdrv_append(ptr noundef, ptr noundef, ptr noundef) local_unnamed_ad
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc ptr @do_backup_common(ptr noundef captures(none) %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %4) unnamed_addr #0 {
   %6 = alloca %struct.BackupPerf, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, i8 0, i64 48, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 64, ptr %7, align 8
@@ -6382,7 +6376,7 @@ define internal fastcc ptr @do_backup_common(ptr noundef captures(none) %0, ptr 
 
 155:                                              ; preds = %108, %129, %128, %119, %113, %107, %101, %93, %82
   %.076 = phi ptr [ null, %93 ], [ null, %113 ], [ null, %119 ], [ %154, %129 ], [ null, %128 ], [ null, %107 ], [ null, %101 ], [ null, %82 ], [ null, %108 ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.076
 }
 
@@ -6417,7 +6411,7 @@ declare ptr @block_dirty_bitmap_remove(ptr noundef, ptr noundef, i1 noundef zero
 declare ptr @bdrv_filter_or_cow_child(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #12
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #11
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 
@@ -6431,6 +6425,12 @@ declare void @mirror_start(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i
 
 declare ptr @block_job_get_locked(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #13
 
@@ -6440,16 +6440,16 @@ declare i32 @llvm.smax.i32(i32, i32) #13
 attributes #0 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
 attributes #2 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
-attributes #8 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
-attributes #9 = { inlinehint nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
-attributes #10 = { noreturn nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
-attributes #11 = { cold nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
-attributes #12 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #3 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #7 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #8 = { inlinehint nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #9 = { noreturn nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #10 = { cold nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #11 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #14 = { nounwind }
 attributes #15 = { noreturn nounwind }

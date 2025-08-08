@@ -163,11 +163,11 @@ define hidden range(i32 0, 2) i32 @_cmsReadUInt16Array(ptr noundef %0, i32 nound
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_cmsReadUInt16Number.exit14.us
   %.019.us = phi i32 [ %9, %_cmsReadUInt16Number.exit14.us ], [ 0, %.lr.ph ]
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = load ptr, ptr %6, align 8
   %8 = call i32 %7(ptr noundef %0, ptr noundef nonnull %4, i32 noundef 2, i32 noundef 1) #12
   %.not.i12.us = icmp eq i32 %8, 1
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.not.i12.us, label %_cmsReadUInt16Number.exit14.us, label %.loopexit
 
 _cmsReadUInt16Number.exit14.us:                   ; preds = %.lr.ph.split.us
@@ -177,14 +177,14 @@ _cmsReadUInt16Number.exit14.us:                   ; preds = %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %_cmsReadUInt16Number.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %_cmsReadUInt16Number.exit ]
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = load ptr, ptr %6, align 8
   %11 = call i32 %10(ptr noundef %0, ptr noundef nonnull %5, i32 noundef 2, i32 noundef 1) #12
   %.not.i = icmp eq i32 %11, 1
   br i1 %.not.i, label %_cmsReadUInt16Number.exit, label %_cmsReadUInt16Number.exit.thread
 
 _cmsReadUInt16Number.exit.thread:                 ; preds = %.lr.ph.split
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit
 
 _cmsReadUInt16Number.exit:                        ; preds = %.lr.ph.split
@@ -192,7 +192,7 @@ _cmsReadUInt16Number.exit:                        ; preds = %.lr.ph.split
   %13 = load i16, ptr %5, align 2
   %.sroa.0.0.insert.insert.i.i = call noundef i16 @llvm.bswap.i16(i16 %13)
   store i16 %.sroa.0.0.insert.insert.i.i, ptr %12, align 2
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !9
@@ -440,13 +440,13 @@ define hidden range(i32 0, 2) i32 @_cmsWriteUInt16Array(ptr noundef %0, i32 noun
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %6 ]
   %8 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv
   %9 = load i16, ptr %8, align 2
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.sroa.0.0.insert.insert.i.i = call noundef i16 @llvm.bswap.i16(i16 %9)
   store i16 %.sroa.0.0.insert.insert.i.i, ptr %4, align 2
   %10 = load ptr, ptr %5, align 8
   %11 = call i32 %10(ptr noundef %0, i32 noundef 2, ptr noundef nonnull %4) #12
   %.not.i.not = icmp eq i32 %11, 1
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.not.i.not, label %6, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %7, %6, %3
@@ -1195,7 +1195,7 @@ _cmsFindMemoryPlugin.exit:                        ; preds = %12, %16, %2
   br i1 %33, label %34, label %50
 
 34:                                               ; preds = %24
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 144
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %35, ptr noundef nonnull align 8 dereferenceable(48) %25, i64 48, i1 false)
   %36 = load ptr, ptr %29, align 8
@@ -1238,7 +1238,7 @@ _cmsFindMemoryPlugin.exit:                        ; preds = %12, %16, %2
 cmsDeleteContext.exit:                            ; preds = %.preheader.i, %.loopexit.sink.split.i
   %49 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @_cmsContextPoolHeadMutex) #12
   call void @_cmsFree(ptr noundef nonnull %4, ptr noundef nonnull %22) #12
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %68
 
 50:                                               ; preds = %24
@@ -1262,7 +1262,7 @@ cmsDeleteContext.exit:                            ; preds = %.preheader.i, %.loo
   br i1 %.not, label %52, label %68
 
 52:                                               ; preds = %50
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %53 = getelementptr inbounds nuw i8, ptr %3, i64 144
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %53, ptr noundef nonnull align 8 dereferenceable(48) %25, i64 48, i1 false)
   %54 = load ptr, ptr %29, align 8
@@ -1305,7 +1305,7 @@ cmsDeleteContext.exit:                            ; preds = %.preheader.i, %.loo
 cmsDeleteContext.exit45:                          ; preds = %.preheader.i38, %.loopexit.sink.split.i41
   %67 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @_cmsContextPoolHeadMutex) #12
   call void @_cmsFree(ptr noundef nonnull %3, ptr noundef nonnull %22) #12
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %68
 
 68:                                               ; preds = %50, %_cmsFindMemoryPlugin.exit, %cmsDeleteContext.exit45, %cmsDeleteContext.exit
@@ -1484,7 +1484,7 @@ _cmsGetContext.exit:                              ; preds = %2, %.sink.split.i
   br i1 %29, label %30, label %46
 
 30:                                               ; preds = %19
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 144
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %31, ptr noundef nonnull align 8 dereferenceable(48) %20, i64 48, i1 false)
   %32 = load ptr, ptr %25, align 8
@@ -1527,7 +1527,7 @@ _cmsGetContext.exit:                              ; preds = %2, %.sink.split.i
 cmsDeleteContext.exit:                            ; preds = %.preheader.i, %.loopexit.sink.split.i
   %45 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @_cmsContextPoolHeadMutex) #12
   call void @_cmsFree(ptr noundef nonnull %4, ptr noundef nonnull %17) #12
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit
 
 46:                                               ; preds = %19
@@ -1562,7 +1562,7 @@ cmsDeleteContext.exit:                            ; preds = %.preheader.i, %.loo
   br i1 %52, label %53, label %48
 
 53:                                               ; preds = %49
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %54 = getelementptr inbounds nuw i8, ptr %3, i64 144
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %54, ptr noundef nonnull align 8 dereferenceable(48) %20, i64 48, i1 false)
   %55 = load ptr, ptr %25, align 8
@@ -1605,7 +1605,7 @@ cmsDeleteContext.exit:                            ; preds = %.preheader.i, %.loo
 cmsDeleteContext.exit67:                          ; preds = %.preheader.i60, %.loopexit.sink.split.i63
   %68 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @_cmsContextPoolHeadMutex) #12
   call void @_cmsFree(ptr noundef nonnull %3, ptr noundef nonnull %17) #12
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %48, %15, %cmsDeleteContext.exit67, %cmsDeleteContext.exit
@@ -1690,10 +1690,10 @@ declare i16 @llvm.bswap.i16(i16) #10
 declare i32 @llvm.bswap.i32(i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

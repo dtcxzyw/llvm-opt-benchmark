@@ -203,12 +203,6 @@ Wayland_AdjustEventTimestampBase.exit:            ; preds = %16, %24
   ret i64 %.0.i
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nounwind uwtable
 define hidden void @Wayland_DisplayInitInputTimestampManager(ptr noundef readonly captures(address) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -701,26 +695,26 @@ keyboard_repeat_handle.exit85:                    ; preds = %148, %115
   ret i32 %.2
 }
 
-declare ptr @SDL_GetKeyboardFocus_REAL() local_unnamed_addr #2
+declare ptr @SDL_GetKeyboardFocus_REAL() local_unnamed_addr #1
 
-declare zeroext i1 @SDL_TextInputActive_REAL(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_TextInputActive_REAL(ptr noundef) local_unnamed_addr #1
 
-declare void @SDL_IME_PumpEvents() local_unnamed_addr #2
+declare void @SDL_IME_PumpEvents() local_unnamed_addr #1
 
-declare void @SDL_DBus_PumpEvents() local_unnamed_addr #2
+declare void @SDL_DBus_PumpEvents() local_unnamed_addr #1
 
-declare ptr @SDL_GetCurrentKeymap() local_unnamed_addr #2
+declare ptr @SDL_GetCurrentKeymap() local_unnamed_addr #1
 
-declare void @SDL_SetKeymap(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare void @SDL_SetKeymap(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare void @SDL_SetModState_REAL(i16 noundef zeroext) local_unnamed_addr #2
+declare void @SDL_SetModState_REAL(i16 noundef zeroext) local_unnamed_addr #1
 
-declare i64 @SDL_GetTicksNS_REAL() local_unnamed_addr #2
+declare i64 @SDL_GetTicksNS_REAL() local_unnamed_addr #1
 
-declare i32 @SDL_IOReady(i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @SDL_IOReady(i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #3
+declare ptr @__errno_location() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden void @Wayland_PumpEvents(ptr noundef %0) local_unnamed_addr #0 {
@@ -914,11 +908,11 @@ keyboard_repeat_handle.exit:                      ; preds = %89, %.lr.ph, %57, %
   ret void
 }
 
-declare zeroext i1 @Wayland_VideoReconnect(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @Wayland_VideoReconnect(ptr noundef) local_unnamed_addr #1
 
-declare void @SDL_LogError_REAL(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @SDL_LogError_REAL(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare void @SDL_SendQuit() local_unnamed_addr #2
+declare void @SDL_SendQuit() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef ptr @Wayland_data_source_create(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
@@ -979,10 +973,10 @@ define hidden noundef ptr @Wayland_data_source_create(ptr noundef readonly captu
   ret ptr %.015
 }
 
-declare zeroext i1 @SDL_SetError_REAL(ptr noundef, ...) local_unnamed_addr #2
+declare zeroext i1 @SDL_SetError_REAL(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @SDL_calloc_REAL(i64 noundef, i64 noundef) local_unnamed_addr #4
+declare noalias ptr @SDL_calloc_REAL(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef ptr @Wayland_primary_selection_source_create(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
@@ -1130,13 +1124,13 @@ thread-pre-split.i:                               ; preds = %26, %24
   br i1 %.not12.i, label %35, label %Wayland_DataDeviceSetID.exit
 
 35:                                               ; preds = %33
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %36 = tail call i32 @getpid() #12
   %37 = sext i32 %36 to i64
   %38 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf_REAL(ptr noundef nonnull %2, i64 noundef 24, ptr noundef nonnull @.str.6, i64 noundef %37) #12
   %39 = call noalias ptr @SDL_strdup_REAL(ptr noundef nonnull %2) #12
   store ptr %39, ptr %22, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %Wayland_DataDeviceSetID.exit
 
 Wayland_DataDeviceSetID.exit:                     ; preds = %21, %33, %35
@@ -1280,9 +1274,9 @@ Wayland_SeatCreateTextInput.exit:                 ; preds = %.lr.ph, %19, %27
   ret void
 }
 
-declare ptr @SDL_getenv_REAL(ptr noundef) local_unnamed_addr #2
+declare ptr @SDL_getenv_REAL(ptr noundef) local_unnamed_addr #1
 
-declare i32 @SDL_strcmp_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @SDL_strcmp_REAL(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @Wayland_DisplayInitTabletManager(ptr noundef readonly captures(address) %0) local_unnamed_addr #0 {
@@ -2228,15 +2222,15 @@ Wayland_SeatDestroyTablet.exit:                   ; preds = %.loopexit.i, %87
   ret void
 }
 
-declare void @SDL_free_REAL(ptr noundef) local_unnamed_addr #2
+declare void @SDL_free_REAL(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @Wayland_data_device_clear_selection(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @Wayland_data_device_clear_selection(ptr noundef) local_unnamed_addr #1
 
-declare void @Wayland_data_offer_destroy(ptr noundef) local_unnamed_addr #2
+declare void @Wayland_data_offer_destroy(ptr noundef) local_unnamed_addr #1
 
-declare void @Wayland_primary_selection_offer_destroy(ptr noundef) local_unnamed_addr #2
+declare void @Wayland_primary_selection_offer_destroy(ptr noundef) local_unnamed_addr #1
 
-declare void @Wayland_primary_selection_source_destroy(ptr noundef) local_unnamed_addr #2
+declare void @Wayland_primary_selection_source_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @Wayland_SeatDestroyKeyboard(ptr noundef captures(none) %0, i1 noundef zeroext %1) unnamed_addr #0 {
@@ -2811,7 +2805,7 @@ SDL_RectEmpty.exit89:                             ; preds = %SDL_RectEmpty.exit,
   br i1 %121, label %.thread94, label %122
 
 122:                                              ; preds = %SDL_RectEmpty.exit89
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call fastcc void @Wayland_GetScaledMouseRect(ptr noundef nonnull %105, ptr noundef %2)
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %124 = load i32, ptr %123, align 4
@@ -2869,7 +2863,7 @@ SDL_PointInRect.exit:                             ; preds = %131
   %152 = sitofp i32 %.057 to float
   %153 = sitofp i32 %.0 to float
   tail call void @Wayland_SeatWarpMouse(ptr noundef nonnull %0, ptr noundef nonnull %103, float noundef %152, float noundef %153) #12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.thread94
 
 154:                                              ; preds = %SDL_PointInRect.exit
@@ -2884,7 +2878,7 @@ SDL_PointInRect.exit:                             ; preds = %131
   %163 = load ptr, ptr @WAYLAND_wl_proxy_get_version, align 8
   %164 = tail call i32 %163(ptr noundef %161) #12
   %165 = tail call ptr (ptr, i32, ptr, i32, i32, ...) %162(ptr noundef %161, i32 noundef 1, ptr noundef null, i32 noundef %164, i32 noundef 0, i32 noundef %125, i32 noundef %135, i32 noundef %128, i32 noundef %137) #12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.not84 = icmp eq ptr %161, null
   br i1 %.not84, label %.thread94, label %178
 
@@ -2939,7 +2933,7 @@ SDL_PointInRect.exit:                             ; preds = %131
   ret void
 }
 
-declare void @Wayland_SeatUpdateCursor(ptr noundef) local_unnamed_addr #2
+declare void @Wayland_SeatUpdateCursor(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @Wayland_GetScaledMouseRect(ptr noundef readonly captures(none) %0, ptr noundef nonnull writeonly captures(none) initializes((0, 16)) %1) unnamed_addr #0 {
@@ -2985,7 +2979,7 @@ define internal fastcc void @Wayland_GetScaledMouseRect(ptr noundef readonly cap
   ret void
 }
 
-declare void @Wayland_SeatWarpMouse(ptr noundef, ptr noundef, float noundef, float noundef) local_unnamed_addr #2
+declare void @Wayland_SeatWarpMouse(ptr noundef, ptr noundef, float noundef, float noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @Wayland_DisplayUpdatePointerGrabs(ptr noundef readonly captures(address) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #0 {
@@ -3144,12 +3138,12 @@ define hidden void @Wayland_UpdateImplicitGrabSerial(ptr noundef %0, i32 noundef
   ret void
 }
 
-declare void @Wayland_data_device_set_serial(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @Wayland_data_device_set_serial(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @Wayland_primary_selection_device_set_serial(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @Wayland_primary_selection_device_set_serial(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @input_timestamp_listener(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr readnone captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #5 {
+define internal void @input_timestamp_listener(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr readnone captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #4 {
   %6 = zext i32 %2 to i64
   %7 = shl nuw i64 %6, 32
   %8 = zext i32 %3 to i64
@@ -3168,12 +3162,12 @@ define internal void @sync_done_handler(ptr readnone captures(none) %0, ptr noun
   ret void
 }
 
-declare zeroext i1 @SDL_SendKeyboardKeyIgnoreModifiers(i64 noundef, i32 noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare zeroext i1 @SDL_SendKeyboardKeyIgnoreModifiers(i64 noundef, i32 noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare void @SDL_SendKeyboardText(ptr noundef) local_unnamed_addr #2
+declare void @SDL_SendKeyboardText(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @data_source_handle_target(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #6 {
+define internal void @data_source_handle_target(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #5 {
   ret void
 }
 
@@ -3197,23 +3191,23 @@ define internal void @data_source_handle_cancelled(ptr noundef %0, ptr readnone 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @data_source_handle_dnd_drop_performed(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #6 {
+define internal void @data_source_handle_dnd_drop_performed(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #5 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @data_source_handle_dnd_finished(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #6 {
+define internal void @data_source_handle_dnd_finished(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #5 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @data_source_handle_action(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2) #6 {
+define internal void @data_source_handle_action(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2) #5 {
   ret void
 }
 
-declare i64 @Wayland_data_source_send(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i64 @Wayland_data_source_send(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @Wayland_data_source_destroy(ptr noundef) local_unnamed_addr #2
+declare void @Wayland_data_source_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @primary_selection_source_send(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3) #0 {
@@ -3227,16 +3221,16 @@ define internal void @primary_selection_source_cancelled(ptr noundef %0, ptr rea
   ret void
 }
 
-declare i64 @Wayland_primary_selection_source_send(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i64 @Wayland_primary_selection_source_send(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @SDL_DBus_GetContext() local_unnamed_addr #2
+declare ptr @SDL_DBus_GetContext() local_unnamed_addr #1
 
-declare noalias ptr @SDL_strdup_REAL(ptr noundef) local_unnamed_addr #2
+declare noalias ptr @SDL_strdup_REAL(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare i32 @getpid() local_unnamed_addr #7
+declare i32 @getpid() local_unnamed_addr #6
 
-declare i32 @SDL_snprintf_REAL(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare i32 @SDL_snprintf_REAL(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @data_device_handle_data_offer(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
@@ -3325,7 +3319,7 @@ define internal void @data_device_handle_enter(ptr noundef captures(none) initia
   br label %32
 
 32:                                               ; preds = %26, %23
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 0, ptr %8, align 8
   %33 = tail call ptr @SDL_GetVideoDevice() #12
   %34 = call ptr @Wayland_GetTextMimeTypes(ptr noundef %33, ptr noundef nonnull %8) #12
@@ -3446,7 +3440,7 @@ define internal void @data_device_handle_enter(ptr noundef captures(none) initia
   br label %109
 
 109:                                              ; preds = %78, %98, %104
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %113
 
 110:                                              ; preds = %7
@@ -3610,7 +3604,7 @@ define internal void @data_device_handle_drop(ptr noundef captures(none) %0, ptr
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %27 = load i32, ptr %26, align 8
   tail call void (i32, ptr, ...) @SDL_LogTrace_REAL(i32 noundef 7, ptr noundef nonnull @.str.19, i32 noundef %23, i32 noundef %25, i32 noundef %27) #12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %28 = load ptr, ptr %7, align 8
   %29 = tail call zeroext i1 @Wayland_data_offer_has_mime(ptr noundef %28, ptr noundef nonnull @.str.11) #12
   br i1 %29, label %30, label %.thread
@@ -3627,7 +3621,7 @@ define internal void @data_device_handle_drop(ptr noundef captures(none) %0, ptr
   br i1 %.not61, label %.thread.sink.split, label %35
 
 35:                                               ; preds = %33
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4
   %36 = call ptr @SDL_DBus_DocumentsPortalRetrieveFiles(ptr noundef nonnull %32, ptr noundef nonnull %4) #12
   %37 = icmp ne ptr %36, null
@@ -3654,12 +3648,12 @@ define internal void @data_device_handle_drop(ptr noundef captures(none) %0, ptr
   call void %48(ptr noundef nonnull %36) #12
   %49 = load ptr, ptr %10, align 8
   %50 = call zeroext i1 @SDL_SendDropComplete(ptr noundef %49) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @SDL_free_REAL(ptr noundef nonnull %32) #12
   br label %88
 
 51:                                               ; preds = %35
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread.sink.split
 
 .thread.sink.split:                               ; preds = %33, %51
@@ -3680,7 +3674,7 @@ define internal void @data_device_handle_drop(ptr noundef captures(none) %0, ptr
   br i1 %.not64, label %70, label %59
 
 59:                                               ; preds = %58
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8
   %60 = call ptr @SDL_strtok_r_REAL(ptr noundef nonnull %55, ptr noundef nonnull @.str.20, ptr noundef nonnull %5) #12
   %.not6579 = icmp eq ptr %60, null
@@ -3706,7 +3700,7 @@ define internal void @data_device_handle_drop(ptr noundef captures(none) %0, ptr
   call void @SDL_free_REAL(ptr noundef nonnull %55) #12
   %68 = load ptr, ptr %10, align 8
   %69 = call zeroext i1 @SDL_SendDropComplete(ptr noundef %68) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %88
 
 70:                                               ; preds = %58
@@ -3725,7 +3719,7 @@ define internal void @data_device_handle_drop(ptr noundef captures(none) %0, ptr
   br i1 %.not62, label %85, label %78
 
 78:                                               ; preds = %77
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8
   %79 = call ptr @SDL_strtok_r_REAL(ptr noundef nonnull %55, ptr noundef nonnull @.str.20, ptr noundef nonnull %6) #12
   %.not6376 = icmp eq ptr %79, null
@@ -3743,7 +3737,7 @@ define internal void @data_device_handle_drop(ptr noundef captures(none) %0, ptr
   call void @SDL_free_REAL(ptr noundef nonnull %55) #12
   %83 = load ptr, ptr %10, align 8
   %84 = call zeroext i1 @SDL_SendDropComplete(ptr noundef %83) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %88
 
 85:                                               ; preds = %77
@@ -3769,7 +3763,7 @@ define internal void @data_device_handle_drop(ptr noundef captures(none) %0, ptr
   br label %101
 
 101:                                              ; preds = %73, %94, %88
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %103
 
 102:                                              ; preds = %16, %9, %2
@@ -3814,7 +3808,7 @@ define internal void @data_device_handle_selection(ptr noundef captures(none) %0
   ret void
 }
 
-declare void @SDL_LogTrace_REAL(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @SDL_LogTrace_REAL(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @data_offer_handle_offer(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
@@ -3865,35 +3859,35 @@ define internal void @data_offer_handle_actions(ptr readnone captures(none) %0, 
   ret void
 }
 
-declare zeroext i1 @Wayland_data_offer_add_mime(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @Wayland_data_offer_add_mime(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @Wayland_data_offer_has_mime(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @Wayland_data_offer_has_mime(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @Wayland_GetTextMimeTypes(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @Wayland_GetTextMimeTypes(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @SDL_GetVideoDevice() local_unnamed_addr #2
+declare ptr @SDL_GetVideoDevice() local_unnamed_addr #1
 
-declare ptr @Wayland_GetWindowDataForOwnedSurface(ptr noundef) local_unnamed_addr #2
+declare ptr @Wayland_GetWindowDataForOwnedSurface(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_SendDropPosition(ptr noundef, float noundef, float noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_SendDropPosition(ptr noundef, float noundef, float noundef) local_unnamed_addr #1
 
-declare i32 @SDL_GetWindowID_REAL(ptr noundef) local_unnamed_addr #2
+declare i32 @SDL_GetWindowID_REAL(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_SendDropComplete(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_SendDropComplete(ptr noundef) local_unnamed_addr #1
 
-declare ptr @Wayland_data_offer_receive(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @Wayland_data_offer_receive(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @SDL_DBus_DocumentsPortalRetrieveFiles(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @SDL_DBus_DocumentsPortalRetrieveFiles(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_SendDropFile(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_SendDropFile(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @SDL_strtok_r_REAL(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @SDL_strtok_r_REAL(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @SDL_URIToLocal(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @SDL_URIToLocal(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_SendDropText(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_SendDropText(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @Wayland_data_offer_notify_from_mimes(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare void @Wayland_data_offer_notify_from_mimes(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @primary_selection_device_handle_offer(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
@@ -3987,15 +3981,15 @@ define internal void @primary_selection_offer_handle_offer(ptr noundef %0, ptr n
   ret void
 }
 
-declare zeroext i1 @Wayland_primary_selection_offer_add_mime(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @Wayland_primary_selection_offer_add_mime(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @text_input_enter(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #6 {
+define internal void @text_input_enter(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #5 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @text_input_leave(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #6 {
+define internal void @text_input_leave(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #5 {
   ret void
 }
 
@@ -4052,7 +4046,7 @@ define internal void @text_input_commit_string(ptr readnone captures(none) %0, p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @text_input_delete_surrounding_text(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2, i32 %3) #6 {
+define internal void @text_input_delete_surrounding_text(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2, i32 %3) #5 {
   ret void
 }
 
@@ -4072,12 +4066,12 @@ define internal void @text_input_done(ptr noundef captures(none) %0, ptr readnon
   ret void
 }
 
-declare i64 @SDL_utf8strnlen_REAL(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @SDL_utf8strnlen_REAL(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @SDL_SendEditingText(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @SDL_SendEditingText(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @tablet_seat_handle_tablet_added(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #6 {
+define internal void @tablet_seat_handle_tablet_added(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #5 {
   ret void
 }
 
@@ -4109,12 +4103,12 @@ define internal void @tablet_seat_handle_tool_added(ptr noundef %0, ptr readnone
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @tablet_seat_handle_pad_added(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #6 {
+define internal void @tablet_seat_handle_pad_added(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #5 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @tablet_tool_handle_type(ptr noundef writeonly captures(none) initializes((20, 24)) %0, ptr readnone captures(none) %1, i32 noundef %2) #5 {
+define internal void @tablet_tool_handle_type(ptr noundef writeonly captures(none) initializes((20, 24)) %0, ptr readnone captures(none) %1, i32 noundef %2) #4 {
   %switch.tableidx = add i32 %2, -320
   %4 = icmp ult i32 %switch.tableidx, 5
   br i1 %4, label %switch.lookup, label %6
@@ -4133,19 +4127,19 @@ switch.lookup:                                    ; preds = %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @tablet_tool_handle_hardware_serial(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2, i32 %3) #6 {
+define internal void @tablet_tool_handle_hardware_serial(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2, i32 %3) #5 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @tablet_tool_handle_hardware_id_wacom(ptr noundef writeonly captures(none) initializes((12, 16)) %0, ptr readnone captures(none) %1, i32 %2, i32 noundef %3) #5 {
+define internal void @tablet_tool_handle_hardware_id_wacom(ptr noundef writeonly captures(none) initializes((12, 16)) %0, ptr readnone captures(none) %1, i32 %2, i32 noundef %3) #4 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %3, ptr %5, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @tablet_tool_handle_capability(ptr noundef captures(none) %0, ptr readnone captures(none) %1, i32 noundef %2) #8 {
+define internal void @tablet_tool_handle_capability(ptr noundef captures(none) %0, ptr readnone captures(none) %1, i32 noundef %2) #7 {
   %switch.tableidx = add i32 %2, -1
   %4 = icmp ult i32 %switch.tableidx, 5
   br i1 %4, label %switch.lookup, label %9
@@ -4165,7 +4159,7 @@ switch.lookup:                                    ; preds = %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @tablet_tool_handle_done(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #6 {
+define internal void @tablet_tool_handle_done(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #5 {
   ret void
 }
 
@@ -4225,21 +4219,21 @@ define internal void @tablet_tool_handle_proximity_in(ptr noundef initializes((2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @tablet_tool_handle_down(ptr noundef writeonly captures(none) initializes((84, 88)) %0, ptr readnone captures(none) %1, i32 %2) #5 {
+define internal void @tablet_tool_handle_down(ptr noundef writeonly captures(none) initializes((84, 88)) %0, ptr readnone captures(none) %1, i32 %2) #4 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store i32 1, ptr %4, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @tablet_tool_handle_up(ptr noundef writeonly captures(none) initializes((84, 88)) %0, ptr readnone captures(none) %1) #5 {
+define internal void @tablet_tool_handle_up(ptr noundef writeonly captures(none) initializes((84, 88)) %0, ptr readnone captures(none) %1) #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store i32 0, ptr %3, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @tablet_tool_handle_motion(ptr noundef captures(none) %0, ptr readnone captures(none) %1, i32 noundef %2, i32 noundef %3) #9 {
+define internal void @tablet_tool_handle_motion(ptr noundef captures(none) %0, ptr readnone captures(none) %1, i32 noundef %2, i32 noundef %3) #8 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
@@ -4277,7 +4271,7 @@ define internal void @tablet_tool_handle_motion(ptr noundef captures(none) %0, p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @tablet_tool_handle_pressure(ptr noundef captures(none) initializes((52, 56)) %0, ptr readnone captures(none) %1, i32 noundef %2) #8 {
+define internal void @tablet_tool_handle_pressure(ptr noundef captures(none) initializes((52, 56)) %0, ptr readnone captures(none) %1, i32 noundef %2) #7 {
   %4 = uitofp i32 %2 to float
   %5 = fdiv float %4, 6.553500e+04
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 52
@@ -4301,7 +4295,7 @@ define internal void @tablet_tool_handle_pressure(ptr noundef captures(none) ini
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @tablet_tool_handle_distance(ptr noundef captures(none) initializes((64, 68)) %0, ptr readnone captures(none) %1, i32 noundef %2) #8 {
+define internal void @tablet_tool_handle_distance(ptr noundef captures(none) initializes((64, 68)) %0, ptr readnone captures(none) %1, i32 noundef %2) #7 {
   %4 = uitofp i32 %2 to float
   %5 = fdiv float %4, 6.553500e+04
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -4325,7 +4319,7 @@ define internal void @tablet_tool_handle_distance(ptr noundef captures(none) ini
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @tablet_tool_handle_tilt(ptr noundef captures(none) initializes((56, 64)) %0, ptr readnone captures(none) %1, i32 noundef %2, i32 noundef %3) #8 {
+define internal void @tablet_tool_handle_tilt(ptr noundef captures(none) initializes((56, 64)) %0, ptr readnone captures(none) %1, i32 noundef %2, i32 noundef %3) #7 {
   %5 = sext i32 %2 to i64
   %6 = add nsw i64 %5, 4807592602218004480
   %7 = bitcast i64 %6 to double
@@ -4348,7 +4342,7 @@ define internal void @tablet_tool_handle_tilt(ptr noundef captures(none) initial
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @tablet_tool_handle_rotation(ptr noundef captures(none) initializes((68, 72)) %0, ptr readnone captures(none) %1, i32 noundef %2) #8 {
+define internal void @tablet_tool_handle_rotation(ptr noundef captures(none) initializes((68, 72)) %0, ptr readnone captures(none) %1, i32 noundef %2) #7 {
   %4 = sext i32 %2 to i64
   %5 = add nsw i64 %4, 4807592602218004480
   %6 = bitcast i64 %5 to double
@@ -4367,7 +4361,7 @@ define internal void @tablet_tool_handle_rotation(ptr noundef captures(none) ini
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @tablet_tool_handle_slider(ptr noundef captures(none) initializes((72, 76)) %0, ptr readnone captures(none) %1, i32 noundef %2) #8 {
+define internal void @tablet_tool_handle_slider(ptr noundef captures(none) initializes((72, 76)) %0, ptr readnone captures(none) %1, i32 noundef %2) #7 {
   %4 = sitofp i32 %2 to float
   %5 = fdiv float %4, 6.553500e+04
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -4380,12 +4374,12 @@ define internal void @tablet_tool_handle_slider(ptr noundef captures(none) initi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @tablet_tool_handle_wheel(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2, i32 %3) #6 {
+define internal void @tablet_tool_handle_wheel(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2, i32 %3) #5 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @tablet_tool_handle_button(ptr noundef writeonly captures(none) %0, ptr readnone captures(none) %1, i32 %2, i32 noundef %3, i32 noundef %4) #5 {
+define internal void @tablet_tool_handle_button(ptr noundef writeonly captures(none) %0, ptr readnone captures(none) %1, i32 %2, i32 noundef %3, i32 noundef %4) #4 {
   switch i32 %3, label %13 [
     i32 331, label %8
     i32 332, label %6
@@ -4564,22 +4558,22 @@ Wayland_AdjustEventTimestampBase.exit:            ; preds = %Wayland_EventTimest
   ret void
 }
 
-declare void @SDL_RemovePenDevice(i64 noundef, i32 noundef) local_unnamed_addr #2
+declare void @SDL_RemovePenDevice(i64 noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @SDL_AddPenDevice(i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @SDL_AddPenDevice(i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @SDL_SendPenMotion(i64 noundef, i32 noundef, ptr noundef, float noundef, float noundef) local_unnamed_addr #2
+declare void @SDL_SendPenMotion(i64 noundef, i32 noundef, ptr noundef, float noundef, float noundef) local_unnamed_addr #1
 
-declare void @SDL_SendPenTouch(i64 noundef, i32 noundef, ptr noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #2
+declare void @SDL_SendPenTouch(i64 noundef, i32 noundef, ptr noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #1
 
-declare void @SDL_SendPenAxis(i64 noundef, i32 noundef, ptr noundef, i32 noundef, float noundef) local_unnamed_addr #2
+declare void @SDL_SendPenAxis(i64 noundef, i32 noundef, ptr noundef, i32 noundef, float noundef) local_unnamed_addr #1
 
-declare void @SDL_SendPenButton(i64 noundef, i32 noundef, ptr noundef, i8 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #2
+declare void @SDL_SendPenButton(i64 noundef, i32 noundef, ptr noundef, i8 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @seat_handle_capabilities(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = alloca [256 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = and i32 %2, 1
   %.not = icmp eq i32 %5, 0
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 272
@@ -4768,14 +4762,14 @@ Wayland_SeatCreateCursorShape.exit:               ; preds = %9, %19, %22
 
 104:                                              ; preds = %78, %.critedge68, %103, %97
   call fastcc void @Wayland_SeatRegisterInputTimestampListeners(ptr noundef nonnull %0)
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @seat_handle_name(ptr noundef captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = alloca [256 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %32, label %5
 
@@ -4829,20 +4823,20 @@ define internal void @seat_handle_name(ptr noundef captures(none) %0, ptr readno
   br label %32
 
 32:                                               ; preds = %24, %27, %5, %3
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
-declare i32 @SDL_GetNextObjectID() local_unnamed_addr #2
+declare i32 @SDL_GetNextObjectID() local_unnamed_addr #1
 
-declare void @SDL_AddMouse(i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare void @SDL_AddMouse(i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare i32 @SDL_AddTouch(i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @SDL_AddTouch(i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @SDL_AddKeyboard(i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare void @SDL_AddKeyboard(i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @pointer_handle_enter(ptr noundef %0, ptr readnone captures(none) %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #0 {
@@ -5397,17 +5391,17 @@ define internal void @pointer_handle_frame(ptr noundef captures(none) initialize
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @pointer_handle_axis_source(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2) #6 {
+define internal void @pointer_handle_axis_source(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2) #5 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @pointer_handle_axis_stop(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2, i32 %3) #6 {
+define internal void @pointer_handle_axis_stop(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2, i32 %3) #5 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @pointer_handle_axis_discrete(ptr noundef captures(none) %0, ptr readnone captures(none) %1, i32 noundef %2, i32 noundef %3) #8 {
+define internal void @pointer_handle_axis_discrete(ptr noundef captures(none) %0, ptr readnone captures(none) %1, i32 noundef %2, i32 noundef %3) #7 {
   %5 = shl nsw i32 %3, 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %7 = load ptr, ptr %6, align 8
@@ -5463,7 +5457,7 @@ pointer_handle_axis_common.exit:                  ; preds = %pointer_handle_axis
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @pointer_handle_axis_value120(ptr noundef captures(none) %0, ptr readnone captures(none) %1, i32 noundef %2, i32 noundef %3) #8 {
+define internal void @pointer_handle_axis_value120(ptr noundef captures(none) %0, ptr readnone captures(none) %1, i32 noundef %2, i32 noundef %3) #7 {
   %5 = shl nsw i32 %3, 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %7 = load ptr, ptr %6, align 8
@@ -5536,7 +5530,7 @@ pointer_handle_axis_common.exit:                  ; preds = %4, %8, %13, %27
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @pointer_handle_axis_relative_direction(ptr noundef writeonly captures(none) %0, ptr readnone captures(none) %1, i32 noundef %2, i32 noundef %3) #5 {
+define internal void @pointer_handle_axis_relative_direction(ptr noundef writeonly captures(none) %0, ptr readnone captures(none) %1, i32 noundef %2, i32 noundef %3) #4 {
   %.not = icmp eq i32 %2, 0
   %switch = icmp ult i32 %3, 2
   %or.cond = and i1 %.not, %switch
@@ -5551,7 +5545,7 @@ define internal void @pointer_handle_axis_relative_direction(ptr noundef writeon
   ret void
 }
 
-declare void @SDL_SetMouseFocus(ptr noundef) local_unnamed_addr #2
+declare void @SDL_SetMouseFocus(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @pointer_handle_motion_common(ptr noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
@@ -5787,15 +5781,15 @@ SDL_RectEmpty.exit.thread:                        ; preds = %43, %74, %7, %80, %
   ret void
 }
 
-declare void @SDL_SendMouseMotion(i64 noundef, ptr noundef, i32 noundef, i1 noundef zeroext, float noundef, float noundef) local_unnamed_addr #2
+declare void @SDL_SendMouseMotion(i64 noundef, ptr noundef, i32 noundef, i1 noundef zeroext, float noundef, float noundef) local_unnamed_addr #1
 
-declare float @SDL_floorf_REAL(float noundef) local_unnamed_addr #2
+declare float @SDL_floorf_REAL(float noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare void @SDL_SendMouseButton(i64 noundef, ptr noundef, i32 noundef, i8 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #2
+declare void @SDL_SendMouseButton(i64 noundef, ptr noundef, i32 noundef, i8 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #1
 
-declare void @SDL_SendMouseWheel(i64 noundef, ptr noundef, i32 noundef, float noundef, float noundef, i32 noundef) local_unnamed_addr #2
+declare void @SDL_SendMouseWheel(i64 noundef, ptr noundef, i32 noundef, float noundef, float noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @touch_handler_down(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) #0 {
@@ -6198,7 +6192,7 @@ Wayland_SeatUpdateTouch.exit.thread:              ; preds = %12, %6, %18, %Wayla
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @touch_handler_frame(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #6 {
+define internal void @touch_handler_frame(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #5 {
   ret void
 }
 
@@ -6224,22 +6218,22 @@ define internal void @touch_handler_cancel(ptr noundef readonly captures(address
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @touch_handler_shape(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2, i32 %3, i32 %4) #6 {
+define internal void @touch_handler_shape(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2, i32 %3, i32 %4) #5 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @touch_handler_orientation(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2, i32 %3) #6 {
+define internal void @touch_handler_orientation(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2, i32 %3) #5 {
   ret void
 }
 
-declare void @SDL_SendTouch(i64 noundef, i64 noundef, i64 noundef, ptr noundef, i32 noundef, float noundef, float noundef, float noundef) local_unnamed_addr #2
+declare void @SDL_SendTouch(i64 noundef, i64 noundef, i64 noundef, ptr noundef, i32 noundef, float noundef, float noundef, float noundef) local_unnamed_addr #1
 
-declare noalias ptr @SDL_malloc_REAL(i64 noundef) local_unnamed_addr #2
+declare noalias ptr @SDL_malloc_REAL(i64 noundef) local_unnamed_addr #1
 
-declare ptr @SDL_GetMouseFocus_REAL() local_unnamed_addr #2
+declare ptr @SDL_GetMouseFocus_REAL() local_unnamed_addr #1
 
-declare void @SDL_SendTouchMotion(i64 noundef, i64 noundef, i64 noundef, ptr noundef, float noundef, float noundef, float noundef) local_unnamed_addr #2
+declare void @SDL_SendTouchMotion(i64 noundef, i64 noundef, i64 noundef, ptr noundef, float noundef, float noundef, float noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @keyboard_handle_keymap(ptr noundef captures(address_is_null) %0, ptr readnone captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #0 {
@@ -6620,7 +6614,7 @@ Wayland_DisplayUpdatePointerGrabs.exit:           ; preds = %Wayland_DisplayUpda
   br label %Wayland_GetScancodeForKey.exit
 
 84:                                               ; preds = %78
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %85 = load ptr, ptr @WAYLAND_xkb_keymap_key_get_syms_by_level, align 8
   %86 = load ptr, ptr %74, align 8
   %87 = add i32 %79, 8
@@ -6637,7 +6631,7 @@ Wayland_DisplayUpdatePointerGrabs.exit:           ; preds = %Wayland_DisplayUpda
 
 95:                                               ; preds = %91, %84
   %.1.i = phi i32 [ %94, %91 ], [ 0, %84 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %Wayland_GetScancodeForKey.exit
 
 Wayland_GetScancodeForKey.exit:                   ; preds = %82, %95
@@ -6730,7 +6724,7 @@ define internal void @keyboard_handle_key(ptr noundef %0, ptr readnone captures(
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca [8 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %11 = load i32, ptr @Wayland_EventTimestampMSToNS.last, align 4
   %12 = icmp ult i32 %3, %11
   %.pre.i.i = load i64, ptr @Wayland_EventTimestampMSToNS.timestamp_offset, align 8
@@ -6809,7 +6803,7 @@ Wayland_UpdateImplicitGrabSerial.exit:            ; preds = %Wayland_GetKeyboard
   br i1 %50, label %51, label %146
 
 51:                                               ; preds = %49
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %53 = load ptr, ptr %52, align 8
   %.not.i50 = icmp eq ptr %53, null
@@ -6875,7 +6869,7 @@ Wayland_UpdateImplicitGrabSerial.exit:            ; preds = %Wayland_GetKeyboard
 keyboard_input_get_text.exit:                     ; preds = %72, %61, %51, %54, %57, %81
   %.163 = phi i1 [ false, %51 ], [ false, %54 ], [ false, %81 ], [ false, %57 ], [ true, %61 ], [ true, %72 ]
   %.019.i = phi i1 [ false, %51 ], [ false, %54 ], [ %84, %81 ], [ false, %57 ], [ true, %61 ], [ true, %72 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %146
 
 85:                                               ; preds = %45
@@ -6973,7 +6967,7 @@ keyboard_repeat_handle.exit.thread:               ; preds = %97, %keyboard_repea
   br label %keyboard_repeat_clear.exit
 
 keyboard_repeat_clear.exit:                       ; preds = %85, %90, %keyboard_repeat_handle.exit.thread, %keyboard_repeat_handle.exit, %keyboard_repeat_key_is_set.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %134 = load ptr, ptr %133, align 8
   %.not.i52 = icmp eq ptr %134, null
@@ -7000,7 +6994,7 @@ keyboard_repeat_clear.exit:                       ; preds = %85, %90, %keyboard_
 
 keyboard_input_get_text.exit56:                   ; preds = %142, %keyboard_repeat_clear.exit, %135, %138
   %.2 = phi i1 [ false, %keyboard_repeat_clear.exit ], [ false, %135 ], [ false, %138 ], [ %145, %142 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %146
 
 146:                                              ; preds = %47, %49, %keyboard_input_get_text.exit, %keyboard_input_get_text.exit56
@@ -7016,7 +7010,7 @@ keyboard_input_get_text.exit56:                   ; preds = %142, %keyboard_repe
   br label %Wayland_GetScancodeForKey.exit
 
 152:                                              ; preds = %146
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %153 = load ptr, ptr @WAYLAND_xkb_keymap_key_get_syms_by_level, align 8
   %154 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %155 = load ptr, ptr %154, align 8
@@ -7035,7 +7029,7 @@ keyboard_input_get_text.exit56:                   ; preds = %142, %keyboard_repe
 
 165:                                              ; preds = %161, %152
   %.1.i = phi i32 [ %164, %161 ], [ 0, %152 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %Wayland_GetScancodeForKey.exit
 
 Wayland_GetScancodeForKey.exit:                   ; preds = %150, %165
@@ -7183,7 +7177,7 @@ Wayland_AdjustEventTimestampBase.exit:            ; preds = %Wayland_HandleModif
   br label %keyboard_repeat_set.exit
 
 keyboard_repeat_set.exit:                         ; preds = %.sink.split.i, %210, %205, %198, %201, %Wayland_AdjustEventTimestampBase.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 }
 
@@ -7217,11 +7211,11 @@ keyboard_repeat_is_set.exit:                      ; preds = %13
   br i1 %24, label %keyboard_repeat_get_key.exit, label %keyboard_repeat_is_set.exit.thread
 
 keyboard_repeat_get_key.exit:                     ; preds = %keyboard_repeat_is_set.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %26 = load i32, ptr %25, align 8
   %27 = add i32 %26, 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %29 = load ptr, ptr %28, align 8
   %.not.i = icmp eq ptr %29, null
@@ -7276,11 +7270,11 @@ keyboard_repeat_get_key.exit:                     ; preds = %keyboard_repeat_is_
   br label %keyboard_input_get_text.exit
 
 keyboard_input_get_text.exit.thread:              ; preds = %30, %keyboard_repeat_get_key.exit, %32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %keyboard_repeat_set_text.exit
 
 keyboard_input_get_text.exit.thread26:            ; preds = %35, %46
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %58
 
 keyboard_input_get_text.exit:                     ; preds = %39, %42, %46, %50, %51
@@ -7288,7 +7282,7 @@ keyboard_input_get_text.exit:                     ; preds = %39, %42, %46, %50, 
   %55 = load ptr, ptr @WAYLAND_xkb_keysym_to_utf8, align 8
   %56 = call i32 %55(i32 noundef %.0.i23, ptr noundef nonnull %9, i64 noundef 8) #12
   %57 = icmp sgt i32 %56, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %57, label %58, label %keyboard_repeat_set_text.exit
 
 58:                                               ; preds = %keyboard_input_get_text.exit.thread26, %keyboard_input_get_text.exit
@@ -7303,7 +7297,7 @@ keyboard_input_get_text.exit:                     ; preds = %39, %42, %46, %50, 
   br label %keyboard_repeat_set_text.exit
 
 keyboard_repeat_set_text.exit:                    ; preds = %61, %58, %keyboard_input_get_text.exit.thread, %keyboard_input_get_text.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %keyboard_repeat_is_set.exit.thread
 
 keyboard_repeat_is_set.exit.thread:               ; preds = %13, %keyboard_repeat_set_text.exit, %keyboard_repeat_is_set.exit
@@ -7322,7 +7316,7 @@ keyboard_repeat_is_set.exit.thread:               ; preds = %13, %keyboard_repea
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @keyboard_handle_repeat_info(ptr noundef writeonly captures(none) initializes((104, 112), (116, 117)) %0, ptr readnone captures(none) %1, i32 noundef %2, i32 noundef %3) #5 {
+define internal void @keyboard_handle_repeat_info(ptr noundef writeonly captures(none) initializes((104, 112), (116, 117)) %0, ptr readnone captures(none) %1, i32 noundef %2, i32 noundef %3) #4 {
   %5 = tail call i32 @llvm.smax.i32(i32 %2, i32 0)
   %6 = tail call i32 @llvm.umin.i32(i32 %5, i32 1000)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -7334,19 +7328,19 @@ define internal void @keyboard_handle_repeat_info(ptr noundef writeonly captures
   ret void
 }
 
-declare i32 @close(i32 noundef) local_unnamed_addr #2
+declare i32 @close(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare ptr @mmap(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #7
+declare ptr @mmap(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind
-declare i32 @munmap(ptr noundef, i64 noundef) local_unnamed_addr #7
+declare i32 @munmap(ptr noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @Wayland_UpdateKeymap(ptr noundef captures(none) %0) unnamed_addr #0 {
   %2 = alloca [16 x %struct.Keymod_masks], align 16
   %3 = alloca %struct.Wayland_KeymapBuilderState, align 8
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 0, ptr %2, align 16
   store i16 3, ptr %4, align 8
@@ -7434,7 +7428,7 @@ define internal fastcc void @Wayland_UpdateKeymap(ptr noundef captures(none) %0)
   br i1 %56, label %94, label %57
 
 57:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %58 = tail call ptr @SDL_CreateKeymap(i1 noundef zeroext false) #12
   store ptr %58, ptr %3, align 8
   %.not = icmp eq ptr %58, null
@@ -7470,7 +7464,7 @@ define internal fastcc void @Wayland_UpdateKeymap(ptr noundef captures(none) %0)
   call void @SDL_DestroyKeymap(ptr noundef %72) #12
   %73 = load ptr, ptr %3, align 8
   store ptr %73, ptr %71, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %97
 
 74:                                               ; preds = %.preheader, %74
@@ -7500,7 +7494,7 @@ define internal fastcc void @Wayland_UpdateKeymap(ptr noundef captures(none) %0)
   br i1 %exitcond.not, label %.critedge, label %74, !llvm.loop !35
 
 93:                                               ; preds = %57, %66
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %97
 
 94:                                               ; preds = %1
@@ -7512,18 +7506,18 @@ define internal fastcc void @Wayland_UpdateKeymap(ptr noundef captures(none) %0)
   br label %97
 
 97:                                               ; preds = %94, %.critedge, %93
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
-declare ptr @SDL_CreateKeymap(i1 noundef zeroext) local_unnamed_addr #2
+declare ptr @SDL_CreateKeymap(i1 noundef zeroext) local_unnamed_addr #1
 
-declare void @SDL_DestroyKeymap(ptr noundef) local_unnamed_addr #2
+declare void @SDL_DestroyKeymap(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @Wayland_keymap_iter(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = add i32 %1, -8
   %6 = tail call i32 @SDL_GetScancodeFromTable(i32 noundef 3, i32 noundef %5) #12
   %7 = icmp eq i32 %6, 0
@@ -7575,25 +7569,25 @@ define internal void @Wayland_keymap_iter(ptr readnone captures(none) %0, i32 no
   br label %29
 
 29:                                               ; preds = %8, %26, %3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
-declare i32 @SDL_GetScancodeFromTable(i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @SDL_GetScancodeFromTable(i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @SDL_GetKeyCodeFromKeySym(i32 noundef, i32 noundef, i16 noundef zeroext) local_unnamed_addr #2
+declare i32 @SDL_GetKeyCodeFromKeySym(i32 noundef, i32 noundef, i16 noundef zeroext) local_unnamed_addr #1
 
-declare void @SDL_SetKeymapEntry(ptr noundef, i32 noundef, i16 noundef zeroext, i32 noundef) local_unnamed_addr #2
+declare void @SDL_SetKeymapEntry(ptr noundef, i32 noundef, i16 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_SetKeyboardFocus(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_SetKeyboardFocus(ptr noundef) local_unnamed_addr #1
 
-declare void @Wayland_UpdateTextInput(ptr noundef) local_unnamed_addr #2
+declare void @Wayland_UpdateTextInput(ptr noundef) local_unnamed_addr #1
 
-declare void @SDL_IME_SetFocus(i1 noundef zeroext) local_unnamed_addr #2
+declare void @SDL_IME_SetFocus(i1 noundef zeroext) local_unnamed_addr #1
 
-declare i32 @SDL_GetKeyFromScancode_REAL(i32 noundef, i16 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #2
+declare i32 @SDL_GetKeyFromScancode_REAL(i32 noundef, i16 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #1
 
-declare i32 @SDL_GetScancodeFromKeySym(i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @SDL_GetScancodeFromKeySym(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @Wayland_ReconcileModifiers(ptr noundef captures(none) %0, i1 noundef zeroext %1) unnamed_addr #0 {
@@ -7922,23 +7916,23 @@ define internal fastcc void @Wayland_ReconcileModifiers(ptr noundef captures(non
   ret void
 }
 
-declare zeroext i16 @SDL_GetModState_REAL() local_unnamed_addr #2
+declare zeroext i16 @SDL_GetModState_REAL() local_unnamed_addr #1
 
-declare zeroext i1 @SDL_IME_ProcessKeyEvent(i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare zeroext i1 @SDL_IME_ProcessKeyEvent(i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare void @SDL_SetKeyboardName(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @SDL_SetKeyboardName(i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @SDL_SetMouseName(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @SDL_SetMouseName(i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @SDL_SetTouchName(i64 noundef, ptr noundef) local_unnamed_addr #2
+declare void @SDL_SetTouchName(i64 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @SDL_RemoveKeyboard(i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare void @SDL_RemoveKeyboard(i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare void @SDL_RemoveMouse(i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare void @SDL_RemoveMouse(i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare void @SDL_DelTouch(i64 noundef) local_unnamed_addr #2
+declare void @SDL_DelTouch(i64 noundef) local_unnamed_addr #1
 
-declare void @SDL_RemoveAllPenDevices(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @SDL_RemoveAllPenDevices(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @Wayland_remove_all_pens_callback(i32 %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
@@ -7952,7 +7946,7 @@ define internal void @Wayland_remove_all_pens_callback(i32 %0, ptr noundef %1, p
   ret void
 }
 
-declare ptr @SDL_GetMouse() local_unnamed_addr #2
+declare ptr @SDL_GetMouse() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @relative_pointer_handle_relative_motion(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) #0 {
@@ -8033,28 +8027,34 @@ Wayland_AdjustEventTimestampBase.exit:            ; preds = %8, %23
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @locked_pointer_locked(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #6 {
+define internal void @locked_pointer_locked(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #5 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @locked_pointer_unlocked(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #6 {
+define internal void @locked_pointer_unlocked(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #5 {
   ret void
 }
 
-declare double @SDL_floor_REAL(double noundef) local_unnamed_addr #2
+declare double @SDL_floor_REAL(double noundef) local_unnamed_addr #1
 
-declare double @SDL_ceil_REAL(double noundef) local_unnamed_addr #2
+declare double @SDL_ceil_REAL(double noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @confined_pointer_confined(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #6 {
+define internal void @confined_pointer_confined(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #5 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @confined_pointer_unconfined(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #6 {
+define internal void @confined_pointer_unconfined(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #5 {
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #11
@@ -8069,16 +8069,16 @@ declare i32 @llvm.smax.i32(i32, i32) #11
 declare i32 @llvm.umin.i32(i32, i32) #11
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #12 = { nounwind }
 attributes #13 = { nounwind willreturn memory(none) }

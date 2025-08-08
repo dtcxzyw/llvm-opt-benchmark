@@ -98,7 +98,7 @@ define hidden range(i32 0, 2) i32 @SSL_use_certificate_ASN1(ptr noundef readonly
   br label %17
 
 7:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %1, ptr %4, align 8, !tbaa !48
   %8 = call ptr @d2i_X509(ptr noundef null, ptr noundef nonnull %4, i64 noundef %2) #6
   %9 = icmp ne ptr %8, null
@@ -121,7 +121,7 @@ SSL_use_certificate.exit:                         ; preds = %7
 16:                                               ; preds = %SSL_use_certificate.exit, %12
   %.1 = phi i32 [ 0, %12 ], [ %15, %SSL_use_certificate.exit ]
   call void @X509_free(ptr noundef %8) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %17
 
 17:                                               ; preds = %16, %6
@@ -129,15 +129,9 @@ SSL_use_certificate.exit:                         ; preds = %7
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare ptr @d2i_X509(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 declare void @X509_free(ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @SSL_use_RSAPrivateKey(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -300,7 +294,7 @@ define hidden range(i32 0, 2) i32 @SSL_use_PrivateKey_ASN1(i32 noundef %0, ptr n
   br label %18
 
 8:                                                ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %2, ptr %5, align 8, !tbaa !48
   %9 = call ptr @d2i_PrivateKey(i32 noundef %0, ptr noundef null, ptr noundef nonnull %5, i64 noundef %3) #6
   %10 = icmp ne ptr %9, null
@@ -323,7 +317,7 @@ SSL_use_PrivateKey.exit:                          ; preds = %8
 17:                                               ; preds = %SSL_use_PrivateKey.exit, %13
   %.1 = phi i32 [ 0, %13 ], [ %16, %SSL_use_PrivateKey.exit ]
   call void @EVP_PKEY_free(ptr noundef %9) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %18
 
 18:                                               ; preds = %17, %7
@@ -364,7 +358,7 @@ define hidden range(i32 0, 2) i32 @SSL_CTX_use_certificate_ASN1(ptr noundef read
   br label %17
 
 7:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %2, ptr %4, align 8, !tbaa !48
   %8 = call ptr @d2i_X509(ptr noundef null, ptr noundef nonnull %4, i64 noundef %1) #6
   %9 = icmp ne ptr %8, null
@@ -387,7 +381,7 @@ SSL_CTX_use_certificate.exit:                     ; preds = %7
 16:                                               ; preds = %SSL_CTX_use_certificate.exit, %12
   %.1 = phi i32 [ 0, %12 ], [ %15, %SSL_CTX_use_certificate.exit ]
   call void @X509_free(ptr noundef %8) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %17
 
 17:                                               ; preds = %16, %6
@@ -496,7 +490,7 @@ define hidden range(i32 0, 2) i32 @SSL_CTX_use_PrivateKey_ASN1(i32 noundef %0, p
   br label %18
 
 8:                                                ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %2, ptr %5, align 8, !tbaa !48
   %9 = call ptr @d2i_PrivateKey(i32 noundef %0, ptr noundef null, ptr noundef nonnull %5, i64 noundef %3) #6
   %10 = icmp ne ptr %9, null
@@ -519,7 +513,7 @@ SSL_CTX_use_PrivateKey.exit:                      ; preds = %8
 17:                                               ; preds = %SSL_CTX_use_PrivateKey.exit, %13
   %.1 = phi i32 [ 0, %13 ], [ %16, %SSL_CTX_use_PrivateKey.exit ]
   call void @EVP_PKEY_free(ptr noundef %9) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %18
 
 18:                                               ; preds = %17, %7
@@ -528,7 +522,7 @@ SSL_CTX_use_PrivateKey.exit:                      ; preds = %8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @SSL_set_private_key_method(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
+define hidden void @SSL_set_private_key_method(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %4 = load ptr, ptr %3, align 8, !tbaa !6
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -537,7 +531,7 @@ define hidden void @SSL_set_private_key_method(ptr noundef readonly captures(non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @SSL_CTX_set_private_key_method(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
+define hidden void @SSL_CTX_set_private_key_method(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %4 = load ptr, ptr %3, align 8, !tbaa !49
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -578,12 +572,12 @@ define hidden range(i32 0, 2) i32 @SSL_set_private_key_digest_prefs(ptr noundef 
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 declare ptr @BUF_memdup(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 2) i32 @ssl_has_private_key(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
+define hidden range(i32 0, 2) i32 @ssl_has_private_key(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %3 = load ptr, ptr %2, align 8, !tbaa !6
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -800,12 +794,18 @@ declare void @ERR_clear_error() local_unnamed_addr #1
 
 declare ptr @X509_up_ref(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}

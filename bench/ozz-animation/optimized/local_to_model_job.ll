@@ -35,14 +35,8 @@ define dso_local noundef zeroext i1 @_ZNK3ozz9animation15LocalToModelJob8Validat
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZNK3ozz9animation15LocalToModelJob3RunEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0) local_unnamed_addr #2 align 2 {
+define dso_local noundef zeroext i1 @_ZNK3ozz9animation15LocalToModelJob3RunEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0) local_unnamed_addr #1 align 2 {
   %2 = alloca %"struct.ozz::math::Float4x4", align 16
   %3 = alloca [4 x %"struct.ozz::math::Float4x4"], align 16
   %4 = load ptr, ptr %0, align 8, !tbaa !4
@@ -68,7 +62,7 @@ _ZNK3ozz9animation15LocalToModelJob8ValidateEv.exit: ; preds = %1
 17:                                               ; preds = %_ZNK3ozz9animation15LocalToModelJob8ValidateEv.exit
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %19 = load ptr, ptr %18, align 8, !tbaa !22
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store <4 x float> <float 1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 0.000000e+00>, ptr %2, align 16, !tbaa !23, !alias.scope !24
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store <4 x float> <float 0.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00>, ptr %20, align 16, !tbaa !23, !alias.scope !24
@@ -129,11 +123,11 @@ _ZNK3ozz9animation15LocalToModelJob8ValidateEv.exit: ; preds = %1
   br label %.outer
 
 ._crit_edge64:                                    ; preds = %._crit_edge.loopexit, %._crit_edge.loopexit.thread, %17, %41
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %_ZNK3ozz9animation15LocalToModelJob8ValidateEv.exit.thread
 
 64:                                               ; preds = %.outer, %._crit_edge
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store <4 x float> %126, ptr %3, align 16, !tbaa !23
   store <4 x float> %127, ptr %47, align 16, !tbaa !23
   store <4 x float> %130, ptr %48, align 16, !tbaa !23
@@ -159,7 +153,7 @@ _ZNK3ozz9animation15LocalToModelJob8ValidateEv.exit: ; preds = %1
 
 ._crit_edge.loopexit:                             ; preds = %225
   %67 = trunc nsw i64 %indvars.iv.next to i32
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %230, label %.outer, label %._crit_edge64, !llvm.loop !35
 
 .outer:                                           ; preds = %._crit_edge.loopexit, %.lr.ph63
@@ -258,7 +252,7 @@ _ZNK3ozz9animation15LocalToModelJob8ValidateEv.exit: ; preds = %1
   br label %64
 
 ._crit_edge:                                      ; preds = %64
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %64, !llvm.loop !35
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %225
@@ -346,7 +340,7 @@ _ZNK3ozz9animation15LocalToModelJob8ValidateEv.exit: ; preds = %1
   br i1 %224, label %225, label %._crit_edge.loopexit.thread
 
 ._crit_edge.loopexit.thread:                      ; preds = %.lr.ph
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %._crit_edge64
 
 225:                                              ; preds = %.lr.ph
@@ -365,7 +359,13 @@ _ZNK3ozz9animation15LocalToModelJob8ValidateEv.exit.thread: ; preds = %1, %_ZNK3
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <4 x float> @llvm.fmuladd.v4f32(<4 x float>, <4 x float>, <4 x float>) #3
+declare <4 x float> @llvm.fmuladd.v4f32(<4 x float>, <4 x float>, <4 x float>) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #4
@@ -374,11 +374,10 @@ declare i32 @llvm.smin.i32(i32, i32) #4
 declare i32 @llvm.smax.i32(i32, i32) #4
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -3999,7 +3999,7 @@ define hidden void @_ZNK14G1GCPhaseTimes23print_thread_work_itemsEP15WorkerDataA
 14:                                               ; preds = %11
   call void @_ZN12outputStream2spEi(ptr noundef nonnull align 8 dereferenceable(56) %3, i32 noundef %8) #18
   call void @_ZNK15WorkerDataArrayImE16print_summary_onEP12outputStreamb(ptr noundef nonnull align 8 dereferenceable(112) %13, ptr noundef nonnull %3, i1 noundef zeroext true)
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %15 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_158ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not.i = icmp eq ptr %15, null
   br i1 %.not.i, label %_ZNK14G1GCPhaseTimes7detailsI15WorkerDataArrayImEEEvPT_j.exit, label %16
@@ -4017,7 +4017,7 @@ define hidden void @_ZNK14G1GCPhaseTimes23print_thread_work_itemsEP15WorkerDataA
   br label %_ZNK14G1GCPhaseTimes7detailsI15WorkerDataArrayImEEEvPT_j.exit
 
 _ZNK14G1GCPhaseTimes7detailsI15WorkerDataArrayImEEEvPT_j.exit: ; preds = %14, %16
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %17
 
 17:                                               ; preds = %11, %_ZNK14G1GCPhaseTimes7detailsI15WorkerDataArrayImEEEvPT_j.exit
@@ -4153,7 +4153,7 @@ define hidden void @_ZNK14G1GCPhaseTimes24debug_phase_merge_remsetEv(ptr noundef
   %23 = load ptr, ptr %22, align 8
   call void @_ZN12outputStream2spEi(ptr noundef nonnull align 8 dereferenceable(56) %3, i32 noundef 4) #18
   call void @_ZNK15WorkerDataArrayIdE16print_summary_onEP12outputStreamb(ptr noundef nonnull align 8 dereferenceable(112) %21, ptr noundef nonnull %3, i1 noundef zeroext true)
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %24 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_158ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not.i = icmp eq ptr %24, null
   br i1 %.not.i, label %_ZNK14G1GCPhaseTimes7detailsI15WorkerDataArrayIdEEEvPT_j.exit, label %25
@@ -4174,7 +4174,7 @@ define hidden void @_ZNK14G1GCPhaseTimes24debug_phase_merge_remsetEv(ptr noundef
   br label %_ZNK14G1GCPhaseTimes7detailsI15WorkerDataArrayIdEEEvPT_j.exit
 
 _ZNK14G1GCPhaseTimes7detailsI15WorkerDataArrayIdEEEvPT_j.exit: ; preds = %5, %25
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @_ZNK14G1GCPhaseTimes9log_phaseEP15WorkerDataArrayIdEjP12outputStreamb(ptr nonnull align 8 poison, ptr noundef %23, i32 noundef 3, ptr noundef nonnull %3, i1 noundef zeroext true)
   call void @_ZNK14G1GCPhaseTimes23print_thread_work_itemsEP15WorkerDataArrayIdEjP12outputStream(ptr nonnull align 8 poison, ptr noundef nonnull %21, i32 noundef 2, ptr noundef nonnull %3)
   call void @_ZN13LogStreamImplI15LogTargetHandleED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %3) #18
@@ -4295,7 +4295,7 @@ define hidden void @_ZNK14G1GCPhaseTimes9log_phaseEP15WorkerDataArrayIdEjP12outp
   %7 = shl i32 %2, 1
   tail call void @_ZN12outputStream2spEi(ptr noundef nonnull align 8 dereferenceable(56) %3, i32 noundef %7) #18
   tail call void @_ZNK15WorkerDataArrayIdE16print_summary_onEP12outputStreamb(ptr noundef nonnull align 8 dereferenceable(112) %1, ptr noundef nonnull %3, i1 noundef zeroext %4)
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %8 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_158ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %_ZNK14G1GCPhaseTimes7detailsI15WorkerDataArrayIdEEEvPT_j.exit, label %9
@@ -4316,7 +4316,7 @@ define hidden void @_ZNK14G1GCPhaseTimes9log_phaseEP15WorkerDataArrayIdEjP12outp
   br label %_ZNK14G1GCPhaseTimes7detailsI15WorkerDataArrayIdEEEvPT_j.exit
 
 _ZNK14G1GCPhaseTimes7detailsI15WorkerDataArrayIdEEEvPT_j.exit: ; preds = %5, %9
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZNK14G1GCPhaseTimes23print_thread_work_itemsEP15WorkerDataArrayIdEjP12outputStream(ptr nonnull align 8 poison, ptr noundef nonnull %1, i32 noundef %2, ptr noundef nonnull %3)
   ret void
 }
@@ -4678,7 +4678,7 @@ _ZNK14G1GCPhaseTimes9info_timeEPKcd.exit:         ; preds = %_ZNK14G1GCPhaseTime
 
 96:                                               ; preds = %_ZNK14G1GCPhaseTimes9info_timeEPKcd.exit
   %97 = load ptr, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %98 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not.i21 = icmp eq ptr %98, null
   br i1 %.not.i21, label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit, label %99
@@ -4698,9 +4698,9 @@ _ZNK14G1GCPhaseTimes9info_timeEPKcd.exit:         ; preds = %_ZNK14G1GCPhaseTime
   br label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit
 
 _ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit: ; preds = %96, %99
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %102 = load ptr, ptr %42, align 8
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %103 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not.i22 = icmp eq ptr %103, null
   br i1 %.not.i22, label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit24, label %104
@@ -4720,7 +4720,7 @@ _ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit: ; preds = %96, %9
   br label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit24
 
 _ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit24: ; preds = %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit, %104
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %107
 
 107:                                              ; preds = %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit24, %_ZNK14G1GCPhaseTimes9info_timeEPKcd.exit
@@ -4735,7 +4735,7 @@ _ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit24: ; preds = %_ZNK
 
 _ZNK14G1GCPhaseTimes10debug_timeEPKcd.exit:       ; preds = %107, %110
   %111 = load ptr, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %112 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not.i26 = icmp eq ptr %112, null
   br i1 %.not.i26, label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit28, label %113
@@ -4755,10 +4755,10 @@ _ZNK14G1GCPhaseTimes10debug_timeEPKcd.exit:       ; preds = %107, %110
   br label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit28
 
 _ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit28: ; preds = %_ZNK14G1GCPhaseTimes10debug_timeEPKcd.exit, %113
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %117 = load ptr, ptr %116, align 8
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %118 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not.i29 = icmp eq ptr %118, null
   br i1 %.not.i29, label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit31, label %119
@@ -4778,7 +4778,7 @@ _ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit28: ; preds = %_ZNK
   br label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit31
 
 _ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit31: ; preds = %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit28, %119
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %122 = load double, ptr %81, align 8
   %123 = load double, ptr %84, align 8
   %124 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
@@ -4852,7 +4852,7 @@ _ZNK14G1GCPhaseTimes9info_timeEPKcd.exit:         ; preds = %13, %15
 _ZNK14G1GCPhaseTimes10debug_timeEPKcd.exit:       ; preds = %_ZNK14G1GCPhaseTimes9info_timeEPKcd.exit, %19
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %21 = load ptr, ptr %20, align 8
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %22 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not.i4 = icmp eq ptr %22, null
   br i1 %.not.i4, label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit, label %23
@@ -4872,7 +4872,7 @@ _ZNK14G1GCPhaseTimes10debug_timeEPKcd.exit:       ; preds = %_ZNK14G1GCPhaseTime
   br label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit
 
 _ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit: ; preds = %_ZNK14G1GCPhaseTimes10debug_timeEPKcd.exit, %23
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %26 = load double, ptr %7, align 8
   %27 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not.i5 = icmp eq ptr %27, null
@@ -4885,7 +4885,7 @@ _ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit: ; preds = %_ZNK14
 _ZNK14G1GCPhaseTimes9info_timeEPKcd.exit6:        ; preds = %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit, %28
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %30 = load ptr, ptr %29, align 8
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %31 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not.i7 = icmp eq ptr %31, null
   br i1 %.not.i7, label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit9, label %32
@@ -4905,10 +4905,10 @@ _ZNK14G1GCPhaseTimes9info_timeEPKcd.exit6:        ; preds = %_ZNK14G1GCPhaseTime
   br label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit9
 
 _ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit9: ; preds = %_ZNK14G1GCPhaseTimes9info_timeEPKcd.exit6, %32
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %36 = load ptr, ptr %35, align 8
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %37 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not.i10 = icmp eq ptr %37, null
   br i1 %.not.i10, label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit12, label %38
@@ -4928,10 +4928,10 @@ _ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit9: ; preds = %_ZNK1
   br label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit12
 
 _ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit12: ; preds = %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit9, %38
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %42 = load ptr, ptr %41, align 8
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %43 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not.i13 = icmp eq ptr %43, null
   br i1 %.not.i13, label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit15, label %44
@@ -4951,10 +4951,10 @@ _ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit12: ; preds = %_ZNK
   br label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit15
 
 _ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit15: ; preds = %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit12, %44
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %48 = load ptr, ptr %47, align 8
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %49 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not.i16 = icmp eq ptr %49, null
   br i1 %.not.i16, label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit18, label %50
@@ -4974,7 +4974,7 @@ _ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit15: ; preds = %_ZNK
   br label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit18
 
 _ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit18: ; preds = %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit15, %50
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %53
 
 53:                                               ; preds = %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit18, %1
@@ -5031,7 +5031,7 @@ _ZNK14G1GCPhaseTimes10debug_timeEPKcd.exit5:      ; preds = %_ZNK14G1GCPhaseTime
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %27 = load ptr, ptr %26, align 8
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %28 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not.i6 = icmp eq ptr %28, null
   br i1 %.not.i6, label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit, label %29
@@ -5051,7 +5051,7 @@ _ZNK14G1GCPhaseTimes10debug_timeEPKcd.exit5:      ; preds = %_ZNK14G1GCPhaseTime
   br label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit
 
 _ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit: ; preds = %_ZNK14G1GCPhaseTimes10debug_timeEPKcd.exit5, %29
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %33 = load double, ptr %32, align 8
   %34 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
@@ -5065,7 +5065,7 @@ _ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit: ; preds = %_ZNK14
 _ZNK14G1GCPhaseTimes9info_timeEPKcd.exit8:        ; preds = %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit, %35
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %37 = load ptr, ptr %36, align 8
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %38 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not.i9 = icmp eq ptr %38, null
   br i1 %.not.i9, label %_ZNK14G1GCPhaseTimes11trace_phaseEP15WorkerDataArrayIdEbj.exit, label %39
@@ -5085,10 +5085,10 @@ _ZNK14G1GCPhaseTimes9info_timeEPKcd.exit8:        ; preds = %_ZNK14G1GCPhaseTime
   br label %_ZNK14G1GCPhaseTimes11trace_phaseEP15WorkerDataArrayIdEbj.exit
 
 _ZNK14G1GCPhaseTimes11trace_phaseEP15WorkerDataArrayIdEbj.exit: ; preds = %_ZNK14G1GCPhaseTimes9info_timeEPKcd.exit8, %39
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %43 = load ptr, ptr %42, align 8
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %44 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not.i11 = icmp eq ptr %44, null
   br i1 %.not.i11, label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit13, label %45
@@ -5108,7 +5108,7 @@ _ZNK14G1GCPhaseTimes11trace_phaseEP15WorkerDataArrayIdEbj.exit: ; preds = %_ZNK1
   br label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit13
 
 _ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit13: ; preds = %_ZNK14G1GCPhaseTimes11trace_phaseEP15WorkerDataArrayIdEbj.exit, %45
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %48 = getelementptr inbounds nuw i8, ptr %9, i64 56
   %49 = getelementptr inbounds nuw i8, ptr %9, i64 144
   %.sroa.21.0..sroa_idx.i.i.i15 = getelementptr inbounds nuw i8, ptr %9, i64 152
@@ -5118,7 +5118,7 @@ _ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit13: ; preds = %_ZNK
   %indvars.iv = phi i64 [ 4, %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit13 ], [ %indvars.iv.next, %_ZNK14G1GCPhaseTimes11trace_phaseEP15WorkerDataArrayIdEbj.exit16 ]
   %51 = getelementptr inbounds nuw [45 x ptr], ptr %25, i64 0, i64 %indvars.iv
   %52 = load ptr, ptr %51, align 8
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %53 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not.i14 = icmp eq ptr %53, null
   br i1 %.not.i14, label %_ZNK14G1GCPhaseTimes11trace_phaseEP15WorkerDataArrayIdEbj.exit16, label %54
@@ -5135,7 +5135,7 @@ _ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit13: ; preds = %_ZNK
   br label %_ZNK14G1GCPhaseTimes11trace_phaseEP15WorkerDataArrayIdEbj.exit16
 
 _ZNK14G1GCPhaseTimes11trace_phaseEP15WorkerDataArrayIdEbj.exit16: ; preds = %50, %54
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 12
   br i1 %exitcond.not, label %55, label %50, !llvm.loop !21
@@ -5143,7 +5143,7 @@ _ZNK14G1GCPhaseTimes11trace_phaseEP15WorkerDataArrayIdEbj.exit16: ; preds = %50,
 55:                                               ; preds = %_ZNK14G1GCPhaseTimes11trace_phaseEP15WorkerDataArrayIdEbj.exit16
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %57 = load ptr, ptr %56, align 8
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %58 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not.i17 = icmp eq ptr %58, null
   br i1 %.not.i17, label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit19, label %59
@@ -5163,10 +5163,10 @@ _ZNK14G1GCPhaseTimes11trace_phaseEP15WorkerDataArrayIdEbj.exit16: ; preds = %50,
   br label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit19
 
 _ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit19: ; preds = %55, %59
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %63 = load ptr, ptr %62, align 8
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %64 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not.i20 = icmp eq ptr %64, null
   br i1 %.not.i20, label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit22, label %65
@@ -5186,10 +5186,10 @@ _ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit19: ; preds = %55, 
   br label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit22
 
 _ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit22: ; preds = %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit19, %65
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %69 = load ptr, ptr %68, align 8
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %70 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not.i23 = icmp eq ptr %70, null
   br i1 %.not.i23, label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit25, label %71
@@ -5209,10 +5209,10 @@ _ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit22: ; preds = %_ZNK
   br label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit25
 
 _ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit25: ; preds = %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit22, %71
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %75 = load ptr, ptr %74, align 8
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %76 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not.i26 = icmp eq ptr %76, null
   br i1 %.not.i26, label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit28, label %77
@@ -5232,10 +5232,10 @@ _ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit25: ; preds = %_ZNK
   br label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit28
 
 _ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit28: ; preds = %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit25, %77
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %81 = load ptr, ptr %80, align 8
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %82 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not.i29 = icmp eq ptr %82, null
   br i1 %.not.i29, label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit31, label %83
@@ -5255,10 +5255,10 @@ _ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit28: ; preds = %_ZNK
   br label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit31
 
 _ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit31: ; preds = %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit28, %83
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %87 = load ptr, ptr %86, align 8
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %88 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not.i32 = icmp eq ptr %88, null
   br i1 %.not.i32, label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit34, label %89
@@ -5278,10 +5278,10 @@ _ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit31: ; preds = %_ZNK
   br label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit34
 
 _ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit34: ; preds = %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit31, %89
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %93 = load ptr, ptr %92, align 8
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %94 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not.i35 = icmp eq ptr %94, null
   br i1 %.not.i35, label %_ZNK14G1GCPhaseTimes11trace_phaseEP15WorkerDataArrayIdEbj.exit37, label %95
@@ -5301,7 +5301,7 @@ _ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit34: ; preds = %_ZNK
   br label %_ZNK14G1GCPhaseTimes11trace_phaseEP15WorkerDataArrayIdEbj.exit37
 
 _ZNK14G1GCPhaseTimes11trace_phaseEP15WorkerDataArrayIdEbj.exit37: ; preds = %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit34, %95
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %98 = load double, ptr %32, align 8
   %99 = load double, ptr %13, align 8
   %100 = fadd double %98, %99
@@ -5378,8 +5378,8 @@ _ZNK14G1GCPhaseTimes9info_timeEPKcd.exit:         ; preds = %2, %46
 
 _ZNK14G1GCPhaseTimes10debug_timeEPKcd.exit:       ; preds = %_ZNK14G1GCPhaseTimes9info_timeEPKcd.exit, %49
   %50 = load double, ptr %24, align 8
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %20)
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %51 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not.i6 = icmp eq ptr %51, null
   br i1 %.not.i6, label %52, label %.sink.split.i
@@ -5406,8 +5406,8 @@ _ZNK14G1GCPhaseTimes10debug_timeEPKcd.exit:       ; preds = %_ZNK14G1GCPhaseTime
   br label %_ZNK14G1GCPhaseTimes24debug_time_for_referenceEPKcd.exit
 
 _ZNK14G1GCPhaseTimes24debug_time_for_referenceEPKcd.exit: ; preds = %52, %.sink.split.i
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %20)
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 592
   call void @_ZNK28ReferenceProcessorPhaseTimes20print_all_referencesEjb(ptr noundef nonnull align 8 dereferenceable(184) %54, i32 noundef 2, i1 noundef zeroext false) #18
   call void @_ZNK18WeakProcessorTimes9log_totalEj(ptr noundef nonnull align 8 dereferenceable(96) %27, i32 noundef 2) #18
@@ -5424,7 +5424,7 @@ _ZNK14G1GCPhaseTimes24debug_time_for_referenceEPKcd.exit: ; preds = %52, %.sink.
 _ZNK14G1GCPhaseTimes10debug_timeEPKcd.exit8:      ; preds = %_ZNK14G1GCPhaseTimes24debug_time_for_referenceEPKcd.exit, %57
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %59 = load ptr, ptr %58, align 8
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %60 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not.i9 = icmp eq ptr %60, null
   br i1 %.not.i9, label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit, label %61
@@ -5444,10 +5444,10 @@ _ZNK14G1GCPhaseTimes10debug_timeEPKcd.exit8:      ; preds = %_ZNK14G1GCPhaseTime
   br label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit
 
 _ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit: ; preds = %_ZNK14G1GCPhaseTimes10debug_timeEPKcd.exit8, %61
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %65 = load ptr, ptr %64, align 8
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %66 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not.i10 = icmp eq ptr %66, null
   br i1 %.not.i10, label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit12, label %67
@@ -5467,10 +5467,10 @@ _ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit: ; preds = %_ZNK14
   br label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit12
 
 _ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit12: ; preds = %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit, %67
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %71 = load ptr, ptr %70, align 8
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %72 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not.i13 = icmp eq ptr %72, null
   br i1 %.not.i13, label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit15, label %73
@@ -5490,13 +5490,13 @@ _ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit12: ; preds = %_ZNK
   br label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit15
 
 _ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit15: ; preds = %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit12, %73
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br i1 %1, label %76, label %.critedge
 
 76:                                               ; preds = %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit15
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %78 = load ptr, ptr %77, align 8
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %79 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not.i16 = icmp eq ptr %79, null
   br i1 %.not.i16, label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit18, label %80
@@ -5516,10 +5516,10 @@ _ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit15: ; preds = %_ZNK
   br label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit18
 
 _ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit18: ; preds = %76, %80
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %84 = load ptr, ptr %83, align 8
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %85 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not.i19 = icmp eq ptr %85, null
   br i1 %.not.i19, label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit21, label %86
@@ -5539,7 +5539,7 @@ _ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit18: ; preds = %76, 
   br label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit21
 
 _ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit21: ; preds = %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit18, %86
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %89 = load double, ptr %33, align 8
   %90 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not.i22 = icmp eq ptr %90, null
@@ -5551,7 +5551,7 @@ _ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit21: ; preds = %_ZNK
 
 _ZNK14G1GCPhaseTimes10debug_timeEPKcd.exit23:     ; preds = %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit21, %91
   %92 = load ptr, ptr %70, align 8
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %93 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not.i24 = icmp eq ptr %93, null
   br i1 %.not.i24, label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit26, label %94
@@ -5571,10 +5571,10 @@ _ZNK14G1GCPhaseTimes10debug_timeEPKcd.exit23:     ; preds = %_ZNK14G1GCPhaseTime
   br label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit26
 
 _ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit26: ; preds = %_ZNK14G1GCPhaseTimes10debug_timeEPKcd.exit23, %94
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %98 = load ptr, ptr %97, align 8
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %99 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not.i27 = icmp eq ptr %99, null
   br i1 %.not.i27, label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit29, label %100
@@ -5594,10 +5594,10 @@ _ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit26: ; preds = %_ZNK
   br label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit29
 
 _ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit29: ; preds = %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit26, %100
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %104 = load ptr, ptr %103, align 8
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %105 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not.i30 = icmp eq ptr %105, null
   br i1 %.not.i30, label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit32, label %106
@@ -5617,7 +5617,7 @@ _ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit29: ; preds = %_ZNK
   br label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit32
 
 _ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit32: ; preds = %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit29, %106
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %_ZNK14G1GCPhaseTimes10debug_timeEPKcd.exit34
 
 .critedge:                                        ; preds = %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit15
@@ -5633,7 +5633,7 @@ _ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit32: ; preds = %_ZNK
 _ZNK14G1GCPhaseTimes10debug_timeEPKcd.exit34:     ; preds = %111, %.critedge, %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit32
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %113 = load ptr, ptr %112, align 8
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %114 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not.i35 = icmp eq ptr %114, null
   br i1 %.not.i35, label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit37, label %115
@@ -5653,10 +5653,10 @@ _ZNK14G1GCPhaseTimes10debug_timeEPKcd.exit34:     ; preds = %111, %.critedge, %_
   br label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit37
 
 _ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit37: ; preds = %_ZNK14G1GCPhaseTimes10debug_timeEPKcd.exit34, %115
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %119 = load ptr, ptr %118, align 8
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %120 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not.i38 = icmp eq ptr %120, null
   br i1 %.not.i38, label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit40, label %121
@@ -5676,7 +5676,7 @@ _ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit37: ; preds = %_ZNK
   br label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit40
 
 _ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit40: ; preds = %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit37, %121
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %124 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   %125 = call noundef zeroext i1 @_ZNK15G1CollectedHeap39should_sample_collection_set_candidatesEv(ptr noundef nonnull align 8 dereferenceable(1488) %124) #18
   br i1 %125, label %126, label %133
@@ -5684,7 +5684,7 @@ _ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit40: ; preds = %_ZNK
 126:                                              ; preds = %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit40
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %128 = load ptr, ptr %127, align 8
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %129 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not.i41 = icmp eq ptr %129, null
   br i1 %.not.i41, label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit43, label %130
@@ -5704,13 +5704,13 @@ _ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit40: ; preds = %_ZNK
   br label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit43
 
 _ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit43: ; preds = %126, %130
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %133
 
 133:                                              ; preds = %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit43, %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit40
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %135 = load ptr, ptr %134, align 8
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %136 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not.i44 = icmp eq ptr %136, null
   br i1 %.not.i44, label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit46, label %137
@@ -5730,7 +5730,7 @@ _ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit43: ; preds = %126,
   br label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit46
 
 _ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit46: ; preds = %133, %137
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %140 = load i8, ptr @UseTLAB, align 1
   %141 = trunc i8 %140 to i1
   %142 = load i8, ptr @ResizeTLAB, align 1
@@ -5741,7 +5741,7 @@ _ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit46: ; preds = %133,
 144:                                              ; preds = %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit46
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %146 = load ptr, ptr %145, align 8
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %147 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not.i47 = icmp eq ptr %147, null
   br i1 %.not.i47, label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit49, label %148
@@ -5761,13 +5761,13 @@ _ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit46: ; preds = %133,
   br label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit49
 
 _ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit49: ; preds = %144, %148
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %151
 
 151:                                              ; preds = %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit49, %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit46
   %152 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %153 = load ptr, ptr %152, align 8
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %154 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not.i50 = icmp eq ptr %154, null
   br i1 %.not.i50, label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit52, label %155
@@ -5787,10 +5787,10 @@ _ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit49: ; preds = %144,
   br label %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit52
 
 _ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit52: ; preds = %151, %155
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %158 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %159 = load ptr, ptr %158, align 8
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %160 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not.i53 = icmp eq ptr %160, null
   br i1 %.not.i53, label %_ZNK14G1GCPhaseTimes11trace_phaseEP15WorkerDataArrayIdEbj.exit, label %161
@@ -5810,10 +5810,10 @@ _ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit52: ; preds = %151,
   br label %_ZNK14G1GCPhaseTimes11trace_phaseEP15WorkerDataArrayIdEbj.exit
 
 _ZNK14G1GCPhaseTimes11trace_phaseEP15WorkerDataArrayIdEbj.exit: ; preds = %_ZNK14G1GCPhaseTimes11debug_phaseEP15WorkerDataArrayIdEj.exit52, %161
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %164 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %165 = load ptr, ptr %164, align 8
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %166 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not.i55 = icmp eq ptr %166, null
   br i1 %.not.i55, label %_ZNK14G1GCPhaseTimes11trace_phaseEP15WorkerDataArrayIdEbj.exit57, label %167
@@ -5833,7 +5833,7 @@ _ZNK14G1GCPhaseTimes11trace_phaseEP15WorkerDataArrayIdEbj.exit: ; preds = %_ZNK1
   br label %_ZNK14G1GCPhaseTimes11trace_phaseEP15WorkerDataArrayIdEbj.exit57
 
 _ZNK14G1GCPhaseTimes11trace_phaseEP15WorkerDataArrayIdEbj.exit57: ; preds = %_ZNK14G1GCPhaseTimes11trace_phaseEP15WorkerDataArrayIdEbj.exit, %167
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %170 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %171 = load double, ptr %170, align 8
   %172 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
@@ -5868,7 +5868,7 @@ _ZNK14G1GCPhaseTimes10debug_timeEPKcd.exit60:     ; preds = %_ZNK14G1GCPhaseTime
 _ZNK14G1GCPhaseTimes10trace_timeEPKcd.exit62:     ; preds = %_ZNK14G1GCPhaseTimes10debug_timeEPKcd.exit60, %180
   %181 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %182 = load ptr, ptr %181, align 8
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %183 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not.i63 = icmp eq ptr %183, null
   br i1 %.not.i63, label %_ZNK14G1GCPhaseTimes11trace_phaseEP15WorkerDataArrayIdEbj.exit65, label %184
@@ -5888,7 +5888,7 @@ _ZNK14G1GCPhaseTimes10trace_timeEPKcd.exit62:     ; preds = %_ZNK14G1GCPhaseTime
   br label %_ZNK14G1GCPhaseTimes11trace_phaseEP15WorkerDataArrayIdEbj.exit65
 
 _ZNK14G1GCPhaseTimes11trace_phaseEP15WorkerDataArrayIdEbj.exit65: ; preds = %_ZNK14G1GCPhaseTimes10trace_timeEPKcd.exit62, %184
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %187 = load double, ptr %39, align 8
   %188 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not.i66 = icmp eq ptr %188, null
@@ -6945,14 +6945,14 @@ _ZN15EventWriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128Enco
   %42 = load ptr, ptr %8, align 8
   %43 = ptrtoint ptr %42 to i64
   %44 = sub i64 %38, %43
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %45 = load ptr, ptr %9, align 8
   %46 = load ptr, ptr %10, align 8
   call void @_ZN8JfrFlushC1EP9JfrBuffermmP6Thread(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %45, i64 noundef %44, i64 noundef 9, ptr noundef %46) #18
   %47 = load ptr, ptr %7, align 8
   store ptr %47, ptr %9, align 8
   %.not5.i.i.i = icmp eq ptr %47, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %.not5.i.i.i, label %.sink.split.i.i.i, label %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i
 
 _ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i: ; preds = %41
@@ -7049,7 +7049,7 @@ define linkonce_odr hidden void @_ZN15EventWriterHostI11EncoderHostI20BigEndianE
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load ptr, ptr %11, align 8
@@ -7057,7 +7057,7 @@ define linkonce_odr hidden void @_ZN15EventWriterHostI11EncoderHostI20BigEndianE
   %13 = load ptr, ptr %5, align 8
   store ptr %13, ptr %9, align 8
   %.not1.i.i.i = icmp eq ptr %13, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.not1.i.i.i, label %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE5flushEv.exit.i.i, label %14
 
 14:                                               ; preds = %8
@@ -7102,7 +7102,7 @@ _ZN15EventWriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128Enco
   %36 = ptrtoint ptr %35 to i64
   %37 = sub i64 %31, %36
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %41 = load ptr, ptr %40, align 8
@@ -7110,7 +7110,7 @@ _ZN15EventWriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128Enco
   %42 = load ptr, ptr %4, align 8
   store ptr %42, ptr %38, align 8
   %.not5.i.i = icmp eq ptr %42, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.not5.i.i, label %.sink.split.i.i, label %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i
 
 _ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i: ; preds = %34
@@ -7165,7 +7165,7 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderIm
   %64 = ptrtoint ptr %63 to i64
   %65 = sub i64 %62, %64
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %67 = load ptr, ptr %66, align 8
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %69 = load ptr, ptr %68, align 8
@@ -7173,7 +7173,7 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderIm
   %70 = load ptr, ptr %3, align 8
   store ptr %70, ptr %66, align 8
   %.not5.i.i8 = icmp eq ptr %70, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not5.i.i8, label %.sink.split.i.i10, label %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i9
 
 _ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i9: ; preds = %61
@@ -7239,7 +7239,7 @@ define linkonce_odr hidden void @_ZN10WriterHostI11EncoderHostI20BigEndianEncode
   %15 = ptrtoint ptr %14 to i64
   %16 = sub i64 %10, %15
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %20 = load ptr, ptr %19, align 8
@@ -7247,7 +7247,7 @@ define linkonce_odr hidden void @_ZN10WriterHostI11EncoderHostI20BigEndianEncode
   %21 = load ptr, ptr %3, align 8
   store ptr %21, ptr %17, align 8
   %.not5.i.i = icmp eq ptr %21, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not5.i.i, label %.sink.split.i.i, label %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i
 
 _ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i: ; preds = %13
@@ -7446,7 +7446,7 @@ define linkonce_odr hidden void @_ZN10WriterHostI11EncoderHostI20BigEndianEncode
   %15 = ptrtoint ptr %14 to i64
   %16 = sub i64 %10, %15
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %20 = load ptr, ptr %19, align 8
@@ -7454,7 +7454,7 @@ define linkonce_odr hidden void @_ZN10WriterHostI11EncoderHostI20BigEndianEncode
   %21 = load ptr, ptr %3, align 8
   store ptr %21, ptr %17, align 8
   %.not5.i.i = icmp eq ptr %21, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not5.i.i, label %.sink.split.i.i, label %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i
 
 _ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i: ; preds = %13
@@ -7651,14 +7651,14 @@ define linkonce_odr hidden noundef i64 @_ZN15EventWriterHostI11EncoderHostI20Big
   br i1 %11, label %12, label %_ZN16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertE7releaseEv.exit
 
 12:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %13 = load ptr, ptr %8, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %15 = load ptr, ptr %14, align 8
   call void @_ZN8JfrFlushC1EP9JfrBuffermmP6Thread(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %13, i64 noundef 0, i64 noundef 0, ptr noundef %15) #18
   %16 = load ptr, ptr %4, align 8
   store ptr %16, ptr %8, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertE7releaseEv.exit
 
 17:                                               ; preds = %2
@@ -7736,14 +7736,14 @@ _ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE6commitEv.exit: ; preds = %_ZN11St
   br i1 %50, label %51, label %_ZN16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertE7releaseEv.exit15
 
 51:                                               ; preds = %49
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %52 = load ptr, ptr %47, align 8
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %54 = load ptr, ptr %53, align 8
   call void @_ZN8JfrFlushC1EP9JfrBuffermmP6Thread(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %52, i64 noundef 0, i64 noundef 0, ptr noundef %54) #18
   %55 = load ptr, ptr %3, align 8
   store ptr %55, ptr %47, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertE7releaseEv.exit15
 
 _ZN16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertE7releaseEv.exit15: ; preds = %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE6commitEv.exit, %49, %51
@@ -7790,7 +7790,7 @@ define linkonce_odr hidden void @_ZN10WriterHostI11EncoderHostI20BigEndianEncode
   %15 = ptrtoint ptr %14 to i64
   %16 = sub i64 %10, %15
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %20 = load ptr, ptr %19, align 8
@@ -7798,7 +7798,7 @@ define linkonce_odr hidden void @_ZN10WriterHostI11EncoderHostI20BigEndianEncode
   %21 = load ptr, ptr %3, align 8
   store ptr %21, ptr %17, align 8
   %.not5.i.i = icmp eq ptr %21, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not5.i.i, label %.sink.split.i.i, label %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i
 
 _ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i: ; preds = %13
@@ -7950,7 +7950,7 @@ define linkonce_odr hidden void @_ZN10WriterHostI11EncoderHostI20BigEndianEncode
   %19 = ptrtoint ptr %18 to i64
   %20 = sub i64 %14, %19
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %24 = load ptr, ptr %23, align 8
@@ -7958,7 +7958,7 @@ define linkonce_odr hidden void @_ZN10WriterHostI11EncoderHostI20BigEndianEncode
   %25 = load ptr, ptr %5, align 8
   store ptr %25, ptr %21, align 8
   %.not5.i.i.i = icmp eq ptr %25, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.not5.i.i.i, label %.sink.split.i.i.i, label %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i
 
 _ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i: ; preds = %17
@@ -8011,7 +8011,7 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderIm
   %48 = ptrtoint ptr %47 to i64
   %49 = sub i64 %43, %48
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %51 = load ptr, ptr %50, align 8
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %53 = load ptr, ptr %52, align 8
@@ -8019,7 +8019,7 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderIm
   %54 = load ptr, ptr %4, align 8
   store ptr %54, ptr %50, align 8
   %.not5.i.i.i11 = icmp eq ptr %54, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.not5.i.i.i11, label %.sink.split.i.i.i13, label %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i12
 
 _ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i12: ; preds = %46
@@ -8082,7 +8082,7 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderIm
   %82 = ptrtoint ptr %81 to i64
   %83 = sub i64 %77, %82
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %85 = load ptr, ptr %84, align 8
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %87 = load ptr, ptr %86, align 8
@@ -8090,7 +8090,7 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderIm
   %88 = load ptr, ptr %3, align 8
   store ptr %88, ptr %84, align 8
   %.not5.i.i = icmp eq ptr %88, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not5.i.i, label %.sink.split.i.i, label %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i
 
 _ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i: ; preds = %80
@@ -8152,7 +8152,7 @@ define linkonce_odr hidden void @_ZN10WriterHostI11EncoderHostI20BigEndianEncode
   %15 = ptrtoint ptr %14 to i64
   %16 = sub i64 %10, %15
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %20 = load ptr, ptr %19, align 8
@@ -8160,7 +8160,7 @@ define linkonce_odr hidden void @_ZN10WriterHostI11EncoderHostI20BigEndianEncode
   %21 = load ptr, ptr %3, align 8
   store ptr %21, ptr %17, align 8
   %.not5.i.i = icmp eq ptr %21, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not5.i.i, label %.sink.split.i.i, label %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i
 
 _ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i: ; preds = %13
@@ -8306,7 +8306,7 @@ define linkonce_odr hidden void @_ZN10WriterHostI11EncoderHostI20BigEndianEncode
 
 19:                                               ; preds = %7
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %23 = load ptr, ptr %22, align 8
@@ -8314,7 +8314,7 @@ define linkonce_odr hidden void @_ZN10WriterHostI11EncoderHostI20BigEndianEncode
   %24 = load ptr, ptr %4, align 8
   store ptr %24, ptr %20, align 8
   %.not5.i.i.i = icmp eq ptr %24, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.not5.i.i.i, label %.sink.split.i.i.i, label %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i
 
 _ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i: ; preds = %19
@@ -9972,9 +9972,9 @@ _ZN13Devirtualizer6do_oopI14G1CMOopClosure9narrowOopEEvPT_PT0_.exit: ; preds = %
   br i1 %264, label %23, label %._crit_edge35, !llvm.loop !32
 
 ._crit_edge35:                                    ; preds = %._crit_edge, %3
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_processingI9narrowOop14G1CMOopClosure14AlwaysContainsEEvP7oopDescPT0_RT1_(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull align 1 dereferenceable(1) %4)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -12049,9 +12049,9 @@ _ZN13Devirtualizer6do_oopI14G1CMOopClosureP7oopDescEEvPT_PT0_.exit: ; preds = %8
   br i1 %255, label %23, label %._crit_edge35, !llvm.loop !38
 
 ._crit_edge35:                                    ; preds = %._crit_edge, %3
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_processingIP7oopDesc14G1CMOopClosure14AlwaysContainsEEvS2_PT0_RT1_(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull align 1 dereferenceable(1) %4)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -16038,12 +16038,12 @@ _ZN13Devirtualizer6do_oopI14G1CMOopClosure9narrowOopEEvPT_PT0_.exit: ; preds = %
   br i1 %274, label %30, label %._crit_edge62, !llvm.loop !65
 
 ._crit_edge62:                                    ; preds = %._crit_edge, %14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %3, ptr %6, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %4, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   call void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_processingI9narrowOop14G1CMOopClosureK10MrContainsEEvP7oopDescPT0_RT1_(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -16711,12 +16711,12 @@ _ZN13Devirtualizer6do_oopI14G1CMOopClosureP7oopDescEEvPT_PT0_.exit: ; preds = %9
   br i1 %265, label %30, label %._crit_edge62, !llvm.loop !67
 
 ._crit_edge62:                                    ; preds = %._crit_edge, %14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %3, ptr %6, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %4, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   call void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_processingIP7oopDesc14G1CMOopClosureK10MrContainsEEvS2_PT0_RT1_(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -19346,10 +19346,10 @@ declare i64 @llvm.umax.i64(i64, i64) #16
 declare i64 @llvm.umin.i64(i64, i64) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #17
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

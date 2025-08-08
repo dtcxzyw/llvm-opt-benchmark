@@ -166,17 +166,14 @@ define dso_local i32 @HashTest() local_unnamed_addr #0 {
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @md5_test() local_unnamed_addr #0 {
   %1 = alloca %struct.wc_Md5, align 8
   %2 = alloca [16 x i8], align 16
   %3 = alloca [5 x %struct.testVector], align 16
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %1) #6
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #6
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr @.str.24, ptr %3, align 16, !tbaa !4
   %.sroa.520.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @.str.25, ptr %.sroa.520.0..sroa_idx, align 8, !tbaa !4
@@ -249,9 +246,9 @@ define dso_local i32 @md5_test() local_unnamed_addr #0 {
 
 .loopexit:                                        ; preds = %15, %.preheader, %0, %24, %20
   %.030 = phi i32 [ %22, %20 ], [ 0, %24 ], [ %8, %0 ], [ %16, %15 ], [ %14, %.preheader ]
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %3) #6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #6
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %1) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.030
 }
 
@@ -260,9 +257,9 @@ define dso_local i32 @sha_test() local_unnamed_addr #0 {
   %1 = alloca %struct.wc_Sha, align 8
   %2 = alloca [20 x i8], align 16
   %3 = alloca [4 x %struct.testVector], align 16
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %1) #6
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr @.str.24, ptr %3, align 16, !tbaa !4
   %.sroa.518.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @.str.34, ptr %.sroa.518.0..sroa_idx, align 8, !tbaa !4
@@ -321,9 +318,9 @@ define dso_local i32 @sha_test() local_unnamed_addr #0 {
 
 22:                                               ; preds = %0, %21, %17
   %.022 = phi i32 [ %19, %17 ], [ 0, %21 ], [ %7, %0 ]
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #6
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2) #6
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %1) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.022
 }
 
@@ -332,9 +329,9 @@ define dso_local i32 @sha224_test() local_unnamed_addr #0 {
   %1 = alloca %struct.wc_Sha256, align 16
   %2 = alloca [28 x i8], align 16
   %3 = alloca [2 x %struct.testVector], align 16
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %1) #6
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %2) #6
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr @.str.24, ptr %3, align 16, !tbaa !4
   %.sroa.513.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @.str.41, ptr %.sroa.513.0..sroa_idx, align 8, !tbaa !4
@@ -384,9 +381,9 @@ define dso_local i32 @sha224_test() local_unnamed_addr #0 {
 
 .loopexit:                                        ; preds = %12, %.preheader, %14, %0, %18
   %.017 = phi i32 [ 0, %18 ], [ -4005, %0 ], [ %indvars.iv, %14 ], [ %13, %12 ], [ %11, %.preheader ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #6
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %2) #6
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %1) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.017
 }
 
@@ -395,9 +392,9 @@ define dso_local i32 @sha256_test() local_unnamed_addr #0 {
   %1 = alloca %struct.wc_Sha256, align 16
   %2 = alloca [32 x i8], align 16
   %3 = alloca [2 x %struct.testVector], align 16
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %1) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #6
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr @.str.24, ptr %3, align 16, !tbaa !4
   %.sroa.514.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @.str.43, ptr %.sroa.514.0..sroa_idx, align 8, !tbaa !4
@@ -447,9 +444,9 @@ define dso_local i32 @sha256_test() local_unnamed_addr #0 {
 
 .loopexit:                                        ; preds = %12, %.preheader, %14, %0, %18
   %.018 = phi i32 [ 0, %18 ], [ %5, %0 ], [ %indvars.iv, %14 ], [ %13, %12 ], [ %11, %.preheader ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #6
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %1) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.018
 }
 
@@ -458,9 +455,9 @@ define dso_local i32 @sha512_test() local_unnamed_addr #0 {
   %1 = alloca %struct.wc_Sha512, align 8
   %2 = alloca [64 x i8], align 16
   %3 = alloca [2 x %struct.testVector], align 16
-  call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %1) #6
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #6
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr @.str.24, ptr %3, align 16, !tbaa !4
   %.sroa.514.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @.str.45, ptr %.sroa.514.0..sroa_idx, align 8, !tbaa !4
@@ -510,9 +507,9 @@ define dso_local i32 @sha512_test() local_unnamed_addr #0 {
 
 .loopexit:                                        ; preds = %12, %.preheader, %14, %0, %18
   %.018 = phi i32 [ 0, %18 ], [ %5, %0 ], [ %indvars.iv, %14 ], [ %13, %12 ], [ %11, %.preheader ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #6
-  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %1) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.018
 }
 
@@ -521,9 +518,9 @@ define dso_local i32 @sha384_test() local_unnamed_addr #0 {
   %1 = alloca %struct.wc_Sha512, align 8
   %2 = alloca [48 x i8], align 16
   %3 = alloca [2 x %struct.testVector], align 16
-  call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %1) #6
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2) #6
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr @.str.24, ptr %3, align 16, !tbaa !4
   %.sroa.514.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @.str.48, ptr %.sroa.514.0..sroa_idx, align 8, !tbaa !4
@@ -573,9 +570,9 @@ define dso_local i32 @sha384_test() local_unnamed_addr #0 {
 
 .loopexit:                                        ; preds = %12, %.preheader, %14, %0, %18
   %.018 = phi i32 [ 0, %18 ], [ %5, %0 ], [ %indvars.iv, %14 ], [ %13, %12 ], [ %11, %.preheader ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #6
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2) #6
-  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %1) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.018
 }
 
@@ -584,9 +581,9 @@ define dso_local range(i32 -20009, 1) i32 @hmac_md5_test() local_unnamed_addr #0
   %1 = alloca %struct.Hmac, align 16
   %2 = alloca [16 x i8], align 16
   %3 = alloca [3 x %struct.testVector], align 16
-  call void @llvm.lifetime.start.p0(i64 784, ptr nonnull %1) #6
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #6
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr @.str.53, ptr %3, align 16, !tbaa !4
   %.sroa.518.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @.str.54, ptr %.sroa.518.0..sroa_idx, align 8, !tbaa !4
@@ -656,9 +653,9 @@ define dso_local range(i32 -20009, 1) i32 @hmac_md5_test() local_unnamed_addr #0
 
 .loopexit:                                        ; preds = %19, %12, %.preheader, %0, %28, %24
   %.022 = phi i32 [ %26, %24 ], [ 0, %28 ], [ -20009, %0 ], [ -4016, %19 ], [ -4015, %12 ], [ -4014, %.preheader ]
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3) #6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #6
-  call void @llvm.lifetime.end.p0(i64 784, ptr nonnull %1) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.022
 }
 
@@ -667,9 +664,9 @@ define dso_local range(i32 -20009, 1) i32 @hmac_sha_test() local_unnamed_addr #0
   %1 = alloca %struct.Hmac, align 16
   %2 = alloca [20 x i8], align 16
   %3 = alloca [3 x %struct.testVector], align 16
-  call void @llvm.lifetime.start.p0(i64 784, ptr nonnull %1) #6
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2) #6
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr @.str.53, ptr %3, align 16, !tbaa !4
   %.sroa.518.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @.str.61, ptr %.sroa.518.0..sroa_idx, align 8, !tbaa !4
@@ -739,9 +736,9 @@ define dso_local range(i32 -20009, 1) i32 @hmac_sha_test() local_unnamed_addr #0
 
 .loopexit:                                        ; preds = %19, %12, %.preheader, %0, %28, %24
   %.022 = phi i32 [ %26, %24 ], [ 0, %28 ], [ -20009, %0 ], [ -4019, %19 ], [ -4018, %12 ], [ -4017, %.preheader ]
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3) #6
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2) #6
-  call void @llvm.lifetime.end.p0(i64 784, ptr nonnull %1) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.022
 }
 
@@ -750,9 +747,9 @@ define dso_local range(i32 -20009, 1) i32 @hmac_sha224_test() local_unnamed_addr
   %1 = alloca %struct.Hmac, align 16
   %2 = alloca [28 x i8], align 16
   %3 = alloca [3 x %struct.testVector], align 16
-  call void @llvm.lifetime.start.p0(i64 784, ptr nonnull %1) #6
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %2) #6
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr @.str.53, ptr %3, align 16, !tbaa !4
   %.sroa.518.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @.str.64, ptr %.sroa.518.0..sroa_idx, align 8, !tbaa !4
@@ -822,9 +819,9 @@ define dso_local range(i32 -20009, 1) i32 @hmac_sha224_test() local_unnamed_addr
 
 .loopexit:                                        ; preds = %19, %12, %.preheader, %0, %28, %24
   %.022 = phi i32 [ %26, %24 ], [ 0, %28 ], [ -20009, %0 ], [ -4023, %19 ], [ -4022, %12 ], [ -4021, %.preheader ]
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3) #6
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %2) #6
-  call void @llvm.lifetime.end.p0(i64 784, ptr nonnull %1) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.022
 }
 
@@ -833,9 +830,9 @@ define dso_local range(i32 -20009, 1) i32 @hmac_sha256_test() local_unnamed_addr
   %1 = alloca %struct.Hmac, align 16
   %2 = alloca [32 x i8], align 16
   %3 = alloca [3 x %struct.testVector], align 16
-  call void @llvm.lifetime.start.p0(i64 784, ptr nonnull %1) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #6
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr @.str.53, ptr %3, align 16, !tbaa !4
   %.sroa.518.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @.str.67, ptr %.sroa.518.0..sroa_idx, align 8, !tbaa !4
@@ -905,9 +902,9 @@ define dso_local range(i32 -20009, 1) i32 @hmac_sha256_test() local_unnamed_addr
 
 .loopexit:                                        ; preds = %19, %12, %.preheader, %0, %28, %24
   %.022 = phi i32 [ %26, %24 ], [ 0, %28 ], [ -20009, %0 ], [ -4022, %19 ], [ -4021, %12 ], [ -4020, %.preheader ]
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3) #6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #6
-  call void @llvm.lifetime.end.p0(i64 784, ptr nonnull %1) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.022
 }
 
@@ -916,9 +913,9 @@ define dso_local range(i32 -20009, 1) i32 @hmac_sha384_test() local_unnamed_addr
   %1 = alloca %struct.Hmac, align 16
   %2 = alloca [48 x i8], align 16
   %3 = alloca [3 x %struct.testVector], align 16
-  call void @llvm.lifetime.start.p0(i64 784, ptr nonnull %1) #6
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2) #6
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr @.str.53, ptr %3, align 16, !tbaa !4
   %.sroa.518.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @.str.70, ptr %.sroa.518.0..sroa_idx, align 8, !tbaa !4
@@ -988,75 +985,78 @@ define dso_local range(i32 -20009, 1) i32 @hmac_sha384_test() local_unnamed_addr
 
 .loopexit:                                        ; preds = %19, %12, %.preheader, %0, %28, %24
   %.022 = phi i32 [ %26, %24 ], [ 0, %28 ], [ -20009, %0 ], [ -4025, %19 ], [ -4024, %12 ], [ -4023, %.preheader ]
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3) #6
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2) #6
-  call void @llvm.lifetime.end.p0(i64 784, ptr nonnull %1) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.022
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
-declare i32 @wc_InitMd5(ptr noundef) local_unnamed_addr #3
+declare i32 @wc_InitMd5(ptr noundef) local_unnamed_addr #2
 
-declare i32 @wc_Md5Update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @wc_Md5Update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @wc_Md5Final(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @wc_Md5Final(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @wc_Md5Free(ptr noundef) local_unnamed_addr #3
+declare void @wc_Md5Free(ptr noundef) local_unnamed_addr #2
 
-declare i32 @wc_InitSha(ptr noundef) local_unnamed_addr #3
+declare i32 @wc_InitSha(ptr noundef) local_unnamed_addr #2
 
-declare i32 @wc_ShaUpdate(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @wc_ShaUpdate(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @wc_ShaFinal(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @wc_ShaFinal(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @wc_ShaFree(ptr noundef) local_unnamed_addr #3
+declare void @wc_ShaFree(ptr noundef) local_unnamed_addr #2
 
-declare i32 @wc_InitSha224(ptr noundef) local_unnamed_addr #3
+declare i32 @wc_InitSha224(ptr noundef) local_unnamed_addr #2
 
-declare i32 @wc_Sha224Update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @wc_Sha224Update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @wc_Sha224Final(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @wc_Sha224Final(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @wc_Sha224Free(ptr noundef) local_unnamed_addr #3
+declare void @wc_Sha224Free(ptr noundef) local_unnamed_addr #2
 
-declare i32 @wc_InitSha256(ptr noundef) local_unnamed_addr #3
+declare i32 @wc_InitSha256(ptr noundef) local_unnamed_addr #2
 
-declare i32 @wc_Sha256Update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @wc_Sha256Update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @wc_Sha256Final(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @wc_Sha256Final(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @wc_Sha256Free(ptr noundef) local_unnamed_addr #3
+declare void @wc_Sha256Free(ptr noundef) local_unnamed_addr #2
 
-declare i32 @wc_InitSha512(ptr noundef) local_unnamed_addr #3
+declare i32 @wc_InitSha512(ptr noundef) local_unnamed_addr #2
 
-declare i32 @wc_Sha512Update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @wc_Sha512Update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @wc_Sha512Final(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @wc_Sha512Final(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @wc_Sha512Free(ptr noundef) local_unnamed_addr #3
+declare void @wc_Sha512Free(ptr noundef) local_unnamed_addr #2
 
-declare i32 @wc_InitSha384(ptr noundef) local_unnamed_addr #3
+declare i32 @wc_InitSha384(ptr noundef) local_unnamed_addr #2
 
-declare i32 @wc_Sha384Update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @wc_Sha384Update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @wc_Sha384Final(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @wc_Sha384Final(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @wc_Sha384Free(ptr noundef) local_unnamed_addr #3
+declare void @wc_Sha384Free(ptr noundef) local_unnamed_addr #2
 
-declare i32 @wc_HmacInit(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @wc_HmacInit(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @wc_HmacSetKey(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @wc_HmacSetKey(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @wc_HmacUpdate(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @wc_HmacUpdate(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @wc_HmacFinal(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @wc_HmacFinal(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @wc_HmacFree(ptr noundef) local_unnamed_addr #3
+declare void @wc_HmacFree(ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #4
@@ -1065,9 +1065,9 @@ declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_add
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nofree nounwind }
 attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #6 = { nounwind }

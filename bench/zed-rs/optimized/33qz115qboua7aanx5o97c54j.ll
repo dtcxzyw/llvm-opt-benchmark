@@ -31,7 +31,7 @@ define hidden { ptr, ptr } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A
   %13 = load ptr, ptr %12, align 8, !nonnull !4, !noundef !4
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %14, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %13, ptr %6, align 8
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 16
   call void @llvm.experimental.noalias.scope.decl(metadata !6)
@@ -67,7 +67,7 @@ define hidden { ptr, ptr } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A
 
 "_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h61221e1ace577c2fE.exit": ; preds = %24, %"_ZN15live_kit_client4test4Room19remote_audio_tracks28_$u7b$$u7b$closure$u7d$$u7d$17h30039483a26b56e0E.exit.thread.i", %28
   %.pn4.i = phi ptr [ %25, %24 ], [ %.sroa.4.013, %28 ], [ %.sroa.4.013, %"_ZN15live_kit_client4test4Room19remote_audio_tracks28_$u7b$$u7b$closure$u7d$$u7d$17h30039483a26b56e0E.exit.thread.i" ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %29 = load ptr, ptr %7, align 8, !nonnull !4, !noundef !4
   %30 = load ptr, ptr %8, align 8, !nonnull !4, !noundef !4
   %.not = icmp eq ptr %30, %29
@@ -101,7 +101,7 @@ define hidden { ptr, ptr } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A
   %13 = load ptr, ptr %12, align 8, !nonnull !4, !noundef !4
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %14, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %13, ptr %6, align 8
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 16
   call void @llvm.experimental.noalias.scope.decl(metadata !19)
@@ -137,7 +137,7 @@ define hidden { ptr, ptr } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A
 
 "_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h80863b81e40d8a64E.exit": ; preds = %24, %"_ZN15live_kit_client4test4Room19remote_video_tracks28_$u7b$$u7b$closure$u7d$$u7d$17h55c313dc7d50cf07E.exit.thread.i", %28
   %.pn4.i = phi ptr [ %25, %24 ], [ %.sroa.4.013, %28 ], [ %.sroa.4.013, %"_ZN15live_kit_client4test4Room19remote_video_tracks28_$u7b$$u7b$closure$u7d$$u7d$17h55c313dc7d50cf07E.exit.thread.i" ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %29 = load ptr, ptr %7, align 8, !nonnull !4, !noundef !4
   %30 = load ptr, ptr %8, align 8, !nonnull !4, !noundef !4
   %.not = icmp eq ptr %30, %29
@@ -171,7 +171,7 @@ define hidden { ptr, ptr } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A
   %13 = load ptr, ptr %12, align 8, !nonnull !4, !noundef !4
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %14, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %13, ptr %6, align 8
   %.val.i = load ptr, ptr %.val, align 8, !nonnull !4, !align !5, !noundef !4
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 16
@@ -193,7 +193,7 @@ define hidden { ptr, ptr } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A
   br i1 %24, label %25, label %"_ZN15live_kit_client4test4Room31remote_audio_track_publications28_$u7b$$u7b$closure$u7d$$u7d$17h47745eab94c70f02E.exit.thread.i"
 
 25:                                               ; preds = %"_ZN15live_kit_client4test4Room31remote_audio_track_publications28_$u7b$$u7b$closure$u7d$$u7d$17h47745eab94c70f02E.exit.i"
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %13, ptr %5, align 8
   %26 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
   %27 = call noalias noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 8) #11
@@ -258,7 +258,7 @@ define hidden { ptr, ptr } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A
   unreachable
 
 "_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hb98b3cae68a0be7bE.exit.i": ; preds = %39, %36
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store ptr %27, ptr %storemerge15, align 8
   %46 = getelementptr inbounds nuw i8, ptr %storemerge15, i64 8
   br label %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h73a2a6cf392c7bdbE.exit"
@@ -278,7 +278,7 @@ define hidden { ptr, ptr } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A
 
 "_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h73a2a6cf392c7bdbE.exit": ; preds = %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hb98b3cae68a0be7bE.exit.i", %"_ZN15live_kit_client4test4Room31remote_audio_track_publications28_$u7b$$u7b$closure$u7d$$u7d$17h47745eab94c70f02E.exit.thread.i", %49
   %.pn5.i = phi ptr [ %46, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hb98b3cae68a0be7bE.exit.i" ], [ %storemerge15, %49 ], [ %storemerge15, %"_ZN15live_kit_client4test4Room31remote_audio_track_publications28_$u7b$$u7b$closure$u7d$$u7d$17h47745eab94c70f02E.exit.thread.i" ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %50 = load ptr, ptr %7, align 8, !nonnull !4, !noundef !4
   %51 = load ptr, ptr %8, align 8, !nonnull !4, !noundef !4
   %.not = icmp eq ptr %51, %50
@@ -793,10 +793,10 @@ declare hidden void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hfacf010c53703
 declare hidden void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h890f14074780d9f3E"(ptr noalias noundef align 8 dereferenceable(8)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nounwind nonlazybind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #9

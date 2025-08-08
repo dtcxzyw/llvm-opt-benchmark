@@ -1757,7 +1757,7 @@ _ZNK26MLSceneGLSharedDataContext32meshAttributesMultiViewerManagerEi.exit: ; pre
   br i1 %.not, label %_ZNK26MLSceneGLSharedDataContext32meshAttributesMultiViewerManagerEi.exit.thread, label %23
 
 23:                                               ; preds = %_ZNK26MLSceneGLSharedDataContext32meshAttributesMultiViewerManagerEi.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 472
   %25 = ptrtoint ptr %24 to i64
   tail call void @_ZN14QReadWriteLock12lockForWriteEv(ptr noundef nonnull align 8 dereferenceable(8) %24)
@@ -1784,7 +1784,7 @@ _ZNK26MLSceneGLSharedDataContext32meshAttributesMultiViewerManagerEi.exit: ; pre
   resume { ptr, i32 } %32
 
 _ZN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14setPerViewInfoES3_RKNS_11PerViewDataIS4_EE.exit: ; preds = %27
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZNK26MLSceneGLSharedDataContext32meshAttributesMultiViewerManagerEi.exit.thread
 
 _ZNK26MLSceneGLSharedDataContext32meshAttributesMultiViewerManagerEi.exit.thread: ; preds = %10, %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEEESt10_Select1stISA_ESt4lessIiESaISA_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISA_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, %_ZNKSt3mapIiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEESt4lessIiESaISt4pairIKiS7_EEE4findERSB_.exit.i, %4, %_ZN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14setPerViewInfoES3_RKNS_11PerViewDataIS4_EE.exit, %_ZNK26MLSceneGLSharedDataContext32meshAttributesMultiViewerManagerEi.exit
@@ -1880,8 +1880,8 @@ _ZN3vcg20GLMeshAttributesInfo4nextENS0_18PRIMITIVE_MODALITYE.exit: ; preds = %_Z
 
 37:                                               ; preds = %_ZN3vcg20GLMeshAttributesInfo4nextENS0_18PRIMITIVE_MODALITYE.exit
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1920,8 +1920,8 @@ _ZNSt3mapIP10QGLContextN3vcg11PerViewDataI18MLPerViewGLOptionsEESt4lessIS1_ESaIS
 51:                                               ; preds = %46, %.critedge.i
   %.sroa.05.0.i = phi ptr [ %.19.i.i.i.i, %46 ], [ %50, %.critedge.i ]
   %52 = getelementptr inbounds nuw i8, ptr %.sroa.05.0.i, i64 40
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %53 = load i64, ptr %7, align 8
   store i64 %53, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %.sroa.05.0.i, i64 48
@@ -3099,7 +3099,7 @@ _ZNK26MLSceneGLSharedDataContext32meshAttributesMultiViewerManagerEi.exit: ; pre
   br i1 %.not, label %_ZNK26MLSceneGLSharedDataContext32meshAttributesMultiViewerManagerEi.exit.thread, label %22
 
 22:                                               ; preds = %_ZNK26MLSceneGLSharedDataContext32meshAttributesMultiViewerManagerEi.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 472
   %24 = ptrtoint ptr %23 to i64
   tail call void @_ZN14QReadWriteLock12lockForWriteEv(ptr noundef nonnull align 8 dereferenceable(8) %23)
@@ -3126,7 +3126,7 @@ _ZNK26MLSceneGLSharedDataContext32meshAttributesMultiViewerManagerEi.exit: ; pre
   resume { ptr, i32 } %31
 
 _ZN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE18setPerAllViewsInfoERKNS_11PerViewDataIS4_EE.exit: ; preds = %26
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZNK26MLSceneGLSharedDataContext32meshAttributesMultiViewerManagerEi.exit.thread
 
 _ZNK26MLSceneGLSharedDataContext32meshAttributesMultiViewerManagerEi.exit.thread: ; preds = %9, %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEEESt10_Select1stISA_ESt4lessIiESaISA_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISA_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, %_ZNKSt3mapIiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEESt4lessIiESaISt4pairIKiS7_EEE4findERSB_.exit.i, %3, %_ZN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE18setPerAllViewsInfoERKNS_11PerViewDataIS4_EE.exit, %_ZNK26MLSceneGLSharedDataContext32meshAttributesMultiViewerManagerEi.exit
@@ -3964,7 +3964,7 @@ _ZN26MLSceneGLSharedDataContext20makeCurrentGLContextEv.exit: ; preds = %.noexc
 
 ._crit_edge:                                      ; preds = %.lr.ph33, %.preheader
   %.020.lcssa = phi i32 [ %77, %.preheader ], [ %83, %.lr.ph33 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 %.021.lcssa, ptr %5, align 4, !noalias !37
   %85 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %.020.lcssa, ptr %85, align 4, !noalias !37
@@ -3972,7 +3972,7 @@ _ZN26MLSceneGLSharedDataContext20makeCurrentGLContextEv.exit: ; preds = %.noexc
           to label %86 unwind label %47
 
 86:                                               ; preds = %._crit_edge
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %87 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %88 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %89 = load ptr, ptr %87, align 8
@@ -5102,9 +5102,9 @@ _ZN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext1
   store ptr %14, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i64 0, ptr %17, align 8
-  call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %1)
-  call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %1, i8 0, i64 9, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %2, i8 0, i64 9, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %3, i8 0, i64 9, i1 false)
@@ -5129,9 +5129,9 @@ _ZN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext1
           to label %25 unwind label %29
 
 25:                                               ; preds = %24, %.noexc2
-  call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %1)
-  call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   invoke void @_ZN14QReadWriteLock6unlockEv(ptr noundef nonnull align 8 dereferenceable(8) %5)
           to label %_ZN12QWriteLockerD2Ev.exit unwind label %26
 
@@ -5938,7 +5938,7 @@ _ZN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext1
 
 26:                                               ; preds = %_ZN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE23updateEdgeVertIndVectorEv.exit, %4
   %27 = tail call noundef zeroext i1 @_ZN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE31buffersMemoryManagementFunctionERKNS_20GLMeshAttributesInfo16InternalRendAttsES9_S9_(ptr noundef nonnull align 8 dereferenceable(472) %0, ptr noundef nonnull align 1 dereferenceable(9) %1, ptr noundef nonnull align 1 dereferenceable(9) %2, ptr noundef nonnull align 1 dereferenceable(9) %3)
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -6016,7 +6016,7 @@ _ZNKSt6bitsetILm4EE4testEm.exit.i:                ; preds = %_ZNK3vcg20GLMeshAtt
 
 _ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE30isThereAReplicatedPipelineViewEv.exit: ; preds = %26, %._crit_edge.loopexit.i
   %.0.lcssa.i = phi i1 [ false, %26 ], [ %60, %._crit_edge.loopexit.i ]
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %27, label %.preheader, label %85
 
 .preheader:                                       ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE30isThereAReplicatedPipelineViewEv.exit, %.preheader.backedge
@@ -7042,7 +7042,7 @@ declare void @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef, ...) local_unnamed
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE31buffersMemoryManagementFunctionERKNS_20GLMeshAttributesInfo16InternalRendAttsES9_S9_(ptr noundef nonnull align 8 dereferenceable(472) %0, ptr noundef nonnull align 1 dereferenceable(9) %1, ptr noundef nonnull align 1 dereferenceable(9) %2, ptr noundef nonnull align 1 dereferenceable(9) %3) local_unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.vcg::GLMeshAttributesInfo::RenderingAtts.230", align 1
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -7120,7 +7120,7 @@ _ZNKSt6bitsetILm4EE4testEm.exit.i:                ; preds = %_ZNK3vcg20GLMeshAtt
 
 _ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE30isThereAReplicatedPipelineViewEv.exit: ; preds = %4, %._crit_edge.loopexit.i
   %.0.lcssa.i = phi i1 [ false, %4 ], [ %38, %._crit_edge.loopexit.i ]
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %39 = tail call noundef i64 @_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE27bufferObjectsMemoryRequiredERKNS_20GLMeshAttributesInfo16InternalRendAttsE(ptr noundef nonnull align 8 dereferenceable(472) %0, ptr noundef nonnull align 1 dereferenceable(9) %1)
   %40 = tail call noundef i64 @_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE27bufferObjectsMemoryRequiredERKNS_20GLMeshAttributesInfo16InternalRendAttsE(ptr noundef nonnull align 8 dereferenceable(472) %0, ptr noundef nonnull align 1 dereferenceable(9) %2)
   %41 = sub nsw i64 %39, %40
@@ -7755,16 +7755,16 @@ _ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i409: ; preds = %88
 
 .critedge.i:                                      ; preds = %115
   store i16 0, ptr %7, align 2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %7, ptr %5, align 8, !alias.scope !99
   %118 = invoke ptr @_ZNSt8_Rb_treeIsSt4pairIKsSt6vectorIS0_IjjESaIS3_EEESt10_Select1stIS6_ESt4lessIsESaIS6_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJOsEESH_IJEEEEESt17_Rb_tree_iteratorIS6_ESt23_Rb_tree_const_iteratorIS6_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %101, ptr nonnull %108, ptr noundef nonnull align 1 dereferenceable(1) @_ZStL19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 1 dereferenceable(1) %6)
           to label %119 unwind label %95
 
 119:                                              ; preds = %.critedge.i
   %120 = getelementptr inbounds nuw i8, ptr %118, i64 40
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %121 = add i32 %13, -1
   %122 = getelementptr inbounds nuw i8, ptr %118, i64 48
   %123 = load ptr, ptr %122, align 8
@@ -7891,16 +7891,16 @@ _ZNSt6vectorISt4pairIjjESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__norma
   %177 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store i64 0, ptr %177, align 8
   store i16 -1, ptr %8, align 2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %8, ptr %3, align 8, !alias.scope !108
   %178 = invoke ptr @_ZNSt8_Rb_treeIsSt4pairIKsSt6vectorIS0_IjjESaIS3_EEESt10_Select1stIS6_ESt4lessIsESaIS6_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJOsEESH_IJEEEEESt17_Rb_tree_iteratorIS6_ESt23_Rb_tree_const_iteratorIS6_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %168, ptr nonnull %174, ptr noundef nonnull align 1 dereferenceable(1) @_ZStL19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %179 unwind label %95
 
 179:                                              ; preds = %.critedge.i304
   %180 = getelementptr inbounds nuw i8, ptr %178, i64 40
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %181 = add i32 %13, -1
   %182 = getelementptr inbounds nuw i8, ptr %178, i64 48
   %183 = load ptr, ptr %182, align 8
@@ -11049,7 +11049,7 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
 .split.i.i:                                       ; preds = %.lr.ph, %.lr.ph.preheader
   %.fr.i16.lcssa = phi i64 [ %.fr.i13, %.lr.ph.preheader ], [ %.fr.i, %.lr.ph ]
   %storemerge14.lcssa = phi ptr [ %1, %.lr.ph.preheader ], [ %63, %.lr.ph ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %11 = lshr i64 %.fr.i16.lcssa, 3
   %12 = add nsw i64 %11, -2
   %13 = lshr i64 %12, 1
@@ -11161,7 +11161,7 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAt
 
 _ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_less_iterEEvT_SH_SH_T0_.exit: ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorIS9_SaIS9_EEEElS9_NS0_5__ops15_Iter_less_iterEEvT_T0_SI_T1_T2_.exit.i.i
   call void @_ZSt11__sort_heapIN9__gnu_cxx17__normal_iteratorIPN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11EdgeVertIndESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_less_iterEEvT_SH_RT0_(ptr nonnull %0, ptr %storemerge14.lcssa, ptr noundef nonnull align 1 dereferenceable(1) %4)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit
 
 .lr.ph25:                                         ; preds = %.lr.ph.preheader, %.lr.ph
@@ -12078,8 +12078,8 @@ _ZNSt3mapIsSt6vectorISt4pairIjjESaIS2_EESt4lessIsESaIS1_IKsS4_EEE5clearEv.exit: 
   %not. = xor i1 %39, true
   %60 = sext i1 %not. to i64
   %spec.select = add nsw i64 %59, %60
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %61 = load ptr, ptr %6, align 8
   %.not10.i.i.i.i = icmp eq ptr %61, null
   br i1 %.not10.i.i.i.i, label %.critedge.i, label %.lr.ph.i.i.i.i
@@ -12116,8 +12116,8 @@ _ZNSt3mapIsSt6vectorISt4pairIjjESaIS2_EESt4lessIsESaIS1_IKsS4_EEE11lower_boundER
 _ZNSt3mapIsSt6vectorISt4pairIjjESaIS2_EESt4lessIsESaIS1_IKsS4_EEEixERS7_.exit: ; preds = %66, %.critedge.i
   %.sroa.05.0.i = phi ptr [ %70, %.critedge.i ], [ %.19.i.i.i.i, %66 ]
   %71 = getelementptr inbounds nuw i8, ptr %.sroa.05.0.i, i64 40
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.sroa.2.0.insert.ext.i = shl i64 %spec.select, 32
   %.sroa.0.0.insert.ext.i = and i64 %57, 4294967295
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.2.0.insert.ext.i, %.sroa.0.0.insert.ext.i
@@ -13455,7 +13455,7 @@ define linkonce_odr void @_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOMa
   tail call void @glMatrixMode(i32 noundef 5888)
   tail call void @glPushMatrix()
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 64, i1 false)
   br label %.preheader.i.i.i
 
@@ -13486,7 +13486,7 @@ define linkonce_odr void @_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOMa
 
 _ZN3vcg12glMultMatrixERKNS_8Matrix44IfEE.exit:    ; preds = %15
   call void @glMultMatrixf(ptr noundef nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %17 = load ptr, ptr %16, align 8
   %.not = icmp eq ptr %17, null
@@ -13959,7 +13959,7 @@ define linkonce_odr void @_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOMa
   br i1 %42, label %43, label %74
 
 43:                                               ; preds = %39
-  call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 64
@@ -14001,7 +14001,7 @@ define linkonce_odr void @_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOMa
   br label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11drawEdgesBOERKNS_20GLMeshAttributesInfo16InternalRendAttsE.exit
 
 _ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE11drawEdgesBOERKNS_20GLMeshAttributesInfo16InternalRendAttsE.exit: ; preds = %43, %51
-  call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %75
 
 74:                                               ; preds = %39
@@ -14285,8 +14285,8 @@ define linkonce_odr void @_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOMa
   br i1 %80, label %.noexc, label %145
 
 .noexc:                                           ; preds = %77
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @glGetFloatv(i32 noundef 2982, ptr noundef nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %10, ptr noundef nonnull align 4 dereferenceable(64) %9, i64 64, i1 false)
   br label %.preheader.i.i.i
@@ -14348,8 +14348,8 @@ define linkonce_odr void @_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOMa
   %.sroa.15.0.copyload = load float, ptr %.sroa.15.0..sroa_idx, align 4
   %.sroa.16.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 60
   %.sroa.16.0.copyload = load float, ptr %.sroa.16.0..sroa_idx, align 4
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %92 = load ptr, ptr %0, align 8
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 652
   %94 = getelementptr inbounds nuw i8, ptr %92, i64 664
@@ -14456,8 +14456,8 @@ define linkonce_odr void @_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOMa
   br i1 %159, label %160, label %182
 
 160:                                              ; preds = %156
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %161 = load ptr, ptr %0, align 8
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 264
   %163 = load i32, ptr %162, align 8
@@ -14503,8 +14503,8 @@ _ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext
   call void @glDrawArrays(i32 noundef 0, i32 noundef 0, i32 noundef %.05.in.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %8, i8 0, i64 9, i1 false)
   call void @_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE17updateClientStateERKNS_20GLMeshAttributesInfo16InternalRendAttsE(ptr noundef nonnull align 8 dereferenceable(472) %0, ptr noundef nonnull align 1 dereferenceable(9) %8)
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %183
 
 182:                                              ; preds = %156
@@ -14532,8 +14532,8 @@ _ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext
   br i1 %194, label %195, label %217
 
 195:                                              ; preds = %188
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %196 = load ptr, ptr %0, align 8
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 264
   %198 = load i32, ptr %197, align 8
@@ -14579,8 +14579,8 @@ _ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext
   call void @glDrawArrays(i32 noundef 0, i32 noundef 0, i32 noundef %.05.in.i56)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %6, i8 0, i64 9, i1 false)
   call void @_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE17updateClientStateERKNS_20GLMeshAttributesInfo16InternalRendAttsE(ptr noundef nonnull align 8 dereferenceable(472) %0, ptr noundef nonnull align 1 dereferenceable(9) %6)
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %218
 
 217:                                              ; preds = %188
@@ -16685,9 +16685,9 @@ _ZN12QWriteLockerC2EP14QReadWriteLock.exit:
   tail call void @_ZN14QReadWriteLock12lockForWriteEv(ptr noundef nonnull align 8 dereferenceable(8) %5)
   %7 = or disjoint i64 %6, 1
   store i64 %7, ptr %4, align 8
-  call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %1)
-  call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %1, i8 0, i64 9, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %2, i8 0, i64 9, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %3, i8 0, i64 9, i1 false)
@@ -16713,9 +16713,9 @@ _ZN12QWriteLockerC2EP14QReadWriteLock.exit:
           to label %15 unwind label %20
 
 15:                                               ; preds = %14, %.noexc2
-  call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %1)
-  call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   invoke void @_ZN14QReadWriteLock6unlockEv(ptr noundef nonnull align 8 dereferenceable(8) %5)
           to label %_ZN12QWriteLockerD2Ev.exit unwind label %16
 
@@ -17141,7 +17141,7 @@ _ZNK26MLSceneGLSharedDataContext32meshAttributesMultiViewerManagerEi.exit: ; pre
 23:                                               ; preds = %_ZNK26MLSceneGLSharedDataContext32meshAttributesMultiViewerManagerEi.exit
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 472
   tail call void @_ZN14QReadWriteLock12lockForWriteEv(ptr noundef nonnull align 8 dereferenceable(8) %24)
-  call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %5, i8 0, i64 7, i1 false)
   br label %25
 
@@ -17197,7 +17197,7 @@ _ZN3vcg20GLMeshAttributesInfo13INT_ATT_NAMESC2Ej.exit.i.i: ; preds = %49, %30
   br i1 %exitcond.not.i.i, label %50, label %_ZN3vcg20GLMeshAttributesInfo13INT_ATT_NAMESC2Ej.exit.i.i, !llvm.loop !231
 
 50:                                               ; preds = %49
-  call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   invoke void @_ZN14QReadWriteLock6unlockEv(ptr noundef nonnull align 8 dereferenceable(8) %24)
           to label %_ZN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE21meshAttributesUpdatedEbRKNS_20GLMeshAttributesInfo13RenderingAttsINS6_9ATT_NAMESEEE.exit unwind label %51
 
@@ -18008,7 +18008,7 @@ _ZNK26MLSceneGLSharedDataContext32meshAttributesMultiViewerManagerEi.exit: ; pre
   br i1 %.not, label %_ZNK26MLSceneGLSharedDataContext32meshAttributesMultiViewerManagerEi.exit.thread, label %22
 
 22:                                               ; preds = %_ZNK26MLSceneGLSharedDataContext32meshAttributesMultiViewerManagerEi.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 472
   %24 = ptrtoint ptr %23 to i64
   tail call void @_ZN14QReadWriteLock12lockForWriteEv(ptr noundef nonnull align 8 dereferenceable(8) %23)
@@ -18035,7 +18035,7 @@ _ZNK26MLSceneGLSharedDataContext32meshAttributesMultiViewerManagerEi.exit: ; pre
   resume { ptr, i32 } %31
 
 _ZN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE6getLogERNS_20GLMeshAttributesInfo9DebugInfoE.exit: ; preds = %26
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZNK26MLSceneGLSharedDataContext32meshAttributesMultiViewerManagerEi.exit.thread
 
 _ZNK26MLSceneGLSharedDataContext32meshAttributesMultiViewerManagerEi.exit.thread: ; preds = %9, %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEEESt10_Select1stISA_ESt4lessIiESaISA_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISA_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, %_ZNKSt3mapIiPN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsEESt4lessIiESaISt4pairIKiS7_EEE4findERSB_.exit.i, %_ZNK26MLSceneGLSharedDataContext32meshAttributesMultiViewerManagerEi.exit, %_ZN3vcg48QtThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE6getLogERNS_20GLMeshAttributesInfo9DebugInfoE.exit, %3
@@ -18694,9 +18694,9 @@ define internal void @_GLOBAL__sub_I_ml_scene_gl_shared_data_context.cpp() #20 s
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %5, ptr noundef nonnull align 4 dereferenceable(24) @constinit, i64 24, i1 false)
   store ptr %6, ptr getelementptr inbounds nuw (i8, ptr @_ZN3vcgL13ColorMapEnumsE, i64 8), align 8
   %7 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorIN3vcg8ColorMapESaIS1_EED2Ev, ptr nonnull @_ZN3vcgL13ColorMapEnumsE, ptr nonnull @__dso_handle) #27
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %1)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #30
   store i8 68, ptr %8, align 1
   %.sroa.2583.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 1
@@ -20216,9 +20216,9 @@ __cxx_global_var_init.5.exit:                     ; preds = %_ZNSt4pairIKN3vcg8C
   call void @_ZdlPv(ptr noundef nonnull %15) #26
   call void @_ZdlPv(ptr noundef nonnull %8) #26
   %82 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt3mapIN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS4_EESt4lessIS1_ESaISt4pairIKS1_S6_EEED2Ev, ptr nonnull @_ZN3vcgL9colorMapsE, ptr nonnull @__dso_handle) #27
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %1)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -20238,10 +20238,10 @@ declare i64 @llvm.umin.i64(i64, i64) #23
 declare void @llvm.experimental.noalias.scope.decl(metadata) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #25
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #25
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.sqrt.f32(float) #23

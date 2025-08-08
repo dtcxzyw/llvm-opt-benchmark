@@ -59,7 +59,7 @@ define void @_ZN12actix_router6quoter6Quoter7requote17h0f7b2ad503a8c37dE(ptr wri
   %5 = alloca { { ptr, i64 }, { ptr, i64 } }, align 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 } }, align 8
   %7 = alloca { { i64, ptr, {} }, i64 }, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not.i1169.not = icmp eq i64 %3, 0
   br i1 %.not.i1169.not, label %._crit_edge, label %.lr.ph
 
@@ -128,7 +128,7 @@ _ZN12actix_router6quoter16hex_pair_to_char17hb687a94a0395628fE.exit: ; preds = %
   br i1 %43, label %44, label %.backedge55
 
 44:                                               ; preds = %_ZN12actix_router6quoter16hex_pair_to_char17hb687a94a0395628fE.exit
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %45 = call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17hf1d35a488a27ffb4E"(i64 %3, i1 zeroext false)
   %46 = extractvalue { i64, ptr } %45, 0
   %47 = extractvalue { i64, ptr } %45, 1
@@ -141,7 +141,7 @@ _ZN12actix_router6quoter16hex_pair_to_char17hb687a94a0395628fE.exit: ; preds = %
           to label %50 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 ._crit_edge:                                      ; preds = %.backedge55, %4
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store i64 -9223372036854775808, ptr %0, align 8
   br label %92
 
@@ -181,7 +181,7 @@ _ZN12actix_router6quoter16hex_pair_to_char17hb687a94a0395628fE.exit: ; preds = %
   %.pn = phi ptr [ %57, %89 ], [ %15, %.preheader ]
   %.sroa.0.036 = getelementptr inbounds nuw i8, ptr %.pn, i64 3
   %.sroa.6.0 = add i64 %.sroa.6.0.in, -3
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not.i71.not = icmp eq i64 %.sroa.6.0, 0
   br i1 %.not.i71.not, label %._crit_edge75, label %.lr.ph74
 
@@ -256,12 +256,12 @@ _ZN12actix_router6quoter16hex_pair_to_char17hb687a94a0395628fE.exit: ; preds = %
 
 86:                                               ; preds = %.noexc9
   %87 = extractvalue { i1, i8 } %84, 1
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %88 = icmp eq i64 %65, 0
   br i1 %88, label %89, label %90
 
 ._crit_edge75:                                    ; preds = %55, %.backedge
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h291d18f3299bf193E"(ptr nonnull align 8 %7, ptr nonnull align 1 %.sroa.0.036, i64 %.sroa.6.0)
           to label %91 unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -384,10 +384,10 @@ declare void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64, i6
 declare void @llvm.assume(i1 noundef) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

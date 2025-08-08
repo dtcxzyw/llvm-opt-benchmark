@@ -33,24 +33,24 @@ define hidden range(i32 -1, 1) i32 @output_shmem(ptr noundef captures(none) %0, 
   %3 = alloca %struct.lstopo_shmem_header, align 8
   %4 = alloca i64, align 8
   %5 = alloca %struct.stat, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %8, label %6
 
 6:                                                ; preds = %2
-  %7 = tail call i32 @strcasecmp(ptr noundef nonnull %1, ptr noundef nonnull @.str) #10
+  %7 = tail call i32 @strcasecmp(ptr noundef nonnull %1, ptr noundef nonnull @.str) #9
   %.not32 = icmp eq i32 %7, 0
   br i1 %.not32, label %8, label %11
 
 8:                                                ; preds = %6, %2
   %9 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %10 = tail call i64 @fwrite(ptr nonnull @.str.1, i64 40, i64 1, ptr %9) #11
+  %10 = tail call i64 @fwrite(ptr nonnull @.str.1, i64 40, i64 1, ptr %9) #10
   br label %107
 
 11:                                               ; preds = %6
-  %12 = call i32 @stat(ptr noundef nonnull %1, ptr noundef nonnull %5) #9
+  %12 = call i32 @stat(ptr noundef nonnull %1, ptr noundef nonnull %5) #11
   %.not33 = icmp eq i32 %12, 0
   br i1 %.not33, label %13, label %20
 
@@ -62,13 +62,13 @@ define hidden range(i32 -1, 1) i32 @output_shmem(ptr noundef captures(none) %0, 
 
 16:                                               ; preds = %13
   %17 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %18 = tail call ptr @strerror(i32 noundef 17) #9
+  %18 = tail call ptr @strerror(i32 noundef 17) #11
   %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.2, ptr noundef nonnull %1, ptr noundef %18) #12
   br label %107
 
 20:                                               ; preds = %13, %11
   %21 = load ptr, ptr %0, align 8, !tbaa !21
-  %22 = call i32 @hwloc_shmem_topology_get_length(ptr noundef %21, ptr noundef nonnull %4, i64 noundef 0) #9
+  %22 = call i32 @hwloc_shmem_topology_get_length(ptr noundef %21, ptr noundef nonnull %4, i64 noundef 0) #11
   %23 = icmp slt i32 %22, 0
   br i1 %23, label %24, label %33
 
@@ -80,15 +80,15 @@ define hidden range(i32 -1, 1) i32 @output_shmem(ptr noundef captures(none) %0, 
   br i1 %27, label %29, label %31
 
 29:                                               ; preds = %24
-  %30 = call i64 @fwrite(ptr nonnull @.str.3, i64 29, i64 1, ptr %28) #11
+  %30 = call i64 @fwrite(ptr nonnull @.str.3, i64 29, i64 1, ptr %28) #10
   br label %107
 
 31:                                               ; preds = %24
-  %32 = call i64 @fwrite(ptr nonnull @.str.4, i64 47, i64 1, ptr %28) #11
+  %32 = call i64 @fwrite(ptr nonnull @.str.4, i64 47, i64 1, ptr %28) #10
   br label %107
 
 33:                                               ; preds = %20
-  %34 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull %1, i32 noundef 578, i32 noundef 384) #9
+  %34 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull %1, i32 noundef 578, i32 noundef 384) #11
   %35 = icmp slt i32 %34, 0
   br i1 %35, label %36, label %42
 
@@ -96,7 +96,7 @@ define hidden range(i32 -1, 1) i32 @output_shmem(ptr noundef captures(none) %0, 
   %37 = load ptr, ptr @stderr, align 8, !tbaa !4
   %38 = tail call ptr @__errno_location() #13
   %39 = load i32, ptr %38, align 4, !tbaa !22
-  %40 = call ptr @strerror(i32 noundef %39) #9
+  %40 = call ptr @strerror(i32 noundef %39) #11
   %41 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %37, ptr noundef nonnull @.str.5, ptr noundef nonnull %1, ptr noundef %40) #12
   br label %107
 
@@ -114,12 +114,12 @@ define hidden range(i32 -1, 1) i32 @output_shmem(ptr noundef captures(none) %0, 
 48:                                               ; preds = %60, %45
   %.014.i = phi i64 [ -9223372036854775808, %45 ], [ %61, %60 ]
   %49 = inttoptr i64 %.014.i to ptr
-  %50 = call ptr @mmap(ptr noundef nonnull %49, i64 noundef %46, i32 noundef 3, i32 noundef 33, i32 noundef -1, i64 noundef 0) #9
+  %50 = call ptr @mmap(ptr noundef nonnull %49, i64 noundef %46, i32 noundef 3, i32 noundef 33, i32 noundef -1, i64 noundef 0) #11
   %.not.i = icmp eq ptr %50, inttoptr (i64 -1 to ptr)
   br i1 %.not.i, label %56, label %51
 
 51:                                               ; preds = %48
-  %52 = call i32 @munmap(ptr noundef %50, i64 noundef %46) #9
+  %52 = call i32 @munmap(ptr noundef %50, i64 noundef %46) #11
   %53 = icmp eq ptr %50, %49
   br i1 %53, label %62, label %54
 
@@ -150,9 +150,9 @@ define hidden range(i32 -1, 1) i32 @output_shmem(ptr noundef captures(none) %0, 
 
 64:                                               ; preds = %.thread39, %62
   %65 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %66 = call i64 @fwrite(ptr nonnull @.str.6, i64 45, i64 1, ptr %65) #11
-  %67 = call i32 @close(i32 noundef %34) #9
-  %68 = call i32 @unlink(ptr noundef nonnull %1) #9
+  %66 = call i64 @fwrite(ptr nonnull @.str.6, i64 45, i64 1, ptr %65) #10
+  %67 = call i32 @close(i32 noundef %34) #11
+  %68 = call i32 @unlink(ptr noundef nonnull %1) #11
   br label %107
 
 .thread:                                          ; preds = %42, %62
@@ -165,19 +165,19 @@ define hidden range(i32 -1, 1) i32 @output_shmem(ptr noundef captures(none) %0, 
   %72 = load i64, ptr %4, align 8, !tbaa !24
   %73 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %72, ptr %73, align 8, !tbaa !29
-  %74 = call i64 @sysconf(i32 noundef 30) #9
+  %74 = call i64 @sysconf(i32 noundef 30) #11
   %75 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %74, ptr %75, align 8, !tbaa !30
-  %76 = call i64 @write(i32 noundef %34, ptr noundef nonnull %3, i64 noundef 32) #9
+  %76 = call i64 @write(i32 noundef %34, ptr noundef nonnull %3, i64 noundef 32) #11
   %sext.mask = and i64 %76, 4294967295
   %.not37 = icmp eq i64 %sext.mask, 32
   br i1 %.not37, label %82, label %77
 
 77:                                               ; preds = %.thread
   %78 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %79 = call i64 @fwrite(ptr nonnull @.str.7, i64 38, i64 1, ptr %78) #11
-  %80 = call i32 @close(i32 noundef %34) #9
-  %81 = call i32 @unlink(ptr noundef nonnull %1) #9
+  %79 = call i64 @fwrite(ptr nonnull @.str.7, i64 38, i64 1, ptr %78) #10
+  %80 = call i32 @close(i32 noundef %34) #11
+  %81 = call i32 @unlink(ptr noundef nonnull %1) #11
   br label %107
 
 82:                                               ; preds = %.thread
@@ -185,7 +185,7 @@ define hidden range(i32 -1, 1) i32 @output_shmem(ptr noundef captures(none) %0, 
   %84 = load i64, ptr %43, align 8, !tbaa !23
   %85 = inttoptr i64 %84 to ptr
   %86 = load i64, ptr %4, align 8, !tbaa !24
-  %87 = call i32 @hwloc_shmem_topology_write(ptr noundef %83, i32 noundef %34, i64 noundef %74, ptr noundef %85, i64 noundef %86, i64 noundef 0) #9
+  %87 = call i32 @hwloc_shmem_topology_write(ptr noundef %83, i32 noundef %34, i64 noundef %74, ptr noundef %85, i64 noundef %86, i64 noundef 0) #11
   %88 = icmp slt i32 %87, 0
   br i1 %88, label %89, label %102
 
@@ -197,21 +197,21 @@ define hidden range(i32 -1, 1) i32 @output_shmem(ptr noundef captures(none) %0, 
   br i1 %92, label %94, label %96
 
 94:                                               ; preds = %89
-  %95 = call i64 @fwrite(ptr nonnull @.str.8, i64 54, i64 1, ptr %93) #11
+  %95 = call i64 @fwrite(ptr nonnull @.str.8, i64 54, i64 1, ptr %93) #10
   br label %99
 
 96:                                               ; preds = %89
-  %97 = call ptr @strerror(i32 noundef %91) #9
+  %97 = call ptr @strerror(i32 noundef %91) #11
   %98 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %93, ptr noundef nonnull @.str.2, ptr noundef nonnull %1, ptr noundef %97) #12
   br label %99
 
 99:                                               ; preds = %96, %94
-  %100 = call i32 @close(i32 noundef %34) #9
-  %101 = call i32 @unlink(ptr noundef nonnull %1) #9
+  %100 = call i32 @close(i32 noundef %34) #11
+  %101 = call i32 @unlink(ptr noundef nonnull %1) #11
   br label %107
 
 102:                                              ; preds = %82
-  %103 = call i32 @close(i32 noundef %34) #9
+  %103 = call i32 @close(i32 noundef %34) #11
   %104 = load i64, ptr %43, align 8, !tbaa !23
   %105 = load i64, ptr %4, align 8, !tbaa !24
   %106 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %1, i64 noundef %104, i64 noundef %105)
@@ -219,74 +219,68 @@ define hidden range(i32 -1, 1) i32 @output_shmem(ptr noundef captures(none) %0, 
 
 107:                                              ; preds = %29, %31, %102, %99, %77, %64, %36, %16, %8
   %.0 = phi i32 [ -1, %36 ], [ -1, %77 ], [ -1, %99 ], [ 0, %102 ], [ -1, %64 ], [ -1, %16 ], [ -1, %8 ], [ -1, %31 ], [ -1, %29 ]
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
+declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #3
+declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare ptr @strerror(i32 noundef) local_unnamed_addr #4
+declare ptr @strerror(i32 noundef) local_unnamed_addr #3
 
-declare i32 @hwloc_shmem_topology_get_length(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
+declare i32 @hwloc_shmem_topology_get_length(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #6
+declare ptr @__errno_location() local_unnamed_addr #5
 
 ; Function Attrs: nofree
-declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #7
+declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #6
 
-declare i32 @close(i32 noundef) local_unnamed_addr #5
+declare i32 @close(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #3
+declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare i64 @sysconf(i32 noundef) local_unnamed_addr #4
+declare i64 @sysconf(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #7
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #6
 
-declare i32 @hwloc_shmem_topology_write(ptr noundef, i32 noundef, i64 noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #5
+declare i32 @hwloc_shmem_topology_write(ptr noundef, i32 noundef, i64 noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -1, 1) i32 @lstopo_shmem_adopt(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca %struct.lstopo_shmem_header, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #9
-  %5 = tail call i32 (ptr, i32, ...) @open(ptr noundef %0, i32 noundef 0) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  %5 = tail call i32 (ptr, i32, ...) @open(ptr noundef %0, i32 noundef 0) #11
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %57, label %7
 
 7:                                                ; preds = %2
-  %8 = call i64 @read(i32 noundef %5, ptr noundef nonnull %4, i64 noundef 32) #9
+  %8 = call i64 @read(i32 noundef %5, ptr noundef nonnull %4, i64 noundef 32) #11
   %9 = trunc i64 %8 to i32
   %10 = icmp slt i32 %9, 32
   br i1 %10, label %11, label %15
 
 11:                                               ; preds = %7
   %12 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %13 = tail call i64 @fwrite(ptr nonnull @.str.10, i64 37, i64 1, ptr %12) #11
-  %14 = tail call i32 @close(i32 noundef %5) #9
+  %13 = tail call i64 @fwrite(ptr nonnull @.str.10, i64 37, i64 1, ptr %12) #10
+  %14 = tail call i32 @close(i32 noundef %5) #11
   br label %57
 
 15:                                               ; preds = %7
@@ -301,7 +295,7 @@ define hidden range(i32 -1, 1) i32 @lstopo_shmem_adopt(ptr noundef readonly capt
 21:                                               ; preds = %15
   %22 = load ptr, ptr @stderr, align 8, !tbaa !4
   %23 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef nonnull @.str.11, i32 noundef %16, i32 noundef %19, i32 noundef 1, i32 noundef 32) #12
-  %24 = tail call i32 @close(i32 noundef %5) #9
+  %24 = tail call i32 @close(i32 noundef %5) #11
   br label %57
 
 25:                                               ; preds = %15
@@ -312,8 +306,8 @@ define hidden range(i32 -1, 1) i32 @lstopo_shmem_adopt(ptr noundef readonly capt
   %30 = inttoptr i64 %29 to ptr
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %32 = load i64, ptr %31, align 8, !tbaa !29
-  %33 = call i32 @hwloc_shmem_topology_adopt(ptr noundef nonnull %3, i32 noundef %5, i64 noundef %27, ptr noundef %30, i64 noundef %32, i64 noundef 0) #9
-  %34 = call i32 @close(i32 noundef %5) #9
+  %33 = call i32 @hwloc_shmem_topology_adopt(ptr noundef nonnull %3, i32 noundef %5, i64 noundef %27, ptr noundef %30, i64 noundef %32, i64 noundef 0) #11
+  %34 = call i32 @close(i32 noundef %5) #11
   %35 = icmp slt i32 %33, 0
   br i1 %35, label %36, label %46
 
@@ -325,19 +319,19 @@ define hidden range(i32 -1, 1) i32 @lstopo_shmem_adopt(ptr noundef readonly capt
   br i1 %39, label %41, label %43
 
 41:                                               ; preds = %36
-  %42 = call i64 @fwrite(ptr nonnull @.str.12, i64 53, i64 1, ptr %40) #11
+  %42 = call i64 @fwrite(ptr nonnull @.str.12, i64 53, i64 1, ptr %40) #10
   br label %57
 
 43:                                               ; preds = %36
-  %44 = call ptr @strerror(i32 noundef %38) #9
+  %44 = call ptr @strerror(i32 noundef %38) #11
   %45 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %40, ptr noundef nonnull @.str.13, ptr noundef %44) #12
   br label %57
 
 46:                                               ; preds = %25
   %47 = load ptr, ptr %3, align 8, !tbaa !31
-  %48 = call i32 @hwloc_topology_dup(ptr noundef %1, ptr noundef %47) #9
+  %48 = call i32 @hwloc_topology_dup(ptr noundef %1, ptr noundef %47) #11
   %49 = load ptr, ptr %3, align 8, !tbaa !31
-  call void @hwloc_topology_destroy(ptr noundef %49) #9
+  call void @hwloc_topology_destroy(ptr noundef %49) #11
   %50 = icmp slt i32 %48, 0
   br i1 %50, label %51, label %57
 
@@ -345,47 +339,53 @@ define hidden range(i32 -1, 1) i32 @lstopo_shmem_adopt(ptr noundef readonly capt
   %52 = load ptr, ptr @stderr, align 8, !tbaa !4
   %53 = tail call ptr @__errno_location() #13
   %54 = load i32, ptr %53, align 4, !tbaa !22
-  %55 = call ptr @strerror(i32 noundef %54) #9
+  %55 = call ptr @strerror(i32 noundef %54) #11
   %56 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %52, ptr noundef nonnull @.str.14, ptr noundef %55) #12
   br label %57
 
 57:                                               ; preds = %46, %41, %43, %2, %51, %21, %11
   %.0 = phi i32 [ -1, %11 ], [ -1, %21 ], [ -1, %51 ], [ -1, %2 ], [ -1, %43 ], [ -1, %41 ], [ 0, %46 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #7
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #6
 
-declare i32 @hwloc_shmem_topology_adopt(ptr noundef, i32 noundef, i64 noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #5
+declare i32 @hwloc_shmem_topology_adopt(ptr noundef, i32 noundef, i64 noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #4
 
-declare i32 @hwloc_topology_dup(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @hwloc_topology_dup(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare void @hwloc_topology_destroy(ptr noundef) local_unnamed_addr #5
-
-; Function Attrs: nounwind
-declare ptr @mmap(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #4
+declare void @hwloc_topology_destroy(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare i32 @munmap(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare ptr @mmap(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
+
+; Function Attrs: nounwind
+declare i32 @munmap(ptr noundef, i64 noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nofree nounwind
 declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #8
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nofree nounwind }
-attributes #9 = { nounwind }
-attributes #10 = { nounwind willreturn memory(read) }
-attributes #11 = { cold }
+attributes #9 = { nounwind willreturn memory(read) }
+attributes #10 = { cold }
+attributes #11 = { nounwind }
 attributes #12 = { cold nounwind }
 attributes #13 = { nounwind willreturn memory(none) }
 

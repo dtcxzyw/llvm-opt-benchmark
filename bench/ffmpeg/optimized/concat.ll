@@ -26,9 +26,9 @@ define internal i32 @concat_open(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   store ptr %1, ptr %4, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !9
   %9 = call i32 @av_strstart(ptr noundef %1, ptr noundef nonnull @.str.4, ptr noundef nonnull %4) #5
@@ -163,8 +163,8 @@ define internal i32 @concat_open(ptr noundef %0, ptr noundef %1, i32 noundef %2)
 
 72:                                               ; preds = %18, %70, %11
   %.0 = phi i32 [ %.3, %70 ], [ -22, %11 ], [ -12, %18 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -400,13 +400,13 @@ define internal i32 @concatf_open(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
   store ptr %1, ptr %4, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !39
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4, !tbaa !41
   %12 = call i32 @av_strstart(ptr noundef %1, ptr noundef nonnull @.str.7, ptr noundef nonnull %4) #5
   %.not = icmp eq i32 %12, 0
@@ -452,7 +452,7 @@ define internal i32 @concatf_open(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br i1 %.not6190, label %.thread135.sink.split, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %35 = call i64 @strspn(ptr noundef nonnull %33, ptr noundef nonnull @.str.8) #6
   %sext180 = shl i64 %35, 32
   %36 = ashr exact i64 %sext180, 32
@@ -462,7 +462,7 @@ define internal i32 @concatf_open(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br i1 %.not62181, label %.loopexit, label %.lr.ph184
 
 .lr.ph:                                           ; preds = %65
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %39 = call i64 @strspn(ptr noundef nonnull %70, ptr noundef nonnull @.str.8) #6
   %sext = shl i64 %39, 32
   %40 = ashr exact i64 %sext, 32
@@ -496,7 +496,7 @@ define internal i32 @concatf_open(ptr noundef %0, ptr noundef %1, i32 noundef %2
 
 .loopexit.thread130:                              ; preds = %49
   call void @av_free(ptr noundef nonnull %43) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.thread135.sink.split
 
 52:                                               ; preds = %49
@@ -528,7 +528,7 @@ define internal i32 @concatf_open(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %68 = getelementptr inbounds nuw %struct.concat_nodes, ptr %64, i64 %.04492183, i32 1
   store i64 %59, ptr %68, align 8, !tbaa !28
   %69 = add nuw nsw i64 %59, %.04393182
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %70 = load ptr, ptr %7, align 8, !tbaa !4
   %71 = load i8, ptr %70, align 1, !tbaa !16
   %.not61 = icmp eq i8 %71, 0
@@ -550,7 +550,7 @@ define internal i32 @concatf_open(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %.04393171 = phi i64 [ %.04393182, %.loopexit.sink.split ], [ 0, %.lr.ph.preheader ], [ %.04393182, %52 ], [ %.04393182, %.lr.ph184 ], [ %69, %.lr.ph ]
   %.04492167 = phi i64 [ %.04492183, %.loopexit.sink.split ], [ 0, %.lr.ph.preheader ], [ %.04492183, %52 ], [ %.04492183, %.lr.ph184 ], [ %50, %.lr.ph ]
   %.249.ph = phi i32 [ %.249.ph.ph, %.loopexit.sink.split ], [ %27, %.lr.ph.preheader ], [ %55, %52 ], [ -12, %.lr.ph184 ], [ %55, %.lr.ph ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %76 = call i32 @av_bprint_finalize(ptr noundef nonnull %5, ptr noundef null) #5
   %77 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 %.04492167, ptr %77, align 8, !tbaa !30
@@ -585,72 +585,72 @@ define internal i32 @concatf_open(ptr noundef %0, ptr noundef %1, i32 noundef %2
 
 87:                                               ; preds = %17, %15, %84, %30, %14
   %.0 = phi i32 [ %27, %30 ], [ %85, %84 ], [ -22, %14 ], [ -2, %15 ], [ %23, %17 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+declare i32 @av_strstart(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @av_strstart(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
-
-declare ptr @av_realloc_array(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
+declare ptr @av_realloc_array(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strcspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
+declare i64 @strcspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
-declare i32 @av_reallocp(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @av_reallocp(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare i64 @av_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i64 @av_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
+declare i64 @strspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
-declare i32 @ffurl_open_whitelist(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @ffurl_open_whitelist(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i64 @ffurl_size(ptr noundef) local_unnamed_addr #3
+declare i64 @ffurl_size(ptr noundef) local_unnamed_addr #2
 
-declare i32 @ffurl_close(ptr noundef) local_unnamed_addr #3
+declare i32 @ffurl_close(ptr noundef) local_unnamed_addr #2
 
-declare void @av_free(ptr noundef) local_unnamed_addr #3
+declare void @av_free(ptr noundef) local_unnamed_addr #2
 
-declare ptr @av_realloc(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare ptr @av_realloc(ptr noundef, i64 noundef) local_unnamed_addr #2
+
+declare i32 @ffurl_read2(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+
+declare i64 @ffurl_seek2(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
+
+declare i32 @ffurl_closep(ptr noundef) local_unnamed_addr #2
+
+declare void @av_freep(ptr noundef) local_unnamed_addr #2
+
+declare i32 @ffio_open_whitelist(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+
+declare void @av_bprint_init(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+
+declare i32 @avio_read_to_bprint(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+
+declare i32 @avio_closep(ptr noundef) local_unnamed_addr #2
+
+declare i32 @av_bprint_finalize(ptr noundef, ptr noundef) local_unnamed_addr #2
+
+declare ptr @av_get_token(ptr noundef, ptr noundef) local_unnamed_addr #2
+
+declare ptr @av_fast_realloc(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
 
-declare i32 @ffurl_read2(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
-
-declare i64 @ffurl_seek2(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
-
-declare i32 @ffurl_closep(ptr noundef) local_unnamed_addr #3
-
-declare void @av_freep(ptr noundef) local_unnamed_addr #3
-
-declare i32 @ffio_open_whitelist(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
-
-declare void @av_bprint_init(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
-
-declare i32 @avio_read_to_bprint(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
-
-declare i32 @avio_closep(ptr noundef) local_unnamed_addr #3
-
-declare i32 @av_bprint_finalize(ptr noundef, ptr noundef) local_unnamed_addr #3
-
-declare ptr @av_get_token(ptr noundef, ptr noundef) local_unnamed_addr #3
-
-declare ptr @av_fast_realloc(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 attributes #0 = { cold nounwind optsize uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nounwind }
 attributes #6 = { nounwind willreturn memory(read) }
 attributes #7 = { cold }

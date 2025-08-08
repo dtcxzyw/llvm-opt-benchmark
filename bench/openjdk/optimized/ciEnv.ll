@@ -2560,7 +2560,7 @@ _ZN5ciEnv10get_objectEP7oopDesc.exit:             ; preds = %8
   br i1 %36, label %37, label %62
 
 37:                                               ; preds = %23
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %38 = tail call noundef ptr @_ZNK8ciObject7get_oopEv(ptr noundef nonnull align 8 dereferenceable(40) %16) #19
   %39 = call noundef zeroext i8 @_ZN23java_lang_boxing_object9get_valueEP7oopDescP6jvalue(ptr noundef %38, ptr noundef nonnull %4) #19
   %.not = icmp eq i8 %39, %34
@@ -2630,7 +2630,7 @@ _ZN5ciEnv21unbox_primitive_valueEP8ciObject9BasicType.exit: ; preds = %37, %41, 
   %.sroa.11.sroa.11.0.insert.shift.i = shl nuw i64 %.sroa.11.sroa.11.0.insert.ext.i, 32
   %.sroa.11.sroa.0.0.insert.ext.i = zext i32 %.sroa.11.sroa.0.0.i to i64
   %.sroa.11.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.11.sroa.11.0.insert.shift.i, %.sroa.11.sroa.0.0.insert.ext.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %64
 
 62:                                               ; preds = %23
@@ -2733,7 +2733,7 @@ define hidden { i8, i64 } @_ZN5ciEnv26get_constant_by_index_implERK18constantPoo
   %41 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %42 = load ptr, ptr %41, align 8
   %43 = load ptr, ptr %1, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %43, ptr %6, align 8
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %42, ptr %44, align 8
@@ -2770,7 +2770,7 @@ _ZN12ConstantPool9string_atEiiP10JavaThread.exit: ; preds = %40, %51
   store ptr %43, ptr %64, align 8
   %65 = call noundef ptr @_ZN12ConstantPool14string_at_implERK18constantPoolHandleiiP10JavaThread(ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef %2, i32 noundef %3, ptr noundef nonnull %42) #19
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #19
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %66 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %67 = load ptr, ptr %66, align 8
   %.not86 = icmp eq ptr %67, null
@@ -6088,7 +6088,7 @@ define hidden void @_ZN5ciEnv21process_invokedynamicERK18constantPoolHandleiP10J
 19:                                               ; preds = %4
   %20 = load volatile ptr, ptr %17, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
@@ -6160,7 +6160,7 @@ _ZN5ciEnv20record_best_dyno_locEPK13InstanceKlass.exit.i: ; preds = %47, %.loope
   br label %_ZN5ciEnv23record_call_site_methodEP6ThreadP6Method.exit
 
 _ZN5ciEnv23record_call_site_methodEP6ThreadP6Method.exit: ; preds = %19, %_ZN5ciEnv20record_best_dyno_locEPK13InstanceKlass.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %53 = load ptr, ptr %1, align 8
   %54 = call noundef ptr @_ZNK12ConstantPool19resolved_referencesEv(ptr noundef nonnull align 8 dereferenceable(68) %53) #19
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 16
@@ -6212,7 +6212,7 @@ _ZN5ciEnv23record_call_site_methodEP6ThreadP6Method.exit: ; preds = %19, %_ZN5ci
   %94 = getelementptr inbounds i16, ptr %89, i64 %93
   %95 = load i16, ptr %94, align 2
   %96 = zext i16 %95 to i32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %76, ptr %5, align 8
   %97 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %3, ptr %97, align 8
@@ -6249,7 +6249,7 @@ _ZN12ConstantPool35resolve_possibly_cached_constant_atEiP10JavaThread.exit: ; pr
   store ptr %76, ptr %117, align 8
   %118 = call noundef ptr @_ZN12ConstantPool24resolve_constant_at_implERK18constantPoolHandleiiPbP10JavaThread(ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef %96, i32 noundef -2, ptr noundef null, ptr noundef nonnull %3) #19
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #19
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void (ptr, ptr, ptr, ...) @_ZN14RecordLocationC2EP5ciEnvPKcz(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull %0, ptr noundef nonnull @.str.36)
   call void @_ZN5ciEnv20record_call_site_objEP6ThreadP7oopDesc(ptr noundef nonnull align 8 dereferenceable(1265) %0, ptr noundef nonnull %3, ptr noundef %118)
   %119 = load ptr, ptr %9, align 8
@@ -6319,7 +6319,7 @@ define hidden void @_ZN5ciEnv20process_invokehandleERK18constantPoolHandleiP10Ja
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %45 = load ptr, ptr %44, align 8
   %46 = tail call noundef ptr @_ZNK17ConstantPoolCache20appendix_if_resolvedEP19ResolvedMethodEntry(ptr noundef nonnull align 8 dereferenceable(64) %45, ptr noundef nonnull %37) #19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %47 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
@@ -6391,7 +6391,7 @@ _ZN5ciEnv20record_best_dyno_locEPK13InstanceKlass.exit.i: ; preds = %73, %.loope
   br label %_ZN5ciEnv23record_call_site_methodEP6ThreadP6Method.exit
 
 _ZN5ciEnv23record_call_site_methodEP6ThreadP6Method.exit: ; preds = %41, %_ZN5ciEnv20record_best_dyno_locEPK13InstanceKlass.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void (ptr, ptr, ptr, ...) @_ZN14RecordLocationC2EP5ciEnvPKcz(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull %0, ptr noundef nonnull @.str.35)
   call void @_ZN5ciEnv20record_call_site_objEP6ThreadP7oopDesc(ptr noundef nonnull align 8 dereferenceable(1265) %0, ptr noundef %3, ptr noundef %46)
   %79 = load ptr, ptr %6, align 8
@@ -6833,7 +6833,7 @@ _ZNK14BytecodeStream12get_index_u2Ev.exit:        ; preds = %204, %205
 
 240:                                              ; preds = %232
   %241 = load ptr, ptr %4, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %241, ptr %2, align 8
   store ptr %57, ptr %43, align 8
   %242 = load ptr, ptr %231, align 8
@@ -6869,7 +6869,7 @@ _ZN12ConstantPool23find_cached_constant_atEiRbP10JavaThread.exit: ; preds = %240
   %261 = trunc nuw nsw i64 %indvars.iv60 to i32
   %262 = call noundef ptr @_ZN12ConstantPool24resolve_constant_at_implERK18constantPoolHandleiiPbP10JavaThread(ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %261, i32 noundef -2, ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull %57) #19
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #19
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.not = icmp eq ptr %262, null
   br i1 %.not, label %265, label %263
 
@@ -9975,10 +9975,10 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare void @llvm.assume(i1 noundef) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #18
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #18
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #18
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

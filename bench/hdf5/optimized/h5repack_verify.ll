@@ -69,16 +69,16 @@ define dso_local i32 @h5repack_verify(ptr noundef %0, ptr noundef %1, ptr nounde
   %16 = alloca i32, align 4
   %17 = alloca %union.anon, align 8
   %18 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %19 = tail call i64 @H5Fopen(ptr noundef %1, i32 noundef 0, i64 noundef 0) #6
   %20 = icmp slt i64 %19, 0
   br i1 %20, label %28, label %.preheader382
@@ -283,7 +283,7 @@ define dso_local i32 @h5repack_verify(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %.not322, label %160, label %135
 
 135:                                              ; preds = %128
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %136 = call i32 @H5Pget_nfilters(i64 noundef range(i64 0, -9223372036854775808) %91) #6
   %137 = icmp slt i32 %136, 0
   br i1 %137, label %.sink.split, label %138
@@ -347,7 +347,7 @@ define dso_local i32 @h5repack_verify(ptr noundef %0, ptr noundef %1, ptr nounde
 
 .sink.split:                                      ; preds = %.lr.ph.i, %155, %139, %144, %151, %.preheader.i, %146, %148, %141, %135
   %.3165.ph = phi i32 [ %spec.select, %135 ], [ %spec.select, %141 ], [ %spec.select, %148 ], [ %spec.select, %146 ], [ %spec.select, %.preheader.i ], [ 0, %151 ], [ 0, %144 ], [ 0, %139 ], [ %spec.select, %155 ], [ 0, %.lr.ph.i ]
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %160
 
 160:                                              ; preds = %.sink.split, %128
@@ -708,12 +708,12 @@ define dso_local i32 @h5repack_verify(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %371, label %372, label %396
 
 372:                                              ; preds = %369
-  call void @llvm.lifetime.start.p0(i64 1112, ptr nonnull %15) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @init_packobject(ptr noundef nonnull %15) #6
   %373 = load i32, ptr %255, align 8, !tbaa !43
   store i32 %373, ptr %256, align 4, !tbaa !28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(264) %257, ptr noundef nonnull align 8 dereferenceable(264) %258, i64 264, i1 false), !tbaa.struct !44
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %374 = call i32 @H5Pget_nfilters(i64 noundef range(i64 0, -9223372036854775808) %326) #6
   %375 = icmp slt i32 %374, 0
   br i1 %375, label %verify_layout.exit359.thread, label %376
@@ -773,8 +773,8 @@ define dso_local i32 @h5repack_verify(ptr noundef %0, ptr noundef %1, ptr nounde
 
 verify_layout.exit359.thread:                     ; preds = %.lr.ph.i354, %390, %381, %388, %376, %.preheader.i350, %383, %385, %378, %372
   %395 = phi i32 [ %.8, %372 ], [ %.8, %378 ], [ %.8, %385 ], [ %.8, %383 ], [ %.8, %.preheader.i350 ], [ 0, %376 ], [ 0, %388 ], [ 0, %381 ], [ %.8, %390 ], [ 0, %.lr.ph.i354 ]
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %4) #6
-  call void @llvm.lifetime.end.p0(i64 1112, ptr nonnull %15) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %396
 
 396:                                              ; preds = %verify_layout.exit359.thread, %369
@@ -1442,9 +1442,9 @@ verify_layout.exit359.thread:                     ; preds = %.lr.ph.i354, %390, 
   %.0158 = phi i64 [ -1, %28 ], [ -1, %40 ], [ -1, %36 ], [ -1, %260 ], [ -1, %272 ], [ -1, %268 ], [ -1, %482 ], [ -1, %494 ], [ -1, %490 ], [ -1, %501 ], [ -1, %513 ], [ -1, %509 ], [ -1, %520 ], [ -1, %532 ], [ -1, %528 ], [ -1, %539 ], [ -1, %551 ], [ -1, %547 ], [ %556, %558 ], [ %556, %570 ], [ %556, %566 ], [ %556, %577 ], [ %556, %589 ], [ %556, %585 ], [ %556, %596 ], [ %556, %608 ], [ %556, %604 ], [ %556, %618 ], [ %556, %630 ], [ %556, %626 ], [ %556, %636 ], [ %556, %648 ], [ %556, %644 ], [ %556, %659 ], [ %556, %671 ], [ %556, %667 ], [ %556, %677 ], [ %556, %689 ], [ %556, %685 ], [ %556, %699 ], [ %556, %711 ], [ %556, %707 ], [ %556, %717 ], [ %556, %729 ], [ %556, %725 ], [ %556, %739 ], [ %556, %751 ], [ %556, %747 ], [ %556, %757 ], [ %556, %769 ], [ %556, %765 ], [ %556, %755 ], [ %556, %737 ], [ -1, %.lr.ph._crit_edge ], [ -1, %66 ], [ -1, %62 ], [ -1, %74 ], [ -1, %86 ], [ -1, %82 ], [ -1, %93 ], [ -1, %105 ], [ -1, %101 ], [ -1, %112 ], [ -1, %124 ], [ -1, %120 ], [ -1, %163 ], [ -1, %175 ], [ -1, %171 ], [ -1, %182 ], [ -1, %194 ], [ -1, %190 ], [ -1, %201 ], [ -1, %213 ], [ -1, %209 ], [ -1, %220 ], [ -1, %232 ], [ -1, %228 ], [ -1, %290 ], [ -1, %302 ], [ -1, %298 ], [ -1, %309 ], [ -1, %321 ], [ -1, %317 ], [ -1, %328 ], [ -1, %340 ], [ -1, %336 ], [ -1, %347 ], [ -1, %359 ], [ -1, %355 ], [ -1, %399 ], [ -1, %411 ], [ -1, %407 ], [ -1, %418 ], [ -1, %430 ], [ -1, %426 ], [ -1, %437 ], [ -1, %449 ], [ -1, %445 ], [ -1, %456 ], [ -1, %468 ], [ -1, %464 ]
   %.0156 = phi i32 [ -1, %28 ], [ -1, %40 ], [ -1, %36 ], [ -1, %260 ], [ -1, %272 ], [ -1, %268 ], [ -1, %482 ], [ -1, %494 ], [ -1, %490 ], [ -1, %501 ], [ -1, %513 ], [ -1, %509 ], [ -1, %520 ], [ -1, %532 ], [ -1, %528 ], [ -1, %539 ], [ -1, %551 ], [ -1, %547 ], [ -1, %558 ], [ -1, %570 ], [ -1, %566 ], [ -1, %577 ], [ -1, %589 ], [ -1, %585 ], [ -1, %596 ], [ -1, %608 ], [ -1, %604 ], [ -1, %618 ], [ -1, %630 ], [ -1, %626 ], [ -1, %636 ], [ -1, %648 ], [ -1, %644 ], [ -1, %659 ], [ -1, %671 ], [ -1, %667 ], [ -1, %677 ], [ -1, %689 ], [ -1, %685 ], [ -1, %699 ], [ -1, %711 ], [ -1, %707 ], [ -1, %717 ], [ -1, %729 ], [ -1, %725 ], [ -1, %739 ], [ -1, %751 ], [ -1, %747 ], [ -1, %757 ], [ -1, %769 ], [ -1, %765 ], [ %.4166, %755 ], [ %.4166, %737 ], [ -1, %.lr.ph._crit_edge ], [ -1, %66 ], [ -1, %62 ], [ -1, %74 ], [ -1, %86 ], [ -1, %82 ], [ -1, %93 ], [ -1, %105 ], [ -1, %101 ], [ -1, %112 ], [ -1, %124 ], [ -1, %120 ], [ -1, %163 ], [ -1, %175 ], [ -1, %171 ], [ -1, %182 ], [ -1, %194 ], [ -1, %190 ], [ -1, %201 ], [ -1, %213 ], [ -1, %209 ], [ -1, %220 ], [ -1, %232 ], [ -1, %228 ], [ -1, %290 ], [ -1, %302 ], [ -1, %298 ], [ -1, %309 ], [ -1, %321 ], [ -1, %317 ], [ -1, %328 ], [ -1, %340 ], [ -1, %336 ], [ -1, %347 ], [ -1, %359 ], [ -1, %355 ], [ -1, %399 ], [ -1, %411 ], [ -1, %407 ], [ -1, %418 ], [ -1, %430 ], [ -1, %426 ], [ -1, %437 ], [ -1, %449 ], [ -1, %445 ], [ -1, %456 ], [ -1, %468 ], [ -1, %464 ]
   %.0155 = phi i64 [ -1, %28 ], [ -1, %40 ], [ -1, %36 ], [ -1, %260 ], [ -1, %272 ], [ -1, %268 ], [ %480, %482 ], [ %480, %494 ], [ %480, %490 ], [ %480, %501 ], [ %480, %513 ], [ %480, %509 ], [ %480, %520 ], [ %480, %532 ], [ %480, %528 ], [ %480, %539 ], [ %480, %551 ], [ %480, %547 ], [ %480, %558 ], [ %480, %570 ], [ %480, %566 ], [ %480, %577 ], [ %480, %589 ], [ %480, %585 ], [ %480, %596 ], [ %480, %608 ], [ %480, %604 ], [ %480, %618 ], [ %480, %630 ], [ %480, %626 ], [ %480, %636 ], [ %480, %648 ], [ %480, %644 ], [ %480, %659 ], [ %480, %671 ], [ %480, %667 ], [ %480, %677 ], [ %480, %689 ], [ %480, %685 ], [ %480, %699 ], [ %480, %711 ], [ %480, %707 ], [ %480, %717 ], [ %480, %729 ], [ %480, %725 ], [ %480, %739 ], [ %480, %751 ], [ %480, %747 ], [ %480, %757 ], [ %480, %769 ], [ %480, %765 ], [ %480, %755 ], [ %480, %737 ], [ -1, %.lr.ph._crit_edge ], [ -1, %66 ], [ -1, %62 ], [ -1, %74 ], [ -1, %86 ], [ -1, %82 ], [ -1, %93 ], [ -1, %105 ], [ -1, %101 ], [ -1, %112 ], [ -1, %124 ], [ -1, %120 ], [ -1, %163 ], [ -1, %175 ], [ -1, %171 ], [ -1, %182 ], [ -1, %194 ], [ -1, %190 ], [ -1, %201 ], [ -1, %213 ], [ -1, %209 ], [ -1, %220 ], [ -1, %232 ], [ -1, %228 ], [ -1, %290 ], [ -1, %302 ], [ -1, %298 ], [ -1, %309 ], [ -1, %321 ], [ -1, %317 ], [ -1, %328 ], [ -1, %340 ], [ -1, %336 ], [ -1, %347 ], [ -1, %359 ], [ -1, %355 ], [ -1, %399 ], [ -1, %411 ], [ -1, %407 ], [ -1, %418 ], [ -1, %430 ], [ -1, %426 ], [ -1, %437 ], [ -1, %449 ], [ -1, %445 ], [ -1, %456 ], [ -1, %468 ], [ -1, %464 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %773 = call i32 @H5Eauto_is_v2(i64 noundef 0, ptr noundef nonnull %16) #6
   %774 = load i32, ptr %16, align 4, !tbaa !20
   %.not332 = icmp eq i32 %774, 0
@@ -1493,38 +1493,35 @@ verify_layout.exit359.thread:                     ; preds = %.lr.ph.i354, %390, 
   br label %800
 
 800:                                              ; preds = %798, %796
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0156
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare i64 @H5Fopen(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
-declare i64 @H5Fopen(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
-
-declare i32 @H5Epush2(i64 noundef, ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare i32 @H5Epush2(i64 noundef, ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
-declare i64 @H5Dopen2(i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @H5Dopen2(i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i64 @H5Dget_space(i64 noundef) local_unnamed_addr #2
+declare i64 @H5Dget_space(i64 noundef) local_unnamed_addr #1
 
-declare i64 @H5Dget_create_plist(i64 noundef) local_unnamed_addr #2
+declare i64 @H5Dget_create_plist(i64 noundef) local_unnamed_addr #1
 
-declare i64 @H5Dget_type(i64 noundef) local_unnamed_addr #2
+declare i64 @H5Dget_type(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 2) i32 @verify_filters(i64 noundef range(i64 0, -9223372036854775808) %0, i64 noundef range(i64 0, -9223372036854775808) %1, i32 noundef %2, ptr noundef readonly captures(none) %3) unnamed_addr #0 {
@@ -1532,10 +1529,10 @@ define internal fastcc range(i32 -1, 2) i32 @verify_filters(i64 noundef range(i6
   %6 = alloca [20 x i32], align 16
   %7 = alloca i64, align 8
   %8 = alloca [256 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @H5Pget_nfilters(i64 noundef %0) #6
   %10 = icmp slt i32 %9, 0
   %indvars.iv.sroa.gep133 = getelementptr inbounds nuw i8, ptr %6, i64 4
@@ -1723,54 +1720,51 @@ define internal fastcc range(i32 -1, 2) i32 @verify_filters(i64 noundef range(i6
 
 .loopexit69:                                      ; preds = %19, %23, %30, %33, %36, %41, %44, %48, %57, %72, %.loopexit, %66, %52, %81, %14, %.preheader76, %17, %4
   %.050 = phi i32 [ -1, %4 ], [ 0, %17 ], [ 1, %.preheader76 ], [ %spec.select, %14 ], [ 0, %81 ], [ 0, %52 ], [ 0, %66 ], [ -1, %19 ], [ 0, %23 ], [ 0, %30 ], [ -1, %33 ], [ 0, %36 ], [ 0, %41 ], [ 0, %44 ], [ 0, %48 ], [ 0, %57 ], [ 0, %72 ], [ 1, %.loopexit ]
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %8) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.050
 }
 
-declare i32 @H5Pclose(i64 noundef) local_unnamed_addr #2
+declare i32 @H5Pclose(i64 noundef) local_unnamed_addr #1
 
-declare i32 @H5Sclose(i64 noundef) local_unnamed_addr #2
+declare i32 @H5Sclose(i64 noundef) local_unnamed_addr #1
 
-declare i32 @H5Dclose(i64 noundef) local_unnamed_addr #2
+declare i32 @H5Dclose(i64 noundef) local_unnamed_addr #1
 
-declare i32 @H5Tclose(i64 noundef) local_unnamed_addr #2
+declare i32 @H5Tclose(i64 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @h5trav_set_index(i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @h5trav_set_index(i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @trav_table_init(i64 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @trav_table_init(i64 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @h5trav_gettable(i64 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @h5trav_gettable(i64 noundef, ptr noundef) local_unnamed_addr #2
-
-declare void @init_packobject(ptr noundef) local_unnamed_addr #2
+declare void @init_packobject(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
-declare void @trav_table_free(ptr noundef) local_unnamed_addr #2
+declare void @trav_table_free(ptr noundef) local_unnamed_addr #1
 
-declare i64 @H5Fget_create_plist(i64 noundef) local_unnamed_addr #2
+declare i64 @H5Fget_create_plist(i64 noundef) local_unnamed_addr #1
 
-declare i32 @H5Pget_file_space_strategy(i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @H5Pget_file_space_strategy(i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @H5Pget_file_space_page_size(i64 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @H5Pget_file_space_page_size(i64 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @H5Eauto_is_v2(i64 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @H5Eauto_is_v2(i64 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @H5Eget_auto2(i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @H5Eget_auto2(i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @H5Eset_auto2(i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @H5Eset_auto2(i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @H5Eget_auto1(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @H5Eget_auto1(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @H5Eset_auto1(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @H5Eset_auto1(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @H5Fclose(i64 noundef) local_unnamed_addr #2
+declare i32 @H5Fclose(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, -2147483648) i32 @h5repack_cmp_pl(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
@@ -1780,9 +1774,9 @@ define dso_local range(i32 -1, -2147483648) i32 @h5repack_cmp_pl(ptr noundef %0,
   %7 = alloca i32, align 4
   %8 = alloca %union.anon.0, align 8
   %9 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !4
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 904
   %11 = load i64, ptr %10, align 8, !tbaa !62
@@ -2689,9 +2683,9 @@ define dso_local range(i32 -1, -2147483648) i32 @h5repack_cmp_pl(ptr noundef %0,
   %.0114 = phi i64 [ -1, %23 ], [ -1, %35 ], [ -1, %31 ], [ -1, %53 ], [ -1, %65 ], [ -1, %61 ], [ -1, %78 ], [ -1, %90 ], [ -1, %86 ], [ %.1115465, %106 ], [ %.1115465, %123 ], [ %.1115465, %114 ], [ %.1115465, %135 ], [ %.1115465, %147 ], [ %.1115465, %143 ], [ %.1115465, %154 ], [ %.1115465, %166 ], [ %.1115465, %162 ], [ %.1115465, %173 ], [ %.1115465, %185 ], [ %.1115465, %181 ], [ %.1115465, %192 ], [ %.1115465, %204 ], [ %.1115465, %200 ], [ %.1115465, %216 ], [ %.1115465, %233 ], [ %.1115465, %224 ], [ %.1115465, %245 ], [ %.1115465, %257 ], [ %.1115465, %253 ], [ %.1115465, %264 ], [ %.1115465, %276 ], [ %.1115465, %272 ], [ %.1115465, %283 ], [ %.1115465, %295 ], [ %.1115465, %291 ], [ %.1115465, %302 ], [ %.1115465, %314 ], [ %.1115465, %310 ], [ %.1115465, %321 ], [ %.1115465, %338 ], [ %.1115465, %329 ], [ %.1115465, %352 ], [ %.1115465, %369 ], [ %.1115465, %360 ], [ %.1115465, %386 ], [ %.1115465, %403 ], [ %.1115465, %394 ], [ %.1115465, %415 ], [ %.1115465, %427 ], [ %.1115465, %423 ], [ %432, %434 ], [ %432, %446 ], [ %432, %442 ], [ %432, %453 ], [ %432, %465 ], [ %432, %461 ], [ %432, %471 ], [ %432, %488 ], [ %432, %479 ], [ %432, %500 ], [ %432, %512 ], [ %432, %508 ], [ %432, %519 ], [ %432, %531 ], [ %432, %527 ], [ %432, %538 ], [ %432, %550 ], [ %432, %546 ], [ %432, %557 ], [ %432, %569 ], [ %432, %565 ], [ -1, %.preheader ], [ %.2116, %573 ]
   %.0111 = phi i64 [ -1, %23 ], [ -1, %35 ], [ -1, %31 ], [ -1, %53 ], [ -1, %65 ], [ -1, %61 ], [ -1, %78 ], [ -1, %90 ], [ -1, %86 ], [ %.1112466, %106 ], [ %.1112466, %123 ], [ %.1112466, %114 ], [ %133, %135 ], [ %133, %147 ], [ %133, %143 ], [ %133, %154 ], [ %133, %166 ], [ %133, %162 ], [ %133, %173 ], [ %133, %185 ], [ %133, %181 ], [ %133, %192 ], [ %133, %204 ], [ %133, %200 ], [ %133, %216 ], [ %133, %233 ], [ %133, %224 ], [ %243, %245 ], [ %243, %257 ], [ %243, %253 ], [ %243, %264 ], [ %243, %276 ], [ %243, %272 ], [ %243, %283 ], [ %243, %295 ], [ %243, %291 ], [ %243, %302 ], [ %243, %314 ], [ %243, %310 ], [ %243, %321 ], [ %243, %338 ], [ %243, %329 ], [ %.1112466, %352 ], [ %.1112466, %369 ], [ %.1112466, %360 ], [ %.1112466, %386 ], [ %.1112466, %403 ], [ %.1112466, %394 ], [ %.1112466, %415 ], [ %.1112466, %427 ], [ %.1112466, %423 ], [ %.1112466, %434 ], [ %.1112466, %446 ], [ %.1112466, %442 ], [ %.1112466, %453 ], [ %.1112466, %465 ], [ %.1112466, %461 ], [ %.1112466, %471 ], [ %.1112466, %488 ], [ %.1112466, %479 ], [ %.1112466, %500 ], [ %.1112466, %512 ], [ %.1112466, %508 ], [ %.1112466, %519 ], [ %.1112466, %531 ], [ %.1112466, %527 ], [ %.1112466, %538 ], [ %.1112466, %550 ], [ %.1112466, %546 ], [ %.1112466, %557 ], [ %.1112466, %569 ], [ %.1112466, %565 ], [ -1, %.preheader ], [ %.2113, %573 ]
   %.0 = phi i32 [ -1, %23 ], [ -1, %35 ], [ -1, %31 ], [ -1, %53 ], [ -1, %65 ], [ -1, %61 ], [ -1, %78 ], [ -1, %90 ], [ -1, %86 ], [ -1, %106 ], [ -1, %123 ], [ -1, %114 ], [ -1, %135 ], [ -1, %147 ], [ -1, %143 ], [ -1, %154 ], [ -1, %166 ], [ -1, %162 ], [ -1, %173 ], [ -1, %185 ], [ -1, %181 ], [ -1, %192 ], [ -1, %204 ], [ -1, %200 ], [ -1, %216 ], [ -1, %233 ], [ -1, %224 ], [ -1, %245 ], [ -1, %257 ], [ -1, %253 ], [ -1, %264 ], [ -1, %276 ], [ -1, %272 ], [ -1, %283 ], [ -1, %295 ], [ -1, %291 ], [ -1, %302 ], [ -1, %314 ], [ -1, %310 ], [ 0, %321 ], [ 0, %338 ], [ 0, %329 ], [ -1, %352 ], [ -1, %369 ], [ -1, %360 ], [ -1, %386 ], [ -1, %403 ], [ -1, %394 ], [ -1, %415 ], [ -1, %427 ], [ -1, %423 ], [ -1, %434 ], [ -1, %446 ], [ -1, %442 ], [ -1, %453 ], [ -1, %465 ], [ -1, %461 ], [ 0, %471 ], [ 0, %488 ], [ 0, %479 ], [ -1, %500 ], [ -1, %512 ], [ -1, %508 ], [ -1, %519 ], [ -1, %531 ], [ -1, %527 ], [ -1, %538 ], [ -1, %550 ], [ -1, %546 ], [ -1, %557 ], [ -1, %569 ], [ -1, %565 ], [ 1, %.preheader ], [ %.2, %573 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %580 = call i32 @H5Eauto_is_v2(i64 noundef 0, ptr noundef nonnull %7) #6
   %581 = load i32, ptr %7, align 4, !tbaa !20
   %.not224 = icmp eq i32 %581, 0
@@ -2740,36 +2734,42 @@ define dso_local range(i32 -1, -2147483648) i32 @h5repack_cmp_pl(ptr noundef %0,
   br label %607
 
 607:                                              ; preds = %605, %603
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
-declare i64 @h5tools_fopen(ptr noundef, i32 noundef, i64 noundef, i1 noundef zeroext, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @h5tools_fopen(ptr noundef, i32 noundef, i64 noundef, i1 noundef zeroext, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i64 @H5Gopen2(i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @H5Gopen2(i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i64 @H5Gget_create_plist(i64 noundef) local_unnamed_addr #2
+declare i64 @H5Gget_create_plist(i64 noundef) local_unnamed_addr #1
 
-declare i32 @H5Pget_link_creation_order(i64 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @H5Pget_link_creation_order(i64 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @H5Gclose(i64 noundef) local_unnamed_addr #2
+declare i32 @H5Gclose(i64 noundef) local_unnamed_addr #1
 
-declare i32 @H5Pequal(i64 noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @H5Pequal(i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @H5Pget_nfilters(i64 noundef) local_unnamed_addr #2
+declare i32 @H5Pget_nfilters(i64 noundef) local_unnamed_addr #1
 
-declare i32 @H5Pget_layout(i64 noundef) local_unnamed_addr #2
+declare i32 @H5Pget_layout(i64 noundef) local_unnamed_addr #1
 
-declare i32 @H5Pget_chunk(i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @H5Pget_chunk(i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @H5Pget_filter2(i64 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @H5Pget_filter2(i64 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i64 @H5Tget_size(i64 noundef) local_unnamed_addr #2
+declare i64 @H5Tget_size(i64 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nofree nounwind
 declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #5
@@ -2778,10 +2778,10 @@ declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i6
 declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nofree nounwind }
 attributes #6 = { nounwind }
 attributes #7 = { cold nounwind }

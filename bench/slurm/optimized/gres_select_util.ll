@@ -199,23 +199,17 @@ define dso_local void @gres_select_util_job_set_defs(ptr noundef %0, ptr noundef
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @gres_build_id(ptr noundef) local_unnamed_addr #1
 
-declare i32 @gres_build_id(ptr noundef) local_unnamed_addr #2
+declare ptr @slurm_list_iterator_create(ptr noundef) local_unnamed_addr #1
 
-declare ptr @slurm_list_iterator_create(ptr noundef) local_unnamed_addr #2
+declare ptr @slurm_list_next(ptr noundef) local_unnamed_addr #1
 
-declare ptr @slurm_list_next(ptr noundef) local_unnamed_addr #2
+declare void @slurm_xfree(ptr noundef) local_unnamed_addr #1
 
-declare void @slurm_xfree(ptr noundef) local_unnamed_addr #2
+declare void @slurm_xstrfmtcat(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare void @slurm_xstrfmtcat(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
-
-declare void @slurm_list_iterator_destroy(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @slurm_list_iterator_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, -2147483648) i32 @gres_select_util_job_min_cpu_node(i32 noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -303,7 +297,7 @@ define dso_local range(i32 0, -2147483648) i32 @gres_select_util_job_min_cpu_nod
   ret i32 %.027
 }
 
-declare i32 @slurm_list_count(ptr noundef) local_unnamed_addr #2
+declare i32 @slurm_list_count(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, -2147483648) i32 @gres_select_util_job_min_tasks(i32 noundef %0, i32 noundef %1, i16 noundef zeroext %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
@@ -471,7 +465,7 @@ define dso_local range(i32 0, -2147483648) i32 @gres_select_util_job_min_tasks(i
   ret i32 %.035
 }
 
-declare i32 @slurm_error(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @slurm_error(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef zeroext i1 @gres_select_util_job_mem_set(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
@@ -532,7 +526,7 @@ define dso_local noundef zeroext i1 @gres_select_util_job_mem_set(ptr noundef %0
 
 28:                                               ; preds = %.thread
   %29 = getelementptr inbounds nuw i8, ptr %17, i64 96
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4
   %30 = load ptr, ptr %5, align 8
   %31 = call ptr @next_node_bitmap(ptr noundef %30, ptr noundef nonnull %3) #4
@@ -544,7 +538,7 @@ define dso_local noundef zeroext i1 @gres_select_util_job_mem_set(ptr noundef %0
   br label %34
 
 .outer:                                           ; preds = %57, %28
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %33 = call ptr @slurm_list_next(ptr noundef %9) #4
   %.not4357 = icmp eq ptr %33, null
   br i1 %.not4357, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !17
@@ -615,13 +609,13 @@ define dso_local noundef zeroext i1 @gres_select_util_job_mem_set(ptr noundef %0
   ret i1 %.0
 }
 
-declare i32 @slurm_bit_set_count(ptr noundef) local_unnamed_addr #2
+declare i32 @slurm_bit_set_count(ptr noundef) local_unnamed_addr #1
 
-declare ptr @next_node_bitmap(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @next_node_bitmap(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @slurm_list_find_first(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @slurm_list_find_first(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @slurm_gres_find_id(ptr noundef, ptr noundef) #2
+declare i32 @slurm_gres_find_id(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, -2147483648) i32 @gres_select_util_job_min_cpus(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
@@ -852,11 +846,11 @@ define dso_local noundef ptr @gres_select_util_create_list_req_accum(ptr noundef
   ret ptr %.0
 }
 
-declare ptr @slurm_list_create(ptr noundef) local_unnamed_addr #2
+declare ptr @slurm_list_create(ptr noundef) local_unnamed_addr #1
 
-declare void @slurm_gres_job_list_delete(ptr noundef) #2
+declare void @slurm_gres_job_list_delete(ptr noundef) #1
 
-declare i32 @slurm_list_for_each(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @slurm_list_for_each(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @_accumulate_gres_device_req(ptr noundef %0, ptr noundef %1) #0 {
@@ -917,11 +911,17 @@ define internal noundef i32 @_accumulate_gres_device_req(ptr noundef %0, ptr nou
   ret i32 0
 }
 
-declare ptr @gres_job_state_dup(ptr noundef) local_unnamed_addr #2
+declare ptr @gres_job_state_dup(ptr noundef) local_unnamed_addr #1
 
-declare ptr @gres_create_state(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @gres_create_state(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @slurm_list_append(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @slurm_list_append(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #3
@@ -933,8 +933,8 @@ declare i64 @llvm.umax.i64(i64, i64) #3
 declare i64 @llvm.umin.i64(i64, i64) #3
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #4 = { nounwind }
 

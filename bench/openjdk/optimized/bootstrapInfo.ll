@@ -368,7 +368,7 @@ define hidden ptr @_ZN13BootstrapInfo11resolve_bsmEP10JavaThread(ptr noundef non
   %27 = getelementptr inbounds i16, ptr %22, i64 %26
   %28 = load i16, ptr %27, align 2
   %29 = zext i16 %28 to i32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %11, ptr %3, align 8
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %1, ptr %30, align 8
@@ -405,7 +405,7 @@ _ZN12ConstantPool35resolve_possibly_cached_constant_atEiP10JavaThread.exit: ; pr
   store ptr %11, ptr %50, align 8
   %51 = call noundef ptr @_ZN12ConstantPool24resolve_constant_at_implERK18constantPoolHandleiiPbP10JavaThread(ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef %29, i32 noundef -2, ptr noundef null, ptr noundef nonnull %1) #10
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZN10Exceptions22wrap_dynamic_exceptionEbP10JavaThread(i1 noundef zeroext %9, ptr noundef nonnull %1) #10
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %53 = load ptr, ptr %52, align 8
@@ -677,7 +677,7 @@ define hidden void @_ZN13BootstrapInfo12resolve_argsEP10JavaThread(ptr noundef n
 69:                                               ; preds = %41
   store i8 0, ptr %6, align 1
   %70 = load ptr, ptr %25, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %70, ptr %5, align 8
   store ptr %1, ptr %38, align 8
   %71 = load ptr, ptr %39, align 8
@@ -712,7 +712,7 @@ _ZN12ConstantPool23find_cached_constant_atEiRbP10JavaThread.exit: ; preds = %69,
   store ptr %70, ptr %89, align 8
   %90 = call noundef ptr @_ZN12ConstantPool24resolve_constant_at_implERK18constantPoolHandleiiPbP10JavaThread(ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef %61, i32 noundef -2, ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull %1) #10
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %91 = load ptr, ptr %40, align 8
   %.not76 = icmp eq ptr %91, null
   br i1 %.not76, label %92, label %.loopexit
@@ -777,7 +777,7 @@ _ZN12ConstantPool23find_cached_constant_atEiRbP10JavaThread.exit: ; preds = %69,
   %129 = getelementptr inbounds i16, ptr %122, i64 %128
   %130 = load i16, ptr %129, align 2
   %131 = zext i16 %130 to i32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %112, ptr %4, align 8
   store ptr %1, ptr %105, align 8
   %132 = load ptr, ptr %106, align 8
@@ -812,7 +812,7 @@ _ZN12ConstantPool23find_cached_constant_atEiRbP10JavaThread.exit48: ; preds = %1
   store ptr %112, ptr %150, align 8
   %151 = call noundef ptr @_ZN12ConstantPool24resolve_constant_at_implERK18constantPoolHandleiiPbP10JavaThread(ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef %131, i32 noundef -2, ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull %1) #10
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %152 = load ptr, ptr %107, align 8
   %.not77 = icmp eq ptr %152, null
   br i1 %.not77, label %153, label %.loopexit
@@ -869,7 +869,7 @@ _ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit: ; preds = %161, %_ZN10Han
   %179 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %180 = load i32, ptr %179, align 8
   %181 = load i32, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %178, ptr %3, align 8
   %182 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %1, ptr %182, align 8
@@ -906,7 +906,7 @@ _ZN12ConstantPool27copy_bootstrap_arguments_atEiii14objArrayHandleib6HandleP10Ja
   store ptr %178, ptr %202, align 8
   call void @_ZN12ConstantPool32copy_bootstrap_arguments_at_implERK18constantPoolHandleiii14objArrayHandleib6HandleP10JavaThread(ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef %180, i32 noundef 0, i32 noundef %181, ptr %storemerge.i.i, i32 noundef 0, i1 noundef zeroext true, i64 0, ptr noundef nonnull %1) #10
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %203 = load ptr, ptr %159, align 8
   %.not79 = icmp eq ptr %203, null
   br i1 %.not79, label %204, label %.loopexit
@@ -2239,10 +2239,10 @@ declare i32 @llvm.ctpop.i32(i32) #7
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

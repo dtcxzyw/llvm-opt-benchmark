@@ -39,7 +39,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
   %__begin2.sroa.0.020.us = phi ptr [ %__begin2.sroa.0.0.us, %for.inc.us ], [ %__begin2.sroa.0.018, %for.body.lr.ph ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr.i)
   store ptr %__begin2.sroa.0.020.us, ptr %__args.addr.i, align 8
   %2 = load ptr, ptr %_M_manager.i.i, align 8
   %tobool.not.i.i.us = icmp eq ptr %2, null
@@ -48,7 +48,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
 _ZNKSt8functionIFbPN6hermes8FunctionEEEclES2_.exit.us: ; preds = %for.body.us
   %3 = load ptr, ptr %_M_invoker.i, align 8
   %call2.i.us = call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(32) %shouldVisitFunction, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr.i)
   br i1 %call2.i.us, label %if.end.us, label %for.inc.us
 
 if.end.us:                                        ; preds = %_ZNKSt8functionIFbPN6hermes8FunctionEEEclES2_.exit.us
@@ -66,7 +66,7 @@ if.then12.us:                                     ; preds = %if.end.us
 if.then14.us:                                     ; preds = %if.then12.us
   %agg.tmp15.sroa.0.0.copyload.us = load ptr, ptr %source, align 8
   %agg.tmp15.sroa.2.0.copyload.us = load i64, ptr %agg.tmp15.sroa.2.0.call16.sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__args.i10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__args.i10)
   store ptr %agg.tmp15.sroa.0.0.copyload.us, ptr %__args.i10, align 8
   store i64 %agg.tmp15.sroa.2.0.copyload.us, ptr %1, align 8
   %6 = load ptr, ptr %_M_manager.i.i11, align 8
@@ -76,7 +76,7 @@ if.then14.us:                                     ; preds = %if.then12.us
 _ZNKSt8functionIFvN4llvh9StringRefEEEclES1_.exit15.us: ; preds = %if.then14.us
   %7 = load ptr, ptr %_M_invoker.i13, align 8
   call void %7(ptr noundef nonnull align 8 dereferenceable(32) %functionSourceTraversal, ptr noundef nonnull align 8 dereferenceable(16) %__args.i10) #4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__args.i10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__args.i10)
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %_ZNKSt8functionIFvN4llvh9StringRefEEEclES1_.exit15.us, %if.then12.us, %if.end.us, %_ZNKSt8functionIFbPN6hermes8FunctionEEEclES2_.exit.us
@@ -87,7 +87,7 @@ for.inc.us:                                       ; preds = %_ZNKSt8functionIFvN
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %__begin2.sroa.0.020 = phi ptr [ %__begin2.sroa.0.0, %for.inc ], [ %__begin2.sroa.0.018, %for.body.lr.ph ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr.i)
   store ptr %__begin2.sroa.0.020, ptr %__args.addr.i, align 8
   %8 = load ptr, ptr %_M_manager.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %8, null
@@ -100,7 +100,7 @@ if.then.i:                                        ; preds = %for.body, %for.body
 _ZNKSt8functionIFbPN6hermes8FunctionEEEclES2_.exit: ; preds = %for.body
   %9 = load ptr, ptr %_M_invoker.i, align 8
   %call2.i = call noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(32) %shouldVisitFunction, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr.i)
   br i1 %call2.i, label %if.end, label %for.inc
 
 if.end:                                           ; preds = %_ZNKSt8functionIFbPN6hermes8FunctionEEEclES2_.exit
@@ -109,7 +109,7 @@ if.end:                                           ; preds = %_ZNKSt8functionIFbP
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %retval.sroa.0.0.copyload.i, align 8
   %agg.tmp.sroa.2.0.call9.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.sroa.0.0.copyload.i, i64 8
   %agg.tmp.sroa.2.0.copyload = load i64, ptr %agg.tmp.sroa.2.0.call9.sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__args.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__args.i)
   store ptr %agg.tmp.sroa.0.0.copyload, ptr %__args.i, align 8
   store i64 %agg.tmp.sroa.2.0.copyload, ptr %0, align 8
   %10 = load ptr, ptr %_M_manager.i.i5, align 8
@@ -123,7 +123,7 @@ if.then.i8:                                       ; preds = %if.end
 _ZNKSt8functionIFvN4llvh9StringRefEEEclES1_.exit: ; preds = %if.end
   %11 = load ptr, ptr %_M_invoker.i7, align 8
   call void %11(ptr noundef nonnull align 8 dereferenceable(32) %traversal, ptr noundef nonnull align 8 dereferenceable(16) %__args.i) #4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__args.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__args.i)
   %isGlobal_.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.020, i64 64
   %12 = load i8, ptr %isGlobal_.i, align 8
   %tobool.i = trunc i8 %12 to i1
@@ -138,7 +138,7 @@ if.then12:                                        ; preds = %_ZNKSt8functionIFvN
 if.then14:                                        ; preds = %if.then12
   %agg.tmp15.sroa.0.0.copyload = load ptr, ptr %source, align 8
   %agg.tmp15.sroa.2.0.copyload = load i64, ptr %agg.tmp15.sroa.2.0.call16.sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__args.i10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__args.i10)
   store ptr %agg.tmp15.sroa.0.0.copyload, ptr %__args.i10, align 8
   store i64 %agg.tmp15.sroa.2.0.copyload, ptr %1, align 8
   %14 = load ptr, ptr %_M_manager.i.i11, align 8
@@ -152,7 +152,7 @@ if.then.i14:                                      ; preds = %if.then14, %if.then
 _ZNKSt8functionIFvN4llvh9StringRefEEEclES1_.exit15: ; preds = %if.then14
   %15 = load ptr, ptr %_M_invoker.i13, align 8
   call void %15(ptr noundef nonnull align 8 dereferenceable(32) %functionSourceTraversal, ptr noundef nonnull align 8 dereferenceable(16) %__args.i10) #4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__args.i10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__args.i10)
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZNKSt8functionIFvN4llvh9StringRefEEEclES1_.exit, %_ZNKSt8functionIFvN4llvh9StringRefEEEclES1_.exit15, %if.then12, %_ZNKSt8functionIFbPN6hermes8FunctionEEEclES2_.exit
@@ -190,7 +190,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %__begin2.sroa.0.015 = phi ptr [ %__begin2.sroa.0.013, %for.body.lr.ph ], [ %__begin2.sroa.0.0, %for.inc ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr.i)
   store ptr %__begin2.sroa.0.015, ptr %__args.addr.i, align 8
   %1 = load ptr, ptr %_M_manager.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %1, null
@@ -203,7 +203,7 @@ if.then.i:                                        ; preds = %for.body
 _ZNKSt8functionIFbPN6hermes8FunctionEEEclES2_.exit: ; preds = %for.body
   %2 = load ptr, ptr %_M_invoker.i, align 8
   %call2.i = call noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(32) %shouldVisitFunction, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr.i)
   br i1 %call2.i, label %if.end, label %for.inc
 
 if.end:                                           ; preds = %_ZNKSt8functionIFbPN6hermes8FunctionEEEclES2_.exit
@@ -267,7 +267,7 @@ if.then7:                                         ; preds = %_ZNK6hermes6Module1
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %10, align 8
   %agg.tmp.sroa.2.0.call8.sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
   %agg.tmp.sroa.2.0.copyload = load i64, ptr %agg.tmp.sroa.2.0.call8.sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__args.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__args.i)
   store ptr %agg.tmp.sroa.0.0.copyload, ptr %__args.i, align 8
   store i64 %agg.tmp.sroa.2.0.copyload, ptr %0, align 8
   %11 = load ptr, ptr %_M_manager.i.i5, align 8
@@ -281,7 +281,7 @@ if.then.i8:                                       ; preds = %if.then7
 _ZNKSt8functionIFvN4llvh9StringRefEEEclES1_.exit: ; preds = %if.then7
   %12 = load ptr, ptr %_M_invoker.i7, align 8
   call void %12(ptr noundef nonnull align 8 dereferenceable(32) %traversal, ptr noundef nonnull align 8 dereferenceable(16) %__args.i) #4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__args.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__args.i)
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZNK4llvh12DenseMapBaseINS_8DenseMapIPN6hermes8FunctionEPNS2_6Module9CJSModuleENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E4findEPKS3_.exit.i, %_ZNK6hermes6Module13findCJSModuleEPNS_8FunctionE.exit, %_ZNKSt8functionIFvN4llvh9StringRefEEEclES1_.exit, %_ZNKSt8functionIFbPN6hermes8FunctionEEEclES2_.exit
@@ -331,8 +331,8 @@ if.then:                                          ; preds = %for.body
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %retval.sroa.0.0.copyload.i15, align 8
   %agg.tmp.sroa.2.0.call11.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.sroa.0.0.copyload.i15, i64 8
   %agg.tmp.sroa.2.0.copyload = load i64, ptr %agg.tmp.sroa.2.0.call11.sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__args.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__args.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__args.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr.i)
   store ptr %agg.tmp.sroa.0.0.copyload, ptr %__args.i, align 8
   store i64 %agg.tmp.sroa.2.0.copyload, ptr %2, align 8
   store i8 1, ptr %__args.addr.i, align 1
@@ -347,8 +347,8 @@ if.then.i:                                        ; preds = %if.then
 _ZNKSt8functionIFvN4llvh9StringRefEbEEclES1_b.exit: ; preds = %if.then
   %7 = load ptr, ptr %_M_invoker.i, align 8
   call void %7(ptr noundef nonnull align 8 dereferenceable(32) %traversal, ptr noundef nonnull align 8 dereferenceable(16) %__args.i, ptr noundef nonnull align 1 dereferenceable(1) %__args.addr.i) #4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__args.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__args.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__args.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr.i)
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %_ZNKSt8functionIFvN4llvh9StringRefEbEEclES1_b.exit
@@ -373,7 +373,7 @@ for.body22.lr.ph:                                 ; preds = %for.end
 
 for.body22:                                       ; preds = %for.body22.lr.ph, %for.inc64
   %__begin214.sroa.0.060 = phi ptr [ %__begin214.sroa.0.058, %for.body22.lr.ph ], [ %__begin214.sroa.0.0, %for.inc64 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr.i17)
   store ptr %__begin214.sroa.0.060, ptr %__args.addr.i17, align 8
   %9 = load ptr, ptr %_M_manager.i.i18, align 8
   %tobool.not.i.i19 = icmp eq ptr %9, null
@@ -386,7 +386,7 @@ if.then.i21:                                      ; preds = %for.body22
 _ZNKSt8functionIFbPN6hermes8FunctionEEEclES2_.exit: ; preds = %for.body22
   %10 = load ptr, ptr %_M_invoker.i20, align 8
   %call2.i = call noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(32) %shouldVisitFunction, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i17) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr.i17)
   br i1 %call2.i, label %if.end26, label %for.inc64
 
 if.end26:                                         ; preds = %_ZNKSt8functionIFbPN6hermes8FunctionEEEclES2_.exit
@@ -474,8 +474,8 @@ sw.bb13.i:                                        ; preds = %if.then48
 
 _ZN12_GLOBAL__N_111isIdOperandEPN6hermes11InstructionEj.exit: ; preds = %if.then48, %sw.bb.i, %sw.bb1.i, %sw.bb3.i, %sw.bb5.i, %sw.bb7.i, %sw.bb9.i, %sw.bb11.i, %sw.bb13.i
   %retval.0.i = phi i1 [ %cmp.i28, %sw.bb.i ], [ %cmp2.i, %sw.bb1.i ], [ %cmp4.i, %sw.bb3.i ], [ %cmp6.i, %sw.bb5.i ], [ %cmp8.i, %sw.bb7.i ], [ %cmp10.i, %sw.bb9.i ], [ %cmp12.i, %sw.bb11.i ], [ %cmp14.i, %sw.bb13.i ], [ false, %if.then48 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__args.i29)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__args.addr.i30)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__args.i29)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr.i30)
   store ptr %agg.tmp49.sroa.0.0.copyload, ptr %__args.i29, align 8
   store i64 %agg.tmp49.sroa.2.0.copyload, ptr %8, align 8
   %frombool.i = zext i1 %retval.0.i to i8
@@ -491,8 +491,8 @@ if.then.i34:                                      ; preds = %_ZN12_GLOBAL__N_111
 _ZNKSt8functionIFvN4llvh9StringRefEbEEclES1_b.exit35: ; preds = %_ZN12_GLOBAL__N_111isIdOperandEPN6hermes11InstructionEj.exit
   %15 = load ptr, ptr %_M_invoker.i33, align 8
   call void %15(ptr noundef nonnull align 8 dereferenceable(32) %traversal, ptr noundef nonnull align 8 dereferenceable(16) %__args.i29, ptr noundef nonnull align 1 dereferenceable(1) %__args.addr.i30) #4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__args.i29)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__args.addr.i30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__args.i29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr.i30)
   br label %for.inc56
 
 for.inc56:                                        ; preds = %for.body45, %_ZNKSt8functionIFvN4llvh9StringRefEbEEclES1_b.exit35
@@ -530,10 +530,10 @@ declare noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull 
 declare void @_ZSt25__throw_bad_function_callv() local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
